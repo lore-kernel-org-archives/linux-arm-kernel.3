@@ -4,138 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59236C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 12:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5801AC5DF84
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 12:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H+bcWc4T/rU3VJYnflqTO5mpTU63URyw7VznDPWHcA0=; b=iVf7pA6Mk6tOJmBIYYKOoBzpLx
-	P+253XonMAi9fIFEv/TemnuPWmGX/bTsiIjCoNJ4n+10Xl+HcCc1WCKraImBGG3igy45fpDNB727C
-	TaNX4d28/ZrAEZ2ci/VhbkUDBcgH6kQTmoCcEUpkwd5v+Tv59qTXQHyDThAwBw3MEcfxmrzJRb4pv
-	OgFkWJanE6poojluWks+KA+YNJDWEmrkYhUM7ScHz/Q/R8U0nWgHQbKsnCA4EkY+jvt0vlRd+AsTl
-	vRdlzv8pwRwayu+WAASPN22gFLC99y8aieyX0+dRsM2PvcTF/HI7GEw5ridQf+xh7eVs7RZp+jAZQ
-	CaiPWgDQ==;
+	bh=XKi7bHvcr4VfrcOT9VHCYlKY9RJwWhe/hZvFzt6Sx4c=; b=Y+LLlFNjpLhyPH7wEiMnXog3Sk
+	LbRNTW57AXk9yRFUmRowdN5euR+WjMveQgDg98pVVnklwdYppQVLswM705buB7g7JfZM/46GUzYKB
+	a1MtNU8msKWi11JUAyJinSnfytLFTLFGbif8yXOLQ2QpovJ1rG3AolfO2Ut7fbw1EOf4aekq8teT6
+	r1h+TLzMHiXe//bfPK1y4iqUcDniOTirvCmH8+RzfT5EcqrfM+pB8/yN1whQ71HFHEy/AcuWH0Eg+
+	Wk52Rp6KKwxsYl1PWKpx5ejaG7Rj4G49mRBWFFigHkAhSK2ljyYqqNaAv4ZXuUXmFWwjRjKc2NNel
+	z7xDV0cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwJLP-00000007zO1-2amV;
-	Tue, 18 Aug 2026 12:55:07 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wwJMR-00000007zaz-076M;
+	Tue, 18 Aug 2026 12:56:11 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwJLM-00000007zNG-3BEf
+	id 1wwJMN-00000007zZJ-3lWf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 12:55:06 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 82F8C3EBD;
-	Tue, 18 Aug 2026 12:50:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1787057427; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H+bcWc4T/rU3VJYnflqTO5mpTU63URyw7VznDPWHcA0=;
-	b=Z88GztwCCatW/H/uskajNcA46j7QOQcPqEU8P20avJdJy2CXcGyyRYDwE5CAYFDKfLc86B
-	FyQFPjmqhjtyXuwo8l3P6gK225jif20wFcvlJtyrWL3x3imHQAfFoXrwZRitDlGSN0jkvc
-	UqWjML9tMqvfq6jkYsy7nmE772IVCFc=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1787057427;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H+bcWc4T/rU3VJYnflqTO5mpTU63URyw7VznDPWHcA0=;
-	b=0A1c5aPMTnHHEJ6rIXyy/+peCcZQ4ykHjlRriaEYQJ0Dc4YZ/NQ0K7GF/GrO0xsc7KPpwh
-	g2c6xZkRgOJi57CA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1787057423; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H+bcWc4T/rU3VJYnflqTO5mpTU63URyw7VznDPWHcA0=;
-	b=bnvWNKN3izrmYsYYhi2y/HstSlabK46I1lmloa4ucnshsOeH1Jv+ZIbBJwvbnG+YQXR2+3
-	mZuRKWk9Wm0TmR5GPR6Br8wJ0g2VgTe+6hNVyHTCA/hAQXGTMMhDYCxY0gvy4u2Oh1nzCY
-	MX/BgqaTSjQdtWjD283xUc87+W6LoaQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1787057423;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H+bcWc4T/rU3VJYnflqTO5mpTU63URyw7VznDPWHcA0=;
-	b=UEgg4hEljsD5umpamNvvTFD9Rohmv/TNMp3RHFalLPZNYh0eWj0BY8P0N6FZwh5cF7RVOB
-	ehRyK6Vsen6pjKDQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 475D6367E;
-	Tue, 18 Aug 2026 12:50:21 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id sG9SEA1VhGojIAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 18 Aug 2026 12:50:21 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: jfalempe@redhat.com,
-	javierm@redhat.com,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org
-Cc: dri-devel@lists.freedesktop.org,
-	linux-doc@vger.kernel.org,
-	amd-gfx@lists.freedesktop.org,
-	rust-for-linux@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	nouveau@lists.freedesktop.org,
-	linux-renesas-soc@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	sashiko-reviews@lists.linux.dev,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 08/12] drm/panic: Split draw_panic_plane()
-Date: Tue, 18 Aug 2026 14:28:06 +0200
-Message-ID: <20260818125012.468092-9-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260818125012.468092-1-tzimmermann@suse.de>
-References: <20260818125012.468092-1-tzimmermann@suse.de>
+	Tue, 18 Aug 2026 12:56:09 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-49800c6a846so53741925e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 05:56:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1787057766; x=1787662566; darn=lists.infradead.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=XKi7bHvcr4VfrcOT9VHCYlKY9RJwWhe/hZvFzt6Sx4c=;
+        b=YB7tO8GaTgPfPcS8/0hX/CXvxW3ROPdn/UVuyev2RXxKZPt/3Wfybi7Saatr6VUvVi
+         UGmd9DPmlrLncAt4vv8v5kUbN0Q3rGH2X1Dc/0BCp4/X4tkrv0Eg0ct8vsY5OCtYHW+V
+         DZ3OhpWzkj0doVQjQpFG1xmjlXSwP8QAZCoZpf1AV6I53u0i56Fv23n98d1c6GMDrh2Z
+         mZG1AgVhpLLEApAyHNAc+xZvyrEZDXEdVnIQ1pTZZxagHurz4MNzfU/xaTiekLbbliVk
+         EfhwJiY4C/PbvqcMbsv5tVnLO6+i8Iu14YJHKDYrcY16Vx00DDLu2IDlJxyM0Qz/1Y0G
+         Yjgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787057766; x=1787662566;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XKi7bHvcr4VfrcOT9VHCYlKY9RJwWhe/hZvFzt6Sx4c=;
+        b=sYfcQJyI/daTp/j0aKxEo2qkQ5hmb3MIg4iYHomabX9bpBVwWkv3jsQJYGrxrXtT65
+         EdlHZx8BKlm2f/AaZHN1f+vT1VekiCyXNCdgxsQpNPg06mwBZ7NF6Hnz+Am8NllaZF54
+         GylXWbcVhfuBUKvyx1jjqi/ZGwMTqhExvyc3kxyC1pzuRnAxshcYgxLqFpumdv1o34sA
+         fZUUKnBr8WaRPnkMO44q9+vRROG9vzOqp6JdlJd8HGF03YisafNX71hZw7MtZjkhTPtw
+         JHaKEPRBGzGSC+gSQTrptknmcHouze18o4ZPTnlshy7i1aoc+VB5t8NszrM5Kp7vJFT1
+         fGCA==
+X-Forwarded-Encrypted: i=1; AHgh+Rq5qZFbVW3wJSwJh3BrJhZ2CuAFPSBCwSMaj3Pk7/qOgucQJmGVx0/PeMPwSj6DVRQAsC1yT+YfLJ5ysBd6oe7+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyothpHB9pbpwPsxLBEct1fZ1NjuE1FcfKOd9aVlD1polNjmGCM
+	rhzgOeVOBtdlhAduDfqQ3NDKXxNskGqC2jsBH9kxmTQgl6rNWgkmQtIFFGnRP3qh3EjNCmsB5Et
+	HgdustxtZKQ==
+X-Gm-Gg: AR+sD13nnch3ci9Ec2xrjouaHXb1n438g9N9ZiW3qVvNgTyqJbmv0IfURP84XzeKGJ1
+	DSVO7DMwOdHka0lEMzN6+mV29puGEvQBaZPE/9aQO1ugmqCqYXzXJVfdWyFuP/Q9kwxvBgZcMGo
+	D/F+wNCCyMiE62Zccs1mnNkUGextoHPrN5zpxMiJ3/ofBGcGv63zFnSET+LMniOOsskO8DRioGb
+	VubPiA+Jcy9UsPYpWH8Ql7AaIo7IkciTPQotX1CQcgvNhN7/nEtkAa4x7g0kcoRutuW43ieUQ1Q
+	IaotPJfOgxra5oDpWgSfJ7vxHoxj8fP4Bvjo+PLObEbJO+5n+sZwsD5PKYwPxj8idQBCOr4t4Hl
+	ZNFok3Ms4CdK6GNwWG3frlMjbPi7kXK/rdwqO8IxZ3o6zXr+ObXA9cvIZvy907HP/9iVK+d7HGN
+	v4eFty9ADBb/NrtLsxDxZSs4HuZcUoRiqGBcsswoaj1eEHAufWqyWcXv/Nk/geoxlT1Lw1FOQ7c
+	wXO+4ZSNk3/k+1YC9WXqxs=
+X-Received: by 2002:a05:600c:848d:b0:499:48bb:417e with SMTP id 5b1f17b1804b1-4998933fd6emr506661115e9.2.1787057766181;
+        Tue, 18 Aug 2026 05:56:06 -0700 (PDT)
+Received: from [192.168.5.218] (82-230-44-19.subs.proxad.net. [82.230.44.19])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4999d0fb85csm174771215e9.11.2026.08.18.05.56.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Aug 2026 05:56:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-6.80 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-0.998];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_HAS_DN(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[20];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_TO(0.00)[redhat.com,gmail.com,ffwll.ch,linux.intel.com,kernel.org];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email,suse.de:mid];
-	FROM_EQ_ENVFROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RCVD_TLS_ALL(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLqirfcw6gnbcr9a9yhi49fhi6)];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3 1/2] dt-bindings: pwm: amlogic: Add new bindings for
+ S6 S7 S7D
+From: Alexandre Mergnat <amergnat@baylibre.com>
+To: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Cc: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, Junyi Zhao <junyi.zhao@amlogic.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260521-s6-s7-pwm-v3-1-57b073fbafef@amlogic.com>
+References: <20260521-s6-s7-pwm-v3-0-57b073fbafef@amlogic.com>
+ <20260521-s6-s7-pwm-v3-1-57b073fbafef@amlogic.com>
+Date: Tue, 18 Aug 2026 14:56:07 +0200
+Message-Id: <178705776742.1733024.3702017266095180404.b4-review@b4>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=350; i=amergnat@baylibre.com;
+ h=from:subject:message-id; bh=O+uSJ6l/nC8L/Knw7obnre4I+TF6Q0+iDF3z0NVIK84=;
+ b=owEBbQKS/ZANAwAKAStGSZ1+MdRFAcsmYgBqhFZsDxMqI5GgmdAmlfldDO655rJFQTxUUPF+L
+ d8MIqjEDa+JAjMEAAEKAB0WIQQjG17X8+qqcA5g/osrRkmdfjHURQUCaoRWbAAKCRArRkmdfjHU
+ Rev8D/4xOPZLHUSXNhR9N4UAExW6eRzrUxnLfXcz5FmEunI1yUwDmFrVmLEkd41Pw64v3pthjd0
+ iJQ8cYZbSy0yN69vhnEpXL0QHSSG9mXNqanBUNUCaCO+UWYu3TaC2305lJdH4WAFuVQAJvHRGfb
+ 9P9tFBefF663jGQ044idMqlUX/XYhiggcyPZeckQxpNJ6jTukcTWspEtbDi17EJjKoIQrHlpd2Q
+ YsXOXCTNPdOSBNqvm0bwkg7NyNNqg4/6iPUUUZBb6BIA40aoABZyG0AP+IzDTShbYzkTyj+Av3g
+ BH6u158isBZyMPTWw2dOh+8J+PSKb6Ems/rCGbd7AdTfn75NevMvDNXLE2KDVY/MDMiiZi/2bOD
+ N+5URngivCT7AswNqQNEPLldxpn8tz+ZOSOuzCTcaTNIuqiaERtLBPPE8epIaP7CFoyDfOc3j0f
+ 7dERS4NNk2d9aMkiAiPtXdv4JMNSeGbDqdLC9JwfzJ02UbfbUmU0EGWKRQ7/l4JeveRzg4INCw8
+ PXhs0QU5TJS99upeIQcH/wCMgaudjAz69F6hz3Pa5bfIVhwNkYZb9JXjWdDXgY6bPhzYg68j6Gc
+ WZd2Z6EZd1hI9dlU4gd+7yWvzKlN2d5cNqeu2Q2+BimNmIA8p8zBvUDPxKVRvcnEKRokm9HNQlv
+ PiLF74xfWXaTQ0g==
+X-Developer-Key: i=amergnat@baylibre.com; a=openpgp;
+ fpr=231B5ED7F3EAAA700E60FE8B2B46499D7E31D445
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_055504_947550_838F8C6E 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20260818_055608_009683_BB964F34 
+X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,126 +129,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move locking and parameters from draw_panic_plane() into the new
-helper drm_panic_display_panic_screen(). Call draw_panic_plane() from
-there.
+On Thu, 21 May 2026 08:26:58 +0000, Xianwei Zhao <xianwei.zhao@amlogic.com> wrote:
+> Amlogic S7/S7D/S6 different from the previous SoCs, a controller
+> includes one pwm, at the same time, the controller has only one
+> input clock source.
 
-The new helper drm_panic_display_panic_screen() is now the DRM core's
-interface for displaying a panic screen. The code remaining in
-draw_panic_plane() still does all the heavy lifting. It will become a
-plane helper for DRM drivers.
+Reviewed-by: Alexandre Mergnat <amergnat@baylibre.com>
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
----
- drivers/gpu/drm/drm_panic.c | 60 ++++++++++++++++++++-----------------
- 1 file changed, 33 insertions(+), 27 deletions(-)
-
-diff --git a/drivers/gpu/drm/drm_panic.c b/drivers/gpu/drm/drm_panic.c
-index 0960750bfce2..2263a11efdf6 100644
---- a/drivers/gpu/drm/drm_panic.c
-+++ b/drivers/gpu/drm/drm_panic.c
-@@ -940,38 +940,21 @@ static void drm_panic_clear_description(void)
- 	desc_line->txt = NULL;
- }
- 
--static void draw_panic_plane(struct drm_plane *plane, const char *description)
-+static void draw_panic_plane(struct drm_plane *plane, const char *description,
-+			     enum drm_panic_type panic_type, u32 fg_color, u32 bg_color,
-+			     unsigned int qr_version)
- {
- 	struct drm_scanout_buffer sb = { };
- 	int ret;
--	unsigned long flags;
--#if defined(CONFIG_DRM_PANIC_FOREGROUND_COLOR)
--	u32 fg_color = CONFIG_DRM_PANIC_FOREGROUND_COLOR;
--#else
--	u32 fg_color = 0x00ffffff;
--#endif
--#if defined(CONFIG_DRM_PANIC_BACKGROUND_COLOR)
--	u32 bg_color = CONFIG_DRM_PANIC_BACKGROUND_COLOR;
--#else
--	u32 bg_color = 0x00000000;
--#endif
--#if IS_ENABLED(CONFIG_DRM_PANIC_SCREEN_QR_CODE)
--	unsigned int qr_version = panic_qr_version;
--#else
--	unsigned int qr_version = 0;
--#endif
--
--	if (!drm_panic_trylock(plane->dev, flags))
--		return;
- 
- 	ret = plane->helper_private->get_scanout_buffer(plane, &sb);
- 
- 	if (ret || !drm_panic_is_format_supported(sb.format))
--		goto unlock;
-+		return;
- 
- 	/* One of these should be set, or it can't draw pixels */
- 	if (!sb.set_pixel && !sb.pages && iosys_map_is_null(&sb.map[0]))
--		goto unlock;
-+		return;
- 
- 	drm_panic_set_description(description);
- 
-@@ -986,9 +969,33 @@ static void draw_panic_plane(struct drm_plane *plane, const char *description)
- 	}
- 
- 	drm_panic_clear_description();
-+}
- 
--unlock:
--	drm_panic_unlock(plane->dev, flags);
-+static void drm_panic_display_panic_screen(struct drm_plane *plane, const char *description)
-+{
-+#if defined(CONFIG_DRM_PANIC_FOREGROUND_COLOR)
-+	u32 fg_color = CONFIG_DRM_PANIC_FOREGROUND_COLOR;
-+#else
-+	u32 fg_color = 0x00ffffff;
-+#endif
-+#if defined(CONFIG_DRM_PANIC_BACKGROUND_COLOR)
-+	u32 bg_color = CONFIG_DRM_PANIC_BACKGROUND_COLOR;
-+#else
-+	u32 bg_color = 0x00000000;
-+#endif
-+#if IS_ENABLED(CONFIG_DRM_PANIC_SCREEN_QR_CODE)
-+	unsigned int qr_version = panic_qr_version;
-+#else
-+	unsigned int qr_version = 0;
-+#endif
-+	struct drm_device *dev = plane->dev;
-+	unsigned long flags;
-+
-+	if (drm_panic_trylock(dev, flags)) {
-+		draw_panic_plane(plane, description, drm_panic_type,
-+				 fg_color, bg_color, qr_version);
-+		drm_panic_unlock(dev, flags);
-+	}
- }
- 
- static struct drm_plane *to_drm_plane(struct kmsg_dumper *kd)
-@@ -1001,10 +1008,9 @@ static void drm_panic(struct kmsg_dumper *dumper, struct kmsg_dump_detail *detai
- 	struct drm_plane *plane = to_drm_plane(dumper);
- 
- 	if (detail->reason == KMSG_DUMP_PANIC)
--		draw_panic_plane(plane, detail->description);
-+		drm_panic_display_panic_screen(plane, detail->description);
- }
- 
--
- /*
-  * DEBUG FS, This is currently unsafe.
-  * Create one file per plane, so it's possible to debug one plane at a time.
-@@ -1021,7 +1027,7 @@ static ssize_t debugfs_trigger_write(struct file *file, const char __user *user_
- 	if (kstrtobool_from_user(user_buf, count, &run) == 0 && run) {
- 		struct drm_plane *plane = file->private_data;
- 
--		draw_panic_plane(plane, "Test from debugfs");
-+		drm_panic_display_panic_screen(plane, "Test from debugfs");
- 	}
- 	return count;
- }
 -- 
-2.55.0
-
+Alexandre Mergnat <amergnat@baylibre.com>
 
