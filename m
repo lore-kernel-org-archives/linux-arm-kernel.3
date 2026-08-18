@@ -4,120 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB41BC5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 17:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701F8C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 18:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tNKvW+4WFtVgL6eduRiyC+7q+wV5EqmZb7e2tzVX1EA=; b=SnlmwirQX5/656aoGZ7p8gjksC
-	S7zl2Zi/U9Vu7WsanqsgnHyTZ5XPSTdjhCOyc1UixSh7B3DSAXWz30HIl7J3t6QNOyonMdYSNzh7I
-	UK1VLv/abxysz8W48pi4PFqffxbwQXqQzMAH4Y6wyF3wFychR0mS2W0p+eRjHVn0VILa0s6YX9QXJ
-	yIMLPzA1cX0TVvBdc0K9W45UMEbiNPgwkXIVowrmTVOmhhFxlRAyn4kRoOiSdvX3CzEw7SmItgKIl
-	Z5BgRESh/dUO0hvn9vww4sdHiwHq2Sr/iag3Tf+nHkQ6nRcrR65r5waZ2u6wGwiZ7+S16o3Bd4G9L
-	fK3yKVqw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZzuMCHMKvuxEPrAWeMjjV6JtCJc5WiZUqLAolKM2wTE=; b=zoq6WP/dGzcN6fgVgGCVvWLk/m
+	Ih7t93G6IkN/ZvNvm3LmGuy7ClZ5IypwNbA1smk8XYxG4nYLKgXl4hvbq/NUkqnjwNmKCu4FUrrx3
+	1zXHqYNB5QOeJ/yQ+KkmFghitqxK03dSBSFPuIq6XoZZUdNtqAR40qj7ilm7ab9O+Y/gLPbkRvOk6
+	42NlWoADNldAtkGDMDLOae7xP2SS1iEqmtDU5zkh7PItcA9TH80NiW4z66jmkQ31leARIgwvprwM3
+	6+azIsnQQ93ZP7ia/nk+0X+VKTet4SRVDTBx4Uia5wVRfwIYTfJYZRHXzHGAaqa4XIRXQYbypJk9k
+	iGO33Abg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwNto-00000008SlX-0C7X;
-	Tue, 18 Aug 2026 17:46:56 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wwO9r-00000008TmJ-3UyF;
+	Tue, 18 Aug 2026 18:03:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwNtj-00000008SiK-0OT8
+	id 1wwO9r-00000008Tlz-04yY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 17:46:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I9fHAFUD5VO5Z+mhPAQDv61J6nUQaV+CVjkMt5VE9Ly2IVH/hwMf++/ubjBM4ErLju1sFaGRQVD6VeLzPQxj/zKcxfJhwSr7SWUC2UiRfY6bmHOjRPi0i0RRx0pTbOwTxBldhDIpwZs9CgY71HuUyKvhb+Jv90f9cZzKcwEmSDO8wDBhn7iaPZwSw1DmC4x/8Ex/quxkCSYY/AqoTLzNHlMMndTRSdGgkzCgI1tyrLqtzQ5ziLlQ8BhH078nhxG105IYP6RPfMpbBpEDusnagA4huR/ujshGHRMdRfgz4CmUNdbCtd/M4/YTZ6lanf2FA7UHzPcgh5/rSHo38DtgXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tNKvW+4WFtVgL6eduRiyC+7q+wV5EqmZb7e2tzVX1EA=;
- b=w+Io6UmyeVOivZ/MgAHrKYDI9DQ0tjDTAK4mImqw+03GmrFwam0Y/NxILeoo00nPrnS7yC0a0lzMhTlGgtxBNWw93oabw3YMaXT+tS1P1n6e8ZBle/KaJ2cKCsdmW2Ecfk3Ga5tzaGbmTSVZLm9YklMTI55/f7vd2ypcdQ4kfdH9mmdAL+raHO+ArlwPQYlbCMwXQkf1cYY9HOs/bSQHMEn88pQDFqUe4SYZKz2mQzsjn1xtc9O6GSio97UBksz3dLKqZTzPptCJjajTr8/+Yt5yHhxar5g9LM3mlpSTa0AWBGNk7lXOG6tZsI7dwMaCjZPzSErgiUQXt9Y/m2mGNg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tNKvW+4WFtVgL6eduRiyC+7q+wV5EqmZb7e2tzVX1EA=;
- b=IgmphE8NpDkOHODxzTMT8Idc29AwN2q5t9e1Oe3OFxRpnY/OCGbiavrV1Tv416ocyz06vUSrfDOeFlasrbu2tLfGmhdpZJcGb0PangmV5s6DqinAobnSafQZraPyHrO+RrAu1akvUPzrgA79dxaurAleMnqonTelta5KbSOAc94=
-Received: from BN9PR03CA0219.namprd03.prod.outlook.com (2603:10b6:408:f8::14)
- by SJ2PR12MB8159.namprd12.prod.outlook.com (2603:10b6:a03:4f9::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Tue, 18 Aug
- 2026 17:46:39 +0000
-Received: from BN2PEPF000044A9.namprd04.prod.outlook.com
- (2603:10b6:408:f8:cafe::28) by BN9PR03CA0219.outlook.office365.com
- (2603:10b6:408:f8::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.8 via Frontend Transport; Tue, 18
- Aug 2026 17:46:39 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- BN2PEPF000044A9.mail.protection.outlook.com (10.167.243.103) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Tue, 18 Aug 2026 17:46:39 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 18 Aug
- 2026 12:46:15 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 18 Aug
- 2026 12:42:02 -0500
-Received: from xhdsneeli40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.45 via Frontend
- Transport; Tue, 18 Aug 2026 12:41:57 -0500
-From: Srinivas Neeli <srinivas.neeli@amd.com>
-To: Vinod Koul <vkoul@kernel.org>, Radhey Shyam Pandey
-	<radhey.shyam.pandey@amd.com>
-CC: Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Suraj Gupta
-	<suraj.gupta2@amd.com>, Marek Vasut <marex@nabladev.com>, Tomi Valkeinen
-	<tomi.valkeinen@ideasonboard.com>, Alex Bereza <alex@bereza.email>, "Folker
- Schwesinger" <dev@folker-schwesinger.de>, <dmaengine@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <git@amd.com>, <srinivas.neeli@amd.com>
-Subject: [PATCH V6 1/4] dmaengine: xilinx_dma: Fix MCDMA descriptor fields based on DMA direction
-Date: Tue, 18 Aug 2026 23:11:48 +0530
-Message-ID: <20260818174151.1608971-2-srinivas.neeli@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260818174151.1608971-1-srinivas.neeli@amd.com>
-References: <20260818174151.1608971-1-srinivas.neeli@amd.com>
+	Tue, 18 Aug 2026 18:03:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5792243D6A;
+	Tue, 18 Aug 2026 18:03:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3635BC2BCFD;
+	Tue, 18 Aug 2026 18:03:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1787076210;
+	bh=iVE93AHtrSa/DARsSeiqxqogPT0/RXz7YvzEV5meZKI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=fS7uw0oOIpHWZXMSwzMVepwMtN04OPaOjd0+JHsRj0BbvxpymmcrJlRqbF0iUOs+a
+	 HgFtsbsUp1Km+q1HBmReiYsFd0bjrySNXzmG19L74voGCIDQNY8QxbA5CfdBa+Uqec
+	 swSVfuXNHDYJ4EesQrVFzYSmhmrsVUdPQ5PXoUwvQq/ZsMDXt1M9UWrdLLRlq4/Vz9
+	 MLouqe4+A5lnkDPiGLs3iMPf9LKmUoWo+msWUSFLpkSiFmny/jCtWJcKg6UAlrcbSM
+	 5VIda18UB92nHvPO9faXR/u+mdZjgUsI1/uktm8WcGPdidq11PGlSrn5LK1p/fbT3/
+	 LtoseB/2esOZQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0CF45C5DF81;
+	Tue, 18 Aug 2026 18:03:30 +0000 (UTC)
+From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
+Date: Tue, 18 Aug 2026 19:03:18 +0100
+Subject: [PATCH v3 2/2] watchdog: s3c2410_wdt: Add exynos5515-wdt
+ compatible data
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A9:EE_|SJ2PR12MB8159:EE_
-X-MS-Office365-Filtering-Correlation-Id: 400e9e04-ba0f-467d-60d3-08defd50a834
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|23010399003|1800799024|82310400026|10067099003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: uB1mSE1cNicMgBtJpqVLkQZzSH9X3/3ZyO0htGtQ8MvcQlxpapCbiqz/wOALv45c/eCklScfCWWRR/pHs22HMrsZO1KEGcdUl1yhvyb6p8AMy380La2I6r5PLyBtuxZ4g1XLsFQGGg6ymawLuld2KpKyarOYAN/PtY60cqQdf3wz0o/HMaaZdqvhBH1M0USruWk5J5zrLnSMkT2rmxOONtXbWLwGPUEM84zUQCnhZej/T7A5nikovpHeW08HwCHEO/APvgnifM8N85OCkx+JvO7thbUJb6oFM/syJqSh4nQLzE59zPp8oG65aAxhcT6DZN9v9FOcUEL+fV4uD+wRA7G4+yOHqnIi0k2Hfze6J0ioPQU5bhN1jSXjRXkXQFNFbPZGodfI4y2lIkHblTTbPAs4K0pTFX9TX1rjSSAyYp2s/gXWhCJGAcnX7NR/8XhDRLOWPrYTp/2WGh39zpPbnGEExOTYbEXVfZMQy/1//mg8f2ZlVbTSRnjIZBcOUVN7vvG2/hCQlbBTdNVxnwdzc6w5P1LaU0tXANASc9fhFXfwsu+gsNKbfuJMySDllUChc7ucklGBkSoii+0MvOnmWvN418Q48ANCBdK0YbbKjgHYNZWkolJguoAkldtyuUmL67mCSDLcPcMcLymy6TeA2Az+wZ6QCVatULFDE6LGMgd0FbhojzaSK3WNm+QPfma0KMGXOm92azrdkokR6Fcrag==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(23010399003)(1800799024)(82310400026)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: /dpEfD9PMh0+QCPSoY7svGXND+nkPdJuE8WHtRuwSfnK++QJlV9HAMhEiR2eFjCiuBFe7rB7DGAtakN2LP2QWtAVy6fIexcmYCURThNAJfw/PWYuSG8lyO/KjF03Ct2sArOOVUY7ceyqD0N99EutAZZigk/wYMPP+CZzyxrJS2bVTXKseHSMvIEUHwIhqda7tmLJbXDx4s4hlGGuMShP2SnBKOheUF8KoHKzdblJlN+XNwyAp8ZEA+I5umY1/06O/7F6u9xAZvYSsdrcFr0s+S5r/LOhsMDeqzZguYfjLtOS009MRfE29SA3lRcv7prnuFcYmIuRNBv63TPex64b7qQJOyIHZzYIeJlqkSDQLQA67O8mbNmzben7+8e/Xcp69ffhQsoMdDRWPO/YQtOjjyT5TPaGJvJrHatSIq0Zn5wcxImMLo6QULXhQlON2OfN
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 17:46:39.3971
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 400e9e04-ba0f-467d-60d3-08defd50a834
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A9.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8159
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_104651_135364_CC34AE96 
-X-CRM114-Status: GOOD (  13.67  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260818-for-next-lucky7-watchdog-v3-2-2912bd122c57@member.fsf.org>
+References: <20260818-for-next-lucky7-watchdog-v3-0-2912bd122c57@member.fsf.org>
+In-Reply-To: <20260818-for-next-lucky7-watchdog-v3-0-2912bd122c57@member.fsf.org>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-watchdog@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ Aiden Isik <aidenisik@member.fsf.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1508;
+ i=aidenisik@member.fsf.org; h=from:subject:message-id;
+ bh=hF1hTKAa3Af2BP1y4rV71oo3r+CdBS8fUgCThTjSOzY=;
+ b=owEBbQKS/ZANAwAIAUknAbLEetfrAcsmYgBqhJ5qTJMrIxLzrhlg5Hr5EOOKKjXSpIqZOslww
+ WIKL/RnbuGJAjMEAAEIAB0WIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCaoSeagAKCRBJJwGyxHrX
+ 6zz2D/4sFnKJvYdx9lx9yScTwO5Wsd1quMKX5dzjpm1fXALYRYvzLuTMr++ry8vUrxs4wqiopXX
+ sQQRiew5Kaxg5qVKZkhzhcdicJqTwJPp+ev9yC0JMXA0BLMkHyA0XDMYTCSxXKsumAOr1ss7CjW
+ fQhJHIxl8iOrpOwov4W7KqXiNEeZLlAI0Xt89A8Zkvdh5kXcCHGtOPMJQMrcP6JiLPMQbRlndIl
+ XEcoLvFJ5Tqbv2hq/J9vqkUvIO8jVCeuZHcERaYB/a+frnRBJdtTNjww/QPbvwZ2xWnJh92Ggce
+ yF37z5G35pFVmAdMDVtR7BLz4xXT41EN4cKi5BtNUD07Ym90FzFkFo1zc8e1v5ktCSdL0+5bIji
+ YxZvHdk+IU/UL8viIpAIuzHEZycIK8Yojlcet7RLHIczBKhKn4u+z3CzSc0TCm68pB2JXbiCO/2
+ BIFV9d2WuI0ADcHGs7fpVwNPR+PkUEMBAM+8jOVp6B+IG730GqQSxOuRdDoywfv/lzaDEOIfSiy
+ KFtlU9n3i71RuucMBQkDtplTajTYNLq0edD56uG2AzAASwm6zW2k9FRevH+Xbt+fbIwwqXfhGDc
+ qIhdD9rWEtXbciDklEaPcF1wE8wG/vkAMjpXg0qvXURZRMtEL1kkLoMh9lnC5mqK4c6qPC6YTHp
+ QZmrLvurgP+WaWw==
+X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
+ fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
+X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
+ auth_id=956
+X-Original-From: Aiden Isik <aidenisik@member.fsf.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,109 +97,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: aidenisik@member.fsf.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MCDMA BD format differs between memory-to-device (MM2S) and
-device-to-memory (S2MM) directions, but the driver was using generic
-'status' and 'sideband_status' fields for both. This led to incorrect
-residue calculations when the hardware updates direction-specific fields.
+From: Aiden Isik <aidenisik@member.fsf.org>
 
-Refactor the descriptor structure to use unions with direction-specific
-field mappings, and update the residue calculation logic to select the
-correct status field based on DMA direction.
+Add driver data for the Exynos5515 SoC's watchdog timer.
 
-This matches the hardware descriptor layout and fixes incorrect
-residue reporting.
-
-Fixes: 6ccd692bfb7f ("dmaengine: xilinx_dma: Add Xilinx AXI MCDMA Engine driver support")
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
+Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
 ---
-Changes in V6:
- - No change.
+ drivers/watchdog/s3c2410_wdt.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-Changes in V5:
- - No change.
-
-Changes in V4:
- - Added Reviewed-by: Radhey Shyam Pandey.
-
-Changes in V3:
- - Renamed subject from "for MM2S vs S2MM" to "based on DMA direction".
- - Reworded commit message for clarity.
- - Added XILINX_MCDMA_BD_HW_SIZE macro and static_assert to verify
-   descriptor size at compile time.
- - Refactored residue calculation to separate addition and subtraction
-   operations for better readability.
-
-Changes in V2:
- - No change.
----
- drivers/dma/xilinx/xilinx_dma.c | 26 +++++++++++++++++++-------
- 1 file changed, 19 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-index bef2b031dba1..2319101be778 100644
---- a/drivers/dma/xilinx/xilinx_dma.c
-+++ b/drivers/dma/xilinx/xilinx_dma.c
-@@ -223,6 +223,7 @@
- #define XILINX_MCDMA_IRQ_ERR_MASK		BIT(7)
- #define XILINX_MCDMA_BD_EOP			BIT(30)
- #define XILINX_MCDMA_BD_SOP			BIT(31)
-+#define XILINX_MCDMA_BD_HW_SIZE			64
+diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
+index e31f93db0509..5592f25fe6c8 100644
+--- a/drivers/watchdog/s3c2410_wdt.c
++++ b/drivers/watchdog/s3c2410_wdt.c
+@@ -232,6 +232,16 @@ static const struct s3c2410_wdt_variant drv_data_exynos5420 = {
+ 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_AUTO_DISABLE,
+ };
  
- /**
-  * struct xilinx_vdma_desc_hw - Hardware Descriptor
-@@ -277,8 +278,10 @@ struct xilinx_axidma_desc_hw {
-  * @buf_addr_msb: MSB of Buffer address @0x0C
-  * @rsvd: Reserved field @0x10
-  * @control: Control Information field @0x14
-- * @status: Status field @0x18
-- * @sideband_status: Status of sideband signals @0x1C
-+ * @mm2s_ctrl_sideband: Sideband control info for mm2s @0x18
-+ * @s2mm_status: Status field for s2mm @0x18
-+ * @mm2s_status: Status field for mm2s @0x1C
-+ * @s2mm_sideband_status: Sideband status for s2mm @0x1C
-  * @app: APP Fields @0x20 - 0x30
-  */
- struct xilinx_aximcdma_desc_hw {
-@@ -288,10 +291,17 @@ struct xilinx_aximcdma_desc_hw {
- 	u32 buf_addr_msb;
- 	u32 rsvd;
- 	u32 control;
--	u32 status;
--	u32 sideband_status;
-+	union {
-+		u32 mm2s_ctrl_sideband;
-+		u32 s2mm_status;
-+	};
-+	union {
-+		u32 mm2s_status;
-+		u32 s2mm_sideband_status;
-+	};
- 	u32 app[XILINX_DMA_NUM_APP_WORDS];
- } __aligned(64);
-+static_assert(sizeof(struct xilinx_aximcdma_desc_hw) == XILINX_MCDMA_BD_HW_SIZE);
- 
- /**
-  * struct xilinx_cdma_desc_hw - Hardware Descriptor
-@@ -1015,9 +1025,11 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
- 					   struct xilinx_aximcdma_tx_segment,
- 					   node);
- 			aximcdma_hw = &aximcdma_seg->hw;
--			residue +=
--				(aximcdma_hw->control & chan->xdev->max_buffer_len) -
--				(aximcdma_hw->status & chan->xdev->max_buffer_len);
-+			residue += aximcdma_hw->control & chan->xdev->max_buffer_len;
-+			if (chan->direction == DMA_DEV_TO_MEM)
-+				residue -= aximcdma_hw->s2mm_status & chan->xdev->max_buffer_len;
-+			else
-+				residue -= aximcdma_hw->mm2s_status & chan->xdev->max_buffer_len;
- 		}
- 	}
- 
++static const struct s3c2410_wdt_variant drv_data_exynos5515 = {
++	.mask_reset_reg = EXYNOSAUTOV920_CLUSTER0_NONCPU_INT_EN,
++	.mask_bit = 2,
++	.mask_reset_inv = true,
++	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
++	.rst_stat_bit = 24,
++	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET | \
++		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_DBGACK_BIT,
++};
++
+ static const struct s3c2410_wdt_variant drv_data_exynos7 = {
+ 	.disable_reg = EXYNOS5_WDT_DISABLE_REG_OFFSET,
+ 	.mask_reset_reg = EXYNOS5_WDT_MASK_RESET_REG_OFFSET,
+@@ -379,6 +389,8 @@ static const struct of_device_id s3c2410_wdt_match[] = {
+ 	  .data = &drv_data_exynos5250 },
+ 	{ .compatible = "samsung,exynos5420-wdt",
+ 	  .data = &drv_data_exynos5420 },
++	{ .compatible = "samsung,exynos5515-wdt",
++	  .data = &drv_data_exynos5515 },
+ 	{ .compatible = "samsung,exynos7-wdt",
+ 	  .data = &drv_data_exynos7 },
+ 	{ .compatible = "samsung,exynos850-wdt",
+
 -- 
-2.43.0
+2.54.0
+
 
 
