@@ -4,161 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD71DC5DF74
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 03:02:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51B19C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 03:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZBz2J/YR064wcCDlSxnx2LWjNaH5A+0wFaq4Q0GwWVY=; b=IpE23knOdcjuvR3V+1GUV5PHkZ
-	sHbavZxyLAuLe6qkYB+ttiK74IMFn8LTueg9VGec1d1hprpuu8vrmVCxcKT9k96CdZ7faS1907fG+
-	pxD977F/GoDlm7WUH1G2qyU2Yz5U1zLVzvouHe+955iX4Oap0lTpCzYMgiVBGG98nb8q5Jm1Wm/3w
-	tt4usR6T2YLCHGgSpyJkHttmecbIjzpTSi+Czyfml2KNCzjGzfAk/aGSu/C35JortSx3Dpj2ZOtTY
-	DgqNsjoIAjzKOEvTM+CkIRx9M3OIHS5CuiEObNzF5hmb+iNzCMdqOa7XvaPvnoggdKBmXA7Tl+qGU
-	BByA7kuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NjpDOU5NRpMdngLH+Ko355E7BOo+DYzAsLpVptIMEKM=; b=izCdkoF0f8IB7vgnhuhlLeFOV9
+	wwe2GVFUe5yjHXvYq9H0uGMMmYGeNfuZ4kYNtku7hSDqEGFtQAmKmdQW+XSO07JMsPVK5e/5M+Thm
+	VwkdAfmtKGqg651K+08kOja154wqWXhsdn+upa7JToc0mhbmT6ezlqK1ma/6ZaOxJcqmz5sumXJsV
+	7D/9/ORrvPRArMC1HOeVZlZN5637PqqzAOffAeImxj4BcLxfi18C1iryTUOBwqv5JJNNQ+5YrRlDt
+	7zf8xA8ActpkXVelOQ42hURLM9ELhu4HwNfwjQDGl7V9XMsU+8fX0nwlhED2Tyy/4RbNAxJ1GLgU/
+	lM8oUwSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwA5O-000000077qW-3Nge;
-	Tue, 18 Aug 2026 03:01:58 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wwA5r-000000077xG-3sfl;
+	Tue, 18 Aug 2026 03:02:27 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwA5L-000000077pY-3rqQ
+	id 1wwA5p-000000077vl-1kS7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 03:01:57 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67I28ZWJ2884830
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 03:01:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=ZBz2J/YR064wcCDlSxnx2LWj
-	NaH5A+0wFaq4Q0GwWVY=; b=CCt8SSDxuZAlXZCuVF7FdA4BBarebF0vi6DR6AUJ
-	RohD5U3q065fxZ/SPY/Rj9yA0N/spjaxzfI6evKJnGwG9NZwKtYfIZlE+CAZ+VJm
-	+jDyQlAqD6yFHtqJ7Y/wBOCet2HFnWUm/P6QKmnOVY0B5rQvXm5xag7Z1AEDvHLy
-	0FTqbuMBdjcecjzVJ2w4QjuEt7kFy75e57f3gZXsF5/YLP4xJ8LViC0as/IfBbAB
-	EKf/ZpbDUvXuMWFlBjjtUHGs+pPDy9yb2Eh+SYO7vc0nOv8KoOtrO9XMAmdGGJdx
-	srrZQGKI+SrtZoXjSwkJsdqp0jzPrqsap/sri0fjwskkAg==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g4ebpr7ht-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 03:01:54 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-9349c5af52bso686294885a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 20:01:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787022114; x=1787626914; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ZBz2J/YR064wcCDlSxnx2LWjNaH5A+0wFaq4Q0GwWVY=;
-        b=eNF4/Rl7NFRjWKxFZfYRkoDrPd4AI+wuwaeazRTo4iThPO4zzOc/9fME1iRxxuqVPG
-         W1RXLkUIshjYlVvW7yIGvzUX43H/5DJFhCF+/CN3vEWRwLrXAiMTNT1DVSXG0hevylTi
-         VjeLvDwGA+qt89PwwGv4Fsm4Vtav2qV23rGLMAED0UMRZyybp1p6Yu+jmKvww/2uazOz
-         vn/8blfuXCPI3i6Cj+MWsgFPw6GKWKi1R0jqLeaOM310SNQH1TWUgHb3rZd5MIaxNh34
-         c1iWJChLPuWRT19C//9P1u7mF/wu6GiDNXdyTgk5xIf6w5PKwrrbaKkZNSTRtvcGaJ28
-         B+6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787022114; x=1787626914;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZBz2J/YR064wcCDlSxnx2LWjNaH5A+0wFaq4Q0GwWVY=;
-        b=q54d+k7tVb0Rz0SZQYoKqqLsxQ8VQ5PO8/bEbY6X5r1XHrZVQ968othntOu6EG7J6L
-         7VN/cFeGZGN7+nhNU/dENSqr5pX60ufIZ8tb4CYQWRNCPqOac/RnsUEoikT+3xs8zCjp
-         G0NixPM449VsHCD0e90T9aLroOJ2Ovo10WNU4fCZGsbDNviBmiCh1U1DLK2nsrszktOr
-         Lo/HoqsWgV+l+gfPgniIK+sabcfo3CnDW/PwlW/tIFJG2bH0ODhEPEiyLYzPk3bQ733F
-         b0+a8SMH/n1rXmO9/4WVi6CKlqJ1aldcgDAUK/o6hZAARBQOaM8s6EnNpge1o6jr6xlP
-         Os5Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rodorqti7Z385CBVjo4v9BVkwGljpVyLLcHMoBXFwoiIy5KLzQZO1iXksfe+YRzi6akXzgCnLVw2Rf+NOaiwACZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIxqUHQ22YXRRs7yL7DeioqHT87r2np4BB8uN2Cw3QRtT+xpKc
-	CSuToyR87cdwOh0EK2qXJ+MND8JtBQqTet71/BuvtSRrfumd3xDQaFnO0oLtbzTqv/wgoZ0jCl1
-	hKcu0VsQkc6ZJswNQJqpKvZsuVwzl9CjLlExJvJoj/6UF5PpQmP9FDjGUl7CpWqcnCeMt9jaoL+
-	vb+g==
-X-Gm-Gg: AR+sD12hfmcdIq6t7bDC1uOVzvTnwM1uIx/FK02qEuSqcrzUoZa921urt82NNTw8Ef9
-	qV5bgiV2hHg3Itoe6pcGkXj2xKs96iuOjlLTdHgy1Y5bfJ2dgGkyXCLX+VjLnvO4KCwx9Sjon79
-	VGFooMHq8yLI1/+uDC3WT7JN+x4ewleBGRNVyj0ORVSrgEXqmqXgu1EaaHNwk6xT7v9ghVnrg1X
-	TGH9OmaFNnw6NNb1ZYVPj+RsuPZYxqix013lOVk2Zx31iafXcAa5vOYTZNPLIFzni/xRQEy2E/m
-	c5SktQrUM4e6PHfCCeQRHoju5fWtCyx/fzHF1+Ng9bBozW8Tym1g2H5liLKV21A9NrK+TaNBGOD
-	RlA4qDzvKjbqSUglC+YkSqEJJ4Y/yRpOgpj0vVskqsoYoSglkzkNDdFi8a1P1aFVo4VIxNMQC8K
-	Comnm8D0MSHH7g
-X-Received: by 2002:a05:620a:28d1:b0:932:df7e:b31d with SMTP id af79cd13be357-936d227ee03mr2727443385a.12.1787022113810;
-        Mon, 17 Aug 2026 20:01:53 -0700 (PDT)
-X-Received: by 2002:a05:620a:28d1:b0:932:df7e:b31d with SMTP id af79cd13be357-936d227ee03mr2727440185a.12.1787022113404;
-        Mon, 17 Aug 2026 20:01:53 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a16b1bcc39sm8342611fa.29.2026.08.17.20.01.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 20:01:51 -0700 (PDT)
-Date: Tue, 18 Aug 2026 06:01:47 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Luca Ceresoli <luca.ceresoli@bootlin.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org
-Subject: Re: [PATCH 1/5] drm/bridge: allow hpd_notify() to suppress connector
- hotplug events
-Message-ID: <pyqpajtjcnslk6g5ysn3ce2csrb76fhd5bif4vdb6wezomlmsg@fsl55exyufx2>
-References: <20260629-msm-dp-msttypec-v1-0-646a10256233@oss.qualcomm.com>
- <20260629-msm-dp-msttypec-v1-1-646a10256233@oss.qualcomm.com>
- <cgk2httvebzm2jnjnb437mutez66tfozzdk77mjwukfzngdioh@mu46u3pwlf2u>
- <af5f2e4f-42a2-49f3-9c6c-0f910c5f9208@oss.qualcomm.com>
+	Tue, 18 Aug 2026 03:02:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lIaHTL1fEW109NYARUeCGJaTigFvLyp8lJlHu+NCaaRu/nGzFJ9V/QsZxrNpcFP8R65+ZuA3yfMOJS4ZBh425A6hsFcJoSq42qT5R0GatmnbD75/IImmQNsFgZEsTDmSHvSCVR5Hhg9F41sEMmP4IuMYJbxkhgBumb0Vct87d3Kh3pjJdS9OyXgNcPfDZzdeNII1xC2xkGCF8ysnq2UsldFbkTBqP86f4lrL6/j8Ds6cKzFomgPy/2EogiE23J78xE0+GHRRJN07+S/wglkoL/QoMlst/VP3nN/v7tHLiZ8R6q755kMvkGZU2KKx6dZR1hrZfR5ZwerjnZI3Bbfy/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NjpDOU5NRpMdngLH+Ko355E7BOo+DYzAsLpVptIMEKM=;
+ b=l9xmP1EIXFrVaHKM7auiCuhrrabTxwog4iYI803FilLJeSLZ+sW1tF4wrRWz/kYqP+/O/Ve+EuYaLrv3iCmTst8UDKQ7iSBRi/3HSGMmv/VLIgg7ijZ8u8l2v1XOOcxVSaTVzCIZehSLbhg60uuE32vClUCjJlTFxGv8m+xP7lTDZ4xoQacI5tkUVJiVOPLxg9Is81wKISPC5ttfT0Sl0Z3fMS2t0QwpXTUnYSoQscCzI1YmwYRonmVrPgvOBMN0cyQYhBNz2wZR2KrvtfN7h8EKAux3KglkxQ4SBLDethZ8lBz2sz5aLCZ+OFTTp4ax75DZ5RnTPWBSmFzMVwebqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NjpDOU5NRpMdngLH+Ko355E7BOo+DYzAsLpVptIMEKM=;
+ b=Th7pq3rw4A79CfopA5hkgT7uLrfRysYqlwkTJW+aecOWaohqCU+UXRF9aX+TS2f7ugy6LZR1rcXX3zm1ro/LWedkSYjfhdtesiuEEIj9njawegOG9c+ewm/V2h8YyMJiM0xtWGRCUKYKUt2gaYewYplt3JSqmBiNplTuFh+kQOXvx4Dh5p6CX2UkV7U8GxJWKHx5G13P3yMJwaGAZKv1jE7x+NJ/gu7jZrIC2I0OkjYu6yvBc/vq3ffY2Qdi1YfOHefW6GiHK/ZcWjb+mhBDXSrS4mSfX5MYbRDArWjyI3LKA8F30k0p6slhjGH7a7Jv4L67Zl3/gc4UgdtJWhk+zw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
+ (2603:10a6:150:112::20) by AM0PR04MB12144.eurprd04.prod.outlook.com
+ (2603:10a6:20b:744::24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Tue, 18 Aug
+ 2026 03:02:18 +0000
+Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
+ ([fe80::d247:853:3e16:1994]) by GVXPR04MB10021.eurprd04.prod.outlook.com
+ ([fe80::d247:853:3e16:1994%5]) with mapi id 15.21.0315.016; Tue, 18 Aug 2026
+ 03:02:18 +0000
+From: Chancel Liu <chancel.liu@oss.nxp.com>
+To: Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	imx@lists.linux.dev
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 00/17] arm64: dts: Add MQS1 sound card support for i.MX9 EVK platforms
+Date: Tue, 18 Aug 2026 12:01:54 +0900
+Message-ID: <20260818030211.3141710-1-chancel.liu@oss.nxp.com>
+X-Mailer: git-send-email 2.50.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SEWP216CA0115.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2b9::7) To GVXPR04MB10021.eurprd04.prod.outlook.com
+ (2603:10a6:150:112::20)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <af5f2e4f-42a2-49f3-9c6c-0f910c5f9208@oss.qualcomm.com>
-X-Proofpoint-GUID: J119ssZRPq_71MPHWW5Ky-Hs0A9zNYAs
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE4MDAyMSBTYWx0ZWRfX+QZkhs1I3hNE
- KlXUzCt3F0e4adyGbOQzeh/bdb3XBP2RwI3JuOSD+B40fynKSBvjWhc3xmGFhP1YHqhEWQpMMKn
- 169ylqwOR7OL6fojSnmPQLtMA0Q5Hx5BnJVa4OnyWAc6DNmrNMJnPUw02daMpF+0wTQ0SFiInTk
- vgu7M+r9NkAtjKj1XthlOJFb1xaje5D1h2f/Ds8az8eH3AVNNhBxJpDNFNz0H5gYpYDmyJngI++
- mPOVsV53yu9VXtP9Z/fcFImSNIHS8kq8k7ZWN4E6uc/z6B+3FrcmyPeBfjuZGrzaordoML2aOJj
- qIY2OUIm6WG61eM1ThvDwVlW7Ye5GNpojh0nnPLoiO6WPu/ORTb0Pu/MFGrkXFTBWfFWLX+lI86
- wj57smTo9wz52RcGEiKttXyn6wlP03KP9YgXc/AAYORr+SJflqs7rP+gSNFzx/hncVRVE4NDgXW
- b6nh3TOi9ExNODiNTxg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE4MDAyMSBTYWx0ZWRfX4fN4dR0vYaGc
- IkZlLyTSoZW9PxHjXzcDJJesGBolZ77e2EHPm6UpP8QWYsZJsvHzA2fD2ate298YAQPD2eNq60/
- +rwXkBFJxT59bJXY67/UVBGjhHQaF5w=
-X-Authority-Analysis: v=2.4 cv=FsU1OWrq c=1 sm=1 tr=0 ts=6a83cb22 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
- a=WMPlNdQLU-vNwlj8jccA:9 a=CjuIK1q_8ugA:10 a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-ORIG-GUID: J119ssZRPq_71MPHWW5Ky-Hs0A9zNYAs
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-17_04,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 phishscore=0 clxscore=1015 malwarescore=0
- priorityscore=1501 lowpriorityscore=0 bulkscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608180021
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB10021:EE_|AM0PR04MB12144:EE_
+X-MS-Office365-Filtering-Correlation-Id: c4687699-6072-4f80-71ab-08defcd51cf3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|19092799006|23010399003|1800799024|7416014|10067099003|18002099003|56012099006|11063799006|3023799007;
+X-Microsoft-Antispam-Message-Info: 29czThuyHTnNZzDfXRfpgI20mWuL2PfrY1Ty/iZlBRVkvJa3YHiGsaHCXMIZnAqDgl7kyE6pnbvPD6PX3upme+tLlJP1HB30i8BBeEGyP3kb91NJBhaim4kQQxQuFKLFQ473TTPYDEMMTZEhXgGKudmt7coneITA6Mg1GWy6xQsBpUJg7ax1wnEKjuqq4th6N4yNEaKDX3hkbtuK2xP6uG1SgLHuaiKhqNyJCgyz85OYGiC8lE4JR4rVxUEqMW28oP25e5GQM6TsoZ9CCZ+lKuUkZgiwlNGvpVDuBQIz7FS4k7X5M7BUIi6ahrsoiZp4MnNSUlSvJtbg3BXttpnLq012NgM9zqvwHmqihcCa9sssrsQYGWsj8JDyXv2mzeoTddrQ9RyoO7fR7c9PnYio1hQdN45ws/t/dAmT6kVRB9JBsQw7tE5549mm0ucJga+N8qbCpoiufhN5oOrsGrIaygb6VqtiO7UzfFDvB1ryhMLhqyaMrL8VkcSGeU8QYl9V/CRek0rHVZaQ1zSWd5kYU0wRBHq6ATgi+RrNpXDIx5JsGv7K9167L1ybSqHAkn7bxfhIiIbMMH5xMdRru1rP6aDd2+pr8pytWXTa3+9irLpU+yNtVO/GZ7FSmRUME52MIrhAS4e55BePqLbqZBPoJi/hppZtWSB1qC12gZYsqGQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB10021.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(19092799006)(23010399003)(1800799024)(7416014)(10067099003)(18002099003)(56012099006)(11063799006)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cmU5dguoI7cmtFozturgfE2W6WMxtIVovUc6yVHQl9W1MmejbwpNsHPzLy1W?=
+ =?us-ascii?Q?ogzNm4cEvDVIx6BEIUZCrjWDIJvcmQOV9UKZqRfp/wVf7FnvRcl1RmDtth9A?=
+ =?us-ascii?Q?46vjyERQpZ3fpxov9evkeg9TtmrXiNILArWMQNdAVb9JYsc1k8HNSof0GPRp?=
+ =?us-ascii?Q?bOeVKH+FT5E4XV99d85HwwV3NtrJ1zsJmdQTLVYLiGxxw9Vqv5yTWbw3xkd9?=
+ =?us-ascii?Q?4mR1KIXPcc0rxMw3SZVFz/4gOsK6mHkJ8YObkPvN0Nob2KAUygKINUfLjwje?=
+ =?us-ascii?Q?oM8vb4ITqKi/voHo4+Wk0dP3WWzNNft3FKwH36/kkyhkwz6XxPung2X/q9Cs?=
+ =?us-ascii?Q?VRTSCiJKCcnprXpaW3aLOltKiwklXn1TOWQSIr6HPf2cJKE+mR3c/lP8ghzS?=
+ =?us-ascii?Q?eYZFd+25ziISUj2k32MfwlkE3gxYYCabBo/y4MAc/tycImQwYZRF7D3wzFja?=
+ =?us-ascii?Q?YnX9CaQeR5aCOqqyHosOawl/GXCgCj+UOItk8VOQKYgp3L+JTOsjUDgL5cXQ?=
+ =?us-ascii?Q?fmNcZCzBQediHPl2Ciyt9fMtBA/R8HvVNui1FYdh0eTKPJhuKo51iW7AVtoO?=
+ =?us-ascii?Q?BupJ4mfpPgZpkSK0DOyFPKqu6Eqy0cMUap0YDjRM94avwiYwmrRQpaoR5KO4?=
+ =?us-ascii?Q?MKtjE7YYumuzYIFnlerHfXn4Easc6vf2d1n7Jxur8/wRnmG6BdG6ba2ubYNQ?=
+ =?us-ascii?Q?oJkdgd/TWVKbkbZE6z90ePG6QlyPaWx0dgkV7MyILNexmzhR9CaCY6LgqCEd?=
+ =?us-ascii?Q?hsHcvaq4sWFtf5N7vVGa1zPZH5cXM8uPb9/vifx2sYNlsGwztgzSv4wWbXRr?=
+ =?us-ascii?Q?blre3F3M2Owum/GXPbGlCVyHH6AGqjP8tdcpeT3gOKa9Kd4vjp1LeMhPgKnt?=
+ =?us-ascii?Q?8M2vZDTxnSp6ubLp8yRghGNaqQ6E7zRw0tDA40snKUh1CcraWMAAdcYuxQaJ?=
+ =?us-ascii?Q?fXLWI6fcr0kQIOGIUt1JJh+GPw9ilSRtGaLey3OZ0yX5OGZeOAXcnAou82HC?=
+ =?us-ascii?Q?Ujt5pnwyj3ItH+fbzXW3HSACNH8HqnZIOs9FkqdfB/NqBi8aNw2LYrQZ8/JM?=
+ =?us-ascii?Q?Le6KuuJenHvnAmu/6i/vS7VCArjDpo6ueOATeDrXTDIQuR9nmPQwFeyoQpZg?=
+ =?us-ascii?Q?LRZAf4W4UF/j4DRQRzPuJpd4NqRdMTeNrSYoh5zKR45WS6+bYYt9xSgz2XUt?=
+ =?us-ascii?Q?wo1qyhbwRkslrjhHYikEYe5Ov9BaTrI1GL5ibOC+K2TX7Yk8RsMgZJF/Ocz2?=
+ =?us-ascii?Q?9I689WcakzfwgeQvyVRIcjogyTIEN9TBM7EQirUDFmfzcuNgEB0DGJXXgLPi?=
+ =?us-ascii?Q?bQF77kAAEJO++KjfZnRMzYtG1yUt46Me0ohWYdNNn1kYYPndWSW9AvIlrdVD?=
+ =?us-ascii?Q?Y/3xGyQfswYFw6Kwlcb5v2o4M+qMNpmW0bxK1G4ginQWi8zKPAzOgXmtINur?=
+ =?us-ascii?Q?0aXwsZERmhK6xDHAeyoK9u57JUff6hPJKFUD0T6ZYVu8aRpB0WN9fsMldPuq?=
+ =?us-ascii?Q?nDMnyLnI0MbMB606JyLj+lKev/ckVDEBESBeIFFvL4sk3JL5fnunKXHS0TMo?=
+ =?us-ascii?Q?1LXNMAb7aQ+JYksVCs6AsVppNXxVdFCZvZ16CQtxVCfSpIfuXiNlPk8c8cMm?=
+ =?us-ascii?Q?TldJFvjHs93lYgCAbq5ukX40grmSVZESF5WuzCs2tL6Fr3+wVNvPsc3B5hZo?=
+ =?us-ascii?Q?FnkNRoxIy/hqY+I2eokMFgIAwEpQWDrmq1LP4caQaVWhIK8LNFuQnvmFIED/?=
+ =?us-ascii?Q?cL5pSGhMb01jT8ISKwjYK9hYpwYmQSAZJBiYN2QghHbESYtQtFWx?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c4687699-6072-4f80-71ab-08defcd51cf3
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB10021.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 03:02:18.2400
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pckMd/q+B7zQ4XouWtTu6/uiAaXoMVOlyQwT2CEWeV3FZfa4cwf3ZRjrKMlMHrqpB1jidu5S0UI6YUV7rdFj9A0QQ/RWNR7gPSuIJLbGJ2FKHSmDFjOC1FRc8WVQAzd/
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB12144
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_200156_084734_123D741E 
-X-CRM114-Status: GOOD (  37.12  )
+X-CRM114-CacheID: sfid-20260817_200225_459240_0F9F6849 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,98 +142,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 04:01:41PM +0800, Yongxing Mou wrote:
-> 
-> 
-> On 7/12/2026 6:21 PM, Dmitry Baryshkov wrote:
-> > On Mon, Jun 29, 2026 at 10:48:03PM +0800, Yongxing Mou wrote:
-> > > The bridge connector framework currently invokes all bridge
-> > > hpd_notify() callbacks and unconditionally emits a connector hotplug
-> > > event afterwards.
-> > > 
-> > > However, not every HPD notification requires a userspace hotplug event.
-> > > 
-> > > In particular, DP MST bridges may use hpd_notify() to propagate HPD and
-> > > IRQ notifications through the bridge chain while the actual hotplug
-> > > handling is performed by the DRM DP MST core. Connector creation,
-> > > removal and userspace hotplug events are already managed by the MST
-> > > topology framework.
-> > > 
-> > > Allow hpd_notify() implementations to suppress the bridge connector
-> > > hotplug event by introducing a bool *send_hotplug parameter. Drivers
-> > > can clear this flag when HPD processing should not result in a
-> > > connector hotplug notification.
-> > 
-> > Why? Worst case the kernel receives another hotplug notification which
-> > gets ignored by the driver.
-> > 
-> Hi, thanks for reviwing those patches.
-> Let me try to explain the motivation.
-> 
-> Semantically, IRQ_HPD is just an IRQ notification, not a connection state
-> transition, and shouldn't be turned into a userspace hotplug in the first
-> place. However, drm_bridge_connector_handle_hpd() currently calls
-> drm_kms_helper_connector_hotplug_event() unconditionally after processing
-> the event, so every IRQ_HPD ends up reported as a hotplug.
+From: Chancel Liu <chancel.liu@nxp.com>
 
-What if the IRQ_HPD is delivered together with the first HPD event (for
-example because of the TCPM processing those events)? See the mechanism
-in the displayport.c AltMode driver.
+MQS (Medium Quality Sound) is an internal audio DAC available on multiple
+NXP i.MX9 SoCs. On EVK boards, the MQS output pins are typically shared
+with other peripherals (CAN, PDM microphone, etc.), so enabling MQS
+requires switching board-level pin muxes and disabling the conflicting
+device.
 
-> Second, MST IRQ_HPD is level-sticky -- as long as the ACK has not been
-> cleared, the IRQ keeps firing repeatedly, and MST bring-up (link training
-> / MST enable handshake) itself generates a burst of IRQ_HPDs. So this is
-> not about "one extra hotplug", but about a burst of them within a short
-> window.
+This series adds MQS1 sound card support across the following platforms:
+  - i.MX91 11x11 EVK
+  - i.MX93 11x11 EVK
+  - i.MX93 14x14 EVK
+  - i.MX943 EVK
+  - i.MX95 15x15 EVK
+  - i.MX952 EVK
 
-Ok, if it is level-sticky, it should be handled as such.
+Changes in v2:
+- Amend commit message to describe SAI1 clocks assignments
+- Remove redundant clocks/clock-names for MQS on the frdm boards
+- Add the missing <&can1_fun> mux state to FlexCAN on imx93-14x14-evk
 
-> 
-> Every one of those hotplugs is delivered to userspace via udev and
-> prompts the compositor to re-probe the connector. In the window before
-> mst_active is set, that re-probe walks back into msm_dp_bridge_detect()
-> and performs aux/DPCD accesses, racing with the MST enable flow.
+v1: https://lore.kernel.org/imx/20260814072022.4064009-1-chancel.liu@oss.nxp.com/
 
-If there is a race, the path needs to have a lock, preventing concurrent
-access. Otherwise, you are just shortening the window instead of solving
-the problem.
+Chancel Liu (17):
+  arm64: dts: imx91_93_common: Add clock and sound-dai-cells properties
+    for MQS
+  arm64: dts: imx91-11x11-evk: Add board muxes to select between PDM and
+    MQS1
+  arm64: dts: imx91-11x11-evk: Add MQS1 pinmux, clocks and mark
+    conflicting devices
+  arm64: dts: imx93-11x11-evk: Add board muxes to select between PDM and
+    MQS1
+  arm64: dts: imx93-11x11-evk: Add MQS1 pinmux, clocks and mark
+    conflicting devices
+  arm64: dts: imx93-14x14-evk: Add board muxes to select between
+    FlexCAN1 and MQS1
+  arm64: dts: imx93-14x14-evk: Add MQS1 pinmux, clocks and mark
+    conflicting devices
+  arm64: dts: imx94: Add clock and sound-dai-cells properties for MQS1
+  arm64: dts: imx943-evk: Add board muxes to select between CAN1/PDM and
+    MQS1/MIC
+  arm64: dts: imx943-evk: Add MQS1 pinmux, clocks and mark conflicting
+    devices
+  arm64: dts: imx95: Add clock and sound-dai-cells properties for MQS1
+  arm64: dts: imx95-15x15-evk: Add board muxes to select between PDM and
+    MQS1
+  arm64: dts: imx95-15x15-evk: Add MQS1 pinmux, clocks and mark
+    conflicting devices
+  arm64: dts: imx952: Add AONMIX MQS device node
+  arm64: dts: imx952-evk: Add board muxes to select between CAN1/PDM
+  arm64: dts: imx952-evk: Add MQS1 pinmux, clocks and mark conflicting
+    devices
+  arm64: dts: fsl: Add DT overlay to build MQS1 sound cards on i.MX9
+    platforms
 
-> 
-> The amplification also isn't limited to a single connector: on Hamoa
-> there are 4 connectors (3x DP + eDP), and we observe that a hotplug on
-> any one connector causes the compositor to re-query all 4. So this burst
+ arch/arm64/boot/dts/freescale/Makefile        | 12 ++++
+ arch/arm64/boot/dts/freescale/imx9-mqs.dtso   | 54 ++++++++++++++
+ .../boot/dts/freescale/imx91-11x11-evk.dts    | 41 ++++++++++-
+ .../boot/dts/freescale/imx91-11x11-frdm-s.dts |  2 -
+ .../boot/dts/freescale/imx91-11x11-frdm.dts   |  2 -
+ .../boot/dts/freescale/imx91_93_common.dtsi   |  6 ++
+ .../boot/dts/freescale/imx93-11x11-evk.dts    | 41 ++++++++++-
+ .../boot/dts/freescale/imx93-11x11-frdm.dts   |  2 -
+ .../boot/dts/freescale/imx93-14x14-evk.dts    | 52 +++++++++++++-
+ arch/arm64/boot/dts/freescale/imx94.dtsi      |  3 +
+ arch/arm64/boot/dts/freescale/imx943-evk.dts  | 70 +++++++++++++-----
+ .../boot/dts/freescale/imx95-15x15-evk.dts    | 42 ++++++++++-
+ .../boot/dts/freescale/imx95-15x15-frdm.dts   |  2 -
+ .../dts/freescale/imx95-19x19-frdm-pro.dts    |  2 -
+ arch/arm64/boot/dts/freescale/imx95.dtsi      |  3 +
+ arch/arm64/boot/dts/freescale/imx952-evk.dts  | 71 ++++++++++++++-----
+ arch/arm64/boot/dts/freescale/imx952.dtsi     |  8 +++
+ 17 files changed, 359 insertions(+), 54 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx9-mqs.dtso
 
-Please fix the compositor, it should not need to query all 4 connectors
-if the HPD event came from the single one.
+--
+2.50.1
 
-> of spurious IRQ_HPDs during MST enable ends up amplified across the
-> whole card.
-
-How do i915, amdgpu and nouveau respond to IRQ_HPD? When do they send
-the HPD event to the userspace?
-
-> > > A NULL pointer indicates that hotplug suppression is not supported by
-> > > the caller, such as the connector detect polling path.
-> > 
-> > And nothing in this patch makes any use of it. I'd say, it's
-> > questionable addition. Let me check other patches...
-> > 
-> You are right, I will reorganize the patches in next patchset.
-> > > 
-> > > Signed-off-by: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-> > > ---
-> > >   drivers/gpu/drm/bridge/lontium-lt9611uxc.c     |  3 ++-
-> > >   drivers/gpu/drm/display/drm_bridge_connector.c | 15 +++++++++------
-> > >   drivers/gpu/drm/meson/meson_encoder_hdmi.c     |  3 ++-
-> > >   drivers/gpu/drm/msm/dp/dp_display.c            |  3 ++-
-> > >   drivers/gpu/drm/msm/dp/dp_drm.h                |  3 ++-
-> > >   drivers/gpu/drm/omapdrm/dss/hdmi4.c            |  3 ++-
-> > >   include/drm/drm_bridge.h                       |  3 ++-
-> > >   7 files changed, 21 insertions(+), 12 deletions(-)
-> > 
-> 
-
--- 
-With best wishes
-Dmitry
 
