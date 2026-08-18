@@ -4,105 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D607C5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 04:26:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF9FC5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 04:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ErXhuF7Ai0HjSZoqnrXxUkmbIHJi9H6R6PaXpZbpqo8=; b=NcwZ78uC8xVOKXqLLEA/U3nYJ+
-	eZo5+tXw6K+hRzF+SsRnbpQFBJglspv0QbMhhLhFClK3SL6AZ61QwQp+9lKUe4wJlcUt4LHeRRUwD
-	Oc30ugGFpB1T+sru4pysZNh6AzZBvjDyyePN3uTca1CjpMG6UHHbdWuwjrg+TZ/T2oaREDi8SD/05
-	znDz5cQbROVdRv1lI1MhGRadRQYbLS183OYriG4r+w5P0raoAJDv4C6rKFb8fvj007Be4uuM/s3Xe
-	+fkU0CI3VNXYadVt0IJwgJC3xBZq1W02HzC7oSmatita5UpV1FdaoZSZZGoWci0DPRFWmgjbd2wy3
-	c4j8CYXg==;
+	bh=c4xs5RT8u9h6JXPgD+W9cpvSw000rGM/Suoj6WVsp9I=; b=zIb5wDVp6JtNdqHL+1vxRKGe+L
+	dNkAm4EHhMGp/SCSM/hpvLl5Aii55JXZ70orqw2mCpnlwF6RJCiwqZzIL7f5Uwv3XDVP9O4cdvrDp
+	E1xSh/P1JU6kXHehNQes8dHrdZMRA91EqSbR0IMJLfgCwmPgnch2t8z7FSkdnE88tj7OQieRUHZqU
+	hX3LSMGIpk0zo4djIS3d0n4Y/FY/cPXwlQhVLRr+tn5PiQEixu0mp3Py/qI/zJzL6jeX3YBZYswnO
+	Va/2Hcfp75JHaTcanumLopBLailEuhnqY+e7yel6AJULoWO4X+WrTAMDk5+Ng4MfHBm6nEuMmLQCv
+	EUrQasZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwXsq-00000008ydM-2MpQ;
-	Wed, 19 Aug 2026 04:26:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wwYJC-00000008zdt-37x6;
+	Wed, 19 Aug 2026 04:53:50 +0000
+Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwXso-00000008ycz-2To9
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 04:26:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 91599601FB;
-	Wed, 19 Aug 2026 04:26:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A0051F000E9;
-	Wed, 19 Aug 2026 04:26:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787113593;
-	bh=ErXhuF7Ai0HjSZoqnrXxUkmbIHJi9H6R6PaXpZbpqo8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=HP/FhzWrZM/gW/b1/4S+hPZV/UUhvHOVRU9y/oPMh6xm+RSso2zgpuDCOdv845s8H
-	 rXfygICJPI8sGR2CL4dH8vioHozWiQxCYfBYpaLqs3KG1PXEMV6v3kmf9ygq5jTku7
-	 c3ylCiMuymfYijX0bgI/IN2ESNyB9WWOLUbJuHUjoBssfOMQpSLrIyOOXSzAZuy4gv
-	 2H/IVWznWIF9S6/mRJw1r149c+jRhd8OwJW2aE7fQro71BjEpIVVDi0Ep4AiHIPluC
-	 6tkGckiALH3WNje2xGiVdoEFX0wkfaC+T8uZxfd9aXTwBHUjS825qJQjXvEhq91ScI
-	 S6gg6txu8064Q==
-Message-ID: <46936686-3bdd-4d36-9124-e8d3376ad5ea@kernel.org>
-Date: Wed, 19 Aug 2026 06:26:28 +0200
+	id 1wwYJ9-00000008zd4-36lP;
+	Wed, 19 Aug 2026 04:53:49 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 85362107AE6;
+	Wed, 19 Aug 2026 06:53:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1787115213;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=c4xs5RT8u9h6JXPgD+W9cpvSw000rGM/Suoj6WVsp9I=;
+	b=jXLHRfRARDuSTChCOAmU2yG9xCI2B9rFHhA9zXkIa7RGh/vK1f3YZm/uvAIW2fhIV3VT81
+	OlJFZAGXEMkDVVzzXwUlo1GQ8iVEgtohyciKVEwpiBsUxYqORK1RxLfLjOmU9d3Nd/PB4h
+	XJsx97Hb+wBrLqZ6w2BSrRnUgBeUYZ4qX215ZM9bght/2DdOQF+pix4uwzX4K7VgM0+0Kv
+	qNE4NGC+4VP4wYT/0I3pvxo7qGwWfNXRLhpFOXCv4yEyc1Va4IVJ8QkNhGJ7SFQ9NdJODV
+	DivLj/nAEVL2NnYJ2i9RWy+dPFW/bo0ITym7lBZntOxW86lEZXkDc9nEFYlxaA==
+Message-ID: <272be90b-7127-457f-90e9-7160169e2200@nabladev.com>
+Date: Tue, 18 Aug 2026 17:11:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] serial: imx: cancel RS485 trigger hrtimers in shutdown
- and remove
-To: Fan Wu <fanwu01@zju.edu.cn>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, linux-serial@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-References: <20260819021916.442827-1-fanwu01@zju.edu.cn>
+Subject: Re: [PATCH v2 1/9] dt-bindings: phy: Document ST STM32MP25 USB2-FEMTO
+ PHY
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-usb@vger.kernel.org, Pankaj Dev <pankaj.dev@st.com>,
+ Rahul Kumar <rahul.kumar05@st.com>,
+ Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Christian Bruel <christian.bruel@foss.st.com>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Rosen Penev <rosenp@gmail.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+ Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org,
+ kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20260816213849.1044073-1-marex@nabladev.com>
+ <20260816213849.1044073-2-marex@nabladev.com>
+ <20260818-imperious-thankful-perch-dcaa44@quoll>
 Content-Language: en-US
-From: Jiri Slaby <jirislaby@kernel.org>
-Autocrypt: addr=jirislaby@kernel.org; keydata=
- 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
-In-Reply-To: <20260819021916.442827-1-fanwu01@zju.edu.cn>
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <20260818-imperious-thankful-perch-dcaa44@quoll>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260818_215348_003884_011D68CF 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,29 +87,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19. 08. 26, 4:19, Fan Wu wrote:
-> The rs485 delay hrtimers trigger_start_tx and trigger_stop_tx are
-> embedded in the devm allocated struct imx_port, and their callbacks
-> reach the port through container_of() and touch registers under the
-> port lock.  Nothing cancels them synchronously: the tx paths only
-> call hrtimer_try_to_cancel(), which does not wait for a running
-> callback, and the bounded wait in imx_uart_shutdown() can give up,
-> force tx_state to OFF, and leave a timer armed.  After
-> imx_uart_remove() returns, devm frees the port and a late callback
-> dereferences freed memory.
+On 8/18/26 10:09 AM, Krzysztof Kozlowski wrote:
+> On Sun, Aug 16, 2026 at 11:37:03PM +0200, Marek Vasut wrote:
+>> From: Pankaj Dev <pankaj.dev@st.com>
+>>
+>> Document USB2 PHY for STM32MP25 USB2 controllers, which includes the
+>> USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
+>> Two such PHYs in total are present in STM32MP25 SoC, they both are
+>> slightly different, therefore they use different compatible string
+>> to discern them.
+>>
+>> Co-developed-by: Pankaj Dev <pankaj.dev@st.com>
+>> Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
 > 
-> Cancel both timers at the end of imx_uart_shutdown(), after the port
-> lock is dropped and before the clocks are disabled, and again in
-> imx_uart_remove() before the devm free:
-
-
-> serial core does not call the
-> driver shutdown on every path that reaches remove().
-
-Could you be more specific on what path it does not?
-
-thanks,
--- 
-js
-suse labs
+> Please run scripts/checkpatch.pl on the patches and fix reported
+> warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
+> patches and (probably) fix more warnings. Some warnings can be ignored,
+> especially from --strict run, but the code here looks like it needs a
+> fix. Feel free to get in touch if the warning is not clear.
+I think I managed to fix that up in V3, thanks.
 
