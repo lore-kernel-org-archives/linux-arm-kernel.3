@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3ED1C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 21:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E30A3C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 21:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DpmVj5c9FDXQSwuSsbxK1L8of1AmrLOJ/cZ+cQrHX54=; b=qsB41mvOn6JGEo71XDG1YpgAPG
-	ewcYme3COH7oQ0hbHquK7TIAk44mhpnxOSaE48pP1oVHnz64ku8HVsMPKlQFzgVw+rOvj44OHUm67
-	qi5TbowJL2jLmUgUiL9Kg1DDK9QsNQOiK5ddNiE/65FvS3yX1cqHTlGhn6RI1o53aUrOcfJpuslPn
-	y8CL1ZxX2AuNsMa24D7in4d8giMrpUjHRAzZdj0McnINX3E5KRETEwEOHrrml7bDrvJifxQXcQ9WX
-	zCPRbjPjsncmzESkgWHin4WHKSezZkYfGPnCk6CC8s2FYb7Arx1zNPhoG1vWAUmU4MZa10YownPGz
-	opThTC1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=B95cKjQWsqBbQPgbTg3P0us13r8FUUR+W+PVMNJEgSE=; b=RgjmJutrnQZkIohEngXO2e8gdQ
+	Ud4dYQfuSbv6CZ2NIF4zGgtbZ6iQmV/M7r+JhTUGurYsNpFfpgcqQ8KjbqEtvU8sq6fhFgeLOXkXi
+	40c+ViwKv7wmBuWTCf6QeN4f+4k4py/LpkcryRHbFe2uT8K0JtBO3EEJ3wSHwliHpLU5q/kNAzRE7
+	SToAxUR3rKK9Z8Yw3Dx2MuulGs9Q+SbxL0vLJ6vcOUlSZWmw+Rn1jNQYaFd/4PucCz2Ty6M5u4iib
+	p9IKEZCXdnu1CxjYh4L+Lfi6C+YIlvgC4z+MmKLfylWZuoVcxcSrzl5ZDCjPAVkG3uagnlVoUtLCt
+	Qkz2viVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwRaa-00000008gxv-3Nhk;
-	Tue, 18 Aug 2026 21:43:20 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1wwRay-00000008h4V-0ZwL;
+	Tue, 18 Aug 2026 21:43:44 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwRaX-00000008gxN-1BtQ;
-	Tue, 18 Aug 2026 21:43:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1787089379; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=R1G8loKEMmQgzBe9C8b6zMyzqfX1/4AwdWB/Sed7saPCbbb5AJ1w2bfRjaOxkT0k1TBvEcc2oEmyUyTsNMdI8Phm2NcIAh7ypJgfYcj82MG1VlDgfkS91sGe6+JPRbqnuWuVj8eJT3tUYgIhltGYMeCM9UvQFdlGGJCfMkqvhaA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1787089379; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=DpmVj5c9FDXQSwuSsbxK1L8of1AmrLOJ/cZ+cQrHX54=; 
-	b=WmKuFoJbFK0zNMA+rIz0rvuCYT5grWtdUpzoLpsjOlcBjadqk9DuahFhWJU3JSJY7WisfrbNn8aDKtTSyB/C3qjU1M8Svhih2Rz43dO43PXbShJQGrdTOsbcYis/IBNfY2RUJgJ0JRNwki/oWUBgVLZBKmBW6DTMYSOjLFNImpY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1787089379;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=DpmVj5c9FDXQSwuSsbxK1L8of1AmrLOJ/cZ+cQrHX54=;
-	b=EATAvhGjB0BxlGsm+l29SdEaUqqx/UzPjLLQYionr+lI6JBS518mBhoqoQDUlDpH
-	uoijmrTaLxXjR0zjXhhAM7w8DcArp/97HlffwENaSaj5bTGeCddzxwAP8Rg0Ox22vnj
-	kdk3f7mNSWckQ2aigReGzhXzXeuUr2LYsg4Wjxr8=
-Received: by mx.zohomail.com with SMTPS id 178708937710788.45877915239339;
-	Tue, 18 Aug 2026 14:42:57 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 030B6182034; Tue, 18 Aug 2026 23:42:51 +0200 (CEST)
-Date: Tue, 18 Aug 2026 23:42:50 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Frank Wang <frank.wang@rock-chips.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Yubing Zhang <yubing.zhang@rock-chips.com>, 
-	Alexey Charkov <alchark@flipper.net>, Igor Paunovic <royalnet026@gmail.com>, 
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com, 
-	devicetree@vger.kernel.org, linux-usb@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>, 
-	William Wu <william.wu@rock-chips.com>
-Subject: Re: [PATCH v14 00/38] phy: rockchip: usbdp: Clean up the mess
-Message-ID: <aoTMQtpYYw8O-3cj@venus>
-References: <20260813-rockchip-usbdp-cleanup-v14-0-b5ad9c68fa11@collabora.com>
- <h54c2hrcsv3zjzzgojzf5sjmu3vtpobz6rwloam5kp7mwqqn3n@bqjnlellvnz6>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lb64huk2f3isbo5n"
-Content-Disposition: inline
-In-Reply-To: <h54c2hrcsv3zjzzgojzf5sjmu3vtpobz6rwloam5kp7mwqqn3n@bqjnlellvnz6>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/287.68.66
-X-ZohoMailClient: External
+	id 1wwRaw-00000008h3q-0Myo
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Aug 2026 21:43:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787089422; x=1818625422;
+  h=date:from:to:cc:subject:message-id;
+  bh=xA5hgefXc9huRw42UI/aoy86uTSMH0PtzqZdzEJiCtc=;
+  b=bKVP3lEIUbdxsiHXFxVO2ioyPInOkYahfuoUWEOjNalUn4bEsGjc2bSa
+   sDivtS/pEaNWlHHtG1A9FXALrzdav4CyN52HhItJNT+xF3Goi5oAHHRPL
+   PFsS1vgQ5XffYSfrUtKJAbGQndqh92LAyMxeyXHA44NDBSrsic5S6aPL3
+   gGzJJT50Yh8AyzpaAnV3kqvu5uJgpSm/3XtYHT0bfs4qL41oETLAz4Xp8
+   kY7xDzwOid6jqnnLt0HpApBdACZ4g/pl1vZ8uQNExEVrXlYDEXonFwR+u
+   GjotP9F0eyggmhAMAuWeuw7x0FKMVnZqKcSZS/dyt11zlzRZoe5YnvZ8m
+   w==;
+X-CSE-ConnectionGUID: iCLuJFxAQbu/D3hLTbSVKg==
+X-CSE-MsgGUID: 3KQM/BOlS3S1iGOpMJPafg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11879"; a="86552166"
+X-IronPort-AV: E=Sophos;i="6.25,230,1779174000"; 
+   d="scan'208";a="86552166"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2026 14:43:41 -0700
+X-CSE-ConnectionGUID: EgUUcdqTRMmXUoS6eO9/uA==
+X-CSE-MsgGUID: yKDW92qWSbeHsPeABJH9Gw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,230,1779174000"; 
+   d="scan'208";a="290166609"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 18 Aug 2026 14:43:39 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wwRar-00000000ebO-1h5W;
+	Tue, 18 Aug 2026 21:43:37 +0000
+Date: Wed, 19 Aug 2026 05:42:56 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:for-next] BUILD SUCCESS
+ ae77d827fb0e6fb2faf8186f075c6c337f2dcf08
+Message-ID: <202608190541.BGdGpcTF-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_144317_387659_C7A6D6B8 
-X-CRM114-Status: GOOD (  29.32  )
+X-CRM114-CacheID: sfid-20260818_144342_168342_87072A9D 
+X-CRM114-Status: UNSURE (   5.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,83 +83,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: ae77d827fb0e6fb2faf8186f075c6c337f2dcf08  soc: document merges
 
---lb64huk2f3isbo5n
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v14 00/38] phy: rockchip: usbdp: Clean up the mess
-MIME-Version: 1.0
+elapsed time: 1472m
 
-Hello Mani,
+configs tested: 81
+configs skipped: 107
 
-On Tue, Aug 18, 2026 at 11:27:07AM +0200, Manivannan Sadhasivam wrote:
-> On Thu, Aug 13, 2026 at 10:51:43PM +0200, Sebastian Reichel wrote:
-> > This series does a major overhaul of the Rockchip USBDP driver. The
-> > initial main goal was to add USB-C DP AltMode support to the RK3576
-> > and RK3588 and this series still prepares the PHY driver for exactly
-> > that. But in addition to that I uncovered a huge amount of issues,
-> > that are fixed along the way. Some of the more interesting ones are:
-> >=20
-> >  * Currently the driver might trigger a fatal SError on USB-C hotplug,
-> >    since re-initializing the PHY stops the clocks going to DWC3. If
-> >    the DWC3 driver tries to access its registers at the same time the
-> >    system will crash.
-> >  * The DWC3 hardware can get into a buggy state when the PHY is
-> >    disabled, which results in the PHY not coming up properly again.
-> >  * Swithcing the USB-C connector orientation during hotplug breaks
-> >    USB3 speed, as the PHY is not being re-initialized.
-> >  * The code always enables DP mode when USB-C is involved.
-> >  * The driver has some locking issues uncovered by Sashiko.
-> >=20
-> > In addition to these bigger ones, Sashiko also found a bunch of
-> > minor problems, which are mostly harmless, but were fixed while
-> > going at it.
->=20
-> 38 patches for a single series is too much to review. Please
-> consider splitting it up into multiple series not exceeding ~10
-> patches per series. Thanks!
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-So let me summarize:
+tested configs:
+alpha                            allnoconfig    gcc-16.1.0
+alpha                           allyesconfig    gcc-16.1.0
+alpha                              defconfig    gcc-16.1.0
+arc                             allmodconfig    gcc-16.1.0
+arc                             allyesconfig    gcc-16.1.0
+arc                  randconfig-001-20260818    gcc-10.5.0
+arc                  randconfig-002-20260818    gcc-10.5.0
+arm                        at91_dt_defconfig    clang-17
+arm                  randconfig-001-20260818    gcc-10.5.0
+arm                  randconfig-002-20260818    gcc-10.5.0
+arm                  randconfig-003-20260818    gcc-10.5.0
+arm                  randconfig-004-20260818    gcc-10.5.0
+arm64                         randconfig-001    gcc-14.3.0
+arm64                randconfig-001-20260818    gcc-14.3.0
+arm64                randconfig-002-20260818    gcc-14.3.0
+arm64                randconfig-003-20260818    gcc-14.3.0
+arm64                randconfig-004-20260818    gcc-14.3.0
+csky                            allmodconfig    gcc-16.1.0
+csky                 randconfig-001-20260818    gcc-14.3.0
+csky                 randconfig-002-20260818    gcc-14.3.0
+hexagon              randconfig-001-20260818    gcc-10.5.0
+hexagon              randconfig-002-20260818    gcc-10.5.0
+i386                            allmodconfig    gcc-14
+i386                 randconfig-001-20260818    clang-22
+i386                 randconfig-002-20260818    clang-22
+i386                 randconfig-003-20260818    clang-22
+i386                 randconfig-004-20260818    clang-22
+i386                 randconfig-005-20260818    clang-22
+i386                 randconfig-006-20260818    clang-22
+i386                 randconfig-007-20260818    clang-22
+loongarch                          defconfig    clang-24
+loongarch            randconfig-001-20260818    gcc-10.5.0
+loongarch            randconfig-002-20260818    gcc-10.5.0
+nios2                           allmodconfig    gcc-11.5.0
+nios2                randconfig-001-20260818    gcc-10.5.0
+nios2                randconfig-002-20260818    gcc-10.5.0
+parisc                          allmodconfig    gcc-16.1.0
+parisc                          allyesconfig    gcc-16.1.0
+parisc               randconfig-001-20260818    clang-24
+parisc               randconfig-002-20260818    clang-24
+powerpc              randconfig-001-20260818    clang-24
+powerpc              randconfig-002-20260818    clang-24
+powerpc64            randconfig-001-20260818    clang-24
+powerpc64            randconfig-002-20260818    clang-24
+riscv                         randconfig-001    clang-18
+riscv                randconfig-001-20260818    clang-18
+riscv                randconfig-002-20260818    clang-18
+s390                 randconfig-001-20260818    clang-18
+s390                 randconfig-002-20260818    clang-18
+sh                                 defconfig    gcc-16.1.0
+sh                   randconfig-001-20260818    clang-18
+sh                   randconfig-002-20260818    clang-18
+sparc                randconfig-001-20260818    gcc-11.5.0
+sparc                randconfig-002-20260818    gcc-11.5.0
+sparc64              randconfig-001-20260818    gcc-11.5.0
+sparc64              randconfig-002-20260818    gcc-11.5.0
+um                   randconfig-001-20260818    gcc-11.5.0
+um                   randconfig-002-20260818    gcc-11.5.0
+x86_64     buildonly-randconfig-001-20260818    clang-22
+x86_64     buildonly-randconfig-002-20260818    clang-22
+x86_64     buildonly-randconfig-003-20260818    clang-22
+x86_64     buildonly-randconfig-004-20260818    clang-22
+x86_64     buildonly-randconfig-005-20260818    clang-22
+x86_64     buildonly-randconfig-006-20260818    clang-22
+x86_64                                 kexec    clang-22
+x86_64               randconfig-001-20260818    clang-22
+x86_64               randconfig-002-20260818    clang-22
+x86_64               randconfig-003-20260818    clang-22
+x86_64               randconfig-004-20260818    clang-22
+x86_64               randconfig-005-20260818    clang-22
+x86_64               randconfig-006-20260818    clang-22
+x86_64                        randconfig-071    gcc-13
+x86_64               randconfig-071-20260818    gcc-13
+x86_64               randconfig-072-20260818    gcc-13
+x86_64               randconfig-073-20260818    gcc-13
+x86_64               randconfig-074-20260818    gcc-13
+x86_64               randconfig-075-20260818    gcc-13
+x86_64               randconfig-076-20260818    gcc-13
+x86_64                          rhel-9.4-bpf    gcc-14
+xtensa               randconfig-001-20260818    gcc-11.5.0
+xtensa               randconfig-002-20260818    gcc-11.5.0
 
- - Vinod wants Sashiko feedback to be acted upon
- - linux-phy does not want series with dependencies ( [0] )
- - You don't want series with more than ~10 patches
- - Generally fixes should be at the start of a series
-
-This tremendously slows down any real work. The first series would
-just be Sashiko fixes without *any* of the work I originally wanted
-to do (DP AltMode). I would have to wait for it to land before
-working on the next bits as there are massive code conflicts with
-the same file being heavily modified. This simply does not scale,
-especially when considering that there are more dependencies on this
-series.
-
-[0] https://lore.kernel.org/linux-phy/20260330233532.ulnqiqrogezswht2@skbuf/
-
-Greetings,
-
--- Sebastian
-
---lb64huk2f3isbo5n
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmqE0dMACgkQ2O7X88g7
-+pp1WA/9Ehn7r1EMjla99QJRa2MMoOYd+t/cIFPVNbsUDA6t9qfCwIGxmOawRoog
-uUDXe/RqRp5xObb+2jSPMuvb3jelMPX+1357dxVoYaqsmrvPG6jSEjjBFtf4z++7
-62Ws1nWgH0YR1XO45vFBsrNCNv3ELThj/FALxPQmU0pZ/x/7bizhTQtx3PEHW104
-kT+171AqELAfbpfUMM7lYcHHIy8D4hSy0Ah66RFTNpWl1obZCUCFL1B0zuDANnMJ
-CAjqkPtwoJPpVaKRlY2h1YB5JREpQNfJCUl4XVPZ5Tuia+BOF5mvegHPXhU1F+ZT
-lasrChZQHYnkJNOl7EDgMaYpKnc3bJbxagtA1Q3IbqdRZA3jm8GrWH6dLhq9Pdr6
-kFsnhDJo5omh7AskYgm1uZ6ZL6ve/d+BUYS5Bkku8SJNbAb8eLqR20ntn45rDBIH
-29NMHJ9OQ8DKzJ7dxW3x19A6RuLTCHsVd6cQgTqMbgkVgrQehq4ivCMBuPwrpBZO
-fglWS7cNZGv+KYDnEJo9K2KrUOtyHfOYAjdbsOwQEyntf0QxDNtMoQ89LzIyJM7m
-nUsBRW1ZxNJ3NvHrC+580iDz5c+F0yTRwv7LeUNcwcp8SF9+hBEme+EQL4Vid9lH
-TrH9qhoHr/d7ZyZOOtQ4a3vRzVbBN4+cmrWofzpBfmyI7XtjNKU=
-=cryx
------END PGP SIGNATURE-----
-
---lb64huk2f3isbo5n--
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
