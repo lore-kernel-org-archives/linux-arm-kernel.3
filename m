@@ -4,73 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8C6C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 13:27:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43DABC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 13:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Subject:From:
-	Message-ID:Reply-To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=s/R8YXq/jdT0RMiTQ8drI7mqnf4rvZtAc7EKvxishIU=; b=QE3AkalllXFIq1N/S4dFMgtRy2
-	jtiTt90oSxBoYKxWstmCPiw55UbdF0Kg5ohP09j6HKq4mPT6eflgEfJ7YKweDrDjxwfizzWN5W9vE
-	zbs6wk3Ihq06e76+wNhjUc8d/NMhOU7oLyPrAnWfCGQHkitD7CUE20yDDiM3l/PdtuYWQ2LrUSW8I
-	bgnWPNnNjnYRsp8CVAqKYwTGnwpfXQ/MEMJraCwD+ZYq6uyUdTA42rQtmyvjTZq8m/eBfsdPm+PpZ
-	qkR+YeKi2+GV20btmFgX0wq8gFvKbkhSR7/EdnXIry1ihqprcvnZjPCtqkwon+t2/4NBCai1C09mK
-	x4p9jkNg==;
+	bh=fRt75Cw0D3zOWFN+00SWJIuIxB+ErtT9mg4MKtDgEDI=; b=UGRtoMwKuiQOVp9LvuT5PXZYIT
+	0F/ta5mZJHVP5KhiKei8J9L4ODaXxYG3fvHh9Dvrq5prfWt2W6e2caXkmzcLIagY/UYnUQF9MlTrc
+	a16jub3Qre9aHp9OuI8brvmQf3jcnscEWM/HiaVvnOMX6GyTyph/b/GTo63lPpgSA+YjJ8fxmLtrR
+	lphlXYFw7NU0Q2VPyBCX/kc+ucG6YNLiqDm26O5v6KKfwNYIQdTQ79lCKbU2IePJu6ymlJzkDKdR/
+	tThtXoLYxdaTD7RhW1aSu13xbtOWirNRjgaLUfP3njkX/XIIjMnu2LMOaxhEbwvlmMlIyKHbr7Jfy
+	ULnvlTng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwJqe-000000082pM-2w9s;
-	Tue, 18 Aug 2026 13:27:24 +0000
-Received: from out203-205-221-191.mail.qq.com ([203.205.221.191])
+	id 1wwJqw-000000082t1-3nQ5;
+	Tue, 18 Aug 2026 13:27:42 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwJqb-000000082oa-2w0k
+	id 1wwJqt-000000082s1-3Bqd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 13:27:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1787059639; bh=s/R8YXq/jdT0RMiTQ8drI7mqnf4rvZtAc7EKvxishIU=;
-	h=From:Subject:To:Date;
-	b=xiUN4Jd1ADYVR8XZnCGBqxbG71It9pEl35XhtUQ5fj0L4d/6NoigOkVUwEGRh6Lp+
-	 FKD0suRdv8QD8uEo/QonWqoI7Ubw9n/vPg8UCcAGiR/wbPnz2dVw2/mZq4QroT000g
-	 ArEcEU8uBC3K2Xk0IR67fMgKy3vxKUUsBxiKC/Co=
-Received: from [127.0.1.1] ([5.195.0.150])
-	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
-	id 1721C6D8; Tue, 18 Aug 2026 21:05:50 +0800
-X-QQ-mid: xmsmtpt1787059545td7dssfc9
-Message-ID: <tencent_3AEE86932EE0F9AF7D6549FD705139A4AF06@qq.com>
-X-QQ-XMAILINFO: M1rD3f8svNznooasm1iYEna7Z8uUEc4a65tvmBXCMCAMXEfgiwRn6Bjzdsh428
-	 8LlfZ0T531NmyK3xWhGJd//wcZKx03zpyhsjz+CUVDuUSSZkrZG9CrvdqditywmTkVsmFfGfXKDP
-	 Qqo2vY1MsOSvWJ7c7777sgkP94zoezKMUXCa3cNU22iLStcwK9veFs5CaIhNthzlS7T3ndrI0ZZ3
-	 B0aTU9IQW4cmJxL4vrljpQZb7kt+nBsmNHiSZ7GCip2N4Q92Jo7RvLJXa8n359pcDOgvG/2H3Tec
-	 +DGBTOxiy+Lbkyl31iDiCd0HKlRs3pgiEXhFlbyIlVQhCe07IUYqrypKgAxdwsyleH14/I6YXNl7
-	 0zbcaViu2qjnZXKnAg23ym876sCW38OXXiM+OEBNgXrPdgJrMPLHSv9SpfrEgRsIcHcHlPAL/bzg
-	 HYBs0/jWAubBQyrYleFnEU3PVe1qOvDRKelMmz+sUubTapMnmQB5X/sLAK+s/22Q666SyiF/fVm8
-	 n56pnJSXJZ6GgPP4/bzOyFXfaTfmx7dFvSfPU0m6B1vhjwSoH7/yL3OAwo9gnCcNgZqXp4Aawkfg
-	 ZXfS4VCJr1Fc6gsfcDpVdaPe+1jc6LBmXImZUTeYdX3Ke7mVZ0K9MvNR34/L/C7ToAAYc2gkI7g2
-	 Cdz8SEvJGztW7kbQxjeUfs7wlj3OCGCdiDrjZ9LSpzFcYG2ce98HNdPbBoEysfb2E56cqLb5TEp7
-	 twb5hep6d8KolJcl90RkYIVGo/19lpptVVpgg9fAAxy+NlUfILi8AJsYzA81wQXvzu6KVeKfKoZK
-	 GrN1aJsS0ZcqXKtA7y8i7vo2mE4njU4xF9YTpAUd7Twp4TkmlRE7Vm/hyUCF4SSL7uw09moIp2+w
-	 UzPv+KnMHlaPxquxM8IUewXFPsdkISmi0KhOlydTIQe8e213gDa7wGyFKNdjlFiGgPHZIVpEgw3E
-	 StLBcSMB2PO3T66SamCODQSy/mi8eXtfuB7YLV9CYD7QfLztXQXBSdMBKI5nKPdriep31NygPNLL
-	 GgVN7Z1AhMeMItczdDa3TInBwmBUmy1bbB+yKhZW1VT9YpQAKzREUMiJ6wYTk=
-X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
-From: Jiawen Liu <1298662399@qq.com>
-Subject: [PATCH] drm/sun4i: frontend: fix clock leak on reset failure in
- runtime resume
-To: Chen-Yu Tsai <wens@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Date: Tue, 18 Aug 2026 17:27:15 +0400
-X-OQ-MSGID: <178705963597.291840.3745581396856240806@qq.com>
+	Tue, 18 Aug 2026 13:27:41 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4955aa106b1so42252245e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 06:27:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787059658; x=1787664458; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fRt75Cw0D3zOWFN+00SWJIuIxB+ErtT9mg4MKtDgEDI=;
+        b=mnPY6m1SAEjmIQFCP73ME2NZOSn4aDKjtqtKGk/3INZ631H3aeHnhlXBoft+asXL/R
+         KYtdYC0cHnFdRo/iP616IUCqhKiJMytZYu3a3clVvuWhcL2CCFIfJr28llJt+jRdpKj4
+         q9Pcj2QcVVYqIwJAxvVG3RZdI5UiAZkwp/o8CUswz9m56MErNtxN9vq7SUpuRyV/8odP
+         S8e197Ajo6IXSQhUwOxj0swX4dNOwKNPiy6cUNwTQGZCPMK0Q9rGV+CmCH6WrHrYfLAR
+         t1XIW0lZPqq0vBXj04IBwb/NQ5UJhD9HUickCKHu8aoC5CCnCycN3AumRUHs2/eeW5YY
+         HbXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787059658; x=1787664458;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fRt75Cw0D3zOWFN+00SWJIuIxB+ErtT9mg4MKtDgEDI=;
+        b=iTwz058BgFCA69qG/iqeltqGPfU96CjltedvMSBHmWmwNc3gL1uLvV87TFMgowyqwD
+         kdEFBH+zvdSmm6LakPcUlZRwX8jTvUnB+YSZ+Qo//1vNniY8PbeC7DRZefImJTLgHxow
+         h385HaYNIlnT1RQldZyXc4J2U53MtYaE6osiuy5UVJqzd2RvbVlXJs6BfTWi/vqPfB/I
+         785GHK1XeR5EftFXBsa7ZqbKT33ruAjIELnvF4QMOPFDHKyCEPFF4rAyuEOJ+wJF8YZo
+         8QF1NWnpEh9ysBRKGBOpX0kKfbpeTbkE+p8BabEZ2DINY8ZH8MG/sLM4eYelpvmfzn35
+         plXA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr3QwPM3ZGS3bPzSyE3iGehym6KHajrjrUcrwUqdaP1ybVuh1BlpIHnJMgx2CEdGuwLCW51CZwAN3eWW56ZwRuP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhjhqXEyokI9w1K1LnZ0+6OnxUkih66zbD3m6ak8ZQwmsyvjvH
+	dYQDS0qc4pPVl9EqR6rTYUe8HN91q4HYeoVngGeBRZm0RZKZvj8xVfIJ
+X-Gm-Gg: AR+sD11Y0PaMhvqKha+Ao8Bvba1Wz/sUzdUEndVmHvSYdpNIA3DaAsYyemYSnt8mMHf
+	6/6Akd4DspcjsnVV29xvKoLHf83TOmbQSLIKLCc4TZHDDIolFX291DAOzXZ+tmAuRJCFDRMiH+N
+	A6Co4z8k1epPHihTyjzCTKc0ByCk5dqAMwU2+HkaCOCQcHfbfFLuXvc1YyiQloNi0dEB9Ax0l58
+	5ALxExuM7AxjDT6PuZBUNvIiLo+hZPhaG10A8s4K909OL6J5uxzwKc/7vukHZkgkcPTjvWwLg84
+	QlIvYR4ptI6fSZSUzCya3tKtCZMgeaQowdvs+BOf4s/g6esye19aRORj8GSlqHYPjbGILLLm+O4
+	ZqH/x6mvuRJxuGmXIz9xS5JsccPPYG/pO4CQu/mbrMapsOZpv2kDXFDDPrEcrh132tSADuEswNs
+	Rv6eKzEtdoJnHFkztdzSXe4kC2ASIb3VrT147IdSbmajcO0U54wprkEdrHmU0=
+X-Received: by 2002:a05:600c:5286:b0:499:621a:2ec2 with SMTP id 5b1f17b1804b1-4998933fd79mr572811735e9.3.1787059657466;
+        Tue, 18 Aug 2026 06:27:37 -0700 (PDT)
+Received: from server227.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482a5a7c568sm12140145f8f.18.2026.08.18.06.27.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Aug 2026 06:27:37 -0700 (PDT)
+From: Zxyan Zhu <zxyan0222@gmail.com>
+To: maxime.chevallier@bootlin.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	andrew+netdev@lunn.ch,
+	richardcochran@gmail.com
+Cc: davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	muhammad.nazim.amirul.nazle.asmade@altera.com,
+	Zxyan Zhu <zxyan0222@gmail.com>
+Subject: [PATCH net-next v3 0/2] net: stmmac: dwxgmac2: timestamp interrupt + Agilex5 fix
+Date: Tue, 18 Aug 2026 21:27:20 +0800
+Message-Id: <20260818132722.1852876-1-zxyan0222@gmail.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_062722_055842_BF090268 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260818_062739_822370_CF77457A 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,61 +107,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sun4i_frontend_runtime_resume() can fail after enabling the bus, mod,
-and ram clocks if reset_control_reset() returns an error. The function
-previously returned without disabling those clocks, leaking them and
-leaving the hardware in an inconsistent state.
+This series adds auxiliary snapshot (EXTTS) interrupt support to
+DWXGMAC2/DWXLGMAC2 and fixes a regression it would introduce on the
+Agilex5 cross-timestamp path.
 
-Check the return value of each clk_prepare_enable() call and unwind the
-clocks that were successfully enabled on any subsequent failure,
-including reset failure.
+Patch 1 wires up a dedicated DWXGMAC2 timestamp interrupt handler.
+Before this change the XGMAC hwif entries used the generic stmmac_ptp
+ops, whose timestamp_interrupt callback read the dwmac4 offset
+GMAC_TIMESTAMP_STATUS (0xb20) instead of the XGMAC register at 0xd20,
+and XGMAC_TSIE was never enabled, so auxiliary snapshot events were
+never reported on XGMAC platforms.
 
-Signed-off-by: jiawen <1298662399@qq.com>
----
-diff --git a/drivers/gpu/drm/sun4i/sun4i_frontend.c b/drivers/gpu/drm/sun4i/sun4i_frontend.c
---- a/drivers/gpu/drm/sun4i/sun4i_frontend.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_frontend.c
-@@ -647,14 +647,22 @@
- 
- 	clk_set_rate(frontend->mod_clk, 300000000);
- 
--	clk_prepare_enable(frontend->bus_clk);
--	clk_prepare_enable(frontend->mod_clk);
--	clk_prepare_enable(frontend->ram_clk);
-+	ret = clk_prepare_enable(frontend->bus_clk);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_prepare_enable(frontend->mod_clk);
-+	if (ret)
-+		goto err_disable_bus_clk;
-+
-+	ret = clk_prepare_enable(frontend->ram_clk);
-+	if (ret)
-+		goto err_disable_mod_clk;
- 
- 	ret = reset_control_reset(frontend->reset);
- 	if (ret) {
- 		dev_err(dev, "Couldn't reset our device\n");
--		return ret;
-+		goto err_disable_ram_clk;
- 	}
- 
- 	regmap_update_bits(frontend->regs, SUN4I_FRONTEND_EN_REG,
-@@ -664,6 +672,14 @@
- 	sun4i_frontend_scaler_init(frontend);
- 
- 	return 0;
-+
-+err_disable_ram_clk:
-+	clk_disable_unprepare(frontend->ram_clk);
-+err_disable_mod_clk:
-+	clk_disable_unprepare(frontend->mod_clk);
-+err_disable_bus_clk:
-+	clk_disable_unprepare(frontend->bus_clk);
-+	return ret;
- }
- 
- static int sun4i_frontend_runtime_suspend(struct device *dev)
+Patch 1 also unmasks XGMAC_TSIE in XGMAC_INT_DEFAULT_EN.  That makes the
+new handler run from hardirq on every XGMAC timestamp event, which races
+with the Agilex5 smtg_crosststamp() poll loop: the handler clears TSIS
+by reading XGMAC_TIMESTAMP_STATUS before the poll loop in process
+context can observe it, so getcrosststamp() times out.  Patch 2 fixes
+this by masking XGMAC_TSIE for the duration of the cross-timestamp so
+the handler cannot steal TSIS while smtg_crosststamp() owns the
+snapshot FIFO.
 
+Patch 2 has been verified on Agilex5 hardware: with both patches
+applied, smtg_crosststamp() no times out (no "Wait for time sync
+operation timeout" in dmesg) and the PTP clock registers and operates
+normally.
+
+v1: https://lore.kernel.org/netdev/20260806-dwxgmac2-timestamp-irq-v1-1-c051c79c9d90@gmail.com/
+v2: https://lore.kernel.org/netdev/20260810100221.9166-1-zxyan0222@gmail.com/
+v3:
+- Add patch 2 to mask XGMAC_TSIE during the Agilex5 cross-timestamp, so
+  enabling XGMAC_TSIE in patch 1 does not break getcrosststamp() on
+  Agilex5 XGMAC (reported by the netdev sashiko review, fixed approach
+  discussed with Maxime).
+- Patch 2 verified on Agilex5 by Nazim Amirul (Tested-by tag carried on
+  patch 2).
+
+Zxyan Zhu (2):
+  net: stmmac: dwxgmac2: add XGMAC timestamp interrupt support
+  net: stmmac: dwmac-socfpga: mask XGMAC_TSIE during cross-timestamp
+
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   | 11 +++++
+ .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  2 +-
+ .../ethernet/stmicro/stmmac/dwxgmac2_core.c   | 43 +++++++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/hwif.c    |  4 +-
+ drivers/net/ethernet/stmicro/stmmac/hwif.h    |  1 +
+ .../ethernet/stmicro/stmmac/stmmac_hwtstamp.c | 12 ++++++
+ .../net/ethernet/stmicro/stmmac/stmmac_ptp.h  |  1 +
+ 7 files changed, 71 insertions(+), 3 deletions(-)
+
+--
+2.34.1
 
