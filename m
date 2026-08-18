@@ -4,85 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCB1C5DF74
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 14:13:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C87CC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 14:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Cqfq6txhZErfhbyj7xjA3Rbs/jkv6MSn+BaaqatuCE=; b=YYZRvkueQxAvUKD/4TR2pDBcsK
-	0MEOJpzXVZ3Buh9xT2PSvxG96T8yI1UqgFuAwqSSROWIaNFztErmDP14UjXBX3/olfd3uNdsuZizM
-	bCBsPOpCylZ8vdmN/muk8djI2yLvx3J542hzbadIV5szHnZNBXx978ITxOt9jBoTJVJiRyHUeOuAn
-	KH4JDHhKz7xOPHPwunI8hBNm0DI23L5sX3RI58E4FrrzNnx4ldWU9ujqhixccIXi3eiMH3dh3dWt1
-	BADuQYeO29E1xExJe+0G4iTvG++in+xnBnJckeYBuqq+tsC9+54IojrkvDiNaF2LNjj2av1bK7cHa
-	+UyPu7JA==;
+	bh=3GGCDtHoSJ0Nxzd5K3g4Rn7pndoxkDIAt/HAFcA8P/4=; b=qizPZMVGqlPwj/uECjPo5Um8cF
+	cRJNmLbUnJQsdDcivFFI8uzLdGc7Hm2P0zmBn5UdxdFrBlk8kMm+RO620fKJ1i+1ubN5q9RZcJ96N
+	4xhF8e9D0vkDpNlagKQztU5W73mi2Ay8ErEqqU7lwDvg1St7x9d8kMc38Y/0U9/P61qNgoZ6+Oup1
+	rju/3oKbZHav2Dyx9dD5wpvZ0RrLeFR8rl6hgmKTvBR3kP2qmCFAS5+V21m3XzDCfbSl7044vUMM6
+	nt/oaiVWYBTVbfY30l4d6QJY2H1mXPfra+F8EotNlADqGqipbE+16hNZGciLC8T8i7ZDIaUH/sxNX
+	iU/fphzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwKZP-000000088bD-03pq;
-	Tue, 18 Aug 2026 14:13:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwKZD-000000088OT-0VfD
+	id 1wwKbF-0000000899M-0oAJ;
+	Tue, 18 Aug 2026 14:15:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wwKbE-0000000899G-1qM8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 14:13:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A5C1119F0;
-	Tue, 18 Aug 2026 07:13:22 -0700 (PDT)
-Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.2.208.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E129D3F85F;
-	Tue, 18 Aug 2026 07:13:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787062406; bh=sJbE8NLgwo2nj84nkxPSpL2i2LPH5XpUVTvG2CACATQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=pn0sG1iwAdXKOT8As39XdvEFBPfyHGDscQwApXXCbtq2hCt5N/+FYO6jVj/cRfp3m
-	 2Qnjopn7ObgQ/mbtudgsNE7BxrpFcbry2fUFK2Zl2gX3G5lmJ8SbOgH4LgJspRphpV
-	 +XRir/ROwBftafAib4c/ol4obZUqX+lrFOh17KvA=
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 18 Aug 2026 15:09:07 +0100
-Subject: [PATCH RFC v9 25/25] mm: Add basic tests for
- kpkeys_hardened_pgtables
+	Tue, 18 Aug 2026 14:15:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D071343432
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 14:15:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AA111F00A3D;
+	Tue, 18 Aug 2026 14:15:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787062531;
+	bh=3GGCDtHoSJ0Nxzd5K3g4Rn7pndoxkDIAt/HAFcA8P/4=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=H11o3exY/Ure3sH3nSTP1cOb+RRVfnSqa8lNJeRJuO5METKFHInDlT2vwERlIrZ9l
+	 ah6+/rHC3cmAqUl6u/94tMfuEZ09OSih+jT1gcMb9gHy2YNYzEskZ0hZn1NWiRYmSB
+	 Jsk7es96Gotr5C3p9EvKb9csv+X5Qks/EJRUcQKcL22bgte5mZr5KCEuBTzKcjgbtx
+	 crGz3zahOcClOeTOvbc+Ag3c30nuMIa5sw3YGBdRCQzmpNmIY92toYuzVuFaHBiw/c
+	 MXgKNnt0IVFCvN0ihG6cyDZ3dTOeQoO7sEqlcf4pC+zHUp+Ynu0bk1LCngXZhkmz0p
+	 A6bE8RkuvCKLw==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id D88FF1980083;
+	Tue, 18 Aug 2026 10:15:29 -0400 (EDT)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Tue, 18 Aug 2026 10:15:29 -0400
+X-ME-Sender: <xms:_2iEaj0o6mlBiAjvLk8xn0dOP9a5sTc5VUO7iKj54BqtU17AKBl8Hg>
+    <xme:_2iEas7DpFLD1KqCOSKVYa_nzljAo67zJCIOnXeo2koSVfPEoPVvoTDTUcqbiKNu-
+    fc3L5xo8bfk8-aDnFhVRyT2tKymbDBYk3cbn59-DNuAj1Ze_chEkVE>
+X-ME-Proxy-Cause: dmFkZTE5+Ljdf8AEVfTUNzLW1bowQTEYVKKlh2mBbWP+x+yNcPAoPfael8/iK7utKXPRjy
+    Eq2IR27RmW3cu0Zc9yh/F2marlrsiMXG+KRcczqZPtS4kysaID2bPckkrmQo5wNsQMrFtA
+    RjGFJIlHiHiNFSWAA056rvjLUdIU4h3xqdUCZ6fOUX86Y4ILsghXZRe9ZIxQDeWn/dalnH
+    GA6nhom5QLsw/DqtdF9LKn0aFwLGBoUoBP+2ce9dgC0h1x2iVTMKbv558EznxZ7LPzFxOa
+    HGdguMqXuJdCUkw/b5hwRpwizzBgFT/w5hWWJXoxOWnQajiI+XOEfcU+3N+oKNpwBjAiXr
+    BlMyCf+RzZEtZifz5rb7e9jGmEEnC+6EkV/d8iBqUTOkTTGolREX7G1kMBFb1cMgiMmpgn
+    HJwdffy28ZBaKIBstNCyrdNc7JsZEZruXZ2NVrY6T/p6Wx/TR6zKbrdjY1zejchvbq5QH8
+    2fwVGumWt201CyiEW6RXNPnpM9egiSufIbn/q2YQLt1/p+PvQ8VvKtdj+cmCAs0wi4BX+g
+    jIcZV5YzFVjFqnF0aKCaRDj4OOmv6frXJvLKKBP19IE0sytLN6MTM4LSYbI1n24vKoB1P+
+    fsBwSazdfQoR5eBB+TKKqI11JCWIvY9PlGpcT9I2bul2kgJHJRQxSsdkAhjA
+X-ME-Proxy: <xmx:AWmEap4BBIRi-rCyVjk5J33JNnDLYuCGpJhsRkhD_hlIfToSeX8Oyw>
+    <xmx:AWmEagTwNiJhaGS_XNvhhnMqYFJRAprUp1nfOi0PA5V5am0Hw2lDBg>
+    <xmx:AWmEao8Ht3ha4T3nlYR7phgdHq7N2DJxOY6W8_Ovck4-yr79EsJdAQ>
+    <xmx:AWmEahowxQwD0FuKdb7G2P2okHDL91aC9cw80fE3bqLuIFNvBWm60g>
+    <xmx:AWmEauXc0Vt9tffceu_kyzuJLUP1yBaolLYsfXP4MQ9ZoJz1WhOIIbxz>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id E0D83F80070; Tue, 18 Aug 2026 10:15:26 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260818-kpkeys-v9-25-743ad31b2c8f@arm.com>
-References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
-In-Reply-To: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
-To: linux-hardening@vger.kernel.org
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andy Lutomirski <luto@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- "David Hildenbrand (Arm)" <david@kernel.org>, Jann Horn <jannh@google.com>, 
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>, 
- Kees Cook <kees@kernel.org>, Linu Cherian <linu.cherian@arm.com>, 
- Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>, 
- Maxwell Bland <mbland@motorola.com>, 
- "Mike Rapoport (IBM)" <rppt@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, 
- Pierre Langlois <pierre.langlois@arm.com>, 
- =?utf-8?q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>, 
- Quentin Perret <qperret@google.com>, 
- Rick Edgecombe <rick.p.edgecombe@intel.com>, 
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>, 
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org, 
- linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>, 
- Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787062277; l=8176;
- i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=sJbE8NLgwo2nj84nkxPSpL2i2LPH5XpUVTvG2CACATQ=;
- b=/Y+TYwvWUK3vc0eahhukYehcUiD/3b33M9t3s/hJxjH6bh7B3GD/N9ACWMr4VtA5S/wl2fGS6
- WzlkzrrDe4tAwx5fOYQ1z3I8W1zmiXQ9VSvH0YRMMyCH8Gxo/v3UxiX
-X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
- pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_071327_315685_721B05DD 
-X-CRM114-Status: GOOD (  24.18  )
+Date: Tue, 18 Aug 2026 17:15:06 +0300
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Nick Desaulniers" <ndesaulniers@google.com>,
+ "Josh Poimboeuf" <jpoimboe@kernel.org>
+Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org,
+ "Song Liu" <song@kernel.org>, "Miroslav Benes" <mbenes@suse.cz>,
+ "Petr Mladek" <pmladek@suse.com>, "Joe Lawrence" <joe.lawrence@redhat.com>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Mark Brown" <broonie@kernel.org>,
+ "Kees Cook" <kees@kernel.org>, "Nathan Chancellor" <nathan@kernel.org>,
+ linux-toolchains@vger.kernel.org
+Message-Id: <efe4a3b6-6511-4c05-825d-d25de72839ed@app.fastmail.com>
+In-Reply-To: <CAKwvOd=Vn4L1sJ=8zVk9qcDLtaDYxfxn+0aG4tMrbETsqY5_PQ@mail.gmail.com>
+References: <cover.1786768375.git.jpoimboe@kernel.org>
+ <e5c957d816240e749a92588d4a9bb44da791f8e3.1786768375.git.jpoimboe@kernel.org>
+ <CAKwvOd=Vn4L1sJ=8zVk9qcDLtaDYxfxn+0aG4tMrbETsqY5_PQ@mail.gmail.com>
+Subject: Re: [PATCH 10/12] efi/libstub: Remove obsolete .note.gnu.property workaround
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,264 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add basic tests for the kpkeys_hardened_pgtables feature: try to
-perform direct writes to kernel and user page table entries and
-ensure they fail.
 
-Multiple cases are considered for kernel page tables, as early page
-tables are allocated and/or protected in a different way.
 
-The tests are builtin (cannot be built as a module) because they
-refer to multiple symbols that are not exported (e.g.
-copy_to_kernel_nofault()).
+On Mon, 17 Aug 2026, at 22:54, Nick Desaulniers wrote:
+> On Fri, Aug 14, 2026 at 9:45=E2=80=AFPM Josh Poimboeuf <jpoimboe@kerne=
+l.org> wrote:
+>>
+>> Commit e2179a09ab08 ("efi/libstub: Disable -mbranch-protection") added
+>> --remove-section=3D.note.gnu.property to the stub objcopy invocation =
+to
+>> work around a Clang bug where the note was emitted for code-less obje=
+ct
+>> files even with -mbranch-protection=3Dnone.
+>>
+>> That was fixed by LLVM commit a48f6079f288 ("[AArch64] Generate
+>> .note.gnu.property based on module flags") which was released with
+>> Clang 12.  The minimum Clang version is now Clang 17, so this workaro=
+und
+>> is no longer needed.
+>>
+>> On arm64, the stub also no longer builds with -mbranch-protection=3Dn=
+one,
+>> as it has inherited the kernel's flags since commit 8358098b9787
+>> ("arm64: efi: Enable BTI codegen and add PE/COFF annotation").
+>>
+>> Remove the workaround.  This fixes BTI on arm64, and is a no-op on
+>> RISC-V and LoongArch where the vmlinux generic NOTES macro discards i=
+t,
+>> and the x86 and ARM decompressors discard .note.* explicitly.
+>>
+>> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+>> ---
+>>  drivers/firmware/efi/libstub/Makefile | 6 ------
+>>  1 file changed, 6 deletions(-)
+>>
+>
+> I verified the above all looks correct.  Thanks for the cleanup.
+> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+>
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- mm/Makefile                               |   1 +
- mm/tests/kpkeys_hardened_pgtables_kunit.c | 200 ++++++++++++++++++++++++++++++
- security/Kconfig.hardening                |  12 ++
- 3 files changed, 213 insertions(+)
-
-diff --git a/mm/Makefile b/mm/Makefile
-index 35982b6efb56..e31e58294845 100644
---- a/mm/Makefile
-+++ b/mm/Makefile
-@@ -148,3 +148,4 @@ obj-$(CONFIG_EXECMEM) += execmem.o
- obj-$(CONFIG_TMPFS_QUOTA) += shmem_quota.o
- obj-$(CONFIG_LAZY_MMU_MODE_KUNIT_TEST) += tests/lazy_mmu_mode_kunit.o
- obj-$(CONFIG_KPKEYS_HARDENED_PGTABLES) += kpkeys_hardened_pgtables.o
-+obj-$(CONFIG_KPKEYS_HARDENED_PGTABLES_KUNIT_TEST) += tests/kpkeys_hardened_pgtables_kunit.o
-diff --git a/mm/tests/kpkeys_hardened_pgtables_kunit.c b/mm/tests/kpkeys_hardened_pgtables_kunit.c
-new file mode 100644
-index 000000000000..80d4f5144e48
---- /dev/null
-+++ b/mm/tests/kpkeys_hardened_pgtables_kunit.c
-@@ -0,0 +1,200 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+#include <kunit/test.h>
-+#include <linux/mman.h>
-+#include <linux/pgtable.h>
-+#include <linux/set_memory.h>
-+#include <linux/vmalloc.h>
-+
-+static void free_page_wrapper(void *ctx)
-+{
-+	__free_page((struct page *)ctx);
-+}
-+
-+KUNIT_DEFINE_ACTION_WRAPPER(vfree_wrapper, vfree, const void *);
-+
-+static pud_t *pud_off_k(unsigned long va)
-+{
-+	return pud_offset(p4d_offset(pgd_offset_k(va), va), va);
-+}
-+
-+static pte_t *get_kernel_pte(unsigned long addr)
-+{
-+	pmd_t *pmdp = pmd_off_k(addr);
-+
-+	if (!pmdp || pmd_leaf(*pmdp))
-+		return NULL;
-+
-+	return pte_offset_kernel(pmdp, addr);
-+}
-+
-+#define write_pgtable(type, ptr) do {					\
-+	type##_t val;							\
-+	int ret;							\
-+									\
-+	pr_debug("%s: writing to "#type" at %px\n", __func__, (ptr));	\
-+									\
-+	val = type##p_get(ptr);						\
-+	ret = copy_to_kernel_nofault(ptr, &val, sizeof(val));		\
-+	KUNIT_EXPECT_EQ_MSG(test, ret, -EFAULT,				\
-+			    "Direct "#type" write wasn't prevented");	\
-+} while (0)
-+
-+/*
-+ * Try to write linear map page tables, at every level. This is worthwhile
-+ * because those page table pages are obtained from different allocators:
-+ *
-+ * - Static memory (part of the kernel image) for PGD
-+ * - memblock for PUD and possibly PMD/PTE
-+ * - pagetable_alloc() (buddy allocator) for PMD/PTE if large block mappings are
-+ *   used and the linear map is split after being created
-+ */
-+static void write_direct_map_pgtables(struct kunit *test)
-+{
-+	struct page *page;
-+	unsigned long addr;
-+	pgd_t *pgdp;
-+	p4d_t *p4dp;
-+	pud_t *pudp;
-+	pmd_t *pmdp;
-+	pte_t *ptep;
-+	int ret;
-+
-+	if (!kpkeys_supported())
-+		kunit_skip(test, "kpkeys are not supported");
-+
-+	page = alloc_page(GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, page);
-+	ret = kunit_add_action_or_reset(test, free_page_wrapper, page);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	/* Ensure page is PTE-mapped (splitting the linear map if necessary) */
-+	ret = set_direct_map_invalid_noflush(page);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+	ret = set_direct_map_default_noflush(page);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	addr = (unsigned long)page_address(page);
-+
-+	pgdp = pgd_offset_k(addr);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, pgdp, "Failed to get PGD");
-+	/*
-+	 * swapper_pg_dir is still writable at this stage, so don't check it.
-+	 * It is not protected by kpkeys_hardened_pgtables because it should be
-+	 * made read-only by mark_rodata_ro(). However since these
-+	 * KUnit tests are builtin, they are run before mark_rodata_ro() is
-+	 * called.
-+	 */
-+
-+	p4dp = p4d_offset(pgdp, addr);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, p4dp, "Failed to get P4D");
-+	if (!mm_p4d_folded(&init_mm))
-+		write_pgtable(p4d, p4dp);
-+
-+	pudp = pud_offset(p4dp, addr);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, pudp, "Failed to get PUD");
-+	if (!mm_pud_folded(&init_mm))
-+		write_pgtable(pud, pudp);
-+
-+	pmdp = pmd_offset(pudp, addr);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, pmdp, "Failed to get PMD");
-+	write_pgtable(pmd, pmdp);
-+
-+	ptep = pte_offset_kernel(pmdp, addr);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, ptep, "Failed to get PTE");
-+	write_pgtable(pte, ptep);
-+}
-+
-+/* Worth checking since the kernel image is mapped with static page tables */
-+static void write_kernel_image_pud(struct kunit *test)
-+{
-+	pud_t *pudp;
-+
-+	if (!kpkeys_supported())
-+		kunit_skip(test, "kpkeys are not supported");
-+
-+	/* The kernel is probably block-mapped, check the PUD to be safe */
-+	pudp = pud_off_k((unsigned long)&init_mm);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, pudp, "Failed to get PUD");
-+
-+	write_pgtable(pud, pudp);
-+}
-+
-+static void write_kernel_vmalloc_pte(struct kunit *test)
-+{
-+	void *mem;
-+	pte_t *ptep;
-+	int ret;
-+
-+	if (!kpkeys_supported())
-+		kunit_skip(test, "kpkeys are not supported");
-+
-+	mem = vmalloc(PAGE_SIZE);
-+	KUNIT_ASSERT_NOT_NULL(test, mem);
-+	ret = kunit_add_action_or_reset(test, vfree_wrapper, mem);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	/* vmalloc() without VM_ALLOW_HUGE_VMAP is PTE-mapped */
-+	ptep = get_kernel_pte((unsigned long)mem);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, ptep, "Failed to get PTE");
-+
-+	write_pgtable(pte, ptep);
-+}
-+
-+static void write_vmemmap_pmd(struct kunit *test)
-+{
-+	struct page *page;
-+	pmd_t *pmdp;
-+
-+	if (!kpkeys_supported())
-+		kunit_skip(test, "kpkeys are not supported");
-+
-+	/*
-+	 * We just need the address of some struct page, so we can free the
-+	 * page right away.
-+	 */
-+	page = alloc_page(GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, page);
-+	__free_page(page);
-+
-+	/* vmemmap may use PMD block mappings */
-+	pmdp = pmd_off_k((unsigned long)page);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, pmdp, "Failed to get PMD");
-+	write_pgtable(pmd, pmdp);
-+}
-+
-+static void write_user_pmd(struct kunit *test)
-+{
-+	pmd_t *pmdp;
-+	unsigned long uaddr;
-+
-+	if (!kpkeys_supported())
-+		kunit_skip(test, "kpkeys are not supported");
-+
-+	uaddr = kunit_vm_mmap(test, NULL, 0, PAGE_SIZE, PROT_READ,
-+			      MAP_ANONYMOUS | MAP_PRIVATE | MAP_POPULATE, 0);
-+	KUNIT_ASSERT_NE_MSG(test, uaddr, 0, "Could not create userspace mm");
-+
-+	/* We passed MAP_POPULATE so a PMD should already be allocated */
-+	pmdp = pmd_off(current->mm, uaddr);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, pmdp, "Failed to get PMD");
-+
-+	write_pgtable(pmd, pmdp);
-+}
-+
-+static struct kunit_case kpkeys_hardened_pgtables_test_cases[] = {
-+	KUNIT_CASE(write_direct_map_pgtables),
-+	KUNIT_CASE(write_kernel_image_pud),
-+	KUNIT_CASE(write_kernel_vmalloc_pte),
-+	KUNIT_CASE(write_vmemmap_pmd),
-+	KUNIT_CASE(write_user_pmd),
-+	{}
-+};
-+
-+static struct kunit_suite kpkeys_hardened_pgtables_test_suite = {
-+	.name = "kpkeys_hardened_pgtables",
-+	.test_cases = kpkeys_hardened_pgtables_test_cases,
-+};
-+kunit_test_suite(kpkeys_hardened_pgtables_test_suite);
-+
-+MODULE_DESCRIPTION("Tests for the kpkeys_hardened_pgtables feature");
-+MODULE_LICENSE("GPL");
-diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
-index bb75b580b7f1..ad6152961f8e 100644
---- a/security/Kconfig.hardening
-+++ b/security/Kconfig.hardening
-@@ -283,6 +283,18 @@ config KPKEYS_HARDENED_PGTABLES
- 	  This option has no effect if the system does not support
- 	  kernel pkeys.
- 
-+config KPKEYS_HARDENED_PGTABLES_KUNIT_TEST
-+	bool "KUnit tests for kpkeys_hardened_pgtables" if !KUNIT_ALL_TESTS
-+	depends on KPKEYS_HARDENED_PGTABLES
-+	depends on KUNIT=y
-+	default KUNIT_ALL_TESTS
-+	help
-+	  Enable this option to check that the kpkeys_hardened_pgtables feature
-+	  functions as intended, i.e. prevents arbitrary writes to user and
-+	  kernel page tables.
-+
-+	  If unsure, say N.
-+
- endmenu
- 
- config CC_HAS_RANDSTRUCT
-
--- 
-2.51.2
+Thanks. I've cherry-picked just this patch for v7.3
 
 
