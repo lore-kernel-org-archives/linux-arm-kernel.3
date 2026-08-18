@@ -4,132 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20057C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:35:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4CB4C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UwOIwqYoIY7QlNJ8U8wOacBdHmLDOz+rxhV0rBc+F/c=; b=vmbrFHBjfGZvqrTi1K0Cx5QYLR
-	5KQ5bqzW3GPgZRErj9EsPfHskBVk9Mg55r5LyBf13hZfKnX9P8llePyEhBiXVJN6jiRa7ZmQXgOpR
-	QFVm378R7Zow4XSYn0ZigOBhW3C3voiPJ/vg8k/6akpSaR3ZpFdb88wWugDHBvbobbCayptZUyPGZ
-	OoJN1JQNQeiUyhAn0Uo/yWGsnJNpI4c0//9mfNfOPdcOKBAbu+P9NQoTTZQvE4Gxba1yuNYQ4jotv
-	KNUUgzHWBWcYNBxNvm0l6MuuCUkpb33W4STFHQedaTEzDolFXVh7sDbiFQpv3zAG/qu8/clPRxDVk
-	Jvu1bYzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KSlVvRnY6OGayvtJq9xG9zqfBWsKTUbg2GBYvVOlgno=; b=k0o/dei9N7Tkp8QJGDd9AmhD6T
+	dtZuToV6Un8bxDOJJ4gG8BG56RLdZbHozs/t98vjQqBgDNbA8WFFjOCl4efYcTDIxZX3plY7DQ58A
+	dbqXCD/xR1rfTq3uecFtYiDxeISkE6qsGtJ9BzWruQJ5n3QuH1EMq3Sm9EOhVcmyaOk2o/QvQJItF
+	m1fdRgxjJxy2Lf8i591mtharGp+TS7UKhywVMC3wYIBG/5C5CivtVZhUHDGjWnduecVW9lasJippN
+	SE7bZAlZIhVQURoL6lSZfmmqGj4pFzqt53xNKmRkQfe0179wr+UtPLallIRoZPUX2wbvJvyooiELG
+	DBSkp5Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwGDZ-00000007dd4-1cLS;
-	Tue, 18 Aug 2026 09:34:49 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wwGJT-00000007eCZ-0s9M;
+	Tue, 18 Aug 2026 09:40:55 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwGDW-00000007dc0-2T4Y
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 09:34:47 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67HM1nw02669356;
-	Tue, 18 Aug 2026 09:29:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=UwOIwqYoIY7QlNJ8U8wOacBdHmLDOz
-	+rxhV0rBc+F/c=; b=bLdi0L4G5+rWnmkDSJy99P9qnm4+AFVIuwiBJCiqF8//af
-	ib49jdGSQSMKEQsJPUBuU/4VuzBqHtue4A7CtKAp4ZC0hGDAIxgJv232AfQSrc3i
-	O22hP8DNRTaPXrDf3xjomg9j/z1OfkjRiYNDJ1ZnXOEZ73CK/cORgDGv4t85pUj7
-	NiSc+NzPl9OPrv5rD91lPpepBgSoc4KqeP8NyvYMfMyxb1s/DXbf4l9OnbRQphX3
-	/rKr4trMlP4g3yIhCeeq/EM1SPKxbe7drSxml0TupEQDz79lqrf50w7Ss9zf4ULy
-	j+MbMqc1QMgfJloetwjfP3OCNg/c0n/xK1XHVCEw==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4g2frt6ssh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 18 Aug 2026 09:29:30 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67I9QKBM007045;
-	Tue, 18 Aug 2026 09:29:29 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4g33ek2f2e-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 18 Aug 2026 09:29:29 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67I9TPej35324400
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 18 Aug 2026 09:29:26 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D985320049;
-	Tue, 18 Aug 2026 09:29:25 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 74CE620040;
-	Tue, 18 Aug 2026 09:29:25 +0000 (GMT)
-Received: from osiris (unknown [9.224.76.185])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 18 Aug 2026 09:29:25 +0000 (GMT)
-Date: Tue, 18 Aug 2026 11:29:24 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v6 08/33] KVM: arm64: Use accessor functions for core regs
-Message-ID: <20260818092924.21865-C-seiden@linux.ibm.com>
-References: <20260812153631.3376090-1-seiden@linux.ibm.com>
- <20260812153631.3376090-9-seiden@linux.ibm.com>
- <86a4qq1gyy.wl-maz@kernel.org>
+	id 1wwGJP-00000007eBl-3pcC;
+	Tue, 18 Aug 2026 09:40:53 +0000
+X-UUID: e13ee6be9ae811f19a56ed5b684f684d-20260818
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:4c6a68f2-9465-4f0f-9c4a-102e7d6ac4fa,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:7db8b62,CLOUDID:31ff8c4e659937a5770258dd3f644217,BulkI
+	D:nil,BulkQuantity:0,SF:81|82|83|102|865|898,TC:nil,Content:0|15|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: e13ee6be9ae811f19a56ed5b684f684d-20260818
+X-User: liuxixin@kylinos.cn
+Received: from [127.0.1.1] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <liuxixin@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1640359094; Tue, 18 Aug 2026 17:40:42 +0800
+From: Xixin Liu <liuxixin@kylinos.cn>
+To: pjw@kernel.org
+Cc: linux-riscv@lists.infradead.org, atish.patra@linux.dev, anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, liuxixin@kylinos.cn
+Subject: Re: [PATCH v1 2/2] perf: RISC-V: store available counter mask as bitmap
+Date: Tue, 18 Aug 2026 17:15:00 +0800
+Message-ID: <reply.pjw.pmumask22.1787042100.git.liuxixin@kylinos.cn>
+In-Reply-To: <93cab992-f808-8f3e-03a6-19d84baf38f3@kernel.org>
+References: <cover.1786092600.git.liuxixin@kylinos.cn> <prpmask02cmap.1786092600.git.liuxixin@kylinos.cn> <93cab992-f808-8f3e-03a6-19d84baf38f3@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86a4qq1gyy.wl-maz@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=OfaoyBTY c=1 sm=1 tr=0 ts=6a8425fb cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
- a=gIllJY12jZb-1DfbplwA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE4MDA2NiBTYWx0ZWRfX8/5ZkSFcJu82
- NuPfXVkoHVCwGRBoEvh882KcFTaoR4D8H7GjYWKEg8nvMxPdGfdH+FI2j2ZpPZvFfVYznXYdfhU
- 8IaI/zFJuWH/Zuwlg0lK8zw+bUVaSWg=
-X-Proofpoint-GUID: 1FFAv4Y26TX30cefOc3x2JLRTu93s4LN
-X-Proofpoint-ORIG-GUID: hImjYitApJsqmB6QcrKs3tTr7h4jhQ_t
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE4MDA2NiBTYWx0ZWRfX5Ak6vZMWnPP0
- U+jJMl2cidjQtT1y6WIXisSFE3qMftgmsd32FguB1ShnJnZq2JfoTzTIZS3k+X+bBnk6eJH75dD
- lQD93lhGWqsIBnPewGo98lyVYFaKsThNzzHeXWFoul8SZK7EgSzmHqD8iX8c+WarkXxJZOU6w1a
- YHjHG3FdbonH1U/70MSi/xkRYL67MUjSSacXlwz+Opy9ZDvTOIDYLl0teKuirelWw6KMpmVclCt
- p1+uI+yr05nnO3C/dkCiDS93BaaGaLGE9Wc5GEDifdysZbmImi9k+6R7+oCwGMBm2eywFQhsoWd
- WkrgnKq3s8udSoMBIwPi3SzaDeInCIjD3e0Fnb5XF5SD6zI2wGfNf/xGloYtx82NaHKlcH96sRB
- 6etZ2mjDf1N6MMIxdNqJ4tZJJ9Tz9a+lXlqBWxV3iuUv3VXfRunzlEKZ23c2ve9QtNUuYtSmtuG
- BVSB+gzL5EhvRs02Zow==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-17_04,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 clxscore=1015 lowpriorityscore=0 impostorscore=0
- malwarescore=0 bulkscore=0 phishscore=0 priorityscore=1501 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608180066
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Mailer: patches/scripts/send-local.py
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_023446_750066_F29B59F3 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20260818_024052_256802_D88A88A0 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,54 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 10:56:37AM +0100, Marc Zyngier wrote:
-> On Wed, 12 Aug 2026 16:36:04 +0100,
-> Steffen Eiden <seiden@linux.ibm.com> wrote:
-> > 
-> > Instead of accessing the value directly use assessor function that
-> 
-> s/assessor function/accessors/
-> 
-> > abstract the actual location of the register values. Add a helper
-> > function to reset fpsimd registers. Enable other KVM implementations to
-> > reuse this code.
-> 
-> to reuse this code by overloading the accessors.
-> 
+Hi Paul,
 
-Will change
+On Fri, 7 Aug 2026, Paul Walmsley wrote:
+> This patch contains several array indexes to element 0 of the cmask
+> bitmap, but that element is going to be XLEN bits wide.   Does that
+> actually work on RV32 systems?
 
-...
+I built with CONFIG_ARCH_RV32I=y and booted qemu-system-riscv32.
+Probe reports 16 firmware and 18 hardware counters.  The available
+bitmap is two words: 0xfffffffd then 0x7.  Three bits sit at index 32
+and above.
 
-> > diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> > index b01d6622b872..773f6c8e5026 100644
-> > --- a/arch/arm64/kvm/guest.c
-> > +++ b/arch/arm64/kvm/guest.c
-> > @@ -134,19 +134,19 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
-> >  	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
-> >  		off -= KVM_REG_ARM_CORE_REG(regs.mregs[0]);
-> >  		off /= 2;
-> > -		return &vcpu->arch.ctxt.regs.regs[off];
-> > +		return &vcpu_gp_regs(vcpu)[off];
-> 
-> Doesn't this belong to the previous patch?
-> 
+When CFG_MATCH fails on the first word, the same call is retried with
+base 32 and the second word.  That is the walk the stop-all path already
+used.  Clearing the first word still issues that second call with
+base 32.
 
-My thoughts about positioning this change in this patch:
+I also booted qemu-system-riscv64.  Probe reports the same 16 firmware
+and 18 hardware counters.  The available bitmap is one word:
+0x7fffffffd.  CFG_MATCH and stop-all stay on that word.  Opening a
+cycles event from userspace succeeds on both guests.
 
-The previous patch changes the semantics of vcpu_gp_regs and just
-touched the part where the old semantic of the function was used.
-This is mainly done by not using vcpu_gp_regs where it was used before
-as it cannot be used to access e.g. pstate anymore.
+A legacy-only RV32 kernel sets cycle and instret in the bitmap.  Opening
+a cycles event from userspace succeeds there too.
 
-This patch then introduces and *uses* new accessor functions for
-abstractions (and uses the vcpu_gp_regs abstraction where it was not
-used before). 
--> The patch changes direct accesses to using accessor functions.
+v2 walks every bitmap word for the remaining CFG_MATCH sites, same as
+stop-all, with the counter base set to i times BITS_PER_LONG.
 
-However, I have no strong feelings for this. If you want this in the
-previous patch, I can do that.
-
-	Steffen
+Thanks,
+Xixin
 
 
