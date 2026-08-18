@@ -4,98 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F5FC5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 18:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C06DC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 18:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cdFBbeenO+uHrbtVeXeloGyoRqp0CSAoLqw72jhnBdM=; b=rA1Y2yqORvcwaZH+J51VxHhDRC
-	GFIzZEjET/CUX7ZtLfO2WPa00MSKNIQjig+boGn8JA0EUreVsB3avrNDBVciG0AeWPZI+4/xqCqKt
-	ca56B49cwhKoqqJ1k7IqjOWvPaYtbM8JMbN9Ga4L++wZ5WyR/XVIArdawdbmgRLppOGFNYihSnSpf
-	KYDB2TmXKlt6QWD2kv5NXXOa+laMRD5mAHkRQwmSbVVCdhBqPBQk6HqpUE/vBD0rUDCbP9XPPM81N
-	bCoW0erGG5CK6VYIoSss1BeN61LXTfXpyLJX26KOXPPFaH6KA4R8BcfXKfVy1zbwQtxvWkparCcBx
-	F6IoFibA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i1ZT8E0+Pm5VDx4LcOMCqD5baN3Oe5eOsk0bsRrW/zs=; b=JM0z48ibFxgsW8592utAq6whfs
+	/olm7zLz0bJmTGrmkPLCSMBfD1i//fnSjNMGrc0y6I3YAHX8cpC6vLfhpw4ts7K7GZD5xt60Rm6iQ
+	rPLhBEfXUErQEZ1U1TCbQ+B8De+1cKB3rV/KLhxRqW86oztdDpbtCYRGYIpi/07KNysr+5dkrBb9p
+	kloNFiQ7QcrQOCuytUlKu8zLwwjiSo6/tEJDY4S+EPy5r6CZW+VAEgdxsSnfxs8lRSq4oQKj53DAE
+	cw6RmIrj5PXdL8ooKLrhxaAw2Kn6VTAWUgUaeC+YpzZe4ebl67YhL5rDq1d6FjtlGYsIt3lsbeH0X
+	My2qBaGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwOYA-00000008VcZ-3hPj;
-	Tue, 18 Aug 2026 18:28:38 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1wwOd8-00000008W5a-28Gc;
+	Tue, 18 Aug 2026 18:33:46 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwOY8-00000008Vbn-2URo
+	id 1wwOd5-00000008W3x-1T9s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 18:28:38 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5b01146b205so174222e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 11:28:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787077714; x=1787682514; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cdFBbeenO+uHrbtVeXeloGyoRqp0CSAoLqw72jhnBdM=;
-        b=E1KaZ2+DEhsWMl4XYfTgrkL/GZcsW54J/JivajIw+iVDAHre/ztG53Zdysp4IoTdrT
-         rdmMuvYGzTpVPTGO6Kgpoe9AH4v//eyHrI3euA0t17FCdvIamGug5iZVYPLVd4B9D3C2
-         ETAqmABXuddKtsnCPHR7PwV571GBYBg3EhugZ0JNsTI5wl+ePA1yVT7rjc9Dlz+Fn6R8
-         wvwg0VEA6wS3TnHgTrob0/yBhA+eGpHVcq6kS4hbaI5qpoGhwWwVIp/mvUE0KaVMXoxO
-         b8seWuRXi1tw67y0XAC5xuw4gVWfDzC+a+BYZBafKA4rLcivImEydj6+zREvFMfJ3KT+
-         J6lQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787077714; x=1787682514;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cdFBbeenO+uHrbtVeXeloGyoRqp0CSAoLqw72jhnBdM=;
-        b=Gdihsnk29F3awaXdUUVAFpFSJ6RySW4DF7ple+vF8qMVLmecI4uaR6xPJMUAEskxE7
-         aShburkRu1EX9mwbPLOS69kZ7zf3PNaFSbcTvdr9RrY4+BTBVZbpX7bG/W2jcjGlC8oc
-         8QGuQrIOCeA9rnPDyTPY+cD4HUq82Q9Mc3IElKKEv4OVY/gI7b0ccs+cxC/eu0Z/27Dk
-         wx5Mqr772Z6yAOvVMSShR7VhAqMpCrpxAl14SK9bYH/xNUY0/X28xcg2RbMkZM33OPhI
-         IYVZVSO2txsBQyZcyZOgGHoYxEexhWdKmk0zMRWUSknz/adFvMWZqyy8QYwUP/GWFRWi
-         eqXQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rpa0ZI2oLuin/bVbxv/pAQgPIoLaCDf5To7OVb9W+J3GB+mmBJTh7eRr/EVJ+R0gSDaVJeOji1Icv/BM4zoK7jJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTz1hMbaHMIEHe+FvaIK1LLLQ3tPPHOWtLKGL2CiTdHl5XgkQM
-	fqqqsQKbmfTPigQHLo3RG8KMy5GHD4P1o+GIvdmUYGza+cFSRped2SE=
-X-Gm-Gg: AR+sD12PS0HLVvdStedcbnlOoJi7Csoa581fEAACjWSxrfjJVZ6p0m2PNN8t7NDbehd
-	E2wTehmpIpGpB8604ov10kP9hk1JEWq5HqHd/ZxFHpTKKkx2qWOczwurxnDoFEOXsf93hWh0PPg
-	92v1xcjpiV6+EVhZ0cs5XPpP6Z+HRjL2o4nr6/LRaQ78zvFnj61sKHvI3B2FRIgituu2xg0k80l
-	GOwbsy+En2XLmASGYH3y5dqCZLFq8ZlMzGGEzB9i0s7SeFN8P9HObKtqZXvrRjuvAJrqliJpqtw
-	T9D8bj9Wky/Cupc5zO3aBpHEZZSj8Q7MhnIUI9OwCiqqq73vgegbPnMFtKStEqAaf6ISQa8A/Rx
-	7luVR6GSQcZYjUrRcERBobRGtUHnLAj4SKG3W0pY1k1y04gFIY3imCXhMeiaRXiCULrCZM0XJ0W
-	uiJoUsF/quOqvloIf188wG392K+xe6nm3phQvXGnT5W6ysl5ZipqGjl/6msNzYj+aCM3Axqg==
-X-Received: by 2002:a05:6512:440b:b0:5b2:a316:6113 with SMTP id 2adb3069b0e04-5b477cab55amr125716e87.9.1787077713492;
-        Tue, 18 Aug 2026 11:28:33 -0700 (PDT)
-Received: from i-UX410UAR.lan ([2a02:2168:87cb:3900:e3f7:5eba:c5c7:2efa])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b46cf960d8sm1460494e87.2.2026.08.18.11.28.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Aug 2026 11:28:33 -0700 (PDT)
-From: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
-To: netdev@vger.kernel.org
-Cc: chester.a.unal@arinc9.com,
-	daniel@makrotopia.org,
-	dqfext@gmail.com,
-	sean.wang@mediatek.com,
-	andrew@lunn.ch,
-	olteanv@gmail.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	yangshiji66@outlook.com,
-	Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
-Subject: [PATCH net] net: dsa: mt7530: do not advertise EEE on MT7621 switch
-Date: Tue, 18 Aug 2026 21:28:29 +0300
-Message-ID: <20260818182829.1580811-1-vladislav.karmanov.dev@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 18 Aug 2026 18:33:45 +0000
+Received: by chaosmail.tech (Postfix) id E31A21C975B;
+	Tue, 18 Aug 2026 18:33:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1787078019;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=i1ZT8E0+Pm5VDx4LcOMCqD5baN3Oe5eOsk0bsRrW/zs=;
+	b=lO2gi1feVbDxjaCDGdYA7vB9QPG3bz4/z8C/Jry06Dou5NGxyaxww6Es68qQhCkcxZmfX5
+	zL8VFVtSH9Qjs0kfDB7pLcHJK4CeCcaM6Lwbdd6g9JRbrWTDEPXKNvJOQ78TS6/qq+1taV
+	QJlgWQpUeEIF6jPqrakT6xQwr1ukr7o=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Date: Tue, 18 Aug 2026 20:32:43 +0200
+Subject: [PATCH v7 4/6] spmi: apple: Implement remaining commands
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260818-t603x-spmi-v7-4-dafebe6e7739@chaosmail.tech>
+References: <20260818-t603x-spmi-v7-0-dafebe6e7739@chaosmail.tech>
+In-Reply-To: <20260818-t603x-spmi-v7-0-dafebe6e7739@chaosmail.tech>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787078015; l=6582;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=RH6K223nJdTsq2zsNyub+vrfUTvair8i/u/7LCuGT1E=;
+ b=ow6P6RMgvDdCMesHlhZj2+yyR1Qmpy21ukE8kGxMMPsTyzPzAbV+xPJo5rySb6pQNyp4QitrP
+ 2QChPdzbIlCAsaJ7XcUj/rjYF85ttSB9LTcbTmzMIhU/5gWcT6Gs7W0
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_112836_659341_09772D50 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20260818_113343_840543_B54A32D3 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,73 +79,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shiji Yang <yangshiji66@outlook.com>
-Date: Sat, 28 Mar 2026 23:29:56 +0800
+From: Alba Mendez <me@alba.sh>
 
-There are hardware defects in the MT7621 (MT7530) EEE support: with EEE
-advertised, some link partners cannot establish a stable connection.
-Notably, on a 2-pair (4-wire) cable where both ends advertise gigabit,
-1000BASE-T training cannot succeed, and instead of falling back to
-100 Mbps the port flaps in a loop and no link/DHCP lease is obtained.
-This is confined to the WAN / phylib bring-up path; the DSA/LAN side on
-the same device is unaffected.
+Add support for zero write and power management commands.
 
-The MT7530 internal GE PHY advertises EEE by hardware default. The
-eee-broken-100tx / eee-broken-1000t device-tree properties only take
-effect during the late PHY config_init path, which is too late for these
-link partners: they negotiate EEE before the OS disables it and then
-fail to fall back cleanly.
-
-Commit af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE
-advertisement") removed the early EEE-advertisement disable from
-mtk_gephy_config_init(), on the rationale that "disabling EEE
-advertisement before the PHY driver initialises keeps it off", i.e. that
-the DSA subdriver already performs that early disable. That rationale
-holds for MT7531, whose mt7531_setup() clears MDIO_AN_EEE_ADV on each
-switch PHY -- but it does not hold for MT7621, whose mt7530_setup()
-never had such a loop. So af3b4b0e59de removed the only early EEE
-disable that covered MT7621, reintroducing the flapping on MT7621-based
-boards (regression reported on ramips/mt7621).
-
-MediaTek's own recommendation (Landen Chao, 2021) confirms the hardware
-is the root cause: "EEE of the 10-year-old MT7530 internal gephy has many
-IOT problems, so it is recommended to disable its EEE."
-
-Restore the early disable for MT7621, but on the DSA side -- exactly the
-location af3b4b0e59de assumed it already lived -- by clearing
-MDIO_AN_EEE_ADV on each switch PHY in mt7530_setup(), guarded on
-priv->id == ID_MT7621, mirroring the existing mt7531_setup() loop.
-Auto-negotiation then falls back to a stable 100 Mbps link instead of
-hanging at gigabit.
-
-Tested on ASUS RT-AX53U (MT7621): a single clean
-"Link is Up - 100Mbps/Full - flow control off" + DHCP lease on a 2-pair
-cable, where the unpatched driver loops. Confirmed on kernel 6.12 and
-6.18; also confirmed on Netgear R6220 and EdgeRouter-X (both MT7621).
-
-Fixes: af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE advertisement")
-Signed-off-by: Shiji Yang <yangshiji66@outlook.com>
-Signed-off-by: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+Signed-off-by: Alba Mendez <me@alba.sh>
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- drivers/net/dsa/mt7530.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/spmi/spmi-apple-controller.c | 116 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-----------------------------------------------
+ 1 file changed, 69 insertions(+), 47 deletions(-)
 
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -2518,6 +2518,15 @@
- 	if ((val & MT7530_XTAL_MASK) == MT7530_XTAL_40MHZ)
- 		mt7530_pll_setup(priv);
+diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
+index b1c127cf5f44..9843dc871d6c 100644
+--- a/drivers/spmi/spmi-apple-controller.c
++++ b/drivers/spmi/spmi-apple-controller.c
+@@ -46,9 +46,9 @@ struct apple_spmi {
+ 	readl_poll_timeout((spmi)->regs + (reg), (val), (cond), \
+ 			   REG_POLL_INTERVAL_US, REG_POLL_TIMEOUT_US)
  
-+	if (priv->id == ID_MT7621) {
-+		/* Disable EEE advertisement on the switch PHYs. */
-+		for (i = MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr);
-+		     i < MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr) + MT7530_NUM_PHYS;
-+		     i++) {
-+			mt7530_phy_write_c45(priv, i, MDIO_MMD_AN, MDIO_AN_EEE_ADV, 0);
-+		}
+-static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 saddr, size_t len)
++static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 param)
+ {
+-	return opc | sid << 8 | saddr << 16 | (len - 1) | (1 << 15);
++	return opc | sid << 8 | (u32)param << 16 | (1 << 15);
+ }
+ 
+ /* Wait for Rx FIFO to have something */
+@@ -69,14 +69,13 @@ static int apple_spmi_wait_rx_not_empty(struct spmi_controller *ctrl)
+ 	return 0;
+ }
+ 
+-static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+-			 u16 saddr, u8 *buf, size_t len)
++static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid, u16 param,
++			const u8 *buf_wr, size_t len_wr, u8 *buf_rd, size_t len_rd)
+ {
+ 	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
+-	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
++	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, param);
+ 	u32 reply, rsp;
+-	size_t len_read = 0;
+-	u8 i;
++	size_t i = 0, j;
+ 	int ret;
+ 
+ 	if (spmi->prev_fail) {
+@@ -86,6 +85,14 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 
+ 	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
+ 
++	while (i < len_wr) {
++		j = min_t(size_t, sizeof(spmi_cmd), len_wr - i);
++		spmi_cmd = 0;
++		memcpy(&spmi_cmd, buf_wr + i, j);
++		writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
++		i += j;
 +	}
 +
- 	mt753x_trap_frames(priv);
+ 	ret = apple_spmi_wait_rx_not_empty(ctrl);
+ 	if (ret)
+ 		return ret;
+@@ -93,7 +100,8 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 	reply = readl(spmi->regs + SPMI_RSP_REG);
  
- 	/* Enable and reset MIB counters */
+ 	/* Read SPMI data reply */
+-	while (len_read < len) {
++	i = 0;
++	while (i < len_rd) {
+ 		if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY) {
+ 			spmi->prev_fail = true;
+ 			dev_err_ratelimited(&ctrl->dev,
+@@ -101,11 +109,9 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 			return -EIO;
+ 		}
+ 		rsp = readl(spmi->regs + SPMI_RSP_REG);
+-		i = 0;
+-		while ((len_read < len) && (i < 4)) {
+-			buf[len_read++] = ((0xff << (8 * i)) & rsp) >> (8 * i);
+-			i += 1;
+-		}
++		j = min_t(size_t, sizeof(spmi_cmd), len_rd - i);
++		memcpy(buf_rd + i, &rsp, j);
++		i += j;
+ 	}
+ 
+ 	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
+@@ -113,54 +119,69 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 		spmi->prev_fail = true;
+ 	}
+ 
+-	if (~FIELD_GET(SPMI_REPLY_FRAME_PARITY_STATUS, reply) & ((1 << len) - 1)) {
++	if (!len_rd && !FIELD_GET(SPMI_REPLY_ACK, reply)) {
++		dev_err(&ctrl->dev, "command not acknowledged\n");
++		return -EIO;
++	}
++	if (~FIELD_GET(SPMI_REPLY_FRAME_PARITY_STATUS, reply) & ((1 << len_rd) - 1)) {
+ 		dev_err(&ctrl->dev, "some frames failed parity check\n");
+ 		return -EIO;
+ 	}
+ 	return 0;
+ }
+ 
+-static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+-			  u16 saddr, const u8 *buf, size_t len)
++/* Send a raw command with 1..16 input data frames */
++static int spmi_raw_cmd_input(struct spmi_controller *ctrl, u8 opc, u8 sid,
++			 u16 param, u8 *buf, size_t len)
+ {
+-	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
+-	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
+-	u32 reply;
+-	size_t i = 0, j;
+-	int ret;
+-
+-	if (spmi->prev_fail) {
+-		writel(SPMI_ACT_FIFO_FLUSH, spmi->regs + SPMI_ACT_REG);
+-		spmi->prev_fail = false;
+-	}
+-
+-	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
++	return spmi_raw_cmd(ctrl, opc, sid, param, NULL, 0, buf, len);
++}
+ 
+-	while (i < len) {
+-		j = 0;
+-		spmi_cmd = 0;
+-		while ((j < 4) & (i < len))
+-			spmi_cmd |= buf[i++] << (j++ * 8);
++/* Send a raw command with (optional) body and an input ACK */
++static int spmi_raw_cmd_ack(struct spmi_controller *ctrl, u8 opc, u8 sid,
++			  u16 param, const u8 *buf, size_t len)
++{
++	return spmi_raw_cmd(ctrl, opc, sid, param, buf, len, NULL, 0);
++}
+ 
+-		writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
++static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
++			 u16 saddr, u8 *buf, size_t len)
++{
++	switch (opc) {
++	case SPMI_CMD_EXT_READ:
++	case SPMI_CMD_EXT_READL:
++		return spmi_raw_cmd_input(ctrl, opc | (len - 1), sid, saddr, buf, len);
++	case SPMI_CMD_READ:
++		return spmi_raw_cmd_input(ctrl, opc | saddr, sid, saddr, buf, len);
+ 	}
++	return -EINVAL;
++}
+ 
+-	ret = apple_spmi_wait_rx_not_empty(ctrl);
+-	if (ret)
+-		return ret;
+-
+-	reply = readl(spmi->regs + SPMI_RSP_REG);
+-
+-	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
+-		dev_warn(&ctrl->dev, "FIFO has extra data\n");
+-		spmi->prev_fail = true;
++static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
++			  u16 saddr, const u8 *buf, size_t len)
++{
++	switch (opc) {
++	case SPMI_CMD_WRITE:
++		return spmi_raw_cmd_ack(ctrl, opc | saddr, sid, buf[0] << 8 | saddr, NULL, 0);
++	case SPMI_CMD_ZERO_WRITE:
++		return spmi_raw_cmd_ack(ctrl, opc | buf[0], sid, buf[0] << 8 | saddr, NULL, 0);
++	case SPMI_CMD_EXT_WRITE:
++	case SPMI_CMD_EXT_WRITEL:
++		return spmi_raw_cmd_ack(ctrl, opc | (len - 1), sid, saddr, buf, len);
+ 	}
++	return -EINVAL;
++}
+ 
+-	if (!FIELD_GET(SPMI_REPLY_ACK, reply)) {
+-		dev_err(&ctrl->dev, "command not acknowledged\n");
+-		return -EIO;
++static int spmi_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid)
++{
++	switch (opc) {
++	case SPMI_CMD_RESET:
++	case SPMI_CMD_SLEEP:
++	case SPMI_CMD_SHUTDOWN:
++	case SPMI_CMD_WAKEUP:
++		return spmi_raw_cmd_ack(ctrl, opc, sid, 0, NULL, 0);
+ 	}
+-	return 0;
++	return -EINVAL;
+ }
+ 
+ static int apple_spmi_probe(struct platform_device *pdev)
+@@ -183,6 +204,7 @@ static int apple_spmi_probe(struct platform_device *pdev)
+ 
+ 	ctrl->read_cmd = spmi_read_cmd;
+ 	ctrl->write_cmd = spmi_write_cmd;
++	ctrl->cmd = spmi_cmd;
+ 
+ 	ret = devm_spmi_controller_add(&pdev->dev, ctrl);
+ 	if (ret)
+
+-- 
+2.55.0
+
 
