@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD5C5C5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:44:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE79BC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ieTc8zqPFtmFNNjhBMlJd/5jle3qn0pe0b/QCQdWow=; b=fU839V6dfg+7Tzw2dI3ui2FyF5
-	cb1c8AGQuAgG9ptMw0CrKBfmCjXD17p1oqNF8eWGz/WytaHC80gcr2pMKzX08H1nV8OvrzQVlk0rG
-	1P8i0K5RR3bKqYLJPD5+18lbA192WAlhJG/Ehw2lG7g442Zrp0L8ThRwlJkC3tk4NVukDoKUv4fCA
-	3gEHZGip2CkiPKvlFGOJGcPiwi+MVGR89kikT8Qy94hGC7L1NwvdAqkV4EJ4JydhmBAsTIAmylkki
-	bdut38//wgtUStaplF72x/koRUIi6IFdvoDYsc4QlSGYjY0tqENFBVVAJEtC/zBWJxqlcE6ztsxL+
-	Y5wOP7Hg==;
+	bh=E41bS50huZf6XIXEbBTuBBFDUVEg5pqVVp69VURMTDw=; b=ZZYSwh2CSpY7/YPbGtp9QeJ8SH
+	p7TFCeSCTKCuGNxsGsE24NkVz1U8uTPyLGnS2IRY1c7wUWOaqm9FZTgu9yojHMcsEwjVqLtc5gkB8
+	ELKGsQWNjJdscHwT17AGAyEVJgakAEqNy9CPKzygnjfbRC5NLC5YS/qnZkrn3p3gXliBIgBJzuOlM
+	XZLp8KTIMsBipIRSRx2hol1Zm4iyFBsn2xM6H7cpHRFLm3cihZAcMW8d9lC9vaq96mD8thb1gDwJL
+	je6lH0i4Gl4CYLezmETUHrtRMiOLqnVAwsiTX281Kaj2G4xHxnczoyAC7JqeGtU1ipdA5+MrS1xR9
+	Akdh/2yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwGMp-00000007eS6-2vem;
-	Tue, 18 Aug 2026 09:44:23 +0000
+	id 1wwGMy-00000007eVF-0FZ2;
+	Tue, 18 Aug 2026 09:44:32 +0000
 Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwGMn-00000007eRZ-2GYd;
-	Tue, 18 Aug 2026 09:44:22 +0000
-X-UUID: 5d1545b29ae911f19a56ed5b684f684d-20260818
+	id 1wwGMq-00000007eRu-056m;
+	Tue, 18 Aug 2026 09:44:25 +0000
+X-UUID: 60c2f81c9ae911f19a56ed5b684f684d-20260818
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:5e3649a9-619a-4f11-998c-1d6a987acbfb,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:7db8b62,CLOUDID:7da53ff264321fd8d04a5d2fc576adea,BulkI
+X-CID-O-INFO: VERSION:1.3.19,REQID:10c2699f-1ac5-4ebe-9e77-cd577d86eece,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:fa69c7c4ded2daf118ea4f197c639993,BulkI
 	D:nil,BulkQuantity:0,SF:81|82|102|865|898,TC:nil,Content:0|15|50,EDM:-3,IP
 	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
 	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -39,28 +39,27 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 5d1545b29ae911f19a56ed5b684f684d-20260818
+X-UUID: 60c2f81c9ae911f19a56ed5b684f684d-20260818
 X-User: liuxixin@kylinos.cn
 Received: from [127.0.1.1] [(10.44.16.150)] by mailgw.kylinos.cn
 	(envelope-from <liuxixin@kylinos.cn>)
 	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 288946168; Tue, 18 Aug 2026 17:44:10 +0800
+	with ESMTP id 1797780881; Tue, 18 Aug 2026 17:44:16 +0800
 From: Xixin Liu <liuxixin@kylinos.cn>
 To: linux-riscv@lists.infradead.org
 Cc: atish.patra@linux.dev, anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, liuxixin@kylinos.cn
-Subject: [PATCH v2 0/2] perf: RISC-V: fix SBI PMU masks for RV32
+Subject: [PATCH v2 2/2] perf: RISC-V: store available counter mask as bitmap
 Date: Tue, 18 Aug 2026 17:10:00 +0800
-Message-ID: <cover.v2.1786434000.git.liuxixin@kylinos.cn>
-In-Reply-To: <cover.1786092600.git.liuxixin@kylinos.cn>
-References: <cover.1786092600.git.liuxixin@kylinos.cn>
+Message-ID: <prpmask02cmap.v2.1786434000.git.liuxixin@kylinos.cn>
+In-Reply-To: <cover.v2.1786434000.git.liuxixin@kylinos.cn>
+References: <cover.1786092600.git.liuxixin@kylinos.cn> <cover.v2.1786434000.git.liuxixin@kylinos.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Mailer: patches/scripts/send-local.py
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_024421_889476_222D5DB8 
-X-CRM114-Status: UNSURE (   7.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260818_024424_375694_E59816EA 
+X-CRM114-Status: GOOD (  21.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,38 +74,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The available-counter mask was a single unsigned long, but iteration
+uses RISCV_MAX_COUNTERS, which is 64. On RV32 that reads past the object.
+Filling with an unsigned-long bit at index 32 and above is also wrong.
 
-Thanks for the review, Paul.
+Use DECLARE_BITMAP and set_bit/bitmap helpers. Walk each bitmap word
+into CFG_MATCH when checking events, when allocating an index, and when
+stopping all counters. Set the counter base to i times BITS_PER_LONG.
+Share the CFG_MATCH ecall through a small helper so the 32-bit argument
+split is not duplicated. On qemu-system-riscv32 the probe bitmap has bits
+above XLEN set, so the first word alone is not enough.
 
-v2 for 1/2: add Fixes and Assisted-by. Overflow masks are u64. On RV32
-an unsigned-long bit at index 32 is 0, and BIT_ULL at index 32 is
-0x100000000.
-
-v2 for 2/2: same as v1, but do not pass only the first bitmap word into
-CFG_MATCH. Walk each word like the stop-all path, with the counter base
-set to i times BITS_PER_LONG. Share one helper for the 32-bit argument
-split. Also add Fixes and Assisted-by.
-
-Tested on qemu-system-riscv32 with CONFIG_ARCH_RV32I=y: 34 counters,
-second word 0x7, CFG_MATCH retried at base 32 when the first word fails.
-qemu-system-riscv64 still uses one word. A legacy-only RV32 kernel sets
-cycle and instret bits and opens a cycles event. Overflow IRQ was not
-taken on this QEMU virt guest, because sscof was not available to Linux.
-
-Thanks,
-Xixin Liu
-
+Fixes: e9991434596f ("RISC-V: Add perf platform driver based on SBI PMU extension")
+Assisted-by: DeepSeek:deepseek-v3
+Signed-off-by: Xixin Liu <liuxixin@kylinos.cn>
 ---
-
-Xixin Liu (2):
-  perf: RISC-V: use BIT_ULL for u64 overflow masks
-  perf: RISC-V: store available counter mask as bitmap
-
- drivers/perf/riscv_pmu_legacy.c |  5 ++-
- drivers/perf/riscv_pmu_sbi.c    | 88 ++++++++++++++++++++++++++++------------
- include/linux/perf/riscv_pmu.h  |  2 +-
+ drivers/perf/riscv_pmu_legacy.c         | 5 +-
+ drivers/perf/riscv_pmu_sbi.c            | 88 ++++++++++++++++++++++++++++------------
+ include/linux/perf/riscv_pmu.h          | 2
  3 files changed, 66 insertions(+), 29 deletions(-)
+
+diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
+--- a/drivers/perf/riscv_pmu_legacy.c
++++ b/drivers/perf/riscv_pmu_legacy.c
+@@ -111,8 +111,9 @@ static void pmu_legacy_init(struct riscv_pmu *pmu)
+ {
+ 	pr_info("Legacy PMU implementation is available\n");
+ 
+-	pmu->cmask = BIT(RISCV_PMU_LEGACY_CYCLE) |
+-		BIT(RISCV_PMU_LEGACY_INSTRET);
++	bitmap_zero(pmu->cmask, RISCV_MAX_COUNTERS);
++	set_bit(RISCV_PMU_LEGACY_CYCLE, pmu->cmask);
++	set_bit(RISCV_PMU_LEGACY_INSTRET, pmu->cmask);
+ 	pmu->ctr_start = pmu_legacy_ctr_start;
+ 	pmu->ctr_stop = NULL;
+ 	pmu->event_map = pmu_legacy_event_map;
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -97,7 +97,7 @@ static unsigned int riscv_pmu_irq_mask;
+ static unsigned int riscv_pmu_irq;
+ 
+ /* Cache the available counters in a bitmask */
+-static unsigned long cmask;
++static DECLARE_BITMAP(cmask, RISCV_MAX_COUNTERS);
+ 
+ struct sbi_pmu_event_data {
+ 	union {
+@@ -298,16 +298,38 @@ static struct sbi_pmu_event_data pmu_cache_event_map[PERF_COUNT_HW_CACHE_MAX]
+ 	},
+ };
+ 
++static struct sbiret pmu_sbi_ctr_cfg_match(unsigned long cbase,
++					    unsigned long ctr_mask,
++					    unsigned long cflags,
++					    unsigned long event_idx,
++					    u64 config)
++{
++#if defined(CONFIG_32BIT)
++	return sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
++			 ctr_mask, cflags, event_idx, config, config >> 32);
++#else
++	return sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
++			 ctr_mask, cflags, event_idx, config, 0);
++#endif
++}
++
+ static void pmu_sbi_check_event(struct sbi_pmu_event_data *edata)
+ {
+-	struct sbiret ret;
++	struct sbiret ret = { .error = SBI_ERR_NOT_SUPPORTED };
++	int i;
+ 
+-	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH,
+-			0, cmask, 0, edata->event_idx, 0, 0);
+-	if (!ret.error) {
+-		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
+-			  ret.value, 0x1, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
+-	} else if (ret.error == SBI_ERR_NOT_SUPPORTED) {
++	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
++		if (!cmask[i])
++			continue;
++		ret = pmu_sbi_ctr_cfg_match(i * BITS_PER_LONG, cmask[i], 0,
++					    edata->event_idx, 0);
++		if (!ret.error) {
++			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
++				  ret.value, 0x1, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
++			return;
++		}
++	}
++	if (ret.error == SBI_ERR_NOT_SUPPORTED) {
+ 		/* This event cannot be monitored by any counter */
+ 		edata->event_idx = -ENOENT;
+ 	}
+@@ -353,10 +375,10 @@ int riscv_pmu_get_hpm_info(u32 *hw_ctr_width, u32 *num_hw_ctr)
+ 	union sbi_pmu_ctr_info *info;
+ 	u32 hpm_width = 0, hpm_count = 0;
+ 
+-	if (!cmask)
++	if (bitmap_empty(cmask, RISCV_MAX_COUNTERS))
+ 		return -EINVAL;
+ 
+-	for_each_set_bit(i, &cmask, RISCV_MAX_COUNTERS) {
++	for_each_set_bit(i, cmask, RISCV_MAX_COUNTERS) {
+ 		info = &pmu_ctr_list[i];
+ 		if (!info)
+ 			continue;
+@@ -405,8 +427,8 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+ 	struct riscv_pmu *rvpmu = to_riscv_pmu(event->pmu);
+ 	struct cpu_hw_events *cpuc = this_cpu_ptr(rvpmu->hw_events);
+ 	struct sbiret ret;
+-	int idx;
+-	uint64_t cbase = 0, cmask = rvpmu->cmask;
++	int idx, i;
++	uint64_t cbase = 0, cmask = 0;
+ 	unsigned long cflags = 0;
+ 
+ 	cflags = pmu_sbi_get_filter_flags(event);
+@@ -427,14 +449,21 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+ 	}
+ 
+ 	/* retrieve the available counter index */
+-#if defined(CONFIG_32BIT)
+-	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
+-			cmask, cflags, hwc->event_base, hwc->config,
+-			hwc->config >> 32);
+-#else
+-	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
+-			cmask, cflags, hwc->event_base, hwc->config, 0);
+-#endif
++	if (cmask) {
++		ret = pmu_sbi_ctr_cfg_match(cbase, cmask, cflags, hwc->event_base,
++					   hwc->config);
++	} else {
++		ret.error = SBI_ERR_NOT_SUPPORTED;
++		for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
++			if (!rvpmu->cmask[i])
++				continue;
++			cbase = i * BITS_PER_LONG;
++			ret = pmu_sbi_ctr_cfg_match(cbase, rvpmu->cmask[i], cflags,
++						   hwc->event_base, hwc->config);
++			if (!ret.error)
++				break;
++		}
++	}
+ 	if (ret.error) {
+ 		pr_debug("Not able to find a counter for event %lx config %llx\n",
+ 			hwc->event_base, hwc->config);
+@@ -442,7 +471,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+ 	}
+ 
+ 	idx = ret.value;
+-	if (!test_bit(idx, &rvpmu->cmask) || !pmu_ctr_list[idx].value)
++	if (!test_bit(idx, rvpmu->cmask) || !pmu_ctr_list[idx].value)
+ 		return -ENOENT;
+ 
+ 	/* Additional sanity check for the counter id */
+@@ -794,7 +823,7 @@ static int pmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
+ 			/* The logical counter ids are not expected to be contiguous */
+ 			continue;
+ 
+-		*mask |= BIT(i);
++		set_bit(i, mask);
+ 
+ 		cinfo.value = ret.value;
+ 		if (cinfo.type == SBI_PMU_CTR_TYPE_FW)
+@@ -811,12 +840,19 @@ static int pmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
+ 
+ static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
+ {
++	int i;
++
+ 	/*
+ 	 * No need to check the error because we are disabling all the counters
+ 	 * which may include counters that are not enabled yet.
+ 	 */
+-	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
+-		  0, pmu->cmask, SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
++	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
++		if (!pmu->cmask[i])
++			continue;
++		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
++			  i * BITS_PER_LONG, pmu->cmask[i],
++			  SBI_PMU_STOP_FLAG_RESET, 0, 0, 0);
++	}
+ }
+ 
+ static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
+@@ -1353,7 +1389,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	/* cache all the information about counters now */
+-	if (pmu_sbi_get_ctrinfo(num_counters, &cmask))
++	if (pmu_sbi_get_ctrinfo(num_counters, cmask))
+ 		goto out_free;
+ 
+ 	ret = pmu_sbi_setup_irqs(pmu, pdev);
+@@ -1365,7 +1401,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 
+ 	pmu->pmu.attr_groups = riscv_pmu_attr_groups;
+ 	pmu->pmu.parent = &pdev->dev;
+-	pmu->cmask = cmask;
++	bitmap_copy(pmu->cmask, cmask, RISCV_MAX_COUNTERS);
+ 	pmu->ctr_start = pmu_sbi_ctr_start;
+ 	pmu->ctr_stop = pmu_sbi_ctr_stop;
+ 	pmu->event_map = pmu_sbi_event_map;
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -55,7 +55,7 @@ struct riscv_pmu {
+ 
+ 	irqreturn_t	(*handle_irq)(int irq_num, void *dev);
+ 
+-	unsigned long	cmask;
++	DECLARE_BITMAP(cmask, RISCV_MAX_COUNTERS);
+ 	u64		(*ctr_read)(struct perf_event *event);
+ 	int		(*ctr_get_idx)(struct perf_event *event);
+ 	int		(*ctr_get_width)(int idx);
 
 -- 
 2.43.0
