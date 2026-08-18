@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD813C5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 08:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C53CC5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 08:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KZSKrxuvSb2g2oQATWSJsSRJf9/TbYkoewirwHMisTs=; b=KQN29x/W38lQCvlLGx4sKN7n4n
-	RJ2yvLfF9COMhvAxsA1lTZxl6bVSIYSKwPBVkfqEjZv04YYVCYM1hkBR9BHMnOiBB6sMav4buWLxE
-	NMV1o/IZy06btQgS2QFqxXkF1OQHaovICrEBvSKjEaPjK+F3sJiPIUD3u2DbUoKm3w2ohSrdq2M8B
-	Cd9HpRxJWdPVBAPPpNRClVxjjz/ZyAmMafcrt8xwbaarWQrsKwHsxbQIKKQsy+E1p6qq5fcP/kth9
-	44hIBTUF8uUO1Hl9dpcalajssgV8GRDKQn41hgiqCa7J/umWcJRnVGcijnoLFXqbFjhstM+HolGRG
-	T5fbljlA==;
+	bh=uPCZE5UQS1reSBivMfqpeYb6NJuDBFdvhISL7AQJN6Y=; b=a6RmvsuYs0cAA3ci32Jnum1Sw/
+	hvOrgmHR7n5/o23/nYgwZPSVrvMowjrNMS3z/HpbeJOdOj0t6bwbqypfcWP8acP7T/tXSyHE13T/Q
+	H0ZjFwP2dWmQ3J76c0PdlHFXNDGtmu3tVYLqZDoQyd2ooKf1//ti2jrIhVFVPuvpVofM6ZsMnnEb9
+	8bISETVn4laiEycf14zLASdqa3THi3XJIb2c+ffO39ib8EFO3q46CflEoRd923U9bCckwLeOsC4fc
+	mijC/4CZdxTiV87lZ5g+HJr5tbhQhPOsw61LXS/J9N7QmvAf6wCn7XDp0r3QwrzoEqvKsl7ee7RLa
+	HiY/TPmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwF0f-00000007VfE-2BuO;
-	Tue, 18 Aug 2026 08:17:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wwF39-00000007Vsa-42J6;
+	Tue, 18 Aug 2026 08:19:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwF0e-00000007Vf5-37hS;
-	Tue, 18 Aug 2026 08:17:24 +0000
+	id 1wwF39-00000007VsR-00rw;
+	Tue, 18 Aug 2026 08:19:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CA1E4601E0;
-	Tue, 18 Aug 2026 08:17:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2194B1F000E9;
-	Tue, 18 Aug 2026 08:17:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5864C4359D;
+	Tue, 18 Aug 2026 08:19:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10F251F000E9;
+	Tue, 18 Aug 2026 08:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787041043;
-	bh=KZSKrxuvSb2g2oQATWSJsSRJf9/TbYkoewirwHMisTs=;
+	s=k20260515; t=1787041168;
+	bh=uPCZE5UQS1reSBivMfqpeYb6NJuDBFdvhISL7AQJN6Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FGN5ysaQDWk7Gj6FVonn2bTKesUpxyuwDNWIhmhjkO/EbWtg8ux8kLKf3gHzuYo3r
-	 OlhXVtVopwPiQ4bpAFrf+eZtbxvKlbY5bi4GXqXQNDSW8fyPLzTG8k4f9nuhdf5rNe
-	 ubwD8zU5238tFTnL2kJDMB8Pcmmzzb9E54M9/4Go/9jjCOO+xNt0+a14zKxvXu2E+R
-	 infv3nJU6aG7GIMEEqqa8Krd/GzSxPQAkVncP/iSaN1a8KvQ3IU6nN9u9sbCm1QK/Y
-	 tPnuU8cyFZinFmRoXuMtW9GrTQuWNgVP/loQ9tQN3F1dH9JkP81hrHDAtraDz7InEX
-	 eXH4Ccg1KNAVw==
-Date: Tue, 18 Aug 2026 10:17:18 +0200
+	b=Sjl47PwTF/cLPjJlGU93edPoLyfmJ14vkTClpNmoHwdkcZuQ6EvIx49piTlQaxT1A
+	 DRuEapnf9CTV15na0Dss8mLDfrzUDlzPzyoX8wBERTUD/3NRsWSDfjNalDLvGPaDR2
+	 PKO/2Icgi0K9kT34lJnP+DkoLjmV6OhpUq3T5ol0q7QzDDxw9oRhYi6T4wi3QTZNh/
+	 6uTIm9+lUTLa//UozQURz3I6dNWs0b5yBE4i0/ifJDFXu3SM4S8NJNX5iU3JNK5xij
+	 KDsp+2Hh90aDjHKp+GPwmzK6ZdPEKuPMPH5QMJdshzpxesAHroAl/79DRZ8YoyoOaw
+	 0ZELrQngIEf2Q==
+Date: Tue, 18 Aug 2026 10:19:23 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Marek Vasut <marex@nabladev.com>
 Cc: linux-usb@vger.kernel.org, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Christian Bruel <christian.bruel@foss.st.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Fabrice Gasnier <fabrice.gasnier@foss.st.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Pankaj Dev <pankaj.dev@st.com>, Rahul Kumar <rahul.kumar05@st.com>, 
-	Rob Herring <robh@kernel.org>, Rosen Penev <rosenp@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Francois Choleau <francois.choleau@st.com>, 
+	Christian Bruel <christian.bruel@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Pankaj Dev <pankaj.dev@st.com>, 
+	Rahul Kumar <rahul.kumar05@st.com>, Rob Herring <robh@kernel.org>, Rosen Penev <rosenp@gmail.com>, 
 	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org, 
 	kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 7/9] dt-bindings: arm: stm32: Switch
- st,stm32mp23/25-syscfg into simple-mfd
-Message-ID: <20260818-invisible-polar-cow-fb2a93@quoll>
+Subject: Re: [PATCH v2 8/9] arm64: dts: st: Add USB nodes on stm32mp231
+Message-ID: <20260818-brawny-ultramarine-jaguarundi-e314c3@quoll>
 References: <20260816213849.1044073-1-marex@nabladev.com>
- <20260816213849.1044073-8-marex@nabladev.com>
+ <20260816213849.1044073-9-marex@nabladev.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260816213849.1044073-8-marex@nabladev.com>
+In-Reply-To: <20260816213849.1044073-9-marex@nabladev.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,60 +77,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 16, 2026 at 11:37:09PM +0200, Marek Vasut wrote:
-> The st,stm32mp23-syscfg and st,stm32mp25-syscfg can have subnodes, which
-> represent the USB 2.0 FEMTO-PHY. Turn the syscfg into "simple-mfd" so the
-> PHYs would get populated by the OS.
-> 
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
-> ---
-> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: Christian Bruel <christian.bruel@foss.st.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-> Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> Cc: Pankaj Dev <pankaj.dev@st.com>
-> Cc: Rahul Kumar <rahul.kumar05@st.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Rosen Penev <rosenp@gmail.com>
-> Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> Cc: Vinod Koul <vkoul@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: kernel@dh-electronics.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-phy@lists.infradead.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> Cc: linux-usb@vger.kernel.org
-> ---
-> V2: New patch
-> ---
->  .../devicetree/bindings/arm/stm32/st,stm32-syscon.yaml     | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-> index 95d2319afe235..ef640443dd239 100644
-> --- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-> +++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-> @@ -22,11 +22,12 @@ properties:
->                - st,stm32mp151-pwr-mcu
->                - st,stm32mp157-syscfg
->                - st,stm32mp21-syscfg
-> -              - st,stm32mp23-syscfg
-> -              - st,stm32mp25-syscfg
->            - const: syscon
->        - items:
-> -          - const: st,stm32-tamp
-> +          - enum:
-> +              - st,stm32-tamp
-> +              - st,stm32mp23-syscfg
-> +              - st,stm32mp25-syscfg
+On Sun, Aug 16, 2026 at 11:37:10PM +0200, Marek Vasut wrote:
+>  
+>  		bsec: efuse@44000000 {
+> @@ -1062,9 +1119,31 @@ exti1: interrupt-controller@44220000 {
+>  		};
+>  
+>  		syscfg: syscon@44230000 {
+> -			compatible = "st,stm32mp23-syscfg", "syscon";
+> +			compatible = "st,stm32mp23-syscfg", "syscon", "simple-mfd";
 
-You never tested your code - DTS in this case. This clearly generates
-warnings.
+Obviously fails dtbs_check. Use tools, not humans, for this.
 
 Best regards,
 Krzysztof
