@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A487C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 15:45:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA4EC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 15:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/BwNNtgtguTBrAJ236L5Fx173zbpqjSentCCoSnY3y8=; b=QZ248TklmyTfL9tYeZ+GgzpfTw
-	kil0SPeZae/OvTHvdZLQbsrNwJUheGX7/LI5KyLpPmpKlWWr4HUxExtYZwprthemYvEILd5uUZm7i
-	VsOjxDYwln/U759q+aljvTDCWwfQUkdIiY+JQucxUhB18SL/roQunprsax4xhswf+sVX4DHToqPRR
-	39bcnGZEAhAMoIyNjjSFF+RKZ8fWAAbpUpszJiOfRVkhPtFn643oP1LA3MYtkXtdzKL6PEw+6+Rh0
-	NN6Fxe1GlG79uInGvearaY9KD+bgSau9yR1Sg9yHip2YdkJNlVLfwqYP50HyHZnULhVnjXix5WKoP
-	BI2PPOcw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=geXWrV0/2z0kpozDGOhKEC+5F4VQGLvn66X7G1ETdLM=; b=uE2KyVbu7ZSvyMmOVwcU1HZ9RS
+	CP1T1Wo3vicpyuuLjrtH/WZfypCv2gcriFzdmdgplHKzk48eA+eVw1Y9Gx7tOFWjDYrWZk6Gytesq
+	e4sh8NTJCzPW7htSkt1WzIXcvu/Q1fWyYerrHgXEMZZ7lbMWKljsm6Dm88I4JQgTy0TYeg33Q3omm
+	fBsBAdrmEJV5iA0VAaLYg8aelwcZ5FH4bJljebTAahISx0O86GoAW/TKixmW0JUD9/6c0OEJeT4AW
+	vIj2JUKdF3WpgzRR+ohLWYnM3Ty+v2pEGxZ8alq6x44IAq4w3FI60BdbuUlYVKMAOogEEr96Jb7Dw
+	zLmYX74w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLzm-00000008I89-0QlW;
-	Tue, 18 Aug 2026 15:44:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLzl-00000008I7h-0hvF
+	id 1wwM7s-00000008J32-1IY3;
+	Tue, 18 Aug 2026 15:53:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wwM7o-00000008J2Q-1rvT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 15:44:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42AA660A5D;
-	Tue, 18 Aug 2026 15:44:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E87ACC2BCF7;
-	Tue, 18 Aug 2026 15:44:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1787067896;
-	bh=NxlBY+QLfLmAZPcARcDdEqlxKsH4KI7HO6myhnvxzaU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=PdUlHv4uquiOhsiTUhKvvvKADDwsgc0F5/GoS2wf7fGkCjcvuKF8xk1sC731RrysR
-	 AI4/a4mJW+AzuXhLMbsUfKJxu48jldBiwS4vP4JmMM5YghIq+okJWkvs43RzAM+F/q
-	 LwLtilHzDm7e+wnVq5lg8k75FqfP7LeDlnh4olaRG5/WpA4P9raq2+w1JqrvtvmZgH
-	 EzXage6nG13+XT+mE7mB7TrF98NeORbzUrm0pPLGCogvE6RyD/qj7ZO/q3HLSfQY9b
-	 5wFZu0ctwIaHEs4yzFYKlJQR+e89zrhCEhxHvr6Dcq+DIYaBkwBdnNp/HNs75A1+wv
-	 QymBvauYCIIKg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BF028C5DF81;
-	Tue, 18 Aug 2026 15:44:55 +0000 (UTC)
-From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
-Date: Tue, 18 Aug 2026 16:44:47 +0100
-Subject: [PATCH v2 1/2] dt-bindings: watchdog: samsung-wdt: Add
- exynos5515-wdt compatible
+	Tue, 18 Aug 2026 15:53:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3316B1A00;
+	Tue, 18 Aug 2026 08:53:10 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9AEF53F763;
+	Tue, 18 Aug 2026 08:53:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787068394; bh=n5Pn/EgrqrIEFc5DK4mgxFWT/9EScWqa5GcuyDfAyeo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KiMNDdqo79AFXbKqbuzUTJzNZjfCcxsyG80l6DMNVWk3SK8nXkyidq4VEkkObM4lg
+	 2k296O5lKEZVD5XqetWIn+E/GvtX7ic8xbAsx7MBDnbniwPndVR5pUbaKDi8vAr2ak
+	 /6nbyhSweQ+975pWMIkNhvlMelJpufEsIPDC/zOk=
+Date: Tue, 18 Aug 2026 16:53:08 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: James Houghton <jthoughton@google.com>
+Cc: Will Deacon <will@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	Nikos Nikoleris <nikos.nikoleris@arm.com>,
+	Linu Cherian <linu.cherian@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Nanyong Sun <sunnanyong@huawei.com>, Yu Zhao <yuzhao@google.com>,
+	Frank van der Linden <fvdl@google.com>,
+	David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+Subject: Re: [PATCH 11/18] hugetlb_vmemmap: Use try_populate_vmemmap_pmd for
+ replacing in-use PMDs
+Message-ID: <aoR_5LHPsVXUnxt6@arm.com>
+References: <20260708031129.3503195-1-jthoughton@google.com>
+ <20260708031129.3503195-12-jthoughton@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260818-for-next-lucky7-watchdog-v2-1-6743f479a47f@member.fsf.org>
-References: <20260818-for-next-lucky7-watchdog-v2-0-6743f479a47f@member.fsf.org>
-In-Reply-To: <20260818-for-next-lucky7-watchdog-v2-0-6743f479a47f@member.fsf.org>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-watchdog@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- Aiden Isik <aidenisik@member.fsf.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2313;
- i=aidenisik@member.fsf.org; h=from:subject:message-id;
- bh=FomCRWunoZv/FcOKS7xgccqo7tYm7xEPkwn4AZZPbfA=;
- b=owEBbQKS/ZANAwAIAUknAbLEetfrAcsmYgBqhH31JLwniVYQYJiusy88srmX03d1ZEI5EiFcy
- drdqDU/Ae6JAjMEAAEIAB0WIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCaoR99QAKCRBJJwGyxHrX
- 60pjD/965EhbSgagts5oHkKpOq55r60UzFH4lLyavLkasfRAioVkqV3yKU4akdPZDShFXOKK7pD
- pPu3sHfuOfxFltqSTFV3hc3z6LmQwhsdyUHEHY3G+Ra6kYweLdrzpGYYsFrOGPY26BTIF+cZ61Y
- kI0hIDYkHfEuRuJRHyCN94UJfhy9F3wD3fB5eLrPgsgIBFJg3GOasW8r8+55qWyNaQKO8vzFNRX
- X+UCddjQLNUuE6Pgb/KsjY8X6u5y+dZu4/OucpBkHSaph2zVsOvds8H1AGXzNeWMrlm8dR/8KdZ
- 7iUTJBSL7udi7j39pyRpVdMBYUuCT87e+lgyY2NrUUBiLVSLXHAcPwY7NLid5FsrP56km8bTChW
- YlL5D8PHK9mtYeapuFTCDp0B/F6vU0gm4+u47S9rEj/ft1MCAFoOsqUTtLV68POx2+h4a7qq9In
- S8Ze6iAE9MBIuuo70oMseLDuiJpIU1MFs46HZ+rPPErYoBspQSSBIcGubUme40tYqHDCf+1sYtY
- t09NnRBvNvbzhxTDLS5FRcZaudvNG9WnNHCvtbjBHPlGxZi3RPMmdKYTmBWHwukgtRGgXdj5itq
- x74gUia0ZrUl5vQcpNJnKcNuvIm0Ol/qBU+RjOaWGHhzbO7zh1hCR2g5JRpqhc7gu2eGjGo9WHn
- mRUWpXVUpzM0pIA==
-X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
- fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
-X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
- auth_id=956
-X-Original-From: Aiden Isik <aidenisik@member.fsf.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260708031129.3503195-12-jthoughton@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260818_085316_664286_B7277FC1 
+X-CRM114-Status: GOOD (  28.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,74 +77,126 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: aidenisik@member.fsf.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Aiden Isik <aidenisik@member.fsf.org>
+On Wed, Jul 08, 2026 at 03:11:21AM +0000, James Houghton wrote:
+> diff --git a/arch/arm64/include/asm/pgalloc.h b/arch/arm64/include/asm/pgalloc.h
+> index 1b4509d3382c..c8946250d431 100644
+> --- a/arch/arm64/include/asm/pgalloc.h
+> +++ b/arch/arm64/include/asm/pgalloc.h
+> @@ -121,4 +121,13 @@ pmd_populate(struct mm_struct *mm, pmd_t *pmdp, pgtable_t ptep)
+>  		       PMD_TYPE_TABLE | PMD_TABLE_AF | PMD_TABLE_PXN);
+>  }
+>  
+> +#define __HAVE_ARCH_TRY_POPULATE_VMEMMAP_PMD
+> +static inline int try_populate_vmemmap_pmd(pmd_t *pmdp, pte_t *pgtable,
+> +					   unsigned long addr)
+> +{
+> +	/* BBML2_NOABORT is required. Its presence has been checked. */
+> +	pmd_populate_kernel(&init_mm, pmdp, pgtable);
+> +	return 0;
+> +}
 
-Add a dt-binding compatible for the Exynos5515 watchdog timer.
+This patch adds the same function in 4 different arch files. Can we not
+have a single generic implementation in linux/pgalloc.h, bracketed by
+some ARCH_WANTS_* (macro or config)?
 
-This watchdog requires a syscon phandle, and the cluster index should
-*not* be specified, as that does not make sense on the Exynos5515 SoC
-(due to it only having a single core cluster).
+I think the same goes for patch 4 with try_update_vmemmap_pte(), we can
+reduce the code duplication.
 
-Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
----
- .../devicetree/bindings/watchdog/samsung-wdt.yaml  | 23 +++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
+> diff --git a/include/linux/pgalloc.h b/include/linux/pgalloc.h
+> index 9174fa59bbc5..ed446d95ca37 100644
+> --- a/include/linux/pgalloc.h
+> +++ b/include/linux/pgalloc.h
+> @@ -26,4 +26,24 @@
+>  			arch_sync_kernel_mappings(addr, addr);		\
+>  	} while (0)
+>  
+> +#ifndef __HAVE_ARCH_TRY_POPULATE_VMEMMAP_PMD
+> +/*
+> + * try_populate_vmemmap_pmd - Populate a PMD that is in use by the vmemmap.
+> + * @addr: Base address of the remapped PMD.
+> + * @pmdp: Page table pointer to be overwritten.
+> + * @pgtable: Pointer to the page table that the new PMD will point to.
+> + *
+> + * This function is only to be used to update PMDs that map the vmemmap to
+> + * point to a page of already-populated PTEs that map the same pages.
+> + *
+> + * Implementations of this function must ensure that, while the update is taking
+> + * place, CPUs will not fault on the remapped virtual address range.
+> + */
+> +static inline int try_populate_vmemmap_pmd(pmd_t *pmdp, pte_t *pgtable,
+> +					   unsigned long addr)
 
-diff --git a/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml b/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
-index 41aee1655b0c..a32c47831577 100644
---- a/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
-+++ b/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
-@@ -22,6 +22,7 @@ properties:
-           - samsung,s3c6410-wdt                   # for S3C6410, S5PV210 and Exynos4
-           - samsung,exynos5250-wdt                # for Exynos5250
-           - samsung,exynos5420-wdt                # for Exynos5420
-+          - samsung,exynos5515-wdt
-           - samsung,exynos7-wdt                   # for Exynos7
-           - samsung,exynos850-wdt                 # for Exynos850
-           - samsung,exynos990-wdt                 # for Exynos990
-@@ -57,7 +58,7 @@ properties:
-     $ref: /schemas/types.yaml#/definitions/phandle
-     description:
-       Phandle to the PMU system controller node (in case of Exynos5250,
--      Exynos5420, Exynos7, Exynos850, Exynos990 and gs101).
-+      Exynos5420, Exynos5515, Exynos7, Exynos850, Exynos990 and gs101).
- 
- required:
-   - compatible
-@@ -93,6 +94,26 @@ allOf:
-         - samsung,cluster-index
-         - samsung,syscon-phandle
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - samsung,exynos5515-wdt
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: Bus clock, used for register interface
-+            - description: Source clock (driving watchdog counter)
-+        clock-names:
-+          items:
-+            - const: watchdog
-+            - const: watchdog_src
-+        samsung,cluster-index: false
-+      required:
-+        - samsung,syscon-phandle
-+
-   - if:
-       properties:
-         compatible:
+Nit: if we follow try_update_vmemmap_pte(), we could place 'addr' first.
+It matches pgd_populate_kernel() as well in this file.
+
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +#endif
+> +
+>  #endif /* _LINUX_PGALLOC_H */
+> diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
+> index 977249e22ed0..b445febac0d2 100644
+> --- a/mm/hugetlb_vmemmap.c
+> +++ b/mm/hugetlb_vmemmap.c
+> @@ -55,6 +55,7 @@ static int vmemmap_split_pmd(pmd_t *pmd, struct page *head, unsigned long start,
+>  			     struct vmemmap_remap_walk *walk)
+>  {
+>  	pmd_t __pmd;
+> +	int ret;
+>  	int i;
+>  	unsigned long addr = start;
+>  	pte_t *pgtable;
+> @@ -74,8 +75,15 @@ static int vmemmap_split_pmd(pmd_t *pmd, struct page *head, unsigned long start,
+>  		set_pte_at(&init_mm, addr, pte, entry);
+>  	}
+>  
+> +	ret = 0;
+>  	spin_lock(&init_mm.page_table_lock);
+>  	if (likely(pmd_leaf(*pmd))) {
+> +		/* Make pte visible before pmd. See comment in pmd_install(). */
+> +		smp_wmb();
+> +		ret = try_populate_vmemmap_pmd(pmd, pgtable, start);
+> +		if (ret)
+> +			goto free;
+> +
+>  		/*
+>  		 * Higher order allocations from buddy allocator must be able to
+>  		 * be treated as independent small pages (as they can be freed
+> @@ -84,21 +92,17 @@ static int vmemmap_split_pmd(pmd_t *pmd, struct page *head, unsigned long start,
+>  		if (!PageReserved(head))
+>  			split_page(head, get_order(PMD_SIZE));
+>  
+> -		/* Make pte visible before pmd. See comment in pmd_install(). */
+> -		smp_wmb();
+> -		/*
+> -		 * On arm64, this requires BBML2_NOABORT. Its support has
+> -		 * already been checked.
+> -		 */
+> -		pmd_populate_kernel(&init_mm, pmd, pgtable);
+>  		if (!(walk->flags & VMEMMAP_SPLIT_NO_TLB_FLUSH))
+>  			flush_tlb_kernel_range(start, start + PMD_SIZE);
+> -	} else {
+> -		pte_free_kernel(&init_mm, pgtable);
+> -	}
+> -	spin_unlock(&init_mm.page_table_lock);
+> +	} else
+> +		goto free;
+>  
+> -	return 0;
+> +out:
+> +	spin_unlock(&init_mm.page_table_lock);
+> +	return ret;
+> +free:
+> +	pte_free_kernel(&init_mm, pgtable);
+> +	goto out;
+>  }
+
+Would 'free' first with fall through 'out' read better?
 
 -- 
-2.54.0
-
-
+Catalin
 
