@@ -4,161 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EAE7C5DF74
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 03:24:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DB23C5DF74
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 03:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Mj3SzAcaCvmOfibRhtunrb3JChcTu1mYYWf77aYRPc=; b=oIxz285rihn9O8zF7iVnRU9rad
-	AkDNYiWpiaxqPMtYknTM6pRtOoeLPudrhORIh3G7+cHzqvXSQ8vpxtoKodIhqpVt/piunqmI3Fn5t
-	LEoEQ4x0HkxOWxzzvi+/BZu4Y4jzbi0BeXxXIk0yxEDaaTflIQHubnM/boMUiHvChZMOWKcxJP12s
-	pxtdGaihWz4Eb1T+s+Tq2RkF5OOdMaqaYKpnQSxNUxPuphz7ndE+Z10/C33GJlFthxG8XDBBMLXlb
-	4+wk7M5PJxPldCq8E4D+k+vkhdDEMJXDu7OWFiOvbme2MkfV8xD1JdlS4LGr4r4L5FEUmVjA1uECi
-	MK10r3xQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nwUN1KbEJJECXMvk6i28ZC3dyp1hGWh2cIoCP1Yh4tI=; b=UXPgVA2IJRnR8+
+	Vbk1V9GwEjIhmgeaz+NqCjII7SYnPA6MDJZEVv6JWgi5mmXTyoWHpGOXETnJhNPgMRPpKZ3DNIF/e
+	6wk3nCia5ciEplw/t2lKDmWVKweHFzDiwlmRBF/HKnWQnzoFpL87OsCYrNkoV4z7hPKuJKbSrLm19
+	C2x6QfSwWjYo4UJAKsrwZzBZDV3axuwq5zg63mTzCQyek4fN2KwvxVgi3mPQW068pnRcdgItvBKzC
+	MgxQHQtMpqrAKXF+pAg18z9mnfovmhpPiEuJvAYwBW17vBWcMJFJWYhanw96pCD4Vdwh/P7TQBx/B
+	3f9D37O5X92rwSFTw/Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwAQe-00000007BKe-306r;
-	Tue, 18 Aug 2026 03:23:56 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wwAal-00000007CAp-2gCL;
+	Tue, 18 Aug 2026 03:34:23 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwAQc-00000007BJr-0X8o
+	id 1wwAai-00000007C9u-23Hy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 03:23:55 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67HLkbtp3882159
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 03:23:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=/Mj3SzAcaCvmOfibRhtunrb3
-	JChcTu1mYYWf77aYRPc=; b=gi7yg6CS3RxGzgedATshcmJaiGXWKnB2gLVvLaXH
-	hblFxCEsGbQ8T+Wfp5yRC73yoh0cDC2MmPHF5vmXT994rkU0z2erOup7s7coJW+T
-	LarnShSR/xs71I+vPuRdYJN2Ti7V7Xz+Ahqz+qDd2yv5DW939Sc78whe+eDLzI0v
-	Cpob1u2wVHwQ0GjwH5CYJwCzy073L0Ktd6hP8Yy1s8uttIomxS/7hXfFyVfZUAT7
-	8OaAPCeptjLxrQDG+lWbWF48QMqc+5J/Egy2f0wF/j2a/JNkqv+sN1BjauysRPFQ
-	J7G7MXFCpMDwiRqATI9FYOqwoR1Ze5mqJFVQcN5ogSsI9Q==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g3y77c7nu-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 03:23:53 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-930a098ea19so560109285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 20:23:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787023433; x=1787628233; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=/Mj3SzAcaCvmOfibRhtunrb3JChcTu1mYYWf77aYRPc=;
-        b=BZgjbchqp+Uc64Ew55l8qm4Gng2mU7Ny1cucQ40gBWHx7i6aHWjncI4JuOjXeS8uhA
-         1QY4jed1IHVxcmqISrxOV6a7VCC5q53Mu2Uzvb4c6SK1csOKe6CjiwPBC5OrlnTavFqF
-         6Y+LqnXD0iDYrhgWrBGhkxH+UjdnRoW2l56JtTFLfFCpGXCBlLINVFK6AP/t5sQz8g1X
-         tEonSpaGFKIcDsVpmNWX/o4QvlE45WlppwH5GzwMBxezLpGHuNfGO5/Y07P7CgRlT2rZ
-         KnrmXwa+W95crC3KztQ3w1ZwPjCx8zGecYBCB5haPHiBNq4WFJBlYEwsPRzRUkPEXgXf
-         cprg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787023433; x=1787628233;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/Mj3SzAcaCvmOfibRhtunrb3JChcTu1mYYWf77aYRPc=;
-        b=HTD3AQpLPlbGlO8Z7LweaZgRrnbNmcxYfq/UTRY5XFrh15UrJghYdLdq3lGCqeW8U2
-         4iK56NsXIiTrGeixOGZxCywHdBL3SJLVSSDp1OS8j8Hi+coW9+5881GX6gw15D46gYuo
-         MX3mm4ctmm64qrKDouC0ZN5a8I+SInSGatJ3sX7B3ck/WePqVvUrfi1YZSxAhox9wi3y
-         LvffVJOpbwpWD64cZqeZrh0ub8TA4al+EhbrMQCkoCuqo0TsH3S6GSHRpTW7OlaUHIJd
-         tjaeB5084ze5Ggo4EJU2MoXTY/ejE42RRmtM1lQUCVeDEz63W/vjcZAJMfL4rAe6ML8e
-         ct7Q==
-X-Forwarded-Encrypted: i=1; AHgh+Ro0cG5T3oF1CWVTJIB8Ox7z7jOKFbyVpZbrdjFBbhSGK50OBZvC2jaS9V5DqazAsdrzPIUYniFuVMjN6t0P1x/X@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRE/HlTbtVuzIfS4x8xy4/zdaVYEtBVdC6Z80ZtU9LxjY5kXIL
-	utbElv7HyLny0vg751Xq3APOIuzC8njdgCZveWaNg1XSnqvWVK4Wbiz3ZpngHf2ZnOCOs3g6xhd
-	simq0EhlH5jFVhome11Qi//oiYEtQKbGxztGL0ooSoIoz72PH1cbZFlk4UKIYTYelL7QdOzFZWs
-	ar8Q==
-X-Gm-Gg: AR+sD11w67i1VZWBwyRULyzH0Wld6EzPiZW3X7IRXbdB9E9d2E4JWXdBawbWrK7cO1t
-	YXeYclCrSGQxlQekQ+bFU/VLHbQL5gCZa/dRJn61GzSNriyD8YM8ZQZxkG3owgqbAWzduGO9OAi
-	EGVcbHEijIPud70RMIzg4iI3+S4JeecLsApmO2L9q/Cfwjbx3oRAjPIbTctifEaSA1aQKJu3GDc
-	4pxM1ytwkx33oMBkc1xTqklJx4XyvQqSeENPbFO9WTlEBdv0rnmGYlzD0FcRWouFDzXItTvuEEx
-	To1Wi30dwe5qCoJuBOzHhLgxDte26v0eS8JXrbRgRWGoqHlYD5btqeHezV0iIUWXqUrnSfLiSNV
-	2iumZymxbRnP7PshQI60mw8A1I2BO3Ti5ZXAZgInk8ZDoW7P5ejG7Mk4HkkefxGsJ+gcpxfCAqk
-	6uaNVNMl/rR2Zo
-X-Received: by 2002:a05:620a:1786:b0:936:cd74:4f45 with SMTP id af79cd13be357-936d232e6cfmr2796689285a.37.1787023432422;
-        Mon, 17 Aug 2026 20:23:52 -0700 (PDT)
-X-Received: by 2002:a05:620a:1786:b0:936:cd74:4f45 with SMTP id af79cd13be357-936d232e6cfmr2796685385a.37.1787023431954;
-        Mon, 17 Aug 2026 20:23:51 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b46cfa096asm835514e87.19.2026.08.17.20.23.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 20:23:49 -0700 (PDT)
-Date: Tue, 18 Aug 2026 06:23:47 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Luca Ceresoli <luca.ceresoli@bootlin.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org
-Subject: Re: [PATCH 5/5] drm/msm/dp: mark the SST connector disconnected when
- MST is enabled
-Message-ID: <ue75tcf5hwigfvo2pdcmkako2ovvgoxte5oeqs5an7fsupfqk2@oe2adzbdhv5q>
-References: <20260629-msm-dp-msttypec-v1-0-646a10256233@oss.qualcomm.com>
- <20260629-msm-dp-msttypec-v1-5-646a10256233@oss.qualcomm.com>
- <sijdmdhcbxyg23gh6c62hspruvbnyqbdrtv2er3bh6n6ftolsp@b6o4khv6dofc>
- <96344518-c0d3-4424-804a-c315eab3e39e@oss.qualcomm.com>
+	Tue, 18 Aug 2026 03:34:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ukJcqsSz6vewoPgHJnuCZ5Rdc4p7yJya4tPUr07EB0GXKhIdwXUkD2QdnJ3PMhRqDrn7gDU1gEwGtz1yaDHQ0HYz1PyPatHDjXzCROpsM2y0/Lko44BX7XXOo2lvQ6U417TArRaAtBzPl6zK0mrCscsxZQPL6ByG0cArPoJT31czwzYsmYfGk1Ky2u64TJkcf8JFLH3nK38oYTGjFmCtw7mATIYVCmYADiTLXx6aFItOeaIeHcdYdhdgXeNouQqBgZP9eUVUgobc+XMWhhh1sCui+GJ5/a8LyPiWuE0lLxn3YYKu1dG91Cb/PqcBKgDOSwB9ug6j9RJoe4Q4oFbYEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nwUN1KbEJJECXMvk6i28ZC3dyp1hGWh2cIoCP1Yh4tI=;
+ b=kWETSs7q1Pr8adiumqCj3L1wQMyBm/Vfa/83T1uHhZ2uOc5GrtvSF0DPmdaLBExIJOZIIGs7Uqbvk4+kiQKFD8SReouMyNXUrfcTtWEjPaci9WkRxlbYonFGNJZLLYpVnO0WXQRopSIY8KXxluP9T8kVEiW19JO2CSXyCcO7/poOWso2zb4Fxox9YJS0AxXjTq2ot3YB0SUp9ntREbFDeaOE6QWyuRZoYV0ECie+AWyBfIYQXnfrvbuFI2/d425CFn1G/rzGjyAXBx/O2BD3CK1pYRtMb7tJCnyNCNDqpCQf56Qp9a0dBEhzyshZoyM3fRmXjUBlf6QkLI881QBz8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nwUN1KbEJJECXMvk6i28ZC3dyp1hGWh2cIoCP1Yh4tI=;
+ b=BvwcclrTqjVXV4i+uEgowA2Opvq4PJjfV6RdRgnhjLUqNHmu3R2BRiuzZqSbi856hLyVm3VjDCP9woOvcLNFqRxPUBG4iZPcv+odtxn8o22AvK4096pku7F1UEixsUcQ5mpKTLPdNqAsafH6mYJ3VYtKSDkq/OjyofGvThPDikcD+zhEN4Dnlvp+/ajUvWQAvcL3TkwO0yvUy1vqzw7OVxyRyiBFZl93s8mU0tLWPULPtj/kFsudk3a5q7dj5KeyE+OcvYrgjWeBmEpfVybzXUa9cAXP8crNxY7ya4jHJN9jpCNISVRj/wYeWmxlr5lAnkkLrBI9k32fYScRVF+/QA==
+Received: from BL1P221CA0004.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:2c5::15)
+ by LV0PR18MB927482.namprd18.prod.outlook.com (2603:10b6:408:344::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Tue, 18 Aug
+ 2026 03:34:14 +0000
+Received: from BL6PEPF0001AB78.namprd02.prod.outlook.com
+ (2603:10b6:208:2c5:cafe::91) by BL1P221CA0004.outlook.office365.com
+ (2603:10b6:208:2c5::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.17 via Frontend Transport; Tue,
+ 18 Aug 2026 03:34:14 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
+ client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (64.62.143.114) by
+ BL6PEPF0001AB78.mail.protection.outlook.com (10.167.242.171) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.3
+ via Frontend Transport; Tue, 18 Aug 2026 03:34:13 +0000
+Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
+	by smtp.corp.axiado.com (Postfix) with ESMTPS id 090E34186B53;
+	Mon, 17 Aug 2026 20:34:13 -0700 (PDT)
+From: Swark Yang <syang@axiado.com>
+Subject: [PATCH v2 0/2] mailbox: add Axiado AX3005 mailbox driver
+Date: Mon, 17 Aug 2026 20:34:06 -0700
+Message-Id: <20260817-upstream-axiado-ax3005-mailbox-upstream-v2-0-25e713eccff3@axiado.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <96344518-c0d3-4424-804a-c315eab3e39e@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE4MDAyMyBTYWx0ZWRfXy9/mMIwHreWw
- XCv4uSnyxudjTgWxfv7MmBYKDtDodRrVxeTsCiCvsTQjgG6Zs0gs7Bj7cyf74sVoAyJgRytn6Bg
- 1Pi1KioB/b0Y0LrLvaHbR7UfcKxrl6FYwVUf1luUnWzdXTq6F09d7yiFqOTFPrLdVx5JjeNLJop
- Am4qwOE9u/wlvcJA/wcN+1gNv6SXGrq31h3NYuussRSFInXrk/a5fzA0hwxoWDRoxYxTHFpm7Wd
- NxUj9T+F2FpON/ZLnzSaeXuSXyHGsofYWdIIxIapTuLB1VCuABgHNmUmvxmFFmG1uOjgT6Dzg4m
- ofmWJFAbWSnAkWtXCN33ELGF6Kw5FaXITVS71+A7BjkcQO/GGcqyXIWMTjXYvOHLhdd8pnI2TxR
- BYbzjxAZD+PG15YD0GOUvS+rz+3PhdVNVas+4rMmLzHOl19kQTQ1kME7eSRO1ld5KoOM/3Mmdb9
- TbCFcFo6wAMCrJvCZ0Q==
-X-Proofpoint-ORIG-GUID: zYIewCySM_iTCac0tHGF9MQxp2368D0i
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE4MDAyMyBTYWx0ZWRfX8x4rC+OoQyP9
- QKW9FCNjbaQlrXhWZkU6JtU04bQtDy02IiyKGmfyaHSUpxzdS1nmFwwI3Qhlrc1PHBS81CngRws
- WPACy0eaIG3ImIZ8Z5ylzTxRAeREye8=
-X-Proofpoint-GUID: zYIewCySM_iTCac0tHGF9MQxp2368D0i
-X-Authority-Analysis: v=2.4 cv=WNhPmHsR c=1 sm=1 tr=0 ts=6a83d049 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
- a=Q8SuEDP3D7tb5lYi7iAA:9 a=CjuIK1q_8ugA:10 a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-17_04,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 spamscore=0 phishscore=0 impostorscore=0 adultscore=0
- malwarescore=0 clxscore=1015 priorityscore=1501 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608180023
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAK7Sg2oC/42NQQ6CMBBFr0JmbU1pBYor72FYDDDIJEJJi6SGc
+ Hcrxrh1NXnz8/9bwZNj8nBOVnC0sGc7RlCHBJoexxsJbiODkiqXhTLiMfnZEQ4CA2Nr49FSZmJ
+ Avtc2/GKTd4RYUNudSohrk6OOw266VpF79rN1z128pO/v11H+7VhSIYUp87QudCa1NpdP4djYA
+ apt214IUwSr3wAAAA==
+X-Change-ID: 20260728-upstream-axiado-ax3005-mailbox-upstream-86feaa7edf49
+To: Krishnakumar Kesavan <kkesavan@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, 
+ Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Tzu-Hao Wei <twei@axiado.com>, 
+ Karthikeyan Mitran <kmitran@axiado.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, 
+ Swark Yang <syang@axiado.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4189; i=syang@axiado.com;
+ h=from:subject:message-id; bh=iKQc17Jp3iv4U4HmRzk4Xaqf5tZZiBnQ0bjtgB3B5ro=;
+ b=owGbwMvMwCHWlWK8+EozbyzjabUkhqzmS1tqhA7KKO+/c6y+4vi+PEfTbar/zphl6VjtUfD+c
+ UouKLeso5SFQYyDQVZMkeWrzrf8k7na9zr3riyFmcPKBDKEgYtTACZy4TLDP31JRlnlhV/+h3rn
+ VkhcPCLMlb9gsebkC5PvaJoXLv++yJaR4Zh/jLjBfMml/+L29M3b7KGtIJynEndSrdR/8tS3Z5P
+ f8AAA
+X-Developer-Key: i=syang@axiado.com; a=openpgp;
+ fpr=F52CF66FC96D2BDE89BDA9758A6433A3D4830D5D
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB78:EE_|LV0PR18MB927482:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3433afd5-10a6-46fa-7a5f-08defcd9933d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|82310400026|23010399003|13003099007|6133799003|56012099006|10067099003|18002099003;
+X-Microsoft-Antispam-Message-Info: FUIQLgUnNos7NVR3R2z+K3il0Tby2dKyFqmFJqLTAmX1/YONFFgYcLaRsauy8ELeHymORle0V8gV+sawJ8MFhRhRHuVfVagzFt8s72X8ZwKHQyFsg5x1RfyyIk1ove3/8IO0FqtUtmVcCSL1uyLyQqCUapoStCU+3eEVG2hmLLnTOsMfA+qFDBJdEOz8j5n/3E+vjIf1Lwk9lHP4GXQfWZ44aiWE8jZCelDpnzC8TVs6hXMz426J93AqK+Pud75YD3w+pjCokIVQFVFRgUdhEtW8MnhZjxg+cnLlbZIFc3AqQotY7iL5aOLRPWgMRHiKzuVJA5CWf/5KDeQRs75JIDXwySCZrfO8lLi68k4SY5uKGMxl+lwsv5BBKfrnWnByCKqJ6Yy+PYGoKx8AsOZwT8HHyByAG8oiqjrlK9kZOSOCoVmb40eOKdARsXdrK1UXGB4YTZVvp/Q56Ij2NHWWp+flmPrM5uf9Jv1nhqBHx1xHj6Ntby1LrlYlB2jOJhq6gbhNhuv3cVXbZLyaRl7wzhrT7lcFmXeqYHW8txTbErEmhLmag/ZQUsxf76CFkGDZ/WW54rN9cTGoc/Mv/mrB41rXjT9BTFzYRXcteAEnj0kia3yF3v2sdB/vMno3dwLozR/m8jz3YMP9QmtVmqLtGfuW49WCFXaR1BbcGGlR++Ly8/rb7Pc9ZyCBXpckxVPXVoQXBtaPbihcAZ1PkPhDdw==
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(82310400026)(23010399003)(13003099007)(6133799003)(56012099006)(10067099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: V8xuQ7JZGndnHYzz1nhY4FIx98UQJjiGYWUjQBNUplVseEjKnyL5mJXEKXFoHpac0yWTtYOA779CXYHVwMJWjor90oRiC/PZGUs3f6Jj6Rq+3MZpaGSAF00XlLcMN7pu4f+89mFXxQuxFc0t5HR/vwZVrIfFDlN/nfChexjLf7/sHKfCPgUnxl5KjGYI2WfWNAHMWOgI3nFVpDQQo+ZPuTSxO6mDjQBGpd102nqmu8v/i8g/ChUf9aZN645Y9bA0BV5f96tYFAHHKKd/vS5yqFRHPd0Z8oPjVO9chomIIYRG/tT0GAg/baOcvJuZ6HtLVhxKeiLFFZhxBx9oeOPTffzeb52hS75i2e2aEFGHlcQ5WKcqaqkGjZWiILaIAvLV5ic0bkwvaus0eMyGr8O7HxHlsoDHLnIXu0x6cZzCLxTA7vLE9Ub72YlgCq121iae
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 03:34:13.9889
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3433afd5-10a6-46fa-7a5f-08defcd9933d
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB78.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR18MB927482
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_202354_283246_0B75A06A 
-X-CRM114-Status: GOOD (  28.76  )
+X-CRM114-CacheID: sfid-20260817_203420_547838_F1EFE1C0 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,56 +134,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 04:01:34PM +0800, Yongxing Mou wrote:
-> 
-> 
-> On 7/12/2026 6:56 PM, Dmitry Baryshkov wrote:
-> > On Mon, Jun 29, 2026 at 10:48:07PM +0800, Yongxing Mou wrote:
-> > > When MST becomes active, the initial HPD plug notification updates the
-> > > SST connector state to connected.
-> > > 
-> > > However, the subsequent SST connector detect path reports disconnected
-> > > while MST is enabled. This connected -> disconnected transition is then
-> > > observed by the polling logic and may result in an unnecessary hotplug
-> > > event.
-> > > 
-> > > Set the SST connector state to disconnected immediately after MST is
-> > > initialized so that the detect path does not introduce a transient
-> > > state change.
-> > > 
-> > > Signed-off-by: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-> > > ---
-> > >   drivers/gpu/drm/msm/dp/dp_display.c | 4 +++-
-> > >   1 file changed, 3 insertions(+), 1 deletion(-)
-> > > 
-> > > diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
-> > > index 4ee391cc7165..f8ca60d6d714 100644
-> > > --- a/drivers/gpu/drm/msm/dp/dp_display.c
-> > > +++ b/drivers/gpu/drm/msm/dp/dp_display.c
-> > > @@ -352,8 +352,10 @@ static int msm_dp_display_process_hpd_high(struct msm_dp_display_private *dp)
-> > >   	if (dp->max_stream > 1 && drm_dp_read_mst_cap(dp->aux, dp->panel->dpcd))
-> > >   		msm_dp_display_mst_init(dp);
-> > > -	if (dp->msm_dp_display.mst_active)
-> > > +	if (dp->msm_dp_display.mst_active) {
-> > > +		connector->status = connector_status_disconnected;
-> > >   		msm_dp_mst_display_set_mgr_state(&dp->msm_dp_display, true);
-> > 
-> > This should be a part of the MST series.
-> > 
-> Got it .
+The Axiado AX3005 SoC integrates a mailbox controller that provides
+inter-processor communication channels between the host CPU and the
+on-chip co-processor.
 
-Also, you need to take the lock to modify the status field.
+The controller exposes 16 fixed-function channels split into two
+groups: 8 TX channels and 8 RX channels. Each channel has a
+hardware FIFO and a control/status register, while TX and RX
+channels reside in separate MMIO register regions.
 
-> > > +	}
-> > >   	msm_dp_link_reset_phy_params_vx_px(dp->link);
-> > > 
-> > > -- 
-> > > 2.43.0
-> > > 
-> > 
-> 
+Only the RX channels expose interrupts to the host CPU.
+TX completion is detected by polling the FIFO empty status, so
+txdone_poll is used instead of txdone_irq. RX delivery uses a
+threaded IRQ per channel because draining a mailbox message word by
+word is not appropriate in hard IRQ context.
 
+The ax3005.dtsi mailbox node will follow in a separate patch once
+the AX3005 devicetree series currently under review has been merged.
+
+This series consists of:
+1. dt-bindings: mailbox: add Axiado AX3005 mailbox
+2. mailbox: add Axiado AX3005 mailbox driver
+
+The corresponding MAINTAINERS entry is added incrementally by the
+two patches: the binding path in patch 1 and the driver path in
+patch 2.
+
+Testing:
+Tested on AX3005 using an out-of-tree MCTP-over-mailbox transport
+driver, not yet submitted upstream, as the mailbox client. The test
+exercised channel 0 for TX and channel 8 for RX.
+
+Verified end to end by issuing a PLDM Firmware Update command from
+OpenBMC over MCTP and routing it through this mailbox driver to the
+on-chip coprocessor. The firmware update completed successfully,
+and the resulting image passed verification.
+
+Signed-off-by: Swark Yang <syang@axiado.com>
+---
+Changes in v2:
+    - dt-bindings: addressed review from Krzysztof Kozlowski
+	- dropped the unneeded '|' block-scalar indicator from
+	  description fields, dropped the redundant minItems on
+	  interrupts, and dropped the default-valued
+	  status = "okay" from the example.
+    - driver: a further round of internal review turned up a few
+      more issues worth folding into this v2 rather than leaving
+      them for a v3:
+	- Widened the RX wait timeout margin (500us -> 1000us);
+	  the previous value had no measured basis for the largest
+	  (256-byte) messages.
+	- Unified TX/RX message-length validation against a single
+	  field (mb->drv_data->msg_size) instead of two fields
+	  (chan_msg_size) that always happened to agree.
+	- Added a per-channel FIFO error counter exposed via
+	  debugfs, alongside the existing rate-limited dev_warn();
+	  a ratelimited log alone can silently suppress lines under
+	  a burst, losing the true count.
+	- Stopped discarding already-queued good data on an
+	  overflow/underflow flag alone: clear, log, and count the
+	  error, then let the existing length-validated read decide
+	  if what's queued is usable. Only an invalid message length
+	  or a read timeout now triggers a flush.
+	- Only flush the FIFO in startup()/shutdown() when an error
+	  is actually detected, not unconditionally -- a blind flush
+	  was discarding messages the peer legitimately sent before
+	  this side started up.
+	- Used devm_kzalloc() instead of devm_kmalloc() for
+	  rx_buffer.
+	- Fixed a checkpatch --strict alignment warning in the RX
+	  wait poll.
+	- Dropped the TX/RX channel-type guard added in the previous
+	  round, as it prevented standalone loopback testing of the
+	  mailbox controller without a coprocessor.
+- Link to v1: https://lore.kernel.org/r/20260729-upstream-axiado-ax3005-mailbox-upstream-v1-0-8961b7350338@axiado.com
+
+---
+Swark Yang (2):
+      dt-bindings: mailbox: add Axiado AX3005 mailbox
+      mailbox: add Axiado AX3005 mailbox driver
+
+ .../bindings/mailbox/axiado,ax3005-mailbox.yaml    |  96 +++++
+ MAINTAINERS                                        |   8 +
+ drivers/mailbox/Kconfig                            |  10 +
+ drivers/mailbox/Makefile                           |   2 +
+ drivers/mailbox/axiado-mailbox.c                   | 395 +++++++++++++++++++++
+ 5 files changed, 511 insertions(+)
+---
+base-commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f
+change-id: 20260728-upstream-axiado-ax3005-mailbox-upstream-86feaa7edf49
+
+Best regards,
 -- 
-With best wishes
-Dmitry
+Swark Yang <syang@axiado.com>
+
 
