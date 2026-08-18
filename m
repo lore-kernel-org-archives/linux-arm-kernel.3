@@ -4,94 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE13FC5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A55ABC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k8WNGrZX+hjlSdnhW34q1ZcSrRlLRd8OoKfIun9uixY=; b=XHyzv1hR016gYESB1lBaIklZRS
-	jkuaA/gYd6NlU9KK8reykvwlUFxgma6hqqm4RDGvsqMuZe/FzdIKbVCbpIWZKpmVHEx8tH3QIiKq5
-	IyFF+CNCr5t2UOf8m0gNGa4PpXpQ4/AbDtidMpcy+OONgaCe53OJ0bf2IPGwU+KpvjWRdmYII3McH
-	yHdBsmMMUVXgTDGB2y6qoeDDjWjo9oA4Az31/BCLmiffB2Vz6fUjnqYLcCY8IzSj/tPgkqpCYTWLM
-	2RBtcKcY7bTDqkbQjWb7QE+OJRsNw/4opfzzBKnR/KerO01N422oTcsaCEIHA/18/MYIopsWY4H2E
-	5BhiTpvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=APHNqbyIE3wsZFWJJNb/X7x7s14Ba8e5Q7jK9NX9v+w=; b=T3CvA5pLH0zHUcu5lLf3Md+ILd
+	zmCyRI4ldQw0g7vf/vZVUahHvyQp8GqvVHaQd2EhJkVFnMzbjz4litDNOX33++9EV/TLBtiDdhj+4
+	4WnD5ptcn2E36tZ2MfCedU22fSIVucGXT9v7h50+uo07q3XRBhZGv+ElMyOPXmaJFN5Ey6AJmF/jG
+	FxETCGPqyRfjaVVyOiKfdXD7C2o3EqWD1m+miSwH4OLKws9sYQ6zLj54CHK//QvEU0RXEmoGZ3Leu
+	QtzsSKISVQT4+tgrSEleTpQ/AgetEKRCAPt1aQ+j183nAPBSn14TgTTY1aD4wx1V52gxO8x+NkolZ
+	Hvk9AE/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwFva-00000007aIp-2Od6;
-	Tue, 18 Aug 2026 09:16:14 +0000
-Received: from mail-pf1-x445.google.com ([2607:f8b0:4864:20::445])
+	id 1wwFwd-00000007afi-00Mu;
+	Tue, 18 Aug 2026 09:17:19 +0000
+Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwFvT-00000007aEN-1V2s
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 09:16:08 +0000
-Received: by mail-pf1-x445.google.com with SMTP id d2e1a72fcca58-84e4ef9a74aso8025428b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 02:16:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787044566; x=1787649366; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=k8WNGrZX+hjlSdnhW34q1ZcSrRlLRd8OoKfIun9uixY=;
-        b=kl73dcFRo0hxzM52nJGXCY8PMLC6ORqACuRDLgJGQNbpjVpTY8b5Fy+ph3URHfafyC
-         5nWX2t+DayQ1ePXH8+sNQTASi6FSs1MOO5wugvOn0rdVCpdpgKUlJPoQM+Ea9DThhZBO
-         JPoSCNIAyo0yC7uQrxZg6fR7n7CWnGTbfoWvLR3/bKZNTDLSVxOP8j+G1MGDdb+Q7vYP
-         Ol1plOeG8PnT/QGbsB/ENPlhrjTqC0c2OA+NylAcWpPXo/qh++BYFMXvjxvD7VfqBuJX
-         Igpz8+eAq3h9S5uicPFd2IxHRtS17P+xZOoin3PuDxRrM8LsC1nChYnDeaz9XnaGEw88
-         Jq4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787044566; x=1787649366;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=k8WNGrZX+hjlSdnhW34q1ZcSrRlLRd8OoKfIun9uixY=;
-        b=YJEFtXCy7M0559FX7R/5uQE2Q40tO2HK3B8DfbmLS9rJZ2Hyp3iYKuJFQzsWdFP1aX
-         Kq9ouLIzFUdrI7+nd5v+hJSDhv8bPADJYgA56pxeasUJ8SBX0Ep5NxcDEMk2hjJYYEA2
-         IZXkEEiUY1KPrMVntckcS9RzCnviNQFhK7GdGD/k7wLevUqwMLZRWNNa+Voz2igpfIpI
-         XULWBffP3ZD7xAFe2D3f5sww+v2XAiR/Hd24xPZtzLBv7Rk3nZUTsezhX6hcRDS1MZDS
-         mgedkwfTbnfJrSbpRb34vUsRKYpDbcEcaGvMd2QaOGnEaXqfjIjrw3sINRKxICDqG/Rc
-         sOfg==
-X-Forwarded-Encrypted: i=1; AHgh+Ro68lgQEvKSosKKhInU0V7XWE+IN0s1iQbDw/0SR+1Z8z9tMFbV0WAuo+7RJSV7WMxcOpSvjTVBw5Fpbdb/1Lc9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFui5SCBTFrA4eu65jUOVJBrYFuJ7CtzVQEhUzNP/vCptBNIJY
-	N2anvN5oYqoe6L1xB82Y500Ykm+qtqdOMFWcwZaf5VQq7tYsyduo6tZwtwck52sqcRoSTZbllzc
-	0jc5qvlwXo+QMZa1u/NWWxeuIiQ==
-X-Received: from pgar27.prod.google.com ([2002:a05:6a02:2e9b:b0:c9e:2db2:a2cf])
- (user=ackerleytng job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a21:9d84:b0:3c3:bbe6:95c7 with SMTP id adf61e73a8af0-3cc71c57b6cmr42337079637.17.1787044565764;
- Tue, 18 Aug 2026 02:16:05 -0700 (PDT)
-Date: Tue, 18 Aug 2026 09:15:55 +0000
-In-Reply-To: <20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com>
-Mime-Version: 1.0
-References: <20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com>
-X-Developer-Key: i=ackerleytng@google.com; a=ed25519; pk=sAZDYXdm6Iz8FHitpHeFlCMXwabodTm7p8/3/8xUxuU=
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787044557; l=7550;
- i=ackerleytng@google.com; s=20260225; h=from:subject:message-id;
- bh=RNStHwu6ieacAYEnMn7/3gq/7NJJQ1KRNJugMUE32xM=; b=SRWVS1YnkzbusdD23laTjDq6lw3cgThTG7x/5lRPjxg2aZnzn3huhMER8r42Tv3YVr+kuGE3U
- mZ9CzNyj2NFCq5w150/6XXA4e4tzMt53i6D8Q/4vh6tli54166j/Rqe
-X-Mailer: b4 0.16.0
-Message-ID: <20260818-gmem-no-return-page-v2-4-5298f42d49bb@google.com>
-Subject: [PATCH v2 4/4] KVM: guest_memfd: Stop returning struct page from PFN lookup
-From: Ackerley Tng <ackerleytng@google.com>
-To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Ashish Kalra <ashish.kalra@amd.com>, 
-	Michael Roth <michael.roth@amd.com>, Brijesh Singh <brijesh.singh@amd.com>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, David Hildenbrand <david@kernel.org>, Fuad Tabba <tabba@google.com>, 
-	Yan Zhao <yan.y.zhao@intel.com>, "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>, 
-	Vishal Annapurve <vannapurve@google.com>
-Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	Ackerley Tng <ackerleytng@google.com>
-Content-Type: text/plain; charset="utf-8"
+	id 1wwFwa-00000007adC-1C3Q;
+	Tue, 18 Aug 2026 09:17:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1787044631; x=1787649431; i=wahrenst@gmx.net;
+	bh=APHNqbyIE3wsZFWJJNb/X7x7s14Ba8e5Q7jK9NX9v+w=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=nWRJ2+gDDyisC5WjJpkriRHRcqWuI6FiQPEBbwW4QohlBGPT3Cz6uJb5gpc9UB0J
+	 XYQHdSkELCPFyKKF6uh3+yiGAFjJjvZkS19Y7hjAB7HQ5u4vvp6VtkerRbBkAGj/K
+	 NYY3VkO/mNIrGXI6aBDJWX7XaqSHF7KmQPe9fGyZB/hOh9jxUdP1rIoYbXuLdc7Sf
+	 wM8qaTyIiiu6b5XqApgkG8Vtd9Uh29a5berSmM7Gi971MWUN8P+PrA4vKBow7dXph
+	 87Q3XQTDu9LRJWa5uRmZtgEoSxG+1dCRX+cYSYyrJ2mpXu3zsde/pkC+/eGapT1pJ
+	 gjTUJ+6jEvqe/I/dbA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MmUHj-1wWEfG1z73-00pIVH; Tue, 18
+ Aug 2026 11:17:11 +0200
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Vincent Mailhol <mailhol@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Aswath Govindraju <a-govindraju@ti.com>
+Cc: Christoph Stoidner <c.stoidner@phytec.de>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-can@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH RFC 1/4] dt-bindings: arm: fsl: Add chargebyte Charge Control Y
+Date: Tue, 18 Aug 2026 11:16:58 +0200
+Message-ID: <20260818091701.6441-2-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260818091701.6441-1-wahrenst@gmx.net>
+References: <20260818091701.6441-1-wahrenst@gmx.net>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:Ha38fgGPqaWqIobwuGE/0kEsZORwQDckaC4ehgDxG2MB/ye5r38
+ TLRpbG8XFTuJg7f++LKDkRBmYq/iby4O6ogNQnENrgFV4Qli2a4RdXK8rY0MFxr4yD6dZOq
+ Bd+t+F1LuWVnO0l/EY6MHVOiRO4mQVn9CUVVvsj054oab5ttvl2h+wXm2WUUXJU07lUJCx4
+ KQVTX0cqwRgHCPUq/woPw==
+UI-OutboundReport: notjunk:1;M01:P0:I5osOohirZ8=;hvb97cKH8qO2OgM0VKLxzLATJTQ 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 Hra9SiA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_021607_419492_499696D9 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20260818_021716_699793_BA4BA53C 
+X-CRM114-Status: UNSURE (   6.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,205 +95,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sean Christopherson <seanjc@google.com>
+Add device-tree bindings for chargebyte Charge Control Y board based on
+the PHYTEC phyCORE-i.MX93 SoM (System-on-Module).
 
-KVM currently expects guest_memfd PFN lookups to return a refcounted
-struct page, which callers hold across fault handling.
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+=2D--
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Holding a page reference across fault handling is problematic for
-guest_memfd. In-place memory conversions between confidential
-computing shared and private states inspect folio refcounts to ensure
-exclusive ownership by guest_memfd. A concurrent guest page fault
-taking a reference on the folio causes conversions to fail due to an
-elevated refcount.
-
-guest_memfd already notifies KVM of page invalidations, so callers
-within KVM only need to respect the MMU invalidation protocol to safely
-rely on guest_memfd for page presence.
-
-Furthermore, removing struct page from the guest_memfd PFN lookup moves
-KVM closer toward supporting memory backends that are not backed by
-struct page.
-
-Drop the folio reference immediately before returning from the
-guest_memfd PFN lookup, and stop returning the struct page pointer.
-
-For ARM, initialize the local page pointer to NULL so that the shared
-cleanup path that releases fault-in pages safely no-ops for guest_memfd.
-
-For x86, no additional changes are required in the MMU fault path
-because the page fault tracking structure is zero-initialized at the
-start of page fault handling, ensuring the refcounted page pointer is
-already NULL.
-
-Reported-by: Yan Zhao <yan.y.zhao@intel.com>
-Closes: https://lore.kernel.org/all/anZ4W9o5pTWIEgMY@yzhao56-desk.sh.intel.com/
-Signed-off-by: Sean Christopherson <seanjc@google.com>
-Co-developed-by: Yan Zhao <yan.y.zhao@intel.com>
-Signed-off-by: Yan Zhao <yan.y.zhao@intel.com>
-Co-developed-by: Ackerley Tng <ackerleytng@google.com>
-Signed-off-by: Ackerley Tng <ackerleytng@google.com>
----
- arch/arm64/kvm/mmu.c     | 4 ++--
- arch/arm64/kvm/nested.c  | 4 ++--
- arch/x86/kvm/mmu/mmu.c   | 2 +-
- arch/x86/kvm/svm/sev.c   | 8 ++------
- include/linux/kvm_host.h | 6 ++----
- virt/kvm/guest_memfd.c   | 9 ++-------
- 6 files changed, 11 insertions(+), 22 deletions(-)
-
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 6c941aaa10c63..e5d637a5ec558 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1613,7 +1613,7 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
- 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
- 	struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
- 	unsigned long mmu_seq;
--	struct page *page;
-+	struct page *page = NULL;
- 	struct kvm *kvm = s2fd->vcpu->kvm;
- 	void *memcache = NULL;
- 	kvm_pfn_t pfn;
-@@ -1641,7 +1641,7 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
- 	/* Pairs with the smp_wmb() in kvm_mmu_invalidate_end(). */
- 	smp_rmb();
- 
--	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, &page, NULL);
-+	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, NULL);
- 	if (ret) {
- 		kvm_prepare_memory_fault_exit(s2fd->vcpu, s2fd->fault_ipa, PAGE_SIZE,
- 					      write_fault, exec_fault, false);
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index fb54f6dad995c..43523bb17621a 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1360,7 +1360,7 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu, bool *is_gmem)
- 	bool write_fault, writable;
- 	unsigned long mmu_seq;
- 	struct vncr_tlb *vt;
--	struct page *page;
-+	struct page *page = NULL;
- 	u64 va, pfn, gfn;
- 	int ret;
- 
-@@ -1411,7 +1411,7 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu, bool *is_gmem)
- 		if (is_error_noslot_pfn(pfn) || (write_fault && !writable))
- 			return -EFAULT;
- 	} else {
--		ret = kvm_gmem_get_pfn(vcpu->kvm, memslot, gfn, &pfn, &page, NULL);
-+		ret = kvm_gmem_get_pfn(vcpu->kvm, memslot, gfn, &pfn, NULL);
- 		if (ret) {
- 			kvm_prepare_memory_fault_exit(vcpu, vt->wr.pa, PAGE_SIZE,
- 					      write_fault, false, false);
-diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index c519e8e8d646f..129d403308051 100644
---- a/arch/x86/kvm/mmu/mmu.c
-+++ b/arch/x86/kvm/mmu/mmu.c
-@@ -4604,7 +4604,7 @@ static int kvm_mmu_faultin_pfn_gmem(struct kvm_vcpu *vcpu,
- 	}
- 
- 	r = kvm_gmem_get_pfn(vcpu->kvm, fault->slot, fault->gfn, &fault->pfn,
--			     &fault->refcounted_page, &max_order);
-+			     &max_order);
- 	if (r) {
- 		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
- 		return r;
-diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
-index d3d620bc04dce..32db979daaaf0 100644
---- a/arch/x86/kvm/svm/sev.c
-+++ b/arch/x86/kvm/svm/sev.c
-@@ -4016,7 +4016,6 @@ static void __sev_snp_reload_vmsa(struct kvm_vcpu *vcpu, gpa_t gpa)
- 	struct kvm *kvm = vcpu->kvm;
- 	gfn_t gfn = gpa_to_gfn(gpa);
- 	unsigned long mmu_seq;
--	struct page *page;
- 	kvm_pfn_t pfn;
- 
- 	lockdep_assert_held(&svm->sev_es.snp_vmsa_mutex);
-@@ -4060,9 +4059,8 @@ static void __sev_snp_reload_vmsa(struct kvm_vcpu *vcpu, gpa_t gpa)
- 	 * The new VMSA will be private memory guest memory, so retrieve the
- 	 * PFN from the gmem backend.
- 	 */
--	if (kvm_gmem_get_pfn(vcpu->kvm, slot, gfn, &pfn, &page, NULL))
-+	if (kvm_gmem_get_pfn(vcpu->kvm, slot, gfn, &pfn, NULL))
- 		return;
--	kvm_release_page_clean(page);
- 
- 	read_lock(&kvm->mmu_lock);
- 	/*
-@@ -5003,7 +5001,6 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
- 	struct kvm *kvm = vcpu->kvm;
- 	int order, rmp_level, ret;
- 	unsigned long mmu_seq;
--	struct page *page;
- 	bool assigned;
- 	kvm_pfn_t pfn;
- 	gfn_t gfn;
-@@ -5033,13 +5030,12 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
- 	mmu_seq = kvm->mmu_invalidate_seq;
- 	smp_rmb();
- 
--	ret = kvm_gmem_get_pfn(kvm, slot, gfn, &pfn, &page, &order);
-+	ret = kvm_gmem_get_pfn(kvm, slot, gfn, &pfn, &order);
- 	if (ret) {
- 		pr_warn_ratelimited("SEV: Unexpected RMP fault, no backing page for private GPA 0x%llx\n",
- 				    gpa);
- 		return;
- 	}
--	kvm_release_page_unused(page);
- 
- 	ret = snp_lookup_rmpentry(pfn, &assigned, &rmp_level);
- 	if (ret || !assigned) {
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 03bfc92864b6e..502465119ca0c 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -2586,13 +2586,11 @@ static inline bool kvm_mem_is_private(struct kvm *kvm, gfn_t gfn)
- 
- #ifdef CONFIG_KVM_GUEST_MEMFD
- int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
--		     gfn_t gfn, kvm_pfn_t *pfn, struct page **page,
--		     int *max_order);
-+		     gfn_t gfn, kvm_pfn_t *pfn, int *max_order);
- #else
- static inline int kvm_gmem_get_pfn(struct kvm *kvm,
- 				   struct kvm_memory_slot *slot, gfn_t gfn,
--				   kvm_pfn_t *pfn, struct page **page,
--				   int *max_order)
-+				   kvm_pfn_t *pfn, int *max_order)
- {
- 	KVM_BUG_ON(1, kvm);
- 	return -EIO;
-diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-index b596486d184ca..589762140c3ef 100644
---- a/virt/kvm/guest_memfd.c
-+++ b/virt/kvm/guest_memfd.c
-@@ -751,8 +751,7 @@ static struct folio *__kvm_gmem_get_pfn(struct file *file,
- }
- 
- int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
--		     gfn_t gfn, kvm_pfn_t *pfn, struct page **page,
--		     int *max_order)
-+		     gfn_t gfn, kvm_pfn_t *pfn, int *max_order)
- {
- 	pgoff_t index = kvm_gmem_get_index(slot, gfn);
- 	struct folio *folio;
-@@ -780,11 +779,7 @@ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
- #endif
- 
- 	folio_unlock(folio);
--
--	if (!r)
--		*page = folio_file_page(folio, index);
--	else
--		folio_put(folio);
-+	folio_put(folio);
- 
- 	return r;
- }
-
--- 
-2.55.0.699.gb54405d56f-goog
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentatio=
+n/devicetree/bindings/arm/fsl.yaml
+index 86876311ec59..a7a1dc6b0ea3 100644
+=2D-- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1633,6 +1633,7 @@ properties:
+       - description: PHYTEC phyCORE-i.MX93 SoM based boards
+         items:
+           - enum:
++              - chargebyte,imx93-charge-control-y # chargebyte Charge Con=
+trol Y
+               - phytec,imx93-phyboard-nash  # phyBOARD-Nash-i.MX93
+               - phytec,imx93-phyboard-segin # phyBOARD-Segin with i.MX93
+           - const: phytec,imx93-phycore-som # phyCORE-i.MX93 SoM
+=2D-=20
+2.43.0
 
 
