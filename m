@@ -4,138 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA94C5DF7E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 12:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D743AC5DF84
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 12:54:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4e2RIKiDQ2RkPE35X5Z/T0MyagJlj+RkSWp0wtJxJto=; b=rFCBo9X0fJyeFEgp/8OFKn3TL0
-	M+N8087EGrjbDLTe/34AYzuCdJVld/lGKMmvlpTUHOQbAeqWG9m01qAKoOsfrM3ZSyBygisK6Q7lZ
-	dWYGnqvcL8nujrtgwQoJmssTFrXwjF57B4IqUeeR2eoxSpXiFfiTXFSVj1udEm0I3iJ1eYZZDS8cb
-	MuD70NYibF3pNJxbKd3bkI/A92FNzY3gTA9o0pMmGQMOQvsymLV0LLrtj1USf0lLXfDtvJg2DDKZh
-	FkNFSHJEI7qg1FXVkk7vdVSWouEoYnv/u8KAutO/TM2dJW+6j7brUpCsNlRbmWKpfktAxulX6nuGY
-	jttHoADg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cdD4yZiqqbAHnav72Regg2h6gQd/G7CH6/jonpoAHHg=; b=fBBZPx+CsgbBQ1gHf/dSo6L6lJ
+	lh/e62hMuhz5lFxM+gpubTQjXGN7Xs9rPEWftPm7QPWUc06MDo5HosyTN41TC0WMf/87nphICoATf
+	vxZe83QP2v1kUtiIc6B0x5UVA/A4wX1y+1JZVzU2U+eq1HwcPSO4YAPoiPSYbqFaf5ajpfd+szVNm
+	NcMobGrUr8030RwvlrsYlV08siTJsKCdYZh+wQ1MxG/BpjQi89KBOKwAsBVl+Ggwk870Wk7/IRM6G
+	DasuVweydB7xMbmS2D9zayHJ//VPaihLfL9DvCeSOa+DUvL9XUQHl0/EF+em7ZnPJ+0GuXD008iHE
+	kt9yiw1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwJKS-00000007z4r-3jEn;
-	Tue, 18 Aug 2026 12:54:08 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wwJKX-00000007z6c-0wvc;
+	Tue, 18 Aug 2026 12:54:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwJKQ-00000007z3N-1lMU
+	id 1wwJKV-00000007z5Z-0ueA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 12:54:07 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id BF2C83EE5;
-	Tue, 18 Aug 2026 12:50:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1787057423; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4e2RIKiDQ2RkPE35X5Z/T0MyagJlj+RkSWp0wtJxJto=;
-	b=RO6ePgw2wX80JaMoU8cT71NuwANBiJDv1ttb8fhYusFnclGMqpO+8tsnoaNusk/fjWViGY
-	pwx1knQIp1ttJSEugcTm1+R3Zusr0GyWaUrN+bL4YBHykUl+eDNoSVGZ1LtMGZ3VEU5Ya2
-	vRbIH4b3gOPLLjlyuYOAtQVmTAdC780=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1787057423;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4e2RIKiDQ2RkPE35X5Z/T0MyagJlj+RkSWp0wtJxJto=;
-	b=GIR8Ul5bnXNXEZFc9dEjDgGd5b+s3+Wsb1+OOJfkK9uPz2cPiRy9XnmxBULHzCdGicyyPg
-	4oKW5y0l5uHcqRCA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1787057419; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4e2RIKiDQ2RkPE35X5Z/T0MyagJlj+RkSWp0wtJxJto=;
-	b=UT0ZWdzRhkAVX2DcQmqon37sQuBFEj+Og+NHqzXj8Oz7kY7ZYRmAMQQzMB9WPQeMBEJ2ht
-	R6BnTq9nUkJRSp5Lwr1tbO+YA6MIAJBGV/rou7QJ1LEbxmUdfuCntGUApPn/+1zVRS7I7r
-	NHtkNpRaR6TzVSA8ABQr/CEb/JP+4EQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1787057419;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4e2RIKiDQ2RkPE35X5Z/T0MyagJlj+RkSWp0wtJxJto=;
-	b=tOCuz/wC9ooDHpIyoACKTQUn/5IMKnJbj9l/+/ODMiouwZYi2UedznY5wXZTKYX2R8hL6N
-	wgIUXJ7m1MHtWeCA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 45559367A;
-	Tue, 18 Aug 2026 12:50:19 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 6FW8DwtVhGojIAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Tue, 18 Aug 2026 12:50:19 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: jfalempe@redhat.com,
-	javierm@redhat.com,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org
-Cc: dri-devel@lists.freedesktop.org,
-	linux-doc@vger.kernel.org,
-	amd-gfx@lists.freedesktop.org,
-	rust-for-linux@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org,
-	imx@lists.linux.dev,
+	Tue, 18 Aug 2026 12:54:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4C83A6020E;
+	Tue, 18 Aug 2026 12:54:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F16A01F00A3E;
+	Tue, 18 Aug 2026 12:54:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787057650;
+	bh=cdD4yZiqqbAHnav72Regg2h6gQd/G7CH6/jonpoAHHg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=jRX/rtRaBKwyYlpWyn556jvveH+C9ixh321cFJ2rZqdIVilv0SsZvSG2B+5hH3ba6
+	 XEQ0HnHvRnjFUWy6VFjf401/RjWSX3cKp+ZPh2VbKS6PPxQK3L8fy8vV8iOogtzOrs
+	 HSCTuxDbrUxTriOyelcAvSPqkHqtMX/PD/uVvcZLP4DfN/VQREIb/NK+xkA3Uqy6SW
+	 2bqMWH57ig69ZLoGZdFnWj5/lsB255S+ZcwVpZBvJP8PU97L7eJKSgRCeOjBqCVN8f
+	 2Szq7EE1OK6y6wNJsX4XiEnn/Wq/qoK2sW3pkukBRyaSE+u8YPaREXJkOeOFim7iGk
+	 ZglHvjixJx+7g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wwJKS-0000000GdEf-0CF5;
+	Tue, 18 Aug 2026 12:54:08 +0000
+Date: Tue, 18 Aug 2026 13:54:07 +0100
+Message-ID: <86ecfv613k.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	nouveau@lists.freedesktop.org,
-	linux-renesas-soc@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	sashiko-reviews@lists.linux.dev,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH 04/12] drm/panic: Return errno codes if panic output fails
-Date: Tue, 18 Aug 2026 14:28:02 +0200
-Message-ID: <20260818125012.468092-5-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260818125012.468092-1-tzimmermann@suse.de>
-References: <20260818125012.468092-1-tzimmermann@suse.de>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-6.80 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-0.998];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_HAS_DN(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[20];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_TO(0.00)[redhat.com,gmail.com,ffwll.ch,linux.intel.com,kernel.org];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,suse.de:email,imap1.dmz-prg2.suse.org:helo];
-	FROM_EQ_ENVFROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RCVD_TLS_ALL(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLqirfcw6gnbcr9a9yhi49fhi6)];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com]
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_055406_762886_17E019D2 
-X-CRM114-Status: GOOD (  19.46  )
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v6 08/33] KVM: arm64: Use accessor functions for core regs
+In-Reply-To: <20260818092924.21865-C-seiden@linux.ibm.com>
+References: <20260812153631.3376090-1-seiden@linux.ibm.com>
+	<20260812153631.3376090-9-seiden@linux.ibm.com>
+	<86a4qq1gyy.wl-maz@kernel.org>
+	<20260818092924.21865-C-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, seanjc@google.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,211 +113,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Return errno codes from the panic output helpers to detect invalid
-panic handling. Avoid flushing the display if an error ocured. The
-unflushed display output might be helpful in debugging.
+On Tue, 18 Aug 2026 10:29:24 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
+> 
+> On Thu, Aug 13, 2026 at 10:56:37AM +0100, Marc Zyngier wrote:
+> > On Wed, 12 Aug 2026 16:36:04 +0100,
+> > Steffen Eiden <seiden@linux.ibm.com> wrote:
+> > >
 
-For now, test the result values in the panic test cases. A later patch
-will add support for retrying failed panic output.
+[...]
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
----
- drivers/gpu/drm/drm_panic.c            | 41 +++++++++++++++++---------
- drivers/gpu/drm/tests/drm_panic_test.c | 16 ++++++----
- 2 files changed, 37 insertions(+), 20 deletions(-)
+> > > diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> > > index b01d6622b872..773f6c8e5026 100644
+> > > --- a/arch/arm64/kvm/guest.c
+> > > +++ b/arch/arm64/kvm/guest.c
+> > > @@ -134,19 +134,19 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+> > >  	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
+> > >  		off -= KVM_REG_ARM_CORE_REG(regs.mregs[0]);
+> > >  		off /= 2;
+> > > -		return &vcpu->arch.ctxt.regs.regs[off];
+> > > +		return &vcpu_gp_regs(vcpu)[off];
+> > 
+> > Doesn't this belong to the previous patch?
+> > 
+> 
+> My thoughts about positioning this change in this patch:
+> 
+> The previous patch changes the semantics of vcpu_gp_regs and just
+> touched the part where the old semantic of the function was used.
+> This is mainly done by not using vcpu_gp_regs where it was used before
+> as it cannot be used to access e.g. pstate anymore.
+> 
+> This patch then introduces and *uses* new accessor functions for
+> abstractions (and uses the vcpu_gp_regs abstraction where it was not
+> used before). 
+> -> The patch changes direct accesses to using accessor functions.
+> 
+> However, I have no strong feelings for this. If you want this in the
+> previous patch, I can do that.
 
-diff --git a/drivers/gpu/drm/drm_panic.c b/drivers/gpu/drm/drm_panic.c
-index 96d238bfceee..594235661710 100644
---- a/drivers/gpu/drm/drm_panic.c
-+++ b/drivers/gpu/drm/drm_panic.c
-@@ -478,7 +478,7 @@ static void drm_panic_logo_draw(struct drm_scanout_buffer *sb, struct drm_rect *
- 				   fg_color);
- }
- 
--static void draw_panic_screen_user(struct drm_scanout_buffer *sb)
-+static int draw_panic_screen_user(struct drm_scanout_buffer *sb)
- {
- 	u32 fg_color = drm_draw_color_from_xrgb8888(CONFIG_DRM_PANIC_FOREGROUND_COLOR,
- 						    sb->format->format);
-@@ -489,7 +489,7 @@ static void draw_panic_screen_user(struct drm_scanout_buffer *sb)
- 	unsigned int msg_width, msg_height;
- 
- 	if (!font)
--		return;
-+		return -EINVAL;
- 
- 	r_screen = DRM_RECT_INIT(0, 0, sb->width, sb->height);
- 	drm_panic_logo_rect(&r_logo, font);
-@@ -508,6 +508,8 @@ static void draw_panic_screen_user(struct drm_scanout_buffer *sb)
- 		drm_panic_logo_draw(sb, &r_logo, font, fg_color);
- 
- 	draw_txt_rectangle(sb, font, panic_msg, panic_msg_lines, true, &r_msg, fg_color);
-+
-+	return 0;
- }
- 
- /*
-@@ -547,7 +549,7 @@ static int draw_line_with_wrap(struct drm_scanout_buffer *sb, const struct font_
-  * Draw the kmsg buffer to the screen, starting from the youngest message at the bottom,
-  * and going up until reaching the top of the screen.
-  */
--static void draw_panic_screen_kmsg(struct drm_scanout_buffer *sb)
-+static int draw_panic_screen_kmsg(struct drm_scanout_buffer *sb)
- {
- 	u32 fg_color = drm_draw_color_from_xrgb8888(CONFIG_DRM_PANIC_FOREGROUND_COLOR,
- 						    sb->format->format);
-@@ -562,7 +564,7 @@ static void draw_panic_screen_kmsg(struct drm_scanout_buffer *sb)
- 	int yoffset;
- 
- 	if (!font || font->width > sb->width)
--		return;
-+		return -EINVAL;
- 
- 	yoffset = sb->height - font->height - (sb->height % font->height) / 2;
- 
-@@ -589,6 +591,8 @@ static void draw_panic_screen_kmsg(struct drm_scanout_buffer *sb)
- 			start--;
- 		}
- 	}
-+
-+	return 0;
- }
- 
- #if defined(CONFIG_DRM_PANIC_SCREEN_QR_CODE)
-@@ -814,10 +818,11 @@ static int _draw_panic_screen_qr_code(struct drm_scanout_buffer *sb)
- 	return 0;
- }
- 
--static void draw_panic_screen_qr_code(struct drm_scanout_buffer *sb)
-+static int draw_panic_screen_qr_code(struct drm_scanout_buffer *sb)
- {
- 	if (_draw_panic_screen_qr_code(sb))
- 		draw_panic_screen_user(sb);
-+	return 0;
- }
- #else
- static void drm_panic_qr_init(void) {};
-@@ -888,23 +893,25 @@ static bool drm_panic_is_format_supported(const struct drm_format_info *format)
- 	return drm_draw_can_convert_from_xrgb8888(format->format);
- }
- 
--static void draw_panic_dispatch(struct drm_scanout_buffer *sb)
-+static int draw_panic_dispatch(struct drm_scanout_buffer *sb)
- {
-+	int ret;
-+
- 	switch (drm_panic_type) {
- 	case DRM_PANIC_TYPE_KMSG:
--		draw_panic_screen_kmsg(sb);
-+		ret = draw_panic_screen_kmsg(sb);
- 		break;
--
- #if IS_ENABLED(CONFIG_DRM_PANIC_SCREEN_QR_CODE)
- 	case DRM_PANIC_TYPE_QR:
--		draw_panic_screen_qr_code(sb);
-+		ret = draw_panic_screen_qr_code(sb);
- 		break;
- #endif
--
- 	case DRM_PANIC_TYPE_USER:
- 	default:
--		draw_panic_screen_user(sb);
-+		ret = draw_panic_screen_user(sb);
- 	}
-+
-+	return ret;
- }
- 
- static void drm_panic_set_description(const char *description)
-@@ -951,9 +958,15 @@ static void draw_panic_plane(struct drm_plane *plane, const char *description)
- 
- 	drm_panic_set_description(description);
- 
--	draw_panic_dispatch(&sb);
--	if (plane->helper_private->panic_flush)
--		plane->helper_private->panic_flush(plane);
-+	ret = draw_panic_dispatch(&sb);
-+	if (!ret) {
-+		/*
-+		 * Only flush if we have a panic screen to display. Otherwise
-+		 * it's probably better to leave the display output as-is.
-+		 */
-+		if (plane->helper_private->panic_flush)
-+			plane->helper_private->panic_flush(plane);
-+	}
- 
- 	drm_panic_clear_description();
- 
-diff --git a/drivers/gpu/drm/tests/drm_panic_test.c b/drivers/gpu/drm/tests/drm_panic_test.c
-index ad2f3a2f93b6..fdd77b0cc54c 100644
---- a/drivers/gpu/drm/tests/drm_panic_test.c
-+++ b/drivers/gpu/drm/tests/drm_panic_test.c
-@@ -30,7 +30,7 @@ struct drm_test_mode {
- 	const int width;
- 	const int height;
- 	const u32 format;
--	void (*draw_screen)(struct drm_scanout_buffer *sb);
-+	int (*draw_screen)(struct drm_scanout_buffer *sb);
- 	const char *fname;
- };
- 
-@@ -87,7 +87,7 @@ static void drm_test_panic_screen_user_map(struct kunit *test)
- 	const struct drm_test_mode *params = test->param_value;
- 	char *fb;
- 	int fb_size;
--	int i;
-+	int i, ret;
- 
- 	sb->format = drm_format_info(params->format);
- 	fb_size = params->width * params->height * sb->format->cpp[0];
-@@ -102,7 +102,8 @@ static void drm_test_panic_screen_user_map(struct kunit *test)
- 	sb->height = params->height;
- 	sb->pitch[0] = params->width * sb->format->cpp[0];
- 
--	params->draw_screen(sb);
-+	ret = params->draw_screen(sb);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
- 
- 	for (i = 0; i < fb_size; i++)
- 		drm_panic_check_color_byte(test, fb[i]);
-@@ -119,7 +120,7 @@ static void drm_test_panic_screen_user_page(struct kunit *test)
- {
- 	struct drm_scanout_buffer *sb = test->priv;
- 	const struct drm_test_mode *params = test->param_value;
--	int fb_size, p, i, npages;
-+	int fb_size, p, i, npages, ret;
- 	struct page **pages;
- 	u8 *vaddr;
- 
-@@ -146,7 +147,8 @@ static void drm_test_panic_screen_user_page(struct kunit *test)
- 	sb->height = params->height;
- 	sb->pitch[0] = params->width * sb->format->cpp[0];
- 
--	params->draw_screen(sb);
-+	ret = params->draw_screen(sb);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
- 
- 	for (p = 0; p < npages; p++) {
- 		int bytes_in_page = (p == npages - 1) ? fb_size - p * PAGE_SIZE : PAGE_SIZE;
-@@ -182,6 +184,7 @@ static void drm_test_panic_screen_user_set_pixel(struct kunit *test)
- {
- 	struct drm_scanout_buffer *sb = test->priv;
- 	const struct drm_test_mode *params = test->param_value;
-+	int ret;
- 
- 	sb->format = drm_format_info(params->format);
- 	sb->set_pixel = drm_test_panic_set_pixel;
-@@ -189,7 +192,8 @@ static void drm_test_panic_screen_user_set_pixel(struct kunit *test)
- 	sb->height = params->height;
- 	sb->private = test;
- 
--	params->draw_screen(sb);
-+	ret = params->draw_screen(sb);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
- }
- 
- static void drm_test_panic_desc(const struct drm_test_mode *t, char *desc)
+I think it'd make more sense. You can capture this in the commit
+message to make it clear.
+
+Thanks,
+
+	M.
+
 -- 
-2.55.0
-
+Without deviation from the norm, progress is not possible.
 
