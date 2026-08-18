@@ -4,107 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD42EC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 21:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3ED1C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 21:43:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/tMkvN6yvwHE2QTWEKKIVuddIKi5dDYup2sb8dNBzk=; b=1VO9pv9F5qxUOPvRB8zQ2UzaBy
-	paI9SjigR7CJQXmmnuWqX500FVfnDsjBvLd9pLeANygygokauDJlqJdqFc7dNcmdjDVSbCATHuA2t
-	VdbT2IGD6m8dcza7qnntTbbvbWic14lGUs6DKpopfxzQ/McfjYo8uu1w8XjpjcjVTMC6RYIxki97H
-	B/2ZNwmCXfWgVoZZKcDilPGqDWLafP3ZwllMgCDqpVEFuah30olitJIqwCxjjwEkLV9hqXTCu3vVO
-	zwoWlgUBICrlNizkjSX3vEyCRFx1lyPU5aJXKDXRHT6hOymLydmZ2dz8csCvbmpBvKQQoRpD2r35W
-	4Ms0XC/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DpmVj5c9FDXQSwuSsbxK1L8of1AmrLOJ/cZ+cQrHX54=; b=qsB41mvOn6JGEo71XDG1YpgAPG
+	ewcYme3COH7oQ0hbHquK7TIAk44mhpnxOSaE48pP1oVHnz64ku8HVsMPKlQFzgVw+rOvj44OHUm67
+	qi5TbowJL2jLmUgUiL9Kg1DDK9QsNQOiK5ddNiE/65FvS3yX1cqHTlGhn6RI1o53aUrOcfJpuslPn
+	y8CL1ZxX2AuNsMa24D7in4d8giMrpUjHRAzZdj0McnINX3E5KRETEwEOHrrml7bDrvJifxQXcQ9WX
+	zCPRbjPjsncmzESkgWHin4WHKSezZkYfGPnCk6CC8s2FYb7Arx1zNPhoG1vWAUmU4MZa10YownPGz
+	opThTC1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwRUa-00000008ggD-0erK;
-	Tue, 18 Aug 2026 21:37:08 +0000
-Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
+	id 1wwRaa-00000008gxv-3Nhk;
+	Tue, 18 Aug 2026 21:43:20 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwRUW-00000008gew-3Iul
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 21:37:06 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id F183A7A00B3;
-	Tue, 18 Aug 2026 17:37:00 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Tue, 18 Aug 2026 17:37:01 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=polyxeno.com; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1787089020;
-	 x=1787175420; bh=l/tMkvN6yvwHE2QTWEKKIVuddIKi5dDYup2sb8dNBzk=; b=
-	qZw4v4CzNhuG9aQE2KZMVwrWmFR7K4loTKkXALye18OMXF0o6ZtS0ZbWbpqlMD0/
-	KivkTi4WSRv5X8i+rH2y2AiBkj7NloktfktZNTGY2uL1J9ZgIyH5P16ZXl1hOgVG
-	TzHCnvk1ohmMtJNDDlHe6sf5R/mzxh9WbvlDqKgr8T6m0UYJboKaclCJPWiXLEYh
-	TTef5k6hf/mCZxve9RpZephUfqZxB52nqNaAHQkcGh9WCI2wR4FEcylPYEBb0rf8
-	+dqqNNB013fy2Nw/Rspn0aDxH4U0QBMtyXsEtcv6s3mFZ2hFwbWygm45wdLGC0ia
-	39k0gd58hjjlgj/cV1WQuA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1787089020; x=
-	1787175420; bh=l/tMkvN6yvwHE2QTWEKKIVuddIKi5dDYup2sb8dNBzk=; b=N
-	p2bRxdaAmKefOnA9YfTS3mFEgbVHvNyx6oslv/7JV9vA9MdI3GKO7Z0P+bhPmZzQ
-	saBvtznafR01rVUsQP2uONYFRU4PAwCbkWafVcekiNziYUGQk5jZTuur80frat8d
-	kjRl7xYJ9UfYsvQdz7fxbEqUmpA2Qk10uCL1R52OyuyuWR+N7+H+Gg6jnlDvJcAs
-	8c/Ow/ORSRN5Xl1hG1lvas+6hUhwywqSfOJNawA/wkE/edXy5oLpgQSABql66Drm
-	qQK066OcLSOsjCxbrmHT3EJ9aoJ55vgLgB3rsjgJBwLfODrQzt0xe3ua/IPgN7iR
-	atcCpWP+wbC4TiCY2L/5w==
-X-ME-Sender: <xms:etCEaotT1aovXzZXy7QxH0kuhCflEmFPk_wC3VxcnDbGvvHlT9kbQQ>
-    <xme:etCEaj-yjdPrAt_eQJB_4gMgmHDyFCJRpBwfDn-3Iz4PRI8BhGymnubBNdUAaDJhA
-    no0Ry6NBpsiW9u7tKOl19i6T98S8ncn-aApHNCvcFDNGegW1K7dyw>
-X-ME-Received: <xmr:etCEaqmaicvK_TnAUIv5i3WWklJVnfh2upJC5LNGFZ_9g9-QrpDsDA9nGK_ViIbeSlDUArmimNPfgpLzeE5t9j2DuqWXZZqNkZcYrz1mOe1p>
-X-ME-Proxy-Cause: dmFkZTEdIvDk2+6VBMxWbgXOLhivV0vSt3B+3VVbmDknCJxXGGrIXEqjiv7QIGeSzlMCD+
-    MuiccZwlHt0By7V7gEx2kEgzLctWpRFW4bXDUBC9+Ua/obVyWlIDF4MBIdZgZtNkCUDUeD
-    QeOHqlp8jv3NRBxcDfVDUh50uc4UC/kfFala6dm2m+sxNTFWZ49tNsjOEt8kqo8w/6BWxF
-    AcBptFGNxeVjIA+zqvQLIEUwxnzhjDVNWnx3JYu3TpsjB/Aa+DaXDqQqvtxyf7SnbLvH+6
-    S1a2m8t59d/Tpe0dwK5C1HNRrLMvfIczhjMc+pnmwEsVEFaPmZtpS1CKlM3Y2Gl8jWARLF
-    9m+awC7AZJX8ntrD/IL8spvBw5/ok+egHbeTe+a4RKUaDkiwFrCD/faU9DXyKjFUIt0JGL
-    5g4xp4xgdOn9NSjbFEd3Iyz2L6ciNH7pJyrfnRMSxBR7VnuyiA92/QG7/hytPh04G+ZiTC
-    JDCaB3BCvTR9kx0o8vhglP9sA8vcYvdVRyIP+TPDVuirNETfnWAQVEzuVm3J1mvglxSukm
-    6G8d5/Kq1tXZ/+hLoFhcVTwFkFni5vPsby5ePXHdmmbMNySwl7CjkVd2VPGTZT6gwov9lE
-    FLr0Li1bd+G+u0n6QJxakoWq701TwcaLLANsDfwIJLtDCsTqil6nXfrDJHLA
-X-ME-Proxy: <xmx:etCEarP7vD0gyaMA2qLtAAlBPMmk4v37rmbWPkjrQGBG41ZPwOEcsw>
-    <xmx:etCEahI7nSYpiRnQZdcXD22YyU80d_eMegImuDawuqrkJ-nwKnXfIQ>
-    <xmx:etCEauHQ1ADcgIMOUKLpl1QqWIaV7Z6O5a5We2dLZF7tjnU-3rgSbg>
-    <xmx:etCEaqAbYBr5pW6_15hx3a0zIv_wxyLpZ8bv6Eo3QQWdVsO78LYyDg>
-    <xmx:fNCEahTA1Aru-v0mlZ9OIc735JxK7tT6adCp_i3fM0ByUThs8zxibGHL>
-Feedback-ID: i09fe4b60:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 18 Aug 2026 17:36:44 -0400 (EDT)
-Message-ID: <9ba1ebd8-61cc-4e1a-b68d-906b20dd4999@polyxeno.com>
-Date: Wed, 19 Aug 2026 07:36:36 +1000
+	id 1wwRaX-00000008gxN-1BtQ;
+	Tue, 18 Aug 2026 21:43:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1787089379; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=R1G8loKEMmQgzBe9C8b6zMyzqfX1/4AwdWB/Sed7saPCbbb5AJ1w2bfRjaOxkT0k1TBvEcc2oEmyUyTsNMdI8Phm2NcIAh7ypJgfYcj82MG1VlDgfkS91sGe6+JPRbqnuWuVj8eJT3tUYgIhltGYMeCM9UvQFdlGGJCfMkqvhaA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1787089379; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=DpmVj5c9FDXQSwuSsbxK1L8of1AmrLOJ/cZ+cQrHX54=; 
+	b=WmKuFoJbFK0zNMA+rIz0rvuCYT5grWtdUpzoLpsjOlcBjadqk9DuahFhWJU3JSJY7WisfrbNn8aDKtTSyB/C3qjU1M8Svhih2Rz43dO43PXbShJQGrdTOsbcYis/IBNfY2RUJgJ0JRNwki/oWUBgVLZBKmBW6DTMYSOjLFNImpY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1787089379;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=DpmVj5c9FDXQSwuSsbxK1L8of1AmrLOJ/cZ+cQrHX54=;
+	b=EATAvhGjB0BxlGsm+l29SdEaUqqx/UzPjLLQYionr+lI6JBS518mBhoqoQDUlDpH
+	uoijmrTaLxXjR0zjXhhAM7w8DcArp/97HlffwENaSaj5bTGeCddzxwAP8Rg0Ox22vnj
+	kdk3f7mNSWckQ2aigReGzhXzXeuUr2LYsg4Wjxr8=
+Received: by mx.zohomail.com with SMTPS id 178708937710788.45877915239339;
+	Tue, 18 Aug 2026 14:42:57 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 030B6182034; Tue, 18 Aug 2026 23:42:51 +0200 (CEST)
+Date: Tue, 18 Aug 2026 23:42:50 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Frank Wang <frank.wang@rock-chips.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Yubing Zhang <yubing.zhang@rock-chips.com>, 
+	Alexey Charkov <alchark@flipper.net>, Igor Paunovic <royalnet026@gmail.com>, 
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com, 
+	devicetree@vger.kernel.org, linux-usb@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>, 
+	William Wu <william.wu@rock-chips.com>
+Subject: Re: [PATCH v14 00/38] phy: rockchip: usbdp: Clean up the mess
+Message-ID: <aoTMQtpYYw8O-3cj@venus>
+References: <20260813-rockchip-usbdp-cleanup-v14-0-b5ad9c68fa11@collabora.com>
+ <h54c2hrcsv3zjzzgojzf5sjmu3vtpobz6rwloam5kp7mwqqn3n@bqjnlellvnz6>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] m68k: coldfire: Add RNG support for MCF54418
-To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>,
- Greg Ungerer <gerg@linux-m68k.org>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Olivia Mackall <olivia@selenic.com>,
- Herbert Xu <herbert@gondor.apana.org.au>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>
-References: <20251126-b4-m5441x-add-rng-support-v4-0-5309548c9555@yoseli.org>
- <20251126-b4-m5441x-add-rng-support-v4-2-5309548c9555@yoseli.org>
- <bd25e903-30fc-4905-986c-96d1b42e9f02@linux-m68k.org>
- <ddf0ab32-5b66-453e-b7aa-1722aeaf2aa0@yoseli.org>
-Content-Language: en-US
-From: Greg Ungerer <gerg@polyxeno.com>
-In-Reply-To: <ddf0ab32-5b66-453e-b7aa-1722aeaf2aa0@yoseli.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lb64huk2f3isbo5n"
+Content-Disposition: inline
+In-Reply-To: <h54c2hrcsv3zjzzgojzf5sjmu3vtpobz6rwloam5kp7mwqqn3n@bqjnlellvnz6>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/287.68.66
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_143705_165761_B0F97286 
-X-CRM114-Status: GOOD (  25.44  )
+X-CRM114-CacheID: sfid-20260818_144317_387659_C7A6D6B8 
+X-CRM114-Status: GOOD (  29.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,195 +92,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi JM,
 
-On 19/8/26 01:09, Jean-Michel Hautbois wrote:
-> Hi Greg,
-> 
-> Sorry for the very long silence on this one, it fell off my radar...
-> 
-> Le 03/12/2025 à 13:15, Greg Ungerer a écrit :
->> Hi Jean-Michel,
->>
->> On 26/11/25 17:08, Jean-Michel Hautbois via B4 Relay wrote:
->>> From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
->>>
->>> Add support for the hardware Random Number Generator (RNGB) found on
->>> MCF54418 ColdFire processors with clock enabled at platform
->>> initialization.
->>>
->>> The RNGB block is compatible with the imx-rngc driver.
->>>
->>> Reviewed-by: Frank Li <Frank.Li@nxp.com>
->>> Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
->>> ---
->>>   arch/m68k/coldfire/device.c       | 28 ++++++++++++++++++++++++++++
->>>   arch/m68k/coldfire/m5441x.c       |  2 +-
->>>   arch/m68k/include/asm/m5441xsim.h |  9 +++++++++
->>>   drivers/char/hw_random/Kconfig    |  3 ++-
->>>   drivers/char/hw_random/imx-rngc.c |  7 +++++++
->>>   5 files changed, 47 insertions(+), 2 deletions(-)
->>
->> I am happy with the ColdFire arch parts, so from me:
->>
->>      Acked-by: Greg Ungerer <gerg@linux-m68k.org>
->>
->> I don't mind taking this commit via the m68knommu git tree if the hw_rng
->> maintainers are ok with that. Otherwise if you break out the arch/m68k
->> parts I can apply those on their own.
-> 
-> I think Herbert acked ?
-> Do you need another ack ?
+--lb64huk2f3isbo5n
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v14 00/38] phy: rockchip: usbdp: Clean up the mess
+MIME-Version: 1.0
 
-I would like to see an acknowledgement that taking this patch via the
-m68knommu git tree (to Linus) is ok with the RNG maintainers.
+Hello Mani,
 
-Regards
-Greg
+On Tue, Aug 18, 2026 at 11:27:07AM +0200, Manivannan Sadhasivam wrote:
+> On Thu, Aug 13, 2026 at 10:51:43PM +0200, Sebastian Reichel wrote:
+> > This series does a major overhaul of the Rockchip USBDP driver. The
+> > initial main goal was to add USB-C DP AltMode support to the RK3576
+> > and RK3588 and this series still prepares the PHY driver for exactly
+> > that. But in addition to that I uncovered a huge amount of issues,
+> > that are fixed along the way. Some of the more interesting ones are:
+> >=20
+> >  * Currently the driver might trigger a fatal SError on USB-C hotplug,
+> >    since re-initializing the PHY stops the clocks going to DWC3. If
+> >    the DWC3 driver tries to access its registers at the same time the
+> >    system will crash.
+> >  * The DWC3 hardware can get into a buggy state when the PHY is
+> >    disabled, which results in the PHY not coming up properly again.
+> >  * Swithcing the USB-C connector orientation during hotplug breaks
+> >    USB3 speed, as the PHY is not being re-initialized.
+> >  * The code always enables DP mode when USB-C is involved.
+> >  * The driver has some locking issues uncovered by Sashiko.
+> >=20
+> > In addition to these bigger ones, Sashiko also found a bunch of
+> > minor problems, which are mostly harmless, but were fixed while
+> > going at it.
+>=20
+> 38 patches for a single series is too much to review. Please
+> consider splitting it up into multiple series not exceeding ~10
+> patches per series. Thanks!
 
+So let me summarize:
 
+ - Vinod wants Sashiko feedback to be acted upon
+ - linux-phy does not want series with dependencies ( [0] )
+ - You don't want series with more than ~10 patches
+ - Generally fixes should be at the start of a series
 
-> Thanks !
-> JM
-> 
->> Regards
->> Greg
->>
->>
->>
->>> diff --git a/arch/m68k/coldfire/device.c b/arch/m68k/coldfire/device.c
->>> index b6958ec2a220..9d8f844e319a 100644
->>> --- a/arch/m68k/coldfire/device.c
->>> +++ b/arch/m68k/coldfire/device.c
->>> @@ -622,6 +622,31 @@ static struct platform_device mcf_flexcan0 = {
->>>   };
->>>   #endif /* MCFFLEXCAN_SIZE */
->>> +#ifdef MCF_RNG_BASE
->>> +/*
->>> + * Random Number Generator (RNG) - only on MCF54418
->>> + */
->>> +static struct resource mcf_rng_resource[] = {
->>> +    {
->>> +        .start = MCF_RNG_BASE,
->>> +        .end   = MCF_RNG_BASE + MCF_RNG_SIZE - 1,
->>> +        .flags = IORESOURCE_MEM,
->>> +    },
->>> +    {
->>> +        .start = MCF_IRQ_RNG,
->>> +        .end   = MCF_IRQ_RNG,
->>> +        .flags = IORESOURCE_IRQ,
->>> +    },
->>> +};
->>> +
->>> +static struct platform_device mcf_rng = {
->>> +    .name           = "imx-rngc",
->>> +    .id             = -1,
->>> +    .num_resources  = ARRAY_SIZE(mcf_rng_resource),
->>> +    .resource       = mcf_rng_resource,
->>> +};
->>> +#endif /* MCF_RNG_BASE */
->>> +
->>>   static struct platform_device *mcf_devices[] __initdata = {
->>>       &mcf_uart,
->>>   #ifdef MCFFEC_BASE0
->>> @@ -660,6 +685,9 @@ static struct platform_device *mcf_devices[] 
->>> __initdata = {
->>>   #ifdef MCFFLEXCAN_SIZE
->>>       &mcf_flexcan0,
->>>   #endif
->>> +#ifdef MCF_RNG_BASE
->>> +    &mcf_rng,
->>> +#endif
->>>   };
->>>   /*
->>> diff --git a/arch/m68k/coldfire/m5441x.c b/arch/m68k/coldfire/m5441x.c
->>> index 7a25cfc7ac07..ab5b00637237 100644
->>> --- a/arch/m68k/coldfire/m5441x.c
->>> +++ b/arch/m68k/coldfire/m5441x.c
->>> @@ -158,6 +158,7 @@ static struct clk * const enable_clks[] 
->>> __initconst = {
->>>       &__clk_0_33, /* pit.1 */
->>>       &__clk_0_37, /* eport */
->>>       &__clk_0_48, /* pll */
->>> +    &__clk_0_49, /* rng */
->>>       &__clk_0_51, /* esdhc */
->>>       &__clk_1_36, /* CCM/reset module/Power management */
->>> @@ -179,7 +180,6 @@ static struct clk * const disable_clks[] 
->>> __initconst = {
->>>       &__clk_0_44, /* usb otg */
->>>       &__clk_0_45, /* usb host */
->>>       &__clk_0_47, /* ssi.0 */
->>> -    &__clk_0_49, /* rng */
->>>       &__clk_0_50, /* ssi.1 */
->>>       &__clk_0_53, /* enet-fec */
->>>       &__clk_0_54, /* enet-fec */
->>> diff --git a/arch/m68k/include/asm/m5441xsim.h b/arch/m68k/include/ 
->>> asm/m5441xsim.h
->>> index f48cf63bd782..dd64cdfcad3e 100644
->>> --- a/arch/m68k/include/asm/m5441xsim.h
->>> +++ b/arch/m68k/include/asm/m5441xsim.h
->>> @@ -198,6 +198,15 @@
->>>   #define MCFRTC_SIZE        (0xfc0a8840 - 0xfc0a8000)
->>>   #define MCF_IRQ_RTC        (MCFINT2_VECBASE + MCFINT2_RTC)
->>> +/*
->>> + *  Random Number Generator (RNG) Module.
->>> + *  Note: Only present in MCF54418, not in MCF54410/54415/54417
->>> + */
->>> +#define MCF_RNG_BASE        0xfc0c4000
->>> +#define MCF_RNG_SIZE        0x1c
->>> +#define MCFINT2_RNG        28
->>> +#define MCF_IRQ_RNG        (MCFINT2_VECBASE + MCFINT2_RNG)
->>> +
->>>   /*
->>>    *  GPIO Module.
->>>    */
->>> diff --git a/drivers/char/hw_random/Kconfig b/drivers/char/hw_random/ 
->>> Kconfig
->>> index 492a2a61a65b..2f301e43db84 100644
->>> --- a/drivers/char/hw_random/Kconfig
->>> +++ b/drivers/char/hw_random/Kconfig
->>> @@ -270,12 +270,13 @@ config HW_RANDOM_MXC_RNGA
->>>   config HW_RANDOM_IMX_RNGC
->>>       tristate "Freescale i.MX RNGC Random Number Generator"
->>>       depends on HAS_IOMEM
->>> -    depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SLL || SOC_IMX6UL 
->>> || COMPILE_TEST
->>> +    depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SLL || SOC_IMX6UL 
->>> || COLDFIRE || COMPILE_TEST
->>>       default HW_RANDOM
->>>       help
->>>         This driver provides kernel-side support for the Random Number
->>>         Generator Version C hardware found on some Freescale i.MX
->>>         processors. Version B is also supported by this driver.
->>> +      Also supports RNGB on Freescale MCF54418 (Coldfire V4e).
->>>         To compile this driver as a module, choose M here: the
->>>         module will be called imx-rngc.
->>> diff --git a/drivers/char/hw_random/imx-rngc.c b/drivers/char/ 
->>> hw_random/imx-rngc.c
->>> index d6a847e48339..44f20a05de0a 100644
->>> --- a/drivers/char/hw_random/imx-rngc.c
->>> +++ b/drivers/char/hw_random/imx-rngc.c
->>> @@ -353,12 +353,19 @@ static const struct of_device_id 
->>> imx_rngc_dt_ids[] = {
->>>   };
->>>   MODULE_DEVICE_TABLE(of, imx_rngc_dt_ids);
->>> +static const struct platform_device_id imx_rngc_devtype[] = {
->>> +    { .name = "imx-rngc" },
->>> +    { /* sentinel */ }
->>> +};
->>> +MODULE_DEVICE_TABLE(platform, imx_rngc_devtype);
->>> +
->>>   static struct platform_driver imx_rngc_driver = {
->>>       .driver = {
->>>           .name = KBUILD_MODNAME,
->>>           .pm = pm_ptr(&imx_rngc_pm_ops),
->>>           .of_match_table = imx_rngc_dt_ids,
->>>       },
->>> +    .id_table = imx_rngc_devtype,
->>>   };
->>>   module_platform_driver_probe(imx_rngc_driver, imx_rngc_probe);
->>>
->>
-> 
+This tremendously slows down any real work. The first series would
+just be Sashiko fixes without *any* of the work I originally wanted
+to do (DP AltMode). I would have to wait for it to land before
+working on the next bits as there are massive code conflicts with
+the same file being heavily modified. This simply does not scale,
+especially when considering that there are more dependencies on this
+series.
 
+[0] https://lore.kernel.org/linux-phy/20260330233532.ulnqiqrogezswht2@skbuf/
+
+Greetings,
+
+-- Sebastian
+
+--lb64huk2f3isbo5n
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmqE0dMACgkQ2O7X88g7
++pp1WA/9Ehn7r1EMjla99QJRa2MMoOYd+t/cIFPVNbsUDA6t9qfCwIGxmOawRoog
+uUDXe/RqRp5xObb+2jSPMuvb3jelMPX+1357dxVoYaqsmrvPG6jSEjjBFtf4z++7
+62Ws1nWgH0YR1XO45vFBsrNCNv3ELThj/FALxPQmU0pZ/x/7bizhTQtx3PEHW104
+kT+171AqELAfbpfUMM7lYcHHIy8D4hSy0Ah66RFTNpWl1obZCUCFL1B0zuDANnMJ
+CAjqkPtwoJPpVaKRlY2h1YB5JREpQNfJCUl4XVPZ5Tuia+BOF5mvegHPXhU1F+ZT
+lasrChZQHYnkJNOl7EDgMaYpKnc3bJbxagtA1Q3IbqdRZA3jm8GrWH6dLhq9Pdr6
+kFsnhDJo5omh7AskYgm1uZ6ZL6ve/d+BUYS5Bkku8SJNbAb8eLqR20ntn45rDBIH
+29NMHJ9OQ8DKzJ7dxW3x19A6RuLTCHsVd6cQgTqMbgkVgrQehq4ivCMBuPwrpBZO
+fglWS7cNZGv+KYDnEJo9K2KrUOtyHfOYAjdbsOwQEyntf0QxDNtMoQ89LzIyJM7m
+nUsBRW1ZxNJ3NvHrC+580iDz5c+F0yTRwv7LeUNcwcp8SF9+hBEme+EQL4Vid9lH
+TrH9qhoHr/d7ZyZOOtQ4a3vRzVbBN4+cmrWofzpBfmyI7XtjNKU=
+=cryx
+-----END PGP SIGNATURE-----
+
+--lb64huk2f3isbo5n--
 
