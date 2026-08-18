@@ -4,152 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FD7C5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 06:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87669C5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 06:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Cxx8HpmhSn5XafQ7Spacdg3CXM91BaRezAvZeqeC4Bo=; b=A2nf2Xm2jPK+GWO97pY/NdcTTB
-	FTM75hASYhbWU+UXIk+fpHPRAQiYbVdFDnrvWtnaWhI6bd9V/oPxSBhltdqhkALrVn0lmHQSPeO63
-	8uDGhqIY2UQy1Ffvg6ASpFJ0Q/iZ2jPasyDU4PYkih3mREBZExlld7NqjLBiHuEpJ+xq26tWMxDbT
-	n/URdTD5N/jGE1c6TOyhDme8/CMMj6bct/NYn4bUXkJL/FMbxGUE20SYGMgX0ZRg3bmZA5HIHyWBT
-	zU/grUFJWl6ZHLQyam0BgVEcy6bCQCMDA6yXNyEbmh1mjZGR+WF6MK5WKDXfTK4rpg0MD3VaO9R8g
-	9c54Ob+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HiBCM1LSfOLRdy2trqmOueKmSZurPWdkXewGwVBgFh8=; b=PINoS26vA4PbBwehIO77t6Tc0D
+	dVViMjQp5/X67a19MYx41PBGsDFoJwLGj1XIiM25fu/gFQWwtN7ZE003ghLY73O76mwGkA37txHSD
+	mybBrO4RwNZOPeKLZ3bvq7IFkH9G59poLojItCP+4iKiC1EdNZU857v2VUGjFTe7MZGmRaB4WB9T8
+	xTYqsTGrwCpLLZDQOA5EOBSb8nDyJMzHg6G4iCbN3/ipPkptBDHmZ9RYnGojiyebxeixT0GtHKCil
+	Ioh3csNjqLAM6hod5ZvnGMSuhlBdtjthlwmbOK/L8MhSZRQXrqS6tyVIfOjSJa4S7SaByeNT4KrED
+	FkxkHcVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwDP2-00000007PTv-1Uba;
-	Tue, 18 Aug 2026 06:34:28 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wwDUO-00000007Pmf-0OZY;
+	Tue, 18 Aug 2026 06:40:00 +0000
+Received: from mail-eastusazon11011018.outbound.protection.outlook.com ([52.101.52.18] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwDOz-00000007PTT-25Ne
+	id 1wwDUK-00000007PmI-3GqE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 06:34:26 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67I45kRT4187002
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 06:34:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=Cxx8HpmhSn5XafQ7Spacdg
-	3CXM91BaRezAvZeqeC4Bo=; b=C0BhCuywY2G5h1gF+RiFoIg86oThEEUYQQFP4f
-	RqGoslIsvzSGCwf91elNvgIEHrD/VLkdl1q+xGhX/A8+hrvN+r8vJ0yemHCZPBOr
-	ThOTONFkylhUM5nVBOX00zyPDpYKHQw1I+Ur+sO6jTf26TZU9vdDvegTVBbwixS8
-	KQnVfCHvJucRuCTnr/59hkawada7YxPJgreimDuarGH6wOhXRCxC0BmnKuoAK0Az
-	0P5F1nVaLqJVWLqgZCXUdNAL3rJ4BrnBJCos0F5ee0fOG42d5E3pkVtgmlYSkL1o
-	dc7LHVcx3Fr0Ej+NnKH7uM9DliiDbL7Gx9VThK6tzaPAEruA==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g4g2p0m5y-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 06:34:24 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cb4bd11ddf8so5785844a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 23:34:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787034863; x=1787639663; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Cxx8HpmhSn5XafQ7Spacdg3CXM91BaRezAvZeqeC4Bo=;
-        b=hAXPnGS3bwlSofYAMoC0m5spNylLy8ML77y6e8X6HBEobKTevobGEnB/krI1dO59PA
-         yS9ZZW3U+HhE4t0q0hmwWiZNF/b9OP87cBGJGdxa5CqK0P7/upOMrCBLnWNPNojoqNpD
-         XKTBTItAchCptu5xQ7YMrL7XqcloTwqmeRaf3cwz7AUSsxANQQC/hLbY47D7fBFYsqqH
-         1KKo1918Wl1fAcEcAzNPtoW9HyOFhwy2M18cFXzdFYM9c8uxUD5C+m8oosfzhGLKitE0
-         y5PuQGW3mC1HIprZ2ZynIN50KF6rI30v56eswwPASgJ1Sm4Ak1gpzkU8SfhUF3oNGJeR
-         nIIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787034863; x=1787639663;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=Cxx8HpmhSn5XafQ7Spacdg3CXM91BaRezAvZeqeC4Bo=;
-        b=kbHAN4lkRuFfgrtdUEC64Acxi+dsF0w5xRXTZRcxNCp+bqEPy5OzJGHbGzAFbtiTb/
-         JDkSGa1tiUaBi5IG4S/8CXqXRq/mFmfY+xSrErihyvJyzVSmO9nwoHqYplvGh0l5o0IW
-         wJh4rTknPXsDvwnaOmA5yHGdZ9S2gAcv4PiQT6fFZ4p4CF/gafz84lLuL8wW5z0JO8S9
-         W3SPi+Wdbcpvoj6B4Am9UMA2iCU+gIAnii/3s93ncd+HVqjGdwQSt7FRhXWEWsbyxfhb
-         oVXN/7UzNEDkr91AU4QtttqaG0kzuQYkZNWPkVEKWoOsNxJ5BwxlrVXNZvwk/OcSabdZ
-         k9SQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoMbr0OTbm//NeZm9gystpZjJQj8C4KVxUqNwEXg2CNpiVTjlAUPlkez0KtiSfZm79kuwm2ISHirs6dOrIBBXn7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEfAYUNI4ib2JQfgo9sCKZuI+EmpiW93leWE1SKI4rkbupG52G
-	DVknEdkzJiZAvndbKGBxovxOmqBlicZ5+9xZEtN8Szmsf/jcAxKAKltN68ioCxZfxfqQTQQAS+k
-	jQiVIfeYw+apuTZgeBo7E4C8u21F5F1wQjO5R8qiz5SmkbDCfsOxFpbU5sfBfuWrjMyQBKQO/Y9
-	Hugg==
-X-Gm-Gg: AR+sD10JDS8cv15HCye2/0nlGdl2vFp2Nsjxi5uswo23zS6WGk5fc/bXt97MCNXt8pt
-	CQ0/Diony4sKg7XDeUXSQOFqRC11K1hyhVe8b6KyQUNQE0LzUyQWmSRWfTCRavF3nPBV1bwUaNd
-	wv9Ixi4Q19CcF4JoGssj1lWkEIKddyGb9atQQogwgJudZteqJlQ702BpQybdfQxXCa0ogIjL9lI
-	htJaWQg0giCw/fVWwht5BU1oiNK1oauoFsJDOGSb+0672Ev3BRQEjkmCe3ijAoWDOSsNOYoEZK+
-	DMp9hOMZ2WxgKIOEOOXYHa9G+VYVnMNZan9EqOPYIKwzfaIMSJe50ZvE5sYiIUHBl5a9ZrT+OTf
-	/eHd3OHzdPxcnPog4tstqI2PAeDChCPafTOwNcxG/Lh7MK54=
-X-Received: by 2002:a17:90b:1d01:b0:38e:9045:babe with SMTP id 98e67ed59e1d1-3933b75535cmr32045253a91.7.1787034862790;
-        Mon, 17 Aug 2026 23:34:22 -0700 (PDT)
-X-Received: by 2002:a17:90b:1d01:b0:38e:9045:babe with SMTP id 98e67ed59e1d1-3933b75535cmr32045168a91.7.1787034862271;
-        Mon, 17 Aug 2026 23:34:22 -0700 (PDT)
-Received: from hu-qianyu-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39531e31b8fsm7489003a91.3.2026.08.17.23.34.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 23:34:21 -0700 (PDT)
-From: Qiang Yu <qiang.yu@oss.qualcomm.com>
-Date: Mon, 17 Aug 2026 23:34:15 -0700
-Subject: [PATCH RFC] PCI: pciehp: Fix AB-BA deadlocks between reset_lock,
- pci_rescan_remove_lock and pci_slot_mutex
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Tue, 18 Aug 2026 06:39:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rcdThPEpogsWbk+3TXWa0V99Z1Smnx4FhmQHQd7CCF4azqyUAOoukolkcfxAmo4kqYh9Zf52vwbFzYDRv4U0Ij5GFZJLyby2QIxKZrxJTJr/mUP1SGF+Fj/7kDFofiKx/oNf5ZeQ2LOK6JtIPsTdkgz4uw43VBUM7pSKz9FMGu0qNR+DqOZTG5pSGkAu8QR5YWNxs1OXvOyWCI9oDr9n1FvzusVGnwaN2xRoCaob22PEb1rmNqDSJbaURmT3A+Xcsu48+DL1y/MQ+NsWnuiU4r1GawyoubmCXDCSt9vC3i71g4HzX5vdRJtBWedai1icyfeEWmFDGhnvLrmzIoSe6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HiBCM1LSfOLRdy2trqmOueKmSZurPWdkXewGwVBgFh8=;
+ b=zWSxLBVWxafYWyzx0vOt4DsOHdZCcEIJbgPVQqoj3Wx3lRETtCmJ+YF03zm7VXzDp7z7D6/uXeg+a4wamg8nfakkNmAfIaRU1u4Z6VX2B+gR0sZVoylBZZnT4y9iSV6dj62QtK7O4CmncTdh4S/njdYuvzgn6ImndaXrhv+gLOOvFTmKMF71bqfFIcJQiip9z4Y9g9YaSjicj3+n8uZLhIP9vZ43NlxHL4LudTo9pnmfBY3b+FXomMvO/yeuL9dckKlXGB0//0myJJH/xKmVW7tZpI5Cr6p2KYCOSSirV/EyFVllQBL9tdCtl1fmD129bObIy957LWnf8rqhLdz19A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HiBCM1LSfOLRdy2trqmOueKmSZurPWdkXewGwVBgFh8=;
+ b=SpWqfvfVC+d+3Octg2XLjWxpuabDk1yZlAiJT8i1l3EgARBji8hPztANoi7ztXG5cwD3Yvn79kRH39KcGltFTj5c8+nfrkCarOpldubE7IwYmoHNaOYfcSzudO5UtxedfLCdYWH0k4fYfwo6e0IK5IAoVcMZi+S8CldvfuFIIdI=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CH1PR12MB9717.namprd12.prod.outlook.com (2603:10b6:610:2b2::8)
+ by CH8PR12MB9767.namprd12.prod.outlook.com (2603:10b6:610:275::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Tue, 18 Aug
+ 2026 06:39:50 +0000
+Received: from CH1PR12MB9717.namprd12.prod.outlook.com
+ ([fe80::b26:bd7c:5076:9cd4]) by CH1PR12MB9717.namprd12.prod.outlook.com
+ ([fe80::b26:bd7c:5076:9cd4%6]) with mapi id 15.21.0339.007; Tue, 18 Aug 2026
+ 06:39:50 +0000
+Message-ID: <38099370-269b-4d3e-a686-5b29d806e6a3@amd.com>
+Date: Tue, 18 Aug 2026 12:09:36 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] net: xilinx: axienet: Handle optional IRQ return
+ value correctly
+To: phucduc.bui@gmail.com, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Michal Simek <michal.simek@amd.com>,
+ Simon Horman <horms@kernel.org>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260817105241.63345-1-phucduc.bui@gmail.com>
+ <20260817105241.63345-2-phucduc.bui@gmail.com>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <20260817105241.63345-2-phucduc.bui@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260817-ab-ba-deadlock-v1-1-e619fd07d1fd@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAOb8g2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDC0Nz3cQk3aRE3ZTUxJSc/ORsXWPTZKMUi+REI3OLVCWgpoKi1LTMCrC
- B0UpBbs5KsRDB4tKkrNTkEpBRSrW1AIa8Dv53AAAA
-X-Change-ID: 20260817-ab-ba-deadlock-35c2d8ca278e
-To: Will Deacon <will@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
-        Bjorn Helgaas <bhelgaas@google.com>,
-        Nirmal Patel <nirmal.patel@linux.intel.com>,
-        Jonathan Derrick <jonathan.derrick@linux.dev>,
-        Lukas Wunner <lukas@wunner.de>, Frank Li <Frank.Li@nxp.com>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Qiang Yu <qiang.yu@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787034860; l=12608;
- i=qiang.yu@oss.qualcomm.com; s=20250513; h=from:subject:message-id;
- bh=s5EJ3Y+80mzIdYusQldsuLpi2MqNK3JHswa0TZRIXV8=;
- b=DmKbo+goGuksYtkq7kgj6lN+6WkrZ10l3hYqU3FWHvBfr4twQmkasAsr16ehw+WRRHWGpcwp3
- L++zZesXAaaDCMwwcRBiuSEpAhBOOnGKxlVbNg4+lijYjHFNSkbQbVV
-X-Developer-Key: i=qiang.yu@oss.qualcomm.com; a=ed25519;
- pk=Rr94t+fykoieF1ngg/bXxEfr5KoQxeXPtYxM8fBQTAI=
-X-Proofpoint-GUID: j3FVQl4H9GHgkHtvBbE9ArMI5QRsv-Br
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE4MDA0NyBTYWx0ZWRfX7VmZ4Ub1i2dE
- W0fh1LcOFeOgopyVb035ndfvIN9pDb8bBDlZmcg/SK/8ZVkcgbvcF/1QL0KZ4kdk3lrdi6JspJP
- bqw+QzlxHIdrqkdlqQh49qOCRKJu38E=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE4MDA0NyBTYWx0ZWRfXxHc9JtdiDNp3
- si5iViPK7uJso+iPo4Q7K3x5MJs6zDD356yofdiHBFOdBn8wUv0sPZrxpYDkjlfmC6a1+benXvr
- 31MtPT4U59FRn0lcfPt2DdLzRT5NnSKZzTcN0hDbuay0KRoP8sWOtxGL4oTPazdj/c7xcsQ1DBk
- 20GSaCJE2gxAP9QYka5jJqGiKZJD8q8of0UlY56MYp/TCFXqk4JCr0N2uaIR7k7zZGqVxExZKq1
- 6DtU0+o3jBGFqgJCYlbCPa/Ufdb49z6AqWw+RHywkUmrjI/XF+dsuboFy4Kq4JkZt7xn3tc0Ej5
- 6VlPkOxIx1/Hg3RIt8VW7HQ52MIjLJkheJMc+LLiqK1s3Hs/JKB8S5ep+zA/wAU61B/EOmv1O8D
- 2H4OdIqXUiPM6JXd+O7mDj0i86CAT/XPs6G6YigINTxCen+9xDGhPs5BwwVOg53oMma5hnFRQ6F
- 1dX173E588ND5dtoagQ==
-X-Proofpoint-ORIG-GUID: j3FVQl4H9GHgkHtvBbE9ArMI5QRsv-Br
-X-Authority-Analysis: v=2.4 cv=bfRbluPB c=1 sm=1 tr=0 ts=6a83fcf0 cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=EUspDBNiAAAA:8 a=wr20Ner3HAe7Lg71fTsA:9 a=QEXdDO2ut3YA:10 a=O8hF6Hzn-FEA:10
- a=bFCP_H2QrGi7Okbo017w:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-17_04,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 priorityscore=1501 malwarescore=0 lowpriorityscore=0
- phishscore=0 impostorscore=0 bulkscore=0 spamscore=0 adultscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608180047
+X-ClientProxiedBy: PN3PR01CA0006.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:95::10) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH1PR12MB9717:EE_|CH8PR12MB9767:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5356c712-c3bb-400f-0b70-08defcf37df3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|23010399003|22082099003|18002099003|10067099003|11063799006|56012099006|4143699003;
+X-Microsoft-Antispam-Message-Info: TG5B8AvnGdo4mLRe/CiOUOZlex3uszJoUNdAWAfE+WjNoRNLXOGv7kY/D5Ua3sSN7UFZj9v4jJCIPL5x0k/dg7R7ILbKoz16ChAEIRa4Fb0CuYjWYYJfAx17plLveWmggBUQ4NspvBwj+j2LENu9NPsgP/UjvMqnGzZhxcEcVKJF6U6F2QiRsCttTholdnDjoU6UeMiVZ4aNYIAoTZAWD+n7Zds9JAex8KwKy/UFqQngxOYL7kYJDKDN0tNRm82a2TLh3ilB3Tdcgb/0TF7GyNLfKvFHZ7+PwoD7wi3PkkjWAe9P/kX0a5VNHB/DgTew9u71Qy6Gc3FD+u9Xfy87SEc66glyDIaXlllvMqLEZ6ciCyrfv0zsN9iGuwL9RxErGYnTliHyMsZwWzYwZxum2xJfVGcxcIDUwk+SjRPFYHe8kaXC19vfJnWuDT4yK0yYDNpVSjIgN7YkG5k/mz4qcZNQJvLCNl4plvUrbg4dKYTCoDYubpLz9lNBbuHguU1Qab1nhzJhRMTaeM8HC/yDhDZjZXvnTNcEDep9XFwaV89Ej48CGg2fwr7CXW4juxjlLkZW1bG7BBV0TqkJjuOTOiAH8pHp1/AXeLMrctJ8iE5jwzDo2pfoMQX/Z8OP/TcttSoCXT4FhM7fxbblP2arYokPju4ao3LVlUgtGE8yGFk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH1PR12MB9717.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(23010399003)(22082099003)(18002099003)(10067099003)(11063799006)(56012099006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?emVGOWRkV1RZRVhiZlQ3M0J6Wnp3SThBR081cGI1QmErTkRUN0Z2VFBoN05U?=
+ =?utf-8?B?V1JhbzViaytldTdoeW5mKy8xTFBBbmRob1JRak9NQ29CNG5mSzQzQk1SUWVK?=
+ =?utf-8?B?TGx3R1haQm5ucGtEQ1JxcmtKVy9KU0xOOUVZUXRtRHVLblVIY1NPRm1udTRQ?=
+ =?utf-8?B?d2NPUlRlUjBFd0QxekxlaWJudW42TlVDQnRFbXl2MHJlUzZUU210NEd6dTVy?=
+ =?utf-8?B?b0R6N0JWbVhvUC90dk5DY1MxeDJzU1NIL042SkJJMHl0ODhodVZYbjJUUStl?=
+ =?utf-8?B?Z3VLbEtUaENFV1pGZVhzWUd0cVJlb01IRzVIc3E3dWh1c1RLWUlEVzg5Q0Q2?=
+ =?utf-8?B?MkdaZkMvSzVTUFFyVzJvcUpRaVdDWjJYa1k2Y2VuK0tkU0RXSkhzTVZoN1B2?=
+ =?utf-8?B?U3EwN0JBL3ZXVjBDMHdrcDNtK2JLM3FTbUdkNGdwMTJFYjBFbXZncnZRSmlJ?=
+ =?utf-8?B?SWtkRXJ6SDliRFJEWFh2d0NMMDU3QXpickk5QW9xM1ZUZHNmUk9NUWZtanJR?=
+ =?utf-8?B?STVGUHp2aFJoc1F4VGJkRDFBUCtkRFVDQVNhd0FwUi9VVVcrWUVwY3dvMU1Y?=
+ =?utf-8?B?ZzN0T3Axb2Y3L1pDZCtRL3J2QWFLUWNsZzlvZ2pVSWpQUDVlODNDbnQ5bkd1?=
+ =?utf-8?B?UDEwVlFvaHdqUGdUWGI3SGl6V3lYc25JdE0xKy93SXBhdmdiZlpxamg5Z2lC?=
+ =?utf-8?B?K1RudVFReXIyWUxmVDZUUUJDVGl0STZ2R0ZyWlQ2RFh0cHptemJVNm05YktQ?=
+ =?utf-8?B?bW52QnVvK3JmMW0zS2JlMVp5V2p5eUsrdHFMdi9DV3RWbkg4cllJOTJGWGJy?=
+ =?utf-8?B?MFZIYnpYeVJONks3MDRpc0hQaHRUQllzWklVMlBPMFpRM0Ztb1VVYjUwN25n?=
+ =?utf-8?B?dGNYUlBtcGRZdUkxUDkwMmlvZW80R1hxZXRFeGtiUFJWaDZrVGhrc3hIUE5w?=
+ =?utf-8?B?MGdBWEJQZXl3dlRkTlRKRnRvcEhmNXNVaXR0S2g4ZlUvNzVoOUJkMThEbXdh?=
+ =?utf-8?B?TmFtaEk2MmU5N1p3Rld4cCs3b2wzM1pxbDFZNnlJOVErM3FYNnN1akhiUjQ0?=
+ =?utf-8?B?VHl2bHBXOXJFd0QvcWJWSWxFVksyMVgxNFY2L0pHaWpGREJ0eUQ3MjloN083?=
+ =?utf-8?B?M2t3MU11SkN1K280bk5HQUg4bXgvME9HVlhaZVZ2R1pYNEVreERacnhaU0pE?=
+ =?utf-8?B?MnZHQUFRdjNHdG8yZ2xtRGk0SXZIeXFrZnEzNS83ZnhkWWY0dFBlOEVwc2J2?=
+ =?utf-8?B?NlExMHhXLzBCREEvbXB3NjAzbEZnSW8xOXBHaHpZUTJ6eWhzNVdldVZkMENO?=
+ =?utf-8?B?b2d3OEhwNjlYZHdScXAzSytNSzNhbm43S3IvTllSRnl6SWNkUXdiaENqa1Fv?=
+ =?utf-8?B?djdET1E2cjYzRklCRFBIbUwzd056MHNSejIxdGdldkVGSjEvd3Z1UFNkZTdP?=
+ =?utf-8?B?eUxBd2Y0M3Nybm1lU0VkUFVRSGQzaDNjY1BTVEpiaHhVUHc2UTZmUjZUSmo1?=
+ =?utf-8?B?SURlU2pBbkE2YVg1cUFZaUJCTU5tR3Jkdm42bE1LOTZBOXQxdDFieWhVUVVx?=
+ =?utf-8?B?VUtkUjd6R3FOcThlcU9UVU8vcURaWjhTbWtpalVpaUpzZU9lQ0Z5WGxydGdI?=
+ =?utf-8?B?NXUvajVJYndndHV1ZlJjejBsWW5kbDFOcWRwNytNSi9VNTRLTVhCN2FrbXdr?=
+ =?utf-8?B?WTRNQjcxQVBleDNNK1pLbDdLYWt4TmVUenN5TlFncTY4WUNpczRGZW1mN2Vh?=
+ =?utf-8?B?L29OQXZUTWI2dW5VZ2ZPMzd0RjRadHNWRmY5VncrRlM1RzJ0RjNMRTlNY0h5?=
+ =?utf-8?B?Y1owejdSWDlTandDeW5HVzRlUmMxZy9JRndvQnJrOWlqNWJRSFZPY3AxeURQ?=
+ =?utf-8?B?cE84VWRMOTdDNFNmQVBja09nK2F6MGoxNUIrbG9OVnZvL0VYZVNVVFEzVzRa?=
+ =?utf-8?B?VXJlVVJPMUJubStSTnlYOUQwVHBaSzhKdkh6R1FQSEliRlhqN3hYUUNTT3c4?=
+ =?utf-8?B?RWJla0U1U2JFTkxMNzhzTTdqNzZwcWhoVWloOTR5WDVCNDA5Z1VoeXRUNjFp?=
+ =?utf-8?B?R2NRUFZORXhvYkpMc0lOTUUyTDh1M3Jlb0l6WU42V0t3clR4NU1BMldLVVVh?=
+ =?utf-8?B?Y1BwclAzc3hHT09tbW9mQVhMUWpSZGJQR0lQOUpmajVialkwbm5KRnVCT2E1?=
+ =?utf-8?B?U3l6aE43Z3l4SFkwdnp3czBESzZKamJueGpxVzVGb1UvVkZQSEhwZnc0dTJE?=
+ =?utf-8?B?TTdxb3prR0J2ZklJT3BOaEdMOURJakxpTkNud0ZXZGNpYllicnJnYzR6OE1F?=
+ =?utf-8?B?dm1VckxDQWI3dkVSY0ZucHM0bjFST3lVRWgrM2xtWkZGY2paV2pVdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5356c712-c3bb-400f-0b70-08defcf37df3
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 06:39:50.0034
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ylzlRVrXYcAVwkL57ac7EPsCp2LH3OKZCDGQCzGX2hd6oyoK8sfIAYw/HYm/0E+R
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR12MB9767
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_233425_720958_8D432993 
-X-CRM114-Status: GOOD (  23.45  )
+X-CRM114-CacheID: sfid-20260817_233956_849271_119BC8FF 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,334 +151,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 5b3f7b7d062b ("PCI: pciehp: Avoid slot access during reset")
-introduced ctrl->reset_lock to serialize a Secondary Bus Reset (SBR)
-with the pciehp code paths that read the Link Active and Presence
-Detect bits, both of which flap during an SBR.
+On 8/17/2026 4:22 PM, phucduc.bui@gmail.com wrote:
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> lp->eth_irq is assigned from platform_get_irq_optional(), which returns
+> a non-zero interrupt number on success or a negative error number on
+> failure. Errors other than -ENXIO are handled before this check,
+> so -ENXIO is the only error value that can reach this point.
+> 
+> Check for a negative value instead of treating 0 as an undefined IRQ.
+> 
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 
-pciehp_ist() holds reset_lock across the whole event handling,
-including enumerating or de-enumerating the hotplugged devices. That
-nests two PCI core locks inside reset_lock, each taken in the opposite
-order by a concurrent SBR, causing two AB-BA deadlocks.
-
-First, reset_lock vs pci_rescan_remove_lock. pciehp takes them as
-reset_lock -> pci_rescan_remove_lock:
-
-  pciehp_ist()                                 # down_read(reset_lock)
-    pciehp_handle_presence_or_link_change()
-      pciehp_enable_slot()
-        board_added()
-          pciehp_configure_device()
-            pci_lock_rescan_remove()           # pci_rescan_remove_lock
-
-A Root Port reset from link-down recovery takes them the other way
-round, pci_rescan_remove_lock -> reset_lock (the boot path, via
-pci_host_probe(), takes the same reverse order):
-
-  qcom_pcie_global_irq_thread()
-    pci_host_handle_link_down()
-      pci_host_reset_root_port()
-        pci_lock_rescan_remove()               # pci_rescan_remove_lock
-        pci_bus_error_reset()
-          pci_reset_bridge()
-            pci_slot_reset()
-              pci_reset_hotplug_slot()
-                pciehp_reset_slot()            # down_write(reset_lock)
-
-Second, reset_lock vs pci_slot_mutex. pciehp takes them as
-reset_lock -> pci_slot_mutex:
-
-  pciehp_ist()                                 # down_read(reset_lock)
-    pciehp_handle_presence_or_link_change()
-      pciehp_configure_device()
-        pci_scan_slot()
-          pci_scan_single_device()
-            pci_device_add()
-              pci_dev_assign_slot()
-                mutex_lock(&pci_slot_mutex)    # pci_slot_mutex
-
-An SBR of the same hierarchy (AER- or link-down-induced Root Port
-reset, or a sysfs "reset_subordinate" request) takes them the other
-way round, pci_slot_mutex -> reset_lock:
-
-  pci_bus_error_reset()  /  pci_try_reset_bridge()
-    pci_reset_bridge()
-      mutex_lock(&pci_slot_mutex)              # pci_slot_mutex
-      pci_slot_reset()
-        pci_slot_lock()
-        pci_reset_hotplug_slot()
-          pciehp_reset_slot()                  # down_write(reset_lock)
-
-The second deadlock constrains the fix: pci_reset_bridge() must hold
-pci_slot_mutex to walk the slot list before it can reach
-pciehp_reset_slot(), and pciehp cannot reorder that. As long as pciehp
-holds reset_lock while descending into pci_scan_slot(), the reverse
-nesting is unavoidable regardless of pci_rescan_remove_lock ordering.
-
-reset_lock only needs to protect the register reads against a
-concurrent SBR, not the enumeration itself. Fix both deadlocks by
-dropping reset_lock across the whole scan/remove section in
-pciehp_configure_device()/pciehp_unconfigure_device(), extending what
-commit f5eff5591b8f ("PCI: pciehp: Fix AB-BA deadlock between
-reset_lock and device_lock") already did around driver binding alone.
-
-Without reset_lock there, an SBR can again race pci_scan_slot() and
-leave a register unreadable during enumeration, so the device fails
-to be enumerated correctly. Hand that serialization to
-pci_rescan_remove_lock, which already spans the scan.
-
-pci_reset_bridge() and pci_reset_bus() issue the SBR unconditionally,
-with no check on what else is on the bus, so they need
-pci_rescan_remove_lock. pci_host_reset_root_port() no longer takes the
-lock itself, since pci_reset_bridge() now does.
-
-pci_reset_function()/pci_try_reset_function() are left without the
-lock: their SBR fallback (pci_dev_reset_slot_function(), then
-pci_parent_bus_reset()) only fires once it confirms the device is the
-sole occupant of its bus, so it cannot race the scan that populates
-that bus with a sibling device. And being able to call
-pci_reset_function(dev) at all means dev is already fully enumerated.
-
-vmd_enable_domain() calls the new pci_reset_bus_unlocked(), skipping
-pci_rescan_remove_lock, since it runs from vmd_probe() with
-device_lock already held and taking the lock there would invert the
-lock order. This is safe because there is no concurrent scanner to
-race: the VMD bridge was found by the initial root bus scan, and any
-hotplug controller below it does not exist yet at this point. Neither
-that scan nor pci_scan_child_bus() earlier in this same function was
-ever protected by reset_lock.
-
-Fixes: 5b3f7b7d062b ("PCI: pciehp: Avoid slot access during reset")
-Fixes: 4c99bace4f4e ("PCI: host-common: Add link down handling for Root Ports")
-Signed-off-by: Qiang Yu <qiang.yu@oss.qualcomm.com>
----
- drivers/pci/controller/pci-host-common.c |  2 -
- drivers/pci/controller/vmd.c             |  2 +-
- drivers/pci/hotplug/pciehp_pci.c         | 24 ++++++------
- drivers/pci/pci.c                        | 64 +++++++++++++++++++++++++++++---
- include/linux/pci.h                      |  1 +
- 5 files changed, 73 insertions(+), 20 deletions(-)
-
-diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
-index a23907a875e5..299248316b4c 100644
---- a/drivers/pci/controller/pci-host-common.c
-+++ b/drivers/pci/controller/pci-host-common.c
-@@ -329,9 +329,7 @@ static pci_ers_result_t pci_host_reset_root_port(struct pci_dev *dev)
- {
- 	int ret;
- 
--	pci_lock_rescan_remove();
- 	ret = pci_bus_error_reset(dev);
--	pci_unlock_rescan_remove();
- 	if (ret) {
- 		pci_err(dev, "Failed to reset Root Port: %d\n", ret);
- 		return PCI_ERS_RESULT_DISCONNECT;
-diff --git a/drivers/pci/controller/vmd.c b/drivers/pci/controller/vmd.c
-index 9b283e151c1a..ac1311028003 100644
---- a/drivers/pci/controller/vmd.c
-+++ b/drivers/pci/controller/vmd.c
-@@ -1063,7 +1063,7 @@ static int vmd_enable_domain(struct vmd_dev *vmd, unsigned long features)
- 		if (!list_empty(&child->devices)) {
- 			dev = list_first_entry(&child->devices,
- 					       struct pci_dev, bus_list);
--			ret = pci_reset_bus(dev);
-+			ret = pci_reset_bus_unlocked(dev);
- 			if (ret)
- 				pci_warn(dev, "can't reset device: %d\n", ret);
- 
-diff --git a/drivers/pci/hotplug/pciehp_pci.c b/drivers/pci/hotplug/pciehp_pci.c
-index 65e50bee1a8c..b2698a530f59 100644
---- a/drivers/pci/hotplug/pciehp_pci.c
-+++ b/drivers/pci/hotplug/pciehp_pci.c
-@@ -36,6 +36,11 @@ int pciehp_configure_device(struct controller *ctrl)
- 	struct pci_bus *parent = bridge->subordinate;
- 	int num, ret = 0;
- 
-+	/*
-+	 * Release reset_lock before rescan/remove
-+	 * to avoid AB-BA deadlock with pci_rescan_remove_lock.
-+	 */
-+	up_read(&ctrl->reset_lock);
- 	pci_lock_rescan_remove();
- 
- 	dev = pci_get_slot(parent, PCI_DEVFN(0, 0));
-@@ -64,13 +69,7 @@ int pciehp_configure_device(struct controller *ctrl)
- 	pci_assign_unassigned_bridge_resources(bridge);
- 	pcie_bus_configure_settings(parent);
- 
--	/*
--	 * Release reset_lock during driver binding
--	 * to avoid AB-BA deadlock with device_lock.
--	 */
--	up_read(&ctrl->reset_lock);
- 	pci_bus_add_devices(parent);
--	down_read_nested(&ctrl->reset_lock, ctrl->depth);
- 
- 	dev = pci_get_slot(parent, PCI_DEVFN(0, 0));
- 	ctrl->dsn = pci_get_dsn(dev);
-@@ -78,6 +77,7 @@ int pciehp_configure_device(struct controller *ctrl)
- 
-  out:
- 	pci_unlock_rescan_remove();
-+	down_read_nested(&ctrl->reset_lock, ctrl->depth);
- 	return ret;
- }
- 
-@@ -104,6 +104,11 @@ void pciehp_unconfigure_device(struct controller *ctrl, bool presence)
- 	if (!presence)
- 		pci_walk_bus(parent, pci_dev_set_disconnected, NULL);
- 
-+	/*
-+	 * Release reset_lock before rescan/remove
-+	 * to avoid AB-BA deadlock with pci_rescan_remove_lock.
-+	 */
-+	up_read(&ctrl->reset_lock);
- 	pci_lock_rescan_remove();
- 
- 	/*
-@@ -116,13 +121,7 @@ void pciehp_unconfigure_device(struct controller *ctrl, bool presence)
- 					 bus_list) {
- 		pci_dev_get(dev);
- 
--		/*
--		 * Release reset_lock during driver unbinding
--		 * to avoid AB-BA deadlock with device_lock.
--		 */
--		up_read(&ctrl->reset_lock);
- 		pci_stop_and_remove_bus_device(dev);
--		down_read_nested(&ctrl->reset_lock, ctrl->depth);
- 
- 		/*
- 		 * Ensure that no new Requests will be generated from
-@@ -138,4 +137,5 @@ void pciehp_unconfigure_device(struct controller *ctrl, bool presence)
- 	}
- 
- 	pci_unlock_rescan_remove();
-+	down_read_nested(&ctrl->reset_lock, ctrl->depth);
- }
-diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-index b2879a6be5f8..9010741d032f 100644
---- a/drivers/pci/pci.c
-+++ b/drivers/pci/pci.c
-@@ -5704,6 +5704,13 @@ static int pci_reset_bridge(struct pci_dev *bridge, bool restore)
- 	if (!bus)
- 		return -ENOTTY;
- 
-+	/*
-+	 * The reset below may issue a Secondary Bus Reset, which races with
-+	 * pciehp enumerating a newly inserted device. Serialize via
-+	 * pci_rescan_remove_lock; callers must not already hold it.
-+	 */
-+	lockdep_assert_not_held(&pci_rescan_remove_lock);
-+	pci_lock_rescan_remove();
- 	mutex_lock(&pci_slot_mutex);
- 	if (list_empty(&bus->slots))
- 		goto bus_reset;
-@@ -5723,13 +5730,17 @@ static int pci_reset_bridge(struct pci_dev *bridge, bool restore)
- 	}
- 
- 	mutex_unlock(&pci_slot_mutex);
-+	pci_unlock_rescan_remove();
- 	return ret;
- bus_reset:
- 	mutex_unlock(&pci_slot_mutex);
- 
- 	if (restore)
--		return pci_try_reset_bus(bus);
--	return pci_bus_reset(bridge->subordinate, PCI_RESET_DO_RESET);
-+		ret = pci_try_reset_bus(bus);
-+	else
-+		ret = pci_bus_reset(bridge->subordinate, PCI_RESET_DO_RESET);
-+	pci_unlock_rescan_remove();
-+	return ret;
- }
- 
- /**
-@@ -5759,19 +5770,62 @@ int pci_probe_reset_bus(struct pci_bus *bus)
- }
- EXPORT_SYMBOL_GPL(pci_probe_reset_bus);
- 
-+/*
-+ * Core of pci_reset_bus(), run with pci_rescan_remove_lock already held or
-+ * known not to be needed.  See pci_reset_bus_unlocked() for the latter case.
-+ */
-+static int __pci_reset_bus(struct pci_dev *pdev)
-+{
-+	return (!pci_probe_reset_slot(pdev->slot)) ?
-+	    pci_try_reset_slot(pdev->slot) : pci_try_reset_bus(pdev->bus);
-+}
-+
- /**
-  * pci_reset_bus - Try to reset a PCI bus
-  * @pdev: top level PCI device to reset via slot/bus
-  *
-- * Same as above except return -EAGAIN if the bus cannot be locked
-+ * Same as above except this blocks until pci_rescan_remove_lock can be
-+ * acquired, and still returns -EAGAIN if the underlying slot/bus device
-+ * lock cannot be taken.
-  */
- int pci_reset_bus(struct pci_dev *pdev)
- {
--	return (!pci_probe_reset_slot(pdev->slot)) ?
--	    pci_try_reset_slot(pdev->slot) : pci_try_reset_bus(pdev->bus);
-+	int rc;
-+
-+	/*
-+	 * pci_try_reset_slot()/pci_try_reset_bus() below may issue a
-+	 * Secondary Bus Reset, which races with concurrent bus scanning.
-+	 * Serialize against that via pci_rescan_remove_lock, taken before
-+	 * the slot's/bus's device locks to match the lock order used by
-+	 * pciehp.
-+	 */
-+	pci_lock_rescan_remove();
-+
-+	rc = __pci_reset_bus(pdev);
-+
-+	pci_unlock_rescan_remove();
-+
-+	return rc;
- }
- EXPORT_SYMBOL_GPL(pci_reset_bus);
- 
-+/**
-+ * pci_reset_bus_unlocked - Try to reset a PCI bus without taking
-+ *			    pci_rescan_remove_lock
-+ * @pdev: top level PCI device to reset via slot/bus
-+ *
-+ * Same as pci_reset_bus(), except it does not take pci_rescan_remove_lock.
-+ * For callers reached from a driver .probe callback, where pci_rescan_
-+ * remove_lock may already be held by the caller of pci_bus_add_devices(),
-+ * or may not be held at all; taking it here either self-deadlocks or
-+ * inverts the pci_rescan_remove_lock -> device_lock order.
-+ */
-+int pci_reset_bus_unlocked(struct pci_dev *pdev)
-+{
-+	return __pci_reset_bus(pdev);
-+}
-+EXPORT_SYMBOL_GPL(pci_reset_bus_unlocked);
-+
- /**
-  * pcix_get_max_mmrbc - get PCI-X maximum designed memory read byte count
-  * @dev: PCI device to query
-diff --git a/include/linux/pci.h b/include/linux/pci.h
-index 90972c1dd8e0..642c16f8ecae 100644
---- a/include/linux/pci.h
-+++ b/include/linux/pci.h
-@@ -1488,6 +1488,7 @@ int pci_try_reset_function(struct pci_dev *dev);
- int pci_probe_reset_slot(struct pci_slot *slot);
- int pci_probe_reset_bus(struct pci_bus *bus);
- int pci_reset_bus(struct pci_dev *dev);
-+int pci_reset_bus_unlocked(struct pci_dev *dev);
- void pci_reset_secondary_bus(struct pci_dev *dev);
- void pcibios_reset_secondary_bus(struct pci_dev *dev);
- void pci_update_resource(struct pci_dev *dev, int resno);
-
----
-base-commit: 03ffab4b0227353164147d7872e96d664d548259
-change-id: 20260817-ab-ba-deadlock-35c2d8ca278e
-
-Best regards,
---  
-Qiang Yu <qiang.yu@oss.qualcomm.com>
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Thanks!
+> ---
+>   drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index f92951422b2e..50f88a38b6f6 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> @@ -3049,7 +3049,7 @@ static int axienet_probe(struct platform_device *pdev)
+>   		ndev->ethtool_ops = &axienet_ethtool_ops;
+>   	}
+>   	/* Check for Ethernet core IRQ (optional) */
+> -	if (lp->eth_irq <= 0)
+> +	if (lp->eth_irq < 0)
+>   		dev_info(&pdev->dev, "Ethernet core IRQ not defined\n");
+>   
+>   	/* Retrieve the MAC address */
 
 
