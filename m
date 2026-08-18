@@ -4,172 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50455C5DF67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 05:44:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D770C5DF67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 05:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HW+t7QxvsT7H1vLeb9Eb6FkDCG/wQu3JC9K2ceXpNaY=; b=yp28oM4iRB6PA3zlF5VTfitvDk
-	hD0Sl7gVVJ6RmUfpfPrgZTI96JrhvX+UbLoMTrZFjYWf92MRKcLDedep3T7EZtJhq0dSsr78lUhQY
-	ylnQBL8tz0qGrzSdgvqwdpmA4MK1WWYzu+SPP94O6K7oTV6hhqftRsxHWUKgJbWNPUnJxCtMAuVjh
-	oPeyYBHPkMkJ8e3r1lbicXQq+P+YELX0m/Wuud8x2ScidOnPeP9N11PM7hl2Nat8+j/GX3UHxp8/d
-	9jg27jGHuKQw4ngGxmPUE0jod6ohxM0XJnOL76cGQHtBGdQm4pGPpTRWwdmSzGlC0amxlKUUH8wQ2
-	vGkBeN8w==;
+	bh=R3Vu27eqJB0QWdOjkD1S53lPM6polYCfClbo3KxGl50=; b=GR9OjMNS6s9uv4/4CGYWFYnkjS
+	maeKuk9i+YmFygj5kJj7ZEfPSxX5wBPItrkRVX02xdStRSBwB1nQ699zRTJBt5/wjoJXnX2H4L7X4
+	6jCczbEu8bbfGXxIP9Mj32w//OxgmpxmclEyD2Lf3DlogcMKmLP1hkbVCyQyGWQi4V6enLn3k86vx
+	ktx71Ik0K95ZLTDUIlNU0s+JtyE52T72uuoo7Q6qNSKBYxPf3FGOxEiul4hPFhHYH1mIzq+iWtk9v
+	QChfrDWaGFWadsTDnlY7n9gJpaoMyS3HUeMm5fvzr7AVQ7BwJnIPG3TisB3Dv82n14cNnExYNVyi/
+	l1M5Bbvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwCcn-00000007MTI-0NW7;
-	Tue, 18 Aug 2026 05:44:37 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wwCpT-00000007MtR-16kA;
+	Tue, 18 Aug 2026 05:57:43 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwCck-00000007MRp-0YCK
+	id 1wwCpQ-00000007Msj-01FH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 05:44:35 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67I469o54187370
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 05:44:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	HW+t7QxvsT7H1vLeb9Eb6FkDCG/wQu3JC9K2ceXpNaY=; b=MdB/aI7g6QOpoB7e
-	XQ8yNtedTszSMN80FoDCnb7nzxWD/v4NxGfy3NpSMA5Cww2bz8x7C3oKErZq9zdT
-	Y3WooUHeVCEmD8oy7ifT00mCoUpvQZMmouRctZGKWrxg66I/DB1KjYWrRo2M5B79
-	S/TaPRBwEeSHkQKiXsKbwyRSBjsYN3mWAcHX+3Fac9mVYVWFQcfrdDz2LRwzK7bt
-	df12+VM46x4g8aUyCqSf3SXcUWjCAVY5FMWSS+lgkz8hOGlEPPfEzCD+C01LNZL8
-	ZJhLgzns1iSxqdc1pxS7ia5zwTAPKMQqxzkHgpc5CBiQC8BMG0EuFEWBR2Knafc3
-	53DXmw==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g4g2p0d3g-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 05:44:32 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-38f5ac7354dso4859423a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 22:44:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787031872; x=1787636672; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HW+t7QxvsT7H1vLeb9Eb6FkDCG/wQu3JC9K2ceXpNaY=;
-        b=Tjc+2ZHmu2wkSe8VId1Na6DbJotNEh3zkF5BcoTCa5slG7yqUaQIateVG8XWwUhWdM
-         IA/5H9ARQqEt+NW7v5mCDrxAEjlG/xQqPxxBEB8zKvJ+07BrS7mFAkOFesLPcgZQb0kL
-         /QhFvFHLdP8bpCKJpOkvSr8sFm6yjFWFeqZRodGJIhfHH85YuQRXcYCo8Bm1FYWdkfZ4
-         0KFROAZ6QQmVx/fWTmI+3Rf6WRtbcTwDTVs9Km3OxKe+CBAsnhMEJiy2MqvlK+W+PRZc
-         KSPrVbkN9MQybsFzrH3RqGAyeOSWgpVUGQRskTvPq+7z+hXsayA94p6XQCsXKANdW8a2
-         PwnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787031872; x=1787636672;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HW+t7QxvsT7H1vLeb9Eb6FkDCG/wQu3JC9K2ceXpNaY=;
-        b=SDWaf9buSP3AOxphK2L03yEAOAZuV1/ESMqmoJc/WpppT7FSJBW5G7LPWWzj0lSMlt
-         Rp8bom/16Gz89uB7+JKhW2vmw1vOtM1gLv81+M11dkAW6BJdDjj3Mv7Am2Mn5prk+F/B
-         ApTgC9UPpGsF6Jirr85OrkWRM7vZ1BSIby+re0HmOjanjsUY4/ObCEwVrjoLn53LUVqw
-         pxTHTHLLB3PA2QB1VhTJ4GVjY9oN6v0jTH7m03T6Z81lKckt87ZK3kxVkRuR9i+/JOVa
-         6+uNe5SgKWD2G9EG8LBbl0LbKa3g0/qYKWvNEh57qn3abfcJEReevuEDG8vXjbsCvJJh
-         ZLjw==
-X-Forwarded-Encrypted: i=1; AHgh+RoZpmvBV0PFNo4A0R8tjV9WVVZx1V/vKtltLFr7qtdfgWm0+j5HYAYQsAbgdYmGMQKXom3HKAVvpljSULgbqpD1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXQEe/ss3n2ay83QRuiUoofmjPp+Szj2m22hLIAB54FY7zzXIt
-	OcRLeyUf4NpyLwA1k97QXouZRMf34eq+LUgPVqUoz+v0Z+A/DV2VV06MRsmuLDEoqv0KcQDWe7D
-	9kdp5m2lpj4jVfoqs177S0DHYRGeS4iPwLx1Ieq/q98cNfZ0oiFmwoV/F9YMGwIZeDCMXgF+YQu
-	IIxg==
-X-Gm-Gg: AR+sD115mZRB6DJr6mga+CFXooKfjaJzWSYcl1WnAVvtlRVETAhftAvbEhIH3epbiiB
-	sSqTEpPZWb4tzScvL4fO+n12+DfChR3V10r3k0C6pxA769v45afNbTuo0rVosVT3PSlOwaUYv6c
-	1tq3F35dcCdEPxM9UTQgPHkoBWOBZdmTB2LmJacwfcB71keKntZMdzpb0QyhaFv3pEop4wqtTzj
-	VRzqRt6fcPLog0LpVGipMlNd/IIz+VDtq/lmgJ9NHCAIuSOBfdGr11MIg01Ue+YQ27dasxciw+w
-	pPxtGgnRSSgZyta05tOKC2pkV4LgUZWdcqKTnJKNEV56NGJFphRlktwIgOw9dxX7lHv6uDOrBCC
-	yKjh4RGbTSqEbTFiVej2GgGn7c6Sr7CoKNMk=
-X-Received: by 2002:a17:90b:1641:b0:38e:63de:730d with SMTP id 98e67ed59e1d1-3955a3daf70mr5813237a91.3.1787031871749;
-        Mon, 17 Aug 2026 22:44:31 -0700 (PDT)
-X-Received: by 2002:a17:90b:1641:b0:38e:63de:730d with SMTP id 98e67ed59e1d1-3955a3daf70mr5813168a91.3.1787031871167;
-        Mon, 17 Aug 2026 22:44:31 -0700 (PDT)
-Received: from [192.168.29.31] ([49.36.209.30])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39531fbb41esm7223248a91.10.2026.08.17.22.44.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Aug 2026 22:44:30 -0700 (PDT)
-Message-ID: <359e5cf6-c30e-4cdb-a6b2-baa2aa21c4e0@oss.qualcomm.com>
-Date: Tue, 18 Aug 2026 11:14:17 +0530
+	Tue, 18 Aug 2026 05:57:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TQUfSO2CdhBdtbLbyKEjznvtO220anty6qvuNzGUEO4VPcxIVi4g7Werog8fd2j3Ev17Er2AAiArExFAwRaa4Nhawwy1WFE7N8lpXMIhyrnm4UU7pettpn+jsBZv+KUvD5bM1EQb0Aby1fI9vi60F/1tSqchhRbaNzl9pOrATFBTopIkbnrre6bLBgazV+y/rRZKcI4DXTW/WycbaLpgk8f+kNshgSvCsA0+Lmer4tREp9Pe27JvE7xSvb8X4eUVZHSDbI1kDuYxLwy1rt1B+u4ftGBOhAKr4d8UhQV2Utl1Pqg8RIENRbGdf3R+FbqYNMnAz9jm7g5D10KWetM8nQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=R3Vu27eqJB0QWdOjkD1S53lPM6polYCfClbo3KxGl50=;
+ b=sEnWVoD9uAfAdUPZKuu/BBEGr0APC+j6UPQrAcIXhsmVcCMYWnU75QEUrpy6XzVAObMLDObyhfCoq/pdw+X9m5wsHRaYbUOZhY5Bdd7E+1hd+RtAJA+lp0uGixwUXk7DaiHjkGeLpLV5pN5XOhqn9ZkU3S6YItX2SZ7Ec8jAJBt7yc8sI9CbyygNIcaatijsdqCr/nsYLcGlscPFHvyWs5zlKG1Y2EUABiyEfGV9OtLErBRQy5H31ZMLmiLLR1M3hWGU6FNNgq7RwONW/CFC0kUYIdVweh7zSTlD+7CD0dQImyT22YkBsZFxXCvLe4b/KhFbALGEqkh9TwCVejs8Pw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=R3Vu27eqJB0QWdOjkD1S53lPM6polYCfClbo3KxGl50=;
+ b=aqx410EQlyvOCddlftk/ybCQ2fHmytXXpFiFGJdiFDRzDSkVVv7zf1dqU+jryjXZceU7RCxSsZeOVDlCu+VLUY+5Z13UH2pQqFvqK6OIBOhPH/AMsmbvzN68YUFzg1piPamLMVtb0bYF8ngO0W+UFxL9Psvi2VZz1ttObS8Btjd+BJZM/uftSRIhAacgwbJIKvvDeU+87mP4vAMg02yMOuLTlbXy1LPYj6ydWxMv+01FDEGYAPiYLGQiUGLfNC/WyrcYZSrtEDjcZ1mwtGejzeV6fJTNW6XswFfZZEi1jFPF1iQMu49z893xTh7u5t+8bRYFCMZUMaXR+NIAXhveeg==
+Received: from BN9PR03CA0636.namprd03.prod.outlook.com (2603:10b6:408:13b::11)
+ by CH0PR18MB4289.namprd18.prod.outlook.com (2603:10b6:610:b9::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Tue, 18 Aug
+ 2026 05:57:32 +0000
+Received: from BN1PEPF00004681.namprd03.prod.outlook.com
+ (2603:10b6:408:13b:cafe::69) by BN9PR03CA0636.outlook.office365.com
+ (2603:10b6:408:13b::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.17 via Frontend Transport; Tue,
+ 18 Aug 2026 05:57:32 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
+ client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (64.62.143.114) by
+ BN1PEPF00004681.mail.protection.outlook.com (10.167.243.87) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.3
+ via Frontend Transport; Tue, 18 Aug 2026 05:57:31 +0000
+Received: from [127.0.0.1] (unknown [10.4.1.181])
+	by smtp.corp.axiado.com (Postfix) with ESMTPS id 2F61B4186B5D;
+	Mon, 17 Aug 2026 22:57:31 -0700 (PDT)
+From: Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>
+Date: Mon, 17 Aug 2026 22:57:13 -0700
+Subject: [PATCH v2 1/2] dt-bindings: usb: gadget: udc: add Axiado AX3000
+ and AX3005 UDC
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v24 04/12] mfd: psci-mfd: Add PSCI MFD driver for
- cpuidle-psci-domain cell
-To: Bartosz Golaszewski <brgl@kernel.org>, Lee Jones <lee@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Andy Yan
- <andy.yan@rock-chips.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        John Stultz
- <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>,
-        Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, mfd@lists.linux.dev,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-References: <20260803-arm-psci-system_reset2-vendor-reboots-v24-0-889281373870@oss.qualcomm.com>
- <20260803-arm-psci-system_reset2-vendor-reboots-v24-4-889281373870@oss.qualcomm.com>
- <20260813123841.GC1820248@google.com>
- <CAMRc=MdA_zM_pHCmk7dd7kosqvNmFgA+iXvHS4qpNs9bdsUMCg@mail.gmail.com>
-Content-Language: en-US
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <CAMRc=MdA_zM_pHCmk7dd7kosqvNmFgA+iXvHS4qpNs9bdsUMCg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: Tz-O5agokNYb7ujEfi-4vC7I5_SPSJiE
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE4MDA0MSBTYWx0ZWRfXysHoYKKJBelq
- J9lagWaxjPpHKBQNuWRUk5elhwtqJphmYOuBenO0U5fxiiMaOkbCtDHEpQD14x4GUWUyIyfp8Q4
- iRdQPmCS0f5GCR5rTpJUlMPHP6EIHMo=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE4MDA0MSBTYWx0ZWRfXwpeFatu/k6fo
- 4aloxwk6NQCEtY0778FItHnav+jtEeoplzrwpDng9HINZk2dDAT2ibKCNYmcXorsdG+uYmVbu4g
- HgBihsDea4N634isSlbEPoKyHkbhfR29XLpeNwdlaI6yYHY5B8WPQmo9iehu7Xk3kJOsTuOl9kj
- twUmC4F5J8WmbepDlOH2RVNGM2k3mLxzwCD+Jxx5pY8yS2Kc1vDzup7I6WsOEbnNyclMHsV4SVT
- OfBkFagz+ysXIPz1FwIKzy0RlIIS5b8LwIYOwbMuzS4jiiOWvStfR4qp96LxmLg1dwUAb7/HGPZ
- YSc23Mg4RJXHTZfIEoXNZcAAxZE2hBqCRrQFD6ZV81ZTVlTIP5NmDjOLMnBX3THefECqhPED6Dl
- 5jyUA5p25ps0F9jbM13HoYr+7tO5IHf7CAgnEH5r/xlnRgnVNpQYR5Hctv9+aGXQLZ+VJd3xqzP
- CuJIautprP7I2xc73aA==
-X-Proofpoint-ORIG-GUID: Tz-O5agokNYb7ujEfi-4vC7I5_SPSJiE
-X-Authority-Analysis: v=2.4 cv=bfRbluPB c=1 sm=1 tr=0 ts=6a83f140 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=LF1w/1kWa9VLj9Mif7fHrg==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=5DcdI_qaGnyFb-cuGoAA:9 a=QEXdDO2ut3YA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-17_04,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 malwarescore=0 lowpriorityscore=0
- phishscore=0 impostorscore=0 bulkscore=0 spamscore=0 adultscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608180041
+Message-Id: <20260817-axiado-ax3000-usb-device-controller-v2-1-0ef033dd0a68@axiado.com>
+References: <20260817-axiado-ax3000-usb-device-controller-v2-0-0ef033dd0a68@axiado.com>
+In-Reply-To: <20260817-axiado-ax3000-usb-device-controller-v2-0-0ef033dd0a68@axiado.com>
+To: Krutik Shah <krutikshah@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Tzu-Hao Wei <twei@axiado.com>, 
+ Karthikeyan Mitran <kmitran@axiado.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, 
+ Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3508;
+ i=rbnaveenkumar@axiado.com; h=from:subject:message-id;
+ bh=+mUq5Z1xEwbMgx2TcA7/LePqRuS948iAH36BE4PLEnE=;
+ b=owEB7QES/pANAwAKAbh/+EWc+O2/AcsmYgBqg/RKRVNV+d+eRam9GF+tJIl5O0/OlNpgRlnxm
+ tK1pjD9X62JAbMEAAEKAB0WIQRgwxMPfi/g+F4zFkC4f/hFnPjtvwUCaoP0SgAKCRC4f/hFnPjt
+ v/OYC/9UQ7OrXDTet7haCFPGR35M2CFUA5qALqQ1IQQ3Mq2HGQhIfMaDXBOW3fCvWFNWq79l12p
+ BRrU+RDmreeSX+nTjbH/xOaUZ1azljTmRGg0DCrhiu12PPjh6eN5ssBEhWXxi8oJeUFxW5sZ9wT
+ QvovJFygChiYx0iW5d5OCk9nJ0tW4NTVgOKgQC1ufHOgAT5GP+lmNBmE/NqXJgJ/2xEv5+f8VrI
+ 2XYO07kZzqux0OQx3F7T94vn7MbtRvz94E3xzGtYJtS9WmhN4W6IesN2nzcUcgZQY2IDIc82XUt
+ BQhcGLGkYta2j74NJkQqLbGahzWFDGF0YKV2YNnZYKa0TVLAFnrPgm6oOYUkChDxNEnVG/WTMR1
+ M3BU6HJEdqpm9lP2S/p6Ei6qoqGcHaSyOa5/Kn3t258RdZza/qoC+4z1BsPlviTUAP39AG9Wh1X
+ 2JXUEst08NmDcJ6HwFfOuNzja1FElnLSXNSv4PbWPSKnCxtZ2gnMYNLSJ0EB6ZCjsDF64=
+X-Developer-Key: i=rbnaveenkumar@axiado.com; a=openpgp;
+ fpr=60C3130F7E2FE0F85E331640B87FF8459CF8EDBF
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00004681:EE_|CH0PR18MB4289:EE_
+X-MS-Office365-Filtering-Correlation-Id: 484fc2c9-1d1f-4e33-cae5-08defced97f3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|7416014|376014|23010399003|22082099003|18002099003|13003099007|10067099003|56012099006|3023799007|6133799003;
+X-Microsoft-Antispam-Message-Info: A66BmuEDaclLGHWeQ9EGRvff9AYGfZhInaLS+KOKn5gG1pEubEOY9VdrOX4Q7kk19Kl9v2yutdt1C0uy6IwaJQMdfgHw+SisERZGrDLFoEYYKsLysZ6nMgls465pvud8XcoJHE5+u1lKN+UT7oKSbRbfGLfj3KJb+wgcPYrz/qFVF7gQUz5W1xjElYM1HskH7+0gRsQXkEUJwKf2wmT2SxNQvrDl28jCsjYDxRi/D0PgiymdGUySQ9c0GrO8NQtCEFVIzamRB+upe8MNSlyPnGjTezTsPHiT16Rl6XfZ5Z1ZDN5aHdeyu1z/SzQL4dfU8cRTuwymv6d2B7+MCaBxUm+v5fZWVSFxI2f/5jTRga/k0oCT5RmrhS7hc85D4VSUbhwnmEs3Ams4hu+ZJBGxJbGtT/p69YciKSrc341uQXxWk8KxllrfMeciJLiNvLBumzBkRj3/8laPqpF/PbXiCt5l2DNGJQB6eEJNQ6SLvtRFIVPAs6DQtidxpyE95ZkphaWGKz952ncpUr4MHB4vn0BaVV6XZoASPEByF5JVH0xzRV10RdoZp0vDy6btLX3OOP5A0Mbzy2N2jQQWRi1FjQve134dBTeoShr12oWBOjgqvPvXjjWfepfFc53YYqqjvFHd+5sjatLRZpdXSKbhZA==
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(7416014)(376014)(23010399003)(22082099003)(18002099003)(13003099007)(10067099003)(56012099006)(3023799007)(6133799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ZIyILnks5ODsl17IPoEfMLsqCExww4cCfCq1/wm2Xxfl7VoKDz5cJVEbi1Y99B8DTtwn9wo9vM8M0W/87MmIjlCWGKE5G1xw0IDg9C2+vlOsmPWBoV1NUtqEsDtFvaliwBxVZ/3NyhRgTQxT8ktliVfFl4vaFCJ85OFYxF1TuU1oofBhGkSSsLph77Q5k4QhJvit6hKaGQ9fyGAZE2f+yhM1SgQ+8R2C3v7cd7kPbXf9rto50ONq5iJkJrPHlmDIjZeCnPk0/gHeRwp6vynXM9pg20vZ2qgoYVkTVi5e3/AgKYJsUWUSZXY5tdoLFQxxfi2FiiAgC53T30xhfrk5GlZ+mRyfE6gOhC217MicgLZ77CW/x4AL/1mpGvbZREG8e0PLFAopQOw38JZsbVKW1lMzipfP3KnxWEZSohob7AQziQszAeqqkfMY0tp6ofeH
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 05:57:31.8310
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 484fc2c9-1d1f-4e33-cae5-08defced97f3
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004681.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR18MB4289
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_224434_318046_A2241E05 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20260817_225740_070115_B2EA90BA 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,47 +140,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add a Devicetree binding for the USB device controller integrated into
+the Axiado AX3000 and AX3005 SoCs.
 
+The controller is based on the Corigine USB 3.1 device IP core and supports
+High-Speed and SuperSpeed operation. The standard maximum-speed property
+can be used to limit the controller to High-Speed operation.
 
-On 8/13/2026 6:36 PM, Bartosz Golaszewski wrote:
-> On Thu, 13 Aug 2026 14:38:41 +0200, Lee Jones <lee@kernel.org> said:
->> On Mon, 03 Aug 2026, Shivendra Pratap wrote:
->>
->>> PSCI has multiple kernel consumers, such as cpuidle-psci-domain.
->>> Currently, both the PSCI core driver and cpuidle-psci-domain bind
->>> directly to the same PSCI node "arm,psci-1.0". Additional consumers, if
->>> introduced, would also need to bind in the same way, leading to several
->>> drivers attached to a single device node.
->>>
->>> Introduce a PSCI MFD driver that binds to "arm,psci-1.0" and registers
->>> PSCI child cells. As the first user, register cpuidle-psci-domain as a
->>> child cell.
->>>
->>> Update cpuidle-psci-domain to probe as an MFD child and use the parent
->>> PSCI node for power-domain traversal.
->>>
->>> Suggested-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
->>> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
->>> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
->>> ---
->>>   MAINTAINERS                           |  1 +
->>>   drivers/cpuidle/Kconfig.arm           |  1 +
->>>   drivers/cpuidle/cpuidle-psci-domain.c |  9 +-------
->>>   drivers/mfd/Kconfig                   | 12 ++++++++++
->>>   drivers/mfd/Makefile                  |  2 ++
->>>   drivers/mfd/psci-mfd.c                | 43 +++++++++++++++++++++++++++++++++++
->>
->> We don't usually allow the use of the term MFD in devices.
->>
->> What does this do?  Is it a mux?  psci-mux?
->>
->> If not, think about what it is and call it that instead.
->>
-> 
-> My two cents: I'd call it drivers/mfd/arm-psci.c
+Signed-off-by: Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>
+---
+ .../devicetree/bindings/usb/axiado,ax3000-udc.yaml | 72 ++++++++++++++++++++++
+ MAINTAINERS                                        |  8 +++
+ 2 files changed, 80 insertions(+)
 
-Ack.
+diff --git a/Documentation/devicetree/bindings/usb/axiado,ax3000-udc.yaml b/Documentation/devicetree/bindings/usb/axiado,ax3000-udc.yaml
+new file mode 100644
+index 000000000000..a9892658b059
+--- /dev/null
++++ b/Documentation/devicetree/bindings/usb/axiado,ax3000-udc.yaml
+@@ -0,0 +1,72 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/usb/axiado,ax3000-udc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Axiado AX3000/AX3005 USB Device Controller
++
++maintainers:
++  - Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>
++  - Krutik Shah <krutikshah@axiado.com>
++  - Prasad Bolisetty <pbolisetty@axiado.com>
++
++description:
++  Axiado USB Device Controller (UDC) is used on the AX3000 and AX3005
++  SoCs. This controller is based on a Corigine USB IP core and provides
++  SuperSpeed (5 Gb/s) or High-Speed (480 Mb/s) operation, selected by the
++  maximum-speed property. It supports control, bulk, interrupt, and
++  isochronous transfer types across multiple configurable endpoints. The
++  node describes the memory-mapped register region, interrupt line, and
++  other required properties for the UDC hardware.
++
++properties:
++  compatible:
++    oneOf:
++      - const: axiado,ax3000-udc
++      - items:
++          - const: axiado,ax3005-udc
++          - const: axiado,ax3000-udc
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  phys:
++    maxItems: 1
++
++  maximum-speed:
++    enum: [super-speed, high-speed]
++
++required:
++  - compatible
++  - reg
++  - interrupts
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        usb@81200000 {
++            compatible = "axiado,ax3000-udc";
++            reg = <0x0 0x81200000 0x0 0x00100000>;
++            interrupt-parent = <&gic500>;
++            interrupts = <GIC_SPI 21 IRQ_TYPE_LEVEL_HIGH>;
++            maximum-speed = "high-speed";
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a674e36529f7..36af69fb965b 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4468,6 +4468,14 @@ F:	Documentation/devicetree/bindings/spi/axiado,ax3000-spi.yaml
+ F:	drivers/spi/spi-axiado.c
+ F:	drivers/spi/spi-axiado.h
+ 
++AXIADO USB UDC DRIVER
++M:	Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>
++M:	Krutik Shah <krutikshah@axiado.com>
++M:	Prasad Bolisetty <pbolisetty@axiado.com>
++L:	linux-usb@vger.kernel.org
++S:	Supported
++F:	Documentation/devicetree/bindings/usb/axiado,ax3000-udc.yaml
++
+ AYANEO PLATFORM EC DRIVER
+ M:	Antheas Kapenekakis <lkml@antheas.dev>
+ L:	platform-driver-x86@vger.kernel.org
 
-thanks,
-Shivendra
+-- 
+2.34.1
+
 
