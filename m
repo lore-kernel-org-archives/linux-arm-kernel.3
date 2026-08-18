@@ -4,74 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8DBFC5DF7E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 11:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D22E8C5DF7E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 11:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ZcN0w+bflhe6BRMhf9Wjukk4Z/S3kbcxpHbb9Y44iQ=; b=mAnTydfhNY48j3LQ2lQQguiD6O
-	dmBIz5OEkRdINgiM3bjnjkRN6XGRmQ8O9BeLgYECqOPExCl25JcaWKdjFM0te1AgQL9rMsIH7jhhU
-	pcOwaa5GM0Q1VYXU8Kqiwc2/BmOhsMrzDilm1l4HYGpN3w+Flkgnrum7l3b6YWmHVyVOJ+7ebpzmS
-	dGgB2wwWxERrzz0R1vV1oo+iftn6eYs5jxDzpy48YzbJSe+qupb3AlJlFRdC0Hm3432zHpsznuiDP
-	dFxwgMvrQHC09AZRF7EUQEOER7BbrUtd+5c10e1QzjI2teQZlSwTj9uuhdn2ITeThNBiUnmhURFwZ
-	zfOFTKOA==;
+	bh=hpxp/zN/k3pa4zTW7PgrgIqgWRxXynXakWrls+B4H2A=; b=nqKrelNbn2NTVO5htpOrNlDZf4
+	hK3T9bwFHbN5vEKBdBrkWhHHafmGDwBVZ2ODhc954Y4Qsa7NkWtQUoNyfVoGhgaj8WbkS8XXa9WhS
+	vbj0M6/joECPiKRBx9hLzhYIYAJKraWnzwStP+tAlSntvLRgzYIelIrG2TlD/SMjBXNARj8jbb5Oi
+	BwVnXaAvNWyEjdKcPYByfXjpOmyatfdNhzrtjrhKHbDe45Vm8Fy7cyHO9+qOPlgIjV30aweAblSz6
+	862f25/WrtxjkisrXnO5/0kftaoKk4eVQ+tBkN0VBHXORiEl9rjFndPPXW5eLvANCPbFcdbnQcxnS
+	9w38islQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwIDt-00000007rwM-2JD7;
-	Tue, 18 Aug 2026 11:43:17 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1wwIGm-00000007sEV-3yb9;
+	Tue, 18 Aug 2026 11:46:16 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwIDr-00000007rvT-0GWL;
-	Tue, 18 Aug 2026 11:43:16 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E0F3011C00F;
-	Tue, 18 Aug 2026 13:43:04 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1787053387;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=9ZcN0w+bflhe6BRMhf9Wjukk4Z/S3kbcxpHbb9Y44iQ=;
-	b=TkUwwvcAUXRRaxQI8sBMU9QIhZu4Qp/SPjiHNWps9dZ8EOKxynh+zjsyxh1VfduE7a4+rd
-	B/G5e9L5nCec4TSqEkGe6RQi2TozkIXCm2c4eYm0mzHOSmTjaJEUF0cJk9ojpSx0L19hW8
-	1VRKOspct39pI7cvMrYtFYTyDT6S0ClwLzlYpX10KxhCRxypYf5/CoZWWC9ZBY52w0ipWl
-	cY6Xcazi1fRQ3sYKUsNwhzzLF/SYdhhPUdMmmcDY5lTuF1GC4P1g2KowduKJnetov+x0Mf
-	m9VETLu60p8fgHa4vjCS8prShpAQSPrmpqzrtQcnHC0CfSnQWkT7NS/ohug59Q==
-Message-ID: <0198d074-6fc8-45d4-9ef0-eac299ec9d82@nabladev.com>
-Date: Tue, 18 Aug 2026 11:53:19 +0200
+	id 1wwIGk-00000007sE8-2hpf
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Aug 2026 11:46:16 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-8201447e8cdso78951167b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 04:46:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787053573; cv=none;
+        d=google.com; s=arc-20260327;
+        b=sRz/fCrbdZNrIOXzxPieEzb3Nw2CeaduhtO1IEZ2bsKTC6pNAhfyASYv3rcmN7zxoA
+         k/MvMhneiqj3zud6GlEq6N0CsF8T7G6i42mYgu/+l3W7EBrmoxhf4aTtKxhmYALnt0qo
+         AgGxLRtUMHjKxeLBoLYZdUSvIy2bRXIP6akMtg4oODgvadEw/sHLMYvyaspzWsrTzzq6
+         SYFB4LLIdHe9mX7gbnM5DqX5PPOeZRyRafFem5V2poNRYwll7gIq0JCZCoZYpe1Jk09S
+         fYIzZmrevbMJS3NPrMNAfR+m/HCrvNdWgZ5bmu6ImBpaG/unOl5bbwBWNNeB/CKQ1Y7k
+         ESmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=hpxp/zN/k3pa4zTW7PgrgIqgWRxXynXakWrls+B4H2A=;
+        fh=NZbeR5Xbg2tK5HY1BRT0HbV1LLz9rJX5wWYCKOsw9e0=;
+        b=h3ZWQhapg6WoFvp12XpjAoyvIs09UO0HMCtg35LQGXtpnNu0LECntWqi2gAAwnOWKv
+         jg1pnNXXxa2jURx0oLjUioSVDjFmZ4HdfIkWj2cTASrh48YfjVBreAlTAsAdj8KnlpFx
+         8KyIgMwF9G8UA6fA0fqyGInki6x109jaz2r9cgC2JaJSq9TPUr++GQi3s15CheqF0Qyz
+         bmKCjmsPIn39WEcg3o5PnDW8NQVt+ifnH/l2+5tiriLB2ZlqvG5I5JK+KFDAds3vxUBe
+         mHmfLNY3gt7l8yb9MBJ7fZ4lOLmlu9mjqlkRqHkYUc3BSLTYIDhJpFufgVb5gGxrHVSi
+         Bngg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787053573; x=1787658373; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=hpxp/zN/k3pa4zTW7PgrgIqgWRxXynXakWrls+B4H2A=;
+        b=KOhaaTse4CWbpVwj1jX/WM8h/x19Z86KkUMzxVNZol+Jcw1t5hPugaDFaTaDWv/L4X
+         5t8rtA65EExy8K3l83h3Wt7SGps2rmlfgc5uaKTdoHQxH8/Bs5M/6WDw7r2Y7EzEHlzB
+         d6e1MOxfWZE3PmfYAIFTGXjwVQjCtW7by+hzoLkFKhU5Teia3NRI8/QiDyO7QCYdwGBa
+         7v/E5iiznfkIE3WkSeCDC/XhpRqaWk3Yq7es7Gh5NT7REv5qdIzkDnLDqGJVhOXU+oD4
+         7gOKRhE+KV+HapT+HL4qlSErrkbDO6XM5kpBERr6vqZwGpAMf6WlprEY2DQhmrBujoV5
+         XK9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787053573; x=1787658373;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hpxp/zN/k3pa4zTW7PgrgIqgWRxXynXakWrls+B4H2A=;
+        b=oBLsZiKek6YNfloCOUVp7Rjsd7zAQVfqCipa/LbiGKZthAkP0JzXTLzeQ0WdmdRrkA
+         9iDUmeTXaUclGCMNX5ZxQeh6qAPfgqq8oNns6Tfrpz9VTngJ3n+h5yjQpDpJBF001FqP
+         kIyG09CXU+o/uf7bapz1VPJyt5cr80LFd2OBpqSjcDHtP7GF1Kd1YTBGGBCNDDBiMT30
+         m2TYAY9B/+8Kftd/gi4EJVt1ADhWthVveu0rA6kSKVYUkjtR/F2p9/Za9xoqk6/fj8Dy
+         BwM6eg+/q2WGgUZK73Hrfbuq3V0gY2OgBZxQcI2gRGNcgIMEIPITE7PqMkXVDwTBO+RY
+         05+g==
+X-Forwarded-Encrypted: i=1; AHgh+RrXUNqzY7OLP5UAWbAiGy933E391xlR2qg0qYsq6kS2uURMjvsIU5y8mZ3zul0mLO57D2eL32oHFsyAUygzY2WL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQT/AOTuU6xm7cYgu8vNkgZlbgpjkqs/yXH6ysOaIa2ggsGXdz
+	dfxfnByYywljH2pyDddJBmQuhwD7y3LqkKrxynyuYh/Qx65/1WU7uCl32tCvci+iyrwtmzpEgoG
+	LUbw4bijk2ze1Ux8gFymUoR/XUbpkPo0=
+X-Gm-Gg: AR+sD130RbLqzItn/4ykYwP7G3tzeMeFfnuN8oMl7nBprmEB6eBzRYxSujaMZ7MUgk+
+	uwrgNr9SJQLDSWGMs9xoX/S/DSUKiTK8j0Yp2sR6a7UzgRaqw5nab5esPYJMOTu8EgAsdnWsgzU
+	/slqWscqhcOnoqe3566YQp9H59kzjE7cpOSyj08NC9HKjqWF/VJSlm5p1b9HswE/c5D8hT8LqG7
+	1XSp+Z/ze/mW8GqlWJJimbb4+u9RwXtLFTY48GAWBjMxgaTZn/mqHmOm9bNzvWq0C+Z5Q7vFFZI
+	vXQHpDpBOoXjKu60i4jjjQIZArL5Z5mnWTBuR/F8d9+NW0+zyvFdG5UE7jDCo2818cGrioWKHJG
+	2XbRbVVDLDlzhmsp/CNW2EHQYMVs62OV+3m0kiaJhjkRGeqDok6/gaFPzpwrPvRKdU9ciUkZ/14
+	dkfxwDn6nH
+X-Received: by 2002:a05:690c:9991:b0:81f:d505:8ea4 with SMTP id
+ 00721157ae682-83712da9d13mr124393587b3.18.1787053572846; Tue, 18 Aug 2026
+ 04:46:12 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/9] phy: stm32: Add support for ST STM32MP25
- USB2-FEMTO PHY
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, linux-usb@vger.kernel.org
-Cc: Pankaj Dev <pankaj.dev@st.com>, Rahul Kumar <rahul.kumar05@st.com>,
- Christian Bruel <christian.bruel@foss.st.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Conor Dooley <conor+dt@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Rosen Penev <rosenp@gmail.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org,
- kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260816213849.1044073-1-marex@nabladev.com>
- <20260816213849.1044073-3-marex@nabladev.com>
- <e415f8de-f8dc-460d-80a9-5e1b2b34f8a8@foss.st.com>
- <f7b674b3-9490-453c-9eb9-96b19254d0a3@nabladev.com>
- <ed1d6988-251a-43d3-ba0e-aaa3e54ad07b@foss.st.com>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <ed1d6988-251a-43d3-ba0e-aaa3e54ad07b@foss.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20260812132755.32585-1-zajec5@gmail.com>
+In-Reply-To: <20260812132755.32585-1-zajec5@gmail.com>
+From: Jonas Gorski <jonas.gorski@gmail.com>
+Date: Tue, 18 Aug 2026 13:46:01 +0200
+X-Gm-Features: AcwNN1VKHMPAdBOZimFFX4MmmZLiUZP40Jjbh2uMpcUo_B2LLCgJ0plyHTDZ4p8
+Message-ID: <CAOiHx=ne6o8j2jLWB_R57z_9KFwF=ZMw-2JVWDn6QNYs3CTyag@mail.gmail.com>
+Subject: Re: [PATCH V3 1/4 net] net: dsa: b53: deal with Northstar devices
+ using CPU port 5 or 7
+To: =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Vladimir Oltean <olteanv@gmail.com>, 
+	netdev@vger.kernel.org, Hauke Mehrtens <hauke@hauke-m.de>, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	bcm-kernel-feedback-list@broadcom.com, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Semih Baskan <strst.gs@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_044315_268895_CB6D2569 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20260818_044614_701592_7DB7B059 
+X-CRM114-Status: GOOD (  24.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,88 +126,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/18/26 11:28 AM, Fabrice Gasnier wrote:
+Hi,
 
-Hello Fabrice,
+On Wed, Aug 12, 2026 at 3:28=E2=80=AFPM Rafa=C5=82 Mi=C5=82ecki <zajec5@gma=
+il.com> wrote:
+>
+> From: Rafa=C5=82 Mi=C5=82ecki <rafal@milecki.pl>
+>
+> Northstar devices have 3 CPU ports. Ports 5 and 7 may be used but have
+> their limitations. Warn user when CPU port 8 isn't used and add EAP
+> setup workaround to avoid non-functional standalone ports.
+>
+> Fixes: 4227ea91e265 ("net: dsa: b53: prevent standalone from trying to fo=
+rward to other ports")
+> Cc: Semih Baskan <strst.gs@gmail.com>
+> Signed-off-by: Rafa=C5=82 Mi=C5=82ecki <rafal@milecki.pl>
+> Tested-by: Semih Baskan <strst.gs@gmail.com>
+> ---
+> This fixes a regression so it's a net.git material
+>
+> V2: Print warning on switch setup instead of on actual EAP mode change
+> V3: Proper subject prefix & shorter comments (long one comes with 2/2)
+>
+>  drivers/net/dsa/b53/b53_common.c | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
+>
+> diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_c=
+ommon.c
+> index 3f5b9592794d..5fd8362d0430 100644
+> --- a/drivers/net/dsa/b53/b53_common.c
+> +++ b/drivers/net/dsa/b53/b53_common.c
+> @@ -332,6 +332,14 @@ static void b53_set_eap_mode(struct b53_device *dev,=
+ int port, int mode)
+>  {
+>         u64 eap_conf;
+>
+> +       /*
+> +        * On Northstar setting EAP_MODE_SIMPLIFIED with CPU port 5/7 bre=
+aks
 
->>>> +static int stm32_usb2phy_enable(struct stm32_usb2phy *phy_dev)
->>>> +{
->>>> +    const struct stm32mp2_usb2phy_hw_data *phy_data = phy_dev->hw_data;
->>>> +    unsigned long rate;
->>>> +    int refsel, ret;
-> 
-> Hello Marek,
-> 
-> Just noticed refsel should be unsigned ?
+This isn't just northstar, this is any dual IMP capable switch
 
-It makes no difference in this case, since the value can be either 
-0/1/2, but fixed.
+> +        * standalone ports, see:
+> +        * https://lore.kernel.org/netdev/ce4d9b7b-aaf6-4796-94fb-8c3d6a1=
+dcd4d@gmail.com/
+> +        */
+> +       if (is5301x(dev) && !dsa_is_cpu_port(dev->ds, B53_CPU_PORT))
+> +               return;
 
->>>> +
->>>> +    /* Check if a phy is already init or clk48 in use */
->>>> +    if (atomic_inc_return(&phy_dev->en_refcnt) > 1)
->>>> +        return 0;
->>>> +
->>>> +    rate = clk_get_rate(phy_dev->phyref);
->>>> +    if (rate == 19200000)
->>>> +        refsel = 0;
->>>> +    else if (rate == 20000000)
->>>> +        refsel = 1;
->>>> +    else if (rate == 24000000)
->>>> +        refsel = 2;
->>>> +    else
->>>> +        return -EINVAL;
+This should be moved below the 5325/5365 check and just
+!dsa_is_cpu_port(dev->ds, B53_CPU_PORT))
 
-[...]
-
->>> As you mention the downstream driver, please see there a specific
->>> comment regarding the 2nd clock for OHCI:
->>> /*
->>> * USB2PHY provides several clocks used either by either USHB
->>> (EHCI/OHCI), OTG or USB3DR.
->>> * In case of OHCI, CMN bit must be cleared (clkohci_hw). This clock is
->>> required to access
->>> * the registers, to resume the controller from suspended state.
->>> * So declare two clocks, the PLL used in all case, and the OHCI clocks
->>> used by OHCI
->>> * controller.
->>> */
->> Is this what you have in mind ?
-> 
-> Yes, with one addition, please see next comment
-[...]
-
->>   static int stm32_usb2phy_probe(struct platform_device *pdev)
->>   {
->> -    struct clk_init_data init = { .ops =  &stm32_usb2phy_clk48_ops };
->> +    struct clk_init_data clk48init = { .ops =  &stm32_usb2phy_clk48_ops };
->> +    struct clk_init_data clkcmninit = { .ops =
->> &stm32_usb2phy_clkcmn_ops };
-> 
-> clkcmninit should be a child of clk48 which basically represent the PLL
-> (480MHz) as it is still needed as parent. See below.
-> 
-> BTW, mainly a nit: could rename clk48 to clkpll and update frequency to
-> 480M.
-
-Fixed in V3.
-
->> +    phy_dev->clk48_hw.init = &clk48init;
->>       ret = devm_clk_hw_register(phy_dev->dev, &phy_dev->clk48_hw);
->>       if (ret)
->>           return dev_err_probe(phy_dev->dev, ret, "Failed to register 48
->> MHz clock\n");
->>
->> -    ret = devm_of_clk_add_hw_provider(phy_dev->dev,
->> of_clk_hw_simple_get, &phy_dev->clk48_hw);
->> +    phy_dev->clkcmn_hw.init = &clkcmninit;
-> 
-> Would initialize with (to adapt) :
-> 
-> + phy_dev->clkcmn_hw.init = CLK_HW_INIT_HW(name, &phy_dev->clk48_hw,
-> +					 &stm32_usb2phy_clkcmn_ops, 0);
 > +
-That's nice, also added to V3, thanks !
+>         if (is5325(dev) || is5365(dev) || dev->chip_id =3D=3D BCM5389_DEV=
+ICE_ID)
+>                 return;
+>
+> @@ -1281,6 +1289,10 @@ static int b53_setup(struct dsa_switch *ds)
+>         u16 pvid;
+>         int ret;
+>
+> +       /* Discourage users from using port 5 or 7 due to limited feature=
+s */
+> +       if (is5301x(dev) && !dsa_is_cpu_port(dev->ds, B53_CPU_PORT))
 
-[...]
+This should be
+
+if (!is5325(dev) && !is5365(dev) && !dsa_is_cpu_port(dev->ds, B53_CPU_PORT)=
+)
+
+dual IMP mode is also supported by external switches (e.g. bcm53115
+and bcm53125), and if for some reason someone would try to use port 5
+only on these you will have the same issues.
+
+> +               dev_warn(dev->dev, "switch to CPU port 8 to use all switc=
+h features\n");
+
+I think this warning is too mild; it should be something like
+
+"Using port 5 or 7 as CPU port is not a valid configuration and will
+prevent the switch from working properly..\n"
+
+Best regards,
+Jonas
 
