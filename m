@@ -4,138 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E487AC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 19:06:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D54C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 19:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NR+iuP4ovX54M7Vhx02kxqrTI0iPAHdZvM/V0prXjOQ=; b=Gb2ToQQG5Fe1QO8WFJEvvVgUOo
-	wsWmWlKCvdrlnZkudlCh4RstGZGCqEBfy00t4IPLzkzEVbTN0S5j+35Mw9ynoFEykD8IvtWBEqZ8m
-	DptJtT4mYByy+CUpfqepLDwNUvxp9KCc1cYBZdMPUxmGx28T4uAQcHtVuXDa+YkTXf2YnP7w3DsTz
-	UNvgbsBcUY/3DzEWyhpUt+1QhtD3pQpHSaKK4Qv2727yTCFTfUSHnz1WVxCQDbZvHGn3LR/OONhVx
-	beUoNONiSeQ1C4mSyX+bz15P5E6NmeL7HwzhXLySuIqauEPUlplep3UwEXHhwFAZBc4xwzct6+9jM
-	lG8GvKxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Bax9W38/JMIaV0Z2sDQmJSHm0aG/QQBKaWLZNsB4ByY=; b=X87Jxd8r+n6Ei8LYy2xg72tDSk
+	lx1FpyKaiQ7HXg2rXAQANb7qfgoJ1EsWZqHXUgOgcjgxIWV7IH88/lL2G9tF1BmifZ/UnisUzQ5Io
+	ijW+efzLgzdKLwm0h31l4rESlgn8rivAO2k687CHixEm/FtiWoqUPwDGYmb7NTHB1lHsvSU0ef3tz
+	1X+g2w5ZuLm0LC7jNXzkUnTQj4UysE+tfopODzsn5uQx8B78r6C+RkZihLUpOhDMquOEdMvb4MREO
+	3HUWxEcNwwQjoZ0rYiDNUc5rlgTHRO0TPfTTMPKsDnvyxJoyX2i9kVj0FKLsgif4gy06NG4UQ2x/V
+	HXHEUe9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwP8R-00000008YgW-0CC7;
-	Tue, 18 Aug 2026 19:06:07 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wwPEI-00000008YyO-32x5;
+	Tue, 18 Aug 2026 19:12:10 +0000
+Received: from mail-wr1-f45.google.com ([209.85.221.45])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwP8O-00000008Yg9-32Jo
+	id 1wwPEE-00000008YwM-2w3H
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 19:06:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uqUTs6vf5Bsd6Y61o/7SJU12GTF57j/DJMs0AfvYZ38jesAoanEaO04evUfpx5hQmKo0H0qxYieh++U0jQ1U9smJ0TojuQprZWSkm1lzo4M4U4S9MN4Zgec/VONyZVk1ex6y4pW3EMaxWgmhDGWSO4dafJofll1dj3uhKM5NyPVi2t0wm1ET+CHIF7DdJezoNnE4ksbd0QX6vqHM/QhfVMXW/JZgx+rZEgmq2L/XBEGBimalreK3NYhhGO1rwNZ/CIXHx/dUBSMMWWawfjaVP4cCKZhDdlVgSE6OUCWmKVzHBWMLQ1YktXd9+D1bQ1wRIbXWYiIwE6KRtuT2IyIAlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NR+iuP4ovX54M7Vhx02kxqrTI0iPAHdZvM/V0prXjOQ=;
- b=Q6S3SyNnieJH8IBLvW4lWQCiAyXNKhDz8hCpS13Rw/R2Yz3DOC7bRmEIOYMZ/Q8BO7Pv9i/3/lVd7lbjcGgFVyf/RlGhwaiQ2GdtpH2RsKPmohKhzw8LCHA8DandP+nZTIJaGB8wRL8CGPozi5pE/DHRYQiLkV+qZAQYKDktCj12LWsAZrz6xPbHDZJYsRhMuc4hEdB8ycnUUSv7U5/9pjwjawBOUY+dbgb0ZImMyJTeFOYJKW62vN6tHfXYgRVD2PK+d48OjGCvYxRJ91V/8bD6ZcGEYSepgX7cNsd6May8DWhx9TIps1viM3lrAKdlX7e3OEpuN3M7Ee/v+xqEYA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NR+iuP4ovX54M7Vhx02kxqrTI0iPAHdZvM/V0prXjOQ=;
- b=raTO4Y25OGjX8rsEZYGtR7teg/gTAmOH3oH2xSkxtl3oaasbmjHs51v8ntzNb8k3uIrgx+p2FWQQXWX00eQqnCDoFGuyqcJ2u4+3+miZYIOEIuZHb0h9m3W8bTJ+O3AicoMlHoUjtSio1HNgxaneKH5n62Mp70d3Z50NyCJjUvUzNGIVUA0JXxYAGy1oj85h+KyJBAtJKwys4HsoHDxipG7HzyBDvBdjXIPv1NQHDUvdWDgpGdrwaBO74+obxlgvuTpgtrvYO5gb755vZ/1roYv2tBBTZ5S2GfXC32fA5GrbS0akeNylQtBvudJndbMF89C0Yaiv08SB3pI+hAkkjA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
- by AS4PR04MB9714.eurprd04.prod.outlook.com (2603:10a6:20b:4f8::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Tue, 18 Aug
- 2026 19:05:56 +0000
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0339.007; Tue, 18 Aug 2026
- 19:05:56 +0000
-Date: Tue, 18 Aug 2026 14:05:46 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Srinivas Neeli <srinivas.neeli@amd.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Suraj Gupta <suraj.gupta2@amd.com>,
-	Marek Vasut <marex@nabladev.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Alex Bereza <alex@bereza.email>,
-	Folker Schwesinger <dev@folker-schwesinger.de>,
-	dmaengine@vger.kernel.org, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	git@amd.com
-Subject: Re: [PATCH V6 2/4] dmaengine: xilinx_dma: Move descriptors to done
- list based on completion bit
-Message-ID: <aoStCsYpjNrmwuAd@SMW015318>
-References: <20260818174151.1608971-1-srinivas.neeli@amd.com>
- <20260818174151.1608971-3-srinivas.neeli@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260818174151.1608971-3-srinivas.neeli@amd.com>
-X-ClientProxiedBy: PH7PR17CA0026.namprd17.prod.outlook.com
- (2603:10b6:510:323::19) To DU4PR04MB11791.eurprd04.prod.outlook.com
- (2603:10a6:10:623::11)
+	Tue, 18 Aug 2026 19:12:08 +0000
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-47f904e80eeso128749f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 12:12:05 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787080324; x=1787685124;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Bax9W38/JMIaV0Z2sDQmJSHm0aG/QQBKaWLZNsB4ByY=;
+        b=AVRNcGSbb8vSvQ3ibnf7X6tQGcXEuBYE3pMGCW/9J5cwiLAmZMb1bk8x7Jq2VIIVup
+         nAmCJgZKLa6BxlSsv0HcqnaXfz7sJCNGBmtnra17/BS42/8WKgxmTBd1hVTmp5l7Qm20
+         FFLOAonpgKcKdtjYoly0vaHgqLdVGQ72N5J8omf2JtBdRVBM9e9wGgDyb9FiZrCdVFge
+         gajiVbg60tfViodQNYdL2++g7onYGgOG1QN/0rd41NqIbc1UTAJKV/sthLuMlEAUJsI+
+         dx9XbptN/XgjFtglmkJ/FLfoYNjuxNdDiqWQI426gQvbeVi34dyJ4NtBOEBbpbnDBS2x
+         2JPQ==
+X-Gm-Message-State: AOJu0YzBdChS0OSJ3z/8yF3Kqy/hOek+wAXPOaKFzA59uQNj395mRSeE
+	mijWBz3oYctU6UZ0IvVKmK5lox49158MGcDaAvw30snhlW2X67dilh1AXl3BKg==
+X-Gm-Gg: AR+sD11U3jUqYvF7kCqqZTec5WeJQCAwfrgDH7JwnLAY3CkYqEkY3tQzFztXsxdFoG4
+	5k6QbYYyyQp7jVLNT5witX80E83QMmrvIKzDB+JCUcbJB6P39TnXUpMgUuDMQS6j7QAmaN4JR2H
+	+wk9qi/YjHc1Fl3iRqxWXdHx6/d6WwY3BIQmqgM1XsUGNh+FhZLozbIPMB0s1ZBzh030wg+DOCI
+	dy3nHp/Y+DrTI4kv7J3VZrmxGo5xxxSP4EPn9ZrSXYQgBzXv/EmiKO6MWxZYygIGJNyEFNJ28gw
+	7V/WV/UPOEiKt6bOv5drSBPmmqYT294SAAPZXKcSWmZvyPRW9XVgGbdgDiNMoRWnf8v4v5RVX1r
+	22Y9MDnQ49yOWikrsRnFx0NRxaEZqf34mawHD7olm9/KjPveiFiT0Bh29AIC+usvmYrgXBE5605
+	7SrteYo0T8E1OCIvQlbyOi4X04RbbiKcoU8fmGW1bdpNpyIG/SnRx4KJfLP8Ve/9L5MBgMCcfgW
+	rxwcD12FEBQ71Ze9qnP6B3Q+Q0=
+X-Received: by 2002:a05:6000:480f:b0:482:a36c:a5e1 with SMTP id ffacd0b85a97d-482b07c826dmr482120f8f.1.1787080324198;
+        Tue, 18 Aug 2026 12:12:04 -0700 (PDT)
+Received: from threads.localdomain ([83.106.158.114])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482a5b783c6sm14673154f8f.31.2026.08.18.12.12.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Aug 2026 12:12:03 -0700 (PDT)
+From: Lucas Tanure <tanure@linux.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Xianwei Zhao <xianwei.zhao@amlogic.com>,
+	linux-amlogic@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] arm64: dts: amlogic: t7: fix UART clock and SD card recovery
+Date: Tue, 18 Aug 2026 20:11:57 +0100
+Message-ID: <20260818191159.11523-1-tanure@linux.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|AS4PR04MB9714:EE_
-X-MS-Office365-Filtering-Correlation-Id: 563bc530-1364-472f-64e4-08defd5bbb72
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|19092799006|22082099003|18002099003|56012099006|6133799003|11063799006|5023799004|4143699003|10067099003;
-X-Microsoft-Antispam-Message-Info: fj6bUOVmbyQOdQySQaUoqf7P+PuR1l0wQCPBD9kVcj3IS8Skhf2MFdd+REhbLndy7SK6fNrcjZ4KCGO/vQf6VSF0qnRwSAsHFW3VEefzEK0V9haDzPBzjf4cEf3WZKOh23n2NNfIM76vBVT4RYX+2eyj0wUXeuahiy7YG3p8QAcS81SfX4MZQrvWhYnTooacuQVuhBdalhgiwI6UwwBW8NTDqU0Xbf8PouDNWinljiMKEVgttgNOowGXvxAMUU/D6o7O8vkujMvVZuFBbDatcZRmPJD5zxKtPijAkbM09JFRdUEI+lyxVfBMGiBS6j/783Bge/ENzgdm2dWNa0LUYzs3Sd2r+HgZuDvwIqB6ZPfK+LBtn70OjHj7wtFCVmSp91DN2FNZ9fFo62UnMaKV4k1T+AhF1VLVkiXvmoeqctDSuogbMys+WQ7016WHvQ9RQNS7SOBDv5ztx++KG40D5DJhLlyiURquJ0Lkr/ZTMlVYJ8Ls9exyxMMa4QCIuMYYWVVPYfYg1IyqVMYeymZ2YgjkOaSTnYSwEbBg3Ox3m98yk/CipudBqqbASnTlbI8bQmyQnGm15r0qkTmaWFwDgEaJByIselK074T33d8FX7BjMExo/lVD6JZthVQ+ENubBj0RuiRftxyEuokanJwarav8bwQjJSgMs0nHpLEowWk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(19092799006)(22082099003)(18002099003)(56012099006)(6133799003)(11063799006)(5023799004)(4143699003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?veBfwCcDAKB1uKvJCG8DbipnlUR2L1iqyjy7+Yk+5MJ7VB3xKwTIeu6qbXhz?=
- =?us-ascii?Q?GCxpSOTIy8l5wll326790YMs1k7cZrOy4iX2C1yE9eWQA2MbW1U5T6wmwXjM?=
- =?us-ascii?Q?kF12wU6mIQ7XYR7DvoRh6mqTaUgyEP63xPV1rtXC/XlhwJPlH8ShBeP0f0Uh?=
- =?us-ascii?Q?vJhNNrNvIpcdqaKxuWSODAoXHO2ZHTw3mGZbvL51iwrE9AAs99eHCT8RO7x2?=
- =?us-ascii?Q?hyc5DR54Xt+rGYzmafLiTBdNHg3m/tTy6gR/jAYTuoGH2QwkuyNZ5otHv0qJ?=
- =?us-ascii?Q?bGsUBDKB/JObBUgtwFUihR3wySbN6XwXfroLC6W3wP8GlrNQCrrrDP+CPr5f?=
- =?us-ascii?Q?mE3J+1l67UQ4TOjumd+iFeOKaLR0mg6cDbyERxPV9dtko4fSunNErjMaps6Z?=
- =?us-ascii?Q?4jmtLEwfKDinFGrIah0f5zyJ+pU1h+uKTwJt9+5X7RJf5sn+gG8g81Al4pi+?=
- =?us-ascii?Q?n4GV/RwObUphWUJBwS9gLYTLFrq/Lp0oa0U2nxmekeg4+K+UE9xlIkW6pzeS?=
- =?us-ascii?Q?UZF+U4tOhhUqycJAAqqfYj/Qj92Fz0DLHO0unDWF0C1mRR4up28wqH7RuDl9?=
- =?us-ascii?Q?Fy/7tOmKBnOXHa4SLbBU7m9JXMCybDY2/svFEhW1iW4VbJYs39kbLW1EAFi7?=
- =?us-ascii?Q?mKVoOGuSE8N+jr0UHqszAlVdjvDgOdDe1RsVD3jlRz8TuQ3aDNfG8f0T2+P3?=
- =?us-ascii?Q?epxloG0Qlx5AjudFvOIQOOwX2QpzdVx1fI6iCyQ+DmxhgL4/qqdoWBnUswjF?=
- =?us-ascii?Q?GbMWUfDrOU5HsvS/VFc1Hk4Xny2wcJXcXnjWDYkOnbSwo7QfLdbAkKLHcjjh?=
- =?us-ascii?Q?0vAco9HT85t4XA4G/sJ7TT9I7p9scbDiIk4tJ646TxjeoGIG2KaMjtEICR1p?=
- =?us-ascii?Q?yRPTXmqVTbAiO4Vjk+ROZ2nR/FPb5Q+nwm8xZVNtiMfQfJdBmHjDuAybZe4d?=
- =?us-ascii?Q?+suEUvTxyMY/4q8rStfQriEg0+u0BXM6MQBbVqzcNGILVb782hClPKHCoEXp?=
- =?us-ascii?Q?UKjIq1TiVOdOf4qpMS9VLgtv/j9OcdxF1vmBRqF6CbnEkA9f0DaQyJSiUbmp?=
- =?us-ascii?Q?APN9N7z3SVkx/Xv/wqE8olpcnTa4QlKUmTQuQULttMRjSXhPbQ5gfu48OEzw?=
- =?us-ascii?Q?es0ctcd2hsLk7T2Klai4NL3LXipIBGvDJFVVYWLTKPAAZ6XFdbYLeiiqr+Ht?=
- =?us-ascii?Q?DcXrbbIVLbQItOf1GQDJMrL65qAkvUBp+EY433wPCr+cHwD/nZnQsFvoAG4u?=
- =?us-ascii?Q?z5UyZHbjhN74hFcd6rxiSdSLU0fgkx6h7bIYPaP060zZsuz2fZWbqEEwznAU?=
- =?us-ascii?Q?SFmMyxbSwxgajJ+nvQV9wSC4GBHjnvyScc4/JvQnAR6BbO0ITEmuS+c3kRFh?=
- =?us-ascii?Q?JpEs8xS3EvRdIk0hDU9qm+mq1+V3KgfIQU4mqIbz4VCoXTBXAtnXAi8uUDoT?=
- =?us-ascii?Q?OI1YzYPShhA4Ab/yTOqxL4wGv/6DgjhqWyE2LyjgGu0K4/YX1vq9yzikxbQf?=
- =?us-ascii?Q?ChNd6sqJo3vg4zgfeMSaEPK8nzbvQRQXWmNCw+eIcZzZcz8z5zlxbeU+7wGY?=
- =?us-ascii?Q?VP20CTTDmpB9UYwFVfNM2TnCSpqCIe8jHx0j2orIvViukcS6kk+/WoL4/HjF?=
- =?us-ascii?Q?HxIFCtSg2cyYiK2NuQ/qu996v5M6NndcyFcHjnC/bso0DnH1QJM1mbPOjqyA?=
- =?us-ascii?Q?NUm1paYBN/HJIw4Oay6pIGZbVFMbvskeJ8Z6VA4o3J0krDWuFNG/b7XAtLtT?=
- =?us-ascii?Q?/YO/7vZrCpW69sDqbfILABSQvPwWgzjKJHVL/NgguTbTmF1CGzjk?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 563bc530-1364-472f-64e4-08defd5bbb72
-X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 19:05:56.4282
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7ai6xlmWzURfSjqL3hGVroDPcI5WuYflC2lQElreQqdwd+IF+soQqE1bEB6sRjqEj1++xZTIvYc0dw3mpXuyIBb93Va8zAoFebjpeLvZ+UqYcLx6+vtT9dzXpatW+Q1t
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9714
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_120604_793253_997999DF 
-X-CRM114-Status: GOOD (  24.64  )
+X-CRM114-CacheID: sfid-20260818_121206_736069_0B37E887 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,79 +91,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 11:11:49PM +0530, Srinivas Neeli wrote:
-> In AXI MCDMA, xilinx_dma_complete_descriptor() walks the channel's
-> active_list and unconditionally moves every entry to the done_list. The
-> MCDMA IOC interrupt handler invokes this function on every
-> interrupt-on-completion, but with interrupt coalescing (IRQThreshold > 1)
-> an IOC interrupt may fire after only a subset of the queued descriptors
-> have actually been processed by the hardware. As a result, descriptors
-> whose completion bit is not yet set in the BD status were being reported
-> as completed to client drivers.
->
-> Add a check for the descriptor completion bit before moving entries from
-> the active list to the done list, using the appropriate direction-
-> specific status field (s2mm_status for DMA_DEV_TO_MEM, mm2s_status for
-> DMA_MEM_TO_DEV).
->
-> This mirrors the AXIDMA fix in commit 7bcdaa658102 ("dmaengine:
-> xilinx_dma: Freeup active list based on descriptor completion bit").
->
-> Fixes: 6ccd692bfb7f ("dmaengine: xilinx_dma: Add Xilinx AXI MCDMA Engine driver support")
-> Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
-> ---
+Two fixes found while booting mainline on a Khadas VIM4.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+The first one wires uart_a to the real UART bus clock. It was pointed at
+the 24MHz crystal as a placeholder, because the T7 clock controller
+driver did not exist when these boards were added. That leaves the real
+clock without a user, so the kernel turns it off when it disables unused
+clocks at the end of boot, and the board hangs with the console gone.
 
-> Changes in V6:
->  - No change.
->
-> Changes in V5:
->  - No change.
->
-> Changes in V4:
->  - Reworded commit message to reference the AXIDMA fix it mirrors
->    (commit 7bcdaa658102).
->  - Added Reviewed-by: Radhey Shyam Pandey.
->
-> Changes in V3:
->  - Added Fixes tag.
->  - Expanded commit message to explain the interrupt coalescing scenario
->    and why the has_sg guard is omitted for MCDMA.
->  - Changed local variable from 'bool completed' to 'u32 status' for
->    cleaner status field access.
->  - Simplified completion check logic.
->
-> Changes in V2:
->  - No change.
-> ---
->  drivers/dma/xilinx/xilinx_dma.c | 11 +++++++++++
->  1 file changed, 11 insertions(+)
->
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-> index 2319101be778..506ce1ec29bc 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -1784,6 +1784,17 @@ static void xilinx_dma_complete_descriptor(struct xilinx_dma_chan *chan)
->  					      struct xilinx_axidma_tx_segment, node);
->  			if (!(seg->hw.status & XILINX_DMA_BD_COMP_MASK) && chan->has_sg)
->  				break;
-> +		} else if (chan->xdev->dma_config->dmatype == XDMA_TYPE_AXIMCDMA) {
-> +			struct xilinx_aximcdma_tx_segment *seg;
-> +			u32 status;
-> +
-> +			seg = list_last_entry(&desc->segments,
-> +					      struct xilinx_aximcdma_tx_segment,
-> +					      node);
-> +			status = (chan->direction == DMA_DEV_TO_MEM) ?
-> +				seg->hw.s2mm_status : seg->hw.mm2s_status;
-> +			if (!(status & XILINX_DMA_BD_COMP_MASK))
-> +				break;
->  		}
->  		if (chan->has_sg && chan->xdev->dma_config->dmatype !=
->  		    XDMA_TYPE_VDMA)
-> --
-> 2.43.0
->
+The second one drops regulator-always-on from the SD card supply. A card
+that refuses the 1.8V UHS switch can only be recovered by removing its
+power, which that property prevents, so the card never initialises and
+the MMC core retries forever.
+
+Both were tested on a Khadas VIM4 booting v7.2 from the SD card.
+
+Lucas Tanure (2):
+  arm64: dts: amlogic: t7: use the real UART pclk
+  arm64: dts: amlogic: t7: khadas-vim4: allow the SD card to be power
+    cycled
+
+ arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts       | 2 --
+ arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 3 ---
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi                   | 4 ++++
+ 3 files changed, 4 insertions(+), 5 deletions(-)
+
+--
+2.55.0
 
