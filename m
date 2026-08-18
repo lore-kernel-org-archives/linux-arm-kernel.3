@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A550C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 02:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1588EC5DF74
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 02:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QuPkMCmr0GH+tbEEJBOzYqXRVTh/Jjq7Xd3/Zg44YS0=; b=tLGSSilDMlOSJxSZrrLgQahC1V
-	NrUVjcci6zok0gDZtEU3mSdCrenJ6LROwnkYVV7BkF90bbB2AuZoCyM71OZiUq/nt7E9aO4g5+st7
-	N8KZAPsScO/64zzCbsddAA8rve+Nz1AOu06jO5jURRZXZMGtKjwq7qpl+t4J6bn/Yeq8TRpLKPAHD
-	JuskyVPzn2Re1krHwPh5hBlth4yVF0qx2MiZARvE0HZU/OTVlP++auyi0b9g/WJrzNxfNx8eRsCKB
-	+WGdRDykmPP02UA21VWjiNknMaO0a/TyXbWfEcivBBY+1Xne2PMv5rH5xiiNrZniENhYAduASII7o
-	oPR9w6xw==;
+	bh=4Twm40/J2sIMyzBqukyBfE0U96J7aDjmNtT9OUOe934=; b=ZhM8ChVbaRDOC64S5k670FOd6H
+	J0KeG422pV5/umwMVT2jJtz9MqEgO9JOyUCql3/JH9FQmum/LIdEP54W2ILDsiM+GMeMa6vEbPOxD
+	R/ZYQummPfnbjZ5WCAKhiSgg29cLQsSZp/Cj6fEiHZQBgc31SDoPxnDcWM+BSF8QmyXud2BZtdRQ7
+	W29bijGXyNbLrJKQF/hzuvybodrOzrGvPEGntYmXnNIqEpTQqjs/K1l5yvXpl3+SjX8Hn60MlFuCI
+	HICPJ0y6aSzoAr1o0P8qBBK47l3zV8HmbZ1pbobvN6zKiqKwGoXZ5HS7jguSH8+r4QeOrCo6jcd/t
+	Aqfaev1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww9D3-0000000753T-3bL9;
-	Tue, 18 Aug 2026 02:05:49 +0000
-Received: from mail-m60197.netease.com ([210.79.60.197])
+	id 1ww9EW-000000075Aw-09yK;
+	Tue, 18 Aug 2026 02:07:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww9Cz-0000000752Y-2Nw7;
-	Tue, 18 Aug 2026 02:05:47 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4a55d3d6b;
-	Tue, 18 Aug 2026 10:05:32 +0800 (GMT+08:00)
-Message-ID: <364f223e-15c6-44c4-a909-134754cfd0e1@rock-chips.com>
-Date: Tue, 18 Aug 2026 10:05:30 +0800
+	id 1ww9EU-000000075Ad-1IMG
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Aug 2026 02:07:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DE9266020E;
+	Tue, 18 Aug 2026 02:07:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D8171F00A3A;
+	Tue, 18 Aug 2026 02:07:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787018836;
+	bh=4Twm40/J2sIMyzBqukyBfE0U96J7aDjmNtT9OUOe934=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=IlzyTsnMemb2V5tgm9Et/RJz5dU0jGPuTuQj7gTlRMPJcqd8VTHTE95RnNxJmaIsf
+	 NIwdbVnPPkLaNwpofTtvtZjn12yioC1OtPQ/wlWhDQLsJReMACM2wI1LaPwHUQ90ff
+	 1tvaNHmY9+B//cCU+lcMtj3mSZYiX+T/xbKNRiiEgfpkDWw/7/Zi5p3Vzd/4873w/w
+	 s9b2VnVKPJP+lVrXPprEFrFjgstT15LcgQLfRNnF0teLBejOZfENc3ks/F3ySR2is5
+	 Kmczu/FnNOo2zqKdpEGj4TFYsFJj7/j/hjn+Z3D3l7Srl1MeLp96yyykN8AIuR1Eu7
+	 GD61ikN+7wdHQ==
+Date: Tue, 18 Aug 2026 03:07:10 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Joshua Crofts <joshua.crofts1@gmail.com>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, Petar Stepanovic
+ <pstepanovic@axiado.com>, Akhila Kavi <akavi@axiado.com>, Prasad Bolisetty
+ <pbolisetty@axiado.com>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] iio: adc: add Axiado SARADC driver
+Message-ID: <20260818030710.146825da@jic23-huawei>
+In-Reply-To: <20260817135920.0000461d@gmail.com>
+References: <20260810-axiado-ax3000-ax3005-saradc-v5-0-bb0df3ecedaa@axiado.com>
+	<20260810-axiado-ax3000-ax3005-saradc-v5-2-bb0df3ecedaa@axiado.com>
+	<anoYDi-bt-t6ZeeD@ashevche-desk.local>
+	<20260817034541.053dac28@jic23-huawei>
+	<20260817135920.0000461d@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] drm/bridge: allow hpd_notify() to suppress connector
- hotplug events
-To: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
- <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
- Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- freedreno@lists.freedesktop.org
-References: <20260629-msm-dp-msttypec-v1-0-646a10256233@oss.qualcomm.com>
- <20260629-msm-dp-msttypec-v1-1-646a10256233@oss.qualcomm.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <20260629-msm-dp-msttypec-v1-1-646a10256233@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa0129de44003a7kunmc0fc8708438ed0
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZSktKVh9PTxlCTx4ZSExIGVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQkxVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=dFywGsdBtvZRVJemi0N+HjQrvA6VMmVIb18ZLdmsL3Ic4tBAFCATiNU/Da+GZgXDhVSIz8U03oEwrpR2JOwTUMa86YCerIdWVCjLHaFxL6qKBFk7HX5dLjWzoHtrTg669GS8iIuCxS7iYK64SHSLCH8Bhi513UXjUValaG6NxLo=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=QuPkMCmr0GH+tbEEJBOzYqXRVTh/Jjq7Xd3/Zg44YS0=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_190546_177782_B0457010 
-X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,187 +79,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Yongxing,
-
-On 6/29/2026 10:48 PM, Yongxing Mou wrote:
-> The bridge connector framework currently invokes all bridge
-> hpd_notify() callbacks and unconditionally emits a connector hotplug
-> event afterwards.
+On Mon, 17 Aug 2026 13:59:20 +0200
+Joshua Crofts <joshua.crofts1@gmail.com> wrote:
 > 
-> However, not every HPD notification requires a userspace hotplug event.
+> With the diff Jonathan sent in mind,
 > 
-> In particular, DP MST bridges may use hpd_notify() to propagate HPD and
-> IRQ notifications through the bridge chain while the actual hotplug
-> handling is performed by the DRM DP MST core. Connector creation,
-> removal and userspace hotplug events are already managed by the MST
-> topology framework.
+> Reviewed-by: Joshua Crofts <joshua.crofts1@gmail.com>
 > 
-> Allow hpd_notify() implementations to suppress the bridge connector
-> hotplug event by introducing a bool *send_hotplug parameter. Drivers
-> can clear this flag when HPD processing should not result in a
-> connector hotplug notification.
-> 
-> A NULL pointer indicates that hotplug suppression is not supported by
-> the caller, such as the connector detect polling path.
->
-
-Should we add an API to distinguish between regular HPD events and
-the IRQ-only notifications you mentioned?
-
-I've recently seen similar approaches. For example, this patch[0] adds
-handling for internal events, which I think is somewhat similar to the
-IRQ-only notification here.
-
-[0]: https://lore.kernel.org/all/20260806-synopsys-dw-dp-improvements-v11-11-0d508505f383@collabora.com/
-
-> Signed-off-by: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
-> ---
->  drivers/gpu/drm/bridge/lontium-lt9611uxc.c     |  3 ++-
->  drivers/gpu/drm/display/drm_bridge_connector.c | 15 +++++++++------
->  drivers/gpu/drm/meson/meson_encoder_hdmi.c     |  3 ++-
->  drivers/gpu/drm/msm/dp/dp_display.c            |  3 ++-
->  drivers/gpu/drm/msm/dp/dp_drm.h                |  3 ++-
->  drivers/gpu/drm/omapdrm/dss/hdmi4.c            |  3 ++-
->  include/drm/drm_bridge.h                       |  3 ++-
->  7 files changed, 21 insertions(+), 12 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/bridge/lontium-lt9611uxc.c b/drivers/gpu/drm/bridge/lontium-lt9611uxc.c
-> index 8cb17bd0e238..42e1cadcd3fb 100644
-> --- a/drivers/gpu/drm/bridge/lontium-lt9611uxc.c
-> +++ b/drivers/gpu/drm/bridge/lontium-lt9611uxc.c
-> @@ -430,7 +430,8 @@ static const struct drm_edid *lt9611uxc_bridge_edid_read(struct drm_bridge *brid
->  static void lt9611uxc_bridge_hpd_notify(struct drm_bridge *bridge,
->  					struct drm_connector *connector,
->  					enum drm_connector_status status,
-> -					enum drm_connector_status_extra extra_status)
-> +					enum drm_connector_status_extra extra_status,
-> +					bool *send_hotplug)
->  {
->  	const struct drm_edid *drm_edid;
->  
-> diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-> index 8f7075fd2aa5..5edca47a025f 100644
-> --- a/drivers/gpu/drm/display/drm_bridge_connector.c
-> +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-> @@ -142,7 +142,8 @@ struct drm_bridge_connector {
->  
->  static void drm_bridge_connector_hpd_notify(struct drm_connector *connector,
->  					    enum drm_connector_status status,
-> -					    enum drm_connector_status_extra extra_status)
-> +					    enum drm_connector_status_extra extra_status,
-> +					    bool *send_hotplug)
->  {
->  	struct drm_bridge_connector *bridge_connector =
->  		to_drm_bridge_connector(connector);
-> @@ -150,13 +151,14 @@ static void drm_bridge_connector_hpd_notify(struct drm_connector *connector,
->  	/* Notify all bridges in the pipeline of hotplug events. */
->  	drm_for_each_bridge_in_chain_scoped(bridge_connector->encoder, bridge) {
->  		if (bridge->funcs->hpd_notify)
-> -			bridge->funcs->hpd_notify(bridge, connector, status, extra_status);
-> +			bridge->funcs->hpd_notify(bridge, connector, status,
-> +						  extra_status, send_hotplug);
->  	}
->  }
->  
->  static void drm_bridge_connector_handle_hpd(struct drm_bridge_connector *drm_bridge_connector,
-> -					    enum drm_connector_status status,
-> -					    enum drm_connector_status_extra extra_status)
-> +	enum drm_connector_status status,
-> +	enum drm_connector_status_extra extra_status)
->  {
->  	struct drm_connector *connector = &drm_bridge_connector->base;
->  	struct drm_device *dev = connector->dev;
-> @@ -165,7 +167,7 @@ static void drm_bridge_connector_handle_hpd(struct drm_bridge_connector *drm_bri
->  	connector->status = status;
->  	mutex_unlock(&dev->mode_config.mutex);
->  
-> -	drm_bridge_connector_hpd_notify(connector, status, extra_status);
-> +	drm_bridge_connector_hpd_notify(connector, status, extra_status, NULL);
->  
->  	drm_kms_helper_connector_hotplug_event(connector);
->  }
-> @@ -227,7 +229,8 @@ drm_bridge_connector_detect(struct drm_connector *connector, bool force)
->  		if (hdmi)
->  			drm_atomic_helper_connector_hdmi_hotplug(connector, status);
->  
-> -		drm_bridge_connector_hpd_notify(connector, status, DRM_CONNECTOR_NO_EXTRA_STATUS);
-> +		drm_bridge_connector_hpd_notify(connector, status,
-> +						DRM_CONNECTOR_NO_EXTRA_STATUS, NULL);
->  	} else {
->  		switch (connector->connector_type) {
->  		case DRM_MODE_CONNECTOR_DPI:
-> diff --git a/drivers/gpu/drm/meson/meson_encoder_hdmi.c b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-> index 4aecf0ffcf75..a67e7b365c5b 100644
-> --- a/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-> +++ b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-> @@ -324,7 +324,8 @@ static int meson_encoder_hdmi_atomic_check(struct drm_bridge *bridge,
->  static void meson_encoder_hdmi_hpd_notify(struct drm_bridge *bridge,
->  					  struct drm_connector *connector,
->  					  enum drm_connector_status status,
-> -					  enum drm_connector_status_extra extra_status)
-> +					  enum drm_connector_status_extra extra_status,
-> +					  bool *send_hotplug)
->  {
->  	struct meson_encoder_hdmi *encoder_hdmi = bridge_to_meson_encoder_hdmi(bridge);
->  
-> diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
-> index fcfee26f0078..6835c68fe510 100644
-> --- a/drivers/gpu/drm/msm/dp/dp_display.c
-> +++ b/drivers/gpu/drm/msm/dp/dp_display.c
-> @@ -1763,7 +1763,8 @@ void msm_dp_bridge_hpd_disable(struct drm_bridge *bridge)
->  void msm_dp_bridge_hpd_notify(struct drm_bridge *bridge,
->  			      struct drm_connector *connector,
->  			      enum drm_connector_status status,
-> -			      enum drm_connector_status_extra extra_status)
-> +			      enum drm_connector_status_extra extra_status,
-> +			      bool *send_hotplug)
->  {
->  	struct msm_dp_bridge *msm_dp_bridge = to_dp_bridge(bridge);
->  	struct msm_dp *msm_dp_display = msm_dp_bridge->msm_dp_display;
-> diff --git a/drivers/gpu/drm/msm/dp/dp_drm.h b/drivers/gpu/drm/msm/dp/dp_drm.h
-> index f6b96c27408a..07ddcd055962 100644
-> --- a/drivers/gpu/drm/msm/dp/dp_drm.h
-> +++ b/drivers/gpu/drm/msm/dp/dp_drm.h
-> @@ -32,6 +32,7 @@ void msm_dp_bridge_hpd_disable(struct drm_bridge *bridge);
->  void msm_dp_bridge_hpd_notify(struct drm_bridge *bridge,
->  			      struct drm_connector *connector,
->  			      enum drm_connector_status status,
-> -			      enum drm_connector_status_extra extra_status);
-> +			      enum drm_connector_status_extra extra_status,
-> +			      bool *send_hotplug);
->  
->  #endif /* _DP_DRM_H_ */
-> diff --git a/drivers/gpu/drm/omapdrm/dss/hdmi4.c b/drivers/gpu/drm/omapdrm/dss/hdmi4.c
-> index d02d432abde4..ad659cef16f5 100644
-> --- a/drivers/gpu/drm/omapdrm/dss/hdmi4.c
-> +++ b/drivers/gpu/drm/omapdrm/dss/hdmi4.c
-> @@ -430,7 +430,8 @@ static void hdmi4_bridge_disable(struct drm_bridge *bridge,
->  static void hdmi4_bridge_hpd_notify(struct drm_bridge *bridge,
->  				    struct drm_connector *connector,
->  				    enum drm_connector_status status,
-> -				    enum drm_connector_status_extra extra_status)
-> +				    enum drm_connector_status_extra extra_status,
-> +				    bool *send_hotplug)
->  {
->  	struct omap_hdmi *hdmi = drm_bridge_to_hdmi(bridge);
->  
-> diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-> index 9c4c88024cc5..e6de665ce8f6 100644
-> --- a/include/drm/drm_bridge.h
-> +++ b/include/drm/drm_bridge.h
-> @@ -616,7 +616,8 @@ struct drm_bridge_funcs {
->  	void (*hpd_notify)(struct drm_bridge *bridge,
->  			   struct drm_connector *connector,
->  			   enum drm_connector_status status,
-> -			   enum drm_connector_status_extra extra_status);
-> +			   enum drm_connector_status_extra extra_status,
-> +			   bool *send_hotplug);
->  
->  	/**
->  	 * @hpd_enable:
-> 
-
--- 
-Best, 
-Chaoyi
+Added.
 
