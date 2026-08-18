@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9544EC5DF80
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:16:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8CF7C5DF80
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pnJSHEm0cKOLTTd/rL/PNENkG51D5ISDuMgN/1Gh3wY=; b=suwBdc6qTezAQMcG+B75EZZENC
-	8aqIXE1Ds1B0QKQnDvdAjovENQc7As7Vf0GDjXOXHIGjQT6B0lmVp1gxILN895ZixrfewD82jrPCO
-	PHidq1rxpvtHv78LCA80hQMxxlhko6HdxyhdPpVI9yN19oj+BV2dgc75gWjPRUsQIZfmeREhfGzqG
-	Fb9VysJt4Y0Co+ic77xq3nIVlcWZnIHIbXEPUyLzO1k4WSbR1zHYgSaCVDyPKYB/wwBWYdLBFIcCV
-	CUJqg5ZW1Chd2haMLgTytdfgLFUo7N/PmjkRx9uz45DkM1SdeeIvFOnNT91RRM5OGSU7N/jdsJWoU
-	al4UXq4Q==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7jHUMARs30oMku7rrAHEp5fhgY0hNDCAk+0nqtnlfj0=; b=wwHdElKpbFV96NnqDDqq8j75ub
+	v0zg6BIAYEvvFh+3gvSi5y0RaRnSu8ijkEXY7vfE4fyYogZahlj8Bnv/vmzzTAinRWg9dR0aargYS
+	SwhJonQy47mfhqSyCfSX1ZMY0rmbzIZH1IXJm50XPP27Epmac1zLOx+24/sHgw4fOVJYVdbasWWjR
+	z61AGSEFkCvEzmuy6mjO7EfVj5ZT/F4I2RGnFrF+sPgjvifSSc0aXE/1IEUOh2aw6kWD9BwecgkLG
+	Bu3fl64R2gYAmlJyNRu3kYgIw+uF4i5iNDpCEkTJZJE02agDJKk3QfIrZgL1o1JPmgGk3RhXHg74+
+	o98dFjKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwFvO-00000007aBP-3uqZ;
-	Tue, 18 Aug 2026 09:16:02 +0000
-Received: from mail-pl1-x646.google.com ([2607:f8b0:4864:20::646])
+	id 1wwFvT-00000007aEY-0bKj;
+	Tue, 18 Aug 2026 09:16:07 +0000
+Received: from mail-pl1-x647.google.com ([2607:f8b0:4864:20::647])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwFvM-00000007aAe-0KwR
+	id 1wwFvN-00000007aAv-3oRB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 09:16:01 +0000
-Received: by mail-pl1-x646.google.com with SMTP id d9443c01a7336-2cc86a9ef97so88116135ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 02:15:59 -0700 (PDT)
+	Tue, 18 Aug 2026 09:16:03 +0000
+Received: by mail-pl1-x647.google.com with SMTP id d9443c01a7336-2d5d00fd19bso13649925ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 02:16:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787044558; x=1787649358; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pnJSHEm0cKOLTTd/rL/PNENkG51D5ISDuMgN/1Gh3wY=;
-        b=gxlM37FXB/X+HQJVytQk8RwEqDKfbTG6srJzF0JJ7wK1A3kc9GLntoaS6KXNl7Dibk
-         sXprLjZM5JkotK3dZjTrJpqADfa3LLLDOSfyci4kBFAd4ppOGCSVMpxMOpP9b7W6Rp41
-         pnM4mGfaL0QPwHDl7MjOVfv1vR3UGZPoiogaUY3K250GOpVGl8c5EUKqZ72Q/iRj1+50
-         87y9iF5P7tMhBl5GTbxNbpF8ipoTiwP3kF5E+NosfRM68SDJcmliPdJ6FcquplklNHHR
-         P3H0/sFZ9uw9/eFB78IzsRtiGyna2/BvPTu9L9vsy7yJzdsVPK0Gsbiv7usG9BrMEEM2
-         qvEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787044558; x=1787649358;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20251104; t=1787044560; x=1787649360; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=pnJSHEm0cKOLTTd/rL/PNENkG51D5ISDuMgN/1Gh3wY=;
-        b=qtgu/ORZj8wlaBNzMw0bzKjtPIETtoP8wsmIcvLXJ3ZrcIfU+SZWNfqSbaQFQJZZDs
-         U6zI/laSKbvDJB61Uhy5ATeBN+y0Rc0DMIq95b0Rj6FFwJA6NwIkhumEJ6bc/mjFem8p
-         VRb6gEFFY9ch2ehsiVB9v657mBYRx6tI8CJ9t+laYMObqV2H8UYwfRlwang1nJD6nCEZ
-         26xfQwjaz4Duz1JBasE9PSyecspVfW9wNYwiRJRHpCODxODVbu7AdpLgnClESW8VLtrb
-         FFO/1XHNWVwtCab+Chc7GZCpBp69c6Kvpn2iqekW8v2HppTfinfOiYFDvRsWUxa8/Igj
-         7oRg==
-X-Forwarded-Encrypted: i=1; AHgh+RrdEvr/sNBZpO5aUWQGo1b52Rnjw7KooyKw6Yf1od8gNrITdt35wAvKGKqOeuvh53hNLZioJjE+FncMUHdAE6+u@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfQvwVD8IOmmPYbLONijfWozs4y5Uk/BbCWuQRHNEMNiupeRi3
-	uvh5ZWRR+HY0V84JmijGL3mCLtWTfCYdwn6sN+c+Vf9C2mjtMzykVRU9sAKzO6p0tTPwO+F1JBE
-	v/wn7WtSiwjwSo23qNzPdnUTiqg==
-X-Received: from pllw5.prod.google.com ([2002:a17:902:7b85:b0:2ca:c162:e758])
+        bh=7jHUMARs30oMku7rrAHEp5fhgY0hNDCAk+0nqtnlfj0=;
+        b=GMEl03NQeZkCtG7ajPd2TuS7MJRBIb9pWuwBD4NLvzMcj6+jWvhO1EQCjyuDUBxoZ0
+         XjXhgQHl6qrmZitHYpCiybCJwLfVLGF5R1AyjRJnBx3/KmJbr4VMI51GfodYks1ZeCJe
+         X/JmqRVW3sHBx77INo6fpaBh5GAfpzBr283P90QvCYRukbvB4QW18oWTLKpIdw0tMZ7r
+         M9ZsPcaqWpZNZ+Ehawv4B23HjLSwclTQk7zLYuLOpH7tzz9zEB0DsEVqi6zkvXjDfkt0
+         9qmrV8s7YlkkO+S6kwcxhbaJ6JiOtWJ32aBSzyI2TM5jruX/l5k9xPVBX96WFri9RN8N
+         TVag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787044560; x=1787649360;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7jHUMARs30oMku7rrAHEp5fhgY0hNDCAk+0nqtnlfj0=;
+        b=n3nF+YWtcSGy6U1bkm/p1cY9a+HfwI4/6Ntwsvs+cnJj81jkrQ1Ibd9woQ4cbVpkyf
+         EUOwNwDisexxsykUXekksv62jC2PiOk0ofextn+jld2CziBmsTWXq8vzlsfeyPfnKPlO
+         +itoGu+vDZ28khYrxyvWpXGzZeGt1qCQX5DaRo7+K6pxThWTJ8erIPrjGCS0C9LGbiV6
+         VmKFSU6dZsrwNJqAD36ZRqWMfgRHFYKZuz1UjI9lC8RNMLvGFM61ED7Pfa2yjHYa0OwB
+         dLdEQWJ0WP+vZ2ZwSiX+vd68GLoA/kJtNr3udS65WS9qvfDt/WQF+/PuFQ3AoxR+VYSc
+         60BQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoMV3AzpCk3w631rPwCQlajzyC+/5dARtL1YnFs1zzXitoTtBdnPGlSe22BzESJhS2WX5Sl37DwevXbgL9S9Ymj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxx2E3FAFpr5rAjP40BGQwiiaE9l6bxL3DcD/X856nBrvTJUb8S
+	nUlk2MvKRcapkHITPb9aiVtrh10OtqnWof0SNy2ABt+OCQKBtXkuukEuth4KDdvSq6jtsIuShis
+	CWveWkMizPUAcGL+Wlo8VrVTJvA==
+X-Received: from plbky6.prod.google.com ([2002:a17:902:f986:b0:2cf:75c1:ab87])
  (user=ackerleytng job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:f543:b0:2ca:6eca:492f with SMTP id d9443c01a7336-2d5c5381b3fmr73832365ad.14.1787044558177;
- Tue, 18 Aug 2026 02:15:58 -0700 (PDT)
-Date: Tue, 18 Aug 2026 09:15:51 +0000
+ 2002:a17:902:e5cd:b0:2c9:bf82:dd11 with SMTP id d9443c01a7336-2d5c4f38113mr76619975ad.7.1787044559821;
+ Tue, 18 Aug 2026 02:15:59 -0700 (PDT)
+Date: Tue, 18 Aug 2026 09:15:52 +0000
+In-Reply-To: <20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com>
 Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAMcihGoC/32NQQ7CIBREr9L8td8ANi248h6miwofSmKhgUo0T
- e8u9gAu32TmzQaZkqcM12aDRMVnH0MFcWpAT2NwhN5UBsFExySX6GaaMURMtL5SwGWslY63SvS
- jUFb1UJdLIuvfh/U+VJ58XmP6HCeF/9L/vsKRYWulURdF1jz0zcXonnTWcYZh3/cvW5zXrLcAA AA=
-X-Change-Id: 20260818-gmem-no-return-page-614927a29f97
+References: <20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com>
 X-Developer-Key: i=ackerleytng@google.com; a=ed25519; pk=sAZDYXdm6Iz8FHitpHeFlCMXwabodTm7p8/3/8xUxuU=
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787044557; l=2663;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787044557; l=2004;
  i=ackerleytng@google.com; s=20260225; h=from:subject:message-id;
- bh=8nfCX0wyujmL4llDuS/jfPqo2MBhNNnF8dgEODLCyh8=; b=SsJhnqW1UiCBC+kmoHXVvN7F9aUBGeKnwkUA52xWV7vWY6dfHFFLbL1X18fpaR+ijJHPWumDH
- S+ZTR8oXWHKC7FRxgrDLER+Jz8CIfVDEUeIbzEi5i6liEXv5AXMF2zy
+ bh=M2Ifb8ZR+HwA/H1LGAE2C/jP4eVMt+pmNz86ycTCoCc=; b=j3bFONysasSYdfRKZGzzTAvRwhttD2/ahY+24IAmXMaUu0NHy2Fu2f+igLek2uckCdA21JPeZ
+ SpwDdadSI28CzEHJTFEC/85MZAcMO0lcD0WYLfkAzsYZ/YxzsQNemOq
 X-Mailer: b4 0.16.0
-Message-ID: <20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com>
-Subject: [PATCH v2 0/4] Stop returning struct page from guest_memfd PFN lookup
+Message-ID: <20260818-gmem-no-return-page-v2-1-5298f42d49bb@google.com>
+Subject: [PATCH v2 1/4] KVM: SEV: Treat unassigned RMP entry as benign race on
+ PSMASH failure
 From: Ackerley Tng <ackerleytng@google.com>
 To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
 	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
@@ -91,8 +91,8 @@ Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Ackerley Tng <ackerleytng@google.com>
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_021600_154634_7A227E87 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20260818_021601_970473_E5A31C4C 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,66 +107,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-KVM currently expects kvm_gmem_get_pfn() to return a refcounted struct
-page. Callers (such as x86 TDP MMU, arm64 Stage-2 fault handler, and SEV-SNP
-VMSA / RMP handlers) hold this refcount across page fault handling.
+When handling an RMP fault, KVM attempts to split a 2MB page via PSMASH.
+If PSMASH fails, the only expected return value is FAIL_BADADDR, which does
+not distinguish the reason for the bad address. Hence, another RMP entry
+lookup is required to determine whether the failure was benign.
 
-Holding a page refcount across fault handling is problematic for guest_memfd.
-In-place memory conversions between confidential computing shared and private
-states inspect folio refcounts to ensure exclusive ownership by guest_memfd.  A
-concurrent guest page fault taking a reference on the folio causes conversions
-to fail due to an elevated refcount.
+Specifically, KVM re-checks the RMP entry to determine if another CPU raced
+and already smashed the entry into 4KB pages.
 
-guest_memfd already notifies KVM of page invalidations, so users of guest_memfd
-within KVM only need to respect the MMU invalidation protocol to safely rely on
-guest_memfd to ensure page presence.
+A concurrent operation (such as guest_memfd truncation or hole punching)
+can also race and transition the page to shared, removing the page from the
+RMP table and causing PSMASH to fail. This can happen even if the page is
+still referenced by KVM, because guest_memfd reclaim transitions the RMP
+entry to shared when the folio is removed from the page cache.
 
-This series first prepares the SEV-SNP handlers by treating unassigned RMP
-entries as benign races on PSMASH failure (which can occur on concurrent
-truncation) and dropping page references early in the RMP fault and VMSA reload
-paths. It then updates kvm_gmem_get_pfn() to drop the folio reference internally
-and stop returning a struct page pointer across x86 and arm64.
+Treat an unassigned RMP entry as an expected race when re-checking after a
+failed PSMASH, and skip logging an error warning.
 
-Removing struct page from kvm_gmem_get_pfn() also moves KVM closer toward
-supporting memory backends that are not backed by struct page.
-
-I really want in-place conversions to merge in time for 7.4 and so I went
-ahead to try this, building off Sean's sample code [1].
-
-[1] https://lore.kernel.org/all/an5RJYTwlYeym--O@google.com/
-
-I also split the patch up so it's easier to review :)
-
-Changes from v1:
-
-+ sev_handle_rmp_fault() does need to adopt the MMU invalidation protocol,
-  please see reason in patch description.
-
-v1: https://patch.msgid.link/20260818-gmem-no-return-page-v1-0-4f8d939efdbc@google.com
-
+Fixes: c63cf135cc99 ("KVM: SEV: Add support to handle RMP nested page faults")
 Signed-off-by: Ackerley Tng <ackerleytng@google.com>
 ---
-Ackerley Tng (2):
-      KVM: SEV: Treat unassigned RMP entry as benign race on PSMASH failure
-      KVM: SEV: Drop page refcount early in VMSA reload
+ arch/x86/kvm/svm/sev.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Sean Christopherson (2):
-      KVM: SEV: Drop page refcount early during RMP fault handling
-      KVM: guest_memfd: Stop returning struct page from PFN lookup
+diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
+index fcb41dfde4c02..b2738362a928b 100644
+--- a/arch/x86/kvm/svm/sev.c
++++ b/arch/x86/kvm/svm/sev.c
+@@ -5074,10 +5074,11 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+ 		/*
+ 		 * Look it up again. If it's 4K now then the PSMASH may have
+ 		 * raced with another process and the issue has already resolved
+-		 * itself.
++		 * itself. If it's not assigned, then this must have raced with
++		 * another process that made this page shared.
+ 		 */
+ 		if (!snp_lookup_rmpentry(pfn, &assigned, &rmp_level) &&
+-		    assigned && rmp_level == PG_LEVEL_4K)
++		    ((assigned && rmp_level == PG_LEVEL_4K) || !assigned))
+ 			goto out;
+ 
+ 		pr_warn_ratelimited("SEV: Unable to split RMP entry for GPA 0x%llx PFN 0x%llx ret %d\n",
 
- arch/arm64/kvm/mmu.c     |  4 ++--
- arch/arm64/kvm/nested.c  |  4 ++--
- arch/x86/kvm/mmu/mmu.c   |  2 +-
- arch/x86/kvm/svm/sev.c   | 45 +++++++++++++++++++++++++--------------------
- include/linux/kvm_host.h |  6 ++----
- virt/kvm/guest_memfd.c   |  9 ++-------
- 6 files changed, 34 insertions(+), 36 deletions(-)
----
-base-commit: 1b731e5ded480bd1e5546aed35584238661ce72e
-change-id: 20260818-gmem-no-return-page-614927a29f97
-
-Best regards,
---  
-Ackerley Tng <ackerleytng@google.com>
+-- 
+2.55.0.699.gb54405d56f-goog
 
 
