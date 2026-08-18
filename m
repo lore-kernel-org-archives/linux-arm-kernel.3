@@ -4,108 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB9CC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 22:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313D6C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 22:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OAeyHXN0Zof9oCVlItznCba1s0MUdsF9dzRH/tkJGa4=; b=CRgnB6rk/YIBWbUsNEpE6MUR2i
-	audnAna+EUXbOMPPkF6UQZQnb3mpV4ZUB8g3PfEQPHfXVWJwa2audPxITtq+a7fvBuiv5/aMXKv8k
-	UB/ZJRHZWUVqbtXnPX+AGHWKIkk2XTtp/ZUHGZJLMeYKFpOkrgd7wHkfIWo5vtNR+SjGHTF7WzDci
-	gY58NT1wNvesKUIoyGGfuHX2zkiEZPIgV6rwZBwcAksLDmPmjGDd5GrR4MET5Oqj0VVEjrmv0BEDT
-	w/TLg7Sxjqzq84tP9djnMmnG0T7QuD353altx6YprFwGGdkuCYBuKTiaIE+u98sNhqp+cx5V8sZop
-	AVSDQWJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GO/ifd6cvghuXzfkMXe1Yl/C2ANUVFusvw8q75lLMu0=; b=jGO5N5rs0sSgbyn42eOLfymltb
+	EJzcahvrfzZ1AGC4EbLQy1XiL1vjR11g8gMbqlDAXZdADMgd7pJWKBTysmNSDuSl7MzdNZhN9ZZg2
+	uBNwOptUpjQ0b/tmQ8LEWfQ7YNSF2kSCu9e6iZfl5tZ8g8i0sP+FgV7vfDo2ikdp+Xl+9lR1mXMVl
+	pKWbC47fPyg0NThRiv0x9Z1eY9TaBw7aPZZM/Ki8qW3Y+G1Qxz75igwK2l0amFnNxMYUJrpJwN/ft
+	ZualRkp+tKOh9PsNymC6/0PV2Y03dyeZzgTmLT8edhb1iJ25GDzQmtwrL3fdjBrPIQAPZRN+eHq1D
+	QA0fS8pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwSB4-00000008iwI-1xw8;
-	Tue, 18 Aug 2026 22:21:02 +0000
-Received: from mail-oi1-x233.google.com ([2607:f8b0:4864:20::233])
+	id 1wwSXb-00000008jnz-1Brj;
+	Tue, 18 Aug 2026 22:44:19 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwSB0-00000008ive-2O8T
+	id 1wwSXY-00000008jnO-463s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 22:21:00 +0000
-Received: by mail-oi1-x233.google.com with SMTP id 5614622812f47-4b28df1f600so338622b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 15:20:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1787091657; x=1787696457; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OAeyHXN0Zof9oCVlItznCba1s0MUdsF9dzRH/tkJGa4=;
-        b=blJzYCJao6JnJwDBMAohWFBLJveibO8Ea81wfGsdfUHO6yuXluldPibdZRcBjDkyrp
-         P1L3I4jDY4hFWyvMzfBT3Sp7Zvr2AN/zPjGB7lHQ0DjEKSX2+7GTlvtZ/+/LLSxOZJ4Q
-         HpfMIerCF8uyKQ3+XjAbe+0tga4pJ2xAX1dfA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787091657; x=1787696457;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OAeyHXN0Zof9oCVlItznCba1s0MUdsF9dzRH/tkJGa4=;
-        b=Aub7pgfNSM3zTmJOjZ48lK23dGWkcAM88aI4nYASFDo7S/AWoGNdlHSYfr7cuEGN55
-         PhQzIEbaHNASmS/474WTp9r73XCwlm5afyDfh2RldRdAMkwa+Ir5aSiPtES2+0JnJ2HT
-         GvPZCkldRhC0+QiQ+ByKdh7yX8Oor7RBCpi1erPXV/hhhGdDKsJPKHPbBjyIv5fMiYNF
-         X5MpOFdFgLCZO36wBG8nmUnNuGlv7kEv/bHeMQHc0K5pNxu0xIREXADRxoYrlOYYnNyE
-         xU1DCODbhyoQmVNC5VUgdcgweHHazQKRNPu/Y5VWljdOLvWwbNKG3ky+kiRV7NZ1hJuM
-         7nrw==
-X-Forwarded-Encrypted: i=1; AHgh+Rr4rWpq74Lec5gLAOA6c0qcUo3FVv1mZzHYOFmQmBr0pXNhzzYehb4l1wZLkOUAomhCfELgMgUMBaE/8oWh1hFv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxaa42YUhRAuTHl/hdaEA6RQldmoitT+OZYZYfvDk9ZmzizfQtT
-	RxiC3M22RqBNlET4uE37FeeIcb6X5xasY688GqD9AR09fLG5v1uPV+VGQTNA6GDBdcBCuJhm4Gy
-	cpLM=
-X-Gm-Gg: AR+sD13UvZQO2uQx7C0pGdT9Gj5xDxR58dtf4Hc7n0mP50SaUkyaWVRNne7lWgztzae
-	pub1CVTIQGC7YSSAW2E/E8bs9ShMmjGHD7hFG7df4zCk5Eb92UiPtZQUm/8f4NgnriKgwQ9X/YL
-	rG6IEUIZg8qXBNxHrTr829kwiHlsho9WKqsAWkjulVWKmt34vgyNFw7nNAHk+XPNqB71EsujVPo
-	KtLFMSyJDeaiL4vXcMcGYCw1ts0B9sTGaknCTcmtoPBDcBMJnL2KMA64VpkVen5TKfOAL4mp8OP
-	HPWX1cFNELhTVP1nXHzQTrKiS0mMK5nofo/h4UO5/e4piSsuAOhAyNxmBWVcNdzFYUKVMH/SnJE
-	364mceVCKeihMv2XmwrIGSs+mBuM8bwdXPUqNpLQ/unpXRoLneoBrEK8HQTgHvuMMUHjlD2CqqI
-	sjw9tlpGMK3HnJ3sCncI+wVrfZ3nHnlTQxkZjiSWQ9H7XPjAlsrgt3rxRd6e9SDvo0XUyltclio
-	jQkQycCYR5a2nU4P+L1n+fhxI3jVY8=
-X-Received: by 2002:a05:6808:1303:b0:4a4:c12:46f6 with SMTP id 5614622812f47-4b2b8e822admr1004008b6e.2.1787091656506;
-        Tue, 18 Aug 2026 15:20:56 -0700 (PDT)
-Received: from mail-oi1-f177.google.com (mail-oi1-f177.google.com. [209.85.167.177])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-4b290a412f9sm4951342b6e.2.2026.08.18.15.20.55
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Aug 2026 15:20:55 -0700 (PDT)
-Received: by mail-oi1-f177.google.com with SMTP id 5614622812f47-4b28df1f600so338600b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 15:20:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrdpuwYeHJ5ulUpH6QKxF88nLCLWW41ggoize51lITDxKGyWF4kNcYK5xIZAlc5G3FicsnnQCvhUHFBugJDxbHz@lists.infradead.org
-X-Received: by 2002:a05:6102:3f02:b0:772:5acc:b849 with SMTP id
- ada2fe7eead31-777b68d3b50mr613053137.5.1787091192379; Tue, 18 Aug 2026
- 15:13:12 -0700 (PDT)
+	Tue, 18 Aug 2026 22:44:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TG6Sa/XFaJLaOuWlOQJ4OcXhJmRIzC45z/3t+epdVWT6Hhee7dwYjbpKnzZmYCjqL9IF7UKwecHtQODn66u4R13s8iEovD2t6DeSerXzOX075FYZp+EBYGhScC3g+XspmFOXHhe4JtjxwLFAgemSv5W/ypn4shPIT1DFB1V+kSlrdw4CzC2CKH6pEpXJaygcqJ2uC57nkInR84UGX6A8UYGKlecXaAfC8vTx5x3g0oMtUrWGnlf+cFvYiMrqJcjoHVKwHoRJq3E+Gnif/OtjfYA4GVaFyB4NvY0osPwuTilGPM9wTbhdNXzXVObRp7SFdarDKya7vsuAFcQIMZkjxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GO/ifd6cvghuXzfkMXe1Yl/C2ANUVFusvw8q75lLMu0=;
+ b=Fo6MdO2Df8K8PpvWSJa8Bxpc4RWOFPBLi0nI9Ojbkdi/SOIRvKJUV/wsZUN4PCPEUIk6nhd8Yg+IkLk8zcn/gVG0u4ApZB349BRY6i7RvRJwpQ50uspovFAH9NjqoqhNDbP15EA3VpVOAlGfEA5Qpxum8dQkMEoiI5wBwKD0CIc44g0dgUr3dLYm4GnE8BtWB4fISz4fkTaH6WYfGs1sTsALcyU40hWVYAmVIfMtbsK2GJsGhR/gFdL5sIVI+Vgh46TqEo9TDajxhjMD0c13yxf2EqdVdBLcYXBMRiKy/oHSXdgLW8ETVohL/7wR9UaQmoIjETRouCrTgnhBuWhZdA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GO/ifd6cvghuXzfkMXe1Yl/C2ANUVFusvw8q75lLMu0=;
+ b=M5VML9YSTvKM/FncO+41gJXfkABX4A5AHa/OCeB63bKBtV8tbXbTyJKRtW5M85AAtv3KmaQfOC48eqJMejIz7LeFh7KunoIX3EDxYskS9+W5kvxh1Anc+fWpFbYWID2a/d1DMAZMBAlRiVs4Oumt4EGEhk+ja7jSjlloe8GDmiS4n8RTkceDJMLJs7BI0GAhXfgH27gHDE4gp86HmJPM0fjvGmnZREbaCIAc+d78ymmPUvvr4yIa5xpqJA3L+FOQYpJ6MSfhNyMf3A8svQWklSo6AIi6elyCruAVhscbIBfl+gx2WwXblkzuAuzg8FGC5+QQrqhztnyzvMAM1XZ40w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from PH7PR12MB6882.namprd12.prod.outlook.com (2603:10b6:510:1b8::12)
+ by SA1PR12MB9490.namprd12.prod.outlook.com (2603:10b6:806:45b::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Tue, 18 Aug
+ 2026 22:44:08 +0000
+Received: from PH7PR12MB6882.namprd12.prod.outlook.com
+ ([fe80::6d0a:d79f:abf2:d544]) by PH7PR12MB6882.namprd12.prod.outlook.com
+ ([fe80::6d0a:d79f:abf2:d544%3]) with mapi id 15.21.0315.008; Tue, 18 Aug 2026
+ 22:44:08 +0000
+From: Carol L Soto <csoto@nvidia.com>
+To: sudeep.holla@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	mochs@nvidia.com,
+	Carol L Soto <csoto@nvidia.com>
+Subject: [PATCH] firmware: arm_ffa: Unmap Rx/Tx buffers on shutdown
+Date: Tue, 18 Aug 2026 15:44:04 -0700
+Message-Id: <20260818224404.3694580-1-csoto@nvidia.com>
+X-Mailer: git-send-email 2.25.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR13CA0217.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c1::12) To PH7PR12MB6882.namprd12.prod.outlook.com
+ (2603:10b6:510:1b8::12)
 MIME-Version: 1.0
-References: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
- <20260722-contrib-pg-pixel10-initial-dts-v2-4-3abae9717feb@linaro.org>
- <20260724-dancing-skunk-of-novelty-72c1b8@quoll> <CAD=FV=U0HUdjPcg+5Vx8_ag0zLd3CZx5w5SFr38p+YwRnC_G6w@mail.gmail.com>
-In-Reply-To: <CAD=FV=U0HUdjPcg+5Vx8_ag0zLd3CZx5w5SFr38p+YwRnC_G6w@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Tue, 18 Aug 2026 15:13:01 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=V2+D1m5L-0d81W3E_ih2us-SrddeBUAJtMybpQons7Ww@mail.gmail.com>
-X-Gm-Features: AcwNN1X4wWbBuO7BL4eki7ShctQouAC-d3_rSaFZoxuWUTz7v7oqnlkPyiKP63w
-Message-ID: <CAD=FV=V2+D1m5L-0d81W3E_ih2us-SrddeBUAJtMybpQons7Ww@mail.gmail.com>
-Subject: Re: [PATCH v2 4/5] arm64: dts: google: Add initial dts for frankel/blazer/mustang
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Linus Walleij <linusw@kernel.org>, 
-	Drew Fustini <fustini@kernel.org>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org, 
-	soc@lists.linux.dev, Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>, 
-	Brian Norris <briannorris@google.com>, William McVicker <willmcvicker@google.com>, 
-	kernel-team@android.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB6882:EE_|SA1PR12MB9490:EE_
+X-MS-Office365-Filtering-Correlation-Id: 963c89be-ec2e-49ef-2d2b-08defd7a36fd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|376014|56012099006|10067099003|6133799003|18002099003|11063799006;
+X-Microsoft-Antispam-Message-Info: c8FncTHm6tFlWhLlEGpmx/wsTCwzS717mN2cafceRLGGE5GQVwbhWhRI9c4FrCshGwg6/AKbw/x79cVgryQ/cF7f2CYiykIxTLxk6fPuyTWrnzGVrLRSS7cw4J7E0RizRZHJNkNGLKEMfm4YUiY5wO57/D4fPZGo0oX5vK7e+gIGHyp8TmAbf3ZpAVqsLifgr5nBXIbvZp/wdCJDW4mI8uZ//76qBuOGxvifNs3qVojSnZEZvRA/ekKwIqFlI0pDW1McQ+WXMaETQTlJpqjsk1s6/wGIrkWVwPbdDa9WMsBTsEIHSDUwNjKRn9g3ULGOYJ1lO2iqlHdoaQHzNC6PI9F+vvUqhJd3s+CvT4RPKiflmhm6gbqiwogqoxeFYkMT0Ma73xEX1mGEPBYTKXwUchJEPv7Qq+afBQU32c6vUqRbreet6Jur2QKf4vTo4WHHNEdopvhAUzbeiutjXCBdsmZzwq5lyJrwgzORIlbf1985y4RFpCDMUbYGiX8jsnZi7OodiqztDZWZN7btagRcdozf/Nps18agrk96sjFxc1QmhlA9Bn0ECnBD+gao7kuk07Rw5wGTppSqkgX0fiw2bSTA9h6OfJX5jBqfzvBkirlWaV77w3AMXvWbc14P7gL0A52iflx/NleANtCv3PNmpc1TGFjTB3vnRb58N1/R+nM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB6882.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(376014)(56012099006)(10067099003)(6133799003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?q7KDl4RhtPjdB8IXX+pxHIWqaunavhp8NM0rqWie3anfwcA+UJaiykm36LPl?=
+ =?us-ascii?Q?CwIRzjzCO5F874IlGf2JyIuwR8SdTCRsb0AyBkvAO/R+zknblMjGJpULLzsb?=
+ =?us-ascii?Q?K/MI4EUb0lE57r3Mz5X//TSqQSqPCyD30J8DdRAg1+rH5PcoO10MMW2RXUNb?=
+ =?us-ascii?Q?t748acWXgl6LiQFCbHMfm0OLBDRphfv6tnYoYZQj5W1mJHyop+G3nUHX2veC?=
+ =?us-ascii?Q?zqmbtkIa803F7B9i6tKi9Ftsg8/T0h2fgQZ7A354+kAnrC0LzvHbSZ8IEwor?=
+ =?us-ascii?Q?kC0jprTFMIe3o9EWXMPNSxY0jNcTgY2M1wPyCN4eeUpUrq8d3v3pcyaiGzbK?=
+ =?us-ascii?Q?XWqQoY7Tg4/bh6PQpYM3CfUnJmR82dQPSEJRKxcYkYCURqCx3Wqf2Gkqw+Qy?=
+ =?us-ascii?Q?JHikpO1PJ706fNZYaYK1jACapzq28+YY1cyE/HoseGDNaA5uvxyKs9KV87hC?=
+ =?us-ascii?Q?2HrPOnprXA2C62oc0uNPcsUjHrvqfPc6XPpajXE1QAtIfn0kJnpNDQVF/Nat?=
+ =?us-ascii?Q?suUwd86LkfV/uVnjw/Lcmkp7xXh6YqcXgoIVPGeVNKUtA88KDrAlZKvbhbsx?=
+ =?us-ascii?Q?ulSgNV54KtEKLTxKY1NMmSnA9SMyo5116zqhlVjWLYouApeq4NT0IZmLSNBd?=
+ =?us-ascii?Q?SStMPw4QTlseK0taMkci2z+HVZ95mrsbb72aGz97BuBb80Ogi/Jzpev/wmhq?=
+ =?us-ascii?Q?v7Ojko/ZrMZxTAsUVPuetEVe3RljLQhHereHA0Z/9TuP1y33KfnfyRruL79/?=
+ =?us-ascii?Q?FwhCAiSFbXt/3RCBvB41cj/YPsuAsV+Rll/0S/K4l3yqN57UTPND/cdccWcG?=
+ =?us-ascii?Q?gQ3vdTARCy0gwzgQh2moG+1cAQ2Gmb6VSucw6Th106IC4RPtuBH5rUzYdnyt?=
+ =?us-ascii?Q?ijsEBKsiJuy/Mdn1b2CrG1NYh5YmHH56f58N/AXTSOFAs3RCwy3hb8rmxfTv?=
+ =?us-ascii?Q?d85YVkg5v/jB21bn7zBLFphC179MhGe2/At33n1/ale3LMfYq5hc2JOW32io?=
+ =?us-ascii?Q?6Bm047kCuFjzCOD5hIlBTwWrPbry3qn+NWqD4yCW2TQAJSZCM68CGHvLO54W?=
+ =?us-ascii?Q?/y9VogVGNhpvgw5m6FhoSaJpVQfEvdvKW3ykPy56guqXpFA2E7co7VMt5ZAt?=
+ =?us-ascii?Q?L2uBNcrZz1owmaa4pyNaAKvqCZ8ndPU0e11IINaWYhR9NqEi93W2575Se6OC?=
+ =?us-ascii?Q?SJVwmIxmjrfFBIv2+l2blaN65JbnhnAfGLB/vnw/P1lx6tXc4JnXNScvpZBv?=
+ =?us-ascii?Q?og2OSszLJ+o2FN+jZ02C4bRw41ZifD1r5kUVBqmSU7klhIrzxsEG2Z7zjp4h?=
+ =?us-ascii?Q?IWiXXOarsFSf5gPKm1N21gvgHGtDBETKAnQJiI9Zklee3CE/6dFfbOBSvshK?=
+ =?us-ascii?Q?9g15VhBgutdL9pWEj4mANKU2aojr2x4/hBZSUskcupITk+VxO2DFIVNiyW3v?=
+ =?us-ascii?Q?6kxhBVV69W7JzTqWyfCaDhwOBckgRh6xH9o1+OevasTKKmjOmV3pwf03kem3?=
+ =?us-ascii?Q?jBhj5MnRQrIvzRhnjWGyIcNdGOpi9lo3Tm2v6IgRBCIBRaS9gygCyIZl/mbF?=
+ =?us-ascii?Q?k2D9F+jMomkKUJg92LZvu50zYSwUSdNZvFdS8/XX72zj0gKBy4qX99XSO6X8?=
+ =?us-ascii?Q?yY1GxeQCOw+LsmzMdVPoJ6ChW5t867EhOjckNUeq9xWwBgYnDLfQEk9Ck4hH?=
+ =?us-ascii?Q?YmNxkQz1UBD1GKWNMailAlqwshAo/a1O+Vk8tZerPsTKn2QHcfwnAd11z+BJ?=
+ =?us-ascii?Q?c1h/R6L38A=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 963c89be-ec2e-49ef-2d2b-08defd7a36fd
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB6882.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 22:44:08.5776
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YLrIyifOFxCLocjzg9mC3FSoVNc4//HfLPKFV8QNkmexsxhWSdPCS7TuxxRZUo85zCA93SiztZfNbvc0ViI79g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9490
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_152058_993402_26A60B9A 
-X-CRM114-Status: GOOD (  53.09  )
+X-CRM114-CacheID: sfid-20260818_154417_041781_65EC30C7 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,122 +136,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The FF-A core maps its Rx/Tx buffers with the firmware during probe,
+but only unmaps them from the remove and probe error paths. A kexec
+reboot runs device_shutdown() without removing the driver, leaving the
+old buffers mapped in the firmware.
 
-On Thu, Jul 30, 2026 at 4:32=E2=80=AFPM Doug Anderson <dianders@chromium.or=
-g> wrote:
->
-> > > +     /*
-> > > +      * The Pixel bootloader considers it a fatal error if it doesn'=
-t find
-> > > +      * a `ufs0` alias so it can add calibration data to the node. U=
-ntil
-> >
-> > Fake node is ok, but alias won't fly because aliases are not allowed fo=
-r
-> > ufs. Well, would work 10 years ago, but this is a device from ~2025 (so
-> > SoC maybe a bit earlier), thus Google already knew that they MUST talk
-> > with upstream open source maintainers before they ship such ABI.
-> >
-> > They did not talk, so you reap what you sow.
-> >
-> > There is no more excuse for a vendor to ignore open source and push
-> > whatever-ABI-they-wish into their product, if they ever want to upstrea=
-m
-> > that product.
-> >
-> > I know it is not your fault, obviously. And I know that not much you ca=
-n
-> > do, so that is not rant towards you nor towards Doug.
-> >
-> > You will have to keep this part of patch out of tree or fix the Pixel
-> > bootloader.
->
-> FWIW, it actually _is_ a rant towards me, since I added the "ufs0" alias.=
- :-P
->
-> When I was originally bringing up Pixel 10 with upstream, the
-> bootloader had a hardcoded path to the UFS node. It looked for it at
-> "/ufs@3c400000". That certainly wasn't going to work. Downstream
-> _still_ hasn't transitioned to having a "soc@0" node to put all the
-> MMIO peripherals under, so the equivalent upstream path would be
-> "/soc@0/ufs@3c400000"
->
-> Now, I certainly could have made the bootloader search both paths, but
-> that seemed bad to me because:
->
-> 1. As I understand it, DT paths aren't ABI. While it feels unlikely
-> upstream would change "/soc@0/ufs@3c400000" to something else, I
-> believe upstream would feel free to and not consider it a "breaking"
-> change. This makes it feel unwise to hardcode the path in the
-> bootloader. In the past, upstream has renamed nodes to clean them up
-> and it wasn't considered a violation of the sanctity of the
-> device-tree ABI.
->
-> 2. If #1 is untrue and we consider DT paths as ABI, it's still a bit
-> awkward. We have one bootloader base that supports multiple SoCs. The
-> unit address differs across SoCs, even though the IP block is nearly
-> the same (bootloader still adds the same type of calibration data to
-> the node). The code I started with had a bunch of #if statements for
-> the paths in various SoC variants, and that went away with the alias.
-> I suppose the bootloader needs to know the UFS base address anyway so
-> I could have probably constructed the node name based on other
-> #defines, but it still was a bit awkward.
->
-> 3. I certainly could have searched the whole device tree for the UFS
-> node by "compatible" string, but the Pixel 10 (and future) UFS
-> controllers aren't upstream yet. We wouldn't be able to land the Pixel
-> 10 device tree without the UFS bindings landed yet and I think we're a
-> bit far away from getting the Pixel 10 UFS bindings landed...
->
-> With all that, the "aliases" seemed like a pretty clean way for the
-> bootloader to find the UFS node. It also matched my understanding of
-> an appropriate use of an "alias".
->
-> Any suggestions for how to resolve this? Do we go back to hardcoding a
-> path in the bootloader and cross our fingers that upstream never
-> cleans up anything that changes the path to the UFS node? Would it
-> really be terrible to allow a "ufs0" alias for this case?
->
-> As a side note, I did "talk" to upstream shortly after adding the
-> "ufs0" node by sending the Pixel 10 patches upstream, but I guess we
-> were so focused on the overlay topic that nobody thought to comment on
-> the "ufs0" node? At the time, I'm fairly certain my resulting device
-> tree files passed schema validation at the time, too...
+The next kernel can then fail to register its Rx/Tx buffers because the
+firmware still tracks the previous mapping.
 
-I guess no response / silence =3D=3D my email was so dumb that it wasn't
-worth responding to? Even despite that, we still need to find a way to
-move forward, so popping back here...
+Add a platform shutdown callback and share the firmware cleanup path
+with remove and probe error handling so FF-A partitions, notifications
+and the Rx/Tx buffer mapping are torn down before entering the next
+kernel.
 
-I did some digging. As far as I can tell:
+Fixes: 3bbfe9871005 ("firmware: arm_ffa: Add initial Arm FFA driver support")
+Signed-off-by: Carol L Soto <csoto@nvidia.com>
+---
+ drivers/firmware/arm_ffa/driver.c | 52 ++++++++++++++++++++++++++-----
+ 1 file changed, 44 insertions(+), 8 deletions(-)
 
-* Nothing in the DeviceTree specification 0.4 [1] mentions that
-aliases are deprecated.
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index 8654b3365c9b..c94a6eabe4bc 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -119,6 +119,8 @@ struct ffa_drv_info {
+ 	struct xarray partition_info;
+ 	DECLARE_HASHTABLE(notifier_hash, ilog2(FFA_MAX_NOTIFICATIONS));
+ 	rwlock_t notify_lock; /* lock to protect notifier hashtable  */
++	bool rxtx_mapped;
++	bool partitions_setup;
+ };
+ 
+ static struct ffa_drv_info *drv_info;
+@@ -2109,6 +2111,36 @@ static void ffa_notifications_setup(void)
+ 	ffa_notifications_cleanup();
+ }
+ 
++static void ffa_fw_cleanup(struct ffa_drv_info *info)
++{
++	if (info->partitions_setup) {
++		ffa_partitions_cleanup();
++		info->partitions_setup = false;
++	}
++
++	ffa_notifications_cleanup();
++
++	if (info->rxtx_mapped) {
++		ffa_rxtx_unmap();
++		info->rxtx_mapped = false;
++	}
++}
++
++static void ffa_shutdown(struct platform_device *pdev)
++{
++	struct ffa_drv_info *info = platform_get_drvdata(pdev);
++
++	if (!info)
++		return;
++
++	/*
++	 * FF-A devices are children of the core platform device, so their
++	 * shutdown callbacks have already run. Drop the FF-A devices and
++	 * global firmware state before kexec enters the next kernel.
++	 */
++	ffa_fw_cleanup(info);
++}
++
+ static int ffa_probe(struct platform_device *pdev)
+ {
+ 	int ret;
+@@ -2183,6 +2215,7 @@ static int ffa_probe(struct platform_device *pdev)
+ 	}
+ 	drv_info->rxtx_bufsz = rxtx_bufsz;
+ 
++	drv_info->rxtx_mapped = true;
+ 	mutex_init(&drv_info->rx_lock);
+ 	mutex_init(&drv_info->tx_lock);
+ 
+@@ -2191,12 +2224,16 @@ static int ffa_probe(struct platform_device *pdev)
+ 	ffa_notifications_setup();
+ 
+ 	ret = ffa_setup_partitions();
+-	if (!ret)
+-		return ret;
++	if (ret) {
++		pr_err("failed to setup partitions\n");
++		goto fw_cleanup;
++	}
++	drv_info->partitions_setup = true;
+ 
+-	pr_err("failed to setup partitions\n");
+-	ffa_notifications_cleanup();
+-	ffa_rxtx_unmap();
++	return 0;
++
++fw_cleanup:
++	ffa_fw_cleanup(drv_info);
+ free_pages:
+ 	if (drv_info->tx_buffer)
+ 		free_pages_exact(drv_info->tx_buffer, rxtx_bufsz);
+@@ -2212,9 +2249,7 @@ static void ffa_remove(struct platform_device *pdev)
+ {
+ 	struct ffa_drv_info *info = platform_get_drvdata(pdev);
+ 
+-	ffa_notifications_cleanup();
+-	ffa_partitions_cleanup();
+-	ffa_rxtx_unmap();
++	ffa_fw_cleanup(info);
+ 	free_pages_exact(info->tx_buffer, info->rxtx_bufsz);
+ 	free_pages_exact(info->rx_buffer, info->rxtx_bufsz);
+ 	kfree(info);
+@@ -2225,6 +2260,7 @@ static void ffa_remove(struct platform_device *pdev)
+ static struct platform_driver ffa_driver = {
+ 	.probe = ffa_probe,
+ 	.remove = ffa_remove,
++	.shutdown = ffa_shutdown,
+ 	.driver = {
+ 		.name = FFA_PLATFORM_NAME,
+ 	},
+-- 
+2.25.1
 
-* Nothing in the dt-schema repository [2] causes validation to fail
-when you use new aliases and there is no "allowlist" of old aliases
-that are allowed for historical reasons.
-
-* There is a single reference in the kernel "Documentation/devicetree"
-about not using aliases to assign an "instance ID" [3].
-
-Is there some other documentation saying "aliases =3D=3D evil" that I
-missed? Maybe some email thread we're all supposed to have read?
-
-Is the only issue here the fact that the alias ends with a "0" and
-thus implicitly provides an "instance ID"?  Would it be OK if I
-changed my alias name to "ufs-primary" or "ufs-internal" or "ufs-boot"
-or just "ufs"? We're not using the alias to get an instance ID, but
-when I added the alias I followed the pattern of all the other aliases
-and put an number at the end.
-
-I'm happy to attempt to fix our bootloader using whatever scheme
-upstream suggests. I'm trying to "talk to upstream" as requested, but
-for it to work I need upstream to talk back. :-)
-
-[1] https://github.com/devicetree-org/devicetree-specification/releases/tag=
-/v0.4
-[2] https://github.com/devicetree-org/dt-schema.git
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/comm=
-it/?id=3D6a57cf210711c068a650bd86acae4a88303dfd5d
 
