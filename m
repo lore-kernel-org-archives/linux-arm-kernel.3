@@ -4,102 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C1BC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 15:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A53C5DF7E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 15:13:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Np9yEDd+Fd0yibinPh7hdB9+c/izEVyAROGDkoU/Abk=; b=yrORT/3BAv+KJEnVydypYJGAhG
-	BR9FLece/7rikpp/vSbGXWrHCcNA2yAtw0xTH59Z7MU/XTkRxglano9z/BaSXPfDHb+sr19zL77EJ
-	5ew+YPrpjhr1BtAqK1eR/HVtJP39Q0K94Y1gNkGZqGIPgLe6DAeITj1BtWfaM6s+M/IAcFQWSJ4Cm
-	89y9RlpbX5dsXCtZxazrQbuxqd/t7c2o1Q8X1Adozi6B6qHlLrTdt1rLGTmBmcNEZ4sFhCcJvtf0b
-	f5eScTGP/XlujumexxQKWJo0r0zbqf7PQeoz4mpspsEEIE5xqwK8YgRSqkH8+98zlcHBmemYfBJIU
-	fv5awTQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6XLTL6BMjWLV1TgX2/NYZao1NdlRRTnrIJyxj87QpAA=; b=0lq+M8GTfuBaYmUE4C9wKlgFrL
+	+87WFUQ3NjEx/ykQrnMUxrccZ49tp87MJ0oVmXF9DNP0qoqYSLXu5TtwnY5wIJXGnZl6wk3m76u3h
+	NJxMAyZblpRsj9EI1G1Za0T7R0PvpNTLWUXFcsSzAEmXEXKCyeby4OCb6jiXUkwbGtZF6qR0a02I6
+	DmlRI/iAKUc9ta24pBEQP1s6j8Cz9p7lFSluWDmuerEvdhFJzJb8VQ0EVcrBvHMt19RiS/eooJ/KR
+	k1fM7oNRvrktITktRL+hDRwwGFBLGzHJEdeCIiO3jZ59JCa5vIly/7TKoKhy298DB1tRQSbB/FKa/
+	HdM/+vqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLRw-00000008Eap-3s8h;
-	Tue, 18 Aug 2026 15:10:00 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1wwLUj-00000008Ep8-1EHE;
+	Tue, 18 Aug 2026 15:12:53 +0000
+Received: from out-24.mta0.migadu.com ([2001:41d0:1004:224b::18] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLRt-00000008EZr-3x6b
+	id 1wwLUg-00000008EoQ-2JgA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 15:09:59 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-c2020421077so772897266b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 08:09:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1787065796; x=1787670596; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Np9yEDd+Fd0yibinPh7hdB9+c/izEVyAROGDkoU/Abk=;
-        b=N2rhVoXubGC6jwid88JqPAPi5NBfNFfojYjzB9en905exZ8fYKJClFiECUhx6CdVqK
-         OPSQ3jxszu/+CiEPyAuqxG3re4co5ahnjNiyFKzANW9UwdmbBdYj9A8ntsoZPcvVoLbH
-         jKDDDe27h9NTRgzQecIHRpjAB9fPlvEc6Oj2pVtzT/vYOZFjxTVMcbH4ZZzn8u6Ts8kV
-         gzb3jJ9WKdpgoZNM40IvgRfKJba/+LLBBU08zsPOf9upwVxwmKOPT7uM/6XPGdSoHdt+
-         MJ7RB6/zRT7Eqx9uHMzOTZgXDfxn0+w0S55KlSAdp9c0CFLe8wPw88uvocXYgboNX6zX
-         v7ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787065796; x=1787670596;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Np9yEDd+Fd0yibinPh7hdB9+c/izEVyAROGDkoU/Abk=;
-        b=ZXKP1cu+ObezDtMyDvHCVRNyJBo9yVxXEdWMF5pTSIiSvyaNi3xcatql4qKEjIUunl
-         nYm91NkZlxYCxzagk7H4QADBN/puxYGubWn1buBQhcRdNfkgfu1h5LrhbHOqqsNsEJah
-         ev/PuICvxCV5eUG2ree2TaEsRfqid2A6VMgI6v6if7lngS/F07k7OU+gL4L5qZgjq6zI
-         3t468jWpc/sktVopNa33Ll+6DKdUnciG6l7R2e/gYgq7SFChHx48sAQSMeaf7AOSqvT4
-         66NU9RYVdlerOYxqi56Pm0aAxjgctNy9WC98slVgUy3PBNaoaVxFZg8u4dqG76vfOrlC
-         xoXw==
-X-Forwarded-Encrypted: i=1; AHgh+Rpb1+wmGSZR+/SNbAOiZfCC7Utc/J0UKIsp0dfKRcpd6L/C94PCE8+aR5X5FSexFv1Sz+uXnc6MRmm/SO4KHv3v@lists.infradead.org
-X-Gm-Message-State: AOJu0YyloCEbEbFb6w4cDxLfEzFHZ4VhERtP75D+WPAigaAWwgbEJv/D
-	wk0YGvVW4anYljqaQGEKTv5cUt1g+ddM+AORcblmI2Xs5B27ReI8L6tWOYt+fFJ3E0w=
-X-Gm-Gg: AR+sD12gXYj2OkTfhWPtMvALONpRr5Mz4h/rAsveSn62oKNVLqJegxznVyLtm/JIH4n
-	cV8Pvu6MObCFetCA1y1nCzwicI2t/Nsz5uqJLjJDiXZCdh7F1c3Ko3rDR8c4k8idRLMym/BhXBX
-	Tb8ZHOppiCLB+dwbbU5wiaxKZ644pN0WMW0r8lGbVg6DyLhmID6wgoZQisEzgowoMNoa7qKEUId
-	DzAOTdmEKmqbTfatLta+h6JyrUELnDtdyVPsOCzsehSLk+U5hmGaEMKkbwCqn642b2i3JOrVK2y
-	TvhT42bQ9pVD7t1Lqay5Ta5QB43opmYJxwgq4WHlLlbc2+zyjbDHCsaRSE26GvnyWltV/l59DsE
-	ABQ/S81wZphUS8HhVPAHXp/Ile9nH5YYUu++EJbwBDv42qGi/DUuCkx33gOcT+j0BSJSJpyyZcA
-	NcpTFO+SVPmV+NpAoL9D9SxC5mMGkduoUYqd03Fwjc+qb/Hu4ytvdBOcF9mCBi8uLeNQ==
-X-Received: by 2002:a05:6938:a08d:20b0:c21:49df:1650 with SMTP id a640c23a62f3a-c2149df299fmr965482666b.8.1787065795586;
-        Tue, 18 Aug 2026 08:09:55 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c217fea1e64sm211199866b.21.2026.08.18.08.09.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Aug 2026 08:09:55 -0700 (PDT)
-Message-ID: <f40e4f98-d6eb-44d6-8229-0afdfcc0caf6@linaro.org>
-Date: Tue, 18 Aug 2026 16:09:53 +0100
+	Tue, 18 Aug 2026 15:12:52 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=zcXaVWatLpL7/RdbQQ2WrrsyzHLPRXP+4I2Sczy5kXw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1787065968; v=1; x=1787670768;
+ b=ciETGmFu7bF3VQ2k9Nm3a6R5SzgHP6We0W+rxItrHIxQbRDreSjYy9Pycd9i8/VM9FxbUG+Y
+ HIfULnmC9aVnfIMrs8xifiXwnqd22pw9oaSnCsDPbnMzs8y7oxMzi3y4yr19JJs/nnLaioJEapc
+ Eil+h6yBEzze+Yf66OMVIgOA=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from mail-lf1-f44.google.com (209.85.167.44)
+	by smtp.migadu.com with ESMTPS id bed8d26a59550324;
+	Tue, 18 Aug 2026 15:12:48 +0000
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5b2a73da7e1so10133e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 08:12:44 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rpqpdxk94ewH3ZT3/IoK74GlFsSQ4Ma9THoH5ehFhl+iftVXUOlrgvsbRd/+FLxjzesBVG9QTEmaeYxRKBbmrj/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0tut2hgoOoexXKDIR9/bv4ZUKsSz7CdefafNpokhrzEXL7vzv
+	tNHfeDyUMg1l1E3HjoA06qpDBfemCyR9Jj3qOPDBhYJamg6ktm4qvOfTyXB1krF2q8z9iEzwqQ/
+	3XSRdqOLZX0ze+Ti+biVKtOgKULFXhLXXYCWZD3zx
+X-Received: by 2002:a05:6512:3043:b0:5ae:cf5f:4a88 with SMTP id
+ 2adb3069b0e04-5b471fe2eaamr248656e87.8.1787065963317; Tue, 18 Aug 2026
+ 08:12:43 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] perf cs-etm: Add branch history to existing
- samples
-To: Amir Ayupov <aaupov@fb.com>
-Cc: linux-doc@vger.kernel.org, Mike Leach <mike.leach@arm.com>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Swapnil Sapkal <swapnil.sapkal@amd.com>, linux-perf-users@vger.kernel.org,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Leo Yan <leo.yan@arm.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, John Garry
- <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>
-References: <cover.1787005265.git.aaupov@fb.com>
- <454bc49f51eeef9f758fc2d2c7af75889d8aff46.1787005265.git.aaupov@fb.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <454bc49f51eeef9f758fc2d2c7af75889d8aff46.1787005265.git.aaupov@fb.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260731143541.956291-1-vdonnefort@google.com> <20260731143541.956291-8-vdonnefort@google.com>
+In-Reply-To: <20260731143541.956291-8-vdonnefort@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 18 Aug 2026 16:12:07 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTxaAkaRCUZde1V-Yung=nyijNiAFwMn8dhybX8bBNkWbw@mail.gmail.com>
+X-Gm-Features: AcwNN1XBJdfsPYtMpm85e5PM2ifMZS2wEEeUZmdNnCoOL7mNy6DaxFfHeMlCzd8
+Message-ID: <CA+EHjTxaAkaRCUZde1V-Yung=nyijNiAFwMn8dhybX8bBNkWbw@mail.gmail.com>
+Subject: Re: [PATCH v4 07/17] KVM: arm64: Add PKVM_HYP_REQ_HYP_ALLOC request
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
+	qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_080958_147759_02AB5A3B 
-X-CRM114-Status: GOOD (  45.28  )
+X-CRM114-CacheID: sfid-20260818_081250_734303_B226D72B 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,440 +82,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 31 Jul 2026 at 15:36, 'Vincent Donnefort' via kernel-team
+<kernel-team@android.com> wrote:
+>
+> Introduce a new pkvm_hyp_request type asking the host to top up the pKVM
+> heap allocator.
+>
+> Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-On 17/08/2026 23:22, Amir Ayupov wrote:
-> Implement --itrace=L for CoreSight ETM: decode timestamped trace up to
-> each existing PMU sample and attach the branch history that led to it.
-> The sample keeps its own ip, callchain and event identity, and a sample
-> that already carries a branch stack is left alone.
-> 
-> Samples are correlated with the trace by time, so this requires virtual
-> ETM timestamps that are correlated to perf time; timeless decoding is
-> rejected. The decode loop, which the previous patch left on its own in
-> cs_etm__process_timestamped_queues(), grows a timestamp argument and
-> stops once the decode frontier reaches it, so on return the
-> thread stack holds the branches that executed before the sample and none
-> that executed after. Attaching then reduces to the same
-> thread_stack__br_sample_late() call intel-pt uses.
-> 
-> No explicit sample-to-queue matching is needed:
-> thread_stack__br_sample_late() keys on the thread, and the thread stack
-> is already emptied whenever the decoder reports a discontinuity. The one
-> case that was not covered is a queue whose trace runs out: flush the
-> thread stack there too, otherwise samples recorded after the last trace
-> would pick up stale history.
-> 
-> Take the branch history when attaching it rather than leaving it in the
-> thread stack. With AUX pause and resume, a pause sample ends a completed
-> trace window and that window belongs to the sample. Execution while AUX
-> is paused is not traced, so retaining the window would let a later sample
-> reuse branches from before the untraced gap. Consuming it ensures that a
-> sample with no newly decoded trace gets an empty branch stack instead.
-> 
-> As with intel-pt, the internal reconstruction ring is kept deeper than
-> the requested output depth to cover branches decoded between the sampled
-> ip and the point at which the sample time was recorded, so --itrace=L<n>
-> can actually return n entries. Kernel-inclusive trace gets the same
-> conservative 1024-entry headroom that intel-pt uses.
-> 
-> Assisted-by: Devmate:GPT-5.6
-> Signed-off-by: Amir Ayupov <aaupov@fb.com>
-> ---
->   tools/perf/util/cs-etm.c       | 185 +++++++++++++++++++++++++++++++--
->   tools/perf/util/thread-stack.c |  17 +++
->   tools/perf/util/thread-stack.h |   1 +
->   3 files changed, 195 insertions(+), 8 deletions(-)
-> 
-> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-> index 4d895f11deb7f..00407a80933e1 100644
-> --- a/tools/perf/util/cs-etm.c
-> +++ b/tools/perf/util/cs-etm.c
-> @@ -72,6 +72,11 @@ struct cs_etm_auxtrace {
->   	bool use_callchain;
->   
->   	int num_cpu;
-> +	/* Output depth requested with --itrace=L<n> */
-> +	unsigned int br_stack_sz;
-> +	/* Internal reconstruction depth, see cs_etm__br_stack_init() */
-> +	unsigned int br_stack_sz_plus;> +	struct branch_stack *br_stack;
->   	u64 latest_kernel_timestamp;
->   	u32 auxtrace_type;
->   	u32 branches_filter;
-> @@ -91,6 +96,7 @@ struct cs_etm_traceid_queue {
->   	u64 kernel_start;
->   	union perf_event *event_buf;
->   	unsigned int br_stack_sz;
-> +	unsigned int br_stack_sz_plus;
->   	struct branch_stack *last_branch;
->   	struct ip_callchain *callchain;
->   	struct cs_etm_packet *prev_packet;
-> @@ -141,7 +147,8 @@ struct cs_etm_queue {
->   };
->   
->   static int cs_etm__update_queues(struct cs_etm_auxtrace *etm);
-> -static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm);
-> +static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm,
-> +					      u64 timestamp);
->   static int cs_etm__flush_timestamped_queues(struct cs_etm_auxtrace *etm);
->   static int cs_etm__process_timeless_queues(struct cs_etm_auxtrace *etm,
->   					   pid_t tid);
-> @@ -165,6 +172,7 @@ static int cs_etm__metadata_set_trace_id(u8 trace_chan_id, u64 *cpu_metadata);
->   #define TO_QUEUE_NR(cs_queue_nr) (cs_queue_nr >> 16)
->   #define TO_TRACE_CHAN_ID(cs_queue_nr) (cs_queue_nr & 0x0000ffff)
->   #define SINK_UNSET ((u32) -1)
-> +#define MAX_TIMESTAMP (~0ULL)
->   
->   static u32 cs_etm__get_v7_protocol_version(u32 etmidr)
->   {
-> @@ -674,7 +682,8 @@ static int cs_etm__init_traceid_queue(struct cs_etm_queue *etmq,
->   		if (!tidq->last_branch)
->   			goto out_free;
->   
-> -		tidq->br_stack_sz = etm->synth_opts.last_branch_sz;
-> +		tidq->br_stack_sz = etm->br_stack_sz;
-> +		tidq->br_stack_sz_plus = etm->br_stack_sz_plus;
->   	}
->   
->   	if (etm->synth_opts.callchain) {
-> @@ -794,7 +803,7 @@ static void cs_etm__packet_swap(struct cs_etm_auxtrace *etm,
->   	struct cs_etm_packet *tmp;
->   
->   	if (etm->synth_opts.branches || etm->synth_opts.last_branch ||
-> -	    etm->synth_opts.instructions) {
-> +	    etm->synth_opts.add_last_branch || etm->synth_opts.instructions) {
->   		/*
->   		 * Swap PACKET with PREV_PACKET: PACKET becomes PREV_PACKET for
->   		 * the next incoming packet.
-> @@ -963,7 +972,7 @@ static int cs_etm__flush_events(struct perf_session *session,
->   	if (ret)
->   		return ret;
->   
-> -	ret = cs_etm__process_timestamped_queues(etm);
-> +	ret = cs_etm__process_timestamped_queues(etm, MAX_TIMESTAMP);
->   	if (ret)
->   		return ret;
->   
-> @@ -1060,6 +1069,7 @@ static void cs_etm__free(struct perf_session *session)
->   		zfree(&aux->metadata[i]);
->   
->   	zfree(&aux->metadata);
-> +	zfree(&aux->br_stack);
->   	zfree(&aux);
->   }
->   
-> @@ -1597,7 +1607,8 @@ static void cs_etm__add_stack_event(struct cs_etm_queue *etmq,
->   	u64 from, to;
->   	int size;
->   
-> -	if (!etm->synth_opts.branches && !etm->synth_opts.instructions)
-> +	if (!etm->synth_opts.branches && !etm->synth_opts.instructions &&
-> +	    !etm->synth_opts.add_last_branch)
->   		return;
->   
->   	if (!cs_etm__packet_has_taken_branch(tidq->prev_packet))
-> @@ -1614,7 +1625,7 @@ static void cs_etm__add_stack_event(struct cs_etm_queue *etmq,
->   				    tidq->prev_packet->flags, from, to, size,
->   				    etmq->buffer->buffer_nr + 1,
->   				    etmq->etm->use_callchain,
-> -				    tidq->br_stack_sz, 0);
-> +				    tidq->br_stack_sz_plus, 0);
->   	} else {
->   		thread_stack__set_trace_nr(tidq->frontend_thread,
->   					   tidq->prev_packet->cpu,
-> @@ -2817,7 +2828,8 @@ static int cs_etm__update_queues(struct cs_etm_auxtrace *etm)
->   	return ret;
->   }
->   
-> -static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
-> +static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm,
-> +					      u64 timestamp)
->   {
->   	int ret = 0;
->   	unsigned int cs_queue_nr, queue_nr;
-> @@ -2831,6 +2843,9 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
->   		if (!etm->heap.heap_cnt)
->   			break;
->   
-> +		if (etm->heap.heap_array[0].ordinal >= timestamp)
-> +			break;
+Cheers,
+/fuad
+
+>
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index 043495f7fc78..b77acfd7d1c8 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -89,6 +89,7 @@ enum __kvm_host_smccc_func {
+>         __KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
+>         __KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
+>         __KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
+> +       __KVM_HOST_SMCCC_FUNC___pkvm_hyp_topup,
+>
+>         MARKER(__KVM_HOST_SMCCC_FUNC_PKVM_ONLY),
+>
+> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> index 6c2497047f8d..99daa985856f 100644
+> --- a/arch/arm64/include/asm/kvm_pkvm.h
+> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> @@ -17,6 +17,10 @@
+>
+>  #define HYP_MEMBLOCK_REGIONS 128
+>
+> +enum pkvm_topup_id {
+> +       PKVM_TOPUP_HYP_ALLOC,
+> +};
 > +
->   		/* Take the entry at the top of the min heap */
->   		cs_queue_nr = etm->heap.heap_array[0].queue_nr;
->   		queue_nr = TO_QUEUE_NR(cs_queue_nr);
-> @@ -2878,8 +2893,25 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
->   		 * No more auxtrace_buffers to process in this etmq, simply
->   		 * move on to another entry in the auxtrace_heap.
->   		 */
-> -		if (!ret)
-> +		if (!ret) {
-> +			/*
-> +			 * The trace for this physical queue is exhausted. Drop
-> +			 * branch history for every trace ID it carried so that
-> +			 * samples arriving later cannot pick up entries decoded
-> +			 * before the gap.
-> +			 */
-> +			if (etm->synth_opts.add_last_branch) {
-> +				struct int_node *inode;
+>  int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
+>  int pkvm_create_hyp_vm(struct kvm *kvm);
+>  bool pkvm_hyp_vm_is_created(struct kvm *kvm);
+> @@ -201,6 +205,7 @@ struct pkvm_mapping {
+>
+>  enum pkvm_hyp_req_type {
+>         PKVM_HYP_NO_REQ = 0,
+> +       PKVM_HYP_REQ_HYP_ALLOC,
+>         __PKVM_HYP_REQ_TYPE_MAX,
+>  };
+>
+> @@ -222,9 +227,13 @@ struct pkvm_hyp_req {
+>
+>  static inline size_t pkvm_hyp_req_arg_size(u8 type)
+>  {
+> +       struct pkvm_hyp_req *req;
 > +
-> +				intlist__for_each_entry(inode, etmq->traceid_queues_list) {
-> +					int idx = (int)(intptr_t)inode->priv;
-> +
-> +					tidq = etmq->traceid_queues[idx];
-> +					thread_stack__flush(tidq->frontend_thread);
-> +				}
-> +			}
->   			continue;
-> +		}
->   
->   		ret = cs_etm__decode_data_block(etmq);
->   		if (ret)
-> @@ -3011,6 +3043,116 @@ static int cs_etm__process_switch_cpu_wide(struct cs_etm_auxtrace *etm,
->   	return 0;
->   }
->   
-> +static bool cs_etm__tracing_kernel(struct cs_etm_auxtrace *etm,
-> +				   struct perf_session *session)
+>         switch (type) {
+>         case PKVM_HYP_NO_REQ:
+>                 return 0;
+> +       case PKVM_HYP_REQ_HYP_ALLOC:
+> +               return sizeof(req->mem);
+>         default:
+>                 WARN_ON(1);
+>         }
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index d3c69de698f4..439b91fc8aec 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -15,6 +15,7 @@
+>  #include <asm/kvm_hypevents.h>
+>  #include <asm/kvm_mmu.h>
+>
+> +#include <nvhe/alloc.h>
+>  #include <nvhe/ffa.h>
+>  #include <nvhe/mem_protect.h>
+>  #include <nvhe/mm.h>
+> @@ -632,6 +633,30 @@ static void handle___pkvm_finalize_teardown_vm(struct kvm_cpu_context *host_ctxt
+>         cpu_reg(host_ctxt, 1) = __pkvm_finalize_teardown_vm(handle);
+>  }
+>
+> +static void handle___pkvm_hyp_topup(struct kvm_cpu_context *host_ctxt)
 > +{
-> +	struct evsel *evsel;
+> +       DECLARE_REG(enum pkvm_topup_id, id, host_ctxt, 1);
+> +       DECLARE_REG(phys_addr_t, head, host_ctxt, 2);
+> +       DECLARE_REG(unsigned long, nr_pages, host_ctxt, 3);
+> +       struct kvm_hyp_memcache host_mc = {
+> +               .head = head,
+> +               .nr_pages = nr_pages,
+> +       };
+> +       int ret;
 > +
-> +	evlist__for_each_entry(session->evlist, evsel) {
-> +		if (evsel->core.attr.type == etm->pmu_type &&
-> +		    !evsel->core.attr.exclude_kernel)
-> +			return true;
-> +	}
+> +       switch (id) {
+> +       case PKVM_TOPUP_HYP_ALLOC:
+> +               ret = hyp_alloc_topup(&host_mc);
+> +               break;
+> +       default:
+> +               ret = -EINVAL;
+> +       }
 > +
-> +	return false;
+> +       cpu_reg(host_ctxt, 1) = ret;
+> +       cpu_reg(host_ctxt, 2) = host_mc.head;
+> +       cpu_reg(host_ctxt, 3) = host_mc.nr_pages;
 > +}
 > +
-> +static int cs_etm__br_stack_init(struct cs_etm_auxtrace *etm,
-> +				 struct perf_session *session)
+>  static void handle___tracing_load(struct kvm_cpu_context *host_ctxt)
+>  {
+>         DECLARE_REG(unsigned long, desc_hva, host_ctxt, 1);
+> @@ -740,6 +765,7 @@ static const hcall_t host_hcall[] = {
+>         HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
+>         HANDLE_FUNC(__vgic_v5_save_apr),
+>         HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
+> +       HANDLE_FUNC(__pkvm_hyp_topup),
+>
+>         HANDLE_FUNC(__pkvm_host_share_hyp),
+>         HANDLE_FUNC(__pkvm_host_unshare_hyp),
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index a626978dc91f..d26e7435d34d 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -88,6 +88,33 @@ void __init kvm_hyp_reserve(void)
+>                  hyp_mem_base);
+>  }
+>
+> +static int pkvm_hyp_topup(enum pkvm_topup_id id, unsigned long nr_pages)
 > +{
-> +	struct evsel *evsel;
+> +       struct kvm_hyp_memcache mc;
+> +       struct arm_smccc_res res;
+> +       int ret;
 > +
-> +	evlist__for_each_entry(session->evlist, evsel) {
-> +		/*
-> +		 * Only timestamped events can be matched against the decoded
-> +		 * trace, so do not advertise a branch stack on any other.
-> +		 */
-> +		if (!(evsel->core.attr.sample_type & PERF_SAMPLE_TIME))
-> +			continue;
-
-Do you not also want to check for the coresight virtual timestamp option 
-here for the same reason? Although I do see that checked somewhere else 
-below.
-
-> +		if (!(evsel->core.attr.sample_type & PERF_SAMPLE_BRANCH_STACK))
-> +			evsel->synth_sample_type |= PERF_SAMPLE_BRANCH_STACK;
-> +	}
+> +       init_hyp_memcache(&mc);
+> +       ret = topup_hyp_memcache(&mc, nr_pages);
+> +       if (ret)
+> +               goto err;
 > +
-> +	/*
-> +	 * Additional branch stack depth to cater for the branches decoded
-> +	 * between the sampled ip and the point at which the sample time was
-> +	 * recorded. Those are trimmed by thread_stack__br_sample_late(), so
-
-How does the trimmer know what branches came after an IP? I could 
-understand trimming between two timestamps, but not between one IP and 
-one timestamp.
-
-> +	 * the extra depth keeps the requested output depth achievable. If
-> +	 * kernel space is not traced, only the branch into the kernel needs
-> +	 * to be accounted for.
-> +	 */
-
-I'm not sure if this description is missing something, but I can't 
-understand why this needs to be done. Or how kernel tracing affects it.
-
-> +	if (cs_etm__tracing_kernel(etm, session))
-> +		etm->br_stack_sz_plus += 1024;
-> +	else
-> +		etm->br_stack_sz_plus += 1;
+> +       arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(__pkvm_hyp_topup), id, mc.head,
+> +                         mc.nr_pages, &res);
+> +       if (WARN_ON_ONCE(res.a0 != SMCCC_RET_SUCCESS)) {
+> +               ret = -EINVAL;
+> +               goto err;
+> +       }
 > +
-> +	etm->br_stack = zalloc(sizeof(struct branch_stack) +
-> +			       etm->br_stack_sz * sizeof(struct branch_entry));
-> +	if (!etm->br_stack)
-> +		return -ENOMEM;
+> +       ret = res.a1;
+> +       mc.head = res.a2;
+> +       mc.nr_pages = res.a3;
 > +
-> +	return 0;
+> +err:
+> +       free_hyp_memcache(&mc);
+> +       return ret;
 > +}
 > +
-> +/*
-> + * Add decoded branch history to an existing sample. The sample keeps its own
-> + * ip, callchain and event identity; only an absent branch stack is filled in.
-> + */
-> +static int cs_etm__process_sample(struct cs_etm_auxtrace *etm,
-> +				  struct perf_session *session,
-> +				  struct perf_sample *sample)
-> +{
-> +	struct machine *machine = &session->machines.host;
-> +	struct thread *thread;
-> +	int err;
-> +
-> +	if (!etm->synth_opts.add_last_branch || sample->branch_stack ||
-> +	    !sample->ip || !sample->time || sample->time == (u64)-1)
-> +		return 0;
-> +
-> +	/* Adding branch history to existing samples supports the host only */
-> +	if (sample->cpumode == PERF_RECORD_MISC_GUEST_KERNEL ||
-> +	    sample->cpumode == PERF_RECORD_MISC_GUEST_USER)
-> +		return 0;
-> +
-> +	err = cs_etm__update_queues(etm);
-> +	if (err)
-> +		return err;
-> +
-> +	/*
-> +	 * Decode every queue up to this sample's time. Afterwards the thread
-> +	 * stack holds the branches that executed before the sample, and
-> +	 * nothing that executed after it.
-> +	 */
-> +	err = cs_etm__process_timestamped_queues(etm, sample->time);
-> +	if (err)
-> +		return err;
-> +
-> +	thread = machine__findnew_thread(machine, sample->pid, sample->tid);
-> +	if (!thread)
-> +		return -ENOMEM;
-> +
-> +	/*
-> +	 * Take the branch history rather than copying it. The trace window
-> +	 * belongs to the sample that ends it, so once it has been attached a
-> +	 * later sample with nothing newly decoded finds an empty stack rather
-> +	 * than being given an earlier window's branches. That is the common
-> +	 * case whenever the trace is duty cycled, by AUX pause/resume or by
-> +	 * ETM strobing.
-> +	 */
-> +	thread_stack__br_sample_late(thread, sample->cpu, etm->br_stack,
-> +				     etm->br_stack_sz, sample->ip,
-> +				     machine__kernel_start(machine));
-> +	thread_stack__br_stack_consume(thread, sample->cpu);
-> +
-> +	if (etm->br_stack->nr)
-> +		sample->branch_stack = etm->br_stack;
-
-How does this work? We have a queue for each CPU, and decoding happens 
-in parallel (kind of), but when a Perf sample arrives we just attach the 
-stack from the global br_stack? Shouldn't we look at the CPU of the 
-sample and use cs_etm__get_queue() to get the right queue and branch stack?
-
-Maybe it's not functionally different if br_stack always happens to be 
-set from the queue related to the last Perf sample, but it would be 
-nicer to not have to assume.
-
-You might want to check "[PATCH 00/14] perf cs-etm: Per-thread mode 
-fixes and snapshot wrap support" because it changes to a per-CPU queue 
-even for per-thread mode which could help.
-
-> +
-> +	thread__put(thread);
-> +
-> +	return 0;
-> +}
-> +
->   static int cs_etm__process_event(struct perf_session *session,
->   				 union perf_event *event,
->   				 struct perf_sample *sample,
-> @@ -3049,6 +3191,9 @@ static int cs_etm__process_event(struct perf_session *session,
->   	case PERF_RECORD_SWITCH_CPU_WIDE:
->   		return cs_etm__process_switch_cpu_wide(etm, event);
->   
-> +	case PERF_RECORD_SAMPLE:
-> +		return cs_etm__process_sample(etm, session, sample);
-> +
-
-Don't we want to generalise this and process trace up to the timestamp 
-of _any_ event. Can we move the cs_etm__process_timestamped_queues() 
-call into cs_etm__process_event().
-
-Surely we want to always decode up to any event if coresight virtual 
-timestamps are enabled? That way we access the right mmaps too and the 
-decode order doesn't change depending on the branch stack options.
-
->   	case PERF_RECORD_AUX:
->   		/*
->   		 * Record the latest kernel timestamp available in the header
-> @@ -3752,11 +3897,34 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
->   
->   	etm->use_thread_stack = etm->synth_opts.thread_stack ||
->   				etm->synth_opts.last_branch ||
-> +				etm->synth_opts.add_last_branch ||
->   				etm->synth_opts.callchain;
->   
->   	etm->use_callchain = etm->synth_opts.thread_stack ||
->   			     etm->synth_opts.callchain;
->   
-> +	if (etm->synth_opts.last_branch || etm->synth_opts.add_last_branch) {
-> +		etm->br_stack_sz = etm->synth_opts.last_branch_sz;
-> +		etm->br_stack_sz_plus = etm->br_stack_sz;
-> +	}
-> +
-> +	if (etm->synth_opts.add_last_branch) {
-> +		/*
-> +		 * Existing samples are matched to decoded trace by time, so
-> +		 * the trace must carry timestamps that are correlated to perf
-> +		 * time and the queues must be decoded in time order.
-> +		 */
-> +		if (etm->timeless_decoding || !etm->has_virtual_ts) {
-> +			pr_err("CS ETM Trace: --itrace=L requires virtual timestamped trace\n");
-> +			err = -EINVAL;
-> +			goto err_free_queues;
-> +		}
-> +
-> +		err = cs_etm__br_stack_init(etm, session);
-> +		if (err)
-> +			goto err_free_queues;
-> +	}
-> +
->   	err = cs_etm__synth_events(etm, session);
->   	if (err)
->   		goto err_free_queues;
-> @@ -3812,6 +3980,7 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
->   	auxtrace_queues__free(&etm->queues);
->   	session->auxtrace = NULL;
->   err_free_etm:
-> +	zfree(&etm->br_stack);
->   	zfree(&etm);
->   err_free_metadata:
->   	/* No need to check @metadata[j], free(NULL) is supported */
-> diff --git a/tools/perf/util/thread-stack.c b/tools/perf/util/thread-stack.c
-> index 1360f44421ef8..2713a2ad70b69 100644
-> --- a/tools/perf/util/thread-stack.c
-> +++ b/tools/perf/util/thread-stack.c
-> @@ -614,6 +614,23 @@ void thread_stack__sample_late(struct thread *thread, int cpu,
->   	}
->   }
->   
-> +/*
-> + * Branch history belongs to the sample that ends the trace window, so a
-> + * decoder that attaches it to an existing sample should take it rather than
-> + * copy it. A later sample with no newly decoded trace then finds an empty
-> + * branch stack instead of the previous window's branches.
-> + */
-> +void thread_stack__br_stack_consume(struct thread *thread, int cpu)
-> +{
-> +	struct thread_stack *ts = thread__stack(thread, cpu);
-> +
-> +	if (!ts || !ts->br_stack_rb)
-> +		return;
-> +
-> +	ts->br_stack_pos = 0;
-> +	ts->br_stack_rb->nr = 0;
-> +}
-> +
->   void thread_stack__br_sample(struct thread *thread, int cpu,
->   			     struct branch_stack *dst, unsigned int sz)
->   {
-> diff --git a/tools/perf/util/thread-stack.h b/tools/perf/util/thread-stack.h
-> index b3cd09beb62f0..2aec292bd1bcb 100644
-> --- a/tools/perf/util/thread-stack.h
-> +++ b/tools/perf/util/thread-stack.h
-> @@ -88,6 +88,7 @@ void thread_stack__sample(struct thread *thread, int cpu, struct ip_callchain *c
->   void thread_stack__sample_late(struct thread *thread, int cpu,
->   			       struct ip_callchain *chain, size_t sz, u64 ip,
->   			       u64 kernel_start);
-> +void thread_stack__br_stack_consume(struct thread *thread, int cpu);
->   void thread_stack__br_sample(struct thread *thread, int cpu,
->   			     struct branch_stack *dst, unsigned int sz);
->   void thread_stack__br_sample_late(struct thread *thread, int cpu,
-
+>  static void __pkvm_destroy_hyp_vm(struct kvm *kvm)
+>  {
+>         if (pkvm_hyp_vm_is_created(kvm)) {
+> @@ -599,6 +626,9 @@ static int pkvm_handle_hyp_req(struct pkvm_hyp_req *req)
+>         int ret = -EINVAL;
+>
+>         switch (req->type) {
+> +       case PKVM_HYP_REQ_HYP_ALLOC:
+> +               ret = pkvm_hyp_topup(PKVM_TOPUP_HYP_ALLOC, req->mem.nr_pages);
+> +               break;
+>         }
+>
+>         trace_kvm_handle_pkvm_hyp_req(req, ret);
+> diff --git a/arch/arm64/kvm/trace_pkvm.h b/arch/arm64/kvm/trace_pkvm.h
+> index 3966c111e3ad..493225e3282d 100644
+> --- a/arch/arm64/kvm/trace_pkvm.h
+> +++ b/arch/arm64/kvm/trace_pkvm.h
+> @@ -9,9 +9,11 @@
+>  #define TRACE_SYSTEM kvm
+>
+>  TRACE_DEFINE_ENUM(PKVM_HYP_NO_REQ);
+> +TRACE_DEFINE_ENUM(PKVM_HYP_REQ_HYP_ALLOC);
+>
+> -#define PKVM_HYP_REQ_TYPES \
+> -       { PKVM_HYP_NO_REQ, "NO_REQ" }
+> +#define PKVM_HYP_REQ_TYPES                             \
+> +       { PKVM_HYP_NO_REQ, "NO_REQ" },                  \
+> +       { PKVM_HYP_REQ_HYP_ALLOC, "HYP_ALLOC" }
+>
+>  TRACE_EVENT(kvm_handle_pkvm_hyp_req,
+>         TP_PROTO(struct pkvm_hyp_req *req, int ret),
+> --
+> 2.55.0.508.g3f0d502094-goog
+>
+> To unsubscribe from this group and stop receiving emails from it, send an email to kernel-team+unsubscribe@android.com.
+>
 
