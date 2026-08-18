@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83600C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 14:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCACAC5DF74
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 14:58:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=neK2JaH11CvGMxWIp1XEqkxU0+X+dCwL3hHK/4h4EX4=; b=0guLRZKAVs1R59bI9DlsUr4ynu
-	w033AiC8PH2BAixfF8Vb8yDjmflS4nKa59p4ffTmOGgtfPy1aBWGlrF0PSpeFY8VVwQ2f5Duy6DLs
-	bqd/PbyfaUvfVE4E3FEV2c7CJJt1i+N6TcVjBLsJgcM4QEp0cApfpTdmmXDAt2XMOdE2paJgLTIi4
-	7PLpAbrn8tywPjnYCmMQdSG6kVuTVHOM3p+MwfBqqrROFOnhqhRiTYolMC8+CkIw5Dk8L6uvpMq4n
-	6tvOjz3cak5wyYQGOJIVro0h21FS2Clc+FJxnyQ439lkZKvzgcNPpPld4pxz6g2X2cEh3ppoACCMA
-	DM8hIPjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UAkcgdEMwmE9sdUoY4qewo8s31VVAONo66F8/bIGiz8=; b=l/hl0UqOe+u48U8pspBLKOEnzj
+	xC1lA0koCJ1GQce+LDv8ty9YjjGMwiHMXaN59zUiYkjT3wCa4C0N3Tq9jPN6l0nthu8rVG6zhpsNB
+	59AlYakVRT3PAbEjk58smFFkZ0W5AQt2ZDCrK86XqQXJhgUXorJDL2Cfq7BF1Ti0dD+AA7nyR3Boj
+	kqRlfkYlDbV4S5blDqKYZqqMi8YjKrGdDIG9xRbvGsC9bJ1WNo2GxSs6YZlHhv7pfmwM7YLPZziVj
+	CAK6ryL/4jqYCd5t/hcqlF0Ip4SMEesIHysWsz3tLRBSLPcyP9iLz/15IhLKiS7SmOXHr9i8X/5IV
+	vO+XxBfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLC7-00000008Clf-1Byu;
-	Tue, 18 Aug 2026 14:53:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wwLGb-00000008DDC-44LP;
+	Tue, 18 Aug 2026 14:58:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLC6-00000008ClT-02WY
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 14:53:38 +0000
+	id 1wwLGa-00000008DCT-2Lmu;
+	Tue, 18 Aug 2026 14:58:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2F5BF600AD;
-	Tue, 18 Aug 2026 14:53:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8612B1F000E9;
-	Tue, 18 Aug 2026 14:53:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 53A9C4120F;
+	Tue, 18 Aug 2026 14:58:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95E6D1F000E9;
+	Tue, 18 Aug 2026 14:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787064816;
-	bh=neK2JaH11CvGMxWIp1XEqkxU0+X+dCwL3hHK/4h4EX4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=GM6OC7ryr4qSDg6PuZ+CZYelvm0V99JVbkDZEjHp640t/vN2e60J7/B5nOyffBCWo
-	 ZdZWCqtnISKA+TfmxspOgNC+vq56kt0tAqbY4wQKdAHEMzD0MpS3bXb48gL7yEqnfW
-	 JL2CAHqJXTCiceK/Dze8H42gquBt7WcU1xhJUnsapa1i/19W/1BzH03GMHDX1TIWjg
-	 J9EE/jSrgZqMJjqMot+TPqeWW13wIGwdXlVJWu61ikb2MgDNqpgPbjkIJBnkHXbjb1
-	 K/o0WjLbbVidxa5Eqz1XLx8suOKb49kdIOdkkoyE5BBmjUzowwUG5FU+c4EeImzQ1H
-	 kOQOhqwQnTWCg==
-Date: Tue, 18 Aug 2026 07:53:35 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Kurt Kanzenbach <kurt@linutronix.de>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: Re: [PATCH net-next] net: stmmac: stm32: Set TSO/TBS Tx queues
- default settings
-Message-ID: <20260818075335.48936b08@kernel.org>
-In-Reply-To: <87mrujzzjv.fsf@jax.kurt.home>
-References: <20260812-stm32mp2_txtime-v1-1-f9e2462cc85d@linutronix.de>
-	<20260817103337.74c30adc@kernel.org>
-	<87mrujzzjv.fsf@jax.kurt.home>
+	s=k20260515; t=1787065096;
+	bh=UAkcgdEMwmE9sdUoY4qewo8s31VVAONo66F8/bIGiz8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gxm/qsLK/jepvvBrLNu7hBTqsLfuIpD3GgIpFs5cidsKSl9iPBEXZog8OZYQsXY4/
+	 HwnDymvczFtUEK1rgDO8omopD4PnogHS32yDGzgtzSOT5E4Eq9OXELNvGCthAKexy2
+	 vdaYJLYqFO6jDEKAXxejuNgqFeLGZFhPMzagzItcGeteDH38JflsP3t7t/y4WzfmXg
+	 1zDgjpbseESHdmjKdhpXbLO3FyWh5H5mPgPTwdXK5XH+pXg5cE+bhUrNT/W0VgawSs
+	 3P7Tfekl7c0Ca6LSTRFrDC54h6AjAwd23jzOKfipgpb0tbc243/16jyJXwLImmtflH
+	 DMYWhOXQDK8Iw==
+Date: Tue, 18 Aug 2026 16:58:13 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: zhaohaiyang1 <yewentian395@gmail.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>, 
+	bcm-kernel-feedback-list@broadcom.com, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, linux-i2c@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	zhaohaiyang1 <zhaohaiyang1@xiaomi.com>
+Subject: Re: [PATCH] i2c: bcm2835: add missing braces to for loop in
+ bcm2835_i2c_xfer
+Message-ID: <aoRysYp25Ni4jMaL@zenone.zhora.eu>
+References: <20260817130234.372628-1-yewentian395@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260817130234.372628-1-yewentian395@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,48 +71,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Aug 2026 08:57:08 +0200 Kurt Kanzenbach wrote:
-> On Mon Aug 17 2026, Jakub Kicinski wrote:
-> > On Wed, 12 Aug 2026 08:28:57 +0200 Kurt Kanzenbach wrote: =20
-> >> TSO and TBS cannot coexist. Use the first queue with TSO and the rest =
-for
-> >> TBS. Tx queues with TBS can support etf qdisc hw offload. This is done
-> >> similar to dwmac-imx and dwmac-intel. =20
-> >
-> > Can you explain your use case? =20
->=20
-> I want to use ETF Qdisc with hardware offload, which is currently not
-> possible on the stm32mp2.
+Hi,
 
-Do you need multiple queues for ETF/normal traffic?
-Or one ETF and one "normal"?
+On Mon, Aug 17, 2026 at 09:02:34PM +0800, zhaohaiyang1 wrote:
+> From: zhaohaiyang1 <zhaohaiyang1@xiaomi.com>
+> 
+> Add curly braces around the multi-statement body of the for loop
+> that checks for unsupported read messages. This fixes a coding
+> style issue where the compound statement lacked explicit braces.
 
-How do you sort the traffic between the queues?
+it's not a multi statement body, if you look very carefully from
+closer, there is only one single solitary 'if' statement.
 
-> > And how many queues the device has in total? =20
->=20
-> The stm32mp2 has four Tx and two Rx queues.
->=20
-> > You say "TSO and TBS cannot coexist" but can any queue on your
-> > platform be configured to support either feature? =20
->=20
-> I think so. The data sheet says: "Do not enable time-based scheduling for
-> channels on which the TSO feature is enabled.". But, I didn't find any
-> limitations on what queue/channel can enable TBS.
+> Signed-off-by: zhaohaiyang1 <zhaohaiyang1@xiaomi.com>
 
-=F0=9F=91=8D=EF=B8=8F
+Please next time use your real name here.
 
-> > If yes why are we configuring this statically instead of making
-> > appropriate configuration based on qdisc or some other uAPI knob? =20
->=20
-> It seems like a static configuration in the driver today. I basically
-> followed the same convention as dwmac-imx, dwmac-intel, dwmac-mediatek
-> and dwmac-qcom-ethqos. Only dwmac-socfpga does it differently.
->=20
-> Tx Launch Time requires a different DMA descriptor layout. Currently
-> tc_setup_etf() just returns -EINVAL if the DMA configuration is not
-> setup appropriately. I guess a dynamic configuration requires to change
-> the DMA config and perform a full release/open cycle.
+Thanks,
+Andi
 
-release/open is not ideal but still better than hardcoding?
+> ---
+>  drivers/i2c/busses/i2c-bcm2835.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/i2c/busses/i2c-bcm2835.c b/drivers/i2c/busses/i2c-bcm2835.c
+> index 8554e790f8e3..76d017cf1582 100644
+> --- a/drivers/i2c/busses/i2c-bcm2835.c
+> +++ b/drivers/i2c/busses/i2c-bcm2835.c
+> @@ -349,12 +349,13 @@ static int bcm2835_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg msgs[],
+>  	unsigned long time_left;
+>  	int i;
+>  
+> -	for (i = 0; i < (num - 1); i++)
+> +	for (i = 0; i < (num - 1); i++) {
+>  		if (msgs[i].flags & I2C_M_RD) {
+>  			dev_warn_once(i2c_dev->dev,
+>  				      "only one read message supported, has to be last\n");
+>  			return -EOPNOTSUPP;
+>  		}
+> +	}
+>  
+>  	i2c_dev->curr_msg = msgs;
+>  	i2c_dev->num_msgs = num;
+> -- 
+> 2.43.0
+> 
 
