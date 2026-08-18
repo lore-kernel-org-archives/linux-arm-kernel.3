@@ -4,145 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCEC0C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 22:03:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94D9C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 22:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o2drbkgZlh4qyEDNlYRs7ZOmbKY3/yfqRkbgXttKS+c=; b=cFZqkDcMV1lfsbQWvHxQfsSUsl
-	4fPsKzDksfhZ2KfAvuRQOzNwQpe1MQePi7yksZZ5u5uiOX45rzJQQgdoiNK/Y3Vok2tSXTkQswU/a
-	SlYYA2piMXFs/9NZ+663nufZ8OghCRi3fS6hfOfNw7Titv9KAlSbyDp1lwdFa3Jn4uV2opZSOGYkO
-	V5aoho/HnHNwFl8qCalLn6DefnaBDVDiQIAo4NznKdxgGz1OO0kS3tJ+HrwYvJtQLa2uWgaqhmkix
-	t36vvdpHowgV6pbyyhw24ACSdc889E+DB26nNOja/KUx5jPaK2DI1e9m+k7oAgIXPfhTJtZfct8dk
-	Kg2DixkA==;
+	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QRu84utBf9RlJY/tfttpbp3GRnV9u4StYipJJvH+meY=; b=O8i4oJP8Q3OKCmotRnyX91Zrkm
+	bpCdEXYRvyOiDWskeLFRJ2zFH2pJVjjxt4qpkm23E65HT/Koq7TfTJFOPBDn34yo1uQ4fgLFcHXQO
+	XIF5cSHLZw7Cx7/uf73wuAI++98EjkqJny/fN+yidQuXS8koGfJ4DGY0PPa/OeK3hgKD0mWqQ3qvB
+	xLDmkVQFEd24qa0At4kZiGmELtmsp8HJyc+4Cby8KyiliYjnyPQ+s6S0hsupW0YU1zO9Ih9uKcYzc
+	wyPkhLFl/AuxyQV5x1R9+gdbNdIvvsrUQQM+UwZC0WksJPJGH6rc6KACnUbqvtQbiwbQ8BB8Kmrke
+	jSlqMESg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwRtw-00000008iDV-04t3;
-	Tue, 18 Aug 2026 22:03:20 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wwRB8-00000008fKN-46DX;
+	Tue, 18 Aug 2026 21:17:02 +0000
+Received: from fout-a2-smtp.messagingengine.com ([103.168.172.145])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwRtt-00000008iD5-35H8
+	id 1wwRB6-00000008fJF-1nw5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 22:03:19 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67ILbIPh2524746
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 22:03:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	o2drbkgZlh4qyEDNlYRs7ZOmbKY3/yfqRkbgXttKS+c=; b=fhhjKy0TCVGLuY/l
-	NkxJ/DkN8tjzWxF3DMTCtchQ0gyFeb4YwdxzRM52VlTe4COcHQXEbeqYNPIBwL/q
-	tyuUpQw09Oo+RUWw5OHW0TqJnH6D+l2nudk51IaWVsMrhTcFN8W8Wn15++um54BI
-	bvobQ1lprFSjRaN5v8SYzQ0CtoMyB0c/LFDNvL4LyTvSF0OMT4tMxj71HgGHLfWO
-	/vTi999SA4shtDKFEOH3DWiuwdW9Un9tH3DS/r2KXVbFOrgk+d+PBV2ZhQ37kUJV
-	JmzvZmLxmHex5tymVaJeGodWQIuoN4w0DHbWzonnYJPRdcHisPSvMEnRmiJ8lLPP
-	YJiZlA==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g4yfk84dp-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 22:03:16 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-38ea32e57e2so788121a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 15:03:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787090595; x=1787695395; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=o2drbkgZlh4qyEDNlYRs7ZOmbKY3/yfqRkbgXttKS+c=;
-        b=HQfDyMFk5P9O5VpcZcF+atJMK5Uh5Yd9JrwqpzfnH/QLIwC1zalPIsBQl/4y/kIat3
-         4Yc1sHOvj3K+fqwuoBAp57sHsEQA4uE794Ch5fzDx/Cu1OkHpmIhl7XGMR2PdQb6/gRV
-         VUUXrME/bmjQWq56b4R+gmR7FdOcMjh64ntILKawSXQssckAxrJ7wN9XO2Bb9WnokkAi
-         MekWdhE1HGHRFWxGHFU9yAcDC/QtZfYORoM1CHLWpbFzfWtAo17/OLzSVPe6U6B3abjO
-         w7zyh9EmZh9dps8OWzHRvl11ElBJHM3b+adO86RsiE6gzamXk9JNIlOTqRzOvuvxwAuz
-         AHVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787090595; x=1787695395;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=o2drbkgZlh4qyEDNlYRs7ZOmbKY3/yfqRkbgXttKS+c=;
-        b=qOMLgAwth71wi/c5kSV8WdnrEEfwfI0gTuieaazWyRXtumzwSG2y+/3gzyxnU2kmn2
-         /h+gZLreriMVuw5Qvp9X6yP+qea13PWnwFiXxdNHdMnWtsZ2W6eVlB6xtsRRWiq1xzCV
-         PZGBidUP9VRfEcsi4vSL/0m4ZI57FLiLZEXH2gOPy88J5qSyf0gD0GjKU/j8DbZOpDyI
-         2xcaOe7Z99+G7YH7xarqfC+XntIv5UN6MwvEAHI6aB53VVqglKLQjelv3QtsyfLnMQ8Q
-         oJT7T7q8W/M6EMwRwJJXQ1pPiM15fvn9jGXXumGXgeCOmBtRYUsSnIq9YxJKW/H5xhwP
-         Pxxg==
-X-Forwarded-Encrypted: i=1; AHgh+RoZfy1+W3+LSJ7U1P6v+3L0H4vbkCpICbGzmk2hx1zdsDcSO5KND6LIky2zgs2uXlxbuAXmnPbXBQIytzV6eA9T@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyV4kV1y+PtciigYHMfPsHmM9WM6LwZdCkplb/VFiKjtggfDhD
-	lkGthikpMh3Xu5gyT3gC0eH/16yvEeyjTKsmAwyqL+VItKNUee46XBEjhpHVpQd2nUK5rX26j8Y
-	3xrsmn+i2Fb2uBAvJDCNM0460j7qECpgW8ZFSQhjakJqCybGE4NsKJqr90Me9IJ67+jycCTssit
-	yhRw==
-X-Gm-Gg: AR+sD12xObepAaEiJf6H0lRbuc/7MYp+OuMiaF1TULfq+bW9JZaWR51i8M1F0efrESY
-	Mkui6IJleConw2hX1AS6dZ5cfudAbfSR6HxNOApwV+IRJw/2RKBO/bDRTzbTJsrMFCMxkh9WpGX
-	eDqV1+dbXpyAkrlkQyFOcO88PAaStp6WgKaFWyMvCK/MLI1t9hCwq/vDkYG8c2KGWcoaXQETpca
-	5aS64RcFfs5TYQbfeija7/AI71c8wjtFW3I9H6m0zwr3u3n6yrioXHSgTYEYqku9JVn7JgrDs3a
-	qZ1g3FNhORs4nlIe9aXs9arXJxX4V2h+FtNmOSom64wGjBtWEY7OamAKatoJeRjC9MQCnekphqu
-	SS6/FydM/ynbZWuA6V7jlSh6YcQ==
-X-Received: by 2002:a17:90b:39ab:b0:38e:fea2:df53 with SMTP id 98e67ed59e1d1-39580ed4567mr75872a91.4.1787090595357;
-        Tue, 18 Aug 2026 15:03:15 -0700 (PDT)
-X-Received: by 2002:a17:90b:39ab:b0:38e:fea2:df53 with SMTP id 98e67ed59e1d1-39580ed4567mr75803a91.4.1787090594821;
-        Tue, 18 Aug 2026 15:03:14 -0700 (PDT)
-Received: from localhost ([50.35.46.84])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1416aea2429sm269654c88.15.2026.08.18.15.03.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Aug 2026 15:03:14 -0700 (PDT)
-Date: Tue, 18 Aug 2026 15:03:05 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-sound@vger.kernel.org,
-        Vincenzo Frascino
- <vincenzo.frascino@arm.com>,
-        Liam Girdwood <lgirdwood@gmail.com>, Mark
- Brown <broonie@kernel.org>,
-        Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
- <tiwai@suse.com>,
-        Michal Simek <michal.simek@amd.com>,
-        linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ
- ARCHITECTURE),
-        linux-kernel@vger.kernel.org (open list)
-Subject: Re: [PATCHv3] ASoC: xilinx: formatter_pcm: use more devm in probe
-Message-ID: <20260818150305.00000a2d@oss.qualcomm.com>
-In-Reply-To: <20260814204428.37786-1-rosenp@gmail.com>
-References: <20260814204428.37786-1-rosenp@gmail.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	Tue, 18 Aug 2026 21:17:02 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.phl.internal (Postfix) with ESMTP id 4E631EC0269;
+	Tue, 18 Aug 2026 17:16:55 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Tue, 18 Aug 2026 17:16:55 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm2; t=1787087814; x=1787174214; bh=QR
+	u84utBf9RlJY/tfttpbp3GRnV9u4StYipJJvH+meY=; b=S+Ii/gCSl85x8VAveT
+	p6WHBldNiwodEEfnJ6mT0/rzZ4Ae4vpqPBy+CHlgA6gNmBEC74KIH9cqrXnFg6cJ
+	StiLD9skTWtI4bdniUmqXU2nQFEd/DpM8/poMpw8l7pwAxMZN8AO3aN3gfmycCU6
+	XK61Yy2SkP/eC1SFBIWw6zc2IKpQK3UCqKzjyFPc029KWdjVtpaKHQgE5f/ldfeh
+	K5wVWpz7PE0PLZPeN3ilzdwIg/alym5bEp/pN6IopJBAtmbmLRWeYG1rVoUc2PPl
+	tjCpxkNBY1uXdj1cFJLAyCRPkQ8lxI8HvIx6vaMlfg8vFDUmo3qVxgnNfu/LP4+u
+	AllQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm3; t=1787087814; x=1787174214; bh=QRu84utBf9RlJY/tfttpbp3GRnV9
+	u4StYipJJvH+meY=; b=MyB9OvZaGVLMq0JYllhXMbL/pAs+ijZ9grYETkGnetSx
+	2TAECJ7eWRFp4Fhts1gW9H7/gZwvjN5MiRPMc4NralBS8n289+C3kWtMQRwCfvg/
+	pk9BzkoiKcYW2zCLLCWNs7LXzZnvFYj0TF1lhORK5YHaTtBH5kw38i6bZaNpfBrZ
+	Ej+Urr1fLUQWYJ9sxDYvPDcoxqjXq0j3/pXCI74jtFCGAVNcFRVa4rpLlMeJgtUg
+	X7R9LMxbY1Jj5E9UobT5B1OPZCJRCkCQgiqLwWZFLXfhiFgr4/nFMCNWM3axAVDZ
+	NRk88XzSG9xPEn8B3hDrLAXpd8Ns+dQlbkLs/kffZQ==
+X-ME-Sender: <xms:wsuEaiVMEiwt5btWgqlD21iYFzHSTu7OavJSHrWHed1CmaP7VGgVXg>
+    <xme:wsuEapZ93lc3ktDTJgPf9W-7YEQA3_RKjyleCIvWBGUZn9Ws-1jnzjoHMmZfIije5
+    IpWuVKBNmlTwCtyRlpOpHyfxUyXmh7tZha4gQEnqzxTTJcd-nUlTg>
+X-ME-Proxy-Cause: dmFkZTFmvl+Dgjtrsa4I8hy90pum+IuYwPVk9dNiWl7vAs+qDtJUiC+95qAU2aDJcW+/eh
+    Cv3lBoIjmiQjwA0ikUpl8aXxaX4PSCdmTtOsvMYGWQgY6QePwLLadN/K3Z0VWKdZKjjCaG
+    ez4pUIY2unaDHZtcFNFuApr6/15kK2/ECgUR09VYEqUL0oAxT9mGQrExAsfp+fXiAw4cL+
+    gm6KpXGjt1EkeqlLveA+0hptM0BrqcaJYrPvV5jqd2F05pCWvukEUj4XSuBTopB80tl2lq
+    zUlSpBUE0VRWeImAk0L+Hwup3KSxUAXdQWdSyeBCNafEkJ1xKqEbm6sw2bw9FZmPCDZiY6
+    w7JIDfR/y1XdT6h61ILZsKn1JD75oHTB2o8x0UEH5O83SihQp377AxHzHgOA6yiM4RHUtG
+    B5vL1e8K2aLECvP7Rx6vTXMz1RJKTVC9OV65Wi883HZ0nM5M7v1XCQGi8lDfDLCkkZ6fxd
+    tr5HOl3YUFcAPxgBMTS2lE3K9U5S089eBF0LH30c/R3NdvylcXdK2tZPNibR+bi00iGHQ7
+    5Z1O0T22Yy/mhHABP6Wm3HWGGkcEnN7kkXD6i5+eKFpl7QD/BgoOl68AXxIrxafoEQqesX
+    crmJHsff3M65pdy9FKcFcTYVGNoUA42LXkh4OVQi5QHh39oChoLt2lz5sWTg
+X-ME-Proxy: <xmx:w8uEakBdtFLlkLsccdynXONm2y01ALFImDfeJkg10YHEm9IYaH7sHA>
+    <xmx:w8uEatYawNTlfX30VLYqi0rtjVR8rMRNlHioBPyNWWFivL5GrDCehA>
+    <xmx:w8uEav5DQiLN5BeRHevbr7Bq6SOsWOxIlGn247YcIxK4QjhPMJHXkg>
+    <xmx:w8uEamZRFpdvkgOe5d8LGQz9_Wryv5FdWu2nIkZ0gGWOVQqFlXJ64A>
+    <xmx:xsuEajpaIaYhu5u88A1rWZ-w4stzZtdRlJ6m3S8sAjdJLmnLsSkG-3oh>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 1D77C32A0071; Tue, 18 Aug 2026 17:16:50 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+X-ThreadId: A4-L8ZROkOzV
+Date: Tue, 18 Aug 2026 23:16:29 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Message-Id: <c6f15430-90bd-4dcf-b35c-749753fcdd1f@app.fastmail.com>
+Subject: [GIT PULL 0/4] soc changes for 7.3
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: jj1EJQrxtgS2KCPV8I3OgQsl0NnsnrCG
-X-Proofpoint-ORIG-GUID: jj1EJQrxtgS2KCPV8I3OgQsl0NnsnrCG
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE4MDE2MiBTYWx0ZWRfX1gbAdmypyGzl
- YHtRAk35OR4b1QSNeQOFzOxpGAB/ichTM9Wc0JkVlJQPPMdn57BpeqLh1vjYSgsQw3A0YiF/hMn
- Uj08yRBuS6x9eBGMpNUMr7yfRjYW78xFYe2XZlaB4T8Dugc7w87xgPsaECBNVh+bDS8sJnXAzen
- tf6dL6yuyLSippkFZd/mObeehrjm7AEzRoCj1LCevn5/heI9WQ4ikO/87jhKW9NMfhld5O0fLKe
- 8OFTaeW+6H0fpxsSETUR5CN5O0KHzZpHtIU/euSs0JRQdF1OKBrcCyUCBtg+DC9xB0XqDewxSqw
- jqxoYwLzuzOsjzw+WlsXaQ7DDGdhVByUneCga5WF8tDe5xVVPSWG9PTVaFMGZ/mg3TKF0UmMDie
- HXKX3Rap7vcShkFp/JaY/7vBSJGPY5cdJJPK/CPPKek8A9PFX2xVmHu0BYkVBAkGIFCEcQPfyjl
- LV0f4eSSg5QuOEW1Z2Q==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE4MDE2MiBTYWx0ZWRfX7/0Fm3UuDr//
- ylp9WYPJRWzkYPR8Qn9ZygBUQWlgySGuCOwvL/1qv76Ym8f6io21I5y93hN7l8DcS9SVW4WE5Oy
- whQl3K4X5xbxkmI6JPHLCKXi/rWljVk=
-X-Authority-Analysis: v=2.4 cv=fvfsol4f c=1 sm=1 tr=0 ts=6a84d6a4 cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=pGLkceISAAAA:8 a=zd2uoN0lAAAA:8 a=7CQSdrXTAAAA:8 a=b7Ee_MopkQ2dvn5odMIA:9
- a=CjuIK1q_8ugA:10 a=uKXjsCUrEbL0IQVhDsJ9:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-18_04,2026-08-18_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 clxscore=1015 impostorscore=0 malwarescore=0 lowpriorityscore=0
- bulkscore=0 spamscore=0 priorityscore=1501 suspectscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608180162
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_150317_926415_A95DA94E 
-X-CRM114-Status: GOOD (  28.19  )
+X-CRM114-CacheID: sfid-20260818_141701_124743_1BB199C5 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,106 +106,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Aug 2026 13:44:28 -0700
-Rosen Penev <rosenp@gmail.com> wrote:
+This one is again a little over 1000 non-merge commits, from 263
+individual authors, with Qualcomm, NXP and Rockchip devicetree
+files making up a majority of the changes. The new SoCs this
+time are mostly a bit older, these include Apple M3 Pro/Max/Ultra,
+Samsung Exynos 1580, Canaan K210, Sophgo SG2000 and the new
+Qualcomm Shikra and as well as Altera Agilex72.
 
-> Use devm_clk_get_enabled() to let the clock be enabled automatically
-> and cleaned up on unbind, dropping the manual clk_prepare_enable() and
-> clk_disable_unprepare() calls in probe and remove. As a result, move the
-> clk struct member into probe, which is the only place it's used.
-> 
-> Simplify the probe error paths by returning directly instead of
-> jumping to clk_err, and use devm_snd_soc_register_component() return
-> value directly. Also remove error message from ioremap as it throws one
-> itself. Same with devm_request_irq().
-> 
-> Assisted-by: opencode:deepseek-v4-flash-free
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> Reviewed-by: Michal Simek <michal.simek@amd.com>
-> Reviewed-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-> ---
->  v3: rebase.
->  v2: add signed-off-by. Further clean up some stuff.
->  sound/soc/xilinx/xlnx_formatter_pcm.c | 71 ++++++++-------------------
->  1 file changed, 20 insertions(+), 51 deletions(-)
-> 
-> diff --git a/sound/soc/xilinx/xlnx_formatter_pcm.c b/sound/soc/xilinx/xlnx_formatter_pcm.c
-> index 3d6f1e4046d8..5f63fb28ea5f 100644
-> --- a/sound/soc/xilinx/xlnx_formatter_pcm.c
-> +++ b/sound/soc/xilinx/xlnx_formatter_pcm.c
-> @@ -82,7 +82,6 @@ struct xlnx_pcm_drv_data {
->  	int mm2s_irq;
->  	struct snd_pcm_substream *play_stream;
->  	struct snd_pcm_substream *capture_stream;
-> -	struct clk *axi_clk;
->  	unsigned int sysclk;
->  };
->  
-> @@ -596,30 +595,19 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
->  	u32 val;
->  	struct xlnx_pcm_drv_data *aud_drv_data;
->  	struct device *dev = &pdev->dev;
-> +	struct clk *axi_clk;
-> +
-> +	axi_clk = devm_clk_get_enabled(dev, "s_axi_lite_aclk");
-> +	if (IS_ERR(axi_clk))
-> +		return dev_err_probe(dev, PTR_ERR(axi_clk), "failed to get s_axi_lite_aclk");
->  
->  	aud_drv_data = devm_kzalloc(dev, sizeof(*aud_drv_data), GFP_KERNEL);
->  	if (!aud_drv_data)
->  		return -ENOMEM;
->  
-> -	aud_drv_data->axi_clk = devm_clk_get(dev, "s_axi_lite_aclk");
-> -	if (IS_ERR(aud_drv_data->axi_clk)) {
-> -		ret = PTR_ERR(aud_drv_data->axi_clk);
-> -		dev_err(dev, "failed to get s_axi_lite_aclk(%d)\n", ret);
-> -		return ret;
-> -	}
-> -	ret = clk_prepare_enable(aud_drv_data->axi_clk);
-> -	if (ret) {
-> -		dev_err(dev,
-> -			"failed to enable s_axi_lite_aclk(%d)\n", ret);
-> -		return ret;
-> -	}
-> -
->  	aud_drv_data->mmio = devm_platform_ioremap_resource(pdev, 0);
-> -	if (IS_ERR(aud_drv_data->mmio)) {
-> -		dev_err(dev, "audio formatter ioremap failed\n");
-> -		ret = PTR_ERR(aud_drv_data->mmio);
-> -		goto clk_err;
-> -	}
-> +	if (IS_ERR(aud_drv_data->mmio))
-> +		return PTR_ERR(aud_drv_data->mmio);
->  
->  	val = readl(aud_drv_data->mmio + XLNX_AUD_CORE_CONFIG);
->  	if (val & AUD_CFG_MM2S_MASK) {
-> @@ -628,7 +616,7 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
->  					       XLNX_MM2S_OFFSET);
->  		if (ret) {
->  			dev_err(dev, "audio formatter reset failed\n");
-> -			goto clk_err;
-> +			return ret;
+A small but noteworthy change is the deprecation of a number of
+older 32-bit Arm platforms that were getting in the way.
+For this release, nothing is actually being removed, but my
+current testing has shown hundreds of now orphaned drivers that
+can be removed along with those platforms.
 
-Why not dev_err_probe() for this one?  Even though maybe deferred handling
-isn't useful here (I haven't checked) it still gives more compact code.
+The long-running devicetree cleanups are slowly getting to the
+point of fixing known dtc compiler warnings and being able to
+enforce this better for new contributions.
 
->  		}
->  		xlnx_formatter_disable_irqs(aud_drv_data->mmio +
->  					    XLNX_MM2S_OFFSET,
-..
+The most active contributors this time are:
+     73 Krzysztof Kozlowski
+     52 Stefano Radaelli
+     50 Manivannan Sadhasivam
+     46 Mukesh Ojha
+     29 Konrad Dybcio
+     23 Frank Li
+     21 Arnd Bergmann
+     20 Dmitry Baryshkov
+     19 Sudeep Holla
+     13 Jie Gan
+     12 Luca Weiss
+     12 Komal Bajaj
+     12 James Calligeros
+     12 Ioana Ciornei
+     12 Aurelien Jarno
+     11 Pengpeng Hou
 
->  	if (val & AUD_CFG_S2MM_MASK) {
->  		aud_drv_data->s2mm_presence = true;
-> @@ -654,7 +639,7 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
->  					       XLNX_S2MM_OFFSET);
->  		if (ret) {
->  			dev_err(dev, "audio formatter reset failed\n");
-> -			goto clk_err;
-> +			return ret;
-
-As above, I'd go return dev_err_probe() everywhere you now return due to
-the other cleanups.
-
->  		}
->  		xlnx_formatter_disable_irqs(aud_drv_data->mmio +
+Dirstat:
+   0.6% Documentation/devicetree/bindings/arm/
+   0.5% Documentation/devicetree/bindings/clock/
+   0.1% Documentation/devicetree/bindings/gpio/
+   0.2% Documentation/devicetree/bindings/soc/
+   0.5% Documentation/devicetree/bindings/
+   0.1% arch/arm/boot/dts/allwinner/
+   0.6% arch/arm/boot/dts/aspeed/
+   0.1% arch/arm/boot/dts/marvell/
+   0.1% arch/arm/boot/dts/nxp/
+   0.9% arch/arm/boot/dts/qcom/
+   0.1% arch/arm/boot/dts/renesas/
+   0.6% arch/arm/boot/dts/rockchip/
+   0.8% arch/arm/boot/dts/ti/omap/
+   0.3% arch/arm/boot/dts/vt8500/
+   0.2% arch/arm/boot/dts/
+   0.1% arch/arm/configs/
+   0.1% arch/arm/mach-lpc32xx/
+   0.1% arch/arm/mach-orion5x/
+   0.3% arch/arm/mach-sa1100/
+   0.7% arch/arm/
+   0.4% arch/arm64/boot/dts/allwinner/
+   0.3% arch/arm64/boot/dts/amd/
+   0.2% arch/arm64/boot/dts/amlogic/
+   8.3% arch/arm64/boot/dts/apple/
+   2.0% arch/arm64/boot/dts/exynos/
+  16.4% arch/arm64/boot/dts/freescale/
+   0.4% arch/arm64/boot/dts/intel/
+   0.5% arch/arm64/boot/dts/mediatek/
+   0.7% arch/arm64/boot/dts/nvidia/
+  28.0% arch/arm64/boot/dts/qcom/
+   2.4% arch/arm64/boot/dts/renesas/
+  11.8% arch/arm64/boot/dts/rockchip/
+   0.2% arch/arm64/boot/dts/sophgo/
+   0.1% arch/arm64/boot/dts/tesla/
+   5.3% arch/arm64/boot/dts/ti/
+   1.2% arch/arm64/boot/dts/xilinx/
+   0.2% arch/arm64/boot/dts/
+   0.6% arch/riscv/boot/dts/canaan/
+   0.4% arch/riscv/boot/dts/sophgo/
+   1.3% arch/riscv/boot/dts/spacemit/
+   0.1% arch/riscv/boot/dts/thead/
+   0.4% drivers/firmware/arm_scmi/
+   2.3% drivers/firmware/qcom/
+   0.1% drivers/firmware/xilinx/
+   0.2% drivers/memory/tegra/
+   0.4% drivers/soc/amlogic/
+   0.2% drivers/soc/apple/
+   0.3% drivers/soc/fsl/qe/
+   0.7% drivers/soc/fsl/
+   1.1% drivers/soc/mediatek/
+   1.7% drivers/soc/qcom/
+   0.1% drivers/soc/tegra/
+   0.4% drivers/
+   0.7% include/dt-bindings/clock/
+   0.1% include/linux/soc/qcom/
+   0.1% include/linux/
+ 1088 files changed, 70562 insertions(+), 7263 deletions(-)
 
