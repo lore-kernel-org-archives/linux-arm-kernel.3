@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CBA7C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 17:15:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8695EC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 17:24:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hjhuD+7fHMoacORpzwa+v4G/gOBUrswHbm+lgOme158=; b=TeH/V34ZeJqED0Lquu4+s0JvP2
-	65fqtd04c2cdzYLG0o2HxszocCUfQ9CoFcr6lAMg74u33M6dWatLPWB6Rd4IJRZLGEyOr8WPrEYWV
-	6UrqcM42HQpOuUUCEbMSUwmCgUMcFQC58R2h6OPmhA8buUhL8LkGyqjXTysjRo85xtU3kQLBEzjVA
-	YAGQ1z0RH/oG2uX4k4vW02TJtvIwe7yMfQOSE05jio21f/GF5f9+a8tmkoBPJZvVpaK4uNyJjY/d8
-	8LHxRo2s29gTqV5bkrQf9GfClhvEKmUVigf1avJ9PUBqfc7mq1/YRzfBHPUTTe0Najgz0r3uBpuPs
-	tSUWJkjQ==;
+	bh=hcD1cr7UQPZGV1CZ99tI4YDeunETgJ5XLCW/qpgT2hU=; b=EtiYmbGyWLltRZyX5pnLDLTShE
+	dG6zdaEu4TYAGLMUC5jeANsCgPqs3aSJgd8joEpeZJoRsdts4ckO5Z5dMLAWYKGk9gFSwLNirVR1U
+	AOmmhIHtUK/r9F7Vl6wxGHDWfQai5MKmGQFXbZGvQY8c9op82vneVNksnND6igf/Oswe3HgCx+nao
+	ODvwEm0vSUcQYt4SxDedn2onkYldmlnMlop9nYFVgFG7JvvzBA2QbzjsUKE/+maJ9oQI/n0uBvLh+
+	ZoD6+9nrzxb1efbvCJrdmaNDhAFp8mRNSc1IS3ZHTxEjQAZnJs+rnOlaWtxG+f0ZV0MpOXNi/wcJ+
+	VWasngpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwNOu-00000008PSM-0mHG;
-	Tue, 18 Aug 2026 17:15:00 +0000
-Received: from gentwo.org ([62.72.0.81])
+	id 1wwNXt-00000008PyD-0680;
+	Tue, 18 Aug 2026 17:24:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwNOr-00000008PRc-0Wvf
+	id 1wwNXr-00000008Pxy-12xN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 17:14:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1787071733;
-	bh=hjhuD+7fHMoacORpzwa+v4G/gOBUrswHbm+lgOme158=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=hTjyAQZ5wY8qRTt/Xh7TTvHKkJecAjz1LYJrlmFU2BBVR8nAdGDCfM7A785vhWnoc
-	 iE8bvWWGtj6/lhtv1mrf1cHM+RCINhw74H5Iqu8EOK5uGEJC2p2tRbfA9PNmLB9ltj
-	 4kaH+jkwbD8e6XmF9Zk7WEpKKTjgNxHnZsxeSKeM=
-Received: by gentwo.org (Postfix, from userid 1003)
-	id 1E4C2402B1; Tue, 18 Aug 2026 09:48:53 -0700 (PDT)
-Received: from localhost (localhost [127.0.0.1])
-	by gentwo.org (Postfix) with ESMTP id 1B11B40293;
-	Tue, 18 Aug 2026 09:48:53 -0700 (PDT)
-Date: Tue, 18 Aug 2026 09:48:53 -0700 (PDT)
-From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-cc: Will Deacon <will@kernel.org>, 
-    Linus Torvalds <torvalds@linux-foundation.org>, 
-    "David Hildenbrand (Arm)" <david@kernel.org>, 
-    Mark Rutland <mark.rutland@arm.com>, 
-    Yang Shi <yang@os.amperecomputing.com>, 
-    Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org, tj@kernel.org, 
-    urezki@gmail.com, catalin.marinas@arm.com, akpm@linux-foundation.org, 
-    hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, 
-    linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>
-Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
- for this series)
-In-Reply-To: <anTCM94KoxY2nRaf@lucifer>
-Message-ID: <5fdbc331-8067-a0b1-6a66-5be9226a3f15@gentwo.org>
-References: <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com> <amCPBrdltFSE_fEf@J2N7QTR9R3> <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org> <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org> <anHuLy52o5S9Nlwp@lucifer>
- <CAHk-=wgJ0wO=T+1G5zJwoeE-N4bAptCNo2TFirK364iPhnGG6A@mail.gmail.com> <dadd8268-3cef-3a3a-e277-b593bef3b788@gentwo.org> <CAHk-=wha5um2rB9u7EDeEhZJyaWOUFye-wTKzsykQqJH41RNdw@mail.gmail.com> <anIXr4Kbn59Ac31Y@lucifer> <anTBN7WzVZukl26p@willie-the-truck>
- <anTCM94KoxY2nRaf@lucifer>
+	Tue, 18 Aug 2026 17:24:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 473AA60204;
+	Tue, 18 Aug 2026 17:24:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F8271F000E9;
+	Tue, 18 Aug 2026 17:24:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787073853;
+	bh=hcD1cr7UQPZGV1CZ99tI4YDeunETgJ5XLCW/qpgT2hU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WrBDJ4QaPEkHzOUnhzKcHCdU0E7M/FTAFv1fBf7i/5PE4O/bpmfO91oqK08d4QBVF
+	 l5QD/frgNSCU8waHJg2okI5lx0+pU469tbOqN9FKsEqsvctzdSlPsqJhtrRbIn4WtV
+	 lJWqCzeDiPq8/ySLPlNEHFs8L9YbrFLwKyhY/ltVaOaiS9bzPaRwfj7WToEeZIS0Kv
+	 HpGH7WoeT5/mwLc62t06E9N6tG0legSl2bQ8kMbUx/f85wyNvJp90/Wkha2/oVqxJm
+	 s0Y4WyTCutQmlYtdj4gXRmBkXIiy+JqXohMHdAd7xj4udzjm41h2kIsRgPsXIDJaL+
+	 EmZGlXj+aophA==
+Date: Tue, 18 Aug 2026 10:24:11 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Marc Zyngier <maz@kernel.org>, Linus Walleij <linusw@kernel.org>
+Subject: Re: [PATCH 00/12] arm64: Remove unused big-endian support
+Message-ID: <20260818172411.GB2249@quark>
+References: <20260811140132.22778-1-will@kernel.org>
+ <6632712f-7782-4580-84c0-62124a016f46@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_101457_184143_989EC03E 
-X-CRM114-Status: GOOD (  21.83  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6632712f-7782-4580-84c0-62124a016f46@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,56 +75,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 6 Aug 2026, Lorenzo Stoakes (ARM) wrote:
+On Tue, Aug 11, 2026 at 05:11:47PM +0200, Arnd Bergmann wrote:
+> I had not expected the removal to come this soon, but I'm not
+> complaining about that. I assume you are planning this for 7.4,
+> leaving 7.3-LTS to still have the code in case someone wants to
+> still use it, right?
 
-> On Thu, Aug 06, 2026 at 06:15:35PM +0100, Will Deacon wrote:
-> > So the nice thing about having two implementations (i.e. the per-cpu
-> > page-tables *and* the preemption stuff from Mark) is that we can pitch
-> > them against each other to help us make a decision.
->
-> Yes exactly :)
->
-> This point has been put to the submitters a number of times so I hope that
-> an additional repetition from an arm64 maintainer helps underline it.
->
-> >
-> > However, I don't see how anybody could argue that Mark's series isn't
-> > cleaner and easier to maintain.
->
-> I completely agree.
+It's already been BROKEN (and thus is dead code) since v6.18.  Some of
+that dead code has already been removed.  Other code never actually
+worked correctly on big endian in the first place and no one ever cared.
 
-Changing a register used by code sometimes in a timer interrupt is
-cleaner than accessing a virtually mapped address?
+Acked-by: Eric Biggers <ebiggers@kernel.org>
 
-A simple RMV instruction is simpler and cleaner than prefixing a code
-sequence with flags on how to modify registers if something happens like a
-timer interrupt.
-
-> Let's hope sanity prevails.
-
-I sure hope so. But there is the ingroup behavior that rationalizes the
-wildest approaches as sane.
-
-> > seriously want to consider the per-cpu page-table approach on arm64, the
-> > numbers need to be _really_ good and across a variety of hardware, not
-> > just the stuff with a memory system made of baling twine. That extends
-> > to the kernel text replication efforts too.
->
-> Thanks, and equally so for the core mm changes that are required by the
-> page table approach (that requirement being attested to by the diffstat).
-
-The numbers are already approaching 20% and will go much higher because
-there is more potential here with the ability to localize various memory
-accesses in the future.
-
-Scaling to large core counts requires the reduction of traffic on the
-fabric connecting the cores. And the per cpu page tables allow that to
-happen and scale to high core counts while minimizing traffc.
-
-If you keep on with your hacky approach of changing registers in the tick
-then we wont be getting there. We may have entirely new classes of bugs
-because now the timer interrupts changes some registers. Think of the
-hacking potential. Wow.
-
-Please stop the madness.
+- Eric
 
