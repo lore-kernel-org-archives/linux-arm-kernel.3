@@ -4,89 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82481C5DF67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 04:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F68CC5DF80
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 04:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H2J8nu4Hey8UwWctf5x81wbobgR75wzg5QI2g8k9cZU=; b=qApsrluCvoyb+sShyMPIMpPGoe
-	8BMbN9ti6l+7A1HangMwsRDjOCFAJpBxkN0j2AB+46ts7txkDlmAzuwL+Q900w7I/DxSPR1xOnzzy
-	J2oonPltVoi5GCB2WANmL+ixSuvlp2R9aH3JScPcQkEbKlyV/rx8X0HmVFjSobMcjMy1OgYQhH8jB
-	3iIPZ+DsWyBg+mr2ZiBOTXNrpCy+bFh3rxm9jqgvpDFsYIZOpdRywKLNY4Xp5eibSt2IhXcjCcJvL
-	dW9dyxV2lP9PHZyo4LeLrWUY4+Xkt49UIKaYURrK/kvjE1EtBW0oPySuwbvnAM+jOo740jhtrQDxY
-	KGE0um6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bH/g3exXOoVDVFJ1Rpy2p2GV7MIqdoi8lyynQWvgO3A=; b=V3b001SfDrk5Xadl6AqnDNXtgl
+	VTw2/3cnirIgLtbeJTdVR+6fb6IoK3gfa/p4K+206Zg8Uxv6hIUuTOkpeSD/y92suGIfCsT4XW0a+
+	ctgVawazQjyUvD4Anh31qNeLl1GGckCfLtG96ixyTdD1jI4eKk4HbzfA8UOuS7N8vhlNLAU2tBDoh
+	VjYXClPv3md8/hU2bdztmNZFrpdyo+eobk46jvoc06mW+dtqh2MDVHrYEdjvZfsVefnDKuQBbMsRD
+	Iy1zNtWuu+1m4Eth6iYT1wF9k2eujsEp2gnzOgr5YXAQcNLgEIL/rIDHDrTyQsx6EiYQSPPrQsU33
+	cKU2FMXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwAzd-00000007Duf-29rr;
-	Tue, 18 Aug 2026 04:00:05 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwAzX-00000007DtY-2jGg
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 04:00:04 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20260818035949epoutp0389129c20244bdea284d848b03a7a45ec~Myk5Txe2d3050230502epoutp03H
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 03:59:49 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20260818035949epoutp0389129c20244bdea284d848b03a7a45ec~Myk5Txe2d3050230502epoutp03H
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1787025589;
-	bh=H2J8nu4Hey8UwWctf5x81wbobgR75wzg5QI2g8k9cZU=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=Nc0iQO4XRZTBEr1C8F63Sl+E62UbVdo8KYySkR6MFrbPVke0tbk56GdvdXEfklsH/
-	 C01WHDKLobFKCq6BC4XddKhZHnnCSnr7mQ7rj0HCw+GAowBfQASYw2L6EFPOtRAAFD
-	 /k4opETaKveiFFpxZ2kHGASy8PxDs/1yVRUmj31E=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20260818035949epcas5p44be5b57e72841931cfbaa3fef7d96f32~Myk41pdgw2027520275epcas5p4e;
-	Tue, 18 Aug 2026 03:59:49 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.94]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4hPGDg5jK6z6B9m5; Tue, 18 Aug
-	2026 03:59:47 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260818035947epcas5p16adfc8c5f942956df7310bf76fc82e86~Myk2tWgjK1737017370epcas5p1j;
-	Tue, 18 Aug 2026 03:59:47 +0000 (GMT)
-Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20260818035944epsmtip24102c5d9b3cde735c82d29b9288e0537~Myk0MRq1f1699416994epsmtip2C;
-	Tue, 18 Aug 2026 03:59:44 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: <aidenisik@member.fsf.org>, "'Krzysztof Kozlowski'" <krzk@kernel.org>,
-	"'Sylwester Nawrocki'" <s.nawrocki@samsung.com>, "'Chanwoo Choi'"
-	<cw00.choi@samsung.com>, "'Peter	Griffin'" <peter.griffin@linaro.org>,
-	"'Michael Turquette'" <mturquette@baylibre.com>, "'Stephen Boyd'"
-	<sboyd@kernel.org>, "'Brian Masney'" <bmasney@redhat.com>, "'Rob Herring'"
-	<robh@kernel.org>, "'Conor Dooley'" <conor+dt@kernel.org>, "'Kees Cook'"
-	<kees@kernel.org>, "'Gustavo A. R. Silva'" <gustavoars@kernel.org>
-Cc: <linux-samsung-soc@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-hardening@vger.kernel.org>, "'Aiden
- Isik'" <aidenisik+git@member.fsf.org>
-In-Reply-To: <20260817-for-next-lucky7-clock-v1-2-032e4b229c76@member.fsf.org>
-Subject: RE: [PATCH 2/3] clk: samsung: clk-pll: Add support for pll_309
-Date: Tue, 18 Aug 2026 09:29:42 +0530
-Message-ID: <025901dd2ec6$0245bcf0$06d136d0$@samsung.com>
+	id 1wwB0N-00000007Dzb-2iVv;
+	Tue, 18 Aug 2026 04:00:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wwB0K-00000007Dyt-0OXP;
+	Tue, 18 Aug 2026 04:00:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 46004153B;
+	Mon, 17 Aug 2026 21:00:41 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6E5453F66F;
+	Mon, 17 Aug 2026 21:00:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787025645; bh=LRR2JW96qzLG8uXgU1+MfoOsPimHhtCsmfw/iXX8kB4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=NtFRXij4Uhwnlv72AF85fJYzj/aymvsPMmb1FV54uYlLFKg3t/C+cIPPz6W0jsHV1
+	 9J4gARXAWELXnskJwPs+BnDvgT6ZNx/a8ZwzPVKYIGTlZF5fGPZRP4qKo2lnT7Fr1w
+	 ur0UrDi2dMsXj4xyEnxA47CkAD4o6o2g2lJDsONI=
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org,
+	akpm@linux-foundation.org,
+	david@kernel.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC V3 0/8] mm: Drop pxd_ERROR()
+Date: Tue, 18 Aug 2026 09:30:33 +0530
+Message-ID: <20260818040041.1891769-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQHOeIyOJ24EK7guGNA1AUHFAM/4yAG4p0XDAgM/Jlq2orpDUA==
-Content-Language: en-us
-X-CMS-MailID: 20260818035947epcas5p16adfc8c5f942956df7310bf76fc82e86
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-543,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260817101721epcas5p228e56fa915717b7a547df144ff801c8c
-References: <20260817-for-next-lucky7-clock-v1-0-032e4b229c76@member.fsf.org>
-	<CGME20260817101721epcas5p228e56fa915717b7a547df144ff801c8c@epcas5p2.samsung.com>
-	<20260817-for-next-lucky7-clock-v1-2-032e4b229c76@member.fsf.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_210001_202579_DF087044 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20260817_210048_305842_D8B64AD7 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,51 +91,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+pxd_ERROR() macros have been provided by all platforms, which are very much
+identical and can be dropped off completely if these pgtable printing could
+be moved to callers in generic MM aka all pxd_clear_bad().
 
+But first cleanups and re-organizations are required in some platforms that
+are using these macros internally. Afterwards [pte|pmd|pud|p4d|pgd]_ERROR()
+macros have been completely dropped from the entire tree.
 
-> -----Original Message-----
-> From: Aiden Isik via B4 Relay
-> <devnull+aidenisik.member.fsf.org=40kernel.org>
-> Sent: Monday, August 17, 2026 3:47 PM
-> To: Krzysztof Kozlowski <krzk=40kernel.org>; Sylwester Nawrocki
-> <s.nawrocki=40samsung.com>; Chanwoo Choi <cw00.choi=40samsung.com>;
-> Peter Griffin <peter.griffin=40linaro.org>; Alim Akhtar
-> <alim.akhtar=40samsung.com>; Michael Turquette
-> <mturquette=40baylibre.com>; Stephen Boyd <sboyd=40kernel.org>; Brian
-> Masney <bmasney=40redhat.com>; Rob Herring <robh=40kernel.org>; Conor
-> Dooley <conor+dt=40kernel.org>; Kees Cook <kees=40kernel.org>; Gustavo A.
-> R. Silva <gustavoars=40kernel.org>
-> Cc: linux-samsung-soc=40vger.kernel.org; linux-clk=40vger.kernel.org;
-> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
-ux-
-> kernel=40vger.kernel.org; linux-hardening=40vger.kernel.org; Aiden Isik
-> <aidenisik+git=40member.fsf.org>
-> Subject: =5BPATCH 2/3=5D clk: samsung: clk-pll: Add support for pll_309
->=20
-> From: Aiden Isik <aidenisik=40member.fsf.org>
->=20
-> pll_309 (referred to in the downstream kernel sources as frd_309_rpll) is=
- one
-> of two PLLs used in the Exynos5515 SoC. It is an integer/fractional PLL w=
-ith an
-> FVCO of 600-2400MHz.
->=20
-> It has the same locktime (500), and kdiv/mdiv/pdiv/sdiv masks and shifts =
-as
-> pll_531x, so it can be handled in exactly the same way.
->=20
-> When defining a PLL, the =22con=22 parameter should be set to the CON3 re=
-gister,
-> like this:
->=20
-> PLL(pll_309, CLK_FOUT_AUD_PLL, =22fout_aud_pll=22, =22oscclk=22,
->     PLL_LOCKTIME_PLL_AUD, PLL_CON3_PLL_AUD, NULL),
->=20
-This patch does more then what is described above; please explain all chang=
-es in the commit.=20
-If needed, split this into common and pll_309 specific changes. Thanks=21
+This series is based on v7.2 after the following patch and has also been
+built tested on multiple platforms.
 
-Regards,
-Alim
+https://lore.kernel.org/all/20260709044334.1741263-1-anshuman.khandual@arm.com/
+
+Changes in RFC V3:
+
+- Moved ptrval_to_str() as header in a separate patch
+- Stopped using pxd_ERROR() in generic MM in a separate patch
+- Dropped pxd_ERRO() macros from all platforms in a separate patch
+- Dropped print_bad_pte() and also cleaned up set_pte_phys()
+- Added some pr_error() messages in __get_pte_phys()
+- Cleaned up error messages and used ptrval_to_str() in platforms
+
+Changes in RFC V2:
+
+https://lore.kernel.org/all/20260811042119.3652929-1-anshuman.khandual@arm.com/
+
+- Added clean up patches for platforms with existing pxd_ERROR() usage
+- Dropped __FILE__ and __LINE__ from all print sections per David
+
+Changes in RFC V1:
+
+https://lore.kernel.org/all/20260806080639.1916749-1-anshuman.khandual@arm.com/
+
+Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+Cc: Rich Felker <dalias@libc.org>
+Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+Cc: Helge Deller <deller@gmx.de>
+Cc: Huacai Chen <chenhuacai@kernel.org>
+Cc: WANG Xuerui <kernel@xen0n.name>
+Cc: linux-alpha@vger.kernel.org
+Cc: linux-snps-arc@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: loongarch@lists.linux.dev
+Cc: linux-m68k@lists.linux-m68k.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-openrisc@vger.kernel.org
+Cc: linux-parisc@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-sh@vger.kernel.org
+Cc: sparclinux@vger.kernel.org
+Cc: linux-um@lists.infradead.org
+Cc: linux-arch@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org
+
+Anshuman Khandual (8):
+  mm: Make ptrval_to_str() generally available
+  mm: Stop using pxd_ERROR()
+  loongarch/mm: Stop using pte_ERROR()
+  parisc/mm: Directly use generic [pmd|pgd]_clear_bad()
+  sh/mm: Stop using pte_ERROR()
+  sh/mm: Stop using [p4d|pud|pmd]_ERROR()
+  sh/mm: Stop using pgd_ERROR()
+  mm: Drop pxd_ERROR()
+
+ arch/alpha/include/asm/pgtable.h              |  7 -------
+ arch/arc/include/asm/pgtable-levels.h         | 11 ----------
+ arch/arm/include/asm/pgtable.h                |  7 -------
+ arch/arm/kernel/traps.c                       | 17 ---------------
+ arch/arm64/include/asm/pgtable.h              | 15 -------------
+ arch/csky/include/asm/pgtable.h               |  4 ----
+ arch/hexagon/include/asm/pgtable.h            |  3 ---
+ arch/loongarch/include/asm/pgtable.h          | 13 ------------
+ arch/loongarch/mm/init.c                      |  4 +++-
+ arch/m68k/include/asm/mcf_pgtable.h           |  6 ------
+ arch/m68k/include/asm/motorola_pgtable.h      |  8 -------
+ arch/m68k/include/asm/sun3_pgtable.h          |  7 -------
+ arch/microblaze/include/asm/pgtable.h         |  7 -------
+ arch/mips/include/asm/pgtable-32.h            | 10 ---------
+ arch/mips/include/asm/pgtable-64.h            | 13 ------------
+ arch/nios2/include/asm/pgtable.h              |  7 -------
+ arch/openrisc/include/asm/pgtable.h           |  7 -------
+ arch/parisc/include/asm/pgtable.h             |  9 --------
+ arch/parisc/kernel/pci-dma.c                  |  6 ++----
+ arch/powerpc/include/asm/book3s/32/pgtable.h  |  2 --
+ arch/powerpc/include/asm/book3s/64/pgtable.h  |  7 -------
+ arch/powerpc/include/asm/nohash/32/pgtable.h  |  2 --
+ .../include/asm/nohash/64/pgtable-4k.h        |  3 ---
+ arch/powerpc/include/asm/nohash/64/pgtable.h  |  5 -----
+ arch/riscv/include/asm/pgtable-64.h           |  9 --------
+ arch/riscv/include/asm/pgtable.h              |  4 ----
+ arch/s390/include/asm/pgtable.h               | 11 ----------
+ arch/sh/include/asm/pgtable-3level.h          |  3 ---
+ arch/sh/include/asm/pgtable_32.h              | 13 ------------
+ arch/sh/mm/init.c                             | 16 +++++++-------
+ arch/sparc/include/asm/pgtable_32.h           |  3 ---
+ arch/sparc/include/asm/pgtable_64.h           | 10 ---------
+ arch/um/include/asm/pgtable-2level.h          |  7 -------
+ arch/um/include/asm/pgtable-4level.h          | 13 ------------
+ arch/x86/include/asm/pgtable-2level.h         |  5 -----
+ arch/x86/include/asm/pgtable-3level.h         | 11 ----------
+ arch/x86/include/asm/pgtable_64.h             | 18 ----------------
+ arch/xtensa/include/asm/pgtable.h             |  4 ----
+ include/asm-generic/pgtable-nop4d.h           |  1 -
+ include/asm-generic/pgtable-nopmd.h           |  1 -
+ include/asm-generic/pgtable-nopud.h           |  1 -
+ include/linux/mm_types.h                      | 15 +++++++++++++
+ mm/memory.c                                   | 16 ++------------
+ mm/pgtable-generic.c                          | 21 +++++++++++++++----
+ 44 files changed, 48 insertions(+), 314 deletions(-)
+
+-- 
+2.43.0
 
 
