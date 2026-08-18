@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E63EC5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 13:19:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2958AC5DF74
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 13:21:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:Subject:From:
 	Message-ID:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EnE8Ac80Xeo0YvrWYWO15hMp/yHf4W3nmKkYtcbFD/c=; b=MVsfAnC0DUO4xr6ntI36hB8Ouw
-	sbRnAM6Zm3rTSxacumDVnRNCUjz8bxfN3OXtjjmgrDf6zHMtkDMDAvAn6gij/VBx/ABlqj9xOqBEs
-	5cH4Gt3WXEn3KUf6tJllbYXoV7Enw97HhLhIqW5TEz+/LN/13QStsyDz18i6V6mUvWtUYHG+M285u
-	rVli1XNTeNSVtqk6ZGksn8TDCsKhmfGZX0Y6f0tB0/jdgXx47oMkhpNVrhq3FQjDEjvUWsf+GHKT8
-	uPMgZCN98CFP38jgV5LZ4vM0x9k9BqaKADliU7oXqZgfO5RlfK2QDWrSMmLv+ton5JdEt9dnjmcgl
-	CS+moGxw==;
+	bh=m/LXl9fTO3dMTBf7vWRGKL6aArXJcLw5Fe2OfvQ7VdM=; b=FS1Fjd6Y2R+fBqAUsdc2KEctci
+	VVf5MQDWhROtH4NWU3Cd16EERmw0JGFI3QCjnG3uDA0T7KneGhXq+Pmiwlkfy3sC/24LGfd9OpWn6
+	RxB+lUHH4rWvY1Bmk7kgXEwNk4kgdWbOqU2pNuJ7XGGTTIwZXJnylP3uCwbgnk+R+nAPPMxl8vNzT
+	j19t6ccN+ywVi+6SzvA6nAkXkWyTvhJgpqdfiQ30QL9cHYTVd4/S98pTqQ6QvAta491TPG2kWoWho
+	DLCm6BjxPmAWIe+6CEPwyG9nEu3cNHpi0EE3MzO/UzIVddFfw+JTFU4iod5lmif/dOz+BdLnt71Cq
+	LFRIWI4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwJjE-000000081x6-0CrL;
-	Tue, 18 Aug 2026 13:19:44 +0000
+	id 1wwJki-00000008270-1oOo;
+	Tue, 18 Aug 2026 13:21:16 +0000
 Received: from out203-205-221-192.mail.qq.com ([203.205.221.192])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwJjB-000000081wl-2K5j
+	id 1wwJkf-0000000826W-2pGc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 13:19:43 +0000
+	Tue, 18 Aug 2026 13:21:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1787059179; bh=EnE8Ac80Xeo0YvrWYWO15hMp/yHf4W3nmKkYtcbFD/c=;
+	t=1787059271; bh=m/LXl9fTO3dMTBf7vWRGKL6aArXJcLw5Fe2OfvQ7VdM=;
 	h=From:Subject:To:Cc:Date;
-	b=jjPVkooNK06YQy0y7BPHfvu8U0ne6XfYE+jqIRj6tizpgfTTU/ZT/a6bNXCOlP/26
-	 WCwnOQMvydCaL2hbo7+By1eZ5t1EMEo0ffDH6rUvUIhdwtGY4ENVw6WUTtdxSwaiZp
-	 ocawPQtu/8j6jlMfbRifFgA/T0q/swL3V5vn3lBs=
+	b=m2uJ2HNrTYQiwIbaa65DUd42Rmgc/hOULdAn9Mk4LYfzBpzkdj4as7p10ZO5YftJZ
+	 yItFctNhaScZipBD0rW38/Z2LIY1MZVSyAs9Au47XI5RSVHBdZcM4MjcgTs8GvxsJm
+	 cnafV6T2N5qBsbCOxK1sqOlsV5fL2sm0LCHx7Kgk=
 Received: from [127.0.1.1] ([5.195.0.150])
 	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
 	id 1721C6D8; Tue, 18 Aug 2026 21:05:50 +0800
-X-QQ-mid: xmsmtpt1787059086trq17d73e
-Message-ID: <tencent_405FF24AB67AAAA26BC85ADD092710C0BB07@qq.com>
-X-QQ-XMAILINFO: MRMtjO3A6C9X2uROP3QJmhslvlrFV3Golkzi8hDQC5JSUnIFRZvFEtlTKN0uff
-	 fwGAX66sk+/bbEuY9nihtoVDIwg/tDaJhEtiWgo+tSBG+OQPpDINDA8xgdwMSPyi6IA1K62XAVU7
-	 5xNZgeowHG7ThZFJlOyPoaBa3qgzq2Qm48/Kz0o1U3Eis6RK3QBuPBHOrP68dg2l6PK7Vyuh021u
-	 wcBTspGMIhDmzVDzhqbfx469+hmQiBMqRiiDCYVTlExQYcVTDyV9R8ebv8d8mCIY01Jj7k+JXRTp
-	 +ttl9bZmugcRhiPtN3D6p1Pk0xTbry9uMSOdIt31lqhr1m8WJnqyNpuyxhXA7/cTmXYfszuRZaVe
-	 feArIgP43WyxO404ADfM3pZE26jnyw4pDngRDGw3unu/xz0tgj8q/gXPESoUwbCnlKb664Ah/j9a
-	 kravXFZUaEoxMha9kg6P7b1C2o0BU+9gfQkESKUWpXiJvlcwWgvl3oKkcdHZZuB4ac+9JGdTyxrw
-	 zrlrpQwg34Gw7UF77PML0WDHCmsi3quKUw2Dvv0RHCgtIi2yLsWJdxlSAI5oAC1quwZdRAXUNF2g
-	 nUSIYPgbCzjMHtt0U5vWYmPoWHK6Q0wBmgxhP0wGF37Rd06T9MVdCkSPmaBQjpZiNAM7CiCFOWJx
-	 QXYO7At16K/P8nPdM3bUItAtpdSvS7ofWVg32Z7v9zJuBz3YuZDskctld19VyUtsW+KJTaQNfYqi
-	 +NWy74azsfeNditfQQBfyN2bP699/AylwVYTdfNehPUCB0dB+zJLsC7j0BtdFa4fEeqQd3n5mXIf
-	 fp8GsZypT2YuDk0o/KrIJaOMelzIlFQ3gqgVfflualv5SnfiSbjdVYRHJLW6/VtllKz1TDl3STBy
-	 vvFPgyHZwvjmq7aK7j71+P3etgjbmeVU9EYq0e0/55WLZpY29507Qh31yDXvbLbSol9JqwG3/JPZ
-	 EGSFManxfBoxt8zG/grL++6czZRFHB9ygnYqXSdFfzzYw8sSIylyf57PEdsvsfmp3vWJp5LbmmK3
-	 bn+ddeMARkl17idbqgEtw8cUlHOpY=
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-mid: xmsmtpt1787059178tf3sshen6
+Message-ID: <tencent_62C095FCF52245E6900FBA2E4E008042BF08@qq.com>
+X-QQ-XMAILINFO: NnYhxYSyuBnLCu+aiLiRXdbLHmZvFK+8F6DSOcqHeIy3e+QYrf+3KUT3crXI7d
+	 TTHtmD28YmcgN3rxPan8FhnSbihePYVrPw09X+CZpHUuFr2NXB96PCMAkgQuqjqS7VN6AOajSdvL
+	 6h9VTmB+w2/Fv4SFdudYflC6IZ795ZeY+v6DgCV8LTv38shpsyGgS62NA7MVF7Hw7oZ5pMC52RRR
+	 Ik0U4tCrl7tdE/+MtPNX+uxBYvTbjAPt0oGadGb44GnKafuU8PrzyQOFUTvgymFzWwqwznsUUoJr
+	 uq2U4srbCMLElocqrZXnrB08WX8oivAL2tGCfogYlG+v22Tjt8ZsQ7WqtdA0kcwVpkrYCNYHWd6R
+	 f4E4e9/wh6SRCBh49XeugRTnTkhuz8LDThnaqyD0O7mYcCiYG2tSd97pVCRJc68pxKSwqcByqa2E
+	 HI8vJU3CbveFjT4XLS7qkgsPFy6dIf6Fqhwh+LlWzHOP9lSTc5HQ4fVK1AoUYp+0fnvuCJHgBVkT
+	 /Z+yoirw3SJaGqqafsotdzPDWQDRl3Zzr9Fg2WmPbQmFQCuEE7GQ8rVAa/vHddW1RG4AWQxmtBVy
+	 jJPK2NQhPZ4W0C9A93B6af04bWj/AuETdQcBhNJCr87hltWAeuf8k7e5ZILK52BJ8omblz+bv631
+	 td32DrKHefqr8mKDXRV176T+2ucB/4CJQokNuU18jrhZY35YdLzRS1UII/D8WI8zF+/yaK7fxrEl
+	 5UVj6Sqm+DURpKFi2MamGS/TGl+kPHhSDK69roYGCQsBIUZ0GlQHypuqrwhxjOVdUZvXTl9Gi3ZD
+	 e3/yKmojSGbtEvB3Huyu9lmYZ8qeB4Utx1Dp6JD2dxXMwRD+C4sBfNWmY+b7RUwwmWrwn8JRBl9D
+	 qpK5njvcmvnPtIAi7ihq2Q1ng6Hc1WJoimgzoBfTdqqKonpeq3TdoimkIbvgvf2rd76IVEpHDZR8
+	 MwGxRs9Iyj+p5KoS/EpGTTC66rzBY0CeUq42t7xlSP79HIrtn9BluEQUx1g3eg31jBB3PzDwr5Hi
+	 hzl4D8fnFfOgms5I4176Bkxxk1r/4HSZoctAdpbq8wlzBmxcDNIWvTnBsVP9PnYbUWtFaVOA==
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
 From: Jiawen Liu <1298662399@qq.com>
-Subject: [PATCH] memory: exynos5422-dmc: handle clock enable failures
-To: Lukasz Luba <lukasz.luba@arm.com>, Krzysztof Kozlowski <krzk@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>, linux-pm@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Alim Akhtar <alim.akhtar@samsung.com>
-Date: Tue, 18 Aug 2026 17:19:36 +0400
-X-OQ-MSGID: <178705917686.291840.2383875087169763088@qq.com>
+Subject: [PATCH] irqchip: irq-imx-intmux: fix runtime PM cleanup
+To: Thomas Gleixner <tglx@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Date: Tue, 18 Aug 2026 17:21:08 +0400
+X-OQ-MSGID: <178705926890.291840.13691325396124428078@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_061941_908899_9A6BCE72 
-X-CRM114-Status: UNSURE (   6.67  )
+X-CRM114-CacheID: sfid-20260818_062114_051702_56C86CB0 
+X-CRM114-Status: UNSURE (   5.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,33 +81,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Check clock-enable failures during probe.
+Fix imx_intmux_probe lifecycle error path.
 
-If a later clock cannot be enabled, unwind clocks already enabled on
-that path before returning the error.
+Probe enables runtime PM and clock. Failures after clock enable only
+disable clock and leak PM runtime reference/enable. Clk cleanup is
+incomplete because PM runtime state is left enabled/ref held on later
+probe failures.
+
+Balance runtime PM setup on imx-intmux probe failures in
+imx_intmux_probe.
 
 Signed-off-by: jiawen <1298662399@qq.com>
 ---
-diff --git a/drivers/memory/samsung/exynos5422-dmc.c b/drivers/memory/samsung/exynos5422-dmc.c
---- a/drivers/memory/samsung/exynos5422-dmc.c
-+++ b/drivers/memory/samsung/exynos5422-dmc.c
-@@ -1297,8 +1297,15 @@
- 	if (ret)
+diff --git a/drivers/irqchip/irq-imx-intmux.c b/drivers/irqchip/irq-imx-intmux.c
+--- a/drivers/irqchip/irq-imx-intmux.c
++++ b/drivers/irqchip/irq-imx-intmux.c
+@@ -240,6 +240,8 @@
+ 	ret = clk_prepare_enable(data->ipg_clk);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "failed to enable ipg clk: %d\n", ret);
++		pm_runtime_put_noidle(&pdev->dev);
++		pm_runtime_disable(&pdev->dev);
  		return ret;
+ 	}
  
--	clk_prepare_enable(dmc->fout_bpll);
--	clk_prepare_enable(dmc->mout_bpll);
-+	ret = clk_prepare_enable(dmc->fout_bpll);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_prepare_enable(dmc->mout_bpll);
-+	if (ret) {
-+		clk_disable_unprepare(dmc->fout_bpll);
-+		return ret;
-+	}
+@@ -282,6 +284,8 @@
+ 	return 0;
+ out:
+ 	clk_disable_unprepare(data->ipg_clk);
++	pm_runtime_put_noidle(&pdev->dev);
++	pm_runtime_disable(&pdev->dev);
+ 	return ret;
+ }
  
- 	/*
- 	 * Some bootloaders do not set clock routes correctly.
 
 
