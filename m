@@ -4,132 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59C39C5DF74
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 14:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F2BBC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 14:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6pp6IeSNyuloHhvHuC8eQqDE/bAvUg2z+EMprgQBhEI=; b=QGZ3O4XJzW8E8PQh5skZhYjeFj
-	6JRXmsrQX8bLfE14iH0kCiLoFc5+pTo/0TA6RCgZwspMzDVHWnSyAce9v/x1N+LyXP7zxVleYTTkr
-	bhNVvUHp3W94IWC/xTFF0QJNIGQPAUnU6FhsKlvPHorju6MajoC1jVzBCKLB5jZDI5owPcAKqtpP2
-	auW8MzfGq4QoRvTkvy1+T3Qgnr8Q8iJYkKCx1nMuvU572XToD30XPU5NuCjkt0y0KTzrSC5IahBqj
-	nUMtXhO3VHmajYN3ydQTiATz5LIrZKi/g8V6dBhk1KYzM3o+nK5SndY7sscB8UTI/WJjL5tg46QWw
-	Bbah2Grg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xlXqdOv5z4xMnW/WIr9rPcU6Spl+WfQOIAJPu4c+j/E=; b=JOidZHF5RbYkfAV2JDyhKC8F9V
+	qLfiXstCixjLTWD7bqB/PzFS5ilTnBOU2ZdhPHlk/5+zfGbQzyAZyI7dzC8aLhXHF6mjNDGb3wBMu
+	8kMMYwDAA+rtgxG2QMc2EdjXtlhdXJFrhIFgW7P7uyU+Avl1GUvFEQrzpmwOznDqLjL8dIFqAuqNh
+	HXhz+gIdWdJrla4LPr3Jfi+qBILWkvu8GSntpVkqQ+/nmYooFHMASfqt3+81/83k6w5iBDLtijCx/
+	zzXNg7rL9OYmEN+0+CnON7V9RX4h8tZLDvYD09cdyu0/WQuRXmWuvX6gjYvRqEBWfj42kBbvoNzic
+	qR13rRkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwKVK-0000000867O-1s3I;
-	Tue, 18 Aug 2026 14:09:26 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wwKWB-000000086G3-2ehB;
+	Tue, 18 Aug 2026 14:10:19 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwKVI-0000000866v-0JKa
+	id 1wwKW8-000000086F9-2XqI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 14:09:25 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67IE3ef93582570;
-	Tue, 18 Aug 2026 14:09:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=6pp6IeSNyuloHhvHuC8eQqDE/bAvUg
-	2z+EMprgQBhEI=; b=L9Z9D2Uj4VDkqmT6R6A9de/RM8yuwwS1zxLJc28hM443VF
-	7pUJyYi7HP/UDGR1NixISAMJzJUOvq5vSSeMFJFmWmboNAltdA16o39uxkQwwGR0
-	Ga8bYcWTP+77IPMTGUQzQVwbaiD9wJqGhQlqjZXQa0qXctkgZCrTbKnPZtus5M4M
-	7cKOhSGfh2vGFBHPxluzlr4sE1e+KesdzFfW+23ljtfM45B4Hn4y9PJvJEBP8jdc
-	/dt6abmK8qmkUQpRKbNbthfucgDO7qf+Om9/H0ef8ohj+9VX2rmy+NsqjglEze+Z
-	FreLng1EgqxcoBCctelsqD+5AZYErhUVQ4sgb5gg==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4g2ehe8a1w-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 18 Aug 2026 14:09:08 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67IDxdst011427;
-	Tue, 18 Aug 2026 14:09:07 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4g354ybb6s-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 18 Aug 2026 14:09:07 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67IE93Ck15728970
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 18 Aug 2026 14:09:03 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 400B320043;
-	Tue, 18 Aug 2026 14:09:03 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C5E322004B;
-	Tue, 18 Aug 2026 14:09:02 +0000 (GMT)
-Received: from osiris (unknown [9.224.76.185])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 18 Aug 2026 14:09:02 +0000 (GMT)
-Date: Tue, 18 Aug 2026 16:09:01 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v6 10/33] arm64: Share arm64 headers with s390
-Message-ID: <20260818140901.21865-F-seiden@linux.ibm.com>
-References: <20260812153631.3376090-1-seiden@linux.ibm.com>
- <20260812153631.3376090-11-seiden@linux.ibm.com>
- <865x1e17kb.wl-maz@kernel.org>
+	Tue, 18 Aug 2026 14:10:18 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6a18b91fb1fso818956a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 07:10:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787062214; cv=none;
+        d=google.com; s=arc-20260327;
+        b=kN1eR7w6Jx0xwNeiGD4Juu+c7VoJPRCiGHq8Lv3QYRjch8paD7xMc5zXSOIQIB9KWd
+         HzS+XEoTrC2O/eNaYSSx1WLS2TiZN5F0R7kHngDavoJy8afd45XEfccTJbRpMb3wO690
+         bTAcDJN+icwsvwH3YjHE2JzEPMoykoJn1mS0dd89QVOTKXmcpMNNguSnBZT1GK6rb9jr
+         0DsYmCjYde1AaOPV/MLasdLE55EwKEZlE+CbVXjWtyOHQDOm4gv84I1a4/pWlCnfk2mL
+         j3oUTHk2KkNNT6Opj7zbUMlvTEk3l+L86sQPgC0+E355rrr2azUDHpbLoJgleISGtmAA
+         Bncg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=xlXqdOv5z4xMnW/WIr9rPcU6Spl+WfQOIAJPu4c+j/E=;
+        fh=c/srgEiPrWDJoQptlYvCkm2i24GYqxT7RJRWne1WKP0=;
+        b=RI8R+ZGOonQsEv1mSndee+43cLaNMSt4/FG8YgWlKFrBV68PWwIorBHHQEAJpkKv1f
+         vhvo3C27tLxK6XRLBWztbkT3IvJEg+mJ8U2re74XyADydsFidAgOB+IEO/A+jzyt8to6
+         HMOfVlXAMPdpDgzQykIVFfFf43ELQeBMOb6ajuQNd9/8p0xNIQMl6UuAK44XvY67l8CA
+         iIDedXtjAC6PHUYDdyoLAIUbH0xYdv7oSJNBgZFa8eTUnuVg04YDyunKfq2strsCVQM5
+         8qNLYcUCwZr/dPC7jb7dLYrJnmZumnELB+yKcEnI4q551TX35Xtk3tyhsl/Tn6Ch5m0g
+         itaQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787062214; x=1787667014; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=xlXqdOv5z4xMnW/WIr9rPcU6Spl+WfQOIAJPu4c+j/E=;
+        b=hfews4weKXqoZksuFKqLBn3VbTOicwp0hyVCxTaQdP4IuRgX1Glpy16yk2iwpv90VM
+         LlNWgOcapNDawSlhysn8c3PKDqXGaUU7R424pPW9vc8g7BGoI2JixFWgqpF9/IeH1O5u
+         aiKgVWpgiKJj9sW09zPPHmXLs/7rEHvfY6WiXJDkdySF+V0voAxoYQlF0tvsJCWRAozV
+         jLoP/EfaTn4GRc6oRzCCAWoVOME9V0OZ+QY6emiQyHrcabj3xoAgOrHyL+p5xhgvhWC5
+         XtOF7Yz+NRQRTRPWtTeAfGIQchDQX2JNuO5ImAwgTfc5So/T5Y4RS5anEVUEwuksnJ4R
+         loSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787062214; x=1787667014;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xlXqdOv5z4xMnW/WIr9rPcU6Spl+WfQOIAJPu4c+j/E=;
+        b=ax0jwzEp0S61qeUNKENWTC18Q4Z3TywF7YgvzjbS3UKqV507mvOexkNrJUDvHwHDuJ
+         WchoS91FPBDB3NfZCTTbn+zRFAEdJJ706wtFRHxaqDPJ3k4+nWah4BMrP3X9Cay1C0WG
+         xmSzyV38mAL8k2+57bdnaiiUy4mFTr6kyO8wtmal5ocCVdIYYZfy23nhC4qqOihaQ0rc
+         cnRdeCZkFOAR8evOn5qYVJsRs/wEwbTcyivAfBg9BQMGVVYrU9E6qlemRPIhPKmlhadr
+         SyVTAJaUZarwxrBXVa8MEELD53xTuHzfxoaOzsSDJu9t4izvG9A+Ku3nMNu2m8HPT007
+         9E4g==
+X-Forwarded-Encrypted: i=1; AHgh+Rqj0Oo64zZbbZKZQXeG4MkqKgYJmFzp53O28X0Mw34YXfh6oy386kZejFpwtxWzAyfgWCEA4MG3Rc6UMihPDAGQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxboS1870gUqMF5GKeIskg+MufSxBbWXCa1p8b7uVRPHR9mfKuG
+	3gaJ2NU+P4zgIACe+Y7AEspiYQbLlNmhe4Hh9HGXppuqINv6NuJ0GYIAgVyH+UUsNHWVT3fAkxG
+	+Yr43r7g4q/6ngzx30qVdNjqAzUlCbZs=
+X-Gm-Gg: AR+sD121aydJWD6iNOKQUT8LSl53PfFm4bKq64fbx4zPC1EXxxb53aqffNAehbhxFZL
+	Si/M36wfss85A0zEIq3F/aGkP8ucQmlUs6r03/OeRtvu106I2pHRPuhJqARA41/sTftZXm03zVq
+	HIgqHY45rx4sWojv8aCNIgWQen6ZWtc3bzPxVDwy4LtiRVkjF8V1mDMDzGVPhuB3U2NsREDy/y9
+	sBXGzq9k/niyq3h3t7PiBjm2O5P9wqouTZvIBoJbmMchvdzmp3fy9BSGlr62RNtIhPNwGK0CQvy
+	q/iFN3rGF4f0Hsuz4cU42bE7JK1bANEDt9dyb03ebdbo/Qc5MPG7ERgQUPCpWLSpR9tRDVOrJer
+	Mpf8wkcwqS2UzZQ==
+X-Received: by 2002:a05:6402:3888:b0:6a1:8d3e:ee77 with SMTP id
+ 4fb4d7f45d1cf-6a38a8b7c62mr9115636a12.1.1787062214328; Tue, 18 Aug 2026
+ 07:10:14 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <865x1e17kb.wl-maz@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE4MDEwMyBTYWx0ZWRfX+S0b8sWde/7X
- Epl6rQJtU09xy3YsJjzb0l1P0YvKvrSci2EJjodXlAF7AcYORLdmXkrqzaSX9DrHa7gYNz0wSWQ
- qSZbDgFQ2Soh/r2kojTLOk0oS5ieFgCwK41UI670QC1N4i8GiaOVK1aC7sqcHYjttd5vnVxFOHC
- OakRTPXPFROxAUPC4ug/H5QE6NWZBlf0svwTEPsUlethDgbvE99YCddxuXbsS0WKyVzANz4nqxb
- oYY1o0ens4Mya0M1yKGxM97jX0ifArpuQzFTSjMGDjTSKnaHJ1BpZHqann8RCJedjetnVfgEhYV
- 8k5+zEpuo1ksCtBqeFmZ6hq5H4JfrhGFYG8Tzg9pEK/474Ja6iO3Q0DtQWEEhjl8C+7WopLq0iN
- j3FoB3+G1MRW1oKDRwdaaFx1+FxbjWJYYz2PqHOuHSipxYoMQdnaO9dgITX2ikTZrJBIGJXCaJF
- wbDX+lSA22CoF7Ne3Nw==
-X-Authority-Analysis: v=2.4 cv=DY8nbPtW c=1 sm=1 tr=0 ts=6a846784 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
- a=b29rCS0n7jCfI3c0AuMA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: Hrg-rbPVCram5u3eKpOh0Yh0yCIAJVyQ
-X-Proofpoint-GUID: iK7_tgK7xwr2kuhDrfqwzUg5EW0dLA27
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE4MDEwMyBTYWx0ZWRfX5ZC2fpZ2vCDs
- AYwZoUuM64qLhHFbxK5SRavAJ5dbsu5C8t0kZk33Ltz4CJRPihCJ8JxL5P7bPbaA7VXt8A5h/39
- BKlSV+O46RWD5cMmHvf8OTTzYHeTwsM=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-18_02,2026-08-18_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 clxscore=1015 spamscore=0 malwarescore=0 priorityscore=1501
- impostorscore=0 lowpriorityscore=0 phishscore=0 suspectscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608180103
+References: <20260816-ti-keystone-devctrl-v2-0-5ab1e13c15c1@gmail.com>
+ <20260816-ti-keystone-devctrl-v2-2-5ab1e13c15c1@gmail.com> <20260818-convivial-manatee-of-jest-acd3f6@quoll>
+In-Reply-To: <20260818-convivial-manatee-of-jest-acd3f6@quoll>
+From: Bhargav Joshi <j.bhargav.u@gmail.com>
+Date: Tue, 18 Aug 2026 19:40:02 +0530
+X-Gm-Features: AcwNN1VkFAcXdnV8Yz--n3a3WkMmue2uYHuue9khptiKYSaOQgn4dqIhHktkVKs
+Message-ID: <CAOWyW_4BrU+BO+KQjH1M525+0y6_YOa2C_3sjrxPzzgT46aNJw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] dt-bindings: mfd: ti,keystone-devctrl: Convert to
+ DT schema
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Ivan Khoronzhuk <ivan.khoronzhuk@ti.com>, Nishanth Menon <nm@ti.com>, 
+	Santosh Shilimkar <ssantosh@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, goledhruva@gmail.com, m-chawdhry@ti.com, 
+	daniel.baluta@gmail.com, simona.toaca@nxp.com, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_070924_262231_06F427BB 
-X-CRM114-Status: GOOD (  50.73  )
+X-CRM114-CacheID: sfid-20260818_071016_660626_35BC4D10 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,262 +125,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 02:19:48PM +0100, Marc Zyngier wrote:
-> On Wed, 12 Aug 2026 16:36:06 +0100,
-> Steffen Eiden <seiden@linux.ibm.com> wrote:
-> > 
-> > Allow sharing of arm64 headers with s390 by marking the shared regions
-> > or add a comment that the whole file is shared.
-> > 
-> > The shared regions are marked with:
-> > 
-> >  #ifdef ARM64_S390_COMMON
-> > 
-> >  /* insert shared definitions here */
-> > 
-> >  #endif /* ARM64_S390_COMMON */
-> > 
-> > The preprocessor symbol ARM64_S390_COMMON is always defined for arm64.
-> > s390 later will generate its own view of arm64 headers based on the
-> > content inside the ifdef/endif block.
-> > 
-> > No functional change.
-> > 
-> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+Hi,
+
+On Tue, Aug 18, 2026 at 12:31=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
+>
+> On Sun, Aug 16, 2026 at 12:23:00AM +0530, Bhargav Joshi wrote:
+> > Convert the Texas Instruments Keystone Device State Control binding fro=
+m
+> > legacy text format to DT schema.
+> >
+> > During the conversion, the following updates were made:
+> > - Add "simple-mfd" to compatibles matching existing dts usage.
+> > - Add required bus properties #address-cells, #size-cells, and ranges
+> >   which were missing in text binding.
+> > - Document child nodes gpio, interrupt-controller, and reset-controller=
+.
+> >
+> > Signed-off-by: Bhargav Joshi <j.bhargav.u@gmail.com>
 > > ---
-> >  arch/arm64/Makefile                  |  2 ++
-> >  arch/arm64/include/asm/brk-imm.h     |  1 +
-> >  arch/arm64/include/asm/esr.h         |  1 +
-> >  arch/arm64/include/asm/kvm_arm.h     |  1 +
-> >  arch/arm64/include/asm/kvm_emulate.h | 18 ++++++++++++++++++
-> >  arch/arm64/include/asm/kvm_host.h    | 20 ++++++++++++++++++++
-> >  arch/arm64/include/asm/ptrace.h      |  4 ++++
-> >  arch/arm64/include/asm/sysreg.h      | 15 +++++++++++++++
-> >  8 files changed, 62 insertions(+)
-> > 
+> > Note: Running dt_binding_check on patch will yield a warning for
+> > 'ti,keystone-reset' in the example block. The YAML conversion patch for
+> > that child node is already in progress here:
+> > https://lore.kernel.org/linux-devicetree/20260813-ti-keystone-reset-v1-=
+1-189389503324@gmail.com/
+> > ---
+>
+> You need to send dependencies together, either in patchset or even one
+> patch, depending on the case. If this has warnings then it cannot be
+> applied.
+Yes, but ti,keystone-reset is now already merged into linux-next, so i can
+wait until it is merged into mainline then resend the patch without warning=
+.
 
-...
-
-> > diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> > index a34a9417ff4d..09f04a5686a1 100644
-> > --- a/arch/arm64/include/asm/kvm_emulate.h
-> > +++ b/arch/arm64/include/asm/kvm_emulate.h
-> > @@ -47,6 +47,7 @@ void kvm_skip_instr32(struct kvm_vcpu *vcpu);
-> >  int kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, u64 addr);
-> >  int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
-> >  
-> > +#ifdef ARM64_S390_COMMON
-> >  void kvm_inject_undefined(struct kvm_vcpu *vcpu);
-> >  void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
-> >  int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
-> > @@ -62,6 +63,8 @@ static inline int kvm_inject_sea_iabt(struct kvm_vcpu *vcpu, u64 addr)
-> >  	return kvm_inject_sea(vcpu, true, addr);
-> >  }
-> >  
-> > +#endif /* ARM64_S390_COMMON */
-> > +
-> >  static inline int kvm_inject_serror(struct kvm_vcpu *vcpu)
-> >  {
-> >  	/*
-> > @@ -185,6 +188,7 @@ static inline void vcpu_set_thumb(struct kvm_vcpu *vcpu)
-> >  	*vcpu_cpsr(vcpu) |= PSR_AA32_T_BIT;
-> >  }
-> >  
-> > +#ifdef ARM64_S390_COMMON
-> >  /*
-> >   * vcpu_get_reg and vcpu_set_reg should always be passed a register number
-> >   * coming from a read of ESR_EL2. Otherwise, it may give the wrong result on
-> > @@ -203,6 +207,8 @@ static __always_inline void vcpu_set_reg(struct kvm_vcpu *vcpu, u8 reg_num,
-> >  		vcpu_gp_regs(vcpu)[reg_num] = val;
-> >  }
-> >  
-> > +#endif /* ARM64_S390_COMMON */
-> > +
-> >  static inline bool vcpu_is_el2_ctxt(const struct kvm_cpu_context *ctxt)
-> >  {
-> >  	switch (ctxt->regs.pstate & (PSR_MODE32_BIT | PSR_MODE_MASK)) {
-> > @@ -405,6 +411,7 @@ static inline u64 kvm_vcpu_get_disr(const struct kvm_vcpu *vcpu)
-> >  	return vcpu->arch.fault.disr_el1;
-> >  }
-> >  
-> > +#ifdef ARM64_S390_COMMON
-> >  static inline u32 kvm_vcpu_hvc_get_imm(const struct kvm_vcpu *vcpu)
-> >  {
-> >  	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_xVC_IMM_MASK;
-> > @@ -482,6 +489,8 @@ static __always_inline u8 kvm_vcpu_trap_get_fault(const struct kvm_vcpu *vcpu)
-> >  	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_FSC;
-> >  }
-> >  
-> > +#endif /* ARM64_S390_COMMON */
-> > +
-> >  static inline
-> >  bool kvm_vcpu_trap_is_permission_fault(const struct kvm_vcpu *vcpu)
-> >  {
-> > @@ -522,6 +531,7 @@ static __always_inline int kvm_vcpu_sys_get_rt(struct kvm_vcpu *vcpu)
-> >  	return ESR_ELx_SYS64_ISS_RT(esr);
-> >  }
-> >  
-> > +#ifdef ARM64_S390_COMMON
-> 
-> I'm curious about the reasons for skipping a bunch of architectural
-> helpers:
-> 
-> - kvm_vcpu_trap_is_permission_fault()
-we need the s390 state for this function -> we overload it
-the only use is in shared arm64 code for is_write_fault
-> - kvm_vcpu_trap_is_translation_fault()
-> - kvm_vcpu_trap_get_perm_fault_granule()
-> - kvm_vcpu_abt_issea()
-as s390 mm works differntly in comparison to ARMs (suprise :) )
-we do not need those
-
-
-> - kvm_vcpu_sys_get_rt()
-I'll add using this function in the next series (sysreg enablement)
-I can do that now - It reduces the churn to the next series.
-
-> 
-> I really think you should include anything that is exclusively derived
-> from architectural state, specially that these helpers are strictly
-> dependent on stuff you already include.
-> 
-> Any particular reason why this isn't the case?
-
-These functions operate right at the border where the s390 architectural
-state (host view) and the arm64 architectural state (guest view) meet.
-
-Especially, for the memory management of the guest we need to use
-s390 based guest memory management (gmap) as the host only knows s390
-(+SAE & friends to actually run an arm64 guest)
-
-The s390 host work here is to convert the s390-state into arm64 state
-for the guest. e.g. convert a s390 translation fault into a data abort (if
-applicable)
-
-The code in the second series should make this more
-clear. As we now are clear on the code-sharing concept I will sent a
-respin of the second series using the new sharing approach ASAP.
-
-
-> 
-> >  static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
-> >  {
-> >  	if (kvm_vcpu_abt_iss1tw(vcpu)) {
-> > @@ -546,6 +556,8 @@ static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
-> >  	return kvm_vcpu_dabt_iswrite(vcpu);
-> >  }
-> >  
-> > +#endif /* ARM64_S390_COMMON */
-> > +
-> >  static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
-> >  {
-> >  	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
-> > @@ -587,6 +599,7 @@ static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
-> >  	return vcpu_read_sys_reg(vcpu, r) & bit;
-> >  }
-> >  
-> > +#ifdef ARM64_S390_COMMON
-> 
-> Similarly, you have dropped
-> 
-> - kvm_vcpu_set_be()
-> 
-> - kvm_vcpu_is_be()
-> 
-> I suspect that your implementation is LE only (it'd better be, as
-> we're dropping BE support right now), but it would make a lot more
-> sense if you could rely on the guest architectural state (which must
-> be accurate) rather than short-cutting things in your own
-> implementation.
-
-Yes, you are right we are LE only. Therefore, I defined the function to
-false such that the compiler/linker can optimize-out unreachable code.
-This is true for a couple of function-shortcuts.
-
-I would like to keep it that way if this is no show stopper for you.
-
-
-...
-
-> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> > index 22770c1132cb..e6b3d42abb08 100644
-> > --- a/arch/arm64/include/asm/kvm_host.h
-> > +++ b/arch/arm64/include/asm/kvm_host.h
-> > @@ -39,6 +39,7 @@
-> >  
-> >  #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
-> >  
-> > +#ifdef ARM64_S390_COMMON
-> >  #define KVM_VCPU_MAX_FEATURES 10
-> >  #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
-> >  
-> > @@ -86,6 +87,8 @@
-> >  /* Unhandled SEAs are taken to userspace */
-> >  #define KVM_ARCH_FLAG_EXIT_SEA				11
-> >  
-> > +#endif /* ARM64_S390_COMMON */
-> > +
-> >  #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
-> >  				     KVM_DIRTY_LOG_INITIALLY_SET)
-> >  
-> > @@ -836,6 +839,8 @@ extern s64 kvm_nvhe_sym(hyp_physvirt_offset);
-> >  extern u64 kvm_nvhe_sym(hyp_cpu_logical_map)[NR_CPUS];
-> >  #define hyp_cpu_logical_map CHOOSE_NVHE_SYM(hyp_cpu_logical_map)
-> >  
-> > +#ifdef ARM64_S390_COMMON
-> > +
-> >  struct vcpu_reset_state {
-> >  	unsigned long	pc;
-> >  	unsigned long	r0;
-> > @@ -843,6 +848,8 @@ struct vcpu_reset_state {
-> >  	bool		reset;
-> >  };
-> >  
-> > +#endif /* ARM64_S390_COMMON */
-> 
-> Given that this is a standalone structure without any dependency,
-> could you simply move it to a "nicer" place as part of the reshuffling
-> patch?
-> 
-
-Yes, no problem.
-
-I just wanted to limit the number of moves. I'll guess we will meet in
-the middle somewhere :) 
-
-
-...
-
-> > @@ -1248,6 +1259,8 @@ int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
-> >  unsigned long kvm_arm_num_sys_reg_descs(struct kvm_vcpu *vcpu);
-> >  int kvm_arm_copy_sys_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices);
-> >  
-> > +#endif /* ARM64_S390_COMMON */
-> > +
-> >  int __kvm_arm_vcpu_get_events(struct kvm_vcpu *vcpu,
-> >  			      struct kvm_vcpu_events *events);
-> >  
-> > @@ -1326,6 +1339,7 @@ int __init populate_nv_trap_config(void);
-> >  
-> >  void kvm_calculate_traps(struct kvm_vcpu *vcpu);
-> >  
-> > +#ifdef ARM64_S390_COMMON
-> >  /* MMIO helpers */
-> >  void kvm_mmio_write_buf(void *buf, unsigned int len, unsigned long data);
-> >  unsigned long kvm_mmio_read_buf(const void *buf, unsigned int len);
-> > @@ -1333,6 +1347,8 @@ unsigned long kvm_mmio_read_buf(const void *buf, unsigned int len);
-> >  int kvm_handle_mmio_return(struct kvm_vcpu *vcpu);
-> >  int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa);
-> >  
-> > +#endif /* ARM64_S390_COMMON */
-> 
-> Similarly, it'd be marginally better if you moved some of these
-> prototypes together, as below (untested).
-> 
-
-Will do.
-
-	Steffen
-
-...
+Best regards,
+Bhargav
 
