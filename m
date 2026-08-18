@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88327C5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30588C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=njwl1pkRhI2somYbNv1bO155KHdaZIQ/hPytERdf23g=; b=DA08dwPxizHbEfMABkla8rWABO
-	vvYB5ScV4JBUjzhFtMYUj9xhqR4TRsN0haDSHmj6Y5G4mrscgUA29cBTTUj2PVp6SdCFAZOrK6NL4
-	HqYPRWD2MrMG3tSB5K+UUKdMywsjf1hcgCcmqiiWtHCLWG2CdI/jOSGa+P9qzL35YVGKZZf8ooCzw
-	a0tpv7WGmwwvtDl48dc6iGscLEsXi0svd3+aQTj2H7gf4D2BLcGoFqzEL5BUyBrgcddPp12HjGw/n
-	Ai6u+H1FtjflW0tRns5DSTpnbOBaYX3aSSLd4uwVejTah0wXdMsM1sy13lycCLMBW3INVWWGh5faN
-	6kvpu2IA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+go879+lhtz6kjxYEfCYEUcFeNEXpMv/Ou7ia8zyV34=; b=kpGpa3Nvc8EJKutab5UEy1j+I1
+	CD3X8oRfHTR1U0lsgPUq53gsUHNI13Y2h4nGWRdG53CEC+Ick8oQSNPAZRIwGsUXO0rueNcl4UczH
+	xczqwIy56NbsM8t6bhhLAOj6J6NdhmoZDUzgdTfsPH5qng3uSMbVDBcAlV1ehdZ1AXNAWaxjDtgYy
+	1HpF1Y+DdjrW+CR8Ah1qRJcMWayezkhNb/dr35yqSY3xhKzr4tn4EEXEoMioRHpBfOegY6ms+gBpp
+	3TiLfQdAdZ3kR5e73Rh+F2sNbEk5S/5H4mExsGTnzoLT7xzwQrQGi/2LvNU6Rrxe9iovGy3VKG3bI
+	izbLqdYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwGN7-00000007eaL-1JH7;
-	Tue, 18 Aug 2026 09:44:41 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wwGNH-00000007ei1-32kD;
+	Tue, 18 Aug 2026 09:44:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwGMw-00000007eRa-0dBA;
-	Tue, 18 Aug 2026 09:44:31 +0000
-X-UUID: 5ed1fb5c9ae911f19a56ed5b684f684d-20260818
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:092295e3-ad9c-4ed1-9bcc-d9d7a112fa11,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:ca29938179fec3bad5841664eac11a86,BulkI
-	D:nil,BulkQuantity:0,SF:81|82|102|865|898,TC:nil,Content:0|15|50,EDM:-3,IP
-	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
-	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 5ed1fb5c9ae911f19a56ed5b684f684d-20260818
-X-User: liuxixin@kylinos.cn
-Received: from [127.0.1.1] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <liuxixin@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1358875150; Tue, 18 Aug 2026 17:44:13 +0800
-From: Xixin Liu <liuxixin@kylinos.cn>
-To: linux-riscv@lists.infradead.org
-Cc: atish.patra@linux.dev, anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, liuxixin@kylinos.cn
-Subject: [PATCH v2 1/2] perf: RISC-V: use BIT_ULL for u64 overflow masks
-Date: Tue, 18 Aug 2026 17:10:00 +0800
-Message-ID: <prpmask01bitul.v2.1786434000.git.liuxixin@kylinos.cn>
-In-Reply-To: <cover.v2.1786434000.git.liuxixin@kylinos.cn>
-References: <cover.1786092600.git.liuxixin@kylinos.cn> <cover.v2.1786434000.git.liuxixin@kylinos.cn>
+	id 1wwGN2-00000007eXZ-2Ewb;
+	Tue, 18 Aug 2026 09:44:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 81C7E601E0;
+	Tue, 18 Aug 2026 09:44:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2E791F000E9;
+	Tue, 18 Aug 2026 09:44:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787046275;
+	bh=+go879+lhtz6kjxYEfCYEUcFeNEXpMv/Ou7ia8zyV34=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=K//PAmYi6FmyIoB1+cGsrleQfa6mHr3F/LzlNWNkFMMpAsD+2U5Xr47D+YJr9ApqM
+	 3hOtr22TLx8Q/syRCMtIuz/SGWwOiOZdPbQme4kIxxPj8GoFBFBNsy+n1x5j3wcrE1
+	 rtGItxvsvNnmFTfH4ZBC5rdEJhy+wAURFYM5IgSjilq8RJKJZzYLST5QoYsq7loMcN
+	 lWHE4lUGhC+qcoet9tRSDwgzgnNzqwofXtXMs2gfVkeFXjYM8ndYHYx6gHFMpudiQV
+	 z/fjmBER/G7YvT8D3Wusziy4fJ6G8JWO1Yr3vouso/fofoKH4gyScZsbsmJtE4j/iU
+	 LYSGQKiZUiZUQ==
+From: Pratyush Yadav <pratyush@kernel.org>
+To: Mukesh Pilaniya <mpilaniy@redhat.com>
+Cc: Pratyush Yadav <pratyush@kernel.org>,  Catalin Marinas
+ <catalin.marinas@arm.com>,  Will Deacon <will@kernel.org>,  Mark Rutland
+ <mark.rutland@arm.com>,  Huacai Chen <chenhuacai@kernel.org>,  WANG Xuerui
+ <kernel@xen0n.name>,  Paul Walmsley <pjw@kernel.org>,  Palmer Dabbelt
+ <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,  Alexandre Ghiti
+ <alex@ghiti.fr>,  Andrew Morton <akpm@linux-foundation.org>,  Baoquan He
+ <baoquan.he@linux.dev>,  Mike Rapoport <rppt@kernel.org>,  Pasha Tatashin
+ <pasha.tatashin@soleen.com>,  Tao Liu <ltao@redhat.com>,  Philipp Rudo
+ <prudo@redhat.com>,  linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  loongarch@lists.linux.dev,
+  linux-riscv@lists.infradead.org,  kexec@lists.infradead.org
+Subject: Re: [PATCH] kexec: return -ENOEXEC from image probe functions on
+ mismatch
+In-Reply-To: <9cbe111c-ff63-4f24-b518-094ddd7cea30@redhat.com> (Mukesh
+	Pilaniya's message of "Fri, 14 Aug 2026 22:57:36 +0530")
+References: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
+	<2vxzv79c23j6.fsf@kernel.org>
+	<9cbe111c-ff63-4f24-b518-094ddd7cea30@redhat.com>
+Date: Tue, 18 Aug 2026 11:44:30 +0200
+Message-ID: <2vxzbjaz2269.fsf@kernel.org>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Mailer: patches/scripts/send-local.py
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_024430_519839_035B60E2 
-X-CRM114-Status: GOOD (  10.73  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,50 +80,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Overflow status and restart masks are u64, but bits were built with
-BIT(). On RV32 that is an unsigned long shift, so indices >= 32 truncate
-or wrap and corrupt the mask.
+On Fri, Aug 14 2026, Mukesh Pilaniya wrote:
 
-Use BIT_ULL() for those u64 bitops.
+> Hi Pratyush,
+> On 14/08/26 7:43 pm, Pratyush Yadav wrote:
+>> On Thu, Aug 13 2026, Mukesh Pilaniya wrote:
+>> 
+>>> Several kexec_file_load() image probe functions return -EINVAL when
+>>> they do not recognize the image format.  A probe function that rejects
+>>> an image should return -ENOEXEC to indicate that the image is not a
+>>> recognized executable format.  -EINVAL implies a problem with the
+>>> syscall parameters, not with image recognition.
+>>>
+>>> kexec_image_probe_default() iterates through registered loaders and
+>>> returns the last probe's error code to the caller.  That error
+>>> propagates as the kexec_file_load() return value to userspace.
+>>> Returning -EINVAL from a probe when no loader matches is semantically
+>>> incorrect and misleads userspace about the nature of the failure.
+>>>
+>>> Return -ENOEXEC from all probe functions and their helpers when the
+>>> image format is not recognized.
+>> 
+>> Sounds fine in principle but can you please also share what the real
+>> problem you face is and how changing these return codes helps? These
+>> error codes are uAPI and while we _can_ change them as long as we don't
+>> break something, there should be a clear motivation for doing so.
+>> 
+>> [...]
+>> 
+> While debugging a misleading error on s390x where kexec -s reported
+> "syscall kexec_file_load not available" instead of the actual EINVAL
+> from a kernel command line that exceeded the architecture limit, we
+> traced the problem to the kexec-tools userspace utility treating
+> EINVAL the same as ENOSYS and ENOEXEC -- as a signal to silently fall
+> back to kexec_load().
+>
+> kexec-tools supports two syscalls: kexec_file_load() and the older
+> kexec_load(). With -a (the default), it tries kexec_file_load()
+> first and falls back to kexec_load() when the syscall is not
+> implemented (ENOSYS) or the kernel does not have a loader for the
+> image format. With -s, it uses kexec_file_load() only with no
+> fallback.
+>
+> When the kernel returns -EINVAL it means something went wrong while
+> loading the image, not that the syscall is missing or the image
+> format is unrecognized. kexec-tools should not fall back to the
+> older syscall in that case. However, some kernel probe functions
+> currently return -EINVAL when the image header does not match,
+> instead of returning -ENOEXEC. Keeping EINVAL in the fallback set
+> to accommodate these probes has the side effect of also hiding
+> genuine loading errors like an oversized command line.
+>
+> kexec-tools should only fall back when kexec_file_load() is not
+> implemented or does not have a matching loader -- not when something
+> goes wrong during load.
+>
+> The fix on the kexec-tools side is to remove EINVAL from the fallback
+> set, but that requires the kernel to be clean first -- probe functions
+> must return -ENOEXEC when they do not recognize an image format, not -EINVAL.
 
-Fixes: a8625217a054 ("drivers/perf: riscv: Implement SBI PMU snapshot function")
-Assisted-by: DeepSeek:deepseek-v3
-Signed-off-by: Xixin Liu <liuxixin@kylinos.cn>
----
- drivers/perf/riscv_pmu_sbi.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Okay, the idea makes sense. Though I am curious if in practice there are
+images that kexec_file_load() can't load but kexec-tools can.
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -913,7 +913,7 @@ static inline void pmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_hw_
- 	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
+But then I went and looked at the code. The only caller of the probe
+functions I can see is kexec_image_probe_default(). Looking at its code:
+
+  int kexec_image_probe_default(struct kimage *image, void *buf,
+  			      unsigned long buf_len)
+  {
+  	const struct kexec_file_ops * const *fops;
+  	int ret = -ENOEXEC;
+  
+  	for (fops = &kexec_file_loaders[0]; *fops && (*fops)->probe; ++fops) {
+  		ret = (*fops)->probe(buf, buf_len);
+  		if (!ret) {
+  			image->fops = *fops;
+  			return ret;
+  		}
+  	}
+  
+  	return ret;
+  }
+
+It defaults ret to -ENOEXEC, which makes sense, but then lets it be
+over-written by each loader. So in practice, it returns what the _last_
+loader returned. _This_ makes no sense. Why should the last loader be
+any special?
+
+From reading the code, I think what the author of this wanted to do is
+to try all loaders, and return -ENOEXEC if none succeeded. But the code
+of course strays from that and ends up returning the last loader's
+value.
+
+So how about the below diff instead? (** only compile tested **)
+
+--- 8< ---
+diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
+index 2bfbb2d144e6..cfb2b8cd5679 100644
+--- a/kernel/kexec_file.c
++++ b/kernel/kexec_file.c
+@@ -67,17 +67,16 @@ int kexec_image_probe_default(struct kimage *image, void *buf,
+ 			      unsigned long buf_len)
+ {
+ 	const struct kexec_file_ops * const *fops;
+-	int ret = -ENOEXEC;
  
- 	for_each_set_bit(idx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
--		if (ctr_ovf_mask & BIT(idx)) {
-+		if (ctr_ovf_mask & BIT_ULL(idx)) {
- 			event = cpu_hw_evt->events[idx];
- 			hwc = &event->hw;
- 			max_period = riscv_pmu_ctr_get_width_mask(event);
-@@ -1020,14 +1020,14 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 			hidx = info->csr - CSR_CYCLE;
+ 	for (fops = &kexec_file_loaders[0]; *fops && (*fops)->probe; ++fops) {
+-		ret = (*fops)->probe(buf, buf_len);
+-		if (!ret) {
++		if (!(*fops)->probe(buf, buf_len)) {
+ 			image->fops = *fops;
+-			return ret;
++			return 0;
+ 		}
+ 	}
  
- 		/* check if the corresponding bit is set in sscountovf or overflow mask in shmem */
--		if (!(overflow & BIT(hidx)))
-+		if (!(overflow & BIT_ULL(hidx)))
- 			continue;
+-	return ret;
++	/* No loader found. */
++	return -ENOEXEC;
+ }
  
- 		/*
- 		 * Keep a track of overflowed counters so that they can be started
- 		 * with updated initial value.
- 		 */
--		overflowed_ctrs |= BIT(lidx);
-+		overflowed_ctrs |= BIT_ULL(lidx);
- 		hw_evt = &event->hw;
- 		/* Update the event states here so that we know the state while reading */
- 		hw_evt->state |= PERF_HES_STOPPED;
+ static void *kexec_image_load_default(struct kimage *image)
 
 -- 
-2.43.0
-
+Regards,
+Pratyush Yadav
 
