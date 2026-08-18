@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67365C5DF7E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 10:32:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 799BEC5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 10:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXAR0pfuBaAQ9k+v1xXQaQosy7aMoQd3gplGbAsity0=; b=kapozswspySoVXI24qdkZCd0O0
-	1A4bdOKKJvi+Oi3cQAxLziXMmOuHtf2w9VBMMbZzlAF6I6jC2Nnqu/3B8UC1s5s4EBwy405vb/w19
-	hud9IKerWmk3rr5DltCaJ67/v4If70i4YQXuqL9Nf28ca9snnxGVoJv803XDMGQo/pTjWipyCh47N
-	Wg30d2PAlYrtVxJWstD7EPHHCEpO5tfdZD6rGoO/dZ4i+44nelchaoMLWRjD+Sgb82qTR2KFkg7C2
-	EZnarKuWOEPPdCrbfUPNCOen2569mld+GtT8VhFul/Np0iyr2GReGKVIG5FQ3bPmy10vZji/93LZF
-	fIJD+GcQ==;
+	bh=0US0ozN7L3SAjOKyepRf84tawF861oB4+zMdDmmleEw=; b=2YG9w+LOP4g0lejRapXR4mFaJU
+	lgkWm2Afv10w603RVnXqbcTTVkSON8Muj7muszZD2ewF4sLP2Ii1jKZo+TF0lYIdt/GpgvnJGPada
+	J7c0ph1LixROOjSTgFREY3fpKVtvvHmwkWMuMm111TTIiy8MDXPEYT42gmj/CC92pZYB+rwN95mRi
+	4maMkjrDca1+/dM28xnTVaQEl7xmLyUHlTlqhXANduSybr/kDJ93TR7G2NUefAl5UuGDxbanV8iZ1
+	eJXOsRxY9NaoYlapD6t8gcPJ4GqPyIt+CXweiToRMic4ZZjYI+tmEdzSmPmCFV0dAV94c4x+1Q2dO
+	Fn2OUtvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwH6k-00000007ijH-0hnS;
-	Tue, 18 Aug 2026 10:31:50 +0000
+	id 1wwH6r-00000007ioi-3dTu;
+	Tue, 18 Aug 2026 10:31:57 +0000
 Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwH6f-00000007ifH-0tR6
+	id 1wwH6m-00000007ikt-2hiX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 10:31:46 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4994c49f588so9413985e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 03:31:44 -0700 (PDT)
+	Tue, 18 Aug 2026 10:31:53 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-499a4d1d7f1so3752625e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 03:31:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=9elements.com; s=google; t=1787049103; x=1787653903; darn=lists.infradead.org;
+        d=9elements.com; s=google; t=1787049111; x=1787653911; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=VXAR0pfuBaAQ9k+v1xXQaQosy7aMoQd3gplGbAsity0=;
-        b=FxE3wv7bzRzJNNgy4vVr3qnis+eBPftEIBclfEmHFeJDfeZZKPVpWOw7UhILD8FTrF
-         ZtvwpJ7ezDBeso0x2CG27wrzdZmzmW1fuCUR5+m5D2Qi+WYltst7utHO5LroXLzpa4n4
-         cHu0W5szceY2AlODIGN9hQkdITZ7B5twST6GjYlNbI7r5YEtjxQrsALc1DclsKlOb8wF
-         96x11rwnFCDXyWtucmbYx3/lEP5pDkleTMCvfQ4XU0xBoWMfPynrH4PGI5PGr0xqICo8
-         Q9YabgKiaaZiVPvNPcMxycAQJbg0hKzZg1Qn9JKTWorrZidBpWOmNJ5xY4AaKlk6krOb
-         cfxg==
+        bh=0US0ozN7L3SAjOKyepRf84tawF861oB4+zMdDmmleEw=;
+        b=SQHQyRQlhhYvf20siqP8ephQlqdvm6u0fJWZLv9zm6H54EhthuP1aZFkWMM87WmJ7S
+         XLP4Qek4KOe45Rm8yh0mPkgI3U0mKv3QFQme/vXK56VuoMurRhPbrl4zeFDqv3cvmeYg
+         eBLOcDv+xM4yjuP/qlnAN6qfHURRBgeCgsTxwHUeT22f6RRytgz+ECluxm/cLQf6c9vc
+         SKaOc7bJs+B77ZDKnW7KmyPwpu2RmRgjS5tA2vOD7bMHKXmTjcCSBSsSV91rC452XzTN
+         GiqrcY9V+cncN1/aT6weMEhW9HI6bJiPvzmKc3MnAnPxd6hDbpo8ZcMbCRa7UDQni9MW
+         J3SA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787049103; x=1787653903;
+        d=1e100.net; s=20251104; t=1787049111; x=1787653911;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=VXAR0pfuBaAQ9k+v1xXQaQosy7aMoQd3gplGbAsity0=;
-        b=Fd9goEsQ9zyV58SxKdPsnq9AptDxx7ZD7SE3ErjOhqzNXY49mYfXPYw8dvHr82lB6T
-         /t/FGzXqlTUTyZSdMu0ueTUK+Q3EZthzuyDdnvpkH1olckd7/UFG/yLj7MeH3JWsx/1d
-         R/e7chWiThfXyDIpflSE4c3Ix4vNpTkySHx99xdvHa927ENPkKfDs1rMHDS0xMP7yOR5
-         dZVWhdm0t+BJXRubcqOKYrbIcUEyaRrqJ01DnTPwvBJfr1Y+HKVpJCysw8TOnsivsBEB
-         P2ywy6jnpv339xThwfJqgkbBOIYNOGj+9v2y3tHJarVWCWweWqQxWLoD3X8Oy5n8ICxz
-         8UIw==
-X-Forwarded-Encrypted: i=1; AHgh+Rp8qEpck1UDMFfmQd2r3Hyhph1DJPYEptkCS7Bl6bMCfnq9l8BRRqfyAB8HbWdE5t4tfkRmi6fxzaAKKXgTJov5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtEZtY/foHb8hV+eyRLP354rvOaPlbLT9dCGgr6nk74zsoY5zb
-	8s2vJfmpwr7R56G2A6AN4PWuq+L5l9YfKOxYJCd+C84jMSjPyICCrbAL4e9T1X1LxPM=
-X-Gm-Gg: AR+sD13M3YsVJUWzTWdP6biXviOVKsgX6hkTAuSerG62RNVmkMHAxqM93+X5xEZVn85
-	OebKVNbS+Bnjn1xZ8z62tp39ACLyKUZrKQJNJGXwL7r3G5qN/G9xwfnqABEm15rewMwX/iiV0/1
-	onytNYGew7YkRnfEzSiYd8PqAepAOYpwH7KxtuIfV5qdEDFydqEDAGj/G6uvE+wpYya36sU8dsT
-	xoSrx7FX8whgNmILF+S4rFCfmeIfLmgiHtEYiEIiUmoZK6unWp9o81DdkAX7+S3a2coGYEL5Ivy
-	yGrORjwD3vluxQ/eCG3KqNDdtIi4Aq2Oi6rgYRPxm7V1wNk7uaAT7hmU9iWgMnbiAf/Litax+it
-	yDKVQZJUDPTgpqc4SjJsDxui6DkW9NjqebzynvRMZQWRGCIxZNr37xRBCKCXEN3KikqKLvgQwcO
-	OzdWf7OLwHaFaDbTBEz69Vn0/p4+sMpBjE3GNu7Rq6cnT5WdqzXaIZymisZcsekkqAJmQJl2e//
-	EcvxJ7pwsnsUEnHFBOmAfQvBXo4YXoymu8/m1GbEhv/LDsE37u/FPUupwgg
-X-Received: by 2002:a05:600c:8b77:b0:493:f783:c46a with SMTP id 5b1f17b1804b1-499a206a553mr70558395e9.6.1787049103159;
-        Tue, 18 Aug 2026 03:31:43 -0700 (PDT)
+        bh=0US0ozN7L3SAjOKyepRf84tawF861oB4+zMdDmmleEw=;
+        b=ONID4dpwP/Mp42Xa6EDirVInq8wlMMaYkEwlv51NnIcKyXUbOOPtLAmUU5bWZUILbu
+         RhWdvqHCE8h9/s2C18rcEc9GODBYBWmMQSUnE1iSVI/TxUb2bwl+1oqO6HgXVvMqQT+K
+         v2cF26S6F3NEVbJf8nPmgNSdRh0/q8LoBep7KRDEW3NL46GkdGYfIwqfqn4+9HxJ1qFG
+         /ZjjTU76l2Dvjlg+PEKMgHT2LIezgxGENGhFAIsfE5EMWFEEYu3IrhiscAF7OIqsI+xd
+         RMKIw9AxV/URGGzOTt4AolAWCKq35Uy+YYpXm910f+5IbbnEDTH5Zwy0Q7xfoYQIvPEL
+         pVXQ==
+X-Forwarded-Encrypted: i=1; AHgh+RphN6cnIOyTufSHx4nPrm+QB2bkN6SVoqxRBYkUkZQdb88TZAABDsbFg2SCeP+eXSYLIqfvgI1nFxqlxQ2YlES9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGTGkHMOzEHTWvlUOPuulgFGCcuzPcP/UILtfW0QSNFEBgpzvy
+	fsuSFFpEnFFlX/uQ78NA1uIVFvELHV7muLGF1/Q4JDIcT752jftgAGmAvnlYJxEODJU=
+X-Gm-Gg: AR+sD11DR3ItnwSjbrYLEuWdM5/t4yy8y+jdCY7HjpFloavCxVc5rqUoEniHBHxyovs
+	wFkKnxv5eikTd6QkfEMu2lMX5LSf52XPwWsU787He5b3bBEOCnYVB2zXG1rsa3/VYBQQxMMmP23
+	cOaEshY+PT9eX4NCCWMSLrEn7En+W6KGaRQH7+BqvgOBn8yzMlSsJLsbRoxc60RGrER/rlFK0UB
+	9SBkma6dFpdZVZ37gE4ZpkJVwrfRMKl2ojnnpc73mT5gbsTTuFVs8+1LPtgw0m+xYC8NOM9C7zu
+	w3AaQAtno9KCbHYcdH9EuBWWkqZNboCiBiPdF3R+592WxbFYW2Z6tr1sIhia8OKHZyPtkua5Q7S
+	JfXoiI0hKztNJ0lkbl1lAa3TT3KjLk4uNiuxPds5W2Sx99GEhY77HAzQocw05FmywZ1t3fhMbzI
+	UlrRAYbSNZtNjMKVX8UlKcN6s2Lo5eWgxQHfF7t2IWr5xyxdsI5I+6wbZzAGmPZjIa+Sn0d/d7z
+	rDIp4SsUJ9RoKgLr30UfRl3+9HA5bMTisQudXcZTpb0dD34fFViziOJwujt
+X-Received: by 2002:a05:600c:1d27:b0:493:e451:a9e1 with SMTP id 5b1f17b1804b1-4999fae4e89mr107830385e9.2.1787049110979;
+        Tue, 18 Aug 2026 03:31:50 -0700 (PDT)
 Received: from [127.0.0.2] ([188.111.3.154])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499960988c6sm246025575e9.0.2026.08.18.03.31.41
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499960988c6sm246025575e9.0.2026.08.18.03.31.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Aug 2026 03:31:42 -0700 (PDT)
+        Tue, 18 Aug 2026 03:31:50 -0700 (PDT)
 From: =?utf-8?q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
-Date: Tue, 18 Aug 2026 10:29:14 +0000
-Subject: [PATCH v6 1/6] dt-bindings: serial: 8250: aspeed: add ast2600 and
- aspeed,vuart-over-pci
+Date: Tue, 18 Aug 2026 10:29:18 +0000
+Subject: [PATCH v6 5/6] ARM: dts: aspeed: g6: Change vuart compatible
+ string for ast2600
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260818-aspeed-driver-v6-v6-1-fd7cc0b338ea@9elements.com>
+Message-Id: <20260818-aspeed-driver-v6-v6-5-fd7cc0b338ea@9elements.com>
 References: <20260818-aspeed-driver-v6-v6-0-fd7cc0b338ea@9elements.com>
 In-Reply-To: <20260818-aspeed-driver-v6-v6-0-fd7cc0b338ea@9elements.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -93,12 +93,11 @@ Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
  mfd@lists.linux.dev, andrew@lunn.ch, jacky_chou@aspeedtech.com, 
  yh_chung@aspeedtech.com, ninad@linux.ibm.com, anirudhsriniv@gmail.com, 
- =?utf-8?q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ =?utf-8?q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_033145_286608_0EF06BB8 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20260818_033152_710267_F3C81A9F 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,105 +112,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ASPEED AST2600 can be used as a PCI device.
-The ASPEED AST2600 has 2 Virtual UARTs accessible over PCI.
-2 Virtual UART can be exposed to the host via this PCI device.
-These are 8250-compatible register sets and can be used to have UART
-communication between the PCI BMC and the host.
+Use the ast2600 compatible string.
+Make it more precise and enable specific ast2600 properties.
+Still use the ast2500 compatible string as a fallback.
 
-This boolean can be set to specify if a VUART is used over PCI. A VUART
-over PCI needs access to the SCU syscon to set the enable bits of the
-PCI device.
-On the aspeed's chips, the clocks phandle already points at the SCU node.
-But deriving the regmap from the clock provider would misuse the clocks
-binding. An explicit scu-syscon phandle states the dependency directly.
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Tan Siewert <tan.siewert@9elements.com>
 Signed-off-by: Grégoire Layet <gregoire.layet@9elements.com>
 ---
- Documentation/devicetree/bindings/serial/8250.yaml | 42 ++++++++++++++++++++--
- 1 file changed, 40 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/serial/8250.yaml b/Documentation/devicetree/bindings/serial/8250.yaml
-index bb7b9c87a807..8dd4b7af0c0d 100644
---- a/Documentation/devicetree/bindings/serial/8250.yaml
-+++ b/Documentation/devicetree/bindings/serial/8250.yaml
-@@ -18,12 +18,34 @@ allOf:
-             - aspeed,lpc-io-reg
-         - required:
-             - aspeed,lpc-interrupts
-+    then:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - aspeed,ast2500-vuart
-+              - aspeed,ast2600-vuart
-+  - if:
-+      anyOf:
-         - required:
-             - aspeed,sirq-polarity-sense
-     then:
-       properties:
-         compatible:
-           const: aspeed,ast2500-vuart
-+  - if:
-+      required:
-+        - aspeed,vuart-over-pci
-+    then:
-+      required:
-+        - aspeed,scu-syscon
-+      properties:
-+        compatible:
-+          contains:
-+            const: aspeed,ast2600-vuart
-+    else:
-+      properties:
-+        aspeed,scu-syscon: false
-   - if:
-       properties:
-         compatible:
-@@ -106,6 +128,9 @@ properties:
-       - const: ns16850
-       - const: aspeed,ast2400-vuart
-       - const: aspeed,ast2500-vuart
-+      - items:
-+          - const: aspeed,ast2600-vuart
-+          - const: aspeed,ast2500-vuart
-       - const: intel,xscale-uart
-       - const: mrvl,pxa-uart
-       - const: nuvoton,wpcm450-uart
-@@ -297,7 +322,8 @@ properties:
-     $ref: /schemas/types.yaml#/definitions/uint32-array
-     maxItems: 1
-     description: |
--      The VUART LPC address.  Only applicable to aspeed,ast2500-vuart.
-+      The VUART LPC address.  Only applicable to aspeed,ast2500-vuart and
-+      aspeed,ast2600-vuart.
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+index edf4b74f5aba..c952e2075b4c 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+@@ -707,7 +707,7 @@ emmc: sdhci@1e750100 {
+ 			};
  
-   aspeed,lpc-interrupts:
-     $ref: /schemas/types.yaml#/definitions/uint32-array
-@@ -306,7 +332,19 @@ properties:
-     description: |
-       A 2-cell property describing the VUART SIRQ number and SIRQ
-       polarity (IRQ_TYPE_LEVEL_LOW or IRQ_TYPE_LEVEL_HIGH).  Only
--      applicable to aspeed,ast2500-vuart.
-+      applicable to aspeed,ast2500-vuart and aspeed,ast2600-vuart.
-+
-+  aspeed,vuart-over-pci:
-+    type: boolean
-+    description:
-+      Enable the VUART over the BMC PCI device. Only applicable to
-+      aspeed,ast2600-vuart.
-+
-+  aspeed,scu-syscon:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to the SCU syscon, used to enable the VUART over the BMC PCI
-+      device. Only applicable to aspeed,ast2600-vuart.
+ 			vuart1: serial@1e787000 {
+-				compatible = "aspeed,ast2500-vuart";
++				compatible = "aspeed,ast2600-vuart", "aspeed,ast2500-vuart";
+ 				reg = <0x1e787000 0x40>;
+ 				reg-shift = <2>;
+ 				interrupts = <GIC_SPI 147 IRQ_TYPE_LEVEL_HIGH>;
+@@ -717,7 +717,7 @@ vuart1: serial@1e787000 {
+ 			};
  
- required:
-   - reg
+ 			vuart3: serial@1e787800 {
+-				compatible = "aspeed,ast2500-vuart";
++				compatible = "aspeed,ast2600-vuart", "aspeed,ast2500-vuart";
+ 				reg = <0x1e787800 0x40>;
+ 				reg-shift = <2>;
+ 				interrupts = <GIC_SPI 180 IRQ_TYPE_LEVEL_HIGH>;
+@@ -727,7 +727,7 @@ vuart3: serial@1e787800 {
+ 			};
+ 
+ 			vuart2: serial@1e788000 {
+-				compatible = "aspeed,ast2500-vuart";
++				compatible = "aspeed,ast2600-vuart", "aspeed,ast2500-vuart";
+ 				reg = <0x1e788000 0x40>;
+ 				reg-shift = <2>;
+ 				interrupts = <GIC_SPI 148 IRQ_TYPE_LEVEL_HIGH>;
+@@ -737,7 +737,7 @@ vuart2: serial@1e788000 {
+ 			};
+ 
+ 			vuart4: serial@1e788800 {
+-				compatible = "aspeed,ast2500-vuart";
++				compatible = "aspeed,ast2600-vuart", "aspeed,ast2500-vuart";
+ 				reg = <0x1e788800 0x40>;
+ 				reg-shift = <2>;
+ 				interrupts = <GIC_SPI 181 IRQ_TYPE_LEVEL_HIGH>;
 
 -- 
 2.54.0
