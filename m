@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3831CC5DF7D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01BB9C5DF70
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 10:32:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M8ar9tbsiYgARXHHdxhtlB0hv95W7gFeDvqFh7J36R4=; b=J1rFZgxo5P4r1q0jk0pHcuJVLp
-	9H94cnyS6spAdgRtgYLo85mC8dCOiM3NzD5TFTjyjzYv3xod8RTX1+E/NTRLCzvFVUWL8PpKJ1GyH
-	8MAgIkjKUhZL9jzAv3fJwXpnBOC3VtwRhxw0GB/FJI/fY7V6uANSPmA12B40trwJJZgxQVPorjf6+
-	6aPyiytuMloemFkYizb6hRyA6VldM5aWkuWbl7BGs3SdCjww3Q3+4voCO4koPBuBvm9DOdk/lL+CO
-	ryI82nJEYZrxEZjyElHqlWaxbiPknvFuqBK9cLlNzP+S0IxYhZgxBCVtkpR7BTy62lCR/7Rh9LJbG
-	sSKs0gLw==;
+	bh=3PK/rAQ6i96/1frkTqvE+UkBE+8BcrMlUTtgjZMM8tU=; b=xRlmfgEJuVcEgIKoNzKcbs5f6s
+	PcnqQfn3WfWjZ3VXazumsTtTeVKb8Uzdo0M9qii5OrqaME5TfKmRIoHP5dAZ0ASG4JaxuDpTg2jQQ
+	eniHj+ZxUTj5zWJTF/PHoaHI2vmThz9lldCZyQGUkK8QqP3Vbe0JTbr92YP6BSOsCNKL+Sw+kR3Vw
+	XwtRMTSklIBFwty9aKqJdZLCnSwmIpLnPk4Mes9y89tAuuYGbm7BpPaUQz5AIUaCDLCh4BtBZDVau
+	ccTpZK6F1igLdL0m/hDYzgkEn4eo2GZ+EksCJEZIvQ2U3XxZRZzl1ovotBJGC3BnmFKz0ZmdZVFrZ
+	0z1Ffp8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwH7R-00000007jPL-1GMI;
+	id 1wwH7R-00000007jQk-3ivB;
 	Tue, 18 Aug 2026 10:32:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwH79-00000007j5X-2tPB
+	id 1wwH79-00000007j41-12gF
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Aug 2026 10:32:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B97AB44079;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7D25F43F2C;
 	Tue, 18 Aug 2026 10:32:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 91965C2BD00;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 590BFC2BCFF;
 	Tue, 18 Aug 2026 10:32:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1787049134;
-	bh=Bb36BfGeVG00O5acHqEedqkrcVnPEN+C2tMnqCVjfps=;
+	bh=i+FUfbs5rlgTTWag8fNMv7qbV7TUuvFcadcDdAMLsh8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=cxEGbg9akGWhslNkUnpvGOYgjYFvlG8RUICRl72778pTxnW3tnuZxyB4KoSOaeWRb
-	 qiKkjCk6xyzajQt0crSTGwE7HfoNwmhCn2QF/yPf6OZcuJ0R0ry6mwGx9y9RspM+ow
-	 B3lL4rZxD0Tmq/e4iqwV2QupyHpLlTQ0rghEjdVtNWPJM70+5vr9vsM9P4FhwvsmSj
-	 vsaJrHHybEGw5cs5KZ1jBHj9Gf+KPe91JusBO+zRl6PcKIlKYGxX7yaHZKQlKdRvrl
-	 H5XSv+eGMA6zYbMVBG7GUE1leWbYOEUcfz1YMJwKLcY5utPuFDWhx1pbB8U+5Yo1gL
-	 1lQYTelHwxd3A==
+	b=DpBJ6ntAzZHKzeV3hW1188boj/B4FgPnWW9qPkirb5cjsegT0Fwywn61qRcR3t2F8
+	 e7XiAwMvmWMWf9QojojIiMBwMNh7d3l9epmyWcaFCRI8Q6HEWuJSj2UAFUHucK0B97
+	 P+pI4bG/T0Wl3KDWQ85/rdvpNO7Tos2rN2pnLktIR8UAxQhC2BItx333ipYBXWVMuF
+	 R+gSWX5UP0bjpwWmX5LiZD3+gZEdYz0Kx626gizkriL5gP66DRpH31H4oRasYvIrG8
+	 ir6UkE3jP69+vUjEgCfkU4Oe5/QPTnpszIHnq5ek3fEegZSuF9uC/aHAUwIBLOiLrD
+	 dTQEnPNCKnzMg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7B3B0C5DF70;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4476DC5DF70;
 	Tue, 18 Aug 2026 10:32:14 +0000 (UTC)
 From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Tue, 18 Aug 2026 18:31:26 +0800
-Subject: [PATCH v5 12/12] MAINTAINERS: add ARM/AMBARELLA SoC support
+Date: Tue, 18 Aug 2026 18:31:24 +0800
+Subject: [PATCH v5 10/12] serial: 8250: add Ambarella UART driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260818-cv75-v5-v5-12-7bbb12f0360f@ambarella.com>
+Message-Id: <20260818-cv75-v5-v5-10-7bbb12f0360f@ambarella.com>
 References: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com>
 In-Reply-To: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com>
 To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -72,11 +72,11 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, 
  Long Zhao <zl020895@163.com>, Long Zhao <longzhao@ambarella.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787049131; l=1312;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787049131; l=10410;
  i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=qRk4o9fqrbJ/RTe53ZqQZzJC7nitoycd8NIbTSpQATc=;
- b=22jZKHSk4JLzNo9O8aGxR1ZHXYovNN3EMRSWAxCkRINCuJDf+fH7BEi0M1am6EfDNoaT9CyzQ
- GaOtRr7cdbOCbblt/GRQZFAws6QRfB1pNBOAALqZOdSrlL4fz1xTMEJ
+ bh=EOzZgfZ/lCbDgs1qmo/SpdoPp8b/Dsi10/sjSRwB0l0=;
+ b=Pvl7qAMl+Y0rFBUMsE7GO1ptJ+7qw4/XeUZLnJawQLDeHW2XKJyKZ7n4Yw1E/5evSJJNkF32Z
+ 4U+EWeqPmnzCzC7sqI3POCqNvmZhbf+aYMJ553emjMQnzmk0KlGvm4G
 X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
  pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
 X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
@@ -99,41 +99,366 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Long Zhao <longzhao@ambarella.com>
 
-Add a maintainer entry covering Ambarella CV75 bindings, DTS and
-related drivers.
+Add an 8250 platform driver for Ambarella CV75 instead of claiming
+snps,dw-apb-uart compatibility.
 
 Signed-off-by: Long Zhao <longzhao@ambarella.com>
 ---
- MAINTAINERS | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ drivers/tty/serial/8250/8250_ambarella.c | 312 +++++++++++++++++++++++++++++++
+ drivers/tty/serial/8250/Kconfig          |   9 +
+ drivers/tty/serial/8250/Makefile         |   1 +
+ 3 files changed, 322 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 803b60ad628f..4352a2dc1e3d 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2502,6 +2502,22 @@ F:	drivers/clocksource/asm9260_timer.c
- F:	drivers/rtc/rtc-asm9260.c
- F:	drivers/watchdog/asm9260_wdt.c
- 
-+ARM/AMBARELLA SOC SUPPORT
-+M:	Long Zhao <longzhao@ambarella.com>
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+L:	devicetree@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/arm/ambarella.yaml
-+F:	Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
-+F:	Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.yaml
-+F:	Documentation/devicetree/bindings/serial/ambarella,cv75-uart.yaml
-+F:	arch/arm64/boot/dts/ambarella/
-+F:	drivers/clk/ambarella/
-+F:	drivers/pinctrl/pinctrl-ambarella*
-+F:	drivers/tty/serial/8250/8250_ambarella.c
-+F:	include/dt-bindings/clock/ambarella,cv75-rct.h
-+N:	ambarella
+diff --git a/drivers/tty/serial/8250/8250_ambarella.c b/drivers/tty/serial/8250/8250_ambarella.c
+new file mode 100644
+index 000000000000..951355e19fa2
+--- /dev/null
++++ b/drivers/tty/serial/8250/8250_ambarella.c
+@@ -0,0 +1,312 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Serial port driver for Ambarella UART
++ *
++ * Copyright (C) 2026 Ambarella, Inc.
++ */
 +
- ARM/AMD PENSANDO ARM64 ARCHITECTURE
- M:	Brad Larson <blarson@amd.com>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
++#include <linux/bitfield.h>
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/serial_8250.h>
++#include <linux/serial_reg.h>
++
++#include "8250.h"
++
++#define AMBARELLA_UART_IER_ETOI		BIT(5)
++#define AMBARELLA_UART_USR		0x1f
++#define AMBARELLA_UART_USR_BUSY		BIT(0)
++#define AMBARELLA_UART_IIR_IID		GENMASK(3, 0)
++#define AMBARELLA_UART_IIR_STATUS	GENMASK(5, 0)
++
++struct ambarella_uart_soc_data {
++	unsigned int	fifo_size;
++};
++
++struct ambarella_uart {
++	int					line;
++	struct clk				*clk;
++	const struct ambarella_uart_soc_data	*soc_data;
++	bool					in_idle;
++};
++
++static void ambarella_idle_exit(struct uart_port *p)
++{
++	struct ambarella_uart *data = p->private_data;
++	struct uart_8250_port *up = up_to_u8250p(p);
++
++	if (up->capabilities & UART_CAP_FIFO)
++		writel(up->fcr, p->membase + (UART_FCR << p->regshift));
++	writel(up->mcr, p->membase + (UART_MCR << p->regshift));
++	writel(up->ier, p->membase + (UART_IER << p->regshift));
++
++	data->in_idle = false;
++}
++
++static int ambarella_idle_enter(struct uart_port *p)
++{
++	struct ambarella_uart *data = p->private_data;
++	struct uart_8250_port *up = up_to_u8250p(p);
++	unsigned int status;
++	int retries = 4;
++
++	lockdep_assert_held_once(&p->lock);
++
++	data->in_idle = true;
++	writel(0, p->membase + (UART_IER << p->regshift));
++
++	serial8250_fifo_wait_for_lsr_thre(up, p->fifosize);
++	ndelay(p->frame_time);
++	writel(up->mcr | UART_MCR_LOOP,
++	       p->membase + (UART_MCR << p->regshift));
++
++	do {
++		serial8250_clear_fifos(up);
++		if (!(readl(p->membase +
++			    (AMBARELLA_UART_USR << p->regshift)) &
++		      AMBARELLA_UART_USR_BUSY))
++			break;
++		ndelay(p->frame_time);
++	} while (--retries);
++
++	status = serial_lsr_in(up);
++	if (status & UART_LSR_DR) {
++		readl(p->membase + (UART_RX << p->regshift));
++		up->lsr_saved_flags = 0;
++	}
++
++	if (readl(p->membase + (AMBARELLA_UART_USR << p->regshift)) &
++	    AMBARELLA_UART_USR_BUSY) {
++		ambarella_idle_exit(p);
++		return -EBUSY;
++	}
++
++	return 0;
++}
++
++static void ambarella_serial_out(struct uart_port *p, unsigned int offset,
++				 u32 value)
++{
++	struct ambarella_uart *data = p->private_data;
++	u32 lcr;
++
++	if (offset != UART_LCR || !data || data->in_idle) {
++		writel(value, p->membase + (offset << p->regshift));
++		return;
++	}
++
++	lcr = readl(p->membase + (UART_LCR << p->regshift));
++	if (lcr == value)
++		return;
++
++	writel(value, p->membase + (UART_LCR << p->regshift));
++	lcr = readl(p->membase + (UART_LCR << p->regshift));
++	if ((lcr & ~UART_LCR_SPAR) == (value & ~UART_LCR_SPAR))
++		return;
++
++	if (ambarella_idle_enter(p))
++		return;
++
++	writel(value, p->membase + (UART_LCR << p->regshift));
++	ambarella_idle_exit(p);
++}
++
++static u32 ambarella_serial_in(struct uart_port *p, unsigned int offset)
++{
++	return readl(p->membase + (offset << p->regshift));
++}
++
++static int ambarella_handle_irq(struct uart_port *p)
++{
++	struct uart_8250_port *up = up_to_u8250p(p);
++	unsigned int iir = serial_port_in(p, UART_IIR);
++	bool rx_timeout = (iir & AMBARELLA_UART_IIR_STATUS) ==
++			  UART_IIR_RX_TIMEOUT;
++	unsigned int status;
++
++	guard(uart_port_lock_check_sysrq_irqsave)(p);
++
++	switch (FIELD_GET(AMBARELLA_UART_IIR_IID, iir)) {
++	case UART_IIR_NO_INT:
++		return 0;
++	case UART_IIR_BUSY:
++		serial_port_in(p, AMBARELLA_UART_USR);
++		return 1;
++	}
++
++	if (rx_timeout) {
++		status = serial_lsr_in(up);
++		if (!(status & (UART_LSR_DR | UART_LSR_BI)))
++			serial_port_in(p, UART_RX);
++	}
++
++	serial8250_handle_irq_locked(p, iir);
++	return 1;
++}
++
++static void ambarella_set_divisor(struct uart_port *p, unsigned int baud,
++				  unsigned int quot, unsigned int quot_frac)
++{
++	struct uart_8250_port *up = up_to_u8250p(p);
++
++	if (ambarella_idle_enter(p))
++		return;
++
++	serial_port_out(p, UART_LCR, up->lcr | UART_LCR_DLAB);
++	if (serial_port_in(p, UART_LCR) & UART_LCR_DLAB)
++		serial_dl_write(up, quot);
++	serial_port_out(p, UART_LCR, up->lcr);
++
++	ambarella_idle_exit(p);
++}
++
++static int ambarella_startup(struct uart_port *port)
++{
++	struct uart_8250_port *up = up_to_u8250p(port);
++	int ret;
++
++	ret = serial8250_do_startup(port);
++	if (ret)
++		return ret;
++
++	up->ier |= AMBARELLA_UART_IER_ETOI;
++	serial_port_out(port, UART_IER, up->ier);
++
++	return 0;
++}
++
++static int ambarella_uart_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct ambarella_uart *data;
++	struct uart_8250_port uart = {};
++	struct resource *regs;
++	u32 reg_io_width = 4;
++	u32 reg_shift = 2;
++	int irq, ret;
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	regs = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	if (!regs)
++		return dev_err_probe(dev, -EINVAL, "missing registers\n");
++
++	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
++	if (!data)
++		return -ENOMEM;
++
++	data->soc_data = device_get_match_data(dev);
++	if (!data->soc_data)
++		return -EINVAL;
++
++	data->clk = devm_clk_get_enabled(dev, NULL);
++	if (IS_ERR(data->clk))
++		return dev_err_probe(dev, PTR_ERR(data->clk),
++				     "unable to get clock\n");
++
++	uart.port.dev = dev;
++	uart.port.mapbase = regs->start;
++	uart.port.mapsize = resource_size(regs);
++	uart.port.membase = devm_ioremap(dev, regs->start,
++					 resource_size(regs));
++	if (!uart.port.membase)
++		return -ENOMEM;
++
++	uart.port.irq = irq;
++	uart.port.type = PORT_16550A;
++	uart.port.flags = UPF_FIXED_PORT | UPF_FIXED_TYPE | UPF_SKIP_TEST;
++	uart.port.startup = ambarella_startup;
++	uart.port.handle_irq = ambarella_handle_irq;
++	uart.port.set_divisor = ambarella_set_divisor;
++	uart.port.uartclk = clk_get_rate(data->clk);
++	if (!uart.port.uartclk)
++		return dev_err_probe(dev, -EINVAL, "clock rate not defined\n");
++
++	uart.port.fifosize = data->soc_data->fifo_size;
++	uart.port.private_data = data;
++	uart.capabilities = UART_CAP_FIFO | UART_CAP_NOTEMT | UART_CAP_AFE;
++
++	of_property_read_u32(dev->of_node, "reg-shift", &reg_shift);
++	of_property_read_u32(dev->of_node, "reg-io-width", &reg_io_width);
++	uart.port.regshift = reg_shift;
++
++	switch (reg_io_width) {
++	case 4:
++		uart.port.iotype = UPIO_MEM32;
++		uart.port.serial_in = ambarella_serial_in;
++		uart.port.serial_out = ambarella_serial_out;
++		break;
++	default:
++		return dev_err_probe(dev, -EINVAL,
++				     "unsupported reg-io-width %u\n",
++				     reg_io_width);
++	}
++
++	ret = serial8250_register_8250_port(&uart);
++	if (ret < 0)
++		return dev_err_probe(dev, ret, "unable to register 8250 port\n");
++
++	data->line = ret;
++	platform_set_drvdata(pdev, data);
++	return 0;
++}
++
++static void ambarella_uart_remove(struct platform_device *pdev)
++{
++	struct ambarella_uart *data = platform_get_drvdata(pdev);
++
++	serial8250_unregister_port(data->line);
++}
++
++static const struct ambarella_uart_soc_data cv75_uart_data = {
++	.fifo_size = 64,
++};
++
++static const struct of_device_id ambarella_uart_dt_ids[] = {
++	{
++		.compatible = "ambarella,cv75-uart",
++		.data = &cv75_uart_data,
++	},
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, ambarella_uart_dt_ids);
++
++static struct platform_driver ambarella_uart_platform_driver = {
++	.driver = {
++		.name		= "8250-ambarella",
++		.of_match_table	= ambarella_uart_dt_ids,
++	},
++	.probe	= ambarella_uart_probe,
++	.remove	= ambarella_uart_remove,
++};
++
++module_platform_driver(ambarella_uart_platform_driver);
++
++static int __init ambarella_early_setup(struct earlycon_device *device,
++					const char *options)
++{
++	struct uart_port *port = &device->port;
++
++	if (!port->membase)
++		return -ENODEV;
++
++	port->iotype = UPIO_MEM32;
++	port->regshift = 2;
++	port->serial_in = ambarella_serial_in;
++	port->serial_out = ambarella_serial_out;
++
++	return early_serial8250_setup(device, options);
++}
++
++OF_EARLYCON_DECLARE(ambarella, "ambarella,cv75-uart", ambarella_early_setup);
++
++MODULE_IMPORT_NS("SERIAL_8250");
++MODULE_AUTHOR("Long Zhao <longzhao@ambarella.com>");
++MODULE_DESCRIPTION("Ambarella UART driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/tty/serial/8250/Kconfig b/drivers/tty/serial/8250/Kconfig
+index fc3e58d62233..523c55be3227 100644
+--- a/drivers/tty/serial/8250/Kconfig
++++ b/drivers/tty/serial/8250/Kconfig
+@@ -337,6 +337,15 @@ config SERIAL_8250_ACORN
+ 	  system, say Y to this option.  The driver can handle 1, 2, or 3 port
+ 	  cards.  If unsure, say N.
+ 
++config SERIAL_8250_AMBARELLA
++	tristate "Ambarella UART support"
++	depends on SERIAL_8250 && HAVE_CLK
++	depends on ARCH_AMBARELLA || COMPILE_TEST
++	default y if ARCH_AMBARELLA
++	help
++	  Support for the on-chip UART found on Ambarella SoCs.
++	  If unsure, say N.
++
+ config SERIAL_8250_BCM2835AUX
+ 	tristate "BCM2835 auxiliar mini UART support"
+ 	depends on ARCH_BCM2835 || COMPILE_TEST
+diff --git a/drivers/tty/serial/8250/Makefile b/drivers/tty/serial/8250/Makefile
+index 6d21402b4435..601d9e2589fe 100644
+--- a/drivers/tty/serial/8250/Makefile
++++ b/drivers/tty/serial/8250/Makefile
+@@ -20,6 +20,7 @@ obj-$(CONFIG_SERIAL_8250_CONSOLE)	+= 8250_early.o
+ 
+ obj-$(CONFIG_SERIAL_8250_ACCENT)	+= 8250_accent.o
+ obj-$(CONFIG_SERIAL_8250_ACORN)		+= 8250_acorn.o
++obj-$(CONFIG_SERIAL_8250_AMBARELLA)	+= 8250_ambarella.o
+ obj-$(CONFIG_SERIAL_8250_ASPEED_VUART)	+= 8250_aspeed_vuart.o
+ obj-$(CONFIG_SERIAL_8250_BCM2835AUX)	+= 8250_bcm2835aux.o
+ obj-$(CONFIG_SERIAL_8250_BCM7271)	+= 8250_bcm7271.o
 
 -- 
 2.34.1
