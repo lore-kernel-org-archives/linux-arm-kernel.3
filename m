@@ -4,115 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CCDAC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 19:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25CB2C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 19:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gBsZ0xwI/Le18b2qGJn/FAvpMBURVFLBFmujAbRyTkU=; b=bXede7MVKU8RfedVNMgVWSail6
-	5Z+LdYxH8ug55JshKA1OaMuL8gj8ww9WzUzlhoeAeZ4EcjuxATev5gEtdiqmETS0/gLDt4FgrE9Ld
-	IykjJTDFTX8QXKAVXezd7es64ot9xVVjU1H1VUHUPtt1Qsuc/RwwCWIwSBRiEg7Y4OBjxGHsPWjBJ
-	6AdUVFdZfa5jrrkThyHNtlpiyIWUNQse+FMl7+muSLKtVA+TObPIGcRnHIoy7QgHaWBY5NCmsec8m
-	tI/NG5GwJ9wTyM4Tts++27j0Ryux/QVqZRS0rQYckUiQr8CyeMUrNG+es7ULn+BwRMSfYnlGZo8NA
-	Ww5RtuqA==;
+	bh=pSDNrTn17kdTeDxhycEYYadW8To9eY/XeWOg3WVR2DI=; b=0waSpL830PaQLeGl3onz2wKctQ
+	hmu+/ur1ZQXCISwl7k7iL7IrWBy14C4lA95eXdClwBCEmS8fz99kBi/+XCZ0CIZ2h0aOvu3Jq6g/u
+	Hh1AIG3nXZN9mnPflKhsgjYEqTaY9+taz+Ur8jtiE4xMPSj0LujAjRGm0+5Vgzo6QHb7IZMiiW5Nz
+	/7seEjTIOR8lhuLPr2wvcMmMUS1OIIty1VWQXTqsoAosR9yeh0GsafdDV0m/WhaZgAjSutViUzHPu
+	jQuBN+yAa6qHCVrDeNqU8aDvq6HehxPe+tVvWxfwxFA6/mH3ssPEZ9gVWAEyTiv37L8tYBZi/IafK
+	S0zMOCxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwPUQ-00000008akI-0J8C;
-	Tue, 18 Aug 2026 19:28:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wwPX6-00000008awn-3PAc;
+	Tue, 18 Aug 2026 19:31:36 +0000
+Received: from out-61.mta1.migadu.com ([2001:41d0:203:375::3d] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwPUO-00000008ak0-3WzM
+	id 1wwPX3-00000008avs-1R0O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 19:28:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC79560A58;
-	Tue, 18 Aug 2026 19:28:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D10A1F000E9;
-	Tue, 18 Aug 2026 19:28:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787081327;
-	bh=gBsZ0xwI/Le18b2qGJn/FAvpMBURVFLBFmujAbRyTkU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=KgDRKWw06PAWPw5qGCcc0iYOFW9SZXfNffM8HZ9jYIL9SqRmsBWp+KSmmduq1UYfB
-	 oxnHCtrWoW6vwSNwNhfZJruOuVVVriWKROCZzhlgkP4wcx15UBXQg3AEnghVAVqjNW
-	 4AlMGuJ1xyDdPCi7Qtswd5G5JoQBJ1NAbaNgO09PLyJjJuu13VJohA1mL0D8vlhVjI
-	 2UIzJTKs+pdaChY9kfXg7zKP8Z8xzU9Cfs/aHoOjv1P0aBP0oDFwQ1iHJU36/3Lybc
-	 8q0taZ8XHoAhj0yVTwvMF7SN9gNkGoTk0RX3O/qBZ3TSRshR27VfnEmsnXHxVRzXNx
-	 85pHh+slZSF4A==
-Message-ID: <9f97b734-b92f-425d-920b-2c7ee15a2f9e@kernel.org>
-Date: Tue, 18 Aug 2026 21:28:35 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 03/12] dt-bindings: clock: add Ambarella CV75 RCT
-To: longzhao@ambarella.com, Arnd Bergmann <arnd@arndb.de>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-kernel@vger.kernel.org, Brian Masney <bmasney@redhat.com>,
- Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, Long Zhao <zl020895@163.com>
-References: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com>
- <20260818-cv75-v5-v5-3-7bbb12f0360f@ambarella.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260818-cv75-v5-v5-3-7bbb12f0360f@ambarella.com>
+	Tue, 18 Aug 2026 19:31:35 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=KuHVOtgAyVTI30yETpi1bRiv97yNEu22SQQ8ZK98dIo=;
+ c=simple/simple; d=cknow-tech.com;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1787081488; v=1; x=1787686288;
+ b=JGclCxFE7I3H3HH3bc6M2D4nO51BDCeo/9bbvGyocLr4t29kvcs7Z/TDjny8o6Cfkkk3yjUO
+ ZWI9E0UQn/w0L/bIwjxskMpOxAKJYNWExW01bJbZGMjzwfA8jx86H0jgSIGGiXMI0KsI6Kez8F8
+ yZxfTYCaPqXN0wEQQm6qToCChjgfZC3J/+FWen/oySaBqNZN1rqwuq3bDB4lqOj2Jcc6VNA8MTV
+ +y6oxeVHtHXUF/EIMwuDzw3N25BVKuQuoUvNae0XBtfwAtMrs2lE5g4DyNgoRigs0pNycOGdfv9
+ 1QavuwJlyAEVALKfd45Pc5I+8YLR9h7+7oovUMBGtYvVA==
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from localhost (92.254.112.55)
+	by smtp.migadu.com with ESMTPS id b14261f1e4059e70;
+	Tue, 18 Aug 2026 19:31:18 +0000
+X-Migadu-Flow: FLOW_OUT
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Tue, 18 Aug 2026 21:31:17 +0200
+Message-Id: <DKSBIH29Z9DE.1OR442P0XUSCS@cknow-tech.com>
+Cc: "Dawid Olesinski" <dawidro@gmail.com>, "Herbert Xu"
+ <herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko
+ Stuebner" <heiko@sntech.de>, "Corentin Labbe" <clabbe@baylibre.com>,
+ <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 0/4] crypto: rockchip: Add RK356x/RK3588
+ cryptographic offloader
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Eric Biggers" <ebiggers@kernel.org>, "Diederik de Haas"
+ <diederik@cknow-tech.com>
+X-Mailer: aerc 0.22.0-9-ge948bb7230f4
+References: <20260708175837.1718437-1-dawidro@gmail.com>
+ <DKF8V3IHKTL2.1PUA8O5IVIRYC@cknow-tech.com> <20260818185810.GA7030@quark>
+In-Reply-To: <20260818185810.GA7030@quark>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260818_123133_525923_CA0F5827 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,25 +81,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/08/2026 12:31, Long Zhao via B4 Relay wrote:
-> From: Long Zhao <longzhao@ambarella.com>
-> 
-> Document the CV75 RCT clock controller and the clock ID header used by
-> DT consumers.
-> 
-> This initial binding describes only the clock-provider functionality.
-> Reset-controller support is outside scope of this series, so #reset-cells
-> property is intentionally omitted.
-> 
+On Tue Aug 18, 2026 at 8:58 PM CEST, Eric Biggers wrote:
+> On Mon, Aug 03, 2026 at 12:42:03PM +0200, Diederik de Haas wrote:
+>> crypto-rk3566-test-no-crypto-module-log.txt:
+>> https://paste.sr.ht/~diederik/bb5dbfd59f244a6422b965b30f9796ebbfdb1fcb
+>> crypto-rk3566-test-with-crypto-module-log.txt:
+>> https://paste.sr.ht/~diederik/ea72297678e19cbbc987de9548f9884382e1d1cc
+>> crypto-rk3568-test-no-crypto-module-log.txt:
+>> https://paste.sr.ht/~diederik/309e519e6b1c31f4c1c5bcb1ea16cc8569a54830
+>> crypto-rk3568-test-with-crypto-module-log.txt:
+>> https://paste.sr.ht/~diederik/1e1e938ebbbae75128974fe0a7c240843bce04c8
+>> crypto-rk3588-test-no-crypto-module-log.txt:
+>> https://paste.sr.ht/~diederik/9a2adc2b2e42131445ce4576589e00ecf51ccb4b
+>> crypto-rk3588-test-with-crypto-module-log.txt:
+>> https://paste.sr.ht/~diederik/e04c11c8809031ca45662f7d4c227c1ba6162b65
+>
+> Thanks for running some benchmarks!
+>
+> Looking at your results for rk3566 for example, SHA-256 on 4096-byte
+> blocks is 115 cycles/operation for sha256-lib (i.e. ARMv8 CE) or 3027
+> cycles/operation for rk2-sha256.  So the Rockchip driver is 26 times
+> slower than simply using the existing well-tested CPU-based code.
 
-You received feedback at v1 or v2. You ignored it. It was reminded you
-at v3. You ignored it.
+I shared the results because:
+1) I figured it might be useful to have these numbers
+2) I didn't know how to interpret the results.
 
-Now you send this again.
+Because a lower cycles/operations would IMO *logically* be better and
+your response above seems to confirm that.
 
-NAK, you need to start responding to feedback.
+Which makes the following results a 'bit' concerning?
+``modprobe tcrypt mode=3D404``
 
+[255753.686837] tcrypt: testing speed of async sha256 (sha256-lib)
+[255753.686841] tcrypt: test  0 (   16 byte blocks,   16 bytes per update, =
+  1 updates):    703 cycles/operation,   43 cycles/byte
+[255753.686848] tcrypt: test  1 (   64 byte blocks,   16 bytes per update, =
+  4 updates):   1101 cycles/operation,   17 cycles/byte
+[255753.686856] tcrypt: test  2 (   64 byte blocks,   64 bytes per update, =
+  1 updates):    869 cycles/operation,   13 cycles/byte
+[255753.686861] tcrypt: test  3 (  256 byte blocks,   16 bytes per update, =
+ 16 updates):   1676 cycles/operation,    6 cycles/byte
+[255753.686871] tcrypt: test  4 (  256 byte blocks,   64 bytes per update, =
+  4 updates):   1059 cycles/operation,    4 cycles/byte
+[255753.686877] tcrypt: test  5 (  256 byte blocks,  256 bytes per update, =
+  1 updates):   1249 cycles/operation,    4 cycles/byte
+[255753.686884] tcrypt: test  6 ( 1024 byte blocks,   16 bytes per update, =
+ 64 updates):   4156 cycles/operation,    4 cycles/byte
+[255753.686904] tcrypt: test  7 ( 1024 byte blocks,  256 bytes per update, =
+  4 updates):   1054 cycles/operation,    1 cycles/byte
+[255753.686911] tcrypt: test  8 ( 1024 byte blocks, 1024 bytes per update, =
+  1 updates):   2826 cycles/operation,    2 cycles/byte
+[255753.686923] tcrypt: test  9 ( 2048 byte blocks,   16 bytes per update, =
+128 updates):   7438 cycles/operation,    3 cycles/byte
+[255753.686957] tcrypt: test 10 ( 2048 byte blocks,  256 bytes per update, =
+  8 updates):   1263 cycles/operation,    0 cycles/byte
+[255753.686966] tcrypt: test 11 ( 2048 byte blocks, 1024 bytes per update, =
+  2 updates):    940 cycles/operation,    0 cycles/byte
+[255753.686973] tcrypt: test 12 ( 2048 byte blocks, 2048 bytes per update, =
+  1 updates):   4887 cycles/operation,    2 cycles/byte
+[255753.686991] tcrypt: test 13 ( 4096 byte blocks,   16 bytes per update, =
+256 updates):  14017 cycles/operation,    3 cycles/byte
+[255753.687054] tcrypt: test 14 ( 4096 byte blocks,  256 bytes per update, =
+ 16 updates):   1681 cycles/operation,    0 cycles/byte
+[255753.687065] tcrypt: test 15 ( 4096 byte blocks, 1024 bytes per update, =
+  4 updates):   1059 cycles/operation,    0 cycles/byte
+[255753.687074] tcrypt: test 16 ( 4096 byte blocks, 4096 bytes per update, =
+  1 updates):   9044 cycles/operation,    2 cycles/byte
+[255753.687105] tcrypt: test 17 ( 8192 byte blocks,   16 bytes per update, =
+512 updates):  27155 cycles/operation,    3 cycles/byte
+[255753.687224] tcrypt: test 18 ( 8192 byte blocks,  256 bytes per update, =
+ 32 updates):   2489 cycles/operation,    0 cycles/byte
+[255753.687241] tcrypt: test 19 ( 8192 byte blocks, 1024 bytes per update, =
+  8 updates):   1268 cycles/operation,    0 cycles/byte
+[255753.687253] tcrypt: test 20 ( 8192 byte blocks, 4096 bytes per update, =
+  2 updates):    959 cycles/operation,    0 cycles/byte
+[255753.687263] tcrypt: test 21 ( 8192 byte blocks, 8192 bytes per update, =
+  1 updates):  17812 cycles/operation,    2 cycles/byte
 
-Best regards,
-Krzysztof
+This is on my AMD Ryzen 7 5800X which I would've expected to blow
+a simple RK3566 SBC out of the water ... :-/
+
+> Don't you love "accelerators" that make things 26 times slower?
+>
+> I guess we'll get the usual argument that this driver is really just for
+> "testing" or whatever.
+
+Or someone spend a significant time implementing it trying to improve and
+extend SoC support in good faith, but without your insight.=20
+Which is 'coincidentally' the exact reason why I suggested the patch series
+author to explicitly put you in To or CC.
+I would not have used "pushing the driver as a checkbox feature" as argumen=
+t.
+Especially since, apparently, the numbers show it performs poorly.
+
+My 0.02
 
