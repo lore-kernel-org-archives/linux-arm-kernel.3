@@ -4,89 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A81C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 14:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A965C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 14:24:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=218/OQuA8Ad3sji1bpXABz1bffPAGAvlLMNYeEN3aac=; b=28GtM7Mn+v+VQDH1Ku9o8po323
-	o7EjudSvUJpt/x6fksAx87o1YuXCjhHS45tDWjfSlfch9RA6N/5XLWLkZ2xpwnvdi9Era+nRxixmv
-	s6ZLqOu5Y48Lg53f3B9cNLOT/8K6oWsiEL0pdsx1mUqTdH+Uyc5qWQdJeUT4ZFqHeHEOJk53O2GQ5
-	Zwl2XULUhahtfZpZmG2HCQdl/o9p0AupH60YqnMCRHQPzHY5SXt5Mjs7eh9QqT71lIZgf3+D9cwUK
-	amQu50M/rCXXUGMP9Z/gEePSozbbt6mGxhnrUu1a0G5eFJSbMn5D+Y3deAQzrbS2I/SOr3naYx92l
-	wzE124uA==;
+	bh=Z2McX24GWbeBYdnzk2sBQiJhDSCW8yUuujUpFcq2Eh8=; b=sFCjd4p+FjSYIduy0Il1edrzaw
+	jhBc9HhtjZ6Ov06OInQu3POdIiTd/XkSbk7DZO2/ep1MZvW7+eEtCSVG3C9jlxIPpu9PYuWBEVcAO
+	C3eCmrzIfJT7TsArH6nX7I1Bqq6U8ded4s1R8YDJCndbayPPkHuAsRrH65P5epCyqy5MQmzsP5gKR
+	T678G+k/HDHp3LMkWXBFvnvj1xfcTaqtfGdmjQl3q0YdJholO5LKvUw1yFLrKGt23lejqvS6PBzje
+	mBfjgaH7b7ma9lxV1WO77GieQymRxzclwnKft+2YB+r1OBW8zklb7LPgj9MCmZ2XV0L6hbnm3kT4E
+	SnDm4uHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwKdE-000000089Yc-2U8P;
-	Tue, 18 Aug 2026 14:17:36 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1wwKjF-00000008A5u-1Deb;
+	Tue, 18 Aug 2026 14:23:49 +0000
+Received: from out-165.mta1.migadu.com ([2001:41d0:203:375::a5] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwKd9-000000089Xw-3Dfx
+	id 1wwKjC-00000008A5Z-2GM0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 14:17:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787062651; x=1818598651;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=lL6H9haiC5nl4nTwOlYGfW3J0UtwnXNdwbQDacHIkxQ=;
-  b=IS3OnjmL3BS9xltNJ1z6jzP3LQesqUIj7hfqW1dRPcYfak2ulDbc7r35
-   M7txn5Mt4rcd81E2bwi3YJT0uHVpsqbOliJeomKHxL751MXD+i4DluQre
-   m9p8Hpr2CH79Cs5xTeq7PXr8OOB/oqG0owydkawiFyei3r4E7naOnNxwV
-   cEzmyCU/SyS8kbo88TeXeYDq2QeUTjAMNJ+BbNbMTf+KS19SeZe3p9Bg/
-   7mEdKLPOnKHDojdxVsam52jfGsde2Vhvy/aTlJAy9t4PS+cU/ZoFS+Z4P
-   dyWT1G5JJyUo7ZXZIYBhxH/VlXbnumZXYr8HD74ttA61iDvi1tsCDp07E
-   A==;
-X-CSE-ConnectionGUID: T32k2Mi3Rlyw8Sq0j/YDRA==
-X-CSE-MsgGUID: Ez6fDNkZT5K6eupbcFJluQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11878"; a="75085561"
-X-IronPort-AV: E=Sophos;i="6.25,230,1779174000"; 
-   d="scan'208";a="75085561"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2026 07:17:31 -0700
-X-CSE-ConnectionGUID: Np9P21ywT6uabLZe7WThEw==
-X-CSE-MsgGUID: eW7Qnan3TPiDX4vnKvFvUA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,230,1779174000"; 
-   d="scan'208";a="290039624"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.209])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2026 07:17:26 -0700
-Date: Tue, 18 Aug 2026 17:17:23 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: longzhao@ambarella.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Brian Masney <bmasney@redhat.com>, Lee Jones <lee@kernel.org>,
-	mfd@lists.linux.dev, Long Zhao <zl020895@163.com>
-Subject: Re: [PATCH v5 10/12] serial: 8250: add Ambarella UART driver
-Message-ID: <aoRpc2RK2_X3CdAi@ashevche-desk.local>
-References: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com>
- <20260818-cv75-v5-v5-10-7bbb12f0360f@ambarella.com>
+	Tue, 18 Aug 2026 14:23:48 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=2zqtNHuHM9vTn2QiWb1DKB4n7bPmtKuVIDCe9D+lr/E=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1787063023; v=1; x=1787667823;
+ b=orECpFyHc5E6M2nHs8Pb/8fw9/nc+QKTh3K8Yx4rCoYzkjKdSIa2GJcmmI1RjAb5KRhacRoc
+ KF9BgSka1jMAgU7Nc8//5y5aXGL29pHo1I8kS+mheZ5ZEf0NVSW5681it6O3eznZmKkl5IPnxJZ
+ wVOJ7dpPcXmT/LWeMsODR9Qs=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from mail-lf1-f48.google.com (209.85.167.48)
+	by smtp.migadu.com with ESMTPS id ab01655b4e4047dd;
+	Tue, 18 Aug 2026 14:23:33 +0000
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5b2a73da7e1so9529e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 07:23:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rr1t3kEnE/WbyBMrc3p429RaPRV2OITDUFyxfWE9s0FtGwDWXDLRqEhf2PpXR3PfWPMJPky/CUYVtPPgqHwL2c9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPejS4xcwjZdeh9KPS1ZBjR35GzNb8aesJLBON0UUjp5qUDmmc
+	FFpMW3QCgK+yro+ajCwcrvx22mdRDQt6WSMfoO62GFy4d/zHr7P2kFGJZD2EzkIvVzJlj36FQRO
+	/lgUDf4b9mYR5OIJIWXVmwV/MftBIbpf7g9Jx+4Ui
+X-Received: by 2002:a05:6512:10cc:b0:5ae:b9c5:f29f with SMTP id
+ 2adb3069b0e04-5b471ecc992mr219425e87.2.1787063012292; Tue, 18 Aug 2026
+ 07:23:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260818-cv75-v5-v5-10-7bbb12f0360f@ambarella.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20260731143541.956291-1-vdonnefort@google.com> <20260731143541.956291-5-vdonnefort@google.com>
+In-Reply-To: <20260731143541.956291-5-vdonnefort@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 18 Aug 2026 15:22:55 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTw9KcKgGDgD=khN8qGPgJAe9POhu1uLby9abDbogwu5sA@mail.gmail.com>
+X-Gm-Features: AcwNN1XmyjAJIba9VPk2Ku7RXpeskFOmZC11eun7x4m1kPjfLEO1BYO5VQp3BtI
+Message-ID: <CA+EHjTw9KcKgGDgD=khN8qGPgJAe9POhu1uLby9abDbogwu5sA@mail.gmail.com>
+Subject: Re: [PATCH v4 04/17] KVM: arm64: Add a heap allocator for the pKVM hyp
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
+	qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_071731_842486_843F1A7E 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20260818_072346_788347_F591E245 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,49 +82,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 06:31:24PM +0800, Long Zhao via B4 Relay wrote:
+Hi Vincent,
 
-> Add an 8250 platform driver for Ambarella CV75 instead of claiming
-> snps,dw-apb-uart compatibility.
-
-This is a record from a changelog. There is nothing in the commit message.
+On Fri, 31 Jul 2026 at 15:36, 'Vincent Donnefort' via kernel-team
+<kernel-team@android.com> wrote:
 ...
+> +static int hyp_allocator_destroy_chunk(struct hyp_allocator *allocator,
+> +                                      struct chunk_hdr *prev,
+> +                                      struct chunk_hdr *chunk)
+> +{
+> +       struct chunk_hdr *next;
+> +
+> +       next = prev ? chunk_get_next(chunk) : NULL;
+> +       if (!hyp_allocator_can_destroy_chunk(allocator, prev, next, chunk))
+> +               return -EINVAL;
+> +
+> +       /* Last chunk in the allocator */
+> +       if (!prev) {
+> +               allocator->first_unmapped = chunk_unmapped(chunk);
+> +               allocator->head = allocator->tail = NULL;
+> +               return 0;
+> +       }
 
-The code seems like an almost blind copy of 8250_dw.c.
+hyp_allocator_destroy_chunk() has only two callers, both in
+hyp_allocator_free(), and both pass a non-NULL prev. So this !prev
+branch cannot be reached, and nor can the matching "if (!prev) return
+true;" in hyp_allocator_can_destroy_chunk() or the false arm of "next
+= prev ? chunk_get_next(chunk) : NULL".
 
-> +#define AMBARELLA_UART_USR		0x1f
-> +#define AMBARELLA_UART_USR_BUSY		BIT(0)
+The empty-allocator reset it looks like it is handling already happens
+in hyp_allocator_reclaim_chunk(), in the addr == allocator->start
+case. Could these be dropped?
 
-So, is it Synopsys IP-based design? How this gets into this platform? This
-whole story completely made me lost.
+With that:
 
-> +#define AMBARELLA_UART_IIR_IID		GENMASK(3, 0)
-> +#define AMBARELLA_UART_IIR_STATUS	GENMASK(5, 0)
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-
-...
-
-> +	of_property_read_u32(dev->of_node, "reg-shift", &reg_shift);
-> +	of_property_read_u32(dev->of_node, "reg-io-width", &reg_io_width);
-> +	uart.port.regshift = reg_shift;
-
-> +	switch (reg_io_width) {
-> +	case 4:
-> +		uart.port.iotype = UPIO_MEM32;
-> +		uart.port.serial_in = ambarella_serial_in;
-> +		uart.port.serial_out = ambarella_serial_out;
-> +		break;
-> +	default:
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "unsupported reg-io-width %u\n",
-> +				     reg_io_width);
-> +	}
-
-This is handled by uart_read_port_properties().
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+Cheers,
+/fuad
 
