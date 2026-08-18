@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CAF6C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 15:07:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5073DC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 15:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8vrupXKe6GPwgDHcB/YTFakkBHawtEgPr4xEuzVXfss=; b=kdt4dO/Xz+KgsNptAYFMWdTYGQ
-	kOoA+6x6cf3h47e1UHq6LkLUGeNNIv49dNPfmg/A0R+oCECdXVGOqt/JJGvDOtbsEx3tPEkSH7oJm
-	p7bfp4vaOK0yYoURz0i7MShrjkorgV1jKogEBdtefXyf0RxIiOEVuMdEvvQZWDaUcYIhohG/NEPIK
-	ijlkQKTHBne6j6P1TlDsHCrxFRwg5qM73DgC9b61gKyLQATj/0ACGw/vOsq94XioSjOS9ChtjH6UN
-	8e4r4bF3w1OIT7dcOqaQoZS+mlmJUKGoLJmMB/8IJnHYdDqeh79j3Uf7D4ZsPrKy9W+1wShHQ/DiR
-	x+hnbOCw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=s7RalJYalhKRrVNBaQlM89E87+WKo3l/uYGYbpKf1t4=; b=YUKdVObNTHzRj20LKeEvsaVEvI
+	I0/L0jvnZUeIcoJuDIkRk3FYmJVb+zJUI+/r4CgxabqAEEpBrqYorSMmnH9IjV44fzyGoxP1CU6bL
+	Zi1s7Dn7PVHro6GrAMwiyt3jkR/i/ZOrWoSIBrFzfg55e4MdSXosv7Dhbh2FWTxq1jfEPaoZ5f7yF
+	Bs8m5/j7Jva0Jqh/iHbiQfHmkkdQ2Fcm/fqJlAZvCgRGfkCXMiZAn2ZMxS5Iunq2HEdfofAVzVgsG
+	jZnFSfnSzSlwkMAoeBFexzZ0Xt6ZX4g+AY9fxcqutRNAvsHsnrb6z+NEOm4630nqeK6NnX2SBgiq4
+	yPVDdAKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLPC-00000008E3y-0OPQ;
+	id 1wwLPC-00000008E4G-0qPZ;
 	Tue, 18 Aug 2026 15:07:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLPA-00000008E3J-3Hk1
+	id 1wwLPB-00000008E3K-0d6x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 15:07:08 +0000
+	Tue, 18 Aug 2026 15:07:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4202643A51;
+	by tor.source.kernel.org (Postfix) with ESMTP id 4DFDC600AD;
 	Tue, 18 Aug 2026 15:07:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1CB05C2BCFB;
-	Tue, 18 Aug 2026 15:07:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id F167BC19425;
+	Tue, 18 Aug 2026 15:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1787065628;
-	bh=r444rkKnnmxJSFdTtlazkLelu/fRcjvBfJQaLoZOfIY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=TF3hFp+kE/pEhUDUvChrYWIEHO6VRV9d0BA9/g5+akCy0B52GAc2vAc8FaEELBKsX
-	 TiICIV5kYJVcw4cEDpQp0ZP81RHy4FtiQD04hnr1UHD/3zA0DdR3/e3I+mSSN6R89V
-	 +OvbTFaHS2EmjQ7eJmy8Q7WH3BcnN8BVFALerXt+fh+lqfuF109U0NjLm1cJPaBF7X
-	 WCInUGu215oype16Z2gjWNnVrdG6MnFILW5YeZHQy4jllVgORwKdt+er1kwArncqCB
-	 S2wZQam3RegZRyycueJnVoN+6NWfxCLQxfc8ywkU4NSj0JWhJX653vadYwlL/5Larf
-	 tUn0BvNdU12Ig==
+	bh=WvhBurIy8A9u46LETLcI/MhJB6dhjgHJNOfnkpO39yM=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=ua7GKg/n78G+6x5wGqpZWztUUBV/90+g6Hn+TSh/UyxK66rCPQbRMiY/AFqVVyxm4
+	 fsDRuc+TBTz5sFux0axgOWdoNqwdT4zGM2WgyPEERm/WNZzFNbhg2qq2EOHyrE6y6N
+	 ykwnTFZk70+XwTSrSAUwFh4XsOZI0F6S/DN2lMytCkIeeIMShJXRfDiTPb+cFX1QC2
+	 D2MEpKcAD89Jl+/7b6ViF8P2aoyrNwZXofno1ytxSeELQc0U4pkM0iqZLxh6ZdRQzg
+	 7KnhZPw+9cfueCLg9U1hLX5LS2psCMjo4DSHDat5roRyuQUdmvxTIdoj1OHlhTjyy6
+	 nytrus6OZPx/w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id E9F43C5DF81;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C32F4C5DF7E;
 	Tue, 18 Aug 2026 15:07:07 +0000 (UTC)
 From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
-Date: Tue, 18 Aug 2026 16:05:43 +0100
-Subject: [PATCH v2 2/2] soc: samsung: exynos-chipid: Add Exynos5515 SoC
- support
+Subject: [PATCH v2 0/2] chipid: samsung: exynos-chipid: Add Exynos5515
+ ChipID
+Date: Tue, 18 Aug 2026 16:05:41 +0100
+Message-Id: <20260818-for-next-lucky7-chipid-v2-0-28ae49f5c349@member.fsf.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260818-for-next-lucky7-chipid-v2-2-28ae49f5c349@member.fsf.org>
-References: <20260818-for-next-lucky7-chipid-v2-0-28ae49f5c349@member.fsf.org>
-In-Reply-To: <20260818-for-next-lucky7-chipid-v2-0-28ae49f5c349@member.fsf.org>
+X-B4-Tracking: v=1; b=H4sIAMV0hGoC/3WNyw6CMBBFf4V07ZDSyMsV/2FY2GEKo0JJCwRC+
+ HcB49LlSe49ZxWeHJMXt2AVjib2bLsd1CUQ2Dy6moCrnYWSKpFZFIOxDjqaB3iP+FpSwIZ7roA
+ Q6ZonmCU6F/u5d2R4PsX38st+1E/C4bAdi4b9YN1ylqfo2P0i6b/IFIEE0iqXWSpjlFXRUqvJh
+ cab0LpalNu2fQAyn4+L0wAAAA==
+X-Change-ID: 20260815-for-next-lucky7-chipid-ecce496c86b9
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Peter Griffin <peter.griffin@linaro.org>, 
@@ -63,21 +66,21 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Aiden Isik <aidenisik@member.fsf.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=767;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=966;
  i=aidenisik@member.fsf.org; h=from:subject:message-id;
- bh=KrAvbTcjPgbEqmHaN4JftTy05Ws77uQwQ2XXbRU1taw=;
- b=owEBbQKS/ZANAwAIAUknAbLEetfrAcsmYgBqhHUYhckpPyuaAWT392LX/C6uN5uPLPi5/tBVa
- ktbbqmfOgaJAjMEAAEIAB0WIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCaoR1GAAKCRBJJwGyxHrX
- 668zD/0RgG3Qiu7GFJKFaVrk7O9inGucMKIg0JATcjQFzegBFbclxxmBKUxIpPIcHKPvSIcDv97
- 9llDqe9WcvUC9HDMvY5tV9yzqW9ZLesUS718CGo7ltIoJnao54yDxAR+NKfAX4DsDAJ2ZuXzJj/
- /Fg7sFZNwkPpRdIMGwFThauaXQ1hEB2gEX683A7S3padQcEa5YNEJVSXoDqPUMRpqQ1eCatgvU7
- 27DRSqo5LeaPS8I53bazB6uKGotJV34+3TkGVpBNUHhsEZKiSYPLFmm7PRXImt3jhJ/ksuF+dpv
- ANBaXwBWG5jSHqbvQqQ//EZyCYN1D8wbKcRuJDxQPQYiyH/iyXSlhG499ltMdFCT7CWDkJHrggS
- PK55zp5r9XeVLONpiuvikwk/L5edX7DyqE7am4/QMLWkAVvUnVq9AkUw+q5hJzf2aAHY/KMMWC6
- jkGDoxqyZMLvhfjytmWaFptJ8tq4BByEPTGryb1dHARJiup+IU1aYRBVwKZrvoofZf2sDSPIBIp
- T0fhN9pt8ZGgBcWxECthLhiUGdqIkI6FWjbdGy77RNLcfUoYwDLwcmflDbEnfHPsI8PL+DfLIjA
- w6MqXTBxJmFx2C1ODz63a7E6vKT8J/CVL1tGx+S0+XLiK5FhsGfo/v85m95oD8+EuLrVYS43Mt8
- bE/zwlwr9lSMjlQ==
+ bh=WvhBurIy8A9u46LETLcI/MhJB6dhjgHJNOfnkpO39yM=;
+ b=owEBbQKS/ZANAwAIAUknAbLEetfrAcsmYgBqhHUYUQuzBprixPTgcy8Al2eiWPDlLC/auEuGJ
+ b7rFNdrS7mJAjMEAAEIAB0WIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCaoR1GAAKCRBJJwGyxHrX
+ 68O5D/9JadzwC6VB9ScxAL+6S15RFJRmpF8VOn9qdwnh1WYZ/VKTrD9Muug4e+F9O/nVw36zojo
+ 6vo5AtQFlGMkvcJgMVQIPmjvdgq0YvbSkAwwDrmdJjW8U6GgGo04uFo/HbXBgCfqR+0F3srM3b8
+ vlDvy9MKBTNkapfZqRINJj9oMp1fxL4Oi3YiFNC4s5Vv/Bjlek56JSmnreByfg+I3vZ2Sqw3L4k
+ ioG6UdUdqxO1oAOiXZ++aLIsNdLot68PYvGwK8eYmvn5okRrqlJ7V/lalAqt9CuqgHgebX8+iwq
+ yhWAjBsYFGklIxSZzNdY+83NKI7adh1eNTHLVXSSL6K3zfxzxCWAKb5IQM9PNcPEDwlFautb2p9
+ EGJ4RY3tkQlR4lq89e0XzsXdKVqR/FYFR+Juy7wYc8iIr6EM3s2z78DS/3++RNkzRSSKYpTSbwX
+ fKIS92m6rJrkvaKeUfQy4U2GyHpMzlFLJUlgBahOdlIULWtw71lgx2FZXdh60NV5Qil0Tx7aDP9
+ dACgSMQ1ua0uVicja8Nn8t0S+2cqh8uB25btvPiKL7vaIhgiBHziDmnr6XiRSUqNJxTFlg0m92n
+ 8OonV5m3McfqvKK17kuRw18g0r3IVV52n0BY22TYPW6hZU/G3abqiC3J++y4pkSU1Ne9kJ6GjXI
+ 8qviN7VZfUqd1hQ==
 X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
  fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
 X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
@@ -98,31 +101,33 @@ Reply-To: aidenisik@member.fsf.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Aiden Isik <aidenisik@member.fsf.org>
+Hi there,
 
-Add Exynos5515 information to the soc_ids table.
-The ChipID for Exynos5515 is "0xE5515000".
+This patchset adds support for the Exynos5515 SoC's ChipID to the
+ChipID driver, and documents the samsung,exynos5515-chipid compatible.
 
 Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
 ---
- drivers/soc/samsung/exynos-chipid.c | 1 +
- 1 file changed, 1 insertion(+)
+Changes in v2:
+- Correct capitalisation of "Exynos5515" in commit messages
+- Reword documentation commit message
+- Link to v1: https://patch.msgid.link/20260817-for-next-lucky7-chipid-v1-0-eb2908705c0d@member.fsf.org
 
-diff --git a/drivers/soc/samsung/exynos-chipid.c b/drivers/soc/samsung/exynos-chipid.c
-index 6ef9751e2509..506a0bcdfe30 100644
---- a/drivers/soc/samsung/exynos-chipid.c
-+++ b/drivers/soc/samsung/exynos-chipid.c
-@@ -64,6 +64,7 @@ static const struct exynos_soc_id {
- 	{ "EXYNOS8890", 0xE8890000 },
- 	/* Compatible with: samsung,exynos850-chipid */
- 	{ "EXYNOS2200", 0xE9925000 },
-+	{ "EXYNOS5515", 0xE5515000 },
- 	{ "EXYNOS7885", 0xE7885000 },
- 	{ "EXYNOS850", 0xE3830000 },
- 	{ "EXYNOS8895", 0xE8895000 },
+---
+Aiden Isik (2):
+      dt-bindings: hwinfo: samsung,exynos-chipid: Add Exynos5515 compatible
+      soc: samsung: exynos-chipid: Add Exynos5515 SoC support
 
--- 
-2.54.0
+ Documentation/devicetree/bindings/hwinfo/samsung,exynos-chipid.yaml | 1 +
+ drivers/soc/samsung/exynos-chipid.c                                 | 1 +
+ 2 files changed, 2 insertions(+)
+---
+base-commit: acde40ba506aae78633e080b5704d33cf4bc13c6
+change-id: 20260815-for-next-lucky7-chipid-ecce496c86b9
+
+Best regards,
+--  
+Aiden Isik <aidenisik@member.fsf.org>
 
 
 
