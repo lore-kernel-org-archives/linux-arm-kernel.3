@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F362FC5DF7D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B50C5DF7E
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 10:32:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,47 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zxAQzBIuDEjNPPt2+GBcviP+gEPMyBF+eVwOOWNWw4c=; b=St9a9+SlupsVnvG3lflc0r6TsW
-	sAFWkI4N/d2S5dGDobphZBh4zZq3FOGoYb4D7ghlk8Lj1rgFyhzCBNTs/3i/0JjsI/Ww/84C1NBvs
-	F/DUb51WgJz9nYGksPBI7JHpofLTJOD0Mb8SqKDxXWOeJTtH4IR+zLNoAz+VLckBTQqhnXDqyRYJG
-	LZsALGiVSNTIljFHLrBVSq8d5RC6TDiiweLnfSjxqEeaH7kVKsgeVXhmfMJirm0DzODEfo5NU4PCg
-	abk6ClM8zyqwEvEtvDWtkcdrhYBfC4I8ZGwEV3yy5KmQdaMujfH+qTqFrW7P1HGXKPtOREKlAqsOY
-	ToCsRKaA==;
+	bh=e/NFxZYantoU+ShO+qUk5zlvRnwMyy0hYwfyaM3VNSg=; b=ovm4NRXWp+e7pwwnv1WFLaQdz+
+	YpFUJAjksoWASD+h//Kjf7zq7vCdmML3sGCyCGPBxUicpdQ4ca6lZp/4dPTWIwdCmlIlWBoH+zOoz
+	B0SXw1fbUeqJSEF8ciYD2ypdH8fNPXVsUhfPAaE94kGiHNTd8MhfGoKwUbiQKgxLA4ifglR57JySI
+	JcRXG8HYx8pWGNz2yaJjdwSGMu3KpU5tE6T+VytV0potrUBG928Oovnzuc3iZYkUbh6GeqUl6qDsm
+	qmHc3BFUX/LimxUJ4fxV4OCWKOv8Ypygk2fQFiu1ZzUEfmuuYNSs6OuKyswsViqwN9l7kYBcbirel
+	NEb+e9rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwH7P-00000007jMs-2qJk;
-	Tue, 18 Aug 2026 10:32:31 +0000
+	id 1wwH7S-00000007jRc-20tA;
+	Tue, 18 Aug 2026 10:32:34 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwH79-00000007j4f-1N0n
+	id 1wwH79-00000007j4V-0kKS
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Aug 2026 10:32:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 93F744402E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6031844FAB;
 	Tue, 18 Aug 2026 10:32:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 716A7C2BCFA;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3F4F0C2BCF4;
 	Tue, 18 Aug 2026 10:32:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1787049134;
-	bh=tICu1kyhW6ciLBQrYgOgEDijSYbYwL7txSJb0cxx7wI=;
+	bh=gs20gpz4jlCr1qs5BBbTD9T75AyKDEN+GUkDquXORAg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=XCggO56rLefYkLZxt338eDp+nxd6r27UQn+zgjAojugWeUxI6ASTSBtMR2sGs1BBm
-	 441RWJMBMxKCkjM2loHm7n3mYTRdpVV/2FHOlB9YMkuGDR4++iY6lhtl9FNJ2+Fi/0
-	 Iq5Gh0pyYj1x1PgMs0ZdC1YjoAd/4o3147B+hmhJVqkiooQ4q8lUsAbKmkIjxzLgP6
-	 H3BgyY7WhQRn1d8aSzg/LQIrz749aHD4nFXctbh66aWdPPQs4R+LEO41+oY/JGm5cX
-	 olfIEugGWijnwXLDwVHhD04FOJp3mOCiHaAIcxnvpPv8Qkbef0MIL+T6goIPesqTaL
-	 ejePVEU9ntY4g==
+	b=HEWskDOb879bBTg7jj5ah+FXdeYqUTw/GthQ+MkkLEMuVw3VtrZtw/Eoi/HRr2Sdg
+	 74Gp3smA35tzwHaXeUMLR1EbDz+ys06aP65nbnw8JizVx8J1+V6Mw2zbiu2iPMCOEF
+	 z6qXeJB1sTRjRWKTAqtYBIzuNrGnErLjbzb08TEaO//L5pKXotXI7H18dCSvLCky4R
+	 biCYn5pTYZC1ToIXHJ2fv1VqfuYHCfD2wgTcXOcCNpvHXstMtY7j8rjCmDAuhfqJDz
+	 ZZG3ps0AtCuhvVEjfmoQsHkoPq8ejRrTuPp9j6pXQnKSBxuRG2585/50Fm/o8HHvix
+	 lFegtdFMXx1sQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5D750C5DF81;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2B461C5DF81;
 	Tue, 18 Aug 2026 10:32:14 +0000 (UTC)
 From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Tue, 18 Aug 2026 18:31:25 +0800
-Subject: [PATCH v5 11/12] arm64: ambarella: add ARCH_AMBARELLA and CV75 EVK
- DT
+Date: Tue, 18 Aug 2026 18:31:23 +0800
+Subject: [PATCH v5 09/12] pinctrl: ambarella: add CV75 pin controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260818-cv75-v5-v5-11-7bbb12f0360f@ambarella.com>
+Message-Id: <20260818-cv75-v5-v5-9-7bbb12f0360f@ambarella.com>
 References: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com>
 In-Reply-To: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com>
 To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -73,11 +72,11 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, 
  Long Zhao <zl020895@163.com>, Long Zhao <longzhao@ambarella.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787049131; l=8330;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787049131; l=46166;
  i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=IpNrjrrLhNL6j9beNqn3g0g/0+e1YQ5b0+ZAZpgVVg4=;
- b=E6xncZh3d3ihAc1k6GLnYxEVrI56nkcf430XoEdkWisRIUbRsKMs8ow4ecJllXPgfHTdTQUak
- 15feqe7gCC2C9uQ0cdOHuNkQkh0xCGeD03SM1HN5M0m+qAMS9IdA9ux
+ bh=y8xGRspu7e782wZgrt/0WZrJLc0/H/F+o5WId22LrWY=;
+ b=G7rjkxLh4I1OHGvx7BvdCjh8z/Q1fbepDk199uwHfLgPCck6OvkoSWMBUvAHwJjfUy3g4JcLO
+ Nu8XC1Y038VDsXn16YpqBa6tAq1E9xNOkf24xoXIiYD/hIEVWdoOLli
 X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
  pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
 X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
@@ -100,297 +99,1549 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Long Zhao <longzhao@ambarella.com>
 
-Enable ARCH_AMBARELLA and add a minimal CV75 SoC / EVK device tree for
-console bring-up with the RCT clocks, UART, pinctrl and GPIO banks.
+Add an Ambarella pinmux-only pinctrl driver with CV75 function/group
+tables. GPIO is handled by the PL061 driver.
 
 Signed-off-by: Long Zhao <longzhao@ambarella.com>
 ---
- arch/arm64/Kconfig.platforms               |   8 ++
- arch/arm64/boot/dts/Makefile               |   1 +
- arch/arm64/boot/dts/ambarella/Makefile     |   3 +
- arch/arm64/boot/dts/ambarella/cv75-evk.dts |  30 +++++
- arch/arm64/boot/dts/ambarella/cv75.dtsi    | 176 +++++++++++++++++++++++++++++
- arch/arm64/configs/defconfig               |   2 +
- 6 files changed, 220 insertions(+)
+ drivers/pinctrl/Kconfig                  |  15 +
+ drivers/pinctrl/Makefile                 |   2 +
+ drivers/pinctrl/pinctrl-ambarella-cv75.c | 561 ++++++++++++++++++++
+ drivers/pinctrl/pinctrl-ambarella.c      | 863 +++++++++++++++++++++++++++++++
+ drivers/pinctrl/pinctrl-ambarella.h      |  50 ++
+ 5 files changed, 1491 insertions(+)
 
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index d2acfac73003..cb05eff267a8 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -26,6 +26,14 @@ config ARCH_SUNXI
+diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
+index c2cdd7b2c49b..da423792b5fa 100644
+--- a/drivers/pinctrl/Kconfig
++++ b/drivers/pinctrl/Kconfig
+@@ -37,6 +37,21 @@ config DEBUG_PINCTRL
  	help
- 	  This enables support for Allwinner sunxi based SoCs like the A64.
+ 	  Say Y here to add some extra checks and diagnostics to PINCTRL calls.
  
-+config ARCH_AMBARELLA
-+	bool "Ambarella SoC family"
-+	select ARM_PSCI
-+	select HAVE_ARM_ARCH_TIMER
-+	select PINCTRL
++config PINCTRL_AMB
++	bool "Ambarella pin controller support"
++	depends on ARCH_AMBARELLA || COMPILE_TEST
++	depends on HAS_IOMEM
++	default y if ARCH_AMBARELLA
++	select GENERIC_PINCONF
++	select GPIOLIB
++	select GPIOLIB_IRQCHIP
++	select GPIO_PL061
++	select MFD_SYSCON
++	select PINCONF
++	select PINMUX
 +	help
-+	  This enables support for the ARM64 based Ambarella SoCs like CV75.
++	  Say Y here to enable the Ambarella pin controller driver.
 +
- config ARCH_ALPINE
- 	bool "Annapurna Labs Alpine platform"
- 	select ALPINE_MSI if PCI
-diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-index fc726b215f12..f1709eb5d915 100644
---- a/arch/arm64/boot/dts/Makefile
-+++ b/arch/arm64/boot/dts/Makefile
-@@ -4,6 +4,7 @@ subdir-y += airoha
- subdir-y += allwinner
- subdir-y += altera
- subdir-y += amazon
-+subdir-y += ambarella
- subdir-y += amd
- subdir-y += amlogic
- subdir-y += apm
-diff --git a/arch/arm64/boot/dts/ambarella/Makefile b/arch/arm64/boot/dts/ambarella/Makefile
+ config PINCTRL_AMD
+ 	bool "AMD GPIO pin control"
+ 	depends on HAS_IOMEM
+diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
+index a35d71135abf..ce0825f4fc1b 100644
+--- a/drivers/pinctrl/Makefile
++++ b/drivers/pinctrl/Makefile
+@@ -10,6 +10,8 @@ obj-$(CONFIG_GENERIC_PINCONF)	+= pinconf-generic.o
+ obj-$(CONFIG_GENERIC_PINCTRL)	+= pinctrl-generic.o
+ obj-$(CONFIG_OF)		+= devicetree.o
+ 
++obj-$(CONFIG_PINCTRL_AMB)	+= pinctrl-ambarella.o
++obj-$(CONFIG_PINCTRL_AMB)	+= pinctrl-ambarella-cv75.o
+ obj-$(CONFIG_PINCTRL_AMD)	+= pinctrl-amd.o
+ obj-$(CONFIG_PINCTRL_AMDISP)	+= pinctrl-amdisp.o
+ obj-$(CONFIG_PINCTRL_APPLE_GPIO) += pinctrl-apple-gpio.o
+diff --git a/drivers/pinctrl/pinctrl-ambarella-cv75.c b/drivers/pinctrl/pinctrl-ambarella-cv75.c
 new file mode 100644
-index 000000000000..ddca3d7b18cc
+index 000000000000..e617f0717b31
 --- /dev/null
-+++ b/arch/arm64/boot/dts/ambarella/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+dtb-$(CONFIG_ARCH_AMBARELLA) += cv75-evk.dtb
-diff --git a/arch/arm64/boot/dts/ambarella/cv75-evk.dts b/arch/arm64/boot/dts/ambarella/cv75-evk.dts
-new file mode 100644
-index 000000000000..42a0fe24b83b
---- /dev/null
-+++ b/arch/arm64/boot/dts/ambarella/cv75-evk.dts
-@@ -0,0 +1,30 @@
++++ b/drivers/pinctrl/pinctrl-ambarella-cv75.c
+@@ -0,0 +1,561 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
-+ * Ambarella CV75 EVK board
-+ */
-+
-+/dts-v1/;
-+
-+#include "cv75.dtsi"
-+
-+/ {
-+	model = "Ambarella CV75 EVK Board";
-+	compatible = "ambarella,cv75-evk", "ambarella,cv75";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = &uart0;
-+	};
-+
-+	memory@200000 {
-+		device_type = "memory";
-+		reg = <0x0 0x00200000 0x0 0x07e00000>;
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/ambarella/cv75.dtsi b/arch/arm64/boot/dts/ambarella/cv75.dtsi
-new file mode 100644
-index 000000000000..3b7948954968
---- /dev/null
-+++ b/arch/arm64/boot/dts/ambarella/cv75.dtsi
-@@ -0,0 +1,176 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Ambarella CV75 SoC
++ * Ambarella CV75 pinctrl data
 + *
-+ * Boot peripheral: UART0 console.
-+ * Clocks: a single ambarella,cv75-rct provider.
++ * Copyright (C) 2026, Ambarella, Inc.
 + */
 +
-+#include <dt-bindings/clock/ambarella,cv75-rct.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <linux/kernel.h>
 +
-+/ {
-+	compatible = "ambarella,cv75";
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
++#include "pinctrl-ambarella.h"
 +
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
++#define CV75_PINMUX_GROUP(_name, ...)					\
++	static const u32 cv75_##_name##_pinmux[] = { __VA_ARGS__ }
 +
-+		cpu@0 {
-+			compatible = "arm,cortex-a76";
-+			device_type = "cpu";
-+			reg = <0x000>;
-+			enable-method = "psci";
-+		};
++#define CV75_GROUP(_name)						\
++	{								\
++		.name = #_name,						\
++		.pinmux = cv75_##_name##_pinmux,				\
++		.num_pins = ARRAY_SIZE(cv75_##_name##_pinmux),		\
++	}
 +
-+		cpu@1 {
-+			compatible = "arm,cortex-a76";
-+			device_type = "cpu";
-+			reg = <0x100>;
-+			enable-method = "psci";
-+		};
-+	};
++#define CV75_FUNCTION(_name)						\
++	{								\
++		.name = #_name,						\
++		.groups = cv75_##_name##_groups,				\
++		.num_groups = ARRAY_SIZE(cv75_##_name##_groups),		\
++	}
 +
-+	osc: oscillator {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+		clock-output-names = "osc";
-+	};
++/* UART */
++CV75_PINMUX_GROUP(uart0, AMBA_PINMUX(44, 1), AMBA_PINMUX(45, 1));
++CV75_PINMUX_GROUP(uart1, AMBA_PINMUX(46, 1), AMBA_PINMUX(47, 1));
++CV75_PINMUX_GROUP(uart1_flow, AMBA_PINMUX(48, 1), AMBA_PINMUX(49, 1));
++CV75_PINMUX_GROUP(uart2_a, AMBA_PINMUX(46, 2), AMBA_PINMUX(47, 2));
++CV75_PINMUX_GROUP(uart2_b, AMBA_PINMUX(50, 2), AMBA_PINMUX(51, 2));
++CV75_PINMUX_GROUP(uart2_c, AMBA_PINMUX(66, 2), AMBA_PINMUX(68, 2));
++CV75_PINMUX_GROUP(uart2_flow_a, AMBA_PINMUX(48, 2), AMBA_PINMUX(49, 2));
++CV75_PINMUX_GROUP(uart2_flow_b, AMBA_PINMUX(65, 3), AMBA_PINMUX(67, 3));
++CV75_PINMUX_GROUP(uart3_a, AMBA_PINMUX(70, 3), AMBA_PINMUX(72, 3));
++CV75_PINMUX_GROUP(uart3_b, AMBA_PINMUX(80, 3), AMBA_PINMUX(79, 3));
++CV75_PINMUX_GROUP(uart3_flow_a, AMBA_PINMUX(71, 3), AMBA_PINMUX(69, 3));
++CV75_PINMUX_GROUP(uart3_flow_b, AMBA_PINMUX(81, 3), AMBA_PINMUX(82, 3));
++CV75_PINMUX_GROUP(uart4_a, AMBA_PINMUX(29, 3), AMBA_PINMUX(30, 3));
++CV75_PINMUX_GROUP(uart4_b, AMBA_PINMUX(76, 3), AMBA_PINMUX(77, 3));
++CV75_PINMUX_GROUP(uart4_flow_a, AMBA_PINMUX(28, 3), AMBA_PINMUX(31, 3));
++CV75_PINMUX_GROUP(uart4_flow_b, AMBA_PINMUX(74, 3), AMBA_PINMUX(75, 3));
 +
-+	psci {
-+		compatible = "arm,psci-0.2";
-+		method = "smc";
-+	};
++/* Flash */
++CV75_PINMUX_GROUP(snand, AMBA_PINMUX(79, 1), AMBA_PINMUX(80, 1),
++		  AMBA_PINMUX(81, 1), AMBA_PINMUX(82, 1),
++		  AMBA_PINMUX(83, 1), AMBA_PINMUX(84, 1));
++CV75_PINMUX_GROUP(spinor, AMBA_PINMUX(79, 2), AMBA_PINMUX(80, 2),
++		  AMBA_PINMUX(81, 2), AMBA_PINMUX(82, 2),
++		  AMBA_PINMUX(83, 2), AMBA_PINMUX(84, 2),
++		  AMBA_PINMUX(85, 2));
 +
-+	soc {
-+		compatible = "simple-bus";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
++/* SD/MMC */
++CV75_PINMUX_GROUP(sdmmc0_cd, AMBA_PINMUX(6, 1));
++CV75_PINMUX_GROUP(sdmmc0_wp, AMBA_PINMUX(7, 1));
++CV75_PINMUX_GROUP(sdmmc0_reset, AMBA_PINMUX(8, 1));
++CV75_PINMUX_GROUP(sdmmc0_hs_sel, AMBA_PINMUX(93, 1));
++CV75_PINMUX_GROUP(sdmmc0_1bit, AMBA_PINMUX(0, 1), AMBA_PINMUX(4, 1),
++		  AMBA_PINMUX(5, 1));
++CV75_PINMUX_GROUP(sdmmc0_4bit, AMBA_PINMUX(0, 1), AMBA_PINMUX(1, 1),
++		  AMBA_PINMUX(2, 1), AMBA_PINMUX(3, 1),
++		  AMBA_PINMUX(4, 1), AMBA_PINMUX(5, 1));
++CV75_PINMUX_GROUP(sdmmc1_cd, AMBA_PINMUX(15, 1));
++CV75_PINMUX_GROUP(sdmmc1_wp, AMBA_PINMUX(16, 1));
++CV75_PINMUX_GROUP(sdmmc1_reset, AMBA_PINMUX(17, 1));
++CV75_PINMUX_GROUP(sdmmc1_hs_sel, AMBA_PINMUX(94, 1));
++CV75_PINMUX_GROUP(sdmmc1_1bit, AMBA_PINMUX(9, 1), AMBA_PINMUX(13, 1),
++		  AMBA_PINMUX(14, 1));
++CV75_PINMUX_GROUP(sdmmc1_4bit, AMBA_PINMUX(9, 1), AMBA_PINMUX(10, 1),
++		  AMBA_PINMUX(11, 1), AMBA_PINMUX(12, 1),
++		  AMBA_PINMUX(13, 1), AMBA_PINMUX(14, 1));
 +
-+		ahb@ffe0000000 {
-+			compatible = "simple-bus";
-+			reg = <0xff 0xe0000000 0x0 0x01000000>;
-+			ranges = <0xe0000000 0xff 0xe0000000 0x01000000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
++/* Ethernet */
++CV75_PINMUX_GROUP(enet_ext_osc_clk, AMBA_PINMUX(77, 1));
++CV75_PINMUX_GROUP(enet_2nd_ref_clk_a, AMBA_PINMUX(78, 1));
++CV75_PINMUX_GROUP(enet_2nd_ref_clk_b, AMBA_PINMUX(76, 2));
++CV75_PINMUX_GROUP(enet0_ptp_pps_o, AMBA_PINMUX(74, 1));
++CV75_PINMUX_GROUP(rgmii0, AMBA_PINMUX(62, 1), AMBA_PINMUX(63, 1),
++		  AMBA_PINMUX(64, 1), AMBA_PINMUX(65, 1),
++		  AMBA_PINMUX(66, 1), AMBA_PINMUX(67, 1),
++		  AMBA_PINMUX(68, 1), AMBA_PINMUX(69, 1),
++		  AMBA_PINMUX(70, 1), AMBA_PINMUX(71, 1),
++		  AMBA_PINMUX(72, 1), AMBA_PINMUX(73, 1),
++		  AMBA_PINMUX(75, 1), AMBA_PINMUX(76, 1));
++CV75_PINMUX_GROUP(rmii0, AMBA_PINMUX(62, 1), AMBA_PINMUX(63, 1),
++		  AMBA_PINMUX(64, 1), AMBA_PINMUX(67, 1),
++		  AMBA_PINMUX(68, 1), AMBA_PINMUX(71, 1),
++		  AMBA_PINMUX(72, 1), AMBA_PINMUX(73, 1),
++		  AMBA_PINMUX(75, 2));
 +
-+			s_scratchpad_syscon: scratchpad@e002e000 {
-+				compatible = "ambarella,cv75-sec-scratchpad", "syscon";
-+				reg = <0xe002e000 0x1000>;
-+			};
-+		};
++/* I2C */
++CV75_PINMUX_GROUP(i2c0_a, AMBA_PINMUX(67, 2), AMBA_PINMUX(68, 2));
++CV75_PINMUX_GROUP(i2c0_b, AMBA_PINMUX(86, 1), AMBA_PINMUX(87, 1));
++CV75_PINMUX_GROUP(i2c1_a, AMBA_PINMUX(22, 2), AMBA_PINMUX(23, 2));
++CV75_PINMUX_GROUP(i2c1_b, AMBA_PINMUX(69, 2), AMBA_PINMUX(70, 2));
++CV75_PINMUX_GROUP(i2c2, AMBA_PINMUX(88, 1), AMBA_PINMUX(89, 1));
++CV75_PINMUX_GROUP(i2c3_a, AMBA_PINMUX(24, 2), AMBA_PINMUX(25, 2));
++CV75_PINMUX_GROUP(i2c3_b, AMBA_PINMUX(48, 3), AMBA_PINMUX(49, 3));
++CV75_PINMUX_GROUP(i2c3_c, AMBA_PINMUX(58, 3), AMBA_PINMUX(59, 3));
++CV75_PINMUX_GROUP(i2cs_a, AMBA_PINMUX(19, 2), AMBA_PINMUX(21, 2));
++CV75_PINMUX_GROUP(i2cs_b, AMBA_PINMUX(60, 3), AMBA_PINMUX(61, 3));
++CV75_PINMUX_GROUP(i2cs_c, AMBA_PINMUX(71, 2), AMBA_PINMUX(72, 2));
++CV75_PINMUX_GROUP(i2cs_d, AMBA_PINMUX(86, 2), AMBA_PINMUX(87, 2));
 +
-+		apb@ffe4000000 {
-+			compatible = "simple-bus";
-+			reg = <0xff 0xe4000000 0x0 0x01000000>;
-+			ranges = <0xe4000000 0xff 0xe4000000 0x01000000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
++/* CAN, IR, WDT */
++CV75_PINMUX_GROUP(can0, AMBA_PINMUX(50, 1), AMBA_PINMUX(51, 1));
++CV75_PINMUX_GROUP(can1, AMBA_PINMUX(52, 1), AMBA_PINMUX(53, 1));
++CV75_PINMUX_GROUP(ir, AMBA_PINMUX(18, 1));
++CV75_PINMUX_GROUP(wdt_a, AMBA_PINMUX(20, 2));
++CV75_PINMUX_GROUP(wdt_b, AMBA_PINMUX(27, 3));
++CV75_PINMUX_GROUP(wdt_c, AMBA_PINMUX(39, 2));
++CV75_PINMUX_GROUP(wdt_d, AMBA_PINMUX(83, 3));
++CV75_PINMUX_GROUP(wdt_e, AMBA_PINMUX(85, 4));
++CV75_PINMUX_GROUP(wdt_f, AMBA_PINMUX(90, 1));
 +
-+			uart0: serial@e4000000 {
-+				compatible = "ambarella,cv75-uart";
-+				reg = <0xe4000000 0x1000>;
-+				clocks = <&rct CV75_GCLK_UART0>;
-+				interrupts = <GIC_SPI 170 IRQ_TYPE_LEVEL_HIGH>;
-+				pinctrl-names = "default";
-+				pinctrl-0 = <&uart0_pins>;
-+				reg-io-width = <4>;
-+				reg-shift = <2>;
++/* I2S */
++CV75_PINMUX_GROUP(i2s0, AMBA_PINMUX(54, 1), AMBA_PINMUX(55, 1),
++		  AMBA_PINMUX(56, 1), AMBA_PINMUX(57, 1));
++CV75_PINMUX_GROUP(i2s1, AMBA_PINMUX(58, 1), AMBA_PINMUX(59, 1),
++		  AMBA_PINMUX(60, 1), AMBA_PINMUX(61, 1));
++CV75_PINMUX_GROUP(clk_au, AMBA_PINMUX(96, 1));
++CV75_PINMUX_GROUP(dmic0, AMBA_PINMUX(54, 2), AMBA_PINMUX(55, 2));
 +
-+				status = "disabled";
-+			};
++/* PWM */
++CV75_PINMUX_GROUP(pwm0, AMBA_PINMUX(40, 1));
++CV75_PINMUX_GROUP(pwm1, AMBA_PINMUX(41, 1));
++CV75_PINMUX_GROUP(pwm2, AMBA_PINMUX(42, 1));
++CV75_PINMUX_GROUP(pwm3, AMBA_PINMUX(43, 1));
++CV75_PINMUX_GROUP(pwm4_a, AMBA_PINMUX(19, 3));
++CV75_PINMUX_GROUP(pwm4_b, AMBA_PINMUX(32, 4));
++CV75_PINMUX_GROUP(pwm5_a, AMBA_PINMUX(20, 3));
++CV75_PINMUX_GROUP(pwm5_b, AMBA_PINMUX(33, 4));
++CV75_PINMUX_GROUP(pwm6_a, AMBA_PINMUX(21, 3));
++CV75_PINMUX_GROUP(pwm6_b, AMBA_PINMUX(34, 4));
++CV75_PINMUX_GROUP(pwm7_a, AMBA_PINMUX(22, 3));
++CV75_PINMUX_GROUP(pwm7_b, AMBA_PINMUX(35, 4));
++CV75_PINMUX_GROUP(pwm8_a, AMBA_PINMUX(23, 3));
++CV75_PINMUX_GROUP(pwm8_b, AMBA_PINMUX(36, 4));
++CV75_PINMUX_GROUP(pwm9_a, AMBA_PINMUX(24, 3));
++CV75_PINMUX_GROUP(pwm9_b, AMBA_PINMUX(37, 4));
++CV75_PINMUX_GROUP(pwm10_a, AMBA_PINMUX(25, 3));
++CV75_PINMUX_GROUP(pwm10_b, AMBA_PINMUX(38, 4));
++CV75_PINMUX_GROUP(pwm11_a, AMBA_PINMUX(26, 3));
++CV75_PINMUX_GROUP(pwm11_b, AMBA_PINMUX(39, 4));
 +
-+			pinctrl: pinctrl@e4010000 {
-+				compatible = "ambarella,cv75-pinctrl";
-+				reg = <0xe4010000 0x1000>;
-+				ambarella,drive-strength-syscon = <&rct>;
-+				ambarella,pull-syscon = <&s_scratchpad_syscon>;
++/* SPI */
++CV75_PINMUX_GROUP(spi0, AMBA_PINMUX(19, 1), AMBA_PINMUX(20, 1),
++		  AMBA_PINMUX(21, 1));
++CV75_PINMUX_GROUP(spi1, AMBA_PINMUX(24, 1), AMBA_PINMUX(25, 1),
++		  AMBA_PINMUX(26, 1));
++CV75_PINMUX_GROUP(spi2, AMBA_PINMUX(28, 1), AMBA_PINMUX(29, 1),
++		  AMBA_PINMUX(30, 1));
++CV75_PINMUX_GROUP(spi3_a, AMBA_PINMUX(32, 5), AMBA_PINMUX(33, 5),
++		  AMBA_PINMUX(34, 5));
++CV75_PINMUX_GROUP(spi3_b, AMBA_PINMUX(40, 2), AMBA_PINMUX(41, 2),
++		  AMBA_PINMUX(43, 2));
++CV75_PINMUX_GROUP(spi3_c, AMBA_PINMUX(58, 2), AMBA_PINMUX(59, 2),
++		  AMBA_PINMUX(60, 2));
++CV75_PINMUX_GROUP(spi_slave_a, AMBA_PINMUX(24, 4), AMBA_PINMUX(25, 4),
++		  AMBA_PINMUX(26, 4), AMBA_PINMUX(27, 4));
++CV75_PINMUX_GROUP(spi_slave_b, AMBA_PINMUX(28, 2), AMBA_PINMUX(29, 2),
++		  AMBA_PINMUX(30, 2), AMBA_PINMUX(31, 2));
++CV75_PINMUX_GROUP(spi_slave_c, AMBA_PINMUX(36, 5), AMBA_PINMUX(37, 5),
++		  AMBA_PINMUX(38, 5), AMBA_PINMUX(39, 5));
++CV75_PINMUX_GROUP(spi_slave_d, AMBA_PINMUX(50, 3), AMBA_PINMUX(51, 3),
++		  AMBA_PINMUX(52, 3), AMBA_PINMUX(53, 3));
++CV75_PINMUX_GROUP(spi_slave_e, AMBA_PINMUX(81, 4), AMBA_PINMUX(82, 4),
++		  AMBA_PINMUX(83, 4), AMBA_PINMUX(84, 4));
 +
-+				uart0_pins: uart0-pins {
-+					function = "uart0";
-+					groups = "uart0";
-+				};
-+			};
++/* VIN master sync */
++CV75_PINMUX_GROUP(vin_master_sync_a, AMBA_PINMUX(91, 1),
++		  AMBA_PINMUX(92, 1));
++CV75_PINMUX_GROUP(vin_master_sync_b, AMBA_PINMUX(91, 2),
++		  AMBA_PINMUX(92, 2));
++CV75_PINMUX_GROUP(vin_master_sync_c, AMBA_PINMUX(40, 3),
++		  AMBA_PINMUX(41, 3));
++CV75_PINMUX_GROUP(vin_master_sync_d, AMBA_PINMUX(46, 3),
++		  AMBA_PINMUX(47, 3));
++CV75_PINMUX_GROUP(vin_master_sync_e, AMBA_PINMUX(79, 4),
++		  AMBA_PINMUX(80, 4));
++CV75_PINMUX_GROUP(vsync0, AMBA_PINMUX(32, 1));
++CV75_PINMUX_GROUP(vsync1, AMBA_PINMUX(33, 1));
++CV75_PINMUX_GROUP(vsync2, AMBA_PINMUX(34, 1));
++CV75_PINMUX_GROUP(vsync3, AMBA_PINMUX(35, 1));
++CV75_PINMUX_GROUP(hsync0, AMBA_PINMUX(36, 1));
++CV75_PINMUX_GROUP(hsync1, AMBA_PINMUX(37, 1));
 +
-+			gpio0: gpio@e4013000 {
-+				compatible = "ambarella,cv75-gpio", "arm,primecell";
-+				reg = <0xe4013000 0x1000>;
-+				clocks = <&rct CV75_GCLK_APB>;
-+				clock-names = "apb_pclk";
-+				interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
-+				gpio-controller;
-+				#gpio-cells = <2>;
-+				gpio-ranges = <&pinctrl 0 0 32>;
-+				interrupt-controller;
-+				#interrupt-cells = <2>;
-+				arm,primecell-periphid = <0x00000061>;
-+			};
-+
-+			gpio1: gpio@e4014000 {
-+				compatible = "ambarella,cv75-gpio", "arm,primecell";
-+				reg = <0xe4014000 0x1000>;
-+				clocks = <&rct CV75_GCLK_APB>;
-+				clock-names = "apb_pclk";
-+				interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
-+				gpio-controller;
-+				#gpio-cells = <2>;
-+				gpio-ranges = <&pinctrl 0 32 32>;
-+				interrupt-controller;
-+				#interrupt-cells = <2>;
-+				arm,primecell-periphid = <0x00000061>;
-+			};
-+
-+			gpio2: gpio@e4015000 {
-+				compatible = "ambarella,cv75-gpio", "arm,primecell";
-+				reg = <0xe4015000 0x1000>;
-+				clocks = <&rct CV75_GCLK_APB>;
-+				clock-names = "apb_pclk";
-+				interrupts = <GIC_SPI 165 IRQ_TYPE_LEVEL_HIGH>;
-+				gpio-controller;
-+				#gpio-cells = <2>;
-+				gpio-ranges = <&pinctrl 0 64 32>;
-+				interrupt-controller;
-+				#interrupt-cells = <2>;
-+				arm,primecell-periphid = <0x00000061>;
-+			};
-+		};
-+
-+		rct: clock-controller@ffed080000 {
-+			compatible = "ambarella,cv75-rct", "syscon";
-+			reg = <0xff 0xed080000 0x0 0x1000>;
-+			clocks = <&osc>;
-+			clock-names = "osc";
-+			#clock-cells = <1>;
-+			assigned-clocks = <&rct CV75_GCLK_UART0>;
-+			assigned-clock-parents = <&osc>;
-+			assigned-clock-rates = <24000000>;
-+		};
-+
-+		gic: interrupt-controller@fff0101000 {
-+			compatible = "arm,gic-400";
-+			reg = <0xff 0xf0101000 0x0 0x1000>,
-+			      <0xff 0xf0102000 0x0 0x2000>,
-+			      <0xff 0xf0104000 0x0 0x2000>,
-+			      <0xff 0xf0106000 0x0 0x2000>;
-+			interrupt-controller;
-+			#interrupt-cells = <3>;
-+			#address-cells = <0>;
-+			interrupts = <GIC_PPI 9
-+				      (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_HIGH)>;
-+		};
-+	};
-+
-+	timer {
-+		compatible = "arm,armv8-timer";
-+		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>;
-+	};
++static const struct ambpin_group_desc cv75_pin_groups[] = {
++	CV75_GROUP(uart0),
++	CV75_GROUP(uart1), CV75_GROUP(uart1_flow),
++	CV75_GROUP(uart2_a), CV75_GROUP(uart2_b), CV75_GROUP(uart2_c),
++	CV75_GROUP(uart2_flow_a), CV75_GROUP(uart2_flow_b),
++	CV75_GROUP(uart3_a), CV75_GROUP(uart3_b),
++	CV75_GROUP(uart3_flow_a), CV75_GROUP(uart3_flow_b),
++	CV75_GROUP(uart4_a), CV75_GROUP(uart4_b),
++	CV75_GROUP(uart4_flow_a), CV75_GROUP(uart4_flow_b),
++	CV75_GROUP(snand), CV75_GROUP(spinor),
++	CV75_GROUP(sdmmc0_cd), CV75_GROUP(sdmmc0_wp),
++	CV75_GROUP(sdmmc0_reset), CV75_GROUP(sdmmc0_hs_sel),
++	CV75_GROUP(sdmmc0_1bit), CV75_GROUP(sdmmc0_4bit),
++	CV75_GROUP(sdmmc1_cd), CV75_GROUP(sdmmc1_wp),
++	CV75_GROUP(sdmmc1_reset), CV75_GROUP(sdmmc1_hs_sel),
++	CV75_GROUP(sdmmc1_1bit), CV75_GROUP(sdmmc1_4bit),
++	CV75_GROUP(enet_ext_osc_clk), CV75_GROUP(enet_2nd_ref_clk_a),
++	CV75_GROUP(enet_2nd_ref_clk_b), CV75_GROUP(enet0_ptp_pps_o),
++	CV75_GROUP(rgmii0), CV75_GROUP(rmii0),
++	CV75_GROUP(i2c0_a), CV75_GROUP(i2c0_b),
++	CV75_GROUP(i2c1_a), CV75_GROUP(i2c1_b), CV75_GROUP(i2c2),
++	CV75_GROUP(i2c3_a), CV75_GROUP(i2c3_b), CV75_GROUP(i2c3_c),
++	CV75_GROUP(i2cs_a), CV75_GROUP(i2cs_b),
++	CV75_GROUP(i2cs_c), CV75_GROUP(i2cs_d),
++	CV75_GROUP(can0), CV75_GROUP(can1), CV75_GROUP(ir),
++	CV75_GROUP(wdt_a), CV75_GROUP(wdt_b), CV75_GROUP(wdt_c),
++	CV75_GROUP(wdt_d), CV75_GROUP(wdt_e), CV75_GROUP(wdt_f),
++	CV75_GROUP(i2s0), CV75_GROUP(i2s1),
++	CV75_GROUP(clk_au), CV75_GROUP(dmic0),
++	CV75_GROUP(pwm0), CV75_GROUP(pwm1),
++	CV75_GROUP(pwm2), CV75_GROUP(pwm3),
++	CV75_GROUP(pwm4_a), CV75_GROUP(pwm4_b),
++	CV75_GROUP(pwm5_a), CV75_GROUP(pwm5_b),
++	CV75_GROUP(pwm6_a), CV75_GROUP(pwm6_b),
++	CV75_GROUP(pwm7_a), CV75_GROUP(pwm7_b),
++	CV75_GROUP(pwm8_a), CV75_GROUP(pwm8_b),
++	CV75_GROUP(pwm9_a), CV75_GROUP(pwm9_b),
++	CV75_GROUP(pwm10_a), CV75_GROUP(pwm10_b),
++	CV75_GROUP(pwm11_a), CV75_GROUP(pwm11_b),
++	CV75_GROUP(spi0), CV75_GROUP(spi1), CV75_GROUP(spi2),
++	CV75_GROUP(spi3_a), CV75_GROUP(spi3_b), CV75_GROUP(spi3_c),
++	CV75_GROUP(spi_slave_a), CV75_GROUP(spi_slave_b),
++	CV75_GROUP(spi_slave_c), CV75_GROUP(spi_slave_d),
++	CV75_GROUP(spi_slave_e),
++	CV75_GROUP(vin_master_sync_a), CV75_GROUP(vin_master_sync_b),
++	CV75_GROUP(vin_master_sync_c), CV75_GROUP(vin_master_sync_d),
++	CV75_GROUP(vin_master_sync_e),
++	CV75_GROUP(vsync0), CV75_GROUP(vsync1),
++	CV75_GROUP(vsync2), CV75_GROUP(vsync3),
++	CV75_GROUP(hsync0), CV75_GROUP(hsync1),
 +};
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index ad3bd3d9507b..ae5bcc6c9fc7 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -36,6 +36,7 @@ CONFIG_CRASH_DUMP=y
- CONFIG_ARCH_ACTIONS=y
- CONFIG_ARCH_AIROHA=y
- CONFIG_ARCH_SUNXI=y
-+CONFIG_ARCH_AMBARELLA=y
- CONFIG_ARCH_ALPINE=y
- CONFIG_ARCH_APPLE=y
- CONFIG_ARCH_ARTPEC=y
-@@ -560,6 +561,7 @@ CONFIG_SERIAL_8250_CONSOLE=y
- CONFIG_SERIAL_8250_NR_UARTS=8
- CONFIG_SERIAL_8250_EXTENDED=y
- CONFIG_SERIAL_8250_SHARE_IRQ=y
-+CONFIG_SERIAL_8250_AMBARELLA=y
- CONFIG_SERIAL_8250_BCM2835AUX=y
- CONFIG_SERIAL_8250_DW=y
- CONFIG_SERIAL_8250_EM=y
++
++static const char * const cv75_uart0_groups[] = {
++	"uart0",
++};
++
++static const char * const cv75_uart1_groups[] = {
++	"uart1",
++	"uart1_flow",
++};
++
++static const char * const cv75_uart2_groups[] = {
++	"uart2_a",
++	"uart2_b",
++	"uart2_c",
++	"uart2_flow_a",
++	"uart2_flow_b",
++};
++
++static const char * const cv75_uart3_groups[] = {
++	"uart3_a",
++	"uart3_b",
++	"uart3_flow_a",
++	"uart3_flow_b",
++};
++
++static const char * const cv75_uart4_groups[] = {
++	"uart4_a",
++	"uart4_b",
++	"uart4_flow_a",
++	"uart4_flow_b",
++};
++
++static const char * const cv75_snand_groups[] = {
++	"snand",
++};
++
++static const char * const cv75_spinor_groups[] = {
++	"spinor",
++};
++
++static const char * const cv75_sdmmc0_groups[] = {
++	"sdmmc0_cd",
++	"sdmmc0_wp",
++	"sdmmc0_reset",
++	"sdmmc0_hs_sel",
++	"sdmmc0_1bit",
++	"sdmmc0_4bit",
++};
++
++static const char * const cv75_sdmmc1_groups[] = {
++	"sdmmc1_cd",
++	"sdmmc1_wp",
++	"sdmmc1_reset",
++	"sdmmc1_hs_sel",
++	"sdmmc1_1bit",
++	"sdmmc1_4bit",
++};
++
++static const char * const cv75_enet0_groups[] = {
++	"enet_ext_osc_clk",
++	"enet_2nd_ref_clk_a",
++	"enet_2nd_ref_clk_b",
++	"enet0_ptp_pps_o",
++	"rgmii0",
++	"rmii0",
++};
++
++static const char * const cv75_i2c0_groups[] = {
++	"i2c0_a",
++	"i2c0_b",
++};
++
++static const char * const cv75_i2c1_groups[] = {
++	"i2c1_a",
++	"i2c1_b",
++};
++
++static const char * const cv75_i2c2_groups[] = {
++	"i2c2",
++};
++
++static const char * const cv75_i2c3_groups[] = {
++	"i2c3_a",
++	"i2c3_b",
++	"i2c3_c",
++};
++
++static const char * const cv75_i2cs_groups[] = {
++	"i2cs_a",
++	"i2cs_b",
++	"i2cs_c",
++	"i2cs_d",
++};
++
++static const char * const cv75_can0_groups[] = {
++	"can0",
++};
++
++static const char * const cv75_can1_groups[] = {
++	"can1",
++};
++
++static const char * const cv75_ir_groups[] = {
++	"ir",
++};
++
++static const char * const cv75_wdt_groups[] = {
++	"wdt_a",
++	"wdt_b",
++	"wdt_c",
++	"wdt_d",
++	"wdt_e",
++	"wdt_f",
++};
++
++static const char * const cv75_i2s0_groups[] = {
++	"i2s0",
++};
++
++static const char * const cv75_i2s1_groups[] = {
++	"i2s1",
++};
++
++static const char * const cv75_clk_au_groups[] = {
++	"clk_au",
++};
++
++static const char * const cv75_dmic0_groups[] = {
++	"dmic0",
++};
++
++static const char * const cv75_pwm0_groups[] = {
++	"pwm0",
++};
++
++static const char * const cv75_pwm1_groups[] = {
++	"pwm1",
++};
++
++static const char * const cv75_pwm2_groups[] = {
++	"pwm2",
++};
++
++static const char * const cv75_pwm3_groups[] = {
++	"pwm3",
++};
++
++static const char * const cv75_pwm4_groups[] = {
++	"pwm4_a",
++	"pwm4_b",
++};
++
++static const char * const cv75_pwm5_groups[] = {
++	"pwm5_a",
++	"pwm5_b",
++};
++
++static const char * const cv75_pwm6_groups[] = {
++	"pwm6_a",
++	"pwm6_b",
++};
++
++static const char * const cv75_pwm7_groups[] = {
++	"pwm7_a",
++	"pwm7_b",
++};
++
++static const char * const cv75_pwm8_groups[] = {
++	"pwm8_a",
++	"pwm8_b",
++};
++
++static const char * const cv75_pwm9_groups[] = {
++	"pwm9_a",
++	"pwm9_b",
++};
++
++static const char * const cv75_pwm10_groups[] = {
++	"pwm10_a",
++	"pwm10_b",
++};
++
++static const char * const cv75_pwm11_groups[] = {
++	"pwm11_a",
++	"pwm11_b",
++};
++
++static const char * const cv75_spi0_groups[] = {
++	"spi0",
++};
++
++static const char * const cv75_spi1_groups[] = {
++	"spi1",
++};
++
++static const char * const cv75_spi2_groups[] = {
++	"spi2",
++};
++
++static const char * const cv75_spi3_groups[] = {
++	"spi3_a",
++	"spi3_b",
++	"spi3_c",
++};
++
++static const char * const cv75_spi_slave_groups[] = {
++	"spi_slave_a",
++	"spi_slave_b",
++	"spi_slave_c",
++	"spi_slave_d",
++	"spi_slave_e",
++};
++
++static const char * const cv75_vin_master_sync_groups[] = {
++	"vin_master_sync_a",
++	"vin_master_sync_b",
++	"vin_master_sync_c",
++	"vin_master_sync_d",
++	"vin_master_sync_e",
++};
++
++static const char * const cv75_vsync0_groups[] = {
++	"vsync0",
++};
++
++static const char * const cv75_vsync1_groups[] = {
++	"vsync1",
++};
++
++static const char * const cv75_vsync2_groups[] = {
++	"vsync2",
++};
++
++static const char * const cv75_vsync3_groups[] = {
++	"vsync3",
++};
++
++static const char * const cv75_hsync0_groups[] = {
++	"hsync0",
++};
++
++static const char * const cv75_hsync1_groups[] = {
++	"hsync1",
++};
++
++static const struct ambpin_function cv75_pin_functions[] = {
++	CV75_FUNCTION(uart0),
++	CV75_FUNCTION(uart1),
++	CV75_FUNCTION(uart2),
++	CV75_FUNCTION(uart3),
++	CV75_FUNCTION(uart4),
++	CV75_FUNCTION(snand),
++	CV75_FUNCTION(spinor),
++	CV75_FUNCTION(sdmmc0),
++	CV75_FUNCTION(sdmmc1),
++	CV75_FUNCTION(enet0),
++	CV75_FUNCTION(i2c0),
++	CV75_FUNCTION(i2c1),
++	CV75_FUNCTION(i2c2),
++	CV75_FUNCTION(i2c3),
++	CV75_FUNCTION(i2cs),
++	CV75_FUNCTION(can0),
++	CV75_FUNCTION(can1),
++	CV75_FUNCTION(ir),
++	CV75_FUNCTION(wdt),
++	CV75_FUNCTION(i2s0),
++	CV75_FUNCTION(i2s1),
++	CV75_FUNCTION(clk_au),
++	CV75_FUNCTION(dmic0),
++	CV75_FUNCTION(pwm0),
++	CV75_FUNCTION(pwm1),
++	CV75_FUNCTION(pwm2),
++	CV75_FUNCTION(pwm3),
++	CV75_FUNCTION(pwm4),
++	CV75_FUNCTION(pwm5),
++	CV75_FUNCTION(pwm6),
++	CV75_FUNCTION(pwm7),
++	CV75_FUNCTION(pwm8),
++	CV75_FUNCTION(pwm9),
++	CV75_FUNCTION(pwm10),
++	CV75_FUNCTION(pwm11),
++	CV75_FUNCTION(spi0),
++	CV75_FUNCTION(spi1),
++	CV75_FUNCTION(spi2),
++	CV75_FUNCTION(spi3),
++	CV75_FUNCTION(spi_slave),
++	CV75_FUNCTION(vin_master_sync),
++	CV75_FUNCTION(vsync0),
++	CV75_FUNCTION(vsync1),
++	CV75_FUNCTION(vsync2),
++	CV75_FUNCTION(vsync3),
++	CV75_FUNCTION(hsync0),
++	CV75_FUNCTION(hsync1),
++};
++
++const struct amb_pinctrl_data ambarella_cv75_pinctrl_data = {
++	.ds0 = {
++		0x314, 0x320, 0x32c,
++	},
++	.ds1 = {
++		0x318, 0x324, 0x330,
++	},
++	.ds2 = {
++		0x31c, 0x328, 0x334,
++	},
++	.pull_en = {
++		0x60, 0x64, 0x68,
++	},
++	.pull_dir = {
++		0x7c, 0x80, 0x84,
++	},
++	.have_ds2 = true,
++	.clk_au_dedicated_pin = 96,
++	.nr_banks = 3,
++	.npins = 97,
++	.groups = cv75_pin_groups,
++	.nr_groups = ARRAY_SIZE(cv75_pin_groups),
++	.functions = cv75_pin_functions,
++	.nr_functions = ARRAY_SIZE(cv75_pin_functions),
++};
+diff --git a/drivers/pinctrl/pinctrl-ambarella.c b/drivers/pinctrl/pinctrl-ambarella.c
+new file mode 100644
+index 000000000000..f9146d365c3c
+--- /dev/null
++++ b/drivers/pinctrl/pinctrl-ambarella.c
+@@ -0,0 +1,863 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Pinctrl driver for Ambarella SoCs
++ *
++ * History:
++ *	2013/12/18 - [Cao Rongrong] created file
++ *
++ * Copyright (C) 2012-2026, Ambarella, Inc.
++ */
++
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/bitmap.h>
++#include <linux/io.h>
++#include <linux/of.h>
++#include <linux/of_device.h>
++#include <linux/pm.h>
++#include <linux/slab.h>
++#include <linux/regmap.h>
++#include <linux/mfd/syscon.h>
++#include <linux/pinctrl/pinctrl.h>
++#include <linux/pinctrl/pinmux.h>
++#include <linux/pinctrl/pinconf.h>
++#include <linux/pinctrl/pinconf-generic.h>
++#include <linux/seq_file.h>
++
++#include "pinconf.h"
++#include "pinctrl-ambarella.h"
++
++/* ==========================================================================*/
++
++#define IOMUX_OFFSET(bank, n)		(((bank) * 0xc) + ((n) * 4))
++#define IOMUX_CTRL_SET_OFFSET		0xf0
++
++/* ==========================================================================*/
++
++#define AMBA_MAX_PINS			(AMBA_MAX_BANKS * 32)
++
++#define PINID_TO_BANK(p)		((p) >> 5)
++#define PINID_TO_OFFSET(p)		((p) & 0x1f)
++
++struct amb_pinctrl_pm_state {
++	u32 iomux[3];
++	u32 pull[2];
++	u32 ds[3];
++};
++
++struct ambpin_group {
++	const char		*name;
++	const u32		*pinmux;
++	unsigned int		*pins;
++	unsigned int		num_pins;
++};
++
++struct amb_pinctrl_soc_data {
++	struct device			*dev;
++	const struct amb_pinctrl_data	*data;
++	void __iomem			*iomux_base;
++	struct regmap			*ds_regmap;
++	struct regmap			*pull_regmap;
++	unsigned int			npins;
++	unsigned long			used[BITS_TO_LONGS(AMBA_MAX_PINS)];
++	raw_spinlock_t lock;
++
++	struct pinctrl_dev		*pctl;
++
++	const struct ambpin_function	*functions;
++	unsigned int			nr_functions;
++	struct ambpin_group		*groups;
++	unsigned int			nr_groups;
++
++	struct amb_pinctrl_pm_state	pm[AMBA_MAX_BANKS];
++};
++
++/* check if the selector is a valid pin group selector */
++static int amb_get_group_count(struct pinctrl_dev *pctldev)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++
++	return soc->nr_groups;
++}
++
++/* return the name of the group selected by the group selector */
++static const char *amb_get_group_name(struct pinctrl_dev *pctldev,
++				      unsigned int selector)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++
++	return soc->groups[selector].name;
++}
++
++/* return the pin numbers associated with the specified group */
++static int amb_get_group_pins(struct pinctrl_dev *pctldev,
++			      unsigned int selector, const unsigned int **pins,
++			      unsigned int *num_pins)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++
++	*pins = soc->groups[selector].pins;
++	*num_pins = soc->groups[selector].num_pins;
++
++	return 0;
++}
++
++#if IS_ENABLED(CONFIG_DEBUG_FS)
++static void amb_pin_dbg_show(struct pinctrl_dev *pctldev,
++			     struct seq_file *s, unsigned int pin)
++{
++	seq_printf(s, " %s", pinctrl_dev_get_devname(pctldev));
++}
++#endif
++
++/* list of pinctrl callbacks for the pinctrl core */
++static const struct pinctrl_ops amb_pctrl_ops = {
++	.get_groups_count	= amb_get_group_count,
++	.get_group_name		= amb_get_group_name,
++	.get_group_pins		= amb_get_group_pins,
++#if IS_ENABLED(CONFIG_DEBUG_FS)
++	.pin_dbg_show		= amb_pin_dbg_show,
++#endif
++	.dt_node_to_map		= pinconf_generic_dt_node_to_map_all,
++	.dt_free_map		= pinconf_generic_dt_free_map,
++};
++
++/* check if the selector is a valid pin function selector */
++static int amb_pinmux_request(struct pinctrl_dev *pctldev, unsigned int pin)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++
++	if (test_and_set_bit(pin, soc->used))
++		return -EBUSY;
++
++	return 0;
++}
++
++/* check if the selector is a valid pin function selector */
++static int amb_pinmux_free(struct pinctrl_dev *pctldev, unsigned int pin)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++
++	clear_bit(pin, soc->used);
++
++	return 0;
++}
++
++/* check if the selector is a valid pin function selector */
++static int amb_pinmux_get_fcount(struct pinctrl_dev *pctldev)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++
++	return soc->nr_functions;
++}
++
++/* return the name of the pin function specified */
++static const char *amb_pinmux_get_fname(struct pinctrl_dev *pctldev,
++					unsigned int selector)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++
++	return soc->functions[selector].name;
++}
++
++/* return the groups associated for the specified function selector */
++static int amb_pinmux_get_groups(struct pinctrl_dev *pctldev,
++				 unsigned int selector,
++				 const char * const **groups,
++				 unsigned int * const num_groups)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++
++	*groups = soc->functions[selector].groups;
++	*num_groups = soc->functions[selector].num_groups;
++
++	return 0;
++}
++
++static bool amb_iomux_accessible(const struct amb_pinctrl_soc_data *soc)
++{
++	return soc->data->hsm_domain_id == 0;
++}
++
++static void amb_iomux_commit(struct amb_pinctrl_soc_data *soc)
++{
++	if (!amb_iomux_accessible(soc))
++		return;
++
++	writel_relaxed(0x1, soc->iomux_base + IOMUX_CTRL_SET_OFFSET);
++	writel_relaxed(0x0, soc->iomux_base + IOMUX_CTRL_SET_OFFSET);
++}
++
++static void amb_iomux_save_bank(struct amb_pinctrl_soc_data *soc, u32 bank)
++{
++	if (!amb_iomux_accessible(soc) || bank >= AMBA_MAX_BANKS)
++		return;
++
++	soc->pm[bank].iomux[0] =
++		readl_relaxed(soc->iomux_base + IOMUX_OFFSET(bank, 0));
++	soc->pm[bank].iomux[1] =
++		readl_relaxed(soc->iomux_base + IOMUX_OFFSET(bank, 1));
++	soc->pm[bank].iomux[2] =
++		readl_relaxed(soc->iomux_base + IOMUX_OFFSET(bank, 2));
++}
++
++static void amb_iomux_restore_bank(struct amb_pinctrl_soc_data *soc, u32 bank)
++{
++	if (!amb_iomux_accessible(soc) || bank >= AMBA_MAX_BANKS)
++		return;
++
++	writel_relaxed(soc->pm[bank].iomux[0],
++		       soc->iomux_base + IOMUX_OFFSET(bank, 0));
++	writel_relaxed(soc->pm[bank].iomux[1],
++		       soc->iomux_base + IOMUX_OFFSET(bank, 1));
++	writel_relaxed(soc->pm[bank].iomux[2],
++		       soc->iomux_base + IOMUX_OFFSET(bank, 2));
++}
++
++static void amb_pinmux_set_altfunc(struct amb_pinctrl_soc_data *soc,
++				   u32 bank, u32 offset, u32 altfunc)
++{
++	u32 i, data;
++
++	if (!amb_iomux_accessible(soc))
++		return;
++
++	for (i = 0; i < 3; i++) {
++		data = readl_relaxed(soc->iomux_base + IOMUX_OFFSET(bank, i));
++		data &= ~BIT(offset);
++		data |= ((altfunc >> i) & 1U) << offset;
++		writel_relaxed(data, soc->iomux_base + IOMUX_OFFSET(bank, i));
++	}
++}
++
++/* enable a specified pinmux by writing to registers */
++static int amb_pinmux_set_mux(struct pinctrl_dev *pctldev,
++			      unsigned int selector, unsigned int group)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++	const struct ambpin_group *grp;
++	u32 i, pin, alt, bank, offset;
++	unsigned long flags;
++
++	grp = &soc->groups[group];
++
++	raw_spin_lock_irqsave(&soc->lock, flags);
++	for (i = 0; i < grp->num_pins; i++) {
++		pin = AMBA_PINMUX_TO_PIN(grp->pinmux[i]);
++		alt = AMBA_PINMUX_TO_ALT(grp->pinmux[i]);
++		bank = PINID_TO_BANK(pin);
++		offset = PINID_TO_OFFSET(pin);
++		amb_pinmux_set_altfunc(soc, bank, offset, alt);
++	}
++	/* One commit after the whole group is programmed. */
++	amb_iomux_commit(soc);
++	raw_spin_unlock_irqrestore(&soc->lock, flags);
++
++	return 0;
++}
++
++static int amb_pinmux_gpio_request_enable(struct pinctrl_dev *pctldev,
++					  struct pinctrl_gpio_range *range,
++					  unsigned int pin)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++	u32 bank, offset;
++	unsigned long flags;
++
++	if (!range || !range->gc) {
++		dev_err(soc->dev, "invalid range: %p\n", range);
++		return -EINVAL;
++	}
++
++	if (test_and_set_bit(pin, soc->used))
++		return -EBUSY;
++
++	bank = PINID_TO_BANK(pin);
++	offset = PINID_TO_OFFSET(pin);
++
++	raw_spin_lock_irqsave(&soc->lock, flags);
++	amb_pinmux_set_altfunc(soc, bank, offset, 0);
++	amb_iomux_commit(soc);
++	raw_spin_unlock_irqrestore(&soc->lock, flags);
++
++	return 0;
++}
++
++static void amb_pinmux_gpio_disable_free(struct pinctrl_dev *pctldev,
++					 struct pinctrl_gpio_range *range,
++					 unsigned int pin)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++
++	dev_dbg(soc->dev, "disable pin %u as GPIO\n", pin);
++	/* Set the pin to some default state, GPIO is usually default */
++
++	clear_bit(pin, soc->used);
++}
++
++/* list of pinmux callbacks for the pinmux vertical in pinctrl core */
++static const struct pinmux_ops amb_pinmux_ops = {
++	.request		= amb_pinmux_request,
++	.free			= amb_pinmux_free,
++	.get_functions_count	= amb_pinmux_get_fcount,
++	.get_function_name	= amb_pinmux_get_fname,
++	.get_function_groups	= amb_pinmux_get_groups,
++	.set_mux                = amb_pinmux_set_mux,
++	.gpio_request_enable	= amb_pinmux_gpio_request_enable,
++	.gpio_disable_free	= amb_pinmux_gpio_disable_free,
++};
++
++static int amb_drive_strength_to_reg(struct amb_pinctrl_soc_data *soc,
++				     u32 strength)
++{
++	if (soc->data->have_ds2) {
++		switch (strength) {
++		case 3:
++			return 0;
++		case 4:
++		case 5:
++			return 1;
++		case 6:
++			return 2;
++		case 7:
++		case 8:
++			return 3;
++		case 9:
++			return 4;
++		case 12:
++			return 5;
++		default:
++			return -EINVAL;
++		}
++	}
++
++	switch (strength) {
++	case 2:
++		return 0;
++	case 4:
++		return 1;
++	case 8:
++		return 2;
++	case 12:
++		return 3;
++	default:
++		return -EINVAL;
++	}
++}
++
++static int amb_reg_to_drive_strength(struct amb_pinctrl_soc_data *soc, u32 ds)
++{
++	static const int ds2_ma[] = { 3, 4, 6, 8, 9, 12 };
++	static const int ds_ma[] = { 2, 4, 8, 12 };
++
++	if (soc->data->have_ds2) {
++		if (ds >= ARRAY_SIZE(ds2_ma))
++			return -EINVAL;
++
++		return ds2_ma[ds];
++	}
++
++	if (ds >= ARRAY_SIZE(ds_ma))
++		return -EINVAL;
++
++	return ds_ma[ds];
++}
++
++/* set the pin config settings for a specified pin */
++static int amb_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
++			   unsigned long *configs, unsigned int num_configs)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++	u32 i, bank, offset;
++	unsigned long config;
++	enum pin_config_param param;
++	u32 arg;
++	int ds;
++
++	bank = PINID_TO_BANK(pin);
++	if (bank >= soc->data->nr_banks)
++		return -EINVAL;
++
++	offset = PINID_TO_OFFSET(pin);
++
++	for (i = 0; i < num_configs; i++) {
++		config = configs[i];
++		param = pinconf_to_config_param(config);
++		arg = pinconf_to_config_argument(config);
++
++		switch (param) {
++		case PIN_CONFIG_BIAS_DISABLE:
++			regmap_update_bits(soc->pull_regmap,
++					   soc->data->pull_en[bank], BIT(offset), 0);
++			break;
++		case PIN_CONFIG_BIAS_PULL_DOWN:
++		case PIN_CONFIG_BIAS_PULL_UP:
++			regmap_update_bits(soc->pull_regmap, soc->data->pull_dir[bank],
++					   BIT(offset),
++					   (param == PIN_CONFIG_BIAS_PULL_UP) ?
++					   BIT(offset) : 0);
++			regmap_update_bits(soc->pull_regmap, soc->data->pull_en[bank],
++					   BIT(offset), BIT(offset));
++			break;
++		case PIN_CONFIG_DRIVE_STRENGTH:
++			ds = amb_drive_strength_to_reg(soc, arg);
++			if (ds < 0)
++				return ds;
++			if (soc->data->have_ds2) {
++				regmap_update_bits(soc->ds_regmap,
++						   soc->data->ds0[bank], BIT(offset),
++						   (ds & BIT(0)) ? BIT(offset) : 0);
++				regmap_update_bits(soc->ds_regmap,
++						   soc->data->ds1[bank], BIT(offset),
++						   (ds & BIT(1)) ? BIT(offset) : 0);
++				regmap_update_bits(soc->ds_regmap,
++						   soc->data->ds2[bank], BIT(offset),
++						   (ds & BIT(2)) ? BIT(offset) : 0);
++			} else {
++				regmap_update_bits(soc->ds_regmap,
++						   soc->data->ds0[bank], BIT(offset),
++						   (ds & BIT(1)) ? BIT(offset) : 0);
++				regmap_update_bits(soc->ds_regmap,
++						   soc->data->ds1[bank], BIT(offset),
++						   (ds & BIT(0)) ? BIT(offset) : 0);
++			}
++			break;
++		default:
++			return -EOPNOTSUPP;
++		}
++	}
++
++	return 0;
++}
++
++static int amb_pinconf_group_set(struct pinctrl_dev *pctldev,
++				 unsigned int selector,
++				 unsigned long *configs,
++				 unsigned int num_configs)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++	const struct ambpin_group *grp = &soc->groups[selector];
++	int ret;
++	u32 i;
++
++	for (i = 0; i < grp->num_pins; i++) {
++		ret = amb_pinconf_set(pctldev, grp->pins[i], configs,
++				      num_configs);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
++/* get the pin config settings for a specified pin */
++static int amb_pinconf_get(struct pinctrl_dev *pctldev,
++			   unsigned int pin, unsigned long *config)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++	enum pin_config_param param = pinconf_to_config_param(*config);
++	u32 bank, offset, pull_en, pull_dir, ds0, ds1, ds2, ds;
++	int ret, strength;
++
++	bank = PINID_TO_BANK(pin);
++	if (bank >= soc->data->nr_banks)
++		return -EINVAL;
++
++	offset = PINID_TO_OFFSET(pin);
++
++	switch (param) {
++	case PIN_CONFIG_BIAS_DISABLE:
++	case PIN_CONFIG_BIAS_PULL_DOWN:
++	case PIN_CONFIG_BIAS_PULL_UP:
++		ret = regmap_read(soc->pull_regmap, soc->data->pull_en[bank],
++				  &pull_en);
++		if (ret)
++			return ret;
++
++		ret = regmap_read(soc->pull_regmap, soc->data->pull_dir[bank],
++				  &pull_dir);
++		if (ret)
++			return ret;
++
++		pull_en = (pull_en >> offset) & 1;
++		pull_dir = (pull_dir >> offset) & 1;
++
++		if (param == PIN_CONFIG_BIAS_DISABLE) {
++			if (pull_en)
++				return -EINVAL;
++			*config = pinconf_to_config_packed(param, 0);
++			return 0;
++		}
++
++		if (!pull_en)
++			return -EINVAL;
++		if (param == PIN_CONFIG_BIAS_PULL_UP && !pull_dir)
++			return -EINVAL;
++		if (param == PIN_CONFIG_BIAS_PULL_DOWN && pull_dir)
++			return -EINVAL;
++
++		*config = pinconf_to_config_packed(param, 1);
++		return 0;
++
++	case PIN_CONFIG_DRIVE_STRENGTH:
++		ret = regmap_read(soc->ds_regmap, soc->data->ds0[bank], &ds0);
++		if (ret)
++			return ret;
++
++		ret = regmap_read(soc->ds_regmap, soc->data->ds1[bank], &ds1);
++		if (ret)
++			return ret;
++
++		ds0 = (ds0 >> offset) & 1;
++		ds1 = (ds1 >> offset) & 1;
++		if (soc->data->have_ds2) {
++			ret = regmap_read(soc->ds_regmap, soc->data->ds2[bank], &ds2);
++			if (ret)
++				return ret;
++
++			ds2 = (ds2 >> offset) & 1;
++			ds = (ds2 << 2) | (ds1 << 1) | ds0;
++		} else {
++			ds = (ds0 << 1) | ds1;
++		}
++
++		strength = amb_reg_to_drive_strength(soc, ds);
++		if (strength < 0)
++			return strength;
++
++		*config = pinconf_to_config_packed(param, strength);
++		return 0;
++
++	default:
++		return -EOPNOTSUPP;
++	}
++}
++
++#if IS_ENABLED(CONFIG_DEBUG_FS)
++static void amb_pinconf_dbg_show(struct pinctrl_dev *pctldev,
++				 struct seq_file *s, unsigned int pin)
++{
++	struct amb_pinctrl_soc_data *soc = pinctrl_dev_get_drvdata(pctldev);
++	u32 pull_en, pull_dir, ds0, ds1, ds2 = 0, ds;
++	u32 bank, offset;
++	int strength, ret;
++
++	bank = PINID_TO_BANK(pin);
++	if (bank >= soc->data->nr_banks) {
++		seq_puts(s, " (no pinconf)");
++		return;
++	}
++
++	offset = PINID_TO_OFFSET(pin);
++
++	ret = regmap_read(soc->pull_regmap, soc->data->pull_en[bank],
++			  &pull_en);
++	if (ret) {
++		seq_puts(s, " pull: <read error>");
++		return;
++	}
++	ret = regmap_read(soc->pull_regmap, soc->data->pull_dir[bank],
++			  &pull_dir);
++	if (ret) {
++		seq_puts(s, " pull: <read error>");
++		return;
++	}
++	pull_en = (pull_en >> offset) & 1;
++	pull_dir = (pull_dir >> offset) & 1;
++	seq_printf(s, " pull: %s,",
++		   pull_en ? (pull_dir ? "up" : "down") : "disable");
++
++	ret = regmap_read(soc->ds_regmap, soc->data->ds0[bank], &ds0);
++	if (ret) {
++		seq_puts(s, " drive-strength: <read error>");
++		return;
++	}
++	ret = regmap_read(soc->ds_regmap, soc->data->ds1[bank], &ds1);
++	if (ret) {
++		seq_puts(s, " drive-strength: <read error>");
++		return;
++	}
++	ds0 = (ds0 >> offset) & 1;
++	ds1 = (ds1 >> offset) & 1;
++	if (soc->data->have_ds2) {
++		ret = regmap_read(soc->ds_regmap, soc->data->ds2[bank], &ds2);
++		if (ret) {
++			seq_puts(s, " drive-strength: <read error>");
++			return;
++		}
++		ds2 = (ds2 >> offset) & 1;
++		ds = (ds2 << 2) | (ds1 << 1) | ds0;
++	} else {
++		ds = (ds0 << 1) | ds1;
++	}
++
++	strength = amb_reg_to_drive_strength(soc, ds);
++	if (strength < 0)
++		seq_puts(s, " drive-strength: invalid");
++	else
++		seq_printf(s, " drive-strength: %dmA", strength);
++}
++#endif
++
++/* list of pinconfig callbacks for pinconfig vertical in the pinctrl code */
++static const struct pinconf_ops amb_pinconf_ops = {
++	.is_generic		= true,
++	.pin_config_get		= amb_pinconf_get,
++	.pin_config_set		= amb_pinconf_set,
++	.pin_config_group_set	= amb_pinconf_group_set,
++#if IS_ENABLED(CONFIG_DEBUG_FS)
++	.pin_config_dbg_show	= amb_pinconf_dbg_show,
++#endif
++};
++
++/* register the pinctrl interface with the pinctrl subsystem */
++static int amb_pinctrl_register(struct amb_pinctrl_soc_data *soc)
++{
++	struct pinctrl_pin_desc *pindesc;
++	struct pinctrl_desc *amb_pinctrl_desc;
++	unsigned int pin;
++
++	/* dynamically populate the pin number and pin name for pindesc */
++	pindesc = devm_kcalloc(soc->dev, soc->npins, sizeof(*pindesc),
++			       GFP_KERNEL);
++	if (!pindesc)
++		return -ENOMEM;
++
++	for (pin = 0; pin < soc->npins; pin++) {
++		pindesc[pin].number = pin;
++		pindesc[pin].name = devm_kasprintf(soc->dev, GFP_KERNEL,
++						   "io%u", pin);
++		if (!pindesc[pin].name)
++			return -ENOMEM;
++	}
++
++	amb_pinctrl_desc = devm_kzalloc(soc->dev, sizeof(*amb_pinctrl_desc), GFP_KERNEL);
++	if (!amb_pinctrl_desc)
++		return -ENOMEM;
++
++	amb_pinctrl_desc->name = dev_name(soc->dev);
++	amb_pinctrl_desc->pins = pindesc;
++	amb_pinctrl_desc->npins = soc->npins;
++	amb_pinctrl_desc->pctlops = &amb_pctrl_ops;
++	amb_pinctrl_desc->pmxops = &amb_pinmux_ops;
++	amb_pinctrl_desc->confops = &amb_pinconf_ops;
++	amb_pinctrl_desc->owner = THIS_MODULE;
++
++	soc->pctl = devm_pinctrl_register(soc->dev, amb_pinctrl_desc, soc);
++	if (IS_ERR(soc->pctl)) {
++		dev_err(soc->dev, "could not register pinctrl driver\n");
++		return PTR_ERR(soc->pctl);
++	}
++
++	return 0;
++}
++
++static int amb_pinctrl_probe(struct platform_device *pdev)
++{
++	struct amb_pinctrl_soc_data *soc;
++	struct device_node *np;
++	unsigned int *group_pins;
++	unsigned int group, group_pin;
++	size_t nr_group_pins = 0;
++	int rval;
++
++	soc = devm_kzalloc(&pdev->dev, sizeof(*soc), GFP_KERNEL);
++	if (!soc)
++		return -ENOMEM;
++
++	soc->dev = &pdev->dev;
++	soc->data = of_device_get_match_data(&pdev->dev);
++	if (!soc->data)
++		return dev_err_probe(&pdev->dev, -EINVAL, "missing soc data");
++	if (!soc->data->nr_banks ||
++	    soc->data->nr_banks > AMBA_MAX_BANKS ||
++	    !soc->data->npins ||
++	    soc->data->npins > AMBA_MAX_PINS ||
++	    soc->data->nr_banks * 32 > soc->data->npins ||
++	    soc->data->clk_au_dedicated_pin >= soc->data->npins ||
++	    PINID_TO_BANK(soc->data->clk_au_dedicated_pin) >= AMBA_MAX_BANKS)
++		return dev_err_probe(&pdev->dev, -EINVAL,
++				     "invalid bank or pin count\n");
++
++	soc->npins = soc->data->npins;
++
++	np = pdev->dev.of_node;
++	soc->iomux_base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(soc->iomux_base))
++		return dev_err_probe(&pdev->dev, PTR_ERR(soc->iomux_base),
++							 "couldn't get iomux reg");
++
++	soc->ds_regmap = syscon_regmap_lookup_by_phandle(np, "ambarella,drive-strength-syscon");
++	if (IS_ERR(soc->ds_regmap))
++		return dev_err_probe(&pdev->dev, PTR_ERR(soc->ds_regmap),
++				     "couldn't get drive-strength regmap");
++
++	soc->pull_regmap = syscon_regmap_lookup_by_phandle(np, "ambarella,pull-syscon");
++	if (IS_ERR(soc->pull_regmap))
++		return dev_err_probe(&pdev->dev, PTR_ERR(soc->pull_regmap),
++				     "couldn't get pull regmap");
++
++	soc->nr_groups = soc->data->nr_groups;
++	soc->functions = soc->data->functions;
++	soc->nr_functions = soc->data->nr_functions;
++	if (!soc->data->groups || !soc->nr_groups ||
++	    !soc->functions || !soc->nr_functions)
++		return dev_err_probe(&pdev->dev, -EINVAL,
++				     "missing pin groups or functions\n");
++
++	soc->groups = devm_kcalloc(&pdev->dev, soc->nr_groups,
++				   sizeof(*soc->groups), GFP_KERNEL);
++	if (!soc->groups)
++		return -ENOMEM;
++
++	for (group = 0; group < soc->nr_groups; group++) {
++		const struct ambpin_group_desc *desc =
++			&soc->data->groups[group];
++
++		if (!desc->name || !desc->pinmux || !desc->num_pins)
++			return dev_err_probe(&pdev->dev, -EINVAL,
++					     "invalid pin group %u\n", group);
++
++		nr_group_pins += desc->num_pins;
++	}
++
++	group_pins = devm_kcalloc(&pdev->dev, nr_group_pins,
++				  sizeof(*group_pins), GFP_KERNEL);
++	if (!group_pins)
++		return -ENOMEM;
++
++	for (group = 0; group < soc->nr_groups; group++) {
++		const struct ambpin_group_desc *desc =
++			&soc->data->groups[group];
++		struct ambpin_group *grp = &soc->groups[group];
++
++		grp->name = desc->name;
++		grp->pinmux = desc->pinmux;
++		grp->pins = group_pins;
++		grp->num_pins = desc->num_pins;
++		for (group_pin = 0;
++		     group_pin < grp->num_pins;
++		     group_pin++) {
++			u32 pinmux = grp->pinmux[group_pin];
++			unsigned int pin = AMBA_PINMUX_TO_PIN(pinmux);
++			unsigned int alt = AMBA_PINMUX_TO_ALT(pinmux);
++
++			if (pin >= soc->npins || alt > 7)
++				return dev_err_probe(&pdev->dev, -EINVAL,
++						     "group %s has invalid pinmux %#x\n",
++						     grp->name, pinmux);
++
++			grp->pins[group_pin] = pin;
++		}
++		group_pins += grp->num_pins;
++	}
++
++	raw_spin_lock_init(&soc->lock);
++
++	/* Mark all pins unavailable, then clear pins that exist. */
++	bitmap_fill(soc->used, AMBA_MAX_PINS);
++	bitmap_clear(soc->used, 0, soc->data->nr_banks * 32);
++	clear_bit(soc->data->clk_au_dedicated_pin, soc->used);
++
++	rval = amb_pinctrl_register(soc);
++	if (rval)
++		return dev_err_probe(&pdev->dev, rval, "pinctrl register failed!");
++
++	platform_set_drvdata(pdev, soc);
++	dev_info(&pdev->dev, "Ambarella pinctrl driver registered");
++
++	return 0;
++}
++
++static int amb_pinctrl_suspend(struct device *dev)
++{
++	struct amb_pinctrl_soc_data *soc = dev_get_drvdata(dev);
++	u32 bank, dedicated = soc->data->clk_au_dedicated_pin;
++
++	for (bank = 0; bank < soc->data->nr_banks; bank++) {
++		regmap_read(soc->pull_regmap, soc->data->pull_en[bank],
++			    &soc->pm[bank].pull[0]);
++		regmap_read(soc->pull_regmap, soc->data->pull_dir[bank],
++			    &soc->pm[bank].pull[1]);
++
++		regmap_read(soc->ds_regmap, soc->data->ds0[bank],
++			    &soc->pm[bank].ds[0]);
++		regmap_read(soc->ds_regmap, soc->data->ds1[bank],
++			    &soc->pm[bank].ds[1]);
++		if (soc->data->have_ds2)
++			regmap_read(soc->ds_regmap, soc->data->ds2[bank],
++				    &soc->pm[bank].ds[2]);
++
++		amb_iomux_save_bank(soc, bank);
++	}
++
++	if (dedicated >= soc->data->nr_banks * 32)
++		amb_iomux_save_bank(soc, PINID_TO_BANK(dedicated));
++
++	return 0;
++}
++
++static int amb_pinctrl_resume(struct device *dev)
++{
++	struct amb_pinctrl_soc_data *soc = dev_get_drvdata(dev);
++	u32 bank, dedicated = soc->data->clk_au_dedicated_pin;
++
++	for (bank = 0; bank < soc->data->nr_banks; bank++)
++		amb_iomux_restore_bank(soc, bank);
++
++	if (dedicated >= soc->data->nr_banks * 32)
++		amb_iomux_restore_bank(soc, PINID_TO_BANK(dedicated));
++
++	/* Ensure restored IOMUX writes land before the commit strobe. */
++	wmb();
++	amb_iomux_commit(soc);
++
++	for (bank = 0; bank < soc->data->nr_banks; bank++) {
++		regmap_write(soc->ds_regmap, soc->data->ds0[bank],
++			     soc->pm[bank].ds[0]);
++		regmap_write(soc->ds_regmap, soc->data->ds1[bank],
++			     soc->pm[bank].ds[1]);
++		if (soc->data->have_ds2)
++			regmap_write(soc->ds_regmap, soc->data->ds2[bank],
++				     soc->pm[bank].ds[2]);
++
++		regmap_write(soc->pull_regmap, soc->data->pull_dir[bank],
++			     soc->pm[bank].pull[1]);
++		regmap_write(soc->pull_regmap, soc->data->pull_en[bank],
++			     soc->pm[bank].pull[0]);
++	}
++
++	return 0;
++}
++
++static DEFINE_SIMPLE_DEV_PM_OPS(amb_pinctrl_pm_ops,
++				amb_pinctrl_suspend,
++				amb_pinctrl_resume);
++
++static const struct of_device_id amb_pinctrl_dt_match[] = {
++	{
++		.compatible = "ambarella,cv75-pinctrl",
++		.data = &ambarella_cv75_pinctrl_data,
++	},
++	{},
++};
++MODULE_DEVICE_TABLE(of, amb_pinctrl_dt_match);
++
++static struct platform_driver amb_pinctrl_driver = {
++	.probe	= amb_pinctrl_probe,
++	.driver	= {
++		.name	= "ambarella-pinctrl",
++		.of_match_table = of_match_ptr(amb_pinctrl_dt_match),
++		.pm = pm_sleep_ptr(&amb_pinctrl_pm_ops),
++	},
++};
++
++static int __init amb_pinctrl_drv_register(void)
++{
++	return platform_driver_register(&amb_pinctrl_driver);
++}
++arch_initcall(amb_pinctrl_drv_register);
++
++MODULE_AUTHOR("Cao Rongrong <rrcao@ambarella.com>");
++MODULE_DESCRIPTION("Ambarella SoC pinctrl driver");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/pinctrl/pinctrl-ambarella.h b/drivers/pinctrl/pinctrl-ambarella.h
+new file mode 100644
+index 000000000000..094639627131
+--- /dev/null
++++ b/drivers/pinctrl/pinctrl-ambarella.h
+@@ -0,0 +1,50 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Ambarella pinctrl common data definitions
++ *
++ * Copyright (C) 2012-2026, Ambarella, Inc.
++ */
++
++#ifndef _PINCTRL_AMBARELLA_H
++#define _PINCTRL_AMBARELLA_H
++
++#include <linux/types.h>
++
++#define AMBA_MAX_BANKS			8
++
++#define AMBA_PINMUX(pin, alt)		(((alt) << 12) | (pin))
++#define AMBA_PINMUX_TO_PIN(mux)		((mux) & 0xfff)
++#define AMBA_PINMUX_TO_ALT(mux)		(((mux) >> 12) & 0xf)
++
++struct ambpin_group_desc {
++	const char		*name;
++	const u32		*pinmux;
++	unsigned int		num_pins;
++};
++
++struct ambpin_function {
++	const char		*name;
++	const char * const	*groups;
++	unsigned int		num_groups;
++};
++
++struct amb_pinctrl_data {
++	unsigned int		ds0[AMBA_MAX_BANKS];
++	unsigned int		ds1[AMBA_MAX_BANKS];
++	unsigned int		ds2[AMBA_MAX_BANKS];
++	unsigned int		pull_en[AMBA_MAX_BANKS];
++	unsigned int		pull_dir[AMBA_MAX_BANKS];
++	bool			have_ds2;
++	u32			hsm_domain_id;
++	u32			clk_au_dedicated_pin;
++	unsigned int		nr_banks;
++	unsigned int		npins;
++	const struct ambpin_group_desc *groups;
++	unsigned int		nr_groups;
++	const struct ambpin_function *functions;
++	unsigned int		nr_functions;
++};
++
++extern const struct amb_pinctrl_data ambarella_cv75_pinctrl_data;
++
++#endif /* _PINCTRL_AMBARELLA_H */
 
 -- 
 2.34.1
