@@ -4,70 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 432B7C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 18:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F5FC5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 18:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ETkdxpF0tWteog/KgiT1FsO7wpghpPcJQS69iR4Nkr4=; b=IpVj0q1LIxtCY+oSOf+NMPWC/q
-	nGUsjXydD+gSZfFY+ri6ylI5GW0cXi65gHVCOjOLjbtot2MCwLlt9zWv5YxSSCahhPogMzfVp7MUb
-	aycoSyH78PNCSPooqLlGUZW3kzsvlMdD+51OCPvwuErCx+AEmMH4oAkZD9K4qj+EFkjRIkxs6mtfO
-	A5WimyU/uK85UzMEzbFjphhxYTjj8l/mES1y9QlIFmuqba0HRtwn7G6MBKlzm4/B0w3e+dTxQnlt0
-	SZl3XUvJ8Lxrxi9nRedB3R24+8CtIWnCOTtI8eopDjZKnP8+r5oYdFf/0O6dVSZEfOr7M/WN9IsKh
-	0OoE83ig==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cdFBbeenO+uHrbtVeXeloGyoRqp0CSAoLqw72jhnBdM=; b=rA1Y2yqORvcwaZH+J51VxHhDRC
+	GFIzZEjET/CUX7ZtLfO2WPa00MSKNIQjig+boGn8JA0EUreVsB3avrNDBVciG0AeWPZI+4/xqCqKt
+	ca56B49cwhKoqqJ1k7IqjOWvPaYtbM8JMbN9Ga4L++wZ5WyR/XVIArdawdbmgRLppOGFNYihSnSpf
+	KYDB2TmXKlt6QWD2kv5NXXOa+laMRD5mAHkRQwmSbVVCdhBqPBQk6HqpUE/vBD0rUDCbP9XPPM81N
+	bCoW0erGG5CK6VYIoSss1BeN61LXTfXpyLJX26KOXPPFaH6KA4R8BcfXKfVy1zbwQtxvWkparCcBx
+	F6IoFibA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwOPZ-00000008Uvl-41tH;
-	Tue, 18 Aug 2026 18:19:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wwOYA-00000008VcZ-3hPj;
+	Tue, 18 Aug 2026 18:28:38 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwOPY-00000008UvY-1C8q
+	id 1wwOY8-00000008Vbn-2URo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 18:19:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5A778601DE;
-	Tue, 18 Aug 2026 18:19:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D5101F000E9;
-	Tue, 18 Aug 2026 18:19:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787077183;
-	bh=ETkdxpF0tWteog/KgiT1FsO7wpghpPcJQS69iR4Nkr4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Sux8edeCFCaJcTjEbYr3gqRoxfK1jSE1/+SPmVdBg0gfzcEYZv7X8zVv+9UEiGGpT
-	 3vhTFsYy4zlxy9/PdHazRIEdqv0cERm2YiN0kz1mjdr8k/Yy9CMgSQVGe2vZ99nmqE
-	 cIZpn4lk0O66W3g/6exvx/aQOCx+UUTj4sw9uGR7bIiONOE2c1c98oNfrmtU0Y/Yi+
-	 mcynAMzj1tH97qegngbomLgMtsNYL26DoBRuluoSfdf8x5GHodQUeZu7fI6YR958Uc
-	 WkHBjqnw5A88hJF+4GOHo7AcoXBZS8mdA39P7lYnSn/qKNQq4n0n/WXIikyAqZ3f3p
-	 h5ey7nS4LrDqA==
-Date: Tue, 18 Aug 2026 11:19:40 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Stanislav Fomichev <sdf.kernel@gmail.com>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, anthony.l.nguyen@intel.com,
- przemyslaw.kitszel@intel.com, andrew+netdev@lunn.ch, saeedm@nvidia.com,
- tariqt@nvidia.com, mbloch@nvidia.com, maxime.chevallier@bootlin.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- aleksander.lobakin@intel.com, horms@kernel.org, magnus.karlsson@intel.com,
- maciej.fijalkowski@intel.com, sdf@fomichev.me, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- witu@nvidia.com, martin.lau@kernel.org, yoong.siang.song@intel.com,
- rohan.g.thomas@intel.com, intel-wired-lan@lists.osuosl.org,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org, leon@kernel.org
-Subject: Re: [Intel-wired-lan] [PATCH net v2 3/3] net: stmmac: skip
- queueMaxSDU check for AF_XDP
-Message-ID: <20260818111940.2e280a6b@kernel.org>
-In-Reply-To: <aoSOau3NuHTLLxnL@devvm7509.cco0.facebook.com>
-References: <20260813190800.222527-4-sdf@fomichev.me>
-	<20260818162442.3980697-1-kuba@kernel.org>
-	<aoSOau3NuHTLLxnL@devvm7509.cco0.facebook.com>
+	Tue, 18 Aug 2026 18:28:38 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5b01146b205so174222e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 11:28:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787077714; x=1787682514; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cdFBbeenO+uHrbtVeXeloGyoRqp0CSAoLqw72jhnBdM=;
+        b=E1KaZ2+DEhsWMl4XYfTgrkL/GZcsW54J/JivajIw+iVDAHre/ztG53Zdysp4IoTdrT
+         rdmMuvYGzTpVPTGO6Kgpoe9AH4v//eyHrI3euA0t17FCdvIamGug5iZVYPLVd4B9D3C2
+         ETAqmABXuddKtsnCPHR7PwV571GBYBg3EhugZ0JNsTI5wl+ePA1yVT7rjc9Dlz+Fn6R8
+         wvwg0VEA6wS3TnHgTrob0/yBhA+eGpHVcq6kS4hbaI5qpoGhwWwVIp/mvUE0KaVMXoxO
+         b8seWuRXi1tw67y0XAC5xuw4gVWfDzC+a+BYZBafKA4rLcivImEydj6+zREvFMfJ3KT+
+         J6lQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787077714; x=1787682514;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cdFBbeenO+uHrbtVeXeloGyoRqp0CSAoLqw72jhnBdM=;
+        b=Gdihsnk29F3awaXdUUVAFpFSJ6RySW4DF7ple+vF8qMVLmecI4uaR6xPJMUAEskxE7
+         aShburkRu1EX9mwbPLOS69kZ7zf3PNaFSbcTvdr9RrY4+BTBVZbpX7bG/W2jcjGlC8oc
+         8QGuQrIOCeA9rnPDyTPY+cD4HUq82Q9Mc3IElKKEv4OVY/gI7b0ccs+cxC/eu0Z/27Dk
+         wx5Mqr772Z6yAOvVMSShR7VhAqMpCrpxAl14SK9bYH/xNUY0/X28xcg2RbMkZM33OPhI
+         IYVZVSO2txsBQyZcyZOgGHoYxEexhWdKmk0zMRWUSknz/adFvMWZqyy8QYwUP/GWFRWi
+         eqXQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rpa0ZI2oLuin/bVbxv/pAQgPIoLaCDf5To7OVb9W+J3GB+mmBJTh7eRr/EVJ+R0gSDaVJeOji1Icv/BM4zoK7jJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTz1hMbaHMIEHe+FvaIK1LLLQ3tPPHOWtLKGL2CiTdHl5XgkQM
+	fqqqsQKbmfTPigQHLo3RG8KMy5GHD4P1o+GIvdmUYGza+cFSRped2SE=
+X-Gm-Gg: AR+sD12PS0HLVvdStedcbnlOoJi7Csoa581fEAACjWSxrfjJVZ6p0m2PNN8t7NDbehd
+	E2wTehmpIpGpB8604ov10kP9hk1JEWq5HqHd/ZxFHpTKKkx2qWOczwurxnDoFEOXsf93hWh0PPg
+	92v1xcjpiV6+EVhZ0cs5XPpP6Z+HRjL2o4nr6/LRaQ78zvFnj61sKHvI3B2FRIgituu2xg0k80l
+	GOwbsy+En2XLmASGYH3y5dqCZLFq8ZlMzGGEzB9i0s7SeFN8P9HObKtqZXvrRjuvAJrqliJpqtw
+	T9D8bj9Wky/Cupc5zO3aBpHEZZSj8Q7MhnIUI9OwCiqqq73vgegbPnMFtKStEqAaf6ISQa8A/Rx
+	7luVR6GSQcZYjUrRcERBobRGtUHnLAj4SKG3W0pY1k1y04gFIY3imCXhMeiaRXiCULrCZM0XJ0W
+	uiJoUsF/quOqvloIf188wG392K+xe6nm3phQvXGnT5W6ysl5ZipqGjl/6msNzYj+aCM3Axqg==
+X-Received: by 2002:a05:6512:440b:b0:5b2:a316:6113 with SMTP id 2adb3069b0e04-5b477cab55amr125716e87.9.1787077713492;
+        Tue, 18 Aug 2026 11:28:33 -0700 (PDT)
+Received: from i-UX410UAR.lan ([2a02:2168:87cb:3900:e3f7:5eba:c5c7:2efa])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b46cf960d8sm1460494e87.2.2026.08.18.11.28.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Aug 2026 11:28:33 -0700 (PDT)
+From: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+To: netdev@vger.kernel.org
+Cc: chester.a.unal@arinc9.com,
+	daniel@makrotopia.org,
+	dqfext@gmail.com,
+	sean.wang@mediatek.com,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	yangshiji66@outlook.com,
+	Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+Subject: [PATCH net] net: dsa: mt7530: do not advertise EEE on MT7621 switch
+Date: Tue, 18 Aug 2026 21:28:29 +0300
+Message-ID: <20260818182829.1580811-1-vladislav.karmanov.dev@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260818_112836_659341_09772D50 
+X-CRM114-Status: GOOD (  15.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,30 +110,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Aug 2026 10:03:16 -0700 Stanislav Fomichev wrote:
-> > Was completing the reserved descriptor considered instead of removing the
-> > check, i.e. keeping the length test and doing:
-> > 
-> > 	if (priv->est && priv->est->enable &&
-> > 	    priv->est->max_sdu[queue] &&
-> > 	    xdp_desc.len > priv->est->max_sdu[queue]) {
-> > 		priv->xstats.max_sdu_txq_drop[queue]++;
-> > 		xsk_tx_completed(pool, 1);
-> > 		continue;
-> > 	}
-> > 
-> > That would fix the ring accounting without dropping the enforcement.  
-> 
-> Don't think this suggestion would work. xsk_tx_completed(1) will complete
-> the first queued entry, no the current rejected one (completions are in order).
-> 
-> If it's not convincing, I can repost only patches 1 and 2. Or if it sounds
-> reasonable, can try to explain that part in the description.
+From: Shiji Yang <yangshiji66@outlook.com>
+Date: Sat, 28 Mar 2026 23:29:56 +0800
 
-Hm, I see. No strong preference but I'd probably just add a comment
-above the checks saying that we are leaking there semi-intentionally
-because it's an application error to send packets HW/schedule can't
-handle. We expect user to fix their app. IOW if we can't handle this
-well I think it's better to wedge the SW and bump the drop counter
-for visibility, than risk HW silently misbehaving.
+There are hardware defects in the MT7621 (MT7530) EEE support: with EEE
+advertised, some link partners cannot establish a stable connection.
+Notably, on a 2-pair (4-wire) cable where both ends advertise gigabit,
+1000BASE-T training cannot succeed, and instead of falling back to
+100 Mbps the port flaps in a loop and no link/DHCP lease is obtained.
+This is confined to the WAN / phylib bring-up path; the DSA/LAN side on
+the same device is unaffected.
+
+The MT7530 internal GE PHY advertises EEE by hardware default. The
+eee-broken-100tx / eee-broken-1000t device-tree properties only take
+effect during the late PHY config_init path, which is too late for these
+link partners: they negotiate EEE before the OS disables it and then
+fail to fall back cleanly.
+
+Commit af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE
+advertisement") removed the early EEE-advertisement disable from
+mtk_gephy_config_init(), on the rationale that "disabling EEE
+advertisement before the PHY driver initialises keeps it off", i.e. that
+the DSA subdriver already performs that early disable. That rationale
+holds for MT7531, whose mt7531_setup() clears MDIO_AN_EEE_ADV on each
+switch PHY -- but it does not hold for MT7621, whose mt7530_setup()
+never had such a loop. So af3b4b0e59de removed the only early EEE
+disable that covered MT7621, reintroducing the flapping on MT7621-based
+boards (regression reported on ramips/mt7621).
+
+MediaTek's own recommendation (Landen Chao, 2021) confirms the hardware
+is the root cause: "EEE of the 10-year-old MT7530 internal gephy has many
+IOT problems, so it is recommended to disable its EEE."
+
+Restore the early disable for MT7621, but on the DSA side -- exactly the
+location af3b4b0e59de assumed it already lived -- by clearing
+MDIO_AN_EEE_ADV on each switch PHY in mt7530_setup(), guarded on
+priv->id == ID_MT7621, mirroring the existing mt7531_setup() loop.
+Auto-negotiation then falls back to a stable 100 Mbps link instead of
+hanging at gigabit.
+
+Tested on ASUS RT-AX53U (MT7621): a single clean
+"Link is Up - 100Mbps/Full - flow control off" + DHCP lease on a 2-pair
+cable, where the unpatched driver loops. Confirmed on kernel 6.12 and
+6.18; also confirmed on Netgear R6220 and EdgeRouter-X (both MT7621).
+
+Fixes: af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE advertisement")
+Signed-off-by: Shiji Yang <yangshiji66@outlook.com>
+Signed-off-by: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+---
+ drivers/net/dsa/mt7530.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -2518,6 +2518,15 @@
+ 	if ((val & MT7530_XTAL_MASK) == MT7530_XTAL_40MHZ)
+ 		mt7530_pll_setup(priv);
+ 
++	if (priv->id == ID_MT7621) {
++		/* Disable EEE advertisement on the switch PHYs. */
++		for (i = MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr);
++		     i < MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr) + MT7530_NUM_PHYS;
++		     i++) {
++			mt7530_phy_write_c45(priv, i, MDIO_MMD_AN, MDIO_AN_EEE_ADV, 0);
++		}
++	}
++
+ 	mt753x_trap_frames(priv);
+ 
+ 	/* Enable and reset MIB counters */
 
