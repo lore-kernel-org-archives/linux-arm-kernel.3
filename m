@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFDADC5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 01:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 887EAC5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 01:32:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/pUf4UguUZ3PrCyGaWpk3YN1u32lpacWG/svSkNXjuw=; b=QhUoOVaysKvsFhj+6b1VlTP3hK
-	P/CzHCp7GiCyqBlxi8EGGD+4Fyokc1eT4nVJCKF3rd9o+0rWd4swmdzoAg+cQIK7q3ACcH+6wB0h4
-	+vDjZl/dM8uXky+4szTVpjcwVSlDCMaVKqd+PPj0rnuzAX1fiTiH31itRAG67v7I0OrjYnPixVU8R
-	ftobIkYLUfzDzqyRlyGYJLyAtLcf7/MXz9Z9ZPUYreKlkDWFVaQL35KCvmrdF6ntqrNrUxM78g3B4
-	yZG2ESu06EhJgcUBiQ7HDdeuZwVP7yKOeYrNayZOCV7JJgmhmndf/EW0Bec1th/lHS0SgVoVyB7kn
-	dwIcvgqQ==;
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8BDXup+KovfHlg8q3KEYfrDc11B1j3g5NKheFukyWuk=; b=p8sX6y6U+pCoO8FUuh9Xy7drIo
+	bME7p2rVLza73LFuBFnLADkno60Yj5/Ec1EuC10vYC05SRyptdH27b78adPW+CbIdqhi19Rfnidkt
+	ndRnvc/jWSMlXp8+ZvH9084R9TVCisLIf8x+6++H9dIDzhIrVtL+lS2O7lvMg/e9oxxLIaYO4mqkY
+	WQnnpWJ32Lpr9C5CZ80wie7rAQbvvfscE0vs8QF14qdEhQTffqNCUiIVzJqoqRFtoaANfpo/6yQC/
+	xWQTOJ5LVpf140NxXkrmDJohO7TL6PyhGluFv51yP4UtmgY5mj8a0Uxosn5x8BMTcUkGOQoIXwHuB
+	a1E61Juw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww8XF-000000073Ov-39ca;
-	Tue, 18 Aug 2026 01:22:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ww8gz-000000073iJ-2ki3;
+	Tue, 18 Aug 2026 01:32:41 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww8XD-000000073OY-3P2C
+	id 1ww8gw-000000073hy-3fpI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 01:22:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CF8CB600C8;
-	Tue, 18 Aug 2026 01:22:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C2D51F000E9;
-	Tue, 18 Aug 2026 01:22:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787016154;
-	bh=/pUf4UguUZ3PrCyGaWpk3YN1u32lpacWG/svSkNXjuw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Ep4N8HNGX0IulE1edNrTiyQPY+wl0f73rm4kFGNm8AsLynlQgprSN+T/+rEX6Hb3C
-	 gOeTY0Vyb+xDiAn2jlyfzpLqFJIEtMUtfNxLLF18WK7dlkuhXS5GnkN55OAZDNAF5U
-	 1ozrWEnF2lTPLcUDD7rA3edkIZzsWRYoYwbtX5kzQZKbfByiFTv582Yz2uviMptD3A
-	 X7FCm5VCrdRzTX8DmzFlXuPXUxLkmAL/Cc43hhh+T4RSejy+Nvl1up2DoQQqp7o6UU
-	 Ai2yODCnZR2x02Q+pnYh9dMrttoRj+Lc3qHb20FvWLwvYWsCfp2d5pFtYUqXV3jaBt
-	 1ZRGAr5/cYtfA==
-From: Jakub Kicinski <kuba@kernel.org>
-To: PKneuper@dspace.de
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	0x1207@gmail.com,
-	si.yanteng@linux.dev,
-	larysa.zaremba@intel.com,
-	aleksander.lobakin@intel.com,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	DBaldin@dspace.de
-Subject: Re: [PATCH net] net: stmmac: restore NET_IP_ALIGN in the non-XDP RX path
-Date: Mon, 17 Aug 2026 18:22:17 -0700
-Message-ID: <20260818012216.3825070-2-kuba@kernel.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260813092923.284285-1-PKneuper@dspace.de>
-References: <20260813092923.284285-1-PKneuper@dspace.de>
+	Tue, 18 Aug 2026 01:32:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787016759; x=1818552759;
+  h=date:from:to:cc:subject:message-id:mime-version:
+   content-transfer-encoding;
+  bh=2vWFEBHibTOxT3/r4CeW986tfa1DjxpVITmuF1N60BE=;
+  b=ilRf+HZchV5ALK1GsapgS3eomVe57uYQCQ82wVOfqT3ENjmz2UazQFdM
+   XjTsWHgxZdHA+wHB2lJHs/FiRNl5+puPIUu8L573uEvn+qjdPvnyWbrvS
+   MjSMaxiIkbQhWJfJG89CK1C9kUGwm0rGvUjvxl7coEw7QOePwvxp4QWW3
+   qC/AvJESVuGVgn1IZoZVgwTTQWcqxx4pejw9P4XjN+vT4dkebrGNSkvuF
+   Arp2p2BLbgBRksK7XOouD6EkfUFvwnu42olB5q8Hh8YAq6JK5PpBSkRz7
+   u+l4Lew6XuoYpCBjtpZY7psSwBjDZrLqmHiArV+0ohx70AehlS/ySIb78
+   Q==;
+X-CSE-ConnectionGUID: Ybba0A9mSmqDknCzSIHzHQ==
+X-CSE-MsgGUID: G419z6LCT821d2qD8N+EEw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11878"; a="113040633"
+X-IronPort-AV: E=Sophos;i="6.25,230,1779174000"; 
+   d="scan'208";a="113040633"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Aug 2026 18:32:37 -0700
+X-CSE-ConnectionGUID: HNQb535pQWGteCmQjaq2Zw==
+X-CSE-MsgGUID: husMGr+6TJmqUy1QNhz1TQ==
+X-ExtLoop1: 1
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by fmviesa003.fm.intel.com with ESMTP; 17 Aug 2026 18:32:35 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1ww8gq-00000000e0k-2r8Z;
+	Tue, 18 Aug 2026 01:32:32 +0000
+Date: Tue, 18 Aug 2026 09:31:59 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ arm@kernel.org
+Subject: [soc:board-remove 171/217] drivers/mfd/tc3589x.c:351:37:
+ warning: unused variable 'id'
+Message-ID: <202608180816.NQy2zxZG-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260817_183238_979262_AE27FFD5 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,75 +86,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
----
-net: stmmac: restore NET_IP_ALIGN in the non-XDP RX path
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-r=
+emove
+head:   057394422bc04420585b2790b230d8a1f350ace8
+commit: 9220687cca8bad538843ff5a1a062b10e008e238 [171/217] mfd: tc3589x: re=
+move pdata based probing
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/2026081=
+8/202608180816.NQy2zxZG-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archive=
+/20260818/202608180816.NQy2zxZG-lkp@intel.com/reproduce)
 
-This adds NET_IP_ALIGN back to the RX DMA offset returned by
-stmmac_rx_offset() for the non-XDP case, so that the page pool page handed
-to the stack as the skb head places the IP header at a 4-byte aligned
-address again. Without it, ARM32 takes an alignment exception in
-icmp_echo() for any received echo request.
+If you fix the issue in a separate patch/commit (i.e. not just a new versio=
+n of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608180816.NQy2zxZG-lkp@i=
+ntel.com/
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index a71f0df263785..2a57415be25cf 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -1529,7 +1529,7 @@ static unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
->  	if (stmmac_xdp_is_enabled(priv))
->  		return XDP_PACKET_HEADROOM;
->  
-> -	return NET_SKB_PAD;
-> +	return NET_SKB_PAD + NET_IP_ALIGN;
->  }
+All warnings (new ones prefixed by >>):
 
-[Severity: High]
-Should the XDP branch of stmmac_rx_offset() get the same treatment?
+   drivers/mfd/tc3589x.c: In function 'tc3589x_of_probe':
+   drivers/mfd/tc3589x.c:335:24: error: returning 'void *' from a function =
+with return type 'int' makes integer from pointer without a cast [-Wint-con=
+version]
+     335 |                 return ERR_PTR(-ENODEV);
+         |                        ^~~~~~~~~~~~~~~~
+   drivers/mfd/tc3589x.c: In function 'tc3589x_probe':
+>> drivers/mfd/tc3589x.c:351:37: warning: unused variable 'id' [-Wunused-va=
+riable]
+     351 |         const struct i2c_device_id *id =3D i2c_client_get_device=
+_id(i2c);
+         |                                     ^~
 
-When an XDP program is attached, stmmac_rx_offset() returns bare
-XDP_PACKET_HEADROOM (256) with no NET_IP_ALIGN, and an XDP_PASS packet goes
-to the stack through exactly the code this patch is fixing, in stmmac_rx():
 
-	skb = napi_build_skb(page_address(buf->page),
-			     rx_q->napi_skb_frag_size);
-	...
-	/* XDP program may adjust header */
-	head_pad_len = ctx.xdp.data - ctx.xdp.data_hard_start;
-	skb_reserve(skb, head_pad_len);
-	skb_put(skb, buf1_len);
+vim +/id +351 drivers/mfd/tc3589x.c
 
-For a program that returns XDP_PASS without touching the head, head_pad_len
-is 256, so the Ethernet header starts at 256, the IP header at 270 and the
-ICMP or TCP header at 290:
+a435ae1d51e2f18 drivers/mfd/tc3589x.c Lee Jones        2012-09-07  348 =20
+d28fa288ea50681 drivers/mfd/tc3589x.c Uwe Kleine-K=C3=B6nig 2022-11-18  349=
+  static int tc3589x_probe(struct i2c_client *i2c)
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  350  {
+d28fa288ea50681 drivers/mfd/tc3589x.c Uwe Kleine-K=C3=B6nig 2022-11-18 @351=
+  	const struct i2c_device_id *id =3D i2c_client_get_device_id(i2c);
+a435ae1d51e2f18 drivers/mfd/tc3589x.c Lee Jones        2012-09-07  352  	st=
+ruct device_node *np =3D i2c->dev.of_node;
+20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  353  	st=
+ruct tc3589x *tc3589x;
+a381b13e2aa0641 drivers/mfd/tc3589x.c Linus Walleij    2014-01-23  354  	en=
+um tc3589x_version version;
+9220687cca8bad5 drivers/mfd/tc3589x.c Arnd Bergmann    2026-08-07  355  	un=
+signed int block;
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  356  	in=
+t ret;
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  357 =20
+9220687cca8bad5 drivers/mfd/tc3589x.c Arnd Bergmann    2026-08-07  358  	re=
+t =3D tc3589x_of_probe(&i2c->dev, &version, &block);
+9220687cca8bad5 drivers/mfd/tc3589x.c Arnd Bergmann    2026-08-07  359  	if=
+ (ret)
+9220687cca8bad5 drivers/mfd/tc3589x.c Arnd Bergmann    2026-08-07  360  		r=
+eturn ret;
+a435ae1d51e2f18 drivers/mfd/tc3589x.c Lee Jones        2012-09-07  361 =20
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  362  	if=
+ (!i2c_check_functionality(i2c->adapter, I2C_FUNC_SMBUS_BYTE_DATA
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  363  			=
+	     | I2C_FUNC_SMBUS_I2C_BLOCK))
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  364  		r=
+eturn -EIO;
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  365 =20
+1383e00f79a7bd6 drivers/mfd/tc3589x.c Jingoo Han       2013-02-20  366  	tc=
+3589x =3D devm_kzalloc(&i2c->dev, sizeof(struct tc3589x),
+1383e00f79a7bd6 drivers/mfd/tc3589x.c Jingoo Han       2013-02-20  367  			=
+	GFP_KERNEL);
+20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  368  	if=
+ (!tc3589x)
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  369  		r=
+eturn -ENOMEM;
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  370 =20
+20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  371  	mu=
+tex_init(&tc3589x->lock);
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  372 =20
+20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  373  	tc=
+3589x->dev =3D &i2c->dev;
+20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  374  	tc=
+3589x->i2c =3D i2c;
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  375 =20
+a381b13e2aa0641 drivers/mfd/tc3589x.c Linus Walleij    2014-01-23  376  	sw=
+itch (version) {
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  377  	ca=
+se TC3589X_TC35893:
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  378  	ca=
+se TC3589X_TC35895:
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  379  	ca=
+se TC3589X_TC35896:
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  380  		t=
+c3589x->num_gpio =3D 20;
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  381  		b=
+reak;
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  382  	ca=
+se TC3589X_TC35890:
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  383  	ca=
+se TC3589X_TC35892:
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  384  	ca=
+se TC3589X_TC35894:
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  385  	ca=
+se TC3589X_UNKNOWN:
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  386  	de=
+fault:
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  387  		t=
+c3589x->num_gpio =3D 24;
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  388  		b=
+reak;
+e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  389  	}
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  390 =20
+20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  391  	i2=
+c_set_clientdata(i2c, tc3589x);
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  392 =20
+20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  393  	re=
+t =3D tc3589x_chip_init(tc3589x);
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  394  	if=
+ (ret)
+1383e00f79a7bd6 drivers/mfd/tc3589x.c Jingoo Han       2013-02-20  395  		r=
+eturn ret;
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  396 =20
+a435ae1d51e2f18 drivers/mfd/tc3589x.c Lee Jones        2012-09-07  397  	re=
+t =3D tc3589x_irq_init(tc3589x, np);
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  398  	if=
+ (ret)
+1383e00f79a7bd6 drivers/mfd/tc3589x.c Jingoo Han       2013-02-20  399  		r=
+eturn ret;
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  400 =20
+20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  401  	re=
+t =3D request_threaded_irq(tc3589x->i2c->irq, NULL, tc3589x_irq,
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  402  			=
+	   IRQF_TRIGGER_FALLING | IRQF_ONESHOT,
+20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  403  			=
+	   "tc3589x", tc3589x);
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  404  	if=
+ (ret) {
+20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  405  		d=
+ev_err(tc3589x->dev, "failed to request IRQ: %d\n", ret);
+1383e00f79a7bd6 drivers/mfd/tc3589x.c Jingoo Han       2013-02-20  406  		r=
+eturn ret;
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  407  	}
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  408 =20
+9220687cca8bad5 drivers/mfd/tc3589x.c Arnd Bergmann    2026-08-07  409  	re=
+t =3D tc3589x_device_init(tc3589x, block);
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  410  	if=
+ (ret) {
+611b7590afa6e6c drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  411  		d=
+ev_err(tc3589x->dev, "failed to add child devices\n");
+1383e00f79a7bd6 drivers/mfd/tc3589x.c Jingoo Han       2013-02-20  412  		r=
+eturn ret;
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  413  	}
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  414 =20
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  415  	re=
+turn 0;
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  416  }
+b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  417 =20
 
-	290 % 4 == 2
+:::::: The code at line 351 was first introduced by commit
+:::::: d28fa288ea506812ef73980b8c3dc9c39ec8c18b mfd: tc3589x: Convert to i2=
+c's .probe_new()
 
-which is the same 2 mod 4 misalignment class as the 98 in the reported
-crash, so the icmp_echo() panic quoted in the commit message looks
-reproducible on the same board by attaching an XDP_PASS program.
+:::::: TO: Uwe Kleine-K=C3=B6nig <u.kleine-koenig@pengutronix.de>
+:::::: CC: Lee Jones <lee@kernel.org>
 
-The 2021 commit a955318fe67e ("stmmac: align RX buffers") cited in the
-commit message changed both returns (XDP_PACKET_HEADROOM + NET_IP_ALIGN as
-well); here only one return changes, leaving the two branches of the same
-helper with different alignment guarantees.
-
-Page pool sizing is derived from stmmac_rx_offset() for both branches in
-__alloc_dma_rx_desc_resources():
-
-	dma_buf_sz_pad = stmmac_rx_offset(priv) + dma_conf->dma_buf_sz +
-			 SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
-	num_pages = DIV_ROUND_UP(dma_buf_sz_pad, PAGE_SIZE);
-
-so wouldn't the extra two bytes be accounted for in the XDP case too?
-
-If the intent is to fix only the non-XDP configuration, could the commit
-message say so explicitly, since stable backporters and anyone running XDP
-on ARM32 would still hit the panic?
-
-Cross-instance finding from sashiko-gemini (bb586704729c8cac27b6f004c29082ebde7dad94593b943d82d5139137628cdb):
-[Severity: Critical]
-Hardware DMA address truncation and silent packet corruption due to unaligned RX offset.
--- 
-pw-bot: cr
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
