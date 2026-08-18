@@ -4,91 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3901C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 21:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCEC0C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 22:03:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jHYS+u0+i1MRpmrBuzUkiJaPm2TZCrMhnEKbRqZawVQ=; b=Ou/7d0Sf2GAvjvMRaCoQnw1eGx
-	s9G2qqzHeX8wFZ5AROQQ2Bta7ZDL1LYRCHFPKHMr3BS2L+Bjc39JKCQVEwu0EhcSHc+pITU6039kl
-	xXF58DIClEE36Q+gGFhGgxKLDGbvTYu8diV7bK/M1MS1ZKmbNZiAMcBhlCBrWQjRJOEYmPOu1ctsk
-	Yh3c/OxohIvvUm2rvPZu41SCeqs+KX9TMz1TI76nRcEw/Kh0PT/zWpM1I1MkFkCCKqevtTiEBdtWX
-	/aacLtjQxqqj7z54doREQK84gQkLV2c3aCFV2irIOQbtRTwzgKPcGwYjm+BqakI1vfdGhCxLsN2ac
-	dfb3kS2w==;
+	bh=o2drbkgZlh4qyEDNlYRs7ZOmbKY3/yfqRkbgXttKS+c=; b=cFZqkDcMV1lfsbQWvHxQfsSUsl
+	4fPsKzDksfhZ2KfAvuRQOzNwQpe1MQePi7yksZZ5u5uiOX45rzJQQgdoiNK/Y3Vok2tSXTkQswU/a
+	SlYYA2piMXFs/9NZ+663nufZ8OghCRi3fS6hfOfNw7Titv9KAlSbyDp1lwdFa3Jn4uV2opZSOGYkO
+	V5aoho/HnHNwFl8qCalLn6DefnaBDVDiQIAo4NznKdxgGz1OO0kS3tJ+HrwYvJtQLa2uWgaqhmkix
+	t36vvdpHowgV6pbyyhw24ACSdc889E+DB26nNOja/KUx5jPaK2DI1e9m+k7oAgIXPfhTJtZfct8dk
+	Kg2DixkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwRpX-00000008hjk-3wDQ;
-	Tue, 18 Aug 2026 21:58:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wwRtw-00000008iDV-04t3;
+	Tue, 18 Aug 2026 22:03:20 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwRpW-00000008hj6-1sfW
+	id 1wwRtt-00000008iD5-35H8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 21:58:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E43204401F;
-	Tue, 18 Aug 2026 21:58:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9FCEEC2BCFF;
-	Tue, 18 Aug 2026 21:58:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1787090325;
-	bh=26swK0jvLiTWjgJvBTxt+yitNzkHxLGQWd6NnY+rTVo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Z+D1XpxPby7EbAN8uBAzeFeqjXBwDyp3EoPO8UE5jjgM/qUGG+z5bulPzhHmPUa/+
-	 tpH+/fpI6Mfaz3av7nLLlFe1+GI4aGxThCWfCeuzqgCPEOBm9jVAUEOZ6mV0Oxf8PK
-	 XSdCX/mo630k5mbrlAwg6uGIwAc9laY/lmtpFE+yb31yKj4v8Fmf0J83dCGg3tndjS
-	 ux/XNW96ykPD47ZMxs1Z7ZB9H/hZ2gMY7+w4PICcjWDznaVkGxFmesv2YdpO4TkIIr
-	 h1CGXlRNVX4HLbY28N9xpuTQElRUgDE77apIvymeGDejzZmyP4RQieZ7NRIrNWDcsm
-	 wPlkey1NxZbyA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 85124C5DF81;
-	Tue, 18 Aug 2026 21:58:45 +0000 (UTC)
-From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
-Date: Tue, 18 Aug 2026 22:58:37 +0100
-Subject: [PATCH v2 3/3] clk: samsung: Introduce Exynos5515 clock driver
+	Tue, 18 Aug 2026 22:03:19 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67ILbIPh2524746
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 22:03:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	o2drbkgZlh4qyEDNlYRs7ZOmbKY3/yfqRkbgXttKS+c=; b=fhhjKy0TCVGLuY/l
+	NkxJ/DkN8tjzWxF3DMTCtchQ0gyFeb4YwdxzRM52VlTe4COcHQXEbeqYNPIBwL/q
+	tyuUpQw09Oo+RUWw5OHW0TqJnH6D+l2nudk51IaWVsMrhTcFN8W8Wn15++um54BI
+	bvobQ1lprFSjRaN5v8SYzQ0CtoMyB0c/LFDNvL4LyTvSF0OMT4tMxj71HgGHLfWO
+	/vTi999SA4shtDKFEOH3DWiuwdW9Un9tH3DS/r2KXVbFOrgk+d+PBV2ZhQ37kUJV
+	JmzvZmLxmHex5tymVaJeGodWQIuoN4w0DHbWzonnYJPRdcHisPSvMEnRmiJ8lLPP
+	YJiZlA==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g4yfk84dp-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 22:03:16 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-38ea32e57e2so788121a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 15:03:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1787090595; x=1787695395; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=o2drbkgZlh4qyEDNlYRs7ZOmbKY3/yfqRkbgXttKS+c=;
+        b=HQfDyMFk5P9O5VpcZcF+atJMK5Uh5Yd9JrwqpzfnH/QLIwC1zalPIsBQl/4y/kIat3
+         4Yc1sHOvj3K+fqwuoBAp57sHsEQA4uE794Ch5fzDx/Cu1OkHpmIhl7XGMR2PdQb6/gRV
+         VUUXrME/bmjQWq56b4R+gmR7FdOcMjh64ntILKawSXQssckAxrJ7wN9XO2Bb9WnokkAi
+         MekWdhE1HGHRFWxGHFU9yAcDC/QtZfYORoM1CHLWpbFzfWtAo17/OLzSVPe6U6B3abjO
+         w7zyh9EmZh9dps8OWzHRvl11ElBJHM3b+adO86RsiE6gzamXk9JNIlOTqRzOvuvxwAuz
+         AHVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787090595; x=1787695395;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=o2drbkgZlh4qyEDNlYRs7ZOmbKY3/yfqRkbgXttKS+c=;
+        b=qOMLgAwth71wi/c5kSV8WdnrEEfwfI0gTuieaazWyRXtumzwSG2y+/3gzyxnU2kmn2
+         /h+gZLreriMVuw5Qvp9X6yP+qea13PWnwFiXxdNHdMnWtsZ2W6eVlB6xtsRRWiq1xzCV
+         PZGBidUP9VRfEcsi4vSL/0m4ZI57FLiLZEXH2gOPy88J5qSyf0gD0GjKU/j8DbZOpDyI
+         2xcaOe7Z99+G7YH7xarqfC+XntIv5UN6MwvEAHI6aB53VVqglKLQjelv3QtsyfLnMQ8Q
+         oJT7T7q8W/M6EMwRwJJXQ1pPiM15fvn9jGXXumGXgeCOmBtRYUsSnIq9YxJKW/H5xhwP
+         Pxxg==
+X-Forwarded-Encrypted: i=1; AHgh+RoZfy1+W3+LSJ7U1P6v+3L0H4vbkCpICbGzmk2hx1zdsDcSO5KND6LIky2zgs2uXlxbuAXmnPbXBQIytzV6eA9T@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyV4kV1y+PtciigYHMfPsHmM9WM6LwZdCkplb/VFiKjtggfDhD
+	lkGthikpMh3Xu5gyT3gC0eH/16yvEeyjTKsmAwyqL+VItKNUee46XBEjhpHVpQd2nUK5rX26j8Y
+	3xrsmn+i2Fb2uBAvJDCNM0460j7qECpgW8ZFSQhjakJqCybGE4NsKJqr90Me9IJ67+jycCTssit
+	yhRw==
+X-Gm-Gg: AR+sD12xObepAaEiJf6H0lRbuc/7MYp+OuMiaF1TULfq+bW9JZaWR51i8M1F0efrESY
+	Mkui6IJleConw2hX1AS6dZ5cfudAbfSR6HxNOApwV+IRJw/2RKBO/bDRTzbTJsrMFCMxkh9WpGX
+	eDqV1+dbXpyAkrlkQyFOcO88PAaStp6WgKaFWyMvCK/MLI1t9hCwq/vDkYG8c2KGWcoaXQETpca
+	5aS64RcFfs5TYQbfeija7/AI71c8wjtFW3I9H6m0zwr3u3n6yrioXHSgTYEYqku9JVn7JgrDs3a
+	qZ1g3FNhORs4nlIe9aXs9arXJxX4V2h+FtNmOSom64wGjBtWEY7OamAKatoJeRjC9MQCnekphqu
+	SS6/FydM/ynbZWuA6V7jlSh6YcQ==
+X-Received: by 2002:a17:90b:39ab:b0:38e:fea2:df53 with SMTP id 98e67ed59e1d1-39580ed4567mr75872a91.4.1787090595357;
+        Tue, 18 Aug 2026 15:03:15 -0700 (PDT)
+X-Received: by 2002:a17:90b:39ab:b0:38e:fea2:df53 with SMTP id 98e67ed59e1d1-39580ed4567mr75803a91.4.1787090594821;
+        Tue, 18 Aug 2026 15:03:14 -0700 (PDT)
+Received: from localhost ([50.35.46.84])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1416aea2429sm269654c88.15.2026.08.18.15.03.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Aug 2026 15:03:14 -0700 (PDT)
+Date: Tue, 18 Aug 2026 15:03:05 -0700
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-sound@vger.kernel.org,
+        Vincenzo Frascino
+ <vincenzo.frascino@arm.com>,
+        Liam Girdwood <lgirdwood@gmail.com>, Mark
+ Brown <broonie@kernel.org>,
+        Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
+ <tiwai@suse.com>,
+        Michal Simek <michal.simek@amd.com>,
+        linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ
+ ARCHITECTURE),
+        linux-kernel@vger.kernel.org (open list)
+Subject: Re: [PATCHv3] ASoC: xilinx: formatter_pcm: use more devm in probe
+Message-ID: <20260818150305.00000a2d@oss.qualcomm.com>
+In-Reply-To: <20260814204428.37786-1-rosenp@gmail.com>
+References: <20260814204428.37786-1-rosenp@gmail.com>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260818-for-next-lucky7-clock-v2-3-cda0cc80f158@member.fsf.org>
-References: <20260818-for-next-lucky7-clock-v2-0-cda0cc80f158@member.fsf.org>
-In-Reply-To: <20260818-for-next-lucky7-clock-v2-0-cda0cc80f158@member.fsf.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
- Aiden Isik <aidenisik+git@member.fsf.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
- Aiden Isik <aidenisik@member.fsf.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=57358;
- i=aidenisik@member.fsf.org; h=from:subject:message-id;
- bh=At0oIWa/tt8NnDl66gY69jtqN8FKzG64Gnvid3/RFcE=;
- b=kA0DAAgBSScBssR61+sByyZiAGqE1ZKj3AdvKOBPVo8zKwLdD2UaONDyP9pZa1nrezG6RhQh9
- 4kCMwQAAQgAHRYhBIPLxSRcalzck1sRpUknAbLEetfrBQJqhNWSAAoJEEknAbLEetfr+hYP/irh
- iLKg/G3wr3qaqmjpTaPKkQu5800uZtrAigoS6lRcWRMeFJJ3kwkHrvTb7D+f2NapYTURlaa3ZbG
- JwaGTnozxIDC6ykmc+FlGkCSftlIdl3nkvXl2TxjrgD3DOxbeNrupRKqytEbFd2bwvfWPB2EmZh
- F9lI+mIYq9JV4ph/S7BNUGfwt8klNttYSMvYDxVvpr7eVbdY45WOyIqTdva3MTjeFpJ9hccnZms
- /SOQ4Vn3hiUA5KmXB1bO+gQk0DTsEfFnArLA9oDT7Cq/MTfNpzBRphpc4nKog9pmKuHOODQUD+E
- VOQ9eo5DnKMOXP5LgLipkcz71gUzn6ptry2hayA6SrDMyev8sD72ddI+oP/BpIbN3V/GzuUgaM6
- L3fRvX755bWfvlyVqwenczNxC9hiDzk+uqG8fQ9l49JLqG7L8UV/xOf7WMVlEbp7TJe7nKbwHpN
- LjApPN2+qZ4ZLTuw7Gw7jF5aIWQiVPpppfZOda4qJ9rv7zrLNOFkytyDAVv62yfyEP+txscQxs9
- xAkSM/yOj9KFuQ7T4sq8fW2e11CO2yEXKrhAl18dlTIvTnMxAuCwvmpBUmQNSXCK+pqLObotLaV
- AYMKCN7O0/rg4YF9HSwFswvce0TMEUcUZdJobT6rCw0bspVJkTDLjUGuWVD1KpwI5KyAaXsGFKC
- w3MEi
-X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
- fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
-X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
- auth_id=956
-X-Original-From: Aiden Isik <aidenisik@member.fsf.org>
+X-Proofpoint-GUID: jj1EJQrxtgS2KCPV8I3OgQsl0NnsnrCG
+X-Proofpoint-ORIG-GUID: jj1EJQrxtgS2KCPV8I3OgQsl0NnsnrCG
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE4MDE2MiBTYWx0ZWRfX1gbAdmypyGzl
+ YHtRAk35OR4b1QSNeQOFzOxpGAB/ichTM9Wc0JkVlJQPPMdn57BpeqLh1vjYSgsQw3A0YiF/hMn
+ Uj08yRBuS6x9eBGMpNUMr7yfRjYW78xFYe2XZlaB4T8Dugc7w87xgPsaECBNVh+bDS8sJnXAzen
+ tf6dL6yuyLSippkFZd/mObeehrjm7AEzRoCj1LCevn5/heI9WQ4ikO/87jhKW9NMfhld5O0fLKe
+ 8OFTaeW+6H0fpxsSETUR5CN5O0KHzZpHtIU/euSs0JRQdF1OKBrcCyUCBtg+DC9xB0XqDewxSqw
+ jqxoYwLzuzOsjzw+WlsXaQ7DDGdhVByUneCga5WF8tDe5xVVPSWG9PTVaFMGZ/mg3TKF0UmMDie
+ HXKX3Rap7vcShkFp/JaY/7vBSJGPY5cdJJPK/CPPKek8A9PFX2xVmHu0BYkVBAkGIFCEcQPfyjl
+ LV0f4eSSg5QuOEW1Z2Q==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE4MDE2MiBTYWx0ZWRfX7/0Fm3UuDr//
+ ylp9WYPJRWzkYPR8Qn9ZygBUQWlgySGuCOwvL/1qv76Ym8f6io21I5y93hN7l8DcS9SVW4WE5Oy
+ whQl3K4X5xbxkmI6JPHLCKXi/rWljVk=
+X-Authority-Analysis: v=2.4 cv=fvfsol4f c=1 sm=1 tr=0 ts=6a84d6a4 cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
+ a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=pGLkceISAAAA:8 a=zd2uoN0lAAAA:8 a=7CQSdrXTAAAA:8 a=b7Ee_MopkQ2dvn5odMIA:9
+ a=CjuIK1q_8ugA:10 a=uKXjsCUrEbL0IQVhDsJ9:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-18_04,2026-08-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 impostorscore=0 malwarescore=0 lowpriorityscore=0
+ bulkscore=0 spamscore=0 priorityscore=1501 suspectscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608180162
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260818_150317_926415_A95DA94E 
+X-CRM114-Status: GOOD (  28.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,1534 +154,109 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: aidenisik@member.fsf.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Aiden Isik <aidenisik@member.fsf.org>
+On Fri, 14 Aug 2026 13:44:28 -0700
+Rosen Penev <rosenp@gmail.com> wrote:
 
-CMU_TOP is the top level clock management unit which contains PLLs,
-muxes, dividers and gates that feed the other clock management units.
+> Use devm_clk_get_enabled() to let the clock be enabled automatically
+> and cleaned up on unbind, dropping the manual clk_prepare_enable() and
+> clk_disable_unprepare() calls in probe and remove. As a result, move the
+> clk struct member into probe, which is the only place it's used.
+> 
+> Simplify the probe error paths by returning directly instead of
+> jumping to clk_err, and use devm_snd_soc_register_component() return
+> value directly. Also remove error message from ioremap as it throws one
+> itself. Same with devm_request_irq().
+> 
+> Assisted-by: opencode:deepseek-v4-flash-free
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> Reviewed-by: Michal Simek <michal.simek@amd.com>
+> Reviewed-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
+> ---
+>  v3: rebase.
+>  v2: add signed-off-by. Further clean up some stuff.
+>  sound/soc/xilinx/xlnx_formatter_pcm.c | 71 ++++++++-------------------
+>  1 file changed, 20 insertions(+), 51 deletions(-)
+> 
+> diff --git a/sound/soc/xilinx/xlnx_formatter_pcm.c b/sound/soc/xilinx/xlnx_formatter_pcm.c
+> index 3d6f1e4046d8..5f63fb28ea5f 100644
+> --- a/sound/soc/xilinx/xlnx_formatter_pcm.c
+> +++ b/sound/soc/xilinx/xlnx_formatter_pcm.c
+> @@ -82,7 +82,6 @@ struct xlnx_pcm_drv_data {
+>  	int mm2s_irq;
+>  	struct snd_pcm_substream *play_stream;
+>  	struct snd_pcm_substream *capture_stream;
+> -	struct clk *axi_clk;
+>  	unsigned int sysclk;
+>  };
+>  
+> @@ -596,30 +595,19 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+>  	u32 val;
+>  	struct xlnx_pcm_drv_data *aud_drv_data;
+>  	struct device *dev = &pdev->dev;
+> +	struct clk *axi_clk;
+> +
+> +	axi_clk = devm_clk_get_enabled(dev, "s_axi_lite_aclk");
+> +	if (IS_ERR(axi_clk))
+> +		return dev_err_probe(dev, PTR_ERR(axi_clk), "failed to get s_axi_lite_aclk");
+>  
+>  	aud_drv_data = devm_kzalloc(dev, sizeof(*aud_drv_data), GFP_KERNEL);
+>  	if (!aud_drv_data)
+>  		return -ENOMEM;
+>  
+> -	aud_drv_data->axi_clk = devm_clk_get(dev, "s_axi_lite_aclk");
+> -	if (IS_ERR(aud_drv_data->axi_clk)) {
+> -		ret = PTR_ERR(aud_drv_data->axi_clk);
+> -		dev_err(dev, "failed to get s_axi_lite_aclk(%d)\n", ret);
+> -		return ret;
+> -	}
+> -	ret = clk_prepare_enable(aud_drv_data->axi_clk);
+> -	if (ret) {
+> -		dev_err(dev,
+> -			"failed to enable s_axi_lite_aclk(%d)\n", ret);
+> -		return ret;
+> -	}
+> -
+>  	aud_drv_data->mmio = devm_platform_ioremap_resource(pdev, 0);
+> -	if (IS_ERR(aud_drv_data->mmio)) {
+> -		dev_err(dev, "audio formatter ioremap failed\n");
+> -		ret = PTR_ERR(aud_drv_data->mmio);
+> -		goto clk_err;
+> -	}
+> +	if (IS_ERR(aud_drv_data->mmio))
+> +		return PTR_ERR(aud_drv_data->mmio);
+>  
+>  	val = readl(aud_drv_data->mmio + XLNX_AUD_CORE_CONFIG);
+>  	if (val & AUD_CFG_MM2S_MASK) {
+> @@ -628,7 +616,7 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+>  					       XLNX_MM2S_OFFSET);
+>  		if (ret) {
+>  			dev_err(dev, "audio formatter reset failed\n");
+> -			goto clk_err;
+> +			return ret;
 
-CMU_PERI provides clocks for USI blocks and their children, PWM, MCT,
-and watchdog timers.
+Why not dev_err_probe() for this one?  Even though maybe deferred handling
+isn't useful here (I haven't checked) it still gives more compact code.
 
-CMU_FSYS provides clocks for MMC, USB, GPIO, etc.
+>  		}
+>  		xlnx_formatter_disable_irqs(aud_drv_data->mmio +
+>  					    XLNX_MM2S_OFFSET,
+..
 
-More blocks will be added as device drivers which utilise them are added.
+>  	if (val & AUD_CFG_S2MM_MASK) {
+>  		aud_drv_data->s2mm_presence = true;
+> @@ -654,7 +639,7 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+>  					       XLNX_S2MM_OFFSET);
+>  		if (ret) {
+>  			dev_err(dev, "audio formatter reset failed\n");
+> -			goto clk_err;
+> +			return ret;
 
-Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
----
- drivers/clk/samsung/Makefile         |    1 +
- drivers/clk/samsung/clk-exynos5515.c | 1485 ++++++++++++++++++++++++++++++++++
- 2 files changed, 1486 insertions(+)
+As above, I'd go return dev_err_probe() everywhere you now return due to
+the other cleanups.
 
-diff --git a/drivers/clk/samsung/Makefile b/drivers/clk/samsung/Makefile
-index b3c4ef4e0dbf..b3e994bd525d 100644
---- a/drivers/clk/samsung/Makefile
-+++ b/drivers/clk/samsung/Makefile
-@@ -20,6 +20,7 @@ obj-$(CONFIG_EXYNOS_AUDSS_CLK_CON) += clk-exynos-audss.o
- obj-$(CONFIG_EXYNOS_CLKOUT)	+= clk-exynos-clkout.o
- obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos-arm64.o
- obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos2200.o
-+obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos5515.o
- obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos7.o
- obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos7870.o
- obj-$(CONFIG_EXYNOS_ARM64_COMMON_CLK)	+= clk-exynos7885.o
-diff --git a/drivers/clk/samsung/clk-exynos5515.c b/drivers/clk/samsung/clk-exynos5515.c
-new file mode 100644
-index 000000000000..aeaa51c1c735
---- /dev/null
-+++ b/drivers/clk/samsung/clk-exynos5515.c
-@@ -0,0 +1,1485 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2026 Aiden Isik <aidenisik+git@member.fsf.org>
-+ * Author: Aiden Isik <aidenisik+git@member.fsf.org>
-+ *
-+ * Common Clock Framework support for Exynos5515 SoC.
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+
-+#include <dt-bindings/clock/samsung,exynos5515-cmu.h>
-+
-+#include "clk.h"
-+#include "clk-exynos-arm64.h"
-+#include "clk-pll.h"
-+
-+/* NOTE: Must be equal to the last clock ID increased by one */
-+#define CLKS_NR_TOP	(CLK_GOUT_CMU_PERI_UART + 1)
-+#define CLKS_NR_PERI	(CLK_GOUT_PERI_USI00_I2C + 1)
-+#define CLKS_NR_FSYS	(CLK_GOUT_FSYS_XIU_P_ACLK + 1)
-+
-+#define EXYNOS5515_GATE_DBG_OFFSET	0x4000
-+#define EXYNOS5515_DRCG_EN_OFFSET	0x0104
-+#define EXYNOS5515_MEMCLK_OFFSET	0x0108
-+
-+/* ---- CMU_TOP ------------------------------------------------------------- */
-+
-+/*
-+ * CMU_TOP:	0x15410000
-+ * SYSREG_TOP:	0x15430000
-+ */
-+
-+/* Register Offset definitions for CMU_TOP */
-+#define PLL_LOCKTIME_PLL_AUD			0x0000
-+#define PLL_LOCKTIME_PLL_SHARED0		0x0004
-+#define PLL_LOCKTIME_PLL_SHARED1		0x0008
-+#define PLL_CON3_PLL_AUD			0x010c
-+#define PLL_CON8_PLL_AUD			0x0120
-+#define PLL_CON9_PLL_AUD			0x0124
-+#define PLL_CON3_PLL_SHARED0			0x014c
-+#define PLL_CON8_PLL_SHARED0			0x0160
-+#define PLL_CON9_PLL_SHARED0			0x0164
-+#define PLL_CON3_PLL_SHARED1			0x018c
-+#define PLL_CON8_PLL_SHARED1			0x01a0
-+#define PLL_CON9_PLL_SHARED1			0x01a4
-+#define CMU_CMU_TOP_CONTROLLER_OPTION		0x0800
-+#define CLK_CON_MUX_MUX_CLKCMU_APM_BUS		0x1000
-+#define CLK_CON_MUX_MUX_CLKCMU_CORE_BUS		0x1004
-+#define CLK_CON_MUX_MUX_CLKCMU_CORE_SSS		0x1008
-+#define CLK_CON_MUX_MUX_CLKCMU_CPUCL0_BUSP	0x100c
-+#define CLK_CON_MUX_MUX_CLKCMU_CPUCL0_CPU	0x1010
-+#define CLK_CON_MUX_MUX_CLKCMU_CPUCL0_DBG	0x1014
-+#define CLK_CON_MUX_MUX_CLKCMU_DPU_AUDIF	0x1018
-+#define CLK_CON_MUX_MUX_CLKCMU_DPU_AUD_BUS	0x101c
-+#define CLK_CON_MUX_MUX_CLKCMU_DPU_AUD_CPU	0x1020
-+#define CLK_CON_MUX_MUX_CLKCMU_DPU_BUS		0x1024
-+#define CLK_CON_MUX_MUX_CLKCMU_FSYS_BUS		0x1028
-+#define CLK_CON_MUX_MUX_CLKCMU_FSYS_MMC_CARD	0x102c
-+#define CLK_CON_MUX_MUX_CLKCMU_FSYS_MMC_EMBD	0x1030
-+#define CLK_CON_MUX_MUX_CLKCMU_FSYS_USB20DRD	0x1034
-+#define CLK_CON_MUX_MUX_CLKCMU_G3D_BUS		0x1038
-+#define CLK_CON_MUX_MUX_CLKCMU_MFC_BUS		0x103c
-+#define CLK_CON_MUX_MUX_CLKCMU_MIF_BUSP		0x1040
-+#define CLK_CON_MUX_MUX_CLKCMU_MIF_SWITCH	0x1044
-+#define CLK_CON_MUX_MUX_CLKCMU_MODEM_SHARED1	0x1048
-+#define CLK_CON_MUX_MUX_CLKCMU_PERI_BUS		0x104c
-+#define CLK_CON_MUX_MUX_CLKCMU_PERI_IP		0x1050
-+#define CLK_CON_MUX_MUX_CLKCMU_PERI_UART	0x1054
-+#define CLK_CON_MUX_MUX_CMU_CMUREF		0x1058
-+#define CLK_CON_DIV_AP2CP_SHARED0_PLL_CLK	0x1800
-+#define CLK_CON_DIV_AP2CP_SHARED1_PLL_CLK	0x1804
-+#define CLK_CON_DIV_AP2CP_SHARED2_PLL_CLK	0x1808
-+#define CLK_CON_DIV_CLKCMU_APM_BUS		0x180c
-+#define CLK_CON_DIV_CLKCMU_CMU_BOOST		0x1810
-+#define CLK_CON_DIV_CLKCMU_CORE_BUS		0x1814
-+#define CLK_CON_DIV_CLKCMU_CORE_SSS		0x1818
-+#define CLK_CON_DIV_CLKCMU_CPUCL0_BUSP		0x181c
-+#define CLK_CON_DIV_CLKCMU_CPUCL0_CPU		0x1820
-+#define CLK_CON_DIV_CLKCMU_CPUCL0_DBG		0x1824
-+#define CLK_CON_DIV_CLKCMU_DPU_AUDIF		0x1828
-+#define CLK_CON_DIV_CLKCMU_DPU_AUD_BUS		0x182c
-+#define CLK_CON_DIV_CLKCMU_DPU_AUD_CPU		0x1830
-+#define CLK_CON_DIV_CLKCMU_DPU_BUS		0x1834
-+#define CLK_CON_DIV_CLKCMU_FSYS_BUS		0x1838
-+#define CLK_CON_DIV_CLKCMU_FSYS_MMC_CARD	0x183c
-+#define CLK_CON_DIV_CLKCMU_FSYS_MMC_EMBD	0x1840
-+#define CLK_CON_DIV_CLKCMU_FSYS_USB20DRD	0x1844
-+#define CLK_CON_DIV_CLKCMU_G3D_BUS		0x1848
-+#define CLK_CON_DIV_CLKCMU_MFC_BUS		0x184c
-+#define CLK_CON_DIV_CLKCMU_MIF_BUSP		0x1850
-+#define CLK_CON_DIV_CLKCMU_PERI_BUS		0x1854
-+#define CLK_CON_DIV_CLKCMU_PERI_IP		0x1858
-+#define CLK_CON_DIV_CLKCMU_PERI_UART		0x185c
-+#define CLK_CON_DIV_DIV_CLK_CMU_CMUREF		0x1860
-+#define CLK_CON_GAT_CLKCMU_MIF_SWITCH		0x2030
-+#define CLK_CON_GAT_GATE_CLKCMU_APM_BUS		0x2034
-+#define CLK_CON_GAT_GATE_CLKCMU_CORE_BUS	0x2038
-+#define CLK_CON_GAT_GATE_CLKCMU_CORE_SSS	0x203c
-+#define CLK_CON_GAT_GATE_CLKCMU_CPUCL0_BUSP	0x2040
-+#define CLK_CON_GAT_GATE_CLKCMU_CPUCL0_CPU	0x2044
-+#define CLK_CON_GAT_GATE_CLKCMU_CPUCL0_DBG	0x2048
-+#define CLK_CON_GAT_GATE_CLKCMU_DPU_AUDIF	0x204c
-+#define CLK_CON_GAT_GATE_CLKCMU_DPU_AUD_BUS	0x2050
-+#define CLK_CON_GAT_GATE_CLKCMU_DPU_AUD_CPU	0x2054
-+#define CLK_CON_GAT_GATE_CLKCMU_DPU_BUS		0x2058
-+#define CLK_CON_GAT_GATE_CLKCMU_FSYS_BUS	0x205c
-+#define CLK_CON_GAT_GATE_CLKCMU_FSYS_MMC_CARD	0x2060
-+#define CLK_CON_GAT_GATE_CLKCMU_FSYS_MMC_EMBD	0x2064
-+#define CLK_CON_GAT_GATE_CLKCMU_FSYS_USB20DRD	0x2068
-+#define CLK_CON_GAT_GATE_CLKCMU_G3D_BUS		0x206c
-+#define CLK_CON_GAT_GATE_CLKCMU_MFC_BUS		0x2070
-+#define CLK_CON_GAT_GATE_CLKCMU_MIF_BUSP	0x2074
-+#define CLK_CON_GAT_GATE_CLKCMU_MODEM_SHARED0	0x2078
-+#define CLK_CON_GAT_GATE_CLKCMU_MODEM_SHARED1	0x207c
-+#define CLK_CON_GAT_GATE_CLKCMU_MODEM_SHARED2	0x2080
-+#define CLK_CON_GAT_GATE_CLKCMU_PERI_BUS	0x2084
-+#define CLK_CON_GAT_GATE_CLKCMU_PERI_IP		0x2088
-+#define CLK_CON_GAT_GATE_CLKCMU_PERI_UART	0x208c
-+
-+static const unsigned long top_clk_regs[] __initconst = {
-+	PLL_LOCKTIME_PLL_AUD,
-+	PLL_LOCKTIME_PLL_SHARED0,
-+	PLL_LOCKTIME_PLL_SHARED1,
-+	PLL_CON3_PLL_AUD,
-+	PLL_CON8_PLL_AUD,
-+	PLL_CON9_PLL_AUD,
-+	PLL_CON3_PLL_SHARED0,
-+	PLL_CON8_PLL_SHARED0,
-+	PLL_CON9_PLL_SHARED0,
-+	PLL_CON3_PLL_SHARED1,
-+	PLL_CON8_PLL_SHARED1,
-+	PLL_CON9_PLL_SHARED1,
-+	CMU_CMU_TOP_CONTROLLER_OPTION,
-+	CLK_CON_MUX_MUX_CLKCMU_APM_BUS,
-+	CLK_CON_MUX_MUX_CLKCMU_CORE_BUS,
-+	CLK_CON_MUX_MUX_CLKCMU_CORE_SSS,
-+	CLK_CON_MUX_MUX_CLKCMU_CPUCL0_BUSP,
-+	CLK_CON_MUX_MUX_CLKCMU_CPUCL0_CPU,
-+	CLK_CON_MUX_MUX_CLKCMU_CPUCL0_DBG,
-+	CLK_CON_MUX_MUX_CLKCMU_DPU_AUDIF,
-+	CLK_CON_MUX_MUX_CLKCMU_DPU_AUD_BUS,
-+	CLK_CON_MUX_MUX_CLKCMU_DPU_AUD_CPU,
-+	CLK_CON_MUX_MUX_CLKCMU_DPU_BUS,
-+	CLK_CON_MUX_MUX_CLKCMU_FSYS_BUS,
-+	CLK_CON_MUX_MUX_CLKCMU_FSYS_MMC_CARD,
-+	CLK_CON_MUX_MUX_CLKCMU_FSYS_MMC_EMBD,
-+	CLK_CON_MUX_MUX_CLKCMU_FSYS_USB20DRD,
-+	CLK_CON_MUX_MUX_CLKCMU_G3D_BUS,
-+	CLK_CON_MUX_MUX_CLKCMU_MFC_BUS,
-+	CLK_CON_MUX_MUX_CLKCMU_MIF_BUSP,
-+	CLK_CON_MUX_MUX_CLKCMU_MIF_SWITCH,
-+	CLK_CON_MUX_MUX_CLKCMU_MODEM_SHARED1,
-+	CLK_CON_MUX_MUX_CLKCMU_PERI_BUS,
-+	CLK_CON_MUX_MUX_CLKCMU_PERI_IP,
-+	CLK_CON_MUX_MUX_CLKCMU_PERI_UART,
-+	CLK_CON_MUX_MUX_CMU_CMUREF,
-+	CLK_CON_DIV_AP2CP_SHARED0_PLL_CLK,
-+	CLK_CON_DIV_AP2CP_SHARED1_PLL_CLK,
-+	CLK_CON_DIV_AP2CP_SHARED2_PLL_CLK,
-+	CLK_CON_DIV_CLKCMU_APM_BUS,
-+	CLK_CON_DIV_CLKCMU_CMU_BOOST,
-+	CLK_CON_DIV_CLKCMU_CORE_BUS,
-+	CLK_CON_DIV_CLKCMU_CORE_SSS,
-+	CLK_CON_DIV_CLKCMU_CPUCL0_BUSP,
-+	CLK_CON_DIV_CLKCMU_CPUCL0_CPU,
-+	CLK_CON_DIV_CLKCMU_CPUCL0_DBG,
-+	CLK_CON_DIV_CLKCMU_DPU_AUDIF,
-+	CLK_CON_DIV_CLKCMU_DPU_AUD_BUS,
-+	CLK_CON_DIV_CLKCMU_DPU_AUD_CPU,
-+	CLK_CON_DIV_CLKCMU_DPU_BUS,
-+	CLK_CON_DIV_CLKCMU_FSYS_BUS,
-+	CLK_CON_DIV_CLKCMU_FSYS_MMC_CARD,
-+	CLK_CON_DIV_CLKCMU_FSYS_MMC_EMBD,
-+	CLK_CON_DIV_CLKCMU_FSYS_USB20DRD,
-+	CLK_CON_DIV_CLKCMU_G3D_BUS,
-+	CLK_CON_DIV_CLKCMU_MFC_BUS,
-+	CLK_CON_DIV_CLKCMU_MIF_BUSP,
-+	CLK_CON_DIV_CLKCMU_PERI_BUS,
-+	CLK_CON_DIV_CLKCMU_PERI_IP,
-+	CLK_CON_DIV_CLKCMU_PERI_UART,
-+	CLK_CON_DIV_DIV_CLK_CMU_CMUREF,
-+	CLK_CON_GAT_CLKCMU_MIF_SWITCH,
-+	CLK_CON_GAT_GATE_CLKCMU_APM_BUS,
-+	CLK_CON_GAT_GATE_CLKCMU_CORE_BUS,
-+	CLK_CON_GAT_GATE_CLKCMU_CORE_SSS,
-+	CLK_CON_GAT_GATE_CLKCMU_CPUCL0_BUSP,
-+	CLK_CON_GAT_GATE_CLKCMU_CPUCL0_CPU,
-+	CLK_CON_GAT_GATE_CLKCMU_CPUCL0_DBG,
-+	CLK_CON_GAT_GATE_CLKCMU_DPU_AUDIF,
-+	CLK_CON_GAT_GATE_CLKCMU_DPU_AUD_BUS,
-+	CLK_CON_GAT_GATE_CLKCMU_DPU_AUD_CPU,
-+	CLK_CON_GAT_GATE_CLKCMU_DPU_BUS,
-+	CLK_CON_GAT_GATE_CLKCMU_FSYS_BUS,
-+	CLK_CON_GAT_GATE_CLKCMU_FSYS_MMC_CARD,
-+	CLK_CON_GAT_GATE_CLKCMU_FSYS_MMC_EMBD,
-+	CLK_CON_GAT_GATE_CLKCMU_FSYS_USB20DRD,
-+	CLK_CON_GAT_GATE_CLKCMU_G3D_BUS,
-+	CLK_CON_GAT_GATE_CLKCMU_MFC_BUS,
-+	CLK_CON_GAT_GATE_CLKCMU_MIF_BUSP,
-+	CLK_CON_GAT_GATE_CLKCMU_MODEM_SHARED0,
-+	CLK_CON_GAT_GATE_CLKCMU_MODEM_SHARED1,
-+	CLK_CON_GAT_GATE_CLKCMU_MODEM_SHARED2,
-+	CLK_CON_GAT_GATE_CLKCMU_PERI_BUS,
-+	CLK_CON_GAT_GATE_CLKCMU_PERI_IP,
-+	CLK_CON_GAT_GATE_CLKCMU_PERI_UART,
-+};
-+
-+static const struct samsung_pll_clock top_pll_clks[] __initconst = {
-+	PLL(pll_309, CLK_FOUT_AUD_PLL, "fout_aud_pll", "oscclk",
-+	    PLL_LOCKTIME_PLL_AUD, PLL_CON3_PLL_AUD, NULL),
-+	PLL(pll_309, CLK_FOUT_SHARED0_PLL, "fout_shared0_pll", "oscclk",
-+	    PLL_LOCKTIME_PLL_SHARED0, PLL_CON3_PLL_SHARED0, NULL),
-+	PLL(pll_309, CLK_FOUT_SHARED1_PLL, "fout_shared1_pll", "oscclk",
-+	    PLL_LOCKTIME_PLL_SHARED1, PLL_CON3_PLL_SHARED1, NULL),
-+};
-+
-+/* Parent clock list for CMU_TOP muxes */
-+PNAME(mout_cmu_cmuref_p)	= { "oscclk",
-+				    "dout_cmu_cmuref" };
-+
-+/* Parent clock list for CMU_TOP muxes: for CMU_APM */
-+PNAME(mout_cmu_apm_bus_p)	= { "dout_shared0_div2",
-+				    "dout_shared0_div3" };
-+
-+/* Parent clock list for CMU_TOP muxes: for CMU_CORE */
-+PNAME(mout_cmu_core_bus_p)	= { "dout_shared0_div2",
-+				    "dout_shared1_div3",
-+				    "dout_shared0_div3",
-+				    "dout_aud_div3" };
-+
-+PNAME(mout_cmu_core_sss_p)	= { "dout_shared0_div2",
-+				    "dout_shared1_div3",
-+				    "dout_shared0_div3",
-+				    "dout_aud_div3"};
-+
-+/* Parent clock list for CMU_TOP muxes: for CMU_CPUCL0 */
-+PNAME(mout_cmu_cpucl0_busp_p)	= { "dout_shared0_div3",
-+				    "dout_shared0_div4" };
-+
-+PNAME(mout_cmu_cpucl0_cpu_p)	= { "fout_aud_pll",
-+				    "dout_shared1_div2",
-+				    "dout_shared0_div2",
-+				    "dout_shared1_div3",
-+				    "dout_aud_div2",
-+				    "dout_shared0_div3",
-+				    "dout_shared1_div4",
-+				    "dout_shared0_div4" };
-+
-+PNAME(mout_cmu_cpucl0_dbg_p)	= { "dout_shared0_div3",
-+				    "dout_shared0_div4" };
-+
-+/* Parent clock list for CMU_TOP muxes: for CMU_DPU */
-+PNAME(mout_cmu_dpu_audif_p)	= { "dout_aud_div2",
-+				    "dout_aud_div3" };
-+
-+PNAME(mout_cmu_dpu_aud_bus_p)	= { "dout_aud_div2",
-+				    "dout_shared0_div3",
-+				    "dout_aud_div3",
-+				    "dout_shared0_div4" };
-+
-+PNAME(mout_cmu_dpu_aud_cpu_p)	= { "fout_aud_pll",
-+				    "dout_shared1_div2",
-+				    "dout_shared0_div2",
-+				    "dout_shared1_div3",
-+				    "dout_aud_div2",
-+				    "dout_shared0_div3",
-+				    "dout_aud_div3",
-+				    "dout_aud_div4" };
-+
-+PNAME(mout_cmu_dpu_bus_p)	= { "dout_shared1_div3",
-+				    "dout_shared0_div3",
-+				    "dout_shared0_div4" };
-+
-+/* Parent clock list for CMU_TOP muxes: for CMU_FSYS */
-+PNAME(mout_cmu_fsys_bus_p)	= { "dout_shared0_div2",
-+				    "dout_shared1_div3" };
-+
-+PNAME(mout_cmu_fsys_mmc_card_p)	= { "oscclk",
-+				    "dout_shared0_div2",
-+				    "dout_shared1_div3",
-+				    "dout_shared0_div3",
-+				    "dout_aud_div2" };
-+
-+PNAME(mout_cmu_fsys_mmc_embd_p)	= { "oscclk",
-+				    "dout_shared0_div2",
-+				    "dout_shared1_div3",
-+				    "dout_shared0_div3",
-+				    "dout_aud_div2" };
-+
-+PNAME(mout_cmu_fsys_usb20drd_p)	= { "oscclk",
-+				    "dout_shared0_div4" };
-+
-+/* Parent clock list for CMU_TOP muxes: for CMU_G3D */
-+PNAME(mout_cmu_g3d_bus_p)	= { "dout_shared1_div2",
-+				    "dout_shared0_div2",
-+				    "dout_shared1_div3",
-+				    "dout_shared0_div3" };
-+
-+/* Parent clock list for CMU_TOP muxes: for CMU_MFC */
-+PNAME(mout_cmu_mfc_bus_p)	= { "dout_shared1_div3",
-+				    "dout_shared0_div3",
-+				    "dout_shared1_div4",
-+				    "dout_shared0_div4" };
-+
-+/* Parent clock list for CMU_TOP muxes: for CMU_MIF */
-+PNAME(mout_cmu_mif_busp_p)	= { "dout_shared0_div3",
-+				    "dout_shared0_div4" };
-+
-+PNAME(mout_cmu_mif_switch_p)	= { "fout_shared1_pll",
-+				    "fout_shared0_pll",
-+				    "dout_shared1_div2",
-+				    "dout_shared0_div2",
-+				    "dout_shared1_div3",
-+				    "dout_shared0_div3",
-+				    "dout_shared1_div4",
-+				    "dout_shared0_div4" };
-+
-+/* Parent clock list for CMU_TOP muxes: for CMU_MODEM */
-+PNAME(mout_cmu_modem_shared1_p)	= { "dout_shared1_div2",
-+				    "dout_aud_div2",
-+				    "dout_shared1_div3",
-+				    "dout_shared0_div3" };
-+
-+/* Parent clock list for CMU_TOP muxes: for CMU_PERI */
-+PNAME(mout_cmu_peri_bus_p)	= { "dout_shared0_div3",
-+				    "dout_shared0_div4" };
-+
-+PNAME(mout_cmu_peri_ip_p)	= { "oscclk",
-+				    "dout_shared0_div4",
-+				    "dout_shared1_div4",
-+				    "dout_aud_div3" };
-+
-+PNAME(mout_cmu_peri_uart_p)	= { "oscclk",
-+				    "dout_shared0_div4",
-+				    "dout_shared1_div4",
-+				    "dout_aud_div3" };
-+
-+static const struct samsung_mux_clock top_mux_clks[] __initconst = {
-+	/* APM (Active Power Management) */
-+	MUX(CLK_MOUT_CMU_APM_BUS, "mout_cmu_apm_bus",
-+	    mout_cmu_apm_bus_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_APM_BUS,
-+	    0, 1),
-+
-+	/* CMU (Clock Management Unit) */
-+	MUX(CLK_MOUT_CMU_CMUREF, "mout_cmu_cmuref",
-+	    mout_cmu_cmuref_p,
-+	    CLK_CON_MUX_MUX_CMU_CMUREF,
-+	    0, 1),
-+
-+	/* CORE */
-+	MUX(CLK_MOUT_CMU_CORE_BUS, "mout_cmu_core_bus",
-+	    mout_cmu_core_bus_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_CORE_BUS,
-+	    0, 2),
-+	MUX(CLK_MOUT_CMU_CORE_SSS, "mout_cmu_core_sss",
-+	    mout_cmu_core_sss_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_CORE_SSS,
-+	    0, 2),
-+
-+	/* CPUCL0 (CPU Cluster 0) */
-+	MUX(CLK_MOUT_CMU_CPUCL0_BUSP, "mout_cmu_cpucl0_busp",
-+	    mout_cmu_cpucl0_busp_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_CPUCL0_BUSP,
-+	    0, 1),
-+	MUX(CLK_MOUT_CMU_CPUCL0_CPU, "mout_cmu_cpucl0_cpu",
-+	    mout_cmu_cpucl0_cpu_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_CPUCL0_CPU,
-+	    0, 3),
-+	MUX(CLK_MOUT_CMU_CPUCL0_DBG, "mout_cmu_cpucl0_dbg",
-+	    mout_cmu_cpucl0_dbg_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_CPUCL0_DBG,
-+	    0, 1),
-+
-+	/* DPU (Display Processing Unit) */
-+	MUX(CLK_MOUT_CMU_DPU_AUDIF, "mout_cmu_dpu_audif",
-+	    mout_cmu_dpu_audif_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_DPU_AUDIF,
-+	    0, 1),
-+	MUX(CLK_MOUT_CMU_DPU_AUD_BUS, "mout_cmu_dpu_aud_bus",
-+	    mout_cmu_dpu_aud_bus_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_DPU_AUD_BUS,
-+	    0, 2),
-+	MUX(CLK_MOUT_CMU_DPU_AUD_CPU, "mout_cmu_dpu_aud_cpu",
-+	    mout_cmu_dpu_aud_cpu_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_DPU_AUD_CPU,
-+	    0, 3),
-+	MUX(CLK_MOUT_CMU_DPU_BUS, "mout_cmu_dpu_bus",
-+	    mout_cmu_dpu_bus_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_DPU_BUS,
-+	    0, 2),
-+
-+	/* FSYS */
-+	MUX(CLK_MOUT_CMU_FSYS_BUS, "mout_cmu_fsys_bus",
-+	    mout_cmu_fsys_bus_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_FSYS_BUS,
-+	    0, 1),
-+	MUX(CLK_MOUT_CMU_FSYS_MMC_CARD, "mout_cmu_fsys_mmc_card",
-+	    mout_cmu_fsys_mmc_card_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_FSYS_MMC_CARD,
-+	    0, 3),
-+	MUX(CLK_MOUT_CMU_FSYS_MMC_EMBD, "mout_cmu_fsys_mmc_embd",
-+	    mout_cmu_fsys_mmc_embd_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_FSYS_MMC_EMBD,
-+	    0, 3),
-+	MUX(CLK_MOUT_CMU_FSYS_USB20DRD, "mout_cmu_fsys_usb20drd",
-+	    mout_cmu_fsys_usb20drd_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_FSYS_USB20DRD,
-+	    0, 1),
-+
-+	/* G3D */
-+	MUX(CLK_MOUT_CMU_G3D_BUS, "mout_cmu_g3d_bus",
-+	    mout_cmu_g3d_bus_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_G3D_BUS,
-+	    0, 2),
-+
-+	/* MFC */
-+	MUX(CLK_MOUT_CMU_MFC_BUS, "mout_cmu_mfc_bus",
-+	    mout_cmu_mfc_bus_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_MFC_BUS,
-+	    0, 2),
-+
-+	/* MIF */
-+	MUX(CLK_MOUT_CMU_MIF_BUSP, "mout_cmu_mif_busp",
-+	    mout_cmu_mif_busp_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_MIF_BUSP,
-+	    0, 1),
-+	MUX(CLK_MOUT_CMU_MIF_SWITCH, "mout_cmu_mif_switch",
-+	    mout_cmu_mif_switch_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_MIF_SWITCH,
-+	    0, 3),
-+
-+	/* MODEM */
-+	MUX(CLK_MOUT_CMU_MODEM_SHARED1, "mout_cmu_modem_shared1",
-+	    mout_cmu_modem_shared1_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_MODEM_SHARED1,
-+	    0, 2),
-+
-+	/* PERI */
-+	MUX(CLK_MOUT_CMU_PERI_BUS, "mout_cmu_peri_bus",
-+	    mout_cmu_peri_bus_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_PERI_BUS,
-+	    0, 1),
-+	MUX(CLK_MOUT_CMU_PERI_IP, "mout_cmu_peri_ip",
-+	    mout_cmu_peri_ip_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_PERI_IP,
-+	    0, 2),
-+	MUX(CLK_MOUT_CMU_PERI_UART, "mout_cmu_peri_uart",
-+	    mout_cmu_peri_uart_p,
-+	    CLK_CON_MUX_MUX_CLKCMU_PERI_UART,
-+	    0, 2),
-+};
-+
-+static const struct samsung_div_clock top_div_clks[] __initconst = {
-+
-+	/* APM */
-+	DIV(CLK_DOUT_CMU_APM_BUS, "dout_cmu_apm_bus",
-+	    "gout_cmu_apm_bus",
-+	    CLK_CON_DIV_CLKCMU_APM_BUS,
-+	    0, 3),
-+
-+	/* CMU */
-+	DIV(CLK_DOUT_CMU_CMU_BOOST, "dout_cmu_cmu_boost",
-+	    "fout_shared0_pll",
-+	    CLK_CON_DIV_CLKCMU_CMU_BOOST,
-+	    0, 3),
-+	DIV(CLK_DOUT_CMU_CMUREF, "dout_cmu_cmuref",
-+	    "fout_shared0_pll",
-+	    CLK_CON_DIV_DIV_CLK_CMU_CMUREF,
-+	    0, 2),
-+
-+	/* CORE */
-+	DIV(CLK_DOUT_CMU_CORE_BUS, "dout_cmu_core_bus",
-+	    "gout_cmu_core_bus",
-+	    CLK_CON_DIV_CLKCMU_CORE_BUS,
-+	    0, 4),
-+	DIV(CLK_DOUT_CMU_CORE_SSS, "dout_cmu_core_sss",
-+	    "gout_cmu_core_sss",
-+	    CLK_CON_DIV_CLKCMU_CORE_SSS,
-+	    0, 4),
-+
-+	/* CPUCL0 */
-+	DIV(CLK_DOUT_CMU_CPUCL0_BUSP, "dout_cmu_cpucl0_busp",
-+	    "gout_cmu_cpucl0_busp",
-+	    CLK_CON_DIV_CLKCMU_CPUCL0_BUSP,
-+	    0, 3),
-+	DIV(CLK_DOUT_CMU_CPUCL0_CPU, "dout_cmu_cpucl0_cpu",
-+	    "gout_cmu_cpucl0_cpu",
-+	    CLK_CON_DIV_CLKCMU_CPUCL0_CPU,
-+	    0, 3),
-+	DIV(CLK_DOUT_CMU_CPUCL0_DBG, "dout_cmu_cpucl0_dbg",
-+	    "gout_cmu_cpucl0_dbg",
-+	    CLK_CON_DIV_CLKCMU_CPUCL0_DBG,
-+	    0, 3),
-+
-+	/* DPU */
-+	DIV(CLK_DOUT_CMU_DPU_AUDIF, "dout_cmu_dpu_audif",
-+	    "gout_cmu_dpu_audif",
-+	    CLK_CON_DIV_CLKCMU_DPU_AUDIF,
-+	    0, 9),
-+	DIV(CLK_DOUT_CMU_DPU_AUD_BUS, "dout_cmu_dpu_aud_bus",
-+	    "gout_cmu_dpu_aud_bus",
-+	    CLK_CON_DIV_CLKCMU_DPU_AUD_BUS,
-+	    0, 3),
-+	DIV(CLK_DOUT_CMU_DPU_AUD_CPU, "dout_cmu_dpu_aud_cpu",
-+	    "gout_cmu_dpu_aud_cpu",
-+	    CLK_CON_DIV_CLKCMU_DPU_AUD_CPU,
-+	    0, 3),
-+	DIV(CLK_DOUT_CMU_DPU_BUS, "dout_cmu_dpu_bus",
-+	    "gout_cmu_dpu_bus",
-+	    CLK_CON_DIV_CLKCMU_DPU_BUS,
-+	    0, 3),
-+
-+	/* FSYS */
-+	DIV(CLK_DOUT_CMU_FSYS_BUS, "dout_cmu_fsys_bus",
-+	    "gout_cmu_fsys_bus",
-+	    CLK_CON_DIV_CLKCMU_FSYS_BUS,
-+	    0, 4),
-+	DIV(CLK_DOUT_CMU_FSYS_MMC_CARD, "dout_cmu_fsys_mmc_card",
-+	    "gout_cmu_fsys_mmc_card",
-+	    CLK_CON_DIV_CLKCMU_FSYS_MMC_CARD,
-+	    0, 9),
-+	DIV(CLK_DOUT_CMU_FSYS_MMC_EMBD, "dout_cmu_fsys_mmc_embd",
-+	    "gout_cmu_fsys_mmc_embd",
-+	    CLK_CON_DIV_CLKCMU_FSYS_MMC_EMBD,
-+	    0, 9),
-+	DIV(CLK_DOUT_CMU_FSYS_USB20DRD, "dout_cmu_fsys_usb20drd",
-+	    "gout_cmu_fsys_usb20drd",
-+	    CLK_CON_DIV_CLKCMU_FSYS_USB20DRD,
-+	    0, 4),
-+
-+	/* G3D */
-+	DIV(CLK_DOUT_CMU_G3D_BUS, "dout_cmu_g3d_bus",
-+	    "gout_cmu_g3d_bus",
-+	    CLK_CON_DIV_CLKCMU_G3D_BUS,
-+	    0, 3),
-+
-+	/* MFC */
-+	DIV(CLK_DOUT_CMU_MFC_BUS, "dout_cmu_mfc_bus",
-+	    "gout_cmu_mfc_bus",
-+	    CLK_CON_DIV_CLKCMU_MFC_BUS,
-+	    0, 4),
-+
-+	/* MIF */
-+	DIV(CLK_DOUT_CMU_MIF_BUSP, "dout_cmu_mif_busp",
-+	    "gout_cmu_mif_busp",
-+	    CLK_CON_DIV_CLKCMU_MIF_BUSP,
-+	    0, 3),
-+
-+	/* PERI */
-+	DIV(CLK_DOUT_CMU_PERI_BUS, "dout_cmu_peri_bus",
-+	    "gout_cmu_peri_bus",
-+	    CLK_CON_DIV_CLKCMU_PERI_BUS,
-+	    0, 3),
-+	DIV(CLK_DOUT_CMU_PERI_IP, "dout_cmu_peri_ip",
-+	    "gout_cmu_peri_ip",
-+	    CLK_CON_DIV_CLKCMU_PERI_IP,
-+	    0, 4),
-+	DIV(CLK_DOUT_CMU_PERI_UART, "dout_cmu_peri_uart",
-+	    "gout_cmu_peri_uart",
-+	    CLK_CON_DIV_CLKCMU_PERI_UART,
-+	    0, 4),
-+
-+	/* SHARED */
-+	DIV(CLK_DOUT_AP2CP_SHARED0_PLL, "dout_ap2cp_shared0_pll",
-+	    "gout_cmu_modem_shared0",
-+	    CLK_CON_DIV_AP2CP_SHARED0_PLL_CLK,
-+	    0, 3),
-+	DIV(CLK_DOUT_AP2CP_SHARED1_PLL, "dout_ap2cp_shared1_pll",
-+	    "gout_cmu_modem_shared1",
-+	    CLK_CON_DIV_AP2CP_SHARED1_PLL_CLK,
-+	    0, 3),
-+	DIV(CLK_DOUT_AP2CP_SHARED2_PLL, "dout_ap2cp_shared2_pll",
-+	    "gout_cmu_modem_shared2",
-+	    CLK_CON_DIV_AP2CP_SHARED2_PLL_CLK,
-+	    0, 3),
-+};
-+
-+static const struct samsung_fixed_factor_clock top_fixed_factor_clks[] __initconst = {
-+	FFACTOR(CLK_DOUT_SHARED0_DIV2, "dout_shared0_div2", "fout_shared0_pll",
-+		1, 2, 0),
-+	FFACTOR(CLK_DOUT_SHARED0_DIV3, "dout_shared0_div3", "fout_shared0_pll",
-+		1, 3, 0),
-+	FFACTOR(CLK_DOUT_SHARED0_DIV4, "dout_shared0_div4", "fout_shared0_pll",
-+		1, 4, 0),
-+	FFACTOR(CLK_DOUT_SHARED1_DIV2, "dout_shared1_div2", "fout_shared1_pll",
-+		1, 2, 0),
-+	FFACTOR(CLK_DOUT_SHARED1_DIV3, "dout_shared1_div3", "fout_shared1_pll",
-+		1, 3, 0),
-+	FFACTOR(CLK_DOUT_SHARED1_DIV4, "dout_shared1_div4", "fout_shared1_pll",
-+		1, 4, 0),
-+	FFACTOR(CLK_DOUT_AUD_DIV2, "dout_aud_div2", "fout_aud_pll",
-+		1, 2, 0),
-+	FFACTOR(CLK_DOUT_AUD_DIV3, "dout_aud_div3", "fout_aud_pll",
-+		1, 3, 0),
-+	FFACTOR(CLK_DOUT_AUD_DIV4, "dout_aud_div4", "fout_aud_pll",
-+		1, 4, 0),
-+};
-+
-+static const struct samsung_gate_clock top_gate_clks[] __initconst = {
-+	/* APM */
-+	GATE(CLK_GOUT_CMU_APM_BUS, "gout_cmu_apm_bus",
-+	     "mout_cmu_apm_bus",
-+	     CLK_CON_GAT_GATE_CLKCMU_APM_BUS,
-+	     21, 0, 0),
-+
-+	/* CORE */
-+	GATE(CLK_GOUT_CMU_CORE_BUS, "gout_cmu_core_bus",
-+	     "mout_cmu_core_bus",
-+	     CLK_CON_GAT_GATE_CLKCMU_CORE_BUS,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_CORE_SSS, "gout_cmu_core_sss",
-+	     "mout_cmu_core_sss",
-+	     CLK_CON_GAT_GATE_CLKCMU_CORE_SSS,
-+	     21, 0, 0),
-+
-+	/* CPUCL0 */
-+	GATE(CLK_GOUT_CMU_CPUCL0_BUSP, "gout_cmu_cpucl0_busp",
-+	     "mout_cmu_cpucl0_busp",
-+	     CLK_CON_GAT_GATE_CLKCMU_CPUCL0_BUSP,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_CPUCL0_CPU, "gout_cmu_cpucl0_cpu",
-+	     "mout_cmu_cpucl0_cpu",
-+	     CLK_CON_GAT_GATE_CLKCMU_CPUCL0_CPU,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_CPUCL0_DBG, "gout_cmu_cpucl0_dbg",
-+	     "mout_cmu_cpucl0_dbg",
-+	     CLK_CON_GAT_GATE_CLKCMU_CPUCL0_DBG,
-+	     21, 0, 0),
-+
-+	/* DPU */
-+	GATE(CLK_GOUT_CMU_DPU_AUDIF, "gout_cmu_dpu_audif",
-+	     "mout_cmu_dpu_audif",
-+	     CLK_CON_GAT_GATE_CLKCMU_DPU_AUDIF,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_DPU_AUD_BUS, "gout_cmu_dpu_aud_bus",
-+	     "mout_cmu_dpu_aud_bus",
-+	     CLK_CON_GAT_GATE_CLKCMU_DPU_AUD_BUS,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_DPU_AUD_CPU, "gout_cmu_dpu_aud_cpu",
-+	     "mout_cmu_dpu_aud_cpu",
-+	     CLK_CON_GAT_GATE_CLKCMU_DPU_AUD_CPU,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_DPU_BUS, "gout_cmu_dpu_bus",
-+	     "mout_cmu_dpu_bus",
-+	     CLK_CON_GAT_GATE_CLKCMU_DPU_BUS,
-+	     21, 0, 0),
-+
-+	/* FSYS */
-+	GATE(CLK_GOUT_CMU_FSYS_BUS, "gout_cmu_fsys_bus",
-+	     "mout_cmu_fsys_bus",
-+	     CLK_CON_GAT_GATE_CLKCMU_FSYS_BUS,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_FSYS_MMC_CARD, "gout_cmu_fsys_mmc_card",
-+	     "mout_cmu_fsys_mmc_card",
-+	     CLK_CON_GAT_GATE_CLKCMU_FSYS_MMC_CARD,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_FSYS_MMC_EMBD, "gout_cmu_fsys_mmc_embd",
-+	     "mout_cmu_fsys_mmc_embd",
-+	     CLK_CON_GAT_GATE_CLKCMU_FSYS_MMC_EMBD,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_FSYS_USB20DRD, "gout_cmu_fsys_usb20drd",
-+	     "mout_cmu_fsys_usb20drd",
-+	     CLK_CON_GAT_GATE_CLKCMU_FSYS_USB20DRD,
-+	     21, 0, 0),
-+
-+	/* G3D */
-+	GATE(CLK_GOUT_CMU_G3D_BUS, "gout_cmu_g3d_bus",
-+	     "mout_cmu_g3d_bus",
-+	     CLK_CON_GAT_GATE_CLKCMU_G3D_BUS,
-+	     21, 0, 0),
-+
-+	/* MFC */
-+	GATE(CLK_GOUT_CMU_MFC_BUS, "gout_cmu_mfc_bus",
-+	     "mout_cmu_mfc_bus",
-+	     CLK_CON_GAT_GATE_CLKCMU_MFC_BUS,
-+	     21, 0, 0),
-+
-+	/* MIF */
-+	GATE(CLK_GOUT_CMU_MIF_SWITCH, "gout_cmu_mif_switch",
-+	     "mout_cmu_mif_switch",
-+	     CLK_CON_GAT_CLKCMU_MIF_SWITCH,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_MIF_BUSP, "gout_cmu_mif_busp",
-+	     "mout_cmu_mif_busp",
-+	     CLK_CON_GAT_GATE_CLKCMU_MIF_BUSP,
-+	     21, 0, 0),
-+
-+	/* MODEM */
-+	GATE(CLK_GOUT_CMU_MODEM_SHARED0, "gout_cmu_modem_shared0",
-+	     "fout_shared0_pll",
-+	     CLK_CON_GAT_GATE_CLKCMU_MODEM_SHARED0,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_MODEM_SHARED1, "gout_cmu_modem_shared1",
-+	     "mout_cmu_modem_shared1",
-+	     CLK_CON_GAT_GATE_CLKCMU_MODEM_SHARED1,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_MODEM_SHARED2, "gout_cmu_modem_shared2",
-+	     "fout_shared0_pll",
-+	     CLK_CON_GAT_GATE_CLKCMU_MODEM_SHARED2,
-+	     21, 0, 0),
-+
-+	/* PERI */
-+	GATE(CLK_GOUT_CMU_PERI_BUS, "gout_cmu_peri_bus",
-+	     "mout_cmu_peri_bus",
-+	     CLK_CON_GAT_GATE_CLKCMU_PERI_BUS,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_PERI_IP, "gout_cmu_peri_ip",
-+	     "mout_cmu_peri_ip",
-+	     CLK_CON_GAT_GATE_CLKCMU_PERI_IP,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_CMU_PERI_UART, "gout_cmu_peri_uart",
-+	     "mout_cmu_peri_uart",
-+	     CLK_CON_GAT_GATE_CLKCMU_PERI_UART,
-+	     21, 0, 0),
-+};
-+
-+static const unsigned long drcg_sysreg[] __initconst = {
-+	EXYNOS5515_DRCG_EN_OFFSET,
-+};
-+
-+static const struct samsung_cmu_info top_cmu_info __initconst = {
-+	.pll_clks		= top_pll_clks,
-+	.nr_pll_clks		= ARRAY_SIZE(top_pll_clks),
-+	.mux_clks		= top_mux_clks,
-+	.nr_mux_clks		= ARRAY_SIZE(top_mux_clks),
-+	.div_clks		= top_div_clks,
-+	.nr_div_clks		= ARRAY_SIZE(top_div_clks),
-+	.fixed_factor_clks	= top_fixed_factor_clks,
-+	.nr_fixed_factor_clks	= ARRAY_SIZE(top_fixed_factor_clks),
-+	.gate_clks		= top_gate_clks,
-+	.nr_gate_clks		= ARRAY_SIZE(top_gate_clks),
-+	.nr_clk_ids		= CLKS_NR_TOP,
-+	.clk_regs		= top_clk_regs,
-+	.nr_clk_regs		= ARRAY_SIZE(top_clk_regs),
-+	.sysreg_clk_regs	= drcg_sysreg,
-+	.nr_sysreg_clk_regs	= ARRAY_SIZE(drcg_sysreg),
-+	.auto_clock_gate	= true,
-+	.gate_dbg_offset	= EXYNOS5515_GATE_DBG_OFFSET,
-+	.option_offset		= CMU_CMU_TOP_CONTROLLER_OPTION,
-+	.drcg_offset		= EXYNOS5515_DRCG_EN_OFFSET,
-+};
-+
-+static void __init exynos5515_cmu_top_init(struct device_node *np)
-+{
-+	exynos_arm64_register_cmu(NULL, np, &top_cmu_info);
-+}
-+
-+/* Register CMU_TOP early, as it's a dependency for other early domains */
-+CLK_OF_DECLARE(exynos5515_cmu_top, "samsung,exynos5515-cmu-top",
-+	       exynos5515_cmu_top_init);
-+
-+/* ---- CMU_PERI ------------------------------------------------------------ */
-+
-+/*
-+ * CMU_PERI:	0x10030000
-+ * SYSREG_PERI:	0x10020000
-+ */
-+
-+#define PLL_CON0_MUX_CLKCMU_PERI_BUS_USER					0x0600
-+#define PLL_CON1_MUX_CLKCMU_PERI_BUS_USER					0x0604
-+#define PLL_CON0_MUX_CLKCMU_PERI_IP_USER					0x0610
-+#define PLL_CON1_MUX_CLKCMU_PERI_IP_USER					0x0614
-+#define PLL_CON0_MUX_CLKCMU_PERI_UART_USER					0x0620
-+#define PLL_CON1_MUX_CLKCMU_PERI_UART_USER					0x0624
-+#define PERI_CMU_PERI_CONTROLLER_OPTION						0x0800
-+#define CLK_CON_MUX_MUX_CLK_PERI_SPI						0x1000
-+#define CLK_CON_MUX_MUX_CLK_PERI_USI00_USI					0x1004
-+#define CLK_CON_DIV_CLKCMU_OTP							0x1800
-+#define CLK_CON_DIV_DIV_CLK_PERI_I2C_0						0x1804
-+#define CLK_CON_DIV_DIV_CLK_PERI_I2C_1						0x1808
-+#define CLK_CON_DIV_DIV_CLK_PERI_I2C_2						0x180c
-+#define CLK_CON_DIV_DIV_CLK_PERI_I2C_3						0x1810
-+#define CLK_CON_DIV_DIV_CLK_PERI_SPI						0x1814
-+#define CLK_CON_DIV_DIV_CLK_PERI_USI00_I2C					0x1818
-+#define CLK_CON_DIV_DIV_CLK_PERI_USI00_USI					0x181c
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_BUSIF_TMU_IPCLKPORT_PCLK			0x2000
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_D_TZPC_PERI_IPCLKPORT_PCLK			0x2004
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_GPIO_PERI_IPCLKPORT_PCLK			0x2008
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_0_IPCLKPORT_IPCLK			0x200c
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_0_IPCLKPORT_PCLK			0x2010
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_1_IPCLKPORT_IPCLK			0x2014
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_1_IPCLKPORT_PCLK			0x2018
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_2_IPCLKPORT_IPCLK			0x201c
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_2_IPCLKPORT_PCLK			0x2020
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_3_IPCLKPORT_IPCLK			0x2024
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_3_IPCLKPORT_PCLK			0x2028
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_MCT_IPCLKPORT_PCLK				0x202c
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_OTP_CON_TOP_IPCLKPORT_I_OSCCLK		0x2030
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_OTP_CON_TOP_IPCLKPORT_PCLK			0x2034
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_PERI_CMU_PERI_IPCLKPORT_PCLK		0x2038
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_PWM_MOTOR_IPCLKPORT_I_PCLK_S0		0x203c
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_BUS_IPCLKPORT_CLK	0x2040
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_I2C_0_IPCLKPORT_CLK	0x2044
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_I2C_1_IPCLKPORT_CLK	0x2048
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_I2C_2_IPCLKPORT_CLK	0x204c
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_I2C_3_IPCLKPORT_CLK	0x2050
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_OSCCLK_IPCLKPORT_CLK	0x2054
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_SPI_IPCLKPORT_CLK	0x2058
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_UART_IPCLKPORT_CLK	0x205c
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_USI00_I2C_IPCLKPORT_CLK	0x2060
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_USI00_USI_IPCLKPORT_CLK	0x2064
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_SLH_AXI_MI_P_PERI_IPCLKPORT_I_CLK		0x2068
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_SYSREG_PERI_IPCLKPORT_PCLK			0x206c
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_USI00_I2C_IPCLKPORT_IPCLK			0x2070
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_USI00_I2C_IPCLKPORT_PCLK			0x2074
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_USI00_USI_IPCLKPORT_IPCLK			0x2078
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_USI00_USI_IPCLKPORT_PCLK			0x207c
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_USI_SPI_IPCLKPORT_IPCLK			0x2080
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_USI_SPI_IPCLKPORT_PCLK			0x2084
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_USI_UART_IPCLKPORT_IPCLK			0x2088
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_USI_UART_IPCLKPORT_PCLK			0x208c
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_WDT0_IPCLKPORT_PCLK			0x2090
-+#define CLK_CON_GAT_CLK_BLK_PERI_UID_WDT1_IPCLKPORT_PCLK			0x2094
-+#define CLK_CON_GAT_GATE_CLK_PERI_I2C_0						0x2098
-+#define CLK_CON_GAT_GATE_CLK_PERI_I2C_1						0x209c
-+#define CLK_CON_GAT_GATE_CLK_PERI_I2C_2						0x20a0
-+#define CLK_CON_GAT_GATE_CLK_PERI_I2C_3						0x20a4
-+#define CLK_CON_GAT_GATE_CLK_PERI_USI00_I2C					0x20a8
-+
-+static const unsigned long peri_clk_regs[] __initconst = {
-+	PLL_CON0_MUX_CLKCMU_PERI_BUS_USER,
-+	PLL_CON1_MUX_CLKCMU_PERI_BUS_USER,
-+	PLL_CON0_MUX_CLKCMU_PERI_IP_USER,
-+	PLL_CON1_MUX_CLKCMU_PERI_IP_USER,
-+	PLL_CON0_MUX_CLKCMU_PERI_UART_USER,
-+	PLL_CON1_MUX_CLKCMU_PERI_UART_USER,
-+	PERI_CMU_PERI_CONTROLLER_OPTION,
-+	CLK_CON_MUX_MUX_CLK_PERI_SPI,
-+	CLK_CON_MUX_MUX_CLK_PERI_USI00_USI,
-+	CLK_CON_DIV_CLKCMU_OTP,
-+	CLK_CON_DIV_DIV_CLK_PERI_I2C_0,
-+	CLK_CON_DIV_DIV_CLK_PERI_I2C_1,
-+	CLK_CON_DIV_DIV_CLK_PERI_I2C_2,
-+	CLK_CON_DIV_DIV_CLK_PERI_I2C_3,
-+	CLK_CON_DIV_DIV_CLK_PERI_SPI,
-+	CLK_CON_DIV_DIV_CLK_PERI_USI00_I2C,
-+	CLK_CON_DIV_DIV_CLK_PERI_USI00_USI,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_BUSIF_TMU_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_D_TZPC_PERI_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_GPIO_PERI_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_0_IPCLKPORT_IPCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_0_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_1_IPCLKPORT_IPCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_1_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_2_IPCLKPORT_IPCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_2_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_3_IPCLKPORT_IPCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_3_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_MCT_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_OTP_CON_TOP_IPCLKPORT_I_OSCCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_OTP_CON_TOP_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_PERI_CMU_PERI_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_PWM_MOTOR_IPCLKPORT_I_PCLK_S0,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_BUS_IPCLKPORT_CLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_I2C_0_IPCLKPORT_CLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_I2C_1_IPCLKPORT_CLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_I2C_2_IPCLKPORT_CLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_I2C_3_IPCLKPORT_CLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_OSCCLK_IPCLKPORT_CLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_SPI_IPCLKPORT_CLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_UART_IPCLKPORT_CLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_USI00_I2C_IPCLKPORT_CLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_USI00_USI_IPCLKPORT_CLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_SLH_AXI_MI_P_PERI_IPCLKPORT_I_CLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_SYSREG_PERI_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_USI00_I2C_IPCLKPORT_IPCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_USI00_I2C_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_USI00_USI_IPCLKPORT_IPCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_USI00_USI_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_USI_SPI_IPCLKPORT_IPCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_USI_SPI_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_USI_UART_IPCLKPORT_IPCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_USI_UART_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_WDT0_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_PERI_UID_WDT1_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_GATE_CLK_PERI_I2C_0,
-+	CLK_CON_GAT_GATE_CLK_PERI_I2C_1,
-+	CLK_CON_GAT_GATE_CLK_PERI_I2C_2,
-+	CLK_CON_GAT_GATE_CLK_PERI_I2C_3,
-+	CLK_CON_GAT_GATE_CLK_PERI_USI00_I2C,
-+};
-+
-+/* Parent clock list for CMU_PERI muxes */
-+PNAME(mout_pll_peri_bus_user_p)		= { "oscclk",
-+					    "mout_cmu_peri_bus" };
-+
-+PNAME(mout_pll_peri_ip_user_p)		= { "oscclk",
-+					    "mout_cmu_peri_ip" };
-+
-+/* Parent clock list for CMU_PERI muxes: for SPI */
-+PNAME(mout_peri_spi_p)			= { "oscclk",
-+					    "mout_pll_peri_ip_user" };
-+
-+/* Parent clock list for CMU_PERI muxes: for UART */
-+PNAME(mout_pll_peri_uart_user_p)	= { "oscclk",
-+					    "mout_cmu_peri_uart" };
-+
-+/* Parent clock list for CMU_PERI muxes: for USI */
-+PNAME(mout_peri_usi00_usi_p)		= { "oscclk",
-+					    "mout_pll_peri_ip_user" };
-+
-+static const struct samsung_mux_clock peri_mux_clks[] __initconst = {
-+	/* BUS */
-+	MUX(CLK_MOUT_PLL_PERI_BUS_USER, "mout_pll_peri_bus_user",
-+	    mout_pll_peri_bus_user_p,
-+	    PLL_CON0_MUX_CLKCMU_PERI_BUS_USER,
-+	    4, 1),
-+
-+	/* IP */
-+	MUX(CLK_MOUT_PLL_PERI_IP_USER, "mout_pll_peri_ip_user",
-+	    mout_pll_peri_ip_user_p,
-+	    PLL_CON0_MUX_CLKCMU_PERI_IP_USER,
-+	    4, 1),
-+
-+	/* SPI */
-+	MUX(CLK_MOUT_PERI_SPI, "mout_peri_spi",
-+	    mout_peri_spi_p,
-+	    CLK_CON_MUX_MUX_CLK_PERI_SPI,
-+	    0, 1),
-+
-+	/* UART */
-+	MUX(CLK_MOUT_PLL_PERI_UART_USER, "mout_pll_peri_uart_user",
-+	    mout_pll_peri_uart_user_p,
-+	    PLL_CON0_MUX_CLKCMU_PERI_UART_USER,
-+	    4, 1),
-+
-+	/* USI (Universal Serial Interface) */
-+	MUX(CLK_MOUT_PERI_USI00_USI, "mout_peri_usi00_usi",
-+	    mout_peri_usi00_usi_p,
-+	    CLK_CON_MUX_MUX_CLK_PERI_USI00_USI,
-+	    0, 1),
-+};
-+
-+static const struct samsung_div_clock peri_div_clks[] __initconst = {
-+	/* I2C */
-+	DIV(CLK_DOUT_PERI_I2C_0, "dout_peri_i2c_0",
-+	    "gout_peri_i2c_0",
-+	    CLK_CON_DIV_DIV_CLK_PERI_I2C_0,
-+	    0, 4),
-+	DIV(CLK_DOUT_PERI_I2C_1, "dout_peri_i2c_1",
-+	    "gout_peri_i2c_1",
-+	    CLK_CON_DIV_DIV_CLK_PERI_I2C_1,
-+	    0, 4),
-+	DIV(CLK_DOUT_PERI_I2C_2, "dout_peri_i2c_2",
-+	    "gout_peri_i2c_2",
-+	    CLK_CON_DIV_DIV_CLK_PERI_I2C_2,
-+	    0, 4),
-+	DIV(CLK_DOUT_PERI_I2C_3, "dout_peri_i2c_3",
-+	    "gout_peri_i2c_3",
-+	    CLK_CON_DIV_DIV_CLK_PERI_I2C_3,
-+	    0, 4),
-+
-+	/* SPI */
-+	DIV(CLK_DOUT_PERI_SPI, "dout_peri_spi",
-+	    "mout_peri_spi",
-+	    CLK_CON_DIV_DIV_CLK_PERI_SPI,
-+	    0, 5),
-+
-+	/* USI */
-+	DIV(CLK_DOUT_PERI_USI00_I2C, "dout_peri_usi00_i2c",
-+	    "gout_peri_usi00_i2c",
-+	    CLK_CON_DIV_DIV_CLK_PERI_USI00_I2C,
-+	    0, 4),
-+	DIV(CLK_DOUT_PERI_USI00_USI, "dout_peri_usi00_usi",
-+	    "mout_peri_usi00_usi",
-+	    CLK_CON_DIV_DIV_CLK_PERI_USI00_USI,
-+	    0, 5),
-+};
-+
-+static const struct samsung_fixed_factor_clock peri_fixed_factor_clks[] __initconst = {
-+	/* OTP (One-Time Programmable eFuses) */
-+	FFACTOR(CLK_DOUT_PERI_OTP, "dout_peri_otp", "oscclk",
-+		1, 8, 0),
-+};
-+
-+static const struct samsung_gate_clock peri_gate_clks[] __initconst = {
-+	/* BUS */
-+	GATE(CLK_GOUT_PERI_BUSIF_TMU_PCLK, "gout_peri_busif_tmu_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_BUSIF_TMU_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_BUS_CLK, "gout_peri_bus_clk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_BUS_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+
-+	/* CMU */
-+	GATE(CLK_GOUT_PERI_CMU_PCLK, "gout_peri_cmu_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_PERI_CMU_PERI_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+
-+	/* GPIO */
-+	GATE(CLK_GOUT_PERI_GPIO_PCLK, "gout_peri_gpio_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_GPIO_PERI_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+
-+	/* I2C */
-+	GATE(CLK_GOUT_PERI_I2C_0_IPCLK, "gout_peri_i2c_0_ipclk",
-+	     "dout_peri_i2c_0",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_0_IPCLKPORT_IPCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_0_PCLK, "gout_peri_i2c_0_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_0_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_1_IPCLK, "gout_peri_i2c_1_ipclk",
-+	     "dout_peri_i2c_1",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_1_IPCLKPORT_IPCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_1_PCLK, "gout_peri_i2c_1_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_1_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_2_IPCLK, "gout_peri_i2c_2_ipclk",
-+	     "dout_peri_i2c_2",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_2_IPCLKPORT_IPCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_2_PCLK, "gout_peri_i2c_2_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_2_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_3_IPCLK, "gout_peri_i2c_3_ipclk",
-+	     "dout_peri_i2c_3",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_3_IPCLKPORT_IPCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_3_PCLK, "gout_peri_i2c_3_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_I2C_3_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_0_CLK, "gout_peri_i2c_0_clk",
-+	     "dout_peri_i2c_0",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_I2C_0_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_1_CLK, "gout_peri_i2c_1_clk",
-+	     "dout_peri_i2c_1",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_I2C_1_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_2_CLK, "gout_peri_i2c_2_clk",
-+	     "dout_peri_i2c_2",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_I2C_2_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_3_CLK, "gout_peri_i2c_3_clk",
-+	     "dout_peri_i2c_3",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_I2C_3_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_0, "gout_peri_i2c_0",
-+	     "mout_pll_peri_ip_user",
-+	     CLK_CON_GAT_GATE_CLK_PERI_I2C_0,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_1, "gout_peri_i2c_1",
-+	     "mout_pll_peri_ip_user",
-+	     CLK_CON_GAT_GATE_CLK_PERI_I2C_1,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_2, "gout_peri_i2c_2",
-+	     "mout_pll_peri_ip_user",
-+	     CLK_CON_GAT_GATE_CLK_PERI_I2C_2,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_I2C_3, "gout_peri_i2c_3",
-+	     "mout_pll_peri_ip_user",
-+	     CLK_CON_GAT_GATE_CLK_PERI_I2C_3,
-+	     21, 0, 0),
-+
-+	/* MCT (Multi-Core Timer) */
-+	GATE(CLK_GOUT_PERI_MCT_PCLK, "gout_peri_mct_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_MCT_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+
-+	/* OTP */
-+	GATE(CLK_GOUT_PERI_OTP_OSCCLK, "gout_peri_otp_oscclk",
-+	     "oscclk",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_OTP_CON_TOP_IPCLKPORT_I_OSCCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_OTP_PCLK, "gout_peri_otp_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_OTP_CON_TOP_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+
-+	/* OSCCLK */
-+	GATE(CLK_GOUT_PERI_OSCCLK, "gout_peri_oscclk",
-+	     "oscclk",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_OSCCLK_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+
-+	/* PWM */
-+	GATE(CLK_GOUT_PERI_PWM_MOTOR_PCLK, "gout_peri_pwm_motor_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_PWM_MOTOR_IPCLKPORT_I_PCLK_S0,
-+	     21, 0, 0),
-+
-+	/* SPI */
-+	GATE(CLK_GOUT_PERI_SPI_CLK, "gout_peri_spi_clk",
-+	     "dout_peri_spi",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_SPI_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+
-+	/* SYSREG */
-+	GATE(CLK_GOUT_PERI_SYSREG_PCLK, "gout_peri_sysreg_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_SYSREG_PERI_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+
-+	/* TZ */
-+	GATE(CLK_GOUT_PERI_D_TZPC_PCLK, "gout_peri_d_tzpc_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_D_TZPC_PERI_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+
-+	/* UART */
-+	GATE(CLK_GOUT_PERI_UART_CLK, "gout_peri_uart_clk",
-+	     "mout_pll_peri_uart_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_UART_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+
-+	/* USI */
-+	GATE(CLK_GOUT_PERI_USI00_I2C_CLK, "gout_peri_usi00_i2c_clk",
-+	     "dout_peri_usi00_i2c",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_USI00_I2C_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_USI00_USI_CLK, "gout_peri_usi00_usi_clk",
-+	     "dout_peri_usi00_usi",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_RSTNSYNC_CLK_PERI_USI00_USI_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_USI00_I2C_IPCLK, "gout_peri_usi00_i2c_ipclk",
-+	     "dout_peri_usi00_i2c",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_USI00_I2C_IPCLKPORT_IPCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_USI00_I2C_PCLK, "gout_peri_usi00_i2c_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_USI00_I2C_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_USI00_USI_IPCLK, "gout_peri_usi00_usi_ipclk",
-+	     "dout_peri_usi00_usi",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_USI00_USI_IPCLKPORT_IPCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_USI00_USI_PCLK, "gout_peri_usi00_usi_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_USI00_USI_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_USI_SPI_IPCLK, "gout_peri_usi_spi_ipclk",
-+	     "dout_peri_spi",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_USI_SPI_IPCLKPORT_IPCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_USI_SPI_PCLK, "gout_peri_usi_spi_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_USI_SPI_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_USI_UART_IPCLK, "gout_peri_usi_uart_ipclk",
-+	     "mout_pll_peri_uart_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_USI_UART_IPCLKPORT_IPCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_USI_UART_PCLK, "gout_peri_usi_uart_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_USI_UART_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_USI00_I2C, "gout_peri_usi00_i2c",
-+	     "mout_pll_peri_ip_user",
-+	     CLK_CON_GAT_GATE_CLK_PERI_USI00_I2C,
-+	     21, 0, 0),
-+
-+	/* WDT (Watchdog Timer) */
-+	GATE(CLK_GOUT_PERI_WDT0_PCLK, "gout_peri_wdt0_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_WDT0_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_PERI_WDT1_PCLK, "gout_peri_wdt1_pclk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_WDT1_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+
-+	/* UNKNOWN */
-+	GATE(CLK_GOUT_PERI_SLH_AXI_MI_P_CLK, "gout_peri_slh_axi_mi_p_clk",
-+	     "mout_pll_peri_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_PERI_UID_SLH_AXI_MI_P_PERI_IPCLKPORT_I_CLK,
-+	     21, 0, 0),
-+};
-+
-+static const struct samsung_cmu_info peri_cmu_info __initconst = {
-+	.mux_clks		= peri_mux_clks,
-+	.nr_mux_clks		= ARRAY_SIZE(peri_mux_clks),
-+	.div_clks		= peri_div_clks,
-+	.nr_div_clks		= ARRAY_SIZE(peri_div_clks),
-+	.fixed_factor_clks	= peri_fixed_factor_clks,
-+	.nr_fixed_factor_clks	= ARRAY_SIZE(peri_fixed_factor_clks),
-+	.gate_clks		= peri_gate_clks,
-+	.nr_gate_clks		= ARRAY_SIZE(peri_gate_clks),
-+	.nr_clk_ids		= CLKS_NR_PERI,
-+	.clk_regs		= peri_clk_regs,
-+	.nr_clk_regs		= ARRAY_SIZE(peri_clk_regs),
-+	.sysreg_clk_regs	= drcg_sysreg,
-+	.nr_sysreg_clk_regs	= ARRAY_SIZE(drcg_sysreg),
-+	.clk_name		= "bus",
-+	.auto_clock_gate	= true,
-+	.gate_dbg_offset	= EXYNOS5515_GATE_DBG_OFFSET,
-+	.option_offset		= PERI_CMU_PERI_CONTROLLER_OPTION,
-+	.drcg_offset		= EXYNOS5515_DRCG_EN_OFFSET,
-+};
-+
-+static void __init exynos5515_cmu_peri_init(struct device_node *np)
-+{
-+	exynos_arm64_register_cmu(NULL, np, &peri_cmu_info);
-+}
-+
-+/* Register CMU_PERI early, as it's a dependency for the MCT. */
-+CLK_OF_DECLARE(exynos5515_cmu_peri, "samsung,exynos5515-cmu-peri",
-+	       exynos5515_cmu_peri_init);
-+
-+/* ---- CMU_FSYS ------------------------------------------------------------ */
-+
-+/*
-+ * CMU_FSYS:	0x10400000
-+ * SYSREG_FSYS:	0x10420000
-+ */
-+
-+#define PLL_CON0_MUX_CLKCMU_FSYS_BUS_USER						0x0600
-+#define PLL_CON1_MUX_CLKCMU_FSYS_BUS_USER						0x0604
-+#define PLL_CON0_MUX_CLKCMU_FSYS_MMC_CARD_USER						0x0610
-+#define PLL_CON1_MUX_CLKCMU_FSYS_MMC_CARD_USER						0x0614
-+#define PLL_CON0_MUX_CLKCMU_FSYS_MMC_EMBD_USER						0x0620
-+#define PLL_CON1_MUX_CLKCMU_FSYS_MMC_EMBD_USER						0x0624
-+#define PLL_CON0_MUX_CLKCMU_FSYS_USB20DRD_USER						0x0630
-+#define PLL_CON1_MUX_CLKCMU_FSYS_USB20DRD_USER						0x0634
-+#define FSYS_CMU_FSYS_CONTROLLER_OPTION							0x0800
-+#define CLK_CON_GAT_CLK_BLK_FSYS_UID_FSYS_CMU_FSYS_IPCLKPORT_PCLK			0x2000
-+#define CLK_CON_GAT_CLK_BLK_FSYS_UID_MMC_CARD_IPCLKPORT_SDCLKIN				0x2004
-+#define CLK_CON_GAT_CLK_BLK_FSYS_UID_MMC_EMBD_IPCLKPORT_SDCLKIN				0x2008
-+#define CLK_CON_GAT_CLK_BLK_FSYS_UID_RSTNSYNC_CLK_FSYS_OSCCLK_IPCLKPORT_CLK		0x200c
-+#define CLK_CON_GAT_CLK_BLK_FSYS_UID_USB20DRD_TOP_IPCLKPORT_I_USB20DRD_REF_CLK_50	0x2010
-+#define CLK_CON_GAT_CLK_BLK_FSYS_UID_USB20DRD_TOP_IPCLKPORT_I_USB20_PHY_REFCLK_26	0x2014
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_D_TZPC_FSYS_IPCLKPORT_PCLK			0x2018
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_GPIO_FSYS_IPCLKPORT_PCLK				0x201c
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_MMC_CARD_IPCLKPORT_I_ACLK				0x2020
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_MMC_EMBD_IPCLKPORT_I_ACLK				0x2024
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_PPMU_FSYS_IPCLKPORT_ACLK				0x2028
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_PPMU_FSYS_IPCLKPORT_PCLK				0x202c
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_RSTNSYNC_CLK_FSYS_BUS_IPCLKPORT_CLK		0x2030
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_SLH_AXI_MI_P_FSYS_IPCLKPORT_I_CLK			0x2034
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_SLH_AXI_SI_D_FSYS_IPCLKPORT_I_CLK			0x2038
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_SYSREG_FSYS_IPCLKPORT_PCLK			0x203c
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_USB20DRD_TOP_IPCLKPORT_ACLK_PHYCTRL_20		0x2040
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_USB20DRD_TOP_IPCLKPORT_BUS_CLK_EARLY		0x2044
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_US_64TO128_FSYS_IPCLKPORT_ACLK			0x2048
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_XIU_D_FSYS_IPCLKPORT_ACLK				0x204c
-+#define CLK_CON_GAT_GOUT_BLK_FSYS_UID_XIU_P_FSYS_IPCLKPORT_ACLK				0x2050
-+
-+static const unsigned long fsys_clk_regs[] __initconst = {
-+	PLL_CON0_MUX_CLKCMU_FSYS_BUS_USER,
-+	PLL_CON1_MUX_CLKCMU_FSYS_BUS_USER,
-+	PLL_CON0_MUX_CLKCMU_FSYS_MMC_CARD_USER,
-+	PLL_CON1_MUX_CLKCMU_FSYS_MMC_CARD_USER,
-+	PLL_CON0_MUX_CLKCMU_FSYS_MMC_EMBD_USER,
-+	PLL_CON1_MUX_CLKCMU_FSYS_MMC_EMBD_USER,
-+	PLL_CON0_MUX_CLKCMU_FSYS_USB20DRD_USER,
-+	PLL_CON1_MUX_CLKCMU_FSYS_USB20DRD_USER,
-+	FSYS_CMU_FSYS_CONTROLLER_OPTION,
-+	CLK_CON_GAT_CLK_BLK_FSYS_UID_FSYS_CMU_FSYS_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_CLK_BLK_FSYS_UID_MMC_CARD_IPCLKPORT_SDCLKIN,
-+	CLK_CON_GAT_CLK_BLK_FSYS_UID_MMC_EMBD_IPCLKPORT_SDCLKIN,
-+	CLK_CON_GAT_CLK_BLK_FSYS_UID_RSTNSYNC_CLK_FSYS_OSCCLK_IPCLKPORT_CLK,
-+	CLK_CON_GAT_CLK_BLK_FSYS_UID_USB20DRD_TOP_IPCLKPORT_I_USB20DRD_REF_CLK_50,
-+	CLK_CON_GAT_CLK_BLK_FSYS_UID_USB20DRD_TOP_IPCLKPORT_I_USB20_PHY_REFCLK_26,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_D_TZPC_FSYS_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_GPIO_FSYS_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_MMC_CARD_IPCLKPORT_I_ACLK,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_MMC_EMBD_IPCLKPORT_I_ACLK,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_PPMU_FSYS_IPCLKPORT_ACLK,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_PPMU_FSYS_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_RSTNSYNC_CLK_FSYS_BUS_IPCLKPORT_CLK,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_SLH_AXI_MI_P_FSYS_IPCLKPORT_I_CLK,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_SLH_AXI_SI_D_FSYS_IPCLKPORT_I_CLK,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_SYSREG_FSYS_IPCLKPORT_PCLK,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_USB20DRD_TOP_IPCLKPORT_ACLK_PHYCTRL_20,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_USB20DRD_TOP_IPCLKPORT_BUS_CLK_EARLY,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_US_64TO128_FSYS_IPCLKPORT_ACLK,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_XIU_D_FSYS_IPCLKPORT_ACLK,
-+	CLK_CON_GAT_GOUT_BLK_FSYS_UID_XIU_P_FSYS_IPCLKPORT_ACLK,
-+};
-+
-+/* Parent clock list for CMU_FSYS muxes */
-+PNAME(mout_pll_fsys_bus_user_p)		= { "oscclk",
-+					    "dout_cmu_fsys_bus" };
-+
-+/* Parent clock list for CMU_FSYS muxes: for MMC */
-+PNAME(mout_pll_fsys_mmc_card_user_p)	= { "oscclk",
-+					    "dout_cmu_fsys_mmc_card" };
-+
-+PNAME(mout_pll_fsys_mmc_embd_user_p)	= { "oscclk",
-+					    "dout_cmu_fsys_mmc_embd" };
-+
-+/* Parent clock list for CMU_FSYS muxes: for USB */
-+PNAME(mout_pll_fsys_usb20drd_user_p)	= { "oscclk",
-+					    "dout_cmu_fsys_usb20drd" };
-+
-+static const struct samsung_mux_clock fsys_mux_clks[] __initconst = {
-+	/* BUS */
-+	MUX(CLK_MOUT_PLL_FSYS_BUS_USER, "mout_pll_fsys_bus_user",
-+	    mout_pll_fsys_bus_user_p,
-+	    PLL_CON0_MUX_CLKCMU_FSYS_BUS_USER,
-+	    4, 1),
-+
-+	/* MMC */
-+	MUX(CLK_MOUT_PLL_FSYS_MMC_CARD_USER, "mout_pll_fsys_mmc_card_user",
-+	    mout_pll_fsys_mmc_card_user_p,
-+	    PLL_CON0_MUX_CLKCMU_FSYS_MMC_CARD_USER,
-+	    4, 1),
-+	MUX(CLK_MOUT_PLL_FSYS_MMC_EMBD_USER, "mout_pll_fsys_mmc_embd_user",
-+	    mout_pll_fsys_mmc_embd_user_p,
-+	    PLL_CON0_MUX_CLKCMU_FSYS_MMC_EMBD_USER,
-+	    4, 1),
-+
-+	/* USB */
-+	MUX(CLK_MOUT_PLL_FSYS_USB20DRD_USER, "mout_pll_fsys_usb20drd_user",
-+	    mout_pll_fsys_usb20drd_user_p,
-+	    PLL_CON0_MUX_CLKCMU_FSYS_USB20DRD_USER,
-+	    4, 1),
-+};
-+
-+static const struct samsung_gate_clock fsys_gate_clks[] __initconst = {
-+	/* BUS */
-+	GATE(CLK_GOUT_FSYS_BUS_CLK, "gout_fsys_bus_clk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_RSTNSYNC_CLK_FSYS_BUS_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+
-+	/* CMU */
-+	GATE(CLK_GOUT_FSYS_CMU_PCLK, "gout_fsys_cmu_pclk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_CLK_BLK_FSYS_UID_FSYS_CMU_FSYS_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+
-+	/* GPIO */
-+	GATE(CLK_GOUT_FSYS_GPIO_PCLK, "gout_fsys_gpio_pclk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_GPIO_FSYS_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+
-+	/* MMC */
-+	GATE(CLK_GOUT_FSYS_MMC_CARD_SDCLKIN, "gout_fsys_mmc_card_sdclkin",
-+	     "mout_pll_fsys_mmc_card_user",
-+	     CLK_CON_GAT_CLK_BLK_FSYS_UID_MMC_CARD_IPCLKPORT_SDCLKIN,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_FSYS_MMC_EMBD_SDCLKIN, "gout_fsys_mmc_embd_sdclkin",
-+	     "mout_pll_fsys_mmc_embd_user",
-+	     CLK_CON_GAT_CLK_BLK_FSYS_UID_MMC_EMBD_IPCLKPORT_SDCLKIN,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_FSYS_MMC_CARD_ACLK, "gout_fsys_mmc_card_aclk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_MMC_CARD_IPCLKPORT_I_ACLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_FSYS_MMC_EMBD_ACLK, "gout_fsys_mmc_embd_aclk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_MMC_EMBD_IPCLKPORT_I_ACLK,
-+	     21, 0, 0),
-+
-+	/* OSCCLK */
-+	GATE(CLK_GOUT_FSYS_OSCCLK, "gout_fsys_oscclk",
-+	     "oscclk",
-+	     CLK_CON_GAT_CLK_BLK_FSYS_UID_RSTNSYNC_CLK_FSYS_OSCCLK_IPCLKPORT_CLK,
-+	     21, 0, 0),
-+
-+	/* PMU */
-+	GATE(CLK_GOUT_FSYS_PPMU_ACLK, "gout_fsys_ppmu_aclk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_PPMU_FSYS_IPCLKPORT_ACLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_FSYS_PPMU_PCLK, "gout_fsys_ppmu_pclk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_PPMU_FSYS_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+
-+	/* SYSREG */
-+	GATE(CLK_GOUT_FSYS_SYSREG_PCLK, "gout_fsys_sysreg_pclk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_SYSREG_FSYS_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+
-+	/* TZ */
-+	GATE(CLK_GOUT_FSYS_D_TZPC_PCLK, "gout_fsys_d_tzpc_pclk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_D_TZPC_FSYS_IPCLKPORT_PCLK,
-+	     21, 0, 0),
-+
-+	/* USB */
-+	GATE(CLK_GOUT_FSYS_USB20DRD_REFCLK,
-+	     "gout_fsys_usb20drd_refclk",
-+	     "mout_pll_fsys_usb20drd_user",
-+	     CLK_CON_GAT_CLK_BLK_FSYS_UID_USB20DRD_TOP_IPCLKPORT_I_USB20DRD_REF_CLK_50,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_FSYS_USB20DRD_PHY_REFCLK,
-+	     "gout_fsys_usb20drd_phy_refclk",
-+	     "oscclk",
-+	     CLK_CON_GAT_CLK_BLK_FSYS_UID_USB20DRD_TOP_IPCLKPORT_I_USB20_PHY_REFCLK_26,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_FSYS_USB20DRD_ACLK_PHYCTRL,
-+	     "gout_fsys_usb20drd_aclk_phyctrl",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_USB20DRD_TOP_IPCLKPORT_ACLK_PHYCTRL_20,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_FSYS_USB20DRD_BUS_CLK_EARLY,
-+	     "gout_fsys_usb20drd_bus_clk_early",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_USB20DRD_TOP_IPCLKPORT_BUS_CLK_EARLY,
-+	     21, 0, 0),
-+
-+	/* UNKNOWN */
-+	GATE(CLK_GOUT_FSYS_SLH_AXI_MI_P_CLK, "gout_fsys_slh_axi_mi_p_clk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_SLH_AXI_MI_P_FSYS_IPCLKPORT_I_CLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_FSYS_SLH_AXI_SI_D_CLK, "gout_fsys_slh_axi_si_d_clk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_SLH_AXI_SI_D_FSYS_IPCLKPORT_I_CLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_FSYS_US_64TO128_ACLK, "gout_fsys_us_64to128_aclk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_US_64TO128_FSYS_IPCLKPORT_ACLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_FSYS_XIU_D_ACLK, "gout_fsys_xiu_d_aclk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_XIU_D_FSYS_IPCLKPORT_ACLK,
-+	     21, 0, 0),
-+	GATE(CLK_GOUT_FSYS_XIU_P_ACLK, "gout_fsys_xiu_p_aclk",
-+	     "mout_pll_fsys_bus_user",
-+	     CLK_CON_GAT_GOUT_BLK_FSYS_UID_XIU_P_FSYS_IPCLKPORT_ACLK,
-+	     21, 0, 0),
-+};
-+
-+static const struct samsung_cmu_info fsys_cmu_info __initconst = {
-+	.mux_clks		= fsys_mux_clks,
-+	.nr_mux_clks		= ARRAY_SIZE(fsys_mux_clks),
-+	.gate_clks		= fsys_gate_clks,
-+	.nr_gate_clks		= ARRAY_SIZE(fsys_gate_clks),
-+	.nr_clk_ids		= CLKS_NR_FSYS,
-+	.clk_regs		= fsys_clk_regs,
-+	.nr_clk_regs		= ARRAY_SIZE(fsys_clk_regs),
-+	.sysreg_clk_regs	= drcg_sysreg,
-+	.nr_sysreg_clk_regs	= ARRAY_SIZE(drcg_sysreg),
-+	.clk_name		= "bus",
-+	.auto_clock_gate	= true,
-+	.gate_dbg_offset	= EXYNOS5515_GATE_DBG_OFFSET,
-+	.option_offset		= FSYS_CMU_FSYS_CONTROLLER_OPTION,
-+	.drcg_offset		= EXYNOS5515_DRCG_EN_OFFSET,
-+};
-+
-+/* ----- platform_driver ----- */
-+
-+static int __init exynos5515_cmu_probe(struct platform_device *pdev)
-+{
-+	const struct samsung_cmu_info *info;
-+	struct device *dev = &pdev->dev;
-+
-+	info = of_device_get_match_data(dev);
-+	exynos_arm64_register_cmu(dev, dev->of_node, info);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id exynos5515_cmu_of_match[] = {
-+	{
-+		.compatible = "samsung,exynos5515-cmu-fsys",
-+		.data = &fsys_cmu_info,
-+	},
-+	{ },
-+};
-+
-+static struct platform_driver exynos5515_cmu_driver __refdata = {
-+	.driver = {
-+		.name = "exynos5515-cmu",
-+		.of_match_table = exynos5515_cmu_of_match,
-+		.suppress_bind_attrs = true,
-+	},
-+	.probe = exynos5515_cmu_probe,
-+};
-+
-+static int __init exynos5515_cmu_init(void)
-+{
-+	return platform_driver_register(&exynos5515_cmu_driver);
-+}
-+
-+core_initcall(exynos5515_cmu_init);
-
--- 
-2.54.0
-
-
+>  		}
+>  		xlnx_formatter_disable_irqs(aud_drv_data->mmio +
 
