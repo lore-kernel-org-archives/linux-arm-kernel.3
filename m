@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FFF5C5DF84
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 14:11:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FCEFC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 14:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ooj4RdTct5lgHaX1GvqaQ3GTFEQHRRvtsBE0okBw5Bs=; b=r5eBwRqH+LkWVdQXahFyzv+sIX
-	/X6euZhPtJjk6eT28cxMFDRjEm5cX5qoKk3ar1P1wWUr5yBx+90TxgluHb1lG356wQwIL6zgnqitO
-	C19k38/URiKj/XL1/ImxIdiw1hkgZe1NiJelXu4jgHykXbqaPCLPpfFEld94uWH35wFsityeIjvb3
-	+rzmuGgNWTs4N6KxijAfWOICkJ8cjjHUMTUrxFgWcVomGyBXKkyp9NsEkU3f/gty2RWKOLNmu/AJk
-	5VMK3b94GARdRc9P+FLYClyfaIKyn0rQ1uG7CLpDu7qgwwJoZbKTN77lL6ZeFa5X2TSnfrpGz5EuQ
-	/o7VYAwg==;
+	bh=Fd6mzyncNQ64b8dxo/18sTl4GGfxhyjVOrfC5xcwDCA=; b=HpaZ+IFfpBNL9/REZ2B9LfE7wd
+	08/ewmud3m8Z6kcPr5YmLmtLJ+yHyZPdCQR3jy8dTdoTluYXJdAxRqyvKBOdYLDMrInqpskvCdc+F
+	uJztfalosIJ7+MdWZLFJnU9D6X/PKLUtxaKrdydoMAidWFkX2VW/hOyhqHaPTIjSubpnDC4MD4Vkn
+	deI3jPumhy8yX1cxsKHPPgL6OL4brXZWx+eis3+7U3ZTdeiGsyj3qIjvIEI2jNQ50oBA01rshgDPh
+	5Pb/g2zj0aR1rp6kzuLPlA3Xm5yuMOBjTepUD5x7h8l9Xh4n5plF6AMRUbjcU5VCBAmYJnUVO03OQ
+	Midi9thw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwKXa-000000086eZ-1jVK;
-	Tue, 18 Aug 2026 14:11:46 +0000
+	id 1wwKXR-000000086Z1-48ON;
+	Tue, 18 Aug 2026 14:11:37 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwKXX-000000086dI-3Ur7
+	id 1wwKXI-000000086Tq-1nJm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 14:11:45 +0000
+	Tue, 18 Aug 2026 14:11:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D35219F6;
-	Tue, 18 Aug 2026 07:11:38 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F35C19F0;
+	Tue, 18 Aug 2026 07:11:23 -0700 (PDT)
 Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.2.208.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D6083F85F;
-	Tue, 18 Aug 2026 07:11:37 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6EDB43F85F;
+	Tue, 18 Aug 2026 07:11:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787062302; bh=BkjNRdlehpq/qqZwQhBLzY19lD555G+nB+rRbzspEEE=;
+	t=1787062287; bh=9dqIiwyGVVVxGSjHeF+MAxucmgOd3jqjzZqWJtM2VB8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=WXekD//Fmvb8C1WyhB1190zPRpkkuswNYtmwwoMeNS+olFxji+e80KDeIztBkSSqE
-	 1N8MXkQ+SkSeSh4MWEyuEkArYRfTujxs6s7NTROKtDpdvnWDviu8lnOK7SFAEZjvZa
-	 +iqm+CakJdybHTz5fi65HVUhf1uIj56pfWjDYRoA=
+	b=mbyRdbQKlO/26/1Fa4w7m6hPuhvlnytHQISAVLXNFMFm2TRNGzVS887HJloU+7YFI
+	 EhwgLWAo7jUlXEB9y9MveCPjEeP/SCYRV0egYsHA/wHS7GchteF9wmfkFRh5vtG0tw
+	 hYHMyLbtBL+KBswx02wzpRLfu1K/xbvltgcfOikQ=
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 18 Aug 2026 15:08:46 +0100
-Subject: [PATCH RFC v9 04/25] arm64: Introduce por_elx_set_pkey_perms()
- helper
+Date: Tue, 18 Aug 2026 15:08:43 +0100
+Subject: [PATCH RFC v9 01/25] mm: Introduce kpkeys
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260818-kpkeys-v9-4-743ad31b2c8f@arm.com>
+Message-Id: <20260818-kpkeys-v9-1-743ad31b2c8f@arm.com>
 References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
 In-Reply-To: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
 To: linux-hardening@vger.kernel.org
@@ -73,16 +72,16 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
  linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>, 
  Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787062276; l=2582;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787062276; l=5979;
  i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=BkjNRdlehpq/qqZwQhBLzY19lD555G+nB+rRbzspEEE=;
- b=4ZTyW5TcfHxhyckVVjluqnadzTDAbx78zgNQa3gNuWY+CA+irOo4uc0URWKL6zTzAj8ERPxz5
- gARLFho9C3ZB33hSphiUVjYeAThs20KMb6VCEKJUc25+Dwhztu0cOIg
+ bh=9dqIiwyGVVVxGSjHeF+MAxucmgOd3jqjzZqWJtM2VB8=;
+ b=mahw5b1Ggs/ZgmHXvp1+lRl2JXwUwDEs2wO6R50H/rbCAhz9vVQsA9V4MOhyhrRgRZSG93KtJ
+ u3AmxqgV//JDyT3mBF536urNrR4z5MugwWxb7CJPyJbzpxbN6IDf9DU
 X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
  pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_071143_953521_F873C62A 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20260818_071128_696145_4E719BA6 
+X-CRM114-Status: GOOD (  21.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,85 +96,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a helper that sets the permissions of a given pkey
-(POIndex) in the POR_ELx format, and make use of it in
-arch_set_user_pkey_access().
+kpkeys is a simple framework to enable the use of protection keys
+(pkeys) to harden the kernel itself. This patch introduces the basic
+API in <linux/kpkeys.h>: a couple of functions to enter/leave a
+kpkeys context and macros to define guard objects.
 
-new_por now represents the permissions of a single pkey, so rename
-it to new_perms and change its type accordingly.
+kpkeys introduces a new concept on top of pkeys: the kpkeys context.
+Each context is associated with a set of permissions for the pkeys
+managed by the kpkeys framework. kpkeys_enter_context(ctx) sets
+those permissions according to ctx, and returns the original kpkeys
+state (typically the arch-specific pkeys register) that is later
+restored by calling kpkeys_leave_context(). To start with, only
+KPKEYS_CTX_DEFAULT is available, which is meant to grant RW access
+to KPKEYS_PKEY_DEFAULT (i.e. all memory since this is the only
+available pkey for now).
 
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+The underlying representation of each kpkeys context is entirely
+architecture-specific. Support for kpkeys must be explicitly
+indicated by selecting ARCH_HAS_KPKEYS and defining the following
+functions in <asm/kpkeys.h>:
+
+* arch_kpkeys_enter_context()
+* arch_kpkeys_leave_context()
+* arch_supports_kpkeys()
+
+Additionally, <asm/kpkeys_types.h> must define struct arch_kpkeys_state,
+which typically provides storage for the pkeys register.
+
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/arm64/include/asm/por.h |  7 +++++++
- arch/arm64/mm/mmu.c          | 26 ++++++++++----------------
- 2 files changed, 17 insertions(+), 16 deletions(-)
+ include/linux/kpkeys.h       | 104 +++++++++++++++++++++++++++++++++++++++++++
+ include/linux/kpkeys_types.h |  25 +++++++++++
+ mm/Kconfig                   |   2 +
+ 3 files changed, 131 insertions(+)
 
-diff --git a/arch/arm64/include/asm/por.h b/arch/arm64/include/asm/por.h
-index d913d5b529e4..19b3dd1d43a0 100644
---- a/arch/arm64/include/asm/por.h
-+++ b/arch/arm64/include/asm/por.h
-@@ -31,4 +31,11 @@ static inline bool por_elx_allows_exec(u64 por, u8 pkey)
- 	return perm & POE_X;
- }
- 
-+static inline u64 por_elx_set_pkey_perms(u64 por, u8 pkey, u8 perms)
-+{
-+	u64 shift = POR_ELx_PERM_SHIFT(pkey);
+diff --git a/include/linux/kpkeys.h b/include/linux/kpkeys.h
+new file mode 100644
+index 000000000000..eac522f55214
+--- /dev/null
++++ b/include/linux/kpkeys.h
+@@ -0,0 +1,104 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _LINUX_KPKEYS_H
++#define _LINUX_KPKEYS_H
 +
-+	return (por & ~(POE_MASK << shift)) | ((u64)perms << shift);
++#include <linux/bug.h>
++#include <linux/cleanup.h>
++#include <linux/kpkeys_types.h>
++
++/**
++ * KPKEYS_GUARD_NOOP() - define a guard type that does nothing
++ * @name: the name of the guard type
++ *
++ * Define a guard type that does nothing, useful to match a real guard type
++ * that is defined under an #ifdef.
++ */
++#define KPKEYS_GUARD_NOOP(name)						\
++	__DEFINE_CLASS_IS_CONDITIONAL(name, false);			\
++	DEFINE_CLASS(name, bool, (void)_T, false, void);		\
++	static inline void *class_##name##_lock_ptr(bool *_T)		\
++	{ return _T; }
++
++#ifdef CONFIG_ARCH_HAS_KPKEYS
++
++#include <asm/kpkeys.h>
++
++/**
++ * KPKEYS_GUARD_COND() - define a guard type that conditionally switches to
++ *                       a given kpkeys context
++ * @name: the name of the guard type
++ * @ctx: the kpkeys context to switch to
++ * @cond: an expression that is evaluated as condition
++ *
++ * Define a guard type that switches to @ctx if @cond evaluates to true,
++ * and does nothing otherwise.
++ */
++#define KPKEYS_GUARD_COND(name, ctx, cond)				\
++	__DEFINE_CLASS_IS_CONDITIONAL(name, false);			\
++	DEFINE_CLASS(name, struct kpkeys_state,				\
++		     kpkeys_leave_context(&_T),				\
++		     (cond) ? kpkeys_enter_context(ctx) :		\
++			      (struct kpkeys_state) {}, void);		\
++	static inline							\
++	void *class_##name##_lock_ptr(struct kpkeys_state *_T)		\
++	{ return _T; }
++
++/**
++ * KPKEYS_GUARD() - define a guard type that switches to a given kpkeys context
++ *                  if kpkeys are supported
++ * @name: the name of the guard type
++ * @ctx: the kpkeys context to switch to
++ *
++ * Define a guard type that switches to @ctx if the system supports kpkeys.
++ */
++#define KPKEYS_GUARD(name, ctx)						\
++	KPKEYS_GUARD_COND(name, ctx, kpkeys_supported())
++
++/**
++ * kpkeys_enter_context() - enter a kpkeys context
++ * @ctx: the context to switch to
++ *
++ * Enters the specified kpkeys context. @ctx must be a compile-time constant.
++ *
++ * Return: state to be passed to kpkeys_leave_context().
++ */
++static __always_inline
++struct kpkeys_state kpkeys_enter_context(enum kpkeys_ctx ctx)
++{
++	BUILD_BUG_ON_MSG(!__builtin_constant_p(ctx),
++			 "kpkeys_enter_context() only takes constant values");
++	BUILD_BUG_ON_MSG(ctx < 0 || ctx >= KPKEYS_CTX_COUNT,
++			 "Invalid value passed to kpkeys_enter_context()");
++
++	return arch_kpkeys_enter_context(ctx);
 +}
 +
- #endif /* _ASM_ARM64_POR_H */
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index d4de88770ecf..767478d9e84b 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -2305,8 +2305,8 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
- #ifdef CONFIG_ARCH_HAS_PKEYS
- int arch_set_user_pkey_access(int pkey, unsigned long init_val)
- {
--	u64 new_por;
--	u64 old_por;
-+	u8 new_perms;
-+	u64 por;
++/**
++ * kpkeys_leave_context() - leave a kpkeys context
++ * @state: state returned by kpkeys_enter_context()
++ *
++ * Restores the state saved when entering a kpkeys context. If no context was
++ * entered, this function does nothing.
++ */
++static __always_inline
++void kpkeys_leave_context(const struct kpkeys_state *state)
++{
++	if (state->entered_context)
++		arch_kpkeys_leave_context(state);
++}
++
++static inline bool kpkeys_supported(void)
++{
++	return arch_supports_kpkeys();
++}
++
++#else /* CONFIG_ARCH_HAS_KPKEYS */
++
++static inline bool kpkeys_supported(void)
++{
++	return false;
++}
++
++#endif /* CONFIG_ARCH_HAS_KPKEYS */
++
++#endif /* _LINUX_KPKEYS_H */
+diff --git a/include/linux/kpkeys_types.h b/include/linux/kpkeys_types.h
+new file mode 100644
+index 000000000000..9de59092e9c3
+--- /dev/null
++++ b/include/linux/kpkeys_types.h
+@@ -0,0 +1,25 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _LINUX_KPKEYS_TYPES_H
++#define _LINUX_KPKEYS_TYPES_H
++
++#include <linux/types.h>
++
++#ifdef CONFIG_ARCH_HAS_KPKEYS
++#include <asm/kpkeys_types.h>
++#endif
++
++#if defined(CONFIG_ARCH_HAS_KPKEYS) && !defined(__ASSEMBLY__)
++
++enum kpkeys_ctx {
++	KPKEYS_CTX_DEFAULT = 0,
++	KPKEYS_CTX_COUNT,
++};
++
++struct kpkeys_state {
++	bool entered_context;
++	struct arch_kpkeys_state arch_state;
++};
++
++#endif /* CONFIG_ARCH_HAS_KPKEYS && !__ASSEMBLY__ */
++
++#endif /* _LINUX_KPKEYS_TYPES_H */
+diff --git a/mm/Kconfig b/mm/Kconfig
+index 9e0ca4824905..55e6763d5792 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -1281,6 +1281,8 @@ config ARCH_USES_HIGH_VMA_FLAGS
+ 	bool
+ config ARCH_HAS_PKEYS
+ 	bool
++config ARCH_HAS_KPKEYS
++	bool
  
- 	if (!system_supports_poe())
- 		return -ENOSPC;
-@@ -2320,25 +2320,19 @@ int arch_set_user_pkey_access(int pkey, unsigned long init_val)
- 		return -EINVAL;
- 
- 	/* Set the bits we need in POR:  */
--	new_por = POE_RWX;
-+	new_perms = POE_RWX;
- 	if (init_val & PKEY_DISABLE_WRITE)
--		new_por &= ~POE_W;
-+		new_perms &= ~POE_W;
- 	if (init_val & PKEY_DISABLE_ACCESS)
--		new_por &= ~POE_RW;
-+		new_perms &= ~POE_RW;
- 	if (init_val & PKEY_DISABLE_READ)
--		new_por &= ~POE_R;
-+		new_perms &= ~POE_R;
- 	if (init_val & PKEY_DISABLE_EXECUTE)
--		new_por &= ~POE_X;
-+		new_perms &= ~POE_X;
- 
--	/* Shift the bits in to the correct place in POR for pkey: */
--	new_por = POR_ELx_PERM_PREP(pkey, new_por);
--
--	/* Get old POR and mask off any old bits in place: */
--	old_por = read_sysreg_s(SYS_POR_EL0);
--	old_por &= ~(POE_MASK << POR_ELx_PERM_SHIFT(pkey));
--
--	/* Write old part along with new part: */
--	write_sysreg_s(old_por | new_por, SYS_POR_EL0);
-+	por = read_sysreg_s(SYS_POR_EL0);
-+	por = por_elx_set_pkey_perms(por, pkey, new_perms);
-+	write_sysreg_s(por, SYS_POR_EL0);
- 
- 	return 0;
- }
+ config ARCH_USES_PG_ARCH_2
+ 	bool
 
 -- 
 2.51.2
