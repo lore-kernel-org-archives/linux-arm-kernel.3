@@ -4,133 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 711C6C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 18:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D69C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 18:57:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YbpCD+8x48H2VPYX3f1hMuWD3/21KX7pgbQ6hcSoDmQ=; b=brZJ1+gz/uLKZTQWjKkr6eq8TO
-	kBLln1uVRlaDmUEVjjLW6JdMNFHrPOl+RSv51MlPTtba3K1zKMXga/NSF3R4SEPEyM/va8uot0TMo
-	SzU5y/IdVKKBuHRilEU1sh6nqvVwxq8f6gB4cAIuAZIW8PtZa+PxIPdEDWmI8F35dc0Fc+C+5vyv7
-	fvRinvyGK6LBYt2dEVFR9ljZn8wB/K60CWrZeZ1Wa3haCxwpIAs+AhVpR7TiQzyh1SXtZJmGe9XZh
-	ZZZjYv28WUTc64EXMbuw63GyXRybSSb5U8cVjJtGcNpj4Q5tHU+9BgWNZCeG6LDNUOWF/jS3sm+Ta
-	+qV/ILEw==;
+	bh=whuvAtbG1XCjSulTSz3f7HvvdGqv5V67h3efiF3CAnc=; b=s8LdUI8zmC7f2j3PrDQERUKCC3
+	jmLq/yhZRioBmtBUANx2lltWe9gJ/ZWw0OFIjPk9oLUEFKUpLeV+Xae+j37qJv6TXsSwQCM+DxPT+
+	kdmGEeoQdGoJQqnnvNnY2rNLT/fLPVSJyZRJAY3xAeHMT93PCSrpZyMSRCLXu/nf1aa11taDWVpMQ
+	WkjzdGSmNvCnUtVlezSSXt3Re/5cZpZVeV4OtYxmmQMb9FNg84xOMQVb0biB6Pm9CKNHZcAYuFswI
+	yOq/mn6zKokAXz/sbpCT+xSWtWmOUCHe2NGisgNgVq4rw747/IqhHbQ73RRuG6eQX6PGwJ5OWWnjG
+	n/ZlBk0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwOwR-00000008Xjk-1HMM;
-	Tue, 18 Aug 2026 18:53:43 +0000
-Received: from mail-northeuropeazon11010016.outbound.protection.outlook.com ([52.101.84.16] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wwP02-00000008XvT-3k2C;
+	Tue, 18 Aug 2026 18:57:26 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwOwO-00000008XjN-01Ba
+	id 1wwP01-00000008Xv7-0dy4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 18:53:41 +0000
+	Tue, 18 Aug 2026 18:57:26 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OUj44oKudnD2m6x92s4p+X7VqiAK0FQiis3ldb5qaCBkJWROOAyeB+83gbjoRr9u8k0UwdgVsif0D6N7yaxQuIcqEpbw2SVrq5juB7B8qGKH5+c3gF0QW+rdvJez43kyXaibcQaOxFChu85IuvUWjuHlEVRSE7lBU33wAjoO1AagGgAMTA04KhYp81puznxKl4FntVDYtVx6YoqaWrriv8dM4bEnj3hbKRZc5+3T58nY1lfIQSMyAKYz1jE367wTmKifPvi07/coQGzNFs2/cbHK3uBNbmuTWfoh9V3pwon0nc4co/Nm6z+OkjbmmsbM03jO4RlnTQ6ssiXcWwb28A==
+ b=doH8w6dipuQsbOGbmmyiJLGcM3zrpMJK24laDVFMktjl97skL0eh33ZZMOVxUQtr15h/Gc1E5kZkWqhfTkcPGfuUMKMJC6aj4Kt135seTOaoP1Z+6o6AyvDNKPEXwWc4BCIerT5pKhoUjn7dRoauR+MY9b0M5qOwRje9BOEKnY3m0Gn+wmSpqbxUIDvwX+ExHeRvl8rn7tkzpdEbOxrezO4ENEHU3/ely+tMYi7C0AethTlyNQyyJpTgP0bktzhleNEeT2tDtwkQDtqsrOAqYXoowWXWLKsrn4tfHtDaM3JA9ofLm9+5IYgvsOkvEF4O32GYJ/WVV5wvkfu5Kl0KLg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YbpCD+8x48H2VPYX3f1hMuWD3/21KX7pgbQ6hcSoDmQ=;
- b=Ndxcx6GZON2cvqMpNRWDKILXvzM6GUWvUO+S5rPB7SmcUsXQoauaM/hb/zwvAyKuAsp0rjR2YFRq0p3e6CfRrV44nAhHMGpV0CL6CwCUOt2x6kJXavC9pMGhqtj74yBCzytYfjIZXeMZhutbQy+Hg83qoce8gecRE2L7X3MHriGxEzwV5sQ6PikkQBI74jo45imEcBtoub/5AU5XyU9Dc6X8QQKUqoco0Zocy9R9TsLhxH649gnRHzYknO4IXUNtPhc+k0Y+LOrQXF/V5xrrhNOCIotVNb51J4iaIuItVnWO5UTT83SFCYYUcyVLVbYi1q77CesJL2xk5tC5tK2JnA==
+ bh=whuvAtbG1XCjSulTSz3f7HvvdGqv5V67h3efiF3CAnc=;
+ b=fnoqN1bTln6XrPTAMVTbs5KKoC73t2lV7/96NagwNC47jEvs25q9H7IQ2KhjOphqnblatwFCuqYiyBlRaVMTBhwZI3rSCYvPaMQq09f5lZeURPMi+HKYRdsmh6ANfKNoTQzvwK6O6ryC5gbsgHUhNb18s3oWfGlAnI74qwVy5PPaLQnihqgVT3W6Jbd3DpPpLBvscKGgpB873T5sCQBObdTJhtSh5SnVPB7dbezvs0fjNdKaLGYHtf0HxugRqeyc4XTT0Kdn+bPVMJAq+e0mSYLpXNV/o6tmD9zE1aJljXhkS3znTXncnst4BOB4wpLdFNP5/p+b6YzEjNFhMeWpMA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YbpCD+8x48H2VPYX3f1hMuWD3/21KX7pgbQ6hcSoDmQ=;
- b=Un08dnkoJP2T1F0wbC2kniU/JArk/AZdX6Afrwo7lIb5jH4jM1Nx9us8chPaZ8/pIYbgpm8X2GODBUB31yNQJYmzzd6p8cL9kaqR0wNUz67Qi9ZM/p1BB+TxAJj3HTRPSPyod9QkSwHVLHUi2q+rvVJ8h9+hbuTWg1XLbIOam0NMsjyqAos/XfAs5I+dsDALU1tsBP3sCrgH5FmwJVDSiXoBuxknIWLkv2p0zTuRQxuelbyk+u4qGpmdSFJAR6d50YSx1UQoDQyHoW+Yuklc8gDJC976wnrZWIftBdJLVFOxsItFDnnLX1+Ohrpv/kNLuZ73uSnuTbLhnRczLc+Vfg==
+ bh=whuvAtbG1XCjSulTSz3f7HvvdGqv5V67h3efiF3CAnc=;
+ b=cs/aDEH2CjYYP0lY8n0k5lt7XKNpcUVykGb/Yy+4B12qQL2bQ6Q65C8YLCbfCllbjietg0Pmm4zRilkNMU9WIYrf70U8sUeBFJGf4PdDjBNG8ZXo7JHMYK0dxDXk5IwL4762fH6MgxmnOPmQkTxp2fy63SetQ+VdB2VOJ0d+RnbjkYIFvVubrUAurjp6nVzGCuVdnsgE9JpYs0J6o7fTk5e9F82uFk7M/CrQfwuWaj229oCj/wHpoaYPvXgD+ruR2UpkXcvZEv6Cux92RH+wG+8pOuTARuIACVn1CptjvwIQDJ580GpMOEGak7y++mMlI/0+00TkG/p++siTqA61hg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
  by PAXPR04MB8256.eurprd04.prod.outlook.com (2603:10a6:102:1c6::6) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Tue, 18 Aug
- 2026 18:53:34 +0000
+ 2026 18:57:19 +0000
 Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
  ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
  ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0339.007; Tue, 18 Aug 2026
- 18:53:34 +0000
-Date: Tue, 18 Aug 2026 13:53:27 -0500
+ 18:57:19 +0000
+Date: Tue, 18 Aug 2026 13:57:10 -0500
 From: Frank Li <Frank.li@oss.nxp.com>
-To: Leonardo Costa <leoreis.costa@gmail.com>
-Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Leonardo Costa <leonardo.costa@toradex.com>
-Subject: Re: [PATCH 6/6] arm64: dts: freescale: imx8mp-verdin: Add Mezzanine
- with Toradex Display 10.1" LVDS V2
-Message-ID: <aoSqJ7pHEgJ_RZmr@SMW015318>
-References: <20260813133335.1941580-1-leoreis.costa@gmail.com>
- <20260813133335.1941580-7-leoreis.costa@gmail.com>
- <an3brO5COdw_F76m@SMW015318>
- <rglymw6p4c65yoqz3pjn6e6nq7cil2fa7m7dqghshgdpavby7d@kyza3ceavq6z>
- <an3tiDOUUYLb8PAq@SMW015318>
- <juuc4af7ndbajcl7gzf4tg5qz2q2j5tt3rvql4jbauradujrre@gc5nbdhhixaf>
+To: Srinivas Neeli <srinivas.neeli@amd.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Suraj Gupta <suraj.gupta2@amd.com>,
+	Marek Vasut <marex@nabladev.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Alex Bereza <alex@bereza.email>,
+	Folker Schwesinger <dev@folker-schwesinger.de>,
+	dmaengine@vger.kernel.org, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	git@amd.com
+Subject: Re: [PATCH V6 1/4] dmaengine: xilinx_dma: Fix MCDMA descriptor
+ fields based on DMA direction
+Message-ID: <aoSrBrOV3ZznZdaH@SMW015318>
+References: <20260818174151.1608971-1-srinivas.neeli@amd.com>
+ <20260818174151.1608971-2-srinivas.neeli@amd.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <juuc4af7ndbajcl7gzf4tg5qz2q2j5tt3rvql4jbauradujrre@gc5nbdhhixaf>
-X-ClientProxiedBy: SN7PR04CA0063.namprd04.prod.outlook.com
- (2603:10b6:806:121::8) To DU4PR04MB11791.eurprd04.prod.outlook.com
+In-Reply-To: <20260818174151.1608971-2-srinivas.neeli@amd.com>
+X-ClientProxiedBy: PH8PR07CA0048.namprd07.prod.outlook.com
+ (2603:10b6:510:2cf::19) To DU4PR04MB11791.eurprd04.prod.outlook.com
  (2603:10a6:10:623::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|PAXPR04MB8256:EE_
-X-MS-Office365-Filtering-Correlation-Id: 48e13db4-c10a-45cc-41e2-08defd5a014e
+X-MS-Office365-Filtering-Correlation-Id: 6fb4a873-5aa5-4980-fecb-08defd5a8761
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|7416014|376014|11063799006|56012099006|4143699003|10067099003|5023799004|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: lWQKVavsPZRhubC+NleYjiKgr6yOqgt2ALoMELyuVMfz96dEjnOhuVGGWqtUae0g1xNj6ORrm8t8jvQPEB20JAYlAlzFviM+/U5k3qI9/hJpkhdSDYckzEf68BEAafLEWwD+vCL8AgFJoeSLT1OryB1SNfF2Qh/f2fJP677kZogMYTx445X9I6avS06bC3mKt0BxzsoqnYuHz74jVAdUQHCclu6ftdPVYcOK3jPWobRal+Zlaux7DbA9rR/V2Gh5F3f/B0SrIMnP9YhxFKzwB9tPAMnl5aegnG3s/xH2VTOSl76qP2XxCOFwhFyUMojir7HDx6+Mp6TakuG5lhSzBZit2LPzl96cpCxqvx8o7pbm0geCu0U9h+pztKxlDtreR6r3Dgar8oJkYXH8e2eiQVJNiwf7wmPLRj4USL92d7mwvopLt1tmK5BQW9Y1b+2iyBzySBawBwXPmQZHg2424sEd+YZM+hujv+DRjLE1wEHSSZilURV0PWCtPOhTopmM5DArLYihaX6IMWnL6ZdT61OSZ7OWX87mF6MXzftKXsdMWLc7SB3mqlrOeTnlOsFTfUcBJzYNQiAFfNhFyozh+eFtbpVhXnADqjNotUwwrp4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(7416014)(376014)(11063799006)(56012099006)(4143699003)(10067099003)(5023799004)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|7416014|376014|23010399003|366016|56012099006|4143699003|10067099003|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: CsBqDj9YsUmbLUVzCpi/zk6brw6epan1cAB4gx38vo+yaoI60uttWXAWTYm/GJ383JkjVUr/DLG6ewg1Tru8Sp/Y4ARCp3TcQO+bhlA2VR9myRWM13tuLPeIxr6hvbXwuWiqlyniUB6Q4ioNN6erFrYDVbrlu2ZVbInu9h+uF22oyGpFWd6kDgjP7RUqc0avlzcMScTqrsw9InzPyuvXacfvkJgNRrm9jX09Dfjx5iR6A8QuQN0F5PHvefFiymdGnTEcoqNPZQ75vTV9ybpBr1jrZPeo/yxZsSAOXr7UQnLaAbFsUsDW5aX9g4RFxwdru9ar7x4kfsGchrptW3vN9fAngRunHwYkH0an8YolTKZCkVLy699IfAIzO8NsMHJ5oTqfmdb+LNhZr/L3ecykK7lgHMl9/P89gdSggjGtIO1gCzklr/Ma3Hb0fU7CYm1G+Q4X7FCPiwPpHT8J3RVLxLztrELPsJ5drhQRXPg9OYi2HtctdiBa5sDdJaIvcqyaF6/WgpQFC2oP0dziiBvvwB45wd6keXSaUAEz1Dyopto8Swbv78GOuvZ2kuAylXft/NzjuOQmxDiknM4zP17h7XvuGEwFSmllNRlX8TZwBkdQbb3OtOwNL8IsC9LkcuFbzkrBby8FAkmW7FSxNmrocO2zWFTl2Swt3gUfisd9I4E=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(7416014)(376014)(23010399003)(366016)(56012099006)(4143699003)(10067099003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NHvju5Ro6hQ7/c1k5J35XWnfZaU3PgWKRZUkxi2wuPWXVAdXrss0c0xaq7jp?=
- =?us-ascii?Q?YTvhLSQCTLA5gg+Ei/f9SEmRqVncZrEs4Gy+W+wblqiIMBEWEi9lks2WqOec?=
- =?us-ascii?Q?leeWRGdrYqdtxNM87/mMr4cU1Ze6pwO06wnQ8DSU8uTdbObVrtFWOTBzNNMf?=
- =?us-ascii?Q?h1yAQC0Cryl3KpAKJf8bdb7AtuxaLJ9GNwNcTZTxaFj8sLe0K4txfwS8AWjM?=
- =?us-ascii?Q?mT6EH9RJ5GGQ3qiYc91OdPn8f2c+AAFkM/I96onRfUZZ6NJUPSBsmiuXJex/?=
- =?us-ascii?Q?DsbCl15Ao1TRdHNSvUiCiIRiRZabtQLO8VoHxM5KQIV+pbxTwjB9bekyYIXe?=
- =?us-ascii?Q?yysfpXt3x+XHE/3N7rcUBAoDP48yrbJCVZSLIyJeunx74G1FacyzN7FsbT5y?=
- =?us-ascii?Q?Wc2COyGJZ+1BGu0Xv6AgiRjvBE3bdiySewJDyX90dVIdl3QYzvTnx/bMY3xz?=
- =?us-ascii?Q?BPmjpXWJVYHqC+sws4wwV2hLPU8sOpYzqcguV5sZFzoftw7W/gjr8csdGb71?=
- =?us-ascii?Q?qcLft/RfMnQt7fytswwEAzAUXJGkry/h9ryff2hjl808wPJI8iRRz+bx2Jy1?=
- =?us-ascii?Q?LvB+X6MKav3y23sq4w69gwXOTy0MwM/8peyx3aCM2DB5AhUYOQ1Jw0xz3L6z?=
- =?us-ascii?Q?KTExGXJ7QSjirJepIEGgw3xoVeXzMc3OfwEnvnBYwJ20WHIqHxhq83FzWk3U?=
- =?us-ascii?Q?LrrImx+7e8HRTR6CNnlkCYwrQOK/YhmFok9guoUitpl11AbbaCYbCrgcNVaB?=
- =?us-ascii?Q?EkQ7fUYj3G1Y+pzuOpoWVKDygTZF32R7lrKGnN3RaOzqQINQ3g31ft7Dvzzj?=
- =?us-ascii?Q?fHpMIr0v0mq4s3B0b7trwQg4s+NnX5ZE4XktTBtjbnsZ4oZJXIYP3tWwYegT?=
- =?us-ascii?Q?EEV1jb1Cv91v8gnDIKndvB1RomreeUiHdZKtInLK9ibDAfxe+ylkH2G4iQ7v?=
- =?us-ascii?Q?eMLma2h8D839UtUhliy9LIS/ZCLb8JNufqxdjQgjVVZdhcRjDe1p9XCzpq/L?=
- =?us-ascii?Q?CNOfS+RmCK5t7XD4E2ZUweYF6OUzjmyyteXfZSd2bKi51uTPNOf1O4EqmDm4?=
- =?us-ascii?Q?Q3npfa7KoNNBSr330ZTZ0JkkokiygKoi8EeMJcpVlV7ipQ0SfuEDPG9B5rvu?=
- =?us-ascii?Q?k18iO1dROlOR/X0WajdA93Tdf1K3j+PblAp+JRczkJGAUyZjMHpl9Lzv73s2?=
- =?us-ascii?Q?PN0IBiyYmlKI6uBVUQyb6YjRYTPg4a2KNbXhXDZbhSM5GCkuYSz1jXaQJ9cI?=
- =?us-ascii?Q?tb9KOUyHdw1YGnKi8cPUbfvJPplQJkwmhwXOIR0YscOOyMQ3gbb4NWpardET?=
- =?us-ascii?Q?rqvlRwbH2O+3zuqLro592GXnQUumRZY3J5eNBeFefIHiz511JdSolsmn0s57?=
- =?us-ascii?Q?XyDBUhHijc7MKMf/PrxkzZwuhd23YJ0MM4GmHPQ0dPauWDUGqpjXlCG9yrbr?=
- =?us-ascii?Q?suGiyQU4et1JloP2GKs8Ylg8F0B2ecSoW3RbJAedeCkfH7Hh5dmn1L9SvlN1?=
- =?us-ascii?Q?EMrRFh1CA+RNXdLBpe3CY4TlXNIiyGoku7DrnAoojVjfyDuo2RVKeSU4vKU8?=
- =?us-ascii?Q?xeQGvwnZHVC1h5f+EGA2CG3oqWC318Cu1yen6kkuZs8KeOuVNJAcR9NAIrus?=
- =?us-ascii?Q?6pEHz6tXtfUQVo3XOeeUTCB8+w7Dn1FA7RouP6JX30Z0USmXcP46add7Yi6f?=
- =?us-ascii?Q?PG4j1b0bk1saiEDpwlIWTkrGY1x/0OB2tF7ByJMeoXwiXlf2CFxjQe/42u87?=
- =?us-ascii?Q?xbwF+m03cEzy06pyGhhurEKrQv035DiVM9EZywAbaSl/ou0dnxPx?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fk0GFx6Ks0EQZiymtpmJ0LpfuvMKkG3jNOuyuCRRzU4Jz2MNFi2MRmLuXhyM?=
+ =?us-ascii?Q?jVenrRqqjSSB4i5QgK91A+YYpNHeEC00Z5poX4aNjgNBTJ2jfgC7Pwg/cbkF?=
+ =?us-ascii?Q?zI7B1lmBiMjFdaq3Gkj0j8orCPzWrdNPbsUYnxQBdhWTW1592NIePOH6yF3t?=
+ =?us-ascii?Q?oOKr+eAHX/pheTET0lB3oUJjYXfOkgg33udv2J6xv8ebiEVXNmCgxWkZrHoJ?=
+ =?us-ascii?Q?B7cKi/j/e6Ys53frYcXtEnMyJAjgN/tzQ0ouB5vTFgoE4D68T5mbDPEF4VQe?=
+ =?us-ascii?Q?XQVmsa7AGd4xHUR05ZqOecHaJeIelI2AgWmRpFNh3Da3oXp8m1DtyydTN9pT?=
+ =?us-ascii?Q?u5qpdkn6vnuPq/NAMcPU/j6WuMsbUIFUgqIyzy2awrILMJUlMkg6OHimsxGU?=
+ =?us-ascii?Q?XwoYH2mw34u1lKGbouye+OT6DNqsvVDTlKfNEz1KmIKNoAnw2jjRfR5iT7f8?=
+ =?us-ascii?Q?8bEfz3OABljIMWbhozx/w7a2/MdYOaCxHAmtfluyu0E1hicjJ/4Iq58crJUR?=
+ =?us-ascii?Q?xCTPxZ/wW54TS6w7e5W+tACpcVERUjn6gWI4Az8Ef3CtZ6ec1zcH5DjZebS9?=
+ =?us-ascii?Q?y57Sx0S4iVcOFfREHynAvT3x8ylbr0i4uFsFj2+2bUtKo/FpidfZJiImPRga?=
+ =?us-ascii?Q?CNuxlUtWtuZkmwEOwvqSO7VC1Y5uEGl2SKHc0Z4j84vLVpLRhgnetrE9oGZP?=
+ =?us-ascii?Q?oNGl4kLn+220gsOky1gwxZAv26Jv9BzPfRXRfnNz3OwOR4Z9kcTosOpmcI1z?=
+ =?us-ascii?Q?0LuDjWIFMfxVEwxXgDTjevjmJsGi2UPbQdVGxt9e619hA0HV9SZJwPSh9pRC?=
+ =?us-ascii?Q?814EinO9Eo9goE3QeEAk4ThabCdFGA5VzUkKQ9V3HvHQ296rVj12M+OJtcnF?=
+ =?us-ascii?Q?rlHuzWKe5OihUXh2zATUsGPzAKLNQ7noWyh+hEfB74UX0IdyjM0X1izCgZ49?=
+ =?us-ascii?Q?8kGH1gRCzQY+zhlYJ9+Tsc7agCoMuE8M18AV6+nVPDisnI4+kB8ly64gVkZQ?=
+ =?us-ascii?Q?c4Ucy/U81yLtClvyayQ0zoDVoJJZVwWVeeFrIRncYRVb6nmmevPs3u9Lv7e6?=
+ =?us-ascii?Q?YEiM+w3Cm6XkRaQqaARwyeXUS2w+WwPyyF/jZCW6tF9fMLj1Yx2EMlqwlrl1?=
+ =?us-ascii?Q?JYqVtq6OgwkQorSuyf04tORraOL77H2D/SjC0ZXjvRRjcdyZmBa+t/on+Ro8?=
+ =?us-ascii?Q?8l7Y99Ucrs5rIkh9pAo0lg+y/DYKt8Y/i87BJLR/c4mVwi6fm/Kus+KT5O1j?=
+ =?us-ascii?Q?ejp369/EsAXo2kIlA8kLKnnVLzcMohQsJBdLMHUySJcqq1DiFyZLhDmDlmim?=
+ =?us-ascii?Q?2zFmYLyHuOhpVeassWnniXYIdDSEmH09PyuLw+2YoSjZ/JSkV0Bj1LiK6ij0?=
+ =?us-ascii?Q?wwWSz5NxR9oLDT6Ky25kevNmAYQnCaccRI5G5I03jI2ONpYRj+FnHcnezohq?=
+ =?us-ascii?Q?8wYIZ46g/0sYwUDxGDGu7JrDfSkzv1lZyX5jR7p9TZV/3rwTLnO00+2Y/Uso?=
+ =?us-ascii?Q?e5XlROTqvIS25eM/lfEXbnYWV0rSTlHRU0Kdlh8Fgt/B8P0/49BC2VLSxxBk?=
+ =?us-ascii?Q?oqyN6yb0sjyVhreRp0zVMW5C7c6o3vtyX6diEbwxK6viYNQkqEFProW4N5SM?=
+ =?us-ascii?Q?cwvRh91FmoJ4iOhE4AToSQlAcqNVZ56v+kq3NiCzgTV7qszTBsrO/Ne6O6oy?=
+ =?us-ascii?Q?YYUoMoi7EO9F3+a8mTA8T0Gb7138tIOLOxU6nOntl2s0ltU1uaMTNE58ZP5s?=
+ =?us-ascii?Q?zczYPjff9nguXO3ky0WTWK5AXyqE9/0yXy3ovmLAOUVgZMCmaUy+?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 48e13db4-c10a-45cc-41e2-08defd5a014e
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6fb4a873-5aa5-4980-fecb-08defd5a8761
 X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 18:53:34.6854
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 18:57:19.8519
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IpVCyP3B1eVswe8OXYcxV52uJ1RyFNlbJnkCGqKlf9VMd+sReqexyjUmwYcRBcsHj8Hcl/2DEfa9Qx3ADVRvdCkpwmmDD8BaxBRlzM2xhRJcrx2dbYZ9N72VEckKiW3G
+X-MS-Exchange-CrossTenant-UserPrincipalName: SP9tkrdX+X4ghMMtPG/m4MnWNbIWgvM8F5b1b8yxGoba1IBk3snhS8TI3UjD8Cbxv+xlEzwDJgdFFlJDoN7PzLc1lkwRglEPDvOq8QLHkiWncLmNfpDXCBMJNTNIzjRP
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_115340_225414_5DC5A675 
-X-CRM114-Status: GOOD (  46.76  )
+X-CRM114-CacheID: sfid-20260818_115725_207621_F35B9182 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,215 +150,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 03:08:33PM -0300, Leonardo Costa wrote:
-> On Thu, Aug 13, 2026 at 11:15:04AM -0500, Frank Li wrote:
-> > On Thu, Aug 13, 2026 at 12:43:29PM -0300, Leonardo Costa wrote:
-> > > On Thu, Aug 13, 2026 at 09:58:52AM -0500, Frank Li wrote:
-> > > > On Thu, Aug 13, 2026 at 10:33:35AM -0300, Leonardo Costa wrote:
-> > > > > From: Leonardo Costa <leonardo.costa@toradex.com>
-> > > > >
-> > > > > Add a device tree overlay enabling the Toradex Capacitive Touch Display
-> > > > > 10.1" LVDS V2 on the Verdin Development Board with Verdin iMX8M Plus
-> > > > > Mezzanine expansion board. The panel connects via the i.MX8M Plus LCDIF
-> > > > > on the Mezzanine LVDS interface (J10). The panel is an Opto Logic
-> > > > > SCX1001511GGC49 10.1" WXGA TFT LCD LVDS and the touch input is provided
-> > > > > by an ILITEK ILI251x capacitive touch controller.
-> > > > >
-> > > > > Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
-> > > > > Link: https://developer.toradex.com/hardware/verdin-som-family/add-ons/verdin-imx8m-plus-mezzanine
-> > > > > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
-> > > > > ---
-> > > >
-> > > > what's difference with Add Toradex Capacitive Touch Display 10.1" LVDS V2
-> > > >
-> > > > why not share one dtso?
-> > > >
-> > > > Frank
-> > >
-> > > Hi Frank,
-> > >
-> > > There are two main differences:
-> > >
-> > > 1. The mezzanine one uses different backlight controll pins, so here we
-> > > use the 'backlight-mezzanine' node, instead of the 'backlight' one, used
-> > > in the one without the mezzanine.
-> > >
-> > > 2. The touchscreen GPIO and interrupt pins are also different with the
-> > > mezzanine board.
-> >
-> >
-> > And there are for imx8mm
-> > https://lore.kernel.org/imx/20260724-v1-verdin-imx8mm-dtbos-v2-3-9d7988bd76f6@toradex.com/
-> >
-> > https://lore.kernel.org/imx/sr26lfvwasgcosfzcf4ydtwxwjjutlio2yqpgxldatpzjo7e4y@77k7gefnjzvl/
-> >
-> > Any ways, it is too late for 7.3, we have enough time for 7.4 to discuss
-> > work on optimization solution.
-> >
-> > If use nexus connectors, we can share one dtso now if there are not
-> > clock settings.
+On Tue, Aug 18, 2026 at 11:11:48PM +0530, Srinivas Neeli wrote:
+> The MCDMA BD format differs between memory-to-device (MM2S) and
+> device-to-memory (S2MM) directions, but the driver was using generic
+> 'status' and 'sideband_status' fields for both. This led to incorrect
+> residue calculations when the hardware updates direction-specific fields.
 >
-> Hi Frank,
+> Refactor the descriptor structure to use unions with direction-specific
+> field mappings, and update the residue calculation logic to select the
+> correct status field based on DMA direction.
 >
-> I tried implementing the nexus connectors in imx8mp-verdin-wifi-dev.dts, and
-> modify the Mezzanine overlay for the LVDS V2 display to do an initial test
-> (diff with the changes at the end of the email). They worked partially, but it
-> introduced an issue where the drivers come up much later.
+> This matches the hardware descriptor layout and fixes incorrect
+> residue reporting.
+>
+> Fixes: 6ccd692bfb7f ("dmaengine: xilinx_dma: Add Xilinx AXI MCDMA Engine driver support")
+> Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
+> ---
 
-Thank you for working on this.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-> Before, the drivers
-> relevant for the display (in this case, LCDIF and the touch controller
-> specifically) came up at around ~8s. After introducing the nexus connector they
-> come up at around ~20s, after the board has already booted (complete logs at
-> https://paste.debian.net/hidden/81acfa7d):
+> Changes in V6:
+>  - No change.
 >
->     [   21.008400] input: ILI210x Touchscreen as /devices/platform/soc@0/30800000.bus/30a30000.i2c/i2c-1/1-0041/input/input3
->     [   21.014785] [drm] Initialized imx-lcdif 1.0.0 for 32e90000.display-controller on minor 2
->     [   21.029634] Console: switching to colour frame buffer device 160x50
->     [   21.029823] imx-lcdif 32e90000.display-controller: [drm] fb0: imx-lcdifdrmfb frame buffer device
->     [   21.031376] imx8m-blk-ctrl 32ec0000.blk-ctrl: sync_state() pending due to 32e30000.dwe
+> Changes in V5:
+>  - No change.
 >
-> Was this behavior observed before? It may have not been noticed, since the
-> drivers do come up at some point, and it may not be an issue for other
-> interfaces, or they may actually come up earlier in other cases. In our case
-> this is important though, since visual feedback from the display is expected
-> early.
-
-Understand, we have not notified this problem before.
-
+> Changes in V4:
+>  - Added Reviewed-by: Radhey Shyam Pandey.
 >
-> It seems that the drivers are being deferred at boot start by the
-> device_links_check_suppliers() function. It runs through the drivers before
-> they're initialized and defers them if their suppliers are not available. The
-> GPIO and PWM drivers are able to follow the gpio-map and pwm-map properties
-> (through the of_parse_phandle_with_args_map() function), but from what I see,
-> device_links_check_suppliers() has no such mechanism. It follows the phandle to
-> the nexus connector node only, and since there's no compatible driver for it,
-> the function defers the consumer drivers used in the overlay.
+> Changes in V3:
+>  - Renamed subject from "for MM2S vs S2MM" to "based on DMA direction".
+>  - Reworded commit message for clarity.
+>  - Added XILINX_MCDMA_BD_HW_SIZE macro and static_assert to verify
+>    descriptor size at compile time.
+>  - Refactored residue calculation to separate addition and subtraction
+>    operations for better readability.
 >
-> I think this is what is happening mainly because setting the
-> fw_devlink=permissive kernel parameter (which sets the DL_FLAG_SYNC_STATE_ONLY
-> flag) solved the issue, though I could be misunderstanding something.
+> Changes in V2:
+>  - No change.
+> ---
+>  drivers/dma/xilinx/xilinx_dma.c | 26 +++++++++++++++++++-------
+>  1 file changed, 19 insertions(+), 7 deletions(-)
 >
-> 	int device_links_check_suppliers(struct device *dev)
-> 	{
-> 		...
-> 		list_for_each_entry(link, &dev->links.suppliers, c_node) {
-> 			...
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+> index bef2b031dba1..2319101be778 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -223,6 +223,7 @@
+>  #define XILINX_MCDMA_IRQ_ERR_MASK		BIT(7)
+>  #define XILINX_MCDMA_BD_EOP			BIT(30)
+>  #define XILINX_MCDMA_BD_SOP			BIT(31)
+> +#define XILINX_MCDMA_BD_HW_SIZE			64
 >
-> 			if (link->status != DL_STATE_AVAILABLE &&
-> 			    !device_link_test(link, DL_FLAG_SYNC_STATE_ONLY)) {
->
-> 				...
-> 				device_links_missing_supplier(dev);
-> 				ret = dev_err_probe(dev, -EPROBE_DEFER,
-> 						    "supplier %s not ready\n", dev_name(link->supplier));
-> 				break;
-> 			}
-> 			WRITE_ONCE(link->status, DL_STATE_CONSUMER_PROBE);
-> 		}
-> 		...
-> 	}
->
-> Has this behavior been observed before? Do you know of any work being done that
-> addresses this?
-
-Does a dummy container driver (for debug) to proof your analyer?  Let
-me to find time to debug it.
-
-Frank
-
->
-> See below the changes that I made for this test, relative to my last patch
-> (only a draft):
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds-v2.dtso b/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds-v2.dtso
-> index b78322907192..4aa1c407af3f 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds-v2.dtso
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds-v2.dtso
-> @@ -21,9 +21,19 @@
->  #include "imx8mp-pinfunc.h"
->
->  &{/} {
-> +	backlight_lvds: backlight-lvds {
-> +		compatible = "pwm-backlight";
-> +		brightness-levels = <0 45 63 88 119 158 203 255>;
-> +		default-brightness-level = <4>;
-> +		/* Verdin GPIO 4 (SODIMM 212) */
-> +		enable-gpios = <&lvds_native_connector 1 GPIO_ACTIVE_HIGH>;
-> +		/* Verdin PWM_2 (SODIMM 16) */
-> +		pwms = <&lvds_native_connector 0 6666667 0>;
-> +	};
-> +
->  	panel-lvds-native {
->  		compatible = "optologic,scx1001511ggc49", "panel-lvds";
-> -		backlight = <&backlight_mezzanine>;
-> +		backlight = <&backlight_lvds>;
->  		data-mapping = "vesa-24";
->  		power-supply = <&reg_3p3v>;
->  		height-mm = <136>;
-> @@ -53,13 +63,6 @@ panel_lvds_native_in: endpoint {
->  	};
->  };
->
-> -&backlight_mezzanine {
-> -	/* Verdin PWM_2 (SODIMM 16) */
-> -	pwms = <&pwm2 0 6666667 0>;
-> -
-> -	status = "okay";
-> -};
-> -
->  /* Verdin I2C_2_DSI */
->  &i2c2 {
->  	#address-cells = <1>;
-> @@ -69,10 +72,10 @@ touchscreen@41 {
->  		compatible = "ilitek,ili251x";
->  		reg = <0x41>;
->  		/* Verdin GPIO_3 (SODIMM 210) */
-> -		interrupt-parent = <&gpio1>;
-> -		interrupts = <5 IRQ_TYPE_EDGE_RISING>;
-> +		interrupt-parent = <&lvds_native_connector>;
-> +		interrupts = <1>;
->  		/* Verdin GPIO_2 (SODIMM 208) */
-> -		reset-gpios = <&gpio1 1 GPIO_ACTIVE_LOW>;
-> +		reset-gpios = <&lvds_native_connector 0 GPIO_ACTIVE_LOW>;
->  	};
->  };
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi
-> index 72a4f846d694..1103da3d34ba 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-verdin-dev.dtsi
-> @@ -4,6 +4,28 @@
+>  /**
+>   * struct xilinx_vdma_desc_hw - Hardware Descriptor
+> @@ -277,8 +278,10 @@ struct xilinx_axidma_desc_hw {
+>   * @buf_addr_msb: MSB of Buffer address @0x0C
+>   * @rsvd: Reserved field @0x10
+>   * @control: Control Information field @0x14
+> - * @status: Status field @0x18
+> - * @sideband_status: Status of sideband signals @0x1C
+> + * @mm2s_ctrl_sideband: Sideband control info for mm2s @0x18
+> + * @s2mm_status: Status field for s2mm @0x18
+> + * @mm2s_status: Status field for mm2s @0x1C
+> + * @s2mm_sideband_status: Sideband status for s2mm @0x1C
+>   * @app: APP Fields @0x20 - 0x30
 >   */
->
->  / {
-> +	lvds_native_connector: lvds-mezzanine-connector {
-> +		// NOTE: Placeholder name, no binding for this yet
-> +		compatible = "tdx,verdin-lvds-connector";
-> +
-> +		#gpio-cells = <2>;
-> +		gpio-map = <0 0 &gpio1 1 0>, /* Touchscreen reset GPIO */
-> +			   <1 0 &gpio1 6 0>; /* Backlight Enable GPIO */
-> +		gpio-map-mask = <0xffffffff 0x0>;
-> +		gpio-map-pass-thru = <0x0 0xffffffff>;
-> +
-> +		#pwm-cells = <3>;
-> +		pwm-map = <0 0 0 &pwm2 0 0 0>; /* Backlight PWM */
-> +		pwm-map-mask = <0x0 0x0 0x0>;
-> +		pwm-map-pass-thru = <0x0 0xffffffff 0xffffffff>;
-> +
-> +		#address-cells = <0>;
-> +		#interrupt-cells = <1>;
-> +		interrupt-map = <0 &gpio1 5 IRQ_TYPE_EDGE_FALLING>, /* Touchscreen interrupt */
-> +				<1 &gpio1 5 IRQ_TYPE_EDGE_RISING>;
-> +		interrupt-map-mask = <0xffffffff>;
+>  struct xilinx_aximcdma_desc_hw {
+> @@ -288,10 +291,17 @@ struct xilinx_aximcdma_desc_hw {
+>  	u32 buf_addr_msb;
+>  	u32 rsvd;
+>  	u32 control;
+> -	u32 status;
+> -	u32 sideband_status;
+> +	union {
+> +		u32 mm2s_ctrl_sideband;
+> +		u32 s2mm_status;
 > +	};
-> +
->  	native-hdmi-connector {
->  		compatible = "hdmi-connector";
->  		label = "X37";
+> +	union {
+> +		u32 mm2s_status;
+> +		u32 s2mm_sideband_status;
+> +	};
+>  	u32 app[XILINX_DMA_NUM_APP_WORDS];
+>  } __aligned(64);
+> +static_assert(sizeof(struct xilinx_aximcdma_desc_hw) == XILINX_MCDMA_BD_HW_SIZE);
 >
-> Leonardo
+>  /**
+>   * struct xilinx_cdma_desc_hw - Hardware Descriptor
+> @@ -1015,9 +1025,11 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
+>  					   struct xilinx_aximcdma_tx_segment,
+>  					   node);
+>  			aximcdma_hw = &aximcdma_seg->hw;
+> -			residue +=
+> -				(aximcdma_hw->control & chan->xdev->max_buffer_len) -
+> -				(aximcdma_hw->status & chan->xdev->max_buffer_len);
+> +			residue += aximcdma_hw->control & chan->xdev->max_buffer_len;
+> +			if (chan->direction == DMA_DEV_TO_MEM)
+> +				residue -= aximcdma_hw->s2mm_status & chan->xdev->max_buffer_len;
+> +			else
+> +				residue -= aximcdma_hw->mm2s_status & chan->xdev->max_buffer_len;
+>  		}
+>  	}
+>
+> --
+> 2.43.0
+>
 
