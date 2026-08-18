@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C2F0C5DF74
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 14:12:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1938C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 14:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zbamYU/DplPGG5Sdc1uS9ux2xcERNC2JNIHH6b3u4g0=; b=R0KAUl7lABpDS6enWQVJuEc00x
-	XkFP5pCfZVmb2Q9m2CEr7m9HfsDUfILlpvKWXpIfGYo1Avq8d7VeLHK9WutYv8NRsTI2uLs6VF3uZ
-	/bZ/h0dFg1WzrpkKI8PrVJJbcsTGHGgopE1X1wtSs5hc9nd+9E9/9J+9dllGfdkq+DWpegsTsDWeZ
-	wdFqOk61L1YmXgKOgqBhhQ9a8N0fws4DZNkOP/JTzKF0XdAkIGhXEW92ERRtxhD4Oc3ueFddT25FP
-	XrCaIXXkVt5pq4aOQnOSdZeaLXrqNyaY/UmJVctlpVzxc4kqyO8NMNAr20IPxCit8ZfWMYTYLJZ9d
-	XBwVcabw==;
+	bh=+MHm+BE45gld4PlAAsx6bWNk1naCvu52znLRb6ksdbg=; b=eV0F+AOoda3+SGiY3E8qXBRx1T
+	SysMdstZEBjRjAOb33v8tTeQkOkkpMd+Zl+VcXU76nQSoRbg02rEtmzO/0rWuuhzQNP3TK2a3oiod
+	6ZEOpGsBCqAsHHaqJF2JI663E7MSDzA4b5pPCBmGc8xio+lmCqoBNL+7cchc+BnTVaSvAmzCTIJHl
+	Lv5okLq6kj98aNrkCCsez9ZanqQM+sWMjoPXWr60bjllwqzZi0FqS9BgOED8cTo+NjYANCTOue4c6
+	K5AB74iDpOgs1zBRbpBnkFnnLhPsihd57zupV4iRa1hEc2EwHzw89v36LZnoNxvYoMuKV0a7RAUuB
+	m0A5ONcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwKXz-0000000871u-3mTR;
+	id 1wwKXz-00000008717-0Ncw;
 	Tue, 18 Aug 2026 14:12:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwKXv-000000086x5-41Pz
+	id 1wwKXs-000000086uu-1Oci
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Aug 2026 14:12:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01F7F19F6;
-	Tue, 18 Aug 2026 07:12:03 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0549E19F0;
+	Tue, 18 Aug 2026 07:11:58 -0700 (PDT)
 Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.2.208.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3F3733F85F;
-	Tue, 18 Aug 2026 07:12:02 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 44C6F3F85F;
+	Tue, 18 Aug 2026 07:11:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787062326; bh=FCGum1rTAVPaw3kfR73YNYjOCQm2+TowdZAQ4naswfQ=;
+	t=1787062321; bh=g5SIlfhNFVkGHqg4H9aglJHNTgTJdaH8G/qaojIJDnE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KM8LyCZXFoj2SvWeg4FGMfVfyTECIs2/JVcKP3TzZ0xStyDKLjYaZ0cR3odPlKCOW
-	 R89GcnDMSAgmVu93FnpXq8LTI0wIc11PuL9ccaEFetP2FTKbixbLItiNQx18OmKuYC
-	 ZCRu1Xf/noLdgQMlvM5rFelQT89YHjYdnkE4JLMY=
+	b=L6cdEA/BISwr7ZGYF7a704NDGC+im1GJ4f75VGUu82/h16AtX1OuAwGlV9RZIL3iN
+	 wTHwhWRwouSCgqYNm4ZyME8nNT67p8y462FT1X4IqDkxZcqIp22QV7Zj6C5AZrcJVC
+	 0QT5qi2+96d67Gn0ORmwA+Bs/665rZSZ2l3fkU0M=
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-Date: Tue, 18 Aug 2026 15:08:51 +0100
-Subject: [PATCH RFC v9 09/25] arm64: Enable kpkeys
+Date: Tue, 18 Aug 2026 15:08:50 +0100
+Subject: [PATCH RFC v9 08/25] arm64: Initialize POR_EL1 register on
+ cpu_resume()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260818-kpkeys-v9-9-743ad31b2c8f@arm.com>
+Message-Id: <20260818-kpkeys-v9-8-743ad31b2c8f@arm.com>
 References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
 In-Reply-To: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
 To: linux-hardening@vger.kernel.org
@@ -72,16 +73,16 @@ Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
  linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>, 
  Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787062276; l=1824;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787062276; l=1238;
  i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
- bh=FCGum1rTAVPaw3kfR73YNYjOCQm2+TowdZAQ4naswfQ=;
- b=cWs9/HhYQLlTOWcxsFeqRjaQ1YfUuLMxMTT+5dNmHs0vj2L1unepwEAB2wJrTYv+tdehkAoM/
- zD6D9oE2xVzBMNqlw/+Y7ieQRDluBuS3dfwZyC+BdW4UgNNENLR2FpS
+ bh=X72DCdJX2SxlqX4hafcg68D9WxF9xj/CvQA2EQYYzDc=;
+ b=JseJqSnqWF5VwY3b78AO3x1orBPCnLTkOtj4V+MVgokgLhHzhQg+2ITqTTwUd1hYOxGHqUo2+
+ WvBZb5/1pbMB6iiTfbLpaiRifOp3NpBGNVSiTnRWAfpIlMiCzYd4ZBz
 X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
  pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_071208_470824_8C653153 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20260818_071204_503941_EE84A943 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,56 +97,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the final step to enable kpkeys on arm64. We enable
-POE at EL1 by setting TCR2_EL1.POE, and initialise POR_EL1 to the
-default value, enabling access to the default pkey/POIndex (0).
-An ISB is added so that POE restrictions are enforced immediately.
+From: Yeoreum Yun <yeoreum.yun@arm.com>
 
-Having done this, we can now select ARCH_HAS_KPKEYS if ARM64_POE is
-enabled.
+The POR_EL1 register is reset to an unknown value after cpu_suspend().
+Since POR_EL1 always holds POR_EL1_INIT when entering cpu_suspend(),
+initialize POR_EL1 with POR_EL1_INIT before cpu_do_resume().
 
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/arm64/Kconfig             | 1 +
- arch/arm64/kernel/cpufeature.c | 5 ++++-
- 2 files changed, 5 insertions(+), 1 deletion(-)
+ arch/arm64/kernel/sleep.S | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b3afe0688919..0afa085c66be 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2202,6 +2202,7 @@ config ARM64_POE
- 	def_bool y
- 	select ARCH_USES_HIGH_VMA_FLAGS
- 	select ARCH_HAS_PKEYS
-+	select ARCH_HAS_KPKEYS
- 	help
- 	  The Permission Overlay Extension is used to implement Memory
- 	  Protection Keys. Memory Protection Keys provides a mechanism for
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9a22df0c5120..4f2f54007ed6 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -76,6 +76,7 @@
- #include <linux/kasan.h>
- #include <linux/percpu.h>
- #include <linux/sched/isolation.h>
-+#include <linux/kpkeys.h>
+diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
+index f093cdf71be1..e0a6ad85cd24 100644
+--- a/arch/arm64/kernel/sleep.S
++++ b/arch/arm64/kernel/sleep.S
+@@ -3,6 +3,7 @@
+ #include <linux/linkage.h>
+ #include <asm/asm-offsets.h>
+ #include <asm/assembler.h>
++#include <asm/kpkeys.h>
+ #include <asm/smp.h>
  
- #include <asm/arm_pmuv3.h>
- #include <asm/cpu.h>
-@@ -2463,8 +2464,10 @@ static void cpu_enable_mops(const struct arm64_cpu_capabilities *__unused)
- #ifdef CONFIG_ARM64_POE
- static void cpu_enable_poe(const struct arm64_cpu_capabilities *__unused)
- {
--	sysreg_clear_set(REG_TCR2_EL1, 0, TCR2_EL1_E0POE);
-+	write_sysreg_s(POR_EL1_INIT, SYS_POR_EL1);
-+	sysreg_clear_set(REG_TCR2_EL1, 0, TCR2_EL1_E0POE | TCR2_EL1_POE);
- 	sysreg_clear_set(CPACR_EL1, 0, CPACR_EL1_E0POE);
-+	isb();
- }
- #endif
- 
+ 	.text
+@@ -134,6 +135,17 @@ SYM_FUNC_START(_cpu_resume)
+ 	/* load sp from context */
+ 	ldr	x2, [x0, #CPU_CTX_SP]
+ 	mov	sp, x2
++
++#ifdef CONFIG_ARM64_POE
++alternative_if_not ARM64_HAS_S1POE
++	b	.Lskip_por_set
++alternative_else_nop_endif
++	mov_q	x2, POR_EL1_INIT
++	msr_s	SYS_POR_EL1, x2
++	/* isb can be skipped since cpu_do_resume() will do it. */
++.Lskip_por_set:
++#endif /* CONFIG_ARM64_POE */
++
+ 	/*
+ 	 * cpu_do_resume expects x0 to contain context address pointer
+ 	 */
 
 -- 
 2.51.2
