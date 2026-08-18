@@ -4,126 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D81C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 16:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4270C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 16:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GWOh8RTHXjkPqP/CHlYEZ+S/aDn4KEimDkU8VaXgG18=; b=YEIOo+thOdgcnWPlie8v9QiusF
-	nOiljbwBAX6g73YKJfclNLMJAs/+tvF7Cx5wL//72gGhto8qXNkfUfQ8NAMLEFBXInFwNqXwLHoHN
-	PSouBqEMpdipUM+U3ybmjNdmFOTRSkSmfewhM1O/aHnL1m1XRIT6O12i+FFnqf8XSMm6oEr+6ZW92
-	bI0UxG/MZRRaunou0WM2lmrx//rETqSO9/GHJDoFsCfWuKrNquenzB+F83tAyNOx75pkX3vURIyHs
-	mglYRReL4bhZK1+eue2Q1xEF7sYEsdYmBcKNXNXV44ne3d5KGv38O4G0zJl0sC6hda3359rCBnkD3
-	Fork2icA==;
+	bh=7Y7qqLPkyUuMi6qyL5GxK2thHtwUGv3GHWTN3DmEezQ=; b=PzFmCaa0Vzi6Wj/wCXr11S6qGy
+	6uDeElT5hv497LurHbb7acM8e1eCTKxNVxfRI0VkULQNeAM+wjlQlPa+SYMv+u75VpDCEMJ9pDugT
+	cdWJsK64llzhwGwYUs2ip+dqb3Um6UnanGz3gjzMixu6k2GviSZLJptaHo7mMPrBG6DFp5EbcxMfO
+	XqnQ1BSkeq6ktKraV5bDAezeUXKkbgwN6naIUrywZmRInV1iTX3qugnAqASHCxHjUGwZQyfwkpjyy
+	3JMuoqua7BGt+WK+lAIet1cnmzcIKNUPbQcyP/S6eoeyEkZ6E1gf+J0mkKsBFfmjk+vcBmZrmBW33
+	PiNAWLCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwMcV-00000008L6c-0Qda;
-	Tue, 18 Aug 2026 16:24:59 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wwMcw-00000008LFp-1Elo;
+	Tue, 18 Aug 2026 16:25:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwMcS-00000008L5W-3BZP
+	id 1wwMcv-00000008LFW-0Ssm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 16:24:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CaSUtE8kAeJeOz1pPsXojkWrKsjW1Us8mAa1zww+4mqM5Eu1cbXM+4obfRUYwhqqvLJXV1G4JU/zQ6ls2fB317qNm0FTPldR+FpaCUsp0V4YZRzl+6/KVnoFB1R2SAZJH+jbdaNzboAxYDEmWaDJd4BXtDfZtbUHgni+7hEQDVrc47ihJltLdfoyDpVK07WNGNQD+RGElmcmp6MgILxV83pr2MFovIsYnMZEYKSGTH8KDE/qsO1+gcGvyOCLlkg8pgEZDajrsdYevVO6wkZg/UbWV/CTiqR0uckjvfuvcLzTBsTEdnTPXlVndYiiV8m6zdY+jhvE0dZ09aRxf43xSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GWOh8RTHXjkPqP/CHlYEZ+S/aDn4KEimDkU8VaXgG18=;
- b=gN9CXhl4ijDXeKvXC5b47VVEqhGxDNQnY7NWmE3Hc83VJtkpxCwjAnrJhrPtBIgP7C6l9L4oeaB6eBk0lEFbjRXpqcIO/kg5bMStAiBJ+oJiCAPnYvms80tSU53bplgv7nGfeJ03JddxX6VduOY5eI1euWATvEiFXuSUZOdIy3fNdR39LbGak9le3O5J1ZbcMx4I+JkWDHBErKtd00tmU4LkSKvyc2yDsGCLHDUN+2QqB+fzuY+sSUDhyLbXLrLAiGcI3lGzBwEuc5sFI08fzJn1qObmV5D/NDxUpHUFiJ9vbA90OSfvYQMFNDDtohwYSnFCS8bYx2d5Yx0C+Zz4hw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GWOh8RTHXjkPqP/CHlYEZ+S/aDn4KEimDkU8VaXgG18=;
- b=K4NBqjWqd4wlpq0GWV5gaSC7ClDkvWqs0pXgU9MI8H61BwBhxFEqCX041N16+cF1v7Y+NVotW48Evz9qecZ/y/YJ5j4gv+ypj+G8nL57yFqZGVAvyyRxmpQ+elpRymu7PjLQ26Ul2YRUN+RjTdkMohex2dwoF7REr9vaRl6q2RZvFsGk/9qkUv88k7CMAPWQ+oZFubT+RnXV/QzeIGtyHO3CLS8YIWBjZ0xggfAHkVqu7mp6yVnfVHLmZGUztCcBc6up0rxLbg6WKd68pg/PeHt21xWBYjiyFB4HuXOaKMvPSHrKyLVwtsftUPMINR6FEXhjpxqGJAtAlruZxvC6XA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GV1PR04MB9055.eurprd04.prod.outlook.com (2603:10a6:150:1e::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Tue, 18 Aug
- 2026 16:24:50 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.016; Tue, 18 Aug 2026
- 16:24:50 +0000
-Date: Tue, 18 Aug 2026 11:24:43 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Jiawen Liu <1298662399@qq.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: Re: [PATCH] irqchip: irq-imx-intmux: fix runtime PM cleanup
-Message-ID: <aoSHS7OwvNt9-6Ew@SMW015318>
-References: <tencent_62C095FCF52245E6900FBA2E4E008042BF08@qq.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <tencent_62C095FCF52245E6900FBA2E4E008042BF08@qq.com>
-X-ClientProxiedBy: PH8P221CA0049.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:346::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB9055:EE_
-X-MS-Office365-Filtering-Correlation-Id: 140f7895-75df-4be5-694e-08defd453a28
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|376014|10067099003|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 8kxAN10HT+jmP96dJwy9bQ9KlyNhtWjdynKxtnZWFQBYezJ4Y1Bx53KFhKI+WnJr0XqtI9zmxkJnJzbNLLiV5XCTqIMrYYXIjT3wU9GEMk6jjfW1H+KYJPOnPI8s5lrCLMAFuKVQNlzUj5hWhhm6sfvbLSRGzQwTtO+pC5z21PgVF5N/Sc5meWQhERPEqOnt+8beCUV1S8P/Q5JKtH5P0GDHM7Kh3DZ2cpKv8F/fu0GedUAogr18rkzKYr1i+8aywbtUuC5V8RaHNN2dzDSEjfCKgcqbCkHGiQHuuA5pYiHzqrHe4yhc79CzKyqpn1eHYnSQRqjctkrg7cssq14URmZyUfhZvuc5jvS+hDbyF98vq7Ym1+aWbqI0mdgsVz9F9hQgsPb680Ui+vvXPfhLT5i73p3B9btQQNggv3R4invPMGr3Mo3pskPyXI038Tify5jGHyxbqpFK7n/R3AXiLQHljYtutNqK1mkWQ8wAWHxcu/dlFV0bYzdMgAS/dULZX1lLaJkadntTi9a91x5/FDXCqaXV4gFn8uPh72Q+y9fe5tYelbS/aj9UepYWtI3/GDwaj476Jw1oCD+l7lkDsESCG5zg6bBZlmYCjuArheZmkdzKW+qHDwuLBVpDnRIw199cgordkjN9qEKgeC2Dq9w6bR5MViNaJpbfEcPYiQA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(376014)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aQ+OshI7t1iU4h4ZN2fcVUoj38M3LnzpEBbM0i2SvorVeirKyOQnlM/Wqxpq?=
- =?us-ascii?Q?gSGSg0mWrrxfyXHXTMrmKbeZ4NRqp7fUjXFN1AMvzEhd0SXwDusg/t/Jov6f?=
- =?us-ascii?Q?mVj45RxhVR/Xc9kGFBdbjkavHRUokICf3gCp4iL5xkd+XZty06+LJVp+c109?=
- =?us-ascii?Q?fcIx6CdpMYJhDeGwMYx0PPWsiXOapz6E7qUIO29b7DEtLVAd7O1B4Il9uszA?=
- =?us-ascii?Q?4M1R4ZqGbiXPPEJjUFmrUZqcI290vT9DTun6fUr3hjS6afjbnfcuR/qajpCJ?=
- =?us-ascii?Q?Q3oeOTm1x7Gb/ZSPMEKLXVZ5Xqi7nVr/jKOeGVrVnmXPT9G6XCPLpBMVx2FW?=
- =?us-ascii?Q?n3L4IaXs4ZpTu+UjGcP/ighP1b36yTceAWn1JP8zUzjdpgGdmu8kO5Q6XCrv?=
- =?us-ascii?Q?mRy5KCK+gSppj8Ti/At1PV634cO3I7yLGyuZZucNyyy/YaKspY+IccPZgf/v?=
- =?us-ascii?Q?z2RuBpZvk3aGLnUkSusfOxtQ6kpMzdx2ykzLolTUYRPXvGXhF3hI0wVnd7Gh?=
- =?us-ascii?Q?MIcu0k+cCtZMzomERTvENhFF4vQfk/ThIg6kVT1EJCQda+x+BDxmb2m0Ii1Y?=
- =?us-ascii?Q?dOX7AVDVNKRGnmUejvgGuGcR6OSsQybe+vh0Y686938ypkh+1OGMq0SZu64m?=
- =?us-ascii?Q?7v/nBYGG2pWzus8HyF2zI3DSXwqa91t+3u1WG4bcNWYiLJ5jzLZ46z3K4Nrn?=
- =?us-ascii?Q?Jw2PxTeIfPS6KzbxavsQfS+9nmbFF2zfXoTuhwSB2Co6kntXCAqpDtTEKL8J?=
- =?us-ascii?Q?7N+wWih/vOppyAjnPWSuMkFLnZFt+MFp644aACndPJoc1ZW6RCElCvS3TaV9?=
- =?us-ascii?Q?jLXb9r+p9Vf16I5pj+3EOe3QfWMhcEGe8EE1lUOxGXOBRz5RYQ1GFYTW/tnz?=
- =?us-ascii?Q?XzLiiZ4AguIB4c6G3V4/e2lbsfrlmxKkyoDkDI1OnphKH74qrshwFvJS+Kal?=
- =?us-ascii?Q?oJ4pa2xK640tPK99X1jF7FxF+VG7jtWhJ7Qv3AeP6EaaqBe+adSWs1LeMYQI?=
- =?us-ascii?Q?OqBHrlaPmpiCo8kIPQgmS9ZzKBzg8/tOoPASFJgn1pHwVmlg1ibz74wf9G2q?=
- =?us-ascii?Q?MMDB5ASbBlKj1Zy484ayhVcNwwgAGfjnVf6y96p7WuDLyNXT2G94kl3EyZx6?=
- =?us-ascii?Q?unknC+qXZSJIJ+dVF3ii92M1rjS3BKRMZQgAg4DMcaefa1Y5W2pc3zScEu5G?=
- =?us-ascii?Q?RSU3wnk9Q1nsYsgfks8fN0jVnEmZ2OQYU2aGgpOGKmUz3jjwhuRSiLvI5iNz?=
- =?us-ascii?Q?PJN0F66Amm7bEjw+ER/ZZGpZVZyXq1+q4PaCTjmIUyJj7bKUwiih4UbNVfYb?=
- =?us-ascii?Q?aEEAG/Uh5VNbCwVfIdMu8fg/VjjmO/UegoD0YvCIj7UJ+nVHkYpUa1cEcIlE?=
- =?us-ascii?Q?OUoBQA/wcHb9HeDxY/T4UlOB1CwMQI4YO10z6JMNQ8VK+Koodais4+IF7wFL?=
- =?us-ascii?Q?0KJeUGRhyeRJRhmQ7i0YS1a3iP6st+lAbQcE6IqzSRAGZDtqS5QYfYFbzPzU?=
- =?us-ascii?Q?bL3VsURWIV7r6Tg+Qo+Tbaden6dEei9WBu3q8wIVPRmNH7r/NmvH6a+NNYmM?=
- =?us-ascii?Q?GpDtWQxaKWI6dsjlSIic1nqtsB75nKE2h8cjDA6ADBJK9Z9FNFLjWmETQeY2?=
- =?us-ascii?Q?7cXnIYTT2c6wjjeiQQAM8+DYCeNuW0lp/v7enMUueDnk6wvzcPj9C9prhr2J?=
- =?us-ascii?Q?/PZnflz+lfrPuITnfIF5KHDRWkoG0VwrYCNU3C1A1+KGbg9z07ZA2YZW1RC0?=
- =?us-ascii?Q?FpnkEsS3HJSbahdRGSOINZcgQd/vetst4pGpuRhMDENlyNmyTZvW?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 140f7895-75df-4be5-694e-08defd453a28
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 16:24:50.6348
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dZqp3AW6kUi4PmKUQa+ooyLRFNguXM5a7akv0VQekJParVUrsqv3rjGFuzR/GVSU3R1prVziI5w2UM975RpZJxVAxcMV464tDASqHNJRzgZUc5SfLSHoEkvyzUSrU0gk
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9055
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_092456_814988_588EB30F 
-X-CRM114-Status: GOOD (  12.05  )
+	Tue, 18 Aug 2026 16:25:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CD9164171A;
+	Tue, 18 Aug 2026 16:25:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABCEE1F000E9;
+	Tue, 18 Aug 2026 16:25:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787070324;
+	bh=7Y7qqLPkyUuMi6qyL5GxK2thHtwUGv3GHWTN3DmEezQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=i96ySK8irJGN7kDYSuR6/cyVpTEYRyD3PKF3scrOjjIRHJ+N2kjkfZ6fIZ+bheu/D
+	 ASWOhbis+NFeMN1heh2njYn5ieZr8Y5YihY+SfAoDMBwJK3mU4fd+mLxs78wF1grzb
+	 IEkJeah/FmcJxhBCAWWrPYngt8B9vVtAd+52gzP0iY1lLLhHpNoNmgXq/ZRGoMjGPF
+	 OBEmA8pM4o8B+Ht8nnkZ++bK2iyypb/sJi8eC+sHnRAdte59oB73SURtIdq7XyDynN
+	 aV05OG+tiyBlMPX8TFzSMfvLMBoKKyby+7HP6DQWmOWkSZ3AblzsrzCat/yBwFIiM4
+	 G1SR5rgls4D8w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wwMcs-0000000GhVj-1n64;
+	Tue, 18 Aug 2026 16:25:22 +0000
+Date: Tue, 18 Aug 2026 17:25:21 +0100
+Message-ID: <867bln5rbi.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v6 10/33] arm64: Share arm64 headers with s390
+In-Reply-To: <20260818140901.21865-F-seiden@linux.ibm.com>
+References: <20260812153631.3376090-1-seiden@linux.ibm.com>
+	<20260812153631.3376090-11-seiden@linux.ibm.com>
+	<865x1e17kb.wl-maz@kernel.org>
+	<20260818140901.21865-F-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, seanjc@google.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,46 +113,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 05:21:08PM +0400, Jiawen Liu wrote:
-> Fix imx_intmux_probe lifecycle error path.
->
-> Probe enables runtime PM and clock. Failures after clock enable only
-> disable clock and leak PM runtime reference/enable. Clk cleanup is
-> incomplete because PM runtime state is left enabled/ref held on later
-> probe failures.
->
-> Balance runtime PM setup on imx-intmux probe failures in
-> imx_intmux_probe.
->
-> Signed-off-by: jiawen <1298662399@qq.com>
-> ---
-> diff --git a/drivers/irqchip/irq-imx-intmux.c b/drivers/irqchip/irq-imx-intmux.c
-> --- a/drivers/irqchip/irq-imx-intmux.c
-> +++ b/drivers/irqchip/irq-imx-intmux.c
-> @@ -240,6 +240,8 @@
->  	ret = clk_prepare_enable(data->ipg_clk);
->  	if (ret) {
->  		dev_err(&pdev->dev, "failed to enable ipg clk: %d\n", ret);
-> +		pm_runtime_put_noidle(&pdev->dev);
-> +		pm_runtime_disable(&pdev->dev);
+On Tue, 18 Aug 2026 15:09:01 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
+> 
+> On Thu, Aug 13, 2026 at 02:19:48PM +0100, Marc Zyngier wrote:
+> > I'm curious about the reasons for skipping a bunch of architectural
+> > helpers:
+> > 
+> > - kvm_vcpu_trap_is_permission_fault()
+> we need the s390 state for this function -> we overload it
+> the only use is in shared arm64 code for is_write_fault
+> > - kvm_vcpu_trap_is_translation_fault()
+> > - kvm_vcpu_trap_get_perm_fault_granule()
+> > - kvm_vcpu_abt_issea()
+> as s390 mm works differntly in comparison to ARMs (suprise :) )
+> we do not need those
+> 
+> 
+> > - kvm_vcpu_sys_get_rt()
+> I'll add using this function in the next series (sysreg enablement)
+> I can do that now - It reduces the churn to the next series.
+> 
+> > 
+> > I really think you should include anything that is exclusively derived
+> > from architectural state, specially that these helpers are strictly
+> > dependent on stuff you already include.
+> > 
+> > Any particular reason why this isn't the case?
+> 
+> These functions operate right at the border where the s390 architectural
+> state (host view) and the arm64 architectural state (guest view) meet.
+> 
+> Especially, for the memory management of the guest we need to use
+> s390 based guest memory management (gmap) as the host only knows s390
+> (+SAE & friends to actually run an arm64 guest)
+> 
+> The s390 host work here is to convert the s390-state into arm64 state
+> for the guest. e.g. convert a s390 translation fault into a data abort (if
+> applicable)
 
+Exactly. Which is why I was expecting that the s390 code would
+populate the copy of the ESR_EL2 register in the vcpu structure, and
+let the arm64 code do the talking. But evidently, that's not what is
+happening (or at least not that way).
 
-use devm_pm_runtime_enable() to fix this problem.
+> 
+> The code in the second series should make this more
+> clear. As we now are clear on the code-sharing concept I will sent a
+> respin of the second series using the new sharing approach ASAP.
+>
+> 
+> > 
+> > >  static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
+> > >  {
+> > >  	if (kvm_vcpu_abt_iss1tw(vcpu)) {
+> > > @@ -546,6 +556,8 @@ static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
+> > >  	return kvm_vcpu_dabt_iswrite(vcpu);
+> > >  }
+> > >  
+> > > +#endif /* ARM64_S390_COMMON */
+> > > +
+> > >  static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
+> > >  {
+> > >  	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
+> > > @@ -587,6 +599,7 @@ static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
+> > >  	return vcpu_read_sys_reg(vcpu, r) & bit;
+> > >  }
+> > >  
+> > > +#ifdef ARM64_S390_COMMON
+> > 
+> > Similarly, you have dropped
+> > 
+> > - kvm_vcpu_set_be()
+> > 
+> > - kvm_vcpu_is_be()
+> > 
+> > I suspect that your implementation is LE only (it'd better be, as
+> > we're dropping BE support right now), but it would make a lot more
+> > sense if you could rely on the guest architectural state (which must
+> > be accurate) rather than short-cutting things in your own
+> > implementation.
+> 
+> Yes, you are right we are LE only. Therefore, I defined the function to
+> false such that the compiler/linker can optimize-out unreachable code.
+> This is true for a couple of function-shortcuts.
+> 
+> I would like to keep it that way if this is no show stopper for you.
 
-Frank
+Not a show-stopper, but I think we'll eventually want to work more at
+the architecture level rather than solely at the "code sharing" level.
 
->  		return ret;
->  	}
->
-> @@ -282,6 +284,8 @@
->  	return 0;
->  out:
->  	clk_disable_unprepare(data->ipg_clk);
-> +	pm_runtime_put_noidle(&pdev->dev);
-> +	pm_runtime_disable(&pdev->dev);
->  	return ret;
->  }
->
->
->
+I expect it would make things a bit simpler to follow.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
