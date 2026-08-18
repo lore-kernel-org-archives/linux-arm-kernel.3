@@ -4,51 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6652C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 15:55:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B14CC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 16:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oib1sAGemzHmu6ROtRkEHyhCtwDTicVNKskycatCaao=; b=r0ht1/IsqE10inxiDId/TGLqyC
-	NIYytp9QmzHCeIeivLTKk9QmB9SvKwjuPlQa7ki2k9lbddyaWATpMGSeFsIVh6sVBKMGx2HdF7frU
-	689MEXTL2DtR5se+q1OU9uRoLpM8RHUPqu7TCYfKRXp+oHKVoZe8D05nnVAZ9FeekdVAMZ38cq2wW
-	g5Wiq8lhGfCScTpW5E43+QzwtirF5gCr90mnZvR9qK6S4eTRT4vTohz8Rn5XSgz7Rf1r0unL7Ob9W
-	t6H9rohQp5jJax99x6hadT+CUusigpnd7gABwElIQVY0AbfB8qpgpUS9xqFZhRSLLbBYWcvJHgnGS
-	hYyzcdkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UgrJJhQc/4e7NnJYwwwc6uJ+1vo6VfZ5bWm04iyllPY=; b=nCNkTgRtYzqqQkue+3vu/cupnr
+	QjcVe4p1DBZZDPTxM22iZRTikfgpYb7ALPgqqyMa9iEMajzAxkcjY2pm0KeGbuibDye5k5TI5tVXy
+	jSR59LGRjUjJ3Wd0jR8Wn1cx6Gta20uT7cji/msTZCeRMvCXsPnZbArnV+4/ZGEXSQy/oi2l+qzCw
+	+aIMXdx0r5D6tFnlINswMj/SB+4FZAOMetSnxmBpNiwfPcik2dccmGFl2r9ivB4Adqq5tAV8n2lXY
+	Q14boEmoGr2CIdHJMfESQNbSg7jR/OUEOT/YsbsEKBu7ZRcS+RlsViVDLuQaMMh2ZIahPDN8y3FJx
+	Yz4egu5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwM9i-00000008JCg-2A5j;
-	Tue, 18 Aug 2026 15:55:14 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwM9g-00000008JC7-1PPo;
-	Tue, 18 Aug 2026 15:55:12 +0000
-Message-ID: <916c4bd5-c73f-466e-8e9b-aee9d4d7d742@infradead.org>
-Date: Tue, 18 Aug 2026 08:55:11 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/12] drm/panic: Move panic display code into helper
- library
-To: Thomas Zimmermann <tzimmermann@suse.de>, jfalempe@redhat.com,
- javierm@redhat.com, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- amd-gfx@lists.freedesktop.org, rust-for-linux@vger.kernel.org,
- linux-hyperv@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, nouveau@lists.freedesktop.org,
- linux-renesas-soc@vger.kernel.org, virtualization@lists.linux.dev,
- sashiko-reviews@lists.linux.dev
-References: <20260818125012.468092-1-tzimmermann@suse.de>
- <20260818125012.468092-12-tzimmermann@suse.de>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20260818125012.468092-12-tzimmermann@suse.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	id 1wwMKj-00000008JlH-0gJ5;
+	Tue, 18 Aug 2026 16:06:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wwMKh-00000008Jl0-46VC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Aug 2026 16:06:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D13D9601DE;
+	Tue, 18 Aug 2026 16:06:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84BFA1F000E9;
+	Tue, 18 Aug 2026 16:06:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787069194;
+	bh=UgrJJhQc/4e7NnJYwwwc6uJ+1vo6VfZ5bWm04iyllPY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=G93aZ46lsZnhmzymQMOvP8OGaz3ngAwqRS6s3U3nTzxkfsRRZ+ZyDXYD548mY+ooz
+	 XvLssf9mIg+c59peoFQwxAZhXKxZoKEGJlyfivBI0L5OgGojkTiSXWnah38Gi6WWX8
+	 Ov+VG+lIRWhAt//OukxR35gEOjanQKPnLBqnau8P001DH3bMs0JwqavuS1LZIIxeLB
+	 FKKjAloBj2SXLRAF0t0yUkROWW1T9C+w8Gr6jSXBq8PXL4kIctNKGG5PB4NU3lteLE
+	 JuN4N0tsC86lBNmqa2X2RImisHyIkqtFI9ueQQm0hnem2eRwvM4YzziUh6yuF3YOig
+	 XpKlTILzla2fg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wwMKe-0000000Gh5W-2L5E;
+	Tue, 18 Aug 2026 16:06:32 +0000
+Date: Tue, 18 Aug 2026 17:06:32 +0100
+Message-ID: <86bjaz5s6v.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] KVM: arm64: vgic-its: Don't save collections the table cannot hold
+In-Reply-To: <CA+EHjTy90YP8dzUy724VQ7vzVusr+mGocFxyHoQZ2c4OJnpBcQ@mail.gmail.com>
+References: <20260807104102.2410744-1-fuad.tabba@linux.dev>
+	<20260807104102.2410744-4-fuad.tabba@linux.dev>
+	<87ecg9owwa.wl-maz@kernel.org>
+	<CA+EHjTy90YP8dzUy724VQ7vzVusr+mGocFxyHoQZ2c4OJnpBcQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, sascha.bischoff@arm.com, sebastianene@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,45 +92,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, 17 Aug 2026 19:21:24 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> Hi Marc,
+> 
+> Sorry for the slow reply, I was away.
 
-On 8/18/26 5:28 AM, Thomas Zimmermann wrote:
->  M:	Hans de Goede <hansg@kernel.org>
-> diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
-> index 323422861e8f..cdfd72d9a9c5 100644
-> --- a/drivers/gpu/drm/Kconfig
-> +++ b/drivers/gpu/drm/Kconfig
-> @@ -45,6 +45,7 @@ config DRM_MIPI_DSI
->  config DRM_KMS_HELPER
->  	tristate
->  	depends on DRM
-> +	select DRM_PANIC_HELPER if DRM_PANIC
+No worries.
 
-but DRM_PANIC_HELPER depends on DRM_TTM so
-DRM_KMS_HELPER should also depend on DRM_TTM. Otherwise:
+> 
+> On Sat, 8 Aug 2026 at 09:09, Marc Zyngier <maz@kernel.org> wrote:
+> ...
+> > > A guest that disables the ITS and rewrites GITS_BASER with fewer pages,
+> > > VALID still set, keeps every collection it mapped against the larger
+> > > table: KVM stores the new BASER unconditionally and frees the list only
+> > > when VALID is cleared.
+> >
+> > But isn't that the *real* problem? Shouldn't we instead nuke the
+> > collections entirely and go through a reload sequence?
+> 
+> Agreed, that is the problem. The fix belongs in vgic_mmio_write_its_baser().
+> 
+> Should it drop everything, or only the collections that no longer fit?
+> On a shrink in place the low ICIDs are still in the table. Or is no
+> realistic guest doing this, so the simpler rule wins? I can do the
+> unconditional drop if you prefer.
 
-WARNING: unmet direct dependencies detected for DRM_PANIC_HELPER
-  Depends on [n]: HAS_IOMEM [=y] && DRM [=y] && DRM_TTM [=n]
-  Selected by [y]:
-  - DRM_KMS_HELPER [=y] && HAS_IOMEM [=y] && DRM [=y] && DRM_PANIC [=y]
+Whatever is the simplest thing. I don't think it is common to update
+the BASER registers (Linux certainly does it exactly once), and if
+that means there will be a small hickup on things like kexec handover,
+so be it.
 
+Thinking of it a bit more: the format of the table is not architected.
+So a write to the register with a different value is allowed to result
+in data loss (for all the guest knows, this could be a linked list
+starting from the last page...). So purging all collections (and
+therefore all mappings) would be acceptable, as there no guarantee
+this is now fit for purpose.
 
->  	select FB_CORE if DRM_FBDEV_EMULATION
->  	help
->  	  CRTC helpers for KMS drivers.
-> @@ -130,6 +131,10 @@ config DRM_PANIC_SCREEN_QR_VERSION
->  	  Smaller QR code are easier to read, but will contain less debugging
->  	  data. Default is 40.
->  
-> +config DRM_PANIC_HELPER
-> +	bool
-> +	depends on DRM_TTM
-> +
->  config DRM_RAS
->  	bool "DRM RAS support"
->  	depends on DRM
+This would make both save and restore succeed, and be really quick!
+
+> > > Validate each collection against the current table with
+> > > vgic_its_check_id() and return -EINVAL, as vgic_its_save_device_tables()
+> > > does for devices. Collection IDs are unique and the collection table is
+> > > never indirect, so the check also bounds the walk.
+> >
+> > I think returning -EINVAL here was a mistake, as it aborts the save
+> > procedure that userspace should be able to issue reliably, even if
+> > that means the state is crap. I don't think we should expand that
+> > behaviour any further.
+> 
+> Fair enough. Either way the check goes with the fix rather than being
+> expanded: MAPC, MAPTI and the restore path already validate against
+> the current table.
+> 
+> vgic_its_save_device_tables() is harder: with an indirect table the
+> guest can invalidate an L1 entry without touching GITS_BASER, so that
+> check can still fire. Skip the device rather than fail the save?
+
+Skipping the devices that fall into an unmapped page looks fine. After
+all, the guest is messing with itself, and I have no sympathy for it.
+
+Thanks,
+
+	M.
 
 -- 
-~Randy
-
+Without deviation from the norm, progress is not possible.
 
