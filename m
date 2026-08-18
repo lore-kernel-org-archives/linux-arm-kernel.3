@@ -4,88 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5073DC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 15:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D932C5DF7E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 15:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=s7RalJYalhKRrVNBaQlM89E87+WKo3l/uYGYbpKf1t4=; b=YUKdVObNTHzRj20LKeEvsaVEvI
-	I0/L0jvnZUeIcoJuDIkRk3FYmJVb+zJUI+/r4CgxabqAEEpBrqYorSMmnH9IjV44fzyGoxP1CU6bL
-	Zi1s7Dn7PVHro6GrAMwiyt3jkR/i/ZOrWoSIBrFzfg55e4MdSXosv7Dhbh2FWTxq1jfEPaoZ5f7yF
-	Bs8m5/j7Jva0Jqh/iHbiQfHmkkdQ2Fcm/fqJlAZvCgRGfkCXMiZAn2ZMxS5Iunq2HEdfofAVzVgsG
-	jZnFSfnSzSlwkMAoeBFexzZ0Xt6ZX4g+AY9fxcqutRNAvsHsnrb6z+NEOm4630nqeK6NnX2SBgiq4
-	yPVDdAKQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pdPRxrEVxkRTnxbxy0G0Bkwkh+T7ymPVpHD7pAR7Pis=; b=GU0MTMhadbwS8WXrnDmTjZLVMO
+	tnTPg9yG1G8Lp+Z5Grt2MY/agebzt0dlsm0QRhD2hbpS/Si20xKOpJaoevMm+CJXdWRChsn37Lm0f
+	WQtVenm36jnxvGibuZ7gyT1ieMDdYJ2up1YhLYH/evW5PhB2/6JRwIv0j7r2WqOotl9XqYuvuGc0r
+	K7XJEFzRnOX9IoH0rVcFZ6hvUHtVOGYhLNjPyXwH8eeW/FPhRu+6SK6EkJDlA41D7YpfJ1zkUvKZZ
+	7GgzHzmbEm7JvtH6cyPo/gUv6qihc+2L9imKzy8L/ZJv7fWit0u3q2a8S525IXvT8kNY2h7rYg+kf
+	+hwl/xJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLPC-00000008E4G-0qPZ;
-	Tue, 18 Aug 2026 15:07:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wwLPO-00000008E9t-1Ji6;
+	Tue, 18 Aug 2026 15:07:22 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLPB-00000008E3K-0d6x
+	id 1wwLPM-00000008E8G-1UHZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 15:07:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4DFDC600AD;
-	Tue, 18 Aug 2026 15:07:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id F167BC19425;
-	Tue, 18 Aug 2026 15:07:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1787065628;
-	bh=WvhBurIy8A9u46LETLcI/MhJB6dhjgHJNOfnkpO39yM=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=ua7GKg/n78G+6x5wGqpZWztUUBV/90+g6Hn+TSh/UyxK66rCPQbRMiY/AFqVVyxm4
-	 fsDRuc+TBTz5sFux0axgOWdoNqwdT4zGM2WgyPEERm/WNZzFNbhg2qq2EOHyrE6y6N
-	 ykwnTFZk70+XwTSrSAUwFh4XsOZI0F6S/DN2lMytCkIeeIMShJXRfDiTPb+cFX1QC2
-	 D2MEpKcAD89Jl+/7b6ViF8P2aoyrNwZXofno1ytxSeELQc0U4pkM0iqZLxh6ZdRQzg
-	 7KnhZPw+9cfueCLg9U1hLX5LS2psCMjo4DSHDat5roRyuQUdmvxTIdoj1OHlhTjyy6
-	 nytrus6OZPx/w==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C32F4C5DF7E;
-	Tue, 18 Aug 2026 15:07:07 +0000 (UTC)
-From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
-Subject: [PATCH v2 0/2] chipid: samsung: exynos-chipid: Add Exynos5515
- ChipID
-Date: Tue, 18 Aug 2026 16:05:41 +0100
-Message-Id: <20260818-for-next-lucky7-chipid-v2-0-28ae49f5c349@member.fsf.org>
+	Tue, 18 Aug 2026 15:07:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=pdPRxrEVxkRTnxbxy0G0Bkwkh+T7ymPVpHD7pAR7Pis=; b=HJDwoHnu3Lv5yPBl2QlpYWnyja
+	0lc9+AOiFMWkuC81qlWE4K869ndtt3h3JzViNs2AVgGp75Ielx8YIvI+ykbucFWEHSCTS0mrcSmxW
+	Lu3PN/KRU5qISeg6NbwJk72o3e3lqbPZFo948aIVDxZWWNu/GG+ySJlJnuzdoCeuBrOk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wwLPC-000UDp-I8; Tue, 18 Aug 2026 17:07:10 +0200
+Date: Tue, 18 Aug 2026 17:07:10 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Zxyan Zhu <zxyan0222@gmail.com>
+Cc: maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
+	richardcochran@gmail.com, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	muhammad.nazim.amirul.nazle.asmade@altera.com
+Subject: Re: [PATCH net-next v3 2/2] net: stmmac: dwmac-socfpga: mask
+ XGMAC_TSIE during cross-timestamp
+Message-ID: <b53e9ebc-64c3-4291-a691-5b7ddd118cc5@lunn.ch>
+References: <20260818132722.1852876-1-zxyan0222@gmail.com>
+ <20260818132722.1852876-3-zxyan0222@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAMV0hGoC/3WNyw6CMBBFf4V07ZDSyMsV/2FY2GEKo0JJCwRC+
- HcB49LlSe49ZxWeHJMXt2AVjib2bLsd1CUQ2Dy6moCrnYWSKpFZFIOxDjqaB3iP+FpSwIZ7roA
- Q6ZonmCU6F/u5d2R4PsX38st+1E/C4bAdi4b9YN1ylqfo2P0i6b/IFIEE0iqXWSpjlFXRUqvJh
- cab0LpalNu2fQAyn4+L0wAAAA==
-X-Change-ID: 20260815-for-next-lucky7-chipid-ecce496c86b9
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Aiden Isik <aidenisik@member.fsf.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=966;
- i=aidenisik@member.fsf.org; h=from:subject:message-id;
- bh=WvhBurIy8A9u46LETLcI/MhJB6dhjgHJNOfnkpO39yM=;
- b=owEBbQKS/ZANAwAIAUknAbLEetfrAcsmYgBqhHUYUQuzBprixPTgcy8Al2eiWPDlLC/auEuGJ
- b7rFNdrS7mJAjMEAAEIAB0WIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCaoR1GAAKCRBJJwGyxHrX
- 68O5D/9JadzwC6VB9ScxAL+6S15RFJRmpF8VOn9qdwnh1WYZ/VKTrD9Muug4e+F9O/nVw36zojo
- 6vo5AtQFlGMkvcJgMVQIPmjvdgq0YvbSkAwwDrmdJjW8U6GgGo04uFo/HbXBgCfqR+0F3srM3b8
- vlDvy9MKBTNkapfZqRINJj9oMp1fxL4Oi3YiFNC4s5Vv/Bjlek56JSmnreByfg+I3vZ2Sqw3L4k
- ioG6UdUdqxO1oAOiXZ++aLIsNdLot68PYvGwK8eYmvn5okRrqlJ7V/lalAqt9CuqgHgebX8+iwq
- yhWAjBsYFGklIxSZzNdY+83NKI7adh1eNTHLVXSSL6K3zfxzxCWAKb5IQM9PNcPEDwlFautb2p9
- EGJ4RY3tkQlR4lq89e0XzsXdKVqR/FYFR+Juy7wYc8iIr6EM3s2z78DS/3++RNkzRSSKYpTSbwX
- fKIS92m6rJrkvaKeUfQy4U2GyHpMzlFLJUlgBahOdlIULWtw71lgx2FZXdh60NV5Qil0Tx7aDP9
- dACgSMQ1ua0uVicja8Nn8t0S+2cqh8uB25btvPiKL7vaIhgiBHziDmnr6XiRSUqNJxTFlg0m92n
- 8OonV5m3McfqvKK17kuRw18g0r3IVV52n0BY22TYPW6hZU/G3abqiC3J++y4pkSU1Ne9kJ6GjXI
- 8qviN7VZfUqd1hQ==
-X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
- fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
-X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
- auth_id=956
-X-Original-From: Aiden Isik <aidenisik@member.fsf.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260818132722.1852876-3-zxyan0222@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260818_080720_399813_BA3B55EB 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,37 +72,27 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: aidenisik@member.fsf.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi there,
+On Tue, Aug 18, 2026 at 09:27:22PM +0800, Zxyan Zhu wrote:
+> The Agilex5 smtg_crosststamp() handler arms an internal auxiliary
+> snapshot, toggles GPO0 and then polls XGMAC_INT_STATUS for TSIS in
+> process context to learn that the snapshot is ready.
+> 
+> Once XGMAC_TSIE is unmasked (done by a companion change that enables it
+> in XGMAC_INT_DEFAULT_EN), the DWXGMAC2 timestamp interrupt handler runs
+> from hardirq on every timestamp event and clears TSIS by reading
+> XGMAC_TIMESTAMP_STATUS.  That read can win the race against the poll
+> loop, which then times out and makes PTP_SYS_OFFSET_PRECISE fail with
+> "Wait for time sync operation timeout".
+> 
+> Mask XGMAC_TSIE around the snapshot trigger and FIFO read so the hardirq
+> handler cannot clear TSIS while smtg_crosststamp() owns it, and restore
+> it on every return path.
 
-This patchset adds support for the Exynos5515 SoC's ChipID to the
-ChipID driver, and documents the samsung,exynos5515-chipid compatible.
+Did you look at the other system which implement crosststamp?
+dwmac-intel.c? Does it need similar changes?
 
-Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
----
-Changes in v2:
-- Correct capitalisation of "Exynos5515" in commit messages
-- Reword documentation commit message
-- Link to v1: https://patch.msgid.link/20260817-for-next-lucky7-chipid-v1-0-eb2908705c0d@member.fsf.org
-
----
-Aiden Isik (2):
-      dt-bindings: hwinfo: samsung,exynos-chipid: Add Exynos5515 compatible
-      soc: samsung: exynos-chipid: Add Exynos5515 SoC support
-
- Documentation/devicetree/bindings/hwinfo/samsung,exynos-chipid.yaml | 1 +
- drivers/soc/samsung/exynos-chipid.c                                 | 1 +
- 2 files changed, 2 insertions(+)
----
-base-commit: acde40ba506aae78633e080b5704d33cf4bc13c6
-change-id: 20260815-for-next-lucky7-chipid-ecce496c86b9
-
-Best regards,
---  
-Aiden Isik <aidenisik@member.fsf.org>
-
-
+	Andrew
 
