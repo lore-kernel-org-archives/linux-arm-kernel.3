@@ -4,101 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4270C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 16:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F8CC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 16:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Y7qqLPkyUuMi6qyL5GxK2thHtwUGv3GHWTN3DmEezQ=; b=PzFmCaa0Vzi6Wj/wCXr11S6qGy
-	6uDeElT5hv497LurHbb7acM8e1eCTKxNVxfRI0VkULQNeAM+wjlQlPa+SYMv+u75VpDCEMJ9pDugT
-	cdWJsK64llzhwGwYUs2ip+dqb3Um6UnanGz3gjzMixu6k2GviSZLJptaHo7mMPrBG6DFp5EbcxMfO
-	XqnQ1BSkeq6ktKraV5bDAezeUXKkbgwN6naIUrywZmRInV1iTX3qugnAqASHCxHjUGwZQyfwkpjyy
-	3JMuoqua7BGt+WK+lAIet1cnmzcIKNUPbQcyP/S6eoeyEkZ6E1gf+J0mkKsBFfmjk+vcBmZrmBW33
-	PiNAWLCQ==;
+	bh=owzmUkDB0UZwHfh/mp1W0vc+6IvE+QEuLxbybZAQPWY=; b=05Y0M+OqZlk0AVjOgemUtP72lS
+	ShHEqwHMTfUBh3yFlccRxG7AXHrGXmgvYlGnEwmkvl/YNRiGazw/X0WoCm3F3NZdgm1EnupNVKHpe
+	NLzzp5m7ZuqbSR/WfIK+JGWzKG4Ep9URMERGwLfTyR4xJKmHw9it2GeWuR90CKocCsgPXqst5lduo
+	u0KulO6NPNR31tPgHSvGAkGjlqMvWPcimJ56I9gqqfNqiAFl57yxSiIzk9VZo/Bk0l7kTcg3FoZTF
+	cQ5uFgylIqaFu7mpzfZE+8d1X51fOyJrUkLqDPyz/ATwZ5++cxj2lyIu0UesoU0vvFPIFydjvXV/3
+	MR+EPofw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwMcw-00000008LFp-1Elo;
-	Tue, 18 Aug 2026 16:25:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwMcv-00000008LFW-0Ssm
+	id 1wwMlN-00000008MUF-0CSu;
+	Tue, 18 Aug 2026 16:34:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wwMlK-00000008MT7-3TU7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 16:25:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD9164171A;
-	Tue, 18 Aug 2026 16:25:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABCEE1F000E9;
-	Tue, 18 Aug 2026 16:25:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787070324;
-	bh=7Y7qqLPkyUuMi6qyL5GxK2thHtwUGv3GHWTN3DmEezQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=i96ySK8irJGN7kDYSuR6/cyVpTEYRyD3PKF3scrOjjIRHJ+N2kjkfZ6fIZ+bheu/D
-	 ASWOhbis+NFeMN1heh2njYn5ieZr8Y5YihY+SfAoDMBwJK3mU4fd+mLxs78wF1grzb
-	 IEkJeah/FmcJxhBCAWWrPYngt8B9vVtAd+52gzP0iY1lLLhHpNoNmgXq/ZRGoMjGPF
-	 OBEmA8pM4o8B+Ht8nnkZ++bK2iyypb/sJi8eC+sHnRAdte59oB73SURtIdq7XyDynN
-	 aV05OG+tiyBlMPX8TFzSMfvLMBoKKyby+7HP6DQWmOWkSZ3AblzsrzCat/yBwFIiM4
-	 G1SR5rgls4D8w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wwMcs-0000000GhVj-1n64;
-	Tue, 18 Aug 2026 16:25:22 +0000
-Date: Tue, 18 Aug 2026 17:25:21 +0100
-Message-ID: <867bln5rbi.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Tue, 18 Aug 2026 16:34:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C893D1A00;
+	Tue, 18 Aug 2026 09:34:01 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9EC663F85F;
+	Tue, 18 Aug 2026 09:34:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787070845; bh=roFDoKpIkkJ7bFHN1815WLEntXi/XSfb52O3DVWoU5Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QJ1erU2EjXBce91TN7aGMwTzVUyboExPz7I9asApP1cBlfCRqrlh4mDRXGFUKQbVC
+	 2xmOvd1kc1becHOtol6vpq529+9g5Szv+t9bVESsXstMxjCUL1zvyrvEKnT5055PFk
+	 4EkA0pbBQHw2CWShtLCigBmizYAWquRBMybh2qQc=
+Date: Tue, 18 Aug 2026 17:33:52 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: James Houghton <jthoughton@google.com>
+Cc: Will Deacon <will@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	Nikos Nikoleris <nikos.nikoleris@arm.com>,
+	Linu Cherian <linu.cherian@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
 	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v6 10/33] arm64: Share arm64 headers with s390
-In-Reply-To: <20260818140901.21865-F-seiden@linux.ibm.com>
-References: <20260812153631.3376090-1-seiden@linux.ibm.com>
-	<20260812153631.3376090-11-seiden@linux.ibm.com>
-	<865x1e17kb.wl-maz@kernel.org>
-	<20260818140901.21865-F-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, seanjc@google.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Andrew Morton <akpm@linux-foundation.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Nanyong Sun <sunnanyong@huawei.com>, Yu Zhao <yuzhao@google.com>,
+	Frank van der Linden <fvdl@google.com>,
+	David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+Subject: Re: [PATCH 12/18] arm64: Implement try_populate_vmemmap_pmd using AF
+ trick
+Message-ID: <aoSJcAFMNJ1nPl2H@arm.com>
+References: <20260708031129.3503195-1-jthoughton@google.com>
+ <20260708031129.3503195-13-jthoughton@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260708031129.3503195-13-jthoughton@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260818_093406_916467_E2BF7E64 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,100 +80,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Aug 2026 15:09:01 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
+On Wed, Jul 08, 2026 at 03:11:22AM +0000, James Houghton wrote:
+> This routine is to be used for updating in-use, leaf-level PMDs in the
+> vmemmap without introducing a window where vmemmap accesses might fault.
 > 
-> On Thu, Aug 13, 2026 at 02:19:48PM +0100, Marc Zyngier wrote:
-> > I'm curious about the reasons for skipping a bunch of architectural
-> > helpers:
-> > 
-> > - kvm_vcpu_trap_is_permission_fault()
-> we need the s390 state for this function -> we overload it
-> the only use is in shared arm64 code for is_write_fault
-> > - kvm_vcpu_trap_is_translation_fault()
-> > - kvm_vcpu_trap_get_perm_fault_granule()
-> > - kvm_vcpu_abt_issea()
-> as s390 mm works differntly in comparison to ARMs (suprise :) )
-> we do not need those
+> Implementing this on arm64 requires some care: use the same access flag
+> trick that is used for vmemmap PTE updates. HAFT is not needed and the
+> TLB flushing routine remains identical, as we are not overwriting a
+> non-leaf PMD.
 > 
-> 
-> > - kvm_vcpu_sys_get_rt()
-> I'll add using this function in the next series (sysreg enablement)
-> I can do that now - It reduces the churn to the next series.
-> 
-> > 
-> > I really think you should include anything that is exclusively derived
-> > from architectural state, specially that these helpers are strictly
-> > dependent on stuff you already include.
-> > 
-> > Any particular reason why this isn't the case?
-> 
-> These functions operate right at the border where the s390 architectural
-> state (host view) and the arm64 architectural state (guest view) meet.
-> 
-> Especially, for the memory management of the guest we need to use
-> s390 based guest memory management (gmap) as the host only knows s390
-> (+SAE & friends to actually run an arm64 guest)
-> 
-> The s390 host work here is to convert the s390-state into arm64 state
-> for the guest. e.g. convert a s390 translation fault into a data abort (if
-> applicable)
+> For systems that support BBML2_NOABORT, there is no need to use the AF
+> trick.
 
-Exactly. Which is why I was expecting that the s390 code would
-populate the copy of the ESR_EL2 register in the vcpu structure, and
-let the arm64 code do the talking. But evidently, that's not what is
-happening (or at least not that way).
+This part needs even more text in the Arm ARM. With dropping of the
+BBML2_NOABORT requirement in patch 13, we are left with the D8.17.2
+rules in the Arm ARM (M.c) requiring BBM. I'm not sure we can infer much
+from the AF=0 caching rules as here we talk about the walk caches. For
+example, a walk cache memorises the VA to block descriptor translation
+and that's irrespective of the leaf entry AF bit. If AF=0 and you skip
+the TLBI, nothing flushes the walk cache which may confuse the CPU when
+it suddenly sees a table entry where it expected a block one.
 
-> 
-> The code in the second series should make this more
-> clear. As we now are clear on the code-sharing concept I will sent a
-> respin of the second series using the new sharing approach ASAP.
->
-> 
-> > 
-> > >  static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
-> > >  {
-> > >  	if (kvm_vcpu_abt_iss1tw(vcpu)) {
-> > > @@ -546,6 +556,8 @@ static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
-> > >  	return kvm_vcpu_dabt_iswrite(vcpu);
-> > >  }
-> > >  
-> > > +#endif /* ARM64_S390_COMMON */
-> > > +
-> > >  static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
-> > >  {
-> > >  	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
-> > > @@ -587,6 +599,7 @@ static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
-> > >  	return vcpu_read_sys_reg(vcpu, r) & bit;
-> > >  }
-> > >  
-> > > +#ifdef ARM64_S390_COMMON
-> > 
-> > Similarly, you have dropped
-> > 
-> > - kvm_vcpu_set_be()
-> > 
-> > - kvm_vcpu_is_be()
-> > 
-> > I suspect that your implementation is LE only (it'd better be, as
-> > we're dropping BE support right now), but it would make a lot more
-> > sense if you could rely on the guest architectural state (which must
-> > be accurate) rather than short-cutting things in your own
-> > implementation.
-> 
-> Yes, you are right we are LE only. Therefore, I defined the function to
-> false such that the compiler/linker can optimize-out unreachable code.
-> This is true for a couple of function-shortcuts.
-> 
-> I would like to keep it that way if this is no show stopper for you.
-
-Not a show-stopper, but I think we'll eventually want to work more at
-the architecture level rather than solely at the "code sharing" level.
-
-I expect it would make things a bit simpler to follow.
-
-	M.
+If it's not critical to the series, I suggest we leave this patch and
+the next one out for now.
 
 -- 
-Without deviation from the norm, progress is not possible.
+Catalin
 
