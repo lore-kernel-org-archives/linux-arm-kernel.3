@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B4DC5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 17:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB41BC5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 17:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5mwK0MuvwCiVh7Jq5G3rgYtA0P/2JIQwHfUdCMTPWak=; b=1ZnHQg49G3ckodFzevgPJWUlbw
-	5wwHyKJSuDFgOY062GvNVkxVAhYm+YgyZktFDEsliQh55cRvRveTyejBFUEvOCNyoUjqe3QA10H6k
-	MoZ/sIG22PffHA8CWnBC57AyxaDadBFl/2SqgGVssOrW/8Gw91whJJXnm3iia4gY+KaKSY/XM6oen
-	xK5z3djcHuL6+U4/amQq5vkMGTOx+BGjzAeum5zS8YAOxs4GSb7y+horjXf6eaHN4UBWZpa6mPnd8
-	PQVWd57DUNU4qBWkY5TG5/AQ+akpaQa8A8/y6ydyVfl5ZPEP9RHXIt2n+L0wQJ3RY2qEQn13zQoCw
-	U7onv4kQ==;
+	bh=tNKvW+4WFtVgL6eduRiyC+7q+wV5EqmZb7e2tzVX1EA=; b=SnlmwirQX5/656aoGZ7p8gjksC
+	S7zl2Zi/U9Vu7WsanqsgnHyTZ5XPSTdjhCOyc1UixSh7B3DSAXWz30HIl7J3t6QNOyonMdYSNzh7I
+	UK1VLv/abxysz8W48pi4PFqffxbwQXqQzMAH4Y6wyF3wFychR0mS2W0p+eRjHVn0VILa0s6YX9QXJ
+	yIMLPzA1cX0TVvBdc0K9W45UMEbiNPgwkXIVowrmTVOmhhFxlRAyn4kRoOiSdvX3CzEw7SmItgKIl
+	Z5BgRESh/dUO0hvn9vww4sdHiwHq2Sr/iag3Tf+nHkQ6nRcrR65r5waZ2u6wGwiZ7+S16o3Bd4G9L
+	fK3yKVqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwNtn-00000008Skw-3XXp;
-	Tue, 18 Aug 2026 17:46:55 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wwNto-00000008SlX-0C7X;
+	Tue, 18 Aug 2026 17:46:56 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwNth-00000008SiJ-0GeH
+	id 1wwNtj-00000008SiK-0OT8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 17:46:51 +0000
+	Tue, 18 Aug 2026 17:46:52 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oGljKOMs86DEc05f6kSE5j98wkbocVZAzUXzB+dMzKtit8aDEdHIDhaaq33mJYRojyVSzMdCr4Asfsp/Etzge+q76rTE1x6jGUS5xvRsBdp/aq/0qWEW1FlOWCBjFZdE86a8pWetYzFf8qXaVNcCT8+A0l1BlnlQn8Q+wWpvP4t8UT0K9rDdayM/uBE6e5hVaByJYTEvVlTkYWFoPNFhJiG03J6KU20G1H93qGNBtRdW499lFnDSShlCkbixOCfYU2ofWBgGTSBvT4pUCpwRl8Wmio1OopphhaCqU2YACnINcER+ST+raZWuJaEHr4DLGfkXRJ5eYcQvns8LtWHWxw==
+ b=I9fHAFUD5VO5Z+mhPAQDv61J6nUQaV+CVjkMt5VE9Ly2IVH/hwMf++/ubjBM4ErLju1sFaGRQVD6VeLzPQxj/zKcxfJhwSr7SWUC2UiRfY6bmHOjRPi0i0RRx0pTbOwTxBldhDIpwZs9CgY71HuUyKvhb+Jv90f9cZzKcwEmSDO8wDBhn7iaPZwSw1DmC4x/8Ex/quxkCSYY/AqoTLzNHlMMndTRSdGgkzCgI1tyrLqtzQ5ziLlQ8BhH078nhxG105IYP6RPfMpbBpEDusnagA4huR/ujshGHRMdRfgz4CmUNdbCtd/M4/YTZ6lanf2FA7UHzPcgh5/rSHo38DtgXA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5mwK0MuvwCiVh7Jq5G3rgYtA0P/2JIQwHfUdCMTPWak=;
- b=JdZEMCSaa11IoXuRocSaltQKEG8snMme2fFGHR46bivijDXtOeNWHO9opZXnItrwndM8QcLcs6gR9YLomGQFVXbwQwZV9yBvHPM1JGy6zS0FZAotUdIJgc+FLlGjgQl23Z2mEyKS1fRzWqdeLMDu3yEmqKQADca1zlfGyJ+lW6yx+Jn8zDPV/Sxd24rg1AnikxadJ8G7kDM47P82AXcmiABYQrCG60lJcU2KpGBETsfoEJqtdmCTXCP+TyO5fps9fSCwAk64FFqY7qcUMQ5T/Yc9me//h37lv8RcPimkEopaYuffyFUPQx6YKn1SVjToBrreDC3Ueom/lhrR7XByXA==
+ bh=tNKvW+4WFtVgL6eduRiyC+7q+wV5EqmZb7e2tzVX1EA=;
+ b=w+Io6UmyeVOivZ/MgAHrKYDI9DQ0tjDTAK4mImqw+03GmrFwam0Y/NxILeoo00nPrnS7yC0a0lzMhTlGgtxBNWw93oabw3YMaXT+tS1P1n6e8ZBle/KaJ2cKCsdmW2Ecfk3Ga5tzaGbmTSVZLm9YklMTI55/f7vd2ypcdQ4kfdH9mmdAL+raHO+ArlwPQYlbCMwXQkf1cYY9HOs/bSQHMEn88pQDFqUe4SYZKz2mQzsjn1xtc9O6GSio97UBksz3dLKqZTzPptCJjajTr8/+Yt5yHhxar5g9LM3mlpSTa0AWBGNk7lXOG6tZsI7dwMaCjZPzSErgiUQXt9Y/m2mGNg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5mwK0MuvwCiVh7Jq5G3rgYtA0P/2JIQwHfUdCMTPWak=;
- b=m4O9PuYxTeqQJej6e6B/fLbunTHSRfgq7ci1rdCp+3iPD2tfX19K5GjUepYbzGO2clYJ/4QNLwFKO9VZAuWW4avYcLbARlKHkIKvRg+CyE8KqD10YTG5d/nbJ+jjovZcej/49CgS7e6LpuXKyv9HCZ0UYB5uwSlk8zuU0VhtncA=
-Received: from SA9PR13CA0074.namprd13.prod.outlook.com (2603:10b6:806:23::19)
- by MN6PR12MB8492.namprd12.prod.outlook.com (2603:10b6:208:472::22) with
+ bh=tNKvW+4WFtVgL6eduRiyC+7q+wV5EqmZb7e2tzVX1EA=;
+ b=IgmphE8NpDkOHODxzTMT8Idc29AwN2q5t9e1Oe3OFxRpnY/OCGbiavrV1Tv416ocyz06vUSrfDOeFlasrbu2tLfGmhdpZJcGb0PangmV5s6DqinAobnSafQZraPyHrO+RrAu1akvUPzrgA79dxaurAleMnqonTelta5KbSOAc94=
+Received: from BN9PR03CA0219.namprd03.prod.outlook.com (2603:10b6:408:f8::14)
+ by SJ2PR12MB8159.namprd12.prod.outlook.com (2603:10b6:a03:4f9::15) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Tue, 18 Aug
- 2026 17:46:41 +0000
-Received: from SN1PEPF0002636D.namprd02.prod.outlook.com
- (2603:10b6:806:23:cafe::6d) by SA9PR13CA0074.outlook.office365.com
- (2603:10b6:806:23::19) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 17:46:39 +0000
+Received: from BN2PEPF000044A9.namprd04.prod.outlook.com
+ (2603:10b6:408:f8:cafe::28) by BN9PR03CA0219.outlook.office365.com
+ (2603:10b6:408:f8::14) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.8 via Frontend Transport; Tue, 18
- Aug 2026 17:46:40 +0000
+ Aug 2026 17:46:39 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- SN1PEPF0002636D.mail.protection.outlook.com (10.167.241.138) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ BN2PEPF000044A9.mail.protection.outlook.com (10.167.243.103) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Tue, 18 Aug 2026 17:46:40 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.339.3 via Frontend Transport; Tue, 18 Aug 2026 17:46:39 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 18 Aug
- 2026 12:46:16 -0500
+ 2026 12:46:15 -0500
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
  (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 18 Aug
- 2026 12:42:12 -0500
+ 2026 12:42:02 -0500
 Received: from xhdsneeli40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.45 via Frontend
- Transport; Tue, 18 Aug 2026 12:42:08 -0500
+ Transport; Tue, 18 Aug 2026 12:41:57 -0500
 From: Srinivas Neeli <srinivas.neeli@amd.com>
 To: Vinod Koul <vkoul@kernel.org>, Radhey Shyam Pandey
 	<radhey.shyam.pandey@amd.com>
@@ -85,9 +85,9 @@ CC: Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
  Schwesinger" <dev@folker-schwesinger.de>, <dmaengine@vger.kernel.org>,
 	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <git@amd.com>, <srinivas.neeli@amd.com>
-Subject: [PATCH V6 3/4] net: xilinx: axienet: Derive RX frame length from residue in dmaengine path
-Date: Tue, 18 Aug 2026 23:11:50 +0530
-Message-ID: <20260818174151.1608971-4-srinivas.neeli@amd.com>
+Subject: [PATCH V6 1/4] dmaengine: xilinx_dma: Fix MCDMA descriptor fields based on DMA direction
+Date: Tue, 18 Aug 2026 23:11:48 +0530
+Message-ID: <20260818174151.1608971-2-srinivas.neeli@amd.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260818174151.1608971-1-srinivas.neeli@amd.com>
 References: <20260818174151.1608971-1-srinivas.neeli@amd.com>
@@ -96,28 +96,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF0002636D:EE_|MN6PR12MB8492:EE_
-X-MS-Office365-Filtering-Correlation-Id: fa72cd49-9ccb-4bc6-3be8-08defd50a8dd
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044A9:EE_|SJ2PR12MB8159:EE_
+X-MS-Office365-Filtering-Correlation-Id: 400e9e04-ba0f-467d-60d3-08defd50a834
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|36860700016|82310400026|376014|7416014|18002099003|22082099003|6133799003|11063799006|56012099006|3023799007|10067099003;
-X-Microsoft-Antispam-Message-Info: hby5yScmNCfzCHWWyRT4FE3TfYLKQDDmL5Lkhdy9i5LDhutCG+YfrTp453me9FM3rxgDFHuB1c2dD7IRy2UZ0SmSudxmQCPtBGuzmN0wnNkm5MtQObkg/lrhMsxibGLbXQWZo+jKqPU45QggoslOrUQzlpguBhJGDM2L4cVMDTQ1HqB0MsTirrKYPFiUIQ/s3vsT+jU319L09xtNd4YJGTOns0PmXyKNcH/DmSPV18DPVC02E1sgoUl2v9dI1kCKbNgDVJCt4d5EP7A2v7Dhb+j8i2tJWLFhwruPA/g7Ro0TBKh8RaIwGz+gnvIkEX6BQFAvgYXulwViZVdagYoRcSe+3XLgvwFkLNwU6ckQzBldVBCuIr+CKcdWeVg0CDPhAVIj8QB76XQ0CGFu9CZwmw39rjPFlq8Ge2weDtTyrmCY81xC9LKa4EU2BDVHW3oDlHaepSqEUj/S+X/Nh1K5YWoJ1wtJ9gOWKFwg7rZzchCboqbNbNIghgC6O4A/yz9p73DhHsG+AMA8pTOTJR3dAKzpSQ8klKRSpzlO6TN5p7wqiblK8tNhihjMZSbJiWiWeiKe72kn4Eg4dV0/n5d2UTqfYos1cio1GI943+jJiFr/M8j10JEaKNZxgZlms2XwEB7usMvL1SeoWQ3yB7eig2mHSHH9w78eqB8MppFrvFaqp9L7b1f5Tks4cstmoa7fK+YkIySkvoeLj3Uzg8LTBg==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(36860700016)(82310400026)(376014)(7416014)(18002099003)(22082099003)(6133799003)(11063799006)(56012099006)(3023799007)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|23010399003|1800799024|82310400026|10067099003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: uB1mSE1cNicMgBtJpqVLkQZzSH9X3/3ZyO0htGtQ8MvcQlxpapCbiqz/wOALv45c/eCklScfCWWRR/pHs22HMrsZO1KEGcdUl1yhvyb6p8AMy380La2I6r5PLyBtuxZ4g1XLsFQGGg6ymawLuld2KpKyarOYAN/PtY60cqQdf3wz0o/HMaaZdqvhBH1M0USruWk5J5zrLnSMkT2rmxOONtXbWLwGPUEM84zUQCnhZej/T7A5nikovpHeW08HwCHEO/APvgnifM8N85OCkx+JvO7thbUJb6oFM/syJqSh4nQLzE59zPp8oG65aAxhcT6DZN9v9FOcUEL+fV4uD+wRA7G4+yOHqnIi0k2Hfze6J0ioPQU5bhN1jSXjRXkXQFNFbPZGodfI4y2lIkHblTTbPAs4K0pTFX9TX1rjSSAyYp2s/gXWhCJGAcnX7NR/8XhDRLOWPrYTp/2WGh39zpPbnGEExOTYbEXVfZMQy/1//mg8f2ZlVbTSRnjIZBcOUVN7vvG2/hCQlbBTdNVxnwdzc6w5P1LaU0tXANASc9fhFXfwsu+gsNKbfuJMySDllUChc7ucklGBkSoii+0MvOnmWvN418Q48ANCBdK0YbbKjgHYNZWkolJguoAkldtyuUmL67mCSDLcPcMcLymy6TeA2Az+wZ6QCVatULFDE6LGMgd0FbhojzaSK3WNm+QPfma0KMGXOm92azrdkokR6Fcrag==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(23010399003)(1800799024)(82310400026)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: G/t91hHOxPFm30iImY3pKc65VAQoRh7gx0en39LFGX1bmeILhl/SMJPxWJHYkMvXfvwpdaV2K+wfcxERZuU6MEA58hDW/j4ihHQYypJ9ujaVc2cJsvLmg2hO16sAfkjPfmSMye77bWmWvyGd8/5mJsiNvhgevYPjVt2k/xEDvIPffmVloa9MADMpFa7ajyZj5VDi7k5WYaSD+8yv/DSZbsRagHTDyEt8FSpt7GiYRZjWX1RKiDSa0WkS50UHn8ynNXQdAE1je4KxBMWoC3Wwr8EGvlA3vHeSra6aKn3hUZXg6zRBxY6rzztMQdG7In6Cvje/KxJeoMAFICcmS1ZvEUe99dYbsZ7OpWF4xR4qZ6tS9vJhvnSmtRH2+xg0cY9/nT6kfBUQqVdfUHhU6hqJjGHTTxhr7Z1yAed+J9PAVsx9g1yTlagWtkd3AN4+lJvE
+X-MS-Exchange-AntiSpam-MessageData-0: /dpEfD9PMh0+QCPSoY7svGXND+nkPdJuE8WHtRuwSfnK++QJlV9HAMhEiR2eFjCiuBFe7rB7DGAtakN2LP2QWtAVy6fIexcmYCURThNAJfw/PWYuSG8lyO/KjF03Ct2sArOOVUY7ceyqD0N99EutAZZigk/wYMPP+CZzyxrJS2bVTXKseHSMvIEUHwIhqda7tmLJbXDx4s4hlGGuMShP2SnBKOheUF8KoHKzdblJlN+XNwyAp8ZEA+I5umY1/06O/7F6u9xAZvYSsdrcFr0s+S5r/LOhsMDeqzZguYfjLtOS009MRfE29SA3lRcv7prnuFcYmIuRNBv63TPex64b7qQJOyIHZzYIeJlqkSDQLQA67O8mbNmzben7+8e/Xcp69ffhQsoMdDRWPO/YQtOjjyT5TPaGJvJrHatSIq0Zn5wcxImMLo6QULXhQlON2OfN
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 17:46:40.4811
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 17:46:39.3971
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fa72cd49-9ccb-4bc6-3be8-08defd50a8dd
+X-MS-Exchange-CrossTenant-Network-Message-Id: 400e9e04-ba0f-467d-60d3-08defd50a834
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002636D.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A9.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR12MB8492
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8159
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_104649_128752_96F29A37 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20260818_104651_135364_CC34AE96 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,26 +132,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The dmaengine RX path derived the received frame length from the descriptor
-APP metadata. That only works when the optional AXI4-Stream status/control
-interface is present, because the hardware populates the APP fields solely
-when that interface is enabled. On designs without it the length read back
-is invalid.
+The MCDMA BD format differs between memory-to-device (MM2S) and
+device-to-memory (S2MM) directions, but the driver was using generic
+'status' and 'sideband_status' fields for both. This led to incorrect
+residue calculations when the hardware updates direction-specific fields.
 
-The AXI DMA engine already reports how many bytes it wrote into the buffer
-through the standard dmaengine residue mechanism. Compute the RX frame
-length as the posted buffer length minus result->residue, which is
-independent of the status/control interface and correct across all designs,
-including multi-descriptor frames where the residue is summed over the
-chain.
+Refactor the descriptor structure to use unions with direction-specific
+field mappings, and update the residue calculation logic to select the
+correct status field based on DMA direction.
 
-Drop the descriptor metadata lookup, which was only used for this purpose.
-Detect a failed transfer from dmaengine_result.result instead of the
-metadata pointer return value, and remove the now unused LEN_APP macro.
+This matches the hardware descriptor layout and fixes incorrect
+residue reporting.
 
-The transmit path is unaffected. It still passes APP metadata for checksum
-offload and derives its length from the skb.
-
+Fixes: 6ccd692bfb7f ("dmaengine: xilinx_dma: Add Xilinx AXI MCDMA Engine driver support")
 Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
 ---
@@ -162,71 +155,82 @@ Changes in V5:
  - No change.
 
 Changes in V4:
- - Renamed subject to "Derive RX frame length from residue in dmaengine
-   path".
- - Condensed the commit message.
- - Dropped the Fixes tag.
+ - Added Reviewed-by: Radhey Shyam Pandey.
 
 Changes in V3:
- - New patch in this series.
- - This patch enables axienet to work on designs where the AXI4-Stream
-   status/control interface is not present. By using the standard
-   dmaengine residue mechanism, the driver no longer depends on APP
-   fields being populated by hardware.
- - This approach replaces the V2 xferred_bytes mechanism (V2 patch 5/5),
-   making the dt-bindings patch (V2 patch 4/5) for xlnx,include-stscntrl-strm
-   also unnecessary. Both V2 patches are dropped in this series.
----
- drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 14 +++++---------
- 1 file changed, 5 insertions(+), 9 deletions(-)
+ - Renamed subject from "for MM2S vs S2MM" to "based on DMA direction".
+ - Reworded commit message for clarity.
+ - Added XILINX_MCDMA_BD_HW_SIZE macro and static_assert to verify
+   descriptor size at compile time.
+ - Refactored residue calculation to separate addition and subtraction
+   operations for better readability.
 
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 1722b7038f34..f9252880f411 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -53,7 +53,6 @@
- #define TX_BD_NUM_MAX			4096
- #define RX_BD_NUM_MAX			4096
- #define DMA_NUM_APP_WORDS		5
--#define LEN_APP				4
- #define RX_BUF_NUM_DEFAULT		128
+Changes in V2:
+ - No change.
+---
+ drivers/dma/xilinx/xilinx_dma.c | 26 +++++++++++++++++++-------
+ 1 file changed, 19 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+index bef2b031dba1..2319101be778 100644
+--- a/drivers/dma/xilinx/xilinx_dma.c
++++ b/drivers/dma/xilinx/xilinx_dma.c
+@@ -223,6 +223,7 @@
+ #define XILINX_MCDMA_IRQ_ERR_MASK		BIT(7)
+ #define XILINX_MCDMA_BD_EOP			BIT(30)
+ #define XILINX_MCDMA_BD_SOP			BIT(31)
++#define XILINX_MCDMA_BD_HW_SIZE			64
  
- /* Must be shorter than length of ethtool_drvinfo.driver field to fit */
-@@ -1159,29 +1158,26 @@ axienet_start_xmit(struct sk_buff *skb, struct net_device *ndev)
- static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
- {
- 	struct skbuf_dma_descriptor *skbuf_dma;
--	size_t meta_len, meta_max_len, rx_len;
- 	struct axienet_local *lp = data;
- 	struct sk_buff *skb;
--	u32 *app_metadata;
-+	size_t rx_len;
- 	int i;
+ /**
+  * struct xilinx_vdma_desc_hw - Hardware Descriptor
+@@ -277,8 +278,10 @@ struct xilinx_axidma_desc_hw {
+  * @buf_addr_msb: MSB of Buffer address @0x0C
+  * @rsvd: Reserved field @0x10
+  * @control: Control Information field @0x14
+- * @status: Status field @0x18
+- * @sideband_status: Status of sideband signals @0x1C
++ * @mm2s_ctrl_sideband: Sideband control info for mm2s @0x18
++ * @s2mm_status: Status field for s2mm @0x18
++ * @mm2s_status: Status field for mm2s @0x1C
++ * @s2mm_sideband_status: Sideband status for s2mm @0x1C
+  * @app: APP Fields @0x20 - 0x30
+  */
+ struct xilinx_aximcdma_desc_hw {
+@@ -288,10 +291,17 @@ struct xilinx_aximcdma_desc_hw {
+ 	u32 buf_addr_msb;
+ 	u32 rsvd;
+ 	u32 control;
+-	u32 status;
+-	u32 sideband_status;
++	union {
++		u32 mm2s_ctrl_sideband;
++		u32 s2mm_status;
++	};
++	union {
++		u32 mm2s_status;
++		u32 s2mm_sideband_status;
++	};
+ 	u32 app[XILINX_DMA_NUM_APP_WORDS];
+ } __aligned(64);
++static_assert(sizeof(struct xilinx_aximcdma_desc_hw) == XILINX_MCDMA_BD_HW_SIZE);
  
- 	skbuf_dma = axienet_get_rx_desc(lp, lp->rx_ring_tail++);
- 	skb = skbuf_dma->skb;
--	app_metadata = dmaengine_desc_get_metadata_ptr(skbuf_dma->desc, &meta_len,
--						       &meta_max_len);
- 	dma_unmap_single(lp->dev, skbuf_dma->dma_address, lp->max_frm_size,
- 			 DMA_FROM_DEVICE);
- 
--	if (IS_ERR(app_metadata)) {
-+	if (result->result != DMA_TRANS_NOERROR) {
- 		if (net_ratelimit())
--			netdev_err(lp->ndev, "Failed to get RX metadata pointer\n");
-+			netdev_err(lp->ndev, "RX DMA transfer failed\n");
- 		dev_kfree_skb_any(skb);
- 		lp->ndev->stats.rx_dropped++;
- 		goto rx_submit;
+ /**
+  * struct xilinx_cdma_desc_hw - Hardware Descriptor
+@@ -1015,9 +1025,11 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
+ 					   struct xilinx_aximcdma_tx_segment,
+ 					   node);
+ 			aximcdma_hw = &aximcdma_seg->hw;
+-			residue +=
+-				(aximcdma_hw->control & chan->xdev->max_buffer_len) -
+-				(aximcdma_hw->status & chan->xdev->max_buffer_len);
++			residue += aximcdma_hw->control & chan->xdev->max_buffer_len;
++			if (chan->direction == DMA_DEV_TO_MEM)
++				residue -= aximcdma_hw->s2mm_status & chan->xdev->max_buffer_len;
++			else
++				residue -= aximcdma_hw->mm2s_status & chan->xdev->max_buffer_len;
+ 		}
  	}
  
--	/* TODO: Derive app word index programmatically */
--	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
-+	/* Actual length = posted buffer length - residue. */
-+	rx_len = lp->max_frm_size - result->residue;
- 	skb_put(skb, rx_len);
- 	skb->protocol = eth_type_trans(skb, lp->ndev);
- 	skb->ip_summed = CHECKSUM_NONE;
 -- 
 2.43.0
 
