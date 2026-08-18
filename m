@@ -4,138 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D69C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 18:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC863C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 18:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=whuvAtbG1XCjSulTSz3f7HvvdGqv5V67h3efiF3CAnc=; b=s8LdUI8zmC7f2j3PrDQERUKCC3
-	jmLq/yhZRioBmtBUANx2lltWe9gJ/ZWw0OFIjPk9oLUEFKUpLeV+Xae+j37qJv6TXsSwQCM+DxPT+
-	kdmGEeoQdGoJQqnnvNnY2rNLT/fLPVSJyZRJAY3xAeHMT93PCSrpZyMSRCLXu/nf1aa11taDWVpMQ
-	WkjzdGSmNvCnUtVlezSSXt3Re/5cZpZVeV4OtYxmmQMb9FNg84xOMQVb0biB6Pm9CKNHZcAYuFswI
-	yOq/mn6zKokAXz/sbpCT+xSWtWmOUCHe2NGisgNgVq4rw747/IqhHbQ73RRuG6eQX6PGwJ5OWWnjG
-	n/ZlBk0Q==;
+	bh=O8Peqt8WT9DHzwVxnRsjnPx1R7Yii5C9/fDHVNMD5OM=; b=MskTOxLb+6byFJEt4DqUOHUySU
+	cOZzV05cgNiUAfIGIPTCcLV1gb3LB2Q59GcXYfU+gWJ6PI9Fo3HrMNIvY+8PFH45Iuz/P3bmXv8Zy
+	hs/U2SQgZ9r64OsiPIC0YQWWwJ+cYYC/tzuSaInKJRwwe5o9V5a0G5d9dYwHsY+LyJYlzVJSV6fnm
+	sfbJIJai4GBeRarNuW1tJrh73Rs/cu/4o1SlPvm3LjFSgjO4j0LsEw05TURIfTCqhGbo0rwxP9NsF
+	P0mafb//fVxoqyUkDox+bSxIOFGN8plfCjDoSJC5PfVn94TjsYoQomFTqBdgP4+NQancFxOHwYJMJ
+	R/V1aGMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwP02-00000008XvT-3k2C;
-	Tue, 18 Aug 2026 18:57:26 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wwP0t-00000008Y0H-0Pae;
+	Tue, 18 Aug 2026 18:58:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwP01-00000008Xv7-0dy4
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 18:57:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=doH8w6dipuQsbOGbmmyiJLGcM3zrpMJK24laDVFMktjl97skL0eh33ZZMOVxUQtr15h/Gc1E5kZkWqhfTkcPGfuUMKMJC6aj4Kt135seTOaoP1Z+6o6AyvDNKPEXwWc4BCIerT5pKhoUjn7dRoauR+MY9b0M5qOwRje9BOEKnY3m0Gn+wmSpqbxUIDvwX+ExHeRvl8rn7tkzpdEbOxrezO4ENEHU3/ely+tMYi7C0AethTlyNQyyJpTgP0bktzhleNEeT2tDtwkQDtqsrOAqYXoowWXWLKsrn4tfHtDaM3JA9ofLm9+5IYgvsOkvEF4O32GYJ/WVV5wvkfu5Kl0KLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=whuvAtbG1XCjSulTSz3f7HvvdGqv5V67h3efiF3CAnc=;
- b=fnoqN1bTln6XrPTAMVTbs5KKoC73t2lV7/96NagwNC47jEvs25q9H7IQ2KhjOphqnblatwFCuqYiyBlRaVMTBhwZI3rSCYvPaMQq09f5lZeURPMi+HKYRdsmh6ANfKNoTQzvwK6O6ryC5gbsgHUhNb18s3oWfGlAnI74qwVy5PPaLQnihqgVT3W6Jbd3DpPpLBvscKGgpB873T5sCQBObdTJhtSh5SnVPB7dbezvs0fjNdKaLGYHtf0HxugRqeyc4XTT0Kdn+bPVMJAq+e0mSYLpXNV/o6tmD9zE1aJljXhkS3znTXncnst4BOB4wpLdFNP5/p+b6YzEjNFhMeWpMA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=whuvAtbG1XCjSulTSz3f7HvvdGqv5V67h3efiF3CAnc=;
- b=cs/aDEH2CjYYP0lY8n0k5lt7XKNpcUVykGb/Yy+4B12qQL2bQ6Q65C8YLCbfCllbjietg0Pmm4zRilkNMU9WIYrf70U8sUeBFJGf4PdDjBNG8ZXo7JHMYK0dxDXk5IwL4762fH6MgxmnOPmQkTxp2fy63SetQ+VdB2VOJ0d+RnbjkYIFvVubrUAurjp6nVzGCuVdnsgE9JpYs0J6o7fTk5e9F82uFk7M/CrQfwuWaj229oCj/wHpoaYPvXgD+ruR2UpkXcvZEv6Cux92RH+wG+8pOuTARuIACVn1CptjvwIQDJ580GpMOEGak7y++mMlI/0+00TkG/p++siTqA61hg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
- by PAXPR04MB8256.eurprd04.prod.outlook.com (2603:10a6:102:1c6::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Tue, 18 Aug
- 2026 18:57:19 +0000
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0339.007; Tue, 18 Aug 2026
- 18:57:19 +0000
-Date: Tue, 18 Aug 2026 13:57:10 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Srinivas Neeli <srinivas.neeli@amd.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
+	id 1wwP0s-00000008Y00-0xfF;
+	Tue, 18 Aug 2026 18:58:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4E22B601DE;
+	Tue, 18 Aug 2026 18:58:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35DEA1F000E9;
+	Tue, 18 Aug 2026 18:58:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787079497;
+	bh=O8Peqt8WT9DHzwVxnRsjnPx1R7Yii5C9/fDHVNMD5OM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mNPmA0KJ5e1sb3umUDgc+4IqrU1UL+fZSsNk/G13SaU+3hP6f8diRPka2DRXpOvyg
+	 UAtxBPME1LgL9MdcbOoOTC0zSxLTS4eSYchw9gsstaNGFXloZKpmpzYdXaD4iKcUdg
+	 EOb4DY9ciHXm4WoTE34miBDG5zk6GNTqep8vksMjBFkJLGG0bT7MQG9V03kjnGQ8X6
+	 XWY0Xf996doD5tXFTMzVUVdq7yp5r6PkcytJmDpWDpVBVvkY+j5aR8//GTn4WyqVuK
+	 A74iy3KISEgZrKulbuPPcuXiyPXddXs09m3ZItzFc2C+Vui8CXDInOSd/dnDDpmqRF
+	 7/0Jx6V+FtLEQ==
+Date: Tue, 18 Aug 2026 11:58:10 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Diederik de Haas <diederik@cknow-tech.com>
+Cc: Dawid Olesinski <dawidro@gmail.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
 	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Suraj Gupta <suraj.gupta2@amd.com>,
-	Marek Vasut <marex@nabladev.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Alex Bereza <alex@bereza.email>,
-	Folker Schwesinger <dev@folker-schwesinger.de>,
-	dmaengine@vger.kernel.org, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	git@amd.com
-Subject: Re: [PATCH V6 1/4] dmaengine: xilinx_dma: Fix MCDMA descriptor
- fields based on DMA direction
-Message-ID: <aoSrBrOV3ZznZdaH@SMW015318>
-References: <20260818174151.1608971-1-srinivas.neeli@amd.com>
- <20260818174151.1608971-2-srinivas.neeli@amd.com>
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Corentin Labbe <clabbe@baylibre.com>, linux-crypto@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] crypto: rockchip: Add RK356x/RK3588 cryptographic
+ offloader
+Message-ID: <20260818185810.GA7030@quark>
+References: <20260708175837.1718437-1-dawidro@gmail.com>
+ <DKF8V3IHKTL2.1PUA8O5IVIRYC@cknow-tech.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260818174151.1608971-2-srinivas.neeli@amd.com>
-X-ClientProxiedBy: PH8PR07CA0048.namprd07.prod.outlook.com
- (2603:10b6:510:2cf::19) To DU4PR04MB11791.eurprd04.prod.outlook.com
- (2603:10a6:10:623::11)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|PAXPR04MB8256:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6fb4a873-5aa5-4980-fecb-08defd5a8761
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|7416014|376014|23010399003|366016|56012099006|4143699003|10067099003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: CsBqDj9YsUmbLUVzCpi/zk6brw6epan1cAB4gx38vo+yaoI60uttWXAWTYm/GJ383JkjVUr/DLG6ewg1Tru8Sp/Y4ARCp3TcQO+bhlA2VR9myRWM13tuLPeIxr6hvbXwuWiqlyniUB6Q4ioNN6erFrYDVbrlu2ZVbInu9h+uF22oyGpFWd6kDgjP7RUqc0avlzcMScTqrsw9InzPyuvXacfvkJgNRrm9jX09Dfjx5iR6A8QuQN0F5PHvefFiymdGnTEcoqNPZQ75vTV9ybpBr1jrZPeo/yxZsSAOXr7UQnLaAbFsUsDW5aX9g4RFxwdru9ar7x4kfsGchrptW3vN9fAngRunHwYkH0an8YolTKZCkVLy699IfAIzO8NsMHJ5oTqfmdb+LNhZr/L3ecykK7lgHMl9/P89gdSggjGtIO1gCzklr/Ma3Hb0fU7CYm1G+Q4X7FCPiwPpHT8J3RVLxLztrELPsJ5drhQRXPg9OYi2HtctdiBa5sDdJaIvcqyaF6/WgpQFC2oP0dziiBvvwB45wd6keXSaUAEz1Dyopto8Swbv78GOuvZ2kuAylXft/NzjuOQmxDiknM4zP17h7XvuGEwFSmllNRlX8TZwBkdQbb3OtOwNL8IsC9LkcuFbzkrBby8FAkmW7FSxNmrocO2zWFTl2Swt3gUfisd9I4E=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(7416014)(376014)(23010399003)(366016)(56012099006)(4143699003)(10067099003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fk0GFx6Ks0EQZiymtpmJ0LpfuvMKkG3jNOuyuCRRzU4Jz2MNFi2MRmLuXhyM?=
- =?us-ascii?Q?jVenrRqqjSSB4i5QgK91A+YYpNHeEC00Z5poX4aNjgNBTJ2jfgC7Pwg/cbkF?=
- =?us-ascii?Q?zI7B1lmBiMjFdaq3Gkj0j8orCPzWrdNPbsUYnxQBdhWTW1592NIePOH6yF3t?=
- =?us-ascii?Q?oOKr+eAHX/pheTET0lB3oUJjYXfOkgg33udv2J6xv8ebiEVXNmCgxWkZrHoJ?=
- =?us-ascii?Q?B7cKi/j/e6Ys53frYcXtEnMyJAjgN/tzQ0ouB5vTFgoE4D68T5mbDPEF4VQe?=
- =?us-ascii?Q?XQVmsa7AGd4xHUR05ZqOecHaJeIelI2AgWmRpFNh3Da3oXp8m1DtyydTN9pT?=
- =?us-ascii?Q?u5qpdkn6vnuPq/NAMcPU/j6WuMsbUIFUgqIyzy2awrILMJUlMkg6OHimsxGU?=
- =?us-ascii?Q?XwoYH2mw34u1lKGbouye+OT6DNqsvVDTlKfNEz1KmIKNoAnw2jjRfR5iT7f8?=
- =?us-ascii?Q?8bEfz3OABljIMWbhozx/w7a2/MdYOaCxHAmtfluyu0E1hicjJ/4Iq58crJUR?=
- =?us-ascii?Q?xCTPxZ/wW54TS6w7e5W+tACpcVERUjn6gWI4Az8Ef3CtZ6ec1zcH5DjZebS9?=
- =?us-ascii?Q?y57Sx0S4iVcOFfREHynAvT3x8ylbr0i4uFsFj2+2bUtKo/FpidfZJiImPRga?=
- =?us-ascii?Q?CNuxlUtWtuZkmwEOwvqSO7VC1Y5uEGl2SKHc0Z4j84vLVpLRhgnetrE9oGZP?=
- =?us-ascii?Q?oNGl4kLn+220gsOky1gwxZAv26Jv9BzPfRXRfnNz3OwOR4Z9kcTosOpmcI1z?=
- =?us-ascii?Q?0LuDjWIFMfxVEwxXgDTjevjmJsGi2UPbQdVGxt9e619hA0HV9SZJwPSh9pRC?=
- =?us-ascii?Q?814EinO9Eo9goE3QeEAk4ThabCdFGA5VzUkKQ9V3HvHQ296rVj12M+OJtcnF?=
- =?us-ascii?Q?rlHuzWKe5OihUXh2zATUsGPzAKLNQ7noWyh+hEfB74UX0IdyjM0X1izCgZ49?=
- =?us-ascii?Q?8kGH1gRCzQY+zhlYJ9+Tsc7agCoMuE8M18AV6+nVPDisnI4+kB8ly64gVkZQ?=
- =?us-ascii?Q?c4Ucy/U81yLtClvyayQ0zoDVoJJZVwWVeeFrIRncYRVb6nmmevPs3u9Lv7e6?=
- =?us-ascii?Q?YEiM+w3Cm6XkRaQqaARwyeXUS2w+WwPyyF/jZCW6tF9fMLj1Yx2EMlqwlrl1?=
- =?us-ascii?Q?JYqVtq6OgwkQorSuyf04tORraOL77H2D/SjC0ZXjvRRjcdyZmBa+t/on+Ro8?=
- =?us-ascii?Q?8l7Y99Ucrs5rIkh9pAo0lg+y/DYKt8Y/i87BJLR/c4mVwi6fm/Kus+KT5O1j?=
- =?us-ascii?Q?ejp369/EsAXo2kIlA8kLKnnVLzcMohQsJBdLMHUySJcqq1DiFyZLhDmDlmim?=
- =?us-ascii?Q?2zFmYLyHuOhpVeassWnniXYIdDSEmH09PyuLw+2YoSjZ/JSkV0Bj1LiK6ij0?=
- =?us-ascii?Q?wwWSz5NxR9oLDT6Ky25kevNmAYQnCaccRI5G5I03jI2ONpYRj+FnHcnezohq?=
- =?us-ascii?Q?8wYIZ46g/0sYwUDxGDGu7JrDfSkzv1lZyX5jR7p9TZV/3rwTLnO00+2Y/Uso?=
- =?us-ascii?Q?e5XlROTqvIS25eM/lfEXbnYWV0rSTlHRU0Kdlh8Fgt/B8P0/49BC2VLSxxBk?=
- =?us-ascii?Q?oqyN6yb0sjyVhreRp0zVMW5C7c6o3vtyX6diEbwxK6viYNQkqEFProW4N5SM?=
- =?us-ascii?Q?cwvRh91FmoJ4iOhE4AToSQlAcqNVZ56v+kq3NiCzgTV7qszTBsrO/Ne6O6oy?=
- =?us-ascii?Q?YYUoMoi7EO9F3+a8mTA8T0Gb7138tIOLOxU6nOntl2s0ltU1uaMTNE58ZP5s?=
- =?us-ascii?Q?zczYPjff9nguXO3ky0WTWK5AXyqE9/0yXy3ovmLAOUVgZMCmaUy+?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6fb4a873-5aa5-4980-fecb-08defd5a8761
-X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 18:57:19.8519
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SP9tkrdX+X4ghMMtPG/m4MnWNbIWgvM8F5b1b8yxGoba1IBk3snhS8TI3UjD8Cbxv+xlEzwDJgdFFlJDoN7PzLc1lkwRglEPDvOq8QLHkiWncLmNfpDXCBMJNTNIzjRP
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8256
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_115725_207621_F35B9182 
-X-CRM114-Status: GOOD (  21.32  )
+In-Reply-To: <DKF8V3IHKTL2.1PUA8O5IVIRYC@cknow-tech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,110 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 11:11:48PM +0530, Srinivas Neeli wrote:
-> The MCDMA BD format differs between memory-to-device (MM2S) and
-> device-to-memory (S2MM) directions, but the driver was using generic
-> 'status' and 'sideband_status' fields for both. This led to incorrect
-> residue calculations when the hardware updates direction-specific fields.
->
-> Refactor the descriptor structure to use unions with direction-specific
-> field mappings, and update the residue calculation logic to select the
-> correct status field based on DMA direction.
->
-> This matches the hardware descriptor layout and fixes incorrect
-> residue reporting.
->
-> Fixes: 6ccd692bfb7f ("dmaengine: xilinx_dma: Add Xilinx AXI MCDMA Engine driver support")
-> Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
-> ---
+On Mon, Aug 03, 2026 at 12:42:03PM +0200, Diederik de Haas wrote:
+> crypto-rk3566-test-no-crypto-module-log.txt:
+> https://paste.sr.ht/~diederik/bb5dbfd59f244a6422b965b30f9796ebbfdb1fcb
+> crypto-rk3566-test-with-crypto-module-log.txt:
+> https://paste.sr.ht/~diederik/ea72297678e19cbbc987de9548f9884382e1d1cc
+> crypto-rk3568-test-no-crypto-module-log.txt:
+> https://paste.sr.ht/~diederik/309e519e6b1c31f4c1c5bcb1ea16cc8569a54830
+> crypto-rk3568-test-with-crypto-module-log.txt:
+> https://paste.sr.ht/~diederik/1e1e938ebbbae75128974fe0a7c240843bce04c8
+> crypto-rk3588-test-no-crypto-module-log.txt:
+> https://paste.sr.ht/~diederik/9a2adc2b2e42131445ce4576589e00ecf51ccb4b
+> crypto-rk3588-test-with-crypto-module-log.txt:
+> https://paste.sr.ht/~diederik/e04c11c8809031ca45662f7d4c227c1ba6162b65
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Thanks for running some benchmarks!
 
-> Changes in V6:
->  - No change.
->
-> Changes in V5:
->  - No change.
->
-> Changes in V4:
->  - Added Reviewed-by: Radhey Shyam Pandey.
->
-> Changes in V3:
->  - Renamed subject from "for MM2S vs S2MM" to "based on DMA direction".
->  - Reworded commit message for clarity.
->  - Added XILINX_MCDMA_BD_HW_SIZE macro and static_assert to verify
->    descriptor size at compile time.
->  - Refactored residue calculation to separate addition and subtraction
->    operations for better readability.
->
-> Changes in V2:
->  - No change.
-> ---
->  drivers/dma/xilinx/xilinx_dma.c | 26 +++++++++++++++++++-------
->  1 file changed, 19 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-> index bef2b031dba1..2319101be778 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -223,6 +223,7 @@
->  #define XILINX_MCDMA_IRQ_ERR_MASK		BIT(7)
->  #define XILINX_MCDMA_BD_EOP			BIT(30)
->  #define XILINX_MCDMA_BD_SOP			BIT(31)
-> +#define XILINX_MCDMA_BD_HW_SIZE			64
->
->  /**
->   * struct xilinx_vdma_desc_hw - Hardware Descriptor
-> @@ -277,8 +278,10 @@ struct xilinx_axidma_desc_hw {
->   * @buf_addr_msb: MSB of Buffer address @0x0C
->   * @rsvd: Reserved field @0x10
->   * @control: Control Information field @0x14
-> - * @status: Status field @0x18
-> - * @sideband_status: Status of sideband signals @0x1C
-> + * @mm2s_ctrl_sideband: Sideband control info for mm2s @0x18
-> + * @s2mm_status: Status field for s2mm @0x18
-> + * @mm2s_status: Status field for mm2s @0x1C
-> + * @s2mm_sideband_status: Sideband status for s2mm @0x1C
->   * @app: APP Fields @0x20 - 0x30
->   */
->  struct xilinx_aximcdma_desc_hw {
-> @@ -288,10 +291,17 @@ struct xilinx_aximcdma_desc_hw {
->  	u32 buf_addr_msb;
->  	u32 rsvd;
->  	u32 control;
-> -	u32 status;
-> -	u32 sideband_status;
-> +	union {
-> +		u32 mm2s_ctrl_sideband;
-> +		u32 s2mm_status;
-> +	};
-> +	union {
-> +		u32 mm2s_status;
-> +		u32 s2mm_sideband_status;
-> +	};
->  	u32 app[XILINX_DMA_NUM_APP_WORDS];
->  } __aligned(64);
-> +static_assert(sizeof(struct xilinx_aximcdma_desc_hw) == XILINX_MCDMA_BD_HW_SIZE);
->
->  /**
->   * struct xilinx_cdma_desc_hw - Hardware Descriptor
-> @@ -1015,9 +1025,11 @@ static u32 xilinx_dma_get_residue(struct xilinx_dma_chan *chan,
->  					   struct xilinx_aximcdma_tx_segment,
->  					   node);
->  			aximcdma_hw = &aximcdma_seg->hw;
-> -			residue +=
-> -				(aximcdma_hw->control & chan->xdev->max_buffer_len) -
-> -				(aximcdma_hw->status & chan->xdev->max_buffer_len);
-> +			residue += aximcdma_hw->control & chan->xdev->max_buffer_len;
-> +			if (chan->direction == DMA_DEV_TO_MEM)
-> +				residue -= aximcdma_hw->s2mm_status & chan->xdev->max_buffer_len;
-> +			else
-> +				residue -= aximcdma_hw->mm2s_status & chan->xdev->max_buffer_len;
->  		}
->  	}
->
-> --
-> 2.43.0
->
+Looking at your results for rk3566 for example, SHA-256 on 4096-byte
+blocks is 115 cycles/operation for sha256-lib (i.e. ARMv8 CE) or 3027
+cycles/operation for rk2-sha256.  So the Rockchip driver is 26 times
+slower than simply using the existing well-tested CPU-based code.
+
+Don't you love "accelerators" that make things 26 times slower?
+
+I guess we'll get the usual argument that this driver is really just for
+"testing" or whatever.
+
+- Eric
 
