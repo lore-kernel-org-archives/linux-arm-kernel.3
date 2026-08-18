@@ -4,67 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B23C5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 08:09:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB4B9C5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 08:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KxoJzPksuK2FDItQJn1AHAFzrtCR8dkvo26/KvGtqwo=; b=OckQ1te/8COXW7uChP6uIT1nRW
-	8Ws66mGpXRh8AB0p/+F0F8JUPTJmlpoTByFUfPA7+ON+b4kAQpRr92XcgDBUizbEe05Dz5aqz3/Y5
-	diObIrRmieoVjdysC+9BTs8C7YKAwvvYW8F16j0cIaBxBk6GFWGslTTsQ+w9xgON5wLo5Z/Fnu7w+
-	NKx8xrOqevTYiE5AdQJdsiazLtd8+0B7rAD7fBUCdFejr9kDqqbh2zETvKUothOOG0r74JePW0/ME
-	l4XT+iIkIyWgs2saz17AQFN6XYX6ASmBnYjayhYQJ3cLXwWqWzhBLI9qsbMgzetifBE+Nmp3IbJzv
-	+zrf4EGA==;
+	bh=sVmR3VY2P/43Xc1WVt4/8Wvg41WzumPQhGva3P6A3c8=; b=i4UDk3Eqdp6KWFL6vOru6Xcmol
+	0F6B1r75F9bL/5b7EpOvOlKUrcj+DObTA5iV10rcqqP8NnovXmZEn/BzuKWvqa+dU+x0E1BIlqpmd
+	oRSBl9HQ9RB65gPilXdUEfv8nkG2s8qs0Pafskw+FGd4cr+qbKArbiiu5gq7eUUGOAkqzKZd3M6LE
+	Zpa2uswjqGgNDbM6LrY9Pt3LEib4t1gUHAFnr6GMd+1Ga9uO8KXyWgxkVGrRDNI+zPnAtspNY02Uw
+	hNiErWxuBX4GGLx0KbfytUto/gSvxT3LVFdQ601txda5MXr7YEgsCNQp8xu4b2Nj4m7VvMiygLQf4
+	03GsWTAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwEsl-00000007UgZ-038a;
-	Tue, 18 Aug 2026 08:09:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wwEwS-00000007V0C-3sGk;
+	Tue, 18 Aug 2026 08:13:04 +0000
+Received: from mail-pg1-x547.google.com ([2607:f8b0:4864:20::547])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwEsj-00000007UgP-35Fj;
-	Tue, 18 Aug 2026 08:09:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2A0B44038;
-	Tue, 18 Aug 2026 08:09:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 690BB1F00A3E;
-	Tue, 18 Aug 2026 08:09:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787040552;
-	bh=KxoJzPksuK2FDItQJn1AHAFzrtCR8dkvo26/KvGtqwo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gMDn1pQmV05dOdAY/pzoI+YyNdsCaN65uiMrqKC7ujrwsnbKmc+WDTRQjXuw8V05m
-	 qYXYyUA/IHhp3OcXyxIzRK/ynvWv7mL52b31BzAsiVPnOS5wFrhnV9aSsz24QpS0oX
-	 SvmWezaxRBV1BAaSZGeR5tkRZ6JFdNNliMEvPnv1A8O1UJvZVMSf/LKEERRNvS3BJ7
-	 vxF4/LgC624RTmgWmngE9tCqYmENzTgbjUl5emrNQ9OEdZtyUbZp2BnNzHQa21Uuzq
-	 YiyfaxAAIE85WLhYOcI3EW0NY0w5ak3SIBUh4OAxxVyI/zYzPTsp4uk6AtmzBvtAxt
-	 Qg1+dBXUEsJCg==
-Date: Tue, 18 Aug 2026 10:09:02 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Marek Vasut <marex@nabladev.com>
-Cc: linux-usb@vger.kernel.org, Pankaj Dev <pankaj.dev@st.com>, 
-	Rahul Kumar <rahul.kumar05@st.com>, Fabrice Gasnier <fabrice.gasnier@foss.st.com>, 
-	=?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Christian Bruel <christian.bruel@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Rosen Penev <rosenp@gmail.com>, 
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org, 
-	kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 1/9] dt-bindings: phy: Document ST STM32MP25
- USB2-FEMTO PHY
-Message-ID: <20260818-imperious-thankful-perch-dcaa44@quoll>
-References: <20260816213849.1044073-1-marex@nabladev.com>
- <20260816213849.1044073-2-marex@nabladev.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260816213849.1044073-2-marex@nabladev.com>
+	id 1wwEwQ-00000007UyL-2H8U
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Aug 2026 08:13:03 +0000
+Received: by mail-pg1-x547.google.com with SMTP id 41be03b00d2f7-cc132709c76so2903812a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 01:13:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1787040781; x=1787645581; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sVmR3VY2P/43Xc1WVt4/8Wvg41WzumPQhGva3P6A3c8=;
+        b=NWoFm9kEsZ8EpqT3AQV00SnYAzI8zZVDSRIpJmwCxEKmEG9lbVAcrMHxVd6TKiOorI
+         GjAY1mpwaQISf6R113K1rIKcOfxI6Oksse21itgIBUJIjIiJmLgOMqOdmkOT366SLDUH
+         VGPejLI9Ar6fJwe811STlTL6tEN+X7n3SAg/uppIwPlthjC3tdQan2xLJCwLLI7xesN1
+         AZZfRLDpO0B0qC+jg40gULai3lIcBFJxpazWy4l3sDlTKhwx/SG0DW0qJv41aQYtp9TJ
+         QFFzLm6aY2DTHAdtDvtBntynChFX2sONLXn+pzmLe2UyTpUIRmwarWYI2tEK1B5el1b1
+         J41w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787040781; x=1787645581;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sVmR3VY2P/43Xc1WVt4/8Wvg41WzumPQhGva3P6A3c8=;
+        b=peKV/9NmLJnxrT82vxhQ/V3NG2eTXnXh3WB453NTP3JZCUqPuX33HTLbph+UFecwdP
+         +KgPSA1WwlOar4SP1fqYmoXnWRZHYqNOeIxHefVanefUZnG8WxNKPwafwbnzfn0K4YUI
+         7Yws7LG9GOc8Kv2y79gSW2S3MEbicMHkD19VBMTTweVRXCH0C6u5aU8Vi4MyJBrRMdTL
+         YItM4QqyQZlKTyJ/oyGoouIgNGE8gXRoR+D2mDU7m1u/vdx989oDlzJJGBwBLbGaWiGE
+         HT2AkIm+XEVpdeLRuLX+BfLn3pFv7VeaA7Hx05LRof3Yly4uAvsUHILMZwxKzOUsxr3r
+         UKjQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrkE2f6BULaB2ZM/E7PxwvRU1fj6NuJgEgPYIP9K8QdavAQfPLVaPXkFOHrMMvTsmu1O6ZthKsUE0AiVkFKhmPs@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaVbUzOcgv1CfSr0z/Iy6vZSCq0XUneuquQQP1pFFptzSnEG3D
+	nFm+GPOyyVu9C38CQbNeD9uxFaA6lpSRVPKv52W9bQVUuqvHEE9YRORAFcP+eyL+LROM2SemMdG
+	EP/NiTMT5Ux28588M0DbbnMKWyw==
+X-Received: from pgkc14.prod.google.com ([2002:a63:ef4e:0:b0:c99:3b68:c9e4])
+ (user=ackerleytng job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a21:4685:b0:3c3:875d:705e with SMTP id adf61e73a8af0-3ccda96659cmr9559681637.19.1787040780904;
+ Tue, 18 Aug 2026 01:13:00 -0700 (PDT)
+Date: Tue, 18 Aug 2026 08:12:38 +0000
+In-Reply-To: <20260818-gmem-no-return-page-v1-0-4f8d939efdbc@google.com>
+Mime-Version: 1.0
+References: <20260818-gmem-no-return-page-v1-0-4f8d939efdbc@google.com>
+X-Developer-Key: i=ackerleytng@google.com; a=ed25519; pk=sAZDYXdm6Iz8FHitpHeFlCMXwabodTm7p8/3/8xUxuU=
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787040773; l=7522;
+ i=ackerleytng@google.com; s=20260225; h=from:subject:message-id;
+ bh=oRKeat8XDy9tQquxaI02+cUjLXHoVTmOLq0ZPD46ISw=; b=SInLKT396SW4cghL3FPwB9A8Gfd2ogtUQxrRFWcc/tomMx6uzYdPrHiU4m8hxj+GroqAcqTC1
+ zpoSAG5TeFCB8YuMSY8+T1Kxtuwbbc4Yr5CMpCl3wBQ5xKfY6und/Ha
+X-Mailer: b4 0.16.0
+Message-ID: <20260818-gmem-no-return-page-v1-4-4f8d939efdbc@google.com>
+Subject: [PATCH 4/4] KVM: guest_memfd: Stop returning struct page from PFN lookup
+From: Ackerley Tng <ackerleytng@google.com>
+To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Ashish Kalra <ashish.kalra@amd.com>, 
+	Michael Roth <michael.roth@amd.com>, Brijesh Singh <brijesh.singh@amd.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, David Hildenbrand <david@kernel.org>, Fuad Tabba <tabba@google.com>, 
+	Yan Zhao <yan.y.zhao@intel.com>, "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>, 
+	Vishal Annapurve <vannapurve@google.com>
+Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	Ackerley Tng <ackerleytng@google.com>
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260818_011302_594209_7735EF07 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,66 +106,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 16, 2026 at 11:37:03PM +0200, Marek Vasut wrote:
-> From: Pankaj Dev <pankaj.dev@st.com>
->=20
-> Document USB2 PHY for STM32MP25 USB2 controllers, which includes the
-> USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
-> Two such PHYs in total are present in STM32MP25 SoC, they both are
-> slightly different, therefore they use different compatible string
-> to discern them.
->=20
-> Co-developed-by: Pankaj Dev <pankaj.dev@st.com>
-> Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
+From: Sean Christopherson <seanjc@google.com>
 
-Please run scripts/checkpatch.pl on the patches and fix reported
-warnings. After that, run also 'scripts/checkpatch.pl --strict' on the
-patches and (probably) fix more warnings. Some warnings can be ignored,
-especially from --strict run, but the code here looks like it needs a
-fix. Feel free to get in touch if the warning is not clear.
+KVM currently expects guest_memfd PFN lookups to return a refcounted
+struct page, which callers hold across fault handling.
 
-> Co-developed-by: Rahul Kumar <rahul.kumar05@st.com>
-> Signed-off-by: Rahul Kumar <rahul.kumar05@st.com>
-> Co-developed-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Co-developed-by: Cl=C3=A9ment Le Goffic <clement.legoffic@foss.st.com>
-> Signed-off-by: Cl=C3=A9ment Le Goffic <clement.legoffic@foss.st.com>
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
-> ---
-> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: Christian Bruel <christian.bruel@foss.st.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-> Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> Cc: Pankaj Dev <pankaj.dev@st.com>
-> Cc: Rahul Kumar <rahul.kumar05@st.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Rosen Penev <rosenp@gmail.com>
-> Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> Cc: Vinod Koul <vkoul@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: kernel@dh-electronics.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-phy@lists.infradead.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> Cc: linux-usb@vger.kernel.org
-> ---
-> V2: - Fix up Sob/Cdb lines
->     - Fix up compatible string in example
->     - Use additionalProperties: false
->     - Expand description:
->     - Use clock-cells =3D <1> to discern OSC and future PLL clock from th=
-e PHY
-> ---
->  .../bindings/phy/st,stm32-usb2phy.yaml        | 73 +++++++++++++++++++
+Holding a page reference across fault handling is problematic for
+guest_memfd. In-place memory conversions between confidential
+computing shared and private states inspect folio refcounts to ensure
+exclusive ownership by guest_memfd. A concurrent guest page fault
+taking a reference on the folio causes conversions to fail due to an
+elevated refcount.
 
-I do not see any changes/improvements from previous review.
+guest_memfd already notifies KVM of page invalidations, so callers
+within KVM only need to respect the MMU invalidation protocol to safely
+rely on guest_memfd for page presence.
 
-Best regards,
-Krzysztof
+Furthermore, removing struct page from the guest_memfd PFN lookup moves
+KVM closer toward supporting memory backends that are not backed by
+struct page.
+
+Drop the folio reference immediately before returning from the
+guest_memfd PFN lookup, and stop returning the struct page pointer.
+
+For ARM, initialize the local page pointer to NULL so that the shared
+cleanup path that releases fault-in pages safely no-ops for guest_memfd.
+
+For x86, no additional changes are required in the MMU fault path
+because the page fault tracking structure is zero-initialized at the
+start of page fault handling, ensuring the refcounted page pointer is
+already NULL.
+
+Reported-by: Yan Zhao <yan.y.zhao@intel.com>
+Closes: https://lore.kernel.org/all/anZ4W9o5pTWIEgMY@yzhao56-desk.sh.intel.com/
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+Co-developed-by: Yan Zhao <yan.y.zhao@intel.com>
+Signed-off-by: Yan Zhao <yan.y.zhao@intel.com>
+Co-developed-by: Ackerley Tng <ackerleytng@google.com>
+Signed-off-by: Ackerley Tng <ackerleytng@google.com>
+---
+ arch/arm64/kvm/mmu.c     | 4 ++--
+ arch/arm64/kvm/nested.c  | 4 ++--
+ arch/x86/kvm/mmu/mmu.c   | 2 +-
+ arch/x86/kvm/svm/sev.c   | 8 ++------
+ include/linux/kvm_host.h | 6 ++----
+ virt/kvm/guest_memfd.c   | 9 ++-------
+ 6 files changed, 11 insertions(+), 22 deletions(-)
+
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 6c941aaa10c63..e5d637a5ec558 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1613,7 +1613,7 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
+ 	struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
+ 	unsigned long mmu_seq;
+-	struct page *page;
++	struct page *page = NULL;
+ 	struct kvm *kvm = s2fd->vcpu->kvm;
+ 	void *memcache = NULL;
+ 	kvm_pfn_t pfn;
+@@ -1641,7 +1641,7 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+ 	/* Pairs with the smp_wmb() in kvm_mmu_invalidate_end(). */
+ 	smp_rmb();
+ 
+-	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, &page, NULL);
++	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, NULL);
+ 	if (ret) {
+ 		kvm_prepare_memory_fault_exit(s2fd->vcpu, s2fd->fault_ipa, PAGE_SIZE,
+ 					      write_fault, exec_fault, false);
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index fb54f6dad995c..43523bb17621a 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1360,7 +1360,7 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu, bool *is_gmem)
+ 	bool write_fault, writable;
+ 	unsigned long mmu_seq;
+ 	struct vncr_tlb *vt;
+-	struct page *page;
++	struct page *page = NULL;
+ 	u64 va, pfn, gfn;
+ 	int ret;
+ 
+@@ -1411,7 +1411,7 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu, bool *is_gmem)
+ 		if (is_error_noslot_pfn(pfn) || (write_fault && !writable))
+ 			return -EFAULT;
+ 	} else {
+-		ret = kvm_gmem_get_pfn(vcpu->kvm, memslot, gfn, &pfn, &page, NULL);
++		ret = kvm_gmem_get_pfn(vcpu->kvm, memslot, gfn, &pfn, NULL);
+ 		if (ret) {
+ 			kvm_prepare_memory_fault_exit(vcpu, vt->wr.pa, PAGE_SIZE,
+ 					      write_fault, false, false);
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index c519e8e8d646f..129d403308051 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -4604,7 +4604,7 @@ static int kvm_mmu_faultin_pfn_gmem(struct kvm_vcpu *vcpu,
+ 	}
+ 
+ 	r = kvm_gmem_get_pfn(vcpu->kvm, fault->slot, fault->gfn, &fault->pfn,
+-			     &fault->refcounted_page, &max_order);
++			     &max_order);
+ 	if (r) {
+ 		kvm_mmu_prepare_memory_fault_exit(vcpu, fault);
+ 		return r;
+diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
+index 3fc582fa343cc..0a324e5b556b1 100644
+--- a/arch/x86/kvm/svm/sev.c
++++ b/arch/x86/kvm/svm/sev.c
+@@ -4016,7 +4016,6 @@ static void __sev_snp_reload_vmsa(struct kvm_vcpu *vcpu, gpa_t gpa)
+ 	struct kvm *kvm = vcpu->kvm;
+ 	gfn_t gfn = gpa_to_gfn(gpa);
+ 	unsigned long mmu_seq;
+-	struct page *page;
+ 	kvm_pfn_t pfn;
+ 
+ 	lockdep_assert_held(&svm->sev_es.snp_vmsa_mutex);
+@@ -4060,9 +4059,8 @@ static void __sev_snp_reload_vmsa(struct kvm_vcpu *vcpu, gpa_t gpa)
+ 	 * The new VMSA will be private memory guest memory, so retrieve the
+ 	 * PFN from the gmem backend.
+ 	 */
+-	if (kvm_gmem_get_pfn(vcpu->kvm, slot, gfn, &pfn, &page, NULL))
++	if (kvm_gmem_get_pfn(vcpu->kvm, slot, gfn, &pfn, NULL))
+ 		return;
+-	kvm_release_page_clean(page);
+ 
+ 	read_lock(&kvm->mmu_lock);
+ 	/*
+@@ -5002,7 +5000,6 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+ 	struct kvm_memory_slot *slot;
+ 	struct kvm *kvm = vcpu->kvm;
+ 	int order, rmp_level, ret;
+-	struct page *page;
+ 	bool assigned;
+ 	kvm_pfn_t pfn;
+ 	gfn_t gfn;
+@@ -5029,13 +5026,12 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+ 		return;
+ 	}
+ 
+-	ret = kvm_gmem_get_pfn(kvm, slot, gfn, &pfn, &page, &order);
++	ret = kvm_gmem_get_pfn(kvm, slot, gfn, &pfn, &order);
+ 	if (ret) {
+ 		pr_warn_ratelimited("SEV: Unexpected RMP fault, no backing page for private GPA 0x%llx\n",
+ 				    gpa);
+ 		return;
+ 	}
+-	kvm_release_page_unused(page);
+ 
+ 	ret = snp_lookup_rmpentry(pfn, &assigned, &rmp_level);
+ 	if (ret || !assigned) {
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 03bfc92864b6e..502465119ca0c 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -2586,13 +2586,11 @@ static inline bool kvm_mem_is_private(struct kvm *kvm, gfn_t gfn)
+ 
+ #ifdef CONFIG_KVM_GUEST_MEMFD
+ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+-		     gfn_t gfn, kvm_pfn_t *pfn, struct page **page,
+-		     int *max_order);
++		     gfn_t gfn, kvm_pfn_t *pfn, int *max_order);
+ #else
+ static inline int kvm_gmem_get_pfn(struct kvm *kvm,
+ 				   struct kvm_memory_slot *slot, gfn_t gfn,
+-				   kvm_pfn_t *pfn, struct page **page,
+-				   int *max_order)
++				   kvm_pfn_t *pfn, int *max_order)
+ {
+ 	KVM_BUG_ON(1, kvm);
+ 	return -EIO;
+diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
+index b596486d184ca..589762140c3ef 100644
+--- a/virt/kvm/guest_memfd.c
++++ b/virt/kvm/guest_memfd.c
+@@ -751,8 +751,7 @@ static struct folio *__kvm_gmem_get_pfn(struct file *file,
+ }
+ 
+ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+-		     gfn_t gfn, kvm_pfn_t *pfn, struct page **page,
+-		     int *max_order)
++		     gfn_t gfn, kvm_pfn_t *pfn, int *max_order)
+ {
+ 	pgoff_t index = kvm_gmem_get_index(slot, gfn);
+ 	struct folio *folio;
+@@ -780,11 +779,7 @@ int kvm_gmem_get_pfn(struct kvm *kvm, struct kvm_memory_slot *slot,
+ #endif
+ 
+ 	folio_unlock(folio);
+-
+-	if (!r)
+-		*page = folio_file_page(folio, index);
+-	else
+-		folio_put(folio);
++	folio_put(folio);
+ 
+ 	return r;
+ }
+
+-- 
+2.55.0.699.gb54405d56f-goog
 
 
