@@ -4,176 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE592C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 10:31:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EEC8C5DF7E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 10:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zTZIGZgFm8jHPh7WyQnjbDJODJ0NKppeoXhKErwsmXI=; b=jAXIlb9etbHN/mXBZ/biVdU9yG
-	r3HeeS/SLVwpwbsZl0s9722gyfNXoliiN8BU+rVUQf8d+aBhP8zUfnfmH9SdB7US8WNb0shf6FstS
-	ddGXpJd0sN9PvVdYgjiscIH42BNxtgpLHOHZdDaw++uj9cIAgyPYJyJlA38PnCpdO/+9BKt8kaCA+
-	8/bZljDNCVQCmc125eBc3JcGt/5bjZaoL1zw0/PwkaJwQ2W3YkKPuHXmg4sKA4aTJoYiPrds5MCtf
-	BvjGQVfzO30SIzeEc7RHRoDjHjp4syQti0l96wtBHjr7/VHP5umpgmWRYqW6JsIW81+KUl7h54vww
-	apBPlilw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iRzYJ7RHlmt5faDVd4SQiUF+QBz3mgu2M1pqY/9IwAk=; b=JiFQHX5cTtb3Q6
+	7vId/LJXRsKVgqHVbIimS3ghMcZ3PxMh8Bkv1ixg06j+aJH02RDkjmtmQEUPdejWuEPv6EbfDr5id
+	A0gl4yizGahf/28xRHefn6osx/vt/PrxV/oI/y1D5FJSDYEMQS9Ueli814k0TFU+fFiw3HYUnh7AH
+	PY2TB41Wa96i5DK+eVEYzSuoo2X32/JuZ2/xjS1n3qmE1lBKj/HMo9C4rPn7YmRTsLgOWu8TI6RGe
+	kq1kaj5a8iuy9EzJckdWHWWLD7uwaNQEEZ8Zs/hR+cwSDzNhtTrqveLT9cqHuU4XnXZxPhKsNMiol
+	Bh1/vQ3TkrbQjWyEM45g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwH6V-00000007idc-2I8U;
-	Tue, 18 Aug 2026 10:31:35 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1wwH6g-00000007ige-35AB;
+	Tue, 18 Aug 2026 10:31:46 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwH6S-00000007idF-49Q4;
-	Tue, 18 Aug 2026 10:31:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787049093; x=1818585093;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=sWrF2F0UHrt/Hg1lcXZdOrk4MULs/cCww3tjNpSYSjI=;
-  b=QvjOImlbJwA8bSjwRtzl5aIzYiUolZ6Wf3HZd6uW37ixjOkcR5e5bSCq
-   CzQjBNrs3I88/AXUvhRvtZPjVlktOiZ0CG/em8vgcilucCHh3oaaIrr/9
-   gn6LK0ffyG6oPYYz3VwZfvyoB8o2wKqFPDApTFVFL907LwOk7A5i2RiXQ
-   6tBE8ND/z3CFhObrSlI33x2pmaTD7GOOPkAon3glVc+NtzprHZdx5MBiw
-   QmfE3uWSykHYeKOFbKXaYF44keoG8YlUOBHICyvxSOAvCsiIjqNjncX+Y
-   BpAIiTcoP+CvmmBFSPJ4Up6+vQnvujaWIU5GBoOQN7GXyVYxGcSTWOdwx
-   g==;
-X-CSE-ConnectionGUID: 9FsSuM3ESyOatbHVE2ELJA==
-X-CSE-MsgGUID: YZMQmTPpSYOiqZcLEi2Y5A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11878"; a="87413165"
-X-IronPort-AV: E=Sophos;i="6.25,230,1779174000"; 
-   d="scan'208";a="87413165"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2026 03:31:17 -0700
-X-CSE-ConnectionGUID: fNBf9mwkStqVFMOBI0llRQ==
-X-CSE-MsgGUID: BOTkI+d/QoinV/GP8cuQbA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,230,1779174000"; 
-   d="scan'208";a="264742541"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2026 03:31:17 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Tue, 18 Aug 2026 03:31:16 -0700
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45 via Frontend Transport; Tue, 18 Aug 2026 03:31:16 -0700
-Received: from BN8PR05CU002.outbound.protection.outlook.com (52.101.57.9) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Tue, 18 Aug 2026 03:31:16 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gjWmrtYO/hxBHYQO7En6gKoYeYrEmGcwJhMB4nEIvydW5yJnBktiVHtROOmf/5D0Y23sorMn7yka1pemTFsBt5JMXdg5C6QcytLM4EUElNDBDhMCG5gqlIXJ9sT5z3sSGrm/16pUeoRfw+L111G9/JkggyACEge/m1xMYKhTibM8jB3IOU/jqBYPzjR1xGkw6/864pudqhzqEo4fjrfcClU0/AXQ0sdwtimHwZjCfIEiJGRRSDwIfmKPeJFFJwtE5IimcKLXEeJAt9aRMTtGzQZJzb+UtMaMQq0lOms2bZ/oa7H4sG45CqGm11P9Z+UJAre1yljaPlgKYFUF/bHfig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zTZIGZgFm8jHPh7WyQnjbDJODJ0NKppeoXhKErwsmXI=;
- b=Uc688hmOey6M4rC2tqPgrP4kjYRLQcj9Hch59P0xKpQLWL7ePkscXehaFZD5Iwxn6cGJOdby0hxmNvwWDxlpsGBD/gGiuwpPg8Ykgpk9o3T4RmYRjT4VrBHk6Ns/1PKpN45OkEekWZkPqriqajNE1Zd5yuzvtBTAWPB6CXbYTE85fAPNB+CMqQj4bpgM+jconpwSQQZBIuyokJ0I7mWtfwacCc5oKb2sTmKHgRdXgfUiWpNO7WqLOKrAhmhBG5lCqVO8Tifg6aZX/pfUHz/YABtOSx8cVdej+WD7k8LRJhiHl9osQmZuRmUMxkncTCzDsHSPp2lyXR8Re53/87LFzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH7PR11MB6006.namprd11.prod.outlook.com (2603:10b6:510:1e1::13)
- by SA1PR11MB8795.namprd11.prod.outlook.com (2603:10b6:806:468::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.14; Tue, 18 Aug
- 2026 10:31:13 +0000
-Received: from PH7PR11MB6006.namprd11.prod.outlook.com
- ([fe80::4e2d:28f0:ede9:73bd]) by PH7PR11MB6006.namprd11.prod.outlook.com
- ([fe80::4e2d:28f0:ede9:73bd%5]) with mapi id 15.21.0339.007; Tue, 18 Aug 2026
- 10:31:13 +0000
-Message-ID: <b3dad816-469b-478a-b6a8-a08ac8610ac9@intel.com>
-Date: Tue, 18 Aug 2026 12:31:07 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] ASoC: mediatek: mt2701: Use devm_clk_get_optional()
- for audio_mrgif_pd
-To: <phucduc.bui@gmail.com>
-CC: Liam Girdwood <lgirdwood@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Rosen Penev <rosenp@gmail.com>, Daniel Golle
-	<daniel@makrotopia.org>, <linux-sound@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Mark Brown <broonie@kernel.org>, "Matthias
- Brugger" <matthias.bgg@gmail.com>
-References: <20260817104929.63152-1-phucduc.bui@gmail.com>
-Content-Language: en-US
-From: Cezary Rojewski <cezary.rojewski@intel.com>
-In-Reply-To: <20260817104929.63152-1-phucduc.bui@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VIVP296CA0005.AUTP296.PROD.OUTLOOK.COM
- (2603:10a6:800:357::17) To PH7PR11MB6006.namprd11.prod.outlook.com
- (2603:10b6:510:1e1::13)
+	id 1wwH6d-00000007iev-3tQZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Aug 2026 10:31:45 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-47f92e3c14bso1015572f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 03:31:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1787049101; x=1787653901; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=iRzYJ7RHlmt5faDVd4SQiUF+QBz3mgu2M1pqY/9IwAk=;
+        b=HLjB4HvyyqdU4S/dBowJQmyCHGF0/Hv/vMkl2MLqIVLfUD7aYlyBHgrJ6pGJIuye0M
+         OkMdglKGOL7MPoGPvWwMGCnfSNVIPpKVYH9bmnaibRehxOCv9HWLey67FIE2Crb1NInQ
+         q33if0aVD+JHyOoj6p9ZbeE+XN5qtOHeqduUkqWsvOov3NtiaDegX5crIb9QjmtwWv+R
+         R6BzBtoPqiOPseeMT7cFf8PGEHHDEGgKxk/vGt2Vd/42pQAbZolNYb3XdRcyxSaepfA3
+         /E3YuN/Esf1i0iR6UrM1lQdR1dZ21LeUM4Kxlg7iGRz0vehw+JUEEWS9whQlfW3EGxU1
+         ew0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787049101; x=1787653901;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=iRzYJ7RHlmt5faDVd4SQiUF+QBz3mgu2M1pqY/9IwAk=;
+        b=AYG2DLx0CxFRJvv29AdiwlGrBIfYy4HVHO7YzMX0A2TnlkuP3aridXg+wsjc6LWGaN
+         y3iNSkUd9T+Rz2fps0YNqLxmvy03lPPAP0UkecFsn8C3CGP3zNpNIOThAa9sV+NwjtzN
+         8Bb45iCclWo9tIDg3mmsDQJ5rH+97zm76M1RhyHz3ji/vndlQvke47U3KJg9U8q98mAP
+         BH7YraIh2qm+8NLVssiogFMKo56m70igcB++2PPDChT1RliG2TNH5nHXBi6j2SKW9ww0
+         iM4AfoSg/4Tms+jp0dpOAvd1H96I/inUXlylB3HFwDVZO4JesHlqgMbtsDVtUVpSrbLP
+         r6GA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr0eWpQmxAX4UH2Ut4RwyVoKv3vINLTNuT1w6Cf2fmjRit0WI5zHPGsl1903XFLsaQ1pSTBs2v/c/hCMC5mWCfY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxy3JOMfFv+wo7nnvGNYPFJKjcBnLHfsvCoS7EHUfR5ZhwKs1pd
+	6EnYuWHUABBao0ofqEnife+YGwwDycc/fwvhmIztLgzEJ2UFNPqKT14DOCeD83SUNkMzwLkVstl
+	dcsG9
+X-Gm-Gg: AR+sD10G0ZPmOMoQvgLJe+rl4NEaePt08wcSCqUcI4yRyEj98h412UOxc6Ke54Hl9EA
+	L8UTxvYL8VotWrrJrrcPmTHNzaTLjCblf1lxvcgL6OuLPJ7i/b1QGV4QkPgbnbCHJfhLzn0D8Ag
+	uxqMqOz2GC9eRPZ86eCuZ5Z/atad3c165eEHq1dYmfIRCyvIuyw2qRkCNdmtcIzCejh1He2Ncnh
+	YvD96CiYlT48W3zoeeTKKkmCiMTJ8hnidcwUeORBUV3LwqRrlZe3XPx5MsP94wf0/LWHW4LOTeZ
+	zhqI8m3gA9xvtXucVVeM5FDhxppvMzHXvUIu8UlYpbmUCTv+9HT8ICx45UZpllfekTD/RW/3lKU
+	JjFIQSfIeNiBX75ZR82IJKechNsDPIA5nSAcTpBUnL8SUC3AWvfJ/4gKGqXavXV4KF6u8Uu9IaR
+	ztKapE3mWGzlTpcbakmMgIfn3GOgyuBYHgV1srNKVC7DfTio4EQ/ZNpL0zMqDNEeDdCf/W3g0AQ
+	KEF+D5dodKcbuqwpHSPZeUa7q+KZ4iqxdQVV+IrZRb1Ibh0QWyz91g+ItPGNEQqEGlM32w=
+X-Received: by 2002:a05:600c:6089:b0:499:86ce:465e with SMTP id 5b1f17b1804b1-49987941e38mr561900575e9.4.1787049101182;
+        Tue, 18 Aug 2026 03:31:41 -0700 (PDT)
+Received: from [127.0.0.2] ([188.111.3.154])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499960988c6sm246025575e9.0.2026.08.18.03.31.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Aug 2026 03:31:40 -0700 (PDT)
+From: =?utf-8?q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
+Subject: [PATCH v6 0/6] soc: aspeed: Add BMC and host driver for PCIe BMC
+ device
+Date: Tue, 18 Aug 2026 10:29:13 +0000
+Message-Id: <20260818-aspeed-driver-v6-v6-0-fd7cc0b338ea@9elements.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR11MB6006:EE_|SA1PR11MB8795:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19851093-af9f-4d6a-f0a6-08defd13d3ed
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|23010399003|22082099003|18002099003|11063799006|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: XNgApcSXz+C6SYYsIooWcfDu/Sl3hn3f7OzJ7PWUCScdso2ULKgztxQhQu9ShnXlFAMuRg2ZQWPY9WOIFsfihrkD4OAL4pvN4QVcm1pyrU8c3g9IqQ5p/mRrPhB1J1OYCqbzmW9+kVwKCFkDR4g6kRZbVaTv+n2dnT1jksk06hcTdZpXIjm5Dh24lXgjt//pMA9ClLGKZSSe/Ro3hywDh60D1eOWM1ONRVPIWPJXsKaQHeIKIwQOOshCplevLTAsvbstFsC09YgfzgOt9vcL+mlysx6cL4yFMRafrcw78cRlHe4rgfP9cdlSqm1ovJbAhQ/JNXLGIao/E2WSI+miMQNn+0JJva1QvhldbLQQSksTWd3jcufxN5G4g4ZVSrEeOBbH+bXT1ZRXyC0iabARy/Hypr4xkEKZbUtkUffZ+Ck4ZACPdLudonY2Lo4KpiLtLkEvQRU0uoCeygZaj49OHEmpXlzSNIcsb6eqz8Zf9+CwoYt2DqAtr3rGral+/Ia0Vovu5aw6wxq3YubDwLX4RzG996koJ+z0cESGMPWzjM8Ld/dkS2T25qJHQCs8sx2WAa9+zgzmwOKS7An7DV3WMm47W8yfW1dSgEsynsRyd5hz5Ythq+aaH16Ipax0gL3pZGO/CbIOPmvBWNG2xKI8UDQq7LpxwsY0mvp3cvgshB8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR11MB6006.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(23010399003)(22082099003)(18002099003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Zm5vS2VDOFVMOUUyY0RDcXdqQUczRWFsUlY2UHM0ck8rd3hqa0xFa2lCTDRC?=
- =?utf-8?B?OGVUN3EyU0twaStXbVk5bVFKbGRLSTBMcStJMk5WK3NUdm9mU2lKUnllempw?=
- =?utf-8?B?SHoxdkhvUkNwWVNHMzUwc3RObUdLeHcyblJlcDdOVXAzb29yU2ZOakxLWVM3?=
- =?utf-8?B?WGR5WnIrQVRyRVhWLzBCN2tnNnA2VjF4dWRYQXc5cTRzd285bHhqbU5pajBu?=
- =?utf-8?B?V3RpS3g0MDRpVGY0Z0s5LzJ2ajJRaUs5RmxXVGlyVmNVc245bWwyUENseVkx?=
- =?utf-8?B?RVB2dkFxZUMzNVIyQTdhWDRaNGNobGVxUFRFNDhQaU8rMFg2RXRlQzdHOHdu?=
- =?utf-8?B?b29nZlpSWk1RSVJENEE1R3YvZXFVMHNSZ0IzdUE1MlZwb1ZQQ1JEaGtTd1Zp?=
- =?utf-8?B?N0N2ckE3MlJsbEk5RnF6QytCVDhCOGs3aVZGN1Rjd2c5L1ZWU2loTUEzTW1E?=
- =?utf-8?B?bGhQSTI4cWJ1YXVENGxCN3BmaXEyQXV6WWh1b1JWK3BvNVlTUTRDN3V1Y09n?=
- =?utf-8?B?cU85cjByZXJpWTdMQTFiWEorbWJrUDJIbWsrQzlVMzJDdkR0VlQyQ1Y5MUVM?=
- =?utf-8?B?L3VEczJUVEMvc1hvUDMyTmEwbUY5WkxORXNXZGhDY3JuVzk0L05wbkpnandM?=
- =?utf-8?B?WFlWZHI5WXNUT2V5L2NWR28xYTJ0dmdHVEUvU1VwUGdYUDRtNDZRNDhmTnJQ?=
- =?utf-8?B?emJMclo2d2RHUzhYMVBjaDVOY1l2TzFBRSs1dDJBNU5vYnFSMlFQc1FzNTBE?=
- =?utf-8?B?cDZJdm1tdHpTMWdCbEJNSE9vUU96Y00xc0tOK2REMzVubUVwNGI5VVMxUzJW?=
- =?utf-8?B?UkpGVXVBYXY4TTdodU9uTDQzOC9CODRnMG1SdkVXSVAvMnpZbmxYRVVnM0pH?=
- =?utf-8?B?YnlEYzRmZDdDNnI4c3FseWQyNE5oakRiYSsyUFF4UDErT0V6Q1F1NWQxKzdm?=
- =?utf-8?B?TFJhTi9SZml5cldkOEYvY21JQmVLN3o4bWlpY1FEU29Xem9tRTljSE9VVHNv?=
- =?utf-8?B?U2gwUU15UW0yL0JkemViV3hZMUNZdE1uZ1AzRHoxS0IxQnhLVzhVNGZYR3do?=
- =?utf-8?B?blZCMU9QdGdURm41R2pLc0RkaW4xQ25tSGNlUDF6RkNhd3JMUS9sUlZUV3dL?=
- =?utf-8?B?MkJlVVJ3dHg3NXNJTElRRFQ2S05xa3ZPL0Mxc2RLbWI3N25QbzMrdWVCdEw1?=
- =?utf-8?B?SDU0NWdYZ0hydVgxYldCaE1OY3lONUxBd1BMczJDS1dESEM3R0VSbnVObTFJ?=
- =?utf-8?B?TW9Td1NBYk1hK25uNkkzb200Z3liazlXbzlOSExTMHlTZllHdnBESWN3Y3FO?=
- =?utf-8?B?bWRrd3M3VFJHRzNZQmVDTm1DSGVxM0YyeDZaVm52TDNHV0phdTBkd3FGWUhv?=
- =?utf-8?B?Qk5ycHNBa1R1RWJZdEkyZFNJZVdXNUQyUUg5YVBCelVnaDVINWpGNHNqZXNr?=
- =?utf-8?B?b3VHS3NhRU5yMCtBYS9uZE5ZbjB5YXpHQnU1QUFGb1RWSUtwQUpRYTVVWjRv?=
- =?utf-8?B?MDM1bzVXS1JFdGdtVjF4OVJZZDZZeEhHTFRsMi9yN3RDS2VlYWdJVW5wUW10?=
- =?utf-8?B?dE9iVm9kNWJuSWJWVkFVNzNuY2x6T0YzOVBBakdyMzE2QVRmRGJ3TDNvUDRL?=
- =?utf-8?B?YUFSRElPOHBaTlo5MWdoUEtBVXlNdVdXNnZhOU11VlF4dnplTFRjaGF2eU05?=
- =?utf-8?B?aVBaMUlURkhYNHQ5dHZjNXEzNlY4TUlxL0duT2wwSWNWQ0UyT09jZmE5YnVY?=
- =?utf-8?B?c2ltY09JRjIvK0Rja3lOOFVaV1NMajN4WkZxRXljcWFma3hsTzNhSElld0xL?=
- =?utf-8?B?QXBOUDBZWmdURkgreGFGNTBGSFpUWm9CRW5hRnBTMHZIalFTNDBxckh4dVA3?=
- =?utf-8?B?N01lMDUvNHBBWVdGdFV3RHlva2UzNlZiM3VKYUNHZG4yN09XYnFkQSs2RUIr?=
- =?utf-8?B?eEF5eWMvaG14MVhTcnppcmVVcW80WFRlUVVIRjdoM3ZsREQ0TTlNNC96U2ht?=
- =?utf-8?B?Z3lGZmM1cHNxaUwwekp1a0dMM1VZQmhpc3Jza1NQZnJrU0ZBeHg2YUY1SEtN?=
- =?utf-8?B?NHNHcXJTQ05CUkloYW9jUHVLeTBPZE83Z1BPNXZFYVdiR3czTVdYdm9BTjJk?=
- =?utf-8?B?azdPcUJMV0VPUWZLU3RqN1QwN0JlQjNuV2c3Z3I0aVUvT0U4by9rWVdjaXJr?=
- =?utf-8?B?VjZyWnE1U09VTnphT1BaclpKT2hCbXBDNHdObXVPUDYvRHRBcnR3T2wzYm9n?=
- =?utf-8?B?YUVDcUVEY0hIVWpOMEhoUXNtbnlxTWhlQ1VDWVNoRUU0VWN0NkZ5OVJKZC9m?=
- =?utf-8?B?RmZOWis5RHFXaWZXRE1jb2tBRFpnY3E0YzdCSy90V01wYll3eklHSWpCRG84?=
- =?utf-8?Q?8TIecqCZEBjADPyk=3D?=
-X-Exchange-RoutingPolicyChecked: AiiSsl8dU0BklPFj5s4bU48yiy6Qz6ZLDd9YKMsQXQaL+AyxxirxOcU4/eV8x4WbHDpG06mx0JDLb4EZD/aslpH7JEeaE359fe825CQ/uYs2LTzP8lxW1FPD/Pvbp7UPU3DTNW3iYrYrVDKK3xgcqnmld1dko8FBo1bgWgI7fUWUxxZqz97wOepxhqVtBI1yONXqjZQ6aWQEotx/lom1B7uZ+zLFRO4s0nrnIiDL0VFz9dkFzlROSMfALao209w1j/yE7DdXwKXOQE06xhXjyG+LoNxjkVW92dtih2Ea0RGSt2psp+fFPMQd9EHOVEvbuQopIkkr1H+nPJBdTw/TBA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19851093-af9f-4d6a-f0a6-08defd13d3ed
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR11MB6006.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 10:31:13.7535
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ehJozPIYFHJDWS2DIVrLatC6ICUFwpnJJS1gEepROtZgGCU497r56sz0/4NiqhFIuJ4Lh/Sl0VeHfG5OnCBHchiLuSoPWw6dLJIhyNoE4Co=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB8795
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAPkzhGoC/yXMyw6CMBBG4Vchs3YSyqUBX8W4KO2PjgskM9qYE
+ N6dqstvcc5GBhUYnauNFFlMnkuBP1UU72G5gSUVU1M3vh7cwMFWIHFSyVDOntM0jn0bQ+c6RyV
+ bFbN8fsvL9W97Tw/E1/dD+34AwrvMHHQAAAA=
+X-Change-ID: 20260818-aspeed-driver-v6-db9953ca4141
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>, 
+ devicetree@vger.kernel.org, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Lee Jones <lee@kernel.org>, 
+ =?utf-8?q?Gr=C3=A9goire_Layet?= <git@gregoirelayet.com>, 
+ Tan Siewert <tan.siewert@9elements.com>
+Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+ mfd@lists.linux.dev, andrew@lunn.ch, jacky_chou@aspeedtech.com, 
+ yh_chung@aspeedtech.com, ninad@linux.ibm.com, anirudhsriniv@gmail.com, 
+ =?utf-8?q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_033133_074634_357643CE 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260818_033144_102820_F446551A 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,18 +115,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/17/2026 12:49 PM, phucduc.bui@gmail.com wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
-> 
-> The audio_mrgif_pd clock is optional as some platforms may support the
-> BT path while others do not. Use devm_clk_get_optional() to reflect
-> this.
-> 
-> Propagate other errors to the caller.
+This is the v6 for upstreaming the VUART over PCIe BMC device drivers.
 
-What does that mean? Did the functional path change?
+The initial drivers were taken from the ASPEED kernel SDK
+(master-v6.18) [1], and have been adapted greatly.
 
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-This should be part of a mediatek-patch-series with a cover letter. 
-Yeah, the mt6797 changes should be here too.
+There are two drivers: a BMC-side driver and a host-side driver.
+Together they enable host<->BMC VUART communication via PCIe.
+
+The virtual UART is an 8250-compatible register set. It is called
+'virtual' because it is internally a simple FIFO.
+On the AST2600, two VUARTs can be exposed over PCI via the PCI BMC device.
+
+The host cannot access the BMC's memory. Only the exposed features are
+accessible. These are the KCS4 channel and 2 VUARTs. There is also some
+mailbox register functionality for a communication between
+the host and the BMC. More information can be found here [2].
+
+Changes since v5 [3]:
+- Fix small formatting issue in Patch 4's commit message.
+- Use static const for MFD cell and uart_port in the mfd driver.
+
+The host driver will performs multiple functions. The AST2600 also
+supports LPC over PCI, with a specific KCS channel (KCS4). This host core
+driver should also be used to enable the IPMI automatically via this KCS
+channel.
+
+Tested:
+As with v5, VUART data flow and MSI interrupts have been verified
+as working on the test hardware, in both directions and on both VUARTs.
+BMC: Asus IPMI Kommando Card R1.01, AST2600 A3 running OpenBMC
+Host: Linux kernel v7.0.0
+
+This series only supports the AST2600; the AST2700 is not supported.
+
+The findings regarding the MSI interrupt numbers are explained in the v4
+cover letter [4].
+
+As with v3 and v4, I would like to know whether I should add the
+'lpc-io-reg' and 'lpc-interrupt' values to the vuart3 and vuart4 nodes
+directly in the 'aspeed-g6.dtsi'. The host driver is not capable of
+finding the vuart address on its own, so they are hardcoded to 0x3f8 and
+0x2f8. It will not work with other addresses, so perhaps they should be
+in the .dtsi to ensure the correct configuration for the two vuart over
+PCI.
+
+[1]: https://github.com/AspeedTech-BMC/linux/tree/aspeed-master-v6.18/drivers/soc/aspeed
+[2]: https://lore.kernel.org/linux-aspeed/CAFi2wKYOAotiezepDqaR5PZDqDaPKKDfAEnpx5EHC0mL39hy6w@mail.gmail.com/
+[3]: https://lore.kernel.org/linux-aspeed/cover.1785932211.git.gregoire.layet@9elements.com/
+[4]: https://lore.kernel.org/linux-aspeed/cover.1783524645.git.gregoire.layet@9elements.com/
+
+Signed-off-by: Grégoire Layet <gregoire.layet@9elements.com>
+---
+Grégoire Layet (6):
+      dt-bindings: serial: 8250: aspeed: add ast2600 and aspeed,vuart-over-pci
+      serial: 8250_aspeed_vuart: add aspeed,ast2600-vuart compatible string
+      serial: 8250_aspeed_vuart: add VUART over PCI
+      mfd: aspeed-pci-core: add AST2600 PCIe BMC device driver
+      ARM: dts: aspeed: g6: Change vuart compatible string for ast2600
+      ARM: dts: aspeed: g6: add aspeed,vuart-over-pci prop to vuart3 and 4
+
+ Documentation/devicetree/bindings/serial/8250.yaml |  42 +++++++-
+ MAINTAINERS                                        |   6 ++
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi            |  14 ++-
+ drivers/mfd/Kconfig                                |  12 +++
+ drivers/mfd/Makefile                               |   2 +
+ drivers/mfd/aspeed-pci-core.c                      | 115 +++++++++++++++++++++
+ drivers/tty/serial/8250/8250_aspeed_vuart.c        |  92 +++++++++++++++++
+ 7 files changed, 277 insertions(+), 6 deletions(-)
+---
+base-commit: 6fdec78001b3b94f1b6000bbb2f9ec3498f1c73e
+change-id: 20260818-aspeed-driver-v6-db9953ca4141
+
+Best regards,
+--  
+Grégoire Layet <gregoire.layet@9elements.com>
+
 
