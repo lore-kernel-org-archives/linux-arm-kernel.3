@@ -4,63 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEDFC5DF74
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 07:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CCFCC5DF67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 07:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NGXeti55rfsL+QIxNH+23V/SFO6fjV5CYs9tpc0kf6w=; b=ygY4OHFkWkkDwieDXMX8j9L76S
-	vG4Gtg1Ubclo31VXiWa8uwxF4V/APGq5u2MvvzVfnHE9EkWSyeJzMJ2wdwx8AhYSCYEtbNAsYYxzh
-	q4fn1/1Hnbe9vJZbOvqsdHvbtCkM9bKH/pdjRKym7F6fF09vAlk1Mfe1Fad23OFcO1ny/y2qfTMJ5
-	4kPRM17oelIxQk/xw5pRlqVqiIuiPtG/9IOQ3inPdangWlVqoCEwHVUPErl0r4stNdA1adVKdEInw
-	fa8bNdZtdYih7xxqNnyfGNrHsgacRH/hf0G72gRNrpQTV87EqCAQ0d/RUHWoT/hTYktr/Ub2ZpZuD
-	qu68BR6A==;
+	bh=j6S6pzN/r5a4ugmR332ckbGF/8T37R8VCHGDICYO4+0=; b=YBe2kfXZhyKPisD86aDCzLkM6b
+	VQ6J8Lvq5z9DGm8N7Gq6m0LEuYalSzafwMoSit3OMHx2KbF5/68dGoCj4sbKZicjj28ybAjV/6FDq
+	UiFLqn1Lvyv0qDb5Yxd309PHpnuJz5bE8qeFN0ISKhJ6PmtbMgekXdLWKT1fUAV+pGSatXx5xLwzR
+	GQbECZEj42xXHW+Mvv9fJHcNWUnHJMx+JOsxrZY/TJdC3GL+/bjoAYFThVHd6Z4HFmXNzMX5xhU6a
+	+ANdLDGoz4Xt3D8hfWn7Ur2F8y948ni2yY7pC7apH0SC2doM1eyiDypqr0R/efuQKWLLvlqeRwbxn
+	7nCYHzrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwDts-00000007Qxn-1rIn;
-	Tue, 18 Aug 2026 07:06:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wwEFg-00000007SHo-2aF1;
+	Tue, 18 Aug 2026 07:28:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwDtr-00000007QxU-08UP;
-	Tue, 18 Aug 2026 07:06:19 +0000
+	id 1wwEFe-00000007SHb-1xj0
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Aug 2026 07:28:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7550342DB5;
-	Tue, 18 Aug 2026 07:06:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 751C61F000E9;
-	Tue, 18 Aug 2026 07:06:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AFB4A4365B;
+	Tue, 18 Aug 2026 07:28:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9998C1F000E9;
+	Tue, 18 Aug 2026 07:28:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787036778;
-	bh=NGXeti55rfsL+QIxNH+23V/SFO6fjV5CYs9tpc0kf6w=;
+	s=k20260515; t=1787038129;
+	bh=j6S6pzN/r5a4ugmR332ckbGF/8T37R8VCHGDICYO4+0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fnmDUoqzkz6gpC9rE+MpRmsVk4t4fqISEBKKGm0FAVNtaTxh7CSfS6eX10wQVFC2M
-	 afGm7/6KhniQcLBzXVmICJtEKf/Ie9fiN+4u0TeFtq9FmAQmQQBuC5xEydaFk92DNi
-	 0tMxnMJwlttlLoYT8hBhFX3ArF9aK0m1Dhj/F9tWgU/AiV1KzcnACYoseTQjvOQWKQ
-	 wbfd0aK9sNJ22POKHl6f3qi0swzBrTlpFPdOSQdYXHQZTpycUhWs6Hi8Jrc9azl0El
-	 7JEVYeqgjEyvtCdHjc+GtO3J9IswyLHsyXZvaeMOXSXxFQbxGzQbDs7rP0bzi8SuNQ
-	 Hm1SbNdFIlU+w==
-Date: Tue, 18 Aug 2026 09:06:11 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Hans Zhang <18255117159@163.com>, bhelgaas@google.com,
-	Manivannan Sadhasivam <mani@kernel.org>, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, heiko@sntech.de, yue.wang@amlogic.com,
-	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
-	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v7 0/2] PCI: Configure Root Port MPS during host probing
-Message-ID: <aoQEY5PDU5iqnD9S@ryzen>
-References: <dae17d36-c7d2-467b-a621-3c55e08a67a8@163.com>
- <20260622171448.GA678675@bhelgaas>
+	b=ohR/R9IB4KTGx7cONhyKqVxZoE2oNBAeJpnNfzN+7Ko6+5Ov7dG8OTg3bmQPsYmen
+	 4QYxsQ9XZY3ss3+hKXTA42hzdnIV1le+dYC992kHD4+0XqAc9P9AAiXVUxhefB1Y5a
+	 bS1u9CeeWJttlOzU1qmFfKcsHB68c2ToQOxXlLC7ljKogI3dL6XMM4BdCdPkdihlbf
+	 N7ht+LYJNZAL1hsVrjyIcPAl00+fzRgnhL2L1yOA+5Scg2VEa9YZ8Gvq08SgIF4Iys
+	 YQCOZIXBXX9MBbzGGZtDvZxKi6HKghAreQUzzke50P/FDwEGxaNnlitCiu6s1Kd2F7
+	 AzvKYF0yKMgBQ==
+Date: Tue, 18 Aug 2026 09:28:45 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Sasha Finkelstein <k@chaosmail.tech>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+	Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v6 1/6] dt-bindings: spmi: apple,spmi: Add t603x and t8122
+Message-ID: <20260818-hysterical-quail-of-youth-44d7c1@quoll>
+References: <20260816-t603x-spmi-v6-0-c5ab87aa447b@chaosmail.tech>
+ <20260816-t603x-spmi-v6-1-c5ab87aa447b@chaosmail.tech>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260622171448.GA678675@bhelgaas>
+In-Reply-To: <20260816-t603x-spmi-v6-1-c5ab87aa447b@chaosmail.tech>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,51 +71,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 22, 2026 at 12:14:48PM -0500, Bjorn Helgaas wrote:
-> On Fri, Jun 19, 2026 at 11:29:39PM +0800, Hans Zhang wrote:
-> > On 5/6/26 22:00, Manivannan Sadhasivam wrote:
-> > > On Fri, Nov 28, 2025 at 01:09:06AM +0800, Hans Zhang wrote:
-> > > > Current PCIe initialization exhibits a key optimization gap: Root Ports
-> > > > may operate with non-optimal Maximum Payload Size (MPS) settings. While
-> > > > downstream device configuration is handled during bus enumeration, Root
-> > > > Port MPS values inherited from firmware or hardware defaults often fail
-> > > > to utilize the full capabilities supported by controller hardware. This
-> > > > results in suboptimal data transfer efficiency throughout the PCIe
-> > > > hierarchy.
-> > > > 
-> > > > This patch series addresses this by:
-> > > > 
-> > > > 1. Core PCI enhancement (Patch 1):
-> > > > - Proactively configures Root Port MPS during host controller probing
-> > > > - Sets initial MPS to hardware maximum (128 << dev->pcie_mpss)
-> > > > - Conditional on PCIe bus tuning being enabled (PCIE_BUS_TUNE_OFF unset)
-> > > >    and not in PCIE_BUS_PEER2PEER mode (which requires default 128 bytes)
-> > > > - Maintains backward compatibility via PCIE_BUS_TUNE_OFF check
-> > > > - Preserves standard MPS negotiation during downstream enumeration
-> > > > 
-> > > > 2. Driver cleanup (Patch 2):
-> > > > - Removes redundant MPS configuration from Meson PCIe controller driver
-> > > > - Functionality is now centralized in PCI core
-> > > > - Simplifies driver maintenance long-term
-> > > > 
-> > > 
-> > > For the series,
-> > > 
-> > > Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
-> > > 
-> > > Bjorn: Could you please take a look? This series has been floating for a
-> > > while...
-> > 
-> > Hello Bjorn,
-> > 
-> > Any chance for this series to be applied?
+On Sun, Aug 16, 2026 at 12:26:21PM +0200, Sasha Finkelstein wrote:
+> Add t603x and t8122 compatibles, interrupt support, and support for
+> SPMI controllers that are not always-on.
 > 
-> It's too late for v7.2; we're already more than halfway through the
-> merge window.  We can look again for v7.3 after v7.2-rc1.
+> Keeping the "interrupt-controller" property as optional, as taking the
+> j514c as an example, we only need this functionality on 3 out of 10
+> SPMI controllers present on this SoC.
 
-ping
+Should be required for the new devices and disallowed for all others, if
+it is not present there - both in allOf:if:then: blocks after
+"required:".
 
+Best regards,
+Krzysztof
 
-Kind regards,
-Niklas
 
