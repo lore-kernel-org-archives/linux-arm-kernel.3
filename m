@@ -4,88 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25402C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 16:24:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D81C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 16:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lAH3pJNXPJ/mpBu0kcIh+xNKTmt6P69p829a8VtOvMM=; b=Wq5gpsXU9bpd5eBXt1AaB8Wgy9
-	PiOFCrYLEVcc84Q3HidCXcztaw1eS8cO33t75FZ9yzIGK2JHVHbi6Dy0WpP3giX5fWBfZ8gvEpbve
-	2bIb1HAyN8pYktaTOHP8N/LVmY5jB899wudixd6uEI+ZzSbw5l1aobHSRsgJ+4lkX4A8NwPXnJwDC
-	NalMcNHvtmY4gZ+INeWluDLUj1rv9+BczYx/YWeolEKRhBh2KJuEOpaGv9UQA0w55HkFnkqOHy4eh
-	BmnqEurA5uccBHNqc7iKESBGQlV3q/PxbDs+POSiYoRU3hwZRxaR9mGoy6Vu0HibJ/vM0ZzIZa6ja
-	UypIdsaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GWOh8RTHXjkPqP/CHlYEZ+S/aDn4KEimDkU8VaXgG18=; b=YEIOo+thOdgcnWPlie8v9QiusF
+	nOiljbwBAX6g73YKJfclNLMJAs/+tvF7Cx5wL//72gGhto8qXNkfUfQ8NAMLEFBXInFwNqXwLHoHN
+	PSouBqEMpdipUM+U3ybmjNdmFOTRSkSmfewhM1O/aHnL1m1XRIT6O12i+FFnqf8XSMm6oEr+6ZW92
+	bI0UxG/MZRRaunou0WM2lmrx//rETqSO9/GHJDoFsCfWuKrNquenzB+F83tAyNOx75pkX3vURIyHs
+	mglYRReL4bhZK1+eue2Q1xEF7sYEsdYmBcKNXNXV44ne3d5KGv38O4G0zJl0sC6hda3359rCBnkD3
+	Fork2icA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwMcI-00000008L3h-43g7;
-	Tue, 18 Aug 2026 16:24:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wwMcV-00000008L6c-0Qda;
+	Tue, 18 Aug 2026 16:24:59 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwMcH-00000008L3J-2NZh
+	id 1wwMcS-00000008L5W-3BZP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 16:24:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E671243224;
-	Tue, 18 Aug 2026 16:24:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 333431F000E9;
-	Tue, 18 Aug 2026 16:24:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787070284;
-	bh=lAH3pJNXPJ/mpBu0kcIh+xNKTmt6P69p829a8VtOvMM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Bvv2WUii6kPGfFMnUBHavzMRt6MiX+8jYJeKt3gdN0E+jnY/489pqoEyEbCGlX9w5
-	 5PAmXWAcMQkPsTolXP1HaWwia1K0FQBRUaL2zyDeuowiqCQHMYYFGycASzWRV3xKYk
-	 iSgPOhSmT4uD1Eww8lr5NT0f+n1Bw6eUbkYcZ/ZdWJwqKtCI0XKCXgPQ3+J/LDCfGf
-	 KR1T5pQ8n1Rx6bAxoutfWwv/SOABcXWAzozbgyDI6dKUXhE3q+E2HGqNcxs5JUjzpR
-	 u4u0pPlGpLvb0b4PP5FDsXwYFZ+pPDndH6iJj+mAxYzAdrgYg2M+6wGTp6lvyJy7y/
-	 TOPlVERvk3/eg==
-From: Jakub Kicinski <kuba@kernel.org>
-To: sdf.kernel@gmail.com
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	netdev@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	anthony.l.nguyen@intel.com,
-	przemyslaw.kitszel@intel.com,
-	andrew+netdev@lunn.ch,
-	saeedm@nvidia.com,
-	tariqt@nvidia.com,
-	mbloch@nvidia.com,
-	maxime.chevallier@bootlin.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	aleksander.lobakin@intel.com,
-	horms@kernel.org,
-	magnus.karlsson@intel.com,
-	maciej.fijalkowski@intel.com,
-	sdf@fomichev.me,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	witu@nvidia.com,
-	martin.lau@kernel.org,
-	yoong.siang.song@intel.com,
-	rohan.g.thomas@intel.com,
-	intel-wired-lan@lists.osuosl.org,
-	linux-kernel@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org,
-	leon@kernel.org
-Subject: Re: [Intel-wired-lan] [PATCH net v2 3/3] net: stmmac: skip queueMaxSDU check for AF_XDP
-Date: Tue, 18 Aug 2026 09:24:42 -0700
-Message-ID: <20260818162442.3980697-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260813190800.222527-4-sdf@fomichev.me>
-References: <20260813190800.222527-4-sdf@fomichev.me>
+	Tue, 18 Aug 2026 16:24:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CaSUtE8kAeJeOz1pPsXojkWrKsjW1Us8mAa1zww+4mqM5Eu1cbXM+4obfRUYwhqqvLJXV1G4JU/zQ6ls2fB317qNm0FTPldR+FpaCUsp0V4YZRzl+6/KVnoFB1R2SAZJH+jbdaNzboAxYDEmWaDJd4BXtDfZtbUHgni+7hEQDVrc47ihJltLdfoyDpVK07WNGNQD+RGElmcmp6MgILxV83pr2MFovIsYnMZEYKSGTH8KDE/qsO1+gcGvyOCLlkg8pgEZDajrsdYevVO6wkZg/UbWV/CTiqR0uckjvfuvcLzTBsTEdnTPXlVndYiiV8m6zdY+jhvE0dZ09aRxf43xSQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GWOh8RTHXjkPqP/CHlYEZ+S/aDn4KEimDkU8VaXgG18=;
+ b=gN9CXhl4ijDXeKvXC5b47VVEqhGxDNQnY7NWmE3Hc83VJtkpxCwjAnrJhrPtBIgP7C6l9L4oeaB6eBk0lEFbjRXpqcIO/kg5bMStAiBJ+oJiCAPnYvms80tSU53bplgv7nGfeJ03JddxX6VduOY5eI1euWATvEiFXuSUZOdIy3fNdR39LbGak9le3O5J1ZbcMx4I+JkWDHBErKtd00tmU4LkSKvyc2yDsGCLHDUN+2QqB+fzuY+sSUDhyLbXLrLAiGcI3lGzBwEuc5sFI08fzJn1qObmV5D/NDxUpHUFiJ9vbA90OSfvYQMFNDDtohwYSnFCS8bYx2d5Yx0C+Zz4hw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GWOh8RTHXjkPqP/CHlYEZ+S/aDn4KEimDkU8VaXgG18=;
+ b=K4NBqjWqd4wlpq0GWV5gaSC7ClDkvWqs0pXgU9MI8H61BwBhxFEqCX041N16+cF1v7Y+NVotW48Evz9qecZ/y/YJ5j4gv+ypj+G8nL57yFqZGVAvyyRxmpQ+elpRymu7PjLQ26Ul2YRUN+RjTdkMohex2dwoF7REr9vaRl6q2RZvFsGk/9qkUv88k7CMAPWQ+oZFubT+RnXV/QzeIGtyHO3CLS8YIWBjZ0xggfAHkVqu7mp6yVnfVHLmZGUztCcBc6up0rxLbg6WKd68pg/PeHt21xWBYjiyFB4HuXOaKMvPSHrKyLVwtsftUPMINR6FEXhjpxqGJAtAlruZxvC6XA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV1PR04MB9055.eurprd04.prod.outlook.com (2603:10a6:150:1e::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Tue, 18 Aug
+ 2026 16:24:50 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.016; Tue, 18 Aug 2026
+ 16:24:50 +0000
+Date: Tue, 18 Aug 2026 11:24:43 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Jiawen Liu <1298662399@qq.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: Re: [PATCH] irqchip: irq-imx-intmux: fix runtime PM cleanup
+Message-ID: <aoSHS7OwvNt9-6Ew@SMW015318>
+References: <tencent_62C095FCF52245E6900FBA2E4E008042BF08@qq.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <tencent_62C095FCF52245E6900FBA2E4E008042BF08@qq.com>
+X-ClientProxiedBy: PH8P221CA0049.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:346::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB9055:EE_
+X-MS-Office365-Filtering-Correlation-Id: 140f7895-75df-4be5-694e-08defd453a28
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|376014|10067099003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 8kxAN10HT+jmP96dJwy9bQ9KlyNhtWjdynKxtnZWFQBYezJ4Y1Bx53KFhKI+WnJr0XqtI9zmxkJnJzbNLLiV5XCTqIMrYYXIjT3wU9GEMk6jjfW1H+KYJPOnPI8s5lrCLMAFuKVQNlzUj5hWhhm6sfvbLSRGzQwTtO+pC5z21PgVF5N/Sc5meWQhERPEqOnt+8beCUV1S8P/Q5JKtH5P0GDHM7Kh3DZ2cpKv8F/fu0GedUAogr18rkzKYr1i+8aywbtUuC5V8RaHNN2dzDSEjfCKgcqbCkHGiQHuuA5pYiHzqrHe4yhc79CzKyqpn1eHYnSQRqjctkrg7cssq14URmZyUfhZvuc5jvS+hDbyF98vq7Ym1+aWbqI0mdgsVz9F9hQgsPb680Ui+vvXPfhLT5i73p3B9btQQNggv3R4invPMGr3Mo3pskPyXI038Tify5jGHyxbqpFK7n/R3AXiLQHljYtutNqK1mkWQ8wAWHxcu/dlFV0bYzdMgAS/dULZX1lLaJkadntTi9a91x5/FDXCqaXV4gFn8uPh72Q+y9fe5tYelbS/aj9UepYWtI3/GDwaj476Jw1oCD+l7lkDsESCG5zg6bBZlmYCjuArheZmkdzKW+qHDwuLBVpDnRIw199cgordkjN9qEKgeC2Dq9w6bR5MViNaJpbfEcPYiQA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(376014)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aQ+OshI7t1iU4h4ZN2fcVUoj38M3LnzpEBbM0i2SvorVeirKyOQnlM/Wqxpq?=
+ =?us-ascii?Q?gSGSg0mWrrxfyXHXTMrmKbeZ4NRqp7fUjXFN1AMvzEhd0SXwDusg/t/Jov6f?=
+ =?us-ascii?Q?mVj45RxhVR/Xc9kGFBdbjkavHRUokICf3gCp4iL5xkd+XZty06+LJVp+c109?=
+ =?us-ascii?Q?fcIx6CdpMYJhDeGwMYx0PPWsiXOapz6E7qUIO29b7DEtLVAd7O1B4Il9uszA?=
+ =?us-ascii?Q?4M1R4ZqGbiXPPEJjUFmrUZqcI290vT9DTun6fUr3hjS6afjbnfcuR/qajpCJ?=
+ =?us-ascii?Q?Q3oeOTm1x7Gb/ZSPMEKLXVZ5Xqi7nVr/jKOeGVrVnmXPT9G6XCPLpBMVx2FW?=
+ =?us-ascii?Q?n3L4IaXs4ZpTu+UjGcP/ighP1b36yTceAWn1JP8zUzjdpgGdmu8kO5Q6XCrv?=
+ =?us-ascii?Q?mRy5KCK+gSppj8Ti/At1PV634cO3I7yLGyuZZucNyyy/YaKspY+IccPZgf/v?=
+ =?us-ascii?Q?z2RuBpZvk3aGLnUkSusfOxtQ6kpMzdx2ykzLolTUYRPXvGXhF3hI0wVnd7Gh?=
+ =?us-ascii?Q?MIcu0k+cCtZMzomERTvENhFF4vQfk/ThIg6kVT1EJCQda+x+BDxmb2m0Ii1Y?=
+ =?us-ascii?Q?dOX7AVDVNKRGnmUejvgGuGcR6OSsQybe+vh0Y686938ypkh+1OGMq0SZu64m?=
+ =?us-ascii?Q?7v/nBYGG2pWzus8HyF2zI3DSXwqa91t+3u1WG4bcNWYiLJ5jzLZ46z3K4Nrn?=
+ =?us-ascii?Q?Jw2PxTeIfPS6KzbxavsQfS+9nmbFF2zfXoTuhwSB2Co6kntXCAqpDtTEKL8J?=
+ =?us-ascii?Q?7N+wWih/vOppyAjnPWSuMkFLnZFt+MFp644aACndPJoc1ZW6RCElCvS3TaV9?=
+ =?us-ascii?Q?jLXb9r+p9Vf16I5pj+3EOe3QfWMhcEGe8EE1lUOxGXOBRz5RYQ1GFYTW/tnz?=
+ =?us-ascii?Q?XzLiiZ4AguIB4c6G3V4/e2lbsfrlmxKkyoDkDI1OnphKH74qrshwFvJS+Kal?=
+ =?us-ascii?Q?oJ4pa2xK640tPK99X1jF7FxF+VG7jtWhJ7Qv3AeP6EaaqBe+adSWs1LeMYQI?=
+ =?us-ascii?Q?OqBHrlaPmpiCo8kIPQgmS9ZzKBzg8/tOoPASFJgn1pHwVmlg1ibz74wf9G2q?=
+ =?us-ascii?Q?MMDB5ASbBlKj1Zy484ayhVcNwwgAGfjnVf6y96p7WuDLyNXT2G94kl3EyZx6?=
+ =?us-ascii?Q?unknC+qXZSJIJ+dVF3ii92M1rjS3BKRMZQgAg4DMcaefa1Y5W2pc3zScEu5G?=
+ =?us-ascii?Q?RSU3wnk9Q1nsYsgfks8fN0jVnEmZ2OQYU2aGgpOGKmUz3jjwhuRSiLvI5iNz?=
+ =?us-ascii?Q?PJN0F66Amm7bEjw+ER/ZZGpZVZyXq1+q4PaCTjmIUyJj7bKUwiih4UbNVfYb?=
+ =?us-ascii?Q?aEEAG/Uh5VNbCwVfIdMu8fg/VjjmO/UegoD0YvCIj7UJ+nVHkYpUa1cEcIlE?=
+ =?us-ascii?Q?OUoBQA/wcHb9HeDxY/T4UlOB1CwMQI4YO10z6JMNQ8VK+Koodais4+IF7wFL?=
+ =?us-ascii?Q?0KJeUGRhyeRJRhmQ7i0YS1a3iP6st+lAbQcE6IqzSRAGZDtqS5QYfYFbzPzU?=
+ =?us-ascii?Q?bL3VsURWIV7r6Tg+Qo+Tbaden6dEei9WBu3q8wIVPRmNH7r/NmvH6a+NNYmM?=
+ =?us-ascii?Q?GpDtWQxaKWI6dsjlSIic1nqtsB75nKE2h8cjDA6ADBJK9Z9FNFLjWmETQeY2?=
+ =?us-ascii?Q?7cXnIYTT2c6wjjeiQQAM8+DYCeNuW0lp/v7enMUueDnk6wvzcPj9C9prhr2J?=
+ =?us-ascii?Q?/PZnflz+lfrPuITnfIF5KHDRWkoG0VwrYCNU3C1A1+KGbg9z07ZA2YZW1RC0?=
+ =?us-ascii?Q?FpnkEsS3HJSbahdRGSOINZcgQd/vetst4pGpuRhMDENlyNmyTZvW?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 140f7895-75df-4be5-694e-08defd453a28
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 16:24:50.6348
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dZqp3AW6kUi4PmKUQa+ooyLRFNguXM5a7akv0VQekJParVUrsqv3rjGFuzR/GVSU3R1prVziI5w2UM975RpZJxVAxcMV464tDASqHNJRzgZUc5SfLSHoEkvyzUSrU0gk
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9055
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260818_092456_814988_588EB30F 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,116 +138,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
----
-net: stmmac: skip queueMaxSDU check for AF_XDP
+On Tue, Aug 18, 2026 at 05:21:08PM +0400, Jiawen Liu wrote:
+> Fix imx_intmux_probe lifecycle error path.
+>
+> Probe enables runtime PM and clock. Failures after clock enable only
+> disable clock and leak PM runtime reference/enable. Clk cleanup is
+> incomplete because PM runtime state is left enabled/ref held on later
+> probe failures.
+>
+> Balance runtime PM setup on imx-intmux probe failures in
+> imx_intmux_probe.
+>
+> Signed-off-by: jiawen <1298662399@qq.com>
+> ---
+> diff --git a/drivers/irqchip/irq-imx-intmux.c b/drivers/irqchip/irq-imx-intmux.c
+> --- a/drivers/irqchip/irq-imx-intmux.c
+> +++ b/drivers/irqchip/irq-imx-intmux.c
+> @@ -240,6 +240,8 @@
+>  	ret = clk_prepare_enable(data->ipg_clk);
+>  	if (ret) {
+>  		dev_err(&pdev->dev, "failed to enable ipg clk: %d\n", ret);
+> +		pm_runtime_put_noidle(&pdev->dev);
+> +		pm_runtime_disable(&pdev->dev);
 
-This drops the per-queue max SDU length check from the stmmac AF_XDP
-zero-copy transmit path, on the grounds that xsk_tx_peek_desc() has
-already reserved a completion ring entry and the old "continue" skipped
-both queuing and completion. The change is tagged for stable via a Fixes:
-tag on c5c3e1bfc9e0.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 62de03e65a90c..4a82f4351303a 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -2710,13 +2710,6 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
->  		if (!xsk_tx_peek_desc(pool, &xdp_desc))
->  			break;
->  
-> -		if (priv->est && priv->est->enable &&
-> -		    priv->est->max_sdu[queue] &&
-> -		    xdp_desc.len > priv->est->max_sdu[queue]) {
-> -			priv->xstats.max_sdu_txq_drop[queue]++;
-> -			continue;
-> -		}
-> -
+use devm_pm_runtime_enable() to fix this problem.
 
-[Severity: Medium]
-The completion ring imbalance described in the commit message looks real:
-xsk_tx_peek_desc() reserves the cq slot with xskq_prod_reserve_addr() and
-only xsk_tx_completed() submits it, so the old "continue" left the cq
-producer permanently offset.
+Frank
 
-Was completing the reserved descriptor considered instead of removing the
-check, i.e. keeping the length test and doing:
-
-	if (priv->est && priv->est->enable &&
-	    priv->est->max_sdu[queue] &&
-	    xdp_desc.len > priv->est->max_sdu[queue]) {
-		priv->xstats.max_sdu_txq_drop[queue]++;
-		xsk_tx_completed(pool, 1);
-		continue;
-	}
-
-That would fix the ring accounting without dropping the enforcement.
-
-On stmmac, queueMaxSDU has no hardware table. priv->est->max_sdu[] is
-written only by tc_taprio_map_maxsdu_txq() in stmmac_tc.c:
-
-		for (j = offset; j < offset + count; j++)
-			priv->est->max_sdu[j] = qopt->max_sdu[i] + ETH_HLEN - ETH_TLEN;
-
-and read only by the length checks in stmmac_main.c. With this hunk gone,
-does an AF_XDP zero-copy socket now transmit frames above the configured
-per-queue limit while tc_query_caps() still reports:
-
-		caps->gate_mask_per_txq = true;
-		caps->supports_queue_max_sdu = true;
-
-That capability is what taprio uses to accept a queueMaxSDU configuration
-in the first place, and sch_taprio comments in
-taprio_skb_exceeds_queue_max_sdu() that "Devices with full offload are
-expected to honor this in hardware".
-
-The "bypasses the qdisc" rationale also applies to stmmac_xdp_xmit_xdpf(),
-which serves XDP_TX and ndo_xdp_xmit and does not traverse the qdisc
-either, yet still enforces the same limit:
-
-	if (priv->est && priv->est->enable &&
-	    priv->est->max_sdu[queue] &&
-	    xdpf->len > priv->est->max_sdu[queue]) {
-		priv->xstats.max_sdu_txq_drop[queue]++;
-		return STMMAC_XDP_CONSUMED;
-	}
-
-Should that check be removed as well so the XDP paths agree? The cited igc
-precedent checks only in igc_xmit_frame_ring() and in neither of its XDP
-paths, so matching igc would mean touching stmmac_xdp_xmit_xdpf() too.
-
-There is also a hardware side to this. An oversized frame on an EST-gated
-queue raises MTL_EST_STATUS.HLBF, and est_irq_status() in stmmac_est.c only
-counts it and clears the error register:
-
-	if (status & EST_HLBF) {
-		value = readl(est_addr + EST_FRM_SZ_ERR);
-	...
-				x->mtl_est_txq_hlbf[i]++;
-		/* Clear Interrupt */
-		writel(feqn, est_addr + EST_FRM_SZ_ERR);
-
-There is no queue flush or EST reprogramming. est_configure() programs only:
-
-	if (cfg->enable)
-		ctrl |= EST_EEST | EST_SSWL | EST_DFBS;
-
-and no DDBF (drop-on-frame-size-error) definition exists in the tree, so
-the drop-versus-retain response is left at the reset value. If the IP
-retains the frame after the doorbell was rung and cur_tx advanced, does
-dirty_tx stop advancing and xsk_tx_completed() never run for that
-descriptor, reintroducing the same ring imbalance from the hardware side?
-
-One related side effect worth mentioning in the changelog: for zero-copy
-traffic, taprio window_drops attribution moves from max_sdu_txq_drop to
-the HLBF counters reported through stmmac_tc.c.
-
-Also, in the commit message:
-
->     The assumptions is that AF_XDP zero-copy traffic bypasses the qdisc, so
-
-"The assumptions is" should be "The assumption is".
--- 
-pw-bot: cr
+>  		return ret;
+>  	}
+>
+> @@ -282,6 +284,8 @@
+>  	return 0;
+>  out:
+>  	clk_disable_unprepare(data->ipg_clk);
+> +	pm_runtime_put_noidle(&pdev->dev);
+> +	pm_runtime_disable(&pdev->dev);
+>  	return ret;
+>  }
+>
+>
+>
 
