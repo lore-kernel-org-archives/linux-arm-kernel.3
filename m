@@ -4,116 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5801AC5DF84
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 12:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3150BC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 13:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XKi7bHvcr4VfrcOT9VHCYlKY9RJwWhe/hZvFzt6Sx4c=; b=Y+LLlFNjpLhyPH7wEiMnXog3Sk
-	LbRNTW57AXk9yRFUmRowdN5euR+WjMveQgDg98pVVnklwdYppQVLswM705buB7g7JfZM/46GUzYKB
-	a1MtNU8msKWi11JUAyJinSnfytLFTLFGbif8yXOLQ2QpovJ1rG3AolfO2Ut7fbw1EOf4aekq8teT6
-	r1h+TLzMHiXe//bfPK1y4iqUcDniOTirvCmH8+RzfT5EcqrfM+pB8/yN1whQ71HFHEy/AcuWH0Eg+
-	Wk52Rp6KKwxsYl1PWKpx5ejaG7Rj4G49mRBWFFigHkAhSK2ljyYqqNaAv4ZXuUXmFWwjRjKc2NNel
-	z7xDV0cQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Subject:From:
+	Message-ID:Reply-To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Asc17psHKNAaSbNMycO1gd0Irfg/HEZLdr8szashNPw=; b=snWb9D/5LRVNCWCFJRP9YZ4vfy
+	rkTnj9u686KNaclrL847fBH3V7JO+sWcerLobLMciHjUBvxnAdDOuIxHV/EIPYcsQ4QwKFNcsf3mb
+	w4GM26OVGV5E+KT5qW/PeuPacKWGJrRk//bdPZDPG2YCzL1yWbVw+vm9V6/xykDsuczJBwcLjBHoP
+	1lyVpNU3s9tuDGuLrR9ytieiYdcXf6Zh3zEDDZ3fUTxN9gEmP8Kps50GIp/OP3dvcUpoHQp5mXQvG
+	JorJ0Qk6RUleoAngbhGmgEZnrSCKUJgUgMSSr2k3bhf6sRs/5hTs6plJE9ocnAGBT1uEVv5720A/F
+	QwIk+TLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwJMR-00000007zaz-076M;
-	Tue, 18 Aug 2026 12:56:11 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wwJVz-000000080P7-0gox;
+	Tue, 18 Aug 2026 13:06:03 +0000
+Received: from out203-205-221-221.mail.qq.com ([203.205.221.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwJMN-00000007zZJ-3lWf
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 12:56:09 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-49800c6a846so53741925e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 05:56:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1787057766; x=1787662566; darn=lists.infradead.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=XKi7bHvcr4VfrcOT9VHCYlKY9RJwWhe/hZvFzt6Sx4c=;
-        b=YB7tO8GaTgPfPcS8/0hX/CXvxW3ROPdn/UVuyev2RXxKZPt/3Wfybi7Saatr6VUvVi
-         UGmd9DPmlrLncAt4vv8v5kUbN0Q3rGH2X1Dc/0BCp4/X4tkrv0Eg0ct8vsY5OCtYHW+V
-         DZ3OhpWzkj0doVQjQpFG1xmjlXSwP8QAZCoZpf1AV6I53u0i56Fv23n98d1c6GMDrh2Z
-         mZG1AgVhpLLEApAyHNAc+xZvyrEZDXEdVnIQ1pTZZxagHurz4MNzfU/xaTiekLbbliVk
-         EfhwJiY4C/PbvqcMbsv5tVnLO6+i8Iu14YJHKDYrcY16Vx00DDLu2IDlJxyM0Qz/1Y0G
-         Yjgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787057766; x=1787662566;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=XKi7bHvcr4VfrcOT9VHCYlKY9RJwWhe/hZvFzt6Sx4c=;
-        b=sYfcQJyI/daTp/j0aKxEo2qkQ5hmb3MIg4iYHomabX9bpBVwWkv3jsQJYGrxrXtT65
-         EdlHZx8BKlm2f/AaZHN1f+vT1VekiCyXNCdgxsQpNPg06mwBZ7NF6Hnz+Am8NllaZF54
-         GylXWbcVhfuBUKvyx1jjqi/ZGwMTqhExvyc3kxyC1pzuRnAxshcYgxLqFpumdv1o34sA
-         fZUUKnBr8WaRPnkMO44q9+vRROG9vzOqp6JdlJd8HGF03YisafNX71hZw7MtZjkhTPtw
-         JHaKEPRBGzGSC+gSQTrptknmcHouze18o4ZPTnlshy7i1aoc+VB5t8NszrM5Kp7vJFT1
-         fGCA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq5qZFbVW3wJSwJh3BrJhZ2CuAFPSBCwSMaj3Pk7/qOgucQJmGVx0/PeMPwSj6DVRQAsC1yT+YfLJ5ysBd6oe7+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyothpHB9pbpwPsxLBEct1fZ1NjuE1FcfKOd9aVlD1polNjmGCM
-	rhzgOeVOBtdlhAduDfqQ3NDKXxNskGqC2jsBH9kxmTQgl6rNWgkmQtIFFGnRP3qh3EjNCmsB5Et
-	HgdustxtZKQ==
-X-Gm-Gg: AR+sD13nnch3ci9Ec2xrjouaHXb1n438g9N9ZiW3qVvNgTyqJbmv0IfURP84XzeKGJ1
-	DSVO7DMwOdHka0lEMzN6+mV29puGEvQBaZPE/9aQO1ugmqCqYXzXJVfdWyFuP/Q9kwxvBgZcMGo
-	D/F+wNCCyMiE62Zccs1mnNkUGextoHPrN5zpxMiJ3/ofBGcGv63zFnSET+LMniOOsskO8DRioGb
-	VubPiA+Jcy9UsPYpWH8Ql7AaIo7IkciTPQotX1CQcgvNhN7/nEtkAa4x7g0kcoRutuW43ieUQ1Q
-	IaotPJfOgxra5oDpWgSfJ7vxHoxj8fP4Bvjo+PLObEbJO+5n+sZwsD5PKYwPxj8idQBCOr4t4Hl
-	ZNFok3Ms4CdK6GNwWG3frlMjbPi7kXK/rdwqO8IxZ3o6zXr+ObXA9cvIZvy907HP/9iVK+d7HGN
-	v4eFty9ADBb/NrtLsxDxZSs4HuZcUoRiqGBcsswoaj1eEHAufWqyWcXv/Nk/geoxlT1Lw1FOQ7c
-	wXO+4ZSNk3/k+1YC9WXqxs=
-X-Received: by 2002:a05:600c:848d:b0:499:48bb:417e with SMTP id 5b1f17b1804b1-4998933fd6emr506661115e9.2.1787057766181;
-        Tue, 18 Aug 2026 05:56:06 -0700 (PDT)
-Received: from [192.168.5.218] (82-230-44-19.subs.proxad.net. [82.230.44.19])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4999d0fb85csm174771215e9.11.2026.08.18.05.56.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Aug 2026 05:56:05 -0700 (PDT)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v3 1/2] dt-bindings: pwm: amlogic: Add new bindings for
- S6 S7 S7D
-From: Alexandre Mergnat <amergnat@baylibre.com>
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>
-Cc: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, Junyi Zhao <junyi.zhao@amlogic.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260521-s6-s7-pwm-v3-1-57b073fbafef@amlogic.com>
-References: <20260521-s6-s7-pwm-v3-0-57b073fbafef@amlogic.com>
- <20260521-s6-s7-pwm-v3-1-57b073fbafef@amlogic.com>
-Date: Tue, 18 Aug 2026 14:56:07 +0200
-Message-Id: <178705776742.1733024.3702017266095180404.b4-review@b4>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=350; i=amergnat@baylibre.com;
- h=from:subject:message-id; bh=O+uSJ6l/nC8L/Knw7obnre4I+TF6Q0+iDF3z0NVIK84=;
- b=owEBbQKS/ZANAwAKAStGSZ1+MdRFAcsmYgBqhFZsDxMqI5GgmdAmlfldDO655rJFQTxUUPF+L
- d8MIqjEDa+JAjMEAAEKAB0WIQQjG17X8+qqcA5g/osrRkmdfjHURQUCaoRWbAAKCRArRkmdfjHU
- Rev8D/4xOPZLHUSXNhR9N4UAExW6eRzrUxnLfXcz5FmEunI1yUwDmFrVmLEkd41Pw64v3pthjd0
- iJQ8cYZbSy0yN69vhnEpXL0QHSSG9mXNqanBUNUCaCO+UWYu3TaC2305lJdH4WAFuVQAJvHRGfb
- 9P9tFBefF663jGQ044idMqlUX/XYhiggcyPZeckQxpNJ6jTukcTWspEtbDi17EJjKoIQrHlpd2Q
- YsXOXCTNPdOSBNqvm0bwkg7NyNNqg4/6iPUUUZBb6BIA40aoABZyG0AP+IzDTShbYzkTyj+Av3g
- BH6u158isBZyMPTWw2dOh+8J+PSKb6Ems/rCGbd7AdTfn75NevMvDNXLE2KDVY/MDMiiZi/2bOD
- N+5URngivCT7AswNqQNEPLldxpn8tz+ZOSOuzCTcaTNIuqiaERtLBPPE8epIaP7CFoyDfOc3j0f
- 7dERS4NNk2d9aMkiAiPtXdv4JMNSeGbDqdLC9JwfzJ02UbfbUmU0EGWKRQ7/l4JeveRzg4INCw8
- PXhs0QU5TJS99upeIQcH/wCMgaudjAz69F6hz3Pa5bfIVhwNkYZb9JXjWdDXgY6bPhzYg68j6Gc
- WZd2Z6EZd1hI9dlU4gd+7yWvzKlN2d5cNqeu2Q2+BimNmIA8p8zBvUDPxKVRvcnEKRokm9HNQlv
- PiLF74xfWXaTQ0g==
-X-Developer-Key: i=amergnat@baylibre.com; a=openpgp;
- fpr=231B5ED7F3EAAA700E60FE8B2B46499D7E31D445
+	id 1wwJVw-000000080NF-0ziI;
+	Tue, 18 Aug 2026 13:06:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1787058353; bh=Asc17psHKNAaSbNMycO1gd0Irfg/HEZLdr8szashNPw=;
+	h=From:Subject:To:Date;
+	b=gE1uzqCDY44EC3qXSlRjW3t0ZY2d/Z8qjL5Wu4bQVwzl0BSrKhreCQnvLD/HIPxIC
+	 Kf/Rs38MbdNokY+wydyhJs5MN0YOftYq4R9GMSNpnSkf2JoK/W0ZworBW2M7+S/a3t
+	 HHUZhqp8M0jDMaP9MvVGWk/uYrUrF86nYDOXXfRc=
+Received: from [127.0.1.1] ([5.195.0.150])
+	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
+	id 1721C6D8; Tue, 18 Aug 2026 21:05:50 +0800
+X-QQ-mid: xmsmtpt1787058350t92l880bm
+Message-ID: <tencent_DD16C0EEDFEF4ACAFAB5A23EC8235D462707@qq.com>
+X-QQ-XMAILINFO: NbgegmlEc3JuTFiJHSXhG2jjRqHVE0lhZ6fR30r8eFb7fhrQgkuPImiL+Qtb/B
+	 NM88BKMuz/8v4tH+QUMd279UbaBpmn46OEmHiaZeSlfl1WsCqtRDu0sMbg3GB6GdbZvdbKS9NzSD
+	 jjTVzWhszt3cSrOb7QXZ4AXiF2ZKAMA3G3shfUvhK34GpmjoyvsXjjpHKOoKmsOChmDP8RV3kb2k
+	 nKXp1LwevqXaXeLshellpMc3CxrrAXqN24DRqPp3wLlcL6Zu36ueYGAyniny9TxBzoRT04D5vcyS
+	 7AnByDk77D+fJsCnGNv1EllfI4rbsuYm0v2Ink3DmuxOA/cKflbjtKI0f1csRbtQ29rr0QKE1gfC
+	 fAKekd3P5fRDLoCTCUrZ+w2quQexQ6aKQwjPiLz8NsiH3WHSlO+6sfOBv60hdWJziOG7HfBa40GA
+	 kDXqeiilfdxmiSru02V8aT3zcyd2E4LpdgsZKwRh4s/2QKeX74rHQTY4k5et/pEarRy2aPf/Cu4V
+	 4sCQq+D3nTRoNIZQztwxRNeDWD5+oNIlqpPc5HA0IQwqfjd3dVp/0Zdzs0rFC1KlbLoPnm+GI2R4
+	 mYjT/W6DEZ6w/MBMKnUE4GIimhXscSAw9mrZW+OKju6s90xQW4RNBkbxXXwh7+yjtXsDtv0aIMZZ
+	 5sxuLI0rl4cxLUaPIvL5HqHckiO2mYuIZrPiKvUVoOU0GhrDokEC7NV7Raa1shi8GXjDRKb5P/3b
+	 g8UCUAoSZd01fk+McPhY+LZfC63NiMjYNPMBF3TYT/nw7MwIvBrnhnJICRLRMRCjKdHDNdd5ByQD
+	 1ptwrpmo5e19yS5iEI5OYQ7yHJZIRFI1q3uhq3XFEeRodZMXtKDnmJ1hR/PniiLTM7qMHENFD6Hl
+	 fHDVLjJz3radqFmMCGpWt65WNIaSfd40amc7xTbkiIXSVsfM1Mn04BWlaMZfYwgYh/ZDojPLiWTr
+	 /zSegCgF8MDdTwLzAkEBZf8bMmwc6UhLJ8nYaumuyMYN9v7Dl6aywNhPeoV6E4Wcp/aDRBX8915B
+	 RUnm2E7/Bo8d3DzgHP1ef6tV5cGvvNeo56VKdIZw==
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+From: Jiawen Liu <1298662399@qq.com>
+Subject: [PATCH] spi: rockchip-sfc: disable runtime PM in remove
+To: Mark Brown <broonie@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Tue, 18 Aug 2026 17:05:50 +0400
+X-OQ-MSGID: <178705835086.291840.15105782669010201958@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_055608_009683_BB964F34 
-X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-CacheID: sfid-20260818_060600_585566_88984484 
+X-CRM114-Status: UNSURE (   6.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -129,13 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 May 2026 08:26:58 +0000, Xianwei Zhao <xianwei.zhao@amlogic.com> wrote:
-> Amlogic S7/S7D/S6 different from the previous SoCs, a controller
-> includes one pwm, at the same time, the controller has only one
-> input clock source.
+rockchip_sfc_probe enables runtime PM and leaves the device active with
+a usage count held by pm_runtime_get_noresume(). The remove callback
+only disables the clocks and does not disable runtime PM, leaving the
+device in an inconsistent state and leaking the runtime PM reference.
+Add the missing runtime PM teardown in rockchip_sfc_remove to balance
+the probe's enable and get_noresume calls.
 
-Reviewed-by: Alexandre Mergnat <amergnat@baylibre.com>
+Signed-off-by: jiawen <1298662399@qq.com>
+---
+diff --git a/drivers/spi/spi-rockchip-sfc.c b/drivers/spi/spi-rockchip-sfc.c
+--- a/drivers/spi/spi-rockchip-sfc.c
++++ b/drivers/spi/spi-rockchip-sfc.c
+@@ -743,6 +743,11 @@
+ 	struct spi_controller *host = sfc->host;
+ 
+ 	spi_unregister_controller(host);
++	pm_runtime_get_sync(&pdev->dev);
++	pm_runtime_put_noidle(&pdev->dev);
++	pm_runtime_disable(&pdev->dev);
++	pm_runtime_set_suspended(&pdev->dev);
++	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ 	dma_unmap_single(&pdev->dev, sfc->dma_buffer, sfc->max_iosize,
+ 			 DMA_BIDIRECTIONAL);
+ 	free_pages((unsigned long)sfc->buffer, get_order(sfc->max_iosize));
 
--- 
-Alexandre Mergnat <amergnat@baylibre.com>
 
