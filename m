@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B78CC5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 07:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEDFC5DF74
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 07:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A4W4aBHAZSgHGfphuFUB0RcioFOEHtGqGft7qgQ5dIk=; b=KHZ+p9d7W9614gBPYCtZ/KVhqT
-	xdh6W8mkheM0KMPaX4VlyEgwCuXyHCDyC/ivE6+Xjraxz+Ml/t5ZzZZ5rlOIgr1L72yi9cr9gV6cv
-	+CLKNjl9koF9yuR9CLcVtX7rXQnxvIETZ8fYDXOYqCqnOgbJ8gg4bgibusgztd03Lmj9UgiWyKbjj
-	IVgPu3eT4BOEz62Hmv4oMs+2moGjlFhbWq+HfHIrudmnfbDKB81c8pCp2RhrAwl0ag8y78oja6j/1
-	i1f0fpMBdY5uMjPjlxhDhCd8Fz4fjBQfrmbym904xijEeY3k5mEK8b1UQyNpUcMA0/3mjgyKYtWbW
-	wkz0iT7A==;
+	bh=NGXeti55rfsL+QIxNH+23V/SFO6fjV5CYs9tpc0kf6w=; b=ygY4OHFkWkkDwieDXMX8j9L76S
+	vG4Gtg1Ubclo31VXiWa8uwxF4V/APGq5u2MvvzVfnHE9EkWSyeJzMJ2wdwx8AhYSCYEtbNAsYYxzh
+	q4fn1/1Hnbe9vJZbOvqsdHvbtCkM9bKH/pdjRKym7F6fF09vAlk1Mfe1Fad23OFcO1ny/y2qfTMJ5
+	4kPRM17oelIxQk/xw5pRlqVqiIuiPtG/9IOQ3inPdangWlVqoCEwHVUPErl0r4stNdA1adVKdEInw
+	fa8bNdZtdYih7xxqNnyfGNrHsgacRH/hf0G72gRNrpQTV87EqCAQ0d/RUHWoT/hTYktr/Ub2ZpZuD
+	qu68BR6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwDot-00000007QdG-3MQd;
-	Tue, 18 Aug 2026 07:01:11 +0000
+	id 1wwDts-00000007Qxn-1rIn;
+	Tue, 18 Aug 2026 07:06:20 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwDot-00000007QdA-0myJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 07:01:11 +0000
+	id 1wwDtr-00000007QxU-08UP;
+	Tue, 18 Aug 2026 07:06:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9A22E406FA;
-	Tue, 18 Aug 2026 07:01:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FC2C1F000E9;
-	Tue, 18 Aug 2026 07:01:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7550342DB5;
+	Tue, 18 Aug 2026 07:06:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 751C61F000E9;
+	Tue, 18 Aug 2026 07:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787036470;
-	bh=A4W4aBHAZSgHGfphuFUB0RcioFOEHtGqGft7qgQ5dIk=;
+	s=k20260515; t=1787036778;
+	bh=NGXeti55rfsL+QIxNH+23V/SFO6fjV5CYs9tpc0kf6w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lAmi7LK/TYUYni8ULrzkEOtyWrsLHETUCnopcaFKf3WDWwgHkLZzV0q6Zmmv0D304
-	 vNTqbujYPaY8ggQvAHY0oQZtLxmrSftzQGLnJlzusSzFmoRUPxWqxVczCpAEg2UlG5
-	 XZqDPn+EeS7STPmbgw3O5ufG7Rb/UHVT36qUTI4ghnSwZbdtFmfIOVDuHgG3vHCWGC
-	 DNIYmkTMggvLlsmWg01BuIbReKgUGncU6Mjz80OE74QsVEWRc1TcFjn5XU36AB6MQO
-	 8WuA51lefNxrqluc7QHp0etWStWHEx1k5Juck8sWvgPtUlPldpQQfhy8OZTRG5RN3w
-	 8CE6CGccNZkpA==
-Date: Tue, 18 Aug 2026 09:01:05 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Bhargav Joshi <j.bhargav.u@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Ivan Khoronzhuk <ivan.khoronzhuk@ti.com>, Nishanth Menon <nm@ti.com>, 
-	Santosh Shilimkar <ssantosh@kernel.org>, mfd@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, goledhruva@gmail.com, m-chawdhry@ti.com, daniel.baluta@gmail.com, 
-	simona.toaca@nxp.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] dt-bindings: mfd: ti,keystone-devctrl: Convert to
- DT schema
-Message-ID: <20260818-convivial-manatee-of-jest-acd3f6@quoll>
-References: <20260816-ti-keystone-devctrl-v2-0-5ab1e13c15c1@gmail.com>
- <20260816-ti-keystone-devctrl-v2-2-5ab1e13c15c1@gmail.com>
+	b=fnmDUoqzkz6gpC9rE+MpRmsVk4t4fqISEBKKGm0FAVNtaTxh7CSfS6eX10wQVFC2M
+	 afGm7/6KhniQcLBzXVmICJtEKf/Ie9fiN+4u0TeFtq9FmAQmQQBuC5xEydaFk92DNi
+	 0tMxnMJwlttlLoYT8hBhFX3ArF9aK0m1Dhj/F9tWgU/AiV1KzcnACYoseTQjvOQWKQ
+	 wbfd0aK9sNJ22POKHl6f3qi0swzBrTlpFPdOSQdYXHQZTpycUhWs6Hi8Jrc9azl0El
+	 7JEVYeqgjEyvtCdHjc+GtO3J9IswyLHsyXZvaeMOXSXxFQbxGzQbDs7rP0bzi8SuNQ
+	 Hm1SbNdFIlU+w==
+Date: Tue, 18 Aug 2026 09:06:11 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Hans Zhang <18255117159@163.com>, bhelgaas@google.com,
+	Manivannan Sadhasivam <mani@kernel.org>, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, heiko@sntech.de, yue.wang@amlogic.com,
+	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
+	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v7 0/2] PCI: Configure Root Port MPS during host probing
+Message-ID: <aoQEY5PDU5iqnD9S@ryzen>
+References: <dae17d36-c7d2-467b-a621-3c55e08a67a8@163.com>
+ <20260622171448.GA678675@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260816-ti-keystone-devctrl-v2-2-5ab1e13c15c1@gmail.com>
+In-Reply-To: <20260622171448.GA678675@bhelgaas>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,29 +75,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 16, 2026 at 12:23:00AM +0530, Bhargav Joshi wrote:
-> Convert the Texas Instruments Keystone Device State Control binding from
-> legacy text format to DT schema.
+On Mon, Jun 22, 2026 at 12:14:48PM -0500, Bjorn Helgaas wrote:
+> On Fri, Jun 19, 2026 at 11:29:39PM +0800, Hans Zhang wrote:
+> > On 5/6/26 22:00, Manivannan Sadhasivam wrote:
+> > > On Fri, Nov 28, 2025 at 01:09:06AM +0800, Hans Zhang wrote:
+> > > > Current PCIe initialization exhibits a key optimization gap: Root Ports
+> > > > may operate with non-optimal Maximum Payload Size (MPS) settings. While
+> > > > downstream device configuration is handled during bus enumeration, Root
+> > > > Port MPS values inherited from firmware or hardware defaults often fail
+> > > > to utilize the full capabilities supported by controller hardware. This
+> > > > results in suboptimal data transfer efficiency throughout the PCIe
+> > > > hierarchy.
+> > > > 
+> > > > This patch series addresses this by:
+> > > > 
+> > > > 1. Core PCI enhancement (Patch 1):
+> > > > - Proactively configures Root Port MPS during host controller probing
+> > > > - Sets initial MPS to hardware maximum (128 << dev->pcie_mpss)
+> > > > - Conditional on PCIe bus tuning being enabled (PCIE_BUS_TUNE_OFF unset)
+> > > >    and not in PCIE_BUS_PEER2PEER mode (which requires default 128 bytes)
+> > > > - Maintains backward compatibility via PCIE_BUS_TUNE_OFF check
+> > > > - Preserves standard MPS negotiation during downstream enumeration
+> > > > 
+> > > > 2. Driver cleanup (Patch 2):
+> > > > - Removes redundant MPS configuration from Meson PCIe controller driver
+> > > > - Functionality is now centralized in PCI core
+> > > > - Simplifies driver maintenance long-term
+> > > > 
+> > > 
+> > > For the series,
+> > > 
+> > > Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+> > > 
+> > > Bjorn: Could you please take a look? This series has been floating for a
+> > > while...
+> > 
+> > Hello Bjorn,
+> > 
+> > Any chance for this series to be applied?
 > 
-> During the conversion, the following updates were made:
-> - Add "simple-mfd" to compatibles matching existing dts usage.
-> - Add required bus properties #address-cells, #size-cells, and ranges
->   which were missing in text binding.
-> - Document child nodes gpio, interrupt-controller, and reset-controller.
-> 
-> Signed-off-by: Bhargav Joshi <j.bhargav.u@gmail.com>
-> ---
-> Note: Running dt_binding_check on patch will yield a warning for
-> 'ti,keystone-reset' in the example block. The YAML conversion patch for
-> that child node is already in progress here:
-> https://lore.kernel.org/linux-devicetree/20260813-ti-keystone-reset-v1-1-189389503324@gmail.com/
-> ---
+> It's too late for v7.2; we're already more than halfway through the
+> merge window.  We can look again for v7.3 after v7.2-rc1.
 
-You need to send dependencies together, either in patchset or even one
-patch, depending on the case. If this has warnings then it cannot be
-applied.
+ping
 
-Best regards,
-Krzysztof
 
+Kind regards,
+Niklas
 
