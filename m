@@ -4,131 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB363C5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 05:57:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30BAC5DF67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 06:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6DwHuN9XlTnITw3KD4/rP+8gnA/ArBGB53y63PJC+4E=; b=TWQsmM55OvS6hJ
-	/a43NG0ZJm9XVE+XL9ALwcahJ/oHPtz29y8woTPUP8rs7cjoFA0+rr8jFfKqppGtApn1qeQ4x7pNn
-	1ntEVUqxa5ttA80zJGexwtRmRd+yFY+KnJ0U5+IekfGajxTNjGdebM0ZmCyEHqgOkXMb4P+LTm22D
-	dNLwo6u/JZPp+Y2P6V98QJLN6KV87DYOrkNDeG7Pckfgxk/yu4PIBaY+q9UH4uUrpwUfGqxzTF4L0
-	q09+XllLgsylQkFM0J7TvHbGp/jb3zcrTt+XADrzyvn0OBI8Bu2/R8aBak2PClMd3GLtvelgDzSTf
-	rliqQvwK1hoZr7yJyFNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pHr4Y8C7R5Apz3Ajw29/NxHZ11lFDdErrS4WW8DaORk=; b=0Rm7nfok+AwqjiNGfvGBsTzOwJ
+	YUYv+vd/u8C/xb34Ceuae8ZliB3jSX/J3ed5d0fV7q+hWIJGV/1gc2K/MJ8MTAU4sAjCQF8dJBBfj
+	XS0bHxwHnCIYnsA393jAqOkKvFvGer6BoTzVf62u4ZOXRvkO0g6KrFSeVmh8nq/KpXumgE2fEfY9S
+	Xn/1U/dHBaDjUlKGmIvZiXBC5qwhBEdnchlpbpBlMn+8crVfyzpY0WazgAASrWzx6tf0+nUTXthIs
+	9PDt2p+RVSvnC1odNZkmPDew/4T/5J97eyFDOnnvE0+BI2rjWk2KyHO4IKZ1QZXUNmL+XzC4imEDu
+	il9qi6+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwCpc-00000007MvI-3CNW;
-	Tue, 18 Aug 2026 05:57:52 +0000
-Received: from mail-westcentralusazon11023083.outbound.protection.outlook.com ([40.93.201.83] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1wwDD2-00000007Oas-0swL;
+	Tue, 18 Aug 2026 06:22:04 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwCpW-00000007Mtq-0SNn
+	id 1wwDCz-00000007OaD-3dXp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 05:57:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vAFiELvKZgGZ/M2KDTsFkgWtiOmSKyWzJ8PblQ/c5MKyE3VVnTMHMvAlIi0A6a2VWNghHEfpxUo14PdEqgDXpuQHUuiVk9Rn8nWENgfSgofF3PYWp80VGqyucJLvYUwJA9iAz/95SvvOGRXA/8AbUZnMJJ0/TZK70/EMZ49qvQxE6b+U0992rpoKUdCddpsvsiKj342jAkbuRM9AGxs/lVDpXfueZtgffoH16/xfMs+vHhs2yq3jZiAelEDqxwc8Q6TmUAyWC4LvDkbQXaBVjvs+Eks1Q/pu41va5mkyIqLtZ9Oq7bAOVhMO43cknwAa+7shudqyjVlwpPjjYcUAfg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6DwHuN9XlTnITw3KD4/rP+8gnA/ArBGB53y63PJC+4E=;
- b=i9liL+kyjqonxRKlH3qiWSBkXN4k7rD/T3m49YVi6SeqBjV4fSeKYGyEeNSgB3ZghzVkrvlJifi/2iPN03rTnkzvf+ISArwd5MEhv/J6bTjKAfvqVMFhlkLCpuYRCKzl3qSEtoVGYrAE15UqdVh9ncK2fSRbGSCG62HzycZ7ykrpsPKlU7Gl47gKghlrS54F8PM9q3kLimo9kcZkemOFPpdsjQhlvjtlfu9DuCgUP5JTlXcY4nRNntYmf4NO+35QPHrY4aO5tu/PKCnLqb8u6WbHVNWyOLXlSXvugPaifE/QmU174P+Eys0l9arOEofA3Z6yKEgWvM9jyXZqa9u86A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
- dmarc=none action=none header.from=axiado.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6DwHuN9XlTnITw3KD4/rP+8gnA/ArBGB53y63PJC+4E=;
- b=gi+xoK8fJ/Bkg7Y8lXFQ710SYE7VNxu4+Uas+LI/j+9OkOIE+eg6aQxzbfKkvEyYnAiUPez3ogPVhVqACQmPeMf5NOopKL9Myf9EPT7gCy7nzDFJyFs0BiYGz8gv+spr6qRdI1bZWcskkaCHjGDtiFMOL4uhYgkPB6T18wxjVzSVATS4dFkYE/ClOUi0y8/SK5w9WLGTgQ7OM6oAxuEPS2eXwwYJdqpNN3RhvTnBazdgyC+UiD3XnnDo6kHR3ufjN62agWr3HER5lQ380ayLBw/VoWOcwNHia3no39aPAVa+xSXPlRDG9N6vec+7SuOGAkT4hYrllY33OR2Hnayoag==
-Received: from CH2PR14CA0040.namprd14.prod.outlook.com (2603:10b6:610:56::20)
- by LV8PR18MB6060.namprd18.prod.outlook.com (2603:10b6:408:226::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.24; Tue, 18 Aug
- 2026 05:57:32 +0000
-Received: from CH2PEPF0000009C.namprd02.prod.outlook.com
- (2603:10b6:610:56:cafe::4e) by CH2PR14CA0040.outlook.office365.com
- (2603:10b6:610:56::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.17 via Frontend Transport; Tue,
- 18 Aug 2026 05:57:32 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
- smtp.mailfrom=axiado.com; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
- designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
- client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
-Received: from smtp.corp.axiado.com (64.62.143.114) by
- CH2PEPF0000009C.mail.protection.outlook.com (10.167.244.24) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.3
- via Frontend Transport; Tue, 18 Aug 2026 05:57:31 +0000
-Received: from [127.0.0.1] (unknown [10.4.1.181])
-	by smtp.corp.axiado.com (Postfix) with ESMTPS id 1D44E4186B53;
-	Mon, 17 Aug 2026 22:57:31 -0700 (PDT)
-From: Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>
-Subject: [PATCH v2 0/2] Axiado AX3000 and AX3005 USB Device Controller
- (UDC)
-Date: Mon, 17 Aug 2026 22:57:12 -0700
-Message-Id: <20260817-axiado-ax3000-usb-device-controller-v2-0-0ef033dd0a68@axiado.com>
+	Tue, 18 Aug 2026 06:22:03 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-47f59f25ec4so1751703f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 23:22:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787034120; x=1787638920; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pHr4Y8C7R5Apz3Ajw29/NxHZ11lFDdErrS4WW8DaORk=;
+        b=MX2j2ZX3P5MfZV9L50RQP/UuKkZkZjCM/S4yuqPZ1WoHNJB2anjO4HVrJFT+Ek7g7U
+         Kj2gVfOJLiuk/HjW58vmeSmEKAN+4sQFTD7fgIdzaIFWX7b7efYINxqlUQySkwbR3vxg
+         JCDrL+Cub7DHNCCJe/1VN0jceNytP3LwO88E5U3aw8YUl5hljepC3wUoBU9azIqPJogl
+         OWJEPvgjRlaUNeXYbly4JkLgWwDkINZ6LIOMyB6R5KOGddXjVBUomQ5LQIRifdyvl6th
+         wu5AlbGagw0boWa874AxMTT6OZT6N7PbQHZoIexzdy8c4+dqIbz0ScbxnX4rELHPnbvn
+         WIcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787034120; x=1787638920;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pHr4Y8C7R5Apz3Ajw29/NxHZ11lFDdErrS4WW8DaORk=;
+        b=OG64vZEQa16u4B/JVw3MJMViFiBTC9527tKJpesEsTOL+ACFZl0ZQXqf4EQAS/Kjn/
+         AXfkOC2fq1tuegC2FUgICzxDDCaEKjWghVRYuZFf19tCRFAFtl8CWUBXePntTMII7zkF
+         WIji5l+DhKAXo1RwMiMQoarGLG/S8cJes1szM7XfBmRuCvfogVKGbqOO7TS+Uf7tVjoH
+         zqrTYkXfmZaC/fty1n2Wc9/0JRzVFkoNU2yWvu0SkIXAxN1oohyaWTs8uF8EGlM/fxyz
+         01X5YYKUTRIE+Qnf2yRRSPMalgCzoRGrOi+G73hQgB+dV3Sq30+QppckKClMb/DVEbyG
+         5Jlw==
+X-Forwarded-Encrypted: i=1; AHgh+RobiDVxFZQB9CKqdoQvQ7F0dC6VQ/q5oNc+6QEpQiFJ6geW0Aa6GKEx7wA9qdqwwkjdCDoLARe4K2pXhMHbCArD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7NF5S+46ke4VMkFnmPxuv7q1vNwT6MrzyWsXXLEWs0bUHJ3D4
+	oErCRsle7Ni4qhiir3zXbEBgiQfzp9HJ018aYWnmc4ScRHygCvkbrxkX
+X-Gm-Gg: AR+sD11Wp8dwFf+2pu06RAMc3rn3E03RoLREY4bLGQmYDHotA7NB0xT75G3/NDo5wA4
+	xRzrTx1IQZMuPe99ZHwSmWo/qiRjemJKnFzvJfBh9QUY/Mq6qOkXBEx2ilQIoaGa1QXjVVXhB7k
+	ayMKZDLmNw2sftVmzYkNTagwGG9GxurDd+Wrkheos6ze6UUUZr3lW27Kd9N4npg6V4XnDFIvF0L
+	YVh+ijxvI7cL8ZkggF7y9A8uPenqcVqLG24m8XCuDdugieNUZPkbexVf9HiHzvXFjJk+1Dk8Koa
+	IiJI+f9rBdWXuyVuqm6kDJPcnyet9OIrXS4/tsKtnBI8V2O+xIhKiT66+eX3ckbR4eAfXf7J5mJ
+	oxjUp8Oyv5ws9Dt/YvllCbX7u1C+ttXlo6y9l0P2fa2lYdrKdPmRBFLmvxfCyg+BhMnFMGJTIA8
+	5IF22o+rPcpsfCJBwvTmP9PMKWpNA7RmTEW6U/zNjMP1rAl7oouWDhwq0aa9z4okzK/0xN3qGBB
+	kjIcWXBazTe7lN/AJ77wuRCGHqlZ3fWLbBkk3aM7es=
+X-Received: by 2002:a05:6000:46d4:b0:481:5ba5:9927 with SMTP id ffacd0b85a97d-48160705dcemr32728199f8f.9.1787034119642;
+        Mon, 17 Aug 2026 23:21:59 -0700 (PDT)
+Received: from fedora ([46.205.218.68])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482a5a3b660sm9346196f8f.15.2026.08.17.23.21.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Aug 2026 23:21:59 -0700 (PDT)
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+To: netdev@vger.kernel.org
+Cc: lorenzo@kernel.org,
+	win847@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Daniel Pawlik <pawlik.dan@gmail.com>
+Subject: [PATCH v9] net: airoha: npu: use cacheline-sized buffers for mailbox DMA
+Date: Tue, 18 Aug 2026 08:20:38 +0200
+Message-ID: <20260818062038.1599651-1-pawlik.dan@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADn0g2oC/42NTQ6CMBCFr0K6dsy0/ARdeQ/DorSDTILUtEgwh
- Ls7wgXczOR7yfveqhJFpqSu2aoizZw4jALmlCnX2/FBwF5YGTQValODXdj6IC9HRHinFrzUHIE
- L4xTDMFAEXVY+73RdoLsoMb0idbzsK/dGuOc0hfjZR2f9Sw+/nL/8swaEonSEtm5RF93taJ1de
- Kpm27YviGdyotcAAAA=
-X-Change-ID: 20260128-axiado-ax3000-usb-device-controller-156d3f1840c9
-To: Krutik Shah <krutikshah@axiado.com>, 
- Prasad Bolisetty <pbolisetty@axiado.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Tzu-Hao Wei <twei@axiado.com>, 
- Karthikeyan Mitran <kmitran@axiado.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- openbmc@lists.ozlabs.org, 
- Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5039;
- i=rbnaveenkumar@axiado.com; h=from:subject:message-id;
- bh=G38TuLd/fQ5NtjS/eTnrSI30hzrdndZMxe8/kDFmYQM=;
- b=owEB7QES/pANAwAKAbh/+EWc+O2/AcsmYgBqg/RKxC9RlL0OcUz4oAUqvnaD/W0x+s2Cy+TDO
- o/yKerNLqyJAbMEAAEKAB0WIQRgwxMPfi/g+F4zFkC4f/hFnPjtvwUCaoP0SgAKCRC4f/hFnPjt
- vyjhC/94oBJ6NUvw9jtSHLH5Vy/FwXv5nPfGG91dklSMa7eTLordC7JYgTGxIv7OvkX5ZIRZbdw
- 7q6R5GB2ovLywde0/DG6xNyGbFeHhwuIZA2hh1y6fuUfyk/mqBrCTFhddyJWlHlctAnh2xymMe0
- YBEcwSmelFxn7ii9FpCwebxIq6HNCzPpuC8MZ0/AKogs24pA7vIY9EkhfkisTC+PO8pqB9Ez62K
- Leqlcuy0P682skcgCCP1KVw0C7PXd5GEp/Wm8kWFuBwusz76uRVqV6BS0fdE+XzAutS3UpG+qu8
- 3xXlF9OZkCFCaoGrbmWUWca0iB5R2aDrYf9TfO1CPWFABC8uGOkXJ/Mh1XOA+CFTxx9SCSqcTgl
- px9es6qjXRTh+dxCyLbLv9WIM+Ql0/DyRq239IqbvFPaDhtrS9tGVUaf4B4kkThLRbUGRP0ToQA
- YlUd5D5UO1ham9ZDEqbaoEo3/neqrGjf18gFt6O/7W/UcCo9Bd1nIM7+rq+gX8awAie6I=
-X-Developer-Key: i=rbnaveenkumar@axiado.com; a=openpgp;
- fpr=60C3130F7E2FE0F85E331640B87FF8459CF8EDBF
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000009C:EE_|LV8PR18MB6060:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2b7d9c4c-d362-4ed9-df5a-08defced97ed
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700016|1800799024|376014|82310400026|23010399003|18002099003|56012099006|10067099003|13003099007;
-X-Microsoft-Antispam-Message-Info: /Zz6Pd1pe34K1M/4LTkAK6B9q7vXMIUoI4/xM8EUYpEnDcZE9ezTJUgq3ECLpZsPf1tkajnsrAEJqkVmke4lr+fXPmKFx7In4C4PHmaqA5hr4xpu111KcmtCyfh9zD8V7tasFTrQgCcPmL4wPlsYHtXGhY/MSmCCC3gy3Z97JxUkREpnGf03yH5l7IBEsz4TNr9th0B9yevZMIkNkZJLy8f7cSRkMl6mEZrsDWfKidHm8PzeAjgonrF33i2wCKDX9F5PI54/VmiWdeZUT+gM2XOKiP40DMNcW285JE5IxMIOnniSLjEpRYJ7AC41nFx7mob5zzelwdLocmJ7Lcr5NGp0axHHxSAzTBuCeoFRG4bXRCIfyfaZgCjOFpdicz8W7PM34v+hSPOhhxdL1+GUYyDrXP9eh4EaW1Vp58QzJs+Q/Nr5fgkrbhewkQ96llEU/hbkNh5PKVnM/Kkjvq2u+Egh9f7jOivlaLqDginAINy0Lf9mekVAoFi7I9ir2fB6kmMxsVm6aArEfzQsnrQI91B/A4RM4Ic2Uiq0hmtjxGvxsNNWqyF4duZDgpdOl5qeRoMgHaA8iRelybCxCK3WXQWEoVs1GjAarkusnRNy9GxHFOsGdnYl4FFEo8z+42vJFUZTGvNpvKc/U/RFcE7F1gEX1yQ/iE4Wu5f+jXlTq7Bf/LWOPzL/4cIOAuSML+oi9DEEf9WicXhxpb7EBZymiQ==
-X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(36860700016)(1800799024)(376014)(82310400026)(23010399003)(18002099003)(56012099006)(10067099003)(13003099007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: zjgy3jV3IZ6TNTNKQ9gvj57W4tqnOZr6D70/JZ8IoxB05B4McTugLfKoImVBkUGgRgOIQIfgZCQUN6wHgy1AhBlLg1JPTKLIQPq1HOqkAkQQ3oHtPTQiO8xGX72CSsssf2zFwSdUj8p2zX4agXVmr6HXUtMu6+xipxmw3JO+hdEtGGyGrOj08NZn1ZQd3Kr9/GP7Fxv3jc47JvzfaJD/NsagQU0cO6LwdeSHQen3y5oXbu3qXsQVrXKnKSrq6WkyL5BOGHWjW5xE5ORsk47/Xa21wUPkRH4DwNyGwRAIcVjVizlvr2wz2aG8KtC7xg86EIXB11Kkro9SAwaN0aCNqzumUlnvDwnHDRH/wREpE14RExItgZYPDY2vQNZ+S3LU65lIObMaRqLv1zfFV+8Uv0mu34jIvQp/5j1tEjBV694Zd1RjaEl0aAZy5Wk3HoQe
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 05:57:31.7724
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2b7d9c4c-d362-4ed9-df5a-08defced97ed
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009C.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR18MB6060
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_225746_185587_36397D08 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20260817_232201_923056_5C24D687 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,105 +99,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear maintainers,
+On EN7581 + MT7996 (Gemtek W1700K), mapping small caller buffers with
+DMA_BIDIRECTIONAL regresses NPU version probe: the mailbox completes
+successfully but WLAN_FUNC_GET_WAIT_NPU_VERSION reads as 0.0 instead of
+0.1111.
 
-This series adds support for the USB device controller (UDC) integrated
-into the Axiado AX3000 and AX3005 SoCs.
+Round mailbox payload allocations up to dma_get_cache_alignment() and
+map the same rounded length with DMA_BIDIRECTIONAL while programming
+the original payload length into the mailbox length register. On EN7581
+the rounded map length is required for GET responses to be visible;
+mapping only the payload size regresses probe back to 0.0.
 
-The controller is based on the Corigine USB 3.1 device IP core and uses an
-xHCI-like programming model with a command ring, an event ring, and
-per-endpoint transfer rings composed of Transfer Request Blocks (TRBs).
+Tested on Quantum Fiber / Gemtek W1700K (EN7581 + MT7996), kernel
+6.18.44, including cold reboot.
 
-The driver integrates with the USB gadget framework and supports
-High-Speed and SuperSpeed operation. It supports control, bulk, interrupt,
-and isochronous transfers, including scatter-gather requests. It also
-implements endpoint enable and disable, request queuing and dequeuing,
-halt and wedge handling, and standard endpoint 0 control requests.
-
-The standard |maximum-speed| Devicetree property can be used to limit the
-controller to High-Speed operation. When the property is absent, the
-driver defaults to SuperSpeed.
-
-The driver was tested on AX3000 and AX3005 boards.
-
-Signed-off-by: Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>
+Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buffer")
+Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260814110017.2795022-1-pawlik.dan@gmail.com/
+Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260809152813.585797-1-pawlik.dan@gmail.com/
+Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260805070851.2885888-1-pawlik.dan@gmail.com/
+Assisted-by: Cursor:composer-2
+Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
 ---
-Changes in v2:
-- Drop the dual (GPL-2.0+ OR MIT) license; the driver and header are now
-  GPL-2.0+ only.
-- Register via module_platform_driver() and add MODULE_AUTHOR/MODULE_ALIAS
-  instead of the hand-written module_init/module_exit pair.
-- Acquire clock, reset and PHY through the driver model
-  (devm_clk_get_optional, devm_reset_control_get_optional_exclusive,
-  devm_phy_optional_get), with teardown wired up via
-  devm_add_action_or_reset.
-- Switch to devm_request_irq() and drop the manual free_irq() paths.
-- Support multiple instances using an IDA (DEFINE_IDA/ida_alloc/ida_free)
-  instead of a file-static device counter.
-- Read match data with device_get_match_data() and move the former
-  compile-time feature switches to DT properties (dis-u1u2-entry-quirk,
-  dis-u1u2-initiation-quirk, reinit-ep0-on-bus-reset).
-- Set the DMA mask via dma_set_mask_and_coherent() with a 32-bit fallback,
-  and convert PM to SIMPLE_DEV_PM_OPS.
-- Fix endianness handling for TRBs, events and endpoint contexts using
-  cpu_to_le32()/le32_to_cpu(), and decode setup packets without casting.
-- Locking: pass the caller's IRQ flags through the completion paths so the
-  interrupt state is correctly restored across the unlock/lock window around
-  gadget callbacks.
-- Properly free all coherent DMA allocations and add
-  dma_mapping_error() checks after dma_map_single()
-- Fix DMA directions on the GET_STATUS/SET_SEL control transfers.
-- Replace open-coded register busy-wait loops with
-  readl_poll_timeout_atomic() so they time out instead of spinning forever,
-  and return proper errnos (-EBUSY/-ETIMEDOUT/-EIO) instead of -1.
-- Replace the custom SETF_VAR/GETF/MAKEF_VAR shift-and-mask macros with
-  FIELD_PREP/FIELD_GET (include linux/bitfield.h), and use BIT()/GENMASK()
-  and dma_wmb()/dma_rmb().
-- Use DMA_MAPPING_ERROR instead of a private DMA_ADDR_INVALID.
-- Remove the U-Boot-derived VBUS cable-detect routine, the VBUS-detect
-  kthread and its wait queue, dead defines and struct fields, the unused
-  interrupt-register-array macros, the mdelay()-based reset delays and the
-  bulk of the dev_dbg() tracing.
-- Implement the pullup(is_on == 0) path and route suspend/shutdown through
-  pullup(0); mark crg_udc_ep_ops const and return IRQ_NONE from the shared
-  IRQ handler when the interrupt is not ours.
-- Use dev_err_probe() with structured goto-based unwinding in probe.
-- Reword the Kconfig help text for USB_CRG_UDC to name the crg_udc module.
-- Link to v1: https://lore.kernel.org/r/20260202-axiado-ax3000-usb-device-controller-v1-0-45ce0a8b014f@axiado.com
+ drivers/net/ethernet/airoha/airoha_npu.c | 25 +++++++++++++++---------
+ 1 file changed, 16 insertions(+), 9 deletions(-)
 
-To: Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>
-To: Krutik Shah <krutikshah@axiado.com>
-To: Prasad Bolisetty <pbolisetty@axiado.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Tzu-Hao Wei <twei@axiado.com>
-To: Karthikeyan Mitran <kmitran@axiado.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-usb@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-
----
-Naveen Kumar Rajgiri Bassappa (2):
-      dt-bindings: usb: gadget: udc: add Axiado AX3000 and AX3005 UDC
-      usb: gadget: udc: add Axiado AX3000 and AX3005 UDC driver
-
- .../devicetree/bindings/usb/axiado,ax3000-udc.yaml |   72 +
- MAINTAINERS                                        |   10 +
- drivers/usb/gadget/udc/Kconfig                     |   14 +
- drivers/usb/gadget/udc/Makefile                    |    1 +
- drivers/usb/gadget/udc/crg_udc.c                   | 4491 ++++++++++++++++++++
- drivers/usb/gadget/udc/crg_udc.h                   |  355 ++
- 6 files changed, 4943 insertions(+)
----
-base-commit: 7bf68027b97bc94f6121448cb5a02ed9d04187c4
-change-id: 20260128-axiado-ax3000-usb-device-controller-156d3f1840c9
-
-Best regards,
---  
-Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index b679bed952de..9c95ddd7002e 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -5,6 +5,7 @@
+  */
+ 
+ #include <linux/devcoredump.h>
++#include <linux/dma-mapping.h>
+ #include <linux/firmware.h>
+ #include <linux/platform_device.h>
+ #include <linux/of_net.h>
+@@ -160,15 +161,21 @@ struct wlan_mbox_data {
+ 	DECLARE_FLEX_ARRAY(u8, d);
+ };
+ 
++static size_t airoha_npu_mbox_size(size_t len)
++{
++	return ALIGN(len, dma_get_cache_alignment());
++}
++
+ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+ 			       void *p, int size)
+ {
+ 	u16 core = 0; /* FIXME */
+ 	u32 val, offset = core << 4;
+ 	dma_addr_t dma_addr;
++	size_t map_len = airoha_npu_mbox_size(size);
+ 	int ret;
+ 
+-	dma_addr = dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL);
++	dma_addr = dma_map_single(npu->dev, p, map_len, DMA_BIDIRECTIONAL);
+ 	ret = dma_mapping_error(npu->dev, dma_addr);
+ 	if (ret)
+ 		return ret;
+@@ -191,7 +198,7 @@ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+ 
+ 	spin_unlock_bh(&npu->cores[core].lock);
+ 
+-	dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
++	dma_unmap_single(npu->dev, dma_addr, map_len, DMA_BIDIRECTIONAL);
+ 
+ 	return ret;
+ }
+@@ -333,7 +340,7 @@ static int airoha_npu_ppe_init(struct airoha_npu *npu)
+ 	struct ppe_mbox_data *ppe_data;
+ 	int err;
+ 
+-	ppe_data = kzalloc_obj(*ppe_data);
++	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_KERNEL);
+ 	if (!ppe_data)
+ 		return -ENOMEM;
+ 
+@@ -354,7 +361,7 @@ static int airoha_npu_ppe_deinit(struct airoha_npu *npu)
+ 	struct ppe_mbox_data *ppe_data;
+ 	int err;
+ 
+-	ppe_data = kzalloc_obj(*ppe_data);
++	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_KERNEL);
+ 	if (!ppe_data)
+ 		return -ENOMEM;
+ 
+@@ -375,7 +382,7 @@ static int airoha_npu_ppe_flush_sram_entries(struct airoha_npu *npu,
+ 	struct ppe_mbox_data *ppe_data;
+ 	int err;
+ 
+-	ppe_data = kzalloc_obj(*ppe_data);
++	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_KERNEL);
+ 	if (!ppe_data)
+ 		return -ENOMEM;
+ 
+@@ -399,7 +406,7 @@ static int airoha_npu_foe_commit_entry(struct airoha_npu *npu,
+ 	struct ppe_mbox_data *ppe_data;
+ 	int err;
+ 
+-	ppe_data = kzalloc_obj(*ppe_data, GFP_ATOMIC);
++	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_ATOMIC);
+ 	if (!ppe_data)
+ 		return -ENOMEM;
+ 
+@@ -434,7 +441,7 @@ static int airoha_npu_ppe_stats_setup(struct airoha_npu *npu,
+ 	int err, size = num_stats_entries * sizeof(*npu->stats);
+ 	struct ppe_mbox_data *ppe_data;
+ 
+-	ppe_data = kzalloc_obj(*ppe_data, GFP_ATOMIC);
++	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_ATOMIC);
+ 	if (!ppe_data)
+ 		return -ENOMEM;
+ 
+@@ -466,7 +473,7 @@ static int airoha_npu_wlan_msg_send(struct airoha_npu *npu, int ifindex,
+ 	int err, len;
+ 
+ 	len = sizeof(*wlan_data) + data_len;
+-	wlan_data = kzalloc(len, gfp);
++	wlan_data = kzalloc(airoha_npu_mbox_size(len), gfp);
+ 	if (!wlan_data)
+ 		return -ENOMEM;
+ 
+@@ -489,7 +496,7 @@ static int airoha_npu_wlan_msg_get(struct airoha_npu *npu, int ifindex,
+ 	int err, len;
+ 
+ 	len = sizeof(*wlan_data) + data_len;
+-	wlan_data = kzalloc(len, gfp);
++	wlan_data = kzalloc(airoha_npu_mbox_size(len), gfp);
+ 	if (!wlan_data)
+ 		return -ENOMEM;
+ 
+-- 
+2.55.0
 
 
