@@ -4,62 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AF37C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 12:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 785CAC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 12:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3k//siFm2YyUU8Bq2DkjiDphdipmUfR+eqfHP0teuFU=; b=hvwlfAOaZZDWRTjbqsMfHlhy9Q
-	TahfYh6tmOyh6Dmbpfuu7jNfl5UmEdk5DpvNEA1z1KqryPNJGCGk5Bui3ZcSYrPp3uhT9q0h+iXGT
-	SVXaXOCKEiv2TSko2Lye1ssFswtL8lu1YS5a8gcjRdrhgOr3yQh8Kc3F9kfmPWzoWBsJCrYEcXb/I
-	2UoR9T8AQzZYgNkKOkbw2zQaxm2EbIVK9bjrMKhy8m6KHvLDUpdjk+ymSMSHTtD4ITDCjY/XSqcht
-	1TNwaHq0ZT4EGi/P2B0rpdTToJShERznDkXkBrNoscKWy2adh8FarftZxqPXGQP6U4g0Qw2UkimRJ
-	KkeWufIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o95+dGe2lZwMciIdj1990zSZR9RoP9oK8e84NguWWls=; b=e8jCE8VXGRAgByCuSi4BLcCzvF
+	tVzm73OrYm8VOC+WSXYg34F067XMTW7d0729PQpwwOxA1aezVRkSkGzgHz2G067eSFciY6JdkJU5M
+	l2Tke4ESVMacJVD+cyEm8fhsdmfkUdr33vubaPB+LWe6WIrYti8znj1lWV2Z/AeTZpmDT4ZwDlzY5
+	ovo7/XMNR7eTHXKimkCOdbqCsd7phDMU3RyViUKgOfsobHkby7SvbaQjoVNfM1bc75bzpdf7thp+p
+	+PZLSaB6jzu1GLmQRehdcS1lbLzelVAaMAiMjwX2PRPxfVPYQIIxdUb7Wn3/9G+9MrEwFaGXPjoDQ
+	5bx9gg2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwIfN-00000007u2g-0C40;
-	Tue, 18 Aug 2026 12:11:41 +0000
-Received: from fsn-vps-1.bereza.email ([162.55.44.2])
+	id 1wwIod-00000007uqG-1aYP;
+	Tue, 18 Aug 2026 12:21:15 +0000
+Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef21.compal.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwIfJ-00000007tzz-3XGa
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 12:11:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bereza.email; s=mail;
-	t=1787055092; bh=58WgTsECTK1yYGL7QjCSrs8eH3LV5+Et7K9zcQkGotE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CeO9w8Ym4eLgvq8Z1L2qgdHQ96Yu3QHE/AEmwjgWi8msk3uhmz/dQ1o+uUvKplxOw
-	 0J/pahBDeNAzxJDQEQ+1/meuX6YWKOADMxwHr3PzAcxwnrZZPvH57ZD8bEW+Y4goz2
-	 hQfNzs1lHdwPDHtKPHU7xWDr7hBabkIEEo7RCzFN7sx+RUTk1mBkrdeywz2FT/jHg2
-	 hz+/PXHKIDFgB3tDkggGNbW/n1w3Sb+5xiRbeTjqtg3AMVcwJJpGjsV856kT0QnffA
-	 ylPVWDdQzuCQXRGWl7Ykk+rnwnR6J7jww5628Kl4ISAX0MleIBunyrwr2knU6ieBOg
-	 SykXsI1M0Pyeg==
-Received: from localhost (pd95bbad8.dip0.t-ipconnect.de [217.91.186.216])
-	by fsn-vps-1.bereza.email (Postfix) with ESMTPSA id 50DA36027C;
-	Tue, 18 Aug 2026 14:11:32 +0200 (CEST)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 18 Aug 2026 14:11:31 +0200
-Message-Id: <DKS25RPXGPXB.2I0LD9EHK9GAP@bereza.email>
-From: "Alex Bereza" <alex@bereza.email>
-To: "Pandey, Radhey Shyam" <radheys@amd.com>, "Alex Bereza"
- <alex@bereza.email>, "Vinod Koul" <vkoul@kernel.org>, "Frank Li"
- <Frank.Li@kernel.org>, "Michal Simek" <michal.simek@amd.com>, "Kedareswara
- rao Appana" <appana.durga.rao@xilinx.com>
-Cc: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, "Suraj Gupta" <Suraj.Gupta2@amd.com>
-Subject: Re: [PATCH] dmaengine: xilinx_dma: Fix hardware buffer descriptor
- reuse order
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260817-fix-hw-buf-desc-reuse-v1-1-d79827a844c7@bereza.email>
- <QjUGg1to3KFvzKpfc2FoL0vjidDyRPAjT3cURLYpXEfdqk7LPzrRq6dCkhEROkPP47rIdqQYBa-BYKkdSV-oGQ==@protonmail.internalid> <e2877b7e-eb3f-4a4c-aa94-ed0907578e6f@amd.com>
-In-Reply-To: <e2877b7e-eb3f-4a4c-aa94-ed0907578e6f@amd.com>
+	id 1wwIoZ-00000007upM-2Zqz;
+	Tue, 18 Aug 2026 12:21:14 +0000
+X-UUID: 4499bc969aff11f1b2470fb4f881575f-20260818
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:8f7602cf-93c4-439d-a387-dd9c74249285,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7f1ae54,CLOUDID:f252fff1-0685-46a3-9cac-19d8f3a05ae7,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
+	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
+	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 4499bc969aff11f1b2470fb4f881575f-20260818
+Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef21.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1197951111; Tue, 18 Aug 2026 20:20:58 +0800
+X-UUID: 406d7d889aff11f1a9f9c99e036204b4-20260818
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:e11947a9-b923-45fd-a231-f79468464d8d,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e276073,CLOUDID:371b1124-78f2-442a-bf4c-8228a1b653b0,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
+	898,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS
+	:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,A
+	RC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 406d7d889aff11f1a9f9c99e036204b4-20260818
+Received: from sdbmbx11.tpe.compalcomm.com [(10.113.2.135)] by sdmg12.sdbg.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
+	with ESMTP id 91996563; Tue, 18 Aug 2026 20:20:51 +0800
+Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
+ SDBMBX11.tpe.compalcomm.com (10.113.2.135) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
+ Tue, 18 Aug 2026 20:20:48 +0800
+Received: from SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86]) by
+ SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86%11]) with mapi id
+ 15.02.2562.043; Tue, 18 Aug 2026 20:20:48 +0800
+From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
+To: Jakub Kicinski <kuba@kernel.org>, Jack Wu via B4 Relay
+	<devnull+jackbb_wu.compal.com@kernel.org>
+CC: Loic Poulain <loic.poulain@oss.qualcomm.com>, Sergey Ryazanov
+	<ryazanov.s.a@gmail.com>, Johannes Berg <johannes@sipsolutions.net>, "Andrew
+ Lunn" <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Wen-Zhi
+ Huang <wen-zhi.huang@mediatek.com>, Shi-Wei Yeh <shi-wei.yeh@mediatek.com>,
+	"Minano Tseng" <Minano.tseng@mediatek.com>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "Simon Horman" <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+	"Yu. Robert (GSM)" <robert_yu@compal.com>, "Chang. Jeff (GSM)"
+	<Jeff_Chang@compal.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>
+Subject: RE: [External Mail] Re: [PATCH v6 0/7] net: wwan: t9xx: Add MediaTek
+ T9XX WWAN driver
+Thread-Topic: [External Mail] Re: [PATCH v6 0/7] net: wwan: t9xx: Add MediaTek
+ T9XX WWAN driver
+Thread-Index: AQHdLplh6WkyumRPKUmREg8WmPgZkbajujDR
+Date: Tue, 18 Aug 2026 12:20:48 +0000
+Message-ID: <8040d0a7a42c428baa3aec46bba6bec2@compal.com>
+References: <20260811-t9xx_driver_v1-v6-0-2c969fad57c6@compal.com>,<20260817153958.4b120ce9@kernel.org>
+In-Reply-To: <20260817153958.4b120ce9@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.113.2.241]
+x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30140.007
+x-tm-as-result: No-10--15.520700-8.000000
+x-tmase-matchedrid: 17iyaxE7EzIuv++HU7VXryRFbfQbCufdN0X64jGy2dbsEpKlvft9qjRG
+	JnoK3ysiHe/Upp/4ecRLyT/MN7wrGVhzQ/Tix+nNNLxBLGvmmCRkrVIXZHd52ALbwVZWOSEX4kw
+	dNFZOfC76xO7vZu5A28G8AIXlLA0nbVJbuBUpqcCeKdOylUhP2VHdSSkRFiZkreGXMMoufLm5Rz
+	EGHN4/BWh0k1oC3GkQ04edJN77sRYptHIgj0tkE4i/ka5VrHsKlIhi5GPAGeNdkzEmKKnHIP9vf
+	1NXtdDv0mBu7EWIkV4ymx1OgmpWWkcX1B9oqpNpnSty3uLSJPTuB3lKociGMqAcDPu7eAhBmBGz
+	eOcTpv/Q+sS71+DOCCTavWo/K3hlv9rSd36EgULA931+mNd9sJs7gkGWoKY36QLge8Tcpn0=
+x-tm-as-user-approved-sender: No
+x-tm-as-user-blocked-sender: No
+x-tmase-result: 10--15.520700-8.000000
+x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30140.007
+x-tm-snts-smtp: 5E8AF933061CD3863F1CFDC5F8DC0848C521E9B58D432474CAB7AA981997B7422000:8
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_051138_334654_5C103EDE 
-X-CRM114-Status: GOOD (  25.75  )
+X-CRM114-CacheID: sfid-20260818_052112_027590_8645D72F 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,99 +136,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Aug 18, 2026 at 12:58 PM CEST, Radhey Shyam Pandey wrote:
->
-> + Suraj
->
-> On 8/17/2026 2:53 PM, Alex Bereza wrote:
->> xilinx_dma_alloc_chan_resources() builds a static ring of hardware
->> buffer descriptors once and the driver uses this ring throughout the
->> lifetime of a channel. This requires the allocation order of hardware
->> buffer descriptors from chan->free_seg_list to stay in sync with the
->> hardware buffer descriptor ring built at channel allocation time by
->> returning oldest descriptors to chan->free_seg_list first.
->>
->> When chan->pending_list is not empty e.g. during
->> xilinx_dma_terminate_all() the chan->free_seg_list and the order of the
->> static hardware buffer descriptor ring get out of sync. Descriptors age
->> in this order: pending -> active -> done. So freeing pending_list first
->> returns the newest buffer descriptors to the chan->free_seg_list first
->> and thus breaks the order required by the static hardware buffer
->> descriptor ring. Then when the channel is reused, after a wrap around of
->> the free_seg_list the DMA will find a hardware buffer descriptor with a
->> length field that is still zeroed and stop with something like this:
->>
->>    xilinx-vdma 86000000.dma: Channel 000000003a21d7b8 has errors 10, cdr=
- 6de4c000 tdr 6de4c000
->>
->
-> Just to understand - can you share steps on how are seeing this issue ?
-> During terminate_all hw is in reset so how is free ordering matter?
-> Want to ensure that change of order in not masking a real corruption.
-
-To reproduce, pending_list must not be empty when
-xilinx_dma_terminate_all() is called. For example by calling
-dmaengine_submit without calling dma_async_issue_pending and then
-terminating.
-
-Since pending_list was freed first, the newest descriptors were appended
-to the tail of the free_seg_list. Then when you continue to use the
-channel and allocate new descriptors from free_seg_list you will
-eventually cause the hardware to walk into a buffer descriptor with
-length 0. This happens after a lap of free_seg_list, when you get the
-descriptor freed from the pending_list previously. The hardware buffer
-descriptor ring reads a different descriptor than what you "allocated"
-from free_seg_list and fails, since the read descriptor's length field
-is still 0. This is because the hardware ring order is different from
-the order in free_seg_list, caused by the wrong freeing order.
-
-The reset does not help to prevent this, because the hardware advances
-along the hardware buffer descriptor ring via the next pointer. But the
-driver hands out the descriptors in free_seg_list order, which no longer
-matches hardware buffer descriptor ring order. The reset only re-syncs
-the starting point, but not the order of the two.
-
->
->> After this no more descriptors are completed and a consumer potentially
->> blocks and waits forever. The only way to get out of this error state is
->> to rebuild the static hardware buffer descriptor ring and the
->> free_seg_list by releasing and re-acquiring the channel.
->>
->> Fix the order in which hardware buffer descriptors are returned to
->> free_seg_list to ensure the mentioned requirement holds.
->>
->> Fixes: 23059408b6a3 ("dmaengine: xilinx_dma: Fix race condition in the d=
-river for multiple descriptor scenario")
->> Signed-off-by: Alex Bereza <alex@bereza.email>
->> ---
->>   drivers/dma/xilinx/xilinx_dma.c | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx=
-_dma.c
->> index bef2b031dba1..0817b74f7450 100644
->> --- a/drivers/dma/xilinx/xilinx_dma.c
->> +++ b/drivers/dma/xilinx/xilinx_dma.c
->> @@ -920,9 +920,9 @@ static void xilinx_dma_free_descriptors(struct xilin=
-x_dma_chan *chan)
->>
->>   	spin_lock_irqsave(&chan->lock, flags);
->>
->> -	xilinx_dma_free_desc_list(chan, &chan->pending_list);
->>   	xilinx_dma_free_desc_list(chan, &chan->done_list);
->>   	xilinx_dma_free_desc_list(chan, &chan->active_list);
->> +	xilinx_dma_free_desc_list(chan, &chan->pending_list);
->>
->>   	spin_unlock_irqrestore(&chan->lock, flags);
->>   }
->>
->> ---
->> base-commit: 0d995da5fb97e8c312834575604d4423eb6225b7
->> change-id: 20260817-fix-hw-buf-desc-reuse-b730e9e02185
->>
->> Best regards,
->> --
->> Alex Bereza <alex@bereza.email>
->>
->>
+T24gTW9uLCAxNyBBdWcgMjAyNiBhdCAyMjozOSwgSmFrdWIgS2ljaW5za2kgPGt1YmFAa2VybmVs
+Lm9yZz4gd3JvdGU6DQo+IFRoaXMgRlNNIGV4aXN0cyBpbiB0aGUgZHJpdmVyLCBldmVuIHRobyB5
+b3UgY2FsbCBpdCAiY29yZSBsb2dpYyIuDQo+IFBsZWFzZSBwcm92aWRlIG1vcmUgZGV0YWlscyBp
+biB0aGUgcGF0Y2ggZGVzY3JpcHRpb24gb2YgcGF0Y2ggNQ0KPiBhbmQgY29uc2lkZXIgd2hldGhl
+ciBhbnkgb2YgdGhpcyBsb2dpYyBzaG91bGQgbGl2ZSBpbiB0aGUgV1dBTg0KPiBmcmFtZXdvcmsu
+DQoNCkdvb2QgcG9pbnQgb24gdGhlIG5hbWluZyChWCAiY29yZSBsb2dpYyIgaXMgbWlzbGVhZGlu
+Zy4gV2lsbCByZW5hbWUgaXQNCnRvICJkZXZpY2UgbGlmZWN5Y2xlIG1hbmFnZW1lbnQiIGluIHRo
+ZSBjb3ZlciBsZXR0ZXIgdG8gbWFrZSB0aGUgc2NvcGUNCmNsZWFyLg0KDQpXaWxsIGFsc28gZXhw
+YW5kIFA1J3MgY29tbWl0IG1lc3NhZ2UgdG8gZGVzY3JpYmUgdGhlIEZTTSBzdGF0ZXMNCihPRkYg
+ofcgQk9PVFVQIKH3IFJFQURZIKH3IE9OIKH3IE9GRiksIHRoZSBIUzEvSFMyL0hTMyBoYW5kc2hh
+a2UNCnByb3RvY29sLCBDTERNQSBpbml0L2V4aXQgd2lyaW5nLCBhbmQgdGhlIGVycm9yLXJlY292
+ZXJ5IHBhdGhzLg0KDQpSZWdhcmRpbmcgd2hldGhlciB0aGlzIGJlbG9uZ3MgaW4gdGhlIFdXQU4g
+ZnJhbWV3b3JrOiB0aGUgRlNNIG1hbmFnZXMNCnRoZSBUOXh4LXNwZWNpZmljIGJvb3Qgc2VxdWVu
+Y2UgoVggUENJZSBsaW5rIGJyaW5ndXAsIGZpcm13YXJlDQpoYW5kc2hha2UgdmlhIENMRE1BLWJh
+c2VkIHJ1bnRpbWUgZmVhdHVyZSB0YWJsZSAoUlRGVCkgZXhjaGFuZ2UsIGFuZA0KaGFyZHdhcmUg
+ZXJyb3IgcmVjb3ZlcnkgKEZMRFIvUExEUikuIEV2ZXJ5IHN0YXRlIGFuZCB0cmFuc2l0aW9uIGlz
+DQpkaWN0YXRlZCBieSBUOXh4IGhhcmR3YXJlIGJlaGF2aW91ci4NCg0KVGhlIHQ3eHggZHJpdmVy
+IGhhcyBpdHMgb3duIEZTTSAodDd4eF9mc20uYyAvDQp0N3h4X21vZGVtX29wcy5jKSBpbiB0aGUg
+ZHJpdmVyIGZvciB0aGUgc2FtZSByZWFzb24goVggaXRzIGJvb3QNCnNlcXVlbmNlIGFuZCBoYW5k
+c2hha2UgcHJvdG9jb2wgYXJlIGVxdWFsbHkgZGV2aWNlLXNwZWNpZmljLiANCg0KVGhlIFdXQU4g
+c3Vic3lzdGVtIHRvZGF5IHByb3ZpZGVzIHBvcnQgbWFuYWdlbWVudCBhbmQgbmV0ZGV2IGhlbHBl
+cnMsDQp3aGljaCB0OXh4IHVzZXMgKHd3YW5fY3JlYXRlX3BvcnQgaW4gUDYpLiBBIGdlbmVyaWMg
+ZGV2aWNlIGxpZmVjeWNsZQ0Kc3RhdGUgbWFjaGluZSB3b3VsZCBuZWVkIHRvIGFic3RyYWN0IG92
+ZXIgdGhlc2UgdmVuZG9yLXNwZWNpZmljIGJvb3QNCnByb3RvY29scywgYW5kIHdlIGRvbid0IHRo
+aW5rIHRoYXQgYWJzdHJhY3Rpb24gZXhpc3RzIHdpdGhvdXQNCmhhcmR3YXJlLXNwZWNpZmljIGtu
+b3dsZWRnZSBmcm9tIGVhY2ggdmVuZG9yLg0KDQpXZSBiZWxpZXZlIHRoZSBGU00gYmVsb25ncyBp
+biB0aGUgZHJpdmVyLCBidXQgd2UgYXJlIGhhcHB5IHRvIGRpc2N1c3MNCmlmIHlvdSBzZWUgc3Bl
+Y2lmaWMgcGllY2VzIHRoYXQgY291bGQgYmUgZmFjdG9yZWQgb3V0Lg0KDQpUaGFua3MuDQoNCi0t
+DQpKYWNr
 
