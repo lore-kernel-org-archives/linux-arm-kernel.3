@@ -4,129 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09033C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 15:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F84C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 15:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k4QWcUJiio/9HLgXjgINLfnyjtSRinPNGm+gjd8rgPA=; b=IiBGYRFiId/QC9xr4v31GB1Tny
-	YV9Rd+5OOp0MSZnZtlpkQlbm6NVWAuIPqhl0HbzLmCOp37XswCKTUMaoH3ojrroEJ1Cz7IdGM6JFb
-	UMWxLw4wW3MNpkZ7faZmOO/6e6eEXafIDssxQtmZESb8pO+rh33eKRGNa+3rpstOezXBt0nTXrXEl
-	6NgmE1EkqYAPZcSoPlGhID+g6Q1L2aAVUYARY5gfNWMgxXrrv3Pd/5afTJ1xmij+5oi8aHpwW4fnh
-	HHMv60HtgKuYI8ZQjfF6DSZ3DJy7/Yr1nt7FidAoMGC70Hx4sdPLvzUtAPk2ycX5I93QFbSpxGtzX
-	jm1TUzgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SoHO3s51oL9GUJU24KhxWrmnpYLuAZNIFuX1r7gazg8=; b=BUBm6bjAcKZp07j3YvHOFOm4Es
+	2TbH0U/rDkMLBVLxuccSPoJ1RY4HfEMPX7+6oo5a0J3+sqmyUiSYJ5EwP+nSLXafkj4H3abA6RgzT
+	gx+dziVhtFek1+bpt0h5VoU4WruXIikojWx17y197LYO+fCIciBlMLiXIGIAr6KmUUEGK1bFrQpHq
+	LzjManqEnhh94Eh8i/MlUThgqLwAja5GIgHl3+5OAqfFY7h9f1+8Q7u1b1PRa/96MLNVOG0/br5Hm
+	ihNCjWJfSkRSjVBcIkII/ZjAesidn+2y6LsyDkGif4bdxyJTREQVTykZ+V96JEwhheCaBfxNSvy1M
+	H1d2D8pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwi2u-0000000A49u-1WV2;
-	Wed, 19 Aug 2026 15:17:40 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wwi4g-0000000A4MX-3DNb;
+	Wed, 19 Aug 2026 15:19:30 +0000
+Received: from mail-westeuropeazon11011062.outbound.protection.outlook.com ([52.101.70.62] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwi2r-0000000A49I-0vGv
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 15:17:39 +0000
+	id 1wwi4d-0000000A4LG-2dbm;
+	Wed, 19 Aug 2026 15:19:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e5ozuTABF9vnq8lOliP1Cfn/d1KjTBA+q4n8WoaSeSrSdjXeixlfyWWUdq7qhfS5FGbkpSz3qmdktwfEfXkDDZ5OU9DsxejsehvotZwfgOx7DcRrLLuJROxIesVbKGxhaYmMHZJBoEKG2tO5RfDeJ9I5C1LRo28oi+w4tCnpX6mu2wB3aZL6dYIRJVrYn9N05KW8uA8eWIMoThAg9Egq0knfHnYwFoS3kEUPcZn7Bzugg3pr5SmWxCB5e3YFqJ2hnMmhqKTBaDww+xT6S5U4OkTifbapgj380Kt1uvCFVGhb0N7ZgAh6yE2RunpJ+1nutUMMYgLRVp+sDEcIE0U/Kw==
+ b=tysBxWOiYRFRILtoaqyl+WOUB8pcLmksjyswsK+ECFHl0XJl4a3Lzhawec7coIfuv/3CH3RGLkcPENEoV6XwExRGRwQmzwD34Vt/tg24ETJR4zdungsmoNApdnODHR/edbWFLAbg6MLAg46u3PK0Jtvti0BpK6jzT4Av2F2aNxkTOyZ7CThO+oOwZFE+nMX75OqYLiV8jFaE/3Z0ij7AvdDWFPEQ05HEv8mmA0Mg80pT+DSla7HzxithWRwWTeZubCj/VjqwrVmrlPEuiMqE7nXU9oxcP4uPzgvg1iiuTJfTHtoARBI+4imRtP1OBVgeRQ5FSQAuN5kC9YcY072iKw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=k4QWcUJiio/9HLgXjgINLfnyjtSRinPNGm+gjd8rgPA=;
- b=klrSAi+feWEZ1Y+VxviaVcccOg9EBLQb8LLPflXql4btw0jnRLxNcxju8VoTnZfd8YX5Vt/m2ySGl7SL+5TXgEnrrjpPJXB4G8ZcZW+BLG0Tl0mwNQF7PdZd3/olmSRzfZ10irnuQlOVUHEkzRW4TPUhV/qBbQpgEd7XRyUqeexdwD3HUKXJ6/mRjsXmvZ4yqoUXC9poKr7wnXW/GETCopsbco8qb+JHqjajgINEC5UhcB3vqqMSJOJbx0SA4UiWfuApB5OpexZafBNP+Ug0lcC2ZlbVDtaimapGWn7z0sMsnE/6KAvZ60Td6TvHv46oMI5otk8HJINNGsgMUH9WnQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=SoHO3s51oL9GUJU24KhxWrmnpYLuAZNIFuX1r7gazg8=;
+ b=hq7uKRoF/y3tOgSM07fXL1SLn0fyWRZFS8CJDHhUsYq8aoCP8IOZ2sFXBpE48MsICfPcDckEf6McED+AO28GQ4PSVzTPamNbtmt93yIdHEZt5oKizAlCoPPcR3rc/2pG6VONLgi8kogFPvRRC8AHS548eWYRzkbQGzm26jlOO3faePgkDjNQumYAm4sLVUMUuVf7Q/pmoZpWIOu1/l1XCE1mwhp/8HxFWpkomDVKm5LETDbqfOGkgo0AeeQylkO1T/tEZwtZTf1r0ITkq3QH11nCz+SXKGqFZ9INR0EW3EJiLDMnt0H4ls8ikVsc97p3JCoNsbv/gjlvQZ59zq4kFg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=k4QWcUJiio/9HLgXjgINLfnyjtSRinPNGm+gjd8rgPA=;
- b=JOEF/AYLeIhNzg57UDwxC++KK9oDMdEVhHVGqNs2VvNSRT9LZHLCXRxIYKNiEp4I+v9y77bPi/p6R8cZsaAmn3iiDyczGAW6btBF6uzV9jFXP9jPtACgxZNAHUEIzdlvUgwEOiTqbCKkbOdSBdTI5RJu1CTlfmW2cZq03j7x2XWT8uVaI0kW8te/uhfkKtf3lpX39VkhsIH0L7KZNnSxrONwvAgdjXTbvq/xIK/DuLzwKSBbj6WpNifUnzNZpBckJ1ZSPJOeQEb7eRQZ9p/poDgSCJ08H6coZ4CWk1FDptMLHbChocHk4+KoeRvZ0FSYmwZoYc8eDTsjE2gRaRzYLw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DB8PR04MB7099.eurprd04.prod.outlook.com (2603:10a6:10:12b::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Wed, 19 Aug
- 2026 15:17:31 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
- 15:17:31 +0000
-Date: Wed, 19 Aug 2026 10:17:23 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Zhipeng.wang_1@oss.nxp.com
-Cc: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jindong Yue <jindong.yue@nxp.com>, xuegang.liu@nxp.com,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 5/5] irqchip/imx-irqsteer: Allow building as module
-Message-ID: <aoXJAx131-gU4qXu@SMW015318>
-References: <20260819090543.585131-1-Zhipeng.wang_1@oss.nxp.com>
- <20260819090543.585131-6-Zhipeng.wang_1@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260819090543.585131-6-Zhipeng.wang_1@oss.nxp.com>
-X-ClientProxiedBy: PH7P221CA0076.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:328::32) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+ bh=SoHO3s51oL9GUJU24KhxWrmnpYLuAZNIFuX1r7gazg8=;
+ b=HHMfOLDCElMKQ0Mk5FrCXGps3HZaskiBVO7JEIMPoNdvz1lGCR54dWgsKoZSM183Y35DsXBAbY28+ttoLXA3WY4YvA7cjIArsvxYTRYz6rigEO0YtqsrbdIVJi7EPo0QLSzLXyQpWtxooxlDPGJ4zvMu9dzRCt3osody5d+qo9A8a7/1sFuGficttPCp4ThDDZylAqWaqh+DQeVWCwVGv7PLEkdwD3frZTR2T2+UhezlOwLBwPq25w8oBfkIED88I/CImnF5M57/+nn0tNDvLQd4Ypung37Sur5DZW0AZ75OAWidPmmWvKowCeJf68AeFi9FcwevOUVGBniLCtmwtQ==
+Received: from DU7PR01CA0030.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:50e::19) by VI1PR10MB7716.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:800:1ce::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
+ 2026 15:19:20 +0000
+Received: from DU2PEPF00028D11.eurprd03.prod.outlook.com
+ (2603:10a6:10:50e:cafe::7) by DU7PR01CA0030.outlook.office365.com
+ (2603:10a6:10:50e::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.8 via Frontend Transport; Wed, 19
+ Aug 2026 15:19:20 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DU2PEPF00028D11.mail.protection.outlook.com (10.167.242.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.339.3 via Frontend Transport; Wed, 19 Aug 2026 15:19:19 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 19 Aug
+ 2026 17:24:54 +0200
+Received: from [10.48.86.251] (10.48.86.251) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 19 Aug
+ 2026 17:19:18 +0200
+Message-ID: <066ce020-6123-4aed-a069-67c51957173d@foss.st.com>
+Date: Wed, 19 Aug 2026 17:19:17 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/9] arm64: dts: phy: st: usb: Add STM32MP2 USB support
+To: Marek Vasut <marex@nabladev.com>, <linux-usb@vger.kernel.org>
+CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, Christian Bruel
+	<christian.bruel@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, "Greg
+ Kroah-Hartman" <gregkh@linuxfoundation.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, Pankaj Dev <pankaj.dev@st.com>, Rahul
+ Kumar <rahul.kumar05@st.com>, Rob Herring <robh@kernel.org>, "Rosen Penev"
+	<rosenp@gmail.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, "Vinod Koul"
+	<vkoul@kernel.org>, <devicetree@vger.kernel.org>,
+	<kernel@dh-electronics.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>
+References: <20260816213849.1044073-1-marex@nabladev.com>
+ <61dc785c-bea1-4674-918d-0f38ea253a29@foss.st.com>
+ <41e7978b-933d-4813-9158-00474f531476@nabladev.com>
+ <6c900e6b-2f50-4ec2-aca4-3093479bba53@foss.st.com>
+ <d6064380-2368-4131-8cde-44734f67028f@nabladev.com>
+Content-Language: en-US
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+In-Reply-To: <d6064380-2368-4131-8cde-44734f67028f@nabladev.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.251]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB8PR04MB7099:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e9aa968-2222-46ae-4e8b-08defe04fcd8
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028D11:EE_|VI1PR10MB7716:EE_
+X-MS-Office365-Filtering-Correlation-Id: fe6e44ae-e711-4df3-ced6-08defe053dd2
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|1800799024|23010399003|366016|56012099006|10067099003|4143699003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: Sf9DabCW/UV9vU9Z7XrMjWf4lcngLbEPMamGaTYHsm6rS0JmNtgO9rGjRwlTC6+bGlvV/4IcLwZkGE4Zv/uXM4KilsV7bC5Rm0ixf8VFCiiEbaWrVSIXrQurx9mS20Ec4ClW3Gkwi7B7uVyJQOqcq+laShcR65N6DXVloMJB4crv8BQDEYM89AHkIDaMfBz+IVIrV8jdJLHx8Mxumkud72Q3nUYyF4gYad8++OrgRj0oIfye1/tSkOU1SyruIZXEbtTGeIrrMDn29Jh+wyk881cXbUQnCoBwhZ2PMZlcTZyYT4GVLjddAUBUmJaPPqWDd66rdDruaXJYXt3fi9a//riYOtiweK/SszOUgP968t8oXY3GKQKwXEDB0Zg/syTsK7iQymLMVGVUqf8pQSUET/1aFeCdIeXkbsRBRKNOrrviH4UG3WIsELMZ253KXXmW0a3dvA2daJFw6hPQNSVHSUl5yAhiGRSxySD7W+geQificHkd0iVX+BqvXNXzlOaUbN3UaqvsTuOJNuP+6ezW0U34mvFLTItCdv2wCqLqkzSDiCpFczIDzWzweyF6SQPmW77vfP0vgTG3NpzzrJ+sq46oL0Wxa81d/UUT4RU997ca4EXsXDjoeEbdn9L4r9RODKfSbb0xnPVeUdHR6zRvbbHeYCNU0O7wBpPspNlyxJo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(1800799024)(23010399003)(366016)(56012099006)(10067099003)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|23010399003|36860700016|7416014|376014|22082099003|18002099003|56012099006|6133799003|10067099003|5023799004|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: +PdQUkBKjBnWxJdKGbvI5klpENgVUWuhEFJSfEVjPAOG0Rs7t2sP8abCWto7SAMk7xdkuqWjglJtfw4oJTSRmF5NlSmM7zox1Vk60eFEn90IRQqVeDcku7AkaD/L0nHHTobD5ceriLJEjt8m5s8gRvh1+T4plW7IOSvJBOZp1ER4mR/9ePqqMyJaqMljZf8UQrmucIuMOz/eu4Cl8NqvR6oMUY/p/N20vilCl9zMBr4P7jnyAW6CQFQ2oX7ABeFRw8l9KHVUs8Qrl1vkNUa739mu+ES0ByBwAZc1uL9RiHSKfxWGEeRwJ896G7qlq23WLlph3HPIzuyYVCs0mPvd/VLcuWUyJfAV7xEy5mWV6Hjrk14UQi0dGi5yiiukEd7/il/S5289AjumpOxS3mIIBwUi0TT674ajnpv4V808gGeu3KqPCMwKKQkVXboZH4NxpvBtVTCRGiAEHvOHFNiSDsG9u0UryZp8OpKdkXn5yBSLuO0424Xxn5b18pw3gCt+gvkeX2jlq7/OmNNYyhHIuZLJx9ES0q6jf+8Y+jKbeigJHovPKRfbudqbMjlOwSz8ekpOlEKSQTQcGDcfdyG62N+Rminkdyee2kW+ox8AjI45YiW2OoZXS+GoGGvz4YWB8tQZmPw46rpf50B6uyTegUGgRWGhi6lPwK0xmeZLcv2lwA6xcr01BGGrLSiWgrMcBGXDzl1ZLhycO4VDbV+B5g==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(23010399003)(36860700016)(7416014)(376014)(22082099003)(18002099003)(56012099006)(6133799003)(10067099003)(5023799004)(4143699003)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6nzlqgGq4VQ06mbZGgk/mnJKlF0owttyTNLrs8LD3tBuuffRC4TEfeV6QrGy?=
- =?us-ascii?Q?7+M4IE7JAHKoJI42F4LkqiclWFWW5InVDqX5rNYB3pdm2zyR184Nu/JRuc0T?=
- =?us-ascii?Q?+APQpfJajU048UK7R8VQGroWqvaHbdjWJU22hfIwubkO7TS7C44JnqFQQxwa?=
- =?us-ascii?Q?L6NAiVGvpXQDNoXxn1z0xUMxyeZTBkIC/tjiFgk2C9GORyzKbEFeckdt9+cF?=
- =?us-ascii?Q?Aopm4V9FA0vpyDRu6Rb94P8CQw+Eqro3m8vVJobIJMvrq/C5OZsrErg6Psv7?=
- =?us-ascii?Q?rqHls9IYBsoryDZX5SiTaELwlqXzx3rx/fvVJYJ2stSJlRUJrWQ+d5YyHjxn?=
- =?us-ascii?Q?2HHZvCgkebCc6ukcSOeHfK6+9gSbs6brHF0B9Oy8/j396w+GlviRntCiOG50?=
- =?us-ascii?Q?t6sRb8WEp9B8GyoSFN5knJyLdOe3ipwXVB1KPfwegFhda4ONFtr+stv3Upcz?=
- =?us-ascii?Q?YnJ3hDFxdIiMwHOaoqE4ufza5ey6N/UAHMSGUollI8qDP9u+JWZ28uHoCiTC?=
- =?us-ascii?Q?47Uqs71iurYtqQv+AIr189HE+9e7LLTAAMISTQUBaaHOzh0l08tDMcdlUO0L?=
- =?us-ascii?Q?9RAhpZYzO69riIEj7VS9VzuAXTkZsdYfLqRZKGHq8M79tMTibhwIiRbgwzzu?=
- =?us-ascii?Q?AKztSNQJImmE7++KJbFOrXBvgA59rv0Bmgw2bY4Xk5NbWc8x4IKcMk9eu9ZN?=
- =?us-ascii?Q?1oHBmKddx0m7ne5RWcJMQFFxQCACT3matIue1jAIOM05Nws0uq8xBMYsXGd1?=
- =?us-ascii?Q?IxyxfJs8OjyluUAAmh4xl031JBEw/IE2ea6rTJKHpYjyC4OHoL2JV3BFP8xl?=
- =?us-ascii?Q?QWCeQHYQxlWjZ+IuZsIHw3FiwjN5vOhFhz4YdLgkW6xT7xVFKVWSSblGBr+J?=
- =?us-ascii?Q?p0T/S07SdFVmAmwW9MhnMXnSrmtswAaWfgkCU9X+kSA0ILipserwelt6CtFV?=
- =?us-ascii?Q?Ek03vNh+5mprSbcT/uT7k5NJNWzbxD8g4sOo0tPsEaC6NjoWQU3SunFzg3Ru?=
- =?us-ascii?Q?Oyhf+Z9NAH3Le+/uEgeTAi6xk8ZnvveTLpKcy3V+0oH9HsulVaVldWWaFaCg?=
- =?us-ascii?Q?E1QY8d2QktJgOTjv5FS2t4nmPQwUKu+seKNS2i0U5UDwTb8GiiwpPsp65fiO?=
- =?us-ascii?Q?LmcHsdjTca7MF8upfW/fftgH7f/7G8aaZMPG8golhQwRpLUdRUqpxi7dJVvu?=
- =?us-ascii?Q?VlvzQWWjmjXd4bG6HqPMlcr6Tr9RkDDLatFFbZFOJdw3L8Jf/D/F4SxJZ/It?=
- =?us-ascii?Q?lG2KsAykZUNY6CfypshKRS9uCupy/xeJATMO1EQI/SJr0a3mIyuLX4Mm3jPH?=
- =?us-ascii?Q?6gAQZmvcXVa7zf5TybdCNzEWGeKXgxOO+T8Xa/XI/CjSCfnVbiPnitjsc2Bl?=
- =?us-ascii?Q?0k8A6TQ5MJOAzUNIXxlUIkm4RdI09AffnqzDv0p8mWYeGBX34XaTMUPIfTa1?=
- =?us-ascii?Q?biUiIrQvVDAm7j1QUQoTh709/aDD5WDpg1ZlbrBcvcAZVz1nfeVBTNyN1fXf?=
- =?us-ascii?Q?oLOIrW1t8s23aCQHyteKOc8WcmOWfDT1coAE1flzK4rvAB3EVB7LhBRk5loY?=
- =?us-ascii?Q?48i++jvcdDiedJgAX0BSUD8MFmSWLqHw44e95oSeOeUC9jg+gfy97SWxBbP6?=
- =?us-ascii?Q?6u6QZgk8FVYIKc+OeWe1isVYoza+AsY+GVVY6zi0QYdiAW2XKPQtocf1kCP7?=
- =?us-ascii?Q?bbSmvYedWm7n/xeiLSJPhhKC6B1/HBJkxqMVbDroKcmyczjv5oyntnG5l8fM?=
- =?us-ascii?Q?tiL/xNi6CTnIaL8ymNpQVr2HFooe+nFaQaxw6tZ4SvPko2N2Bpa9?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e9aa968-2222-46ae-4e8b-08defe04fcd8
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 15:17:31.2996
+X-MS-Exchange-AntiSpam-MessageData-0: UW6Pq1mIlrYE1/uEkqfJYP6BVct/YLs3YaeB27SygMj0s6W4xarYHN/K9RXpDA5yBRUy5jIqeuh+hf5qs8c2p3FUgOek4cUyJeVb/PQ5pUrJFADqQWtTB1vaKQUAS0Ff7ZzZ6wMb5ZP0i3E1f10Bz5lbR90nOaTZk03j9Yw1zjY6Og+wtD5Sd+ZLLXiwF2ad2bThtaJxzhSu1+yhkgwibAQbyQDrMCgEVjmcF+cAlZEBjqsEMpmsOvlIOwQzK2q4aWnBmIYZj6GneLAah02Rya8nxC3qndEhRMuRP4iCx2MdBDLfu+HTSPFz8hPNC0H9MT/8HwjHWEoqVzTTdnRdkDA4F2EgVjt+qn2FI39OW5BzAQBWdGyWyXoZy3OvW4uRKPLhIht0bRSAxO2cMxeQS7YuCDlyEOdij8WtPtJlZrTxQM7hFdu8BOPIxOZ7Rsj3
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 15:19:19.7486
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ba3nAentCIThXrmZuFU9boVU3tL+DDgNi3Vb5qMaOaBJ9ykTnjhNG/3k7+xICum9iRppG2PXVFgz4zM01MQAtKKbA8SsBd8z5TaV/8v0t9WTVe2/nbj0sYwUR3PNuWaf
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7099
+X-MS-Exchange-CrossTenant-Network-Message-Id: fe6e44ae-e711-4df3-ced6-08defe053dd2
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D11.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB7716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_081737_983514_E55FBB7C 
-X-CRM114-Status: GOOD (  35.06  )
+X-CRM114-CacheID: sfid-20260819_081928_058552_19B31CB3 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,175 +138,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 06:05:43PM +0900, Zhipeng.wang_1@oss.nxp.com wrote:
-> From: Jindong Yue <jindong.yue@nxp.com>
->
-> Make the driver buildable as a module by turning the Kconfig symbol into
-> a tristate and using module_platform_driver() instead of
-> builtin_platform_driver().
->
-> Now that the driver can be unloaded and reloaded, let the driver core
-> own the clock and runtime PM lifetime so that the probe() error path and
-> remove() do not have to hand-balance them:
->
->  - acquire the clock with devm_clk_get_enabled() instead of a bare
->    devm_clk_get() followed by a manual clk_prepare_enable(), so it is
->    prepared/enabled for the device lifetime and released on unbind;
->  - keep only clk_enable()/clk_disable() in the runtime PM callbacks,
->    since prepare/unprepare is now handled once by devres;
+On 8/18/26 18:35, Marek Vasut wrote:
+> On 8/18/26 6:07 PM, Fabrice Gasnier wrote:
+> 
+> Hello Fabrice,
+> 
+>>>> - On coming MP21 (not supported here), there's address translation
+>>>> control
+>>>
+>>> What kind of address translation ? IOMMU ?
+>>
+>> This is much more "basic". The controller can address 4G of memory, e.g.
+>> it's 32bits. That feature is only for STM32MP21 that can address 4G of
+>> DDR which starts at 2G offset. So basically there's a SYSCFG bit
+>> (SYSCFG_USBHARCR AREN), that adds a 2G offset so the controller 'DMA'
+>> addresses directly the 4G of the DDR (instead of 2G lower memory map,
+>> that's not necessarily useful, and 2G of the 4G DDR, requiring swiotlb
+>> with perf penalty).
+>>
+>> Current downstream glue driver checks the 'dma_range_map', (e.g. DT prop
+>> dma-ranges = <0x0 0x0 0x80000000 0x1 0x0>;) that represent this, to
+>> enable the syscon bit that adds offset in hardware (so 4G of DDR can be
+>> accessed by the controller, without swiotlb).
+>> For USBH, there's nothing mode: set it at probe time, based on
+>> dma_range_map, restore it after resume from low power.
+> 
+> Maybe the DT syscfg node shouldn't be a plain syscon , but rather there
+> should be an actual driver which binds to the syscfg DT node and
+> configures all these hardware details early on boot ? The USB controller
+> drivers will start only later, when the syscfg configuration is already
+> set in the hardware by this (future) driver, since they depend on the
+> syscfg node and the PHY subnodes. Maybe that is the way to fix the MP21
+> without having USB controller glue ?
 
-devm_clk_get_enable() will do prepare() and enable(). tear down also do
-unprepare() and disable()
+Hello Marek,
 
-To avoid both devm_clk() and runtime pm suspend both unprepare and
-disable() clock to make wrong clock refererence.
+Ok, I'll think more about it regarding MP21. Let's continue on current
+series without any additional glue driver for MP23/25.
 
-need in remove function
+Thanks,
+Best Regards,
+Fabrice
 
-    /*
-     * Resume the device so runtime_resume() re-enables the clock.
-     * devm cleanup (clk_disable_unprepare) runs after .remove() returns,
-     * so the clock will be enabled and the disable is safe.
-     */
-    pm_runtime_resume_and_get(dev);
+> 
+>>>> - Common dedicated interrupt to manage wakeup
+>>>
+>>> This is EXTI configuration, is it not ?
+>>>
+>>>> Using generic controller drivers, I don't see how to manage it, without
+>>>> describing it in the DT.
+>>>>
+>>>> For sure, generic ehci/ochi drivers and bindings can/must be used. What
+>>>> would be the proper place for this glue to leave ? Why not adding the
+>>>> glue driver from the downstream ? That's supposed to address this.
+>>>>
+>>>> Do you wish I send it upstream, so it can be properly reviewed,
+>>>> amended ?
+>>>
+>>> I would very much prefer to avoid the glue if that is at all possible.
+>>> Thus far, it seems this could be done (interrupts are generic interrupts
+>>> managed by EXTI, Vbus detection polarity is likely a PHY thing since
+>>> this is managed by SYSCFG anyway) ?
+>>
+>> I better see your point, thanks for your explanation.
+>> This makes sense! For this part, the approach can be the same on all
+>> STM32MP2 SoCs (21/23/25).
+>>
+>> Still for STM32MP21 address remapping feature (out of scope here) I
+>> think there will be not much choice to keep a minimal glue DT & driver
+>> (and parent to generic ehci/ohci). It seems totally out of the PHY
+>> driver purpose.
+>> Maybe you have some thoughts about this ?
+> Please see above.
 
-    /* devm_clk_get_enable and devm_pm_runtime_enable clean up automatically */
-
-Frank
-
->  - enable runtime PM with devm_pm_runtime_set_active_enabled(), which
->    marks the device active (matching the enabled clock) and disables
->    runtime PM on unbind.
->
-> With the clock, runtime PM and IRQ domain all owned by devres, remove()
-> and the probe() error path only have to dispose of the parent IRQ
-> mappings.
->
-> Signed-off-by: Jindong Yue <jindong.yue@nxp.com>
-> Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
-> ---
->  drivers/irqchip/Kconfig            |  2 +-
->  drivers/irqchip/irq-imx-irqsteer.c | 36 +++++++++++++++++-------------
->  2 files changed, 22 insertions(+), 16 deletions(-)
->
-> diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-> index 20b77fbc51ee..105108d2e6ff 100644
-> --- a/drivers/irqchip/Kconfig
-> +++ b/drivers/irqchip/Kconfig
-> @@ -555,7 +555,7 @@ config CSKY_APB_INTC
->  	  the controller's register.
->
->  config IMX_IRQSTEER
-> -	bool "i.MX IRQSTEER support"
-> +	tristate "i.MX IRQSTEER support"
->  	depends on ARCH_MXC || ARCH_S32 || COMPILE_TEST
->  	default y if ARCH_MXC || ARCH_S32
->  	select IRQ_DOMAIN
-> diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx-irqsteer.c
-> index a9909ecb6fef..a60cc527e619 100644
-> --- a/drivers/irqchip/irq-imx-irqsteer.c
-> +++ b/drivers/irqchip/irq-imx-irqsteer.c
-> @@ -10,6 +10,7 @@
->  #include <linux/irqchip/chained_irq.h>
->  #include <linux/irqdomain.h>
->  #include <linux/kernel.h>
-> +#include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/of_irq.h>
->  #include <linux/platform_device.h>
-> @@ -193,7 +194,7 @@ static int imx_irqsteer_probe(struct platform_device *pdev)
->  		return PTR_ERR(data->regs);
->  	}
->
-> -	data->ipg_clk = devm_clk_get(&pdev->dev, "ipg");
-> +	data->ipg_clk = devm_clk_get_enabled(&pdev->dev, "ipg");
->  	if (IS_ERR(data->ipg_clk))
->  		return dev_err_probe(&pdev->dev, PTR_ERR(data->ipg_clk),
->  				     "failed to get ipg clk\n");
-> @@ -226,12 +227,6 @@ static int imx_irqsteer_probe(struct platform_device *pdev)
->  			return -ENOMEM;
->  	}
->
-> -	ret = clk_prepare_enable(data->ipg_clk);
-> -	if (ret) {
-> -		dev_err(&pdev->dev, "failed to enable ipg clk: %d\n", ret);
-> -		return ret;
-> -	}
-> -
->  	/* steer all IRQs into configured channel */
->  	if (irqsteer_has_chanctrl(data->devtype_data))
->  		writel_relaxed(BIT(data->channel), data->regs + CHANCTRL);
-> @@ -271,12 +266,21 @@ static int imx_irqsteer_probe(struct platform_device *pdev)
->
->  	platform_set_drvdata(pdev, data);
->
-> -	pm_runtime_set_active(&pdev->dev);
-> -	pm_runtime_enable(&pdev->dev);
-> +	ret = devm_pm_runtime_set_active_enabled(&pdev->dev);
-> +	if (ret)
-> +		goto err_irq;
->
->  	return 0;
-> +
-> +err_irq:
-> +	for (i = 0; i < data->irq_count; i++) {
-> +		if (!data->irq[i])
-> +			break;
-> +
-> +		irq_set_chained_handler_and_data(data->irq[i], NULL, NULL);
-> +		irq_dispose_mapping(data->irq[i]);
-> +	}
->  out:
-> -	clk_disable_unprepare(data->ipg_clk);
->  	return ret;
->  }
->
-> @@ -293,8 +297,6 @@ static void imx_irqsteer_remove(struct platform_device *pdev)
->  						 NULL, NULL);
->  		irq_dispose_mapping(irqsteer_data->irq[i]);
->  	}
-> -
-> -	clk_disable_unprepare(irqsteer_data->ipg_clk);
->  }
->
->  #ifdef CONFIG_PM
-> @@ -324,7 +326,7 @@ static int imx_irqsteer_suspend(struct device *dev)
->  	struct irqsteer_data *irqsteer_data = dev_get_drvdata(dev);
->
->  	imx_irqsteer_save_regs(irqsteer_data);
-> -	clk_disable_unprepare(irqsteer_data->ipg_clk);
-> +	clk_disable(irqsteer_data->ipg_clk);
->
->  	return 0;
->  }
-> @@ -334,7 +336,7 @@ static int imx_irqsteer_resume(struct device *dev)
->  	struct irqsteer_data *irqsteer_data = dev_get_drvdata(dev);
->  	int ret;
->
-> -	ret = clk_prepare_enable(irqsteer_data->ipg_clk);
-> +	ret = clk_enable(irqsteer_data->ipg_clk);
->  	if (ret) {
->  		dev_err(dev, "failed to enable ipg clk: %d\n", ret);
->  		return ret;
-> @@ -357,6 +359,7 @@ static const struct of_device_id imx_irqsteer_dt_ids[] = {
->  	{ .compatible = "nxp,s32n79-irqsteer",	.data = &s32n79_data },
->  	{},
->  };
-> +MODULE_DEVICE_TABLE(of, imx_irqsteer_dt_ids);
->
->  static struct platform_driver imx_irqsteer_driver = {
->  	.driver = {
-> @@ -367,4 +370,7 @@ static struct platform_driver imx_irqsteer_driver = {
->  	.probe		= imx_irqsteer_probe,
->  	.remove		= imx_irqsteer_remove,
->  };
-> -builtin_platform_driver(imx_irqsteer_driver);
-> +module_platform_driver(imx_irqsteer_driver);
-> +
-> +MODULE_DESCRIPTION("i.MX IRQSTEER interrupt multiplexer/remapper driver");
-> +MODULE_LICENSE("GPL");
-> --
-> 2.34.1
->
->
 
