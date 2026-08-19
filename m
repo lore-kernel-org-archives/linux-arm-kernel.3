@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D7EAC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 19:06:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF70C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 19:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OG5CK2OixwwjpZsBqHDco67aTFETi4crKtTMphU7JDA=; b=zKKEaq6j0Yt3/z6KJJFfmf3CW7
-	Z9aHI6UHwK02RvvNMhqMS20gweepKb5Cm1OrlqnhdMT12EZ76lk27FpIxip9EaLzgfosVrGcsUyPx
-	e8i0Mykt7mu5JzCX66P2ikC2CHv+GmbloqLRUbY584j5Q6FktCg+EOk+zZj5v8ItdCEe/Lqfamgtw
-	HjDnHP6HYQNP8fimAopuE67L+1Ebj3giL0qg7c9f8WAK3sNg/DA4vneeGSB3a+Cdd+rsx8xbtujYW
-	e+JjSnzA5DBFrknzgPvaoBRx4Lr5qWPCf+PxTcgovQCKgoee0OkJE602TYU8e/5Vw37FlDdz7cKZg
-	Ezc0MOBA==;
+	bh=qDTw1FI+W/Y9cT55g+yY0SwrkkeoLBsD7fCNgsbbJ7E=; b=kYRitl1VZaKW7R9ghCulXN4Mqq
+	boe72qipWEinGd2Dk5Ex0JSfTVZbQ8P1AnY9Z2gCl+QZZNkhb2lgR6WcyQJN8GG9/5BPxId/hm+Jd
+	jVtiQ7R9nx6QOsvIB1i3DJQdjfIlXuVImgLQ8yBRaixm3Kc8QuIO9PF/wrgMPvIugW3Ystj3iMbz1
+	XgkNE0jA8Xqqkj89qcG6Q+WyPTx0Md8LDmlPaLuG5W12recGr3x7GsgiNG53hmXuRX8VspZw44KzF
+	GwUWuQL6ncl8OjzI/PW/Pq+K7Avy+ESYmmn4J+pD02s6cHiKjOU+R/aNMeRm9ID6NbQ1G86EGtGLY
+	beE6FzNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwlcC-0000000AQ4i-0WTA;
+	id 1wwlcC-0000000AQ54-1D8m;
 	Wed, 19 Aug 2026 19:06:20 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwlc3-0000000AQ0a-16e1;
-	Wed, 19 Aug 2026 19:06:11 +0000
+	id 1wwlc9-0000000AQ2V-0jOX;
+	Wed, 19 Aug 2026 19:06:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B1C5561836;
+	by tor.source.kernel.org (Postfix) with ESMTP id 99EE561878;
+	Wed, 19 Aug 2026 19:06:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DADE91F00A3A;
 	Wed, 19 Aug 2026 19:06:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 028071F000E9;
-	Wed, 19 Aug 2026 19:06:04 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Tero Kristo <kristo@kernel.org>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -60,9 +60,9 @@ Cc: linux-omap@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH treewide 4/5] iio: frequency: adf4377: Make sure clk_init_data is fully initialized
-Date: Wed, 19 Aug 2026 21:05:18 +0200
-Message-ID: <302584628c4c0699239a0218376fe1c11cdc8944.1787165329.git.geert+renesas@glider.be>
+Subject: [PATCH treewide 5/5] spi: amlogic-spisg: Make sure clk_init_data is fully initialized
+Date: Wed, 19 Aug 2026 21:05:19 +0200
+Message-ID: <9fb35ae0aedb7a6db0db6c78a8193c7602dd9d44.1787165329.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1787165329.git.geert+renesas@glider.be>
 References: <cover.1787165329.git.geert+renesas@glider.be>
@@ -89,7 +89,7 @@ not initializing all members may cause subtle issues, which are only
 exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
 enabled.
 
-adf4377_clk_register() fills in init.parent_data, and assumes that
+aml_spisg_clk_init() fills in init.parent_data, and assumes that
 init.parent_names is NULL.  However, the latter in uninitialized, and
 thus may cause a crash.
 
@@ -97,27 +97,27 @@ Make sure all members are fully initialized, to fix such bugs, and to
 avoid future breakage when converting drivers to a different method for
 specifying the parents.
 
-Fixes: 60e5448ddbec2dc2 ("iio: frequency: adf4377: add clk provider support")
+Fixes: cef9991e04aed330 ("spi: Add Amlogic SPISG driver")
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
 Compile-tested only.
 ---
- drivers/iio/frequency/adf4377.c | 2 +-
+ drivers/spi/spi-amlogic-spisg.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/iio/frequency/adf4377.c b/drivers/iio/frequency/adf4377.c
-index 4dd19a9aa9943c57..f4eb9ba5878e1893 100644
---- a/drivers/iio/frequency/adf4377.c
-+++ b/drivers/iio/frequency/adf4377.c
-@@ -990,7 +990,7 @@ static int adf4377_clk_register(struct adf4377_state *st)
+diff --git a/drivers/spi/spi-amlogic-spisg.c b/drivers/spi/spi-amlogic-spisg.c
+index afc8af04638d3b6e..9049a87e9d0f2df6 100644
+--- a/drivers/spi/spi-amlogic-spisg.c
++++ b/drivers/spi/spi-amlogic-spisg.c
+@@ -636,7 +636,7 @@ static int aml_spisg_target_abort(struct spi_controller *ctlr)
+ static int aml_spisg_clk_init(struct spisg_device *spisg, void __iomem *base)
  {
- 	struct spi_device *spi = st->spi;
- 	struct device *dev = &spi->dev;
+ 	struct device *dev = &spisg->pdev->dev;
 -	struct clk_init_data init;
 +	struct clk_init_data init = {};
- 	struct clk_parent_data parent_data;
- 	int ret;
- 
+ 	struct clk_divider *div;
+ 	struct clk_div_table *tbl;
+ 	char name[32];
 -- 
 2.43.0
 
