@@ -4,99 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22A38C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 16:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D2D7C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 16:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+nlBq5UdgVIUTs785HzCl/oYDRAOZ9I08lv0VtlQk+w=; b=BztVDEtrcsHjLTpbD3oIGs/HKk
-	QGs405o8X9BJDMxe2/T8pUGKilHYBJaG++Nv5rBfIipFC/sMpp8+FZt0YViUS+w4vOjb8cR4inI67
-	SWgtrwT7Zg3jgGVBktQyziIwRH55iKLVbFyjy8mnkOy58fgtkG3f9FKRhPrGcsIRBWQabi8u0nlIG
-	S8pE/xET5gNRk2c5wVwl1j9aSBECyhLAa0U/y/oaIPSxQqXLMaqLrDrDCb1EJPecdFSZZR3zLuBMp
-	pVGCwW0lxZXoc13g2DwmCc+5werssAzb4HdRve1jnhZl0uLTNZunnORIK6fVG61bX1t7RfrlVai7I
-	eJFWe2mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=efDIOIf3mjthHTHBODGrvUNWG+m7dB76U/PWuFmMTzY=; b=sKCD3TUEAXlQuBUL41z7H29hU6
+	5BmHSxAIeQoeLkXQHmh4Bb8KncAJmsgfNid4aBq14R1QMR6fXn09ta72Tg1zWF9eUL0mrBLz24164
+	vFo+PfL7lyrNtbxuewLxd/EhD1FLNz0FwDhrzd0k10b11aqeDDF0DNtf3/8Fo558ijgCedJpT/kxa
+	5S8+a2V53784yTbspHxbv2lZ9DBb56WEpV0xKW44qLT589utHZzunWj7foFWLokfZ/3uKMOabcb2n
+	wDikzZFMUnrbSQAy6yjRWXEBKdo4keBjX+i++9KrqdFhCl55nqXzKUgJq7CXNcj5TiBkO5+JDStGj
+	Xp+DkiTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwjSA-0000000ADdt-09SV;
-	Wed, 19 Aug 2026 16:47:50 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1wwjay-0000000AENf-0mcR;
+	Wed, 19 Aug 2026 16:56:56 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwjS5-0000000ADcx-0Q7O
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 16:47:47 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-38e58034d05so1122971a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 09:47:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1787158064; x=1787762864; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=+nlBq5UdgVIUTs785HzCl/oYDRAOZ9I08lv0VtlQk+w=;
-        b=V2LGNir/asmhGNA4lWpURkztOLhh/quwYtge0/cToJvH3YcdQh8euvyivsseYA8MUs
-         2TXS3OJUMMMcWNvy5WjAhFERAlTYdEO+vU1/qLqpUFME/pVQEW352hWxk2CCzveSSXE3
-         +FFV/ypXmWABt5QHwFOs4aoSBzrqcq2OMNh/8ULDAREm9dwqRf0BUozjFR35CLAX5IpF
-         4sHtuVmFin3zRKw8RNioa3+jeTnTMwww1kUzBNRt7Ehc3AY4rZXo9GchoNFAa2fVCNlc
-         YmSjm3pZH3zBpFYh7fRhe/9XTZO7taEZwMdY4ilBJdsRxivuCAKpg8IA8+Asouf3rSVZ
-         baaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787158064; x=1787762864;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=+nlBq5UdgVIUTs785HzCl/oYDRAOZ9I08lv0VtlQk+w=;
-        b=k7qMZRU/xUFi30m0ebJxF9wIcI2jhOMW5SHDFDqI8sje4R+GNDUYJ2mdjxbyMrSTM7
-         qkLagsHHtsSJqjkoAxUytvQ01DY/RZiquCL8w0iBgKcTzTpAG+3rgbXL+B5Jv5thmHa8
-         o0m/GZqMzAHXlDlQ3EAkBNnyMnLQjEo4oetGdGDWVqbbyy0i4tP11rsnRensGkk/zt67
-         NNxyQNI0p+VmhMDaCoKr2JxJWHQsLlue3TdNBEHBVXpPalIX/bt7oZkOuowRZtTkXNxJ
-         7TNx+15AZB1he+icXdQrbm+VYKXFunQsYyamHHKLx1iLfWPI884KxExrYPLBSpKjprFk
-         +hCA==
-X-Gm-Message-State: AFuF++kh+Q0VovJEXw9kjdGNBI0rqAO/C+nKVBhw2zUTTeYYXuRiz0ZS
-	b9f0YSBlHmOJww+OkRODNDXB8UmCcoLn5220zAy575ZdfqXU0eUHt6fyskiCy0sp1RQ=
-X-Gm-Gg: AR+sD10wBofpfXuffB6MbMUpCV5JS/gFswnQbWyd9JREEnUp8jCy5Xq+GKOF0ZyDXvM
-	Qk9fK7tJP64s4IgpanFWHgWyJJ/jxIQRg+JD5J4R+tGZeEZ3TMPfvbo1jayn774j4YDBjAxNog+
-	m596fPHHcPv2zqDcEeP/62/O7tzOPgGHGCfcMD1CPHyQrtFo5LuPhQUWOp53US8ED1PgqJCQ7IP
-	Il07f5G0D4iMjNypCmHcKxWU7ORYsspHj/VZuYcCm7FwvE79aZ9bvLFCKLAYzKUJxAx04/I91US
-	UiK0nOybGxbgJudMSvRM9K82YqqdQ349gmSm18lh8dKnFBgtQweB71EghNqgZdNY/SSY/oa3may
-	w3DG8wW4RUqA4wgqN6VovCjQRPedSP7U19G6uf7wwl1yFh285hVtEBDjiCGpw4bSoxkj2HjLYNk
-	87guz3KE/0sxHXzqOwhcA0F4SU7mN3nvmYQlY2Ra5rJpOG1omXSnFw58XKDF74nog=
-X-Received: by 2002:a17:90b:4a46:b0:37f:e326:6557 with SMTP id 98e67ed59e1d1-3958083fc60mr10940911a91.4.1787158060779;
-        Wed, 19 Aug 2026 09:47:40 -0700 (PDT)
-Received: from [127.0.0.2] ([50.145.100.174])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3957faf596fsm3184128a91.11.2026.08.19.09.47.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Aug 2026 09:47:39 -0700 (PDT)
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Date: Wed, 19 Aug 2026 09:47:37 -0700
-Subject: [PATCH v4] i2c: xiic: restore non-managed runtime PM to fix clk
- WARN flood
+	id 1wwjav-0000000AEMl-3Xfp;
+	Wed, 19 Aug 2026 16:56:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JrOP2KFXg/u70/Lj9HQbzH2Orct3yzeGy3FIkWqAAx/UowBoJgylKct/04PcH3BfY9RPr6SBAkMGU5xTxNfM0rSw9M5S1b27IaTzq4zBnvqWNt8F30vRqqPmdGccGiw6fk7fua7iP1kxocsd/C1YyaxoYbCuZwAd0GWIk1uqUGlYiuVTxudfH0/YmFB2pqsn3OJLBuW84tnh4symZL85llLEDYeknho9LLwG8CNI2ioGq4lS/3OBdqtGTjO/IxuoKIv/ZdjllWtsldxWymM197PBpZUYZI7/30znAaGsZT2092//bGPHZ80GlmMFWAe2Bivvbo7lPCLE/VKMrZ78MA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=efDIOIf3mjthHTHBODGrvUNWG+m7dB76U/PWuFmMTzY=;
+ b=MDeGN8cqOb20LrMUDjBbhiTAJtfm/CtTllegAqFa/kB68kbu9LqjS3SA4LZuGF9QcE1W5CPpa79bZfVVxxwu5CQKYYmjseSrCrPS1G8mzDuCk2S722ajoApWqe+et1cYwnGJwSShUDfObx5wO0STbxNASf6NR0jVxpbfbh1jFiIunWjcuwvOmKKjE3+t7zUN3vWS3+3T2qHlgiw0v7iEFx8KI0YkldQo3EMYDf880JYcBgacZPhlZPbinmbB9j9s3999/dEkLi4hZE756eFPVernOTvYw6fXmNt/jbDkW5fQswif54KTYff8Xo7KN3TI727zl1J4dLtTynPIcF73wg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=efDIOIf3mjthHTHBODGrvUNWG+m7dB76U/PWuFmMTzY=;
+ b=k0GdovvCzFBP809aBbsVDdX6MDlSqtycgHAhAPpy+isqIhFVCuMVPrwO4iTcR7ti0b4HP10p4R7OgEB4MoY8EpNvckGzkpDMUSKQrQsa1G+VSl9P4wYeo81OuVTfW6r3JKQmZI5cxdBbD5Om7td+9h++spxQG++/U3gU0IVbWsZNJOIb0QEUA0brHIKTjifAWjAIvz/+tEwOFL4XRS+Pw3FBuU6gtByHy7TqFsExxIX5jtgr3H4dny0myVcpwVVtP5zbSYLKtwoNCzdE4Z7WcdaZqpTPJKoW3Z//01lSgZtcIpFDr4V2CsOjT1zNLCAhqFatnkgfAy0c/uOCcKtVMQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM7PR04MB6888.eurprd04.prod.outlook.com (2603:10a6:20b:107::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
+ 2026 16:56:47 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
+ 16:56:47 +0000
+Date: Wed, 19 Aug 2026 12:56:40 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Michail Tatas <michail.tatas@gmail.com>
+Cc: nicolas.dufresne@collabora.com, benjamin.gaignard@collabora.com,
+	p.zabel@pengutronix.de, mchehab@kernel.org, heiko@sntech.de,
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: verisilicon: rockchip: Fix leaks in init
+Message-ID: <aoXgSKnkbWZVKRui@lizhi-Precision-Tower-5810>
+References: <aoV3LLy5hSoKL4QP@michalis-linux>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aoV3LLy5hSoKL4QP@michalis-linux>
+X-ClientProxiedBy: PH7P221CA0010.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:32a::18) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260819-i2c-xiic-restore-runtime-pm-teardown-v4-1-6999eb434d1c@nexthop.ai>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5XOzU7DMBAE4FepfGbR2m6awIn3QD34Z00WqU5ku
- yFVlXfHLpciLuU40uibuYpMiSmL191VJFo48xRr2D/thBtN/CBgX7NQqA44SA2sHKzMDhLlMiW
- CdI6FTwTzCQqZ5KevCN6jsdJb5VCJSs2JAq+3mffjT85n+0muNLs1Rm7a5fZjka33z8lFggSk3
- ger8NC/4FuktYzT/GxYtM1F3av7B1VV1d5Q59FpDEH9UfW9Ojyo6qp2wWvZWewHkr/Ubdu+Aec
- pUkOXAQAA
-X-Change-ID: 20260813-i2c-xiic-restore-runtime-pm-teardown-dd0ab1db2c02
-To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Abdurrahman Hussain <abdurrahman@nexthop.ai>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787158059; l=6356;
- i=abdurrahman@nexthop.ai; s=20260510; h=from:subject:message-id;
- bh=M8vBSbuA8VI2DOK1kxP8WB42QTX2GzsUgR6WmbobO8c=;
- b=bDi1TK6LLCQWJEOOxLNfPaCR2kU7PLBpyloOuASAxvRp4naHPgNsgBElSDaXl7THv2vDPwmR/
- 2U7PjotYbNuBLe7oFVGlgoHgdscLNNzeCALnwdstI8fKYnoVCQRxF3t
-X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
- pk=omTm9cCAbO0ZhS32aKfJDKue0W3sQGpG9ub5eYHif8I=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB6888:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3c2dc087-2639-4088-cdcc-08defe12db57
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|19092799006|56012099006|10067099003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: oZ8Xud8rVigVYvJ3SlTMJi7a4PMgCgDKuxSOH1ymlQUYcvF790RE+kN5nj7Q/56yCt7MHg5XEQiMG6YJKUWjiRK+TkL62FIHeJGLry80P8jM3m55i75Jcs1pxKyiV4+Seo/KJ/SzlY9CEcrm3Bxv94eanqjF1l5Fpot+3mbkkjZkt29hvYimz1XuNhSrbmXV8wLBYuJPwm1AnLiPizwYu9HN56ADSqdyO+bkdviOEXb3ilq8Lr4WVrU1+KvH3QUfbDgsGxhNOujoQGXN7oL9Ki021eQ+Iw/6i/tYz/O11yKXcJATSCTeFM+nC26gC3xevFagMhBbLzArFex7Mquh3tM7zEOdXjXin6LZj+e5B2AmFae8/imODE5XFAq3ldo4c+ia7fS/t73fwSu0gXwZfH4GCTp2YfovZaISevYk8ySM/lgRo9Ojtz+NJ8Ii5vhvcv2vP8jYGdXyxolduYg95Ue/Ih7DWkEntX5UzSIQ4AyXW7zBFd2fUOT0a1WX6VA+iKtr6TzbOn/4rD8s1H1LMl3wctSz0XzbFfp0KHmVD5plJe0d53vhEMRYX6b4IW0nZ9nPNa7MeZLjMrJeeebOSSyKZI+OzCPovRnOI3r8We19WD/K+tG54JDyyk2CHWeotq+dkwxU3bJbcDEzxYFGU63IFtb0NQQFvHy3YThfLrQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(19092799006)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?78ySZUOBqKiUzR9wxKUhYY8fjpCtIAYMwKoYqU/ezpUEUc6zmmSFFIkwZIkb?=
+ =?us-ascii?Q?bL4K2EQW0TYQ/HKl6e2LsAzw0L0UW83yV6TwMC433j/duw9dBAClcl+a+ycG?=
+ =?us-ascii?Q?VGBDjOdabiBCzqxGVKReks7nI7610CUoYrc9VEeCO363LAOyYEsWB3Zo8tKK?=
+ =?us-ascii?Q?SNCKXtP7x+3Y0BoYzrzJqIsqwLb5uehR+z1fECnugYvR0ybEHH/EDfgGcmB9?=
+ =?us-ascii?Q?dLIexCnFRn2AKesZwNnXzTO36tk7CRI/sTCWu8VAoeaOyKYI7+DWHRXrLCLu?=
+ =?us-ascii?Q?kdiKR2dCrG/fgmlYNsTSRlsMvwATFfTtKWIng4cAxyVRjA2TS/0hfhXhZyMV?=
+ =?us-ascii?Q?aqiTZt6IovHoHt1j3ySEHl8Gw/G2ospw3RVcC/hYJHpXHhXAoOeImSd7E+zT?=
+ =?us-ascii?Q?IwMX8uqRRVhSg10kcU9TLADv7GetvJzJucocPM2nZfo1PdiIWatXfPZw2Rme?=
+ =?us-ascii?Q?Pi20bpOHdWnRWz7CdTje9Kptkhn5zq8vQDixBUQwwu2z4k7zGkjUzI4kTQOb?=
+ =?us-ascii?Q?P88h362Z4DzlgOkErLhgIH5FqYGG7LxdKIuwsTVCikXDiqumf2c0A81n5NUz?=
+ =?us-ascii?Q?9jrXIpmrMPlmipT/2h/wsPyv8pSflnx8kUdGhCNtqVqVbUvaExPxYcPY4rUY?=
+ =?us-ascii?Q?b1WwEDujPC+3hElIbRQoo7JVgMATEhAQ0DQOU95sOI07ZfeS3BB9G6O7F1ns?=
+ =?us-ascii?Q?zM6h14LM5dzBn0glHvr4lASFB01t2vPQTZIy0GWE5YwI5mIY+lAlHDFl7gNU?=
+ =?us-ascii?Q?3rVV6Gtjr46NrLkRGpdkYdToU4viV8cVB0+wMRqAGvoQTM9p/qw0cAuCWYJ8?=
+ =?us-ascii?Q?ay7KfVKENVgs8gfbOnAv4dYHzgRTD7CTeOHNz1RBx/iDwBqo+vO1cq8eBY5u?=
+ =?us-ascii?Q?9QAGZOSMQwfIKpsaj03tnCuJQQNv18uQv9YhgYhL+TYOMg4y1yTkravgj7LX?=
+ =?us-ascii?Q?dNptSv+n9zcr2jI8XorlZ9fwb2K09set3GQiJLudnhUPGcZ0+AeiBhhDjbuI?=
+ =?us-ascii?Q?zXheuY2Tke6Krv+HQ0k7fYwpC5EXlZf/Bd3KGFFSd9Uy5MqrMU4xhX/INCqG?=
+ =?us-ascii?Q?00r+EFMMr9Y8vtUPe0JbwnYmwRWQIY+wF23FS8dlChkHgqfMTjo5E78wfXj7?=
+ =?us-ascii?Q?wrwbAMhrBBtdbZcSCM5E8EdWbw8CvzYkeHH0Yoy9jYVVAAf0Q7SEkpylZmfG?=
+ =?us-ascii?Q?jI/LhM409CKvv7FSa4k5TUb/SXgMP7bhKyujSxgVoQ/z7FQjrjcYecVx6Pg3?=
+ =?us-ascii?Q?O97uKFTTL9d0bC6Z0AT3V5ZxrRCqU0Edaanmb4QbZ01fDVtAdjTudnGoqjFd?=
+ =?us-ascii?Q?7S6OGYMMfUjgLxycY8np1w7VAKqBPY2jAQ23XpMg0hnA2FGRHrAmeA8LVl5q?=
+ =?us-ascii?Q?ake9xYVP+2B0cnzSpLN2mjSUPAKMUO2RdwIKWxqjz4YJ1ULVEAf2WKdTeihb?=
+ =?us-ascii?Q?KZc57AmncoPxXXmMiqVDszi9r5WyniwREiSRtKgSWJ37fyZK+Lv3ylvE7oJZ?=
+ =?us-ascii?Q?Z8OW0Atmm/KKNAC8hK4HMdl3ZN1BeDgKiXKhDlpTJSM3fSRg2VEs0wx9UMEe?=
+ =?us-ascii?Q?7Ro26r7gpjAeWYjgkoYixkW+7g9URan9zPEY9xp8sEQBl/RHUeaHjG9RHP0m?=
+ =?us-ascii?Q?4qeLQd449G3WpKn5nst7zyE3859x1zopR7B36xKKMfqGFPoTSpn4ZDUjRhlx?=
+ =?us-ascii?Q?IxhUt2Ic1OmxloUOL7o2k73v8D2uej2PLaBN+hF18MmeK91AbLwr0krDpljL?=
+ =?us-ascii?Q?uX2Ud23HdoE5EYTbvUIPDiTjda1qd3RFViWsIinH9NHlqErdbKB1?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3c2dc087-2639-4088-cdcc-08defe12db57
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 16:56:47.7657
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mq0oY8C0XcuxRxKY32onYPxYBseNlUueCjlXKJk3vb524DJytLzUSm9cxRSbe6w+TZ99n070VYMytvkWqYXwIYhmJ/bRuSGaUcTuJAsSZwiuCnoPymgzGEH8xSK+K8DH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6888
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_094746_355574_1A0E8AEC 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20260819_095653_890542_021F97B0 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,173 +136,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The devres conversion replaced manual pm_runtime_enable()/disable() with
-devm_pm_runtime_set_active_enabled() and dropped the remove-time runtime
-PM teardown. The managed release tears runtime PM down in the wrong
-order: it calls pm_runtime_dont_use_autosuspend() before
-pm_runtime_disable(), i.e. while runtime PM is still enabled, and devres
-is LIFO so the devm_clk_get_enabled() release runs afterwards.
+On Wed, Aug 19, 2026 at 12:28:12PM +0300, Michail Tatas wrote:
+> if one of the dma_alloc_coherent in the init fucntion fails then
+> the previously allocated ones leak.
+>
+> Fix by freeing them in the error path.
+>
+> Fixes: 727a400686a2 ("media: verisilicon: Add Rockchip AV1 decoder")
+> Signed-off-by: Michail Tatas <michail.tatas@gmail.com>
+> ---
+>  .../verisilicon/rockchip_vpu981_hw_av1_dec.c  | 68 +++++++++++++++----
+>  1 file changed, 55 insertions(+), 13 deletions(-)
+>
+> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> index e4e21ad37323..fa77fd402412 100644
+> --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> @@ -369,6 +369,7 @@ void rockchip_vpu981_av1_dec_exit(struct hantro_ctx *ctx)
+>
+>  int rockchip_vpu981_av1_dec_init(struct hantro_ctx *ctx)
+>  {
+> +	int ret = 0;
+>  	struct hantro_dev *vpu = ctx->dev;
+>  	struct hantro_av1_dec_hw_ctx *av1_dec = &ctx->av1_dec;
+>
+> @@ -377,39 +378,54 @@ int rockchip_vpu981_av1_dec_init(struct hantro_ctx *ctx)
+>  	av1_dec->global_model.cpu = dma_alloc_coherent(vpu->dev, GLOBAL_MODEL_SIZE,
+>  						       &av1_dec->global_model.dma,
+>  						       GFP_KERNEL);
+> -	if (!av1_dec->global_model.cpu)
+> -		return -ENOMEM;
+> +	if (!av1_dec->global_model.cpu) {
+> +		ret = -ENOMEM;
+> +		goto global_model_cpu_err;
+> +	}
+> +
+>  	av1_dec->global_model.size = GLOBAL_MODEL_SIZE;
+>
+>  	av1_dec->tile_info.cpu = dma_alloc_coherent(vpu->dev, AV1_TILE_INFO_SIZE,
+>  						    &av1_dec->tile_info.dma,
+>  						    GFP_KERNEL);
+> -	if (!av1_dec->tile_info.cpu)
+> -		return -ENOMEM;
+> +	if (!av1_dec->tile_info.cpu) {
+> +		ret = -ENOMEM;
+> +		goto tile_info_cpu_err;
+> +	}
+> +
 
-At remove(), pm_runtime_put_sync() leaves the device active with the
-autosuspend timer armed. Clearing use_autosuspend then makes rpm_idle()
-suspend immediately, and xiic_i2c_runtime_suspend() clk_disable()s the
-clock. The later devm_clk_get_enabled() release clk_disable_unprepare()s
-the already-disabled clock, so clk_core_disable() WARNs ("clkN already
-disabled") on every teardown.
+This function is called by hantro_probe() if I am correct
 
-Drop the managed helper and restore the non-managed runtime PM setup and
-teardown, so runtime PM is enabled once in probe and disabled once in
-remove and the clock enable count stays balanced.
+there are dmam_alloc_coherent(), use dmam_alloc_coherent() will simple
+error handle and tear down.
 
-Restore the non-managed IRQ request as well. The probe error paths now
-unwind runtime PM by hand via goto, and a devm-registered handler is only
-freed later during devres unwind, so it would stay live across the manual
-teardown (and across any future failing step added after it). Request the
-IRQ with request_threaded_irq() and free it explicitly in the probe error
-path and in remove.
+Frank
 
-Fixes: 50c63491ff26 ("i2c: xiic: switch to devres managed APIs")
-Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
----
-Changes in v4:
-- Request the IRQ non-managed (request_threaded_irq/free_irq) and free it
-  in the probe error path and in remove(), instead of a devm handler that
-  would only be released during devres unwind and so stay live across the
-  manual runtime PM teardown in the goto error paths (Andy).
-- Link to v3: https://patch.msgid.link/20260818-i2c-xiic-restore-runtime-pm-teardown-v3-1-5fd315b078e1@nexthop.ai
-
-Changes in v3:
-- Drop the managed devm_pm_runtime_set_active_enabled() helper entirely
-  and restore the non-managed runtime PM setup (pm_runtime_set_active +
-  pm_runtime_enable, with probe error unwinding) and teardown
-  (pm_runtime_disable + set_suspended + dont_use_autosuspend), so the
-  disable depth stays balanced rather than being disabled twice (Andi).
-- Link to v2: https://patch.msgid.link/20260814-i2c-xiic-restore-runtime-pm-teardown-v2-1-7ae5d0c30ff2@nexthop.ai
-
-Changes in v2:
-- Move the Signed-off-by into the commit message proper (Andy).
-- Link to v1: https://patch.msgid.link/20260813-i2c-xiic-restore-runtime-pm-teardown-v1-1-0e7dfb206790@nexthop.ai
-
-To: Michal Simek <michal.simek@amd.com>
-To: Andi Shyti <andi.shyti@kernel.org>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-i2c@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
----
- drivers/i2c/busses/i2c-xiic.c | 43 ++++++++++++++++++++++++++++++++++---------
- 1 file changed, 34 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index 3e7735e1dae0..bafae1cc44aa 100644
---- a/drivers/i2c/busses/i2c-xiic.c
-+++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -92,6 +92,7 @@ struct xiic_i2c {
- 	int rx_pos;
- 	enum xiic_endian endianness;
- 	struct clk *clk;
-+	int irq;
- 	enum xilinx_i2c_state state;
- 	bool singlemaster;
- 	bool dynamic;
-@@ -1475,9 +1476,13 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 
- 	pm_runtime_set_autosuspend_delay(dev, XIIC_PM_TIMEOUT);
- 	pm_runtime_use_autosuspend(dev);
--	ret = devm_pm_runtime_set_active_enabled(dev);
--	if (ret)
--		return ret;
-+	/*
-+	 * Enable runtime PM by hand: devm_pm_runtime_set_active_enabled()
-+	 * tears down in an order that races the devm-enabled clock release and
-+	 * makes clk_core_disable() WARN (see xiic_i2c_remove()).
-+	 */
-+	pm_runtime_set_active(dev);
-+	pm_runtime_enable(dev);
- 
- 	/* SCL frequency configuration */
- 	i2c->input_clk = clk_get_rate(i2c->clk);
-@@ -1486,10 +1491,15 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	if (ret || i2c->i2c_clk > I2C_MAX_FAST_MODE_PLUS_FREQ)
- 		i2c->i2c_clk = 0;
- 
--	ret = devm_request_threaded_irq(dev, irq, NULL, xiic_process,
--					IRQF_ONESHOT, pdev->name, i2c);
-+	/*
-+	 * Request the IRQ non-managed: later probe steps unwind manually via
-+	 * goto, so a devm handler could still be live after that teardown runs.
-+	 */
-+	i2c->irq = irq;
-+	ret = request_threaded_irq(irq, NULL, xiic_process, IRQF_ONESHOT,
-+				   pdev->name, i2c);
- 	if (ret)
--		return ret;
-+		goto err_pm_disable;
- 
- 	i2c->singlemaster = device_property_read_bool(dev, "single-master");
- 
-@@ -1506,14 +1516,16 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 		i2c->endianness = BIG;
- 
- 	ret = xiic_reinit(i2c);
--	if (ret)
--		return dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
-+		goto err_free_irq;
-+	}
- 
- 	/* add i2c adapter to i2c tree */
- 	ret = i2c_add_numbered_adapter(&i2c->adap);
- 	if (ret) {
- 		xiic_deinit(i2c);
--		return ret;
-+		goto err_free_irq;
- 	}
- 
- 	if (pdata) {
-@@ -1526,6 +1538,14 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 		res, irq, i2c->i2c_clk);
- 
- 	return 0;
-+
-+err_free_irq:
-+	free_irq(irq, i2c);
-+err_pm_disable:
-+	pm_runtime_disable(dev);
-+	pm_runtime_set_suspended(dev);
-+
-+	return ret;
- }
- 
- static void xiic_i2c_remove(struct platform_device *pdev)
-@@ -1537,6 +1557,8 @@ static void xiic_i2c_remove(struct platform_device *pdev)
- 	/* remove adapter & data */
- 	i2c_del_adapter(&i2c->adap);
- 
-+	free_irq(i2c->irq, i2c);
-+
- 	ret = pm_runtime_get_sync(dev);
- 	if (ret < 0)
- 		dev_warn(dev, "Failed to activate device for removal (%pe)\n",
-@@ -1545,6 +1567,9 @@ static void xiic_i2c_remove(struct platform_device *pdev)
- 		xiic_deinit(i2c);
- 
- 	pm_runtime_put_sync(dev);
-+	pm_runtime_disable(dev);
-+	pm_runtime_set_suspended(dev);
-+	pm_runtime_dont_use_autosuspend(dev);
- }
- 
- static const struct dev_pm_ops xiic_dev_pm_ops = {
-
----
-base-commit: d58772d8520c7ef247c4b95c9bd76d3a25da9ff5
-change-id: 20260813-i2c-xiic-restore-runtime-pm-teardown-dd0ab1db2c02
-
-Best regards,
---  
-Abdurrahman Hussain <abdurrahman@nexthop.ai>
-
+>  	av1_dec->tile_info.size = AV1_TILE_INFO_SIZE;
+>
+>  	av1_dec->film_grain.cpu = dma_alloc_coherent(vpu->dev,
+>  						     ALIGN(sizeof(struct rockchip_av1_film_grain), 2048),
+>  						     &av1_dec->film_grain.dma,
+>  						     GFP_KERNEL);
+> -	if (!av1_dec->film_grain.cpu)
+> -		return -ENOMEM;
+> +	if (!av1_dec->film_grain.cpu) {
+> +		ret = -ENOMEM;
+> +		goto film_grain_cpu_err;
+> +	}
+> +
+>  	av1_dec->film_grain.size = ALIGN(sizeof(struct rockchip_av1_film_grain), 2048);
+>
+>  	av1_dec->prob_tbl.cpu = dma_alloc_coherent(vpu->dev,
+>  						   ALIGN(sizeof(struct av1cdfs), 2048),
+>  						   &av1_dec->prob_tbl.dma,
+>  						   GFP_KERNEL);
+> -	if (!av1_dec->prob_tbl.cpu)
+> -		return -ENOMEM;
+> +	if (!av1_dec->prob_tbl.cpu) {
+> +		ret = -ENOMEM;
+> +		goto prob_tbl_cpu_err;
+> +	}
+> +
+>  	av1_dec->prob_tbl.size = ALIGN(sizeof(struct av1cdfs), 2048);
+>
+>  	av1_dec->prob_tbl_out.cpu = dma_alloc_coherent(vpu->dev,
+>  						       ALIGN(sizeof(struct av1cdfs), 2048),
+>  						       &av1_dec->prob_tbl_out.dma,
+>  						       GFP_KERNEL);
+> -	if (!av1_dec->prob_tbl_out.cpu)
+> -		return -ENOMEM;
+> +	if (!av1_dec->prob_tbl_out.cpu) {
+> +		ret = -ENOMEM;
+> +		goto prob_tbl_out_cpu_err;
+> +	}
+> +
+>  	av1_dec->prob_tbl_out.size = ALIGN(sizeof(struct av1cdfs), 2048);
+>  	av1_dec->cdfs = &av1_dec->default_cdfs;
+>  	av1_dec->cdfs_ndvc = &av1_dec->default_cdfs_ndvc;
+> @@ -420,11 +436,37 @@ int rockchip_vpu981_av1_dec_init(struct hantro_ctx *ctx)
+>  						   AV1_TILE_SIZE,
+>  						   &av1_dec->tile_buf.dma,
+>  						   GFP_KERNEL);
+> -	if (!av1_dec->tile_buf.cpu)
+> -		return -ENOMEM;
+> +	if (!av1_dec->tile_buf.cpu) {
+> +		ret = -ENOMEM;
+> +		goto tile_buf_cpu_err;
+> +	}
+> +
+>  	av1_dec->tile_buf.size = AV1_TILE_SIZE;
+>
+> -	return 0;
+> +	return ret;
+> +
+> +tile_buf_cpu_err:
+> +	dma_free_coherent(vpu->dev, av1_dec->prob_tbl_out.size,
+> +			  av1_dec->prob_tbl_out.cpu,
+> +			  av1_dec->prob_tbl_out.dma);
+> +prob_tbl_out_cpu_err:
+> +	dma_free_coherent(vpu->dev, av1_dec->prob_tbl.size,
+> +			  av1_dec->prob_tbl.cpu,
+> +			  av1_dec->prob_tbl.dma);
+> +prob_tbl_cpu_err:
+> +	dma_free_coherent(vpu->dev, av1_dec->film_grain.size,
+> +			  av1_dec->film_grain.cpu,
+> +			  av1_dec->film_grain.dma);
+> +film_grain_cpu_err:
+> +	dma_free_coherent(vpu->dev, av1_dec->tile_info.size,
+> +			  av1_dec->tile_info.cpu,
+> +			  av1_dec->tile_info.dma);
+> +tile_info_cpu_err:
+> +	dma_free_coherent(vpu->dev, av1_dec->global_model.size,
+> +			  av1_dec->global_model.cpu,
+> +			  av1_dec->global_model.dma);
+> +global_model_cpu_err:
+> +	return ret;
+>  }
+>
+>  static int rockchip_vpu981_av1_dec_prepare_run(struct hantro_ctx *ctx)
+> --
+> 2.43.0
+>
 
