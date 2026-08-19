@@ -4,62 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A5BC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 18:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97EEAC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 18:38:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:In-Reply-To:Subject:CC:To:From:Date:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=BxnW8xTe/GUg/okReI0ZUTX8lPXwU0KqEEY1BznrYFQ=; b=dKwu3/VbBPzzTtl6FDuLgi7yvb
-	0YGRccI52UQKZNX3shdDAGI5oDLai9+FrOqLaHIoumPdo0B1zxz1/ArNPW71wefnugyth5gOEqPLT
-	HIz8OkK9falQ+/SzZDkMPz3JH6N2DLPU+lZaSO/2mWQKBivThxyjLxzcd5duM8MxEpaCtBjByteax
-	VPSC/lQOHTAb809KVbkhlfHbeY5wQF+bR411c6YMMCddE/OGrsxfgPn35zorj4RpD7RVVA5TRaxtY
-	7FoPW1LmOufrXQnS232F5yRvwHL5XGRAu5ZY+isH8QrEhplN/PtnlIYmGxe3yghjFn7BrBV1ZHHaA
-	MDQEqWng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bCsubKjOC4zF6FxrniHa2LF+4dOu++aq9oHsREwakNc=; b=SFGSrYCX+cxH/pqR2eo23+wZTb
+	wl90k3r4pthWw5FfuX67PpIylspUnwQ6mwpcG2cIMjKu+qg/JW4HAfu2RlwUtg00/mbpHyg5B11/U
+	Ahzo2IiQi5+h+SuQkAoXPSnP4RThZb4jHhTHfjGf2ldkp+Sl0kIYr72oJw1ZaC0HqImDUtcfMC0YZ
+	d2Wyik+vpof3oSnAyQc4k71DNqpKO2JZZGKsUJpx02JxhubihalbDxMDUPvxSHb1JpJaphGPc9VTG
+	UJeDgCaj9MKbJkWJvifptqut4tCjDUAbH/pGtQFLgePBAfPZm+K5cN1+gg7a6hhePNVYZIkQ7BBfU
+	G+8jxX+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwl6I-0000000ANcS-0ETk;
-	Wed, 19 Aug 2026 18:33:22 +0000
-Received: from latitanza.investici.org ([185.218.207.228])
+	id 1wwlBR-0000000AO79-3IPk;
+	Wed, 19 Aug 2026 18:38:41 +0000
+Received: from mail-centralusazon11010070.outbound.protection.outlook.com ([52.101.61.70] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwl6F-0000000ANb1-1bkx;
-	Wed, 19 Aug 2026 18:33:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
-	s=stigmate; t=1787164394;
-	bh=BxnW8xTe/GUg/okReI0ZUTX8lPXwU0KqEEY1BznrYFQ=;
-	h=Date:From:To:CC:Subject:In-Reply-To:From;
-	b=ribwPyRn+LH1F9A7EcB0DgsCpO4YlE+W4B7sMWptzOdv9HbwxbE2gSDVkkAoJx/7Z
-	 3ipIsQyfMGHdVkh1ij6tRVVllP1O+ZnvPYjkOWd3qtCz9l2NylxuLKo7QF+pEJk6p6
-	 2AlSFPZca9TqbKlG+uiDUlbU6ro915a0i4gk313w=
-Received: from mx3.investici.org (unknown [127.0.0.1])
-	by latitanza.investici.org (Postfix) with ESMTP id 4hQFZ23NQrzGpD4;
-	Wed, 19 Aug 2026 18:33:14 +0000 (UTC)
-Received: by mx3.investici.org (Postfix) id 4hQFZ20qN3zGpD1;
-	Wed, 19 Aug 2026 18:33:14 +0000 (UTC)
-Date: Wed, 19 Aug 2026 19:33:13 +0100
-From: Bradley Morgan <include@grrlz.net>
-To: mpilaniy@redhat.com
-CC: akpm@linux-foundation.org, alex@ghiti.fr, aou@eecs.berkeley.edu,
- baoquan.he@linux.dev, catalin.marinas@arm.com, chenhuacai@kernel.org,
- kernel@xen0n.name, kexec@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, ltao@redhat.com,
- mark.rutland@arm.com, palmer@dabbelt.com, pasha.tatashin@soleen.com,
- pjw@kernel.org, pratyush@kernel.org, prudo@redhat.com, rppt@kernel.org,
- will@kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v2_1/2=5D_kexec=3A_return_-ENOEXE?=
- =?US-ASCII?Q?C_from_image_probe_functions_on_mismatch?=
-In-Reply-To: <20260819-mpilaniy-v2-1-95e929ede0e5@redhat.com>
-Message-ID: <B5D12BAE-2701-46EC-8458-3716F856703D@grrlz.net>
+	id 1wwlBP-0000000AO6i-06Aq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Aug 2026 18:38:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=e3CCnpy4/dIi4OCZFZuDMS+qD8j9k+Rir7CjvcOwfx7l2MGOR3crgyr4di7B9fPw6mhj8n2omB1U5hohdgEBOmOLCFErgkzLeINbsuckSIM8OKzgGTozRathwOUYLM7yKfbo6S3KfmScNg0Zj42Z73jXsE0XMB+wtIeqih/VVTR3K3t0+5jVe1BOyqBXDrKnXpNAx2iv0nz8yk4hcAupUc+dbOjxBQIGbq5vTdKmpOMA2EuTR67uuX+ZimMJrqINW8i3yXmZ3H6d9uIWFzdfuH6+CM+QmZ+SLowxchEz4BpuEt3zERjyXUbgVbJnJGOXiLydiIUPhuvdQ0exz6/sjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bCsubKjOC4zF6FxrniHa2LF+4dOu++aq9oHsREwakNc=;
+ b=JqMxMfcXIKDIZHgN/SNWHl5LuFveCziT1yfx2ZGl7MT+w/EzbTljZuy3yKk5COPiBt36FIgSDDjhIZ+aE007qlW3wGbWdndeafkRlmO2TZUnkaEOBzVNbAZQ8m9xsLgu3mRoeY8t5l2Oyt/sR/uNq/7FjEO7x23bCmJGKVB+cUUz+0E12jGd4EuYBiNbzMh8Vy9I59oylOWXlkO8DMtkA5enaeyITLgx4idoAwPNsXQZn+BL13dYKqmuMqvmFzLU9MPooZEk4Bw0Lt9tAx7llp4wV0MsJLhNN9V0EwXRpRWlBRmT5/B6B5CEpJTymr7/ZMN3Sj+8fN+9O5NSjbf/gw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bCsubKjOC4zF6FxrniHa2LF+4dOu++aq9oHsREwakNc=;
+ b=TvnHhhKXqeY+gFIpmROJJ295BWXduWsQqmrhr/3osbVUBtPjq93qkTHJq5J+lkpTywkBg5CVINiAKhdWRDM07frgTAjh1+G1HscGO/EQKE2qXDtzfFPALfDvjlbtuTJc7ceNGIo+gHf0/ows+uczFhq5XhMMs2/MVa38OM3Eej1daU88PrNxC5jYKz3syGXLjmMADZ9nchSB7VAMNlJDtlh2+FDvgQuU1a/l2UBDyWOgk+yHC/9IUud+X3R05NP/3I8n0N9RQXrM6Dg6ioFOhswjZOW4xtmiFYWVHHvHjITAaknIDvEFZSjfIXKMtR8hcGB7+Vc1zWCMLulkVV/6Jw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV3PR12MB9356.namprd12.prod.outlook.com (2603:10b6:408:20c::21)
+ by DM4PR12MB6399.namprd12.prod.outlook.com (2603:10b6:8:b7::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
+ 2026 18:38:24 +0000
+Received: from LV3PR12MB9356.namprd12.prod.outlook.com
+ ([fe80::1c36:31b4:c420:6286]) by LV3PR12MB9356.namprd12.prod.outlook.com
+ ([fe80::1c36:31b4:c420:6286%5]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
+ 18:38:24 +0000
+Date: Wed, 19 Aug 2026 14:38:22 -0400
+From: Yury Norov <ynorov@nvidia.com>
+To: Florian Bezdeka <florian.bezdeka@siemens.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Jan Kiszka <jan.kiszka@siemens.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH RFC 1/3] cpumask: Honor irq_default_affinity in
+ cpumask_local_spread()
+Message-ID: <aoX4HuUxL4tNWvpq@yury>
+References: <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-0-3f79a99cadaf@siemens.com>
+ <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-1-3f79a99cadaf@siemens.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-1-3f79a99cadaf@siemens.com>
+X-ClientProxiedBy: BN9PR03CA0567.namprd03.prod.outlook.com
+ (2603:10b6:408:138::32) To LV3PR12MB9356.namprd12.prod.outlook.com
+ (2603:10b6:408:20c::21)
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV3PR12MB9356:EE_|DM4PR12MB6399:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa87580b-3fb1-43bf-12e2-08defe210d58
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|6133799003|3023799007|56012099006|10067099003|4143699003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 3YEASpq9qPgFiZIKAwN+e+MtvbtjJxKTvac7pA85ovDSVKLMH7R7k/f3mAJOVpTbjjhEcxm9URx81kgrkiKnhAh+bYBk9V2C4z1E5k+xThODiujWD7eS6MPS9BEVAHH2z1lYmSFI0/qX6WkfKwS4M3ubwwSGwSiMBBVbZ2+SezOhL4c55mMVAQKA1bf5Yx9THakm1aDlNyNhNfyPZwWmBD+3DGNX4MU5yL16IVOqyRJCGItLgN2dDtvLjYA7S8Kbsyus/8Oh5sQJURlMXFFPc6LfGJLZaiN/gA+Pj+5XdTqHF3Lpf/UEKGYfYX6wFDXenvIsHbe8YKKXVFd9/RWz0qjVUn5bjuwfayh2YGWYcd6MKBlS/BQp05L0JH452/mDieSYMzDNF1yLnsCLXHzyY+hWwb8DjEIsmLWDIStvpzw5Rj882aJuGigNxXEe7Eam9Vuz8KyZlkgQ2/P1yI0OvWh3QXvHUXP8oAgdZziJ8GEQGEdIPwcXjHYRwh8Ug2hj0WcoWgoBTISRuQFFSAM0qYYq6fXafb+XGOMOt+hCC9UQ4ZBVGsT0vLUcjDPY5Dl3Oo3e2w+0LrOT+/pfDr+Yyj3mVZs7r70bFSGqGv6P8nopui1B1/2juL9xVLa+FeVayXI640+bVwYgePF4ePJaSZddy2eiJYyvgI8tn8oKZn0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR12MB9356.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(6133799003)(3023799007)(56012099006)(10067099003)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UWszE8FMVddmBY7Nl2jnI8fmNBmiRcC1NdSBz+YAoZ5ypTBXTO6rl8rHwKyw?=
+ =?us-ascii?Q?I/Ol8oBLpMkT+/yvqX8nRtujkxR5sLBYkxr7J5RWyXt8cPEkla9iNE5ECn2s?=
+ =?us-ascii?Q?c5YPtVKhrgDjCuK4ltKcC0/+hBd3/C+EQG3/YMumgQNzXlZmF+cg6ieyEw1U?=
+ =?us-ascii?Q?2icXavhIw+wTTPpAwuJgY1waAKkkvcDqBjYcHhzhVibMNwZltuSEuD5F2fcN?=
+ =?us-ascii?Q?G07j0g3kiBpC8h1+pBjkbz6tSnA1zwsUvaNhfB714R2MhMbHxhppHF2LYIYu?=
+ =?us-ascii?Q?qxCiQmICNVk+/3Atrsl2R+8meHac8KyjfCZfI0bhsAXGJcI80Gz6LqNKRZm7?=
+ =?us-ascii?Q?mrmBtAmQY05rmEYlDOXI7Y+drUQLY7yJVWMalnwmXrBxsv0EVYv14UMa+Dsc?=
+ =?us-ascii?Q?EE4WyP9/05GKUDnRXmyWoIX25VU7ukY/8zxi/iclxfkLHgi/BA0QV8wtv0/e?=
+ =?us-ascii?Q?M6meYgxlfk4DhcHeb/BDsFpY12+GyivPUJm/xJ6GYPvrKX3TgNDmUYW3yb3f?=
+ =?us-ascii?Q?3C2oa6wVehfjBERFILsIC2rvP/E7autA29LyHbhcduk+yeb83Cjs2zLvkg8y?=
+ =?us-ascii?Q?zo230/3rkWtIvqplTz7/jPxrV6J+n5bqdh5xxlZV4BnfljdkDMckBSnNKGIU?=
+ =?us-ascii?Q?GP1Pu8h0NJSaQ043Qc0xGvpos7nlBMGELvVqXJrKBBgttLXekVkW/gRTpZY7?=
+ =?us-ascii?Q?IP+cFJ11Lzt4tDo7BBU10nXXuB6Pk1Q7WLLmFukVO8w9vBmcAt1NsCVvKp5Q?=
+ =?us-ascii?Q?QEFTO9lEom4hwElJzKmFbplTlBQ8kXbXnDwiihuELIoaYFm0Fob9puVYkrfS?=
+ =?us-ascii?Q?5inEIJKZTls09kO5OrxuRYs3Ca+sUa4yeRfuy3vHbDuIR3o8qxsR8vQlhDIi?=
+ =?us-ascii?Q?Fwp5PgqSugF2E//gVekMwVus5bDbMIFD0IAGu6LiBGg6jdpN+Cgsnp9mphBN?=
+ =?us-ascii?Q?WB/AxV8g0hFuAYRzvhYEtj6gG31tSLKwoTdSVO46YszjuFDhHPKPTXgLk+8z?=
+ =?us-ascii?Q?B6nvwhCuX9x5lAN00b6d5Sj2+ejRRY46GJwUxIZWFtMwBexYxQ20kdZkx6Va?=
+ =?us-ascii?Q?7A9fNJEC3BrJSj3RAfM5QVgAbqs4votX//VRIFZ2cUXcvEZ2/hqIwEhh5Wbz?=
+ =?us-ascii?Q?b39cRwNpNqamAHWwrgUyX76SomJGjhvSnk2Gx8VeXrq/dM7+9ywS/wjZ4HD7?=
+ =?us-ascii?Q?wDuj/paQYUk6nVM5d1qJRLw5SvbZB4lXKPLDEodWd5mMxoLs+yzHIreA1rfe?=
+ =?us-ascii?Q?E/COAGyHNcgolR3BZI0w3zYr6w3/dbSBQpQY/9beOjwJUpRWGnNnbq+n+zmN?=
+ =?us-ascii?Q?uTxQZIAogJnbh9m07Or0r4VR5B7W3jOI9K6ThFNEun+/l/UELOE2pZ9KNIjH?=
+ =?us-ascii?Q?PDm/JKvTGuwgHYhNc3mIRP8AXD7yLUJMU0CYiMx7q3JDqPjLJFyW7MMrBJUc?=
+ =?us-ascii?Q?Jj2EbhJt4jH1dUg3BhY6KZuW6yj0Atme731+311Zb5iOgQr4+c266+AG066E?=
+ =?us-ascii?Q?gXQ2h0j1jgl4NVxsK25Ef8uZpiQSTkv/joOCh0acilvCn4VDwQgP43AdzoOJ?=
+ =?us-ascii?Q?5yvcNQGp2CbItX3pW9WzV1bOu7DVoLlhEl+vlAHH+tPzt4MrwtTpcI9u9fQw?=
+ =?us-ascii?Q?XG6HFJmCATcp5VxVckZoyHYNF8fj9TBvdrTqICGeeJakjRVVFdlG5yWEmc4p?=
+ =?us-ascii?Q?S1IEY5ZItXjpHlnjuVrLyviN74FUsYppMN/aJGuDEFLdKCJ4?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa87580b-3fb1-43bf-12e2-08defe210d58
+X-MS-Exchange-CrossTenant-AuthSource: LV3PR12MB9356.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 18:38:24.6621
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5Nw4XXZG5P2zlwS6xTS8iqFGhemDs9yOqcfODjVBId73lmW8fYpDsn2V3MScptCWSqnbfe0Fbq4EmZCsiuJg+w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6399
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_113319_862661_F1823D9D 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20260819_113839_093040_B9A015E5 
+X-CRM114-Status: GOOD (  24.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,117 +152,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19 August 2026 18:47:22 BST, Mukesh Pilaniya <mpilaniy@redhat.com>
-wrote:
->Several kexec_file_load() image probe functions return -EINVAL when
->they do not recognize the image format.  A probe function that rejects
->an image should return -ENOEXEC to indicate that the image is not a
->recognized executable format.  -EINVAL implies a problem with the
->syscall parameters, not with image recognition.
->
->kexec_image_probe_default() iterates through registered loaders and
->returns the last probe's error code to the caller.  That error
->propagates as the kexec_file_load() return value to userspace.
->Returning -EINVAL from a probe when no loader matches is semantically
->incorrect and misleads userspace about the nature of the failure.
->
->Return -ENOEXEC from all probe functions and their helpers when the
->image format is not recognized.
->
->Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
->Reviewed-by: Philipp Rudo <prudo@redhat.com>
->Reviewed-by: Pratyush Yadav <pratyush@kernel.org>
-Reviewed-by: Bradley Morgan <include@grrlz.net>
+On Wed, Aug 19, 2026 at 04:30:30PM +0200, Florian Bezdeka wrote:
+> Many drivers call cpumask_local_spread() to spread IRQs to several
+> CPUs, mainly to get best performance and balance CPU load. For
+> realtime (PREEMPT_RT) and other cpu-isolating workloads the old
+> implementation was triggering an IRQ placement problem. IRQs were
+> targeting CPUs that were isolated for those sensitive workloads.
+> 
+> Userland will tell the kernel about the desired IRQ configuration
+> for new interrupts by writing a proper cpumask to
+> /proc/irq/default_smp_affinity. This cpu mask has to be honored to
+> avoid IRQ noise on isolated cores.
+> 
+> The default for irq_default_affinity is "all CPUs". So all CPUs will
+> be taken into account for spreading when userland did not configure
+> something special.
+> ---
+>  lib/cpumask.c | 10 ++++++----
+>  1 file changed, 6 insertions(+), 4 deletions(-)
+> 
+> diff --git a/lib/cpumask.c b/lib/cpumask.c
+> index 5adb9874fbd0f5a42ea8cd9e6c3729a70599781f..73e7b60a9201174f83df6067effbe7d1889dcdb9 100644
+> --- a/lib/cpumask.c
+> +++ b/lib/cpumask.c
+> @@ -6,6 +6,7 @@
+>  #include <linux/export.h>
+>  #include <linux/memblock.h>
+>  #include <linux/numa.h>
+> +#include <linux/interrupt.h>
+>  
+>  /* These are not inline because of header tangles. */
+>  #ifdef CONFIG_CPUMASK_OFFSTACK
+> @@ -81,8 +82,9 @@ void __init free_bootmem_cpumask_var(cpumask_var_t mask)
+>   * @i: index number
+>   * @node: local numa_node
+>   *
+> - * Return: online CPU according to a numa aware policy; local cpus are returned
+> - * first, followed by non-local ones, then it wraps around.
+> + * Return: online CPU according to the default IRQ affinity and a numa aware
+> + * policy; local cpus are returned first, followed by non-local ones, then it
+> + * wraps around.
+>   *
+>   * For those who wants to enumerate all CPUs based on their NUMA distances,
+>   * i.e. call this function in a loop, like:
+> @@ -110,9 +112,9 @@ unsigned int cpumask_local_spread(unsigned int i, int node)
 
->---
-> arch/arm64/kernel/kexec_image.c   | 4 ++--
-> arch/loongarch/kernel/kexec_efi.c | 4 ++--
-> arch/riscv/kernel/kexec_image.c   | 4 ++--
-> kernel/kexec_elf.c                | 4 ++--
-> 4 files changed, 8 insertions(+), 8 deletions(-)
->
->diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
->index b70f4df15a1a..101259874d44 100644
->--- a/arch/arm64/kernel/kexec_image.c
->+++ b/arch/arm64/kernel/kexec_image.c
->@@ -25,10 +25,10 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
-> 		(const struct arm64_image_header *)(kernel_buf);
-> 
-> 	if (!h || (kernel_len < sizeof(*h)))
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 
-> 	if (memcmp(&h->magic, ARM64_IMAGE_MAGIC, sizeof(h->magic)))
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 
-> 	return 0;
-> }
->diff --git a/arch/loongarch/kernel/kexec_efi.c b/arch/loongarch/kernel/kexec_efi.c
->index 5ee78ebb1546..28a1d0420ba3 100644
->--- a/arch/loongarch/kernel/kexec_efi.c
->+++ b/arch/loongarch/kernel/kexec_efi.c
->@@ -24,12 +24,12 @@ static int efi_kexec_probe(const char *kernel_buf, unsigned long kernel_len)
-> 
-> 	if (!h || (kernel_len < sizeof(*h))) {
-> 		kexec_dprintk("No LoongArch image header.\n");
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 	}
-> 
-> 	if (!loongarch_header_check_dos_sig(h)) {
-> 		kexec_dprintk("No LoongArch PE image header.\n");
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 	}
-> 
-> 	return 0;
->diff --git a/arch/riscv/kernel/kexec_image.c b/arch/riscv/kernel/kexec_image.c
->index 51dc89259f16..963a25f5b55b 100644
->--- a/arch/riscv/kernel/kexec_image.c
->+++ b/arch/riscv/kernel/kexec_image.c
->@@ -20,7 +20,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
-> 	const struct riscv_image_header *h = (const struct riscv_image_header *)kernel_buf;
-> 
-> 	if (!h || kernel_len < sizeof(*h))
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 
-> 	/* According to Documentation/arch/riscv/boot-image-header.rst,
-> 	 * use "magic2" field to check when version >= 0.2.
->@@ -28,7 +28,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
-> 
-> 	if (h->version >= RISCV_HEADER_VERSION &&
-> 	    memcmp(&h->magic2, RISCV_IMAGE_MAGIC2, sizeof(h->magic2)))
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 
-> 	return 0;
-> }
->diff --git a/kernel/kexec_elf.c b/kernel/kexec_elf.c
->index 3a5c25b2adc9..89a444a00693 100644
->--- a/kernel/kexec_elf.c
->+++ b/kernel/kexec_elf.c
->@@ -172,7 +172,7 @@ static int elf_read_ehdr(const char *buf, size_t len, struct elfhdr *ehdr)
-> 
-> 	default:
-> 		pr_debug("Unknown ELF class.\n");
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 	}
-> 
-> 	return elf_is_ehdr_sane(ehdr, len) ? 0 : -ENOEXEC;
->@@ -236,7 +236,7 @@ static int elf_read_phdr(const char *buf, size_t len,
-> 
-> 	default:
-> 		pr_debug("Unknown ELF class.\n");
->-		return -EINVAL;
->+		return -ENOEXEC;
-> 	}
-> 
-> 	return elf_is_phdr_sane(phdr, len) ? 0 : -ENOEXEC;
->
->
+Please don't touch this function. There's ~40 users, and we don't want
+to inspect every caller for their intention.
 
-Thanks!
+Looking at ionic_get_preferred_cpu(), the cpumask_local_spread() is
+used there as a fallback for the affinity IRQ search:
+
+ static int ionic_get_preferred_cpu(struct ionic *ionic,
+                                    struct ionic_intr_info *intr)
+ {
+         int cpu;
+ 
+         cpu = cpumask_first_and(*intr->affinity_mask, cpu_online_mask);
+         if (cpu >= nr_cpu_ids)
+                 cpu = cpumask_local_spread(0, dev_to_node(ionic->dev));
+ 
+         return cpu;
+ }
+
+Your change may affect the logic, seemingly.
+
+Instead, please create something like:
+
+        unsigned int cpumask_spread(struct cpumask cpus,
+                                    unsigned int i, int node);
+
+Thanks,
+Yury
+
+>  	unsigned int cpu;
+>  
+>  	/* Wrap: we always want a cpu. */
+> -	i %= num_online_cpus();
+> +	i %= cpumask_weight(irq_default_affinity);
+>  
+> -	cpu = sched_numa_find_nth_cpu(cpu_online_mask, i, node);
+> +	cpu = sched_numa_find_nth_cpu(irq_default_affinity, i, node);
+>  
+>  	WARN_ON(cpu >= nr_cpu_ids);
+>  	return cpu;
+> 
+> -- 
+> 2.55.0
 
