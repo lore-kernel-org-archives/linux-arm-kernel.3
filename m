@@ -4,97 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B87C5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:02:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD8CC5DF86
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WvNWIXI4/tZKeeO+WSN38gx9138yui2rjNRm/dAZIN4=; b=UZP4D+Pwu2gq2om4qE3KhktKlA
-	8h+I3Anz78/6rqmN7iG8yHehlF4aJ32GJOniM6EQ4FuLPRROfBQe0YlBpdu9gqNYU0WiI+jzAt9Z0
-	YC9yR17h7GNFI7xoOw4Ix/oq541sbG1gibBJmYuWb/mYTPvBscHAF0FoJSZeWKOCPmYhwOmQeE17e
-	nNdbt1RZvwWIMdC2a6a3l8ImZ4scV70NS/DytUH7GHKjUvsXbESAk8Fh+SpL/OBWDm0wTU9Jmq9NK
-	LapFpRH2+htHwDqMbjTDxdilQsP0JsRL33vFJ+FCZdI6PY95DprNCqe3MhTJHcm6CDn7FKutxbj8I
-	ghgoAh3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iaVsNTLMeYS4s2vk4J5mF8auwYexrS8arHKPuv70HeM=; b=yq3IH52sBuMgDd
+	iJtDN4eL29g3e/eZbHOcRP1H5cPFnSFPxiooDNBvbw2cV8f4Q+jCa7qXEttLXubSJnK1AOkE4rOqp
+	9JcVtDvzEvVxA9poa6AwqTdfBGejzWCNaNPJYXqEJgOTWp6FUpBDrK6dQRHlJti26nONvFEaW+6Aa
+	Hgu4ue9dMq4+R6wMmhCiIZ/pkox7onSOeLM1nfiUAB09nnsoL2iwa8ohJdvjurR6IBVxQR4x8YlZ5
+	6nMXcOpW1bmdWQfoiuW+M9sZKBHraf/KrQ4AyMSck0zfqrlJgnajZ0EZzj7aQiDT6d3hEcU9rna/W
+	0wRx1cHPixsrmbe9b7Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwe47-00000009bZr-1ala;
-	Wed, 19 Aug 2026 11:02:39 +0000
-Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
+	id 1wwe6k-00000009cCO-0Owv;
+	Wed, 19 Aug 2026 11:05:22 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwe44-00000009bYO-027v
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 11:02:37 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.phl.internal (Postfix) with ESMTP id 01BDEEC0112;
-	Wed, 19 Aug 2026 07:02:33 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Wed, 19 Aug 2026 07:02:34 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1787137353;
-	 x=1787223753; bh=WvNWIXI4/tZKeeO+WSN38gx9138yui2rjNRm/dAZIN4=; b=
-	Li7SSym6v+DNKNs0jMAPD0eaWAEM5ynVvTyU8B1FeJNadY/KCKl4UYfztcYUUYdj
-	+eQMnqYMa9xGp66NGa0yoFZDpj4I3WTv7J+ivBTm9jkQbmuEhTum3JBSjg6x+AfE
-	xr2SUtjl0YgB8XU7DENxX5RRFW9Lbu/8+ciGbAiyI6E1wsqhxyVKptUn6WfDoPAM
-	5zZVHyavMdiBVEd9Pf41W+17wFjlCYrb+Ly/u/ZS8xjHNHSqBJ2Vzg9Q4FCljh4l
-	LUayDsyKBMNC+v9AGKD0B3/0GYYkB1MtfA7Ye7ktmzqQ7idDV5GFrgTJYkdI8Bnp
-	ENzIJAEm1oCjMQ2KoHa+1g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1787137353; x=
-	1787223753; bh=WvNWIXI4/tZKeeO+WSN38gx9138yui2rjNRm/dAZIN4=; b=S
-	ZiTWm9EML0k6bmxBM5zSnYVOvNRz6pBJA4y3AXA63PlKOENLhryl0mLuwC6h8xLi
-	9VmYck9YyHSggPbaMpTB4RoMHD1phKOlYsZUQNrtU0ht/EONxDl0EPNNIGL8+WCo
-	U2+1m72hkbHRiNtk3runCuklh4is2rXLvj29bKaLDPxwVSaxFOzHwplylcMb6iKE
-	4dHL6GDMc1gNJgEHbG6KyHIh+jVKLjfX79KemJS3N8FhZd55KCTZQgUSslRni8Q2
-	VPfuQojz00eVlJZO964W1Xl4gM2PICZl849dg5ZVduM7BJ5ykVDFG3dIZ6jxWFwv
-	qSRwy5YhvSwxFeVv+b79A==
-X-ME-Sender: <xms:RY2FaoCCUzmi1WdJc6iDFhOUBFt0Rueqticrctw58SO5t0LPc3kN-A>
-    <xme:RY2FalVkXJkp2iY_JvRymojwe5zrDzPufu2mK9JaIVDLxEYBeRAkiLROmTdX02d0e
-    yYkIMgfdUbWi513pdPKbA6-Zf_1ePFkrB1TOr-QcMvKCNn7hj3vEg>
-X-ME-Proxy-Cause: dmFkZTFukQSP/3o8pOJVx52DwzCcQzR+TP7po9TqkWJsu58dALxA1dpRQGceTU0jqvH2OU
-    ORRprA9CGaJ2deOINKrMurBKPHHBNWvo3/KpkAXbejsXNU9Ddy/dykNASbHPjZhSsjsw2X
-    48f5Wn180kiWm7+/nWJIpN0x1WHGlojjNt9doXGKE+jd+DWD5xl9Jb9pSbtR9avOERlURN
-    l/LTJI/iFKHSlIQ7bOPclJM+OZw1ZeB6qVDg2MHep+rtE1ZOy4T6NPVnlI+3+UCqVE8EJU
-    p963WSoRyifgXwTdVhQTBoroTlFFoB81Ta4yCuLDalqaY+T3GtYWZQne7FE1bv+Pct0vOh
-    QfIeW/cvdzIDm0WyPLQdPXMllAgQlO2B9WhLkBU2haH29wCS1Tp0JzLL/7rUOP0IiVNyn6
-    27PNeY27z3pR2Ozo626QrYvnhkfNiDZp00rvNJ4MLSNc6YGBklLD+8jWydq1z3UykD8Z6V
-    BywZhfp0mJEM5rCb8t+x+zfopeXcMKonUkoe5Y/pf/iaZAR0Nbq4R/evZruTWmy7URN++r
-    laLcmGfI40kj30g5saMih/5D/cZQt8U2dnkFtpe4QRwg3b3Gk3KuItC0WKIRxIhOmZi3oH
-    TsGglnJwCWcdAh6V9qcf4yJfUn4TAhUt6WkZALtSeGdr1/oVC17T2UkYjUpw
-X-ME-Proxy: <xmx:Ro2Fatd7-HsAtEtbhAQOUZyMCOY5hH2Lo5TZhKRH8vbAbzV-kF9XCQ>
-    <xmx:Ro2Fai9oDo1IfKGrIw3ogcCAFftZtqNNL2Haj_SAcjjHfR-u-rz9Gg>
-    <xmx:Ro2FapkRcjjrAWeqIlgI_w7ln0-RyKmQDh8cttF6ehqpuQAb5qnwqQ>
-    <xmx:Ro2Fak91_nVWXyRhKytKPkTWDbfnJgcR7b_5oNbcgbhIQ4sf78t9AQ>
-    <xmx:SY2Failbz5x9Ni_gbOR04diBJ3_T5fyb5JWGp6VTwgjZLus8l5B9C_FJ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 6B7A732A0071; Wed, 19 Aug 2026 07:02:29 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1wwe6h-00000009cAZ-3I7o;
+	Wed, 19 Aug 2026 11:05:21 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id E226A20044D;
+	Wed, 19 Aug 2026 13:05:17 +0200 (CEST)
+Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <s.hauer@pengutronix.de>)
+	id 1wwe6f-002HRY-2M;
+	Wed, 19 Aug 2026 13:05:17 +0200
+Received: from [::1] (helo=dude02.red.stw.pengutronix.de)
+	by dude02.red.stw.pengutronix.de with esmtp (Exim 4.98.2)
+	(envelope-from <s.hauer@pengutronix.de>)
+	id 1wwe6f-00000004K0O-2O4l;
+	Wed, 19 Aug 2026 13:05:17 +0200
+From: Sascha Hauer <s.hauer@pengutronix.de>
+Subject: [PATCH 0/7] media: verisilicon: Add RK3588 VPU720 JPEG decoder
+Date: Wed, 19 Aug 2026 12:37:29 +0200
+Message-Id: <20260819-rk3588-jpegdec-v1-0-33d74cdf369c@pengutronix.de>
 MIME-Version: 1.0
-X-ThreadId: AcdQlVQC9j7F
-Date: Wed, 19 Aug 2026 13:02:09 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Dan Carpenter" <error27@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, arm <arm@kernel.org>
-Message-Id: <e45c75c5-70e3-496b-8885-ab0093234d3a@app.fastmail.com>
-In-Reply-To: <202608191405.jP6epa63-lkp@intel.com>
-References: <202608191405.jP6epa63-lkp@intel.com>
-Subject: Re: [soc:board-remove 200/200] drivers/mmc/host/sdhci-pxav2.c:318
- sdhci_pxav2_probe() error: we previously assumed 'variant' could be null (see
- line 305)
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGqHhWoC/x3MTQqAIBBA4avErBO0P8auEi1CR5sCC4UIxLsnL
+ b/FexkSRaYEc5Mh0sOJr1Ch2gbMvgVPgm01dLKbJCot4tmPiOK4yVsyAjUp4waDqBFqdEdy/P7
+ DZS3lA/2YKy9gAAAA
+X-Change-ID: 20260819-rk3588-jpegdec-89e1cf4c8898
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Andrzej Pietrasiewicz <andrzej.p@collabora.com>, 
+ Hans Verkuil <hverkuil@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lucas Sinn <lucas.sinn@wolfvision.net>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787137517; l=3717;
+ i=s.hauer@pengutronix.de; s=20230412; h=from:subject:message-id;
+ bh=+O0Gd7dYD+ML+lDGGE6X0GreAnrSVB14tNzQ3byWCIc=;
+ b=dG5ZAOPzpg6YY00ZFsztwh+kX27axvdSlRbGYX5WU3XPRC07G+PHESYaoGaxlNuUZCf5Zrgm2
+ DSIpuKZXeBhDLKDHZRNvV5mjtnZAZ55V40y8bqFUlVlvt5TOg+z3BP7
+X-Developer-Key: i=s.hauer@pengutronix.de; a=ed25519;
+ pk=4kuc9ocmECiBJKWxYgqyhtZOHj5AWi7+d0n/UjhkwTg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_040236_393601_3041B232 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20260819_040519_984557_A5990C56 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,32 +91,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026, at 09:54, Dan Carpenter wrote:
-> dfe9746aed2d12 Doug Brown            2023-01-16  304  	variant = 
-> of_device_get_match_data(dev);
-> dfe9746aed2d12 Doug Brown            2023-01-16 @305  	if (variant)
->
-> This assumes "variant" can be NULL.
->
-> dfe9746aed2d12 Doug Brown            2023-01-16  319  	host->ops = 
-> variant->ops;
->
-> But later it's dereferenced without checking.
->
+This series adds support for the RK3588 JPEG/MJPEG hardware decoder, the
+VPU720. This series adds it to the hantro driver, along with three fixes
+to the hantro core that came out of the work.
 
-Hi Dan,
+Patches 1-3 are independent of the new decoder and stand on their own. A
+codec ->run() that fails currently leaves an armed watchdog behind that
+later aborts an unrelated job, leaks the pm_runtime reference and the
+clocks, and never completes the control handler object bound to the
+media request, so the request stays queued until userspace closes it.
+Patch 3 makes V4L2_EVENT_EOS subscribable; hantro queues the event in
+three places but no application can ask for it.
 
-Thanks for the report! I've fixed it up now, by removing the (now)
-pointless NULL check.
+Patches 4-7 add the decoder itself: the binding, the driver, a minimum
+sizeimage for the coded queue, and the DT node.
 
-As you may have seen, there are a lot of changes in this branch,
-and I assume there are still many things that smatch will find here
-as it is still work in progress.
+Unlike the other hantro en/decoders the VPU720 works as a stateful
+decoder - userspace hands it a whole frame and never looks inside the
+bitstream. The driver parses the JPEG header on the CPU, builds the
+quantisation and Huffman tables into a DMA side buffer and programs the
+hardware from there.
 
-If you have a list of possible regressions that smatch has already
-found on this branch, I'd be happy to look through the raw data
-for actual bugs and fix them before you spend a lot of time
-processing the findings.
+Patch 6 enforces a minimum frame size to the coded queue for the JPEG
+decoder path. This is necessary here as userspace doesn't know how large
+a frame can get, but the decoder needs a full frame to work. In my
+Gstreamer tests Gstreamer came up with buffers that were too small to
+take a full frame at higher resolutions (> 1080p). That is expensive of
+course, 16 MiB for a 4k image.
 
-    Arnd
+Tested on a Radxa Rock-5t board
+
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+Lucas Sinn (3):
+      media: verisilicon: Add Rockchip VPU720 JPEG decoder
+      media: verisilicon: Enforce a minimum sizeimage for the JPEG decoder
+      arm64: dts: rockchip: rk3588: Add VPU720 JPEG decoder node
+
+Sascha Hauer (4):
+      media: verisilicon: Fix the cleanup when a codec ->run() fails
+      media: verisilicon: Complete the request on the ->run() error paths
+      media: verisilicon: Allow the EOS event to be subscribed
+      media: dt-bindings: Add Rockchip RK3588 VPU720 JPEG decoder
+
+ .../bindings/media/rockchip,rk3588-vpu720.yaml     |  93 ++
+ MAINTAINERS                                        |   1 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  25 +
+ drivers/media/platform/verisilicon/Makefile        |   1 +
+ drivers/media/platform/verisilicon/hantro.h        |  17 +
+ drivers/media/platform/verisilicon/hantro_drv.c    |  49 +-
+ .../platform/verisilicon/hantro_g1_h264_dec.c      |   6 +-
+ .../platform/verisilicon/hantro_g1_mpeg2_dec.c     |   2 +-
+ .../media/platform/verisilicon/hantro_g1_vp8_dec.c |   6 +-
+ .../platform/verisilicon/hantro_g2_hevc_dec.c      |  11 +-
+ .../media/platform/verisilicon/hantro_g2_vp9_dec.c |   4 +-
+ .../platform/verisilicon/hantro_h1_jpeg_enc.c      |   2 +-
+ drivers/media/platform/verisilicon/hantro_hw.h     |  19 +-
+ drivers/media/platform/verisilicon/hantro_v4l2.c   |  69 +-
+ .../verisilicon/rockchip_vpu2_hw_h264_dec.c        |   6 +-
+ .../verisilicon/rockchip_vpu2_hw_jpeg_enc.c        |   6 +-
+ .../verisilicon/rockchip_vpu2_hw_mpeg2_dec.c       |   2 +-
+ .../verisilicon/rockchip_vpu2_hw_vp8_dec.c         |   6 +-
+ .../verisilicon/rockchip_vpu720_hw_jpeg_dec.c      | 962 +++++++++++++++++++++
+ .../platform/verisilicon/rockchip_vpu720_regs.h    | 261 ++++++
+ .../verisilicon/rockchip_vpu981_hw_av1_dec.c       |   5 +-
+ .../media/platform/verisilicon/rockchip_vpu_hw.c   |  80 ++
+ 22 files changed, 1595 insertions(+), 38 deletions(-)
+---
+base-commit: bd5f485f3f026225b86573e559af0b7254ef4184
+change-id: 20260819-rk3588-jpegdec-89e1cf4c8898
+
+Best regards,
+-- 
+Sascha Hauer <s.hauer@pengutronix.de>
+
 
