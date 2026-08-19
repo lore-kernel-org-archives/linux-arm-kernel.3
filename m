@@ -4,149 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CDAEC5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 09:01:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEEB6C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 09:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7efK9ckOxUveYODJtPTBQtOYYyk4csecwCsJslqjO1U=; b=PCgUe9isw6PKnfn9AvWlCN92eu
-	Xyb/fzkFW5NR3eedNjWtMkhdr1w0LPzoIU9W+1s47y1pr1MQYSUGTad0ebfZfzC1Uk1/AOYelleqy
-	EeVObAVR8EEOiDegmQRk+UvChknFgNgyCTeJPVetBgFvHxPX3J1ISWxBDLcK7iQQvwoAbR8uBM4vf
-	p3Du4uqsz2Fryi5MdcB/BtKxnHfa7XEryi/7c/qCxMJqk+KZQyF4D5wuuJt1WypAnBwOSDrqLdiuO
-	LmwxMVQuLqJQbf8X7Kx/uJbHvjYvbsxjyxm1EVZMVqMRUjVu0g9+UAtI9WkmKWEMNWQwF9hErIchk
-	jykcNavg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+pC6P2wFC6tgfTh3xnmrpPeXHGWYvCudx8dC6Ur2wNk=; b=L2/VMoXCX4oT36uOdGJ95/H2EB
+	t2U/srwcrQp2LhqtJl4wg68OOI2E2zdhq4wmBy7zeLqXqPy34/7IXYIIgwI2sxi8zGmjlS8MbHALZ
+	Rucf7H7Awx+DpXviZKfhjGE5ZhEc5aUdl4EkSn80PDA57ymA7ppA6an5tRHo/Dsg1ICiWJNdhDxkH
+	rsdfCPvqiI8+i+cc4V4aLOY13TXKcstaTj4zFTqEhJBg3HQRwtKradP7N+fjRzo+e/huaQdhQvzvA
+	Lj1fE8E/fZg4VeTnySYVPfi+ciHtsdQszEfapJvs1qiyTkIvc8TNOP4hlA4VINsLLTjg6YPexDEGq
+	AoKRk1yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwcAR-00000009MOI-0RZe;
-	Wed, 19 Aug 2026 09:01:03 +0000
-Received: from mail-francesouthazon11011021.outbound.protection.outlook.com ([40.107.130.21] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wwcBz-00000009MbB-2CBm;
+	Wed, 19 Aug 2026 09:02:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwcAN-00000009MMD-4B4S
+	id 1wwcBy-00000009Maz-0XFG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 09:01:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jjUZdXLM4/IAIborsZ5J3I4iiA8xDa5wjZe3LLgmth3HRlnRPgC3O5YtFMPxrjmbEW33cHF65bsI9g6DDVFlo7/qUPGpi/DjqC6iL0a8C4sdhBjzlLNWmi6k6vvoeKa6A+sJmGiOc1ygbYEkoDr24mK6le2VQBJrogBW6vtEZ/PaQVakms254Tip8tpzjPvmHofV+x7hQ8+z0YTOBQs+Eur5qOD4sHOzG5F+3IGoTGdYtwUYloLg7pUIOSuq4QnbP/YMfwk5DYdk9Gpohh81BgOonhrv4on+DSEPdn+cqKoVsnKyu2CTEnqLrT9lX6ql5BLnss1iY8xS4Jm8PKiWYA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7efK9ckOxUveYODJtPTBQtOYYyk4csecwCsJslqjO1U=;
- b=EgoMdTiyfWXt6wav1t07ksLJZRI9XIphIu038C41rhfyQylR3fJ3ePgYkltudqkm2DjvCoT2RoFrk2Fb3bXCbmDQrfVNtKBUWEKvOShbdX7qa1a1BAgMmyJJNl67ek7yEgr8iVUI4z5Kcswai3iezc0b4vGuuQm5MTEg6wl11iiDIjtXk2WIPf4nH2ltr0Toc+sYUyVmopMbMzRrDB8NsnU2qdugwg8Nvuu9XglLvZzF/w6tYiZZ9kYLahXmRaTwg/8uKmqd+xlkAjiiK5Ub+1rgtOY0PEXZtzAI/3VwjbCMNFuc51Hp21tCNRk9QlE8J5AZ3pSDOsQr0g+QHbPt2w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7efK9ckOxUveYODJtPTBQtOYYyk4csecwCsJslqjO1U=;
- b=HlTa7frwC+2pnrLE+m6ag4hHxf2iQdRB70W/CdcbsMYRTh6ASCpBAqgDqYvw0FwQQFTbPRwET3VwZvU+bNCUpZpLNEfbM6bvlu+l8YAopvwqcQ3drQFUUMb9YqVk+9Nq/wVsqlXdKtMDvryFUmC642gpsDAa5lOzEu1uM/RarB8/yYs/F8FBrH7dq0Ph2eQQqFF/RIoN5ZS5GZ+LaNR8Hb7OWO4oEHx/hbT34GqB2GU2qJgsF1/SaSItxX7bjb7/IT/RuwaxJuPTKEJveAm8UvpjzYDJVOG+LJJvdllz/Ifye9pH2XXyPoGI/0dmB266vwfgQJ+XfVC0OOUIuABKcA==
-Received: from AMBPR04MB12334.eurprd04.prod.outlook.com (2603:10a6:20b:732::5)
- by DB8PR04MB7051.eurprd04.prod.outlook.com (2603:10a6:10:fd::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
- 2026 09:00:52 +0000
-Received: from AMBPR04MB12334.eurprd04.prod.outlook.com
- ([fe80::9b4f:ab4e:94c3:c457]) by AMBPR04MB12334.eurprd04.prod.outlook.com
- ([fe80::9b4f:ab4e:94c3:c457%4]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
- 09:00:52 +0000
-From: "Zhipeng Wang (OSS)" <zhipeng.wang_1@oss.nxp.com>
-To: "Frank Li (OSS)" <frank.li@oss.nxp.com>, "Zhipeng Wang (OSS)"
-	<zhipeng.wang_1@oss.nxp.com>
-CC: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>, Frank Li
-	<frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel
- Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Jindong Yue
-	<jindong.yue@nxp.com>, Xuegang Liu <xuegang.liu@nxp.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v3 2/4] irqchip/imx-irqsteer: Dispose of IRQ mappings in
- remove()
-Thread-Topic: [PATCH v3 2/4] irqchip/imx-irqsteer: Dispose of IRQ mappings in
- remove()
-Thread-Index: AQHdJj3M+6azbw4y60ugPmqe7RosxbaS9H0AgBIxZjA=
-Date: Wed, 19 Aug 2026 09:00:52 +0000
-Message-ID: <AMBPR04MB1233496B2BA37D441A5DB716EEBA52@AMBPR04MB12334.eurprd04.prod.outlook.com>
-References: <20260807072346.1222389-1-Zhipeng.wang_1@oss.nxp.com>
- <20260807072346.1222389-3-Zhipeng.wang_1@oss.nxp.com>
- <anYtxoIxO9tuMUTz@SMW015318>
-In-Reply-To: <anYtxoIxO9tuMUTz@SMW015318>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Enabled=True;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SiteId=686ea1d3-bc2b-4c6f-a92c-d99c5c301635;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SetDate=2026-08-19T09:00:30.0000000Z;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Name=NXP
- Confidential;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_ContentBits=3;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Method=Standard
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AMBPR04MB12334:EE_|DB8PR04MB7051:EE_
-x-ms-office365-filtering-correlation-id: b16fcf0e-4eda-433e-2df9-08defdd05ef2
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|19092799006|376014|1800799024|23010399003|10067099003|56012099006|4143699003|3023799007|22082099003|18002099003|11063799006|38070700021;
-x-microsoft-antispam-message-info: Ltj/rsGmSGH/uq6smvhg5nTTnC8QeIGywJNb3efcBp7SOWyJUgfh0IXgrAmrupRWLeZbx6GF9+72T5sAN1ES4BVUoo5IGeDu9qAdsT4taYhGCyMv6AbkMJBCeqkOiEALAiSxWltDuk6VU2ZOgA888GLVJOQMGupY+IzXhE3CM8B66N1O3k/dWexPj8w12Tyo/Su6M0nFnNnJFwbPDgLeRL6SnVtzzJ2EaDe3UIS4a52rJmcx2j778SMatDhqYvjhlunbs5F51cRV3n38fPv1V8AsLpmSXBM8HgoXS9yyRdWwqoyD4tOVElQw7blRzRaOEplcl0++cCkEPL6au68312C4VyI5jaRT+CmGO1EytJ2KOzPcX9GOhLcuR1iUApLPRH/WTIUAPbyWqaRFoCN3pAG/Jn7XaPClfxvue1WGctiFpXbIYJWBbC33/ab2rmKQWa2owjoHkWpR1rPTTkLxUL5vgCYiwrMbWv+FhQ111fThtXd1F+qt/O5g+eeq8B7TPZ3fMgCx7lte/JHO7LTON+mTu9meR3Oq6lsMQVdNmm/kKY0KBo4f60iWF1xlc2n6oP9Efq9NNnW10+uWwwMRledMkE3ZTgIeC9xyHOHlcOmnUHy4K0r02Q34USJQft+ueYG1mtfVBEl+h/OFS1XYDLoVaEgivM2STdKRgQWGoefJ6xBcWaWSgX0QTaFBIxsy4JBgMOs0ud9qdlPTc5O455P6S+kqtax1qcSstiAaanc=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB12334.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(1800799024)(23010399003)(10067099003)(56012099006)(4143699003)(3023799007)(22082099003)(18002099003)(11063799006)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SUFNOXhiSUhZNjZ6M04vRTlEM0V2TVpxRzBhVCtHNmhTYkppbEllL0NYUXlX?=
- =?utf-8?B?K2liaElJYjZGSEExT2ZaSlQ4eFdBM0cyN2wxU2xUblpoT1dtZk1yNDllU2c1?=
- =?utf-8?B?M0ZWb1RkQXRGN0lTeE0vUkt0SmkyMmx3OXlBZkNEOWJnODRVT2ZBRkMyNFB0?=
- =?utf-8?B?RVlnV25Sb1F5QlZibDN0SlNmN0RkeGp5bDNTcjVETHpyRFBFQkE3QnVWeUZN?=
- =?utf-8?B?TTArMGtiNUZpQ09LbzIvUVpVRlFpbkZoWEFLNjROTFZxT0MzSnJPSCsvSzhH?=
- =?utf-8?B?cXNuUDlNeGd6dkU0VVAyaTBHUHNLQVROdEJtcGdJN0hMejV0WVRqbU9hNm0z?=
- =?utf-8?B?LzNnbTZrbllxVXdIRU9zY1NVRzZQdlllSjlvOElKRnE4Z1RlQ3QyeTE5N3ps?=
- =?utf-8?B?bUp3UmdaYVJwUEJzKzg0MnhhQk9JQmNJVDUxcmE0N2FWQTlQTGFjU1dZaEh4?=
- =?utf-8?B?SzJJUWVSdTRIbGxFV2tvWkZNSEtBS3dFQk42a0VvSDYrS0w0ajR6MEptOWNw?=
- =?utf-8?B?V1QvdEpWeXc0eXRrajdLeWl1cDl3dStoaG0xNmNSdDdXYjVSS3AzREFwZ0tD?=
- =?utf-8?B?Q0VLSmlrR0lDa3FDc0RPK2RyQlBHWUN6Y1AvV291bENWNUVpOGJLdTFIa2Jz?=
- =?utf-8?B?SE5VMTlkUXpRc0szeStueklONmJ0NGdIelcvK1NQYTErSWFtOG5HMWhzZ04z?=
- =?utf-8?B?V0kxWDRGYzNFUEl2cjhrak5ySWQ4Zm5Cclo2K240OFluSThVZVVvQWF1TEd3?=
- =?utf-8?B?OU55akNwTGhOaDkxU3JYUzUrRVdUQUxIcHEyejljTDJMNnI2WXptd1hRTUlQ?=
- =?utf-8?B?cmNlWVVZSGkyck81MXNMQWdGTXlzbjBWZ3Y4cGpobnZKZ1MrMk9JcHR5a0Fq?=
- =?utf-8?B?MGt4SDE3djV5WGdEZlhSUVBNNE5QVzNyYWtKNWIvdC9EOHNuY3BWV1pVaEJD?=
- =?utf-8?B?VU5KK0d0WnZTdGEzT0lIaEpGTGp1SnMwSUtiTHlkN2p3SmJhaWo3eWVHN0NU?=
- =?utf-8?B?ZmdWSnVrZ0gxMmZvTnF1Y2xVSjd6bnBqOU1JN0VNenMwZmQ1eVplQjljYzdQ?=
- =?utf-8?B?dCs1aDFCQUZTOFBtbFhFNE9EK1lDamQvdWpkaFZ3eHpqYVVBeFJsRkJRNG5M?=
- =?utf-8?B?eHBBR0tyc3h2WUphTGxrUEEzMEhralcybUVZVzRwTno5ZWxrZ0FFZFZJd29o?=
- =?utf-8?B?NkhxNE52MWozTlFlY3RFeE1wa1JLL3Z6VkJqeG9MYUt3d0pHNzkxcUdEaml4?=
- =?utf-8?B?REhwa0ttV0tjTWt0ZVppNmxvKzdHUXhrQUZqcnVQaVp3OTJQVEx6d1JKV2dD?=
- =?utf-8?B?SWhDMUh5ano2dkY0VGJNMTJ6NVFGeG51YTA2ZWhmOUhXRzdvZEdTL0RicGt1?=
- =?utf-8?B?c3J3TmFKajZaamlLd21scEFDcEM3UzlObE5JL0Frb3VHL09ocWtvZ0JlTjNV?=
- =?utf-8?B?OEFtOEhFajZaVWZESjg3YzNObEFUTENkUHVLaC9hOXpBRG9MZXhJclNRa2Fv?=
- =?utf-8?B?YXVsa3I2b2ZFSW5PcnQ4WDdOMDBiL3FOTWNVcnNzUmFNZnhOaGN1aU1uU0M2?=
- =?utf-8?B?OUw2QkJCWmJWa0diWi9ESFk3WjU4VFJlVDlndnh3YVpScjNPaFNvbjVzUnNp?=
- =?utf-8?B?OXJoSVQ3SlA5T2FtbDRwLzN3UEZFMUZoN1pGMjFpZ05JWmplcWZwNGxvUzBm?=
- =?utf-8?B?VzZvWGpXZ3lVa2ZSaFgyQmMyVWI0MFYyZmJSaDlYQmZrMlZMOUsyWHlZOTlR?=
- =?utf-8?B?YlhLdkNsb0FKcFMzeExLUXdwQjRleXJ0UXR2cnJlZjhaS055NlNpTXQ1c2tl?=
- =?utf-8?B?ZnRYU2tkYUxURHJpb3Y0V2ZFQnVNeXRXK21ycnh1eHQ2c2pwZ0NXeFVlZ1Jt?=
- =?utf-8?B?cGhicTljT0JqcU5maUlqU1FyVElmSDNtUHBNeXFHS2Fra1UvYStWdVlLaWR2?=
- =?utf-8?B?OUYvNnkzdTBGaGU4S3FpdFB5VlNiZ0FPQ3ZrZUE3ZVlzbDg4bklLR1hIREVD?=
- =?utf-8?B?MHR3VGJDZHBYbjBYZ05zZW1vbEtZNjd2ZHljVjh6NCs2ZUFPKzRKUkVkSEQ2?=
- =?utf-8?B?akIwaVpSckpDQXFIamF1VmtoemsxdXdvMHA0c3FjQUowMnNHa0tpaHowaGls?=
- =?utf-8?B?S24wc3RFd2w4R1lpZGdQL0gxSjVvNHRIVHVNYnBqaWRvajdNU0t5bldDYkQx?=
- =?utf-8?B?aFlnWDJ2QmhVdnZQOFFPSFRCTitjK0VyN2JVN2Z6OERPejFYU0FqWDVEQitq?=
- =?utf-8?B?M1dndGZZRHU4Kzh4Z1Q2c2sxa0J3Zm1XeTdEd2t2NkdrSmN5cE5nNHB2VXR2?=
- =?utf-8?B?U0tLSXZ6SGtLaTluWFFKZUZrMGU0TUZvNVFzYlFvYUdyZmZ1T05hQT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Wed, 19 Aug 2026 09:02:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 80D536020E;
+	Wed, 19 Aug 2026 09:02:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A6311F000E9;
+	Wed, 19 Aug 2026 09:02:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787130155;
+	bh=+pC6P2wFC6tgfTh3xnmrpPeXHGWYvCudx8dC6Ur2wNk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=hqAXU9NL7FiJugNuQJcUisU5GE4tVqUHw0cwHUNECHSEMXNcTZWvMRZJrv5rDHm/g
+	 lDA+8CIBQkJHRCcFAKGh6MyxmRzXZw1TMdNhUoeYeDQeBfE7xoQSLhQqulUWYQpBDy
+	 NoAkuKUDBc2TgZUOuUNIIPOMH3VxkzO0hTFa8554DRGuBaBfkC5RMBz3w1OPvzmuzn
+	 D8fxK8ydue3+EVbOqamQh/ctr5dXFdz/am0qA5tLFmVSZWnJ47RsxFTdvfVqgEi3+N
+	 UR39d0ejRYv1ODyW96KH4+u8AohJ70kevowJxrN/bMni45deBhlnXXpe2EgtsbD+6W
+	 cxK/JEHZbAySQ==
+Message-ID: <c0657108-1958-4c4c-b5f5-0eb24e81b2b4@kernel.org>
+Date: Wed, 19 Aug 2026 11:02:21 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB12334.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b16fcf0e-4eda-433e-2df9-08defdd05ef2
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Aug 2026 09:00:52.1096
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: PfVBPo/MqbM251ezXZZq4zXIAr88z/XXj1SqlAQwKCypkB23tkJQPEn/HXprWncgWl7WKrpB49dr48iH8nQNmw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7051
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_020100_387090_FF0AF5A1 
-X-CRM114-Status: GOOD (  29.21  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/5] arm64: dts: google: Add initial dts for
+ frankel/blazer/mustang
+To: Doug Anderson <dianders@chromium.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor@kernel.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>,
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org,
+ soc@lists.linux.dev, Juan Yescas <jyescas@google.com>,
+ RD Babiera <rdbabiera@google.com>, Brian Norris <briannorris@google.com>,
+ William McVicker <willmcvicker@google.com>, kernel-team@android.com
+References: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
+ <20260722-contrib-pg-pixel10-initial-dts-v2-4-3abae9717feb@linaro.org>
+ <20260724-dancing-skunk-of-novelty-72c1b8@quoll>
+ <CAD=FV=U0HUdjPcg+5Vx8_ag0zLd3CZx5w5SFr38p+YwRnC_G6w@mail.gmail.com>
+ <CAD=FV=V2+D1m5L-0d81W3E_ih2us-SrddeBUAJtMybpQons7Ww@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CAD=FV=V2+D1m5L-0d81W3E_ih2us-SrddeBUAJtMybpQons7Ww@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,72 +134,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DQoNCg0KTlhQIENvbmZpZGVudGlhbA0KPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBG
-cm9tOiBGcmFuayBMaSAoT1NTKSA8ZnJhbmsubGlAb3NzLm54cC5jb20+DQo+IFNlbnQ6IDIwMjbl
-ubQ45pyIOOaXpSAzOjExDQo+IFRvOiBaaGlwZW5nIFdhbmcgKE9TUykgPHpoaXBlbmcud2FuZ18x
-QG9zcy5ueHAuY29tPg0KPiBDYzogVGhvbWFzIEdsZWl4bmVyIDx0Z2x4QGtlcm5lbC5vcmc+OyBN
-YXJjIFp5bmdpZXIgPG1hekBrZXJuZWwub3JnPjsNCj4gRnJhbmsgTGkgPGZyYW5rLmxpQG54cC5j
-b20+OyBTYXNjaGEgSGF1ZXIgPHMuaGF1ZXJAcGVuZ3V0cm9uaXguZGU+Ow0KPiBQZW5ndXRyb25p
-eCBLZXJuZWwgVGVhbSA8a2VybmVsQHBlbmd1dHJvbml4LmRlPjsgRmFiaW8gRXN0ZXZhbQ0KPiA8
-ZmVzdGV2YW1AZ21haWwuY29tPjsgSmluZG9uZyBZdWUgPGppbmRvbmcueXVlQG54cC5jb20+OyBY
-dWVnYW5nIExpdQ0KPiA8eHVlZ2FuZy5saXVAbnhwLmNvbT47IGxpbnV4LWtlcm5lbEB2Z2VyLmtl
-cm5lbC5vcmc7IGlteEBsaXN0cy5saW51eC5kZXY7DQo+IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMu
-aW5mcmFkZWFkLm9yZw0KPiBTdWJqZWN0OiBSZTogW1BBVENIIHYzIDIvNF0gaXJxY2hpcC9pbXgt
-aXJxc3RlZXI6IERpc3Bvc2Ugb2YgSVJRIG1hcHBpbmdzIGluDQo+IHJlbW92ZSgpDQo+DQo+IE9u
-IEZyaSwgQXVnIDA3LCAyMDI2IGF0IDA0OjIzOjQ0UE0gKzA5MDAsIFpoaXBlbmcud2FuZ18xQG9z
-cy5ueHAuY29tDQo+IHdyb3RlOg0KPiA+IEZyb206IFpoaXBlbmcgV2FuZyA8emhpcGVuZy53YW5n
-XzFAbnhwLmNvbT4NCj4gPg0KPiA+IHJlbW92ZSgpIHRlYXJzIGRvd24gdGhlIGNoYWluZWQgaGFu
-ZGxlcnMgYW5kIHRoZSBJUlEgZG9tYWluIGJ1dCBuZXZlcg0KPiA+IGRpc3Bvc2VzIG9mIHRoZSBJ
-UlEgbWFwcGluZ3MgaXQgY3JlYXRlZC4gVGhlIHBhcmVudCBtYXBwaW5ncyBmcm9tDQo+ID4gaXJx
-X29mX3BhcnNlX2FuZF9tYXAoKSBhbmQgdGhlIGNoaWxkIG1hcHBpbmdzIGhhbmRlZCBvdXQgYnkg
-dGhlIGRvbWFpbg0KPiA+IGFyZSBsZWFrZWQsIGFuZCB0aGUgY2hpbGQgaXJxX2Rlc2NzIGFyZSBs
-ZWZ0IHBvaW50aW5nIGF0IHRoZSBkcml2ZXIncw0KPiA+IGlycV9jaGlwIHBhc3QgaXJxX2RvbWFp
-bl9yZW1vdmUoKS4NCj4gPg0KPiA+IERpc3Bvc2Ugb2YgdGhlIHBhcmVudCBtYXBwaW5ncyBhbG9u
-Z3NpZGUgdGhlIGNoYWluZWQgaGFuZGxlciB0ZWFyZG93biwNCj4gPiBhbmQgZGlzcG9zZSBvZiB0
-aGUgY2hpbGQgbWFwcGluZ3MgYmVmb3JlIHJlbW92aW5nIHRoZSBkb21haW4uDQo+ID4NCj4gPiBG
-aXhlczogMDEzNmFmYTA4OTY3ICgiaXJxY2hpcDogQWRkIGRyaXZlciBmb3IgaW14LWlycXN0ZWVy
-DQo+ID4gY29udHJvbGxlciIpDQo+ID4gU2lnbmVkLW9mZi1ieTogWmhpcGVuZyBXYW5nIDx6aGlw
-ZW5nLndhbmdfMUBueHAuY29tPg0KPiA+IC0tLQ0KPiA+IENoYW5nZXMgaW4gdjM6DQo+ID4gIC0g
-U3BsaXQgb3V0IG9mIHRoZSBzaW5nbGUgdjIgcGF0Y2guIEluIHYyIHRoaXMgd2FzIGZvbGRlZCBp
-bnRvIHRoZQ0KPiA+ICAgIG1vZHVsZS1jb252ZXJzaW9uIHBhdGNoOyBubyBmdW5jdGlvbmFsIGNo
-YW5nZS4NCj4gPg0KPiA+ICBkcml2ZXJzL2lycWNoaXAvaXJxLWlteC1pcnFzdGVlci5jIHwgNyAr
-KysrKystDQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCA2IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24o
-LSkNCj4gPg0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2lycWNoaXAvaXJxLWlteC1pcnFzdGVl
-ci5jDQo+ID4gYi9kcml2ZXJzL2lycWNoaXAvaXJxLWlteC1pcnFzdGVlci5jDQo+ID4gaW5kZXgg
-YTJmMDYyOWIyMmEzLi40YTJmZThiYTk3ZjUgMTAwNjQ0DQo+ID4gLS0tIGEvZHJpdmVycy9pcnFj
-aGlwL2lycS1pbXgtaXJxc3RlZXIuYw0KPiA+ICsrKyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtaW14
-LWlycXN0ZWVyLmMNCj4gPiBAQCAtMjc3LDcgKzI3Nyw3IEBAIHN0YXRpYyBpbnQgaW14X2lycXN0
-ZWVyX3Byb2JlKHN0cnVjdA0KPiA+IHBsYXRmb3JtX2RldmljZSAqcGRldikgIHN0YXRpYyB2b2lk
-IGlteF9pcnFzdGVlcl9yZW1vdmUoc3RydWN0DQo+ID4gcGxhdGZvcm1fZGV2aWNlICpwZGV2KSAg
-ew0KPiA+ICAgICBzdHJ1Y3QgaXJxc3RlZXJfZGF0YSAqaXJxc3RlZXJfZGF0YSA9IHBsYXRmb3Jt
-X2dldF9kcnZkYXRhKHBkZXYpOw0KPiA+IC0gICBpbnQgaTsNCj4gPiArICAgaW50IGh3aXJxLCBp
-Ow0KPiA+DQo+ID4gICAgIGZvciAoaSA9IDA7IGkgPCBpcnFzdGVlcl9kYXRhLT5pcnFfY291bnQ7
-IGkrKykgew0KPiA+ICAgICAgICAgICAgIGlmICghaXJxc3RlZXJfZGF0YS0+aXJxW2ldKQ0KPiA+
-IEBAIC0yODUsOCArMjg1LDEzIEBAIHN0YXRpYyB2b2lkIGlteF9pcnFzdGVlcl9yZW1vdmUoc3Ry
-dWN0DQo+ID4gcGxhdGZvcm1fZGV2aWNlICpwZGV2KQ0KPiA+DQo+ID4gICAgICAgICAgICAgaXJx
-X3NldF9jaGFpbmVkX2hhbmRsZXJfYW5kX2RhdGEoaXJxc3RlZXJfZGF0YS0+aXJxW2ldLA0KPiA+
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5VTEwsIE5VTEwp
-Ow0KPiA+ICsgICAgICAgICAgIGlycV9kaXNwb3NlX21hcHBpbmcoaXJxc3RlZXJfZGF0YS0+aXJx
-W2ldKTsNCj4gPiAgICAgfQ0KPiA+DQo+ID4gKyAgIGZvciAoaHdpcnEgPSAwOyBod2lycSA8IGly
-cXN0ZWVyX2RhdGEtPnJlZ19udW0gKiAzMjsgaHdpcnErKykNCj4gPiArICAgICAgICAgICBpcnFf
-ZGlzcG9zZV9tYXBwaW5nKGlycV9maW5kX21hcHBpbmcoaXJxc3RlZXJfZGF0YS0+ZG9tYWluLA0K
-PiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBod2ly
-cSkpOw0KPiA+ICsNCj4NCj4gb25seSBjYWxsIG9uY2UgaXJxX29mX3BhcnNlX2FuZF9tYXAoKSwg
-d2h5IG5lZWQgaXJxX2Rpc3Bvc2VfbWFwcGluZygpDQo+IHR3aWNlPw0KPg0KPiBGcmFuaw0KVGhl
-IHR3byBsb29wcyBkaXNwb3NlZCBvZiB0d28gZGlmZmVyZW50IHNldHMgb2YgbWFwcGluZ3MsIG5v
-dCB0aGUgc2FtZQ0Kb25lcyB0d2ljZToNCg0KIC0gdGhlIGZpcnN0IGxvb3AgZGlzcG9zZWQgb2Yg
-dGhlIHBhcmVudCBvdXRwdXQgbWFwcGluZ3MgdGhlIGRyaXZlcg0KICAgY3JlYXRlZCBpdHNlbGYg
-d2l0aCBpcnFfb2ZfcGFyc2VfYW5kX21hcCgpIChpcnFfY291bnQgb2YgdGhlbSk7DQogLSB0aGUg
-c2Vjb25kIGxvb3AgZGlzcG9zZWQgb2YgdGhlIGNoaWxkIGlucHV0IG1hcHBpbmdzIHRoZSBkb21h
-aW4NCiAgIGhhbmRlZCBvdXQgdG8gZG93bnN0cmVhbSBjb25zdW1lcnMgKHJlZ19udW0gKiAzMiBo
-d2lycXMpLg0KDQpUaGF0IHNhaWQsIHRoZSBjaGlsZCBtYXBwaW5ncyBhcmUgb3duZWQgYW5kIGZy
-ZWVkIGJ5IHRoZWlyIGNvbnN1bWVycywNCmFuZCB3aXRoIHRoZSBkb21haW4gbm93IG1hbmFnZWQg
-YnkgZGV2cmVzIChwYXRjaCAyLzUpIHRoZXkgYXJlIHRvcm4gZG93bg0KYXV0b21hdGljYWxseS4g
-U28gdGhlIGNoaWxkIGxvb3Agd2FzIGJvdGggdW5uZWNlc3NhcnkgYW5kIG5vdCB0aGUNCmRyaXZl
-cidzIGpvYi4gSW4gdjQgKHBhdGNoIDMvNSkgcmVtb3ZlKCkgb25seSBkaXNwb3NlcyBvZiB0aGUg
-cGFyZW50DQptYXBwaW5ncyBpdCBjcmVhdGVkLCBtYXRjaGluZyB0aGUgc2libGluZyBpcnEtaW14
-LWludG11eC5jLg0KDQpCUnMsDQpaaGlwZW5nDQoNCj4NCj4gPiAgICAgaXJxX2RvbWFpbl9yZW1v
-dmUoaXJxc3RlZXJfZGF0YS0+ZG9tYWluKTsNCj4gPg0KPiA+ICAgICBjbGtfZGlzYWJsZV91bnBy
-ZXBhcmUoaXJxc3RlZXJfZGF0YS0+aXBnX2Nsayk7DQo+ID4gLS0NCj4gPiAyLjM0LjENCj4gPg0K
-PiA+DQo=
+On 19/08/2026 00:13, Doug Anderson wrote:
+> Hi,
+> 
+> On Thu, Jul 30, 2026 at 4:32 PM Doug Anderson <dianders@chromium.org> wrote:
+>>
+>>>> +     /*
+>>>> +      * The Pixel bootloader considers it a fatal error if it doesn't find
+>>>> +      * a `ufs0` alias so it can add calibration data to the node. Until
+>>>
+>>> Fake node is ok, but alias won't fly because aliases are not allowed for
+>>> ufs. Well, would work 10 years ago, but this is a device from ~2025 (so
+>>> SoC maybe a bit earlier), thus Google already knew that they MUST talk
+>>> with upstream open source maintainers before they ship such ABI.
+>>>
+>>> They did not talk, so you reap what you sow.
+>>>
+>>> There is no more excuse for a vendor to ignore open source and push
+>>> whatever-ABI-they-wish into their product, if they ever want to upstream
+>>> that product.
+>>>
+>>> I know it is not your fault, obviously. And I know that not much you can
+>>> do, so that is not rant towards you nor towards Doug.
+>>>
+>>> You will have to keep this part of patch out of tree or fix the Pixel
+>>> bootloader.
+>>
+>> FWIW, it actually _is_ a rant towards me, since I added the "ufs0" alias. :-P
+>>
+>> When I was originally bringing up Pixel 10 with upstream, the
+>> bootloader had a hardcoded path to the UFS node. It looked for it at
+>> "/ufs@3c400000". That certainly wasn't going to work. Downstream
+>> _still_ hasn't transitioned to having a "soc@0" node to put all the
+>> MMIO peripherals under, so the equivalent upstream path would be
+>> "/soc@0/ufs@3c400000"
+>>
+>> Now, I certainly could have made the bootloader search both paths, but
+>> that seemed bad to me because:
+>>
+>> 1. As I understand it, DT paths aren't ABI. While it feels unlikely
+>> upstream would change "/soc@0/ufs@3c400000" to something else, I
+>> believe upstream would feel free to and not consider it a "breaking"
+>> change. This makes it feel unwise to hardcode the path in the
+>> bootloader. In the past, upstream has renamed nodes to clean them up
+>> and it wasn't considered a violation of the sanctity of the
+>> device-tree ABI.
+>>
+>> 2. If #1 is untrue and we consider DT paths as ABI, it's still a bit
+>> awkward. We have one bootloader base that supports multiple SoCs. The
+>> unit address differs across SoCs, even though the IP block is nearly
+>> the same (bootloader still adds the same type of calibration data to
+>> the node). The code I started with had a bunch of #if statements for
+>> the paths in various SoC variants, and that went away with the alias.
+>> I suppose the bootloader needs to know the UFS base address anyway so
+>> I could have probably constructed the node name based on other
+>> #defines, but it still was a bit awkward.
+>>
+>> 3. I certainly could have searched the whole device tree for the UFS
+>> node by "compatible" string, but the Pixel 10 (and future) UFS
+>> controllers aren't upstream yet. We wouldn't be able to land the Pixel
+>> 10 device tree without the UFS bindings landed yet and I think we're a
+>> bit far away from getting the Pixel 10 UFS bindings landed...
+>>
+>> With all that, the "aliases" seemed like a pretty clean way for the
+>> bootloader to find the UFS node. It also matched my understanding of
+>> an appropriate use of an "alias".
+>>
+>> Any suggestions for how to resolve this? Do we go back to hardcoding a
+>> path in the bootloader and cross our fingers that upstream never
+>> cleans up anything that changes the path to the UFS node? Would it
+>> really be terrible to allow a "ufs0" alias for this case?
+>>
+>> As a side note, I did "talk" to upstream shortly after adding the
+>> "ufs0" node by sending the Pixel 10 patches upstream, but I guess we
+>> were so focused on the overlay topic that nobody thought to comment on
+>> the "ufs0" node? At the time, I'm fairly certain my resulting device
+>> tree files passed schema validation at the time, too...
+> 
+> I guess no response / silence == my email was so dumb that it wasn't
+> worth responding to? Even despite that, we still need to find a way to
+> move forward, so popping back here...
+> 
+> I did some digging. As far as I can tell:
+> 
+> * Nothing in the DeviceTree specification 0.4 [1] mentions that
+> aliases are deprecated.
+> 
+> * Nothing in the dt-schema repository [2] causes validation to fail
+> when you use new aliases and there is no "allowlist" of old aliases
+> that are allowed for historical reasons.
+> 
+> * There is a single reference in the kernel "Documentation/devicetree"
+> about not using aliases to assign an "instance ID" [3].
+> 
+> Is there some other documentation saying "aliases == evil" that I
+> missed? Maybe some email thread we're all supposed to have read?
+
+A lot of rules are implied by other rules and this one, how Linus stated
+in other thread, might be implied by no-Linuxisms as you want ordering
+or stable naming of Linux /dev entries.
+
+I understand your reason is actually different than above, but your code
+does not suggest that.
+
+Anyway, if you wanted to have aliases as ABI, it would have to be
+documented. You cannot send post-factum DTS and say "we already use it".
+Every ABI must be documented before usage.
+
+And this is what my comment was about: "they MUST talk
+with upstream open source maintainers before they ship such ABI."
+
+And no, sending such DTS in your v1 is not documenting ABI. Does not count.
+
+> 
+> Is the only issue here the fact that the alias ends with a "0" and
+> thus implicitly provides an "instance ID"?  Would it be OK if I
+> changed my alias name to "ufs-primary" or "ufs-internal" or "ufs-boot"
+> or just "ufs"? We're not using the alias to get an instance ID, but
+> when I added the alias I followed the pattern of all the other aliases
+> and put an number at the end.
+> 
+> I'm happy to attempt to fix our bootloader using whatever scheme
+> upstream suggests. I'm trying to "talk to upstream" as requested, but
+> for it to work I need upstream to talk back. :-)
+
+Make your case - what is the purpose of it? Boot device? Then you have
+"chosen" node for stuff between firmware and OS. There is even a
+property called "bootsource". If this is not boot device, but some
+calibration data for ONE given instance of IP, regardless whether you
+boot from it or not, then I find such case as border-base and not worth
+implementing, because basically one can come one month later with "I
+need 1000 aliases because my bootloader is patching up every device
+node". It's called overlays then...
+
+Best regards,
+Krzysztof
 
