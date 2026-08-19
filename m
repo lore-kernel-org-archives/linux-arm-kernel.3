@@ -4,113 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4072FC5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 12:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61ADDC5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 12:27:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YH9CccaHWv3ASfRA/IHwqH0rlrpZgSFTpN95vWO1idc=; b=ScMBCucxYQvx2AeoNgDLd7J/QK
-	OUTaMjVftRuVOcaEJ5wnFB9lLAVNZ3IcgjJiddlDstJV3+/gBFmxvbWWeg5Mxbp44IDMbmhfIYXps
-	yUIN17QIpuKm7I3pydDSp3KDNGO9RCEsj/Vl6JDC0MbI8xu5q4kjCo8kE2p/x2bQE8gGPB38aFivD
-	VUanCvfRwce/IJSPEpX0Gc25ONGaJD3mPQTx0Sg+UKz71TBX+Ie++axn40DCW8j6f8RHeyRFelW4t
-	+S34Y2hBLjio4JnYihy5alm1DRLwgUSXdlRxq/jCEFOAOwkYXHxfVbqkhWZnI0VS8MEFY4Yaswmoq
-	m0TS+G9A==;
+	bh=oLw7yk5kNbZMeTw+UMLOAwK7lyRv1aw53p64YFqkg7g=; b=UOUoMTicfpAuLmC4oDZD0LA/No
+	NRrI9WJFceI+K8Vtn3KIg/DZk9z14Oze/UfIqGkaPAn9j+M5EzCd+eyVlqReZ8aY9yXM74Inwpz17
+	bZtLcrHqGE3mI6VogxjXyMvYAB9S0//aIwAqNZVIexWdORX1TaPBRwjEjbF2zFy8GI6tCcpTabYbB
+	ae5aXj3lWqKJMMhvotKl/XCjrYHRWohVstZ8B0LrspubRzrgtPA1ndWbF6Dzs42LAjoDIy/K9PG84
+	ySWOFfy6Y6IU+p5ntnLWsmiv0EF6vBQlwCbNNyJ5iTlm1n13fZ4S/CxnyFOTerccOPAHRy0Py5mS+
+	mqEO5XdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwfNr-00000009k6t-48U1;
-	Wed, 19 Aug 2026 12:27:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wwfOY-00000009kBJ-0i6r;
+	Wed, 19 Aug 2026 12:27:50 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwfNq-00000009k6g-2IQW
+	id 1wwfOV-00000009kAM-1Jef
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 12:27:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE67E41A37;
-	Wed, 19 Aug 2026 12:27:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BB5D1F000E9;
-	Wed, 19 Aug 2026 12:26:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787142425;
-	bh=YH9CccaHWv3ASfRA/IHwqH0rlrpZgSFTpN95vWO1idc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=FkN15nbY0b7sG9Uuub6O7i5ZF7o/iQdxbmfgnXOjA4HGtLPevpBBfWG4XfxxgyE9I
-	 /zMHY+tgkmGUfI0/BUM1ppnUEZgPXp8QBjqRk2PgSniJ9H9tIA9L55cWZmaeiDAmYL
-	 1Rl4orClZjG29yXUjFeE7781gvp/7oqiw2uy8le/TXIEwhTHJyBPRQ5Ur8FA715KYE
-	 JwogJmepDODslVUMyvcV9Z+gCPSlDVgxRMMrvqPFpFFjMmaUMt2MqNEDbOQNdp3rCn
-	 1iUN4HKXdxHAjUFWW3WZOB2WMg9Ypgd676czMtfxp34a9FvQ1zdRfQaTqjQHuKM5nF
-	 HA0ncGc6bjwYQ==
-Message-ID: <e554c007-67e3-4fbf-b85e-5de02f649e83@kernel.org>
-Date: Wed, 19 Aug 2026 14:26:53 +0200
+	Wed, 19 Aug 2026 12:27:48 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-c207cb16cf5so155018966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 05:27:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787142465; cv=none;
+        d=google.com; s=arc-20260327;
+        b=JEZhf05BHgHydxJHUo41dE2GAudFfD/C8g3s5GK6lKIiOpPmHrfXE2spR6QWgib98D
+         aXVuReFzNyLREAkvtqmfzLgGVKP3V5eMVSb8lh81JpHB7+pI4mKX4NCrbb70Br0gC0R6
+         yJ/YP6joKZftsJViyv2gQPzlPVCnFyH6DbL1mfkh3qle227a6U0i2al22jpxhTA8dGbe
+         11/pRjnydKeDrUWoAFt36//YVxc8mUuoTq2/tiaCDBc50I0z+lrYy4O5c5mv70BTa/sG
+         YFo8a5npxUiPt0dU+5tbzagHmMXlkAiYM3n0+wvrdZRajFcSIxbETJP4a5UxrAozxemE
+         fjdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=oLw7yk5kNbZMeTw+UMLOAwK7lyRv1aw53p64YFqkg7g=;
+        fh=msVrp+C8lJdYvQT/3puZhsSmhXjTcljS/gB4wEX4GTc=;
+        b=p/PCRPnU81dfXPBl8t5iPpZFBIdGHEDvpgkR6gvBlfSZZc7v9QFOMqgLwVCl2GJdsD
+         nZMybYgBuTwkdCZSIs1iNFgH6K9UzQ1z7mhWVCHreZiBff27A0D4e/Mz7cbTFlEy/COo
+         xqKxdjhrCwHhDjt8oBvnNAjkTID13KtftQpD+1O+goHIDOi6RnNelrseRCHtPze1jgUq
+         BR9RS5W1oME4QDDUWHN96tdE1I90q4uCZeTujxw2HF6MW4e1vPfyvAEHeJAkfvH3yeUS
+         6KeRHpmUwfCyGBGcjRjewqJWJDvlXWNufAmXY8k7J2qNBhJXydIgEnbK7uDMcv8JBPBn
+         yesg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787142465; x=1787747265; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=oLw7yk5kNbZMeTw+UMLOAwK7lyRv1aw53p64YFqkg7g=;
+        b=cPK4tyuofU79qlOnWG0gK8vCni7KJkdGV5LeQ4IKKFdYAbxw7z0bSMmbi4zkTLuG+j
+         Vebn0Oy4hSNUQLbZgRZrKwEPJc7js4ZPZalwZ2BOoJ2eDe0LQDbNZEt4jPNqcgLtDy1M
+         tck2UiTtft65zHXzWOAInmzxHGtGMpcT4NKibU5b0SsHKsqILaYJj527qSEZXQYzvrkM
+         anj24Tm7YMD/A93fhG/Sy/JEWo1ivvtdDEmcRXxP6dpUjlZKgS2XJxkRL2bpcbeLf57q
+         IgitJ8g1uviMjsWTy7zuid+QUw1eH45jc4bSFzUELiQdM9E2iTEV2p3V5G0b5/Mm0aRy
+         JYHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787142465; x=1787747265;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oLw7yk5kNbZMeTw+UMLOAwK7lyRv1aw53p64YFqkg7g=;
+        b=L4oRWwNQy4tLzARWoUxYdgMLxKbvGn2Rw4REdSadAK6MvmE87Kbf8h6fayVy8aZsBB
+         ZyOBoC49GhbPzbuDDz5c+0UyOzD7C0mTXNZ+CsvxA+vR1u2VxkPjCwZOetHF65cLc7BT
+         3Pc/Yx6GRxTIWE39UX9rrP/BoVBBxSo4mMo5JFjCBzAPOLKlDJGI2DjMBL5BVOFic7Tk
+         vrzIovExL1oWo+rZihN7bph9AzGR7PQamKD4E24aPuRy7HWa4w5bLgz7Wk0pDERRBGdB
+         6PK7jttUYsGDaVJkNczVRxYFbOL1FbSG+UgaKnx6bt2/AExeYhe5mKROwrf08RRzO6ll
+         s0Yw==
+X-Forwarded-Encrypted: i=1; AHgh+RqUv25+UbwywU2/Z9ZR9L1K87LetG+h24cQBadpr0N24cO2I1J9i291t8Mr3z/jXGlaSMRz1aGHfa7gMiXsanHn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwUc6tq7VZY0/ru5UdSEpwDsktYc471txPxCzjmscdyYnfXNcS
+	u680nf9JaSRChzzF8RwJoqF1sv/qUE1kjfo+sAR2yOH5YcdKuvCamzT9V8GpwAqaPiq+OeGsTyY
+	ga+u/Xj/vEYzYKNEWZEuhDPohJB98UqQ=
+X-Gm-Gg: AR+sD10foUmL+Gq+8DmtWi8RDxsQ5PfUOsaagJrWdB2RbUSI/s00kUvnQPwIVyBFH3H
+	DbhF6U489PRlWDUTWnvebZCWKuUg73GqhJk7pu8C89Yb+ic6TEUh9mQfk0Ls14Xm2lMNHbo99f2
+	bZXRWdljHyFErDiwKhZ22eE/g2KsqHvTF2H15wbZR4x1jFgLeAPRLeMlm0YCftGIRujG3TQOOhQ
+	vLHum7dsLWae6sgBaALLeqd4nDoilgzk7zHEWxjQZ68v43qqOTPLMG+NbfV76W4Iw7lfB+cneyZ
+	fGM78VH4BbNXAIiGE6WBiNESqG+U6fgGodoVg1vaQF+G0bNurWm8hAVKl4XN1ZbqPPQ89R+qOcq
+	PHtiHJhMsnRZkiRKkpw1T4oOCAeIkDw==
+X-Received: by 2002:a17:907:a892:b0:c1c:5c90:1bb0 with SMTP id
+ a640c23a62f3a-c23f92d6210mr244553366b.8.1787142464393; Wed, 19 Aug 2026
+ 05:27:44 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/3] dt-bindings: net: wireless: add flag
- marvell,ignore-regulatory-hint
-To: George Valkov <gvalkov@gmail.com>
-Cc: briannorris@chromium.org, johannes@sipsolutions.net, andrew@lunn.ch,
- krzk+dt@kernel.org, francesco@dolcini.it, johannes.berg@intel.com,
- kees@kernel.org, miriam.rachel.korenblit@intel.com, wenst@chromium.org,
- rafael.beims@toradex.com, avraham.stern@intel.com, error27@gmail.com,
- s.kerkmann@pengutronix.de, gregory.clement@bootlin.com,
- sebastian.hesselbarth@gmail.com, robh@kernel.org, conor+dt@kernel.org,
- Frank.Li@nxp.com, chunfan.chen@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-wireless@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- stable@vger.kernel.org
-References: <CADOrJmbTyrGGkq+9OJDXCgTa2HvNo8BWxoE6yjafcrOq7WNamw@mail.gmail.com>
- <20260817215428.84740-1-gvalkov@gmail.com>
- <20260819-generous-nickel-dalmatian-b6bb08@quoll>
- <CADOrJmYfBe3ADun_kFjFSH6YOSTX7Vu3UsFsL57yuRdaQ=eJCA@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <CADOrJmYfBe3ADun_kFjFSH6YOSTX7Vu3UsFsL57yuRdaQ=eJCA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260817090601.1256389-1-pawlik.dan@gmail.com>
+ <20260817161756.5fd2185a@kernel.org> <CALC2Apj7rQv=6uUqaqBjfJ9yO+VCddQqHB=yDhXH7+QUCh2JyA@mail.gmail.com>
+ <20260818082933.28b5c9d1@kernel.org>
+In-Reply-To: <20260818082933.28b5c9d1@kernel.org>
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+Date: Wed, 19 Aug 2026 14:27:33 +0200
+X-Gm-Features: AcwNN1VrJEfvg5ZvmKtuPToUsD-4XONBWJ61vlul_aZ3nC7ZUbLE5WyISNTim7I
+Message-ID: <CALC2Apj-KLB5CVbSvoZWvA4Oan7dmAerK=VP7W86jmErWW8OdQ@mail.gmail.com>
+Subject: Re: [PATCH v8] net: airoha: npu: use cacheline-sized buffers for
+ mailbox DMA
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, lorenzo@kernel.org, win847@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260819_052747_388402_268F0367 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,89 +121,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/08/2026 13:42, George Valkov wrote:
-> On Wed, 19 Aug 2026 at 12:42, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On Tue, Aug 18, 2026 at 12:54:26AM +0300, Georgi Valkov wrote:
->>>
->>> diff --git a/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml b/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml
->>> index 930b700b73d0..5f235cb9f3e5 100644
->>> --- a/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml
->>> +++ b/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml
->>> @@ -59,6 +59,12 @@ properties:
->>>      description: Calibration data for sub-band 3 in the 5GHz band.
->>>      maxItems: 502
->>>
->>> +  marvell,ignore-regulatory-hint:
->>> +    $ref: /schemas/types.yaml#/definitions/flag
->>> +    description:
->>> +      Ignore an incorrect regulatory hint from ROM,
->>> +      so userspace can set the correct regulatory domain.
->>> +
->>
->> Same comments, so you just ignored entire feedback?
-> 
-> Do you mean this feedback? I already replied to it:
->>> Anyway, property looks like SW choice. You must describe hardware
->>> instead.
->>
->> I am sorry, I do not understand what you want me to do?
->> Can you please send a diff or a clear description suitable for people
->> who have way less experience than you?
-> 
-> 
->> Again: you need to describe the hardware, in commit msg, in property
->> name and in description. You cannot tell SW what to do, that's not the
->> purpose of bindings.
-> 
-> I still don't understand what I should do?
-> Can you please show me an example of the changes you want?
-> Else I'm likely to make a wrong guess and implement it. That obviously
-> won't help.
-> 
-> The commit message already describes the issue with WRT3200ACM and WRT32x.
-> 
-> About the description, do you want me to do something like this?
->     description:
->       Ignore an incorrect regulatory hint from ROM,
->       so userspace can set the correct regulatory domain.
-> +    WRT3200ACM and WRT32x are known to need this.
-> 
-> About the property name or flag, do you want me to add a separate flag
-> for each affected hardware device?
-> - wrt3200acm,ignore-regulatory-hint
-> - wrt3200x,ignore-regulatory-hint
-> - the list may grow if someone decides to add other devices
-> - and the driver will need to support all of them
-> - that doesn't make sense, because it isn't scalable
+Hi,
 
-You need to describe the actual problem in the hardware or firmware, and
-then name the property and description accordingly. "Ignore regulatory
-hint" is clear instruction to the OS what it should do - ignore the
-wireless-regdb package/instruction etc.
+I instrumented airoha_npu_send_msg() on EN7581 (Gemtek W1700K) with
+DMA_BIDIRECTIONAL and the original unaligned 24-byte payload. Here is
+what I found.
 
-> 
->> How did you fix the threading problem I mentioned in v3?
-> 
-> How can I fix a threading problem?
-> I don't really know what the correct thing to do is, once I forgot to add
-> a version tag in v4. So I just added v5 in my next submission.
-> I'm new to sending mails using git. So far I've learned that I can do this:
-> git send-email --thread --in-reply-to=<Message-ID> …
-> and I use the last Message-ID.
+1) Every dma_map_single() call lands in swiotlb bounce buffers.
+   The driver only calls dma_set_coherent_mask(DMA_BIT_MASK(32)) at
+   probe but never calls dma_set_mask(). On this non-coherent ARM64
+   platform that appears to force all streaming DMA through swiotlb.
 
-Do not attach (thread) your patchsets to some other threads (unrelated
-or older versions). This buries them deep in the mailbox and might
-interfere with applying entire sets. See also:
-https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
+2) The NPU permanently hangs after ~41 mailbox calls.
+   The first 41 PPE SRAM-init calls succeed (mbox_status=3D0x7, ~10ms
+   each). Starting at the 42nd, the NPU never sets the DONE bit =E2=80=94
+   every subsequent call times out at 100ms (ret=3D-110,
+   mbox_status=3D0x1), including the WLAN version query that triggers
+   the "failed getting NPU fw version" probe failure.
 
-Look how correct thread looks like for v37:
-https://lore.kernel.org/linux-devicetree/20260819-imx-se-if-v37-0-5ef5de9ff1dc@nxp.com/#r
+3) Response data is never synced back through the bounce buffer.
+   post-sync and post-unmap hex dumps are byte-identical to pre-map
+   for both successful and timed-out calls.
 
-Look at this v5 thread - it is one huge chain:
-https://lore.kernel.org/linux-devicetree/20260817215428.84740-1-gvalkov@gmail.com/#r
+4) Buffer pointer is 64-byte aligned (p_aligned=3D1), size is 24
+   (sub-cacheline, cache_align=3D64). The swiotlb slot size is 2048,
+   so the bounce buffer itself is always page-aligned.
+
+5) dma_alloc_coherent mappings (shown by DMA-API debug dump) map
+   P=3D=3DD at addresses around 0x91xxxxxx, bypassing swiotlb entirely.
+   The mailbox works reliably through that path.
+
+Representative trace (last success / first failure):
+
+  [19.541] func_id=3D0 p=3D...dfc0 size=3D24 cache_align=3D64 p_aligned=3D1
+  [19.545] mapped: dma=3D0xff765000 dma_aligned=3D1 is_swiotlb=3D1
+  [19.541] mbox done: ret=3D0 mbox_status=3D0x7      <-- last success
+
+  [19.588] func_id=3D0 p=3D...dfc0 size=3D24 cache_align=3D64 p_aligned=3D1
+  [19.618] mapped: dma=3D0xff765800 dma_aligned=3D1 is_swiotlb=3D1
+  [19.728] mbox done: ret=3D-110 mbox_status=3D0x1    <-- first timeout
+  (all subsequent calls also timeout, NPU never recovers)
+
+My working theory is that the missing dma_set_mask() is the root cause.
+Without it the kernel bounces every streaming mapping through swiotlb,
+and either the bounce-buffer sync path on this non-coherent platform
+has a bug with sub-cacheline transfers, or the NPU firmware cannot
+handle the latency/address-range change that bouncing introduces.
+
+I plan to test next with dma_set_mask_and_coherent(DMA_BIT_MASK(32))
+to see whether that eliminates the swiotlb bounce and restores the
+mailbox. If it does, that narrows the bug to either the swiotlb sync
+implementation or the platform DMA ops for non-coherent devices.
+
+Debug instrumentation patch (applied on top of OpenWrt's 6.18.44):
+https://github.com/openwrt/openwrt/commit/13ea79d9a411dc497882e820e4c881443=
+457bd97
+
+Full dmesg from the instrumented boot:
+https://gist.github.com/danpawlik/b351e8a06218a3aaf68a2cb31a32ea8f
+
+Thanks for help,
+Dan
 
 
-Best regards,
-Krzysztof
+wt., 18 sie 2026 o 17:29 Jakub Kicinski <kuba@kernel.org> napisa=C5=82(a):
+>
+> On Tue, 18 Aug 2026 08:23:33 +0200 Daniel Pawlik wrote:
+> > v8 does not switch to coherent DMA; it only rounds up mailbox payload
+> > allocations (dma_get_cache_alignment() in v9) and maps the same rounded
+> > length with DMA_BIDIRECTIONAL, while the mailbox length register still
+> > uses the original payload size. On this board, mapping only the payload
+> > size regresses probe back to 0.0 even with the larger allocation, so th=
+e
+> > rounded map length seems required here.
+>
+> Please trace into the dma API implementation on this platform where the
+> alignment makes a difference. The "unaligned length" path must be buggy.
+> We should fix it there, not in all the drivers (my concern being that
+> this is not the only driver that hits the issue).
+
+
+
+--
+Z powa=C5=BCaniem,
+Daniel Pawlik
 
