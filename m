@@ -4,72 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7048AC5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 07:36:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D31DBC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 07:36:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=goqEykEKegwDFkfqL5I9VFkOm02WZaoo6bvfZ7k1Q3s=; b=duDLB1jdyApiHWGpxQu2Ipa5X2
-	TpIP/FJjZJJUm629Jh/ffbzOQEqZacS4mFmY/bh37EwqTVN+ZRhuW2hp0P0a6d12wBnIt0uqQhrHn
-	JhljPFQ9LByyOwp1rlY73zSs8kUxs6shrFlJLeLPWIhgs7EcX78RCNDYyb6haWAEV05PEXz/E/4ql
-	HMQLUYQx+/IUpwpaudXw/RD9ROL8z6A47yxPOmJvyKhZrOCyFBkMF0w84Jow1eFrCixmLh5C0NLSM
-	7eFPwurq8Cn0xfBuey/Roi/BkxZasjvCBBtLX8NS8iKvv1jmEkXwCqZ5ThHHrZ9CzBO/aymYXdRjg
-	6ZPS9hLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EEZZ7jCpPzgYTO9oedvXx8uW0QuKMwnxpLd54iUvN+g=; b=MUzRQsE0l16iD0MxX2qJJQttLH
+	I+8lfK+m3apNxCqWHXGWzAVDTpuUJxAzNp8c0zrNgcXsf5DSCtRCxW959VQBVDtWxCsHUKCebsyyV
+	xXK423+czlFia4tPLPQ5d1vGTO9KXe46zBTZhxcCvfCxBSq9bhCMryp9Mk5Uubz0XkKSOwU3/QrIt
+	/1KSbNNJyztnadxsetx+Y4X2No7vwbS9Az8dQRsjZFsuY65nHhjcqEh5o0qjJLKelFDyyrIlLbmC9
+	QtcwfJZiKRZIjli/dalbukhISRD5oJiX38Yc856AAld0jnzFwk7tSun2h/7LwiLBZ5jn1HTlatCoA
+	tF2Iusag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwapw-00000009D1M-1BTF;
-	Wed, 19 Aug 2026 07:35:48 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wwaq9-00000009D5Q-23B6;
+	Wed, 19 Aug 2026 07:36:01 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwapt-00000009D0T-27Mo
+	id 1wwaq1-00000009D2I-0HBK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 07:35:46 +0000
-From: Kurt Kanzenbach <kurt@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1787124942;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=goqEykEKegwDFkfqL5I9VFkOm02WZaoo6bvfZ7k1Q3s=;
-	b=0HYLD9VvLJ3x59kBiz3dXhEQApXuCSrJg5ACQjUJjcxj4wSXCmrzyCqm1tMSXni5Sd+YUc
-	j+1I1gHBLAfb2hhPCQnyk/0moz/UNMhZvuiMJTVDAgkjfnN4wngVoyDEkiKaHo67bB0s/o
-	ebFRd06gkK72ZAyIXLMzZOz6HVfdgdFikO8e90Rayo++AHYNNyoi7eqUAF7oKa/h91ohq8
-	R4LePQrcfmEq1jFiiLh9DNyIf4sdUuojhWYUXle+74qNHO4UFZ84Hs+bq6Pel0j1EBUg05
-	K4N6JtIupJOGpwjg7xUSh7W3RsnhU2O81NKPWFJTERygDIS5V6xUhElLLqAByg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1787124942;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=goqEykEKegwDFkfqL5I9VFkOm02WZaoo6bvfZ7k1Q3s=;
-	b=lMq9Nn5SLbabNns8Jv5+s2257LiA+Pd08zRHY234ON1BrT3i3b3M30qd84QK7uyHS4E4Wp
-	cmN+lzOdoFCDaCBQ==
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Lorenzo Bianconi
- <lorenzo@kernel.org>
-Subject: Re: [PATCH net-next] net: stmmac: stm32: Set TSO/TBS Tx queues
- default settings
-In-Reply-To: <20260818075335.48936b08@kernel.org>
-References: <20260812-stm32mp2_txtime-v1-1-f9e2462cc85d@linutronix.de>
- <20260817103337.74c30adc@kernel.org> <87mrujzzjv.fsf@jax.kurt.home>
- <20260818075335.48936b08@kernel.org>
-Date: Wed, 19 Aug 2026 09:35:40 +0200
-Message-ID: <87h5kq1s1f.fsf@jax.kurt.home>
+	Wed, 19 Aug 2026 07:35:56 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4956d1d9fb2so695425e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 00:35:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787124951; x=1787729751; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=EEZZ7jCpPzgYTO9oedvXx8uW0QuKMwnxpLd54iUvN+g=;
+        b=sOoEtqz9FydVu3obowpKf2q6ABnnSaStxifqw1LXMObAFHo8/hvl48zRK1dI7886Kc
+         hBxUAzD1yUnpxDCpMoQ+8ibzq1sh6HStcxd7dlcxebQkUmQk6xdrZB0N9jjV/RCQFNtx
+         //GsuCYENVoRn3UKWnXlGBinz7qJc9gHJDNuDsOz8dMwYSfEUVmRS3hzSelMic+w6Vpg
+         mYO2ZzkCK4PacjbOPRqlZ5Zx5vfUrgbpeh2f75/UFbv0xprV78UT7Wiq4zNsKvQafhqw
+         i/WzoukcqY1PGTRWBDbmUyz2xyps3rFdAbFW4bV6voEFoAsjsamzZdKqoqZwqowKl8h4
+         hZwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787124951; x=1787729751;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EEZZ7jCpPzgYTO9oedvXx8uW0QuKMwnxpLd54iUvN+g=;
+        b=H2+rcJDg0QV+s/jgp17Dll0fZzXm/50CuU/sAMGjP+YFupCMPLhHZ+dlQGJYNP7jwF
+         zg7/NdexaycfBkgni2eKpJUYKS+FDzW8X+ZdyiwLAEiRl/KxyYH2FEqCj31Z6r0ypAUu
+         Em8YwhRvzo4g/J/lk9XUmkdlk+8UiPCLwXTIDg19bCV8PUtYPu0lzecu1uChrFdEfsEz
+         V55ShSgKGIRA/4K25qQa22cBWeTdikGZT7RE8WeUeYb+RzAN+UOjMK0XNghYV2PgyGom
+         RQiGpDpmi129JnmCcdY7VPYpFrY/Y4tGP9pGesqdutIZjdD4h8qMih0WUXI8HE0kphVv
+         VqTg==
+X-Forwarded-Encrypted: i=1; AHgh+RqdY+ApgVrrjx9tbwJhB07Sn8Tk5WEd699NcPbEHncWKvZKSh1PBsmjNLndawjEmcVKit57n4+jkryjv+dIqEx1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8UjLLr6aACCrrBlbDeg7QCdXFLp1Mk3XQmNtjWqLzNRB9Nt2O
+	6VT+qYydpW6hmdxg8orls5iZazOw4PHgOVX9trH6rBa1ZUQ2AWGVZiWD
+X-Gm-Gg: AR+sD13aofxOGZQO2fTCbElw5Wl5S13+plX5XYgVu6vl6Nq74F5Y7NLShHQc5kWXz/n
+	RauOIUwxH65w4AjDT71mOdrLy+A+Byc3jya02dh8rxqknTLbJ3gShBTPEU7iDjlkNsUYx1lja0P
+	+c681Wf4MFcMJyJdphr+rN6LhNTo14/7qPlpTOvI1b/t6w8vHTIV2Q+wFCIPsXmtaQug733aFBK
+	A7UED8m05HWgV7nUoeEm0onKUqAby781AtvZNyflP1660HU7BaTEd2YjgI7Sq9QH40r67cReke8
+	+lsii7lbhHBR/kkbYECL3U+0CHzjlHrpVKH4aQhl3Fyu19lvascbdxHrTStAZjxRaqil8Wiu4wZ
+	tDEWOcEApHsq6DDSZXT/lwW5XSlWMfvL3A+Hq2nwIQGXvJ/WLGBND8ZCz6EzbsDOuxIuqFqcz/0
+	nDL66uhlss9iOcYkU01hNal6XnI8K2hhg5EMsqTrmbgFI610HfOsNcQRrllbcV3oK5HXz2YYYDI
+	Bj8gXB69PRGrB10YPFN2tzfqN1Ci4dFhSDGXkMmPbf6v3t3zpbnEOCdAJazD2BG9WaA3w==
+X-Received: by 2002:a05:600c:6206:b0:495:71ff:598d with SMTP id 5b1f17b1804b1-499aa1997d8mr24560625e9.1.1787124950666;
+        Wed, 19 Aug 2026 00:35:50 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B92960062A31D8DDD4EA0DC.dsl.pool.telekom.hu. [2001:4c4e:1b92:9600:62a3:1d8d:dd4e:a0dc])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499aa0dd3c9sm40653805e9.12.2026.08.19.00.35.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Aug 2026 00:35:50 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Jiaxing Hu <gahing@gahingwoo.com>,
+	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Oded Gabbay <ogabbay@kernel.org>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Alexey Charkov <alchark@flipper.net>,
+	Joerg Roedel <joro@8bytes.org>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 02/12] accel/rocket: wait for a running IRQ handler before resetting a core
+Date: Wed, 19 Aug 2026 09:35:27 +0200
+Message-ID: <20260819073530.6087-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260819072420.1780708-1-gahing@gahingwoo.com>
+References: <20260817113603.1436067-1-gahing@gahingwoo.com> <20260817113603.1436067-3-gahing@gahingwoo.com> <20260819013609.1613919-1-gahing@gahingwoo.com> <20260819065146.5904-1-royalnet026@gmail.com> <20260819072420.1780708-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_003545_685154_B33286AA 
-X-CRM114-Status: GOOD (  21.55  )
+X-CRM114-CacheID: sfid-20260819_003553_184636_1CDDF23F 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,98 +114,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---=-=-=
-Content-Type: text/plain
-Content-Transfer-Encoding: quoted-printable
+Hi Jiaxing,
 
-On Tue Aug 18 2026, Jakub Kicinski wrote:
-> On Tue, 18 Aug 2026 08:57:08 +0200 Kurt Kanzenbach wrote:
->> On Mon Aug 17 2026, Jakub Kicinski wrote:
->> > On Wed, 12 Aug 2026 08:28:57 +0200 Kurt Kanzenbach wrote:=20=20
->> >> TSO and TBS cannot coexist. Use the first queue with TSO and the rest=
- for
->> >> TBS. Tx queues with TBS can support etf qdisc hw offload. This is done
->> >> similar to dwmac-imx and dwmac-intel.=20=20
->> >
->> > Can you explain your use case?=20=20
->>=20
->> I want to use ETF Qdisc with hardware offload, which is currently not
->> possible on the stm32mp2.
->
-> Do you need multiple queues for ETF/normal traffic?
-> Or one ETF and one "normal"?
->
-> How do you sort the traffic between the queues?
+The three-run design with the deterministic third arm is exactly the
+de-confounding you promised, and declaring the fourth run void instead
+of letting it pad the table is the kind of honesty that makes the rest
+easy to trust. Glad the third bullet closed on silicon - one line, as
+you say - and thank you for the Reported-by.
 
-So the stm32mp2 has two CPU cores. I've isolated CPU1 for Profinet. That
-one uses Tx/Rx queue 1 with ETF to reduce the Tx jitter. Everything else
-is routed to Tx/Rx queue 0.
+Meanwhile the differential finished here. The base build existed as a
+pair with the patched one from the start, so this is the same machine,
+same morning, same session.
 
-Config looks like this:
+Base kernel: identical tree and config, same JOB_TIMEOUT_MS=2 local
+patch, with 1/12 and 2/12 not applied. Same protocol, two passes per
+kernel at console_loglevel 8 and 4:
 
-#
-# Tx Assignment with SP.
-#
-# Tx Q 0 - Everything else
-# Tx Q 1 - RTC
-#
-tc qdisc replace dev ${INTERFACE} handle 100 parent root mqprio num_tc 2 \
-  map 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 \
-  queues 1@0 1@1 \
-  hw 1
+              loglevel 8   loglevel 4   recovery   oracle
+  with 1+2/12     12            8        all clean  48/48 both passes
+  without         12           13        all clean  48/48 both passes
 
-#
-# Enable Tx launch time support for TC 1.
-#
-tc qdisc replace dev ${INTERFACE} parent 100:2 etf \
-  clockid CLOCK_TAI \
-  delta 500000 \
-  offload
+Zero MMU_DTE_ADDR, zero "Error during raw reset", zero lockdep or
+atomic-sleep hits on either kernel; the domain dropped and all three
+cores returned to runtime-suspended between rounds on both.
 
-On Rx incoming frames are steered via PCP field (vlan tagged).
+Your distinction between the two tests deserves my numbers next to it:
+all 45 of my resets hit a healthy block crossing a 2 ms timeout, and
+the domain dropped every single time, on both kernels. Whether a
+genuinely hung block would keep an RK3588 domain up the way your
+failing runs stay up on RK3576, this protocol cannot say - I do not
+yet know how to manufacture a real hang deliberately. So the honest
+summary of that difference: the step your failing runs are missing
+simply never goes missing here under my conditions, and I cannot
+reproduce yours.
 
->> > If yes why are we configuring this statically instead of making
->> > appropriate configuration based on qdisc or some other uAPI knob?=20=20
->>=20
->> It seems like a static configuration in the driver today. I basically
->> followed the same convention as dwmac-imx, dwmac-intel, dwmac-mediatek
->> and dwmac-qcom-ethqos. Only dwmac-socfpga does it differently.
->>=20
->> Tx Launch Time requires a different DMA descriptor layout. Currently
->> tc_setup_etf() just returns -EINVAL if the DMA configuration is not
->> setup appropriately. I guess a dynamic configuration requires to change
->> the DMA config and perform a full release/open cycle.
->
-> release/open is not ideal but still better than hardcoding?
+The race itself did not manifest in the 45 resets on either kernel.
+Timeouts are easy to induce; a completion racing the reset inside a
+microseconds-wide window is not, so the justification for the pair
+remains the source analysis. The tag attests what was actually tested:
+recovery and absence of regressions on the patched kernel, against a
+differential base.
 
-For sure it's better than hardcoding :). But, again the driver does it
-statically. Maybe there's a good reason for it. Maybe not. I'm not that
-familiar with the stmmac driver. I'll prototype something to see whether
-we can enable TBS at run time using the ETF Qdisc callback. It may take
-some time though.
+For 1/12 my v7 Tested-by carries to the v8 shape as re-run here. For
+2/12:
 
-Thanks,
-Kurt
+Tested-by: Igor Paunovic <royalnet026@gmail.com> # RK3588, three cores,
+                                                 # induced reset, differential
+                                                 # base, JOB_TIMEOUT_MS=2
 
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
+I understand the v9 sync patch will carry the interrupt mask and so
+change shape; the harness here is standing, so say the word when v9 is
+posted and I will re-run the protocol on it as-is.
 
------BEGIN PGP SIGNATURE-----
-
-iQJHBAEBCgAxFiEEvLm/ssjDfdPf21mSwZPR8qpGc4IFAmqFXMwTHGt1cnRAbGlu
-dXRyb25peC5kZQAKCRDBk9HyqkZzghRQD/9uHst2zo6d5r0JYGcVZ4MHFTIIh8l0
-teLNkO1VeJ3i7ZyEPlGf4Q9FiU1fZYytYBGzoZxHajf3vuBQu0PIo5lL9nVQWX9k
-6KVxIhRCApW3FAhyejNvJHorLEElycsO4u0beprPSAQ8w8sH3j6sdMHgMgEIsYkV
-bul3Qaacdmw9vjIKqK64YNYHsykxdzz+tXkqmJJWBYUb9mLdrC4ZCZxKYhJIvaSI
-YlM1CNWs2v5wuarCPpg2kQu+jmAd7ID0/tHRt9ctZgcx4aEOdPzR4J3jsu/kk69i
-y0bGoukD4NAXqcKjMCSSQVqITWf1/VF9LirXLZklilklYhbQyeWAbK9HtWCuCMWK
-iVvlH90peld+3htir6u5MeWsdVDxJnrLagJdUSdYR+JvBd2qvkMtJ+4So93Yyc7k
-2Smu1NhB7u4PiPt/3YUQgm1JT77Jhs7j3QxCpSyjoonRF/oXiclNXLgwBuHjMRHy
-CGA7p5MgbeF6ciVqvmNijCMelyUll3oO2gr4QmeUinvCXStznzwsOcQNbW5Nk6oa
-qNRxbV4rr9lU2pfLtOJCUXiAXJWe+amXX8xthoF4MhKHT9CwJ7Bpy+q0iNFPFGRZ
-zoOOkwTpCy+qxf+GFuX3ZQUtYNwUn49TviYqfm8JsD6msYVt3bQEA1COqhS2jqvW
-PFAQiorz9ko9Yw==
-=qS6+
------END PGP SIGNATURE-----
---=-=-=--
+Regards,
+Igor
 
