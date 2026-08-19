@@ -4,115 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE9CC5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF18C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:49:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rruUpDInQvQQuqMyUIBpR8nVOpeVCVZSdKEK5ZtInD4=; b=LUse8zTUhOcQawPojQXfn9k0vH
-	Ix1DEXpnSXLx3XdJp5yavpfFhqxRnGR4VLk8C8QjNgUgPAF/8kbBzpprp8hA+0aPeUuQWYtzRQ4Y/
-	hqrP4P3cKJlIoNQ3B5v3e7iVqAFcJ3xU9mT9jvS+xSS7O0rD0Sjid0p+i9xstvu8Arx555OtkSaGB
-	wITYuxFvB2Qln+Oq5CM9jRylwZQe6x2jSr/3bPfFgREu3eps2KHje9tBprmJWcwI8cO7Y9jt1NFxg
-	f6AEvQaNWvFAOwPZVm4qYOWseNYNP1ft+PxOVHinJEMCG4eQU5qeDoWRglzLawAmtyjPx0TqtYD8t
-	oLKKtQCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1Neo+1K8ghUMGN3G9vUjB7A1LbHA9OhMwHPbvzVv5Wg=; b=thRZC9FDStt0sA0fqP/fQUHtmf
+	zUYlsnd8qgsJV7xKknqlFcI3dM+d/62j8QbVKY7tbbLulG+0x5RiqPi7DELHeI88gu11sd/6ZB9Jj
+	ggr7L8uI8Yl0fjgeSJYgzF/iskxj4PYLvV5FEGoeZUm0Rwg984WuK8Qaj7aMe7Zi5bcAdlx0pYPpv
+	uCpwDXlJlMKMwZP5aVLCoVEbzX4jNQ2dgmQR642RXviNAffcEUe2SQjF5YOYgJGPwQn+RvkOIe04c
+	oQqF1f4vTd7At88P9p1/7So9GynUmrkp9bcREX5NjSZjKmuE/FEuofh2q8K2+2yLequP82C+st4Ga
+	NHWn04fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwehK-00000009gqT-3t2m;
-	Wed, 19 Aug 2026 11:43:10 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1wweml-00000009hTR-2fke;
+	Wed, 19 Aug 2026 11:48:47 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwehI-00000009go3-1bcr
+	id 1wwemi-00000009hSI-2rbE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 11:43:09 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-3a181e96cbeso8475791fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 04:43:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787139785; cv=none;
-        d=google.com; s=arc-20260327;
-        b=rCyaJHvTENYH9bePO2IkYxztFqbTSKCfU8DEqfWjI0Av57G8y7mp/5Uw8UNaSokWV0
-         8afuWboD2hCXhX6L8jRvVYIISUPW1d8Eg9ZzJdDIvNCRctK3iBljK3lRYeWbz0YQSyMH
-         38T94aWJZMuwDFRHWHCAlyEVIm+Rg43VgNVdOYG36reE2How4OGs8/zCSpC7k9dYtmho
-         HjqmK3udy6TcchLcF+tFRzJfIp8NHLTjs9clKUUQx/6nkZt7z70L8/2zCSDAjmXNgG5F
-         uLLwd5zk0IEeeLzZecpfqoU9ZFz9m4xcWJxG56ZKs03EskpksdlAsTy3RSr2ux1V1fOQ
-         z0YQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=rruUpDInQvQQuqMyUIBpR8nVOpeVCVZSdKEK5ZtInD4=;
-        fh=Sv7d0It65AW4KGWhI77xXjXepQ/fdKhwLZAMT6NMt4Y=;
-        b=f17RKOsd0/QmPCGJc1kMKdxYPrkmpxTLIsfwEqR7Ckl6iFfoblQYINFTmrgw6IlGS/
-         E9bIqfiADqAaZuzdhIFsRontrqjHpPL3D9iN0qBqqW5xVjd9sqxRAOMaoupXRLY1Xmok
-         v0NdW1CQ4qqmdIvVUn3fweadNqTcAjO+19Qq0LNtAm9J8z2ioo0i1oQoYJ17CgEo3wSf
-         SLHm9BCjDmnok5BEtcTNgUeaUBmAqWhMreAimkjCCH3AQ34rQxe4xc6wIvjhQZ5kyyEm
-         1IH6jyYwtqH38Zi32B4ZBnh6pzh8jqQxvnaAmayke8GxAwvQ0JnsjunFmCCzbcV4qoZV
-         dYLw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 19 Aug 2026 11:48:46 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5aeb98460c6so1113212e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 04:48:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787139785; x=1787744585; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1787140122; x=1787744922; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=rruUpDInQvQQuqMyUIBpR8nVOpeVCVZSdKEK5ZtInD4=;
-        b=FWaPsDfRoXnbbsa0TUgz02SWqj0EPm0YSZDSWpBp7JeGqaKQkEBGtnlgQkqcazp7/C
-         k+3Iqe3bQIsFa+hm+lmjBQXdigCjfS04kzfbIXzE0ynZXy/CA1rfcsIfMFMA0/cRFPDG
-         0H8Psg0GaBDrh2fe2vythJ5btpLP9TerOy8Ir2h4Vunyc/MsfKoxNEu0Y/HlyVYsEY5L
-         k0kO92ib+iLvarLxMnqFCM+f3Wbl271DUwc7JZX93rdLVW4b7ZbeW5RDO+9RbcZm0QSx
-         qkuYgPSDtwMy737G7NL4MkNCrlGVMmhJhwDJQrv/wsrMxqR1eymydaY3DU1vBPticveY
-         Vf3g==
+        bh=1Neo+1K8ghUMGN3G9vUjB7A1LbHA9OhMwHPbvzVv5Wg=;
+        b=BcuTV2ftVvA0w4aoZcT9x148ee9FFPB6YgGPPpuQRyGeuXvj24GkWqSeQrgvgkUY70
+         owhrz1H8kgdPeGEbplTV5Eph9WQpLKBzriwKQtFo0B0PlP1H0viWdtyTc0TAdfA5Hala
+         /a564pp01xEUb4Sous/vFQ4XMH3sDA/MKL+KYf01ABxwlHjIA7a+FWtCnKTPsTAQ0Mfw
+         JOVnp9VPV6nWAtH30PIrefj0/OdgxDtjkXzjNfHnduNBzVDIASHsLG0bAzDLR07E1KlU
+         CcxwlcM7vYv4TC+hqHlbtAh/jplUAM/nrDr5UoD58O1f77SHdzqehfYzLUHGMBrLz/Iu
+         bpSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787139785; x=1787744585;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20251104; t=1787140122; x=1787744922;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=rruUpDInQvQQuqMyUIBpR8nVOpeVCVZSdKEK5ZtInD4=;
-        b=JeCtQmKYw98mo1gzcILQiU8HD9cyp7r1+dJEXBevPBU3XepVFBbfuQu2+tiHhaisVH
-         gTmrr/g8XfrsYjPzoZgD/HFMgVVyZraw8zHpyoA7IJOWiL2cxBOebOhar5mDr0/KsWJK
-         LcLM+wAD75cDQ6HIK3MpvowOOC1WQnaGUUzMF3gJ30+/U8cyOYBjW2fuzUqpUeE1nEDK
-         VaNiZMDnXKQRA4mYrIfCXJsPus+5wVAmjtZapC08bcCr5ECc+jppdaKJ4H3+0GW2QL27
-         k8grtCfO/6Y/Z37wbXrn6YaD7vaUVWKQfdC+ja+dDn+s7nkMQW324l5in2fQUB4/3Qgt
-         BRWQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqP/Xm4DlGlcsb6/UNm+t0v2ROKDeXwu5Hafi7ySCSeP6T2YVSUPXA11uEZz2AI1C5oPGzJtKxDp3J8j9Ftr4j9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/cHyPVDTAOcFQcoBcFuYD7HQaa4CkehKd9nkc6X5Kn3kKm65e
-	QgEDlb8E8cjozSFNCwxGKChgQGH6Q1nlQehN1Ol3crNn0PGezU1bGzK+AB0LmRrjT7y46/gQSn1
-	kqFchCbVn45yXDcGw1ROqdlDfWrjBbuM=
-X-Gm-Gg: AR+sD11pJhKXNi5mBK/tD8R7x3E0SKuRzJ+y39P3/8SHQbtEe9+BtUa3DvQBURZ18Or
-	aL39bKlyru5tUEmMFY1HHUGqsXW5qv2RM8blfwB3ps3u0o283wWqVl+S4gj8fi9IVIqtOd2aH9C
-	IpdPzaK+rJtHhwxZ26rXvmmzcf0LIXB8MJSWgxPpoucCSFGs8inutYv7Xduo4XKH2OrvDBInrcZ
-	nJdtK3hz6TukcIlGFHBFjWyLdEuJb41o64cJvvTPVF+FC8IUdiuYWTmJW1saGmnJjvGDA2tDX+L
-	HzN3L82JNxkTZ+wy7ZGQoUpj60oLQR0epMxQoymsO9R6EJEwjKT0bJxilYK5ywKBAXO5ok81gOB
-	2kbgM97o00UHAhrT3fAWGf26DoQ==
-X-Received: by 2002:a2e:bea5:0:b0:3a1:85a0:c5c1 with SMTP id
- 38308e7fff4ca-3a1899c16f4mr8655901fa.11.1787139784486; Wed, 19 Aug 2026
- 04:43:04 -0700 (PDT)
+        bh=1Neo+1K8ghUMGN3G9vUjB7A1LbHA9OhMwHPbvzVv5Wg=;
+        b=P6emy+gug19iHBW1s5i15lcx0Ed9OnycyGRuVD4yPsvqDmxYpQmGMumJ40A+i0kbaN
+         thRPWJbwgXAyFhlJ+8nOYBryIJtey5mqfTU8OGs7MW5sgej4/iShnncxU9b+ec48gYKm
+         IhTERhrPvomEf5nguvTc0bLu3qj/lw4CwB2Iad4hZYMRlYcJxWJ98LWsG/pbOp6xML/s
+         45xzLsJPrH672mAS5eahEVkwSThFwbpaigWZrzvBHKHE+gfhE5zaDnHvp/tKg41Sqb3S
+         lbaIg+9suQjVxSlbTEgWWB2pmXu9iO21qeJmECjC15/qdfof1SU4GFyiyMXIxiqmtlss
+         TTDA==
+X-Forwarded-Encrypted: i=1; AHgh+Rrh373qwgBqYL+C+T173XAGxFv6A5zQrKZJsOcIf0zwhG0T0uRaNgM7gTjBvMOniHv5OFgmUBB52rWBWU8fGG4P@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAf9wmrCeA2wHEGP0nYA4UFMX4RLKB0mSlEo7nTAYsulyDuHYh
+	Vgj7RYVIQ8VP7VUOPZt64QBBCZlblrM5AHII2jYYgkokExxVFKT32Aq9
+X-Gm-Gg: AR+sD11mkx0HjcX/kyqo/0Ih+j0qoBXozQrjWJIYswFJRKBY7g9EAROnwPrx0MmzdFU
+	yK8BSX8qoyxO6kzghGuZCrrUrZ0sZc/3EmcdrIaUpd6kQIrNiuGZURn1wyHIUFx3qj0akg/fxm5
+	NPXZxqTcK3FSFXx9EZrqp2Hos99BpX0YY8a4JfnB2xjF/ja0rzY2igrka8/pc24d6qnmnWk3OgY
+	aDLnnFH7nd7aVJfpdGXhFLt9IB5m63FbdZi05jExPMA2b1hMJjfCTuYYJ65Cb2I6ApSza45/seS
+	ci6cWgqV+Mynk1Rhh++ENWDOYMctAqDR/tYerzQM3nKBuxDa5kMQSl57IHqOeihs0niBuUf35Ot
+	AkUqvbOgj4UOC5kiWNj3uh2nlmCk+jgimrNZ6kiMhNCrvXRK8iBCzEZ//lRp1VwBG16Kn4QMyBf
+	Amn7y4YdKXSTvp2EMB7OsHR9lgtBO52mjvvLhRSK2vafDDZBHSYd5dr7dOmjjXszT80WvS6mV3N
+	RGW8yH6siXcgEzfb6h0KcnxwUcg3Q==
+X-Received: by 2002:a05:6512:224d:b0:5b2:f453:1073 with SMTP id 2adb3069b0e04-5b478b9070dmr1376566e87.2.1787140121681;
+        Wed, 19 Aug 2026 04:48:41 -0700 (PDT)
+Received: from pc636 (host-95-193-137-165.mobileonline.telia.com. [95.193.137.165])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b478853971sm482752e87.10.2026.08.19.04.48.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Aug 2026 04:48:41 -0700 (PDT)
+From: Uladzislau Rezki <urezki@gmail.com>
+X-Google-Original-From: Uladzislau Rezki <urezki@pc636>
+Date: Wed, 19 Aug 2026 13:48:36 +0200
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Uladzislau Rezki <urezki@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Andy Lutomirski <luto@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Len Brown <lenb@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>, Pavel Machek <pavel@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
+	Will Deacon <will@kernel.org>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-pm@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	loongarch@lists.linux.dev
+Subject: Re: [PATCH 2/6] mm/vmalloc: set area's page_order after allocation
+ succeeds
+Message-ID: <aoWYFH_FJXlMK8fw@pc636>
+References: <20260816-execmem-set-vm-perms-v0-2-v1-0-90944a3ad43f@kernel.org>
+ <20260816-execmem-set-vm-perms-v0-2-v1-2-90944a3ad43f@kernel.org>
+ <aoNFZU_QzghDBgbZ@milan>
+ <aoVUF2pgl8JYNyIU@kernel.org>
 MIME-Version: 1.0
-References: <CADOrJmbTyrGGkq+9OJDXCgTa2HvNo8BWxoE6yjafcrOq7WNamw@mail.gmail.com>
- <20260817215428.84740-1-gvalkov@gmail.com> <20260819-generous-nickel-dalmatian-b6bb08@quoll>
-In-Reply-To: <20260819-generous-nickel-dalmatian-b6bb08@quoll>
-From: George Valkov <gvalkov@gmail.com>
-Date: Wed, 19 Aug 2026 14:42:52 +0300
-X-Gm-Features: AcwNN1X_uzL9E44yhbWS_M41oClBHdMfV11eL6pc59WJx0lXGGLZ-ZZh_4cYzLM
-Message-ID: <CADOrJmYfBe3ADun_kFjFSH6YOSTX7Vu3UsFsL57yuRdaQ=eJCA@mail.gmail.com>
-Subject: Re: [PATCH v5 1/3] dt-bindings: net: wireless: add flag marvell,ignore-regulatory-hint
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: briannorris@chromium.org, johannes@sipsolutions.net, andrew@lunn.ch, 
-	krzk+dt@kernel.org, francesco@dolcini.it, johannes.berg@intel.com, 
-	kees@kernel.org, miriam.rachel.korenblit@intel.com, wenst@chromium.org, 
-	rafael.beims@toradex.com, avraham.stern@intel.com, error27@gmail.com, 
-	s.kerkmann@pengutronix.de, gregory.clement@bootlin.com, 
-	sebastian.hesselbarth@gmail.com, robh@kernel.org, conor+dt@kernel.org, 
-	Frank.Li@nxp.com, chunfan.chen@gmail.com, 
-	linux-arm-kernel@lists.infradead.org, linux-wireless@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aoVUF2pgl8JYNyIU@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_044308_460017_D10E67BC 
-X-CRM114-Status: GOOD (  26.45  )
+X-CRM114-CacheID: sfid-20260819_044844_800830_6E18BC5A 
+X-CRM114-Status: GOOD (  31.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,79 +132,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Aug 2026 at 12:42, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On Tue, Aug 18, 2026 at 12:54:26AM +0300, Georgi Valkov wrote:
-> >
-> > diff --git a/Documentation/devicetree/bindings/net/wireless/marvell,sd8=
-787.yaml b/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.ya=
-ml
-> > index 930b700b73d0..5f235cb9f3e5 100644
-> > --- a/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yam=
-l
-> > +++ b/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yam=
-l
-> > @@ -59,6 +59,12 @@ properties:
-> >      description: Calibration data for sub-band 3 in the 5GHz band.
-> >      maxItems: 502
-> >
-> > +  marvell,ignore-regulatory-hint:
-> > +    $ref: /schemas/types.yaml#/definitions/flag
-> > +    description:
-> > +      Ignore an incorrect regulatory hint from ROM,
-> > +      so userspace can set the correct regulatory domain.
-> > +
->
-> Same comments, so you just ignored entire feedback?
+On Wed, Aug 19, 2026 at 09:58:31AM +0300, Mike Rapoport wrote:
+> On Mon, Aug 17, 2026 at 07:31:17PM +0200, Uladzislau Rezki wrote:
+> > On Sun, Aug 16, 2026 at 01:59:25PM +0300, Mike Rapoport (Microsoft) wrote:
+> > > __vmalloc_area_node() calls set_vm_area_page_order() to set area's
+> > > page_order before actually allocating pages to populate the area.
+> > > 
+> > > If allocation of large pages in HUGE_VMAP case fails midway, this leaves
+> > > the area with elevated page_order throughout the cleanup path.
+> > > 
+> > > There is no actual issue with this because the only place that currently
+> > > relies on area->page_order on the cleanup path is the loop calculating
+> > > the direct map alias range in vm_reset_perms() and it anyway skips
+> > > unpopulated pages.
+> > > 
+> > > But having set_vm_area_page_order() in the middle of __vmalloc_area_node()
+> > > makes things very obscure, hard to reason about and error prone against
+> > > future changes of the cleanup path.
+> > > 
+> > > Move the call to set_vm_area_page_order() after __vmalloc_area_node()
+> > > succeeded where page order is guaranteed.
+> > > 
+> > > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > > ---
+> > >  mm/vmalloc.c | 11 +++++++++--
+> > >  1 file changed, 9 insertions(+), 2 deletions(-)
+> > > 
+> > > diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> > > index 22566e0b6e38..6822f0fe9583 100644
+> > > --- a/mm/vmalloc.c
+> > > +++ b/mm/vmalloc.c
+> > > @@ -3901,8 +3901,7 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
+> > >  		goto fail;
+> > >  	}
+> > >  
+> > > -	set_vm_area_page_order(area, page_shift - PAGE_SHIFT);
+> > > -	page_order = vm_area_page_order(area);
+> > > +	page_order = page_shift - PAGE_SHIFT;
+> > >  
+> > >  	/*
+> > >  	 * High-order nofail allocations are really expensive and
+> > > @@ -4106,6 +4105,14 @@ void *__vmalloc_node_range_noprof(unsigned long size, unsigned long align,
+> > >  	if (!ret)
+> > >  		goto fail;
+> > >  
+> > > +	/*
+> > > +	 * Set area->page_order once it's known exactly that the order of the
+> > > +	 * pages the area contains.
+> > > +	 * Even if we succeeded to partially populate the area with large pages,
+> > > +	 * still treat the area as populated with order-0 pages.
+> > > +	 */
+> > > +	set_vm_area_page_order(area, shift - PAGE_SHIFT);
+> > > +
+> > >  	/*
+> > >  	 * Mark the pages as accessible, now that they are mapped.
+> > >  	 * The condition for setting KASAN_VMALLOC_INIT should complement the
+> > > 
+> > > -- 
+> > > 2.53.0
+> > > 
+> > OK, can we just set it right after the:
+> > 
+> > 	area->nr_pages = vm_area_alloc_pages(
+> > 			vmalloc_gfp_adjust(gfp_mask, page_order), node,
+> > 			page_order, nr_small_pages, area->pages);
+> > 
+> > 
+> > succeeds?
+> 
+> Here it's still not clear if vm_area_page_order() succeeded :)
+> 
+> I can move it just before
+> 
+>  	return area->addr;
+> 
+Even better :) For next version:
 
-Do you mean this feedback? I already replied to it:
-> > Anyway, property looks like SW choice. You must describe hardware
-> > instead.
->
-> I am sorry, I do not understand what you want me to do?
-> Can you please send a diff or a clear description suitable for people
-> who have way less experience than you?
+Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
 
-
-> Again: you need to describe the hardware, in commit msg, in property
-> name and in description. You cannot tell SW what to do, that's not the
-> purpose of bindings.
-
-I still don't understand what I should do?
-Can you please show me an example of the changes you want?
-Else I'm likely to make a wrong guess and implement it. That obviously
-won't help.
-
-The commit message already describes the issue with WRT3200ACM and WRT32x.
-
-About the description, do you want me to do something like this?
-    description:
-      Ignore an incorrect regulatory hint from ROM,
-      so userspace can set the correct regulatory domain.
-+    WRT3200ACM and WRT32x are known to need this.
-
-About the property name or flag, do you want me to add a separate flag
-for each affected hardware device?
-- wrt3200acm,ignore-regulatory-hint
-- wrt3200x,ignore-regulatory-hint
-- the list may grow if someone decides to add other devices
-- and the driver will need to support all of them
-- that doesn't make sense, because it isn't scalable
-
-> How did you fix the threading problem I mentioned in v3?
-
-How can I fix a threading problem?
-I don't really know what the correct thing to do is, once I forgot to add
-a version tag in v4. So I just added v5 in my next submission.
-I'm new to sending mails using git. So far I've learned that I can do this:
-git send-email --thread --in-reply-to=3D<Message-ID> =E2=80=A6
-and I use the last Message-ID.
-
-Krzysztof,
-I am thankful when I receive criticism from you or anyone else, because
-this helps improve my PR and it helps me learn. A clear communication
-along with examples and links to documentation can make this process
-easier and more productive. Thank you!
-
-Georgi Valkov
+--
+Uladzislau Rezki
 
