@@ -4,114 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 167BFC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 18:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C63C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 18:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gL9PCTY2V0AWLqCmZxD1PoHBFgxCd6gN1A4jZt569ds=; b=zXnq7PRO+sBlkSjBN686mc1mQn
-	5miWjkjUuWcyirmY1kuz53cZ91RoYsuV8t55e2yviw5MwOV/lFTMPeMmviwX2hMXkmaaQsRwIzCqc
-	vUA92NX4MOuhryZXjBBefg9Sj1KVClaP9MgiHxzk9P0uaum/fadgDj+kPegygD+Ak5iUytOCrGw7o
-	HPUNfMFzKZMnNVcBvcTqyAD1CFeVpVeeSkv+oO/NhxeY839BpuejHBH+IyTSXPwWnH10XhQqI+uMh
-	g8exotEj2s4uQA3+eiZXBKxactUsWbtydR9dSTZdp9vMmpqpsYyFihsSfa6UTSA3W5Xozylgdch5E
-	6NV6+dyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5YXIxdBnA3YgMEEVyRszEkQfRiNotik4xshcNBcccY8=; b=0jhKLOl3KrjSRsp2Q5qYV+ok5+
+	j5lCtZkyPMUD7oSpvUm3YDwwL21RmaqstxYnXAfe9efkoAYONjdRevYLMnGjritJf27OTeY1jIiXk
+	gL64064c38Tgi7R8RInCMdjsSbouPpYDcz2sT9ng/KzIBh3XvstpUOju71SiVE4hyZk0K7xSTrQf/
+	+yV6GQhCmpnhQFBCWOtiwUDxUiNy82kL+ya2pynGBp1KMxSCNOBenxAtGoNYGdUfXXMG7kTjYPor8
+	1MYaSfSqtJ01/5b6VMVYuoX3EMgmOEWaWXWRmEBu1Id80NcecHZ8t2ljiEDcMhUsIORjVfxpL1kSE
+	HOM/rHcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwkvk-0000000AMTb-0Ex3;
-	Wed, 19 Aug 2026 18:22:28 +0000
-Received: from mail-eastusazon11011002.outbound.protection.outlook.com ([52.101.52.2] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wwl1z-0000000AN85-0h35;
+	Wed, 19 Aug 2026 18:28:55 +0000
+Received: from mail-westus3azon11012033.outbound.protection.outlook.com ([40.107.209.33] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwkvh-0000000AMT5-0Fgz
+	id 1wwl1w-0000000AN7A-2LqJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 18:22:26 +0000
+	Wed, 19 Aug 2026 18:28:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Y30HINbHyp1S5Khkf/G0XQzlM9b6sVKzJucAVeMGoXrMCV8t9brF/d+M6w7FcCOxc7Ts9pCc3wCy+5nfDDXHzMtvT7DrOeFVMVXazjN3D3CoEd7clAjvKPkjA0HPRzn07emTsiRB5AbGga7slYTm6+anH4CJ12s4rT1YNkpVwgD4/98X5NyxrTnhRMjSNDA6/iBjnn1BGlulJW+g+JiLTiFpvOh4WwFiHJKIiIXxeKKiOwhkRmJwr7BViqAVZKsUISKGSRxr9bnbkSakMnvjOrNC5wVH+a3bWSRUKdOG/LZoJH1Kwgj2+mDOpFXanA1xTOPfQtUuZkFpTH0QjwEPSA==
+ b=pxqrHUuwvxIgt/ggeeamoPtmbnM87xpCGjGhXB6uchnCnX06hQvWWK0nSYlYwofN8WlL44C6B9t9oKFs164dziVOmA49XBiUF0n8f+Huu1ZBGKbeKqim5o/vO+wwaxFnfZpXn6p5lxktI1W6W3cni4iO3dn4q0jyzh2NnyrbKU6tUqz9UjfwsuVkQ5zuKEi5WcsiDGtRtyqRA0k17sUcYezxI4Di9XIDz+0wqg8ETl0Q2mRHieRp4F5OhlqYzaFGeQbG+VpIq0SpGoX5MKQjgRH5NDLrCGoS6+zdQfHBB2/rbKptunRkcNJK9LsA2YzpfqOIC20e9TFzo8dq51sCtw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gL9PCTY2V0AWLqCmZxD1PoHBFgxCd6gN1A4jZt569ds=;
- b=xIl9cwBGGvdVne+1nOKgXq+RvZSSFlzO8eFaPuNffP9N79qcxyMU0nAudBBhEUn3fJaSfxfBxEAmKoJq+19wGx5n2ETM3c3BqXGSg28adiF7RGN4KGHGuFT91VgsUrpoNeaxVFZfItRcZEYUrSrRhacs7RzAyHNTk1YWzmh25gY9GPXKB5hyL1AaHc7D/nqK+y6x2zjtH5nJ4UFvK1wPGNmR6xXE/JFgoI/7bFsOtiyTGrz2NVnXYbZef3RBtZqXDoCJmio5EzTPI68/ZoOC3T0Qle//Vz1uIBSkqgRtm+l6Pep7fJDrE4WYKznkcYudWpgr4TqAFZ67aXZ+k4r/3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linaro.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ bh=5YXIxdBnA3YgMEEVyRszEkQfRiNotik4xshcNBcccY8=;
+ b=oFzdh5m1sCBKiLhar8CDl9ngovOpw/DRGMn+dB/yXERdZc4JKZp7/1RHnKkd2IzlPFjNOJ5XXzwhAhE4uOmYKq1n+cHaPbIXAjncweJA+b/awawYZD90iHBsQcoGSdtM7qJDNxb3B3HzDluP7D+8oa0mRSWfy3yHH+MGViBHLyQpTsM5ID23UA4Lx0LfX+2VC5Zhl27Gbce5/47zg5vYa92psBoZwnJxsp3mpyuHkGRft67Pl5Qte4+H2FBZopsYop5DmMJQcGTghE8I1P6G8UFCpKvHEMJ7sLOE8WrL0OeP1k2fMZRcbhjYdfyFUVIGtwnDKQhXHUGPgnEDhDjqLQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gL9PCTY2V0AWLqCmZxD1PoHBFgxCd6gN1A4jZt569ds=;
- b=QXESd0aRapYKDsKjOO9coxQdoggPMUUjiflB0uw44SS6DCFnA56RqxowlM/PErnZMlued+g2loO2fW+MZLU2hy/eCm/pRrXQr372HY2sRN1f8fAC2ITnrvg6/ZoVEPMA42S0oa292cgsUlryfEGWINTAQj6MoiSi3Yl1pjdiT0E=
-Received: from DS7PR03CA0084.namprd03.prod.outlook.com (2603:10b6:5:3bb::29)
- by CH1PPFF5B95D789.namprd12.prod.outlook.com (2603:10b6:61f:fc00::62a) with
+ bh=5YXIxdBnA3YgMEEVyRszEkQfRiNotik4xshcNBcccY8=;
+ b=C0tH1kHbn9Gl9nJB4GQNB9dfD/VGpq9Kp03zAjIPDPD9ylnmcc2BdZ9C2pRXn5c3IVWApXQNTODTgvoiuvaa+gDdYLYvZfmkbI96mb3crtErSN1X9qWQDQIx2r08FeVxE/e13Qmtgbe9zWrZIVCqSq6x66URSIQNn2wQdxNfJpyeF4/Eh4j6duofRkF5JwhRjsQO2B2zX7Hi8e/+sFW61Yspeehyjx24aUmhNqrDofm/AvxjcS9XZ47fAZHGasc58R/8/UemfN4KR9wt4WRbQeWfTsBEYKpXCcpboYDM2YQ4V35u4nNE6n8bCFqQ8l57nmAaFpXWyhWH29T62sTKKA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV3PR12MB9356.namprd12.prod.outlook.com (2603:10b6:408:20c::21)
+ by CH3PR12MB9023.namprd12.prod.outlook.com (2603:10b6:610:17b::12) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
- 2026 18:22:14 +0000
-Received: from DS3PEPF0000C381.namprd04.prod.outlook.com
- (2603:10b6:5:3bb:cafe::6) by DS7PR03CA0084.outlook.office365.com
- (2603:10b6:5:3bb::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.8 via Frontend Transport; Wed, 19
- Aug 2026 18:22:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- DS3PEPF0000C381.mail.protection.outlook.com (10.167.23.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Wed, 19 Aug 2026 18:22:13 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 19 Aug
- 2026 13:22:13 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 19 Aug
- 2026 13:22:12 -0500
-Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.45 via Frontend
- Transport; Wed, 19 Aug 2026 13:22:10 -0500
-From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-To: <peter.griffin@linaro.org>, <andre.draszik@linaro.org>,
-	<tudor.ambarus@linaro.org>, <Thinh.Nguyen@synopsys.com>,
-	<gregkh@linuxfoundation.org>
-CC: <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-usb@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Radhey Shyam Pandey
-	<radhey.shyam.pandey@amd.com>
-Subject: [PATCH] usb: dwc3: google: Initialise probe properties with DWC3_DEFAULT_PROPERTIES
-Date: Wed, 19 Aug 2026 23:51:58 +0530
-Message-ID: <20260819182158.1351869-1-radhey.shyam.pandey@amd.com>
-X-Mailer: git-send-email 2.43.0
+ 2026 18:28:33 +0000
+Received: from LV3PR12MB9356.namprd12.prod.outlook.com
+ ([fe80::1c36:31b4:c420:6286]) by LV3PR12MB9356.namprd12.prod.outlook.com
+ ([fe80::1c36:31b4:c420:6286%5]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
+ 18:28:33 +0000
+Date: Wed, 19 Aug 2026 14:28:30 -0400
+From: Yury Norov <ynorov@nvidia.com>
+To: Florian Bezdeka <florian.bezdeka@siemens.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Jan Kiszka <jan.kiszka@siemens.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH RFC 0/3] genirq: Allow drivers to respect userspace IRQ
+ affinities
+Message-ID: <aoX1zplzjXJl6lOV@yury>
+References: <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-0-3f79a99cadaf@siemens.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-0-3f79a99cadaf@siemens.com>
+X-ClientProxiedBy: MN2PR16CA0056.namprd16.prod.outlook.com
+ (2603:10b6:208:234::25) To LV3PR12MB9356.namprd12.prod.outlook.com
+ (2603:10b6:408:20c::21)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF0000C381:EE_|CH1PPFF5B95D789:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6c928f6e-991f-495d-b6d4-08defe1ecace
+X-MS-TrafficTypeDiagnostic: LV3PR12MB9356:EE_|CH3PR12MB9023:EE_
+X-MS-Office365-Filtering-Correlation-Id: 620b488e-aeee-46d5-ff75-08defe1facd9
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|82310400026|1800799024|10067099003|11063799006|56012099006|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: hOPNj9vbvEluQuXnG+icNCPCsULtstUSa5UqcuFCpnrdnZ7+IH+eNumFsx0QX4BSQ7PivrjxeWMcNndCHz3Y9m/ZxiW1SVEsDd8zKj6DdWB30iy1FxUFgV97mEe5f+qyg8bUBpSaNaq4Q9VahhNTluBxqz5ib1Cy0tJHnhCe6Ij7Oek69yiU1n1LYtIDmhNC3tWFUnYnS1aucqr1l6xC36nvnz5/jtmb8d8qHqiBWb4kBeJDwKeRHPeWbDrsz3gpA4qjkh3cV7byvjWgpnIuYJGwAw8kKORvQjASezgqAqZ4YKcKh178uOlrRRreeBm6TLCNHw8DB04QIoJvdy6ecBpeWJ89FFCaQ7qcPM0lFbte1GLon3X69xDWO2+VHzmtiZeEGseCGJHU+TnmQcskzA0Nj32T+c9tegPTrwTxSEVzTAzLNvosfn+wCDb6QMsyVJKj6lw6KU8NRVZ8GM/GGW46SOV9ZLpUfkicJIz/c9Q6UVznti0aw0DpPVeVreH9Vmrv9oQymDN00sR4jan2Fl/a9iHWrcRJ2A73sEwlCTQJoG/bjfIuT6da15pyHl2tlJ/64AS9NDRcH7IZrb6T5SEkyDHBOac4vppLUjwNS6aa3DTC2BDX13xPrBR8ZgDU8XL56V7onjPxiU6qry8WYcPJqKWCNfMVfbZzkbklrpZdhTKZB1hOka4fX4zPr6f+8Rzle35aY16yia+2AWXp0g==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(82310400026)(1800799024)(10067099003)(11063799006)(56012099006)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|23010399003|22082099003|18002099003|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: AnKUi4oUOgiDm0JU52aoSxoGGxnbJmRJ9QEagl/xnGmCMSSph3flhF1jI0PPo0B3F7Gjkz9o6hyquyMvPSETV5AqhbSL7mVTcIjVFKpybduJ6Wdobs0U7TxUDRh9Ftzo5jFQZKGMScWPrRjcMRmUPE//EAaz7ASIR5DKMTh3ilU8prDZUO3pV75eDFtAHi7UYI352azN0wcp7mk56QL4srD/eb3XgILKyfwLtw6hXpozBWDgpOVjacVio6HFFbEXg6Z8WdhliqrXKxyRyYrtLe7WoRGPC1Dt5saOYOnDRwmGboGAKmrAiuxg1kMSvE07l3yrfuyVo2N5aB9lTSCCKbEPObIAriTwNs2witm4491htS+uc+UuAHri3hhshrs/d6vl9AYOSR/NIgopVJ9EZDUhM/2w1nc3rv5LOBhXdTQlrMua3DK2vjWHAYz+oQSdK6FdaUsYAN8Sz39ztFjEA7rXr8DtBoj6r1zRvYWc0cViaP43MvZo4hIgFLY0TbAH3fBGR6Mufy2O4tPL8pVmCH6ZFkNpJdiY5hXAKuBtS7e7z+iI7eAB9Mn18HWe5RZWbpEuhhlua3diWCA5+71uL1Y+HH2Cso99Hw+D3nllvq5/jDMwq30LOaU6XOZ21o/NS9s6MtITt8ZYLiALGYybIdgHZ61TJzAwLZRyFuyCqks=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR12MB9356.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(23010399003)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: FZq3qWN7nHbpjifKxhEsMWTTyaMelRXiocQlQm5cpPGjx6w/XPVe2tDdpSB8MubvHByXDo+VoC5P9IQS4pXfcJ4ESbVv+f0QlcbLW1cUY/ssQehWYxscvGCWTs45cyb+sb9JI2CwoCznKiM3SWeTn4XI/V+HyziOpO5TSi2w0vXxS1R1BnAUBSLpiMNw+kXHuozWioJRWT/d40epW/XMCHnzFHwmaKJcgSGQnFYUP13adeyq8obersxG7nG3m9BG4oFLWlI37uMy42m0432jRLyP/PLqBa1/rFZQkyqJxNchywzFJYS9kD9GNpuRM1vvyITu4wpzTsPkoyz8v/2OFNjfj4ZSFx3cf4CD7oncC56u3lxL+8D416KcI/nBrGC/rl0Rb1qFUXsLC1l4qZoCVEyHj+zNPbVMS8Is90k+cemdbuKGsz5IjG0CsazCYi1U
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 18:22:13.7452
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4IiPB9dG6yXcSTZbCYosHZ5LdJB/Nj5jkZWX24M2QujksYevjs+HoLqsiLD1?=
+ =?us-ascii?Q?Yjs3Z9hrVAAYwW+toiTPJHSAPhSUVz/EpyuB9yuws9/xLE1W02DIGmoNVuLt?=
+ =?us-ascii?Q?oOOV9CaNKEesKavFtrSfRrJI/ZLdIFFE6TAnJGmNutvGECVaBdCINuUasYd7?=
+ =?us-ascii?Q?Rezv7v2LS7FKlQ2g1V0QIywdLd3XfHOHzIvjrjIfyrRk8NF3pg1As98HWyk6?=
+ =?us-ascii?Q?TEZ1eXyrezNA96FNQ98emX8cBqRkmnALJqFTgEa3RJBlSLfpKb7pb0OPrXQO?=
+ =?us-ascii?Q?rbpAA7bApPYK2SI9cEBPHlAkXYaGp/Q9aiLk21wVaYf/BnXGb324MAXhiIHN?=
+ =?us-ascii?Q?Bh3qG8zGLlVj85ljUfjKyA4EzIHtnWrlRLfGkEyVPoPXQq0e6CLeZbndHoIR?=
+ =?us-ascii?Q?lENw+Kkncwf6YZ6OrrvCx76b2IS3ubp3RU2dsD1Us+/EcNu8YIoRnZjnnTcZ?=
+ =?us-ascii?Q?pMbl0MU6w2LH7pBGlDTsuYhZ5mjEI9oe6tSuTuK6axfThi+URg9MzvQM1Zw+?=
+ =?us-ascii?Q?KTId71OEwmZoynXSrg6jzUFzuxRK1U1v343q6cGOk+IqonGmZ1vxkmrAFWOV?=
+ =?us-ascii?Q?ycDXKMcQdqXK0+54CKec3kt7REWmlRKXKsnUPpQlGbXEjSl92f9ecVatsdBp?=
+ =?us-ascii?Q?7pzMPx/V/VS6nP5vq0rlodHCxP0YZRbzZ/iAsv34QUKDtBf6TJAsxbQOAgy2?=
+ =?us-ascii?Q?g5/83XV/JNO8VGOSYhmGWyehSg2kreU/E5yRAkwtq2Vx7kPPxxzZcEnbEJvl?=
+ =?us-ascii?Q?a8yCOQA8Er62z5KUyKS2d0D1tZQkDiYjRW1XnzvWVpgmssxhcdy6yuanr+31?=
+ =?us-ascii?Q?LeQiI6c2xvRWiveC9jcHF9kZIQfGob5P2BZB3yMUyDim1JCuRTPFbmUReQs4?=
+ =?us-ascii?Q?P+pzFe7MjPXJfXZ4aK61BjyvbbYbuIFmVbXgyIEdGqP6bHUIHjT0A1WbuPNj?=
+ =?us-ascii?Q?DDgPoXDugQgKIZRhDB0sPCyG8Qia9ZjsPVwPSe2GMN0XNaAUPxrfErZ+m6rW?=
+ =?us-ascii?Q?JhkRnLsLWsGGGUrVGEVeLRC7qsChlO/2xBUfE3yuTTsebxgDWjMD4xc7ASBU?=
+ =?us-ascii?Q?9sZQNrF5gWvG7QB46v2ZtPAvdYJt1bp5NdRQ28J7Y3LtsX7zSOVCYpyTKpqk?=
+ =?us-ascii?Q?12O6rKq73rkU43OP/yeRCJqg9m7Dw6e3Aes5OluLIergS8ijteG8hR3WN0nW?=
+ =?us-ascii?Q?kb4B45f4ewbga+BbDdxEG0+E1OJmDW5Pl/1aNj4/vcGeSx1qcPAK0T4xmUX0?=
+ =?us-ascii?Q?GMXaUZpXPbhkwJeShUs0INMeysxdvQKR6bl19wtFBhaHnVhNiUohKcFAGtgT?=
+ =?us-ascii?Q?aMnzKaVBI5mrGZgBbg7r2Rh2Pwf8j+Rn6XUKwT310qna8GvhP+tIpTKla7p6?=
+ =?us-ascii?Q?7FXQqDYC/b0PIZUJrIM6yyrsPTc6DhG0PKpRdKZUYBiV6IfIX1RdReao/Auh?=
+ =?us-ascii?Q?cGKj/WFv20yKmDAcs50bmuOPAQb2dtgNHAXs4Hy5k8cxvf5yQ+/ZLbOtDccq?=
+ =?us-ascii?Q?3T809+4pOmaL9FtRu+asqflfpfgoBt4ITYzZyNDFRtt+2tRLrp75W7usMgWP?=
+ =?us-ascii?Q?cewhM57P1AT9f6MRoXi1oImh+yF206FjFpsau7yJiinbEFqPdt7Zh39Nuv1h?=
+ =?us-ascii?Q?cdtExZ/F8Q5fmvZ+XAaG35XPGDfCgg7XCbqU4eCweOTjSoXxmY9WY7lnAqyp?=
+ =?us-ascii?Q?C8zEViHwJQOZ/05DrJUWmaIjFEdnb3YANl0Kn7Au9J6xklWr?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 620b488e-aeee-46d5-ff75-08defe1facd9
+X-MS-Exchange-CrossTenant-AuthSource: LV3PR12MB9356.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 18:28:33.3600
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6c928f6e-991f-495d-b6d4-08defe1ecace
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C381.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPFF5B95D789
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 703H7OfmBA+04ew6XaLMRvIBo2xKQSNmmTC+LyqKthzWIaZ5seerzuD9QwOlN2L4zv+3BWEuhCJFS+lHuSoMCg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9023
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_112225_264966_077E6AC4 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20260819_112852_626968_441C8B6E 
+X-CRM114-Status: GOOD (  35.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,47 +151,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dwc3_google_probe() zero initialises struct dwc3_probe_data and never
-assigns its properties member. The unspecified state of gsbuscfg0_reqinfo
-is encoded as DWC3_GSBUSCFG0_REQINFO_UNSPECIFIED (0xffffffff), not as
-zero, so dwc3_get_software_properties() reads the zeroed field as a value
-the glue explicitly requested:
+On Wed, Aug 19, 2026 at 04:30:29PM +0200, Florian Bezdeka wrote:
+> Hi all,
+> 
+> I'm trying to demonstrate a real problem for PREEMPT_RT here, using the
+> stmmac driver as example. There are more drivers "affected" but let's
+> ignore that for one moment. Let's discuss the underlying problem first.
+> 
+> To achieve the best throughput most network devices are based on
+> multiple queues. Each queue (pair) is equipped with one device IRQ. To
+> reach the maximum throughput, spreading / balancing them between all the
+> available CPUs makes sense.
+> 
+> While some IRQ chips - and with that some architectures - implement the
+> necessary spreading (or balancing) at IRQ chip level others don't do that.
+> If a device driver wants to make sure that balancing happens as intended
+> it has to implement that on his own (again).
+> 
+> The typical shortcoming of those implementations: They do not honor RT
+> relevant settings like the smp_default_affinity or isolated CPU cores.
+> Device IRQs are balanced over "all" or "all online CPUs".
+> 
+> That's not a problem for "normal" systems, but for RT systems - or
+> systems running cpu-isolating workloads - it is.
+> 
+> IRQ affinities can be controlled via /proc/irq/<n>/smp_affinity{_list}
+> for existing IRQs and via /proc/irq/default_smp_affinity for "new" or 
+> "not yet registered" IRQs. Those settings - as written by user space - 
+> must be honored. Always.
+> 
+> In our case the settings were bypassed by the following sequence:
+> 
+>     - system boot (all CPUs available, no isolation yet)
+>     - deployment of the first RT application
+>         - writing a new default smp affinity (remove RT isolated cores)
+>         - migrating away all that were targeting the now isolated cores
+>         - creating a cgroup with RT cores as the only usable cores
+>     - RT application running fine for some time
+>     - stmmac network interface went up for the first time
+>         - driver balances IRQs over all CPUs, ignoring the existing
+> 	  affinities
+>     - Too much IRQ traffic on RT cores
+> 
+> Even with series applied there is (at least) one problem remaining:
+> 
+> The /proc/irq/<n> interface is populated on the first request_irq() call. 
+> That means that we can not control affinities from userspace until the 
+> IRQ gets requested.
+> 
+> The problem for network interfaces: We have to bring up the interfaces
+> once, to be able to control such affinities.
+> 
+> That raises the question why request_irq() is called on "link up" time,
+> while the low level vector allocation takes place during device probing.
+> At least that seems to be the common pattern. Can someone tell me why
+> this is done this way? Shouldn't we call request_irq() at the same time?
+> 
+> So, let's hope that all of this was short enough that somebody reads it
 
-	if (properties->gsbuscfg0_reqinfo !=
-	    DWC3_GSBUSCFG0_REQINFO_UNSPECIFIED) {
-		dwc->gsbuscfg0_reqinfo = properties->gsbuscfg0_reqinfo;
-		return;
-	}
+I did!
 
-Two things follow. dwc3_config_soc_bus() programs GSBUSCFG0.REQINFO with
-zero on hardware that never asked for it, and the early return skips the
-walk over the parent devices, so a swnode or device tree supplied
-snps,gsbuscfg0-reqinfo would be ignored.
+> and precise enough to make the problem clear. The idea behind this series
+> is not fixing or applying the series as is. I'm expecting a discussion
+> first. So, input welcome!
 
-Assign DWC3_DEFAULT_PROPERTIES so the unset fields carry their unspecified
-sentinels and the controller is left alone.
+Not sure I understand the full scope, but it's not because of your
+description. And I want to learn more about the RT business. I'll
+comment the cpumasks part, and please keep me in CC.
 
-Fixes: 8995a37371bf ("usb: dwc3: Add Google Tensor SoC DWC3 glue driver")
-Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
----
- drivers/usb/dwc3/dwc3-google.c | 1 +
- 1 file changed, 1 insertion(+)
+Thanks,
+Yury
 
-diff --git a/drivers/usb/dwc3/dwc3-google.c b/drivers/usb/dwc3/dwc3-google.c
-index 60ee4cc99b28..a01ca23cb6a8 100644
---- a/drivers/usb/dwc3/dwc3-google.c
-+++ b/drivers/usb/dwc3/dwc3-google.c
-@@ -442,6 +442,7 @@ static int dwc3_google_probe(struct platform_device *pdev)
- 	probe_data.dwc = &google->dwc;
- 	probe_data.res = res;
- 	probe_data.ignore_clocks_and_resets = true;
-+	probe_data.properties = DWC3_DEFAULT_PROPERTIES;
- 	ret = dwc3_core_probe(&probe_data);
- 	if (ret)  {
- 		ret = dev_err_probe(dev, ret, "failed to register DWC3 Core\n");
-
-base-commit: 6a746cd265aed59107ebdaa9ce039bb832922969
--- 
-2.43.0
-
+> Signed-off-by: Florian Bezdeka <florian.bezdeka@siemens.com>
+> ---
+> Florian Bezdeka (3):
+>       cpumask: Honor irq_default_affinity in cpumask_local_spread()
+>       genirq: Honor existing IRQ affinities when setting affinity hints
+>       net: stmmac: Migrate IRQ balancing to cpumask_local_spread()
+> 
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 21 +++++++++++++++++----
+>  kernel/irq/manage.c                               | 10 ++++++++++
+>  lib/cpumask.c                                     | 10 ++++++----
+>  3 files changed, 33 insertions(+), 8 deletions(-)
+> ---
+> base-commit: aa2e13ae8d3cbe2c15ef4f7e971b2de0832794aa
+> change-id: 20260810-flo-net-7-2-make-stmmac-default-affinity-aware-a145a4941d8f
+> 
+> Best regards,
+> -- 
+> Florian Bezdeka <florian.bezdeka@siemens.com>
 
