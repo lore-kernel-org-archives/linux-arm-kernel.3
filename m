@@ -4,77 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50452C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 07:47:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FEB4C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 07:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FFro0CShRsSHLGgbO4zij6styDLmEifSQxQUeqQE0X0=; b=bH8BLK1rQ4P0grFRzWaHziHSAR
-	HMInvVhsSuOSwc1sdK7FoXSP/M5gX5iIp6D7A/EYGrPJqTUqZdeLabPXaMPLigJRmZm62+KESg3Iw
-	44n8aU7jq4Av2qJtDgVGVbnlZ2q4bmWMARxz8X+ZqH8MQzImiWptU5tAxYG9p0O/V0PGw3b95TbFE
-	0vYwfBiaF88FzqG4Lp0cAkiMJl30Vc+kjFVI9xCnqVldtVzEQFFkoj08mfRKNpY7i7YioPSA2o4AU
-	hO+7tfaMtgGpgAkTWFQh7S2qrjNzPHvNFY6w5EMdCXu0vQ02PTzm5rCPZ8EY+wytJbiRkMHM/5Rrn
-	rL/b/EWw==;
+	bh=sufZXYFvhqt99gCkQ0mCK5s0oy3fyCr/7BG8YjyOEgU=; b=NF+CKtHbjmhsgJsyCKt+ardmdV
+	miuMw998ePW0pfivuciCmEGp+du2MV0icG+SgsxNsxeAXOLJ6UPz0Sq0DXUbKcZYpeScrdKFbpf6W
+	gmt/p9XK10mZM0A25AVRU3NdZZGHJHS0oE6Yc6/SPQApw1nDfVcs6W5gssBsBbx7aDyRBw91biIue
+	ySBDCTKlaNhjValfFGzmZ3a0gZzOUvYZ6pxsObbQxn+c08qPODixASxdvWnlbij3IOHLlKc8la7fx
+	jKOjkTiwpXMlFt4SUd6KaEMi4s9bME+T/KFUThBooH41CsNnGsS1mmHmAU6il9RLyStm5p3TfkAKk
+	Hq4o3VwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwb1A-00000009ERf-12mU;
-	Wed, 19 Aug 2026 07:47:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wwb6p-00000009F9F-1M7S;
+	Wed, 19 Aug 2026 07:53:15 +0000
+Received: from mail-m103131191176.xmail.ntesmail.com ([103.131.191.176])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwb18-00000009ERT-2Bhc
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 07:47:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DB026439F5
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 07:47:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD3531F0155D
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 07:47:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787125641;
-	bh=FFro0CShRsSHLGgbO4zij6styDLmEifSQxQUeqQE0X0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=H4xJGj9/2X+lT/uWhbxXcdPQuM7Bg0MQpuq1YyZ+1rRUji8sJaogN48P6A9i+WlXF
-	 CmbN9ufpRZKvfQ6RHrNVHDKf0ZUKH6lMmKJw7oDStcMGXAGn0aBMXq+s1NsNvDrWZ9
-	 Oljf1DDTrJg9pk8S9WLkII1kgG/vYLtKZ48tKvOA/csRJYfBhVTo3A/9r/PbZzmg2Y
-	 efCuanDt6OZrg0W5f9MhLFvQOGXAzTCWx6lZGlWvr/aX4xkhoq2VnwxEh4XhAolNfu
-	 FDozd1jLinL5SbFvKPd574wZbePTihcoFq2hrYBE+GJwIDlRCEPwDIKZy8j3XzgW1Z
-	 XePiEDb7g8E4Q==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5b2a3166398so846675e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 00:47:21 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rp3cpE/7UEKB05apJAIZyqWIoXYXHHMLFxo+jFdjA3kzuXXP2iAKQbD+oWVRtDDuIcJAY+h32M7Bsjnps7lOowX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yycp7zpenSn9PcBm6pgf6jnZhYlqiC6R6QCHmbIHDeVPHb8zR13
-	lfAvLfRnObXYoEu+vPXH16lCvXCznsVIzvoBpbbEOvy2+FM0OjPXiQsW5vZlKAHvxljI6/WkSj6
-	+LEuhgLT77MX8+oiOCUmbea4H55LTwZA=
-X-Received: by 2002:a05:6512:3b9c:b0:5b4:5c5f:2aed with SMTP id
- 2adb3069b0e04-5b478bafeedmr801963e87.9.1787125640383; Wed, 19 Aug 2026
- 00:47:20 -0700 (PDT)
+	id 1wwb6j-00000009F4J-0TJI;
+	Wed, 19 Aug 2026 07:53:12 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4a893479b;
+	Wed, 19 Aug 2026 15:53:02 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>
+Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v7 4/5] drm/bridge: analogix_dp: Add validation for samsung,lane-count property
+Date: Wed, 19 Aug 2026 15:52:37 +0800
+Message-Id: <20260819075238.3007087-5-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260819075238.3007087-1-damon.ding@rock-chips.com>
+References: <20260819075238.3007087-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-References: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com> <20260818-cv75-v5-v5-5-7bbb12f0360f@ambarella.com>
-In-Reply-To: <20260818-cv75-v5-v5-5-7bbb12f0360f@ambarella.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 19 Aug 2026 09:47:06 +0200
-X-Gmail-Original-Message-ID: <CAD++jLngqGzethEG5Hx+oAPzZoV6rvWNGXYaycFFkDz_dXFz=g@mail.gmail.com>
-X-Gm-Features: AcwNN1Xd6vVOI9stCj2gRpLkQqCARgCDR2Ns_rmI0pVH0qFiDI8kQzTDIQYC_Ck
-Message-ID: <CAD++jLngqGzethEG5Hx+oAPzZoV6rvWNGXYaycFFkDz_dXFz=g@mail.gmail.com>
-Subject: Re: [PATCH v5 05/12] dt-bindings: gpio: pl061: add Ambarella CV75 variant
-To: longzhao@ambarella.com
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Brian Masney <bmasney@redhat.com>, Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, 
-	Long Zhao <zl020895@163.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa01902646003a8kunmf3c4117e328bca
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSR5NVkNDGUhISkhKSEpMHVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=HzCKaOW9WVbpPe+w4/1hzHZaG4ieDLwJ6pMO+fx2kpJA/wpP6czM6EbZpbGY0HaqGzRkdjMdMmXkhGyqBYajk4WZV4bnan9DveUsgx/ztdJ0EDE6RwzeLVi9T0qLy8z4yieZQDO3IdlkRXr2KJoKFO5zc7LgY0qZ09tjJj4ChtU=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=sufZXYFvhqt99gCkQ0mCK5s0oy3fyCr/7BG8YjyOEgU=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260819_005309_989577_E716A989 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,29 +93,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 12:32=E2=80=AFPM Long Zhao via B4 Relay
-<devnull+longzhao.ambarella.com@kernel.org> wrote:
+Add validity check for samsung,lane-count to ensure DT-provided
+lane count values are specification-compliant.
 
-> +      properties:
-> +        arm,primecell-periphid:
-> +          const: 0x00000061
+Suggested-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
-The 0x41 in ARMs PeriphID is actually the JEDEC JEP106
-implementer ID (8 bits).
+---
 
-So you should ideally set this to whatever the hardware engineers
-should have used, had they paid attention to detail.
-If your company has a contact point at JEDEC they should
-know which implementer ID to use for Ambarella designs.
+Changes in v5:
+- Apply DRM DP helper API to check the validity of DP lane count.
 
-Since Ambarella is evidently a member of JEDEC your
-representative should be able to simply request a JEP106
-implementer ID and give it to you if there is not one assigned
-already, but I know it can be hard
-sometimes to find the right person inside the company
-but I think it'd be worth going the extra mile here, say that
-this guy from the kernel community persists.
+Changes in v6:
+- Rebase after the new commit for restoring mandatory properties
+  samsung,link-rate and samsung,lane-count.
 
-Yours,
-Linus Walleij
+Changes in v7:
+- Add Reviewed-by tag.
+---
+ drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+index ddb15d6de05f..a74c855936b2 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+@@ -1274,7 +1274,8 @@ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
+ 			return dev_err_probe(dp->dev, -EINVAL,
+ 					     "Failed to get samsung,link-rate\n");
+ 		video_info->max_link_rate = val;
+-		if (of_property_read_u32(dp_node, "samsung,lane-count", &val))
++		if (of_property_read_u32(dp_node, "samsung,lane-count", &val) ||
++		    !drm_dp_lane_count_is_valid(val))
+ 			return dev_err_probe(dp->dev, -EINVAL,
+ 					     "Failed to get samsung,lane-count\n");
+ 		video_info->max_lane_count = val;
+-- 
+2.34.1
+
 
