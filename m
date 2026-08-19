@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B499C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 02:49:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF5D9C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 02:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5mBZvCeN2//ZyvUUsC1lfsgAjSbsE53j1pTePzGlSm0=; b=v+bvXEXzQggnu4vr5JoBwjuzON
-	4o14r7j+tWTio9COh21GuAQrlpviRyGNDC1jWc7ZLfwmgDFkrT1A1daR64XNF4MYQjIZPTS1qb9jq
-	p8PV1u9difKcU8sb/5QMX6p1hCMyqqwBvdQ4l8xGZETdvbxDvp+Ylq7r3fDSHvj6WyCewv0s5AcjV
-	orGSgv6MKdlBrGmU7W4Y1jYkVU9rwjJxD60kg+VQeRXUsbWpeZVNbBAdPg+61VfCsWufBEgHABlXB
-	O5cGUZMwDlE89JEtTQ3qRAX5XafHtdToTxjSnDNjhBAcI2PipaE0d3lW4BUj++otAM9TKeHBxi+HY
-	xTen3Iow==;
+	bh=qL4RpGwgnk9/NidRbhhSgsl91K4IlB43YJ+Xvkb2QC4=; b=kD3IuwnEGp2FCBkrrM98TWuuUJ
+	kNQOmkwv+6kp/JcaWp44KonSrLd7TrTMA/y7ZurdDwH0GVcUKj5oSf/ha03k8azVnn8W+Op0z/uw9
+	hyZXKzd1J+VlPSdcCyYUBnmurK4kTs+KKqiowMt8c9EjfJmhHYPln1WZfSyf320dy6u4FrQ9sq24g
+	nfPtPrmh+SnRX1d7f01Ctc68Ywy2mXIMKKzO28KqZPkSVL4GVUfbeS4TBkFgWZLfL0lqJwXtUfpcU
+	q5c0La18ATKKWHsobIQK7s8ryeys5azu+8FFRSVaVllwDGk3yfU9kVEro3EwnZJLZgUohGcc6gRB/
+	D6VSCkIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwWMr-00000008uJm-09hO;
-	Wed, 19 Aug 2026 02:49:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwWMm-00000008uIz-2B2g;
-	Wed, 19 Aug 2026 02:49:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7DA416A3;
-	Tue, 18 Aug 2026 19:49:18 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E01DD3F66F;
-	Tue, 18 Aug 2026 19:49:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787107762; bh=oAq7LZNVfuWLyY8F6bgNDhoqq4F1x7DlAd3a+zTStqs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vJl0n3O768ihB63yzY/C3psnBKMwgj31m+kzmZIZlkySfUrUB1m+qr/j5JU5c9Afe
-	 eXlqYLfwodRGlGGDBoPRCFbNWaxAndC9cqljsF8lDwcjTwNIut2KUoxp62ngsl8nn1
-	 zy9caih5g0LTIVBgKUQNdkShhYRX1qD1/PYrFpfg=
-Date: Wed, 19 Aug 2026 08:19:19 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: linux-mm@kvack.org, akpm@linux-foundation.org, 
-	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, linux-arch@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Lorenzo Stoakes <ljs@kernel.org>
-Subject: Re: [RFC V3 1/8] mm: Make ptrval_to_str() generally available
-Message-ID: <mc5cbirsrv24mwu4bg35ksxjyzfoydlgewq4tt7uu3ij7f642o@m4w7dm37nmdh>
-References: <20260818040041.1891769-1-anshuman.khandual@arm.com>
- <20260818040041.1891769-2-anshuman.khandual@arm.com>
- <55d92b3e-ad3f-464f-b2db-a2552353223e@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <55d92b3e-ad3f-464f-b2db-a2552353223e@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_194924_795888_6BB543CE 
-X-CRM114-Status: GOOD (  11.12  )
+	id 1wwWWG-00000008uss-0aYW;
+	Wed, 19 Aug 2026 02:59:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wwWWD-00000008us8-0qGn
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Aug 2026 02:59:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 402B260204;
+	Wed, 19 Aug 2026 02:59:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBBF01F00A3A;
+	Wed, 19 Aug 2026 02:59:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787108346;
+	bh=qL4RpGwgnk9/NidRbhhSgsl91K4IlB43YJ+Xvkb2QC4=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=LMaPCB1Kjn6pG8K+RoFUmS0v9fQuw8aSb0oJ9r2Wxr4/gianIRtyYoH0MaLzu+/EM
+	 KaFE5uS24fsaRGQGj5xWOkNOUPRnnUsgG1cZ9CQZFKGSeFlrF10TrzwcCxRITpRgJb
+	 +m/U95iD0uEzw3h1qFpEwjM8y5CZhtUwrJxGxyLJqTF+jsswn8+bYyFueXZK79B9SH
+	 ePCV9OJUdV6u1lWnq8u6MhR8Uri+tPH5l+G4ROG384wRS1XNZxGjGghJVMI6aYoB3F
+	 /JuY7R1Btn/nqoBLksiODZVRWhNjeaYJk4DxF/jnNdkek87hDPe0lNPxE/emXVLtf/
+	 pL9NGNXa9K2iA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 69E77392706C;
+	Wed, 19 Aug 2026 02:58:19 +0000 (UTC)
+Subject: Re: [GIT PULL 4/4] soc: Arm platform updates for 7.3
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <714ff494-4bb6-4482-9972-84380d87eff5@app.fastmail.com>
+References: <714ff494-4bb6-4482-9972-84380d87eff5@app.fastmail.com>
+X-PR-Tracked-List-Id: <soc.lists.linux.dev>
+X-PR-Tracked-Message-Id: <714ff494-4bb6-4482-9972-84380d87eff5@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-arm-7.3
+X-PR-Tracked-Commit-Id: acf1efa9485fda84f332c8fbbe7b4453dbec183a
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: bd5f485f3f026225b86573e559af0b7254ef4184
+Message-Id: <178710829822.2816674.7570982886082870719.pr-tracker-bot@kernel.org>
+Date: Wed, 19 Aug 2026 02:58:18 +0000
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,32 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 07:25:07PM +0200, David Hildenbrand (Arm) wrote:
-> On 8/18/26 06:00, Anshuman Khandual wrote:
-> > Move ptrval_to_str() inside a header thus making the helper more generally
-> > available for new users which are being added later. While here, also move
-> > another related string size macro PTVAL_STR_MAX inside the header as well.
-> > 
-> > Cc: Andrew Morton <akpm@linux-foundation.org>
-> > Cc: David Hildenbrand <david@kernel.org>
-> > Cc: Lorenzo Stoakes <ljs@kernel.org>
-> > Cc: linux-mm@kvack.org
-> > Cc: linux-kernel@vger.kernel.org
-> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> > ---
-> 
-> I would have placed that into include/linux/pgtable.h. Any particular reason for
-> mm_types?
+The pull request you sent on Tue, 18 Aug 2026 23:16:45 +0200:
 
-Yes - that works as well. These declaration and macros need to be moved inside
-#ifndef __ASSEMBLY__ block in include/linux/pgtable.h file. Will do the change
-as suggested while dropping the RFC tag once v7.3-rc1 is released.
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-arm-7.3
 
-> 
-> Acked-by: David Hildenbrand (Arm) <david@kernel.org>
-> 
-> -- 
-> Cheers,
-> 
-> David
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/bd5f485f3f026225b86573e559af0b7254ef4184
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
