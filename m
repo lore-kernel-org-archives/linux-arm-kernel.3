@@ -4,139 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB4FBC5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 15:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09033C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 15:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vv//GFttk3qYBPU7mvMr/By4VJqy5iyji7k+koecDb0=; b=R0FNPqspsLWko1laKwy5gkY3cG
-	T0zFrLUtSAGpNAWc7azLGC1VRVwa1FMd41cO0q1evODRYP+FQspo2QK2/x1vJMx9mNuNed9qAzkST
-	OmE5j46tA9CIH1mg7DQ2zceFr35gN82haNLwvf4PGfl1HxiCdHTsrfQQxNZiwaqzAugcNYoDzvPpK
-	RP+EM4qondsuUZU7WyEq3V0hi6F7pIdOMVI4UPNNMKrK0MljhRSwLSvv5uw9zG30A9g1YjqYjo3DI
-	3ugtStsmHMQa4BpKwH3BcWUFW0tJ7vMMhlAq9T8qooGRY22tVpuMfiR3qKEpyxmDtPSeW/mygmffT
-	abfBtGvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k4QWcUJiio/9HLgXjgINLfnyjtSRinPNGm+gjd8rgPA=; b=IiBGYRFiId/QC9xr4v31GB1Tny
+	YV9Rd+5OOp0MSZnZtlpkQlbm6NVWAuIPqhl0HbzLmCOp37XswCKTUMaoH3ojrroEJ1Cz7IdGM6JFb
+	UMWxLw4wW3MNpkZ7faZmOO/6e6eEXafIDssxQtmZESb8pO+rh33eKRGNa+3rpstOezXBt0nTXrXEl
+	6NgmE1EkqYAPZcSoPlGhID+g6Q1L2aAVUYARY5gfNWMgxXrrv3Pd/5afTJ1xmij+5oi8aHpwW4fnh
+	HHMv60HtgKuYI8ZQjfF6DSZ3DJy7/Yr1nt7FidAoMGC70Hx4sdPLvzUtAPk2ycX5I93QFbSpxGtzX
+	jm1TUzgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwi0t-0000000A3hJ-0WnF;
-	Wed, 19 Aug 2026 15:15:35 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wwi2u-0000000A49u-1WV2;
+	Wed, 19 Aug 2026 15:17:40 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwi0l-0000000A3br-3QJr
+	id 1wwi2r-0000000A49I-0vGv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 15:15:32 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67JF1bVF963677
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 15:15:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=Vv//GFttk3q
-	YBPU7mvMr/By4VJqy5iyji7k+koecDb0=; b=FbRVP3+W6IIApSK1NLeoMk8lg3n
-	C08s7YVSJikjatnQYKiIG+YWoD2jRZSm1L+yM3NUwiSVpjs3zU4ryY2XDxmtiCFF
-	e+Nlqeqt3qXoJUURz/IRsv2YhK/VLWbZ19liu9u+S/JS+2TRk51kzAdS60++VLmj
-	hmihvb4sKU4WNWM6+NwPCXZedIicyQ7gumcf10hngMaIodpnlH53/yhfb0xq4Yvd
-	PP8MyrUTLJMEe8WnYo7P8+A1tr7tgVeVTnoBMRYLUhQOnJHQoRgRbGpPU8ApI20U
-	3g2uiU/zhWbU75HuOvXQVYYJkJ+tNxZXCULwDvDPtiEeMUvS/OvbOpJHSLg==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g5es3g24h-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 15:15:26 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-934956beec8so209517985a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 08:15:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787152526; x=1787757326; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Vv//GFttk3qYBPU7mvMr/By4VJqy5iyji7k+koecDb0=;
-        b=cIKLqLKoGnG2cRshtdt46Od9dF1C1tmmVB3kMlX9JQ0KhD1JISEOch3DRANhWBvFRU
-         nolbFEKJqZMpwPQ+9yw8E9rfpmfcqcpfDu4R0xuGLKimiMr/Re2a9Me5QATkGKhApwFN
-         b36Ecy2ChOrp2An3KN24AmwyMYqvA0yMWfmgb7NKCO4oVHVWtvvLC5z5rXN1Yy3oLRDD
-         dW2FWACZ0kXoK1JQIKaMwdiVqG8M7UM/ziCWxqsVWK7a85/tMAAzFpHrZf+4WPQE+CEB
-         +s7NP9PVVqFdCPZp0yc5gGJa1v3hsYzjkZ2CQbqIik7Ym5tM/YP7z1H/s0g7cDaAdz1I
-         0+7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787152526; x=1787757326;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Vv//GFttk3qYBPU7mvMr/By4VJqy5iyji7k+koecDb0=;
-        b=tKkvHHOWSllBQa43Goa9WfWWW9hmmTbm9qX1XE1vwJwYIxLDmKrNHrEF2d49ig+NHN
-         UPLjaEY1+b1Uf42wiK6UgSjcMBnzCCD3oOtx6fZZHPqR1LTCcmF9f1abglnx7m+zIVOb
-         xsqTHiegGDY4uxap6r5FfB8JN4hhvUbMTR3mcd0l9ZhCjRoDfNbSwBUyAilGGxS2MC5S
-         nFIIspphDM9keQJYpQBpw565KGXAARTbwldBfSePj0BoxDoAWZrTmkZZocJeMNIKImn8
-         xMhwwFakN7aWoxrC9b2xwffyonEsICZT1skbkxJGTFEMye7BTeDcZcFJ/z4H47BfpfMp
-         ksBg==
-X-Forwarded-Encrypted: i=1; AHgh+RrxASejUCF0ferHSTFty+bfPio/uckGqFatK/sFtrNPn6YOnbGuv2/5bs+0gNP20F4E7i72fC09ySzBLOTozjzy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyL1RWdSBTO8Mk/9dpJxH9GYZMy3VpEp3pg8HjUlgpOKme+HRka
-	6+il9H/2ZH7zBLB/TlehGJMYvCTq5jQbHENiIRoY6DF8OvlnZUxzZcTrSxTicOxFQXlcrLxYqsE
-	4+H1w9HaJNae+QOkvubovDBdNPewv8qbJ/UvcBayyxnYNtOzcRwRbePcbXWwNMwf0du3NBCxtmX
-	/LzQ==
-X-Gm-Gg: AR+sD12Wdk1oeyDW6eipmAUBvNu1DCVW/BHilgikCFKBbCEBpQLAE9nC+C1GONuYOFn
-	Ll9Mm17mQyqC5iYCH5qeCcxcDkQbX35vLUH2NAhIi2Kv6mI3ig6zJxrRX0V2/RjXzw+TSfUKK3n
-	oqIxn0mjl/sEInZUfqC8iRg4zthkxS7PbrrBgkgS09aHbvaW077jVTI3gL9BKCM4aUirM7Jn4Dj
-	+oVNKIU1BWdJH1jBqiC5FBnjXG3jtGJ1nrGPyo9akAiWdiMF26IORifRTcvkhGrD9yNXHmlvHF6
-	AhPW0c8HmBc4QlxMxiRVh+Q3NGGOM42noaLGaiibGQsNBHz9JZ/xnl07WtsIbf+lcpVcHK+eD5Y
-	ZC6Dzk9SfthI5BheCJa5AwJn3NYX9jBqAGy3HjHqdKX9wAQObDQ6e3XfYaw==
-X-Received: by 2002:a05:620a:1d0d:b0:937:1710:f839 with SMTP id af79cd13be357-9371e79aceemr569269985a.47.1787152526113;
-        Wed, 19 Aug 2026 08:15:26 -0700 (PDT)
-X-Received: by 2002:a05:620a:1d0d:b0:937:1710:f839 with SMTP id af79cd13be357-9371e79aceemr569252785a.47.1787152525350;
-        Wed, 19 Aug 2026 08:15:25 -0700 (PDT)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c243c4ac06asm94124666b.33.2026.08.19.08.15.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Aug 2026 08:15:23 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-        "Rafael J . Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>, linux-pm@vger.kernel.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Maulik Shah <maulik.shah@oss.qualcomm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Ulf Hansson <ulfh@kernel.org>
-Subject: [RFC PATCH 3/3] cpuidle: psci: Initialize the PM domains in powered off state for OSI
-Date: Wed, 19 Aug 2026 17:14:53 +0200
-Message-ID: <20260819151457.256959-4-ulf.hansson@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260819151457.256959-1-ulf.hansson@oss.qualcomm.com>
-References: <20260819151457.256959-1-ulf.hansson@oss.qualcomm.com>
+	Wed, 19 Aug 2026 15:17:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=e5ozuTABF9vnq8lOliP1Cfn/d1KjTBA+q4n8WoaSeSrSdjXeixlfyWWUdq7qhfS5FGbkpSz3qmdktwfEfXkDDZ5OU9DsxejsehvotZwfgOx7DcRrLLuJROxIesVbKGxhaYmMHZJBoEKG2tO5RfDeJ9I5C1LRo28oi+w4tCnpX6mu2wB3aZL6dYIRJVrYn9N05KW8uA8eWIMoThAg9Egq0knfHnYwFoS3kEUPcZn7Bzugg3pr5SmWxCB5e3YFqJ2hnMmhqKTBaDww+xT6S5U4OkTifbapgj380Kt1uvCFVGhb0N7ZgAh6yE2RunpJ+1nutUMMYgLRVp+sDEcIE0U/Kw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k4QWcUJiio/9HLgXjgINLfnyjtSRinPNGm+gjd8rgPA=;
+ b=klrSAi+feWEZ1Y+VxviaVcccOg9EBLQb8LLPflXql4btw0jnRLxNcxju8VoTnZfd8YX5Vt/m2ySGl7SL+5TXgEnrrjpPJXB4G8ZcZW+BLG0Tl0mwNQF7PdZd3/olmSRzfZ10irnuQlOVUHEkzRW4TPUhV/qBbQpgEd7XRyUqeexdwD3HUKXJ6/mRjsXmvZ4yqoUXC9poKr7wnXW/GETCopsbco8qb+JHqjajgINEC5UhcB3vqqMSJOJbx0SA4UiWfuApB5OpexZafBNP+Ug0lcC2ZlbVDtaimapGWn7z0sMsnE/6KAvZ60Td6TvHv46oMI5otk8HJINNGsgMUH9WnQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k4QWcUJiio/9HLgXjgINLfnyjtSRinPNGm+gjd8rgPA=;
+ b=JOEF/AYLeIhNzg57UDwxC++KK9oDMdEVhHVGqNs2VvNSRT9LZHLCXRxIYKNiEp4I+v9y77bPi/p6R8cZsaAmn3iiDyczGAW6btBF6uzV9jFXP9jPtACgxZNAHUEIzdlvUgwEOiTqbCKkbOdSBdTI5RJu1CTlfmW2cZq03j7x2XWT8uVaI0kW8te/uhfkKtf3lpX39VkhsIH0L7KZNnSxrONwvAgdjXTbvq/xIK/DuLzwKSBbj6WpNifUnzNZpBckJ1ZSPJOeQEb7eRQZ9p/poDgSCJ08H6coZ4CWk1FDptMLHbChocHk4+KoeRvZ0FSYmwZoYc8eDTsjE2gRaRzYLw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DB8PR04MB7099.eurprd04.prod.outlook.com (2603:10a6:10:12b::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Wed, 19 Aug
+ 2026 15:17:31 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
+ 15:17:31 +0000
+Date: Wed, 19 Aug 2026 10:17:23 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Zhipeng.wang_1@oss.nxp.com
+Cc: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jindong Yue <jindong.yue@nxp.com>, xuegang.liu@nxp.com,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 5/5] irqchip/imx-irqsteer: Allow building as module
+Message-ID: <aoXJAx131-gU4qXu@SMW015318>
+References: <20260819090543.585131-1-Zhipeng.wang_1@oss.nxp.com>
+ <20260819090543.585131-6-Zhipeng.wang_1@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260819090543.585131-6-Zhipeng.wang_1@oss.nxp.com>
+X-ClientProxiedBy: PH7P221CA0076.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:328::32) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=UIrt2ify c=1 sm=1 tr=0 ts=6a85c88e cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=h7aNHqOhPKB91FvYUefsSA==:17
- a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=GddhhVl5-a8N4MGu71oA:9 a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE5MDExOCBTYWx0ZWRfX8p1fTRXNlxiZ
- MDbjJw/yQwFUQ8Bu1D1TkMCzfZiTS11EKHctzVvTpXDZyeLQ0EckxWIKoGdErkA4Z2LqCH7oYNx
- Zhz0keGyC4Jq03gHGxfNzdJ4sCjKrSR/y89sTLdgbCOJzSV2Y3ngD8tLujT6RP5ONq20/BmbUzV
- U6Gvu368kHZvKdWYaThWUiBY8USkKl0xtJZfO9qfnOsr5ERl/tJ2MyUmn3F5PiOYFDrhC33kKBS
- wNTvv7HG5DR1aSLJBl/6fXkzN0RQS9BYVjUWAabThE2xt8mvU/eu9GmNr7WfohxLiiWHZctkhr0
- C7hqCuEbfNlCGpouRBZjBJpFF9NzcZ57iX3mTf8Un5V9br/vwg2fZIzHxQZ36+pUG2DHkz+uGPe
- HgWRjc8WTMmqssie050tbUSrA5/kueBCsBLylMuj3BrKG5A88IUg5QScpMrRcBPf2Uf/AETOG9m
- AGwl2Sb4tPTXIBw+PCg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE5MDExOCBTYWx0ZWRfX7P+psZzZco7C
- 51C514aIhICkWtM6xlGfNEce222iFBttPxxwrDzhvjlngP0uaXQIN3l1Stq1STfP7A8xpMBcRZk
- g17KMWMasbRYbDx4r2UwUN/p4nY/XVY=
-X-Proofpoint-ORIG-GUID: nwMIKH_RmlTQsfJu9MLeixlKf-at6qbp
-X-Proofpoint-GUID: nwMIKH_RmlTQsfJu9MLeixlKf-at6qbp
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-19_04,2026-08-19_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 suspectscore=0 impostorscore=0 spamscore=0 priorityscore=1501
- clxscore=1015 phishscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608190118
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB8PR04MB7099:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2e9aa968-2222-46ae-4e8b-08defe04fcd8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|1800799024|23010399003|366016|56012099006|10067099003|4143699003|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: Sf9DabCW/UV9vU9Z7XrMjWf4lcngLbEPMamGaTYHsm6rS0JmNtgO9rGjRwlTC6+bGlvV/4IcLwZkGE4Zv/uXM4KilsV7bC5Rm0ixf8VFCiiEbaWrVSIXrQurx9mS20Ec4ClW3Gkwi7B7uVyJQOqcq+laShcR65N6DXVloMJB4crv8BQDEYM89AHkIDaMfBz+IVIrV8jdJLHx8Mxumkud72Q3nUYyF4gYad8++OrgRj0oIfye1/tSkOU1SyruIZXEbtTGeIrrMDn29Jh+wyk881cXbUQnCoBwhZ2PMZlcTZyYT4GVLjddAUBUmJaPPqWDd66rdDruaXJYXt3fi9a//riYOtiweK/SszOUgP968t8oXY3GKQKwXEDB0Zg/syTsK7iQymLMVGVUqf8pQSUET/1aFeCdIeXkbsRBRKNOrrviH4UG3WIsELMZ253KXXmW0a3dvA2daJFw6hPQNSVHSUl5yAhiGRSxySD7W+geQificHkd0iVX+BqvXNXzlOaUbN3UaqvsTuOJNuP+6ezW0U34mvFLTItCdv2wCqLqkzSDiCpFczIDzWzweyF6SQPmW77vfP0vgTG3NpzzrJ+sq46oL0Wxa81d/UUT4RU997ca4EXsXDjoeEbdn9L4r9RODKfSbb0xnPVeUdHR6zRvbbHeYCNU0O7wBpPspNlyxJo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(1800799024)(23010399003)(366016)(56012099006)(10067099003)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6nzlqgGq4VQ06mbZGgk/mnJKlF0owttyTNLrs8LD3tBuuffRC4TEfeV6QrGy?=
+ =?us-ascii?Q?7+M4IE7JAHKoJI42F4LkqiclWFWW5InVDqX5rNYB3pdm2zyR184Nu/JRuc0T?=
+ =?us-ascii?Q?+APQpfJajU048UK7R8VQGroWqvaHbdjWJU22hfIwubkO7TS7C44JnqFQQxwa?=
+ =?us-ascii?Q?L6NAiVGvpXQDNoXxn1z0xUMxyeZTBkIC/tjiFgk2C9GORyzKbEFeckdt9+cF?=
+ =?us-ascii?Q?Aopm4V9FA0vpyDRu6Rb94P8CQw+Eqro3m8vVJobIJMvrq/C5OZsrErg6Psv7?=
+ =?us-ascii?Q?rqHls9IYBsoryDZX5SiTaELwlqXzx3rx/fvVJYJ2stSJlRUJrWQ+d5YyHjxn?=
+ =?us-ascii?Q?2HHZvCgkebCc6ukcSOeHfK6+9gSbs6brHF0B9Oy8/j396w+GlviRntCiOG50?=
+ =?us-ascii?Q?t6sRb8WEp9B8GyoSFN5knJyLdOe3ipwXVB1KPfwegFhda4ONFtr+stv3Upcz?=
+ =?us-ascii?Q?YnJ3hDFxdIiMwHOaoqE4ufza5ey6N/UAHMSGUollI8qDP9u+JWZ28uHoCiTC?=
+ =?us-ascii?Q?47Uqs71iurYtqQv+AIr189HE+9e7LLTAAMISTQUBaaHOzh0l08tDMcdlUO0L?=
+ =?us-ascii?Q?9RAhpZYzO69riIEj7VS9VzuAXTkZsdYfLqRZKGHq8M79tMTibhwIiRbgwzzu?=
+ =?us-ascii?Q?AKztSNQJImmE7++KJbFOrXBvgA59rv0Bmgw2bY4Xk5NbWc8x4IKcMk9eu9ZN?=
+ =?us-ascii?Q?1oHBmKddx0m7ne5RWcJMQFFxQCACT3matIue1jAIOM05Nws0uq8xBMYsXGd1?=
+ =?us-ascii?Q?IxyxfJs8OjyluUAAmh4xl031JBEw/IE2ea6rTJKHpYjyC4OHoL2JV3BFP8xl?=
+ =?us-ascii?Q?QWCeQHYQxlWjZ+IuZsIHw3FiwjN5vOhFhz4YdLgkW6xT7xVFKVWSSblGBr+J?=
+ =?us-ascii?Q?p0T/S07SdFVmAmwW9MhnMXnSrmtswAaWfgkCU9X+kSA0ILipserwelt6CtFV?=
+ =?us-ascii?Q?Ek03vNh+5mprSbcT/uT7k5NJNWzbxD8g4sOo0tPsEaC6NjoWQU3SunFzg3Ru?=
+ =?us-ascii?Q?Oyhf+Z9NAH3Le+/uEgeTAi6xk8ZnvveTLpKcy3V+0oH9HsulVaVldWWaFaCg?=
+ =?us-ascii?Q?E1QY8d2QktJgOTjv5FS2t4nmPQwUKu+seKNS2i0U5UDwTb8GiiwpPsp65fiO?=
+ =?us-ascii?Q?LmcHsdjTca7MF8upfW/fftgH7f/7G8aaZMPG8golhQwRpLUdRUqpxi7dJVvu?=
+ =?us-ascii?Q?VlvzQWWjmjXd4bG6HqPMlcr6Tr9RkDDLatFFbZFOJdw3L8Jf/D/F4SxJZ/It?=
+ =?us-ascii?Q?lG2KsAykZUNY6CfypshKRS9uCupy/xeJATMO1EQI/SJr0a3mIyuLX4Mm3jPH?=
+ =?us-ascii?Q?6gAQZmvcXVa7zf5TybdCNzEWGeKXgxOO+T8Xa/XI/CjSCfnVbiPnitjsc2Bl?=
+ =?us-ascii?Q?0k8A6TQ5MJOAzUNIXxlUIkm4RdI09AffnqzDv0p8mWYeGBX34XaTMUPIfTa1?=
+ =?us-ascii?Q?biUiIrQvVDAm7j1QUQoTh709/aDD5WDpg1ZlbrBcvcAZVz1nfeVBTNyN1fXf?=
+ =?us-ascii?Q?oLOIrW1t8s23aCQHyteKOc8WcmOWfDT1coAE1flzK4rvAB3EVB7LhBRk5loY?=
+ =?us-ascii?Q?48i++jvcdDiedJgAX0BSUD8MFmSWLqHw44e95oSeOeUC9jg+gfy97SWxBbP6?=
+ =?us-ascii?Q?6u6QZgk8FVYIKc+OeWe1isVYoza+AsY+GVVY6zi0QYdiAW2XKPQtocf1kCP7?=
+ =?us-ascii?Q?bbSmvYedWm7n/xeiLSJPhhKC6B1/HBJkxqMVbDroKcmyczjv5oyntnG5l8fM?=
+ =?us-ascii?Q?tiL/xNi6CTnIaL8ymNpQVr2HFooe+nFaQaxw6tZ4SvPko2N2Bpa9?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2e9aa968-2222-46ae-4e8b-08defe04fcd8
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 15:17:31.2996
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ba3nAentCIThXrmZuFU9boVU3tL+DDgNi3Vb5qMaOaBJ9ykTnjhNG/3k7+xICum9iRppG2PXVFgz4zM01MQAtKKbA8SsBd8z5TaV/8v0t9WTVe2/nbj0sYwUR3PNuWaf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_081528_015026_CAA62258 
-X-CRM114-Status: GOOD (  21.07  )
+X-CRM114-CacheID: sfid-20260819_081737_983514_E55FBB7C 
+X-CRM114-Status: GOOD (  35.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,58 +141,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ulf Hansson <ulfh@kernel.org>
+On Wed, Aug 19, 2026 at 06:05:43PM +0900, Zhipeng.wang_1@oss.nxp.com wrote:
+> From: Jindong Yue <jindong.yue@nxp.com>
+>
+> Make the driver buildable as a module by turning the Kconfig symbol into
+> a tristate and using module_platform_driver() instead of
+> builtin_platform_driver().
+>
+> Now that the driver can be unloaded and reloaded, let the driver core
+> own the clock and runtime PM lifetime so that the probe() error path and
+> remove() do not have to hand-balance them:
+>
+>  - acquire the clock with devm_clk_get_enabled() instead of a bare
+>    devm_clk_get() followed by a manual clk_prepare_enable(), so it is
+>    prepared/enabled for the device lifetime and released on unbind;
+>  - keep only clk_enable()/clk_disable() in the runtime PM callbacks,
+>    since prepare/unprepare is now handled once by devres;
 
-At the point when the PM domain and the topology are registered through the
-genpd subsystem, it's not really known whether corresponding CPUs are
-online and thus if the PM domain should be initialized as powered on or
-not. Instead this information becomes available when the CPU devices gets
-attached to their respective PM domain through dt_idle_attach_cpu().
+devm_clk_get_enable() will do prepare() and enable(). tear down also do
+unprepare() and disable()
 
-This is a problem when using PSCI OS-initiated mode, as we may end up with
-a PM domain that has the genpd's status indicating it to be powered on,
-while it in fact may not be the case. In the less severe scenario, this
-leads to selecting a shallower domain idle state for the PM domain than
-necessary. A more critical problem is when a non-CPU device shares the PM
-domain, leading to their corresponding drivers not being able to trust the
-status of it.
+To avoid both devm_clk() and runtime pm suspend both unprepare and
+disable() clock to make wrong clock refererence.
 
-Let's fix these problems by initializing the state for the genpd's to be
-powered off and in the deepest possible domain idle state, when using
-OS-initiated mode. The support for ->sync_state() is maintained by setting
-the GENPD_FLAG_OFF_STAY_ON for the genpds in question.
+need in remove function
 
-Reported-by: Maulik Shah <maulik.shah@oss.qualcomm.com>
-Link: https://lore.kernel.org/all/20260811-domain_off_ss3-v1-0-6a0a0fc023f5@oss.qualcomm.com/
-Signed-off-by: Ulf Hansson <ulfh@kernel.org>
----
- drivers/cpuidle/cpuidle-psci-domain.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+    /*
+     * Resume the device so runtime_resume() re-enables the clock.
+     * devm cleanup (clk_disable_unprepare) runs after .remove() returns,
+     * so the clock will be enabled and the disable is safe.
+     */
+    pm_runtime_resume_and_get(dev);
 
-diff --git a/drivers/cpuidle/cpuidle-psci-domain.c b/drivers/cpuidle/cpuidle-psci-domain.c
-index b9e4ad7d43a3..29caf3114185 100644
---- a/drivers/cpuidle/cpuidle-psci-domain.c
-+++ b/drivers/cpuidle/cpuidle-psci-domain.c
-@@ -68,7 +68,8 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
- 	 */
- 	if (use_osi) {
- 		pd->power_off = psci_pd_power_off;
--		pd->flags |= GENPD_FLAG_ACTIVE_WAKEUP;
-+		pd->flags |= GENPD_FLAG_ACTIVE_WAKEUP | GENPD_FLAG_OFF_STAY_ON;
-+		pd->state_idx = pd->state_count ? pd->state_count - 1 : 0;
- 		if (IS_ENABLED(CONFIG_PREEMPT_RT))
- 			pd->flags |= GENPD_FLAG_RPM_ALWAYS_ON;
- 	} else {
-@@ -78,7 +79,7 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
- 	/* Use governor for CPU PM domains if it has some states to manage. */
- 	pd_gov = pd->states ? &pm_domain_cpu_gov : NULL;
- 
--	ret = pm_genpd_init(pd, pd_gov, false);
-+	ret = pm_genpd_init(pd, pd_gov, !use_osi);
- 	if (ret)
- 		goto free_pd_prov;
- 
--- 
-2.43.0
+    /* devm_clk_get_enable and devm_pm_runtime_enable clean up automatically */
 
+Frank
+
+>  - enable runtime PM with devm_pm_runtime_set_active_enabled(), which
+>    marks the device active (matching the enabled clock) and disables
+>    runtime PM on unbind.
+>
+> With the clock, runtime PM and IRQ domain all owned by devres, remove()
+> and the probe() error path only have to dispose of the parent IRQ
+> mappings.
+>
+> Signed-off-by: Jindong Yue <jindong.yue@nxp.com>
+> Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+> ---
+>  drivers/irqchip/Kconfig            |  2 +-
+>  drivers/irqchip/irq-imx-irqsteer.c | 36 +++++++++++++++++-------------
+>  2 files changed, 22 insertions(+), 16 deletions(-)
+>
+> diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+> index 20b77fbc51ee..105108d2e6ff 100644
+> --- a/drivers/irqchip/Kconfig
+> +++ b/drivers/irqchip/Kconfig
+> @@ -555,7 +555,7 @@ config CSKY_APB_INTC
+>  	  the controller's register.
+>
+>  config IMX_IRQSTEER
+> -	bool "i.MX IRQSTEER support"
+> +	tristate "i.MX IRQSTEER support"
+>  	depends on ARCH_MXC || ARCH_S32 || COMPILE_TEST
+>  	default y if ARCH_MXC || ARCH_S32
+>  	select IRQ_DOMAIN
+> diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx-irqsteer.c
+> index a9909ecb6fef..a60cc527e619 100644
+> --- a/drivers/irqchip/irq-imx-irqsteer.c
+> +++ b/drivers/irqchip/irq-imx-irqsteer.c
+> @@ -10,6 +10,7 @@
+>  #include <linux/irqchip/chained_irq.h>
+>  #include <linux/irqdomain.h>
+>  #include <linux/kernel.h>
+> +#include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/of_irq.h>
+>  #include <linux/platform_device.h>
+> @@ -193,7 +194,7 @@ static int imx_irqsteer_probe(struct platform_device *pdev)
+>  		return PTR_ERR(data->regs);
+>  	}
+>
+> -	data->ipg_clk = devm_clk_get(&pdev->dev, "ipg");
+> +	data->ipg_clk = devm_clk_get_enabled(&pdev->dev, "ipg");
+>  	if (IS_ERR(data->ipg_clk))
+>  		return dev_err_probe(&pdev->dev, PTR_ERR(data->ipg_clk),
+>  				     "failed to get ipg clk\n");
+> @@ -226,12 +227,6 @@ static int imx_irqsteer_probe(struct platform_device *pdev)
+>  			return -ENOMEM;
+>  	}
+>
+> -	ret = clk_prepare_enable(data->ipg_clk);
+> -	if (ret) {
+> -		dev_err(&pdev->dev, "failed to enable ipg clk: %d\n", ret);
+> -		return ret;
+> -	}
+> -
+>  	/* steer all IRQs into configured channel */
+>  	if (irqsteer_has_chanctrl(data->devtype_data))
+>  		writel_relaxed(BIT(data->channel), data->regs + CHANCTRL);
+> @@ -271,12 +266,21 @@ static int imx_irqsteer_probe(struct platform_device *pdev)
+>
+>  	platform_set_drvdata(pdev, data);
+>
+> -	pm_runtime_set_active(&pdev->dev);
+> -	pm_runtime_enable(&pdev->dev);
+> +	ret = devm_pm_runtime_set_active_enabled(&pdev->dev);
+> +	if (ret)
+> +		goto err_irq;
+>
+>  	return 0;
+> +
+> +err_irq:
+> +	for (i = 0; i < data->irq_count; i++) {
+> +		if (!data->irq[i])
+> +			break;
+> +
+> +		irq_set_chained_handler_and_data(data->irq[i], NULL, NULL);
+> +		irq_dispose_mapping(data->irq[i]);
+> +	}
+>  out:
+> -	clk_disable_unprepare(data->ipg_clk);
+>  	return ret;
+>  }
+>
+> @@ -293,8 +297,6 @@ static void imx_irqsteer_remove(struct platform_device *pdev)
+>  						 NULL, NULL);
+>  		irq_dispose_mapping(irqsteer_data->irq[i]);
+>  	}
+> -
+> -	clk_disable_unprepare(irqsteer_data->ipg_clk);
+>  }
+>
+>  #ifdef CONFIG_PM
+> @@ -324,7 +326,7 @@ static int imx_irqsteer_suspend(struct device *dev)
+>  	struct irqsteer_data *irqsteer_data = dev_get_drvdata(dev);
+>
+>  	imx_irqsteer_save_regs(irqsteer_data);
+> -	clk_disable_unprepare(irqsteer_data->ipg_clk);
+> +	clk_disable(irqsteer_data->ipg_clk);
+>
+>  	return 0;
+>  }
+> @@ -334,7 +336,7 @@ static int imx_irqsteer_resume(struct device *dev)
+>  	struct irqsteer_data *irqsteer_data = dev_get_drvdata(dev);
+>  	int ret;
+>
+> -	ret = clk_prepare_enable(irqsteer_data->ipg_clk);
+> +	ret = clk_enable(irqsteer_data->ipg_clk);
+>  	if (ret) {
+>  		dev_err(dev, "failed to enable ipg clk: %d\n", ret);
+>  		return ret;
+> @@ -357,6 +359,7 @@ static const struct of_device_id imx_irqsteer_dt_ids[] = {
+>  	{ .compatible = "nxp,s32n79-irqsteer",	.data = &s32n79_data },
+>  	{},
+>  };
+> +MODULE_DEVICE_TABLE(of, imx_irqsteer_dt_ids);
+>
+>  static struct platform_driver imx_irqsteer_driver = {
+>  	.driver = {
+> @@ -367,4 +370,7 @@ static struct platform_driver imx_irqsteer_driver = {
+>  	.probe		= imx_irqsteer_probe,
+>  	.remove		= imx_irqsteer_remove,
+>  };
+> -builtin_platform_driver(imx_irqsteer_driver);
+> +module_platform_driver(imx_irqsteer_driver);
+> +
+> +MODULE_DESCRIPTION("i.MX IRQSTEER interrupt multiplexer/remapper driver");
+> +MODULE_LICENSE("GPL");
+> --
+> 2.34.1
+>
+>
 
