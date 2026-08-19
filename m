@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27014C5DF8B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 09:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85937C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 09:40:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ixxqXnFRiSCqD8aKNfAMlkdlRIjcOAF9GM9fkkh9u2g=; b=QZpo5PDp+u+XCu2RO8Zqmoha3m
-	6xqZAmrYgs31khvmsN1vbCKSvMpR8T/5fDevXIjIpo36v3Fk3JdO49TFVsQJeDEsp0VhXHyTvXzz4
-	cMAdzAJb93WYAKY3fmRhbMY7ZHrbrRkiVMAj/gZEoXDYSOXfxch1Z6cbGvBzNXgfWJWK2fanWu9gI
-	d9JH39g5VFrbjmVSKtY/fky1aMpECaPOOF0HTO7nszvhz6FWcecmeHNjKNSNdauFWpNB8/oYjpPcd
-	/dBJ7Z3mJZOpAZzOeGtwb1UU/3oC7huqhn2mIX5skpblgPcgfjnApyya4arPPeYZ8GbDVvMFSsadW
-	YfCQ97sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NIiYPq1vcnLnFm+K0IBpegZpaRy0riQEBHbOf+BbH1M=; b=JaulmkslQ/m88MGkDTJWpqcEYf
+	jlaqsVGsjxFfTEoSSXNI8AzH78lPJSH+4gbPacwmReqrKfla/Vya/JkN1ZWzxd9x5MHdOrrP5gdTS
+	iXhWwjMmQICoVLH+JsZmf2Zl3voViomf19SwgRmshcIaLLkugDCufaJ8GvxqC9JQaqYHoe6mBcp9y
+	chntWwVQFUYgVOKALdEB4Iy8w+5lV5OP/ILFVeF9auyG1h0KcchVk1jFCOgm707szsnz4HdAbW6w+
+	SxEVcBHxjeEkYavUHuS+8ktK/HaRKw3yI64i7ZAFMedI8R6Zh5J3Wm8TX2VCc01SJVnFCq1ZrsFSy
+	Nv6zribw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwcjS-00000009QY3-1gzG;
-	Wed, 19 Aug 2026 09:37:14 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1wwcmP-00000009Qv5-36PC;
+	Wed, 19 Aug 2026 09:40:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwcjP-00000009QXl-2EJV
+	id 1wwcmO-00000009QuY-0i9N
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 09:37:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787132232; x=1818668232;
-  h=date:from:to:cc:subject:message-id;
-  bh=Pkk56UhXNUwuMiFfh3EkZyfbky2uzihOpy+35lWnefQ=;
-  b=esM19kcVKGNcDqo0amQUQiRucYHEGyLpQKlIf+7wSrTSw0GoKZKOZn1a
-   IulWkzD8dZlyS8CgdLW/KSlVXpFgDfo4V9KZRCZHJz58WAHZleYuaxeg4
-   7nhL7vAc0Ef1VwAS9tsGV/KpS6AJJlegbv6N4R8OvSgqyceUJqiBKs/DB
-   SnRFDe0wvIhwPgPVG0n67QcxxgEG4xay6HwCExi7YOMnizQCadq63QnGk
-   HMyx2P42qKMAPGBvQWF2SOhIv7W5+Ajfv/Az142HMPSou/PwjNa5e9uov
-   GUxI6RQoKNE6aWRPRF/JumruZa2XbOP+Cgw3AW1KYqO5qTSmvwZVrnF9n
-   w==;
-X-CSE-ConnectionGUID: 1cm1rFcJRGazO9BGMMCGfg==
-X-CSE-MsgGUID: D0n1b//LS++3g8DZDQ5LXA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11879"; a="99167647"
-X-IronPort-AV: E=Sophos;i="6.25,231,1779174000"; 
-   d="scan'208";a="99167647"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2026 02:37:11 -0700
-X-CSE-ConnectionGUID: RrccwPsOQVW3qKgEvqbr+Q==
-X-CSE-MsgGUID: 0e6tHwiFT/OLL3Z75l4D1g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,231,1779174000"; 
-   d="scan'208";a="295405398"
-Received: from igk-lkp-server01.igk.intel.com (HELO 3cba2a188a06) ([10.211.93.152])
-  by orviesa002.jf.intel.com with ESMTP; 19 Aug 2026 02:37:10 -0700
-Received: from kbuild by 3cba2a188a06 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wwcjL-000000007Mf-0MO4;
-	Wed, 19 Aug 2026 09:37:07 +0000
-Date: Wed, 19 Aug 2026 11:36:34 +0200
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- arm@kernel.org
-Subject: [soc:board-remove 198/200] htmldocs:
- Documentation/hwmon/index.rst:19: WARNING: toctree contains reference to
- nonexisting document 'hwmon/max197' [toc.not_readable]
-Message-ID: <202608191100.NpT4Y8jp-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_023711_721521_897CFA0B 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+	Wed, 19 Aug 2026 09:40:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E45F943EDB;
+	Wed, 19 Aug 2026 09:40:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EC461F000E9;
+	Wed, 19 Aug 2026 09:40:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787132415;
+	bh=NIiYPq1vcnLnFm+K0IBpegZpaRy0riQEBHbOf+BbH1M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TlmnRACDndhz9vBW0wumZcoY3Euv8VCbT2RxROlWtWwE+8tkLc3lQqPN6hme6dMas
+	 LAYWCI1Uy11yKpitp3AeFZ3Iz7nx1Be04YFju4xY9PGBFjs1rHpVHNrPS5F7EHOzLS
+	 0jNq8Mk2VUFZawzZe6ZbDglTVT37atQOTZthQjCZZbxAOB574qXmVo7bITeUO0TF3t
+	 pQS9cGqWMNfy7Z9nRro3sSy+Wssi5qbiP8NMhsBxY3fI+moSlOozKJKclswHkc94/t
+	 wq+vsE+Ptyvl3QYIPGnPXp5g7+CVh04JEStoKyFkF2aTNWGua8FkTxMbHqp1HVTWXX
+	 hxPqlxGSdgymQ==
+Date: Wed, 19 Aug 2026 11:40:12 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Georgi Valkov <gvalkov@gmail.com>
+Cc: briannorris@chromium.org, johannes@sipsolutions.net, andrew@lunn.ch, 
+	krzk+dt@kernel.org, francesco@dolcini.it, johannes.berg@intel.com, kees@kernel.org, 
+	miriam.rachel.korenblit@intel.com, wenst@chromium.org, rafael.beims@toradex.com, 
+	avraham.stern@intel.com, error27@gmail.com, s.kerkmann@pengutronix.de, 
+	gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com, robh@kernel.org, 
+	conor+dt@kernel.org, Frank.Li@nxp.com, chunfan.chen@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v5 1/3] dt-bindings: net: wireless: add flag
+ marvell,ignore-regulatory-hint
+Message-ID: <20260819-fervent-rich-saiga-be15fa@quoll>
+References: <CADOrJmbTyrGGkq+9OJDXCgTa2HvNo8BWxoE6yjafcrOq7WNamw@mail.gmail.com>
+ <20260817215428.84740-1-gvalkov@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260817215428.84740-1-gvalkov@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +76,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
-head:   c12d647b0229f4d75a2973c9b4e79f9b53406426
-commit: ac9888639e961ae0a4bceac5a00698724ae1a940 [198/200] remaining driver removal
-compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
-docutils: docutils (Docutils 0.21.2, Python 3.13.5, on linux)
-reproduce: (https://download.01.org/0day-ci/archive/20260819/202608191100.NpT4Y8jp-lkp@intel.com/reproduce)
+On Tue, Aug 18, 2026 at 12:54:26AM +0300, Georgi Valkov wrote:
+> WRT3200ACM and WRT32x routers always report a fixed US regulatory domain
+> from the mwifiex ROM, which conflicts with the platform regulatory
+> configuration on units sold outside the US market. For example:
+> - phy0 mwlwifi 5 GHz, hard-coded region 98 EU mapped to FR
+> - phy1 mwlwifi 2.4 GHz, hard-coded region 98 EU mapped to FR
+> - phy2 mwifiex 2.4 and 5 GHz, hard-coded region US
+> 
+> When the system boots, it detects a conflict between the user selected
+> region and the radios, e.g. BG FR US, and applies extreme restrictions,
+> preventing use of 5 GHz and DFS channels. This also affects phy0.
+> 
+> Add a device-tree flag, which allows affected platforms to ignore
+> an incorrect regulatory hint from ROM, so userspace can set the
+> correct platform regulatory domain.
+> 
+> [1] https://github.com/kaloz/mwlwifi/issues/173#issuecomment-307879699
+> [2] https://github.com/openwrt/openwrt/issues/9956
+> 
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Georgi Valkov <gvalkov@gmail.com>
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608191100.NpT4Y8jp-lkp@intel.com/
+How did you fix the threading problem I mentioned in v3?
 
-All warnings (new ones prefixed by >>):
+Best regards,
+Krzysztof
 
-   Runtime Survivability
-   ===================== [docutils]
->> Documentation/hwmon/index.rst:19: WARNING: toctree contains reference to nonexisting document 'hwmon/max197' [toc.not_readable]
-   Documentation/mm/memfd_preservation:7: ./mm/memfd_luo.c:13: ERROR: Unexpected section title.
-
-
-vim +19 Documentation/hwmon/index.rst
-
-7ebd8b66dd9e5a Mauro Carvalho Chehab 2019-04-17  18  
-7ebd8b66dd9e5a Mauro Carvalho Chehab 2019-04-17 @19  .. toctree::
-
-:::::: The code at line 19 was first introduced by commit
-:::::: 7ebd8b66dd9e5a0b65e5ee5e2b8e7ca382ec97b7 docs: hwmon: Add an index file and rename docs to *.rst
-
-:::::: TO: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
-:::::: CC: Guenter Roeck <linux@roeck-us.net>
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
