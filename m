@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28158C5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 03:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A31EC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 03:56:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UalBPFxKWe525mQfd39B3IwwYujzdCNWKW2ZUj1VaBQ=; b=atUjkL9Hk0+raNNwVRfGkpGFUY
-	1BlZE4sD5bZXI+D7zY2LovgOHItRu4wvTTaWYQ8Gbpoy4q8NHJbCT2+kp9QqBSBljLuct+DzHf+SP
-	RK2wg96Aoyw7ljbVPBduHAlzR4phxGVRWSCujyoBM2yocwwBKUrx7rCiE/8H2UYiyQR1FhUM6D2/g
-	L8Qme17Q1A0IkWYaKWxsXEVbBun9MZvQYq2ya6XXCX20BGkZW5je78dB+otE+Z5HmCN6FjBsDPYLH
-	nQ/Tb53DG1yLbQl74i1vCURu6B0s+XGynZPSb3EBWSjbaAmFyI50D5NdE5y1JicByCITrs9cCkYyr
-	EDT6quLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Subject:CC:To:MIME-Version:From:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7QTGTr741l6XRWzBqb9sbKXm950kSl13DKxY8KjnctU=; b=PAN+fYArIn+Ml9TWoL8FjjEs7Y
+	qTJP9yFkdyndWRmhpO+tGTadMjAl5DqrA1J0rR9vIdGwy5f3IQJ94ka+brxNYuVeADvRyTwwnMyAl
+	1hFGpythJ3RPgF5ZwmD/64qZFDDXndgIuXz3ojTVs50hEgpjoysC/NDq3KnfRbgGoN5m678AvQ4fZ
+	CZR5mYVJNEK/g2kMTuURb7D/k4onmVEIhyItBVIWmGJ3q14GJwewwqm020F3PPzyfayCxwXWyOThW
+	YYllwFB8G0QeJBRT1fpcHcML2MXIARoaq0xm8EzCLpt1ntQmRKL2m+i3ItxKWkki1ZP072RNF+lh9
+	IQi8EeDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwX1u-00000008wLM-0BpY;
-	Wed, 19 Aug 2026 03:31:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wwXPG-00000008xX0-1J4N;
+	Wed, 19 Aug 2026 03:56:02 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwX1r-00000008wKv-03Of;
-	Wed, 19 Aug 2026 03:31:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8EF63601FB;
-	Wed, 19 Aug 2026 03:31:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 097D61F000E9;
-	Wed, 19 Aug 2026 03:31:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787110309;
-	bh=UalBPFxKWe525mQfd39B3IwwYujzdCNWKW2ZUj1VaBQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kE6DlpN6ORvE9hBR0WEqXrhVrgorQ880nzjV3Z3gYnB8XnlMLNXIFd/g7/GfeA1Sm
-	 gZy+pxK7cgTERy6qykXDEMC4l2+212vdWXco7uEK00f8IQPHWvN9qabtqA7HurZXnc
-	 aD5N4kF0fplnVCpbGnQ9oOHgXrRO5i7KuAhNPXRSvmShoEiktLEaOdkDMT/rKZ7+IZ
-	 9rRm7o0FdW8HbfzqOkzmj5RuqEkDIOWoAqcIBGWnFTyCV+IsCeZcyUnIcPrBk6zx11
-	 GfAh9n4QUNIK2SndUvjiX9RSJccWIZHZ9XJ6Qf5DwH2iXGfjp9pUGK3G2IKaLyp4lT
-	 ickEg6i7LUdbw==
-Date: Wed, 19 Aug 2026 05:31:37 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Vinod Koul <vkoul@kernel.org>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Yubing Zhang <yubing.zhang@rock-chips.com>, Alexey Charkov <alchark@flipper.net>, 
-	Igor Paunovic <royalnet026@gmail.com>, linux-phy@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel@collabora.com, devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
-	Sashiko <sashiko-bot@kernel.org>, William Wu <william.wu@rock-chips.com>
-Subject: Re: [PATCH v14 00/38] phy: rockchip: usbdp: Clean up the mess
-Message-ID: <kwncmhsrq6sr56rsgf2ng4pc5fvyyqfryp3s2qfskoxunxx7jp@pdq4kedpw4gq>
-References: <20260813-rockchip-usbdp-cleanup-v14-0-b5ad9c68fa11@collabora.com>
- <h54c2hrcsv3zjzzgojzf5sjmu3vtpobz6rwloam5kp7mwqqn3n@bqjnlellvnz6>
- <aoTMQtpYYw8O-3cj@venus>
+	id 1wwXPB-00000008xUa-2a0J
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Aug 2026 03:56:00 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=7QTGTr741l6XRWzBqb9sbKXm950kSl13DKxY8KjnctU=;
+	b=lIptmsTiAeWTStmNuwWerMhS/P465QRltX9aCA5VyKE7l0fZ5+WiHOZjLGiJOYZe8PaldThDx
+	/uFbmQfCfDJAz6GconBqPBVo4BHYIjrqFw56vBLjKtFkr+aVnEMzESrYfwPRT6dhZY9jaLX/D8n
+	Z9EQyEraOh85kI0CoCmS9ls=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4hPss819kSz1K96b;
+	Wed, 19 Aug 2026 11:45:00 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7049140572;
+	Wed, 19 Aug 2026 11:55:41 +0800 (CST)
+Received: from kwepemq100003.china.huawei.com (7.202.195.72) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 19 Aug 2026 11:55:41 +0800
+Received: from [10.67.113.213] (10.67.113.213) by
+ kwepemq100003.china.huawei.com (7.202.195.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 19 Aug 2026 11:55:40 +0800
+Message-ID: <6A85293C.2010008@hisilicon.com>
+Date: Wed, 19 Aug 2026 11:55:40 +0800
+From: Wei Xu <xuwei5@hisilicon.com>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aoTMQtpYYw8O-3cj@venus>
+To: Chenghai Huang <huangchenghai2@huawei.com>, <herbert@gondor.apana.org.au>,
+	<davem@davemloft.net>
+CC: <linux-kernel@vger.kernel.org>, <linux-crypto@vger.kernel.org>,
+	<xuwei5@huawei.com>, <prime.zeng@hisilicon.com>, <liulongfang@huawei.com>,
+	<qianweili@huawei.com>, <wangzhou1@hisilicon.com>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, "Rob
+ Herring" <robh+dt@kernel.org>
+Subject: Re: [PATCH] crypto: hisilicon/sec - remove SEC crypto block cipher
+ accelerator
+References: <20260818083132.1860726-1-huangchenghai2@huawei.com>
+In-Reply-To: <20260818083132.1860726-1-huangchenghai2@huawei.com>
+Content-Type: text/plain; charset="ISO-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.113.213]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemq100003.china.huawei.com (7.202.195.72)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260818_205558_159105_BC56B915 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,56 +86,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 11:42:50PM +0200, Sebastian Reichel wrote:
-> Hello Mani,
+Hi Chenghai, 
+
+On 2026/8/18 16:31, Chenghai Huang wrote:
+> The Hisilicon SEC crypto cipher accelerator has been superseded
+> by the newer SEC2 driver (drivers/crypto/hisilicon/sec2/). SEC2
+> provides wider algorithm coverage and is the maintained path forward,
+> and users have migrated to it.
 > 
-> On Tue, Aug 18, 2026 at 11:27:07AM +0200, Manivannan Sadhasivam wrote:
-> > On Thu, Aug 13, 2026 at 10:51:43PM +0200, Sebastian Reichel wrote:
-> > > This series does a major overhaul of the Rockchip USBDP driver. The
-> > > initial main goal was to add USB-C DP AltMode support to the RK3576
-> > > and RK3588 and this series still prepares the PHY driver for exactly
-> > > that. But in addition to that I uncovered a huge amount of issues,
-> > > that are fixed along the way. Some of the more interesting ones are:
-> > > 
-> > >  * Currently the driver might trigger a fatal SError on USB-C hotplug,
-> > >    since re-initializing the PHY stops the clocks going to DWC3. If
-> > >    the DWC3 driver tries to access its registers at the same time the
-> > >    system will crash.
-> > >  * The DWC3 hardware can get into a buggy state when the PHY is
-> > >    disabled, which results in the PHY not coming up properly again.
-> > >  * Swithcing the USB-C connector orientation during hotplug breaks
-> > >    USB3 speed, as the PHY is not being re-initialized.
-> > >  * The code always enables DP mode when USB-C is involved.
-> > >  * The driver has some locking issues uncovered by Sashiko.
-> > > 
-> > > In addition to these bigger ones, Sashiko also found a bunch of
-> > > minor problems, which are mostly harmless, but were fixed while
-> > > going at it.
-> > 
-> > 38 patches for a single series is too much to review. Please
-> > consider splitting it up into multiple series not exceeding ~10
-> > patches per series. Thanks!
+> The legacy SEC driver has had no active users for some time, and its
+> primary maintainer, Jonathan Cameron, has moved on from Huawei and
+> is no longer in a position to maintain it. With thanks to Jonathan
+> for his contributions to this driver over the years, and with no one
+> left to keep it up to date, remove it from the tree.
 > 
-> So let me summarize:
+> This drops the legacy SEC driver together with all of its residual
+> configuration, devicetree binding and board description references:
 > 
->  - Vinod wants Sashiko feedback to be acted upon
+>   - drivers/crypto/hisilicon/sec/
+>   - CONFIG_CRYPTO_DEV_HISI_SEC Kconfig option
+>   - sec/ entry from drivers/crypto/hisilicon/Makefile
+>   - Documentation/devicetree/bindings/crypto/hisilicon,hip06-sec.yaml
+>   - hisilicon,hip07-sec device nodes and their supporting mbigen_alg /
+>     smmu_alg infrastructure from arch/arm64/boot/dts/hisilicon/hip07.dtsi
+> 
+> Signed-off-by: Chenghai Huang <huangchenghai2@huawei.com>
+> ---
+>  .../bindings/crypto/hisilicon,hip06-sec.yaml  |  134 --
+>  arch/arm64/boot/dts/hisilicon/hip07.dtsi      |  280 ----
 
-This is fine.
+Since no active users, it is fine to me to drop the dts part as well.
 
->  - linux-phy does not want series with dependencies ( [0] )
+Acked-by: Wei Xu <xuwei5@hisilicon.com>
 
-This is not something I expected. I read the reply from Vladimir in [0], and
-he seems to be sharing the limitation of the build tool of linux-phy. But I
-don't think that's a big deal. Every subsystem allows sending dependent series
-as long as the dependency is clearly described in the cover letter and now with
-b4. So I don't see why linux-phy should be different. If you combine all patches
-in one series, it makes it impossible for a human reviewer to review it
-thoroughly.
-
-@vinod: Can you share your view on splitting the series with dependency?
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Best Regards,
+Wei
 
