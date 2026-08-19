@@ -4,97 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F08C7C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 07:28:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF78C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 07:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rPo105aBcXPYGRbFY7xZLf4svXn084/42lIF3TwzV28=; b=RFmD06RibBS7GIoltPTD91uHo+
-	04AD0wBCfp5JnMeQOGUiX4fCKX9kBKWroMePNyEk3S/p5qnJXHj39DO2mfCfvWnpVTfY6nU59nn20
-	QDVqPn8JAwMClW+IP1RX/w8HpYe7nmpmMBpJzGZX1YlDT7qEpTCE5p8+t9qmwghLr2NrMArpW++MD
-	ucE4DfFDJQl8L/UsuYflcgq/ofYJ0cNNZ0xLtv4i5Lp/PD7+QoWErnUNSsdTlCHTuuEWnI0IH5lh9
-	JA7BonsvRlLCXV21lFthQ7qXMLn6TJtOpoljFgXpDbvmaBGDdvMrZl3TskgYHdmBhl8rmVSKe/K4w
-	Rc7AJPpQ==;
+	bh=3HC9hzqp25hJ9dnFkyg3+4PSSoZICNQ+8dExx/7chds=; b=ZwtsvTQ/yu5+toAvEfpz3U+W0y
+	jBKzartI9lavsLBTPscFWsI6+kEa+KIRnvVETaG98XliNK5IBoUiG9vEBLqkI+PTp1gCihwnh3VLX
+	80YMd73lggOmGP+FMj/LY65Dey2z+X7iUGZoV5XaECboqBwLlAqa6D52qgOYU5Ytrtma2LQkuN/Jl
+	Iy09OldRT+c9Rnj/D0FqEl1l+5m1Zl7DnHqiAog2hLPZT+x2K19IFLBRl1by0+xC4u4xB7L/8erlL
+	MQJsLkTFsULvcukR30wBdlisc2KrX2KFs3lHZWG65ZfGnIj/bn1C5U5HzidTIu40xufc5M4Hqh5V2
+	NTQznMJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwaiK-00000009ByG-0id8;
-	Wed, 19 Aug 2026 07:27:56 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1wwalu-00000009CMu-3fsj;
+	Wed, 19 Aug 2026 07:31:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwaiH-00000009Bxa-46t6
+	id 1wwalt-00000009CMk-0tpU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 07:27:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787124474; x=1818660474;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=G2kptcnbxzc2RLrx4I654mJLzlzkb8PupIu+d8FB6VQ=;
-  b=lA6nfB+pjp9A+FEgVMMP+fRUaCaVKtq6b/8L2ymp3e/adUb13WzPITNX
-   g14wjvRa+bW52WI5yIC6YZjC8wxggCvmVurI7J2Uqbd5cUJHGoHzPsQFK
-   Veukm5aCqqOVT42DFGuB8SQ5pqcHepCqPLIe1PZEqv78w1aBAu4OFILYF
-   43qMDW5p5FxSG3/knXoBxu2X6zffM0D6wuB8B5q4MzMDBGm4Fy9fyO82G
-   pMXKtAlwt9hm/DU9j5dnmMEUzIybe5eOjlFMkFrXvQ7hiVOiwcgj5CLAx
-   yV5fZatcEm1O7Rd61KeRroDVXNp85saO7vbzuuUvYiUL999M6EiWo2MFO
-   w==;
-X-CSE-ConnectionGUID: WtsynNS7QhOsCBbgexMdZw==
-X-CSE-MsgGUID: 8y/+IQ1gTbe8FoiF/Ay5hw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11879"; a="87646173"
-X-IronPort-AV: E=Sophos;i="6.25,231,1779174000"; 
-   d="scan'208";a="87646173"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2026 00:27:52 -0700
-X-CSE-ConnectionGUID: J+3m20rtSdqiMKQ+W6sX2Q==
-X-CSE-MsgGUID: i+ywqdASR2ib4M2LXoSg4g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,231,1779174000"; 
-   d="scan'208";a="269303976"
-Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.244.106])
-  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2026 00:27:46 -0700
-Date: Wed, 19 Aug 2026 10:27:43 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: zl020895 <zl020895@163.com>
-Cc: longzhao <longzhao@ambarella.com>, Arnd Bergmann <arnd@arndb.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	soc <soc@lists.linux.dev>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
+	Wed, 19 Aug 2026 07:31:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9501160A5B;
+	Wed, 19 Aug 2026 07:31:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE76C1F000E9;
+	Wed, 19 Aug 2026 07:31:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787124696;
+	bh=3HC9hzqp25hJ9dnFkyg3+4PSSoZICNQ+8dExx/7chds=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Hr0oUucKoheS3zqBS3EqHM07soF7W/biU/1NSGlWU/Xxf+DOFemVcmIm5YosXdpMt
+	 PudcHgdJL6I3FxB67iBX3QCDqxCPrP7W0qBY9bLAcjGdg9rkT2o+yv0GHBoKWidKud
+	 g+42uBSMsj8mhX3xRGReSaqDSiCRKrVYtICbOzPbcjE8jfggnrp6RfOlkKZCr9mUR0
+	 3rAoXZNK53Idf331vcMLgnDdVf79nUKnPG0Dm5jUWeJN0W5uoHUBa9meWaqTZ4YaUO
+	 es6N/H67wYyf0LIJhnrEB/KA5OUrrx/oldcOnjadA7Cu9i1y1AZbOKPZ6frBmdjZsw
+	 iSFuK7EG3VRcw==
+Date: Wed, 19 Aug 2026 00:31:34 -0700
+From: Peter Chen <peter.chen@kernel.org>
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: linux-usb@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	devicetree <devicetree@vger.kernel.org>,
-	linux-clk <linux-clk@vger.kernel.org>,
-	linux-gpio <linux-gpio@vger.kernel.org>,
-	linux-serial <linux-serial@vger.kernel.org>,
-	linux-kernel <linux-kernel@vger.kernel.org>,
-	Brian Masney <bmasney@redhat.com>, Lee Jones <lee@kernel.org>,
-	mfd <mfd@lists.linux.dev>
-Subject: Re: Re: [PATCH v5 08/12] gpio: pl061: add Ambarella CV75 register
- layout variant
-Message-ID: <aoVa74E4l4fy5Por@ashevche-desk.local>
-References: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com>
- <20260818-cv75-v5-v5-8-7bbb12f0360f@ambarella.com>
- <aoRoBYE_Ns0lu75-@ashevche-desk.local>
- <79f6dc8c.2c42c.1a018dadd29.Coremail.zl020895@163.com>
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Xu Yang <xu.yang_2@nxp.com>
+Subject: Re: [PATCH v9 1/3] usb: add missing headers transitively included by
+ <linux/phy/phy.h>
+Message-ID: <aoVb1kxR11yP0Uvv@hu-petche-lv.qualcomm.com>
+References: <20260810125614.441667-1-vladimir.oltean@nxp.com>
+ <20260810125614.441667-2-vladimir.oltean@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <79f6dc8c.2c42c.1a018dadd29.Coremail.zl020895@163.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_002754_032665_CCB21C47 
-X-CRM114-Status: GOOD (  21.88  )
+In-Reply-To: <20260810125614.441667-2-vladimir.oltean@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +76,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 03:09:51PM +0800, zl020895 wrote:
+On 26-08-10 15:56:12, Vladimir Oltean wrote:
+> The chipidea ci_hdrc_imx driver uses regulator consumer API like
+> regulator_enable() but does not include <linux/regulator/consumer.h>.
 > 
-> I followed Linus' guidance on the v2 pinctrl patch to reuse gpio-pl061 with a
-> per-variant register layout, because the Ambarella banks share the PL061
-> interrupt register model (IS/IBE/IEV/IE/RIS/MIS/IC). gpio-mmio/gpio-regmap
-> cover the DATA/DIR side well, but they seem not provide that IRQ controller,
-> so moving there would need a separate irqchip and would risk duplicating the
-> PL061 IRQ logic Linus asked us not to fork.
+> The core USB HCD driver calls invalidate_kernel_vmap_range() and
+> flush_kernel_vmap_range(), but does not include <linux/highmem.h>.
 > 
+> The DWC3 gadget driver calls:
+> - device_property_present()
+> - device_property_count_u8()
+> - device_property_read_u8_array()
+> but does not include <linux/property.h>
 > 
-> Would you prefer we keep the PL061 variant for that reason, or is there a
-> gpio-mmio/gpio-regmap approach that also covers this interrupt model cleanly?
-> We can rework either way once that is clear.
+> Similarly, dwc3-imx uses device_property_read_bool() without including
+> <linux/property.h>.
+> 
+> The dwc3-generic-plat driver uses of_device_get_match_data() but does
+> not include <linux/of.h>.
+> 
+> In all these cases, the necessary includes were still provided somehow,
+> directly or indirectly, through <linux/phy/phy.h>. I found the following
+> command to be quite helpful in figuring out the include chain:
+> 
+> $ make KCFLAGS="-H" drivers/usb/dwc3/dwc3-imx.o
+> 
+> Since <linux/phy/phy.h> wants to drop the unnecessary includes, fill in
+> the required headers to avoid any breakage.
+> 
+> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com> # dwc3
+> Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> ---
+> Cc: Peter Chen <peter.chen@kernel.org>
+> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Cc: Frank Li <Frank.Li@nxp.com>
+> Cc: Sascha Hauer <s.hauer@pengutronix.de>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+> Cc: Xu Yang <xu.yang_2@nxp.com>
 
-I haven't told we should duplicate. My suggestion is:
-- convert current gpio-pl061 to use gpio-mmio / gpio-regmap (and I vote for the latter)
-- add new regmap configuration and necessary layout for your case.
+Acked-by: Peter Chen <peter.chen@kernel.org> #chipidea part
 
-> ---- Replied Message ----
-> | From | Andy Shevchenko<andriy.shevchenko@linux.intel.com> |
-> | Date | 08/18/2026 22:11 |
-> On Tue, Aug 18, 2026 at 06:31:22PM +0800, Long Zhao via B4 Relay wrote:
+Peter
 > 
-> > Extend gpio-pl061 with a per-variant register layout so the Ambarella
-> > CV75 GPIO banks can reuse the PL061 driver instead of a duplicate.
+> v7->v9: none
+> v6->v7:
+> - add drivers/usb/dwc3/dwc3-imx.c to the list of patched files
+> - collect tag from Greg, keeping it despite the new addition because the
+>   change is minor and in the same spirit as the rest
+> (https://lore.kernel.org/linux-phy/2026033028-squint-yield-4c23@gregkh/)
+> v2->v6: none
+> v1->v2: collect tag
+> ---
+>  drivers/usb/chipidea/ci_hdrc_imx.c   | 1 +
+>  drivers/usb/core/hcd.c               | 1 +
+>  drivers/usb/dwc3/dwc3-generic-plat.c | 1 +
+>  drivers/usb/dwc3/dwc3-imx.c          | 1 +
+>  drivers/usb/dwc3/gadget.c            | 1 +
+>  5 files changed, 5 insertions(+)
 > 
-> This is reinvention of gpio-mmio.c (as a library). It has necessary facilities.
-> Also gpio-regmap may be considered. So, switch this driver to use one of the
-> above and the patch for the new device will be much simpler and elegant.
+> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
+> index 282314eea7fc..1509b8ec630c 100644
+> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
+> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
+> @@ -17,6 +17,7 @@
+>  #include <linux/clk.h>
+>  #include <linux/pinctrl/consumer.h>
+>  #include <linux/pm_qos.h>
+> +#include <linux/regulator/consumer.h>
+>  
+>  #include "ci.h"
+>  #include "ci_hdrc_imx.h"
+> diff --git a/drivers/usb/core/hcd.c b/drivers/usb/core/hcd.c
+> index 8e8a5f59b319..f7def9b116e0 100644
+> --- a/drivers/usb/core/hcd.c
+> +++ b/drivers/usb/core/hcd.c
+> @@ -10,6 +10,7 @@
+>   */
+>  
+>  #include <linux/bcd.h>
+> +#include <linux/highmem.h>
+>  #include <linux/module.h>
+>  #include <linux/version.h>
+>  #include <linux/kernel.h>
+> diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
+> index ca69ac0eb07c..2f2ae6f4704f 100644
+> --- a/drivers/usb/dwc3/dwc3-generic-plat.c
+> +++ b/drivers/usb/dwc3/dwc3-generic-plat.c
+> @@ -8,6 +8,7 @@
+>   */
+>  
+>  #include <linux/clk.h>
+> +#include <linux/of.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/reset.h>
+>  #include <linux/regmap.h>
+> diff --git a/drivers/usb/dwc3/dwc3-imx.c b/drivers/usb/dwc3/dwc3-imx.c
+> index 973a486b544d..6e122674edaf 100644
+> --- a/drivers/usb/dwc3/dwc3-imx.c
+> +++ b/drivers/usb/dwc3/dwc3-imx.c
+> @@ -13,6 +13,7 @@
+>  #include <linux/of_platform.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_runtime.h>
+> +#include <linux/property.h>
+>  
+>  #include "core.h"
+>  #include "glue.h"
+> diff --git a/drivers/usb/dwc3/gadget.c b/drivers/usb/dwc3/gadget.c
+> index fa0f16ffafef..e70c17d50db8 100644
+> --- a/drivers/usb/dwc3/gadget.c
+> +++ b/drivers/usb/dwc3/gadget.c
+> @@ -10,6 +10,7 @@
+>  
+>  #include <linux/kernel.h>
+>  #include <linux/delay.h>
+> +#include <linux/property.h>
+>  #include <linux/slab.h>
+>  #include <linux/spinlock.h>
+>  #include <linux/platform_device.h>
+> -- 
+> 2.34.1
+> 
 
 -- 
-With Best Regards,
-Andy Shevchenko
 
-
+Thanks,
+Peter Chen
 
