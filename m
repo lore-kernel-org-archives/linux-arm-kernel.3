@@ -4,104 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B57FBC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 20:27:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E51EC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 20:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7gjPQ9geWQUzmY0HHZDN1BH0YbohllYXnVzPU8aiejM=; b=fwoi2mLocL1/3Q4SGPRnLW9XYL
-	F9Y5xlDLyV1ngsyEkQ4Pvq5jtc0cNbTlkyGtXuMQuc4MdzXgOpfWd4A1VsDrlVpWpBpxr/TPt/4vy
-	J2GlCYjOP5p8xuR6KNAVTuK7TGufh8GWBcN6UU5f5BstwB1GjlFC6bgc+9HnrDUhMKCu2s+rfVZ6O
-	ZtUXxRsKbBRBGvAFaNi/ICNbYge75bwDI2gNGV058bCzEXGXmpNaVda/jpyOdaGPw2PuoavBYHaMa
-	ozrA7W2nQjKYCkMgu815jI0ROewiVEblvJRirAYAPWTyuH3OBEoDgVdUt5WbgHjLfeJJ+xUwroHfY
-	jTxyLFeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kakQd7SwwB4qJFxzAT3GLQtskQ627s0NDgwkRoO1YnU=; b=W56ThtpTRfWrplSYeXwO5AUuVe
+	FeGM+0wwSxoHicLvar6YbVMIYFC75SE0jGUCaUMUsVhgxKJO64bMTM4KcBvyGO8xqydFsPuG1/ekk
+	i4tx78BgOcgPHgj7uHnQdINGRz4Ofa0TiBm669z1CGJYTePw6B3QzUNbUSCFf74YsWBsf6pPnLKH6
+	D71olFdHo9X7LNPKd0W6UcBniiKX+gVD2edOddnp4LcjYHigECZdgRD0Qny3fPbG1YdCinVGXD0Q8
+	R190R+jOJuSz5bPN+4S1Etfm4yFy7ZxSAMMGbpzhScBofwW29eweR1YHTo2SCV409pEyFaSLg7vud
+	lK0aRcAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwmsr-0000000AW5q-3XoI;
-	Wed, 19 Aug 2026 20:27:37 +0000
-Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
+	id 1wwmxP-0000000AWXK-1Utu;
+	Wed, 19 Aug 2026 20:32:19 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwmsp-0000000AW4s-1Ss4
+	id 1wwmxM-0000000AWWM-33n5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 20:27:37 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.phl.internal (Postfix) with ESMTP id 66007EC0177;
-	Wed, 19 Aug 2026 16:27:32 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Wed, 19 Aug 2026 16:27:33 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1787171251;
-	 x=1787257651; bh=7gjPQ9geWQUzmY0HHZDN1BH0YbohllYXnVzPU8aiejM=; b=
-	Z33Bmwc2OvXTelCUpnTwIGJ3IH693L2KZYONfsgppHiTRB5c4fHtcydZItAbRoZT
-	eTUHuRAIDZWc59a3hv/ECfme3/440KczdvWC8SvFCTP8wpKR/FkZxfw2qo16IsqY
-	B6njwHFVDZaM25w63jPjIfoWBS7+DiZiroVIQq56hGTMv7or3bcGcNq9l90WakpP
-	scHPvLPefBXRm9njdJxSapm8keNZ4pRtixi/k/X4EBCBlg4O0jvpyLkDyrRP1V5k
-	yAOA1eDF+Vh88ecyYqAfwKNlPTBkJ/0JTf/2XuW1Jro4/oBv/K4zT55RuDJZUr+z
-	jceGmVowciGS9kKdW7ZQ/g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1787171251; x=
-	1787257651; bh=7gjPQ9geWQUzmY0HHZDN1BH0YbohllYXnVzPU8aiejM=; b=a
-	QifVuQsU862f8jORLunz90OO9owcmiO6a3GmJERITp1kGCCNaftn0mKPEAw18g5A
-	59Z83aqZl8Lsh85/woa7/HP3TsZQNYVAdVOoO4Xy2Fv3VD8pGaUPsEp3o0Wnfj6c
-	Z9NwwkSV0RJAbZAQx7EcfuLmcWpnDjeF1u28Ei7G+2zcZQB9ASqe9O1Oh/5EUdKf
-	OxXOfQ98+8+qt4+Vfiy5wA2peBFsctdPYj003UK+1VaxcufUQy5VuUhlr3QBJruB
-	P/L0gHJGnk4Y7fjt/i7ASgkrNWn8Kd284C6zGhityYSwxEfwXK9Ce6e6lNC2dzOG
-	Iww1Ihuw8PNJs4KAuq8gQ==
-X-ME-Sender: <xms:rxGGasduqGfNYrrio37MCEExa7rWB7RdMIrGAfLU9DpZC68UwdofkA>
-    <xme:rxGGapDIQAPBaxhmd_gtkeC6wFyDbYVQ6kftYkuNnF0h7AaI8Y6QRclHa8nysV-O3
-    buAuZdSgiiOzfS2PxROVZjqkzn5AxH4SgiYwfoSw3UfujcnZLwN02o>
-X-ME-Proxy-Cause: dmFkZTEqN7pJJFwSSWvabTUm+thV/naPxY42LQwbud26ooufKPMLbIzFwpAyaDWNzsKjzh
-    GKdi4ATJZLq9KLsUfXE8IQPvtvQUlwRnjkLpf+BLaHLmegU5Bsc/qYH0rlwBFz30MTZuoY
-    +VH6U/1hm2yX+YW/5V8b0GcdiJhe35W62dKf3UQa9fIcrQOVL7gI7nThOHtEAGrDmOPcHh
-    XbiXraaMqYDeBIvTZulkLyRMkrPeTfgQGX9/JeYwmSBLbIahZxqA291r4sgx0gbzF+2CtB
-    M1ZYJ5slScgz0XyNSp+19pHr0uqy8UIx3H+BRZ/fxA7DWW/UEmnhlYcbpAI7A7AgWBM0Ui
-    w7bXPd5gBwoBUSiGoFZugnRpxgupRvCBEwYJOUe8zKu8MgoT/Vixf23EV1qKXmIxQ5mVS4
-    Yv0o3rLuL+WdnpNCO3FAqPicg5zajX/M/8cCW0QtIPkuOLmXR+ViY5nLZn3Wc9S/ffsXKw
-    Uz5gVPQbiW2CG4K/mXYZUMzg/y39jeX9IT7VP2+2akPywxGWpvtZhAtGsCd4JahKbEyI8a
-    z+XrhstBdWi9f+19DVjth113B+x4Pcsfb0Y/U85p57aYbhLBUzRDI8nbg0a0ajvTn1xaGL
-    I0MCP6mJPZ3aVk/HQuQ7iWLX6cMGaR6AoX8/VmsZKLtMIw0nr2Gwfcm4lMMg
-X-ME-Proxy: <xmx:sRGGamFAxrP11sppcuVZkVSn0pMWs71SMXJfF4wDJJW-0Y3YsoF_jw>
-    <xmx:sRGGahbv-XKmi6iSJdUD0o8-qqp2cO40tuoZcpnogKkIyk4imKfdFg>
-    <xmx:sRGGagDsWnFeAjJzBH4LfuYiePnqqSOGYYdwQNwgicH9V2M5DOSwzQ>
-    <xmx:sRGGahl3JxJINurRg8F1Zm6KIYQZjVF-wrZltKzZuq2pe8iFUxSx6Q>
-    <xmx:sxGGal0zzQfACh0LONTqMnQoLR3IbfBssatpcPiyJ3aTyhT9tNd2dW0G>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 09BEC32A0071; Wed, 19 Aug 2026 16:27:27 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 19 Aug 2026 20:32:17 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3900e39d935so1550639a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 13:32:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787171535; x=1787776335; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=kakQd7SwwB4qJFxzAT3GLQtskQ627s0NDgwkRoO1YnU=;
+        b=mBuamQXKHfn77Ff0OKYFJZTEGVnYi55S1n4KiJgOlOVv2BuCUIA1s1X7bE7To7cnLi
+         eh2i7KI2hYBQxWFsc4bUOu/J40F0zUR3sKsip9MmW+njBHMKHnMESMixvQtwXnuw70ZV
+         yGxPyVi1PJnIA5LjUCEYCmejd2cKfwvrvCcCcSrm/8IY6ljcHBtVf4zuWcaz11JVFhQu
+         htzqnsm+HfnJniyC2pn6JNpwMFV8I9MTWRzrhDSo673gGtVZ2b6LstKk6UDQ4L8jpF/r
+         brDu6EAdraOtAPTVm+IDhEEW587FLa/Ivya84d8rOye582nYPYyFsBz3ZN7kFoN4pPXZ
+         DH4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787171535; x=1787776335;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kakQd7SwwB4qJFxzAT3GLQtskQ627s0NDgwkRoO1YnU=;
+        b=kg+X3q5X62cDhf31sG/Fg9+lt31XERA5eWH4eBescjN0dyobliGdE6r3hlD1Yp3Aew
+         h2oj3m+UisWNNJ/VDVjohFY0+jpwdyzk12WaoV3MH4tmmvl+Fnix5CrXdjYYhkjmeIbH
+         MkNr/n0B8hYaLmB/0wTR49NhLMKg14OnRozTdHB45vL8905g4oXz3+mXfb1Km6N9nZ6t
+         KkxSWR+h/MaBNwJw1dOK7oXVn415HEZNYo7G/1rSXbKPS8UZQyGEGdTizTKVRSmS0LnT
+         Qed4OHnn7ayWTA1m8POufwmWX86sYIkPEYPYN+r4b1dJYJk/4a4Iq4ttEjbGY4hrnfek
+         IGSA==
+X-Forwarded-Encrypted: i=1; AHgh+Rout5A+DaDDC7mXoNF4stKRdBTQFCnHvGy8dEJCKeafPm+8Ppwjz2O4dyRcuAVXRcNiaa7C2WV9fCQhBz25YzU5@lists.infradead.org
+X-Gm-Message-State: AFuF++mwaMw1XxB4ZkKTupzJ4q98Z6GxxRD1OfXbLzFoPaiGYZWN0aGe
+	kzLC7VXjwUnNO+YMQrlUdiSAGAnpAzjVgUtp5ky913hJFJBzGpZ0q6XX
+X-Gm-Gg: AR+sD13pgFyHI24IyLcJ8vZ1jSeApJMKr0iNoTk3oHJ6xGIAomoinKJTUDT0/ZyOeth
+	b4kQxCEp3/9I4aal/A3/f7Lj+WJB+VXtNPOyUwv5fIZrisG3Si2lXHxnyCsy5DajAoaUv6zJfJH
+	4BGl1hVUdPUKMnIGrCFHbXzKI503vDVcDU5pQ2TGnK9d2EMkBLcGdnaHsXoPiqfGw0yhXEKZxpG
+	Ra+rYUGNOAA0T/BC2h8SdL3/1uHTcrY/QEazII2vZkVnB5UGeYj84S0/QKHxBnbKio9EVtQaPrm
+	QeT4t5/S1UEi4bIBDd9M7G5lv3jxc0mm7LHiihfYJB14lolC6T5EmmJkUGjWx0JrsLce6XUFKSz
+	/uvd0/yfZgjPuVI+MiGR1P6pJT0+YBJCKbCeLfa3POvLZRZ3uCbKIJYoFTw1XE0b9BLqAyC6nWw
+	yhKEJLvnx0RQzixiPnXBDL9ko9vb9dgVYCmc+Bk9eHNW0b72+0Y2J1z9VEcnzC+OrDhy47BCoE6
+	g==
+X-Received: by 2002:a17:90b:4a8d:b0:38e:ad9d:1161 with SMTP id 98e67ed59e1d1-39580553dfamr13842543a91.0.1787171535016;
+        Wed, 19 Aug 2026 13:32:15 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1416ad6060asm16706081c88.6.2026.08.19.13.32.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Aug 2026 13:32:14 -0700 (PDT)
+Date: Wed, 19 Aug 2026 13:32:12 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Tero Kristo <kristo@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+	Nuno Sa <nuno.sa@analog.com>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Antoniu Miclaus <antoniu.miclaus@analog.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Sunny Luo <sunny.luo@amlogic.com>,
+	Xianwei Zhao <xianwei.zhao@amlogic.com>,
+	Mark Brown <broonie@kernel.org>, Kees Cook <kees@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>,
+	linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-hwmon@vger.kernel.org, linux@analog.com,
+	linux-iio@vger.kernel.org, linux-amlogic@lists.infradead.org,
+	linux-spi@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH treewide 3/5] hwmon: (ltc4282) Make sure clk_init_data is
+ fully initialized
+Message-ID: <0ee768d3-f913-4d29-902b-39f8bf973dd6@roeck-us.net>
+References: <cover.1787165329.git.geert+renesas@glider.be>
+ <8ec3c5cbd2df675a938f090470f5da5f22008517.1787165329.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-X-ThreadId: Aqm_jcT6PvEF
-Date: Wed, 19 Aug 2026 22:27:06 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Karl Mehltretter" <kmehltretter@gmail.com>
-Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
- "Ard Biesheuvel" <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Message-Id: <20969b87-a073-491b-960d-8c4c2087845b@app.fastmail.com>
-In-Reply-To: <aoX6wpJjMS1vtlVY@gmail.com>
-References: <20260817000231.21311-1-kmehltretter@gmail.com>
- <e238944c-9349-497a-9d30-0dd2edd7f115@app.fastmail.com>
- <aoPKzPb9YUVULlXG@gmail.com>
- <e3c463a1-81ae-4bef-b65b-fea1a4eda5bc@app.fastmail.com>
- <aoU2ezSYVbOw0hun@gmail.com>
- <4078f942-e29a-4f6f-b6fc-780e8c6d6874@app.fastmail.com>
- <aoX6wpJjMS1vtlVY@gmail.com>
-Subject: Re: [PATCH] arm64: compat: Keep alignment address arithmetic 32-bit
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8ec3c5cbd2df675a938f090470f5da5f22008517.1787165329.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_132736_026525_C7263C71 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20260819_133216_770748_803BC2C4 
+X-CRM114-Status: GOOD (  24.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,34 +120,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026, at 20:55, Karl Mehltretter wrote:
-> On Wed, Aug 19, 2026 at 01:19:20PM +0100, Arnd Bergmann wrote:
->> 
->> I don't see yet why 64K_PAGES makes a difference. I had
->> expected TASK_SIZE to be 4GiB regardless of the page size, and
->> the top page (but not the bottom page) to be reachable from normal
->> userspace.
->
-> There is a special case in arch/arm64/include/asm/processor.h:
->
-> #if defined(CONFIG_ARM64_64K_PAGES) && defined(CONFIG_KUSER_HELPERS)
-> #define TASK_SIZE_32		UL(0x100000000)
-> #else
-> #define TASK_SIZE_32		(UL(0x100000000) - PAGE_SIZE)
-> #endif
->
-> Only ARM64_64K_PAGES with KUSER_HELPERS gives compat tasks the
-> full 4 GiB. The 64K kuser mapping then occupies the last
-> page.
+On Wed, Aug 19, 2026 at 09:05:17PM +0200, Geert Uytterhoeven wrote:
+> The clk_init_data structure contains several mutually-exclusive members
+> for different methods to specify the possible parents of a clock,
+> prompting drivers to initialize only the members they need.  However,
+> not initializing all members may cause subtle issues, which are only
+> exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
+> enabled.
+> 
+> ltc428_clk_provider_setup() does not fill in any parent clocks, and
+> assumes that init.num_parents is NULL.  However, the latter in
+> uninitialized, and thus may cause a crash.
+> 
+> Make sure all members are fully initialized, to fix such bugs, and to
+> avoid future breakage when converting drivers to a different method for
+> specifying the parents.
+> 
+> Fixes: cbc29538dbf7d740 ("hwmon: Add driver for LTC4282")
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-Ok, I wasn't aware of this bit at all. I think you can just
-skip explaining it in the changelog then and not spend
-too much time worrying about the case of userspace intentionally 
-overflowing the 32-bit address space, as we clearly try hard
-to make that impossible in all kinds of ways.
+Applied.
 
-Just explain the important bit with the decrement
-causing the compat mode to be completely wrong.
+Thanks,
+Guenter
 
-        Arnd
+> ---
+> Compile-tested only.
+> ---
+>  drivers/hwmon/ltc4282.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/hwmon/ltc4282.c b/drivers/hwmon/ltc4282.c
+> index b1675dc5b3c7fd2f..54ba4b8542e94b7b 100644
+> --- a/drivers/hwmon/ltc4282.c
+> +++ b/drivers/hwmon/ltc4282.c
+> @@ -1106,7 +1106,7 @@ static const struct clk_ops ltc4282_ops = {
+>  static int ltc428_clk_provider_setup(struct ltc4282_state *st,
+>  				     struct device *dev)
+>  {
+> -	struct clk_init_data init;
+> +	struct clk_init_data init = {};
+>  	int ret;
+>  
+>  	if (!IS_ENABLED(CONFIG_COMMON_CLK))
 
