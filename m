@@ -4,60 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72333C5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:00:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B87C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iSsTtarhuQa/+w5hFVU5E7D0K2j1DMzYFWHnF5TkviI=; b=FrJmTqyu+41Vj6A9Qw1h1oBr7n
-	rKgXuJix04T1ffpZgrxGlKXGsOIR4hdJ7CsVGT5rX9Gpkajw0GnNBWjmiGFR1g7AL1W0lLlPmy/DF
-	VGfguFhr4r6U8pfP930GYHxQ48x/SqwWheUN3hiwsPjcXEydyHv+ZwpbaWpdvEjBjkUYGD240JhqF
-	P6ub2CX3jdvcm97RVYs0hgO+gQh1pALIVJTHk9SZVT8L6MVfd+R7q6PRpGGkgkfByq8xNaKkUScWq
-	3AeBPJAc5pekjw39e0/hdFjYRWuibP67r5Ht56cj4cF7ndCTJRYP+50bLAONXpuCJVcgyJNMcdi2U
-	ePlR/VaQ==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WvNWIXI4/tZKeeO+WSN38gx9138yui2rjNRm/dAZIN4=; b=UZP4D+Pwu2gq2om4qE3KhktKlA
+	8h+I3Anz78/6rqmN7iG8yHehlF4aJ32GJOniM6EQ4FuLPRROfBQe0YlBpdu9gqNYU0WiI+jzAt9Z0
+	YC9yR17h7GNFI7xoOw4Ix/oq541sbG1gibBJmYuWb/mYTPvBscHAF0FoJSZeWKOCPmYhwOmQeE17e
+	nNdbt1RZvwWIMdC2a6a3l8ImZ4scV70NS/DytUH7GHKjUvsXbESAk8Fh+SpL/OBWDm0wTU9Jmq9NK
+	LapFpRH2+htHwDqMbjTDxdilQsP0JsRL33vFJ+FCZdI6PY95DprNCqe3MhTJHcm6CDn7FKutxbj8I
+	ghgoAh3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwe1s-00000009bNI-1sMp;
-	Wed, 19 Aug 2026 11:00:20 +0000
-Received: from mail-m32105.qiye.163.com ([220.197.32.105])
+	id 1wwe47-00000009bZr-1ala;
+	Wed, 19 Aug 2026 11:02:39 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwe1o-00000009bMa-0oFO
+	id 1wwe44-00000009bYO-027v
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 11:00:19 +0000
-Received: from localhost.localdomain (unknown [122.224.147.158])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4a8ff1e52;
-	Wed, 19 Aug 2026 18:54:56 +0800 (GMT+08:00)
-From: Shouping Wang <allen.wang@hj-micro.com>
-To: will@kernel.org,
-	robin.murphy@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	mark.rutland@arm.com,
-	peter.du@hj-micro.com,
-	andy.xu@hj-micro.com,
-	allen.wang@hj-micro.com
-Subject: [PATCH] perf/arm-cmn: Fix {wp_dev_sel2, wp_dev_sel} limited to 0/1 when MXP_MULTIPLE_DTM_EN is TRUE
-Date: Wed, 19 Aug 2026 18:54:43 +0800
-Message-ID: <20260819105443.668784-1-allen.wang@hj-micro.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 19 Aug 2026 11:02:37 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.phl.internal (Postfix) with ESMTP id 01BDEEC0112;
+	Wed, 19 Aug 2026 07:02:33 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Wed, 19 Aug 2026 07:02:34 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1787137353;
+	 x=1787223753; bh=WvNWIXI4/tZKeeO+WSN38gx9138yui2rjNRm/dAZIN4=; b=
+	Li7SSym6v+DNKNs0jMAPD0eaWAEM5ynVvTyU8B1FeJNadY/KCKl4UYfztcYUUYdj
+	+eQMnqYMa9xGp66NGa0yoFZDpj4I3WTv7J+ivBTm9jkQbmuEhTum3JBSjg6x+AfE
+	xr2SUtjl0YgB8XU7DENxX5RRFW9Lbu/8+ciGbAiyI6E1wsqhxyVKptUn6WfDoPAM
+	5zZVHyavMdiBVEd9Pf41W+17wFjlCYrb+Ly/u/ZS8xjHNHSqBJ2Vzg9Q4FCljh4l
+	LUayDsyKBMNC+v9AGKD0B3/0GYYkB1MtfA7Ye7ktmzqQ7idDV5GFrgTJYkdI8Bnp
+	ENzIJAEm1oCjMQ2KoHa+1g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1787137353; x=
+	1787223753; bh=WvNWIXI4/tZKeeO+WSN38gx9138yui2rjNRm/dAZIN4=; b=S
+	ZiTWm9EML0k6bmxBM5zSnYVOvNRz6pBJA4y3AXA63PlKOENLhryl0mLuwC6h8xLi
+	9VmYck9YyHSggPbaMpTB4RoMHD1phKOlYsZUQNrtU0ht/EONxDl0EPNNIGL8+WCo
+	U2+1m72hkbHRiNtk3runCuklh4is2rXLvj29bKaLDPxwVSaxFOzHwplylcMb6iKE
+	4dHL6GDMc1gNJgEHbG6KyHIh+jVKLjfX79KemJS3N8FhZd55KCTZQgUSslRni8Q2
+	VPfuQojz00eVlJZO964W1Xl4gM2PICZl849dg5ZVduM7BJ5ykVDFG3dIZ6jxWFwv
+	qSRwy5YhvSwxFeVv+b79A==
+X-ME-Sender: <xms:RY2FaoCCUzmi1WdJc6iDFhOUBFt0Rueqticrctw58SO5t0LPc3kN-A>
+    <xme:RY2FalVkXJkp2iY_JvRymojwe5zrDzPufu2mK9JaIVDLxEYBeRAkiLROmTdX02d0e
+    yYkIMgfdUbWi513pdPKbA6-Zf_1ePFkrB1TOr-QcMvKCNn7hj3vEg>
+X-ME-Proxy-Cause: dmFkZTFukQSP/3o8pOJVx52DwzCcQzR+TP7po9TqkWJsu58dALxA1dpRQGceTU0jqvH2OU
+    ORRprA9CGaJ2deOINKrMurBKPHHBNWvo3/KpkAXbejsXNU9Ddy/dykNASbHPjZhSsjsw2X
+    48f5Wn180kiWm7+/nWJIpN0x1WHGlojjNt9doXGKE+jd+DWD5xl9Jb9pSbtR9avOERlURN
+    l/LTJI/iFKHSlIQ7bOPclJM+OZw1ZeB6qVDg2MHep+rtE1ZOy4T6NPVnlI+3+UCqVE8EJU
+    p963WSoRyifgXwTdVhQTBoroTlFFoB81Ta4yCuLDalqaY+T3GtYWZQne7FE1bv+Pct0vOh
+    QfIeW/cvdzIDm0WyPLQdPXMllAgQlO2B9WhLkBU2haH29wCS1Tp0JzLL/7rUOP0IiVNyn6
+    27PNeY27z3pR2Ozo626QrYvnhkfNiDZp00rvNJ4MLSNc6YGBklLD+8jWydq1z3UykD8Z6V
+    BywZhfp0mJEM5rCb8t+x+zfopeXcMKonUkoe5Y/pf/iaZAR0Nbq4R/evZruTWmy7URN++r
+    laLcmGfI40kj30g5saMih/5D/cZQt8U2dnkFtpe4QRwg3b3Gk3KuItC0WKIRxIhOmZi3oH
+    TsGglnJwCWcdAh6V9qcf4yJfUn4TAhUt6WkZALtSeGdr1/oVC17T2UkYjUpw
+X-ME-Proxy: <xmx:Ro2Fatd7-HsAtEtbhAQOUZyMCOY5hH2Lo5TZhKRH8vbAbzV-kF9XCQ>
+    <xmx:Ro2Fai9oDo1IfKGrIw3ogcCAFftZtqNNL2Haj_SAcjjHfR-u-rz9Gg>
+    <xmx:Ro2FapkRcjjrAWeqIlgI_w7ln0-RyKmQDh8cttF6ehqpuQAb5qnwqQ>
+    <xmx:Ro2Fak91_nVWXyRhKytKPkTWDbfnJgcR7b_5oNbcgbhIQ4sf78t9AQ>
+    <xmx:SY2Failbz5x9Ni_gbOR04diBJ3_T5fyb5JWGp6VTwgjZLus8l5B9C_FJ>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 6B7A732A0071; Wed, 19 Aug 2026 07:02:29 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa019a8ee1e09d8kunmc5bd91ee17deb6
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDGUIYVhoYS0IeQkJJSE9LGFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKSUlVSUlPVUpPTFVKTkNZV1kWGg8SFR0UWUFZT0tIVU
-	pLSU9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=cP82gNpUdVxwehtiohki+VsHpHr6hsZKe0W9I+ovXh975iifoKxStVJZuvPQu+91Dxdw0F/9rEpRhtnxLAQaoKBm99VCIG4qTvJUH5pEg+9nAE62op0WOWb5Eo9KGWpbx5wozkoU+siYtOuJlZKlWJEXzM9PMo1H+WbK11cK7ns=; c=relaxed/relaxed; s=default; d=hj-micro.com; v=1;
-	bh=iSsTtarhuQa/+w5hFVU5E7D0K2j1DMzYFWHnF5TkviI=;
-	h=date:mime-version:subject:message-id:from;
+X-ThreadId: AcdQlVQC9j7F
+Date: Wed, 19 Aug 2026 13:02:09 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Dan Carpenter" <error27@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, arm <arm@kernel.org>
+Message-Id: <e45c75c5-70e3-496b-8885-ab0093234d3a@app.fastmail.com>
+In-Reply-To: <202608191405.jP6epa63-lkp@intel.com>
+References: <202608191405.jP6epa63-lkp@intel.com>
+Subject: Re: [soc:board-remove 200/200] drivers/mmc/host/sdhci-pxav2.c:318
+ sdhci_pxav2_probe() error: we previously assumed 'variant' could be null (see
+ line 305)
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_040018_391007_44F140C1 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20260819_040236_393601_3041B232 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,46 +109,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When MXP_MULTIPLE_DTM_EN is TRUE, each DTM will monitor at most
-two device ports. In this case, {wp_dev_sel2, wp_dev_sel} will
-only use values 2'b00 and 2'b01 per DTM.
+On Wed, Aug 19, 2026, at 09:54, Dan Carpenter wrote:
+> dfe9746aed2d12 Doug Brown            2023-01-16  304  	variant = 
+> of_device_get_match_data(dev);
+> dfe9746aed2d12 Doug Brown            2023-01-16 @305  	if (variant)
+>
+> This assumes "variant" can be NULL.
+>
+> dfe9746aed2d12 Doug Brown            2023-01-16  319  	host->ops = 
+> variant->ops;
+>
+> But later it's dereferenced without checking.
+>
 
-Previously the setting allowed values beyond the supported range
-per DTM, which could cause each DTM to select invalid ports when
-MXP_MULTIPLE_DTM_EN is TRUE.
+Hi Dan,
 
-Fix this by applying `dev %= 2` to clamp the selection value to
-the valid range when MXP_MULTIPLE_DTM_EN is TRUE.
+Thanks for the report! I've fixed it up now, by removing the (now)
+pointless NULL check.
 
-Fixes: 60d1504070c2 ("perf/arm-cmn: Support new IP features")
-Signed-off-by: Shouping Wang <allen.wang@hj-micro.com>
----
- drivers/perf/arm-cmn.c | 4 ++++
- 1 file changed, 4 insertions(+)
+As you may have seen, there are a lot of changes in this branch,
+and I assume there are still many things that smatch will find here
+as it is still work in progress.
 
-diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-index 40c05c519a1d..13ccbf2a7345 100644
---- a/drivers/perf/arm-cmn.c
-+++ b/drivers/perf/arm-cmn.c
-@@ -1392,6 +1392,7 @@ static void arm_cmn_claim_wp_idx(struct arm_cmn_dtm *dtm,
- 
- static u32 arm_cmn_wp_config(struct perf_event *event, int wp_idx)
- {
-+	struct arm_cmn *cmn = to_cmn(event->pmu);
- 	u32 config;
- 	u32 dev = CMN_EVENT_WP_DEV_SEL(event);
- 	u32 chn = CMN_EVENT_WP_CHN_SEL(event);
-@@ -1404,6 +1405,9 @@ static u32 arm_cmn_wp_config(struct perf_event *event, int wp_idx)
- 	if (is_cmn600)
- 		grp &= 1;
- 
-+	if (cmn->multi_dtm)
-+		dev %=  2;
-+
- 	config = FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_DEV_SEL, dev) |
- 		 FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_CHN_SEL, chn) |
- 		 FIELD_PREP(CMN_DTM_WPn_CONFIG_WP_GRP, grp) |
--- 
-2.43.0
+If you have a list of possible regressions that smatch has already
+found on this branch, I'd be happy to look through the raw data
+for actual bugs and fix them before you spend a lot of time
+processing the findings.
 
+    Arnd
 
