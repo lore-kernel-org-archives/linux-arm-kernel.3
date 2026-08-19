@@ -4,87 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49375C5DF88
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 15:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2E06C5DF86
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 15:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AsPwfGfYCx9rcO+FEBE8OEei2rIOlpeF10Irz6cXO9A=; b=f4jJ0l+PcTOIwkXel8Yt14wjto
-	dvmm/vtKZdo9ys33bMq5AwRghcgMgP9mpzKcAFf6FC3zLiZb6zku+MB21QWTfOQ8eYIuqCisHUl3p
-	C8KlLdcMGUbRxzZWvMtW5yG34mJpZKjUI/LrruUCVKFFBoyzA8Ytj/Kc0W4eW5Lht1zbFOrWLHGM/
-	5Dyagy0UwkaiKP7ff1l+sXZ/TrmiiYAuP4toqm9ng3C8TYb7NjcjbSCsr8GPU27EG9eXUf5gvKOws
-	ERtq6DvU3kuhcerxWKSBcgDjfcteSzG7E/At0UP6hxokr4X6FCaE2J4RxJ9AhA17DvCUMIKraU/3q
-	pcZfBqZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W3q7tfKJsiKeauJNfR3vMrN+xsb14GxldWmwVaAbL3w=; b=Jlu63IIRgxRVyxuIcXzAsig6rk
+	vOd0ZeQ6flMjWd6d3cbnDByxfxei7qycTkTCSgY7G00tIxuRbadZXd1twKPbEweyP1LEJy/1OdiIq
+	fgHr8H439LUkq5EZOVO84dvuKPHj8LRKsPvOe2wBcDLsWrdp8a2SuKMVWjxOSck1ZlW1VCngt13Mc
+	qZ1U9P1NT4kXp2dDS5W4x52Gps3uvcOGfjMVqWmbYupqpIqXJOx3Sle+pqRSUTxPf58ibYSnZ9LhJ
+	NaO77NYZ8oQoKxMb2Yy1DAHAU2rcXF92ulKHTalQ9fE08sA+uEUon968EpL8QqSpGC0JO2SV46v7f
+	an0U9AQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwhrO-0000000A2nI-2b3S;
-	Wed, 19 Aug 2026 15:05:46 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wwi0c-0000000A3Xq-2eEm;
+	Wed, 19 Aug 2026 15:15:18 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwhrL-0000000A2mu-3KNV;
-	Wed, 19 Aug 2026 15:05:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1787151939;
-	bh=ZOI+W6oA/uAi32MTH/0/AbBQ8UTI/tV8YYpxIRduY98=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=ooh4O4nnoS1GXQvarlxiNA7WIlnZgxkLdtnUfrl+ZIw4UZy8ON2JPAULUqn6glymV
-	 TEYU4unh5Cc2IMADNY237oj8DvJF9Hf4tCTVa7vxKQfRINYeqorsHt6krRZH9EU6Fm
-	 s6lHo8w0qteJ9R6d/YaycRc85DID+Z0N/SR23csjhtyO0HfJBKnSpHSKYDjNM5a5LZ
-	 7iszudSMqSvCpRuNpe/leqIEAWFrE/hdO0T0/MuOWy5zh7GlklDoPoHMWTwm0WXpPY
-	 dqkivmrgfcqdmQm4DZ8GhHEtvT4otsHUivKlsBJisFoGpuB5MVHt3le6zX6bL2X8eF
-	 Ie3SXFdLuyg8A==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E329617E0824;
-	Wed, 19 Aug 2026 17:05:36 +0200 (CEST)
-Message-ID: <ea57db621f1267c1cd3079cebed543180d82ed95.camel@collabora.com>
-Subject: Re: [PATCH 1/7] media: verisilicon: Fix the cleanup when a codec
- ->run() fails
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>, Benjamin Gaignard	
- <benjamin.gaignard@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Mauro Carvalho Chehab	 <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Ezequiel Garcia	 <ezequiel@vanguardiasur.com.ar>,
- Andrzej Pietrasiewicz <andrzej.p@collabora.com>,  Hans Verkuil
- <hverkuil@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lucas Sinn	 <lucas.sinn@wolfvision.net>
-Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org
-Date: Wed, 19 Aug 2026 11:05:35 -0400
-In-Reply-To: <20260819-rk3588-jpegdec-v1-1-33d74cdf369c@pengutronix.de>
-References: <20260819-rk3588-jpegdec-v1-0-33d74cdf369c@pengutronix.de>
-	 <20260819-rk3588-jpegdec-v1-1-33d74cdf369c@pengutronix.de>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-jClPjoRyYChhJM6d5vWN"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	id 1wwi0a-0000000A3Ww-0VVS
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Aug 2026 15:15:17 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67JF2ZfA1173980
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 15:15:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=W3q7tfKJsiKeauJNfR3vMrN+xsb14GxldWm
+	wVaAbL3w=; b=LL8TthI91jtL0NnlqqIXq6SsBuXq35cGwwey3QUn7MjSyfyI2bF
+	kF7AO4pJD/WNmImaPP4ItE4tJefrBLsZQgwcVZy8BcVi/VwkyA5PG1pUvR2KtEnb
+	czYed+1rUWWz1PcfmXcaRI8gmnX9tj69Ge0wOQ07k5FUuG5mNCz3O19kPCTxAuxF
+	91x9vcOTFFmATyTHuZ403Zpu/xKaiBZtQmJ/kBmNguiM9VnJDR1kqyImAn9T17Zd
+	t4Iqy0B2ItO2Uw2Fr5VwV57yHmYx3N88Lm4I99xr9jdCWXdR1hDtQJP7BS/7vTHX
+	QOlDiTB4WbglCv4sU53DYDXF8hjW6S1F0+A==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g5esj01xk-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 15:15:15 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-92e62e3459fso137991585a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 08:15:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1787152514; x=1787757314; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=W3q7tfKJsiKeauJNfR3vMrN+xsb14GxldWmwVaAbL3w=;
+        b=ktO56PwrFw3k1wvoxzBO8pLF0oegOst/0n6zxrUusW01YsTwN1GyqmuvpbyuyBRCwv
+         9CflhaaUIIsw4vEQnWT2AnF6/92rxR8snt701GSHNbH/YJL6xzzGhKRBfjGs4uOfzGo2
+         m2geQEqW3aYxIFPB5fqcB8DIp2IAKZsuQamth9BvhsO+vl+L8JxlSHsxu6Qg+uCmQTwv
+         pQuHy83OlHqnKQhlKp+1wpZM2ijmAzKI2f6ImrWGHIln62oXi3swpmNNfMZ1P2yAk4Q/
+         1ooIz7uP0pZRQy74u7l5USxGemgsnJ2kSyYf14GNnouiDl0Qrweod4ZS5jo0v6E+FTUs
+         Kfnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787152514; x=1787757314;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=W3q7tfKJsiKeauJNfR3vMrN+xsb14GxldWmwVaAbL3w=;
+        b=dHJ0Szmai72ytbzXxo3RGCmt0D0nwfWmWtIpSYP4dra3qdyQyFvzUcAdBMbpa92Wkw
+         BtLCmsPdPCobuLyl8zefGFA/gXf295pALeZVSunaa3R9P5XpbLeetnnOGDWmr43Q9283
+         eaWkvRV0AGnA8CcoJhVxi9+GDPHP8rinY9a1foddR6S9vrM7PnmxUmgaleaOovEmFE2H
+         K8JcIkD58pm8fGq0LOn978IPV22ugPOjaNvuKfm6pCpV+iOQo+CyseOiL/+P1WjZ4Bhf
+         2/V+e5SZ3yFBnsrn7YTtB3ilBz4QsFgPhZQnmP8GsRordtwOKKX+sRFVeO4E2a0ZuuSQ
+         Nawg==
+X-Forwarded-Encrypted: i=1; AHgh+RpLh8kw4Ll/Ca8d7jrHr6WyHt6n7DYjgLxCwcBnCF2PVayOjkjPtMI5cMqWKq6tigsGvhh0vlT31UpL5pXvFZCa@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRlsHsYlYd4ZlIazAnYdXoa3e4ZYkF4m92be4FyMmgUqAX+3Vm
+	wmMeXtfrHvJmtZ+7n4VMiiApDH954DHY0h4Rv0p2pN4PeE+xV/f5IlE9hjjYzd1CCgD7DilsWlW
+	vMxuKgxSP1oYcegoOsk5T95/fBx8l1FfXW5cbOJDnQJdeERCHkVfDYIDJW58KqBWh3goREUVVNu
+	mXGw==
+X-Gm-Gg: AR+sD13NTuR4gkmEikAxC7n5LDqyR7XY3z0OTiVnicazP7xMJyP0iKFtL0PlHQyD9H2
+	pQgQK6llAobxjt7W/6mCXH2DpXChTr6wrufHC4C5vyc3BaWmWLROuMZ1C3hd1n66UQcror3XZo3
+	lr6b6S4+lxi3p0+Cbp1YogF5LWnp3OJm9EsH5Tgm1fATsOdcUM2GrKAuh26ALMvcKTvIXw1CLZC
+	lBqCH13+SMiCx0A7KReb4P5HdUsuAg443Q0Juk3tXS63kE3JBjaXV6XaM5BvZiDfkhwUleTzvHq
+	so2UvJEpcoOEN7lTo8u3g+qQKe1cPe/hapXCJ6DAdoZzDM55SKRK1lViNiDezCzw6ZGq5qBblDN
+	QpVT+kAOlGW4RUJIV8kZfWnyi/qaGsDDq/nBzIPdqhWyH8m7auDhc3UrxxA==
+X-Received: by 2002:a05:620a:319b:b0:92e:e3eb:de54 with SMTP id af79cd13be357-9371e21caf9mr551848185a.11.1787152514021;
+        Wed, 19 Aug 2026 08:15:14 -0700 (PDT)
+X-Received: by 2002:a05:620a:319b:b0:92e:e3eb:de54 with SMTP id af79cd13be357-9371e21caf9mr551834885a.11.1787152513400;
+        Wed, 19 Aug 2026 08:15:13 -0700 (PDT)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c243c4ac06asm94124666b.33.2026.08.19.08.15.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Aug 2026 08:15:11 -0700 (PDT)
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+        "Rafael J . Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>, linux-pm@vger.kernel.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Maulik Shah <maulik.shah@oss.qualcomm.com>,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Ulf Hansson <ulfh@kernel.org>
+Subject: [RFC PATCH 0/3] pmdomain/cpuidle-psci: Fix behaviours for CPU PM domains
+Date: Wed, 19 Aug 2026 17:14:50 +0200
+Message-ID: <20260819151457.256959-1-ulf.hansson@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: 3h_Bysn64mRhYW2RaZLFGh0oFr1Qoshf
+X-Authority-Analysis: v=2.4 cv=EaL4hvmC c=1 sm=1 tr=0 ts=6a85c883 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=h7aNHqOhPKB91FvYUefsSA==:17
+ a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=yh3ps83G6N8KMOvRL6AA:9 a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE5MDExOCBTYWx0ZWRfXyCXGZ+4cjMRC
+ 3kJ5ZCTaQADAz5+ObE5LTvE2QpHJVHDTlE33dM8aXw3vNIWz4YUHT/eyMw9t34EP9dX1AdcGzOj
+ xHwS7vqpYOTAkl7+KoBIOPJ2B334GpTaIlLKUIy2s76ImHYrSTjBP95KAJJ7VFJ+PTLrRbBedNF
+ MPpux25FfCogNUEbBNMyE3FPDfNPdoBqp3kutrgBe90SZ7R2w8usBBIGfwURb122wVbYhkigBSM
+ jW8f+y3IXbbPKT/x5mWBlcnyQTzNUFTLIKjdCByift1PKfJKoqRlK9LJPTBI5XdPhE0IogWfmm1
+ BtcOm1KxplviePFUjrUJk8QupvGoYgUr6g/KhXHuvsgjdNpP2NMpBfPftpIeTDJfhC+XGhf6n1w
+ TvjFgix+O8wV4R/QmTAh2iJ8y3YWs9Q0FFdQENt+edw2ED03WLRKl0HxCv/7oHCppJYwv1J5T9d
+ YP6UYWUAYhA5bONotgg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE5MDExOCBTYWx0ZWRfX3GG/p2kzUC8+
+ Z5Ei78vWCf13Yw7m99wuetrM1OfSTe7d/PXmxSkbPPD1LZr+hPFvJDZ3kdZtdI98+yyWJP7mu0M
+ aeJq0HqOdI5D56jQo3XovqDyHYjLJsM=
+X-Proofpoint-ORIG-GUID: 3h_Bysn64mRhYW2RaZLFGh0oFr1Qoshf
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-19_04,2026-08-19_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 adultscore=0 suspectscore=0 spamscore=0
+ phishscore=0 priorityscore=1501 impostorscore=0 lowpriorityscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608190118
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_080543_989749_AC3E939E 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260819_081516_167992_B7F86DEE 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,39 +149,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Ulf Hansson <ulfh@kernel.org>
 
---=-jClPjoRyYChhJM6d5vWN
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+This series fixes a couple of different, but highly related problems, when
+dealing with CPU PM domains. More details are available in the commit messages
+for each patch.
 
-Hi Sascha,
+Note that, this series is a follow up to fix problems that have been pointed
+out in a series [1] from Yuanfang Zhang (Qcom), to add support for new
+components for the arm coresight subsystem.
 
-Le mercredi 19 ao=C3=BBt 2026 =C3=A0 12:37 +0200, Sascha Hauer a =C3=A9crit=
-=C2=A0:
-> =C2=A0	ret =3D start_prepare_run(ctx, &decode_params);
-> =C2=A0	if (ret) {
-> -		hantro_end_prepare_run(ctx);
-> +		hantro_end_prepare_run(ctx, ret);
+Note also that it's RFC, as I expect that it needs some more testing/tuning
+before it's ready.
 
-Since its already in an if (ret) branch, and for code readability, can you =
-use
-hantro_abort_prepare_run(ctx) instead and leave all other sucessful calls a=
-s-is.
+Kind regards
+Uffe
 
-Nicolas
+[1]
+[PATCH v2 00/12] coresight: Add CPU cluster funnel/replicator/tmc support
+https://lore.kernel.org/all/20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com/#r
 
---=-jClPjoRyYChhJM6d5vWN
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+Ulf Hansson (3):
+  pmdomain: core: Allow a non-CPU device in a CPU PM domain to do power
+    on
+  pmdomain: core: Add a genpd config to support unknown initial status
+  cpuidle: psci: Initialize the PM domains in powered off state for OSI
 
------BEGIN PGP SIGNATURE-----
+ drivers/cpuidle/cpuidle-psci-domain.c |  5 +-
+ drivers/pmdomain/core.c               | 86 +++++++++++++++++++++++++--
+ include/linux/pm_domain.h             |  9 +++
+ 3 files changed, 92 insertions(+), 8 deletions(-)
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaoXGPwAKCRDZQZRRKWBy
-9J96AP4pVbuljONCTasFDnqGz3LRJHuAwLr5VErmMrO2wrsqrwEAzhFgMDQ9TSeS
-/dfy+t87UYjwpZwgjpWq+Cp2ewMU1wo=
-=KCQs
------END PGP SIGNATURE-----
+-- 
+2.43.0
 
---=-jClPjoRyYChhJM6d5vWN--
 
