@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86160C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 06:12:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD157C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 06:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SN7Fh3KXu/CaU8OBldvL2COAT/goR2IgYq44MTB2F2g=; b=B1IpriEwyDH3fGOyAbSqiPFIux
-	ZJLODGQVgwK+m+skoanzVbpbhrxCMuSSpC02MZxBVccwLNUIOfcJmLGlkE88KOMIbypm7jzsXDMc5
-	L5g0uR/fJzgp1Yxtog0RAR8UZhVhUY5oaVTRyDTVhrv0by5arPI5/KCxAK/sLrYaCwg737DbbdWsl
-	bMIb18vfd6NksjC/Ohh1NCOwBLUniLv0qfZrIRfQuI+1TWjG0K24pSs9gN6GAj2lgihDubuOeTB6u
-	IBtxu6/KSZ/jQIEeFZXIVcYSY2nff4/56KqH2CHZiPPoAQxPOhNO4Bf3kBSgaxLSWwSwsuQ5+bZBR
-	EeNR5Qfg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=REiQ4pzPWrpTqOPLcdCoCUuzrWR8nnbVf4dk/O9lYGc=; b=qSh8EEcc+awmuFz2r1N29BV3LV
+	LeQrA9KS7b0KUvgc3Wm+FhaAmwgAoTaE5RngdrDOvvL3OsPowNVChaplENmoPlvo+KmdxEChPVZfi
+	Sq4Yvk/kH/+FhMPBxTem6hdOIesDYa3gcqOkTf5ExEU5WkXXoI0ktoLhnw4k11oOlSVyax5z24X11
+	i9fpDTJ89nTcNtLYa1iUrGBuW9Gk9IjGG4/8gGr7h8SuPIdj4PMJxHp1+405Cvx2B2jztoc8S8dZK
+	KK+/+TDGeDO/ACY+5CFtQCMlXol9CHcMD9uhizWB4+J9zBR2lMuNAOF35ySb4fMlKmnrd6Qz6tS1c
+	9wP1NE9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwZWT-0000000949U-1R87;
-	Wed, 19 Aug 2026 06:11:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wwZai-0000000955t-1vQS;
+	Wed, 19 Aug 2026 06:16:00 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwZWS-0000000948R-1fQy
+	id 1wwZaf-0000000954z-07JM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 06:11:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03A3A43F7C;
-	Wed, 19 Aug 2026 06:11:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DB623C2BD05;
-	Wed, 19 Aug 2026 06:11:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1787119895;
-	bh=MJYBHtfS4eHxM04NB35N1mTAvXvdlK4AtlIrwERV+3Y=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=M7ufZL33u3iQAkH1AW/Wv+X1rtoVjlN4V9uq1tuxCWUw34Ma05mEohLmcgi9UdaJF
-	 XCXHkNhuoCfJPvVAoYBE/wX97o+DP4OQ/6F0UmU1JHHpZq84rwjuoifx6+BWj9x70L
-	 b4hxt3DYpJHLBcyZjbVcAPazZl3oGs0yYLc/qKx1FSPI6IYBrp3cNub2fr5YD4WsBE
-	 7B2js0+ueircJsUmySqq8SO5suWgm58CEHRttEbzrCa04WT4C54AY0evwRrFp55gba
-	 FxEN2NttSoXV6xXyImpMG95MK43W7IgE+ZO9NtatS17+YuwtYlHB5rh/5EnkR35CFa
-	 U3zURst4wt2Vg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C38DCC5DF81;
-	Wed, 19 Aug 2026 06:11:35 +0000 (UTC)
-From: Pankaj Gupta via B4 Relay <devnull+pankaj.gupta.nxp.com@kernel.org>
-Date: Wed, 19 Aug 2026 17:12:10 +0530
-Subject: [PATCH v37 4/7] firmware: imx: device context dedicated to priv
+	Wed, 19 Aug 2026 06:15:58 +0000
+X-UUID: 69ab15b69b9511f19a56ed5b684f684d-20260819
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:8c6e4911-1948-4769-bdcd-572fec5c07d8,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:20
+X-CID-META: VersionHash:7db8b62,CLOUDID:b09a46832efa2d920fef21ef90dc5f58,BulkI
+	D:nil,BulkQuantity:0,SF:102|850|865|898,TC:nil,Content:0|15|50,EDM:5,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 69ab15b69b9511f19a56ed5b684f684d-20260819
+X-User: lijun01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <lijun01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 748287342; Wed, 19 Aug 2026 14:15:45 +0800
+From: Li Jun <lijun01@kylinos.cn>
+To: lijun01@kylinos.cn,
+	sudeep.holla@kernel.org,
+	cristian.marussi@arm.com,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] firmware: arm_scmi: pm: use SIMPLE_DEV_PM_OPS for pm struct
+Date: Wed, 19 Aug 2026 14:15:30 +0800
+Message-Id: <20260819061530.2391788-1-lijun01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260819-imx-se-if-v37-4-5ef5de9ff1dc@nxp.com>
-References: <20260819-imx-se-if-v37-0-5ef5de9ff1dc@nxp.com>
-In-Reply-To: <20260819-imx-se-if-v37-0-5ef5de9ff1dc@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787139727; l=13976;
- i=pankaj.gupta@nxp.com; s=20260817; h=from:subject:message-id;
- bh=eNxQe9XjZuhYJPvRWyz8H3LkdQXLV5Z2mQrWUACRH44=;
- b=TV0o0FsP0PxtsktK1vAHbnYfvA7m8nXwtqcmHFIq7LJNP4u9U9FWBXdfAKj6j4ol0kLLwc/N/
- cGhSK/4XUF4AapgTF8hQYKH4qO1rl8l62Fme2NJnDrU/lehyf+2A398
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=g4ZgzIWbpXnSxRsoH+l6PWLP78a+Mzpl8e6RQe74d5Y=
-X-Endpoint-Received: by B4 Relay for pankaj.gupta@nxp.com/20260817 with
- auth_id=962
-X-Original-From: Pankaj Gupta <pankaj.gupta@nxp.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260818_231557_384899_DB05214E 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,388 +73,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: pankaj.gupta@nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
+use SIMPLE_DEV_PM_OPS for scmi_dev_pm_ops,and add the value of
+.freeze .thaw .poweroff .restore.if these address are null, may cause
+error in s4.
 
-Add priv_dev_ctx to prepare enabling misc-device context based send-receive
-path, to communicate with FW.
-
-No functionality change.
-
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Li Jun <lijun01@kylinos.cn>
 ---
- drivers/firmware/imx/ele_base_msg.c | 15 +++++-----
- drivers/firmware/imx/ele_common.c   | 55 +++++++++++++++++++++----------------
- drivers/firmware/imx/ele_common.h   |  8 +++---
- drivers/firmware/imx/se_ctrl.c      | 41 +++++++++++++++++++++++++++
- drivers/firmware/imx/se_ctrl.h      |  9 ++++++
- 5 files changed, 94 insertions(+), 34 deletions(-)
+ drivers/firmware/arm_scmi/bus.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/firmware/imx/ele_base_msg.c b/drivers/firmware/imx/ele_base_msg.c
-index 724f6e913ce7..b70e3ef88a16 100644
---- a/drivers/firmware/imx/ele_base_msg.c
-+++ b/drivers/firmware/imx/ele_base_msg.c
-@@ -71,8 +71,9 @@ int ele_get_info(struct se_if_priv *priv, struct ele_dev_info *s_info)
- 	tx_msg->data[0] = upper_32_bits(get_info_addr);
- 	tx_msg->data[1] = lower_32_bits(get_info_addr);
- 	tx_msg->data[2] = sizeof(*s_info);
--	ret = ele_msg_send_rcv(priv, tx_msg, ELE_GET_INFO_REQ_MSG_SZ, rx_msg,
--			       ELE_GET_INFO_RSP_MSG_SZ);
-+
-+	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_GET_INFO_REQ_MSG_SZ,
-+			       rx_msg, ELE_GET_INFO_RSP_MSG_SZ);
- 	if (ret < 0) {
- 		ele_get_info_cleanup(priv, get_info_data, get_info_addr, get_info_len);
- 		return ret;
-@@ -117,8 +118,8 @@ int ele_ping(struct se_if_priv *priv)
- 	se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
- 			    ELE_PING_REQ, ELE_PING_REQ_SZ, true);
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index e060edbe7e83..4ab32f1eed4f 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -13,6 +13,7 @@
+ #include <linux/kernel.h>
+ #include <linux/slab.h>
+ #include <linux/device.h>
++#include <linux/pm.h>
  
--	ret = ele_msg_send_rcv(priv, tx_msg, ELE_PING_REQ_SZ, rx_msg,
--			       ELE_PING_RSP_SZ);
-+	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_PING_REQ_SZ,
-+			       rx_msg, ELE_PING_RSP_SZ);
- 	if (ret < 0)
- 		return ret;
+ #include "common.h"
  
-@@ -165,7 +166,7 @@ int ele_service_swap(struct se_if_priv *priv,
- 	if (ret)
- 		return -EINVAL;
- 
--	ret = ele_msg_send_rcv(priv, tx_msg, ELE_SERVICE_SWAP_REQ_MSG_SZ,
-+	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_SERVICE_SWAP_REQ_MSG_SZ,
- 			       rx_msg, ELE_SERVICE_SWAP_RSP_MSG_SZ);
- 	if (ret < 0)
- 		return ret;
-@@ -213,7 +214,7 @@ int ele_fw_authenticate(struct se_if_priv *priv, dma_addr_t contnr_addr,
- 	tx_msg->data[1] = 0;
- 	tx_msg->data[2] = lower_32_bits(img_addr);
- 
--	ret = ele_msg_send_rcv(priv, tx_msg, ELE_FW_AUTH_REQ_SZ, rx_msg,
-+	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_FW_AUTH_REQ_SZ, rx_msg,
- 			       ELE_FW_AUTH_RSP_MSG_SZ);
- 	if (ret < 0)
- 		return ret;
-@@ -251,7 +252,7 @@ int ele_debug_dump(struct se_if_priv *priv)
- 	do {
- 		memset(rx_msg, 0x0, ELE_DEBUG_DUMP_RSP_SZ);
- 
--		ret = ele_msg_send_rcv(priv, tx_msg, ELE_DEBUG_DUMP_REQ_SZ,
-+		ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_DEBUG_DUMP_REQ_SZ,
- 				       rx_msg, ELE_DEBUG_DUMP_RSP_SZ);
- 		if (ret < 0)
- 			return ret;
-diff --git a/drivers/firmware/imx/ele_common.c b/drivers/firmware/imx/ele_common.c
-index 04ee5112d346..b662063c3b1c 100644
---- a/drivers/firmware/imx/ele_common.c
-+++ b/drivers/firmware/imx/ele_common.c
-@@ -46,8 +46,9 @@ int se_update_msg_chksum(u32 *msg, u32 msg_len)
+@@ -361,10 +362,7 @@ static int scmi_pm_resume(struct device *dev)
  	return 0;
  }
  
--int ele_msg_rcv(struct se_if_priv *priv, struct se_clbk_handle *se_clbk_hdl)
-+int ele_msg_rcv(struct se_if_device_ctx *dev_ctx, struct se_clbk_handle *se_clbk_hdl)
- {
-+	struct se_if_priv *priv = dev_ctx->priv;
- 	bool is_rsp_wait_with_timeout = false;
- 	bool wait_uninterruptible = false;
- 	unsigned long remaining_jiffies;
-@@ -134,7 +135,7 @@ int ele_msg_rcv(struct se_if_priv *priv, struct se_clbk_handle *se_clbk_hdl)
- 	return ret;
- }
+-static const struct dev_pm_ops scmi_dev_pm_ops = {
+-	.suspend = pm_sleep_ptr(scmi_pm_suspend),
+-	.resume = pm_sleep_ptr(scmi_pm_resume),
+-};
++static SIMPLE_DEV_PM_OPS(scmi_dev_pm_ops, scmi_pm_suspend, scmi_pm_resume);
  
--int ele_msg_send(struct se_if_priv *priv,
-+int ele_msg_send(struct se_if_device_ctx *dev_ctx,
- 		 void *tx_msg,
- 		 int tx_msg_sz)
- {
-@@ -146,9 +147,9 @@ int ele_msg_send(struct se_if_priv *priv,
- 	 * carried in the message.
- 	 */
- 	if (header->size << 2 != tx_msg_sz) {
--		dev_err(priv->dev,
--			"User buf hdr: 0x%x, sz mismatced with input-sz (%d != %d).",
--			*(u32 *)header, header->size << 2, tx_msg_sz);
-+		dev_err(dev_ctx->priv->dev,
-+			"%s: User buf hdr: 0x%x, sz mismatched with input-sz (%d != %d).",
-+			dev_ctx->devname, *(u32 *)header, header->size << 2, tx_msg_sz);
- 		return -EINVAL;
- 	}
- 
-@@ -158,9 +159,10 @@ int ele_msg_send(struct se_if_priv *priv,
- 	 * caller-provided tx_msg pointer after mbox_send_message() returns, so
- 	 * the caller-owned buffer may be released after a successful send.
- 	 */
--	err = mbox_send_message(priv->tx_chan, tx_msg);
-+	err = mbox_send_message(dev_ctx->priv->tx_chan, tx_msg);
- 	if (err < 0) {
--		dev_err(priv->dev, "Error: mbox_send_message failure.\n");
-+		dev_err(dev_ctx->priv->dev,
-+			"%s: Error: mbox_send_message failure.", dev_ctx->devname);
- 		return err;
- 	}
- 
-@@ -172,38 +174,41 @@ static void ele_msg_send_rcv_cleanup(struct se_if_priv *priv)
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&priv->waiting_rsp_clbk_hdl.clbk_rx_lock, flags);
-+	priv->waiting_rsp_clbk_hdl.dev_ctx = NULL;
- 	priv->waiting_rsp_clbk_hdl.rx_msg = NULL;
- 	priv->waiting_rsp_clbk_hdl.rx_msg_sz = 0;
- 	spin_unlock_irqrestore(&priv->waiting_rsp_clbk_hdl.clbk_rx_lock, flags);
- }
- 
--/* API used for send/receive blocking call. */
--int ele_msg_send_rcv(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz,
--		     void *rx_msg, int exp_rx_msg_sz)
-+/* API used for send/receive blocking calls. */
-+int ele_msg_send_rcv(struct se_if_device_ctx *dev_ctx, void *tx_msg,
-+		     int tx_msg_sz, void *rx_msg, int exp_rx_msg_sz)
- {
-+	struct se_if_priv *priv = dev_ctx->priv;
- 	unsigned long flags;
- 	int err;
- 
- 	guard(mutex)(&priv->se_if_cmd_lock);
- 
- 	if (atomic_read(&priv->fw_busy)) {
--		dev_dbg(priv->dev, "ELE became unresponsive.\n");
-+		dev_dbg(priv->dev, "%s: ELE became unresponsive.\n", dev_ctx->devname);
- 		return -EBUSY;
- 	}
- 	reinit_completion(&priv->waiting_rsp_clbk_hdl.done);
- 	/* Publish rx_msg/rx_msg_sz under the lock read by se_if_rx_callback(). */
- 	spin_lock_irqsave(&priv->waiting_rsp_clbk_hdl.clbk_rx_lock, flags);
-+	priv->waiting_rsp_clbk_hdl.dev_ctx = dev_ctx;
- 	priv->waiting_rsp_clbk_hdl.rx_msg_sz = exp_rx_msg_sz;
- 	priv->waiting_rsp_clbk_hdl.rx_msg = rx_msg;
- 	spin_unlock_irqrestore(&priv->waiting_rsp_clbk_hdl.clbk_rx_lock, flags);
- 
--	err = ele_msg_send(priv, tx_msg, tx_msg_sz);
-+	err = ele_msg_send(dev_ctx, tx_msg, tx_msg_sz);
- 	if (err < 0) {
- 		ele_msg_send_rcv_cleanup(priv);
- 		return err;
- 	}
- 
--	err = ele_msg_rcv(priv, &priv->waiting_rsp_clbk_hdl);
-+	err = ele_msg_rcv(dev_ctx, &priv->waiting_rsp_clbk_hdl);
- 
- 	if (priv->waiting_rsp_clbk_hdl.signal_rcvd) {
- 		/*
-@@ -214,7 +219,8 @@ int ele_msg_send_rcv(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz,
- 		if (err > 0)
- 			err = -ERESTARTSYS;
- 		priv->waiting_rsp_clbk_hdl.signal_rcvd = false;
--		dev_dbg(priv->dev, "Err[0x%x]:Interrupted by signal.", err);
-+		dev_dbg(priv->dev, "%s: Err[0x%x]:Interrupted by signal.",
-+			dev_ctx->devname, err);
- 	}
- 
- 	ele_msg_send_rcv_cleanup(priv);
-@@ -243,6 +249,7 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- {
- 	struct se_clbk_handle *se_clbk_hdl;
- 	struct device *dev = mbox_cl->dev;
-+	const char *devname = NULL;
- 	struct se_msg_hdr *header;
- 	bool sz_mismatch = false;
- 	struct se_if_priv *priv;
-@@ -266,7 +273,7 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 	if (header->tag == priv->if_defs->cmd_tag) {
- 		se_clbk_hdl = &priv->cmd_receiver_clbk_hdl;
- 		spin_lock_irqsave(&se_clbk_hdl->clbk_rx_lock, flags);
--		if (!se_clbk_hdl->rx_msg) {
-+		if (!se_clbk_hdl->dev_ctx || !se_clbk_hdl->rx_msg) {
- 			spin_unlock_irqrestore(&se_clbk_hdl->clbk_rx_lock, flags);
- 			dev_warn(dev, "No command receiver registered for message: %.8x\n",
- 				 *((u32 *)header));
-@@ -280,8 +287,8 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 		 * SE_IOCTL_ENABLE_CMD_RCV and is not subject to the timeout/circuit-
- 		 * breaker handling used for rsp_tag messages.
- 		 */
--		dev_dbg(dev, "Selecting cmd receiver: for mesg header:0x%x.",
--			*(u32 *)header);
-+		dev_dbg(dev, "Selecting cmd receiver:%s for mesg header:0x%x.",
-+			se_clbk_hdl->dev_ctx->devname,  *(u32 *)header);
- 
- 		/*
- 		 * Pre-allocated buffer of MAX_NVM_MSG_LEN
-@@ -296,13 +303,14 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 		 * Clamp the copy length to the pre-allocated receiver buffer (MAX_NVM_MSG_LEN).
- 		 */
- 		se_clbk_hdl->rx_msg_sz = min_t(u32, rx_msg_sz, MAX_NVM_MSG_LEN);
-+		devname = se_clbk_hdl->dev_ctx->devname;
- 		memcpy(se_clbk_hdl->rx_msg, msg, se_clbk_hdl->rx_msg_sz);
- 		complete(&se_clbk_hdl->done);
- 		spin_unlock_irqrestore(&se_clbk_hdl->clbk_rx_lock, flags);
- 		if (sz_mismatch)
- 			dev_err(dev,
--				"CMD-RCVER NVM: hdr(0x%x) with different sz(%d != %d).\n",
--				*(u32 *)header,
-+				"%s: CMD-RCVER NVM: hdr(0x%x) with different sz(%d != %d).\n",
-+				devname, *(u32 *)header,
- 				(header->size << 2), rx_msg_sz);
- 	} else if (header->tag == priv->if_defs->rsp_tag) {
- 		bool exception_for_sz_mismatch = check_hdr_exception_for_sz(priv, header);
-@@ -324,8 +332,8 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 			return;
- 		}
- 		exp_rx_msg_sz = se_clbk_hdl->rx_msg_sz;
--		dev_dbg(dev, "Selecting resp waiter: for mesg header:0x%x.",
--			*(u32 *)header);
-+		dev_dbg(dev, "Selecting resp waiter:%s for mesg header:0x%x.",
-+			se_clbk_hdl->dev_ctx->devname, *(u32 *)header);
- 
- 		/*
- 		 * For rsp_tag traffic, the sender provides the expected response
-@@ -337,14 +345,15 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 			sz_mismatch = true;
- 
- 		se_clbk_hdl->rx_msg_sz = min(rx_msg_sz, exp_rx_msg_sz);
-+		devname = se_clbk_hdl->dev_ctx->devname;
- 		memcpy(se_clbk_hdl->rx_msg, msg, se_clbk_hdl->rx_msg_sz);
- 		complete(&se_clbk_hdl->done);
- 		spin_unlock_irqrestore(&se_clbk_hdl->clbk_rx_lock, flags);
- 
- 		if (sz_mismatch)
- 			dev_err(dev,
--				"Rsp to CMD: hdr(0x%x) with different sz(%d != %d).\n",
--				*(u32 *)header,
-+				"%s: Rsp to CMD: hdr(0x%x) with different sz(%d != %d).\n",
-+				devname, *(u32 *)header,
- 				(header->size << 2), exp_rx_msg_sz);
- 	} else {
- 		dev_err(dev, "Failed to select a device for message: %.8x\n",
-diff --git a/drivers/firmware/imx/ele_common.h b/drivers/firmware/imx/ele_common.h
-index 7bf2febefc45..07e6b6a1bafa 100644
---- a/drivers/firmware/imx/ele_common.h
-+++ b/drivers/firmware/imx/ele_common.h
-@@ -16,12 +16,12 @@
- 
- int se_update_msg_chksum(u32 *msg, u32 msg_len);
- 
--int ele_msg_rcv(struct se_if_priv *priv, struct se_clbk_handle *se_clbk_hdl);
-+int ele_msg_rcv(struct se_if_device_ctx *dev_ctx, struct se_clbk_handle *se_clbk_hdl);
- 
--int ele_msg_send(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz);
-+int ele_msg_send(struct se_if_device_ctx *dev_ctx, void *tx_msg, int tx_msg_sz);
- 
--int ele_msg_send_rcv(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz,
--		     void *rx_msg, int exp_rx_msg_sz);
-+int ele_msg_send_rcv(struct se_if_device_ctx *dev_ctx, void *tx_msg,
-+		     int tx_msg_sz, void *rx_msg, int exp_rx_msg_sz);
- 
- void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg);
- 
-diff --git a/drivers/firmware/imx/se_ctrl.c b/drivers/firmware/imx/se_ctrl.c
-index 53091cc37e7e..a8974eef190b 100644
---- a/drivers/firmware/imx/se_ctrl.c
-+++ b/drivers/firmware/imx/se_ctrl.c
-@@ -284,6 +284,36 @@ static int get_se_soc_info(struct se_if_priv *priv, const struct se_soc_info *se
- 	return 0;
- }
- 
-+static int init_misc_device_context(struct se_if_priv *priv, int ch_id,
-+				    struct se_if_device_ctx **new_dev_ctx)
-+{
-+	const char *err_str = "Failed to allocate memory";
-+	struct se_if_device_ctx *dev_ctx;
-+	int ret = -ENOMEM;
-+
-+	dev_ctx = kzalloc_obj(*dev_ctx, GFP_KERNEL);
-+
-+	if (!dev_ctx)
-+		return ret;
-+
-+	dev_ctx->devname = kasprintf(GFP_KERNEL, "%s0_ch%d",
-+				     get_se_if_name(priv->if_defs->se_if_type),
-+				     ch_id);
-+	if (!dev_ctx->devname)
-+		goto exit;
-+
-+	dev_ctx->priv = priv;
-+	*new_dev_ctx = dev_ctx;
-+
-+	return 0;
-+exit:
-+	*new_dev_ctx = NULL;
-+
-+	kfree(dev_ctx->devname);
-+	kfree(dev_ctx);
-+	return dev_err_probe(priv->dev, ret, "%s", err_str);
-+}
-+
- static int se_if_request_channel(struct device *dev, struct mbox_chan **chan,
- 				 struct mbox_client *cl, const char *name)
- {
-@@ -328,6 +358,11 @@ static void se_if_probe_cleanup(void *plat_dev)
- 
- 	dev_set_drvdata(dev, NULL);
- 
-+	if (priv->priv_dev_ctx) {
-+		kfree(priv->priv_dev_ctx->devname);
-+		kfree(priv->priv_dev_ctx);
-+	}
-+
- 	kfree(priv);
- }
- 
-@@ -425,6 +460,12 @@ static int se_if_probe(struct platform_device *pdev)
- 		load_fw->imem_mgmt = true;
- 	}
- 
-+	ret = init_misc_device_context(priv, 0, &priv->priv_dev_ctx);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "Failed[0x%x] to create device contexts.",
-+				     ret);
-+
- 	if (if_node->if_defs.se_if_type == SE_TYPE_ID_HSM) {
- 		ret = get_se_soc_info(priv, se_info);
- 		if (ret)
-diff --git a/drivers/firmware/imx/se_ctrl.h b/drivers/firmware/imx/se_ctrl.h
-index 54b2a262a2c3..dd4a1ea7e35a 100644
---- a/drivers/firmware/imx/se_ctrl.h
-+++ b/drivers/firmware/imx/se_ctrl.h
-@@ -20,6 +20,7 @@
- #define MESSAGING_VERSION_7		0x7
- 
- struct se_clbk_handle {
-+	struct se_if_device_ctx *dev_ctx;
- 	struct completion done;
- 	bool signal_rcvd;
- 	u32 rx_msg_sz;
-@@ -44,6 +45,12 @@ struct se_imem_buf {
- 	u32 state;
- };
- 
-+/* Private struct for each char device instance. */
-+struct se_if_device_ctx {
-+	struct se_if_priv *priv;
-+	const char *devname;
-+};
-+
- /* Header of the messages exchange with the EdgeLock Enclave */
- struct se_msg_hdr {
- 	u8 ver;
-@@ -106,6 +113,8 @@ struct se_if_priv {
- 	struct se_fw_load_info load_fw;
- 
- 	atomic_t fw_busy;
-+
-+	struct se_if_device_ctx *priv_dev_ctx;
- };
- 
- char *get_se_if_name(u8 se_if_id);
-
+ const struct bus_type scmi_bus_type = {
+ 	.name =	"scmi_protocol",
 -- 
-2.43.0
-
+2.25.1
 
 
