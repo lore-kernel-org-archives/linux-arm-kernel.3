@@ -4,70 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE7EBC5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 16:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E4E9C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 16:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CTifcNr4LKctsAM4SMxsssPmhWjX8dsPgZMHxI2Vljc=; b=OFzOwJpOxHewvUbkFy4tniRcJc
-	lTwMyELGwYQ4/WqCYr5NCpGrA90FJPnGzGOZpJzzSfNnjxTUNsAwqfLEmfHQ+qQu37Qed/8TFBfhc
-	jJG6gxfHdog0Ql/98mwYuBjqB4dnXMgM7OdbGme43IkXyJnt13osiHx7UCdS2+ESrB/95giZZVHSM
-	S1trLLQRJEfCXEo9/if2pcQLcAaynbREDNdhZFJQX7feCJR7xg1/lUf83uBaHYgbNiclGv5ZhH5Vm
-	vyesytFIPswlczpwiaaMbpa3Pp0ZZeJqL2OnqtTufjO2K4PePKztuk8xZYHxuMUpCjw77h8+a/MaP
-	AsvVuacw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j2QFmIqsPMjSEaMKX7xQH3oClX6HCcn2Fx3TkiBSFCE=; b=Hs6EnNoJWAzmlrVddlmvbdn4CV
+	dPN2r8AyURXGy2h27CXzlqQTumamqo91gyvP3lg3MqoXQimKQ/SBxJ0cKaea05MRDhsOjEbyyEmwO
+	Xi5lxjDrSjlzKNOT90xghiBRN+lrt7j/GHoezw4JeCWv4GSYdV4G3PFKkYa3Seo9putPRybC9Rank
+	fk480U6hh64HYruhuDF7BBHN8azZeEZ9yzreZ4MhUfvfPtELAd6qb6QdrjHpcIFz4TMTZGhGgcEUG
+	qQODRjupXoCX6NexBnPH76XQDe/eSDUq2pzlnWFKwdIWuGYgqaqUv7vqDnMN9IHt43Me6ITOFYCCI
+	qZIcA+vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwjQX-0000000ADNK-2Vqg;
+	id 1wwjQX-0000000ADNf-351X;
 	Wed, 19 Aug 2026 16:46:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwjQU-0000000ADMJ-2vmg
+	id 1wwjQT-0000000ADLv-3ldJ
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 19 Aug 2026 16:46:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 10D5F41B26;
-	Wed, 19 Aug 2026 16:46:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E283D1F000E9;
-	Wed, 19 Aug 2026 16:46:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787157965;
-	bh=CTifcNr4LKctsAM4SMxsssPmhWjX8dsPgZMHxI2Vljc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=K6XU6SjJEqZOn++A5CEJP1XEh70wIlhZncBG9/McLETQ44Tp/E87sg1NJeN8LIcKh
-	 9LeizfBbjQ8zIKz7RKZV11UFQCHHoO4HacbQizZKCuSMEKVGpbd8v0A00V3kN6lK0f
-	 abv2c69ZnzZJEKfi12TnYolNjiIST3Ufh01WpBqZMJMgyecK7g7ptBtjsfBwrtEv7x
-	 AI6dWb9WT5+1oAHiGSPHhzjRTCma4bd9chUUw7JHaixQ+9cBc/RlFHUnMfMepcz+4O
-	 r6OfY27+KR2uHulOubDC1tSeSl4C64mOaFrMd3OElL7t3llZjsnd53Lj8fTG8men/j
-	 i6eLfj0PLchMA==
-Date: Wed, 19 Aug 2026 17:46:00 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>, Fuad Tabba <tabba@google.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v19 03/14] KVM: arm64: Manage GCS access and registers
- for guests
-Message-ID: <48be9e5d-357a-4863-8682-8b3f34c69723@sirena.org.uk>
-References: <20260812-arm64-gcs-v19-0-9105afd828ac@kernel.org>
- <20260812-arm64-gcs-v19-3-9105afd828ac@kernel.org>
- <aoXamcdKoMynTkpX@LeoBrasDK>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bWH43D23LJDpXW5I"
-Content-Disposition: inline
-In-Reply-To: <aoXamcdKoMynTkpX@LeoBrasDK>
-X-Cookie: Allow 6 to 8 weeks for delivery.
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-38dfe7eb825so1070982a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 09:46:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nexthop.ai; s=google; t=1787157964; x=1787762764; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=j2QFmIqsPMjSEaMKX7xQH3oClX6HCcn2Fx3TkiBSFCE=;
+        b=PhG3VwLWR8T5qu0IHb7upfuV/N6Io31sebamGDsqs3Jr5lV5J7ikC7gnP79WN1AUE8
+         OZzNk4q7gxA+c1Kfk6rkappDJMHYH/rwKjjD2teVj5PlcG/9Bj5ZZd+Z/Tyjq8s2Q5pM
+         cDPkUG3OyXF4HywFttAC5dOSLsR7peZH9PCc4F4N9WFAFMTIYpqJsdVnvsH2zDXkl3ng
+         MMhZPYAU2HYETTKPrfPybU1aQSkoOzdZuz0JsXty0TkPmN+8rzsAToS2fu92sWVUG4+/
+         CgGBiKBa4DsAHvdPeDMs+gbp5r8SqJjP0h6JHJljZGB4kvhAXtwMqtZYklJHIRPXAMGw
+         d8zw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787157964; x=1787762764;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=j2QFmIqsPMjSEaMKX7xQH3oClX6HCcn2Fx3TkiBSFCE=;
+        b=qLYswoh+Iqs4Fgja3G205/BrPEHLbhw/IZnPecMlFLgrVyX0hXtmJU8yCrVCucH1GZ
+         hPgMsemS9S6TySH5X41Y9qKinXEtcKlr/QfppD9XzdUMcZ29K0lN/C3Buye21O8c8aLO
+         SFATPVz2Q9cAd1jHZpdAEX4m/vCO/np2dZsb1I236AGWugmNNNDjts/3UGOEcL9eHUdF
+         tWnLcxnwEuW+aJAeo5orEwi0G/d+gO1hDt44mhPqyxVp+LJA9h7Qr0Y3NBaMk4NJBM/e
+         6l7jaUSDeGRstELlz+CQowISEKelpOEc5KYFdok9ApWhNw2BnVGoNHgTFh3qKXeTWCeP
+         vDZw==
+X-Forwarded-Encrypted: i=1; AHgh+Rr+Y+OTXv77AX0C0cMPm6faNErXglfPbiLBSMpBWMWLAMCj0wVdYCGcdwgApntxbgviLdz05MLj+GHLELwc3Pti@lists.infradead.org
+X-Gm-Message-State: AFuF++nTL/zIC0KKzbZVGqC5eTlJiZhHoo/c4ADadkldfAQqpd8MpWf9
+	wrzmdHH/2qvMqXc82psrcmryAw7xHYdvg+X5NF27W8ysA9duOxTDd584QH3wSLyYL98=
+X-Gm-Gg: AR+sD134zh0jUJEie4bDrkSoS69Z4JIEUI6BRa7E3Duad0p4LCOlA2O+fFqzGVMoDki
+	yCA/Va8X6CQc7vU2Z4L8Crp1KTSowq9uldFMmFlHfH7ZzdXNWWXLGS//otlfpmHe63846yKO4uU
+	RZ+oOwZUg0L0d1pKHoYVdf2csVdWX6CQVKVc3c1dD8+hwnr7Vxid+EAmTuejgBjG9OzYn4TXiW/
+	fRGaFSOlgyO1Evhct4/pcaQKo6ZDp85kRyZpLr2PfhpoKClguChtjVfpjKPag3Os/gMEhg2lfud
+	46KMw0jt8BMH7lOAzpmVN5Mw5ZxUwg/zcLVHpjegL+C9adnwcfwOXC7VdIiO0jZ2IJsYz3Gf+Km
+	nGRj+NY51Ahp3zLfAGHgavwyHZAFi/15L9ceCDY3f/A+l1rxVbRfRO3Z8TYRShD9jUMwj1yukJs
+	V6Qw7SW20Z9eXBrki358P80UF2EchH1nXeKjqnpcKRDb0mLal41nxiDieofkZ+
+X-Received: by 2002:a17:90b:4a4b:b0:38f:240d:b857 with SMTP id 98e67ed59e1d1-39580a4d03cmr10751457a91.2.1787157964497;
+        Wed, 19 Aug 2026 09:46:04 -0700 (PDT)
+Received: from localhost ([50.145.100.174])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3957f7c962csm3180844a91.0.2026.08.19.09.46.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 19 Aug 2026 09:46:03 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 19 Aug 2026 09:46:01 -0700
+Message-Id: <DKT2MHJFPM96.3Q0I52V3283ER@nexthop.ai>
+Cc: "Michal Simek" <michal.simek@amd.com>, "Andi Shyti"
+ <andi.shyti@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3] i2c: xiic: restore non-managed runtime PM to fix clk
+ WARN flood
+From: "Abdurrahman Hussain" <abdurrahman@nexthop.ai>
+To: "Andy Shevchenko" <andriy.shevchenko@intel.com>, "Abdurrahman Hussain"
+ <abdurrahman@nexthop.ai>
+X-Mailer: aerc 0.21.0
+References: <20260818-i2c-xiic-restore-runtime-pm-teardown-v3-1-5fd315b078e1@nexthop.ai> <aoVRETUfgS4FwMnq@ashevche-desk.local> <aoVRpS7EmL3YYBWH@ashevche-desk.local>
+In-Reply-To: <aoVRpS7EmL3YYBWH@ashevche-desk.local>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260819_094605_959237_87391225 
+X-CRM114-Status: GOOD (  18.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,63 +103,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue Aug 18, 2026 at 11:48 PM PDT, Andy Shevchenko wrote:
+> On Wed, Aug 19, 2026 at 09:45:41AM +0300, Andy Shevchenko wrote:
+>> On Tue, Aug 18, 2026 at 08:35:10AM -0700, Abdurrahman Hussain wrote:
+>
+> ...
+>
+>> >  	pm_runtime_set_autosuspend_delay(dev, XIIC_PM_TIMEOUT);
+>> >  	pm_runtime_use_autosuspend(dev);
+>> > -	ret =3D devm_pm_runtime_set_active_enabled(dev);
+>> > -	if (ret)
+>> > -		return ret;
+>> > +	/*
+>> > +	 * Enable runtime PM by hand: devm_pm_runtime_set_active_enabled()
+>> > +	 * tears down in an order that races the devm-enabled clock release =
+and
+>> > +	 * makes clk_core_disable() WARN (see xiic_i2c_remove()).
+>> > +	 */
+>> > +	pm_runtime_set_active(dev);
+>> > +	pm_runtime_enable(dev);
+>> > =20
+>> >  	/* SCL frequency configuration */
+>> >  	i2c->input_clk =3D clk_get_rate(i2c->clk);
+>>=20
+>> >  	ret =3D devm_request_threaded_irq(dev, irq, NULL, xiic_process,
+>> >  					IRQF_ONESHOT, pdev->name, i2c);
+>> >  	if (ret)
+>> > -		return ret;
+>> > +		goto err_pm_disable;
+>>=20
+>> This might be problematic now. You need to unwind the IRQ request in non=
+-devm
+>> manner as well. Scenario is that IRQ comes exactly after PM is disabled
+>> in the error path. Is it a problem today? What about tomorrow (assuming =
+some
+>> new chips / code is added)?
+>
+> (To be clear: I'm talking about next call(s) that may fail, like xiic_rei=
+nit()
+>  later in the probe.)
+>
+>> The rule of thumb is that, no devm_*() call should be followed by a goto=
+.
 
---bWH43D23LJDpXW5I
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Makes sense. I haven't hit it on our hardware yet, but I understand the
+concern: once the probe unwinds runtime PM by hand via goto, the
+devm-registered handler stays live across that teardown (and across any
+future failing step added after it). I'll switch to
+request_threaded_irq()/free_irq() and free it explicitly in the probe
+error path and in remove() for v4.
 
-On Wed, Aug 19, 2026 at 05:32:25PM +0100, Leonardo Bras wrote:
-> On Wed, Aug 12, 2026 at 08:12:02PM +0100, Mark Brown wrote:
+Thanks for careful review!
 
-> > In order to allow guests to use GCS we also need to configure
-> > HCRX_EL2.GCSEn, if this is not set GCS instructions will be noops and
-> > CHKFEAT will report GCS as disabled.
-
-> It is zero on reset, and keeping it in zero disables GCS in EL0&EL1, so=
-=20
-> unless we are in EL2&0 (HCR_EL2.{E2H, TGE} is {1, 1}), we need to enable =
-it=20
-> so EL1&0 (guests) can have access to it.
-
-Right.
-
-> > @@ -77,6 +80,8 @@ static void __sysreg_save_vel2_state(struct kvm_vcpu =
-*vcpu)
-> >  	__vcpu_assign_sys_reg(vcpu, SP_EL2,	 read_sysreg(sp_el1));
-> >  	__vcpu_assign_sys_reg(vcpu, ELR_EL2,	 read_sysreg_el1(SYS_ELR));
-> >  	__vcpu_assign_sys_reg(vcpu, SPSR_EL2,	 read_sysreg_el1(SYS_SPSR));
-> > +	if (ctxt_has_gcs(&vcpu->arch.ctxt))
-> > +		__vcpu_assign_sys_reg(vcpu, GCSPR_EL2, read_sysreg_el1(SYS_GCSPR));
-
-> Out of curiosity here,
-> Why does the saving of GCSCR_EL2 depends on ctxt_has_tcrx() (and E2H set)=
-,=20
-> and saving SYS_GCSPR does not? ...
-
-This is just because there isn't a preexisting ctxt_has_tcrx() check
-already there, FEAT_GCS architecturally depends on FEAT_TCRX and there
-was a request to make this explicit in the code to try to optimise
-things a bit.  The compiler should skip over both blocks at once if TCRX
-isn't there rather than having two separate tests or static branches.  I
-didn't add new checks where there were none since I expect that to be
-unhelpful for code generation, you'd get the reverse situation and emit
-two checks.
-
---bWH43D23LJDpXW5I
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqF3ccACgkQJNaLcl1U
-h9CcQQf+IxvaF1y9eqa1wPv0kD6ec4r4UKmxZU1Sj6EfStbT+DJpeDDZmbR5wLHi
-UIbnCP1BlGVPGIw8QfCpH7x1W3Vk397dUmfHNuEv/HACcnIe7J+3TMA3I0bSD49i
-eY7wVTezjJGRBNMtLzFVT9Ed1mK7iZ3xeD2oU7ii0abLeBMmEwuQyvroT6nLqa6I
-hmtlWxH5Ps5ol3qaxoD+w12M6YlkXLucm5OgMZ+gpQM0JuQaxOb2UUxBb64PhcH2
-0cdjq7xLFg2kz8kdcitYNVmbE34x/2ZJfg4RSV0AT4B5D6Mst3zXJLI8gVcWjO7e
-hZdv8j5JdWYVkbXUdOYTVL0HppvTgw==
-=FnPL
------END PGP SIGNATURE-----
-
---bWH43D23LJDpXW5I--
+Best regards,
+Abdurrahman
 
