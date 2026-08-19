@@ -4,112 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC98C5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 14:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A6CC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 14:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cWJ7YipM5dUZEBUb+Zs3mE2xmmW2oTemPngyFleNW74=; b=epMQAXk2O54ApVGHBL7LP5nDIC
-	YtKyk9NZ+GPUa/sEDyC57zCZN9Db8TWDJI3py0aD3CITj061hA5B5fvZPEauoLtJR0G1132AHmLgr
-	RHJ8jH795uFdhFGDsvQkmH3ZI7sNEHheBUJT+kAJJbujRabtttsjgq2+zjqtZgxuKq/FZuP8hQ7ds
-	7hLl43GT3oUNyHLmp1BgLegXTEVnH5NGoJz0dLuGDZ6DyE8IbodlVHyiAmB+516tp0yY4YUEV/oU0
-	gdOup24Kotrp3JRWDJlarlM4P5Kok8aU5bUwQSOctH5VdWMuSje6YPym9ZOYV6fI6z9z6N0piHRK+
-	Dn1KQgcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LSxodI+8DtnOVmhZ5uidriLju4zAnI6c4jQd9du3QaU=; b=3q7NhLsr1DP7B8UAZfmBbCqe2r
+	wUdKTdBkhIboMx1eFwCes9tNb5CdVeMntTr8PjIApg6Qmo312+fIOeP0TerN3snLKOSehFt65b4Jn
+	G7ZYpBT3ZvF3fKnXhTBhj4d7fjHCIHrDOKUyoWtddRXF0HqWf/78Xyorq4F6DD/ikTlAJHppdL65J
+	CiF1VBbAgf9SLzNAlV3qMDP/zeBXbc4Avk2hl71Zl+WZEit8LD0L1dm2+vPgs8cpjNQ6+J2M2OsXy
+	ANLuajOzDtFtdTEqfDIIAbrDBMkfFjejDHvyPwnVqLigYHzxiDkk6epdFDLhp2MD56/tB6vwJKXBg
+	wl779pzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwhf3-0000000A19e-27i8;
-	Wed, 19 Aug 2026 14:53:01 +0000
-Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
+	id 1wwhfi-0000000A1K8-43AI;
+	Wed, 19 Aug 2026 14:53:42 +0000
+Received: from mail-northeuropeazon11010030.outbound.protection.outlook.com ([52.101.84.30] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwhex-0000000A17f-2wpK
+	id 1wwhfh-0000000A1Iy-1MT8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 14:52:59 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 04FE1140014F;
-	Wed, 19 Aug 2026 10:52:55 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Wed, 19 Aug 2026 10:52:55 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1787151175;
-	 x=1787237575; bh=cWJ7YipM5dUZEBUb+Zs3mE2xmmW2oTemPngyFleNW74=; b=
-	Gi2upZBGJtT9Hqkyr9rnkScRzgxAPY+ZBp5p+ZmVTv6NBvJ6T2nWqkqWZRXp0F6F
-	GCOWqPu/rljgtMFMyj1t9RGvlXNA5e4RBGfWYnH0SkHMcu4Tvq7+1o7i9p2vbWxG
-	teEQhPXkGqx6jCzEQLyaXqRTvEAJtxFIut3gMx7TfnGlLF8GvWsC2LoGyzfF9zL3
-	oJ1WloCTmxv7Grh8bUlafegQpU4uJOFEBGMdiV8jxMjRoMcHm3V9UbZGrrnuhOKj
-	Jd1nP3t/23BxC9n6usDc6243EUH6IEzY2JWj0BtGFKQiLMrhfYsbVse/jfeX6YO8
-	hHghUU0jZtzC9zkETeP8JQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1787151175; x=
-	1787237575; bh=cWJ7YipM5dUZEBUb+Zs3mE2xmmW2oTemPngyFleNW74=; b=U
-	tLLicWf0ULZdYAjrmBqvR41givFVHxVv64Qxghz1uKC8F4WC5x6KuVtQwMMyPpmr
-	hMkLO7ylo82Xo8tVbRBWSXhSTj3dKDBtbQ0dw0xCxcSoPYdmB7XtqL1MeqeDYQCY
-	FHglyouGlRt1e2+d4/NniUjd5vc7KUG6nhB6eoe5A1SPKAzVemAXKlIPKxwcQcJc
-	iiN1Ru5GpduxipjvunvCmxsrwSuo2RQgpzua+WpfkcjokExbDLGT8ZHISW3e2SI7
-	hbu//Fdlbt3aiB080boh3q+P2NnnjSz9G/ujEZrZY+LU9Z0xito1Ks4MW+MxvBW1
-	NJQmq1tPlLz2g8rkslWDA==
-X-ME-Sender: <xms:RsOFaumQ8JNDGGp3lBK017QsHq16DbVHlBJlg_5ZLRjz77AmgJyfMA>
-    <xme:RsOFatbY_BqtG7VhMnmeucQf4-x4WVVLmnCD4uKKLLhr0f9BkCvqasQZRADEvRUmn
-    ouOeISNs-ZLwYyFDzCpqp4bEc5n6YBGq8cBrUE_xUkVfDgXvgw78A>
-X-ME-Received: <xmr:RsOFasShazzwTnAJk__nc04NJzMxe7tWSnqRmmbhKNtYSwy7oAheev_T4_SmxsF02Efamdt1BjrM9NHdpbPw8quxwCd92Dn79BZJtw>
-X-ME-Proxy-Cause: dmFkZTE9TViwfq+braXum8jXlJNh6tjfJssH5OCKEStoqwW04qQEaTL3gCCfAPdgPpcaW1
-    pEharjtJlrCMhTSjNcYokOC3LxLmv5k6jCaTOqTYBEU3vhWxeKKuzyTu6NxdaEPiGvLvqn
-    tk+JWyJuiTaTBDoyzuuSiWQ7uiu+fI8K67zHGsiXtgIbdVCAvjBtq1r6V25uQf2tFWplnV
-    db1tw8RMwX7E0nhaCeQIWbNUfVRayGesgwU2vp2wbhjaK2rJX2kWsR+GBsDKsedTKLNhf1
-    NmN+JtT9Vn2ozOLHqwmD79wtlkHlz3Hm/WivkLeA3EW0JrcrCwuRDevSQEd2pd3xeUdwty
-    r1TAP7yGqK1aW1uHFLgUU13cBiUX+kM5PANz/kQ26hFsLIlreu1TXiVVRlEcM2HmyZ9KAs
-    5vTd4w+1Pi4oIcVqTcXJTz9Kf5nzlUtzWsV+cJ0bizznq+PA3qcuXx/zUoNVHUhWXZ6zSC
-    qiz+27y86DDY+iAUjMb+dwJFkC27USE9ieU37Oe9HxE1XNgk3EYp1G6LO3Rmb0n0RDeuX3
-    4udE0P4HTkKhgC1Wq0Gxogh3HUsG2+li02XT8vaA9nv/RxouwH2o8hTBuWoqk56B07HGpx
-    1k7bFqmli+M1y5QLWUzVSwoibXgsgP/yrKHlJUMgg4KRf3O+d5+NsoGmiZ3w
-X-ME-Proxy: <xmx:RsOFavVXjTlkZ1fUPpCUyz0wSArznf481MGQQYPW09qp7TPo3K53Qg>
-    <xmx:RsOFajYZYh4hM9PlKefCvkRjBDs1krcbxOPy2z0Hw1yZzhpX6dnWuw>
-    <xmx:RsOFag5-uQNU-N6cnlQP7ieDFFEXgltADyjW09gWYHIfJaWBHJV5oA>
-    <xmx:RsOFasxbHwz1_v9aLnFXXnfRlxu0GwxSMh3P-AE6alkkjnX3YmRYqQ>
-    <xmx:R8OFalsAOJi7rfhqYmNdbagqkk563ptIz62MLA3L_DhzYH_UNvwgizeE>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 19 Aug 2026 10:52:54 -0400 (EDT)
-From: Janne Grunau <j@jannau.net>
-Date: Wed, 19 Aug 2026 16:52:28 +0200
-Subject: [PATCH 2/2] iommu: apple-dart: Support specifying the DMA aperture
- in the DT
-MIME-Version: 1.0
+	Wed, 19 Aug 2026 14:53:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RXzGVbFWOKzU0Bh16yGbG9DTWE1W78cxWfLVllfcwbTfMPtkmTJAFbaue1boSgocPCpObzvaQEUHR7BzcEo9Ss5AGqsnjgFdTYKOKVDAAqIt7KcmhaFnhWQaIi1A+b/7/9SCKIZdAN6gvZjjBUsDZyQh68fI/QUij1f21q0IZgxB6MYMWMwIHRstgnYWG3KJtuqg882lTVNcGBiGB0wuCa2wm8bIgRQssFDBEMokuRz5HNA590AjyCJ4+LS7L4R1uI5fpbHPzArLDlTBA3HAP4oxciJTuOo4cQGoR9HEi+y6yh4bd9tLXSd1rLnQnZkNZEmN7IjYQY0ktHlqNcoIAQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LSxodI+8DtnOVmhZ5uidriLju4zAnI6c4jQd9du3QaU=;
+ b=JD7QD4t7RW/ClosPMhrA8N6YyZ9PcsKyx83x6f/YZ6Z0zmsmp1YiYoVYORtmA7sGXtIHF3gFT0OzHzf21WQG9spH9w1hfwhry6EhqpUwlR1wrX7fcG3r5aN0je2KOIp9EylTOYm+LTVlUVVfL4ELfcgxyMoWI6rFWKidZ95g6g9/wxOt2DA8H5lTfYjubaRHpZvHAY5C7ev++6Gotqn18zBSwuRc+jGP1f8vfJj8nQkPwJsuwgi4lBZXvPkup317mghJuW4ZuWGTIwp+bhHVv1aO2l9znCjNL8XjIQV5SciqJ5WWbCcMT/YwfGW571PKjzOBgnw9rveb6+R2GWadXg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LSxodI+8DtnOVmhZ5uidriLju4zAnI6c4jQd9du3QaU=;
+ b=BpLWOYI77Pu/ZzLdkF3nYISXwzvKkWJIDtCmAYWr0R18b2MVUOv/uqjUCEpEt/eRNQEDCGPQ6pKF1kH0YHnhR9ERFTZXmF0Tnr8JL5pOa+WuVTioiEwVt07AGKRhZcR7R+4vtoKx+gS08kXmTjJidsyMOxzq4fzi9OKeCjeGZ4vbPDKuD8Pw1qTjoMMUw0db+CSSB+kEqAEFXAnJxbQRO0DceYw36avlRMBBzJnt8xV3ZfTMSeh9K2cPNArsbVeYgcmWv1GbEc0E8uC0NiavDyGtN/J3AR6Pw+Huz4xdRbogvT5i0+chSAa4fNHaRYtfJXaSFOt1fYv1QL0TYQ64hA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by AS1PR04MB9632.eurprd04.prod.outlook.com (2603:10a6:20b:477::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
+ 2026 14:53:35 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
+ 14:53:35 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH 0/2] arm64: dts: imx8mp: fix USB Type-C CBTU02043
+ orientation switch handling
+Date: Wed, 19 Aug 2026 22:51:19 +0800
+Message-Id: <20260819-imx8m-typec-v1-0-befc92ecb70a@nxp.com>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260819-iommu-apple-dart-aperture-v1-2-252703f381aa@jannau.net>
-References: <20260819-iommu-apple-dart-aperture-v1-0-252703f381aa@jannau.net>
-In-Reply-To: <20260819-iommu-apple-dart-aperture-v1-0-252703f381aa@jannau.net>
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- iommu@lists.linux.dev, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Janne Grunau <j@jannau.net>, 
- Hector Martin <marcan@marcan.st>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6658; i=j@jannau.net;
- s=yk2025; h=from:subject:message-id;
- bh=FbyOzRgdywKDBHRx8l02hzwwB8bqNEhHNRkH6Xxlqxw=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhqzWw/aP1q+aI81Sy9HyOaRu7pLnCx8tS3LIr2z3C9x04
- 4fD3GvnOkpZGMS4GGTFFFmStF92MKyuUYypfRAGM4eVCWQIAxenAEzksiHDP4WMrH1Gd6udeSpu
- PArPniefVd1/zuzJB00GQdXeXt+GLoZ/2ufjXu48u17y8vm71VyfZ4tvWNHuuvzapifcn5vUd70
- 8xAYA
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+X-B4-Tracking: v=1; b=H4sIAOfChWoC/22NwQ6DIBAFf8XsuTRgUUlP/kfjwcJatwlKwBKM4
+ d+r9trjJPPmbRDQEwa4Fxt4jBRonnYQlwL02E8vZGR2hpKXNVeiYWSTsmxZHWpmZC8ryRUqYWB
+ fOI8DpbP26H4cPs836uVIHMZIYZn9et5FcXj/y1EwzriuKnOrFW/k0E7JXfVsocs5fwHVnmO7t
+ gAAAA==
+X-Change-ID: 20260817-imx8m-typec-d4a45408e81d
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Xu Yang <xu.yang_2@nxp.com>, 
+ =?utf-8?q?Goran_Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>, 
+ =?utf-8?q?B=C3=B6rge_Str=C3=BCmpfel?= <boerge.struempfel@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.15.2
+X-ClientProxiedBy: SI1PR02CA0056.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::7) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AS1PR04MB9632:EE_
+X-MS-Office365-Filtering-Correlation-Id: c1dae174-d5d7-440f-ee62-08defe01a501
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|23010399003|376014|7416014|366016|18002099003|921020|10067099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: hKEeWzOJSywwrkQvWeBNiNMci6IDjGnJNJq9029gKgbEBOoyu/5sjAHR3KTraKS1xDbxU9TqPynVNZ0NMn/bsJ89WYNoKly1GcLaikycmcthwgcUeeLBLwrWa+q8lG0M9Mipo3o04VT32q+qPawDMwi0bpwBQqoTQ3AnMJN+ElzFW73Omvn7ulLBXnkoM2jbY2Ff5aAw1tx/2KlAtuC0szklaCBOl9fUuLAfJqXq+b+BeUa/qQ+nNYlTRT33VBRr5jsH7mIHf3SoZk8Ym3aWjg6WsB8WzJaQmETZ0C+Y9MmQnfo3lVcGtzhZRxufcpYD13t4UaBw+2eAUlOuPQZlOlqbjuwfgVrnp1Kl4zwAwDvcpSFshulzm5oKgaUWlBV3WV13lsz6E1MsKfKvi8KdtfxQOM1RFLpSJnMfTH7oepr9NkLc9CAwMK8mGFw1xCG6qi1WXQwaRg2m7cq9uq/j1GQRhUy6mrKkHCycN37RyQZqUfuW5h4A2TrmYX6P0tu3RQJ2V/S38184OeFHJBrFuvBWL/jt6B4hiGuc40nKTBXZC87UIQZqPkZ8a+D8gVml7rwLKcF+4bfwVvZsFd7Q3YZLEoG0B+bnpCK1cufm0ojI0HX0Qq9rC/TwjcRrpeSIbDWYK1zPANqem8U3FBwxoTNVq4wSuwGWDk0CmQYW7LnaawzSJNZGeNu4LqwYO2hYPAoit3rYYEMcUYp5Brf2zA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(23010399003)(376014)(7416014)(366016)(18002099003)(921020)(10067099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?STZkM3M5Ym1SYmZjbFFWbVFZUXMvSUs3WC9xZFBaSTBPd1NJNkdTSytBdkVj?=
+ =?utf-8?B?QTIxQWZkUVh5T2ZhbWU2REdYODIrb1c0NzlsbVJLYkhzNXlGMW9sQ1N4T1Q2?=
+ =?utf-8?B?Q0RFYm8vM0xRMUd6SGtqdTRoTHVqV2xYV09uVXZUWEFkSVU1aTJCRTBqaHRC?=
+ =?utf-8?B?VVBiN1FtM3BjbjltaWtsSzVMc2M0R1FyOFE3aU15cVVtZk5nTFQ1dkEvdDhI?=
+ =?utf-8?B?MmVna3ZObnVrakM4Z2NNWmRBNjAyanF4YnZjQVQ2ZjBQaCs1M1hyNnlGeFVt?=
+ =?utf-8?B?QkV2Mzd5TXN5VklIaEExZVVBbGtHczkrWlErVnVrTVNjeU9qQzFYZ2NSYXVl?=
+ =?utf-8?B?a294RXY0ZkhKY2tDRmdtcFVEdnV2aFM0L29DYWQ3S1RhT3gyRXBKZU5OdzF2?=
+ =?utf-8?B?Sm1rSzc2ZmI0bVM0c2pNTmgrVkNlYUpVNTEraFBMcllwbXc0N0FId1VSYWFV?=
+ =?utf-8?B?cElFUjV2UmdaQlYybGNwcWRXZDJMUFF6ME9wSmZVNWdVNENJWkJTZ2F6ODZS?=
+ =?utf-8?B?UGMxWFBSUUE1VSs0eUxvdUNENkF6bHpMMU5pNTA5Q3BDK2s1Tjd2MEtPVHV1?=
+ =?utf-8?B?RFJyTkhUTUVMem83eVEwY3Y4cWlUekMxdFVvZXorR2czV0Z6dnJmcWZPcit1?=
+ =?utf-8?B?UGlNdWFWUDdnVnJuR3lSZlNMM3pBd1BDWTdJWnVuTUVzQWw4TzZEV205bU1P?=
+ =?utf-8?B?TVlkZFR1aDVxQkVsa2NUTFo1V2RYU2FIUmdSdFRwVzdaZmN4eUkyYmNuWXhM?=
+ =?utf-8?B?cktINTg2U0Q2Y0RjVFJyMzMyVWJHNG5DZHB5blFrVlhNYUcvT0ZGeW9Xdzl3?=
+ =?utf-8?B?aEVkZVlQbXdjNVpXWndpVXNIbHMxNUYrRUtXeVBTSWl6R01HTTVsY3lGTmNG?=
+ =?utf-8?B?T1RoUFh6VFNKOGY2U1hkdnkrNWxrQ3V4WmdtNmRuQWpRc2pMSWdObncySjBr?=
+ =?utf-8?B?Z0lnNEJWcE9IdzNrUWpsWnVXZFVSN1UwNzlhODVnRFRvR2VqZndMdmlwdmN0?=
+ =?utf-8?B?UVJ4b2NCNHU4WHhGYjR1RjBvZThlNkMxejdYRnhQdHAwaGFRWk1zVWcvQ3pP?=
+ =?utf-8?B?ckF4TUpMbjVhMnBTRHZjSnYvdHE5L29rMk1FZjA5aFFGYTA3WHBGMHEyN1l2?=
+ =?utf-8?B?aHFVWGthd3hXY0FBYkZxMFZPbFpYRnhWZzg0QXdIU3dGbTF6NXFXNUZ2TjR0?=
+ =?utf-8?B?WDZKaHZTRmxCL0NXQ25HWGVVQUU0MVpwc3RaVm4vLzB6SFFmT0Q5MW1CeUZh?=
+ =?utf-8?B?TGxNc2xWZmdmMmJNbFRUUnU0ZEZuMCtyeWNtcnRMMUUwZUt4Q1NhZVZVTnd5?=
+ =?utf-8?B?TjA3Yzg4Vk9PYXV4SDlkTUdZMERnTFA3ZmdZZ1FEdVVHU1NDaWU5WUNRLzFT?=
+ =?utf-8?B?czl3SVQ4U3dHYmRZUUR1WWp3S09pdzlsRmZtZ1UwK2V1eTliZCtYSkxlSEVq?=
+ =?utf-8?B?K2VwQW5uM29rWmNSTDdIM0daN2h3NkdXSFdoSmtCN2lPdHNuRGthSEJtbGtT?=
+ =?utf-8?B?dDlSWDVGMGlrSVM4OXVTeDRDUGZHRCtlL256ZUtDUXI4Z29WWVVWVlROYnZN?=
+ =?utf-8?B?UkJGVnRFNEJPYndNUzREcGFKVXJwMVdzQ2tsTXRyZ2VZdE9jb3BmbmN4RkZm?=
+ =?utf-8?B?dDNkaUV5ckVlRjhPUzROVzJlQzNGVnpxeXJJRGZUaFpLMmYya1Jka3oyVmRJ?=
+ =?utf-8?B?Z1QzOHpKVVNDNmlHaUNsY1BISWIvMUlSOXIwck5Ca25JQTIzaG4vSlJudmJu?=
+ =?utf-8?B?cUtBSVhzeS8zVURTaEpsdWFRQXpvOGRacmw2cG9jQXlwcXNIdDFNN1ZMVkxP?=
+ =?utf-8?B?RDM3dlFwL3AvdWVaUktHRW5nU2ZEL2xIYVFFTDNmaU0rcEtNSEp1cUFPRkYw?=
+ =?utf-8?B?L1FQakNXVVZVbXhWWkdrYkxJMC9vWGZVSHFpaDlLQmRUMGRXQi82NE8yYTBZ?=
+ =?utf-8?B?NnZjVkFhU3pmcFR5aW4xRE9SenVTd0NvMzhXaUFrMEZ6RzNFOEVidGNwU2F3?=
+ =?utf-8?B?dlFRdnpZTktYbTc1dFVwdXdBa2ljNjFnTFhiaGYwUHU5T3hRU0ZCekNFVXpN?=
+ =?utf-8?B?VGJzQ1czQlUxRGVCZHFPQnJzcFd6TXNyRDhMU29SZnU5TXM5N1VGWWwweDUv?=
+ =?utf-8?B?WnpPaWF1Y3o1a2phZmV3cGZ3UW01SmdGQkV3MGdHeTJrTVd1VlRkajNET3Yx?=
+ =?utf-8?B?K3VoK1U5T3pjRmpDZjZ6NzBXVHF4WGEvSldUV09mY2hGbGQ3dXJIZ0RnbVlY?=
+ =?utf-8?B?cmh3MDVJaE1PM1hBeEdtNk5MczBmVFgrcWRTSjIxSFJ5RDFUNUpXSzRWQjFt?=
+ =?utf-8?B?K3RjRVNjRC9oR1BPemJYQVBvUDZJSDRrMUczZkJiamYyNU0yaGJ3dEtueldJ?=
+ =?utf-8?Q?ZvbLVBcjvsXUjUM3FPEQ57THDiVN44vcOXhRz?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c1dae174-d5d7-440f-ee62-08defe01a501
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 14:53:35.1370
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MWGLywqtogJ+6vJsGnY7viGZMDL1TcT/fEtQFyPNzMJ3VzO5QPuZL9DPfFYYkvF8PIN1P13RMgz0nvIYHuABoq+sYtQ2M0WSV62op4DzYQCeWc6wjV/cRkMt0fdAytkn
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9632
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_075258_031984_EE95E080 
-X-CRM114-Status: GOOD (  23.53  )
+X-CRM114-CacheID: sfid-20260819_075341_374641_70AA0072 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,197 +157,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apple DARTs are often connected directly to devices that expect only a
-portion of their address space to be used for DMA (for example, because
-other ranges are mapped directly to something else). Devices can specify
-the start and end of the aperture via "iommus" args if the DART device
-node specifies "#iommu-cells = <5>. Aperture start and lengt are 64-bit
-values since most of the devices use such values. Limit compile testing
-to 64-bit architectures to avoid warnings when construction 64-bit
-dma_addr_t values.
+The NXP CBTU02043 crossbar switch on i.MX8MP boards is used solely for
+USB Type-C orientation switching, not for SBU signal muxing. This series
+fixes its handling on both the imx8mp-evk and imx8mp-ultra-mach-sbc
+boards.
 
-This range *can* be outside of the DART's IAS. In that case, it is
-assumed that the hardware truncates addresses and the page tables will
-only map the lower bits of the address. However, the specified range
-cannot straddle an IAS boundary (you cannot cover more than IAS worth
-of address space nor wrap).
+The CBTU02043 has two control pins:
+- SEL (select): controls the crossbar orientation, directly driven by
+  the ptn5110 TCPC via orientation-gpios.
+- XSD (shutdown): active-low enable pin. Must be held LOW for normal
+  operation. Directly connected to a GPIO without external pull
+  resistors, so it must be explicitly driven low.
 
-This corresponds to the vm-base and vm-size properties on the Apple
-device tree side of things.
+Patch 1 (imx8mp-evk): The existing DTS only had orientation-gpios on
+the ptn5110 but did not drive the XSD pin, leaving the CBTU02043 in
+high-Z shutdown state. Add a gpio-hog to hold XSD low, enabling the
+crossbar switch.
 
-Co-developed-by: Hector Martin <marcan@marcan.st>
-Signed-off-by: Hector Martin <marcan@marcan.st>
-Signed-off-by: Janne Grunau <j@jannau.net>
+Patch 2 (imx8mp-ultra-mach-sbc): The existing DTS incorrectly used
+the gpio-sbu-mux driver for what is purely an orientation switch.
+Additionally, the enable-gpios polarity was wrong (GPIO_ACTIVE_HIGH
+instead of GPIO_ACTIVE_LOW for the active-low XSD pin). Replace the
+gpio-sbu-mux node with orientation-gpios on ptn5110 plus a gpio-hog
+for XSD.
+
+I also give a look on i.MX8QXP/QM-MEK, but not easy to use
+gpio-hog for the i2c gpio expander because there are potential
+probe order issue.
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
- drivers/iommu/Kconfig      |  2 +-
- drivers/iommu/apple-dart.c | 62 +++++++++++++++++++++++++++++++++++++++-------
- 2 files changed, 54 insertions(+), 10 deletions(-)
+Peng Fan (2):
+      arm64: dts: imx8mp-evk: enable CBTU02043 for USB Type-C orientation switch
+      arm64: dts: imx8mp-ultra-mach-sbc: fix CBTU02043 USB Type-C orientation switch
 
-diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
-index 6e07bd69467a..27954f462582 100644
---- a/drivers/iommu/Kconfig
-+++ b/drivers/iommu/Kconfig
-@@ -303,7 +303,7 @@ config SPAPR_TCE_IOMMU
- 
- config APPLE_DART
- 	tristate "Apple DART IOMMU Support"
--	depends on ARCH_APPLE || COMPILE_TEST
-+	depends on ARCH_APPLE || (COMPILE_TEST && 64BIT)
- 	depends on !GENERIC_ATOMIC64	# for IOMMU_IO_PGTABLE_DART
- 	select IOMMU_API
- 	select IOMMU_IO_PGTABLE_DART
-diff --git a/drivers/iommu/apple-dart.c b/drivers/iommu/apple-dart.c
-index b160fb464c5f..16ba65a6b8ff 100644
---- a/drivers/iommu/apple-dart.c
-+++ b/drivers/iommu/apple-dart.c
-@@ -21,6 +21,7 @@
- #include <linux/io-pgtable.h>
- #include <linux/iommu.h>
- #include <linux/iopoll.h>
-+#include <linux/minmax.h>
- #include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-@@ -267,6 +268,7 @@ struct apple_dart_domain {
- 	struct io_pgtable_ops *pgtbl_ops;
- 
- 	bool finalized;
-+	u64 mask;
- 	struct mutex init_lock;
- 	struct apple_dart_atomic_stream_map stream_maps[MAX_DARTS_PER_DEVICE];
- 
-@@ -285,6 +287,13 @@ struct apple_dart_master_cfg {
- 	/* Intersection of DART capabilitles */
- 	u32 supports_bypass : 1;
- 
-+	/*
-+	 * DMA aperture start and end to be overridden by "iommus"' phandle
-+	 * args. By default determined by DART's ias but may be outside of it.
-+	 */
-+	dma_addr_t dma_min;
-+	dma_addr_t dma_max;
-+
- 	struct apple_dart_stream_map stream_maps[MAX_DARTS_PER_DEVICE];
- };
- 
-@@ -537,7 +546,7 @@ static phys_addr_t apple_dart_iova_to_phys(struct iommu_domain *domain,
- 	if (!ops)
- 		return 0;
- 
--	return ops->iova_to_phys(ops, iova);
-+	return ops->iova_to_phys(ops, iova & dart_domain->mask);
- }
- 
- static int apple_dart_map_pages(struct iommu_domain *domain, unsigned long iova,
-@@ -551,8 +560,8 @@ static int apple_dart_map_pages(struct iommu_domain *domain, unsigned long iova,
- 	if (!ops)
- 		return -ENODEV;
- 
--	return ops->map_pages(ops, iova, paddr, pgsize, pgcount, prot, gfp,
--			      mapped);
-+	return ops->map_pages(ops, iova & dart_domain->mask, paddr, pgsize,
-+			      pgcount, prot, gfp, mapped);
- }
- 
- static size_t apple_dart_unmap_pages(struct iommu_domain *domain,
-@@ -563,7 +572,8 @@ static size_t apple_dart_unmap_pages(struct iommu_domain *domain,
- 	struct apple_dart_domain *dart_domain = to_dart_domain(domain);
- 	struct io_pgtable_ops *ops = dart_domain->pgtbl_ops;
- 
--	return ops->unmap_pages(ops, iova, pgsize, pgcount, gather);
-+	return ops->unmap_pages(ops, iova & dart_domain->mask, pgsize, pgcount,
-+				gather);
- }
- 
- static void
-@@ -590,6 +600,7 @@ static int apple_dart_finalize_domain(struct apple_dart_domain *dart_domain,
- {
- 	struct apple_dart *dart = cfg->stream_maps[0].dart;
- 	struct io_pgtable_cfg pgtbl_cfg;
-+	u32 ias = min_t(u32, dart->ias, fls64(cfg->dma_max));
- 	int ret = 0;
- 	int i, j;
- 
-@@ -610,7 +621,7 @@ static int apple_dart_finalize_domain(struct apple_dart_domain *dart_domain,
- 
- 	pgtbl_cfg = (struct io_pgtable_cfg){
- 		.pgsize_bitmap = dart->pgsize,
--		.ias = dart->ias,
-+		.ias = ias,
- 		.oas = dart->oas,
- 		.coherent_walk = 1,
- 		.iommu_dev = dart->dev,
-@@ -623,10 +634,10 @@ static int apple_dart_finalize_domain(struct apple_dart_domain *dart_domain,
- 		goto done;
- 	}
- 
-+	dart_domain->mask = DMA_BIT_MASK(pgtbl_cfg.ias);
- 	dart_domain->domain.pgsize_bitmap = pgtbl_cfg.pgsize_bitmap;
--	dart_domain->domain.geometry.aperture_start = 0;
--	dart_domain->domain.geometry.aperture_end =
--		(dma_addr_t)DMA_BIT_MASK(pgtbl_cfg.ias);
-+	dart_domain->domain.geometry.aperture_start = cfg->dma_min;
-+	dart_domain->domain.geometry.aperture_end = cfg->dma_max;
- 	dart_domain->domain.geometry.force_aperture = true;
- 
- 	dart_domain->finalized = true;
-@@ -803,20 +814,53 @@ static int apple_dart_of_xlate(struct device *dev,
- 	struct platform_device *iommu_pdev = of_find_device_by_node(args->np);
- 	struct apple_dart *dart = platform_get_drvdata(iommu_pdev);
- 	struct apple_dart *cfg_dart;
-+	dma_addr_t dma_max = DMA_BIT_MASK(dart->ias);
-+	dma_addr_t dma_min = 0;
- 	int i, sid;
- 
- 	put_device(&iommu_pdev->dev);
- 
--	if (args->args_count != 1)
-+	if (args->args_count != 1 && args->args_count != 5)
- 		return -EINVAL;
-+
- 	sid = args->args[0];
- 
-+	if (args->args_count == 5) {
-+		dma_addr_t length = ((dma_addr_t)args->args[3] << 32) | args->args[4];
-+
-+		if (!length)
-+			return -EINVAL;
-+
-+		dma_min = ((dma_addr_t)args->args[1] << 32) | args->args[2];
-+		dma_max = dma_min + length - 1;
-+
-+		/*
-+		 * Ensure that the DMA window does not exceed the dart's ias.
-+		 */
-+		if ((dma_min ^ dma_max) & ~DMA_BIT_MASK(dart->ias)) {
-+			dev_err(dev, "Invalid DMA window for ias=%d\n",
-+				dart->ias);
-+			return -EINVAL;
-+		}
-+	}
-+
- 	if (!cfg) {
- 		cfg = kzalloc_obj(*cfg);
- 		if (!cfg)
- 			return -ENOMEM;
- 		/* Will be ANDed with DART capabilities */
- 		cfg->supports_bypass = true;
-+		cfg->dma_min = dma_min;
-+		cfg->dma_max = dma_max;
-+	} else {
-+		if (dma_min >= cfg->dma_max || cfg->dma_min >= dma_max) {
-+			dev_err(dev, "non-overlapping DMA windows: %pad..%pad, %pad..%pad\n",
-+				&dma_min, &dma_max,
-+				&cfg->dma_min, &cfg->dma_max);
-+			return -EINVAL;
-+		}
-+		cfg->dma_min = max(dma_min, cfg->dma_min);
-+		cfg->dma_max = min(dma_max, cfg->dma_max);
- 	}
- 	dev_iommu_priv_set(dev, cfg);
- 
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts       | 17 ++++++++
+ .../boot/dts/freescale/imx8mp-ultra-mach-sbc.dts   | 47 ++++++++--------------
+ 2 files changed, 34 insertions(+), 30 deletions(-)
+---
+base-commit: 4477a78374a57c3809b172ad30cceabda48c47c6
+change-id: 20260817-imx8m-typec-d4a45408e81d
 
--- 
-2.55.0
+Best regards,
+--  
+Peng Fan <peng.fan@nxp.com>
 
 
