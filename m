@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 528C6C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 14:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49375C5DF88
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 15:05:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dEhJftvJQJCTjrtFDW5w8o2vq636XhPrQnmBVoSdDG8=; b=G+LGqWWg1i3hA9rcLHjAwaXS6q
-	ZMyngmu7FswaQd5fr7HfPsz7NXGvLFnV5CVlYRh++f21wPwnfmIraueKJ21zIvdltXHxMdTGysQxp
-	xYJ3Sry1cJEM6nS5hrNZ6A5amcY2V2pOZx7yWBwJw55YOysG62fAWPCroXYCWW5W6UiidI0p/zKAv
-	TKb7kgAQgHjmPifV3cwL9hBLqUKIASHaCaqUPgzBf2/zUYO14d4i2XW7mEkE1mmU83RbyZCdkzEmF
-	y3rDkW5zh3DcQMkdKMeMhDhOhjBfPasNfdhxKP+XABvBr7+TfulgN6Ahts6s0H9402Fd3J/B7D03s
-	2H1mPMTA==;
+	bh=AsPwfGfYCx9rcO+FEBE8OEei2rIOlpeF10Irz6cXO9A=; b=f4jJ0l+PcTOIwkXel8Yt14wjto
+	dvmm/vtKZdo9ys33bMq5AwRghcgMgP9mpzKcAFf6FC3zLiZb6zku+MB21QWTfOQ8eYIuqCisHUl3p
+	C8KlLdcMGUbRxzZWvMtW5yG34mJpZKjUI/LrruUCVKFFBoyzA8Ytj/Kc0W4eW5Lht1zbFOrWLHGM/
+	5Dyagy0UwkaiKP7ff1l+sXZ/TrmiiYAuP4toqm9ng3C8TYb7NjcjbSCsr8GPU27EG9eXUf5gvKOws
+	ERtq6DvU3kuhcerxWKSBcgDjfcteSzG7E/At0UP6hxokr4X6FCaE2J4RxJ9AhA17DvCUMIKraU/3q
+	pcZfBqZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwhjd-0000000A1wd-0HKm;
-	Wed, 19 Aug 2026 14:57:45 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wwhrO-0000000A2nI-2b3S;
+	Wed, 19 Aug 2026 15:05:46 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwhjb-0000000A1wI-0lNS
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 14:57:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=dEhJftvJQJCTjrtFDW5w8o2vq636XhPrQnmBVoSdDG8=; b=WwpFPVtoi3/FrP852Z+KBYbFfS
-	9/xiP6ovuQfbLqkz+VfujWELcMItOyYmXjn9x9njjNS1Rb3aeAgkjiRYOHJMC1KUehzDAuKoLUNWd
-	NXIeaRpVcv2vJzhI/jvRgfSAUMHgP6F5vALMRoZ50lILH7aqh0D0lf5Olw6gSECtB2SVfOHsBEyws
-	1b5ET+c7xgUf3NohcAiBPTqpZ6RpLwv2QnWXe34W/3f0GFo59KbLAHTyZn02/MvR3VBS09yltU2bn
-	9Um7gT9SDDuk+SxTWspbvudVbENVgEJXrqV2xEjl8K6dYc8iB891cWhPGlwkd24x9WBYJWj/KYhDN
-	zGvu5EDQ==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wwhjU-009s14-2W;
-	Wed, 19 Aug 2026 14:57:37 +0000
-Date: Wed, 19 Aug 2026 07:57:31 -0700
-From: Breno Leitao <leitao@debian.org>
-To: KobaK <kobak@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Fenghua Yu <fenghuay@nvidia.com>, Tushar Dave <tdave@nvidia.com>, 
-	Kai-Heng Feng <kaihengf@nvidia.com>, rupakr@nvidia.com, mohammedk@nvidia.com
-Subject: Re: [RFC PATCH 1/3] arm64: add CPU prefetch and cache modulation
- sysfs interface
-Message-ID: <aoXEBXXvTDBimnHi@gmail.com>
-References: <20260817022335.3-1-kobak@nvidia.com>
- <20260817022335.3-2-kobak@nvidia.com>
+	id 1wwhrL-0000000A2mu-3KNV;
+	Wed, 19 Aug 2026 15:05:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1787151939;
+	bh=ZOI+W6oA/uAi32MTH/0/AbBQ8UTI/tV8YYpxIRduY98=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=ooh4O4nnoS1GXQvarlxiNA7WIlnZgxkLdtnUfrl+ZIw4UZy8ON2JPAULUqn6glymV
+	 TEYU4unh5Cc2IMADNY237oj8DvJF9Hf4tCTVa7vxKQfRINYeqorsHt6krRZH9EU6Fm
+	 s6lHo8w0qteJ9R6d/YaycRc85DID+Z0N/SR23csjhtyO0HfJBKnSpHSKYDjNM5a5LZ
+	 7iszudSMqSvCpRuNpe/leqIEAWFrE/hdO0T0/MuOWy5zh7GlklDoPoHMWTwm0WXpPY
+	 dqkivmrgfcqdmQm4DZ8GhHEtvT4otsHUivKlsBJisFoGpuB5MVHt3le6zX6bL2X8eF
+	 Ie3SXFdLuyg8A==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E329617E0824;
+	Wed, 19 Aug 2026 17:05:36 +0200 (CEST)
+Message-ID: <ea57db621f1267c1cd3079cebed543180d82ed95.camel@collabora.com>
+Subject: Re: [PATCH 1/7] media: verisilicon: Fix the cleanup when a codec
+ ->run() fails
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>, Benjamin Gaignard	
+ <benjamin.gaignard@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Mauro Carvalho Chehab	 <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Ezequiel Garcia	 <ezequiel@vanguardiasur.com.ar>,
+ Andrzej Pietrasiewicz <andrzej.p@collabora.com>,  Hans Verkuil
+ <hverkuil@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Lucas Sinn	 <lucas.sinn@wolfvision.net>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org
+Date: Wed, 19 Aug 2026 11:05:35 -0400
+In-Reply-To: <20260819-rk3588-jpegdec-v1-1-33d74cdf369c@pengutronix.de>
+References: <20260819-rk3588-jpegdec-v1-0-33d74cdf369c@pengutronix.de>
+	 <20260819-rk3588-jpegdec-v1-1-33d74cdf369c@pengutronix.de>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-jClPjoRyYChhJM6d5vWN"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260817022335.3-2-kobak@nvidia.com>
-X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_075743_226162_40B048C3 
-X-CRM114-Status: GOOD (  19.01  )
+X-CRM114-CacheID: sfid-20260819_080543_989749_AC3E939E 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,82 +99,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 10:23:33AM +0800, KobaK wrote:
-> From: Koba Ko <kobak@nvidia.com>
-> 
-> Performance characterization on arm64 systems sometimes needs a way to
-> inspect and bracket selected implementation-defined prefetch and cache
-> controls without exposing raw register contents. Add an RFC-only arm64
-> cpumod interface that presents a small set of named, range-checked
-> per-CPU sysfs attributes under each CPU device.
-> 
-> Establish the Kconfig and Makefile plumbing, CPU profile detection for
-> Grace and Vera from the target CPU's MIDR, register-field descriptors,
-> per-CPU kobject and attribute helpers, locking, and target-CPU read/write
-> callbacks. Common attributes are exposed for all supported profiles,
-> while Grace- and Vera-specific fields are exposed only for the matching
-> profile. Place the option at the end of the top-level Kernel Features
-> menu because these implementation controls are not tied to an Arm
-> architecture revision.
-> 
-> Per-CPU cpumod sysfs state follows the CPU lifecycle. Module
-> initialization populates subtrees for every online CPU while holding
-> cpus_read_lock(), so initial enumeration and CPU hotplug state
-> registration are serialized against concurrent topology changes. Offline
-> CPUs are intentionally skipped during initial setup because target-CPU
-> MIDR detection requires an IPI-capable online CPU; a later online callback
-> creates their subtree.
-> 
-> Profile detection reads MIDR through a synchronous callback on the CPU
-> owning the sysfs subtree and returns nonzero only when that dispatch
-> fails, so no IPI error can be hidden. After a successful read, retain
-> CPUMOD_PROFILE_UNKNOWN as the unsupported-profile sentinel. Subtree
-> creation skips that profile during both initial online enumeration and
-> later CPUHP online callbacks without blocking module load or CPU hotplug.
-> Object and sysfs setup failures remain fatal and are propagated.
-> 
-> Keep the dynamically allocated kobject state in a private per-CPU pointer
-> instead of the CPU device's generic driver-data slot. The online callback
-> is idempotent when that pointer already records a subtree. The offline
-> callback clears the private pointer before dropping the kobject reference,
-> allowing the release callback to retain ownership of the final free.
-> 
-> Register the dynamic CPUHP state with
-> cpuhp_setup_state_nocalls_cpuslocked(). The nocalls form avoids replaying
-> startup callbacks for CPUs already initialized by the explicit online
-> enumeration. On init failure, release the CPU read lock, destroy all
-> subtrees created so far, and return the error. Module exit removes the
-> CPUHP state with the matching nocalls helper and tears down all remaining
-> per-CPU state across possible CPUs.
-> 
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-> Reviewed-by: Tushar Dave <tdave@nvidia.com>
-> Reviewed-by: Kai-Heng Feng <kaihengf@nvidia.com>
-> Signed-off-by: Koba Ko <kobak@nvidia.com>
 
-Tested-by: Breno Leitao <leitao@debian.org>
+--=-jClPjoRyYChhJM6d5vWN
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+Hi Sascha,
 
-> +static struct cpumod_attr _name##_attr = {				\
-> +	.kattr = __ATTR(_name, 0644, cpumod_attr_show, cpumod_attr_store), \
-> +	.value_offset = offsetof(struct cpumod_subsys, _field),	\
-> +	.reg = _reg,						\
-> +	.shift = _shift,					\
-> +	.field_mask = _field_mask,				\
-> +	.max_value = _max_value,				\
-> +	.debug_name = _debug_name,				\
-> +	.visible_profiles = _visible_profiles,			\
-> +}
+Le mercredi 19 ao=C3=BBt 2026 =C3=A0 12:37 +0200, Sascha Hauer a =C3=A9crit=
+=C2=A0:
+> =C2=A0	ret =3D start_prepare_run(ctx, &decode_params);
+> =C2=A0	if (ret) {
+> -		hantro_end_prepare_run(ctx);
+> +		hantro_end_prepare_run(ctx, ret);
 
-0644 makes every one of these world-readable, and cpumod_attr_show()
-is not a cheap read: it takes subsys->lock and then does a synchronous
-smp_call_function_single() to the target CPU, whose callback executes
-an implementation-defined mrs.
+Since its already in an if (ret) branch, and for code readability, can you =
+use
+hantro_abort_prepare_run(ctx) instead and leave all other sucessful calls a=
+s-is.
 
-So any unprivileged user can pick a CPU and hold it under a steady
-stream of IPIs just by reading the file in a loop. On a Grace box
-running this series:
+Nicolas
 
-  # su -s /bin/sh nobody -c 'cat /sys/devices/system/cpu/cpu0/cpumod/pf_dis'
-  0
+--=-jClPjoRyYChhJM6d5vWN
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaoXGPwAKCRDZQZRRKWBy
+9J96AP4pVbuljONCTasFDnqGz3LRJHuAwLr5VErmMrO2wrsqrwEAzhFgMDQ9TSeS
+/dfy+t87UYjwpZwgjpWq+Cp2ewMU1wo=
+=KCQs
+-----END PGP SIGNATURE-----
+
+--=-jClPjoRyYChhJM6d5vWN--
 
