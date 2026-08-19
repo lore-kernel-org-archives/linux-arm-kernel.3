@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22052C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 22:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00702C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 22:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7gM3KF+dBG0DIM5zaeP0iBymo3E6ezWlCjJmCMkudS8=; b=E2r6ps9JfJvDvydFLXr4KgjaIK
-	0dtk7K82i5AKMZiUJ2a1Yk9uzpB9cWZ/ohec6/vM6W+fcDKf1AOcNjb21lH5m/ZSxSnhbNjudNg6O
-	U+7JQ81n+S+fLmGjsewW+FxxAjWgERX6OX5IV/CyWJTbiZ3wdQwchG3jRRsDuM6R8uF/el6apQ4rH
-	gVW8AMF0RQRfHUhfB9vBUEkzBlcVa08+WwDy8DGsfbSlo7DVePZl0NHDHpmhSIFXSTRzj3JaU/dhw
-	xMtu3EtmCYcJS5uB89xQE2eBWQA4FMu1Lu7Pli8JFJ3FLm6Ub6hdWzNDE+pwuBYxsCKRyaB6ZhigX
-	Hoafk7Rw==;
+	bh=RGGhD71B+UtcIgYaLVJcbUJD2ZD+NnVvBK4/H22TbeY=; b=1RoK3+RWPCvbYQqG7kwBGQ51eY
+	YarUOJpLyzr3v45V+qzKjYirfKmtdfp92RQ5iTE37wth46JFKW+7YSs0uDQ8fwowYjTxTwOFTAlBL
+	nB/drGJYaamO+TQk/MIVVfV1XuXXj52MrUzHnSz5E0MNPRXJPdfjp+uUXQhnMQXs65rUD+Fj5XS3e
+	KZ9BXEkkbXSEdLDBgBQMS5ENkXlfr5+ZuYsBm83l+tlQlzRaqTT5qgiTyWWSQPQyuzNvv9kQMZVhD
+	1DAKR0vtUFcX13ZYEyZ9JMuUzsO76SxsEkcwumDDlpAEfsoPmLqHGgHb5/TNNOayWVrX9GQ5NykYg
+	D+uPEG6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwoQ6-0000000AaMM-47Au;
-	Wed, 19 Aug 2026 22:06:02 +0000
-Received: from mout01.posteo.de ([185.67.36.65])
+	id 1wwoQF-0000000AaOR-0Sj9;
+	Wed, 19 Aug 2026 22:06:11 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwoQ4-0000000AaKV-3gYw
+	id 1wwoQ6-0000000AaK8-025p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 22:06:02 +0000
+	Wed, 19 Aug 2026 22:06:03 +0000
 Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id 2B8C424002A
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 00:05:59 +0200 (CEST)
+	by mout02.posteo.de (Postfix) with ESMTPS id 46EBC240109
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 00:05:55 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
-	s=1984.8680eb; t=1787177159;
-	bh=7gM3KF+dBG0DIM5zaeP0iBymo3E6ezWlCjJmCMkudS8=;
+	s=1984.8680eb; t=1787177155;
+	bh=RGGhD71B+UtcIgYaLVJcbUJD2ZD+NnVvBK4/H22TbeY=;
 	h=From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
-	b=RlJ9plRx+yr6QsYUrHsRzWjf5T1ywMuhvEH9/eKYKOdoPUzjktldCPAKUPVHYukOd
-	 jcn7hqJy7m6ZAzsqsdoAYtkQZAOw4hPS/cG9E3Yju/QKh3g66nbrinF6ky47N3WVIT
-	 z6fuAtEQ8HAbWc6Wkv1spII4Qj6FrkTWHo0saaYJ5Jr504puQgK2r7X6qdtKdWPmZX
-	 BfgcPUco2T87Lt9490UotGxKzIKYUgc6JGv3o6mnnLuYnWdYmTiUqXUtvYgCUkXaRr
-	 utV3pg5tv5uwbfumfPGxmxtuFjlUzqvcsl9+PBoj7eR7Bv9qvwUwxvRZPJdkLEcQve
-	 H68LmWoV853mw==
+	b=OhV5pv6ym2oEZmUNWBU4/O6kU8XOW31msmHvzHMACJKahcXum5drjmHopJeoerHCt
+	 8x/lAVdHc5im1DrJb+1OUhNc1f17JALBgz1YVCuXa+LygOV9MQ0jYtMnL/AAahbf9w
+	 A0iLOzpiDbpoPQc8H02esKQ8W8hJpuVBi/4NfXOSt/YAFgF3pAvBcGFrp3chakOnaM
+	 3R5dLWJ3Q/vwCRF8Ii1tQqq+/xD1+Z+UhI91euVGNrggUw9WiZXMQeNFHI+jkD6Whs
+	 pMqR9cLH2bb7SoNcU9VL4L4F+33q36p86sfJPMSRIIwUdm9jUXvX3fwRouP5XiKFSe
+	 r959i+/w2gMww==
 Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hQLHT45z1z9rxK;
-	Thu, 20 Aug 2026 00:05:57 +0200 (CEST)
+	by submission (posteo.de) with ESMTPSA id 4hQLHP3kNxz9rxM;
+	Thu, 20 Aug 2026 00:05:53 +0200 (CEST)
 From: Markus Probst <markus.probst@posteo.de>
-Date: Wed, 19 Aug 2026 22:05:58 +0000
-Subject: [PATCH v5 6/6] rtc: s35390a: Add synology quirk
+Date: Wed, 19 Aug 2026 22:05:54 +0000
+Subject: [PATCH v5 2/6] rtc: s35390a: Add missing newline to dev_err
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260820-rtc_s35390a_int1-v5-6-5eb4ef85c6a9@posteo.de>
+Message-Id: <20260820-rtc_s35390a_int1-v5-2-5eb4ef85c6a9@posteo.de>
 References: <20260820-rtc_s35390a_int1-v5-0-5eb4ef85c6a9@posteo.de>
 In-Reply-To: <20260820-rtc_s35390a_int1-v5-0-5eb4ef85c6a9@posteo.de>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
@@ -65,21 +65,21 @@ To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Markus Probst <markus.probst@posteo.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1557;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=693;
  i=markus.probst@posteo.de; h=from:subject:message-id;
- bh=KC10D+LFyyabPzwcfYGpsHkfyCMijf0xISzFbM4eGfA=;
- b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqhii9jPrACFl3VM6vOHIXvNv35vkdRTAFR9Rth
- NvsFmrMnSeJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCaoYovRsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9I5Sg//VCKrvqTZtGR8Fdv89bA0hU18vVls4zq
- 3/DGYN0zv+Z6xEQP+iSKC93+7zw5Mntm2rxIxYKIkrTptJ1qU7lNcL49kJ8curVJ+y9mAgwnpxN
- S27Sokgi0fVagOhTY6MpSXjNqe7eM3aklawoYCQqYGxEOKPnTgbQ07lLL1ljWdmX4bcGMqAPkI9
- kdWsa4qYeYPpZt0Iqun++RNok7Rovwe+ryqfbZJDyBtakvFTDFNE2DwnjnzibqQwwC7SeQmG41W
- EyMkeIk78SGK+XURnM+sW/K4kBJ6eP5Bp5vVfWZNj95htziV1Qvx8Z5yz/uSFwd/DPizkXHh/ik
- vP4ibyQxIHb9ywC2r6I9rrTVKga/cukien4vGNsPiYh8qtBDHyWVepGCyanma385A+cjBjDo7vH
- M4otpp97rUsQ1fe975k4IfENdKVHPFLBTGHZ1+bGmdelh9URBm3bFIENtzmFKbY8I2fuoYrpmbV
- n4fYSeq1Wmv97wHcjLDG/ZP72ubvV69GPDgYcza1TOiw9kAApUGrjU4BMWs1VijMX5IED6qgdPG
- XSHbmW41O69VgtdDmrYEQl+2+OFzWidZ8eOcwCgR507bUT/KSs8oKUvAOLVPg0Ln8YnE9qeKFS1
- k3WR1KyCSjRFH2L6y+z8lbp++LLC9+WdjEljxCwuYHrrtW3RnPTc=
+ bh=QV/D+X9L6iHtWxf2FTb2FsPSMVe+HAIVh5ovcaU9Yq0=;
+ b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqhii8f4oq+7sK5VdzSaBo7VT/rK+lo7oCiZtZK
+ bYOOEzvKLmJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCaoYovBsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9LHWhAAmzjdLNNUXS/L86rWgPjPL0dj3r/8lEp
+ AoaZKg5Yc8u9F4v0w6HbdY207gwqBpWs8EGFJgQWSyySYVIcd9yrB0lVVBGXZt9gPkBydj1mYzt
+ MnYcvXwQWMIqnk+uyDno5uj44TUW6hdJWl7jRBL4665Ptgtd151qPvmRB35LjUnLBjtMUPF7YUq
+ cwIJeH2+mDZ0crzDyf6ub0Z8NeCvBPfpuNOqtzMnKsHQqT7ByThuclFCWEPcsgpwIDzfY9KL8Wd
+ wAhY3aKv6LPgxKIhLD7k3EnS/H8b0/vAq3+V2r7dEW4+SXf7D2QxtltUwdgHapdcxdTYp3a8zP5
+ UzwAASFcDdIEnxtlgoozrppU4v7YaygjtRCH8CaZqfdtaQ+gw7qyYie92jFp0gC/cMjwxQnaUtk
+ Rc5LTg53XmzSpt6kwBduI0AssMzEJGFwHl8hKtg6zqDLqPkHTKQwcwSugTmz/tS20306Ordasvg
+ 8VEkzllKh1b4kQxZpG7ZAy7Uz1obmtr5R8x/U6qGkrK4q/R9SAXOYlok5JKAB4sffo39FsDQdQ7
+ sMBlYgwz6YT8C+Cxhigk/1zrBI/Ygil9WyLPkTLbEU4iStLahJv53+c7qAjfDImxJ92AKoN7vdy
+ Nt2f+1bQ4GcRI9xfeOdsPQia/pCKENHMP7i5dRuzZC0wdvGNMGPY=
 X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
  fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
 Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
@@ -125,8 +125,8 @@ Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
   aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
 OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_150601_238293_8AB9539C 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20260819_150602_355100_04C11BED 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,50 +141,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Synology NAS devices use interrupt signal 1 for wakeup alarms. On ACPI
-it is not possible to configure pinctrl.
-
-Use interrupt signal 1 for wakeup if no pinmux function has been
-configured in devicetree and dmi sys vendor matches "Synology Inc.".
-
+Fixes: 3bd32722c827d ("rtc: s35390a: improve irq handling")
 Signed-off-by: Markus Probst <markus.probst@posteo.de>
 ---
- drivers/rtc/rtc-s35390a.c | 15 +++++++++++++--
- 1 file changed, 13 insertions(+), 2 deletions(-)
+ drivers/rtc/rtc-s35390a.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
-index bc783be1561e..72bb3aea1956 100644
+index b72eef4fb099..4cfe7034c516 100644
 --- a/drivers/rtc/rtc-s35390a.c
 +++ b/drivers/rtc/rtc-s35390a.c
-@@ -5,6 +5,7 @@
-  * Copyright (c) 2007 Byron Bradley
-  */
- 
-+#include <linux/dmi.h>
- #include <linux/module.h>
- #include <linux/rtc.h>
- #include <linux/i2c.h>
-@@ -767,8 +768,18 @@ static int s35390a_probe(struct i2c_client *client)
- 		return dev_err_probe(dev, err, "pinctrl enable failed\n");
- 
- 	/* If no pinmux function is defined in DT, fallback to previous behaviour */
--	fallback[0] = S35390A_FUNC_IGNORE;
--	fallback[1] = S35390A_FUNC_WAKEUP;
-+
-+	if (dmi_match(DMI_SYS_VENDOR, "Synology Inc.")) {
-+		/*
-+		 * Synology uses interrupt signal 1 for wakeup. Since pinctrl cannot be
-+		 * configured on ACPI, we check against the dmi sys vendor.
-+		 */
-+		fallback[0] = S35390A_FUNC_WAKEUP;
-+		fallback[1] = S35390A_FUNC_DISABLE;
-+	} else {
-+		fallback[0] = S35390A_FUNC_IGNORE;
-+		fallback[1] = S35390A_FUNC_WAKEUP;
-+	}
- 
- 	for (i = 0; i < ARRAY_SIZE(s35390a_pin_groups); i++) {
- 		if (s35390a->pinfunction[i] == -1) {
+@@ -494,7 +494,7 @@ static int s35390a_probe(struct i2c_client *client)
+ 		buf = 0;
+ 		err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &buf, 1);
+ 		if (err < 0) {
+-			dev_err(dev, "error disabling alarm");
++			dev_err(dev, "error disabling alarm\n");
+ 			return err;
+ 		}
+ 	} else {
 
 -- 
 2.54.0
