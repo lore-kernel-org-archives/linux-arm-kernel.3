@@ -4,115 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA4D8C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 07:37:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C7AC5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 07:41:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xQrWrORTHE65mdtkwJD9zGnQnujbGttE236cG+u/p3s=; b=xSp+YrzPIt34UFWc36GcIUYNkz
-	3aYE5+55Vz/7ZClH3USiG5ANSGqe5bAq/PsjkEMRUgqE+hEKe/r7X0clxZHlRBF33yXPKvCjrV7nl
-	R6ca9U0UCgqTVCw3d3LgLId3qBWexpsK66HunOguyOcxzVNsjYUy0d1X11SHpTTcwNTMgRA++Mzcv
-	7NYYrW7OcMQnWYSaIhrRNDdRZr90By8KnUYzlxE5KET5wxajciMvSfpvy5MIF0+rKJ3OyhJGaQyK1
-	M4uESDBhnHhJUyLZQqMV67tluAbEcOWzIUn7JVoaE2pQXjbRL6PDaALq+ooKUQfBMDIrAOsGlICd1
-	VDeEO8ag==;
+	bh=i/LEMdd4b4q+MJn4DbfrTQFwIX+8AdaX54d5wOW06Us=; b=4Ax2tP8ix77ZSYcshDPo8YampS
+	8mNibtBGrVsPENZUICFxkbhg0u5x9Fx4726/kCBMKLEvUvsC3e1l+tWEHsIBBPl5rKKqVX52Cshpi
+	6yLsjniE1WRaRx18sEdIfkNJCXJIatgKKowGLcmV5LmU6kywuhoc3BOnjaYDnrFuati4ZKhNtx4kd
+	6eqrlU9/FhBEfo6wodwsyOZec2evZvxusW97j02cH1z0TMSpgUE2HHpdyZ3XOr8Gaes+PTUmfUjQO
+	jt7HOYzxykqRPGJVKRLd4NKVmepRy7JKLwxscDjJAFacMPhxhZbkLJ7DxdhrKr1MVjDDIOQ9NkvZa
+	oq6osEwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwarM-00000009DMg-3ZMK;
-	Wed, 19 Aug 2026 07:37:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wwavP-00000009Dkr-0XBa;
+	Wed, 19 Aug 2026 07:41:27 +0000
+Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwarL-00000009DMG-3451
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 07:37:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0FA9E60A58;
-	Wed, 19 Aug 2026 07:37:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EA661F000E9;
-	Wed, 19 Aug 2026 07:37:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787125034;
-	bh=xQrWrORTHE65mdtkwJD9zGnQnujbGttE236cG+u/p3s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=RiGCf08iRGj0H2xTa8Kj3St0zVXCMTj20yymROqawNyIzvF1HlhXShwg1OLRTe7QH
-	 cvU260Pnjb+3deYS+9+pJG6FTLYpm1A/p7Ry3eUSBBCVEZUKfJJJ5mVnyGQnT917E4
-	 2K8qjSgR5MM4AvjyUi3ZiGNpTUam+ROUxG4eZdgUJ4tAQBU5s6/7PKE7A0jW6Qk67D
-	 4RViIevYqQIIh1byu3RPuvEEU7dnZc8OMgRi0QLtY4yiiQqhpFCKvIyRQmZMtwVUlr
-	 EfX+UGj8Vh+vQ38lQZ9JuRBcwNeXJJyu1RCPU68aaOSDHKb7X/Xjc/TUmXf575VUWH
-	 o060/D3F8gvkQ==
-Message-ID: <b81a9de7-b5b0-4450-82af-065895a8352c@kernel.org>
-Date: Wed, 19 Aug 2026 09:37:02 +0200
+	id 1wwavL-00000009Djo-2Eyr;
+	Wed, 19 Aug 2026 07:41:25 +0000
+Message-ID: <ef9ca9f8-6cb0-437e-b73d-976059dc6f82@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1787125277;
+	bh=L8oGbzvk2V4mXRjUq7cwdbEYnJjsfG23S7DPzRl86To=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=qKmMfScE5JTlY4Eeq4wPokXB0h4AnwPIaDvDXAUMzt7Be4I6uiG35n7+JUe+kGXqP
+	 Km/Uw9FDV759IrI86dJ5RG5sZR+ovUxraZkswtTiBytqB9feg4nSeAs4Uaf7xDt3cj
+	 E6V2AqegDBzwimHL63vAJWItPSyptRfLCtAEan8U=
+Date: Wed, 19 Aug 2026 09:41:15 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 06/12] dt-bindings: serial: add Ambarella CV75 UART
-To: longzhao@ambarella.com, Arnd Bergmann <arnd@arndb.de>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-kernel@vger.kernel.org, Brian Masney <bmasney@redhat.com>,
- Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, Long Zhao <zl020895@163.com>
-References: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com>
- <20260818-cv75-v5-v5-6-7bbb12f0360f@ambarella.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+User-Agent: Mozilla Thunderbird Beta
+From: linux-kernel-dev@aliel.fr
+Subject: Re: [PATCH v9 4/6] thermal: khadas-mcu-fan: Add fan config from
+ platform data Add regulator support
+To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>
+Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org, mfd@lists.linux.dev,
+ Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Beniamino Galvani <b.galvani@gmail.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, linux-kernel@vger.kernel.org
+References: <20260805-add-mcu-fan-khadas-vim4-v9-0-75df78710b9e@aliel.fr>
+ <20260805-add-mcu-fan-khadas-vim4-v9-4-75df78710b9e@aliel.fr>
+ <64e146aa-4907-495d-b394-7cecb1727816@oss.qualcomm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260818-cv75-v5-v5-6-7bbb12f0360f@ambarella.com>
+In-Reply-To: <64e146aa-4907-495d-b394-7cecb1727816@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260819_004124_041875_2207D978 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,60 +78,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/08/2026 12:31, Long Zhao via B4 Relay wrote:
-> From: Long Zhao <longzhao@ambarella.com>
+On 8/7/26 4:34 AM, Daniel Lezcano wrote:
+> On 8/5/26 10:06, Ronald Claveau via B4 Relay wrote:
+>> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>
+>> Replace the hardcoded MAX_LEVEL constant and fan register
+>> with values read from platform_data (fan_reg, levels[] and nlevels),
+>> as new MCUs need different values.
+>>
+>> The cooling device's state is stored as an index into levels[],
+>> and khadas_mcu_fan_set_level() writes levels[state] to fan_reg,
+>> rather than writing the raw state value as before.
+>>
+>> Optionally acquire and enable a "fan" regulator supply
+>> at probe time and on resume,
+>> so boards that gate fan power through a regulator are handled.
+>>
+>> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>> ---
 > 
-> Document the Ambarella CV75 on-chip UART controller binding for early
-> console bring-up. The binding requires a single RCT clock input and
-> fixed 32-bit register access via reg-shift and reg-io-width.
+>  * Through which tree this patch should go ? (assuming there is a
+> dependency on other patches)
 > 
-> Signed-off-by: Long Zhao <longzhao@ambarella.com>
-> ---
->  .../bindings/serial/ambarella,cv75-uart.yaml       | 56 ++++++++++++++++++++++
->  1 file changed, 56 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/serial/ambarella,cv75-uart.yaml b/Documentation/devicetree/bindings/serial/ambarella,cv75-uart.yaml
-> new file mode 100644
-> index 000000000000..223c84bf460d
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/serial/ambarella,cv75-uart.yaml
-> @@ -0,0 +1,56 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/serial/ambarella,cv75-uart.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Ambarella CV75 UART
-> +
-> +maintainers:
-> +  - Long Zhao <longzhao@ambarella.com>
-> +
-> +allOf:
-> +  - $ref: serial.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    const: ambarella,cv75-uart
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  reg-shift:
-> +    const: 2
-> +
-> +  reg-io-width:
-> +    const: 4
 
-Both properties are redundant. Const properties are pointless. Did you
-take any existing code as example of this? If so which, so we can fix it?
+I think this patch should go through MFD as this patch depends on it.
 
+>  * How this will behave with 100 levels with the step wise governor ?
+> For a 100ms passive delay and 100 states, it will take 10s before
+> reaching the full speed
+
+Yes the VIM4 MCU accept values from 0 to 100, but here I'm giving a list
+which is (0, 30, 40, 55, 75, 100), so 5 steps to full speed.
+
+-- 
 Best regards,
-Krzysztof
+Ronald
 
