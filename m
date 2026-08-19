@@ -4,57 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C26AC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 07:26:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F08C7C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 07:28:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GyP+BjT/b2lYpBkJypWs28s3CD47CYLAv7ie7DV3fF4=; b=ClvWb7Tjk+U7zG/IpzpUlbhMVn
-	JaW/CSR0BsaZ2xRBgn+Sbev/MPBgXEnCfxRl8QbX6QGVJLTLNypciI1+GP4pq6ZviI54Kv6mjBmHW
-	mlr/k7uu5G5llCfOk1KD48U7WBqvjZgU7svXEPXo/zbtC3bpCH+ZwGuq0xPdocKa/8wVBHwS7EGo4
-	zsbRgWQvQjbJAXYiABTMhkNxjZ1pjsi47ecuwKHdYAo0+cUaHjDwyiIha1taVZIy/3xFmqicL+tv3
-	2h9VhRHhfyKqmhdNyYSpmEQDTD4UklHENspdzocDHTDM7RuSaeQFhsUw5spJ4WxC6Y5mkBTfVBbqH
-	lcrg82xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rPo105aBcXPYGRbFY7xZLf4svXn084/42lIF3TwzV28=; b=RFmD06RibBS7GIoltPTD91uHo+
+	04AD0wBCfp5JnMeQOGUiX4fCKX9kBKWroMePNyEk3S/p5qnJXHj39DO2mfCfvWnpVTfY6nU59nn20
+	QDVqPn8JAwMClW+IP1RX/w8HpYe7nmpmMBpJzGZX1YlDT7qEpTCE5p8+t9qmwghLr2NrMArpW++MD
+	ucE4DfFDJQl8L/UsuYflcgq/ofYJ0cNNZ0xLtv4i5Lp/PD7+QoWErnUNSsdTlCHTuuEWnI0IH5lh9
+	JA7BonsvRlLCXV21lFthQ7qXMLn6TJtOpoljFgXpDbvmaBGDdvMrZl3TskgYHdmBhl8rmVSKe/K4w
+	Rc7AJPpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwagi-00000009Bow-3XzN;
-	Wed, 19 Aug 2026 07:26:16 +0000
-Received: from courrier.aliel.fr ([65.21.61.41])
+	id 1wwaiK-00000009ByG-0id8;
+	Wed, 19 Aug 2026 07:27:56 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwage-00000009BoC-2wcp;
-	Wed, 19 Aug 2026 07:26:15 +0000
-Message-ID: <6673edea-6822-4368-9374-29f92195fcf5@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1787124356;
-	bh=zfApjPryrOyf0fxxl1ecWqnrsetooI24vtnZRIvXq7c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=seQBr+cK9g2XeyPGBo5qh2mBtmRJs+lE8qfi/e2B/RSSo+/WTX9KteAhoKY9Epncg
-	 shEH21hDzyL8WVCIwtD7VsyjdtBxXjfWF6a/0GMnl9q9QDZWnl6PCt9Ei3epb1PzS7
-	 U964U4PvEjM32a0oj8liqP3kZ83nT7b1KnTXSYTo=
-Date: Wed, 19 Aug 2026 09:25:54 +0200
+	id 1wwaiH-00000009Bxa-46t6
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Aug 2026 07:27:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787124474; x=1818660474;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=G2kptcnbxzc2RLrx4I654mJLzlzkb8PupIu+d8FB6VQ=;
+  b=lA6nfB+pjp9A+FEgVMMP+fRUaCaVKtq6b/8L2ymp3e/adUb13WzPITNX
+   g14wjvRa+bW52WI5yIC6YZjC8wxggCvmVurI7J2Uqbd5cUJHGoHzPsQFK
+   Veukm5aCqqOVT42DFGuB8SQ5pqcHepCqPLIe1PZEqv78w1aBAu4OFILYF
+   43qMDW5p5FxSG3/knXoBxu2X6zffM0D6wuB8B5q4MzMDBGm4Fy9fyO82G
+   pMXKtAlwt9hm/DU9j5dnmMEUzIybe5eOjlFMkFrXvQ7hiVOiwcgj5CLAx
+   yV5fZatcEm1O7Rd61KeRroDVXNp85saO7vbzuuUvYiUL999M6EiWo2MFO
+   w==;
+X-CSE-ConnectionGUID: WtsynNS7QhOsCBbgexMdZw==
+X-CSE-MsgGUID: 8y/+IQ1gTbe8FoiF/Ay5hw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11879"; a="87646173"
+X-IronPort-AV: E=Sophos;i="6.25,231,1779174000"; 
+   d="scan'208";a="87646173"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2026 00:27:52 -0700
+X-CSE-ConnectionGUID: J+3m20rtSdqiMKQ+W6sX2Q==
+X-CSE-MsgGUID: i+ywqdASR2ib4M2LXoSg4g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,231,1779174000"; 
+   d="scan'208";a="269303976"
+Received: from amilburn-desk.amilburn-desk (HELO localhost) ([10.245.244.106])
+  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2026 00:27:46 -0700
+Date: Wed, 19 Aug 2026 10:27:43 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: zl020895 <zl020895@163.com>
+Cc: longzhao <longzhao@ambarella.com>, Arnd Bergmann <arnd@arndb.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	soc <soc@lists.linux.dev>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	devicetree <devicetree@vger.kernel.org>,
+	linux-clk <linux-clk@vger.kernel.org>,
+	linux-gpio <linux-gpio@vger.kernel.org>,
+	linux-serial <linux-serial@vger.kernel.org>,
+	linux-kernel <linux-kernel@vger.kernel.org>,
+	Brian Masney <bmasney@redhat.com>, Lee Jones <lee@kernel.org>,
+	mfd <mfd@lists.linux.dev>
+Subject: Re: Re: [PATCH v5 08/12] gpio: pl061: add Ambarella CV75 register
+ layout variant
+Message-ID: <aoVa74E4l4fy5Por@ashevche-desk.local>
+References: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com>
+ <20260818-cv75-v5-v5-8-7bbb12f0360f@ambarella.com>
+ <aoRoBYE_Ns0lu75-@ashevche-desk.local>
+ <79f6dc8c.2c42c.1a018dadd29.Coremail.zl020895@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH 1/2] arm64: dts: amlogic: t7: use the real UART pclk
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>, Lucas Tanure <tanure@linux.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-References: <20260818191159.11523-1-tanure@linux.com>
- <20260818191159.11523-2-tanure@linux.com>
- <c428305a-265c-4cc5-be01-be5b21dc22ca@amlogic.com>
-Content-Language: en-US
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-In-Reply-To: <c428305a-265c-4cc5-be01-be5b21dc22ca@amlogic.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <79f6dc8c.2c42c.1a018dadd29.Coremail.zl020895@163.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_002613_205942_4CFA45F5 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20260819_002754_032665_CCB21C47 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,92 +109,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/19/26 4:39 AM, Xianwei Zhao wrote:
-> Hi Lucas,
+On Wed, Aug 19, 2026 at 03:09:51PM +0800, zl020895 wrote:
 > 
-> On 2026/8/19 03:11, Lucas Tanure wrote:
->> uart_a lists the 24MHz crystal for all three of its clocks, because
->> the T7 clock controller driver did not exist when these boards were
->> added.
->>
->> That leaves the real UART bus clock without a user, so the kernel
->> turns it off when it disables unused clocks at the end of boot, and
->> the board hangs.
->>
->> Point uart_a at the real clocks, the way meson-s4.dtsi does, and drop
->> the placeholders from the two board files.
->>
->> Fixes: 4fef056588f5 ("arm64: dts: amlogic-t7-a311d2-khadas-vim4: add
->> initial device-tree")
->> Fixes: 6f048cc7a635 ("arm64: dts: add board AN400")
->> Signed-off-by: Lucas Tanure<tanure@linux.com>
->> Assisted-by: Claude:claude-fable-5
->> ---
->>   arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts       | 2 --
->>   arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 2 --
->>   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi                   | 4 ++++
->>   3 files changed, 4 insertions(+), 4 deletions(-)
->>
->> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
->> b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
->> index cab2ee9ea0d3..dcbcd08a78b9 100644
->> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
->> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
->> @@ -33,7 +33,5 @@ xtal: xtal-clk {
->>   };
->>
->>   &uart_a {
->> -       clocks = <&xtal>, <&xtal>,
->> <&xtal>;
->> -       clock-names = "xtal", "pclk", "baud";
->>          status = "okay";
->>   };
->> diff --git
->> a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
->> b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
->> index c41525a34b72..677069e58f30 100644
->> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
->> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
->> @@ -266,6 +266,4 @@ &sd_emmc_c {
->>
->>   &uart_a {
->>          status = "okay";
->> -       clocks = <&xtal>, <&xtal>,
->> <&xtal>;
->> -       clock-names = "xtal", "pclk", "baud";
->>   };
->> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->> b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->> index cc371fcd1896..7847582e77ed 100644
->> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->> @@ -587,6 +587,10 @@ uart_a: serial@78000 {
->>                                  compatible = "amlogic,t7-uart",
->> "amlogic,meson-s4-uart";
->>                                  reg = <0x0 0x78000 0x0 0x18>;
->>                                  interrupts = <GIC_SPI 168
->> IRQ_TYPE_EDGE_RISING>;
->> +                               clocks = <&xtal>,
->> +                                        <&clkc_periphs
->> CLKID_SYS_UART_A>,
->> +                                        <&xtal>;
->> +                               clock-names = "xtal", "pclk", "baud";
->>                                  status = "disabled";
->>                          };
+> I followed Linus' guidance on the v2 pinctrl patch to reuse gpio-pl061 with a
+> per-variant register layout, because the Ambarella banks share the PL061
+> interrupt register model (IS/IBE/IEV/IE/RIS/MIS/IC). gpio-mmio/gpio-regmap
+> cover the DATA/DIR side well, but they seem not provide that IRQ controller,
+> so moving there would need a separate irqchip and would risk duplicating the
+> PL061 IRQ logic Linus asked us not to fork.
 > 
-> I agree with moving the UART clock configuration to the DTSI file.
-> However, it seems a little odd to keep the XTAL clock definition in the
-> DTS, as the alias may not be consistent across different boards, which
-> could result in compilation errors. Could we move the XTAL clock
-> definition to the DTSI as well, similar to other Amlogic SoCs?
+> 
+> Would you prefer we keep the PL061 variant for that reason, or is there a
+> gpio-mmio/gpio-regmap approach that also covers this interrupt model cleanly?
+> We can rework either way once that is clear.
 
-It seems similar to changes in this series :
+I haven't told we should duplicate. My suggestion is:
+- convert current gpio-pl061 to use gpio-mmio / gpio-regmap (and I vote for the latter)
+- add new regmap configuration and necessary layout for your case.
 
-https://lore.kernel.org/all/20260420-add-bluetooth-t7-vim4-v4-0-9505df0e7016@aliel.fr/
-
-What do you think ?
+> ---- Replied Message ----
+> | From | Andy Shevchenko<andriy.shevchenko@linux.intel.com> |
+> | Date | 08/18/2026 22:11 |
+> On Tue, Aug 18, 2026 at 06:31:22PM +0800, Long Zhao via B4 Relay wrote:
+> 
+> > Extend gpio-pl061 with a per-variant register layout so the Ambarella
+> > CV75 GPIO banks can reuse the PL061 driver instead of a duplicate.
+> 
+> This is reinvention of gpio-mmio.c (as a library). It has necessary facilities.
+> Also gpio-regmap may be considered. So, switch this driver to use one of the
+> above and the patch for the new device will be much simpler and elegant.
 
 -- 
-Best regards,
-Ronald
+With Best Regards,
+Andy Shevchenko
+
+
 
