@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2400C5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 10:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7467CC5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 10:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T3ygx2YBagS7ZdoNXD3rWIKBdEDYy8M4TiSiWcSBeQs=; b=hmwk5qxuoc2hapS9wLfa4tVY27
-	nxSUTd/RYH2L4OVapgOfvYNZeYsEf4mZWGEOf5jtrKC6Oizdk1XeMq/ojt/mAmH3bElMwvL46vW8+
-	8yk8SHWrsxSooj1Au1A2ht/+5W3qR3fjT/hYckp3L/JTXjHQjpoUWNuGYYS6L8mLRP+IPocevEkp+
-	ijibjU9IKNjL9rSUaa70GmHNeFpzsvAFest2GSGxHvzy34YX4c8zjVLV6N2QYsjJVLqu4sEGG3yhf
-	HHaQPRRBHnP7gd6tUVRaUYTZ1nFENc0DEHfa+wISn9dXQeUBbqdg4SZQnveMfjogOeZ3Rgmvzhe6k
-	UblA7v+w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4BzM6KVx3CrULleE/chJHARjg5UmkLIIEygQtH23kqM=; b=IAqvKsP2amE9V2fjJXVAaGBCBI
+	y1guvaeKrtphqIlGYk90R7G8dMAGEpfy0iIpy7otraf1ZfZOvdy0PPjPsbyd8uLtlMmTHlYUjfhzd
+	UlNiopb3JEN6+ZnjHKKr1GNQ+FCCHaq9CMkRSCzcjxVJ4fXboekltCOqHUL2qJTtJKCCKIz75pT3w
+	sLhvGPMVREXe+jAsoikUzh5S7EX0sA66HGpoTTakpubmQaUNp3PkUZbVcn4UNlsnUkwejYjROzfCg
+	efxVvVz2TxSNg/igVr35cdvcu+GDOYiLMt6CLsCGk/ZjIb/DAtZgIE6Pe4hh8tz1KxT8DLeP3YydC
+	xxRMD8Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwdX7-00000009Y2n-0q8S;
+	id 1wwdX7-00000009Y35-1RHA;
 	Wed, 19 Aug 2026 10:28:33 +0000
-Received: from out-208.mta0.migadu.com ([2001:41d0:1004:224b::d0] helo=mta0.migadu.com)
+Received: from out-148.mta1.migadu.com ([2001:41d0:203:375::94] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwdX0-00000009Xzi-1rSy
+	id 1wwdX0-00000009Xzr-3Wg5
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 19 Aug 2026 10:28:29 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=gt4LUz6h5wdD5n/G/j7Qa+IcB6A6stflUNl5aSZem7k=;
+DKIM-Signature: a=rsa-sha256; bh=YaVhIGIsz8p83eXEbXp+Vqimu9cE0WdJmkMbBsASobQ=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
  t=1787135304; v=1; x=1787740104;
- b=FNX+dtOP+BMnAoZhYheV5rHOmQpLGCMD7bFh0Y93NzumSAJC5xEDiumMv4QHlzPC96jWB6Uu
- 5qJzRkNhMvCu4LLTBcntTd1U2VoHmzJy1LTzIxbC0+YXj27FajBiR3yBsjfHW1Pg28NzV92qsPt
- gjDxVs2r6iYd88uVarg7NGyo=
+ b=j+/7hSd/yd2P78Bb6G0ncFkcmr7pOaRdq/AgYH7WgEWyW6SNVfnB3VN9U76i/gqHGbnhaDVv
+ 9vbNLMCbZWmt2+mkU0eVzNr/E1WDxCm/RgejL6vf3csFvRXD/ECbG46WWnxv6P6psvSEnNOYa/u
+ a/+v9KPDi+jCWkv4xHAdWDpM=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
 Received: from claudy.lan (37.156.72.212)
-	by smtp.migadu.com with ESMTPS id 1b7461c5e495a37b;
-	Wed, 19 Aug 2026 10:28:24 +0000
+	by smtp.migadu.com with ESMTPS id b8ee4b28d9b81da1;
+	Wed, 19 Aug 2026 10:28:14 +0000
 X-Migadu-Flow: FLOW_OUT
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
@@ -55,17 +55,15 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/4] Revert "KVM: arm64: vgic-its: Don't save collections the table cannot hold"
-Date: Wed, 19 Aug 2026 11:28:07 +0100
-Message-Id: <20260819102809.310708-3-fuad.tabba@linux.dev>
+Subject: [PATCH 0/4] KVM: arm64: vgic-its: Make the ITS table save reliable
+Date: Wed, 19 Aug 2026 11:28:05 +0100
+Message-Id: <20260819102809.310708-1-fuad.tabba@linux.dev>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260819102809.310708-1-fuad.tabba@linux.dev>
-References: <20260819102809.310708-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_032826_655489_D313483E 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20260819_032827_046417_8B10635D 
+X-CRM114-Status: GOOD (  16.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +78,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This reverts commit 9b10fb74e4b661543d188701bd4d024fc5c18f58.
+Hi folks,
 
-Freeing the collections when GITS_BASER<coll> changes removes the state
-this check rejected: vgic_its_cmd_handle_mapi(),
-vgic_its_cmd_handle_mapc() and vgic_its_restore_cte() all validate the
-ID against the current table before allocating, and the table can no
-longer change under the list. What remains is a collection whose entry
-is not backed by a memslot, which the write fails on anyway, so the
-check costs a save userspace should be able to issue reliably and buys
-nothing.
+Marc pointed out on the v2 ITS series [1] that patch 3 fixed the wrong
+end of the problem: KVM should drop the collections when the guest
+changes the table that described them, rather than validating them at
+save time. He also called that patch's -EINVAL a mistake, since it
+aborts a save userspace has to be able to issue. This series does both,
+following his answers [2] to the two open questions: purge the whole
+list, and skip the offending device rather than fail.
 
-The reverted commit credited the check with bounding the walk as well.
-It stays bounded without it: collection IDs are unique and each is below
-the table's capacity, so the list cannot be longer than the table.
+vgic_mmio_write_its_baser() now frees the cached devices or collections
+whenever the stored register value changes, not only when VALID is
+cleared. It tests for a change rather than a write because the ITS
+driver rewrites an unchanged GITS_BASER<n> on resume. With that in place
+the check patch 3 added is unreachable, so it is reverted, and
+vgic_its_save_device_tables() skips a device the table can no longer
+address instead of failing the save.
 
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/all/87ecg9owwa.wl-maz@kernel.org/
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/kvm/vgic/vgic-its.c | 3 ---
- 1 file changed, 3 deletions(-)
+Note that compute_next_devid_offset() now calls vgic_its_check_id(),
+which reads guest memory for an indirect table, so the save does 2n
+reads rather than n. It stays linear, as the scan stops at the first
+reachable successor. Patch 1's Fixes: tag names a v4.15 commit, so it
+will be picked up for stable. Drop the tag if that is not wanted.
 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 3339d9977af27..cc6ea5c3409ae 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -2535,9 +2535,6 @@ static int vgic_its_save_collection_table(struct vgic_its *its)
- 	max_size = GITS_BASER_NR_PAGES(baser) * SZ_64K;
- 
- 	list_for_each_entry(collection, &its->collection_list, coll_list) {
--		if (!vgic_its_check_id(its, baser, collection->collection_id, NULL))
--			return -EINVAL;
--
- 		ret = vgic_its_save_cte(its, collection, gpa);
- 		if (ret)
- 			return ret;
+Patches 1 and 3 apply to v7.2 unchanged, but patch 2 reverts a commit
+only in kvmarm/next, so the series is based there.
+
+Tested on QEMU: the new selftest, vgic_irq, vgic_lpi_stress and boots.
+Both cases of the new selftest reset and restore the tables they saved,
+and both fail without the series.
+
+Based on kvmarm/next (57e7cf13ac26b).
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/87ecg9owwa.wl-maz@kernel.org/
+[2] https://lore.kernel.org/all/86bjaz5s6v.wl-maz@kernel.org/
+
+Fuad Tabba (4):
+  KVM: arm64: vgic-its: Free the caches when GITS_BASER changes
+  Revert "KVM: arm64: vgic-its: Don't save collections the table cannot
+    hold"
+  KVM: arm64: vgic-its: Skip unreachable devices instead of failing the
+    save
+  KVM: arm64: selftests: Add ITS table save tests
+
+ arch/arm64/kvm/vgic/vgic-its.c                |  44 +-
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../selftests/kvm/arm64/vgic_its_save.c       | 441 ++++++++++++++++++
+ 3 files changed, 467 insertions(+), 19 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/arm64/vgic_its_save.c
+
+
+base-commit: 57e7cf13ac26bf1a3dba6cfa601f7b2481811575
 -- 
 2.39.5
 
