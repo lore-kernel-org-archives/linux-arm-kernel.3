@@ -4,100 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA1DC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 07:24:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C26AC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 07:26:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G0C1e6ZjdL7cPakdNxrRlggTVin64kjut7JVZDAb140=; b=m9+IOT2wPc3TyXA2SnIxzQxt/+
-	Mxdetm/BJR46BEBGFjLZz5jD9HCkdAqYgeezRRbWCApCo9lPb39pV/xcLZ7jaNRfFSgjKhyUXoMPp
-	9X+HPUyKRpckbOsjUaFwNQZPusbNNbvr79v7Lp5/StEOQDeJuHK3Hr44JpOTlcuClrTeKD9r/wDEF
-	TRB4i85WnEBnsdQtxM3aeoPh2CRwR/+Ty6FrvjQGzFDNj8PHLEtnSwCthua2zjR8ofB09kYiN7kHi
-	uS8XtXqbUcl67V3R3QHXADUjdKgNKUkmFQoNhmGV2etFThOT+lI+wEgA3HVpOJKOpVFzI0thiWg3j
-	idMmnwtg==;
+	bh=GyP+BjT/b2lYpBkJypWs28s3CD47CYLAv7ie7DV3fF4=; b=ClvWb7Tjk+U7zG/IpzpUlbhMVn
+	JaW/CSR0BsaZ2xRBgn+Sbev/MPBgXEnCfxRl8QbX6QGVJLTLNypciI1+GP4pq6ZviI54Kv6mjBmHW
+	mlr/k7uu5G5llCfOk1KD48U7WBqvjZgU7svXEPXo/zbtC3bpCH+ZwGuq0xPdocKa/8wVBHwS7EGo4
+	zsbRgWQvQjbJAXYiABTMhkNxjZ1pjsi47ecuwKHdYAo0+cUaHjDwyiIha1taVZIy/3xFmqicL+tv3
+	2h9VhRHhfyKqmhdNyYSpmEQDTD4UklHENspdzocDHTDM7RuSaeQFhsUw5spJ4WxC6Y5mkBTfVBbqH
+	lcrg82xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwaf3-00000009BZJ-1IXx;
-	Wed, 19 Aug 2026 07:24:33 +0000
-Received: from flow-a7-smtp.messagingengine.com ([103.168.172.142])
+	id 1wwagi-00000009Bow-3XzN;
+	Wed, 19 Aug 2026 07:26:16 +0000
+Received: from courrier.aliel.fr ([65.21.61.41])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwaf0-00000009BYl-3JAR;
-	Wed, 19 Aug 2026 07:24:31 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailflow.phl.internal (Postfix) with ESMTP id A84B01380316;
-	Wed, 19 Aug 2026 03:24:29 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Wed, 19 Aug 2026 03:24:29 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1787124269; x=
-	1787127869; bh=G0C1e6ZjdL7cPakdNxrRlggTVin64kjut7JVZDAb140=; b=V
-	fIsNgpjcWEvoCHm8wvtFwR73MHwY9jvlh0ktvLSh3EJ3qRgqosUCFyA9IILRJSOh
-	txVjq0vCx70PGxJX4jhfVOjq+1l4zFWfty9htaNn6t4G1p+CclEd8NpnPemrXcp5
-	SwmccIS04cEguoFh7diZKxx6DhdYOtEvd2pjwpgr3JcrI9OpNk7gH1BYb+0GPdO3
-	m4iWwvdGD101mMMKJJZMW7WA/2xk4fQpsQ5pW+HKQOLdybnIHB8RMBk0170683XX
-	IHPQbkCO7wXqDpnrChPKCqTYBNM5gb4w7vOCqDjtr0VOWOK0jlL/dacyKtkTxjGu
-	VILYQfUuFkkWQr2aDMcrg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1787124269; x=1787127869; bh=G
-	0C1e6ZjdL7cPakdNxrRlggTVin64kjut7JVZDAb140=; b=enlEApicXhstIG/U3
-	OP2t+vaSYrqDv6GuCiLtGp8BWoqshScvjEbO0XD84TvjHGggLiLCUsvgw5BTERnu
-	ENqATpVcNO6zsCjgHIvn+yYHYm8epOqfsGh3LGnzCBj/eeYbCSTS6kkKw4v2a3sy
-	h8OPQvjufAgi4hCYCpa7KLUnorzcedjqs+pV178FPLrffTReOXtD8uzltP5jUKyA
-	+18QiDVy3L5PEK0/208vpGeQHfCfGVRdbpgfMMy8BiaJwLztgbAxGfB8alt36Mbs
-	3vNYEinp9cawH9CgmRb42HYXb4X196U5c0ErbGkhJWheTikbHjgHnVjeFxeyjQ8V
-	ejRLw==
-X-ME-Sender: <xms:LFqFau76oeh6qQXhjNUFVm85iuqqZVdiVwd03w-X9D6W59j9fTV0Tw>
-    <xme:LFqFagG8Qw6e2DV_i9N9v9jJE498osUfNiSrvhCjgwcv_ptUEz-ZzdJWymHm7TrDC
-    cXwbSqDm_OvfPqCU1nAS-93-ambRXxBIK2RJVsqfDHrcmhZG2UBkQ>
-X-ME-Received: <xmr:LFqFapC0JqbkjevxrPSBKs3vH1H0jQRWhlwAE_mHAOXrzfALGnLsorPPshRinT5A_RVvYyyuKA>
-X-ME-Proxy-Cause: dmFkZTFLR/dnNZQt84OlycGQ955XSt6mLsiPdxZ38PLxh1zGK0IjgtpTWWMqr0dq0XdJRa
-    ZUGXcrkDsG54Z6DBErZW+H5kJIXWv3ZaanedG6Iu5O8PGe23WRs0uci+1//YCH8q0uN6Dm
-    xgaWJm8zd5pYVcnc44ckoaevOmd7lyN2EbF13A+Bj3Jte6hl0CbqH0tYrDv+90P6mypksv
-    oEg6qSG33YxlvU+cDs966TYxwNOg9eCuJL3q7b99IfjytW50H7J5V0V0JgBGxgevl9kjK4
-    N1sQLtAGIfDgkX+Y9hlRp1Gwh3s3/FoNLEa/EUbVF/9sVNZgtX0gKHX5xVnkU2s4Pr/JGo
-    bGve1tAYxrl8urz+0MUUbbVLQsFYqOqv3FH0qWmyP7jc9kkrIQDEFCqy7reBVnL7a5fw4L
-    0DytQGIW6KMz6AMlXn2R266s39qeHwMmBiCRZZHnUB5wSLmM0eVwJZbQi89STxt5bbF3K0
-    B307bTlCsgnWUERZooMSU12OptV+i8+8Kpdw7besL9QVJnP7H2DLZIEvEuXBGBr26PiJ4I
-    1CdBR3E9zMIVNeFj/XoUO6Nv7FOpVeGlYr1SOFyymtq7xbTfvMSE1X3Fe7pJGfaAOuqjOE
-    tS18tWkSDM9TYJKZ/qqK++xjrtrrnJ1XEbruaGBnnvpcQ6pemPfvakXQ0rPg
-X-ME-Proxy: <xmx:LFqFalzH7DtQaK5SX1XjqAsQanL8wRZCkMbdk_VGJMhp5xMcH9mJyA>
-    <xmx:LFqFat7NC8drtubeZytYhyDanX5jGsgKJF8UtMmYWu-CwBhsaY0gmA>
-    <xmx:LFqFamzuiJ439eeQiKQ0Yhv2vrfbErujYC26P5zYuVjCD3KsPp3H2A>
-    <xmx:LFqFahen3cnUOz49Ey_5chKPIDAKJrWXPlvGjtthpdc4rv5rVpQZHA>
-    <xmx:LVqFaoajtM5MyGt8yuds277Ul4yzf__nFVpt2ARK5qUucZlkWPkbiKAV>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 19 Aug 2026 03:24:24 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: royalnet026@gmail.com
-Cc: tomeu@tomeuvizoso.net,
-	heiko@sntech.de,
-	chaoyi.chen@rock-chips.com,
-	alchark@flipper.net,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 02/12] accel/rocket: wait for a running IRQ handler before resetting a core
-Date: Wed, 19 Aug 2026 19:24:20 +1200
-Message-ID: <20260819072420.1780708-1-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260819065146.5904-1-royalnet026@gmail.com>
-References: <20260819065146.5904-1-royalnet026@gmail.com>
+	id 1wwage-00000009BoC-2wcp;
+	Wed, 19 Aug 2026 07:26:15 +0000
+Message-ID: <6673edea-6822-4368-9374-29f92195fcf5@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1787124356;
+	bh=zfApjPryrOyf0fxxl1ecWqnrsetooI24vtnZRIvXq7c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=seQBr+cK9g2XeyPGBo5qh2mBtmRJs+lE8qfi/e2B/RSSo+/WTX9KteAhoKY9Epncg
+	 shEH21hDzyL8WVCIwtD7VsyjdtBxXjfWF6a/0GMnl9q9QDZWnl6PCt9Ei3epb1PzS7
+	 U964U4PvEjM32a0oj8liqP3kZ83nT7b1KnTXSYTo=
+Date: Wed, 19 Aug 2026 09:25:54 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH 1/2] arm64: dts: amlogic: t7: use the real UART pclk
+To: Xianwei Zhao <xianwei.zhao@amlogic.com>, Lucas Tanure <tanure@linux.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+References: <20260818191159.11523-1-tanure@linux.com>
+ <20260818191159.11523-2-tanure@linux.com>
+ <c428305a-265c-4cc5-be01-be5b21dc22ca@amlogic.com>
+Content-Language: en-US
+From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+In-Reply-To: <c428305a-265c-4cc5-be01-be5b21dc22ca@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_002430_904987_96FCC651 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20260819_002613_205942_4CFA45F5 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,48 +69,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Igor,
+On 8/19/26 4:39 AM, Xianwei Zhao wrote:
+> Hi Lucas,
+> 
+> On 2026/8/19 03:11, Lucas Tanure wrote:
+>> uart_a lists the 24MHz crystal for all three of its clocks, because
+>> the T7 clock controller driver did not exist when these boards were
+>> added.
+>>
+>> That leaves the real UART bus clock without a user, so the kernel
+>> turns it off when it disables unused clocks at the end of boot, and
+>> the board hangs.
+>>
+>> Point uart_a at the real clocks, the way meson-s4.dtsi does, and drop
+>> the placeholders from the two board files.
+>>
+>> Fixes: 4fef056588f5 ("arm64: dts: amlogic-t7-a311d2-khadas-vim4: add
+>> initial device-tree")
+>> Fixes: 6f048cc7a635 ("arm64: dts: add board AN400")
+>> Signed-off-by: Lucas Tanure<tanure@linux.com>
+>> Assisted-by: Claude:claude-fable-5
+>> ---
+>>   arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts       | 2 --
+>>   arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 2 --
+>>   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi                   | 4 ++++
+>>   3 files changed, 4 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
+>> b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
+>> index cab2ee9ea0d3..dcbcd08a78b9 100644
+>> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
+>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
+>> @@ -33,7 +33,5 @@ xtal: xtal-clk {
+>>   };
+>>
+>>   &uart_a {
+>> -       clocks = <&xtal>, <&xtal>,
+>> <&xtal>;
+>> -       clock-names = "xtal", "pclk", "baud";
+>>          status = "okay";
+>>   };
+>> diff --git
+>> a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+>> b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+>> index c41525a34b72..677069e58f30 100644
+>> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+>> @@ -266,6 +266,4 @@ &sd_emmc_c {
+>>
+>>   &uart_a {
+>>          status = "okay";
+>> -       clocks = <&xtal>, <&xtal>,
+>> <&xtal>;
+>> -       clock-names = "xtal", "pclk", "baud";
+>>   };
+>> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>> b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>> index cc371fcd1896..7847582e77ed 100644
+>> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>> @@ -587,6 +587,10 @@ uart_a: serial@78000 {
+>>                                  compatible = "amlogic,t7-uart",
+>> "amlogic,meson-s4-uart";
+>>                                  reg = <0x0 0x78000 0x0 0x18>;
+>>                                  interrupts = <GIC_SPI 168
+>> IRQ_TYPE_EDGE_RISING>;
+>> +                               clocks = <&xtal>,
+>> +                                        <&clkc_periphs
+>> CLKID_SYS_UART_A>,
+>> +                                        <&xtal>;
+>> +                               clock-names = "xtal", "pclk", "baud";
+>>                                  status = "disabled";
+>>                          };
+> 
+> I agree with moving the UART clock configuration to the DTSI file.
+> However, it seems a little odd to keep the XTAL clock definition in the
+> DTS, as the alias may not be consistent across different boards, which
+> could result in compilation errors. Could we move the XTAL clock
+> definition to the DTSI as well, similar to other Amlogic SoCs?
 
-You were right, and it is one line.
+It seems similar to changes in this series :
 
-Three runs in one boot on a ROCK 4D, one variable between them. Each
-forces a timeout and then runs the same convolution.
+https://lore.kernel.org/all/20260420-add-bluetooth-t7-vim4-v4-0-9505df0e7016@aliel.fr/
 
-  put                after the timeout          the next inference
-  put_noidle         runtime-active, rail up    0 of 128, MMU_DTE_ADDR
-  put_autosuspend    suspended, rail down       128 of 128, no message
-  put_noidle again   runtime-active, rail up    0 of 128, MMU_DTE_ADDR
+What do you think ?
 
-The domain never drops, the bus reset it cycles on power-on never fires,
-and the MMU stops answering. Your third bullet. The third run is there so
-the failure is deterministic rather than intermittent, which two arms
-could not have shown.
-
-The fourth run in that round is void and I am saying so rather than
-letting it read as evidence. It meant to force a suspend by hand and
-separate an armed timer from a cycle happening at all. I wrote "auto" to a
-power/control that was already auto, so it did nothing. Five seconds later
-the state line still reads runtime-active with the rail up and genpd
-active_time still climbing. It failed the way the first run did, so it is
-a second instance of the bare put and nothing about forcing.
-
-pm_runtime_put_autosuspend() is patch 3 of 13 in v9, its own patch rather
-than folded, with your Reported-by. The interrupt mask goes into the sync
-patch, where it makes that patch's own sentence true, and the lockdep
-point is in the message. Your Reviewed-by on the extraction is carried.
-
-Twenty resets recovering on RK3588 with the domain dropping every time
-does not contradict this, since the dropping is the step my failing runs
-are missing. One difference between the two tests is worth stating now
-rather than after we have both quoted it. Your induced resets come from
-JOB_TIMEOUT_MS at 2 ms against healthy jobs of about 5 ms, so the block
-being reset is working. Mine come from a job that hung. Whether that is
-why your domain drops and mine does not, I cannot tell from here, and
-RK3588 may simply have nothing behind the domain that needs cycling.
-
-Both limits you drew are the right calls. Testing through a path you have
-reported as broken would have told neither of us anything, and only the
-differential earns the tag.
-
-Jiaxing
+-- 
+Best regards,
+Ronald
 
