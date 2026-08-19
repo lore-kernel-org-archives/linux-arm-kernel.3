@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF18C5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2093C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Neo+1K8ghUMGN3G9vUjB7A1LbHA9OhMwHPbvzVv5Wg=; b=thRZC9FDStt0sA0fqP/fQUHtmf
-	zUYlsnd8qgsJV7xKknqlFcI3dM+d/62j8QbVKY7tbbLulG+0x5RiqPi7DELHeI88gu11sd/6ZB9Jj
-	ggr7L8uI8Yl0fjgeSJYgzF/iskxj4PYLvV5FEGoeZUm0Rwg984WuK8Qaj7aMe7Zi5bcAdlx0pYPpv
-	uCpwDXlJlMKMwZP5aVLCoVEbzX4jNQ2dgmQR642RXviNAffcEUe2SQjF5YOYgJGPwQn+RvkOIe04c
-	oQqF1f4vTd7At88P9p1/7So9GynUmrkp9bcREX5NjSZjKmuE/FEuofh2q8K2+2yLequP82C+st4Ga
-	NHWn04fA==;
+	bh=qb8vbO35I9ReDoy08LYZaOcpJWIqiGdFJcRUGNTu904=; b=tOF3JzkONGVypsA+uGiW7qbGAn
+	TIzCwBINJm5+8NJd7GnFMUYiX6lgFx582M2fFIKVIuO7HDp9e/sHO9eL6U7W+UG7rtnP3FX+bNGzU
+	ePH6T+rWzLQ/Od7zLT3iNgw8qcEXkG1LiqsXVJLUyHtPiGqxucBO8OXmXJw2CkVglmQGmLKMdG1mm
+	SD9ZCGN8jPx9Vbg7HT45gGsMRB8a7txmeoZf5LPR03y1X8+q6nXyrzS5hTyiKhy12KUHIBIUadByV
+	dVh0jZjXmTxjT3vUxzrr24sN0D0Vph2HquMD1KxaG2aLrlfc2Gb5R+yZFEaE2rVsBEb7YxHUG7Z4p
+	fQy03lJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wweml-00000009hTR-2fke;
-	Wed, 19 Aug 2026 11:48:47 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1wweo4-00000009hiC-44kk;
+	Wed, 19 Aug 2026 11:50:08 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwemi-00000009hSI-2rbE
+	id 1wweo2-00000009hhP-0uIb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 11:48:46 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5aeb98460c6so1113212e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 04:48:43 -0700 (PDT)
+	Wed, 19 Aug 2026 11:50:07 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-39f1ac13687so6139751fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 04:50:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787140122; x=1787744922; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1787140204; x=1787745004; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:date:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=1Neo+1K8ghUMGN3G9vUjB7A1LbHA9OhMwHPbvzVv5Wg=;
-        b=BcuTV2ftVvA0w4aoZcT9x148ee9FFPB6YgGPPpuQRyGeuXvj24GkWqSeQrgvgkUY70
-         owhrz1H8kgdPeGEbplTV5Eph9WQpLKBzriwKQtFo0B0PlP1H0viWdtyTc0TAdfA5Hala
-         /a564pp01xEUb4Sous/vFQ4XMH3sDA/MKL+KYf01ABxwlHjIA7a+FWtCnKTPsTAQ0Mfw
-         JOVnp9VPV6nWAtH30PIrefj0/OdgxDtjkXzjNfHnduNBzVDIASHsLG0bAzDLR07E1KlU
-         CcxwlcM7vYv4TC+hqHlbtAh/jplUAM/nrDr5UoD58O1f77SHdzqehfYzLUHGMBrLz/Iu
-         bpSw==
+        bh=qb8vbO35I9ReDoy08LYZaOcpJWIqiGdFJcRUGNTu904=;
+        b=j7Ag2Bjpu8HaLr0c1tAvInr8240b+MniiQK212faYTTeK4A2ApQJklse7b7yp1u8eL
+         m0FSZxD32jACt17Xqcadn/xgk67NORY8T562BWTWKEP3xEEU4U2nAL4FRdgD1jR/Wi0H
+         gTWc7KWVO78RhmxbLC9QGxXY0mMJGhvXP8+8k7DEx638Blk6HtanDYpUWSUsjyclYfpY
+         Ph+/b5VRMCx5NLfJXSiv7oyak2s6H+PFE/5EjagLmRBt3Jg08DSGS0sNs5Wn6QrWFTW/
+         j6yaj7WlySF83893sYx0jyuKPOOLNE/M5eS/S7um+zxTB/0y7LjNpqu3q437bbHM3iKx
+         ch7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787140122; x=1787744922;
+        d=1e100.net; s=20251104; t=1787140204; x=1787745004;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=1Neo+1K8ghUMGN3G9vUjB7A1LbHA9OhMwHPbvzVv5Wg=;
-        b=P6emy+gug19iHBW1s5i15lcx0Ed9OnycyGRuVD4yPsvqDmxYpQmGMumJ40A+i0kbaN
-         thRPWJbwgXAyFhlJ+8nOYBryIJtey5mqfTU8OGs7MW5sgej4/iShnncxU9b+ec48gYKm
-         IhTERhrPvomEf5nguvTc0bLu3qj/lw4CwB2Iad4hZYMRlYcJxWJ98LWsG/pbOp6xML/s
-         45xzLsJPrH672mAS5eahEVkwSThFwbpaigWZrzvBHKHE+gfhE5zaDnHvp/tKg41Sqb3S
-         lbaIg+9suQjVxSlbTEgWWB2pmXu9iO21qeJmECjC15/qdfof1SU4GFyiyMXIxiqmtlss
-         TTDA==
-X-Forwarded-Encrypted: i=1; AHgh+Rrh373qwgBqYL+C+T173XAGxFv6A5zQrKZJsOcIf0zwhG0T0uRaNgM7gTjBvMOniHv5OFgmUBB52rWBWU8fGG4P@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAf9wmrCeA2wHEGP0nYA4UFMX4RLKB0mSlEo7nTAYsulyDuHYh
-	Vgj7RYVIQ8VP7VUOPZt64QBBCZlblrM5AHII2jYYgkokExxVFKT32Aq9
-X-Gm-Gg: AR+sD11mkx0HjcX/kyqo/0Ih+j0qoBXozQrjWJIYswFJRKBY7g9EAROnwPrx0MmzdFU
-	yK8BSX8qoyxO6kzghGuZCrrUrZ0sZc/3EmcdrIaUpd6kQIrNiuGZURn1wyHIUFx3qj0akg/fxm5
-	NPXZxqTcK3FSFXx9EZrqp2Hos99BpX0YY8a4JfnB2xjF/ja0rzY2igrka8/pc24d6qnmnWk3OgY
-	aDLnnFH7nd7aVJfpdGXhFLt9IB5m63FbdZi05jExPMA2b1hMJjfCTuYYJ65Cb2I6ApSza45/seS
-	ci6cWgqV+Mynk1Rhh++ENWDOYMctAqDR/tYerzQM3nKBuxDa5kMQSl57IHqOeihs0niBuUf35Ot
-	AkUqvbOgj4UOC5kiWNj3uh2nlmCk+jgimrNZ6kiMhNCrvXRK8iBCzEZ//lRp1VwBG16Kn4QMyBf
-	Amn7y4YdKXSTvp2EMB7OsHR9lgtBO52mjvvLhRSK2vafDDZBHSYd5dr7dOmjjXszT80WvS6mV3N
-	RGW8yH6siXcgEzfb6h0KcnxwUcg3Q==
-X-Received: by 2002:a05:6512:224d:b0:5b2:f453:1073 with SMTP id 2adb3069b0e04-5b478b9070dmr1376566e87.2.1787140121681;
-        Wed, 19 Aug 2026 04:48:41 -0700 (PDT)
+        bh=qb8vbO35I9ReDoy08LYZaOcpJWIqiGdFJcRUGNTu904=;
+        b=XQI/l6za6s99Xrg1c64D+6/87MbYRTOq6Ud3tQSRD1qd2x0wWUrdUQ7BwveIiBekp2
+         oJXVfKKnn5Dnd6VUGR+Mw2l5f8H28U3FykXcDIEGGdW4ehbIDo+E1CeX3roALaEtyvBW
+         LcjFtdckTYv8wSvGJK8FvCMLlspsToj0UopNMsS2s7R+QaeZ7h0KpWMSW5Me7o6lxkai
+         jMYdscHwB4eCIMUtIUiPQb5eOCN0uL2tpcIp2aaiI6EpsrqsJBr9V+ORIW4n5TionLQ3
+         /TY6lk+UvHIUdznzV4auXA2c/k7fBMVb6A9Mp4o/HvEZsxe6pbJZZUjBKW9ufzaQdHtw
+         9hGQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpWlslYsIeCfjtpSaJ2b29b7LDPPb4MZ211zgso0KpGwsU+ep8fU0510dRpR7t07YeAlSExLojAgjppnw1dMF4N@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgkIBi0cRwzzCfIevoENqm42nXdAdcF31rhcD8raVWUSY3aUCk
+	Ae5Ia0hTbzCunHyWU83MVu6EV1c4QzNRu5nbFtead084h8JtICn6j7gU
+X-Gm-Gg: AR+sD11e1O7TcH5V8ec+tNMi6/gxNTAyIuE23ljPsJm73h0fRwD2f4G5tqrTsYZi9hL
+	OKqusHIgTwzY1UmziXOXjpKW9rVkJLqKYVBr8DcBpBSZ9fIxMXSLCbZhA+loeyGCG74bX5vkQk4
+	wIcVN2pFFcd28W/5F/gFqHFmJm9f3WP1xO5VA6b6jz9xi2GdUErxlvDM7lr4/dsC4NWMKDAmyiD
+	GOEceYhUABrG3LQxQhgi6U/GRpb7XgIq1xjKcgAV4KDXioxOaErOFBH8pG0a4I9FKdzJVNiXi5e
+	+v8qc5Ai9070acGfwC11iBPU2WB27hZ0UpBdn39WAclDk2myJNBbJuYHz1GkuoiBC5fJhUABepT
+	FsXtGk7PsDlADgFBI9J7yx+D8z8qsv5ZGOk0SuOOHlRxu/0UGxmUWMBTsEJHBgv2OA/HtEVCm9a
+	/VM/Ck3xRSqeJmbMtBwxHERA9BNUH6bBVOYlxQhIYvjdEbyGiGMzicPHyXiOA2cEtFW0K2MSk/i
+	f3TnWiEOtW9t8Oeb4w=
+X-Received: by 2002:a05:651c:3135:b0:39b:48c1:8cd4 with SMTP id 38308e7fff4ca-3a18996bd7dmr7858151fa.7.1787140203900;
+        Wed, 19 Aug 2026 04:50:03 -0700 (PDT)
 Received: from pc636 (host-95-193-137-165.mobileonline.telia.com. [95.193.137.165])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b478853971sm482752e87.10.2026.08.19.04.48.38
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a18a8e8579sm4123321fa.0.2026.08.19.04.50.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Aug 2026 04:48:41 -0700 (PDT)
+        Wed, 19 Aug 2026 04:50:03 -0700 (PDT)
 From: Uladzislau Rezki <urezki@gmail.com>
 X-Google-Original-From: Uladzislau Rezki <urezki@pc636>
-Date: Wed, 19 Aug 2026 13:48:36 +0200
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Uladzislau Rezki <urezki@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
+Date: Wed, 19 Aug 2026 13:49:58 +0200
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
 	Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexander Gordeev <agordeev@linux.ibm.com>,
@@ -98,26 +97,25 @@ Cc: Uladzislau Rezki <urezki@gmail.com>,
 	Ryan Roberts <ryan.roberts@arm.com>,
 	Sven Schnelle <svens@linux.ibm.com>,
 	Thomas Gleixner <tglx@kernel.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
 	Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
 	Will Deacon <will@kernel.org>, x86@kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org, linux-pm@vger.kernel.org,
 	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
 	loongarch@lists.linux.dev
-Subject: Re: [PATCH 2/6] mm/vmalloc: set area's page_order after allocation
- succeeds
-Message-ID: <aoWYFH_FJXlMK8fw@pc636>
+Subject: Re: [PATCH 3/6] mm/vmalloc: constify vm parameter of
+ get_vm_area_page_order()
+Message-ID: <aoWYZk7xNfjwuzQ_@pc636>
 References: <20260816-execmem-set-vm-perms-v0-2-v1-0-90944a3ad43f@kernel.org>
- <20260816-execmem-set-vm-perms-v0-2-v1-2-90944a3ad43f@kernel.org>
- <aoNFZU_QzghDBgbZ@milan>
- <aoVUF2pgl8JYNyIU@kernel.org>
+ <20260816-execmem-set-vm-perms-v0-2-v1-3-90944a3ad43f@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aoVUF2pgl8JYNyIU@kernel.org>
+In-Reply-To: <20260816-execmem-set-vm-perms-v0-2-v1-3-90944a3ad43f@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_044844_800830_6E18BC5A 
-X-CRM114-Status: GOOD (  31.78  )
+X-CRM114-CacheID: sfid-20260819_045006_276935_6C1826F2 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,81 +130,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 09:58:31AM +0300, Mike Rapoport wrote:
-> On Mon, Aug 17, 2026 at 07:31:17PM +0200, Uladzislau Rezki wrote:
-> > On Sun, Aug 16, 2026 at 01:59:25PM +0300, Mike Rapoport (Microsoft) wrote:
-> > > __vmalloc_area_node() calls set_vm_area_page_order() to set area's
-> > > page_order before actually allocating pages to populate the area.
-> > > 
-> > > If allocation of large pages in HUGE_VMAP case fails midway, this leaves
-> > > the area with elevated page_order throughout the cleanup path.
-> > > 
-> > > There is no actual issue with this because the only place that currently
-> > > relies on area->page_order on the cleanup path is the loop calculating
-> > > the direct map alias range in vm_reset_perms() and it anyway skips
-> > > unpopulated pages.
-> > > 
-> > > But having set_vm_area_page_order() in the middle of __vmalloc_area_node()
-> > > makes things very obscure, hard to reason about and error prone against
-> > > future changes of the cleanup path.
-> > > 
-> > > Move the call to set_vm_area_page_order() after __vmalloc_area_node()
-> > > succeeded where page order is guaranteed.
-> > > 
-> > > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > > ---
-> > >  mm/vmalloc.c | 11 +++++++++--
-> > >  1 file changed, 9 insertions(+), 2 deletions(-)
-> > > 
-> > > diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> > > index 22566e0b6e38..6822f0fe9583 100644
-> > > --- a/mm/vmalloc.c
-> > > +++ b/mm/vmalloc.c
-> > > @@ -3901,8 +3901,7 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
-> > >  		goto fail;
-> > >  	}
-> > >  
-> > > -	set_vm_area_page_order(area, page_shift - PAGE_SHIFT);
-> > > -	page_order = vm_area_page_order(area);
-> > > +	page_order = page_shift - PAGE_SHIFT;
-> > >  
-> > >  	/*
-> > >  	 * High-order nofail allocations are really expensive and
-> > > @@ -4106,6 +4105,14 @@ void *__vmalloc_node_range_noprof(unsigned long size, unsigned long align,
-> > >  	if (!ret)
-> > >  		goto fail;
-> > >  
-> > > +	/*
-> > > +	 * Set area->page_order once it's known exactly that the order of the
-> > > +	 * pages the area contains.
-> > > +	 * Even if we succeeded to partially populate the area with large pages,
-> > > +	 * still treat the area as populated with order-0 pages.
-> > > +	 */
-> > > +	set_vm_area_page_order(area, shift - PAGE_SHIFT);
-> > > +
-> > >  	/*
-> > >  	 * Mark the pages as accessible, now that they are mapped.
-> > >  	 * The condition for setting KASAN_VMALLOC_INIT should complement the
-> > > 
-> > > -- 
-> > > 2.53.0
-> > > 
-> > OK, can we just set it right after the:
-> > 
-> > 	area->nr_pages = vm_area_alloc_pages(
-> > 			vmalloc_gfp_adjust(gfp_mask, page_order), node,
-> > 			page_order, nr_small_pages, area->pages);
-> > 
-> > 
-> > succeeds?
+On Sun, Aug 16, 2026 at 01:59:26PM +0300, Mike Rapoport (Microsoft) wrote:
+> get_vm_area_page_order() and vm_area_page_order() do not need to modify
+> struct vm_struct passed to them.
 > 
-> Here it's still not clear if vm_area_page_order() succeeded :)
+> Constify the parameter.
 > 
-> I can move it just before
+> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> ---
+>  mm/vmalloc.c | 4 ++--
+>  mm/vmalloc.h | 2 +-
+>  2 files changed, 3 insertions(+), 3 deletions(-)
 > 
->  	return area->addr;
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index 6822f0fe9583..fc7993db4152 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -3124,7 +3124,7 @@ EXPORT_SYMBOL(vm_map_ram);
+>  
+>  static struct vm_struct *vmlist __initdata;
+>  
+> -static inline unsigned int vm_area_page_order(struct vm_struct *vm)
+> +static inline unsigned int vm_area_page_order(const struct vm_struct *vm)
+>  {
+>  #ifdef CONFIG_HAVE_ARCH_HUGE_VMALLOC
+>  	return vm->page_order;
+> @@ -3133,7 +3133,7 @@ static inline unsigned int vm_area_page_order(struct vm_struct *vm)
+>  #endif
+>  }
+>  
+> -unsigned int get_vm_area_page_order(struct vm_struct *vm)
+> +unsigned int get_vm_area_page_order(const struct vm_struct *vm)
+>  {
+>  	return vm_area_page_order(vm);
+>  }
+> diff --git a/mm/vmalloc.h b/mm/vmalloc.h
+> index 8866ddcff668..211869f36509 100644
+> --- a/mm/vmalloc.h
+> +++ b/mm/vmalloc.h
+> @@ -12,7 +12,7 @@ void __init vmalloc_init(void);
+>  int __must_check vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+>  		pgprot_t prot, struct page **pages,
+>  		unsigned int page_shift, gfp_t gfp_mask);
+> -unsigned int get_vm_area_page_order(struct vm_struct *vm);
+> +unsigned int get_vm_area_page_order(const struct vm_struct *vm);
+>  #else
+>  static inline void vmalloc_init(void) {}
+>  
 > 
-Even better :) For next version:
+> -- 
+> 2.53.0
+> 
+LGTM:
 
 Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
 
