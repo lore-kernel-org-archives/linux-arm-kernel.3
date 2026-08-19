@@ -4,65 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87C52C5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 08:45:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33617C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 08:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	In-Reply-To:Content-Type:References:Message-ID:Subject:CC:To:From:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=42iduETGlknsslp/j7ZqOxLTb0nElQTxLcQCYseFPTw=; b=kJQ2doZzEokFRfOjTnqVh7jlVW
-	hPtEHBsAbSmYVq34AoHSdcckAl15cT+UUmBC/oFvl63eBZbGfHed5adDwe7pPUpuV5PNZB8BsCy8r
-	vobTLT/SFr7TRu1TR5Xg/R6J8nnIPFYfOV8xutryvGZQLQZgt3xHiN6h+vSxGEckInBBd3W5eK24i
-	WlEFo1TaGLX5o7Yumsj4zxvZEpi9a9alV5faP2D7B8o3FU6Y3g0hU9M/sQQ6Gh0WACXM3G1vro6FG
-	WNPIYrGrKHrNd3lX4cHmtpaW86pfgZb8x/kAuEvTl78gUXrPE7sHgN/4il8aSNPp30N/Pqh3262uG
-	Jnanvsiw==;
+	bh=/uU6f12BIUhdbdVWhMaHoKtu8LYK2CiOIoKpWZ9NT0g=; b=ChG/4MCpGwjo5svxqyaYyST4yJ
+	z6nP6sjrpd/M9gQxgNHNevt+b0LoK1eljXOvmSsWqfq7NM7e3ZULtroXy57LNTOd80NtaxIv7Xvw0
+	zfuFqhdVkLhZEpo3jcfY+85ZnD7LETZCFTTrLeXrADsO0yE69FxN+9rdMtQmew0U0DGIXQt/dOD3k
+	rkZYid79VqzSNXUOlWHWqM8DL/A8xD4J/PaFOVDMTd5VuuvegerUXM0de0WJoI31BJoEzv14IpEdT
+	SMNAudxAhgB5kV08UBz4iCKIIJ8s+daJ+s4y2X6cV7OZGlG3rcgu3MLF63alkRAjUuaQXLYeoHQdJ
+	KMBNr2Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwbvI-00000009Khb-2am8;
-	Wed, 19 Aug 2026 08:45:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwbvF-00000009Kgw-2Oj7
+	id 1wwc2J-00000009LNj-01dC;
+	Wed, 19 Aug 2026 08:52:39 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wwc2G-00000009LNE-17gy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 08:45:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0EFF4153B;
-	Wed, 19 Aug 2026 01:45:14 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8981C3F66F;
-	Wed, 19 Aug 2026 01:45:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787129118; bh=+aHPlIAKmlb/qA4aZRXFzfPHKV26rayOq1J+KtH4ivQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TZipHbMWLvpXTTZgT91Nhe/tCT/Q6bKzjQFFaEc464Re2lX5Jnfsq1RFMdIy5QSqv
-	 2b8CxoPh03mEyHdYQ7M/3Z6cpSEuCQlu7GxNih6RI725ERT4NmOiR1v6Du+xMRDMiA
-	 g3wltJNirnKR7sjBRrAZT8wuHSAojxGDcP2qKifA=
-Date: Wed, 19 Aug 2026 09:45:15 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>, Suyash Mahar <smahar@meta.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Qi Liu <liuqi115@huawei.com>, Junhao He <hejunhao3@huawei.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>
-Subject: Re: [PATCH v3 4/8] coresight: tmc-etr: Prevent per-thread events
- from sharing a sink
-Message-ID: <20260819084515.GF8904@e132581.arm.com>
-References: <20260728-james-cs-multiple-per-threads-v3-0-6aee7579f1dc@linaro.org>
- <20260728-james-cs-multiple-per-threads-v3-4-6aee7579f1dc@linaro.org>
- <20260813160504.GC8904@e132581.arm.com>
- <dcea48bc-6a64-413b-acf5-9783f979ab6d@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	Wed, 19 Aug 2026 08:52:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787129556; x=1818665556;
+  h=date:from:to:cc:subject:message-id:reply-to:references:
+   in-reply-to:mime-version;
+  bh=wJjiYylTMeZWJcR+sQIrp5aILWBoOPqNadpim0kzwjY=;
+  b=GygfHP2INudmxe7eTcHvHMIkE6t33hyJ9FlKEn8Gc51Y+XzDbuRcS9iv
+   8hClc9tY/biaGJmJVB4lFPYwMYUviW8L4+u1IGXoSZW40dk45LBpkXUxm
+   CHXikCiHUF+4oFyfrJshDy2b0EdJi9lkT2S3PntFb8LT3tHQOM63WIRGz
+   q0oBoSDBVhS3YEzCPhu0mGC3Ocju7tkjhNgegjkIDpwspoScu+DQ/iblS
+   OZI8McWUeB3kF1L6zYttYgc2pb3u9u9CJp5k1lC8vgVEcqVu7zaPmqrQs
+   lsRHAc+x59VeUeirt28B0julQXikxadkeKGyHzXiBmv7A5gIE3FFdYJx/
+   Q==;
+X-CSE-ConnectionGUID: VyZ+8T1UT8GjpJPauR546g==
+X-CSE-MsgGUID: ALj3ayRnSV+Q3XjRWfciIA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11879"; a="98230772"
+X-IronPort-AV: E=Sophos;i="6.25,231,1779174000"; 
+   d="scan'208";a="98230772"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2026 01:52:36 -0700
+X-CSE-ConnectionGUID: /3L/UOqgTtGul801X8hPHw==
+X-CSE-MsgGUID: InkprnOhR2i0eV4HK9y8kg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,231,1779174000"; 
+   d="scan'208";a="265037903"
+Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
+  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2026 01:52:34 -0700
+Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Wed, 19 Aug 2026 01:52:33 -0700
+Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
+ FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45 via Frontend Transport; Wed, 19 Aug 2026 01:52:33 -0700
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.67) by
+ edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Wed, 19 Aug 2026 01:52:32 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eSofDQzT/GT0lX2fSsj3+hI291Ofse0U8wu7nScpHBVC26z4s8bNYw2dYKNgxVD9wA8SD1MFeI+97ZC1u4SGz7gUM/CwUHb43B51NKV99xg4oTZRta/+HAl6X/OAz34xYJcCeAoJEsdrK/SQOmNuB+OIPI0CH/qjYq38ghJAhZaZg1ro92siW3rBCJlIw6QvXvhnoDcez9rPumQUS3yEDfrjTP2s5T7NHXx+tkhriF4pdmtIn1htrMo9DXTJIySHdaR0de0J4l0Gas9UKMOB0keVy9lP5OaNK+N7RRJbbajhzAFNsmg4M0pe5UNBJOH5pJ6OUAxARFtleVX8afISkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/uU6f12BIUhdbdVWhMaHoKtu8LYK2CiOIoKpWZ9NT0g=;
+ b=VvGScA0vLTyqAyMB1yUjrAGwhUd9IfotvyQmH3pzZ/G290q26IyNgK49yD12j1RtaLP1AGSgy6Tvk4BJ8X2ukBnTVoBBmQXD4KmqNB1ZMv14dQ2TT0QHXXHfY9EBlog38PP480kTy+LuAriu3CBJyHgjNyepAk1kidH/g726lmQl323r91xsLzwWB3GuVvBvFOZ5MYvBsci790HKjl0rQUXnIDHt6eJILmDCZBsGnOoDp6RbTibXWU95N6IECGtmXjMeBxBHXVEUbO3QTFhFqzQORa0grihvF9641oJSG2RkLpXjIctdikgNQrKAJ4QDoxfsSPve7KZaC7pb/zopog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DSVPR11MB9579.namprd11.prod.outlook.com (2603:10b6:8:383::17)
+ by SA2PR11MB4810.namprd11.prod.outlook.com (2603:10b6:806:116::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
+ 2026 08:52:28 +0000
+Received: from DSVPR11MB9579.namprd11.prod.outlook.com
+ ([fe80::ab5f:5d0f:fb90:9d]) by DSVPR11MB9579.namprd11.prod.outlook.com
+ ([fe80::ab5f:5d0f:fb90:9d%3]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
+ 08:52:28 +0000
+Date: Wed, 19 Aug 2026 16:52:07 +0800
+From: Yan Zhao <yan.y.zhao@intel.com>
+To: Ackerley Tng <ackerleytng@google.com>
+CC: Sean Christopherson <seanjc@google.com>, Paolo Bonzini
+	<pbonzini@redhat.com>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
+	<hpa@zytor.com>, Ashish Kalra <ashish.kalra@amd.com>, Michael Roth
+	<michael.roth@amd.com>, Brijesh Singh <brijesh.singh@amd.com>, Marc Zyngier
+	<maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly
+	<joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, David Hildenbrand
+	<david@kernel.org>, Fuad Tabba <tabba@google.com>, "Edgecombe, Rick P"
+	<rick.p.edgecombe@intel.com>, Vishal Annapurve <vannapurve@google.com>,
+	<kvm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>
+Subject: Re: [PATCH v2 4/4] KVM: guest_memfd: Stop returning struct page from
+ PFN lookup
+Message-ID: <aoVut/h1u7HdFxkR@yzhao56-desk.sh.intel.com>
+References: <20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com>
+ <20260818-gmem-no-return-page-v2-4-5298f42d49bb@google.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <dcea48bc-6a64-413b-acf5-9783f979ab6d@linaro.org>
+In-Reply-To: <20260818-gmem-no-return-page-v2-4-5298f42d49bb@google.com>
+X-ClientProxiedBy: TPYP295CA0020.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:7d0:a::10) To DSVPR11MB9579.namprd11.prod.outlook.com
+ (2603:10b6:8:383::17)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DSVPR11MB9579:EE_|SA2PR11MB4810:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9fef3504-9fdc-46ed-bd6f-08defdcf32b3
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|10067099003|3023799007|56012099006|11063799006|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: VgrV78dPTeOuV3agLwhBdE5Cr9UbJXex2+jBKhR4MSOOUQpY0PMF7gBlIWfaV42FEwlVkhnL476e1INb8mHZO8v53kvIGW0IemwoksOTRnlaRyuVEAZv9TnB6YJEklh566/6LJBXx3huAjiz+SdgZftpdVlEOypqFx8LhpP0jjtwFhkl2VXuVvz2sKMdSVsYWM46iwgAAYNihPiFHDdYE6M4Nk2ZBaKwQG+jIfe/zM9dV9DO07xuD8XCynAo/mYH8Z8UnhGNm2CVsAuyLt94qiAeqEbiRN8cKPxaXCKV2ogRZn6GVysv7m0hKryGLgoqTP3eYZwloyPEPOEz61MWe7xYYfGDbfV6Z+SU8J0MEvCj0WW4wM7iAxyn99nNrM2srAqA/GHK/9aTzUx4RwY4atINRJFU2ZDkWn3TQxxkrpir/IE1wxASnrTBKrekGdtxhcfgx5FkXrseAT/4KW4I8o/E59fdYZvPYRXeUgP4d8VfwPaoRMQ7UGXE0xqZNmGmpmrLOBfLbIX6Es9t+5gHTF7/HqSy7ZcTko+cJdklPZEWPoovXk6ow412CswwdIrc11iXZh0Sps7cU8EbggBZKdyLSIwkVd3K66SPlCOC6lem8oZ/DcfdhglYsFRlOX/EqXqtr+2/PXzm848dMX39Wg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DSVPR11MB9579.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(10067099003)(3023799007)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uc3qTdHFLuowx0WmFE+VGgdyI9vaVT9rs+userPX1BYs1mhEdRfSiNIudj5c?=
+ =?us-ascii?Q?ROxwwkOe6ihwIvnyeKl4YjMe5x4Fm6dSWk31TkRMWXT05sT59VBfO/EJ7x3j?=
+ =?us-ascii?Q?chzAxI/PICwlBXst4tYNpn8B2uKa3gB/uUxMDD/9CIdFpGzXhSE57mibqRLf?=
+ =?us-ascii?Q?lsgPVOvEDzscqv+ofvOhRZCGKow8hakBgf172aqHtWXj/1KjY2h7UM+nQfKq?=
+ =?us-ascii?Q?cPATQggKeOH2SeNZTD8qZ7mgbVLJ3tNhJrpGFWpwhxOwyBE2aQNwdUt2FV4A?=
+ =?us-ascii?Q?nFCpYvEXFaSRpc6r+xJRN1uozVFg8+CmeNll49cPNjJcm0tD+2QKLdEZ+PAR?=
+ =?us-ascii?Q?f4PHONhZEWz4OaNZ2TOMv/rhmDhMbNVfrAUEbekeF4u2VoOgcD3h3DaGDKb1?=
+ =?us-ascii?Q?TFyOQdnieSM02dE++k+BU5+bj/sGtVFKYSGKgSQIreq4MhoGvOOAKfbPvMYG?=
+ =?us-ascii?Q?fzKclnJJoL+rNzT7ypSwOUUDWFOmxEzalf1F8g+uUXEka8BzjvnMjObVwuFb?=
+ =?us-ascii?Q?XMfHxx2w9TOHSPPFyOVI/cyA0WMy/5RXK20SW+7Oz1GjnHBfzvDf4DuJ+Cbl?=
+ =?us-ascii?Q?uj5fPTh2pQS1mS/KcRy6MfvDa2Ni5IQIF2q+LYPRQpkOBlUX0zg7T7Pt0+GK?=
+ =?us-ascii?Q?ZKcikr9ZiY3iCvztOwr7Oh8F0a/7wVE9XcpuLTvHgxuw7ZWucOaOmZ1JHOwW?=
+ =?us-ascii?Q?lDENdIZ0+W8s3mEI6qsfoH4XlI0zaIpqK8c5ZXw7mSZRisSh0DJbPoUGQDGU?=
+ =?us-ascii?Q?xkXEW9LNsJ24pZCZjEA8YGmNsOMEcuIOcKRYoVK4ZGtBrsB/UtG9JF14rJy8?=
+ =?us-ascii?Q?7uF8Asd8bhu+Eza8LHxNSMml+me3R4Y6qfHDHIYwm/f3EZgt/YuEhVvJi48H?=
+ =?us-ascii?Q?yE+gEolHz09+WEiYdLQQIBOJbdX9BceKcZ57zdofjkefGC0TDyMNTZHOzqEr?=
+ =?us-ascii?Q?w3DbkalT3FiACR//U4HVxYB6DzuGLNgXJdO5yTtNR5xIszXF4+8rnp5BAfh0?=
+ =?us-ascii?Q?omMxoIRlPStFV7R6sQOshnIX98b89zkmWGohts8B43TeGvNuOfU/KrTmpLvs?=
+ =?us-ascii?Q?18Q1m5YWhQKY3bpngZ5Lm19FiD42CnT/h56kBL8JQ63CtIrTlP+ib/yVTeIF?=
+ =?us-ascii?Q?mtmArlFmtljDSGmFfqj8TefASnQeBqfLb6IrA8DyF5NnB4uLREAKpn1wEpBe?=
+ =?us-ascii?Q?izq/yzuc2mmbMuiXxEZU+vPPul9SdyZE16VHOxOlh2MeAhwRhmNhzLim2+2r?=
+ =?us-ascii?Q?ZcAuGnSCkyCCdEl3YxeTWdwObF8aopJUntxtYG8nxNQc9Phyziz1tGoPIGEM?=
+ =?us-ascii?Q?xYjgsKGfEIjx2qbdmZwSH6VB4wlz1QlUOWIGk+55JFIcmIqn8xu4ZBAXQEAM?=
+ =?us-ascii?Q?Ob8vQUYkED0K78yoXYkXg7TNPxhLQcRWuGiIn4taqFU1iCoVoV+p9eGHRYdv?=
+ =?us-ascii?Q?DxuAIZ1cqVuhKOY4raeqlEtv+q8GvvXtYUdQ2gqvov8LiMC33wuie6q8BQJh?=
+ =?us-ascii?Q?d5i87RkMYAUBiUMVyqZSoutEw4YpspPV6F2XsOvIASGMg41JBQKNQMD48GQj?=
+ =?us-ascii?Q?YDzkRR/4+k8Jv5JWnq6FwtIEdUuP7xTwPvnqFPAYDJS39DQO+4DBvTSAnSjw?=
+ =?us-ascii?Q?7ysMtSjUc0bSMk6oWs3EWPP5UV0s+psOEK/O/XiJdqz4ixwcpKxq/xeWT2XR?=
+ =?us-ascii?Q?sawUV/Q3LDAat6JefFwBV0xkssp6uTzitINeNDvsM6RoqpGAFNCkSy4zlFgj?=
+ =?us-ascii?Q?Kalqd9vSEw=3D=3D?=
+X-Exchange-RoutingPolicyChecked: ZNN2Ihd5aL4oYvHgTZG0lRjQQFdMAgFoVBq/74i5aL1HbKeVLw5a3E7cBo026JIHPuTVAIYlMbH5CIMvH1Sks+pYAx1u2ByGHcznn7y3ybPrTwt7eYf36Xqw4JEsAwrzmuyRrzmebkC1YpY8d2gCq7ryDNYaYKWnOWk3g3UR8ofzboUiIIIUr2ohV24GG/0I96SRp6yeLv0szdJYw+DoXrXxvLfYihEDVlsrNDC+cBgXMdFUyHbkoLG2OuOvgUf5VKU3ohCwjyJEuJP6ZfwtBoVWoetYjvB1kw1yYgAqJu5UZfY6xFreMm9XeUsLti8Pi/MAI6n6ruoOQKwW6TaO2Q==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9fef3504-9fdc-46ed-bd6f-08defdcf32b3
+X-MS-Exchange-CrossTenant-AuthSource: DSVPR11MB9579.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 08:52:28.5242
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SOLhszgmozdrhB9Dz5UvfJlxVhG9oivNx14bKKq/qrdvUqFqYA98/Lm0R9874TO+qB13PoTAIegeBcu2+QlVbA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR11MB4810
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_014521_791406_35B301FE 
-X-CRM114-Status: GOOD (  24.65  )
+X-CRM114-CacheID: sfid-20260819_015236_329256_3525651D 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,115 +182,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 10:09:01AM +0100, James Clark wrote:
+On Tue, Aug 18, 2026 at 09:15:55AM +0000, Ackerley Tng wrote:
+> From: Sean Christopherson <seanjc@google.com>
+> 
+> KVM currently expects guest_memfd PFN lookups to return a refcounted
+> struct page, which callers hold across fault handling.
+> 
+> Holding a page reference across fault handling is problematic for
+> guest_memfd. In-place memory conversions between confidential
+> computing shared and private states inspect folio refcounts to ensure
+> exclusive ownership by guest_memfd. A concurrent guest page fault
+> taking a reference on the folio causes conversions to fail due to an
+> elevated refcount.
+Nit:
+As this series is based on kvm-x86/next, where there's no in-place memory
+conversion yet, kvm_gmem_get_pfn() does not hold shared filemap invalidate lock.
 
-[...]
+However, the benefit of dropping the folio reference immediately before
+returning from the guest_memfd PFN lookup -- preventing conversion failures due
+to an elevated refcount -- should be effective only if the reference is dropped
+before releasing the shared filemap invalidate lock.
 
-> There isn't any sharing with "another perf session", unless there is a
-> mistake somewhere? Checking that the owners are equivalent enforces this. Or
-> do you mean another event owned by the same process?
+Do we need to make this info clear, since I think it's important? :)
 
-Now I understand that the problem is constrained to different events
-within the same session.
+> guest_memfd already notifies KVM of page invalidations, so callers
+> within KVM only need to respect the MMU invalidation protocol to safely
+> rely on guest_memfd for page presence.
 
-> I'm not sure the exact model you had in mind was that still supports this
-> and fixes the bugs?
+Could we also explain why the lack of SetPageDirty() (and mark_page_accessed())
+for a gmem page, due to NULL being passed to kvm_release_faultin_page(), is
+harmless?
 
-Let me try to describe my understanding of the problem.
+> Furthermore, removing struct page from the guest_memfd PFN lookup moves
+> KVM closer toward supporting memory backends that are not backed by
+> struct page.
+> 
+> Drop the folio reference immediately before returning from the
+> guest_memfd PFN lookup, and stop returning the struct page pointer.
+> 
+> For ARM, initialize the local page pointer to NULL so that the shared
+> cleanup path that releases fault-in pages safely no-ops for guest_memfd.
+> 
+> For x86, no additional changes are required in the MMU fault path
+> because the page fault tracking structure is zero-initialized at the
+> start of page fault handling, ensuring the refcounted page pointer is
+> already NULL.
+>
+Otherwise, except for the missing hunk on arm, LGTM.
 
-  ./perf test -w named_threads 2 1000000 &
-  ./perf record -e cs_etm//u --per-thread --pid $!
+Tested-by: Yan Zhao <yan.y.zhao@intel.com> 
 
-We can simplify the flow as:
-
-                | T1 |
-  CPU0        ------------------------------
-                   |   T2      |
-  CPU1        ------------------------------
-                               `> T2 stops and the driver reports
-                                  the warning when trying to sync
-                                  ETR_BUF(T1), while T2 is associated
-                                  with ETR_BUF(T2).
-
-  AUX_BUF(T1) |                            |
-  ETR_BUF(T1) | Bounce buf0                |  -> Used by H/W trace
-
-
-  AUX_BUF(T2) |                            |
-  ETR_BUF(T2) | Bounce buf1                |  -> Not used by H/W trace
-
-With `--per-thread --pid $PID`, perf creates separate events for the
-child threads, say T1 and T2. Perf allocates a separate AUX buffer
-for each event, and the ETR driver also allocates a separate bounce
-buffer for each event. However, because there is only one shared ETR
-sink, only one of those bounce buffers can actually be used by the
-hardware at a time.
-
-If T1 stops while T2 is still running, the ETR remains enabled. Later,
-when T2 stops, the ETR is still using ETR_BUF(T1). This mismatch
-triggers the warning and prevents the data from being copied.
-
-I am just wandering if we can improve the sink driver to only allocate
-a single bounce buffer that is independent of any threads (and any
-associated events).
-
-                | T1 |
-  CPU0        ------------------------------
-                   |   T2      |
-  CPU1        ------------------------------
-                               `> T2 stops and can sync trace
-                                  from the shared bounce buffer
-                                  to AUX_BUF(T2).
-
-  AUX_BUF(T1) |                            |
-  AUX_BUF(T2) |                            |
-
-  ETR_BUF     | Bounce buf                 |  -> Used by H/W trace
-
-This might also simplify the CPU-wide case. Each CPU would still have
-its own AUX buffer, but the ETR driver would maintain only one bounce
-buffer for the shared sink. A reference count could track how many
-events are using the sink, with the final event responsible for
-stopping the sink and copying the trace data from bounce buffer to aux
-buffer.
-
-> The one in this change is pretty complete and only does 4 comparisons,
-> which seems quite simple to me.
-
-Before going further with the heavily sink buffer refactoring, perhaps
-a more pragmatic solution would be to reject the problematic case for
-now. Can we do something like below?
-
-+void coresight_trace_id_is_perf_started(struct coresight_trace_id_map *id_map)
-+{
-+	PERF_SESSION(atomic_read(&id_map->perf_cs_etm_session_active));
-+}
-
-@@ -399,6 +399,15 @@ etm_event_build_path(struct perf_event *event, int cpu,
- 			goto out;
- 	}
- 
-+	if (!coresight_trace_id_is_perf_started(&sink->perf_sink_id_map)) {
-+		sink->perf_owner = event->owner;
-+		sink->perf_target = event->hw.target;
-+	} else {
-+		if (sink->perf_owner != event->owner ||
-+		    sink->perf_target != event->hw.target)
-+			goto out;
-+	}
-+
-
-We use a central place etm_event_build_path() to record and compare
-event's owner and target process, then we don't need to spread the
-check into sink drivers. We only care about if owner and target must
-be consistent.
-
-Regard of the inherit/inherit_thread, I always see they are consistent
-within the same session. Should we ignore them?
-
-Thanks,
-Leo
 
