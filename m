@@ -4,78 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06793C5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 12:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1546C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 12:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tUgb1cSpQmg48mQ4LeBUx+FaaJ2tUQcxNw47rzDBl0M=; b=n2Gc2aUj+IuJoKpFECa7YzFWYn
-	nCgN0nc6iwsBLnBGeb/t5C3kiiV3gGYQx6u05VsjW6vyT6+3zUITtV5oGx5zc5Ck957hvMFf4qnld
-	5puDmYE0rmm1ppcgl2j3YHWJpQkSMfX1+fBw2qlbsdbLUg/NFjmUJNo5izWJMomfyi4GNuUOBchoz
-	hH6enXTbXkSDzg93Y2JxFMQ+keINKZuhCgXi44jo736Xq7swjeio8nnrfxOzAr7iWEBbnjBm7YuO5
-	XVaF3YiYrO9CYzL8qC4Gmjpr3r8DgEzTi8ILqVw8WFy+n+LIAeCEME4Up+RglIFgsoU49E1a5oCA1
-	mmHybbsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b89xWKguxhb5kJiAHzj3EgRzZ5QR0sQtBsj6gohCrzw=; b=xH1bPmajUrjR0Z9IzTyLtJKNEj
+	TWTmqbc0spZpHbXS73FQQSpjbC6xL01YLDBAPzKAUuShXLwbV5YIpXUFBI8M0e+/qV6woZmrv+SMC
+	mNjTF9G/ba+kw2bCSTvUQUjBQSOA4xXc/+FleGKhFFdrElPmYK3IrzKl865gc9A1xQuwZIDwDNl+8
+	wMRFl5YEHGSYqRhxNr46UrvsFtvmoArgY6xec7bUkBGLQcjv+Q+eu6hMAvTc2a4DuFxzp8kS8x8AI
+	JNniPfcuFnsmUyahjSUX0/mJKcqL9HWLYXNPXDWVBmcD38McI0HQ5263L9LouIzhcqLg51Ufz3afT
+	vuAG6b3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwfgY-00000009n1O-0U3C;
-	Wed, 19 Aug 2026 12:46:26 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wwfld-00000009nUf-0OWG;
+	Wed, 19 Aug 2026 12:51:41 +0000
+Received: from mail-ua1-x92b.google.com ([2607:f8b0:4864:20::92b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwfgV-00000009n13-35dU;
-	Wed, 19 Aug 2026 12:46:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=tUgb1cSpQmg48mQ4LeBUx+FaaJ2tUQcxNw47rzDBl0M=; b=MpYZkuwX2iqHkyVBi+B8u8Ha/i
-	EU/sdjPPYNtXAfqZa1zaPkvl5AXi1l42g8na6cORDyhWoNQTUsZLOOmbjOtc+k0TehdfmgtjGEFuB
-	vgbacQN+W5QmsyBSJumg/7ZZ78jcbhj8AFNjfKvTjpacQicrzvE9/DtbXWNJsEC1mlJAK6/Tq710H
-	fimifYCe2xkMs+/NBfMFoDDqT+MnxLYdbJLAB47fGzFArA6Vq8pX0Bj+hrCA2sZLDdMvTsmbRDmv7
-	Ochu//vM+1yQOroLVRmv4gWlmAgW1umP5/aOnyke6hq0CsOxc3Uf6amUkXVm+aoY+w1wI5vBB8OON
-	lgu1f5qg==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwfgS-0000000Dk7L-2kui;
-	Wed, 19 Aug 2026 12:46:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=tUgb1cSpQmg48mQ4LeBUx+FaaJ2tUQcxNw47rzDBl0M=; b=c60JtS49PMHVt+c/VQa3RMOhX9
-	JKyBgGVwi/gCexVHLprpOqe2nC4fd5r4AVyZ2bJeQRrsdS9yz5zjC8dqjXG3bDnn9ICBfrmfEuFFe
-	d4DeLFRKOxoRWHlDCtXYC7mPwlAdiaL8gR3CVuPEq6VAdsI7FS4FG33eydwTBpc7RXNPSyBML/nA5
-	d3hx4AGWwBOd4zClcdEpQBfTCT3x3jWSkvN4vq85KTbmdqAEas/djWDYFA3XQgvEednYBAjaMHFQg
-	s28+3zbULNM4zJXO6ivQr/9rZkfLYJLaNd7o/yfgXdoy8o86c/jq28mwCtvqXyZVSvHS2yefvUyyA
-	mayaMPOg==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Benjamin Gaignard <benjamin.gaignard@collabora.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Andrzej Pietrasiewicz <andrzej.p@collabora.com>,
- Hans Verkuil <hverkuil@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Lucas Sinn <lucas.sinn@wolfvision.net>,
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>
-Subject: Re: [PATCH 5/7] media: verisilicon: Add Rockchip VPU720 JPEG decoder
-Date: Wed, 19 Aug 2026 14:46:10 +0200
-Message-ID: <5715409.BjyWNHgNrj@diego>
-In-Reply-To: <20260819-rk3588-jpegdec-v1-5-33d74cdf369c@pengutronix.de>
-References: <20260819-rk3588-jpegdec-v1-0-33d74cdf369c@pengutronix.de>
- <20260819-rk3588-jpegdec-v1-5-33d74cdf369c@pengutronix.de>
+	id 1wwfla-00000009nUL-1vBW
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Aug 2026 12:51:39 +0000
+Received: by mail-ua1-x92b.google.com with SMTP id a1e0cc1a2514c-97bf91b2e6eso225378241.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 05:51:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787143896; cv=none;
+        d=google.com; s=arc-20260327;
+        b=BYjdA9bFrGiCcGgRoAGpeaTICeAcVLF5tvUAN3hbkDl6WiRPCdtOUtZDiWS+LaDsk9
+         +PClEAUzKQm6m5n//Z5nQiDj598c0eKoYmK/6yZdGOCt20zaPn1seBB4aVOinATnPa+S
+         7BJuWal47CRfvIJF4D7VDVfPNLufu5V2XA+6H9WoHior1ikW9fLoU+eu+5fsXixAn5z/
+         HQ9YPRqw9XZHi7NCCkz2aHhZHRnYuLEuSpZ2nrZQOWm/tnHWgbCc3wjD6zhL6KVAawmo
+         wzKqWMULiDP86sZO+62XJjCE8zsI14j6QH2gI4F4tjkarMbsFae326lyHdejMfeWPkLy
+         E/AQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=b89xWKguxhb5kJiAHzj3EgRzZ5QR0sQtBsj6gohCrzw=;
+        fh=feSqjtMDylFUWHZNOJeHr8GYxhwHvQnYB8bYksAhFRw=;
+        b=RsOSTOaUYjiFrtBzK9ETEZ3yuwfxxuPDSP+9Z3ytNUxQiH8WuiOtKVckH9IFxsR3Cy
+         L0DnIHFjCmTqthRKIFPSaqFqo6yBSFixXaKfMe8TWWFBGFsk6yJTDr587vm3E5a1sqfQ
+         juwHvEm9DMH1PFNXpaoOwqA21vqX7PgLxq5qjcxs/6zFXY5L9NGZJzkXn92N5yksUsyQ
+         YtuocQkMZujo1stiIbENlTHm3yus1X9kOxtFf2yELwPCEHc5CbbVcLXczOKn4OyHbHkd
+         fdHjz7+UFEFPV2jcN/pyQWUi7e8Nl4rCTzrA5VDHjnrUde4z1uOQFeXk7g9JWqaF4EKu
+         KROw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787143896; x=1787748696; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=b89xWKguxhb5kJiAHzj3EgRzZ5QR0sQtBsj6gohCrzw=;
+        b=CZL4UUZ65pbfe6XX+cHU69uzNIPqPL6XBzdj8yJVLWJHFZ8c8S+oAZPz8EO/imPCGB
+         HRj9rbo2IZ1FND5hr+VCtFJnEHKn2J9Er1DwZMl0YxGHXIQyTcRfRq9S9/ctspJmRVR7
+         qX1cQWjmUe0nwLB6aLDgpAE7c8cFEWWnW5b/hTK9RM+aTMDAcoWYRn+3deI46QXrNC0N
+         xWXqu+Mjx/sH7bYVGyk4Mbex3GrDeBD3u0c/yt/0LvMTAeF6H4jo/sIOHKP2qfzO7Yu7
+         jPDaxxmqE6tNqfCEBdPODICHx4C8lQww7wvtkV94k/fwgXPwp/c90TmT/EET4AMvzTLX
+         /OeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787143896; x=1787748696;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=b89xWKguxhb5kJiAHzj3EgRzZ5QR0sQtBsj6gohCrzw=;
+        b=OtvnG5vmtQIV3lA9V0gQYU8O8Uqf5ckJP6fJZAbsnHI+nSoZy9eprdwGsbVUlpYDGf
+         0w+0mwXbH4pTXb937n1xnLX4WXLstlKHJ/ktjFrPvrLW1e9ONttWImXjHEQ54hwUGTP/
+         a5q2C0D2qqx23VG22tg6D2QqfeEbojwd/qyqUgYMl1QJio9eL71gLXzTb8kQJ3VMy82Z
+         NGXyOqiGmFyqlOL5DWvUGOsDqo6kSKCaKMLH+BpuXuxEiH1xM1kPHjA2jRQp7tfT9+0k
+         EL7BuFTmeDJw/uxu9waT71mn/duT9pzd3J6ZgGOcyfrTIE98/JoOyRpGvf9Avy4/Z1oh
+         53vA==
+X-Forwarded-Encrypted: i=1; AHgh+RpfobanOSzg+Mef6wqGdDFuOIFsM9kCCshzabijEdLoZTdrIcGvbr02SU/y+GAex9oBvzeus01OBUiakD8ds7QN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy85fyJdKhDy8T9CDmDjuft9S7j90AJ6FoXs2jn/Q7rKZEHnzva
+	+tNkxYUrg3F4N78gyu3dLdjydyJ7a0D6jJfa12XfSCEgTXTL7Uu4Ea113ag//gtx8VB1VVnNFt4
+	0NgBa3DL+xMVaNOS64r66TIpj5fZ1Xpg=
+X-Gm-Gg: AR+sD13kwI5izJemT07DnATP49zWIZW67nUfNlzVS/CLim/kq5oKuLksYd0kkJjqNnd
+	SzRaM8PWVgN4e0zMH3YMZUOaooPuaQH3IYZKxTuXJs3SHFrP8eL/j0KNgIbn1511eC61QbTAqHO
+	OfD4bcqLQqsUuJBBvsMCh2pkzYUkFQTaIz8fLXOzkxgKpChjmrb/KZ9AODUw2jfycOtRVgPhftM
+	Icd4pnOKt2l+TEiJ+eCA3kKMIWZ5xi3SPeJElpQpyf1E+efjZyipmTSxf8G+zpL8E3AVMc9itBW
+	VcKaH+buCCHrfrFI1A548SPuO7NeF1R3avxZRhp86JVu1uoILLOiL5HXhc+TacDeW/cMJTSnsBE
+	=
+X-Received: by 2002:a05:6102:e0c:b0:778:5369:763d with SMTP id
+ ada2fe7eead31-778536977cfmr777017137.1.1787143896490; Wed, 19 Aug 2026
+ 05:51:36 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260705110221.153481-1-mdshahid03@gmail.com>
+In-Reply-To: <20260705110221.153481-1-mdshahid03@gmail.com>
+From: Inki Dae <daeinki@gmail.com>
+Date: Wed, 19 Aug 2026 21:50:57 +0900
+X-Gm-Features: AcwNN1WZpgbj7Xmht22CXRTxKba8QfE40w5PRb6wQWHMVVHwKvxFfX4oKRnrA9U
+Message-ID: <CAAQKjZMKWDqbq+onK9JHejecie0Nh33WQ+rUBa=_0pc50FZU1w@mail.gmail.com>
+Subject: Re: [PATCH] drm/exynos: vidi: use memdup_user() instead of kmalloc()
+ and copy_from_user()
+To: mdshahid03@gmail.com
+Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_134620_853897_A0B2EA79 
-X-CRM114-Status: GOOD (  46.36  )
+X-CRM114-CacheID: sfid-20260819_055138_531740_DF290068 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,395 +123,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Sorry for being late.
 
-Am Mittwoch, 19. August 2026, 12:37:34 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Sascha Hauer:
-> From: Lucas Sinn <lucas.sinn@wolfvision.net>
->=20
-> Add support for the Rockchip VPU720 JPEG hardware decoder on RK3588
-> to the verisilicon hantro driver.
->=20
-> Hardware requirements:
-> - CPU-side JPEG header parsing via v4l2_jpeg_parse_header()
-> - DMA side buffer with Q-tables (zigzag->raster), Huffman mincode
->   and value tables
-> - VPU720-specific two-phase IRQ clear sequence
-> - 16-byte stream alignment with start-byte offset
-> - MCU-aligned PIC_H (e.g. 1080p YUV420 needs 1088, not 1080)
-> - FILL_DOWN_E on every NV12 conversion, the output chroma is vertically
->   subsampled so the hardware completes the bottom of the picture
-> - DRI (restart interval) support when present
->=20
-> Implementation adds:
-> - HANTRO_JPEG_DECODER codec and HANTRO_MODE_JPEG_DEC mode
-> - struct hantro_jpeg_dec_hw_ctx holding the Q/H table side buffer,
->   which is rebuilt from the frame header on every run
-> - src_needs_kmap and dst_needs_kmap flags for vb2_plane_vaddr() without
->   DMA_ATTR_NO_KERNEL_MAPPING
-> - a neutral chroma plane written by the driver for a grayscale frame.
->   The output format converter has no YUV400 path, so the hardware writes
->   the luma plane and leaves the chroma alone, which comes out green
-> - rockchip_vpu720_jpeg_dec_run() for parse/fill/program/kick
-> - rejection of a frame that carries no EOI marker, which is what a
->   source buffer too small for the frame looks like
-> - rejection of a frame larger than the negotiated capture format,
->   whose dimensions would otherwise be programmed against strides
->   taken from that format
-> - IRQ handler with detailed error diagnostics (REG32/33:
->   MCU position, error flags) and soft-reset
-> - AXI perf counter setup (REG30)
->=20
-> Exposes one V4L2 M2M device: JPEG input -> NV12 output.
->=20
-> Assisted-by: Claude:claude-opus-5
-> Signed-off-by: Lucas Sinn <lucas.sinn@wolfvision.net>
-> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+2026=EB=85=84 7=EC=9B=94 5=EC=9D=BC (=EC=9D=BC) =EC=98=A4=ED=9B=84 8:02, <m=
+dshahid03@gmail.com>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
+>
+> From: Mohammad Shahid <mdshahid03@gmail.com>
+>
+> Use memdup_user() to replace the open-coded kmalloc() and
+> copy_from_user() sequence.
+>
+> This simplifies the code while preserving the existing behavior.
+>
+> This issue was reported by memdup_user.cocci.
+>
+> Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
 > ---
->  drivers/media/platform/verisilicon/Makefile        |   1 +
->  drivers/media/platform/verisilicon/hantro.h        |  17 +
->  drivers/media/platform/verisilicon/hantro_drv.c    |  17 +-
->  drivers/media/platform/verisilicon/hantro_hw.h     |  17 +
->  drivers/media/platform/verisilicon/hantro_v4l2.c   |  38 +-
->  .../verisilicon/rockchip_vpu720_hw_jpeg_dec.c      | 962 +++++++++++++++=
-++++++
->  .../platform/verisilicon/rockchip_vpu720_regs.h    | 261 ++++++
->  .../media/platform/verisilicon/rockchip_vpu_hw.c   |  80 ++
->  8 files changed, 1385 insertions(+), 8 deletions(-)
->=20
+>  drivers/gpu/drm/exynos/exynos_drm_vidi.c | 11 +++--------
+>  1 file changed, 3 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/e=
+xynos/exynos_drm_vidi.c
+> index 67bbf9b8bc0e..183671de711e 100644
+> --- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+> +++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
+> @@ -273,14 +273,9 @@ int vidi_connection_ioctl(struct drm_device *drm_dev=
+, void *data,
+>
+>                 size =3D (hdr.extensions + 1) * EDID_LENGTH;
+>
+> -               edid_buf =3D kmalloc(size, GFP_KERNEL);
+> -               if (!edid_buf)
+> -                       return -ENOMEM;
+> -
+> -               if (copy_from_user(edid_buf, edid_userptr, size)) {
+> -                       kfree(edid_buf);
+> -                       return -EFAULT;
+> -               }
+> +               edid_buf =3D memdup_user(edid_userptr, size);
+> +               if (IS_ERR(edid_buf))
+> +                       return PTR_ERR(edid_buf);
 
-> diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/=
-platform/verisilicon/hantro.h
-> index 0353de154a1ec..00e0f5981cca3 100644
-> --- a/drivers/media/platform/verisilicon/hantro.h
-> +++ b/drivers/media/platform/verisilicon/hantro.h
-> @@ -39,6 +39,7 @@ struct hantro_postproc_ops;
->  #define HANTRO_HEVC_DECODER	BIT(19)
->  #define HANTRO_VP9_DECODER	BIT(20)
->  #define HANTRO_AV1_DECODER	BIT(21)
-> +#define HANTRO_JPEG_DECODER	BIT(22)
->  #define HANTRO_DECODERS		0xffff0000
-> =20
->  /**
-> @@ -102,6 +103,19 @@ struct hantro_variant {
->  	unsigned int double_buffer : 1;
->  	unsigned int legacy_regs : 1;
->  	unsigned int late_postproc : 1;
-> +	/*
-> +	 * src_needs_kmap: when set, the source queue will be allocated with
-> +	 * a kernel virtual address so the driver can CPU-parse the bitstream
-> +	 * (e.g. for JPEG header parsing).
-> +	 */
+exynos_drm_vidi.c does not include <linux/string.h>, where
+memdup_user() is declared. It only builds today because the header is
+pulled in transitively. You would add the include explicitly.
 
-there is already a struct documentation present, so there is
-=2D no need to put that huge comment here, this can be shortened
-=2D the actual field-documentation is missing
+This is a trivial thing so I can handle it.
 
-probably true for more places
+ Merged. Thanks,
+Inki Dae
 
-
-> +	unsigned int src_needs_kmap : 1;
-> +	/*
-> +	 * dst_needs_kmap: when set, the capture queue will be allocated with
-> +	 * a kernel virtual address so the driver can write the parts of a
-> +	 * frame the hardware does not produce (e.g. the chroma plane of a
-> +	 * grayscale JPEG).
-> +	 */
-> +	unsigned int dst_needs_kmap : 1;
->  	const struct of_device_id *shared_devices;
->  };
-> =20
-> @@ -115,6 +129,7 @@ struct hantro_variant {
->   * @HANTRO_MODE_HEVC_DEC: HEVC decoder.
->   * @HANTRO_MODE_VP9_DEC: VP9 decoder.
->   * @HANTRO_MODE_AV1_DEC: AV1 decoder
-> + * @HANTRO_MODE_JPEG_DEC: VPU720 JPEG decoder
-
-here it worked correctly, it seems.
-
->   */
->  enum hantro_codec_mode {
->  	HANTRO_MODE_NONE =3D -1,
-> @@ -125,6 +140,7 @@ enum hantro_codec_mode {
->  	HANTRO_MODE_HEVC_DEC,
->  	HANTRO_MODE_VP9_DEC,
->  	HANTRO_MODE_AV1_DEC,
-> +	HANTRO_MODE_JPEG_DEC,
->  };
-> =20
->  /*
-> @@ -276,6 +292,7 @@ struct hantro_ctx {
->  		struct hantro_hevc_dec_hw_ctx hevc_dec;
->  		struct hantro_vp9_dec_hw_ctx vp9_dec;
->  		struct hantro_av1_dec_hw_ctx av1_dec;
-> +		struct hantro_jpeg_dec_hw_ctx jpeg_dec;
-
-here the documentation for the new field is missing completely
-
->  	};
->  };
-> =20
-
-> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu720_hw_jpeg_d=
-ec.c b/drivers/media/platform/verisilicon/rockchip_vpu720_hw_jpeg_dec.c
-> new file mode 100644
-> index 0000000000000..81fd79911d694
-> --- /dev/null
-> +++ b/drivers/media/platform/verisilicon/rockchip_vpu720_hw_jpeg_dec.c
-> @@ -0,0 +1,962 @@
-
-> +	/*
-> +	 * REG2: system config =E2=80=93 always output NV12.
-> +	 *
-> +	 * FILL_DOWN_E belongs to the NV12 conversion rather than to a
-> +	 * particular pair of heights: the output chroma is vertically
-> +	 * subsampled, so the hardware has to complete the bottom of the
-> +	 * picture.  Two cases need it:
-> +	 *
-> +	 *  a) jpeg_height is not on an MCU boundary (e.g. YUV420 1080p:
-> +	 *     jpeg_height=3D1080, jpeg_height_aligned=3D1088, buf_height=3D108=
-8).
-> +	 *     The VPU720 needs FILL_DOWN_E to complete the last MCU row's
-> +	 *     chroma reconstruction.  Without it the bottom rows are corrupt
-> +	 *     even though PIC_H is already set to the MCU-aligned height.
-> +	 *
-> +	 *  b) MCU-aligned height < buf_height (e.g. YUV422 1080p: mcu_h=3D8,
-> +	 *     jpeg_height_aligned=3D1080, buf_height=3D1088).  The hardware fi=
-lls
-> +	 *     rows 1080..1087 by repeating the last valid row.
-> +	 *
-> +	 * A height that is a multiple of 16 leaves nothing to fill, but the
-> +	 * bit is set there as well: the reference driver enables it for every
-> +	 * NV12 conversion, whatever the picture and buffer heights are.
-> +	 *
-> +	 * FILL_RIGHT_E does the same for the right hand edge, but there it
-> +	 * depends on the mode.  The decoder writes whole MCUs, so the last
-> +	 * MCU column ends at ALIGN(jpeg_width, mcu_width) while the buffer is
-> +	 * 16 pixel aligned.  Only the 8 pixel MCU widths can stop short of
-> +	 * that and need the columns in between filled; a 16 or 32 pixel MCU
-> +	 * already reaches at least as far.  The reference driver arrives at
-> +	 * the same set through a per mode test on (width & 0xf) <=3D 8.
-> +	 */
-> +	reg =3D FIELD_PREP(VDPU720_YUV_OUT_FMT, VDPU720_YUV_OUT_FMT_NV12) |
-> +	      VDPU720_FILL_DOWN_E;
-> +	if (ALIGN(jpeg_width, mcu_width) < ALIGN(jpeg_width, 16))
-> +		reg |=3D VDPU720_FILL_RIGHT_E;
-> +	vdpu_write_relaxed(vpu, reg, VDPU720_REG_SYS);
-> +
-> +	/*
-> +	 * --- REG3: picture dimensions ---
-
-can we have one consistent comment style please?
-
-> +	 *
-> +	 * PIC_W stays at the raw header width while PIC_H is rounded up to
-> +	 * the MCU boundary.  Rounding the width up the same way is not safe:
-> +	 * mcu_width reaches 32 for YUV411, so ALIGN(jpeg_width, mcu_width)
-> +	 * can land beyond the 16 pixel aligned buffer width and point the
-> +	 * decoder past the end of a row.  FILL_RIGHT_E above covers the cases
-> +	 * where the MCU column stops short instead.  The reference driver
-> +	 * programs the raw width here too.
-> +	 */
-> +	vdpu_write_relaxed(vpu,
-> +			   FIELD_PREP(VDPU720_PIC_W_M1, jpeg_width - 1) |
-> +			   FIELD_PREP(VDPU720_PIC_H_M1, jpeg_height_aligned - 1),
-> +			   VDPU720_REG_PIC_SIZE);
-> +
-
-[...]
-
-> +/*
-> + * vdpu720_fill_chroma - write neutral chroma for a grayscale frame.
-> + *
-> + * The output format converter has no YUV400 path: VDPU720_YUV_OUT_FMT_N=
-V12
-> + * only covers the subsampled colour modes, and for a single component f=
-rame
-> + * the hardware writes the luma plane and leaves the chroma plane untouc=
-hed.
-> + *
-> + * Fill the plane here, before the hardware is started: once the decode =
-is
-> + * running the interrupt can complete the job and hand the buffer to
-> + * userspace at any time.
-> + */
-> +static int vdpu720_fill_chroma(struct hantro_ctx *ctx,
-> +			       struct vb2_v4l2_buffer *dst_buf)
-
-[...]
-
-> +/**
-> + * rockchip_vpu720_jpeg_dec_init() - allocate the per-context DMA side b=
-uffer
-> + * @ctx:	context to allocate the Q/Huffman table buffer for
-> + *
-> + * Return: 0 on success, -ENOMEM if the buffer could not be allocated.
-> + */
-
-again comment style ( "/**", also the ctx line could use a blank line above=
- it)
-Seemingly one function before this the LLM did get it right?
-
-Same applies for repeats below.
-
-> +int rockchip_vpu720_jpeg_dec_init(struct hantro_ctx *ctx)
-> +{
-> +	struct hantro_dev *vpu =3D ctx->dev;
-> +	struct hantro_jpeg_dec_hw_ctx *jpeg_ctx =3D jpeg_dec_ctx(ctx);
-> +
-> +	jpeg_ctx->table_base.size =3D VDPU720_TABLE_BUF_SIZE;
-> +	jpeg_ctx->table_base.cpu  =3D
-> +		dma_alloc_noncoherent(vpu->dev,
-> +				      jpeg_ctx->table_base.size,
-> +				      &jpeg_ctx->table_base.dma,
-> +				      DMA_TO_DEVICE, GFP_KERNEL);
-> +	if (!jpeg_ctx->table_base.cpu)
-> +		return -ENOMEM;
-> +
-> +	return 0;
-> +}
-> +
-
-[...]
-
-> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu720_regs.h b/=
-drivers/media/platform/verisilicon/rockchip_vpu720_regs.h
-> new file mode 100644
-> index 0000000000000..cae9052126be1
-> --- /dev/null
-> +++ b/drivers/media/platform/verisilicon/rockchip_vpu720_regs.h
-> @@ -0,0 +1,261 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Rockchip VPU720 JPEG decoder register definitions
-> + *
-> + * Derived from downstream Rockchip MPP HAL (hal_jpegd_rkv_reg.h).
-> + * Copyright (C) 2020 Rockchip Electronics Co., Ltd.
-> + * Copyright (C) 2026 WolfVision GmbH
-> + */
-> +#ifndef ROCKCHIP_VPU720_REGS_H_
-> +#define ROCKCHIP_VPU720_REGS_H_
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/bits.h>
-> +#include <linux/align.h>
-> +#include <linux/types.h>
-> +
-> +/* ------------------------------------------------------------------ */
-> +/* Register byte offsets from dec_base                                 */
-> +/* ------------------------------------------------------------------ */
-
-less dashed lines maybe? ;-)
-
-> +
-> +/* REG0: IP version / product ID */
-
-no need the same information when the register naming is obvious.
-Same for the below registers
-
-> +#define VDPU720_REG_VERSION		0x000
-> +#define VDPU720_PROD_NUM		GENMASK(31, 16)
-> +#define VDPU720_BIT_DEPTH		BIT(8)
-> +
-> +/* REG1: Interrupt control and status */
-> +#define VDPU720_REG_INT			0x004
-
-[...]
-
-> +/* ------------------------------------------------------------------ */
-> +/* Side-buffer layout for Q-tables and Huffman tables                  */
-> +/*                                                                     */
-> +/* The VPU720 JPEG decoder reads quantisation tables and Huffman       */
-> +/* tables from a contiguous DMA buffer with the following layout:      */
-> +/*                                                                     */
-> +/*   [0,         QTBL_SIZE):    Q-table data (u16, raster-scan order) */
-> +/*   [HMINCODE_OFF, +HMIN_SZ):  Huffman mincode table                 */
-> +/*   [HVALUE_OFF,  +HVAL_SZ):   Huffman value table                   */
-> +/* ------------------------------------------------------------------ */
-> +/* The Q-tables are per component, one entry each */
-
-again, the comment style is very strange
-
-[...]
-
-> @@ -816,3 +831,68 @@ const struct hantro_variant rk3588_vpu981_variant =
-=3D {
->  	.clk_names =3D rk3588_vpu981_vpu_clk_names,
->  	.num_clocks =3D ARRAY_SIZE(rk3588_vpu981_vpu_clk_names)
->  };
-> +
-> +/* ------------------------------------------------------------------ */
-> +/* RK3588 VPU720 JPEG decoder                                          */
-> +/* ------------------------------------------------------------------ */
-> +
-> +/*
-> + * Capture format: NV12.  The JPEG codec entry is listed last.
-> + */
-> +static const struct hantro_fmt rk3588_vpu720_dec_fmts[] =3D {
-> +	{
-> +		.fourcc    =3D V4L2_PIX_FMT_NV12,
-> +		.codec_mode =3D HANTRO_MODE_NONE,
-> +		.frmsize   =3D {
-> +			.min_width  =3D FMT_MIN_WIDTH,
-> +			.max_width  =3D VPU720_JPEGD_MAX_SIZE,
-> +			.step_width =3D MB_DIM,
-> +			.min_height =3D FMT_MIN_HEIGHT,
-> +			.max_height =3D VPU720_JPEGD_MAX_SIZE,
-> +			.step_height =3D MB_DIM,
-> +		},
-> +	},
-> +	{
-> +		.fourcc    =3D V4L2_PIX_FMT_JPEG,
-> +		.codec_mode =3D HANTRO_MODE_JPEG_DEC,
-> +		.max_depth  =3D 2,
-> +		.frmsize   =3D {
-> +			.min_width  =3D FMT_MIN_WIDTH,
-> +			.max_width  =3D VPU720_JPEGD_MAX_SIZE,
-> +			.step_width =3D VPU720_JPEGD_STEP,
-> +			.min_height =3D FMT_MIN_HEIGHT,
-> +			.max_height =3D VPU720_JPEGD_MAX_SIZE,
-> +			.step_height =3D VPU720_JPEGD_STEP,
-> +		},
-> +	},
-> +};
-> +
-> +static const struct hantro_codec_ops rk3588_vpu720_codec_ops[] =3D {
-> +	[HANTRO_MODE_JPEG_DEC] =3D {
-> +		.run   =3D rockchip_vpu720_jpeg_dec_run,
-> +		.reset =3D rockchip_vpu720_reset,
-> +		.init  =3D rockchip_vpu720_jpeg_dec_init,
-> +		.exit  =3D rockchip_vpu720_jpeg_dec_exit,
-> +	},
-> +};
-> +
-> +static const struct hantro_irq rk3588_vpu720_irqs[] =3D {
-> +	{ "vdpu", rockchip_vpu720_irq },
-> +};
-> +
-> +static const char * const rk3588_vpu720_clk_names[] =3D {
-> +	"aclk", "hclk",
-> +};
-> +
-> +const struct hantro_variant rk3588_vpu720_variant =3D {
-> +	.dec_fmts     =3D rk3588_vpu720_dec_fmts,
-> +	.num_dec_fmts =3D ARRAY_SIZE(rk3588_vpu720_dec_fmts),
-> +	.codec        =3D HANTRO_JPEG_DECODER,
-> +	.codec_ops    =3D rk3588_vpu720_codec_ops,
-> +	.irqs         =3D rk3588_vpu720_irqs,
-> +	.num_irqs     =3D ARRAY_SIZE(rk3588_vpu720_irqs),
-> +	.clk_names    =3D rk3588_vpu720_clk_names,
-> +	.num_clocks   =3D ARRAY_SIZE(rk3588_vpu720_clk_names),
-> +	.src_needs_kmap =3D 1,
-> +	.dst_needs_kmap =3D 1,
-> +};
-
-could you move the individual parts to the correct places in the file?
-All the other variants are clustered together, with their specific
-fmt, etc definitions being in other clusters above that.
-
-
-Heiko
-
-
-
+>
+>                 drm_edid =3D drm_edid_alloc(edid_buf, size);
+>                 kfree(edid_buf);
+> --
+> 2.43.0
+>
+>
 
