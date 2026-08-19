@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD8CC5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8855AC5DF86
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iaVsNTLMeYS4s2vk4J5mF8auwYexrS8arHKPuv70HeM=; b=yq3IH52sBuMgDd
-	iJtDN4eL29g3e/eZbHOcRP1H5cPFnSFPxiooDNBvbw2cV8f4Q+jCa7qXEttLXubSJnK1AOkE4rOqp
-	9JcVtDvzEvVxA9poa6AwqTdfBGejzWCNaNPJYXqEJgOTWp6FUpBDrK6dQRHlJti26nONvFEaW+6Aa
-	Hgu4ue9dMq4+R6wMmhCiIZ/pkox7onSOeLM1nfiUAB09nnsoL2iwa8ohJdvjurR6IBVxQR4x8YlZ5
-	6nMXcOpW1bmdWQfoiuW+M9sZKBHraf/KrQ4AyMSck0zfqrlJgnajZ0EZzj7aQiDT6d3hEcU9rna/W
-	0wRx1cHPixsrmbe9b7Xw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MKFnI98tzLeM9Wflyy8Nak+76jav+IhN0TLSB6dreFo=; b=2TRZuLoGJ6UhMVTl9qeujaYj7I
+	sXGSxj5pjBoA7VE2o7qHFYhvsxDiNNR1mfQrKE35sRw5L4DDphVQFFlOAbYU1fU5STYOySGRkVpIT
+	xnPZO8WFmlstwgVDXJhnUpSzjIcH9hgrwleDJRB0Ec4zniRQXKs4DLuBtMYbh6Mh+eQ8CNlDQGm7o
+	HbhckCBoWa5ACF4jxgI/W7UQ/z6rwQJ52q2sjbTme/P5zHSlcNdXsPeNED4RxlKRqZB7+6wGa1Pdx
+	mVL0i717l/0HHNG25N949mElDwx4UhDYH7uCpPtPsBf2VSuSb9NBwsrAqhcdoGL3v6mBRGqPVdw0+
+	gA8tBkZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwe6k-00000009cCO-0Owv;
+	id 1wwe6k-00000009cCc-2ASR;
 	Wed, 19 Aug 2026 11:05:22 +0000
 Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwe6h-00000009cAZ-3I7o;
+	id 1wwe6h-00000009cAa-3UrR;
 	Wed, 19 Aug 2026 11:05:21 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id E226A20044D;
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id E9A0A201096;
 	Wed, 19 Aug 2026 13:05:17 +0200 (CEST)
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <s.hauer@pengutronix.de>)
-	id 1wwe6f-002HRY-2M;
+	id 1wwe6f-002HRX-2O;
 	Wed, 19 Aug 2026 13:05:17 +0200
 Received: from [::1] (helo=dude02.red.stw.pengutronix.de)
 	by dude02.red.stw.pengutronix.de with esmtp (Exim 4.98.2)
 	(envelope-from <s.hauer@pengutronix.de>)
-	id 1wwe6f-00000004K0O-2O4l;
+	id 1wwe6f-00000004K0O-2Qtp;
 	Wed, 19 Aug 2026 13:05:17 +0200
 From: Sascha Hauer <s.hauer@pengutronix.de>
-Subject: [PATCH 0/7] media: verisilicon: Add RK3588 VPU720 JPEG decoder
-Date: Wed, 19 Aug 2026 12:37:29 +0200
-Message-Id: <20260819-rk3588-jpegdec-v1-0-33d74cdf369c@pengutronix.de>
+Date: Wed, 19 Aug 2026 12:37:30 +0200
+Subject: [PATCH 1/7] media: verisilicon: Fix the cleanup when a codec
+ ->run() fails
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGqHhWoC/x3MTQqAIBBA4avErBO0P8auEi1CR5sCC4UIxLsnL
- b/FexkSRaYEc5Mh0sOJr1Ch2gbMvgVPgm01dLKbJCot4tmPiOK4yVsyAjUp4waDqBFqdEdy/P7
- DZS3lA/2YKy9gAAAA
-X-Change-ID: 20260819-rk3588-jpegdec-89e1cf4c8898
+Message-Id: <20260819-rk3588-jpegdec-v1-1-33d74cdf369c@pengutronix.de>
+References: <20260819-rk3588-jpegdec-v1-0-33d74cdf369c@pengutronix.de>
+In-Reply-To: <20260819-rk3588-jpegdec-v1-0-33d74cdf369c@pengutronix.de>
 To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
  Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
  Philipp Zabel <p.zabel@pengutronix.de>, 
@@ -67,16 +66,16 @@ Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  devicetree@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787137517; l=3717;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787137517; l=14121;
  i=s.hauer@pengutronix.de; s=20230412; h=from:subject:message-id;
- bh=+O0Gd7dYD+ML+lDGGE6X0GreAnrSVB14tNzQ3byWCIc=;
- b=dG5ZAOPzpg6YY00ZFsztwh+kX27axvdSlRbGYX5WU3XPRC07G+PHESYaoGaxlNuUZCf5Zrgm2
- DSIpuKZXeBhDLKDHZRNvV5mjtnZAZ55V40y8bqFUlVlvt5TOg+z3BP7
+ bh=fWxz3VMmZW9KqtqNY1LkgfM52UTditECJte/xRveldM=;
+ b=LFWWvmAwv/DyWFncEuHIhKrgJTrY7ASBvVkpJ+i0JCddMgknkrVKH1iP7o+PAFLZOuJl3A9LW
+ z1/9IaEFOD8DAjzhXpSlLgrSTe8uavO32xQyYTsQSMjMSPTzTpd0gh8
 X-Developer-Key: i=s.hauer@pengutronix.de; a=ed25519;
  pk=4kuc9ocmECiBJKWxYgqyhtZOHj5AWi7+d0n/UjhkwTg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_040519_984557_A5990C56 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20260819_040520_185491_A1C4E51A 
+X-CRM114-Status: GOOD (  27.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,78 +90,323 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the RK3588 JPEG/MJPEG hardware decoder, the
-VPU720. This series adds it to the hantro driver, along with three fixes
-to the hantro core that came out of the work.
+A codec ->run() operation that fails leaves three things behind, and they
+cannot be untangled one at a time, so fix them together.
 
-Patches 1-3 are independent of the new decoder and stand on their own. A
-codec ->run() that fails currently leaves an armed watchdog behind that
-later aborts an unrelated job, leaks the pm_runtime reference and the
-clocks, and never completes the control handler object bound to the
-media request, so the request stays queued until userspace closes it.
-Patch 3 makes V4L2_EVENT_EOS subscribable; hantro queues the event in
-three places but no application can ask for it.
+hantro_start_prepare_run() sets up the controls of the request attached
+to the source buffer, hantro_end_prepare_run() completes them again and
+arms the watchdog for the job that is about to be started. That pairing
+does not survive the error paths. The two ->run() operations that do
+reach hantro_end_prepare_run() arm a watchdog for a job that is never
+started: device_run() finishes the job synchronously via
+hantro_job_finish_no_pm() and nothing cancels the delayed work, so it
+expires two seconds later and aborts whatever unrelated job happens to be
+running by then.
 
-Patches 4-7 add the decoder itself: the binding, the driver, a minimum
-sizeimage for the coded queue, and the DT node.
+Add an error argument to hantro_end_prepare_run() so that it can always
+complete the request, but only arm the watchdog when the hardware is
+really going to be started. Callers that succeed pass 0, the two existing
+error paths pass their error code. Note the resulting invariant: after
+hantro_end_prepare_run(ctx, 0) the ->run() operation must return 0, as
+the watchdog is armed and only the interrupt handler disarms it.
 
-Unlike the other hantro en/decoders the VPU720 works as a stateful
-decoder - userspace hands it a whole frame and never looks inside the
-bitstream. The driver parses the JPEG header on the CPU, builds the
-quantisation and Huffman tables into a DMA side buffer and programs the
-hardware from there.
+rockchip_vpu981_av1_dec_run() then calls hantro_irq_done() on its error
+path and returns the error code to device_run(), which finishes the job a
+second time. The buffers have already been given back by then, so the
+second attempt trips the WARN_ON(!src) in hantro_job_finish_no_pm() and
+bails out. Without the watchdog change this at least reached the first
+finish by accident, because the cancel_delayed_work() in
+hantro_irq_done() returned true for the watchdog the error path had just
+armed. Neither behaviour is something to rely on, so drop the call and
+let device_run() clean the job up. No other codec calls hantro_irq_done()
+from ->run().
 
-Patch 6 enforces a minimum frame size to the coded queue for the JPEG
-decoder path. This is necessary here as userspace doesn't know how large
-a frame can get, but the decoder needs a full frame to work. In my
-Gstreamer tests Gstreamer came up with buffers that were too small to
-take a full frame at higher resolutions (> 1080p). That is expensive of
-course, 16 MiB for a 4k image.
+That leaves device_run() itself. It takes a pm_runtime reference and
+enables the clocks, then on any subsequent failure jumps to a single
+err_cancel_job label that calls hantro_job_finish_no_pm() - which
+releases neither. Release the acquired resources there.
 
-Tested on a Radxa Rock-5t board
+This last part is what ties the three together. hantro_irq_done() ends up
+in hantro_job_finish(), which already drops the pm reference and disables
+the clocks, so as long as the AV1 error path still goes through it,
+releasing the same resources in device_run() would trip the
 
+  WARN_ON(core->enable_count == 0)
+
+in clk_core_disable() and underflow dev->power.usage_count. Conversely,
+as soon as a failed job no longer arms the watchdog, hantro_irq_done()
+stops releasing anything at all and the resources are leaked until
+device_run() takes over.
+
+The late_postproc setup is skipped on the error path as well. It is part
+of preparing the run, the hardware is not started and the next job
+configures it again. Only the sunxi variant sets late_postproc, and its
+only decoder is VP9.
+
+Fixes: 892bb6ecead9 ("media: hantro: do a PM resume earlier")
+Fixes: e2da465455ce ("media: hantro: Support VP9 on the G2 core")
+Fixes: 727a400686a2 ("media: verisilicon: Add Rockchip AV1 decoder")
+Assisted-by: Claude:claude-opus-5
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 ---
-Lucas Sinn (3):
-      media: verisilicon: Add Rockchip VPU720 JPEG decoder
-      media: verisilicon: Enforce a minimum sizeimage for the JPEG decoder
-      arm64: dts: rockchip: rk3588: Add VPU720 JPEG decoder node
+ drivers/media/platform/verisilicon/hantro_drv.c    | 32 +++++++++++++++++++---
+ .../platform/verisilicon/hantro_g1_h264_dec.c      |  2 +-
+ .../platform/verisilicon/hantro_g1_mpeg2_dec.c     |  2 +-
+ .../media/platform/verisilicon/hantro_g1_vp8_dec.c |  2 +-
+ .../platform/verisilicon/hantro_g2_hevc_dec.c      |  2 +-
+ .../media/platform/verisilicon/hantro_g2_vp9_dec.c |  4 +--
+ .../platform/verisilicon/hantro_h1_jpeg_enc.c      |  2 +-
+ drivers/media/platform/verisilicon/hantro_hw.h     |  2 +-
+ .../verisilicon/rockchip_vpu2_hw_h264_dec.c        |  2 +-
+ .../verisilicon/rockchip_vpu2_hw_jpeg_enc.c        |  2 +-
+ .../verisilicon/rockchip_vpu2_hw_mpeg2_dec.c       |  2 +-
+ .../verisilicon/rockchip_vpu2_hw_vp8_dec.c         |  2 +-
+ .../verisilicon/rockchip_vpu981_hw_av1_dec.c       |  5 ++--
+ 13 files changed, 42 insertions(+), 19 deletions(-)
 
-Sascha Hauer (4):
-      media: verisilicon: Fix the cleanup when a codec ->run() fails
-      media: verisilicon: Complete the request on the ->run() error paths
-      media: verisilicon: Allow the EOS event to be subscribed
-      media: dt-bindings: Add Rockchip RK3588 VPU720 JPEG decoder
+diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
+index 2e81877f640fb..d9936f6979d2c 100644
+--- a/drivers/media/platform/verisilicon/hantro_drv.c
++++ b/drivers/media/platform/verisilicon/hantro_drv.c
+@@ -147,11 +147,28 @@ void hantro_start_prepare_run(struct hantro_ctx *ctx)
+ 	}
+ }
+ 
+-void hantro_end_prepare_run(struct hantro_ctx *ctx)
++/**
++ * hantro_end_prepare_run() - finish the preparation of a job
++ * @ctx:	context the job belongs to
++ * @error:	0 if the job is about to be started, negative errno if the
++ *		codec ->run() operation failed and will return that error
++ *
++ * Every hantro_start_prepare_run() must be paired with a call to this
++ * function, including on the error paths of ->run(): the controls of the
++ * request were set up by hantro_start_prepare_run() and the request stays
++ * incomplete forever if they are not completed here.
++ *
++ * When @error is zero the caller must go on and start the hardware, as the
++ * watchdog is armed and only the interrupt handler disarms it again. On the
++ * error paths the job is finished synchronously by device_run(), so no
++ * watchdog is needed and arming it would make it expire during an unrelated
++ * job later on.
++ */
++void hantro_end_prepare_run(struct hantro_ctx *ctx, int error)
+ {
+ 	struct vb2_v4l2_buffer *src_buf;
+ 
+-	if (!ctx->is_encoder && ctx->dev->variant->late_postproc) {
++	if (!error && !ctx->is_encoder && ctx->dev->variant->late_postproc) {
+ 		if (hantro_needs_postproc(ctx, ctx->vpu_dst_fmt))
+ 			hantro_postproc_enable(ctx);
+ 		else
+@@ -162,6 +179,9 @@ void hantro_end_prepare_run(struct hantro_ctx *ctx)
+ 	v4l2_ctrl_request_complete(src_buf->vb2_buf.req_obj.req,
+ 				   &ctx->ctrl_handler);
+ 
++	if (error)
++		return;
++
+ 	/* Kick the watchdog. */
+ 	schedule_delayed_work(&ctx->dev->watchdog_work,
+ 			      msecs_to_jiffies(2000));
+@@ -182,15 +202,19 @@ static void device_run(void *priv)
+ 
+ 	ret = clk_bulk_enable(ctx->dev->variant->num_clocks, ctx->dev->clocks);
+ 	if (ret)
+-		goto err_cancel_job;
++		goto err_pm_put;
+ 
+ 	v4l2_m2m_buf_copy_metadata(src, dst);
+ 
+ 	if (ctx->codec_ops->run(ctx))
+-		goto err_cancel_job;
++		goto err_clk_disable;
+ 
+ 	return;
+ 
++err_clk_disable:
++	clk_bulk_disable(ctx->dev->variant->num_clocks, ctx->dev->clocks);
++err_pm_put:
++	pm_runtime_put_autosuspend(ctx->dev->dev);
+ err_cancel_job:
+ 	hantro_job_finish_no_pm(ctx->dev, ctx, VB2_BUF_STATE_ERROR);
+ }
+diff --git a/drivers/media/platform/verisilicon/hantro_g1_h264_dec.c b/drivers/media/platform/verisilicon/hantro_g1_h264_dec.c
+index ad5c1a6634f5c..30c2ac32cd0b0 100644
+--- a/drivers/media/platform/verisilicon/hantro_g1_h264_dec.c
++++ b/drivers/media/platform/verisilicon/hantro_g1_h264_dec.c
+@@ -264,7 +264,7 @@ int hantro_g1_h264_dec_run(struct hantro_ctx *ctx)
+ 	set_ref(ctx);
+ 	set_buffers(ctx, src_buf);
+ 
+-	hantro_end_prepare_run(ctx);
++	hantro_end_prepare_run(ctx, 0);
+ 
+ 	/* Start decoding! */
+ 	vdpu_write_relaxed(vpu,
+diff --git a/drivers/media/platform/verisilicon/hantro_g1_mpeg2_dec.c b/drivers/media/platform/verisilicon/hantro_g1_mpeg2_dec.c
+index e0d6bd0a6e44f..bfcece9f8e5dd 100644
+--- a/drivers/media/platform/verisilicon/hantro_g1_mpeg2_dec.c
++++ b/drivers/media/platform/verisilicon/hantro_g1_mpeg2_dec.c
+@@ -232,7 +232,7 @@ int hantro_g1_mpeg2_dec_run(struct hantro_ctx *ctx)
+ 					&dst_buf->vb2_buf,
+ 					seq, pic);
+ 
+-	hantro_end_prepare_run(ctx);
++	hantro_end_prepare_run(ctx, 0);
+ 
+ 	vdpu_write(vpu, G1_REG_INTERRUPT_DEC_E, G1_REG_INTERRUPT);
+ 
+diff --git a/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c b/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c
+index 851eb67f19f50..eb43b2fc19582 100644
+--- a/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c
++++ b/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c
+@@ -503,7 +503,7 @@ int hantro_g1_vp8_dec_run(struct hantro_ctx *ctx)
+ 	cfg_ref(ctx, hdr, vb2_dst);
+ 	cfg_buffers(ctx, hdr, vb2_dst);
+ 
+-	hantro_end_prepare_run(ctx);
++	hantro_end_prepare_run(ctx, 0);
+ 
+ 	vdpu_write(vpu, G1_REG_INTERRUPT_DEC_E, G1_REG_INTERRUPT);
+ 
+diff --git a/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c b/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c
+index e8c2e83379def..d76d03eeac39d 100644
+--- a/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c
++++ b/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c
+@@ -611,7 +611,7 @@ int hantro_g2_hevc_dec_run(struct hantro_ctx *ctx)
+ 
+ 	prepare_scaling_list_buffer(ctx);
+ 
+-	hantro_end_prepare_run(ctx);
++	hantro_end_prepare_run(ctx, 0);
+ 
+ 	hantro_reg_write(vpu, &g2_mode, HEVC_DEC_MODE);
+ 	hantro_reg_write(vpu, &g2_clk_gate_e, 1);
+diff --git a/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c b/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
+index 56c79e339030e..760f4acf90c34 100644
+--- a/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
++++ b/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
+@@ -895,7 +895,7 @@ int hantro_g2_vp9_dec_run(struct hantro_ctx *ctx)
+ 
+ 	ret = start_prepare_run(ctx, &decode_params);
+ 	if (ret) {
+-		hantro_end_prepare_run(ctx);
++		hantro_end_prepare_run(ctx, ret);
+ 		return ret;
+ 	}
+ 
+@@ -904,7 +904,7 @@ int hantro_g2_vp9_dec_run(struct hantro_ctx *ctx)
+ 
+ 	config_registers(ctx, decode_params, src, dst);
+ 
+-	hantro_end_prepare_run(ctx);
++	hantro_end_prepare_run(ctx, 0);
+ 
+ 	vdpu_write(ctx->dev, G2_REG_INTERRUPT_DEC_E, G2_REG_INTERRUPT);
+ 
+diff --git a/drivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c b/drivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c
+index 86cc1a07026f0..78f51e92fb2e3 100644
+--- a/drivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c
++++ b/drivers/media/platform/verisilicon/hantro_h1_jpeg_enc.c
+@@ -148,7 +148,7 @@ int hantro_h1_jpeg_enc_run(struct hantro_ctx *ctx)
+ 		| H1_REG_ENC_PIC_INTRA
+ 		| H1_REG_ENC_CTRL_EN_BIT;
+ 
+-	hantro_end_prepare_run(ctx);
++	hantro_end_prepare_run(ctx, 0);
+ 
+ 	vepu_write(vpu, reg, H1_REG_ENC_CTRL);
+ 
+diff --git a/drivers/media/platform/verisilicon/hantro_hw.h b/drivers/media/platform/verisilicon/hantro_hw.h
+index 13e573f1f19de..9754672a3306b 100644
+--- a/drivers/media/platform/verisilicon/hantro_hw.h
++++ b/drivers/media/platform/verisilicon/hantro_hw.h
+@@ -430,7 +430,7 @@ void hantro_watchdog(struct work_struct *work);
+ void hantro_irq_done(struct hantro_dev *vpu,
+ 		     enum vb2_buffer_state result);
+ void hantro_start_prepare_run(struct hantro_ctx *ctx);
+-void hantro_end_prepare_run(struct hantro_ctx *ctx);
++void hantro_end_prepare_run(struct hantro_ctx *ctx, int error);
+ 
+ irqreturn_t hantro_g1_irq(int irq, void *dev_id);
+ void hantro_g1_reset(struct hantro_ctx *ctx);
+diff --git a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_h264_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_h264_dec.c
+index 6da87f5184bcb..eb9067d56f35d 100644
+--- a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_h264_dec.c
++++ b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_h264_dec.c
+@@ -481,7 +481,7 @@ int rockchip_vpu2_h264_dec_run(struct hantro_ctx *ctx)
+ 	set_ref(ctx);
+ 	set_buffers(ctx, src_buf);
+ 
+-	hantro_end_prepare_run(ctx);
++	hantro_end_prepare_run(ctx, 0);
+ 
+ 	/* Start decoding! */
+ 	reg = vdpu_read(vpu, VDPU_SWREG(57)) | VDPU_REG_DEC_E(1);
+diff --git a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c
+index 61621b1be8a2f..aa34bd2e47ad2 100644
+--- a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c
++++ b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c
+@@ -180,7 +180,7 @@ int rockchip_vpu2_jpeg_enc_run(struct hantro_ctx *ctx)
+ 		| VEPU_REG_ENCODE_ENABLE;
+ 
+ 	/* Kick the watchdog and start encoding */
+-	hantro_end_prepare_run(ctx);
++	hantro_end_prepare_run(ctx, 0);
+ 	vepu_write(vpu, reg, VEPU_REG_ENCODE_START);
+ 
+ 	return 0;
+diff --git a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_mpeg2_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_mpeg2_dec.c
+index 50a3a3eeaa00d..e87604abb4626 100644
+--- a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_mpeg2_dec.c
++++ b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_mpeg2_dec.c
+@@ -239,7 +239,7 @@ int rockchip_vpu2_mpeg2_dec_run(struct hantro_ctx *ctx)
+ 					    &dst_buf->vb2_buf, seq, pic);
+ 
+ 	/* Kick the watchdog and start decoding */
+-	hantro_end_prepare_run(ctx);
++	hantro_end_prepare_run(ctx, 0);
+ 
+ 	reg = vdpu_read(vpu, VDPU_SWREG(57)) | VDPU_REG_DEC_E(1);
+ 	vdpu_write(vpu, reg, VDPU_SWREG(57));
+diff --git a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_vp8_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_vp8_dec.c
+index d079075448c96..6568e2aee80fc 100644
+--- a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_vp8_dec.c
++++ b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_vp8_dec.c
+@@ -592,7 +592,7 @@ int rockchip_vpu2_vp8_dec_run(struct hantro_ctx *ctx)
+ 	cfg_ref(ctx, hdr, vb2_dst);
+ 	cfg_buffers(ctx, hdr, vb2_dst);
+ 
+-	hantro_end_prepare_run(ctx);
++	hantro_end_prepare_run(ctx, 0);
+ 
+ 	hantro_reg_write(vpu, &vp8_dec_start_dec, 1);
+ 
+diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+index e4e21ad373233..c6a5af979d478 100644
+--- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
++++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+@@ -2185,15 +2185,14 @@ int rockchip_vpu981_av1_dec_run(struct hantro_ctx *ctx)
+ 	rockchip_vpu981_av1_dec_set_output_buffer(ctx);
+ 	rockchip_vpu981_av1_dec_set_input_buffer(ctx, vb2_src);
+ 
+-	hantro_end_prepare_run(ctx);
++	hantro_end_prepare_run(ctx, 0);
+ 
+ 	hantro_reg_write(vpu, &av1_dec_e, 1);
+ 
+ 	return 0;
+ 
+ prepare_error:
+-	hantro_end_prepare_run(ctx);
+-	hantro_irq_done(vpu, VB2_BUF_STATE_ERROR);
++	hantro_end_prepare_run(ctx, ret);
+ 	return ret;
+ }
+ 
 
- .../bindings/media/rockchip,rk3588-vpu720.yaml     |  93 ++
- MAINTAINERS                                        |   1 +
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  25 +
- drivers/media/platform/verisilicon/Makefile        |   1 +
- drivers/media/platform/verisilicon/hantro.h        |  17 +
- drivers/media/platform/verisilicon/hantro_drv.c    |  49 +-
- .../platform/verisilicon/hantro_g1_h264_dec.c      |   6 +-
- .../platform/verisilicon/hantro_g1_mpeg2_dec.c     |   2 +-
- .../media/platform/verisilicon/hantro_g1_vp8_dec.c |   6 +-
- .../platform/verisilicon/hantro_g2_hevc_dec.c      |  11 +-
- .../media/platform/verisilicon/hantro_g2_vp9_dec.c |   4 +-
- .../platform/verisilicon/hantro_h1_jpeg_enc.c      |   2 +-
- drivers/media/platform/verisilicon/hantro_hw.h     |  19 +-
- drivers/media/platform/verisilicon/hantro_v4l2.c   |  69 +-
- .../verisilicon/rockchip_vpu2_hw_h264_dec.c        |   6 +-
- .../verisilicon/rockchip_vpu2_hw_jpeg_enc.c        |   6 +-
- .../verisilicon/rockchip_vpu2_hw_mpeg2_dec.c       |   2 +-
- .../verisilicon/rockchip_vpu2_hw_vp8_dec.c         |   6 +-
- .../verisilicon/rockchip_vpu720_hw_jpeg_dec.c      | 962 +++++++++++++++++++++
- .../platform/verisilicon/rockchip_vpu720_regs.h    | 261 ++++++
- .../verisilicon/rockchip_vpu981_hw_av1_dec.c       |   5 +-
- .../media/platform/verisilicon/rockchip_vpu_hw.c   |  80 ++
- 22 files changed, 1595 insertions(+), 38 deletions(-)
----
-base-commit: bd5f485f3f026225b86573e559af0b7254ef4184
-change-id: 20260819-rk3588-jpegdec-89e1cf4c8898
-
-Best regards,
 -- 
-Sascha Hauer <s.hauer@pengutronix.de>
+2.47.3
 
 
