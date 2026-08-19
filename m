@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99202C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 09:11:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1BBC5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 09:22:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J7SSYr9IcCYlpEA9on/0aKPIvhje3Akfn6JxapVuH8c=; b=Y7kgVWgt+L7aPAj3XihZffAzjq
-	XUQAyk0LqDrtJ46OP/OtHLQHGj5lKnQCFOZJcGonUbgsTbnFJ5Y2d4vY3QleG7CzqZXSjjJc/jKm6
-	I85nDj+B4jYsmTN87jjSyxBHVdTix5mrSqmzoars8mWoiTGg6/4tguS6fhXWyicyghoRbnGhO5eOy
-	07ETVcCl/nwnssExbNae3VwnYKjz1jUU3V7tbYP2tXqN+8UEN04Xx2XJfFhJgSLvLczNyapofufjh
-	BXrL7JPzzRtZAWmOFJLMYmLlOCL3poAru2BRNHfRoahxe2JgXs288awvMw/xYlhX/T7rpylfO7zmm
-	+jeBzSdg==;
+	bh=hW9Q1qCU51uLoqGiIqveU5bfYzn6cKDutLnmgvwQB6c=; b=v0S85FA8QLEheFQtlzYUbQ2Ii1
+	FGs1Bzv7VsVi4c9Xy1QEzWTgHFOyFzEXxrgeOvOK2o3IQeQUgJwg3m9RuDe7HITpVfIFamTtlpm8z
+	+oIGr0OtdzEF9RxSNyDNv+4NriPAzeF19NbjhkgjLK/oLXva1ZMF0zaPGMn5l+srm+zBysFbcchPk
+	Q811XOS/OTowoOra+BaJXsJgCkifcmResFGUZJptVz6nbg9KyhegOkkyKw12K372gWOvldjtaWERR
+	Oizp/ISIS+GUjK2KOEO8GGw1XtxN48OMrCyW3MckXPiEwJjoCu4N2aL+hV7i0y/HMC4nfUgFoukuD
+	dc6mlhDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwcK6-00000009O0w-06tY;
-	Wed, 19 Aug 2026 09:11:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wwcV9-00000009P3O-1ozb;
+	Wed, 19 Aug 2026 09:22:27 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwcK1-00000009O0D-0K9F;
-	Wed, 19 Aug 2026 09:10:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9B23A434CA;
-	Wed, 19 Aug 2026 09:10:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 515771F000E9;
-	Wed, 19 Aug 2026 09:10:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787130655;
-	bh=J7SSYr9IcCYlpEA9on/0aKPIvhje3Akfn6JxapVuH8c=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=jm+Wv4aOzeOFTNGkTPTh1XF0zLQEggF3fxwAzmzCyumgDLdn0f12E8o3GI6dpHpkx
-	 ETq719cOrx8P/ruQ1OJxqoaV19IPggFEEVmEBqif88yyb5XrXMNEfPHKjO7dmA0zCS
-	 XaFElWeGHWsTS30cQNtt/qevs6nQq/+keyts6TX3TXgRXhfvB1K4d3ql/t8lPKcszG
-	 IdyqmlqIkRCGbPEzYxe8te0Su4J+GenFyDoXocfpKndU9TV/tVXa/Ltjh18TONIhIP
-	 7RHGNtpbny9da2Ar64FJ4mMWrHdQLxuAtcmC0/40KEVCTsjb1sNCzLYzFb8a/cj9DV
-	 YxESBVfYEonbA==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Mukesh Pilaniya <mpilaniy@redhat.com>
-Cc: Pratyush Yadav <pratyush@kernel.org>,  Catalin Marinas
- <catalin.marinas@arm.com>,  Will Deacon <will@kernel.org>,  Mark Rutland
- <mark.rutland@arm.com>,  Huacai Chen <chenhuacai@kernel.org>,  WANG Xuerui
- <kernel@xen0n.name>,  Paul Walmsley <pjw@kernel.org>,  Palmer Dabbelt
- <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,  Alexandre Ghiti
- <alex@ghiti.fr>,  Andrew Morton <akpm@linux-foundation.org>,  Baoquan He
- <baoquan.he@linux.dev>,  Mike Rapoport <rppt@kernel.org>,  Pasha Tatashin
- <pasha.tatashin@soleen.com>,  Tao Liu <ltao@redhat.com>,  Philipp Rudo
- <prudo@redhat.com>,  linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  loongarch@lists.linux.dev,
-  linux-riscv@lists.infradead.org,  kexec@lists.infradead.org
-Subject: Re: [PATCH] kexec: return -ENOEXEC from image probe functions on
- mismatch
-In-Reply-To: <0d7acb43-2eb4-44ec-9bfb-b89440afc605@redhat.com> (Mukesh
-	Pilaniya's message of "Wed, 19 Aug 2026 11:28:10 +0530")
-References: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
-	<2vxzv79c23j6.fsf@kernel.org>
-	<9cbe111c-ff63-4f24-b518-094ddd7cea30@redhat.com>
-	<2vxzbjaz2269.fsf@kernel.org>
-	<0d7acb43-2eb4-44ec-9bfb-b89440afc605@redhat.com>
-Date: Wed, 19 Aug 2026 11:10:50 +0200
-Message-ID: <2vxzqzjuzd9h.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1wwcV6-00000009P2y-1Bxq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Aug 2026 09:22:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=hW9Q1qCU51uLoqGiIqveU5bfYzn6cKDutLnmgvwQB6c=; b=I
+	27e0VvLiHoNyExGGtGLRmOU8awvyYTqlIRisIeg/Z3evZMdpoboDdFJ4KFS1/Glp
+	q00CnKIsM0MUmkBTc2PtMN3DgD1gWK+gtyfunhwWruXj0fSquDHC5ch9ONY4Tey7
+	cIMrnDN4FlByECiUTc1/WDQH5UCprvAb3zUCe69eHY=
+Received: from zl020895$163.com ( [180.169.129.163] ) by
+ ajax-webmail-wmsvr-40-101 (Coremail) ; Wed, 19 Aug 2026 17:21:09 +0800
+ (CST)
+X-Originating-IP: [180.169.129.163]
+Date: Wed, 19 Aug 2026 17:21:09 +0800 (CST)
+From: zl020895  <zl020895@163.com>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>
+Cc: longzhao@ambarella.com, "Arnd Bergmann" <arnd@arndb.de>,
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+	soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	"Rob Herring" <robh@kernel.org>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Conor Dooley" <conor+dt@kernel.org>,
+	"Michael Turquette" <mturquette@baylibre.com>,
+	"Stephen Boyd" <sboyd@kernel.org>,
+	"Linus Walleij" <linusw@kernel.org>,
+	"Bartosz Golaszewski" <brgl@kernel.org>,
+	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+	"Jiri Slaby" <jirislaby@kernel.org>,
+	"Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
+	"Catalin Marinas" <catalin.marinas@arm.com>,
+	"Will Deacon" <will@kernel.org>, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org,
+	"Brian Masney" <bmasney@redhat.com>, "Lee Jones" <lee@kernel.org>,
+	mfd@lists.linux.dev
+Subject: Re:Re: [PATCH v5 02/12] dt-bindings: mfd: syscon: add Ambarella
+ CV75 secure scratchpad
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <6c8471ad-8d68-42d9-bc61-83968a2e8acd@kernel.org>
+References: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com>
+ <20260818-cv75-v5-v5-2-7bbb12f0360f@ambarella.com>
+ <6c8471ad-8d68-42d9-bc61-83968a2e8acd@kernel.org>
+X-NTES-SC: AL_Qu2TBf2Yvkot7yWYYelS6DN615F8O5rMxLRDmdYrY+8JiBnj2hsZf1x6Flza4t6Q947My16VWDGwcqobvXWK
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=GBK
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Message-ID: <4d8af3ba.7360.1a01953118f.Coremail.zl020895@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: ZSgvCgDnD+yGdYVqpvQ0AA--.8191W
+X-CM-SenderInfo: d2oqjiqyzvqiywtou0bp/xtbCxgZ662qFdYbyuwAA3E
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260819_022224_838943_A380C02A 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,101 +95,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19 2026, Mukesh Pilaniya wrote:
-
-> Hi Pratyush,
->
-> On 18/08/26 3:14 pm, Pratyush Yadav wrote:
->> On Fri, Aug 14 2026, Mukesh Pilaniya wrote:
-[...]
->>=20
->> So how about the below diff instead? (** only compile tested **)
->>=20
->> --- 8< ---
->> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
->> index 2bfbb2d144e6..cfb2b8cd5679 100644
->> --- a/kernel/kexec_file.c
->> +++ b/kernel/kexec_file.c
->> @@ -67,17 +67,16 @@ int kexec_image_probe_default(struct kimage *image, =
-void *buf,
->>  			      unsigned long buf_len)
->>  {
->>  	const struct kexec_file_ops * const *fops;
->> -	int ret =3D -ENOEXEC;
->>=20=20
->>  	for (fops =3D &kexec_file_loaders[0]; *fops && (*fops)->probe; ++fops)=
- {
->> -		ret =3D (*fops)->probe(buf, buf_len);
->> -		if (!ret) {
->> +		if (!(*fops)->probe(buf, buf_len)) {
->>  			image->fops =3D *fops;
->> -			return ret;
->> +			return 0;
->>  		}
->>  	}
->>=20=20
->> -	return ret;
->> +	/* No loader found. */
->> +	return -ENOEXEC;
->>  }
-> Nice catch, Pratyush but this discards all non-zero return values from
-> probe functions, which means real errors get swallowed. For example,
-> kexec_elf_probe() can return -ENOMEM when kzalloc() fails in
-> elf_read_phdrs(). With this diff, that -ENOMEM becomes -ENOEXEC, which
-> tells userspace "no loader found" when the actual problem was a memory
-> allocation failure.
-
-Right, good point.
-
->
->>=20=20
->>  static void *kexec_image_load_default(struct kimage *image)
->>=20
-> How about the following instead? It keeps the probe return value and
-> distinguishes -ENOEXEC (format not recognized, try next loader) from any
-> other error (real failure, propagate immediately):
-> =EF=BB=BF
-> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-> index 59fb9d71e9d8..ceb5c97cedac 100644
-> --- a/kernel/kexec_file.c
-> +++ b/kernel/kexec_file.c
-> @@ -68,17 +68,19 @@ int kexec_image_probe_default(struct kimage *image,
-> void *buf,
->  			      unsigned long buf_len)
->  {
->  	const struct kexec_file_ops * const *fops;
-> -	int ret =3D -ENOEXEC;
-> +	int ret;
->
->  	for (fops =3D &kexec_file_loaders[0]; *fops && (*fops)->probe; ++fops) {
->  		ret =3D (*fops)->probe(buf, buf_len);
-> -		if (!ret) {
-> +		if (ret =3D=3D 0) {
->  			image->fops =3D *fops;
-> -			return ret;
-> +			return 0;
->  		}
-> +		if (ret !=3D -ENOEXEC)
-> +			return ret;
->  	}
->
-> -	return ret;
-> +	return -ENOEXEC;
->  }
->
->  static void *kexec_image_load_default(struct kimage *image)
->
->
-> This requires probe functions to return -ENOEXEC from fixes in patch 1.
-> I will add this as a separate patch on top in v2.
->
-> Does this looks good to you ?
-
-LGTM. The only thing I'd change is to perhaps move the declaration of
-ret inside the loop so it can never be used outside it, since ret is
-only useful in the loop in this function.
-
---=20
-Regards,
-Pratyush Yadav
+UmVzZW5kIHRoaXMgZHVlIHRvIHdyb25nIEhUTUwgZm9ybWF0IGJlZm9yZS4KCkhpIEtyenlzenRv
+ZiwKClNvcnJ5IGZvciByZXNlbmRpbmcgd2l0aG91dCBhbiBvbi1saXN0IHJlcGx5LgoKSSB0cmVh
+dGVkIHRoZSBjb3ZlciBsZXR0ZXIgYXMgZW5vdWdoOiB2MiBhc2tlZCB0byBkcm9wIHRoZSBzZXBh
+cmF0ZQpiaW5kaW5nIGFuZCBwdXQgdGhlIGNvbXBhdGlibGUgaW4gc3lzY29uLnlhbWwsIHdoaWNo
+IHYzL3Y1IGFscmVhZHkKZGlkLiBTYXNoaWtvIHRoZW4gYXNrZWQgdG8gYWxzbyBhZGQgaXQgdG8g
+YSBzZWxlY3QgZW51bS4gSSB0aG91Z2h0CnRoYXQgd2FzIGEgZmFsc2UgcG9zaXRpdmUgoaogY3Vy
+cmVudCBzeXNjb24ueWFtbCBoYXMgbm8gc3VjaCBzZWxlY3Q7Cm1hdGNoaW5nIGlzIGluIHN5c2Nv
+bi1jb21tb24ueWFtbCB2aWEgdGhlICJzeXNjb24iIGZhbGxiYWNrIKGqIHNvIEkKZGlkIG5vdCBy
+ZXBseS4KCkkgYW0gbmV3IHRvIHRoaXM6IGlmIEkgdGhpbmsgYSBTYXNoaWtvIGNvbW1lbnQgaXMg
+YSBmYWxzZSBwb3NpdGl2ZSwKc2hvdWxkIEkgcmVwbHkgb24gdGhlIHBhdGNoIHRocmVhZCB3aXRo
+IHRoZSByZWFzb24gYW5kIHdhaXQsIHJhdGhlcgp0aGFuIG9ubHkgbWVudGlvbmluZyBpdCBpbiB0
+aGUgY292ZXIgbGV0dGVyPwoKSWYgSSBzdGlsbCBtaXNzZWQgc29tZXRoaW5nLCBJIHdpbGwgZml4
+IGl0IGluIHY2LgoKQmVzdCByZWdhcmRzLApMb25nIFpoYW8KCkF0IDIwMjYtMDgtMTkgMDM6Mjc6
+MDcsICJLcnp5c3p0b2YgS296bG93c2tpIiA8a3J6a0BrZXJuZWwub3JnPiB3cm90ZToKPk9uIDE4
+LzA4LzIwMjYgMTI6MzEsIExvbmcgWmhhbyB2aWEgQjQgUmVsYXkgd3JvdGU6Cj4+IEZyb206IExv
+bmcgWmhhbyA8bG9uZ3poYW9AYW1iYXJlbGxhLmNvbT4KPj4gCj4+IEFsbG93IGFtYmFyZWxsYSxj
+djc1LXNlYy1zY3JhdGNocGFkIGFzIGEgc3lzY29uIGZvciB0aGUgc2hhcmVkIHNlY3VyZQo+PiBz
+Y3JhdGNocGFkIHJlZ2lzdGVycyBvbiBDVjc1Lgo+PiAKPj4gU2lnbmVkLW9mZi1ieTogTG9uZyBa
+aGFvIDxsb25nemhhb0BhbWJhcmVsbGEuY29tPgo+Cj5Zb3UgYWxyZWFkeSByZWNlaXZlZCByZXZp
+ZXcgYXQgdjIgd2hpY2ggeW91IGRpZCBub3QgcmVzcG9uZCB0byBhbmQgZGlkCj5ub3QgaW1wbGVt
+ZW50Lgo+Cj5CZXN0IHJlZ2FyZHMsCj5Lcnp5c3p0b2YK
 
