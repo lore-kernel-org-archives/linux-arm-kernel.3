@@ -4,64 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2519C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 14:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39433C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 14:28:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XNjC9HyRFq5Wdc+4CVIp5K/5DRraP+ML+Z+a1Bg1uH8=; b=GzA25m4Q5qwfTRDQF2Q90WaLqg
-	fxh1YF++SwHQkT14pB0qhsg8xQnezTnUM6S4e5j1Y3WUF6dzRems2bykln38TSYe6gOYYWUiewoS2
-	Rg8grZNvkwcNJ9rZFSuXbv1cpQPzXIvjwkpmO8aQpcrjc2gSX/jqNs117VnnKrBFhrUOV0Zp+REIK
-	OPaLjL+5FrX45iSjHYIZlUDBuuVLin+jSFk1RyvV+85zllS8qReB+EeplFtoVZQCRWKxvQh5b7yT+
-	zovMEWM9phYrX/LTb8jVjB2uixmH611U61N5aSM40sX7xOaVvjJS8CUp4feNH90foxqucABzRvSB1
-	+TGEiMxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NVWozadQO7xAVs0CxEChlrBPcTWGOFFwMoQqLAdxyTc=; b=PJCyzl8qyqKEaRvxxiA8u/1hsa
+	2/vspFRifTuPBh2P9CWYT/ymsGHT4nyqWx+fgtsxRmBLkgRsQdrwePb7aNwLUN+Rsuw3ifgi61q8v
+	9Ma8WfrZPdzKnkxiDXuCDxeSlu73EBjVnQFm4UPSG8ayQloD9UAxM8YPHsaeJTaQ339mc6BiYFNEL
+	jNea5PpUV91SwIuzhKlOEPZmOPe9L0/YIsiflk6XLbiN48P8J7HEUyKDjZAnBLWCaFh9/jEFHoNuE
+	Bi4zghK518AwGOiUjjIlGsIpf4+4XHbSekkuUm1vSYi+Ejsd2WcJM3IVVGjFN4RUUqRwIJ4qD4oJ0
+	RuQs+Ovg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwhF3-00000009ybt-19OC;
-	Wed, 19 Aug 2026 14:26:09 +0000
-Received: from out-37.mta1.migadu.com ([2001:41d0:203:375::25] helo=mta1.migadu.com)
+	id 1wwhGm-00000009ypc-2Lef;
+	Wed, 19 Aug 2026 14:27:56 +0000
+Received: from mail-pl1-x645.google.com ([2607:f8b0:4864:20::645])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwhF0-00000009ybA-2WHo
+	id 1wwhGj-00000009yow-2AEG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 14:26:08 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=ke29VbWvxDUHLQ7QMVek08IQ7Fx8RV4z7tK1SShiMag=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787149564; v=1; x=1787754364;
- b=k2sPUtHe7dLnxojRgqsvtmNs/rqVWFq2GoTh7c5GLx9QZ4NF6ldoyKhxArr9tRgYk5d/KxlS
- dpvHCGMLL62yjitOR6nLZ5cJ7CV8we/iopOg+Koh3hYRURcwZH/YkFnbovbWs7Qr9z1ewikxPGK
- Hgvp7Hk5rZeJgldnzKFwLAas=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from claudy.lan (37.156.72.212)
-	by smtp.migadu.com with ESMTPS id 4fec9eef40ee9f70;
-	Wed, 19 Aug 2026 14:26:04 +0000
-X-Mizu-Trace-ID: 4fec9eef40ee9f70
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH] arm64: Defer the GMID_EL1 read to {init,update}_cpu_features()
-Date: Wed, 19 Aug 2026 15:25:58 +0100
-Message-Id: <20260819142558.1300100-1-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Wed, 19 Aug 2026 14:27:54 +0000
+Received: by mail-pl1-x645.google.com with SMTP id d9443c01a7336-2cccfa32670so18747505ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 07:27:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1787149672; x=1787754472; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NVWozadQO7xAVs0CxEChlrBPcTWGOFFwMoQqLAdxyTc=;
+        b=S9MTyu1sUslOVTTPXRXg8OVReWYKZnu4ToGJ1dM2AJExJm4+ZtcKOC/ow0HF3Dh8fl
+         8VwNToPO2Wi6GDGXhstuESxF3BnFuQ4+b22IctmSTcC9A0av2pFltN+pLhHLv0OmTUrR
+         v1paaMmGG4ME1Fb94HudTsUO7gP9PNVztyOrf4FqAPsDt8sZPKUoc5igohcCd9iNJNIq
+         7/PPmFx0af8GQQieNiRyuY8A1o2sHi85DjpIkn0R5ulmSQXLHmkdUw0eHlBROfk2OSMm
+         K08YbKzLJVrlnkE3J86BcwGeACCq6kjcibo3bj4jVoxf37kut2Herkms/jwgJnE4Ok12
+         uc6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787149672; x=1787754472;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NVWozadQO7xAVs0CxEChlrBPcTWGOFFwMoQqLAdxyTc=;
+        b=nv1eWnUDGotOnQCKcqd2xj8SXdL3HiPe1oE9P2iNqvI8kSpjl1SLyPQvBg3EiVrl8E
+         YjWuFduK4SWr+l83SJIsvjHCRy29G3L3gD8SOtyBD7rXyQiawaLJ1tJJuvnxghOiR3B5
+         H+qUuJUWgJeRI6/LUhVBQF6aXzV7Vu7TppDey9xIlCB2aZeIvbqQzsMx64Xi4F+QVrJV
+         r/gDF6BJM10Zjqal1vO8k0DZa8SLYWwLuIhRBSd9EzxE4fvHhl+C+teDPG2u3Z2xwWz6
+         syWwF61w4/o81WLwEHY+RN0T8MWzW1cmHqf2sv5MMBN1Awwa2SxcX1QRohPAK/XtauxV
+         49Vw==
+X-Forwarded-Encrypted: i=1; AHgh+Rrj/tNcVcAQYavstZX+XzPjqDmrId6l+bURyKQop4YxG9R8VOkfrMmbzCHte3Hp+SE2DCaRwCeej7WbmukF/025@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8YVEyp1PfmBaZvrJylRjud05mwAvRCHwjUqOvHHWkYc+SQCAE
+	ghUVsuiOlwLjcnyNduGMlEq1ynnKmcAc8IfpSNaRbQJbNlN7c5+aJgX0rJBFMOfho8IOqrUe4ux
+	aEtRwOQ==
+X-Received: from plos6.prod.google.com ([2002:a17:903:1ac6:b0:2ca:ddbd:a19c])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:f792:b0:2d3:6fac:d67c
+ with SMTP id d9443c01a7336-2d5ff7c849dmr91033865ad.10.1787149671281; Wed, 19
+ Aug 2026 07:27:51 -0700 (PDT)
+Date: Wed, 19 Aug 2026 07:27:50 -0700
+In-Reply-To: <7c368424-80f9-4491-8578-d26ccc7dc835@kernel.org>
+Mime-Version: 1.0
+References: <20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com>
+ <807b4b9f-b1ca-4b5c-bc9e-22bf0637ba33@kernel.org> <aoS4wd6Dy9DlluHl@google.com>
+ <7c368424-80f9-4491-8578-d26ccc7dc835@kernel.org>
+Message-ID: <aoW9ZhBWucR3HApp@google.com>
+Subject: Re: [PATCH v2 0/4] Stop returning struct page from guest_memfd PFN lookup
+From: Sean Christopherson <seanjc@google.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>, g@google.com
+Cc: Ackerley Tng <ackerleytng@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Ashish Kalra <ashish.kalra@amd.com>, 
+	Michael Roth <michael.roth@amd.com>, Brijesh Singh <brijesh.singh@amd.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>, Yan Zhao <yan.y.zhao@intel.com>, 
+	Rick P Edgecombe <rick.p.edgecombe@intel.com>, Vishal Annapurve <vannapurve@google.com>, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_072606_792184_DD5821F8 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20260819_072753_628319_5BE03345 
+X-CRM114-Status: GOOD (  20.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,109 +101,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__cpuinfo_store_cpu() gates the GMID_EL1 read on the raw
-ID_AA64PFR1_EL1, so it reads the register on MTE hardware even when the
-kernel has disabled MTE (CONFIG_ARM64_MTE=n or arm64.nomte). KVM sets
-HCR_EL2.TID5 in that case, which traps the read to EL2 and injects an
-UNDEF:
+On Wed, Aug 19, 2026, David Hildenbrand (Arm) wrote:
+> On 8/18/26 21:55, Sean Christopherson wrote:
+> > On Tue, Aug 18, 2026, David Hildenbrand (Arm) wrote:
+> >> On 8/18/26 11:15, Ackerley Tng wrote:
+> >>> KVM currently expects kvm_gmem_get_pfn() to return a refcounted struct
+> >>> page. Callers (such as x86 TDP MMU, arm64 Stage-2 fault handler, and SEV-SNP
+> >>> VMSA / RMP handlers) hold this refcount across page fault handling.
+> >>>
+> >>> Holding a page refcount across fault handling is problematic for guest_memfd.
+> >>> In-place memory conversions between confidential computing shared and private
+> >>> states inspect folio refcounts to ensure exclusive ownership by guest_memfd.  A
+> >>> concurrent guest page fault taking a reference on the folio causes conversions
+> >>> to fail due to an elevated refcount.
+> >>
+> >> Right. Won't we still, at least temporarily, grab a reference while looking up
+> >> the folio in the page cache, or will we be preventing that concurrent race with
+> >> locking?
+> > 
+> > The latter.  What I want to aim for is that if the relevant guest_memfd range
+> > has never been mmap()'d and there are no memory failures, then conversion is
+> > guaranteed to not fail due to elevated refcounts.
+> > 
+> > Or to put it a different way, I want KVM's ABI to be that pausing vCPU is *NOT*
+> > required to perform an in-place conversion.
+> 
+> Having the VM access a page that is currently under conversion (triggered by the
+> VM) should not be the common case, no? Except, prefaulting, of course.
 
-  Internal error: Oops - Undefined instruction: 0000000002000000 [#1]
-  pc : __cpuinfo_store_cpu+0xf4/0x264
-  Call trace:
-   __cpuinfo_store_cpu+0xf4/0x264 (P)
-   secondary_start_kernel+0xc8/0x1d0
-   __secondary_switched+0xc0/0xc4
-  Kernel panic - not syncing: Attempted to kill the idle task!
+"not be the common case" is likely an understatement.  In practice, I don't it
+will happen outside of guest bugs and KVM testcases.
 
-Only pKVM is affected, and only for a CPU onlined after KVM init: its
-PSCI CPU_ON relay sets the host HCR before the CPU enters EL1, whereas
-plain nVHE sets it at CPUHP_AP_KVM_ONLINE, after cpuinfo_store_cpu().
+It's the testcases that I want to "unblock" though.  If we commit to never having
+to pause vCPUs, even if the guest is misbehaving, then that gives us deterministic
+behavior we can validate, i.e. a way to detect similar regressions in the future.
 
-Defer the read to {init,update}_cpu_features() and gate it on the
-sanitised ID register, as MPAM already does. system_supports_mte()
-cannot serve as the gate, as update_cpu_features() also runs during
-initial SMP bring-up, before smp_cpus_done() calls
-setup_system_features(). The init path gains the CONFIG_ARM64_MTE test
-the update path already had, leaving SYS_GMID_EL1 uninitialised when
-MTE is compiled out, where its only other user (lib/mte.S) is not
-built.
-
-Fixes: f35abcbb8a084 ("KVM: arm64: Trap MTE access and discovery when MTE is disabled")
-Cc: stable@vger.kernel.org
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/kernel/cpufeature.c | 19 ++++++++++++++++---
- arch/arm64/kernel/cpuinfo.c    |  8 +++++---
- 2 files changed, 21 insertions(+), 6 deletions(-)
-
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9a22df0c5120f..5120f6721b1e0 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -1176,6 +1176,17 @@ static bool detect_ftr_has_mpam(void)
- 	return id_aa64pfr0_mpam(pfr0) || id_aa64pfr1_mpamfrac(pfr1);
- }
- 
-+/*
-+ * Mirrors system_supports_mte(), which cannot be used before the capabilities
-+ * are finalised. KVM sets HCR_EL2.TID5 when it is false, trapping GMID_EL1.
-+ */
-+static bool detect_has_mte(void)
-+{
-+	u64 pfr1 = read_sanitised_ftr_reg(SYS_ID_AA64PFR1_EL1);
-+
-+	return IS_ENABLED(CONFIG_ARM64_MTE) && id_aa64pfr1_mte(pfr1);
-+}
-+
- void __init init_cpu_features(struct cpuinfo_arm64 *info)
- {
- 	/* Before we start using the tables, make sure it is sorted */
-@@ -1228,8 +1239,10 @@ void __init init_cpu_features(struct cpuinfo_arm64 *info)
- 		init_cpu_ftr_reg(SYS_MPAMIDR_EL1, info->reg_mpamidr);
- 	}
- 
--	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
-+	if (detect_has_mte()) {
-+		info->reg_gmid = read_cpuid(GMID_EL1);
- 		init_cpu_ftr_reg(SYS_GMID_EL1, info->reg_gmid);
-+	}
- }
- 
- static void update_cpu_ftr_reg(struct arm64_ftr_reg *reg, u64 new)
-@@ -1490,8 +1503,8 @@ void update_cpu_features(int cpu,
- 	 * they read/write depends on the GMID_EL1.BS field. Check that the
- 	 * value is the same on all CPUs.
- 	 */
--	if (IS_ENABLED(CONFIG_ARM64_MTE) &&
--	    id_aa64pfr1_mte(info->reg_id_aa64pfr1)) {
-+	if (detect_has_mte()) {
-+		info->reg_gmid = read_cpuid(GMID_EL1);
- 		taint |= check_update_ftr_reg(SYS_GMID_EL1, cpu,
- 					      info->reg_gmid, boot->reg_gmid);
- 	}
-diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-index d50e2a9b066b3..c8967f185e3dd 100644
---- a/arch/arm64/kernel/cpuinfo.c
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -502,12 +502,14 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
- 	info->reg_id_aa64smfr0 = read_cpuid(ID_AA64SMFR0_EL1);
- 	info->reg_id_aa64fpfr0 = read_cpuid(ID_AA64FPFR0_EL1);
- 
--	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
--		info->reg_gmid = read_cpuid(GMID_EL1);
--
- 	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
- 		__cpuinfo_store_cpu_32bit(&info->aarch32);
- 
-+	/*
-+	 * info->reg_gmid deferred to {init,update}_cpu_features because
-+	 * reading it traps to EL2 when MTE is disabled.
-+	 */
-+
- 	/*
- 	 * info->reg_mpamidr deferred to {init,update}_cpu_features because we
- 	 * don't want to read it (and trigger a trap on buggy firmware) if
--- 
-2.39.5
-
+I don't expect any regressions would be super problematic, but being able to treat
+any failed conversion as a KVM bug (for the curated setup) mitigates the risk of
+death by a thousand cuts, i.e. reduces the risk of gradually degrading conversion
+performance because more and more transient references being taken by KVM.
 
