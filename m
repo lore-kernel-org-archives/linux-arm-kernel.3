@@ -4,173 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33617C5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 08:52:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69AA5C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 08:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	In-Reply-To:Content-Type:References:Message-ID:Subject:CC:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/uU6f12BIUhdbdVWhMaHoKtu8LYK2CiOIoKpWZ9NT0g=; b=ChG/4MCpGwjo5svxqyaYyST4yJ
-	z6nP6sjrpd/M9gQxgNHNevt+b0LoK1eljXOvmSsWqfq7NM7e3ZULtroXy57LNTOd80NtaxIv7Xvw0
-	zfuFqhdVkLhZEpo3jcfY+85ZnD7LETZCFTTrLeXrADsO0yE69FxN+9rdMtQmew0U0DGIXQt/dOD3k
-	rkZYid79VqzSNXUOlWHWqM8DL/A8xD4J/PaFOVDMTd5VuuvegerUXM0de0WJoI31BJoEzv14IpEdT
-	SMNAudxAhgB5kV08UBz4iCKIIJ8s+daJ+s4y2X6cV7OZGlG3rcgu3MLF63alkRAjUuaQXLYeoHQdJ
-	KMBNr2Jg==;
+	bh=ZY+5Lz0C5HRqQzdtWjCKe0sIsjWLZBVb/VZvBiuFoSo=; b=VzI/EkQgrsewaPjXrRBk9ADKKQ
+	8A2Mo5lQkKhsWOeI9te6F9zBhlp+VWmMF+406x6ek3ZhuGt0RJiHQt1MnLsLwbQvINgNf/8/iQz+S
+	7nXEvGDE6DyTwRPW8M6HT6Puvkmyy4dr/XdhyiCSNueiq0TaQFlsNE+18liHFGmTFrnlWuiLsl9+D
+	MTwKmjmOor0GSIdB7vTU7CYQcjPC2V2wv4CizvW+e6h4U2LlXxn/fg1i43CuS2Xdtx/qr2dOE8wXZ
+	eZEeznzb9gpkIwb817m4I3nb6X8RePcFK4AwHeuBsg5eaH15hWtnwAVLcev9hNaZiKg+qkSxNSdIN
+	+DOG0iHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwc2J-00000009LNj-01dC;
-	Wed, 19 Aug 2026 08:52:39 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1wwc5u-00000009M0Y-3gNc;
+	Wed, 19 Aug 2026 08:56:22 +0000
+Received: from mail-westeuropeazon11010039.outbound.protection.outlook.com ([52.101.69.39] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwc2G-00000009LNE-17gy
+	id 1wwc5r-00000009Lzh-2B1m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 08:52:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787129556; x=1818665556;
-  h=date:from:to:cc:subject:message-id:reply-to:references:
-   in-reply-to:mime-version;
-  bh=wJjiYylTMeZWJcR+sQIrp5aILWBoOPqNadpim0kzwjY=;
-  b=GygfHP2INudmxe7eTcHvHMIkE6t33hyJ9FlKEn8Gc51Y+XzDbuRcS9iv
-   8hClc9tY/biaGJmJVB4lFPYwMYUviW8L4+u1IGXoSZW40dk45LBpkXUxm
-   CHXikCiHUF+4oFyfrJshDy2b0EdJi9lkT2S3PntFb8LT3tHQOM63WIRGz
-   q0oBoSDBVhS3YEzCPhu0mGC3Ocju7tkjhNgegjkIDpwspoScu+DQ/iblS
-   OZI8McWUeB3kF1L6zYttYgc2pb3u9u9CJp5k1lC8vgVEcqVu7zaPmqrQs
-   lsRHAc+x59VeUeirt28B0julQXikxadkeKGyHzXiBmv7A5gIE3FFdYJx/
-   Q==;
-X-CSE-ConnectionGUID: VyZ+8T1UT8GjpJPauR546g==
-X-CSE-MsgGUID: ALj3ayRnSV+Q3XjRWfciIA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11879"; a="98230772"
-X-IronPort-AV: E=Sophos;i="6.25,231,1779174000"; 
-   d="scan'208";a="98230772"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2026 01:52:36 -0700
-X-CSE-ConnectionGUID: /3L/UOqgTtGul801X8hPHw==
-X-CSE-MsgGUID: InkprnOhR2i0eV4HK9y8kg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,231,1779174000"; 
-   d="scan'208";a="265037903"
-Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2026 01:52:34 -0700
-Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
- fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Wed, 19 Aug 2026 01:52:33 -0700
-Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
- FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45 via Frontend Transport; Wed, 19 Aug 2026 01:52:33 -0700
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.67) by
- edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Wed, 19 Aug 2026 01:52:32 -0700
+	Wed, 19 Aug 2026 08:56:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eSofDQzT/GT0lX2fSsj3+hI291Ofse0U8wu7nScpHBVC26z4s8bNYw2dYKNgxVD9wA8SD1MFeI+97ZC1u4SGz7gUM/CwUHb43B51NKV99xg4oTZRta/+HAl6X/OAz34xYJcCeAoJEsdrK/SQOmNuB+OIPI0CH/qjYq38ghJAhZaZg1ro92siW3rBCJlIw6QvXvhnoDcez9rPumQUS3yEDfrjTP2s5T7NHXx+tkhriF4pdmtIn1htrMo9DXTJIySHdaR0de0J4l0Gas9UKMOB0keVy9lP5OaNK+N7RRJbbajhzAFNsmg4M0pe5UNBJOH5pJ6OUAxARFtleVX8afISkQ==
+ b=Vx6nd77G7ONJplAQDdim6lUeG0TexeMtsvyKF27wOwJ/UHJHCXk2ocVtkVNoKlkEb/WvdtbaIuFg7aVzVrATIhedOURg5DgCq7Xen36CDoTHnfWuhHboaDl2kobl0WkqmbtfiwkYPGc9dDBwdbe2AeShf3MWZeF9n/9HoeVHXW6uD7ZngSYQ3XrhXKinc5UoV5vt6Hy79vv7ISi0HikANwmZGX4N4R8HtX/cdcycWgBADCLGoIgt34MNTRTx1Acoa30hcYA1bWhyi/PHiEQnnbQZqERn5YR8JPkfEBjWcTc23aRYZJPauCoADRR4jvi0L2jQoViw9FJwmUuHMzfAqg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/uU6f12BIUhdbdVWhMaHoKtu8LYK2CiOIoKpWZ9NT0g=;
- b=VvGScA0vLTyqAyMB1yUjrAGwhUd9IfotvyQmH3pzZ/G290q26IyNgK49yD12j1RtaLP1AGSgy6Tvk4BJ8X2ukBnTVoBBmQXD4KmqNB1ZMv14dQ2TT0QHXXHfY9EBlog38PP480kTy+LuAriu3CBJyHgjNyepAk1kidH/g726lmQl323r91xsLzwWB3GuVvBvFOZ5MYvBsci790HKjl0rQUXnIDHt6eJILmDCZBsGnOoDp6RbTibXWU95N6IECGtmXjMeBxBHXVEUbO3QTFhFqzQORa0grihvF9641oJSG2RkLpXjIctdikgNQrKAJ4QDoxfsSPve7KZaC7pb/zopog==
+ bh=ZY+5Lz0C5HRqQzdtWjCKe0sIsjWLZBVb/VZvBiuFoSo=;
+ b=F5fVBa3YbYLlW/3ua5j1SeqR1vmPgjTTpCyCkdcYGa6jC7IF3UmB8p2kZ6L5V6GRf8qf/PYEekoUnoi378vNLwaX9xGTHaSxgEi2NEO8VG23nYqA0bU35Mti1Hgnc2vsDkSeD8XCZ9PkVOwsSnafwjWPksu/TSlhszsF439iSe92xzZ95w6VcEy6cVRSGtcoW3G0DQyBzhUphD1YGLI50k9Ui2QMIB8QOjLYClrhQQby8O3jTPmAKpl8ZD2bhjcm2l3aaLu2lF7uJWGyRgoW7IovgJUA1i2RgMHU/Un9Vkicn+QkrupqfmLQqfOR0YXitRMIImfyiuYTvin3vLLrDA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DSVPR11MB9579.namprd11.prod.outlook.com (2603:10b6:8:383::17)
- by SA2PR11MB4810.namprd11.prod.outlook.com (2603:10b6:806:116::15) with
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZY+5Lz0C5HRqQzdtWjCKe0sIsjWLZBVb/VZvBiuFoSo=;
+ b=qmaiztvfHN3fZ3NmasGO9Pr0qbRGihCngWNHit1WewX9jyXcGNpOXp4nWoLjWH19cxr4Ef4furdtB/JBjb5UB3iMHjV6WWYdNYcu7Mt8AuJeRVA3sStvitKK4I1wo0b5txhtpPpwsQwK/xJ3/QPeMy0MI6kfEMDECmPn4b10YY0apFAjWz+AaMgdIp+TTuaqTy79vROac7Z3vHmSDFTmB3fGIPp2C2Zu4rgynymozqhWO5wypJ07scz6tL5m0/AbNIKEgs5KIvqt4FNhW4l9ug+N4Ubr2Tzr/SqF8DRQwd9hybqj6Ff6zA05M0Gl1T1FqxJvrB6rEkBef3hQV0hGFA==
+Received: from AMBPR04MB12334.eurprd04.prod.outlook.com (2603:10a6:20b:732::5)
+ by GV1PR04MB10106.eurprd04.prod.outlook.com (2603:10a6:150:17d::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
- 2026 08:52:28 +0000
-Received: from DSVPR11MB9579.namprd11.prod.outlook.com
- ([fe80::ab5f:5d0f:fb90:9d]) by DSVPR11MB9579.namprd11.prod.outlook.com
- ([fe80::ab5f:5d0f:fb90:9d%3]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
- 08:52:28 +0000
-Date: Wed, 19 Aug 2026 16:52:07 +0800
-From: Yan Zhao <yan.y.zhao@intel.com>
-To: Ackerley Tng <ackerleytng@google.com>
-CC: Sean Christopherson <seanjc@google.com>, Paolo Bonzini
-	<pbonzini@redhat.com>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
-	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
-	<hpa@zytor.com>, Ashish Kalra <ashish.kalra@amd.com>, Michael Roth
-	<michael.roth@amd.com>, Brijesh Singh <brijesh.singh@amd.com>, Marc Zyngier
-	<maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly
-	<joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose
-	<suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, David Hildenbrand
-	<david@kernel.org>, Fuad Tabba <tabba@google.com>, "Edgecombe, Rick P"
-	<rick.p.edgecombe@intel.com>, Vishal Annapurve <vannapurve@google.com>,
-	<kvm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>
-Subject: Re: [PATCH v2 4/4] KVM: guest_memfd: Stop returning struct page from
- PFN lookup
-Message-ID: <aoVut/h1u7HdFxkR@yzhao56-desk.sh.intel.com>
-References: <20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com>
- <20260818-gmem-no-return-page-v2-4-5298f42d49bb@google.com>
+ 2026 08:56:09 +0000
+Received: from AMBPR04MB12334.eurprd04.prod.outlook.com
+ ([fe80::9b4f:ab4e:94c3:c457]) by AMBPR04MB12334.eurprd04.prod.outlook.com
+ ([fe80::9b4f:ab4e:94c3:c457%4]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
+ 08:56:09 +0000
+From: "Zhipeng Wang (OSS)" <zhipeng.wang_1@oss.nxp.com>
+To: "Frank Li (OSS)" <frank.li@oss.nxp.com>, "Zhipeng Wang (OSS)"
+	<zhipeng.wang_1@oss.nxp.com>
+CC: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>, Frank Li
+	<frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel
+ Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Jindong Yue
+	<jindong.yue@nxp.com>, Xuegang Liu <xuegang.liu@nxp.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v3 1/4] irqchip/imx-irqsteer: Fix error handling path in
+ probe()
+Thread-Topic: [PATCH v3 1/4] irqchip/imx-irqsteer: Fix error handling path in
+ probe()
+Thread-Index: AQHdJj3HEERS6c/RQEWsbUCQeR/5LLaS8e+AgBIygDA=
+Date: Wed, 19 Aug 2026 08:56:09 +0000
+Message-ID: <AMBPR04MB12334483CB096D114238A30EAEBA52@AMBPR04MB12334.eurprd04.prod.outlook.com>
+References: <20260807072346.1222389-1-Zhipeng.wang_1@oss.nxp.com>
+ <20260807072346.1222389-2-Zhipeng.wang_1@oss.nxp.com>
+ <anYroThNbI9hcU6z@SMW015318>
+In-Reply-To: <anYroThNbI9hcU6z@SMW015318>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Enabled=True;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SiteId=686ea1d3-bc2b-4c6f-a92c-d99c5c301635;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_SetDate=2026-08-19T08:55:18.0000000Z;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Name=NXP
+ Confidential;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_ContentBits=3;MSIP_Label_0d9c909a-577b-4ba2-96de-69ada94b137a_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AMBPR04MB12334:EE_|GV1PR04MB10106:EE_
+x-ms-office365-filtering-correlation-id: f9a99fb0-dd3c-435b-f5d4-08defdcfb6af
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|19092799006|376014|1800799024|23010399003|10067099003|56012099006|4143699003|3023799007|22082099003|18002099003|11063799006|38070700021;
+x-microsoft-antispam-message-info: KZI/Ek0GNTebK4gs5Cg/wbZ97kgI9zJXQvh5iHzt5N0dCMN2cdIP/rJYHdHY4BzERENJXoOsPqmHcNpZFoKFhnSBSfCdPtUkWEEGQoY8/SO3NlghlAzM6KEPVraw33S0z9fzPd1GofBJ8qrSWJvVO9DiULikrQ4tGXpVLmKdztTHrNJ3maxV/Q4rnOOKzubdG2n6v6bFHhKKtZH3VQbRxjLTS4Zpt3M0/CE25vDNwukmpOeXJtIrEJuYEtZz37d0AZRPlZvZasiVtAvQ0ejV78E6h0dgZv4+miEQJUaiWL7g0G5nWkrnExMlUiZVZUYWvSexwWLloIhl+/XxcdgjWqSGa57+Vbx4MVm2whkp7Qws4CmlUkH6wHdaLI5QyvWO6EMDM0gmUQMuPw+mqZEcp0zxTKeIi8bJEOSFhwe2iygIP+Y/miaAH24RWZhv7ABy+KCZ3kFzhJ7A2O4qR+rWhrZPB3cPwFYG3ysS9UbPlBNXZic8QMnyjG4v+qQ12mFP30Ukw0HnnUp1F4fGRhUWgggrs67FhKeu3s4Z04c7Hg2TRaIr8QacF10dNGLerYcHhUO2Y7zIW4n2VBvHaoZ7kFv3iWDrIfZp8PR22hc3ns6Phk30iu560Kpu9bZRc4GtB4IamyIw32iQ+XsFKUnLFUXL5vJClpJZdKMf8+QanFdypPVbiBzNgBsYr4euduETwWP7a4tVXJElduxcKj6ptlmrOYIcvBX7t3ligQEK6vM=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB12334.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(1800799024)(23010399003)(10067099003)(56012099006)(4143699003)(3023799007)(22082099003)(18002099003)(11063799006)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?taKcYTfj7qsov6fIG1XcpFFKmLcFUKxUIaHxqP/WIe3nD+KiPIctuMoRSJca?=
+ =?us-ascii?Q?RGmIcomB6hguZ38Xxn5IrMJ5UykiFa/OPcucrn08H+BWeGHBNOfStIB+bY0M?=
+ =?us-ascii?Q?ZQZw/zWo9F1qfZo6kS+xINY4kjCc8+Y6lUmtF2P0s8DvwJ/RAdeFgGp/4/Jy?=
+ =?us-ascii?Q?5WuXubCK6m391Pi2HoVxch6DOnUQ155IACS83nfET35Pne9n/t9p0d7vamW4?=
+ =?us-ascii?Q?GV/veaKh2+kGMNwfrFKbmkinPNPIWZB9AXo+J/tkKrzMIbBCpg8V1+ub3WII?=
+ =?us-ascii?Q?xEDFH9OIpsR0mEaWPjdmWQ1tiYl+JRvcje9GP4dUuM2l3bG9p5hAOJnDmmYy?=
+ =?us-ascii?Q?vS3uMsOxvFraXbGjE/jYtg64po3cb6ayeMzOiErjtMquDBNWCBQY7166L/Xp?=
+ =?us-ascii?Q?c1+osTom/0jkUANerDmPXWzVuJYLcfq4+JGIIyVWC+KYAHh1/xrufQLNUsj/?=
+ =?us-ascii?Q?NE+QDPdA6KLzVbdSrqb4v4tqirFAd7XxhTc/hLD0LL90kfoNtwBZZksCrAsT?=
+ =?us-ascii?Q?Qdex7jNoWHbTG/OMP1PlFFTuDB9OECWpF3fCggQyt+Z25x/GsTb+QGShQ0de?=
+ =?us-ascii?Q?bvWFrnC8r9xmrlxNQHfmH/Jf4z4UKg88Zym53luXy6MFnegG/oGgduJ1hvdO?=
+ =?us-ascii?Q?pFliIKmOS/59wuFPjSzs33dGVmWSB806tng7TrKm9Avq6JSbX41aL7uijvM5?=
+ =?us-ascii?Q?P6maNYcCrqrDSnkhGHfBJ+lOv8usXOjWG94FzDvqO7mKsLfqJ3OdmjEYrZVy?=
+ =?us-ascii?Q?4szy263KchwC1mfQHJtgw/J0qCF8hgLwQ0BStje6MCsvkdTUfKcl2Gimw+HP?=
+ =?us-ascii?Q?OK8SEyPTmzuADLrEcO/eOHJ/mmkNiT+ASEdn9FQks4MDwsKRtDCzLrgj27zn?=
+ =?us-ascii?Q?icXlakjKvS8SPQTzfe1oRbFxEPK64Dq09/EhrwxpO+pneVTgtLKgXHm4Vz3t?=
+ =?us-ascii?Q?5A+ahBSJJPtQ7u7aXO5CjxSX3fF5CKYTtktHLtgEdWv/VamXsiRJWBZWj0MC?=
+ =?us-ascii?Q?zqWOOvAtvCVEJalX0L8qVsIv3Qcq0Qx1KUh2gExL8Tr7jBO2Utab0H5aGm65?=
+ =?us-ascii?Q?sZcOv8SITTAguS+W5uFJQMRSxBB1vciaV9e96o69uNbQNz/8hF1beB7dJrpy?=
+ =?us-ascii?Q?KSSlmG5vJnPFnm2SBVwNPxWCBrcE/cynq/r+neJeM1hZvxz6kmeWuHlyadHZ?=
+ =?us-ascii?Q?BIDENCxgakNL8x0eIrLFLru+1YxJ5qB0DdowUjTQUBx3LHzxqsDRz2oTQA8N?=
+ =?us-ascii?Q?xtuJa/lvv/fSwq50xeC4ibZ8ThURqdLhICj2NRAliJkEh0XgWugOIbFyNBXk?=
+ =?us-ascii?Q?0QcfaxGWqiLhjeaPiO2C7Tk7nsTnsf2RjHVs/n0ltK1Nq9Hs0/GvluYM8xoh?=
+ =?us-ascii?Q?4Mj2Jym2aMZMsSGSHTZyisF/ZEP2RR4X2IHFf7CZamMeOtLsQgl8XPUUHop1?=
+ =?us-ascii?Q?DkTOkvocT25w4JT3AdbU3sJz9g3E1RMIignuS9xaLRdtglluQoAk3wpkX2Bo?=
+ =?us-ascii?Q?vIUaiANPT2dnyF9h7fuLOdez6tYrJsZBCeUos7PaeXKqpfZoJrRvsNyzuTB4?=
+ =?us-ascii?Q?IuFIr8rr0eYvhyJG52KjZIv8xqgJevuzupCuIf2MauDI7Z4T2J706HSjgE0N?=
+ =?us-ascii?Q?mcYTMJjXrNP1uEf2OEz6RN68EluIv96koydCRSy50BQGkxFiLbLVUY4u6YeK?=
+ =?us-ascii?Q?xumbrKeFzXgJoUDHhs+bByULwnwIMEGnTJEypd/pJaz2QB7kCSYUXuErH44W?=
+ =?us-ascii?Q?t9K45sTbBw=3D=3D?=
 Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260818-gmem-no-return-page-v2-4-5298f42d49bb@google.com>
-X-ClientProxiedBy: TPYP295CA0020.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:7d0:a::10) To DSVPR11MB9579.namprd11.prod.outlook.com
- (2603:10b6:8:383::17)
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DSVPR11MB9579:EE_|SA2PR11MB4810:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9fef3504-9fdc-46ed-bd6f-08defdcf32b3
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|10067099003|3023799007|56012099006|11063799006|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: VgrV78dPTeOuV3agLwhBdE5Cr9UbJXex2+jBKhR4MSOOUQpY0PMF7gBlIWfaV42FEwlVkhnL476e1INb8mHZO8v53kvIGW0IemwoksOTRnlaRyuVEAZv9TnB6YJEklh566/6LJBXx3huAjiz+SdgZftpdVlEOypqFx8LhpP0jjtwFhkl2VXuVvz2sKMdSVsYWM46iwgAAYNihPiFHDdYE6M4Nk2ZBaKwQG+jIfe/zM9dV9DO07xuD8XCynAo/mYH8Z8UnhGNm2CVsAuyLt94qiAeqEbiRN8cKPxaXCKV2ogRZn6GVysv7m0hKryGLgoqTP3eYZwloyPEPOEz61MWe7xYYfGDbfV6Z+SU8J0MEvCj0WW4wM7iAxyn99nNrM2srAqA/GHK/9aTzUx4RwY4atINRJFU2ZDkWn3TQxxkrpir/IE1wxASnrTBKrekGdtxhcfgx5FkXrseAT/4KW4I8o/E59fdYZvPYRXeUgP4d8VfwPaoRMQ7UGXE0xqZNmGmpmrLOBfLbIX6Es9t+5gHTF7/HqSy7ZcTko+cJdklPZEWPoovXk6ow412CswwdIrc11iXZh0Sps7cU8EbggBZKdyLSIwkVd3K66SPlCOC6lem8oZ/DcfdhglYsFRlOX/EqXqtr+2/PXzm848dMX39Wg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DSVPR11MB9579.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(10067099003)(3023799007)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uc3qTdHFLuowx0WmFE+VGgdyI9vaVT9rs+userPX1BYs1mhEdRfSiNIudj5c?=
- =?us-ascii?Q?ROxwwkOe6ihwIvnyeKl4YjMe5x4Fm6dSWk31TkRMWXT05sT59VBfO/EJ7x3j?=
- =?us-ascii?Q?chzAxI/PICwlBXst4tYNpn8B2uKa3gB/uUxMDD/9CIdFpGzXhSE57mibqRLf?=
- =?us-ascii?Q?lsgPVOvEDzscqv+ofvOhRZCGKow8hakBgf172aqHtWXj/1KjY2h7UM+nQfKq?=
- =?us-ascii?Q?cPATQggKeOH2SeNZTD8qZ7mgbVLJ3tNhJrpGFWpwhxOwyBE2aQNwdUt2FV4A?=
- =?us-ascii?Q?nFCpYvEXFaSRpc6r+xJRN1uozVFg8+CmeNll49cPNjJcm0tD+2QKLdEZ+PAR?=
- =?us-ascii?Q?f4PHONhZEWz4OaNZ2TOMv/rhmDhMbNVfrAUEbekeF4u2VoOgcD3h3DaGDKb1?=
- =?us-ascii?Q?TFyOQdnieSM02dE++k+BU5+bj/sGtVFKYSGKgSQIreq4MhoGvOOAKfbPvMYG?=
- =?us-ascii?Q?fzKclnJJoL+rNzT7ypSwOUUDWFOmxEzalf1F8g+uUXEka8BzjvnMjObVwuFb?=
- =?us-ascii?Q?XMfHxx2w9TOHSPPFyOVI/cyA0WMy/5RXK20SW+7Oz1GjnHBfzvDf4DuJ+Cbl?=
- =?us-ascii?Q?uj5fPTh2pQS1mS/KcRy6MfvDa2Ni5IQIF2q+LYPRQpkOBlUX0zg7T7Pt0+GK?=
- =?us-ascii?Q?ZKcikr9ZiY3iCvztOwr7Oh8F0a/7wVE9XcpuLTvHgxuw7ZWucOaOmZ1JHOwW?=
- =?us-ascii?Q?lDENdIZ0+W8s3mEI6qsfoH4XlI0zaIpqK8c5ZXw7mSZRisSh0DJbPoUGQDGU?=
- =?us-ascii?Q?xkXEW9LNsJ24pZCZjEA8YGmNsOMEcuIOcKRYoVK4ZGtBrsB/UtG9JF14rJy8?=
- =?us-ascii?Q?7uF8Asd8bhu+Eza8LHxNSMml+me3R4Y6qfHDHIYwm/f3EZgt/YuEhVvJi48H?=
- =?us-ascii?Q?yE+gEolHz09+WEiYdLQQIBOJbdX9BceKcZ57zdofjkefGC0TDyMNTZHOzqEr?=
- =?us-ascii?Q?w3DbkalT3FiACR//U4HVxYB6DzuGLNgXJdO5yTtNR5xIszXF4+8rnp5BAfh0?=
- =?us-ascii?Q?omMxoIRlPStFV7R6sQOshnIX98b89zkmWGohts8B43TeGvNuOfU/KrTmpLvs?=
- =?us-ascii?Q?18Q1m5YWhQKY3bpngZ5Lm19FiD42CnT/h56kBL8JQ63CtIrTlP+ib/yVTeIF?=
- =?us-ascii?Q?mtmArlFmtljDSGmFfqj8TefASnQeBqfLb6IrA8DyF5NnB4uLREAKpn1wEpBe?=
- =?us-ascii?Q?izq/yzuc2mmbMuiXxEZU+vPPul9SdyZE16VHOxOlh2MeAhwRhmNhzLim2+2r?=
- =?us-ascii?Q?ZcAuGnSCkyCCdEl3YxeTWdwObF8aopJUntxtYG8nxNQc9Phyziz1tGoPIGEM?=
- =?us-ascii?Q?xYjgsKGfEIjx2qbdmZwSH6VB4wlz1QlUOWIGk+55JFIcmIqn8xu4ZBAXQEAM?=
- =?us-ascii?Q?Ob8vQUYkED0K78yoXYkXg7TNPxhLQcRWuGiIn4taqFU1iCoVoV+p9eGHRYdv?=
- =?us-ascii?Q?DxuAIZ1cqVuhKOY4raeqlEtv+q8GvvXtYUdQ2gqvov8LiMC33wuie6q8BQJh?=
- =?us-ascii?Q?d5i87RkMYAUBiUMVyqZSoutEw4YpspPV6F2XsOvIASGMg41JBQKNQMD48GQj?=
- =?us-ascii?Q?YDzkRR/4+k8Jv5JWnq6FwtIEdUuP7xTwPvnqFPAYDJS39DQO+4DBvTSAnSjw?=
- =?us-ascii?Q?7ysMtSjUc0bSMk6oWs3EWPP5UV0s+psOEK/O/XiJdqz4ixwcpKxq/xeWT2XR?=
- =?us-ascii?Q?sawUV/Q3LDAat6JefFwBV0xkssp6uTzitINeNDvsM6RoqpGAFNCkSy4zlFgj?=
- =?us-ascii?Q?Kalqd9vSEw=3D=3D?=
-X-Exchange-RoutingPolicyChecked: ZNN2Ihd5aL4oYvHgTZG0lRjQQFdMAgFoVBq/74i5aL1HbKeVLw5a3E7cBo026JIHPuTVAIYlMbH5CIMvH1Sks+pYAx1u2ByGHcznn7y3ybPrTwt7eYf36Xqw4JEsAwrzmuyRrzmebkC1YpY8d2gCq7ryDNYaYKWnOWk3g3UR8ofzboUiIIIUr2ohV24GG/0I96SRp6yeLv0szdJYw+DoXrXxvLfYihEDVlsrNDC+cBgXMdFUyHbkoLG2OuOvgUf5VKU3ohCwjyJEuJP6ZfwtBoVWoetYjvB1kw1yYgAqJu5UZfY6xFreMm9XeUsLti8Pi/MAI6n6ruoOQKwW6TaO2Q==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9fef3504-9fdc-46ed-bd6f-08defdcf32b3
-X-MS-Exchange-CrossTenant-AuthSource: DSVPR11MB9579.namprd11.prod.outlook.com
+X-OriginatorOrg: oss.nxp.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 08:52:28.5242
+X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB12334.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f9a99fb0-dd3c-435b-f5d4-08defdcfb6af
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Aug 2026 08:56:09.8151
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SOLhszgmozdrhB9Dz5UvfJlxVhG9oivNx14bKKq/qrdvUqFqYA98/Lm0R9874TO+qB13PoTAIegeBcu2+QlVbA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR11MB4810
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: QZryGuWL3HsJiVBVPooCjA5o5NAsmp76/cqJDByQSL/nKS5Ru/s6cBl4h+pyD1Wx3VV9QQOwcimkFFqxzMIt2g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_015236_329256_3525651D 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20260819_015619_567837_71A01415 
+X-CRM114-Status: GOOD (  28.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,58 +149,112 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 09:15:55AM +0000, Ackerley Tng wrote:
-> From: Sean Christopherson <seanjc@google.com>
-> 
-> KVM currently expects guest_memfd PFN lookups to return a refcounted
-> struct page, which callers hold across fault handling.
-> 
-> Holding a page reference across fault handling is problematic for
-> guest_memfd. In-place memory conversions between confidential
-> computing shared and private states inspect folio refcounts to ensure
-> exclusive ownership by guest_memfd. A concurrent guest page fault
-> taking a reference on the folio causes conversions to fail due to an
-> elevated refcount.
-Nit:
-As this series is based on kvm-x86/next, where there's no in-place memory
-conversion yet, kvm_gmem_get_pfn() does not hold shared filemap invalidate lock.
-
-However, the benefit of dropping the folio reference immediately before
-returning from the guest_memfd PFN lookup -- preventing conversion failures due
-to an elevated refcount -- should be effective only if the reference is dropped
-before releasing the shared filemap invalidate lock.
-
-Do we need to make this info clear, since I think it's important? :)
-
-> guest_memfd already notifies KVM of page invalidations, so callers
-> within KVM only need to respect the MMU invalidation protocol to safely
-> rely on guest_memfd for page presence.
-
-Could we also explain why the lack of SetPageDirty() (and mark_page_accessed())
-for a gmem page, due to NULL being passed to kvm_release_faultin_page(), is
-harmless?
-
-> Furthermore, removing struct page from the guest_memfd PFN lookup moves
-> KVM closer toward supporting memory backends that are not backed by
-> struct page.
-> 
-> Drop the folio reference immediately before returning from the
-> guest_memfd PFN lookup, and stop returning the struct page pointer.
-> 
-> For ARM, initialize the local page pointer to NULL so that the shared
-> cleanup path that releases fault-in pages safely no-ops for guest_memfd.
-> 
-> For x86, no additional changes are required in the MMU fault path
-> because the page fault tracking structure is zero-initialized at the
-> start of page fault handling, ensuring the refcounted page pointer is
-> already NULL.
+> > From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+> >
+> > If the fsl,num-irqs sanity check rejects the value after the IRQ
+> > domain has already been created, probe() jumps to a single label that
+> > only calls clk_disable_unprepare(), leaving the freshly created IRQ dom=
+ain
+> leaked.
+> > The domain-creation failure path shares the same label, which is
+> > correct only because the domain is NULL there.
+> >
+> > Split the error path so that a failure after the domain has been
+> > created removes it before disabling the clock, and a failure before
+> > that goes straight to the clock cleanup.
+> >
+> > Fixes: 28528fca4908 ("irqchip/imx-irqsteer: Add multi output
+> > interrupts support")
+> > Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+> > ---
+> > Changes in v3:
+> >  - New patch, split out of the single v2 patch. Fixes the irq_domain
+> >    leak on the probe() error path reported by Sashiko AI on v2.
+> >
+> >  drivers/irqchip/irq-imx-irqsteer.c | 9 ++++++---
+> >  1 file changed, 6 insertions(+), 3 deletions(-)
 >
-Otherwise, except for the missing hunk on arm, LGTM.
+> I suggest create helper devm_irq_domain_create_leaner()
+>
+> static inline struct irq_domain *
+> devm_irq_domain_create_linear(struct fwnode_handle *fwnode,
+>                                                         unsigned int size=
+,
+>                                                         const struct irq_=
+domain_ops *ops,
+>                                                         void *host_data)
+> {
+>       const struct irq_domain_info info =3D {
+>               .fwnode         =3D fwnode,
+>               .size           =3D size,
+>               .hwirq_max      =3D size,
+>               .ops            =3D ops,
+>               .host_data      =3D host_data,
+>       };
+>       struct irq_domain *d =3D devm_irq_domain_instantiate(&info);
+>
+>       return IS_ERR(d) ? NULL : d;
+> }
+>
+> Then imx-irqsteer this devm version. So other drivers can get beneafit al=
+so
+>
+> Frank
+>
+>
+Thanks, good idea. In v4 I added devm_irq_domain_create_linear() as the
+devres sibling of irq_domain_create_linear() (patch 1/5), and switched
+imx-irqsteer over to it (patch 2/5). With the domain owned by devres the
+leak on the probe() error path is fixed structurally, so the hand-rolled
+err_domain label is gone and remove() no longer needs irq_domain_remove().
+The helper lives in include/linux/irqdomain.h so other drivers can use it
+too.
 
-Tested-by: Yan Zhao <yan.y.zhao@intel.com> 
+BRs,
+Zhipeng
+> >
+> > diff --git a/drivers/irqchip/irq-imx-irqsteer.c
+> > b/drivers/irqchip/irq-imx-irqsteer.c
+> > index 87b07f517be3..a2f0629b22a3 100644
+> > --- a/drivers/irqchip/irq-imx-irqsteer.c
+> > +++ b/drivers/irqchip/irq-imx-irqsteer.c
+> > @@ -241,13 +241,13 @@ static int imx_irqsteer_probe(struct
+> platform_device *pdev)
+> >     if (!data->domain) {
+> >             dev_err(&pdev->dev, "failed to create IRQ domain\n");
+> >             ret =3D -ENOMEM;
+> > -           goto out;
+> > +           goto err_clk;
+> >     }
+> >     irq_domain_set_pm_device(data->domain, &pdev->dev);
+> >
+> >     if (!data->irq_count || data->irq_count > CHAN_MAX_OUTPUT_INT) {
+> >             ret =3D -EINVAL;
+> > -           goto out;
+> > +           goto err_domain;
+> >     }
+> >
+> >     for (i =3D 0; i < data->irq_count; i++) { @@ -266,7 +266,10 @@ stat=
+ic
+> > int imx_irqsteer_probe(struct platform_device *pdev)
+> >     pm_runtime_enable(&pdev->dev);
+> >
+> >     return 0;
+> > -out:
+> > +
+> > +err_domain:
+> > +   irq_domain_remove(data->domain);
+> > +err_clk:
+> >     clk_disable_unprepare(data->ipg_clk);
+> >     return ret;
+> >  }
+> > --
+> > 2.34.1
+> >
+> >
 
+NXP Confidential
 
