@@ -4,81 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AC5AC5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 13:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D38C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 13:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OU9YOC2PJ8C7fh5u3ebSjsuKNC81kz3bZh/4S+JHqyA=; b=nSWgwpbgKAYXkKuMo0fhkCaH2Z
-	B+oIVXjgDB3EXM0alSErHMzRUkpb8pIV5voJMlny3LdFkp3tqSM7v1eUTMbawgdsSpfdv8bGA155o
-	tlRdk94bsCVMgZFEhe9FZjuYKct8v4AHT0co2Kr9QJtUCSQqT05TjK350oD1aMxuBcxO7UWaZ2fYg
-	Bd3M3VqTTpb6a4WUIrjx7vIkgv4COVKKqy/5Hio7V5VsaWymIn4P4PIaXXUzva++jx3KX3/HwuCAn
-	d3rgG1b9r4pmCAKL/JdN0ygDJLZ1CmACr3Oz26ut82ZyGIcD4fImw+WkoyT+aFD1nmB7xDRkdg7xO
-	RmFvZt5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7IC+rm5B4Z35mmDobDih63+36XzG2WyaObbskCPThrI=; b=ycnAnZg/x/lKm/Rw5MQYu3/r3N
+	4m3x9hurBfZVS8CCh6ogceK5A6yq+89GwpuOqLeJmYnq5cS4necdWsq27Jkj0ltCR52Dh9sJRkQRC
+	PTaF06GarV1dx5SA/VBVTOjNa3nrq50vXmm28LvNrK95ZzZsyW+4aaL3M6yM8Ub+lbES3i101cfKp
+	3SONdj7GJGknB4wOYY4RAaz2pOHGQUlHKzmickP+F1VICq367o9IfpBbSXf1B38EU+F48W7b+aQIj
+	qwtItDFSaffcWU016f0oT/NHxLXxbFuNuwOVueutSi3UKi4L/ye9azyYRp5F9g5pAdiwgwjbpLkBB
+	F+OEiVjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwfzA-00000009pFg-0A7q;
-	Wed, 19 Aug 2026 13:05:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwfz7-00000009pFG-285F
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 13:05:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAF8214BF;
-	Wed, 19 Aug 2026 06:05:31 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4142F3F763;
-	Wed, 19 Aug 2026 06:05:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787144735; bh=8tZeoA1qM6yseHc5wH6x5IAXCz7o0dIu8IBtXCtDR5I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=t3yWksBPwJHtK3Fh45zd2qMesmCsZj0EcT0Z3hkyOVtVEG9Mxa6bfiidSqLWTXzo4
-	 whdeeirC8wqKVHU+1MTFT5sLwfrgQ2XXTsu9lig87KYPcNaBdKnnKT+HDpBjIv1tHd
-	 6Sq3qDJKVnxymVmnOpi18PnEp+N8VXvbXJBYRKRY=
-Date: Wed, 19 Aug 2026 14:05:29 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [RFC PATCH v2 2/2] dma: swiotlb: Initialize and size shared
- default pools for memory encryption
-Message-ID: <aoWqGW5PhY9K_xTs@arm.com>
-References: <20260813102521.1367737-1-aneesh.kumar@kernel.org>
- <20260813102521.1367737-3-aneesh.kumar@kernel.org>
- <an9RrwoaAsqJQ2vN@arm.com>
- <yq5aecfuiapg.fsf@kernel.org>
+	id 1wwg1G-00000009pRC-2FNV;
+	Wed, 19 Aug 2026 13:07:50 +0000
+Received: from mail-japaneastazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d405::] helo=TY3P286CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wwg1E-00000009pQR-1XfI;
+	Wed, 19 Aug 2026 13:07:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dk2xVhQ8nbQN3WLqfqnxjS5ocOdJNIJAKolBo4pzn7oLU299p/1/Y0pkGyYCkeGUvoJOdNk2GqU2L6nWO6THVGelecvcYnzUToOJvXN8SH/tOvKXKXT6ZjJIn3JJ2VCiggyRDjC/AtF8V9FtaZi8s43oQfJMpL4R9UDf+iCxI7mdHW1FRsbakWst0ibMfGifCBDue1YvUTAknQOgvosM8uvXdRL8z6m7ipifVAZlAsUAFT3AL0/FBkK7FmTVKDXBKwfAbWGd6ajxKRJPajxUm4TvUBMP3zE1vJxSirZDNP6aQhnVGb5vB9cLV9Zw8zdKqahorszyZwwvAnjNHjCelg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7IC+rm5B4Z35mmDobDih63+36XzG2WyaObbskCPThrI=;
+ b=G11RX1OfP1kwFZZZS+Kz5oyBz0BKfBMmnJa/WZ0XzATIU4cF/RS4ccXgDc0m7nZxHmyM4Gh2G7oO22DodmSNZxXef/V4RZkIS1+puwduD4sskBPP2gJmk2X09CJpQiu0Al8vLJfT75iTQBGjcQKLC1tylUIu65wY4E7qRxlc1njw+VORioboRHxRrprriHVwtYlTh53DJuDNFPasm4oG0fQIYhmaqAGUGGKK2QVEQdvS49Voa2/ErHl3+jHtDjhxzKR3zslrzl/iTYbfkx0RjoXesFO9YSS4PIh462+TgbfZbC7hNkZKQh9UZbGm2vKf2OD190Aap0rZPn7WiwW8dA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7IC+rm5B4Z35mmDobDih63+36XzG2WyaObbskCPThrI=;
+ b=TvuYglUadnxc9lnWrTMplLUx9u0tP6Y+9zA2K9MPqysnfFXXfM1NQzYvF0eTbGrzVZUETz/mR1wcnO/pyq4IXoO/TWKCNVPwL4yB+TK+mOb8bBSpHwKrz89ygr3oXOk5iDOTqw8OVc7svftXb4CAZSTliPFvfbdl8MSTBl47c+gJ9A8CZ+0AClnhlcBVQVJDeq1QvBkafVUp9xG7i8RolAgbR0T7apLNRH7QePJ0p6f/l4qe547LXLZefvB8qi2Ovp8hfXfeUSe1Kg1qJh5Q3HJQYjdocaAQQZMWB095/P6SuG26afw2ti2pOZvnZ9AMZuqnGQQxrEWa1O7/cymcfA==
+Received: from OSZPR01MB7795.jpnprd01.prod.outlook.com (2603:1096:604:1b4::8)
+ by TY4PR01MB15904.jpnprd01.prod.outlook.com (2603:1096:405:2c7::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
+ 2026 13:07:30 +0000
+Received: from OSZPR01MB7795.jpnprd01.prod.outlook.com
+ ([fe80::7a31:a23c:129f:8288]) by OSZPR01MB7795.jpnprd01.prod.outlook.com
+ ([fe80::7a31:a23c:129f:8288%4]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
+ 13:07:30 +0000
+From: Shiji Yang <yangshiji66@outlook.com>
+To: netdev@vger.kernel.org
+Cc: Rex Lu <rex.lu@mediatek.com>,
+	Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Shiji Yang <yangshiji66@outlook.com>
+Subject: [PATCH] net: ethernet: mtk_wed: increase WED v2 WDMA RESV_BUFF to 0x80
+Date: Wed, 19 Aug 2026 21:07:07 +0800
+Message-ID: <OSZPR01MB779537889255E2F606E47EABBCA52@OSZPR01MB7795.jpnprd01.prod.outlook.com>
+X-Mailer: git-send-email 2.53.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0004.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::22) To OSZPR01MB7795.jpnprd01.prod.outlook.com
+ (2603:1096:604:1b4::8)
+X-Microsoft-Original-Message-ID: <20260819130707.15144-1-yangshiji66@outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yq5aecfuiapg.fsf@kernel.org>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSZPR01MB7795:EE_|TY4PR01MB15904:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7f6b1a1-2f16-43da-37dd-08defdf2d318
+X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799015|19110799012|22091999003|24121999003|5062599005|15080799012|24021099003|25010399006|5072599009|23021999003|4140399003|40105399003|53005399003|1602099012|10035399007|2607281247196008|440099028|3412199025|4302099013|1710799026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TeCwjrgJx3aBAvekqOJEbckA8GbG3ny+JxQ4oBFUTbvpGer5R3x7+qWeQY9y?=
+ =?us-ascii?Q?gdXElzW13Be+00Wmcs2GrDD40TlqLHa3lt5+4yTu0BZv199WBQFnRBm0InjA?=
+ =?us-ascii?Q?ZB0aCwh2KlA6kpFRa5WBL2hhm8YDjVGAxRws02Y+3YFqNKIcO9gLKGx0XFXc?=
+ =?us-ascii?Q?lFqJfddY/4JajvwVGvUflboJSEaI/+6GX47/mZuVJ2bEpIvWDJ7/WvEl+abO?=
+ =?us-ascii?Q?k4GEFj3073Gpw8LgCPnYiah+aN9P6v2rZiCL02iukUCjbVpCloR2WdxvPLBg?=
+ =?us-ascii?Q?1jkGGfhc6J8UVblLzwKAUMj6B/KDgdyl1DsMcqOji1zhi10qIHFJjNEZQoPi?=
+ =?us-ascii?Q?HhxhiucGk6hb7mLp/Qlx4VGfPIPnuZJhSkSL97sttc2c2HhiDXb9m3U0My4r?=
+ =?us-ascii?Q?EddRTO+c7ePikr6pEDCtsnTu4Ttt/0WTh7+m0hYXBcLrfB+d7Ve+MjrPMUws?=
+ =?us-ascii?Q?QnDkzquDF+gDl5w+svSPoZXg2bNkKLlM1vRz1g1EXQK3Wh/2F3ACNrm6WuvH?=
+ =?us-ascii?Q?huXo7RzDLncpdVWg6rOPYt6kcndipCYAHZMLrbCO4c/7zfRr+8Zd4NXMQ41b?=
+ =?us-ascii?Q?Ws57qhUGLBfruFWaqijsvU/9n2j6x2v1aljqlcsUEBYDeqYUfB6w+jnik4jB?=
+ =?us-ascii?Q?gOzwFk9cvKI2G+5aZdVgoZH4b4AfDfLybsYCjbkshMJQrEZbRbgGgSmMHeir?=
+ =?us-ascii?Q?dQ8YsG1mJkRUa/T0Cldl6cDkehMdEz+mTDXsvrKJCCdynPF0hzdyKLoIAZvk?=
+ =?us-ascii?Q?LJPp3Sol/U1g15ZsdF1QAJxe30CyUAHy2adg9+lR6WnpzXcEBT88ePTg+WR9?=
+ =?us-ascii?Q?5u2LJOTYSralUwEXENVhildIfr6juDneFuJTqRxoWv7IlkbiBbxxKWb3LHvA?=
+ =?us-ascii?Q?/9bTeRUciJtRXrsh7+nxIvVOFR6/e1fC/Sa6gPC7X8kRf2JUClV/l11rQJZ2?=
+ =?us-ascii?Q?Fy3aXCidTHoe4bxJwDt7zZdJfPuLT2U6O4UkVwZHdN4wCKL9jOBqdnGbnRB9?=
+ =?us-ascii?Q?RswlGi+V+UstplpjK2QuRqukdWDJv2tFN/rBKCWSi+BFPHjz6pHU+jeKKFQy?=
+ =?us-ascii?Q?+xqBR9ajMCp7diR2jU15PA6rC7tfYysAqjvHRqBNGndr0/ehbtU=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wcSRY6/1RXB5oGMjCW5sWDBXejxGgJdW4SL1yi7tClfcPv5smGemaqq3/wSx?=
+ =?us-ascii?Q?pckabGMLgPq0rl/fchFwVn5UPpWRoR0AtAsZDJ9574kTCkdr2CFrdN5HtOcF?=
+ =?us-ascii?Q?JFn775mwTIudw85kvSh4eT97aMPIikhI/ytuaEHj+w1BJhwbJwj/XNIxbSTH?=
+ =?us-ascii?Q?4SyE3jlu/vQJ13lVd7ascpqxpLZXYv98NwlOCWNc0mppjw6ewLhD/Sf/QwAy?=
+ =?us-ascii?Q?he5AV31DWhYBX6CpmH6AOOIH+z8PLTj/hAElFsOD+iLJgXwnCxSmX6vhwEkM?=
+ =?us-ascii?Q?9X9KAxBGhjqbzoybWERN0gGGARDPG/w3ST0yGBeRNCJg1XfYQ7bIywdYkXSS?=
+ =?us-ascii?Q?4LtqyBkzBIZFl2Q84YUB09D+39dS+keh5kDlFLV6jxje10VrFILFeBGvluBt?=
+ =?us-ascii?Q?3F5dEe7wiXZduBZtias5+ahkaF4ed+6pTIXNAtp0di/e+pT58n4+U5gekx5F?=
+ =?us-ascii?Q?Kr+LIHvlXP6wjOLnfHIEhkxbT1Arv7s8K3kd22EHZyW1rFwalZBPmdTwRSW1?=
+ =?us-ascii?Q?N5IH4P96B4FF79NEHMoGAPekn66QkA+UScajkkOkXMBq5hnWbQRbfpXpFLUX?=
+ =?us-ascii?Q?GlUHFmGerdC98CCl58Xr4fHUHJTyqOOgPlskEo05kShMD+2GMm23PqK25IFo?=
+ =?us-ascii?Q?FAgY6g/yXqcgZK5coSrOgjCmJhC1RGePcF4O622pBcv8B05V++u2OY7XM8JR?=
+ =?us-ascii?Q?IEa4tyvBoHzfb1re6uEHw91mf8qKMQpU96OXH2Tqt9tw2U4SKvobAlUw3lTw?=
+ =?us-ascii?Q?NILkqP0KNeT5nriL4T3fRx7JIbbSP6x6KXUeQ3AOfErLTRzdhTuax/SFe5Q/?=
+ =?us-ascii?Q?HqUIBAZa1xakhKz9hi4eg1dKIF0yIXDgwLjvxI1YdRDTkZIQC+W1xu+d4uDm?=
+ =?us-ascii?Q?uvkKcD+yGw9wmz6Kp4mTrROXwWArRAWOm1chbMabOSoWvii/kaIAlpbzvnwF?=
+ =?us-ascii?Q?KzC0274Th8fR5/NFeSkPPp5RWRJs5+X+zphNBJoxZn+2/jqbLohIBCjnllVB?=
+ =?us-ascii?Q?6vziZ1QiKftqN6QMCbTUHOkeBr3VJ6bsokkVnK2yP3IT47pf2/V6xm0QZYz3?=
+ =?us-ascii?Q?P3+2hDx864YriI4b08pirVvCFS7iMCXeteVMNyTWDs9EsPcpR8K618y73zBZ?=
+ =?us-ascii?Q?FNuTOPJ6i3FVsBLebh7IemqtuZXPs44bRiF/51LVCYIUkBIA+KFqTqmhrJTq?=
+ =?us-ascii?Q?nh+oosq6EIS95HYRr8TayIpQFy1PhhyoDy8ryhLChD7zN8JXCnwWQfDrHGQg?=
+ =?us-ascii?Q?s2koE6pFTwU2LMuwQdjcINGoYatyXcPqXkxihXDKdA61QXZmXVldG53gK6GK?=
+ =?us-ascii?Q?ifHJXjJkbKtFIoWRxmZY/OS5MzapXF5jXmFXI3BH7/KhlDmC7iZoBLIOmTGD?=
+ =?us-ascii?Q?xubQBpD9OpZxKl8C1N3XGjhkjKouCTIGnYhBXIlgabq1x+3BRg=3D=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7f6b1a1-2f16-43da-37dd-08defdf2d318
+X-MS-Exchange-CrossTenant-AuthSource: OSZPR01MB7795.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 13:07:30.1211
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB15904
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_060537_725115_842BEF6A 
-X-CRM114-Status: GOOD (  36.69  )
+X-CRM114-CacheID: sfid-20260819_060748_419030_5623E2F0 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,146 +153,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 05:28:03PM +0530, Aneesh Kumar K.V wrote:
-> Catalin Marinas <catalin.marinas@arm.com> writes:
-> > On Thu, Aug 13, 2026 at 03:55:21PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> >> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> >> index 9f5b366d2086..c3188ca878f3 100644
-> >> --- a/arch/arm64/mm/init.c
-> >> +++ b/arch/arm64/mm/init.c
-> >> @@ -338,12 +338,8 @@ void __init arch_setup_zero_pages(void)
-> >>  void __init arch_mm_preinit(void)
-> >>  {
-> >>  	unsigned int flags = SWIOTLB_VERBOSE;
-> >> -	/* pKVM uses restricted-dma-pool */
-> >> -	bool cc_guest = is_realm_world();
-> >>  
-> >> -	if (cc_guest)
-> >> -		flags |= SWIOTLB_INIT_CC_SHARED;
-> >> -	else if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
-> >> +	if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
-> >>  		flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
-> >>  
-> >>  	swiotlb_init(flags);
-> >
-> > This looks fine. As I mentioned on patch 1, we might as well move this
-> > hunk over there and avoid the flag definition.
-> >
-> >> @@ -102,9 +101,6 @@ void __init mem_encrypt_init(void)
-> >>  
-> >>  void __init mem_encrypt_setup_arch(void)
-> >>  {
-> >> -	phys_addr_t total_mem = memblock_phys_mem_size();
-> >> -	unsigned long size;
-> >> -
-> >>  	/*
-> >>  	 * Do RMP table fixups after the e820 tables have been setup by
-> >>  	 * e820__memory_setup().
-> >> @@ -112,33 +108,9 @@ void __init mem_encrypt_setup_arch(void)
-> >>  	if (cc_platform_has(CC_ATTR_HOST_SEV_SNP))
-> >>  		snp_fixup_e820_tables();
-> >>  
-> >> -	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
-> >> -		x86_swiotlb_flags |= SWIOTLB_INIT_CC_SHARED;
-> >> -
-> >>  	if (!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
-> >>  		return;
-> >>  
-> >> -	/*
-> >> -	 * For SEV and TDX, all DMA has to occur via shared/unencrypted pages.
-> >> -	 * Kernel uses SWIOTLB to make this happen without changing device
-> >> -	 * drivers. However, depending on the workload being run, the
-> >> -	 * default 64MB of SWIOTLB may not be enough and SWIOTLB may
-> >> -	 * run out of buffers for DMA, resulting in I/O errors and/or
-> >> -	 * performance degradation especially with high I/O workloads.
-> >> -	 *
-> >> -	 * Adjust the default size of SWIOTLB using a percentage of guest
-> >> -	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
-> >> -	 * memory is allocated from low memory, ensure that the adjusted size
-> >> -	 * is within the limits of low available memory.
-> >> -	 *
-> >> -	 * The percentage of guest memory used here for SWIOTLB buffers
-> >> -	 * is more of an approximation of the static adjustment which
-> >> -	 * 64MB for <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
-> >> -	 */
-> >> -	size = total_mem * 6 / 100;
-> >> -	size = clamp_val(size, IO_TLB_DEFAULT_SIZE, SZ_1G);
-> >> -	swiotlb_adjust_size(size);
-> >> -
-> >>  	/* Set restricted memory access for virtio. */
-> >>  	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
-> >>  }
-> >
-> > Credit to claude, it noticed a slight change in behaviour for x86 w.r.t.
-> > the crash kernel reservation. crash_low_size_default() reads the swiotlb
-> > size but the resizing now happens after arch_reserve_crashkernel().
-> > Maybe not an issue.
-> >
-> > Alternatively, we could build the sizing logic into
-> > swiotlb_size_or_default() but I haven't checked whether we have the
-> > right information when this function is called.
-> 
-> IIUC, the current code can still get a different value from
-> crash_low_size_default() than the final swiotlb size we end up using.
-> This is because crash_low_size_default() is computed early, before
-> default_nareas, which is derived from num_possible_cpus(), has been set.
-> 
-> If we are okay with keeping this consistent with the existing behavior,
-> moving sizing logic to swiotlb_adjusted_size() looks like a clean option.
+Change WDMA RESV_BUFF from 0x40 to 0x80 to avoid CDM TX FIFO overflow.
+Without this patch mt7986 and mt7981 may have WDMA TX hang issue. This
+patch was pulled from mtk-openwrt-feeds GPL open source project.
 
-See how it looks, it may turn out cleaner.
+Link: https://github.com/mediatek/mtk-openwrt-feeds/commit/07c87502e854b68b48544d101b6fe17ec059b97b
+Signed-off-by: Shiji Yang <yangshiji66@outlook.com>
+---
+ drivers/net/ethernet/mediatek/mtk_wed.c      | 5 +++++
+ drivers/net/ethernet/mediatek/mtk_wed_regs.h | 1 +
+ 2 files changed, 6 insertions(+)
 
-> > I think at a high level, we need (i.e. separate attributed from sizing):
-> >
-> > 	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
-> > 		io_tlb_default_mem.cc_shared = true;
-> >
-> > 	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
-> > 		if (!restricted_dma_pool_present)
-> > 			swiotlb_adjust_cc_size();	/* 6%, clamped */
-> > 	} else if (!(flags & SWIOTLB_INIT_ADDRESSING_LIMIT) &&
-> > 		   swiotlb_kmalloc_needs_bounce()) {
-> > 		swiotlb_shrink_for_kmalloc();		/* 1MB per 1GB */
-> > 	}
-> >
-> 
-> But pKVM wants to reduce the swiotlb size based on
-> kmalloc_needs_bounce() when it is using a restricted-dma-pool.
-> 
-> ie,
-> 	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
-> 		io_tlb_default_mem.cc_shared = true;
-> ..
-> 
-> 	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
-> 	    !restricted_dma_pool_present) {
-> 		swiotlb_adjust_cc_attributes();
-> 	} else if (!(flags & SWIOTLB_INIT_ADDRESSING_LIMIT) &&
-> 		   swiotlb_kmalloc_needs_bounce()) {
-
-Ah, right, I got my conditions wrong. Basically a restricted pool
-prevents an swiotlb growth in a protected guest. If no addressing limit
-but kmalloc bouncing, we allocate a small one. Otherwise we should not
-have any swiotlb at all.
-
-I need to write it in a table, too many combinations
-
-CC guest:
-  no restricted pool			=> 6% of RAM
-  restricted pool (pKVM heuristics):
-    addressing limit			=> default size
-    no addressing limit:
-      kmalloc needs bounce		=> minimal
-      no kmalloc bouncing		=> no default swiotlb
-
-Host CC_ATTR_MEM_ENCRYPT		=> default size
-
-No CC:
-  addressing limit			=> default size
-  no addressing limit:
-    kmalloc needs bounce		=> minimal
-    no kmalloc bouncing			=> no default swiotlb
-
+diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
+index 10d9beaae..53d3b7e00 100644
+--- a/drivers/net/ethernet/mediatek/mtk_wed.c
++++ b/drivers/net/ethernet/mediatek/mtk_wed.c
+@@ -2071,6 +2071,11 @@ mtk_wed_dma_enable(struct mtk_wed_device *dev)
+ 		wdma_set(dev, MTK_WDMA_GLO_CFG, MTK_WDMA_GLO_CFG_TX_DMA_EN);
+ 	}
+ 
++	if (mtk_wed_is_v2(dev->hw))
++		wdma_m32(dev, MTK_WDMA_GLO_CFG,
++			 MTK_WDMA_GLO_CFG_RESV_BUFF,
++			 FIELD_PREP(MTK_WDMA_GLO_CFG_RESV_BUFF, 0x80));
++
+ 	wed_set(dev, MTK_WED_GLO_CFG,
+ 		MTK_WED_GLO_CFG_TX_DMA_EN |
+ 		MTK_WED_GLO_CFG_RX_DMA_EN);
+diff --git a/drivers/net/ethernet/mediatek/mtk_wed_regs.h b/drivers/net/ethernet/mediatek/mtk_wed_regs.h
+index c71190924..e5f83100d 100644
+--- a/drivers/net/ethernet/mediatek/mtk_wed_regs.h
++++ b/drivers/net/ethernet/mediatek/mtk_wed_regs.h
+@@ -433,6 +433,7 @@ struct mtk_wdma_desc {
+ #define MTK_WDMA_GLO_CFG_TX_DMA_BUSY			BIT(1)
+ #define MTK_WDMA_GLO_CFG_RX_DMA_EN			BIT(2)
+ #define MTK_WDMA_GLO_CFG_RX_DMA_BUSY			BIT(3)
++#define MTK_WDMA_GLO_CFG_RESV_BUFF			GENMASK(23, 16)
+ #define MTK_WDMA_GLO_CFG_RX_INFO3_PRERES		BIT(26)
+ #define MTK_WDMA_GLO_CFG_RX_INFO2_PRERES		BIT(27)
+ #define MTK_WDMA_GLO_CFG_RX_INFO1_PRERES		BIT(28)
 -- 
-Catalin
+2.53.0
+
 
