@@ -4,78 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40A5C5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 10:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A314C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 10:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KHXxQrdPyMQV1j9h53mmteeq4E6nsKAgQweLk1l7yi8=; b=O87QQWM+UDveEm/pFy43Tyqn6u
-	sMcLN6NceUqoQfrDK/3h1pNuSUTpbEgWE+dJr6Eb5Rj3gLKCDYEjwKBIiq3WwdzglfwWT3zzM14Ix
-	c4puHj9iewqkRd43DaLGY8VK9t7tQYIds78J+V1gAgpWEiO5blIEJnrWE4PESGWRp8IslHWLC+YkA
-	uemsnPojD0CF6g2aFoIkGsW+Pz4Lctps6j5x9zeqYZJD32ZmxKuHq/sqq1hK9cqeQgjtkvm9ivwE0
-	e/a8apPVQ7m48W6yd/cwPmA0VJBL29NIJWa5ZfrzAiVMvzSHqbAqVcAeFo7+2IZtJJGKh8ZLkV610
-	qJhsEPNA==;
+	bh=Ww10+OJo0719/xus/YZCQo06xfKOWmvT6qT+Uurk6l4=; b=b+azmduc35w0UAIol2giBWSDfN
+	ppLCZVXSx5tGRsjtRsmruhMBeoBobD/wkr94ZazFE+u5JQpHDLGKkB2sWXv7TRQVVFixJX7DlXSZw
+	64g0UodDEcaQhXvAuKeqNcFci/Bnnge/KWd+A5tfBWRRZ4+6/FE3vVl0umhva3zyEWccNTTVzKIpZ
+	k3oJ2AyfDqgtMgB9QCqDo3l9dW1NclTYJ33gY8eSnTDHqGAv42c6P9LL6k9pxyoF4UmTV89CzwsK/
+	i2sDoYcg7Uj5ckooeVoVyAR0J7+U7RQb04546l0BcYR/o3mQ3wnG62gkSoHP1CpHiZ3WyyxLO+YQe
+	ywLMiZHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwd8I-00000009TFu-2Azi;
-	Wed, 19 Aug 2026 10:02:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wwd8n-00000009TNT-2hDT;
+	Wed, 19 Aug 2026 10:03:25 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwd8H-00000009TFR-0b0J
+	id 1wwd8k-00000009TME-49GJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 10:02:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 70BE743F39
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 10:02:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58A281F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 10:02:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787133772;
-	bh=KHXxQrdPyMQV1j9h53mmteeq4E6nsKAgQweLk1l7yi8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=iTsQ7SVDmjpOMkJyIMV0UDO+IqH4FuS7KPhqaAa4SYZimwGrefrY7KS5h1KnX5p37
-	 TGAiiFqPjHXrrez4p0hcfEvh9qKS/YfLTgb1/QygVgsvPDAdkkkZuWl9cFjhh3jjdC
-	 twFSyAkhjdCw3zdHtHpwSg+SJOev8Ini1WxjcUVzgcesTpJQhvfuaxbPuwUDGa6q3R
-	 601HeuqK60qAETdXnyz8jtYvOP9nnlY1qrW47rs1isnZaXD8RWKWUE62v/7CaMd6wY
-	 EAEAXhcAeBceiRdbxXT+Y3hAgM8c5w9KHrG2i9eA4Wgs/F9eSOGkcrnBlcZrCLCCLb
-	 1F8TWAyZ1aMqw==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5b00d083818so1926467e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 03:02:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RoBrniGGmCLSvW70ketT+UN2YRpUc7+PuuWL81u4mkvyHaBY90HFTF69H9vOxfGysNg3bKlUbyCeZR72hJaZwm3@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBHrYDjYDdevzY9G8qTtIOod4INJuoCayAV3ryIPzkeQeWbqI8
-	IdD99tSTYM9fIjuuEYcuXhHY4y+RC+nBkv1T2UPg69GT3ZC3Rul7BC0Jni25FnE+wSUaMP0yV92
-	65bzcwgWcqrUfEDN++QSvvvNe9XTi7xk=
-X-Received: by 2002:a05:6512:1284:b0:5b4:5a41:a8e6 with SMTP id
- 2adb3069b0e04-5b47868ba2fmr768992e87.12.1787133770878; Wed, 19 Aug 2026
- 03:02:50 -0700 (PDT)
+	Wed, 19 Aug 2026 10:03:24 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-47f5d5dbf80so94664f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 03:03:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787133801; x=1787738601; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Ww10+OJo0719/xus/YZCQo06xfKOWmvT6qT+Uurk6l4=;
+        b=W0RRp3VWWoKK2UQIe4Przelq8VWBf5nJ43LyisjaYss9HwzHKkV7Sn3gZhk3rqMGD0
+         sTQn0to7mVwkUEo4IB0QiQNQjAQ1uPGdBW3fZeGFifzm5PrT7+nbH/lNPXaVXHe59j2n
+         DVEO7ujs/riIdnT5Fg4Xw2A9yMawD/lM8k17xlbQw1iwdHu0a9mArnoV5bgcYUXsgv0a
+         iwIRF5dJ+xdmfucke/JGONngVN9ytfW0SZU7MPBPdOyfoa33Oqkld4GtSHOP2du06+Xb
+         MPVKBOq6I6es8SredLcqSnPdVGfZR1lBhPWil7+jtmSwZTvMqu7Dk4BSge3HTV7mkHlj
+         /yNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787133801; x=1787738601;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ww10+OJo0719/xus/YZCQo06xfKOWmvT6qT+Uurk6l4=;
+        b=NuNuOZ+khe9cO/RaLHv0I93cWEG5UqpZVjoIuF9YidnQSi5xjgqH9kToolYzCWJm25
+         xY+CfIfPwne4mjHFtMxXKwRGR+naos7q+45ZZZLyZKso6I4eXCEIZdlf9UlbGyVUY+qq
+         Blg0WhC55kp34arZzBaMlBEuUxGnlZwVci9ZID+PrkJn1IgpQYx1N6RhcIf0LWAhBHly
+         50hFTk8pA8Pme0kuo6xTHil3i5RlRiPHDJ1J5gWLYh55YQKrSmllB4/m/70GsrGs9SmV
+         Sx2nap3q7aV2GfyOK/n0CQf98awFgH6T6Xn8Zv2l/a+NVSQOEmAZtMg571HZyZtn7VXD
+         E1Zw==
+X-Forwarded-Encrypted: i=1; AHgh+RrfWGFe+A3NZYB+HKzQwYly3ewsnuBM4VYg+iAuE9UhcEkThm+wUuCdhV09uVbrAxAZvyfhPGSgygrj0uDVIWkX@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYetK1kk1ebCORfP9jxddesBwR4ON6u4jua7oznlo+mKByMz30
+	BWZ4gkBS1IgholOdxXeOuaxRQLAC9PETmGvPL2ZAfRCPk9tXGj1eWLxk
+X-Gm-Gg: AR+sD10VnzzTHaF51XNBpN4ixMXwHFC198N8crZNrmmpD5x6tvsQ1Gi9nkarTXS17HX
+	09zPdffWWhu0ois9YRgeu5q9sFaLJJEb6T9htMRK3QO4cltc2tcl9VhkicF8Uhp55azFn9rtK8n
+	YEq+Am4R24P488xrb0eFQWEhKCf/StXvvuZbhmvzDqQu/MY+PaOyJg2T0A1Va4LEAKdsbbESbeJ
+	oQxrruNxjLvjrv0nFH0gSdMkrvcArBod1+VM0cjb3xV8AsArRcXiFMp0FYNJE0Trpbfkt78+2D4
+	/JN0UEHXwoJSSNmcJCp7EW/UTYUyree6aWLNK0QgbQPcGVa38+294ThqiEZOKEAU1MHG00st3KJ
+	OEe9O9Evbmpci64vqxc8b0QwRs/8aQ/5Ke3RtZ4AIZcoUCTXReX1hBMLtweFUdKKQrJzL3kxzvY
+	MsCuTVcONJ0wfIm/QPwp9zDeicoZaeB8EDcg+GTx5osRPIbsEfQQ0tJkZgFvFPQffrKxcPjM4O7
+	bNTDx8Qz+NQfcIjiJYDjHsTqdjJ1PNPpOy+3oWc2MX/GGhhhaNLwG3+n2ba1rMApvwdrQ==
+X-Received: by 2002:a05:6000:385:b0:482:a902:bfb5 with SMTP id ffacd0b85a97d-482b1e07e79mr2759906f8f.0.1787133800795;
+        Wed, 19 Aug 2026 03:03:20 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B92960062A31D8DDD4EA0DC.dsl.pool.telekom.hu. [2001:4c4e:1b92:9600:62a3:1d8d:dd4e:a0dc])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482b1441748sm4935688f8f.8.2026.08.19.03.03.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Aug 2026 03:03:20 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: support <support@armdesigner.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Alexey Charkov <alchark@flipper.net>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	dri-devel <dri-devel@lists.freedesktop.org>,
+	linux-rockchip <linux-rockchip@lists.infradead.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	linux-kernel <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] drm/rockchip: vop2: Scale the AXI clock to the bandwidth the mode needs
+Date: Wed, 19 Aug 2026 12:02:47 +0200
+Message-ID: <20260819100249.7945-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <2026081916331211222713@armdesigner.com>
+References: <20260813154501.21332-1-royalnet026@gmail.com> <2026081916331211222713@armdesigner.com>
 MIME-Version: 1.0
-References: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com>
- <20260818-cv75-v5-v5-5-7bbb12f0360f@ambarella.com> <CAD++jLngqGzethEG5Hx+oAPzZoV6rvWNGXYaycFFkDz_dXFz=g@mail.gmail.com>
- <7b258258.6f41.1a01943e97e.Coremail.zl020895@163.com>
-In-Reply-To: <7b258258.6f41.1a01943e97e.Coremail.zl020895@163.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 19 Aug 2026 12:02:38 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmf9_kp6b_eL0hedyhZLvzdVTXNDe_AtTf1pyhojdhTmA@mail.gmail.com>
-X-Gm-Features: AcwNN1X8jEhwleIm8t1lo_bZxTU0D9zLfJvN6rMgb_5K_Wo4kFGRz26QFUIrtQY
-Message-ID: <CAD++jLmf9_kp6b_eL0hedyhZLvzdVTXNDe_AtTf1pyhojdhTmA@mail.gmail.com>
-Subject: Re: Re: [PATCH v5 05/12] dt-bindings: gpio: pl061: add Ambarella CV75 variant
-To: zl020895 <zl020895@163.com>
-Cc: longzhao@ambarella.com, Arnd Bergmann <arnd@arndb.de>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Brian Masney <bmasney@redhat.com>, Lee Jones <lee@kernel.org>, mfd@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260819_030323_043467_A57BD31C 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,22 +116,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Long,
+Hi Owen,
 
-On Wed, Aug 19, 2026 at 11:05=E2=80=AFAM zl020895 <zl020895@163.com> wrote:
+Thank you - and thank you for bringing this to the list. A fanless
+RK3588J chassis at 60C ambient running dual HDMI plus DP is a far
+stronger argument for scaling this clock than my bench ever was, and
+the +3-5C junction delta at 750 MHz is exactly the number the
+power/thermal side of this discussion was missing.
 
-> I checked it just now, Ambarella is in JEP106BN as bank 16 / identity 0x6=
-8.
-> Per include/linux/amba/bus.h I plan to use periphid 0x000e8061
-> (designer 0xe8 =3D JEP106 0x68 with bit7 set, part 0x061).
-> The continuation bank is not representable in the classic
-> 8-bit designer field; please tell me if you prefer a different
-> encoding.
+On your question - both, sequenced, because they answer different
+questions:
 
-This sounds good, make sure to patch your designer ID into
-include/linux/amba/bus.h enum amba_vendor maybe as a separate
-patch if nothing really make use of it right now.
+- The BSP 6.1 48h soak first. That is your production reality and it
+  needs no bring-up; what it buys is the real-world deployment
+  evidence, and with your permission I will cite it in the v3 cover
+  letter alongside the multi-CRTC tearing observation.
 
-Yours,
-Linus Walleij
+- The mainline clean-room run when your DTS bring-up is ready. v3 will
+  be against drm-misc-next, and that run is the one I would attach
+  your Tested-by to, so the tag attests the tree the patch actually
+  targets. No rush on this one - if it lands during the v3 review
+  cycle rather than before it, that is still perfect timing.
+
+I will CC you on v3. It will state the FRL/ACLK relationship
+explicitly (on my board the HDMI FRL path holds the clock at 750 MHz
+independently, which is why the DP path was the one that exposed the
+scaling gap), and it will pick one direction for commit_setup vs
+commit_tail and defend it in the cover letter - the question to the
+maintainers about a rockchip-wide hook pair is still open, and v3
+cannot wait on it forever.
+
+Regards,
+Igor
 
