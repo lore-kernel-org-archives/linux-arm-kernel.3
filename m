@@ -4,82 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A84C5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 08:29:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31EE1C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 08:30:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cwJVuh2Zw3Qt8AXUUok0G3WmGrLxUvlvv8s7D0px7Nc=; b=Uxuzqay7RHaCfqrb9KmIF2CzXv
-	+WwmwqTYtVEvoeLLtME5QAKUXHIfDIyaJBXRTSksJUNxha4JtbhNP0nTGgr94ULfx3sEIMkyIUgmM
-	8rtwk7SJ1Xrb9xqHKKPhZKKaZu7kuue7B96ORzYJHhSmXuXV2uRSChFHMtl2Kju/lBJPtQEDD7bwE
-	sMg25q7aDVkEX46B4lQ+ATahBtzPhUzyMsTNy1xv2htJktBrkQCNKVgl/UoofRDiRp+sW94FIAb/i
-	epmVVt9iONHf1w1cwIKNb+XMkdpzzp12G6z9yLjwCtMCkTBwwQsEaGRLhjX8PTeKvzo3c4ERrpUzT
-	hIM/86QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gLcNOWCMOr5tDmMmAR/CIVfLqNQBUcdL8r9yPFgjpKg=; b=jlkfU+8PTyfUe0sIJdr1tp3ufl
+	5MuByHLWeuCESz7abk/yZSsU2ff1mpXZnZbqlEFakCjq6oojMWwoCAxjsQTyo7e+A4QPbkutnhjiw
+	TUXdl/nmRC/Hup2CVkUE3NukO9C3EA4jpI1ekF5JiG0oorC/m2jmJ2fJMDs4vBVKwEKfABQElhbeh
+	6+iOQbPm++VBciw5oRlqqT/Qx4syZzY9L3MwDCM4VL+efHC9wDV1x2Oz09Ce7eTfk6kHIxw8uDh86
+	WMaG37d7dUSMsIwGVLd6qVc6s5lkUgpmUtNICX2YOKWk1wKzLauS2JCIx4YerVP0fw+sEesScfyXB
+	MG/6onaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwbfQ-00000009JJA-2ysY;
-	Wed, 19 Aug 2026 08:29:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wwbgW-00000009JS4-0CgX;
+	Wed, 19 Aug 2026 08:30:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwbfO-00000009JIs-3qOx
+	id 1wwbgU-00000009JRx-2UC9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 08:28:58 +0000
+	Wed, 19 Aug 2026 08:30:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D95C041FE8
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 08:28:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD9671F00ACA
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 08:28:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787128137;
-	bh=cwJVuh2Zw3Qt8AXUUok0G3WmGrLxUvlvv8s7D0px7Nc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=YD5Dsuw3BZvBKFtfmW8bkDPQpa0BWqLAY4z28YzLE/INPClagphYH4yg734Xw5Ko6
-	 det6frZZqWBOjKJ4/iAbL+/1wQ1arTcvWOIAj8N735C5q1XfuMnTklpeJTGHxeVASr
-	 5GiIfFdLyHLr7Hm6zlh2kF3hytn4aooz5RgQi/M/ml9DnIdWMG/r7m7jZCCLy+BmjY
-	 Ij8fWK9+1kTbdEvaYSF2MHFmCgbCaKQ+4nmlwKwwZHQPa5XR3EYtFyg4kFul92WsMG
-	 QlTnnKjGno4t6zFhX8ZDmbLDL8PkIeqw5W4bah/IvKxXjNTU9Abhc3lSWgwDoe4OEM
-	 cENYZ4KLAksdA==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5b45f1cd80eso776182e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 01:28:57 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqElvlSv6ZLYtWnIXFWmqWKqPCFXQHSyryBuaNgLlBz+FFMM7pmfglWLifCoRQbXog03tXUIyxPWwAm3Aa6rilM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzbWQR+0nxv21jU3p31qLUjoSTjvQt7OdhO93RSMTD+v0D55VA
-	S6bx93FsKjV2F9myvEhckGUeHNYP1s94tm3ksc+F4rm4xRpefdOGnYDD0OmcsYby+i+AoLhW71R
-	000rGJAmj/r4gogvEeQ1OJYxXqX6XIcE=
-X-Received: by 2002:a05:6512:39c4:b0:5b0:1551:d85c with SMTP id
- 2adb3069b0e04-5b478bcbc81mr873936e87.20.1787128136557; Wed, 19 Aug 2026
- 01:28:56 -0700 (PDT)
+	by tor.source.kernel.org (Postfix) with ESMTP id 05A656020E;
+	Wed, 19 Aug 2026 08:30:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE1C21F000E9;
+	Wed, 19 Aug 2026 08:30:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1787128204;
+	bh=gLcNOWCMOr5tDmMmAR/CIVfLqNQBUcdL8r9yPFgjpKg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=0M1fiIogoFUMYzAdVMsmt9i4lbPYGyIbYxlsjPezL705DyD0DAt8jqcmhV80EL1nW
+	 enM/2WgRBrTRSMF6grp6+zwg9IzTvVQgfcUHRqHFCIMimRYX2AsgFQpVMfn1sTA14d
+	 X2murec/4mmoxDMO/3fR/3Z9YiD2XkV2bp70jeHM=
+Date: Wed, 19 Aug 2026 09:58:26 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	coresight@lists.linaro.org, leo.yan@linux.dev,
+	james.clark@linaro.org, mike.leach@arm.com
+Subject: Re: [GIT PULL] coresight: Updates for Linux v7.3
+Message-ID: <2026081915-cassette-implicate-91a5@gregkh>
+References: <20260807230057.119105-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
-References: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
- <20260722-contrib-pg-pixel10-initial-dts-v2-4-3abae9717feb@linaro.org>
- <20260724-dancing-skunk-of-novelty-72c1b8@quoll> <CAD=FV=U0HUdjPcg+5Vx8_ag0zLd3CZx5w5SFr38p+YwRnC_G6w@mail.gmail.com>
- <CAD=FV=V2+D1m5L-0d81W3E_ih2us-SrddeBUAJtMybpQons7Ww@mail.gmail.com>
-In-Reply-To: <CAD=FV=V2+D1m5L-0d81W3E_ih2us-SrddeBUAJtMybpQons7Ww@mail.gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 19 Aug 2026 10:28:42 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnQGy_LvRxMjq1s2Hs9Hn4LNTFZ0W17zC1YLs5StwfqMg@mail.gmail.com>
-X-Gm-Features: AcwNN1Vl05fdJa2xPsl7u4sGvJzUiZZr27GigbzGcGgDC8MP57szGl3gF9DhpKY
-Message-ID: <CAD++jLnQGy_LvRxMjq1s2Hs9Hn4LNTFZ0W17zC1YLs5StwfqMg@mail.gmail.com>
-Subject: Re: [PATCH v2 4/5] arm64: dts: google: Add initial dts for frankel/blazer/mustang
-To: Doug Anderson <dianders@chromium.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Drew Fustini <fustini@kernel.org>, 
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org, 
-	soc@lists.linux.dev, Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>, 
-	Brian Norris <briannorris@google.com>, William McVicker <willmcvicker@google.com>, 
-	kernel-team@android.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260807230057.119105-1-suzuki.poulose@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,57 +66,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Doug,
+On Sat, Aug 08, 2026 at 12:00:57AM +0100, Suzuki K Poulose wrote:
+> Hi Greg
+> 
+> Please find this pull request for CoreSight subsystem targeting v7.3.
+> Almost all of them are fixes to the existing code, along with a MAINTAINERS
+> update for HiSilicon PTT driver.
+> 
+> Kindly pull
+> 
+> Suzuki
+> 
+> 
+> 
+> The following changes since commit 8cdeaa50eae8dad34885515f62559ee83e7e8dda:
+> 
+>   Linux 7.2-rc2 (2026-07-05 14:44:06 -1000)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/coresight/linux.git tags/coresight-next-v7.3
+> 
 
-note: I know what it is like to be in active product development
-with a product organization with one finger constantly on the
-fast forward button to get products out the door. This creates
-unacceptable stress for engineers trying to at the same time
-establish standards and pass formal and slow reviews.
+Sorry for the delay, now pulled and pushed out.
 
-On Wed, Aug 19, 2026 at 12:13=E2=80=AFAM Doug Anderson <dianders@chromium.o=
-rg> wrote:
-
-> Is there some other documentation saying "aliases =3D=3D evil" that I
-> missed? Maybe some email thread we're all supposed to have read?
-
-Yes, kind of, it was 10 years ago and about MMC aliases for
-selecting a primary device for boot:
-https://lore.kernel.org/lkml/CAD=3DFV=3DXLuPWKjQBMLApRQxk0K30p_TPcztB7g_1DB=
-7iRA9BGRQ@mail.gmail.com/T/
-and you were in the thread, it's not pretty, leaves a bad aftertaste.
-For, I think, reasons stated in my initial paragraph.
-
-The takeway is something like "the device enumeration is policy,
-not hardware information, so it should not be encoded into
-the device tree", and that is not an argument about aliases
-per se.
-
-As a result (as I think, I may be wrong) MMC gained a few
-properties such as:
-non-removable;
-no-sd;
-no-mmc;
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Doc=
-umentation/devicetree/bindings/mmc/mmc-controller-common.yaml
-
-These provide a heuristic for which devices to inspect for boot.
-Then on top of that I think people use schemes like EFI for finding
-boot devices. (Or they still live with their quirks...)
-
-Now this ufs0 node seems to be about calibration of some sort,
-which is a more hardware adjacent subject. Is there a way to
-add the entity that needs this calibration to the device tree and
-reference the UFS device with a phandle along the lines of:
-
-calibration-storage =3D <&ufs_node>;
-
-?
-
-Even say adding a synthetic modem node if the calibration is
-for a modem is probably going to be more acceptable than an
-alias.
-
-Yours,
-Linus Walleij
+greg k-h
 
