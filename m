@@ -4,100 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E8D1C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 21:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22052C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 22:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2t8vq/d3i5IvAM6dRBW4KGvislz8A8nGvUYB0iRZEio=; b=TNaW+LfTb6zunt9zZG7MNPh7Mp
-	n0M43bfxh8JBxNE2IcRhGurJEbAZ8mHqmcze8ijBx9VNezSgabsnYWQIL37bIa7IQDMqb9zigNQxT
-	SCv+kGhLRlYW+snIZ9qZTF46eDFUwoR6Wb9EW1tMFro2kTrYk05nYH+lBOi0ruf9rHwOdJm9nfrlO
-	Ro5jMEiylfge/VPjs4pgdSX2z92sdH2q7gZ2Kf+dqglb5Lp0D+NLwdtMrH2mfCrXc48UNe7bUriy+
-	4ELUfzEhvijFtA3WBPeQfDDAhrUVSXhQfePUCrlOVSn8WTHn65jIodg801fccPrCJmwQ7yRMhfkcn
-	HRG1mL1Q==;
+	bh=7gM3KF+dBG0DIM5zaeP0iBymo3E6ezWlCjJmCMkudS8=; b=E2r6ps9JfJvDvydFLXr4KgjaIK
+	0dtk7K82i5AKMZiUJ2a1Yk9uzpB9cWZ/ohec6/vM6W+fcDKf1AOcNjb21lH5m/ZSxSnhbNjudNg6O
+	U+7JQ81n+S+fLmGjsewW+FxxAjWgERX6OX5IV/CyWJTbiZ3wdQwchG3jRRsDuM6R8uF/el6apQ4rH
+	gVW8AMF0RQRfHUhfB9vBUEkzBlcVa08+WwDy8DGsfbSlo7DVePZl0NHDHpmhSIFXSTRzj3JaU/dhw
+	xMtu3EtmCYcJS5uB89xQE2eBWQA4FMu1Lu7Pli8JFJ3FLm6Ub6hdWzNDE+pwuBYxsCKRyaB6ZhigX
+	Hoafk7Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwoAz-0000000AZqP-0ujK;
-	Wed, 19 Aug 2026 21:50:25 +0000
-Received: from flow-b7-smtp.messagingengine.com ([202.12.124.142])
+	id 1wwoQ6-0000000AaMM-47Au;
+	Wed, 19 Aug 2026 22:06:02 +0000
+Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwoAv-0000000AZpz-2dr0;
-	Wed, 19 Aug 2026 21:50:23 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailflow.stl.internal (Postfix) with ESMTP id 1A1F213001A6;
-	Wed, 19 Aug 2026 17:50:20 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Wed, 19 Aug 2026 17:50:20 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1787176219; x=
-	1787179819; bh=2t8vq/d3i5IvAM6dRBW4KGvislz8A8nGvUYB0iRZEio=; b=j
-	EGdPcNoC8MpMuL36NOGZOHMt7CDyBNBY5RZ975svZrGqypdhP6KFAQNitWeCp4DM
-	K+Ye9KzzOfnTXXvqF5akPWXMltLnC6ISqwXr8QleI0Ng9kSVvOZX1QHyzxeq/Vku
-	nywOtPpdGJYD0iI0X0YakQTFeOhGFBpfdgO9449G8kUa9bCbzjn5KFFU94s4iEb4
-	UJksE3mRsdlrYMXlit3MhwSqLuajnTu293XJsUk2sb3+ti/0EYkt2LKBMh/aFNCw
-	cRsp08kboWMprTvC1iMkiDerp/BdWYFleTJBzq6sJ+eBh63nAAOtwSl+C+YZUy4e
-	90lvarC2y2N4wDM1s1xuA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1787176219; x=1787179819; bh=2
-	t8vq/d3i5IvAM6dRBW4KGvislz8A8nGvUYB0iRZEio=; b=JOteyyf4YTaYi/2WB
-	NtSRjQXUgmsLVJXMOjUK1XSj1CA/VbbJkDgbrsg2GP8sQOqBrpb+qV9O5JzgUR4n
-	jnIaC/BrzoHt153ecWXMLfv6AXEek47hOe88gwIaTnGrbUON6srL3G5lg3YuhVWH
-	38Md/jVWRT6E4v6oC2SRLrxbFuUxVaAX5I5TJcWh3dcVYMjG1Q4C80hmwWttvean
-	IBqXGIsNvFJ43F0qNHoR45FMRS4Co8KsPr/Dq+H/bfyVLmur3L8dHYn8ThfmoD1j
-	OST13HYbCfR6yY9LlNuXaL46blnRsxSgp6X2PFYZvnP8r3VzT5+Z9nxDQzOrFq0S
-	/c3nA==
-X-ME-Sender: <xms:GiWGahy99rJJw6YL8fMsnHH01ohqEMg2MKMdva3YefiLQN-ve9EfGg>
-    <xme:GiWGape9N0H6okQIMmjSPE_qDuwTOrilDL-YVi-pHSt4vKXEsra6eVlxtE17yZCHE
-    wjoJLn39YBEFf53SUUM1Cm8L0ajEGcj5q2iwJxhPFs16Ym8KyBmHBCi>
-X-ME-Received: <xmr:GiWGam4lwBvNUcaB6GUipUZ6f0F1aL6pk-pA105hvF1UMcr4Cd3jx5ULBVnNbg-es42N1kXndZD7>
-X-ME-Proxy-Cause: dmFkZTFBtBmt2YPmQEyaS+GdXpilS0viv1+2FE3F1SETvdJkYNaADr6lYxbjKSS9kPWPCv
-    HFpCJuzPOUHDE7Ks3btVoCAvnKi431EodZGstEh7V+I07+XNZhgxY/8Bux5R846+BH3+zX
-    Qfan6M+g2J8lF/XShsLSRzP5U1kIyDBS//sa331xTrhvZ/mAithr5f/GaXfzZprX+4M5UN
-    BOeoKi4/5c/Xio3d/pxnxnTL5abtADPZ95dsZCq8KFQpAAnFwk5Ix1MrwgFuko/PjYcWYQ
-    3rRW1fnuYrG0RHW97CQwPEaMvsxY5Qart3bzWIVI490i+rx7Rc1TauklhDJ+DPWY4OuYmw
-    svkvbV4l4AIt9ze6nfODZyKio1JNxtGnFCDjorzhL82DwagADiWZUbKZT42pzZub8Z2JNk
-    MuYxgYkC/I7vYmOW7nQkt0P/huUpgJ5bTK74Xxa93dX7VxbngNQeB6lg2oXTahVxPGD+3I
-    GTn+a8IlDoReh/Ee6n8zRpFW/IdNFJFr3E5iO/bFG9jG1j1d1LW0s0SaxG8Jg60SNW6FLt
-    Z0nNuw5r6onB177PON22gzHRvbRilUTIwMEYjikJnHkgsWL839wVX8apeWxMR2MP1fJTLc
-    OsB1uMETiCxJFoPKbEUXY+r8GJkeNm+ekK8XlOoX89ZomjrwK8n6F3ximPyw
-X-ME-Proxy: <xmx:GiWGauJJUbqnjyXpkPrATamjTAusYy98AmKeadcWK6gFmX4_skUAwQ>
-    <xmx:GiWGauzEo2wGvweN02BGR8WRK_Cq4fS9YzslBrXpwdOnGs9_TvjMiA>
-    <xmx:GiWGamKzG402w6SRn8lAxAduCdRFF2medf7PKMGp77RSAysgTRT4nA>
-    <xmx:GiWGatWHGCIWCslzr9Do6dxpUQ5qz6CFyvTi14LAIrvvYYHmLzsMew>
-    <xmx:GyWGakzV0xAhKs2rneFqiMqv1vhus_jrjskHHczkh5r8VN8zgWPSwdof>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 19 Aug 2026 17:50:15 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: royalnet026@gmail.com
-Cc: tomeu@tomeuvizoso.net,
-	heiko@sntech.de,
-	chaoyi.chen@rock-chips.com,
-	alchark@flipper.net,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
-Date: Thu, 20 Aug 2026 09:50:13 +1200
-Message-ID: <20260819215013.728951-1-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260819184838.6723-1-royalnet026@gmail.com>
-References: <20260819184838.6723-1-royalnet026@gmail.com>
+	id 1wwoQ4-0000000AaKV-3gYw
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Aug 2026 22:06:02 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id 2B8C424002A
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 00:05:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
+	s=1984.8680eb; t=1787177159;
+	bh=7gM3KF+dBG0DIM5zaeP0iBymo3E6ezWlCjJmCMkudS8=;
+	h=From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
+	b=RlJ9plRx+yr6QsYUrHsRzWjf5T1ywMuhvEH9/eKYKOdoPUzjktldCPAKUPVHYukOd
+	 jcn7hqJy7m6ZAzsqsdoAYtkQZAOw4hPS/cG9E3Yju/QKh3g66nbrinF6ky47N3WVIT
+	 z6fuAtEQ8HAbWc6Wkv1spII4Qj6FrkTWHo0saaYJ5Jr504puQgK2r7X6qdtKdWPmZX
+	 BfgcPUco2T87Lt9490UotGxKzIKYUgc6JGv3o6mnnLuYnWdYmTiUqXUtvYgCUkXaRr
+	 utV3pg5tv5uwbfumfPGxmxtuFjlUzqvcsl9+PBoj7eR7Bv9qvwUwxvRZPJdkLEcQve
+	 H68LmWoV853mw==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4hQLHT45z1z9rxK;
+	Thu, 20 Aug 2026 00:05:57 +0200 (CEST)
+From: Markus Probst <markus.probst@posteo.de>
+Date: Wed, 19 Aug 2026 22:05:58 +0000
+Subject: [PATCH v5 6/6] rtc: s35390a: Add synology quirk
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260820-rtc_s35390a_int1-v5-6-5eb4ef85c6a9@posteo.de>
+References: <20260820-rtc_s35390a_int1-v5-0-5eb4ef85c6a9@posteo.de>
+In-Reply-To: <20260820-rtc_s35390a_int1-v5-0-5eb4ef85c6a9@posteo.de>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>, 
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Michael Langer <michael.brainbug.langer@googlemail.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Markus Probst <markus.probst@posteo.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1557;
+ i=markus.probst@posteo.de; h=from:subject:message-id;
+ bh=KC10D+LFyyabPzwcfYGpsHkfyCMijf0xISzFbM4eGfA=;
+ b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqhii9jPrACFl3VM6vOHIXvNv35vkdRTAFR9Rth
+ NvsFmrMnSeJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCaoYovRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9I5Sg//VCKrvqTZtGR8Fdv89bA0hU18vVls4zq
+ 3/DGYN0zv+Z6xEQP+iSKC93+7zw5Mntm2rxIxYKIkrTptJ1qU7lNcL49kJ8curVJ+y9mAgwnpxN
+ S27Sokgi0fVagOhTY6MpSXjNqe7eM3aklawoYCQqYGxEOKPnTgbQ07lLL1ljWdmX4bcGMqAPkI9
+ kdWsa4qYeYPpZt0Iqun++RNok7Rovwe+ryqfbZJDyBtakvFTDFNE2DwnjnzibqQwwC7SeQmG41W
+ EyMkeIk78SGK+XURnM+sW/K4kBJ6eP5Bp5vVfWZNj95htziV1Qvx8Z5yz/uSFwd/DPizkXHh/ik
+ vP4ibyQxIHb9ywC2r6I9rrTVKga/cukien4vGNsPiYh8qtBDHyWVepGCyanma385A+cjBjDo7vH
+ M4otpp97rUsQ1fe975k4IfENdKVHPFLBTGHZ1+bGmdelh9URBm3bFIENtzmFKbY8I2fuoYrpmbV
+ n4fYSeq1Wmv97wHcjLDG/ZP72ubvV69GPDgYcza1TOiw9kAApUGrjU4BMWs1VijMX5IED6qgdPG
+ XSHbmW41O69VgtdDmrYEQl+2+OFzWidZ8eOcwCgR507bUT/KSs8oKUvAOLVPg0Ln8YnE9qeKFS1
+ k3WR1KyCSjRFH2L6y+z8lbp++LLC9+WdjEljxCwuYHrrtW3RnPTc=
+X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
+ fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+  keydata=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
+  aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_145022_137864_1E65AA8B 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20260819_150601_238293_8AB9539C 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,49 +141,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Igor,
+Synology NAS devices use interrupt signal 1 for wakeup alarms. On ACPI
+it is not possible to configure pinctrl.
 
-Nothing gates v9 on your side, so please do not reorder anything. It is held so
-v8 can collect more review, not to wait on a measurement, and ten days of travel
-beats my patch queue.
+Use interrupt signal 1 for wakeup if no pinmux function has been
+configured in devicetree and dmi sys vendor matches "Synology Inc.".
 
-You offered to set up the vendor runtime once you are back, to read what it
-programs into A. Please skip it entirely. Reading that on RK3588 cannot separate
-my two explanations, because your run has just shown there is no floor on RK3588
-with L of 0. There is nothing for that A to be compensating, so whatever it holds
-says nothing about which of the two is true on my SoC. Saving you that setup is
-the most use I can make of your result.
+Signed-off-by: Markus Probst <markus.probst@posteo.de>
+---
+ drivers/rtc/rtc-s35390a.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
 
-The measurement that does separate them is on RK3576 and it is mine. The
-vendor's coefficient buffer is built at load time and is not in the .rknn, but
-it can be dumped from a live run and I have done that. Doing it for a model
-whose output actually falls below its zero point, and asking whether the
-vendor's A carries a lift, answers it. If it does, the compensation was hiding
-in A. If it does not, there is an enable I have not found. Either way it is a
-board round here.
+diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
+index bc783be1561e..72bb3aea1956 100644
+--- a/drivers/rtc/rtc-s35390a.c
++++ b/drivers/rtc/rtc-s35390a.c
+@@ -5,6 +5,7 @@
+  * Copyright (c) 2007 Byron Bradley
+  */
+ 
++#include <linux/dmi.h>
+ #include <linux/module.h>
+ #include <linux/rtc.h>
+ #include <linux/i2c.h>
+@@ -767,8 +768,18 @@ static int s35390a_probe(struct i2c_client *client)
+ 		return dev_err_probe(dev, err, "pinctrl enable failed\n");
+ 
+ 	/* If no pinmux function is defined in DT, fallback to previous behaviour */
+-	fallback[0] = S35390A_FUNC_IGNORE;
+-	fallback[1] = S35390A_FUNC_WAKEUP;
++
++	if (dmi_match(DMI_SYS_VENDOR, "Synology Inc.")) {
++		/*
++		 * Synology uses interrupt signal 1 for wakeup. Since pinctrl cannot be
++		 * configured on ACPI, we check against the dmi sys vendor.
++		 */
++		fallback[0] = S35390A_FUNC_WAKEUP;
++		fallback[1] = S35390A_FUNC_DISABLE;
++	} else {
++		fallback[0] = S35390A_FUNC_IGNORE;
++		fallback[1] = S35390A_FUNC_WAKEUP;
++	}
+ 
+ 	for (i = 0; i < ARRAY_SIZE(s35390a_pin_groups); i++) {
+ 		if (s35390a->pinfunction[i] == -1) {
 
-Your result changed the shape of the question. I had two explanations and no
-reason to prefer either. You have removed the one that was doing the most work,
-that the floor is a family trait and the compensation therefore has to be hiding
-on every SoC. It is not a family trait. So on RK3576 the difference between the
-vendor stack and mine is something in my configuration, on silicon where the
-same 0x40ac expression demonstrably does not floor the vendor. That is a much
-smaller place to look and all of it is on my side.
+-- 
+2.54.0
 
-Thank you for building the model to the case and not to the shape. Bias centered
-so the outputs straddle the zero point, 59 percent of the raw reference below
-it, and mesa main so nothing in software could be compensating. It answers the
-question I asked. And the collapse to 0 of 56 against max(cpu, zp) is the
-control that says the comparison was live.
-
-One precision on the counts. Of the thirteen you have covered, eight
-discriminate, and those eight land on five distinct remainders modulo 32, which
-are 18, 20, 24, 26 and 28. Ten remainders in the range still have no data on
-either SoC. That is far past where 56, 88 and 120 left it, when the three were
-one data point repeated, and it is short of the whole space. What it establishes
-is that the upstream constant computes whole on RK3588 at every count anybody
-has proposed, with no channel pinned at the zero point in any of them.
-
-Regards,
-Jiaxing
 
