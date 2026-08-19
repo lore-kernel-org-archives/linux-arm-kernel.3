@@ -4,99 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26D6CC5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:29:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE9CC5DF86
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:43:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7oNc1/5ivdS6YwhD6viDCHQpIs+RixUP6gKcxoJhdR4=; b=GPOyfNBGRHp57P5hpplCOaYC57
-	td4cne68ySMyd8KEwlGdV0MDntmi+8KjHD7OJHisO0VPeulGW0gM4JNxAE+z9q58rqiBQD7g57Gn4
-	zqTtX6okw5H0QfhLAdtzF/dY5oBxk5t/G76C+wxTJN3+mPbYBLLuhhVQqMiSMJuRu8LbYn4AIyrSx
-	QpoXGKud1aMnhsXSZDFKIjA0wgj4gMPvdd6a+IXTRIV7sRVIYLIscu+IybdKSmrCJLAbhYTpqxO83
-	cnauvP5RiJI1BtOlujr7/keP3CPytDOi9iDG5Af21cgf0dUPvj57pvK4A5o/+dT2CxV7Adk0XgskU
-	fe7MbrLg==;
+	bh=rruUpDInQvQQuqMyUIBpR8nVOpeVCVZSdKEK5ZtInD4=; b=LUse8zTUhOcQawPojQXfn9k0vH
+	Ix1DEXpnSXLx3XdJp5yavpfFhqxRnGR4VLk8C8QjNgUgPAF/8kbBzpprp8hA+0aPeUuQWYtzRQ4Y/
+	hqrP4P3cKJlIoNQ3B5v3e7iVqAFcJ3xU9mT9jvS+xSS7O0rD0Sjid0p+i9xstvu8Arx555OtkSaGB
+	wITYuxFvB2Qln+Oq5CM9jRylwZQe6x2jSr/3bPfFgREu3eps2KHje9tBprmJWcwI8cO7Y9jt1NFxg
+	f6AEvQaNWvFAOwPZVm4qYOWseNYNP1ft+PxOVHinJEMCG4eQU5qeDoWRglzLawAmtyjPx0TqtYD8t
+	oLKKtQCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wweU8-00000009g62-0GPz;
-	Wed, 19 Aug 2026 11:29:32 +0000
-Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
+	id 1wwehK-00000009gqT-3t2m;
+	Wed, 19 Aug 2026 11:43:10 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wweU5-00000009g5T-0HP7
+	id 1wwehI-00000009go3-1bcr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 11:29:30 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 720921400198;
-	Wed, 19 Aug 2026 07:29:27 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Wed, 19 Aug 2026 07:29:27 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1787138967;
-	 x=1787225367; bh=7oNc1/5ivdS6YwhD6viDCHQpIs+RixUP6gKcxoJhdR4=; b=
-	OriZ3UGepl/zWWI3GRR+lVQ1nlZKbgGN5VddsSietWxk2dGLVPolluf2jjE+2St7
-	HnQyzdDd1j41Ip6hZPJh6EdjFrzMo4vnopDIudEQTLLR5PX6U4z/j/SXc6pJTXp2
-	BLuqdzt9pl89ppL3xR8EGke9N3UYFkIIHupkMz5pSvMToIjG+6/wlTyGe/3TBZB/
-	s5Ku+hOIz2vAs0eKw4q2GCQfkGOpbfwyXXIqhm1KIYbZ5a9YH5JQekTjkUktTTzq
-	73Z9pKWjvVBV/1EQpKoZgHFpBFn52vbkIC/1ie1++OJDiaJ+9ulFCClTzFqFNXK8
-	JYCPHnFxNhDZoMLRK7bfSg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1787138967; x=
-	1787225367; bh=7oNc1/5ivdS6YwhD6viDCHQpIs+RixUP6gKcxoJhdR4=; b=F
-	uAxSrKgYN2/pKtu5MUzEy+i87kzGeRvsRctDXpjXobE1YIx/EoZB5UCKdedTZKzh
-	ccMlMTt9Jzs6DXWriTWWwAUgdrayO5Mi0Q6IzSogU+PKIvwqEUVHdaTiMllZDD0b
-	tW2t4GqjzIl7xjVOeybOnI6tqfNUPEy3tqceKSoixGtP4783RKvxEtVEnBGSHNcS
-	+iS40LX87IsdIcLhaaHJeTvyEVMLulhwk/0vDCy9SsfwfaivJWsZEWsFe9pyXVvq
-	PHjOJm7NakwmhYlElpNF4lXY+tvA0SA3g4x2XAWolUQsFEQ2bgLfoiFDGVc6WHxY
-	c/DHsgk256ooIThOyDy7g==
-X-ME-Sender: <xms:k5OFam2ruqcTzgkZfmf6jnb-zBH0C0fzF9IQ8pxSmwMrnQGSj_Go5A>
-    <xme:k5OFav_RJ8pgPHmg_Kag8a1rFTIxPSMJkz85_mi3CNNvM72Ai2H1_qYqhfakpTDMY
-    n0AmP37YGpysKh-opP9dFilAjaPP09sFq4l9eSd7w2xfi447JIsjw>
-X-ME-Proxy-Cause: dmFkZTGvCTEqPi9EZFEQPxBODSEy1Xrcj34ymuRETnG7cldyIYUcggCqoJYJSqqmfyOLuj
-    NjN1jgA5Mtm3lpb2ZxZO8CmLgT7/3MBp88P7e3Lm2LBiPewFxaobQtBU/HQ+LpJc6UvWN6
-    N/RBRQUnvQeUx2l3/vQ+DS3Gb433zgqe44/O2nsdACRClxgJ00QOfrA1x/eH0dXcCopgW3
-    Dafb/i4aBHWxbuRgEK5onm6lGwLTgCqeIfYpNu65mZ1kQD2FdUTdrIbAtyRG9rvfuqFB1k
-    Um1L4UhaI0Y1Xh0GxoK/75mSwq6qhGP7kuLjRLyxUg/M83n63GzwN/ty5c+jq/P4Lo96LY
-    h+rTqUlTUQbfKarLQV9/X6V7oWD/tVhkQVSTnFNMq82Gn6T+hI4LPWtLV9rC4mn8AjumSq
-    HMV5IxpIpTMTaLVE/Qz6vVb50k/ec96KUhL68xY1qICQqn1jRqEtbBHs5PoFgWsaseZvyA
-    pgHU4EbX27fLZk2SURY2VQYehZsnkx0Ni0f3ea/zWBXmdJ3bACWclvQRVJs6MgGpy26d1U
-    ZcG9oHTWfuvaBTUVYN0PAqliDOVjYYmMnjKhdVfV4RzZFzMlZ5WHoq1FeW5JLTEvE/tcpy
-    0C83Vo1wAnHjUjG3OQ9BS4A9ojNt0ZA366vxB49S/sb+bPbCeTBYBn0LybeA
-X-ME-Proxy: <xmx:lJOFapKechxL6DTOLDQ0R6VqvunUxu-VgcIFdyXMtsaJvWzbzaNCkA>
-    <xmx:lJOFahKulMIIOrOu0rDwVhMmLza5If4eP5HwOvAJ99vj8khxU9AZxA>
-    <xmx:lJOFaj6aDQUcYvrcZgvAUsqpWr44riAXQXVSJFA_bmODxx2uE_4s-g>
-    <xmx:lJOFardAOofMXSCcn4OiC56kXUdg-wsiS7bi8Ckceok5xvabbrkTyA>
-    <xmx:l5OFalIxK1UiThNBCoXfrvUd8MLgQykNC0PGBJx692iQeBGSVibgcVtV>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id ACFBB32A0074; Wed, 19 Aug 2026 07:29:23 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 19 Aug 2026 11:43:09 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-3a181e96cbeso8475791fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 04:43:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787139785; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rCyaJHvTENYH9bePO2IkYxztFqbTSKCfU8DEqfWjI0Av57G8y7mp/5Uw8UNaSokWV0
+         8afuWboD2hCXhX6L8jRvVYIISUPW1d8Eg9ZzJdDIvNCRctK3iBljK3lRYeWbz0YQSyMH
+         38T94aWJZMuwDFRHWHCAlyEVIm+Rg43VgNVdOYG36reE2How4OGs8/zCSpC7k9dYtmho
+         HjqmK3udy6TcchLcF+tFRzJfIp8NHLTjs9clKUUQx/6nkZt7z70L8/2zCSDAjmXNgG5F
+         uLLwd5zk0IEeeLzZecpfqoU9ZFz9m4xcWJxG56ZKs03EskpksdlAsTy3RSr2ux1V1fOQ
+         z0YQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=rruUpDInQvQQuqMyUIBpR8nVOpeVCVZSdKEK5ZtInD4=;
+        fh=Sv7d0It65AW4KGWhI77xXjXepQ/fdKhwLZAMT6NMt4Y=;
+        b=f17RKOsd0/QmPCGJc1kMKdxYPrkmpxTLIsfwEqR7Ckl6iFfoblQYINFTmrgw6IlGS/
+         E9bIqfiADqAaZuzdhIFsRontrqjHpPL3D9iN0qBqqW5xVjd9sqxRAOMaoupXRLY1Xmok
+         v0NdW1CQ4qqmdIvVUn3fweadNqTcAjO+19Qq0LNtAm9J8z2ioo0i1oQoYJ17CgEo3wSf
+         SLHm9BCjDmnok5BEtcTNgUeaUBmAqWhMreAimkjCCH3AQ34rQxe4xc6wIvjhQZ5kyyEm
+         1IH6jyYwtqH38Zi32B4ZBnh6pzh8jqQxvnaAmayke8GxAwvQ0JnsjunFmCCzbcV4qoZV
+         dYLw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787139785; x=1787744585; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=rruUpDInQvQQuqMyUIBpR8nVOpeVCVZSdKEK5ZtInD4=;
+        b=FWaPsDfRoXnbbsa0TUgz02SWqj0EPm0YSZDSWpBp7JeGqaKQkEBGtnlgQkqcazp7/C
+         k+3Iqe3bQIsFa+hm+lmjBQXdigCjfS04kzfbIXzE0ynZXy/CA1rfcsIfMFMA0/cRFPDG
+         0H8Psg0GaBDrh2fe2vythJ5btpLP9TerOy8Ir2h4Vunyc/MsfKoxNEu0Y/HlyVYsEY5L
+         k0kO92ib+iLvarLxMnqFCM+f3Wbl271DUwc7JZX93rdLVW4b7ZbeW5RDO+9RbcZm0QSx
+         qkuYgPSDtwMy737G7NL4MkNCrlGVMmhJhwDJQrv/wsrMxqR1eymydaY3DU1vBPticveY
+         Vf3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787139785; x=1787744585;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rruUpDInQvQQuqMyUIBpR8nVOpeVCVZSdKEK5ZtInD4=;
+        b=JeCtQmKYw98mo1gzcILQiU8HD9cyp7r1+dJEXBevPBU3XepVFBbfuQu2+tiHhaisVH
+         gTmrr/g8XfrsYjPzoZgD/HFMgVVyZraw8zHpyoA7IJOWiL2cxBOebOhar5mDr0/KsWJK
+         LcLM+wAD75cDQ6HIK3MpvowOOC1WQnaGUUzMF3gJ30+/U8cyOYBjW2fuzUqpUeE1nEDK
+         VaNiZMDnXKQRA4mYrIfCXJsPus+5wVAmjtZapC08bcCr5ECc+jppdaKJ4H3+0GW2QL27
+         k8grtCfO/6Y/Z37wbXrn6YaD7vaUVWKQfdC+ja+dDn+s7nkMQW324l5in2fQUB4/3Qgt
+         BRWQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqP/Xm4DlGlcsb6/UNm+t0v2ROKDeXwu5Hafi7ySCSeP6T2YVSUPXA11uEZz2AI1C5oPGzJtKxDp3J8j9Ftr4j9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/cHyPVDTAOcFQcoBcFuYD7HQaa4CkehKd9nkc6X5Kn3kKm65e
+	QgEDlb8E8cjozSFNCwxGKChgQGH6Q1nlQehN1Ol3crNn0PGezU1bGzK+AB0LmRrjT7y46/gQSn1
+	kqFchCbVn45yXDcGw1ROqdlDfWrjBbuM=
+X-Gm-Gg: AR+sD11pJhKXNi5mBK/tD8R7x3E0SKuRzJ+y39P3/8SHQbtEe9+BtUa3DvQBURZ18Or
+	aL39bKlyru5tUEmMFY1HHUGqsXW5qv2RM8blfwB3ps3u0o283wWqVl+S4gj8fi9IVIqtOd2aH9C
+	IpdPzaK+rJtHhwxZ26rXvmmzcf0LIXB8MJSWgxPpoucCSFGs8inutYv7Xduo4XKH2OrvDBInrcZ
+	nJdtK3hz6TukcIlGFHBFjWyLdEuJb41o64cJvvTPVF+FC8IUdiuYWTmJW1saGmnJjvGDA2tDX+L
+	HzN3L82JNxkTZ+wy7ZGQoUpj60oLQR0epMxQoymsO9R6EJEwjKT0bJxilYK5ywKBAXO5ok81gOB
+	2kbgM97o00UHAhrT3fAWGf26DoQ==
+X-Received: by 2002:a2e:bea5:0:b0:3a1:85a0:c5c1 with SMTP id
+ 38308e7fff4ca-3a1899c16f4mr8655901fa.11.1787139784486; Wed, 19 Aug 2026
+ 04:43:04 -0700 (PDT)
 MIME-Version: 1.0
-X-ThreadId: AcdQlVQC9j7F
-Date: Wed, 19 Aug 2026 13:29:03 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Dan Carpenter" <error27@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, arm <arm@kernel.org>
-Message-Id: <e385d061-f80d-47fc-8713-80fad1cec326@app.fastmail.com>
-In-Reply-To: <aoWOakE5pmsnu9Ki@stanley.mountain>
-References: <202608191405.jP6epa63-lkp@intel.com>
- <e45c75c5-70e3-496b-8885-ab0093234d3a@app.fastmail.com>
- <aoWOakE5pmsnu9Ki@stanley.mountain>
-Subject: Re: [soc:board-remove 200/200] drivers/mmc/host/sdhci-pxav2.c:318
- sdhci_pxav2_probe() error: we previously assumed 'variant' could be null (see
- line 305)
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <CADOrJmbTyrGGkq+9OJDXCgTa2HvNo8BWxoE6yjafcrOq7WNamw@mail.gmail.com>
+ <20260817215428.84740-1-gvalkov@gmail.com> <20260819-generous-nickel-dalmatian-b6bb08@quoll>
+In-Reply-To: <20260819-generous-nickel-dalmatian-b6bb08@quoll>
+From: George Valkov <gvalkov@gmail.com>
+Date: Wed, 19 Aug 2026 14:42:52 +0300
+X-Gm-Features: AcwNN1X_uzL9E44yhbWS_M41oClBHdMfV11eL6pc59WJx0lXGGLZ-ZZh_4cYzLM
+Message-ID: <CADOrJmYfBe3ADun_kFjFSH6YOSTX7Vu3UsFsL57yuRdaQ=eJCA@mail.gmail.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: net: wireless: add flag marvell,ignore-regulatory-hint
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: briannorris@chromium.org, johannes@sipsolutions.net, andrew@lunn.ch, 
+	krzk+dt@kernel.org, francesco@dolcini.it, johannes.berg@intel.com, 
+	kees@kernel.org, miriam.rachel.korenblit@intel.com, wenst@chromium.org, 
+	rafael.beims@toradex.com, avraham.stern@intel.com, error27@gmail.com, 
+	s.kerkmann@pengutronix.de, gregory.clement@bootlin.com, 
+	sebastian.hesselbarth@gmail.com, robh@kernel.org, conor+dt@kernel.org, 
+	Frank.Li@nxp.com, chunfan.chen@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_042929_178303_F86C97DF 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20260819_044308_460017_D10E67BC 
+X-CRM114-Status: GOOD (  26.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,21 +127,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026, at 13:07, Dan Carpenter wrote:
-> On Wed, Aug 19, 2026 at 01:02:09PM +0200, Arnd Bergmann wrote:
->> On Wed, Aug 19, 2026, at 09:54, Dan Carpenter wrote:
->> 
->> If you have a list of possible regressions that smatch has already
->> found on this branch, I'd be happy to look through the raw data
->> for actual bugs and fix them before you spend a lot of time
->> processing the findings.
+On Wed, 19 Aug 2026 at 12:42, Krzysztof Kozlowski <krzk@kernel.org> wrote:
 >
-> These are emails from zero day bot and I just look it over and hit
-> forward if the warning looks sane.  I'm re-writing Smatch like crazy
-> so my own results are basically useless right now.
+> On Tue, Aug 18, 2026 at 12:54:26AM +0300, Georgi Valkov wrote:
+> >
+> > diff --git a/Documentation/devicetree/bindings/net/wireless/marvell,sd8=
+787.yaml b/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.ya=
+ml
+> > index 930b700b73d0..5f235cb9f3e5 100644
+> > --- a/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yam=
+l
+> > +++ b/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yam=
+l
+> > @@ -59,6 +59,12 @@ properties:
+> >      description: Calibration data for sub-band 3 in the 5GHz band.
+> >      maxItems: 502
+> >
+> > +  marvell,ignore-regulatory-hint:
+> > +    $ref: /schemas/types.yaml#/definitions/flag
+> > +    description:
+> > +      Ignore an incorrect regulatory hint from ROM,
+> > +      so userspace can set the correct regulatory domain.
+> > +
+>
+> Same comments, so you just ignored entire feedback?
 
-Ok, got it. I did receive all the zero day reports for my branch
-and am already working through those.
+Do you mean this feedback? I already replied to it:
+> > Anyway, property looks like SW choice. You must describe hardware
+> > instead.
+>
+> I am sorry, I do not understand what you want me to do?
+> Can you please send a diff or a clear description suitable for people
+> who have way less experience than you?
 
-     Arnd
+
+> Again: you need to describe the hardware, in commit msg, in property
+> name and in description. You cannot tell SW what to do, that's not the
+> purpose of bindings.
+
+I still don't understand what I should do?
+Can you please show me an example of the changes you want?
+Else I'm likely to make a wrong guess and implement it. That obviously
+won't help.
+
+The commit message already describes the issue with WRT3200ACM and WRT32x.
+
+About the description, do you want me to do something like this?
+    description:
+      Ignore an incorrect regulatory hint from ROM,
+      so userspace can set the correct regulatory domain.
++    WRT3200ACM and WRT32x are known to need this.
+
+About the property name or flag, do you want me to add a separate flag
+for each affected hardware device?
+- wrt3200acm,ignore-regulatory-hint
+- wrt3200x,ignore-regulatory-hint
+- the list may grow if someone decides to add other devices
+- and the driver will need to support all of them
+- that doesn't make sense, because it isn't scalable
+
+> How did you fix the threading problem I mentioned in v3?
+
+How can I fix a threading problem?
+I don't really know what the correct thing to do is, once I forgot to add
+a version tag in v4. So I just added v5 in my next submission.
+I'm new to sending mails using git. So far I've learned that I can do this:
+git send-email --thread --in-reply-to=3D<Message-ID> =E2=80=A6
+and I use the last Message-ID.
+
+Krzysztof,
+I am thankful when I receive criticism from you or anyone else, because
+this helps improve my PR and it helps me learn. A clear communication
+along with examples and links to documentation can make this process
+easier and more productive. Thank you!
+
+Georgi Valkov
 
