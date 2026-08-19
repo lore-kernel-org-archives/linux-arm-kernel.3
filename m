@@ -4,97 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E615BC5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:12:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 673ABC5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:14:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zE0F6QVUpFQzojqBG+RGsFmPu0EAPqBeBw4LG2dZtbA=; b=Yv/ZFhwxuWv/nx88VDEob5XOG9
-	l0ctUwXFQdOW/1loLFlz3jvu54kIIRB8WhGGTvW6u4ntaopol6EkvIUtAzJSNdhGhPg9pPN6+nLt9
-	1f6UZj805iefJT7h9eAisrYyLsAxurTZ/Fyk/hhZcylFAStEb0OKk4PSHdPyvQ0IS+u8QrqwHZvKI
-	/APQTslwccdsOLjlapTiHkpGU0Hv8T6qavEEUc8T6Dj04Z2pVx13+WaBxrqdMHmwIEY/o5mnXVoPR
-	v5qKOZngFxg+vGFA8kM4dMxT4aRiKnmsGqASXKy/5RcInftjpbV+fEd5bNNkSCpGm6AsOojWaTs5U
-	EYFAb0bA==;
+	bh=Ig6FvSRli1ZqS5uDLkbhiTZeNooor70ALrndiWqEtrI=; b=0eaCMCU73DRh9cn1P2fL7pKjDv
+	Ug8LA0ST0Y6Clzg/O0lAP2FTtb96iXBrVmTre1nwrbw3yaMuY91H1orfYVuZPbHSAuLvJQduMlG/G
+	STzpi4dw9JUsKJ+L1aBbVEkyJ8MnBlFcO1C+Xj6iBV/z9f7bD9e3WIx363la1utnvE13rFoe9btHf
+	0Tsgb5NkWIHlo26E2bywe+ojaR4q8VigeBrTr73kvpJsHsTMxIr95ltX3Giz7YvfXEFgyRKEZG6au
+	c89/XW7bMGmBZXzps/j+bnSXxnla9H4SyqZ+3ztuE6ye5AzBYfwJGo0RaiyrTVMq+IRS8wqSOFglo
+	EMwp/FJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wweDA-00000009dZJ-48H7;
-	Wed, 19 Aug 2026 11:12:00 +0000
-Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
+	id 1wweEt-00000009dtO-45r2;
+	Wed, 19 Aug 2026 11:13:48 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wweD9-00000009dYa-0VO7
+	id 1wweEq-00000009dra-1PQc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 11:12:00 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.phl.internal (Postfix) with ESMTP id BE103EC011B;
-	Wed, 19 Aug 2026 07:11:57 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Wed, 19 Aug 2026 07:11:58 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1787137917;
-	 x=1787224317; bh=zE0F6QVUpFQzojqBG+RGsFmPu0EAPqBeBw4LG2dZtbA=; b=
-	WjPUYvvOsmW27NieJM3h+wwyewODomoHK1qF7XRohuZVfJtWhFKcPskqMOLPM1aO
-	wJHDCoTRowLjPbu31RetNF35YqK/RhA85jZa/k/ZvfzL1trMVeVYzxPj4mWVMKBm
-	OONQ/Gj376rd5JZiyXUkwbFU4ywoTqHHuCcSwVpGwV5f+s7E29sPKyKlgSVEbYun
-	HIRAJieoWN1gMd/ENR6aiMIhASl5HzkEoDU5zZNqUddj9tkQeDBVQSGg7QpElXy6
-	jBviGLLZi9W20e7IrzK+iyNGjdm95ejRCUwm39uBYUcmWY8KFbA15fddnLA/t+xi
-	bVKqcG94/+OYOxALF/RbDw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1787137917; x=
-	1787224317; bh=zE0F6QVUpFQzojqBG+RGsFmPu0EAPqBeBw4LG2dZtbA=; b=e
-	x5hTAmfGBi5KIDrg2zrgDEF0IGVjJcG/p5wt0tWi0FVLX+lAU+BlA3BCnQfbSQqR
-	/UBoLLRaQjIdYOLF6WhQIe2qAyEhGv0hIlSmaHdIRlOo0Dfd0Kx7PWyJhJ8edi5u
-	FKLcxLKtYD7f3rLBepJa19rQdEbjzp4Rp/y4IVUtikKeDlMzVxqRFv3oPxHak4as
-	4GvsMdeORQMBh7xM0XPSvaPOc9fmEWGl0P7Zz6nGfigTJhW2UvsgOGgHIanI0+je
-	M4M4UWbbmQBx2lHBNoF/upXP/MOMdSsXblVx/9mSnvRhByRgaeB8/sIy6aphnAln
-	e8HfFTap+PFy79UnVhxuA==
-X-ME-Sender: <xms:eY-Fao5i2XICas08aBz07UU0p1r9F3F67L-MMHgI5TjdIiFDuSV8fw>
-    <xme:eY-FaktekQ-qnfthYB5lmC54yvsMyqJugMqmQ8QOQTj99dxUNi49A6gaFbRoi4phM
-    Hz3kKeJgsOvR4MeXG_HeOWMu7u7NSefeH0GnaV3aZUm2tYlf7xv6Q>
-X-ME-Proxy-Cause: dmFkZTEYQQ1GEHkYJ5HF4XEyYeOee1p6w/0neEEN7YWlPBGZRtNwmP+JbYzCszTvYH8QC9
-    wsx0MBs11HLtgdRv120WsnfwBuqHgk/L452mfp7wTtf0m0INc5cllaAORFezTXjlvN8IG5
-    Z72vPDZMpqQ6C2csqVueYWK1hDqD4jTGjkMrxoxUrs1a6MWw9iHT3eCFEyWyerg1eGvm01
-    XnjeNmV7n0SeTMv4+xG7VpjSKDKVrleIeoxj6KXQBGaO3ljJHOq7muBYWsaFculc+/TQ2j
-    aimdH8DXKPXXKfzsECZG786koaPKxTvAiPD9QuDUgZm0jHMc1oWVhPCBMcqUSatS0I9fUK
-    g20iGcZ5eMl/XRMHy7kKoAdhDl0UoKG5ca4jIYuvPxuMd0b59sL2qGJ2Kz6MxE4ipFtHIT
-    jJIQr1dhX8c7tqLETFsTjtK63lcj2ivzVCp27Mnt4lYRgEVU73ncE/xSHCf/OtRqauBVvR
-    S8ZGMrLfQPbq8/RdX/8jzSPfPaKHyb/hnpDTSAxiDPMRgkPRVDAFkkIyj0+AKnUHxaKhLw
-    xsKC82QeV0fp7qzDINrAV2cTtQtRbQLUu2dOUorbZxkkOL/duPW7LK0w8TWqXGGwEbn86V
-    y0L/ptCD/DEVEHn581WQJ/70DiAVsYMMi0OpNyMS2K7m3UwoqaV2eMxuukNg
-X-ME-Proxy: <xmx:eo-Fainc-yNE2iNwHYThItlwi8A0bmv8HcmILl_hdNPrxjYX_cIjlA>
-    <xmx:eo-Fagt6AjlUbSNZcmz9Y1VwdCgMqSiT9jPBL_3qxXsoklyt4G-5Ow>
-    <xmx:eo-Fao9r6i7yZ97bGxLHgZtH79s4Q4K2by0wHMumbF5ZOOEuPs3hsg>
-    <xmx:eo-FaiNw50VgUEBUZwyI7_g2K-BPZChp57KV2-OmF_4eW4qOI-lNhQ>
-    <xmx:fY-Fav-PZ_-s62bEfTI1bhyTnjicg5YNI0Mmk83tiYC88xNntWrNFvk2>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 317D632A0071; Wed, 19 Aug 2026 07:11:53 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 19 Aug 2026 11:13:45 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67JA8FPo3754776
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 11:13:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Ig6FvSRli1ZqS5uDLkbhiTZeNooor70ALrndiWqEtrI=; b=R6KbtOGk0MOGWZ1p
+	gb4jfVydfHxpojFg0GJhs/q21UKl0i/VEiMcB/DcdwHtPGBYoMh9TelId8APGW1H
+	mpPKtwLl/mIxWgYIR8VeZHgVifvtEMkhIxaUenX8yCpWRX6UUErn/p0Z/tbgCq5E
+	z7azllfMmg6bu707r3cmjGJjj5A22/uc3byH36q4v6RtVqDR1ovUIJfbXPM65JbJ
+	HBzd2gq1Jwt7/1TUCgQaILpad8RK8lhnHnmp/F5Kq0Q5IhCm/cW2VwUWd353s6em
+	hslwnuteh06ocWdwq+C8G72MQYUVL5B6khbQ/E2RLw6EtvSj50lRTRT4hhS/+8UB
+	pR0x9Q==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g4yffjt4g-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 11:13:43 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-52d57d17d6cso1932181cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 04:13:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1787138023; x=1787742823; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ig6FvSRli1ZqS5uDLkbhiTZeNooor70ALrndiWqEtrI=;
+        b=EW6H3HXdrBYEZ3TsgmUF/tbTz5euP3moYN/3DEbWTQC0ek3DjZUi3k7o5zFWDVINqk
+         c68GIYxwWb40ATZAoAGmAWQtnjaw5YcZ7Y44m5YlnS2zBXZgl0gHrVgjVgPNG5yaflmx
+         VBMLVxsswpYNgR/drf0evi3FAuXUnarlaSZ9WYp8pWOBkhMsWluM8X1twkuT821rWtxP
+         Hejzwun57VjFyRHdK8Jc62+RwVyPTAtyKV8DjPETTDRU2O/63BrZuIfoz5LhJdi+uvGn
+         eG9DfEaEnm5VZiDHxtKOknfSxrxVvmdyQRmDBWjq0o/TLvqKuGrR1JYnESOQ6dVmSCcG
+         vEhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787138023; x=1787742823;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ig6FvSRli1ZqS5uDLkbhiTZeNooor70ALrndiWqEtrI=;
+        b=Wz+pZTss6Iq2hxpgcx4wrAeWY2XbrLapfZzpwaapgewElIxFUHidWPQ1LCh6/3+X6a
+         tqbOCJnRXxRdkGc+ejoh/vgR3FOqRx205/ov/jbmG4DGq9fr3SQ7PwMgiYYV+A/cbs6i
+         P1ZpI7belPhh9H13btHKJSdS8MRVlFwVDGS+A7aHCfLL/PpKA+4AKcG9F3hY0Vr8HG0K
+         gie4rVhyROgCus1f4ZyY04YLVZJI2uzBGPX7G6BkFUi92vv3MvHxUrGLl2xqQeT+iI+o
+         UcRie3903HHtFkO/yUjRzFe1kq17vBdrUxC6GT9/Qf4GIpKCqOXpcEVIEDGY8OqfD58l
+         RjjA==
+X-Forwarded-Encrypted: i=1; AHgh+Rpu5ce0uEGIAK56N9lxxUclPmgBWtZfIMgoPugTlJXIys1eR9BQ+xqaWZnvGvA6JZIyBWgGnWbwNluX2G/Faqhg@lists.infradead.org
+X-Gm-Message-State: AOJu0YydcpYwQy4kxlt5YOmft3iad/vOHh5MxJMNUvf5EZ617L0ACvxg
+	6WccBn/UfUEPCSwoXzy4NJOdRMxhV6wC97q895Q1TM0mB8KbGy2ngM3SOHzA8DTCnBM6yPSGCAK
+	U/G/IrLJq3rTjcvHQKcxvScGP518bta2vNH7oH/7uT2bxD9WJs/BXUeyl3Z/cJg2lkeIL0vT4sB
+	LuwHmg28WmBQ==
+X-Gm-Gg: AR+sD12GUm19RbsrVXqsuCOxAEKx4xKqY7ajJFzzA0AumNfjLwtJTtJb3U9uzj08Wid
+	jIAmlCFHWdWOwoGad52KA615OXrWGHM+m21uIRzGfr0w81GZLXnbtqD32CUKc0yt3F9DVBFsXQB
+	p5nq3EQW/wOt5GJqMlD1LQYzY+nZCmWBOuftYdl/27rg1qBBxNpXy/jooSsCq9cMTq0xC13ZAa5
+	fvhwa8ByGabxaz/Gk7Cl5FfhHE45CXVOdiIXcUtKLiSDZyHeXfH9A4DDjw6v7z4q4Iu6GboOX7A
+	M+rYKF7HP+S1Y9aLPhfCJBk4dMsKOMTx01MFbne3trNKuRrho3HjRzW9GAP5bK6WIi+zFXsimtK
+	bAzzr2INr/dU4jHdaq/p+/IPV
+X-Received: by 2002:ac8:7f0f:0:b0:517:6162:daf5 with SMTP id d75a77b69052e-52dd5c958aamr25088811cf.3.1787138022829;
+        Wed, 19 Aug 2026 04:13:42 -0700 (PDT)
+X-Received: by 2002:ac8:7f0f:0:b0:517:6162:daf5 with SMTP id d75a77b69052e-52dd5c958aamr25088541cf.3.1787138022385;
+        Wed, 19 Aug 2026 04:13:42 -0700 (PDT)
+Received: from [192.168.120.193] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c243c7a6bd9sm57416566b.23.2026.08.19.04.13.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 19 Aug 2026 04:13:41 -0700 (PDT)
+Message-ID: <061e5547-4109-4965-8e97-fb126dea3a28@oss.qualcomm.com>
+Date: Wed, 19 Aug 2026 13:13:37 +0200
 MIME-Version: 1.0
-X-ThreadId: AhjJ9KJfpBQc
-Date: Wed, 19 Aug 2026 13:11:12 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Message-Id: <e7d5b920-80d9-4d76-b92f-03494081eb9d@app.fastmail.com>
-In-Reply-To: <CAHk-=wh8khg-Odf9cg2jWe1jvSviTwGgKG9vUDzYNdMzgmxDhQ@mail.gmail.com>
-References: <8329f199-9208-4963-b745-089610400b3b@app.fastmail.com>
- <CAHk-=wh8khg-Odf9cg2jWe1jvSviTwGgKG9vUDzYNdMzgmxDhQ@mail.gmail.com>
-Subject: Re: [GIT PULL 2/4] soc: drivers for 7.3
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] serial: qcom-geni: Propagate errors from optional IRQ
+ lookup
+To: phucduc.bui@gmail.com, Jiri Slaby <jirislaby@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Frank Li
+ <Frank.Li@nxp.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>,
+        Yenchia Chen <yenchia.chen@mediatek.com>,
+        Daniel Golle <daniel@makrotopia.org>,
+        Zhiyong Tao
+ <zhiyong.tao@mediatek.com>,
+        Sherry Sun <sherry.sun@nxp.com>, Robin Gong <yibin.gong@nxp.com>,
+        Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
+        Praveen Talari <praveen.talari@oss.qualcomm.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Zong Jiang <quic_zongjian@quicinc.com>,
+        Aniket Randive <aniket.randive@oss.qualcomm.com>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        Anup Kulkarni <anup.kulkarni@oss.qualcomm.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>, linux-kernel@vger.kernel.org,
+        linux-serial@vger.kernel.org, linux-mediatek@lists.infradead.org,
+        imx@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+References: <20260807090945.41690-1-phucduc.bui@gmail.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260807090945.41690-1-phucduc.bui@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE5MDA4NiBTYWx0ZWRfXwLMkiB7WN/2+
+ c4tj8whPpE9GZpTv+4TIy/oAiqav0HJGXSWKH6zVKbuUZP0MNtantRZuU8ZgYEaeRrobwS26JMX
+ cyRo8EYK6+vGJGgMhjnKpW8Ih8a1TZY=
+X-Authority-Analysis: v=2.4 cv=H5PrBeYi c=1 sm=1 tr=0 ts=6a858fe7 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=HsG88Ws7tFqbOaRkTuUA:9 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-ORIG-GUID: DLoRx2VW05ClRv03_Z5U9MGlWZCgE7gA
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE5MDA4NiBTYWx0ZWRfX/7zyM8Uclkis
+ y+rhMCdVpfUirizW5y67u+/34H30bO4G3UHydc7tRXrhfcxXPOUKlg0rqb6H2Ud2LvuquVgdSqs
+ c7f9Wma15L+T25WTUElOL7ZUymGdKfp3tBQrUKhhjUP43tA4aw8r+CDyFKS+Sm4b/8ogTMg+aub
+ 0qa0z+ojTZ/PYNGxS7ghNo7636eurptrihM92W8jTrDx9EAelOTRaq0a+BG7yfqoUgiqZTB0Zx/
+ VwMrIFVwTZZMGNW0w++ecron9vZ9JFHCMhdRydYlEDbtY2y4D/V5L/RItV1x7e1azxwEYfEhN85
+ REbCewUyI0gizu2poJLXnYKmalsBstt1KFSHUBh24IczQPtXscAeMRub2rdc5fOXIZVm2jaCxkn
+ jlXpPMKiDhtfA51lmU7JEBS8sB2TfckfTVYUhlifRTBlzToZK+qkbiN2GB2awzlEbfKbpiIntNe
+ 5YS+fGqYyQhW91cS30w==
+X-Proofpoint-GUID: DLoRx2VW05ClRv03_Z5U9MGlWZCgE7gA
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-19_03,2026-08-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 bulkscore=0 impostorscore=0 adultscore=0
+ suspectscore=0 lowpriorityscore=0 phishscore=0 malwarescore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608190086
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_041159_227843_6D5FBDD3 
-X-CRM114-Status: GOOD (  14.61  )
+X-CRM114-CacheID: sfid-20260819_041344_497125_1B4FBAD8 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,35 +171,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026, at 04:46, Linus Torvalds wrote:
-> On Tue, 18 Aug 2026 at 14:17, Arnd Bergmann <arnd@arndb.de> wrote:
->>
->>  .mailmap                                           |    6 +-
->>  Documentation/ABI/testing/debugfs-vfio             |   26 +
->>  .../ABI/testing/sysfs-bus-pci-drivers-xhci_hcd     |    2 +-
-> [...]
->>  tools/virtio/linux/mod_devicetable.h               |   14 +
->>  tools/virtio/linux/virtio_features.h               |   79 ++
->>  2565 files changed, 15693 insertions(+), 8154 deletions(-)
->
-> Well, that diffstat was just garbage.  The real one looks something like this:
->
->    121 files changed, 4566 insertions(+), 1492 deletions(-)
->
-...
->
-> I don't actually require that kind of better pull request, but it
-> would make your PRs look nicer.
+On 8/7/26 11:09 AM, phucduc.bui@gmail.com wrote:
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> platform_get_irq_optional() returns a positive IRQ number on success or
+> a negative error code on failure. For an optional IRQ, -ENXIO indicates
+> that no IRQ is available, while other errors should be propagated.
+> 
+> Propagate errors such as -EPROBE_DEFER and -EINVAL instead of continuing
+> probe without the IRQ.
+> 
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+> ---
 
-Thanks for letting me know, I really should have caught this
-while sending the pull request. I was fairly sure that I had
-not introduced any backmerges or octopus merges myself, so
-I didn't pay enough attention when preparing the pull requests.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-What what I can tell, the thing that tripped me up was commit
-980a8bfe7bae ("Merge branches 'for-next/scmi/fixes' and
-'for-next/ffa/fixes'"), which I pulled in as part of a normal
-downstream branch.
-
-      Arnd 
+Konrad
 
