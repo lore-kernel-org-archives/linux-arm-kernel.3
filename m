@@ -4,124 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D2D7C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 16:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3911C5DF88
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 17:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=efDIOIf3mjthHTHBODGrvUNWG+m7dB76U/PWuFmMTzY=; b=sKCD3TUEAXlQuBUL41z7H29hU6
-	5BmHSxAIeQoeLkXQHmh4Bb8KncAJmsgfNid4aBq14R1QMR6fXn09ta72Tg1zWF9eUL0mrBLz24164
-	vFo+PfL7lyrNtbxuewLxd/EhD1FLNz0FwDhrzd0k10b11aqeDDF0DNtf3/8Fo558ijgCedJpT/kxa
-	5S8+a2V53784yTbspHxbv2lZ9DBb56WEpV0xKW44qLT589utHZzunWj7foFWLokfZ/3uKMOabcb2n
-	wDikzZFMUnrbSQAy6yjRWXEBKdo4keBjX+i++9KrqdFhCl55nqXzKUgJq7CXNcj5TiBkO5+JDStGj
-	Xp+DkiTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fe7DkO5aRoKlOx5BdmX7YNUhZMMlLH8G7Y1MOtuX6k4=; b=fH0Ks44EnDpMgU9fJMkcDLa6K6
+	bBEtuvGFRrJYSDIv1I50V/rj5WwJlwpmylocEyrwOZFwytaW29HtwvFY61DYA0RuuQ9zBqtnG/Vmd
+	OP7ZNSFUAH52rwss+ydcS6JwDRnGvpeu99rQ6PhydR5qDTg+9dxOvkHWNKBUw8XMY2ec1nB73a73A
+	EHugqpGroRPMAgC9DVbostsDYJ32OpJeSw9EZNgC6WV+AOyvG49Mki1vrz4wWTjarLOUX2igurhV1
+	zZ1YqFqkkT6e7BhD2WOfxHQltXAjDODbUUjM1BjBYwWOK47VqJLasPLCBbaAC6EqnWSR9Lx4+atE7
+	9LF+MK5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwjay-0000000AENf-0mcR;
-	Wed, 19 Aug 2026 16:56:56 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wwjhl-0000000AF8s-1gNL;
+	Wed, 19 Aug 2026 17:03:57 +0000
+Received: from mail-ua1-x92f.google.com ([2607:f8b0:4864:20::92f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwjav-0000000AEMl-3Xfp;
-	Wed, 19 Aug 2026 16:56:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JrOP2KFXg/u70/Lj9HQbzH2Orct3yzeGy3FIkWqAAx/UowBoJgylKct/04PcH3BfY9RPr6SBAkMGU5xTxNfM0rSw9M5S1b27IaTzq4zBnvqWNt8F30vRqqPmdGccGiw6fk7fua7iP1kxocsd/C1YyaxoYbCuZwAd0GWIk1uqUGlYiuVTxudfH0/YmFB2pqsn3OJLBuW84tnh4symZL85llLEDYeknho9LLwG8CNI2ioGq4lS/3OBdqtGTjO/IxuoKIv/ZdjllWtsldxWymM197PBpZUYZI7/30znAaGsZT2092//bGPHZ80GlmMFWAe2Bivvbo7lPCLE/VKMrZ78MA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=efDIOIf3mjthHTHBODGrvUNWG+m7dB76U/PWuFmMTzY=;
- b=MDeGN8cqOb20LrMUDjBbhiTAJtfm/CtTllegAqFa/kB68kbu9LqjS3SA4LZuGF9QcE1W5CPpa79bZfVVxxwu5CQKYYmjseSrCrPS1G8mzDuCk2S722ajoApWqe+et1cYwnGJwSShUDfObx5wO0STbxNASf6NR0jVxpbfbh1jFiIunWjcuwvOmKKjE3+t7zUN3vWS3+3T2qHlgiw0v7iEFx8KI0YkldQo3EMYDf880JYcBgacZPhlZPbinmbB9j9s3999/dEkLi4hZE756eFPVernOTvYw6fXmNt/jbDkW5fQswif54KTYff8Xo7KN3TI727zl1J4dLtTynPIcF73wg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=efDIOIf3mjthHTHBODGrvUNWG+m7dB76U/PWuFmMTzY=;
- b=k0GdovvCzFBP809aBbsVDdX6MDlSqtycgHAhAPpy+isqIhFVCuMVPrwO4iTcR7ti0b4HP10p4R7OgEB4MoY8EpNvckGzkpDMUSKQrQsa1G+VSl9P4wYeo81OuVTfW6r3JKQmZI5cxdBbD5Om7td+9h++spxQG++/U3gU0IVbWsZNJOIb0QEUA0brHIKTjifAWjAIvz/+tEwOFL4XRS+Pw3FBuU6gtByHy7TqFsExxIX5jtgr3H4dny0myVcpwVVtP5zbSYLKtwoNCzdE4Z7WcdaZqpTPJKoW3Z//01lSgZtcIpFDr4V2CsOjT1zNLCAhqFatnkgfAy0c/uOCcKtVMQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM7PR04MB6888.eurprd04.prod.outlook.com (2603:10a6:20b:107::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
- 2026 16:56:47 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
- 16:56:47 +0000
-Date: Wed, 19 Aug 2026 12:56:40 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Michail Tatas <michail.tatas@gmail.com>
-Cc: nicolas.dufresne@collabora.com, benjamin.gaignard@collabora.com,
-	p.zabel@pengutronix.de, mchehab@kernel.org, heiko@sntech.de,
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: verisilicon: rockchip: Fix leaks in init
-Message-ID: <aoXgSKnkbWZVKRui@lizhi-Precision-Tower-5810>
-References: <aoV3LLy5hSoKL4QP@michalis-linux>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aoV3LLy5hSoKL4QP@michalis-linux>
-X-ClientProxiedBy: PH7P221CA0010.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:32a::18) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wwjhg-0000000AF7v-2hiW
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Aug 2026 17:03:54 +0000
+Received: by mail-ua1-x92f.google.com with SMTP id a1e0cc1a2514c-9690c99c917so501471241.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 10:03:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1787159031; x=1787763831; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Fe7DkO5aRoKlOx5BdmX7YNUhZMMlLH8G7Y1MOtuX6k4=;
+        b=Xtkj7BZEZbByGNbfcDA6anrwjyO9CK33wpBIiLbDP8U736ip+OI5ShVLQXTQ0zUzxP
+         Gprk8GBd2kNl/47sX+YPoeFxi4hco+SCKrJ9pysNnIAIWo/vybktOcByBUplXXVpLCpa
+         m/+wLqdOGmyNBwrrmb99MbKWMF1NHqnLHApnI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787159031; x=1787763831;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Fe7DkO5aRoKlOx5BdmX7YNUhZMMlLH8G7Y1MOtuX6k4=;
+        b=M10kgtUF1sfVXdng4+FclopSoSzT0oBOWd9zanJjNxx0YTeLrTG0rsdn25LIlFBR+v
+         GXLP0ZT5i7VFQ6tU9IZQqS43b3e59XrMNOlqUQzT7bdUIt9E7H2KzchnHzVE4qN7Rdou
+         CsfkaoJV7G43hRW905yVT353hdYAOiANedz3yszdyshUZrP2CkVzTHDAss0pHJGdEAs4
+         sBge5TBiis5uAsCizJ0BpTKli9THLuUuqGVdgKUDNXRRBj482b0Jp8v/zhrxiplaHk7G
+         P4BAuIS2fDqptfAjmm4rqC8j/M4hMsyvSdsYM5NCMxwPnzj/ftsO/hnStUxm2cmcfCS3
+         kusQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrBaYyqAjkd5sxXXIB38GFumIX308bG6icH7N9dIC0CWv8ws/czvzqsNjkwWHNTrO3/MEEOLK6cg9kX+p8T37LF@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywm7+8OwsXX3c/YsblHpLXPPBMimpGaBCIMdYxk4E9+P/utpvEm
+	5io9AiWZPYLHi9isLvRBZol8RmBU54qC4XmiQgBoQBArgscnfMQTmexa1OgFPjF0UN8YHVh6xFg
+	C1oY=
+X-Gm-Gg: AR+sD13lLNm6F1AaVvs+2G15aI0qVwqi0+z5bffiCXiRbs5eCoB8WL9mU+MPLiqGNHO
+	fJHJvJtR5fp2TjrhFssIe2C5iWkbIghFFJ9cuqoEopDN6B9WT1ak2vMe/SHCZJ9Ni4z5Ai0XwkH
+	I4vLZTZtPgZPmT0ey3eXVxFYW+C6uW3+KqrEv8swquk85dfRkAs2cQfhrYby4nVtJxMSgPmeik8
+	lmxGCm2SJkaesrW8nSf0Ajtz60SIkfEh0zvOYY8g3iyMSbXJQy8ZXPl9JAAYfHN04xXbeGk+rzq
+	u+BWJA6O2X3QnYhgcb+vx0/jOhzFxIHyhKThTBg3yT+ps9ydGMGVDZKrshrR1ehkvTNth9+Z4pe
+	yEvabY12CTHLuy38CB37wGVexDBOFQ1NhySz5FcrrFshM+aJrlUPWl1GQy24HJQ24Il95q49ie5
+	+Yul5agxSxDNREUUtIdHQzLK11WN9zOQjDrc1ZHADzu3elylJfz4M+Tkm2WWhISOchwxUeW6vi5
+	b+Wcprq/rBrNFqcjvuMy70dvVU=
+X-Received: by 2002:a05:6102:1499:b0:778:9b9f:f434 with SMTP id ada2fe7eead31-7789b9ff98bmr1285017137.11.1787159030526;
+        Wed, 19 Aug 2026 10:03:50 -0700 (PDT)
+Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com. [209.85.222.45])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c5e25e34b9sm2828033e0c.3.2026.08.19.10.03.46
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 19 Aug 2026 10:03:47 -0700 (PDT)
+Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-97c441f40a5so376269241.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 10:03:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqEgXsiSZyZtpSaXy5M0K8y/Odz5ugHsI90SNqIeXcv8Q7HonHjSxr5bCj9Rm1lqFS7N49c9FFvBkv3z74Cd3cI@lists.infradead.org
+X-Received: by 2002:a05:6102:918:b0:778:5c2b:f836 with SMTP id
+ ada2fe7eead31-7785c2bf8famr1715744137.5.1787159025695; Wed, 19 Aug 2026
+ 10:03:45 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB6888:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3c2dc087-2639-4088-cdcc-08defe12db57
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|19092799006|56012099006|10067099003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: oZ8Xud8rVigVYvJ3SlTMJi7a4PMgCgDKuxSOH1ymlQUYcvF790RE+kN5nj7Q/56yCt7MHg5XEQiMG6YJKUWjiRK+TkL62FIHeJGLry80P8jM3m55i75Jcs1pxKyiV4+Seo/KJ/SzlY9CEcrm3Bxv94eanqjF1l5Fpot+3mbkkjZkt29hvYimz1XuNhSrbmXV8wLBYuJPwm1AnLiPizwYu9HN56ADSqdyO+bkdviOEXb3ilq8Lr4WVrU1+KvH3QUfbDgsGxhNOujoQGXN7oL9Ki021eQ+Iw/6i/tYz/O11yKXcJATSCTeFM+nC26gC3xevFagMhBbLzArFex7Mquh3tM7zEOdXjXin6LZj+e5B2AmFae8/imODE5XFAq3ldo4c+ia7fS/t73fwSu0gXwZfH4GCTp2YfovZaISevYk8ySM/lgRo9Ojtz+NJ8Ii5vhvcv2vP8jYGdXyxolduYg95Ue/Ih7DWkEntX5UzSIQ4AyXW7zBFd2fUOT0a1WX6VA+iKtr6TzbOn/4rD8s1H1LMl3wctSz0XzbFfp0KHmVD5plJe0d53vhEMRYX6b4IW0nZ9nPNa7MeZLjMrJeeebOSSyKZI+OzCPovRnOI3r8We19WD/K+tG54JDyyk2CHWeotq+dkwxU3bJbcDEzxYFGU63IFtb0NQQFvHy3YThfLrQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(19092799006)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?78ySZUOBqKiUzR9wxKUhYY8fjpCtIAYMwKoYqU/ezpUEUc6zmmSFFIkwZIkb?=
- =?us-ascii?Q?bL4K2EQW0TYQ/HKl6e2LsAzw0L0UW83yV6TwMC433j/duw9dBAClcl+a+ycG?=
- =?us-ascii?Q?VGBDjOdabiBCzqxGVKReks7nI7610CUoYrc9VEeCO363LAOyYEsWB3Zo8tKK?=
- =?us-ascii?Q?SNCKXtP7x+3Y0BoYzrzJqIsqwLb5uehR+z1fECnugYvR0ybEHH/EDfgGcmB9?=
- =?us-ascii?Q?dLIexCnFRn2AKesZwNnXzTO36tk7CRI/sTCWu8VAoeaOyKYI7+DWHRXrLCLu?=
- =?us-ascii?Q?kdiKR2dCrG/fgmlYNsTSRlsMvwATFfTtKWIng4cAxyVRjA2TS/0hfhXhZyMV?=
- =?us-ascii?Q?aqiTZt6IovHoHt1j3ySEHl8Gw/G2ospw3RVcC/hYJHpXHhXAoOeImSd7E+zT?=
- =?us-ascii?Q?IwMX8uqRRVhSg10kcU9TLADv7GetvJzJucocPM2nZfo1PdiIWatXfPZw2Rme?=
- =?us-ascii?Q?Pi20bpOHdWnRWz7CdTje9Kptkhn5zq8vQDixBUQwwu2z4k7zGkjUzI4kTQOb?=
- =?us-ascii?Q?P88h362Z4DzlgOkErLhgIH5FqYGG7LxdKIuwsTVCikXDiqumf2c0A81n5NUz?=
- =?us-ascii?Q?9jrXIpmrMPlmipT/2h/wsPyv8pSflnx8kUdGhCNtqVqVbUvaExPxYcPY4rUY?=
- =?us-ascii?Q?b1WwEDujPC+3hElIbRQoo7JVgMATEhAQ0DQOU95sOI07ZfeS3BB9G6O7F1ns?=
- =?us-ascii?Q?zM6h14LM5dzBn0glHvr4lASFB01t2vPQTZIy0GWE5YwI5mIY+lAlHDFl7gNU?=
- =?us-ascii?Q?3rVV6Gtjr46NrLkRGpdkYdToU4viV8cVB0+wMRqAGvoQTM9p/qw0cAuCWYJ8?=
- =?us-ascii?Q?ay7KfVKENVgs8gfbOnAv4dYHzgRTD7CTeOHNz1RBx/iDwBqo+vO1cq8eBY5u?=
- =?us-ascii?Q?9QAGZOSMQwfIKpsaj03tnCuJQQNv18uQv9YhgYhL+TYOMg4y1yTkravgj7LX?=
- =?us-ascii?Q?dNptSv+n9zcr2jI8XorlZ9fwb2K09set3GQiJLudnhUPGcZ0+AeiBhhDjbuI?=
- =?us-ascii?Q?zXheuY2Tke6Krv+HQ0k7fYwpC5EXlZf/Bd3KGFFSd9Uy5MqrMU4xhX/INCqG?=
- =?us-ascii?Q?00r+EFMMr9Y8vtUPe0JbwnYmwRWQIY+wF23FS8dlChkHgqfMTjo5E78wfXj7?=
- =?us-ascii?Q?wrwbAMhrBBtdbZcSCM5E8EdWbw8CvzYkeHH0Yoy9jYVVAAf0Q7SEkpylZmfG?=
- =?us-ascii?Q?jI/LhM409CKvv7FSa4k5TUb/SXgMP7bhKyujSxgVoQ/z7FQjrjcYecVx6Pg3?=
- =?us-ascii?Q?O97uKFTTL9d0bC6Z0AT3V5ZxrRCqU0Edaanmb4QbZ01fDVtAdjTudnGoqjFd?=
- =?us-ascii?Q?7S6OGYMMfUjgLxycY8np1w7VAKqBPY2jAQ23XpMg0hnA2FGRHrAmeA8LVl5q?=
- =?us-ascii?Q?ake9xYVP+2B0cnzSpLN2mjSUPAKMUO2RdwIKWxqjz4YJ1ULVEAf2WKdTeihb?=
- =?us-ascii?Q?KZc57AmncoPxXXmMiqVDszi9r5WyniwREiSRtKgSWJ37fyZK+Lv3ylvE7oJZ?=
- =?us-ascii?Q?Z8OW0Atmm/KKNAC8hK4HMdl3ZN1BeDgKiXKhDlpTJSM3fSRg2VEs0wx9UMEe?=
- =?us-ascii?Q?7Ro26r7gpjAeWYjgkoYixkW+7g9URan9zPEY9xp8sEQBl/RHUeaHjG9RHP0m?=
- =?us-ascii?Q?4qeLQd449G3WpKn5nst7zyE3859x1zopR7B36xKKMfqGFPoTSpn4ZDUjRhlx?=
- =?us-ascii?Q?IxhUt2Ic1OmxloUOL7o2k73v8D2uej2PLaBN+hF18MmeK91AbLwr0krDpljL?=
- =?us-ascii?Q?uX2Ud23HdoE5EYTbvUIPDiTjda1qd3RFViWsIinH9NHlqErdbKB1?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3c2dc087-2639-4088-cdcc-08defe12db57
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 16:56:47.7657
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mq0oY8C0XcuxRxKY32onYPxYBseNlUueCjlXKJk3vb524DJytLzUSm9cxRSbe6w+TZ99n070VYMytvkWqYXwIYhmJ/bRuSGaUcTuJAsSZwiuCnoPymgzGEH8xSK+K8DH
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6888
+References: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
+ <20260722-contrib-pg-pixel10-initial-dts-v2-4-3abae9717feb@linaro.org>
+ <20260724-dancing-skunk-of-novelty-72c1b8@quoll> <CAD=FV=U0HUdjPcg+5Vx8_ag0zLd3CZx5w5SFr38p+YwRnC_G6w@mail.gmail.com>
+ <CAD=FV=V2+D1m5L-0d81W3E_ih2us-SrddeBUAJtMybpQons7Ww@mail.gmail.com> <CAD++jLnQGy_LvRxMjq1s2Hs9Hn4LNTFZ0W17zC1YLs5StwfqMg@mail.gmail.com>
+In-Reply-To: <CAD++jLnQGy_LvRxMjq1s2Hs9Hn4LNTFZ0W17zC1YLs5StwfqMg@mail.gmail.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Wed, 19 Aug 2026 10:03:34 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=VuVdq_=TQmONJZak84S2c2-2yQ8DS0k_odYsUfg0C+rQ@mail.gmail.com>
+X-Gm-Features: AcwNN1Xq_Hs6V24rG4OhS-cjamxWAO0UpSeGmP_9xYxqjvzRBGkaMhCLOMPBOe8
+Message-ID: <CAD=FV=VuVdq_=TQmONJZak84S2c2-2yQ8DS0k_odYsUfg0C+rQ@mail.gmail.com>
+Subject: Re: [PATCH v2 4/5] arm64: dts: google: Add initial dts for frankel/blazer/mustang
+To: Linus Walleij <linusw@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Drew Fustini <fustini@kernel.org>, 
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org, 
+	soc@lists.linux.dev, Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>, 
+	Brian Norris <briannorris@google.com>, William McVicker <willmcvicker@google.com>, 
+	kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_095653_890542_021F97B0 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20260819_100352_734985_D8D604D7 
+X-CRM114-Status: GOOD (  37.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,145 +122,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 12:28:12PM +0300, Michail Tatas wrote:
-> if one of the dma_alloc_coherent in the init fucntion fails then
-> the previously allocated ones leak.
->
-> Fix by freeing them in the error path.
->
-> Fixes: 727a400686a2 ("media: verisilicon: Add Rockchip AV1 decoder")
-> Signed-off-by: Michail Tatas <michail.tatas@gmail.com>
-> ---
->  .../verisilicon/rockchip_vpu981_hw_av1_dec.c  | 68 +++++++++++++++----
->  1 file changed, 55 insertions(+), 13 deletions(-)
->
-> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> index e4e21ad37323..fa77fd402412 100644
-> --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> @@ -369,6 +369,7 @@ void rockchip_vpu981_av1_dec_exit(struct hantro_ctx *ctx)
->
->  int rockchip_vpu981_av1_dec_init(struct hantro_ctx *ctx)
->  {
-> +	int ret = 0;
->  	struct hantro_dev *vpu = ctx->dev;
->  	struct hantro_av1_dec_hw_ctx *av1_dec = &ctx->av1_dec;
->
-> @@ -377,39 +378,54 @@ int rockchip_vpu981_av1_dec_init(struct hantro_ctx *ctx)
->  	av1_dec->global_model.cpu = dma_alloc_coherent(vpu->dev, GLOBAL_MODEL_SIZE,
->  						       &av1_dec->global_model.dma,
->  						       GFP_KERNEL);
-> -	if (!av1_dec->global_model.cpu)
-> -		return -ENOMEM;
-> +	if (!av1_dec->global_model.cpu) {
-> +		ret = -ENOMEM;
-> +		goto global_model_cpu_err;
-> +	}
-> +
->  	av1_dec->global_model.size = GLOBAL_MODEL_SIZE;
->
->  	av1_dec->tile_info.cpu = dma_alloc_coherent(vpu->dev, AV1_TILE_INFO_SIZE,
->  						    &av1_dec->tile_info.dma,
->  						    GFP_KERNEL);
-> -	if (!av1_dec->tile_info.cpu)
-> -		return -ENOMEM;
-> +	if (!av1_dec->tile_info.cpu) {
-> +		ret = -ENOMEM;
-> +		goto tile_info_cpu_err;
-> +	}
-> +
+Hi,
 
-This function is called by hantro_probe() if I am correct
+On Wed, Aug 19, 2026 at 1:29=E2=80=AFAM Linus Walleij <linusw@kernel.org> w=
+rote:
+>
+> > Is there some other documentation saying "aliases =3D=3D evil" that I
+> > missed? Maybe some email thread we're all supposed to have read?
+>
+> Yes, kind of, it was 10 years ago and about MMC aliases for
+> selecting a primary device for boot:
+> https://lore.kernel.org/lkml/CAD=3DFV=3DXLuPWKjQBMLApRQxk0K30p_TPcztB7g_1=
+DB7iRA9BGRQ@mail.gmail.com/T/
+> and you were in the thread, it's not pretty, leaves a bad aftertaste.
+> For, I think, reasons stated in my initial paragraph.
+>
+> The takeway is something like "the device enumeration is policy,
+> not hardware information, so it should not be encoded into
+> the device tree", and that is not an argument about aliases
+> per se.
+>
+> As a result (as I think, I may be wrong) MMC gained a few
+> properties such as:
+> non-removable;
+> no-sd;
+> no-mmc;
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/D=
+ocumentation/devicetree/bindings/mmc/mmc-controller-common.yaml
+>
+> These provide a heuristic for which devices to inspect for boot.
+> Then on top of that I think people use schemes like EFI for finding
+> boot devices. (Or they still live with their quirks...)
 
-there are dmam_alloc_coherent(), use dmam_alloc_coherent() will simple
-error handle and tear down.
+Yup, I was definitely involved in that conversation around mmc. ...and
+yes, that was a frustrating topic. Though I guess I remember things a
+bit differently / have a different takeaway. Specifically:
 
-Frank
+* The whole argument there was about people not liking the idea of
+assigning "numbers" to MMC nodes. As I have said, I'm OK with not
+having a number here and it's not central to my needs. Said another
+way, people seemed to hate assigning a numeric ID to hardware devices,
+which is not my goal here.
 
->  	av1_dec->tile_info.size = AV1_TILE_INFO_SIZE;
+* The "mmc numbering" patches were (independently) sent again and
+again by people because (shockingly, I know) people found it useful to
+have their MMC devices enumerate with consistent numbers.
+
+* In the end, support for "mmc aliases" was landed. See commit
+fa2d0aa96941 ("mmc: core: Allow setting slot index via device tree
+alias").
+
+
+> Now this ufs0 node seems to be about calibration of some sort,
+> which is a more hardware adjacent subject. Is there a way to
+> add the entity that needs this calibration to the device tree and
+> reference the UFS device with a phandle along the lines of:
 >
->  	av1_dec->film_grain.cpu = dma_alloc_coherent(vpu->dev,
->  						     ALIGN(sizeof(struct rockchip_av1_film_grain), 2048),
->  						     &av1_dec->film_grain.dma,
->  						     GFP_KERNEL);
-> -	if (!av1_dec->film_grain.cpu)
-> -		return -ENOMEM;
-> +	if (!av1_dec->film_grain.cpu) {
-> +		ret = -ENOMEM;
-> +		goto film_grain_cpu_err;
-> +	}
-> +
->  	av1_dec->film_grain.size = ALIGN(sizeof(struct rockchip_av1_film_grain), 2048);
+> calibration-storage =3D <&ufs_node>;
 >
->  	av1_dec->prob_tbl.cpu = dma_alloc_coherent(vpu->dev,
->  						   ALIGN(sizeof(struct av1cdfs), 2048),
->  						   &av1_dec->prob_tbl.dma,
->  						   GFP_KERNEL);
-> -	if (!av1_dec->prob_tbl.cpu)
-> -		return -ENOMEM;
-> +	if (!av1_dec->prob_tbl.cpu) {
-> +		ret = -ENOMEM;
-> +		goto prob_tbl_cpu_err;
-> +	}
-> +
->  	av1_dec->prob_tbl.size = ALIGN(sizeof(struct av1cdfs), 2048);
+> ?
 >
->  	av1_dec->prob_tbl_out.cpu = dma_alloc_coherent(vpu->dev,
->  						       ALIGN(sizeof(struct av1cdfs), 2048),
->  						       &av1_dec->prob_tbl_out.dma,
->  						       GFP_KERNEL);
-> -	if (!av1_dec->prob_tbl_out.cpu)
-> -		return -ENOMEM;
-> +	if (!av1_dec->prob_tbl_out.cpu) {
-> +		ret = -ENOMEM;
-> +		goto prob_tbl_out_cpu_err;
-> +	}
-> +
->  	av1_dec->prob_tbl_out.size = ALIGN(sizeof(struct av1cdfs), 2048);
->  	av1_dec->cdfs = &av1_dec->default_cdfs;
->  	av1_dec->cdfs_ndvc = &av1_dec->default_cdfs_ndvc;
-> @@ -420,11 +436,37 @@ int rockchip_vpu981_av1_dec_init(struct hantro_ctx *ctx)
->  						   AV1_TILE_SIZE,
->  						   &av1_dec->tile_buf.dma,
->  						   GFP_KERNEL);
-> -	if (!av1_dec->tile_buf.cpu)
-> -		return -ENOMEM;
-> +	if (!av1_dec->tile_buf.cpu) {
-> +		ret = -ENOMEM;
-> +		goto tile_buf_cpu_err;
-> +	}
-> +
->  	av1_dec->tile_buf.size = AV1_TILE_SIZE;
->
-> -	return 0;
-> +	return ret;
-> +
-> +tile_buf_cpu_err:
-> +	dma_free_coherent(vpu->dev, av1_dec->prob_tbl_out.size,
-> +			  av1_dec->prob_tbl_out.cpu,
-> +			  av1_dec->prob_tbl_out.dma);
-> +prob_tbl_out_cpu_err:
-> +	dma_free_coherent(vpu->dev, av1_dec->prob_tbl.size,
-> +			  av1_dec->prob_tbl.cpu,
-> +			  av1_dec->prob_tbl.dma);
-> +prob_tbl_cpu_err:
-> +	dma_free_coherent(vpu->dev, av1_dec->film_grain.size,
-> +			  av1_dec->film_grain.cpu,
-> +			  av1_dec->film_grain.dma);
-> +film_grain_cpu_err:
-> +	dma_free_coherent(vpu->dev, av1_dec->tile_info.size,
-> +			  av1_dec->tile_info.cpu,
-> +			  av1_dec->tile_info.dma);
-> +tile_info_cpu_err:
-> +	dma_free_coherent(vpu->dev, av1_dec->global_model.size,
-> +			  av1_dec->global_model.cpu,
-> +			  av1_dec->global_model.dma);
-> +global_model_cpu_err:
-> +	return ret;
->  }
->
->  static int rockchip_vpu981_av1_dec_prepare_run(struct hantro_ctx *ctx)
-> --
-> 2.43.0
->
+> Even say adding a synthetic modem node if the calibration is
+> for a modem is probably going to be more acceptable than an
+> alias.
+
+The crux of the issue is that the bootloader needs to add UFS
+calibration to the device tree provided to it, and later the UFS
+driver in Linux needs to find this calibration data. Since the device
+tree lives outside the firmware and is provided to it, the firmware
+should make the fewest assumptions about the device tree possible.
+
+Having the firmware hardcode the path to the UFS node doesn't seem
+ideal, since (I believe) device tree paths aren't guaranteed to stay
+consistent according to the device tree ABI. This, and the current
+downstream device tree path differs from what upstream would accept.
+
+Using an alias seems (to me) to be a reasonable solution. However,
+I've tried to express that I'm open to concrete ideas.
+
+I appreciate your suggestion of having a separate node for calibration
+storage. This feels more awkward to me than just giving up and having
+the bootloader hardcode all known device-tree paths that the UFS node
+might be found at. That being said, if everyone says that this would
+be a great solution, I could try prototyping it. The trick would now
+be that the Linux UFS driver would need to be able to find this
+calibration data, so the Linux UFS driver would either need to be able
+to find it at a specific hardcoded device tree path or the Linux UFS
+driver would need to search the device tree for a specific
+ufs-calibration compatible string.
+
+
+-Doug
 
