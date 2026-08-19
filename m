@@ -4,86 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5401FC5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 09:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 666D2C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 09:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kjJqO5Tkx7QkqQKX+O7z966c27TyW/hoTQBkhU3dCmM=; b=Z58fG+zqqZIAssjKx+jsGxPUE8
-	38KHMJ5O/8RlEoSlo89iz0bTRgyC3rnKzZoNWVhvU+P4GS3JnBBIpV2XNdUgwmnlsW3zTHq+93vY4
-	LG/5zWUt/6HnDyKnCXfEoGRuUTDutmtsgCIub0RfK/IThoAlg6vTIWEvB2gB9KifW2w1ytB996yED
-	nqkXsMS64tFE+UrYZ0ZIZhbNjZua/2RHRUaEyc4LmeGU0dBfbtemBVYUCnP8h5ZkBNG+vXiwSFK6W
-	bFaheYc6JkND9lI30+Gn7wOPNdnUvtJ/rV7DqNcwpjG9hM2J7Ol8QNjqUCkuKxqaH9yoUerLdSpU6
-	hGij0ftg==;
+	bh=7Qk/nPnOw6aepbRPixLa0uauS/wumrW6H2o503UEaho=; b=f1YeLR2iYKUbYMW0wKfKpXsBXM
+	lMnC6sb2rULRZhnn2tDNlrQUUynwNdtjiGDpintLdVsP22F+3DiPKECfvRLTPUt8WRqyf5dXUPNZF
+	1RQP5dL1R+F/HXJk2DVNtN8k7zHQAka7FtTUbbdSgWUzfgT6OJ5/I7QR++23DNF4Moq9mjX/J2u86
+	eSCVOs6vXwrPyIQzXpBusRiNJQv3Cs1c/ukzkzNy2n/XAuZOIhrUrEzn0vMOLPY9BvSSDeW3B5ajt
+	TVcyDlRAK2a419m7zd/bL783nYDCIU5XBpwNo2adjmHQuJXYb1jlKBG3nxY0BXXb6NY1/xeueQOl/
+	CdgRY4LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwcar-00000009Pl1-1t5u;
-	Wed, 19 Aug 2026 09:28:21 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wwcfA-00000009Q9w-2rtL;
+	Wed, 19 Aug 2026 09:32:48 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwcan-00000009PiV-3eLG
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 09:28:19 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49954b88fffso7966765e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 02:28:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787131693; x=1787736493; darn=lists.infradead.org;
-        h=content-disposition:content-type:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kjJqO5Tkx7QkqQKX+O7z966c27TyW/hoTQBkhU3dCmM=;
-        b=TsY5uzPKoQyGBPZV+qcRY4nlaWIuqxdr6e1cFUfwvZrvOpt/32DnJGGr23KAnf5N56
-         I7ZH+G+CBFrGlCOipQtqK9SrxAWTHGJjtWt2VkAHz3g4HwkyS4QhlbIkQY9Dmw6wzu2n
-         bXjPdhogrippbsQmqzCsnneJ1SvBWuPZ2U6Ng4jfpkueYS8bTLt2W/CyFm7e8pqKY7zi
-         onlrKqcoiVmlDasE1ReJc0XWC0zWy2M3lBWnQl5PI+1SjI9o4qpqWL2o9tB5YZRDbJus
-         dgKpLNsh+7Vt38lM79g0VhtCpWs01bZoyjuYGoamg+G16cQeKcv36v3SyHOVdB8FtNw0
-         DIFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787131693; x=1787736493;
-        h=content-disposition:content-type:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kjJqO5Tkx7QkqQKX+O7z966c27TyW/hoTQBkhU3dCmM=;
-        b=WIe3VE3DoIhcMn7A1169Z2o1+/yWrkjfOVRXZfnYVq00vkgV2qGdvzFXiJR+oo4s9N
-         IN8p9Da1NYaL9bbhHQhDF35EjSVk8Tz703EgyxsLT617K8HBuJyNZHOUM4XWoyvo/04N
-         DCSWdRB4LcwqQ22bqZUNjwmPNXJH4Gz8P8cgKWJjZf/lvA9/ii0IHVhgi/ySJucC9UoT
-         ZIYrW4Lrsb+6JXBTQkWCdTXMBPqEWiLmbTBxYSp2XopPA+/S/Tj8czYGvYH9kcP+cPi8
-         r0JMn/69uJMEgCsioghDfV7KP8pyLQS8mKtAfz98JVPFH8lCQ10wMfS8MQ8Gjrj9MntD
-         cYag==
-X-Forwarded-Encrypted: i=1; AHgh+RoaHLDDZGfV2VeYbVnZIt0kmekLlJmoa24w3DgoiUGfhXQ6A2oJ6QdAD4nwLge6sWh8/OAKKCNDstKZZJvJMp8d@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyjj2Vac3Y6EWU9oqYYUCh1e9rKstG/AOIRz+/vCbLjl8A7kZ88
-	xLUdQhw8OwE8saQ8VMtMMWGd2ispwGFGP24PdsEeZPS6z83aMqCorHJ2
-X-Gm-Gg: AR+sD11/tN1yBs2nTv3HKXdTOAegPx0ajZM8zZnZoUgjwep2P/DWbzXu5dQ5aeNCa1g
-	eqRUsjDlNJFcJQsfer7qUhuRHm/sp1dnWl4q7F6N3vBcW3uP4N3dWK/zrqtynpoUqhO4vr1vfTx
-	8GCbfuT+YWCWawrvX3kpzjbfAMLyyYCTn/R6F5EsNZ+lAYsFzQbAQ9kpH0fwZr7PmpNbDQ1Xopt
-	xN7S6BAm4yLCuHHVBkzfZNj+wLadBDKaubHR1OJOLbJOfoUh6Uquupjpn1lK+U3miyQ8RmHqlA7
-	QaDex5hEEu8nF/hXfBkZ9ouvHIrBbePb8gl1XlthNEuvIdp+DpBxlCoD813NxdItHfnr0HFTiLl
-	tcGEDMvGZrY9J8ycTCj6Ade1O+E4LzzrOTyTCZdkJRpsk+dWsB5qoA8xurRe2CyMTRNdJGpoezY
-	c0uXG5/voYmrTaMBWVEDNOFbsZ0hwzFuo+ulUvkTKFkBTho8e5AHEKBfX/nKl3KA97mw2dj5cbQ
-	wcU3T1pEOjt820Lwocu3HNOjQ==
-X-Received: by 2002:a05:600c:8b65:b0:499:a5fc:2087 with SMTP id 5b1f17b1804b1-499aa1722f5mr58865455e9.6.1787131693443;
-        Wed, 19 Aug 2026 02:28:13 -0700 (PDT)
-Received: from michalis-linux (adsl-75.176.58.251.tellas.gr. [176.58.251.75])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499aa11fd3asm42234935e9.8.2026.08.19.02.28.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Aug 2026 02:28:13 -0700 (PDT)
-Date: Wed, 19 Aug 2026 12:28:12 +0300
-From: Michail Tatas <michail.tatas@gmail.com>
-To: nicolas.dufresne@collabora.com, benjamin.gaignard@collabora.com,
-	p.zabel@pengutronix.de, mchehab@kernel.org, heiko@sntech.de
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH] media: verisilicon: rockchip: Fix leaks in init
-Message-ID: <aoV3LLy5hSoKL4QP@michalis-linux>
+	id 1wwcf7-00000009Q9Q-463A;
+	Wed, 19 Aug 2026 09:32:47 +0000
+X-UUID: eb913d109bb011f1afed4741b24580c9-20260819
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=7Qk/nPnOw6aepbRPixLa0uauS/wumrW6H2o503UEaho=;
+	b=bQOSuvGAAfNhxXtyCzrXX2ftp0Kn4jtrpGrWIPWZ3eXgCZv12Dj8YUZ/pEGS/EDNSWMope/jhmLIpY29qZ78SzYeTheI7s7q5sG9E51lCWzZ3p+bMTfyFYoDkF7Rs7mVMo3DElZpPgIhOsiIMbdlqx8Yo7yWX2Kxtw8wmXYH7/I=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:066c51ec-b860-424d-b873-5efcf019fe38,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:84eb2ffe-f4cb-4ad2-b022-e3ac6648bf25,B
+	ulkID:nil,BulkQuantity:0,SF:102|123|836|865|888|898,TC:-5,Content:0|15|50|
+	99,EDM:-3,IP:nil,URL:1,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: eb913d109bb011f1afed4741b24580c9-20260819
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <zhaoping.shu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1111249570; Wed, 19 Aug 2026 02:32:39 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 19 Aug 2026 17:32:36 +0800
+Received: from mcddlt001.gcn.mediatek.inc (10.19.240.15) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 19 Aug 2026 17:32:35 +0800
+From: <zhaoping.shu@mediatek.com>
+To: <edumazet@google.com>, <ncardwell@google.com>, <kuniyu@google.com>,
+	<davem@davemloft.net>, <kuba@kernel.org>, <pabeni@redhat.com>,
+	<horms@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <dsahern@kernel.org>,
+	<willemb@google.com>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: <haijun.liu@mediatek.com>, <xiayu.zhang@mediatek.com>,
+	<lambert.wang@mediatek.com>, <Iven.Yang@mediatek.com>, HW He
+	<hw.he@mediatek.com>, Zhaoping Shu <zhaoping.shu@mediatek.com>
+Subject: [PATCH net v4] net: gro: Fix nesting of TCP GSO SKBs in skb_gro_receive_list()
+Date: Wed, 19 Aug 2026 17:32:26 +0800
+Message-ID: <20260819093226.193385-1-zhaoping.shu@mediatek.com>
+X-Mailer: git-send-email 2.17.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_022817_965590_6B4B00AD 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20260819_023246_104648_71E0124E 
+X-CRM114-Status: GOOD (  18.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,136 +88,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-if one of the dma_alloc_coherent in the init fucntion fails then
-the previously allocated ones leak.
+From: HW He <hw.he@mediatek.com>
 
-Fix by freeing them in the error path.
+A device supports GRO_HW, and the device driver enables the
+NETIF_F_GRO_FRAGLIST feature. During a tethering test,
+skb_gro_receive_list() reaggregates the GSO packet. However,
+skb_segment_list() cannot segment this packet back into
+the original packets, which leads to IP fragmentation or packet drop.
 
-Fixes: 727a400686a2 ("media: verisilicon: Add Rockchip AV1 decoder")
-Signed-off-by: Michail Tatas <michail.tatas@gmail.com>
+Scenario (Tethering/Forwarding):
+1.Driver submits a single TCP packet, P1. P1 is kept in the
+gro_list as the first packet.
+
+2. The driver submits a TCP GSO skb, P2. P2 has already aggregated
+multiple TCP packets by HW_GRO, and its non-linear data is stored in
+frags[].
+
+3. P1 and P2 match the GRO rules, and since there is no local socket,
+they are aggregated by skb_gro_receive_list(). The resulting skb,
+P3, has a frag_list entry that still contains frags[]:
+P3: [ Linear Data ] -> frag_list -> [ Linear Data ]
+                                    [ frag[1] ]
+                                    [ frag[2] ]
+                                    ...
+4. Later, tcp4_gso_segment() or tcp6_gso_segment() calls
+skb_segment_list() to segment P3. However, skb_segment_list() only
+segments the entries in frag_list. It does not segment the frags[]
+inside P2, so P3 is not restored to the original packets, which leads
+to IP fragmentation or packet drop in the following path.
+
+Check skb_is_gso(skb) and current GRO method, make sure fraglist GRO
+applies to consecutive non-GSO skb, others adopt regular GRO path.
+
+Fixes: 8d95dc474f85 ("net: add code for TCP fraglist GRO")
+Signed-off-by: Zhaoping Shu <zhaoping.shu@mediatek.com>
+Signed-off-by: HW He <hw.he@mediatek.com>
+
 ---
- .../verisilicon/rockchip_vpu981_hw_av1_dec.c  | 68 +++++++++++++++----
- 1 file changed, 55 insertions(+), 13 deletions(-)
+[3]: https://patchwork.kernel.org/patch/14747095
+[2]: https://patchwork.kernel.org/patch/14706032
+[1]: https://patchwork.kernel.org/patch/14702209
+---
+ net/ipv4/tcp_offload.c   | 22 ++++++++++++++++------
+ net/ipv6/tcpv6_offload.c | 15 +++++++++++++--
+ 2 files changed, 29 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-index e4e21ad37323..fa77fd402412 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-@@ -369,6 +369,7 @@ void rockchip_vpu981_av1_dec_exit(struct hantro_ctx *ctx)
+diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+index 3b1fdcd3cb29..e74d99ca9fac 100644
+--- a/net/ipv4/tcp_offload.c
++++ b/net/ipv4/tcp_offload.c
+@@ -332,6 +332,7 @@ struct sk_buff *tcp_gro_receive(struct list_head *head, struct sk_buff *skb,
+ 		flush |= skb->ip_summed != p->ip_summed;
+ 		flush |= skb->csum_level != p->csum_level;
+ 		flush |= NAPI_GRO_CB(p)->count >= 64;
++		flush |= NAPI_GRO_CB(p)->is_flist != NAPI_GRO_CB(skb)->is_flist;
+ 		skb_set_network_header(skb, skb_gro_receive_network_offset(skb));
  
- int rockchip_vpu981_av1_dec_init(struct hantro_ctx *ctx)
- {
-+	int ret = 0;
- 	struct hantro_dev *vpu = ctx->dev;
- 	struct hantro_av1_dec_hw_ctx *av1_dec = &ctx->av1_dec;
+ 		if (flush || skb_gro_receive_list(p, skb))
+@@ -395,12 +396,20 @@ static void tcp4_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
+ 	struct net *net;
+ 	int iif, sdif;
  
-@@ -377,39 +378,54 @@ int rockchip_vpu981_av1_dec_init(struct hantro_ctx *ctx)
- 	av1_dec->global_model.cpu = dma_alloc_coherent(vpu->dev, GLOBAL_MODEL_SIZE,
- 						       &av1_dec->global_model.dma,
- 						       GFP_KERNEL);
--	if (!av1_dec->global_model.cpu)
--		return -ENOMEM;
-+	if (!av1_dec->global_model.cpu) {
-+		ret = -ENOMEM;
-+		goto global_model_cpu_err;
-+	}
+-	if (likely(!(skb->dev->features & NETIF_F_GRO_FRAGLIST)))
+-		return;
+-
+ 	p = tcp_gro_lookup(head, th);
+ 	if (p) {
+-		NAPI_GRO_CB(skb)->is_flist = NAPI_GRO_CB(p)->is_flist;
++		/* flist GRO applies to consecutive non-GSO skbs */
++		if (!skb_is_gso(skb) || !NAPI_GRO_CB(p)->is_flist) {
++			NAPI_GRO_CB(skb)->is_flist = NAPI_GRO_CB(p)->is_flist;
++			return;
++		}
 +
- 	av1_dec->global_model.size = GLOBAL_MODEL_SIZE;
++		/* Fall back to the regular GRO path */
++		if (NAPI_GRO_CB(p)->count == 1)
++			NAPI_GRO_CB(p)->is_flist = 0;
++
++		NAPI_GRO_CB(skb)->is_flist = 0;
++
+ 		return;
+ 	}
  
- 	av1_dec->tile_info.cpu = dma_alloc_coherent(vpu->dev, AV1_TILE_INFO_SIZE,
- 						    &av1_dec->tile_info.dma,
- 						    GFP_KERNEL);
--	if (!av1_dec->tile_info.cpu)
--		return -ENOMEM;
-+	if (!av1_dec->tile_info.cpu) {
-+		ret = -ENOMEM;
-+		goto tile_info_cpu_err;
-+	}
-+
- 	av1_dec->tile_info.size = AV1_TILE_INFO_SIZE;
- 
- 	av1_dec->film_grain.cpu = dma_alloc_coherent(vpu->dev,
- 						     ALIGN(sizeof(struct rockchip_av1_film_grain), 2048),
- 						     &av1_dec->film_grain.dma,
- 						     GFP_KERNEL);
--	if (!av1_dec->film_grain.cpu)
--		return -ENOMEM;
-+	if (!av1_dec->film_grain.cpu) {
-+		ret = -ENOMEM;
-+		goto film_grain_cpu_err;
-+	}
-+
- 	av1_dec->film_grain.size = ALIGN(sizeof(struct rockchip_av1_film_grain), 2048);
- 
- 	av1_dec->prob_tbl.cpu = dma_alloc_coherent(vpu->dev,
- 						   ALIGN(sizeof(struct av1cdfs), 2048),
- 						   &av1_dec->prob_tbl.dma,
- 						   GFP_KERNEL);
--	if (!av1_dec->prob_tbl.cpu)
--		return -ENOMEM;
-+	if (!av1_dec->prob_tbl.cpu) {
-+		ret = -ENOMEM;
-+		goto prob_tbl_cpu_err;
-+	}
-+
- 	av1_dec->prob_tbl.size = ALIGN(sizeof(struct av1cdfs), 2048);
- 
- 	av1_dec->prob_tbl_out.cpu = dma_alloc_coherent(vpu->dev,
- 						       ALIGN(sizeof(struct av1cdfs), 2048),
- 						       &av1_dec->prob_tbl_out.dma,
- 						       GFP_KERNEL);
--	if (!av1_dec->prob_tbl_out.cpu)
--		return -ENOMEM;
-+	if (!av1_dec->prob_tbl_out.cpu) {
-+		ret = -ENOMEM;
-+		goto prob_tbl_out_cpu_err;
-+	}
-+
- 	av1_dec->prob_tbl_out.size = ALIGN(sizeof(struct av1cdfs), 2048);
- 	av1_dec->cdfs = &av1_dec->default_cdfs;
- 	av1_dec->cdfs_ndvc = &av1_dec->default_cdfs_ndvc;
-@@ -420,11 +436,37 @@ int rockchip_vpu981_av1_dec_init(struct hantro_ctx *ctx)
- 						   AV1_TILE_SIZE,
- 						   &av1_dec->tile_buf.dma,
- 						   GFP_KERNEL);
--	if (!av1_dec->tile_buf.cpu)
--		return -ENOMEM;
-+	if (!av1_dec->tile_buf.cpu) {
-+		ret = -ENOMEM;
-+		goto tile_buf_cpu_err;
-+	}
-+
- 	av1_dec->tile_buf.size = AV1_TILE_SIZE;
- 
--	return 0;
-+	return ret;
-+
-+tile_buf_cpu_err:
-+	dma_free_coherent(vpu->dev, av1_dec->prob_tbl_out.size,
-+			  av1_dec->prob_tbl_out.cpu,
-+			  av1_dec->prob_tbl_out.dma);
-+prob_tbl_out_cpu_err:
-+	dma_free_coherent(vpu->dev, av1_dec->prob_tbl.size,
-+			  av1_dec->prob_tbl.cpu,
-+			  av1_dec->prob_tbl.dma);
-+prob_tbl_cpu_err:
-+	dma_free_coherent(vpu->dev, av1_dec->film_grain.size,
-+			  av1_dec->film_grain.cpu,
-+			  av1_dec->film_grain.dma);
-+film_grain_cpu_err:
-+	dma_free_coherent(vpu->dev, av1_dec->tile_info.size,
-+			  av1_dec->tile_info.cpu,
-+			  av1_dec->tile_info.dma);
-+tile_info_cpu_err:
-+	dma_free_coherent(vpu->dev, av1_dec->global_model.size,
-+			  av1_dec->global_model.cpu,
-+			  av1_dec->global_model.dma);
-+global_model_cpu_err:
-+	return ret;
+@@ -410,7 +419,7 @@ static void tcp4_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
+ 	sk = __inet_lookup_established(net, iph->saddr, th->source,
+ 				       iph->daddr, ntohs(th->dest),
+ 				       iif, sdif);
+-	NAPI_GRO_CB(skb)->is_flist = !sk;
++	NAPI_GRO_CB(skb)->is_flist = !sk && !skb_is_gso(skb);
+ 	if (sk)
+ 		sock_gen_put(sk);
  }
+@@ -430,7 +439,8 @@ struct sk_buff *tcp4_gro_receive(struct list_head *head, struct sk_buff *skb)
+ 	if (!th)
+ 		goto flush;
  
- static int rockchip_vpu981_av1_dec_prepare_run(struct hantro_ctx *ctx)
+-	tcp4_check_fraglist_gro(head, skb, th);
++	if (unlikely(skb->dev->features & NETIF_F_GRO_FRAGLIST))
++		tcp4_check_fraglist_gro(head, skb, th);
+ 
+ 	return tcp_gro_receive(head, skb, th);
+ 
+diff --git a/net/ipv6/tcpv6_offload.c b/net/ipv6/tcpv6_offload.c
+index f2a659cd6183..eec3778855eb 100644
+--- a/net/ipv6/tcpv6_offload.c
++++ b/net/ipv6/tcpv6_offload.c
+@@ -26,7 +26,18 @@ static void tcp6_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
+ 
+ 	p = tcp_gro_lookup(head, th);
+ 	if (p) {
+-		NAPI_GRO_CB(skb)->is_flist = NAPI_GRO_CB(p)->is_flist;
++		/* flist GRO applies to consecutive non-GSO skbs */
++		if (!skb_is_gso(skb) || !NAPI_GRO_CB(p)->is_flist) {
++			NAPI_GRO_CB(skb)->is_flist = NAPI_GRO_CB(p)->is_flist;
++			return;
++		}
++
++		/* Fall back to the regular GRO path */
++		if (NAPI_GRO_CB(p)->count == 1)
++			NAPI_GRO_CB(p)->is_flist = 0;
++
++		NAPI_GRO_CB(skb)->is_flist = 0;
++
+ 		return;
+ 	}
+ 
+@@ -36,7 +47,7 @@ static void tcp6_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
+ 	sk = __inet6_lookup_established(net, &hdr->saddr, th->source,
+ 					&hdr->daddr, ntohs(th->dest),
+ 					iif, sdif);
+-	NAPI_GRO_CB(skb)->is_flist = !sk;
++	NAPI_GRO_CB(skb)->is_flist = !sk && !skb_is_gso(skb);
+ 	if (sk)
+ 		sock_gen_put(sk);
+ #endif /* IS_ENABLED(CONFIG_IPV6) */
 -- 
-2.43.0
+2.17.0
 
 
