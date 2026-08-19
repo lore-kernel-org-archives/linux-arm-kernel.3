@@ -4,139 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C63C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 18:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A5BC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 18:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5YXIxdBnA3YgMEEVyRszEkQfRiNotik4xshcNBcccY8=; b=0jhKLOl3KrjSRsp2Q5qYV+ok5+
-	j5lCtZkyPMUD7oSpvUm3YDwwL21RmaqstxYnXAfe9efkoAYONjdRevYLMnGjritJf27OTeY1jIiXk
-	gL64064c38Tgi7R8RInCMdjsSbouPpYDcz2sT9ng/KzIBh3XvstpUOju71SiVE4hyZk0K7xSTrQf/
-	+yV6GQhCmpnhQFBCWOtiwUDxUiNy82kL+ya2pynGBp1KMxSCNOBenxAtGoNYGdUfXXMG7kTjYPor8
-	1MYaSfSqtJ01/5b6VMVYuoX3EMgmOEWaWXWRmEBu1Id80NcecHZ8t2ljiEDcMhUsIORjVfxpL1kSE
-	HOM/rHcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:In-Reply-To:Subject:CC:To:From:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=BxnW8xTe/GUg/okReI0ZUTX8lPXwU0KqEEY1BznrYFQ=; b=dKwu3/VbBPzzTtl6FDuLgi7yvb
+	0YGRccI52UQKZNX3shdDAGI5oDLai9+FrOqLaHIoumPdo0B1zxz1/ArNPW71wefnugyth5gOEqPLT
+	HIz8OkK9falQ+/SzZDkMPz3JH6N2DLPU+lZaSO/2mWQKBivThxyjLxzcd5duM8MxEpaCtBjByteax
+	VPSC/lQOHTAb809KVbkhlfHbeY5wQF+bR411c6YMMCddE/OGrsxfgPn35zorj4RpD7RVVA5TRaxtY
+	7FoPW1LmOufrXQnS232F5yRvwHL5XGRAu5ZY+isH8QrEhplN/PtnlIYmGxe3yghjFn7BrBV1ZHHaA
+	MDQEqWng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwl1z-0000000AN85-0h35;
-	Wed, 19 Aug 2026 18:28:55 +0000
-Received: from mail-westus3azon11012033.outbound.protection.outlook.com ([40.107.209.33] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1wwl6I-0000000ANcS-0ETk;
+	Wed, 19 Aug 2026 18:33:22 +0000
+Received: from latitanza.investici.org ([185.218.207.228])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwl1w-0000000AN7A-2LqJ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 18:28:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pxqrHUuwvxIgt/ggeeamoPtmbnM87xpCGjGhXB6uchnCnX06hQvWWK0nSYlYwofN8WlL44C6B9t9oKFs164dziVOmA49XBiUF0n8f+Huu1ZBGKbeKqim5o/vO+wwaxFnfZpXn6p5lxktI1W6W3cni4iO3dn4q0jyzh2NnyrbKU6tUqz9UjfwsuVkQ5zuKEi5WcsiDGtRtyqRA0k17sUcYezxI4Di9XIDz+0wqg8ETl0Q2mRHieRp4F5OhlqYzaFGeQbG+VpIq0SpGoX5MKQjgRH5NDLrCGoS6+zdQfHBB2/rbKptunRkcNJK9LsA2YzpfqOIC20e9TFzo8dq51sCtw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5YXIxdBnA3YgMEEVyRszEkQfRiNotik4xshcNBcccY8=;
- b=oFzdh5m1sCBKiLhar8CDl9ngovOpw/DRGMn+dB/yXERdZc4JKZp7/1RHnKkd2IzlPFjNOJ5XXzwhAhE4uOmYKq1n+cHaPbIXAjncweJA+b/awawYZD90iHBsQcoGSdtM7qJDNxb3B3HzDluP7D+8oa0mRSWfy3yHH+MGViBHLyQpTsM5ID23UA4Lx0LfX+2VC5Zhl27Gbce5/47zg5vYa92psBoZwnJxsp3mpyuHkGRft67Pl5Qte4+H2FBZopsYop5DmMJQcGTghE8I1P6G8UFCpKvHEMJ7sLOE8WrL0OeP1k2fMZRcbhjYdfyFUVIGtwnDKQhXHUGPgnEDhDjqLQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5YXIxdBnA3YgMEEVyRszEkQfRiNotik4xshcNBcccY8=;
- b=C0tH1kHbn9Gl9nJB4GQNB9dfD/VGpq9Kp03zAjIPDPD9ylnmcc2BdZ9C2pRXn5c3IVWApXQNTODTgvoiuvaa+gDdYLYvZfmkbI96mb3crtErSN1X9qWQDQIx2r08FeVxE/e13Qmtgbe9zWrZIVCqSq6x66URSIQNn2wQdxNfJpyeF4/Eh4j6duofRkF5JwhRjsQO2B2zX7Hi8e/+sFW61Yspeehyjx24aUmhNqrDofm/AvxjcS9XZ47fAZHGasc58R/8/UemfN4KR9wt4WRbQeWfTsBEYKpXCcpboYDM2YQ4V35u4nNE6n8bCFqQ8l57nmAaFpXWyhWH29T62sTKKA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV3PR12MB9356.namprd12.prod.outlook.com (2603:10b6:408:20c::21)
- by CH3PR12MB9023.namprd12.prod.outlook.com (2603:10b6:610:17b::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
- 2026 18:28:33 +0000
-Received: from LV3PR12MB9356.namprd12.prod.outlook.com
- ([fe80::1c36:31b4:c420:6286]) by LV3PR12MB9356.namprd12.prod.outlook.com
- ([fe80::1c36:31b4:c420:6286%5]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
- 18:28:33 +0000
-Date: Wed, 19 Aug 2026 14:28:30 -0400
-From: Yury Norov <ynorov@nvidia.com>
-To: Florian Bezdeka <florian.bezdeka@siemens.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Jan Kiszka <jan.kiszka@siemens.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH RFC 0/3] genirq: Allow drivers to respect userspace IRQ
- affinities
-Message-ID: <aoX1zplzjXJl6lOV@yury>
-References: <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-0-3f79a99cadaf@siemens.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-0-3f79a99cadaf@siemens.com>
-X-ClientProxiedBy: MN2PR16CA0056.namprd16.prod.outlook.com
- (2603:10b6:208:234::25) To LV3PR12MB9356.namprd12.prod.outlook.com
- (2603:10b6:408:20c::21)
+	id 1wwl6F-0000000ANb1-1bkx;
+	Wed, 19 Aug 2026 18:33:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
+	s=stigmate; t=1787164394;
+	bh=BxnW8xTe/GUg/okReI0ZUTX8lPXwU0KqEEY1BznrYFQ=;
+	h=Date:From:To:CC:Subject:In-Reply-To:From;
+	b=ribwPyRn+LH1F9A7EcB0DgsCpO4YlE+W4B7sMWptzOdv9HbwxbE2gSDVkkAoJx/7Z
+	 3ipIsQyfMGHdVkh1ij6tRVVllP1O+ZnvPYjkOWd3qtCz9l2NylxuLKo7QF+pEJk6p6
+	 2AlSFPZca9TqbKlG+uiDUlbU6ro915a0i4gk313w=
+Received: from mx3.investici.org (unknown [127.0.0.1])
+	by latitanza.investici.org (Postfix) with ESMTP id 4hQFZ23NQrzGpD4;
+	Wed, 19 Aug 2026 18:33:14 +0000 (UTC)
+Received: by mx3.investici.org (Postfix) id 4hQFZ20qN3zGpD1;
+	Wed, 19 Aug 2026 18:33:14 +0000 (UTC)
+Date: Wed, 19 Aug 2026 19:33:13 +0100
+From: Bradley Morgan <include@grrlz.net>
+To: mpilaniy@redhat.com
+CC: akpm@linux-foundation.org, alex@ghiti.fr, aou@eecs.berkeley.edu,
+ baoquan.he@linux.dev, catalin.marinas@arm.com, chenhuacai@kernel.org,
+ kernel@xen0n.name, kexec@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, ltao@redhat.com,
+ mark.rutland@arm.com, palmer@dabbelt.com, pasha.tatashin@soleen.com,
+ pjw@kernel.org, pratyush@kernel.org, prudo@redhat.com, rppt@kernel.org,
+ will@kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v2_1/2=5D_kexec=3A_return_-ENOEXE?=
+ =?US-ASCII?Q?C_from_image_probe_functions_on_mismatch?=
+In-Reply-To: <20260819-mpilaniy-v2-1-95e929ede0e5@redhat.com>
+Message-ID: <B5D12BAE-2701-46EC-8458-3716F856703D@grrlz.net>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV3PR12MB9356:EE_|CH3PR12MB9023:EE_
-X-MS-Office365-Filtering-Correlation-Id: 620b488e-aeee-46d5-ff75-08defe1facd9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|23010399003|22082099003|18002099003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: AnKUi4oUOgiDm0JU52aoSxoGGxnbJmRJ9QEagl/xnGmCMSSph3flhF1jI0PPo0B3F7Gjkz9o6hyquyMvPSETV5AqhbSL7mVTcIjVFKpybduJ6Wdobs0U7TxUDRh9Ftzo5jFQZKGMScWPrRjcMRmUPE//EAaz7ASIR5DKMTh3ilU8prDZUO3pV75eDFtAHi7UYI352azN0wcp7mk56QL4srD/eb3XgILKyfwLtw6hXpozBWDgpOVjacVio6HFFbEXg6Z8WdhliqrXKxyRyYrtLe7WoRGPC1Dt5saOYOnDRwmGboGAKmrAiuxg1kMSvE07l3yrfuyVo2N5aB9lTSCCKbEPObIAriTwNs2witm4491htS+uc+UuAHri3hhshrs/d6vl9AYOSR/NIgopVJ9EZDUhM/2w1nc3rv5LOBhXdTQlrMua3DK2vjWHAYz+oQSdK6FdaUsYAN8Sz39ztFjEA7rXr8DtBoj6r1zRvYWc0cViaP43MvZo4hIgFLY0TbAH3fBGR6Mufy2O4tPL8pVmCH6ZFkNpJdiY5hXAKuBtS7e7z+iI7eAB9Mn18HWe5RZWbpEuhhlua3diWCA5+71uL1Y+HH2Cso99Hw+D3nllvq5/jDMwq30LOaU6XOZ21o/NS9s6MtITt8ZYLiALGYybIdgHZ61TJzAwLZRyFuyCqks=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR12MB9356.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(23010399003)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4IiPB9dG6yXcSTZbCYosHZ5LdJB/Nj5jkZWX24M2QujksYevjs+HoLqsiLD1?=
- =?us-ascii?Q?Yjs3Z9hrVAAYwW+toiTPJHSAPhSUVz/EpyuB9yuws9/xLE1W02DIGmoNVuLt?=
- =?us-ascii?Q?oOOV9CaNKEesKavFtrSfRrJI/ZLdIFFE6TAnJGmNutvGECVaBdCINuUasYd7?=
- =?us-ascii?Q?Rezv7v2LS7FKlQ2g1V0QIywdLd3XfHOHzIvjrjIfyrRk8NF3pg1As98HWyk6?=
- =?us-ascii?Q?TEZ1eXyrezNA96FNQ98emX8cBqRkmnALJqFTgEa3RJBlSLfpKb7pb0OPrXQO?=
- =?us-ascii?Q?rbpAA7bApPYK2SI9cEBPHlAkXYaGp/Q9aiLk21wVaYf/BnXGb324MAXhiIHN?=
- =?us-ascii?Q?Bh3qG8zGLlVj85ljUfjKyA4EzIHtnWrlRLfGkEyVPoPXQq0e6CLeZbndHoIR?=
- =?us-ascii?Q?lENw+Kkncwf6YZ6OrrvCx76b2IS3ubp3RU2dsD1Us+/EcNu8YIoRnZjnnTcZ?=
- =?us-ascii?Q?pMbl0MU6w2LH7pBGlDTsuYhZ5mjEI9oe6tSuTuK6axfThi+URg9MzvQM1Zw+?=
- =?us-ascii?Q?KTId71OEwmZoynXSrg6jzUFzuxRK1U1v343q6cGOk+IqonGmZ1vxkmrAFWOV?=
- =?us-ascii?Q?ycDXKMcQdqXK0+54CKec3kt7REWmlRKXKsnUPpQlGbXEjSl92f9ecVatsdBp?=
- =?us-ascii?Q?7pzMPx/V/VS6nP5vq0rlodHCxP0YZRbzZ/iAsv34QUKDtBf6TJAsxbQOAgy2?=
- =?us-ascii?Q?g5/83XV/JNO8VGOSYhmGWyehSg2kreU/E5yRAkwtq2Vx7kPPxxzZcEnbEJvl?=
- =?us-ascii?Q?a8yCOQA8Er62z5KUyKS2d0D1tZQkDiYjRW1XnzvWVpgmssxhcdy6yuanr+31?=
- =?us-ascii?Q?LeQiI6c2xvRWiveC9jcHF9kZIQfGob5P2BZB3yMUyDim1JCuRTPFbmUReQs4?=
- =?us-ascii?Q?P+pzFe7MjPXJfXZ4aK61BjyvbbYbuIFmVbXgyIEdGqP6bHUIHjT0A1WbuPNj?=
- =?us-ascii?Q?DDgPoXDugQgKIZRhDB0sPCyG8Qia9ZjsPVwPSe2GMN0XNaAUPxrfErZ+m6rW?=
- =?us-ascii?Q?JhkRnLsLWsGGGUrVGEVeLRC7qsChlO/2xBUfE3yuTTsebxgDWjMD4xc7ASBU?=
- =?us-ascii?Q?9sZQNrF5gWvG7QB46v2ZtPAvdYJt1bp5NdRQ28J7Y3LtsX7zSOVCYpyTKpqk?=
- =?us-ascii?Q?12O6rKq73rkU43OP/yeRCJqg9m7Dw6e3Aes5OluLIergS8ijteG8hR3WN0nW?=
- =?us-ascii?Q?kb4B45f4ewbga+BbDdxEG0+E1OJmDW5Pl/1aNj4/vcGeSx1qcPAK0T4xmUX0?=
- =?us-ascii?Q?GMXaUZpXPbhkwJeShUs0INMeysxdvQKR6bl19wtFBhaHnVhNiUohKcFAGtgT?=
- =?us-ascii?Q?aMnzKaVBI5mrGZgBbg7r2Rh2Pwf8j+Rn6XUKwT310qna8GvhP+tIpTKla7p6?=
- =?us-ascii?Q?7FXQqDYC/b0PIZUJrIM6yyrsPTc6DhG0PKpRdKZUYBiV6IfIX1RdReao/Auh?=
- =?us-ascii?Q?cGKj/WFv20yKmDAcs50bmuOPAQb2dtgNHAXs4Hy5k8cxvf5yQ+/ZLbOtDccq?=
- =?us-ascii?Q?3T809+4pOmaL9FtRu+asqflfpfgoBt4ITYzZyNDFRtt+2tRLrp75W7usMgWP?=
- =?us-ascii?Q?cewhM57P1AT9f6MRoXi1oImh+yF206FjFpsau7yJiinbEFqPdt7Zh39Nuv1h?=
- =?us-ascii?Q?cdtExZ/F8Q5fmvZ+XAaG35XPGDfCgg7XCbqU4eCweOTjSoXxmY9WY7lnAqyp?=
- =?us-ascii?Q?C8zEViHwJQOZ/05DrJUWmaIjFEdnb3YANl0Kn7Au9J6xklWr?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 620b488e-aeee-46d5-ff75-08defe1facd9
-X-MS-Exchange-CrossTenant-AuthSource: LV3PR12MB9356.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 18:28:33.3600
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 703H7OfmBA+04ew6XaLMRvIBo2xKQSNmmTC+LyqKthzWIaZ5seerzuD9QwOlN2L4zv+3BWEuhCJFS+lHuSoMCg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9023
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_112852_626968_441C8B6E 
-X-CRM114-Status: GOOD (  35.42  )
+X-CRM114-CacheID: sfid-20260819_113319_862661_F1823D9D 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,93 +74,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 04:30:29PM +0200, Florian Bezdeka wrote:
-> Hi all,
-> 
-> I'm trying to demonstrate a real problem for PREEMPT_RT here, using the
-> stmmac driver as example. There are more drivers "affected" but let's
-> ignore that for one moment. Let's discuss the underlying problem first.
-> 
-> To achieve the best throughput most network devices are based on
-> multiple queues. Each queue (pair) is equipped with one device IRQ. To
-> reach the maximum throughput, spreading / balancing them between all the
-> available CPUs makes sense.
-> 
-> While some IRQ chips - and with that some architectures - implement the
-> necessary spreading (or balancing) at IRQ chip level others don't do that.
-> If a device driver wants to make sure that balancing happens as intended
-> it has to implement that on his own (again).
-> 
-> The typical shortcoming of those implementations: They do not honor RT
-> relevant settings like the smp_default_affinity or isolated CPU cores.
-> Device IRQs are balanced over "all" or "all online CPUs".
-> 
-> That's not a problem for "normal" systems, but for RT systems - or
-> systems running cpu-isolating workloads - it is.
-> 
-> IRQ affinities can be controlled via /proc/irq/<n>/smp_affinity{_list}
-> for existing IRQs and via /proc/irq/default_smp_affinity for "new" or 
-> "not yet registered" IRQs. Those settings - as written by user space - 
-> must be honored. Always.
-> 
-> In our case the settings were bypassed by the following sequence:
-> 
->     - system boot (all CPUs available, no isolation yet)
->     - deployment of the first RT application
->         - writing a new default smp affinity (remove RT isolated cores)
->         - migrating away all that were targeting the now isolated cores
->         - creating a cgroup with RT cores as the only usable cores
->     - RT application running fine for some time
->     - stmmac network interface went up for the first time
->         - driver balances IRQs over all CPUs, ignoring the existing
-> 	  affinities
->     - Too much IRQ traffic on RT cores
-> 
-> Even with series applied there is (at least) one problem remaining:
-> 
-> The /proc/irq/<n> interface is populated on the first request_irq() call. 
-> That means that we can not control affinities from userspace until the 
-> IRQ gets requested.
-> 
-> The problem for network interfaces: We have to bring up the interfaces
-> once, to be able to control such affinities.
-> 
-> That raises the question why request_irq() is called on "link up" time,
-> while the low level vector allocation takes place during device probing.
-> At least that seems to be the common pattern. Can someone tell me why
-> this is done this way? Shouldn't we call request_irq() at the same time?
-> 
-> So, let's hope that all of this was short enough that somebody reads it
+On 19 August 2026 18:47:22 BST, Mukesh Pilaniya <mpilaniy@redhat.com>
+wrote:
+>Several kexec_file_load() image probe functions return -EINVAL when
+>they do not recognize the image format.  A probe function that rejects
+>an image should return -ENOEXEC to indicate that the image is not a
+>recognized executable format.  -EINVAL implies a problem with the
+>syscall parameters, not with image recognition.
+>
+>kexec_image_probe_default() iterates through registered loaders and
+>returns the last probe's error code to the caller.  That error
+>propagates as the kexec_file_load() return value to userspace.
+>Returning -EINVAL from a probe when no loader matches is semantically
+>incorrect and misleads userspace about the nature of the failure.
+>
+>Return -ENOEXEC from all probe functions and their helpers when the
+>image format is not recognized.
+>
+>Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
+>Reviewed-by: Philipp Rudo <prudo@redhat.com>
+>Reviewed-by: Pratyush Yadav <pratyush@kernel.org>
+Reviewed-by: Bradley Morgan <include@grrlz.net>
 
-I did!
-
-> and precise enough to make the problem clear. The idea behind this series
-> is not fixing or applying the series as is. I'm expecting a discussion
-> first. So, input welcome!
-
-Not sure I understand the full scope, but it's not because of your
-description. And I want to learn more about the RT business. I'll
-comment the cpumasks part, and please keep me in CC.
-
-Thanks,
-Yury
-
-> Signed-off-by: Florian Bezdeka <florian.bezdeka@siemens.com>
-> ---
-> Florian Bezdeka (3):
->       cpumask: Honor irq_default_affinity in cpumask_local_spread()
->       genirq: Honor existing IRQ affinities when setting affinity hints
->       net: stmmac: Migrate IRQ balancing to cpumask_local_spread()
+>---
+> arch/arm64/kernel/kexec_image.c   | 4 ++--
+> arch/loongarch/kernel/kexec_efi.c | 4 ++--
+> arch/riscv/kernel/kexec_image.c   | 4 ++--
+> kernel/kexec_elf.c                | 4 ++--
+> 4 files changed, 8 insertions(+), 8 deletions(-)
+>
+>diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
+>index b70f4df15a1a..101259874d44 100644
+>--- a/arch/arm64/kernel/kexec_image.c
+>+++ b/arch/arm64/kernel/kexec_image.c
+>@@ -25,10 +25,10 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
+> 		(const struct arm64_image_header *)(kernel_buf);
 > 
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 21 +++++++++++++++++----
->  kernel/irq/manage.c                               | 10 ++++++++++
->  lib/cpumask.c                                     | 10 ++++++----
->  3 files changed, 33 insertions(+), 8 deletions(-)
-> ---
-> base-commit: aa2e13ae8d3cbe2c15ef4f7e971b2de0832794aa
-> change-id: 20260810-flo-net-7-2-make-stmmac-default-affinity-aware-a145a4941d8f
+> 	if (!h || (kernel_len < sizeof(*h)))
+>-		return -EINVAL;
+>+		return -ENOEXEC;
 > 
-> Best regards,
-> -- 
-> Florian Bezdeka <florian.bezdeka@siemens.com>
+> 	if (memcmp(&h->magic, ARM64_IMAGE_MAGIC, sizeof(h->magic)))
+>-		return -EINVAL;
+>+		return -ENOEXEC;
+> 
+> 	return 0;
+> }
+>diff --git a/arch/loongarch/kernel/kexec_efi.c b/arch/loongarch/kernel/kexec_efi.c
+>index 5ee78ebb1546..28a1d0420ba3 100644
+>--- a/arch/loongarch/kernel/kexec_efi.c
+>+++ b/arch/loongarch/kernel/kexec_efi.c
+>@@ -24,12 +24,12 @@ static int efi_kexec_probe(const char *kernel_buf, unsigned long kernel_len)
+> 
+> 	if (!h || (kernel_len < sizeof(*h))) {
+> 		kexec_dprintk("No LoongArch image header.\n");
+>-		return -EINVAL;
+>+		return -ENOEXEC;
+> 	}
+> 
+> 	if (!loongarch_header_check_dos_sig(h)) {
+> 		kexec_dprintk("No LoongArch PE image header.\n");
+>-		return -EINVAL;
+>+		return -ENOEXEC;
+> 	}
+> 
+> 	return 0;
+>diff --git a/arch/riscv/kernel/kexec_image.c b/arch/riscv/kernel/kexec_image.c
+>index 51dc89259f16..963a25f5b55b 100644
+>--- a/arch/riscv/kernel/kexec_image.c
+>+++ b/arch/riscv/kernel/kexec_image.c
+>@@ -20,7 +20,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
+> 	const struct riscv_image_header *h = (const struct riscv_image_header *)kernel_buf;
+> 
+> 	if (!h || kernel_len < sizeof(*h))
+>-		return -EINVAL;
+>+		return -ENOEXEC;
+> 
+> 	/* According to Documentation/arch/riscv/boot-image-header.rst,
+> 	 * use "magic2" field to check when version >= 0.2.
+>@@ -28,7 +28,7 @@ static int image_probe(const char *kernel_buf, unsigned long kernel_len)
+> 
+> 	if (h->version >= RISCV_HEADER_VERSION &&
+> 	    memcmp(&h->magic2, RISCV_IMAGE_MAGIC2, sizeof(h->magic2)))
+>-		return -EINVAL;
+>+		return -ENOEXEC;
+> 
+> 	return 0;
+> }
+>diff --git a/kernel/kexec_elf.c b/kernel/kexec_elf.c
+>index 3a5c25b2adc9..89a444a00693 100644
+>--- a/kernel/kexec_elf.c
+>+++ b/kernel/kexec_elf.c
+>@@ -172,7 +172,7 @@ static int elf_read_ehdr(const char *buf, size_t len, struct elfhdr *ehdr)
+> 
+> 	default:
+> 		pr_debug("Unknown ELF class.\n");
+>-		return -EINVAL;
+>+		return -ENOEXEC;
+> 	}
+> 
+> 	return elf_is_ehdr_sane(ehdr, len) ? 0 : -ENOEXEC;
+>@@ -236,7 +236,7 @@ static int elf_read_phdr(const char *buf, size_t len,
+> 
+> 	default:
+> 		pr_debug("Unknown ELF class.\n");
+>-		return -EINVAL;
+>+		return -ENOEXEC;
+> 	}
+> 
+> 	return elf_is_phdr_sane(phdr, len) ? 0 : -ENOEXEC;
+>
+>
+
+Thanks!
 
