@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C7FDC5B572
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF7FBC5DF6D
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 06:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v0gFZIF2db8KJGG1tEkguhOHK5K/jZjmuXvyiKIoMp0=; b=gG2FVytEDtaIbW2KoVaoH/eyOH
-	EvVRqt4N/RrGKaCl44hdcnV3tJnVW04lfLgHp6LFpiHdffJsraSUHLqT5Tqfo91txX7izc/BEZZVP
-	joDIi38B05AB++NFvRgCQAOw+lramW8CleuQ8PCnuOs5q7GfQmfh87Rtbyb+0aG8a1/A+G6UAsxkN
-	yOnKJQOcrMzCif3zp1bIJZ8IfEj0hCy6x6Eg3pOmOfLZArFPHeh1EMdL6R+Jp7hmzrUIXYo9dGadJ
-	WX2s3j1PIVAElfX/4zgbUk0zuR74BOP22QfWnpS0owVN+HaO7VgXvaLs7ZIWC/n38v4OdBMr8yJDJ
-	YBrhfsoA==;
+	bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=; b=nw8bexC2AjrSljZPU/e11doKGO
+	Wyk7+vCokwspnNOOSNmt9s9k1dJgmKlrK27Br3HuZHVMNpR6jA9V61FN6ZR6cndXY3uSeSXiZhq8C
+	h5P1TXxFilAKzm1bcNriiiZs2QJbjcy+8Q5a59mhK2TMKTCn6S/qD9bJXNSrFvGbH3r9AGykaWXOQ
+	Wg50hRUACf85e2yRg10hq48GRAXQ6CyWzaryVr1Fyji3a2D+dY0kCxo0Sx5zxXFLXWTxK4bJl4msT
+	hUOrpl4n6SFlHpeSefhjYLHl3Pv5WFIzptPKI3AmJoL0R8dYcThi8/WrH/v9tDbo7dn2uUH6P1HyY
+	lln39wpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwZWl-000000094HC-2Nb6;
+	id 1wwZWl-000000094Hs-3Wcm;
 	Wed, 19 Aug 2026 06:11:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwZWS-0000000948N-2Njg
+	id 1wwZWS-0000000948s-3YYV
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 19 Aug 2026 06:11:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E468B60A5B;
-	Wed, 19 Aug 2026 06:11:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8F299C2BCF6;
-	Wed, 19 Aug 2026 06:11:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 76F1D44F61;
+	Wed, 19 Aug 2026 06:11:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4DE73C4AF09;
+	Wed, 19 Aug 2026 06:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1787119895;
-	bh=g/tspJdnIjaYPLnhYruDKhmk89UURmZxtfy22fiiEOA=;
+	s=k20201202; t=1787119896;
+	bh=oZQvScyA1zqJV4CC6foAQh/CAQe4pGeAga38F8pulH4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Z7aXvli440VVUuxmDzs+1etEjFmHWOteSGQbAr8Vo59q/gU/FER5oFBAXDkzoy+Y6
-	 +bzmghilSB3hCypCsCx6+elZVJHv9XpS91XPiHSwzN8Z5eWacsaEDNnPUjadpM31R8
-	 IYgQJPgxdT4bImhfx7R6lkai9hc8fnMSbpV1ulaIZmmQFhOQLO7gqMbkReU7JLwjPB
-	 54brJ25jztFB+OjLK84BwUDJPfUQRF/Qcy1WTshONxGGhs5q8N1ISAQiBWIeHSJiF7
-	 RRKtWDSLV6wNJptq3QpfeV0GQOAQnU27yD/ei5IahSSTPZ454wbVEvylai+cm3GuBi
-	 AAKi70vwKFc7A==
+	b=YKdbkFlLsoLvLSPzHBDLU7xR+qgXu+u8o0ylsXMQAQnpshE56ERpDpTq69x38h2Om
+	 eROWCixJnyovkDX8dFzw88QDK7oY1fPaAhOmLUzmnN/WvFbIOw8mHIP5NKyDcHmXPR
+	 FaQJR6tDyakPXW1Q14B6ITQEtvAVQmN5WIRgxfumsjaEscFHIM5ugvNA4u+ZFG6DC5
+	 0qUoqhxqQXMDPf9Q62rIhLTfN9D2y+mdzoRQxlXNqw2JmO8P9aQLf/KpyjkDV4RYLW
+	 eGhuQ6mk7+T52q3l73W2wWt/CKFPVEMRuoZveFbKY/CCuZmIyUkwhkm53kX+vDE4Un
+	 hUwwX1mWpz2ww==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 68176C5B572;
-	Wed, 19 Aug 2026 06:11:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 351CEC5DF6D;
+	Wed, 19 Aug 2026 06:11:36 +0000 (UTC)
 From: Pankaj Gupta via B4 Relay <devnull+pankaj.gupta.nxp.com@kernel.org>
-Date: Wed, 19 Aug 2026 17:12:07 +0530
-Subject: [PATCH v37 1/7] Documentation/firmware: add imx/se to
- other_interfaces
+Date: Wed, 19 Aug 2026 17:12:13 +0530
+Subject: [PATCH v37 7/7] arm64: dts: imx8ulp: add reserved memory for
+ EdgeLock Enclave
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260819-imx-se-if-v37-1-5ef5de9ff1dc@nxp.com>
+Message-Id: <20260819-imx-se-if-v37-7-5ef5de9ff1dc@nxp.com>
 References: <20260819-imx-se-if-v37-0-5ef5de9ff1dc@nxp.com>
 In-Reply-To: <20260819-imx-se-if-v37-0-5ef5de9ff1dc@nxp.com>
 To: Jonathan Corbet <corbet@lwn.net>, 
@@ -66,11 +66,11 @@ Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787139727; l=7403;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787139727; l=2461;
  i=pankaj.gupta@nxp.com; s=20260817; h=from:subject:message-id;
- bh=ZSAmXRvPjYNeGEa/I9hefXFuALx9geFcXzYMsSoJmHQ=;
- b=HmAB72sDYCAPdc0DS+XnouVoNI/zCni/QErgsquIP7hYokTAc+uXokycnpk7DM09IREe6fLKF
- xvQBSM5+oyfCVZSp5pHmWbAInvPmGiDUI2wv6vzSW3rbschq6RcTryR
+ bh=8LTJ7dQk+ZmHVQUVQ7z2QFEU98qQ6ZendsUWTwEehrU=;
+ b=ipQIdbFWYlewdLD9nhrW6bYdqLJwb5Yig+8Ripu1oNdNVg6l3Wdms4xE6b5xdSSJq+XiN8xF8
+ 3MXK1Xa0QmSBvp256jcb5C1/fVO4VVjkCaneIqThoKQ5jKlQKGkT7iF
 X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
  pk=g4ZgzIWbpXnSxRsoH+l6PWLP78a+Mzpl8e6RQe74d5Y=
 X-Endpoint-Received: by B4 Relay for pankaj.gupta@nxp.com/20260817 with
@@ -93,157 +93,78 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Pankaj Gupta <pankaj.gupta@nxp.com>
 
-Documents i.MX SoC's Service layer and C_DEV driver for selected SoC(s)
-that contains the NXP hardware IP(s) for Secure Enclaves(se) like:
-- NXP EdgeLock Enclave on i.MX93 & i.MX8ULP
+Reserve 1MB of DDR for the EdgeLock Enclave. The enclave hardware can only
+access DDR in the 0x80000000 - 0xafffffff window, so constrain the pool to
+that range with alloc-ranges and let the kernel choose the placement rather
+than hardcoding an address.
+
+Provide this as a shared imx8ulp-firmware.dtsi that also enables the hsm0
+node and wires up its memory-region, so every i.MX8ULP board can bring up
+the enclave with a single include instead of duplicating the reserved
+memory node. Include it from imx8ulp-evk.
 
 Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
- .../driver-api/firmware/other_interfaces.rst       | 133 +++++++++++++++++++++
- 1 file changed, 133 insertions(+)
+ arch/arm64/boot/dts/freescale/imx8ulp-evk.dts      |  3 ++-
+ .../arm64/boot/dts/freescale/imx8ulp-firmware.dtsi | 31 ++++++++++++++++++++++
+ 2 files changed, 33 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/driver-api/firmware/other_interfaces.rst b/Documentation/driver-api/firmware/other_interfaces.rst
-index 06ac89adaafb..6c6fa9a0ba1d 100644
---- a/Documentation/driver-api/firmware/other_interfaces.rst
-+++ b/Documentation/driver-api/firmware/other_interfaces.rst
-@@ -49,3 +49,136 @@ of the requests on to a secure monitor (EL3).
+diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
+index 5dea66c1e7aa..885242fd07ce 100644
+--- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
+@@ -1,11 +1,12 @@
+ // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+ /*
+- * Copyright 2021 NXP
++ * Copyright 2021, 2025 NXP
+  */
  
- .. kernel-doc:: drivers/firmware/stratix10-svc.c
-    :export:
+ /dts-v1/;
+ 
+ #include "imx8ulp.dtsi"
++#include "imx8ulp-firmware.dtsi"
+ 
+ / {
+ 	model = "NXP i.MX8ULP EVK";
+diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
+new file mode 100644
+index 000000000000..e4bc352f68af
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
+@@ -0,0 +1,31 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright 2025 NXP
++ *
++ * Default reserved memory and EdgeLock Enclave (ELE) enablement shared by
++ * i.MX8ULP boards. Include this from a board dts to bring up the secure
++ * enclave without having to duplicate the reserved-memory node. The ELE
++ * hardware can only access DDR in the 0x80000000 - 0xafffffff window, so the
++ * pool is constrained to that range with alloc-ranges and the kernel is left
++ * to place the 1 MiB region.
++ */
 +
-+NXP Secure Enclave Firmware Interface
-+=====================================
++/ {
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
 +
-+Introduction
-+------------
-+The NXP's i.MX HW IP like EdgeLock Enclave, V2X etc., creates an embedded secure
-+enclave within the SoC boundary to enable features like:
++		ele_reserved: ele-reserved {
++			compatible = "shared-dma-pool";
++			alloc-ranges = <0 0x80000000 0 0x30000000>;
++			size = <0 0x100000>;
++			no-map;
++		};
++	};
++};
 +
-+- Hardware Security Module (HSM)
-+- Security Hardware Extension (SHE)
-+- Vehicular to Anything (V2X)
-+
-+Each of the above features is enabled through dedicated NXP H/W IP on the SoC.
-+On a single SoC, multiple hardware IP (or can say more than one secure enclave)
-+can exist.
-+
-+NXP SoCs enabled with the such secure enclaves(SEs) IPs are:
-+i.MX93, i.MX8ULP
-+
-+To communicate with one or more co-existing SE(s) on SoC, there is/are dedicated
-+messaging units(MU) per SE. Each co-existing SE can have one or multiple exclusive
-+MUs, dedicated to itself. None of the MU is shared between two SEs. Communication
-+of the MU is realized using the mailbox driver. Each secure enclave can cater to
-+multiple clients by virtue of these exclusive MUs. Also, they can distinguish
-+transactions originating from these clients based on the MU used and core security
-+state. The communication between the clients and secure enclaves is in the form of
-+a command/response mechanism. Each client could expose a specific set of secure enclave
-+features to the higher layers, based on the commands supported by that client. For
-+example, the secure enclave could simultaneously support an OPTEE TA and Linux
-+middleware as clients. Each of these clients can expose a specific set of secure
-+enclave features based on the command set supported by them.
-+
-+NXP Secure Enclave(SE) Interface
-+--------------------------------
-+MU(s) is/are not shared between SE(s). But for an SoC like i.MX95 which has
-+multiple SE(s) like HSM, V2X-HSM, V2X-SHE, all the SE(s) and their interfaces 'se-if'
-+that is/are dedicated to a particular SE will be enumerated and provisioned using the
-+single compatible node("fsl,imx95-se").
-+
-+Each 'se-if' comprises two layers:
-+
-+- (C_DEV Layer) User-Space software-access interface.
-+- (Service Layer) OS-level software-access interface.
-+
-+::
-+
-+   +--------------------------------------------+
-+   |            Character Device(C_DEV)         |
-+   |                                            |
-+   |   +---------+ +---------+     +---------+  |
-+   |   | misc #1 | | misc #2 | ... | misc #n |  |
-+   |   |  dev    | |  dev    |     | dev     |  |
-+   |   +---------+ +---------+     +---------+  |
-+   |        +-------------------------+         |
-+   |        | Misc. Dev Synchr. Logic |         |
-+   |        +-------------------------+         |
-+   |                                            |
-+   +--------------------------------------------+
-+
-+   +--------------------------------------------+
-+   |               Service Layer                |
-+   |                                            |
-+   |      +-----------------------------+       |
-+   |      | Message Serialization Logic |       |
-+   |      +-----------------------------+       |
-+   |          +---------------+                 |
-+   |          |  imx-mailbox  |                 |
-+   |          |   mailbox.c   |                 |
-+   |          +---------------+                 |
-+   |                                            |
-+   +--------------------------------------------+
-+
-+- service layer:
-+  This layer is responsible for ensuring the communication protocol that is defined
-+  for communication with firmware.
-+
-+  FW Communication protocol ensures two things:
-+
-+  - Serializing the messages to be sent over an MU.
-+  - FW can handle one command message at a time.
-+
-+- c_dev:
-+  This layer offers character device contexts, created as '/dev/<se>_mux_chx'.
-+  Using these multiple device contexts that are multiplexed over a single MU,
-+  userspace application(s) can call fops like write/read to send the command message,
-+  and read back the command response message to/from Firmware.
-+  fops like read & write use the above defined service layer API(s) to communicate with
-+  Firmware.
-+
-+  Misc-device(/dev/<se>_mux_chn) synchronization protocol::
-+
-+                                Non-Secure               +   Secure
-+                                                         |
-+                                                         |
-+                +-----------+      +-------------+       |
-+                | se_ctrl.c +<---->+imx-mailbox.c|       |
-+                |           |      |  mailbox.c  +<-->+------+    +------+
-+                +-----+-----+      +-------------+    | MU X +<-->+ ELE |
-+                      |                               +------+    +------+
-+                      +----------------+                 |
-+                      |                |                 |
-+                      v                v                 |
-+                  logical           logical              |
-+                  receiver          waiter               |
-+                     +                 +                 |
-+                     |                 |                 |
-+                     |                 |                 |
-+                     |            +----+------+          |
-+                     |            |           |          |
-+                     |            |           |          |
-+              device_ctx     device_ctx     device_ctx   |
-+                                                         |
-+                User 0        User 1       User Y        |
-+                +------+      +------+     +------+      |
-+                |misc.c|      |misc.c|     |misc.c|      |
-+   kernel space +------+      +------+     +------+      |
-+                                                         |
-+   +---------------------------------------------------- |
-+                    |             |           |          |
-+   userspace   /dev/ele_muXch0    |           |          |
-+                          /dev/ele_muXch1     |          |
-+                                        /dev/ele_muXchY  |
-+                                                         |
-+
-+When a user sends a command to the firmware, it registers its device_ctx
-+as waiter of a response from firmware.
-+
-+Enclave's Firmware owns the storage management over a Linux filesystem.
-+For this c_dev provisions a dedicated slave device called "receiver".
-+
-+.. kernel-doc:: drivers/firmware/imx/se_ctrl.c
-+   :export:
++&hsm0 {
++	memory-region = <&ele_reserved>;
++	status = "okay";
++};
 
 -- 
 2.43.0
