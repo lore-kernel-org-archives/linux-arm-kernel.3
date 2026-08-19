@@ -4,161 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE801C5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 06:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4020C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 06:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c/AzOS9nYCn1gKcDW+iR9M86QEqFfEOWGqdTZE1/Q8A=; b=t62rs765T3QfffAQ7K92+yX1ow
-	0zcsGYWAB0WXffiIB9MhzIsVm9nUPN/We1unqU0nTWpX/y0hLLxQ3ZgvaIXdxGpE14+lj1/McvfZO
-	aALHpkg4seqPUWwQSbRimzRJ+zVxrRTJS/P2oDF0lPIOgtMSEMeJJu+afMd/jSrzsXtZz1N4hGHkv
-	6WzwZa6qd2wXs0cF5XvqRyLOcosw5xCZqEbUJ9KfX4DzNCqOqCtB7VIk1NSyn01ZnjEunvcd2nmrV
-	WKiysHkuYOvQDBt2OvW95ucYP4oQ6KGrw6nS9ZCbtp/KxaT/RsLYNRiA9Fo4LI+UhJfKDW7sbktA7
-	5X6xRkUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=s6q6ihmYv6INeBIbnBWmbGTqM6Dw78ZKvUj8QpwpCLE=; b=eP5sHXMIBmArAQv8vn0rMcYGr0
+	x14ZiUyoeiR20BJPI5m//CyQneoOGxV7/K+4iI+i7VGdcXEyNtaWaZ5RmUdh+NQKlsMyt1OQexPB1
+	umdlYWR9cRdDDlhqiKjtejULWte/fNHW6nGVmfPdMhxKf4luvmrXzPX+aXGjgFKfT0FKDO/fWDCFS
+	Vtlxg2o4XZCLW6bEpG/q1GwFdWBVTw+3ozAcmHrjnkNKIKkhCRb9lj++cuzF0AeL+ssGTq6JjzXLN
+	BjvI7g0xNZiGqG/Pzn6sZt0FUGp3h95dThWkVcMwSwcLewc1qo9NFTdasF4tby/BpUsMfQn8c7wg8
+	ShkUpWzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwZcL-000000095JE-2kx4;
-	Wed, 19 Aug 2026 06:17:41 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wwZfJ-000000095da-45e8;
+	Wed, 19 Aug 2026 06:20:45 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwZcJ-000000095IU-1vgt
+	id 1wwZfB-000000095cB-46H1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 06:17:40 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 168B33E69;
-	Wed, 19 Aug 2026 06:16:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1787120204; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=c/AzOS9nYCn1gKcDW+iR9M86QEqFfEOWGqdTZE1/Q8A=;
-	b=dO720plTJcEcHC+arFs6mB/9g8FDyt9rYEInkQG8s2VxFn+S+3tlBdg/z0/AE76kVegV/J
-	po0cwcLIJ0eVH1dO9hOcYHWbGx/nXdmjU0jchzVB/Ap9d4oLj2BeJMXDhXaD1gW3tzAHoa
-	VMq/ekbE9a8qAKfFTXWZ3jSUpCcnGBI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1787120204;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=c/AzOS9nYCn1gKcDW+iR9M86QEqFfEOWGqdTZE1/Q8A=;
-	b=3Q9NN6B3P//DA/0r1qISw0CBzYxq34c3kFnAVy/gpQSWIUSsUBzu81MGBqHvUkojiRlIT4
-	IvkPnljiLo7vL3CA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=L8HnCUTS;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=eaPdP7nU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1787120200; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=c/AzOS9nYCn1gKcDW+iR9M86QEqFfEOWGqdTZE1/Q8A=;
-	b=L8HnCUTSvXwz89JqoFEUVGXfyBa/oJZAT7BC7J3w1uwidMcKF4OuijNQdTHOe7KdU9uEgh
-	5FjLcKdQXjz0iGVcE0TMronQ79HDZTovL3ne4XDVb7NDRzvZyTBD8D37rgnErtXW0X/CoY
-	vMYe1wsMsZ1pQJYvLMtEzC1qL6dpgqk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1787120200;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=c/AzOS9nYCn1gKcDW+iR9M86QEqFfEOWGqdTZE1/Q8A=;
-	b=eaPdP7nUjcgGMN2xiwEPnkNBTlV45RYeLfigA5z8I3ZRnJMisCHgbu0N+Luewac2zV75sO
-	rnXH4UsE7FZEdMAg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 960AA2F81;
-	Wed, 19 Aug 2026 06:16:39 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id B2BRI0dKhWpUcwAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 19 Aug 2026 06:16:39 +0000
-Message-ID: <614bdf7b-031d-444b-a30c-132daa55ce3e@suse.de>
-Date: Wed, 19 Aug 2026 08:16:39 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/12] drm/panic: Move panic display code into helper
- library
-To: Randy Dunlap <rdunlap@infradead.org>, jfalempe@redhat.com,
- javierm@redhat.com, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- amd-gfx@lists.freedesktop.org, rust-for-linux@vger.kernel.org,
- linux-hyperv@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, nouveau@lists.freedesktop.org,
- linux-renesas-soc@vger.kernel.org, virtualization@lists.linux.dev,
- sashiko-reviews@lists.linux.dev
-References: <20260818125012.468092-1-tzimmermann@suse.de>
- <20260818125012.468092-12-tzimmermann@suse.de>
- <916c4bd5-c73f-466e-8e9b-aee9d4d7d742@infradead.org>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <916c4bd5-c73f-466e-8e9b-aee9d4d7d742@infradead.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-4.50 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.19)[-0.973];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_TO(0.00)[infradead.org,redhat.com,gmail.com,ffwll.ch,linux.intel.com,kernel.org];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[20];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,suse.de:mid,suse.de:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
-X-Rspamd-Queue-Id: 168B33E69
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+	Wed, 19 Aug 2026 06:20:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787120438; x=1818656438;
+  h=date:from:to:cc:subject:message-id;
+  bh=Ae5EtFaI9BGXxjoLx/GdUMTnmrJbYbn05HWs+4m7cjs=;
+  b=aTPH5aHXGAmNxdAbGJuxsbnBmM6bUJuaLTgGNZJFULFPEWWnaLmmZAkh
+   enAxC/i8lACxN864YHDEyW22SYrRw5vqNe5wgXUfby1Q+pyx0/Q79PO4v
+   lVY4aTA//OIJbbhsvbUO3NYIr+4PluD3ikXQS3951x2mJLlpZn15DoGeF
+   glCoR9g0IATSdJoFqN64Ni+BrgNRgJrO2FUOAv9unWp3X3qdr77c/vXYK
+   gKvIy9E/ytl3mb1vSuwChymiaJ7HpqkuwF+J3wAZBhGvbSlpBOzZ0Wizy
+   rOxUmYv466/F9AlFnadWxqker5Dh/pdXzNT5AXAPcL8L3isxxefUxBZZ4
+   A==;
+X-CSE-ConnectionGUID: WgcEuDQTS6ySEfjqmi25vw==
+X-CSE-MsgGUID: EupFpxeRS3quKeakZOibAA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11879"; a="86740145"
+X-IronPort-AV: E=Sophos;i="6.25,231,1779174000"; 
+   d="scan'208";a="86740145"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2026 23:20:37 -0700
+X-CSE-ConnectionGUID: wqXct5asQouFb3hiKQu9Vg==
+X-CSE-MsgGUID: kdMqOqGLTKOOkCAngsBGtg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,231,1779174000"; 
+   d="scan'208";a="268961315"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 18 Aug 2026 23:20:35 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wwZf7-00000000ewE-0Sgv;
+	Wed, 19 Aug 2026 06:20:33 +0000
+Date: Wed, 19 Aug 2026 14:20:30 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ arm@kernel.org
+Subject: [soc:board-remove 148/200]
+ drivers/regulator/max8907-regulator.c:296 max8907_regulator_probe() warn:
+ inconsistent indenting
+Message-ID: <202608191451.uGAOqA5g-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_231739_795387_F831F7A8 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20260818_232038_060138_E6EB4327 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,60 +84,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
+head:   c12d647b0229f4d75a2973c9b4e79f9b53406426
+commit: f8926841ac3e6d3be98b2ce7873f2a038816b3d2 [148/200] mfd: max8907: remove pdata based probing
+config: i386-randconfig-141 (https://download.01.org/0day-ci/archive/20260819/202608191451.uGAOqA5g-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+smatch: v0.5.0-9187-g5189e3fb
 
-Am 18.08.26 um 17:55 schrieb Randy Dunlap:
-> Hi,
->
-> On 8/18/26 5:28 AM, Thomas Zimmermann wrote:
->>   M:	Hans de Goede <hansg@kernel.org>
->> diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
->> index 323422861e8f..cdfd72d9a9c5 100644
->> --- a/drivers/gpu/drm/Kconfig
->> +++ b/drivers/gpu/drm/Kconfig
->> @@ -45,6 +45,7 @@ config DRM_MIPI_DSI
->>   config DRM_KMS_HELPER
->>   	tristate
->>   	depends on DRM
->> +	select DRM_PANIC_HELPER if DRM_PANIC
-> but DRM_PANIC_HELPER depends on DRM_TTM so
-> DRM_KMS_HELPER should also depend on DRM_TTM. Otherwise:
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608191451.uGAOqA5g-lkp@intel.com/
 
-Oops, how did that creep in?  There's no TTM dependency. This Kconfig 
-change appears to be a copy-paste accident. Thanks for noting.
+smatch warnings:
+drivers/regulator/max8907-regulator.c:296 max8907_regulator_probe() warn: inconsistent indenting
 
-Best regards
-Thomas
+vim +296 drivers/regulator/max8907-regulator.c
 
->
-> WARNING: unmet direct dependencies detected for DRM_PANIC_HELPER
->    Depends on [n]: HAS_IOMEM [=y] && DRM [=y] && DRM_TTM [=n]
->    Selected by [y]:
->    - DRM_KMS_HELPER [=y] && HAS_IOMEM [=y] && DRM [=y] && DRM_PANIC [=y]
->
->
->>   	select FB_CORE if DRM_FBDEV_EMULATION
->>   	help
->>   	  CRTC helpers for KMS drivers.
->> @@ -130,6 +131,10 @@ config DRM_PANIC_SCREEN_QR_VERSION
->>   	  Smaller QR code are easier to read, but will contain less debugging
->>   	  data. Default is 40.
->>   
->> +config DRM_PANIC_HELPER
->> +	bool
->> +	depends on DRM_TTM
->> +
->>   config DRM_RAS
->>   	bool "DRM RAS support"
->>   	depends on DRM
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  255  
+a5023574d120ca Bill Pemberton      2012-11-19  256  static int max8907_regulator_probe(struct platform_device *pdev)
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  257  {
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  258  	struct max8907 *max8907 = dev_get_drvdata(pdev->dev.parent);
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  259  	int ret;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  260  	struct max8907_regulator *pmic;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  261  	unsigned int val;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  262  	int i;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  263  	struct regulator_config config = {};
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  264  	struct regulator_init_data *idata;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  265  	const char *mbatt_rail_name = NULL;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  266  
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  267  	ret = max8907_regulator_parse_dt(pdev);
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  268  	if (ret)
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  269  		return ret;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  270  
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  271  	pmic = devm_kzalloc(&pdev->dev, sizeof(*pmic), GFP_KERNEL);
+d016bdc7f4e8b2 Sachin Kamat        2014-02-20  272  	if (!pmic)
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  273  		return -ENOMEM;
+d016bdc7f4e8b2 Sachin Kamat        2014-02-20  274  
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  275  	platform_set_drvdata(pdev, pmic);
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  276  
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  277  	memcpy(pmic->desc, max8907_regulators, sizeof(pmic->desc));
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  278  
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  279  	/* Backwards compatibility with MAX8907B; SD1 uses different voltages */
+472b39c3d1bba0 Yizhuo              2019-10-03  280  	ret = regmap_read(max8907->regmap_gen, MAX8907_REG_II2RR, &val);
+472b39c3d1bba0 Yizhuo              2019-10-03  281  	if (ret)
+472b39c3d1bba0 Yizhuo              2019-10-03  282  		return ret;
+472b39c3d1bba0 Yizhuo              2019-10-03  283  
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  284  	if ((val & MAX8907_II2RR_VERSION_MASK) ==
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  285  	    MAX8907_II2RR_VERSION_REV_B) {
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  286  		pmic->desc[MAX8907_SD1].min_uV = 637500;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  287  		pmic->desc[MAX8907_SD1].uV_step = 12500;
+7305608bc88827 Axel Lin            2012-08-16  288  		pmic->desc[MAX8907_SD1].n_voltages =
+7305608bc88827 Axel Lin            2012-08-16  289  						(1425000 - 637500) / 12500 + 1;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  290  	}
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  291  
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  292  	for (i = 0; i < MAX8907_NUM_REGULATORS; i++) {
+f991525a1acc64 Krzysztof Kozlowski 2014-03-10  293  		struct regulator_dev *rdev;
+f991525a1acc64 Krzysztof Kozlowski 2014-03-10  294  
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  295  		config.dev = pdev->dev.parent;
+db55168265699c Stephen Warren      2012-08-20 @296  			idata = match_init_data(i);
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  297  		config.init_data = idata;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  298  		config.driver_data = pmic;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  299  		config.regmap = max8907->regmap_gen;
+db55168265699c Stephen Warren      2012-08-20  300  		config.of_node = match_of_node(i);
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  301  
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  302  		switch (pmic->desc[i].id) {
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  303  		case MAX8907_MBATT:
+5fc72f57e62e10 Stephen Warren      2012-08-23  304  			if (idata && idata->constraints.name)
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  305  				mbatt_rail_name = idata->constraints.name;
+5fc72f57e62e10 Stephen Warren      2012-08-23  306  			else
+5fc72f57e62e10 Stephen Warren      2012-08-23  307  				mbatt_rail_name = pmic->desc[i].name;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  308  			break;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  309  		case MAX8907_BBAT:
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  310  		case MAX8907_SDBY:
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  311  		case MAX8907_VRTC:
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  312  			idata->supply_regulator = mbatt_rail_name;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  313  			break;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  314  		}
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  315  
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  316  		if (pmic->desc[i].ops == &max8907_ldo_ops) {
+472b39c3d1bba0 Yizhuo              2019-10-03  317  			ret = regmap_read(config.regmap, pmic->desc[i].enable_reg,
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  318  				    &val);
+472b39c3d1bba0 Yizhuo              2019-10-03  319  			if (ret)
+472b39c3d1bba0 Yizhuo              2019-10-03  320  				return ret;
+472b39c3d1bba0 Yizhuo              2019-10-03  321  
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  322  			if ((val & MAX8907_MASK_LDO_SEQ) !=
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  323  			    MAX8907_MASK_LDO_SEQ)
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  324  				pmic->desc[i].ops = &max8907_ldo_hwctl_ops;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  325  		} else if (pmic->desc[i].ops == &max8907_out5v_ops) {
+472b39c3d1bba0 Yizhuo              2019-10-03  326  			ret = regmap_read(config.regmap, pmic->desc[i].enable_reg,
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  327  				    &val);
+472b39c3d1bba0 Yizhuo              2019-10-03  328  			if (ret)
+472b39c3d1bba0 Yizhuo              2019-10-03  329  				return ret;
+472b39c3d1bba0 Yizhuo              2019-10-03  330  
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  331  			if ((val & (MAX8907_MASK_OUT5V_VINEN |
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  332  						MAX8907_MASK_OUT5V_ENSRC)) !=
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  333  			    MAX8907_MASK_OUT5V_ENSRC)
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  334  				pmic->desc[i].ops = &max8907_out5v_hwctl_ops;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  335  		}
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  336  
+f991525a1acc64 Krzysztof Kozlowski 2014-03-10  337  		rdev = devm_regulator_register(&pdev->dev,
+5ecdf140f21c50 Sachin Kamat        2013-09-04  338  						&pmic->desc[i], &config);
+f991525a1acc64 Krzysztof Kozlowski 2014-03-10  339  		if (IS_ERR(rdev)) {
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  340  			dev_err(&pdev->dev,
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  341  				"failed to register %s regulator\n",
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  342  				pmic->desc[i].name);
+f991525a1acc64 Krzysztof Kozlowski 2014-03-10  343  			return PTR_ERR(rdev);
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  344  		}
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  345  	}
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  346  
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  347  	return 0;
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  348  }
+ffee19091a4e0c Gyungoh Yoo         2012-08-09  349  
 
--- 
+:::::: The code at line 296 was first introduced by commit
+:::::: db55168265699c72e6ebf7a4228029da590a3eab regulator: max8907: fix compile error when !CONFIG_OF
+
+:::::: TO: Stephen Warren <swarren@nvidia.com>
+:::::: CC: Mark Brown <broonie@opensource.wolfsonmicro.com>
+
 --
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG Nürnberg)
-
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
