@@ -4,68 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA750C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 14:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B21C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 14:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tk5X8IvcrQF7wqe0wB7W8SN6CM872QzkIcdcGmdDliM=; b=QSImyBHs+hZ62ZTidXMeGzwLcE
-	YjvGTVtOL0mwJKXziSAIGs13yPGhZpErnqLpNhMMYn0BYD6RvCJwOlpsSVP5VmHFrl0pFhc0Fobgl
-	Y+pN8dtw9KPtGbsoTjyEJTJjOc++DUtGjNehnW/rgGJFFZzazsrXB2Jl4Ev7mitHnrobRmp7llXd7
-	3YjCSPa1ozI0ABsrR40KbkhO3KMc2Qk+DGThiQN6aDQj1xynZdEo8VAmwFJ8dooT4/vhw5wPr6U7P
-	PIe1m8IiUUzCLE8qeJXx0DrbZtvQkiQDG6os/rWp5zS1PAV++1x/RVIcxLaudc4SKBOMRT6klTVC3
-	0YxBsWBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Lusoos9mJ+o7Q6Ien2qN4J23xv+7JG9gVPPJCCOSYco=; b=CIEhfCAMYgzYotrS97AltmWOar
+	1LQuXMsa2QyQLmk44x14xJAV8aOYUgle/g0r6QGfuf0e2Wr3H6KJhn9QX4RTCOh7jtZfS9tfZjYQH
+	O70OwaZfpQIP0R7yAnPKar1OpW3zKU/mcRnmbWKF5CzfZTBq1VZYMdl4VNL7gnW0UPBH6pZzM7BWw
+	kY6O7tRwGewzGOp8S8d0FbJZbeefZcTezJeuoxrq+CdP+0kiW5msswKlIE8t1CS0fF5LKEh46ViiO
+	ASlpjGDpPhRyenzJdm4E8/qcZT3/vyS4me/3uSDsIwOq1walrjj1uutPHgKuqz9gDYzdeMetqMidO
+	MkBgView==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwhW4-0000000A0Vx-3qyT;
-	Wed, 19 Aug 2026 14:43:44 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwhW2-0000000A0VS-0k0i
+	id 1wwhc2-0000000A0zH-2awe;
+	Wed, 19 Aug 2026 14:49:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wwhbz-0000000A0yH-4A81
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 14:43:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=tk5X8IvcrQF7wqe0wB7W8SN6CM872QzkIcdcGmdDliM=; b=tyC4IsKKLfdCZX31ZzIcqL9D/F
-	n6IOfdQPUR4/O+LFSr6JSJyqBdNAGuM7fUpfrqjqmY9kGKMJxdKWnxUoNf3lsIWPTzjBVZkOZtlDJ
-	4sNFJBFWqsZylEbzM/QmpHMEfRNcAUuFzNn68L8jwxQQ3V7eQCh06kjI03+kcJfZlNLtq1K9Lm8hv
-	lkUo3U6xxl3zyR3g9TeUwm8x2lERthBB99QKW0O/fLdaK05y66xYaXcFvUY+uGjMUAJspdvXoz04U
-	XxNEfmnUVzna0iGHuOAChS6gg0MmAep7xKMHH0sw6P4dzR2CUipqeqdPkkpwnALM+q0C29aUqLIZo
-	cTfRnzbg==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wwhVs-009rX7-30;
-	Wed, 19 Aug 2026 14:43:33 +0000
-Date: Wed, 19 Aug 2026 07:43:28 -0700
-From: Breno Leitao <leitao@debian.org>
-To: KobaK <kobak@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	Fenghua Yu <fenghuay@nvidia.com>, Tushar Dave <tdave@nvidia.com>, 
-	Kai-Heng Feng <kaihengf@nvidia.com>, rupakr@nvidia.com, mohammedk@nvidia.com
-Subject: Re: [RFC PATCH 1/3] arm64: add CPU prefetch and cache modulation
- sysfs interface
-Message-ID: <aoXAdSY_EyPlOOnK@gmail.com>
-References: <20260817022335.3-1-kobak@nvidia.com>
- <20260817022335.3-2-kobak@nvidia.com>
+	Wed, 19 Aug 2026 14:49:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D28D914BF;
+	Wed, 19 Aug 2026 07:49:44 -0700 (PDT)
+Received: from login2.euhpc2.arm.com (login2.euhpc2.arm.com [10.58.100.22])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 050593F85F;
+	Wed, 19 Aug 2026 07:49:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787150988; bh=SRnLSvuzNxe1+g6pPb07setIxD3uzJYN1GHauCxlkks=;
+	h=From:To:Cc:Subject:Date:From;
+	b=B2HgaHb+WIVl60WKByRSCUqaxyl/DZXhKat0fVLyfzjCg0NH5L/gz3C8o26PzchV2
+	 b3YYHGBwscJSKtBKSposrIO15OcAzqDzoXAQI/hJLwXKqTfvdhV9LY0r9PIgiSVuk7
+	 ChTUsZTGPF1kMNlOmbT+0pnZEtpsZSnZxnUcqQP4=
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	yeoreum.yun@arm.com
+Subject: [PATCH] arm64: process: Fix context switching MTE store-only tag check
+Date: Wed, 19 Aug 2026 15:48:59 +0100
+Message-Id: <20260819144859.5447-1-vladimir.murzin@arm.com>
+X-Mailer: git-send-email 2.24.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260817022335.3-2-kobak@nvidia.com>
-X-Debian-User: leitao
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_074342_218529_42123902 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260819_074952_168478_8946958C 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,15 +67,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 10:23:33AM +0800, KobaK wrote:
-> +static void cpumod_attr_read_remote(void *info)
-> +{
-> +	struct cpumod_attr_call *call = info;
-> +	u64 *value = cpumod_attr_value_ptr(call->subsys, call->attr);
-> +
-> +	*value = cpumod_attr_read_reg(call->attr);
-> +}
+SCTLR_EL1.TCSO0 is set when user opt-in for MTE store-only tag check
+mode. However, it is not part of SCTLR_USER_MASK which imply that on
+context switch we never clear SCTLR_EL1.TCSO0, so we are leaking that
+setting into another task.
 
-Why do you need value in this case? Also, isn't cpumod_attr_read_reg()
-anmd returning to a variable that is never read?
+Fix that by including SCTLR_EL1_TCSO0_MASK into SCTLR_USER_MASK
+
+Fixes: 4d51ff5bba00 ("arm64/kernel: Support store-only mte tag check")
+Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+---
+ arch/arm64/include/asm/processor.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
+index c2a627f39314..6dfbcacd9ba0 100644
+--- a/arch/arm64/include/asm/processor.h
++++ b/arch/arm64/include/asm/processor.h
+@@ -264,7 +264,7 @@ static inline void task_set_sve_vl_onexec(struct task_struct *task,
+ 
+ #define SCTLR_USER_MASK                                                        \
+ 	(SCTLR_ELx_ENIA | SCTLR_ELx_ENIB | SCTLR_ELx_ENDA | SCTLR_ELx_ENDB |   \
+-	 SCTLR_EL1_TCF0_MASK)
++	 SCTLR_EL1_TCF0_MASK | SCTLR_EL1_TCSO0_MASK)
+ 
+ static inline void arch_thread_struct_whitelist(unsigned long *offset,
+ 						unsigned long *size)
+-- 
+2.34.1
+
 
