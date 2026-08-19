@@ -4,85 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF77C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 15:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00694C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 15:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=poGXx/PkspQ0ocgMJHl3qYYcy7yFhgIOctjg9rM+9Ek=; b=vMdHVavWw3wcOzzuN6kiMNxd0X
-	gSRtYTJJHo2TmsIusEioE0tdu1Qpz9onSKv2FTRC69sKcRFIl8jnmyC4zi7snW6wmkeQMnUnFe8J3
-	HL7eVIPBaa+bL/Z2LNXITeIwmQaBMf2AI/aDCBYgMOdVn/tZI+f3yOZwjcoXEI2xO7mMPY2uBhwLQ
-	gHObLDtKuzfGOKKq7BWzQu70au7YwmVsTQkd6wtOvCrwgsHt7CvDouE7GMQuBVSNDN3VhmmAxlm4m
-	LavK/nAbe8+qJc0e90d8m2wYNRD1+awe99Vuf9bcFS/+y1BC4qEZsduP3vPu6mY14Gb8q3gE4CHZh
-	AQTL5Pvg==;
+	bh=luqgKeY9BCSFP8cqU5Wk0SA2ZSLwx1JOWvC8sMgRww4=; b=goHOZOQScvBikuymVnOS+/9dbu
+	lhdPPJQYVoe5usX3+JTfUWov7dtWz0LNmSCCyshSdJ+UL+P4AVAm9CN3s5YWxCajXsxTPJ0SQZS2D
+	qTW31d8xdz7gphXjoOWKanUKbmjj6OfgYcA/w05/Ow9apJeBx8amX7ECyifn3GLCPpEqMy36AK2Ev
+	UPlNe0435Ik4+tqHqmplLZXBU1czKD6hEzs6lqCnudUzUyqQdiavGJ/BV9YK6tbntZ387fwaWSgn8
+	2RGN9deutLO2g6pAwWOKxa2Wbv7MZbCEdbVCZjHba+vMxUpcSOTLDguE6Es2LIgsM0d42R4eOA17b
+	ncOrmUuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwiWb-0000000A7ad-26Yw;
-	Wed, 19 Aug 2026 15:48:21 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wwie7-0000000A8HJ-3f6d;
+	Wed, 19 Aug 2026 15:56:07 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwiWY-0000000A7a1-3bQn;
-	Wed, 19 Aug 2026 15:48:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1787154495;
-	bh=Nns172wxL0Ep4S9FnOGpNap2WkSsjjZKWZktzclPSJM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=Ti8Q1sowFKGW/WW92JCUdtPeDrx26VS8yBllFbIxTfXPJ6N0skNpr0k+sCX1tTM5q
-	 7B8y02/R2ySANZAp42NGPjBahBxLOzLwRCNTQgf+71aFZYo0B6JfbVxY0zB3UwFWrY
-	 yidYvI5FmislZoRRlCXAxTqIwtA2en0SvTxaoeho8dq/oRG9v9hiEEYKboQXVz2Tct
-	 nnLguUfTqGv793z3B6xFV6x1OVfwEy1nvm/rw4QJhJmmXiadRWp0vDclF2fnN95jU+
-	 K7kYevFLcmhI1jSmzuuB8df79eLoLMByXMrQoJUu0IDe1wMV7KMb4bwHSedK9dgN5H
-	 maJofJgz6+HSA==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A42D917E025E;
-	Wed, 19 Aug 2026 17:48:13 +0200 (CEST)
-Message-ID: <2816bd84651dcbfd0cd76bbc56e461bd409f9611.camel@collabora.com>
-Subject: Re: [PATCH 5/7] media: verisilicon: Add Rockchip VPU720 JPEG decoder
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>, Benjamin Gaignard	
- <benjamin.gaignard@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Mauro Carvalho Chehab	 <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Ezequiel Garcia	 <ezequiel@vanguardiasur.com.ar>,
- Andrzej Pietrasiewicz <andrzej.p@collabora.com>,  Hans Verkuil
- <hverkuil@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lucas Sinn	 <lucas.sinn@wolfvision.net>
-Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org
-Date: Wed, 19 Aug 2026 11:48:11 -0400
-In-Reply-To: <20260819-rk3588-jpegdec-v1-5-33d74cdf369c@pengutronix.de>
-References: <20260819-rk3588-jpegdec-v1-0-33d74cdf369c@pengutronix.de>
-	 <20260819-rk3588-jpegdec-v1-5-33d74cdf369c@pengutronix.de>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-gAMZ1BrMIjddsvqywxMw"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	id 1wwie5-0000000A8Gc-1pCx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Aug 2026 15:56:06 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-9034b6b7674so8693426d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 08:56:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787154964; cv=none;
+        d=google.com; s=arc-20260327;
+        b=J0rZafgnprOE4nQyjr9VVqcDUfbE4/+0TWm9QnUTWDWwId+nFjVGEBw69V5oy6ZgGJ
+         N8aOSnAMZipLYQzb6CJkBWax70Y/qrwcNuB2kUXxT82qTdw9KgnF8kfAMOjY4FcFOilF
+         TlClLt0ws7ClAMXSqYQARqY0oMcjhGDeiL1P8Guj+LIgtRwrxTMo1YYnSRs4sHN0qCxf
+         Zd+bddPpE85p8HcW8ZbS+1U9D+Wy+sSTb5LKZOD9SCKBff2OZ8y20/AiF+TjYl3CaMIp
+         Ijqn/VCElP+Pj6erMPoZtoj0EpD3aAJiSbUB8s1Hp6SA/Itj+u7yLcxnLO6iAxJmBaqN
+         JAOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=luqgKeY9BCSFP8cqU5Wk0SA2ZSLwx1JOWvC8sMgRww4=;
+        fh=9QqxOHGzZkekTNp7jb8KQhxgL41cRWKUrxI85DGnFLY=;
+        b=siEYXRb9jpK8pyZlRjpSy97apvhUoa+YSI/EP00cujgmNXzHf316NQ9w7+ZYOz8AX0
+         NznBNY8YQFhaLFyumQlLTg/WwI00yKV0lqt6sIR1bgNkpgF931g1/K/C+wINyQM+9l4m
+         7V6QFjp3uOC/N0rUQteEFykZ6dZpbJ6HtvlFSL7lGDXwmANghxOU1QEjM2wFWy2+fSwl
+         l+qfd0BiKPnGSnq0qr3IW+uoG6JOJUBAe4bI4tvQTtwImOZ3JTu6FM6iV93Q+jVPzrZr
+         chbNow7+E9bZkfb0gfidC3EebBRSFwMMiK2FGZhDIuTie2c2xBrMy9Iooez4HNoc/h/J
+         Y8wA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787154964; x=1787759764; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=luqgKeY9BCSFP8cqU5Wk0SA2ZSLwx1JOWvC8sMgRww4=;
+        b=XFvjOVt0IEvB/Nur4L/+YNTcqNXLLaQbqTfqJDmvoO+RdMmDU1w0inki0LMB7PAJxj
+         9MXDkEHJm1+SyK6YVh1nv/703jjxgC+XWw6wMb4eGOrJHe/NsW2APdYyZf3YlkVf/6gS
+         rnWreGx1hWR8CKZQmZk8rVfRn9C2e3mml3QFgrl2ysa8hsmBCR+pBkSTQbjKz13LyFts
+         PhdohO1CselrPG3Dm9xu4dzyiGbSZBLHFUgKPFanXK+7sLrmTDWQBji/opX4t9AykMwE
+         FT9VrdjTm3qTw+mgDGC+dMYsvO7PaEE7+XR5xRYBiyd6o2DWuhLj7w3u8SnuMCaGv1Uc
+         qNqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787154964; x=1787759764;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=luqgKeY9BCSFP8cqU5Wk0SA2ZSLwx1JOWvC8sMgRww4=;
+        b=Y6Wsj53dhbPP6L1gI77Gwuep8KI3vP/dzHP0moaqIMZrB8VjuY+XG5FRC0Fbx+CE8S
+         3fQY6MIuvH2UhYQr4ObKIAM/zhKPDxxiHW9nbBE56QuhTewn1BlZpYTDazRuBndP8YBY
+         GdBM/dzmIGeg+Gs7M9C4UEGS9Brj6GeB/V96ybDqIx1MdwPAOAfel5xtZO0aJv+NBWXw
+         scTcdrZ3YZ+FmlYx6Tmr6jtK7YJgGXOm5ZwuGwKzig/krrrMIJI8u7F/U/m3+CUKT4Xl
+         cMUycsGmcQa/xEisBB6F/4bHOTlOJr0pNI+vN/jLS8oLTn0vkUXonX9B+MYfAX7Y4ZMX
+         2IGg==
+X-Forwarded-Encrypted: i=1; AHgh+RoWk/0pxk1Mk4EhUWvzxzkSqwuF5Ds2U7dEAG8vgtTM7iMArBddH2G0w2tOlgXdxnvcXiBrKb9rqRs+3o2jZpIR@lists.infradead.org
+X-Gm-Message-State: AFuF++m4lbJRjSJ2piQDsJ3oXu8yfc/rjUTsAyntzA5d6DlLo3TxK+Gi
+	H1WW+qvO/bCrDwBFQxcMz0xyQu6oLbx2JvOhVMy1FTeZYllMSBiSZcLO6ReaaLCaPoCvMpMo5By
+	csik/v5jUt1fZpOPDww+Zs6l1DeNV59g=
+X-Gm-Gg: AR+sD12JD/ZZOk3AQ4k1kYXyDuTmGp+rcDMQbNX3Xfn7YejiNwvTIQjew8NYwD1sALC
+	UgzP7tXtTfXhR6JOOa0mMpLk8Mn7yhNNTYmZ8KaMjSZGmn0HMCGCTU91U1yZoaAH53HviZnjBR9
+	V9aLXsxUeqN8AIx6NCdFASR+BXna6xDk5VfuavWn+Vd4CV4dlxPqkYqh66wCtHLxnH24aw2dYh9
+	o/rWrJssmW1M/SgSW2Aec1AMvt9q13clMUAerZudbQWxeNXSzexC7L3XHAJI4SZe95BXx0M+jlU
+	nu7Zy7NqTzwq8V9+SZI2a4SKKFSQtD/TO3EJuepsLA==
+X-Received: by 2002:a05:6214:dc5:b0:8e7:8d53:2417 with SMTP id
+ 6a1803df08f44-90c5eac9942mr52592116d6.27.1787154963571; Wed, 19 Aug 2026
+ 08:56:03 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260813083536.970196-1-ansuelsmth@gmail.com> <20260817134727.1f76d6dd@kernel.org>
+ <6a8376ef.be1895d6.92f57.c9dd@mx.google.com>
+In-Reply-To: <6a8376ef.be1895d6.92f57.c9dd@mx.google.com>
+From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
+Date: Wed, 19 Aug 2026 17:55:51 +0200
+X-Gm-Features: AcwNN1WR7Zj_IFCR5YdVpGhfxkJspgU8SJdxW5GIgyyCDjlcNc7jn8kiW6V-vUc
+Message-ID: <CA+_ehUyRKtuCtak5XD_1LUMEmLTn4JfeSDapsAEwo304uxyVqA@mail.gmail.com>
+Subject: Re: [PATCH v14 00/12] net: pcs: Introduce support for fwnode PCS
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_084819_055853_737F3C7A 
-X-CRM114-Status: GOOD (  10.10  )
+X-CRM114-CacheID: sfid-20260819_085605_489159_DBACF392 
+X-CRM114-Status: GOOD (  24.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,50 +127,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Il giorno lun 17 ago 2026 alle ore 23:02 Christian Marangi
+<ansuelsmth@gmail.com> ha scritto:
+>
+> On Mon, Aug 17, 2026 at 01:47:27PM -0700, Jakub Kicinski wrote:
+> > On Thu, 13 Aug 2026 10:35:05 +0200 Christian Marangi wrote:
+> > > This series introduce a most awaited feature that is correctly
+> > > provide PCS with fwnode without having to use specific export symbol
+> > > and additional handling of PCS in phylink.
+> > >
+> > > At times there were 2 different implementation (this and the one
+> > > from Sean) but Sean agreed that this can be picked and used in favor
+> > > of his implementation as long as his case with race condition is
+> > > correctly handled.
+> >
+> > Coccicheck says:
+> >
+> >   drivers/net/phy/phylink.c:1039:31-34:
+> >     ERROR: invalid reference to the index variable of the iterator on line 1028
+> >
+> >   drivers/net/phy/phylink.c:1364:26-29:
+> >     ERROR: invalid reference to the index variable of the iterator on line 1346
+> >
+> >   drivers/net/phy/phylink.c:582:7-10:
+> >     ERROR: invalid reference to the index variable of the iterator on line 569
+> >
+> > I vaguely recall that you're supposed to make a copy of the pointer,
+> > not just add a "found" boolean. Dunno if it ever happened but Linus
+> > was trying to make the list iterators override the pointer on exit.
+>
+> Oh! I wasn't aware of this intention... I have seen lots of pattern where
+> the last value of the iterator was directly used (if detected valid)
+>
+> It's and easy fix... I can send a new revision right away if you want,
+> I'm already on it fixing this in the meantime.
+>
 
---=-gAMZ1BrMIjddsvqywxMw
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Hi Sascha,
-
-Le mercredi 19 ao=C3=BBt 2026 =C3=A0 12:37 +0200, Sascha Hauer a =C3=A9crit=
-=C2=A0:
-> +/* ------------------------------------------------------------------ */
-> +/* Register byte offsets from dec_base=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 */
-> +/* ------------------------------------------------------------------ */
-> +
-> +/* REG0: IP version / product ID */
-> +#define VDPU720_REG_VERSION		0x000
-> +#define VDPU720_PROD_NUM		GENMASK(31, 16)
-> +#define VDPU720_BIT_DEPTH		BIT(8)
-
-Can you share a dump and share these register reset values. Looking at the
-layout, clearly its highly modified, but probably derived from VSI multi-co=
-dec,
-but I'm thinking perhaps we'll learn more from that. Its always nice to jus=
-tify
-when adding more chips that are not strictly VSI designs (or maybe it is) t=
-o the
-hantro dirver.
-
-Nicolas
-
---=-gAMZ1BrMIjddsvqywxMw
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaoXQPAAKCRDZQZRRKWBy
-9L97AP97ZqUufmP34nj7H6WO1VaHBkcmFPE1w2dWMA2Ud0d53AEAqqCnWF8UEG7K
-NT0DsFxf8TDJvZBbMJ1719B7rBGgGAo=
-=mBFn
------END PGP SIGNATURE-----
-
---=-gAMZ1BrMIjddsvqywxMw--
+Sooo should I post a v15 with the fix? It would be great to have this for 7.3.
 
