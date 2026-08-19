@@ -4,140 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FF11C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 18:45:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A454EC5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 18:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NNAwsGTm7kQuUf+keSm8dMdgHBnRoxbRpBCcgD2gv5o=; b=Hhdl+r/G7YwpNz335LwC73n1Sh
-	8Q5twXU3uNSfLGxsp7YGTLXBcryrA+B6Vsp4GDCdbtH8giYmpg1nI42gVgBpD0hMFvQD9oGHR4STH
-	+cbVp9JURqNvFcPOflYd0Iv9nkDQZHXlRZOI7yuGxRkprOMQ8tjqwXKJCCXmREgO0a01i/qVPUS4p
-	ceTf/2/vfu63itzIE40lVeehzwl5wW1S+MXbdHXXMQbugznwlhBUqullA99nkmiSXk1tekF4yUxvn
-	RSlU9AJBWcgvdGfLDoh0DNgues6zQCpUzqlh9NTNOPtAvg8+fPcDh1+rQ0ZSIAWIqtwWz/NYWfDyx
-	xoysRZUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bjn5VJLDS1yXucT12O23qgB/U5aanozAOffCoTMJ1Jg=; b=ThkNJXjXYVbdAoFZbMTfDtDEue
+	SwncED8BD3I7vWj/pYVpVQ1Jk0B1gY1z3ujQKz4zLAHzvD/5ss8RllDcQT9enKfZzEC3gJIuFpjNO
+	xkeA92fmmg3V8GmPM7z62aNwn47b0u/tI5gayVPk8YR+lLSTGfkZt4wXyW8tLPW5on5lJgEKDmQdx
+	V2GBzizbz9ZIhc5gSJyB/WwKJQr0d87EZIGHkb5+IVUZDNLPS01OlTNkugjyv5oD/+PgFDnls02bc
+	YaWNcoecQpQAVnXN2pB3xIofrlOztTuJ+eDGgxJZTXvHLV4Foh9aSYyDKFViACVrUW9Xxr+AI3vxL
+	/25MXl4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwlII-0000000AOW3-1zNy;
-	Wed, 19 Aug 2026 18:45:46 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1wwlLH-0000000AOq8-0YgW;
+	Wed, 19 Aug 2026 18:48:51 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwlIF-0000000AOVP-1Uh0
+	id 1wwlLE-0000000AOox-38GV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 18:45:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=k1ecZQBXXmNr3Jp7HiURpsHMc+W3rTzfNvDEH83HMCa7i2roHG0hrJ8sfx87T8pQfP2o6CGw/bsBwIqKBthbzGd59cvhbMIf+guWJHGNQkIUSTOKT/I7Fea1DtnKuCtdTUFF7Gvk0o6KsQhPR1Q8T15hXzCze/nIlD4G2Y9Jvq1yx+AdVOh7f3osXos6YdqYWigWsg+FZadZPIDnYVJoLfn6t034N3a05m3YePwL6WEdM8QBAsbu4P2XE9lF3gYJqAvlvrta4o7AKNKUiLO+uyGdP7vvtXovvIPRFrqDqF5mD5FPT+E+uSdEeBDC21wn/O7dBrRJxG2mSWnF2rOw9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NNAwsGTm7kQuUf+keSm8dMdgHBnRoxbRpBCcgD2gv5o=;
- b=f9Ws+YY8H6L54WUz36xy7fFnDaD6dxA6ZIFyNZi0arQ2DrFWV+skpiUHBIxY18bmiWk8eYX6O+GgocE+JElLimMTvT3aKB4wV+FKMYL9uz9sq99nXAcJ1F0ZdYhQtT2TxRFX21nuTZnQ7TIVGIhVlwFWxfiEaFNhczVfcuRNVSfgpJROIjwTKyk5JCYrQ79ZVG/UEAsVlb/IeudhxMuqqY+WxUUmzR/JhDqT/b3jhfJtxJ3RpZ2VaQtwJ46EJw/GDUtR/RqEJeeeiT0+ULfX3gQ2uz5y6rqk9h7+/CRCe1NJB4I5FMVcZUXximKAHHkqYjn9ExhMJe+ugZJCYjncEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NNAwsGTm7kQuUf+keSm8dMdgHBnRoxbRpBCcgD2gv5o=;
- b=hBwusGegZXAvbmAZvJeF/iarls8lF51/jk8y84Ko9mTbXSavLuR0Ev/oaOzbTUkKBqwPEKCVaJrG2tWfeeHLVvP8ejFYHSRcOGoeFnaGeAb12sX3pV/1ZeBj5bW3xaBepF/a6kOLmQ5PfQaIsilayDqNhPTz3MlMIII2CcLpecf2g8GRj+lkwMyXagA3ND7flQtbppa2KeXhrQ9hnq4NQvAqxtdcITzhBcP9jtpWnDDCuR2gSuDWQtr18tzJjikDU8A/gxPSEZvPsGhyFGI/IR3MFNz673lJ+vQYl6IvmJTXaQ4sCAhgR3Ru3COI1N2nGNxLH5eqfnZ3Lx+49c7ldg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV3PR12MB9356.namprd12.prod.outlook.com (2603:10b6:408:20c::21)
- by DS7PR12MB6071.namprd12.prod.outlook.com (2603:10b6:8:9d::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
- 2026 18:45:26 +0000
-Received: from LV3PR12MB9356.namprd12.prod.outlook.com
- ([fe80::1c36:31b4:c420:6286]) by LV3PR12MB9356.namprd12.prod.outlook.com
- ([fe80::1c36:31b4:c420:6286%5]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
- 18:45:24 +0000
-Date: Wed, 19 Aug 2026 14:45:23 -0400
-From: Yury Norov <ynorov@nvidia.com>
-To: Florian Bezdeka <florian.bezdeka@siemens.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Jan Kiszka <jan.kiszka@siemens.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH RFC 3/3] net: stmmac: Migrate IRQ balancing to
- cpumask_local_spread()
-Message-ID: <aoX5wglLYYtLcE5J@yury>
-References: <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-0-3f79a99cadaf@siemens.com>
- <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-3-3f79a99cadaf@siemens.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-3-3f79a99cadaf@siemens.com>
-X-ClientProxiedBy: MN0PR02CA0024.namprd02.prod.outlook.com
- (2603:10b6:208:530::28) To LV3PR12MB9356.namprd12.prod.outlook.com
- (2603:10b6:408:20c::21)
+	Wed, 19 Aug 2026 18:48:49 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4957739c22fso599705e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 11:48:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787165327; x=1787770127; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Bjn5VJLDS1yXucT12O23qgB/U5aanozAOffCoTMJ1Jg=;
+        b=TLhTxBJUGLWXxxlg2GgctMfpzR3Xz1QyP0aN8sIynAaJ9wPBhmMURDWIKgPub/cM6v
+         7z6M5OodQZh7ztLosw1j2gpYx+E0uDQWJulTq3+Ppzj5bPAnaBAR6aY2+TfNuPRhjxpU
+         arH7jjkG38I1CwgvZn8YebpHtZmg6tm1jaxg69yys70cC1S/CxfrxFMGf78cLf3qe+OO
+         N06iFYcvNio3Nz79NNLlS6Q4aqgEdBFoaB0szHby/UX59yzmntjatIq6Tq4xO77f+Rj4
+         FmS5iGaqenWKkPSKHKSwlibvfE+xAsosC5iD/6rzU7WQG4KBxFkDZK2ka4/Z3Nj+tZHR
+         KgQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787165327; x=1787770127;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Bjn5VJLDS1yXucT12O23qgB/U5aanozAOffCoTMJ1Jg=;
+        b=MWRDJUAh3Om91kK+EmODBMTEb8lo7iBCTnmCn2YlgB7S85B4x63OwzMzMhhl88RhTx
+         /tsfd8BBA8mz9SCjEM1SiypTtl9GMItJ7SHrVwNhGpqRoIb+T4+r2sUDMVuxFGHHdXNb
+         T7pUnpbf9bxMxvm+WtaBKUOS7hF4Essg/bGvW7KPEKsAKS9BZ2w9mr9La0PqDH6oRjMZ
+         o4JdTLDz58K5MiPimn1gehKUu3kBeI8gg5GbTgcPrWEqofDCTZaIasKR8EY948SYPFFM
+         94VKT9ofrsNEU3EYdZcfjiOoPU03diwON4d0MvpAwuGrMwaPhCLxYPl+Pxg0jQT/S7vy
+         KQhg==
+X-Forwarded-Encrypted: i=1; AHgh+Rqi3nP11PiApZCbgN4mR1ZpmbgzQJ8uNJ57RKhPpoLFuTbmbZzb8c2GVfHJBWKVQRaK9/tFcMFvdVNqEXbBK2JL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyduBnHAK1GACZ2BSCoWzjG60/PBfUNOAUs+73y0kxDrqqWFKzd
+	qlGmgZZU0mY5es6fewXjxB4KxfPjCW5CL5JvciB+jCR/oQm3sVo/RkJv
+X-Gm-Gg: AR+sD11EUtKzypE9dcVgtlZls6/VlOgfoXpYDUk0E6seAcy4OJCHSIyhWWAURqc4rxH
+	t1+ozcBDw+a9oDTZeY1QXD80d5jAqs/84McJEXmB4w41hYiJM9diWtiTtZ+uoGWXPnfUfT7GYBp
+	1UEfOwx2GvuYHmHwwT8UrlYHLthSER92hL75SyegV+5kVMe7sK39U7VRALJp+mm9g9x6OW1TG44
+	LMCSTvukybnBkoC17DhdQ/frLEGBjvKxSOpCHPFbhORq51uqYGwqAzZylfI+sGRn4t/tMkXarE0
+	uCd7EM2NAzgUVR9z+wuJg1wD3zz92sbHpk05LAy5s/5XBhf5Pl4Y8LeiYh9I0U/7GkV2HuBlVF4
+	5sfp+L4+eB7hEnVGIFD5LdNd6OiPMLsB2xaFRzV/ocAQZS1mr2VzQdUuhm3EWnDzXFPJiS9tmcL
+	wdyPDC1V6gaOkNL+rw3QEbWeHAKvHat8+oosdI+7HZd92X+IWKkXiQHZHL3L9l4U2ZipyCfiHQZ
+	WJmxbeBJNOBTsO3IGpJCtWzG4hjDIDc9j5AUN56q+EL3MhHM4LdKfvvKxQGpnce8rLn
+X-Received: by 2002:a05:600c:3b84:b0:492:4a7a:e415 with SMTP id 5b1f17b1804b1-499aa1a8c0dmr80658135e9.2.1787165326812;
+        Wed, 19 Aug 2026 11:48:46 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B9296006957154F80580DB7.dsl.pool.telekom.hu. [2001:4c4e:1b92:9600:6957:154f:8058:db7])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499aa1755b2sm78585025e9.11.2026.08.19.11.48.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Aug 2026 11:48:46 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Jiaxing Hu <gahing@gahingwoo.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Alexey Charkov <alchark@flipper.net>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
+Date: Wed, 19 Aug 2026 20:48:33 +0200
+Message-ID: <20260819184838.6723-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260819154634.7584-1-royalnet026@gmail.com>
+References: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com> <20260819105723.632029-1-gahing@gahingwoo.com> <20260819154634.7584-1-royalnet026@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV3PR12MB9356:EE_|DS7PR12MB6071:EE_
-X-MS-Office365-Filtering-Correlation-Id: 10d9abbc-0ebc-412c-1851-08defe2207b3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|3023799007|56012099006|10067099003|4143699003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: Rc9ZWa/NfWe54L2cRxa1wpIlZk/m+E6mV2bWnHtrKldkEOoNqYBrKgECTljKdJYBUK7Pkh8wMd+/PjPoFipFk2Dpt7u5jePZuoJXBYVw+OiUp+dP92gyfSGD4BOv5t2y9qWNXmtYD9S6/qRXbc9jX3nSFPiMWV0JrkUMuBSzDGyLz2q2d/LzKBM84vQ07GkEeSvc35RNtU+il5n3YQYZNbsqoFcLXjnED8QllsykLU+2vnmjPKYH4BYBVwIN4pK8tbJwQR0W09oxmUIJX7huxXcURASs19/kQjBPVjLVzlSwkQT01j80th1c96JTuw719neBONMB924rsjBOK6/4d7vf7tQK5C6FMSsq1LORg6BzIEJQXbDN/E+VkHr7LPIllaDn1vDsQ3KSWoSCVQEHEZiT1GpTNcuo/WadHj1PZwt1nwDjOQVnCRmSWDvpf1rzBF/VagKw0ODdxhdgSc+h81oHuKln0XT11UsUcTFKRO/SB65NP+Ehfb+qqFqXd0DxEakPFGVZEKDjKcY9f1vbZKI32dWO4q0rjdZg4pm0WH0yaddTAqB8NuEzsBl3LUp0CJTz8jgrcRI8Q4Nxr5d1Dt6QV4tuH5hFb3QUVufIXIXyVpSBc9XdnHs2ux8lWFapniawLa8Xo3YeqkFqRt6RzGj6u7si4T6M02RI0ha3+po=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR12MB9356.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(3023799007)(56012099006)(10067099003)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Te4O5XO1M8qy6/l9+EvM7NlVRDXgdsfTLgtH9ik843+xiZ/tjKyKV1LXyI0h?=
- =?us-ascii?Q?0chTtv9P5XqRRm7xI9WgTX5UFcHPx7VvNM7ZKAmcnT7FgM3QFl5XMSLebm9J?=
- =?us-ascii?Q?lBiUDh1oZUcxe+YhX3CFpVqGUwtnKtAc293wi9C/b3Ua7+LCXJmaqaTyHvHy?=
- =?us-ascii?Q?BGtl5zD0Rk+xBvJm2fcXXVbunDqtASc5dobDMreKKkhtuoWCFlNLI6U+4TCC?=
- =?us-ascii?Q?NNIU5gId3/JYZfPH7K03EyVWNRxcnxqUlchHMyXwG4lN/EaiHH80+3SzEVKK?=
- =?us-ascii?Q?suDrc0s4gVMMmgq/+EzlM16jndxyNW1TLJd8kU9EmYDsYIR5YAD4/m6L+Q4v?=
- =?us-ascii?Q?Wxih0hevuA9wW398DX3COP+x5DR/zxWd0F8aI7MLsC451Rq+LY6IyXANHs/H?=
- =?us-ascii?Q?iTAYRD+5FWTLih/Y808mfb1Jz/uRQ2ffkrv9BKKTomujycucARb4CLMtaoop?=
- =?us-ascii?Q?5bTJoeHFaCMEhw1mW04GGhOxGO4vroZfAu2Y2yqWDtySDKEs7iCxeFQU0mZu?=
- =?us-ascii?Q?OYNHGOxnKz8uLC1hkjFjRPBlH5sWuGYkCAQwyaEQhoW4DZ9Qy/FU70eYGsko?=
- =?us-ascii?Q?fduModPBiditR5H+KT120roCbnKuB3wM2aqaNsF/597/WHXOQnKtzpcFsk3e?=
- =?us-ascii?Q?b2SjBMFJIYmJ9QJutC+HJl+u7nRcbIsWkuvNj5+LLLPtnBG02LhbNwWvbAQz?=
- =?us-ascii?Q?03D6RBVi387zQx8eJZ0SHurLABep6XKRwEBU+1AFjSGPH9uf1nT4pXMqaqnf?=
- =?us-ascii?Q?i7Q8sadXGJHlxAJ5uUMI3LwC+9aXQ5NSmCUiu0m54JuiaP6U4cOLYy4/v4/C?=
- =?us-ascii?Q?A70CAeIJvvaQ9hPjEhm4hnJ9KLWJtYj6Rl1ekD+SWlSed1U+2Aq4Wb/QMORT?=
- =?us-ascii?Q?+P2Aw2Jiosoa2TQ4MiN4E2B5wG52lO2ZYrErOJX53/6e6pzXvUai48CJn/QQ?=
- =?us-ascii?Q?v+uhkWg+NWtCeMerkGyvMzQXofJGULu/6tjN2XMeHfI0W+mDnmgFarSg+fSx?=
- =?us-ascii?Q?ayRFlQyDm1G4QoL/TCLn7pPhkBizVDBFeqEpLsQ29/Ec/DP0Vgo/nmBtkIDV?=
- =?us-ascii?Q?Mx7oNEwr5+wOHhcSd3Ovj0e1SVezzoVvMyEoWvrgQJtQUvyCAHS1CBK2YPnX?=
- =?us-ascii?Q?lEfkMC/AWlqRH4z4uDcpQua0FkNxvL/5gJ+Xb3xB9EvQqoEuwftVK6uMbPn7?=
- =?us-ascii?Q?bZXCVheY+kMhSadfIBhfx48ZfLw7mkk5peYsnfMSpkTCFTixNOz4mFdgZTyG?=
- =?us-ascii?Q?Ak+ll6kwXwER1uPLD5kYIJ8E2rtZ4Oc4iAniy8qnPQtmLc4okBm/drgaKHiu?=
- =?us-ascii?Q?YEshcxfy/Gda4IbDlQxlv/7656QGBJqa6o4a6Gj8dkv/3fl93f0rRvPvio5r?=
- =?us-ascii?Q?cf1PslH45SgbSzlci8gg9ykR6n0xyvHgwTW44nYEREtCRhha5x+UUtVA38Ey?=
- =?us-ascii?Q?HPUUmQndvNbGzQbrcABelMGY+kIplJ79eHYYfMYNrR3K0fzldzOWkmp6FWtA?=
- =?us-ascii?Q?XzZioKnR7wH1n4v0JxMyA4nqKPq8k3zUZY/njo/xzo/7VIQtGVS4I3/m+z6v?=
- =?us-ascii?Q?V58x4tSJO8pOoQAxbRmG35zUqcZPeIr7KSwpIkYfLrw7TTJZ7/F3aomtYbel?=
- =?us-ascii?Q?vAZKjEKa0HmZuCsQ1lNeATccAcKHfwz2RZlzPYCtD5i6FTrmdFo8KFGPqRWd?=
- =?us-ascii?Q?xt6hFeQRitW9wkcvLc6UpoFXCsbGF50RbLZXWeiz9jJuOnKl?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 10d9abbc-0ebc-412c-1851-08defe2207b3
-X-MS-Exchange-CrossTenant-AuthSource: LV3PR12MB9356.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 18:45:24.6615
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BaKeZ3qt/Wy1s38wgGesPrrownXqaGxNvmVnXLZlqOGeyGOhGoh407YpuX7C+aRkj5wLgDeEAXPGQSRJSJrfFQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6071
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_114543_407896_4C024BF8 
-X-CRM114-Status: GOOD (  24.54  )
+X-CRM114-CacheID: sfid-20260819_114848_798686_76BFA6C7 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,113 +108,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 04:30:32PM +0200, Florian Bezdeka wrote:
-> The previous balancing mechanism was based on num_online_cpus(), which
-> is a problem for systems cpu-isolating workloads. IRQs were targeting
-> CPUs that were isolated for those sensitive workloads.
-> 
-> With a migration to cpumask_local_spread() we
->     - get NUMA locality
->     - honor the default SMP affinity mask, which avoids targeting
->       isolated CPUs.
-> 
-> This also aligns with the pattern used by most network drivers dealing
-> with IRQ affinities / affinity hints.
-> 
-> Signed-off-by: Florian Bezdeka <florian.bezdeka@siemens.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 21 +++++++++++++++++----
->  1 file changed, 17 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index a71f0df263785dd8badc45292ca3067ab33bda05..949ced7e46d2814b57c6bd86b4886ac3bf33996c 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -3826,11 +3826,16 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
->  	struct stmmac_priv *priv = netdev_priv(dev);
->  	struct stmmac_msi *msi = priv->msi;
->  	enum request_irq_err irq_err;
-> +	cpumask_var_t affinity;
->  	int irq_idx = 0;
->  	char *int_name;
-> +	int node;
->  	int ret;
->  	int i;
->  
-> +	if (!zalloc_cpumask_var(&affinity, GFP_KERNEL))
-> +		return -ENOMEM;
-> +
->  	/* For common interrupt */
->  	int_name = msi->int_name_mac;
->  	sprintf(int_name, "%s:%s", dev->name, "mac");
-> @@ -3916,6 +3921,7 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
->  	}
->  
->  	/* Request Rx MSI irq */
-> +	node = dev_to_node(&priv->dev->dev);
->  	for (i = 0; i < priv->plat->rx_queues_to_use; i++) {
->  		if (i >= MTL_MAX_RX_QUEUES)
->  			break;
-> @@ -3935,8 +3941,10 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
->  			irq_idx = i;
->  			goto irq_error;
->  		}
-> -		irq_set_affinity_hint(msi->rx_irq[i],
-> -				      cpumask_of(i % num_online_cpus()));
-> +
-> +		cpumask_clear(affinity);
-> +		cpumask_set_cpu(cpumask_local_spread(i, node), affinity);
-> +		irq_set_affinity_and_hint(msi->rx_irq[i], affinity);
+Hi Jiaxing,
 
-If you want to spread more than one IRQ, you'd better convert your
-loop into for_each_numa_hop_mask(). That way you don't need to
-introduce new function. See the comment on top of
-cpumask_local_spread():
+"Coming days" turned into "same evening" - the harness already existed,
+it only needed your question. Both halves below; raw npz kept for all.
 
- * For those who wants to enumerate all CPUs based on their NUMA distances,
- * i.e. call this function in a loop, like:
- *
- * for (i = 0; i < num_online_cpus(); i++) {
- *      cpu = cpumask_local_spread(i, node);
- *      do_something(cpu);
- * }
- *
- * There's a better alternative based on for_each()-like iterators:
- *
- *      for_each_numa_hop_mask(mask, node) {
- *              for_each_cpu_andnot(cpu, mask, prev)
- *                      do_something(cpu);
- *              prev = mask;
- *      }
+1) Forcing outputs below the zero point on RK3588.
 
-Thanks,
-Yury
+Model built to your exact case: 1x1 conv, out_zp=128, no fused
+activation, bias centered around zero so the outputs fall on both
+sides of the zero point (59% of the raw reference material sits below
+it at oc=56, 46% at oc=128). Open stack, mesa main (bf70ab68a21),
+which ships no lift - the pre-fix state, so nothing in software can
+be compensating.
 
->  	}
->  
->  	/* Request Tx MSI irq */
-> @@ -3959,13 +3967,18 @@ static int stmmac_request_irq_multi_msi(struct net_device *dev)
->  			irq_idx = i;
->  			goto irq_error;
->  		}
-> -		irq_set_affinity_hint(msi->tx_irq[i],
-> -				      cpumask_of(i % num_online_cpus()));
-> +
-> +		cpumask_clear(affinity);
-> +		cpumask_set_cpu(cpumask_local_spread(i, node), affinity);
-> +		irq_set_affinity_and_hint(msi->tx_irq[i], affinity);
->  	}
->  
-> +	free_cpumask_var(affinity);
-> +
->  	return 0;
->  
->  irq_error:
-> +	free_cpumask_var(affinity);
->  	stmmac_free_irq(dev, irq_err, irq_idx);
->  	return ret;
->  }
-> 
-> -- 
-> 2.55.0
+  vs raw CPU reference : 56/56 and 128/128 channels within +/-1
+                         (47 and 113 exact), global maxdiff 1
+  vs max(cpu, zp)      : collapses (0/56 channels, maxdiff 128)
+  NPU values where the raw reference is below zp: min 0 - they pass
+  through freely, nothing pins at 128 (0.6-0.8% of values happen to
+  equal zp, consistent with the reference)
+
+So on RK3588 the output stage does not floor at the zero point with
+L=0. The floor you demonstrated on RK3576 is real there - your
+three-run experiment stands - but it is not an unconditional trait of
+the family silicon. Which of your two explanations that favors for
+the vendor's per-model 0x40ac values on RK3576 is yours to judge; what
+it removes from the table is "unconditional in the family, so the
+compensation must be hiding somewhere on every SoC". Here there is
+nothing to compensate.
+
+Reading what the vendor stack programs into A on RK3588 needs the
+vendor runtime, which this bench machine does not carry - if the
+below-zp result does not already settle it, I can set that up after
+Aug 30 (travelling from tomorrow).
+
+2) The remaining discriminating counts.
+
+oc=50, 60, 90 and 114, same protocol as the 17th (raw CPU reference,
+no clamped comparison, zero constant reference channels in all four):
+
+  oc=50 : 50/50 within +/-1 (43 exact), maxdiff 1
+  oc=60 : 60/60 within +/-1 (53 exact), maxdiff 1
+  oc=90 : 90/90 within +/-1 (78 exact), maxdiff 1
+  oc=114: 114/114 within +/-1 (98 exact), maxdiff 1
+
+No channel pinned at the output zero point in any of them. Together
+with 56/88/120 from the 17th and the earlier 20/33/40/48/72/100, the
+RK3588 side of the discriminating list is now complete.
+
+Regards,
+Igor
 
