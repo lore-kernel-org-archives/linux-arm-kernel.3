@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2E65C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 13:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15418C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 13:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wy+D+ESTTq/dSV8mhmm+rhMC+Crd5u0rz0n4yla+hGs=; b=4GUOskfTb3nu3ARAccFzOu3WDe
-	EpJR6dFe/hGnqjQHKSgDRBD1vAkk0QRUYEjg+9ragptvkLbIyH4hRC2GwnqjVeJ4BTxeRCmMFcjCS
-	IdkhB+0Ts+KazifuVrtxWBieFNCyJmfAqSFyn/80Qcu+3aDKozoBhi9uDTvEkhd6bu3acP6DnytnL
-	X4bcByF6OsUPOzfD48MZvCmlC78VbacsJQop/slYGZz5wpKDxn6CkXplmNse3D18+cH0K6yYrbQRD
-	KZEwdWyACZIUl3SZlKfHOIIa6Gp2HC26L9DNPAHiycGNlyBoqWK4lNMsTgCKbXRiWfKBroOcfXwkj
-	3+oojOTQ==;
+	bh=KnDyA5lNhxEr2hExHBcFf8Od/f09CgPhkMAEhgddduM=; b=wsYh5zEO9JpiFfAUIXgFFtzoGp
+	TzG4Tvxy/j2fIscVzlIRVPaUndUKESnGYZKtrio1VXoO2TCGxLLxb3i43IZKP3IRYfEXQW0zZqdgB
+	04p+pjGF3X4jVV2TYos41ybttmyvM/02L+TKd3+PBFbT083AUp8Egh00QAvVFuif1M1UYoBWqQ0Ew
+	khIfMa0HdUH1LzxC3OIsQ6UZ5NeSdhSVBWS82EU23uIIa3ag3EcXbuKMOjUlskTiZhp2CJipqJG5W
+	RPo/HaP4hFqke4TZ55bCMQq3D1VvLrNtOWYG185qGZnGqpF0nR0D1ZUI05cfUJnG6BChdZzyc249M
+	aDGj6Bbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwgNR-00000009sPP-1Kpt;
-	Wed, 19 Aug 2026 13:30:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwgNP-00000009sPJ-3ho7
+	id 1wwgXr-00000009tE1-3XBv;
+	Wed, 19 Aug 2026 13:41:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wwgXp-00000009tDY-3Nuj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 13:30:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4166E4401A
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 13:30:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 295F51F01558
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 13:30:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787146243;
-	bh=Wy+D+ESTTq/dSV8mhmm+rhMC+Crd5u0rz0n4yla+hGs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=aPUasIj9J9ETAKkXY+xz3TK125/aXZYjKzFmuOkfbiiU6/19xiRkGoYKKBAsT8WxR
-	 QBKYCqbs49DV3cgMcXgHT6zGootPM+lszjhmfFD9fcpQYefWkk1lRr56QoIqqH6iEN
-	 rC6xB0mB9mkb1GOgRBaXc5IY5EMSRj8qW60VDICji5wM+RBJQog6XmfZXcVUfrNZVL
-	 tI0TyZHQ+3I+wgbDVL/bPi+wsJQha090rSdqoQfAnpwtw64dUr2Wd12xOYZ93ECvLT
-	 4oLbcbZ+qzeRb0Yb/VtQi4oH7EvFBO6jE2r5JxA6u49vhaerF/9ndVpaKe6aShnILS
-	 GQJEhWHiA5uGg==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5b021916bd3so1526889e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 06:30:43 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RorFx0jswXNEfjaP1AEWu3lRe0F+kN/cnayx2i+6SwikUlBX0q5QtDKVCdarl3REz+SfrgVif8fwpJ8PKp3WzU+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9OLVpYNAiUSxeGo/PoX2SkeeklEEiicHAf0Wzy1/Vfz24ptTd
-	6QIuLO8JmwprhZhaSmyjRX39RLq6mrcXExCmFFuHXHo3pcK1O3+d4mRk0g9vqjoXPC4yTo+zILh
-	1SXo+63gDyxMrd/JH+VNayDJyOAT+AYE=
-X-Received: by 2002:a05:6512:6d1:b0:5aa:5ef9:a33 with SMTP id
- 2adb3069b0e04-5b478bdb85fmr1801632e87.25.1787146241774; Wed, 19 Aug 2026
- 06:30:41 -0700 (PDT)
+	Wed, 19 Aug 2026 13:41:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A702814BF;
+	Wed, 19 Aug 2026 06:41:22 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 67AB33F763;
+	Wed, 19 Aug 2026 06:41:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787146886; bh=5zZhTKxCzKM4mOTcYyTygUsinMLtPISXJYiMB3dpemQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=pm1ISSmUxwi6hQfB/vEfIpFGQITFK4bY2I5SUuTQlrnb/Mel5xpsYmWxDrYT67diI
+	 IFg3h56TnXcrXw7IB5PrUI1pntS0CNdmpyGB9NkPAvB15n4H4CohGyldFleAyz9OhJ
+	 B85n3+AOP/8vRpt74YuK/EqoLpjcd3yoFBJVykno=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v19 01/14] arm64/gcs: Ensure FGTs for EL1 GCS instructions are disabled
+Date: Wed, 19 Aug 2026 14:41:13 +0100
+Message-ID: <aoWyeTx8lYGfiwYc@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260812-arm64-gcs-v19-1-9105afd828ac@kernel.org>
+References: <20260812-arm64-gcs-v19-0-9105afd828ac@kernel.org> <20260812-arm64-gcs-v19-1-9105afd828ac@kernel.org>
 MIME-Version: 1.0
-References: <20260618-ux500-power-domains-v7-1-v1-0-eb5e50b1a588@kernel.org>
- <20260618-ux500-power-domains-v7-1-v1-10-eb5e50b1a588@kernel.org> <CAPx+jO-ow2vo2wMxERLGse88wLoaR=HLdOWk6Qwv97ZdbE4R5Q@mail.gmail.com>
-In-Reply-To: <CAPx+jO-ow2vo2wMxERLGse88wLoaR=HLdOWk6Qwv97ZdbE4R5Q@mail.gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 19 Aug 2026 15:30:29 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnzDmxW_SoJ9H1tS2_r+jd7A7FpLVp37nK=dOEPj=GExA@mail.gmail.com>
-X-Gm-Features: AcwNN1VzmKR08mtjCfHfPMShMvTxNHeVOcLQxu2aSZ4UbCwVZegKiNNfpCmjf24
-Message-ID: <CAD++jLnzDmxW_SoJ9H1tS2_r+jd7A7FpLVp37nK=dOEPj=GExA@mail.gmail.com>
-Subject: Re: [PATCH 10/11] regulator: db8500: Add power domain regulators
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, Lee Jones <lee@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	dmaengine@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260819_064129_893983_84DA3A52 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,60 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 8, 2026 at 5:53=E2=80=AFPM Ulf Hansson <ulf.hansson@oss.qualcom=
-m.com> wrote:
+Hi Mark, 
 
-> On Thu, Jun 18, 2026 at 7:01=E2=80=AFAM Linus Walleij <linusw@kernel.org>=
- wrote:
-> >
-> > Add a DB8500 regulator driver for the VAPE and VSMPS2 compatibility nod=
-es.
-> >
-> > Back the regulator enable state with the corresponding power domains.
-> >
-> > This is done for off-chip consumers: the corresponding voltage rails ar=
-e
-> > routed out so they are used for powering different peripherals using
-> > these voltages as supplies.
-> >
-> > Assisted-by: Codex:gpt-5-5
-> > Signed-off-by: Linus Walleij <linusw@kernel.org>
-(...)
-> > @@ -673,6 +673,7 @@ db8500-prcmu-regulators {
-> >                                 // DB8500_REGULATOR_VAPE
-> >                                 db8500_vape_reg: db8500_vape {
-> >                                         regulator-always-on;
-> > +                                       power-domains =3D <&pm_domains =
-DOMAIN_VAPE>;
->
-> Hmm, isn't this the other way around? The power-domains node should
-> have a regulator supply?
+I will try my best to review this series, but I am new to this subject and 
+have just finished reading the Arm ARM chapter about this, so please be 
+patient with questions that may sound dumb or things that I got wrong.
 
-They probably have that, but that is not what this is about,
-it's the other way around.
+On Wed, Aug 12, 2026 at 08:12:00PM +0100, Mark Brown wrote:
+> The initial EL2 setup for GCS did not include disabling of EL1 usage of
+> GCS instructions, also disable these traps.
+> 
+> Fixes: ff5181d8a2a8 ("arm64/gcs: Provide basic EL2 setup to allow GCS usage at EL0 and EL1")
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/include/asm/el2_setup.h | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index aa8ec9df8024..d308c6e6757d 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -393,6 +393,11 @@
+>  	orr	x0, x0, #HFGRTR_EL2_nGCS_EL1_MASK
+>  	orr	x0, x0, #HFGRTR_EL2_nGCS_EL0_MASK
+>  
+> +	/* Disable traps of GCS instructions at EL1 */
+> +	orr	x2, x2, #HFGITR_EL2_nGCSEPP_MASK
+> +	orr	x2, x2, #HFGITR_EL2_nGCSSTR_EL1_MASK
+> +	orr	x2, x2, #HFGITR_EL2_nGCSPUSHM_EL1_MASK
+> +
 
-> We may even consider to skip to model the regulator altogether and
-> make the power domain operate directly on the prcmu instead.
+In the Arm ARM M.c, D24.2.70, we have that by setting the above bits we 
+will _not_ trap the following instructions to EL2:
+- GCSPUSHX, 
+- GCSPOPCX, 
+- GCSPUSHM, 
+- GCSSTR, 
+- GCSSTTR (when PSTATE.UAO=1 or HCSR_EL2.{NV,NV1} = {1,1}.)
 
-That is what the series tries to do, as a whole. Sorry if that was unclear.=
-..
+Which I understand to be the way of us saying that EL2 will not interfere 
+on nor manage those instructions that let software change the entries of 
+GCS. Is that correct?
 
-What we do in this patch is to deal with the fact that two of the power
-domains, when enabled, also turn on two external power rails outside
-of the SoC.
+As for the asm routine, x2 at this point have nBRBIALL and nBRBINJ already 
+set, and will be loaded to SYS_HFGITR_EL2 in the next block of 
+instructions.
 
-Since external components such as I2C devices cannot really be
-claimed as "being inside a power domain" they take a regulator.
+Did I get it right? Is there any missing detail here?
 
-This is based on my understanding that power domains is an
-SoC-internal concept only, so there is a clear boundary if something
-outside of the SoC starts to use such an externalized power rail.
+Thanks!
+Leo
 
-All this regulator does is to make sure the corresponding power domain
-is enabled when the regulator is enabled.
 
-I will repost all the patches once v7.3-rc1 is out.
-
-Yours,
-Linus Walleij
 
