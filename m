@@ -4,103 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7116AC5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 06:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98AD5C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 06:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eNYpcIGxrPu5UcGxlHe8CSKb/lcjMt/RLjlOnDxhBfE=; b=ORvQ18CMavXIiw2utZ9UGN200j
-	qg0UtKCMgSoawFZ8G4iw25HUjlIvJeF1rXHk7fwN2kwFN6yPKEFTuRghYjywItSt1n+DuFS0SajpK
-	4+ip4RzYIuGhdamEIOvvIi1ITI9ClYgqUVFCVoo2SKbT5u1244FUbBsqrY/Tm3ZXvtzgiOl/1N429
-	UAlFSagZ7QPGLIv1jZCEW28zPmOlRV2qBGC1zWmaGUSdgK0YIKGs+34Yo+TmO26A4iyGgY3TesHcU
-	hxjlUpV1KLi5uY3iVWCYsBvMQjuiWTLMmFrL6hGR0iHnejHqt5ALvIXCJqwo5y2oJKG2zlwYe6yhl
-	mi4j0ceA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7d351kwETeBhwKUAevfFIdhiS/3pPYk4RDmKm2u9Xu0=; b=B9fpfxDsAahO6Y1mRRYNcwjIfs
+	jPId8Fqh3OJMypRtjXie5F5VkFTgN9eLvND0I1LJJBkgDS4iQkR3dYVa2QrA3QBTozYa4tY6wdUfY
+	V0eYLWu2jZUJkwveAkb+41lCTXhDNjde2Vwyt+mJ245DOho7PZmShVY+NTJdsL9zb5WKm3wDJwMhi
+	vQZ2PM6ubfD4ZDt8ELIc2fCW+qnrUQgwveFKdGmb8czoalb4iNyNTRlGj+8k8AvLbfrB5RTnL0W1Z
+	nuJfCh11+b9lG76plNhEf8Q68cXyqJHW5JY554Qr/qb2PRnQNzxJVWo43pU7//17QPdKidi4Zzvtu
+	wZp35CNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwa9n-000000097uJ-0Cd6;
-	Wed, 19 Aug 2026 06:52:15 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wwaAC-000000097y0-0ig1;
+	Wed, 19 Aug 2026 06:52:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwa9j-000000097tH-1t9t
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 06:52:12 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-499acf0fb63so50195e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 23:52:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787122329; x=1787727129; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=eNYpcIGxrPu5UcGxlHe8CSKb/lcjMt/RLjlOnDxhBfE=;
-        b=TJCfvTPUQOsGjpxpgVg4I68xUuKum2crpj1iyas636ok7Nho253nIW38TWQV5jM2vB
-         HRjLNaTaU+otuJgKLP2p37XmJy/Cy3viYZCue7StFQp2Tj5L5lRzYJfowxu+JtVqnqPF
-         ZAZI2pr6KTq2pQ/+V0lE9+vm2qsbMXpe7sbVdRFZ36kbUgTJ5asnhApBqpHL+aUIBgPW
-         epDdUl4Ne0I2HfOaX/QnelN98ek1R4O80YMPIK+tky9GI7Tw3zx05CmBmmd48V6uYEx7
-         uAM5GdOZ/OZp1SHWgU/GbdvYGMDdTMQVWp2G4fJRKOL+WP0No2CLhzQvEdhhYBc7VDW9
-         1Qbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787122329; x=1787727129;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=eNYpcIGxrPu5UcGxlHe8CSKb/lcjMt/RLjlOnDxhBfE=;
-        b=mNtxoX7QuX19LvmMc9ICM3tV00IBHD8PGjQHxCGJ4MfgctPw4kTEzN93+miHKw3A7X
-         T6pFDz8NBKaCcH/BrQNQSmFlXYurw4I6EruERsriqtevchVQFEXjoFCGf91iZwkMGaGG
-         Aks7VEvfJ0ThYQB949nU4aOE/ob1hWbX+qHVikibKSx1KhLr1hJtlP8e/jTUMmfKX01h
-         I4t0lHty0ZAk3YPItaG6+jxltb71Vb3G44/zL/E/6Irmkc5YvEhq+c1LXKvjJT6zS+RE
-         GeroQpR9qQ67lFRzXmMRtNEhF910EPPK0tj82iAXQKBYpZPrZTkEeA0jWJLszJG/0JNH
-         sM5A==
-X-Forwarded-Encrypted: i=1; AHgh+RracrmdOd2GNsRQaIBoMXMGQCeaFlms2ByQqxQAKMsoMZS5hHiRrJbTvuxFgQxBhFFlcBRYDXxRqythZr/3ouhw@lists.infradead.org
-X-Gm-Message-State: AOJu0YywInBXshm9Qbe0C89Hl42yPGBaHmZ1nF5y7yS6qCVBy0JbH7cT
-	nrqAYvWyGg+H0TdZvcFXmo3SS+mqtBAsKpHVYYp9XG8MPmeQU/t0TTfp
-X-Gm-Gg: AR+sD10LXWQe+t7Ya/qT0Jn0SqTDjWm5Ne6NNTHScqaz6cQK/hxJlDSFWp3ShxskjMK
-	182m6Khew7ZvJlFM0WttoBZ+jHzXOelKwKbEI4HivfVsE18M34LwCjAOoD9TiZCEcQXegL4y8uI
-	WhDihltve0RDA0LOjvO8s3SsXxhCVWAhA4wbHWnySU6gAwIZXVsU26QaDn1smmAIye2pYMHBgab
-	P+D7Vcp/QOFPALcEU2KSpOxB26XwC7mTcrmtOD5SMn5jjwd4DEqLkt8tIcNwZXPG56zPjxxTNfq
-	k8HG8UeQhKIFUv2PlD0p10RznmE+4Ee6wCc+Xb/M6PVFCvTbbNFnu4x6hHw7mYS9tUVeA+la8Sb
-	2HCGXGCFlTpkT4FpNrtyPDSVHnyEXp9VTNswqDoMUidzQRJEnfjMTFDsJ/LsBVvLduzzgy6m4w7
-	SptIMagdAkWOPUP6FrBS/+Z0la/2NoWIz0iwLFQ86Qqkya+rcTYcNiBJy5GllsXYwDyD+BmE+DK
-	ByZJnmv3aksCfZtHS4IFebi77tbJg/KJQ3WVC15CZakA9BKEQEdDz9mpjhcZeLa7mbvzy8yhDmZ
-	aCO+
-X-Received: by 2002:a05:600c:1c29:b0:495:4126:1e55 with SMTP id 5b1f17b1804b1-499aa1c16d7mr24093695e9.2.1787122329217;
-        Tue, 18 Aug 2026 23:52:09 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B929600C08047F1073FEAD0.dsl.pool.telekom.hu. [2001:4c4e:1b92:9600:c080:47f1:73f:ead0])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499a9aa7e8dsm24166515e9.0.2026.08.18.23.52.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Aug 2026 23:52:08 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Jiaxing Hu <gahing@gahingwoo.com>,
-	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	Oded Gabbay <ogabbay@kernel.org>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Alexey Charkov <alchark@flipper.net>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 02/12] accel/rocket: wait for a running IRQ handler before resetting a core
-Date: Wed, 19 Aug 2026 08:51:45 +0200
-Message-ID: <20260819065146.5904-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260819013609.1613919-1-gahing@gahingwoo.com>
-References: <20260817113603.1436067-1-gahing@gahingwoo.com> <20260817113603.1436067-3-gahing@gahingwoo.com> <20260819013609.1613919-1-gahing@gahingwoo.com>
+	id 1wwaAA-000000097xc-0qst;
+	Wed, 19 Aug 2026 06:52:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id ACAF0436FF;
+	Wed, 19 Aug 2026 06:52:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D7811F000E9;
+	Wed, 19 Aug 2026 06:52:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787122357;
+	bh=7d351kwETeBhwKUAevfFIdhiS/3pPYk4RDmKm2u9Xu0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WkLTMf+qpN/io805Y+2gkeOkMbkpIKzf/6QzY2J/6Bl2FWOx3hYwxZqHUNh5M4dgw
+	 NmuyAHXcBRvh2GxscHJW61nXGUBR8lNKbUmLxqWPpQcQgLHWUAVlSWz6LVoosdqCUL
+	 ZEmosEMGQfwSgXLsUlMUGHaMqKfk3Jvw8lbWY34WrNbJ3DRB7qmc/YZZa7OShj2kZU
+	 9F9gzCeo4nBVxNMDWaMYPftvg52ti3BnqeVARRjJq5cVbN2pVAHAoYGhFw0l1dFtDu
+	 nWSAaMBzSD2S1DqUVmDAMWvEN7eDywpx8rVr2/eMxUkxs3qh6vnl3GoJDWDRt0ReB8
+	 kGYH6E45e0M5Q==
+Date: Wed, 19 Aug 2026 09:52:22 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Brendan Jackman <brendan.jackman@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Andy Lutomirski <luto@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Len Brown <lenb@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <pjw@kernel.org>, Pavel Machek <pavel@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
+	Will Deacon <will@kernel.org>, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-pm@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	loongarch@lists.linux.dev
+Subject: Re: [PATCH 1/6] set_memory: add number of pages parameter to
+ set_direct_map APIs
+Message-ID: <aoVSpnf-b-btyHR9@kernel.org>
+References: <20260816-execmem-set-vm-perms-v0-2-v1-0-90944a3ad43f@kernel.org>
+ <20260816-execmem-set-vm-perms-v0-2-v1-1-90944a3ad43f@kernel.org>
+ <DKR7IK0VAERF.3ALVHRNQMSXZU@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_235211_631982_961A0B79 
-X-CRM114-Status: GOOD (  14.27  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DKR7IK0VAERF.3ALVHRNQMSXZU@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,64 +96,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jiaxing,
+On Mon, Aug 17, 2026 at 02:10:39PM +0200, Brendan Jackman wrote:
+> On Sun Aug 16, 2026 at 12:59 PM CEST, Mike Rapoport (Microsoft) wrote:
+> > When set_direct_map APIs were introduced by the commit d253ca0c3865
+> > ("x86/mm/cpa: Add set_direct_map_*() functions") the single page
+> > parameter made sense because the initial callers (vmalloc and
+> > hibernation) had sets of unsorted struct pages that required changes of
+> > their mappings in the direct map.
+> >
+> > Since there is an increasing demand for direct map manipulation and it
+> > is also desirable to be able to update larger physically contiguous
+> > mappings, for example an entire large folio, extend set_direct_map APIs
+> > to receive number of pages parameter.
+> >
+> > As there is still only a handful of callers, change the existing
+> > functions directly and update all the call sites rather than adding
+> > wrappers for single page case.
+> >
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> 
+> I think if we add this arg we also need to specify how the
+> implementations are supposed to behave when they fail midway?
 
-Thank you for the round history and for running my archive check - the
-zero stall/paging count telling us the MMU is not responding at all is
-a better characterization than anything I had. put_noidle vs
-put_autosuspend with a separately forced suspend/resume sounds like the
-right de-confounding split; I will watch for the result.
+This is the same as set_memory, I don't think it deserves a special care
+right now.
 
-Here is the induced reset test I promised, run this morning.
+> IIUC the incumbent answer for stuff like this is:
+> 
+> - The implementation might leave partial modifications behind when it
+>   fails. The caller needs to deal with that.
+> 
+> - ... But, that's gonna be due to allocation failure. So the caller can
+>   just do the inverse operation in the failure path as a cleanup, and
+>   assume that inverse operation succeeds since the pagetables are
+>   already allocated up to the failure point.
+> 
+> I guess it's worth making that a sort of explicit contract since it
+> makes certain implementation details load-bearing, e.g. I think...
+> 
+> - It forces the pagetable update algorithm to work in a fixed order.
+> 
+> - it forbids us to e.g. merge PTEs into a PMD if the region might be
+>   pending such a cleanup, since it would force that cleanup to
+>   reallocate a PTE table.
 
-Setup: RK3588 (Orange Pi 5 Plus), all three cores bound. My 7.2-rc6
-tree with exactly two rocket changes from your series - 1/12 and 2/12 -
-plus one local test-only patch lowering JOB_TIMEOUT_MS to 2 ms so that
-healthy jobs (~5 ms at this clock) cross the timeout deterministically.
-No other rocket changes; in particular my lifecycle series is not
-applied. PROVE_LOCKING=y and DEBUG_ATOMIC_SLEEP=y. Serial console
-captured on a second machine for the whole session.
+I'd leave the load-bearing parts for now ;-)
 
-Protocol, built around the trap you described - the RK3576 symptom
-emits from rk_iommu_enable() on the next attach, not from the reset
-itself: 20 scheduler-driven runs over the model set with all three
-cores active, a follow-up inference after every induced reset, then a
-forced autosuspend cycle and one more inference. Two full passes, at
-console_loglevel 8 and 4, because synchronous serial printing on this
-path can perturb the timing.
+I'm going to resend the patches that generalise CPA and I'll add some docs
+to that set.
 
-Results:
+[1] https://lore.kernel.org/linux-mm/20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org/
 
-- Pass 1 (loglevel 8): 12 induced resets. Pass 2 (loglevel 4): 8.
-- Every reset recovered. Zero MMU_DTE_ADDR, zero "Error during raw
-  reset", zero lockdep or atomic-sleep hits across both passes.
-- Outputs matched the oracle in 48/48 checks per pass, including the
-  inference after the forced suspend/resume.
-- All three cores returned to runtime-suspended between rounds; the
-  domain did drop and come back cleanly after every reset.
-
-So on RK3588 with 1/12+2/12 the block comes back every time, and your
-non-recovery does not reproduce. Combined with your archive result
-this is consistent with the failure being RK3576-specific on the
-platform/IOMMU side rather than rocket-wide.
-
-Two honest limits on what this run shows:
-
-1. All resets ran with three cores bound. Isolating a single core
-   requires unbinding the other two, and without my pending lifecycle
-   fixes that path is not safe on this tree (the list corruption I
-   reported on Aug 12), so I skipped it deliberately rather than test
-   through a known-broken path.
-
-2. This run alone says nothing about the race 1/12+2/12 close. The
-   same protocol on the base without those two patches is queued as a
-   separate build; only that differential earns a Tested-by, and when
-   it lands the tag will carry its conditions:
-   # RK3588, three cores, induced reset, JOB_TIMEOUT_MS=2
-
-Raw logs (dmesg, per-run outputs, serial capture) are kept; happy to
-share any of it on request.
-
-Regards,
-Igor
+-- 
+Sincerely yours,
+Mike.
 
