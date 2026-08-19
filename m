@@ -4,132 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D812C5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 08:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19214C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 08:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fy/+ghagyOvGZgcyDbTZpIqgphY+ahepKGI3FiNcL6I=; b=N/eJBO2soy/e+HvllfuXz+b7Fo
-	MCbrt2C+cJrHT+J6jmSmPFNJTcqA/n8do4dalW5xwQQo1mv8m03JiDW9srVK754fFUIQHnJrLgOxp
-	mQJVPuoKueIP9+caYaOvyKIvanj4UX6ybGJOXpEb77losfSiuGxmGl1z4CFI/GBDKvlVF8fnyz6OK
-	5TEIcIGaEyZgtJi5Xtp/JBsdMPmGdHC2tMntEmZbKOK0ErL4YwFBELq2qqRSU14Zn3z3c5DgSakNL
-	wcm398+MAH5vctQzwHXtggThOqY2UGkSYkZ+7APfeivM4ps9v8+5ecm70aM8tihHh9Aps+fJCII0k
-	58YWCWPw==;
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d84hCATNqnUCsUt/1WDjP8LtD1u8eNmXIKR7OiNQFo0=; b=1fcEvX3wEC2pTgtc7kukhrus7X
+	6qUlvtbg6XlPqjCRLvi3uxOnmDXvH1+xUFTZdgf5LTagK2hlkHi+STacjrZca3U6t961JeDwSqxb/
+	79RyTtDF4uLVhW434lqS6e8Jz92VuvFHn46Bti8cciiNP+awWWS1szhfhbaDCsrybJIp/2OZUzUN4
+	lrhbvqDSyAylHfkd4Kv/vqtP0epBSQFnsw6+qRuBqJMbY7V3FKLbmw9uClwEqW7xBMAqFrOVYh/J8
+	E9f3mYGsMboFhsT6eYafUppK2ZQTXXGIMAHcrNm/vHOzBZskPCrE6rfHcyry9e21W9rxnTfrqu+1M
+	DwmlJqTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwbNJ-00000009Hb6-14Lk;
-	Wed, 19 Aug 2026 08:10:17 +0000
-Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef22.compal.com)
+	id 1wwbPT-00000009Hsq-41mv;
+	Wed, 19 Aug 2026 08:12:31 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwbNF-00000009HaG-2Vrl;
-	Wed, 19 Aug 2026 08:10:15 +0000
-X-UUID: 648771509ba511f1a87c2323a98e90a4-20260819
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:84bd1121-6174-4216-a91c-df35f5ce4b05,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7f1ae54,CLOUDID:e74507f2-0685-46a3-9cac-19d8f3a05ae7,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
-	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:n
-	il,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 648771509ba511f1a87c2323a98e90a4-20260819
-Received: from sdmg11.sdbg.compal.com [(10.113.168.9)] by tpecef22.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1226349932; Wed, 19 Aug 2026 16:10:08 +0800
-X-UUID: 60555f209ba511f1b328fd8a884f4420-20260819
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.15,REQID:3778128e-307d-4f03-9221-1102df18254e,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e276073,CLOUDID:6baaa1e2-71f1-405e-92eb-6802d6af74fd,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS
-	:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,A
-	RC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 60555f209ba511f1b328fd8a884f4420-20260819
-Received: from sdbmbx13.tpe.compalcomm.com [(10.113.2.137)] by sdmg11.sdbg.compal.com
-	(envelope-from <jackbb_wu@compal.com>)
-	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
-	with ESMTP id 859547931; Wed, 19 Aug 2026 16:10:01 +0800
-Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
- SDBMBX13.tpe.compalcomm.com (10.113.2.137) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
- Wed, 19 Aug 2026 16:09:59 +0800
-Received: from SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86]) by
- SDBMBX13.tpe.compalcomm.com ([fe80::2b98:6c2c:37df:2a86%11]) with mapi id
- 15.02.2562.043; Wed, 19 Aug 2026 16:09:59 +0800
-From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: "loic.poulain@oss.qualcomm.com" <loic.poulain@oss.qualcomm.com>,
-	"ryazanov.s.a@gmail.com" <ryazanov.s.a@gmail.com>,
-	"johannes@sipsolutions.net" <johannes@sipsolutions.net>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "wen-zhi.huang@mediatek.com"
-	<wen-zhi.huang@mediatek.com>, "shi-wei.yeh@mediatek.com"
-	<shi-wei.yeh@mediatek.com>, "Minano.tseng@mediatek.com"
-	<Minano.tseng@mediatek.com>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "angelogioacchino.delregno@collabora.com"
-	<angelogioacchino.delregno@collabora.com>, "horms@kernel.org"
-	<horms@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>,
-	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "Yu. Robert (GSM)"
-	<robert_yu@compal.com>, "Chang. Jeff (GSM)" <Jeff_Chang@compal.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>
-Subject: Re: [PATCH v6 5/7] net: wwan: t9xx: Add FSM thread
-Thread-Topic: [PATCH v6 5/7] net: wwan: t9xx: Add FSM thread
-Thread-Index: AQHdL7IhxfLW56jB1kOMKbd5bNxHZw==
-Date: Wed, 19 Aug 2026 08:09:59 +0000
-Message-ID: <0ce2325ddab34fd184a17c8642eeaaa4@compal.com>
-References: <20260811-t9xx_driver_v1-v6-5-2c969fad57c6@compal.com>,<20260817223657.3688752-1-kuba@kernel.org>
-In-Reply-To: <20260817223657.3688752-1-kuba@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
+	id 1wwbPR-00000009Hs2-35NC;
+	Wed, 19 Aug 2026 08:12:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HfS+ewTrYSphbObGuzP/RgPvbx7O9b41zYlm6vkq/vPGksWVGJrnz+gVj1Qr2dyWXn4R70qEAY3gzQGHXAEWFO8IhDNO4uoOb5AOQxEGn857AjSz+0zlvmG/ZYUfMZiiDa6KIqOLbDZm9iB5S2sFfuP0a2uCx7L9ZzCx/NggjDA7/f2LhWBDIAaOEKk32ntKR+7rJqSWy0qEclTnVKemqQZqwGdlSuIIkTDnjgx2IvQuVGcNTffpr56J0sLHGPUNj7JnQkMcRY7TgYzLyNyqibxaXAMWOdqsgE1Rq0MCRWJIF6DHOf7vYNPkO94zGy/9Fn3Qae6mdnnKIPWTiBQeLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=d84hCATNqnUCsUt/1WDjP8LtD1u8eNmXIKR7OiNQFo0=;
+ b=BQDNrsbZqqJHSxYmmZv+K31QGGbQIOrz4WPrN3gxVhssdFluwtqCBd347CsL6beQCqTXXc7V08JbGZYrcm469Qk3c4086Yvwv7YdaFwkI7y5alaMPaMqwxRIlXDd+CmE0VH9yQn0vplV+RBzgMdbBfg22eDPG0SnPK3834pYMb9QQsWs787cIByGttOhhRNxm3ob5GTF9URWEbDEKQrt3k7N9z5gCqpxLkaRIDoyjWr8CqPWPse6IuhC7ovzPjhh3nQe1v0w9PjLoCY/XQvpSL4DevNUQjTKk1bewdDz743ipSh44ZtvAbbFMScBSHjCiuKZD51pb7xo7kPWsUiSgg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=transsion.com; dmarc=pass action=none
+ header.from=transsion.com; dkim=pass header.d=transsion.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=transsion.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=d84hCATNqnUCsUt/1WDjP8LtD1u8eNmXIKR7OiNQFo0=;
+ b=trS+M/3+1UuFoHFDnAG5KK1O3hlYMw8+9RjteJDPP/QvYvDOH4JfgTBepxUxzt8/EJzzg3QCsYTkzF3wzBmukSuwLhHDDMIjghwD+KrVh3wpr0qcJOEN8z+0jSpuynJWuVk1I/xCwqp1Obe2Pej9Ob/EnyIr4ORvGC+b1qCG/Go=
+Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
+ (2603:1096:820:c7::13) by SEZPR04MB6432.apcprd04.prod.outlook.com
+ (2603:1096:101:a8::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
+ 2026 08:12:09 +0000
+Received: from KL1PR0401MB6196.apcprd04.prod.outlook.com
+ ([fe80::f2ee:1e28:9022:99f3]) by KL1PR0401MB6196.apcprd04.prod.outlook.com
+ ([fe80::f2ee:1e28:9022:99f3%3]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
+ 08:12:09 +0000
+From: Hongyan Xia <hongyan.xia@transsion.com>
+To: Juergen Gross <jgross@suse.com>, Ajay Kaher <ajay.kaher@broadcom.com>,
+	Alexey Makhalov <alexey.makhalov@broadcom.com>, Broadcom internal kernel
+ review list <bcm-kernel-feedback-list@broadcom.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
+	<chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan
+	<maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin
+	<npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Paul
+ Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Thomas Gleixner
+	<tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
+	<x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Paolo Bonzini
+	<pbonzini@redhat.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, Stefano
+ Stabellini <sstabellini@kernel.org>, Oleksandr Tyshchenko
+	<oleksandr_tyshchenko@epam.com>, Peter Zijlstra <peterz@infradead.org>, Juri
+ Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt
+	<rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman
+	<mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak
+	<kprateek.nayak@amd.com>
+CC: Jiazi Li <jiazi.li@transsion.com>, "virtualization@lists.linux.dev"
+	<virtualization@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "loongarch@lists.linux.dev"
+	<loongarch@lists.linux.dev>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "kvm@vger.kernel.org"
+	<kvm@vger.kernel.org>, "xen-devel@lists.xenproject.org"
+	<xen-devel@lists.xenproject.org>
+Subject: [PATCH RESEND] sched: Convert paravirt_steal to new static key APIs
+Thread-Topic: [PATCH RESEND] sched: Convert paravirt_steal to new static key
+ APIs
+Thread-Index: AQHdL7JurDcnsknKnUOaLMvw1Db+YA==
+Date: Wed, 19 Aug 2026 08:12:09 +0000
+Message-ID: <20260819081207.12150-1-hongyan.xia@transsion.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
-x-originating-ip: [10.113.2.241]
-x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30142.005
-x-tm-as-result: No-10--25.832600-8.000000
-x-tmase-matchedrid: 09s+V7Sm0eYuv++HU7VXryRFbfQbCufdN0X64jGy2dbsEpKlvft9qjRG
-	JnoK3ysiHe/Upp/4ecQGzC6W4eU7padZnKvYE01aRYNhzuZZjRCexJFd1f8r+3dQ4v0lwwqOiuC
-	k5hLMQvOZlqCQ5FwWsnWXmUmgmzu2MVt5Tx9CnOZch/PYekr/BGStUhdkd3nYBqVPF4xn+jueaz
-	35t4EMrZBAN42gBDl1tfN7+T8pv/bbBiuX+mNviH6eJTKwzTtE8kOnQJj3cxIP297fVsRwtm/qA
-	wDeSRgS9Ld8An3grPM5f96fOyzSwY/6AcNY+NOa/PXwFN0tv9sKzfE0xibHNLvzLx7/HKiJcFn9
-	ofXeAxMe67A3WrjNy+xSna6EbrJru1LH8MuEXdb2D3OQzR++YjvVoqXLV+0NN4/zKvbrQA32WyR
-	QHdVANsGYcuaKGLCv+Rzbr6DWJf/EGKxIubI4tJ4p07KVSE/ZU0GxF3CGqPyJtDhSJg4tWtJ7Co
-	YPDdZiSrMVaniCpX7D0AeJHVtUk/iFk/NrxEcNFKyc1Cps9nVV3UPo3CFacACzms1s1Ir1qX5W6
-	G0komTyLcBbgS7OQwLA9QaTJfjVS82e8FoHSZC5kTI8BpRqchyqoGG6T9ocMB2PGqODnYr0AAR5
-	j7kyFbFYpsOLGALeQei2Mg9ZPtbBevz7GEvBzaF4nhfuztKaCNLxQtZwZZ77IVAMQ86ePewSe69
-	Ybb4PHSekcE0TJHfKirc8BsLlDCGY3ptY2xCKUlO0zoIcpU5vDkVqf46rCngwJo5QMsV9Kcgh7P
-	MeGbOG7HSz4lMsRBPCuMWmhjo/NAtAcL1vqNC+ta5wRAKZOaODSWu0oxbKa1P8Ik1zBcXCWXLd4
-	w2EwNvIAMT/07OiB73xunbyKrpX9HM7P8GE6Q==
-x-tm-as-user-approved-sender: No
-x-tm-as-user-blocked-sender: No
-x-tmase-result: 10--25.832600-8.000000
-x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30142.005
-x-tm-snts-smtp: 18072F467839B0DC6294AF6DFF0E55558AB164B94293FB0E214E85B82D4D47FC2000:8
-Content-Type: text/plain; charset="big5"
-Content-Transfer-Encoding: base64
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=transsion.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KL1PR0401MB6196:EE_|SEZPR04MB6432:EE_
+x-ms-office365-filtering-correlation-id: befa3bdb-2ae8-4060-d27d-08defdc990d6
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|366016|921020|38070700021|6133799003|10067099003|56012099006|11063799006|18002099003;
+x-microsoft-antispam-message-info: d8clx7CxpRAa7wDJWB7i0klecT0DiSo22kLcX70H82L7a4gg0NdJrkEtcqUOdNIwosLMHYe0XUNDBVs/NhktiHHwHtj2QkCeGcdpxFPmMls2XC9RBCwVVgm2ajs5N8t3HtkgZnqReAMJZyywnq5d0jTTwIpfpYfFgXawESMmAmNkzzsr1SLWruQ7f4Hk2+gqcd5wZgkTLPFyoTVtNCCeE8rKsrwkPQ31BzI78TZkhXdSB+Qv2V6DOz0VdMRgHa17lQgcC5jTj9HL5zCBF5b+12FstdHYISJnh6p7CPkpw0PGXa7NiXmP1lhk0Cl2/zUOUc/ZeqGsSdNNPinZUEnqGgBuDL/GTGURucPA1mkxl77PohNaXuFesP70S6swapKFVd2aT+VoEQYdsXzIn5yxpnQ3LsSWO7Fc+xKO8LPExZdQnyJ9jem0WSG83F+B83Ie70hWFEGgyqRY6S5LiLULNsU0/NgrnvnHMgYJxhCC26g8jo3Ffv2CpChLMP9NIUSb8FGN4UoTH7QbmzSE6GcDTXLUTUv0qYJu+CzmFq23IlmJzl2eYM4AtOdXj7ysaQh//Mp0+fAhaX5/P+B/UnDJMc/DsuUHCniw6UZr9PnCGl91OYWZ4VOnmhBFmx7mOMf9a6nXAGId+79AyywjQM0dRQPZ9qPDNMbk1vCFkup7X8dmcCn2LhK0EQgWh3hT8/YLc/DSTF3IvXgZTxQ6QS9Hi7dRtqbmxG/nWOWxynlfK9nqP7LJ7uQl5q4OJkn8mwKz
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR0401MB6196.apcprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(366016)(921020)(38070700021)(6133799003)(10067099003)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?Odxo+I8eXOuMeqm5vDHyLaZpOpKBP20/pEIg1Hlaiw95uP2SsGAv55wdQt?=
+ =?iso-8859-1?Q?jlKFqPTVy5IDwLR2OYSi3i5HDYkolIrBk4IzV5padxa9xV7CmWgGu8URpP?=
+ =?iso-8859-1?Q?t7052kutoeHqgA1aYkEDgSOr9KxClnZXitRKRR+QkprYVc4gIlrH1/ZNCk?=
+ =?iso-8859-1?Q?PWgIhgJZrH6hxr3IP8KtAp6xqGQZa2kHkGp5YaobRA4BZAWweUmEYkfnps?=
+ =?iso-8859-1?Q?e4G4RKGWuk0EpcOpebrPROUoK61gfIgZmnXEAOZn/Be+jA6ZFJlcmuB7YW?=
+ =?iso-8859-1?Q?IHhAOyIlG9lDaGCEsjAzhbJo2okmJMaT/au92Emk9cZXd0TBntWM4nr9e/?=
+ =?iso-8859-1?Q?sf9cY8FKxM5zzW473dLU5nEpYwVBsGo+tJ3JCZGdTuguYKFoVKx9oEU2A5?=
+ =?iso-8859-1?Q?0QtCucd1NT3fgyKSuv9fu2+Pdx4mSjVdy31OGxiFA6UpL10WTM7j+dDp/b?=
+ =?iso-8859-1?Q?9/ZXNREcScYt64xbi1xEjpuN47e7D82SiKnJtjhmFsfs3uRiUwvPBKbJF3?=
+ =?iso-8859-1?Q?mrJv9+d3QcVv00QavF1CCPigmkmCgf9IYH11vuj5dUPCsrTXIND7+OlRhz?=
+ =?iso-8859-1?Q?FfaS8JFp8x61NPINL+nUGHSwgFbufz8Jo3X8hDCHT1zaGAJYyrB0ExyNYi?=
+ =?iso-8859-1?Q?XieQwJUVwVfiLk3lRnJ1qY/wJSxGAudDvy7SiUKbBbsqQQMZ4UKJDd9JSa?=
+ =?iso-8859-1?Q?jRRcdwK+jcmnwrAIHSOrQilwj3BY3dshkpd8ZyAHNGG/7XFu70smJyiUQ0?=
+ =?iso-8859-1?Q?wl6VgF0XPmtSI3PsxD4AyhWrZLjZ9y3Dx78c3sYI+/rdc2ReD6y8CZuDob?=
+ =?iso-8859-1?Q?rIbA/ZNPmanTxBfjiYnXwGYg+4a1oUf7KizvVHz1EYrLcYX7qwBHVScYjT?=
+ =?iso-8859-1?Q?xm71PHk7txJvONIV9gS4+3o7pVmN+E1XfBCpGgGtLoyYUF7nWMJyLQW3FA?=
+ =?iso-8859-1?Q?79/iiIGV6/cy+J8cIvFL36LJxWN+7ohTFj1ZXLSxWuVi63fxGEDbR5Sx+O?=
+ =?iso-8859-1?Q?CgRp8osfe3EIn9Rfp6OCs8lfIeoYykDcj/eJI6/F2Hks661vxFFxsHm9Jc?=
+ =?iso-8859-1?Q?+F96FhqTOz2Mr7E9QRx/L2mSacCCzXmyhYRccypaYwrphTw6Ao12OGHnpG?=
+ =?iso-8859-1?Q?k9leOs5rCL3+vknwnr25r1wmEhuTzZeWuAbZVhfIiAuoWc9VMOczjvLA5d?=
+ =?iso-8859-1?Q?o9fL1xPyoS9YqdvmcYrLAhDF2EWkWXdzKt7MqeDDw5YsHHrlIigociDETA?=
+ =?iso-8859-1?Q?VcxU2hKOvjHHzW+1qO5v0xXqOHdJZC8gZDmYK1s+YaZOSbPZiQDCCmemPT?=
+ =?iso-8859-1?Q?YyPVgnGfnO4waCsIpSjtaJWAl5CIaI5T0rthGoLSQafPEU+Ett9d0YB9DL?=
+ =?iso-8859-1?Q?IoNQtJUR1p5vHLr88Dno+vgnpvP/cMgVCiqBhveIsmVDPuolcMCI688H5I?=
+ =?iso-8859-1?Q?anOB5/CIDLviX1uBhb3NKAAB9iCxjzSKFfggywHvZmJnhMBTX3UBtC4CDd?=
+ =?iso-8859-1?Q?Da+6ipEMVhyemyHz3BMqdVt8CqGITjqM7APWVk3aaoDrQuYGn6l1p51MDS?=
+ =?iso-8859-1?Q?Ydm1JUPePZn/y30L0hxz4JkoNuJtWGtUXqXlGWo/d/bc9qiK0dWPuVK9zW?=
+ =?iso-8859-1?Q?vF1L9KW0r3hVibwZFfszwHNF/4GQ0HTZYWJK4quj6tiVgT7dih2DIuMtv2?=
+ =?iso-8859-1?Q?G1gJSCEEQ3v+h99lggXlOS7nuTwplaUm2nWw7DExOEO9wGfl+WuCBitgRP?=
+ =?iso-8859-1?Q?KIfUQxSNSigKdin9PzRYWMxH+/hM+j0Zr9ypkUpWbKuzrhoGTlDaf0uwAr?=
+ =?iso-8859-1?Q?JYyUZT+kVg=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
+X-OriginatorOrg: transsion.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR0401MB6196.apcprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: befa3bdb-2ae8-4060-d27d-08defdc990d6
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Aug 2026 08:12:09.3185
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 2e8503a6-2d01-4333-8e36-6ab7c8cd7ae2
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: hahIfAI68GG4NH7OftBS1CZP1PWA2JXjn6x51ud59dJAgdzNyPwXHPNEGP9iVwarDN/dWZFuGQaIOxQqZF0lS26mGmSBp4GhxB4Us/HB+tE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR04MB6432
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_011014_089848_B6A7DBB0 
-X-CRM114-Status: GOOD (  33.98  )
+X-CRM114-CacheID: sfid-20260819_011229_965118_EB23BF69 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,139 +163,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAxNyBBdWcgMjAyNiBhdCAyMjozNiwgSmFrdWIgS2ljaW5za2kgPGt1YmFAa2VybmVs
-Lm9yZz4gd3JvdGU6DQo+IFtTZXZlcml0eTogTG93XQ0KPiBEb2VzIHRoZSBjb2RlIG1hdGNoIHRo
-aXMgZGVzY3JpcHRpb24/ICBlbnVtIG10a19mc21fc3RhdGUgaW4gdGhlIG5ldw0KPiBtdGtfZnNt
-LmggZGVmaW5lcyBmaXZlIHN0YXRlczoNCi4uLg0KPiBUaGVyZSBpcyBhbHNvIG5vIHN1Yi1zdGF0
-ZSBhbnl3aGVyZTogc3RydWN0IG10a19tZF9mc20gYW5kDQouLi4NCj4gb25seSBldmVyIGFzc2ln
-bnMgZnNtLT5zdGF0ZS4gIFNob3VsZCB0aGUgY291bnQgYW5kIHRoZSBzdWItc3RhdGUNCj4gc2Vu
-dGVuY2UgYmUgdXBkYXRlZD8NCg0KV2lsbCBmaXggaW4gdjcuIFdpbGwgdXBkYXRlIGNvbW1pdCBt
-ZXNzYWdlIHRvIHNheSAiRml2ZSBGU00gc3RhdGVzIg0KYW5kIHJlbW92ZSB0aGUgc3ViLXN0YXRl
-IHNlbnRlbmNlLg0KDQo+IFtTZXZlcml0eTogTG93XQ0KPiBUaGUgY2hhbmdlbG9nIG9ubHkgbWVu
-dGlvbnMgdGhlIEZTTSB0aHJlYWQsIGJ1dCB0aGUgcGF0Y2ggY2FycmllcyBzZXZlcmFsDQo+IG90
-aGVyIGZ1bmN0aW9uYWwgY2hhbmdlcy4gIFdvdWxkIGl0IGhlbHAgcmV2aWV3ZXJzIHRvIHNwbGl0
-IHRoZW0gb3V0IG9yIGF0DQo+IGxlYXN0IG1lbnRpb24gdGhlbT8NCg0KV2lsbCBmaXggaW4gdjcu
-IFdpbGwgZXhwYW5kIHRoZSBjb21taXQgbWVzc2FnZSB0byBtZW50aW9uIHRoZSBIUzEvSFMyL0hT
-Mw0KaGFuZHNoYWtlIHByb3RvY29sLCBDTERNQSBkZXZpY2UgaW5pdC9leGl0IHdpcmluZywgYW5k
-IENMRE1BNCByZW1vdmFsLg0KDQo+IFtTZXZlcml0eTogSGlnaF0NCj4gQ2FuIGEgZmFpbGluZyBv
-cHMtPmluaXQoKSBoZXJlIGxlYWQgdG8gYSBOVUxMIGRlcmVmZXJlbmNlIG9uIHJlbW92YWw/DQou
-Li4NCj4gYW5kIG10a19jdHJsX3RyYl9zcnZfZXhpdCgpIGRvZXM6DQouLi4NCj4gd2l0aCBubyBO
-VUxMIGNoZWNrLg0KDQpXaWxsIGZpeCBpbiB2Ny4gV2lsbCBjaGVjayBvcHMtPmluaXQoKSByZXR1
-cm4gdmFsdWUgaW4NCm10a19jdHJsX3RyYW5zX2ZzbV9zdGF0ZV9oYW5kbGVyKCkgYW5kIGFkZCBO
-VUxMIGNoZWNrIGZvciBzcnYgaW4NCm10a19jdHJsX3RyYl9zcnZfZXhpdCgpIGFzIGRlZmVuc2l2
-ZSBoYXJkZW5pbmcuDQoNCj4gW1NldmVyaXR5OiBIaWdoXQ0KPiBDYW4gdHdvIEhTMiBtZXNzYWdl
-cyByYWNlIG9uIHRoZSBzaW5nbGUgaHNfaW5mby0+cnRfZGF0YSBzbG90Pw0KLi4uDQo+IHNrYjEg
-aXMgbGVha2VkLCBza2IyIGlzIGZyZWVkIGVhcmx5LCBhbmQgZXZlbnQgQiB0aGVuIHJlYWNoZXM6
-DQouLi4NCj4gb24gYSBOVUxMIHBvaW50ZXIuDQoNCldpbGwgZml4IGluIHY3LiBXaWxsIGFkZCBh
-IGd1YXJkIGluIHRoZSBjdHJsX21zZ19oYW5kbGVycyB0byByZWplY3QNCmEgZHVwbGljYXRlIEhT
-MiBpZiBoc19pbmZvLT5ydF9kYXRhIGlzIGFscmVhZHkgc2V0LCBkcm9wcGluZyB0aGUNCmR1cGxp
-Y2F0ZSB3aXRoIGRldl93YXJuLg0KDQo+IFtTZXZlcml0eTogSGlnaF0NCj4gV2hhdCBwcm90ZWN0
-cyB0aGVzZSB0d28gbGlzdCB3YWxrcyBhZ2FpbnN0IGNvbmN1cnJlbnQgdW5yZWdpc3RyYXRpb24/
-DQouLi4NCj4ga2ZyZWUoKSBmcm9tIG90aGVyIHRocmVhZHMuICBUaGVyZSBpcyBubyBtdXRleCwg
-bm8gX3JjdSBsaXN0IHZhcmlhbnQsIG5vDQo+IHN5bmNocm9uaXplX3JjdSgpIGJlZm9yZSB0aGUg
-a2ZyZWUsIGFuZCBubyBiYXJyaWVyLg0KDQpXaWxsIGZpeCBpbiB2Ny4gV2lsbCBhZGQgYSBtdXRl
-eCAoZnNtLT5ub3RpZmllcl9sb2NrKSB0byBwcm90ZWN0IHRoZQ0Kbm90aWZpZXIgbGlzdHMgaW4g
-c3dpdGNoX3N0YXRlLCByZWdpc3RlciwgdW5yZWdpc3RlciwgYW5kIGNsZWFudXAuDQoNCj4gW1Nl
-dmVyaXR5OiBIaWdoXQ0KPiBDYW4gZnNtLT5mc21faGFuZGxlciBiZSBOVUxMIGF0IHRoaXMgd2Fr
-ZV91cF9wcm9jZXNzKCk/DQouLi4NCj4gT24gdGhlIHByb2JlIGVycm9yIHBhdGggKG10a19wY2lf
-ZGV2X2luaXQoKSAtPiBnb3RvIGZyZWVfZnNtDQo+IC0+IG10a19mc21fZXhpdCgpKSBubyBERVZf
-Uk0gaXMgZXZlciBzdWJtaXR0ZWQsIHNvIHRoZSBnYXRlIGlzIG9wZW4sIGFuZA0KLi4uDQo+IG10
-a19mc21fZXhpdCgpIGFsc28gbmV2ZXIgY2xlYXJzIG1kZXYtPmZzbSwgc28gdGhlIHRvcm4tZG93
-biAoZGV2bS1mcmVlZCkNCj4gZnNtIHN0YXlzIHJlYWNoYWJsZSBmcm9tIHRob3NlIGNhbGxiYWNr
-cy4NCg0KV2lsbCBmaXggaW4gdjcuIFdpbGwgbW92ZSB3YWtlX3VwX3Byb2Nlc3MoKSBpbnNpZGUg
-dGhlIGV2dHFfbG9jaw0KY3JpdGljYWwgc2VjdGlvbiB3aXRoIGEgTlVMTCBjaGVjaywgc2V0IEVW
-VF9URl9HQVRFQ0xPU0VEIGluDQptdGtfZnNtX2V4aXQoKSBiZWZvcmUgTlVMTGluZyBmc21faGFu
-ZGxlciwgYW5kIGNsZWFyIG1kZXYtPmZzbS4NCg0KPiBbU2V2ZXJpdHk6IE1lZGl1bV0NCj4gQ2Fu
-IHRoZSBGU00gcmVhY2ggRlNNX1NUQVRFX1JFQURZIHdoZW4gSFMzIHdhcyBuZXZlciBkZWxpdmVy
-ZWQ/DQouLi4NCj4gaHNfZXJyIGV4aXQgZG9lcyBub3QgY2xlYXIgdGhlIGFscmVhZHktY29tbWl0
-dGVkIEZTTV9GXypfSFMyX0RPTkUgYml0Lg0KDQpXaWxsIGZpeCBpbiB2Ny4gV2lsbCBtb3ZlIG10
-a19mc21fc3dpdGNoX3N0YXRlKCkgKHdoaWNoIGNvbW1pdHMNCnRoZSBIUzJfRE9ORSBmbGFnKSB0
-byBhZnRlciBtdGtfZnNtX3NlbmRfaHMzX21zZygpIHN1Y2NlZWRzLg0KDQo+IFtTZXZlcml0eTog
-TWVkaXVtXQ0KPiBJcyB0aGVyZSBhIHdheSBiYWNrIGlmIHRoZSBxdWV1ZWQgc3RhcnR1cCBhY3Rp
-b24gbGF0ZXIgZmFpbHM/DQouLi4NCj4gcGF0aCBvbmx5IGxvZ3M7IHRoZSBjaGFubmVsIHN0YXlz
-IG1hc2tlZCBhbmQgbm8gcmV0cnkgaXMgc2NoZWR1bGVkLCBzbyB0aGUNCj4gRlNNIHN0YXlzIGlu
-IEZTTV9TVEFURV9CT09UVVAuDQoNCldpbGwgZml4IGluIHY3LiBXaWxsIHVubWFzayB0aGUgaGFu
-ZHNoYWtlIGNoYW5uZWxzIGluIHRoZSBoc19lcnINCnBhdGggc28gdGhlIG1vZGVtIGNhbiByZS10
-cmlnZ2VyIEhTMS4NCg0KPiBbU2V2ZXJpdHk6IE1lZGl1bV0NCj4gV2hhdCBoYXBwZW5zIHRvIHRo
-ZSBRVUVVRV9FUlJPUiBiaXRzIHRoYXQgZ2V0IG1hc2tlZCBidXQgbmV2ZXIgaGFuZGxlZD8NCi4u
-Lg0KPiBTbyB0aGUgZmlyc3QgcXVldWUgZXJyb3IgcGVybWFuZW50bHkgZGlzYXJtcyBlcnJvciBy
-ZXBvcnRpbmcsIGxlYXZlcyB0aGUNCj4gYml0IGxhdGNoZWQgaW4gTDJUSVNBUjAvTDJSSVNBUjAs
-IGFuZCBsZWF2ZXMgdGhlIGhhbHRlZCBxdWV1ZSB3aXRoIG5vIGxvZywNCj4gbm8gcXVldWUgcmVz
-ZXQgYW5kIG5vIEdQRC9IV08gcmVjb3ZlcnkuDQoNCldpbGwgZml4IGluIHY3LiBXaWxsIGV4dHJh
-Y3QgYW5kIGhhbmRsZSBRVUVVRV9FUlJPUiBiaXRzIGluDQptdGtfY2xkbWFfaXNyKCk6IGxvZyBk
-ZXZfZXJyLCBjbGVhciB0aGUgZXJyb3IgYml0cywgYW5kIHJlLXVubWFzay4NCkZ1bGwgcXVldWUg
-cmVjb3Zlcnkgd2lsbCBiZSBhIGZvbGxvdy11cCBpZiBuZWVkZWQuDQoNCj4gW1NldmVyaXR5OiBI
-aWdoXQ0KPiBJcyB0aGUgaW5pdGlhbCBtYXNrIHBsdXMgc3luY2hyb25pemVfaXJxKCkgZW5vdWdo
-IHRvIGtlZXAgdGhlIElTUiBhd2F5DQo+IGZyb20gdGhlIGZyZWVkIGRydl9pbmZvPw0KLi4uDQo+
-IHNvIGFuIElTUiB0aGF0IHdhcyBhbHJlYWR5IHJ1bm5pbmcgd2hlbiB0aGUgdmVjdG9yIHdhcyBt
-YXNrZWQgdW5tYXNrcyBpdA0KPiBhZ2FpbiBiZWZvcmUgcmV0dXJuaW5nLCBhbmQgc3luY2hyb25p
-emVfaXJxKCkgb25seSB3YWl0cyBmb3IgdGhhdCBJU1IgdG8NCj4gZmluaXNoLg0KDQpXaWxsIGZp
-eCBpbiB2Ny4gV2lsbCByZW9yZGVyIG10a19jbGRtYV9kZXZfZXhpdCgpIHRvIHVucmVnaXN0ZXIg
-dGhlDQpJUlEgY2FsbGJhY2sgZmlyc3QsIHRoZW4gbWFzayArIHN5bmNocm9uaXplX2lycSwgdGhl
-biBmcmVlIHJlc291cmNlcy4NCldpbGwgYWxzbyBhZGQgYSBOVUxMIGNhbGxiYWNrIGNoZWNrIGlu
-IG10a19wY2lfaXJxX2hhbmRsZXIoKS4NCg0KPiBbU2V2ZXJpdHk6IEhpZ2hdDQo+IEFyZSB0aGUg
-VFJCIHNlcnZpY2UgdGhyZWFkcyBndWFyYW50ZWVkIHRvIGJlIHN0b3BwZWQgYmVmb3JlIHRoaXMg
-cnVucz8NCi4uLg0KPiBJbiBtdGtfY3RybF90cmFuc19mc21fc3RhdGVfaGFuZGxlcigpLCB0aGUg
-RlNNX1NUQVRFX09GRiBhcm0gY2FsbHMNCj4gZnNtX2luZGljYXRpb24oKSAod2hpY2ggbGFuZHMg
-aGVyZSBhbmQgdGVhcnMgZG93biBldmVyeSBDTERNQSBoaWYpDQo+IGJlZm9yZSBvcHMtPmV4aXQo
-KSwgYW5kIGl0IGlzIG9wcy0+ZXhpdCgpIC0+IG10a19wY2llX2hpZl9leGl0KCkgdGhhdA0KPiBj
-bGVhcnMgdHJhbnMtPmF2YWlsYWJsZSBhbmQgc3RvcHMgdGhlIFRSQiBrdGhyZWFkcy4NCg0KV2ls
-bCBmaXggaW4gdjcuIFdpbGwgc3dhcCB0aGUgb3JkZXJpbmcgaW4gRlNNX1NUQVRFX09GRjogY2Fs
-bA0Kb3BzLT5leGl0KCkgKHN0b3AgVFJCIHRocmVhZHMpIGJlZm9yZSBmc21faW5kaWNhdGlvbigp
-IChmcmVlIENMRE1BKS4NCldpbGwgYWxzbyBzd2FwIGtmcmVlL05VTEwgYXNzaWdubWVudCBvcmRl
-ciBpbiBtdGtfY2xkbWFfZGV2X2V4aXQoKS4NCg0KPiBbU2V2ZXJpdHk6IEhpZ2hdDQo+IFdoYXQg
-aGFwcGVucyBoZXJlIHdoZW4gdGhlIGJsb2NraW5nIHJlbW92YWwgZXZlbnQgZG9lcyBub3QgY29t
-cGxldGU/DQouLi4NCj4gdGhlIHJlc3VsdCBpcyBkaXNjYXJkZWQuICBJbiB0aGF0IGNhc2UgdGhl
-IEZTTV9TVEFURV9PRkYgbm90aWZpZXIgY2hhaW4NCj4gbmV2ZXIgcnVucywgc28gY3RybF9ibGst
-Pm9wcy0+ZXhpdCgpID0gbXRrX3BjaWVfaGlmX2V4aXQoKSBpcyBuZXZlcg0KPiBjYWxsZWQ6IHRo
-ZSBDTERNQSBJUlEgY2FsbGJhY2sgc3RheXMgcmVnaXN0ZXJlZCwgdGhlIENMRE1BIHdvcmtxdWV1
-ZSBhbmQNCj4gRE1BIHBvb2xzIHN0YXkgYWxpdmUsIHRoZSBUUkIgc2VydmljZSBrdGhyZWFkcyBr
-ZWVwIHJ1bm5pbmcgYW5kDQo+IHRyYW5zLT5hdmFpbGFibGUgc3RheXMgMS4NCg0KV2lsbCBmaXgg
-aW4gdjcuIFdpbGwgY2hlY2sgREVWX1JNIHJldHVybiB2YWx1ZSBpbiBtdGtfcGNpX2Rldl9leGl0
-KCkuDQpPbiBmYWlsdXJlIChremFsbG9jIGZhaWwgb3IgdGltZW91dCksIGZhbGwgYmFjayB0byBk
-aXJlY3QgY2xlYW51cA0Kb2YgSElGIHJlc291cmNlcyBiZWZvcmUgcHJvY2VlZGluZyB3aXRoIHRl
-YXJkb3duLg0KDQo+IFtTZXZlcml0eTogTWVkaXVtXQ0KPiBTaG91bGQgdGhlc2UgdHdvIHJldHVy
-biB2YWx1ZXMgYmUgcHJvcGFnYXRlZD8gIG10a19wY2lfZGV2X3N0YXJ0KCkgaXMNCi4uLg0KPiBi
-dXQgYm90aCBjYWxscyBhcmUgZGlzY2FyZGVkIGFuZCAwIGlzIHJldHVybmVkIHVuY29uZGl0aW9u
-YWxseS4NCg0KV2lsbCBmaXggaW4gdjcuIFdpbGwgcHJvcGFnYXRlIHJldHVybiB2YWx1ZXMgb2Yg
-bXRrX2ZzbV9ldnRfc3VibWl0KCkNCmFuZCBtdGtfZnNtX3N0YXJ0KCkgZnJvbSBtdGtfcGNpX2Rl
-dl9zdGFydCgpLg0KDQo+IFtTZXZlcml0eTogTWVkaXVtXQ0KPiBTaG91bGQgdGhlc2UgcmVnaXN0
-cmF0aW9ucyBiZSBjaGVja2VkPyAgbXRrX2Rldl9yZWdpc3Rlcl9kZXZfZXZ0KCkgcmVhY2hlcw0K
-Li4uDQo+IEhlcmUgdGhlIHJldHVybiB2YWx1ZSBpcyBkcm9wcGVkLCBhbmQgdGhlIHR3byBwZXIt
-aGFuZHNoYWtlLWNoYW5uZWwNCj4gcmVnaXN0cmF0aW9ucyBpbnNpZGUgdGhlIHZvaWQgbXRrX2Zz
-bV9oc19pbmZvX2luaXQoKSBjYW5ub3QgcmVwb3J0IGZhaWx1cmUNCj4gYXQgYWxsLg0KDQpXaWxs
-IGZpeCBpbiB2Ny4gV2lsbCBjaGVjayByZXR1cm4gdmFsdWVzIG9mIG10a19kZXZfcmVnaXN0ZXJf
-ZGV2X2V2dCgpDQppbiBtdGtfZnNtX2luaXQoKSBhbmQgbWFrZSBtdGtfZnNtX2hzX2luZm9faW5p
-dCgpIHJldHVybiBpbnQgc28gaXQNCmNhbiBwcm9wYWdhdGUgcmVnaXN0cmF0aW9uIGZhaWx1cmVz
-Lg0KDQo+IFtTZXZlcml0eTogTG93XQ0KPiBTaG91bGQgdGhpcyBsb29wIGtleSBvZmYgcnRmdF9l
-bnRyeS0+ZmVhdHVyZV9pZCBpbnN0ZWFkIG9mIHRoZSBsb29wIGluZGV4Pw0KLi4uDQo+IEhlcmUg
-dGhlIHJlY2VpdmVkIGVudHJ5J3MgZmVhdHVyZV9pZCBpcyBuZXZlciByZWFkLCBzbyB0aGUgcGFy
-c2VyIGFzc3VtZXMNCj4gdGhlIGRldmljZSByZXR1cm5zIGV4YWN0bHkgRkVBVFVSRV9DTlQgZW50
-cmllcyBpbiBkZW5zZSBhc2NlbmRpbmcgb3JkZXIuDQoNClRoZSBsb29wIGludGVudGlvbmFsbHkg
-dXNlcyB0aGUgaW5kZXggcmF0aGVyIHRoYW4gcnRmdF9lbnRyeS0+ZmVhdHVyZV9pZA0KZm9yIGRp
-c3BhdGNoLiBUaGUgcHJvdG9jb2wgY29udHJhY3QgcmVxdWlyZXMgdGhlIGRldmljZSB0byByZXR1
-cm4gZXhhY3RseQ0KRkVBVFVSRV9DTlQgZW50cmllcyBpbiBkZW5zZSBhc2NlbmRpbmcgb3JkZXIs
-IGVuZm9yY2VkIGJ5IHRoZSBjaGVjayBhZnRlcg0KdGhlIGxvb3A6DQoNCiAgaWYgKGZ0X2lkICE9
-IEZFQVRVUkVfQ05UKSB7DQogICAgICBkZXZfZXJyKC4uLiwgIlVuYWJsZSB0byBoYW5kbGUgbWlz
-dGFrZSBoczIgbXNnLCBmdF9pZD0lZFxuIiwgZnRfaWQpOw0KICAgICAgcmV0dXJuIC1FUFJPVE87
-DQogIH0NCg0KVGhlIHJlYXNvbiB0aGlzIGNoZWNrIGNhbm5vdCBiZSBtb3ZlZCBiZWZvcmUgdGhl
-IGxvb3AgaXMgdGhhdA0KcnVudGltZV9mZWF0dXJlX2VudHJ5IGlzIHZhcmlhYmxlLWxlbmd0aCCh
-WCBlYWNoIGVudHJ5IGNhcnJpZXMgYSBkYXRhX2xlbg0KZmllbGQgZm9sbG93ZWQgYnkgYW4gaW5s
-aW5lIHBheWxvYWQsIHNvIHRoZSBudW1iZXIgb2YgZW50cmllcyBjYW4gb25seSBiZQ0KZGV0ZXJt
-aW5lZCBieSB0cmF2ZXJzaW5nIHRoZSBidWZmZXIuIElmIHRoZSBkZXZpY2Ugb21pdHMgb3IgcmVv
-cmRlcnMNCmVudHJpZXMsIGZ0X2lkIHdpbGwgZmFsbCBzaG9ydCBvZiBGRUFUVVJFX0NOVCBhbmQg
-dGhlIGVudGlyZSBIUzIgaXMNCnJlamVjdGVkIGFzIGEgaGFyZCBwcm90b2NvbCBlcnJvci4gVGhl
-cmUgaXMgbm8gcGFydGlhbC1tYXRjaCBwYXRoLiBUaGUNCmZlYXR1cmVfaWQgZmllbGQgZXhpc3Rz
-IGluIHRoZSB3aXJlIHN0cnVjdCBhcyBhIG1hcmtlciBidXQgaXMgbm90IHVzZWQgYXMNCmEgZGlz
-cGF0Y2gga2V5IGJ5IGRlc2lnbiwgdG8gcHJldmVudCBhIG1pc2JlaGF2aW5nIGRldmljZSBmcm9t
-DQpyZWRpcmVjdGluZyBpdHMgcmVzcG9uc2UgdG8gYW4gdW5pbnRlbmRlZCBoYW5kbGVyLg0KDQo+
-IFtTZXZlcml0eTogTWVkaXVtXQ0KPiBJcyBhIG1pbmltdW0gbGVuZ3RoIGNoZWNrIG1pc3Npbmcg
-aGVyZT8gIE9ubHkgYW4gdXBwZXIgYm91bmQgb24gZGF0YV9sZW4NCj4gaXMgYXBwbGllZCwgc28g
-ZGF0YV9sZW4gPT0gMCBpcyBhY2NlcHRlZCBhbmQgcGFzc2VkIHRvDQo+IG10a19wb3J0X3N0YXR1
-c191cGRhdGUoKSwgd2hpY2ggZGVyZWZlcmVuY2VzIHRoZSAxMi1ieXRlDQo+IHN0cnVjdCBtdGtf
-cG9ydF9lbnVtX21zZyBoZWFkZXIgYmVmb3JlIHZhbGlkYXRpbmcgdGhlIGxlbmd0aDoNCg0KV2ls
-bCBmaXggaW4gdjcuIFdpbGwgYWRkIGEgZGF0YV9sZW4gPT0gMCBjaGVjayBiZWZvcmUgY2FsbGlu
-ZyB0aGUNCmhhbmRsZXIsIGFuZCBtb3ZlIHRoZSBzaXplb2YoKm1zZykgbGVuZ3RoIGNoZWNrIGlu
-DQptdGtfcG9ydF9zdGF0dXNfdXBkYXRlKCkgYmVmb3JlIHRoZSBoZWFkZXIgZGVyZWZlcmVuY2Uu
-DQoNClRoYW5rcy4NCi0tDQpKYWNr
+From: Hongyan Xia <hongyan.xia@transsion.com>=0A=
+=0A=
+paravirt_steal_rq_enabled and paravirt_steal_enabled use raw static_key=0A=
+APIs which are now deprecated. Use the new API instead.=0A=
+=0A=
+No functional change.=0A=
+=0A=
+Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>=0A=
+Acked-by: Juergen Gross <jgross@suse.com>=0A=
+---=0A=
+Changed in RESEND:=0A=
+- Separate the original series into individual patches. They aren't easy=0A=
+  to review as a series.=0A=
+=0A=
+ arch/arm64/kernel/paravirt.c           | 4 ++--=0A=
+ arch/loongarch/kernel/paravirt.c       | 4 ++--=0A=
+ arch/powerpc/platforms/pseries/setup.c | 4 ++--=0A=
+ arch/riscv/kernel/paravirt.c           | 4 ++--=0A=
+ arch/x86/kernel/cpu/vmware.c           | 4 ++--=0A=
+ arch/x86/kernel/kvm.c                  | 4 ++--=0A=
+ drivers/xen/time.c                     | 4 ++--=0A=
+ include/linux/sched/cputime.h          | 6 +++---=0A=
+ kernel/sched/core.c                    | 4 ++--=0A=
+ kernel/sched/cputime.c                 | 4 ++--=0A=
+ 10 files changed, 21 insertions(+), 21 deletions(-)=0A=
+=0A=
+diff --git a/arch/arm64/kernel/paravirt.c b/arch/arm64/kernel/paravirt.c=0A=
+index 572efb96b23f..30bf61d031eb 100644=0A=
+--- a/arch/arm64/kernel/paravirt.c=0A=
++++ b/arch/arm64/kernel/paravirt.c=0A=
+@@ -157,9 +157,9 @@ int __init pv_time_init(void)=0A=
+ =0A=
+ 	static_call_update(pv_steal_clock, para_steal_clock);=0A=
+ =0A=
+-	static_key_slow_inc(&paravirt_steal_enabled);=0A=
++	static_branch_inc(&paravirt_steal_enabled);=0A=
+ 	if (steal_acc)=0A=
+-		static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
++		static_branch_inc(&paravirt_steal_rq_enabled);=0A=
+ =0A=
+ 	pr_info("using stolen time PV\n");=0A=
+ =0A=
+diff --git a/arch/loongarch/kernel/paravirt.c b/arch/loongarch/kernel/parav=
+irt.c=0A=
+index 10821cce554c..e8965a3f8082 100644=0A=
+--- a/arch/loongarch/kernel/paravirt.c=0A=
++++ b/arch/loongarch/kernel/paravirt.c=0A=
+@@ -308,10 +308,10 @@ int __init pv_time_init(void)=0A=
+ =0A=
+ 	static_call_update(pv_steal_clock, paravt_steal_clock);=0A=
+ =0A=
+-	static_key_slow_inc(&paravirt_steal_enabled);=0A=
++	static_branch_inc(&paravirt_steal_enabled);=0A=
+ #ifdef CONFIG_PARAVIRT_TIME_ACCOUNTING=0A=
+ 	if (steal_acc)=0A=
+-		static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
++		static_branch_inc(&paravirt_steal_rq_enabled);=0A=
+ #endif=0A=
+ =0A=
+ 	if (static_key_enabled(&virt_preempt_key))=0A=
+diff --git a/arch/powerpc/platforms/pseries/setup.c b/arch/powerpc/platform=
+s/pseries/setup.c=0A=
+index 1223dc961242..8dcbc4bb7025 100644=0A=
+--- a/arch/powerpc/platforms/pseries/setup.c=0A=
++++ b/arch/powerpc/platforms/pseries/setup.c=0A=
+@@ -852,9 +852,9 @@ static void __init pSeries_setup_arch(void)=0A=
+ 			static_branch_enable(&shared_processor);=0A=
+ 			pv_spinlocks_init();=0A=
+ #ifdef CONFIG_PARAVIRT_TIME_ACCOUNTING=0A=
+-			static_key_slow_inc(&paravirt_steal_enabled);=0A=
++			static_branch_inc(&paravirt_steal_enabled);=0A=
+ 			if (steal_acc)=0A=
+-				static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
++				static_branch_inc(&paravirt_steal_rq_enabled);=0A=
+ #endif=0A=
+ 		}=0A=
+ =0A=
+diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c=0A=
+index 5f56be79cd06..9c13a6f1ea2a 100644=0A=
+--- a/arch/riscv/kernel/paravirt.c=0A=
++++ b/arch/riscv/kernel/paravirt.c=0A=
+@@ -116,9 +116,9 @@ int __init pv_time_init(void)=0A=
+ =0A=
+ 	static_call_update(pv_steal_clock, pv_time_steal_clock);=0A=
+ =0A=
+-	static_key_slow_inc(&paravirt_steal_enabled);=0A=
++	static_branch_inc(&paravirt_steal_enabled);=0A=
+ 	if (steal_acc)=0A=
+-		static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
++		static_branch_inc(&paravirt_steal_rq_enabled);=0A=
+ =0A=
+ 	pr_info("Computing paravirt steal-time\n");=0A=
+ =0A=
+diff --git a/arch/x86/kernel/cpu/vmware.c b/arch/x86/kernel/cpu/vmware.c=0A=
+index 34b73573b108..f7ab9e7902cf 100644=0A=
+--- a/arch/x86/kernel/cpu/vmware.c=0A=
++++ b/arch/x86/kernel/cpu/vmware.c=0A=
+@@ -328,9 +328,9 @@ static int vmware_cpu_down_prepare(unsigned int cpu)=0A=
+ static __init int activate_jump_labels(void)=0A=
+ {=0A=
+ 	if (has_steal_clock) {=0A=
+-		static_key_slow_inc(&paravirt_steal_enabled);=0A=
++		static_branch_inc(&paravirt_steal_enabled);=0A=
+ 		if (steal_acc)=0A=
+-			static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
++			static_branch_inc(&paravirt_steal_rq_enabled);=0A=
+ 	}=0A=
+ =0A=
+ 	return 0;=0A=
+diff --git a/arch/x86/kernel/kvm.c b/arch/x86/kernel/kvm.c=0A=
+index dcef84da304b..d3dcd64f22c2 100644=0A=
+--- a/arch/x86/kernel/kvm.c=0A=
++++ b/arch/x86/kernel/kvm.c=0A=
+@@ -1052,9 +1052,9 @@ const __initconst struct hypervisor_x86 x86_hyper_kvm=
+ =3D {=0A=
+ static __init int activate_jump_labels(void)=0A=
+ {=0A=
+ 	if (has_steal_clock) {=0A=
+-		static_key_slow_inc(&paravirt_steal_enabled);=0A=
++		static_branch_inc(&paravirt_steal_enabled);=0A=
+ 		if (steal_acc)=0A=
+-			static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
++			static_branch_inc(&paravirt_steal_rq_enabled);=0A=
+ 	}=0A=
+ =0A=
+ 	return 0;=0A=
+diff --git a/drivers/xen/time.c b/drivers/xen/time.c=0A=
+index a2be0a4d45b0..a02d48a2aa68 100644=0A=
+--- a/drivers/xen/time.c=0A=
++++ b/drivers/xen/time.c=0A=
+@@ -169,7 +169,7 @@ void __init xen_time_setup_guest(void)=0A=
+ =0A=
+ 	static_call_update(pv_steal_clock, xen_steal_clock);=0A=
+ =0A=
+-	static_key_slow_inc(&paravirt_steal_enabled);=0A=
++	static_branch_inc(&paravirt_steal_enabled);=0A=
+ 	if (xen_runstate_remote)=0A=
+-		static_key_slow_inc(&paravirt_steal_rq_enabled);=0A=
++		static_branch_inc(&paravirt_steal_rq_enabled);=0A=
+ }=0A=
+diff --git a/include/linux/sched/cputime.h b/include/linux/sched/cputime.h=
+=0A=
+index e90efaf6d26e..694126411dfe 100644=0A=
+--- a/include/linux/sched/cputime.h=0A=
++++ b/include/linux/sched/cputime.h=0A=
+@@ -182,9 +182,9 @@ extern unsigned long long=0A=
+ task_sched_runtime(struct task_struct *task);=0A=
+ =0A=
+ #ifdef CONFIG_PARAVIRT=0A=
+-struct static_key;=0A=
+-extern struct static_key paravirt_steal_enabled;=0A=
+-extern struct static_key paravirt_steal_rq_enabled;=0A=
++#include <linux/jump_label.h>=0A=
++DECLARE_STATIC_KEY_FALSE(paravirt_steal_enabled);=0A=
++DECLARE_STATIC_KEY_FALSE(paravirt_steal_rq_enabled);=0A=
+ =0A=
+ #ifdef CONFIG_HAVE_PV_STEAL_CLOCK_GEN=0A=
+ u64 dummy_steal_clock(int cpu);=0A=
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c=0A=
+index 5c07d53e43b5..84d090581a08 100644=0A=
+--- a/kernel/sched/core.c=0A=
++++ b/kernel/sched/core.c=0A=
+@@ -795,7 +795,7 @@ struct rq *_task_rq_lock(struct task_struct *p, struct =
+rq_flags *rf)=0A=
+ =0A=
+ /* Use CONFIG_PARAVIRT as this will avoid more #ifdef in arch code. */=0A=
+ #ifdef CONFIG_PARAVIRT=0A=
+-struct static_key paravirt_steal_rq_enabled;=0A=
++DEFINE_STATIC_KEY_FALSE(paravirt_steal_rq_enabled);=0A=
+ #endif=0A=
+ =0A=
+ static void update_rq_clock_task(struct rq *rq, s64 delta)=0A=
+@@ -834,7 +834,7 @@ static void update_rq_clock_task(struct rq *rq, s64 del=
+ta)=0A=
+ 	}=0A=
+ #endif=0A=
+ #ifdef CONFIG_PARAVIRT_TIME_ACCOUNTING=0A=
+-	if (static_key_false((&paravirt_steal_rq_enabled))) {=0A=
++	if (static_branch_unlikely(&paravirt_steal_rq_enabled)) {=0A=
+ 		u64 prev_steal;=0A=
+ =0A=
+ 		steal =3D prev_steal =3D paravirt_steal_clock(cpu_of(rq));=0A=
+diff --git a/kernel/sched/cputime.c b/kernel/sched/cputime.c=0A=
+index 06bddaa738e5..f16970ca81d0 100644=0A=
+--- a/kernel/sched/cputime.c=0A=
++++ b/kernel/sched/cputime.c=0A=
+@@ -255,7 +255,7 @@ void __account_forceidle_time(struct task_struct *p, u6=
+4 delta)=0A=
+  * occasion account more time than the calling functions think elapsed.=0A=
+  */=0A=
+ #ifdef CONFIG_PARAVIRT=0A=
+-struct static_key paravirt_steal_enabled;=0A=
++DEFINE_STATIC_KEY_FALSE(paravirt_steal_enabled);=0A=
+ =0A=
+ #ifdef CONFIG_HAVE_PV_STEAL_CLOCK_GEN=0A=
+ static u64 native_steal_clock(int cpu)=0A=
+@@ -270,7 +270,7 @@ DEFINE_STATIC_CALL(pv_steal_clock, native_steal_clock);=
+=0A=
+ static __always_inline u64 steal_account_process_time(u64 maxtime)=0A=
+ {=0A=
+ #ifdef CONFIG_PARAVIRT=0A=
+-	if (static_key_false(&paravirt_steal_enabled)) {=0A=
++	if (static_branch_unlikely(&paravirt_steal_enabled)) {=0A=
+ 		u64 steal;=0A=
+ =0A=
+ 		steal =3D paravirt_steal_clock(smp_processor_id());=0A=
+-- =0A=
+2.47.3=0A=
+=0A=
 
