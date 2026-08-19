@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B10C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 00:35:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6D68C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 00:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KHW9hDlHcLP0Imdf6E94b8UU85HwGySJstnRAf/EN7o=; b=Zy20NdmAj0vyEbTQJEYcB0egWY
-	1FqZyUW/dSocSStupI76zw9pwrk1aLpQCoRid+OPHusFqvUwrzaeT1KY887rL/tpdoPbk1BWsz7o+
-	ssE6Bm5/2Oxmh6fbykqxKWVa69tdwq2IyQA+JBBpgyNZlBoFLHG4eW3jcfMt4IVi9pWOhgFLgjF1F
-	UzpB1qLzvhILE1F8yT5ipR0GDEezeNJ4GBatgYxo/z9S4Ii+idt05AVkSnFr+Jfa9RT6cbdwnUME2
-	qkwQeZK+irpdPjpdzadarQp7y9RNByO07hfZ5ULIy0P7Rmj82VK0hlijMJKwhd3AXPnSogDpoIQfW
-	tGvzf2kg==;
+	bh=APvgxVJnU1X7sj6Yc2typUpskInkjjdo8wcnDUVeQ8E=; b=k1MYjkUNu8G+QZaYERw38e0Fvv
+	Dm/20jYRXy6cm4JYak3Kljqrlf0+VXQcsanvy+NF0TieCrWDhO81eJCUUITUxy0ECYO0zH1LEB0KW
+	NAxdNqEIynJJXqffR6D47Z24/h1WI0M4ZnhzgJT3hctFdGLPgMzeMfXHGYuxG82b0xDx4FKxC+1Ev
+	ixbrjj5ZEVrLeg0ra8T8bd++MEBA29cI6e9pEQd61qaZC/9fbbxMEQfotp150IaUG4IHawqUI8gZv
+	27uiRslvAhb+HwB/VcvAcFA2VtsgnZgflsUpmuWEE5cEC2lzc8LnEJ5jj3TRRSYy12dH3KFf44SXg
+	6SUrzprw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwUGf-00000008nqz-233j;
-	Wed, 19 Aug 2026 00:34:57 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wwUH4-00000008ntw-2bUW;
+	Wed, 19 Aug 2026 00:35:22 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwUGc-00000008nqP-0iSb
+	id 1wwUH2-00000008ntM-1dUo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 00:34:56 +0000
+	Wed, 19 Aug 2026 00:35:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ProqmdIF1M1hC0d2voaAFIzQNtPfvZxPKe2mPLBv6C6YPgigsURPxz44/J4sc8opMFNfPm3ytLtAoO6e9h9e22vniT8jObmzcIHj8V44UYg8mVK2zSmwUX24cSPDaVOQcPfoipIdFZBO0cmagtyap7bjti2jRkgXvgAu/MOV/LLn5injtjNoqqruVDZ/wl1vPr0FHueJwB9Zdh0KQ0sS+Mj2ioeKevwx/oK9UjncavkgmpYXK5fkNti9+mAkRVRJ77SGYRONkc90/ihvYx5z9MSf/qFma3miMh0zCGGiA99dQeyooAzaFHw1w8vLIFhnbJBzEKamTWQVOWXXpai5Dw==
+ b=cfXqRgw6RebDTJ3g4wWuTdkK+04C5koyTZqFU9I0FLeWlYE21m3CsDDYskVdOR4kS5xnVR6YuX6vy+raP+ksT3ZbvERMGb6H+3GRfqI+ePXryXTjuhXIDGyJQ0lfSY+Jt3qxbymNFRP8pFKbPEsAm1a9OyVK35j+DUGSIy5hViJvQSdia2ng1dfYkTftkPbIuLMQdTZ28gKlP+O9EtZmwj4NhUu+rZ7lNa3KLOyO8pd8ShzGJya136OXUUUn9a7PDgCd7iRZmGrLlNMmeJs+Ec10dQrwxC7EQ8Y68GwXOaFMCMkDJ8UmqM5mTfHyYHrAHaFfxeEuSvKsiyMEwAScyw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KHW9hDlHcLP0Imdf6E94b8UU85HwGySJstnRAf/EN7o=;
- b=I8tkPXTX8lZbN57uwhszn1JUSy2CO99QBc/KqVrshNCMkzVmadoMlXj15utytfTWasAxSID4SGXoAPaZPU5+FK1drtxBBSmeraVd/V3BBRECvf+Xnj6LZWzE5W6JNa0gVASehuz4g0aaHcHIiD6EsAr6P0+kM8abTGxgBrvh4DRHc44QjY9NgXlqEg8rIPO1ZBkbEce6OoO/8eQrjS8A94Bdxi4fCYhc+I3ZNRuzX9eHYYhFGiKR+RLmaIpiUw2zUJ/YW81CHJi+KF1HORL4Tfl3gJtVkKuz7lTyyLqeUHH2zBDug+s3MwEjKAot+fTNoooxoDkQS5hIgpw682TbRg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
+ bh=APvgxVJnU1X7sj6Yc2typUpskInkjjdo8wcnDUVeQ8E=;
+ b=aTcOxBMrJtO5Y2JIE1iFcupilH4f8OFr8L+n/Fa5fsw2iMt57n5rysAfofcNuaXz/okfKoAWRgbNhkBCGcXK/mDxzeI/c/Yde00jeAB+xpmYAItZM7zAHZxDjuu0La4sV4BeDeKTBNdU7kvVPuocCsYpbI3w9vdjCNUdUPVwtjmYfEzX8fDS96ME3dK4Hv4CIEZTZA7mJkuBJzz7pUy8my7ALHbpR3vT0qlHkGusx//KNlS73SD5Qc0Veg7aSTqYnFs5PixpQY2bGnCgk5FMpj8FRz9drgZOcdaX1ZqGtSuPcynR4+IzwbsRwT1k9UnpwHpTHUYWARgKIguwkL58Hw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=temperror (sender ip
+ is 165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com;
+ dmarc=temperror action=none header.from=amd.com; dkim=none (message not
+ signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KHW9hDlHcLP0Imdf6E94b8UU85HwGySJstnRAf/EN7o=;
- b=d/gsZpxpCHuTwSA/3oSQ8F8Vm39eKrnXRmAsZCuy/lH1zwGp/BRC6AzuBumk6kSOoCjy0hOgVSLtSbiU/cYrGG3GI7BqL2mYSIhtyYlhV9Y/BDC587SlDJa3ACRrpE+HliSdFMqJUPTsiCZZuabPF439cw+8VkylVcFdRgO54Bg=
-Received: from CY5PR15CA0182.namprd15.prod.outlook.com (2603:10b6:930:81::26)
- by PH8PR12MB6964.namprd12.prod.outlook.com (2603:10b6:510:1bf::13) with
+ bh=APvgxVJnU1X7sj6Yc2typUpskInkjjdo8wcnDUVeQ8E=;
+ b=ru8HcdidKg1OJLr6WwhYUwQdaM9/YcadPjKni3WYP4LA/rbLo+QbUhoGNBBF7gJxq9xDcPT0mrEcOHUsAMQmGwPVHkH5SGuhQkzGh6R6TQpf8p284nTvNeNhKApSxhhpbDaE0W/DnoUcSuu0no8syjRKrEEn8lwyhxDmb+iLbfc=
+Received: from PH0PR07CA0085.namprd07.prod.outlook.com (2603:10b6:510:f::30)
+ by PH8PR12MB6769.namprd12.prod.outlook.com (2603:10b6:510:1c4::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Wed, 19 Aug
- 2026 00:34:45 +0000
-Received: from CY4PEPF0000E9D2.namprd03.prod.outlook.com
- (2603:10b6:930:81:cafe::67) by CY5PR15CA0182.outlook.office365.com
- (2603:10b6:930:81::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.11; Wed, 19 Aug
+ 2026 00:35:08 +0000
+Received: from CY4PEPF0000E9D3.namprd03.prod.outlook.com
+ (2603:10b6:510:f:cafe::32) by PH0PR07CA0085.outlook.office365.com
+ (2603:10b6:510:f::30) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.8 via Frontend Transport; Wed, 19
- Aug 2026 00:34:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+ Aug 2026 00:35:08 +0000
+X-MS-Exchange-Authentication-Results: spf=temperror (sender IP is
+ 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=temperror action=none header.from=amd.com;
+Received-SPF: TempError (protection.outlook.com: error in processing during
+ lookup of amd.com: DNS Timeout)
 Received: from satlexmb07.amd.com (165.204.84.17) by
- CY4PEPF0000E9D2.mail.protection.outlook.com (10.167.241.137) with Microsoft
+ CY4PEPF0000E9D3.mail.protection.outlook.com (10.167.241.138) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Wed, 19 Aug 2026 00:34:44 +0000
+ 15.21.339.3 via Frontend Transport; Wed, 19 Aug 2026 00:35:07 +0000
 Received: from localhost (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 18 Aug
- 2026 19:34:43 -0500
-Date: Tue, 18 Aug 2026 19:11:06 -0500
+ 2026 19:35:04 -0500
+Date: Tue, 18 Aug 2026 19:23:23 -0500
 From: Michael Roth <michael.roth@amd.com>
 To: Ackerley Tng <ackerleytng@google.com>
 CC: Sean Christopherson <seanjc@google.com>, Paolo Bonzini
@@ -83,42 +82,42 @@ CC: Sean Christopherson <seanjc@google.com>, Paolo Bonzini
 	<rick.p.edgecombe@intel.com>, Vishal Annapurve <vannapurve@google.com>,
 	<kvm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>
-Subject: Re: [PATCH v2 1/4] KVM: SEV: Treat unassigned RMP entry as benign
- race on PSMASH failure
-Message-ID: <tomptwvdtajhavyuf47fwtx5fn43l2eg7vg7uuwt5fkf5qm3vp@tpb2uvedqdxv>
+Subject: Re: [PATCH v2 2/4] KVM: SEV: Drop page refcount early during RMP
+ fault handling
+Message-ID: <j6bfvbzjivlcsu3slbnaoomxxqyypmfl2bupo3k5ipnt6fc5lo@e5ntbx7yd4qw>
 References: <20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com>
- <20260818-gmem-no-return-page-v2-1-5298f42d49bb@google.com>
+ <20260818-gmem-no-return-page-v2-2-5298f42d49bb@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20260818-gmem-no-return-page-v2-1-5298f42d49bb@google.com>
+In-Reply-To: <20260818-gmem-no-return-page-v2-2-5298f42d49bb@google.com>
 X-Originating-IP: [10.180.168.240]
 X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
  (10.181.42.216)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D2:EE_|PH8PR12MB6964:EE_
-X-MS-Office365-Filtering-Correlation-Id: d7689ac8-76d5-41fd-4041-08defd89aa50
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D3:EE_|PH8PR12MB6769:EE_
+X-MS-Office365-Filtering-Correlation-Id: bcd9f3f0-02d5-4732-fd8a-08defd89b82a
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|376014|7416014|56012099006|10067099003|22082099003|18002099003|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: bL6j4BPA7xqC2t94Zr6hiYNH+BfvVp51o1xvsylyM7nfUBHrn38T+6wyz7HTuegoXRXlUxMpBQcgfgEIEO5G2S8NeNftg39ETaatJb5x1ILtE4o5VPrkZF4TGVnjIJd4y1IK5WqHaH2Rd2/GwRyEwieCFTuo2wA8Tbp1C+yk+TRaIsHIl7Y48QD1RVue9tv/u0nLgBwXH/7EbLwwKyvKUmBuSMp5inEDrHqEl1WettmnvpEs2Pt7ImV+CdzS61rULwSk5+rVy44Dpu2Ik39gC9olrGkQ48dqGuMr1CrqViPsSSKrC9nuihi5Mw0/lcQR/ajo1c9KfxXT/lkQ2LhFtrUpklXmQsjGa6vmTfBiIex9dOhvKNa1b8HKInewBgPTw9zKx1YyqQgrDJpQUsUvrJvk9sMfgrwlqftmc/8ToAo5/Y4tib0pN5rI1hl9pXHKb3ejvxTVucpmmVPp3bolrdjGswVvU6S2c94EwhxHaUZLW0Co3635BVGsi/uy5gAAxnaJtkDhVRoGvwmYLRTNj9oJg/Ql3us2r89O2rp2IJMN4395TwGTHeRKu9xAxruKimJX6YY86IQRdH89y6qYSnemyoCIbXpfdg06ktDpKBvEV83FNcnLwYVqeJ8zHqNONnPCNQfdlQdq73uCdwWNdcyNqUL3lvYt6romMPqAkjwhfC1ucuUYuKM9GsjEVqx/hm8tgG5syz/7TylszsUYFw==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(7416014)(56012099006)(10067099003)(22082099003)(18002099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700016|376014|1800799024|82310400026|23010399003|56012099006|22082099003|10067099003|11063799006|3023799007|18002099003|4143699003;
+X-Microsoft-Antispam-Message-Info: x8kijdVGujwDTqZRCtK/WlWQr9E6db6FDwclpdeTC1HIptPmdoMpflJr6WW4+/bIwW0sGzRH8fDTUIfLhWeiBeGxbyo9TPkBexCNaDXfC9zygjB3ftnQ5YptFoG4Nk8nsvo5f9FdNsK4hYkYaTPWCeKUst43+EEHOoWajA4bK4WGM7tXWpfy6avCA8HkgtbgizLVgz/DKEkiFaIVInL7tScliFJxXJN3oM9u91M414F0TmbhzfJ4VnsRlWkDTHjMnQ4lWeRh6Nt3JF6hf0yZGjcRT9A88QdNArANYeFSc5REkKz87m8yQZd5XycdixJn//KAI/jqFqBll0Ge4AuNwsFkeiEzpXrdnCaWzt2xdHpN5dovecKqsMsjtRHpHqHJBdV4/jwflOgLPckC2rVCnVPw9yQIUY04ZvGCEdQ7gw8wsrSYMXjMHXac4o32xlDvU240J9w5tBYOS7EPTf+3VVxYgr9A4eQzBvXihHWG0RAVP3hmVuO2CdUYSvILtR8oJEoRlVfr8BFGpBsMre/LRRCKffsKZlbpCU1XfsKZhpjIS8eIaGtQwKmBTu2YRPbEtILsTGD5q8DsuoJw75fb+v1OsdllEPQtk3fT26tgs5Xv01NnPn2jmwq/6ogjXJS5caGnCFDnzvh/Xq+MM5oMvE869AqCnCDMeZ4OU6DvsbT/c34SIeqM/+sJHEG2SOunoKFBLf6sJ2xKgQIkbYwjiA==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(36860700016)(376014)(1800799024)(82310400026)(23010399003)(56012099006)(22082099003)(10067099003)(11063799006)(3023799007)(18002099003)(4143699003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 8vzMSW5zuOmzjs0sAuXyFAlp0/kjwZq6tWqtS1hyPzr/o9BuU+VvAsUzhbxbEq150y2i55jdIMbDjwHcUuvfkRYROxcjWqtYwsyUxROVgb3Hpk4j0hFdw6GfiIu9frNPfzIZf0g4FhxN7os8xRbn7CNh8+tEbU1mxR6y3RlqqGnQOMvW0Na0YbzwIjAjC+EyTk8eHRIwpuL8ax4WWyccMHbnCEooBTTz/IhJRfZ8Zli9Qe18Fo/CIWtr+oRatv9zJa1j9ZbmlSoT5aLN6ranR+ZKqn0YdPfRDb/9fAFsjgW48+HDbT7gkEJEfJCuqmdNXS/vyiA59/q9cb1oKNBfzeRxX9YNnJ+J0EpcKwL5p7mB4tBTB8VfUb4B1vGeixGgv1av+QJ60MpCLrmf/m8umDtQCUR/gaAPn6ZSPqHMECTYuFnaG39L0CckOXDOxBTx
+X-MS-Exchange-AntiSpam-MessageData-0: xVBr/2c0v+P2od89rJuVRSiFDXOaaaME5RG9FOC/7cBPw8w3CsGDanRMV65ijiOk4Spb2wYY5EsfdWEb5kdZS4aEX6G7PWLYDG2mTfzu7+44NyIwrj3ZV/wzbE+5ov+ebwAeUrUT01Ng975lSQzKefjm5JulxKku6lEKQGn8q1i1vUl/hrg8tmqINjQ/mDHZfRF1wqkY44WtabNBlA3vlIjaYSmObCr1b0JCzqk9T8GQ1vtgl6SS7v1VqHPBDQtLE2jUvHHAZcl+iIS0w+RrZKunQo+0ekpge7efVdPerm98qQ5xY2zfSSboBX12Tk+sS5i0TZw4Ka3mzZCdpfNqhO9qDMi6yzt5S2vMbOchfTkDiJcU7Vnw2BSrssOywMoVWvjLQPSlpXV5GZC/HOrhCGAf5gbG0aOEKdbD5Yito/4oRW5un42/UsEr+fGo2U/w
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 00:34:44.2422
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 00:35:07.4874
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d7689ac8-76d5-41fd-4041-08defd89aa50
+X-MS-Exchange-CrossTenant-Network-Message-Id: bcd9f3f0-02d5-4732-fd8a-08defd89b82a
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D2.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D3.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6964
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6769
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_173454_405535_02B1F1B0 
-X-CRM114-Status: GOOD (  26.77  )
+X-CRM114-CacheID: sfid-20260818_173520_466505_6179478A 
+X-CRM114-Status: GOOD (  32.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,51 +132,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 09:15:52AM +0000, Ackerley Tng wrote:
-> When handling an RMP fault, KVM attempts to split a 2MB page via PSMASH.
-> If PSMASH fails, the only expected return value is FAIL_BADADDR, which does
-> not distinguish the reason for the bad address. Hence, another RMP entry
-> lookup is required to determine whether the failure was benign.
+On Tue, Aug 18, 2026 at 09:15:53AM +0000, Ackerley Tng wrote:
+> From: Sean Christopherson <seanjc@google.com>
 > 
-> Specifically, KVM re-checks the RMP entry to determine if another CPU raced
-> and already smashed the entry into 4KB pages.
+> When handling an RMP fault, KVM retrieves the PFN for a private GPA from
+> guest_memfd.
 > 
-> A concurrent operation (such as guest_memfd truncation or hole punching)
-> can also race and transition the page to shared, removing the page from the
-> RMP table and causing PSMASH to fail. This can happen even if the page is
-> still referenced by KVM, because guest_memfd reclaim transitions the RMP
-> entry to shared when the folio is removed from the page cache.
+> Drop the page reference immediately after retrieving the PFN instead of
+> holding it across the entire handler so that the later patch can follow up
+> with completely not returning refcounted pages from kvm_gmem_get_pfn().
+
+Regarding this point:
+
 > 
-> Treat an unassigned RMP entry as an expected race when re-checking after a
-> failed PSMASH, and skip logging an error warning.
-> 
-> Fixes: c63cf135cc99 ("KVM: SEV: Add support to handle RMP nested page faults")
-> Signed-off-by: Ackerley Tng <ackerleytng@google.com>
+> On a first look, existing RMP table handling (psmash and checking for
+> errors) might seem like it works fine, since truncation of the page from
+> guest_memfd would have called rmp_make_shared() and removed the PFN from
+> the RMP table. However, that is insufficient since a freed page may already
+> be used in a different SNP VM.
+
+In the code this patch is applied on top of, I think the kvm_gmem_get_pfn()
+ref is enough to avoid the reused-by-another-SNP-VM scenario until after
+caller releases the ref, so I think the above explanation should be adjusted
+to also be preparatory for "the later patch".
+
+Other than that:
 
 Reviewed-by: Michael Roth <michael.roth@amd.com>
 
+> 
+> Hence, adopt the MMU invalidation protocol to guard committing anything
+> based on the PFN.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> Signed-off-by: Ackerley Tng <ackerleytng@google.com>
 > ---
->  arch/x86/kvm/svm/sev.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
+>  arch/x86/kvm/svm/sev.c | 39 ++++++++++++++++++++++++---------------
+>  1 file changed, 24 insertions(+), 15 deletions(-)
 > 
 > diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
-> index fcb41dfde4c02..b2738362a928b 100644
+> index b2738362a928b..b34b11d7f8fad 100644
 > --- a/arch/x86/kvm/svm/sev.c
 > +++ b/arch/x86/kvm/svm/sev.c
-> @@ -5074,10 +5074,11 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
->  		/*
->  		 * Look it up again. If it's 4K now then the PSMASH may have
->  		 * raced with another process and the issue has already resolved
-> -		 * itself.
-> +		 * itself. If it's not assigned, then this must have raced with
-> +		 * another process that made this page shared.
->  		 */
->  		if (!snp_lookup_rmpentry(pfn, &assigned, &rmp_level) &&
-> -		    assigned && rmp_level == PG_LEVEL_4K)
-> +		    ((assigned && rmp_level == PG_LEVEL_4K) || !assigned))
+> @@ -5003,6 +5003,7 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+>  	struct kvm_memory_slot *slot;
+>  	struct kvm *kvm = vcpu->kvm;
+>  	int order, rmp_level, ret;
+> +	unsigned long mmu_seq;
+>  	struct page *page;
+>  	bool assigned;
+>  	kvm_pfn_t pfn;
+> @@ -5030,18 +5031,22 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+>  		return;
+>  	}
+>  
+> +	mmu_seq = kvm->mmu_invalidate_seq;
+> +	smp_rmb();
+> +
+>  	ret = kvm_gmem_get_pfn(kvm, slot, gfn, &pfn, &page, &order);
+>  	if (ret) {
+>  		pr_warn_ratelimited("SEV: Unexpected RMP fault, no backing page for private GPA 0x%llx\n",
+>  				    gpa);
+>  		return;
+>  	}
+> +	kvm_release_page_unused(page);
+>  
+>  	ret = snp_lookup_rmpentry(pfn, &assigned, &rmp_level);
+>  	if (ret || !assigned) {
+>  		pr_warn_ratelimited("SEV: Unexpected RMP fault, no assigned RMP entry found for GPA 0x%llx PFN 0x%llx error %d\n",
+>  				    gpa, pfn, ret);
+> -		goto out_no_trace;
+> +		return;
+>  	}
+>  
+>  	/*
+> @@ -5069,27 +5074,31 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+>  	if (rmp_level == PG_LEVEL_4K)
+>  		goto out;
+>  
+> -	ret = snp_rmptable_psmash(pfn);
+> -	if (ret) {
+> -		/*
+> -		 * Look it up again. If it's 4K now then the PSMASH may have
+> -		 * raced with another process and the issue has already resolved
+> -		 * itself. If it's not assigned, then this must have raced with
+> -		 * another process that made this page shared.
+> -		 */
+> -		if (!snp_lookup_rmpentry(pfn, &assigned, &rmp_level) &&
+> -		    ((assigned && rmp_level == PG_LEVEL_4K) || !assigned))
+> +	scoped_guard(read_lock, &kvm->mmu_lock) {
+> +		if (mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn))
 >  			goto out;
 >  
->  		pr_warn_ratelimited("SEV: Unable to split RMP entry for GPA 0x%llx PFN 0x%llx ret %d\n",
+> -		pr_warn_ratelimited("SEV: Unable to split RMP entry for GPA 0x%llx PFN 0x%llx ret %d\n",
+> -				    gpa, pfn, ret);
+> +		ret = snp_rmptable_psmash(pfn);
+> +		if (ret) {
+> +			/*
+> +			 * Look it up again. If it's 4K now then the PSMASH may
+> +			 * have raced with another process and the issue has
+> +			 * already resolved itself. If it's not assigned, then
+> +			 * this must have raced with another process that made
+> +			 * this page shared.
+> +			 */
+> +			if (!snp_lookup_rmpentry(pfn, &assigned, &rmp_level) &&
+> +			    ((assigned && rmp_level == PG_LEVEL_4K) || !assigned))
+> +				goto out;
+> +
+> +			pr_warn_ratelimited("SEV: Unable to split RMP entry for GPA 0x%llx PFN 0x%llx ret %d\n",
+> +					    gpa, pfn, ret);
+> +		}
+>  	}
+>  
+>  	kvm_zap_gfn_range(kvm, gfn, gfn + PTRS_PER_PMD);
+>  out:
+>  	trace_kvm_rmp_fault(vcpu, gpa, pfn, error_code, rmp_level, ret);
+> -out_no_trace:
+> -	kvm_release_page_unused(page);
+>  }
+>  
+>  static bool is_pfn_range_shared(kvm_pfn_t start, kvm_pfn_t end)
 > 
 > -- 
 > 2.55.0.699.gb54405d56f-goog
