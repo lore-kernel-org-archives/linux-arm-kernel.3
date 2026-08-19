@@ -4,153 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C28C5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 10:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F118BC5DF86
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 10:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hg/ZPXFle3feAVe1hiMHSTS/1Mz1wkpga/z0zY78R5Q=; b=PwUG3Q0COeIsgQYRJjYdHAPUJH
-	JMzJTAtNwGigxVbSqo+ZcRD+Ak09onmgDtgtErYUGlzOvKxz3NLQZIjDpqTxKC9QTEBD5/jcy1nHj
-	+1PORBjwh5ONmJ+f++TcK2L53zfPESWzoZEaOlQImG22eS/IK1Cv1NGmMx2FKFQFWPZfrRaAx2+s9
-	mPZferEGTJs5ga+bd2zRKuBxPZTilmy5SN1mX4eszAeYcfnJ92jx2kHEmYXX0ojT3E92QLoXvWGaF
-	5E75sbINnQhx0Pzx1QCal3mLBtcYzUBloMg9m/tt1x+Vbjng98pdgySsTnJL2nZJWuNHbnyCCJFjq
-	mRw8EEXg==;
+	bh=hK/xdAUlAIqYIFdhUyKGacY7N7OeAKbgLfKj8KG0cLk=; b=ogH4+Irxj+wLjeUg3pLMlJ9G2Q
+	fc3CLF7S7eAx6aSW1hSNF5tGqZZHuNilM2Jw9aiFfPKAygNFgydz/LQOABSmUn1TZusXLCtAGV61+
+	OJZpZHXOuEqVotl4zli4S+oPsZwab2T9milMBNBq1qgHnKJH+1Z5Ai5MXReNDke/71w4idKfybej1
+	Tx8rt9Glzdd3aiTE22h2dp+w67eIFo2RTmSK6AaToGfNrDgc1DTMXXjgZCmE8nguq/tZZP7wBPvu2
+	2csO2fHeKNukBN2PfGkEAfnCQGTJfoyIoYyC7sGgTOP2bqW+cxAb3FA3GCMmQ9s4jIfAR8DWSLlB8
+	JgPvNHCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwdns-00000009a5D-14pj;
-	Wed, 19 Aug 2026 10:45:52 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1wwdpT-00000009aGa-2274;
+	Wed, 19 Aug 2026 10:47:31 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwdno-00000009a4n-2I2D
+	id 1wwdpR-00000009aGC-2bSy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 10:45:50 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 3CA123ECE;
-	Wed, 19 Aug 2026 10:45:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1787136342; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=Hg/ZPXFle3feAVe1hiMHSTS/1Mz1wkpga/z0zY78R5Q=;
-	b=LdNWfzPKrb9NDTksCcvaHrsvxugOfINA1v+h3Kxy67vH2zhc75r2JKsfmAAhoII4pijNSl
-	DamY7typxy92U9RMhZP6Sk+eDBWphjO7TfrMGA6m0nv+DQmV6o0cPOsy5bl7f8mbDMhkuM
-	fEkDpG5lCEQUoiHXix5NG6Zduj7fH0w=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1787136342;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=Hg/ZPXFle3feAVe1hiMHSTS/1Mz1wkpga/z0zY78R5Q=;
-	b=NtPGda8xTU4/ykIvNTrk/MXoH9S0MdxTKEoPi+bSi+fNK8qvsVvOrNREMwnZWfeM++KHAq
-	bAb3yg0PLR0wlCBw==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1787136338; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=Hg/ZPXFle3feAVe1hiMHSTS/1Mz1wkpga/z0zY78R5Q=;
-	b=HtiVdQ6P+QJOYv7bdivbBbzsLhrDtGsKdck5z+Rrnv5Or6Yb44FhFp1YxLUk3gDWrB9qYV
-	cn2gnBsxFaQ4xwdio3kwwY4iDLHaGThOj7ebSl9TL/PcG3Ua+Yaq9p1sn/dvBl9zZR/kEE
-	h4zGF9BReqs7jdJ4u7HD2AXm8xs8UR8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1787136338;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=Hg/ZPXFle3feAVe1hiMHSTS/1Mz1wkpga/z0zY78R5Q=;
-	b=nQiVOu0G3/p+k3HKPnabYNUqcD5L4WSj9Qhtsmg5DXJti+Tl/1EJONrUHo9Krh/jZRLA7e
-	BT6JqTT+EATfroAQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id AC5BB2F81;
-	Wed, 19 Aug 2026 10:45:37 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id PoR9KFGJhWo/KAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 19 Aug 2026 10:45:37 +0000
-Message-ID: <427a13f5-c820-4aa1-b19f-1fb0493d264d@suse.de>
-Date: Wed, 19 Aug 2026 12:45:37 +0200
+	Wed, 19 Aug 2026 10:47:30 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67JA7xHh3983908
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 10:47:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	hK/xdAUlAIqYIFdhUyKGacY7N7OeAKbgLfKj8KG0cLk=; b=Iw84kX2TmvvmjdLs
+	1F0oqU0yrS/WAieHY1cHYmFOdGOSqSh3qVRb/yRQ5n2YrcpK5CnS8n6QNcTjvspM
+	Oxn6GrqBl9XRaV2q+NTwDwcOVQTm9lw4zcU6GAE8qPsqmS3WIeRt3I7oN/IOaks/
+	BbqMMPXkI5N7+/DrCTIBxF8m3z/9qvg/fPWr8g4i8jtSVrbJRZfdD9t6tYSzHyoC
+	qIhh0x09p3WbLr0rxc7r4zTUl7WJGJncmN3lq+xEILN48zprC4hfxwkswWVp4N1U
+	silnBqcKoA9yYgWOu6HiO54Twz0RhdGj3VL/gQqexwNON2nQMukw5yia7h7oMYAT
+	uXP5aw==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g4yfjjubs-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 10:47:28 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-52d57d17d6cso1887841cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 03:47:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1787136448; x=1787741248; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hK/xdAUlAIqYIFdhUyKGacY7N7OeAKbgLfKj8KG0cLk=;
+        b=EULSl1BG6k+La1U13JD6s9d0zxFgQHN6U89iuXu7DE0Yo6EB456w85PaVL0ZArGthv
+         6z9UsNfMZ+U1sREdkDN0QwZK0PX3T964NGsijOAtPVZDh6T8lSd32NcwWhaRfCaAvTFI
+         6V6DibyZM02BpG36xFzq6M1dz5CiGL2Uq87cltT/wU/31+b39uuDOQymuiylCxr8ts0J
+         9nkKP1ESp87dJ9tU4iJyiLkd4ceObdB3z4jTEPA57wX3jhp5fKo28GAszmV2ORguRS1X
+         wbyyHo2ue1I00XVpMllq87BSQ+ezheM57WTN4zr+11uKXT/UMXqgkS8b2X+vR83lbHY9
+         Y2pA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787136448; x=1787741248;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hK/xdAUlAIqYIFdhUyKGacY7N7OeAKbgLfKj8KG0cLk=;
+        b=NliPIub+L0gYeYdfoo26Iy8xcSxw6TtsEsubI2+SxlM1CiVa5wVyFQydQW0/J/5Qwx
+         8MfEceq85kWp5uPdzxTFbhISLrfDPtWFGFM+9Myb4IJExUQtjZkvL2caXyr9gB5nZYRS
+         aPkRXIbr4d4cKYKOFLdWEi5T+Y8dV8Ed8+lopBej999M8uC0+P9UK+Kahef5IdY179tX
+         7kT/lSuuBG0lIkx/aFjBgXvpXBZgJYcahFChtRaxGf4KCU5/Q/AtiQ2bFICZ+ilQrYhy
+         L5QJ6y0xU6dU750mP7LY7pnRe6MTb0GVyN2klD5eHYf5lRBqpKtkiAJ7GnrUCilLbJaY
+         n52g==
+X-Forwarded-Encrypted: i=1; AHgh+RoebZZntOTSqwEzZjAAgtawr70BPu167rtTC7adVTx38NQZNhxQUayRaTa15Mxowv8RtX4c21p3Ssc7fFpzDMC8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQdsyfE3S0OAYGybrEUN6IXFA3ryVkWr3R0Mlp5Jx0nD8bwJgs
+	31BB2tXI9wa7/RM9N0wPl+Fk1eWvg/lQRzWIjAmsC3QOGiFj8vqMHdvP4egqiyOCg8v3Caz7sjz
+	k+zwH4d++oon3VzDSySCUpLF1K3yuY3di0n5rdGGhLvypDThU5ygfu01Tcf6RwyNHKew77yi2fg
+	m7+Q==
+X-Gm-Gg: AR+sD11MrDfevSwQIuDmdIcNSRXkyI2Zu8t67kItaJlQ3H3+bdeoEPsDEcbPOrFAVjz
+	jmd4epK9Cxi5KYYB5IsSK1+JTH2bwGtonySSvM8eczHJSI4Hzs7EYAZbyQbcX1ebizdL1w6anC+
+	S48lZPnizJ1wTbMxjmeXc2LxD7WiqhWbgh/5W+Dkcsxq/nahyNJGecQpMN+FmPedMAqWBPJ/ko/
+	Dqpa7b5XFw/69fMoWnB253YbvTmjmAIK7scTyLACMtSfnZBEFV2Oj8w8luura3QzyJZ/kxLBlkx
+	h5X5t7s81OzwBikYDxmh4iXg8IbwM8yyDNg1YLYo1wFNfvxZ+STeFDZw0yZS6npILSn0+1sqoHX
+	PhoiBNg4DjeanXwevOVSvJ+9n
+X-Received: by 2002:ac8:5f06:0:b0:51c:10e9:ec47 with SMTP id d75a77b69052e-52dd61a0e2fmr23786271cf.5.1787136447702;
+        Wed, 19 Aug 2026 03:47:27 -0700 (PDT)
+X-Received: by 2002:ac8:5f06:0:b0:51c:10e9:ec47 with SMTP id d75a77b69052e-52dd61a0e2fmr23785981cf.5.1787136447287;
+        Wed, 19 Aug 2026 03:47:27 -0700 (PDT)
+Received: from [192.168.120.193] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a3ff1780c9sm658119a12.28.2026.08.19.03.47.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 19 Aug 2026 03:47:26 -0700 (PDT)
+Message-ID: <3da25205-60d4-46f5-9efe-a97a5a6908f5@oss.qualcomm.com>
+Date: Wed, 19 Aug 2026 12:47:24 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/12] drm/panic: Allocate QR-code buffers statically
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: jfalempe@redhat.com, javierm@redhat.com, airlied@gmail.com,
- simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- amd-gfx@lists.freedesktop.org, rust-for-linux@vger.kernel.org,
- linux-hyperv@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, nouveau@lists.freedesktop.org,
- linux-renesas-soc@vger.kernel.org, virtualization@lists.linux.dev,
- sashiko-reviews@lists.linux.dev
-References: <20260818125012.468092-1-tzimmermann@suse.de>
- <20260818125012.468092-2-tzimmermann@suse.de>
- <CAMuHMdWYVjvGM2pOzWoDq8LUSrkFtzOQwdmosHYQuBLnSn3D-Q@mail.gmail.com>
+Subject: Re: [PATCH] clk: qcom: Fix camera rivian PLL configuration settings
+To: Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Taniya Das <taniya.das@oss.qualcomm.com>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Jingyi Wang <jingyi.wang@oss.qualcomm.com>
+Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260801-cam-rivian-pll-config-fix-v1-1-6918d58cd823@oss.qualcomm.com>
 Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <CAMuHMdWYVjvGM2pOzWoDq8LUSrkFtzOQwdmosHYQuBLnSn3D-Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-4.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[20];
-	FREEMAIL_CC(0.00)[redhat.com,gmail.com,ffwll.ch,linux.intel.com,kernel.org,lists.freedesktop.org,vger.kernel.org,lists.linux.dev,lists.infradead.org];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.com:url,suse.de:mid,suse.de:email]
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260801-cam-rivian-pll-config-fix-v1-1-6918d58cd823@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE5MDA4MyBTYWx0ZWRfX2dH3mHa7C+cn
+ EM7/7W3+vI2gOjMdxQ9CeXVoJutGucpDxIE7pyRdlkz+VOLwyeAZeNDoGNT9n/J8Yq/6rqlhT2j
+ rqubyIT1sHm+M82urpq6x+1a60rk6nx8pU7zQLMHewkEeZyENVkKJ0yBJvwzRpacHxYBdHdQ5+4
+ BfiKd9Ls2RV/Th1j95ZsGVFlAdYUaCPu/JPYKBQqkWz9DtutAaV5X1yn1mCxOtez+O6xQclWiWP
+ rjdfHyupzJ+SDOdwrjYgwveGTHLp5VvwOH8lhKRr4lylt2jSQPD4PFfgrJ3prNDY8N5NqiFsAKS
+ 9UG4dO+VzRItJcO/kG8KJMJdxPEYPeemt7KYICTrzSSZbpPiJBEhamhZIrYxOqX2tgva4ZjvuiT
+ xdYC4cs+vzK3bkv8O8zUbMIOc7XCJgeOjcQPIgR6PUGNkDwTg4bI2pfRwciZ++8PHptXv3eTxVm
+ jg2w6arbpWKT6Rsnqew==
+X-Proofpoint-GUID: ggjHAwpWb69tI1aqNrYQtL0ZzTK6ymB2
+X-Proofpoint-ORIG-GUID: ggjHAwpWb69tI1aqNrYQtL0ZzTK6ymB2
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE5MDA4MyBTYWx0ZWRfXxtG4DvNseGWG
+ idM/OPyZT2g+B2v7xHYONZl8FFRf3oTuGLptNq2Oupy7iiXwOCQblKhbQ+tneVe7eF7ip2K/oiT
+ c7SDKPhsg6QzloKWUqx12Gcz4UIgBs4=
+X-Authority-Analysis: v=2.4 cv=Sb7HsPRu c=1 sm=1 tr=0 ts=6a8589c0 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=cfD7LCa2rqpQZjTi_hYA:9 a=QEXdDO2ut3YA:10 a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-19_03,2026-08-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 malwarescore=0 bulkscore=0 impostorscore=0 adultscore=0
+ suspectscore=0 clxscore=1015 lowpriorityscore=0 spamscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608190083
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_034548_991637_7A04739F 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20260819_034729_836257_4D8EEF45 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,92 +160,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+On 7/31/26 9:45 PM, Jagadeesh Kona wrote:
+> clk_alpha_pll_write_config() in the PLL configure function skips writes
+> to PLL registers when the configured value is 0. However, hardware
+> requires USER_CTL_U and CONFIG_CTL_U2 to be explicitly programmed to 0
+> for a few rivian PLLs.
 
-Am 19.08.26 um 11:38 schrieb Geert Uytterhoeven:
-> Hi Thomas,
->
-> On Tue, 18 Aug 2026 at 15:00, Thomas Zimmermann <tzimmermann@suse.de> wrote:
->> Declare qrbuf1 and qrbuf2 as static arrays so that the module loader
->> allocates them for us. Avoids the kmalloc later on. Also allows for
->> using sizeof() to get the number of bytes in each array. Access the
->> arrays once with memset, so that the physical pages are available on
->> a panic.
->>
->> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-> Thanks for your patch!
->
->> --- a/drivers/gpu/drm/drm_panic.c
->> +++ b/drivers/gpu/drm/drm_panic.c
->> @@ -628,24 +628,23 @@ MODULE_PARM_DESC(panic_qr_version, "maximum version (size) of the QR code");
->>   #define WINDOW_BITS 12
->>   #define MEM_LEVEL 4
->>
->> -static char *qrbuf1;
->> -static char *qrbuf2;
->> +static u8 qrbuf1[QR_BUFFER1_SIZE];
->> +static u8 qrbuf2[QR_BUFFER2_SIZE];
-> I am not a big fan of increasing kernel size like this.
-> You may run (faster) into boot loader limitations.
+Is the platform-specific, or requires for all rivian PLL instances?
 
-Which limitation would this be?
-
->
->>   static struct z_stream_s stream;
->>
->>   static void __init drm_panic_qr_init(void)
->>   {
->> -       qrbuf1 = kmalloc(QR_BUFFER1_SIZE, GFP_KERNEL);
->> -       qrbuf2 = kmalloc(QR_BUFFER2_SIZE, GFP_KERNEL);
->> +       /* best-effort allocation; can be NULL */
->>          stream.workspace = kmalloc(zlib_deflate_workspacesize(WINDOW_BITS, MEM_LEVEL),
->>                                     GFP_KERNEL);
-> <ironic>Why not use a static array for this, too?</ironic>
-
-I tried, by the size is calculated at runtime.
-
-
->
->> +
->> +       /* touch memory so that pages are there in the case of a panic */
->> +       memset(qrbuf1, 0, sizeof(qrbuf1));
->> +       memset(qrbuf2, 0, sizeof(qrbuf2));
-> Please clarify "there"?
-> In cache? Not all systems have sufficient data cache, so it may be
-> evicted at any time.
-> In RAM? AFAIK kernel and module memory is not demand-paged.
-> In TLB? Like cache, it may be evicted at any time.
-
-I'd like to avoid looking for a page after a panic has already occurred. 
-But I guess it might not make a difference, given all the DRM that is 
-involved.
-
-The motivation here was that I did not like that panic handling depends 
-on a number of dynamic kmallocs, with which we don't even detect alloc 
-failures until a panic has occurred.
-
->
-> So IMHO this is futile.
-
-Noted.
-
-Best regards
-Thomas
-
->
->>   }
-> Gr{oetje,eeting}s,
->
->                          Geert
->
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, (HRB 36809, AG Nürnberg)
-
-
+Konrad
 
