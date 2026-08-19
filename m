@@ -4,96 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80234C5DF6D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B20C1C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Aug 2026 11:58:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iRrXiWbp5BCMXI1+0yfdqp8zjwVidH0MdyBqKFKUh/E=; b=i47KbxQyBcsiLC++biNg64wAIe
-	Du1GWEe1rbBLUxRkcOf2WXo738ht5TI2blwN31vfkEjuNCNL1g1Y608Wh9IRrTU7tZclkag7p1dPz
-	1PErC3AXXzupaibwC/UglP4E6P5A4eZ7twXl+BxBTueRFu1TBaKoUGeMXdN+YIG7yTvp11dGy2PCJ
-	SqSU8GAFmLga3gSGKpQ2p656+jPT7JE+Fp6qoSrCvxDCgCbYzR/9qNXNl3/Wvem+m/NY7yRhPaE2q
-	clt/vUvo+nrUCUeEe+D09FjBOVe1Oo9PJtXSryVXiscxjKXJHQXhnv2W+yVzSIhsmVX4O4brDHmuq
-	ZUY6yGJg==;
+	bh=EXxZGZEywjxNurZeESjYxxLymZy1CGZALFo9AOoKV8Y=; b=TEBIBJh13olKPZQkck257fsrqb
+	KN0Um8q5UgiRPwwZe27tkmBnD8TiBgpvOx21thxbFapzVVHLQWNrnnCBi0aAfPO6zV9zMXjJM2RTr
+	auz0EQmc9T9615xUkxC7ZzJoGnhfsbGgl97LBTRzY0FWCnBdy3BYBYaEtper0RH4Hfot9Kuzy2ruE
+	T1NTpOoYBWSPi2l99dC+lSWmnyMZf3iBUxuT8IDuD5IdhTAE5t2RkAZTksOsbb3D/zQplLrFgiUIZ
+	K/INMLMPSYujVLnzh9Lj2+5/XQHY/bfBYDLcLfNG9oDxTaGEjRCQzeNOB7zwQIbha0bGhMr39KTL2
+	fD5kMK/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wweum-00000009iGZ-0yDg;
-	Wed, 19 Aug 2026 11:57:04 +0000
-Received: from mail-yx1-xb12e.google.com ([2607:f8b0:4864:20::b12e])
+	id 1wwew3-00000009iQi-38wC;
+	Wed, 19 Aug 2026 11:58:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wweuj-00000009iG5-3NN8
+	id 1wwew2-00000009iQS-3Smv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Aug 2026 11:57:03 +0000
-Received: by mail-yx1-xb12e.google.com with SMTP id 956f58d0204a3-66c711b7f2aso1613481d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 04:57:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787140620; x=1787745420; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=iRrXiWbp5BCMXI1+0yfdqp8zjwVidH0MdyBqKFKUh/E=;
-        b=LcQlyWukI1NritmZ0jEMzc2buRkCb64hfq9olejtO/D6uvny8KeV4xT94dwkXm/bSf
-         leQu64KpWApDSQHE4bFEOwx3/Xv4kgxYVFvWD1A//yV/FAHqOnRTgDu368GooQdTnNju
-         FJlPPGwQ6Ot5L2W6O4qFCBZuGoJcgJSrNV7VIdW/uLOLxh0IDkFNBotHqZ6j/HyZSKEn
-         2swq8ByKviZLdLE5X9/zgda5PXZj3xo1yJ8RjOTYk/aHH7SsPVDAbokUYmeiWNHMjvMq
-         KUq19tUE2XLkHZbeRO9BIsW+90/JPGWcC2zrAhpxQaiQve0TSKNuUPc6iPo98dNVAxqI
-         hHig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787140620; x=1787745420;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iRrXiWbp5BCMXI1+0yfdqp8zjwVidH0MdyBqKFKUh/E=;
-        b=AJUFVHWt6NE1Eim8943mFKyqJZyyNNEdIdoXsMQVq9R9PlMlRm84O9L5tCXLDlnrAc
-         7Yl5Mznalppxkk6aAtSWMZHALS7naD/JwPFWLtrej3YGUZUmMXZ2j+rmscvZ1eZr470c
-         pyc+jlclhENPCHU7gj/d40yTnT2QvSjxz5tnctoiWXaAAeMPKRU6y3SIMef4kuAsYySI
-         GffNWcQQjfpBcPZzMMtMSJPkaR9Tfgn1rlDO7ERm5TAvrnkPFqL1QFLPAXHnxZv+2cUh
-         W7sS5cA2y+OIGVNKQbHK92M0HsdLL1mx2ztRiC0Ytjo8D2qG85j0Dh8TGbqREZjev4/i
-         xGnQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq8xhHmjNb49UChVLEeZgBr27mQ+o2yQDlBxDK0XwooeUA3xqPwAn3pGe1rycTR5OJuGv4DDCqPsoOLKe0yljlC@lists.infradead.org
-X-Gm-Message-State: AFuF++ne9+m1OtcX7j0YaZaCR/1fIWO+kplZ49eDqWleMamRop2YMgFz
-	q9z/A8HbKCIJkIBxilcc2o22ChDqxTnZ6mcGPbvSCG5fvEJ6HiEtSAc6
-X-Gm-Gg: AR+sD13TT1scUfq1Q0VHAWLZZT9uQuEWjqr2SH3wEMsZgWIqRuJsJCHy9xQCmS6dXi2
-	2bb/wVFJOxPljP1zY4uHMhMdVKpqqVbTaKZy+xOKfjut1OK7DHRP9NcpJ9P7JX5IKFyBsSqq6gZ
-	NYAje1H+SFBvrPVzmxSUndC7ueZJplodN7LsM9vRwKWns9EGlAvriRxuUGHRVsIK5R81HXzVaxo
-	JS5jjMjpLC3tRkjy7fmZG3sN7zQIbXycS+6y9YxR74E5qXLIUWT57UWgUCiaPFvDmUQTMBBKuaN
-	MC0rpM7QkXoOXcinIfieasLIXRAtTfqK1GXmjXB0DSk1tbbs2I0j+HhWNIa8NzMJhDR/tu8cGvX
-	60ItgBaesI30Jm6Q8PYmkeKZo+WwVXKW62t+M+iSuumK2Se9EoBS86K6rEYs3hs/48XF9Qp92wq
-	9/uTttHxEW2cozVKEfhl9+aRgZQIEr3Qo+ExHZOETdc/WNAvjAzsUIeo2aEuRJlFFNNVE=
-X-Received: by 2002:a05:690e:4807:b0:66c:82b5:7d59 with SMTP id 956f58d0204a3-66ccb5cf30amr1129726d50.12.1787140620402;
-        Wed, 19 Aug 2026 04:57:00 -0700 (PDT)
-Received: from leonardoc-nb ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-66ccb1a03c5sm817419d50.20.2026.08.19.04.56.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Aug 2026 04:56:59 -0700 (PDT)
-Date: Wed, 19 Aug 2026 08:56:53 -0300
-From: Leonardo Costa <leoreis.costa@gmail.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Leonardo Costa <leonardo.costa@toradex.com>
-Subject: Re: [PATCH 6/6] arm64: dts: freescale: imx8mp-verdin: Add Mezzanine
- with Toradex Display 10.1" LVDS V2
-Message-ID: <gsihg6tzkrq6gcygquzbjtiqntvoxp67lo6mqntnmbyvyw7s3y@suv4t26pl5eh>
-References: <20260813133335.1941580-1-leoreis.costa@gmail.com>
- <20260813133335.1941580-7-leoreis.costa@gmail.com>
- <an3brO5COdw_F76m@SMW015318>
- <rglymw6p4c65yoqz3pjn6e6nq7cil2fa7m7dqghshgdpavby7d@kyza3ceavq6z>
- <an3tiDOUUYLb8PAq@SMW015318>
- <juuc4af7ndbajcl7gzf4tg5qz2q2j5tt3rvql4jbauradujrre@gc5nbdhhixaf>
- <aoSqJ7pHEgJ_RZmr@SMW015318>
+	Wed, 19 Aug 2026 11:58:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E7BEB60A59;
+	Wed, 19 Aug 2026 11:58:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE7111F000E9;
+	Wed, 19 Aug 2026 11:58:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787140701;
+	bh=EXxZGZEywjxNurZeESjYxxLymZy1CGZALFo9AOoKV8Y=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=Y7sCLHr++lEfDPrDldeMn1qW7IddWaOx5VMdOckO2EN3I1bH3mDY61TxArZ3GTMQz
+	 75hGvcLct/UjSyyAOj1B/b0VdGQf17N2DqMtWlk79/oUc2pz1ZxORtokWoIAfT0Ws2
+	 nbdiwbTr6aL1k6EUtD64Eue71PmdLZ26H5l1LHP2nfN/EcMH2go06a8I1Gd/yR5Efo
+	 yqCeaTlLSC7dHGkteiKOQZ/s2d63g8LjWQ0lmSP23ksfhJ+xpLBpXXvthjS3W0afiZ
+	 ONOi9ReMFSLV0Z79QD/T5x5/eYR53dkbgBIQ3+hhEyQSu6dKqmD4uJhs46SqA4DPu4
+	 EYGNkQLMTgSpg==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [RFC PATCH v2 2/2] dma: swiotlb: Initialize and size shared
+ default pools for memory encryption
+In-Reply-To: <an9RrwoaAsqJQ2vN@arm.com>
+References: <20260813102521.1367737-1-aneesh.kumar@kernel.org>
+ <20260813102521.1367737-3-aneesh.kumar@kernel.org>
+ <an9RrwoaAsqJQ2vN@arm.com>
+Date: Wed, 19 Aug 2026 17:28:03 +0530
+Message-ID: <yq5aecfuiapg.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aoSqJ7pHEgJ_RZmr@SMW015318>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_045701_874091_58DF4E99 
-X-CRM114-Status: GOOD (  24.06  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,51 +93,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 01:53:27PM -0500, Frank Li wrote:
-> On Tue, Aug 18, 2026 at 03:08:33PM -0300, Leonardo Costa wrote:
-> > It seems that the drivers are being deferred at boot start by the
-> > device_links_check_suppliers() function. It runs through the drivers before
-> > they're initialized and defers them if their suppliers are not available. The
-> > GPIO and PWM drivers are able to follow the gpio-map and pwm-map properties
-> > (through the of_parse_phandle_with_args_map() function), but from what I see,
-> > device_links_check_suppliers() has no such mechanism. It follows the phandle to
-> > the nexus connector node only, and since there's no compatible driver for it,
-> > the function defers the consumer drivers used in the overlay.
-> >
-> > I think this is what is happening mainly because setting the
-> > fw_devlink=permissive kernel parameter (which sets the DL_FLAG_SYNC_STATE_ONLY
-> > flag) solved the issue, though I could be misunderstanding something.
-> >
-> > 	int device_links_check_suppliers(struct device *dev)
-> > 	{
-> > 		...
-> > 		list_for_each_entry(link, &dev->links.suppliers, c_node) {
-> > 			...
-> >
-> > 			if (link->status != DL_STATE_AVAILABLE &&
-> > 			    !device_link_test(link, DL_FLAG_SYNC_STATE_ONLY)) {
-> >
-> > 				...
-> > 				device_links_missing_supplier(dev);
-> > 				ret = dev_err_probe(dev, -EPROBE_DEFER,
-> > 						    "supplier %s not ready\n", dev_name(link->supplier));
-> > 				break;
-> > 			}
-> > 			WRITE_ONCE(link->status, DL_STATE_CONSUMER_PROBE);
-> > 		}
-> > 		...
-> > 	}
-> >
-> > Has this behavior been observed before? Do you know of any work being done that
-> > addresses this?
-> 
-> Does a dummy container driver (for debug) to proof your analyer?  Let
-> me to find time to debug it.
-> 
-> Frank
+Catalin Marinas <catalin.marinas@arm.com> writes:
 
-I made a dummy driver matching that compatible string, and yes, it did
-solve the issue.
+> On Thu, Aug 13, 2026 at 03:55:21PM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+>> index 9f5b366d2086..c3188ca878f3 100644
+>> --- a/arch/arm64/mm/init.c
+>> +++ b/arch/arm64/mm/init.c
+>> @@ -338,12 +338,8 @@ void __init arch_setup_zero_pages(void)
+>>  void __init arch_mm_preinit(void)
+>>  {
+>>  	unsigned int flags = SWIOTLB_VERBOSE;
+>> -	/* pKVM uses restricted-dma-pool */
+>> -	bool cc_guest = is_realm_world();
+>>  
+>> -	if (cc_guest)
+>> -		flags |= SWIOTLB_INIT_CC_SHARED;
+>> -	else if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
+>> +	if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
+>>  		flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
+>>  
+>>  	swiotlb_init(flags);
+>
+> This looks fine. As I mentioned on patch 1, we might as well move this
+> hunk over there and avoid the flag definition.
+>
+>> @@ -102,9 +101,6 @@ void __init mem_encrypt_init(void)
+>>  
+>>  void __init mem_encrypt_setup_arch(void)
+>>  {
+>> -	phys_addr_t total_mem = memblock_phys_mem_size();
+>> -	unsigned long size;
+>> -
+>>  	/*
+>>  	 * Do RMP table fixups after the e820 tables have been setup by
+>>  	 * e820__memory_setup().
+>> @@ -112,33 +108,9 @@ void __init mem_encrypt_setup_arch(void)
+>>  	if (cc_platform_has(CC_ATTR_HOST_SEV_SNP))
+>>  		snp_fixup_e820_tables();
+>>  
+>> -	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+>> -		x86_swiotlb_flags |= SWIOTLB_INIT_CC_SHARED;
+>> -
+>>  	if (!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
+>>  		return;
+>>  
+>> -	/*
+>> -	 * For SEV and TDX, all DMA has to occur via shared/unencrypted pages.
+>> -	 * Kernel uses SWIOTLB to make this happen without changing device
+>> -	 * drivers. However, depending on the workload being run, the
+>> -	 * default 64MB of SWIOTLB may not be enough and SWIOTLB may
+>> -	 * run out of buffers for DMA, resulting in I/O errors and/or
+>> -	 * performance degradation especially with high I/O workloads.
+>> -	 *
+>> -	 * Adjust the default size of SWIOTLB using a percentage of guest
+>> -	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
+>> -	 * memory is allocated from low memory, ensure that the adjusted size
+>> -	 * is within the limits of low available memory.
+>> -	 *
+>> -	 * The percentage of guest memory used here for SWIOTLB buffers
+>> -	 * is more of an approximation of the static adjustment which
+>> -	 * 64MB for <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
+>> -	 */
+>> -	size = total_mem * 6 / 100;
+>> -	size = clamp_val(size, IO_TLB_DEFAULT_SIZE, SZ_1G);
+>> -	swiotlb_adjust_size(size);
+>> -
+>>  	/* Set restricted memory access for virtio. */
+>>  	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
+>>  }
+>
+> Credit to claude, it noticed a slight change in behaviour for x86 w.r.t.
+> the crash kernel reservation. crash_low_size_default() reads the swiotlb
+> size but the resizing now happens after arch_reserve_crashkernel().
+> Maybe not an issue.
+>
+> Alternatively, we could build the sizing logic into
+> swiotlb_size_or_default() but I haven't checked whether we have the
+> right information when this function is called.
+>
 
-Leonardo
+IIUC, the current code can still get a different value from
+crash_low_size_default() than the final swiotlb size we end up using.
+This is because crash_low_size_default() is computed early, before
+default_nareas, which is derived from num_possible_cpus(), has been set.
+
+If we are okay with keeping this consistent with the existing behavior,
+moving sizing logic to swiotlb_adjusted_size() looks like a clean option.
+
+>
+>> @@ -382,12 +374,54 @@ static void __init *swiotlb_memblock_alloc(unsigned long nslabs,
+>>  	return tlb;
+>>  }
+
+...
+
+>> +static bool __init swiotlb_default_pool_needs_cc_shared(void)
+>> +{
+>> +	/* A restricted DMA pool provides the shared buffers instead. */
+>> +	return cc_platform_has(CC_ATTR_MEM_ENCRYPT) &&
+>> +	       !restricted_dma_pool_present;
+>> +}
+>
+> I don't think restricted_dma_pool_present should change the cc_shared
+> attribute. The rmem pool is all about sizing the swiotlb, not disabling
+> sharing.
+>
+> Thinking some more, if other archs don't like rmem pool influencing the
+> default swiotlb size, we could add a flag (SWIOTLB_SKIP_IF_RMEM_POOL or
+> some better name). But only if people dislike the heuristics.
+>
+>> @@ -437,9 +469,11 @@ void __init swiotlb_init_remap(unsigned int flags,
+>>  		io_tlb_default_mem.phys_limit = ARCH_LOW_ADDRESS_LIMIT;
+>>  #endif
+>>  
+>> -	if (!(flags & (SWIOTLB_INIT_ADDRESSING_LIMIT |
+>> -		       SWIOTLB_INIT_CC_SHARED)) &&
+>> -	    swiotlb_kmalloc_needs_bounce()) {
+>> +	if (swiotlb_default_pool_needs_cc_shared()) {
+>> +		io_tlb_default_mem.cc_shared = true;
+>> +		swiotlb_adjust_cc_attributes();
+>> +	} else if (!(flags & SWIOTLB_INIT_ADDRESSING_LIMIT) &&
+>> +		   swiotlb_kmalloc_needs_bounce()) {
+>
+> I think at a high level, we need (i.e. separate attributed from sizing):
+>
+> 	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+> 		io_tlb_default_mem.cc_shared = true;
+>
+> 	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
+> 		if (!restricted_dma_pool_present)
+> 			swiotlb_adjust_cc_size();	/* 6%, clamped */
+> 	} else if (!(flags & SWIOTLB_INIT_ADDRESSING_LIMIT) &&
+> 		   swiotlb_kmalloc_needs_bounce()) {
+> 		swiotlb_shrink_for_kmalloc();		/* 1MB per 1GB */
+> 	}
+>
+
+But pKVM wants to reduce the swiotlb size based on
+kmalloc_needs_bounce() when it is using a restricted-dma-pool.
+
+ie,
+	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+		io_tlb_default_mem.cc_shared = true;
+..
+
+	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
+	    !restricted_dma_pool_present) {
+		swiotlb_adjust_cc_attributes();
+	} else if (!(flags & SWIOTLB_INIT_ADDRESSING_LIMIT) &&
+		   swiotlb_kmalloc_needs_bounce()) {
+
+-aneesh
 
