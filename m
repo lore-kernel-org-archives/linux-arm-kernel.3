@@ -4,72 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF6CC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD8ADC5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b5hJuXbQ5dC9VlpMlCqdUtrRiywrezf0F9uuzsr0IXY=; b=Ll1ADfxdBx1mM9K/oz3bFsL3FN
-	yyTgKsPUQ0qyvUsER1V4QsSZ+wtvzZ+B1JJe3GY0Ayfe779hF73RlbDcK/Usn6vW8SpPkP+BU/k6B
-	ZqJgOBC4Hqt4ZQngTKrPXnuv8oE3QSfMjk8oZlhJLILwxdkYjoohkGMduX4sFpX3eoR3POZ5bJHJ5
-	s6YTQpm/yRdtv7rfixYcnDifr8Hwed5JQ71lKtyDRoeXITcer0vt++4RvgqUjuD+esLNtOyk5yVw7
-	e/AahsXjifuhIxOE8FdNyKCumB0gMid6V+tpU5ps9DLjKUqLdyOSNOxJWcBWuACSn6ZJGQY+kHoTG
-	KKrE6LAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T60WzhwozfoAxskKPuFoLDg+Fb09FOeo1d/nwH5Krps=; b=Do+TNLZMyCml+jn2JLS4JsEtSn
+	misEXO6MLXAz0bwLnyJgrjf5t/u79tW9ttKJYs7CUKu5CbXx6EVTBMrNCyHkmYV2uXhDqQjUdKbFb
+	35lbnPDQ0rUYxy4PFf4fsnEZrsFsvsOktJZxbvj71AeZfsnHj+MqRAWDpBTvYCZT3+u3MwyxQP6gt
+	YBx4MjsKoXGfFGGdFzRrQuDPONH5BQpLB0uwnuo3jptVM/3m+iVFbMGsFWHA5+MlW61wxNhsbM3BH
+	lB32kmETflGmLJL4H+qtB3vBE3/RAia1QuhsFoZ1dCQ4p4BEX4atEnTZvdvSZu0+AMPhola3KbsWb
+	nVOHsttQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4YP-0000000BnMO-12Ox;
-	Thu, 20 Aug 2026 15:19:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wx4ZD-0000000BnVO-1yVy;
+	Thu, 20 Aug 2026 15:20:31 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4YO-0000000BnM3-38nS
+	id 1wx4ZB-0000000BnUT-150h
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 15:19:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2BC0E41414;
-	Thu, 20 Aug 2026 15:19:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05B6F1F00A3E;
-	Thu, 20 Aug 2026 15:19:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787239180;
-	bh=b5hJuXbQ5dC9VlpMlCqdUtrRiywrezf0F9uuzsr0IXY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=geE15EkuV/lUtNOdTTHxH/hk2Tx/U5yHSm4N+DvJTQKO7lsaHxcbqdJ3pHZZGFjua
-	 eHYu9z2Ly5eIzxpDcP94K9UAJ77+WLKUwFJHmCw88GzSupH/qU7RdI/DIjQNbOfQSw
-	 MPoj0D1LEyy3EJegmFooEDF6f6WUDywE0DP1M0BVv+8rakExSJxmxtFMc5p8SbAbop
-	 /wVHhD+XNspcBvtjMZeLR/1IvcECqXMjqNkSB971KzwsKg4kAEOR65oW7aZe5VnR6X
-	 4WD+4oQcegob3+47+3J3pPivtZEh6g0Anl20SduPm6WttyslrpTULRWMOdM7N6/vBJ
-	 N8s707BKUDl8A==
-Date: Thu, 20 Aug 2026 16:19:34 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>, Fuad Tabba <tabba@google.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v19 03/14] KVM: arm64: Manage GCS access and registers
- for guests
-Message-ID: <c4d3ef8c-b5da-4435-81e7-7f9ee88b988d@sirena.org.uk>
-References: <aoXamcdKoMynTkpX@LeoBrasDK>
- <48be9e5d-357a-4863-8682-8b3f34c69723@sirena.org.uk>
- <aobUGyq8nInJYkdA@LeoBrasDK>
- <97ad6e83-b22b-4881-b644-66fa99f68d64@sirena.org.uk>
- <aocOi3wjcliZqoe7@LeoBrasDK>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="VryGsj2zZuDPeMrP"
+	Thu, 20 Aug 2026 15:20:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZTKW4RWeuI2XPNFKIAXQDLWnvMKsBrwushbsGCLtK3MRH3ht3omkp4mueidbrd3YCr+Z3rPbwFMLq9VfztcajaxlmJ6RpQ5L5W4raVgwKJYWTTT5O7RNXcf5V21dpISKc3G1jlOemAod3+TdEOyCg67HT7T+3QgVEwq/HqlQgDbjWNs3ov9X+uN72ODXwV8uASzRMQEKBgkGGIzgbMVVwD5rqpej0yPkCv/hMro2hIsauUDctb/6e1k2bP88AMphf3dSNHqVbAxKpZuw8Fvj7wXNcB/cimksc5Gn99zMsE5OzSk9qgV8knfHsPvbBDwE2IQuAkXb839Dqd4Jn06iow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=T60WzhwozfoAxskKPuFoLDg+Fb09FOeo1d/nwH5Krps=;
+ b=thk2Aet80FHYnWtKIYXn9zBGnsjNxeyEmvYCRUIkr1Ibn5pP0j+K+HXQLa1R0HJTcPy9tWRKEAv51TnWolbF6g8zNtLsBQtwH90H1l5+f23pEx6w7oLfNOUEwGdtrlbAPiisJvaQvaL3lqaNfXEW7i+0v5k8AVfqoP0QHf9E+DxoghIDSMx/iR1m5ylLytTV+zWTeiBTvpeIGtETOpbNKoPsGXQVTPY05WYJq1/2cyp97C4sXA7q6FdgOW5bh6GVLXMFSAv77Lan8u2zFkaC1fwj14D7nZ65NzhT1I7agUAnKS6eKKoS3uwpJPoMCLbcJEc6jzl3T6lcw/5zfD507w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=T60WzhwozfoAxskKPuFoLDg+Fb09FOeo1d/nwH5Krps=;
+ b=phyeTjmJZWLfPCE/ldtPLFdHL99OsFmH3xnHdXYLSNKWsPri220xmeIeiVA4sdyXnB4gRJRWBeoBaxPy1O/o7y/098qgh/tN4EIiw24Xm1pOmfaI4Z49r8annbzUNk46sFVvMFOXV7O6kaEas4Q83YuOztuBiDNps7RwOLTxy+wvSguRDiafgWtjYWTbds1Afuqkc+KydxkgWysV9K+cnsBbTaQ+3Q/G6A7kwJBKwNjoaGKfQfauY6+vFF2kiObXCDnOIvaW4krwucH+fkPNlOHMxZ+aXr4nPuA1bDHCww1ElJAEClsYeDfK7tlZbKBsGundWryJQqd+4Nh60RonWw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM8PR04MB7442.eurprd04.prod.outlook.com (2603:10a6:20b:1d8::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Thu, 20 Aug
+ 2026 15:20:20 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.007; Thu, 20 Aug 2026
+ 15:20:20 +0000
+Date: Thu, 20 Aug 2026 10:20:11 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: "Zhipeng Wang (OSS)" <zhipeng.wang_1@oss.nxp.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Frank Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jindong Yue <jindong.yue@nxp.com>,
+	Xuegang Liu <xuegang.liu@nxp.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v4 5/5] irqchip/imx-irqsteer: Allow building as module
+Message-ID: <aocbK_nWJSbmzNkp@SMW015318>
+References: <20260819090543.585131-1-Zhipeng.wang_1@oss.nxp.com>
+ <20260819090543.585131-6-Zhipeng.wang_1@oss.nxp.com>
+ <aoXJAx131-gU4qXu@SMW015318>
+ <AMBPR04MB12334895C9AD42BFCD085EAB9EBA42@AMBPR04MB12334.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aocOi3wjcliZqoe7@LeoBrasDK>
-X-Cookie: Happiness is a hard disk.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <AMBPR04MB12334895C9AD42BFCD085EAB9EBA42@AMBPR04MB12334.eurprd04.prod.outlook.com>
+X-ClientProxiedBy: PH7P221CA0058.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:33c::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM8PR04MB7442:EE_
+X-MS-Office365-Filtering-Correlation-Id: 39aeaec7-61f2-40e4-55ee-08defece8bfe
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|23010399003|10067099003|56012099006|4143699003|3023799007|22082099003|18002099003|11063799006;
+X-Microsoft-Antispam-Message-Info: ggoWAOXpeDmNUnzk3QIYC9851hefUuOG4hRRTgmTrZV90dxGJ46qa6XpCyMu1mBNbwKRx/li8g/AzZNf1ufqAULdO3IHctze/HKpIoZVxY+rYazofveEyxv6/KK3fYy+v9/iJlzkjI8ZdBKZKdp8qfI3uViMP7ztK9LNBKp7HvJnJdOsF4f8PCeSXlRqdgvaU7MuWqfvIxjpYB/2+tFbGohEZyGBOVIWzCu0je19/SkaYDfRn93SSG2WdxpPYxVbKjaW0KaFefZAfqq2BiIiKYhab8Z24pAUv3RMaU/NBGYVl9Tihgd8uhPV0tJF9HZxrdvmUxFCoLz+HMByty/y6XwpU+itsquVBDOYvI19Hbr+wi1DMQfJRjj1SOCEKItDnabI1JO6VF1/GzLj7fdOHGZo/yXowyDNWINGrDKCuxZCWuntZu+67MlMfkd2CL48O0H4xllAUwr38yVgF4XZie1O7ZOx5aMzENBoUn35lmTpliSbruDFa6l1I0pONwHWqZcuhRWMc7PbKqEfvpMZFnuev1PdjJkvlbXqkYFtH7tgSKyT+xh6aVMUMU8Rl7bB4Iw3aRI/QteQ+9CBqeGi4pL9XBcM4tQ8YgJolTxVh3IWTA8m/qiUN29wAHV42wvnt9Tyg6r+eluIsDPLjpiIB42fjw7qz0qaxh5lzxtje9E=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(23010399003)(10067099003)(56012099006)(4143699003)(3023799007)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SUNTcExxSFArK3RtbkJBeWVEei9UR3lONGNOV29qSG5vYzNmUmc3bjdlemZy?=
+ =?utf-8?B?bEhzVFFnaXllRzhDWDRXeXlVeXczYTY1NnlhNTI3Y0kwN010aWlybVBRdjZK?=
+ =?utf-8?B?cVZHNkJQa1krNHg5QWRxWDM3NVVKSVNJUVBmei83eG1pT2h3SVNKWXBkT1l2?=
+ =?utf-8?B?QUtzcTYwNGdPVmpwNFVQbW9ZRndpWTZJcElXS25mcUdkb3RsVWJUTnRHSWwz?=
+ =?utf-8?B?L1Z5UXFQYitKSDhINlpRN1lEWVlkOTR4eU13UDVBaHgrU0Jsakg1VHZ5QzNN?=
+ =?utf-8?B?R2Q2ZDV6dS80ZWtaaXNDM3U3RjVEcWZ3QUpNdFl2aFpQZ2tTYkNYVnVWZTBB?=
+ =?utf-8?B?RmUySm5RdUwralVmUDNTd1R2NW1BWFZiMHd5T3Q0OGhPZ3ZUcEtEKzdUVzl4?=
+ =?utf-8?B?ZGtDOWdtR0tvL21FSmI1Mk4zdzJFZFZSMVpyNGR6UUtTMUsxQWlLMk9UeFFy?=
+ =?utf-8?B?K2xBYlpYWEsxYXUycVR4SWppSHVQOFB1VUlJbjUrYTlaaXBHWklaMTNXUldO?=
+ =?utf-8?B?akw5dE5ORENQWnErc3pha2MrdWp0cEpzVUpUMU9KamFLQzB5c0gybHZ3TlA0?=
+ =?utf-8?B?cXlLM0NacEtwb0dkRHR1N0JGOTd2MlNya0VxeFhNT2VWcEFqaEp5UUhuRTdU?=
+ =?utf-8?B?MC82WG5IZERNeEVwVUFjL0NVb1B1dFRWSFpwTDUvaWRHNTF3WUdHZXVoM0dn?=
+ =?utf-8?B?M1pBeUtmYktjY2lCQ1htMGxadHJVYnRSY0ZXNjJUZjJaYnNRNDVwY1krL2t3?=
+ =?utf-8?B?Q0VreW0wc3FoWTh3enNiNTB5aUNYdU8xWDkzcDJJMDJHckR2bkg4Uks2ZnpW?=
+ =?utf-8?B?UzdFeFBjSm5aczNORWNselF4Tmo5S2ZoRnV0TFhZTGI2cWFUdEhEUWlrOHBT?=
+ =?utf-8?B?NjZXOVQ1czJsblBTK3RSdDNNUWpWWXNqTVJKNU1pdURKeitIdDF0M2NhcWRa?=
+ =?utf-8?B?ejZBMnhIVThiU294WG80b21pU0dnNG1PeDJZR1hPN2ZLU3Fra0VTbEpha0Q1?=
+ =?utf-8?B?SXRiOERobW5jVGN2QWY5MGhLQWFLWkI5dDJ3QncrMVR2blhEM3YzaDlQWGhJ?=
+ =?utf-8?B?Z0t2Q2NucmRmQ2NoY3VLemNQS0Q2bnhac2JhbjNEdnJwN3Z0UmlnYkNiN3pt?=
+ =?utf-8?B?YUs1dEZwR3k0VnphZnB0blMrYUgxK3ZhMndTSWlxdXcxT1ZmVUh5cmlIckN5?=
+ =?utf-8?B?M28vd2ZZMHpkaTl6cmFoOUExUHc0Qkw2VjE5bTd5VmVZZ29nTi9qd3UvV2ho?=
+ =?utf-8?B?SUVRbEJuam1IZ2VLMTVUODZQdlpQQWVZaDFjWnJzUUNCQU1rRjdLdklFS3V3?=
+ =?utf-8?B?c1J1MmhGblV1d3pxcDJ1ZUFPSWpUa3RIQXQ4bWdTdStSa3dOWHJhSkpVNURp?=
+ =?utf-8?B?OXB1NVV1ZVljdkJxKzVkVFMzWTV4WHN1TDEyK0hYZnhTQ0V0QmJDYm5nblFj?=
+ =?utf-8?B?WUhaUWpUdDl6dkhscWlvclA0RjQ5LzNsMXN0cW5LUjZTamMrNjhkYlFMclhB?=
+ =?utf-8?B?N25sZUhRRERoQzJtT3J0TXY0KzR6Z2dMZnZDeEZhMXdTbUt4QmQ5WkdXcDh4?=
+ =?utf-8?B?UzFRdHlsdW1rVUhDekFveU9ZNDRFL1I2RjlITkg5N0dhUVNEb1BNbGhBT0FT?=
+ =?utf-8?B?U01BaEVhQjJRdmk4YXJOdkYzOCtZRFh5TktZRTZnam9zU1piTGNNRHdGSkRp?=
+ =?utf-8?B?SzVTRHBzK3gyVC9pZkNHK0RGU2pIK3o3MG9wL3czc0R2Y3JDOTgwZkxPM0tK?=
+ =?utf-8?B?MjhUTHRIRGlQWjNPdWlING1ySU56RDlzZHNhVC9TNnVKdnFRcTNDQWE4eGhn?=
+ =?utf-8?B?V21CZzVmTnZmWDF1Y3dkamZ1ODZHcHJqS3RzYmJGL2FIQWhwUUE2cGhNOENS?=
+ =?utf-8?B?NmpMRUtGVGsydmE0bkZCZ2pVQmdOY2dQb2VBS0w0Q0VqdW01ZnI2eU1lWWlZ?=
+ =?utf-8?B?OUhiWGc4QmlsZDJKaER1T0NKaHU3UVlQQ3VXNXYxRkszeTBvVWhpOEo1NDla?=
+ =?utf-8?B?YmpNZzViRFRWTDBLdWlsRDhGRklIVXc1ZHVHNU5QbXBpb3ovcEU0M0pFMWMr?=
+ =?utf-8?B?L0NXSDV5ZXBtSkpWNS9yOFRYbUlJYkIrQ2ZZUmZxbG9zbE9NalVCanhRYmgv?=
+ =?utf-8?B?cTI2T2hsQzJOM1FJL3RiRUhjeHhiY1dmKyt5UUNKUFFRVjFCb050UkJWRFNw?=
+ =?utf-8?B?Zmw1WTRpM0pGZVovWWJKYjhCdjl6dVIzMlc3WnFQb2MyRHYveWhvamExcW1j?=
+ =?utf-8?B?WVRnL09aYzAyZGtjK3Q1ZVRlSm84UzZDeG00dWpOVDVHT1pDNk85NW42Q0po?=
+ =?utf-8?B?bnBXZDZUNmx1TEVXSmRUYzNpSmt6RDY0Uk9rR2V5UFZLakZpS2R5cDQrTkhZ?=
+ =?utf-8?Q?SNkzNZwvvATbAQVOBri7OIVjiJphJRfNPI2kE?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 39aeaec7-61f2-40e4-55ee-08defece8bfe
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 15:20:20.1661
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dipurKYqUxJL2qUT81VirTHSLbsZLQb6ntvu+thfhoA7hlHqYA+EAqXtHAHl90WpgvJUSA0ZMnCsECcSaAS0bXhMJnwVYowZjxAN053iBj7Nh81xWUnreujqAuMdlwnV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7442
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_082029_444074_3F070746 
+X-CRM114-Status: GOOD (  41.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +156,243 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Aug 20, 2026 at 09:53:13AM +0000, Zhipeng Wang (OSS) wrote:
+>
+>
+>
+> NXP Confidential
+> > -----Original Message-----
+> > From: Frank Li (OSS) <frank.li@oss.nxp.com>
+> > Sent: 2026年8月19日 23:17
+> > To: Zhipeng Wang (OSS) <zhipeng.wang_1@oss.nxp.com>
+> > Cc: Thomas Gleixner <tglx@kernel.org>; Marc Zyngier <maz@kernel.org>;
+> > Frank Li <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>;
+> > Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+> > <festevam@gmail.com>; Jindong Yue <jindong.yue@nxp.com>; Xuegang Liu
+> > <xuegang.liu@nxp.com>; linux-kernel@vger.kernel.org; imx@lists.linux.dev;
+> > linux-arm-kernel@lists.infradead.org
+> > Subject: Re: [PATCH v4 5/5] irqchip/imx-irqsteer: Allow building as module
+> >
+> > On Wed, Aug 19, 2026 at 06:05:43PM +0900, Zhipeng.wang_1@oss.nxp.com
+> > wrote:
+> > > From: Jindong Yue <jindong.yue@nxp.com>
+> > >
+> > > Make the driver buildable as a module by turning the Kconfig symbol
+> > > into a tristate and using module_platform_driver() instead of
+> > > builtin_platform_driver().
+> > >
+> > > Now that the driver can be unloaded and reloaded, let the driver core
+> > > own the clock and runtime PM lifetime so that the probe() error path
+> > > and
+> > > remove() do not have to hand-balance them:
+> > >
+> > >  - acquire the clock with devm_clk_get_enabled() instead of a bare
+> > >    devm_clk_get() followed by a manual clk_prepare_enable(), so it is
+> > >    prepared/enabled for the device lifetime and released on unbind;
+> > >  - keep only clk_enable()/clk_disable() in the runtime PM callbacks,
+> > >    since prepare/unprepare is now handled once by devres;
+> >
+> > devm_clk_get_enable() will do prepare() and enable(). tear down also do
+> > unprepare() and disable()
+> >
+> > To avoid both devm_clk() and runtime pm suspend both unprepare and
+> > disable() clock to make wrong clock refererence.
+> >
+> > need in remove function
+> >
+> >     /*
+> >      * Resume the device so runtime_resume() re-enables the clock.
+> >      * devm cleanup (clk_disable_unprepare) runs after .remove() returns,
+> >      * so the clock will be enabled and the disable is safe.
+> >      */
+> >     pm_runtime_resume_and_get(dev);
+> >
+> >     /* devm_clk_get_enable and devm_pm_runtime_enable clean up
+> > automatically */
+> >
+> > Frank
+> >
+> Hi Frank,
+>
+> Thanks for catching the clock reference-count underflow — you're right.
+>
+> With devm_clk_get_enabled() doing prepare+enable and the devres teardown
+> doing unprepare+disable, having runtime suspend also drop the enable count
+> means the clock can be disabled/unprepared twice (once by runtime PM on the
+> suspend path, once by devres on unbind), underflowing the reference count.
+>
+> I've applied your suggestion in remove():
+>
+>         /*
+>          * The device may be runtime-suspended here, in which case the
+>          * runtime suspend callback has already dropped the clock enable
+>          * count. Resume it so the devres clk_disable_unprepare(), which
+>          * runs after remove(), finds the clock enabled and stays balanced.
+>          */
+>         pm_runtime_resume_and_get(&pdev->dev);
+>
+> What will change in the next version:
+>   - The series is split per tglx's request: the PM/devres rework, the
+>     module-enable change, and the irqdomain helper cleanup are now
+>     separate patches rather than one blob.
+>
+>   - Fabio's IRQ-count validation patch, which carries the same
+>     Fixes: 28528fca4908 tag, is folded into the series.
+>
+> Thomas suggested collecting the patches that carry
+> Fixes: 28528fca4908 ("irqchip/imx-irqsteer: Add multi output interrupts
+> support") into a single series. This standalone fix carries that same tag:
+>
+>     [PATCH] irqchip/imx-irqsteer: Call chained_irq_exit() on the handler error path
+>     https://lore.kernel.org/all/20260807072626.1231517-1-Zhipeng.wang_1@oss.nxp.com/
+>
+> What's your view on it?
 
---VryGsj2zZuDPeMrP
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Sorry, I missed, it looks good, you can combine to new fixes series.
 
-On Thu, Aug 20, 2026 at 03:28:39PM +0100, Leonardo Bras wrote:
-> On Thu, Aug 20, 2026 at 03:07:14PM +0100, Mark Brown wrote:
-
-> > I think what would help here would be to move to generating more of the
-> > save/restore sequences rather than open coding them, we could have lists
-> > of registers and then use data about the feature dependencies that the
-> > architecture has (hopefully it's already in the MRS, I didn't check) to
-> > generate these optimised feature checks rather than having to open code
-> > them.  Possibly even list features and generate some of the register
-> > lists, though that would need far more special case handling and it's
-> > *much* less clear if there could be a benefit.
-
-> Yeah, that would automatize the feature dependency for register loading,=
-=20
-> but maybe code would not be that clear on how it works? I have questionab=
-le=20
-> taste, though.
-
-I was thinking of generating as part of the build process rather than as
-a one off so you'd not actually look at the code in the normal course of
-affairs.
-
---VryGsj2zZuDPeMrP
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqHGwUACgkQJNaLcl1U
-h9ClIAf8C1PPh/jm0zRwE2TlZckmkQSd0+wAv9s16BA+buMf1y7Blt2cCUAx/+pm
-U3mobFvFSDF1COBWKajgd4TM0wmEbUYDYEd6bwxW38JUSWESaQNkEotcw/D+wCRG
-p16FUPjNexyrTzf1utNn/xnnDihxAxVkv5GaJtLvBISbIC+Sa+sw+PnIwTflkjYC
-CPJmsQEDCzRj+ibEU7rU6KTpUI7udB1A3s8uhnYVji5qsJlUZRVgyM4IbXTA37df
-n5ErCgi7ROl4Lzz53SFIvTdPwJntXuA96OSgfesk7LAJo+7Eq3KJggXX3OxSw6BS
-/F0eUbyIwjde7bxekGufQIE7j0rWnQ==
-=hyYp
------END PGP SIGNATURE-----
-
---VryGsj2zZuDPeMrP--
+>
+> Thanks,
+> Zhipeng
+>
+> > >  - enable runtime PM with devm_pm_runtime_set_active_enabled(), which
+> > >    marks the device active (matching the enabled clock) and disables
+> > >    runtime PM on unbind.
+> > >
+> > > With the clock, runtime PM and IRQ domain all owned by devres,
+> > > remove() and the probe() error path only have to dispose of the parent
+> > > IRQ mappings.
+> > >
+> > > Signed-off-by: Jindong Yue <jindong.yue@nxp.com>
+> > > Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+> > > ---
+> > >  drivers/irqchip/Kconfig            |  2 +-
+> > >  drivers/irqchip/irq-imx-irqsteer.c | 36
+> > > +++++++++++++++++-------------
+> > >  2 files changed, 22 insertions(+), 16 deletions(-)
+> > >
+> > > diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig index
+> > > 20b77fbc51ee..105108d2e6ff 100644
+> > > --- a/drivers/irqchip/Kconfig
+> > > +++ b/drivers/irqchip/Kconfig
+> > > @@ -555,7 +555,7 @@ config CSKY_APB_INTC
+> > >       the controller's register.
+> > >
+> > >  config IMX_IRQSTEER
+> > > -   bool "i.MX IRQSTEER support"
+> > > +   tristate "i.MX IRQSTEER support"
+> > >     depends on ARCH_MXC || ARCH_S32 || COMPILE_TEST
+> > >     default y if ARCH_MXC || ARCH_S32
+> > >     select IRQ_DOMAIN
+> > > diff --git a/drivers/irqchip/irq-imx-irqsteer.c
+> > > b/drivers/irqchip/irq-imx-irqsteer.c
+> > > index a9909ecb6fef..a60cc527e619 100644
+> > > --- a/drivers/irqchip/irq-imx-irqsteer.c
+> > > +++ b/drivers/irqchip/irq-imx-irqsteer.c
+> > > @@ -10,6 +10,7 @@
+> > >  #include <linux/irqchip/chained_irq.h>  #include <linux/irqdomain.h>
+> > > #include <linux/kernel.h>
+> > > +#include <linux/module.h>
+> > >  #include <linux/of.h>
+> > >  #include <linux/of_irq.h>
+> > >  #include <linux/platform_device.h>
+> > > @@ -193,7 +194,7 @@ static int imx_irqsteer_probe(struct platform_device
+> > *pdev)
+> > >             return PTR_ERR(data->regs);
+> > >     }
+> > >
+> > > -   data->ipg_clk = devm_clk_get(&pdev->dev, "ipg");
+> > > +   data->ipg_clk = devm_clk_get_enabled(&pdev->dev, "ipg");
+> > >     if (IS_ERR(data->ipg_clk))
+> > >             return dev_err_probe(&pdev->dev, PTR_ERR(data->ipg_clk),
+> > >                                  "failed to get ipg clk\n");
+> > > @@ -226,12 +227,6 @@ static int imx_irqsteer_probe(struct
+> > platform_device *pdev)
+> > >                     return -ENOMEM;
+> > >     }
+> > >
+> > > -   ret = clk_prepare_enable(data->ipg_clk);
+> > > -   if (ret) {
+> > > -           dev_err(&pdev->dev, "failed to enable ipg clk: %d\n", ret);
+> > > -           return ret;
+> > > -   }
+> > > -
+> > >     /* steer all IRQs into configured channel */
+> > >     if (irqsteer_has_chanctrl(data->devtype_data))
+> > >             writel_relaxed(BIT(data->channel), data->regs + CHANCTRL); @@
+> > > -271,12 +266,21 @@ static int imx_irqsteer_probe(struct
+> > > platform_device *pdev)
+> > >
+> > >     platform_set_drvdata(pdev, data);
+> > >
+> > > -   pm_runtime_set_active(&pdev->dev);
+> > > -   pm_runtime_enable(&pdev->dev);
+> > > +   ret = devm_pm_runtime_set_active_enabled(&pdev->dev);
+> > > +   if (ret)
+> > > +           goto err_irq;
+> > >
+> > >     return 0;
+> > > +
+> > > +err_irq:
+> > > +   for (i = 0; i < data->irq_count; i++) {
+> > > +           if (!data->irq[i])
+> > > +                   break;
+> > > +
+> > > +           irq_set_chained_handler_and_data(data->irq[i], NULL, NULL);
+> > > +           irq_dispose_mapping(data->irq[i]);
+> > > +   }
+> > >  out:
+> > > -   clk_disable_unprepare(data->ipg_clk);
+> > >     return ret;
+> > >  }
+> > >
+> > > @@ -293,8 +297,6 @@ static void imx_irqsteer_remove(struct
+> > platform_device *pdev)
+> > >                                              NULL, NULL);
+> > >             irq_dispose_mapping(irqsteer_data->irq[i]);
+> > >     }
+> > > -
+> > > -   clk_disable_unprepare(irqsteer_data->ipg_clk);
+> > >  }
+> > >
+> > >  #ifdef CONFIG_PM
+> > > @@ -324,7 +326,7 @@ static int imx_irqsteer_suspend(struct device *dev)
+> > >     struct irqsteer_data *irqsteer_data = dev_get_drvdata(dev);
+> > >
+> > >     imx_irqsteer_save_regs(irqsteer_data);
+> > > -   clk_disable_unprepare(irqsteer_data->ipg_clk);
+> > > +   clk_disable(irqsteer_data->ipg_clk);
+> > >
+> > >     return 0;
+> > >  }
+> > > @@ -334,7 +336,7 @@ static int imx_irqsteer_resume(struct device *dev)
+> > >     struct irqsteer_data *irqsteer_data = dev_get_drvdata(dev);
+> > >     int ret;
+> > >
+> > > -   ret = clk_prepare_enable(irqsteer_data->ipg_clk);
+> > > +   ret = clk_enable(irqsteer_data->ipg_clk);
+> > >     if (ret) {
+> > >             dev_err(dev, "failed to enable ipg clk: %d\n", ret);
+> > >             return ret;
+> > > @@ -357,6 +359,7 @@ static const struct of_device_id imx_irqsteer_dt_ids[]
+> > = {
+> > >     { .compatible = "nxp,s32n79-irqsteer",  .data = &s32n79_data },
+> > >     {},
+> > >  };
+> > > +MODULE_DEVICE_TABLE(of, imx_irqsteer_dt_ids);
+> > >
+> > >  static struct platform_driver imx_irqsteer_driver = {
+> > >     .driver = {
+> > > @@ -367,4 +370,7 @@ static struct platform_driver imx_irqsteer_driver = {
+> > >     .probe          = imx_irqsteer_probe,
+> > >     .remove         = imx_irqsteer_remove,
+> > >  };
+> > > -builtin_platform_driver(imx_irqsteer_driver);
+> > > +module_platform_driver(imx_irqsteer_driver);
+> > > +
+> > > +MODULE_DESCRIPTION("i.MX IRQSTEER interrupt multiplexer/remapper
+> > > +driver"); MODULE_LICENSE("GPL");
+> > > --
+> > > 2.34.1
+> > >
+> > >
 
