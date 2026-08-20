@@ -4,68 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E355EC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 12:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDD2C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 12:59:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O76Qqjz5M37uL6Y9glYmziUW+XhtTTDVk40P+J+uEl8=; b=wnhtW1eL9DN6RYWUAl/mtidMMn
-	/rQgeFkoxm1S2BG5yzpLXzgFs7HZdsEilel6qNSyxudNNmoG2DaDiFYkhdazsWcVioza/4nGCyeZ1
-	o/UH4o4dV4gbBdsHC8rZNFkuePR6abMJkTwsyiI/8uoub7e2NmcGwqt2iIianncdUgIUqP+XiyWf7
-	F0j7WLnyMUo+fbxbUuy1/+ZXCKJwNUxRhAIejZLHFTkIloU+rJIczxRc2SAHY5QNs6I4BG50MH8p2
-	Mdift5ubLj2Qw1oE18eQy8A+iQKPFaaUq/ebBIF2BLFfIaivhljsb1MK5bVGoqlZV+wsheW8HFwC/
-	5zFxq3hg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KbWAJa3C683yffh0RsfqBofb1SIppeFKhvek2Ax4mqg=; b=Wofj2lx6FonEauNgH/9HK5u//P
+	H7t9/DAlVJsXSUHlWESindTbH8FyFXsItiCQtzli23lwtnn8GIwmiU0FYQ97YcbLZpn7F1Wgi216k
+	ajRtEQtAhjlykXJY3lDlQsXycDNwdkS8JsDFaH3uiIAi+hDoKipEL8x53xqWadHSiiYyAWLDE0vq9
+	xXFjqbC6X7HuWultn2wVPRGn+65rsuhM0W1R8Vf+Hmr7JLYYLQfrT3j7t2bTusDmPIwG14xHicnsG
+	1qNoDGzpc1bd5dAUtDEINTqb5VXpG2c8Wa1id+t3FAtQWZH6wslxvhqK/+SPtLITpux/6zvfxsBjh
+	HGSJzmlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx2J0-0000000BaQd-0A11;
-	Thu, 20 Aug 2026 12:55:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx2Ix-0000000BaQ4-2NzD
+	id 1wx2MA-0000000Bahi-23Ib;
+	Thu, 20 Aug 2026 12:58:54 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wx2M8-0000000BahL-1teq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 12:55:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2AC69153B;
-	Thu, 20 Aug 2026 05:55:29 -0700 (PDT)
-Received: from [10.1.25.29] (e122027.cambridge.arm.com [10.1.25.29])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A9E403F85F;
-	Thu, 20 Aug 2026 05:55:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787230533; bh=Y9Gu9Q+6PR+86XIVM8RAJWycXicry5KvRAo6sOf68bw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bns+tBwOFCYBqXFOvDOBwQdaUfdlfsgueLdq+uHMwTlY5VDzHotm1Vh3XwwKCKTd3
-	 wxR32A0443Sj9AgIBtyqaL0RGV5l9VR3eM3WMKrGC3kM0aqwGuynm7/TKAX1iJKQix
-	 WbKDlsUTHRDoThx2/F8+5LGVl0FN5OsOEoFRMZYs=
-Message-ID: <88aed40c-051e-4535-9964-3666456e79ee@arm.com>
-Date: Thu, 20 Aug 2026 13:55:27 +0100
+	Thu, 20 Aug 2026 12:58:53 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-47fe2d179e2so1487601f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 05:58:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ffroot-co-za.20251104.gappssmtp.com; s=20251104; t=1787230730; x=1787835530; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=KbWAJa3C683yffh0RsfqBofb1SIppeFKhvek2Ax4mqg=;
+        b=Yd0QzWETiW9iGkxkpwf4bIJkjNUTGEtkUPjPVIpNISOve2+pTPO9E4Pj8XgNo+beXt
+         7hX6/V13uKBz9USogTW1UFBgafN6taDrP2rsc05m7sHdNDzjxdLrpHJJ6TXiNPi25FYW
+         kgGGCu6d+k8Tc4hSQWbN4ie5LRlwmt2aT7sqtdOgoW0JkCRu6p5jkx2coUpYsriqDC2L
+         IYuUDEzwUhoAPYJElgkbLxwwk6kJgGOUJsV4we+xkFDO3NVYVqrAfQ483WFinnFHyIze
+         3aswcTUpuA+rC6DkyddXBWOqLc7EHhxkDi6jOA560+FOL8aJEc9JXJ5aBqgb6+8O7gFi
+         IUAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787230730; x=1787835530;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KbWAJa3C683yffh0RsfqBofb1SIppeFKhvek2Ax4mqg=;
+        b=NW4CcQpo1yRR1uqBwqRDmQ7mrFeQuF1ZznIlIp6wYXiSrO7C0cIeu+yy353ejYrN3a
+         G1K/yI9aMI+W8jk/cpvln/PnSo5n9nmD/HL7hw9RfQu5ap+9DNgMWMaDPxWslyUgGW48
+         mhJcAQGlwkGeyVX30UE3TduifjJTjXIpGK5TSon4GgyH+47Aw71iQm3/hTNFVOKsgMbe
+         S8EloTLfOeLGUoxFfaCjdyVYLT6/WOlNen78c4ITxIeSlW8x0hKBXNhY8cmAZn3Hm4+y
+         g3OnX2nvCOnW5bqRfjZJoXfWj+4J0fDbQvbsCDvM8/k/+iPZi2xA96EC2TRpZCqhpFpG
+         cBHA==
+X-Forwarded-Encrypted: i=1; AHgh+RqpEPjxabaQS1vZADuJ5nCQj4Xv0PzSgjSnvYIBt6RoJSzVnf46lmXGwwIiSoQbH4lBB9dvDy5Wpsp/MMTrWppR@lists.infradead.org
+X-Gm-Message-State: AFuF++nOr7+eYl2xf1rB2d/0+wuC2vrq8HJMoX6HUuqzgq6eKQ0vz6lO
+	Hj+Pvox+f58thSfy0WIh3/D8U2DCwGrit5otILAqdg3soZni9eFROcmXKfsvUuWQrC+RtZli/1j
+	WOnd/n9M=
+X-Gm-Gg: AR+sD12OdSoTWZ7Kzs8AFOc4L0otuSbjIKRsFt0KFET8opUDPodHBoJJa5AxHIdE9YD
+	DgN3TKlFxAq3WRRfDGYZTimKrlAW4aUoyETWI5gCg7QjBsUse6mCxJ4bVaXrrbkoL7GJECyTdM3
+	czNqnegYxoMD57BuA6JgrQ2tX75R7+tLSw19aEaMuZ4FTWeNxjssOeU4S8RGzldqPqqpDz7U1Du
+	lzUY6Bzn8N3hp3StcW+bCVUTNlHSvoNBfjQJMKpsueuA4IlaGS60Q7OOHfdFYtjOQ8ATkQRCPqk
+	eOFhUfyfROGa0Fz/7+rUeRPU+VlUf0tqvxSWISgvqu8ppmp/hYi3m5th0e+wCuCPbqpEjMzhaA/
+	+7Jp06nz5OaBm8gxgoRhDON+LcD53gC27ssLx+0bpyXmJK+ZxYEGwbQIPJt8UOxm93yhw9TUK1J
+	BhzLGVE4VjKSn+dhzdY8rXuagMLDE2GSnPM8wvMl6ODlUzhZT7GlBavqv5Yz8RC1hF9+cNz+O7e
+	gcXvv8YM65JoeLcbDy5LwOF7GGwetBlw2U=
+X-Received: by 2002:a5d:64e6:0:b0:474:530:9d with SMTP id ffacd0b85a97d-482b1fd894bmr21727223f8f.13.1787230730303;
+        Thu, 20 Aug 2026 05:58:50 -0700 (PDT)
+Received: from dev-ag.figment.co.za ([102.33.165.38])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482b14c45d1sm11095767f8f.30.2026.08.20.05.58.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 05:58:49 -0700 (PDT)
+From: Andrew Gaylard <ag@ffroot.co.za>
+To: linux-spi@vger.kernel.org
+Cc: lhjeff911@gmail.com,
+	broonie@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Andrew Gaylard <ag@ffroot.co.za>
+Subject: [PATCH] spi: sunplus: handle signal interruption in transfer wait
+Date: Thu, 20 Aug 2026 14:58:35 +0200
+Message-ID: <20260820125835.1584270-1-ag@ffroot.co.za>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] irqchip/gic-v3-its: Zero shared pages after
- conversion
-To: Marc Zyngier <maz@kernel.org>
-Cc: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- Sumit Semwal <sumit.semwal@linaro.org>, Thomas Gleixner <tglx@kernel.org>,
- "T.J. Mercier" <tjmercier@google.com>,
- Benjamin Gaignard <benjamin.gaignard@collabora.com>,
- Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>,
- dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>,
- Jiri Pirko <jiri@resnulli.us>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>
-References: <20260820105026.53208-1-steven.price@arm.com>
- <20260820105026.53208-2-steven.price@arm.com> <87wltlnfay.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <87wltlnfay.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_055535_872291_8E42AB22 
-X-CRM114-Status: GOOD (  38.28  )
+X-CRM114-CacheID: sfid-20260820_055852_532622_6CF42E2E 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,112 +99,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/08/2026 13:32, Marc Zyngier wrote:
-> On Thu, 20 Aug 2026 11:50:24 +0100,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> its_alloc_pages_node() passes __GFP_ZERO to the page allocator before
->> calling set_memory_decrypted(). This assumes that converting a page from
->> private to shared preserves its contents.
->>
->> For Arm CCA with MEC (Memory Encryption Contexts) the key used to access
->> the page will change, and so by default the visible data will change.
->> The host could ensure that it zeros the page, but rather than relying on
->> the host's behaviour it's best if the guest simply zeros after the
->> decryption rather than before. Specifically in this case the ITS tables
->> are required to be zeroed.
-> 
-> What are the guarantees that we want to enforce post decryption?  My
-> recollection is that the RME firmware cleans the caches to the PoPA,
-> making the data immediately visible to the hypervisor. Obviously, this
-> isn't the case anymore, since the zeroing comes after that, and I
-> don't see any CMO enforcing this.
+wait_for_completion_interruptible_timeout() returns -ERESTARTSYS when
+interrupted by a signal, 0 on timeout, and positive on success. The
+previous check was:
 
-The firmware should be ensuring that things are cleaned sufficiently
-that the original data is inaccessible - that's required as part of the
-wiping when converting from private. However the wipe doesn't have to be
-writing zeros, indeed the RMM spec suggests that two "possible
-implementations" are:
+    if (!wait_for_completion_interruptible_timeout(...))
 
-* The RMM (or other platform firmware) writing either random data or
-  zeroes to the memory location
-* The MEC of the memory location being changed
+SIGKILL caused the interrupted path to fall through as if the transfer
+succeeded. The loop then re-entered mutex_lock() on the next
+iteration, which is TASK_UNINTERRUPTIBLE. The process could not be
+killed while blocked there.
 
-My assumption (I have to admit I haven't checked) is that the GIC code
-is doing sufficient CMO to ensure that the zeros that are being written
-after the conversion are visible to the hypervisor - but that's no
-different to the non-CCA case.
+Check ret <= 0 and return -EINTR for the interrupted case so the process
+can exit promptly on SIGKILL.
 
-> I'm concerned that this relies on undocumented behaviours that may
-> hold today on some undisclosed combinations of HW and hypervisors, but
-> that are not guaranteed at all. set_memory_decrypted() doesn't really
-> say anything, and I have the feeling that we may want some hypervisor
-> specific hook to perform the correct CMO magic. I don't think this is
-> required right now, but I'm not excluding anything!
+Signed-off-by: Andrew Gaylard <ag@ffroot.co.za>
+---
+ drivers/spi/spi-sunplus-sp7021.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
-This is reducing how much Linux relies on undocumented behaviour - at
-the moment Linux is relying on either the zeros it has written still
-being visible or the firmware/hypervisor writing zeros after any
-private->shared transition. This patch makes the guest do it rather than
-relying on anything else.
+diff --git a/drivers/spi/spi-sunplus-sp7021.c b/drivers/spi/spi-sunplus-sp7021.c
+index d78f48bc2b0a..607fc01c4207 100644
+--- a/drivers/spi/spi-sunplus-sp7021.c
++++ b/drivers/spi/spi-sunplus-sp7021.c
+@@ -338,10 +338,15 @@ static int sp7021_spi_host_transfer_one(struct spi_controller *ctlr, struct spi_
+ 				      SP7021_SPI_START_FD;
+ 		writel(reg_temp, pspim->m_base + SP7021_SPI_STATUS_REG);
+ 
+-		if (!wait_for_completion_interruptible_timeout(&pspim->isr_done, timeout)) {
+-			dev_err(&spi->dev, "wait_for_completion err\n");
+-			mutex_unlock(&pspim->buf_lock);
+-			return -ETIMEDOUT;
++		{
++			long ret = wait_for_completion_interruptible_timeout(
++						&pspim->isr_done, timeout);
++			if (ret <= 0) {
++				dev_err(&spi->dev, ret == 0 ? "SPI transfer timeout\n"
++							    : "SPI transfer interrupted\n");
++				mutex_unlock(&pspim->buf_lock);
++				return ret == 0 ? -ETIMEDOUT : -EINTR;
++			}
+ 		}
+ 
+ 		reg_temp = readl(pspim->m_base + SP7021_SPI_STATUS_REG);
+-- 
+2.53.0
 
-You have a point that a spec clarification about CMOs might be worth
-having - the RMM spec doesn't make clear what is required of the
-firmware. Clearly for security it should be doing something to ensure
-that the old data from the realm doesn't become visible.
-
->>
->> Mask out __GFP_ZERO from the allocation request, and do the zeroing as a
->> separate step after decryption.
->>
->> Fixes: b08e2f42e86b ("irqchip/gic-v3-its: Share ITS tables with a non-trusted hypervisor")
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->>  drivers/irqchip/irq-gic-v3-its.c | 7 ++++++-
->>  1 file changed, 6 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
->> index 6f5811aae59c..c954bbe9f4db 100644
->> --- a/drivers/irqchip/irq-gic-v3-its.c
->> +++ b/drivers/irqchip/irq-gic-v3-its.c
->> @@ -213,10 +213,12 @@ static gfp_t gfp_flags_quirk;
->>  static struct page *its_alloc_pages_node(int node, gfp_t gfp,
->>  					 unsigned int order)
->>  {
->> +	bool want_zero = gfp & __GFP_ZERO;
->>  	struct page *page;
->>  	int ret = 0;
->>  
->> -	page = alloc_pages_node(node, gfp | gfp_flags_quirk, order);
->> +	page = alloc_pages_node(node, (gfp & ~__GFP_ZERO) | gfp_flags_quirk,
->> +				order);
->>  
->>  	if (!page)
->>  		return NULL;
->> @@ -231,6 +233,9 @@ static struct page *its_alloc_pages_node(int node, gfp_t gfp,
->>  	if (ret)
->>  		return NULL;
->>  
->> +	if (want_zero)
->> +		clear_pages(page_address(page), 1 << order);
->> +
-> 
-> nit: please use BIT(order), which matches the type required for
-> clear_pages().
-
-Sure, this was matching the use in set_memory_decrypted(), but I can
-update that too.
-
-> But I'd really like some discussion about the CMO side of things.
-
-I'm not sure what more to say about CMO - if you want changes in the
-commit message(s) then please suggest something. AFAICT this patch
-doesn't change anything about cache maintenance. You're welcome to raise
-spec clarifications if you want to.
-
-Thanks,
-Steve
-
-PS. I'll take a look at the Sashiko comments - but they are both
-pre-existing issues not issues with this series.
 
