@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF9C6C5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10023C5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
 	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
 	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U3yivdMwt6Gg2HYaKSnwIc0VL2gtJGzznDItKCo5jGg=; b=uogIYpfK6TNiriLGgaY5WWriy1
-	lhyHXSefQyCT3MMBL3sT+kfXrZo4XFcACynMjtEpFd+h1vGT8A8EqIsiTyxWMKCjnoXkQ4NoZAHbA
-	u5dZarNAGIx8KKnHGnRdBYfGNZeNtWYI2a3dE4hSv4Wxtgy8UiRyK0Y/Y9avVHH5xtkvxIfYRUpim
-	Rl6F1mrzgTitX6OCSWNGptpCM36isi38OsU4xCNO6vQ2I5i/DoOPZBlAOz8I887dce6pL9QwEx15g
-	ws+b3LDmPcQzmctikmRVnmtDagOCRPJ4fUQArINNKksbICqrQi9HqThGoruqHzXboHrzNnp4p3U8l
-	r3b7pVKQ==;
+	bh=Y7A9sj2I+9f+ApBdCNkzkJ0UFPvM5uYskNE27rgUXC0=; b=yoG3BDGV18kPzmqKEKpUtV9Lk7
+	wtPZvdpe5GkqxmLN6PYu2IvRmQD4imO4leAfZYJFX5f65m0WCmrR2+mmSwW7l7IoQkSVcLNfNGpR2
+	nnhf75LVjSsAYAxYOfX9tpmBul25SRkAnrXPZ6lWlho+Ml+kZZt2IpTlDRILVsyATG5C+qYKVv6me
+	W+DhKlHNYieBRKdiymSymchjBFBkxFfJsjZ2WSnnZMO5K5+embUI1qAyA7jEdkqjNZ2RU9PTzE0fQ
+	ZvX72Ugb8s6Q/ZOn2WWaR3QoOjEYdmEzPX/oFJuBQhpJJQlyucoXpQkv878rZn8oJRYcg32pAYQeW
+	9te5vuYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwzsu-0000000BLhB-328H;
-	Thu, 20 Aug 2026 10:20:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wwzt8-0000000BLkV-3lmc;
+	Thu, 20 Aug 2026 10:20:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwzst-0000000BLh0-22h7;
-	Thu, 20 Aug 2026 10:20:31 +0000
+	id 1wwzt7-0000000BLjz-0hts;
+	Thu, 20 Aug 2026 10:20:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED49A438F9;
-	Thu, 20 Aug 2026 10:20:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B66C1F000E9;
-	Thu, 20 Aug 2026 10:20:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 98FEF60A5C;
+	Thu, 20 Aug 2026 10:20:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D49E41F000E9;
+	Thu, 20 Aug 2026 10:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787221230;
-	bh=U3yivdMwt6Gg2HYaKSnwIc0VL2gtJGzznDItKCo5jGg=;
+	s=k20260515; t=1787221244;
+	bh=Y7A9sj2I+9f+ApBdCNkzkJ0UFPvM5uYskNE27rgUXC0=;
 	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=fHAHjyZtyyp0qu5upaGuQ2c7JO9vEOO+eBRCR3+jpa4/VLaDTgxK0cnLzG37eunvY
-	 bsU4ehZseKSkvFyjDYqcUmilm6LuKtBcMS+b2ErzVjYDkd2cc/pWiuzbqFezEWlaq3
-	 WrlLDWzuu+FEgLX7BDP/J6S0peGYrjf3LSjuAZyZvZvGwKbP+hE8beihfXDeRrZBDV
-	 YLdwX7Jc/oWFiSMfgky+wCHSF1I7UhQSkqTvD9o+MWdKG8fQKV/FlS1JqzN6tCirqe
-	 7bdfZ9T2VUTb8/4ngpUBf5YIH9EGQx7YbpKf8Z9Tb04icA2oeddNQoBAeQoKmyU4YQ
-	 OqkyAem+wzjGg==
-Message-ID: <689199296dc533b3088bc6f40312d066@kernel.org>
-Date: Thu, 20 Aug 2026 10:20:28 +0000
+	b=lIrrhK1JB67kNZSh544PmkOfj3zrHAYu14z4pU7Riw+0oAf3zbkx7OQ0llVWpHM2T
+	 hWL5biFZJUzn/MAiLQh68SZ13pxPIX8S+8XmewhfPwVUOk42WWoB2wI0igVWZ6XTr5
+	 Vy4jPaH+Bxv5idq+wPN+bMKb03Axhav95v7nTVMIiXqaUUZH5SRnClfrHhf8TO1Skq
+	 pG+l9c36qQ2nCqOCQGXYNt49gwHTaqsE/CCq/Il2tulS1T46qcNIX1hFYg3GD9a5Na
+	 vzqkSz5ITVgQu7hRL4MMcyn15NpMyuzQQ9UigvIA2nX2KXesP+H+YhEtVkY3pcBLZj
+	 +CYil+z/iD2tA==
+Message-ID: <63f164a4dba863e1b6b356fac4c87a7e@kernel.org>
+Date: Thu, 20 Aug 2026 10:20:42 +0000
 From: "Maxime Ripard" <mripard@kernel.org>
 To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
-Subject: Re: [PATCH v10 69/69] drm/connector: Drop redundant max_bpc field
-In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-69-294364b2cf15@collabora.com>
-References: <20260731-dw-hdmi-qp-scramb-v10-69-294364b2cf15@collabora.com>
+Subject: Re: [PATCH v10 68/69] drm/connector: Drop redundant hdmi
+ supported_formats field
+In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-68-294364b2cf15@collabora.com>
+References: <20260731-dw-hdmi-qp-scramb-v10-68-294364b2cf15@collabora.com>
 Cc: dri-devel@lists.freedesktop.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, "Algea
  Cao" <algea.cao@rock-chips.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Andy
  Yan" <andy.yan@rock-chips.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Daniel
@@ -77,12 +78,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jul 2026 19:20:16 +0300, Cristian Ciocaltea wrote:
+On Fri, 31 Jul 2026 19:20:15 +0300, Cristian Ciocaltea wrote:
 > Now that all users migrated to the new drmm_connector_hdmi_init()
-> signature, max_bpc is provided through struct drm_connector_hdmi_funcs,
-> a reference to which is already stored in drm_connector_hdmi.
+> signature, supported_formats is provided through struct
+> drm_connector_hdmi_funcs, a reference to which is already stored in
+> drm_connector_hdmi.
 > 
-> Drop the redundant connector->max_bpc field and point its users to
 > 
 > [ ... ]
 
