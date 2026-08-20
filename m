@@ -4,97 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CAE7C5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 16:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72FF6C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 16:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YnRM0KTrisOCjmklL/YoGuQ5GhJTGvbJYvWODwmflkI=; b=Fx0aisNs5BSET/capcunHrvt/k
-	fo4CaRK/y3pWzC//ULX2pBydg4p5NZTXfTpBkOBRZx+IjGOGjAjR+xK8aJ2oUl5VxwTsoO6WHjb5i
-	8xwlgKueaCujfBekLK6hZvG7fGfnQeUiurk1xrzxG/YKIxZ+ED420FjhVdvqGnRS0wxBFkn24alxl
-	AKn4mhXxp8F6EOZs0QFfVfIZoIv7rmbkMj29byyRcaffiklFRS5JdKCYtkUtCJr1t8rDfOj3ys9X5
-	ckYL5pC87lSHRmYvbAh3w3eUH+3R18IfHzrt0RBjS5E6MqGjcDy6U3Lev3FoOWHfjq0vSQTYUcn9+
-	HEQo3UUA==;
+	bh=qEfeanj2B21UQ4s13w9n0/O/Ii0JASvFsbQaoVe9iHE=; b=Jpx/O5Jp2UmlzEKMqCVwfQDAXA
+	ZHjAjiEywiflvQ1BTZAQ8UKYkTr7uxFNX6tQ8cqjBIzdGTzam8EDP7sXqAqC2BAa+OIJVx5o8uWcy
+	3inS3XC4mXfXw03EXyhT7PpovrY1QNthK6z4x4KObSWS7j1fpckTCjWAMMbCT8CoXLOk6FY3PkCI9
+	I2gLe1iY2l85bRm/x6Ke5dh8W0Dv40Z/70IAaWvetX5tqhAM9WzLCUp2afFLw0zrHctv0B6EnPccB
+	g/N2TH7YnznqbjiOM6LXh/Us56vYCXLUXU7M4/VOn6Bpf/G4/fgM6wV+k/YOWtVh/0Err6PMpvn8P
+	7kTg4Dzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx5YI-0000000Bszu-1M3K;
-	Thu, 20 Aug 2026 16:23:38 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1wx5gB-0000000BteO-0wH8;
+	Thu, 20 Aug 2026 16:31:47 +0000
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx5YG-0000000BsyK-2Ub4
+	id 1wx5g8-0000000Btdf-2rjs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 16:23:37 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-81ff017d420so18203827b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 09:23:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787243015; cv=none;
+	Thu, 20 Aug 2026 16:31:45 +0000
+Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-81dfdbd86d1so1172417b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 09:31:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787243503; cv=none;
         d=google.com; s=arc-20260327;
-        b=ieO2T28uUvmJNJS9JDGjB5wG4O0hjtjPXpwoCcD3SnNPcI8Ij91mexqckPr9rIPfd2
-         hcSM3VxmMggNjN2kX7WSABUW6lieFBNKua3KUzpvMk33l2Efpj3ytxJ8mIzDkVgmvlcF
-         P3Tb9OaFzEg+0OgWICDR/6nQKo8W5V9LOHN6aZWNe+gK8dZCSWbEBINP8HM+ANavYfAg
-         z2kaX2qGJ/gHHD+3uJGoYovYAgTP9ivjGawHiSMklzjnZd54pbb65mxhoqM3hgdU5dCQ
-         74rdmriIWMWaWCS79WhSo+hZZeWp030WWIgb17cnxyGrpAhvy6v4L/o9WFA0NY33jrJp
-         6eug==
+        b=cWw+HtpUteUSc7FqGYERdplExGquClXNtqUZxR3B7k/a4t4M8FIKJ5GyjSK/wzWsFy
+         A6yRGmBw8kprkhTKGAK1GNukDRkVQ318d6G/iZqaU2wlOsaUdzZH1FEcwBmQRhQAEOSU
+         oIqF9Gbtxh3enc1qlSM2A4rfUmbr4AV9M5Tw1vjvMvatsaKTlBOrLntoY3qDTKP+HJGN
+         +NhQer6x88XKTv58G2A1Q9BrlCasrt2H8AmrX8kOtlasc1eR2qqte9mKkquUwueKEFhL
+         AkAph3e1g+sBeadPgROc7m9lOybnSNNiqeq7yjepRa++LCqbcNR6rFPQOwS8sfGU4pcW
+         xLiQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=YnRM0KTrisOCjmklL/YoGuQ5GhJTGvbJYvWODwmflkI=;
-        fh=h2dmdD7d8A6+fQE2H7Kh3Rfv9fDjE0wYb5FZQygcfeY=;
-        b=SMqpkUgyuWbiwCByeoXCZmJOTd2j+59YItiiG8q1JjAe76h+gTMeplqQJer5b9i1Tx
-         CEizMosRA7iumCMPAaZ41Q/P9/r8OmTJ+c/+Vp054M5JkJL0WWhoBXPDcA+zY+vfpg/H
-         ZXgSjvhUIjPPw8zGyFVFyB4MmNjQCageHKHEzhPc5APBb0Y43+JDiJuEwDxM0eXg0zQx
-         8KsOQZsGBNRCXWKFL4ZscFgJMdfMXQTQ3X7Fm/YQlJYugrtR64zQh5s5LheK3aRMCdMy
-         rl04eIHLT+AQ8Nsj3ZoXUZTy/bPYeeET/fqxgDe5cqWXiD6YT15Zz7PoYqNOyvu1/UMG
-         sATw==;
+        bh=qEfeanj2B21UQ4s13w9n0/O/Ii0JASvFsbQaoVe9iHE=;
+        fh=CwLHP5dJwkpaoYhPXlyXeFkNDt3F76kT6RTIyCydEM8=;
+        b=opxCAFYTT6m5H5VQxLZyxTsY3RInUtKDM0zxkufWLYR2N1bkg5gaaWXRicf1mXkgep
+         Z9+R2/Q1+/fqQ908b6MYHAkR/0hljRYn7pIFjOrp14qYGB0u+dbn83VvARfI5mjkVgkW
+         ko30BdUwDwhakeGOAN8KTs+tEL/4/jwF7sLLs8kk+Y7CNtJjrJ3eY+e7FSYWliH8ywAo
+         Lq34qgP+GhZ9jAb6uWwE6j0ib57cazo2BAMWL3ZGKGdS9af6oB5YTf9a+DKKZiDlBCxk
+         BykuIkl4GpDbz1ciwyyS2UCkwU6gt3vquwkobmWgi3eO2hu8m3yBMdte/31EobSGTbpx
+         D3nQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kynesim.co.uk; s=google; t=1787243015; x=1787847815; darn=lists.infradead.org;
+        d=kynesim.co.uk; s=google; t=1787243503; x=1787848303; darn=lists.infradead.org;
         h=content-type:cc:to:subject:message-id:date:from:reply-to
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=YnRM0KTrisOCjmklL/YoGuQ5GhJTGvbJYvWODwmflkI=;
-        b=Ak5Ch4HtzIQ2QYjs05/ziXzVOLS2prxXqvARqZZ2J13qFk/quDBFxMlO1uCChnSxop
-         xKMmDi+UG0L77tUZMdt6xikWOVQvnziSZK+YxVGizR8ehjhRmtCNiNpi0QW+3CyGQ2pm
-         HbJznvveu7kjjqJpp9junjqYJmvay/Sg9cx2Y/GOcRcrJvqdtKAwLyrWZEnrkO3H6hu+
-         YkOp4w3aGWbGjkVSabHjj4lwsNHOVvwKmLqwg5yUKhrZS/76ZcZ8/JIVqu2B1A3FMn++
-         1P3X5gkgF69RQm5xdigp6gsXriecf5A1nvFXZ7guVeMflJOUAtotfXhHEK+ibBLKGXpu
-         eV5g==
+        bh=qEfeanj2B21UQ4s13w9n0/O/Ii0JASvFsbQaoVe9iHE=;
+        b=zJJ8L8jxSh6gCTINbi/sYx43OEpx0wJqAfjsqQpWzKR99h5SDac/kFlZhLm3r9Y17z
+         gmtVUeKtXJ63EK+YLex5MEOYa8t8EtmbErPj86Taml/+aQeixVnI07p50PNzSMdgLzao
+         zXOLxFYrfbssSe5gP2eEFBNLlxrHHAfbE9fbHAiX+GPZevVt1hr72P7uQ0CgV1762z+K
+         IPPj2/TDmu7qH2CCLGdGQRk7QBM1WVACzlvppozJRQV0t9v0EQdYBspUTjFmJrWWKQ7k
+         Q21fXaQEcrMzF+elm/rDBBsMk76MKxYAHhcvCfkW4BaFJ7sSZ6dwn7ZT9k09Q6a/aYo+
+         Qyxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787243015; x=1787847815;
+        d=1e100.net; s=20251104; t=1787243503; x=1787848303;
         h=content-type:cc:to:subject:message-id:date:from:reply-to
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YnRM0KTrisOCjmklL/YoGuQ5GhJTGvbJYvWODwmflkI=;
-        b=FByhaVXOaAzQBGLBE7xmfUwjinp6G4bw2y3up/EKwpHGTnU4SZmMR54N2bIHi2K0E/
-         g81SPEQx4yKP7H4UXT1X5elTPE+BKXh6PBHN6XjKMvwI3a3EJST0Ey279XJnBqJma5JE
-         eCPybUD6qLGXW7UHnNqbkjdmoLKvGivv1Did8pBiGtEGTgv+XVOKL/f5fdWkqYgBxfRi
-         zSG2aPPQdfE7PztOhzPcWSQ2gmHAwscf84KZ2jCj4YoHg3buQwc1TheQ7gsHpqBfR21/
-         NJLXh2bmhFptYvvWNnlPm4YrTDIA6gIIseVlPXAZHnilvAS7jQZzWVk3kAolHWfybLg4
-         U7gA==
-X-Forwarded-Encrypted: i=1; AHgh+Rqkt+USxTzQBuci06ce+mAB/grONgWZLDDUnmNh7QRthWcIjqBNdThQWcWP0zvFEVKzIFlwNeDHW9oziVinPVM9@lists.infradead.org
-X-Gm-Message-State: AFuF++kdTseuE4in10oQ72xmrP5cDwY+XIH/tVUw3W8fHY/KAyzR1QAc
-	uwL61SLJOAECtQxXncExS7fBei0vp313NJur+jl6ue/imjYQFrvKK8x7OI80V8RT6ePE95zGq5E
-	oDU948Alqa8phiMs8PXM/yTpEo/exhgxSxNsGj9rvLQ==
-X-Gm-Gg: AR+sD12uJ8MSVgsqcMJwHk0Pq2I/Kxx5MI/+9jUtKcbgBuK/2vovOk22PfMQff/VB8F
-	BRAgAzF0KIBouGEa2unPnInpHSdlz0P4sGeoCQuDto1RxMHR312AFG9Ly7abCKOgryzBrDdZfe8
-	+UPV8PTxakC7El6pskp1BVtb9VGsj3MkRXIbnssmHVa7f8CQnB3kgQVkUXRgaSAcNXGf55iKZOW
-	xtBOOs/gbfqAcEk+xyrrenbFNWAiOK5jMgj/LvCQmcdGZP44ePi1oU67LxnogF7b8o4Qh7Wjnt+
-	eX2iBYfzynal4dgCQ+6hlVV6ohxU08mEehS7cs+z9mI=
-X-Received: by 2002:a05:690c:88f:b0:826:8d02:8e97 with SMTP id
- 00721157ae682-8470b3d3551mr31060647b3.11.1787243015459; Thu, 20 Aug 2026
- 09:23:35 -0700 (PDT)
+        bh=qEfeanj2B21UQ4s13w9n0/O/Ii0JASvFsbQaoVe9iHE=;
+        b=Gn4EwZ/hgCQQipDKL02GtU6R51+0W8y8IIWToD7qJFvG8KbwXb92wE3GEXeEHhi2GT
+         CrBH5lwsDHnqSUxoAldJ9slC/q281C4GLR+MNMLvt0Y0xJNxqZIol0od0gJ15rQGhgJ5
+         DSS/pe4L9L5aMzSzz3rdFOqDACwdqrPx1bWtqIAw3Lw6Jv9ERSoIYzQYOYgPdmUEy1G5
+         5eBQezHK1PSBTUKd1/C7NjGBehoAkICPBmJtbzMqSpLgr1JdOScD/KCS/kbfT5wHJipR
+         K0Mci19Iedh244rz1nQzuv/pt1HsHZL+3wGUMAt1gf28HZUNEPHHrxVzCsraF9fo0ToH
+         UQaw==
+X-Forwarded-Encrypted: i=1; AHgh+RpL8wwsNZtLr6yEq7DfNEYKUfA3HQgkftkQ/XyJlGeRnEgjZEe2rU6rxFsIrPW1rzhfNkSJu9DYfruc6xZBQV3P@lists.infradead.org
+X-Gm-Message-State: AFuF++k4Y3s5R5NbR22HQ8i+yBJqnP2lHQogLwy5jFW3I8F/F7ncNS25
+	TqZOgpN/BKOZ7Gm0L+GlDS6UEgMiYXYnLHVd8Owy78ox0K2XJr6ac/jWbzQ8mKZJSCHa9RYqEGQ
+	ToEZjzqzZjAOTaFYCu8tfoaY+m07Ctmj4iWrAF/tDIA==
+X-Gm-Gg: AR+sD11AwPwkjb+kktZ9HR8Ll61642gXFEUJCK3u+eg1KvWPF0OzUAfkU/N9/rCBJMT
+	n1qxrrqCwZtv40I08x4M8DG5nFsC3K28L3Bb6TzV9ky7Zj7iB4PkORAMTkmdHAWQ+yt/3ZmsnvT
+	xRDNPbd9AoorJlpxZ+tbEMUXdBI5zzfhvvwbm66ON9YerRWv/Jq1qfNmbmh+mQ9B6vyysZX5lt/
+	q6hqwPIv0Mm7CArusUbxSYAVLiqtGBJxzK7fz5fj0EN98h7e2OfTVf4vnFzH0nq8ILIeMw7+/9I
+	n7wDf2ST+tH9ltu6mYkCbF8Lftn29YHPVZhoaRHOB/I=
+X-Received: by 2002:a05:690c:4b82:b0:820:1251:d2c2 with SMTP id
+ 00721157ae682-844e250fe23mr51872287b3.28.1787243503265; Thu, 20 Aug 2026
+ 09:31:43 -0700 (PDT)
 MIME-Version: 1.0
 References: <20250724-multicontext-mainline-2025-v2-0-c9b316773486@ideasonboard.com>
- <20250724-multicontext-mainline-2025-v2-13-c9b316773486@ideasonboard.com>
-In-Reply-To: <20250724-multicontext-mainline-2025-v2-13-c9b316773486@ideasonboard.com>
+ <20250724-multicontext-mainline-2025-v2-11-c9b316773486@ideasonboard.com>
+In-Reply-To: <20250724-multicontext-mainline-2025-v2-11-c9b316773486@ideasonboard.com>
 From: John Cox <jc@kynesim.co.uk>
-Date: Thu, 20 Aug 2026 17:23:23 +0100
-X-Gm-Features: AcwNN1Umw00-Vm0FaKi02tHzavFmcraLoTJPjWghZ5jBCN0htqJyMwd4j2ttQ1Q
-Message-ID: <CAFyCYyPq0P0FfNL=ciiPnOV5Oa9tXZ09TE2gca9ovEiYOUqd3w@mail.gmail.com>
-Subject: Re: [PATCH v2 13/27] media: v4l2-subdev: Introduce VIDIOC_SUBDEV_BIND_CONTEXT
+Date: Thu, 20 Aug 2026 17:31:31 +0100
+X-Gm-Features: AcwNN1WjC9dLxoZ7a36oz6GWGckQua1_XePXPkJUpae3tu3WKspB2mZQpv2Wx2Q
+Message-ID: <CAFyCYyMaKT9zDxZCruS84S0DvSWrAR_==jjokTPXwBcJAp01pA@mail.gmail.com>
+Subject: Re: [PATCH v2 11/27] media: videobuf2-v4l2: Support vb2_queue
+ embedded in a context
 To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, 
 	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
@@ -109,8 +110,8 @@ Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
 	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_092336_663773_EFE8A86C 
-X-CRM114-Status: GOOD (  31.10  )
+X-CRM114-CacheID: sfid-20260820_093144_801151_D56121D4 
+X-CRM114-Status: GOOD (  30.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,142 +127,354 @@ Reply-To: jc@kynesim.co.uk
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Introduce a new ioctl in V4L2 subdev to allocate a subdevice context
-> and associate it with a media device context.
+> Support device drivers that implement multi-context operations in the
+> videobuf2 core by providing an helper to retrieve the vb2_queue from
+> the context associated with an open file handle. If no context is
+> associated with a file handle, retrieve it from the video device
+> default context, created by the core for multi-context aware drivers.
 >
-> The ioctl handler calls the entity ops to let the driver allocate a
-> new context and initialize the subdev state there contained.
->
-> The new subdevice context is bound to the media device context
-> associated with the file descriptor provided by userspace as the new
-> ioctl argument.
->
-> The newly allocated context is stored in the v4l2_subdev_fh handle
-> that represent the open file handle on which the ioctl has been called.
+> Fall-back to use the vb2_queue from the video_device to support existing
+> drivers which are not context aware.
 >
 > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 > ---
->  drivers/media/v4l2-core/v4l2-subdev.c | 59 +++++++++++++++++++++++++++++++++++
->  include/uapi/linux/v4l2-subdev.h      | 11 +++++++
->  2 files changed, 70 insertions(+)
+>  drivers/media/common/videobuf2/videobuf2-v4l2.c | 139 +++++++++++++++---------
+>  1 file changed, 88 insertions(+), 51 deletions(-)
 >
-> diff --git a/drivers/media/v4l2-core/v4l2-subdev.c b/drivers/media/v4l2-core/v4l2-subdev.c
-> index 7307f57439499c8d5360c89f492944828ac23973..300f84317623dd082a4cd2caec97057f972e82a3 100644
-> --- a/drivers/media/v4l2-core/v4l2-subdev.c
-> +++ b/drivers/media/v4l2-core/v4l2-subdev.c
-> @@ -607,6 +607,46 @@ subdev_ioctl_get_state(struct v4l2_subdev *sd, struct v4l2_subdev_fh *subdev_fh,
->                              v4l2_subdev_get_unlocked_active_state(sd);
->  }
+> diff --git a/drivers/media/common/videobuf2/videobuf2-v4l2.c b/drivers/media/common/videobuf2/videobuf2-v4l2.c
+> index 1cd26faee50338aefeb670c6865da7c2d43f44d3..ad7892551f54c5abc7db7641bb8fb89d77b1337f 100644
+> --- a/drivers/media/common/videobuf2/videobuf2-v4l2.c
+> +++ b/drivers/media/common/videobuf2/videobuf2-v4l2.c
+> @@ -998,23 +998,46 @@ EXPORT_SYMBOL_GPL(vb2_poll);
+>   * and so they simplify the driver code.
+>   */
 >
-> +static int subdev_do_bind_context(struct v4l2_subdev *sd,
-> +                                 struct v4l2_subdev_context **context,
-> +                                 struct media_device_context *mdev_context)
+> +/*
+> + * Helper to get the vb2 queue either from:
+> + * 1) The video context bound to the open file handle
+> + * 2) The default context for context-aware drivers if userspace has not bound
+> + *    a context to the file handle
+> + * 3) From the video device for non-context aware drivers
+> + */
+> +static struct vb2_queue *get_vb2_queue(struct file *file,
+> +                                      struct video_device *vdev)
 > +{
-> +       static struct lock_class_key key;
-> +       struct v4l2_subdev_state *state;
-> +       int ret;
+> +#if defined(CONFIG_MEDIA_CONTROLLER)
+> +       struct video_device_context *ctx =
+> +                               video_device_context_from_file(file, vdev);
 > +
-> +       ret = sd->entity.ops->alloc_context(&sd->entity,
-> +                                           (struct media_entity_context **)
-> +                                           context);
-> +       if (ret)
-> +               return ret;
-> +
-> +       state = __v4l2_subdev_state_alloc(sd, "context->state->lock", &key);
-> +       if (IS_ERR(state)) {
-> +               ret = PTR_ERR(state);
-> +               goto err_put_context;
-> +       }
-> +       (*context)->state = state;
-> +
-> +       /*
-> +        * Bind the newly created video device context to the media device
-> +        * context identified by the file descriptor.
-> +        */
-> +       ret = media_device_bind_context(mdev_context,
-> +                                       (struct media_entity_context *)
-> +                                       *context);
-> +       if (ret)
-> +               goto err_free_state;
-> +
-> +       return 0;
-> +
-> +err_free_state:
-> +       __v4l2_subdev_state_free((*context)->state);
-> +err_put_context:
-> +       v4l2_subdev_context_put(*context);
-> +       return ret;
+> +       return ctx ? &ctx->queue
+> +                  : vdev->default_context ? &vdev->default_context->queue
+> +                  : vdev->queue;
+> +#else
+> +       return vdev->queue;
+> +#endif /* CONFIG_MEDIA_CONTROLLER */
 > +}
 > +
->  static long subdev_do_ioctl(struct file *file, unsigned int cmd, void *arg,
->                             struct v4l2_subdev_state *state)
->  {
-> @@ -1089,6 +1129,25 @@ static long subdev_do_ioctl(struct file *file, unsigned int cmd, void *arg,
->                 return 0;
->         }
+>  /* vb2 ioctl helpers */
 >
-> +       case VIDIOC_SUBDEV_BIND_CONTEXT: {
-> +               struct v4l2_subdev_bind_context *c = arg;
-> +               struct media_device_context *mdev_context;
-> +               int ret;
-> +
-> +               if (!sd->entity.ops || !sd->entity.ops->alloc_context ||
-> +                   !sd->entity.ops->destroy_context)
-> +                       return -ENOTTY;
-> +
-> +               mdev_context = media_device_context_get_from_fd(c->context_fd);
-> +               if (!mdev_context)
-> +                       return -EINVAL;
-> +
-> +               ret = subdev_do_bind_context(sd, &subdev_fh->context,
-> +                                            mdev_context);
-> +               media_device_context_put(mdev_context);
-> +               return ret;
-> +       }
-> +
-I think you also need a v4l2_subdev_context_put in subdev_close to
-free up the bound
-context.
+>  int vb2_ioctl_remove_bufs(struct file *file, void *priv,
+>                           struct v4l2_remove_buffers *d)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+>
+> -       if (vdev->queue->type != d->type)
+> +       if (q->type != d->type)
+>                 return -EINVAL;
+>
+>         if (d->count == 0)
+>                 return 0;
+>
+> -       if (vb2_queue_is_busy(vdev->queue, file))
+> +       if (vb2_queue_is_busy(q, file))
+>                 return -EBUSY;
+>
+> -       return vb2_core_remove_bufs(vdev->queue, d->index, d->count);
+> +       return vb2_core_remove_bufs(q, d->index, d->count);
+>  }
+>  EXPORT_SYMBOL_GPL(vb2_ioctl_remove_bufs);
+>
+> @@ -1022,21 +1045,21 @@ int vb2_ioctl_reqbufs(struct file *file, void *priv,
+>                           struct v4l2_requestbuffers *p)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> -       int res = vb2_verify_memory_type(vdev->queue, p->memory, p->type);
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+> +       int res = vb2_verify_memory_type(q, p->memory, p->type);
+>         u32 flags = p->flags;
+>
+> -       vb2_set_flags_and_caps(vdev->queue, p->memory, &flags,
+> -                              &p->capabilities, NULL);
+> +       vb2_set_flags_and_caps(q, p->memory, &flags, &p->capabilities, NULL);
+>         p->flags = flags;
+>         if (res)
+>                 return res;
+> -       if (vb2_queue_is_busy(vdev->queue, file))
+> +       if (vb2_queue_is_busy(q, file))
+>                 return -EBUSY;
+> -       res = vb2_core_reqbufs(vdev->queue, p->memory, p->flags, &p->count);
+> +       res = vb2_core_reqbufs(q, p->memory, p->flags, &p->count);
+>         /* If count == 0, then the owner has released all buffers and he
+>            is no longer owner of the queue. Otherwise we have a new owner. */
+>         if (res == 0)
+> -               vdev->queue->owner = p->count ? file->private_data : NULL;
+> +               q->owner = p->count ? file->private_data : NULL;
+>         return res;
+>  }
+>  EXPORT_SYMBOL_GPL(vb2_ioctl_reqbufs);
+> @@ -1045,11 +1068,12 @@ int vb2_ioctl_create_bufs(struct file *file, void *priv,
+>                           struct v4l2_create_buffers *p)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> -       int res = vb2_verify_memory_type(vdev->queue, p->memory, p->format.type);
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+> +       int res = vb2_verify_memory_type(q, p->memory, p->format.type);
+>
+> -       p->index = vb2_get_num_buffers(vdev->queue);
+> -       vb2_set_flags_and_caps(vdev->queue, p->memory, &p->flags,
+> -                              &p->capabilities, &p->max_num_buffers);
+> +       p->index = vb2_get_num_buffers(q);
+> +       vb2_set_flags_and_caps(q, p->memory, &p->flags, &p->capabilities,
+> +                              &p->max_num_buffers);
+>         /*
+>          * If count == 0, then just check if memory and type are valid.
+>          * Any -EBUSY result from vb2_verify_memory_type can be mapped to 0.
+> @@ -1058,12 +1082,12 @@ int vb2_ioctl_create_bufs(struct file *file, void *priv,
+>                 return res != -EBUSY ? res : 0;
+>         if (res)
+>                 return res;
+> -       if (vb2_queue_is_busy(vdev->queue, file))
+> +       if (vb2_queue_is_busy(q, file))
+>                 return -EBUSY;
+>
+> -       res = vb2_create_bufs(vdev->queue, p);
+> +       res = vb2_create_bufs(q, p);
+>         if (res == 0)
+> -               vdev->queue->owner = file->private_data;
+> +               q->owner = file->private_data;
+>         return res;
+>  }
+>  EXPORT_SYMBOL_GPL(vb2_ioctl_create_bufs);
+> @@ -1072,69 +1096,76 @@ int vb2_ioctl_prepare_buf(struct file *file, void *priv,
+>                           struct v4l2_buffer *p)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+>
+> -       if (vb2_queue_is_busy(vdev->queue, file))
+> +       if (vb2_queue_is_busy(q, file))
+>                 return -EBUSY;
+> -       return vb2_prepare_buf(vdev->queue, vdev->v4l2_dev->mdev, p);
+> +       return vb2_prepare_buf(q, vdev->v4l2_dev->mdev, p);
+>  }
+>  EXPORT_SYMBOL_GPL(vb2_ioctl_prepare_buf);
+>
+>  int vb2_ioctl_querybuf(struct file *file, void *priv, struct v4l2_buffer *p)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+>
+>         /* No need to call vb2_queue_is_busy(), anyone can query buffers. */
+> -       return vb2_querybuf(vdev->queue, p);
+> +       return vb2_querybuf(q, p);
+>  }
+>  EXPORT_SYMBOL_GPL(vb2_ioctl_querybuf);
+>
+>  int vb2_ioctl_qbuf(struct file *file, void *priv, struct v4l2_buffer *p)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+>
+> -       if (vb2_queue_is_busy(vdev->queue, file))
+> +       if (vb2_queue_is_busy(q, file))
+>                 return -EBUSY;
+> -       return vb2_qbuf(vdev->queue, vdev->v4l2_dev->mdev, p);
+> +       return vb2_qbuf(q, vdev->v4l2_dev->mdev, p);
+>  }
+>  EXPORT_SYMBOL_GPL(vb2_ioctl_qbuf);
+>
+>  int vb2_ioctl_dqbuf(struct file *file, void *priv, struct v4l2_buffer *p)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+>
+> -       if (vb2_queue_is_busy(vdev->queue, file))
+> +       if (vb2_queue_is_busy(q, file))
+>                 return -EBUSY;
+> -       return vb2_dqbuf(vdev->queue, p, file->f_flags & O_NONBLOCK);
+> +       return vb2_dqbuf(q, p, file->f_flags & O_NONBLOCK);
+>  }
+>  EXPORT_SYMBOL_GPL(vb2_ioctl_dqbuf);
+>
+>  int vb2_ioctl_streamon(struct file *file, void *priv, enum v4l2_buf_type i)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+>
+> -       if (vb2_queue_is_busy(vdev->queue, file))
+> +       if (vb2_queue_is_busy(q, file))
+>                 return -EBUSY;
+> -       return vb2_streamon(vdev->queue, i);
+> +       return vb2_streamon(q, i);
+>  }
+>  EXPORT_SYMBOL_GPL(vb2_ioctl_streamon);
+>
+>  int vb2_ioctl_streamoff(struct file *file, void *priv, enum v4l2_buf_type i)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+>
+> -       if (vb2_queue_is_busy(vdev->queue, file))
+> +       if (vb2_queue_is_busy(q, file))
+>                 return -EBUSY;
+> -       return vb2_streamoff(vdev->queue, i);
+> +       return vb2_streamoff(q, i);
+>  }
+>  EXPORT_SYMBOL_GPL(vb2_ioctl_streamoff);
+>
+>  int vb2_ioctl_expbuf(struct file *file, void *priv, struct v4l2_exportbuffer *p)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+>
+> -       if (vb2_queue_is_busy(vdev->queue, file))
+> +       if (vb2_queue_is_busy(q, file))
+>                 return -EBUSY;
+> -       return vb2_expbuf(vdev->queue, p);
+> +       return vb2_expbuf(q, p);
+>  }
+>  EXPORT_SYMBOL_GPL(vb2_ioctl_expbuf);
+>
+> @@ -1143,20 +1174,22 @@ EXPORT_SYMBOL_GPL(vb2_ioctl_expbuf);
+>  int vb2_fop_mmap(struct file *file, struct vm_area_struct *vma)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+>
+> -       return vb2_mmap(vdev->queue, vma);
+> +       return vb2_mmap(q, vma);
+>  }
+>  EXPORT_SYMBOL_GPL(vb2_fop_mmap);
+>
+>  int _vb2_fop_release(struct file *file, struct mutex *lock)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+>
+>         if (lock)
+>                 mutex_lock(lock);
+> -       if (!vdev->queue->owner || file->private_data == vdev->queue->owner) {
+> -               vb2_queue_release(vdev->queue);
+> -               vdev->queue->owner = NULL;
+> +       if (!q->owner || file->private_data == q->owner) {
+> +               vb2_queue_release(q);
+> +               q->owner = NULL;
+>         }
+>         if (lock)
+>                 mutex_unlock(lock);
+> @@ -1167,7 +1200,8 @@ EXPORT_SYMBOL_GPL(_vb2_fop_release);
+>  int vb2_fop_release(struct file *file)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> -       struct mutex *lock = vdev->queue->lock ? vdev->queue->lock : vdev->lock;
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+> +       struct mutex *lock = q->lock ? q->lock : vdev->lock;
+>
+>         return _vb2_fop_release(file, lock);
+>  }
+> @@ -1177,19 +1211,20 @@ ssize_t vb2_fop_write(struct file *file, const char __user *buf,
+>                 size_t count, loff_t *ppos)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> -       struct mutex *lock = vdev->queue->lock ? vdev->queue->lock : vdev->lock;
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+> +       struct mutex *lock = q->lock ? q->lock : vdev->lock;
+>         int err = -EBUSY;
+>
+> -       if (!(vdev->queue->io_modes & VB2_WRITE))
+> +       if (!(q->io_modes & VB2_WRITE))
+>                 return -EINVAL;
+>         if (lock && mutex_lock_interruptible(lock))
+>                 return -ERESTARTSYS;
+> -       if (vb2_queue_is_busy(vdev->queue, file))
+> +       if (vb2_queue_is_busy(q, file))
+>                 goto exit;
+> -       err = vb2_write(vdev->queue, buf, count, ppos,
+> -                      file->f_flags & O_NONBLOCK);
+> -       if (vdev->queue->fileio)
+> -               vdev->queue->owner = file->private_data;
+> +       err = vb2_write(q, buf, count, ppos,
+> +                       file->f_flags & O_NONBLOCK);
+> +       if (q->fileio)
+> +               q->owner = file->private_data;
+>  exit:
+>         if (lock)
+>                 mutex_unlock(lock);
+> @@ -1201,20 +1236,21 @@ ssize_t vb2_fop_read(struct file *file, char __user *buf,
+>                 size_t count, loff_t *ppos)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> -       struct mutex *lock = vdev->queue->lock ? vdev->queue->lock : vdev->lock;
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+> +       struct mutex *lock = q->lock ? q->lock : vdev->lock;
+>         int err = -EBUSY;
+>
+> -       if (!(vdev->queue->io_modes & VB2_READ))
+> +       if (!(q->io_modes & VB2_READ))
+>                 return -EINVAL;
+>         if (lock && mutex_lock_interruptible(lock))
+>                 return -ERESTARTSYS;
+> -       if (vb2_queue_is_busy(vdev->queue, file))
+> +       if (vb2_queue_is_busy(q, file))
+>                 goto exit;
+> -       vdev->queue->owner = file->private_data;
+> -       err = vb2_read(vdev->queue, buf, count, ppos,
+> +       q->owner = file->private_data;
+> +       err = vb2_read(q, buf, count, ppos,
+>                        file->f_flags & O_NONBLOCK);
+> -       if (!vdev->queue->fileio)
+> -               vdev->queue->owner = NULL;
+> +       if (!q->fileio)
+> +               q->owner = NULL;
+>  exit:
+>         if (lock)
+>                 mutex_unlock(lock);
+> @@ -1225,7 +1261,7 @@ EXPORT_SYMBOL_GPL(vb2_fop_read);
+>  __poll_t vb2_fop_poll(struct file *file, poll_table *wait)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> -       struct vb2_queue *q = vdev->queue;
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+>         struct mutex *lock = q->lock ? q->lock : vdev->lock;
+>         __poll_t res;
+>         void *fileio;
+> @@ -1241,7 +1277,7 @@ __poll_t vb2_fop_poll(struct file *file, poll_table *wait)
+>
+>         fileio = q->fileio;
+>
+> -       res = vb2_poll(vdev->queue, file, wait);
+> +       res = vb2_poll(q, file, wait);
+>
+>         /* If fileio was started, then we have a new queue owner. */
+>         if (!fileio && q->fileio)
+> @@ -1257,8 +1293,9 @@ unsigned long vb2_fop_get_unmapped_area(struct file *file, unsigned long addr,
+>                 unsigned long len, unsigned long pgoff, unsigned long flags)
+>  {
+>         struct video_device *vdev = video_devdata(file);
+> +       struct vb2_queue *q = get_vb2_queue(file, vdev);
+>
+> -       return vb2_get_unmapped_area(vdev->queue, addr, len, pgoff, flags);
+> +       return vb2_get_unmapped_area(q, addr, len, pgoff, flags);
+>  }
+>  EXPORT_SYMBOL_GPL(vb2_fop_get_unmapped_area);
+>  #endif
+
+You need similar logic in v4l2-ioctl.c to retrieve the correct queue from
+a video_device and v4l2_fh so v4l2_ioctl_get_lock retrieves the correct
+lock.
 
 Regards
 
 John Cox
-
->         case VIDIOC_SUBDEV_G_CLIENT_CAP: {
->                 struct v4l2_subdev_client_capability *client_cap = arg;
->
-> diff --git a/include/uapi/linux/v4l2-subdev.h b/include/uapi/linux/v4l2-subdev.h
-> index 2347e266cf7516b4073c1edd43b97a3ddddb183b..6184cc0153a9dd9fbfa6729e1b6127ba4a961395 100644
-> --- a/include/uapi/linux/v4l2-subdev.h
-> +++ b/include/uapi/linux/v4l2-subdev.h
-> @@ -243,6 +243,16 @@ struct v4l2_subdev_routing {
->         __u32 reserved[11];
->  };
->
-> +/**
-> + * struct v4l2_subdev_bind_context - Subdev context information
-> + *
-> + * @context_fd: The file descriptor of the media_device instance the subdevice
-> + *             has to be bound to
-> + */
-> +struct v4l2_subdev_bind_context {
-> +       __u32 context_fd;
-> +};
-> +
->  /*
->   * The client is aware of streams. Setting this flag enables the use of 'stream'
->   * fields (referring to the stream number) with various ioctls. If this is not
-> @@ -285,6 +295,7 @@ struct v4l2_subdev_client_capability {
->  #define VIDIOC_SUBDEV_S_SELECTION              _IOWR('V', 62, struct v4l2_subdev_selection)
->  #define VIDIOC_SUBDEV_G_ROUTING                        _IOWR('V', 38, struct v4l2_subdev_routing)
->  #define VIDIOC_SUBDEV_S_ROUTING                        _IOWR('V', 39, struct v4l2_subdev_routing)
-> +#define VIDIOC_SUBDEV_BIND_CONTEXT             _IOWR('V', 50, struct v4l2_subdev_bind_context)
->  #define VIDIOC_SUBDEV_G_CLIENT_CAP             _IOR('V',  101, struct v4l2_subdev_client_capability)
->  #define VIDIOC_SUBDEV_S_CLIENT_CAP             _IOWR('V',  102, struct v4l2_subdev_client_capability)
->
->
-> --
-> 2.49.0
->
->
 
