@@ -4,99 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB1E5C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 12:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D3AC5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 12:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OyXdngKokkNNzIHrBbg7P8oeDiJFCinDSiokluhjKGY=; b=DJnbYS4Db2eI/SVCnu7yu8X47H
-	cWDhQbnCla52xuvrhiLI7dmG9pRjPm41sFgNM4cVq+eyeW4QeBNF5Mn/M6ZT57JWJWzDejcpmOJeq
-	jRL7TTA+qq+bCJBHlA5JT3M1XoSeCvlR9RX9tVtHGTNjWVp95V+wnSpiY4boZaJsWuY+KdIYpsGC+
-	Ds/yL8N4zL0LxYU7tr6vR1UtRkYRzAp1myvkp9iqPVvQYIcWRZ4j6dQKB4SpkXThF4mnqcxh6boqf
-	UQx4XYJ3LcJMJZ+JVE3CwXXJaU1Oxu112ndFQ5NzeKtsGv1T5cjbexWYyOcDjOwOLpbAlwSTCV/HP
-	KdbHBH8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5cG8/G+LZIThnaZEGrxtNWIAVyCLkFjFn4+BdzM/oQk=; b=S96jJFkwAKIT5Cn5Nt+4EDS5vj
+	80pm7mWAwyX7g9n3A/lRLPOyUAyg5C7em1g/7amNL3efkm0cgHPwjVMy6hcR8RezFGksygHmPGyly
+	McOkGc7GxvnlB96VRP8rHV67MONo6z9uofFjUX4sq2Fp4/VrkGJZsF9U2QhSl4PRxGsthSrT0tC/o
+	zv6I5teDmifHaOvt3q8eorVb6kohTGR4JsvhZMxo4MGIAYgqAqlLcN4mu6eULomqedBawp/hR9OJT
+	jRkYhQTTeDBveo0w1o+loaXbzPbIPHfPMz2fGc9UbDzzAgMk09/j/O7XWGZkYRAs+/uwHVOtKkEFe
+	bftK82xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx1pe-0000000BWjc-0Id5;
-	Thu, 20 Aug 2026 12:25:18 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1wx1q3-0000000BWq9-0pwm;
+	Thu, 20 Aug 2026 12:25:43 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx1pb-0000000BWip-18jV
+	id 1wx1q0-0000000BWoD-3Bnf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 12:25:16 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2ceab75934dso25621135ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 05:25:14 -0700 (PDT)
+	Thu, 20 Aug 2026 12:25:42 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-49954b88fffso22518965e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 05:25:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1787228714; x=1787833514; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=OyXdngKokkNNzIHrBbg7P8oeDiJFCinDSiokluhjKGY=;
-        b=JbusRRHwRaeqI4wiGYyAOQPTFgaDqKJrewm4uKCeUnY/B43Hte4gQfrBt1+3M8WWuU
-         tkM4GoFkkE7TRvzU2EmrOLpcauz67wVUcWK4jBlEWvHJ1MZnQfFpYKwAKu/sarOsvRpJ
-         z7NoIqeSzFEalLx7bT4TjR7R6Kzpa4xlm3CIhaoMlPlGTvzZVe2dFu3fizG+EjPX4HJ/
-         TBy6NuKtuzjN/4PiafqhmDYtA7pUkM4XwXUD3I702NSeoDmQi3GRUcefWjkFTswCDtTA
-         OgQbxyi1an6NHj0GuParLpXlFBES1r2abFGVaQU6LONfpJh3srrGrDgce1E+UPZMyhJ0
-         IFhA==
+        d=gmail.com; s=20251104; t=1787228739; x=1787833539; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5cG8/G+LZIThnaZEGrxtNWIAVyCLkFjFn4+BdzM/oQk=;
+        b=LljgaxYnvMzfoAZJ/Znp9GMDIkLJ/jNJVI2GhCXpkZit+ivm6TsX2sd8OhEBW+iHYu
+         XaT4FWXfs6fH/fuLzMqKP56iHFZkuHe4dt5gkwXD4nxLTt53pv0tjac2lP5a9Vcje6Kd
+         vZyVU0sjrxGD5x0eionTbhzBYsewCk9VVHG4ZIRaRwVIEwiDAGLE9Snr5rglTZeFGa05
+         QA5RMoGeJmxeX+MvNx5zCQXRcq/AhctnBuTKsfCqH3tFdA1f5z4bYVLbJWVxgb3yEr3t
+         JXs6hkj2wfjtRflezfZnc2RNCLg3EQPV8F9FH9u5KXoAEp1kxbc2cO0TKD7nbDbGzv5U
+         RARQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787228714; x=1787833514;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=OyXdngKokkNNzIHrBbg7P8oeDiJFCinDSiokluhjKGY=;
-        b=ZbQimvaHMvA6KfjCLfdR7KWDvNB8KFaKs7Az9tZmGyghYWdQCXQJN4YrGQD5atE5Y/
-         61vrsk/rknhRcnvhk3incpI+PHZz/Q9j9E0A2RCazIhQmoSDNau8AcRT4jN8hWt5/Clx
-         i6C0FqY4C1Sf23ZAJHKxcwtCI+DA0DyiubnpjPRm7oJew1ecfSjN83aqEB4rI/khPK6K
-         tNfQWJv2+pYnLlB5UnILYPjDOhohWNBezcOTtfNegVw+ZhgrCwGvMnys6b7KsvENWK7k
-         6H04Sf6quqWK/87+P6hB8oNSxSpQIOFnWMEcAsLzHvXY6ZfScTSc/6QBW1bNPMsL7sta
-         4bvw==
-X-Gm-Message-State: AFuF++ng+0RZm9VpmUKC+sbWx+h3c3xSFawKk6klVOI3PwYOac2N8s+k
-	yHHvhtcVzUb33nL/lISCxlsAuEdC41y+NeE5nODUpIEl60Xi/e47hZK7jdLMnZczI74=
-X-Gm-Gg: AR+sD10GchpvcOerNwGq9FWiWo5ndxfgZb6kKz6zf6ZVfbzdFCrnDQ7vbom3q6g40cu
-	FcSfpaK3MrngGi/oE5wD+tV2Yc6GxGB/uMk6ITXfSZ2wH8ml8MZ2T9HA67nnKVBwOnGvLeR7VX0
-	VVfY+H1IimQ3IZE3pyn1lScu4KIOWd2o5jbk8/FqMTLLwfEhz99b48ITOB7NEhT6XIeowSK+87q
-	m+qI5jKAmdwYAxXlK/nh5AkbdU9lAIh8e3/g3Jyx43ob0+NedRuclUzqFvu9tkEFjL2cYdgn5r+
-	W1E9J7RcJy+3ZfCgyM6yutJa9FL++AnFM9LGPlfQ9s3ZqlMpJNYmPYN0OGeVDqbO3Wn1UoHSGk7
-	fsdgyfK7egNjfx/et80/C23SXtyZHIW1t8V3c8Qzl50ABtDcAumAmobPNAamy5+9h6uu/M9bOC6
-	Z/luFauF2wjH+7HS1ZnY0cJn260GzgIPxaAFgHowfgQaC04KuIxA1qN4i/WXIOVH0=
-X-Received: by 2002:a17:903:120f:b0:2c9:c991:3bf0 with SMTP id d9443c01a7336-2d5fd62101bmr202658635ad.8.1787228714188;
-        Thu, 20 Aug 2026 05:25:14 -0700 (PDT)
-Received: from [127.0.0.2] ([50.145.100.174])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d62e3a231fsm6182765ad.63.2026.08.20.05.25.12
+        d=1e100.net; s=20251104; t=1787228739; x=1787833539;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5cG8/G+LZIThnaZEGrxtNWIAVyCLkFjFn4+BdzM/oQk=;
+        b=AJUxZWz52795Z16Ww1er+o8WsYmSBtj2JDpXweONURDAqwPYW90i/B8KTy6vQ+P4Ev
+         ovzztU6wlI//iJUd3wrNWG45yN3VqfTd5SoElAC091vvNnwmGH16Y8LcTtp1/0a1nOsA
+         RTInRum+3SwV1a5SILWo/mNOxGbWew0JE+4r5JoV4noKQW7yeyu80cgYajQTjAB8puZW
+         Frz+Qgjk+efzKAn0XVLqpsvnNlzQKixYmhD2FljwEQDskPthYVOklcllwe8085ONBiuD
+         MQLGETlrSdEXxIlc6nVsGDJOqlgFCztI3YAPqsPdlhCUcI0NHIHLMG6LFmANeDEwOHPe
+         9O/g==
+X-Forwarded-Encrypted: i=1; AHgh+RqPJ5QPtRmgL9xajSBOg0XZFZlHPeWiZIgq8hlQgnTpps3TiU+bOMQKkLG/thExCjuk5oVKTEOY19NwAmGeGMTi@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywqvj/zbkDp0faj+5wWHulHY47Suv0TfMu6MBp2mPxIEFIsGe4f
+	hXTUJFFqO2uPcbEtFligul9uVhPRwTtT7UyfFZ6As/D7Zgx1USgLdCue
+X-Gm-Gg: AR+sD12Dxe8eQ96fKrX7lfjw6mmNrbHf1clY4AWOvVl8Uid9wp0/nNDiOhgMnR2oulY
+	fs2eawqE+qncSLtRD7e/4O2vFA5wnpEDAWUf8BWy7A9pFjqbOkvUnDcMtnYwY2YT2WjGvNIhsS7
+	k2Id7T+tGsyDRkTca/poI2ziRmtxGiSnKgqh8dgJOpP273MbbT4kvfDsNbSdG/O0yYpgpRew3/P
+	her8UcOeIbGWHJ9/jozX1NhESV7Sa993Y6O3NtHkT129itaxkYEf1ZpVpsf7l3cg4mqgXKA1Ujb
+	1wdqZm95P0I/WfQn7AqWwU68HYZUQ8sD4EirPn5Fktblc4bmLi+KLsHiTl7WngzNPWuUfEPHyuT
+	Nunj/phGSnoRFbedDu7hT2d0N5ihaizfevMh9lHMeQB2Fgn6+JMW/MV87E8jkxqwDaNY8rBkhnI
+	6e2TuA+/rLCciUqlmpOtTU/YQ/xkqy4UZfElVAeXXbz1QC7isFIAqcQfc87e7jDrhk
+X-Received: by 2002:a05:600c:34d1:b0:499:49f3:77b1 with SMTP id 5b1f17b1804b1-499aa14a6a6mr214121195e9.3.1787228738421;
+        Thu, 20 Aug 2026 05:25:38 -0700 (PDT)
+Received: from luca-vm.. ([81.56.18.151])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499ab2a8b34sm170494645e9.8.2026.08.20.05.25.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 05:25:12 -0700 (PDT)
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Date: Thu, 20 Aug 2026 05:25:07 -0700
-Subject: [PATCH v5] i2c: xiic: restore non-managed runtime PM to fix clk
- WARN flood
+        Thu, 20 Aug 2026 05:25:37 -0700 (PDT)
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+To: linux-mediatek@lists.infradead.org
+Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sen Chu <sen.chu@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Macpaul Lin <macpaul.lin@mediatek.com>,
+	Lee Jones <lee@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Val Packett <val@packett.cool>,
+	Julien Massot <julien.massot@collabora.com>,
+	Fabien Parent <parent.f@gmail.com>,
+	Akari Tsuyukusa <akkun11.open@gmail.com>,
+	Chen Zhong <chen.zhong@mediatek.com>,
+	linux-input@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	mfd@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org
+Subject: [PATCH RESEND v9 0/9] Add support for MT6392 PMIC
+Date: Thu, 20 Aug 2026 14:19:58 +0200
+Message-ID: <20260820122242.120039-1-l.scorcia@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260820-i2c-xiic-restore-runtime-pm-teardown-v5-1-ca5db9605508@nexthop.ai>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5XOOW7DMBQE0KsYrMOAmxamyj0CF1w+ox/AkkDSi
- gxDdw/pNArcKOUAgzdzJwkiQiJvpzuJsGDCaSyheTkRN5jxEyj6kolgomU9lxSFoyuioxFSniL
- QeB0zXoDOF5rBRD99j9R7Ziz3VjgmSKHmCAHXx8zH+Tenq/0Cl6tdGwNW7fb4sfDa++fkwimnD
- DofrGBtp9n7CGsepvnVIKmbi9ir6qAqitoZaDxzkoUgnlS5V/uDqixqE7zkjWVdD/xJVXtVH1R
- VUVutNVgllefuj7pt2w81WtEy7QEAAA==
-X-Change-ID: 20260813-i2c-xiic-restore-runtime-pm-teardown-dd0ab1db2c02
-To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Abdurrahman Hussain <abdurrahman@nexthop.ai>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787228712; l=7470;
- i=abdurrahman@nexthop.ai; s=20260510; h=from:subject:message-id;
- bh=dmkm/yOT+VGwmCEIl36qnFbW0buHfut/9COHetD6ULw=;
- b=G1VAeO5pYDbOoFCVwcs89ktZblgSs9zHSq32LEA3fD+Y0v0/SJnqwGrQUpHnphgA+Rmc0r3h+
- rruLu4UA3PfDr5FN9GS+e8yb3hbChRa4/GcFu5igLKZ0/WiYpaP306y
-X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
- pk=omTm9cCAbO0ZhS32aKfJDKue0W3sQGpG9ub5eYHif8I=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_052515_332416_20784D41 
-X-CRM114-Status: GOOD (  24.82  )
+X-CRM114-CacheID: sfid-20260820_052540_855127_3951DBF6 
+X-CRM114-Status: GOOD (  35.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,193 +119,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The devres conversion replaced manual pm_runtime_enable()/disable() with
-devm_pm_runtime_set_active_enabled() and dropped the remove-time runtime
-PM teardown. The managed release tears runtime PM down in the wrong
-order: it calls pm_runtime_dont_use_autosuspend() before
-pm_runtime_disable(), i.e. while runtime PM is still enabled, and devres
-is LIFO so the devm_clk_get_enabled() release runs afterwards.
+The MediaTek MT6392 PMIC is usually found on devices powered by
+the MT8516/MT8167 SoC and is yet another MT6323/MT6397 variant.
 
-At remove(), pm_runtime_put_sync() leaves the device active with the
-autosuspend timer armed. Clearing use_autosuspend then makes rpm_idle()
-suspend immediately, and xiic_i2c_runtime_suspend() clk_disable()s the
-clock. The later devm_clk_get_enabled() release clk_disable_unprepare()s
-the already-disabled clock, so clk_core_disable() WARNs ("clkN already
-disabled") on every teardown.
+This series is mostly based around patches submitted a couple
+years ago by Fabien Parent and not merged and from Val Packett's
+submission from Jan 2025 that included extra cleanups, fixes, and a
+new dtsi file similar to ones that exist for other PMICs. Some
+comments weren't addressed and the series was ultimately not merged.
 
-Drop the managed helper and restore the non-managed runtime PM setup and
-teardown, so runtime PM is enabled once in probe and disabled once in
-remove and the clock enable count stays balanced.
+These patches enable four functions: keys, regulator, pinctrl and RTC.
+Mono speaker amp will follow later as I need to work further on the
+audio codec.
 
-Order the remove teardown so runtime PM is disabled before the usage
-count is dropped: pm_runtime_disable() followed by pm_runtime_put_noidle()
-instead of pm_runtime_put_sync(). Dropping the count first with autosuspend
-still enabled arms the autosuspend timer, and a preemption before
-pm_runtime_disable() lets it expire, suspend the device and clk_disable()
-the clock, which the devm release then disables again - the same WARN.
+I added a handful of device tree improvements to fix some dtbs_check
+errors, added support for the pinctrl device and addressed the comments
+from last year's reviews.
 
-Restore the non-managed IRQ request as well. The probe error paths now
-unwind runtime PM by hand via goto, and a devm-registered handler is only
-freed later during devres unwind, so it would stay live across the manual
-teardown (and across any future failing step added after it). Request the
-IRQ with request_threaded_irq() and free it explicitly in the probe error
-path and in remove. The probe error path also clears use_autosuspend, to
-match the teardown in remove().
+Please note that patch 0006 and 0008 depend on patch 0005 as they need the
+registers.h file, but belong to different driver areas. I'm not sure if
+I'm supposed to squash them even if they belong to different driver
+areas of if it's fine like this. Any advice is welcome.
 
-Fixes: 50c63491ff26 ("i2c: xiic: switch to devres managed APIs")
-Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
----
-Changes in v5:
-- remove(): disable runtime PM before dropping the usage count
-  (pm_runtime_disable() + pm_runtime_put_noidle() instead of
-  pm_runtime_put_sync()), so the armed autosuspend timer can no longer
-  race pm_runtime_disable() and re-trigger the clk double-disable.
-- probe error path: also call pm_runtime_dont_use_autosuspend() so it
-  mirrors the teardown in remove().
-- Link to v4: https://patch.msgid.link/20260819-i2c-xiic-restore-runtime-pm-teardown-v4-1-6999eb434d1c@nexthop.ai
+Patch 0009 also depends on patch 0003 because of mt6392-regulator.h.
 
-Changes in v4:
-- Request the IRQ non-managed (request_threaded_irq/free_irq) and free it
-  in the probe error path and in remove(), instead of a devm handler that
-  would only be released during devres unwind and so stay live across the
-  manual runtime PM teardown in the goto error paths (Andy).
-- Link to v3: https://patch.msgid.link/20260818-i2c-xiic-restore-runtime-pm-teardown-v3-1-5fd315b078e1@nexthop.ai
+The series has been tested on Xiaomi Mi Smart Clock X04G, on the
+Lenovo Smart Clock 2 CD-24502F and on Sony PlayStation Classic Mini
+SCPH-1000R.
 
-Changes in v3:
-- Drop the managed devm_pm_runtime_set_active_enabled() helper entirely
-  and restore the non-managed runtime PM setup (pm_runtime_set_active +
-  pm_runtime_enable, with probe error unwinding) and teardown
-  (pm_runtime_disable + set_suspended + dont_use_autosuspend), so the
-  disable depth stays balanced rather than being disabled twice (Andi).
-- Link to v2: https://patch.msgid.link/20260814-i2c-xiic-restore-runtime-pm-teardown-v2-1-7ae5d0c30ff2@nexthop.ai
+Changes in v9:
+- Correct binding for vrtc as it does not support mode setting.
 
-Changes in v2:
-- Move the Signed-off-by into the commit message proper (Andy).
-- Link to v1: https://patch.msgid.link/20260813-i2c-xiic-restore-runtime-pm-teardown-v1-1-0e7dfb206790@nexthop.ai
+From sashiko:
+- Added missing include in MFD documentation example.
+- Fixed constraints for regulator-initial-mode in regulator binding.
+- Fixed wrong register write while setting LDO standby mode.
+- Added missing pmic interrupt definition in the pumpkin-common include.
 
-To: Michal Simek <michal.simek@amd.com>
-To: Andi Shyti <andi.shyti@kernel.org>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-i2c@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
----
- drivers/i2c/busses/i2c-xiic.c | 46 +++++++++++++++++++++++++++++++++----------
- 1 file changed, 36 insertions(+), 10 deletions(-)
+Changes in v8 [9]:
+From reviewers:
+- Added example code to the MFD device binding, removed it from the
+  regulators docs.
+- Added minItems/maxItems constraints on the regulator mode definitions,
+  improved the mode constants.
+- Fixed formatting issues in the regulator binding.
+- Import the mt6392.dtsi file in pumpkin-common.dtsi, as it was originally
+  meant in [8].
 
-diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index 3e7735e1dae0..ece6d4f2cc6d 100644
---- a/drivers/i2c/busses/i2c-xiic.c
-+++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -92,6 +92,7 @@ struct xiic_i2c {
- 	int rx_pos;
- 	enum xiic_endian endianness;
- 	struct clk *clk;
-+	int irq;
- 	enum xilinx_i2c_state state;
- 	bool singlemaster;
- 	bool dynamic;
-@@ -1475,9 +1476,13 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 
- 	pm_runtime_set_autosuspend_delay(dev, XIIC_PM_TIMEOUT);
- 	pm_runtime_use_autosuspend(dev);
--	ret = devm_pm_runtime_set_active_enabled(dev);
--	if (ret)
--		return ret;
-+	/*
-+	 * Enable runtime PM by hand: devm_pm_runtime_set_active_enabled()
-+	 * tears down in an order that races the devm-enabled clock release and
-+	 * makes clk_core_disable() WARN (see xiic_i2c_remove()).
-+	 */
-+	pm_runtime_set_active(dev);
-+	pm_runtime_enable(dev);
- 
- 	/* SCL frequency configuration */
- 	i2c->input_clk = clk_get_rate(i2c->clk);
-@@ -1486,10 +1491,15 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	if (ret || i2c->i2c_clk > I2C_MAX_FAST_MODE_PLUS_FREQ)
- 		i2c->i2c_clk = 0;
- 
--	ret = devm_request_threaded_irq(dev, irq, NULL, xiic_process,
--					IRQF_ONESHOT, pdev->name, i2c);
-+	/*
-+	 * Request the IRQ non-managed: later probe steps unwind manually via
-+	 * goto, so a devm handler could still be live after that teardown runs.
-+	 */
-+	i2c->irq = irq;
-+	ret = request_threaded_irq(irq, NULL, xiic_process, IRQF_ONESHOT,
-+				   pdev->name, i2c);
- 	if (ret)
--		return ret;
-+		goto err_pm_disable;
- 
- 	i2c->singlemaster = device_property_read_bool(dev, "single-master");
- 
-@@ -1506,14 +1516,16 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 		i2c->endianness = BIG;
- 
- 	ret = xiic_reinit(i2c);
--	if (ret)
--		return dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
-+		goto err_free_irq;
-+	}
- 
- 	/* add i2c adapter to i2c tree */
- 	ret = i2c_add_numbered_adapter(&i2c->adap);
- 	if (ret) {
- 		xiic_deinit(i2c);
--		return ret;
-+		goto err_free_irq;
- 	}
- 
- 	if (pdata) {
-@@ -1526,6 +1538,15 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 		res, irq, i2c->i2c_clk);
- 
- 	return 0;
-+
-+err_free_irq:
-+	free_irq(irq, i2c);
-+err_pm_disable:
-+	pm_runtime_disable(dev);
-+	pm_runtime_set_suspended(dev);
-+	pm_runtime_dont_use_autosuspend(dev);
-+
-+	return ret;
- }
- 
- static void xiic_i2c_remove(struct platform_device *pdev)
-@@ -1537,6 +1558,8 @@ static void xiic_i2c_remove(struct platform_device *pdev)
- 	/* remove adapter & data */
- 	i2c_del_adapter(&i2c->adap);
- 
-+	free_irq(i2c->irq, i2c);
-+
- 	ret = pm_runtime_get_sync(dev);
- 	if (ret < 0)
- 		dev_warn(dev, "Failed to activate device for removal (%pe)\n",
-@@ -1544,7 +1567,10 @@ static void xiic_i2c_remove(struct platform_device *pdev)
- 	else
- 		xiic_deinit(i2c);
- 
--	pm_runtime_put_sync(dev);
-+	pm_runtime_disable(dev);
-+	pm_runtime_put_noidle(dev);
-+	pm_runtime_set_suspended(dev);
-+	pm_runtime_dont_use_autosuspend(dev);
- }
- 
- static const struct dev_pm_ops xiic_dev_pm_ops = {
+From sashiko:
+- Added more explicit constraints on the regulator modes definitions.
+- Use the appropriate modeget register for LDO regulators, Buck registers
+  don't have the corresponding register according to the data sheet.
+- Added the missing of_map_mode function.
+- Removed some debugging code that had no use and masked error codes.
 
----
-base-commit: d58772d8520c7ef247c4b95c9bd76d3a25da9ff5
-change-id: 20260813-i2c-xiic-restore-runtime-pm-teardown-dd0ab1db2c02
+Changes in v7 [7]:
+- Removed patch 0008 dependency on patch 0003.
+- Reintroduced the regulator driver. In earlier revisions of this series,
+  it was proposed to remove the dedicated compatible for the regulator
+  device [3]. The driver does not use actually it, but it is not possible
+  at this time to remove it from the bindings since it's a required
+  property.
 
-Best regards,
---  
-Abdurrahman Hussain <abdurrahman@nexthop.ai>
+  Making the regulator-required property conditional was NACKed in [5],
+  with the suggestion to create a separate binding altogether for devices
+  that do not require the compatible property. I tried implementing this,
+  but since the parent device needs to be declared as compatible with
+  mt6323, it leads to a warning in dt_binding_check since mt6323 would
+  be declared as a compatible in both mt6392 and mt6397.
+
+  In the end the only regulator driver from the mt6397 documentation that
+  still declares an of_match is mt6397-regulator and it does not seem
+  to be necessary, so it should be possible to remove it and make the
+  regulator compatible optional for all regulators, but that change would
+  probably deserve its own separate patch series.
+
+Changes in v6 [6]:
+- Dropped the regulators driver for the moment
+- Explained the FCHR key name origin in the commit message
+- Introduced the MFD_CELL_* macro in the sub-devices definitions.
+  A separate, independent commit introduced MFD_CELL_* to all the
+  subdevices in the mt6397-core.c file for consistency
+- Replaced of_device_get_match_data with device_get_match_data
+- Removed the mfd_match_data enum in favor of the preexisting
+  chip_id enum
+- Adjusted the error message if the device is unsupported
+
+Changes in v5 [5]:
+- Double checked regulator driver with data sheet and Android sources.
+  The data sheet I have misses a lot of register descriptions, but
+  Android sources have been helpful to fill the gaps
+- Reintroduced the required attribute for the regulator compatible
+  in the bindings
+- Fixed the missing reference to the MT6392 schema
+- Fixed casts/unused vars reported by kernel test robot
+- Removed Reviewed-by tags from the regulator patches as they have been
+  modified in this version
+
+Changes in v4 [4]:
+- Dropped usage of the regulator compatible
+- Fixed commit messages text to properly reference the target subsystem
+- Added supply rails to the regulator
+- Reworked the regulator schema and PMIC dtsi. Now all supplies are
+  documented and the schema no longer includes voltage information
+- Removed redundant ldo- / buck- prefixes
+- Renamed the pinfunc header to mediatek,mt6392-pinfunc.h
+- Modified the MFD driver to use a simple identifier in the of_match
+  data properties
+
+Changes in v3 [3]:
+- Added pinctrl device
+- Changed mt6397-rtc fallback to mt6323-rtc
+- Added schema for regulators
+- Fixed checkpatch issues
+
+Changes in v2 [2]:
+- Replaced explicit compatibles with fallbacks
+
+Initial version: [1]
+
+[1] https://lore.kernel.org/linux-mediatek/cover.1771865014.git.l.scorcia@gmail.com/
+[2] https://lore.kernel.org/linux-mediatek/20260306120521.163654-1-l.scorcia@gmail.com/
+[3] https://lore.kernel.org/linux-mediatek/20260317184507.523060-1-l.scorcia@gmail.com/
+[4] https://lore.kernel.org/linux-mediatek/20260330083429.359819-1-l.scorcia@gmail.com/
+[5] https://lore.kernel.org/linux-mediatek/20260420213529.1645560-1-l.scorcia@gmail.com/
+[6] https://lore.kernel.org/linux-mediatek/20260612200717.361018-1-l.scorcia@gmail.com/
+[7] https://lore.kernel.org/linux-mediatek/20260615071836.362883-1-l.scorcia@gmail.com/
+[8] https://lore.kernel.org/linux-mediatek/20190323211612.860-25-fparent@baylibre.com/
+[9] https://lore.kernel.org/linux-mediatek/20260620200032.334192-1-l.scorcia@gmail.com/
+
+Fabien Parent (3):
+  dt-bindings: input: mtk-pmic-keys: Add MT6392 PMIC keys
+  mfd: mt6397: Add support for MT6392 PMIC
+  regulator: Add MediaTek MT6392 regulator
+
+Luca Leonardo Scorcia (4):
+  dt-bindings: mfd: mt6397: Add MT6392 PMIC
+  regulator: dt-bindings: Add MediaTek MT6392 PMIC
+  mfd: mt6397: Use MFD_CELL_* to describe sub-devices
+  pinctrl: mediatek: mt6397: Add MediaTek MT6392
+
+Val Packett (2):
+  input: keyboard: mtk-pmic-keys: Add MT6392 support
+  arm64: dts: mediatek: Add MediaTek MT6392 PMIC dtsi
+
+ .../bindings/input/mediatek,pmic-keys.yaml    |   1 +
+ .../bindings/mfd/mediatek,mt6397.yaml         |  75 ++
+ .../regulator/mediatek,mt6392-regulator.yaml  | 112 +++
+ arch/arm64/boot/dts/mediatek/mt6392.dtsi      | 145 ++++
+ .../boot/dts/mediatek/pumpkin-common.dtsi     |   7 +
+ drivers/input/keyboard/mtk-pmic-keys.c        |  17 +
+ drivers/mfd/mt6397-core.c                     | 295 ++++---
+ drivers/mfd/mt6397-irq.c                      |   8 +
+ drivers/pinctrl/mediatek/pinctrl-mt6397.c     |  37 +-
+ drivers/pinctrl/mediatek/pinctrl-mtk-mt6392.h |  64 ++
+ drivers/regulator/Kconfig                     |   9 +
+ drivers/regulator/Makefile                    |   1 +
+ drivers/regulator/mt6392-regulator.c          | 764 ++++++++++++++++++
+ .../regulator/mediatek,mt6392-regulator.h     |  23 +
+ include/linux/mfd/mt6392/core.h               |  43 +
+ include/linux/mfd/mt6392/registers.h          | 488 +++++++++++
+ include/linux/mfd/mt6397/core.h               |   1 +
+ include/linux/regulator/mt6392-regulator.h    |  42 +
+ 18 files changed, 1970 insertions(+), 162 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6392-regulator.yaml
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt6392.dtsi
+ create mode 100644 drivers/pinctrl/mediatek/pinctrl-mtk-mt6392.h
+ create mode 100644 drivers/regulator/mt6392-regulator.c
+ create mode 100644 include/dt-bindings/regulator/mediatek,mt6392-regulator.h
+ create mode 100644 include/linux/mfd/mt6392/core.h
+ create mode 100644 include/linux/mfd/mt6392/registers.h
+ create mode 100644 include/linux/regulator/mt6392-regulator.h
+
+-- 
+2.43.0
 
 
