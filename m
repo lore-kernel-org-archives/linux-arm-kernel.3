@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1EAC5DF8E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 19:12:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC68C5DF8F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 19:12:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+4A3Mtednu7asElI1r+tS0Ghnojj12CQ+o9v9cHTTsg=; b=S7KLL0lGQOXezWelfmq220/Lia
-	B2odhPFbvwq11+512oZNs1LWFRzRUxBZR4+OtMO9nEimfMEx+f+PRnL9IzdRzvGhF/tlsN5erMC2M
-	OdAhi3bNlfHHkXknSuIeh4XNbjIQaNnt+CeRiVJyNrsefh6/co0GKZ+b2btW4Ee3I4uwxPYqvDbZA
-	CrSO3VTmruiS5qGzj9uziTgvGrNCdrYSDqJdHCdON4lrC/sAICqBaTd2i6PHQXtbOQ+tnNsDC7tBR
-	PO8qV3DrUNSa3pLiBmsBb01aLA+H+6vhzauP6WHY1TuT+n7NCR6v2f/nU7hvcaUkcrQxmhbI60uzs
-	vNdysUtw==;
+	bh=l1Karx1ZBkuz57dpLOa3NMZqbb6vT7XfiOcKwNEnGks=; b=MsgHMWgmhkVC8H+Z7SF/SQNg3C
+	D0vsFZ7L+P02r1fX2RGD13f8LoXScPQdHkbw2fjcPN3ezS8wKK3nsTtLL0FqyQN7mbA2JcKL/3ETU
+	fbLnI5bZOxFT9InF3VJMwEYDUjXHlNuBFygMI9BGwilHhTHhlOypgyRmbgwK4N2B1bWCxZzFpIRg6
+	uKO2sRHKzgjEReTV99VABxS41B9yjAJgKTYDnMZ5v3aRMVc84UG+bWriSnd2V+7TNjXJvVM0vzjKy
+	xU31fl8shSV2kzuluxmQ4zKW4vPLiEbokGAF3c++5DsrwnOTcRDp40JZwk70nQsk04dxXm5o6kZgq
+	zmpAE5Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx8BN-0000000C5tF-3wi4;
-	Thu, 20 Aug 2026 19:12:09 +0000
+	id 1wx8BO-0000000C5tJ-05uZ;
+	Thu, 20 Aug 2026 19:12:10 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx8BN-0000000C5sc-0OpJ
+	id 1wx8BN-0000000C5sl-10Lz
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 20 Aug 2026 19:12:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B43BF43D4D;
+	by sea.source.kernel.org (Postfix) with ESMTP id D286044049;
 	Thu, 20 Aug 2026 19:12:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 97A49C2BCFD;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B609DC2BD01;
 	Thu, 20 Aug 2026 19:12:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1787253128;
-	bh=ga11gBdb5eBtt5ElhIBixkEHwyzyp+XXck2vhlIjGFc=;
+	bh=28WNZql7k9NGuBzPlZkL9rdF4eUy8pQ98jiA00AuOyQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=JAd617qke6WhYeXp6mm3jjnGfXY7EeDzezRBCQNVNOipOX2rXLOJG60Ek4Yc/dFCz
-	 wzdojLHJpujIKPaiWpRcW8T8egeqv+IyvSlU9scQII41yJ1MgIcPBTu19AAA2dwPl3
-	 QBaCfU2+5p98eEvK12BOpBZuLGkjgnLlykPfrXbGYyByg8dcZWPAm2PbxVRspFv3Ru
-	 tFASHlChBHKxFuN3LfXbWMmuohahLzd6uMobYMmEUhfTwdzq0uNiNIDO20MSf+1vBT
-	 xz+8azPrm2QBH+iLjEPbY4EMx+VSerQGZOpktSuet2I42FQQN1YILUVtj+cmX3QVMj
-	 oeogWAaz9Z4FQ==
+	b=ThkQITMfrqFTbdWc7HesZUPTfIPVoWj44oiUzNsWvmxZgMqhFXkUKWTN2eq4ME0CL
+	 q/Pl6mZQUDNYmUUPgbTnjM5HySPVPNL1ftErVL+q3Ord+3qzlCIVugyCOSB6LAO51/
+	 v8eBHW8hw2UKV1aT71GXjfvwMvVoOAj/ML3LHtro5ydQFK+5LZSrNQhSR5g4HSKAL0
+	 SLlbTZY61xyAdJlc5ROvSIkCxqEgktuy6+hLr57W9NBVEw8TIuPklobyVwlrCMnhjY
+	 ixPeSQmLbgvvEMjAvGOUr2l0HipKM97wZFU/30euOLjT0NZgYz3teVhPVLyFvmT9Rp
+	 7wKeFkKSq+PSg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 85FC0C5DF86;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A3965C5DF89;
 	Thu, 20 Aug 2026 19:12:08 +0000 (UTC)
 From: Markuss Broks via B4 Relay <devnull+markuss.broks.gmail.com@kernel.org>
-Date: Thu, 20 Aug 2026 22:12:07 +0300
-Subject: [PATCH 3/4] iommu/exynos: fix TLB invalidation for no-block
- SysMMUs
+Date: Thu, 20 Aug 2026 22:12:08 +0300
+Subject: [PATCH 4/4] iommu/exynos: decode the v7 fault transaction info
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260820-exynos-iommu-fixes-v1-3-6bbcd673bb15@gmail.com>
+Message-Id: <20260820-exynos-iommu-fixes-v1-4-6bbcd673bb15@gmail.com>
 References: <20260820-exynos-iommu-fixes-v1-0-6bbcd673bb15@gmail.com>
 In-Reply-To: <20260820-exynos-iommu-fixes-v1-0-6bbcd673bb15@gmail.com>
 To: Marek Szyprowski <m.szyprowski@samsung.com>, 
@@ -64,11 +63,11 @@ Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Markuss Broks <markuss.broks@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787253126; l=1957;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787253126; l=2986;
  i=markuss.broks@gmail.com; s=20260803; h=from:subject:message-id;
- bh=HrkpBlZCi51pjFv6cW4myb/9v3ctbW7Y5uVSy6+Uxlw=;
- b=4vw4diMfzpg6jMkBwD2QGOLnKc61wkJfWQEuXDwnPSCbO5WU6JnfM39Vifoh4H+FbAxFDD6wV
- p0M+hzavBGOB8tUTLy3V1uIZ8yBWZGf0XlDyHVi71pnU0kqsYoODXCe
+ bh=ds2FwQf93t6aWc7pL7d/0AcQafl2TKcR73r3avK3lF8=;
+ b=YUghpcT3gXo+61EMw7hA+qlTiMj8yjh8tzM6VDTi7YPQ3VKz8u0bFvtG0QjbiBNKUcMwHH56R
+ lT9X87yn00mAy1WcXOJKoOOwxQsnmgcSMKU4sIwgXItFBMqnTdANjT/
 X-Developer-Key: i=markuss.broks@gmail.com; a=ed25519;
  pk=oKzGUTm30BCDqinRMpiHQqByOx1mp2mwmhg80Mv7Zg4=
 X-Endpoint-Received: by B4 Relay for markuss.broks@gmail.com/20260803 with
@@ -91,52 +90,79 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Markuss Broks <markuss.broks@gmail.com>
 
-sysmmu_block() polls MMU_STATUS for the blocked state, which no-block
-hardware never reports, so on such SysMMUs it always fails, and both
-sysmmu_tlb_invalidate_entry() and sysmmu_tlb_invalidate_flpdcache()
-skip the invalidation entirely when blocking fails.
+The v7+ fault registers carry a transaction-info word alongside the
+faulting address, but it is only used to derive the read/write
+direction and then thrown away.  Keep it and print it: AxID identifies
+which port inside the master issued the faulting transaction, which is
+the only way to tell apart the several DMA engines a single block can
+contain, and the remaining bits of the raw word are implementation
+defined and worth having in a fault report.
 
-On no-block hardware the invalidation registers are written with the
-MMU running; the vendor driver never blocks around invalidation. Do
-the same and write the invalidation directly. In the FLPD cache path
-no-block implies a v7+ SysMMU, hence the unconditional flush-all.
+Define the known fields of the word instead of open-coding the masks;
+this also names the direction bit the driver was already testing as a
+bare BIT(20).
+
+Gate the print on the variant having a fault_info register, so older
+SysMMUs are unaffected.
 
 Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
 ---
- drivers/iommu/exynos-iommu.c | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
+ drivers/iommu/exynos-iommu.c | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/iommu/exynos-iommu.c b/drivers/iommu/exynos-iommu.c
-index a3a59d8a4cf1..29b27c7e400a 100644
+index 29b27c7e400a..0bca3662fdc2 100644
 --- a/drivers/iommu/exynos-iommu.c
 +++ b/drivers/iommu/exynos-iommu.c
-@@ -685,7 +685,14 @@ static void sysmmu_tlb_invalidate_flpdcache(struct sysmmu_drvdata *data,
- 	spin_lock_irqsave(&data->lock, flags);
- 	if (data->active && data->version >= MAKE_MMU_VER(3, 3)) {
- 		clk_enable(data->clk_master);
--		if (sysmmu_block(data)) {
-+		/*
-+		 * No-block hardware accepts invalidation writes while the
-+		 * MMU is running; it is also v7+, so flush-all covers the
-+		 * FLPD cache.
-+		 */
-+		if (data->no_block) {
-+			__sysmmu_tlb_invalidate(data);
-+		} else if (sysmmu_block(data)) {
- 			if (data->version >= MAKE_MMU_VER(5, 0))
- 				__sysmmu_tlb_invalidate(data);
- 			else
-@@ -721,7 +728,9 @@ static void sysmmu_tlb_invalidate_entry(struct sysmmu_drvdata *data,
- 		if (MMU_MAJ_VER(data->version) == 2)
- 			num_inv = min_t(unsigned int, size / SPAGE_SIZE, 64);
+@@ -8,6 +8,7 @@
+ #define DEBUG
+ #endif
  
--		if (sysmmu_block(data)) {
-+		if (data->no_block) {
-+			__sysmmu_tlb_invalidate_entry(data, iova, num_inv);
-+		} else if (sysmmu_block(data)) {
- 			__sysmmu_tlb_invalidate_entry(data, iova, num_inv);
- 			sysmmu_unblock(data);
- 		}
++#include <linux/bitfield.h>
+ #include <linux/clk.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/err.h>
+@@ -144,6 +145,9 @@ static u32 lv2ent_offset(sysmmu_iova_t iova)
+ #define CAPA0_CAPA1_EXIST		BIT(11)
+ #define CAPA1_VCR_ENABLED		BIT(14)
+ #define CAPA1_NO_BLOCK_MODE		BIT(15)
++#define FAULT_INFO_AXID			GENMASK(15, 0)
++#define FAULT_INFO_AXLEN		GENMASK(19, 16)
++#define FAULT_INFO_WRITE		BIT(20)
+ 
+ /* common registers */
+ #define REG_MMU_CTRL		0x000
+@@ -194,6 +198,7 @@ struct sysmmu_fault {
+ 	sysmmu_iova_t addr;	/* IOVA address that caused fault */
+ 	const char *name;	/* human readable fault name */
+ 	unsigned int type;	/* fault type for report_iommu_fault() */
++	u32 info;		/* raw transaction info (v7+ only) */
+ };
+ 
+ struct sysmmu_v1_fault_info {
+@@ -360,7 +365,8 @@ static int exynos_sysmmu_v7_get_fault_info(struct sysmmu_drvdata *data,
+ 
+ 	fault->addr = readl(SYSMMU_REG(data, fault_va));
+ 	fault->name = sysmmu_v7_fault_names[itype % 4];
+-	fault->type = (info & BIT(20)) ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ;
++	fault->type = (info & FAULT_INFO_WRITE) ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ;
++	fault->info = info;
+ 
+ 	return 0;
+ }
+@@ -558,6 +564,12 @@ static void show_fault_information(struct sysmmu_drvdata *data,
+ 		dev_name(data->master),
+ 		fault->type == IOMMU_FAULT_READ ? "READ" : "WRITE",
+ 		fault->name, fault->addr);
++	/* AxID identifies the issuing port inside the master */
++	if (data->variant->fault_info)
++		dev_err(data->sysmmu, "transaction info %#010x: AxID %#lx, AxLEN %lu\n",
++			fault->info,
++			FIELD_GET(FAULT_INFO_AXID, fault->info),
++			FIELD_GET(FAULT_INFO_AXLEN, fault->info));
+ 	dev_dbg(data->sysmmu, "Page table base: %pa\n", &data->pgtable);
+ 	ent = section_entry(phys_to_virt(data->pgtable), fault->addr);
+ 	dev_dbg(data->sysmmu, "\tLv1 entry: %#x\n", *ent);
 
 -- 
 2.55.0
