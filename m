@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E4AC5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51CA1C5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
 	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
 	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k/x/Ldk7pJn5hAaYG+4LmXlk3NMFui0TNJgVftohRSo=; b=Tb1z/SQYUJ7tvjvy3J+mgI3Z6v
-	TrUrb9PI4XMO4T+RPana7AJD4nRzfkM91+VfRpV4yX+5Ge5EtPCfYrRK0/sPpu4vt1qtUpYV3i/e2
-	EeJmRf6Nn89peM9xiUtqKggAO+lej14VoiXT2gbwo4B872JKnk/p4+14LLDZ45I+d0hruJ8pYBWXk
-	r0SRxIkFJ94aTzAXHGvIyH8p9uE3eEyVWJ+OUZ0Tvwvk5t3yPbhQYVDLfJHfoLYksDMqP9jw8fXLK
-	5wJG7mjH67kKCIRInQycbpmq8RxyEc88tiK9v5qici53G0bDynJN6nXb+jWc0Tpn8j9DHG8Qupc24
-	p9ViK2Dw==;
+	bh=jHmAuUOPImzJ5rAL7cyz/qtpECyL3DDK1QmhFFgMO3E=; b=YF7DtV34iLZRsMeoQgtUfC1482
+	diZqPkmI6QYL2EcyWKT15bXmbMY2awfpEpX1SJ4HhUFRWeujaMqDzoHtjWTF2LLe9UEfaIu0ey06j
+	sd6s2f2XLKENMoFd6/VFqy9MtIsi2S3NaoPGB3jRUyIT7T2MRiNQXv+pCskn6dQ9AmZPe8QVUWiFM
+	O97AG0M9ezQJg59zL+Cg/u/CBRjd24CuKnazrNBu53QLBJTnLnm/dmgs/v4TGze78xMcSuJX1aaxq
+	vNkhH5z8Kf81l2xltlWPfWz28/yR7ddPjm3BUuVq2Nj3VRRpr0ZIkqxB3vTXhElDe0MCis8H3YnWV
+	JVg9DOWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwzor-0000000BLDu-3agL;
-	Thu, 20 Aug 2026 10:16:21 +0000
+	id 1wwzpO-0000000BLKA-0cvW;
+	Thu, 20 Aug 2026 10:16:54 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwzoq-0000000BLDg-1PCj;
-	Thu, 20 Aug 2026 10:16:20 +0000
+	id 1wwzpM-0000000BLJa-3eQ2;
+	Thu, 20 Aug 2026 10:16:52 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9658760A5C;
-	Thu, 20 Aug 2026 10:16:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1E961F000E9;
-	Thu, 20 Aug 2026 10:16:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2943460A71;
+	Thu, 20 Aug 2026 10:16:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 611B71F000E9;
+	Thu, 20 Aug 2026 10:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787220979;
-	bh=k/x/Ldk7pJn5hAaYG+4LmXlk3NMFui0TNJgVftohRSo=;
+	s=k20260515; t=1787221011;
+	bh=jHmAuUOPImzJ5rAL7cyz/qtpECyL3DDK1QmhFFgMO3E=;
 	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=jaVpEuwTCkHducIWFaPzemcmRsz9Y6z6HW+eT1ezml7OORLHvBMN8whKTNwRoBhk2
-	 0RdQ8QeLhTDxrUtl4zHYcgxcPTc8KaLbUX7YfQcul+paiJYAu5+8CJEcBGeVB4b6er
-	 KQ7r0uJD07gjy6oGzxS/yR28+ANd2XRT2UVpckttsrfbEHmlsXsZzA9Tw/3bigaAza
-	 VXC5U3q7n/3Ve0HazQi9/N44qlNU43jl/eZSUY/crkISqW2lwCbWYuEagKZ2UOVrOY
-	 oKMZ1U3PRJsy5/j/ozutNsMOxgR7BLHdvjVM80n9ZLpqj0sDtcjaAY+mcUgmT0CSFV
-	 NQeYPvC0pUK/g==
-Message-ID: <9ad943a20de08d78ff7c2133fa4a3e05@kernel.org>
-Date: Thu, 20 Aug 2026 10:16:17 +0000
+	b=HgkoSClqpy/nkjycg84GKonoZEvaOHjbf3qmXWRIzWrONZdZG3Hw4T8Jo4m/mggfj
+	 Umfh4V5/k7fzKseNVuBPcH8QTVaxSG+eeWbwzHyimlKUp6aKsTPPNm9o0sGBpqqKnE
+	 ZAguyouDBwOhVS3Vhd+Vfns0d5/5ksD86VL8eA4CLDDsKjLigNS6eFPk2fBtCt1HX0
+	 9GKu/RXkP6knDgGGYSGhMpGtT503fJ/h+sXs33lVITu6LxL9BTGuFTiNhfU7apgN5C
+	 NP7SS7fRlIHJzHjhFDxF45vI0Q3BhrmP70IvpMKesA6xPBzH4UnqR0DyKhWErgw7m+
+	 xKQ4af2TB1/FQ==
+Message-ID: <a03dbed70e428feaa1250b378c9ef8fb@kernel.org>
+Date: Thu, 20 Aug 2026 10:16:50 +0000
 From: "Maxime Ripard" <mripard@kernel.org>
 To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
-Subject: Re: [PATCH v10 46/69] drm/vc4: hdmi: Defer pixel clock validation
- to HDMI helpers
-In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-46-294364b2cf15@collabora.com>
-References: <20260731-dw-hdmi-qp-scramb-v10-46-294364b2cf15@collabora.com>
+Subject: Re: [PATCH v10 47/69] drm/display: hdmi-state-helper: Drop
+ drm_atomic_helper_connector_hdmi_force()
+In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-47-294364b2cf15@collabora.com>
+References: <20260731-dw-hdmi-qp-scramb-v10-47-294364b2cf15@collabora.com>
 Cc: dri-devel@lists.freedesktop.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, "Algea
  Cao" <algea.cao@rock-chips.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Andy
  Yan" <andy.yan@rock-chips.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Daniel
@@ -77,14 +77,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jul 2026 19:19:53 +0300, Cristian Ciocaltea wrote:
-> drm_atomic_helper_connector_hdmi_check() rejects modes whose computed
-> TMDS character rate exceeds the connector limit before invoking the
-> driver's .tmds_char_rate_valid() hook.
+On Fri, 31 Jul 2026 19:19:54 +0300, Cristian Ciocaltea wrote:
+> With all callers converted to the .force_ctx() connector helper, this
+> function has no users left.  Remove it.
 > 
-> BCM2835 is capped at 162 MHz, slightly below the 165 MHz limit of HDMI
-> 
-> [ ... ]
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
 Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
