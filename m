@@ -4,144 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8CB8C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 16:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74D4BC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 16:56:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KCDEnbuaeNZpRthB0izK/TxF12OF9vJ7Zd8UeUFmsh0=; b=f5/9Ck2a6JVoaPu37NR+zv65Q6
-	ckE8jm2dJLNkLgw6RtGG3F1hDl13hxP5nz+pfYOxcww3YeI53xdv3wREtabqsDUwg7r2o6rLStR6I
-	ZlJ7qKtPA33EhuAjtofobV7ZTN6/ihTAWXD5grZZj9uDeGXPwej4W1IVEj9PO+geBwgxa2XWEvRJJ
-	vNkQAqiWOHxdS/MWvjfyYDnkL2yqXLCKTdKTW0cdWc9P0ho+aRI2tC0rhBzsF8FKAFr2iADdjJZsj
-	jJ3zlhAqXn9ynjjdI2/AN6zUhnPZoPlzTDyz938FdMfJYiaUGELYonduLwDxu3iIpc2kp9hTkCXns
-	pABIZj2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1wz94m8/Rm1BrMXn5KssOA7yWJrCLD7GNr6D+TpdcXw=; b=0qOAGCtW0YFJnsAQc5cmUfHope
+	wVFjXMuES4sWDycF7NdGUemxsLLhZeyix3yUiGkj58xKUtiYDnjdo8HH7FjFL5j3EpUGdpaPRuHID
+	WaHfE6m1eVd/ZER2l5XMVKF3LlzhbRpnJXAib4QjqqR+078tqatUSC1mWpWwaME/GiLPHDeHngnNH
+	VXiEnQjs3K6iAmk6gBQ0HWabFS2IcS9rpif+iM8WRHbj9M2UKAc2GsnTohH2XDPII/aGnLm15W17H
+	BzyRAJCYIDWBwZXGoBa+v0E0WTIsTXqnntXAfO5bdC0pedRFITnfWhs4p4qAIAsoT3pvwozHNCo9k
+	Mmfjd13A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx618-0000000Bv5x-0j3f;
-	Thu, 20 Aug 2026 16:53:26 +0000
-Received: from mail-northeuropeazon11010028.outbound.protection.outlook.com ([52.101.84.28] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wx63z-0000000BvKV-2KcX;
+	Thu, 20 Aug 2026 16:56:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx612-0000000Bv4u-2cZ9
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 16:53:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KKFenwOGWb1l4lq5Kixv3jhbsA0XTmnJaNSoqbTCke5Of0yMluQ828lDAYqfaP2SGbceI6v4qzrBwgnvBxYvP5ngulIpRdzidOCfFojVScHthB5Ju9ybdeXLKRICKRyaeuKYnF7i0n4tY84a8k/DK52Do8Vht0sTOXfPs3ooGUUaRhYE/HGaWsTmxqecOY3zTjdFpNImo3B/XeLG+Qr35iQiy5dhOkFk270IgQh7nk17pajYNv/e1wKAnrSytQZkIMUt0JS44VmFt0mWsJEFAEPHTyPBA6YX0N9pFpa8tqGY6q+3nT6EMyOaIns1qrl1XgIbo9rrcYjrV9KzIO7N1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KCDEnbuaeNZpRthB0izK/TxF12OF9vJ7Zd8UeUFmsh0=;
- b=T1PEPMic/X0ZwJmVuIaKxdtn6OePesxfZ7TjOF7sjj6geA4FRl6nkkGzPW372gKWxl712Pes8KKD5WphTjwZIiPlsktfNg9+c25dkFrO1Lt/bWeK7ofb+GdrriE4gbGwE0Al3boGAtp2FK6DES0VuZxiT7r70xxVfny2gRs8r/7315/Wfh6xNGdeJOzVdGDO3JtrJ0I8TpGLdaQcdPR9YJsneQ2EGEsQWSxPlQG+mgh8TKho+n5i8BQjQZw7rdeSiyhAq2inr0q6SqGRvVdXnCYWxOyAaUj5IbfZRe0iCP2HJPbQx0wXMjtOLuaugbfPYjRx15GNOrZqDVfwjAuMTg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KCDEnbuaeNZpRthB0izK/TxF12OF9vJ7Zd8UeUFmsh0=;
- b=uJCnbc8466cJuVRH9BVnoxbYGRsFaZW1CjjkUpwDIpwhvMwN0jVkueSeSJqL1lSA5iudyEDjoo7zvmGkQ1FTantfeGFcNUeHAGeJSi7XRXJhvB6xvyhSbGGF49nE+vx8o6PKRoaVIHZquNr8KTnHcGWB+NNXaWLIZ3/gGBl3fD7j0SZNjQdMJLGbU9q3zpDX2Mh1Rdt2ehU8jQVsh2HYgOf3HYb6TsQy3ZdOKl+FRhulT/O5vHWU6q4ux9nmGbxTkyBkUt90+flLvYtKzjHwi83s6KTqX36AJIt+ki7PzVtIwpDM68Gf1oHdrY1AEjka0KkEJtXuV+iCbLAkjaqZ0A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU2PR04MB8758.eurprd04.prod.outlook.com (2603:10a6:10:2e1::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Thu, 20 Aug
- 2026 16:53:16 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.007; Thu, 20 Aug 2026
- 16:53:16 +0000
-Date: Thu, 20 Aug 2026 11:53:08 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Zhipeng Wang (OSS)" <zhipeng.wang_1@oss.nxp.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Frank Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jindong Yue <jindong.yue@nxp.com>,
-	Xuegang Liu <xuegang.liu@nxp.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v4 5/5] irqchip/imx-irqsteer: Allow building as module
-Message-ID: <aocw9Gy4dsWLV_qi@SMW015318>
-References: <20260819090543.585131-1-Zhipeng.wang_1@oss.nxp.com>
- <20260819090543.585131-6-Zhipeng.wang_1@oss.nxp.com>
- <aoXJAx131-gU4qXu@SMW015318>
- <AMBPR04MB12334895C9AD42BFCD085EAB9EBA42@AMBPR04MB12334.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <AMBPR04MB12334895C9AD42BFCD085EAB9EBA42@AMBPR04MB12334.eurprd04.prod.outlook.com>
-X-ClientProxiedBy: PH8P220CA0026.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:348::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wx63x-0000000BvKD-2vRk;
+	Thu, 20 Aug 2026 16:56:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 098AE43290;
+	Thu, 20 Aug 2026 16:56:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DE071F00A3F;
+	Thu, 20 Aug 2026 16:56:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787244980;
+	bh=1wz94m8/Rm1BrMXn5KssOA7yWJrCLD7GNr6D+TpdcXw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XwWNvs61m0jU8bunTOwQb0NDf9WBSgVXWyHvDzDDawCmg9TXPX7nzV5/7QitjEGcP
+	 eb7k7IfUIJnL40IyIvRO0cmdBG0jzi3em+hHpBwmta2680bzMlvfsDYDNvb3bOoVEJ
+	 iVV/EWTx07Zoz9fH2J/o6wY2C27KHOE2y+yyCg+SND5ix9K8ENPWSrThDdWmym/A8F
+	 KZULyocJyQ2k0B2XZn049DE/gatDKO98z7v0uRTlfw87QykHsudOr2Q0SSenE1ZH0S
+	 W3bF0Kop25gzUNkAFydXaUBTTFre8/8ehbBoO4zy9Zsmbxy3ZHXhtyw147SdohayrN
+	 9VeK18667sKZg==
+Date: Thu, 20 Aug 2026 18:56:18 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, 
+	Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>, Phong LE <ple@baylibre.com>, 
+	kernel@collabora.com, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
+	Maud Spierings <maud_spierings@hotmail.com>, Diederik de Haas <diederik@cknow-tech.com>
+Subject: Re: [PATCH v10 07/69] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+Message-ID: <20260820-gorgeous-adder-of-reading-5a93f3@houat>
+References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
+ <20260731-dw-hdmi-qp-scramb-v10-7-294364b2cf15@collabora.com>
+ <20260819-amigurumi-lorikeet-of-infinity-fd8c2d@houat>
+ <ad65a396-02fb-4816-b978-e3a0c46688b2@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB8758:EE_
-X-MS-Office365-Filtering-Correlation-Id: b2c8c11c-448e-487a-f650-08defedb87c9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|23010399003|376014|56012099006|10067099003|3023799007|22082099003|18002099003|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: 07pUBLYuXNOstBk775WbzLgy/rLk2Cy/m984gqd/Wuge7VFYG+9wRrhjB5A5ODySH8FWI6hyt9FqqFNqDkfKdIK7d2b48teQm3A2cMQLEYqdq2MtyjLN0MZ/JPA1espHBkX7XMXIq5T/z582b10lNRlZLgCGkMgUxL52THlHayNFOjLRLROFc8387dU5HoX8WCyUTionGPL5CvrdzVPUriNb3QCG3mTTpPuYKF9PqWvqMv9NOyD0z88B3md0WW0haYSwX8aQeGBJT+klhG9shS7zEsEGgXbXcW+jdCCxcHKxU7B+57sZYzFRNS6VzwC91NhOm602AR7f24WhV3Sesmcalho1jf51olMT+o4E9N8nuX4FuW6YpQXSkOD0btGw3sCmz3zb/6vGoQeq8OtXwMB6bK7bF8JSz9jK1al09tjlYtd4+yJ6jBeOxMtNd5p637+orC8B0tJ0Jhzz4X0iBXbYK+PXm/OJmYlk8bR+55k4hTsK/Jx84XVl3Y/C+dN7rdRDTTVPgyVRubZMCHmVeMznDDJkB7b1jTbaoCrAk6VgWk9EL2WVrF3CTB89NqK5Y88fb2+ZRdt9imgnFZfD/Bja8JSFowfgSd440x/fk9hh2b1v8pS3HhSRwD1LWpEO/T7ikecY+vYlpD4ZeykvPaR+S+mtmbYrfpBfgd0DJHY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(23010399003)(376014)(56012099006)(10067099003)(3023799007)(22082099003)(18002099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M1U4RjdlR3gwK0tSSzgzaU42QnVUU2J6aDkrMHR2amRvRVpTcVV0YmpRTEM2?=
- =?utf-8?B?Q1l1cmFNNEdmZTN5SWc5dU9uc2xDdDlHKzRIS0N5M3dPYjg4UXdyZWJqTTRY?=
- =?utf-8?B?OG5wSHgwaC9hZkFmV2ZPOFd3c2JxTTk0RTdOZGZZZGJ1enkwai9DOVhzVzNv?=
- =?utf-8?B?TkNhU1B3MUI1VlVqL2lnY04rdTUvUzZ4VHZKVmxZQmUrK3VXUEFFK3E2aUZo?=
- =?utf-8?B?Q2xiSDVpaEFQUzdWK3Y0d2xXVmdrS0dYWHEzMDhpaC83VUZjVmtRbmQ2dE9S?=
- =?utf-8?B?NE5PMmJnYVJKeUNJM0NGMmgvUzljRjErWmlWNWdBTGE4Z3NEc0VWb1BOOEpu?=
- =?utf-8?B?bWRQSWkxaXQ1eFVzTU1WUFRMWWI4SWhVbldOajVhY3RWL2tvcnZDdmFtMkpi?=
- =?utf-8?B?cFZKa2ZNdkt4YkU5cEtpR0RPYzNpMHFmb2E3VFBHUHEvNTB5cC9DemJFQmYz?=
- =?utf-8?B?dzlMT1JlU29WTWZla1lUUWRybUR6QU1BOW9JQ3JwYjBlc1loamdDZnZUTDZt?=
- =?utf-8?B?cFRKZUtSUnZKK0E2ZnFzdks2d243RmNhWWh2aHM1K1R5Y2FOdElmY2xBZDFH?=
- =?utf-8?B?YnBvdTlGSG84Tm40U0pqUWZKMUhaQ3BncTRncWdhMnZIL0NKUTNucGJHM1dO?=
- =?utf-8?B?RDk2SWtlVkhOdnd6RDVWU0xTeU5DZEYwY0xYYkhVL0hFK2lBZ0VjR0hyYndN?=
- =?utf-8?B?SjNSQ2U4NlJaS2s3aW1WS1F4YmFJN0R6Z0ZTVXFOb244T2FYSWwwNGtrMUlr?=
- =?utf-8?B?NHpvMGtWK08rRGNiZlhueC9zaU80NHcvZFdZOFEreE9ISUN1UUxLdFNOMjcz?=
- =?utf-8?B?SW16VmthRmx2RlhDOVZqTklLZWJ0cWhXUEx0Wmloekg2d24wMk4xNTZrbHZS?=
- =?utf-8?B?cWVKSTRpZlJ6YzE4bmhTTlAybXlkTzZzdkVQd0ZvSHNsdDZxZEtISlIzdVhx?=
- =?utf-8?B?ejNCRHRRR08yTzhlT0x1V1NUUHhVK3lQdWN4SDFRalF0UkJsMHkyVXhyKzJs?=
- =?utf-8?B?c3huelMrSCs5YndnSWo2T0N5UWY2Y0x5MlVDb1VrNlJBcGRteDQwYmd5eUZQ?=
- =?utf-8?B?UVliamxlSHJ1elpNS2ZDZTRweTgrRXYzWEluSnNDSU5nNU5zN2tBa3hrZTg4?=
- =?utf-8?B?TW1pUjFSYm5LSWF2UGM3L2QwK1F3LzlrVnlnOEpnL0J4Q29OTCs2d1k3Vnpp?=
- =?utf-8?B?WUljb3pjS1luYVI1M1BMZUZoMVFSWVVTMnJ6L2lkQU5VeWppMHc4ZVRqKzJG?=
- =?utf-8?B?QTgxMUdTak1HMnEwTjVOdEhIUXM0dGdGVzFqUktOS2g5OHhXeTFySVJKdnRa?=
- =?utf-8?B?SzJyTnhMQ3krUjhibEhEYVQ1T3FnZTNRb3JNaklxdlBxLzZXcFJlR1FnUGNo?=
- =?utf-8?B?b0ZUdTZJeURIa3lMYndUZ2tTY3NYcjJRWDNwSXo1NkM4NjNYZGg3aS9rZHFZ?=
- =?utf-8?B?dW5CNERHUkVRYmZZaEdCd1N6eWszb2xtTnlBQnI0NXo2OHpXZEFMVEZhdE5t?=
- =?utf-8?B?QzF1TjBIbTdVdkhpU01YeStYYkw2VEVxeVhOVTU5eUhYMkNPa1hHVnZhU3Nk?=
- =?utf-8?B?djRqVER1MExucFdEalJmV2hkYnNEZkVvU2JGWXh6M0lrb0d3L2ZIVnRHdUR1?=
- =?utf-8?B?TjBjbnZxbXpRUDVoZmNUVmpmakd2V0RRcU0rNEFFS2VDa1lQOTRBUWZ3S2JB?=
- =?utf-8?B?bEJ3ZjN0NmIxNzNmenVUU3Z1dTh5WEU1UnZsdGZGbFAyZmw3dVBENEhqUkUy?=
- =?utf-8?B?NUNWKzR5cHVObGx2RGRRcmdoZks1SWo1K09pdnlWN0VtaFBLN2U3cUdQT1A1?=
- =?utf-8?B?YlZkZ0JzVjJsb05FVUQrMVZTaHp4UUZ6a3F3dS84RndvbmZEejBhTDhaZmM2?=
- =?utf-8?B?T0FyY2dCd1RYRG1QUEg3NmZzWXN2SGdlVEdIWTJ1Mlc1QWcxRnU0cVpJZHRT?=
- =?utf-8?B?Y0JLTkJaTFlRZHVncjFtT2F0QkU0bDRaM1pBN3lGY3VaUS9QUVo3am9XejMy?=
- =?utf-8?B?c2ZFemFNQ2VxZVN0b3VWSHo5T2kyS2pDdWxqZ1RiVWxONHJrL0NCUUZONVFt?=
- =?utf-8?B?MHQzbll2QkdreGE1QVc1OWpFUDlvb09MT0IrSjV4V3p6Ti9PSVVsU1NITC94?=
- =?utf-8?B?ZFNiM3pxMzJtZFpWTWhRWE5sWmRqZmdZbG01a1drUzZiWnp1aEMxZUtqR1ZG?=
- =?utf-8?B?YWtRVlBuNGYzeDh3MEU1WXB0alZnNWt3TURCNXl3NGwyaEgyNXh3N21WYkw2?=
- =?utf-8?B?UXhNc0wvYjJKeVplUVBIR1ZKVlU3K0pWY1MvZXhzd014Qjk5WW9lc2dZQ0Rp?=
- =?utf-8?B?ekR5dmt4VnBsY1cyNStNLytrbk9sRlR3aTc0anVuZy9yMnVCNEllZC9naFdV?=
- =?utf-8?Q?odP441VVE/ABdH5O1pmHpkjpD9XB5wARlIHXA?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b2c8c11c-448e-487a-f650-08defedb87c9
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 16:53:16.5652
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: l+U8rlTe2WxJ95QUwfDwLcUceOqh0HVTr2IJoZ2MIsL/nOWUjNIChCEuZcD3rkcwn/c0MucAGd2vPyalM6Py0d24s59jX+FEhbyjm10r2CPieu6X8NUK4FH6Qx5TzadN
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8758
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_095320_809080_FAC9510A 
-X-CRM114-Status: GOOD (  42.63  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="vcfsf3o7dsosajam"
+Content-Disposition: inline
+In-Reply-To: <ad65a396-02fb-4816-b978-e3a0c46688b2@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,245 +84,243 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 20, 2026 at 09:53:13AM +0000, Zhipeng Wang (OSS) wrote:
->
->
->
-> NXP Confidential
 
-Please remove this tags,  It is public mail list. Everyone can see context.
+--vcfsf3o7dsosajam
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v10 07/69] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+MIME-Version: 1.0
 
-Frank
+On Wed, Aug 19, 2026 at 10:33:04PM +0300, Cristian Ciocaltea wrote:
+> On 8/19/26 1:12 PM, Maxime Ripard wrote:
+> > On Fri, Jul 31, 2026 at 07:19:14PM +0300, Cristian Ciocaltea wrote:
+> >> Add the connector-level infrastructure to support HDMI 2.0 scrambling:
+> >>
+> >> - A drm_connector_hdmi_scrambler_supported() helper to report whether
+> >>   the source supports the scrambling capability, based on the presence
+> >>   of the newly introduced .scrambler_{enable|disable}() callbacks in
+> >>   drm_connector_hdmi_funcs are mandatory
+> >> - A scrambler_needed flag to be managed by the hdmi state helpers based
+> >>   on the negotiated TMDS character rate and the source/sink scrambling
+> >>   capabilities
+> >> - A scrambler_enabled flag to track whether scrambling is currently
+> >>   active
+> >> - A delayed work item (scdc_work) to monitor sink-side scrambling stat=
+us
+> >>   and retry the setup if the sink resets it
+> >> - A scdc_work_initialized flag to support lazy initialization of the
+> >>   work item on the first scrambling enable and guard the teardown paths
+> >>
+> >> These are intended to be used by SCDC scrambling helpers to coordinate
+> >> scrambling setup and teardown between the source driver and the DRM
+> >> core.
+> >>
+> >> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+> >> Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS=
+, Rock 5B
+> >> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> >> ---
+> >>  drivers/gpu/drm/drm_connector.c | 31 ++++++++++++---
+> >>  include/drm/drm_connector.h     | 83 ++++++++++++++++++++++++++++++++=
++++++++++
+> >>  2 files changed, 109 insertions(+), 5 deletions(-)
+> >>
+> >> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_con=
+nector.c
+> >> index 4721cdeafc84..a18410faf040 100644
+> >> --- a/drivers/gpu/drm/drm_connector.c
+> >> +++ b/drivers/gpu/drm/drm_connector.c
+> >> @@ -622,12 +622,29 @@ int drmm_connector_hdmi_init(struct drm_device *=
+dev,
+> >>  	 * default with the actual controller capability. A value of zero ke=
+eps
+> >>  	 * the limit inferred from supported_hdmi_ver.
+> >>  	 */
+> >> -	if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_2_0)
+> >> +	if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_2_0) {
+> >> +		if (!hdmi_funcs->scrambler_enable || !hdmi_funcs->scrambler_disable=
+) {
+> >> +			drm_err(dev, "Scrambler callbacks missing for HDMI 2.x\n");
+> >> +			return -EINVAL;
+> >> +		}
+> >> +
+> >>  		connector->hdmi.max_tmds_char_rate =3D HDMI_2_0_TMDS_CHAR_RATE_MAX_=
+HZ;
+> >> -	else if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_1_3)
+> >> -		connector->hdmi.max_tmds_char_rate =3D HDMI_1_3_TMDS_CHAR_RATE_MAX_=
+HZ;
+> >> -	else if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_1_0)
+> >> -		connector->hdmi.max_tmds_char_rate =3D HDMI_1_0_TMDS_CHAR_RATE_MAX_=
+HZ;
+> >> +	} else {
+> >> +		/*
+> >> +		 * Scrambler callbacks are only valid for connectors advertising
+> >> +		 * HDMI 2.0 capability. drm_connector_hdmi_scrambler_supported()
+> >> +		 * relies on their presence to report scrambling support.
+> >> +		 */
+> >> +		if (hdmi_funcs->scrambler_enable || hdmi_funcs->scrambler_disable) {
+> >> +			drm_err(dev, "Scrambler callbacks unexpected for HDMI 1.x\n");
+> >> +			return -EINVAL;
+> >> +		}
+> >> +
+> >> +		if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_1_3)
+> >> +			connector->hdmi.max_tmds_char_rate =3D HDMI_1_3_TMDS_CHAR_RATE_MAX=
+_HZ;
+> >> +		else if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_1_0)
+> >> +			connector->hdmi.max_tmds_char_rate =3D HDMI_1_0_TMDS_CHAR_RATE_MAX=
+_HZ;
+> >> +	}
+> >=20
+> > I'd put it into a separate test (possibly earlier). Merging both the
+> > tmds rate default and the scrambler callbacks check makes it messier
+> > than it would be if we had two separate tests.
+>=20
+> Ack. How about the following?
+>=20
+> 	if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_2_0)
+> 		connector->hdmi.max_tmds_char_rate =3D HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ;
+> 	else if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_1_3)
+> 		connector->hdmi.max_tmds_char_rate =3D HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
+> 	else if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_1_0)
+> 		connector->hdmi.max_tmds_char_rate =3D HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ;
+>=20
+> 	if (hdmi_funcs->supported_tmds_char_rate) {
+> 		if (hdmi_funcs->supported_tmds_char_rate > connector->hdmi.max_tmds_cha=
+r_rate) {
+> 			drm_err(dev, "Enforced max_tmds_char_rate exceeds %llu spec limit\n",
+> 				connector->hdmi.max_tmds_char_rate);
+> 			return -EINVAL;
+> 		}
+>=20
+> 		connector->hdmi.max_tmds_char_rate =3D hdmi_funcs->supported_tmds_char_=
+rate;
+> 	}
+>=20
+> 	if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_2_0) {
+> 		if (!hdmi_funcs->scrambler_enable || !hdmi_funcs->scrambler_disable) {
+> 			drm_err(dev, "Scrambler callbacks missing for HDMI 2.x\n");
+> 			return -EINVAL;
+> 		}
+> 	} else {
+> 		/*
+> 		 * Scrambler callbacks are only valid for connectors advertising
+> 		 * HDMI 2.0 capability. drm_connector_hdmi_scrambler_supported()
+> 		 * relies on their presence to report scrambling support.
+> 		 */
+> 		if (hdmi_funcs->scrambler_enable || hdmi_funcs->scrambler_disable) {
+> 			drm_err(dev, "Scrambler callbacks unexpected for HDMI 1.x\n");
+> 			return -EINVAL;
+> 		}
+> 	}
 
-> > -----Original Message-----
-> > From: Frank Li (OSS) <frank.li@oss.nxp.com>
-> > Sent: 2026年8月19日 23:17
-> > To: Zhipeng Wang (OSS) <zhipeng.wang_1@oss.nxp.com>
-> > Cc: Thomas Gleixner <tglx@kernel.org>; Marc Zyngier <maz@kernel.org>;
-> > Frank Li <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>;
-> > Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> > <festevam@gmail.com>; Jindong Yue <jindong.yue@nxp.com>; Xuegang Liu
-> > <xuegang.liu@nxp.com>; linux-kernel@vger.kernel.org; imx@lists.linux.dev;
-> > linux-arm-kernel@lists.infradead.org
-> > Subject: Re: [PATCH v4 5/5] irqchip/imx-irqsteer: Allow building as module
-> >
-> > On Wed, Aug 19, 2026 at 06:05:43PM +0900, Zhipeng.wang_1@oss.nxp.com
-> > wrote:
-> > > From: Jindong Yue <jindong.yue@nxp.com>
-> > >
-> > > Make the driver buildable as a module by turning the Kconfig symbol
-> > > into a tristate and using module_platform_driver() instead of
-> > > builtin_platform_driver().
-> > >
-> > > Now that the driver can be unloaded and reloaded, let the driver core
-> > > own the clock and runtime PM lifetime so that the probe() error path
-> > > and
-> > > remove() do not have to hand-balance them:
-> > >
-> > >  - acquire the clock with devm_clk_get_enabled() instead of a bare
-> > >    devm_clk_get() followed by a manual clk_prepare_enable(), so it is
-> > >    prepared/enabled for the device lifetime and released on unbind;
-> > >  - keep only clk_enable()/clk_disable() in the runtime PM callbacks,
-> > >    since prepare/unprepare is now handled once by devres;
-> >
-> > devm_clk_get_enable() will do prepare() and enable(). tear down also do
-> > unprepare() and disable()
-> >
-> > To avoid both devm_clk() and runtime pm suspend both unprepare and
-> > disable() clock to make wrong clock refererence.
-> >
-> > need in remove function
-> >
-> >     /*
-> >      * Resume the device so runtime_resume() re-enables the clock.
-> >      * devm cleanup (clk_disable_unprepare) runs after .remove() returns,
-> >      * so the clock will be enabled and the disable is safe.
-> >      */
-> >     pm_runtime_resume_and_get(dev);
-> >
-> >     /* devm_clk_get_enable and devm_pm_runtime_enable clean up
-> > automatically */
-> >
-> > Frank
-> >
-> Hi Frank,
+I don't think we need the else clause at all. It's not valid, but it's
+also not creating any issue.
+
+I'd move that second check earlier together with the infoframe callbacks
+checks and so on too.
+
+>=20
+> >>  	if (hdmi_funcs->supported_tmds_char_rate) {
+> >>  		if (hdmi_funcs->supported_tmds_char_rate > connector->hdmi.max_tmds=
+_char_rate) {
+> >> @@ -635,6 +652,7 @@ int drmm_connector_hdmi_init(struct drm_device *de=
+v,
+> >>  				connector->hdmi.max_tmds_char_rate);
+> >>  			return -EINVAL;
+> >>  		}
+> >> +
+> >>  		connector->hdmi.max_tmds_char_rate =3D hdmi_funcs->supported_tmds_c=
+har_rate;
+> >>  	}
+>=20
+> [...]
+>=20
+> >> +	/**
+> >> +	 * @scdc_work: Work item currently used to monitor sink-side scrambl=
+ing
+> >> +	 * status and retry setup if the sink resets it.
+> >> +	 */
+> >> +	struct delayed_work scdc_work;
+> >> +
+> >> +	/**
+> >> +	 * @scdc_work_initialized: Tracks whether @scdc_work has been set up=
+ via
+> >> +	 * INIT_DELAYED_WORK(). The work item is initialized lazily on the f=
+irst
+> >> +	 * scrambling enable, so this guards the teardown paths against touc=
+hing
+> >> +	 * an uninitialized work item.
+> >> +	 */
+> >> +	bool scdc_work_initialized;
+> >> +
+> >=20
+> > Why should we track whether it's initialized or not? I'd always
+> > initialize it, but only ever schedule something if we're using the
+> > scrambler.
+>=20
+> Having this initialized in the connector would lead to a module dependency
+> cycle.
+>=20
+> Currently the work function lives in drm_hdmi_helper.c, which is built in=
+to
+> drm_display_helper module:
+>=20
+> static void drm_connector_hdmi_scdc_work(struct work_struct *work)
+> {
+> 	[...]
+> 	if (READ_ONCE(connector->hdmi.scrambler_enabled) &&
+> 	    !drm_scdc_get_scrambling_status(connector))
+> 		drm_connector_hdmi_try_scrambling_setup(connector);
+> 	[...]
+> }
+>=20
+> int drm_connector_hdmi_enable_scrambling(struct drm_connector *connector,
+> 					 const struct drm_connector_state *conn_state)
+> {
+>=20
+> 	[...]
+> 	if (!hdmi->scdc_work_initialized) {
+> 		INIT_DELAYED_WORK(&hdmi->scdc_work,
+> 				  drm_connector_hdmi_scdc_work);
+> 		hdmi->scdc_work_initialized =3D true;
+> 	}
+> 	[...]
+> }
+>=20
+> If we move INIT_DELAYED_WORK() into the connector (i.e. in drm.ko), the w=
+ork
+> function has to be reachable from there.  The following attempts to accom=
+plish
+> that would fail:
 >
-> Thanks for catching the clock reference-count underflow — you're right.
->
-> With devm_clk_get_enabled() doing prepare+enable and the devres teardown
-> doing unprepare+disable, having runtime suspend also drop the enable count
-> means the clock can be disabled/unprepared twice (once by runtime PM on the
-> suspend path, once by devres on unbind), underflowing the reference count.
->
-> I've applied your suggestion in remove():
->
->         /*
->          * The device may be runtime-suspended here, in which case the
->          * runtime suspend callback has already dropped the clock enable
->          * count. Resume it so the devres clk_disable_unprepare(), which
->          * runs after remove(), finds the clock enabled and stays balanced.
->          */
->         pm_runtime_resume_and_get(&pdev->dev);
->
-> What will change in the next version:
->   - The series is split per tglx's request: the PM/devres rework, the
->     module-enable change, and the irqdomain helper cleanup are now
->     separate patches rather than one blob.
->
->   - Fabio's IRQ-count validation patch, which carries the same
->     Fixes: 28528fca4908 tag, is folded into the series.
->
-> Thomas suggested collecting the patches that carry
-> Fixes: 28528fca4908 ("irqchip/imx-irqsteer: Add multi output interrupts
-> support") into a single series. This standalone fix carries that same tag:
->
->     [PATCH] irqchip/imx-irqsteer: Call chained_irq_exit() on the handler error path
->     https://lore.kernel.org/all/20260807072626.1231517-1-Zhipeng.wang_1@oss.nxp.com/
->
-> What's your view on it?
->
-> Thanks,
-> Zhipeng
->
-> > >  - enable runtime PM with devm_pm_runtime_set_active_enabled(), which
-> > >    marks the device active (matching the enabled clock) and disables
-> > >    runtime PM on unbind.
-> > >
-> > > With the clock, runtime PM and IRQ domain all owned by devres,
-> > > remove() and the probe() error path only have to dispose of the parent
-> > > IRQ mappings.
-> > >
-> > > Signed-off-by: Jindong Yue <jindong.yue@nxp.com>
-> > > Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
-> > > ---
-> > >  drivers/irqchip/Kconfig            |  2 +-
-> > >  drivers/irqchip/irq-imx-irqsteer.c | 36
-> > > +++++++++++++++++-------------
-> > >  2 files changed, 22 insertions(+), 16 deletions(-)
-> > >
-> > > diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig index
-> > > 20b77fbc51ee..105108d2e6ff 100644
-> > > --- a/drivers/irqchip/Kconfig
-> > > +++ b/drivers/irqchip/Kconfig
-> > > @@ -555,7 +555,7 @@ config CSKY_APB_INTC
-> > >       the controller's register.
-> > >
-> > >  config IMX_IRQSTEER
-> > > -   bool "i.MX IRQSTEER support"
-> > > +   tristate "i.MX IRQSTEER support"
-> > >     depends on ARCH_MXC || ARCH_S32 || COMPILE_TEST
-> > >     default y if ARCH_MXC || ARCH_S32
-> > >     select IRQ_DOMAIN
-> > > diff --git a/drivers/irqchip/irq-imx-irqsteer.c
-> > > b/drivers/irqchip/irq-imx-irqsteer.c
-> > > index a9909ecb6fef..a60cc527e619 100644
-> > > --- a/drivers/irqchip/irq-imx-irqsteer.c
-> > > +++ b/drivers/irqchip/irq-imx-irqsteer.c
-> > > @@ -10,6 +10,7 @@
-> > >  #include <linux/irqchip/chained_irq.h>  #include <linux/irqdomain.h>
-> > > #include <linux/kernel.h>
-> > > +#include <linux/module.h>
-> > >  #include <linux/of.h>
-> > >  #include <linux/of_irq.h>
-> > >  #include <linux/platform_device.h>
-> > > @@ -193,7 +194,7 @@ static int imx_irqsteer_probe(struct platform_device
-> > *pdev)
-> > >             return PTR_ERR(data->regs);
-> > >     }
-> > >
-> > > -   data->ipg_clk = devm_clk_get(&pdev->dev, "ipg");
-> > > +   data->ipg_clk = devm_clk_get_enabled(&pdev->dev, "ipg");
-> > >     if (IS_ERR(data->ipg_clk))
-> > >             return dev_err_probe(&pdev->dev, PTR_ERR(data->ipg_clk),
-> > >                                  "failed to get ipg clk\n");
-> > > @@ -226,12 +227,6 @@ static int imx_irqsteer_probe(struct
-> > platform_device *pdev)
-> > >                     return -ENOMEM;
-> > >     }
-> > >
-> > > -   ret = clk_prepare_enable(data->ipg_clk);
-> > > -   if (ret) {
-> > > -           dev_err(&pdev->dev, "failed to enable ipg clk: %d\n", ret);
-> > > -           return ret;
-> > > -   }
-> > > -
-> > >     /* steer all IRQs into configured channel */
-> > >     if (irqsteer_has_chanctrl(data->devtype_data))
-> > >             writel_relaxed(BIT(data->channel), data->regs + CHANCTRL); @@
-> > > -271,12 +266,21 @@ static int imx_irqsteer_probe(struct
-> > > platform_device *pdev)
-> > >
-> > >     platform_set_drvdata(pdev, data);
-> > >
-> > > -   pm_runtime_set_active(&pdev->dev);
-> > > -   pm_runtime_enable(&pdev->dev);
-> > > +   ret = devm_pm_runtime_set_active_enabled(&pdev->dev);
-> > > +   if (ret)
-> > > +           goto err_irq;
-> > >
-> > >     return 0;
-> > > +
-> > > +err_irq:
-> > > +   for (i = 0; i < data->irq_count; i++) {
-> > > +           if (!data->irq[i])
-> > > +                   break;
-> > > +
-> > > +           irq_set_chained_handler_and_data(data->irq[i], NULL, NULL);
-> > > +           irq_dispose_mapping(data->irq[i]);
-> > > +   }
-> > >  out:
-> > > -   clk_disable_unprepare(data->ipg_clk);
-> > >     return ret;
-> > >  }
-> > >
-> > > @@ -293,8 +297,6 @@ static void imx_irqsteer_remove(struct
-> > platform_device *pdev)
-> > >                                              NULL, NULL);
-> > >             irq_dispose_mapping(irqsteer_data->irq[i]);
-> > >     }
-> > > -
-> > > -   clk_disable_unprepare(irqsteer_data->ipg_clk);
-> > >  }
-> > >
-> > >  #ifdef CONFIG_PM
-> > > @@ -324,7 +326,7 @@ static int imx_irqsteer_suspend(struct device *dev)
-> > >     struct irqsteer_data *irqsteer_data = dev_get_drvdata(dev);
-> > >
-> > >     imx_irqsteer_save_regs(irqsteer_data);
-> > > -   clk_disable_unprepare(irqsteer_data->ipg_clk);
-> > > +   clk_disable(irqsteer_data->ipg_clk);
-> > >
-> > >     return 0;
-> > >  }
-> > > @@ -334,7 +336,7 @@ static int imx_irqsteer_resume(struct device *dev)
-> > >     struct irqsteer_data *irqsteer_data = dev_get_drvdata(dev);
-> > >     int ret;
-> > >
-> > > -   ret = clk_prepare_enable(irqsteer_data->ipg_clk);
-> > > +   ret = clk_enable(irqsteer_data->ipg_clk);
-> > >     if (ret) {
-> > >             dev_err(dev, "failed to enable ipg clk: %d\n", ret);
-> > >             return ret;
-> > > @@ -357,6 +359,7 @@ static const struct of_device_id imx_irqsteer_dt_ids[]
-> > = {
-> > >     { .compatible = "nxp,s32n79-irqsteer",  .data = &s32n79_data },
-> > >     {},
-> > >  };
-> > > +MODULE_DEVICE_TABLE(of, imx_irqsteer_dt_ids);
-> > >
-> > >  static struct platform_driver imx_irqsteer_driver = {
-> > >     .driver = {
-> > > @@ -367,4 +370,7 @@ static struct platform_driver imx_irqsteer_driver = {
-> > >     .probe          = imx_irqsteer_probe,
-> > >     .remove         = imx_irqsteer_remove,
-> > >  };
-> > > -builtin_platform_driver(imx_irqsteer_driver);
-> > > +module_platform_driver(imx_irqsteer_driver);
-> > > +
-> > > +MODULE_DESCRIPTION("i.MX IRQSTEER interrupt multiplexer/remapper
-> > > +driver"); MODULE_LICENSE("GPL");
-> > > --
-> > > 2.34.1
-> > >
-> > >
+> - Keep the work function in drm_hdmi_helper.c and export it from
+>   drm_display_helper.
+>=20
+> - Move the work function into drm_connector.c and export=20
+>   drm_connector_hdmi_try_scrambling_setup(), or a wrapper function, from=
+=20
+>   drm_display_helper.
+
+An alternative could be to move drm_connector_hdmi_init to
+drm_hdmi_helper.c, no?
+
+But yeah, if we can't let's keep it like that
+
+Maxime
+
+--vcfsf3o7dsosajam
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaocxqwAKCRAnX84Zoj2+
+duntAX9b4qHmIxNoYBU09FH1xHZGZIM8WVkRnpW7Fe4HJg3OVIukpHrME24FF+Ay
+mjvaSgYBfik5n9TxNkKo9tCCKfzaUvGQjmaGBQvz3IXZQhNMcf/QMEomOQCdDwCr
+gfNztp2WXg==
+=a5cR
+-----END PGP SIGNATURE-----
+
+--vcfsf3o7dsosajam--
 
