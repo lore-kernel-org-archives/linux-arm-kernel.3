@@ -4,107 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA38BC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 17:47:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B06C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 17:49:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nhC4gcMj6qZbqU/PjOfQzYKyx+7NDJFZ4HXjtdF8h8k=; b=KCB5j4igr/oczPk5io+qpaOFQm
-	2Iu0hMUwGz1uFVv06IsEgIUjjcGL+ue2XIsHgAj+ssBN8EFxyqYOSSvQLiXtyu5ES/YJYIJtWaGOH
-	MqLGlashpScpEtXuI6yDUK8omgXmtnpskIZ75lROZ7/OZ1RkQVl7zlSW+nz92f1qW3k0sP2e+cDD/
-	r0p1keoIxU1xa8VbLsQ51OwvheD3icXrjkSAQqjs/WGz+vdaXGVufUtfm62IcljAM4db7IcITZ6Kp
-	EhbK0tnwBuPz/3pD707flIkOaUo1cMH1LtmdKEM53Jzvb5TkXABpfVB92V5+e5nouGaqIOdScykOY
-	ZrFEvywg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6+qiRA0Rr68w6luARuut3h/5z5IL9+5qPOnuZ1Bth1E=; b=ly1KlvKOXZhvA+f1EL2hDUE+jG
+	xjKZszb7bpQQNPb16SJWR2cLHEXJ3HiDQ+cDfExnnE420vv12J/OXWlRlg2vIvbXXzl9X3d4c+vlN
+	ApGrjPX57JegXuXMcfhlUClkAiuV5LemaDqRp11Dt9xUi0PDpqhfFWAf7sguvsopE9EMrHy/eEUVb
+	ZSjeFZxe4L24BAg5uKqvXUhEWIVMepx9Zzb+GjYHuo68wRgzmw30NNlzKizuLPTWbLd23g2Isnf84
+	VZ7z/Oc0kKk6DQcrYQujLKkDrqOlT4zNiOwZlpD/nQc804D/fMM37FkbPcxtFmDOovsbYvsPO4u2k
+	4aAqlTtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx6rh-0000000BzSi-1l3u;
-	Thu, 20 Aug 2026 17:47:45 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1wx6th-0000000Bzg5-33rW;
+	Thu, 20 Aug 2026 17:49:49 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx6re-0000000BzSO-1ely
+	id 1wx6te-0000000BzfP-1nBh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 17:47:43 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-92e50a650a0so3763885a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 10:47:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1787248061; x=1787852861; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nhC4gcMj6qZbqU/PjOfQzYKyx+7NDJFZ4HXjtdF8h8k=;
-        b=mjXPvUQuux8x0HKZssW57tbUbiiTfivSxzRzmL6IZw7rdMrU9NVqbEOkhVtCBj0bu/
-         zhY/fpdfAfxvZI+12k7xB5+SNStIciTmMc4Buj7BKMbIsrPINY9hp/N7Cnk5UitWxXXw
-         D+j+4FRihF93Z2oqiTBol9XEzGUWOZdRp3tLOqPZ8qz1mEc48deVDPSA/esKHfxNNz16
-         p7rjE8mbbFdRm5BjvwQEofZZ2edlWXTzjy6HQC+4mc9qHIsxOhTOuwOkTzj0I2kjfGe6
-         xn9ZSGlriXV9gAccc9x4zQPC/WuGCZB487KVwoeviw7r16MT0xgDnIQlNZsPBwN4DKqU
-         IRww==
+	Thu, 20 Aug 2026 17:49:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1787248185;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6+qiRA0Rr68w6luARuut3h/5z5IL9+5qPOnuZ1Bth1E=;
+	b=ST58cAe4UMwegV8iqMm2q1awNbT691uSkWV4WNhkjkxu+nhXXe7vlb7xcY6xc2ivtQJQH6
+	R9AjDUg97hCKeMvvqbfptTKxhxTSkkaxCCkGydrh6nv//GHlZzNV7lwgO8YJvz1vr5F55V
+	Xx4oMWobFItjqElVf5H01lEn8ULM+OA=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-643-YOy7DvuwMT2kLvXo4fjdag-1; Thu, 20 Aug 2026 13:49:42 -0400
+X-MC-Unique: YOy7DvuwMT2kLvXo4fjdag-1
+X-Mimecast-MFC-AGG-ID: YOy7DvuwMT2kLvXo4fjdag_1787248181
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-47f6db77430so98049f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 10:49:41 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787248061; x=1787852861;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nhC4gcMj6qZbqU/PjOfQzYKyx+7NDJFZ4HXjtdF8h8k=;
-        b=HgxrRINuNcbL/WlgtgzWqwf8Tmq5aLM66WpsALeB1BTsl9shLjhBjUYni9NimKf0i/
-         NDCUFlGPJ0/bjnw/8S4iqvgVyr1ZmfR95J/ASCKJLzzs5j52+MUwybj0wgB1J7ZzF9YD
-         9j/Og+YjpCKpxlFJIVez+rTDfwbtydhUNxyZkw20mCaw8B9jEZ9DWVrwlqMId5zft8dd
-         WHJPP+ipzi4svMC81RDHSTCK2XpwZFWkkxI51caXanPmeVzIarnMAmwYDlXa8bQMSQEr
-         OFHvJrywyEajnyJZCFWYzvxxG3hC65kel69igvmrvKSwqH3f+b6WXAHA2MK4+P9Eeg7h
-         UB8g==
-X-Forwarded-Encrypted: i=1; AHgh+Roz/Zp78ww2BpM/wVj1gbAOBsDk5k0t4JZN2c+1bLQnZqmSoCybgGaJidKJ923rp8oCF7/WfqduFMJrfEuWxUzK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvqMIBXlyg8vFKfuR6a3BRLM16Pn3ja/UCbcvUQLiRyNcJ0ac9
-	lDSf/xirbjf8auQNhWGKD0eyrJBZ8O355HW4teBScje8/T7cKr4/vBOMuPx6vOtlEsA=
-X-Gm-Gg: AR+sD10tYJNIUbJ26HizsLTjhqe2B+UN5I2g4xIKq3GfAAP0LV/9ieAmxxbA6OBSCQ8
-	fzWGqO2bvDXx1YMKJ0T5u5jLp4viV5WezZ8Ki2PEXtmMP/PfCTMJNxSbfbwFAEhrtG6cqBFBeme
-	xfqSDJEdoje7I806CbRvCz6JlKRPxk52qjNvMmQwVvPDITSQj5bRVMUZWWnRWRq9UGO2xpvxA9D
-	7GBz5tVDVN8Umcj0yCLlXMW8fBkjm0jm+kUO21c6pLDFafDjUxBKkBemqHHp6yyoWlt67NME8vj
-	Jmu/b8dTuTt1eKAMyKyWhw3/4DsW41JN6JkoJHaTdQYx6J6Hzc1fIL5bhVnDEqEL0RLJ5hTL0NO
-	U3XO3qY2IaWn3paggQ1YuFoMvDsrzxLQRfJ3w+MdQJ20CdB6H5dP88sY7s7r7bJk6yvHnM1cPD7
-	Y+1PukBH1B69FxlBJ64OJTQMgo2njklQ3LzACcnldAvIEcjav4jdZPqXklK7vzzyZNfntpgaDrJ
-	Ri5o7v7bNubVxUzdFjNgtpj+B/QMT78TaNNFyCmbl+VzA==
-X-Received: by 2002:a05:620a:3712:b0:936:9f47:e908 with SMTP id af79cd13be357-9371e259c99mr1294064585a.19.1787248060787;
-        Thu, 20 Aug 2026 10:47:40 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-93720493f40sm418053785a.1.2026.08.20.10.47.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 10:47:40 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wx6rb-00000004ADY-1Cil;
-	Thu, 20 Aug 2026 14:47:39 -0300
-Date: Thu, 20 Aug 2026 14:47:39 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Steven Price <steven.price@arm.com>,
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	"T.J. Mercier" <tjmercier@google.com>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>, dri-devel@lists.freedesktop.org,
-	linaro-mm-sig@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, Jiri Pirko <jiri@resnulli.us>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: Re: [PATCH v2 1/4] irqchip/gic-v3-its: Zero shared pages after
- conversion
-Message-ID: <20260820174739.GA981928@ziepe.ca>
-References: <20260820150034.88729-1-steven.price@arm.com>
- <20260820150034.88729-2-steven.price@arm.com>
- <aoc9CyxGPHPKFH1N@arm.com>
+        d=1e100.net; s=20251104; t=1787248181; x=1787852981;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6+qiRA0Rr68w6luARuut3h/5z5IL9+5qPOnuZ1Bth1E=;
+        b=gL9pBHGFimoGLGCWLJwnO8/BZXMbsC6bfdO+ISbXqC7kpdWP2vNS6uu9H8Lf5dFoTl
+         QBejxXilXgB9d0ATk0G0Ue8uYx+2LYZV0JLs9OPEaX1mpsncmVUOaQQHnYGum2uvtt1T
+         AEKHvLGTe4mZp5h8zt9iETbFiVM3xpoyIS06I8hl3x6kYtxBFj8JemM+EN+kWCqfkHPs
+         l2NJTd5OD+xY8fFxb8JA0ZoKBHXStOVhJNl6IYi6gpnQ0m5FHlgxFr5AjHPOT7/CxMTp
+         gLwznE6nMswxL+oeajOcsZQS+NnzqyIDJEYJ2nrjtoSn/UiG8yqgaX2Rmcj6gFNkcXtS
+         pGIA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr1awY8uZOEHiO6cRwokNTBO3dk+JWPBscoR56uYyMO8E6oK9KLM+egGKuMY8s7pRahuucuaF8tJKequa87Bcob@lists.infradead.org
+X-Gm-Message-State: AFuF++n7X4pN43clotKJ8eGNBSBMBJwRVSpj/YqiQmHWrqCMO+c4rHtt
+	2ExHT7z54v0a3nCARS1R0kNwARKNjpeKePNX1Eg9HWnoznqZHD7xj4TKVJ4nnLmWB7UYwGkU4t9
+	iFW+RXQnxDxu8aZwkMeBzKBxNGFYr97MBczYjS2zjopZ9SOrgXlwZSrgAXNSSvWNAwH9hVwIwXm
+	aw
+X-Gm-Gg: AR+sD10RIbH7pcPsX4PaMidKwvYpWO7sen8LNLvUtfIfhGO1zza5IOH4Gf6zEe2PSP8
+	xrvLCk4op7ndVCXENGWbUuQXDZDZT4alSVAjOCat323OflHEkSLus/+9wAFVASPGHrpuDAjDFrr
+	XoncEEsZpC5rf+Zy7SIFsRs69ucZOo3R5vIWFJM0vEeWG/z2fTbVBgdB+Y6WMVejO6M3y7Zrpas
+	pPDsoKKv+M6LPQ2bCv3kqHCcu6dhd+C+l5M1tO04zZUliYKQbOUMmRRF/xrTVfMCjleSYkvPT1C
+	IMKSyrTlbX0OjONPtH6W+QOJgFk4fOYqQ+dQh+/uGzldUR/Zoh42Q7IAbCUaD91AE8PEFQE8dXR
+	pgeR1RQ30gWmTZ7rbeTBVuy9IA5OnSNtthkCfNCQQfWAXow==
+X-Received: by 2002:a05:6000:184e:b0:47f:f339:556c with SMTP id ffacd0b85a97d-482c0b4a40dmr705158f8f.2.1787248180691;
+        Thu, 20 Aug 2026 10:49:40 -0700 (PDT)
+X-Received: by 2002:a05:6000:184e:b0:47f:f339:556c with SMTP id ffacd0b85a97d-482c0b4a40dmr705081f8f.2.1787248180291;
+        Thu, 20 Aug 2026 10:49:40 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:11aa:87f0:935:4f8e:b423:64eb? ([2a01:e0a:11aa:87f0:935:4f8e:b423:64eb])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482b145d31bsm13853815f8f.16.2026.08.20.10.49.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 20 Aug 2026 10:49:39 -0700 (PDT)
+Message-ID: <e4da5ba4-9a02-4080-9a83-19d401017910@redhat.com>
+Date: Thu, 20 Aug 2026 19:49:36 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aoc9CyxGPHPKFH1N@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/12] drm/panic: Split into core and helpers
+To: Thomas Zimmermann <tzimmermann@suse.de>, javierm@redhat.com,
+ airlied@gmail.com, simona@ffwll.ch, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+ amd-gfx@lists.freedesktop.org, rust-for-linux@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, nouveau@lists.freedesktop.org,
+ linux-renesas-soc@vger.kernel.org, virtualization@lists.linux.dev,
+ sashiko-reviews@lists.linux.dev
+References: <20260818125012.468092-1-tzimmermann@suse.de>
+From: Jocelyn Falempe <jfalempe@redhat.com>
+In-Reply-To: <20260818125012.468092-1-tzimmermann@suse.de>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: rP_Or6eNZsaZxzacm1EkiC56RlC1NLD0jVrC8VXalZc_1787248181
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US, fr
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_104742_508913_B18861D9 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20260820_104946_545092_3867EAFA 
+X-CRM114-Status: GOOD (  30.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,34 +118,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 20, 2026 at 06:44:43PM +0100, Catalin Marinas wrote:
-> On Thu, Aug 20, 2026 at 04:00:30PM +0100, Steven Price wrote:
-> > diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> > index 6f5811aae59c..a055837832bc 100644
-> > --- a/drivers/irqchip/irq-gic-v3-its.c
-> > +++ b/drivers/irqchip/irq-gic-v3-its.c
-> > @@ -213,16 +213,18 @@ static gfp_t gfp_flags_quirk;
-> >  static struct page *its_alloc_pages_node(int node, gfp_t gfp,
-> >  					 unsigned int order)
-> >  {
-> > +	bool want_zero = gfp & __GFP_ZERO;
-> >  	struct page *page;
-> >  	int ret = 0;
-> >  
-> > -	page = alloc_pages_node(node, gfp | gfp_flags_quirk, order);
-> > +	page = alloc_pages_node(node, (gfp & ~__GFP_ZERO) | gfp_flags_quirk,
-> > +				order);
+On 18/08/2026 14:27, Thomas Zimmermann wrote:
+> Split DRM's current panic handling into a core and a helper module.
+> The core is still part of DRM's core library. The panic helpers are
+> part of DRM's KMS helper module (for now).
 > 
-> I don't think pKVM does any scrubbing on set_memory_decrypted(), so it
-> potentially exposes confidential guest data before it reaches
-> clear_pages() below.
+> The motivation behind this series is to get panic handling's drawing
+> code out of the DRM core. At some point it should share a single
+> module with DRM's other drawing and format conversion.
+> 
+> With the series applied, panic hanlding follows DRM's established
+> design pattern of having a DRM core interface with an dedicated
+> implementation in each driver. Drivers share common code in helper
+> modules. For panic handling, the DRM core still contains the panic
+> entry points, the parameters and the debugfs interface. All drawing
+> is now located in the panic helpers.
+> 
+> Patches 1 to 4 improve several issues in the current panic code. It
+> makes sense to fix them before moving the core around.
+> 
+> Patches 5 to 8 put handling of all panic state and locking into a
+> single place, drm_panic_display_panic_screen(). It is maintained by
+> panic handling's DRM core code. This also enables the test cases to
+> work more independently from the kernel's configuration.
+> 
+> Patches 9 to 11 split the panic-handling code into the core and panic
+> helpers. The former maintain all state, locking and public interfaces.
+> The latter handles drawing and details of the involved framebuffers.
+> 
+> DRM devices that offer panic handling provide a single callback, struct
+> drm_plane_funcs.display_panic_screen. A new initializer macro makes it
+> point to the existing panic-drawing implementation. Hence there's no
+> change in features or functionality. If panic handling is configured
+> off, it all clears out to NULL.
+> 
+> Patch 12 reworks the test cases slighly, so that they can be build as
+> a separate module. Do 'modprobe drm_panic_helper_test' to run them.
+> 
+> Tested under bochs with debugfs and test cases.
 
-IMHO that has got to be handled in the arch code implementing set
-memory decrypted.
+Overall the series looks good to me, and I like the split between the 
+helper and the core.
+I would just drop the first two patches, as I don't see much difference 
+between static allocation or kmalloc() at init, and I think that 
+memset() the buffers to 0 is not useful in this case.
 
-Further pointing that maybe we should have an alloc decrypted so we
-can at least try to minimize the number of times we write to this
-memory. :(
+Best regards,
 
-Jason
+-- 
+
+Jocelyn
+> 
+> Future directions:
+> 
+> - Panic handling shares some drawing code with format conversion and
+> clients. There's even more drawing code in vkms. Later series' can
+> attempt to unify and harmonize all these implementations in a single
+> draw module.
+> 
+> - The drawing helper drm_plane_helper_display_panic_screen() still
+> implements various access schemes (map, set_pixel, memcpy) in a single
+> function. It could be split up into specifialized helpers.
+> 
+> - If we ever need a driver-specific helper, it is now possible to
+> implement a custom version of display_panic_screen.
+> 
+> Thomas Zimmermann (12):
+>    drm/panic: Allocate QR-code buffers statically
+>    drm/panic: Make allocation of zlib workspace more robust
+>    drm/panic: Return -EINVAL if font is not available
+>    drm/panic: Return errno codes if panic output fails
+>    drm/panic: Pass colors to draw_panic_dispatch()
+>    drm/panic: Pass global module parameters to drm_panic_dispatch()
+>    drm/panic: Retry in dispatch function if panic output fails
+>    drm/panic: Split draw_panic_plane()
+>    drm/panic: Display panic screen via per-plane callback
+>    drm/panic: Internalize panic locking in DRM core and helpers
+>    drm/panic: Move panic display code into helper library
+>    drm/panic: Compile KUnit tests as module
+> 
+>   Documentation/gpu/drm-kms-helpers.rst         |  11 +-
+>   Documentation/gpu/drm-kms.rst                 |   3 +
+>   MAINTAINERS                                   |  11 +-
+>   drivers/gpu/drm/Kconfig                       |   5 +
+>   drivers/gpu/drm/Kconfig.debug                 |   1 +
+>   drivers/gpu/drm/Makefile                      |   3 +-
+>   .../amd/display/amdgpu_dm/amdgpu_dm_plane.c   |   2 +
+>   drivers/gpu/drm/ast/ast_mode.c                |   2 +
+>   drivers/gpu/drm/drm_atomic_helper.c           |   2 +-
+>   drivers/gpu/drm/drm_crtc_internal.h           |   2 -
+>   drivers/gpu/drm/drm_drv.c                     |   3 +-
+>   drivers/gpu/drm/drm_kms_helper_common.c       |  14 +
+>   drivers/gpu/drm/drm_panic.c                   | 914 +----------------
+>   drivers/gpu/drm/drm_panic_helper.c            | 915 ++++++++++++++++++
+>   ...drm_panic_qr.rs => drm_panic_helper_qr.rs} |   4 +-
+>   drivers/gpu/drm/drm_panic_internal.h          |  59 ++
+>   drivers/gpu/drm/hyperv/hyperv_drm_modeset.c   |   2 +
+>   drivers/gpu/drm/i915/display/i9xx_plane.c     |   3 +
+>   .../drm/i915/display/skl_universal_plane.c    |   4 +
+>   drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c       |   2 +
+>   drivers/gpu/drm/mgag200/mgag200_drv.h         |   4 +-
+>   drivers/gpu/drm/nouveau/dispnv50/wndw.c       |   2 +
+>   .../gpu/drm/renesas/rcar-du/rcar_du_plane.c   |   2 +
+>   .../drm/renesas/shmobile/shmob_drm_plane.c    |   2 +
+>   drivers/gpu/drm/sysfb/drm_sysfb_helper.h      |   4 +-
+>   drivers/gpu/drm/sysfb/vesadrm.c               |   1 +
+>   drivers/gpu/drm/tests/Makefile                |   1 +
+>   ...m_panic_test.c => drm_panic_helper_test.c} |  65 +-
+>   drivers/gpu/drm/tidss/tidss_plane.c           |   2 +
+>   drivers/gpu/drm/tiny/bochs.c                  |   4 +-
+>   drivers/gpu/drm/virtio/virtgpu_plane.c        |   2 +
+>   include/drm/drm_mode_config.h                 |   4 +-
+>   include/drm/drm_modeset_helper_vtables.h      |  11 +-
+>   include/drm/drm_panic.h                       | 117 +--
+>   include/drm/drm_panic_helper.h                |  40 +
+>   include/drm/drm_plane.h                       |  57 ++
+>   rust/bindings/bindings_helper.h               |   4 +-
+>   37 files changed, 1253 insertions(+), 1031 deletions(-)
+>   create mode 100644 drivers/gpu/drm/drm_panic_helper.c
+>   rename drivers/gpu/drm/{drm_panic_qr.rs => drm_panic_helper_qr.rs} (99%)
+>   create mode 100644 drivers/gpu/drm/drm_panic_internal.h
+>   rename drivers/gpu/drm/tests/{drm_panic_test.c => drm_panic_helper_test.c} (80%)
+>   create mode 100644 include/drm/drm_panic_helper.h
+> 
+> 
+> base-commit: dc462ab791b686c48545c160ecc81be64f77a846
+> prerequisite-patch-id: c67e5d886a47b7d0266d81100837557fda34cb24
+> prerequisite-patch-id: a5a973e527c88a5b47053d7a72aefe0b550197cb
+> prerequisite-patch-id: b9adc9622920a3e70168e672c2c92795b3e3a106
+> prerequisite-patch-id: 5030de433a01c2e99056cadb676a8e2ba35f055a
+
 
