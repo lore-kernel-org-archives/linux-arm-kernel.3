@@ -4,71 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E222C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8599C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SaK1oUzcvz1jkDbJKv6WqRACiAwdU+kQwRK0SiWLlIE=; b=VscmsWEisdPcFgY7u3bP1YvmWK
-	7i5pIsEUtN0g164VZSUDs40IpLqBx5wElAKl8dQWvGkFCTjYgdWVKSx6E96f79cRIZQV64W/NfHGr
-	WU3V2FxZpK9UvmF7kWhumXzboGfx4mP7EDpkWnfjtsxzvDEJBY9t9l63PleEsjQGxfEH1+S+qgpIA
-	j1xJIcfisUhnJumRnDcwS72FmnPrxSxY9EQbZ54GgVF38ePNv02Z/k1oPxObC1PepUNkkdriVzv3/
-	l987w+ZY+4xWZhYqaTgUShpaBqqab5qWRz6H4Zbz7ADED5INDFdVhGUduU+FZ+UCLOcGPk7rcJ1uu
-	ygwTV6Ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ehmlMc2l8m1QEEs25SXGd4qRoiIIzqIj1MYNoMhCHwk=; b=sT0N/HqA2gkp+sCHZXfjNf9XTF
+	ojcmQhVb6zfQH+W4xaT7vGCn/C7ht2BMTYUfopmpekLDJhF9FuY9zRaTDxCFKtXtjZNVi6HdE9MWs
+	syo2oQNcffybpjeWPMhGk1uOjnkoNavLyFeGsyCeNBRnF1aBfrPhBDNWJWkZJVqd35JkvZMaX+zS2
+	xc91u76x8bhXwAt36eXH2sFNcMDtEYPNjaAvspAb4K6vp/hknbA3+FPJVZ3hKqUeffBJQJEbE4hpy
+	LTz40DTsn7+aW2/dlsUyOFteDFj6SlOFSGVIGzqsytAhFLwwGvaZeev9s3NQEnrERAQnoWlKKWyEJ
+	YHhWBPvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4Ga-0000000BlNq-2k7d;
-	Thu, 20 Aug 2026 15:01:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4GS-0000000BlJV-3rHR
+	id 1wx4RI-0000000BmOT-33kq;
+	Thu, 20 Aug 2026 15:12:20 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wx4RG-0000000BmNc-11W2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 15:01:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BB04153B;
-	Thu, 20 Aug 2026 08:01:03 -0700 (PDT)
-Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.29])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 50FF43F85F;
-	Thu, 20 Aug 2026 08:01:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787238067; bh=Adowm8TaRmLb4+nhfuTq8XG6Qz8i8b31EokqJq1SBFg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AnIbFs3qOe6tXAa76/75xbIi30a6sclahiGuKAa7TNyNiW5Z+k4gQ8FETu4UTPSKO
-	 8Juo5IUGdb+gncLLrOLJBF1w9IYh74/rR/FXRuJR7tsoW1Se2JDZh0t2glua/wxv1v
-	 ZHr2qdGjJiBb9RZp3FHVr1rdzV1QZD3j0HcXo/HU=
-From: Steven Price <steven.price@arm.com>
-To: =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Thomas Gleixner <tglx@kernel.org>
-Cc: Steven Price <steven.price@arm.com>,
-	"T.J. Mercier" <tjmercier@google.com>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	dri-devel@lists.freedesktop.org,
-	linaro-mm-sig@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH v2 4/4] dma-buf: heaps: Fix shared system heap allocation rollback
-Date: Thu, 20 Aug 2026 16:00:33 +0100
-Message-ID: <20260820150034.88729-5-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260820150034.88729-1-steven.price@arm.com>
-References: <20260820150034.88729-1-steven.price@arm.com>
+	Thu, 20 Aug 2026 15:12:19 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-498028b3d5eso28836655e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 08:12:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ffroot-co-za.20251104.gappssmtp.com; s=20251104; t=1787238736; x=1787843536; darn=lists.infradead.org;
+        h=content-type:mime-version:message-id:date:user-agent:references
+         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=ehmlMc2l8m1QEEs25SXGd4qRoiIIzqIj1MYNoMhCHwk=;
+        b=r8R9UX7GYg5KB7biG6NRjtIRsq2dlU/bUR2nPfTT5lGSYXjQ+hWI2bYkvN4CBBTAxX
+         TBgyqZfyjHkdq6fEJ/Zo2ujEfnE34bQ3PFcn4Jw+zsFxRrhr5VvZD5awjxHvV88UDj3J
+         QqpTqS8zSfI5kK4pw14RlgZ0xiKebPiHDiUCWTF5li+ZsccfF/Ruflsu4FGnOH6adWjM
+         IZp761PF6SpdQvKWeR+7d+fUMtaQwOfuS+XY77A/R8t4ZS7Ohr5Qb3tahy9x35GzM1KG
+         jywByJqvhMID0lHZWAHC4XTun1P8i3peIbhs6WiPrM1DHSPlid/NMT6ZFEGGoVonXXFn
+         p4uw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787238736; x=1787843536;
+        h=content-type:mime-version:message-id:date:user-agent:references
+         :in-reply-to:subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=ehmlMc2l8m1QEEs25SXGd4qRoiIIzqIj1MYNoMhCHwk=;
+        b=X0k2L0Se12cjPN1yFih2Mu7HZiqCwjnK2axu3WpZ0oMYXakiPM5J+Vf/pvOYk0ZVMF
+         GdYVmJ3rqxU/SdxkL/3XsWc1t4ZyZfC9bObSmSwGBb8zz2UNFZAZekq7GiLIVBYQxgV3
+         8sNarzMM08Mw0jDfsc/a3jcVTW+gvxeB98dDLQQJo9p+qEn2Dy1+QuXMta95baWv5rqC
+         k1j/HylS0HUpcqWQf332kwaPQumW6P6lgdF2TCsWN+awI1sgdPNAZShyV6NEbYRSaDFj
+         Z0PaDeuSZjNfNAYkULgFRxEmtL0EWTjE+jxS6j5nEM0xPl+KdAwdxJjw0DIzq3cnCtaC
+         8nKw==
+X-Forwarded-Encrypted: i=1; AHgh+RoFX6WXFON/JsGOod/DLxDhWkd1mQQ4tPaF5nM8TAE/3Link/m3Bjm77xhjG3FYQhrjWVvmCZzLi+EXlqQz6GiK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYU5Sr/KecbZr+UFGRi9E3yOwb+as7X+0IWAKv1YJG1bJ2X1bx
+	ovTaHu0XBG12gUjfZ4naLbgYTEQrgqTUfqBjiDDjYbpTx+WwYaCu56BOXN1uiEF1nsWx06PXZqv
+	u/TitpWg=
+X-Gm-Gg: AR+sD10SCIdOtYXPh1/pm8Jz8rd+ni8j8tU7bFsalQmFAzVbjSdbqV3iYTMnJxSDuen
+	TQMvVi1IFMWn2axe8K2WM+P16ovbqY6Y5mNYsUbL1PQaaRBIv/hIVcxetJnOML7fmj7e+PEWElW
+	gtzejT+nLi7Bb55c68hWM8A0Pm8K6DIRmpSW9xyHAF0tAsvXAlrbTPmRAEJAnonNs7liU/VeLcw
+	kGnlEwUachlfnDhU+HpUDWSqAXVoylmSZAq6zxwxIqsKgcV7xIJw/fOQyrUzj+s0BKNpFFIqBNc
+	ROibMvYN365kzzSHLpQLYPUJaUTZPd53T7CLqHKe9col3BUNsTwd/fyBbG4TY53ttP8fO4YF7Kf
+	9Y8uT0tkeASGBqW9O7tr5AM/6WyJqdwyr1am+aCbuRN1R+3R1WVcWDiQquI5rXMndF5+lIyytxc
+	HsRWiVcRXwowNAqvkcvptzb0pdtFH+slyBq2Kv3Uz67OYE6x0TQitSqn/LFclg++lpci0K6/y+Z
+	xenH4taZ90=
+X-Received: by 2002:a05:600d:8446:10b0:499:9eb8:a1d7 with SMTP id 5b1f17b1804b1-499aa1d0a9fmr189473705e9.9.1787238736286;
+        Thu, 20 Aug 2026 08:12:16 -0700 (PDT)
+Received: from dev-ag ([102.33.165.38])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499b20bb2b4sm46102495e9.0.2026.08.20.08.12.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 08:12:15 -0700 (PDT)
+From: Andrew Gaylard <ag@ffroot.co.za>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: linux-watchdog@vger.kernel.org,  xt.hu@cqplus1.com,
+  wim@linux-watchdog.org,  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] watchdog: sunplus: fix sp_wdt_restart spin loop and
+ timeout
+In-Reply-To: <d37eef21-a877-4500-a280-493e98c68701@roeck-us.net> (Guenter
+	Roeck's message of "Thu, 20 Aug 2026 06:42:30 -0700")
+References: <20260820125304.1583383-1-ag@ffroot.co.za>
+	<d37eef21-a877-4500-a280-493e98c68701@roeck-us.net>
+User-Agent: mu4e 1.12.14; emacs 30.2
+Date: Thu, 20 Aug 2026 17:12:11 +0200
+Message-ID: <sa6wltkx1v8.fsf@dev-ag>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_080109_225517_0004AE13 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20260820_081218_385334_CD6CC44D 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,60 +103,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If converting one of the allocated pages to shared memory fails, the
-cleanup path attempts to convert every page back to private memory.
-Pages after the failed page have not been converted yet, so attempting
-to convert them back can fail and cause otherwise reusable memory to be
-leaked.
+Guenter Roeck <linux@roeck-us.net> writes:
 
-Count the pages converted successfully and only convert those and the
-failed allocation back during cleanup. If converting the failed
-allocation back succeeds it can be freed safely; otherwise it is leaked
-because its state is unknown. Allocations that were not converted can be
-freed directly.
+> On Thu, Aug 20, 2026 at 02:53:04PM +0200, Andrew Gaylard wrote:
+>> sp_wdt_restart() returns immediately after writing WDT_RESUME. The
+>> kernel continues executing and the watchdog kthread could pet the
+>> watchdog before the short timeout expired, preventing reset.
+>
+> Is this observed behavior or just an assumption ?
 
-Fixes: 78b30c50a7ac ("dma-buf: heaps: system: add system_cc_shared heap for explicitly shared memory")
-Signed-off-by: Steven Price <steven.price@arm.com>
----
- drivers/dma-buf/heaps/system_heap.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+It's an assumption.
 
-diff --git a/drivers/dma-buf/heaps/system_heap.c b/drivers/dma-buf/heaps/system_heap.c
-index f14930904089..8d3ffeb64e00 100644
---- a/drivers/dma-buf/heaps/system_heap.c
-+++ b/drivers/dma-buf/heaps/system_heap.c
-@@ -418,6 +418,7 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
- 	struct scatterlist *sg;
- 	struct list_head pages;
- 	struct page *page, *tmp_page;
-+	int nr_decrypted = 0;
- 	int i, ret = -ENOMEM;
- 
- 	buffer = kzalloc_obj(*buffer);
-@@ -472,6 +473,7 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
- 				goto free_pages;
- 
- 			clear_pages(page_address(page), 1 << compound_order(page));
-+			nr_decrypted++;
- 		}
- 	}
- 
-@@ -496,9 +498,11 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
- 		 * Intentionally leak pages that cannot be re-encrypted
- 		 * to prevent shared memory from being reused.
- 		 */
--		if (cc_shared_buffer(buffer) &&
--		    system_heap_set_page_encrypted(p))
--			continue;
-+		if (cc_shared_buffer(buffer)) {
-+			if (i <= nr_decrypted &&
-+			    system_heap_set_page_encrypted(p))
-+				continue;
-+		}
- 		__free_pages(p, compound_order(p));
- 	}
- 	sg_free_table(table);
+>> Add a spin loop so no other CPU can pet the watchdog while waiting for
+>> the reset. Set the restart timeout to ~1.5s.
+>
+> I understand the first part, but why delay the reset by 1.5s ?
+> That is a functional change which needs an explanation.
+
+I had a printf there to confirm that it actually reached that point,
+so I needed the delay.
+
 -- 
-2.43.0
+Andrew
 
 
