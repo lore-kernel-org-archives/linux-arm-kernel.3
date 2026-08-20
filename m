@@ -4,89 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E98CCC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A43C9C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8FpAmuQv/0D1SendrGr4xs5zcx8uXf/Ui4UAqXK6/V0=; b=vJ/NzK9vwBgUQxXfivhlCFUQP/
-	/ZHfwiyQLnYVApbeaxjw2xyexfHEP6mYUK3xaXHpvcifZ4MRK6B8tWuTfmezs9owqaZmcllj3navB
-	p4zkYBkvFe1LHj6tb+wcg8NbDg3ORdotF50FpK+U5qXuOHeJlKfAe2ApFBTBW1gMLVLWFuXodUnS4
-	qxXPBV7gY8UeZw7Y7ZE+oQu/d4ZSG1oCQUBgYuIsxsCDqhHMMNoNEt/z/92RZa8ggSvJ8v3snSBGA
-	kau6tEw+U2GiGpEfLAqIcaMO85O/gXM1jxDbDXDllcGerzAcD/2vrZzUStmveu2Q5O+G/1vieFR/3
-	jjQ6ofMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HOkJzEkBMETe+uT6f45jBqKDjwjsvVCYVg1kvaxa8sw=; b=g65BdzM4xDAZPG97WhL6S+HfoF
+	UTVn99IA1r7+gqi1ich9quFGdPCAn2xJD6B/v6/WliGTgSCRjQSLBIOEeBGP+bJA3FzdMegEW8VIt
+	2uYrZI02I/u3Ys2Rbs4O5SjG3HJPWbsBwShEMduqpAY2XkmVMExWn0L9zPecIfyGDPfkVxrfCl5S7
+	gxvqH5GTD3aL7uJW//+WHB8lyAwKCK8uVpYjrc+YM21nPK//JFSlcemNE9hnFgL2rnGMfzQwYJggv
+	6tR6/0AgyWtDjkf6YswSJrmi22XvhZTCZl5YHO4M+vxT0+zjlkemRlfv2wmOImehO/GhzhGxVVdzQ
+	b7n2bs/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwxAi-0000000B3XW-42mP;
-	Thu, 20 Aug 2026 07:26:44 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1wwxHA-0000000B4GC-2vqd;
+	Thu, 20 Aug 2026 07:33:24 +0000
+Received: from smtp9.infineon.com ([217.10.52.204])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwxAh-0000000B3Wy-0kGk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 07:26:44 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-84a4d8fd6ecso1844193b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 00:26:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787210802; x=1787815602; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8FpAmuQv/0D1SendrGr4xs5zcx8uXf/Ui4UAqXK6/V0=;
-        b=q7WAazBcObvz+SYyQrT695Q6S3PG5oIQBdXnlJNKqNeu4LWPZoVn+DvfRq+y9geOJg
-         QfM01D6b30gPpvWWwC2kyW3xzRnMfeRKAf22FxCOdRVQoMdw+/R84AREtvl9IU44assp
-         JOyfmAtnGi2ij0raA0frXIFlvxO8uT5B4wWIUA8Rg36YTvafIMD3lWtDUJFMVeoXpBn2
-         4Pj08naivAW8rqDMyMsfoBti11hNo6HRZ08f+wYXFcbArz/TFB75bV7SgyBOHm7DGj/v
-         HgQInvNtruNgocOS5XltDZzuu9wYPIxR/tq+WVRgo2e6kOatbdzCdiz3tQktuu7NUsIi
-         03Dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787210802; x=1787815602;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8FpAmuQv/0D1SendrGr4xs5zcx8uXf/Ui4UAqXK6/V0=;
-        b=scXoQURrPTMIZqA2ILF1ntY34vRYY6uvDzhfveoeD/lyvnaUEYKb/UvXjqMd+LaHkt
-         Jft7hlyCHi+sZLEfcA4TJPFlrBFBdcopmhWXmWF2DvjvUHdgPjAWtZs3xeqkFFAqPu2/
-         /4026JTsiqPR0WdMUPcY3Iq1Z9oqNHdqN0pz1P2YaCqUfi+vofSsbnnLO4Kp+jePKY5N
-         QGuV8eBrfzjdPJa0CaXklSZUzB3dnkZsWRcZ+Favphy/gpaa6/54EGQ8pTBj/TVmg2x/
-         hRR27tTk2PmIxuJaJgGj14O7InwpHltbpXBZTOJ/OmZScOErkB0b9YgRo7dz5S5Tp8s2
-         7EWg==
-X-Forwarded-Encrypted: i=1; AHgh+RpPQE+S9+iItBDFdPZ7Q7KaixrRBKdSlvB1glybzV+g1MXq2bNBNEAcknHzjlJ4Rsvnxr9ReoLb/WUxhOaYgkhr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOut/Yp+HKJDeG1vV3SHdWDxW27ixJuqY587PD22tAY3WFn1/m
-	6GHSpmEEVssWqnup/3ytxbv26aUYr3RWPbyx1uJR6CAx9HfyxM/3o24=
-X-Gm-Gg: AR+sD11vU0cBJWqKw+05/QGEsQ+5LVYzH87Hjma0g6k29oeLpazuLLMmic63tNawNI0
-	l4NpTh4t3rs41Yw/1hW1VRjzM5a4SaXrM8pnvxOdLBTMoHYMzgRe1qzuHwWqSQYoGV6GUM9D+Fk
-	HbpL5nqv5+Rc4HZoBe7X5dyjqUlLXjbBam4TFateoupCIcQqwZoyhakjWURRA/mtENw13end0i2
-	5Z8xPrZLs6JxlrrRfstK+gnpUbhgldpO7VsZJCz1CVXKqOISgX5I0GWSt08vwRgOnUKvR+0USwR
-	ycLI9nBpZBIoQapiGONNYTTZMrFjaIwSW44zN9nvqYR27KqC+qh+C48Yg8onfVPb89ogeQHaIdg
-	UajopnhwOw66emkyPhgJPD67hJU20fAwmEsBnZDEJLxz0gzjDcC/oyxCr8634+CWUuF/21ooavz
-	//tKSAqa9hbIQAyN3weEp+urFCVzqEWio3Qt6O3ELwoy0kvHWmGcz1zo2bW3Qn6mSctHdyUDWNe
-	MytclR1INVk
-X-Received: by 2002:a05:6a00:c81:b0:851:b007:2fe0 with SMTP id d2e1a72fcca58-851d3820363mr17061044b3a.1.1787210802084;
-        Thu, 20 Aug 2026 00:26:42 -0700 (PDT)
-Received: from DL2XHKPB4.dl.net ([103.63.104.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-851d33b4135sm1360621b3a.27.2026.08.20.00.26.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 00:26:41 -0700 (PDT)
-From: Triet Hoang <triet.hoang.dev@gmail.com>
-To: myungjoo.ham@samsung.com
-Cc: kyungmin.park@samsung.com,
-	cw00.choi@samsung.com,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Triet Hoang <triet.hoang.dev@gmail.com>
-Subject: [PATCH] PM / devfreq: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
-Date: Thu, 20 Aug 2026 14:26:36 +0700
-Message-ID: <20260820072636.2049617-1-triet.hoang.dev@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	id 1wwxH8-0000000B4FM-0bZA;
+	Thu, 20 Aug 2026 07:33:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=infineon.com; i=@infineon.com; q=dns/txt; s=IFXMAIL;
+  t=1787211202; x=1818747202;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=HOkJzEkBMETe+uT6f45jBqKDjwjsvVCYVg1kvaxa8sw=;
+  b=d/QT1f/U6D2jrwKMKfqfKaxrgYq3dbGIEAh2bkDKHiutWzy555zE4Fs9
+   rysbh173wjwmkgdVTvJipdUieBDI/wYqrI8+kiXVEtTso7DBbFKXyKW3A
+   4buZmxKjblvCCyPpf82fd0JA+JfQ7QjEXSA7t6L/nSNumvbesbtUR2/Uv
+   E=;
+X-CSE-ConnectionGUID: j5L/wBpHQm+iPmq6mVyOIg==
+X-CSE-MsgGUID: OgU14aDxQ9yeSY++Kpgprw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11880"; a="105431057"
+X-IronPort-AV: E=Sophos;i="6.25,232,1779141600"; 
+   d="scan'208";a="105431057"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO MUCSE803.infineon.com) ([172.23.29.29])
+  by smtp9.infineon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2026 09:32:20 +0200
+Received: from MUCSE811.infineon.com (172.23.29.37) by MUCSE803.infineon.com
+ (172.23.29.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 20 Aug
+ 2026 09:32:19 +0200
+Received: from MUCSE815.infineon.com (172.23.29.41) by MUCSE811.infineon.com
+ (172.23.29.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 20 Aug
+ 2026 09:32:19 +0200
+Received: from MUCSE815.infineon.com ([fe80::ed10:a720:3031:ca14]) by
+ MUCSE815.infineon.com ([fe80::ed10:a720:3031:ca14%12]) with mapi id
+ 15.02.2562.045; Thu, 20 Aug 2026 09:32:19 +0200
+From: <Takahiro.Kuwano@infineon.com>
+To: <miquel.raynal@bootlin.com>, <pratyush@kernel.org>, <mwalle@kernel.org>,
+	<richard@nod.at>, <vigneshr@ti.com>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<corbet@lwn.net>, <skhan@linuxfoundation.org>
+CC: <STLin2@winbond.com>, <hsinyi@chromium.org>,
+	<thomas.petazzoni@bootlin.com>, <linux-mtd@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>
+Subject: RE: [PATCH v3 11/23] mtd: spi-nor: winbond: Add support for
+ W25Q12RV-Q/N
+Thread-Topic: [PATCH v3 11/23] mtd: spi-nor: winbond: Add support for
+ W25Q12RV-Q/N
+Thread-Index: AQHdKzdIpVH7yibg9keh3oZJFvnnIbamkPWw
+Date: Thu, 20 Aug 2026 07:32:19 +0000
+Message-ID: <cc933d88b77b4fb5ad8f22720f08bb19@infineon.com>
+References: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-0-b637cf120d5c@bootlin.com>
+ <20260813-winbond-v7-1-spi-nor-rv-addition-v3-11-b637cf120d5c@bootlin.com>
+In-Reply-To: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-11-b637cf120d5c@bootlin.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.161.6.196]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_002643_242803_1DC5DBFA 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20260820_003322_538316_96BB86C7 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,100 +100,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the deprecated SIMPLE_DEV_PM_OPS
-to DEFINE_SIMPLE_DEV_PM_OPS and pm_sleep_ptr().
-
-This lets us drop the __maybe_unused annotations from the suspend and
-resume callbacks, and reduces kernel size in case CONFIG_PM or
-CONFIG_PM_SLEEP is disabled.
-
-Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
----
- drivers/devfreq/rk3399_dmc.c     | 8 ++++----
- drivers/devfreq/sun8i-a33-mbus.c | 8 ++++----
- 2 files changed, 8 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/devfreq/rk3399_dmc.c b/drivers/devfreq/rk3399_dmc.c
-index dbdce7636ca5..3ebc817fa608 100644
---- a/drivers/devfreq/rk3399_dmc.c
-+++ b/drivers/devfreq/rk3399_dmc.c
-@@ -243,7 +243,7 @@ static int rk3399_dmcfreq_get_cur_freq(struct device *dev, unsigned long *freq)
- 	return 0;
- }
- 
--static __maybe_unused int rk3399_dmcfreq_suspend(struct device *dev)
-+static int rk3399_dmcfreq_suspend(struct device *dev)
- {
- 	struct rk3399_dmcfreq *dmcfreq = dev_get_drvdata(dev);
- 	int ret = 0;
-@@ -263,7 +263,7 @@ static __maybe_unused int rk3399_dmcfreq_suspend(struct device *dev)
- 	return 0;
- }
- 
--static __maybe_unused int rk3399_dmcfreq_resume(struct device *dev)
-+static int rk3399_dmcfreq_resume(struct device *dev)
- {
- 	struct rk3399_dmcfreq *dmcfreq = dev_get_drvdata(dev);
- 	int ret = 0;
-@@ -282,7 +282,7 @@ static __maybe_unused int rk3399_dmcfreq_resume(struct device *dev)
- 	return ret;
- }
- 
--static SIMPLE_DEV_PM_OPS(rk3399_dmcfreq_pm, rk3399_dmcfreq_suspend,
-+static DEFINE_SIMPLE_DEV_PM_OPS(rk3399_dmcfreq_pm, rk3399_dmcfreq_suspend,
- 			 rk3399_dmcfreq_resume);
- 
- static int rk3399_dmcfreq_of_props(struct rk3399_dmcfreq *data,
-@@ -477,7 +477,7 @@ static struct platform_driver rk3399_dmcfreq_driver = {
- 	.remove = rk3399_dmcfreq_remove,
- 	.driver = {
- 		.name	= "rk3399-dmc-freq",
--		.pm	= &rk3399_dmcfreq_pm,
-+		.pm	= pm_sleep_ptr(&rk3399_dmcfreq_pm),
- 		.of_match_table = rk3399dmc_devfreq_of_match,
- 	},
- };
-diff --git a/drivers/devfreq/sun8i-a33-mbus.c b/drivers/devfreq/sun8i-a33-mbus.c
-index 4bd5657558d6..1636501c753e 100644
---- a/drivers/devfreq/sun8i-a33-mbus.c
-+++ b/drivers/devfreq/sun8i-a33-mbus.c
-@@ -312,7 +312,7 @@ static int sun8i_a33_mbus_hw_init(struct device *dev,
- 	return 0;
- }
- 
--static int __maybe_unused sun8i_a33_mbus_suspend(struct device *dev)
-+static int sun8i_a33_mbus_suspend(struct device *dev)
- {
- 	struct sun8i_a33_mbus *priv = dev_get_drvdata(dev);
- 
-@@ -321,7 +321,7 @@ static int __maybe_unused sun8i_a33_mbus_suspend(struct device *dev)
- 	return 0;
- }
- 
--static int __maybe_unused sun8i_a33_mbus_resume(struct device *dev)
-+static int sun8i_a33_mbus_resume(struct device *dev)
- {
- 	struct sun8i_a33_mbus *priv = dev_get_drvdata(dev);
- 
-@@ -470,7 +470,7 @@ static const struct of_device_id sun8i_a33_mbus_of_match[] = {
- };
- MODULE_DEVICE_TABLE(of, sun8i_a33_mbus_of_match);
- 
--static SIMPLE_DEV_PM_OPS(sun8i_a33_mbus_pm_ops,
-+static DEFINE_SIMPLE_DEV_PM_OPS(sun8i_a33_mbus_pm_ops,
- 			 sun8i_a33_mbus_suspend, sun8i_a33_mbus_resume);
- 
- static struct platform_driver sun8i_a33_mbus_driver = {
-@@ -479,7 +479,7 @@ static struct platform_driver sun8i_a33_mbus_driver = {
- 	.driver	= {
- 		.name		= "sun8i-a33-mbus",
- 		.of_match_table	= sun8i_a33_mbus_of_match,
--		.pm		= pm_ptr(&sun8i_a33_mbus_pm_ops),
-+		.pm		= pm_sleep_ptr(&sun8i_a33_mbus_pm_ops),
- 	},
- };
- module_platform_driver(sun8i_a33_mbus_driver);
--- 
-2.53.0
-
+SGkgTWlxdWVsLA0KDQo+IFRoZXJlIGlzIGFuIElEIGNvbGxpc2lvbiB3aXRoIHRoZSBjaGlwIG9m
+IHNhbWUgZGVuc2l0eSBmcm9tIHRoZSBKVg0KPiBmYW1pbHkuIEJvdGggY2hpcHMgYXJlIHZlcnkg
+c2ltaWxhciBpbiBwcmFjdGljZSwgaXQgaXMgbW9zdGx5IGEgbWF0dGVyDQo+IG9mIGVsZWN0cmlj
+YWwgZGlmZmVyZW5jZXMgKG1vc3RseSBwb3dlciBjb25zdW1wdGlvbiBiZWluZyBsb3dlcikuDQo+
+IA0KPiBBcyBhIHNpZ25pZmljYW50IGRpZmZlcmVuY2UsIFJWIGNoaXBzIGlkZW50aWZ5IHRoZW1z
+ZWx2ZXMgYXMgc3VwcG9ydGluZw0KPiB0aGUgbmV3IFNGRFAgKHJldiBGKSBmaWVsZCB3aGljaCBm
+b3JjZXMgYW4gYWx0ZXJuYXRlIHdyaXRlIFNSMg0KPiBvcGNvZGUgKDB4MzEpLg0KPiANCj4gU2ln
+bmVkLW9mZi1ieTogTWlxdWVsIFJheW5hbCA8bWlxdWVsLnJheW5hbEBib290bGluLmNvbT4NCj4g
+LS0tDQo+ICsgY2F0IC9zeXMvYnVzL3NwaS9kZXZpY2VzL3NwaTAuMC9zcGktbm9yL2plZGVjX2lk
+DQo+IGVmNDAxOA0KPiArIGNhdCAvc3lzL2J1cy9zcGkvZGV2aWNlcy9zcGkwLjAvc3BpLW5vci9t
+YW51ZmFjdHVyZXINCj4gd2luYm9uZA0KPiArIHh4ZCAtcCAvc3lzL2J1cy9zcGkvZGV2aWNlcy9z
+cGkwLjAvc3BpLW5vci9zZmRwDQo+IDUzNDY0NDUwMGEwMTAwZmYwMDA4MDExNzgwMDAwMGZmZmZm
+ZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZg0KPiBmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZm
+ZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmYNCj4gZmZmZmZmZmZmZmZmZmZmZmZmZmZm
+ZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmDQo+IGZmZmZmZmZmZmZmZmZm
+ZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZg0KPiBmZmZmZmZm
+ZmZmZmZmZmZmZTUyMGY5ZmZmZmZmZmYwMzQ0ZWIwODZiMDgzYjQyYmJmZWZmZmZmZmZmZmYNCiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgXl5eXl5eXl4NCkp1c3Qgbm90aWNlZCBzaXplIGlzIHdy
+b25nIGxpa2UgcGF0Y2ggIzE4Lg0KQkZQVCBEV09SRDIgYWR2ZXJ0aXNlcyBtZW1vcnkgZGVuc2l0
+eSBpbiBiaXRzICgwLWJhc2VkKS4NCkluIDEyOE1iIHBhcnRzLCB0aGlzIHNob3VsZCBiZSAweDA3
+RkZGRkZGLg0KTmVlZCBwb3N0X2JmcHRfZml4dXAuDQoNClRoYW5rcywNClRha2FoaXJvDQoNCg==
 
