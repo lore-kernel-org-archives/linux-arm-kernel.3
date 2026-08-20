@@ -4,72 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FE61C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 01:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 807EFC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 01:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7A6JesNR31qbM8jFMjX5uG+J+rXUo91CSdPomfFkkHE=; b=elb1Ipdz49JN+gwyX6VqjBC5pN
-	bd6V96sRADMY6cukRPlpWCpqHwaaTnNie1G50J49bBW0LJhUmcnQoGrhrPFsPLKgqw5DVqtd9WMaK
-	5Sof/+X4Vw7uW3EuLSD2FCzkFfFLt6dO/9dgrRDZ7HJaNLBA8uTzoO2AjuyrB73q0a9G+fgMb4407
-	EUa5JcPUPZ7aiET8pLmOE0tPZYBY6QHWoOYefDfEKqhEcvUIsX4gwnRsfj4qu14jqXxfWl5TkwuNq
-	V9Kv5WAeXjpJq3pKDR/LPO3zFY6ff2Z+rfHH5V1hw5t/7RRu9/PEkI32UCBfGdpz63lBmStdOL1BN
-	r1IeKtrg==;
+	bh=it5S9JSefBP08qQNXkvnIfWUHs/AeH/D7OPJ+RS6iTE=; b=t17cqEjjlQgxgQNn4uZXKmGRMx
+	HglTMPbQyAnwhh0o+6NAPdjTcsJtCyJU2FRSqprD8UQcYXa3tPxq7jKtcwanD3VjbJW2w3zCexGNm
+	jkSiIdAF+kbqQ1F9XfvalQ9BzqOG+hrtK00g/ouCv38YPbNRUTcRIUQNfDx0nq2KR/LniBmWafViI
+	d10oQEu14IhkKoJwcoCHDRvRN6aTHM7ZZSHcZDcSl0/H0wNQSN0fmeGuvzj/6RLlf86eYfbovyMG4
+	yWWj3RTdITwPtSO6TPyNr1AKyOYI3MIQ1NAvyoPNKtcjjvoz88nrlkAsG4ZspA7nh5W/9M4nqxaD9
+	qa/hiMMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwrjS-0000000AjBr-0Vcm;
-	Thu, 20 Aug 2026 01:38:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wws1w-0000000AjuR-0Uje;
+	Thu, 20 Aug 2026 01:57:20 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwrjQ-0000000AjBe-0VM2;
-	Thu, 20 Aug 2026 01:38:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A73826187F;
-	Thu, 20 Aug 2026 01:38:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 609D21F00A3A;
-	Thu, 20 Aug 2026 01:38:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787189890;
-	bh=7A6JesNR31qbM8jFMjX5uG+J+rXUo91CSdPomfFkkHE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=CZMkr2kwPcjJvMeEgedtJWG1ojnfdOz1937Nbdm4EWQtkYeYW3m8xArP3mLJBF/IL
-	 MAzJJOKD1scDjgvBwwrST/fB2Jyoba4j+Ghq+nagPOPxbnNunmQdQSKZJbchZeudbP
-	 u60FNlGetJI1+3ALTuQlVRqScRpi3GxzpuLlPi+b1cdT0n8e/ciunLYs4aoo9opzbG
-	 5ANoIuR92ive30NLGR3Li7Im5/YYatfyQ38MydVx17mtmSaoTstgpdYg3ErKSUqwDb
-	 mrU/dAosK/xAWqC6BYR3TTcIYb5TLnj1g1ZvFGwsio8ZBGuUkQVQkJQ6Hf3h7DmGMJ
-	 d3yZMkfxkhAnQ==
-Date: Thu, 20 Aug 2026 02:38:04 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Brian Masney <bmasney@redhat.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Tero Kristo
- <kristo@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Brian Masney
- <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>,
- Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, Nuno Sa
- <nuno.sa@analog.com>, Guenter Roeck <linux@roeck-us.net>, Michael Hennerich
- <Michael.Hennerich@analog.com>, Antoniu Miclaus
- <antoniu.miclaus@analog.com>, David Lechner <dlechner@baylibre.com>, Andy
- Shevchenko <andy@kernel.org>, Sunny Luo <sunny.luo@amlogic.com>, Xianwei
- Zhao <xianwei.zhao@amlogic.com>, Mark Brown <broonie@kernel.org>, Kees Cook
- <kees@kernel.org>, Kevin Hilman <khilman@baylibre.com>, Mathieu
- Dubois-Briand <mathieu.dubois-briand@bootlin.com>,
- linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-hwmon@vger.kernel.org, linux@analog.com, linux-iio@vger.kernel.org,
- linux-amlogic@lists.infradead.org, linux-spi@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH treewide 4/5] iio: frequency: adf4377: Make sure
- clk_init_data is fully initialized
-Message-ID: <20260820023804.70ba61d1@jic23-huawei>
-In-Reply-To: <aoYeoSnvf5-l69lE@redhat.com>
-References: <cover.1787165329.git.geert+renesas@glider.be>
-	<302584628c4c0699239a0218376fe1c11cdc8944.1787165329.git.geert+renesas@glider.be>
-	<aoYeoSnvf5-l69lE@redhat.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1wws1t-0000000Ajtg-3pZZ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Aug 2026 01:57:19 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-8486ac3f347so357991b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 18:57:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787191036; cv=none;
+        d=google.com; s=arc-20260327;
+        b=O0EJBrzD7ZsJfua9xrJCjebOH1dR2rREryIU3k92VdewyA09FH8iMs+Une/5Umziyl
+         JUDqRMXk1Sh9htB3O8nFhJ2+pskCPdJRDsAfTQkn7AmiecmOLi6AGvjgQxQfvY+L92Hl
+         nPI4CWOZlA0g7oZ4LiCRPhmXLUnJ98JnxQ+RxzUqrPgtyMy6cVgxUQrGdKjGK5lo+sVk
+         Dh4f+xCvR05XR7H86L5WWgQdqrnEJ3EcJGb2rHfG6ZleNYWvpjiy8Jly7E3QMBtYq4g5
+         HCZVGXdlZZW+6ho9a4AOqrP1MUWMP7fyRqLH5vcW1Bs0/yL4uF9KtXJrGV3LDxLOlFkh
+         0UsQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=it5S9JSefBP08qQNXkvnIfWUHs/AeH/D7OPJ+RS6iTE=;
+        fh=gVqAKlahfHtBSH2Niq9iOjS4tl6pF8aRRwU9Pl8eumg=;
+        b=M/VSehO5VgQ2mNTshjFBJWcgTZTUw4hba4rXzyWfBxFTUeQTTowuzRao3BGOmsgl9r
+         3dC+eb0MvFVNDO/LL+xWPyL+35l+M54IOyYYUj6Y5qlB8sI3DIxt1NgA2wk1V8mv60yU
+         TYf8wjIfVq/ELkIie6FAqXE3jrT3lnBdNtSz81TQkmDA4DT2oPIy1JfangkbcN95P8Qe
+         jy202eerXcQpGtpU+VLuB3fWIB/faWAlNbNGZ/pD6iKd7PZxbyA2z0ZtzCrvFvBKeHxw
+         XKcy60Zc3vtH+0SkXk2LuFi4PF6Z3aImeAIwdDdab/qX5onD3PnEaPMAIO2yhMK3gkz+
+         TI0g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787191036; x=1787795836; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=it5S9JSefBP08qQNXkvnIfWUHs/AeH/D7OPJ+RS6iTE=;
+        b=Y/jJWmD1EaYSt35zUJOTyIQJknvLUIzwT2Y2wB8TV3Hwvi+nnJY6nlQEKFWBxaLxAP
+         zPY2UzOO2h2hCmk2FoJh9w/aPUwkLhH8z4Xbv57QX6m4dXYqOrDcCzuJQwDXFER75b5h
+         4V46ldoHBwDsoxmWFthWRGM+LFe/Cf4mELN1u+oqSecCfgEa56U7/iJQkv55CBK8qTVr
+         lOOHwQygf6Yb3Uo26Ta6sZ1ywPyq4Zf/DW3n9Ms0t2zr2I8oW+RbUW+h5VD5VUajXe6n
+         Hp+Dnk6evQgkKTfUdx95EsqH23GWAuWMoRc/zJUFH4sCUg3m/4tR3WcYebelgSf+7e8j
+         HGuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787191036; x=1787795836;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=it5S9JSefBP08qQNXkvnIfWUHs/AeH/D7OPJ+RS6iTE=;
+        b=rQh3SlgOv93RI4FgcFKKakerSHwr0Q5TS0cV0/Ubc+8nZn5o+6LEQrq3L4D3ITo5il
+         sxv1neOUja0wSQs434RHLAH5Xr6T07gy02GALu229va66bNOFjQwcMgTJL1VhvuzbAgQ
+         BMbcjZ04XMH2iAoU2hVYs7umVL2aNSf2BISh2wBac3ewyEuJNMF43CzhPLbDA0jz/PGt
+         kLdHGEodbJqIKcSZN8TUTdabTiI3bo4tMeS3oMtEw4ELB7yUDKmAU/KBetpOQkPHX/QN
+         +rxle568xehTCDTUmqBgTSDpnKwRD/uUiP67+WkfwTeC2izvzeChuVqZwWGNfc/SL13t
+         Aetg==
+X-Forwarded-Encrypted: i=1; AHgh+RquaW8BVfNv4Qrfh6Ltm87NM8qerghIDzlAOG+fQvIqG6mSQFPSLqW6M3526ZhRQUP8SZr2LiJJArMvvy/ZBvL7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzu6q6bdFhWmBvu5gr73s3Pnml6GexP1kV86snI+rIuNRrOc1mA
+	TpIxV4OYGuajmgg5RHpM3an6si4rftS5B7IAAaq9Uv23Gb9ss8tbnfsTf4LATX/nmt6atph8ziH
+	IxjNVHs09VEPgcRPIlIKHSJfrC1Z4J+szvLKw
+X-Gm-Gg: AR+sD131LyhBSpMe3K80/US7GzDMHC5HCeVdfmpCceQ8UQKp0uM7VbkgWJUm0SFLHwN
+	bslLuqroGVchXSPbORpWBHEOdeawQ/b9XqCjAkBq5DY8IjK8xaUnjjmHrupyFMeI4xnVoERErHK
+	jfUwgcGBnZodZldWdudHvb0vzy7nI8rbAoR7Tvh1jNq/af5iL/rwqeDgDV84Nv7YJuuQ3ogQcYs
+	CRG89OSQdkkWuovEeJHis+klEtVAeIgnz9YOnQNYGWfjDStzJ46j+XtJnUysZKIIp/O7DPb683e
+	CUHv9r8oyZHFnNVtHW5MUwooMicElUtXYXSMktqZrBMUWIluDXJVkIgmJqUvASZkVsZu8+OEkjm
+	MpTYj/iDpCDXPJkMhhEFhvePJY+En6m4f0PumLD1+3qH85IkPMGc0NRWz
+X-Received: by 2002:a05:6300:6182:b0:3b3:3506:cf3f with SMTP id
+ adf61e73a8af0-3cd14c6b150mr3711941637.1.1787191036226; Wed, 19 Aug 2026
+ 18:57:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20260819101849.68010-1-phucduc.bui@gmail.com> <20260819101849.68010-2-phucduc.bui@gmail.com>
+ <8881e314-0825-4686-a296-97c03b1dd33d@sirena.org.uk>
+In-Reply-To: <8881e314-0825-4686-a296-97c03b1dd33d@sirena.org.uk>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Thu, 20 Aug 2026 08:57:05 +0700
+X-Gm-Features: AcwNN1WvPV8f1W6lpVMiV3TmhZ52Aju5OoAforzPDg8091qw5BC36o8DvhecH-s
+Message-ID: <CAABR9nF1VaUKeUDhJydJYYc_Jc0kdYCdD3+rtLNR2SPCx9RPbg@mail.gmail.com>
+Subject: Re: [PATCH 2/4] ASoC: mediatek: mt8183: Fix APLL enable error handling
+To: Mark Brown <broonie@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jaroslav Kysela <perex@perex.cz>, 
+	Takashi Iwai <tiwai@suse.com>, Cezary Rojewski <cezary.rojewski@intel.com>, linux-sound@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260819_185717_959871_7E8F2555 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +122,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Aug 2026 17:22:41 -0400
-Brian Masney <bmasney@redhat.com> wrote:
+Hi Mark,
 
-> On Wed, Aug 19, 2026 at 09:05:18PM +0200, Geert Uytterhoeven wrote:
-> > The clk_init_data structure contains several mutually-exclusive members
-> > for different methods to specify the possible parents of a clock,
-> > prompting drivers to initialize only the members they need.  However,
-> > not initializing all members may cause subtle issues, which are only
-> > exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
-> > enabled.
-> > 
-> > adf4377_clk_register() fills in init.parent_data, and assumes that
-> > init.parent_names is NULL.  However, the latter in uninitialized, and
-> > thus may cause a crash.
-> > 
-> > Make sure all members are fully initialized, to fix such bugs, and to
-> > avoid future breakage when converting drivers to a different method for
-> > specifying the parents.
-> > 
-> > Fixes: 60e5448ddbec2dc2 ("iio: frequency: adf4377: add clk provider support")
-> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>  
-> 
-> Reviewed-by: Brian Masney <bmasney@redhat.com>
-> 
+Thank you for your review.
 
-Applied to the fixes-togreg branch of iio.git
-I'll rebase on rc1 before sending a pull request (so waiting for that
-to be available)
+> > -     apll1_mux_setting(afe, true);
+> > +     ret =3D apll1_mux_setting(afe, true);
+> > +     if (ret) {
+> > +             dev_err(afe->dev, "%s apll1_mux_setting fail %d\n",
+> > +                     __func__, ret);
+> > +             goto ERR_APLL1_MUX_SETTING;
+> > +     }
+>
+> apll1_mux_setting() logs errors, do we need to add another log?
 
-Thanks,
+Oh, sorry, this was an oversight on my part. The apll1_mux_setting()
+function already logs the error,
+so there is no need to add another error message here.
+I=E2=80=99ll send v2 shortly.
 
-Jonathan
+Best regards,
+Phuc
 
