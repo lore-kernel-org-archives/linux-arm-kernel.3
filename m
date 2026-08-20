@@ -4,95 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39884C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 18:51:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81562C5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 18:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pp5J0jgzAEL526K8MSIBx0JpzYWE+QXYN3SwjN7BJQ0=; b=Ko1uncrSZpcOGgRBPlvT6du5Qh
-	YgbTQb6W3/yYCNtcVJ9UHU8AWbA+kYBD5utNHfcx9bzaXp/s0b2MS/wbbBvwaZUiuuKJMPTH0M2/5
-	JS0kOmFo5d9E7rqhE7eV+HSu8GqA+a+WnFeHjW3KbK8va9SL9fD6zPWnd0bzGx2pvKM7bkOK1COOQ
-	Ej9EFKzNifXZ1vPdeHd3Q/m1MW4ztUOYOJWP+Kvm/DAsdX9Xpq6phFRapaPd9ImH7aqCICZof1Tv7
-	qDRsikUR1naGxeN4BB58+FF642RBrQYpvG/PD2IGH1fQ8Fb3J2Km+PvEIxHAeCOE5nb6+URsPElM6
-	+EL+CwTA==;
+	bh=j4+HEzu84tHiUAZOxRhDjFI/ug5GzBnvn/WLzOcpkyY=; b=ko8KxO8NriublRKoHDYuWnFRba
+	6FbC9AD3yc8eIwAyqatEVncL/A0k7nHoFMtvgkFHUbcXpnR8WFwBMkpuNKspJUNyX+t9evaBp5rs7
+	g4RU15AeqOmzb0ESAjAm6E5DIpk5KvomypjeAbonCZA7p7BfUF79/C2N7QvFmdz0WwIXuWj8orqZA
+	KHAZwuowpY/MwOxdXCA5TMZZr7h+I25czdKX1l24aizI0MlvJI8nYk0qOGdCvC2Z5VQx+m3520OSo
+	2LV7POSsyqd9XPp2ip585MGGTLKAHclvD0YfPwkrB5iB6ejLxdrCik5KnnRbLDoINVHHYoMOcwHVa
+	A0jMdKRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx7rH-0000000C4aw-2rUB;
-	Thu, 20 Aug 2026 18:51:23 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1wx7tc-0000000C4m5-0GRT;
+	Thu, 20 Aug 2026 18:53:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx7rF-0000000C4aG-0HGT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 18:51:22 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-4816084e128so26886f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 11:51:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787251878; x=1787856678; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Pp5J0jgzAEL526K8MSIBx0JpzYWE+QXYN3SwjN7BJQ0=;
-        b=J95u215XqUuZ68zVRhDHiYkJAP9LaUSF+lZBkih6tAnIgTijZwsdFws1XE6JXzbHpL
-         JxrffoGdXRpJ79g4+cissV2bnXu3vDCqroETaw5Xs+L6bIhUft0cva8DVL1YziX1Az9B
-         Gxo/2aXBost7BWgOUn+Hc9f8TeZsmu5udy1ri5iU24afuDRImY4b5Xyri7WNELIpvMeY
-         55Mr0dkeLUqYUHh982FMWZItm87dGVRenb7dqfIwkxkb6k3SqBmF78ALNFhkpdVhGrLW
-         Io+3NMAOWNqZg3bNU1DbYd4Z2uX3x6wmf0S6k+ktlbHEOz7+wkRiHgY/UiP/3E6SP+8Z
-         DqfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787251878; x=1787856678;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Pp5J0jgzAEL526K8MSIBx0JpzYWE+QXYN3SwjN7BJQ0=;
-        b=KV2qvuNeVjjgPXUaem50PUr6BOSIS6a0qOyDJ8v4T5X6f4CPaIY+ITlADRdEsLXYpD
-         BB8tAsglDsuQFTRIRImC5TJ6OISWJ+m9xLlajTJUtat+1NkLsI6Vrz+WBS2vlYB17JHO
-         IZix2GLXCKwXYDYLEpZkWfnvbqhGj9eBng/huiv/gT1MA+/dbsB+fMzQfwjpSnarfGGs
-         NALRZ2dlYhH6WKWw4a4s9anuoOojg9u1SAtxOenGo7QtO3lAoLfZ6jjiZoI+wFI8b7hm
-         7yxlTzMJgKbnJ/IcJJ3Jia1lcB8pjj1kYVsihmOByVC+ZsLhvkoholKTZ/CRn7AExByz
-         zBtA==
-X-Forwarded-Encrypted: i=1; AHgh+RrwEgumNe4iLWRe7kmPa2ntGBBT3Uh/sCQDkW9xJMpI0EqfX+V5nETe6jKyuxYOJHod+QRqJ/1P+PbiIztV5M41@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZcffIk5S1jCeGtM7u8U7TJJGBbhceQLnqlUjx8R+kcS3EupCO
-	0qLqYlmIuo9kxx5olhNBC/Gdhb6Umk9xek16opOEbIO93+wVg+58MFos
-X-Gm-Gg: AR+sD11uY9LB32V9+3XLHNtNXemozFsD6l/SNAM1/21x+nYKTkqhwAIUqMNbFC07lfn
-	LFNaqqIbDKp9d3QSxRIY1aVKvB2jMcZzMzIdA0bNDfSaFzxakRO7B9bgQCcbUufS/hZvwgZnlGx
-	IsFittg5MyQzn712Fu/UePPP9neYPhC27tUzD8OnC1MjMvng+yjrtXZHd2DT8XpAKpywWU3lgKF
-	7vKinUwWTzqDZ3+CVc6UoMbK4mZ9Efnqn75YIFLVE4DxrODF1Oo4dLnrwB9AkjBUHdIXwd8LmJB
-	AlME42uKk8KWOZcnn9m5qF25LikoeBl7YbM5+1/DZCX9YjmX/l6j/ucXdg6k0iF9BcoI6KC4M2o
-	CudkOy6vIhY5VAHg1pPAb5BK1czp8plh4wMjYgdWQzv1vE/OMJyFCDnYtfSBXD2PVgArYZWcs3N
-	bdTqsub9BbjATdEVbhgSINGVI/V4mkhqDRDV2TFPFntuDSwT0YRf0onPnrw0LrGnl+d9RtcA==
-X-Received: by 2002:a05:600c:548c:b0:499:5b0f:72b with SMTP id 5b1f17b1804b1-499b835251emr9349565e9.1.1787251878389;
-        Thu, 20 Aug 2026 11:51:18 -0700 (PDT)
-Received: from OrangePi5-Plus ([2a06:63c4:9102:701:512e:da32:b75b:2535])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499b91173c4sm684915e9.2.2026.08.20.11.51.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 11:51:17 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Jiaxing Hu <gahing@gahingwoo.com>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Alexey Charkov <alchark@flipper.net>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
-Date: Thu, 20 Aug 2026 20:50:55 +0200
-Message-ID: <20260820185056.20643-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260820100715.750660-1-gahing@gahingwoo.com>
-References: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com> <20260819105723.632029-1-gahing@gahingwoo.com> <20260819154634.7584-1-royalnet026@gmail.com> <20260819184838.6723-1-royalnet026@gmail.com> <20260820100715.750660-1-gahing@gahingwoo.com>
+	id 1wx7ta-0000000C4lh-2znX;
+	Thu, 20 Aug 2026 18:53:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 293C541771;
+	Thu, 20 Aug 2026 18:53:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 490B21F000E9;
+	Thu, 20 Aug 2026 18:53:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787252026;
+	bh=j4+HEzu84tHiUAZOxRhDjFI/ug5GzBnvn/WLzOcpkyY=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=H0NP1aHU1Kw2CsPh2H8BLbi6yqq5B182IUlX89TgqPSaIxveE5Jr3xi/Qcs3m7Xbd
+	 Y/befz+dDSuMEw7cndcbClLTwxPwc7YMS+Vi8jIm9FtAqL3cw54XFz7L5DBWi3jfUE
+	 VrLuxAHW68PsF4lFUW7glviay0Vqno/Hsk28QJhgmyIzPusNpwE7QnGXQ1kXqITIZd
+	 OpolHzWzmiPZELFdVHuOc73iCDT/vmumH2CHy4zYLFJtx5hsqWVO+H6JB998UjdRTA
+	 Og3YldTWRaRSDHc7iJubIDoaPP5HJp+E6InQYoqeywDSj3o7EzcgG1aOAPxnFpFT5g
+	 dA666zqlo005A==
+From: Mark Brown <broonie@kernel.org>
+To: Tero Kristo <kristo@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, 
+ Nuno Sa <nuno.sa@analog.com>, Guenter Roeck <linux@roeck-us.net>, 
+ Michael Hennerich <Michael.Hennerich@analog.com>, 
+ Antoniu Miclaus <antoniu.miclaus@analog.com>, 
+ Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+ Andy Shevchenko <andy@kernel.org>, Sunny Luo <sunny.luo@amlogic.com>, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, Kees Cook <kees@kernel.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-hwmon@vger.kernel.org, linux@analog.com, linux-iio@vger.kernel.org, 
+ linux-amlogic@lists.infradead.org, linux-spi@vger.kernel.org, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <cover.1787165329.git.geert+renesas@glider.be>
+References: <cover.1787165329.git.geert+renesas@glider.be>
+Subject: Re: (subset) [PATCH treewide 0/5] clk: Make sure clk_init_data is
+ fully initialized (part 1)
+Message-Id: <178722791204.89147.8075686338925258822.b4-ty@b4>
+Date: Thu, 20 Aug 2026 13:11:52 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_115121_114838_3FD28A86 
-X-CRM114-Status: GOOD (  15.29  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1882; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=T4O6Ytd+oVjquoKgE7hf+vP7Dh6bPlJfF2fa2COS54M=;
+ b=owEBbAGT/pANAwAKASTWi3JdVIfQAcsmYgBqh00yfuqNALH6N3AXS+G0HCah2fOyCOhjzME7f
+ KNnVXeAwAOJATIEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaodNMgAKCRAk1otyXVSH
+ 0AShB/dhLJEEeXKrFQP9gPrIolmzi20NN0M7zC8KH9y3aa0HDRIJ7TvS+Mlng+fdUJET/6Z7YdN
+ WwL1wHIjh3EU33JMDcZr5roVJlS2GMOtkapj/U0/KKGaNeIjzv4dfTSJHfNsGJzAEbsAl1DJOG2
+ EL9hRt5A6Bm6qkLavFafXoAOgXgTNPvroZfhwTUzkSICx+buDnmQ0FulKgO8h9wYKRMOsrRfyLO
+ 0vz7DyM9o2N/dZFZc+ioL0Zr6TqUFedhtZO+ICe+0AauztCGPgGqinrzsgRgm+I8INFJZoPOmt3
+ Ua3StNsCFMpgq0hNzFgNCUVp74ea+Y3GiTcnrWUWzMbP5B8=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,41 +94,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jiaxing,
+On Wed, 19 Aug 2026 21:05:14 +0200, Geert Uytterhoeven wrote:
+> clk: Make sure clk_init_data is fully initialized (part 1)
+> 
+> 	Hi all,
+> 
+> The clk_init_data structure contains three mutually-exclusive members
+> for different methods to specify the possible parents of a clock,
+> prompting drivers to initialize only the members they need.  When commit
+> fc0c209c147f35ed ("clk: Allow parents to be specified without string
+> names") added the last two methods, this was done in a
+> backwards-compatible way, using a priority-based scheme:
+>   - .name, .ops, .num_parents, and .flags must always be initialized,
+>   - if .num_parents is non-zero, .parent_names must be initialized,
+>       - if .parent_names is NULL, .parent_data must be initialized,
+> 	  - if .parent_data is NULL, .parent_hws must be initialized
+> 	    and valid.
+> 
+> [...]
 
-Thank you for running the sweep, and for the shape of it - one field at
-a time with the other four held, three baselines with no drift, and the
-honest reading of RESERVED_0's score printing after its timeout. That
-table is worth more than the five lines it occupies.
+Applied to
 
-On SIZE_E_1: I would keep it at 0, and I would not shrink the diff.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.3
 
-My reasoning, for what it is worth from someone without the hardware:
-your sweep just demonstrated that the traced value is load-bearing in
-four of the five fields, failing in three distinct ways. That gives the
-trace as a whole its authority. A register built from the trace with one
-field swapped to upstream's value is a configuration that no silicon has
-ever run end-to-end - not your RK3576 (which ran 0) and not RK3588
-(which runs a different register entirely). Keeping 0 keeps the value
-honest to its source, and your comment saying it was measured not to
-matter on these two shapes preserves exactly what is known and no more.
+Thanks!
 
-One question in the same direction: by the SIZE_E semantics you derived
-on the 17th (SIZE_E_n + 1 = the number of 16-channel atoms in the last
-bank), would different output channel counts exercise different SIZE_E
-fields? If so, two shapes cannot rule out a shape that leans on
-SIZE_E_1 specifically, which would make 0-as-traced the conservative
-choice as well as the honest one.
+[5/5] spi: amlogic-spisg: Make sure clk_init_data is fully initialized
+      https://git.kernel.org/broonie/spi/c/b2702908ee23
 
-And thank you for being exact about the tags - 1/13 carrying, 2/13
-dropped because it is no longer the patch I tested. That is the right
-call, and saying it on the thread when v9 posts is better than either of
-the quiet options. The re-run offer for v9 on RK3588 stands; the harness
-is set up and travels well.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-The trip went fine, thank you - I am answering from the countryside,
-with the same board on the desk.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-Best regards,
-Igor
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
