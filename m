@@ -4,90 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D681FC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 13:27:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C88C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 13:28:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1rpagWh/7qXR1I00A6AmDluN84TwJltkmTUIO9K/m/8=; b=JHhaet6LiFpOqhvIbLGYeL+vQX
-	55PsJMV7OTs7zVOSY8Ib+Ss/ROCC9NhkEAsSPRBmBaawGhc98SDc5+dIgmAA8yERY8FiF6QFslvD2
-	LiGjmigqiyLIf7igfBJRNf/BVErSAacK8Mnv0pvM1ePylAl77AyaD3i9k1Q23tqwE4k6FqAq8MChq
-	Z5b17ZRD67D+ZH2dW2lpog4mo7Yozc88paAyY/E4RAM3eRQEQnEM5L1p9Fx8nhUzmVjQ+1AEhYOAa
-	+xxF3VxK8vNe3z9KK4JaLXKfYY95WR08zbtNflD35lZFQDGU/i6yoSaXzs2LzGL1p+yecpICAAuYL
-	STy0JtVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+OWRyp1Na2XBrlQ7bIW9EaBkPnu+lSJuThzM8dmXiRw=; b=Iw9EZ0+u1kkAwcbR+3wwx8nSoU
+	1Vwj40mKn33ogzHQ/fBTTMHzKKVoSVytMxNJzoDd6b/G+34XgCrdwjJk+yBsvI+wFCxT4VKBEd6V5
+	7TyX9RDimnQ4BqdFzY8cKoQTygI2CBvuKRQsnFCZ4vW3N6gyMse6B3sqQh3ynTmeJk+hYVhUdb3Ef
+	dItBwfTdLxIoNMJS9M6dLUsEiwF8cLN9rxXTJXUuDsFyKzQ2n4BYOJSbH0B3FkTNxq5RpNKUEjc62
+	j34TH3MTh1dBJ75I+CnQr/IYTrtuWNFO4MeCaWyBBYj3rI5EgEUdFGI3gU59GvgRdwBC+rG6u1pYO
+	9QrrpA/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx2nu-0000000BcBB-3aV6;
-	Thu, 20 Aug 2026 13:27:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wx2o5-0000000BcDH-41LK;
+	Thu, 20 Aug 2026 13:27:45 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx2nt-0000000BcAu-3y2H
+	id 1wx2nz-0000000BcC0-0CsI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 13:27:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5B097404F6;
-	Thu, 20 Aug 2026 13:27:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5195F1F00A3D;
-	Thu, 20 Aug 2026 13:27:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787232453;
-	bh=1rpagWh/7qXR1I00A6AmDluN84TwJltkmTUIO9K/m/8=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=kh5mAm9K50U1knj05J/XIpJMkRxlvl6HAU1nnq1e7phEN8bVZAZKaNGcwn5ZTQgqy
-	 Jw3UhilX62NYNRgg1BZooN5DKDObxWGQfcmWd8wjTP6RmzkssbKuMYgxX0oaAjuEUk
-	 9+Aq6tf4h2MUkLv4EoRq3mK6zsn4l8/oH0cP1V69XyD9HACVNTnJazb3KcIX10UzVq
-	 8XOSgv6eD8lZfhOuYTI+dTKsbkHTevEpjAHx755bnmjLiiUDGlvDKmKVMlxoFKG82v
-	 Id6PYGFSYwkkUdWIaLgtgDkKjb4PP0wdcXGB7XJ/e5NeymzpJ6cT3JmbkOmnENgfJr
-	 kJlYBXZkQkljA==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id D711B1980058;
-	Thu, 20 Aug 2026 09:27:30 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Thu, 20 Aug 2026 09:27:30 -0400
-X-ME-Sender: <xms:vwCHauaJSCwT2J6Tq_Lfkgy6ejpmZQzzAhCrFNcRf-Y-MyN2NfgCIA>
-    <xme:vwCHasMuXnZuQwprev4I-fqVyv3ac-Sx5CqlFi3V7qqy_vfH-1H4sgMs3Ed-S_dna
-    F9s02fbzp6Fp86FMozzC2sd0t-Igxmh6aAc4VkKpHFPtj1ZVfNFD_o>
-X-ME-Proxy-Cause: dmFkZTE66TlGgOXIQZU/MZ6I8mWhWNIeBsZV6bdW+M5m+1GdFyHEAwLWp3hrG8/+18hih/
-    9wxPWt31Fr1hSOpBRxWxr3jpz6HAVUTu77HO4SpxJF0W52mJmT0hRxd2Zuz3KinjS5rfad
-    Txdr+2BOkpN2b0QgxXVqxJ6PwaBOaKDgG2pq+Qm9f4Q7gI7bh3/j2Y7bWWAxTtwWT4m1EQ
-    KCLIZIPh55lxz2I3YBmjQcSjz+oViOk8EuKp4C7ymGGQ4WeNPmCfUOImc1wc4hJ1V3Nfea
-    6PdI5vvTuVlmmzbie3C9oGq7afkr0DZfcsU/LA7WHR1bpeMG1l6P6VcVJH6HLTiskvNPIK
-    /V/AbRtPVcdxvaJi8kRE1bc30pr6OsyHrlm+uHOZaPc6Q4URtHuWNgUirqHTVVvwpTv+R+
-    WMm+6A3sL84rp2qYnyP6LilIrNEsMDCEQIrN0uREYbNzzqhCwotUJVPBLszxQYb2QECooe
-    4cfbrYceR9ybJV1EgJ8kYd6hASsUHYoCZaMxpP12PX6XGgOuyn2wb8OGK96z+kCzNID9Qy
-    KJ5Ep+1hGwRqUwdLHHpJn93dEPGPPzC+Mcn6xwuWmyZGeKm//B6oaQUaP4rRoK4WqBueRS
-    xDtrZOXJzuWRAKTdAfJo1BL/Y9x4YnsoosnhNaY69s717IG1npy/GMh1kKlw
-X-ME-Proxy: <xmx:wgCHag-ojrN3EPNVAj0BeyYmA2U1-inrAO3NKH_TdnhZCoaFgi1EYQ>
-    <xmx:wgCHaqRFPcE_QX8MLvW_W750tRrX5P03UjObq6YNuGPLBP30DamKyQ>
-    <xmx:wgCHalSVYgW1xrkQaDrjhRt0TZ3XOBZf757YFEWVl3jcITw5-IetVw>
-    <xmx:wgCHam7ekYkq4pRdFBmNl-c3G87eEOCfsqoIlkVreTk5vFOhUVZiBg>
-    <xmx:wgCHaqWW89tbjM-H-UkIZs9gM-kznm5Pv2LgQW6nrgXpH8SIkA6SdswM>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id A7007F80070; Thu, 20 Aug 2026 09:27:27 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 20 Aug 2026 13:27:40 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-52de50e77ffso5908921cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 06:27:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1787232458; x=1787837258; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+OWRyp1Na2XBrlQ7bIW9EaBkPnu+lSJuThzM8dmXiRw=;
+        b=g7U/pr2YUs1Xlx/Q+rxBh5O75kpHv88u7LhVBwImNrOi8omlYuffKUsxq2tk2mztju
+         WFag7XdiXXUuCm7OZiskb7UTIZziuW82umO3itlw05dhRSdgjKTdKOlnosoQEFcXfz9T
+         rIgups0xtxN6LTKxCE+35YMAqRwGffy0NzzQ1Q3c9gaeri0zUnjJfGBY31/YRUqfh4AS
+         wwOU4NuWIJgdw5P4M5BKw5MgGid5otzdrq6+1MlaVrNkimmgsrXinqNytRqS8m0vDB0U
+         uXJgztvB3rXxn9tsWD6jR0Kt3CYUkUoW+ihZYRZWMw+Q9680ZSC2YYWZC+DOktj1PnD6
+         poSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787232458; x=1787837258;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+OWRyp1Na2XBrlQ7bIW9EaBkPnu+lSJuThzM8dmXiRw=;
+        b=jE/vneiIbQ7CVq4HHQz8RQ+OEwp2/XsF46wROrPFbNLQSypES/PtJZvYV1upE+LYcU
+         it4NOMzU12WuB2mHAKihzX/i8JteI1B8k+67Zlw6w7R1574Uz9JoIf9m0ARouI/LFyKb
+         V3mDjwyxdEWFBfq8d/+lYkNm5EPK5vL+cGj4CvJJw6PGwJHYZrFr7YCSIUNxV+hN/mYO
+         +pMxgbcbvmZSgy/6eGN9gxR1ZayYIHBjPbuBcJgxRf+hemz+nN479NNNUv8esh19SExn
+         OpK4F0h+Tc5nbTYXCT02LvEVy0Pao0l2v0USA6i/H1HkJ7rFBTIG3iEzGZ5y2GSlAJoj
+         bBuQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrZPcu4LzVP1rGB92MS8F2R0l9DZEi3RZGxTSc6l+zoL/LDvvMBQnidWx0G3yD9OSSsCU/pFUhMMFVqjx0vABgV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdgnnBg/NfV8EwbddLRi03TWIQxI1EKLjKUGwn2muQcD+Pi2GL
+	O8bm90X6z9LRACU2/0pSyO5CfxKSEQldNXobiqNUmQXOXZOewL5cPxeNl+KCSb6zo/ebpwsr3DK
+	xL4va
+X-Gm-Gg: AR+sD11HWLFdzpExYLEQTF7C6eMS26kp00LaQUVy6KDo20sGisZYhWUos2gZ8ZbFSRX
+	zd94mHkOf4RZsOxjgMAoZWXoPC250mNMZDQ3phrX67xo/elbM28kVtjikgUFd9yhPiOLO21F+e3
+	4N9Tp6P7bdVaPOVnRTqaQuefeob/cGl9lvdvbD4N9PCh31WW1YR9tHBJHtp8SlIX1+H+TneFE/8
+	uoWs4Xx6OQRFW5UiZWzwQI5PCT+pwqI09fqDaRTt8quXoPEy6jwZx9gZgaSWYjIA6+VBVz16LQG
+	VSqoKiPD9bMPqoAMLMdsI5lieNzgNL1QNRrTFpSkt0JINJgNQvhh8rQQFZhab4/zcS7O4sEWgpN
+	cObCzPIAOcavc8lOdgtgWEnimGOAfW2DQA1n0dOsQp1Cd8JCua8USrm3j3GAKPJ/+ELL8TZAK2B
+	A0V3V/SC6CC7u3lGl8xhkPUchqE6V3V9p7zYZMW7Gd6swHuNxfQ/PLCzDRVhWREABuxB0pof3cO
+	VXZcfuWm99W6WvKS05pzlshbn+irHmmb2HKhUK03CfB+w==
+X-Received: by 2002:a05:622a:5149:b0:52d:ce86:1393 with SMTP id d75a77b69052e-52dd5cecc34mr115534681cf.37.1787232457641;
+        Thu, 20 Aug 2026 06:27:37 -0700 (PDT)
+Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52dd857b6b1sm30570231cf.3.2026.08.20.06.27.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 06:27:37 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wx2nw-00000003ikC-1Lb9;
+	Thu, 20 Aug 2026 10:27:36 -0300
+Date: Thu, 20 Aug 2026 10:27:36 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Steven Price <steven.price@arm.com>,
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	"T.J. Mercier" <tjmercier@google.com>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>, dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, Jiri Pirko <jiri@resnulli.us>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: Re: [PATCH 1/2] irqchip/gic-v3-its: Zero shared pages after
+ conversion
+Message-ID: <20260820132736.GC18100@ziepe.ca>
+References: <20260820105026.53208-1-steven.price@arm.com>
+ <20260820105026.53208-2-steven.price@arm.com>
+ <87wltlnfay.wl-maz@kernel.org>
 MIME-Version: 1.0
-Date: Thu, 20 Aug 2026 16:27:06 +0300
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Will Deacon" <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Arnd Bergmann" <arnd@arndb.de>, "Eric Biggers" <ebiggers@kernel.org>,
- "Daniel Borkmann" <daniel@iogearbox.net>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Alexei Starovoitov" <ast@kernel.org>, "Oliver Upton" <oupton@kernel.org>,
- "Herbert Xu" <herbert@gondor.apana.org.au>, "Marc Zyngier" <maz@kernel.org>
-Message-Id: <03208978-a825-4ae5-b47e-3dd6133ecbf0@app.fastmail.com>
-In-Reply-To: <aob-0tByMtlbIaxQ@willie-the-truck>
-References: <20260811140132.22778-1-will@kernel.org>
- <20260811140132.22778-7-will@kernel.org>
- <a16ed8a4-28cc-4270-a257-b9268ab9e9ea@app.fastmail.com>
- <aoGGCqMdb8iZvZSM@willie-the-truck> <aob-0tByMtlbIaxQ@willie-the-truck>
-Subject: Re: [PATCH 06/12] arm64: assembler: Remove endianness helper macros
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87wltlnfay.wl-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_062739_118293_09BF2339 
+X-CRM114-Status: GOOD (  30.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +119,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Aug 20, 2026 at 01:32:05PM +0100, Marc Zyngier wrote:
+> On Thu, 20 Aug 2026 11:50:24 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+> > 
+> > its_alloc_pages_node() passes __GFP_ZERO to the page allocator before
+> > calling set_memory_decrypted(). This assumes that converting a page from
+> > private to shared preserves its contents.
+> > 
+> > For Arm CCA with MEC (Memory Encryption Contexts) the key used to access
+> > the page will change, and so by default the visible data will change.
+> > The host could ensure that it zeros the page, but rather than relying on
+> > the host's behaviour it's best if the guest simply zeros after the
+> > decryption rather than before. Specifically in this case the ITS tables
+> > are required to be zeroed.
+> 
+> What are the guarantees that we want to enforce post decryption?  My
+> recollection is that the RME firmware cleans the caches to the PoPA,
+> making the data immediately visible to the hypervisor. Obviously, this
+> isn't the case anymore, since the zeroing comes after that, and I
+> don't see any CMO enforcing this.
 
-On Thu, 20 Aug 2026, at 16:19, Will Deacon wrote:
-> On Sun, Aug 16, 2026 at 10:42:40AM +0100, Will Deacon wrote:
->> On Tue, Aug 11, 2026 at 05:04:43PM +0200, Ard Biesheuvel wrote:
->> > On Tue, 11 Aug 2026, at 16:01, Will Deacon wrote:
->> > > diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
->> > > index 87a822e5c4ca..8951ce693552 100644
->> > > --- a/arch/arm64/kernel/head.S
->> > > +++ b/arch/arm64/kernel/head.S
->> > > @@ -138,8 +138,7 @@ SYM_CODE_START_LOCAL(record_mmu_state)
->> > >  	b.ne	0f
->> > >  	mrs	x19, sctlr_el2
->> > >  0:
->> > > -CPU_LE( tbnz	x19, #SCTLR_ELx_EE_SHIFT, 1f	)
->> > > -CPU_BE( tbz	x19, #SCTLR_ELx_EE_SHIFT, 1f	)
->> > > +	tbnz	x19, #SCTLR_ELx_EE_SHIFT, 1f
->> > >  	tst	x19, #SCTLR_ELx_C		// Z := (C == 0)
->> > >  	and	x19, x19, #SCTLR_ELx_M		// isolate M bit
->> > >  	csel	x19, xzr, x19, eq		// clear x19 if Z
->> > 
->> > There is some more code that can be removed here - see
->> > 2ced0f30a426c7301350681f838344d5aea711e3
->> 
->> Good spot, thanks! I'll do some more surgery at -rc1.
->
-> Looking at this again, I'm not sure we can remove much here. I think we
-> probably still want to force little-endian (i.e. clear the EE bit) if
-> we're entered as big-endian. I've changed the following EOR to a BIC
-> (see below), but I think that's about all we can do?
->
+I thought any CMO stuff was principally about cleaning things as part
+of the MEC change? Coherency after the memory is made shared should
+follow the normal cachable memory model rules, just like in a non-CC
+VM? We don't need further explicit CMOs for that.
 
-Well, the only case where we allow an active ID map is when doing EFI
-boot, which is guaranteed to be little-endian. Since the kernel is now
-also guaranteed to be little-endian, we should be able to simply kick
-the CPU in LE mode right at the start, no? And simply ignore the case
-of a BE bootloader entering with the MMU and caches enabled?
+Post decryption I would expect from all architectures:
 
+ 1) Neither the guest or host take a fault/error when accessing the
+    memory. ie the host may immediately pass this memory to an
+    O_DIRECT system call and have its kernel read from it.
+    It must not crash the kernel.
 
+ 2) So long as the memory is mapped cachable it should follow the
+    normal memory model visibility rules. ie it works the same as
+    VM CPU memory prior to CC
+
+ 3) Rules for actual DMA are the same as prior to CC, the VM is
+    expected to issue its own flushes prior to DMA if the platform
+    requires it.
+
+Given the requirements for #1, is there actually any case on any
+platform where the host doesn't *have* to fill the memory? Is there a
+platform with MEC that doesn't generate an error on reading with the
+wrong MEC? Without MEC it surely has to be zero'd in the RMM world,
+right?
+
+I've argued before that set_memory_decrypted() should be defined to
+return 0'd memory. I think there are real systems that *have* to zero
+the memory as part of the state change and this API is now
+forcing an extra zeroing.
+
+> I'm concerned that this relies on undocumented behaviours that may
+> hold today on some undisclosed combinations of HW and hypervisors, but
+> that are not guaranteed at all. set_memory_decrypted() doesn't really
+> say anything, and I have the feeling that we may want some hypervisor
+> specific hook to perform the correct CMO magic. I don't think this is
+> required right now, but I'm not excluding anything!
+
+I would expect any required CMOs to be part of the arch's
+implementation of set_memory_decrypted()?
+
+Jason
 
