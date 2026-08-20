@@ -4,92 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51C05C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 13:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AFF9C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 13:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zD3zgeevoRIzapGsmdBgzD2O1ClYtdB1PLKQWNbkPKo=; b=d+ouOEDP5rTlGTVDesVsVXrEdk
-	9LOaVkcpAIsJSmplRMeowlUux5j+sPdLFmqvcirUSikC9kSzazBQZle9pYZXDsvJfsoYE7zMTS3AF
-	bWI9QHPuP0wOujkhOKbuWcUT22Cd/RMDupAsOi0t1D/Xfbhm3hqEBFB3BKAJxbKKFdK9aMyupbhdf
-	7tMFyzypM2/uSwH8IpIuc72NdpE4gE6K3TphEIQCte5zcJQBcsUbicvDQmSQbKHFhuS717FU42AhE
-	aLlJfPC7lEM0emHsuaCbjyj/I7Zuw1gqlouRQlQLDYKxKmv8RaSnPptYoxQuBTL3dbdd6jjg/DUyp
-	NFEcLxqw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ne4vpn6S8dDIeQGKLcmrAac8qYrgoBlC4Ci88bD6Wpk=; b=fkbVGX7poBV1tAYr4FJJ8fiCEE
+	kqKnjzfZDn8sHMUlEsXb7axmVMH+IjRkb9j7PTxzh9wlKKv6lVzxzsIw8XrbYlI6d8fbH7AhhWoyF
+	XIMhc0R6mqqMO5EC3sjHhFfT3DxsKwrHnkkAdwDNWplbkMemHv6eXe1dklgRS6u18x5Q2BVHtozI2
+	C4qfhGktWlHdAx+aPbRTf/wnG/dp9HF66vANfhFdKj14kx3qXSiAdHB9KSFtxFmAZXVgqSx8YGBj+
+	rsh0sD3GhvH9MGKsCADjeBIvgOBpefofFPWzZGENlnRTsH9OKEqAl4HFtPAum6OepWnXPvDtaTboD
+	Y6RzSFUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx3Bm-0000000Bdly-0b7k;
-	Thu, 20 Aug 2026 13:52:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wx3Fl-0000000Be2w-2ji4;
+	Thu, 20 Aug 2026 13:56:21 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx3Bl-0000000Bdlr-0pKs
+	id 1wx3Fi-0000000Be2H-3cXS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 13:52:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 91C2F43F51;
-	Thu, 20 Aug 2026 13:52:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB83B1F00A3E;
-	Thu, 20 Aug 2026 13:52:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787233932;
-	bh=zD3zgeevoRIzapGsmdBgzD2O1ClYtdB1PLKQWNbkPKo=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=V6zQLFSjbRumG/ZzB3vbDdpuLLbThnUSpsktcBfLVAyMvdcHJSH3GxKAsjeEBg/8D
-	 LPiYec1o16YRv8a6lP0W5MzGA5ef7hgPfSPcggKG9TvBUooDvUAIfJ2OgFjQkwRar7
-	 u568h8PtyZ+7NIfcXHGNTp/ZGVXskBBIfNIpqzWAQ1vEImO0n4ZNki4JQWGfMrUwWv
-	 dZmXbbA1TtzNucXDrOV1saOmDMR4aYelK4W4V13CBuc/lCROY+DhzuzFRWxrji2/7J
-	 W+wGGPYzeI0tVTeC/0p9sWL7Tgz5MaA7wB9n9bE8kxUHZTiG4Ld266BaznqKuHrB5I
-	 DWHJxA1jmp6cw==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 5B3491980052;
-	Thu, 20 Aug 2026 09:52:10 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Thu, 20 Aug 2026 09:52:10 -0400
-X-ME-Sender: <xms:hwaHairR6o6PXuan12CrPv3SWKHlmsH9FNUQE2oLr9KIEmMxAn_kag>
-    <xme:hwaHareeLezG6p_gft7QurnOG-wc8KaWArqS4AKqnaNkEMlrdaF5dF62BDbVOXhJA
-    GhMJ8FP2u-KT7z7ykTZxIv9RvGlYOCCdtwyb_1uZU74g7bpFSjoHGGB>
-X-ME-Proxy-Cause: dmFkZTFCRl0HBk9vYQsxdiFgcQZaSulDIVtSv1i9/4ktEgUTQZk1cXT59PNxolqKjaIURt
-    PrlEIP3DvEkM/OsJiqg/2TmQx1W6mg2nqzi+xe+QbVO2C0pfaxDDdU8nxtnlX400v+r679
-    +KSbEyoZ2CTHCsw3vaT+xD2R0btGAzbTpAIC8cyDlHyfu3oci4nNrH1yx/C4Ez8VbyJPCU
-    tK+ZfABSogjQ+YVETYj/lNczXQp60Nl3uG5mGPk3Ae7mMpvK5rXHJ7J304V98Un46T+NVz
-    wLsplI4V3Pmet6WCRV5l/xTyAFOtP0DKC7nS8IEPYH1yLgHWde0j2/rXJO63BdkpiZmcOP
-    TjiKlq7ZT/2FFHDwKSMNno1497GnyXB7fpuSA5XN6eEZAnFpOIQTx7mmi2Ut2c/sJyH1ni
-    au/UV0iLua0EDuMjnpqTNeT5EhE0Aw2RrElW7LbAF8PDkKOUq2iTj/g6TMbOIDdfMjZdQq
-    HlMWeqNAfrRUoV/kYDR32EJjcyU4kEn3x0Z3+nS6zRVQPHiwAx51yn/LH8qUAeNSNzHt3s
-    wG37OoOThOJ2J5Vbt+5r107mVwxdVR0KVjNYNSqIiQpC9REEdN/blPHwk/UNopQGTzTd+K
-    iEAULIYJvRG19JFxMNFMvPOPtA6hbkkhCetchodaE+8955qua/+GDetp3Qtg
-X-ME-Proxy: <xmx:igaHahMw43JxIVWe0GKxkqPSadd7ljZoIVg1sCwoJVz-zxSfsT0v5A>
-    <xmx:igaHaljHHgaKgqM8CtFpnNrkpp7TlBsNW3DDuW42HSRClJH7HIJZ6Q>
-    <xmx:igaHaviG3p3X52Bspy-edGr16H0rp4TG8VYDyCHJeqd7cdXhQQvyRQ>
-    <xmx:igaHakIZocxFctPM5fiJqBO-GWhLKXbZV7dcrMC0iu8q1JkK_OHQHg>
-    <xmx:igaHaukauisc9AfpLVRbvphxkmHWYl4Qu9Y_OdTl9VA16zdMR1d0gKDf>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 50AE8F80071; Thu, 20 Aug 2026 09:52:07 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 20 Aug 2026 13:56:20 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2cacf197759so28902235ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 06:56:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787234177; x=1787838977; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Ne4vpn6S8dDIeQGKLcmrAac8qYrgoBlC4Ci88bD6Wpk=;
+        b=XMtqzRH7frTQmg3+ueGeRsM4DBxZWLfLXUiedpwJIMghLqWgbg32Dqa1oUcIXgsnlV
+         adJOMw+5GeKBJ4qHyE17pFMZhkkqeL/R2X3ZuxHSiz+ab/qHzrMtbJF773omJHaPnLYY
+         x+1FuaY8Q7GXreP0LR8XEXef3z1ZvaM3kylAW54fDyC79e+VXK6juRw8Lz7rA1jt75Vh
+         /z0LTinqmhPaZRJlsNb9oOKoVaxwGY078eOhJjy5Dfzls7Hj2eE5gvUSDxPwB59zrPRN
+         y+tl7QaEgDqW8JX1qw0n6pfclf+v4DOuQr02Q4wFkNWPS9U3tdcyXtfx49CB9ayTrKZh
+         r/7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787234177; x=1787838977;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Ne4vpn6S8dDIeQGKLcmrAac8qYrgoBlC4Ci88bD6Wpk=;
+        b=SgfN9hmF8K8FVkKX/4CarxrGaah3K3l1efpeCPei8WYmtOw9hKBVbUF5jHfb8fcSx/
+         Rg/xdh07PxZuG0cMVN+XSf6Uo6Ymu9AYcRnq/GMjQNaUbrjIDbAXc54vjwSUrvOpvQqs
+         R+YQ7vmuL4HOTHvQaGHlaqQw0X5cduSmBpg2Mx78O8tG4fKVcl72Os0n5S0VonwisS5x
+         wLJZ4yMlcnkhLi1tIYh7NyO8bp6wWUbXa/XZXlSqZPKi8QRukPaGCSSXMwKZktlIhM0N
+         LxFC9jNyFJQWShNEzQmxngG/SW/0FlJ42K5SN/jFxcSkeTLl7+eho4nsEI1SWF//5bR9
+         BCZQ==
+X-Gm-Message-State: AFuF++n7xFZmpO81+ykVr0REQZwDuRwB9PA2zXpmfdi7AwGGqhAmlVwS
+	Tj6f73nmjqyN9tF5pVBty7WCLeXLwP0OdkvLFyt+I5uRNxrMrJB1WqZL
+X-Gm-Gg: AR+sD11OK6UuaARuSHF/22Ee5U81k9/jGJ8AKX5DHErE1mSheohbSiuK4OsW/UV3Gvp
+	y9JacNQGzG/1u8YQ8stB8UsWahL6L1Y7nRi0GnsamK4+5OsyGMC9OmGcZ1OxG9xHNG8T0J9JRh6
+	7fmTORKlSSiCSD9q4QkFLaB/a9j/OzssHK6Ph86CDywx4CHRPnrN/iESxgmDeDkRPV+9iGK1iZV
+	L71kec3p+YTKAtdcsiLihQRqYRnAQvFpmNkRlzD1lwEUW3ABUkbU2fF0z3ji5PQZuFpHOkob46u
+	95vlb7tsHCoji569znsf7HErMy/01bQ+EF4D5n+gL7Fku5elu2HBEAJ+Xq1qRwn6apPhfjVUoSP
+	HLhEZgmlFexA0noq7wO9FUjEh4VMa/AoCxB1Um1cETC0OgSwO01r4U74W6w+gBUftiYNqVwXmON
+	Q4GnrrChiIGrvxcRN3/cPbi3yeIj+fi6ixvsIC/OKD5Up8L9kTzzEpyviV/rTRRZBX0nwWnh+4L
+	0EyfnqS
+X-Received: by 2002:a17:902:e551:b0:2ce:93a3:c168 with SMTP id d9443c01a7336-2d5fd7147cdmr238498905ad.7.1787234177379;
+        Thu, 20 Aug 2026 06:56:17 -0700 (PDT)
+Received: from haichao.tail057a43.ts.net ([2001:da8:e000:1206:85a4:b9cf:b578:4307])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d62e36e1e3sm7476405ad.44.2026.08.20.06.56.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 06:56:16 -0700 (PDT)
+From: Ruoyu Wang <ruoyuw560@gmail.com>
+To: Shuai Xue <xueshuai@linux.alibaba.com>,
+	Jing Zhang <renyu.zj@linux.alibaba.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	Markus Elfring <Markus.Elfring@web.de>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Ruoyu Wang <ruoyuw560@gmail.com>
+Subject: [PATCH v2] perf/dwc_pcie: Fix PCI device reference leak in probe
+Date: Thu, 20 Aug 2026 21:56:11 +0800
+Message-ID: <20260820135611.3901886-1-ruoyuw560@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Date: Thu, 20 Aug 2026 16:50:41 +0300
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Will Deacon" <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Arnd Bergmann" <arnd@arndb.de>, "Eric Biggers" <ebiggers@kernel.org>,
- "Daniel Borkmann" <daniel@iogearbox.net>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Alexei Starovoitov" <ast@kernel.org>, "Oliver Upton" <oupton@kernel.org>,
- "Herbert Xu" <herbert@gondor.apana.org.au>, "Marc Zyngier" <maz@kernel.org>
-Message-Id: <207397b0-07f2-467c-8419-3109a506cc7d@app.fastmail.com>
-In-Reply-To: <aocFEg5JvsjeMXwj@willie-the-truck>
-References: <20260811140132.22778-1-will@kernel.org>
- <20260811140132.22778-7-will@kernel.org>
- <a16ed8a4-28cc-4270-a257-b9268ab9e9ea@app.fastmail.com>
- <aoGGCqMdb8iZvZSM@willie-the-truck> <aob-0tByMtlbIaxQ@willie-the-truck>
- <03208978-a825-4ae5-b47e-3dd6133ecbf0@app.fastmail.com>
- <aocFEg5JvsjeMXwj@willie-the-truck>
-Subject: Re: [PATCH 06/12] arm64: assembler: Remove endianness helper macros
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_065618_909717_86931903 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,57 +102,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+pci_get_domain_bus_and_slot() returns a referenced PCI device. When the
+subsequent RAS DES capability lookup fails, dwc_pcie_pmu_probe() returns
+-ENODEV without releasing that reference. Repeated failed probes can
+therefore keep the PCI device allocated after removal.
 
+Declare the looked-up device with __free(pci_dev_put), so the temporary
+reference is released on every return path. Keeping the reference scoped
+to the whole probe also covers all later uses of the device during
+initialization.
 
-On Thu, 20 Aug 2026, at 16:45, Will Deacon wrote:
-> On Thu, Aug 20, 2026 at 04:27:06PM +0300, Ard Biesheuvel wrote:
->> 
->> On Thu, 20 Aug 2026, at 16:19, Will Deacon wrote:
->> > On Sun, Aug 16, 2026 at 10:42:40AM +0100, Will Deacon wrote:
->> >> On Tue, Aug 11, 2026 at 05:04:43PM +0200, Ard Biesheuvel wrote:
->> >> > On Tue, 11 Aug 2026, at 16:01, Will Deacon wrote:
->> >> > > diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
->> >> > > index 87a822e5c4ca..8951ce693552 100644
->> >> > > --- a/arch/arm64/kernel/head.S
->> >> > > +++ b/arch/arm64/kernel/head.S
->> >> > > @@ -138,8 +138,7 @@ SYM_CODE_START_LOCAL(record_mmu_state)
->> >> > >  	b.ne	0f
->> >> > >  	mrs	x19, sctlr_el2
->> >> > >  0:
->> >> > > -CPU_LE( tbnz	x19, #SCTLR_ELx_EE_SHIFT, 1f	)
->> >> > > -CPU_BE( tbz	x19, #SCTLR_ELx_EE_SHIFT, 1f	)
->> >> > > +	tbnz	x19, #SCTLR_ELx_EE_SHIFT, 1f
->> >> > >  	tst	x19, #SCTLR_ELx_C		// Z := (C == 0)
->> >> > >  	and	x19, x19, #SCTLR_ELx_M		// isolate M bit
->> >> > >  	csel	x19, xzr, x19, eq		// clear x19 if Z
->> >> > 
->> >> > There is some more code that can be removed here - see
->> >> > 2ced0f30a426c7301350681f838344d5aea711e3
->> >> 
->> >> Good spot, thanks! I'll do some more surgery at -rc1.
->> >
->> > Looking at this again, I'm not sure we can remove much here. I think we
->> > probably still want to force little-endian (i.e. clear the EE bit) if
->> > we're entered as big-endian. I've changed the following EOR to a BIC
->> > (see below), but I think that's about all we can do?
->> >
->> 
->> Well, the only case where we allow an active ID map is when doing EFI
->> boot, which is guaranteed to be little-endian. Since the kernel is now
->> also guaranteed to be little-endian, we should be able to simply kick
->> the CPU in LE mode right at the start, no? And simply ignore the case
->> of a BE bootloader entering with the MMU and caches enabled?
->
-> Hmm, so why did we support this in the first place given that EFI is
-> guaranteed to be little-endian? Or was that just because we wanted to
-> handle the case of a big-endian kernel being loaded by EFI?
->
+This issue was found by a static analysis checker and confirmed by manual
+source review.
 
-The original report is here:
-https://lore.kernel.org/linux-arm-kernel/Y9FZsBEu8hSVVIA8@dev-arch.thelio-3990X/
+Fixes: 7f35b429802a ("perf/dwc_pcie: fix duplicate pci_dev devices")
+Suggested-by: Markus Elfring <Markus.Elfring@web.de>
+Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
+---
+Changes in v2:
+- Manage the lookup reference with __free(pci_dev_put).
+- Keep the reference scoped through the complete probe.
 
-So it would probably have been sufficient at the time to just kick
-the CPU into LE mode - I don't remember why I added the additional
-logic tbh.
+Link: https://lore.kernel.org/r/20260814133925.1385687-1-ruoyuw560@gmail.com/
+---
+ drivers/perf/dwc_pcie_pmu.c | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
+index 5385401fa9cf6..0e69bd71c3e61 100644
+--- a/drivers/perf/dwc_pcie_pmu.c
++++ b/drivers/perf/dwc_pcie_pmu.c
+@@ -694,16 +694,16 @@ static struct notifier_block dwc_pcie_pmu_nb = {
+ 
+ static int dwc_pcie_pmu_probe(struct platform_device *plat_dev)
+ {
+-	struct pci_dev *pdev;
++	u32 sbdf = plat_dev->id;
++	struct pci_dev *pdev __free(pci_dev_put) =
++		pci_get_domain_bus_and_slot(sbdf >> 16,
++					    PCI_BUS_NUM(sbdf & 0xffff),
++					    sbdf & 0xff);
+ 	struct dwc_pcie_pmu *pcie_pmu;
+ 	char *name;
+-	u32 sbdf;
+ 	u16 vsec;
+ 	int ret;
+ 
+-	sbdf = plat_dev->id;
+-	pdev = pci_get_domain_bus_and_slot(sbdf >> 16, PCI_BUS_NUM(sbdf & 0xffff),
+-					   sbdf & 0xff);
+ 	if (!pdev) {
+ 		pr_err("No pdev found for the sbdf 0x%x\n", sbdf);
+ 		return -ENODEV;
+@@ -713,7 +713,6 @@ static int dwc_pcie_pmu_probe(struct platform_device *plat_dev)
+ 	if (!vsec)
+ 		return -ENODEV;
+ 
+-	pci_dev_put(pdev);
+ 	name = devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_rootport_%x", sbdf);
+ 	if (!name)
+ 		return -ENOMEM;
+-- 
+2.51.0
 
 
