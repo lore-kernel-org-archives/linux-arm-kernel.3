@@ -4,84 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B000C5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 08:56:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2377C5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 09:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5FzXYhM0M5jzCRYnzBUAIuHT1gsO3TFgi0kl9BxMwWs=; b=Mp5OFotJ0MhgrwlGLEhj+D9px4
-	g9ilBxhc1MCAryDBZ5HDExpu8RdSETl6wDlDZeqrtzvW9DFndKZXWOTOEwoZupcQTQ339bi+58Mgl
-	6nUc3qurfOtGoQKf6TcF7BNrn2O0xGTs0JGdDl+UUJ/zl0qwKSmg4PxRRS4bmd3lBNNodcdgqML4F
-	gAZztgVGu0ALqy6F1iH5xNa74b4ibb+OT3CVNaP1W/m6u1rOndoAjIafJ0Y6z38NMsy9LGQSxRqhN
-	7vcv61vsabPjxySpe2ByUQC2hpfkcCTGUhJu78N424wdQKodfKfhkTSiOaVxUgbp26syFxb0zkovQ
-	Okm1p89A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fzpmYFmR3xRBQWp75KCP75aMVcwBSxfqQwzCsWsaceU=; b=vi+AKjfBTgGkxPNGT66HvsZtp2
+	qjr38lboCHKGnApI6FnIy2cFW7Bdrj6Az7FZl89xk6VEdv48ncpWMFTlH6IT0bt7OtxU17bjAa00M
+	t8otTD+ViaZFZLfB5rwsgfGrvIeOUiw0RI3zcRSI//KSdifSpWz/cjC2LCYqIMvuw/Hex4DDdP78m
+	Zqx1ptdY6lB7kNVluZeQUvsQqAGIlFxCKxTtEWLYNjdRNPvq/6lzw2h4/hI8wubGYWh/Rs2hXpkGQ
+	JlkirXtDMLJP+wt+19FwBF+5RfzCsNeJ2qdF+h1Q88Qj3MVVWJknmcEuIwlixbqXdpWMwerAgkxbJ
+	i/hsDL8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwyZa-0000000BChH-3gGf;
-	Thu, 20 Aug 2026 08:56:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wwyd3-0000000BD7F-0vG0;
+	Thu, 20 Aug 2026 09:00:05 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwyZZ-0000000BCgk-2lKB
+	id 1wwyd1-0000000BD5t-0HgR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 08:56:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8A57B60A5C;
-	Thu, 20 Aug 2026 08:56:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FC6E1F000E9;
-	Thu, 20 Aug 2026 08:56:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787216188;
-	bh=5FzXYhM0M5jzCRYnzBUAIuHT1gsO3TFgi0kl9BxMwWs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=QZOx0RuqO1AZi6vfaxCS69JVJbuy1tnf6htquabluybdKcOrfuInrjhp1abtP0NYG
-	 E2rGsaLsIt40lRQVnkk9yrO4rF2g9TsQmHu+EDSImK7n6rj6MMGpVBKM86AiIy3k9h
-	 u2/6+eHKvjQnxnMgaPP0eDQpfUWCrV86U1x+khHDxGS/RGvsu8U8piw5r8zgJW3cyR
-	 4pCypm+N68+YRg5DSMHfpFaZGQhvMo9SWKDFaDvoTWybpblK0KeZvYtCgSvYg14bCc
-	 r5iG1PMJ22CynDXEiSng2xFl/1JAEO+Bckv2vfT6jQb8jffh6FtGlh6PqFGXnKQxHZ
-	 Uwa/d4OHhAJwg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wwyZW-0000000HDi7-0kgy;
-	Thu, 20 Aug 2026 08:56:26 +0000
-Date: Thu, 20 Aug 2026 09:58:57 +0100
-Message-ID: <874igpp3qm.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Eric Auger <eric.auger@redhat.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
+	Thu, 20 Aug 2026 09:00:04 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-49978908b35so14094115e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 02:00:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787216401; x=1787821201; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fzpmYFmR3xRBQWp75KCP75aMVcwBSxfqQwzCsWsaceU=;
+        b=ims6RbZ7ZpY8hVxez1zhZHhom3Ld00Mcj2N96Uk2T3N8TMXg/m2WMGBLfvnraxxG48
+         TqT8xBmruiYDJvzsDPdgERTDdjDmMoF6LiV26gW2tJdlk852Mro51Nnx9cdgshNNWqZh
+         Ny6TmWNLqXJJJUu4nVCcnRyEQs7ipF0rmNDc9a4AoPnFi6xCxJ88usNqMEXCQMp2myD7
+         wm02e9SbXau3lD7hn2Qa/Rl6GXn1YW8pytvVXvELsYtbHkXra7+3LGulFdU2vQ97P1N0
+         xycYeslQZ8+DK5U+JTHwf2l2gDE6XLviTaW5TYFqLhrY0tKy11v+1gMHjaf78qTKIpM3
+         MeEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787216401; x=1787821201;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fzpmYFmR3xRBQWp75KCP75aMVcwBSxfqQwzCsWsaceU=;
+        b=gKmNJnSGzlDcUOrY1A3TLrUdkoxCh0CitRyYRMiRD1vdLBRKIKK6pzS1YshjfcPZb1
+         LnLfJ7jc8y/3UWAbQjyskPsRxtaIUlAVgFVy4HyOcpsav6AmE+6g0KfvgABm47P24FDk
+         JZ5v7HK6J4FQXpyXluiAHY7cDBGwbKGGtxycBpubNvloJ4hw4x9eOFyyuYjkWhF0OT9d
+         ngQ8IrQs3TSG7Og02DcQ4tp6kNnDDP7ft7Lb8Cvq2wW8P2JHn6FqNJwsyfsIzQEzpcI5
+         40zmy6yVqt+HcB5RnxW+1EipdaXgBEDHlSXNv6ha/SieNE3BSfW5Bk3PPIlwX6m4B1f3
+         XXXQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoRt3gyhZiemtgJETNdjQxeGlczKxCwebnAiYzs+U7gmmOXJvAMMvSNQKK42xnAnMeYAQdubOvvr9dw4wL04yg8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAVI2wLmVUsF9+mDKfxzQVTHjvpednWuTUabiZeNd2778zcKW+
+	aD6df0E79YOqwoOYOVShI0dS1amrYKJaK6tZaN8799G87PLPGNBRLuEm
+X-Gm-Gg: AR+sD12O5jzo4gWvFWhXq5h7QG9FGnu0YBpxXhiVB1nTK+tzQ7Z7UIu0bhnyuSP4k92
+	8NF/XNl4Cr7J7qaN22KfCuZ+K7ioh5B7kopKOKxyCsSAAVacvj2gRe8kmqLci1MKngHs/zR+Df9
+	+inf9WBPF6f8cBTNy52PO5Cc1aZg69WY3SwjddQgIbJG+2qj7Byde3JN/pqcZJBjqqvhSGIqtnM
+	0WA8dY6WA0F/FF9CNwycPkptYUcGLkBYxqnaZvOUWjUFK7rRySlu+nH4oKXLNZXIG61DZ6/a/MA
+	0TtF17ts/v6CL5sAhaXFuTXqEHwi1IrixLBeY5newS8GGgkM16zJz2bWU2RRm0JtM0lHsPWaFwO
+	ASeXKbo5Rb3hDZM04OhoYXmSV352kuoK9S987Tf0/4X4Q/QMwCDvQWTuHKs5YvfHt42f9FFumMN
+	cXkcj63vMldISogH2L3Gm2nq8fGcb2fKYXbldoDTlPupXQ5PF6vgy8aEZAso2A7LgtZYjL7kjb5
+	vTrL+a+N0M+5Tr67Z3sec14EQbx07n6leNzliP5OOk=
+X-Received: by 2002:a05:600c:a30f:b0:499:b01e:911c with SMTP id 5b1f17b1804b1-499b01e9125mr80109845e9.2.1787216401010;
+        Thu, 20 Aug 2026 02:00:01 -0700 (PDT)
+Received: from fedora ([46.205.218.68])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499aa1111b2sm176837215e9.5.2026.08.20.01.59.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 02:00:00 -0700 (PDT)
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+To: netdev@vger.kernel.org
+Cc: linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 3/5] KVM: arm64: vgic-v3: Unregister redistributors before freeing regions
-In-Reply-To: <20260819224229.82948-4-kmehltretter@gmail.com>
-References: <20260819224229.82948-1-kmehltretter@gmail.com>
-	<20260819224229.82948-4-kmehltretter@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, oupton@kernel.org, kvmarm@lists.linux.dev, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, eric.auger@redhat.com, christoffer.dall@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	kuba@kernel.org,
+	lorenzo@kernel.org,
+	nbd@nbd.name,
+	sean.wang@mediatek.com,
+	Mark-MC.Lee@mediatek.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	andrew+netdev@lunn.ch,
+	yangshiji66@outlook.com,
+	Daniel Pawlik <pawlik.dan@gmail.com>
+Subject: [PATCH v10 1/2] net: airoha: npu: fix missing streaming DMA mask
+Date: Thu, 20 Aug 2026 10:59:40 +0200
+Message-ID: <20260820085941.380401-1-pawlik.dan@gmail.com>
+X-Mailer: git-send-email 2.55.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_020003_132489_2E262DBD 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,62 +107,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Aug 2026 23:42:27 +0100,
-Karl Mehltretter <kmehltretter@gmail.com> wrote:
-> 
-> vgic_unregister_redist_iodev() uses rdreg to return its region slot. During
-> VM teardown, kvm_vgic_destroy() frees the regions before unregistering
-> their iodevs, so vgic_v3_free_redist_region() must first clear every rdreg
-> pointer.
-> 
-> Unregister the iodevs before kvm_vgic_dist_destroy(), while the regions are
-> still alive. Temporarily drop config_lock because
-> vgic_unregister_redist_iodev() takes it; slots_lock remains held for the
-> MMIO bus updates. The region destructor no longer needs the vCPU scan.
-> 
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Assisted-by: Codex:gpt-5.6-sol
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-init.c    | 11 +++++++----
->  arch/arm64/kvm/vgic/vgic-mmio-v3.c |  9 ---------
->  2 files changed, 7 insertions(+), 13 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-> index 0a3df6d3a691..df6d0bdda4a9 100644
-> --- a/arch/arm64/kvm/vgic/vgic-init.c
-> +++ b/arch/arm64/kvm/vgic/vgic-init.c
-> @@ -570,14 +570,17 @@ void kvm_vgic_destroy(struct kvm *kvm)
->  	kvm_for_each_vcpu(i, vcpu, kvm)
->  		__kvm_vgic_vcpu_destroy(vcpu);
->  
-> +	if (kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3) {
-> +		mutex_unlock(&kvm->arch.config_lock);
-> +		kvm_for_each_vcpu(i, vcpu, kvm)
-> +			vgic_unregister_redist_iodev(vcpu);
-> +		mutex_lock(&kvm->arch.config_lock);
-> +	}
+The driver calls dma_set_coherent_mask() but never dma_set_mask(),
+leaving the streaming DMA mask at the bus default. On the non-coherent
+EN7581 platform (Cortex-A53), this causes the NPU mailbox to hang
+after approximately 41 calls when using streaming DMA mappings.
 
-This really is awful. It'd be easy enough to have an "already locked"
-primitive (__vgic_unassign_redist_iodev()) that doesn't take the
-config_lock, and simply write this as:
+Replace dma_set_coherent_mask() with dma_set_mask_and_coherent() to
+set both the streaming and coherent DMA masks, matching standard
+driver practice.
 
-	kvm_for_each_vcpu(i, vcpu, kvm) {
-	 	struct vgic_io_device *rd_dev = &vcpu->arch.vgic_cpu.rd_iodev;
- 		kvm_io_bus_unregister_dev(vcpu->kvm, KVM_MMIO_BUS, &rd_dev->dev);
-		__vgic_unassign_redist_iodev(vcpu);
-	}
+Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buffer")
+Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260814110017.2795022-1-pawlik.dan@gmail.com/
+Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260809152813.585797-1-pawlik.dan@gmail.com/
+Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260805070851.2885888-1-pawlik.dan@gmail.com/
+Assisted-by: Claude:claude-opus-4-6
+Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
+---
+ drivers/net/ethernet/airoha/airoha_npu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-or another variation on the same theme.
-
-The other bit of interest is in __kvm_vgic_vcpu_destroy(), and its
-conditional removal of the RD iodevs. Can't we just get rid of this
-whole block altogether now that we have a saner failing path?
-
-Thanks,
-
-	M.
-
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index b679bed952de..4045d1eb93ea 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -766,7 +766,7 @@ static int airoha_npu_probe(struct platform_device *pdev)
+ 		npu->irqs[i] = irq;
+ 	}
+ 
+-	err = dma_set_coherent_mask(dev, DMA_BIT_MASK(32));
++	err = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(32));
+ 	if (err)
+ 		return err;
+ 
 -- 
-Jazz isn't dead. It just smells funny.
+2.55.0
+
 
