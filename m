@@ -4,107 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7141DC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 14:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B7F0C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 14:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lJJqE3C2iXtPBNknHKNv4iXCtSrGvyYkmwAnF5qoM5A=; b=EqLPtN9rDi53fSYjNxeGsQvTpR
-	loAdM5KTYYKyuNkaNSInld5u8hAkhjD2K9Y4AJzen7HEnmLCYPH7NX0qKc20Ognz9qJJcDZCiRZgD
-	e+0PshFzNQcT/LNX6Oe/F0a3fglcwkSiHRr06Cea8I3vmzMizWIyHMWQTPGYiUkTi/HBduKaHTgfV
-	dd0ixRpn+r46MzlqfBzG9Kz1wdvbzq1m169BenjIVDIxti+b7Pculk4wLDfNo8mSfqXgA7ZO0xbdj
-	1+CXxJF8Eo4564+hH/Uii9MZKeK5qonlCHwP6O5XEeugHT/xhRkMiANDmoUCvxkY9ZxAipOJBTfUf
-	qRzDW4dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:MIME-Version:References:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DUkDVcYI4HfaofmyfTGhbY62rHBJbTNNeZrIZ8FEwOY=; b=G6mWPtJ6BSddnqFOZLENviUSzc
+	IKmsBWUyVk+SetI9b4N6b5UEHDS+bbbgiUnjLYl4hQmgqGBh+BF0khOwQBVUkZrenVNffVK/8LZ4A
+	RPRF60DQTXXDIr6B/rmI4F+XEZ8JRUsUhWYUcyxBTqu7B7QNZmhG0P637VowWiMdEkmvoJhamoxCj
+	qZXDzd6ot4H0hR50kygTiB3dZuObyFPB1tY39S6Obbi/mclTLTDvUpA8QEEDXIi5+4rNjVSwMwhKs
+	XcKh8VPHvVpGS2P4Tc6K3mkoOQqjZFl8Z3bVchbSE49kDvMNUlolohSm7ufJjPxT1PaRV9fuuP8Tz
+	xeFDpBhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx46X-0000000BkHm-0GI9;
-	Thu, 20 Aug 2026 14:50:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wx4Do-0000000Bkph-30X2;
+	Thu, 20 Aug 2026 14:58:24 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx46W-0000000BkHM-0ea8
+	id 1wx4Dm-0000000Bkoq-1azL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 14:50:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E59A741AB3;
-	Thu, 20 Aug 2026 14:50:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F8A11F00A3A;
-	Thu, 20 Aug 2026 14:50:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787237451;
-	bh=lJJqE3C2iXtPBNknHKNv4iXCtSrGvyYkmwAnF5qoM5A=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=G9ktUqaey9jA7+qqZPtGfPq+0WyXMBZRtkpI4ZIT0dzp9YfddLFwbj5LWM/UC69iX
-	 lseDhUs7yi/GP1yiGGUaUX0iqIk8190js1E3yv5XzEENsm/Yc1BchLPT9tHetQcZ3W
-	 TL6lqwcm/sfSO62Z1z6wN8LD3SG5iQc2q8TWU6hvMoBUA6x3w9uVXHHtLx6ZqtE/QA
-	 oQwllx3qcTv1ONxUPhnP5uEt1NiBUAJAUSgz1j0hGR06fItfU3A1kvsrsnZYz36Mps
-	 c0ybKx6wkkdqQGB+PHGOUk93Y3bC7uXg+5S2NVT2HRxpg97q07dpME8TZ5bH2czW8v
-	 OBTmYDAgekxGQ==
-Message-ID: <3ae8e5d0-4677-48de-bd2a-3315f99650c2@kernel.org>
-Date: Thu, 20 Aug 2026 16:50:44 +0200
+	Thu, 20 Aug 2026 14:58:23 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-8efbafa1bacso15692506d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 07:58:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787237901; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ikJHN61RFc39qVfCQzF5CW8hPzyT5NXsNAPjyQ+74WFA68EeINBY/N70riUiDwA1sZ
+         dBZdUyO78/D0wDZIt3bYA9UC8eIZHadsujYemb7Lh0kq0yKp0hsU6yLJc2vXCtYrcWNf
+         SdcNlF+UzD+dkIHFKnTit2+YZTegaKu7/BxB7qDBoYinf+BchBKcKt+4n0Mzok8WJL09
+         jcpf0VCQqq+WyfdNM5tnqgBICnFmzecd35HtFZ4joKPmrzGLfy0K1Zy27Z20q0/eowNO
+         Hki4BzNUYYGhUdh3DpY7wRXjgmjACETs1LYNhx3Y/m+8k49gyXVBZKx6AhCvEE5YDCMi
+         yvgQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:dkim-signature;
+        bh=DUkDVcYI4HfaofmyfTGhbY62rHBJbTNNeZrIZ8FEwOY=;
+        fh=5Co0yuK+OLRMlXkoKJ/Z2EcewTY2kDGjn8XO/IvNOZ4=;
+        b=cXMn0xZt0JTaQ/uYu7fTU8RTCNhezCQX+xRBfktrMaREEVBG4fenAbkUrGtCPjy5aq
+         zcsQbk2ElylURosPFgyqhY8tDHDSPWyTFBLPvByAwZK+7zxgR6EgHVhG/T0gz5OjTjiv
+         We/qU1sZxSIS11UpsIWmJuHv9jtGRfqZkIwbF9Z1TZsMYjzJzesj4Z1z/RJsrw6u3YsJ
+         3A90bAaZXapX/zFq/gWXRQ1H8cFs+x+J5S5jSE7dQG+2onBKpLq8DvzRwXY/zZNqsVhp
+         7bYVUzDjh46wHjRSJ3eTk2epCUiydiFKXX2tXDfHa55VTppXkU/24ZQPo9yWXEH6OG1b
+         ATiA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1787237901; x=1787842701; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DUkDVcYI4HfaofmyfTGhbY62rHBJbTNNeZrIZ8FEwOY=;
+        b=vXsy2XXtvMIvJbpMgACgOM+PrepbPz8iLzY9VfXfG8NSKbdAjRmH0jMTLu6YR2adKj
+         82hGdD8kfrlzs/EGRNpskkPHeKVbq3DxuLdKxAr5KDjRw6BVBCL/mPEeGdfidJDRxoiT
+         txZ/p3gr/MOs7rVUMFj09WiplUBCj8Ha7j8Giz/dP7Qca9DwEdBO3EqVUtW+2AJnbQBy
+         DeRXY5UCZjtJrtg4rGeWe8M4gatDo7dOTbwCScWwMbU6MluQHfIGkfEkdvYuxvodVH+e
+         EdSCfmnV3/+pxnq4PD/NC7XFiJJ3OmXA5ErIm6WHsx0b7ftCGM6h0oziT9ZkwCK77vJ9
+         nZHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787237901; x=1787842701;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=DUkDVcYI4HfaofmyfTGhbY62rHBJbTNNeZrIZ8FEwOY=;
+        b=QnF31EyqfmzPKWMyrRfVQohfeu5wMBOK4+neKOXPdTC7WEfe1wr2Xz2F4OplJ48tUn
+         S/dipQRfSbvviajw5kEebCJ36rktPv22oGVEn6343skWZzCH/w4XqiK3SIiswQXaCuWk
+         Vic7U5CjwCNxYdETDDPlO2SXOdsZP4xcevVAZjRatKOBUN7/JsD8240G9fncLRp1db6/
+         1+9XwKd7ypeY6p4NLpeWfM/S+xm9TCvCWyKzEPY6yr8HJl3wBa6YlLcYQYRPsMuRLiBo
+         F+QG0nNZN5iejxNHvpp72hWN6ypJdKJqoPNCgrRca2gUoJr7s+i/p48RW6lUOT6wAoNU
+         nx+g==
+X-Forwarded-Encrypted: i=1; AHgh+RpkW7WU5AZjKqeEQWXOqITKYs0mBcMjMrJ8hglUdEvk4KvcI7rVBU/uRijqJWW821M+RJ6Olsr6RAa5piOdR0xg@lists.infradead.org
+X-Gm-Message-State: AFuF++n1ovK+dnFPkyUsg3AWBohx9PP9DMeKHWKPNMPMqxaccabC5Val
+	6vjVZpYwU8h+TMUdaE0E1J9bMab0Yd9BHeoorgH+iGZqw9tbpB+2aUVdTj+K3RmSHmLd8s3IoHG
+	kUHFD5DIcBizRC/WEljoatYzhh5HwNzUy7Acpw7aj
+X-Gm-Gg: AR+sD113Ov7X90Am0yO9Pzqj5n/T9EsowZEoyfRAuT1lbVOF/lU0kWOCbpRblJsfmnG
+	DguK27Q2XIJb4kport8FJZCgP7lQlbGImAHAa933E5YLW59ELC2hFnktUufpvTA1kBgrHlpJBDe
+	nW+jxPT9o44SIhBNrSlIXN6CvUiah9x5adoHXzGEKyFqD//7HGa89n2XZqzwmxxrmw+LP+SjYHs
+	PyMobp7Iv4DTPoj1b9SlpZaq0Aga+dYXtljyPY7qEsMCKidQUodUbyPLm3Ub7y+L+zkwHAvSFHD
+	ffjCZY6AXpCi0B0ncEVldj2jd8BTX3T4CYKXpnv9Eb+aYP00cEbnLCKRYVhLUSguCc4/PY1QPxu
+	Dt7Q=
+X-Received: by 2002:a05:6214:2581:b0:90c:5613:6207 with SMTP id
+ 6a1803df08f44-90c5e98f815mr117797396d6.24.1787237900361; Thu, 20 Aug 2026
+ 07:58:20 -0700 (PDT)
+Received: from 176938342045 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 20 Aug 2026 07:58:19 -0700
+Received: from 176938342045 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 20 Aug 2026 07:58:19 -0700
+From: Ackerley Tng <ackerleytng@google.com>
+In-Reply-To: <j6bfvbzjivlcsu3slbnaoomxxqyypmfl2bupo3k5ipnt6fc5lo@e5ntbx7yd4qw>
+References: <20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com>
+ <20260818-gmem-no-return-page-v2-2-5298f42d49bb@google.com> <j6bfvbzjivlcsu3slbnaoomxxqyypmfl2bupo3k5ipnt6fc5lo@e5ntbx7yd4qw>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH] dmaengine: ste_dma40: fix autosuspend cleanup on probe
- failure
-To: Guangshuo Li <lgs201920130244@gmail.com>,
- Linus Walleij <linusw@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Frank Li <Frank.Li@kernel.org>,
- Srinidh Kasagar <srinidhi.kasagar@stericsson.com>,
- Andrew Morton <akpm@linux-foundation.org>, Dan Williams <djbw@kernel.org>,
- linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-References: <20260808105657.2762974-1-lgs201920130244@gmail.com>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260808105657.2762974-1-lgs201920130244@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Thu, 20 Aug 2026 07:58:19 -0700
+X-Gm-Features: AcwNN1XCQ9iGI8G_VElrXcpcztiRZm0WAx2RfffvtaTy6EWJh0KRIqLKvmaMqec
+Message-ID: <CAEvNRgEruoa4d_8Y1MpkdzbHg3j1Yv=-Y6w6Yy=v6mJgPajjWw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] KVM: SEV: Drop page refcount early during RMP
+ fault handling
+To: Michael Roth <michael.roth@amd.com>
+Cc: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Ashish Kalra <ashish.kalra@amd.com>, 
+	Brijesh Singh <brijesh.singh@amd.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	David Hildenbrand <david@kernel.org>, Fuad Tabba <tabba@google.com>, Yan Zhao <yan.y.zhao@intel.com>, 
+	"Edgecombe, Rick P" <rick.p.edgecombe@intel.com>, Vishal Annapurve <vannapurve@google.com>, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_075822_442680_A842812F 
+X-CRM114-Status: GOOD (  26.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,34 +132,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/08/2026 12:56, Guangshuo Li wrote:
-> d40_probe() calls pm_runtime_use_autosuspend(), but its error path does
-> not call the matching pm_runtime_dont_use_autosuspend() before
-> disabling runtime PM.
-> 
-> If the autosuspend delay is set to a negative value while autosuspend
-> is enabled, the runtime PM core increments usage_count to prevent
-> runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
-> during cleanup, this reference is not dropped and usage_count remains
-> unbalanced.
-> 
-> Add the missing pm_runtime_dont_use_autosuspend() call to the probe
-> failure path before disabling runtime PM.
-> 
-> This issue was found by manual code inspection.
-> 
-> Fixes: 8d318a50b3d7 ("DMAENGINE: Support for ST-Ericssons DMA40 block v3")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+Michael Roth <michael.roth@amd.com> writes:
 
-You sent vast amount of patches, all separate, making it very difficult
-to track and respond in efficient way. Do not do that.
+> On Tue, Aug 18, 2026 at 09:15:53AM +0000, Ackerley Tng wrote:
+>> From: Sean Christopherson <seanjc@google.com>
+>>
+>> When handling an RMP fault, KVM retrieves the PFN for a private GPA from
+>> guest_memfd.
+>>
+>> Drop the page reference immediately after retrieving the PFN instead of
+>> holding it across the entire handler so that the later patch can follow up
+>> with completely not returning refcounted pages from kvm_gmem_get_pfn().
+>
+> Regarding this point:
+>
+>>
+>> On a first look, existing RMP table handling (psmash and checking for
+>> errors) might seem like it works fine, since truncation of the page from
+>> guest_memfd would have called rmp_make_shared() and removed the PFN from
+>> the RMP table. However, that is insufficient since a freed page may already
+>> be used in a different SNP VM.
+>
+> In the code this patch is applied on top of, I think the kvm_gmem_get_pfn()
+> ref is enough to avoid the reused-by-another-SNP-VM scenario until after
+> caller releases the ref, so I think the above explanation should be adjusted
+> to also be preparatory for "the later patch".
+>
 
-Group your work per subsystem.
+I think this sequence of events is possible:
 
-You were asked to clarify and respond to incorrect fixes statement. I do
-not see how you clarified and responded at all.
+CPU 0: sev_handle_rmp_fault()
+CPU 0:   kvm_gmem_get_pfn()
+CPU 0:     filemap_invalidate_lock()
+CPU 0:     refcount++
+CPU 0:     filemap_invalidate_unlock()
+CPU 0:     refcount-- <<== because kvm_release_page_unused(page);
 
-Best regards,
-Krzysztof
+CPU 1: truncate()
+CPU 1:   filemap_invalidate_lock()
+CPU 1:   refcount--
+CPU 1:     kvm_gmem_free_folio()
+CPU 1:       sev_gmem_make_shared()
+CPU 1:     folio is freed
+CPU 1:   filemap_invalidate_unlock()
+
+CPU 2: in some other SNP VM,
+CPU 2: kvm_gmem_get_pfn() gets the freed folio
+CPU 2:   sev_gmem_make_private()
+
+CPU 0:   snp_lookup_rmpentry(pfn, &assigned, &rmp_level);
+           <<== it's assigned but to some other SNP VM
+CPU 0:   snp_rmptable_psmash(pfn);
+           <<== this psmash would be smashing in some other SNP VM
+
+And hence I think we do need to check for invalidations using the MMU
+invalidation protocol.
+
+> Other than that:
+>
+> Reviewed-by: Michael Roth <michael.roth@amd.com>
+>
+>>
+>> Hence, adopt the MMU invalidation protocol to guard committing anything
+>> based on the PFN.
+>>
+>> Signed-off-by: Sean Christopherson <seanjc@google.com>
+>> Signed-off-by: Ackerley Tng <ackerleytng@google.com>
+>> ---
+>>  arch/x86/kvm/svm/sev.c | 39 ++++++++++++++++++++++++---------------
+>>  1 file changed, 24 insertions(+), 15 deletions(-)
+>>
+>> diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
+>> index b2738362a928b..b34b11d7f8fad 100644
+>> --- a/arch/x86/kvm/svm/sev.c
+>> +++ b/arch/x86/kvm/svm/sev.c
+>> @@ -5003,6 +5003,7 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+>>  	struct kvm_memory_slot *slot;
+>>  	struct kvm *kvm = vcpu->kvm;
+>>  	int order, rmp_level, ret;
+>> +	unsigned long mmu_seq;
+>>  	struct page *page;
+>>  	bool assigned;
+>>  	kvm_pfn_t pfn;
+>> @@ -5030,18 +5031,22 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+>>  		return;
+>>  	}
+>>
+>> +	mmu_seq = kvm->mmu_invalidate_seq;
+>> +	smp_rmb();
+>> +
+>>  	ret = kvm_gmem_get_pfn(kvm, slot, gfn, &pfn, &page, &order);
+>>  	if (ret) {
+>>  		pr_warn_ratelimited("SEV: Unexpected RMP fault, no backing page for private GPA 0x%llx\n",
+>>  				    gpa);
+>>  		return;
+>>  	}
+>> +	kvm_release_page_unused(page);
+>>
+>>  	ret = snp_lookup_rmpentry(pfn, &assigned, &rmp_level);
+>>  	if (ret || !assigned) {
+>>  		pr_warn_ratelimited("SEV: Unexpected RMP fault, no assigned RMP entry found for GPA 0x%llx PFN 0x%llx error %d\n",
+>>  				    gpa, pfn, ret);
+>> -		goto out_no_trace;
+>> +		return;
+>>  	}
+>>
+>>  	/*
+>> @@ -5069,27 +5074,31 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+>>  	if (rmp_level == PG_LEVEL_4K)
+>>  		goto out;
+>>
+>> -	ret = snp_rmptable_psmash(pfn);
+>> -	if (ret) {
+>> -		/*
+>> -		 * Look it up again. If it's 4K now then the PSMASH may have
+>> -		 * raced with another process and the issue has already resolved
+>> -		 * itself. If it's not assigned, then this must have raced with
+>> -		 * another process that made this page shared.
+>> -		 */
+>> -		if (!snp_lookup_rmpentry(pfn, &assigned, &rmp_level) &&
+>> -		    ((assigned && rmp_level == PG_LEVEL_4K) || !assigned))
+>> +	scoped_guard(read_lock, &kvm->mmu_lock) {
+>> +		if (mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn))
+>>  			goto out;
+>>
+>> -		pr_warn_ratelimited("SEV: Unable to split RMP entry for GPA 0x%llx PFN 0x%llx ret %d\n",
+>> -				    gpa, pfn, ret);
+>> +		ret = snp_rmptable_psmash(pfn);
+>> +		if (ret) {
+>> +			/*
+>> +			 * Look it up again. If it's 4K now then the PSMASH may
+>> +			 * have raced with another process and the issue has
+>> +			 * already resolved itself. If it's not assigned, then
+>> +			 * this must have raced with another process that made
+>> +			 * this page shared.
+>> +			 */
+>> +			if (!snp_lookup_rmpentry(pfn, &assigned, &rmp_level) &&
+>> +			    ((assigned && rmp_level == PG_LEVEL_4K) || !assigned))
+>> +				goto out;
+>> +
+>> +			pr_warn_ratelimited("SEV: Unable to split RMP entry for GPA 0x%llx PFN 0x%llx ret %d\n",
+>> +					    gpa, pfn, ret);
+>> +		}
+>>  	}
+>>
+>>  	kvm_zap_gfn_range(kvm, gfn, gfn + PTRS_PER_PMD);
+>>  out:
+>>  	trace_kvm_rmp_fault(vcpu, gpa, pfn, error_code, rmp_level, ret);
+>> -out_no_trace:
+>> -	kvm_release_page_unused(page);
+>>  }
+>>
+>>  static bool is_pfn_range_shared(kvm_pfn_t start, kvm_pfn_t end)
+>>
+>> --
+>> 2.55.0.699.gb54405d56f-goog
+>>
 
