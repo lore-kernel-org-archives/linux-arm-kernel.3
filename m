@@ -4,136 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCE56C5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 19:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383C3C5DF86
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 20:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gbJ+FmOGmDzb9CCf6V3nGKJG3Pm04UC3Lj/S2Ts4X5Q=; b=y+LZo+3zXEwNQQI1L0epsjfuMr
-	Jzjjko5ZAumyEcRSr3pwNCrsrokwvAdLgtXehdxmGEIXnIZq2o491h25v/7DPXLfkvQUmb9rLyqk3
-	J7poaqXxmZ4KWRIhMdM+hJOOM3eUHt12dIFPJCI98UpwMGygDFyOtVJXsXYTAeJWWCL5ewkqOe0ND
-	wv1cDUfJnJ32QWoC0qxfOMxLpWJ/lwUPnkGiavb1AupTMH+lbbsOW3for5H8al9Mmd7YmmXcD9CFV
-	1IvXihxufSvSbDNAtEWjN1IrOxvB1kHAqz7EhAtRXCTnkMVfewWKDhYY/aHVW6lxYd83kdAglBQ/u
-	Xq6rrDMQ==;
+	bh=juNQ1Ri6l95QwdEXhHnYdn7aFisOSy5EEtGzSyCI12U=; b=l2VXacyOTVKmDmOn0FXW/4um26
+	73dKIuVTgz6Sgzz8QzX7agFhRVQ0+msZHaVQKk5PVOL0sYpRkp2jaMGzYuzG1yATtromU6q6v2Ujr
+	9XwhP6gKFVP51VL5ySUS9+24R/7v/QjMsK0RTFWR/yZXZoKnVi/gu7uw4+cIBfZx70PL0X19epe5X
+	NH+yD/kYvt2IhprsnDfbfJvTOGRwYiLrVvocU9vg1DFe+Jftpt7yB1YHxqduVbBVevxnhTEfx/8kN
+	swFE0MEJtPunaKga62hH0VxsW3MMy627/NCfwoXxrAu41W+uLDS3Wzlqs9eW/zaISkMQ2M620g9XE
+	G3lr6KEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx8l7-0000000C8h6-1WPH;
-	Thu, 20 Aug 2026 19:49:05 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wx9Dl-0000000C9yK-0wfa;
+	Thu, 20 Aug 2026 20:18:41 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx8l3-0000000C8fA-2hwp
+	id 1wx9Dh-0000000C9xO-1zgv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 19:49:02 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67KIIttA3705818
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 19:49:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=gbJ+FmOGmDz
-	b9CCf6V3nGKJG3Pm04UC3Lj/S2Ts4X5Q=; b=C3O/WUVIys4ElKd4LJDGfaih8am
-	CMM4C5GhUxPMgEVmQHnGmtChtz6W9H1+0BzjPj8WFolQKvn1EyoiTw9luB1CodGd
-	cqF5E/RX5CyEyqkKEHkZLzMlQ/s+RBH+rSf+ktOBKxwTRx082kHzxg1ZiCepKQ6d
-	7/mM906fhyR9D+f5ql5NNNWsnJzco4NDlUtdCA5vTAHRCElDYMhFuAo0AIPj9BBH
-	GXZiTYo0qXri8xXVMWGuXtnwKKJNSruEMUhu3MFFKA57gC1CPCm7FKgdj/eOgBvP
-	ihtOAjiCkF46+7wNxCxXWO/BbxnRj1Ala3KN0UBpzdFxL42NGu6Aiq+I/BA==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g5vh7ufqx-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 19:49:01 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-930b571432fso19193385a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 12:49:00 -0700 (PDT)
+	Thu, 20 Aug 2026 20:18:40 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c1c52d920b8so38304066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 13:18:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787257115; cv=none;
+        d=google.com; s=arc-20260327;
+        b=qkRYDGvimXnDPrrUjNuxJn8Yd0MH5qvJIjlCw+RKImwdkzMl2Ide5IGWITnX5X0dCV
+         bSdsDIrnvyaClKRd+whgHpHLe0tim6k0Ui/AB8DdEHh5SkUwyrkXCnbIVgWEK0QNgORO
+         kc7E/qC1ZYOajbuugMF5biwXxcryWS9hrMp+kcun3bmBwkTfWJaR+TV6hLjeeJmHS4LF
+         XpLdFQ0PztxDPDuyB2RjxOZInDhEK13/lhOkNTUOZwaadu7c7W6mYCfkE3YusGC5ykVe
+         cozobcYTy/DYCH5yACrlZY6b4mnJjuo+23BOcPXT0Pl1XmULWyaOY5NkBlU/Rr6GkKhu
+         oF3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=juNQ1Ri6l95QwdEXhHnYdn7aFisOSy5EEtGzSyCI12U=;
+        fh=ajG1wS7DZUmzqqn98fbjx9YeIUo4pjiyDWtHNBA0EfE=;
+        b=ROP9l9Bn32iBsnZDpW6oEwg1kTnN94EX+mmjz2MvHURoxI6PPV4ktDKwHYCztPGn3n
+         5iRVd55x3gSkGPKaxjbB2rKda/MaoPFWWf+0RQrq7rQWj8O/VjZGoJEyyVtV6sLqje6J
+         Ftj8GCNuQeHD8zZXREu8M/e64fBvTeymvHcsYZ/oWyyUZ7H3ho4GM+9dL4+Gg03m9cJo
+         mRgwEwFBnPeOQV2m0SK0mxEDPpTmf/HpgRti1canFzh+WFeUfWg8I+sAlqj/BUeerTP8
+         IWv9ok7sRdxHeDwaAdmFHs2TXaaBaoEs2cARbAaWFvKPqmHRXBvfgB24ZAOqzDiOcmEM
+         BnXA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787255340; x=1787860140; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gbJ+FmOGmDzb9CCf6V3nGKJG3Pm04UC3Lj/S2Ts4X5Q=;
-        b=J+wA1TRH1ZRI/RNYMcpdx4IvJ9qO29R5M0ohgr98m+ozs3RY4vNZCaOsm1UHZZbrGl
-         NEvrXqPPiZ1104aEzw6Tg5oAdbXAZe+XjCQZ+GLmoBojN2tonaxS0+Wee5PZ/lmCtS3L
-         TxJGuybldqo5pkluwGyhKirFwggMcm1tkLKxWP4Ho3lMrQgsS80NFZFm7sO7g5M3uRbg
-         SiAmDvvbkGKV9PRznbUMZv56YlEUYfEkSAnajtsbmHZ7HclY2QdHW8gDqr1tkpLPL06B
-         Y+2V5qd2yAVkV+Y/e2dIirCNR0BTueEJP0EVVCUb4zr0/yjMQTkpKQnlhjr3hE/VNqYe
-         J6rQ==
+        d=gmail.com; s=20251104; t=1787257115; x=1787861915; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=juNQ1Ri6l95QwdEXhHnYdn7aFisOSy5EEtGzSyCI12U=;
+        b=eOI2b3YszeE/+KTuZSi2/decbn089dzgnz/6ToKDi6za3UvK+TxW26COpXGGa6mk5f
+         lNwz6/YtiapoK5SNpgYbvqdynkPGehmr2TlsR07AgbSgjtJFGa4DPs0a8UBJ1uMOPmuY
+         0/Isc2Wmmuxpv9aPImA01f0LMHmYXMQ8DmCIgasJm7vy+91WMtNjoyIqyQ2lPPo0asSZ
+         B4DYwZ3CQ/DmaY13BLIPtwsWIdTbEBRTygABQLJzbmWl1AJD3eVDe7VoIcO0mLrYuyel
+         ZKZUIVyi2V03/vDnhccwciyeZ6siAui/gHclDw/eDrscq7IapOj7OdZwiJIkyenlg2h3
+         9EIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787255340; x=1787860140;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gbJ+FmOGmDzb9CCf6V3nGKJG3Pm04UC3Lj/S2Ts4X5Q=;
-        b=j1JPn42YrlQoPPHx8gai7Lg+XNp0fRCxd8C7dM45txIifmqYFSGWIjESinTXzHB7Py
-         +pYcy9Gs2b+1659yNK8tjTlCIlz3PxZGuL0DEbb9nLmZpGol43MV1kd6/PEtmeqiui9n
-         sS6KrINnNoE3+QxkD8QIeSkPCt1YWhCZgy+0S/w9lEJWOsx4AS5kA63gAyDaO5mspFdQ
-         dKdNngKA6oUPTvuLgpyuwCuSTAiIrPGiJ7EdzjYq4HFQLglrSGCOz6yKuCLsYoMM4z5x
-         vFkxq+JUlad8r2PUMJeUqg3ZZ0G1kG13SJ6E2me1KJW2dJDkLSaxQmPvOtcg3yGj8bKA
-         mL3Q==
-X-Forwarded-Encrypted: i=1; AHgh+RpLjZ0goo/6IYZBPmObn3bDh5XS7hdQqyddWlherk5gfBs+Kth5XOaSUBfR4sUN+2FYcFNEjWsc7bkx6iJnVSuV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxW/OCw06cFRbWEEMCC5FF7zUpwGycq8HfkBv00ggxfxbpc6fDj
-	sYnsDpv8mT4NEcPJ5dfZL2c0rL7M2G8D5n0LNG0p0IvRgZ015OqvB1TBF4yU1VohWT39O5QOv6u
-	K4cLBpkJQdf5r1+ydqAo3n1JiCLY508ehmPjwhCtwXYBdo7XnC+ouaCjwHHuNGpRSYVksC//3VA
-	IdYw==
-X-Gm-Gg: AR+sD11cgtNz23A0b/jn0bHgZu5+GD5dqwCO/6z9TO9PIn+OLKaYiekf5ER1bMQ3UQ3
-	BrwCr+3nP6pqVkSQWA+EK/c7KJ9/DaJ8Ty0P7oc3xa3gWf/FYOZd8YQOnQWT6d+x2vh9JQ70ZtQ
-	ybD9uSQsO1wlC2uzs5zBEFF6pawC6dO9OXZHDhiO78QqpVShB59qrER1iakw0XwDGnUUtRuM+/4
-	iE90aZYa+aPFJE5wxvhXI4VCHQpT4Lk4s6ZsBI8+neUM9MF6f74DhVDAvAJ8boO9/cSQZzzq6AA
-	hJSpyJL39mCD7TUMgaVgyAJTXRbzTKe9276qOo705rWCtVlZTiANDndJh8SkqY5MOv2ojMryyHp
-	zo4zqGrZo/kNU
-X-Received: by 2002:a05:620a:268f:b0:92b:6e09:b0d9 with SMTP id af79cd13be357-9372858eaaemr977537985a.21.1787255340085;
-        Thu, 20 Aug 2026 12:49:00 -0700 (PDT)
-X-Received: by 2002:a05:620a:268f:b0:92b:6e09:b0d9 with SMTP id af79cd13be357-9372858eaaemr977533285a.21.1787255339638;
-        Thu, 20 Aug 2026 12:48:59 -0700 (PDT)
-Received: from shalem ([2001:1c00:c32:7800:5bfa:a036:83f0:f9ec])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2459198ec5sm113433266b.34.2026.08.20.12.48.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 12:48:58 -0700 (PDT)
-From: Hans de Goede <johannes.goede@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Hans de Goede <johannes.goede@oss.qualcomm.com>,
-        Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
-        arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, imx@lists.linux.dev,
-        linux-kernel@vger.kernel.org
-Subject: [PATCH v3 3/3] firmware: arm_scmi: Pre-register protocol, name tupples for IMX protocols
-Date: Thu, 20 Aug 2026 21:48:50 +0200
-Message-ID: <20260820194850.459739-4-johannes.goede@oss.qualcomm.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260820194850.459739-1-johannes.goede@oss.qualcomm.com>
-References: <20260820194850.459739-1-johannes.goede@oss.qualcomm.com>
+        d=1e100.net; s=20251104; t=1787257115; x=1787861915;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=juNQ1Ri6l95QwdEXhHnYdn7aFisOSy5EEtGzSyCI12U=;
+        b=kmS+6mmn+vcA5ymnm25Jwio+OXGC/Qfhq21aiiLBiKE0yoeEdpwIkKiI8Lz/C7xOi/
+         4KqhkfJLb94xRTTikxNt7nVzVQIgj40Bo6Dq7Qnbwfs88VHpUzrn44VoFHhUZw0pj5wc
+         Sk0ARSqYehaSNaY1XrR7PtYIwLKpY4Ime/OR37S9/eVGJTOTUdvaHvvCL3yiTo/K26HU
+         5+SOd8/4zsGCNspYGpooeGVEqe2Im5K5FR3ibTfAFbftw0W//sZV9a3hIUTMQVB3HIzy
+         9HeadpnQbchDkMAR9KX0X0Vg0A9Wy6g31WKTuLLIsul9ay+TW4BErhdJrlgsPaIcYCBb
+         Zq8A==
+X-Forwarded-Encrypted: i=1; AHgh+Rq8qxy5BJJ5lKhB+/OW9CjiDJ85nhJG+lxF+0biasDufcaDMkk1/DEgkpJ9K/V8MWrRwy57FeWmTYXVdyt+UES7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr6DzAdKYmqIVVxHpo3iTaxFHfp7S5OI8eXLJ2741rwZ9wXWl9
+	BIBtOjUdzylrX592ZE3zKy7dUIu7kzNYWx4Z0yfMdvO/rztkKJ8M0Yv/oYbab7oDa+EXjfK3IHf
+	VYjbJfKV+Zx5NMDIMKpJcrxj8nKztGg==
+X-Gm-Gg: AR+sD13oSFdmcyffYY64cCdZk8CR3NcE3ON7qOXKoFsKUky1GjMGg69U59NNMtGRZ/H
+	thWLND4bVmEjsL2FhceTDQ5tdOHyYg4KFS8yxQmiCFwszF1DvkbEb+sNLS9RkOVE2rRM6GI9Sug
+	tTdtilU6SQm0DAMLE0u1KiKnFxkIVEnhQV+qVo/pW0R5KOq5ETsS27IuCApITkwwiRkU6aGAf55
+	DIPj5MaW5Tv4pF9EUVqfxNK5iWaXMgBm4o5gP0F+DnnxqCalvq6FNGjdHRP1vrUOygdWjWHdyFm
+	0kZCdD8tFmjX+pyZtFVQE/CeG8hJRm1XOp7RKEMNIh9/l2Q1Cf/j9kGhG/7eTg==
+X-Received: by 2002:a17:906:ee89:b0:c20:f95c:9088 with SMTP id
+ a640c23a62f3a-c246a30c3b5mr104918666b.4.1787257114733; Thu, 20 Aug 2026
+ 13:18:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDE0OSBTYWx0ZWRfX8O7RtcNClNyW
- 8lUyjk0+C4iTsSUkMKCX3JEpHt0KWcX1Q0bWZuPrecSB2PEAh7phg0l1H2euP+iekRDMrfMlmSp
- enRonA2Lpd+u7rhDy93vHk8jmAY6WX/AvTjD7d68rd3zgNBFaZRL2Z35sEiRLTPFUsHodJ3dkL4
- OxmkjSBRMDWrItjKm15q3grmoCd3NjpnNqXIf/d0xzbUgbFTY6YxnuLYi1or7XzsprbQg5fxKzm
- dVREXRnJyWEi/f/gbYGTChrSZQBRr5QPWSCzMeVlYUrg/xxEAiB6C8Xe4O3zcpPRgkmGAlq5LYJ
- m4bsvvT7W/CScZEk36xZQ7xURDqPwEq2aTqd6MkkRQBqAvwQ9ghUkOOxue3+eUhNz/o6Y2vGGvt
- CKrhaR6B0e+vxduqqJ0/5jYTY3cn6MpY0HKQ0SMcptOSC8ITLOCYzNB8dUHlybHf6Qj7MipQDZx
- Vl1XWkFAbRVaEvuhV2g==
-X-Proofpoint-ORIG-GUID: 5I_8GrvjN3AuXRBhuw7zavRRNvSfcxEp
-X-Authority-Analysis: v=2.4 cv=Y7fIdBeN c=1 sm=1 tr=0 ts=6a875a2d cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=Sv0fKeRqtYgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8 a=88Q6Yv8u5fullXUEwxUA:9
- a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDE0OSBTYWx0ZWRfX6hx8J/OfZGsW
- HKdtABPISNEEAVD2ktyHaDCI2diXrXsEuN1gLIkiryr0VCjoadsbneIB193FSF6zsUSSw/oAeRE
- +pJQQOV2yBq9NeyPyrIrwLWLzxIFog8=
-X-Proofpoint-GUID: 5I_8GrvjN3AuXRBhuw7zavRRNvSfcxEp
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-20_01,2026-08-20_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 clxscore=1015 malwarescore=0 impostorscore=0
- lowpriorityscore=0 spamscore=0 adultscore=0 phishscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608200149
+References: <20260818182829.1580811-1-vladislav.karmanov.dev@gmail.com> <aoSnqurLLgdVT_Eu@makrotopia.org>
+In-Reply-To: <aoSnqurLLgdVT_Eu@makrotopia.org>
+From: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+Date: Thu, 20 Aug 2026 23:18:23 +0300
+X-Gm-Features: AcwNN1UY78trrCBEnBsV4RrWx-VvGxpQcnmILGMnFCzTNSxNa9AqTH-okMtaf4k
+Message-ID: <CADDoYm63JMq=5CyNvqkTo65BgS927iURKMmhvhD=B-ytqq3Ygg@mail.gmail.com>
+Subject: Re: [PATCH net] net: dsa: mt7530: do not advertise EEE on MT7621 switch
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: netdev@vger.kernel.org, chester.a.unal@arinc9.com, dqfext@gmail.com, 
+	sean.wang@mediatek.com, andrew@lunn.ch, olteanv@gmail.com, 
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, yangshiji66@outlook.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_124901_689240_37D3D8B6 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20260820_131837_552342_591C37DA 
+X-CRM114-Status: GOOD (  38.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,54 +121,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are in tree drivers for various IMX vendor protocols, also
-pre-register the { protocol, name } tupples for these to make module
-auto-loading work for these in tree drivers.
+Hi Andrew, Hi Daniel,
 
-Signed-off-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
----
-Changes in v3:
-- New patch in v3 of this patch-set
----
- drivers/firmware/arm_scmi/bus.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+Thanks for the review.
 
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index 111727904a89..9f5740dc606f 100644
---- a/drivers/firmware/arm_scmi/bus.c
-+++ b/drivers/firmware/arm_scmi/bus.c
-@@ -15,6 +15,7 @@
- #include <linux/slab.h>
- #include <linux/string.h>
- #include <linux/device.h>
-+#include <linux/scmi_imx_protocol.h>
- 
- #include "common.h"
- 
-@@ -580,8 +581,8 @@ static void scmi_devices_unregister(void)
- 	bus_for_each_dev(&scmi_bus_type, NULL, NULL, __scmi_devices_unregister);
- }
- 
--/* Standard protocols table */
- static const struct scmi_device_id scmi_std_id_table[] = {
-+	/* Standard protocols */
- 	{ SCMI_PROTOCOL_POWER, "genpd" },
- 	{ SCMI_PROTOCOL_SYSTEM, "syspower" },
- 	{ SCMI_PROTOCOL_PERF, "perf" },
-@@ -594,6 +595,12 @@ static const struct scmi_device_id scmi_std_id_table[] = {
- 	{ SCMI_PROTOCOL_POWERCAP, "powercap" },
- 	{ SCMI_PROTOCOL_PINCTRL, "pinctrl" },
- 	{ SCMI_PROTOCOL_PINCTRL, "pinctrl-imx" },
-+	/* Vendor protocols with in tree drivers */
-+	{ SCMI_PROTOCOL_IMX_BBM, "imx-bbm-key" },
-+	{ SCMI_PROTOCOL_IMX_BBM, "imx-bbm-rtc" },
-+	{ SCMI_PROTOCOL_IMX_CPU, "imx-cpu" },
-+	{ SCMI_PROTOCOL_IMX_LMM, "imx-lmm" },
-+	{ SCMI_PROTOCOL_IMX_MISC, "imx-misc-ctrl" },
- 	{ },
- };
- 
--- 
-2.55.0
+> Do we know what is broken here? MAC or PHY? If it is the PHY which is
+> broken, it would be better to put the workaround into the PHY driver.
 
+It is the PHY that is broken -- the MT7530 internal GE PHY (PHY ID
+0x03a29412, driven by mediatek-ge). Landen Chao (MediaTek, 2021) puts the
+root cause there: "EEE of the 10-year-old MT7530 internal gephy has many
+IOT problems, so it is recommended to disable its EEE."
+
+That would point to the PHY driver as the natural home, but I think the
+DSA side is actually the right place, and af3b4b0e59de -- the commit this
+patch fixes -- is itself the evidence: it removed the early EEE disable
+from mtk_gephy_config_init() on the rationale that the disable done there
+"is somehow enabled afterwards", i.e. a PHY-driver-side disable does not
+stick (something re-enables EEE advertisement after config_init). What
+does stick is the disable done earlier in the DSA setup path -- which is
+why MT7531 does it in mt7531_setup() and why af3b4b0e59de considered the
+mtk-ge disable redundant for MT7531. The catch is that mt7530_setup()
+never had that loop, so MT7621 (and MT7530) lost their only effective
+early disable when af3b4b0e59de dropped the mtk-ge one. Putting the
+disable back into the PHY driver would reintroduce the "gets re-enabled
+afterwards" problem af3b4b0e59de removed it for. So I'd keep it on the
+DSA side
+
+> I'd recommend disabling EEE advertisement on MT7621 and MT7530;
+> Hence I'd suggest to extend 'struct mt753x_info' with a 'broken_eee'
+> bool instead of maintaining an in-code list of EEE-broken silicon IDs.
+
+Agreed on both. ID_MT7530 (the dedicated MT7530 IC, e.g. BananaPi R2)
+uses the same mt7530_setup() and the same internal GE PHY, so it should
+be covered too. I have prepared  v2 that adds a broken_eee bool to
+struct mt753x_info and sets it for ID_MT7621 and ID_MT7530, gating the
+MDIO_AN_EEE_ADV clear loop on priv->info->broken_eee instead of the
+open-coded ID check.
+
+v2 follows as a fresh thread with a lore link back to v1.
+
+Regarding older Trendnet/Econet SoCs sharing the lineage: I don't have
+that hardware, so I'd rather not guess the flag makes it trivial to
+extend later if someone with access can confirm
+
+=D0=B2=D1=82, 18 =D0=B0=D0=B2=D0=B3. 2026=E2=80=AF=D0=B3. =D0=B2 21:43, Dan=
+iel Golle <daniel@makrotopia.org>:
+>
+> Hi,
+>
+> On Tue, Aug 18, 2026 at 09:28:29PM +0300, Vladislav Karmanov wrote:
+> > There are hardware defects in the MT7621 (MT7530) EEE support: with EEE
+> > advertised, some link partners cannot establish a stable connection.
+> > Notably, on a 2-pair (4-wire) cable where both ends advertise gigabit,
+> > 1000BASE-T training cannot succeed, and instead of falling back to
+> > 100 Mbps the port flaps in a loop and no link/DHCP lease is obtained.
+> > This is confined to the WAN / phylib bring-up path; the DSA/LAN side on
+> > the same device is unaffected.
+> >
+> > The MT7530 internal GE PHY advertises EEE by hardware default. The
+> > eee-broken-100tx / eee-broken-1000t device-tree properties only take
+> > effect during the late PHY config_init path, which is too late for thes=
+e
+> > link partners: they negotiate EEE before the OS disables it and then
+> > fail to fall back cleanly.
+> >
+> > Commit af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE
+> > advertisement") removed the early EEE-advertisement disable from
+> > mtk_gephy_config_init(), on the rationale that "disabling EEE
+> > advertisement before the PHY driver initialises keeps it off", i.e. tha=
+t
+> > the DSA subdriver already performs that early disable. That rationale
+> > holds for MT7531, whose mt7531_setup() clears MDIO_AN_EEE_ADV on each
+> > switch PHY -- but it does not hold for MT7621, whose mt7530_setup()
+> > never had such a loop. So af3b4b0e59de removed the only early EEE
+> > disable that covered MT7621, reintroducing the flapping on MT7621-based
+> > boards (regression reported on ramips/mt7621).
+> >
+> > MediaTek's own recommendation (Landen Chao, 2021) confirms the hardware
+> > is the root cause: "EEE of the 10-year-old MT7530 internal gephy has ma=
+ny
+> > IOT problems, so it is recommended to disable its EEE."
+> > [...]
+> > --- a/drivers/net/dsa/mt7530.c
+> > +++ b/drivers/net/dsa/mt7530.c
+> > @@ -2518,6 +2518,15 @@
+> >       if ((val & MT7530_XTAL_MASK) =3D=3D MT7530_XTAL_40MHZ)
+> >               mt7530_pll_setup(priv);
+> >
+> > +     if (priv->id =3D=3D ID_MT7621) {
+>
+> It'd be very surprising if this limitation doesn't also apply for the
+> nearly identical decicated MT7530 IC (found eg. on BananaPi R2).
+>
+> I'd recommend disabling EEE advertisement on MT7621 and MT7530; and I
+> suspect that some of the older Trendnet/Econet SoCs which share common
+> linage with the MediaTek's Ethernet switch and PHY designs could also
+> be affected.
+>
+> Hence I'd suggest to extend 'struct mt753x_info' with a 'broken_eee'
+> bool instead of maintining an in-code list of EEE-broken silicon IDs.
+>
+> > +             /* Disable EEE advertisement on the switch PHYs. */
+> > +             for (i =3D MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr);
+> > +                  i < MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr) + MT75=
+30_NUM_PHYS;
+> > +                  i++) {
+> > +                     mt7530_phy_write_c45(priv, i, MDIO_MMD_AN, MDIO_A=
+N_EEE_ADV, 0);
+> > +             }
+> > +     }
+> > +
+>
 
