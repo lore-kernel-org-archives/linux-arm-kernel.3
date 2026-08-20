@@ -4,109 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383C3C5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 20:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB043C5DF86
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 20:28:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=juNQ1Ri6l95QwdEXhHnYdn7aFisOSy5EEtGzSyCI12U=; b=l2VXacyOTVKmDmOn0FXW/4um26
-	73dKIuVTgz6Sgzz8QzX7agFhRVQ0+msZHaVQKk5PVOL0sYpRkp2jaMGzYuzG1yATtromU6q6v2Ujr
-	9XwhP6gKFVP51VL5ySUS9+24R/7v/QjMsK0RTFWR/yZXZoKnVi/gu7uw4+cIBfZx70PL0X19epe5X
-	NH+yD/kYvt2IhprsnDfbfJvTOGRwYiLrVvocU9vg1DFe+Jftpt7yB1YHxqduVbBVevxnhTEfx/8kN
-	swFE0MEJtPunaKga62hH0VxsW3MMy627/NCfwoXxrAu41W+uLDS3Wzlqs9eW/zaISkMQ2M620g9XE
-	G3lr6KEQ==;
+	bh=0kk0AVAj9nGqTqVxVL78VvobkVLKEhMiHFP97YU4FPk=; b=aT6ggGtj8uMufN89cyrv1BhOXa
+	VegtWPST+3lyLT+hGENAonU1TDCJScatrBzbSWA8KYf2+B1Dph5kPTJYh6XOm5+f0E0fLA/jupfTB
+	btoPXSDKJc2fMWFIQV/cV/mgIomKuEJYpfVj3G68BVgQ08p5mKQyptouN06DhARuvAiiqkA+gloCr
+	p0epVNdzrpaWf+IqCgvYdrAgql1dWso2JjTuQUvRNK7VYTduOPSVliFq+HNeBtsyOFnfin51IljIX
+	qCV5DZ3Gr8yMNEIvTPb173imk/46cyGuDxA6QJtbJpegw7WAZTgjdbC/znHfwvC8HZLR6XELynnSx
+	GAt8TP8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx9Dl-0000000C9yK-0wfa;
-	Thu, 20 Aug 2026 20:18:41 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1wx9N4-0000000CARH-0ILO;
+	Thu, 20 Aug 2026 20:28:18 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx9Dh-0000000C9xO-1zgv
+	id 1wx9N1-0000000CAQO-0S7v
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 20:18:40 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c1c52d920b8so38304066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 13:18:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787257115; cv=none;
+	Thu, 20 Aug 2026 20:28:16 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6a157f90752so618434a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 13:28:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787257692; cv=none;
         d=google.com; s=arc-20260327;
-        b=qkRYDGvimXnDPrrUjNuxJn8Yd0MH5qvJIjlCw+RKImwdkzMl2Ide5IGWITnX5X0dCV
-         bSdsDIrnvyaClKRd+whgHpHLe0tim6k0Ui/AB8DdEHh5SkUwyrkXCnbIVgWEK0QNgORO
-         kc7E/qC1ZYOajbuugMF5biwXxcryWS9hrMp+kcun3bmBwkTfWJaR+TV6hLjeeJmHS4LF
-         XpLdFQ0PztxDPDuyB2RjxOZInDhEK13/lhOkNTUOZwaadu7c7W6mYCfkE3YusGC5ykVe
-         cozobcYTy/DYCH5yACrlZY6b4mnJjuo+23BOcPXT0Pl1XmULWyaOY5NkBlU/Rr6GkKhu
-         oF3w==
+        b=oP8faLKBTPngyoy41X8PfvdN/S7N5ltY1zp6rq0ttbpaka+Y2sGh/3xp/0vKQahlTX
+         GS75KwXerqdBQrAneOZPEGmgj4fZ7nQOG4Cxvyhy39z9U9tKL52phAjW42/OjeDuhG9V
+         Kt0U8I+pVknT/esAE8JTW2nwUzU93nMnXsDq/ScBWIxl/W/KJnAz6eULP07WWSQFlYsE
+         XsONXxOY/Ym0D8UzYxZ9MM14vrLareL7OkpYk87A5AuXixjHcmRyL0diiU81DkxO13dX
+         bAU12lc+Y6/tTUJAfx8LAnZ3dyf9uoep+AIutBjRF9b11XDXJYALSdU8hOSX24PkWYDc
+         B3TQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=juNQ1Ri6l95QwdEXhHnYdn7aFisOSy5EEtGzSyCI12U=;
-        fh=ajG1wS7DZUmzqqn98fbjx9YeIUo4pjiyDWtHNBA0EfE=;
-        b=ROP9l9Bn32iBsnZDpW6oEwg1kTnN94EX+mmjz2MvHURoxI6PPV4ktDKwHYCztPGn3n
-         5iRVd55x3gSkGPKaxjbB2rKda/MaoPFWWf+0RQrq7rQWj8O/VjZGoJEyyVtV6sLqje6J
-         Ftj8GCNuQeHD8zZXREu8M/e64fBvTeymvHcsYZ/oWyyUZ7H3ho4GM+9dL4+Gg03m9cJo
-         mRgwEwFBnPeOQV2m0SK0mxEDPpTmf/HpgRti1canFzh+WFeUfWg8I+sAlqj/BUeerTP8
-         IWv9ok7sRdxHeDwaAdmFHs2TXaaBaoEs2cARbAaWFvKPqmHRXBvfgB24ZAOqzDiOcmEM
-         BnXA==;
+        bh=0kk0AVAj9nGqTqVxVL78VvobkVLKEhMiHFP97YU4FPk=;
+        fh=3qmk9nVwywV96j9Onu5c7+HNNaxdZw4rOCUPYlbhqzM=;
+        b=UM7snoS1Y1ZZyLylS18i36lzF63uHoMNAbjQAn8+r82qfnjlxVJ4N/1ErmyYOW7lXk
+         OirAdrH4UBbF6agkv5sfAqelvJI5dEqPzyCguw6mE9v3W9Gb1VuAY/Kl+AaRoZISPWo3
+         ZpUE69cu4RUDy4oB4PGV/w/V2iPmBayLi/dVOTPynSqSL6VsG0r92gB8rXX/Eu8/XNDV
+         eckXyT2qtX1IqDYJD5kVvHD0d8H93iHBAQd3vwYNg9bxqgAXf1UiVGLckYjPv/eVaMQ+
+         /ercx/r/GTzPw50Afo8Hj80YfqaLF/qYaCTIlMani8mNZhxEZ9xbNSHQAo+xPGARtXVx
+         l0Ag==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787257115; x=1787861915; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1787257692; x=1787862492; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=juNQ1Ri6l95QwdEXhHnYdn7aFisOSy5EEtGzSyCI12U=;
-        b=eOI2b3YszeE/+KTuZSi2/decbn089dzgnz/6ToKDi6za3UvK+TxW26COpXGGa6mk5f
-         lNwz6/YtiapoK5SNpgYbvqdynkPGehmr2TlsR07AgbSgjtJFGa4DPs0a8UBJ1uMOPmuY
-         0/Isc2Wmmuxpv9aPImA01f0LMHmYXMQ8DmCIgasJm7vy+91WMtNjoyIqyQ2lPPo0asSZ
-         B4DYwZ3CQ/DmaY13BLIPtwsWIdTbEBRTygABQLJzbmWl1AJD3eVDe7VoIcO0mLrYuyel
-         ZKZUIVyi2V03/vDnhccwciyeZ6siAui/gHclDw/eDrscq7IapOj7OdZwiJIkyenlg2h3
-         9EIA==
+        bh=0kk0AVAj9nGqTqVxVL78VvobkVLKEhMiHFP97YU4FPk=;
+        b=bmef/OS9TNOOknRF3qQ2ggZOvLVqUzzUa+LryC2UOUNGK8s09gjX9lW3k0e1TeL7jQ
+         FYrMf2hPS356x3ql80M6EXWNH4bWjVJydPomHcVIRUCkhadEqLLogvI553XMCPCbRfmU
+         tNLN5lGAJ1pxCP7DqzbmlZQuq9dpa/Uj53w1WiXDX02GSAO0EWPePFYPe6IkQleE1dxe
+         Bh1EQm57G4Z2KHXpt3Dl6jr39HG1Up06pETJshS05jFi73xt0EKdW3xsBeUYXQkxwCxe
+         rZ5PKYMuDuBAiy5AgsUfy7Faz4xiR3UL86G0k3kteGQNj2c8HolZ33bJBeotSOw/jw8q
+         hsTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787257115; x=1787861915;
+        d=1e100.net; s=20251104; t=1787257692; x=1787862492;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=juNQ1Ri6l95QwdEXhHnYdn7aFisOSy5EEtGzSyCI12U=;
-        b=kmS+6mmn+vcA5ymnm25Jwio+OXGC/Qfhq21aiiLBiKE0yoeEdpwIkKiI8Lz/C7xOi/
-         4KqhkfJLb94xRTTikxNt7nVzVQIgj40Bo6Dq7Qnbwfs88VHpUzrn44VoFHhUZw0pj5wc
-         Sk0ARSqYehaSNaY1XrR7PtYIwLKpY4Ime/OR37S9/eVGJTOTUdvaHvvCL3yiTo/K26HU
-         5+SOd8/4zsGCNspYGpooeGVEqe2Im5K5FR3ibTfAFbftw0W//sZV9a3hIUTMQVB3HIzy
-         9HeadpnQbchDkMAR9KX0X0Vg0A9Wy6g31WKTuLLIsul9ay+TW4BErhdJrlgsPaIcYCBb
-         Zq8A==
-X-Forwarded-Encrypted: i=1; AHgh+Rq8qxy5BJJ5lKhB+/OW9CjiDJ85nhJG+lxF+0biasDufcaDMkk1/DEgkpJ9K/V8MWrRwy57FeWmTYXVdyt+UES7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxr6DzAdKYmqIVVxHpo3iTaxFHfp7S5OI8eXLJ2741rwZ9wXWl9
-	BIBtOjUdzylrX592ZE3zKy7dUIu7kzNYWx4Z0yfMdvO/rztkKJ8M0Yv/oYbab7oDa+EXjfK3IHf
-	VYjbJfKV+Zx5NMDIMKpJcrxj8nKztGg==
-X-Gm-Gg: AR+sD13oSFdmcyffYY64cCdZk8CR3NcE3ON7qOXKoFsKUky1GjMGg69U59NNMtGRZ/H
-	thWLND4bVmEjsL2FhceTDQ5tdOHyYg4KFS8yxQmiCFwszF1DvkbEb+sNLS9RkOVE2rRM6GI9Sug
-	tTdtilU6SQm0DAMLE0u1KiKnFxkIVEnhQV+qVo/pW0R5KOq5ETsS27IuCApITkwwiRkU6aGAf55
-	DIPj5MaW5Tv4pF9EUVqfxNK5iWaXMgBm4o5gP0F+DnnxqCalvq6FNGjdHRP1vrUOygdWjWHdyFm
-	0kZCdD8tFmjX+pyZtFVQE/CeG8hJRm1XOp7RKEMNIh9/l2Q1Cf/j9kGhG/7eTg==
-X-Received: by 2002:a17:906:ee89:b0:c20:f95c:9088 with SMTP id
- a640c23a62f3a-c246a30c3b5mr104918666b.4.1787257114733; Thu, 20 Aug 2026
- 13:18:34 -0700 (PDT)
+        bh=0kk0AVAj9nGqTqVxVL78VvobkVLKEhMiHFP97YU4FPk=;
+        b=bLb8Vr2ho9n6DzAEdRH2MsqPzPFV92C0Jwj1NGBajE5coRDXmwaiUbz18PUTzvpRuP
+         4zyM88oPzijsHWzAqlUOBc/lCohw3U8QKSIrkMRgzQghJr7XhqcqpxihiUvQQ4QL9opl
+         HbA/55uA1tCKef+QIlOqrcbEc5xn91b4tKgwL2ue7jXYLz69nxFv+vZTB+cv0yiE1pti
+         1QvZ6WYXoHCWCUx55Qvd2mwWMiV0cxvu8G5uQ6HUzFK+lwE3s1oHcFZrnzoQVnigRzDQ
+         bc3GNjLKjs4Uwru434brscUwPTCVB5AEYHYhXO7zE2z5nIlCyntD7MxIZJja32a8slFG
+         O6nw==
+X-Forwarded-Encrypted: i=1; AHgh+RrGRdhk8lHGKkTcQhil8e1xjaePGd9UeWc9ZQ2QeItWR4RpAG/qSfLQe9KvOn1xfeOFXcxchM6FGD98SBFYNrhM@lists.infradead.org
+X-Gm-Message-State: AFuF++nQLk8p5kMtCn2BA+sz+Qm2ow19/rLBIhTAYwZarKyGmQ/XADgY
+	4PmOoSYrZd+9vzQ9WPVIRAwxwXkA6LYf8bWZGy6BDuzrixPEIJ3DXHZE9k/UYErdovsYsKzpp8d
+	SWX1VH0fTT7qvPozk8vyX7mmnv0Z+Gxo=
+X-Gm-Gg: AR+sD12IcEicVPCoYUl4dqPXPPR8PrSHputokqSRnpPXJJCnNfv1obGnODQtXBv0kNp
+	b74PnNXlOMGUsw2Gi5ECx+p23ghmDacVAG7oSYVUoPu3tTEmPVaXKtkUyV3hiEEUQF83ciFwk4L
+	sTroj67JUmz7nQH0v66RdV5102B0cRcSbsb9DWTS6SHJQ0dixltXBigP1tAFKe9zB3uHutO/tmM
+	YtVuM905qOIZxGeODrqDQPnrAhXZh9kWsIJVw4R3peOOmHeWIq2iqLKrzeeCDo5OGXmwCVuPccM
+	xSkgr4IDFSde3BbTgEKyJfHCRbCntopgPkI9A3gh7aGNZjI8QmDLv9CD5Fc01dwXkCI8hJVn0nH
+	b3Lp4fyT6Jgrc8Ul27oDjI7Bxsa2nPOt+cWC1FUdn
+X-Received: by 2002:a05:6402:458d:b0:6a3:87b7:b5a9 with SMTP id
+ 4fb4d7f45d1cf-6a42f1f9d6cmr1132151a12.12.1787257692346; Thu, 20 Aug 2026
+ 13:28:12 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260818182829.1580811-1-vladislav.karmanov.dev@gmail.com> <aoSnqurLLgdVT_Eu@makrotopia.org>
-In-Reply-To: <aoSnqurLLgdVT_Eu@makrotopia.org>
-From: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
-Date: Thu, 20 Aug 2026 23:18:23 +0300
-X-Gm-Features: AcwNN1UY78trrCBEnBsV4RrWx-VvGxpQcnmILGMnFCzTNSxNa9AqTH-okMtaf4k
-Message-ID: <CADDoYm63JMq=5CyNvqkTo65BgS927iURKMmhvhD=B-ytqq3Ygg@mail.gmail.com>
-Subject: Re: [PATCH net] net: dsa: mt7530: do not advertise EEE on MT7621 switch
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: netdev@vger.kernel.org, chester.a.unal@arinc9.com, dqfext@gmail.com, 
-	sean.wang@mediatek.com, andrew@lunn.ch, olteanv@gmail.com, 
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, yangshiji66@outlook.com
+References: <20260817090601.1256389-1-pawlik.dan@gmail.com>
+ <20260817161756.5fd2185a@kernel.org> <CALC2Apj7rQv=6uUqaqBjfJ9yO+VCddQqHB=yDhXH7+QUCh2JyA@mail.gmail.com>
+ <20260818082933.28b5c9d1@kernel.org> <CALC2Apj-KLB5CVbSvoZWvA4Oan7dmAerK=VP7W86jmErWW8OdQ@mail.gmail.com>
+ <CALC2ApiCSY8DkVpd7puTssbJZMWBHGVtFCnG66fiK0PX7-u3Hw@mail.gmail.com> <20260820101851.0b4c284a@kernel.org>
+In-Reply-To: <20260820101851.0b4c284a@kernel.org>
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+Date: Thu, 20 Aug 2026 22:28:00 +0200
+X-Gm-Features: AcwNN1Vsd9SSDhiQPcdRUECjLI5GP2wK-pPfntddOHFbe8M7j0tkDMN1vuQpucI
+Message-ID: <CALC2Apgp1rxK4d4z1XcRJv3=O+7uxLcMuNBS0OTi0TbwA+0Fzw@mail.gmail.com>
+Subject: Re: [PATCH v8] net: airoha: npu: use cacheline-sized buffers for
+ mailbox DMA
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, lorenzo@kernel.org, win847@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_131837_552342_591C37DA 
-X-CRM114-Status: GOOD (  38.51  )
+X-CRM114-CacheID: sfid-20260820_132815_197677_EDD8E891 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,116 +122,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew, Hi Daniel,
+Hi Kuba,
+Fair point - the interesting part is the mechanism. I don't have the
+EN7581 TRM, so I can't name the exact register. From ATF, DT, NPU
+firmware, and the instrumented kernel path, the picture looks like this:
 
-Thanks for the review.
+TL;DR: Sub-cacheline map length forces SWIOTLB on this non-coherent
+arm64 setup. SWIOTLB sync/invalidation doesn't explain the failure -
+the response never appears in the bounce buffer. Cache-line-aligned
+streaming buffers avoid SWIOTLB entirely and the probe reads 0.1111. The
+remaining question is why the NPU doesn't produce visible writes in
+the bounce region (high phys ~0xFF6x vs vendor DMA pools ~0x84-0x91).
 
-> Do we know what is broken here? MAC or PHY? If it is the PHY which is
-> broken, it would be better to put the workaround into the PHY driver.
+What's ruled out:
+- No IOMMU/SMMU on this SoC; DMA addresses equal physical addresses.
+- No EMI MPU - unlike MT7622/MT7986, the Airoha ATF [1] configures
+  only TZPC (secure/non-secure for NPU SRAM and EFUSE), not DMA
+  address ranges.
+- No PMP in NPU firmware =E2=80=94 disassembly of the RISC-V binary shows
+  zero accesses to pmpcfg*/pmpaddr* CSRs.
+- No dma-ranges in DT - the soc node uses identity-mapped ranges;
+  the kernel sees no address translation for NPU DMA.
+- set_memory_decrypted() on swiotlb pages is a no-op on standard
+  arm64 (no CCA/memory encryption on EN7581).
 
-It is the PHY that is broken -- the MT7530 internal GE PHY (PHY ID
-0x03a29412, driven by mediatek-ge). Landen Chao (MediaTek, 2021) puts the
-root cause there: "EEE of the 10-year-old MT7530 internal gephy has many
-IOT problems, so it is recommended to disable its EEE."
+What the bus fabric looks like:
+The ATF bus test code [2] reveals the internal topology. Each DMA
+engine has a dedicated port through the R2C (RBUS-to-DRAM converter)
+bridge:
 
-That would point to the PHY driver as the natural home, but I think the
-DSA side is actually the right place, and af3b4b0e59de -- the commit this
-patch fixes -- is itself the evidence: it removed the early EEE disable
-from mtk_gephy_config_init() on the rationale that the disable done there
-"is somehow enabled afterwards", i.e. a PHY-driver-side disable does not
-stick (something re-enables EEE advertisement after config_init). What
-does stick is the disable done earlier in the DSA setup path -- which is
-why MT7531 does it in mt7531_setup() and why af3b4b0e59de considered the
-mtk-ge disable redundant for MT7531. The catch is that mt7530_setup()
-never had that loop, so MT7621 (and MT7530) lost their only effective
-early disable when af3b4b0e59de dropped the mtk-ge one. Putting the
-disable back into the PHY driver would reintroduce the "gets re-enabled
-afterwards" problem af3b4b0e59de removed it for. So I'd keep it on the
-DSA side
+    port 0: GDMA/HSDMA
+    port 1: PPE
+    port 2: QDMA LAN (TX)
+    port 3: QDMA WAN (TX)
+    port 4: TDMA
+    port 5: NPU
 
-> I'd recommend disabling EEE advertisement on MT7621 and MT7530;
-> Hence I'd suggest to extend 'struct mt753x_info' with a 'broken_eee'
-> bool instead of maintaining an in-code list of EEE-broken silicon IDs.
+The RBUS also has a "DMA block" mechanism (0x1FA000EC) that
+serializes CPU writes against DMA reads within 64B/128B-masked
+regions, with per-engine block counters at 0x1FA000F4-0x1FA00108.
 
-Agreed on both. ID_MT7530 (the dedicated MT7530 IC, e.g. BananaPi R2)
-uses the same mt7530_setup() and the same internal GE PHY, so it should
-be covered too. I have prepared  v2 that adds a broken_eee bool to
-struct mt753x_info and sets it for ID_MT7621 and ID_MT7530, gating the
-MDIO_AN_EEE_ADV clear loop on priv->info->broken_eee instead of the
-open-coded ID check.
+All vendor DMA buffers sit in one contiguous region:
 
-v2 follows as a fresh thread with a lore link back to v1.
+    npu-binary:   0x84000000 (10MB)
+    qdma0-buf:    0x87000000 (32MB)
+    qdma1-buf:    0x89000000 (16MB)
+    npu-pkt:      0x8A000000 (44MB)
+    npu-txpkt:    0x8CC00000 (64MB)
+    npu-txbufid:  0x90C00000
+    npu-ba:       0x90C06800
 
-Regarding older Trendnet/Econet SoCs sharing the lineage: I don't have
-that hardware, so I'd rather not guess the flag makes it trivial to
-extend later if someone with access can confirm
+The ATF bus test uses DRAM_TEST_BASE =3D 0x84000000 exclusively -
+no test exercises DMA at high physical addresses.
 
-=D0=B2=D1=82, 18 =D0=B0=D0=B2=D0=B3. 2026=E2=80=AF=D0=B3. =D0=B2 21:43, Dan=
-iel Golle <daniel@makrotopia.org>:
+The NPU reads the mailbox command from the swiotlb bounce address
+(~0xFF6D0000) successfully - mbox_status returns success. But it
+never writes the response back; the buffer stays zero, causing a
+timeout.
+
+Read-succeeds/write-fails at a high physical address, while all
+production DMA stays in 0x84-0x91, points to the R2C bridge's
+write path having a narrower address reach than the read path.
+Whether that's an address decode window, a write-buffer range
+check, or a port-specific routing constraint isn't visible in
+the open-source ATF or kernel code - likely hardwired or set by
+boot ROM before ATF runs.
+
+So I suspect this is less "swiotlb unaligned-length sync is broken"
+and more "this DMA master shouldn't be bounced to that DRAM region" -
+but I can't prove the bridge/decode story without vendor docs.
+
+Regards,
+Dan
+
+[1] https://github.com/Ansuel/atf-airoha
+[2] atf-airoha/plat/ecnt/en7523/cpu_bus_bl2_test.c
+
+
+czw., 20 sie 2026 o 19:18 Jakub Kicinski <kuba@kernel.org> napisa=C5=82(a):
 >
-> Hi,
+> On Thu, 20 Aug 2026 10:20:08 +0200 Daniel Pawlik wrote:
+> > size=3D24 < cache_line=3D64 fails this regardless of address alignment.
+> > The swiotlb sync code itself is fine, but the NPU cannot DMA-write to
+> > the bounce buffer address range (it reads commands fine, never writes
+> > responses back). This is probably an EN7581 platform limitation.
 >
-> On Tue, Aug 18, 2026 at 09:28:29PM +0300, Vladislav Karmanov wrote:
-> > There are hardware defects in the MT7621 (MT7530) EEE support: with EEE
-> > advertised, some link partners cannot establish a stable connection.
-> > Notably, on a 2-pair (4-wire) cable where both ends advertise gigabit,
-> > 1000BASE-T training cannot succeed, and instead of falling back to
-> > 100 Mbps the port flaps in a loop and no link/DHCP lease is obtained.
-> > This is confined to the WAN / phylib bring-up path; the DSA/LAN side on
-> > the same device is unaffected.
-> >
-> > The MT7530 internal GE PHY advertises EEE by hardware default. The
-> > eee-broken-100tx / eee-broken-1000t device-tree properties only take
-> > effect during the late PHY config_init path, which is too late for thes=
-e
-> > link partners: they negotiate EEE before the OS disables it and then
-> > fail to fall back cleanly.
-> >
-> > Commit af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE
-> > advertisement") removed the early EEE-advertisement disable from
-> > mtk_gephy_config_init(), on the rationale that "disabling EEE
-> > advertisement before the PHY driver initialises keeps it off", i.e. tha=
-t
-> > the DSA subdriver already performs that early disable. That rationale
-> > holds for MT7531, whose mt7531_setup() clears MDIO_AN_EEE_ADV on each
-> > switch PHY -- but it does not hold for MT7621, whose mt7530_setup()
-> > never had such a loop. So af3b4b0e59de removed the only early EEE
-> > disable that covered MT7621, reintroducing the flapping on MT7621-based
-> > boards (regression reported on ramips/mt7621).
-> >
-> > MediaTek's own recommendation (Landen Chao, 2021) confirms the hardware
-> > is the root cause: "EEE of the 10-year-old MT7530 internal gephy has ma=
-ny
-> > IOT problems, so it is recommended to disable its EEE."
-> > [...]
-> > --- a/drivers/net/dsa/mt7530.c
-> > +++ b/drivers/net/dsa/mt7530.c
-> > @@ -2518,6 +2518,15 @@
-> >       if ((val & MT7530_XTAL_MASK) =3D=3D MT7530_XTAL_40MHZ)
-> >               mt7530_pll_setup(priv);
-> >
-> > +     if (priv->id =3D=3D ID_MT7621) {
->
-> It'd be very surprising if this limitation doesn't also apply for the
-> nearly identical decicated MT7530 IC (found eg. on BananaPi R2).
->
-> I'd recommend disabling EEE advertisement on MT7621 and MT7530; and I
-> suspect that some of the older Trendnet/Econet SoCs which share common
-> linage with the MediaTek's Ethernet switch and PHY designs could also
-> be affected.
->
-> Hence I'd suggest to extend 'struct mt753x_info' with a 'broken_eee'
-> bool instead of maintining an in-code list of EEE-broken silicon IDs.
->
-> > +             /* Disable EEE advertisement on the switch PHYs. */
-> > +             for (i =3D MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr);
-> > +                  i < MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr) + MT75=
-30_NUM_PHYS;
-> > +                  i++) {
-> > +                     mt7530_phy_write_c45(priv, i, MDIO_MMD_AN, MDIO_A=
-N_EEE_ADV, 0);
-> > +             }
-> > +     }
-> > +
->
+> Sure, that's pretty much what GPT told us some revisions ago.
+> The question is why.
+
+
+
+--=20
+Z powa=C5=BCaniem,
+Daniel Pawlik
 
