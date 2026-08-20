@@ -4,82 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC947C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 18:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA90C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 18:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t3iHJklpI/vnFRFpz5nLuxRhcploUUnu6xYOoAu0obY=; b=bOw+jSTr0S0ZqYqy15iyvUjKq1
-	g820+c6Dh1QbEcVSE8nDvO+ItOSzNkvvvjKb28FMgkEh9YPeoe0Vgg9Uky6Nsyi0XByabZ0EVFAe/
-	vk8Hf8ammiqlmWMqXnmCJUanSyTmh9nH9P9ZBZigIANAqJDyfx1fQ+RaK01/Wt3ZNLXn5eXIDbmIF
-	F7Zpya60jCEBvOIoK9jdVhXfVGY9Azi5XXl14Aehp+YTEHsQW5y13WRh70jFtNupZ+hoF5PYSx9ZG
-	22Hala5o27o21W8z01YkeDzzq5aXvsHzfYS8lBXViGMbjimtGFyDYznhu7iG5tSQe7oea/8KfbXld
-	lZAkOozw==;
+	bh=y399UwJ+HCYN54RYrd1HkabMCMMPg6Wkn/Pg5u47ll8=; b=MjzynxjcuaTUb4lUzTHHMWQu/h
+	o7IgqIi5if+JsHKmolAm4kgXyoyCK6XCB29ws+wFf/vflpnD5ailNpCKDGxUd5Ykq/kxwwJGNCYvU
+	iiv4wMNA80F5m6ftORF2F/4KWbEaj0in6fI62eRVN3YoGT/5iq+Vnv4iJQuuh1zHH43KrAluMHgA6
+	iCRfSb+Hv9PlM/bHkcup58K2FbBU/IgrkqupiiBEFHVOC+JDSn4AmQvlDliqUxrFakzrcO9VRwW8I
+	tQIjtCDvjpyeO+9hcy2kirmNDdA51LS0UMEvZe/E3jqOOBdvnQ8N5z5MmCmmx+1dWU9Z27w/FSPoH
+	UocKx3tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx7QK-0000000C31X-0Ab8;
-	Thu, 20 Aug 2026 18:23:32 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wx7ev-0000000C44Q-1fuY;
+	Thu, 20 Aug 2026 18:38:37 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx7QH-0000000C30Z-0u6C;
-	Thu, 20 Aug 2026 18:23:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1787250206;
-	bh=vZXBjt3Fuoeqwtrnxnm/xTajTsbgsBlWfNGZiZ+mJ3A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ioLn+UN86yM5Af2ne1bCjJrBktr38PrR6/ZDU1/otfzSqIwstDTdrjnkYMmJyAmoy
-	 ot+ZPf1vM7kyRW4DAzO/YnnOrqkj2RVaUtxD9rWeCmwM/vAAyLJnqwZsoj9Guv4C0J
-	 9XN6YbjwgsSDtxnWw64JApMWArqYFsxU+5HPZyG8rbUdszEZW+PMHA6KOvz7rFR/nb
-	 m2sLZlh4LK5LXRknB4DeqhlsVzzpLusU5LPIdDTQpVgGlzwksjQnEU9P/0EVCPJH5p
-	 8p4LZHpWhXZ6MqvjA5V9eN+x0izEppa156rezxvf4Jv/tiGUuyJAwOeGb6DuwRxDGV
-	 iXozIBTUd19zw==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8517A17E038D;
-	Thu, 20 Aug 2026 20:23:25 +0200 (CEST)
-Message-ID: <4a2c5754-56f3-42d5-863b-bc29452f8eb2@collabora.com>
-Date: Thu, 20 Aug 2026 21:23:25 +0300
+	id 1wx7es-0000000C43U-0TEY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Aug 2026 18:38:35 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-6a051b737d8so326201a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 11:38:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787251111; cv=none;
+        d=google.com; s=arc-20260327;
+        b=fj68bRfN+B0ezsnd9yj3GSpru5cyt9UYhQGEAyS4iBr2YaPxF2Y5aResTrnCD1l8e+
+         X2F+olDNaUOWzHIcTxl4l/svDssVHAG1prhCuPDMA0BywNeMw9iHvvh5JAbSQUVUSSc3
+         U3XDxdeYX1SICwhdf0lK6CxENo8aICwUKm9R3nx//EaXqOHWpWSLqVA3ghJXNpPC9RZ1
+         w3dc06dHWKWlNsKBaNIkXbkFGyelzW7PrLBHZxUKt0zPdyCMrtOGne1YConIvNtVCtbD
+         7p7nVe9Hy7M0aZKT0wSsx+Lm3s1et33EQ6NKr2QIdG5F+icoIUjizUEMk0CBVrUTWUaD
+         9NOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=y399UwJ+HCYN54RYrd1HkabMCMMPg6Wkn/Pg5u47ll8=;
+        fh=qwdAshIdZTaaW+qX0WR0dhENqZpszFWKR4rYkamNmB8=;
+        b=VJGFWXlbUgFyiilWQvrTlAroVzeu0YEJflcmmjj+IHm5CYMOL9+EUzeHHOinC/dmhP
+         Kv8+PIfL7FPmVDkprIx7zeYYRVcH6iLea36iFRTIhbZT2+F8rb8k9KpTEkt0QbIBb2YR
+         luRGP6cKBBiFLbQqpVaUEyZwzzjeOObOVO1LUgxJNu8qlHHjQrS31WbTxcTD8X4Mk0Ek
+         UAYm08iZb59+uD7WeJglZY0mJFYvZRfyQxYsIK7L6PWOAVXnQCLp/dbHGPhgt7b01zli
+         eJAqERJ+RTLu3OFoUwfIRrhpWxe8wPiEHCHFY5CLYCWNbT/+a3RUjGtlRHuE1nBEf4XA
+         Y6Yw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787251111; x=1787855911; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=y399UwJ+HCYN54RYrd1HkabMCMMPg6Wkn/Pg5u47ll8=;
+        b=j2EJU2dRxtrGfoNL3foCae4ojLXgECjJcUZUT5YXa20jKuR8ZyJO5nJ/UroLHSXi9p
+         8YiR3ZkHTCNqEetQoNsYkQ575fWHBhMHgNLu0uyxGVAEvscWYXuo9/WWbPuNfWmXYQO1
+         noREPHG2Sp8/+orgsm96cRzZdXug30p7wXj+zV2qnVTStub2VoD8bSr6F0FKfLqAmy9+
+         boID4hBODRhYMa1942YB01peZygBrJgo+QKG4N69RF59Rql0hDesW3PMmZ5DLNGjwLvs
+         9Hb2GxriGMHrswvgndf4M0+FJCiH6NetZubGSg5J2YHSEqdMowbWRLGDor+/QfMtPOkv
+         ogsw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787251111; x=1787855911;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=y399UwJ+HCYN54RYrd1HkabMCMMPg6Wkn/Pg5u47ll8=;
+        b=fcep3xQIA/5NHQsDZkqTxO6/2CYr32XUbMdj/RYcqZf8zG2KUK9kIRwhi0CbsQo0iZ
+         FQuKvkSlrkFRty1tSXBlC6o6VXFftVYf4XqZ9BEs6Ac9WfxygsSIbbZlTK3Ca1d9P95X
+         thoPqqEEJEroygqsbZ9FJOdIlHt1lQrCJH20PpC+x8cKxkuQjvgLJiYQoVy3tCh3fMKg
+         WNSbnIRBb5Y/AjhbFpGa/rroALnW3YuCaha3axUEypWiREjHoOSeBc0tAbEucJSjXkRc
+         ZS86lrfU5hM3nOvErIGjSfT49rhmyZCjeHWpnrjU7PpR4ZpvNsW0HhBjRNn1zieICzpL
+         6kJg==
+X-Forwarded-Encrypted: i=1; AHgh+RpE65T7WM+j42c3rZQEpR75k4PG9nAVxO3FWgITBogQODbpjzXzJlgLLlfBOhLnPA6+1ZXjkwkuW3LtwJ/Pez1R@lists.infradead.org
+X-Gm-Message-State: AFuF++ltHRGyy/S8RkV+q0FQa17Sl5ysXMuY3VKyPkCrQVK+ZKk5Mwvb
+	mQip0Q06IrZrr1pONR+1O7pD7qUT6tdLfBBkzeN34Uv730pitb85ASmPV7y1ZdMW3279xbbLToz
+	06VYiiDJsAW4O/MTclhSWQ4KpE8qgWwA=
+X-Gm-Gg: AR+sD10kaV9Lfqo+1erfkaVX3emOtIOya26QxS7qTSJElCQ5GUz7qW1olrsGq32o33t
+	tHE3HH8KPy1w22Q+jMakNqwNeJVwFZdLytXuR3fRZ+PE3yU9LHqPEBx4oUmcYDD7reclM/17b6I
+	Ww8wDg4I62Caez3B2PQWn6zIfC4BmXxPI55L1Uz07gH/PnEs+HOpRqgNstuoJVqrOxybHLoPH0M
+	OEkeFaDPaS0ip3VATFIerED9rlUIJms7NyVbs8fko7D6iI0LFwDfTBrK0w2Q0riMhlqJry6l2Fi
+	oq8VVxtBFjpj8wdaKd3S9vYtGDCPrDpD+JbwNGikYD394HB2ItPk0N4ivF0J7Fa+3K5+jZ6YzCX
+	Pyf8udXh0X7IhpBEZyE70SazgjVULdDzYD2D+TJq3FLUzjN9lSTRo0bLjfwHpEu1n4haHnsYwfr
+	2k/eMV3QzQx9gkUwboTo4s3U6xEZTnYKz31kel4VqVzrnZGAeTMz4WgXY=
+X-Received: by 2002:a05:6402:190a:b0:698:663d:d7bd with SMTP id
+ 4fb4d7f45d1cf-6a42f1df94emr504720a12.11.1787251111224; Thu, 20 Aug 2026
+ 11:38:31 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 43/69] drm/vc4: hdmi: Propagate -EDEADLK to the top
- level
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Algea Cao <algea.cao@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
- Liu Ying <victor.liu@nxp.com>, Phong LE <ple@baylibre.com>,
- kernel@collabora.com, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
-References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
- <20260731-dw-hdmi-qp-scramb-v10-43-294364b2cf15@collabora.com>
- <20260820-sceptical-friendly-panther-6cdfd4@houat>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20260820-sceptical-friendly-panther-6cdfd4@houat>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260723050606.283453-1-rosenp@gmail.com> <aoYJGXfDciTLTZx4@lizhi-Precision-Tower-5810>
+In-Reply-To: <aoYJGXfDciTLTZx4@lizhi-Precision-Tower-5810>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Thu, 20 Aug 2026 11:38:19 -0700
+X-Gm-Features: AcwNN1WadOkdQETjHY5aKJw3lWDWX0-S7dat9vSR7J9yhC3maiVC2GsEIfMKG3c
+Message-ID: <CAKxU2N8SvNqQB6g-esc-+KpO0sNKHAB7EiE9FWbg7Dv41=5MGQ@mail.gmail.com>
+Subject: Re: [PATCH] dmaengine: at_hdmac: ioremap and get irq early
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: dmaengine@vger.kernel.org, 
+	Ludovic Desroches <ludovic.desroches@microchip.com>, Vinod Koul <vkoul@kernel.org>, 
+	Frank Li <Frank.Li@kernel.org>, 
+	"moderated list:MICROCHIP AT91 DMA DRIVERS" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_112329_422461_89F19E79 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20260820_113834_172157_DFBF5B72 
+X-CRM114-Status: GOOD (  20.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,113 +122,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/20/26 11:55 AM, Maxime Ripard wrote:
-> On Fri, Jul 31, 2026 at 07:19:50PM +0300, Cristian Ciocaltea wrote:
->> drm_connector_helper_funcs.detect_ctx() is expected to propagate
->> -EDEADLK so that context owners, e.g. drm_helper_probe_detect_ctx(), can
->> perform the required backoff and retry.
->>
->> vc4_hdmi_handle_hotplug() instead runs its own retry loop and calls
->> drm_modeset_backoff() on an acquire context it does not own.  This drops
->> all locks in the context, including connection_mutex held by the core.
->>
->> Drop the local retry logic and propagate -EDEADLK to the caller instead.
->> This aligns VC4 with the expected detect_ctx() semantics.
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/gpu/drm/vc4/vc4_hdmi.c | 23 +++++++----------------
->>  1 file changed, 7 insertions(+), 16 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
->> index ba16e7944cf3..72042fad04c5 100644
->> --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
->> +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
->> @@ -344,12 +344,11 @@ static int vc4_hdmi_reset_link(struct drm_connector *connector,
->>  	return drm_atomic_helper_reset_crtc(crtc, ctx);
->>  }
->>  
->> -static void vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
->> -				    struct drm_modeset_acquire_ctx *ctx,
->> -				    enum drm_connector_status status)
->> +static int vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
->> +				   struct drm_modeset_acquire_ctx *ctx,
->> +				   enum drm_connector_status status)
->>  {
->>  	struct drm_connector *connector = &vc4_hdmi->connector;
->> -	int ret;
->>  
->>  	/*
->>  	 * NOTE: This function should really be called with vc4_hdmi->mutex
->> @@ -368,17 +367,9 @@ static void vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
->>  	drm_atomic_helper_connector_hdmi_hotplug(connector, ctx, status);
->>  
->>  	if (status != connector_status_connected)
->> -		return;
->> +		return 0;
->>  
->> -	for (;;) {
->> -		ret = vc4_hdmi_reset_link(connector, ctx);
->> -		if (ret == -EDEADLK) {
->> -			drm_modeset_backoff(ctx);
->> -			continue;
->> -		}
->> -
->> -		break;
->> -	}
->> +	return vc4_hdmi_reset_link(connector, ctx);
->>  }
->>  
->>  static int vc4_hdmi_connector_detect_ctx(struct drm_connector *connector,
->> @@ -416,10 +407,10 @@ static int vc4_hdmi_connector_detect_ctx(struct drm_connector *connector,
->>  			status = connector_status_connected;
->>  	}
->>  
->> -	vc4_hdmi_handle_hotplug(vc4_hdmi, ctx, status);
->> +	ret = vc4_hdmi_handle_hotplug(vc4_hdmi, ctx, status);
->>  	pm_runtime_put(&vc4_hdmi->pdev->dev);
->>  
->> -	return status;
->> +	return ret == -EDEADLK ? ret : status;
-> 
-> Don't we mask any error that isn't EDEADLK here?
-
-Yes, per .detect_ctx() doc, implementation should return either a
-drm_connector_status or -EDEADLK.
-
-This matches what the probe helpers expect, and prevents ending up with
-connector_status_unknown, which would be wrong, since the detection was
-successful:
-
-int drm_helper_probe_single_connector_modes()
-{
-	[...]
-	ret = drm_helper_probe_detect(connector, &ctx, true);
-
-	if (ret == -EDEADLK) {
-		drm_modeset_backoff(&ctx);
-		goto retry;
-	} else if (WARN(ret < 0, "Invalid return value %i for connector detection\n", ret))
-		ret = connector_status_unknown;
-
-	connector->status = ret;
-	[...]
-}
-
-drm_helper_probe_detect_ctx(struct drm_connector *connector, bool force)
-{
-	[...]
-	ret = drm_modeset_lock(&connector->dev->mode_config.connection_mutex, &ctx);
-	if (!ret)
-		ret = detect_connector_status(connector, &ctx, force);
-
-	if (ret == -EDEADLK) {
-		drm_modeset_backoff(&ctx);
-		goto retry;
-	}
-
-	if (WARN_ON(ret < 0))
-		ret = connector_status_unknown;
-	[...]
-}
+On Wed, Aug 19, 2026 at 12:50=E2=80=AFPM Frank Li <Frank.li@oss.nxp.com> wr=
+ote:
+>
+> On Wed, Jul 22, 2026 at 10:06:06PM -0700, Rosen Penev wrote:
+> > The functions can return -EPROBE_DEFER. Call them before anything else
+> > to avoid doing extra work.
+>
+> just move before one devm_kalloc(), I have not seen much beanfit for it.
+Not sure I follow. devm_platform_ioremap_resource() and
+platform_get_irq() just need a platform_device pointer.
+>
+> Frank
+>
+> >
+> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > ---
+> >  drivers/dma/at_hdmac.c | 17 ++++++++++-------
+> >  1 file changed, 10 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
+> > index e5b30a57c477..2f6f5877fc3c 100644
+> > --- a/drivers/dma/at_hdmac.c
+> > +++ b/drivers/dma/at_hdmac.c
+> > @@ -1943,11 +1943,20 @@ static void at_dma_off(struct at_dma *atdma)
+> >  static int __init at_dma_probe(struct platform_device *pdev)
+> >  {
+> >       struct at_dma           *atdma;
+> > +     void __iomem            *regs;
+> >       int                     irq;
+> >       int                     err;
+> >       int                     i;
+> >       const struct at_dma_platform_data *plat_dat;
+> >
+> > +     regs =3D devm_platform_ioremap_resource(pdev, 0);
+> > +     if (IS_ERR(regs))
+> > +             return PTR_ERR(regs);
+> > +
+> > +     irq =3D platform_get_irq(pdev, 0);
+> > +     if (irq < 0)
+> > +             return irq;
+> > +
+> >       /* setup platform data for each SoC */
+> >       dma_cap_set(DMA_MEMCPY, at91sam9rl_config.cap_mask);
+> >       dma_cap_set(DMA_INTERLEAVE, at91sam9g45_config.cap_mask);
+> > @@ -1968,13 +1977,7 @@ static int __init at_dma_probe(struct platform_d=
+evice *pdev)
+> >       if (!atdma)
+> >               return -ENOMEM;
+> >
+> > -     atdma->regs =3D devm_platform_ioremap_resource(pdev, 0);
+> > -     if (IS_ERR(atdma->regs))
+> > -             return PTR_ERR(atdma->regs);
+> > -
+> > -     irq =3D platform_get_irq(pdev, 0);
+> > -     if (irq < 0)
+> > -             return irq;
+> > +     atdma->regs =3D regs;
+> >
+> >       /* discover transaction capabilities */
+> >       atdma->dma_device.cap_mask =3D plat_dat->cap_mask;
+> > --
+> > 2.55.0
+> >
 
