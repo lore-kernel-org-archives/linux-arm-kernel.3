@@ -4,87 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA07C5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 05:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7087CC5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 05:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=37ZW8YOnm60ojTL8ISRSzVGScSuVacERLLcfcy5t1XI=; b=RpSVcxetMXrWLGpWQugrdUyqZw
-	FiL9vjynMFnX3Bt2XY0tPtiD7zTcMPp1jQE0o8SWGoSJLR2u1yc65TRd21dbOtmHZOjQqlh273KtX
-	y/5cNMdYZKCc2Oqy+ziJcBj5DUUvokZhesciM4dJU0AM4/hTLPqM2UuCQ4IHhjmXxW+gWC1bqsv87
-	oqNahlwbNV+ciwY4HjQY0K4110NVR30aXjQ9gdRPYk2gKFya/KmkjDOrlIwpptXE3CQD4Eo3fLX/o
-	qvEgWAKmZhRv1wzcdcEnnVdSmUFBgC/5uSipEvcV5GRRgnEH7S0Q5aLxLH/T0xn9k+AR5+oHr3c3y
-	de6jyHoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bTtESEhDqdaJJFf13TJPMsvGwGlOkJtwU8iCH8UJRzI=; b=ThsK+ilq6xZND1UWpSC8Ywdxff
+	tmr+Y8jWPq0dDdnZF4bJWs+D0fsQfmKGRDW+fXAvvMfp8BZvkFFSn/TTyf8lJh6ULXHw9EFlInkr7
+	Ng0AkUu24/YEG8fgCwK03YjQcYT7W7R9cSp35R7GBoxeCE7BjIlvvma4sG1enS5dU4ldvLPiXn/qe
+	mytBk+p5Bd8rAgZ6wUHmvIeBuDguxAbaXEP00lt5Xg7Q4M1DfiYwHWhlqhc+jcfBUWaH9AVophh4v
+	VIfQjhPR8PcWbD5/ZDHLphojSvTdtQB9r7H7jGl8yk7iOgVyi7kpOc3duhYp3BQ36D/IOya9vV8SD
+	nrcZLK/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwviL-0000000AsfM-3W5Y;
-	Thu, 20 Aug 2026 05:53:21 +0000
-Received: from smtp11.infineon.com ([2a00:18f0:1e00:4::5])
+	id 1wwvlX-0000000Aspb-1dY2;
+	Thu, 20 Aug 2026 05:56:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwviJ-0000000Asel-0kHr;
-	Thu, 20 Aug 2026 05:53:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=infineon.com; i=@infineon.com; q=dns/txt; s=IFXMAIL;
-  t=1787205198; x=1818741198;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=37ZW8YOnm60ojTL8ISRSzVGScSuVacERLLcfcy5t1XI=;
-  b=LRttVS2HxgR7W5e3VVhXNcnButdHe+9J3Ov51R9bIRd20ZCc5yvBX5Gx
-   k+IUPM2P0VM+ve0JaLqZvbmvBhHTXeQdPgdm79UJUZqns+D4oHaXg9bAH
-   oAe0CED7S1pfFl0VE4G0QaVS7d/ICizrxVkDhDXisgty5eK5iZ5JYfcpD
-   0=;
-X-CSE-ConnectionGUID: wStoZyi0SLOQcxFSTJKt3w==
-X-CSE-MsgGUID: SVZ2c4O8Svmn710HkLRf7g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11880"; a="156701291"
-X-IronPort-AV: E=Sophos;i="6.25,232,1779141600"; 
-   d="scan'208";a="156701291"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO MUCSE803.infineon.com) ([172.23.29.29])
-  by smtp11.infineon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2026 07:53:16 +0200
-Received: from MUCSE818.infineon.com (172.23.29.44) by MUCSE803.infineon.com
- (172.23.29.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 20 Aug
- 2026 07:53:17 +0200
-Received: from MUCSE815.infineon.com (172.23.29.41) by MUCSE818.infineon.com
- (172.23.29.44) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 20 Aug
- 2026 07:53:16 +0200
-Received: from MUCSE815.infineon.com ([fe80::ed10:a720:3031:ca14]) by
- MUCSE815.infineon.com ([fe80::ed10:a720:3031:ca14%12]) with mapi id
- 15.02.2562.045; Thu, 20 Aug 2026 07:53:16 +0200
-From: <Takahiro.Kuwano@infineon.com>
-To: <miquel.raynal@bootlin.com>, <pratyush@kernel.org>, <mwalle@kernel.org>,
-	<richard@nod.at>, <vigneshr@ti.com>, <nicolas.ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
-	<corbet@lwn.net>, <skhan@linuxfoundation.org>
-CC: <STLin2@winbond.com>, <hsinyi@chromium.org>,
-	<thomas.petazzoni@bootlin.com>, <linux-mtd@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>
-Subject: RE: [PATCH v3 04/23] mtd: spi-nor: Add support for the new JESD216
- rev F QER field
-Thread-Topic: [PATCH v3 04/23] mtd: spi-nor: Add support for the new JESD216
- rev F QER field
-Thread-Index: AQHdKzcucGwXu1ZOE066BGny6n0Soramedtw
-Date: Thu, 20 Aug 2026 05:53:16 +0000
-Message-ID: <c209ecaf857b40519b921e4d73ae29b6@infineon.com>
-References: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-0-b637cf120d5c@bootlin.com>
- <20260813-winbond-v7-1-spi-nor-rv-addition-v3-4-b637cf120d5c@bootlin.com>
-In-Reply-To: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-4-b637cf120d5c@bootlin.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.161.6.196]
+	id 1wwvlW-0000000AspD-2Qmv;
+	Thu, 20 Aug 2026 05:56:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7799C43769;
+	Thu, 20 Aug 2026 05:56:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F8F91F00A3A;
+	Thu, 20 Aug 2026 05:56:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787205397;
+	bh=bTtESEhDqdaJJFf13TJPMsvGwGlOkJtwU8iCH8UJRzI=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date;
+	b=Sx/ECOxkrorY3o+MTDG3qDlw0HT8E/cTXE/rqe8svELCermUqUrt6Wz1D0fkuY92z
+	 7eoD80Sfzx2VqwviyXDW5AW0oKJRMoxoCw4Jj1l8JZgPjpzKXlZfpbveDFFFHR3CPK
+	 266u2W0cPA4LXRWVFnuCOxKceTyx4BsTpWAodATgmimYdZ87R3LkX3UNZqha33FHBo
+	 +luXGBcy7XhRmg1Ld3J/lJeOEeoahw/ICOwRim9qFHYNNvQbsLqy2ZSH9Unkx25M1T
+	 Rlqq6pD7uQdlqkgCCpFqyShTEU7ohk5Py83Y5hDlDqESjFGj1Q04A08SxecEIy/CXm
+	 lwBLBt91ZMu/A==
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_225319_539122_F6F169DE 
-X-CRM114-Status: GOOD (  10.70  )
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <e6f52b34163c8e708c1100107b437af0b3b049a6.1787165329.git.geert+renesas@glider.be>
+References: <cover.1787165329.git.geert+renesas@glider.be> <e6f52b34163c8e708c1100107b437af0b3b049a6.1787165329.git.geert+renesas@glider.be>
+Subject: Re: [PATCH treewide 1/5] clk: ti: Make sure clk_init_data is fully initialized
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-hwmon@vger.kernel.org, linux@analog.com, linux-iio@vger.kernel.org, linux-amlogic@lists.infradead.org, linux-spi@vger.kernel.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, Geert Uytterhoeven <geert+renesas@glider.be>
+To: Andy Shevchenko <andy@kernel.org>, Antoniu Miclaus <antoniu.miclaus@analog.com>, Brian Masney <bmasney+clk@redhat.com>, David Lechner <dlechner@baylibre.com>, Geert Uytterhoeven <geert+renesas@glider.be>, Guenter Roeck <linux@roeck-us.net>, Jerome Brunet <jbrunet+clk@baylibre.com>, Jonathan Cameron <jic23@kernel.org>, Kees Cook <kees@kernel.org>, Kevin Hilman <khilman@baylibre.com>, Mark Brown <broonie@kernel.org>, Mathieu Dubois-Briand <mathieu.dubois-briand@bootlin.com>, Michael Hennerich <Michael.Hennerich@analog.com>, Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, Nuno Sa <nuno.sa@analog.com>, Sunny Luo <sunny.luo@amlogic.com>, Tero Kristo <kristo@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>
+Date: Wed, 19 Aug 2026 22:56:35 -0700
+Message-ID: <178720539505.4726.15293940846422145239@lazor>
+User-Agent: alot/0.12
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,15 +67,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBSZXZpc2lvbiBGIG9mIHRoZSBKRURFQyBKRVNEMjE2IHN0YW5kYXJkIGluY2x1ZGVzIHlldCBh
-bm90aGVyDQo+IHN1cHBvcnRlZCBzZXR0aW5nIGluIHRoZSBRRVIgMy1iaXQgYml0ZmllbGQ6IDEx
-MGIuDQo+IA0KPiBUaGlzIHNldHRpbmcgaW1wbGllcyB0aGF0IHRoZSBRRSBiaXQgaXMgYml0IDEg
-b2YgU1IyICh3aGljaCBpcyBhbg0KPiBhbHJlYWR5IHN1cHBvcnRlZCBjYXNlKSBidXQgdGhpcyB0
-aW1lIGl0IG1ha2VzIGl0IHZlcnkgY2xlYXIgdGhhdCBib3RoDQo+IHJlYWRpbmcgYW5kIHdyaXRp
-bmcgdG8gU1IyIGlzIHN1cHBvcnRlZCwgYnV0IG5vdCB3aXRoIHRoZSB1c3VhbA0KPiBvcGNvZGVz
-LiBUaGUgd3JpdGUgb3BlcmF0aW9uIHVzZXMgYW4gYWx0ZXJuYXRlIFdSU1IyIG9wY29kZToNCj4g
-MHgzMSAoaW5zdGVhZCBvZiAweDNFKSBhbmQgYm90aCB0aGUgcmVhZHMgYW5kIHdyaXRlcyBtYW5p
-cHVsYXRlIGEgc2luZ2xlDQo+IHJlZ2lzdGVyIGF0IGEgdGltZS4NCj4gDQo+IFNpZ25lZC1vZmYt
-Ynk6IE1pcXVlbCBSYXluYWwgPG1pcXVlbC5yYXluYWxAYm9vdGxpbi5jb20+DQoNClJldmlld2Vk
-LWJ5OiBUYWthaGlybyBLdXdhbm8gPHRha2FoaXJvLmt1d2Fub0BpbmZpbmVvbi5jb20+DQoNCg==
+Quoting Geert Uytterhoeven (2026-08-19 12:05:15)
+> The clk_init_data structure contains several mutually-exclusive members
+> for different methods to specify the possible parents of a clock,
+> prompting drivers to initialize only the members they need.  However,
+> not initializing all members may cause subtle issues, which are only
+> exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
+> enabled.
+>=20
+> _register_mux() fills in init.parent_data, and assumes that
+> init.parent_names is NULL.  However, the latter in uninitialized, and
+> thus may cause a crash.
+>=20
+> Make sure all members are fully initialized, to fix such bugs, and to
+> avoid future breakage when converting drivers to a different method for
+> specifying the parents.
+>=20
+> Fixes: 667f420c09f1417c ("clk: ti: mux: resolve parent clocks by DT index=
+, not by name")
+> Closes: https://lore.kernel.org/CAMuHMdU3yVqoyHC4eNF2NuYo8wy+6ODLoYat4R71=
+X99Mxc_=3Dkw@mail.gmail.com
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+
+Applied to clk-next
 
