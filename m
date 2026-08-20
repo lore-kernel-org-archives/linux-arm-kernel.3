@@ -4,99 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1F54C5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 19:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B884AC5DF86
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 19:49:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZcCE6qlc50qWmg1m/bQqEwbDw08j9kuZZKKtuHo15dA=; b=pQi3fwoYWYCbjpTdPvYXIBLWKd
-	nToRAuB+wjVD/fNgLHOsg/dc+uFENrsH86BxfTuSXQBst+r3gZwUDGRhuQph+sgpc8Ca7eivK+psl
-	3oIOMvaAu7CuP8flWQnh3PCkqx/BqQjY88/EdsCy8pkKgi25AxXyO+HHSKG28LOsUeLTEVq7TH2eT
-	C64mFP+2FIbXqx9HP/JBj/Yf6bh+qqKzwy8MpsWvk9lEY2n5ivmsuxAE8Jg3JEbeghbkyJowphvuQ
-	qRFxPLPlIxsBN7a8HlxfLAHyeQMd7jh6K+JQS1RuUv2hb8l/3MI057H+8/Juux+zw42khZyQbl1K0
-	tk3SNuGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=x2Cmaab1c8skxG2XWMAOAO6+MfGSdVWYe9eRT+Q7FR0=; b=fIPF7nfJDQyeB8zO6sBrz1Pe4r
+	B4O8Ul5w22+yo2vzTDPVKe8F3hwA75GHuH5vYSUpBssv+6zLCpPWKQpkLjSf/gfkGYURPQXlunhNI
+	kkLeE+ftSry3j6SgJGw0ZcVCTih5d5mml39+sUzt+bP/JahTrvEx/Zl/rWEtU07+7cOUaj3Ejp8AW
+	IOOEnT4utMrkpRbVPbViLHzmrhAywX6cTkDm1xw6T/2aXCGl1f+n66UYmkAeNkzd3lfirYrzd4udW
+	6YTHDcZlAem7Tp+Y8K6uNYAvnPwA1looLUYlXZ4HdkJbDHKLW2ZJleTz2f/wmF0Qmo2zoW5dQ1rJF
+	M7V/r5Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx8cN-0000000C854-3yEb;
-	Thu, 20 Aug 2026 19:40:03 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1wx8l1-0000000C8eF-49ka;
+	Thu, 20 Aug 2026 19:48:59 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx8cL-0000000C84N-3dqB
+	id 1wx8ky-0000000C8de-3KHh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 19:40:03 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2cc61541f8cso15886565ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 12:40:00 -0700 (PDT)
+	Thu, 20 Aug 2026 19:48:58 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67KIJ5OF3259546
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 19:48:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=x2Cmaab1c8skxG2XWMAOAO6+MfGSdVWYe9e
+	RT+Q7FR0=; b=DOWetbHjIo3hBlH5OepFF2/oJtZ9sj1U5SchZFWIhPK9l2Wv4yA
+	wku2TSLme2SYWGRTyUNtwtxGkUq0f8aTT8+W9YjBaFuZpOgWkwL+Rz2rvIjMt2TX
+	P1zt+CMJGxoNXfLp7KzLU7+Kw4EofrpCUqYwSW3R327aMkwwJJAqqBFCsZZfZ8Jj
+	fU8em8swmTbbBkz0MJJ0YhWmzRC8HZXDhFL8dNdMIL3hgoQscfu/mUTM+hg9R8v7
+	G5QZ4bXXVccc8858rLayGlRBhA3r6dA0wkJQmHmIStKX8ooYO1ISX9h+rDYa2afT
+	Qt3SZFMXTU9KJRmo4htp0GnEV5FMMgZEKYA==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g5ytcamgf-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 19:48:56 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-92e5e38fbc5so25397185a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 12:48:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1787254800; x=1787859600; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=ZcCE6qlc50qWmg1m/bQqEwbDw08j9kuZZKKtuHo15dA=;
-        b=Vz5ijA5Wm3b8M0z+Sd3fPJAKFtpQ02Qck01K99xu1Vj/kWg6g/PWKocLNCZ2PljjnX
-         Oe15FpFMnqanJx0Zf174Mz7PdZ+S8fmbm9nllRt9KleIwGieucXEFcX+wznjytYAfMR9
-         eibB9Vu8ndLLikcL/YZ4DhasKcL9TU9/KTPv22I8fLVmZlTcr/24UHrpSphbvxdoQ38o
-         nwbRBr/rbcMG0AX69ulX9ITiFUXet4ShkI9v4M3ignkj6afnekrQ7Ak9Cbu1Hxg4nQZ9
-         rwKIhAK7knH6hitKAPfJ5stkJtSPM0D6ScSUziofk0V+AfRlt/QgGGtKI79Q3HkGuRst
-         bpuQ==
+        d=oss.qualcomm.com; s=google; t=1787255335; x=1787860135; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=x2Cmaab1c8skxG2XWMAOAO6+MfGSdVWYe9eRT+Q7FR0=;
+        b=V+JdYosdV/AI4HiYDaQoJCWaNRy3uqzoRSLTIef6hDsz/zgezFZwe2ltjEv6MFF+Tc
+         E2EETy2NpQV4MmkvQObwCuz7/sbW57lhH+Q6DREl+GdbSpb1AZ4NxMlaxxNkmKAAOLu9
+         Kl7Dyn4F3PMduFoC4LIVfztMrLRWNxBMXttsdLbxFA3MWFl3qPosNeBS68/FYAc9vj7r
+         hJrlNNGe+TaoF+6acRFs0azPzDgQ52cde/bdXGloE4udx+Bquv6AwpnsdRGfUF9Dvat4
+         2voSvUJJPo4/dzZtjGiXA8aYHdGtBl8T1C9mdA+Qlh7WFysiSColcfChKnkOCESXDU4U
+         jk4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787254800; x=1787859600;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=ZcCE6qlc50qWmg1m/bQqEwbDw08j9kuZZKKtuHo15dA=;
-        b=iI/nft0un7EeVq3uVh/AFm+aXiyDHzDr1YhbLWSeTkP/+lWoIfeumqOsyIqmTO8b0d
-         UXIm7dRkYrz0I/BPF2AyUAwxT4AhFM7iJph8JHfxB8ulfqugHvOQpIx+lMtb3lqSNM8W
-         6m+axN5sTMcFfG5CbWnn2BB8GKRBge5r8BzLavuqF7K4bV2Ed7FjGAeYJ98JRHA4J/u2
-         VWN/ww10mv2fYat41PUdhICjPbA3gU7NV8lbCtu6nGAvYqJpg4I1Es8qVqK9xfTJLmaU
-         qvhzZEAs3cWAsUNHJuSPNZ+sIKl0RXrNXWII1OoFkQiqBI3pqe6jBOtlvT4DSsCxaeyD
-         pE/w==
-X-Gm-Message-State: AFuF++kRd+EnVKwCbjj+1gn26yjU1l7UQv/wV9+KK81yBn7DrVB1GJyg
-	apBu+9UGcMSK8q4AkM5slnktmSxtJUNFilrFAEaL0v3SMmQlJWilbmRTtJ3Jefc9daY=
-X-Gm-Gg: AR+sD11pGx3UGz+sZfVprg5xirDokpaSGsaWcw9FDwaUJYOP6pBsL8ChIDOiQjlQkGq
-	TDvUMgAaJptPet31hv4DMsOFNemNN2k0uSo069sYybfE9QLT8KPU8yZ0Nk5Z1az1yVbDCtezqeg
-	PN/oz2mLAXXqtyCR5gMCG42WMdtEG958VBMJqByNvVoQvNifUcVrZcIYKqDCuReFzyYqoObLTTG
-	voewqJT1+Z9zLLaGzQIIgNG3ywSrcLnlGcGRlQbjU9oEBxXGnRRobItfh2Vcsvx3J+/7DCK+23J
-	Oo3/GJX7cSEWa6tfn3uiBSuZzD4xXzGZUoy/KWAEf3HI1sKNOgJlW3cmGjYGuXM/bu3tvMu/dvW
-	MOtTiA59Cy20UWLNPsbVao1InrN5wwz9JSd9t7igr5TB+qlENa4ZWFWP/hcYVJ4yY172YTTYZqH
-	ddmVzNjGR2kPEE4dVzJuIj11dIUYChKpT1ZahSlxf7Ro47mTDpCUSQcotiUgxewr8=
-X-Received: by 2002:a17:902:ce0d:b0:2bd:2c3a:2a36 with SMTP id d9443c01a7336-2d619d47dfamr114795725ad.0.1787254800300;
-        Thu, 20 Aug 2026 12:40:00 -0700 (PDT)
-Received: from [127.0.0.2] ([50.145.100.174])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-327bf14376asm19543822eec.24.2026.08.20.12.39.59
+        d=1e100.net; s=20251104; t=1787255335; x=1787860135;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=x2Cmaab1c8skxG2XWMAOAO6+MfGSdVWYe9eRT+Q7FR0=;
+        b=nImVdEyK2rfVY/58kmtOm0AYNjy+PoAhZ0RuRMTTuJjOhloHzee2dijpa9GykvYBH8
+         0OqsSOa2lhUQK7NBg2u9vP/1qsS3tQXi+P//LQl4iEeF/Z8NdWDeQk4UYgniIS7MM3oB
+         WXulx4jhyV2re0bcqfVunmqmPHlrEiR1y8l7OVTuWPuC1r/VANpSDbJohta2fd3Jydbd
+         WKY8Xj2MKa3lbbZsl2f0VbKBMxsSQROhtPrJFrC1ivmEHuQGTu7JmpGonW9HhnIgzUow
+         Fv7NmRQ+jym/uKCAdRVTSAe18WQwT1JDBso4Ds2MpXUM0e7gCEBi04kgWT+QEKuQd9OH
+         5Rzg==
+X-Forwarded-Encrypted: i=1; AHgh+RoS+IU9AnXBqLpX3q9l2c+sZ+Ayue/eCcq/hk7VRyJeheQaUNgvyyC6LbyaWl1NLh0krpUFWPFZMlSPZMDNyFuA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxofH/pdPhYe7gHaEDLxdk9QiFUioalL82IwYNepYw6QIfTE57n
+	e5jm+aJbxwUSz4Q6DNwFnIu67vyYggD8XkWf9EFuiJWUEe3MnUAxgvg1DqUI6S9gjHWMNirCodF
+	03vgPfgKuiOXpQeGjoeiHCmMW4504gGK7mi5c5CNGuTavh09en2o5hwNB5E+RBHCNTOH8cl42Do
+	IN9/cd5uiPaQ==
+X-Gm-Gg: AR+sD11CWdlYa4APHQglscMVWv+KaSHBr4wPfxM2nXl+ed1dkmUoV0fw/A06v9j3Zug
+	YXui1G9Iq7aLZf7wqD3UA+gAfJJu4k5l58h3UMgnJlpaRxBPUUxokL91s/rGAVlFgyG0zyrG+Uj
+	rHk0/mNy3njxPHJzOiLZbbRG5NXQcXHk3xF3WKBr2izNP/xAxG706/6QJDXGTE+eKlp4ygc6Hra
+	pADZSh3wqBrnDF1jdvY7ry1Jme3sxvowDETXoUHy5scPlYWpXv0AvMFG+BhT8EbHaiSelWidV6a
+	emh/TymGHagDENQ4xs9xNOwxN/axWPZE5QzMc81hXY3hbcRrBsSskrUahUziVKW4QJbOQgYzpVs
+	LmLRuj5yriTAB
+X-Received: by 2002:a05:620a:319e:b0:936:ea3d:9313 with SMTP id af79cd13be357-93739497c75mr56869385a.20.1787255335107;
+        Thu, 20 Aug 2026 12:48:55 -0700 (PDT)
+X-Received: by 2002:a05:620a:319e:b0:936:ea3d:9313 with SMTP id af79cd13be357-93739497c75mr56863585a.20.1787255334517;
+        Thu, 20 Aug 2026 12:48:54 -0700 (PDT)
+Received: from shalem ([2001:1c00:c32:7800:5bfa:a036:83f0:f9ec])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2459198ec5sm113433266b.34.2026.08.20.12.48.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 12:39:59 -0700 (PDT)
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Date: Thu, 20 Aug 2026 12:39:56 -0700
-Subject: [PATCH v6] i2c: xiic: restore non-managed runtime PM to fix clk
- WARN flood
+        Thu, 20 Aug 2026 12:48:53 -0700 (PDT)
+From: Hans de Goede <johannes.goede@oss.qualcomm.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Cristian Marussi <cristian.marussi@arm.com>,
+        Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Hans de Goede <johannes.goede@oss.qualcomm.com>,
+        Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
+        arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, imx@lists.linux.dev,
+        linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/3] firmware: arm_scmi: fix module auto-loading
+Date: Thu, 20 Aug 2026 21:48:47 +0200
+Message-ID: <20260820194850.459739-1-johannes.goede@oss.qualcomm.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260820-i2c-xiic-restore-runtime-pm-teardown-v6-1-5db5c3703ea0@nexthop.ai>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5XOzU6EMBQF4FeZdG3NbUuBuvI9jIv+3Mo1GSCFQ
- cyEd7cdNxg2uDzJyXfOnU2YCCf2crmzhAtNNPQ51E8X5jvbfyCnkDOTIGtoheIkPV+JPE84zUN
- Cnm79TFfk45XPaFMYvnoeAlgngpMeJMvUmDDS+ph5e//N0819op+LXRodFe378WMRpffPyUVww
- QGbEJ2EujHw2uM6d8P4bImVzUXu1eqkKrPaWNQBvIIY5UFVe7U9qaqs6hiU0A6aFsVBrfaqOal
- WWa2NMegqVQXhD6reqRJOqjqr3urgTA1aQ/tH3bbtB/Nj7ixDAgAA
-X-Change-ID: 20260813-i2c-xiic-restore-runtime-pm-teardown-dd0ab1db2c02
-To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Abdurrahman Hussain <abdurrahman@nexthop.ai>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787254799; l=8044;
- i=abdurrahman@nexthop.ai; s=20260510; h=from:subject:message-id;
- bh=2VY9MXDjK9yzik9Rg0IadfnDzQtNAmpccieQpDEqoRA=;
- b=zmlZ/jh+vJ9Ved5kvwlUN1/FjmVcYt5PXN0MSjfimc3sGeYYCRzy8OVImTmtbE+RAKJkVvjwP
- sOGeRxiXjfQANRvxlwD/MRYRuFoqFa31xrsYzgpe6xCydIMita5Dqyz
-X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
- pk=omTm9cCAbO0ZhS32aKfJDKue0W3sQGpG9ub5eYHif8I=
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=OqZ/DS/t c=1 sm=1 tr=0 ts=6a875a28 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=Sv0fKeRqtYgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=bC-a23v3AAAA:8
+ a=7CQSdrXTAAAA:8 a=QYgjaYqrS4LJc6J_j6wA:9 a=bTQJ7kPSJx9SKPbeHEYW:22
+ a=FO4_E8m0qiDe52t0p3_H:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDE0OSBTYWx0ZWRfX6qBiaRRFTV+d
+ Z0alOcxXa6sJmqQlcL1aSIN/bxEQfYQiCO6mTSEoaLw5cMojsWTZz4qmc1XWZYFBUeLmov0V9U/
+ e2p4eH0tpc6jFOFAaF96Iz3ep5nAcnYItK8Qn7mY2UrV/M1ryIWoRKXECoX2Ghg7R8bOLZQVMdL
+ J528iWQs9QG3vfr2PRJdmjxlmY/6AvsV4c22gFPyXg3/Y3wslNSFTYqKhihsYqBKEDUdcAt144V
+ pLTEqAaYltgHYRjYgvKotakUh4GuYuvgLTkZraYQhETr6QveqsAVt1Sro965fnvavq/bm4lAPYF
+ HqrwkdZbNeeGr0rOhJnbztevsb/Fo8+kgY7nOxtaujBh+Fnqehp2ql5CVCVjDNY52weg06qsM/o
+ fU9vzPGMPQmK5OADsWqw+2GIbnSNJgsGJ28vq92mGwwUIcOv6noj5UCAK/FY0IaRGyCEsGU4z0y
+ 8WnYdsEmgGhhbe7bO/w==
+X-Proofpoint-ORIG-GUID: JQVOWopjR-awGiPl_KqDnsW3tDMinIX3
+X-Proofpoint-GUID: JQVOWopjR-awGiPl_KqDnsW3tDMinIX3
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDE0OSBTYWx0ZWRfX54Z0cYc4AByv
+ hVPdRHogG/TpCW7B6YoUjpKJyJBeYghd+U4ZJEE1WGH2NP2bBRJSSRARRd5df43NDxmUP/ULEcn
+ CV1pYef05TOTA27bjqQg5GnHihBVwY8=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-20_01,2026-08-20_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 spamscore=0 malwarescore=0 clxscore=1015 adultscore=0
+ bulkscore=0 suspectscore=0 lowpriorityscore=0 priorityscore=1501
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608200149
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_124001_936961_BBF3D67F 
-X-CRM114-Status: GOOD (  26.51  )
+X-CRM114-CacheID: sfid-20260820_124856_834300_14E84B63 
+X-CRM114-Status: GOOD (  18.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,205 +147,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The devres conversion replaced manual pm_runtime_enable()/disable() with
-devm_pm_runtime_set_active_enabled() and dropped the remove-time runtime
-PM teardown. The managed release tears runtime PM down in the wrong
-order: it calls pm_runtime_dont_use_autosuspend() before
-pm_runtime_disable(), i.e. while runtime PM is still enabled, and devres
-is LIFO so the devm_clk_get_enabled() release runs afterwards.
+Hi All,
 
-At remove(), pm_runtime_put_sync() leaves the device active with the
-autosuspend timer armed. Clearing use_autosuspend then makes rpm_idle()
-suspend immediately, and xiic_i2c_runtime_suspend() clk_disable()s the
-clock. The later devm_clk_get_enabled() release clk_disable_unprepare()s
-the already-disabled clock, so clk_core_disable() WARNs ("clkN already
-disabled") on every teardown.
+Here is a patch series fixing arm_scmi module autoloading this combines:
 
-Drop the managed helper and restore the non-managed runtime PM setup and
-teardown, so runtime PM is enabled once in probe and disabled once in
-remove and the clock enable count stays balanced.
+1. Patch 1/2 from Bjorn to add support for scmi bus modaliases to modpost:
+https://lore.kernel.org/all/20260618-scmi-modalias-v2-1-8c7547c1be21@oss.qualcomm.com/
 
-Order the remove teardown so runtime PM is disabled before the usage
-count is dropped: pm_runtime_disable() followed by pm_runtime_put_noidle()
-instead of pm_runtime_put_sync(). Dropping the count first with autosuspend
-still enabled arms the autosuspend timer, and a preemption before
-pm_runtime_disable() lets it expire, suspend the device and clk_disable()
-the clock, which the devm release then disables again - the same WARN.
+2. RFC 2/2 from Cristian which pre-populates the scmi { protocol, name }
+tupple list with standard protocol info to break the circular dep:
+https://patch.msgid.link/20250203100154.140877-2-cristian.marussi@arm.com
 
-Restore the non-managed IRQ request as well. The probe error paths now
-unwind runtime PM by hand via goto, and a devm-registered handler is only
-freed later during devres unwind, so it would stay live across the manual
-teardown (and across any future failing step added after it). Request the
-IRQ with request_threaded_irq() and free it explicitly in the probe error
-path and in remove. The probe error path also clears use_autosuspend, to
-match the teardown in remove().
+1. is not enough by itself because driver module auto-loading requires
+the devices to already be created for udev to get the necessary uevents
+based on which udev auto-loads modules.
 
-Fixes: 50c63491ff26 ("i2c: xiic: switch to devres managed APIs")
-Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
----
-Changes in v6:
-- probe: check the pm_runtime_set_active() return value and unwind on
-  failure (undo pm_runtime_use_autosuspend()) instead of ignoring it.
-  On failure runtime PM would stay suspended while the clock is left
-  enabled, and remove()'s pm_runtime_get_sync() would then resume, enable
-  the clock a second time and leak the enable across the manual teardown
-  (Sashiko).
-- Link to v5: https://patch.msgid.link/20260820-i2c-xiic-restore-runtime-pm-teardown-v5-1-ca5db9605508@nexthop.ai
+But SCMI devices are only created after their { protocol, name } tupples
+have been registered which is done from scmi_driver_register(), creating
+a circular dependency.
 
-Changes in v5:
-- remove(): disable runtime PM before dropping the usage count
-  (pm_runtime_disable() + pm_runtime_put_noidle() instead of
-  pm_runtime_put_sync()), so the armed autosuspend timer can no longer
-  race pm_runtime_disable() and re-trigger the clk double-disable.
-- probe error path: also call pm_runtime_dont_use_autosuspend() so it
-  mirrors the teardown in remove().
-- Link to v4: https://patch.msgid.link/20260819-i2c-xiic-restore-runtime-pm-teardown-v4-1-6999eb434d1c@nexthop.ai
+2. breaks the circular dependency by pre-populating the { protocol, name }
+list with the standard protocols. This allows the devices to be created
+before the module with the driver is loaded, after which module auto
+loading works the same as it does on any other bus.
 
-Changes in v4:
-- Request the IRQ non-managed (request_threaded_irq/free_irq) and free it
-  in the probe error path and in remove(), instead of a devm handler that
-  would only be released during devres unwind and so stay live across the
-  manual runtime PM teardown in the goto error paths (Andy).
-- Link to v3: https://patch.msgid.link/20260818-i2c-xiic-restore-runtime-pm-teardown-v3-1-5fd315b078e1@nexthop.ai
+I've tested this on a T14s Snapdragon laptop with Fedora's kernel config
+where scmi_cpufreq is a module. With this series scmi_cpufreq correctly
+autoloads even if it is not included in the initramfs.
 
-Changes in v3:
-- Drop the managed devm_pm_runtime_set_active_enabled() helper entirely
-  and restore the non-managed runtime PM setup (pm_runtime_set_active +
-  pm_runtime_enable, with probe error unwinding) and teardown
-  (pm_runtime_disable + set_suspended + dont_use_autosuspend), so the
-  disable depth stays balanced rather than being disabled twice (Andi).
-- Link to v2: https://patch.msgid.link/20260814-i2c-xiic-restore-runtime-pm-teardown-v2-1-7ae5d0c30ff2@nexthop.ai
+I've added a 3th patch extending the pre-populating to also include all
+the { protocol, name } tupples for the in tree SCMI drivers for IMX
+vendor protocols, so that module auto-loading will work for all in tree
+drivers.
 
-Changes in v2:
-- Move the Signed-off-by into the commit message proper (Andy).
-- Link to v1: https://patch.msgid.link/20260813-i2c-xiic-restore-runtime-pm-teardown-v1-1-0e7dfb206790@nexthop.ai
+Out of tree drivers can still register new tupples as before but their
+modules will need to be manually loaded (also as before).
 
-To: Michal Simek <michal.simek@amd.com>
-To: Andi Shyti <andi.shyti@kernel.org>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-i2c@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
----
- drivers/i2c/busses/i2c-xiic.c | 48 +++++++++++++++++++++++++++++++++++--------
- 1 file changed, 39 insertions(+), 9 deletions(-)
+Regards,
 
-diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index 3e7735e1dae0..0f19bca8ea17 100644
---- a/drivers/i2c/busses/i2c-xiic.c
-+++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -92,6 +92,7 @@ struct xiic_i2c {
- 	int rx_pos;
- 	enum xiic_endian endianness;
- 	struct clk *clk;
-+	int irq;
- 	enum xilinx_i2c_state state;
- 	bool singlemaster;
- 	bool dynamic;
-@@ -1475,9 +1476,17 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 
- 	pm_runtime_set_autosuspend_delay(dev, XIIC_PM_TIMEOUT);
- 	pm_runtime_use_autosuspend(dev);
--	ret = devm_pm_runtime_set_active_enabled(dev);
--	if (ret)
-+	/*
-+	 * Enable runtime PM by hand: devm_pm_runtime_set_active_enabled()
-+	 * tears down in an order that races the devm-enabled clock release and
-+	 * makes clk_core_disable() WARN (see xiic_i2c_remove()).
-+	 */
-+	ret = pm_runtime_set_active(dev);
-+	if (ret) {
-+		pm_runtime_dont_use_autosuspend(dev);
- 		return ret;
-+	}
-+	pm_runtime_enable(dev);
- 
- 	/* SCL frequency configuration */
- 	i2c->input_clk = clk_get_rate(i2c->clk);
-@@ -1486,10 +1495,15 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	if (ret || i2c->i2c_clk > I2C_MAX_FAST_MODE_PLUS_FREQ)
- 		i2c->i2c_clk = 0;
- 
--	ret = devm_request_threaded_irq(dev, irq, NULL, xiic_process,
--					IRQF_ONESHOT, pdev->name, i2c);
-+	/*
-+	 * Request the IRQ non-managed: later probe steps unwind manually via
-+	 * goto, so a devm handler could still be live after that teardown runs.
-+	 */
-+	i2c->irq = irq;
-+	ret = request_threaded_irq(irq, NULL, xiic_process, IRQF_ONESHOT,
-+				   pdev->name, i2c);
- 	if (ret)
--		return ret;
-+		goto err_pm_disable;
- 
- 	i2c->singlemaster = device_property_read_bool(dev, "single-master");
- 
-@@ -1506,14 +1520,16 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 		i2c->endianness = BIG;
- 
- 	ret = xiic_reinit(i2c);
--	if (ret)
--		return dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
-+		goto err_free_irq;
-+	}
- 
- 	/* add i2c adapter to i2c tree */
- 	ret = i2c_add_numbered_adapter(&i2c->adap);
- 	if (ret) {
- 		xiic_deinit(i2c);
--		return ret;
-+		goto err_free_irq;
- 	}
- 
- 	if (pdata) {
-@@ -1526,6 +1542,15 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 		res, irq, i2c->i2c_clk);
- 
- 	return 0;
-+
-+err_free_irq:
-+	free_irq(irq, i2c);
-+err_pm_disable:
-+	pm_runtime_disable(dev);
-+	pm_runtime_set_suspended(dev);
-+	pm_runtime_dont_use_autosuspend(dev);
-+
-+	return ret;
- }
- 
- static void xiic_i2c_remove(struct platform_device *pdev)
-@@ -1537,6 +1562,8 @@ static void xiic_i2c_remove(struct platform_device *pdev)
- 	/* remove adapter & data */
- 	i2c_del_adapter(&i2c->adap);
- 
-+	free_irq(i2c->irq, i2c);
-+
- 	ret = pm_runtime_get_sync(dev);
- 	if (ret < 0)
- 		dev_warn(dev, "Failed to activate device for removal (%pe)\n",
-@@ -1544,7 +1571,10 @@ static void xiic_i2c_remove(struct platform_device *pdev)
- 	else
- 		xiic_deinit(i2c);
- 
--	pm_runtime_put_sync(dev);
-+	pm_runtime_disable(dev);
-+	pm_runtime_put_noidle(dev);
-+	pm_runtime_set_suspended(dev);
-+	pm_runtime_dont_use_autosuspend(dev);
- }
- 
- static const struct dev_pm_ops xiic_dev_pm_ops = {
+Hans
 
----
-base-commit: d58772d8520c7ef247c4b95c9bd76d3a25da9ff5
-change-id: 20260813-i2c-xiic-restore-runtime-pm-teardown-dd0ab1db2c02
 
-Best regards,
---  
-Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Bjorn Andersson (1):
+  module: add SCMI device table alias support
+
+Cristian Marussi (1):
+  firmware: arm_scmi: Pre-register protocol, name tupples for standard
+    protocols
+
+Hans de Goede (1):
+  firmware: arm_scmi: Pre-register protocol, name tupples for IMX
+    protocols
+
+ MAINTAINERS                       |  1 +
+ drivers/firmware/arm_scmi/bus.c   | 75 +++++++++++++++++++++++--------
+ include/linux/device-id/scmi.h    | 19 ++++++++
+ include/linux/mod_devicetable.h   |  1 +
+ include/linux/scmi_protocol.h     |  6 +--
+ scripts/mod/devicetable-offsets.c |  4 ++
+ scripts/mod/file2alias.c          | 11 +++++
+ 7 files changed, 94 insertions(+), 23 deletions(-)
+ create mode 100644 include/linux/device-id/scmi.h
+
+-- 
+2.55.0
 
 
