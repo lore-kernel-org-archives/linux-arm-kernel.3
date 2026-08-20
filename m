@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AD6C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 18:11:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB25C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 18:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6VimjWe3SmWZw3TNJVt1GnwULpIdvyBeLBzyA9oKCVE=; b=YOfBXJrnw7tsV8B2GmJBPUDM51
-	5KubFfufxSMK4jyBXXdyDx+q5fW+srueORrNO2BXq4ij0CQtAtvEzhBGEXR+jVykhzDUGZJ3gpfrM
-	V1ZHvOFBGr18F1IPglAo4sO4026AILtPJcDkgFrQ7y9a4jLTF7l5YLg8PxA8147GqrOEAmPpMZ9pO
-	vMxpVAVug2h2huSp3MvRTBYSTwQd7ez1BX3gBRUh70vXsRwIT3AMbsASeuWq99fOqsdub48gTCe3H
-	rW3aljTJCvtzlIuIQZnz5JBaFMZmUZ4SwhfNK6gXp5NhjCNBYsm+j1qJK+sU0Z3My+wVZmZx/r8GY
-	3hybi2cQ==;
+	bh=DHW9cNS1bAzJSHh0Hf7sojpp13ovZ/n31IWZ0I9IVHU=; b=EAuRzzXlfPhtmYfIraH8HCyTj1
+	Md6DjnWetHGepHVMmBOJ12YcdAinnT+7HSY98SuRalOcLRd5m1GUl1bCADc9GjTMZeZBJuU3+vbWE
+	PzXdTeFTz/CPDVwhqpfknJoEtjRjALXabMpEn72S9mG8mMYgtCMu1PFzL6OXRO+/Kum5y5RdyZPfH
+	FGBOwEFE8vndV/M6D0nEOXQLaCgw2PInWKWkri2nhzcqyhOVwDHfBn7EffKgOrNVSwZFdaXQPb58P
+	+62pBr63KS41qsDyucYSmyIwrcF8ndBd9bjHxOIs7w7D9wpsDH2wVFCFU2u5kh3Kcmx6evcqVqGd5
+	5nU5NPHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx7EY-0000000C1GY-1YNq;
-	Thu, 20 Aug 2026 18:11:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wx7H6-0000000C1ra-3DYG;
+	Thu, 20 Aug 2026 18:14:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx7EW-0000000C1GB-28hs;
-	Thu, 20 Aug 2026 18:11:20 +0000
+	id 1wx7H6-0000000C1rU-1Ctx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Aug 2026 18:14:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 98E7D60A72;
-	Thu, 20 Aug 2026 18:11:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA9D21F000E9;
-	Thu, 20 Aug 2026 18:11:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AA0844084B;
+	Thu, 20 Aug 2026 18:13:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71EA41F000E9;
+	Thu, 20 Aug 2026 18:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787249479;
-	bh=6VimjWe3SmWZw3TNJVt1GnwULpIdvyBeLBzyA9oKCVE=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=ff04qASpnnH+GDL7vbbffBf0ro3l6ENId2a1UaG+kDxmpLGG9E/rRV8i0D6rOl3XN
-	 wgxtGXB7UiV3blQzR27KjmkLdOWK6DZ7aWFU9oatFUX2e4j1XViEmrUEG1zFN9GHNn
-	 WFOLI43qiCQ7ydx8oyzBlkLLDXLVCQnk3Qd8r9vtidG3JgSaat0NTyiVjaxr5kbsRy
-	 /nMChtOImCKK1XOsLycua5DxDT0autDeembT79vP3FvbU1WkHlIaI6YZc4nwuRBNpf
-	 s1J8dxXB66OukDIpjwkKfdKZ1ChSWeVZ/L9K34Gfa7vtHGKEMKsJfzo5pTUtcgPotU
-	 +xlFa/ZaUx/8w==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Philipp Rudo <prudo@redhat.com>
-Cc: Mukesh Pilaniya <mpilaniy@redhat.com>,  Catalin Marinas
- <catalin.marinas@arm.com>,  Will Deacon <will@kernel.org>,  Mark Rutland
- <mark.rutland@arm.com>,  Huacai Chen <chenhuacai@kernel.org>,  WANG Xuerui
- <kernel@xen0n.name>,  Paul Walmsley <pjw@kernel.org>,  Palmer Dabbelt
- <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,  Alexandre Ghiti
- <alex@ghiti.fr>,  Andrew Morton <akpm@linux-foundation.org>,  Baoquan He
- <baoquan.he@linux.dev>,  Mike Rapoport <rppt@kernel.org>,  Pasha Tatashin
- <pasha.tatashin@soleen.com>,  Pratyush Yadav <pratyush@kernel.org>,  Tao
- Liu <ltao@redhat.com>,  linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  loongarch@lists.linux.dev,
-  linux-riscv@lists.infradead.org,  kexec@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] kexec: fix error propagation in
- kexec_image_probe_default()
-In-Reply-To: <20260820142114.0a36ac78@rotkaeppchen> (Philipp Rudo's message of
-	"Thu, 20 Aug 2026 14:21:14 +0200")
-References: <20260819-mpilaniy-v2-0-95e929ede0e5@redhat.com>
-	<20260819-mpilaniy-v2-2-95e929ede0e5@redhat.com>
-	<20260820142114.0a36ac78@rotkaeppchen>
-Date: Thu, 20 Aug 2026 20:11:14 +0200
-Message-ID: <2vxzik54zmpp.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	s=k20260515; t=1787249639;
+	bh=DHW9cNS1bAzJSHh0Hf7sojpp13ovZ/n31IWZ0I9IVHU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JYRMzIlKcxDf+F4AXqznL1V8BWSzeQhMO/JGUugdCwiZnW2F0FSMcDytVhZ+2L19u
+	 wWitX7KE2A0AY/ptHXfmM05a+FMV1buaJQLCaa3Lpy5BAp89bQuKSuv5UzG4IyuLtN
+	 pOICXVh6B/LrwEFnN00+NAzhs883Hwdb/OdjydrwXuB0QzCpoiV1OZSK2y80aQi8N0
+	 WHIXyZbLx+WnfPBiV8qHpayErFwSfRQ2KvQOtiV4oAkquR0WZzEjbZMacsngpkl0k9
+	 KuWIH8SC1lKMHn5UyvjTNOBZ/EQyVy99jECcpUH5JmyAVUrq4+JxUMk2MnIP2tbbxS
+	 s8uk2eEjvC2hg==
+Date: Thu, 20 Aug 2026 19:13:55 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Thomas Turner <tturner@lineageos.org>
+Cc: semen.protsenko@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, peter.griffin@linaro.org,
+	alim.akhtar@samsung.com, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: gpu: arm,mali-bifrost: add
+ exynos850-mali compatible
+Message-ID: <20260820-blemish-cancel-c1698ef90d32@spud>
+References: <20260820110620.1881-1-tturner@lineageos.org>
+ <20260820140439.83220-1-tturner@lineageos.org>
+ <20260820140439.83220-2-tturner@lineageos.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6NvgXej4M7dQyR6J"
+Content-Disposition: inline
+In-Reply-To: <20260820140439.83220-2-tturner@lineageos.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,95 +75,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 20 2026, Philipp Rudo wrote:
+--6NvgXej4M7dQyR6J
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> Hi Mukesh,
-> Hi Pratyush,
->
-> having this patch makes sense. Personally I'd go with having a
-> switch-case rather than individual if-blocks. E.g.
->
-> 	switch (ret) {
-> 		case 0:
-> 			image->fops = *fops;
-> 			return 0;
-> 		case -ENOEXEC:
-> 			continue;
-> 		default:
-> 			return ret;
-> 	}
->
-> IMHO that is better readable and easier to extend in case other error
-> codes need special handling as well. But that is only my personal
-> opinion.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Well, IMO both look roughly the same so I unless Mukesh prefers your
-version more, we can keep it as-is.
+--6NvgXej4M7dQyR6J
+Content-Type: application/pgp-signature; name=signature.asc
 
->
-> Independent on which implementation you use.
->
-> Reviewed-by: Philipp Rudo <prudo@redhat.com>
+-----BEGIN PGP SIGNATURE-----
 
-Thanks for reviewing!
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaodD4wAKCRB4tDGHoIJi
+0hgsAQD9tdhZ0vEgSmGESeOTwyNP/Qb3m2OcwQ8Mk1w67393VgEA7LJHdNYc9QRk
+CaK4hmHy7P3dc2epag9tzRNOocpoWgg=
+=4BUq
+-----END PGP SIGNATURE-----
 
-One tiny suggestion. Can you please reply in-line the next time around?
-It is a bit easier reading this response below the code that it refers
-to.
-
->
->
-> On Wed, 19 Aug 2026 23:17:23 +0530
-> Mukesh Pilaniya <mpilaniy@redhat.com> wrote:
->
->> kexec_image_probe_default() overwrites ret with each loader's probe
->> return value and returns whatever the last loader returned when no
->> probe matches.  The error code reaching userspace depends on whichever
->> loader happens to be last in kexec_file_loaders[].
->> 
->> Only continue to the next loader when a probe returns -ENOEXEC.
->> Propagate any other error such as -ENOMEM immediately. Return -ENOEXEC
->> only when all loaders have been tried and none matched.
->> 
->> Suggested-by: Pratyush Yadav <pratyush@kernel.org>
->> Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
->> ---
->>  kernel/kexec_file.c | 12 +++++++-----
->>  1 file changed, 7 insertions(+), 5 deletions(-)
->> 
->> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
->> index 59fb9d71e9d8..b3060e984ef3 100644
->> --- a/kernel/kexec_file.c
->> +++ b/kernel/kexec_file.c
->> @@ -68,17 +68,19 @@ int kexec_image_probe_default(struct kimage *image, void *buf,
->>  			      unsigned long buf_len)
->>  {
->>  	const struct kexec_file_ops * const *fops;
->> -	int ret = -ENOEXEC;
->>  
->>  	for (fops = &kexec_file_loaders[0]; *fops && (*fops)->probe; ++fops) {
->> -		ret = (*fops)->probe(buf, buf_len);
->> -		if (!ret) {
->> +		int ret = (*fops)->probe(buf, buf_len);
->> +
->> +		if (ret == 0) {
->>  			image->fops = *fops;
->> -			return ret;
->> +			return 0;
->>  		}
->> +		if (ret != -ENOEXEC)
->> +			return ret;
->>  	}
->>  
->> -	return ret;
->> +	return -ENOEXEC;
->>  }
->>  
->>  static void *kexec_image_load_default(struct kimage *image)
->> 
->
-
--- 
-Regards,
-Pratyush Yadav
+--6NvgXej4M7dQyR6J--
 
