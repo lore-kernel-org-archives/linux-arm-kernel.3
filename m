@@ -4,59 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63545C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 08:17:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BC10C5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 08:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ShsBHu3y3fePWA2u7sofKwbce4P7U45++sbZsX5t9Os=; b=gd17mtLZ+xivFHHGbqgim4a0Lj
-	lpFcdpTF2yxMXuxjXADBTwMS/+ASAYXxhXEvSBV2w09+iVfpkei0xEX3RZr1My8n9rWvaHjoh6+XG
-	zoBBNNb4XBmnxRAMYa4LViMLmOga6RKZM56i8zfG404/HcEGBOR+sOKR2Fvi1nNP1qcytpBtutchr
-	0tsxRvg0hOifzH5/p0m5sne7XdadR/5ZKa+rMEpCkLu0ewtpsMozv+1lRJ0bRVPgD5TFrB2yiFQB4
-	DJK+AIRd0gKDjJ+e8nAJn7+SaPzUrzGm6+cUYjK8m2m7jAQZdDzpdrruwNcZVMqsnkKUdiXabgbU8
-	QeH4nqSQ==;
+	bh=mB2lZE+DV/diSmQuHEoB1XkINKX39O0uxIPWs302dOo=; b=oD+ZAYbPcPzvS/dym5wrMBqbt3
+	qVSnuAVZOePmIkj3VX45Az/u1C1zkvwf/Y7Lg9uDuiybkxwIlGiMMGBJnn5mXG6C0fGIUVp1PHbMB
+	S7V4U0f9cB7iyJ16daLxEBWbdPMc5XUkMaZE/bR8/tK0wy00zbDpx2dQzqTHYDPSsGs8FYes7OKxw
+	lfONBuHdLDL6oOZ9q9BB8XOLIW0xQg6RPXyLsZVCbMB2CKN7RTFqKDsApLJ4YKBhQTfXTKTPShyi/
+	18enHNNpW6Bzsv3zcDR21l29+zwr9AcQDJPG6NJnVC6o28r14n39JK7L+ARbj1F8QadCdNcjmetgd
+	X0hWmeEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwxxu-0000000B8Ua-2IHu;
-	Thu, 20 Aug 2026 08:17:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wwy04-0000000B8k8-3pS9;
+	Thu, 20 Aug 2026 08:19:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwxxs-0000000B8UQ-2utW;
-	Thu, 20 Aug 2026 08:17:32 +0000
+	id 1wwy03-0000000B8jx-1uj1
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Aug 2026 08:19:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0EE814040C;
-	Thu, 20 Aug 2026 08:17:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B3DE1F000E9;
-	Thu, 20 Aug 2026 08:17:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D236A409B6;
+	Thu, 20 Aug 2026 08:19:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACE3C1F000E9;
+	Thu, 20 Aug 2026 08:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787213851;
-	bh=ShsBHu3y3fePWA2u7sofKwbce4P7U45++sbZsX5t9Os=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=DphvUniHM+kBXocq1JZUcDlHXY71gHyjzznfhDx0zOCa4QXggscVofPdWRp0t0yvd
-	 dcl7zNH3MizS1zeblwsCa3JB8QYGIiiwQHJIBYg1b8J3W8cdH3G/2BNsOQZ6m4KJBX
-	 zzVB3Mk9/wozGsxH3HmW5f/NyGaGiYl7QtDGH3DY8fV3jFIBmBx3qcMhoFGXWbww7P
-	 QKRKgeEuVX8zHm5/YM3GMYFL9QZKJL2QVe3wrlqJKvy4yXioQoorq+N8pOr3x7iwIS
-	 TWsrwZT7HEqilA8hN0Ph2ywY/P9RbpQYrDTa1sciMtmODaiD+fkj6LvuaCiMwhn5Qk
-	 nNUan1jnAwVTA==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Mark-PK Tsai
- <mark-pk.tsai@mediatek.com>
-Cc: Daniel Palmer <daniel@thingy.jp>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Pengpeng Hou <pengpeng@iscas.ac.cn>
-Subject: Re: [PATCH] irqchip/mst-intc: reject ranges beyond saved state
- capacity
-In-Reply-To: <20260722041443.10020-1-pengpeng@iscas.ac.cn>
-References: <20260722041443.10020-1-pengpeng@iscas.ac.cn>
-Date: Thu, 20 Aug 2026 10:17:28 +0200
-Message-ID: <87qzjti4tj.ffs@fw13>
-MIME-Version: 1.0
-Content-Type: text/plain
+	s=k20260515; t=1787213986;
+	bh=mB2lZE+DV/diSmQuHEoB1XkINKX39O0uxIPWs302dOo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=B8jn+szid7UfRndLRYV8Jn2VOZIFI0AjLgNDv2ZlM/cu1PKRebdVA5T5ayM7PjPEk
+	 mtgS8fG/Hrys//Dp7n6XTuKfjSPDOIJy1Qx26ayIEVxlA4vJK5oQIWLB8oO6qxhd39
+	 Gfic8ZFv6bFdsg9Qhofg2OAuWD4z9XJoT6HXL4zTFhRahtq9qCnGaEGq+NMQechPLo
+	 ZHuAU0kggTXpJiBpmsVK7DOOrv0eDZQ7bH38Xqrh9fpigDJXxrqh/2NB+zC19Oc7FX
+	 mTGfCjuXbhXnwfMtQV/nxptjP1I/4YOwGNmhxYAzkbRxQ1FG4ZLC3ds3F5KZACv3Xh
+	 1tV/4Llwx0FEg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wwy00-0000000HD4J-0tMg;
+	Thu, 20 Aug 2026 08:19:44 +0000
+Date: Thu, 20 Aug 2026 09:22:15 +0100
+Message-ID: <877bllp5fs.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Julian Braha <julianbraha@gmail.com>, Thomas Gleixner <tglx@kernel.org>
+Cc: florian.fainelli@broadcom.com,
+	rjui@broadcom.com,
+	sbranden@broadcom.com,
+	linux@armlinux.org.uk,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	bcm-kernel-feedback-list@broadcom.com,
+	radu@rendec.net,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	arnd@arndb.de, Sudeep Holla <sudeep.holla@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH] irqchip: gic-v3: fix unmet dependency on ARM_PSCI_FW
+In-Reply-To: <87lda2j5gs.ffs@fw13>
+References: <20260801212235.2692694-1-julianbraha@gmail.com>
+	<87lda2j5gs.ffs@fw13>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: julianbraha@gmail.com, tglx@kernel.org, florian.fainelli@broadcom.com, rjui@broadcom.com, sbranden@broadcom.com, linux@armlinux.org.uk, Frank.Li@nxp.com, s.hauer@pengutronix.de, bcm-kernel-feedback-list@broadcom.com, radu@rendec.net, kernel@pengutronix.de, festevam@gmail.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, arnd@arndb.de, sudeep.holla@kernel.org, mark.rutland@arm.com, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,55 +95,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 22 2026 at 12:14, Pengpeng Hou wrote:
-> The inclusive Device Tree IRQ range determines nr_irqs. Suspend and
-> resume then use nr_irqs to walk the fixed saved_status array, which has
-> MST_INTC_MAX_IRQS entries. A descending range underflows the unsigned
-> subtraction, while a range wider than 64 entries exceeds that array.
+On Wed, 19 Aug 2026 20:05:55 +0100,
+Thomas Gleixner <tglx@kernel.org> wrote:
+> 
+> On Sat, Aug 01 2026 at 22:22, Julian Braha wrote:
+> 
+> > ARM_GIC_V3 selects HAVE_ARM_SMCCC_DISCOVERY without ensuring its
+> > dependency, ARM_PSCI_FW is met. However, ARM_PSCI_FW should be
+> > selected by the system type, so ARM_GIC_V3 should depend on ARM_PSCI_FW.
+> >
+> > Additionally, the systems that select ARM_GIC_V3 (ARCH_BRCMSTB and
+> > SOC_IMX8M) need to select its dependency, ARM_PSCI_FW, too.
+> >
+> > This unmet dependency was found by kconfirm, a static analysis tool for
+> > Kconfig.
+> 
+> Marc?
+> 
 
-TBH, this is confusing at best. The problem is not the suspend/resume
-implication. The problem is that there is no validation of start/end to
-begin with. Whether that causes an out of bounds access somewhere down
-the road is immaterial. 
+[+ SMCCC folks]
 
-> Reject both forms before deriving nr_irqs.
+Thanks for roping me in.
 
-Both forms of what?
+This looks like the wrong fix altogether. Whatever the Broadcom stuff
+depends on is irrelevant, and has nothing to do with GICv3. Same thing
+for the NXP contraptions.
 
-Something like this:
+If there is something to do *for the GIC driver*, it is to make sure
+it compiles/links correctly when the platform does not select options
+that are not required. Why would NXP and Broadcom care about an
+erratum that is specific to NVIDIA?
 
-  The interrupt range for the driver is retrieved from the device tree,
-  but lacks any form of validation.
+I also disagree with what the commit message asserts, ARM_PSCI_FW is
+selected *globally* on arm64, not on a per platform basis (TFFT!).
+The NVIDIA machine being an arm64 platform, the correct dependency fix
+is to select HAVE_ARM_SMCCC_DISCOVERY on arm64.
 
-  As a consequence a malformed device tree can result in out of bound
-  accesses when the range exceeds MST_INTC_MAX_IRQS.
+The overall issue is that there is no fallback to do something
+sensible when HAVE_ARM_SMCCC_DISCOVERY is not selected. Random drivers
+should not have to guess or add random #ifdefs all over the shop.
 
-  Add the missing sanity checks.
+I came up with the following hack, which compiles correctly on 32bit
+ARM without PSCI at all. YMMV.
 
-> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Thanks,
 
-Lacks a "Fixes:" tag.
+	M.
 
-> ---
->  drivers/irqchip/irq-mst-intc.c | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/drivers/irqchip/irq-mst-intc.c b/drivers/irqchip/irq-mst-intc.c
-> index b5335f6fd6d6..1475335d668d 100644
-> --- a/drivers/irqchip/irq-mst-intc.c
-> +++ b/drivers/irqchip/irq-mst-intc.c
-> @@ -263,6 +263,10 @@ static int __init mst_intc_of_init(struct device_node *dn,
->  	    of_property_read_u32_index(dn, "mstar,irqs-map-range", 1, &irq_end))
->  		return -EINVAL;
->  
-> +	if (irq_end < irq_start ||
-> +	    irq_end - irq_start >= MST_INTC_MAX_IRQS)
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 42f2278a702d0..937f17ec93a2e 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -37,7 +37,7 @@ config ARM_GIC_V3
+ 	bool
+ 	select IRQ_DOMAIN_HIERARCHY
+ 	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
+-	select HAVE_ARM_SMCCC_DISCOVERY
++	select HAVE_ARM_SMCCC_DISCOVERY if ARM64
+ 	select IRQ_MSI_IOMMU
+ 
+ config ARM_GIC_ITS_PARENT
+diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+index 4de81848fe2ee..75f9d3f1723b5 100644
+--- a/include/linux/arm-smccc.h
++++ b/include/linux/arm-smccc.h
+@@ -324,6 +324,7 @@ enum arm_smccc_conduit {
+ 	SMCCC_CONDUIT_HVC,
+ };
+ 
++#ifdef CONFIG_HAVE_ARM_SMCCC_DISCOVERY
+ /**
+  * arm_smccc_1_1_get_conduit()
+  *
+@@ -363,6 +364,12 @@ s32 arm_smccc_get_soc_id_version(void);
+  * When ARM_SMCCC_ARCH_SOC_ID is not present, returns SMCCC_RET_NOT_SUPPORTED.
+  */
+ s32 arm_smccc_get_soc_id_revision(void);
++#else   /* CONFIG_HAVE_ARM_SMCCC_DISCOVERY */
++#define arm_smccc_1_1_get_conduit()	SMCCC_CONDUIT_NONE
++#define arm_smccc_get_version()		0
++#define arm_smccc_get_soc_id_version()	SMCCC_RET_NOT_SUPPORTED
++#define arm_smccc_get_soc_id_revision()	SMCCC_RET_NOT_SUPPORTED
++#endif	/* CONFIG_HAVE_ARM_SMCCC_DISCOVERY */
+ 
+ #ifndef __ASSEMBLY__
+ 
 
-No line break required.
-
-> +		return -EINVAL;
-> +
->  	cd = kzalloc_obj(*cd);
->  	if (!cd)
->  		return -ENOMEM;
+-- 
+Jazz isn't dead. It just smells funny.
 
