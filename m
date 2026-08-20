@@ -4,100 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80017C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 09:00:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90468C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 09:05:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wVYZJVLed/RrGWFRSVBujog+j23nJPZnuYw3+qXXz+4=; b=Lx1R5kedl7/eF8Gf8EBPnOpgKW
-	oCInaMBzOayzjxNYme6af5+uB3nr8gyXrDotTqbp7oC/KVFEujd0jXoR9IDNGqR/SBgdOJ9BFdgFw
-	BMz6UXbR5mPj3m3b7IdsLeUcb0aQJyGR/nblCSW3iGajupqw/2WJGUSLOzXBHtq48nsVdcIVmR4R1
-	Oa0qPjCTDO06agC1Fr2WRNd5jjIYHHYlWeQa3FGIRqFmza+JzVy20Dc9Ixav2iXv1puuar9zQa8hX
-	VD4WP61NPB4xhp8FP9/9J0+WDRLFBlQW9g7/k0cMK9Hyja88uWzjNfbZXC5ee45vd+NL/Qlg4Ivfi
-	hBvUTCmA==;
+	bh=1WzdsanpWGAxVKX7tDONARnJxB9o/95PB9+RTNsHDE8=; b=aRhYDXGp60Yygn104Gj6G+RIeJ
+	lcKU/PhAUk8qSaWNuV5aTkgTy6azViDS8M/FwLkJ+AR1WVLvMjRaL5qKeoHFPbR+S87yMimZ4X+Or
+	UNmqYOfH+v6XmMk4iQUZwkqtv2RnxV5xV/JOWlS9WnZ2blbgeN/QIAfoUmUoSl+VRZlZ/UAA543jI
+	tzVdWA141ao+m7y4pyAlAfUHVbsVblh13rPqtflZ5qaRQ3zofTJk7Uun7Exh7BVYloE5naDTz2jSo
+	mmk+ZtgacD5stbhQ6ZRakFD8Q5HrS67sSkkzKerHdIY9jCdKLE4hf9Nv6WiOuos6sCBtikmhBPmJF
+	zxn/BtjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwyd9-0000000BDAk-0Bue;
-	Thu, 20 Aug 2026 09:00:11 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wwyiJ-0000000BDXD-2zYP;
+	Thu, 20 Aug 2026 09:05:31 +0000
+Received: from mail-yx1-xb12b.google.com ([2607:f8b0:4864:20::b12b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwyd2-0000000BD6D-2IJL
+	id 1wwyiG-0000000BDWq-3IQP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 09:00:06 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so18186945e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 02:00:04 -0700 (PDT)
+	Thu, 20 Aug 2026 09:05:29 +0000
+Received: by mail-yx1-xb12b.google.com with SMTP id 956f58d0204a3-66b32bb75beso3243757d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 02:05:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787216727; cv=none;
+        d=google.com; s=arc-20260327;
+        b=fG8/LzbjZx+2ipGG7hz/BZG12eRgMYg2hbSy3jGgkxD/mSQsYZgKus5AqXWGt+nddI
+         S3Vtr2YIRTvVHtuvoExlblIWWqnskkNlxS2Hh/KoDeXdv2Lk9wEyHArbiVO3Hv5I3fjz
+         X1mUud0PN0txMn0sS71orcVSiloHvh4yq4UkFEn50Cbqc7Wt+EP8PE/gFibIPXBQL3e3
+         KtvdWXZrWBTXwGv8I2lpviIVopEDDWLdbYwScDILVtXNxN+gzb3DZLu9naxvvFMb5Dfd
+         Y/BlbMRAck6VXo99KIO2rnrxYjiwN8L/77gs1rPrdPMGvZqupt7FmgYL23J12ztYQzlM
+         ARYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=1WzdsanpWGAxVKX7tDONARnJxB9o/95PB9+RTNsHDE8=;
+        fh=uWvWe30B0odPg5zb5HQsW24Ze5HNYQlenYyBJaVhfAQ=;
+        b=ErQyC6CDOMptHr2UwDNfuZzHMGh1s+sxZ5Pd/c8xIouXPgNlyJyH8NQE8YKyZgRdu0
+         hRlkSWH43yWAB8G2SInYJUUh3EsgU1F0UpMX1EAKzmvBTZDkohHlpw3A6ZjRVAuxm4RD
+         acY/oA0yY7avM70E/vNMn8HTYId8TMbvZjnDkdazELtG5Nx6yQR9oeQtVOYQPLmAdfXe
+         HPVJs4ER8IblRmffXYjF4JLbKQyoPoK5WqokKqCM1DS089xKFjW7yONkZBbc0lTwQj0b
+         E7gOLOetKLC91tU4fPxnqDaXfWqHP47vDdf/2Sl0fUXfutYvFKSqoRiRCKn5ZmYoCrFy
+         ST4g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787216403; x=1787821203; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+        d=amarulasolutions.com; s=google; t=1787216727; x=1787821527; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=wVYZJVLed/RrGWFRSVBujog+j23nJPZnuYw3+qXXz+4=;
-        b=Kq1u/LE4pEQ5qEPGDB9QwlShjsfEZ9FcAdB5YmMm3YqZXMu6fDHOr0/Hq7x2QuQcTV
-         SQF8ROoS0U5BMzRINzspM8SEbcZnj/S3tFpPcwaZwmzLYcYhXGCwMZLhw1mzOwgbfGDQ
-         ZRDISo5D9TeyNn92gtkYzO7PtvX/kdWavfeSZZsLSA0QjOFASddcsP02fSEh0KErC84v
-         ku5qnZ73E3U60UeAJmnvEEmaoSdTcUQ93RUjh/iXU5Wm53MO1v6ij+If84yLhA1mg/UO
-         SvqbNhUeJwtm0+sJ1HrD3LtaTk9UsyjbpyLXI/FFMubddTljAm6c+yrchhV4bONPhhwP
-         PKxQ==
+        bh=1WzdsanpWGAxVKX7tDONARnJxB9o/95PB9+RTNsHDE8=;
+        b=HHt0eA2vvR9Dw0Knh/ZAAy11GpTBcUVtByo/hyniDUUHHER0AbzitRxGdccH25XLX3
+         PA59HjvLYKu8FolI6gFUTHFFCWqo6ILgbKEWPskuto75YvgXxppAFgPZQed44XzL9zkQ
+         r/fwLMN7XsV4TCwo5GS1lY/bX0fIYDiAbltEQ=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787216403; x=1787821203;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20251104; t=1787216727; x=1787821527;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=wVYZJVLed/RrGWFRSVBujog+j23nJPZnuYw3+qXXz+4=;
-        b=Zwr5CcbFukA4ESq5qv5AFbtKVZLAnVpsUNq/qtxV6a8tUgJ4UoIC+iAizuRqHmNwXD
-         XI9Xdyx9fwbDp7IFwOwuzC6bkrpsM1ULhU651c28i7m1u9mWwMMuMHswz7An8NCznajd
-         rIgmkMy/ewRJYER2HYfDxLbO7CMK0jE9y49EgqUAHuMUwr6XUoTABiEuoAeGHqstwVYi
-         1JQxdnDvfNvWNUJF/DxczeAdFiuXhhXasCZz06b1M+zMeTw3gSx1nr2FbFgMye7enInP
-         Obbd+Vetl9qY1dd3IRKE3iTb/mQrv5vx4gjf985krDHDgnYg1OkRGdEvTfP25CqFvXKS
-         eg4Q==
-X-Forwarded-Encrypted: i=1; AHgh+RoxCaZogC8BvSsvCUv3tHg6rekT7aDS6BlGdQ+ZNoYuJLpB0/GdJkAn6J7n8K8iD0RRBIPmVi7ISCLCKpk5NnVW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOfNv1P0WPCsZLn5jfKOnLZuJ10q0VKxTXORnIFUoycgY6EPr0
-	dLE/vryKyGaOAaJTVDugAFrUEZK1GGVvNYpEKKB9IS+4sw4YNb743J16
-X-Gm-Gg: AR+sD10ufNbHgPryjqOSXvY32It8+OhQexACDLSPTUhVuT7TKdogKOSm3RnrZR9OIJF
-	ezo5WW1yMXqLHp32XVbM0xzETlRXC6R1rkL82HwIZTs6ido2PAyl9jj2ED+Zla09ffPMCcbqHro
-	p+vCx4n1f7XxXyyDumOCPkz0Kj/85/60Nxd74tWZ7C9GZ2YQJuWtPEqSc9GuEmxqN0LIqKffd8P
-	GZCY66wJMTcAm6EKX5GZNy4E/rCLaIrcE3+Tjrku2z2hkqRQvPpx4lxi3CTMBdOSRLuHKCoL5D+
-	GCS7qsG9gw8XCd4a+5ToV/kpV7bmKsq0w0JWTef9bB9QKY7pFOsmnaEu0PGqJW9jyX7OYdjfm6r
-	UR70DhMPZkfKDOMhG57Hm34HOL2+apxOoXML9DRpBwsz+6825mDbcvjliXttNIeDaIQ+5gDx3t9
-	3EPEz2iyKmoYJyM8+wmrAAcruMo18rgAKyzRuUBKvVLQR/rrfdHQx5gxwT6xL6iW+/4F3R1hVrE
-	GR1CflZ106WGFs8RhiDcay57tQWNKpJip7Vb3qiK7yMyGajH1UIxEI=
-X-Received: by 2002:a05:600c:3b8e:b0:495:7888:281c with SMTP id 5b1f17b1804b1-499aa0dcd47mr188111325e9.0.1787216402552;
-        Thu, 20 Aug 2026 02:00:02 -0700 (PDT)
-Received: from fedora ([46.205.218.68])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499aa1111b2sm176837215e9.5.2026.08.20.02.00.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 02:00:01 -0700 (PDT)
-From: Daniel Pawlik <pawlik.dan@gmail.com>
-To: netdev@vger.kernel.org
-Cc: linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	kuba@kernel.org,
-	lorenzo@kernel.org,
-	nbd@nbd.name,
-	sean.wang@mediatek.com,
-	Mark-MC.Lee@mediatek.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	andrew+netdev@lunn.ch,
-	yangshiji66@outlook.com,
-	Daniel Pawlik <pawlik.dan@gmail.com>
-Subject: [PATCH v10 2/2] net: airoha: npu: use cacheline-sized buffers for mailbox DMA
-Date: Thu, 20 Aug 2026 10:59:41 +0200
-Message-ID: <20260820085941.380401-2-pawlik.dan@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260820085941.380401-1-pawlik.dan@gmail.com>
-References: <20260820085941.380401-1-pawlik.dan@gmail.com>
+        bh=1WzdsanpWGAxVKX7tDONARnJxB9o/95PB9+RTNsHDE8=;
+        b=mbK8DGotv0VJf9XqyEq3uaALFTEhgQQ9VmsNLrANGT2OXGVzDHbV/ZmlqIRups0BnZ
+         C5MEfOlQ18yXbsacHneSmOosYrk0ukUr3bATFL5vc7Dp6DjQXpkho2DM2ahRYzTihKj1
+         CSd5fZdDmRQfUnZIysqQffYIeTQWkD3mbxzZ3nv/pJG/7kHvlkDAxDbP3B/fGugBnthB
+         AJ0i5r0I8rGu+/1RzJRTbV3t61VQWKRW+d5SXNx7Nw5bm1uvmj8OC42xw/hZEhYGmPqb
+         VMVREehd5jrv9hQzlfpoER2pH/Va5toamtZuf8cRtXO8R10n5cp4EUxvxm/m6GqyLgWz
+         VEIQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rrhl1zk6/9IdH5gnUWoUwTYV0njZ//YlM/dWcO3WTvjXFkemAQ5zng4amp1QNcGzeOg434NzVtHS36qqVGltJLs@lists.infradead.org
+X-Gm-Message-State: AFuF++m6BPC696PeBr+CRGVysfNxBby9hAUulNvwf74NweYxh6T1avK/
+	arwd2/AvhhREAeZXvFOg4/wa7A5cGSccpFGTfHjylD1rCgaL4jWYgEhDZkHLS9Wwi1BLTk0KRs2
+	seos0jIIPoJljtS4zESolNE6vzcY9ixFY1WVAetkDow==
+X-Gm-Gg: AR+sD11z0tIU73gmrVJAROSJ7H4nJ481MuRaAUee6rIyBE5vVPmxi66Td5RVbR1TEv2
+	scNaOVQx40bSax6r3jHUjsLTFC2fLw3HL8KCGFVTP4xBXqJVylprR12LOif12kABrLDq+bf1XRA
+	ZdoHiTSucKoVeyUvj238HvGe4oNpn1xVKsbQOLAkicHbjrPI33Zrh8LKmgCsA8GhUxL+bLTIRop
+	WN/ZhzkTilFuaJ93LIFtEQPtlMGczxV8ea+b3khCzbKzjJPj9Z49nsP1khyIJvmof/gjQ7zOSOT
+	K5fGcczM+K3bBnpDsnqpLjTxNBvEHVxvZ9YWU8YtSEB/mFszA/VqqTjAHFSpRmCsdkfkTnL77YY
+	=
+X-Received: by 2002:a05:690e:148a:b0:667:b314:aeb3 with SMTP id
+ 956f58d0204a3-66ccb6c0b96mr4398594d50.29.1787216726580; Thu, 20 Aug 2026
+ 02:05:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260715062201.3599458-1-dario.binacchi@amarulasolutions.com>
+ <20260715062201.3599458-16-dario.binacchi@amarulasolutions.com> <3db80a7a-e09d-40eb-b8ab-4110a5ac1f09@foss.st.com>
+In-Reply-To: <3db80a7a-e09d-40eb-b8ab-4110a5ac1f09@foss.st.com>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Thu, 20 Aug 2026 11:05:15 +0200
+X-Gm-Features: AcwNN1UE6rpOTskPjzBaU3Z5xzziH-_K90B70QxjqV9m7M7C2xCsP3OCPL3sjkU
+Message-ID: <CABGWkvoX5RYN5r4DbhZ1BUXjmwp-_08HBWKMGkX6cPNcQsyakQ@mail.gmail.com>
+Subject: Re: [RESEND PATCH v7 15/16] arm64: dts: st: support Engicam
+ MicroGEA-STM32MP257-RMM board
+To: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+Cc: linux-kernel@vger.kernel.org, michael@amarulasolutions.com, 
+	francesco.utel@engicam.com, domenico.acri@engicam.com, 
+	linux-amarula@amarulasolutions.com, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_020004_646341_3AEBBD47 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20260820_020528_871860_D98E2371 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,154 +122,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On non-coherent ARM64 (EN7581), the kernel's dma_direct_map_page()
-forces swiotlb bounce buffering when:
+Hi Alexandre,
 
-  !IS_ALIGNED(phys | size, dma_get_cache_alignment())
-
-The NPU mailbox buffers are 12-24 bytes, well below the 64-byte cache
-line size, so this check always fails regardless of physical address
-alignment. The swiotlb sync path itself works correctly, but the
-EN7581 NPU cannot DMA-write to the swiotlb bounce buffer address
-range — it reads commands fine (mbox_status=0x7 success) but never
-writes responses back, leaving response fields as zeros.
-
-This was confirmed through five boot traces on a Gemtek W1700K:
-
-  - Boots 1-4: all streaming DMA through swiotlb (is_swiotlb=1),
-    bounce buffer byte-identical to pre-map after NPU completion,
-    even after explicit CPU cache invalidation (dcache_inval_poc).
-    NPU version reads 0.0.
-
-  - Boot 5: kmalloc'd cache-line-aligned buffer bypasses swiotlb
-    (is_swiotlb=0 on all 169 mappings), NPU writes response data
-    directly, version reads 0.1111, WiFi fully functional.
-
-Fix by rounding mailbox buffer allocations up to
-dma_get_cache_alignment() and mapping the rounded length. The original
-payload size is still programmed into the mailbox length register.
-kmalloc returns cache-line-aligned pointers on ARM64 for allocations
->= ARCH_KMALLOC_MINALIGN, so the IS_ALIGNED check passes and swiotlb
-is not triggered.
-
-Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buffer")
-Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260814110017.2795022-1-pawlik.dan@gmail.com/
-Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260809152813.585797-1-pawlik.dan@gmail.com/
-Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260805070851.2885888-1-pawlik.dan@gmail.com/
-Assisted-by: Claude:claude-opus-4-6
-Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
----
- drivers/net/ethernet/airoha/airoha_npu.c | 25 +++++++++++++++---------
- 1 file changed, 16 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
-index 4045d1eb93ea..3416f921f961 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.c
-+++ b/drivers/net/ethernet/airoha/airoha_npu.c
-@@ -5,6 +5,7 @@
-  */
- 
- #include <linux/devcoredump.h>
-+#include <linux/dma-mapping.h>
- #include <linux/firmware.h>
- #include <linux/platform_device.h>
- #include <linux/of_net.h>
-@@ -160,15 +161,21 @@ struct wlan_mbox_data {
- 	DECLARE_FLEX_ARRAY(u8, d);
- };
- 
-+static size_t airoha_npu_mbox_size(size_t len)
-+{
-+	return ALIGN(len, dma_get_cache_alignment());
-+}
+On Mon, Aug 10, 2026 at 10:15=E2=80=AFAM Alexandre TORGUE
+<alexandre.torgue@foss.st.com> wrote:
+>
+> Hi Dario
+>
+> On 7/15/26 08:20, Dario Binacchi wrote:
+> > Support for Engicam MicroGEA-STM32MP257-RMM board with:
+> >
+> >   - 8 GB eMMC Flash
+> >   - 2 GB LPDDR4 DRAM
+> >   - CAN
+> >   - LEDs
+> >   - LCD panel with touchscreen
+> >   - Micro SD card connector
+> >   - Audio codec
+> >   - Buzzer
+> >
+> > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> >
+> > ---
+> >
+> > (no changes since v5)
+> >
+> > Changes in v5:
+> > - Fix touchscreen resolution to 480x854
+> > - Fix SPI1 CS0 polarity to GPIO_ACTIVE_LOW
+> >
+> > Changes in v2:
+> > - Drop the clocks property from the sai1 node in stm32mp257-engicam-mic=
+rogea-rmm.dts
+> >    to avoid overriding the peripheral bus clock reference defined in th=
+e base
+> >    SoC device tree. Suggested by Sashiko.
+> > - Reference the existing labeled nodes directly at the root level using
+> >    &sai1a and &sai1b in stm32mp257-engicam-microgea-rmm.dts instead of
+> >    redefining the entire node structure and redeclaring the labels. Sug=
+gested by Sashiko.
+> > - Drop the #clock-cells property from sai1a and remove the reference to=
+ sai1a from
+> >    the clocks array in sai1b, relying strictly on the st,sync property =
+to handle
+> >    internal synchronization.
+> >
+> >   arch/arm64/boot/dts/st/Makefile               |   1 +
+> >   .../st/stm32mp257-engicam-microgea-rmm.dts    | 319 +++++++++++++++++=
 +
- static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
- 			       void *p, int size)
- {
- 	u16 core = 0; /* FIXME */
- 	u32 val, offset = core << 4;
- 	dma_addr_t dma_addr;
-+	size_t map_len = airoha_npu_mbox_size(size);
- 	int ret;
- 
--	dma_addr = dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL);
-+	dma_addr = dma_map_single(npu->dev, p, map_len, DMA_BIDIRECTIONAL);
- 	ret = dma_mapping_error(npu->dev, dma_addr);
- 	if (ret)
- 		return ret;
-@@ -191,7 +198,7 @@ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
- 
- 	spin_unlock_bh(&npu->cores[core].lock);
- 
--	dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
-+	dma_unmap_single(npu->dev, dma_addr, map_len, DMA_BIDIRECTIONAL);
- 
- 	return ret;
- }
-@@ -333,7 +340,7 @@ static int airoha_npu_ppe_init(struct airoha_npu *npu)
- 	struct ppe_mbox_data *ppe_data;
- 	int err;
- 
--	ppe_data = kzalloc_obj(*ppe_data);
-+	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_KERNEL);
- 	if (!ppe_data)
- 		return -ENOMEM;
- 
-@@ -354,7 +361,7 @@ static int airoha_npu_ppe_deinit(struct airoha_npu *npu)
- 	struct ppe_mbox_data *ppe_data;
- 	int err;
- 
--	ppe_data = kzalloc_obj(*ppe_data);
-+	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_KERNEL);
- 	if (!ppe_data)
- 		return -ENOMEM;
- 
-@@ -375,7 +382,7 @@ static int airoha_npu_ppe_flush_sram_entries(struct airoha_npu *npu,
- 	struct ppe_mbox_data *ppe_data;
- 	int err;
- 
--	ppe_data = kzalloc_obj(*ppe_data);
-+	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_KERNEL);
- 	if (!ppe_data)
- 		return -ENOMEM;
- 
-@@ -399,7 +406,7 @@ static int airoha_npu_foe_commit_entry(struct airoha_npu *npu,
- 	struct ppe_mbox_data *ppe_data;
- 	int err;
- 
--	ppe_data = kzalloc_obj(*ppe_data, GFP_ATOMIC);
-+	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_ATOMIC);
- 	if (!ppe_data)
- 		return -ENOMEM;
- 
-@@ -434,7 +441,7 @@ static int airoha_npu_ppe_stats_setup(struct airoha_npu *npu,
- 	int err, size = num_stats_entries * sizeof(*npu->stats);
- 	struct ppe_mbox_data *ppe_data;
- 
--	ppe_data = kzalloc_obj(*ppe_data, GFP_ATOMIC);
-+	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_ATOMIC);
- 	if (!ppe_data)
- 		return -ENOMEM;
- 
-@@ -466,7 +473,7 @@ static int airoha_npu_wlan_msg_send(struct airoha_npu *npu, int ifindex,
- 	int err, len;
- 
- 	len = sizeof(*wlan_data) + data_len;
--	wlan_data = kzalloc(len, gfp);
-+	wlan_data = kzalloc(airoha_npu_mbox_size(len), gfp);
- 	if (!wlan_data)
- 		return -ENOMEM;
- 
-@@ -489,7 +496,7 @@ static int airoha_npu_wlan_msg_get(struct airoha_npu *npu, int ifindex,
- 	int err, len;
- 
- 	len = sizeof(*wlan_data) + data_len;
--	wlan_data = kzalloc(len, gfp);
-+	wlan_data = kzalloc(airoha_npu_mbox_size(len), gfp);
- 	if (!wlan_data)
- 		return -ENOMEM;
- 
--- 
-2.55.0
+>
+> Series is ok, I just have a question regarding board name. Why you don't =
+add the "d" soc information inside the board name as it is done for others =
+STM32 boards ?
 
+You are right. I'll send v8 shortly with the "d" in the board name.
+
+Thanks and regards,
+Dario
+
+
+
+--=20
+Dario Binacchi
+Senior Embedded Software Engineer
+M. +39 328 0625246
+dario.binacchi@amarulasolutions.com
+=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=
+=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95
+Amarula Solutions SRL
+ Via Felice Cavallotti 25D, 41012 Carpi, MO, IT
+info@amarulasolutions.com
+www.amarulasolutions.com
 
