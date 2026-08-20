@@ -4,112 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC89C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 23:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7FEDC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 00:25:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=faVdfbMyKRC0yZz7duQHLz6OqzYJS783yM+QPhqaBsQ=; b=qO28I9gxyc9Zk1Walhiojv2hQO
-	xg0MJeznOtziEkYKuVun2BEAGt70n4jAjce0S49sZVmajexTe1fsWVJy88ZEN6DcreJKo8Ejv4oC6
-	4UtDmp9MOlS5eQHNRjF5CxG6EEbf8bvJrfXTLmjKy3gM//rzQgTE+M59KxhdBlY7rmTzFjN/xWt6Y
-	3pRaFgKIcnoD9psubrKkm7VJ+czg4HEWumbU+bWmzPQLm/LPbciO7iDz0ggNjHaK+CqTe6rc4HsTY
-	Xf5kEZaWGLY3iEE8VQInJQqbic1MxcmFmIm+AX4ocOiTCLTttYBrYqFwtg056N+n24baABDb0Vzu+
-	x6V6VoNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xrHXGfXq/zm2zKe8cC9mO86sR2J5ITnGUn0IL2hxjQ8=; b=ooqLIx2ZrfoipxjnjSpe1BuRPR
+	K/lDHoU51j5pRu1OOpR7wXhwPyM3z58HvCG5Ca7fu8jbg8IJlFzEijiyN1KoeaGqqNkS32ejfpRlq
+	2j+/oI4iZa3ygZsw85mbMO7PRiufpyzV00fQ9lb1XqdX+Kwv2dbhdVPjhVRr4DNLoHtP6rrGLJd4j
+	39rg+j6yulBPLqiacoqJc93Fq/x/TlOCMIafPIpSAU4SuuUNWdD1IW1m7ANenETsE5Swh1ZH6EEZD
+	QdesCiphBWMZ8Rmo2CY8ivRnn3ET4O8MVW7lfTtPwftEErJjLYJy96lcYpOVRtfxvmvgGerDDRX0g
+	2KbghQRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxCUf-0000000CMoe-0P1S;
-	Thu, 20 Aug 2026 23:48:21 +0000
-Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxCUc-0000000CMo7-38p1
+	id 1wxCM5-0000000CMOE-4BRj;
+	Thu, 20 Aug 2026 23:39:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wxCM2-0000000CMNW-2ml9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 23:48:19 +0000
-Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-81ff017d420so23589607b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 16:48:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1787269697; x=1787874497; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=faVdfbMyKRC0yZz7duQHLz6OqzYJS783yM+QPhqaBsQ=;
-        b=V13xlfywjaa+4h9v4726FFAj5lSub2d5YYgkx/cFM0OU7VHrnCTctlP2csbdSdnIli
-         uZwt3YlYI7YcpP61ln53bd1fMcdMg8xtlMTQRREt0tFosqoVi+LVy9qRHDS/H/BYyQ+Z
-         tMiOXMUpJvrUTi3zJLumBRTo2uPe+kCG0zmm4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787269697; x=1787874497;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=faVdfbMyKRC0yZz7duQHLz6OqzYJS783yM+QPhqaBsQ=;
-        b=eq6Wg/qugp+BsP04XidZWpi8H+M6gBo1aBV8bOpetBnV/Sf138STHuTu5VSMUkJG6T
-         J5GsRtVxX2Q4vJ/g/gad2IeDsf4k7oHqMlXPxoxYdjOseYe/vNFMwNAeQcLLR8OHSf/e
-         +ff4rurNH5RCzCWe6I5MPP4Zz2w8HibOsFOGVG2Z35kP6PODfGquKUZUG2jwZa6ZJVKA
-         Kv2XZDzCPyVHhj7D2isrUC6DQmNlik33QBynbvrJO5NG46pNAj3vJnF2PE9klOsnbX/E
-         ANY1+Vb9gpoUNL8gJ0U4UGdLUmIGdD/8kQUhvT7KmbdbrE2PK+4mb31ci4pZ44d60D5P
-         nTEA==
-X-Forwarded-Encrypted: i=1; AHgh+RqhqiA+gZ1CG9i/Vz+yp4eK2qdRVVlWDL5KSSafglq0JyC/SrFiL29SEx4SYGK2RcpOMe4zFCKM1tRGcaOKBhYw@lists.infradead.org
-X-Gm-Message-State: AFuF++kX4rSHgkX22xzqlWTV9c6G6uOI2L0y0mthtgBDheU1kiYKRQ0z
-	RReeIWnZwNjFvwcMZd8w4H0VczpnQHs0it+k19nLbjMAp+BroCGZySbxWQl6j830i+fqOd+UHDJ
-	D5ro=
-X-Gm-Gg: AR+sD10To1HjhW9+PO4906Dq1yQGgfm0R8JlaJU0OwXKB+z6iUxph075VKdjdO9RbYn
-	HPJtbITGd9k/dKpRZh6XpQVsYOkST7eSXKncnIhTykUdJoORFw0vUP7TrwpeDZtnV2KLkW4Jr6d
-	dFyvepjrel9mhHQ9unjV2NWNHejs3sW63iSuu4kF4epxqR+lQxQT5meQzk1l6v2PQtkqDXtRuGF
-	SaYdD3wtq/Jh+xMrn2OT1dVgGNg9a48g81cVK+Dw2P+cKo+cmZL2m04a4RImgfZ6TzJ8D0nbj9w
-	U6asCKyj/sTtQ6+PMT235pMv1gfGj0w2UzCmrFqXsILW545FGK6G+TrO6MmNzTk/S4+A0CrllX8
-	ZXmsFpDJxmk79Ouwii+VZLeQJ9MP1eKjUy3MsU51qXQkWWR4n78bLxn/8S81ou1dv73wmKcTBUe
-	Os6w/s5/Zm7davSURfaq1qxKMDN9EjtgJh/oMPUJcRctrwAoG8bh8iBSHthhQyg4vUqb+smiOPo
-	hbOg2UrcG5o5EEaWRArRtvdMmvm5d3gCqXm7g==
-X-Received: by 2002:a05:690c:b96:b0:82d:8dc0:9cf with SMTP id 00721157ae682-8470c1665aemr46575247b3.13.1787269697359;
-        Thu, 20 Aug 2026 16:48:17 -0700 (PDT)
-Received: from mail-yx1-f45.google.com (mail-yx1-f45.google.com. [74.125.224.45])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-845186c0dacsm33058047b3.36.2026.08.20.16.48.16
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 20 Aug 2026 16:48:17 -0700 (PDT)
-Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-66c7a743cf8so517791d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 16:48:16 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpD2RdV8qZitBDQNrKYXpG0GtAAt1BYFV0Oh2skuJa85jo5Q2o58ZE9SLaa7JRX7OH4lrA/EWDkjWA3+2DPagYN@lists.infradead.org
-X-Received: by 2002:a05:6102:3032:b0:747:560c:e7e0 with SMTP id
- ada2fe7eead31-778f05babd5mr1953525137.1.1787269272014; Thu, 20 Aug 2026
- 16:41:12 -0700 (PDT)
+	Thu, 20 Aug 2026 23:39:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF9CB202C;
+	Thu, 20 Aug 2026 16:39:17 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E8C753F763;
+	Thu, 20 Aug 2026 16:39:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787269161; bh=N9bzHgTPT7M5yE8AGOin8doDdx+BxPy1gflF77tWeWE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PjPN+x0cxlDOswhIzxMCFYv/hiq2OPnMflZZyAmGlXpZI138ae27wQt0tkiIDbEsd
+	 qoymqmWY4oFuX5oDW+1M09I8WaO8CCjK4bVluvkOct9CuAx4+dFfNT+J9rB036STEV
+	 AWYWdESLhUmNcc5u9Ryl84d1s6h2vct2UnVunHWg=
+Date: Fri, 21 Aug 2026 00:39:08 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Leonardo Bras <leo.bras@arm.com>, Mark Brown <broonie@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, Fuad Tabba <tabba@google.com>, 
+	Oliver Upton <oupton@kernel.org>, Peter Maydell <peter.maydell@linaro.org>, 
+	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v19 03/14] KVM: arm64: Manage GCS access and registers
+ for guests
+Message-ID: <hwz52absjxap7n6olwt3lmjakmtgxxaku5gcofsrcfa45zdygh@dqgylcillnud>
+References: <aoXamcdKoMynTkpX@LeoBrasDK>
+ <48be9e5d-357a-4863-8682-8b3f34c69723@sirena.org.uk>
+ <aobUGyq8nInJYkdA@LeoBrasDK>
+ <97ad6e83-b22b-4881-b644-66fa99f68d64@sirena.org.uk>
+ <aocOi3wjcliZqoe7@LeoBrasDK>
 MIME-Version: 1.0
-References: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
- <20260722-contrib-pg-pixel10-initial-dts-v2-4-3abae9717feb@linaro.org>
- <20260724-dancing-skunk-of-novelty-72c1b8@quoll> <CAD=FV=U0HUdjPcg+5Vx8_ag0zLd3CZx5w5SFr38p+YwRnC_G6w@mail.gmail.com>
- <CAD=FV=V2+D1m5L-0d81W3E_ih2us-SrddeBUAJtMybpQons7Ww@mail.gmail.com>
- <c0657108-1958-4c4c-b5f5-0eb24e81b2b4@kernel.org> <CAD=FV=VY4AeAf=TMZfJYRo6C0iSqmL-P0GzxRvZHfnNsf+GnYQ@mail.gmail.com>
- <56db332f-a18e-4a9e-be9d-67d2e25c3666@kernel.org>
-In-Reply-To: <56db332f-a18e-4a9e-be9d-67d2e25c3666@kernel.org>
-From: Doug Anderson <dianders@chromium.org>
-Date: Thu, 20 Aug 2026 16:40:58 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=WUMKGRUbAyd7XFFc-NGoJEKRwu4MaUnEQUDB9Mq6YYXA@mail.gmail.com>
-X-Gm-Features: AcwNN1XRfcu1Y9Mu4rBPOaQuheZikf-15PdNleMMKujFPqm2AwjeBRozlHD45_0
-Message-ID: <CAD=FV=WUMKGRUbAyd7XFFc-NGoJEKRwu4MaUnEQUDB9Mq6YYXA@mail.gmail.com>
-Subject: Re: [PATCH v2 4/5] arm64: dts: google: Add initial dts for frankel/blazer/mustang
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Linus Walleij <linusw@kernel.org>, 
-	Drew Fustini <fustini@kernel.org>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org, 
-	soc@lists.linux.dev, Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>, 
-	Brian Norris <briannorris@google.com>, William McVicker <willmcvicker@google.com>, 
-	kernel-team@android.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aocOi3wjcliZqoe7@LeoBrasDK>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_164818_857928_619F6774 
-X-CRM114-Status: GOOD (  35.59  )
+X-CRM114-CacheID: sfid-20260820_163926_862470_53ACCDCE 
+X-CRM114-Status: GOOD (  43.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,95 +77,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Aug 20, 2026 at 03:28:39PM +0100, Leonardo Bras wrote:
+> On Thu, Aug 20, 2026 at 03:07:14PM +0100, Mark Brown wrote:
+> > On Thu, Aug 20, 2026 at 11:16:59AM +0100, Leonardo Bras wrote:
+> > > On Wed, Aug 19, 2026 at 05:46:00PM +0100, Mark Brown wrote:
+> > 
+> > > > This is just because there isn't a preexisting ctxt_has_tcrx() check
+> > > > already there, FEAT_GCS architecturally depends on FEAT_TCRX and there
+> > > > was a request to make this explicit in the code to try to optimise
+> > > > things a bit.  The compiler should skip over both blocks at once if TCRX
+> > > > isn't there rather than having two separate tests or static branches.  I
+> > > > didn't add new checks where there were none since I expect that to be
+> > > > unhelpful for code generation, you'd get the reverse situation and emit
+> > > > two checks.
+> > 
+> > > Humm, but then why saving GCSPR_EL2 does not depend on TCRX/E2H? Or maybe a 
+> > > better question, why are not GCSPR_EL2 and GCSCR_EL2 saved in the same 'if' 
+> > > clause under ctxt_has_tcrx() (and E2H set), if they are restored in the 
+> > > same 'if' clause?
+> > 
+> > > As you mentioned, GCS depends on TCRX, so it should be fine, but just by 
+> > > reading the code I see:
+> > > - GCSCR_EL2 :
+> > > 	Save if 	GCS=1, TCRX=1, E2H=1
+> > > 	Restore if 	GCS=1, TCRX=1
+> > > - GCSPR_EL2 :
+> > > 	Save if 	GCS=1,
+> > > 	Restore if	GCS=1, TCRX=1
+> > 
+> > > Which looks kind of confusing for the as a first time reader.
+> > 
+> > > Does it make sense?
+> > 
+> > I agree that the current situation is a bit hard to follow, I'd actually
+> > originally written things without the explict dependency because of that
+> > but Marc wanted the optimisation.
+> 
+> Well, I am not against the explicit dependency thing, it just looks odd 
+> to me that some save/restore have a dependency and it's counterpart does 
+> not. As well as the dependencies for both registers being different.
 
-On Wed, Aug 19, 2026 at 11:03=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
->
-> > I'm happy to document. Can you please point to how / where I would
->
-> Description of:
-> Documentation/devicetree/bindings/ufs/ufs-common.yaml
+Hey I feel the question wasn't answered completely :)
 
-Got it.
+Here is the reason for the asymmetric save restore (besides the tcr2
+part):
 
-If you tell me that the patch won't be instantly NAKed I'd be happy to
-post an addition to this file saying:
+GCSCR
+ If guest E2H == 1:
+ - L1 accesses to GCSCR_EL2 and GCSCR_EL1 have the same intent -> they
+   both mean access the vCPU GCSCR_EL2.
+ - L1 access to GCSCR_EL2 (e.g. msr GCSCR_EL2, x0) traps, KVM updates
+   both the in-memory vCPU GCSCR_EL2, and the hardware GCSCR_EL1 for the
+   the guest. In-memory copy stays up to date.
+ - L1 access to GCSCR_EL1 does not trap -> in-memory vCPU GCSCR_EL2
+   becomes stale if it's a write.
+ - From above, must save on exit.
 
-If this UFS controller has a well-known ID <N>, a "ufsN" alias may be
-created in the "aliases" node. If this UFS controller is a singleton
-(no other UFS controllers in the system), a "ufs0" alias may be
-created in the "aliases" node.
+ If guest E2H == 0:
+ - Only L1 accesses to GCSCR_EL2 mean access the vCPU GCSCR_EL2.
+ - L1 accesses to GCSCR_EL2 always traps.
+ - In-memory vCPU GCSCR_EL2 always stay up to date.
+ - From above, no need to save on exit.
 
+GCSPR
+ - Regardless of the guest E2H value, hardware could write to the
+   hardware GCSPR_EL1, making the in-memory vCPU GCSPR_EL2 stale.
+ - From above, must save on exit.
 
-> And obviously, as with every binding/ABI, you also need open-source,
-> upstream user of this.
+Restore is trivial, vCPU GCSCR_EL2/GCSPR_EL2 must be written to the
+hardware EL1 registers because someone else could be using it.
 
-As I understand it, this isn't truly policy. I know DT folks often
-want to look at an open-source driver to ensure the hardware is
-described correctly. I also know that a badly written but
-"open-source" driver doesn't justify landing your bindings. ...but in
-this case, it doesn't feel like there is any complexity understanding
-what's going on.
+Quite a few other registers are saved only if guest E2H == 1 because of
+the same reason.
 
+Thanks,
+Wei-Lin Chang
 
-> > document this? As far as I can tell, no aliases are documented today,
->
-> git grep disagrees with you, e.g. second paragraph of serial.yaml.
-
-Ah, I see! I was looking for something more formal. Something like a
-list of allowed aliases or something that would automatically validate
-which aliases are permitted. You're just saying to document this in
-prose.
-
-Thank you for clarifying. I didn't understand this based on your
-previous emails.
-
-
-> > I think I've presened my problem fairly concretely [1]. If you hate
->
-> There is no description of the problem at [1], except "bootloader adds
-> the same type of calibration data".
->
-> So I repeat my questions: to every UFS node? To every node? To one UFS
-> node (but how do you guarantee that?)?
-
-I'm sure it's not what you want to hear, but I guess my answer would
-be "for these boards".
-
-In my opinion, this would be fine as an ABI contract between the
-device trees intended to run on Pixel 10 phones and the Pixel 10
-bootloader. While I'm still of the opinion that people should be
-allowed to include UFS aliases in general and it would be handy if
-that affected the "dev/ufsN" node created in Linux, I know that's not
-a popular opinion among DT maintainers. If upstream would allow a less
-"generic" sounding alias "google,ufs =3D <&xyz>" I could do that, but I
-doubt that would make you any happier.
-
-
-> I gave you two solutions, depending on actual upstream need of this. If
-> you have the second case - so not the boot device - then you basically
-> want to re-implement overlays which you cannot. Use overlays, which
-> gives you nice stable and build-time verifiable label/phandle.
-
-I'm not quite clear on the "overlay" suggestion here. You're saying
-that we should require the base device tree to be compiled with "-@"?
-...and not because we necessarily have any overlays upstream, but
-because the bootloader will generate an overlay dynamically? Compiling
-with "-@" would mean we could give a "ufs:" label to the UFS node and
-with "-@" that would be preserved. The bootloader could then use the
-"ufs:" label to find the node. When compiling with "-@", the exposed
-labels are essentially ABI. Did I get that right?
-
-That's a pretty neat idea. If you confirm that's what you mean, I can
-see about implementing it. It would also be nice if you could confirm
-that this was an OK thing to do even though the bootloader is
-closed-source.
-
-We'd obviously want a comment in the device tree itself indicating
-that the "ufs:" label is consumed by the bootloader so it doesn't get
-removed.
-
-
--Doug
+> 
+> >  There's similar things with other
+> > registers in the current code (eg, the PIE and POE registers are in the
+> > same situaton as GCSCR_EL2).  One thing I did miss here is some nesting
+> > inside the PIE checks for EL2, I'll update for that.
+> > 
+> 
+> Awesome!
+> 
+> > I think what would help here would be to move to generating more of the
+> > save/restore sequences rather than open coding them, we could have lists
+> > of registers and then use data about the feature dependencies that the
+> > architecture has (hopefully it's already in the MRS, I didn't check) to
+> > generate these optimised feature checks rather than having to open code
+> > them.  Possibly even list features and generate some of the register
+> > lists, though that would need far more special case handling and it's
+> > *much* less clear if there could be a benefit.
+> 
+> Yeah, that would automatize the feature dependency for register loading, 
+> but maybe code would not be that clear on how it works? I have questionable 
+> taste, though.
+> 
+> Thanks!
+> Leo
 
