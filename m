@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AC08C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 14:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A84C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 14:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WsxMpo9lC1E1yD8g/8IlIIebsu63RhS6wZGPNNJDHk0=; b=oOMejvLg8IBL5Og9k8T4o1u/pV
-	ubZYfSjKTUUEJp0qk6L/INMgBwGaRE72PLu5CZBQ74xjnLFx6YzM++oxvn6Gcdw8AzCEYEUsoOYsh
-	Ip1ESkoIq7q5zPS6j44radKi+hOvubT4x4/QUOJMLI8AlKD9AXhh/b2tHY3Yyj+NZ1qJkmm+ISOc4
-	gsgYJmkrGMYCR5VXwgYy/AtBzxod6GrBbzIth/AP+F87tyTTUznSkgupZgdbGHTkqvwoVj0yBSNnF
-	SwLILzcjEZxbqk4bZOaH082hadRAEmzl5NrdfcuLCj7H2DRxDuTSvuRnKM/OpMduLMr+cze3u6utg
-	3hDB+sDg==;
+	bh=Lm/Rx78wMtGoWFPwmRHhjahPVlYyD41OMTehhsY0hbI=; b=YZ4z60qGqTuv+TL2IRj7h3WNvv
+	o/oal+P+QF8gcS0hQq7ysEwcQFEx560g8GwU+CqBeGUwNAHpgRAwB1vPIJFtuyLRUC5kj/5esXyJ4
+	REtE6SJZR1Njh5XH0NXHA9NiPPx9BiWG9uWe04KUNS4R7wHkMHq/gikt6k6rUnuJWYPs2FSBI+UKI
+	upbjpG2Zw1LzMcd4F+8JsRtYA2DDD1TgNsh7Iw3xj/Qjvpp9aQT+DbRf6hKr8QFXjKaCmlTmrSmWk
+	/ni2xJg3dzJx6zt+OoWwV59KIOY93FyCrAyVoDcdbYF9JPsZX2A4gCb3ZlM4TWhTdG+mngbx+4dHe
+	oGO61F7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx44t-0000000BjjJ-3qL7;
-	Thu, 20 Aug 2026 14:49:11 +0000
+	id 1wx45G-0000000BjrX-0rb6;
+	Thu, 20 Aug 2026 14:49:34 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx44n-0000000Bji9-1uhr
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 14:49:05 +0000
+	id 1wx45D-0000000Bjqt-3x63;
+	Thu, 20 Aug 2026 14:49:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A025E60A7D;
-	Thu, 20 Aug 2026 14:49:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC1811F000E9;
-	Thu, 20 Aug 2026 14:49:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 63E4E60A5D;
+	Thu, 20 Aug 2026 14:49:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82D771F000E9;
+	Thu, 20 Aug 2026 14:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787237344;
-	bh=WsxMpo9lC1E1yD8g/8IlIIebsu63RhS6wZGPNNJDHk0=;
+	s=k20260515; t=1787237371;
+	bh=Lm/Rx78wMtGoWFPwmRHhjahPVlYyD41OMTehhsY0hbI=;
 	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=BMy2jEeFq4ePQUV0Ymr4lahLm495EqWbe5orYiHe+cnqChJyJ9IY/KF8PUK3kYtSR
-	 FObK2nZ7MddG3Ed1b0B64F42MrhCyFFqN2fuD3eTvCgLi6R/1uChRDZ0nlu4USbmZV
-	 86apbov+MXf4CIs6cjJHm0tFELIbnNdsEA6GlHO963PdjVUMMeGQ12Ov6qSUKLShV2
-	 p9izQw2EXr6p+hwlkKT9Zt6f85ycDCcEI22ZCsN8JH84pQSw+RBVopQOKBTIWdoyvD
-	 J5iPLCMm4KBADINWKhIttbBM1qBU9ICPF0qN/A5EwORXG+NE5HUYWgGX048t4lpvMr
-	 dzolIOBO+KIfA==
-Message-ID: <afedcd3b-04ea-45c6-a895-a172e3640f84@kernel.org>
-Date: Thu, 20 Aug 2026 16:48:59 +0200
+	b=Rw2KmWjzcizZ7kU9/FqALNhvOYPtWjbMRtboICVxslrXufqtN5ORzV3ryxblwW4EO
+	 vGG7ZIWGW4D20Mxp4ae7GsWHrY4EXJeUm3aH9cJvg7Dwonlk8r3Axi5NMy7nffoDtF
+	 G+oXPVpL7muhZfpoU9C45C3YHfzDfKYZidCzJ5b3kVey/QOh6G8Q3pKvnOVWpHXVWb
+	 QKt4ExksIIhwVkMHSZ5FWJ4k2iFrr6M4dQNWqyvpCkJt/JIFp3V0Yb3lOIGk0GZSio
+	 B14rP2741r34n358EUND4IXqIQfjr6Lk5PhuzzZNYJmsrGuYNZSjwgpV1s3RWVbISP
+	 smU53jHPt/Daw==
+Message-ID: <218fb204-ad8d-4005-a995-6ae931fa9942@kernel.org>
+Date: Thu, 20 Aug 2026 16:49:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH 2/2] arm64: dts: exynos850: Add GPU/Mali Bifrost node
-To: Thomas Turner <tturner@lineageos.org>, semen.protsenko@linaro.org
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- peter.griffin@linaro.org, alim.akhtar@samsung.com,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260820110620.1881-1-tturner@lineageos.org>
- <20260820140439.83220-1-tturner@lineageos.org>
- <20260820140439.83220-3-tturner@lineageos.org>
+Subject: Re: [PATCH] crypto: rockchip: fix autosuspend cleanup during teardown
+To: Guangshuo Li <lgs201920130244@gmail.com>,
+ Corentin Labbe <clabbe@baylibre.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>, Heiko Stuebner <heiko@sntech.de>,
+ John Keeping <john@keeping.me.uk>, linux-crypto@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+References: <20260808093016.2738659-1-lgs201920130244@gmail.com>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -100,7 +100,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260820140439.83220-3-tturner@lineageos.org>
+In-Reply-To: <20260808093016.2738659-1-lgs201920130244@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -117,22 +117,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/08/2026 16:04, Thomas Turner wrote:
-> This can provide basic GPU functionality for the Exynos850 platform.
-> Tested on the SM-A217F device. Does not provide support for temperature
-> throttling, DVFS, power domains, governor support, boosting and voltage
-> control. Once PMIC is properly implemented, support will hopefully
-> increase. However the panfrost driver probes, the Mali-G52 GPU
-> initializes and the core clock is set-up.
+On 08/08/2026 11:30, Guangshuo Li wrote:
+> rk_crypto_pm_init() calls pm_runtime_use_autosuspend(), but the
+> autosuspend setting is not undone if pm_runtime_set_suspended() fails
+> or when runtime PM is later torn down by rk_crypto_pm_exit().
 > 
-> Signed-off-by: Thomas Turner <tturner@lineageos.org>
+> If the autosuspend delay is set to a negative value while autosuspend
+> is enabled, the runtime PM core increments usage_count to prevent
+> runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
+> during cleanup, this reference is not dropped and usage_count remains
+> unbalanced.
+> 
+> Undo the autosuspend setting when pm_runtime_set_suspended() fails and
+> in rk_crypto_pm_exit() before disabling runtime PM.
+> 
+> This issue was found by manual code inspection.
+> 
+> Fixes: a216be3964c1 ("crypto: rockchip - introduce PM")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
 
-Slow down!
+You sent vast amount of patches, all separate, making it very difficult
+to track and respond in efficient way. Do not do that.
 
-It's another version? Duplicate? I already responded to v2 (which was
-labeled v1), so is this vX?
+Group your work per subsystem.
 
-What is happening with this patchset?
+You were asked to clarify and respond to incorrect fixes statement. I do
+not see how you clarified and responded at all.
 
 Best regards,
 Krzysztof
