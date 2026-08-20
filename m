@@ -4,101 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46DCAC5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:25:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E98CCC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iAf1ACnM1ncQUFOBFpR9E5JElTy7xf+f9PkOTb2pGGk=; b=hMUPI1pe2yrk9xMDRLCF571HtB
-	6XcnDYe4bU/zEgh5617TPR75IlHtdffU3FOPSvfubzvaCAu/0W5yP01SxT9HXK+8DNa7Xo2YYhSc/
-	pkOXAOVDae5z+7+1fOKZb5E7hG18bpm/Exm5aSpCeotYh/JNy1GoL/wShAhIXaCNqH9VMc4Uk+CAS
-	xa9avmE+aDmEAKdoFqDYdyAgdxidCnvnPlyaj9HhWrJE4HMw3BC8/vprD9zqbIId4kkYMNsx0FGz3
-	xOGNmBgiwapgJM2SIP3+ldW1yeqDimBHJcmEts9jZ/3zP5O461HXdd/C/ej1YCwoKF0EhN/MDauz9
-	BWZRajQA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8FpAmuQv/0D1SendrGr4xs5zcx8uXf/Ui4UAqXK6/V0=; b=vJ/NzK9vwBgUQxXfivhlCFUQP/
+	/ZHfwiyQLnYVApbeaxjw2xyexfHEP6mYUK3xaXHpvcifZ4MRK6B8tWuTfmezs9owqaZmcllj3navB
+	p4zkYBkvFe1LHj6tb+wcg8NbDg3ORdotF50FpK+U5qXuOHeJlKfAe2ApFBTBW1gMLVLWFuXodUnS4
+	qxXPBV7gY8UeZw7Y7ZE+oQu/d4ZSG1oCQUBgYuIsxsCDqhHMMNoNEt/z/92RZa8ggSvJ8v3snSBGA
+	kau6tEw+U2GiGpEfLAqIcaMO85O/gXM1jxDbDXDllcGerzAcD/2vrZzUStmveu2Q5O+G/1vieFR/3
+	jjQ6ofMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwx8w-0000000B3DY-1Gke;
-	Thu, 20 Aug 2026 07:24:54 +0000
-Received: from flow-a3-smtp.messagingengine.com ([103.168.172.138])
+	id 1wwxAi-0000000B3XW-42mP;
+	Thu, 20 Aug 2026 07:26:44 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwx8u-0000000B3Cm-0rkS;
-	Thu, 20 Aug 2026 07:24:53 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailflow.phl.internal (Postfix) with ESMTP id 30DA11380197;
-	Thu, 20 Aug 2026 03:24:51 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Thu, 20 Aug 2026 03:24:51 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1787210691; x=
-	1787214291; bh=iAf1ACnM1ncQUFOBFpR9E5JElTy7xf+f9PkOTb2pGGk=; b=n
-	CsclQCSj/QO1bJOH5evD9Hb9c4H2BnHGWIlkWLDCfvSKcphKIdMuHxeb8VDN53/P
-	iVsI07okdas4HEV8CtpGeTpMRaB9z/AnQ2FMRDUmAu7Wrd5kqR1sIzlYOk3hOmis
-	rhbq8eZf+urp3e/Q9Ef9+vWJQYwcmB7JxrHMUBhawEuHWyUO4GocCkpHn62p03Ms
-	FfNZT/8UBGrUxAtc1em5zUzPc0W6nZsTFwmXggqL9cLMpSUlc0aOBhLEBkXJ0BtI
-	BoaojUa1AHj23lD6PeS1PuQl2+BLY0GYq5PcESLeIgQEwAkNpAZJUKJDuzTGG6Nx
-	8INYym9hyXcf/zkANbDGw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1787210691; x=1787214291; bh=i
-	Af1ACnM1ncQUFOBFpR9E5JElTy7xf+f9PkOTb2pGGk=; b=h6OFz9jm8dVYdKzuQ
-	0/6esg16MX5TUXCxzfNuj4xBQW10ZC0mzW8BZOL+90GaTpAq4z/AvJ7Zgzgr+bMZ
-	oQfftL2t76rGeavTQgJ7DYVYPwkVD/YVHOmzzedTcyKbUTT9aoQeItFkCp+xjjQT
-	kIyNQdoQgkakW6fvOORYXDLE6ZzmH7klwDxPltmGHt3C4TPFuQwCgKJCIXCyguUn
-	t+/eeUfx8L1GMBbSiN9wwRDg7O5IKM191fwVSxJONeU5yU3SSc3SwUYHEV3vAd8C
-	aDS/eAAgxA+S+mZE9Bvv9VcgBHjFaPLp2uaku/ZWVTi76qafrwp44IvTBf9z1jmw
-	4hXtQ==
-X-ME-Sender: <xms:wquGaqiVjiY7v9VO0vawKFZGQ3akKJT5luHTqRNPlWY1iIRIDtBHmw>
-    <xme:wquGajO5fO4n2QJvQ8RsXBR6nG8ddSkeObIIKwEzzngza2IKbEcaKhy12mlQZJcS-
-    AD7aIi7prvxQe37pecEg9brGe2wusTQDJkpHTeq0RUUj69YWk1OQ5h1>
-X-ME-Received: <xmr:wquGatpu_RdzNeuzon9K_ZNGi9KrVAdsbreaG5XRdKRUT_CWRL0QDAtVvofo6YNS4Og1vRBSnQ>
-X-ME-Proxy-Cause: dmFkZTGY0AHF/D0zqb7XoROdgVLZ/Hmr/VvGjkt4gtfadBqSwDDs/Mz7eEdmFVtLhFE5Dt
-    MS6J9ZEJes4QLVwohUaTaz8iIpSzG+1WuQ0LVS5td2D/B6lqFnAMMrrzTtuVO2sKXghVO9
-    NJjxQYxDBjaENyEGi7hQR+UgUzkdNmldzu9pEJ6wTicaIwGMpXbdJ59KDJV9djftyoLdnr
-    sNaZKJkaEXBBAnfktlNY2H6qRdBV/Cwc2AP4RQZl/aDbP/6HQqJhaCv9omJ/POXEmsLefM
-    FAMTpA3ftdCZ10lSdDmyJa25kNKwQEr+w+7/AfyhCYcnlVHdbu+Vt0FydwGISwfkaA/tMr
-    MCWeetluMqCQ+6tc4OmkFVrHHrk8Guw0V1a942bJpg+o25Nw42bPvW/bV4P1QgK86IGLbj
-    Tx1uJ1mdPRu1NA3lXF2xEQ6guxHDMkLb/dhW1hm6yW2uiLviGP4ki6HhVTAfMhPTSeo6T1
-    Xzw4t31NLyzOgX1pwPwDE03L1oSvUz4v+G1TDe2M1nMYcirf1haYM+OojfKtzJ7sh2WQgR
-    dpCvRuwH9NgI2O9/Rr2ylKU76wgMfnJxSQXeM5EHbq4tf6lDgrXrY9/JT6YuI5Yl2Mr5mv
-    X7/UQKXTEMQapT1vbBPeV/U9W05m0KHpcxiDLiwwKX0/oxJfWupNgIsgQ/Bw
-X-ME-Proxy: <xmx:wquGat6U8If98Y5wE6CsotmS9vALdlPpxXSjWDFYCHJzZfTnOEDccQ>
-    <xmx:wquGajgaJb9AgTdQ5cKO5kgvJNT2SmwBN_oGvoFgt-m1oyISL9drHw>
-    <xmx:wquGar5M32pqMhSEziBwD03Pt2CCQIIk-5Ak62XBgNDUIUJRK7e5EQ>
-    <xmx:wquGagF8-XK2Ia86ZK5eo8mu1vYOapPjK2JW9HX1XHhM2LZ04rWCGQ>
-    <xmx:w6uGapELifY1Xqgh4iXrm7QRojJ-XLt5fsDZurMuL4x-W5DJVqb-Xbva>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 20 Aug 2026 03:24:47 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: u.kleine-koenig@baylibre.com
-Cc: tomeu@tomeuvizoso.net,
-	heiko@sntech.de,
-	royalnet026@gmail.com,
-	chaoyi.chen@rock-chips.com,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
+	id 1wwxAh-0000000B3Wy-0kGk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Aug 2026 07:26:44 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-84a4d8fd6ecso1844193b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 00:26:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787210802; x=1787815602; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8FpAmuQv/0D1SendrGr4xs5zcx8uXf/Ui4UAqXK6/V0=;
+        b=q7WAazBcObvz+SYyQrT695Q6S3PG5oIQBdXnlJNKqNeu4LWPZoVn+DvfRq+y9geOJg
+         QfM01D6b30gPpvWWwC2kyW3xzRnMfeRKAf22FxCOdRVQoMdw+/R84AREtvl9IU44assp
+         JOyfmAtnGi2ij0raA0frXIFlvxO8uT5B4wWIUA8Rg36YTvafIMD3lWtDUJFMVeoXpBn2
+         4Pj08naivAW8rqDMyMsfoBti11hNo6HRZ08f+wYXFcbArz/TFB75bV7SgyBOHm7DGj/v
+         HgQInvNtruNgocOS5XltDZzuu9wYPIxR/tq+WVRgo2e6kOatbdzCdiz3tQktuu7NUsIi
+         03Dg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787210802; x=1787815602;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8FpAmuQv/0D1SendrGr4xs5zcx8uXf/Ui4UAqXK6/V0=;
+        b=scXoQURrPTMIZqA2ILF1ntY34vRYY6uvDzhfveoeD/lyvnaUEYKb/UvXjqMd+LaHkt
+         Jft7hlyCHi+sZLEfcA4TJPFlrBFBdcopmhWXmWF2DvjvUHdgPjAWtZs3xeqkFFAqPu2/
+         /4026JTsiqPR0WdMUPcY3Iq1Z9oqNHdqN0pz1P2YaCqUfi+vofSsbnnLO4Kp+jePKY5N
+         QGuV8eBrfzjdPJa0CaXklSZUzB3dnkZsWRcZ+Favphy/gpaa6/54EGQ8pTBj/TVmg2x/
+         hRR27tTk2PmIxuJaJgGj14O7InwpHltbpXBZTOJ/OmZScOErkB0b9YgRo7dz5S5Tp8s2
+         7EWg==
+X-Forwarded-Encrypted: i=1; AHgh+RpPQE+S9+iItBDFdPZ7Q7KaixrRBKdSlvB1glybzV+g1MXq2bNBNEAcknHzjlJ4Rsvnxr9ReoLb/WUxhOaYgkhr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOut/Yp+HKJDeG1vV3SHdWDxW27ixJuqY587PD22tAY3WFn1/m
+	6GHSpmEEVssWqnup/3ytxbv26aUYr3RWPbyx1uJR6CAx9HfyxM/3o24=
+X-Gm-Gg: AR+sD11vU0cBJWqKw+05/QGEsQ+5LVYzH87Hjma0g6k29oeLpazuLLMmic63tNawNI0
+	l4NpTh4t3rs41Yw/1hW1VRjzM5a4SaXrM8pnvxOdLBTMoHYMzgRe1qzuHwWqSQYoGV6GUM9D+Fk
+	HbpL5nqv5+Rc4HZoBe7X5dyjqUlLXjbBam4TFateoupCIcQqwZoyhakjWURRA/mtENw13end0i2
+	5Z8xPrZLs6JxlrrRfstK+gnpUbhgldpO7VsZJCz1CVXKqOISgX5I0GWSt08vwRgOnUKvR+0USwR
+	ycLI9nBpZBIoQapiGONNYTTZMrFjaIwSW44zN9nvqYR27KqC+qh+C48Yg8onfVPb89ogeQHaIdg
+	UajopnhwOw66emkyPhgJPD67hJU20fAwmEsBnZDEJLxz0gzjDcC/oyxCr8634+CWUuF/21ooavz
+	//tKSAqa9hbIQAyN3weEp+urFCVzqEWio3Qt6O3ELwoy0kvHWmGcz1zo2bW3Qn6mSctHdyUDWNe
+	MytclR1INVk
+X-Received: by 2002:a05:6a00:c81:b0:851:b007:2fe0 with SMTP id d2e1a72fcca58-851d3820363mr17061044b3a.1.1787210802084;
+        Thu, 20 Aug 2026 00:26:42 -0700 (PDT)
+Received: from DL2XHKPB4.dl.net ([103.63.104.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-851d33b4135sm1360621b3a.27.2026.08.20.00.26.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 00:26:41 -0700 (PDT)
+From: Triet Hoang <triet.hoang.dev@gmail.com>
+To: myungjoo.ham@samsung.com
+Cc: kyungmin.park@samsung.com,
+	cw00.choi@samsung.com,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 10/12] accel/rocket: add RK3576 NPU (RKNN) support
-Date: Thu, 20 Aug 2026 22:16:29 +1200
-Message-ID: <20260820101629.752877-1-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <aoQdns-GHS3fg5BJ@monoceros>
-References: <aoQdns-GHS3fg5BJ@monoceros>
+	linux-sunxi@lists.linux.dev,
+	Triet Hoang <triet.hoang.dev@gmail.com>
+Subject: [PATCH] PM / devfreq: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
+Date: Thu, 20 Aug 2026 14:26:36 +0700
+Message-ID: <20260820072636.2049617-1-triet.hoang.dev@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_002452_341296_67B129A4 
-X-CRM114-Status: UNSURE (   7.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260820_002643_242803_1DC5DBFA 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,21 +101,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe,
+Convert the deprecated SIMPLE_DEV_PM_OPS
+to DEFINE_SIMPLE_DEV_PM_OPS and pm_sleep_ptr().
 
-This changes in v9, thank you. rocket_drv.h will include <linux/device-id/of.h>
-instead, and nothing in the driver needed anything else out of
-mod_devicetable.h.
+This lets us drop the __maybe_unused annotations from the suspend and
+resume callbacks, and reduces kernel size in case CONFIG_PM or
+CONFIG_PM_SLEEP is disabled.
 
-I had not looked at what that header drags in. Checked after your mail, and on
-this build the narrow one is all the file needs for struct of_device_id, so
-dropping to it costs nothing here.
+Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
+---
+ drivers/devfreq/rk3399_dmc.c     | 8 ++++----
+ drivers/devfreq/sun8i-a33-mbus.c | 8 ++++----
+ 2 files changed, 8 insertions(+), 8 deletions(-)
 
-v9 is not posted yet, so please read that as what it will contain and not as
-done. I am holding it so v8 can collect more review rather than reset the
-thread. I said on v7 that I would put things this way round, after telling a
-reviewer something was fixed and then sending the next version without it.
+diff --git a/drivers/devfreq/rk3399_dmc.c b/drivers/devfreq/rk3399_dmc.c
+index dbdce7636ca5..3ebc817fa608 100644
+--- a/drivers/devfreq/rk3399_dmc.c
++++ b/drivers/devfreq/rk3399_dmc.c
+@@ -243,7 +243,7 @@ static int rk3399_dmcfreq_get_cur_freq(struct device *dev, unsigned long *freq)
+ 	return 0;
+ }
+ 
+-static __maybe_unused int rk3399_dmcfreq_suspend(struct device *dev)
++static int rk3399_dmcfreq_suspend(struct device *dev)
+ {
+ 	struct rk3399_dmcfreq *dmcfreq = dev_get_drvdata(dev);
+ 	int ret = 0;
+@@ -263,7 +263,7 @@ static __maybe_unused int rk3399_dmcfreq_suspend(struct device *dev)
+ 	return 0;
+ }
+ 
+-static __maybe_unused int rk3399_dmcfreq_resume(struct device *dev)
++static int rk3399_dmcfreq_resume(struct device *dev)
+ {
+ 	struct rk3399_dmcfreq *dmcfreq = dev_get_drvdata(dev);
+ 	int ret = 0;
+@@ -282,7 +282,7 @@ static __maybe_unused int rk3399_dmcfreq_resume(struct device *dev)
+ 	return ret;
+ }
+ 
+-static SIMPLE_DEV_PM_OPS(rk3399_dmcfreq_pm, rk3399_dmcfreq_suspend,
++static DEFINE_SIMPLE_DEV_PM_OPS(rk3399_dmcfreq_pm, rk3399_dmcfreq_suspend,
+ 			 rk3399_dmcfreq_resume);
+ 
+ static int rk3399_dmcfreq_of_props(struct rk3399_dmcfreq *data,
+@@ -477,7 +477,7 @@ static struct platform_driver rk3399_dmcfreq_driver = {
+ 	.remove = rk3399_dmcfreq_remove,
+ 	.driver = {
+ 		.name	= "rk3399-dmc-freq",
+-		.pm	= &rk3399_dmcfreq_pm,
++		.pm	= pm_sleep_ptr(&rk3399_dmcfreq_pm),
+ 		.of_match_table = rk3399dmc_devfreq_of_match,
+ 	},
+ };
+diff --git a/drivers/devfreq/sun8i-a33-mbus.c b/drivers/devfreq/sun8i-a33-mbus.c
+index 4bd5657558d6..1636501c753e 100644
+--- a/drivers/devfreq/sun8i-a33-mbus.c
++++ b/drivers/devfreq/sun8i-a33-mbus.c
+@@ -312,7 +312,7 @@ static int sun8i_a33_mbus_hw_init(struct device *dev,
+ 	return 0;
+ }
+ 
+-static int __maybe_unused sun8i_a33_mbus_suspend(struct device *dev)
++static int sun8i_a33_mbus_suspend(struct device *dev)
+ {
+ 	struct sun8i_a33_mbus *priv = dev_get_drvdata(dev);
+ 
+@@ -321,7 +321,7 @@ static int __maybe_unused sun8i_a33_mbus_suspend(struct device *dev)
+ 	return 0;
+ }
+ 
+-static int __maybe_unused sun8i_a33_mbus_resume(struct device *dev)
++static int sun8i_a33_mbus_resume(struct device *dev)
+ {
+ 	struct sun8i_a33_mbus *priv = dev_get_drvdata(dev);
+ 
+@@ -470,7 +470,7 @@ static const struct of_device_id sun8i_a33_mbus_of_match[] = {
+ };
+ MODULE_DEVICE_TABLE(of, sun8i_a33_mbus_of_match);
+ 
+-static SIMPLE_DEV_PM_OPS(sun8i_a33_mbus_pm_ops,
++static DEFINE_SIMPLE_DEV_PM_OPS(sun8i_a33_mbus_pm_ops,
+ 			 sun8i_a33_mbus_suspend, sun8i_a33_mbus_resume);
+ 
+ static struct platform_driver sun8i_a33_mbus_driver = {
+@@ -479,7 +479,7 @@ static struct platform_driver sun8i_a33_mbus_driver = {
+ 	.driver	= {
+ 		.name		= "sun8i-a33-mbus",
+ 		.of_match_table	= sun8i_a33_mbus_of_match,
+-		.pm		= pm_ptr(&sun8i_a33_mbus_pm_ops),
++		.pm		= pm_sleep_ptr(&sun8i_a33_mbus_pm_ops),
+ 	},
+ };
+ module_platform_driver(sun8i_a33_mbus_driver);
+-- 
+2.53.0
 
-Regards,
-Jiaxing
 
