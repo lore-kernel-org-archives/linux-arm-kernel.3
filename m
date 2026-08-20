@@ -4,108 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA0C4C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 08:40:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A344C5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 08:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bPkfI3IDNTID47/UVl4zqm8cNnUO3oY3o1tY2rxayrw=; b=dcEhFgCZLNBro5y3W0MZlmu+cM
-	c+44y9sIl7pdPZt2+O0sts6tngdQUj4QMOIVL52zkDwUcMzUkXz8oqACP9pg/FMVhOQzK6BKvhSqp
-	ULRj9fYLdyLNoipn8Bn9dzFIMzwfJljVtzpZDtWI1a7rvK1JDdEJ+3s3GUI0/8qFQwwgbDhUnlzL7
-	qb8YAeKY0+d1OMv3aqcCSEyWJdBWSfeUgEbfkJWbi3gl5MzH6GagQNtHvhOFOxf3H7/G1Q3u3aJ22
-	n4HuE94yuwCZiyQrrHU+G/Vxf13URF9ozYn1nMB69IvVjVVqKAaLiRomB8/ezWlLp/CtrUOqZ4/a0
-	HnA21K6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mY3GcucpUA6giQJAXwW4zr1AHe5dos6FejXDYtMQoFY=; b=EwycW0lwl3HJpM7hwA4f1WgIOD
+	YJ325YmcvzfnVBjYq7urtYXh+ixg39wXpkhRYhM0NGEzMScVgGu7aABLqug7tvoiG7jbEoMvQP03e
+	1ieVlZ+x478fWIee96Xvfm7XFn2qFS2916retOh9FraYEWBTn4PwpiYpCZRUjo5KHnNbzpxXaVhit
+	v8/O7KdPMZoZsVpyr1pZXS01tKH3LLWz8QwjaikFuTIrlp7t+nZr8pm9PlPpAg4VafdmgiorN8jZ+
+	5nAuAeCuQsf3/xCln6dc5EtJQ2oLQa5ZBAlH79UVMFgYQs2+ZsGi3u8/s7JfQgdtPrJU3nfKEdJXz
+	OVu8fNgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwyJT-0000000BB9c-3jVr;
-	Thu, 20 Aug 2026 08:39:51 +0000
-Received: from mail-yx1-xb130.google.com ([2607:f8b0:4864:20::b130])
+	id 1wwyJY-0000000BBCF-1iIe;
+	Thu, 20 Aug 2026 08:39:56 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwyJR-0000000BB8N-1Vpl
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 08:39:50 +0000
-Received: by mail-yx1-xb130.google.com with SMTP id 956f58d0204a3-66c70e2904dso2557930d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 01:39:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787215188; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ErIs+9L1ogOyvEZyvYH51w2q84YYE7vZVjvUDmKWrb6ZTd+yhWkHL6ZU3oUD7QQGJO
-         It8aMxNVQ+tmNqr9jTvxWdqHcGHnPr1mgyNxczlKEaGU6d3NgSibD0QztL4k5buN3osa
-         BLS7C7LMl2teDCUnzYadfQzg0gSSXO5Mo70wDASgumd4oZh6uVrMAP1H82kCSfcSHc0R
-         4MSK1eKhccLaLQ1AbPGLewy0eVdltOKDR4d+pEzI5F5CdRE7w20mrCq0LW1p4KrmyGRq
-         bPTQIG8A9ZOgk4ftAvXcBW9J8XzAJWVgCakeWS37Ehy8Y0JhvpJY39WEqtRGwswpLXGo
-         bJYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=bPkfI3IDNTID47/UVl4zqm8cNnUO3oY3o1tY2rxayrw=;
-        fh=GGaOGRw4So5W7RdjZmtqi3TIecxZRDdkJdKGqeiotoU=;
-        b=N5A/5jEi0RLHz9fBF5bP6WY7CDUYXlKdYP6yzHhghI+Q4/hSWEqCGZvGJCf9v4MeNE
-         y3+xrOlxCSYFsvBc10uKJXgKKDGH+xPeEeuBzbGUWeZLQkB2zU3kigB5Yx9922hoe0+G
-         IphsoN5/k7mL2lZMQ1d0aJfIoIP8K5c0CV58Vs7Z46OCG50XHpbB6qnFPfOZqL2YqYMM
-         OJBMBZHvTAH61LR5WsUW1WqnwFJwSPlhjq5WEnXgxLQedf4/ZObTVo0vYhd2NRFRX6tz
-         aGNm0oEDLG3ll62z33Nnybi3wp01ctDpcJlU9pbR7PEDNZgr8GxslIHdSV54IPSM89Nk
-         sD4A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=asseily.com; s=google; t=1787215188; x=1787819988; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bPkfI3IDNTID47/UVl4zqm8cNnUO3oY3o1tY2rxayrw=;
-        b=G60WZbRoT33oWmaDcqKzjEkGzsrX1Cx9ONFUswIglfobDQAnVNTm121Mw3VcBucP9r
-         Tgoq+l8VaQPdZxNChQg4zbRqixyUBU12S7WhfF1y4rtArj4yyq1cTWJ+d9SnOCjJKaXs
-         pMmGOlC4E0I1rP/3saRqpQdDTp2ewxFOx5b1pO5BrbY7JmbNefp/331/L4T98WGyi86t
-         gjQn98RHAli6Hoh9pqWcUwcs78VuqiznIAv2Dd+GOiHsISHphi+qF5kc5oaZks7Qkrlx
-         f0EjBOMGBH+psy6bhKL+sybbSiITibi4e5cLPWSPAmr3xOugVotTBpOLHwl+VosnLHuO
-         3YEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787215188; x=1787819988;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bPkfI3IDNTID47/UVl4zqm8cNnUO3oY3o1tY2rxayrw=;
-        b=aHkM6NL60Ek1+JmsyUClpsFo4j/esHslLQK6QAcPbaEaiJ38R1Vyz4BpVVJjInBqrb
-         XTQG/Si9A7zB79s16k3UNbDWntNdNbC7uvL4wV8CwlK3lIYP9XgqoKakM+GwoWq9WRsT
-         lA4XdusY74wUaEVJw/lbSPwXSIE33DERZwTxqPJlHmEu5GimklmKGf3IEWAC8EWGkrPE
-         sOL8DAZ6UqGCN8h/77yXSb98qy/H10/dsvhDyJk0occsqf/L6ubjqXEfQSJg4Og/54hI
-         oakycBXXhonH6NaMSDsbE/PUJ5t+3O0Cc2ZngjTFHte/gv2OC820LxaBAd45LycRyqWi
-         aOkg==
-X-Forwarded-Encrypted: i=1; AHgh+RrGx5ylIAO/KDoivahGcXiGks9H5v1BJQaC8Xml6MIXo1Cr8E9KvTBuTwLjAzKxtloTVFx8HC9XoMqNdZRbRGg1@lists.infradead.org
-X-Gm-Message-State: AFuF++kRWggg7XXycWuYNOYR22A5ygrwj49EG5Kgwlw3Trt/dmNz6WKj
-	2B07MxZcSlJf52PH28QzwPrfw1K0lCy7iibpNNUYtq7whQDfQ3VH1M5KE+4zR2j/664loLlUuIQ
-	8Kmx7mWXBr/qQxMYleY/hGXRlLtshw62HL29Bp4abfxsJe8jVn/7NJ0bEBw==
-X-Gm-Gg: AR+sD10nai4QzSzBvCuq8hSIWsRQtX97EibzcFvowJfT6rxPq0cwLR0LlSWIbvfkeM1
-	fE6ZZ93zf+Gjj/EbPpaFGlBWJ1sop29CUfBSier8A1PrMRSGuE2tS9i+Q927XJKloOs/X2U0ukJ
-	Io5AbCGbywuCIO+0XwL844arYX6K9Ja4Gbm6UipiBESvA5k1AdjR3g41yb624tdpGFIyr7hj+bN
-	goackih7Q+9itC0zXnTHQVVHUn0WDhykwY5P8WMq/K551gfZ2W+8WI2d8Ts7G5Z6oB0t3vWxnxr
-	uIx0mCTZudu0uYhsLUdovCC5J6ewKhz9bpHWdzteqC68p6Rbkec3Sr4gQ5CwNiGJEncFHJD/EI+
-	E
-X-Received: by 2002:a05:690e:803:20b0:667:b314:aeba with SMTP id
- 956f58d0204a3-66ccb53611dmr2826265d50.5.1787215187958; Thu, 20 Aug 2026
- 01:39:47 -0700 (PDT)
+	id 1wwyJT-0000000BB9G-34MF;
+	Thu, 20 Aug 2026 08:39:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787215192; x=1818751192;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=5Fc6mtBs7m5y0soqNkhvFuSgJGIGQ9L09rbMjF3lbg8=;
+  b=VeqhuzRZtVVPNYAZjMyBG2Sdbr9M/YmK18P2FLNjkt9u5xcxjosM7HMo
+   YzyWVj1dqxDlfWUVC/O6rTkqiwz1mQSLzmomeglvDUbbgx6sXT+o162s4
+   HR4GiuwvqxQc9E4Sadmc+7ZZ4IjmDBRGstFcqBVjHul2WqqqzUPZMzRGc
+   Z0jFfyDoZE74HtKarMm7KQmeHIoKKeFHHfzi1ESV5QfcqpSegth9V0Fqn
+   TJsWpB8bYtn/oG8OJmRTzfIMb1hY5x6Ip1v0y0FS7cLgYDCkpNAzke26C
+   Id06XJz5zSqVEDcUymp/VjEEiKg75eWArPkNQiEMhsvksBpF5OUYUJZj4
+   g==;
+X-CSE-ConnectionGUID: AMZrSXUxS02uDkFneZ4Uow==
+X-CSE-MsgGUID: p8AsWN4sRkqxNNX2uc09nA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11880"; a="87758324"
+X-IronPort-AV: E=Sophos;i="6.25,232,1779174000"; 
+   d="scan'208";a="87758324"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2026 01:39:51 -0700
+X-CSE-ConnectionGUID: FW1eo9caSPSNNPbOkI2gVw==
+X-CSE-MsgGUID: pZaEKNHJQ8WHAtvGOf2qcQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,232,1779174000"; 
+   d="scan'208";a="267868312"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2026 01:39:50 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 20 Aug 2026 01:39:49 -0700
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45 via Frontend Transport; Thu, 20 Aug 2026 01:39:49 -0700
+Received: from CO1PR03CU002.outbound.protection.outlook.com (52.101.46.18) by
+ edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 20 Aug 2026 01:39:46 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EbL8GKzb3+u+fuYf81jNzlEh9QGt4DJrcFSYZuWrUUE01+/w5j70sv1HDKIOLHQ1keZurGBgyx1dfbmZXl+NZv2yAB5EIsNVSBTgjTmlagupttukQWHsr5t2TLvUcR9rIqf3nq724GdEdIL06WgCnOz6ELMIn53OTjXVBycQYvNCjrI2FO63XoF+7os3IuK2iiNRqX8VsrDBCxhCOL5ueqfYXt6d5k9Xdyo1ZvaiT2AXuI1EYlT8ZdV2OsUXWj9HYewzNT0MoKASWr1v5GV653Jy+lXZQwV7pu7mJYf2apuyvEvdPjtpgwZoXnl4dOCnVbZgE+mVciMxFcZQ8cPpyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mY3GcucpUA6giQJAXwW4zr1AHe5dos6FejXDYtMQoFY=;
+ b=PpljmbJX87lnzIVIkBC6+50+372jFaAFrF8W7RP2XIA3uwi5GMiLDsyISaJkWAPv7g96Imsiu/ZCcB4mYrXuuVd3jCggkFW2DXjzevDORLc2TTM9r9nIBb96sjCE/L0TauVCFT0kz7OQCouqWyT2+4fOz+edvUWsdmbsqyziKaKai/CBkC7BjIkrjLCDR0r55LUckema6O2poAsVk1ZWg0k18P3tMIkl2gRZbIAvyAsNZw+sFchfYwnQyateqY+OsU612kIwlNtjt+SRXBdIwXVkrb95/o4og1F2icLo8rMV7yWq2qKd8wJmljyE5NN/QX0RJhhVMJNHAyUFjaoZog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH7PR11MB6006.namprd11.prod.outlook.com (2603:10b6:510:1e1::13)
+ by CO1PR11MB4772.namprd11.prod.outlook.com (2603:10b6:303:97::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.9; Thu, 20 Aug
+ 2026 08:39:45 +0000
+Received: from PH7PR11MB6006.namprd11.prod.outlook.com
+ ([fe80::4e2d:28f0:ede9:73bd]) by PH7PR11MB6006.namprd11.prod.outlook.com
+ ([fe80::4e2d:28f0:ede9:73bd%5]) with mapi id 15.21.0339.008; Thu, 20 Aug 2026
+ 08:39:45 +0000
+Message-ID: <8feccd0b-a5d6-4834-b848-0206338b6b6a@intel.com>
+Date: Thu, 20 Aug 2026 10:39:39 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] ASoC: mediatek: mt6797: Drop redundant probe error
+ messages
+To: <phucduc.bui@gmail.com>
+CC: Liam Girdwood <lgirdwood@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, <linux-sound@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Mark Brown <broonie@kernel.org>, "Matthias
+ Brugger" <matthias.bgg@gmail.com>
+References: <20260819101736.67632-1-phucduc.bui@gmail.com>
+ <20260819101736.67632-3-phucduc.bui@gmail.com>
+Content-Language: en-US
+From: Cezary Rojewski <cezary.rojewski@intel.com>
+In-Reply-To: <20260819101736.67632-3-phucduc.bui@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AM0P309CA0016.EURP309.PROD.OUTLOOK.COM
+ (2603:10a6:20b:28f::14) To PH7PR11MB6006.namprd11.prod.outlook.com
+ (2603:10b6:510:1e1::13)
 MIME-Version: 1.0
-References: <20260820075427.67050-1-karl@asseily.com>
-In-Reply-To: <20260820075427.67050-1-karl@asseily.com>
-From: Karl Asseily <karl@asseily.com>
-Date: Thu, 20 Aug 2026 11:39:37 +0300
-X-Gm-Features: AcwNN1XuFpjrLHh4no0BJ3vL9VS_J2vNnUUzNm52YHAD3fGNRJEb3zzTPlR_AqM
-Message-ID: <CA+gvwbo2Brc+JLBZZxn03OyD51=7hw3-j08-5x4YoXG2Cx1z9g@mail.gmail.com>
-Subject: Re: [PATCH] clk: rockchip: rk3588: let MCLK_SPDIF* rate requests
- reach the divider
-To: mturquette@baylibre.com, sboyd@kernel.org, heiko@sntech.de
-Cc: bmasney@redhat.com, linux-clk@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR11MB6006:EE_|CO1PR11MB4772:EE_
+X-MS-Office365-Filtering-Correlation-Id: 522e92e7-e079-4c11-c386-08defe96961a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|6133799003|18002099003|22082099003|11063799006|4143699003|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: ci4v5kMV8DPlFq1NAwGCFKso7Jes2XKDKuSz8+ROkWhlNkkEc9nt5380dqz2HNS3l6KlKmKxEs9GdMMUEoUDHZ70J5u5jzQxTs3DLVez2ICglracyRloXplsJuUX6woh+HvLYfx4EaWXe3s9yvpkCe1znd12MvodcU5GcBXdPPJH3DqhpKTUOCwcOHxXdqZLxDdQIBXaR6CjXucAZnMCLuO4mMPldvJo0gcNMTkF+nt0uDHr2tRw/m57vP48RjbpAOKsiabak8Cxm+CYE0sbs6B3nipGD0kgQ50o9VpPRRAy6U5h6P4UuOnDScdJ0/XxQOWXblJOxsvkRfrbx8gq8r0RoKoIu+Tw8oUfs9kYMRfRS7C8zwLPN5pGqU6jdWOk3Jj9q9egvnttZZ4xP4MRn+mLJzK49X6v0mNDA/jnzuG8jDo9sX+LNF6J0jluCBJjWiR2YHDq3DA7PPafJg5LDiTZ0+uUkDwFSUpgmSMySr1CF/nFN7yktQdd8hPe+3TFarudiigotYbR9U1zJlptrNXb3ZjdRvBd4O1N3nMeB31thhs8lI45gFBdoqYD72IEdCnjQ4qcGyrhAkO4SLv1G8xL6m1etVAXojIvOLlIatvjs8Ry+073sbBLqXT7MdJXgJF3vsfde6M2AJXFs6CeIo7oSdcuIDi7bnEu2OrtgH4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR11MB6006.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(6133799003)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MTBKbUlRQ2dzM21reDdFbTV6ODRCYU5XL3AxNi9XMU9jRTVpVmhub3UrZWFp?=
+ =?utf-8?B?UGNRWUtsVUJ3NjFORTBSUTJBbXVmVGNianZoUmpmcFVtcWpKRXlIelFBZ3FN?=
+ =?utf-8?B?Nkdma0M1RVVNNzY1MkZraWJkVS9aTDE2bUJWdHR4NlVhY0d6S0RzdTQ3T25j?=
+ =?utf-8?B?ZEtpTnAxeDJGZUorekFOckJ4SXUyNWNRRjFla2hzTnU4bTQ1di9KaTg1SzZI?=
+ =?utf-8?B?c0hJazA3TThsV3BOQjhtV0o3bHVaNFBpQ1Mxd3NPN1Y2L2I2U0cyVmFKZk5G?=
+ =?utf-8?B?Wm5OVGI1M01WZENQWUROUFpYdHFsSDdpSkdZSzBnY0xnOW1ObVZHV3hZd2d1?=
+ =?utf-8?B?TS9rRG0rT0Rick04WS8rb2dUVU84QTVTZnpmb2Fab3FjRXU4RVYwSDRlYThi?=
+ =?utf-8?B?YlV2U3lVRXJFZXZTZDhMaDBqWTNxWU9LQ3l5OHBWNCt1OTRxUUNzOGRxOVlp?=
+ =?utf-8?B?V090MnlqcEZQOXBlb09EZ1IzZmVwY3I4Skt0U0pWeXlTbEIwZ0V3TU1XdWR1?=
+ =?utf-8?B?dnhjQmVWbFU5NFBKSmdvRGRWcHRrUzlHK0hWUmVRYVVZbGczaGVSbkRET29C?=
+ =?utf-8?B?V2VaSzRPZEY4V2dIcU9OaEwyWUxad2NtMTVvcFF6Vks3c01RSjZRSVBjRDc1?=
+ =?utf-8?B?V2N3YjZZRWhvMFNGRFFQdzVFZUYvRWFUdlRCYnArb2pNTjVud3hCc1BnS0Vh?=
+ =?utf-8?B?bU1IbmMrajNzTnludEttYlBKdlJZWnVsZURUbWRsNWhPRkl0bnAzbVFhNkt4?=
+ =?utf-8?B?VW5WTE80OG1KaEdjTmVHNVg5cmtSdmNGS2xjZStXNGJTbGdzS1lKZmR1ZG51?=
+ =?utf-8?B?TkRUS1hhdmtjb2RsSWZkRE1YcXhWZllEQmJNRlJna3ExZTI4ZHVGZk5lL00y?=
+ =?utf-8?B?ekFFZ213cnpRUUdYcjR1cmtEM1VMcUhtNTJPck5UWHNJakFGYUorbXVvZW1s?=
+ =?utf-8?B?eVNoQWs2YkVJV0xzaHJQSmpZQndDTmtNeHp1RGsxdVlyUTRpRXkzejBrUSs5?=
+ =?utf-8?B?Mm5ldUNya1pjZWtadVBqNmZ1ZDBxUVNvcnZuVjdhZ0ZQYzF4SVdkSkhiRzNk?=
+ =?utf-8?B?UWZuSFBtZTNJWlZhSVJXUUdBdmxoY3JBV0ZWNGhvODh4cEVuUTE4SHdBZysy?=
+ =?utf-8?B?WG5iL0RaazNRTUNNTk9LVzZabklwNHRhVEhUem56V2duM2x1dWNiZFV6N0tY?=
+ =?utf-8?B?VitJUGJxQTdod3kvc0JkUzdmTXdRRjB0UzVFRkE5bDVLMG41V0phbnpxQkRY?=
+ =?utf-8?B?OVNCaUpiV0JpMktpa213MStERWpnK3QzNHRPSEVsRW1ZaUxnV2pMWnZHUG5q?=
+ =?utf-8?B?Ym94blFLa2dEaHRTYndNUE1wa2FxcUlpd3F0WlVoenNaSE1HTVVXcHhHVGRG?=
+ =?utf-8?B?RDBTZktWbUFBTExDa2txNXJBUFA1Rms2NXdOaFdlK1JRcTJrcjdKRGhYRXcx?=
+ =?utf-8?B?OXA4RFVoKy94YzFVMHY2dUkzb3czRUdwZU42SGlpSGVkeWFjQ3FIVnByM3cw?=
+ =?utf-8?B?MUFBYXFlTW11VlhUc1BzbzQ2SEs2dCtMRHdRQlo2K2FPM2RIRi9PU1plNWlB?=
+ =?utf-8?B?SDBRZWFnWWZkbXVGN2Z5Tzd0ZVdJYTk1eGhxaGRzc1gyK3dnVnB0cFJwUER5?=
+ =?utf-8?B?VXFlNTJHYXlXcHRNZHdxcmxvV1dick9iaVo2ZTRDamFGKzlEaWQwMkdGMzRZ?=
+ =?utf-8?B?b2dFcEY2UXIyd3BESys3aktCWnJTUUdrOXJYK0dJU2dhUCt4ejgydkY3dmlZ?=
+ =?utf-8?B?WkdWcXQyUllGQWhnMUtVd0VhMDNTNStTR09WQVFZTGJiR1FXbWVzbTJHeDI1?=
+ =?utf-8?B?SmtYTW5GcG1lcFRGcGFPemxZQkVMKzM5bkQ0ZEdEZ0lHeTl2YXpGdTdOL0R5?=
+ =?utf-8?B?aXErcEZjUWlTUzZVODRQRCtLOGFOeC9uRTAza3RJLzZCM3ZQbVlVMDVlZ1V6?=
+ =?utf-8?B?OFphL2pXSmF0Z1FmZ0dNTXBWWEVnRURKcTgzd1RweUNHdFFCYTJrLzZ4OExB?=
+ =?utf-8?B?Z0FUeE00dTA5cDdIRUg1S09NYkt1WVNpZzVwaWVUTjZBUWpqWVBYQW9YYWh3?=
+ =?utf-8?B?MzVTV1FjRkU1eU5vYTcxcWo2TENhWDBYQnFrQUh1eTlZTkRYb3JTU2xZcmZs?=
+ =?utf-8?B?UjRZUVJScC9jYWdpaWJPNEpRL1ZNR2M5dWc0VEtHQnc1QjR3QzJzT2RueWYw?=
+ =?utf-8?B?YjlFL3g3bTNHV2Z4b04xSWpaY2VKNkZHNU1pNkM1RGNGNHZSSGNzOVNLZ3Jp?=
+ =?utf-8?B?WHBIeGhSYTI2SXd1UXZPSHk0NkIycGJNRGJlU2NVN2FCTkJPd1hDRFE4WGs1?=
+ =?utf-8?B?NTdRV3BEeFhFc0tkOEp3TWJUTnAwOFI1M2NVNEhENDRKVUVuVkZ4UT09?=
+X-Exchange-RoutingPolicyChecked: VhyX9QsiNfFAyGoBMYHocUWhLm5kdzjwxccCozM1os+NVqsBUdiX3MDQc8cUf4fytPUS/Ek/rOtqqN71/HZqJaxFq7h9XJyk51lYyaGEa2yE9HbOip58zZMymRtpPCl5VahM1knO+W7vvA8flQwXue31tilaYmpRjeTS17RLH8NVf1c6ozkhvsN5YVEvVoCJRRtk+exFMRtnnmu/giAZQ97oTwVZC/sVbIjD0UXdgRSzTMiemM+VsShGFlvYAvraY5K3DCghf8v08vR5Q5wWlS2gagd0kW0vJ4D5WN8ld03PQetoIja6zplLVWPS32C4lZWlNT9FK675609YonCRDQ==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 522e92e7-e079-4c11-c386-08defe96961a
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR11MB6006.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 08:39:45.2057
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VL4D91TrGPYwNGWnk7otJsf3eG8X8qtYIg+npu3ifagAbkM7R0Tkh5hpDDq9YjyTDZetDF2JJWEMh1S++9P5HOULB3gqz0qhR1hM1ZZvX4o=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB4772
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_013949_427705_07002EC0 
-X-CRM114-Status: GOOD (  26.00  )
+X-CRM114-CacheID: sfid-20260820_013951_823887_E1902B1F 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,171 +187,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Please drop this patch. It is a no-op and my analysis was wrong.
-
-rockchip_clk_register_branch() adds CLK_SET_RATE_PARENT to every
-branch_gate at registration:
-
-case branch_gate:
-flags |=3D CLK_SET_RATE_PARENT;
-
-so the MCLK_SPDIF* gates already propagate and the flags column in the
-branch table makes no difference.
-
-The behaviour I was chasing was real, but the cause is elsewhere:
-simple-audio-card only calls the CPU DAI's set_sysclk() when the card
-node has an mclk-fs property, and rk_spdif_set_sysclk() is the only
-caller of clk_set_rate() in the S/PDIF path. Without mclk-fs no rate
-request is ever made, MCLK stays at whatever the bootloader left, and
-44.1 kHz material goes out at 48 kHz. Adding mclk-fs to my card node
-fixed it. The before/after rates I quoted belong to that change, not
-to this one.
-
-Sorry for the noise.
-
-Karl
-
-On Thu, Aug 20, 2026 at 10:54=E2=80=AFAM Karl Asseily <karl@asseily.com> wr=
-ote:
->
-> Every MCLK_SPDIFn gate is declared with flags 0, while the CLK_SPDIFn mux
-> immediately above it already carries CLK_SET_RATE_PARENT. The rockchip
-> S/PDIF driver calls clk_set_rate() on the gate, which has no .set_rate of
-> its own and, without CLK_SET_RATE_PARENT, no way to pass the request up.
-> The clock core therefore computes "new rate =3D=3D current rate", returns=
- 0,
-> and changes nothing.
->
-> The visible effect is that S/PDIF is stuck on whatever divider the
-> bootloader left behind. On a board whose audio PLL is parked on the
-> 48 kHz family, every 44.1 kHz source goes out at 48 kHz, silently, with
-> nothing reporting an error. Measured on an RK3588 board playing 44.1 kHz
-> material, before and after:
->
->   mclk_spdif0   12287999 Hz    48000 x 256
->   mclk_spdif0   11289598 Hz    44100 x 256
->
-> Add CLK_SET_RATE_PARENT to all eight MCLK_SPDIF gates so the request
-> propagates to the fractional divider that can satisfy it.
->
-> Propagation stops there. Each chain terminates at CLK_SPDIFn_SRC, which
-> is declared with flags 0, so a rate request cannot reach a shared PLL and
-> pull unrelated consumers off frequency.
->
-> Two pairs of gates share a divider - mclk_spdif2 and mclk_spdif2_dp0 both
-> sit on clk_spdif2_dp0, and mclk_spdif5 and mclk_spdif5_dp1 on
-> clk_spdif5_dp1 - so a rate set on one moves the other. That sharing is in
-> the hardware and is not introduced here; before this change neither of
-> them could set a rate at all.
->
-> Signed-off-by: Karl Asseily <karl@asseily.com>
-> ---
->
-> Notes:
->     Generated against broonie/sound.git for-next. clk-rk3588.c
->     carries no ASoC changes, so this should apply to any current tree.
->
->     Tested on RK3588 hardware running 7.1.3: without this a 44.1 kHz stre=
-am leaves
->     the S/PDIF transmitter at 48 kHz; with it mclk_spdif0 retunes and the=
- receiver
->     locks at 44.1 kHz.
->
->     checkpatch --strict reports "Alignment should match open parenthesis"=
- on the
->     touched lines. That continuation indentation is unchanged by this pat=
-ch and
->     matches every other clock entry in the file; realigning only these ei=
-ght would
->     make them the inconsistent ones.
->
->  drivers/clk/rockchip/clk-rk3588.c | 16 ++++++++--------
->  1 file changed, 8 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/clk/rockchip/clk-rk3588.c b/drivers/clk/rockchip/clk=
--rk3588.c
-> index 2ba9976654c..b3d577dccfc 100644
-> --- a/drivers/clk/rockchip/clk-rk3588.c
-> +++ b/drivers/clk/rockchip/clk-rk3588.c
-> @@ -960,7 +960,7 @@ static struct rockchip_clk_branch rk3588_early_clk_br=
-anches[] __initdata =3D {
->                         RK3588_CLKSEL_CON(33), 0,
->                         RK3588_CLKGATE_CON(9), 0, GFLAGS,
->                         &rk3588_spdif0_fracmux),
-> -       GATE(MCLK_SPDIF0, "mclk_spdif0", "clk_spdif0", 0,
-> +       GATE(MCLK_SPDIF0, "mclk_spdif0", "clk_spdif0", CLK_SET_RATE_PAREN=
-T,
->                         RK3588_CLKGATE_CON(9), 1, GFLAGS),
->
->         GATE(HCLK_SPDIF1, "hclk_spdif1", "hclk_audio_root", 0,
-> @@ -973,7 +973,7 @@ static struct rockchip_clk_branch rk3588_early_clk_br=
-anches[] __initdata =3D {
->                         RK3588_CLKSEL_CON(35), 0,
->                         RK3588_CLKGATE_CON(9), 4, GFLAGS,
->                         &rk3588_spdif1_fracmux),
-> -       GATE(MCLK_SPDIF1, "mclk_spdif1", "clk_spdif1", 0,
-> +       GATE(MCLK_SPDIF1, "mclk_spdif1", "clk_spdif1", CLK_SET_RATE_PAREN=
-T,
->                         RK3588_CLKGATE_CON(9), 5, GFLAGS),
->
->         COMPOSITE(ACLK_AV1_ROOT, "aclk_av1_root", gpll_cpll_aupll_p, 0,
-> @@ -1868,9 +1868,9 @@ static struct rockchip_clk_branch rk3588_early_clk_=
-branches[] __initdata =3D {
->                         RK3588_CLKSEL_CON(123), 0,
->                         RK3588_CLKGATE_CON(57), 4, GFLAGS,
->                         &rk3588_spdif2_dp0_fracmux),
-> -       GATE(MCLK_SPDIF2_DP0, "mclk_spdif2_dp0", "clk_spdif2_dp0", 0,
-> +       GATE(MCLK_SPDIF2_DP0, "mclk_spdif2_dp0", "clk_spdif2_dp0", CLK_SE=
-T_RATE_PARENT,
->                         RK3588_CLKGATE_CON(57), 5, GFLAGS),
-> -       GATE(MCLK_SPDIF2, "mclk_spdif2", "clk_spdif2_dp0", 0,
-> +       GATE(MCLK_SPDIF2, "mclk_spdif2", "clk_spdif2_dp0", CLK_SET_RATE_P=
-ARENT,
->                         RK3588_CLKGATE_CON(57), 6, GFLAGS),
->         COMPOSITE(CLK_SPDIF5_DP1_SRC, "clk_spdif5_dp1_src", gpll_aupll_p,=
- 0,
->                         RK3588_CLKSEL_CON(124), 7, 1, MFLAGS, 2, 5, DFLAG=
-S,
-> @@ -1880,9 +1880,9 @@ static struct rockchip_clk_branch rk3588_early_clk_=
-branches[] __initdata =3D {
->                         RK3588_CLKSEL_CON(125), 0,
->                         RK3588_CLKGATE_CON(57), 9, GFLAGS,
->                         &rk3588_spdif5_dp1_fracmux),
-> -       GATE(MCLK_SPDIF5_DP1, "mclk_spdif5_dp1", "clk_spdif5_dp1", 0,
-> +       GATE(MCLK_SPDIF5_DP1, "mclk_spdif5_dp1", "clk_spdif5_dp1", CLK_SE=
-T_RATE_PARENT,
->                         RK3588_CLKGATE_CON(57), 10, GFLAGS),
-> -       GATE(MCLK_SPDIF5, "mclk_spdif5", "clk_spdif5_dp1", 0,
-> +       GATE(MCLK_SPDIF5, "mclk_spdif5", "clk_spdif5_dp1", CLK_SET_RATE_P=
-ARENT,
->                         RK3588_CLKGATE_CON(57), 11, GFLAGS),
->         COMPOSITE_NOMUX(CLK_AUX16M_0, "clk_aux16m_0", "gpll", 0,
->                         RK3588_CLKSEL_CON(117), 0, 8, DFLAGS,
-> @@ -2059,7 +2059,7 @@ static struct rockchip_clk_branch rk3588_early_clk_=
-branches[] __initdata =3D {
->                         RK3588_CLKSEL_CON(149), 0,
->                         RK3588_CLKGATE_CON(63), 6, GFLAGS,
->                         &rk3588_spdif3_fracmux),
-> -       GATE(MCLK_SPDIF3, "mclk_spdif3", "clk_spdif3", 0,
-> +       GATE(MCLK_SPDIF3, "mclk_spdif3", "clk_spdif3", CLK_SET_RATE_PAREN=
-T,
->                         RK3588_CLKGATE_CON(63), 7, GFLAGS),
->         COMPOSITE(CLK_SPDIF4_SRC, "clk_spdif4_src", gpll_aupll_p, 0,
->                         RK3588_CLKSEL_CON(150), 7, 1, MFLAGS, 2, 5, DFLAG=
-S,
-> @@ -2069,7 +2069,7 @@ static struct rockchip_clk_branch rk3588_early_clk_=
-branches[] __initdata =3D {
->                         RK3588_CLKSEL_CON(151), 0,
->                         RK3588_CLKGATE_CON(63), 10, GFLAGS,
->                         &rk3588_spdif4_fracmux),
-> -       GATE(MCLK_SPDIF4, "mclk_spdif4", "clk_spdif4", 0,
-> +       GATE(MCLK_SPDIF4, "mclk_spdif4", "clk_spdif4", CLK_SET_RATE_PAREN=
-T,
->                         RK3588_CLKGATE_CON(63), 11, GFLAGS),
->         COMPOSITE(MCLK_SPDIFRX0, "mclk_spdifrx0", gpll_cpll_aupll_p, 0,
->                         RK3588_CLKSEL_CON(152), 7, 2, MFLAGS, 2, 5, DFLAG=
-S,
-> --
-> 2.34.1
->
+On 8/19/2026 12:17 PM, phucduc.bui@gmail.com wrote:
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> The errors handled here are already reported by the called functions,
+> either directly or deeper in the call chain. Therefore, the additional
+> dev_err() calls are redundant and can be removed.
+> 
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+Reviewed-by: Cezary Rojewski <cezary.rojewski@intel.com>
 
