@@ -4,75 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37722C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:26:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4479C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MT5cE37vNNATMSK/0ATPIPek355Lvu0hwGnVbzvXZEc=; b=rcZQGQWHe3U5FUhvN1rJWe3+zJ
-	kdQgBI8ib9Bq2gK+l0qAqYcRrlG9lCv4/OJrnPPo/RMqolgDyDkVqgvoJJ09ZUOE+2XxwiN8l7MfO
-	YoMPnoNS5bguTBYIPHBAO2yuQWbFirq9CBEt4Ycd8HaPBavUyUK61f4GsiDUsTUSpp2xV6xIDMc/x
-	T+r/hcHoy1VDFPbnGFFMK8OfpJQjBzVC7C/Flgdo7oKid4QDsRg4VRO8EyRYoPlerB2CMzrSEhcwP
-	Y5jQfeox8oEv+1K92G43yivtawF1zlXWqnRjCXVeMkmUBM97oUDNiP06pEMrS6JA4hkaURnekI6bN
-	8Gwc6M7Q==;
+	bh=DAt8MLJAo/VfDjUNT+oUDLNIY3FxUtnsWA6xMq+/nkE=; b=W2BWtK5IW+HO1+jAlP3vSqLYwo
+	UiIYZV88m7U1yh5dv7c/2lD4tdHnEVOhpy8wh/3h0TvLPs5J058sRMoFIfdj2MAZY4wwlMag9cVyW
+	7sI7ar28oEUJDg5Wi+dU1LXWX5WkwvWVahM9MHf+WzxehtVXYYNia9PDFFU/P8wH+ia1+53LC0rgD
+	ZK2sKw5w5j+9u3Yisk7RtNsqFxJ2J9qS7RWGgpw9sjSClVzHEtU/jgptdfedWpf3PW0yBDx2hRmQ5
+	ONDWH95o/9SNTMZ1gT/+4f+owXI8zXYCJoPFN4OyZn+Inq7z6ns6pMWZiO+wASX7WAENLiOBfumgr
+	0FWaSWnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4ek-0000000Bno2-15Nb;
-	Thu, 20 Aug 2026 15:26:14 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wx4mG-0000000Bod5-3Jha;
+	Thu, 20 Aug 2026 15:34:00 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4ef-0000000BnnX-3BzV
+	id 1wx4mD-0000000BocY-11Kk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 15:26:12 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 0B11B4E41301;
-	Thu, 20 Aug 2026 15:26:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C83DA602B8;
-	Thu, 20 Aug 2026 15:26:05 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5D9AC11C76488;
-	Thu, 20 Aug 2026 17:25:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1787239560; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=MT5cE37vNNATMSK/0ATPIPek355Lvu0hwGnVbzvXZEc=;
-	b=qWRLjnEHXjBvqPygZo7VeE3craVfVvnakFesBdtkzMMH+jtYTOIln/7LdaxPkJsYiVO3OT
-	29gG2ohut3IepXPCD9JgLK8qfjrrO/JvXp8mNqwj2CKudEgKIgBLacDxGyLFYaJqhw9HYz
-	KLjAtWZ7+xx+YgKyeGJ9q9fh4oMwo//qncLbgNmDA5mCIsgCpOHuMuTH60HgIE850HR8Hm
-	94H/n7IeitBOje4Ye6A0hSlPpYDy6CrINwOrhhw5KGKfg5Kby4Cuphp2HCVop8ZCNxK5L3
-	dRcnW2GYv/hsIeys9ZC23Mk/tlFRkAYzQBH87qmvtDvHN5r2PMrICEZpTVlhEA==
-Date: Thu, 20 Aug 2026 17:25:56 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Markus Probst <markus.probst@posteo.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <uwe@kleine-koenig.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Michael Langer <michael.brainbug.langer@googlemail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linus Walleij <linusw@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 4/6] rtc: s35390a: force 24-hour mode
-Message-ID: <20260820152556c6da4fce@mail.local>
-References: <20260820-rtc_s35390a_int1-v5-0-5eb4ef85c6a9@posteo.de>
- <20260820-rtc_s35390a_int1-v5-4-5eb4ef85c6a9@posteo.de>
- <202608192220436c9c7207@mail.local>
- <da52511e1257d1a3d01ad78b53eb983162c66003.camel@posteo.de>
- <20260819232634fd70f621@mail.local>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	Thu, 20 Aug 2026 15:33:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787240037; x=1818776037;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=9DkZlovEqkilhcJCxrsIhvdLYwDtRzS7oUa/tFJ/sSg=;
+  b=LK5b5cfDKIk+eslwd4+AdFC+U1Hh0Yr549pB7TOVirsDck3I6ZIJyPwz
+   ljapo27Gw+p4P0xvvrkVBvq6cTqKOtIkCvzwRFaYM/n5+3jmJGbGOG8yO
+   +Mweh9KmiwW+V9I3/RNv+PrRoRBXp2vJwdfDmcjRuxVULcaRau+frs9i1
+   L9O+kTnVo+1OPak6ox02BgkvK1lwkOFG/5d11yHDgWNRGikhkREBhnAsN
+   dCZI8Th1IjOkt5sRKua6lyoKgGB79Bq9ksdIRnW6q9gP9B9av4zN5Ofrj
+   FVjwLcSFmqi6XyDI8FKfjP4oKNQnK1kua3aQdfbwcvhRuoCKgq8AEl+jb
+   w==;
+X-CSE-ConnectionGUID: 3OcjtlJ8SySU9WciLbC+hQ==
+X-CSE-MsgGUID: zN+7bCwCTTip50YnXQjAHQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11881"; a="98447467"
+X-IronPort-AV: E=Sophos;i="6.25,233,1779174000"; 
+   d="scan'208";a="98447467"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2026 08:33:56 -0700
+X-CSE-ConnectionGUID: Th3MsI1PQ0m1rnpDuMXsiA==
+X-CSE-MsgGUID: 0aVFQN4yRwmLScs3oc+vMg==
+X-ExtLoop1: 1
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2026 08:33:56 -0700
+Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 20 Aug 2026 08:33:55 -0700
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45 via Frontend Transport; Thu, 20 Aug 2026 08:33:55 -0700
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.9) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 20 Aug 2026 08:33:54 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jzPbqqQIDvEcNvy9+zBPMkmp29O80Ru7EWGRgpahohWtXo+r0j3yTjuFYVrMbM8rHQF87G0cMhCpOaU/t4LUSL0bA7L4g1KOvLH6hGzKHcB+9ovTbGXf943x3+kOSacDOZOuHTgzboDxZEYqEWhU063abtxm+xsasTGpCDhnlf/6GUuSH5Y0e6DsmFDfxbdMG/d4QU0qq6JwUxx+0hDsUVOOZdmeTzr5JMrZHG1g2l2ljga0n9PKgUwwzgQ2vrbO1RvkLNVKmRqGeWbA04hszbThthv991LGb3Nqj465w7HM6vqHR9ZM19Z14Gp9eIz3vLdkE5aptD9tVFVHVZwlfw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DAt8MLJAo/VfDjUNT+oUDLNIY3FxUtnsWA6xMq+/nkE=;
+ b=hX1Ju0M6WqvliI3DMc9b8/KLaz1nZwXFAQ5PMn+R6DRU4xMkv4MuvmLDScYe4cuTqtHgvYllksNANdvTzheg9Cdx1XZCuySVYEfGFHsSTQnzY01Ft3BijcqaTYETCZkz8aLSaJTTVRdT8R0jSkrjiyuUu3VRZXjDJSwj7zgibEX7q2tBXEBnzU26sDmVul+Zu9NjnRPdGoV54gmq7EGzOWKUvGtP0aCKfixdGjw8MYztTyuyZqPiiqbk8pfHqL+Xx3ZSche+YybLalcpGc9vC+xcswfgewMIdQRErHrfiLFlqngPUMjlacepBLyq+p6M+UsF1/YR1Dz1KGQTL4BAVQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DM4PR11MB6117.namprd11.prod.outlook.com (2603:10b6:8:b3::19) by
+ CO1PR11MB4818.namprd11.prod.outlook.com (2603:10b6:303:93::24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.339.10; Thu, 20 Aug 2026 15:33:50 +0000
+Received: from DM4PR11MB6117.namprd11.prod.outlook.com
+ ([fe80::d9b3:e942:2686:3cdd]) by DM4PR11MB6117.namprd11.prod.outlook.com
+ ([fe80::d9b3:e942:2686:3cdd%6]) with mapi id 15.21.0339.007; Thu, 20 Aug 2026
+ 15:33:50 +0000
+Date: Thu, 20 Aug 2026 17:33:30 +0200
+From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+To: Stanislav Fomichev <sdf.kernel@gmail.com>
+CC: <netdev@vger.kernel.org>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <anthony.l.nguyen@intel.com>,
+	<przemyslaw.kitszel@intel.com>, <andrew+netdev@lunn.ch>, <saeedm@nvidia.com>,
+	<tariqt@nvidia.com>, <mbloch@nvidia.com>, <maxime.chevallier@bootlin.com>,
+	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+	<aleksander.lobakin@intel.com>, <horms@kernel.org>,
+	<magnus.karlsson@intel.com>, <sdf@fomichev.me>, <ast@kernel.org>,
+	<daniel@iogearbox.net>, <hawk@kernel.org>, <john.fastabend@gmail.com>,
+	<guoren@kernel.org>, <dtatulea@nvidia.com>, <witu@nvidia.com>,
+	<martin.lau@kernel.org>, <yoong.siang.song@intel.com>,
+	<intel-wired-lan@lists.osuosl.org>, <linux-kernel@vger.kernel.org>,
+	<linux-rdma@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <bpf@vger.kernel.org>,
+	<linux-csky@vger.kernel.org>, <leon@kernel.org>
+Subject: Re: [PATCH net v3 3/3] net: stmmac: document oversized AF_XDP frame
+ handling
+Message-ID: <aoceSoSFMx69Z9up@boxer>
+References: <20260819160535.1472459-1-sdf@fomichev.me>
+ <20260819160535.1472459-4-sdf@fomichev.me>
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20260819232634fd70f621@mail.local>
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <20260819160535.1472459-4-sdf@fomichev.me>
+X-ClientProxiedBy: TL2P290CA0007.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:2::9)
+ To DM4PR11MB6117.namprd11.prod.outlook.com (2603:10b6:8:b3::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR11MB6117:EE_|CO1PR11MB4818:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5b8d7a9c-448d-46fe-7cbe-08defed06ef5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|6133799003|18002099003|22082099003|11063799006|4143699003|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: PGkGV0EGIuDtCcoTaJqVy38SRvdVfkNc1bvEGiOHIzBULu4GyP2PjDQu15uQ7O+Q8dpeLu73+O4jNDtESdYlmZA5RYOBZ9XUeO5tsXCALAGpUQP6EudaB2TxbzAHCnzKHkpzklWMWKywUEMgj4wre/ff35Kgx8T3urSlIvC8GWF+ksTf9R9PxLF3sp0pyTMFakE7V5t/UYeq9J6vcpmvtkDr55wg8wvJjUxLt2sfzXfPb2WA3N/lB1Pk54ULd7p9wtMEs9EHUn54vlCSlEG065RnZd3DWkU7dvTcoJlSs+EYVmTX0lpPZBuEoYnW259adIU46e8XQJOky+OA9qMTXxjDcZWBQ32l/yAwlFWj4F4d+ZSZImSHGl9FAhPEuy64yC3dXRJDxZEadY/0IYuMIDMQchIArsgq8P2frRV95QNGtCiGMY21++0VGfcyWuBx0Qac40tto3n39Hy1fe4RhbUH1srk/ZYImStEPazDJ/hqbxS0/Jw+ygS2a6044hWEj00KUpJD170/1tU2vXeid9UBkmiKr00ChkPOol8KtwvXZO9HGV8M3j3c1/RYQD3WMM/O8b5FAJ+wdcNw+37SeUaI30Fsw0BgStfAUI3OCTSwKxsbQ3WiyWYzFLYYzs1MVnrNbJzz7pl457yej7MLBTATNYbI/O4YR59n4dJtPH0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR11MB6117.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(6133799003)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fVPymRffDwESlX3opbP3hn5xgVfy25YxISRHk2uAV4ciKCo/ybf6dCA231mn?=
+ =?us-ascii?Q?quxThijiKS7xZvvqiPNHn1np9owWfLhkz/x6ydb9xH3rRlRK/fHxihPQn2UH?=
+ =?us-ascii?Q?hLSq+gVRPpAPOFlnk0CfyRaOiCsqRZAHkSZQkGJVX51RJsd7zWdgAL2xVG2C?=
+ =?us-ascii?Q?ZCIT09l33zla2MbElPI/CmFaYfv4G5CCH4rTN6k1UPsjVHpUqFh5cjmFiXxZ?=
+ =?us-ascii?Q?nTsyZ6o+IGw0eVEmtoBKeHMFj9aUtwlIkBdZMlbUaYis9dLugyqfv1kVtzQV?=
+ =?us-ascii?Q?YvhoKpcIZ8qs3CBaMGq4RW36T+BP0E/DA9+dIknZUKs423ryFnGMNAnGpxay?=
+ =?us-ascii?Q?x+hRYReTHUseTAWxVb8XE+VRR1zjy7p7DVF+EkRyJic3F62RBN677KHV+G+U?=
+ =?us-ascii?Q?vI1htXZZqIkDTsQL4SNwnNJJKgXUXMtjgne+9CzqxMlhqrb2X/dncuOZ0Ran?=
+ =?us-ascii?Q?C77zTuQRGoO6hDQQF+oEynFyW95x92hlzK1djsB/4TTHSjlg98NmWs2PI7xg?=
+ =?us-ascii?Q?D/uTjha6SPDCeP+FiI9C9oefKCfEYwGDc4246C2mCTcF7ieJmMIuM0OQX4lA?=
+ =?us-ascii?Q?0sNez9TtRyI/1809UTbahPtLBL6dHA762QUQTRl5x+0uh42THNKxH7WyI0TR?=
+ =?us-ascii?Q?YKB1sVf5QcM1xxZI2pDyzR03Z/BIPevuNBecDrXNSRPiKHSwMa+0ZALkhwBa?=
+ =?us-ascii?Q?JLwuWxroguhC+47+cogoFpy1tagYboD1TFBPn1K+TIvh6cUkbPzyTW5hqfJz?=
+ =?us-ascii?Q?oXeaCYiDRTqNpNCvdxp8KQM8NMLv+PvW1GedjHQrBozhn/klHHoljrGF8Z4/?=
+ =?us-ascii?Q?NIBqJVlIhmPM+lShFfh1aiLAE9bo53YVgSSRoOELS7fEDz8xY6HOyipddn8D?=
+ =?us-ascii?Q?Jo9V5p38++Prvsd7I1FfTgRC8ajvL+03U4zTAFd8wb92PHEVA8SQz1ImGxIz?=
+ =?us-ascii?Q?419OzgznPmzgntdHZfLLH/v/1eXlH6SCfNeamjtb1h1b5ovkHsgSOrDuVWNx?=
+ =?us-ascii?Q?TJBR+2orpDi8OplytwbFW2ozBh2LjJf2rs7Vb4xv7AzYxJE+R6z/CO/yjgrY?=
+ =?us-ascii?Q?UQW8JvqWVUkLiuxxkjSjj9TviaJN8fk1UQcbXm9UJwbuo5Xv2F6iFB0S4Q9W?=
+ =?us-ascii?Q?pnlPNofblk4ImddvGXOcB0U54o4YBCm580X6chxYjtSinOIjYxEjZnX/Jx0L?=
+ =?us-ascii?Q?HY583CfuVOuZFAG4Q60AT6eAGloPxgVOhdOoqGeJl5io9OnGWbz4svnma3Wk?=
+ =?us-ascii?Q?sNHCpKcHPck57ZutsvOW0qg9I7Obs378KSPWLoVjQbKis7G35DAxemc2pIhx?=
+ =?us-ascii?Q?fv6Y3k+NmRI7uu/OxS9NMg0Io0H+3Y2QAfj3cYlxkwbYiJshcIdZgkNOQMiw?=
+ =?us-ascii?Q?vAVegkns/Y4MIUyp2YESxtgeRxZ3MoK88t4BYrdxnqVqZtBmuxTrnDyBguyV?=
+ =?us-ascii?Q?FQ5g6i5PCCTu/Rk2xm5SaH7DqrdHikj+oxQ0O36pv1fbLzctKzkCyDLzd8wV?=
+ =?us-ascii?Q?gAk/u0xrlf5mUEL1o7KLWxyOj7RAFDx6kS4Ru4T0a6nFqgrrF+t73bf4v1jT?=
+ =?us-ascii?Q?pXpETMNNR0QAdJ5d8+MJ4Dnld16XL1lbpAm34qMeCgHS/+Pc4+C/XqtkQcI6?=
+ =?us-ascii?Q?EoD/8TSFqBVbyi1UZiM0fAP8a0kET+YrDbeCCBl/MqevWu2n2h5hAux27MBf?=
+ =?us-ascii?Q?q8x5+i/DI1Z/8d83dh/1nwJ9BYukHJp7GwPYe3FgHP5IxjcJK0JmwqIoomJp?=
+ =?us-ascii?Q?Y/GGIs+2GiFT3jFtgkxfDZh3YdI6RTQ=3D?=
+X-Exchange-RoutingPolicyChecked: LjRsMZmNZ5xUIScVkdThN7dXhJ+NQB+wulxL7bh2PzwHHGuBFpWHbFmBbgUTuVVBkJt42n29B01wDsP0VF9kKUxnT6GK+dJHpvCJDA86ZrjQxgbXloeRT+ImaoNl+L5Y0sfeLMeNOKRvA8E1kZ5oSV74ShMvIxUk9S2MFuYS/qNbncuLcVUB9HUGTFf3DQ6hXRGO1A0iZjhFKvY/wrGNQacoaf4TRLk9adAEWp5omthd/iRq8Hev42fKg/+s118tOMb0H9j3qwduHOCdztHHcnYZKTY2pkh+e0EMyCOP4spWLjJR7Hy/1yAVPw1t6BPVtDHJ3Do5d3uVdTn8F3zQiA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5b8d7a9c-448d-46fe-7cbe-08defed06ef5
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR11MB6117.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 15:33:50.3852
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: M2pp0fMy7mj9Kbd8FUFbPTXk9xvayKiC94sMCVRpZE+dCck7uWuA0wUUysiC5s+xOOdSa3aD3Jb1wLvvpmUGURR4jAUBCJ5CjVHZ4Ljybx4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB4818
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_082610_106792_70094EB5 
-X-CRM114-Status: GOOD (  48.34  )
+X-CRM114-CacheID: sfid-20260820_083357_298563_302E4161 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,197 +180,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/08/2026 01:26:34+0200, Alexandre Belloni wrote:
-> On 19/08/2026 22:57:13+0000, Markus Probst wrote:
-> > On Thu, 2026-08-20 at 00:20 +0200, Alexandre Belloni wrote:
-> > > On 19/08/2026 22:05:56+0000, Markus Probst wrote:
-> > > > Instead of trying to remember the current 12/24-hour mode, which could
-> > > > result in time corruption if out of sync, we force the use of the 24-hour
-> > > > mode. Set to 24-hour mode if in 12-hour mode on startup and assume
-> > > > 24-hour mode. The 24-hour mode is already forced on reset.
-> > > > 
-> > > > Signed-off-by: Markus Probst <markus.probst@posteo.de>
-> > > > ---
-> > > >  drivers/rtc/rtc-s35390a.c | 67 +++++++++++++++++++++--------------------------
-> > > >  1 file changed, 30 insertions(+), 37 deletions(-)
-> > > > 
-> > > > diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
-> > > > index 575bb256eb25..b34a3f7e8476 100644
-> > > > --- a/drivers/rtc/rtc-s35390a.c
-> > > > +++ b/drivers/rtc/rtc-s35390a.c
-> > > > @@ -64,7 +64,6 @@ MODULE_DEVICE_TABLE(of, s35390a_of_match);
-> > > >  
-> > > >  struct s35390a {
-> > > >  	struct i2c_client *client[8];
-> > > > -	int twentyfourhour;
-> > > >  };
-> > > >  
-> > > >  static int s35390a_set_reg(struct s35390a *s35390a, int reg, u8  *buf, int len)
-> > > > @@ -181,31 +180,6 @@ static int s35390a_disable_test_mode(struct s35390a *s35390a)
-> > > >  	return s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, buf, sizeof(buf));
-> > > >  }
-> > > >  
-> > > > -static char s35390a_hr2reg(struct s35390a *s35390a, int hour)
-> > > > -{
-> > > > -	if (s35390a->twentyfourhour)
-> > > > -		return bin2bcd(hour);
-> > > > -
-> > > > -	if (hour < 12)
-> > > > -		return bin2bcd(hour);
-> > > > -
-> > > > -	return 0x40 | bin2bcd(hour - 12);
-> > > > -}
-> > > > -
-> > > > -static int s35390a_reg2hr(struct s35390a *s35390a, char reg)
-> > > > -{
-> > > > -	unsigned hour;
-> > > > -
-> > > > -	if (s35390a->twentyfourhour)
-> > > > -		return bcd2bin(reg & 0x3f);
-> > > > -
-> > > > -	hour = bcd2bin(reg & 0x3f);
-> > > > -	if (reg & 0x40)
-> > > > -		hour += 12;
-> > > > -
-> > > > -	return hour;
-> > > > -}
-> > > > -
-> > > >  static int s35390a_rtc_set_time(struct device *dev, struct rtc_time *tm)
-> > > >  {
-> > > >  	struct i2c_client *client = to_i2c_client(dev);
-> > > > @@ -225,7 +199,7 @@ static int s35390a_rtc_set_time(struct device *dev, struct rtc_time *tm)
-> > > >  	buf[S35390A_BYTE_MONTH] = bin2bcd(tm->tm_mon + 1);
-> > > >  	buf[S35390A_BYTE_DAY] = bin2bcd(tm->tm_mday);
-> > > >  	buf[S35390A_BYTE_WDAY] = bin2bcd(tm->tm_wday);
-> > > > -	buf[S35390A_BYTE_HOURS] = s35390a_hr2reg(s35390a, tm->tm_hour);
-> > > > +	buf[S35390A_BYTE_HOURS] = bin2bcd(tm->tm_hour);
-> > > >  	buf[S35390A_BYTE_MINS] = bin2bcd(tm->tm_min);
-> > > >  	buf[S35390A_BYTE_SECS] = bin2bcd(tm->tm_sec);
-> > > >  
-> > > > @@ -256,7 +230,7 @@ static int s35390a_rtc_read_time(struct device *dev, struct rtc_time *tm)
-> > > >  
-> > > >  	tm->tm_sec = bcd2bin(buf[S35390A_BYTE_SECS]);
-> > > >  	tm->tm_min = bcd2bin(buf[S35390A_BYTE_MINS]);
-> > > > -	tm->tm_hour = s35390a_reg2hr(s35390a, buf[S35390A_BYTE_HOURS]);
-> > > > +	tm->tm_hour = bcd2bin(buf[S35390A_BYTE_HOURS] & 0x3f);
-> > > >  	tm->tm_wday = bcd2bin(buf[S35390A_BYTE_WDAY]);
-> > > >  	tm->tm_mday = bcd2bin(buf[S35390A_BYTE_DAY]);
-> > > >  	tm->tm_mon = bcd2bin(buf[S35390A_BYTE_MONTH]) - 1;
-> > > > @@ -325,8 +299,7 @@ static int s35390a_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
-> > > >  	else
-> > > >  		buf[S35390A_ALRM_BYTE_WDAY] = 0;
-> > > >  
-> > > > -	buf[S35390A_ALRM_BYTE_HOURS] = s35390a_hr2reg(s35390a,
-> > > > -			alm->time.tm_hour) | 0x80;
-> > > > +	buf[S35390A_ALRM_BYTE_HOURS] = bin2bcd(alm->time.tm_hour) | 0x80;
-> > > >  	buf[S35390A_ALRM_BYTE_MINS] = bin2bcd(alm->time.tm_min) | 0x80;
-> > > >  
-> > > >  	if (alm->time.tm_hour >= 12)
-> > > > @@ -381,8 +354,7 @@ static int s35390a_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alm)
-> > > >  
-> > > >  	if (buf[S35390A_ALRM_BYTE_HOURS] & 0x80)
-> > > >  		alm->time.tm_hour =
-> > > > -			s35390a_reg2hr(s35390a,
-> > > > -				       buf[S35390A_ALRM_BYTE_HOURS] & ~0x80);
-> > > > +			bcd2bin(buf[S35390A_ALRM_BYTE_HOURS] & 0x3f);
-> > > >  
-> > > >  	if (buf[S35390A_ALRM_BYTE_MINS] & 0x80)
-> > > >  		alm->time.tm_min = bcd2bin(buf[S35390A_ALRM_BYTE_MINS] & ~0x80);
-> > > > @@ -459,7 +431,7 @@ static int s35390a_probe(struct i2c_client *client)
-> > > >  	unsigned int i;
-> > > >  	struct s35390a *s35390a;
-> > > >  	struct rtc_device *rtc;
-> > > > -	u8 buf, status1;
-> > > > +	u8 buf, status1, time[7];
-> > > >  	struct device *dev = &client->dev;
-> > > >  	struct nvmem_config nvmem_cfg = {
-> > > >  		.name = "s35390a_nvram",
-> > > > @@ -503,10 +475,31 @@ static int s35390a_probe(struct i2c_client *client)
-> > > >  		return err_read;
-> > > >  	}
-> > > >  
-> > > > -	if (status1 & S35390A_FLAG_24H)
-> > > > -		s35390a->twentyfourhour = 1;
-> > > > -	else
-> > > > -		s35390a->twentyfourhour = 0;
-> > > > +	if (!(status1 & S35390A_FLAG_24H) && err_read != 1) {
-> > > > +		unsigned int hour;
-> > > > +
-> > > > +		status1 |= S35390A_FLAG_24H;
-> > > > +
-> > > > +		err = s35390a_get_reg(s35390a, S35390A_CMD_TIME1, time, sizeof(time));
-> > > > +		if (err < 0)
-> > > > +			return dev_err_probe(dev, err, "reading 12-hour time failed\n");
-> > > > +
-> > > > +		/* converting to 24-hour time */
-> > > > +		time[S35390A_BYTE_HOURS] = bitrev8(time[S35390A_BYTE_HOURS]);
-> > > > +		hour = bcd2bin(time[S35390A_BYTE_HOURS] & 0x3f);
-> > > > +		if (time[S35390A_BYTE_HOURS] & 0x40)
-> > > > +			hour += 12;
-> > > > +
-> > > > +		time[S35390A_BYTE_HOURS] = bitrev8(bin2bcd(hour));
-> > > > +
-> > > > +		err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS1, &status1, sizeof(status1));
-> > > > +		if (err < 0)
-> > > > +			return dev_err_probe(dev, err, "setting 24-hour mode failed\n");
-> > > > +
-> > > > +		err = s35390a_set_reg(s35390a, S35390A_CMD_TIME1, time, sizeof(time));
-> > > > +		if (err < 0)
-> > > > +			return dev_err_probe(dev, err, "setting 24-hour time failed\n");
-> > > 
-> > > No, don't do this, this will break existing users as your conversion may
-> > > happen after a minute rollover. The only function in which you are
-> > > allowed to change the time registers is set_time. You definitively need
-> > > to be able to read 12H mode time but you are allowed to only support
-> > > writing 24h time.
-> > > 
-> > > Also, this is super verbose, adding strings to the kernel makes it
-> > > bloated.
-> > > 
-> > > To avoid any desync, simply test for the S35390A_FLAG_24H bit in status
-> > > in s35390a_rtc_read_time as the register is already read anyway.
-> > > 
-> > I think that would defeat the whole point of the patch, that the rtc is
-> > always in 24-hour mode. If this driver was always used with the rtc, it
-> > already should be in 24-hour mode, as thats the mode this driver does
-> > initialize the rtc.
+On Wed, Aug 19, 2026 at 09:05:35AM -0700, Stanislav Fomichev wrote:
+> stmmac drops AF_XDP zero-copy frames that exceed taprio's queueMaxSDU
+> after xsk_tx_peek_desc() has reserved their completion entries.
 > 
-> This assumption may not be true, the RTC may have been initialized by a
-> bootloader or a different system in the factory.
+> Completing a rejected descriptor is unsafe because AF_XDP completions are
+> ordered: xsk_tx_completed(pool, 1) would complete the oldest outstanding
+> descriptor, which may still be owned by hardware. Instead, leave the
+> completion pending so the ring eventually wedges and increment the drop
+> counter to expose the application error without risking hardware
+> misbehavior.
 > 
-> > Your idea would work for the time, but not in combination with alarms.
-> > If the rtc could be in 12-hour mode, then this would need to be
-> > considered in setting and reading alarm. Also setting 24-hour mode
-> > inside set_time would then also require to convert the alarm time.
-> > Effectively making it less maintainable than before.
+> Document this intentional ring imbalance at the check.
 > 
-> Note that while setting the time when an alarm has been set is not
-> forbidden, it is never guaranteed to work anyway. I guess something we
-> could do in the core is that whenever the time is set we go over the
-> timerqueue and set the alarm again.
+> Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 62de03e65a90..6a532747c039 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -2713,6 +2713,10 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
+>  		if (priv->est && priv->est->enable &&
+>  		    priv->est->max_sdu[queue] &&
+>  		    xdp_desc.len > priv->est->max_sdu[queue]) {
+> +			/* Completions are ordered, so this descriptor cannot
+> +			 * be completed safely. Wedge the ring to expose the
+> +			 * application error instead.
+> +			 */
+>  			priv->xstats.max_sdu_txq_drop[queue]++;
+>  			continue;
 
-Actually this is already what we do so this is not an issue.
+Hmm. I read the discussion on v2. Maybe we could cancel cq entry here in
+this branch? Also it feels like something achievable at bind time when
+taprio is configured and vice versa?
 
+Otherwise we over-commit cq entries.
 
->This would allow to remove the UIE
-> disabling/enabling dance.
-> 
-> > 
-> > Currently s35390a_init does initialize the rtc in 24-hour mode, while
-> > not updating s35390a->twentyfourhour. So some change needs to be made.
-> > Just setting s35390a->twentyfourhour inside s35390a_init might now be
-> > the simplest solution here.
-> 
-> Or maybe simply stop caching the value.
-> 
+>  		}
 > -- 
-> Alexandre Belloni, co-owner and COO, Bootlin
-> Embedded Linux and Kernel engineering
-> https://bootlin.com
+> 2.53.0-Meta
 > 
-
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
