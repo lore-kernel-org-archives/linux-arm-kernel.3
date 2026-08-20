@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE8B9C5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9873C5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SFKUrXl0NJQNkAPPXBPGjGKfTkgrSi45VPRiC5YltDc=; b=XLkywpR37yQuPj+x/ogdVmMjNO
-	WUyUvVPJ6M1pjmHi4dN685Mi1TRIMbXjCO/ld2EkVL0323skyxuSt/Fup/hRATlUUlp7lIiYGUuhJ
-	dxiG02IOek7uVlw4iJN5SyCxKBZCYWiOgL16pFGSsL/GCxzVX5rXKxdjlEcg8Lr3Z1LiYt29Z4uSA
-	q1yAxKhS469JuN/LLxqWTzPp50EnIl0vkx1v5bUnEYqxlRPOtoHqNwpq3a8ugt3jszTN3D2zEzVAp
-	Z9jVSx3G5QuEBBdf6/Dqmh9qP7sJehmYSYf8cWFb1naKel1B7VZBQ4c3JQvP0Nk7wgxtkqjMPNRFf
-	bjukrELA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eBG80TE8O7koV0M/Wd/+svOF4P4mOtCGkWlnllaV+RA=; b=hga98zDyxJEHWw6ZFWG508P1DF
+	C/yU7YipdVIoBpSK7maSd2JL6wHJHr3fLHKeTJcb2NR8EudMHuoP5El6zGhaiAkC1UaI+gDvhPOQn
+	TWCFMoJHodmYQLKYeAPm2N1Kg8o6qQpPTvia+dT/i84XPGdcYNaLcirwOQ352s+YXcTB36gX4H1i6
+	IQ+SkjQGkrlEeezjRNvGcCm1/g0clbK6GtVJUmlovgN5BiRkM4mWyCkZcmtIdPBOpUwzTSIVZVHLO
+	HYB0gA4esWnHUNAiWa/9jjT4DI4bse+K0EYPjrxmDw+KWnTGQ/4TXylLsCa9YBoizhpB7sL9mNaX/
+	f3CfPlWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx0MU-0000000BNkp-0D2n;
-	Thu, 20 Aug 2026 10:51:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx0ML-0000000BNiQ-3ynl
+	id 1wx0OL-0000000BNzr-1RuY;
+	Thu, 20 Aug 2026 10:53:01 +0000
+Received: from mail-ej1-x645.google.com ([2a00:1450:4864:20::645])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wx0OI-0000000BNzK-1ZpN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 10:50:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6BED0153B;
-	Thu, 20 Aug 2026 03:50:53 -0700 (PDT)
-Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.29])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F2E963F66F;
-	Thu, 20 Aug 2026 03:50:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787223057; bh=hOdOjYlA+iI1ah2K1oi47SLi3OkvE+2GFQdWf32mYks=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sb9jepZyTzEBEx3PSvl7y2pZ9slsxHg0OsepC2gx/KBftfiVWC/rgugZBJ0dKfHb8
-	 01cdi9VtjSIGkOoLhQk05JrfNDl2ywnlJXC5RRdMOvn2T8QUX9mR8RbfL1qELEepL4
-	 d58f5eXCxif2CMnxSb2Rbv+YMgBhJNPUMkTja3VA=
-From: Steven Price <steven.price@arm.com>
-To: =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Thomas Gleixner <tglx@kernel.org>
-Cc: Steven Price <steven.price@arm.com>,
-	"T.J. Mercier" <tjmercier@google.com>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	dri-devel@lists.freedesktop.org,
-	linaro-mm-sig@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: [PATCH 2/2] dma-buf: heaps: Zero system shared heap pages after conversion
-Date: Thu, 20 Aug 2026 11:50:25 +0100
-Message-ID: <20260820105026.53208-3-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260820105026.53208-1-steven.price@arm.com>
-References: <20260820105026.53208-1-steven.price@arm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Thu, 20 Aug 2026 10:52:59 +0000
+Received: by mail-ej1-x645.google.com with SMTP id a640c23a62f3a-c15ceb17a28so159528166b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 03:52:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1787223176; x=1787827976; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=eBG80TE8O7koV0M/Wd/+svOF4P4mOtCGkWlnllaV+RA=;
+        b=KapBrQo4fAo/Dkq9cjW3xxjxqSfs0mYr/b5QPMvgRBNbkR/kz8vYgur9hsXOxDWfh/
+         1JTM/744IlYzascB3gUnXQooJXg0lfatg5oQNlABF2FPEJTpN3kTsg6GWbAey46JQsJ9
+         aMbwWgZp1dmxqwGjDtCoxKZEYxam2uzbHfh2HYEG2LapHUHBJD6L42ZujUE8lQ1p80i3
+         CztnfugCelrrZEvZ2qfIX1rg6UWbajoohX2ncEv6LmeUZmPDePfPQFv3AxR/o0dN0D+X
+         QYbIIcLLzvzN05f+09QgxqhKaENUtAUWfg3LSKiKwVN3W/kObvq+pp3UzdzW7o514qgW
+         JHVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787223176; x=1787827976;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eBG80TE8O7koV0M/Wd/+svOF4P4mOtCGkWlnllaV+RA=;
+        b=muArs3wUz2qKzkbsZyEk9OnUm02oh7HnWGGXBKT4/VKc/zuvy5OxNRPbd0GV1Kiyo/
+         r69dTiqvFcuM593arzXmnSpQ6fFRbQCZ7ZQuF99F8eGBoTrDIC6DFZftoNmIFvDDEacj
+         Dr5eufY4HI6UNvlR5dQnRIrEOUPvSDmVyx3OfRODfdtc6iRLZ0AxH0PctXkiyE2J5jmR
+         OG6fQ0h6hr+dRxh+tluK/nzVMKJk6A/rhGCcDYg/5ttbytxLolLsHhSWNk1XluVMIWiy
+         h4kLVp3AeXgYIL8jDvnI/9jP815BdSnP+tUI1cmFjba09SpTBGrWSKybtx5oeQyqoMEt
+         UOaw==
+X-Forwarded-Encrypted: i=1; AHgh+RrZXfLu2uZR1ar54Yl4DpJe5gkHHSvBH5APV/+ngnuAkjo+wg1OmSh29jMGi7i+q4GQx06oTZFkiMrN/ayI23LZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNbuuMpccPv2eBSI1yvMTiiMXOt/WILnwVtXEqLTILZnFR7spy
+	e+S/q7P50BJs+OaFkyI/bnYVm3Y8+teb0xb11L9DxqrZz7cVeC3RKx05TyPMRqPPZxAvVBaTLxm
+	t/GeS5kfPcV65cyz3cg==
+X-Received: from ejel3.prod.google.com ([2002:a17:906:2a83:b0:c16:11e4:9d9])
+ (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:907:928c:b0:c16:26c7:6ba8 with SMTP id a640c23a62f3a-c23f92c3376mr791823566b.6.1787223175489;
+ Thu, 20 Aug 2026 03:52:55 -0700 (PDT)
+Date: Thu, 20 Aug 2026 10:52:46 +0000
+In-Reply-To: <20260814220652.GA101268@bhelgaas>
+Mime-Version: 1.0
+References: <20260814220652.GA101268@bhelgaas> :q
+Message-ID: <9huzik55kqrl.fsf@tarunix.c.googlers.com>
+Subject: Re: [PATCH v3 2/3] firmware/edd: use kobject_put() on
+ edd_device_register() failure
+From: tarunsahu@google.com
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: dmatlack@google.com, Nicholas Piggin <npiggin@gmail.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, sourabhjain@linux.ibm.com, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
+	Russell King <linux@armlinux.org.uk>, radheys@amd.com, skhawaja@google.com, 
+	djeffery@redhat.com, Geoff Levand <geoff@infradead.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	linux-arm-kernel@lists.infradead.org, souravsgl@google.com, 
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	driver-core@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_035058_088870_64BCED44 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20260820_035258_456627_12398C2B 
+X-CRM114-Status: GOOD (  23.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,74 +97,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The system_cc_shared heap allocates pages with __GFP_ZERO before converting
-them from private to shared with set_memory_decrypted(). This assumes that
-the conversion preserves the contents of the pages.
+Hi,
 
-For Arm CCA with MEC (Memory Encryption Contexts) the key used to access
-the page will change, and so by default the visible data will change.
-The host could ensure that it zeros the page after decryption, but
-rather than relying on the host's behaviour it's best if the guest
-simply zeros after the decryption rather than before.
+Bjorn Helgaas <helgaas@kernel.org> writes:
 
-For CC shared buffers, defer zeroing until each page has been converted
-successfully. For other buffers keep the existing behaviour.
+> On Fri, Aug 14, 2026 at 09:00:56PM +0000, Tarun Sahu wrote:
+>> As per koject_init_and_add() function kernel document, even if this
+>> function returns error kobject_put must be used instead of kfree.
+>
+> Thanks for adding this specific pointer.  I wouldn't repost just for
+> these nits, and wait at least a few days before reposting for any
+> reason.  But if you do repost:
+>
+> s/koject_init_and_add/kobject_init_and_add/
+>
+> Might also add "()" after function names consistently (kobject_put and
+> kfree above, edd_release below).  Also applies to the other patches.
+>
+> The current subject lines basically restate the C code; you might
+> consider more of a focus on the problem.  I ran this through gemini
+> and I think it did a decent job:
+>
+>   firmware: edd: Fix kobject reference leak on registration failure
+>
+>   Per kobject_init_and_add() kernel-doc, calling kfree() directly on
+>   error bypasses reference counting and skips the kobject's release
+>   callback, leaking the reference.
+>
+>   Use kobject_put() instead of kfree() on registration failure to fix
+>   this.
 
-Fixes: 78b30c50a7ac ("dma-buf: heaps: system: add system_cc_shared heap for explicitly shared memory")
-Signed-off-by: Steven Price <steven.price@arm.com>
----
- drivers/dma-buf/heaps/system_heap.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+Thanks Bjron for reviewing. I will take care of them.
 
-diff --git a/drivers/dma-buf/heaps/system_heap.c b/drivers/dma-buf/heaps/system_heap.c
-index c8959eadc71d..f14930904089 100644
---- a/drivers/dma-buf/heaps/system_heap.c
-+++ b/drivers/dma-buf/heaps/system_heap.c
-@@ -376,7 +376,8 @@ static const struct dma_buf_ops system_heap_buf_ops = {
- };
- 
- static struct page *alloc_largest_available(unsigned long size,
--					    unsigned int max_order)
-+					    unsigned int max_order,
-+					    bool defer_zero)
- {
- 	struct page *page;
- 	int i;
-@@ -388,6 +389,9 @@ static struct page *alloc_largest_available(unsigned long size,
- 		if (max_order < orders[i])
- 			continue;
- 		flags = order_flags[i];
-+		/* Decryption can change the contents, so clear it afterwards. */
-+		if (defer_zero)
-+			flags &= ~__GFP_ZERO;
- 		if (mem_accounting)
- 			flags |= __GFP_ACCOUNT;
- 		page = alloc_pages(flags, orders[i]);
-@@ -438,7 +442,8 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
- 			goto free_buffer;
- 		}
- 
--		page = alloc_largest_available(size_remaining, max_order);
-+		page = alloc_largest_available(size_remaining, max_order,
-+					       cc_shared_buffer(buffer));
- 		if (!page)
- 			goto free_buffer;
- 
-@@ -461,9 +466,12 @@ static struct dma_buf *system_heap_allocate(struct dma_heap *heap,
- 
- 	if (cc_shared_buffer(buffer)) {
- 		for_each_sgtable_sg(table, sg, i) {
--			ret = system_heap_set_page_decrypted(sg_page(sg));
-+			page = sg_page(sg);
-+			ret = system_heap_set_page_decrypted(page);
- 			if (ret)
- 				goto free_pages;
-+
-+			clear_pages(page_address(page), 1 << compound_order(page));
- 		}
- 	}
- 
--- 
-2.43.0
-
+~Tarun
+>
+>> When edd_device_register() fails after initializing the kobject with
+>> kobject_init_and_add(), calling kfree(edev) directly bypasses the
+>> kobject release callback (edd_release) and leaks the allocated kobject
+>> resources.
+>> 
+>> Fix this by replacing direct kfree(edev) with kobject_put(&edev->kobj) on
+>> registration failure.
+>> 
+>> Signed-off-by: Tarun Sahu <tarunsahu@google.com>
+>> Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
+>> ---
+>>  drivers/firmware/edd.c | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>> 
+>> diff --git a/drivers/firmware/edd.c b/drivers/firmware/edd.c
+>> index f980c5b56858..763e7b16d517 100644
+>> --- a/drivers/firmware/edd.c
+>> +++ b/drivers/firmware/edd.c
+>> @@ -748,7 +748,7 @@ edd_init(void)
+>>  
+>>  		rc = edd_device_register(edev, i);
+>>  		if (rc) {
+>> -			kfree(edev);
+>> +			kobject_put(&edev->kobj);
+>>  			goto out;
+>>  		}
+>>  		edd_devices[i] = edev;
+>> -- 
+>> 2.55.0.691.gc56d675ccc-goog
+>> 
 
