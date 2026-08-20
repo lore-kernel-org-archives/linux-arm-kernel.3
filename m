@@ -4,94 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34A3FC5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 11:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F087C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 11:47:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bXKBm3AfG3en1bXUPpD4OIjt8IDcThCjJyOOTe6eAbU=; b=oo3Fy1s/4HlWQWOfAE1HAjJYS6
-	K57rT500fCUl0rgKBALIWD81Yw/2zOEl71VsWRLt/UeYUgyd6//ki0f+mfOiTt7HPEdq9Q1pugZlL
-	96WsTAJtUaIcH8+88WnNWCQHjOcFcxRwHHKDfiCO+XNkHj0RLS1Gypn4+eh5BEDuy6dwRruxcUcNZ
-	6kxo9xuz5W0ZX0PLkHmASsaKvYpBgB3u4QvFaOulFz01cbG7RkUDqfLbAqtRsD0Jtztm093i1om3W
-	RvjzuuCHKogNulKSUy64rG6vEjQou5+k60uKGfl+AXr0DI/rGJ/cR6hy4gyimKI0GPcRMUGhKNzv4
-	7vNzw9tw==;
+	bh=paOojrCaYfkKAM5OrAXgPdy+BI/CSmLloSHESiLn3MQ=; b=FRQrLdHJ5+b+UYDH9tw2IU6k4G
+	FL8BdIrh+vRQ7LTtUrqYgI6s9ph+sQcjuHXbQvb+s0shalGcHJl42Mcct4cV++u8O8YxD4rntK6Kf
+	f15p3LT4Mt9r6zm44ElbpE5UtmXUJzAxrh5oRfippEfqhibD//GzOagIXPqwjG5u28ZpfBtw1P9sR
+	FeS3EkKLwcdtXVKx0hbt3ZLY6EALZWcKa0034urAMY1KagRbpTC220Icd6bLANbGZTf2W7m8FH3JU
+	JaGedlFG8xWoXrBxmwzodBLH+d05xXv5W5QyZVbRj/qbZOiwr7jf1SndBLi8dBzDXKr8dEcnDuWTZ
+	leBbwH2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx1F3-0000000BToJ-2JxW;
-	Thu, 20 Aug 2026 11:47:29 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1wx1FN-0000000BTuT-2v5g;
+	Thu, 20 Aug 2026 11:47:49 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx1Ez-0000000BTmd-2AYE
+	id 1wx1FK-0000000BTsq-48Hq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 11:47:27 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-c167aa9500dso303942966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 04:47:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787226441; cv=none;
+	Thu, 20 Aug 2026 11:47:48 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c1c50c1e29bso338465566b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 04:47:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787226465; cv=none;
         d=google.com; s=arc-20260327;
-        b=EZnc2IdFxnUdO3j4sHzeVXcTvlYR9Lz9G/rCTLKon/asFDMXEFyTXHRJOz0ClKTVBB
-         HLLxdPCJXm3jAWcqcCu1iN8zh2egRZkG+9Aq0ujHPhRdrcvAw+w5XR5EIObaXTE8ibWF
-         ftBvAMY6RdHAQE66rzMubcOhvFnD4jr/zEcXEqChXMO2zjPfd54JEg6dYTrvGtoH517A
-         gqXottBUv1+JJXNRGAMBpeDoyYjhyDB1ML8l6+HccERf8kmgx4H/X7iqYH9sDDkHnTr8
-         xJLNshFfyzR7ghGIdW8lBZOgRKP1UA5LG8pZ+c6Ku2YiGrnSO6vtm+NeGKbVaHjEAPeX
-         Ia2Q==
+        b=p09lYEmf0ctPF1dzKytxn4kxViB/BCTgAruS0020TPpcNxi27ZsLHz7Ifw6KVT1jWo
+         hAIGUB5HyYms25ABZSezN3X1SvXfDYrrcTyimsUpdgdjdzHTnIRT/SxAcpcFETIgVYaC
+         FuXTagrc/sKpXZRv1rQS6SdqWx0bzE9JPsKfhmLzT5YjBQIR19ewmDY0FKGMHYILR6ck
+         Bx+tfCXrQLbruUfeCFfAyuPNiyxDDRaxAVeoMBh2cHYf78vC/LW0Vtj1h4oo8W+YKNQf
+         n5YGG47AHQRHf98K/Py39H2cOFDB8Az/1xvdzjnxD8rRgJjphmgKmlGcpedJd77dtRAx
+         oDDA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=bXKBm3AfG3en1bXUPpD4OIjt8IDcThCjJyOOTe6eAbU=;
-        fh=RrxyfNQvlFnUxLWSQhpBWbWNSmLZJxU1TS8rdQ/mfvA=;
-        b=jMHeVkF0QGdvG0PTr3WWafF01uz6NuUq/PinIW3jMweflUVyL5ZQqDk4YG9F4oEJyu
-         WVhGT+fueNvBvzZKSjbVafPT470+JR1W7i2u5Hd2pQxAGpH/qFali9Z3OTTemL6nPCE8
-         OQf9yp0QNd6XIXtgcwHL+8mhZLN0WRjJ3ncQfbSFT02Hu2+GOcDl7jzDBqT9w4q/VRQj
-         l2EkX2K6wJAhx7o9SlGLJ+iYi13uS/r19y4LN5BKuya5WPdcqUQBSeX+1QhMY7ioTY9w
-         KCGHoy3IX7HCfXQ+kD9EeCrrSKwFVDWGd0y2VhBDfMqcgYkm7KGUag9OD1DQQ8YjcCk/
-         CiYg==;
+        bh=paOojrCaYfkKAM5OrAXgPdy+BI/CSmLloSHESiLn3MQ=;
+        fh=j8fyoQz13Xs+QXJq++YwbKN6jK6kOr7gxeQX42IHCa8=;
+        b=kE2Upb3T4hJ9J3kxbYsUQHtOh8fsQQCS8hTKe8oySyJo1GtwX0+dFh9tqsUygDIqls
+         bb7TkVy4HuK9vmyaP9pDfpEwhFSt4dd+IQk6Gj0TNmur8wk0SjnG4lwORGZiJXJRWY0a
+         6ft/nSLFuqZtTbkhQHOlWHdtOym2WwRb0jzu21IdM1znWiwVNkUhhcWUkVNOGcue+Lqk
+         psAEMm9R8rQZJACkPj7CKdFQ4dop7YgHNbqZaah+xGWU/YdYwl4FrJIn8flTC6zk2ywc
+         jYpW28IcAzt6GySRyx540VJsTlrkSmQpSMrVqHTKpk5DXwUZyURNGqwpEoR0Wa1VViSj
+         w54w==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1787226441; x=1787831241; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1787226465; x=1787831265; darn=lists.infradead.org;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bXKBm3AfG3en1bXUPpD4OIjt8IDcThCjJyOOTe6eAbU=;
-        b=YJYc+iMOUOjVAr2UDoLMjNih+SQD151AtjdTGbuXuIsOQjLaQNaUgPn2OROW85s8lx
-         B/wRX+PV9e0HmV0lFD2Zzwezp2o5djAyVhZB81rRR82jwMfLBRVaJuWAFeHkMqeudL0M
-         o8iQTZNkc4Z+PYptL8484ZsZHKqSbIUDvKw34=
+        bh=paOojrCaYfkKAM5OrAXgPdy+BI/CSmLloSHESiLn3MQ=;
+        b=gtMBiPhtsGmEaS9zEU/p2r9s5SBGlUKGH+c01n6FSQYVPgPiXhH8HMbpi+vx1LvoKr
+         Yq6YGA/5V0nthXCXaeStjZsOeGZOo6p3JL1IYxVjEK8UPrlFwkGfRJmIuUdkM2jp2kMp
+         A801QeAEhJ9R7sEoY/fM1dqKmCtNayUmRirZc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787226441; x=1787831241;
+        d=1e100.net; s=20251104; t=1787226465; x=1787831265;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=bXKBm3AfG3en1bXUPpD4OIjt8IDcThCjJyOOTe6eAbU=;
-        b=jJHfXXuCK6B0IpuRPNvSKFpkXgAlIydJhTrjVCEIVwp2MV0qMIj4bX2ep9ZD6+2MrD
-         mm0yrxvldx13Q76OhwU2iM6B4bfJNb4nfwIEbiGo5ztE5rLHp0fdiu0vlHPJAp6BVLcC
-         ygAP3q+15VZHGU7wNvUtysd+WQa1ITaRjuM8H5F3GLRcqS5PmNO/3lJfAnLKM35ujJED
-         l33r/ti/nbSn4xrp6BeRbeWaQqaU1tPGU0K/bg2Sgk6YnQbyFvqfXNcI6C6mWfR9I4wi
-         1buaxV/3XyfS2NQD5WOXxpTD96i4TBhM9AYv09Zv+y2lz/QkMkVwacNpmEYj290YG7DK
-         29jQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rr2HMo+6x7dL4zWi3BdHDFQ5T1KK+D9zA2uUN0dJ2dcDwuMML6bD/pUUvBPUgAZ3No6ry6lAJLPxaVTnTZswqCB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwsL8ilqdBYhAQ9PWaTQ7VF6xy70Tph/ixtnwIeMWtUFXDjgeT
-	m2/2m5HaYdaORFULXTMdchMXK4w0vfRbnDnCUpLndL/s2i8vYpQyk/pxhlluwLd+FJMWU7wotDW
-	NF8J3X2CrVmqm9e8+zcUFB5KeWG5gAVzC8883N/xp
-X-Gm-Gg: AR+sD13m4xHGNcsdWkf1lR9cQvurW5PJoP6PHyG0XO75KH04d879zinqpN7HhT6t878
-	ZFNdw31TmXsWbB5tdg/0ra1fQ7NQhexXxjRME4pksmJGh39IMS+AOPqr1IRdWN25iiiGBHwtuR0
-	H3LmR5oiuKm4kjEYLoBo3UJ+zxKMcSR+auX1cT42RSuMRolikA4jl/7U6qF87A/p7wcTvM8E+Zx
-	BVyz6o4HeoB5f60dCPNKHj0QYpgQA05f78yeIkOU8KTFHCGay/JD9yvhtu1jNRA/+mPfKkYvpwc
-	TnQhTku+ZKDEdiEIHp4Sho4QGkvITtoATAN8Z9VwIUc=
-X-Received: by 2002:a17:906:99cd:b0:c21:74ed:4608 with SMTP id
- a640c23a62f3a-c23f9750de3mr814724566b.10.1787226441540; Thu, 20 Aug 2026
- 04:47:21 -0700 (PDT)
+        bh=paOojrCaYfkKAM5OrAXgPdy+BI/CSmLloSHESiLn3MQ=;
+        b=obQwHZZSeNrPjhmR1bbdgoa680bTjvehccpf4jyKbBUdEmkha+YZ9f6OwVV2A8qIit
+         ll6tsNpAl87KECNoeRViLoDB5C7DB1rA4AiT6aht3pXr+voBZUX+d6TM1xl1A7bXkZDO
+         yjf0HkvUpDgi3+FYGCetO6V8RrYJWPphgSeVCLALMWQJXfbWKBfGqmWS0ArSJo/GoqWj
+         685tJNEaq+/10lVwHKnlKEQPl9AtT5LAC4LjW2QlCcDiJlsItNrcmaxHl/5nwXFza5i6
+         rku1C6XdnlH5qytxACScvyvVCjygjV89PUmOoiENAZ5WUu006pawYxI2z21jWa6FN2VE
+         CvhA==
+X-Forwarded-Encrypted: i=1; AHgh+RqiDvanX3qRd32Jo7bamX6GZVAAVVjJiGV/uRi8oWeG3c4/+Hw/Blr+8EvcX2/1DdIqKvI6Vn5mUJ/0rGqVb3jn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyiG5zD1HbQWb6fQv6cbmDAlXk9jL7TbzRpXWA0o4Q2KXDkKb9Q
+	ohpB0Nbz9WgQ7m94/iNOQwX4EvdfGNRb6NJy/GTrckcNNcpelenQ60OFZrGB2dzsSZM8l3qj+xq
+	Uu4PTZlQeBZsYcv7KXAoG3rOF6hugWxjNGXqp0b+A
+X-Gm-Gg: AR+sD13VGmZAxVP4hqgYCmXGvq1ufdOnKiPKuyxuSgVK13dB2s3woeZ9rYWeuCXgvSq
+	TfOZuGxgnEgAQ+aYvebIPaLSr6bhuRc8WW9R/6RIEhd90DXrQyXajiBrkcNXwxtjTigGYP2N9zl
+	gSRJSHG6mj0SHFAnu0sDLCX4xuG7/BOMfwVXPKMckJaBjk1zARotLVBTlNpxIYt2W7wlrqX7HSc
+	JkKPayK2C9HdTw41gCdk32VCSjPS4cwdKAdg7+P1O09yPjUKwEXhwIpkO/oar+j8wOhRZ93tOD1
+	8xRF4kyhZBvcfjBRSa6VJFsezgJXeAdYXGaFbzE6a0U=
+X-Received: by 2002:a17:907:84b:b0:c20:1c9d:8d4b with SMTP id
+ a640c23a62f3a-c23f929e232mr710101966b.2.1787226465039; Thu, 20 Aug 2026
+ 04:47:45 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260810121121.210040-1-vlad@zlab.su> <20260810121121.210040-24-vlad@zlab.su>
-In-Reply-To: <20260810121121.210040-24-vlad@zlab.su>
+References: <20260810121121.210040-1-vlad@zlab.su> <20260810121121.210040-7-vlad@zlab.su>
+In-Reply-To: <20260810121121.210040-7-vlad@zlab.su>
 From: Simon Glass <sjg@chromium.org>
-Date: Thu, 20 Aug 2026 05:47:09 -0600
-X-Gm-Features: AcwNN1UCnC12nuoA1x1viqpRcNtcnZpIWhvuLlHFbx5J3DwZqfYkTadrWwnjlvQ
-Message-ID: <CAFLszTiExzcYKBpe5h2SorR5OJEJgRx9x1bSCdwTtw4mN0Fcfw@mail.gmail.com>
-Subject: Re: [PATCH 23/25] ARM: dts: rockchip: add arm,cpu-registers-not-fw-configured
- to RV1106 timer node
+Date: Thu, 20 Aug 2026 05:47:33 -0600
+X-Gm-Features: AcwNN1Wh5n38wXHkJkuB8H7_benVkiW5QlI5gxabpims6DcR7Y_DZnlEoYHYlzw
+Message-ID: <CAFLszTiuH7KcvCKcpE09tTavFEWGNMj+C1Og0T=k5MvEZdB-OQ@mail.gmail.com>
+Subject: Re: [PATCH 06/25] ARM: dts: rockchip: Add Ethernet GMAC node for RV1106
 To: Vladislav Leonov <vlad@zlab.su>
 Cc: linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
 	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
@@ -99,8 +98,8 @@ Cc: linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
 	Heiko Stuebner <heiko@sntech.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_044725_604602_2714A1F7 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20260820_044747_051199_A6F4C723 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,45 +116,103 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Vladislav,
 
-On Mon, 10 Aug 2026 at 06:16, Vladislav Leonov <vlad@zlab.su> wrote:
+On Mon, 10 Aug 2026 at 06:15, Vladislav Leonov <vlad@zlab.su> wrote:
 >
-> The firmware on RV1106 does not initialize CNTVOFF, so the virtual
-> counter may have a bogus offset relative to the physical one.
->
-> Add the arm,cpu-registers-not-fw-configured property to the arch timer
-> node so the kernel does not trust firmware-configured timer registers
-> and uses the physical timer instead of the virtual one.
+> Rockchip RV1106 has GMAC 10/100 ethernet controller.
 >
 > Signed-off-by: Vladislav Leonov <vlad@zlab.su>
 > ---
 >
->  arch/arm/boot/dts/rockchip/rv1106.dtsi | 1 +
->  1 file changed, 1 insertion(+)
+>  arch/arm/boot/dts/rockchip/rv1106.dtsi | 62 ++++++++++++++++++++++++++
+>  1 file changed, 62 insertions(+)
 >
 > diff --git a/arch/arm/boot/dts/rockchip/rv1106.dtsi b/arch/arm/boot/dts/rockchip/rv1106.dtsi
-> index b31cdb1c19d4..12e87d25c72b 100644
+> index fa5d0d7f4dcb..71dd3dcc386c 100644
 > --- a/arch/arm/boot/dts/rockchip/rv1106.dtsi
 > +++ b/arch/arm/boot/dts/rockchip/rv1106.dtsi
-> @@ -57,6 +57,7 @@ timer {
->                 clock-frequency = <24000000>;
->                 interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_HIGH)>,
->                              <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_HIGH)>;
-> +               arm,cpu-registers-not-fw-configured;
->         };
+> @@ -19,6 +19,7 @@ / {
+>         interrupt-parent = <&gic>;
 >
->         xin24m: oscillator {
+>         aliases {
+> +               ethernet0 = &gmac;
+>                 gpio0 = &gpio0;
+>                 gpio1 = &gpio1;
+>                 gpio2 = &gpio2;
+> @@ -282,6 +283,67 @@ system_sram: sram@ff6c0000 {
+>                         ranges = <0 0xff6c0000 0x40000>;
+>                 };
+>
+> +               gmac: ethernet@ffa80000 {
+> +                       compatible = "rockchip,rv1106-gmac", "snps,dwmac-4.20a";
+> +                       reg = <0xffa80000 0x10000>;
+> +                       interrupts = <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>,
+> +                                       <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
+> +                       interrupt-names = "macirq", "eth_wake_irq";
+> +                       rockchip,grf = <&grf>;
+> +                       clocks = <&cru CLK_GMAC0_TX_50M_O>, <&cru CLK_GMAC0_REF_50M>,
+> +                               <&cru ACLK_MAC>, <&cru PCLK_MAC>;
+
+Should this have a minItems exception like RK3506 and 3528? As it is
+it fails validation for me as it expects 5 clocks.
+
+> +                       clock-names = "stmmaceth", "clk_mac_ref",
+> +                                       "aclk_mac", "pclk_mac";
+> +                       resets = <&cru SRST_A_MAC>;
+> +                       reset-names = "stmmaceth";
+> +
+> +                       snps,mixed-burst;
+> +                       snps,tso;
+> +
+> +                       snps,axi-config = <&stmmac_axi_setup>;
+> +                       snps,mtl-rx-config = <&mtl_rx_setup>;
+> +                       snps,mtl-tx-config = <&mtl_tx_setup>;
+> +
+> +                       phy-mode = "rmii";
+> +                       clock_in_out = "input";
+> +                       phy-handle = <&rmii_phy>;
+> +
+> +                       status = "disabled";
+> +
+> +                       mdio: mdio {
+> +                               compatible = "snps,dwmac-mdio";
+> +                               #address-cells = <0x1>;
+> +                               #size-cells = <0x0>;
+> +                               rmii_phy: ethernet-phy@2 {
+> +                                       compatible = "ethernet-phy-ieee802.3-c22";
+> +                                       reg = <2>;
+> +                                       clocks = <&cru CLK_MACPHY>;
+> +                                       resets = <&cru SRST_MACPHY>;
+> +                                       phy-is-integrated;
+> +                               };
+> +                       };
+> +
+> +                       stmmac_axi_setup: stmmac-axi-config {
+> +                               snps,wr_osr_lmt = <4>;
+> +                               snps,rd_osr_lmt = <8>;
+> +                               snps,blen = <0 0 0 0 16 8 4>;
+> +                       };
+> +
+> +                       mtl_rx_setup: rx-queues-config {
+> +                               snps,rx-queues-to-use = <1>;
+> +                               queue0 {
+> +                                       status = "okay";
+> +                               };
+> +                       };
+> +
+> +                       mtl_tx_setup: tx-queues-config {
+> +                               snps,tx-queues-to-use = <1>;
+> +                               queue0 {
+> +                                       status = "okay";
+> +                               };
+> +                       };
+> +               };
+> +
+>                 emmc: mmc@ffa90000 {
+>                         compatible = "rockchip,rv1106-dw-mshc", "rockchip,rk3288-dw-mshc";
+>                         reg = <0xffa90000 0x4000>;
 > --
 > 2.47.3
 >
-
-I know I am using different hardware from you, but in case it is
-useful, I just wanted to mention that my boot log says "cp15 timer
-running at 24.00MHz (sec-phys)" both with and without this patch, and
-userspace time seems unchanged either way. I am using a board powered
-by USB and that power is removed on each boot.
-
-I do have a Luckfox Pico Pi now and I will make time soon to add it to
-my lab (lab.deinde.dev).
 
 Regards,
 Simon
