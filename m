@@ -4,76 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B796C5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 12:29:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74E53C5DF89
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 12:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fDbCR6e6GGxWccQ5R9SSxtDkxyXxcSTxE7SQ3aY7yfo=; b=qVUs3/J2dieplW77yhxoMTihLq
-	cXA0iWgGLwzSxg3Cl37FWX8vGa7hW1Z4OSwrQitwIi7NF1NvFQNQblwaKKSgLw7zLEDhPSvx0UW90
-	J9NJrfEHtU6ISe4c9TW7HeknqoTr7+rHbWqq82wcwCZ1vjImq6mRLLyl8sT8UjKiCUddxQf6Kh1pN
-	ivnX52h2QJ1gSWWUZjhPMBrWtwViEQlfMhaDozW2p83TL/hueyWOp9KxlQ2HYVqJGahfWauJrItkz
-	OV256LPFlDcedDtkt0snEP+EKI3B2breWplR6wVi0sjU1nax7Z4exAZdjd+0RIWWkd3OuMVmZMcDD
-	k8InTRDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AS3sZF4MOHOL/PnrFHGmfd8I3tCjlqKL1VISYbtbo64=; b=mntY4Ckz6stsVXXoFfU2NGWlwZ
+	XITqCeziFKJxkX0mCp4jQB/BzyREYWK6QMiTGK7GUSuq9dBSR8rTLJK0Un1IuHJndteJUN7cCea6Q
+	HXcwy7JDKuyQ8FZ3kdJRqap3KbRxPjIBqJz6vXRaiEQlNK0MqV+rb3o/T+0W16IcV+C8qUuNsTy8v
+	dc2nzNGEwGtAhi1xdKbaGXaQ5R02LQfW8VBnmWlwOAbGot16FTmEHqzjk6dszTIC/kaovhh6YiA2+
+	z8Qrc+rljKDjNERIOpkxgK4jtTsgoL742MRu7ySgqbs/hB+CX3c6k+bMlvIOelkXB6qPMMYw3mj2+
+	JLlB8KmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx1tq-0000000BYML-0Sr8;
-	Thu, 20 Aug 2026 12:29:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wx292-0000000BZDe-1f3w;
+	Thu, 20 Aug 2026 12:45:20 +0000
+Received: from mail-106103.protonmail.ch ([79.135.106.103])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx1tp-0000000BYLo-1Wsr
+	id 1wx28z-0000000BZCl-1DBA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 12:29:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B61C60A5D;
-	Thu, 20 Aug 2026 12:29:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 123C51F000E9;
-	Thu, 20 Aug 2026 12:29:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787228976;
-	bh=fDbCR6e6GGxWccQ5R9SSxtDkxyXxcSTxE7SQ3aY7yfo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=LG4vJuZdQo+bj+td5H2YT/W/PngjBWUumg8xnHXg9BxzUsXbaUnCaciWgvUDRghV9
-	 RIfhqs38Tx5dNa5TBXyEr6CAUb1zMvwYrf3uwH6Q54TIC37tFdRrr7TZJz+8i/sHtf
-	 12nVFDV8cRGNwC/gTIbDIXkbZoJZ0nv4UI5q3xVNV2W3mdfUrfl9u3UqMyHuEsPziZ
-	 SatEkDTmM2fQPbGR4hCw4TEGredM6nwF69aXSrj6F1IDpptwyLjcHMmj1QFMRfKJNu
-	 DFj//TDzMMU/RRZXjidu8UHBW9g8oj+5Amlh50n9D5meGx7T4XKGbJsHum7EKe7JK3
-	 tnf/Y8gja+RjQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wx1tl-0000000HHzy-3P2J;
-	Thu, 20 Aug 2026 12:29:33 +0000
-Date: Thu, 20 Aug 2026 13:32:05 +0100
-Message-ID: <87wltlnfay.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,	Sumit Semwal
- <sumit.semwal@linaro.org>,	Thomas Gleixner <tglx@kernel.org>,
-	"T.J. Mercier" <tjmercier@google.com>,	Benjamin Gaignard
- <benjamin.gaignard@collabora.com>,	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,	dri-devel@lists.freedesktop.org,
-	linaro-mm-sig@lists.linaro.org,	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,	linux-media@vger.kernel.org,	Jason Gunthorpe
- <jgg@ziepe.ca>,	Jiri Pirko <jiri@resnulli.us>,	Marek Szyprowski
- <m.szyprowski@samsung.com>,	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: Re: [PATCH 1/2] irqchip/gic-v3-its: Zero shared pages after conversion
-In-Reply-To: <20260820105026.53208-2-steven.price@arm.com>
-References: <20260820105026.53208-1-steven.price@arm.com>
-	<20260820105026.53208-2-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, christian.koenig@amd.com, sumit.semwal@linaro.org, tglx@kernel.org, tjmercier@google.com, benjamin.gaignard@collabora.com, Brian.Starkey@arm.com, jstultz@google.com, dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, jgg@ziepe.ca, jiri@resnulli.us, m.szyprowski@samsung.com, suzuki.poulose@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 20 Aug 2026 12:45:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1787229912; x=1787489112;
+	bh=AS3sZF4MOHOL/PnrFHGmfd8I3tCjlqKL1VISYbtbo64=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=f30/HuIhgSkLsmObikl71bREAHuLWbsagZhJ6Fy8l/A7wYXljz7OjAhw5hPwqPdnn
+	 nR1dK47UD9iHzpEcQxcrxTX4ME7pzpH68fg2V9cdaagzFF+x173CD/l2lRcyMl658m
+	 ofw0RhIenIquM2joQ7A8D8ILaRft17Ti5iZiE9PSwcBGHynEoNr4u2YWBYp1oU7st2
+	 4xhktZU1X0zhZiYXrrGIcLwLCTBoejqXbP8aB7dwGWN17Is3bwMZcNKqxDTal0jZxe
+	 kKNnIKIQ7c5M++AXd9Yc+JZCMaiciifjVE7984jXcsT9GWvX8SeBHvWWPkXRvL8aKy
+	 7us2bTocPH5KA==
+Date: Thu, 20 Aug 2026 12:45:01 +0000
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+From: Ryan Leung <untilscour@protonmail.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Ryan Leung <untilscour@protonmail.com>
+Subject: [PATCH mt76] wifi: mt76: fix wcid->pktid corruption in mt76_wcid_cleanup()
+Message-ID: <20260820-mt76-pktid-idr-race-v1-1-451f176a6495@protonmail.com>
+Feedback-ID: 184418679:user:proton
+X-Pm-Message-ID: e3e10a410ba36c1cb116a12f4f84991ddc9ac07f
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_054517_502207_AE7C203E 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,76 +67,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Aug 2026 11:50:24 +0100,
-Steven Price <steven.price@arm.com> wrote:
-> 
-> its_alloc_pages_node() passes __GFP_ZERO to the page allocator before
-> calling set_memory_decrypted(). This assumes that converting a page from
-> private to shared preserves its contents.
-> 
-> For Arm CCA with MEC (Memory Encryption Contexts) the key used to access
-> the page will change, and so by default the visible data will change.
-> The host could ensure that it zeros the page, but rather than relying on
-> the host's behaviour it's best if the guest simply zeros after the
-> decryption rather than before. Specifically in this case the ITS tables
-> are required to be zeroed.
+mt76_wcid_cleanup() releases dev->status_lock before calling
+idr_destroy(&wcid->pktid) to tear down the pktid idr. Meanwhile,
+mt76_tx_status_skb_add() from tx.c can concurrently insert into
+that same idr during tx completion handling:
 
-What are the guarantees that we want to enforce post decryption?  My
-recollection is that the RME firmware cleans the caches to the PoPA,
-making the data immediately visible to the hypervisor. Obviously, this
-isn't the case anymore, since the zeroing comes after that, and I
-don't see any CMO enforcing this.
+=09spin_lock_bh(&dev->status_lock);
 
-I'm concerned that this relies on undocumented behaviours that may
-hold today on some undisclosed combinations of HW and hypervisors, but
-that are not guaranteed at all. set_memory_decrypted() doesn't really
-say anything, and I have the feeling that we may want some hypervisor
-specific hook to perform the correct CMO magic. I don't think this is
-required right now, but I'm not excluding anything!
+=09pid =3D idr_alloc(&wcid->pktid, skb, MT_PACKET_ID_FIRST,
+=09=09=09MT_PACKET_ID_MASK, GFP_ATOMIC);
 
-> 
-> Mask out __GFP_ZERO from the allocation request, and do the zeroing as a
-> separate step after decryption.
-> 
-> Fixes: b08e2f42e86b ("irqchip/gic-v3-its: Share ITS tables with a non-trusted hypervisor")
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
->  drivers/irqchip/irq-gic-v3-its.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> index 6f5811aae59c..c954bbe9f4db 100644
-> --- a/drivers/irqchip/irq-gic-v3-its.c
-> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -213,10 +213,12 @@ static gfp_t gfp_flags_quirk;
->  static struct page *its_alloc_pages_node(int node, gfp_t gfp,
->  					 unsigned int order)
->  {
-> +	bool want_zero = gfp & __GFP_ZERO;
->  	struct page *page;
->  	int ret = 0;
->  
-> -	page = alloc_pages_node(node, gfp | gfp_flags_quirk, order);
-> +	page = alloc_pages_node(node, (gfp & ~__GFP_ZERO) | gfp_flags_quirk,
-> +				order);
->  
->  	if (!page)
->  		return NULL;
-> @@ -231,6 +233,9 @@ static struct page *its_alloc_pages_node(int node, gfp_t gfp,
->  	if (ret)
->  		return NULL;
->  
-> +	if (want_zero)
-> +		clear_pages(page_address(page), 1 << order);
-> +
+Since idr_destroy() runs outside the lock, it can execute concurrently
+with idr_alloc() on the same idr, corrupting its internal data
+structures. Because idr nodes are freed through the generic slab
+allocator, this corruption can resurface later as an unrelated-looking
+crash anywhere in the kernel that happens to reuse the same freed
+memory.
 
-nit: please use BIT(order), which matches the type required for
-clear_pages().
+Fix this by calling idr_destroy() before releasing dev->status_lock,
+so that the table teardown and any concurrent insertion are mutually
+exclusive.
 
-But I'd really like some discussion about the CMO side of things.
+Closes: https://github.com/openwrt/openwrt/issues/24594
+Fixes: bd1e3e7b693c ("mt76: introduce packet_id idr")
+Signed-off-by: Ryan Leung <untilscour@protonmail.com>
+---
+ drivers/net/wireless/mediatek/mt76/mac80211.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-	M.
+diff --git a/drivers/net/wireless/mediatek/mt76/mac80211.c b/drivers/net/wi=
+reless/mediatek/mt76/mac80211.c
+index abbe65cbcd89..16e53c4593cb 100644
+--- a/drivers/net/wireless/mediatek/mt76/mac80211.c
++++ b/drivers/net/wireless/mediatek/mt76/mac80211.c
+@@ -1744,9 +1744,12 @@ void mt76_wcid_cleanup(struct mt76_dev *dev, struct =
+mt76_wcid *wcid)
+=20
+ =09mt76_tx_status_lock(dev, &list);
+ =09mt76_tx_status_skb_get(dev, wcid, -1, &list);
+-=09mt76_tx_status_unlock(dev, &list);
+-
++=09/*
++=09 * must run under status_lock to avoid racing mt76_tx_status_skb_add()
++=09 * in tx.c, which allocates pktid entries via idr_alloc() concurrently.
++=09 */
+ =09idr_destroy(&wcid->pktid);
++=09mt76_tx_status_unlock(dev, &list);
+=20
+ =09/* Remove from sta_poll_list to prevent list corruption after reset.
+ =09 * Without this, mt76_reset_device() reinitializes sta_poll_list but
 
--- 
-Jazz isn't dead. It just smells funny.
+---
+base-commit: ca800a9302764c445de0da0e84d2252400a770ee
+change-id: 20260820-mt76-pktid-idr-race-29f92c15b089
+
+Best regards,
+-- =20
+Ryan Leung <untilscour@protonmail.com>
+
+
 
