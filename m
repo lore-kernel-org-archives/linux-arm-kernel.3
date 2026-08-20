@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98F23C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 05:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8553BC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 05:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y6LD7rCa/Fp6CP9+jmeqeUp1auE+4ZYcET61cTZi1mk=; b=opN5M1Vs2tvrqfFDwxE3NM5+rB
-	JfE6jn75MiSO7As3u0fU3tFdt2VTHClpYtnVztdZgE/bDFixY3oaLhjMzUFWOrnCKWdplVcPQQKHF
-	hsf//rhJl8e5Qim/QUnkzMkjiAyArrk8SpYJwICqOw9cBonjF249nac7i8lIbb9FO3XbJh6HaxuJH
-	9tVCictFa2QPPS2P2gkbfZ5QUZq3ae8AbbBks5j1yBJazieWBX3sYVXWHe3FedU3qVna0nhhU9Drg
-	wv7HK4jY7/vjR93iAEThFxK7HD1drJ5eum9Gf/kVzP7NC2rUGb6aKW/po0O1hhiIDaagFo3EtNrLd
-	BZtPXyGg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EVAonvAaePFFNIn/A+22NqA16fMd3B6JKu24rLge8jE=; b=dyF56qGiNFlgClqYk204+Jc9XV
+	qZQFjkIizBx8tnd7/7+/jVNCcPKM3d11ndGT7ec891SZxDRpjKrDEqdFoa2WzOziQrfFmFGKa9lPx
+	+RdSE16PjD7DPQA+O7swA1smArHK7b0T8wkh/nC13HClHS2RA3FN5/Tf7+oN964dShus3USPvGqMt
+	V/5FoHJedLOEFmkIeMNPykIwvh8TFG7Q+flEuAGL9TrVHRUD/WwgguNat2ErFp/2PqsoP27MbeOw8
+	5bdyO4VxX3dftNcy4KOg3Jf8qmzkzZalvnjjC9KZzJVJaTqtumNrpKQcfbEim2fpKo6Y5JV3nlKUi
+	eB2l3olw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwv2q-0000000ApmO-3vyD;
-	Thu, 20 Aug 2026 05:10:28 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wwvYN-0000000Ar9v-379H;
+	Thu, 20 Aug 2026 05:43:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwv2n-0000000Aplp-1rNz
+	id 1wwvYL-0000000Ar9p-3xJ5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 05:10:27 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-481412f1828so681157f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Aug 2026 22:10:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1787202623; x=1787807423; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Y6LD7rCa/Fp6CP9+jmeqeUp1auE+4ZYcET61cTZi1mk=;
-        b=og0hKcl9pC9DOUWZ+gWHIPZZhHp9pyERr6lbw2Yzi4ZfgH6ty/O8SO/g6v1W5YWrsH
-         9OKEq+JKSDYlu8uXnJ7o0nRNoY623ZP20ZxiHFe3d8ODxryAp8QGYPwGeEzQuh2kYmrv
-         KC7Ftcpnlozvc8P962FVsMagoPEdGOujqEEDlSwa5H8a/KpJyxajJn8nCoa9qyBDJBVQ
-         7OxR3a8g8Zdl4FuoKdfUTiNNnIcDf8N6o+/D/j5uRJWSTdzewxE0p/32PtLiDEaztSQ/
-         tDsCcuNzKDIQlr8c4wKXD5DNDKW/6vnl+nJtm3QSTNqG3ALz81YiUh0PZtdGK0x4AYN5
-         Rn0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787202623; x=1787807423;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Y6LD7rCa/Fp6CP9+jmeqeUp1auE+4ZYcET61cTZi1mk=;
-        b=r8FVMRCXExG7byQ1ZQCPrefn4bHG2l2+4hNBk8iA521NXYYcMsxAUBkhlqvw5iR7Od
-         doVFiSlgStnC/bgvSoVWVFoUPBZyHStdbXCqXXjkSZ8VBN6LOvo1Ie9MP9PjBfiU7Rfy
-         na6KyebaZxau7R38hOSD2w7IusJ02LmL/r3r2xPrlMyfddy4+ZRG//xxAt1s5Rg5zVwE
-         0eV7qaA83AYArKgE7x+nzfPXRnjvpxacRuPJ7YcRPtEQ059PX3UlJwXA+N6IpIDDFm4S
-         tAO67WDslIN6ut6ymdLbWc/22CYPss3sBsJaEQE/3xvwNUeXsSONgrtoQR1V6JrzDBfh
-         C4sg==
-X-Forwarded-Encrypted: i=1; AHgh+RpWmBmiy6SJqKQNF2JSHjLg3C6OpyI9L/HOeGndKvAkhCeAosu0uVL9LqV7QLmvPKMnLfhLOrJA96QI2ddDeXuP@lists.infradead.org
-X-Gm-Message-State: AFuF++nyp89phvB4CmqH9oZ/qvxp6xxj/gZYsEJnWUbmLpSyGKWED5kQ
-	miauj80hBVdRJi8x/Ex+oMEEBKLiDXduv7RixFpmIOX/pd6iL3cTpHSMOLBQIlRIH+s=
-X-Gm-Gg: AR+sD11lNA9rHJHWPKrv92B/VnVw1tZSJ1xgB4QR6FLeafKLMXVuiN3L5dOKn/fch3d
-	AibkrIlL3KOsc1xMb8jaFkSdSiJZBMdsAkPZFONZWli6jsswb0K9lYVMqWIZeVNcpY51ToJYM30
-	DY39LgXgf6BAppZjJgnQcv2D7PQXAsrHdG6kR07HMZJWrXKhNWlTTaQD+vHH+L4zKBjpHx/h1/g
-	nGvz1ao5MK12WiAkvjs3suNu3ma3h2Jg2InhUU+SOu0eQSWbtyddnLxVo92gRTWQPd3vkR8Tein
-	DzQiY4wY8eMUkgRnRtLfxLTevTwJDFLwGTLTZhDD2tCgHVI3FKFrz4TrMCmCoEeFfi6hTL65gr3
-	n7IeMuKPdNhnWCJKUITk4Cjvjc2tXceeNlzTA5aodNjFPrpt8QYO9nclTcDvrwSHC05vs98PxZJ
-	OApjT9DjVy2nBPCrNdRz74+/SktC07ticbz3E51pR/XEwMf5b6pw6/biNgBEHtCh0j9w==
-X-Received: by 2002:a05:6000:4a06:b0:47f:e886:6dff with SMTP id ffacd0b85a97d-482b1e8441dmr19088264f8f.4.1787202622544;
-        Wed, 19 Aug 2026 22:10:22 -0700 (PDT)
-Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-482b14415ecsm9857566f8f.7.2026.08.19.22.10.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Aug 2026 22:10:21 -0700 (PDT)
-Date: Thu, 20 Aug 2026 07:10:20 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Li Jun <lijun01@kylinos.cn>
-Cc: sudeep.holla@kernel.org, cristian.marussi@arm.com, 
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] firmware: arm_scmi: pm: use DEFINE_SIMPLE_DEV_PM_OPS
- for pm struct
-Message-ID: <aoaLBNkkSynoGH5M@monoceros>
-References: <20260820021718.2454014-1-lijun01@kylinos.cn>
+	Thu, 20 Aug 2026 05:43:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F162541B06;
+	Thu, 20 Aug 2026 05:43:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C4313C2BCC7;
+	Thu, 20 Aug 2026 05:43:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1787204580;
+	bh=lKIuNEwXkewsy4tK1WJN34QuAHDuKZl6AT7O6VoE3N8=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=uMDVJvb04CCtDl94mj1hr+od6rKZXfuCvVlJjTJO0dUUhoWqvz+o05aLfk7YsUMP8
+	 odHIX0vCMzyQ4KGfI3Pyn2WoqHwIkVdYGVjglc/uokMkaJgnjw+ufUO7RK454VIt1O
+	 v8CTTJ1MYa3wvP5+XiixFoqeR1sZcvVoB33qLR31HlMK7nPHps2zLgkxOp/WXKDD80
+	 kd+JnaIURfZ9wcBvEYrHGvoLZWqglldyGQIyk3waheUFKQPi+jUnJV6BUgIJzm8Mpx
+	 /dDvrlWS5fd/d+CQr0F+cTW7E8enS5BqcX37KnZQoseohhxDHGM+UbiymImA3oKMT6
+	 hdHcNV7BxuGHg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 98FF9C5DF82;
+	Thu, 20 Aug 2026 05:43:00 +0000 (UTC)
+From: Kim Mankyum via B4 Relay <devnull+mankyum.kim.samsung.com@kernel.org>
+Date: Thu, 20 Aug 2026 14:42:31 +0900
+Subject: [PATCH] KVM: arm64: Allow smaller FF-A RX/TX buffers
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="64mgobiinqdcer6v"
-Content-Disposition: inline
-In-Reply-To: <20260820021718.2454014-1-lijun01@kylinos.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_221025_501087_77C3114A 
-X-CRM114-Status: GOOD (  12.20  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260820-master-v1-1-ea602b6d3860@samsung.com>
+X-B4-Tracking: v=1; b=H4sIAMeThmoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDCyMD3dzE4pLUIl1TcyMTQ4tEY1OLxCQloOKCotS0zAqwQdGxEH5xaVJ
+ WanIJSLdSbS0AKBR3YWoAAAA=
+X-Change-ID: 20260820-master-572418a358ab
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+ Will Deacon <will@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Andrew Walbran <qwandor@google.com>, 
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Kim Mankyum <mankyum.kim@samsung.com>
+X-Mailer: b4 0.17-dev-1f2f7
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787204579; l=1770;
+ i=mankyum.kim@samsung.com; s=20260820; h=from:subject:message-id;
+ bh=U52efmJXTVzb8RMYHZnmIqS8t9rchcBRv6qyuCeV+Vg=;
+ b=dDXmHg0ktieaSq7oXc09SObUbo7VHQ21lTUDunWXpSJKaBcfxUJ7WC6oIQiaHrtskS44NfKup
+ tFGxEU6qfnFDF5d75K/eI0rdDEMiR7aGY8u05cYXrDNN49hdefDtAnZ
+X-Developer-Key: i=mankyum.kim@samsung.com; a=ed25519;
+ pk=HN6chQ/xsDvZkhMY6iO4umFaQcr/drgbOI/tEzVYrSg=
+X-Endpoint-Received: by B4 Relay for mankyum.kim@samsung.com/20260820 with
+ auth_id=964
+X-Original-From: Kim Mankyum <mankyum.kim@samsung.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,53 +83,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: mankyum.kim@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Kim Mankyum <mankyum.kim@samsung.com>
 
---64mgobiinqdcer6v
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2] firmware: arm_scmi: pm: use DEFINE_SIMPLE_DEV_PM_OPS
- for pm struct
-MIME-Version: 1.0
+pKVM currently requires the host to map PAGE_SIZE worth of RX/TX
+buffers, as do_ffa_rxtx_map() requires the FF-A page count to match
+the capacity of the hypervisor RX/TX buffers.
 
-On Thu, Aug 20, 2026 at 10:17:18AM +0800, Li Jun wrote:
-> use DEFINE_SIMPLE_DEV_PM_OPS for scmi_dev_pm_ops,and add the value of
-> .freeze .thaw .poweroff .restore.if these address are null, may cause
-> error in s4.
->=20
-> Change:
-> -Replace SIMPLE_DEV_PM_OPS() in v1 with DEFINE_SIMPLE_DEV_PM_OPS() for pm.
->=20
-> Signed-off-by: Li Jun <lijun01@kylinos.cn>
+This is unnecessarily restrictive when the kernel page size is larger
+than the minimum RX/TX buffer size advertised by the SPMC. For
+example, with a 16K kernel and an SPMC advertising a minimum RX/TX
+buffer size of 4K, a host request with a page count of one is rejected
+by pKVM.
 
-The things I wrote at
-https://lore.kernel.org/all/aoaFlNcXC8zfS0j5@monoceros/ mostly apply
-here, too.
+hyp_ffa_post_init() already allows an SPMC whose minimum RX/TX buffer
+size is smaller than PAGE_SIZE, and the page count supplied by the host
+is forwarded unchanged when mapping the hypervisor buffers into the
+SPMC.
 
-TL;DR: Wrong placement of inter-revision changelog, missing
-pm_sleep_ptr(), and maybe most prominently the request for patience to
-start with a single patch and learn from the feedback for later patches.
+Allow RX/TX buffers smaller than the capacity of the hypervisor buffers
+while continuing to reject requests which exceed it.
 
-Best regards
-Uwe
+Fixes: 9d0c6a9af9e3 ("KVM: arm64: Handle FFA_RXTX_MAP and FFA_RXTX_UNMAP calls from the host")
+Signed-off-by: Kim Mankyum <mankyum.kim@samsung.com>
+---
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
---64mgobiinqdcer6v
-Content-Type: application/pgp-signature; name="signature.asc"
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index a327c2bbb6b6..594d1112b5f9 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -239,7 +239,8 @@ static void do_ffa_rxtx_map(struct arm_smccc_1_2_regs *res,
+ 	int ret = 0;
+ 	void *rx_virt, *tx_virt;
+ 
+-	if (npages != (KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) / FFA_PAGE_SIZE) {
++	if (!npages ||
++	    npages > (KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) / FFA_PAGE_SIZE) {
+ 		ret = FFA_RET_INVALID_PARAMETERS;
+ 		goto out;
+ 	}
 
------BEGIN PGP SIGNATURE-----
+---
+base-commit: cb8a75eec0877810b50aa1c5a833f929525cd2ee
+change-id: 20260820-master-572418a358ab
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqGjDoACgkQj4D7WH0S
-/k72yAf/Xemjdc635zCuZFUG//Sy+vXuZ9veArfR+8cm4wu1BmIGSXXCH80VU63b
-X/hJh3utR5VCmn7t5qP2jbKooon7mfghtKW1EyNvByfsbWhxZ2g+fPBKRfef8aCG
-BCscpFWVfEgjG8cEKBSJCY2+ufqAztavvGOfKWE7sNFomTP2cxySPUKm+eZ2Aoz+
-TeR0+45yRxzKk5747ALvDo6N4XWeKpJPxNRE5/c8mI0ADF+5S5bqkQxOC5coAgok
-rLhBbkLGQ8ci2KCsrYv38BSn1yuIQg1W8M3k+G28pHb4OLrhU1pZ9TZ8EyDtiHjJ
-f3ltyL2zRkpIm7nqqOEYlD7501KxwQ==
-=rYU0
------END PGP SIGNATURE-----
+Best regards,
+--  
+Kim Mankyum <mankyum.kim@samsung.com>
 
---64mgobiinqdcer6v--
+
 
