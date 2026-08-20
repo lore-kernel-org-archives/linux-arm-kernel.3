@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A242C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 14:03:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8F1C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 14:03:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1pP8q2KxBJVDEMogvb2LKf+VAT3Bwq0uMd2eAm1GmWI=; b=FaUpBtup5qiOcNfuhYLq+m9xtt
-	tigBqvTsu4qdw1JM0TwHjuWveuTPcbmNYsQFxzZjvIJzY+0JHnc2kZIwoh2NMFNXMkRTWqjQu3VoZ
-	nKzdXqKvAXxYIkZJbLxlaz+ZnZNk/rayOGrHwo4vGS7XyaqLqVoQHeU/CD5XS3q3+FeV2z6/XbyIZ
-	C+WFJaQ6MHn7Z8NCoFtO3bwMbONicYVnkBAqurznPUoK/bZHx1pgCP6ln4g8p40vNcKjhhqZXK059
-	cWAkWwfRQU+touzv9zIMiVZ5Fwchw1JqU9IId94Owr5eCf/3O74RCXLp8C/PkF3g/dPa1ozJC9g1Q
-	jPWq83qg==;
+	bh=pbDDeV/kJitG9HYutqp56Wzz4+LQLFWle1INseE3WeE=; b=D37RoVT2zvFGT2j36LCJwpDOxS
+	I7TqSP5AmJJzDIab/qf86RkPDf8WpccPU4adEhVUk3DX8GSpGbkrOThhjeQv5avJhs8WknyPPXZ3f
+	iIAtIv6cdSHurxhVrQHo+StVquF1Sqcj9OTA35CD9S5SuiERd9rTzRccbdU/hm0WQ/n7or/g8njXO
+	AbwnbwDkSJ1P782HZFdQ0CA94OUtxr5fPOqbgsYzY025JEphnU6dTOuQgNSk/u2ftkcIuAbFLsWex
+	jsKKNng3oByvMnR7k5jevTcuyqKep6nktp/csbZ5woeygG0+EQ6O8RM2fcjL+cKoLA38lyLe6toKQ
+	zQtkm7hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx3Mh-0000000BfGb-1wSh;
-	Thu, 20 Aug 2026 14:03:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wx3Mw-0000000BfJG-2jcr;
+	Thu, 20 Aug 2026 14:03:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx3Mg-0000000BfGV-1IGH
+	id 1wx3Mu-0000000BfIy-44P7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 14:03:30 +0000
+	Thu, 20 Aug 2026 14:03:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A481A40A33;
-	Thu, 20 Aug 2026 14:03:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D40F1F00A3A;
-	Thu, 20 Aug 2026 14:03:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8BC8C42D95;
+	Thu, 20 Aug 2026 14:03:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2AF91F00A3D;
+	Thu, 20 Aug 2026 14:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787234609;
-	bh=1pP8q2KxBJVDEMogvb2LKf+VAT3Bwq0uMd2eAm1GmWI=;
+	s=k20260515; t=1787234624;
+	bh=pbDDeV/kJitG9HYutqp56Wzz4+LQLFWle1INseE3WeE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Q1ffXdaTl4qLXiUJYsCj25Cp9QBB2rZw5CZZFk9NlkBvz2tRwtc8klTF1ZEae3sUB
-	 cjorIBg1XW8Ah+uORZdrRmEj+FXim/5LmmertFtZ0EC+pmZlSuYkwAfoLNWXjt5MqX
-	 PXe2/cg1m8ho4rH7Qc9O8VS5GWml+GcVhV3MRJFOGvyOi2IoSV7t4+PsajucSx/L3t
-	 rUvKC11k3J3T9jXb1lC9mPx49t/cCjptP7G/oLo35Pss1gzg856McuQ/DKYPw44Gjf
-	 3vImftj7pahcXUfcVvfU6Kqh9d6kOZ29pNirm0qx+hsp9q0tIMWbv42TLawi692ALw
-	 KN95591X6sWkw==
-Message-ID: <578653c4-a7c7-498b-a283-f3b17f3d4191@kernel.org>
-Date: Thu, 20 Aug 2026 16:03:25 +0200
+	b=jEMMlhwlhJCu82vT6Tq+rLy7WFpM9B7vAWBma+uPcO8ROGUsl4M4Kx9S536N6NuAQ
+	 21+7zOkjEx+Fcfv11uq48ZSS7MMbnBX+hWCKdlOYM5NcQMaZS3diMdM4rXvO4lFw1k
+	 Lp/C0FlDskcbmIx5Tt1ANNxP/nHMPzNmfxTWQ6XUZwUSDqCZ1fMwsXqg+RAVOP2evN
+	 YFS1H1k8xHIIvvlrADuExW6mqI0lKBO+3XgNOAiRehwI8GAa/1eqF2krDWhxagX1h+
+	 VnVnPUCbnCo0Gpt8geX/djKolg7i4cZYA+fb+dE3Jg1UGoiiPbZdmmEOuK1ruVXpjA
+	 FKAahNbr5iMqg==
+Message-ID: <e0a9f6dd-f32d-4ca9-b907-51d8893ecbe9@kernel.org>
+Date: Thu, 20 Aug 2026 16:03:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dmaengine: qcom: hidma: fix autosuspend cleanup during
- teardown
-To: Guangshuo Li <lgs201920130244@gmail.com>, Sinan Kaya <okaya@kernel.org>,
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
- Andy Shevchenko <andy.shevchenko@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dmaengine: xilinx: zynqmp_dma: fix autosuspend cleanup
+ during teardown
+To: Guangshuo Li <lgs201920130244@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+ Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Abin Joseph <abin.joseph@amd.com>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, Kees Cook <kees@kernel.org>,
+ Kedareswara rao Appana <appana.durga.rao@xilinx.com>,
+ dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 Cc: stable@vger.kernel.org
-References: <20260808112551.2786782-1-lgs201920130244@gmail.com>
+References: <20260808115228.2798481-1-lgs201920130244@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,7 +103,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260808112551.2786782-1-lgs201920130244@gmail.com>
+In-Reply-To: <20260808115228.2798481-1-lgs201920130244@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -117,10 +120,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/08/2026 13:25, Guangshuo Li wrote:
-> hidma_probe() calls pm_runtime_use_autosuspend(), but neither the probe
-> failure path nor hidma_remove() calls the matching
-> pm_runtime_dont_use_autosuspend() before disabling runtime PM.
+On 08/08/2026 13:52, Guangshuo Li wrote:
+> zynqmp_dma_probe() calls pm_runtime_use_autosuspend(), but its failure
+> paths and zynqmp_dma_remove() do not call the matching
+> pm_runtime_dont_use_autosuspend().
 > 
 > If the autosuspend delay is set to a negative value while autosuspend
 > is enabled, the runtime PM core increments usage_count to prevent
@@ -128,12 +131,17 @@ On 08/08/2026 13:25, Guangshuo Li wrote:
 > during teardown, this reference is not dropped and usage_count remains
 > unbalanced.
 > 
-> Add the missing pm_runtime_dont_use_autosuspend() calls to both the
-> probe failure and remove paths before disabling runtime PM.
+> The documentation for pm_runtime_use_autosuspend() also notes that it
+> is important to undo it with pm_runtime_dont_use_autosuspend() at
+> driver exit time, unless runtime PM was initially enabled with
+> devm_pm_runtime_enable().
+> 
+> Add the missing pm_runtime_dont_use_autosuspend() calls to the probe
+> failure and remove paths.
 > 
 > This issue was found by manual code inspection.
 > 
-> Fixes: 67a2003e0607 ("dmaengine: add Qualcomm Technologies HIDMA channel driver")
+> Fixes: 64c6f7da8c2c ("dmaengine: zynqmp_dma: Add runtime pm support")
 > Cc: stable@vger.kernel.org
 > Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 
