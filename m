@@ -4,85 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9893AC5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3780C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cusf2T7B4al32h10rLH42UCGifbkj8cK5s3GiNopXUs=; b=hJmxvRRHQFJipiPUBWvX626stt
-	OjeZ8cYJJ+pXvCG9PF83hp+gyU/SctXYv2etHK3NdkwWI68s6M90/wWzjF+tBytiavihSUjt+tkuy
-	WUk4/k2jUDikVsj6SD3q/mC/+QZjtNrvXV+Leu6mvbppgGmUVW5n9dB7AQwgeHgVzPKlI+yh1uAvG
-	SgOURjJFJXrKyENfAhbe9PGxRrUeCdrxuVGNE4h8VBoVo9WZgfI/hGJm/wqMxfg+nnujQVJfp2gIj
-	s7hZGJRZfSDI8P81JWB4gOq9k9dtuy/25kG8H3Yd1/N30t79BvoFWGF3AzZl3r6wM/vSFlLbuGdLm
-	kN45IDyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8uBJ8Mta62b6RmQf7dtw94ndHIb5OKy4XaY6DIy9lLw=; b=XW1XMCi+qVRa4HQmlRNg1c6Fzh
+	0ouh1nDYh1psBfvrnJvZaRi20f2OvQGhSnmDe0qSmFasU0wlDqsrrWKOV3RS9WOS1l6lj8vyMHT7Y
+	aDrHj/8QtmsS6stvH4xUFcGFdkkoNd2XOakGQhX1mfZQaC8AGauRAgmB7EjoeHq1VscHkFEXiGvHH
+	jtFu1cnzlWZSuNZuYnPq0i2V079+T43Ps36NXSpa72IyarMxhm+1ec0Az/hKTTi2pvKBxnFOyD+KK
+	IMiOWWMqsDSAs/SEcKa3GEQUPwL+VleLJyRiXbV9WI6pXa5NEuvcM5Bwi5vaosKJZmD6PQeZr3KvS
+	S6gd1y7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwwpH-0000000B03B-0ERd;
-	Thu, 20 Aug 2026 07:04:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wwwpX-0000000B05m-1GXN;
+	Thu, 20 Aug 2026 07:04:51 +0000
+Received: from smtp9.infineon.com ([217.10.52.204])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwwpG-0000000B02z-04rQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 07:04:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5ED3044FB5
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 07:04:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46FAF1F00AC4
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 07:04:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787209473;
-	bh=Cusf2T7B4al32h10rLH42UCGifbkj8cK5s3GiNopXUs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Ltu5V+rhF+34mxFIWuu5tU/suXKGLd5AhOIPnzPZp9urnSKf9VJ8EIsQW96gIkByQ
-	 jKIHe2Mnzdxyr98U6vZQ09qGUeNds3CD384Hn/JB9Z3F4QmW6lVsNIwq6k+b7vC9FT
-	 267T7HcoTXxb0qGVxv5IsV62Ctx+v2hK46ga9WWie8l1WQrNz9KP3G4SCZyFsuKnYA
-	 cQn8raKsRDRhIaMiDMG6G4KczC1esJDfvkwZn/l0iZe/HIjRXnKwirzM+eZy3NA/xO
-	 YVa86yd4qIGEJbrYtkTlW94CQsKDRIDVtI5kTXDMARcpwuc4k4ND1C2c8SIeVm+uaY
-	 kDZj7EjcX5R7g==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5aeb98460c6so2193508e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 00:04:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpPKa0gv9X5kvkyAv/mQk1bPv7ih+3yEfvn/+oZeVlKqlK7Z13aO7N5OYbFZpcH++00pIou9ChkDT8W62Lzaiac@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+cvMx2E8STA6YmwAIiO2PULpbYzKBvxDV/sCFwcUUMOLugF2o
-	jQ16APgOV9EU3JldLAzKCwANy/K9o3cYm9/jVPic+EFxh5Ybr6XwuHePB0lrS/5FtPYP6BcJD1f
-	G6rZqa2qrtlXW/9aLLA54SSkeja+4e6c=
-X-Received: by 2002:a05:6512:3f25:b0:5ae:bf45:e3be with SMTP id
- 2adb3069b0e04-5b478cf5425mr3737000e87.21.1787209471579; Thu, 20 Aug 2026
- 00:04:31 -0700 (PDT)
+	id 1wwwpU-0000000B04r-0FKl;
+	Thu, 20 Aug 2026 07:04:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=infineon.com; i=@infineon.com; q=dns/txt; s=IFXMAIL;
+  t=1787209488; x=1818745488;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=8uBJ8Mta62b6RmQf7dtw94ndHIb5OKy4XaY6DIy9lLw=;
+  b=N9+2Bv5Za0EZW/RX277qdyaVR4NFCV+uGKbrV0f9h73xrUaxxAnDr8Nm
+   Dy7/E2LTX+iaR9ovIX6KIHKaZDzhUOYQ8y6Jr9blLdAlS9ne1U8GBeAyx
+   jJ4pwcwDzP7IseIWm8Cm2CaUcHgliGnD+KK5kUdtQXLtKJmCBmkpbBP5W
+   g=;
+X-CSE-ConnectionGUID: ABJj3vDsQVOZ22lUpvgejQ==
+X-CSE-MsgGUID: wBy2RtI/QkmwESO3DyWbYA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11880"; a="105427185"
+X-IronPort-AV: E=Sophos;i="6.25,232,1779141600"; 
+   d="scan'208";a="105427185"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO MUCSE805.infineon.com) ([172.23.29.31])
+  by smtp9.infineon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2026 09:03:45 +0200
+Received: from MUCSE818.infineon.com (172.23.29.44) by MUCSE805.infineon.com
+ (172.23.29.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 20 Aug
+ 2026 09:03:44 +0200
+Received: from MUCSE815.infineon.com (172.23.29.41) by MUCSE818.infineon.com
+ (172.23.29.44) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 20 Aug
+ 2026 09:03:44 +0200
+Received: from MUCSE815.infineon.com ([fe80::ed10:a720:3031:ca14]) by
+ MUCSE815.infineon.com ([fe80::ed10:a720:3031:ca14%12]) with mapi id
+ 15.02.2562.045; Thu, 20 Aug 2026 09:03:44 +0200
+From: <Takahiro.Kuwano@infineon.com>
+To: <miquel.raynal@bootlin.com>, <pratyush@kernel.org>, <mwalle@kernel.org>,
+	<richard@nod.at>, <vigneshr@ti.com>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<corbet@lwn.net>, <skhan@linuxfoundation.org>
+CC: <STLin2@winbond.com>, <hsinyi@chromium.org>,
+	<thomas.petazzoni@bootlin.com>, <linux-mtd@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>
+Subject: RE: [PATCH v3 23/23] mtd: spi-nor: debugfs: Expose SR opcodes and QE
+ mask
+Thread-Topic: [PATCH v3 23/23] mtd: spi-nor: debugfs: Expose SR opcodes and QE
+ mask
+Thread-Index: AQHdKzdfZ2b8fOyMyk+wKDEcGW2sy7amjJxQ
+Date: Thu, 20 Aug 2026 07:03:44 +0000
+Message-ID: <2bf142b04caf4c578cfbc57740490632@infineon.com>
+References: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-0-b637cf120d5c@bootlin.com>
+ <20260813-winbond-v7-1-spi-nor-rv-addition-v3-23-b637cf120d5c@bootlin.com>
+In-Reply-To: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-23-b637cf120d5c@bootlin.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.161.6.196]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
- <20260722-contrib-pg-pixel10-initial-dts-v2-4-3abae9717feb@linaro.org>
- <20260724-dancing-skunk-of-novelty-72c1b8@quoll> <CAD=FV=U0HUdjPcg+5Vx8_ag0zLd3CZx5w5SFr38p+YwRnC_G6w@mail.gmail.com>
- <CAD=FV=V2+D1m5L-0d81W3E_ih2us-SrddeBUAJtMybpQons7Ww@mail.gmail.com>
- <CAD++jLnQGy_LvRxMjq1s2Hs9Hn4LNTFZ0W17zC1YLs5StwfqMg@mail.gmail.com>
- <CAD=FV=VuVdq_=TQmONJZak84S2c2-2yQ8DS0k_odYsUfg0C+rQ@mail.gmail.com>
- <CAD++jL=VLzW-4eB=izJwaTJ+6xObk9+AQGTDK6ABdrGX4K3vAg@mail.gmail.com> <CAD=FV=VsiQfoGYHw3D2xmV=Jedu+cmqEfrCk0mkKFzsrRCQcTg@mail.gmail.com>
-In-Reply-To: <CAD=FV=VsiQfoGYHw3D2xmV=Jedu+cmqEfrCk0mkKFzsrRCQcTg@mail.gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 20 Aug 2026 09:04:19 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkJq0t8sC6_S4LHERbTTiUanKh32QJtdDtUZrXdDEHgMg@mail.gmail.com>
-X-Gm-Features: AcwNN1WqJo48aeez-Evap8v6fI7Rfgzep_6FDf8AekLbZhIutRdP2zHCmPTfiRA
-Message-ID: <CAD++jLkJq0t8sC6_S4LHERbTTiUanKh32QJtdDtUZrXdDEHgMg@mail.gmail.com>
-Subject: Re: [PATCH v2 4/5] arm64: dts: google: Add initial dts for frankel/blazer/mustang
-To: Doug Anderson <dianders@chromium.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Drew Fustini <fustini@kernel.org>, 
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org, 
-	soc@lists.linux.dev, Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>, 
-	Brian Norris <briannorris@google.com>, William McVicker <willmcvicker@google.com>, 
-	kernel-team@android.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_000448_429987_1A0A832A 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,94 +100,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Doug,
-
-On Thu, Aug 20, 2026 at 1:41=E2=80=AFAM Doug Anderson <dianders@chromium.or=
-g> wrote:
-
-> > The calibration business and what it is and where it is stored
-> > evades me a bit...
->
-> The problem we're facing is _finding_ the UFS node in the bootloader.
->
-> The device tree for the board is stored / maintained outside of the
-> bootloader codebase. It is compiled and stored on the device. The
-> bootloader runs, locates the device tree and then wants to make
-> changes to it.
->
-> The bootloader needs to _find_ the UFS node in the device tree in
-> order to make changes to it.
-
-So, thebootloader needs to make changes to the calibration of
-the UFS storage, and it needs to find the right UFS storage
-to calibrate, right. I get that part.
-
-But this is what boggles my mind. It is actually a pretty
-deep philosophical subject.
-
-A piece of software (the bootloader) want to make changes
-to the calibration of a piece of hardware, which it somehow
-has the calibration for.
-
-This pretty much means that at some point *some* unit
-of software producing that said calibration already had a
-handle on the hardware.
-
-So there is a missing piece of the puzzle here.
-
-This is where the imperialistic ambition of device tree
-kicks in: the piece of software - be that a manufacturing
-run-it-once piece of code - that produced said calibration
-should have *also* used device tree to find the thing it
-was to calibrate. Supposedly looping over all UFS devices
-in the device tree and calibrating them one at a time,
-something like this.
-
-Ideally that piece of software should have updated the
-device tree too, but OK that is intervening with software
-engineering, maybe it does not have the capability to
-do that.
-
-But that piece of software *should* have at least encoded
-some kind of identifier for the thing it calibrated, like a
-unique serial number from the hardware, or in worst case
-at least the device tree node name.
-
-So the information to locate the right node in the device
-tree *should* have been present inside the calibration
-binary blob thingy.
-
-What is controversial with this patch is that an authority
-on the side comes in and says with a device tree property:
-
-"I have a random piece of calibration data and only I know
-which UFS it is for, so I am going to encode that knowledge
-into the device tree as an alias."
-
-The device tree "thinks" that this should already be evident.
-
-The device tree has the underlying assumption that
-everything is using it. The kernel, the boot loader, the
-secure operating environment, the GPU, accelerators...
-also the manufacturing tools.
-
-From the view of the device tree world, a manufacturing
-tool not using device tree is a hack, and if it is a hack
-then the system can put the information in there using
-a hack, and this whole ambition of finding the UFS node
-from the top down is moot. It's like polishing dirt.
-
-Now, I know this way of thinking is oddly bureaucratic
-and imperialistic, but it is in the core essence of how
-device tree was thought out. It wants to be the authoritative
-source of all hardware information, any other source
-is a hack in the view of the device tree.
-
-I don't know if this solves your problem other than saying
-"go with any hack because this takes place in an imperfect
-world", but at least it points out how this kind of problems
-collide with some of the core philosophy of device tree.
-
-Yours,
-Linus Walleij
+SGkgTWlxdWVsLA0KDQo+IEV4cG9zZSBTdGF0dXMgUmVnaXN0ZXIgb3Bjb2RlcyBiYXNlZCBvbiB0
+aGUgZmxhc2ggY2FwYWJpbGl0aWVzDQo+IGRpc2NvdmVyZWQgd2hpbGUgcGFyc2luZyB0aGUgU0ZE
+UCBRRVIgZmllbGQuDQo+IA0KPiBWYWx1ZSAnMCcgaW5kaWNhdGVzIGFuIGFic2VuY2Ugb2Ygb3Bj
+b2RlIChub24gc3VwcG9ydGVkKSwgd2UgZG8gbm90DQo+IHByaW50IGFueXRoaW5nIGluIHRoYXQg
+Y2FzZS4NCj4gDQo+IFRoZSBRRSBiaXQgaXMgYWxzbyBkaXNwbGF5ZWQuDQo+IA0KPiBFeGFtcGxl
+IG9uIGEgVzI1UTAySlYtTToNCj4gDQo+ICQgZ3JlcCBvcGNvZGVzIC1BMTAgL3N5cy9rZXJuZWwv
+ZGVidWcvc3BpLW5vci9zcGkwLjAvcGFyYW1zDQo+IG9wY29kZXMNCj4gIHJlYWQgICAgICAgICAg
+IDB4ZWMNCj4gICBkdW1teSBjeWNsZXMgIDYNCj4gIGVyYXNlICAgICAgICAgIDB4ZGMNCj4gIHBy
+b2dyYW0gICAgICAgIDB4MzQNCj4gIFNSMSByZWFkICAgICAgIDB4MDUNCj4gIFNSMiByZWFkICAg
+ICAgIDB4MzUNCj4gIFNSMStTUjIgd3JpdGUgIDB4MDENCj4gIFFFICAgICAgICAgICAgIFNSMiBi
+aXQgMQ0KPiAgOEQgZXh0ZW5zaW9uICAgbm9uZQ0KPiANCj4gU2lnbmVkLW9mZi1ieTogTWlxdWVs
+IFJheW5hbCA8bWlxdWVsLnJheW5hbEBib290bGluLmNvbT4NCg0KUzI1SEw1MTJUOg0Kb3Bjb2Rl
+cw0KIHJlYWQgICAgICAgICAgIDB4ZWMNCiAgZHVtbXkgY3ljbGVzICAxMA0KIGVyYXNlICAgICAg
+ICAgIDB4ZDgNCiBwcm9ncmFtICAgICAgICAweDEyDQogU1IxIHJlYWQgICAgICAgMHgwNQ0KIFNS
+MiByZWFkICAgICAgIDB4MzUNCiBTUjErU1IyIHdyaXRlICAweDAxDQogUUUgICAgICAgICAgICAg
+U1IyIGJpdCAxDQogOEQgZXh0ZW5zaW9uICAgcmVwZWF0DQoNClMyNUZTNTEyUzoNCm9wY29kZXMN
+CiByZWFkICAgICAgICAgICAweGVjDQogIGR1bW15IGN5Y2xlcyAgMTANCiBlcmFzZSAgICAgICAg
+ICAweGRjDQogcHJvZ3JhbSAgICAgICAgMHgxMg0KIFNSMSByZWFkICAgICAgIDB4MDUNCiBTUjIg
+cmVhZCAgICAgICAweDM1DQogU1IxK1NSMiB3cml0ZSAgMHgwMQ0KIFFFICAgICAgICAgICAgIFNS
+MiBiaXQgMQ0KIDhEIGV4dGVuc2lvbiAgIG5vbmUNCg0KUzI1RkwyNTZTIChubyBTRkRQKToNCm9w
+Y29kZXMNCiByZWFkICAgICAgICAgICAweDZjDQogIGR1bW15IGN5Y2xlcyAgOA0KIGVyYXNlICAg
+ICAgICAgIDB4ZGMNCiBwcm9ncmFtICAgICAgICAweDEyDQogU1IxIHJlYWQgICAgICAgMHgwNQ0K
+IFNSMiByZWFkICAgICAgIDB4MzUNCiBTUjErU1IyIHdyaXRlICAweDAxDQogUUUgICAgICAgICAg
+ICAgU1IyIGJpdCAxDQogOEQgZXh0ZW5zaW9uICAgbm9uZQ0KDQpTMjhIUzUxMlQgKE9jdGFsLCBu
+byBRRSk6DQpvcGNvZGVzDQogcmVhZCAgICAgICAgICAgMHhlZQ0KICBkdW1teSBjeWNsZXMgIDI0
+DQogZXJhc2UgICAgICAgICAgMHhkOA0KIHByb2dyYW0gICAgICAgIDB4MTINCiBTUjEgcmVhZCAg
+ICAgICAweDA1DQogU1IyIHJlYWQgICAgICAgMHgzNQ0KIFNSMSB3cml0ZSAgICAgIDB4MDENCiBT
+UjErU1IyIHdyaXRlICAweDAxDQogOEQgZXh0ZW5zaW9uICAgcmVwZWF0DQoNClRlc3RlZC1ieTog
+VGFrYWhpcm8gS3V3YW5vIDx0YWthaGlyby5rdXdhbm9AaW5maW5lb24uY29tPg0KDQoNCg0K
 
