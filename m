@@ -4,103 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3565AC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 23:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC89C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 23:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UtldySaucpx0WiT2hf6Tf+4ZCCDvPTnOPP4X9Lh8abA=; b=D4AY0MQMQVUYeKqGKSED61he8o
-	i/KE3XSySr4L5T6Y1wuh2mVJDKJXtRsim8NTCOcyr52CoMaEzzgj1YBbTAd9Qrkxtp7CVoYjhY1D2
-	BC0UBD4f8KGsvBCYI2oBcahs2cInE49kL5esgLJN3373q54FWMKqLIW2movlwShP45GZYGxtb435v
-	yjBbMjFAkDlL2Yqz50QYOzfKzYJBjNIJww/KCfKKR2Y0Yg3mTuJN5h80V3a+ybS4fDc/qbuIL9OKd
-	O96St6YAlIv5IXnM/p/RDZhRHlVwedDhuxm3xK3VRLcexIu1nAQHwNtTfmZSfxXfTDN0HvfWaGmjy
-	9iCICINA==;
+	bh=faVdfbMyKRC0yZz7duQHLz6OqzYJS783yM+QPhqaBsQ=; b=qO28I9gxyc9Zk1Walhiojv2hQO
+	xg0MJeznOtziEkYKuVun2BEAGt70n4jAjce0S49sZVmajexTe1fsWVJy88ZEN6DcreJKo8Ejv4oC6
+	4UtDmp9MOlS5eQHNRjF5CxG6EEbf8bvJrfXTLmjKy3gM//rzQgTE+M59KxhdBlY7rmTzFjN/xWt6Y
+	3pRaFgKIcnoD9psubrKkm7VJ+czg4HEWumbU+bWmzPQLm/LPbciO7iDz0ggNjHaK+CqTe6rc4HsTY
+	Xf5kEZaWGLY3iEE8VQInJQqbic1MxcmFmIm+AX4ocOiTCLTttYBrYqFwtg056N+n24baABDb0Vzu+
+	x6V6VoNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxCTr-0000000CMki-40ij;
-	Thu, 20 Aug 2026 23:47:31 +0000
-Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
+	id 1wxCUf-0000000CMoe-0P1S;
+	Thu, 20 Aug 2026 23:48:21 +0000
+Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxCTq-0000000CMkL-0wv4
+	id 1wxCUc-0000000CMo7-38p1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 23:47:31 +0000
-Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-4560d6f82edso361632fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 16:47:29 -0700 (PDT)
+	Thu, 20 Aug 2026 23:48:19 +0000
+Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-81ff017d420so23589607b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 16:48:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1787269648; x=1787874448; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1787269697; x=1787874497; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=UtldySaucpx0WiT2hf6Tf+4ZCCDvPTnOPP4X9Lh8abA=;
-        b=QZe/zA/ocDdqggce53XtCdq2ERCxdCJWjgnrdoI/pdKibcLutP/1pZgBB7yZ44vEiC
-         56OO3Do77yZQyukoPghYcagc3iemiTMx5cBWXkZ1JTP35DA69JdWl14iJ19OYZwTkRau
-         9NqPUj94OlYfpehJsFSBZyaelnqKuTX2eNGOA=
+        bh=faVdfbMyKRC0yZz7duQHLz6OqzYJS783yM+QPhqaBsQ=;
+        b=V13xlfywjaa+4h9v4726FFAj5lSub2d5YYgkx/cFM0OU7VHrnCTctlP2csbdSdnIli
+         uZwt3YlYI7YcpP61ln53bd1fMcdMg8xtlMTQRREt0tFosqoVi+LVy9qRHDS/H/BYyQ+Z
+         tMiOXMUpJvrUTi3zJLumBRTo2uPe+kCG0zmm4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787269648; x=1787874448;
+        d=1e100.net; s=20251104; t=1787269697; x=1787874497;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=UtldySaucpx0WiT2hf6Tf+4ZCCDvPTnOPP4X9Lh8abA=;
-        b=JuEr/vBArzPMAW/OIcVFzEznMWAeKhvbe0aW50+j3rplZQL6nafBO50xIp0bqn1oKT
-         YIS2dsGIC8INW2m1a52nBKmwXSkY173L+ncMcrcUJLbvkh1i3WPXFpsKW5UI8iZjclf4
-         il07Rkj3ppGW4NUbWu6GFh4llg7nXsNWNLluybv8bgafwVzMEp74jvUCNzR5agfxFvGC
-         ffcj41IkB+wfV0mYu5JYjTGul1GfsSZBUR7XHvYQsd+VB3h8Yoc75uGKkjJ1oPtmFr8t
-         kZDaiNmF6YyHKdYiKn+YCMTWC2+8i6tF/BVNQYMsLCubjLQHUG+J2s50y+rlaxYZppol
-         wwgQ==
-X-Forwarded-Encrypted: i=1; AHgh+Roh420WrNuFLTRTjI05q04MkBLBsf9+A0ZFYjiHiVWuxayrOHCOUZOb4tyuL0g+7SDX+hEvwATQAhadpeVnBqT3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5opZDRP4GOQVKm152Dk4+3VQrZ/sbiMhbsEAyVKJueAGcEf+R
-	keigqBz2G82sWoGRe2jtz7b4K46zvYjveeYopm1cPi2QStoA6xGkmmJNrhAm2eAUUWWX5z0T6Dp
-	la0Y=
-X-Gm-Gg: AR+sD11XOA+VDZjc8ZbHJTcL9g+zT5cVRJ5PfJQEJpmGKtwf6FKRlryoR2jrFq1mSoQ
-	jucQLILt1U1BfsgTG5khvWuuwgdz80BPgkCeZIcxsT0+eVC3ctPJrnG4E1LEnFgGEjidgbMT0PE
-	QhbG5TUrLcKLupz4m88DYdcK9SBTKGCol/NhDvYpDy2gQaX5irTXnRHp5hdERMSnsOlxSAvm7SL
-	J8CC56QZS298iWbWnIV7tmDNH0/pwa4zPHMzCMzJpYUIp+4qRBbKkrgjrvn71UGnjhtyE4KnGCB
-	8Ex/L3zEAyrtTFdrJiewUx0bxavWc5VzGDJwx/yaEF4hkRvdlbRyFV3LjsHbyUUYheYpF9wuWlO
-	cC9ZBK+JjC7OjDdw8LpN31ezbKNaAseXBrADONc45pzIEKY480p2xhdnTmOkHoXPW7uCl+seb+J
-	mPwGwXeUTV/awkM7VuQtH2tqzhJejWiEm+/MPbaH+VCI+daap3xOL5RBAXRMfcoQbx5L9gse7SB
-	krM3ZzvqlLH44KNX9lfupWBB3w=
-X-Received: by 2002:a05:6820:83c6:10b0:6b0:be69:d3cd with SMTP id 006d021491bc7-6b1593b2035mr2121264eaf.17.1787269648543;
-        Thu, 20 Aug 2026 16:47:28 -0700 (PDT)
-Received: from mail-ot1-f44.google.com (mail-ot1-f44.google.com. [209.85.210.44])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4632aa5180bsm2632814fac.16.2026.08.20.16.47.28
+        bh=faVdfbMyKRC0yZz7duQHLz6OqzYJS783yM+QPhqaBsQ=;
+        b=eq6Wg/qugp+BsP04XidZWpi8H+M6gBo1aBV8bOpetBnV/Sf138STHuTu5VSMUkJG6T
+         J5GsRtVxX2Q4vJ/g/gad2IeDsf4k7oHqMlXPxoxYdjOseYe/vNFMwNAeQcLLR8OHSf/e
+         +ff4rurNH5RCzCWe6I5MPP4Zz2w8HibOsFOGVG2Z35kP6PODfGquKUZUG2jwZa6ZJVKA
+         Kv2XZDzCPyVHhj7D2isrUC6DQmNlik33QBynbvrJO5NG46pNAj3vJnF2PE9klOsnbX/E
+         ANY1+Vb9gpoUNL8gJ0U4UGdLUmIGdD/8kQUhvT7KmbdbrE2PK+4mb31ci4pZ44d60D5P
+         nTEA==
+X-Forwarded-Encrypted: i=1; AHgh+RqhqiA+gZ1CG9i/Vz+yp4eK2qdRVVlWDL5KSSafglq0JyC/SrFiL29SEx4SYGK2RcpOMe4zFCKM1tRGcaOKBhYw@lists.infradead.org
+X-Gm-Message-State: AFuF++kX4rSHgkX22xzqlWTV9c6G6uOI2L0y0mthtgBDheU1kiYKRQ0z
+	RReeIWnZwNjFvwcMZd8w4H0VczpnQHs0it+k19nLbjMAp+BroCGZySbxWQl6j830i+fqOd+UHDJ
+	D5ro=
+X-Gm-Gg: AR+sD10To1HjhW9+PO4906Dq1yQGgfm0R8JlaJU0OwXKB+z6iUxph075VKdjdO9RbYn
+	HPJtbITGd9k/dKpRZh6XpQVsYOkST7eSXKncnIhTykUdJoORFw0vUP7TrwpeDZtnV2KLkW4Jr6d
+	dFyvepjrel9mhHQ9unjV2NWNHejs3sW63iSuu4kF4epxqR+lQxQT5meQzk1l6v2PQtkqDXtRuGF
+	SaYdD3wtq/Jh+xMrn2OT1dVgGNg9a48g81cVK+Dw2P+cKo+cmZL2m04a4RImgfZ6TzJ8D0nbj9w
+	U6asCKyj/sTtQ6+PMT235pMv1gfGj0w2UzCmrFqXsILW545FGK6G+TrO6MmNzTk/S4+A0CrllX8
+	ZXmsFpDJxmk79Ouwii+VZLeQJ9MP1eKjUy3MsU51qXQkWWR4n78bLxn/8S81ou1dv73wmKcTBUe
+	Os6w/s5/Zm7davSURfaq1qxKMDN9EjtgJh/oMPUJcRctrwAoG8bh8iBSHthhQyg4vUqb+smiOPo
+	hbOg2UrcG5o5EEaWRArRtvdMmvm5d3gCqXm7g==
+X-Received: by 2002:a05:690c:b96:b0:82d:8dc0:9cf with SMTP id 00721157ae682-8470c1665aemr46575247b3.13.1787269697359;
+        Thu, 20 Aug 2026 16:48:17 -0700 (PDT)
+Received: from mail-yx1-f45.google.com (mail-yx1-f45.google.com. [74.125.224.45])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-845186c0dacsm33058047b3.36.2026.08.20.16.48.16
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 20 Aug 2026 16:47:28 -0700 (PDT)
-Received: by mail-ot1-f44.google.com with SMTP id 46e09a7af769-7eb1dc6bd53so408907a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 16:47:28 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RoqKImuEHK1ESD16jP2q6ntBRbJw9tytZdTiFsPn7lQeEo4zAuDh7otFSMGWKWHm9VRxXt01lGkt/E7ivquvECy@lists.infradead.org
-X-Received: by 2002:a05:6102:5809:b0:76f:eaa2:6fa7 with SMTP id
- ada2fe7eead31-77a623259d3mr898151137.2.1787269303777; Thu, 20 Aug 2026
- 16:41:43 -0700 (PDT)
+        Thu, 20 Aug 2026 16:48:17 -0700 (PDT)
+Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-66c7a743cf8so517791d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 16:48:16 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpD2RdV8qZitBDQNrKYXpG0GtAAt1BYFV0Oh2skuJa85jo5Q2o58ZE9SLaa7JRX7OH4lrA/EWDkjWA3+2DPagYN@lists.infradead.org
+X-Received: by 2002:a05:6102:3032:b0:747:560c:e7e0 with SMTP id
+ ada2fe7eead31-778f05babd5mr1953525137.1.1787269272014; Thu, 20 Aug 2026
+ 16:41:12 -0700 (PDT)
 MIME-Version: 1.0
 References: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
  <20260722-contrib-pg-pixel10-initial-dts-v2-4-3abae9717feb@linaro.org>
  <20260724-dancing-skunk-of-novelty-72c1b8@quoll> <CAD=FV=U0HUdjPcg+5Vx8_ag0zLd3CZx5w5SFr38p+YwRnC_G6w@mail.gmail.com>
  <CAD=FV=V2+D1m5L-0d81W3E_ih2us-SrddeBUAJtMybpQons7Ww@mail.gmail.com>
- <CAD++jLnQGy_LvRxMjq1s2Hs9Hn4LNTFZ0W17zC1YLs5StwfqMg@mail.gmail.com>
- <CAD=FV=VuVdq_=TQmONJZak84S2c2-2yQ8DS0k_odYsUfg0C+rQ@mail.gmail.com>
- <CAD++jL=VLzW-4eB=izJwaTJ+6xObk9+AQGTDK6ABdrGX4K3vAg@mail.gmail.com>
- <CAD=FV=VsiQfoGYHw3D2xmV=Jedu+cmqEfrCk0mkKFzsrRCQcTg@mail.gmail.com> <CAD++jLkJq0t8sC6_S4LHERbTTiUanKh32QJtdDtUZrXdDEHgMg@mail.gmail.com>
-In-Reply-To: <CAD++jLkJq0t8sC6_S4LHERbTTiUanKh32QJtdDtUZrXdDEHgMg@mail.gmail.com>
+ <c0657108-1958-4c4c-b5f5-0eb24e81b2b4@kernel.org> <CAD=FV=VY4AeAf=TMZfJYRo6C0iSqmL-P0GzxRvZHfnNsf+GnYQ@mail.gmail.com>
+ <56db332f-a18e-4a9e-be9d-67d2e25c3666@kernel.org>
+In-Reply-To: <56db332f-a18e-4a9e-be9d-67d2e25c3666@kernel.org>
 From: Doug Anderson <dianders@chromium.org>
-Date: Thu, 20 Aug 2026 16:41:30 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=WjWd8fRuByAUn-mk-fMJqJN9wrzxAsYH7yYY3XxoDFqA@mail.gmail.com>
-X-Gm-Features: AcwNN1W02_U2EPpwN5r9pV16wwm63sX1fk_h0bppJD-El35NE0PVzCZcm5fPTEs
-Message-ID: <CAD=FV=WjWd8fRuByAUn-mk-fMJqJN9wrzxAsYH7yYY3XxoDFqA@mail.gmail.com>
+Date: Thu, 20 Aug 2026 16:40:58 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=WUMKGRUbAyd7XFFc-NGoJEKRwu4MaUnEQUDB9Mq6YYXA@mail.gmail.com>
+X-Gm-Features: AcwNN1XRfcu1Y9Mu4rBPOaQuheZikf-15PdNleMMKujFPqm2AwjeBRozlHD45_0
+Message-ID: <CAD=FV=WUMKGRUbAyd7XFFc-NGoJEKRwu4MaUnEQUDB9Mq6YYXA@mail.gmail.com>
 Subject: Re: [PATCH v2 4/5] arm64: dts: google: Add initial dts for frankel/blazer/mustang
-To: Linus Walleij <linusw@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>, 
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>, 
 	Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
 	Tudor Ambarus <tudor.ambarus@linaro.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
 	Jiri Slaby <jirislaby@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Drew Fustini <fustini@kernel.org>, 
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Linus Walleij <linusw@kernel.org>, 
+	Drew Fustini <fustini@kernel.org>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
 	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org, 
@@ -110,8 +108,8 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Conor 
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_164730_279346_1B03847F 
-X-CRM114-Status: GOOD (  27.01  )
+X-CRM114-CacheID: sfid-20260820_164818_857928_619F6774 
+X-CRM114-Status: GOOD (  35.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,44 +126,93 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On Thu, Aug 20, 2026 at 12:04=E2=80=AFAM Linus Walleij <linusw@kernel.org> =
-wrote:
+On Wed, Aug 19, 2026 at 11:03=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
 >
-> This is where the imperialistic ambition of device tree
-> kicks in: the piece of software - be that a manufacturing
-> run-it-once piece of code - that produced said calibration
-> should have *also* used device tree to find the thing it
-> was to calibrate. Supposedly looping over all UFS devices
-> in the device tree and calibrating them one at a time,
-> something like this.
+> > I'm happy to document. Can you please point to how / where I would
+>
+> Description of:
+> Documentation/devicetree/bindings/ufs/ufs-common.yaml
 
-Sure. I guess this is one way to look at the root of the problem. The
-firmware doesn't itself consume the device tree. It has its own
-independent ways to know what hardware is present. Trying to get
-Pixel's firmware to use device tree is pretty far out of scope, but I
-do see how this fundamental disconnect can be seen as the root fo the
-problem.
+Got it.
 
+If you tell me that the patch won't be instantly NAKed I'd be happy to
+post an addition to this file saying:
 
-> "I have a random piece of calibration data and only I know
-> which UFS it is for, so I am going to encode that knowledge
-> into the device tree as an alias."
-
-To be fair, it's not encoding the calibration as an alias. It's using
-an alias to _find_ the node where it can put the calibration data. ;-)
+If this UFS controller has a well-known ID <N>, a "ufsN" alias may be
+created in the "aliases" node. If this UFS controller is a singleton
+(no other UFS controllers in the system), a "ufs0" alias may be
+created in the "aliases" node.
 
 
-> I don't know if this solves your problem other than saying
-> "go with any hack because this takes place in an imperfect
-> world", but at least it points out how this kind of problems
-> collide with some of the core philosophy of device tree.
+> And obviously, as with every binding/ABI, you also need open-source,
+> upstream user of this.
 
-LOL. Yeah, I think at this point I'm ready to give up and just
-hardcode the path that we hope we'll end up with upstream. ...and if
-we're not allowed to have an "empty UFS node" for now, I guess I'll
-just have to have the first detect that it's running on an upstream
-device tree and have it not fail if it can't find the UFS node. Ugly,
-but it'll get us booting and I guess will be uncontroversial.
+As I understand it, this isn't truly policy. I know DT folks often
+want to look at an open-source driver to ensure the hardware is
+described correctly. I also know that a badly written but
+"open-source" driver doesn't justify landing your bindings. ...but in
+this case, it doesn't feel like there is any complexity understanding
+what's going on.
+
+
+> > document this? As far as I can tell, no aliases are documented today,
+>
+> git grep disagrees with you, e.g. second paragraph of serial.yaml.
+
+Ah, I see! I was looking for something more formal. Something like a
+list of allowed aliases or something that would automatically validate
+which aliases are permitted. You're just saying to document this in
+prose.
+
+Thank you for clarifying. I didn't understand this based on your
+previous emails.
+
+
+> > I think I've presened my problem fairly concretely [1]. If you hate
+>
+> There is no description of the problem at [1], except "bootloader adds
+> the same type of calibration data".
+>
+> So I repeat my questions: to every UFS node? To every node? To one UFS
+> node (but how do you guarantee that?)?
+
+I'm sure it's not what you want to hear, but I guess my answer would
+be "for these boards".
+
+In my opinion, this would be fine as an ABI contract between the
+device trees intended to run on Pixel 10 phones and the Pixel 10
+bootloader. While I'm still of the opinion that people should be
+allowed to include UFS aliases in general and it would be handy if
+that affected the "dev/ufsN" node created in Linux, I know that's not
+a popular opinion among DT maintainers. If upstream would allow a less
+"generic" sounding alias "google,ufs =3D <&xyz>" I could do that, but I
+doubt that would make you any happier.
+
+
+> I gave you two solutions, depending on actual upstream need of this. If
+> you have the second case - so not the boot device - then you basically
+> want to re-implement overlays which you cannot. Use overlays, which
+> gives you nice stable and build-time verifiable label/phandle.
+
+I'm not quite clear on the "overlay" suggestion here. You're saying
+that we should require the base device tree to be compiled with "-@"?
+...and not because we necessarily have any overlays upstream, but
+because the bootloader will generate an overlay dynamically? Compiling
+with "-@" would mean we could give a "ufs:" label to the UFS node and
+with "-@" that would be preserved. The bootloader could then use the
+"ufs:" label to find the node. When compiling with "-@", the exposed
+labels are essentially ABI. Did I get that right?
+
+That's a pretty neat idea. If you confirm that's what you mean, I can
+see about implementing it. It would also be nice if you could confirm
+that this was an OK thing to do even though the bootloader is
+closed-source.
+
+We'd obviously want a comment in the device tree itself indicating
+that the "ufs:" label is consumed by the bootloader so it doesn't get
+removed.
+
 
 -Doug
 
