@@ -4,66 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10023C5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C4AC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y7A9sj2I+9f+ApBdCNkzkJ0UFPvM5uYskNE27rgUXC0=; b=yoG3BDGV18kPzmqKEKpUtV9Lk7
-	wtPZvdpe5GkqxmLN6PYu2IvRmQD4imO4leAfZYJFX5f65m0WCmrR2+mmSwW7l7IoQkSVcLNfNGpR2
-	nnhf75LVjSsAYAxYOfX9tpmBul25SRkAnrXPZ6lWlho+Ml+kZZt2IpTlDRILVsyATG5C+qYKVv6me
-	W+DhKlHNYieBRKdiymSymchjBFBkxFfJsjZ2WSnnZMO5K5+embUI1qAyA7jEdkqjNZ2RU9PTzE0fQ
-	ZvX72Ugb8s6Q/ZOn2WWaR3QoOjEYdmEzPX/oFJuBQhpJJQlyucoXpQkv878rZn8oJRYcg32pAYQeW
-	9te5vuYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/+uA5v/zn1h03hrka0g3O9XaWL5zpy9Ouad1JKsxTW4=; b=5GMGqf/UYx5xriouCBC7jQJen8
+	3P5SfRFO5CfjQ5vWbHnmN1cw69iWyfej1mydw57gNTdIi1kZBGe5fTDl1n2ABoIzQhtAXf7Qx4TJO
+	dL7O0IyPuO4QJUThG+0BaEpH5GPH85+Mc/aqkiZGWklOTQceO2J/T+0VuBR9B/2ixgdNo+rT0NDoK
+	kEQpM8HwLMINZRQUf+uPbWNyGuoBzRQVWX4oVaibOr1ePYIz+Vg1XNPMaQjEQkG5C7iRQw4EqH9gE
+	lvYs5JdeW0A/NqdsnCJcVWBl4XIUSE0BvG3Et+2euG6p5MUPJFPvo8zcTtMnkUjV4DoXeXcOSzwXI
+	iCpBGUJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwzt8-0000000BLkV-3lmc;
-	Thu, 20 Aug 2026 10:20:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wwztO-0000000BLrl-1atQ;
+	Thu, 20 Aug 2026 10:21:02 +0000
+Received: from mail-eastusazon11012045.outbound.protection.outlook.com ([52.101.53.45] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwzt7-0000000BLjz-0hts;
-	Thu, 20 Aug 2026 10:20:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 98FEF60A5C;
-	Thu, 20 Aug 2026 10:20:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D49E41F000E9;
-	Thu, 20 Aug 2026 10:20:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787221244;
-	bh=Y7A9sj2I+9f+ApBdCNkzkJ0UFPvM5uYskNE27rgUXC0=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=lIrrhK1JB67kNZSh544PmkOfj3zrHAYu14z4pU7Riw+0oAf3zbkx7OQ0llVWpHM2T
-	 hWL5biFZJUzn/MAiLQh68SZ13pxPIX8S+8XmewhfPwVUOk42WWoB2wI0igVWZ6XTr5
-	 Vy4jPaH+Bxv5idq+wPN+bMKb03Axhav95v7nTVMIiXqaUUZH5SRnClfrHhf8TO1Skq
-	 pG+l9c36qQ2nCqOCQGXYNt49gwHTaqsE/CCq/Il2tulS1T46qcNIX1hFYg3GD9a5Na
-	 vzqkSz5ITVgQu7hRL4MMcyn15NpMyuzQQ9UigvIA2nX2KXesP+H+YhEtVkY3pcBLZj
-	 +CYil+z/iD2tA==
-Message-ID: <63f164a4dba863e1b6b356fac4c87a7e@kernel.org>
-Date: Thu, 20 Aug 2026 10:20:42 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
-Subject: Re: [PATCH v10 68/69] drm/connector: Drop redundant hdmi
- supported_formats field
-In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-68-294364b2cf15@collabora.com>
-References: <20260731-dw-hdmi-qp-scramb-v10-68-294364b2cf15@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, "Algea
- Cao" <algea.cao@rock-chips.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Andy
- Yan" <andy.yan@rock-chips.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Daniel
- Stone" <daniels@collabora.com>, "Dave Stevenson" <dave.stevenson@raspberrypi.com>, "David
- Airlie" <airlied@gmail.com>, "Diederik de Haas" <diederik@cknow-tech.com>,
- =?utf-8?b?SGVpa28gU3TDvGJuZXI=?= <heiko@sntech.de>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
- Karlman" <jonas@kwiboo.se>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu
- Ying" <victor.liu@nxp.com>, "Luca Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten
- Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Phong
- LE" <ple@baylibre.com>, "Raspberry Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Robert
- Foss" <rfoss@kernel.org>, "Samuel Holland" <samuel@sholland.org>, "Sandy
- Huang" <hjc@rock-chips.com>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
- Zimmermann" <tzimmermann@suse.de>
+	id 1wwztL-0000000BLpr-2MOG;
+	Thu, 20 Aug 2026 10:21:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=F91LPo2MFPg7xmGdUUq+XuPl+zm+OXvaBuhz/HxY58OD1e6BnQu4JxBj3AFno7xI3oHQ0Ii93gr4rHWTEap+JsmA3YyKSx0L1no1fTD/HwoZ4lVDUXtBBmqrHBLRBV/iQhm3GRgaouq3TxxjwB1FXO1TcQMzEYTFTesvTllVdSz8XCo3QwpIvTP+F8GHidInWUmILqGCMRXLGN9DvsjzAUUQ04VOm/nyZIDeTEdNvgr8NLncxbT0AxYlT7xI+ELgcsRSiHJcs1vHQHZr50YlO8vyjils+Zjibx26Jaf1IpWNywYnbVdTeNRRuc1ZLAXyapo361TWsGPaloouoKWo+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/+uA5v/zn1h03hrka0g3O9XaWL5zpy9Ouad1JKsxTW4=;
+ b=A/fWcSeKR5Ut1TFysszSqING3ue1Sph1EU4rXA8X5+dVQv3q2Xlh5uaV8mccqwyB4jH1F9VnPcy8UALPzzAAmsxnk7Hwo3sD7ElO7ZA4CQ4CTUSLY01cI7xl22VxEJt4AadihUmeHm8HKqSbVVGj3TxYAhc0M4GiSWBAq759xRj3JMdTX9JewXGliT2GSZH9M7k6qVeUDCMfJ5ZAgvL2N5h9A97L80qLB/AwNSNT7kGAMKVxNx+3X3vCBBSOy8QQhW6z4p7arQrfegCJurFiZP5SKQ5vzHZY0omWCBk9zhlkjtIkr7giinOfO/TAOoMsD594JE1P9BY2ctrbpDBXZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/+uA5v/zn1h03hrka0g3O9XaWL5zpy9Ouad1JKsxTW4=;
+ b=bbl/2SOCu6q3nFCblIlQfGryeGSXiIp14H71i3gX1RTYZhuWmMol3Tf8b5FMwwYPQBbdE+Q1K4jiaeta4SDPh0DOt8M93xdkXS+IQFasx3pF4CbbsDXmei7yNG3pi613hxrLnp8eqhpwqY9AJPCxW+7sODkucr1tXi0M19+kBXA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from PH7PR12MB5712.namprd12.prod.outlook.com (2603:10b6:510:1e3::13)
+ by MW3PR12MB4411.namprd12.prod.outlook.com (2603:10b6:303:5e::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.16; Thu, 20 Aug
+ 2026 10:20:53 +0000
+Received: from PH7PR12MB5712.namprd12.prod.outlook.com
+ ([fe80::afe1:7dd0:ea71:b7e7]) by PH7PR12MB5712.namprd12.prod.outlook.com
+ ([fe80::afe1:7dd0:ea71:b7e7%4]) with mapi id 15.21.0339.007; Thu, 20 Aug 2026
+ 10:20:53 +0000
+Message-ID: <c30e91d3-514a-4fef-8b61-e1744f577d35@amd.com>
+Date: Thu, 20 Aug 2026 15:50:45 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 3/3] perf/riscv: Use Sspesa for precise sample
+ attribution
+To: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
+ Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260817160222.3313295-1-mayuresh.chitale@oss.qualcomm.com>
+ <20260817160222.3313295-4-mayuresh.chitale@oss.qualcomm.com>
+Content-Language: en-US
+From: Sandipan Das <sandipan.das@amd.com>
+In-Reply-To: <20260817160222.3313295-4-mayuresh.chitale@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0196.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1aa::10) To PH7PR12MB5712.namprd12.prod.outlook.com
+ (2603:10b6:510:1e3::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5712:EE_|MW3PR12MB4411:EE_
+X-MS-Office365-Filtering-Correlation-Id: e92102a2-5505-493d-30a3-08defea4b6a5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|23010399003|10067099003|56012099006|4143699003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: p4fOuXSGHysHENr2XFAP1IFISCdOZciquvLrWiLbZM45D/JPnb/XNIXZk/rNt3j4mWqIUz3kbgNpAXYAX2CZvruTR3AIsTSvtEFsJS6cm6wWEo62sbqed8+lj9xfw0hgUUJAsuvFp4XMOn4AzZIzoT55lrxvZv5/lUUm38vq2/CcBVsdcWxdaEEJa/MgsZAAyhgFVeJRJqDZm1om/DA5HOw9izDWNre/eMxB6pFx3WdIuTi6wxu8iHrZKibKEzTc9o1jwU4rgVrreIEUOfULWdPlcb9VrwhDB33kfXp/KxbHJ80JXEMM+l1uV6C5oy19BAuSUQhBOIiJDv9Cifq7KpEZ4eE3l0aGhqPuo+2F7pNICb+XuLG+wlXY2spg9CGcGcm44qyqnaJDzbbAAI/osLBrtNV7qKun+nXbTjtaATXf0qHaX4uHUz6n8JOzsexD9CL4+FpA2AGVCNNGGlJ6kMhq+MLiRczGWJaAlF0cRcH4yDNUvSwjk83H1+9Vowl25RCrciNrbJaxb3UwY2O7SsX4INIRioBf0Ki/XwHBbJgSnDtDLd2Ss76eFkQ4NiLyHA+SfK3lzc1X3gA03XsKfAHSr4yD+uuzBUNq1SntWAfilb1xeQewc51LZX4uBrzNEkDdkrUFwSOCIRGniagc8OnjYThGJiPWmiV3nl572eo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5712.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(23010399003)(10067099003)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VHE5ZE5aeFBwM0ZpZjdQWXV6bmJsdk1wV2d0ZjMxVUtRQ0VPOXVvL2xJL2JB?=
+ =?utf-8?B?U1lzZ0hLRytlNFdJeU9oSGgvd0hoUmRhbnkwOTIvRkVaZVVPUHVvdkRqOFFI?=
+ =?utf-8?B?TkY5UVZPTERhV1EvcFIzbUk0b3JXZFlxSXpZeFpzcVZnT0ZOaEk1M2lYMXhw?=
+ =?utf-8?B?akFoZm9zMkIxZFhOUjl1U1djUTFsNEVWQUlvcDVnK1VIZ0ZhTXJLTHU1MU10?=
+ =?utf-8?B?NEVPU3pqaUI0K3d6SXRVRFdqWldFSExtZWt0aXNpSndUTWlDWGp4U0ZYRGtt?=
+ =?utf-8?B?YmlJQkZuNytxRnVZOGtRRzQwRUp4QUdZSWFlVWFEUm9HTXRsZHpheksxa3Jq?=
+ =?utf-8?B?RHRPWGJSbUZYOXJnQ3lIQU1BajBlanRTc25Cc1p2U1lNd2NiOENaakF2SHox?=
+ =?utf-8?B?L2dIS3dLYXhodVZnT0ZsNS93Yis5TmJaaXErV21YT2VaN2R0QWdoL1FVdzd2?=
+ =?utf-8?B?SjlKSExaazQzakFjMTdDaVY4NGhNVXpjWHZqNU8vSVloRWNGc1RvbTlSdXdh?=
+ =?utf-8?B?Z0hjcEJpYXVoNERkN3BpekJnSCtjZlN0VzdYVyt5SXQ3TFlHa0U3aEFieUYv?=
+ =?utf-8?B?TmVyQkFIVElpQkEySlhWM0R6YS9mampHc29ZSm9HaGRHS3hIakVEV2pUNzNM?=
+ =?utf-8?B?WEdEY0FUSGRocjFjVm9lenVtK3lOZU9YMVdmMVBoSW5lQ2x1cXhhOTVVek9q?=
+ =?utf-8?B?TS9QYkRlUFRsdGR2L241ZWVOb3A5UDZGVVBtZTU5MGdoa0pOMTVNNDJJWHl5?=
+ =?utf-8?B?SjAwcm5jK2hObDZiV3Q1aGdLanl2TlN6UHpZZVhMN0d4TlBsQ2cxRVl3Ty9J?=
+ =?utf-8?B?SlFiRiszSDhMcTFsaERuSnVqVnpSUjVWUlJNVkVnY1FIczNEUllqVlVXZzVo?=
+ =?utf-8?B?N2x4aXh4OGVUOWwwNXY5RE9zU0xvU3ljNmZzLzZxTXJWSXpENEFEUVNuRG5E?=
+ =?utf-8?B?Uk5CVE45ZXBoai9HdnFKZVMxeVkzbTBhanlZRlpXbGJwYXlxcnNmVUFDWUJG?=
+ =?utf-8?B?QkpXR3BlMDJ5cHY5UTY1dWIvTGtZOVd3Tlo4QkpPTDFHd3pLQkNOaTF4cDlB?=
+ =?utf-8?B?ZEphRVZqNUoxRmRYR0xDSVVyQnNQWnc3Y2xueVJzSjRUaE1MVFdqL0lVQTJU?=
+ =?utf-8?B?TTdsNVJhS0hOZVZvNTZidUVmcXBvT1pMK2ZobDVSeUZESmkrMjdhNG9sbmhQ?=
+ =?utf-8?B?UDBFRFdhRFVncDB1YTRPaHpsZThPekZNb1FIa2RVZGJaVE43NU91TmE1b29K?=
+ =?utf-8?B?TDdZUnBHYWIraG93TGRqWWVBVzRCQ0ZoSDZwTFIyTnkzQlFEam96RnE0NFJq?=
+ =?utf-8?B?MXN4elI3VlRYcEFhbjlJTDJ0WUQrNnBNaDl4K0NTL0sycnpzUFRDZUJ6TU5L?=
+ =?utf-8?B?RUdHclJiakt3UGIzbk9kMDhiSzhadHBCUSs0L09kdlk2WGd4TkdjRVdsclNO?=
+ =?utf-8?B?V2R1YnVkRm1XWGZEclgzczhKcGdlU25UbTdhTjlhczZESDcxSUlhK3pTalVZ?=
+ =?utf-8?B?VXR4QkR5bXhJMm1UOHEvY0RwdklvL1lHVy83bFFqQkMrcXVENS90WXZ0K2N5?=
+ =?utf-8?B?MXFwa0FRd3Y5UjhoU2o5bXhON0J2MDBtWXA4dG1XOURtRHlzZnB0NGl5UzdM?=
+ =?utf-8?B?S0xWZkllZ1doNlp5SFA0N3BsZTFoTE5rNFRXSjRsb3F1NlJjSE16cC8rYVN6?=
+ =?utf-8?B?cXRMbFF1WTRTMGFwV2NlTEY0d0pPcnMzQS9Od1pZQWNEV0NUanUzZ0Eyc3dK?=
+ =?utf-8?B?dER5OE5rZ3M1TktISklmdGlDZ2VUdW5teHJuR0lLdVBiZ1hCN1oyYjNmVFMv?=
+ =?utf-8?B?RS9WOUlYalhWRVhreVJDemc4WlNFV1d1OUI2SERrNGtvdW0rdlpOYlRCZVY2?=
+ =?utf-8?B?MHR6V1FHV2JVSGZpcU9XOWhqd1Z4VlpvMiszV05UL1ZpRUpFK1RJZFFheUFC?=
+ =?utf-8?B?UTNVY0ZhdHRrYmlUVVhiSGRBQ0NIU1VGNGFiQXg1SWJNZXNGUnF5UkRnazg5?=
+ =?utf-8?B?cE4vL1dXenFnUWtDRTZNdG5pYnk0eUx6R0xRZ3ZTd1JNb0FhMWZOOCtJNnNZ?=
+ =?utf-8?B?d0pCUFlLUGlVUUkzajJrcW9KK2xIQlpvUGY0NmRQOTFKRjJsUzRGSE9YRjNo?=
+ =?utf-8?B?aFl1RkxjQWhBaXhCSk5WR1hNQVp5VEpkdHIybHNFa3FWNDZsK2RUQVNIa3RM?=
+ =?utf-8?B?L0JoU1ZFWVdRT3ZnOEI4L1BORTFxamg5RlVVN2hGemtsRWMwa1UrYUY0UWVq?=
+ =?utf-8?B?WWk3Z2xxOUNwMy9uU1JiQ2xKZ3E2bG4rRmhOVnVHTHM2SEx3RGVYMTR0VEJF?=
+ =?utf-8?Q?AM2As9yo0dPuCSFLMY?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e92102a2-5505-493d-30a3-08defea4b6a5
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5712.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 10:20:53.0513
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ikAJaCmUAsoYu7KZYPrN+UX3r0wFOSGF6YeXOAhXUgPZtMXuZ0Kg6mDsymskzG81INagDrTBzejrTvwSZiyUMA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4411
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_032059_665077_16E2D429 
+X-CRM114-Status: GOOD (  25.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,17 +150,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jul 2026 19:20:15 +0300, Cristian Ciocaltea wrote:
-> Now that all users migrated to the new drmm_connector_hdmi_init()
-> signature, supported_formats is provided through struct
-> drm_connector_hdmi_funcs, a reference to which is already stored in
-> drm_connector_hdmi.
+On 17-08-2026 21:32, Mayuresh Chitale wrote:
+> When the Sspesa (Precise Event Sample Attribution) extension is
+> available and a counter overflows, the hardware records a sample PC in
+> shpmspc register and the counter ID and additional implementation-defined
+> data in shpmsdata register.
 > 
+> In the SBI PMU overflow handler, use shpmspc to report sample PC via
+> PERF_SAMPLE_IP for the counter that caused the overflow. Shpmsdata is
+> exported as raw data to userspace when events request PERF_SAMPLE_RAW
+> sample type and it assists in deriving the sample PC from shpmspc if
+> precise attribution is not supported for the event.
 > 
-> [ ... ]
+> If sspesa is not available or for counters that don't match
+> shpmsdata.CNTRID, fallback to epc for PERF_SAMPLE_IP.
+> 
+> Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+> ---
+>  drivers/perf/riscv_pmu_sbi.c | 29 +++++++++++++++++++++++++++++
+>  1 file changed, 29 insertions(+)
+> 
+> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> index dfc886dee5ad..1b0b1cc612de 100644
+> --- a/drivers/perf/riscv_pmu_sbi.c
+> +++ b/drivers/perf/riscv_pmu_sbi.c
+> @@ -63,6 +63,8 @@ PMU_FORMAT_ATTR(firmware, "config:62-63");
+>  
+>  static bool sbi_v2_available;
+>  static bool sbi_v3_available;
+> +static bool sspesa_available;
+> +
+>  static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
+>  #define sbi_pmu_snapshot_available() \
+>  	static_branch_unlikely(&sbi_pmu_snapshot_available)
+> @@ -1051,6 +1053,11 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+>  	struct cpu_hw_events *cpu_hw_evt = dev;
+>  	u64 start_clock = sched_clock();
+>  	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
+> +	unsigned long sample_pc = 0;
+> +	unsigned long sample_data = 0;
+> +	int sample_cntrid = -1;
+> +	u64 raw_sample;
+> +	struct perf_raw_record raw = { 0 };
+>  
+>  	if (WARN_ON_ONCE(!cpu_hw_evt))
+>  		return IRQ_NONE;
+> @@ -1088,6 +1095,16 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+>  		return IRQ_NONE;
+>  
+>  	regs = get_irq_regs();
+> +	/*
+> +	 * Sspesa records the PC and metadata of the overflowing counter in
+> +	 * hardware. The PC is precise only for events that support precise
+> +	 * attribution; otherwise it is best-effort.
+> +	 */
+> +	if (sspesa_available) {
+> +		sample_pc = csr_read(CSR_SHPMSPC);
+> +		sample_data = csr_read(CSR_SHPMSDATA);
+> +		sample_cntrid = sample_data & SHPMSDATA_CNTRID;
+> +	}
+>  
+>  	for_each_set_bit(lidx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
+>  		struct perf_event *event = cpu_hw_evt->events[lidx];
+> @@ -1123,6 +1140,15 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+>  		riscv_pmu_event_update(event);
+>  		hw_evt->state |= PERF_HES_UPTODATE;
+>  		perf_sample_data_init(&data, 0, hw_evt->last_period);
+> +		if (sspesa_available && hidx == sample_cntrid) {
+> +			data.ip = sample_pc;
 
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Does this need to be tied to event->attr.precise_ip?
 
-Thanks!
-Maxime
+> +			data.sample_flags |= PERF_SAMPLE_IP;
+> +
+> +			raw_sample = sample_data;
+> +			raw.frag.size = sizeof(raw_sample);
+> +			raw.frag.data = &raw_sample;
+> +			perf_sample_save_raw_data(&data, event, &raw);
+> +		}
+>  		if (riscv_pmu_event_set_period(event)) {
+>  			/*
+>  			 * Unlike other ISAs, RISC-V don't have to disable interrupts
+> @@ -1194,6 +1220,9 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+>  	struct cpu_hw_events __percpu *hw_events = pmu->hw_events;
+>  	struct irq_domain *domain = NULL;
+>  
+> +	if (riscv_isa_extension_available(NULL, SSPESA))
+> +		sspesa_available = true;
+> +
+>  	if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
+>  		riscv_pmu_irq_num = RV_IRQ_PMU;
+>  		riscv_pmu_use_irq = true;
+
 
