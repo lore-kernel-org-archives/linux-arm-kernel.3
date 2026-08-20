@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE1FC5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 22:10:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2DD3C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 22:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SXE5KfXIXooGBTjB5CaqDOPZ0J1aG8u1i/ZlYqTEQFI=; b=CifPsB+7ZEqv9K8mWgk8tNsRja
-	W3ar72/SNw1VBAs+DHdh82NjNydj5xmHtHnMelPCfW9VPbq/pZbmO6QVROi9rrMrH6fRXtZMAe98h
-	HeS7SUoG07IwDDvVm+Gol3MJazKSTUVGM6xc2dO9r5KudL9L4d3qB/leceRS/ghDu9mD3DzWgdhbs
-	xhXuNWZU2I0cbn3jsR0d7Ldjr4p738Z+HryVCz1UMwsjZYkrPnOS2iipOhgXYHs1VQkDYHkXVBuWU
-	/oDLKHggx1qzeen/WE6n30E1Fkp7fIv8irguP+xeDb5GWiLsb3ZHUxPEB5+zLoEb+8r5/DfxxDqhj
-	/XT7BQ3w==;
+	bh=KFMwFxnvQ03fHVLSjEZyYk7P7iF4J+MKHtRACyhLrcQ=; b=X0ZBLAoxEgCwN+IksoztAfdUS3
+	DbjPa+8nIkSTQhHGJgSpc5OmQbUzTKN2JeO/QDBUgMNntR02Bqk9EkCAYEkDe5438dneKN+SWZm6M
+	id6qRTCVulu4yw5Exg8d2mNkCY5c5misGGAaR1Qt9siKCbJknvWC7aPOazLvczo3E0PBvaW4PwpRh
+	LSUZc5umD+QDkw97EqOADZ0Q5RJA8dEhm49LcZA5YojvX5WGowc3CU1lRHbOrELC8Z1TsdMALlSZm
+	H3dI5yqNrcW4LSvDjoNblHX2BUgUGPNIj3Zs0fi1s7wSSQj8tAuxIyOElgDuZm6vdCDoLUED1ooWb
+	5PZGUeWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxAyD-0000000CH7M-3fxU;
-	Thu, 20 Aug 2026 22:10:45 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1wxAzC-0000000CHEW-0796;
+	Thu, 20 Aug 2026 22:11:46 +0000
+Received: from mgamail.intel.com ([192.198.163.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxAyB-0000000CH6y-2aSz
+	id 1wxAz9-0000000CHDv-2JW9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 22:10:44 +0000
+	Thu, 20 Aug 2026 22:11:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787263843; x=1818799843;
+  t=1787263903; x=1818799903;
   h=date:from:to:cc:subject:message-id;
-  bh=S5gSPQMdkP8WQzc41EJf1+ySysYt8JYbgQlYGG2zt7U=;
-  b=lStvGGHBG70WTPMVe2OFroYEfucj+3Ir+UY1PA6RoeqKVGxtltRXYJdD
-   Ak1B5sc789FFeu60hdWj2obUTal7p1cOvPDotDRL/A50jZzU8g+VHzliK
-   IgLG6YgkktuYuNNJlTNDRrZmLPYuupw3XAcO68il1hGzucpvv0RsUAWSl
-   mnvKcHwqRwo3agAWOU1AI//DMOlg3bIG3ockh7HQqo3sNJYU773W7vfJK
-   cdhpzkcnPfA7gnK0J5DRdFsBO8MIy76WYVTUclNVUdsicww/w7O6DN6Y6
-   EUGXkuP9H9hfjvwxciSVchUsX325kDZTCE+TgQkJ5168Eou2STG9qbuW5
+  bh=BR6b4lOgSdHneBXAZFFD8MnvNj5bvbArw7uXgzbwMJo=;
+  b=iQM+DuxUtPF5zdGQIw+KF0NsCRwv8mMME67lRa0acGD9XwF1nTpiapul
+   9IQNcAf/rU/gy/4Wy5Z2/fLYhETs1kl5eekGQPvWhMCrfT/zV0Ze0CyJN
+   oKSx6vednwgbNN2KUH0Lyk1JKWtPGL69sRjLBDiiE99AoXHk1qrAVqCwk
+   KfThTq9zZaCHF/hmc1YHGK9k4B00avCoUwlVLsZG9tiRTiz5Xm6PM8nzL
+   KHpSMNzooZxrPbPaZpIAskH+/IqjBUerAMyH3BAxdS4VDKWNUpLjCfIaw
+   F7vMUZ1PZ349W7D43hn/LTZOx856vWrNSwHPCH1npe0WRabVKvMVh4qyC
    w==;
-X-CSE-ConnectionGUID: UdUSVOVLRtG9FI+1TlefZw==
-X-CSE-MsgGUID: Pi/C2APBRUCf8J77FnK7+g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11881"; a="86930913"
+X-CSE-ConnectionGUID: 3D3KInKcQXacaaGxyLQs5w==
+X-CSE-MsgGUID: aMoah4aiSAKBaWIWZuux/Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11881"; a="98479258"
 X-IronPort-AV: E=Sophos;i="6.25,233,1779174000"; 
-   d="scan'208";a="86930913"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2026 15:10:43 -0700
-X-CSE-ConnectionGUID: rvtLCnVjSIqPiJNIo0dRBg==
-X-CSE-MsgGUID: woqmo1RTS3uomxSmWvLv2Q==
+   d="scan'208";a="98479258"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2026 15:11:43 -0700
+X-CSE-ConnectionGUID: hEA6tfFfRn68I5Cfh7Q08Q==
+X-CSE-MsgGUID: 5Fyd2suRTBSNoUe5F3kQdQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,233,1779174000"; 
-   d="scan'208";a="261891290"
+   d="scan'208";a="269635077"
 Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 20 Aug 2026 15:10:41 -0700
+  by orviesa003.jf.intel.com with ESMTP; 20 Aug 2026 15:11:42 -0700
 Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
 	(envelope-from <lkp@intel.com>)
-	id 1wxAy7-00000000nr5-2zUM;
-	Thu, 20 Aug 2026 22:10:39 +0000
-Date: Fri, 21 Aug 2026 06:10:24 +0800
+	id 1wxAz5-00000000nrH-3RGZ;
+	Thu, 20 Aug 2026 22:11:39 +0000
+Date: Fri, 21 Aug 2026 06:10:49 +0800
 From: kernel test robot <lkp@intel.com>
 To: Linus Walleij <linusw@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org
-Subject: [linusw-nomadik:b4/ux500-dts-golden-regulator-name] BUILD
- SUCCESS 8a78dbd5b67630025ac57745c6b8860680c7d522
-Message-ID: <202608210612.LEeUNOQn-lkp@intel.com>
+Subject: [linusw-nomadik:b4/ux500-dts-golden-voldown-label] BUILD
+ SUCCESS 55ccf78b962180cd7cdff2bacc0388df4e8bf2a5
+Message-ID: <202608210638.8oBcQod0-lkp@intel.com>
 User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_151043_671287_CC6F8332 
+X-CRM114-CacheID: sfid-20260820_151143_615603_8E6ADC46 
 X-CRM114-Status: UNSURE (   5.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,8 +83,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/ux500-dts-golden-regulator-name
-branch HEAD: 8a78dbd5b67630025ac57745c6b8860680c7d522  ARM: dts: ux500: Make panel regulators have unique names
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/ux500-dts-golden-voldown-label
+branch HEAD: 55ccf78b962180cd7cdff2bacc0388df4e8bf2a5  ARM: dts: ux500: Harmonize GPIO key names
 
 elapsed time: 1497m
 
