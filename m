@@ -4,75 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED442C5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 20:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF2FFC5DF86
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 20:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LVEvLIPEcNpWvW+7WYHdCYmT4bTuxYZ+a3551AYtS/Q=; b=WoDIWyANj/uAb692azymoLlWic
-	p+p1SM1n1sG2I6tNm7dH7xvSSYOCjgQIQpxCEjhn+YH7O5zPlVg0mtzQKphjxcXDEind+SdS5NA5W
-	8jH8f2mkVBG+tbb7xDUSEluYENBlUfr1NxrC43mjtnFXTJRWi+kigwDUK6+6M55CJ9nuZ9/8BAOER
-	j8goxc+jLfMSrvy28qwWvi+QCcy2nuGOhAFbi2EUQRXxkhq/mzIAOF+6Z0zPSrM+8QtThJ9keqnb0
-	VSIcMEN4j45Gfg0kkYpn0TQwA0JV0f2TJOuqxPvp7gUMln0vWiZ67UYfHv43koZZah/VqFOpjWpcc
-	+PeEmQdA==;
+	bh=IbAxxbT8tAzu++l7YEpQ8qx7NuP024/XerKy2rX7QqY=; b=f1c5bFAmoDq5Bx+p61QuE21b4H
+	dk5wfdW1RP0pIHrWNhJkCpdpC3NNL7vYAnKGKTl7Wu98coG1dep0UTOUT0ReIw0ht8zjFo28zoXJD
+	9LUx6KlMUOjBhESp+MsCfidpHhahJ64wGlX7k9e6MFqjT15bX1wM/1dd19ctQDZurW3SezukFRZQl
+	Gz675WIMrXCeXIZz14H6BQzPbDSkWmcElhdCJ1eXqNRBkiBpA4CeBcr9EsITBsHS1UvLRSXKROUFZ
+	CmJP10/aCfFy9/KDWbiCPkJelbYoC/D2cByDvan+qIYRctiHb8vdrzsmaOz49Njt5SqW1b9q+frHo
+	AD8AYd7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx9UB-0000000CAxo-39tn;
-	Thu, 20 Aug 2026 20:35:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wx9pC-0000000CBXg-2rAU;
+	Thu, 20 Aug 2026 20:57:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx9UA-0000000CAxh-1OjI
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 20:35:38 +0000
+	id 1wx9pB-0000000CBXX-3fnS;
+	Thu, 20 Aug 2026 20:57:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BFDED44021
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 20:35:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CA2E1F0155C
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 20:35:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 980D660A61;
+	Thu, 20 Aug 2026 20:57:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F25A51F000E9;
+	Thu, 20 Aug 2026 20:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787258137;
-	bh=LVEvLIPEcNpWvW+7WYHdCYmT4bTuxYZ+a3551AYtS/Q=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=hOg4onslcA38Hz1lx6d7G5Xr6jcrVkEEcFnoBs0zHrSlWtT5X5iddGpl09CaduWzo
-	 PecB+yoWN/lPyN3F2hfFNxAS5JyU4onRiaKBNGmdN56nHSdPjjSc6UGl/gNhQeHgEW
-	 QvI1FXqLJSl3wSwPJCd3jBLgliEx6yzqnEXgta8QhxMp9bezyA9acP4uB88mIp5A6i
-	 /xBVDLen4o25gAGmhPTdGmZ66F0cGfTI2zVZRhNe+55Cgbxya6uSf9yeG4bd5CTgra
-	 dbJBBxEhRBJSDTdf+xrPnCSvjXEQOzizXW8YCJtRteyJEkZXMOcbaCbwboXY+n08/e
-	 Qsw9X5HhGW88w==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5aeba09900bso243690e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 13:35:37 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrvqlEclufPtnP15T1lOCTCYctSu/dNvnnIpK/P8mujg4jhaapAsRzT4h7FiHMpjczqnPZP+t9Y9NGXRlXkPHXr@lists.infradead.org
-X-Gm-Message-State: AFuF++kZnsg5tjeQ5UizcjO/fgWYHrbQRD8On6aU+jlZee6up8zhhWdc
-	wbXhnA/Gqja0GNRg2Pyz6M/xG7kGzAnzxdpyc10PVuTwec46TyUDJmolkHznIv07NTMh5HbShXY
-	qNwih8e7MwXBQleCxksXO4Q7Ut4MBG/U=
-X-Received: by 2002:a05:6512:8346:b0:5ae:9c19:165c with SMTP id
- 2adb3069b0e04-5b4841e27d3mr252495e87.7.1787258136265; Thu, 20 Aug 2026
- 13:35:36 -0700 (PDT)
+	s=k20260515; t=1787259440;
+	bh=IbAxxbT8tAzu++l7YEpQ8qx7NuP024/XerKy2rX7QqY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=EHREILNBpfwT0Euc/maJiAHHHhU4HloAu2+XfUEEhc92ijmK53qv+bxE8ZFyYAkWF
+	 rbW3erbcN1PJ7Qz+pZAjoaMeaS+2SBWd3JgF8P59oo5O3DzslfwNixt8X1BnTI0v6Q
+	 KN/l+osxGH/TMEBzG4hN84isdZTDf+CJjarHUOvYia6Zf70j5s4O4ZeAt83wXyfzTA
+	 NjtZpEKDbcPApCISazwFRY5ivYRwiaHWHy41swP9lX5/JoXufZMiYPm6MF/NU5/FL8
+	 O/3YtproF8PiHv3X73/LHHw3v0G4X7rGpmov852oasyrMV17MkLmNQcAY/UnpJEyY2
+	 2qIoZBPGYibgw==
+Date: Thu, 20 Aug 2026 13:57:19 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, "Leto Liu (
+ =?UTF-8?B?5YiY5rab?=)" <Leto.Liu@airoha.com>
+Subject: Re: [PATCH net v4] net: airoha: Add retry mechanism to
+ airoha_qdma_set_trtcm_param()
+Message-ID: <20260820135719.0b4e5f35@kernel.org>
+In-Reply-To: <20260817075044.17691-1-ansuelsmth@gmail.com>
+References: <20260817075044.17691-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-References: <20260618-ux500-power-domains-v7-1-v1-0-eb5e50b1a588@kernel.org>
- <20260618-ux500-power-domains-v7-1-v1-10-eb5e50b1a588@kernel.org>
- <CAPx+jO-ow2vo2wMxERLGse88wLoaR=HLdOWk6Qwv97ZdbE4R5Q@mail.gmail.com>
- <CAD++jLnzDmxW_SoJ9H1tS2_r+jd7A7FpLVp37nK=dOEPj=GExA@mail.gmail.com> <CAPx+jO-+hLsAdDC9Ep16cO52cA2c=xKeXvngkGqzoC0FyxXj+A@mail.gmail.com>
-In-Reply-To: <CAPx+jO-+hLsAdDC9Ep16cO52cA2c=xKeXvngkGqzoC0FyxXj+A@mail.gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 20 Aug 2026 22:35:24 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnVsYhHjY5XB1kU8c-1bH4PGkR3quiEGVgkb_0_X-7hjw@mail.gmail.com>
-X-Gm-Features: AcwNN1VO70LvbVfj0Q2UgJnPHtAU9I9kBvApsB1ktj4CqAz_-IVL1-eYcTJPSeg
-Message-ID: <CAD++jLnVsYhHjY5XB1kU8c-1bH4PGkR3quiEGVgkb_0_X-7hjw@mail.gmail.com>
-Subject: Re: [PATCH 10/11] regulator: db8500: Add power domain regulators
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, Lee Jones <lee@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	dmaengine@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,61 +72,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 20, 2026 at 12:24=E2=80=AFPM Ulf Hansson
-<ulf.hansson@oss.qualcomm.com> wrote:
-> On Wed, Aug 19, 2026 at 3:30=E2=80=AFPM Linus Walleij <linusw@kernel.org>=
- wrote:
+On Mon, 17 Aug 2026 09:50:39 +0200 Christian Marangi wrote:
+> CPU accesses QDMA via the bus.=20
 
-> > > > @@ -673,6 +673,7 @@ db8500-prcmu-regulators {
-> > > >                                 // DB8500_REGULATOR_VAPE
-> > > >                                 db8500_vape_reg: db8500_vape {
-> > > >                                         regulator-always-on;
-> > > > +                                       power-domains =3D <&pm_doma=
-ins DOMAIN_VAPE>;
-> > >
-> > > Hmm, isn't this the other way around? The power-domains node should
-> > > have a regulator supply?
-> >
-> > They probably have that, but that is not what this is about,
-> > it's the other way around.
-> >
-> > > We may even consider to skip to model the regulator altogether and
-> > > make the power domain operate directly on the prcmu instead.
-> >
-> > That is what the series tries to do, as a whole. Sorry if that was uncl=
-ear...
-> >
-> > What we do in this patch is to deal with the fact that two of the power
-> > domains, when enabled, also turn on two external power rails outside
-> > of the SoC.
-> >
-> > Since external components such as I2C devices cannot really be
-> > claimed as "being inside a power domain" they take a regulator.
->
-> So with I2C devices you are not referring to the I2C controllers, right?
->
-> Are you saying that these external I2C devices consume the same
-> regulator as the power-domain DOMAIN_VAPE uses?
->
-> I thought these types of external devices in general use a different
-> voltage range. Moreover, do note that DOMAIN_VAPE also has
-> corresponding OPPs (performance states) that change the voltage level
-> based on the requested OPP. I am not sure an external I2C would be
-> able to cope with that.
+Maybe it's just me but I have no idea what "the bus" is here.
+I'm guessing that the bug is that the CSR write path to=20
+some SRAM may get starved.
 
-I did the mistake to trust the device trees :(
+> When multiple modules are using the bus
+> simultaneously, CPU access to QDMA may encounter bus timeouts and fails,
+> resulting in QDMA configuration failures and potentially causing packet
+> transmission issues. In order to mitigate the issue, introduce a retry
+> mechanism to airoha_qdma_set_trtcm_param routine in order to ensure the
+> configuration is correctly applied to the hardware.
+>=20
+> Fixes: ef1ca9271313b ("net: airoha: Add sched HTB offload support")
+> Signed-off-by: Leto Liu (=E5=88=98=E6=B6=9B) <Leto.Liu@airoha.com>
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+> Changes v4:
+> - Rebase on top of net
+> Changes v3:
+> - Init data
+> - Use continue instead of negative error for poll
+> - Add memory block after CFG_PARAM
+>=20
+>  drivers/net/ethernet/airoha/airoha_eth.c | 29 +++++++++++++++++++-----
+>  1 file changed, 23 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 79418e682f71..302f8c432055 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -2712,14 +2712,31 @@ static int airoha_qdma_set_trtcm_param(struct air=
+oha_qdma *qdma, int channel,
+>  		     FIELD_PREP(TRTCM_METER_GROUP_MASK, group) |
+>  		     FIELD_PREP(TRTCM_PARAM_INDEX_MASK, idx) |
+>  		     FIELD_PREP(TRTCM_PARAM_RATE_TYPE_MASK, mode);
+> +	int i;
+> =20
+> -	airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
+> -	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
 
-It seems all the device trees are buggy, because components
-that should be connected to VSMPS2 from the AB8500 PMIC
-have been instead connected to the DB8500 VSMPS2 power
-domain... The one instance of VARM being used outside of the
-SoC was a bug as well.
+a short two-line comment would help remind why we're doing this loop
+here, specifically (and not all register accesses)
 
-OK I go and fix this, worst case I add a fixed regulator for it,
-it's an "always on except during sleep" type of thing.
+> +	for (i =3D 0; i < 100; i++) {
+> +		u32 data =3D 0;
+> =20
+> -	return read_poll_timeout(airoha_qdma_rr, val,
+> -				 val & TRTCM_PARAM_RW_DONE_MASK,
+> -				 USEC_PER_MSEC, 10 * USEC_PER_MSEC, true,
+> -				 qdma, REG_TRTCM_CFG_PARAM(addr));
+> +		airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
+> +		wmb();
+> +		airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
+> +		wmb();
 
-We should be able to drop this patch entirely!
+The wmb()s look like cargo cult, please drop them or explain what they
+do.
 
-Yours,
-Linus Walleij
+> +		if (airoha_qdma_get_trtcm_param(qdma, channel, addr, param,
+> +						mode, &data, NULL))
+> +			continue;
+
+AI also points out that we're worried about this get timing out here
+but other spots in the driver read it without a retry. Is this possibly
+also an unnecessary check, like the wmb()?
+--=20
+pw-bot: cr
 
