@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FBFC5DF81
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84216C5DF87
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 14:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,31 +12,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X1cEzBJvBztMxBKiQQCNaB02Q/HGS+t/XW8M/wtGoQ8=; b=CSSO7RtTqwFabjZwgrMzfP8vVk
-	BkDMnvmRUTJvN7mSuMsmlYsjdbQ+Zdxoy74PIOa+boRH4SHsC/gtYgy9GRBaZq2JtIk7YF2Yeah84
-	xsEcWTcbbx4ycEGvYDfdT8g4X1o9i7e7u7h7vPP7dpR1XCxTIlFZVeJRHnRcDqeiH9gPD8W6HruNh
-	TX5NntqMJkgouqTOncWnGn4CPNwBwZIVN/2QwKPI8fjnEdJmxVMAWrgnApqC9B8bJyeDxOWI+B0mR
-	NZTxIEGtKyWMnvs4OLIAPh5uUZ3udfPdgkIJgG42lmezC1O4WM1FT75tGeepc+VmRRP5+Q92mOkEg
-	MbNPDhSw==;
+	bh=rbw8xQ6r3piVMAmakyWDIwjPOKwVFsaRkmQ0YOAEGp8=; b=nw0/Wk7qAc7gFCpmuDKgx4qHMl
+	pclJohlFhzMIlae0BRj/9msfHgTIRK/bRHkK2lKfnFvV2YAV1vFbPu7GIvt/Kxak7T7IPHGrqTV13
+	5Hi7Rz0FeWQkRPytwrgPAKhIOHRCYPBut4xRKpdpm6sp/pT9c329ctiqlADcqbc9INFgVm7FR+NdY
+	LBerEdgRTumvQZNAeHkBvvBmISqFgdYk9V/4B1ev71LzdrB3tdfybtj4+kLN/hL2hqar7cU5g8+5X
+	vieY+gEz4qwwy6yJyuXFzh7QGBq7q2ilU/CA7oMHV1H9bh1NgOIB6ElYxoRVOLYzm5BDTr0SViwWE
+	nGNTQ26Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx3OA-0000000BfZx-0uko;
-	Thu, 20 Aug 2026 14:05:02 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1wx3OF-0000000BfcC-1IRJ;
+	Thu, 20 Aug 2026 14:05:07 +0000
+Received: from smtp.forwardemail.net ([121.127.44.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx3O5-0000000BfYd-1DGM
+	id 1wx3OB-0000000BfaU-1IhF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 14:04:58 +0000
+	Thu, 20 Aug 2026 14:05:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lineageos.org;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-2eefaa527c;
- t=1787234696; bh=X1cEzBJvBztMxBKiQQCNaB02Q/HGS+t/XW8M/wtGoQ8=;
- b=LuAtRNMPZvD5/qeEGxdzvLKrm5aOhobovjBRO2+uxlRjsiPrzarVTyQDwquFqKFjhTj+/ibtI
- keDFLRyJbC63k9m5QA+hP+8r4guKZ9a6LMi+CnqnyS4ymTsokT7mEPVLnFNIj7sa4aOr1oFvXKE
- tj4kWnHgPsHAcMYs0xGcLb0=
-X-Forward-Email-ID: 6a870985d69df34e1c49334b
+ t=1787234702; bh=rbw8xQ6r3piVMAmakyWDIwjPOKwVFsaRkmQ0YOAEGp8=;
+ b=YgdDCjPbkiXFy7zG+sxPT/ybrmfjR4reVrhZA9Ws+ELxOUx3IzX+oGy/kL/Nh9O2ayK/InEb9
+ RDTQs5rrMzKaIKmENeGC9iXOrvI8VhesSd8Dpr9Prew35sYvCnTX+wnXtvFcmeMmbCBI/D+RCNu
+ 5cmg4fDNiOdfOuXehj6vy9E=
+X-Forward-Email-ID: 6a87098cd69df34e1c493377
 X-Forward-Email-Sender: rfc822; tturner@lineageos.org,
- smtp.forwardemail.net, 149.28.215.223
+ smtp.forwardemail.net, 121.127.44.66
 X-Forward-Email-Version: 2.13.16
 X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
@@ -54,17 +54,18 @@ Cc: robh@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Thomas Turner <tturner@lineageos.org>
-Subject: [PATCH 0/2] Exynos850 GPU support
-Date: Thu, 20 Aug 2026 15:04:37 +0100
-Message-ID: <20260820140439.83220-1-tturner@lineageos.org>
+Subject: [PATCH 1/2] dt-bindings: gpu: arm,mali-bifrost: add exynos850-mali compatible
+Date: Thu, 20 Aug 2026 15:04:38 +0100
+Message-ID: <20260820140439.83220-2-tturner@lineageos.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260820110620.1881-1-tturner@lineageos.org>
+In-Reply-To: <20260820140439.83220-1-tturner@lineageos.org>
 References: <20260820110620.1881-1-tturner@lineageos.org>
+ <20260820140439.83220-1-tturner@lineageos.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_070457_338613_C36A3B20 
-X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-CacheID: sfid-20260820_070503_442327_6A7C4B6B 
+X-CRM114-Status: UNSURE (   8.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,19 +81,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
-This is my first time sending patches to linux so apologies for
-mistakes. This series provides basic GPU support to the Exynos850
-platform, making use of the Mali G52 GPU through the panfrost driver.
+Exynos850 SoC uses the ARM Mali G52 GPU, document its compatible
+string with the appropriate fallback.
 
-Thomas Turner (2):
-  dt-bindings: gpu: arm,mali-bifrost: add exynos850-mali compatible
-  arm64: dts: exynos850: Add GPU/Mali Bifrost node
+Signed-off-by: Thomas Turner <tturner@lineageos.org>
+---
+ Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
- .../devicetree/bindings/gpu/arm,mali-bifrost.yaml    |  1 +
- arch/arm64/boot/dts/exynos/exynos850.dtsi            | 12 ++++++++++++
- 2 files changed, 13 insertions(+)
-
+diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
+index 9db9f84ad964..ece2b637cd41 100644
+--- a/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
++++ b/Documentation/devicetree/bindings/gpu/arm,mali-bifrost.yaml
+@@ -34,6 +34,7 @@ properties:
+               - rockchip,rk3562-mali
+               - rockchip,rk3568-mali
+               - rockchip,rk3576-mali
++              - samsung,exynos850-mali
+           - const: arm,mali-bifrost # Mali Bifrost GPU model/revision is fully discoverable
+       - items:
+           - enum:
 -- 
 2.47.3
 
