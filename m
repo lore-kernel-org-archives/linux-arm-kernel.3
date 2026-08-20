@@ -4,90 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9EA3C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 138FFC5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:13:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5pJ0L04+0LvJLaoDNBbLvvB34SBygdnNvNCFLvcb6N4=; b=fbMzogt+kkWGcEeGHLXwEruD/7
-	Cu6UL9luceMzqPHwL3GOGWWzR19/8lx8t3DvvUPKFARVLtgAcSQtCW1IVkV070zh0fd9Snvg6s4zE
-	N5bKIOUGrb3vOYj+nYoTHYAY7Gu1zpBRFeed3Gv0Hh9op9XWcnTr+M+quT4NGN8pcDD6vNQUn9GK/
-	oD783/c7U/5foza9MndoEo5tuhDZ01ZqS7fc7TeApcYhw6G2mY6DhgAn2nFqhRYDeSRVdlCdsZrJ8
-	sbNKk13HwGNzI+DPm8CgZ53UKPbFLqkGo4qmRlAr/XvAW25iYAOKdQIV4CYBi96+fJYAzBtsRnOjm
-	7NK7MewA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mkTfuTYJ93nywvpSKFjkzxgC5NUBpOIBH4vkgQrAOyk=; b=EPc73R8IyZ7ggWgMKjif/MvLey
+	dVqe/ATYWmXsHk42CPDUfyzH1mqLNhTztJuT8T/82VBncFk7YJ58vX8ntJ29GKZCk6NEEep4dr+rQ
+	jQFm5DGSbDyo5C24B6g6EE2Zma6Tg7mlPHyr+fTr0b60ZZ/7/M6nUlUK71pUvHL5uO/0MQ4IVELrP
+	cdepP3WvJEG4LfBTH7NEqOv7nmq9DTKtET7z4u3M3uWJYTIDTFUoYRJ0K3isHapJHyv69QEi51iOi
+	9BC814NUll2mZJF7QaklhlUerpZWxoPGNC2qArVrNsC3GFnZFa6rG0/zSDPUFYCAiWXuOUxruqHYT
+	r5kWu1PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwwxk-0000000B15m-1tZ8;
-	Thu, 20 Aug 2026 07:13:20 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1wwwxu-0000000B18c-2NmR;
+	Thu, 20 Aug 2026 07:13:30 +0000
+Received: from mail-francesouthazon11011032.outbound.protection.outlook.com ([40.107.130.32] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwwxi-0000000B15N-0Y4R
+	id 1wwwxr-0000000B16l-43jr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 07:13:19 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2cf50c6f235so19314425ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 00:13:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787209997; x=1787814797; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5pJ0L04+0LvJLaoDNBbLvvB34SBygdnNvNCFLvcb6N4=;
-        b=N06kQphWU2v0liAcHIzo/3dMMjkTI+kg/CaJv6Xyap/67XVDap4zJbk6aQjAWxb3u1
-         AhkQAy+2QiavxhqLgziD2xhnt+QwlS+L3/DfdHNmhjwdR8v4GfsfJKpKtRvoSzymtlFj
-         Z8oFdGqJWY7HTP1Wu/jns380LjcAYpCPWzsT6pczGDUQXr9u5G6rW5Awe3shAM9DWwxS
-         bzmXezTaAHKdGfewaSxNQzg/PQXYprkuP3L6Yk23ZBfNb31HtUaHzDCnhP2KRIrVA2Fo
-         I6rsnDWONyZdhQmRClBgdCHJ1OfFy9wOkvhvdkgaO3XLH52SPXQFB1axmbX9H7r3ZDtx
-         BwJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787209997; x=1787814797;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5pJ0L04+0LvJLaoDNBbLvvB34SBygdnNvNCFLvcb6N4=;
-        b=LghMm8kY7OikcmuVSE91NOYEVMK9EJE6bEGdT3HJEOXOldOipqzXZuyu3LPku5aO9l
-         0xUJAPhzJzr+sMyvUzMYewTKmrhWhfmPmdk32vGaLOZVAIkMPLaUy1zbIAXT2J+dvTyr
-         SzkfisFBlv9gdeNhQRqXxj/6AK3J7PFsYSLFLZb006tCTWjUriKbqFdq5vpz/TEiQXgp
-         fwTTJLLxk3o9i1dFOzWIPnSlZm1FnPEBtfEgxb2kovcJ3XHsYU0AdGPg45mJYt1caqaV
-         8ZSftE89/34jef8iA8m9zEc0HONgWZaM3Qc3siKc/iitGjS0sYS9xEJJMnVAWj+bHTDx
-         26rQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpoR678alS+5kKKj5vAewKvQNBT4LYDfutsK7AR7+ZZ8RrLRgPkI7UIuFQoLqrvE+PwiIfqOCp9tHeSqI06wUq/@lists.infradead.org
-X-Gm-Message-State: AFuF++kQsFhcUC5YOE9qFB6sOB6knVRypssjCEf0oc+gKTlShi2zHDAP
-	kUExIabp8pwjNoi76PMYzmhNhf8bYk17FCvumPMRYt/Zi9HbIok+49I=
-X-Gm-Gg: AR+sD10SAc3EfVdLN5tH95qgIUPD/x5SwD/KuSKFfOVlNv1e/6fCtv1tzcMnvdgjS7V
-	FRXxKz+QLJIlHFZKdDhId05tz2z65TxHqx/6T+byrNIK4JSw3dk7y6CEhMe5/kkGmIfGPxa4YEy
-	XSBuwLi1HplehvMZrV7gMqIq/QKu0I6JyAnwNq8//jWDfFwaH8dyWQeozg41gpeLwT/PMXs/zsT
-	Zc9LwgolmZygbdQODumfDdBLeJSvLrqL2eRD/ud7q+mO5IxrIWeTUpiRmPTyNAKCPXnxnSBwB7o
-	MIIZ1GKEKEq1SqVY/aWUTlygae2F7Mn1hQjc2fECbftnizGBLZZvUNM677w1n9xquUczAd08mxf
-	8oTtIse3GBWJB+j4pFqNjAxfLwJ7Us1VukZFolL1cv49S6HjwtScSFgVUxErUogfqRZ1rjPJQOj
-	FpgoNOoGBIV5kO22RQBAKcbfbttPt4SR46gDuo3VG+29KW87fO7EOb8iE5/CgtqwWNR9r6joDqA
-	A==
-X-Received: by 2002:a17:903:b4e:b0:2c8:4c29:afeb with SMTP id d9443c01a7336-2d5fd674a51mr207729235ad.8.1787209996909;
-        Thu, 20 Aug 2026 00:13:16 -0700 (PDT)
-Received: from DL2XHKPB4.dl.net ([103.63.104.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d62d5b687bsm3207175ad.37.2026.08.20.00.13.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 00:13:16 -0700 (PDT)
-From: Triet Hoang <triet.hoang.dev@gmail.com>
-To: fabrice.gasnier@foss.st.com
-Cc: wbg@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-iio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Triet Hoang <triet.hoang.dev@gmail.com>
-Subject: [PATCH] counter: stm32-timer-cnt: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
-Date: Thu, 20 Aug 2026 14:13:08 +0700
-Message-ID: <20260820071308.2041128-1-triet.hoang.dev@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Thu, 20 Aug 2026 07:13:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pl00DgFACnz6Ae7xDxgqNQDNRo993jWsP0lr0SjvYPtDGzh+3ymnprSDkqW06W3K/EHOYEijPleqyQWBzvJaChMeUuGR5ZCvg8KsvcylWNSdAA9OmDfQbbY9OY4364uVZegNIzHcrvBdWyKMDX+bB80n6jAbB35gqenRpznvAYp0npnIc2i2vCXaGM8D+sS/hWRxWNvkR9fKBhL+FTMngLmDfHZR/ToPxzJ+2/wyoVA6dUPNDBuIPgC0h3mikw8imYzzKca2UHolmHA1zLz9IVKNA8nbbv+fIQg/9MIX4QkAnzHmC01G3ANgmAYpVX7PSrcf9hwnORXMSIL9o//4Qg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mkTfuTYJ93nywvpSKFjkzxgC5NUBpOIBH4vkgQrAOyk=;
+ b=yDQm8xwzMNNuR3ID52T0KplddmCWJpiPwDDdRBZOlI9qAHJMIpjWKM5380QyHUPAQJ0ZE7VGJEz9ss6c1xl8V3JJLKaiCm+SgPc31cCteT74UPSM1ugxcxSzx7Y+Orhgi6/FO8dtA/B7Du+tBI0bNrKO4ciVcipVmdC3nAkmFAMX6uxeDjJbpG48Rko5S/rhtiE4JrbP5caNwv7YzSZGjlvyf2CiN95aHmkDu0P6WAC7PYuJh8g/M2GQTAGTRZIgRF2kkMqgTV8nJWelJK/nzn33gjRomLCq5bfueqdhSUZOMrlm6VYXYmpTCKaPB4IQPhEtFjstdeMlZO0RL5e3LA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mkTfuTYJ93nywvpSKFjkzxgC5NUBpOIBH4vkgQrAOyk=;
+ b=i5UsCgPdG/CfAcJAKLmMPjARoQeeoSQtmjj2YfXy8Pr4VWkhhMkT9aPEGfi5KWFyyQ64la8VT9M/n4YvLn7CKpJmJknVi8kCn5nzQX7bSbOwWpQbkv03xojnhvzgrJAP27LsKxo7NMVzBOG6U1E4KzYxoDePdIq7O/bK89PGaiLslQAYd36ka1zUC0htZNWe7FYJL3bjH56XqUwcrAf0JuZKUNDsHIeQmH+fMwBKxai6248vGgzFoBAT0pmci92QKca3ZD0ikeCKWoHnggJr3Aj1hC+IOvg68hfFmKIXi+M9QEwRFHYw2b25fxVTP7Wo2Cjr0XvSEk3uAL0S8X/B+g==
+Received: from DU2PR04CA0304.eurprd04.prod.outlook.com (2603:10a6:10:2b5::9)
+ by BESPR10MB9343.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:b10:f3::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Thu, 20 Aug
+ 2026 07:13:18 +0000
+Received: from DU2PEPF00028CFF.eurprd03.prod.outlook.com
+ (2603:10a6:10:2b5:cafe::ad) by DU2PR04CA0304.outlook.office365.com
+ (2603:10a6:10:2b5::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.8 via Frontend Transport; Thu, 20
+ Aug 2026 07:13:18 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DU2PEPF00028CFF.mail.protection.outlook.com (10.167.242.183) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.339.3 via Frontend Transport; Thu, 20 Aug 2026 07:13:18 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 20 Aug
+ 2026 09:18:17 +0200
+Received: from gnbcxd0016.gnb.st.com (10.130.77.119) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 20 Aug
+ 2026 09:13:17 +0200
+Date: Thu, 20 Aug 2026 09:13:11 +0200
+From: Alain Volmat <alain.volmat@foss.st.com>
+To: Hans Verkuil <hverkuil+cisco@kernel.org>
+CC: Hugues Fruchet <hugues.fruchet@foss.st.com>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Alexandre
+ Torgue" <alexandre.torgue@foss.st.com>, <linux-media@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 10/13] media: stm32: dcmipp: pixelproc: addition of
+ dcmipp-pixelproc subdev
+Message-ID: <aoapB478q-3OVY9c@gnbcxd0016.gnb.st.com>
+References: <20260724-stm32-dcmipp-pixel-pipes-support-v3-0-f77fe7e723d9@foss.st.com>
+ <20260724-stm32-dcmipp-pixel-pipes-support-v3-10-f77fe7e723d9@foss.st.com>
+ <23512cf4-1991-4ee8-96c5-a83e8ba197ca@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <23512cf4-1991-4ee8-96c5-a83e8ba197ca@kernel.org>
+X-Disclaimer: ce message est personnel / this message is private
+X-Originating-IP: [10.130.77.119]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PEPF00028CFF:EE_|BESPR10MB9343:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4835eb7d-ba1a-4c06-e015-08defe8a8293
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700016|23010399003|10067099003|56012099006|6133799003|4143699003|22082099003|18002099003|11063799006;
+X-Microsoft-Antispam-Message-Info: NXNA+2kZtfp/yQe0dC6xdUDV7/cysE6czTp5pTnB0nPKR/Tj05azlUe/NK6Jxm0DDAHm2PbwkAWAckNyF1ufCYO55RwwloFHjfMellx9f1m6av6vYK/yhVcNJRqC8W2UWfCY4CBl6FY//viVaCCLeT8m6lvxiRkc65Qsl1J7X4Qj08mrjpdrcGZRd7/Sqw9JbRPK/KXNyotjA9StYWS75T/a1V/xCpy8At5ipxyALk7L0cVzI+70pWOQc4PwpdpgILtr5bq4z1peyFUzSnXWvDoHXLypO9/IDKSsA0Wjt0xxED4q9R6YWIMZIZpi80RP2TfkqMGra2n2sGsljXKbUXppoN6gKK45aygCOKUS2wvzO02hZniNEo2oOfxL2K7iOhfBl8VTXpjQsbyACep/322boiBe5jyJbv0yMDnmIYOH45KMMqEdU3ShrMo4xDKbn4brvzLdyFH+azD/ls65PBmaa5UnL0so9A/x4mteASGfjgADnS8RhG6zH5n2fyr6ZrMcMPE3mpXiMLhg+R9+Clex6nu5DEsl50e22+GS7YNMVsO5dhZQrt2qPa8N+o3WhDDMISlaYgM5VwToA5X/FYQRu6BYqye9ZuVIwWZR44M+83Mj6+q5vTjp0cqeukxOmgj4VS7xekvn+R8/ILhrPC0LFdGWFQTBjPT2ZY6AFMhJI7oWoXA2HkN+rwoOSfNv4SMzwO10IZQuGspQKktu7Q==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700016)(23010399003)(10067099003)(56012099006)(6133799003)(4143699003)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: tabBAm6jnLYkMgSM5yk/UoHLvckh1qBQRoJRgPZxQrchsxvXSDg02y0OEU3RUItlfRX8LLVhmON04R8PeFcLxDZ8zHW+S4k3h6tS1oaLQNrOUcNmeWqnwr6hzKnZg5O7jduU+IW6i/JviALk5yYEU11VXD6Pcvl4Mj0T+VT3KfdcDg81JU5P/hmPPeuev2pNfgKtAAazeRyydfRcxbFxSbBN520mgEGvCMaQE++w7fez0FKAslDp5v71sCvf19EDMfUktHSmWAjE63sjnDqZo8lA5KNCnIxBv/D2srhpQ1hf/ub6aqmG2FDkRXS8yl7hatEv66rzBUpTEXeOCWL11QXh3n50EncDjMtR7idmjXhQgwLunUPHD6jpOGNeMyOEFU8KK4luQdPHfIrnAc7zZFnIGRTfXGmZvf9wUop7pIhvniaXkXsaoy8hvpOFB1Zq
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 07:13:18.1676
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4835eb7d-ba1a-4c06-e015-08defe8a8293
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028CFF.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BESPR10MB9343
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_001318_169949_C8FF470D 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20260820_001328_237899_83699330 
+X-CRM114-Status: GOOD (  31.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,59 +131,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the deprecated SIMPLE_DEV_PM_OPS
-to DEFINE_SIMPLE_DEV_PM_OPS and pm_sleep_ptr().
+Hi Hans,
 
-This lets us drop the __maybe_unused annotations from its suspend and
-resume callbacks, and reduces kernel size in case CONFIG_PM or
-CONFIG_PM_SLEEP is disabled.
+thanks for the review,
 
-Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
----
- drivers/counter/stm32-timer-cnt.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+On Mon, Jul 27, 2026 at 03:49:38PM +0200, Hans Verkuil wrote:
+> Hi Alain,
+> 
+> Some control-related comments:
+> 
+> On 24/07/2026 18:13, Alain Volmat wrote:
+> > Addition of the driver for dcmipp-pixelproc subdev.  This subdev is the
+> > last one before the capture device at the tail of both main and
+> > aux pipelines.
+> > 
+> > It is in charge of:
+> >   - framerate adjustment
+> >   - downscale
+> >   - gamma correction
+> >   - color conversion
+> >   - pixel packing
+> > 
+> > Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+> > ---
+> >  .../media/platform/st/stm32/stm32-dcmipp/Makefile  |   2 +-
+> >  .../platform/st/stm32/stm32-dcmipp/dcmipp-common.h |   4 +
+> >  .../st/stm32/stm32-dcmipp/dcmipp-pixelproc.c       | 941 +++++++++++++++++++++
+> >  3 files changed, 946 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile b/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
+> > index a708534a51af4..7178934bb116b 100644
+> > --- a/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
+> > +++ b/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
+> > @@ -1,5 +1,5 @@
+> >  # SPDX-License-Identifier: GPL-2.0
+> >  stm32-dcmipp-y := dcmipp-core.o dcmipp-common.o dcmipp-input.o dcmipp-byteproc.o dcmipp-bytecap.o
+> > -stm32-dcmipp-y += dcmipp-pixelcommon.o dcmipp-isp.o
+> > +stm32-dcmipp-y += dcmipp-pixelcommon.o dcmipp-isp.o dcmipp-pixelproc.o
+> >  
+> >  obj-$(CONFIG_VIDEO_STM32_DCMIPP) += stm32-dcmipp.o
+> > diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
+> > index e04fde86550a5..8f41473605aae 100644
+> > --- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
+> > +++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
+> > @@ -285,5 +285,9 @@ void dcmipp_bytecap_ent_release(struct dcmipp_ent_device *ved);
+> >  struct dcmipp_ent_device *dcmipp_isp_ent_init(const char *entity_name,
+> >  					      struct dcmipp_device *dcmipp);
+> >  void dcmipp_isp_ent_release(struct dcmipp_ent_device *ved);
+> > +struct dcmipp_ent_device *
+> > +dcmipp_pixelproc_ent_init(const char *entity_name,
+> > +			  struct dcmipp_device *dcmipp);
+> > +void dcmipp_pixelproc_ent_release(struct dcmipp_ent_device *ved);
+> >  
+> >  #endif
+> > diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelproc.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelproc.c
+> > new file mode 100644
+> > index 0000000000000..4372c75508725
+> > --- /dev/null
+> > +++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-pixelproc.c
+> 
+> <snip>
+> 
+> > +/*
+> > + * Functions handling controls
+> > + */
+> > +#define V4L2_CID_PIXELPROC_GAMMA_CORRECTION	(V4L2_CID_USER_BASE | 0x1001)
+> 
+> You need to reserve a range in include/uapi/linux/v4l2-controls.h for this
+> driver (search for V4L2_CID_USER_MALI_C55_BASE).
 
-diff --git a/drivers/counter/stm32-timer-cnt.c b/drivers/counter/stm32-timer-cnt.c
-index a3d8f7a5874e..3024ec002cc6 100644
---- a/drivers/counter/stm32-timer-cnt.c
-+++ b/drivers/counter/stm32-timer-cnt.c
-@@ -794,7 +794,7 @@ static int stm32_timer_cnt_probe(struct platform_device *pdev)
- 	return ret;
- }
- 
--static int __maybe_unused stm32_timer_cnt_suspend(struct device *dev)
-+static int stm32_timer_cnt_suspend(struct device *dev)
- {
- 	struct stm32_timer_cnt *priv = dev_get_drvdata(dev);
- 
-@@ -814,7 +814,7 @@ static int __maybe_unused stm32_timer_cnt_suspend(struct device *dev)
- 	return pinctrl_pm_select_sleep_state(dev);
- }
- 
--static int __maybe_unused stm32_timer_cnt_resume(struct device *dev)
-+static int stm32_timer_cnt_resume(struct device *dev)
- {
- 	struct stm32_timer_cnt *priv = dev_get_drvdata(dev);
- 	int ret;
-@@ -842,7 +842,7 @@ static int __maybe_unused stm32_timer_cnt_resume(struct device *dev)
- 	return 0;
- }
- 
--static SIMPLE_DEV_PM_OPS(stm32_timer_cnt_pm_ops, stm32_timer_cnt_suspend,
-+static DEFINE_SIMPLE_DEV_PM_OPS(stm32_timer_cnt_pm_ops, stm32_timer_cnt_suspend,
- 			 stm32_timer_cnt_resume);
- 
- static const struct of_device_id stm32_timer_cnt_of_match[] = {
-@@ -857,7 +857,7 @@ static struct platform_driver stm32_timer_cnt_driver = {
- 	.driver = {
- 		.name = "stm32-timer-counter",
- 		.of_match_table = stm32_timer_cnt_of_match,
--		.pm = &stm32_timer_cnt_pm_ops,
-+		.pm = pm_sleep_ptr(&stm32_timer_cnt_pm_ops),
- 	},
- };
- module_platform_driver(stm32_timer_cnt_driver);
--- 
-2.53.0
+Done in v4.
 
+> 
+> And the define should include the driver name. 'PIXELPROC' is much too generic.
+> It probably should be called DCMIPP_PIXELPROC.
+
+Done in v4.
+
+> Please document what this control does. Typically a new header is added to
+> include/linux/uapi for this driver containing the CID and the documentation.
+> See: include/uapi/linux/dw100.h
+
+Looking at other drivers such as raspberry etc, they seems to have their
+header in include/uapi/linux/media/xx so I added a new header include/uapi/linux/media/st/dcmipp_config.h
+
+> 
+> > +
+> > +static int dcmipp_pixelproc_s_ctrl(struct v4l2_ctrl *ctrl)
+> > +{
+> > +	struct dcmipp_pixelproc_device *pixelproc =
+> > +		container_of(ctrl->handler,
+> > +			     struct dcmipp_pixelproc_device, ctrls);
+> > +
+> > +	if (!pm_runtime_get_if_in_use(pixelproc->dev))
+> > +		return 0;
+> > +
+> > +	switch (ctrl->id) {
+> > +	case V4L2_CID_PIXELPROC_GAMMA_CORRECTION:
+> > +		reg_write(pixelproc, DCMIPP_PxGMCR(pixelproc->pipe_id),
+> > +			  (ctrl->val ? DCMIPP_PxGMCR_ENABLE : 0));
+> > +		break;
+> > +	}
+> > +
+> > +	pm_runtime_put(pixelproc->dev);
+> > +
+> > +	return 0;
+> > +};
+> > +
+> > +static const struct v4l2_ctrl_ops dcmipp_pixelproc_ctrl_ops = {
+> > +	.s_ctrl = dcmipp_pixelproc_s_ctrl,
+> > +};
+> > +
+> > +static const struct v4l2_ctrl_config dcmipp_pixelproc_ctrls[] = {
+> > +	{
+> > +		.ops		= &dcmipp_pixelproc_ctrl_ops,
+> > +		.id		= V4L2_CID_PIXELPROC_GAMMA_CORRECTION,
+> > +		.type		= V4L2_CTRL_TYPE_BOOLEAN,
+> > +		.name		= "Gamma correction",
+> 
+> "Gamma Correction". More likely, "Gamma Correction Enable" (and ENABLE should probably
+> be in the CID define as well).
+
+Done in v4.
+
+Regards,
+Alain
 
