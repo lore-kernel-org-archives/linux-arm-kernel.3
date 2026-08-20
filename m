@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D37ABC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 02:04:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEAD0C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 02:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g74Ixp8NGxnQ+h3OVHTuhXFI9JESJ9nmLN3UeSeO5tM=; b=v3wACWbUydv/WfVhJ+17bwqOr6
-	1z32EHIZEQkNLtTBzIn5qUbMDbXlE9+UO37XRg+RPV1YXhbFnzchCoDxhce/hd21TRUMSBpJnZImW
-	+lw6L3aqkQ+2cpELpYfPEzwahh63E7mB8GrvCSZFh8WtwaGfV1Wa/Ju+28g74JOoCbdwwPCnENoJm
-	MHtQYilWoWMASwRUkeoNQY6tucve46VgrRg75zusmLi+vDgW5sMWZwVV4zVf9giCfKyLAAkAWD4iQ
-	z0egs7tbrZTWA6maFmUXCI6QMBlsY5JBE6uczO/o0JjYJTi1g9GOzZfR1Z8Lp05yE5NHUGuISBzoi
-	u3TmY88g==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WNotStSquqSFK0hMAyIgrA/RVsRNMLOKCsMmm1oXZOs=; b=Yew03mIIMVc8hEEU4+DRedidPN
+	MqlGllpkEuIJRoognFnz/Ob12iJB6ttMuV3S25IcNFpQqIoIAP8k/jtrsaIQ96PGT8U7IjbrWfXtM
+	x1JAUMfrdMH5/VE6uQaSYPfTLDMQbJCmw5QXhWOEQyOwxCY0pmScbuJsWye6/N1JuXFtrCPj0abp0
+	G28BY1jzuZQrrDxm1HzAE9XmUejWdH7kSUu/nWpJ551ojXlvEcUYTNCPyIw2eRKV9DpJJYO064ZqU
+	Doz2NpO0xcFtgcZGbKQVyl3/+VPwNS0yF6QIsriAjE5fffR9C5uoqJPxHDCutQnBiuaMNufrNb0rw
+	tOeFNdcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wws8p-0000000AkCt-0SVu;
-	Thu, 20 Aug 2026 02:04:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wwsLv-0000000AkwG-11xm;
+	Thu, 20 Aug 2026 02:17:59 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wws8o-0000000AkCV-2dQB
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 20 Aug 2026 02:04:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=g74Ixp8NGxnQ+h3OVHTuhXFI9JESJ9nmLN3UeSeO5tM=; b=l6Pyb3A0QZWdQfhGlh/MmkJbyR
-	SLtZs6NxpYHWbjG2Ce/R6NyqrDZgyX3UwsRAjw82AMInBhIRegyY9Af65AYXue0R/7IfuQuG2KvWF
-	G5LZBVUl5hY+eqYUinLElOyFal3kK0cgZbN2bnzdyvJqBGdw7lJtqfyVHUk2KFza4MYfq8xZ/8eYU
-	c9VO0zfy016iB7r2+9C4ovwJ1wVY0T/NJn/tUixohXkbyxBhbE2sSHpqbm8XkjU7R18JZ4293DXX9
-	Ah7JkH3Ig3x58pugQWv51LSW5AeWANzXvIuTse3hiuVjBPzud9nIxYEVNVOwpCurKpLYZenQBNdol
-	/fK6c4eQ==;
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wws8j-00000002m56-2D0i
+	id 1wwsLs-0000000Akvi-1P5u
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 02:04:25 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=g74Ixp8NGxnQ+h3OVHTuhXFI9JESJ9nmLN3UeSeO5tM=;
-	b=dOwL6ap5xqKDjbfhxc9u+vAy3K11je4jzBVXj1gjiAG4pvUwLIu2y4HHT2hSi+so8drBPXx12
-	yYocL17qu0LP5GoA//uvWfUZcz7P3t4Mu0caB9ZMIkOuIt4aBqI7RMtnxxXJlNSFO9uUBnnZU7c
-	dgSZXUGFaI4kOTIZVdWc9yE=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4hQRL45dLTz1T4dr;
-	Thu, 20 Aug 2026 09:53:32 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 235B140538;
-	Thu, 20 Aug 2026 10:03:34 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 20 Aug 2026 10:03:33 +0800
-Message-ID: <815f8d05-bfad-4fd2-9cfc-fc90938324f5@huawei.com>
-Date: Thu, 20 Aug 2026 10:03:32 +0800
+	Thu, 20 Aug 2026 02:17:58 +0000
+X-UUID: 5514da589c3d11f19a56ed5b684f684d-20260820
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:137abac5-6e03-44b8-8f40-7346ad6be806,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:20
+X-CID-META: VersionHash:7db8b62,CLOUDID:1dc6f0cb647b155389abae454a9ca50d,BulkI
+	D:nil,BulkQuantity:0,SF:102|850|865|898,TC:nil,Content:0|15|50,EDM:5,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 5514da589c3d11f19a56ed5b684f684d-20260820
+X-User: lijun01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <lijun01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 531664091; Thu, 20 Aug 2026 10:17:45 +0800
+From: Li Jun <lijun01@kylinos.cn>
+To: lijun01@kylinos.cn,
+	sudeep.holla@kernel.org,
+	cristian.marussi@arm.com,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2] firmware: arm_scmi: pm: use DEFINE_SIMPLE_DEV_PM_OPS for pm struct
+Date: Thu, 20 Aug 2026 10:17:18 +0800
+Message-Id: <20260820021718.2454014-1-lijun01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: Fix get_cycles() after delay_read_timer() conversion
-To: Nathan Chancellor <nathan@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260819-fix-arm-get_cycles-v1-1-208bf07ac540@kernel.org>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260819-fix-arm-get_cycles-v1-1-208bf07ac540@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_030422_649134_B274C944 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20260819_191756_700048_4DE3A259 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,51 +76,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+use DEFINE_SIMPLE_DEV_PM_OPS for scmi_dev_pm_ops,and add the value of
+.freeze .thaw .poweroff .restore.if these address are null, may cause
+error in s4.
 
+Change:
+-Replace SIMPLE_DEV_PM_OPS() in v1 with DEFINE_SIMPLE_DEV_PM_OPS() for pm.
 
-在 2026/8/20 5:43, Nathan Chancellor 写道:
-> After commit dfc256dac54c ("calibrate: Rework delay timer calibration"),
-> certain ARM configurations (such as multi_v5_defconfig) hang during
-> boot. The use of read_current_timer() in arch/arm's get_cycles() was
-> improperly converted to delay_read_timer(), resulting in get_cycles()
-> returning 0 even when the timer has been read or an uninitialized stack
-> value when delay_read_timer() returns false.
-> 
-> Flip the branches of the ternary condition to fix get_cycles().
-> 
-> Fixes: dfc256dac54c ("calibrate: Rework delay timer calibration")
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> ---
->  arch/arm/include/asm/timex.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/include/asm/timex.h b/arch/arm/include/asm/timex.h
-> index 94e40c19cfc5..4d31eab9dba2 100644
-> --- a/arch/arm/include/asm/timex.h
-> +++ b/arch/arm/include/asm/timex.h
-> @@ -13,7 +13,7 @@ typedef unsigned long cycles_t;
->  // Temporary workaround until timex.h is cleaned up
->  bool delay_read_timer(unsigned long *t);
->  
-> -#define get_cycles()	({ cycles_t c; delay_read_timer(&c) ? 0 : c; })
-> +#define get_cycles()	({ cycles_t c; delay_read_timer(&c) ? c : 0; })
+Signed-off-by: Li Jun <lijun01@kylinos.cn>
+---
+ drivers/firmware/arm_scmi/bus.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-LGTM
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
->  #define random_get_entropy() (((unsigned long)get_cycles()) ?: random_get_entropy_fallback())
->  
->  #endif
-> 
-> ---
-> base-commit: dfc256dac54c8b692110bf905c64cb130e15963d
-> change-id: 20260819-fix-arm-get_cycles-c83096ec81a9
-> 
-> Best regards,
-> --  
-> Cheers,
-> Nathan
-> 
-> 
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index e060edbe7e83..c3af5eb549e1 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -13,6 +13,7 @@
+ #include <linux/kernel.h>
+ #include <linux/slab.h>
+ #include <linux/device.h>
++#include <linux/pm.h>
+ 
+ #include "common.h"
+ 
+@@ -361,10 +362,7 @@ static int scmi_pm_resume(struct device *dev)
+ 	return 0;
+ }
+ 
+-static const struct dev_pm_ops scmi_dev_pm_ops = {
+-	.suspend = pm_sleep_ptr(scmi_pm_suspend),
+-	.resume = pm_sleep_ptr(scmi_pm_resume),
+-};
++static DEFINE_SIMPLE_DEV_PM_OPS(scmi_dev_pm_ops, scmi_pm_suspend, scmi_pm_resume);
+ 
+ const struct bus_type scmi_bus_type = {
+ 	.name =	"scmi_protocol",
+-- 
+2.25.1
 
 
