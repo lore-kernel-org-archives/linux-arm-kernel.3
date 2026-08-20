@@ -4,117 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57AABC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:50:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC41CC5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0TAyv372/LEkCsLr0cT5JC02uRbKUvvVi2UV1V38EE0=; b=yxZknRWO3ukvaq2ZnnenIf4lKj
-	fgD7+hJAjvbFHXovvE2uGOVv8CwzkrhKfIcbKgXwoUUZcu62V4d9LaMIrhTBOfw59vjmCg+XxJyXu
-	zeeK5hecM19eYS37AQZg92gwDdjruxH+jut956CcOb1P9MWhUIRs0Xb3NmPgrtw74g5e7SHXB8zRu
-	kImbB3eBNhgu9f6JlkEY3qabTh5lW0ZAv53HgzCPjUtL22tG0tufdq3H2y/v9Yn/B3IApntKY25CD
-	qU1uE/w34C7x8CkVKXRO7JHsTTGnCrBJL6uaFJLFCEDzz01YSJ1Lbrwe75WU+rlxmw1icInvi5dxn
-	MlumokFQ==;
+	bh=J3gtnsrz/6HAoZspZUg9M8ZJWC6bmzmlydxL6z/xP2Y=; b=RYEBHT65QqA3Yz4lYWPALajZjR
+	Eg47b0YFUTOwU8dt/LVj3f9bxAQFgz4k9i7LSQhJ61Ja35Qsf0YLtPRXigqUIZ0B/xSlhN01r5/ZS
+	IOX1jGyvKSHbmCoAxl5BKcMFTVEPrTiX7idXu4fLZ6Vn9AE3zPqWKhfeKurB5AhEVDTkro+FWHUFv
+	nVyndaL2wwaDP0dT/+O1rMbYxqheAyM4iZ8n77mq/vxnKZsdY5uJSDulXHsn6MaX4AK6PGS3rZL/R
+	6NrPQlA9FUxU9x8hCUfDG7dlWMVdKaUOVcL2USbYA14K6bYDQZ/bVva5psMC55xi9QdFKJ6mnhn1z
+	IDj2s+gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwxXf-0000000B6Da-3rVt;
-	Thu, 20 Aug 2026 07:50:27 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1wwx7o-0000000B2Kb-2qlh;
+	Thu, 20 Aug 2026 07:23:44 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwxXd-0000000B6Ck-1sOj
+	id 1wwx7U-0000000B246-0UKj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 07:50:26 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-3a151eda82dso14597071fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 00:50:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787212223; cv=none;
-        d=google.com; s=arc-20260327;
-        b=b1ewSbAoe+ZOqcQpcpGEd92GlivqKXRLAbZKr+eBY7xieZ/cGMF0BEkrcYRK9jwA8f
-         UTDKtESYDMwsYhHhyQV+q6N9bZUceNibh5Mi4EEXACROhTFSvdTWZmCclpY33Cmox37R
-         5tXAQZ/rWXBrExJuuLl9K5iwi7v9kADGlJfiABcmtA1jHsV3Mi0kQDTPPVGYEsIrYFL4
-         ce9qxkLpby9d5qoRE/tnWaT5ma0IQGTj/lhiqm7yPLncJkOjPxKflQUO8tmQZTnjlC+Y
-         zEn5ZRlklk8zVNV/gzJb6rN9TI1hhOrZs9htu6AS8XLcDhhR2Tr0M9wIzV978FsRFECO
-         RNGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=0TAyv372/LEkCsLr0cT5JC02uRbKUvvVi2UV1V38EE0=;
-        fh=EzrWMrzISwslDc5h7asGfe6YqM/1ooqSmueM2KU24bA=;
-        b=XWXzBtKA8GjFPXX5t+R+McE2eaWR3lwTRGtlVcR32TXEdV01yfoWEjO3SV/BPJ6Pey
-         jNLPjmwAh6Bn2/2JRqnPZhL32JpsFqjoquR9BM9XXlEbVBdVSKXHTYb0NV7Mn0Z7r41H
-         Hb8pvlmz09+Oe/wBcIspykFKm7R+4m8U8weISuFytQJeruCpfMIjFT2Ge6ecyFiYNwwM
-         nUddPG56YmZcsgfIgCaRNqdvUeAQOLno5HwN80OtQxVS1m+AqHsey21kGAtXj9Q/tEuE
-         SDcQGMBYruxaBs++xugIXONeZcm78AaXXcVByynGuSEuxJVZN7z+sY3vC9EZQoDgMtt8
-         eR/w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787212223; x=1787817023; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=0TAyv372/LEkCsLr0cT5JC02uRbKUvvVi2UV1V38EE0=;
-        b=sMgWBf3cpRkOL8iULsss4rjpbLqQ8u//cgm4SNi5xinPTLa38w+xKPxD/1FRvvLyCs
-         gTWna1WgGn42TplcKXkDlitVp1u/13+dqhezYhHNyx9yTvNSqMEvC4BBdrKIShEzwOn/
-         V8bXvtn2sevRaqwxHhSYt6Wz6ANRSLwcKO94LBcKg1gvOaCaKMq+AEdbwZSQ8CjCPWfk
-         p1TVaQ9i93Lb72guRWoTmmLa/PAyOPJ54Hm7ByT+NRrL0FGJMtWndIZMB/T1KUiW/wP3
-         vrbF7lr4Jzb2HqhXnuP5ilaZJakZPD6orOewXQ6frwoqermYpz8LhZcpuboEDJDM1zEt
-         Fllg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787212223; x=1787817023;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0TAyv372/LEkCsLr0cT5JC02uRbKUvvVi2UV1V38EE0=;
-        b=JQ4Z5Zu86dF/gZPjMf3esoT4A85OlQrokTjtsbUcPP8uqNcerGlR8N7k3PAxYEaRyO
-         92sOVIZ+k+f/7mF11LUuyZ0/mLos/5m091yQu2nnz2m0CwiG9golYSgR9qjyCykGBeoY
-         +yvyysNR/6F58P4UD8wqtSXrLQRuvANRvs/+5s7l1SExY3DJeJP9cOHtO8vrC4oVp6WT
-         uEDmYJOLkgwX7g8dH7QGYh8921+wzkrXxYVihOEgL07SEeGt0u/3HTo15D6cQnIJhrKQ
-         TKDKoaZi27dpsoNuJb3MBAkyPpZH9FRZ+zKK5p8xa/Cfhz5ZvIHHK6GGNncRo1hmivwn
-         I+rQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrjZqsil81TCPrfMszpFkCuVDQWZydnLfdEgt38Bl77iTc6reAMptSsLXfk5w4NYzcoxwpCXCotegyHH399Bvm5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIfTg4+sPaUzD0dYlvAKlX02RUQfo2tAEH3d1a3GDy21JqtGiY
-	+/8wQz/LacQ5U+AG0akkX8YmUXo55fm30aauIKHw4F84L8hYI69gFFAZ4F19H2X+EUvqtpJdKNX
-	+I2gfGD8zHkEtoipIwaa0gapbrcqhDWY=
-X-Gm-Gg: AR+sD12DsW1teRgMmgNesFnVlsz61c95tpEOJP18+dLxmXbjN0O2Kdi/+056O3DQ+WF
-	B1pb/R21XzxfhJjgRavHW2LUF/M/vtEEH+CttlT9EgAJGSQ5B63RdVOGic8YHc4Wk99YXufCsCv
-	PWq377jpuFV3cDnDu9x8m7yhEN2LDw4D1BOXBFjloq7DfGr+JPcxNTmVKHVpRqVbIurs7ZByomQ
-	O496Oa8SyRtK7khPtIGkRwkWWR3ZXVWay3pVYgfrkqBm99q/7gD14ITKn53gQ4WgTgzCRhuD1Sz
-	YRq+iu4FRgJ5BxMw2CaIm331FqrFd8rfNzqy1dV4YsFzJkj2lh7aohM7MGkdNu27/JLOLXFEA18
-	zmW0225No2Z79Yx00VwmygOjz6A==
-X-Received: by 2002:a05:651c:199f:b0:3a1:1d3b:67f1 with SMTP id
- 38308e7fff4ca-3a1896d9d67mr21587801fa.7.1787212223022; Thu, 20 Aug 2026
- 00:50:23 -0700 (PDT)
+	Thu, 20 Aug 2026 07:23:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pJCRp1E66hrDz9cokNvwfVGacf+xFbPzmwVaOYM41vdpDkXF67lcdCYjY4lzjajCVNE/ZJUxSTsvq/8Qph5o0YbYGCCQjAoTjb/hLns/JCJ4yTIFg1TY6PwDOw7DEHrL6pJkFcmz0ZCh3S8nXXIiAL01YkXVpf+HvTVoitpy+DgW+EJW0PCLf2pXKj/j6oIVvBljbJ7eQAZRV0hDSeBD1/wB9ZGavjy1nZi8ZDLbFraRC4Riw4QN2KMsGnbkmx+0bAMMtj8LhI8J/4zV9SyPwb7S3HeDDAdLSaPK5yblCkC8TMNsr88z+CmQfTHnVeZWl48lt/gfFe5xXWIBG1eotg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=J3gtnsrz/6HAoZspZUg9M8ZJWC6bmzmlydxL6z/xP2Y=;
+ b=FmN/Q0d9DwBvI09sNzqDQs+3cAU5vhvDnoak14G7R2xvqnAvA+ewvX4wWexhyMuGJls+CkRco+qZLdAKmWwKeyK3B1ghhCy3k/0zhJVTX829XWQHYhtxQZ9yVzg8iJTjwxZgLhDe9uqGzWu4ibMxkzwZeUDbXQcrrD82VhTqCa+cgYSoIF5mQEE7v7gq5dcpKGruD/0f0Uu2Gy0DvCkeF/5W/kJNJvkTRTQl0Z3tQJsybKTMawxApzJJuSVy/AFVAjG9cV47z1efUAtcFFu898B4Znp+dietQKjXNPxS2L2czbbqntlI7ptKlYLy+kuWg3dN+OdRjZHNaSBCpWGStg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=J3gtnsrz/6HAoZspZUg9M8ZJWC6bmzmlydxL6z/xP2Y=;
+ b=AZEw6LDHtzvfeKOXe6yB6WEQ5MpohOkRgeqtUnzpdehfrAW38MWKuPJExxd6zLNSFaW//BaHrZ22g1+WGsu1IE0OjwG3mkzVryJReTV81B57AgNPXw8PNHDZGKbIj/eDcjv9WwbPq/IJgDNX/5ZxuxfxI3n+ZcWpXVPYYExvzm1ffKdLcX0LBi9B47/ksKVhqLyOtsP6FVPLEDBF6wgeCxciOgH4AwahyVOaO2gm+jZOUpxQSvFnPhWwk3z07euOADJOUSKiwVeelrr4TCj7doum3L/KgYaw+TP4DC3f5mbdpSIEeAyknvusk1en7SIGbcbf+NlosDWQUcND8mZfdA==
+Received: from AS4PR09CA0019.eurprd09.prod.outlook.com (2603:10a6:20b:5d4::10)
+ by GV2PR10MB7055.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:e2::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Thu, 20 Aug
+ 2026 07:23:15 +0000
+Received: from DB5PEPF00014B95.eurprd02.prod.outlook.com
+ (2603:10a6:20b:5d4:cafe::7e) by AS4PR09CA0019.outlook.office365.com
+ (2603:10a6:20b:5d4::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.8 via Frontend Transport; Thu, 20
+ Aug 2026 07:23:15 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DB5PEPF00014B95.mail.protection.outlook.com (10.167.8.233) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.339.3 via Frontend Transport; Thu, 20 Aug 2026 07:23:15 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 20 Aug
+ 2026 09:28:49 +0200
+Received: from localhost (10.252.29.67) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 20 Aug
+ 2026 09:23:14 +0200
+From: Alain Volmat <alain.volmat@foss.st.com>
+Date: Thu, 20 Aug 2026 09:22:35 +0200
+Subject: [PATCH v4 07/14] media: stm32: dcmipp: introduce a dcmipp global
+ media_pipeline
 MIME-Version: 1.0
-References: <CADOrJmbTyrGGkq+9OJDXCgTa2HvNo8BWxoE6yjafcrOq7WNamw@mail.gmail.com>
- <20260817215428.84740-1-gvalkov@gmail.com> <20260819-generous-nickel-dalmatian-b6bb08@quoll>
- <CADOrJmYfBe3ADun_kFjFSH6YOSTX7Vu3UsFsL57yuRdaQ=eJCA@mail.gmail.com>
- <e554c007-67e3-4fbf-b85e-5de02f649e83@kernel.org> <CAGXv+5H7AhZgZ06r9KO3HLZ9Cymkai+Cv9SgVTuSC1PjgGf8hg@mail.gmail.com>
- <d6c8f19e-f154-4b57-9101-cf3b73e9794f@kernel.org>
-In-Reply-To: <d6c8f19e-f154-4b57-9101-cf3b73e9794f@kernel.org>
-From: George Valkov <gvalkov@gmail.com>
-Date: Thu, 20 Aug 2026 10:50:10 +0300
-X-Gm-Features: AcwNN1UED2d-bg9Uini4u4mWy-mvYyG-FuFnU3Li4w7hQPYNR666nZuf3FB7ICo
-Message-ID: <CADOrJmYxKTyDkKPaKCpH37RsyyZJZ+4uReE--+uvnHmEdNJVOw@mail.gmail.com>
-Subject: Re: [PATCH v5 1/3] dt-bindings: net: wireless: add flag marvell,ignore-regulatory-hint
-To: Krzysztof Kozlowski <krzk@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>
-Cc: briannorris@chromium.org, johannes@sipsolutions.net, andrew@lunn.ch, 
-	krzk+dt@kernel.org, francesco@dolcini.it, johannes.berg@intel.com, 
-	kees@kernel.org, miriam.rachel.korenblit@intel.com, rafael.beims@toradex.com, 
-	avraham.stern@intel.com, error27@gmail.com, s.kerkmann@pengutronix.de, 
-	gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com, robh@kernel.org, 
-	conor+dt@kernel.org, Frank.Li@nxp.com, chunfan.chen@gmail.com, 
-	linux-arm-kernel@lists.infradead.org, linux-wireless@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260820-stm32-dcmipp-pixel-pipes-support-v4-7-d212eb4e3792@foss.st.com>
+References: <20260820-stm32-dcmipp-pixel-pipes-support-v4-0-d212eb4e3792@foss.st.com>
+In-Reply-To: <20260820-stm32-dcmipp-pixel-pipes-support-v4-0-d212eb4e3792@foss.st.com>
+To: Hans Verkuil <hverkuil+cisco@kernel.org>, Hugues Fruchet
+	<hugues.fruchet@foss.st.com>, Alain Volmat <alain.volmat@foss.st.com>, "Mauro
+ Carvalho Chehab" <mchehab@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+X-Mailer: b4 0.15.2
+X-Originating-IP: [10.252.29.67]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB5PEPF00014B95:EE_|GV2PR10MB7055:EE_
+X-MS-Office365-Filtering-Correlation-Id: f0677ac0-e4cd-4715-cfbf-08defe8be668
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700016|23010399003|10067099003|56012099006|22082099003|18002099003|11063799006;
+X-Microsoft-Antispam-Message-Info: co75OEvTXHei41ncL6EShXfiNlvqnBy8IQDpWZu2W7TwJo2mA2oUNinrE3Y6JIaO7eMkzRpxBBE4Zq9/0UgFHkdeoUkqxTZGaWfvhu9pN+luEh9AygGv3g7NhVPRwO/4lhhX182FmhEF0BL9TmGU5k9D4BTFLpo/PZlaKkyYdKfg2w3MMewtugW7ci3vDH2a3qQSlN4TfassL5GNZH5kq20PAxYYxqKC1gkI5br4683n1BfqBw2O8hN2URrRki9Y+fZyc3y0khweSWkoqJJFEo+lQ01Cy8MGnr05n8B74IIi2kKXTv1C98+l+5//HO7H9xp1sWkoEm77fDWX6aRD+66QHH0UWE4AGEN2L7dMXy3QFPayI/BEMlZRG1+pwQit6LXrPJXAjEsMCDtIvaC+UxF/cltFBhbhI9t0mTDOImHUsLfXjUm5ZHuVMAFcb+YJVswKe4oQJIpyLQTmIuQ6//ouVVEV+1I2/9gvIW8XlJSr03isruOU60udPfhTI1ZgxymPFRWlR8q/eDXwrSco1xZkJj6AWah6pnjAIm8neZaNhuohbL0coLRoUjZszwBin8fKUU+wP7lOsFrmNk1obyW7NtVv5qGPVLB/aWY78ljRvZCbd0gL8B6cXUa8t7SJUzjr9oqC7TdCY5G15b9TrGXIVJ1JwieUT6yku+X4u5tInjS9FNDY/lA+zcyKrVsXd1zFutBuHm6EPm/s/OcUyg==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700016)(23010399003)(10067099003)(56012099006)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: eLVEX0q9bmjZhdZwAEpxl40Ih7jZrIjYwFeqBB6DymY+iFhUNbi/HBl84Fl+ahFgUGiq5IZCvu4otOm/xvTCvsmw50gRydKB/oA2u3uu6KapDYiOlTOQ3Qz63r6+hagrdlDjIWkN087I9ufOPQVKPdusGOEvLlRtU5n26TQn6zo4J0zFVzEN7i6q/M+TZ1fucFomHgPAfbs5tQ9bukL0J9W2IG75GkhoS7rq8QDkZjc5f/aRlhuC806f167lWFDiWKQpg9FZZ/uNpffxEd3sGDVhX+hkLFieiPDzAY/3nzMIOs1+RZUy0YsQOFg3IXKSxqIkawCiwvrqJA1JCMy7i+SyXWN3mxODx1LQYjRPjRwG4L+Srj20ui6vkH1jwsS4y+AqUuWaD7CPguFyvJY7MRfgIiqVIYJdrSxjd2MqvWDWbcX4x8UwyY/oiMdcAQ1q
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 07:23:15.1474
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0677ac0-e4cd-4715-cfbf-08defe8be668
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B95.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR10MB7055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_005025_531318_BF8B76F6 
-X-CRM114-Status: GOOD (  36.27  )
+X-CRM114-CacheID: sfid-20260820_002324_191909_3EADFD1E 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,136 +129,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Aug 2026 at 09:53, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 20/08/2026 08:42, Chen-Yu Tsai wrote:
-> > On Wed, Aug 19, 2026 at 8:27=E2=80=AFPM Krzysztof Kozlowski <krzk@kerne=
-l.org> wrote:
-> >>
-> >> On 19/08/2026 13:42, George Valkov wrote:
-> >>> On Wed, 19 Aug 2026 at 12:42, Krzysztof Kozlowski <krzk@kernel.org> w=
-rote:
-> >>>>
-> >>>> On Tue, Aug 18, 2026 at 12:54:26AM +0300, Georgi Valkov wrote:
-> >>>>>
-> >>>>> diff --git a/Documentation/devicetree/bindings/net/wireless/marvell=
-,sd8787.yaml b/Documentation/devicetree/bindings/net/wireless/marvell,sd878=
-7.yaml
-> >>>>> index 930b700b73d0..5f235cb9f3e5 100644
-> >>>>> --- a/Documentation/devicetree/bindings/net/wireless/marvell,sd8787=
-.yaml
-> >>>>> +++ b/Documentation/devicetree/bindings/net/wireless/marvell,sd8787=
-.yaml
-> >>>>> @@ -59,6 +59,12 @@ properties:
-> >>>>>      description: Calibration data for sub-band 3 in the 5GHz band.
-> >>>>>      maxItems: 502
-> >>>>>
-> >>>>> +  marvell,ignore-regulatory-hint:
-> >>>>> +    $ref: /schemas/types.yaml#/definitions/flag
-> >>>>> +    description:
-> >>>>> +      Ignore an incorrect regulatory hint from ROM,
-> >>>>> +      so userspace can set the correct regulatory domain.
-> >>>>> +
-> >>>>
-> >>>> Same comments, so you just ignored entire feedback?
-> >>>
-> >>> Do you mean this feedback? I already replied to it:
-> >>>>> Anyway, property looks like SW choice. You must describe hardware
-> >>>>> instead.
-> >>>>
-> >>>> I am sorry, I do not understand what you want me to do?
-> >>>> Can you please send a diff or a clear description suitable for peopl=
-e
-> >>>> who have way less experience than you?
-> >>>
-> >>>
-> >>>> Again: you need to describe the hardware, in commit msg, in property
-> >>>> name and in description. You cannot tell SW what to do, that's not t=
-he
-> >>>> purpose of bindings.
-> >>>
-> >>> I still don't understand what I should do?
-> >>> Can you please show me an example of the changes you want?
-> >>> Else I'm likely to make a wrong guess and implement it. That obviousl=
-y
-> >>> won't help.
-> >>>
-> >>> The commit message already describes the issue with WRT3200ACM and WR=
-T32x.
-> >>>
-> >>> About the description, do you want me to do something like this?
-> >>>     description:
-> >>>       Ignore an incorrect regulatory hint from ROM,
-> >>>       so userspace can set the correct regulatory domain.
-> >>> +    WRT3200ACM and WRT32x are known to need this.
-> >>>
-> >>> About the property name or flag, do you want me to add a separate fla=
-g
-> >>> for each affected hardware device?
-> >>> - wrt3200acm,ignore-regulatory-hint
-> >>> - wrt3200x,ignore-regulatory-hint
-> >>> - the list may grow if someone decides to add other devices
-> >>> - and the driver will need to support all of them
-> >>> - that doesn't make sense, because it isn't scalable
-> >>
-> >> You need to describe the actual problem in the hardware or firmware, a=
-nd
-> >> then name the property and description accordingly. "Ignore regulatory
-> >> hint" is clear instruction to the OS what it should do - ignore the
-> >> wireless-regdb package/instruction etc.
-> >
-> ChenYu:
-> > You probably have it backwards. The driver is taking the hint from the
-> > hardware ROM, which is fixed and thus wrong once someone carries the
-> > device to a different country. I.e. it is a quirk saying the _hardware_
-> > region should not be used.
+With the introduction of stm32mp25 containing several capture
+devices, it becomes necessary to share the media_pipeline
+structure among all capture devices since subdev pads can be
+shared between several capture devices.
 
-Almost. I bought the router in Bulgaria and I am in Bulgaria.
-The ROM hint is US. More details below.
+Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+---
+ drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c | 3 +--
+ drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h  | 1 +
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
+index f6011b42203c7..53341b7984579 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
+@@ -125,7 +125,6 @@ struct dcmipp_bytecap_device {
+ 	/* mutex used as vdev and queue lock */
+ 	struct mutex lock;
+ 	u32 sequence;
+-	struct media_pipeline pipe;
+ 	struct v4l2_subdev *s_subdev;
+ 	u32 s_subdev_pad_nb;
+ 
+@@ -410,7 +409,7 @@ static int dcmipp_bytecap_start_streaming(struct vb2_queue *vq,
+ 		goto err_buffer_done;
+ 	}
+ 
+-	ret = media_pipeline_start(entity->pads, &vcap->pipe);
++	ret = media_pipeline_start(entity->pads, &vcap->ved.dcmipp->pipe);
+ 	if (ret) {
+ 		dev_dbg(vcap->dev, "%s: Failed to start streaming, media pipeline start error (%d)\n",
+ 			__func__, ret);
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
+index 2d26425b0b0fb..ee9f36268e646 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
+@@ -73,6 +73,7 @@ struct dcmipp_device {
+ 
+ 	/* The Associated media_device parent */
+ 	struct media_device		mdev;
++	struct media_pipeline		pipe;
+ 
+ 	/* Internal v4l2 parent device*/
+ 	struct v4l2_device		v4l2_dev;
 
-Krzysztof:
-> regulatory-hint for me means usually regdb, but even with your meaning
-> you tell SW what to do - ignore hardware regulatory information.
-> Property should not tell what SW should do with hardware. Property
-> should tell what is happening here in the hardware. In this case: what
-> is the reason behind.
->
-> IOW, why user of a board in country X, where regulatory data says X,
-> should have the correct regulatory data ignored?
+-- 
+2.34.1
 
-Because users in X buy a board for X and the regulatory data says U.
-
-Indeed when the ROM regulatory hint is set to US and the driver
-reports this to the OS, the wireless-regdb restrictions for US are
-applied. This would normally be fine, however the third radio in
-WRT3200ACM and WRT32x, reports US on all models including those sold
-in the EU and other non US markets. This creates a conflict with
-radios 0 and 1, which report FR and also with my correct setting: BG.
-With the wireless-regdb restrictions for US, FR and BG applied, radio
-0 refuses to start.
-
-Would you approve any of these or suggest a better name for the flag?
-Should ROM be in upper or lower case?
-I omitted 'in-ROM' to keep it short, because the driver check line is
-already longer than 80 characters.
-- marvell,ignore-regulatory-hint (current)
-- marvell,ignore-regulatory-hint-in-ROM
-- marvell,invalid-regulatory-hint-in-ROM
-- marvell,invalid-regulatory-hint
-- marvell,invalid-regulatory-ROM
-- marvell,invalid-reg-hint-in-ROM
-
-Krzysztof:
-> Do not attach (thread) your patchsets to some other threads (unrelated
-> or older versions). This buries them deep in the mailbox and might
-> interfere with applying entire sets.
-
-I used these flags to keep everything in the same conversation:
---thread --in-reply-to
-The documentation states I should always start a new thread for
-multi-patch series. Note taken. Thank you for the links!
-
-Kind regards,
-Georgi Valkov
 
