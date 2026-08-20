@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D67C5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 21:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E6EC5DF86
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 21:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IraYJR8xbyQeqc2R0ipywXHXerqP8H5Ms/wpHOhoDYU=; b=UDr/M8/mTgLPgNCSygOBlQrDVZ
-	v1VBbAzmYEAO4cN1GrYyhaQ7O3+xZeVuTIszTryATWt34iDPrzdvTqu8nDmRMeJSmaR/Gkf3qN8LW
-	R4NJ9mgYsIgCgjoGbOSvW0CAjGqthug9GR6vvjsVlNry6qZyyxP9OdzQlnwxKlgiQkSexRjugzM3A
-	+pQ504zjaXlDsXcSWT4kb+e5SzgYauhUU7nlL6px8D0WWaCD3aHlAMm0rvTr78im4Lup+75Y051oq
-	kGZ4tx3fNHkGYqeFHZBkIAvCj3hWNiosPkyFfmtHAY0bUlqhpEqW/F/q6006YtAmvpMvYZ/moIX40
-	UjFY+3Ug==;
+	bh=EvwSXRxb9J8E1d/2epUBUSc8FSlEoFftTDkK/JBgJcc=; b=B96xjeogVN+J1KgKkeLropttzJ
+	bBycjCNz2wTbJaG3PjbZ4iEptxAW44d4ICLAnAyou4O9KfJ9PQkr44rDZfGRTO+KyyELJAkErazYX
+	Faihf/3BjR4GNFZCp3Pnbbja8ZJnAHVVxTo5/86A5H+ttSIYNLejZIfg6rmj5V3VBCKP0ExLpDg65
+	kletCTa5H1XJ2iKgKZcl/4GHblJ4wx6y/28EhGNdn0hhwPXYzSdfJFl6GT/6vDQkwuiO/SqUcI9u1
+	CmcN8FqazqIRl49/HRGGcMfNWdA2bJkCPsE6c1jkdqgqAsWEMWnzPnJarL2pnr+YtoqIExmYPxpII
+	q0gXLgmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx9sC-0000000CBkL-0PvA;
-	Thu, 20 Aug 2026 21:00:28 +0000
+	id 1wx9uQ-0000000CBtT-3IcQ;
+	Thu, 20 Aug 2026 21:02:46 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx9sA-0000000CBjl-0bhK;
-	Thu, 20 Aug 2026 21:00:27 +0000
+	id 1wx9uO-0000000CBso-23ue;
+	Thu, 20 Aug 2026 21:02:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=IraYJR8xbyQeqc2R0ipywXHXerqP8H5Ms/wpHOhoDYU=; b=K450eMW5Pz52gDGMsb/Dq5ATbU
-	e3VdOZgwKzuYnDt6TdrFGkKnybpIWfrq1COX50af9dTOBRodnsKWnfj3zHa6SyDLIhfy7ROf6dq9Y
-	baHJuFy9/V/zo36oIpATAhUx7BEhq0YAfUpKn7lUTGXlZxcWhEK4GuRqt4ECcM6g6R9s=;
+	bh=EvwSXRxb9J8E1d/2epUBUSc8FSlEoFftTDkK/JBgJcc=; b=es6UCJRLDTAY1chKmX9GHIaQQo
+	+DLoTvMoIHeGBQQoGDG55Mo7ki1zuRY/fI69Ctk24CD8qC1w2EsVwDOciwfoc+D2GX4NjilPrUoBj
+	SlnuHQ9aud8/JsyAgyPiRHudxs5FVylkKV8VokYyo+Kp94yxsOI9bdvOi5QJksJc/ySU=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1wx9rg-000qQb-V0; Thu, 20 Aug 2026 22:59:56 +0200
-Date: Thu, 20 Aug 2026 22:59:56 +0200
+	id 1wx9uA-000qSi-1m; Thu, 20 Aug 2026 23:02:30 +0200
+Date: Thu, 20 Aug 2026 23:02:30 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
-Cc: Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
-	chester.a.unal@arinc9.com, dqfext@gmail.com, sean.wang@mediatek.com,
+Cc: netdev@vger.kernel.org, chester.a.unal@arinc9.com,
+	daniel@makrotopia.org, dqfext@gmail.com, sean.wang@mediatek.com,
 	olteanv@gmail.com, davem@davemloft.net, edumazet@google.com,
 	kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, yangshiji66@outlook.com
-Subject: Re: [PATCH net] net: dsa: mt7530: do not advertise EEE on MT7621
- switch
-Message-ID: <b6c8df34-417e-488f-8aa2-98c0c62f6642@lunn.ch>
-References: <20260818182829.1580811-1-vladislav.karmanov.dev@gmail.com>
- <aoSnqurLLgdVT_Eu@makrotopia.org>
- <CADDoYm63JMq=5CyNvqkTo65BgS927iURKMmhvhD=B-ytqq3Ygg@mail.gmail.com>
+Subject: Re: [PATCH net v2] net: dsa: mt7530: do not advertise EEE on
+ MT7621/MT7530 switch
+Message-ID: <108396dc-0067-4b1c-b270-9d42e2b9a96e@lunn.ch>
+References: <20260820202844.1821687-1-vladislav.karmanov.dev@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CADDoYm63JMq=5CyNvqkTo65BgS927iURKMmhvhD=B-ytqq3Ygg@mail.gmail.com>
+In-Reply-To: <20260820202844.1821687-1-vladislav.karmanov.dev@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_140026_185810_C7D96744 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20260820_140244_530710_E4E26286 
+X-CRM114-Status: UNSURE (   6.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,33 +73,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 20, 2026 at 11:18:23PM +0300, Vladislav Karmanov wrote:
-> Hi Andrew, Hi Daniel,
-> 
-> Thanks for the review.
-> 
-> > Do we know what is broken here? MAC or PHY? If it is the PHY which is
-> > broken, it would be better to put the workaround into the PHY driver.
-> 
-> It is the PHY that is broken -- the MT7530 internal GE PHY (PHY ID
-> 0x03a29412, driven by mediatek-ge). Landen Chao (MediaTek, 2021) puts the
-> root cause there: "EEE of the 10-year-old MT7530 internal gephy has many
-> IOT problems, so it is recommended to disable its EEE."
-> 
-> That would point to the PHY driver as the natural home, but I think the
-> DSA side is actually the right place,
+> The MT7530 internal GE PHY advertises EEE by hardware default. The
+> eee-broken-100tx / eee-broken-1000t device-tree properties
 
-There are a couple of parts to disabling EEE.
-
-In this case, you need to disable advertise early. So the PHY probe()
-would be the correct place to do this.
-
-You also needs to let phylib know that EEE is broken. So the PHY
-driver should be calling phy_disable_eee(). That will prevent the user
-from turning EEE back on again.
-
-Since it is the PHY which is broken, this will cover all usage of the
-PHY, be it integrated in a switch, or standalone.
+These properties are not needed. We know the PHY is broken, there is
+no need to describe it is brokenin DT. The PHY driver should just
+disable EEE. End of story.
 
      Andrew
 
