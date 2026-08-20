@@ -4,183 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACCDBC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 14:14:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF24DC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 14:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:To:From:References:Cc:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ge7NAc26Zouy60hxL9/gFyna+mJcO/3xq3mdUNcdssw=; b=VwREEOZDAEZC6qIVW0bV9pn8B2
-	fG0TGchVF5Qaf3eaAIzV8xhnxwilcDf/d2DU3HFcL7AqTbp0eFM45sAme0wrjlA9p3vF3KqjI5Dkb
-	tMpOjpTdbR4dcOv21w1ipkUqYBl/Qoe6nmzTHqlcCiENvd53Xeu3u3C/Mr+lU87dt3XuzM3TlUGIa
-	9f7k1p+7TKFE+FKGRqBLk/1rRoWaNtEso0jkEHyNMn2lolA72s4mnbe2wTe3WNPwWemKAa/6dcW/V
-	YRdGhqr5alvOVgwc9U96Kp4xnTyvdJPz0WpSr0f7pDZ5eGS/q9vcHDz8e8R++FGbanHOm7h/YwlFt
-	C+sKvD1w==;
+	bh=ne8UKQqykdUM1FqeQsf/i5+3ZCLGHZmKICQgnDK8mmA=; b=YA5E7bel5fdD720qGcC4A1Czqu
+	Vf8AiN/ur3wBxnt5xS8Eioo25jFpy0pXVM+Ww06fQ4ISEiF+U5dfUVFKQRVrs7vXCpgMYYsXrlMDb
+	AYB/c/WdnbA8vSFtgYPEoLVdkf3esPkNlZxDJlntWzBeQ0jV49aYIOKCReBIFsZMipnjujYlTjFOn
+	tRiaUXRpqqFk3MeS75DY0F/9g3XOvxOo9vVwL1fINliXbk0zmudK2ylvAeBUh5M52+ASU6IwszGPg
+	fIxVKyDfxLHH4qd/ghefIJfjI/XrJZcftNH/taYEp2S5JzEay1kMLAns0lL29ChegZr/YjiudlNJG
+	t7lwKSNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx3Wv-0000000BgGM-0U7J;
-	Thu, 20 Aug 2026 14:14:05 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wx3ZB-0000000BgSs-1vuX;
+	Thu, 20 Aug 2026 14:16:25 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx3Wt-0000000BgG1-0Krg
+	id 1wx3Z8-0000000BgSZ-2bxr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 14:14:04 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67KE7iE93234851
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 14:14:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ge7NAc26Zouy60hxL9/gFyna+mJcO/3xq3mdUNcdssw=; b=ZsES2lTPPLE/De7V
-	vTI0zxRwv9ZzcgsOVJ1wJ/8Idm+WNFET8H5kSoA6jFiFt8Md1igBKGGKPf9xvPvE
-	y8P7UR14S0URQp6bulHjj59+Mv1y/5Beh5SZkmPmTHJn716KAy/TKAuMQQKGKFTi
-	rluQh5ldP/jbaXIu1z0C01pv9FUiTqr3Zj97rHIDBndEJETuMs/dNpv1H/8YjUQV
-	LMuns1PLzIAAn7ecNpqnldGcK/Q4p/HqOuw9iP+7xr+LQ09GjYY8Gyx4j7ahRS6c
-	KBVG5Diwc62ZfwjrC4ayVlDLwBGeco2rua1wOpu1LE12Y1K3Rh5bc0Jvr4ufevuu
-	ThXU7A==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g5xbv98tb-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 14:14:00 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-92e5e38fbc5so296312985a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 07:14:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787235240; x=1787840040; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=ge7NAc26Zouy60hxL9/gFyna+mJcO/3xq3mdUNcdssw=;
-        b=jLb2PBgMFPYH4Qtbr/hj0TjgVceoOYBTq5jAROUxisY3qiXkueJemWDKK5AkLTJJE5
-         Up6XQ0THLbS1v5wBYHIH2SNkE86iseHe3W5+vsLAPmE8p9Q1g2opTwSzifIMNUuLNQnW
-         psftsixUWJEGAoBGpXk9zapU+L6+v244kjixrDxeaiu/rQW+A7CKNd8DTvKuXCxkrGFz
-         whfoxY7N9BOdb0KNY/Vnh64O7FG/We/rn1y9EhghUKV2lOUqr/3F1LWIo50xwkdykvth
-         OAIlIqgjk0RhqfwO3NxwTowmSAJgH+kIX7Dw3D+2ThRZTk/fDQrAqPm8dacG0YQQ6PM8
-         LqKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787235240; x=1787840040;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=ge7NAc26Zouy60hxL9/gFyna+mJcO/3xq3mdUNcdssw=;
-        b=fSIJ8uIYm4QMiUZYJ0s5Hl77C0zbbOUK6wegBrNCHXEihAfTsUiYUHmJbG/Zn/E9pX
-         XdQM3s5AwRjn5vU9WgR3gLkxf7qSrT//yMgaplsh547vGO+ZuF+Ta3rir9ejYiGuzJZ2
-         +OPWVk7cf3pQrMgoccxoez51kYRlBHRbILcfuE3S85fAxZOHdgBeFFmCrb3llNbhqfX3
-         Y8RZIbfthUJsnPO0LXnFzI1qrChvJJ5Z/SiaQ+bh4ZfjwB1tqqKvJj6yPGK1k2tUMwJ9
-         51uaU+PfflFJoarOe3Qm62cnleVMPIIuTpuy4Yhy7EUxP5fRC9uxy0Z1//8PJMo8rG5a
-         Rp2Q==
-X-Forwarded-Encrypted: i=1; AHgh+RpnLAw1PFdeT8FVhiWTV+HuXPN7pxMvWQ544tlk30aS+8OO0QAoGOoA7qfnelghetpKtWuz6cg1zIfJtBJ29TIf@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyGXqjFANvytUCDKOjQnSXM1It2fZ6oouQzbYHpOxfKY3zOmDV
-	z+Qzqy3Otnuw7qTRBCBNLChkzWXbeJ0cyf1PNQpZci1PCQ99bpxNgPtrWdGQNzAlC7OGEVm+Hbx
-	BLzs0F1/GxR/dmKsFLNvsKyU8NxwUxSEYfxYNVhdbS9fvvEy9v1jgr30fyglDsSqaV25jx/9U/+
-	RB7Q==
-X-Gm-Gg: AR+sD13yWuTmQeJnOAZSwbbA4rSXkqiuIWrsCxzFpE5BukqZwLdRpxZ3bpAOB6SJsWS
-	Ee3qjIq75pQkRluwwDe5qv5uiPG+K8zlWByoEVN3QkRzpKVxGIqa5DCX6X3cMwSuuG+FKRcbWSj
-	xIUSp7vLrdQwZa3rjDnq669FrDTdgVJC/CZJqDB6/poxBXLt5bJPuTafaqBaC7FRR1QkJRiKheN
-	CC9yPqwKPuo1XawEPzHieOKOrFtnpA7/nGg2lN1FyKy67oZR2wH7BreyN7QryAkm3D7tOguTvF5
-	5VO9UjeO0MTGTmlZm4058Gtq30v7RsVyBDkXikyfbodt32iMQ1rrh0A1EubJD3zDFzEv667r035
-	krmxHb7QclsV0EpaazpZNlBieBbCF
-X-Received: by 2002:a05:620a:4142:b0:936:a407:98bb with SMTP id af79cd13be357-9371e2034d5mr1107440285a.9.1787235240137;
-        Thu, 20 Aug 2026 07:14:00 -0700 (PDT)
-X-Received: by 2002:a05:620a:4142:b0:936:a407:98bb with SMTP id af79cd13be357-9371e2034d5mr1107430685a.9.1787235239623;
-        Thu, 20 Aug 2026 07:13:59 -0700 (PDT)
-Received: from [192.168.1.110] ([178.197.219.214])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2459198cf2sm75328666b.40.2026.08.20.07.13.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 20 Aug 2026 07:13:58 -0700 (PDT)
-Message-ID: <609b191e-a670-42c0-94e0-22def353c84b@oss.qualcomm.com>
-Date: Thu, 20 Aug 2026 16:13:56 +0200
+	Thu, 20 Aug 2026 14:16:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1787235369; x=1787840169; i=markus.elfring@web.de;
+	bh=ne8UKQqykdUM1FqeQsf/i5+3ZCLGHZmKICQgnDK8mmA=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:Cc:
+	 References:From:To:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=H4j/HHoQTnV4o7M12B6f9evilkEa5ycGShW7iQyaFTpG86HJ47VETRSCG7hiVcWB
+	 8ilN91sDGQZ/4pKznnVgYq7nr1Djc5bblhFCUgJTKmnb6Si0nIs7Y+9X0pDvJWZtC
+	 webGTV29tZMyMoebhVsdjiCZISUOKOEoJRt9xwslHi1yZHl/j3phGWZAJKJdKWEx+
+	 vi61AdEM3UczWD1An3DFtiTUUAL1DrbtayZ+EnQc9655AyWo24fW8SK7r4lJvWCti
+	 dJz8RlFaibX4wWpiGVYgVe/agMSwXvtp+CzqekDd9/C5AWi29GyIiQAWnf9n5CZDl
+	 iHORUh2dr2OCY5v2cA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1N6bD0-1wtSEx11na-00xGRV; Thu, 20
+ Aug 2026 16:16:09 +0200
+Message-ID: <87126df0-d332-48e7-b128-a96d6a8330d8@web.de>
+Date: Thu, 20 Aug 2026 16:16:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: exynos850: Add GPU/Mali Bifrost node
-To: Thomas Turner <tturner@lineageos.org>, semen.protsenko@linaro.org
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        peter.griffin@linaro.org, alim.akhtar@samsung.com,
-        linux-arm-kernel@lists.infradead.org,
-        linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-References: <GVYP280MB12139AB976CA7ACF49FEB768A1A52@GVYP280MB1213.SWEP280.PROD.OUTLOOK.COM>
- <20260820133556.76300-1-tturner@lineageos.org>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260820133556.76300-1-tturner@lineageos.org>
+Subject: Re: [PATCH v2] perf/dwc_pcie: Fix PCI device reference leak in probe
+Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+References: <20260820135611.3901886-1-ruoyuw560@gmail.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+To: Ruoyu Wang <ruoyuw560@gmail.com>, linux-perf-users@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Jing Zhang
+ <renyu.zj@linux.alibaba.com>, Mark Rutland <mark.rutland@arm.com>,
+ Shuai Xue <xueshuai@linux.alibaba.com>, Will Deacon <will@kernel.org>,
+ Yunhui Cui <cuiyunhui@bytedance.com>
+In-Reply-To: <20260820135611.3901886-1-ruoyuw560@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=AMKAkK6n c=1 sm=1 tr=0 ts=6a870ba8 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=+bKQE0WJfmhK2875HamI0Q==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=IKBKkaEKMstryUwTzDIA:9 a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDEwNiBTYWx0ZWRfX70l99ilNc7aR
- ebL7gVg+ZjhiYn9pIl08fo7+hMhkPtTONRAsp6HIKOfLTACY4VWYtQaoJN8QxrMUBu+O+dKJyxn
- 1Ormrd3hZ/BzChH3l+BnaKpUNSHmBIzW/l+EmG+sWsoF0vKqGLlRvVdHz2HXuH1Wb7J8NC8ZSFK
- meZf2KF7i2P+VoJ3xKhLUecbW7p3SHkAycJ4B94bkXHx3/Vm1b5SguCPUHJYsdUmMFIB0eOuHmq
- XGVLfhttD9ZMBQwH6Bkd3foy3zQ0McUp2bp7C71uuBj5VGKhqXumyciBljrcCfpz61CR6ggZ5A4
- jZtckJfArTYQaX+TiUDK0uHZX/tYOCS9N+9APL/pEheIHNj1TPO4Wb3P51e/A2k+c5uX9j+z42s
- kGFjqj5ojmx0ZrvH70S+AYZ8ZTZ1qwXEayxoq3zPiRThd8mP058PXBfMEEu7LpAKDy9EWp/LmQI
- yXJPC+JSRIZ+/yMS/sA==
-X-Proofpoint-GUID: yuQcFJtojW-W2MPv4W5dRu1iGabaVSoo
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDEwNiBTYWx0ZWRfX5DB8upOF/pMi
- s1ujcr+PCpU3h2DVAr2OeOqVkMNvNFaQWv1ka3wTennlxkwwVuczB6rTnozZd48DKYDqn/4qYM+
- 6WAbwbaT4U9Pt/Fai+GwxrV6z8Nk61Q=
-X-Proofpoint-ORIG-GUID: yuQcFJtojW-W2MPv4W5dRu1iGabaVSoo
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-19_06,2026-08-20_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 phishscore=0 lowpriorityscore=0 bulkscore=0
- adultscore=0 suspectscore=0 malwarescore=0 impostorscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608200106
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:WqrjtmnDMXHmqRVTnqnOARnLZSrj9moSoeImG4ffQI+orAo0ZXa
+ WGFFO30WLe6pZGiD/2A+pz9cXnuG/pilogiqGA8GQhq0duAktC0nR2Wb5nDScd+XGVB4a8u
+ +xfJUhj0MBAmT9eq454QszTpuNtN9DyL76l1WqxiDvP7YW9rv/U+NiO5jEU5Lsu0LkJ0e41
+ vN7VXgv6eH1s6TX6bel4w==
+UI-OutboundReport: notjunk:1;M01:P0:XMke1zJ7Y2I=;x2UZ2ahTexPe+Tt1yOB35Y4Xkmi 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 FV9qF4/A==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_071403_260763_5DC06613 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20260820_071623_029336_66BCA03C 
+X-CRM114-Status: UNSURE (   6.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,18 +86,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/08/2026 15:35, Thomas Turner wrote:
-> This can provide basic GPU functionality for the Exynos850 platform.
-> Tested on the SM-A217F device. Does not provide support for temperature
+=E2=80=A6
+> Declare the looked-up device with __free(pci_dev_put), so the temporary
+> reference is released on every return path. Keeping the reference scoped
+> to the whole probe also covers all later uses of the device during
+> initialization.
+=E2=80=A6
 
-How? The node is disabled.
+Is there a need to reduce the scope for such a local variable further
+by using a corresponding compound statement?
 
-Please respond to actual comments you received before.
-
-Also, you need to version your patches correctly. This is v2. You also
-need changelog under ---.
-
-Best regards,
-Krzysztof
-
+Regards,
+Markus
 
