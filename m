@@ -4,117 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4319BC5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 08:20:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71DB5C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 08:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ACqGbKrUZt2WmQJeMKWsHcv5ZC8zxBztFnJ+SPScPJE=; b=PQR+6Zzrk/CynOa0fNIjke2Eq9
-	Kk+99ZfTTR1+/dwgHdZuK4MvDXRekEBcEq5nEV7xNzS/TWoV3qzNjN8cmmdf5qcMfusgcXSTr/Co0
-	CTko54lQxMFdgftEbtMHyCJfBzZh3JZ3PQGEEBVuf9NSSk08jToJ+yolOeUFOr0RGXYxCJbtgVY+z
-	evvveDrgzd34rZ2tJXEejwcEYcx0o84W1MUNzWavwHOaYTO3hNo/ExdfyNkNjWMHWx7b3oo/tbyR2
-	QOh31GfGkUDbTQuMgKLDchWnkSA5BCHkUSQPmIWFrOy5/1hkMKY3pVD8MUiCLDBCY7pGLMG8nqy/8
-	+wrP8OMQ==;
+	bh=MGbsiYWGWZERk5A0Z+rH6uIB88SmPGF9IbaUDZNWXi4=; b=O256gYywlOyyoRn3w0hVDcJivb
+	L8xz0woQT3lZ6HTKoCPfPCC0+UbUV6r+pIQDPYec6ZAg3fh7p9b7YbycHf5/pq8mOJpHF+keo1i/A
+	Bm612EP1NhESiWFGrKKTgPASGB0aklkhEDJHzGNgREBX0HRU5CfVSKt4vKFESJSMMBcbfjeONIEdl
+	AeDD8ND7ghz1TALv9Z+DFd20vx3FxWt6k77X2aJSwIBwBJs3cqeuC2mu+iYRrphnC+0aSUOq0e0PG
+	VaMbsb+1aU2LSbH3NiXfAHHvetTVknrc/aA8ATnqu89KcSrbc9lvg6fhZwSj0hVS989Qte3cjy2cJ
+	UORLG4Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwx7p-0000000B2MO-2BPU;
-	Thu, 20 Aug 2026 07:23:46 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wwy0f-0000000B8sK-1G7c;
+	Thu, 20 Aug 2026 08:20:25 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwx7X-0000000B28j-0tmM
+	id 1wwy0c-0000000B8rM-488S
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 07:23:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rfVzyrAarDaBbFw7dISZHqcTaanddlY7xCkN4icJNoA0dw0X9hEXp8CmbWaN5UI3lBuNTyeIIhZ0DayJCOfhEV2FqCuQbfoggFWsVJaoSPO7Gear3K0WhPB210yQCiLvBm1aeiaGDsWIe818PJ95xO9IPdgnXlio/bYK+qdi/ZxA7gHpPP3yW7ciHa3Bjk0bwCxRbFwp5InxVjbRQvqC1kNqSFhu57RE3Pd1iC4/2m/vIKE+QDYXhnzSCVsCepp76QiCjq1/CrTSxhHPVf0vLRvRDUdbgVYQ100Fr2k0sj9vbV1z2nZV5k55N+tWkMWHAYlfh7uMlhJ3X5rqAnH4xg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ACqGbKrUZt2WmQJeMKWsHcv5ZC8zxBztFnJ+SPScPJE=;
- b=HcGe/P7TUZNQQBYYkbBejYQM8rO7/tsi3DWZOk5UIS8AKCobcAj/Al3kRz9/mb7T1NHf1LsvwrL3lJmhGBRLSttAMco1c+RoZAmsYferhAPXL19VA3r7Di+k2EBes+/VDdO8tyv6LkDrOrWOkm98oZckb6MBYrkmBqY7+dFJze20dXoBNrRAaRggNXG4EbuW/PRyLTgVoj7se+oA5IKeHnNa5g+BrXlMMt626gLUeKGVzrJIhSTlldsED6R/t8G3A0FucqexlaofO/1d5GmByLHKJBl7JOYUu9418vE4THZrcvfw++CqAGTRSQjRkRTiknxEvJCQicouIBff1y+c0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ACqGbKrUZt2WmQJeMKWsHcv5ZC8zxBztFnJ+SPScPJE=;
- b=kjTbdXCwaklpjIHBSukT+qungPl8VZ3+6MsZRl4PA97/8Yb7JFdX3+iGcDaA5YorOW07Rkaes57Vtxur3K8CzXsP0ppSx/2zKrd5Y0EkF0Pu/tnwXFhNXQeRXCYTkQ7zjihFe6Fo+EyR3K5/GvCsfq/5Hom20Pl0VSHIQsAl85AdYfM1mpvA70KWZzWbmcgiiOcsx3iRJ/Fdkcl2kL/NHoigm+Uyd06HQOHSXJ0AvrBhhdftFx5H3B6L4QusA+fOpc3j45KYrczXdpcRTnFPj1Yd/3OUVQ8xMxHDJM2je+cqNdGqfWqjBrUSM/ZGpJvhnd7YhYMpcBUHtUK5Kbfbgg==
-Received: from AS4P192CA0049.EURP192.PROD.OUTLOOK.COM (2603:10a6:20b:658::22)
- by DU4PR10MB8638.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:567::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Thu, 20 Aug
- 2026 07:23:18 +0000
-Received: from AMS0EPF000001A0.eurprd05.prod.outlook.com
- (2603:10a6:20b:658:cafe::27) by AS4P192CA0049.outlook.office365.com
- (2603:10a6:20b:658::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.8 via Frontend Transport; Thu, 20
- Aug 2026 07:23:18 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AMS0EPF000001A0.mail.protection.outlook.com (10.167.16.230) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Thu, 20 Aug 2026 07:23:18 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 20 Aug
- 2026 09:28:16 +0200
-Received: from localhost (10.252.29.67) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 20 Aug
- 2026 09:23:16 +0200
-From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Thu, 20 Aug 2026 09:22:37 +0200
-Subject: [PATCH v4 09/14] media: stm32: dcmipp: addition of a dcmipp-isp
- subdev
+	Thu, 20 Aug 2026 08:20:24 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-6a422090b2fso10983a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 01:20:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787214021; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nhf9SrkeAO50Kz6ii/RVyvTQTO0FHh7VMAFV2JTbf6vEdEwMTWPwA1UB/NSOIxgpVl
+         BXcBl2gju7u9fmiehOx5DdyhTSumjbgQYiq7h5QkKkvP2AYDRzy7Y5JCtwl9iIYpqzwm
+         TGuvcOKjvvtgl9T2DNpSf4YAZXqEXA4sBiGxtjOaOuFNnXhex1QSfw1/5AQ2O6kzcG0J
+         +Y6gvsYUe6+2fbKbl0/vUGHjjUfHU9Jy39fwjjt/khx9RTAz8z8tvNMjsOF/DUakG6AV
+         pTkq7dye3gPvwvfXRWFk0RTm/klGBDhBwr6UtxfgWXEeuPdEx27z7F/yID7yVzj2uP7q
+         yBYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=MGbsiYWGWZERk5A0Z+rH6uIB88SmPGF9IbaUDZNWXi4=;
+        fh=rMiMubzIEEVIshqNwuutv1v+xDVMysFL539YrnjGY5s=;
+        b=NIvQVH1sycbbXIIkbJ8sYDBKeQO+IWO71z75LY6ScdtdiLCiMvciH2hRc9RuvsNZ2P
+         9o1ExLxw2r++55WUZxSLzJFU2ECE9BE/5u/UIffbzoSNRzVDLupdpQph292WwKBWGgo9
+         dllIqZ/WDJiWuZFrejSHwG9CCQMjyDFMMRXQiCpchbKqyE1/VkQvVQ2QgFOo1tqWz17b
+         9VfupD8pAFpsHuzSGHWCyKutA7aPycFazQcVRSg8LxZjG9hAp3S0S6soZvvH0tt5Lz2k
+         HYjZ3oOwxfwpJrODK4GOvNfakQWYmCQTDitS+iK3B6g/KVWH9XM4Qk3zUxkL02v6xWCL
+         rVJQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787214021; x=1787818821; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=MGbsiYWGWZERk5A0Z+rH6uIB88SmPGF9IbaUDZNWXi4=;
+        b=SHVEyMW3tN/HYhbnSAvvNkSCPZWDHih7Mj/j732ctc99re9pG7iogY9me2APORKpGV
+         HRMhxuTxRWdiflziRka7P1EWJl2wMt1iHi+LBgGXXWxxuwdKhxu/a/p9cLmzwsMWX8nd
+         8ju2HUCpvGGbfZFerbKW0z3XvbTHgd4RNIW8jFAxmK6cWNgafALy0SCjp69hIwXUa6mM
+         vliRew8q1R927KCfOncFe2l/SNS4t7p7Izw65ECOpNOpgxM885dQGMcmEFY/WIgZEwe+
+         PNW+FaHxFt4iEqO7pfdCqeAq0ugRgtdSCOJndiarsc/IIESX+//8e92uMdc8gJe+8nSL
+         PvXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787214021; x=1787818821;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MGbsiYWGWZERk5A0Z+rH6uIB88SmPGF9IbaUDZNWXi4=;
+        b=DdoCdypCraLvKd5ImdVIp4dpPdphvctR6EEY3LKhRvPthkmxwDLfEv2g8BIvSKOZjV
+         i7EP4IBcwWIaY3NtIpazw09lloXLlQBMIOnaR6QkgHnI27EiOr6/vmjJuiLr7MtaaUA9
+         u48V7l96moRJPOxJIghxQlQ6zgdiQetAFQLlqzx2huX1q2UXaBrh5UEfstebuC7KM5hC
+         +FRXmHLJqxaSCEee3gCJ/zZRHBtRkyhAPmWRWjlaqKMDe0n16e+/hyLC37S/uRCv2iI5
+         JuSs8Z1O464uL10f6Jyv0gVgrQRxXorDYHfXecxQ6rrJbiwloZJbPBIP8CzzNidIdTAe
+         ik0Q==
+X-Forwarded-Encrypted: i=1; AHgh+RpvLqZlzLlHtGnearln1Ie71Gu1WNfE7Ndf4uiJSM9vv1uElZNs3Nd+2gPah7Lk5VKx6FxwC29WRmeLnWvvFd3T@lists.infradead.org
+X-Gm-Message-State: AFuF++nbY/HQqA9dLY5ueExotIO8fFnuVqatRS5yWO8Dd7YJFOCD2e70
+	tcmLLiop3bCOB7ENzSDAbkkSbpCUC9MvCaaSCjS6/2obUbirMhZYW39kNVMzk91Qb5EVMwmehmz
+	GFkxQ46IKlNPId3A6qnCaVZlbr1y6pvc=
+X-Gm-Gg: AR+sD11Bd0T/eZoyt1U6H15ysGU0LY2K3nC2QMBV1OnPphv42iK236yaM4MgUYGIfn1
+	3nxO4gf73fvj96ptCa853YcWd4MnwvpvKuo7BZ+eiUF7QU61ay1I2t6bPkzHeqirks15XEANLbu
+	FWgdEtx/+xOJIN0HKBUsUMiW5G2iy3Rz5rd4FBlo+tyLBCE80IOaYtJ+YvwYmvqu9gBF350o7GS
+	Zd66pEjSPsY4CTskAYG5e/dTJC8b1+yzLTTIYjH8AGy2DbikuQs8NqmFHbMKK2zeYNggIlxoQsl
+	xkgSg4CC7XA2VktXqvUjuO/PBhmqQFib8/vFGQrBBRN13UbRL8ROcb8q+TrOgKTtNapvSA/7CUJ
+	Q+iyWkeiQmSBOaJfgU4M8g7InbF1B1w==
+X-Received: by 2002:a05:6402:5020:b0:6a3:6c99:a5b6 with SMTP id
+ 4fb4d7f45d1cf-6a40330f52dmr3829731a12.14.1787214020549; Thu, 20 Aug 2026
+ 01:20:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260820-stm32-dcmipp-pixel-pipes-support-v4-9-d212eb4e3792@foss.st.com>
-References: <20260820-stm32-dcmipp-pixel-pipes-support-v4-0-d212eb4e3792@foss.st.com>
-In-Reply-To: <20260820-stm32-dcmipp-pixel-pipes-support-v4-0-d212eb4e3792@foss.st.com>
-To: Hans Verkuil <hverkuil+cisco@kernel.org>, Hugues Fruchet
-	<hugues.fruchet@foss.st.com>, Alain Volmat <alain.volmat@foss.st.com>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: b4 0.15.2
-X-Originating-IP: [10.252.29.67]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF000001A0:EE_|DU4PR10MB8638:EE_
-X-MS-Office365-Filtering-Correlation-Id: 13f91e6d-a2d1-48c4-df87-08defe8be86a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|82310400026|23010399003|10067099003|3023799007|56012099006|6133799003|18002099003|22082099003|11063799006;
-X-Microsoft-Antispam-Message-Info: GBbzpFcl7BV4Vjisaqo8YFrgykie6ZFmjmMWNa0B/mCMR/wLuPSqa2M05WP4ch3PCrwWBDIz1ylaIFbk5yTplOsekuCgapej54q2+lmLTQVQLi4rZOeNIkAqTc++oiPveDx/vQf6AtU/Yxd7o+UUtEPED8JiddyjsdJcYZgD4I013xkuSZO+UXMIv+IfWFd/MracxUztbKa6RS1slJ0ZLZpnfSQ/O4gM/zfLr25/vRX72CLOeDVIkRLLb1KdwzrEyD128RevR4kYZhzdeE7spfGP1DgaBoHwQm+QcqEJ42vVrARxR1EayOPL90FuJN+2GyTvAtTefUqSTcYFMwnpyYL3eC2agpDlrwQIb4vF7UbuSLKTn8Llh+FzOEUSa7n8RfdkU0rs2MtKEluV0vXbd09b+9cAsFqIkcRPumP1Gvca+ewS0vcH5hlZ5h1Rnrcwcavo8d5iZeK+64yaT40uwIVN+MjV+TGrAEvI2Lz0743zGoLDZXTbggNNQJXKpEWfyFITQV6DXFkV5G0SFtJu3SWcHlyMTcELHsZS8SNiEHDgMUJa+nVuuZiH1RKminQhXw7E30WECBcSodfzGIGB8kPpp24f/fhOJEIhTGUdtMUFlLmaxk5sA1IydUT2dpCI1n7ls3JCc2h/V9UucDKMWpXV1zLyShO1d7ZEut9EHjhZExb467x/fhGdgHQ80Ki80lfqc7hS9Z4j3rAuESOiwg==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(82310400026)(23010399003)(10067099003)(3023799007)(56012099006)(6133799003)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: MYbe5YsvJ0GRUcoR4gb0RWB7ylQIPC1WnhQ5RbYTJRk3ji2PWqukMVz7GqzcTaGLD0+jVr09mwAMOuqqBOnY3aLBZiLG5L24ysI8kD5zbsXrb9RvZRYmGGeQo09KXgv1p4mwoNqgOBlaw9TjYd1J2ZywrVNDx+dsdVuLyB8Ygsrlrq9Sc2wMrl5w7ACn/IOBDb1imGrTh1ZGYiGVA5/BCksUqSMGSI26PMtR2vZtSG3Sz/nezZ2ICh7L6di8ikaNL6+R92buFXpGbpD5e8BK0HkoMAXjijnWioFMsBQ7Qz3o3Gnh9QIgPrzKRgtJj/VOblXG0y5e7jHJ0KoaiaBrjViWKKfqSfzL3TLOAtQqSj/2JHmpY0JPcbx3K6i5Y4JsoXn6caogZ+oyN6wH12wnmYK4p6Xz/lXhsAlD5ehDCjhv8oN/+VpYp64M76Fa1S6K
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 07:23:18.5597
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 13f91e6d-a2d1-48c4-df87-08defe8be86a
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A0.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR10MB8638
+References: <20260817090601.1256389-1-pawlik.dan@gmail.com>
+ <20260817161756.5fd2185a@kernel.org> <CALC2Apj7rQv=6uUqaqBjfJ9yO+VCddQqHB=yDhXH7+QUCh2JyA@mail.gmail.com>
+ <20260818082933.28b5c9d1@kernel.org> <CALC2Apj-KLB5CVbSvoZWvA4Oan7dmAerK=VP7W86jmErWW8OdQ@mail.gmail.com>
+In-Reply-To: <CALC2Apj-KLB5CVbSvoZWvA4Oan7dmAerK=VP7W86jmErWW8OdQ@mail.gmail.com>
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+Date: Thu, 20 Aug 2026 10:20:08 +0200
+X-Gm-Features: AcwNN1UAbW5mRoslcDJeKuGMNRJBvfUzgrdSLmsEfPXWjGmdPxSxk5a_KsgHoA8
+Message-ID: <CALC2ApiCSY8DkVpd7puTssbJZMWBHGVtFCnG66fiK0PX7-u3Hw@mail.gmail.com>
+Subject: Re: [PATCH v8] net: airoha: npu: use cacheline-sized buffers for
+ mailbox DMA
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, lorenzo@kernel.org, win847@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_002327_432918_8C24A362 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20260820_012023_063799_226D36A1 
+X-CRM114-Status: GOOD (  31.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,546 +121,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ISP subdev is the first element after input of the main pipeline.
-Part (static configuration) of this block is done via this subdev while
-other configuration done on a per-frame basis will be done via a output
-metadata device attached to this subdev.
-This subdev handled the following features of the ISP block:
-  - statistic removal (top / bottom of the frame)
-  - decimation
-  - demosaicing
-  - control of frame export to the aux pipeline
+Hi,
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
----
- .../media/platform/st/stm32/stm32-dcmipp/Makefile  |   2 +-
- .../platform/st/stm32/stm32-dcmipp/dcmipp-common.h |   3 +
- .../platform/st/stm32/stm32-dcmipp/dcmipp-isp.c    | 491 +++++++++++++++++++++
- 3 files changed, 495 insertions(+), 1 deletion(-)
+TL;DR: The kernel forces swiotlb bounce for sub-cacheline-sized DMA on
+non-coherent ARM64. The EN7581 NPU cannot write to the swiotlb bounce
+buffer region. Cache-line-aligned buffers bypass swiotlb entirely and
+streaming DMA works =E2=80=94 NPU version reads 0.1111, WiFi fully function=
+al.
 
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile b/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
-index 54231569ed6fe..a708534a51af4 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
-@@ -1,5 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- stm32-dcmipp-y := dcmipp-core.o dcmipp-common.o dcmipp-input.o dcmipp-byteproc.o dcmipp-bytecap.o
--stm32-dcmipp-y += dcmipp-pixelcommon.o
-+stm32-dcmipp-y += dcmipp-pixelcommon.o dcmipp-isp.o
- 
- obj-$(CONFIG_VIDEO_STM32_DCMIPP) += stm32-dcmipp.o
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-index ee9f36268e646..e04fde86550a5 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-@@ -282,5 +282,8 @@ void dcmipp_byteproc_ent_release(struct dcmipp_ent_device *ved);
- struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
- 						  struct dcmipp_device *dcmipp);
- void dcmipp_bytecap_ent_release(struct dcmipp_ent_device *ved);
-+struct dcmipp_ent_device *dcmipp_isp_ent_init(const char *entity_name,
-+					      struct dcmipp_device *dcmipp);
-+void dcmipp_isp_ent_release(struct dcmipp_ent_device *ved);
- 
- #endif
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-isp.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-isp.c
-new file mode 100644
-index 0000000000000..1586cc9c59a6b
---- /dev/null
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-isp.c
-@@ -0,0 +1,491 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for STM32 Digital Camera Memory Interface Pixel Processor
-+ *
-+ * Copyright (C) STMicroelectronics SA 2026
-+ * Authors: Hugues Fruchet <hugues.fruchet@foss.st.com>
-+ *          Alain Volmat <alain.volmat@foss.st.com>
-+ *          for STMicroelectronics.
-+ */
-+
-+#include <linux/v4l2-mediabus.h>
-+#include <media/v4l2-rect.h>
-+#include <media/v4l2-subdev.h>
-+
-+#include "dcmipp-common.h"
-+#include "dcmipp-pixelcommon.h"
-+
-+#define DCMIPP_P1FSCR	0x804
-+#define DCMIPP_P1FSCR_PIPEDIFF BIT(18)
-+
-+#define DCMIPP_P1SRCR	0x820
-+#define DCMIPP_P1SRCR_LASTLINE_SHIFT	0
-+#define DCMIPP_P1SRCR_FIRSTLINEDEL_SHIFT	12
-+#define DCMIPP_P1SRCR_CROPEN		BIT(15)
-+
-+#define DCMIPP_P1DECR	0x830
-+#define DCMIPP_P1DECR_ENABLE		BIT(0)
-+#define DCMIPP_P1DECR_HDEC_SHIFT	1
-+#define DCMIPP_P1DECR_VDEC_SHIFT	3
-+
-+#define DCMIPP_P1DMCR	0x870
-+#define DCMIPP_P1DMCR_ENABLE		BIT(0)
-+#define DCMIPP_P1DMCR_TYPE_SHIFT	1
-+#define DCMIPP_P1DMCR_TYPE_MASK		GENMASK(2, 1)
-+#define DCMIPP_P1DMCR_TYPE_RGGB		0x0
-+#define DCMIPP_P1DMCR_TYPE_GRBG		0x1
-+#define DCMIPP_P1DMCR_TYPE_GBRG		0x2
-+#define DCMIPP_P1DMCR_TYPE_BGGR		0x3
-+
-+#define ISP_MEDIA_BUS_SINK_FMT_DEFAULT MEDIA_BUS_FMT_RGB565_1X16
-+#define ISP_MEDIA_BUS_SRC_FMT_DEFAULT MEDIA_BUS_FMT_RGB888_1X24
-+
-+struct dcmipp_isp_device {
-+	struct dcmipp_ent_device ved;
-+	struct v4l2_subdev sd;
-+	struct device *dev;
-+
-+	void __iomem *regs;
-+};
-+
-+static const struct v4l2_mbus_framefmt fmt_default = {
-+	.width = DCMIPP_FMT_WIDTH_DEFAULT,
-+	.height = DCMIPP_FMT_HEIGHT_DEFAULT,
-+	.code = ISP_MEDIA_BUS_SINK_FMT_DEFAULT,
-+	.field = V4L2_FIELD_NONE,
-+	.colorspace = DCMIPP_COLORSPACE_DEFAULT,
-+	.ycbcr_enc = DCMIPP_YCBCR_ENC_DEFAULT,
-+	.quantization = DCMIPP_QUANTIZATION_DEFAULT,
-+	.xfer_func = DCMIPP_XFER_FUNC_DEFAULT,
-+};
-+
-+static inline unsigned int dcmipp_isp_set_compose(__u32 size, __u32 req)
-+{
-+	unsigned int i = 0;
-+
-+	if (req > size)
-+		return size;
-+
-+	/* Maximum decimation factor is 8 */
-+	while (size > req && i++ < 3)
-+		size /= 2;
-+
-+	return size;
-+}
-+
-+static void dcmipp_isp_adjust_fmt(struct v4l2_mbus_framefmt *fmt, u32 pad)
-+{
-+	/* Only accept code in the pix map table */
-+	if (!dcmipp_pixelpipe_pix_map_by_code(fmt->code, DCMIPP_ISP, pad))
-+		fmt->code = IS_SRC(pad) ? ISP_MEDIA_BUS_SRC_FMT_DEFAULT :
-+					  ISP_MEDIA_BUS_SINK_FMT_DEFAULT;
-+
-+	fmt->width = clamp_t(u32, fmt->width, DCMIPP_FRAME_MIN_WIDTH,
-+			     DCMIPP_FRAME_MAX_WIDTH) & ~1;
-+	fmt->height = clamp_t(u32, fmt->height, DCMIPP_FRAME_MIN_HEIGHT,
-+			      DCMIPP_FRAME_MAX_HEIGHT);
-+
-+	if (fmt->field == V4L2_FIELD_ANY || fmt->field == V4L2_FIELD_ALTERNATE)
-+		fmt->field = V4L2_FIELD_NONE;
-+
-+	dcmipp_colorimetry_clamp(fmt);
-+}
-+
-+static int dcmipp_isp_init_state(struct v4l2_subdev *sd,
-+				 struct v4l2_subdev_state *state)
-+{
-+	for (unsigned int i = 0; i < sd->entity.num_pads; i++) {
-+		struct v4l2_mbus_framefmt *mf;
-+
-+		mf = v4l2_subdev_state_get_format(state, i);
-+		*mf = fmt_default;
-+		mf->code = IS_SRC(i) ? ISP_MEDIA_BUS_SRC_FMT_DEFAULT :
-+				       ISP_MEDIA_BUS_SINK_FMT_DEFAULT;
-+
-+		if (IS_SINK(i)) {
-+			struct v4l2_rect r = {
-+				.top = 0,
-+				.left = 0,
-+				.width = DCMIPP_FMT_WIDTH_DEFAULT,
-+				.height = DCMIPP_FMT_HEIGHT_DEFAULT,
-+			};
-+
-+			*v4l2_subdev_state_get_crop(state, i) = r;
-+			*v4l2_subdev_state_get_compose(state, i) = r;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int dcmipp_isp_enum_mbus_code(struct v4l2_subdev *sd,
-+				     struct v4l2_subdev_state *state,
-+				     struct v4l2_subdev_mbus_code_enum *code)
-+{
-+	return dcmipp_pixelpipe_enum_mbus_code(DCMIPP_ISP, code);
-+}
-+
-+static int dcmipp_isp_enum_frame_size(struct v4l2_subdev *sd,
-+				      struct v4l2_subdev_state *state,
-+				      struct v4l2_subdev_frame_size_enum *fse)
-+{
-+	return dcmipp_pixelpipe_enum_frame_size(DCMIPP_ISP, fse);
-+}
-+
-+static int dcmipp_isp_set_fmt(struct v4l2_subdev *sd,
-+			      struct v4l2_subdev_state *state,
-+			      struct v4l2_subdev_format *fmt)
-+{
-+	if (fmt->which == V4L2_SUBDEV_FORMAT_ACTIVE &&
-+	    v4l2_subdev_is_streaming(sd))
-+		return -EBUSY;
-+
-+	dcmipp_isp_adjust_fmt(&fmt->format, fmt->pad);
-+
-+	if (IS_SINK(fmt->pad)) {
-+		struct v4l2_mbus_framefmt *src_fmt =
-+			v4l2_subdev_state_get_format(state, 1);
-+		struct v4l2_rect r = {
-+			.top = 0,
-+			.left = 0,
-+			.width = fmt->format.width,
-+			.height = fmt->format.height,
-+		};
-+
-+		/* Adjust SINK pad crop/compose */
-+		*v4l2_subdev_state_get_crop(state, 0) = r;
-+		*v4l2_subdev_state_get_compose(state, 0) = r;
-+
-+		/* Forward format to SRC pads */
-+		*src_fmt = fmt->format;
-+		src_fmt->code = dcmipp_pixelpipe_src_format(fmt->format.code);
-+		*v4l2_subdev_state_get_format(state, 2) = *src_fmt;
-+	} else {
-+		struct v4l2_mbus_framefmt *sink_fmt =
-+			v4l2_subdev_state_get_format(state, 0);
-+		struct v4l2_rect *compose =
-+			v4l2_subdev_state_get_compose(state, 0);
-+
-+		fmt->format = *sink_fmt;
-+		fmt->format.code = dcmipp_pixelpipe_src_format(sink_fmt->code);
-+		if (compose->width && compose->height) {
-+			fmt->format.width = compose->width;
-+			fmt->format.height = compose->height;
-+		}
-+		/* Set to the 2nd SRC pad */
-+		*v4l2_subdev_state_get_format(state, fmt->pad == 1 ? 2 : 1) =
-+			fmt->format;
-+	}
-+
-+	/* Update the selected pad format */
-+	*v4l2_subdev_state_get_format(state, fmt->pad) = fmt->format;
-+
-+	return 0;
-+}
-+
-+static void dcmipp_isp_adjust_crop(struct v4l2_rect *r,
-+				   const struct v4l2_mbus_framefmt *fmt)
-+{
-+	struct v4l2_rect crop_min = {
-+		.width = fmt->width,
-+		.height = DCMIPP_FRAME_MIN_HEIGHT,
-+	};
-+
-+	/*
-+	 * Crop is related here to the statistics removal, that is
-+	 * firsts and/or lasts lines of the frame. Up to the first
-+	 * 7 lines can be skipped
-+	 */
-+#define DCMIPP_ISP_MAX_TOP_CROP	7
-+	v4l2_rect_set_min_size(r, &crop_min);
-+	if (r->top > DCMIPP_ISP_MAX_TOP_CROP)
-+		r->top = DCMIPP_ISP_MAX_TOP_CROP;
-+	if ((r->height + r->top) > fmt->height)
-+		r->height = fmt->height - r->top;
-+}
-+
-+static int dcmipp_isp_set_selection(struct v4l2_subdev *sd,
-+				    struct v4l2_subdev_state *state,
-+				    struct v4l2_subdev_selection *s)
-+{
-+	struct dcmipp_isp_device *isp = v4l2_get_subdevdata(sd);
-+	struct v4l2_mbus_framefmt *sink_fmt, *src_fmt;
-+	struct v4l2_rect *crop, *compose;
-+	__u32 pad;
-+
-+	if (IS_SRC(s->pad))
-+		return -EINVAL;
-+
-+	if (s->which == V4L2_SUBDEV_FORMAT_ACTIVE &&
-+	    v4l2_subdev_is_streaming(sd))
-+		return -EBUSY;
-+
-+	crop = v4l2_subdev_state_get_crop(state, s->pad);
-+	compose = v4l2_subdev_state_get_compose(state, s->pad);
-+
-+	switch (s->target) {
-+	case V4L2_SEL_TGT_CROP:
-+		sink_fmt = v4l2_subdev_state_get_format(state, s->pad);
-+		dcmipp_isp_adjust_crop(&s->r, sink_fmt);
-+
-+		*crop = s->r;
-+		*compose = s->r;
-+
-+		dev_dbg(isp->dev, "s_selection: crop (%d,%d)/%ux%u\n",
-+			crop->left, crop->top, crop->width, crop->height);
-+		break;
-+	case V4L2_SEL_TGT_COMPOSE:
-+		s->r.top = 0;
-+		s->r.left = 0;
-+		if (s->r.width < DCMIPP_FRAME_MIN_WIDTH)
-+			s->r.width = DCMIPP_FRAME_MIN_WIDTH;
-+		s->r.width = dcmipp_isp_set_compose(crop->width, s->r.width);
-+		if (s->r.height < DCMIPP_FRAME_MIN_HEIGHT)
-+			s->r.height = DCMIPP_FRAME_MIN_HEIGHT;
-+		s->r.height = dcmipp_isp_set_compose(crop->height, s->r.height);
-+		*compose = s->r;
-+
-+		dev_dbg(isp->dev, "s_selection: compose (%d,%d)/%ux%u\n",
-+			compose->left, compose->top,
-+			compose->width, compose->height);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	/* Update the source pad size */
-+	for (pad = 1; pad < sd->entity.num_pads; pad++) {
-+		src_fmt = v4l2_subdev_state_get_format(state, pad);
-+		src_fmt->width = s->r.width;
-+		src_fmt->height = s->r.height;
-+	}
-+
-+	return 0;
-+}
-+
-+#define STM32_DCMIPP_IS_BAYER_VARIANT(code, variant)	\
-+	((code) == MEDIA_BUS_FMT_S##variant##8_1X8 ||	\
-+	 (code) == MEDIA_BUS_FMT_S##variant##10_1X10 ||	\
-+	 (code) == MEDIA_BUS_FMT_S##variant##12_1X12 ||	\
-+	 (code) == MEDIA_BUS_FMT_S##variant##14_1X14 ||	\
-+	 (code) == MEDIA_BUS_FMT_S##variant##16_1X16)
-+static void dcmipp_isp_config_demosaicing(struct dcmipp_isp_device *isp,
-+					  struct v4l2_subdev_state *state)
-+{
-+	__u32 code = v4l2_subdev_state_get_format(state, 0)->code;
-+	unsigned int val = 0;
-+
-+	/* Disable demosaicing */
-+	reg_clear(isp, DCMIPP_P1DMCR,
-+		  DCMIPP_P1DMCR_ENABLE | DCMIPP_P1DMCR_TYPE_MASK);
-+
-+	/* Only perform demosaicing if format is bayer */
-+	if (code < MEDIA_BUS_FMT_SBGGR8_1X8 || code >= MEDIA_BUS_FMT_JPEG_1X8)
-+		return;
-+
-+	dev_dbg(isp->dev, "Input is RawBayer, enable Demosaicing\n");
-+
-+	if (STM32_DCMIPP_IS_BAYER_VARIANT(code, BGGR))
-+		val = DCMIPP_P1DMCR_TYPE_BGGR << DCMIPP_P1DMCR_TYPE_SHIFT;
-+	else if (STM32_DCMIPP_IS_BAYER_VARIANT(code, GBRG))
-+		val = DCMIPP_P1DMCR_TYPE_GBRG << DCMIPP_P1DMCR_TYPE_SHIFT;
-+	else if (STM32_DCMIPP_IS_BAYER_VARIANT(code, GRBG))
-+		val = DCMIPP_P1DMCR_TYPE_GRBG << DCMIPP_P1DMCR_TYPE_SHIFT;
-+	else if (STM32_DCMIPP_IS_BAYER_VARIANT(code, RGGB))
-+		val = DCMIPP_P1DMCR_TYPE_RGGB << DCMIPP_P1DMCR_TYPE_SHIFT;
-+
-+	val |= DCMIPP_P1DMCR_ENABLE;
-+
-+	reg_set(isp, DCMIPP_P1DMCR, val);
-+}
-+
-+static bool dcmipp_isp_is_aux_output_enabled(struct dcmipp_isp_device *isp)
-+{
-+	struct media_link *link;
-+
-+	for_each_media_entity_data_link(isp->ved.ent, link) {
-+		if (link->source != &isp->ved.pads[2])
-+			continue;
-+
-+		if (!(link->flags & MEDIA_LNK_FL_ENABLED))
-+			continue;
-+
-+		if (!strcmp(link->sink->entity->name, "dcmipp_aux_postproc"))
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
-+static void dcmipp_isp_config_decimation(struct dcmipp_isp_device *isp,
-+					 struct v4l2_subdev_state *state)
-+{
-+	struct v4l2_rect *crop = v4l2_subdev_state_get_crop(state, 0);
-+	struct v4l2_rect *compose = v4l2_subdev_state_get_compose(state, 0);
-+	u32 decr;
-+
-+	decr = (fls(crop->width / compose->width) - 1) << DCMIPP_P1DECR_HDEC_SHIFT |
-+	       (fls(crop->height / compose->height) - 1) << DCMIPP_P1DECR_VDEC_SHIFT;
-+	if (decr)
-+		decr |= DCMIPP_P1DECR_ENABLE;
-+
-+	reg_write(isp, DCMIPP_P1DECR, decr);
-+}
-+
-+static int dcmipp_isp_enable_streams(struct v4l2_subdev *sd,
-+				     struct v4l2_subdev_state *state,
-+				     u32 pad, u64 streams_mask)
-+{
-+	struct dcmipp_isp_device *isp = v4l2_get_subdevdata(sd);
-+	struct v4l2_rect *crop = v4l2_subdev_state_get_crop(state, 0);
-+	struct v4l2_subdev *s_subdev;
-+	struct media_pad *s_pad;
-+	int ret;
-+
-+	/* Perform configuration only if no other pad is enabled */
-+	if (sd->enabled_pads)
-+		return 0;
-+
-+	/* Get source subdev */
-+	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
-+	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
-+		return -EINVAL;
-+	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
-+
-+	/* Check if link between ISP & Pipe2 postproc is enabled */
-+	if (dcmipp_isp_is_aux_output_enabled(isp))
-+		reg_clear(isp, DCMIPP_P1FSCR, DCMIPP_P1FSCR_PIPEDIFF);
-+	else
-+		reg_set(isp, DCMIPP_P1FSCR, DCMIPP_P1FSCR_PIPEDIFF);
-+
-+	/* Configure Statistic Removal */
-+	crop = v4l2_subdev_state_get_crop(state, 0);
-+	reg_write(isp, DCMIPP_P1SRCR,
-+		  ((crop->top << DCMIPP_P1SRCR_FIRSTLINEDEL_SHIFT) |
-+		   (crop->height << DCMIPP_P1SRCR_LASTLINE_SHIFT) |
-+		   DCMIPP_P1SRCR_CROPEN));
-+
-+	/* Configure Decimation */
-+	dcmipp_isp_config_decimation(isp, state);
-+
-+	/* Configure Demosaicing */
-+	dcmipp_isp_config_demosaicing(isp, state);
-+
-+	ret = v4l2_subdev_enable_streams(s_subdev, s_pad->index, BIT_ULL(0));
-+	if (ret < 0) {
-+		dev_err(isp->dev,
-+			"failed to start source subdev streaming (%d)\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int dcmipp_isp_disable_streams(struct v4l2_subdev *sd,
-+				      struct v4l2_subdev_state *state,
-+				      u32 pad, u64 streams_mask)
-+{
-+	struct dcmipp_isp_device *isp = v4l2_get_subdevdata(sd);
-+	struct v4l2_subdev *s_subdev;
-+	struct media_pad *s_pad;
-+	int ret;
-+
-+	/* Don't do anything if there are still other pads enabled */
-+	if ((sd->enabled_pads & ~BIT(pad)))
-+		return 0;
-+
-+	/* Get source subdev */
-+	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
-+	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
-+		return -EINVAL;
-+	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
-+
-+	/* Disable all blocks */
-+	reg_write(isp, DCMIPP_P1SRCR, 0);
-+	reg_write(isp, DCMIPP_P1DECR, 0);
-+	reg_write(isp, DCMIPP_P1DMCR, 0);
-+
-+	ret = v4l2_subdev_disable_streams(s_subdev, s_pad->index, BIT_ULL(0));
-+	if (ret < 0) {
-+		dev_err(isp->dev,
-+			"failed to disable source subdev streaming (%d)\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct v4l2_subdev_pad_ops dcmipp_isp_pad_ops = {
-+	.enum_mbus_code		= dcmipp_isp_enum_mbus_code,
-+	.enum_frame_size	= dcmipp_isp_enum_frame_size,
-+	.get_fmt		= v4l2_subdev_get_fmt,
-+	.set_fmt		= dcmipp_isp_set_fmt,
-+	.get_selection		= dcmipp_pixelpipe_get_selection,
-+	.set_selection		= dcmipp_isp_set_selection,
-+	.enable_streams		= dcmipp_isp_enable_streams,
-+	.disable_streams	= dcmipp_isp_disable_streams,
-+};
-+
-+static const struct v4l2_subdev_video_ops dcmipp_isp_video_ops = {
-+	.s_stream = v4l2_subdev_s_stream_helper,
-+};
-+
-+static const struct v4l2_subdev_ops dcmipp_isp_ops = {
-+	.pad = &dcmipp_isp_pad_ops,
-+	.video = &dcmipp_isp_video_ops,
-+};
-+
-+static void dcmipp_isp_release(struct v4l2_subdev *sd)
-+{
-+	struct dcmipp_isp_device *isp = v4l2_get_subdevdata(sd);
-+
-+	kfree(isp);
-+}
-+
-+static const struct v4l2_subdev_internal_ops dcmipp_isp_int_ops = {
-+	.init_state = dcmipp_isp_init_state,
-+	.release = dcmipp_isp_release,
-+};
-+
-+void dcmipp_isp_ent_release(struct dcmipp_ent_device *ved)
-+{
-+	struct dcmipp_isp_device *isp =
-+			container_of(ved, struct dcmipp_isp_device, ved);
-+
-+	dcmipp_ent_sd_unregister(ved, &isp->sd);
-+}
-+
-+struct dcmipp_ent_device *dcmipp_isp_ent_init(const char *entity_name,
-+					      struct dcmipp_device *dcmipp)
-+{
-+	struct dcmipp_isp_device *isp;
-+	const unsigned long pads_flag[] = {
-+		MEDIA_PAD_FL_SINK, MEDIA_PAD_FL_SOURCE,
-+		MEDIA_PAD_FL_SOURCE,
-+	};
-+	int ret;
-+
-+	/* Allocate the isp struct */
-+	isp = kzalloc_obj(*isp);
-+	if (!isp)
-+		return ERR_PTR(-ENOMEM);
-+
-+	isp->regs = dcmipp->regs;
-+
-+	/* Initialize ved and sd */
-+	ret = dcmipp_ent_sd_register(&isp->ved, &isp->sd,
-+				     &dcmipp->v4l2_dev, entity_name,
-+				     MEDIA_ENT_F_PROC_VIDEO_PIXEL_FORMATTER,
-+				     ARRAY_SIZE(pads_flag), pads_flag,
-+				     &dcmipp_isp_int_ops, &dcmipp_isp_ops,
-+				     NULL, NULL);
-+	if (ret) {
-+		kfree(isp);
-+		return ERR_PTR(ret);
-+	}
-+
-+	isp->ved.dcmipp = dcmipp;
-+	isp->dev = dcmipp->dev;
-+
-+	return &isp->ved;
-+}
+Test progression (EN7581 / Gemtek W1700K, kernel 6.18, cache_align=3D64):
 
--- 
-2.34.1
+Boot 1 - stock (dma_set_coherent_mask only):
+  91/91 swiotlb bounce, NPU hangs after ~41 calls, version 0.0
 
+Boot 2 - + dma_set_mask_and_coherent(DMA_BIT_MASK(32)):
+  Still 91/91 swiotlb. Hang gone (all 116 succeed), version still 0.0.
+  Bounce-direct read via phys_to_virt matches pre-map =E2=80=94 NPU never w=
+rote.
+
+Boot 3 - + dcache_inval_poc before bounce read:
+  Bounce buffer still matches pre-map after cache invalidation.
+  Rules out CPU cache =E2=80=94 NPU genuinely never writes to bounce region=
+.
+
+Boot 4 - + phys/mask logging:
+  dma_mask=3D0xffffffff, phys fits. size=3D24 fails IS_ALIGNED(size, 64)
+  in dma_direct_map_page() =E2=80=94 this is why swiotlb is forced.
+
+Boot 5 - kmalloc(ALIGN(size, 64), GFP_KERNEL):
+  is_swiotlb=3D0 on all 169 mappings. Version 0.1111. 0 timeouts.
+  mt7996e firmware loaded, WiFi works.
+
+  Version query (size=3D12):
+    pre-map:    30 00 00 00 0a 00 00 00 00 00 00 00
+    post-unmap: 30 00 00 00 0a 00 00 00 57 04 00 00
+    Bytes 8-11 now contain response data (always zeros in boots 1-4).
+
+Root cause:
+
+dma_direct_map_page() forces swiotlb when:
+
+  !dev_is_dma_coherent(dev) &&
+  !IS_ALIGNED(phys | size, dma_get_cache_alignment())
+
+size=3D24 < cache_line=3D64 fails this regardless of address alignment.
+The swiotlb sync code itself is fine, but the NPU cannot DMA-write to
+the bounce buffer address range (it reads commands fine, never writes
+responses back). This is probably an EN7581 platform limitation.
+
+Testing a fix:
+
+Align the mailbox DMA buffer to cache line size:
+
+  aligned_size =3D ALIGN(size, dma_get_cache_alignment());
+  dma_buf =3D kmalloc(aligned_size, GFP_KERNEL);
+  dma_map_single(dev, dma_buf, aligned_size, DMA_BIDIRECTIONAL);
+
+This keeps streaming DMA, eliminates swiotlb, and works. The separate
+dma_set_mask_and_coherent() fix is still needed (fixes hang after ~41
+calls) but alone does not prevent bounce =E2=80=94 the sub-cacheline size
+triggers it regardless of mask.
+
+Debug commit:
+https://github.com/openwrt/openwrt/commit/c9363b2597528eb3badef3bb04608c0d2=
+1c81b6f
+
+Boot 5 dmesg available if needed.
+
+Regards,
+Dan
+
+=C5=9Br., 19 sie 2026 o 14:27 Daniel Pawlik <pawlik.dan@gmail.com> napisa=
+=C5=82(a):
+>
+> Hi,
+>
+> I instrumented airoha_npu_send_msg() on EN7581 (Gemtek W1700K) with
+> DMA_BIDIRECTIONAL and the original unaligned 24-byte payload. Here is
+> what I found.
+>
+> 1) Every dma_map_single() call lands in swiotlb bounce buffers.
+>    The driver only calls dma_set_coherent_mask(DMA_BIT_MASK(32)) at
+>    probe but never calls dma_set_mask(). On this non-coherent ARM64
+>    platform that appears to force all streaming DMA through swiotlb.
+>
+> 2) The NPU permanently hangs after ~41 mailbox calls.
+>    The first 41 PPE SRAM-init calls succeed (mbox_status=3D0x7, ~10ms
+>    each). Starting at the 42nd, the NPU never sets the DONE bit =E2=80=94
+>    every subsequent call times out at 100ms (ret=3D-110,
+>    mbox_status=3D0x1), including the WLAN version query that triggers
+>    the "failed getting NPU fw version" probe failure.
+>
+> 3) Response data is never synced back through the bounce buffer.
+>    post-sync and post-unmap hex dumps are byte-identical to pre-map
+>    for both successful and timed-out calls.
+>
+> 4) Buffer pointer is 64-byte aligned (p_aligned=3D1), size is 24
+>    (sub-cacheline, cache_align=3D64). The swiotlb slot size is 2048,
+>    so the bounce buffer itself is always page-aligned.
+>
+> 5) dma_alloc_coherent mappings (shown by DMA-API debug dump) map
+>    P=3D=3DD at addresses around 0x91xxxxxx, bypassing swiotlb entirely.
+>    The mailbox works reliably through that path.
+>
+> Representative trace (last success / first failure):
+>
+>   [19.541] func_id=3D0 p=3D...dfc0 size=3D24 cache_align=3D64 p_aligned=
+=3D1
+>   [19.545] mapped: dma=3D0xff765000 dma_aligned=3D1 is_swiotlb=3D1
+>   [19.541] mbox done: ret=3D0 mbox_status=3D0x7      <-- last success
+>
+>   [19.588] func_id=3D0 p=3D...dfc0 size=3D24 cache_align=3D64 p_aligned=
+=3D1
+>   [19.618] mapped: dma=3D0xff765800 dma_aligned=3D1 is_swiotlb=3D1
+>   [19.728] mbox done: ret=3D-110 mbox_status=3D0x1    <-- first timeout
+>   (all subsequent calls also timeout, NPU never recovers)
+>
+> My working theory is that the missing dma_set_mask() is the root cause.
+> Without it the kernel bounces every streaming mapping through swiotlb,
+> and either the bounce-buffer sync path on this non-coherent platform
+> has a bug with sub-cacheline transfers, or the NPU firmware cannot
+> handle the latency/address-range change that bouncing introduces.
+>
+> I plan to test next with dma_set_mask_and_coherent(DMA_BIT_MASK(32))
+> to see whether that eliminates the swiotlb bounce and restores the
+> mailbox. If it does, that narrows the bug to either the swiotlb sync
+> implementation or the platform DMA ops for non-coherent devices.
+>
+> Debug instrumentation patch (applied on top of OpenWrt's 6.18.44):
+> https://github.com/openwrt/openwrt/commit/13ea79d9a411dc497882e820e4c8814=
+43457bd97
+>
+> Full dmesg from the instrumented boot:
+> https://gist.github.com/danpawlik/b351e8a06218a3aaf68a2cb31a32ea8f
+>
+> Thanks for help,
+> Dan
+>
+>
+> wt., 18 sie 2026 o 17:29 Jakub Kicinski <kuba@kernel.org> napisa=C5=82(a)=
+:
+> >
+> > On Tue, 18 Aug 2026 08:23:33 +0200 Daniel Pawlik wrote:
+> > > v8 does not switch to coherent DMA; it only rounds up mailbox payload
+> > > allocations (dma_get_cache_alignment() in v9) and maps the same round=
+ed
+> > > length with DMA_BIDIRECTIONAL, while the mailbox length register stil=
+l
+> > > uses the original payload size. On this board, mapping only the paylo=
+ad
+> > > size regresses probe back to 0.0 even with the larger allocation, so =
+the
+> > > rounded map length seems required here.
+> >
+> > Please trace into the dma API implementation on this platform where the
+> > alignment makes a difference. The "unaligned length" path must be buggy=
+.
+> > We should fix it there, not in all the drivers (my concern being that
+> > this is not the only driver that hits the issue).
+>
+>
+>
+> --
+> Z powa=C5=BCaniem,
+> Daniel Pawlik
+
+
+
+--=20
+Z powa=C5=BCaniem,
+Daniel Pawlik
 
