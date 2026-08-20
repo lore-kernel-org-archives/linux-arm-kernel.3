@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 056F2C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5FBEC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NpXlZR7pvjm05Xx5f5EcvCOyQaDabKZP0y/iVhUjTO8=; b=mjPzPy69y8xLj5xXVl5N3PnHPD
-	6m3M5YOX58Am0yYuSZW9MZX7EOi0e9wvgvQwg6FcFPa/th0D/UwjOoqVQISubdaFpmkOCdrnxZhaA
-	A8FAvktpNAT0I8Ttb1yT+LFGNWcqyuXzWpKoRRhav0uOasTNY4k2i1VvDKiT6lDo7m+x2Mx/RvAiX
-	GfykS6kakgeu5JwpuVc7dnuRjnfuYPeXT5ANE8Rqs2+mlFQtAL+v9L6wpPZaBzzixvxxcES2SPNd6
-	ZmjtfUdU2A4ZrN+fVOuB0L8HfRrrszE3YDw4uekaN+1A9tda8Aey6LWrqMt2CVMHply//V3og+K3j
-	HMfiunTA==;
+	bh=7VAih6CJcla7gNd/QP63tx26v6uoeQYaOkiWuBfulpI=; b=vsa2PHlGlnfLFIBEpEqOy9Mpyg
+	gONIC2/ELM2LUXu5KcUxZEfYxpMRBGoos8AXMYQEB71EikAqxx/MbWwVq1j+6ti8hYuxA2YDZW6+q
+	dKrIOth/UV7uGqzUv876b7iyRh1z2x7opT1PitwsZlsPluc7ZmngfY5Y/4ODm25KcPmBiQk01E6Rr
+	LtljRwI9/UJ3ii/VAVv5fp8gpGqj/GaKbVGPqZfRLY2Tykr5Uawy5E2ly2MhGU0YrhymcmdksUd3r
+	rhtvEMHdoAUVzxbQoY75ZwGp9kNCsxj+8Z43T8ZgwF3jZ2SWGdgmiLHoSN22NwApbMhQ+pKWaHVtr
+	3+14sEAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4me-0000000BonH-2Gko;
+	id 1wx4me-0000000Boms-1cGa;
 	Thu, 20 Aug 2026 15:34:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4mZ-0000000Bojw-3GFB
+	id 1wx4mW-0000000Boi3-2Gnh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 15:34:21 +0000
+	Thu, 20 Aug 2026 15:34:17 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 410CD1691;
-	Thu, 20 Aug 2026 08:34:13 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2A13B153B;
+	Thu, 20 Aug 2026 08:34:11 -0700 (PDT)
 Received: from e142334-100.cambridge.arm.com (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 49D983F763;
-	Thu, 20 Aug 2026 08:34:15 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2FBB53F763;
+	Thu, 20 Aug 2026 08:34:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787240057; bh=XiIMUAI3CQTSrJclmRgZXDewMHXUs7lMHRaU8Wfpa4M=;
+	t=1787240055; bh=vre9auiptf+o+amdAV0uA/7EFkQAVeq7gsNLbAqiU8c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sqPysWCE6zOjewZ/05h1yx2wTxbz/AhF4/2AV7LXJZCyUHIZoMggpYHP0HIEmZByQ
-	 LOBJJFFh1tfqbDGJlKaAOfH9AdLF9qo/WzeepKNsOikeIa5sNPA/Rd8sj5sBxh4Nl6
-	 e2KKrOVKxclOHwikMlkQh/hxVKZ4Kv6csgogmFYU=
+	b=ILuiY8iGLLhfAIqBKU9UGmoQePaZW4vluIC1qsZoLQQaGLK1np9ZVli07H9RN+ojP
+	 S8hnGYPAty5WZzdm42RTrrzEhXRDmOkWppwJD666o3+vpKjnsZUGsqoVQD9371sizq
+	 ElOfDFmb9U2+2Ch12mQJBdb5ICdboTOWEt2lspcs=
 From: Muhammad Usama Anjum <usama.anjum@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -54,17 +54,17 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)),
 	linux-kselftest@vger.kernel.org (open list:KERNEL SELFTEST FRAMEWORK)
 Cc: Muhammad Usama Anjum <usama.anjum@arm.com>
-Subject: [PATCH 4/4] selftest/arm64: Add MTE test config fragment
-Date: Thu, 20 Aug 2026 16:33:26 +0100
-Message-ID: <20260820153331.2448875-5-usama.anjum@arm.com>
+Subject: [PATCH 3/4] selftest/arm64: Fix MTE prctl TAP plan
+Date: Thu, 20 Aug 2026 16:33:25 +0100
+Message-ID: <20260820153331.2448875-4-usama.anjum@arm.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260820153331.2448875-1-usama.anjum@arm.com>
 References: <20260820153331.2448875-1-usama.anjum@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_083419_854555_7AC5A77A 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260820_083416_636754_3F3D71C9 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,36 +79,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm64 selftest collection has no Kconfig fragment, so kernels built
-with the selftest requirements are not guaranteed to provide the support
-used by the MTE tests.
+The MTE prctl test emits one result from check_basic_read() followed by
+one result for each of the seven entries in mte_modes[]. However, the TAP
+plan only accounts for the array entries, producing:
 
-Add a fragment covering the userspace MTE and tagged-address ABIs, KSM
-and its sysfs interface, explicit HugeTLB mappings and their proc/sysctl
-interfaces, and tmpfs-backed file mappings.
+  # Planned tests != run tests (7 != 8)
 
-Do not request NUMA solely for the optional KSM merge_across_nodes.
+Include the basic read check in the plan so that all eight emitted results
+are declared.
 
+Fixes: 1f488fb91378 ("kselftest/arm64/mte: Add MTE_STORE_ONLY testcases")
 Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 ---
- tools/testing/selftests/arm64/mte/config | 8 ++++++++
- 1 file changed, 8 insertions(+)
- create mode 100644 tools/testing/selftests/arm64/mte/config
+ tools/testing/selftests/arm64/mte/check_prctl.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/arm64/mte/config b/tools/testing/selftests/arm64/mte/config
-new file mode 100644
-index 0000000000000..8587ce70c294a
---- /dev/null
-+++ b/tools/testing/selftests/arm64/mte/config
-@@ -0,0 +1,8 @@
-+CONFIG_ARM64_MTE=y
-+CONFIG_ARM64_TAGGED_ADDR_ABI=y
-+CONFIG_HUGETLBFS=y
-+CONFIG_KSM=y
-+CONFIG_PROC_FS=y
-+CONFIG_SYSCTL=y
-+CONFIG_SYSFS=y
-+CONFIG_TMPFS=y
+diff --git a/tools/testing/selftests/arm64/mte/check_prctl.c b/tools/testing/selftests/arm64/mte/check_prctl.c
+index f7f320defa7b9..d16a91117eef9 100644
+--- a/tools/testing/selftests/arm64/mte/check_prctl.c
++++ b/tools/testing/selftests/arm64/mte/check_prctl.c
+@@ -119,7 +119,7 @@ int main(void)
+ 	int i;
+ 
+ 	ksft_print_header();
+-	ksft_set_plan(ARRAY_SIZE(mte_modes));
++	ksft_set_plan(ARRAY_SIZE(mte_modes) + 1);
+ 
+ 	check_basic_read();
+ 	for (i = 0; i < ARRAY_SIZE(mte_modes); i++)
 -- 
 2.47.3
 
