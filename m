@@ -4,75 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC68C5DF8F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 19:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0531C5DF89
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 19:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l1Karx1ZBkuz57dpLOa3NMZqbb6vT7XfiOcKwNEnGks=; b=MsgHMWgmhkVC8H+Z7SF/SQNg3C
-	D0vsFZ7L+P02r1fX2RGD13f8LoXScPQdHkbw2fjcPN3ezS8wKK3nsTtLL0FqyQN7mbA2JcKL/3ETU
-	fbLnI5bZOxFT9InF3VJMwEYDUjXHlNuBFygMI9BGwilHhTHhlOypgyRmbgwK4N2B1bWCxZzFpIRg6
-	uKO2sRHKzgjEReTV99VABxS41B9yjAJgKTYDnMZ5v3aRMVc84UG+bWriSnd2V+7TNjXJvVM0vzjKy
-	xU31fl8shSV2kzuluxmQ4zKW4vPLiEbokGAF3c++5DsrwnOTcRDp40JZwk70nQsk04dxXm5o6kZgq
-	zmpAE5Ow==;
+	bh=FM6vcgpFnfz7iIxxGNxBaMBik3/U7ndwrf92exk2vNM=; b=Kmz9lMKG65KF7rfCk1bv9p6B3v
+	pseFUFGqQn6ERPQiFo5s3rU07oFbH+WwiK4O8O09AZhCcXvziZFiWFDeXWjmcLlsv/eMOfGswdk4I
+	NaO9oOBXgkHmQLh7sMSvvpOZuY4hGoibTWqfIuMlnXDLMdUHTcxEhw5C8er1VDC79eyjtw1a4eUYj
+	2ojdAaPRKHBeWuN+j4S9z7HemualTLvjBe5m6m05T+LP7v80ouW2YTiJF0CgaJ2axC13KOGXIwjAV
+	AnyIh733hlj0828DHlUbGHh7IgoeOFybEqlidKWRGcrDhJPRrap+ib/v20D8MbrqmvogkrrxtrUnC
+	d8WUoQcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx8BO-0000000C5tJ-05uZ;
-	Thu, 20 Aug 2026 19:12:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wx8M1-0000000C6hC-168V;
+	Thu, 20 Aug 2026 19:23:09 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx8BN-0000000C5sl-10Lz
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 19:12:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D286044049;
-	Thu, 20 Aug 2026 19:12:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B609DC2BD01;
-	Thu, 20 Aug 2026 19:12:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1787253128;
-	bh=28WNZql7k9NGuBzPlZkL9rdF4eUy8pQ98jiA00AuOyQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=ThkQITMfrqFTbdWc7HesZUPTfIPVoWj44oiUzNsWvmxZgMqhFXkUKWTN2eq4ME0CL
-	 q/Pl6mZQUDNYmUUPgbTnjM5HySPVPNL1ftErVL+q3Ord+3qzlCIVugyCOSB6LAO51/
-	 v8eBHW8hw2UKV1aT71GXjfvwMvVoOAj/ML3LHtro5ydQFK+5LZSrNQhSR5g4HSKAL0
-	 SLlbTZY61xyAdJlc5ROvSIkCxqEgktuy6+hLr57W9NBVEw8TIuPklobyVwlrCMnhjY
-	 ixPeSQmLbgvvEMjAvGOUr2l0HipKM97wZFU/30euOLjT0NZgYz3teVhPVLyFvmT9Rp
-	 7wKeFkKSq+PSg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A3965C5DF89;
-	Thu, 20 Aug 2026 19:12:08 +0000 (UTC)
-From: Markuss Broks via B4 Relay <devnull+markuss.broks.gmail.com@kernel.org>
-Date: Thu, 20 Aug 2026 22:12:08 +0300
-Subject: [PATCH 4/4] iommu/exynos: decode the v7 fault transaction info
+	id 1wx8Ly-0000000C6gd-0KU4;
+	Thu, 20 Aug 2026 19:23:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1787253782;
+	bh=netGS3826OfdBhOGaochUMtFJf0sQLAIeCCeC64zFy4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Z/lECfkjbFToU3JpZ1gC29GwO0usnrecHWmwGezXDirrKDcXGevoy3GV4i64Ukya9
+	 9PG7VNrZ2nJ8EOhReTgMvEoJsc37vG4X2yEsuLdpzmG1YAHchxwGknkCOS3laEnDdH
+	 GbT9SV5XwdQVr0KET+ok6bfPZms9H0iBaoA4stHbkawB7yC1XdnseCMHcR4q4nD/3D
+	 J0Va1mGs57pnQHVkQgDxvAHlvnfAzZ/ptDfR7Y1jnf7CQpxmIZR1CtICGW2YeeX/xg
+	 cNKlUP8bVXa5+k2jL1cI91WoBK4aWmUUcMUv/3ot36ECMMdQS/0ZQfVdpxeAkyQAOP
+	 QcMj6NvMpvxzQ==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0371217E0829;
+	Thu, 20 Aug 2026 21:23:01 +0200 (CEST)
+Message-ID: <c0d50716-e171-4c2a-9a51-2a5c52c093e5@collabora.com>
+Date: Thu, 20 Aug 2026 22:23:01 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 45/69] drm/vc4: hdmi: Convert to common HDMI 2.0
+ scrambling infrastructure
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Algea Cao <algea.cao@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
+ Liu Ying <victor.liu@nxp.com>, Phong LE <ple@baylibre.com>,
+ kernel@collabora.com, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
+References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
+ <20260731-dw-hdmi-qp-scramb-v10-45-294364b2cf15@collabora.com>
+ <20260820-tan-spoonbill-of-action-82269e@houat>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20260820-tan-spoonbill-of-action-82269e@houat>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260820-exynos-iommu-fixes-v1-4-6bbcd673bb15@gmail.com>
-References: <20260820-exynos-iommu-fixes-v1-0-6bbcd673bb15@gmail.com>
-In-Reply-To: <20260820-exynos-iommu-fixes-v1-0-6bbcd673bb15@gmail.com>
-To: Marek Szyprowski <m.szyprowski@samsung.com>, 
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Markuss Broks <markuss.broks@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787253126; l=2986;
- i=markuss.broks@gmail.com; s=20260803; h=from:subject:message-id;
- bh=ds2FwQf93t6aWc7pL7d/0AcQafl2TKcR73r3avK3lF8=;
- b=YUghpcT3gXo+61EMw7hA+qlTiMj8yjh8tzM6VDTi7YPQ3VKz8u0bFvtG0QjbiBNKUcMwHH56R
- lT9X87yn00mAy1WcXOJKoOOwxQsnmgcSMKU4sIwgXItFBMqnTdANjT/
-X-Developer-Key: i=markuss.broks@gmail.com; a=ed25519;
- pk=oKzGUTm30BCDqinRMpiHQqByOx1mp2mwmhg80Mv7Zg4=
-X-Endpoint-Received: by B4 Relay for markuss.broks@gmail.com/20260803 with
- auth_id=911
-X-Original-From: Markuss Broks <markuss.broks@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_122306_295921_DF239D7B 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,88 +91,109 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: markuss.broks@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Markuss Broks <markuss.broks@gmail.com>
+On 8/20/26 2:24 PM, Maxime Ripard wrote:
+> On Fri, Jul 31, 2026 at 07:19:52PM +0300, Cristian Ciocaltea wrote:
+>> Replace driver local scrambling logic with the newly introduced common
+>> HDMI 2.0 scrambling support:
+>>
+>> - Advertise source-side scrambling capability by setting supported HDMI
+>>   version based on the variant's max_pixel_clock.
+>>
+>> - Provide minimal .scrambler_{enable,disable} connector callbacks that
+>>   only toggle the VC5 HDMI_SCRAMBLER_CTL register, while delegating
+>>   sink-side SCDC programming and periodic status monitoring to
+>>   drm_connector_hdmi_{enable,disable}_scrambling().
+>>
+>> - Drop vc4_hdmi_reset_link() and vc4_hdmi_handle_hotplug(), switching
+>>   the .detect_ctx() path to drm_atomic_helper_connector_hdmi_hotplug()
+>>   which internally calls drm_connector_hdmi_sync_scdc() to trigger a
+>>   CRTC reset on reconnection.
+>>
+>> - Drop the local scrambling_work delayed workqueue and scdc_enabled
+>>   flag, now tracked by the common drm_connector_hdmi layer, as well as
+>>   the now unused output_{bpc,color_format} driver data members.
+>>
+>> No functional change intended.
+>>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
 
-The v7+ fault registers carry a transaction-info word alongside the
-faulting address, but it is only used to derive the read/write
-direction and then thrown away.  Keep it and print it: AxID identifies
-which port inside the master issued the faulting transaction, which is
-the only way to tell apart the several DMA engines a single block can
-contain, and the remaining bits of the raw word are implementation
-defined and worth having in a fault report.
+[...]
 
-Define the known fields of the word instead of open-coding the masks;
-this also names the direction bit the driver was already testing as a
-bare BIT(20).
+>> +static int vc4_hdmi_scrambler_enable(struct drm_connector *connector)
+>>  {
+>> -	struct vc4_hdmi *vc4_hdmi = encoder_to_vc4_hdmi(encoder);
+>> -	struct drm_connector *connector = &vc4_hdmi->connector;
+>> +	struct vc4_hdmi *vc4_hdmi = connector_to_vc4_hdmi(connector);
+>>  	struct drm_device *drm = connector->dev;
+>> -	const struct drm_display_mode *mode = &vc4_hdmi->saved_adjusted_mode;
+>>  	unsigned long flags;
+>>  	int idx;
+>>  
+>> -	lockdep_assert_held(&vc4_hdmi->mutex);
+>> -
+>> -	if (!vc4_hdmi_supports_scrambling(vc4_hdmi))
+>> -		return;
+>> -
+>> -	if (!drm_hdmi_mode_needs_scrambling(mode,
+>> -					    vc4_hdmi->output_bpc,
+>> -					    vc4_hdmi->output_format))
+>> -		return;
+>> -
+>>  	if (!drm_dev_enter(drm, &idx))
+>> -		return;
+>> -
+>> -	drm_scdc_set_high_tmds_clock_ratio(connector, true);
+>> -	drm_scdc_set_scrambling(connector, true);
+>> +		return -ENODEV;
+> 
+> Not being able to acquire the device isn't an error, it's something we should ignore.
 
-Gate the print on the variant having a fault_info register, so older
-SysMMUs are unaffected.
+Ack, will return 0 in both cases.
 
-Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
----
- drivers/iommu/exynos-iommu.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/iommu/exynos-iommu.c b/drivers/iommu/exynos-iommu.c
-index 29b27c7e400a..0bca3662fdc2 100644
---- a/drivers/iommu/exynos-iommu.c
-+++ b/drivers/iommu/exynos-iommu.c
-@@ -8,6 +8,7 @@
- #define DEBUG
- #endif
- 
-+#include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/dma-mapping.h>
- #include <linux/err.h>
-@@ -144,6 +145,9 @@ static u32 lv2ent_offset(sysmmu_iova_t iova)
- #define CAPA0_CAPA1_EXIST		BIT(11)
- #define CAPA1_VCR_ENABLED		BIT(14)
- #define CAPA1_NO_BLOCK_MODE		BIT(15)
-+#define FAULT_INFO_AXID			GENMASK(15, 0)
-+#define FAULT_INFO_AXLEN		GENMASK(19, 16)
-+#define FAULT_INFO_WRITE		BIT(20)
- 
- /* common registers */
- #define REG_MMU_CTRL		0x000
-@@ -194,6 +198,7 @@ struct sysmmu_fault {
- 	sysmmu_iova_t addr;	/* IOVA address that caused fault */
- 	const char *name;	/* human readable fault name */
- 	unsigned int type;	/* fault type for report_iommu_fault() */
-+	u32 info;		/* raw transaction info (v7+ only) */
- };
- 
- struct sysmmu_v1_fault_info {
-@@ -360,7 +365,8 @@ static int exynos_sysmmu_v7_get_fault_info(struct sysmmu_drvdata *data,
- 
- 	fault->addr = readl(SYSMMU_REG(data, fault_va));
- 	fault->name = sysmmu_v7_fault_names[itype % 4];
--	fault->type = (info & BIT(20)) ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ;
-+	fault->type = (info & FAULT_INFO_WRITE) ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ;
-+	fault->info = info;
- 
- 	return 0;
- }
-@@ -558,6 +564,12 @@ static void show_fault_information(struct sysmmu_drvdata *data,
- 		dev_name(data->master),
- 		fault->type == IOMMU_FAULT_READ ? "READ" : "WRITE",
- 		fault->name, fault->addr);
-+	/* AxID identifies the issuing port inside the master */
-+	if (data->variant->fault_info)
-+		dev_err(data->sysmmu, "transaction info %#010x: AxID %#lx, AxLEN %lu\n",
-+			fault->info,
-+			FIELD_GET(FAULT_INFO_AXID, fault->info),
-+			FIELD_GET(FAULT_INFO_AXLEN, fault->info));
- 	dev_dbg(data->sysmmu, "Page table base: %pa\n", &data->pgtable);
- 	ent = section_entry(phys_to_virt(data->pgtable), fault->addr);
- 	dev_dbg(data->sysmmu, "\tLv1 entry: %#x\n", *ent);
-
--- 
-2.55.0
-
-
+> 
+>>  
+>>  	spin_lock_irqsave(&vc4_hdmi->hw_lock, flags);
+>>  	HDMI_WRITE(HDMI_SCRAMBLER_CTL, HDMI_READ(HDMI_SCRAMBLER_CTL) |
+>> @@ -793,59 +659,27 @@ static void vc4_hdmi_enable_scrambling(struct drm_encoder *encoder)
+>>  
+>>  	drm_dev_exit(idx);
+>>  
+>> -	vc4_hdmi->scdc_enabled = true;
+>> -
+>> -	queue_delayed_work(system_percpu_wq, &vc4_hdmi->scrambling_work,
+>> -			   msecs_to_jiffies(SCRAMBLING_POLLING_DELAY_MS));
+>> +	return 0;
+>>  }
+>>  
+>> -static void vc4_hdmi_disable_scrambling(struct drm_encoder *encoder)
+>> +static int vc4_hdmi_scrambler_disable(struct drm_connector *connector)
+>>  {
+>> -	struct vc4_hdmi *vc4_hdmi = encoder_to_vc4_hdmi(encoder);
+>> -	struct drm_connector *connector = &vc4_hdmi->connector;
+>> +	struct vc4_hdmi *vc4_hdmi = connector_to_vc4_hdmi(connector);
+>>  	struct drm_device *drm = connector->dev;
+>>  	unsigned long flags;
+>>  	int idx;
+>>  
+>> -	lockdep_assert_held(&vc4_hdmi->mutex);
+>> -
+>> -	if (!vc4_hdmi->scdc_enabled)
+>> -		return;
+>> -
+>> -	vc4_hdmi->scdc_enabled = false;
+>> -
+>> -	if (delayed_work_pending(&vc4_hdmi->scrambling_work))
+>> -		cancel_delayed_work_sync(&vc4_hdmi->scrambling_work);
+>> -
+>>  	if (!drm_dev_enter(drm, &idx))
+>> -		return;
+>> +		return -ENODEV;
+> 
+> Ditto
+> 
+> Maxime
 
