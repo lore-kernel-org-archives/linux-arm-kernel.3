@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250ADC5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 09:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D46C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 09:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KzDNkLWug3uH06grmI5tFaYQGaR1Dd+azs+zlMWYDkM=; b=2V6vkGemDAJ0Nga5Yqg1riISyl
-	KHb38/dOWgbvoBSyw9otOkESHXHJMdElcbo1CW6uP3TSXXJ4IHM4NUuBNKS9ySJBtnX3HzmHEFzWi
-	BbSOF3LnaByc0pTUpWFypZEcOaVAyG3I3E+BymQ3bK8PROJMF8LUAf3270hBXEnuAbu61JDprYBnr
-	gIslKgdG1jBlJURw1CEoMV3rax5vHtVE7odrljJojHhatMhBKuoDO58n5IjB+6uRok1U+9woPYcOP
-	AkKNhU6lFRQk+XcnaM9X+rhEmTMKXUgLm2Ko/4a9UL20EhV/9uSRGxONpex7Z8Ff24/TGZPbQjD6P
-	PTAye7QQ==;
+	bh=G5wRK8UQUntkfKxBkcuhYJT69Pdd0Q05Ua1EKGESaNA=; b=BlGDD3NjoG/NduLNbdR9l0oPGK
+	tW+YfEDMsb7N91Jah1jOgy4T8/LUjV9H/D37S3Dme3cM9FNgqytYuMYdG0xnP/HDqG2ZqgBuagIRu
+	GaN6CbCoqnDiLX9LCKNtkKuiiGf07WnxdKwqGracjvOnQ+81VfM6Yi/s4vkzR3PZzyB4s0/8P34q5
+	PLikOk2T1R2JM2J/FJUwvfGKx2Z3Cl6VvBybKyPA82oAU3rptPBHy3a5VgEQvzLyHUDNaMLiL3+te
+	k1ppqZoYELy0Fr8As94fRg72fj7oJlY8yyv2a7DcSLcvdzaUUDL6w8SMbK+sHpuJmPjP1mujo/bZu
+	EWprH8Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwyte-0000000BEqU-3eLa;
+	id 1wwyte-0000000BEqm-45Ok;
 	Thu, 20 Aug 2026 09:17:14 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwyta-0000000BEoD-0NZ2
+	id 1wwytc-0000000BEoy-1RfQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 09:17:11 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-4815bce4652so1325969f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 02:17:09 -0700 (PDT)
+	Thu, 20 Aug 2026 09:17:13 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-472326ca506so1358040f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 02:17:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1787217428; x=1787822228; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1787217430; x=1787822230; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=KzDNkLWug3uH06grmI5tFaYQGaR1Dd+azs+zlMWYDkM=;
-        b=NOxFkiA4v5oNzNW7ga5lRvYH0r3nmCqRAN5TdiX1nnr5ojGDvfnXCyNK/sGd355jkH
-         3jq8jVi4Hca1QrnlDEGA9AWk2I8oxEI3fEIl5CT9Vsq6xt0FpxCCILEk1mLs91bD2Yga
-         y/YFS1UUpale6vhLezYdzvgQhFaL6Cyo/MfiY=
+        bh=G5wRK8UQUntkfKxBkcuhYJT69Pdd0Q05Ua1EKGESaNA=;
+        b=CwVAwotla81mYbWdUbEVtaH+c6Ie+tiVo0xma7+E8Fub2KM/G/P0Ntm+exUP44phNe
+         2oHynkRXyV+eOK3R+BrgqKDldWXtwUoZa9MMQZby6Y+wpx9qDX4taT0H+N48LPBfTUxR
+         UBR7IEXsvfBE1HBrus7W4XBQzQ1d0fj7tMKpI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787217428; x=1787822228;
+        d=1e100.net; s=20251104; t=1787217430; x=1787822230;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KzDNkLWug3uH06grmI5tFaYQGaR1Dd+azs+zlMWYDkM=;
-        b=F6cLT8uoOvX9hGdgRGRoSLCpcE3bJTmW2hoWxnnPCb7JVF7QpNzlBUDvtmlyYSU0F6
-         UQ2ECclJzn3XVirRFQdw7J3GZc39ut1bU50yQdrITKKzgAnOBSXFWCnXa/E6daCcDLkF
-         27cSKcJi2KkB4Oa5Dcn77DmkM39pO9g861bGBbTeyvGwpkWMfY5H8SE4GdnA4YNL+MEf
-         Vri2dEn+dEtrKGz553TqIXO6qJpzwliTIMxlSUgYbLGLoYnZp4zBHEYxQ/Zg02wwH96Y
-         4R4JdGuy1jLIxSbLZhNkAVF93Qsv2Tk820j5beOUT3sMiH0wl2JAsezGLr1WjnUna+bd
-         ickg==
-X-Forwarded-Encrypted: i=1; AHgh+Ro1s2FaW1ahCSkmdQQqMYG0lMEoEFi92ll3UuBAAy5SsT+HcGhq4tdVSMoCVLBw729drn85kfj33yUSTIIwU7xl@lists.infradead.org
-X-Gm-Message-State: AFuF++mvHuxCjOryKCUj/S+JASI6y8BRW/wclfbxYomdzP1WqX30bmyH
-	x+4I7/9xr12nKAzcuODRU8Of5Puu9UmE/COC1YY08xp/Ih4TvVpBNgwMT4Ic3CF5MJk=
-X-Gm-Gg: AR+sD13uLKpsZJNX8kKMeg2CHy/uNZY0bbAzb5KMtrMvuIeQXXZhAqrD9/SbvnaDYfR
-	/tbS5bONEewV7y37lICgvBLr6aypgQG/zrV/NVApZ8b44Y762meZhiD2NTYn46rvYGZ8SIjZLT9
-	Ppidl7ZgWT5TUzIYCu6aOVCXqaCTiCKCaFcqo3COWB+Y2wP6dzpTVC+VUEOlgy87lgEMxGvkL7Y
-	c8uFSy7vR9k9HgHEReNB9IbIt5cIOvmCLlo9vmbMtcA1bsdVzxdzGg2kbBuoBNHPvh+rQmTizJc
-	v51nzw2FoJ+rvHYuWMlASmVi01xveYPK08ovVZajG+m1eXDgmAryW0P5R88EeAQ+pyTO3t/0dIz
-	2y+NgV8jFzybwLILnmy09TuROogz+eXgPU9FiKUV5jlPt22AgVqIBwdcquWAi51JIccx+WVCHMC
-	QQMsAPCU+zcZMk2D/of7QeW4CxdnmEnKALOXMhujVaUqgkXY82mDfP7wZterACtqjiV1ruedCA1
-	xqUTb0xEgmrl5ZyEGt+HnU4j/Bl5jLSNIxYENUQtQlFKgr+A6BVhGoKPP3YWi4bVX0UDRvCJulY
-	AcFXAwe8KU5gxwMj750Q7t2DAOBQMSH++xEAxHia8CoTrXJQ5maPTlOu0S/VQA==
-X-Received: by 2002:a5d:59a7:0:b0:481:44e5:160c with SMTP id ffacd0b85a97d-482b1e8632emr21244457f8f.2.1787217428095;
-        Thu, 20 Aug 2026 02:17:08 -0700 (PDT)
+        bh=G5wRK8UQUntkfKxBkcuhYJT69Pdd0Q05Ua1EKGESaNA=;
+        b=V7SrPGcevbJZayDutNW0FXsMU+2y68lmDBZOZPAYwLz1GMeROzoFT6Lr4tuXirhQfo
+         +MJhVde7Y4wmxEqFya5fUY+Uv2Rk3jgRTec4V/LwdxW+g+ktfTRyO14ytBGLxVTFz8w1
+         wJhmOg+C59IvnnpYIy/Csi4GO/xf9QQA//UhAqJxyKjE/ecopCaLF3tDpFpMGUMzLemn
+         Ie9EUSXBhcWPHXtU3FVDA3C+Nz1cxYH4/LRKwZD/Oap0Tec471GEBG6uBWTSSNvNHWO6
+         3a7NfUn/Gqig9lVD1CVU6US/VhTulUS8ZaYARL+77WRYNvPsKNXBjFLoHv61ODX5dDpt
+         wX6g==
+X-Forwarded-Encrypted: i=1; AHgh+RrVzs3wngy4q3onFc6qj0eDYlX5K+UKqAaMPKC/GR+jYMqKWo/LGY7LIlueZousZaWl61QDQUe897RFTfVyGSG7@lists.infradead.org
+X-Gm-Message-State: AFuF++nI+mcMoyMeUl3gFowcpQRAweuiEmEHlACaKWHv13B6pyD7GCK8
+	BqWSKGmt/BAgZl9NqQwBdj9VA8VI2ltrVb/nlbHsRyoUbq2LbsEg67WwyoON1K+WWAs=
+X-Gm-Gg: AR+sD11yABM5bxez7C5XkGDlgz1YpXLOJOqjEgylL/J2MfUwxoiyCOLuUqLKnfVXgvv
+	FCrv9hPRYbHd9o8C1lF8mZtJAsNLkDL6O1AjteeagwSOH89eomjbCyre6w9MKzsc908u5jL1sE8
+	E5yKwqBgkaAN2D26US7mqFss25dUJVqITTc2o4M8e2mIV+uipeefzTTwrrG1uOjiKpXKQj5nbqi
+	aj54OINFpb+APKtMZsr09MFA11tbesQ79FyBpG+TZxwDon6ocbKxGcR/xnhkFiXbzJSPwx2KNp4
+	uls+1nZD9qS8W2szMot847mV0DAvdSnotZJ7JO4Kew0w5pnrDxr/22ZPwv5bZ+HdIfm0oGsxrIB
+	THaynpKuu6ZNh7adBxuKyLQYktAQast4fZXZC7GMIpjiFuqWlu5Txwq8h+rEkCF5pNThh/gWFmA
+	mKkPcyj8pCHcjKfoeEbiT5wJWElitsZ0MEpMJ6qjylrD+vaCrh+7spQFGeJ3LpPr1mAuzdGdr74
+	tGWLxG8J1d2X1V6wLCHi6SOV0+dMQb5nKx3Ll5LvBWplsUJtv4NNEVQHVzqdQ1QNC0tHKT1LWJU
+	3XTUEtYsV23esb52RqUEYQZJyX/WsG1uqkrMEf6UVESkxR09xQXACkuGveSjkg==
+X-Received: by 2002:a5d:6f10:0:b0:481:5ba5:994c with SMTP id ffacd0b85a97d-482b1ffc276mr22851058f8f.20.1787217430423;
+        Thu, 20 Aug 2026 02:17:10 -0700 (PDT)
 Received: from dario-ThinkPad-P14s-Gen-5.homenet.telecomitalia.it (host-79-54-86-139.retail.telecomitalia.it. [79.54.86.139])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482b14c3775sm10021606f8f.26.2026.08.20.02.17.06
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482b14c3775sm10021606f8f.26.2026.08.20.02.17.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 02:17:07 -0700 (PDT)
+        Thu, 20 Aug 2026 02:17:09 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: alexandre.torgue@foss.st.com,
@@ -78,24 +78,22 @@ Cc: alexandre.torgue@foss.st.com,
 	michael@amarulasolutions.com,
 	linux-amarula@amarulasolutions.com,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Christophe Parant <c.parant@phytec.fr>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org
-Subject: [PATCH v8 01/16] dt-bindings: arm: stm32: support Engicam MicroGEA-STM32MP257D-RMM board
-Date: Thu, 20 Aug 2026 11:12:09 +0200
-Message-ID: <20260820091652.43541-2-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH v8 02/16] arm64: dts: st: add power-domains to sdmmc1 on stm32mp231
+Date: Thu, 20 Aug 2026 11:12:10 +0200
+Message-ID: <20260820091652.43541-3-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260820091652.43541-1-dario.binacchi@amarulasolutions.com>
 References: <20260820091652.43541-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_021710_145968_D867D7F3 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20260820_021712_397344_F68CC0BA 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,45 +108,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add devicetree bindings for Engicam MicroGEA-STM32MP257D-RMM board based
-on the Engicam MicroGEA-STM32MP257 SoM (System-on-Module).
-
-The use of an enum for a single element is justified by the future
-addition of other boards based on the same SoM.
+The sdmmc1 node was introduced early in the SoC bring-up before power
+domains were systematically mapped. Add the missing power-domains
+property to align it with the rest of the peripheral nodes.
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
 ---
 
-Changes in v8:
-- Rename engicam,microgea-stm32mp257-rmm to engicam,microgea-stm32mp257d-rmm
+(no changes since v5)
 
-Changes in v2:
-- Add Acked-by of Conor Dooley for patch 0/1 "dt-bindings: arm: stm32:
-  support Engicam MicroGEA-STM32MP257-RMM board"
+Changes in v5:
+- Added in version 5. Suggested by Sashiko.
 
- Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp231.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-index c6af3a46364f..3ed797ee7cfe 100644
---- a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-+++ b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-@@ -203,6 +203,13 @@ properties:
-               - st,stm32mp257f-ev1
-           - const: st,stm32mp257
+diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+index 9e1d240888ff..0feb8943efae 100644
+--- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+@@ -727,6 +727,7 @@ sdmmc1: mmc@48220000 {
+ 				cap-mmc-highspeed;
+ 				max-frequency = <120000000>;
+ 				access-controllers = <&rifsc 76>;
++				power-domains = <&cluster_pd>;
+ 				status = "disabled";
+ 			};
  
-+      - description: Engicam MicroGEA STM32MP257 SoM based Boards
-+        items:
-+          - enum:
-+              - engicam,microgea-stm32mp257d-rmm
-+          - const: engicam,microgea-stm32mp257
-+          - const: st,stm32mp257
-+
-       - description: ST STM32MP235 based Boards
-         items:
-           - enum:
 -- 
 2.43.0
 
