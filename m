@@ -4,82 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05334C5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:34:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E09FDC5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HF3fHLxh2Hy/ShhD2iOCkKw3EqwT7lvWR8yQzpB1QNA=; b=YVd790/eyuVeuTLwLFpnJNPAv4
-	W1gRvAaiRx86orlFArVJl+DxTIUjJ0lACelP+YH5KXC4eOWfrHTYKooOFYli8V4OWCzmildLjxo+2
-	5vZo08mOfX0npTqfv9AoYdv3UU8tJjRDrWgy3DYEiy4lWzqT3UBupCeGSPSzq4BsFJYRvTLIEEJPD
-	v31JMv5L/ad/EfMBnj5Pb3w6nZxV31t88IV/eWe7njlLKQZMQM2CKsdH9EyjUutle4v0UVtLbZDy+
-	6CkmoLX6p9EnYldSziMDZY6wFekq5X5oLaDLt3ExHx9FG3dxSbwjqnnZHETrsRMDKpGZF5RX1PyTF
-	3kSq2FJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=czT1ImPU/vWc2M0tWEKBT0LXpRCVrV75Wfn03rEOF2c=; b=krMbPKZYbjDStnpMvTpMyBMDEk
+	080JnubzkjOlD9iO7t0Ix7aq/tAS7+YA7R53pXR93PU/96Xawkswc/a+tRb4prVFFl6VzfN8k/Wj5
+	gyM8CRaSPQU/jz6jc2ZV6imPjgGLdRQymVbFKlHiXRlhSReIK0ZLhaOvd7mM5f2rKEfCtx59xWs9N
+	CEgZ0PNxSpCceWYZ6GARYCfL+0y8fdM/BToydLNkNqyMea387yQz8d4KgJn30I/11LSytCUMurF+f
+	xLCNFh8AFhacysDl5+WVKuIWRcunxfJ21rMfGV9jdSO5GB6EH/hqodm43XaPfEDqTpsGjI/PejiGX
+	/HJDW3yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx06E-0000000BMq0-0Qqv;
-	Thu, 20 Aug 2026 10:34:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wx0JI-0000000BNSx-0ksW;
+	Thu, 20 Aug 2026 10:47:48 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx06D-0000000BMpt-1hz4
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 10:34:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 81D1960A5C;
-	Thu, 20 Aug 2026 10:34:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 383AB1F000E9;
-	Thu, 20 Aug 2026 10:34:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787222056;
-	bh=HF3fHLxh2Hy/ShhD2iOCkKw3EqwT7lvWR8yQzpB1QNA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HEYhR+K97cWYfvD8C2+2zXvqMnYgQluuWzgdJOFQPm/6w5K41doQ+VgsulbV9mmki
-	 0UNs9vEgR0Q/FhRNZHrEm0ob4Zv4qxK8bs1EKzUb9/iNZNweq6srIP+kd6nqZ3TUYi
-	 FhHFK3Eum85bc7tl42ccqXJoaFi9vZu2zC63X9W07VPkwcqVkUxUwPlY8cgErxrZIC
-	 AZ0Mu+HIB6DnVichh8Urxq8R0lqBwOYwvOHhQJk/T1C3hgXo7oVbw9d59OrmVIEwE1
-	 MIcfIY/txgT0/lv0hD6lTj4sPd/ovUHX5dHCcFLK8Qzj6hyJBhaB5MFuZB+HcSXUH/
-	 rRqAkQe1GbAcQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wx06A-0000000HFt4-1GwV;
-	Thu, 20 Aug 2026 10:34:14 +0000
-Date: Thu, 20 Aug 2026 11:36:45 +0100
-Message-ID: <871pbtoz7m.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Eric Auger <eauger@redhat.com>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu
- <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] KVM: arm64: vgic-its: Free the caches when GITS_BASER changes
-In-Reply-To: <78d60d96-d0c7-4eaa-b425-ca4f75263b12@redhat.com>
-References: <20260819102809.310708-1-fuad.tabba@linux.dev>
-	<20260819102809.310708-2-fuad.tabba@linux.dev>
-	<78d60d96-d0c7-4eaa-b425-ca4f75263b12@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: eauger@redhat.com, fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, sascha.bischoff@arm.com, sebastianene@google.com, tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wx0JF-0000000BNSZ-2jSa;
+	Thu, 20 Aug 2026 10:47:47 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67K8psXX503930;
+	Thu, 20 Aug 2026 10:46:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=czT1Im
+	PU/vWc2M0tWEKBT0LXpRCVrV75Wfn03rEOF2c=; b=VFp46JEphllpw7qtyJNBx1
+	CaVenj+Rdg6kMHAyun/leFK4fPjzBLdY43BTvCm0r20SF8NRJ17NDVEUINVxkX2f
+	dujD0NQz3qQ7m0zO3xs9P02S1kxeSEsGvFiTkyy71sDmPCa47W0q7/Nr0em6wVhf
+	Th7I4886yY9Ww8KFAZ/sulpfpgo8txaPaUjtuFOn/paI7hzL53leG67MGZ8+i0Am
+	LsOim3vbqCPgz/COWWYtl/xy5PayeZbfKOR8IGLm1tbqtfbmwIGP5JExMBBiTmKX
+	i7W3MfpeOJdrbuMa+UQRiYtW19e6zAq56CFWAMf3KMWfswNDkwVI+e5cosZ43Txw
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4g4yu49j7t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 20 Aug 2026 10:46:58 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67KAfGvU024130;
+	Thu, 20 Aug 2026 10:46:57 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4g354ynsek-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 20 Aug 2026 10:46:57 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67KAktPu46072234
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 20 Aug 2026 10:46:55 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7A9FA20043;
+	Thu, 20 Aug 2026 10:46:55 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D8EA120040;
+	Thu, 20 Aug 2026 10:46:41 +0000 (GMT)
+Received: from [9.39.17.85] (unknown [9.39.17.85])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 20 Aug 2026 10:46:41 +0000 (GMT)
+Message-ID: <99bdc3e0-0e0f-4cb1-8747-dd7667307492@linux.ibm.com>
+Date: Thu, 20 Aug 2026 16:16:40 +0530
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND] sched: Convert paravirt_steal to new static key
+ APIs
+To: Hongyan Xia <hongyan.xia@transsion.com>
+Cc: Jiazi Li <jiazi.li@transsion.com>,
+        "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>,
+        "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
+        "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+        "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+        "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+        "xen-devel@lists.xenproject.org" <xen-devel@lists.xenproject.org>,
+        Juergen Gross <jgross@suse.com>, Ajay Kaher <ajay.kaher@broadcom.com>,
+        Alexey Makhalov <alexey.makhalov@broadcom.com>,
+        Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+        WANG Xuerui <kernel@xen0n.name>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+        Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        "x86@kernel.org" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
+        Paolo Bonzini <pbonzini@redhat.com>,
+        Vitaly Kuznetsov <vkuznets@redhat.com>,
+        Stefano Stabellini <sstabellini@kernel.org>,
+        Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Juri Lelli <juri.lelli@redhat.com>,
+        Vincent Guittot <vincent.guittot@linaro.org>,
+        Dietmar Eggemann <dietmar.eggemann@arm.com>,
+        Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+        Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+        K Prateek Nayak <kprateek.nayak@amd.com>
+References: <20260819081207.12150-1-hongyan.xia@transsion.com>
+Content-Language: en-US
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+In-Reply-To: <20260819081207.12150-1-hongyan.xia@transsion.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=CpuPtH4D c=1 sm=1 tr=0 ts=6a86db23 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=3xJz9W2bAAAA:8
+ a=VnNF1IyMAAAA:8 a=iox4zFpeAAAA:8 a=xzwhdZQ7njCJ2XY4-I0A:9 a=QEXdDO2ut3YA:10
+ a=amiGZ1mxdzcEAW_x1qlF:22 a=WzC6qhA0u3u7Ye7llzcV:22
+X-Proofpoint-ORIG-GUID: 1wZ5c2qM7g5x0jx-qb5t7EiwBQISCVhp
+X-Proofpoint-GUID: itVss8-eLfuaCICc2HK-kMCuGgzSwFvE
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDA3NyBTYWx0ZWRfXy1Knef7euqva
+ B2wMTxAUFMf0GbqrSemw+AgaY+wNIewR8/vNhiPmdrebwSaAtFgbUClfT7lyMMabKF1jdmhCukv
+ nr1v7az3rtSi3DUGh3ib1xdiKCYVnZg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDA3NyBTYWx0ZWRfX60/6Dl3nOmKx
+ 1lgDs9d2yIy0QyPoRMAQMzaFP01pLEWEulDqKdCZ3F6qDr3NEiEADGM2eMQnstQbmSYnYcBwNjK
+ hYFPSUus//RGGLcarRg+E6axxBj3cxk7gBG2T8OjN97OxqZ9rI5pI4vUVXhXILTmckLXOi9a4I3
+ MoyHW222X4NoFlq4ynf22eXvKMiPfG/Xu4Q7UUfJRau6RKD4izhXUGu12jnr6O8gXDaA3aZRAOx
+ MuuA52c8OIb1esLmNTU4vQce+tqTAWrEo6EbROCul8IF1KNHGDNf/cl8nGs/R4mOfrjSsH3UgUC
+ QEfOV3KYChX2RlYM8p6C+EHa7k7heWKVeKCTp/8zCebWTMfdNHtOjUgI9gRkWPhGSC2OMKPO5sR
+ VflLI0qnlEsop/LaVZCG8Y9aXymFW6vJu2Q1kpkLrY+WSbBzqGsJpBBazuvASI6CZb6TNG/I2Gs
+ KijXc6TfURnVr9wKn/w==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-19_06,2026-08-19_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 adultscore=0 bulkscore=0 malwarescore=0 phishscore=0
+ lowpriorityscore=0 spamscore=0 clxscore=1011 priorityscore=1501
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608200077
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_034745_823706_0B00CB6A 
+X-CRM114-Status: GOOD (  26.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,102 +161,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Eric,
+Hi Hongyan.
 
-On Thu, 20 Aug 2026 11:09:06 +0100,
-Eric Auger <eauger@redhat.com> wrote:
+On 8/19/26 1:42 PM, Hongyan Xia wrote:
+> From: Hongyan Xia <hongyan.xia@transsion.com>
 > 
-> Hi Fuad,
+> paravirt_steal_rq_enabled and paravirt_steal_enabled use raw static_key
+> APIs which are now deprecated. Use the new API instead.
 > 
-> On 8/19/26 12:28 PM, Fuad Tabba wrote:
-> > A guest that disables the ITS and re-points or shrinks GITS_BASER<n>
-> > with VALID still set keeps the devices and collections it mapped
-> > against the old table, as KVM frees them only when VALID is cleared.
-> > The table format is not architected, so a write with a different value
-> > is allowed to lose what it describes. Free the list whenever the
-> I don't really get "a write with a different value is allowed to lose
-> what it describes". A write at which place, in the collection table?
+> No functional change.
+> 
 
-A write to the GITS_BASERn register describing the pointer to the
-collection table.
+FWIW, looks good to me. One minor nit.
 
-The additional clarification is that because the *content* of the
-table is IMPDEF, if you point the ITS to a different location or size
-in memory, then there is no guarantee that the caches (the KVM
-internal data structures) are up to date. In this case, the proposed
-course of action is to invalidate the caches and start afresh.
+Reviewed-by: Shrikanth Hegde <sshegde@linux.ibm.com>
 
-> > stored value changes.
-> > 
-> > Test for a change rather than a write: its_restore_enable() rewrites
-> > GITS_BASER<n> from its probe-time cache on resume, and KVM reports
-> > GITS_TYPER.HCC as 0, so nothing re-maps the boot CPU's collection
-> > afterwards.
-> > 
-> > Fixes: 36d6961c2b481 ("KVM: arm/arm64: vgic-its: Free caches when GITS_BASER Valid bit is cleared")
-> > Suggested-by: Marc Zyngier <maz@kernel.org>
-> > Link: https://lore.kernel.org/all/87ecg9owwa.wl-maz@kernel.org/
-> > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> > ---
-> >  arch/arm64/kvm/vgic/vgic-its.c | 9 ++++++---
-> >  1 file changed, 6 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-> > index f6538b1976f9b..3339d9977af27 100644
-> > --- a/arch/arm64/kvm/vgic/vgic-its.c
-> > +++ b/arch/arm64/kvm/vgic/vgic-its.c
-> > @@ -1649,7 +1649,7 @@ static void vgic_mmio_write_its_baser(struct kvm *kvm,
-> >  				      unsigned long val)
-> >  {
-> >  	const struct vgic_its_abi *abi = vgic_its_get_abi(its);
-> > -	u64 entry_size, table_type;
-> > +	u64 old, entry_size, table_type;
-> >  	u64 reg, *regptr, clearbits = 0;
-> >  
-> >  	/* When GITS_CTLR.Enable is 1, we ignore write accesses. */
-> > @@ -1672,7 +1672,9 @@ static void vgic_mmio_write_its_baser(struct kvm *kvm,
-> >  		return;
-> >  	}
-> >  
-> > -	reg = update_64bit_reg(*regptr, addr & 7, len, val);
-> > +	old = *regptr;
-> > +
-> > +	reg = update_64bit_reg(old, addr & 7, len, val);
-> >  	reg &= ~GITS_BASER_RO_MASK;
-> >  	reg &= ~clearbits;
-> >  
-> > @@ -1682,7 +1684,8 @@ static void vgic_mmio_write_its_baser(struct kvm *kvm,
-> >  
-> >  	*regptr = reg;
-> >  
-> > -	if (!(reg & GITS_BASER_VALID)) {
-> > +	/* The ITS driver rewrites an unchanged GITS_BASER<n> on resume. */
-> > +	if (reg != old) {
-> >  		/* Take the its_lock to prevent a race with a save/restore */
-> >  		mutex_lock(&its->its_lock);
-> >  		switch (table_type) {
-> One question: There is no vgic_its_invalidate_cache() in the function.
-> Is it OK?
+> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
+> Acked-by: Juergen Gross <jgross@suse.com>
+> ---
+> Changed in RESEND:
+> - Separate the original series into individual patches. They aren't easy
+>    to review as a series.
+> 
+>   arch/arm64/kernel/paravirt.c           | 4 ++--
+>   arch/loongarch/kernel/paravirt.c       | 4 ++--
+>   arch/powerpc/platforms/pseries/setup.c | 4 ++--
+>   arch/riscv/kernel/paravirt.c           | 4 ++--
+>   arch/x86/kernel/cpu/vmware.c           | 4 ++--
+>   arch/x86/kernel/kvm.c                  | 4 ++--
+>   drivers/xen/time.c                     | 4 ++--
+>   include/linux/sched/cputime.h          | 6 +++---
+>   kernel/sched/core.c                    | 4 ++--
+>   kernel/sched/cputime.c                 | 4 ++--
+>   10 files changed, 21 insertions(+), 21 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/paravirt.c b/arch/arm64/kernel/paravirt.c
+> index 572efb96b23f..30bf61d031eb 100644
+> --- a/arch/arm64/kernel/paravirt.c
+> +++ b/arch/arm64/kernel/paravirt.c
+> @@ -157,9 +157,9 @@ int __init pv_time_init(void)
+>   
+>   	static_call_update(pv_steal_clock, para_steal_clock);
+>   
+> -	static_key_slow_inc(&paravirt_steal_enabled);
+> +	static_branch_inc(&paravirt_steal_enabled);
+>   	if (steal_acc)
+> -		static_key_slow_inc(&paravirt_steal_rq_enabled);
+> +		static_branch_inc(&paravirt_steal_rq_enabled);
+>   
+>   	pr_info("using stolen time PV\n");
+>   
+> diff --git a/arch/loongarch/kernel/paravirt.c b/arch/loongarch/kernel/paravirt.c
+> index 10821cce554c..e8965a3f8082 100644
+> --- a/arch/loongarch/kernel/paravirt.c
+> +++ b/arch/loongarch/kernel/paravirt.c
+> @@ -308,10 +308,10 @@ int __init pv_time_init(void)
+>   
+>   	static_call_update(pv_steal_clock, paravt_steal_clock);
+>   
+> -	static_key_slow_inc(&paravirt_steal_enabled);
+> +	static_branch_inc(&paravirt_steal_enabled);
+>   #ifdef CONFIG_PARAVIRT_TIME_ACCOUNTING
+>   	if (steal_acc)
+> -		static_key_slow_inc(&paravirt_steal_rq_enabled);
+> +		static_branch_inc(&paravirt_steal_rq_enabled);
+>   #endif
+>   
+>   	if (static_key_enabled(&virt_preempt_key))
+> diff --git a/arch/powerpc/platforms/pseries/setup.c b/arch/powerpc/platforms/pseries/setup.c
+> index 1223dc961242..8dcbc4bb7025 100644
+> --- a/arch/powerpc/platforms/pseries/setup.c
+> +++ b/arch/powerpc/platforms/pseries/setup.c
+> @@ -852,9 +852,9 @@ static void __init pSeries_setup_arch(void)
+>   			static_branch_enable(&shared_processor);
+>   			pv_spinlocks_init();
+>   #ifdef CONFIG_PARAVIRT_TIME_ACCOUNTING
+> -			static_key_slow_inc(&paravirt_steal_enabled);
+> +			static_branch_inc(&paravirt_steal_enabled);
+>   			if (steal_acc)
+> -				static_key_slow_inc(&paravirt_steal_rq_enabled);
+> +				static_branch_inc(&paravirt_steal_rq_enabled);
+>   #endif
+>   		}
+>   
+> diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c
+> index 5f56be79cd06..9c13a6f1ea2a 100644
+> --- a/arch/riscv/kernel/paravirt.c
+> +++ b/arch/riscv/kernel/paravirt.c
+> @@ -116,9 +116,9 @@ int __init pv_time_init(void)
+>   
+>   	static_call_update(pv_steal_clock, pv_time_steal_clock);
+>   
+> -	static_key_slow_inc(&paravirt_steal_enabled);
+> +	static_branch_inc(&paravirt_steal_enabled);
+>   	if (steal_acc)
+> -		static_key_slow_inc(&paravirt_steal_rq_enabled);
+> +		static_branch_inc(&paravirt_steal_rq_enabled);
+>   
+>   	pr_info("Computing paravirt steal-time\n");
+>   
+> diff --git a/arch/x86/kernel/cpu/vmware.c b/arch/x86/kernel/cpu/vmware.c
+> index 34b73573b108..f7ab9e7902cf 100644
+> --- a/arch/x86/kernel/cpu/vmware.c
+> +++ b/arch/x86/kernel/cpu/vmware.c
+> @@ -328,9 +328,9 @@ static int vmware_cpu_down_prepare(unsigned int cpu)
+>   static __init int activate_jump_labels(void)
+>   {
+>   	if (has_steal_clock) {
+> -		static_key_slow_inc(&paravirt_steal_enabled);
+> +		static_branch_inc(&paravirt_steal_enabled);
+>   		if (steal_acc)
+> -			static_key_slow_inc(&paravirt_steal_rq_enabled);
+> +			static_branch_inc(&paravirt_steal_rq_enabled);
+>   	}
+>   
+>   	return 0;
+> diff --git a/arch/x86/kernel/kvm.c b/arch/x86/kernel/kvm.c
+> index dcef84da304b..d3dcd64f22c2 100644
+> --- a/arch/x86/kernel/kvm.c
+> +++ b/arch/x86/kernel/kvm.c
+> @@ -1052,9 +1052,9 @@ const __initconst struct hypervisor_x86 x86_hyper_kvm = {
+>   static __init int activate_jump_labels(void)
+>   {
+>   	if (has_steal_clock) {
+> -		static_key_slow_inc(&paravirt_steal_enabled);
+> +		static_branch_inc(&paravirt_steal_enabled);
+>   		if (steal_acc)
+> -			static_key_slow_inc(&paravirt_steal_rq_enabled);
+> +			static_branch_inc(&paravirt_steal_rq_enabled);
+>   	}
+>   
+>   	return 0;
+> diff --git a/drivers/xen/time.c b/drivers/xen/time.c
+> index a2be0a4d45b0..a02d48a2aa68 100644
+> --- a/drivers/xen/time.c
+> +++ b/drivers/xen/time.c
+> @@ -169,7 +169,7 @@ void __init xen_time_setup_guest(void)
+>   
+>   	static_call_update(pv_steal_clock, xen_steal_clock);
+>   
+> -	static_key_slow_inc(&paravirt_steal_enabled);
+> +	static_branch_inc(&paravirt_steal_enabled);
+>   	if (xen_runstate_remote)
+> -		static_key_slow_inc(&paravirt_steal_rq_enabled);
+> +		static_branch_inc(&paravirt_steal_rq_enabled);
+>   }
+> diff --git a/include/linux/sched/cputime.h b/include/linux/sched/cputime.h
+> index e90efaf6d26e..694126411dfe 100644
+> --- a/include/linux/sched/cputime.h
+> +++ b/include/linux/sched/cputime.h
+> @@ -182,9 +182,9 @@ extern unsigned long long
+>   task_sched_runtime(struct task_struct *task);
+>   
+>   #ifdef CONFIG_PARAVIRT
+> -struct static_key;
+> -extern struct static_key paravirt_steal_enabled;
+> -extern struct static_key paravirt_steal_rq_enabled;
+> +#include <linux/jump_label.h>
 
-Probably not. We should make sure that the translation cache is gone
-as well so that we retranslate and avoid signalling LPIs that have
-undergone such invalidation. Thanks for spotting this.
+nit:
 
-> Besides out of curiosity, why don't we go further and remove ite entries
-> that refer to removed collections in vgic_its_free_collection()?
+This looks bit odd to see includes in the middle. I know it is including
+only if necessary.
+maybe worth an unconditional include in the beginning?
 
-The current policy is to keep the LPI alive as long as it is
-mapped. The only thing is that we can't signal it, obviously. But it
-would be legal to drop them altogether, only more work.
+> +DECLARE_STATIC_KEY_FALSE(paravirt_steal_enabled);
+> +DECLARE_STATIC_KEY_FALSE(paravirt_steal_rq_enabled);
+>   
+>   #ifdef CONFIG_HAVE_PV_STEAL_CLOCK_GEN
+>   u64 dummy_steal_clock(int cpu);
+> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+> index 5c07d53e43b5..84d090581a08 100644
+> --- a/kernel/sched/core.c
+> +++ b/kernel/sched/core.c
+> @@ -795,7 +795,7 @@ struct rq *_task_rq_lock(struct task_struct *p, struct rq_flags *rf)
+>   
+>   /* Use CONFIG_PARAVIRT as this will avoid more #ifdef in arch code. */
+>   #ifdef CONFIG_PARAVIRT
+> -struct static_key paravirt_steal_rq_enabled;
+> +DEFINE_STATIC_KEY_FALSE(paravirt_steal_rq_enabled);
+>   #endif
+>   
+>   static void update_rq_clock_task(struct rq *rq, s64 delta)
+> @@ -834,7 +834,7 @@ static void update_rq_clock_task(struct rq *rq, s64 delta)
+>   	}
+>   #endif
+>   #ifdef CONFIG_PARAVIRT_TIME_ACCOUNTING
+> -	if (static_key_false((&paravirt_steal_rq_enabled))) {
+> +	if (static_branch_unlikely(&paravirt_steal_rq_enabled)) {
+>   		u64 prev_steal;
+>   
+>   		steal = prev_steal = paravirt_steal_clock(cpu_of(rq));
+> diff --git a/kernel/sched/cputime.c b/kernel/sched/cputime.c
+> index 06bddaa738e5..f16970ca81d0 100644
+> --- a/kernel/sched/cputime.c
+> +++ b/kernel/sched/cputime.c
+> @@ -255,7 +255,7 @@ void __account_forceidle_time(struct task_struct *p, u64 delta)
+>    * occasion account more time than the calling functions think elapsed.
+>    */
+>   #ifdef CONFIG_PARAVIRT
+> -struct static_key paravirt_steal_enabled;
+> +DEFINE_STATIC_KEY_FALSE(paravirt_steal_enabled);
+>   
+>   #ifdef CONFIG_HAVE_PV_STEAL_CLOCK_GEN
+>   static u64 native_steal_clock(int cpu)
+> @@ -270,7 +270,7 @@ DEFINE_STATIC_CALL(pv_steal_clock, native_steal_clock);
+>   static __always_inline u64 steal_account_process_time(u64 maxtime)
+>   {
+>   #ifdef CONFIG_PARAVIRT
+> -	if (static_key_false(&paravirt_steal_enabled)) {
+> +	if (static_branch_unlikely(&paravirt_steal_enabled)) {
+>   		u64 steal;
+>   
+>   		steal = paravirt_steal_clock(smp_processor_id());
 
-An additional question is whether we should consider doing a reload of
-the collection table or not. I'm not keen on it, but I can also see
-how a guest could want to do this. Feels a bit over the top though.
-
-Thanks,
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
 
