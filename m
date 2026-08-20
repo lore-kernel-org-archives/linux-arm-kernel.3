@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA344C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575B4C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VymUjEFFuZwx8Mw+2oh66HUPpcAuTPuFK1o0l/JLBgY=; b=SwD2fHVtU3NgchvXw/MVyTyqhn
-	aXSs6cyB3P4e0VuTnRrbJO6iKmbvF1viKGmkrcmQZLMVSqqdN0vsolm5YxbThOneWh9sR97cwP317
-	oSRMxYN6Gk5imxSPcqnT/pJ3IfL2CCObkTOreEPtdMQD6c4jJAOu/pnrp5IYOupOd/2B3L3P75iYe
-	zabTZUB5CLkh2R+7bhGLAHR+6zjcKt5qfzId/5gL8Ck4XEEa9rXYk3oYaeKTWMHcUB/yAOg1zOSTl
-	jzn25jRTIy7AIt7rtdrJKogSk/9doK9kbZyifHkFy+6oBGT7tX806SG7x0xKB/Atr2qsKOnI1mjdT
-	N+Ms8MFA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sXKa9zQ64/xHhUpBTjUDJlNTYpVgNwswUHtmGjVC1bs=; b=sXdROt80hVQLdJz5j/aGQaHYWB
+	t9zS0UXSVyqJQ4/gYU03g14pzfewIXgrS72d3sHZkKO7/bayb7QM8fgxyXuzIi1hMaXlyBl1OfEkM
+	m25KjaY02oXugSR+Zlv/op9wO3cVS7jE8butlaGxTHOmRkk0NDkUNwqCjVztaxTUwaiVuZilOAvKk
+	qMVyhetHLPPIftK7UQX1AUmViu7sfb5qee5c8BsK1uWMJABfeqD+L1yeDHyH8VDaVprpcV7+O1SLK
+	731qp6ffZlao0dLmhgxVuoU5yOvFUJZeejlLAzw0PGmct4ljGRpW0EoZXlcg72KoBw8GMtctnMWN0
+	AnMtE4Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4mV-0000000Boh1-07Z6;
-	Thu, 20 Aug 2026 15:34:15 +0000
+	id 1wx4mU-0000000BogZ-3pAs;
+	Thu, 20 Aug 2026 15:34:14 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4mT-0000000Bof6-058j
+	id 1wx4mS-0000000Bof0-1eNu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 15:34:14 +0000
+	Thu, 20 Aug 2026 15:34:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F32501691;
-	Thu, 20 Aug 2026 08:34:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DB4F0153B;
+	Thu, 20 Aug 2026 08:34:04 -0700 (PDT)
 Received: from e142334-100.cambridge.arm.com (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 049683F763;
-	Thu, 20 Aug 2026 08:34:08 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DD4C73F763;
+	Thu, 20 Aug 2026 08:34:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787240050; bh=CvlsiaC9CEj3pqCNXtrP9ggl485N6tB8uCE1Z39SSLg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Um62joE45H0VQ9/7gE3OxZ939G0p3RxMOG9cGPNx0c0qP3jmYB0NCT9QRGyAPaF3E
-	 wgkyOnEYxEMu8Q2xTVVZqmxxe6T8aJhhYGu1VaPN+B06kgJjcm4+ObFbabuPo0CPK1
-	 wc2/vvWCjJqzcnrzuaUw2ab7F0b80Yrf1PYs5Uec=
+	t=1787240048; bh=XuCHpFD2l7XFa7GMDBXKP2ptFWqTS5hZSmxYFeMwnWw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=O5yfQ65r3WbDLdo4AWTy/15UkNT7END7W3vLqQ7GXBSyK2ZVAWPN/UM8B57jahXFR
+	 BGKt+6AEDdvgZg6BWe2DINX9aGlO6pGeJBJ4pWDOlhY3y8YkhK93g+MKRkdMQWanBl
+	 hj8EZxzczr+8Kr6Hztbb4tn/rPI0H8AkLIFF+vc4=
 From: Muhammad Usama Anjum <usama.anjum@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -54,17 +54,15 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)),
 	linux-kselftest@vger.kernel.org (open list:KERNEL SELFTEST FRAMEWORK)
 Cc: Muhammad Usama Anjum <usama.anjum@arm.com>
-Subject: [PATCH 1/4] selftest/arm64: Print TAP header
-Date: Thu, 20 Aug 2026 16:33:23 +0100
-Message-ID: <20260820153331.2448875-2-usama.anjum@arm.com>
+Subject: [PATCH 0/4] selftest/arm64: Fix MTE test setup and TAP reporting
+Date: Thu, 20 Aug 2026 16:33:22 +0100
+Message-ID: <20260820153331.2448875-1-usama.anjum@arm.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260820153331.2448875-1-usama.anjum@arm.com>
-References: <20260820153331.2448875-1-usama.anjum@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_083413_102181_86589FE7 
-X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-CacheID: sfid-20260820_083412_470507_03DFD232 
+X-CRM114-Status: UNSURE (   9.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,35 +78,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The test sets a TAP plan and emits a result but does not print the TAP
-version header. Direct execution therefore starts with:
-
-  1..1
-
-instead of "TAP version 13", leaving the output malformed for TAP
-consumers.
-
-Print the kselftest header before the plan, matching the other arm64 MTE
+Running the mainline arm64 MTE selftests on a Pixel 8 exposed three
+independent reporting problems. Fix each issue independently, then
+add an arm64 Kconfig fragment covering the facilities used by the MTE
 tests.
 
-Fixes: 29f080881601 ("kselftest/arm64: check GCR_EL1 after context switch")
-Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
----
- tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c | 1 +
- 1 file changed, 1 insertion(+)
+Testing was performed on a Pixel 8 with an Android 6.1 kernel built with
+the new configuration. All nine static MTE binaries returned success.
 
-diff --git a/tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c b/tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c
-index 325bca0de0f6e..d23f154d3288c 100644
---- a/tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c
-+++ b/tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c
-@@ -131,6 +131,7 @@ int main(int argc, char *argv[])
- 	if (err)
- 		return err;
- 
-+	ksft_print_header();
- 	ksft_set_plan(1);
- 
- 	evaluate_test(mte_gcr_fork_test(),
+Muhammad Usama Anjum (4):
+  selftest/arm64: Print TAP header
+  selftest/arm64: Treat KSM merge_across_nodes as optional
+  selftest/arm64: Fix MTE prctl TAP plan
+  selftest/arm64: Add MTE test config fragment
+
+ .../selftests/arm64/mte/check_gcr_el1_cswitch.c      |  1 +
+ .../testing/selftests/arm64/mte/check_ksm_options.c  | 12 +++++++++---
+ tools/testing/selftests/arm64/mte/check_prctl.c      |  2 +-
+ tools/testing/selftests/arm64/mte/config             |  8 ++++++++
+ 4 files changed, 19 insertions(+), 4 deletions(-)
+ create mode 100644 tools/testing/selftests/arm64/mte/config
+
 -- 
 2.47.3
 
