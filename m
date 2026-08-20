@@ -4,103 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AA7C5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 12:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D5FC5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 12:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CFAD3PPmyEYBnRQoyhozco7Gx3OsZl5eV5ORNG74mm8=; b=JBBL2H+M3SdqQ9PH02vua/e/4+
-	OrAOgLTIyQU8i1jgDYLie4V5ui6bcc9uN5AC34/rPoHcACRaMWdSMpdgR9j/W0hUKTO4UrKpAPm+G
-	qR5vQQI2OQ4xxdutOc/igeziL4A4tbOu6K+uaFuhcRKG80UztpU5KPq5GWET+HKZ/83cgFrdQhAiI
-	NYcX76hBWjBQmFG+PTU47VvdAy1hoLqR6q5rmxU+JrGOXUclU5zsEJQFnlisAg1C3QTHQe4xQhdi8
-	odbgR7nJVTiBJjfBEBjy1XwLUGKM2VmBJoZgueUazTVTaJetNKsHJGgUVyOKFkSeSbfSTHc9QU61h
-	Mp5DGPiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gNk7Cd7avSLwD5U7YbcUtZCLln2gfmogkmv7E85mGj8=; b=25ZBQOnLn1IMzxEf+KCmQ6mMi7
+	btKpqyGL0QmE9gTfhRaLLdFVGqjCPPEaC9IPc1G23h6zYxxAzoxXuhGJafLrcFRGEOkCLDt6h+/49
+	CgJatFdEh/s7PKUO/mNhoRTgBq/YC3mQPaR0zsCJykD1qRbM5+UMJpuas4u6IOJgwB3/QOHauKC0I
+	k2xw0g19ncvs/jNuLuPYvXOYlvVGw6O4Cc5Vm4cC6EiszXUlrtLpb6mvmjVrOB8E8DHwxNJJO4h+X
+	bRpMbXpT6jApS53DheOONpS2wd+WE40f6+BxbAxyjGWnxVURu6tEaBcOqc6w0nnXcU4b12/tcepk8
+	xv/ZG63w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx1lP-0000000BW9O-0arh;
-	Thu, 20 Aug 2026 12:20:55 +0000
-Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
+	id 1wx1mE-0000000BWI2-1vCU;
+	Thu, 20 Aug 2026 12:21:46 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx1lM-0000000BW8o-1eye
+	id 1wx1mB-0000000BWGe-2d2P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 12:20:53 +0000
-Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-902fc790cd5so16197466d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 05:20:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1787228450; x=1787833250; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=CFAD3PPmyEYBnRQoyhozco7Gx3OsZl5eV5ORNG74mm8=;
-        b=PRTzRepxrBVpPnQ54plN97kmEUeEL+5QrpvdCwugmf9n+IkSxI4VflgKrUoEHLXvWc
-         db9rbRhadmBV0/NS/7H6VSF3d8y9EnARJF2eHKSlUt/JRv4jinQStQO3JIK2XawOJY4m
-         oLugpLW7Gnrx26vgRXPNRDYskq59UFn4PBAw0lZhOWG40c3Fz/C4A9E9gSApHqaba8+c
-         /90CGXqmbTordih3idPQqgKC4uYCcG2Fh/JBSP6aJtcl9Jq2L2gKoPFHjmwrJhJmrHlA
-         uXbvTiDQi7xbtD2FKcs8FmFT5xdGdPj0NSBWeV8sq3CzTUIdG78biC+GBEvhvKnD6VSM
-         RxMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787228450; x=1787833250;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CFAD3PPmyEYBnRQoyhozco7Gx3OsZl5eV5ORNG74mm8=;
-        b=XV3L9HWMNlsj8Pc0Ic110Chnp+rkyymmXh9+KnuuiArr7VzmPgYC/rrU2/ZBO45C5C
-         1ACtq+uxLLVjrMtcedyPzD2vVzTLV6cRX+OoOckdKcomXAugxlki+hlXFPdilIP+HKdh
-         oD87BYtx+RcQ/Nx8oEeFEaNtrJWChJ4VC/QMkIZc2o7xtSkJ5VlxIyt/ZKz1Z3+SLgOn
-         P4Uv9TijIrMkDwpVPlOGJAy6Vn17lJSuYT9tuTUCiDNZGgLxzw3riSLt31fUXpKXby3w
-         mEnIya4mSArHW76a4L64mpgXsZqakuPG4ONJPDcDji4MQs5bIY57fbv8rdHzq+svcwoG
-         0COA==
-X-Forwarded-Encrypted: i=1; AHgh+RqVOZjvZRyTHVXKE9bqic3tqkJ81OPYLVkyvQ54GrxRWp0KgDZ3pYDga/8KLEBlqVOd3iomg1ScYEPcRB6zgRXe@lists.infradead.org
-X-Gm-Message-State: AFuF++lWh17L8YnjDJKwxJ13ddBzRAm28gOPAN+H/b3ZY8m7jLVyYGpK
-	f7ntqjFoTWIT2g5pWWX+pJoRk8Dy0/I+bBmTLs1/EAxW5wX0ROFQS3oVNshanI4+RmQ=
-X-Gm-Gg: AR+sD12LJ6xB/7nybRb87zZ/OE4UyYDwvCWd4hsgfaFytY++Ru2B017vtZXEXdLWukV
-	CrV0caYxFAVtDacsrrj3MjoaUKxtZA7KGNYB866gppAmZnV5egoRpTKltD3CZRAHEX8RSxf0V1d
-	DQc2Yz8UzrJbkg2KMYRGK1mMB+sRGx8fvb0gF7ffKOLppG20cLoTkiF+cJiyjB7RoJVUav+G3VE
-	uRbB9CV6ejwlfUWY37479+ZZJFKcUUJ7Ivc4uRnF76850wtLP606k+BPlCyQJPI6YMQpV8zbbMQ
-	LmPwxed61Ds4KmVZY54kMF4RFVrkvsATnknLRoCAMNUu4nTcojTGa6PjMrHnMLgVVRODYuyRA37
-	ckipiadyseDjDqyDjgFmozy5QnPBV+MU+soG1LIN8/gU2hV1DPuMZfdWCHLTkv8jkZXRnnVFCKD
-	37u5zbJbHCE8kIwcObhsvGTEfXod48hujbPjElfCJYq9npdm6HuZTJIDntYVpFnwTwZ+/XMkU2f
-	g7h8gfAqQ5nAWI2ah2mPhp7TOIO1TY4u1BHDQVegFZhtw==
-X-Received: by 2002:a05:6214:124a:b0:908:92e3:a37 with SMTP id 6a1803df08f44-90c5eaf245amr114579506d6.32.1787228450436;
-        Thu, 20 Aug 2026 05:20:50 -0700 (PDT)
-Received: from ziepe.ca (hlfxns010zw-159-2-239-150.pppoe-dynamic.high-speed.ns.bellaliant.net. [159.2.239.150])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-90c5f2b1f39sm36591756d6.41.2026.08.20.05.20.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 05:20:49 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wx1lI-00000003bNC-36dR;
-	Thu, 20 Aug 2026 09:20:48 -0300
-Date: Thu, 20 Aug 2026 09:20:48 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Steven Price <steven.price@arm.com>
-Cc: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	"T.J. Mercier" <tjmercier@google.com>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>, dri-devel@lists.freedesktop.org,
-	linaro-mm-sig@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, Jiri Pirko <jiri@resnulli.us>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>
-Subject: Re: [PATCH 0/2] Clear shared pages after private-to-shared conversion
-Message-ID: <20260820122048.GB18100@ziepe.ca>
-References: <20260820105026.53208-1-steven.price@arm.com>
+	Thu, 20 Aug 2026 12:21:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1787228501;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gNk7Cd7avSLwD5U7YbcUtZCLln2gfmogkmv7E85mGj8=;
+	b=X9mbmy8QFL4FM89hykcxcieeFl7tZZBsgUVMF5uEzpvZnU0aAH5uQl3qgSKIL1YxFk0GIk
+	qyg3O3FU7ShfewRDDUu+bPYL2NbvLFf8qbncymRntXcNx0eR0yute9Rh/oGGjEItrAb1NF
+	wsNcd90zC3udwK6iYR0WQOu53IPpvnI=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-35-1NbTOSR6MKevFigPeVGjpQ-1; Thu,
+ 20 Aug 2026 08:21:32 -0400
+X-MC-Unique: 1NbTOSR6MKevFigPeVGjpQ-1
+X-Mimecast-MFC-AGG-ID: 1NbTOSR6MKevFigPeVGjpQ_1787228489
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2C39D1800471;
+	Thu, 20 Aug 2026 12:21:27 +0000 (UTC)
+Received: from rotkaeppchen (headnet03.pony-001.prod.iad2.dc.redhat.com [10.2.32.114])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 185991955F03;
+	Thu, 20 Aug 2026 12:21:19 +0000 (UTC)
+Date: Thu, 20 Aug 2026 14:21:14 +0200
+From: Philipp Rudo <prudo@redhat.com>
+To: Mukesh Pilaniya <mpilaniy@redhat.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Huacai Chen
+ <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton
+ <akpm@linux-foundation.org>, Baoquan He <baoquan.he@linux.dev>, Mike
+ Rapoport <rppt@kernel.org>, Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Pratyush Yadav <pratyush@kernel.org>, Tao Liu <ltao@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ kexec@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] kexec: fix error propagation in
+ kexec_image_probe_default()
+Message-ID: <20260820142114.0a36ac78@rotkaeppchen>
+In-Reply-To: <20260819-mpilaniy-v2-2-95e929ede0e5@redhat.com>
+References: <20260819-mpilaniy-v2-0-95e929ede0e5@redhat.com>
+	<20260819-mpilaniy-v2-2-95e929ede0e5@redhat.com>
+Organization: Red Hat inc.
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260820105026.53208-1-steven.price@arm.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-Mimecast-MFC-PROC-ID: O-idQb5qqIntgnWS90e8wR7OfurQ5myb8c5HuZfGOvo_1787228489
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_052052_589173_F1261DD4 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20260820_052143_747835_E4CA4B3F 
+X-CRM114-Status: GOOD (  24.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,27 +97,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 20, 2026 at 11:50:23AM +0100, Steven Price wrote:
-> Arm CCA includes "Memory Encryption Contexts" (MEC) which allows the
-> private and shared data accessible to a guest to have different memory
-> encryption keys. Consequently when converting memory to shared, the
-> memory encryption key used to access the physical page will change.
+Hi Mukesh,
+Hi Pratyush,
+
+having this patch makes sense. Personally I'd go with having a
+switch-case rather than individual if-blocks. E.g.
+
+	switch (ret) {
+		case 0:
+			image->fops = *fops;
+			return 0;
+		case -ENOEXEC:
+			continue;
+		default:
+			return ret;
+	}
+
+IMHO that is better readable and easier to extend in case other error
+codes need special handling as well. But that is only my personal
+opinion.
+
+Independent on which implementation you use.
+
+Reviewed-by: Philipp Rudo <prudo@redhat.com>
+
+
+On Wed, 19 Aug 2026 23:17:23 +0530
+Mukesh Pilaniya <mpilaniy@redhat.com> wrote:
+
+> kexec_image_probe_default() overwrites ret with each loader's probe
+> return value and returns whatever the last loader returned when no
+> probe matches.  The error code reaching userspace depends on whichever
+> loader happens to be last in kexec_file_loaders[].
 > 
-> Both the GICv3 ITS driver and the system_cc_shared dma-buf heap
-> currently allocate memory with __GFP_ZERO and then decrypt it. With MEC
-> the zeroing is done with the wrong encryption key and the data visible
-> after decryption may be ciphertext. The RMM is required to scrub the
-> data, but may perform this scrub with a different encryption key to the
-> eventual key that will be used for shared access.
+> Only continue to the next loader when a probe returns -ENOEXEC.
+> Propagate any other error such as -ENOMEM immediately. Return -ENOEXEC
+> only when all loaders have been tried and none matched.
 > 
-> Fix these two sites by avoiding the __GFP_ZERO during the allocation and
-> performing a clear_pages() call after the decryption.
+> Suggested-by: Pratyush Yadav <pratyush@kernel.org>
+> Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
+> ---
+>  kernel/kexec_file.c | 12 +++++++-----
+>  1 file changed, 7 insertions(+), 5 deletions(-)
+> 
+> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
+> index 59fb9d71e9d8..b3060e984ef3 100644
+> --- a/kernel/kexec_file.c
+> +++ b/kernel/kexec_file.c
+> @@ -68,17 +68,19 @@ int kexec_image_probe_default(struct kimage *image, void *buf,
+>  			      unsigned long buf_len)
+>  {
+>  	const struct kexec_file_ops * const *fops;
+> -	int ret = -ENOEXEC;
+>  
+>  	for (fops = &kexec_file_loaders[0]; *fops && (*fops)->probe; ++fops) {
+> -		ret = (*fops)->probe(buf, buf_len);
+> -		if (!ret) {
+> +		int ret = (*fops)->probe(buf, buf_len);
+> +
+> +		if (ret == 0) {
+>  			image->fops = *fops;
+> -			return ret;
+> +			return 0;
+>  		}
+> +		if (ret != -ENOEXEC)
+> +			return ret;
+>  	}
+>  
+> -	return ret;
+> +	return -ENOEXEC;
+>  }
+>  
+>  static void *kexec_image_load_default(struct kimage *image)
+> 
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-
-This whole set_memory_decrypted() API is awful. It really should be improved.
-
-alloc_pages_decrypted() ?
-
-Jason
 
