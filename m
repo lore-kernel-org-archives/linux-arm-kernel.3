@@ -4,149 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E09FDC5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3E79C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=czT1ImPU/vWc2M0tWEKBT0LXpRCVrV75Wfn03rEOF2c=; b=krMbPKZYbjDStnpMvTpMyBMDEk
-	080JnubzkjOlD9iO7t0Ix7aq/tAS7+YA7R53pXR93PU/96Xawkswc/a+tRb4prVFFl6VzfN8k/Wj5
-	gyM8CRaSPQU/jz6jc2ZV6imPjgGLdRQymVbFKlHiXRlhSReIK0ZLhaOvd7mM5f2rKEfCtx59xWs9N
-	CEgZ0PNxSpCceWYZ6GARYCfL+0y8fdM/BToydLNkNqyMea387yQz8d4KgJn30I/11LSytCUMurF+f
-	xLCNFh8AFhacysDl5+WVKuIWRcunxfJ21rMfGV9jdSO5GB6EH/hqodm43XaPfEDqTpsGjI/PejiGX
-	/HJDW3yQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5arVEzRstmj4jIE2jTDewt7EmeMAVo6XPFqyQD0zqYM=; b=T0AIYElVveVIuSPiMqx/wf/5mx
+	KIG5B5OCnApryaqnLcaQV842qRvfE3nx6MZ3pVLh3WdoSxB69oB53zmfi3RiwWQlzgRqarOjd3jCc
+	ReP9zqbJffiavoLSmnw+dZP2m+K4EtiqkATvgLQi361s0NNMZlSWB6gv0EsADitlPTwRhcXzuOmGZ
+	wg6TC1d3ipY2mf9zgEK+XpZFLGnv/tXAcINhWkYDouQBFznh3R3EHJEDZAPEeDQ9Fk5Ee6Kab+tQZ
+	2bOCNu3Lq2bNMwB1mIH3+esdM5wZazGRnNLiLhMaNnar2tG+aJYW/+NqQyxH/cN0EEFsCp5WnGlIh
+	7JqkGPCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx0JI-0000000BNSx-0ksW;
-	Thu, 20 Aug 2026 10:47:48 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx0JF-0000000BNSZ-2jSa;
-	Thu, 20 Aug 2026 10:47:47 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67K8psXX503930;
-	Thu, 20 Aug 2026 10:46:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=czT1Im
-	PU/vWc2M0tWEKBT0LXpRCVrV75Wfn03rEOF2c=; b=VFp46JEphllpw7qtyJNBx1
-	CaVenj+Rdg6kMHAyun/leFK4fPjzBLdY43BTvCm0r20SF8NRJ17NDVEUINVxkX2f
-	dujD0NQz3qQ7m0zO3xs9P02S1kxeSEsGvFiTkyy71sDmPCa47W0q7/Nr0em6wVhf
-	Th7I4886yY9Ww8KFAZ/sulpfpgo8txaPaUjtuFOn/paI7hzL53leG67MGZ8+i0Am
-	LsOim3vbqCPgz/COWWYtl/xy5PayeZbfKOR8IGLm1tbqtfbmwIGP5JExMBBiTmKX
-	i7W3MfpeOJdrbuMa+UQRiYtW19e6zAq56CFWAMf3KMWfswNDkwVI+e5cosZ43Txw
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4g4yu49j7t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Aug 2026 10:46:58 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67KAfGvU024130;
-	Thu, 20 Aug 2026 10:46:57 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4g354ynsek-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Aug 2026 10:46:57 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67KAktPu46072234
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 20 Aug 2026 10:46:55 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7A9FA20043;
-	Thu, 20 Aug 2026 10:46:55 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D8EA120040;
-	Thu, 20 Aug 2026 10:46:41 +0000 (GMT)
-Received: from [9.39.17.85] (unknown [9.39.17.85])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 20 Aug 2026 10:46:41 +0000 (GMT)
-Message-ID: <99bdc3e0-0e0f-4cb1-8747-dd7667307492@linux.ibm.com>
-Date: Thu, 20 Aug 2026 16:16:40 +0530
+	id 1wx0MJ-0000000BNhl-2qAM;
+	Thu, 20 Aug 2026 10:50:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wx0MG-0000000BNhB-3fQw
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Aug 2026 10:50:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62090153B;
+	Thu, 20 Aug 2026 03:50:45 -0700 (PDT)
+Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.29])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A10D3F66F;
+	Thu, 20 Aug 2026 03:50:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787223049; bh=s+cclRtih9v6Hs6kBVo28nQebq5TpBMtlvcObiYbvrQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=mlwwcH/aloHp948hET2x3PglkjTmwV/C1vkj4LhUjCsvHCVxnIRjXXyQwKoBYSh4b
+	 W+TlkspsuCda4N8/HpdlCseT+Wzo469vRfIBo0hw8qEsFKeS3KGD/R2gvOJo0XQPrb
+	 myWmYHFHFnn8mQ0++38cbrZszC/fDjicPCDrukH8=
+From: Steven Price <steven.price@arm.com>
+To: =?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Thomas Gleixner <tglx@kernel.org>
+Cc: Steven Price <steven.price@arm.com>,
+	"T.J. Mercier" <tjmercier@google.com>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: [PATCH 0/2] Clear shared pages after private-to-shared conversion
+Date: Thu, 20 Aug 2026 11:50:23 +0100
+Message-ID: <20260820105026.53208-1-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND] sched: Convert paravirt_steal to new static key
- APIs
-To: Hongyan Xia <hongyan.xia@transsion.com>
-Cc: Jiazi Li <jiazi.li@transsion.com>,
-        "virtualization@lists.linux.dev" <virtualization@lists.linux.dev>,
-        "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
-        "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-        "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-        "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-        "xen-devel@lists.xenproject.org" <xen-devel@lists.xenproject.org>,
-        Juergen Gross <jgross@suse.com>, Ajay Kaher <ajay.kaher@broadcom.com>,
-        Alexey Makhalov <alexey.makhalov@broadcom.com>,
-        Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-        WANG Xuerui <kernel@xen0n.name>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "x86@kernel.org" <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
-        Paolo Bonzini <pbonzini@redhat.com>,
-        Vitaly Kuznetsov <vkuznets@redhat.com>,
-        Stefano Stabellini <sstabellini@kernel.org>,
-        Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Juri Lelli <juri.lelli@redhat.com>,
-        Vincent Guittot <vincent.guittot@linaro.org>,
-        Dietmar Eggemann <dietmar.eggemann@arm.com>,
-        Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
-        Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
-        K Prateek Nayak <kprateek.nayak@amd.com>
-References: <20260819081207.12150-1-hongyan.xia@transsion.com>
-Content-Language: en-US
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-In-Reply-To: <20260819081207.12150-1-hongyan.xia@transsion.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=CpuPtH4D c=1 sm=1 tr=0 ts=6a86db23 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=3xJz9W2bAAAA:8
- a=VnNF1IyMAAAA:8 a=iox4zFpeAAAA:8 a=xzwhdZQ7njCJ2XY4-I0A:9 a=QEXdDO2ut3YA:10
- a=amiGZ1mxdzcEAW_x1qlF:22 a=WzC6qhA0u3u7Ye7llzcV:22
-X-Proofpoint-ORIG-GUID: 1wZ5c2qM7g5x0jx-qb5t7EiwBQISCVhp
-X-Proofpoint-GUID: itVss8-eLfuaCICc2HK-kMCuGgzSwFvE
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDA3NyBTYWx0ZWRfXy1Knef7euqva
- B2wMTxAUFMf0GbqrSemw+AgaY+wNIewR8/vNhiPmdrebwSaAtFgbUClfT7lyMMabKF1jdmhCukv
- nr1v7az3rtSi3DUGh3ib1xdiKCYVnZg=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDA3NyBTYWx0ZWRfX60/6Dl3nOmKx
- 1lgDs9d2yIy0QyPoRMAQMzaFP01pLEWEulDqKdCZ3F6qDr3NEiEADGM2eMQnstQbmSYnYcBwNjK
- hYFPSUus//RGGLcarRg+E6axxBj3cxk7gBG2T8OjN97OxqZ9rI5pI4vUVXhXILTmckLXOi9a4I3
- MoyHW222X4NoFlq4ynf22eXvKMiPfG/Xu4Q7UUfJRau6RKD4izhXUGu12jnr6O8gXDaA3aZRAOx
- MuuA52c8OIb1esLmNTU4vQce+tqTAWrEo6EbROCul8IF1KNHGDNf/cl8nGs/R4mOfrjSsH3UgUC
- QEfOV3KYChX2RlYM8p6C+EHa7k7heWKVeKCTp/8zCebWTMfdNHtOjUgI9gRkWPhGSC2OMKPO5sR
- VflLI0qnlEsop/LaVZCG8Y9aXymFW6vJu2Q1kpkLrY+WSbBzqGsJpBBazuvASI6CZb6TNG/I2Gs
- KijXc6TfURnVr9wKn/w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-19_06,2026-08-19_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 adultscore=0 bulkscore=0 malwarescore=0 phishscore=0
- lowpriorityscore=0 spamscore=0 clxscore=1011 priorityscore=1501
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608200077
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_034745_823706_0B00CB6A 
-X-CRM114-Status: GOOD (  26.38  )
+X-CRM114-CacheID: sfid-20260820_035052_984287_B7B2BA89 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,218 +82,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hongyan.
+Arm CCA includes "Memory Encryption Contexts" (MEC) which allows the
+private and shared data accessible to a guest to have different memory
+encryption keys. Consequently when converting memory to shared, the
+memory encryption key used to access the physical page will change.
 
-On 8/19/26 1:42 PM, Hongyan Xia wrote:
-> From: Hongyan Xia <hongyan.xia@transsion.com>
-> 
-> paravirt_steal_rq_enabled and paravirt_steal_enabled use raw static_key
-> APIs which are now deprecated. Use the new API instead.
-> 
-> No functional change.
-> 
+Both the GICv3 ITS driver and the system_cc_shared dma-buf heap
+currently allocate memory with __GFP_ZERO and then decrypt it. With MEC
+the zeroing is done with the wrong encryption key and the data visible
+after decryption may be ciphertext. The RMM is required to scrub the
+data, but may perform this scrub with a different encryption key to the
+eventual key that will be used for shared access.
 
-FWIW, looks good to me. One minor nit.
+Fix these two sites by avoiding the __GFP_ZERO during the allocation and
+performing a clear_pages() call after the decryption.
 
-Reviewed-by: Shrikanth Hegde <sshegde@linux.ibm.com>
+Steven Price (2):
+  irqchip/gic-v3-its: Zero shared pages after conversion
+  dma-buf: heaps: Zero system shared heap pages after conversion
 
-> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
-> Acked-by: Juergen Gross <jgross@suse.com>
-> ---
-> Changed in RESEND:
-> - Separate the original series into individual patches. They aren't easy
->    to review as a series.
-> 
->   arch/arm64/kernel/paravirt.c           | 4 ++--
->   arch/loongarch/kernel/paravirt.c       | 4 ++--
->   arch/powerpc/platforms/pseries/setup.c | 4 ++--
->   arch/riscv/kernel/paravirt.c           | 4 ++--
->   arch/x86/kernel/cpu/vmware.c           | 4 ++--
->   arch/x86/kernel/kvm.c                  | 4 ++--
->   drivers/xen/time.c                     | 4 ++--
->   include/linux/sched/cputime.h          | 6 +++---
->   kernel/sched/core.c                    | 4 ++--
->   kernel/sched/cputime.c                 | 4 ++--
->   10 files changed, 21 insertions(+), 21 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/paravirt.c b/arch/arm64/kernel/paravirt.c
-> index 572efb96b23f..30bf61d031eb 100644
-> --- a/arch/arm64/kernel/paravirt.c
-> +++ b/arch/arm64/kernel/paravirt.c
-> @@ -157,9 +157,9 @@ int __init pv_time_init(void)
->   
->   	static_call_update(pv_steal_clock, para_steal_clock);
->   
-> -	static_key_slow_inc(&paravirt_steal_enabled);
-> +	static_branch_inc(&paravirt_steal_enabled);
->   	if (steal_acc)
-> -		static_key_slow_inc(&paravirt_steal_rq_enabled);
-> +		static_branch_inc(&paravirt_steal_rq_enabled);
->   
->   	pr_info("using stolen time PV\n");
->   
-> diff --git a/arch/loongarch/kernel/paravirt.c b/arch/loongarch/kernel/paravirt.c
-> index 10821cce554c..e8965a3f8082 100644
-> --- a/arch/loongarch/kernel/paravirt.c
-> +++ b/arch/loongarch/kernel/paravirt.c
-> @@ -308,10 +308,10 @@ int __init pv_time_init(void)
->   
->   	static_call_update(pv_steal_clock, paravt_steal_clock);
->   
-> -	static_key_slow_inc(&paravirt_steal_enabled);
-> +	static_branch_inc(&paravirt_steal_enabled);
->   #ifdef CONFIG_PARAVIRT_TIME_ACCOUNTING
->   	if (steal_acc)
-> -		static_key_slow_inc(&paravirt_steal_rq_enabled);
-> +		static_branch_inc(&paravirt_steal_rq_enabled);
->   #endif
->   
->   	if (static_key_enabled(&virt_preempt_key))
-> diff --git a/arch/powerpc/platforms/pseries/setup.c b/arch/powerpc/platforms/pseries/setup.c
-> index 1223dc961242..8dcbc4bb7025 100644
-> --- a/arch/powerpc/platforms/pseries/setup.c
-> +++ b/arch/powerpc/platforms/pseries/setup.c
-> @@ -852,9 +852,9 @@ static void __init pSeries_setup_arch(void)
->   			static_branch_enable(&shared_processor);
->   			pv_spinlocks_init();
->   #ifdef CONFIG_PARAVIRT_TIME_ACCOUNTING
-> -			static_key_slow_inc(&paravirt_steal_enabled);
-> +			static_branch_inc(&paravirt_steal_enabled);
->   			if (steal_acc)
-> -				static_key_slow_inc(&paravirt_steal_rq_enabled);
-> +				static_branch_inc(&paravirt_steal_rq_enabled);
->   #endif
->   		}
->   
-> diff --git a/arch/riscv/kernel/paravirt.c b/arch/riscv/kernel/paravirt.c
-> index 5f56be79cd06..9c13a6f1ea2a 100644
-> --- a/arch/riscv/kernel/paravirt.c
-> +++ b/arch/riscv/kernel/paravirt.c
-> @@ -116,9 +116,9 @@ int __init pv_time_init(void)
->   
->   	static_call_update(pv_steal_clock, pv_time_steal_clock);
->   
-> -	static_key_slow_inc(&paravirt_steal_enabled);
-> +	static_branch_inc(&paravirt_steal_enabled);
->   	if (steal_acc)
-> -		static_key_slow_inc(&paravirt_steal_rq_enabled);
-> +		static_branch_inc(&paravirt_steal_rq_enabled);
->   
->   	pr_info("Computing paravirt steal-time\n");
->   
-> diff --git a/arch/x86/kernel/cpu/vmware.c b/arch/x86/kernel/cpu/vmware.c
-> index 34b73573b108..f7ab9e7902cf 100644
-> --- a/arch/x86/kernel/cpu/vmware.c
-> +++ b/arch/x86/kernel/cpu/vmware.c
-> @@ -328,9 +328,9 @@ static int vmware_cpu_down_prepare(unsigned int cpu)
->   static __init int activate_jump_labels(void)
->   {
->   	if (has_steal_clock) {
-> -		static_key_slow_inc(&paravirt_steal_enabled);
-> +		static_branch_inc(&paravirt_steal_enabled);
->   		if (steal_acc)
-> -			static_key_slow_inc(&paravirt_steal_rq_enabled);
-> +			static_branch_inc(&paravirt_steal_rq_enabled);
->   	}
->   
->   	return 0;
-> diff --git a/arch/x86/kernel/kvm.c b/arch/x86/kernel/kvm.c
-> index dcef84da304b..d3dcd64f22c2 100644
-> --- a/arch/x86/kernel/kvm.c
-> +++ b/arch/x86/kernel/kvm.c
-> @@ -1052,9 +1052,9 @@ const __initconst struct hypervisor_x86 x86_hyper_kvm = {
->   static __init int activate_jump_labels(void)
->   {
->   	if (has_steal_clock) {
-> -		static_key_slow_inc(&paravirt_steal_enabled);
-> +		static_branch_inc(&paravirt_steal_enabled);
->   		if (steal_acc)
-> -			static_key_slow_inc(&paravirt_steal_rq_enabled);
-> +			static_branch_inc(&paravirt_steal_rq_enabled);
->   	}
->   
->   	return 0;
-> diff --git a/drivers/xen/time.c b/drivers/xen/time.c
-> index a2be0a4d45b0..a02d48a2aa68 100644
-> --- a/drivers/xen/time.c
-> +++ b/drivers/xen/time.c
-> @@ -169,7 +169,7 @@ void __init xen_time_setup_guest(void)
->   
->   	static_call_update(pv_steal_clock, xen_steal_clock);
->   
-> -	static_key_slow_inc(&paravirt_steal_enabled);
-> +	static_branch_inc(&paravirt_steal_enabled);
->   	if (xen_runstate_remote)
-> -		static_key_slow_inc(&paravirt_steal_rq_enabled);
-> +		static_branch_inc(&paravirt_steal_rq_enabled);
->   }
-> diff --git a/include/linux/sched/cputime.h b/include/linux/sched/cputime.h
-> index e90efaf6d26e..694126411dfe 100644
-> --- a/include/linux/sched/cputime.h
-> +++ b/include/linux/sched/cputime.h
-> @@ -182,9 +182,9 @@ extern unsigned long long
->   task_sched_runtime(struct task_struct *task);
->   
->   #ifdef CONFIG_PARAVIRT
-> -struct static_key;
-> -extern struct static_key paravirt_steal_enabled;
-> -extern struct static_key paravirt_steal_rq_enabled;
-> +#include <linux/jump_label.h>
+ drivers/dma-buf/heaps/system_heap.c | 14 +++++++++++---
+ drivers/irqchip/irq-gic-v3-its.c    |  7 ++++++-
+ 2 files changed, 17 insertions(+), 4 deletions(-)
 
-nit:
-
-This looks bit odd to see includes in the middle. I know it is including
-only if necessary.
-maybe worth an unconditional include in the beginning?
-
-> +DECLARE_STATIC_KEY_FALSE(paravirt_steal_enabled);
-> +DECLARE_STATIC_KEY_FALSE(paravirt_steal_rq_enabled);
->   
->   #ifdef CONFIG_HAVE_PV_STEAL_CLOCK_GEN
->   u64 dummy_steal_clock(int cpu);
-> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-> index 5c07d53e43b5..84d090581a08 100644
-> --- a/kernel/sched/core.c
-> +++ b/kernel/sched/core.c
-> @@ -795,7 +795,7 @@ struct rq *_task_rq_lock(struct task_struct *p, struct rq_flags *rf)
->   
->   /* Use CONFIG_PARAVIRT as this will avoid more #ifdef in arch code. */
->   #ifdef CONFIG_PARAVIRT
-> -struct static_key paravirt_steal_rq_enabled;
-> +DEFINE_STATIC_KEY_FALSE(paravirt_steal_rq_enabled);
->   #endif
->   
->   static void update_rq_clock_task(struct rq *rq, s64 delta)
-> @@ -834,7 +834,7 @@ static void update_rq_clock_task(struct rq *rq, s64 delta)
->   	}
->   #endif
->   #ifdef CONFIG_PARAVIRT_TIME_ACCOUNTING
-> -	if (static_key_false((&paravirt_steal_rq_enabled))) {
-> +	if (static_branch_unlikely(&paravirt_steal_rq_enabled)) {
->   		u64 prev_steal;
->   
->   		steal = prev_steal = paravirt_steal_clock(cpu_of(rq));
-> diff --git a/kernel/sched/cputime.c b/kernel/sched/cputime.c
-> index 06bddaa738e5..f16970ca81d0 100644
-> --- a/kernel/sched/cputime.c
-> +++ b/kernel/sched/cputime.c
-> @@ -255,7 +255,7 @@ void __account_forceidle_time(struct task_struct *p, u64 delta)
->    * occasion account more time than the calling functions think elapsed.
->    */
->   #ifdef CONFIG_PARAVIRT
-> -struct static_key paravirt_steal_enabled;
-> +DEFINE_STATIC_KEY_FALSE(paravirt_steal_enabled);
->   
->   #ifdef CONFIG_HAVE_PV_STEAL_CLOCK_GEN
->   static u64 native_steal_clock(int cpu)
-> @@ -270,7 +270,7 @@ DEFINE_STATIC_CALL(pv_steal_clock, native_steal_clock);
->   static __always_inline u64 steal_account_process_time(u64 maxtime)
->   {
->   #ifdef CONFIG_PARAVIRT
-> -	if (static_key_false(&paravirt_steal_enabled)) {
-> +	if (static_branch_unlikely(&paravirt_steal_enabled)) {
->   		u64 steal;
->   
->   		steal = paravirt_steal_clock(smp_processor_id());
+-- 
+2.43.0
 
 
