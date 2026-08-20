@@ -4,123 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D72BAC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 21:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3DE3C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 22:09:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XoY3PJsNxOGbm0uPnIhjf9GixyLk7qeqjV2ARZe0tmk=; b=cj07t9SIdES9wQDesK9+5AOKe4
-	/Dqwukm7dSU3v759q/zuFzPY1cVshLgemPTfvo+/lMbUOS2iGI2hqRN0LFxoUTZai71DCat0vAwMd
-	hqdiuGkWF4pAo4tFOrnHZp0PEqaupdYs7wgZXblWtgzfM1Y30qEKZlq2ShD5DX1XGWP5A95lFzYc4
-	zm7y3DKU+HeaELH56p6LfCAOWisofrT3VxeopUsd6si6Lie1Rj+11ch21BSkgfNrtnBUJIWu7cbSF
-	CDvrSwyYy0Jn/JFVe5zVPgGv1KqXeBnY1RpOTSugkU/71/r9mlNs2+hIHo7OsBq5WRpSiQT5MLVDB
-	NzGYQXmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RBeAuUXllv4vdlYATEBG2F0vslovKKbbSrFmqCsRptg=; b=ucQ3uOf8Zotm0C4Ff2rzR/1qP/
+	Fgj52TUZJJURgP3E2YeGfzUkoCTq2+0oXQS+nedqjqyvIBj3ABaujine0/q53ykuSTjiamc70d3/2
+	2Q/weVOhvyu6EUJa+nD1TlWCdDIA4pLetFFPQs1zYI7uo7txfUIhuXEQQKGhIMG7MHoSbjPYMkFnT
+	GEIromFclpJ1Iti/z7XqOC5/2ViFSzHL6jfImdCLjk7w9MwhqZfvvsish5Xn7R8xzJ6fAaRGuRSx2
+	m+1hiCCKXeq+j9RhDZTNyczeqhEtiOZ/BcI1fL7P23edVtrsiEepzZzw3DXJrUsnqAJzAJFjf0DRD
+	gQMmPg+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxAlG-0000000CGGy-212o;
-	Thu, 20 Aug 2026 21:57:22 +0000
-Received: from mail-northcentralusazon11010032.outbound.protection.outlook.com ([52.101.193.32] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1wxAwb-0000000CGcX-29GR;
+	Thu, 20 Aug 2026 22:09:05 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxAlE-0000000CGGN-0l4T
+	id 1wxAwY-0000000CGc9-1oHU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 21:57:21 +0000
+	Thu, 20 Aug 2026 22:09:03 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 67KK6uxU1741261;
+	Thu, 20 Aug 2026 17:09:00 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=RBeAuUXllv4vdlYATEBG2F0vslovKKbbSrFmqCsRp
+	tg=; b=Lpa6OWjrgaXmyHcT/RdSu7ZSiO3A7y9LEn+C56GBVEXWzpDN3gjQp8KG/
+	cBJcKZ91UTUE3KX97eOSbEp7KW3+O3BzrfYv3vVTokmoVHp0KZODisuk9F+xMCNn
+	QQtMSuskj+6KkLJERC3qpBYHgoqKf6ZOEgPSxlCLq+3zz1Ovutcjc9JKafvsRvgk
+	3HfZa/JB1dRh2Ml8e4z+GRFDTAgVGF8qH+9eO2AAYPH/EKIWwsKLxhYkDk2V5LdM
+	amJIg4GDknhHoRMXdB4r123vN0FtViV4Jp2YUMTdBNQOo+WEDFimcjJpJ/f5Hlsy
+	0dnR4ZdPSJl+xCmAsFocouPfjfdJQ==
+Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011051.outbound.protection.outlook.com [40.107.208.51])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4g5m2uqu1s-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 20 Aug 2026 17:09:00 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IpA36bD28CGtI/FkJ+QiVBgK3NFCCNxdR1Zbl/k3FCq6u2eQLWjTGQjiMDJjrEzdyBnQzSzKr5qpD9ADurh+zJIRaoGjIBtbZEVfIzGCTRGyecDaLLzTdc5HJgrMBA28p7k9dRNkQmvPRLBd1P1LJKRyYlEhkhba1irHmB1e+6wti0J3ihEgWKj1bOsnEKgJCZ2W9Vt7t8oemfhPDJ8jE5n7hF6OMtfh2vQCbuUDyAUZsyooNYLR2F6GDiuWzpjg0fex07mVemlup28Tmm1oHf9HFRnBcIRRrl7+6fmpm/OQDqad9PbqBBe5CWPkSqurFtKtjDnjXC3i6ND6rrlTCA==
+ b=lOmWZtGpiDH9+uaGaRhpuRcGSkXIWHRK80FliGzXJXYUX3+K9xUs04LudIGta6wuzGZTHGacFjmWy9UalOh8XeoQwjGXJCKyHMgiCpJog5bJNijxXWj/eKpyRcz2gMEOOcvVqpN3E2Wl+FnzsASsAjQD2ioqhSFN5c7s5PumY3majeQg7Ws02dXIciv8FMjH+L/V2zq48SHlS7kYI7aKCf0hJU5aKQp4UdbCjpkcHUrU4uu1XAa4hSVlelkrPfijk2totMI7GulN1XaiO8919VNaOTs0iNPxodY1IZB2EdZgBHVZAq2WG6Oj7q161y1Hk5JI3O52kpp2i8VtVZYLDA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XoY3PJsNxOGbm0uPnIhjf9GixyLk7qeqjV2ARZe0tmk=;
- b=gJLesTaV7WE1w1WCMafogJ+KEWEEK8Mazt6wUqiBfcqOtvvYCP5T+t/R2E2KwBJTxnzYmvkOnsxzpQTZJNmIHfSEMpLVbMdk2Z68Bjhz0halCD/4Zr3Mp4kOOA+Idgb1JidsFohGJtPj3/+KH2hoOLMVL6i0L+R3uGEzI9npMhuctDrcFQ5MU+AGPOc1pb+AzeB7X3VQhBeSN+qpsz72Ka7hpaqzWS2OztxMFIv/HYm07pe3qnY9YBuvfkaHcqKVWCkkm3ljjUaFQBUy1XWIXvQduoY02RKpE49W3hwYIUoXCqFwyu9DpaX+B6/nu4tXSQwPhdw2cE0jIOSzN3usjA==
+ bh=RBeAuUXllv4vdlYATEBG2F0vslovKKbbSrFmqCsRptg=;
+ b=vhF75QXX+qwGI+N3mWmmuRK8aD2o7xjFP8640rSshZTlk3IqHneIF+oKSj3j8us5I4lG4se4w4mt4krB4bLuxVqCrHJhLOX/J3xD1LoC+rpbmOBLITEWYp+tw+7jVAASTQieAhhtre5ooonnmAuMdmIwz/Ha/qdLcSq0s39aVi3W3ho9qcfvzQC0f9MigXBkwCXaJ1nfiISYu6gK7Zj2h+TAEX4jeZ+ufWVAtkulUwowFmqE30w6Az/NrdMZExnZtydFl6dEjetGXlSOHEoR/ywfMkNvFG8PX6QgB61DV0Lnz/KVtj3d8hDwz5usg6oYM/8wGNVJGH8nQo6+MQw91g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ 198.47.21.195) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XoY3PJsNxOGbm0uPnIhjf9GixyLk7qeqjV2ARZe0tmk=;
- b=VNenTuXxHYI8ksWWBKdYOcRyR9DbOic/v207GyzIy1BKNaOxh02id89Pqec41XTISwF/YZJEmQA+8RHa3u2t6ifQ/ZZ3Lem5+IZrBPnaV/j1i154PkZEI6RSX1v/OXKuEr20CPWAL8aqiRzuW9kQR22kNDHl3mGKEMa2eFESeto=
-Received: from IA1P220CA0019.NAMP220.PROD.OUTLOOK.COM (2603:10b6:208:464::6)
- by DS4PR12MB9746.namprd12.prod.outlook.com (2603:10b6:8:2a4::20) with
+ bh=RBeAuUXllv4vdlYATEBG2F0vslovKKbbSrFmqCsRptg=;
+ b=q96OXMmVYQhmUI4OA1m/iNQv4aOs2eK4Mw0fssR089+bI4dM00YRDK5jr3IRmEdp5/pJTIEmPLgEDiFpZ3h8XfS1PqHsTekSEYAznqWfjfDoO+8qDKkXc+xsp7nqXPHbwcktqnY6IoskrVuzeYJMOze9TX9NNLHoZfhUhYNQcWQ=
+Received: from BN9PR03CA0948.namprd03.prod.outlook.com (2603:10b6:408:108::23)
+ by PH7PR10MB7087.namprd10.prod.outlook.com (2603:10b6:510:27f::12) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Thu, 20 Aug
- 2026 21:57:08 +0000
-Received: from MN1PEPF0000ECDA.namprd02.prod.outlook.com
- (2603:10b6:208:464:cafe::b) by IA1P220CA0019.outlook.office365.com
- (2603:10b6:208:464::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.10 via Frontend Transport; Thu,
- 20 Aug 2026 21:57:08 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- MN1PEPF0000ECDA.mail.protection.outlook.com (10.167.242.134) with Microsoft
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Thu, 20 Aug
+ 2026 22:08:57 +0000
+Received: from BL02EPF00021F6F.namprd02.prod.outlook.com
+ (2603:10b6:408:108:cafe::7f) by BN9PR03CA0948.outlook.office365.com
+ (2603:10b6:408:108::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.9 via Frontend Transport; Thu, 20
+ Aug 2026 22:08:57 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BL02EPF00021F6F.mail.protection.outlook.com (10.167.249.11) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.360.3 via Frontend Transport; Thu, 20 Aug 2026 21:57:08 +0000
-Received: from localhost (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.360.3 via Frontend Transport; Thu, 20 Aug 2026 22:08:56 +0000
+Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 20 Aug
- 2026 16:57:07 -0500
-Date: Thu, 20 Aug 2026 16:56:44 -0500
-From: Michael Roth <michael.roth@amd.com>
-To: Ackerley Tng <ackerleytng@google.com>
-CC: Sean Christopherson <seanjc@google.com>, Paolo Bonzini
-	<pbonzini@redhat.com>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
-	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
-	<hpa@zytor.com>, Ashish Kalra <ashish.kalra@amd.com>, Brijesh Singh
-	<brijesh.singh@amd.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton
-	<oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, Steffen Eiden
-	<seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
-	<yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, David Hildenbrand <david@kernel.org>, Fuad Tabba
-	<tabba@google.com>, Yan Zhao <yan.y.zhao@intel.com>, "Edgecombe, Rick P"
-	<rick.p.edgecombe@intel.com>, Vishal Annapurve <vannapurve@google.com>,
-	<kvm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>
-Subject: Re: [PATCH v2 2/4] KVM: SEV: Drop page refcount early during RMP
- fault handling
-Message-ID: <zb5krzhrg3soslplynegqo52brd53wk3meas45udqpjms6oluk@zecqwzn7zziy>
-References: <20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com>
- <20260818-gmem-no-return-page-v2-2-5298f42d49bb@google.com>
- <j6bfvbzjivlcsu3slbnaoomxxqyypmfl2bupo3k5ipnt6fc5lo@e5ntbx7yd4qw>
- <CAEvNRgEruoa4d_8Y1MpkdzbHg3j1Yv=-Y6w6Yy=v6mJgPajjWw@mail.gmail.com>
+ 2026 17:08:52 -0500
+Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE202.ent.ti.com
+ (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 20 Aug
+ 2026 17:08:52 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE202.ent.ti.com
+ (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Thu, 20 Aug 2026 17:08:52 -0500
+Received: from [127.0.1.1] (uda0506412.dhcp.ti.com [128.247.81.196])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 67KM8pf1933246;
+	Thu, 20 Aug 2026 17:08:51 -0500
+From: Kendall Willis <k-willis@ti.com>
+Date: Thu, 20 Aug 2026 17:08:51 -0500
+Subject: [PATCH 1/4] arm64: dts: ti: k3-am62-lp-sk: add out-band-wakeup
+ property to m_can devices
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <CAEvNRgEruoa4d_8Y1MpkdzbHg3j1Yv=-Y6w6Yy=v6mJgPajjWw@mail.gmail.com>
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
- (10.181.42.216)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260820-smth-v1-1-e1738a38d58e@ti.com>
+References: <20260820-smth-v1-0-e1738a38d58e@ti.com>
+In-Reply-To: <20260820-smth-v1-0-e1738a38d58e@ti.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <s-kochidanadu@ti.com>, <a-kaur@ti.com>, <s-tripathi1@ti.com>,
+        <vishalm@ti.com>, <k-willis@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787263731; l=1243;
+ i=k-willis@ti.com; s=20251230; h=from:subject:message-id;
+ bh=ofWEzmf0KZuBF54XaFqYh8rYdLlDFfsLXxn9oXi2uho=;
+ b=WEOSL3xDoRx90x8re0qgJFXTg6gdNibDiDhsCgkJRk0nSWqAQz7bAYyIoizRJWBMEzaa3kMQ2
+ qSxiJIRR8VhD7j7vpoKb5oZU2r7u93JQL7othf8jDkHn8kh7KTaG/W7
+X-Developer-Key: i=k-willis@ti.com; a=ed25519;
+ pk=fQiPVFwmogfDAKdaAKq163RWSfgHZVE/MrsDzp0Xo1k=
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECDA:EE_|DS4PR12MB9746:EE_
-X-MS-Office365-Filtering-Correlation-Id: 443aac8a-2a60-4431-1db9-08deff05fae1
+X-MS-TrafficTypeDiagnostic: BL02EPF00021F6F:EE_|PH7PR10MB7087:EE_
+X-MS-Office365-Filtering-Correlation-Id: 418e79fd-58b0-4778-81b7-08deff07a0e4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|7416014|1800799024|23010399003|10067099003|56012099006|3023799007|18002099003|22082099003|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: QJvcNZEAVgmkZl3e7WA76TIBBdg+YabKsxNxfQ91fPJAqCIePQ+YnNEXgcNpfQKdokNfAuieFcO45HIAVZCdWALLzXtY1XDn1ehBECLMdIlWQ6L5k92EfT9XSnoV1d9M/46o8vx56UwHGK6s+aLoQcJMLyegniRDC1R6BefAnW74r85Z1Vl0OrRHRLq9O8LRotKab6ucC5y4ULKH9CiE3BGOHOsKlrh5BumNmHHJpdLiMbjVE4lAmMjgOd12Dx//zW54iCU8rqaK+yQtQZRApK+rG4fF1Kb8LipAg+CGFvYjjcPgTnieREExjQv6gCoGVReIs6SGJPH1F2Z4ybIhtjxji4iWzsv9y4dQphNJXn0NfQBjqzJx9uD7+6EYiGhfYKkp5PdcxLIb3rmCucUtf2GJtPLS/GQcpY1n85uZThQYlEHsA2wlxH37v5ats7RiWId1gkSigXqZr2r6IVg14ZTVaT8Y99NmiiW8SEYyjHPdRxZlOUsylVXKzfb4Mki5HcMmWSVPoTowAJ/yGx/PYqkq7PAwFqCT2IyMHy+KgC/nel70JHhVi6qTHuAiQgfy+sNSFeGmJ+DhPjZWhhCacOiK8Mr3BjSzHe26rSr0Cz7CGgqaQ3f4XrVGFedVLoII9amtfzQbqlTkQiu+4iD/S3f67I4oOEt1oUSkmK4k4SgpKPMOTmhhQDW3I0gjAAmilSc4tIhD304Lx1flB4D/lQ==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(7416014)(1800799024)(23010399003)(10067099003)(56012099006)(3023799007)(18002099003)(22082099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|376014|1800799024|36860700016|22082099003|18002099003|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: y1V6gFv+MNqLxm3chav+zGT+clwS35fjuMOfjzsonwbnrxMzwAycXB2nhTlX7jxeg+FD0xM9snxRv9BV3dKQ4N2ellTr9MWMiJzfja0zQYI0MotqFtpUE5KsPObBSTBbgggVtkaLRsDtTIkzUcgfhCB6WOBQ/Xgs0sFMVG4HOaqHpJ6pnay4Q3VW3EmtadF6p2stwWh4UjILJ4WPOXS1KTBUJeNBdkixzuSAO5PEswc5hMEkZOAYyGVsDjY4JymB/JY17aASaz+bJi4c3gpj+48PRvcTSjJjgDxPuKyKASoFSH1hEt3osnkqZdFCXRTw2Zm1NbThcHzhuNz4JK3KyVDqa0WQr2GoygMfRHvlFQU7BY8Y4Tf4LhF5pBrnmO7NTqspu6nAehr5HeVJRMgqH3SIrDG0RrmXTgI5HhmeFiO9g4JVx2xUJjD9FesvuDRDezH1dsPi5GFHiI3rbIel4P3Nfa8v7+DuiLvVB2nn4GVxcPTuyDE5IpvRNtDmGtrlDqwciYQEw6JT/NR1tdGEAmiXhsaOXTGg7UUzF+LSHPVNcci241YUUUafIGDXSJ9RFdRTZoLCtiQAf2rakxIFlHToO8BTQ2qNpRGN0q60mQw6ufje/zZpleWVDJebVK39qepXNRx7wr/EIAk4KoIlhchgsngU8v314YBe5r8e3VDW50Ep6oqgSjbURwSi9pP4/FiDbYm+0sRhln2pg99ULg==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(376014)(1800799024)(36860700016)(22082099003)(18002099003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: VozllIeDtKXLfs6FtN6yNnAJKanHFS3a7rgjZFUhFgcIwaBvmgA6QUJZGoAJH7Zf7BHtKP17t3oRp2pyV9KVBG5w32rBaEb2x03BdN4pniOl9MCYbXcI1eYQsqi7TT4+djFdZuWRtPTswmmJ6H1wQTnn2g/XzUgXieh76cAAVWNQJUTEjIz7dJlyPBSKZTENg7HmR4SGZWfoToGGN15S86HSbn7CGUCKnn9Pk+agpyZULmFFT/5QX7R3XJQ2ZgTQ1AenPQ4C9FfVuqHfbH0PzXN2zzyfuuAW/cPHkv/hUCFHj9rVUWr5qNEsD8ejHmKCoB6S0Tzk7+SPH2JKqUCArw8qHHs3AHNC4b6CJwQ7eLHAeQ72GH1bPsV8cpLX9DJkngcMh14tvXQhAB7vtsn3AOl14RDWaJpZ/Nb4YrGe1ocH3DdaTsTCZGj+uyRpdY1l
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 21:57:08.1890
+X-MS-Exchange-AntiSpam-MessageData-0: 17dAkEYnVYJXyGFbENMYS0uc8F2P8sS/ad0jw0F6fPRNfTxKc+V2+xD3v76NN5/KubVRfw2oAhunFeoddMe98s/L2Lf/Hi3LmESH5HaDvndhvZsLHQ9ZIjJZZhEoOOgUWYgOWXV8o82wveKhBwldselBQDeSksJxNIeUS4XanNvPXTO3hI7vLzt3ogBL0v+x6ZFPNzJFvSS2xUy3enyLPRUoc7LFj3gUpWQWvMVnnwTN0zgWXeF+JISXOMSbu2QFcAX2zovqHQxsgx74h2/PI/3vHiMqYz/Ozh6iUEAHuUX9my9mzV4cmDpU+8YGNsDin+qbVMQFGkzyINEGMqnJXLjgpGaEhHm+eDD9RcwQU0zyhnF9pH+/H5BrH9Bnk4DqtgraNcd/S3U/LADF9xGWnh8nDYDR6KG3RG7zsNenxCUO7vyogrwRIDCBa/PAJFv+
+X-Exchange-RoutingPolicyChecked: WkXo3n5cgXFXUu43A2ToS+AyU9NWUHw/pAtmYXp1KIuusrP0vsA/FFGROCLulK/97cfrPtBQRZEkUROK8W/MWgVWqgHDpi4UX8LBjJbm5PnjE8lOVOyY1PdPpLhAoSnah58RfHF+G5d0UPRyxxR1YpAPfSz6S5K0jB9pDp4LHmq1koE88UXY4R85n6h/U39DpweNUpimka1PaRSGfa2eJa65YFfnVJ2mfPCr6F+iFVZZhCjZre2nIhX3Kn0gPwt/J1SX6Jx1wsxHJyLRW3ePNsRbvf6JAAsuA91LyzpaC8HFoMO/cKqtKHS7mF2mDR2hxOeebFZk0TASMJgMiX+W0Q==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 22:08:56.1128
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 443aac8a-2a60-4431-1db9-08deff05fae1
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECDA.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 418e79fd-58b0-4778-81b7-08deff07a0e4
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6F.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9746
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB7087
+X-Authority-Analysis: v=2.4 cv=E5H9Y6dl c=1 sm=1 tr=0 ts=6a877afc cx=c_pps
+ a=4ayr6ClP8xx6lw6zA/3NoQ==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8 a=d9d8EDaoARUvRs2V4nMA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: trR9W2in-IHT2-4jdR9icZJAPesOpRv9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDE2NCBTYWx0ZWRfX5uwWc41y7/4Q
+ MvDJ9XoxSa4zo7aqHDBHuUmOOIdg+u7gvNnFj50pfgLheTRLtOvnyl/ljR/y1RCXVb2/LoUwjyN
+ +N/TKxTEh/wzDM4zdwxsZ3QrBF/XZtOl4PXMVyav6+IlSM1u2WoQK2+togg5CZy/x+TeAZowHw9
+ zVQevh85tFBZOKKQmtZ5uRNhTi9P/TuXaER9bFaiN+Ll2ATRkK+rv2LOKfS7dpHDV4gMCHXchaf
+ 0xiUKOhl4cKgetkDAhlkj3eP92H8UeLNaHckknCmvOYV82UZWIemariNSW2/3KNWCXBkPJNfaWU
+ oWNwnsWwLDduiQpg/pXb4WEcQGrapt72Bw1HkMFldqzJlAF2hi8Nk3vortcNeXxPn08YG3kLuqM
+ EA99lgmL/e1HqCRDn2llu1gzvhDn4j2gKRxgFo6+M7P9V74qtpj80hQ7Y8pburGYRs5NjH82dkf
+ HfU4I6jvd2j0HcMIgxQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDE2NCBTYWx0ZWRfXwYiIGEc07nNk
+ 1VYF6TmmfOOq3sS6MgbeA1DShgtBOCanElDMpvyfAszqa6gojQsQY/sm4rQ1rtBCB9IhQ7MtczJ
+ 90BomHityZ6LPZ7OYSr1C/wY70AriKM=
+X-Proofpoint-ORIG-GUID: trR9W2in-IHT2-4jdR9icZJAPesOpRv9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-20_02,2026-08-20_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 bulkscore=0 priorityscore=1501 lowpriorityscore=0
+ adultscore=0 malwarescore=0 phishscore=0 clxscore=1015 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608200164
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_145720_285655_BA8AA1EA 
-X-CRM114-Status: GOOD (  41.49  )
+X-CRM114-CacheID: sfid-20260820_150902_512140_5DBD4328 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,182 +189,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 20, 2026 at 07:58:19AM -0700, Ackerley Tng wrote:
-> Michael Roth <michael.roth@amd.com> writes:
-> 
-> > On Tue, Aug 18, 2026 at 09:15:53AM +0000, Ackerley Tng wrote:
-> >> From: Sean Christopherson <seanjc@google.com>
-> >>
-> >> When handling an RMP fault, KVM retrieves the PFN for a private GPA from
-> >> guest_memfd.
-> >>
-> >> Drop the page reference immediately after retrieving the PFN instead of
-> >> holding it across the entire handler so that the later patch can follow up
-> >> with completely not returning refcounted pages from kvm_gmem_get_pfn().
-> >
-> > Regarding this point:
-> >
-> >>
-> >> On a first look, existing RMP table handling (psmash and checking for
-> >> errors) might seem like it works fine, since truncation of the page from
-> >> guest_memfd would have called rmp_make_shared() and removed the PFN from
-> >> the RMP table. However, that is insufficient since a freed page may already
-> >> be used in a different SNP VM.
-> >
-> > In the code this patch is applied on top of, I think the kvm_gmem_get_pfn()
-> > ref is enough to avoid the reused-by-another-SNP-VM scenario until after
-> > caller releases the ref, so I think the above explanation should be adjusted
-> > to also be preparatory for "the later patch".
-> >
-> 
-> I think this sequence of events is possible:
-> 
-> CPU 0: sev_handle_rmp_fault()
-> CPU 0:   kvm_gmem_get_pfn()
-> CPU 0:     filemap_invalidate_lock()
-> CPU 0:     refcount++
-> CPU 0:     filemap_invalidate_unlock()
-> CPU 0:     refcount-- <<== because kvm_release_page_unused(page);
+The m_can pins can be a wakeup source in the deepest low power states,
+despite being in the MCU domain which is OFF during deeper low power
+states. Add the out-band-wakeup property to allow the out_band_wakeup flag
+to be enabled during suspend for m_can devices.
 
-Prior to this patch, the kvm_release_page_unused() isn't done until
-after the snp_lookup_rmpentry()/snp_rmptable_psmash().
+Signed-off-by: Kendall Willis <k-willis@ti.com>
+---
+ arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts | 2 ++
+ 1 file changed, 2 insertions(+)
 
-It's possible CPU 1 truncate sequence below can run concurrently
-after filemap_invalidate_unlock() above, but even though it calls
-free_folio(), which might zap the RMP entry, the filemap code will
-only put the refs that it has on the folio so it wouldn't actually
-get freed back to the buggy allocator, so it doesn't seem like the
-psmash-another-guest scenario is reachable. I could certainly be
-misreading things though.
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts b/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
+index dfd65c00f5b95bca9e3a447f3ca14ad40631e1c2..011f2f37037553d1dd8ef68d2ecad36c4e93b130 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts
+@@ -283,6 +283,7 @@ &gpmc0 {
+ };
+ 
+ &mcu_mcan0 {
++	out-band-wakeup;
+ 	pinctrl-names = "default", "wakeup";
+ 	pinctrl-0 = <&mcu_mcan0_tx_pins_default>, <&mcu_mcan0_rx_pins_default>;
+ 	pinctrl-1 = <&mcu_mcan0_tx_pins_default>, <&mcu_mcan0_rx_pins_wakeup>;
+@@ -294,6 +295,7 @@ &mcu_mcan0 {
+ };
+ 
+ &mcu_mcan1 {
++	out-band-wakeup;
+ 	pinctrl-names = "default", "wakeup";
+ 	pinctrl-0 = <&mcu_mcan1_tx_pins_default>, <&mcu_mcan1_rx_pins_default>;
+ 	pinctrl-1 = <&mcu_mcan1_tx_pins_default>, <&mcu_mcan1_rx_pins_wakeup>;
 
-The psmash-a-now-shared-entry scenario because of a race with the
-VMM/truncate path seems possible prior to this patch, but that's
-pretty similar to the psmash-a-now-shared-entry because of a race
-with the guest scenario and which would generate spurious warning
-messages to console, and that would be similarly addressed via
-patch 1 I think. I'm not sure 
+-- 
+2.34.1
 
--Mike
-
-> 
-> CPU 1: truncate()
-> CPU 1:   filemap_invalidate_lock()
-> CPU 1:   refcount--
-> CPU 1:     kvm_gmem_free_folio()
-> CPU 1:       sev_gmem_make_shared()
-> CPU 1:     folio is freed
-> CPU 1:   filemap_invalidate_unlock()
-> 
-> CPU 2: in some other SNP VM,
-> CPU 2: kvm_gmem_get_pfn() gets the freed folio
-> CPU 2:   sev_gmem_make_private()
-> 
-> CPU 0:   snp_lookup_rmpentry(pfn, &assigned, &rmp_level);
->            <<== it's assigned but to some other SNP VM
-> CPU 0:   snp_rmptable_psmash(pfn);
->            <<== this psmash would be smashing in some other SNP VM
-> 
-> And hence I think we do need to check for invalidations using the MMU
-> invalidation protocol.
-> 
-> > Other than that:
-> >
-> > Reviewed-by: Michael Roth <michael.roth@amd.com>
-> >
-> >>
-> >> Hence, adopt the MMU invalidation protocol to guard committing anything
-> >> based on the PFN.
-> >>
-> >> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> >> Signed-off-by: Ackerley Tng <ackerleytng@google.com>
-> >> ---
-> >>  arch/x86/kvm/svm/sev.c | 39 ++++++++++++++++++++++++---------------
-> >>  1 file changed, 24 insertions(+), 15 deletions(-)
-> >>
-> >> diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
-> >> index b2738362a928b..b34b11d7f8fad 100644
-> >> --- a/arch/x86/kvm/svm/sev.c
-> >> +++ b/arch/x86/kvm/svm/sev.c
-> >> @@ -5003,6 +5003,7 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
-> >>  	struct kvm_memory_slot *slot;
-> >>  	struct kvm *kvm = vcpu->kvm;
-> >>  	int order, rmp_level, ret;
-> >> +	unsigned long mmu_seq;
-> >>  	struct page *page;
-> >>  	bool assigned;
-> >>  	kvm_pfn_t pfn;
-> >> @@ -5030,18 +5031,22 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
-> >>  		return;
-> >>  	}
-> >>
-> >> +	mmu_seq = kvm->mmu_invalidate_seq;
-> >> +	smp_rmb();
-> >> +
-> >>  	ret = kvm_gmem_get_pfn(kvm, slot, gfn, &pfn, &page, &order);
-> >>  	if (ret) {
-> >>  		pr_warn_ratelimited("SEV: Unexpected RMP fault, no backing page for private GPA 0x%llx\n",
-> >>  				    gpa);
-> >>  		return;
-> >>  	}
-> >> +	kvm_release_page_unused(page);
-> >>
-> >>  	ret = snp_lookup_rmpentry(pfn, &assigned, &rmp_level);
-> >>  	if (ret || !assigned) {
-> >>  		pr_warn_ratelimited("SEV: Unexpected RMP fault, no assigned RMP entry found for GPA 0x%llx PFN 0x%llx error %d\n",
-> >>  				    gpa, pfn, ret);
-> >> -		goto out_no_trace;
-> >> +		return;
-> >>  	}
-> >>
-> >>  	/*
-> >> @@ -5069,27 +5074,31 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
-> >>  	if (rmp_level == PG_LEVEL_4K)
-> >>  		goto out;
-> >>
-> >> -	ret = snp_rmptable_psmash(pfn);
-> >> -	if (ret) {
-> >> -		/*
-> >> -		 * Look it up again. If it's 4K now then the PSMASH may have
-> >> -		 * raced with another process and the issue has already resolved
-> >> -		 * itself. If it's not assigned, then this must have raced with
-> >> -		 * another process that made this page shared.
-> >> -		 */
-> >> -		if (!snp_lookup_rmpentry(pfn, &assigned, &rmp_level) &&
-> >> -		    ((assigned && rmp_level == PG_LEVEL_4K) || !assigned))
-> >> +	scoped_guard(read_lock, &kvm->mmu_lock) {
-> >> +		if (mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn))
-> >>  			goto out;
-> >>
-> >> -		pr_warn_ratelimited("SEV: Unable to split RMP entry for GPA 0x%llx PFN 0x%llx ret %d\n",
-> >> -				    gpa, pfn, ret);
-> >> +		ret = snp_rmptable_psmash(pfn);
-> >> +		if (ret) {
-> >> +			/*
-> >> +			 * Look it up again. If it's 4K now then the PSMASH may
-> >> +			 * have raced with another process and the issue has
-> >> +			 * already resolved itself. If it's not assigned, then
-> >> +			 * this must have raced with another process that made
-> >> +			 * this page shared.
-> >> +			 */
-> >> +			if (!snp_lookup_rmpentry(pfn, &assigned, &rmp_level) &&
-> >> +			    ((assigned && rmp_level == PG_LEVEL_4K) || !assigned))
-> >> +				goto out;
-> >> +
-> >> +			pr_warn_ratelimited("SEV: Unable to split RMP entry for GPA 0x%llx PFN 0x%llx ret %d\n",
-> >> +					    gpa, pfn, ret);
-> >> +		}
-> >>  	}
-> >>
-> >>  	kvm_zap_gfn_range(kvm, gfn, gfn + PTRS_PER_PMD);
-> >>  out:
-> >>  	trace_kvm_rmp_fault(vcpu, gpa, pfn, error_code, rmp_level, ret);
-> >> -out_no_trace:
-> >> -	kvm_release_page_unused(page);
-> >>  }
-> >>
-> >>  static bool is_pfn_range_shared(kvm_pfn_t start, kvm_pfn_t end)
-> >>
-> >> --
-> >> 2.55.0.699.gb54405d56f-goog
-> >>
 
