@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 614C5C5DF81
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1EAC5DF8E
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 19:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IRJQCItzqxUCg7IThNrWhH4AjuvXKw/uXhda+9mztO0=; b=p0GjWWclzsXx1jHKjNb5RS6G2T
-	OZfQedW4hQ/moONtaEaDjilYBDauG1USmB1dWjtHNf1biwrDLqM1dbhecNxvc3BPNsJwzJY8sVSAX
-	woGHIT1HLRiTymIrNivd21FsIqtNuwjynNc1XTbUbK1yMJaeJmm1z/mByf1aFEAI2ubFd0xNrM/MF
-	/RU49IMdmc6e+96FxWib6iABLulkg5YfaAA+NWV0Xgp0V8ZGMya91SIZi8gG7eJzUWU92ALKpoGdb
-	4ZNxiKP/4M3335g9N+NgMGnJ7UV07CN1CmKo05nVXTDPNd7lHubcoFrpT4wJccj0GHGE5eAXxY+Jb
-	BVgmuUiw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+4A3Mtednu7asElI1r+tS0Ghnojj12CQ+o9v9cHTTsg=; b=S7KLL0lGQOXezWelfmq220/Lia
+	B2odhPFbvwq11+512oZNs1LWFRzRUxBZR4+OtMO9nEimfMEx+f+PRnL9IzdRzvGhF/tlsN5erMC2M
+	OdAhi3bNlfHHkXknSuIeh4XNbjIQaNnt+CeRiVJyNrsefh6/co0GKZ+b2btW4Ee3I4uwxPYqvDbZA
+	CrSO3VTmruiS5qGzj9uziTgvGrNCdrYSDqJdHCdON4lrC/sAICqBaTd2i6PHQXtbOQ+tnNsDC7tBR
+	PO8qV3DrUNSa3pLiBmsBb01aLA+H+6vhzauP6WHY1TuT+n7NCR6v2f/nU7hvcaUkcrQxmhbI60uzs
+	vNdysUtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx8BN-0000000C5t6-3FTW;
+	id 1wx8BN-0000000C5tF-3wi4;
 	Thu, 20 Aug 2026 19:12:09 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx8BM-0000000C5sY-3oXN
+	id 1wx8BN-0000000C5sc-0OpJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 19:12:08 +0000
+	Thu, 20 Aug 2026 19:12:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6D1B84066E;
+	by sea.source.kernel.org (Postfix) with ESMTP id B43BF43D4D;
 	Thu, 20 Aug 2026 19:12:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 442C0C2BCB3;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 97A49C2BCFD;
 	Thu, 20 Aug 2026 19:12:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1787253128;
-	bh=eOP+RA4mnWGtFVmDZnso+934UzTGqKnTNVZ92PuZ8Bc=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=eO5QPypkD5JbvqoQcnM+FyUJ/ZRfE15b+GHfCW/iHiw/vSHEIemIzizL+tqqXUgnW
-	 eS1bmB2/j9Yecj/m+9OcNdPeD4BaAzzIrghbCf0Ltprnblvjnh4WHB2J0PEcI1Bt3y
-	 u4oXUdRs8gqrH0MQuU/LfVnyYVEvKdjfd3ZpOSTw2MknsbxSwsimMNkvHJj6KOPmgo
-	 dktzW+AD9hnBi0HywbrGn2HOzk1JI2ikoNuCy91XYeDKIQQH4TZtsnlxIsG/fwuMTB
-	 V5ipaEviUNX8CWuXrWZk0u/IO2F4D9YWRVyQS8JWG7mK6iSYybQJu2VW2dP0TtPNvf
-	 YNdlYeSxknsuA==
+	bh=ga11gBdb5eBtt5ElhIBixkEHwyzyp+XXck2vhlIjGFc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=JAd617qke6WhYeXp6mm3jjnGfXY7EeDzezRBCQNVNOipOX2rXLOJG60Ek4Yc/dFCz
+	 wzdojLHJpujIKPaiWpRcW8T8egeqv+IyvSlU9scQII41yJ1MgIcPBTu19AAA2dwPl3
+	 QBaCfU2+5p98eEvK12BOpBZuLGkjgnLlykPfrXbGYyByg8dcZWPAm2PbxVRspFv3Ru
+	 tFASHlChBHKxFuN3LfXbWMmuohahLzd6uMobYMmEUhfTwdzq0uNiNIDO20MSf+1vBT
+	 xz+8azPrm2QBH+iLjEPbY4EMx+VSerQGZOpktSuet2I42FQQN1YILUVtj+cmX3QVMj
+	 oeogWAaz9Z4FQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2FF34C5DF89;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 85FC0C5DF86;
 	Thu, 20 Aug 2026 19:12:08 +0000 (UTC)
 From: Markuss Broks via B4 Relay <devnull+markuss.broks.gmail.com@kernel.org>
-Subject: [PATCH 0/4] IOMMU driver improvements for modern Exynos SysMMUs
-Date: Thu, 20 Aug 2026 22:12:04 +0300
-Message-Id: <20260820-exynos-iommu-fixes-v1-0-6bbcd673bb15@gmail.com>
+Date: Thu, 20 Aug 2026 22:12:07 +0300
+Subject: [PATCH 3/4] iommu/exynos: fix TLB invalidation for no-block
+ SysMMUs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMUQqDMBCE4avIPndhG0TEq5Q+tHHSrmBSslUU8
- e7G9vFj+GcjQ1YYddVGGbOaplhwvVTk34/4AmtfTE5cI60TxrLGZKxpHCcOusAYgrpvgwQvDZX
- wk/EbSne7/23Tc4D/nk+07wdZ0Jc7dgAAAA==
-X-Change-ID: 20260820-exynos-iommu-fixes-e0e4d8f0fc06
+Message-Id: <20260820-exynos-iommu-fixes-v1-3-6bbcd673bb15@gmail.com>
+References: <20260820-exynos-iommu-fixes-v1-0-6bbcd673bb15@gmail.com>
+In-Reply-To: <20260820-exynos-iommu-fixes-v1-0-6bbcd673bb15@gmail.com>
 To: Marek Szyprowski <m.szyprowski@samsung.com>, 
  "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
  Robin Murphy <robin.murphy@arm.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -65,11 +64,11 @@ Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Markuss Broks <markuss.broks@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787253126; l=2066;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787253126; l=1957;
  i=markuss.broks@gmail.com; s=20260803; h=from:subject:message-id;
- bh=eOP+RA4mnWGtFVmDZnso+934UzTGqKnTNVZ92PuZ8Bc=;
- b=ISPOHNvudmR8znZALCiIIFA6iPpiCNxVuLytNm3IHeDKPyijmVlhi5VGISK+wzWdDUObCBnFt
- bF++bdKHIZQAXUKtRHk49vIbKTWhQjlf4dJI0ha3F3Vt0gwgRVZNcuV
+ bh=HrkpBlZCi51pjFv6cW4myb/9v3ctbW7Y5uVSy6+Uxlw=;
+ b=4vw4diMfzpg6jMkBwD2QGOLnKc61wkJfWQEuXDwnPSCbO5WU6JnfM39Vifoh4H+FbAxFDD6wV
+ p0M+hzavBGOB8tUTLy3V1uIZ8yBWZGf0XlDyHVi71pnU0kqsYoODXCe
 X-Developer-Key: i=markuss.broks@gmail.com; a=ed25519;
  pk=oKzGUTm30BCDqinRMpiHQqByOx1mp2mwmhg80Mv7Zg4=
 X-Endpoint-Received: by B4 Relay for markuss.broks@gmail.com/20260803 with
@@ -90,52 +89,57 @@ Reply-To: markuss.broks@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Newer SysMMU v7+ instances can lack BLOCK mode: CAPA1 bit 15 reports
-that the CTRL_BLOCK function is not implemented, and MMU_STATUS never
-reports a blocked state. The SysMMUs on Exynos 8835 are such
-instances.
+From: Markuss Broks <markuss.broks@gmail.com>
 
-The driver currently assumes blocking always works, with two
-consequences on such hardware:
+sysmmu_block() polls MMU_STATUS for the blocked state, which no-block
+hardware never reports, so on such SysMMUs it always fails, and both
+sysmmu_tlb_invalidate_entry() and sysmmu_tlb_invalidate_flpdcache()
+skip the invalidation entirely when blocking fails.
 
-The enable path writes CTRL_BLOCK first, which there acts as a plain 
-enable and starts translation before the page table base is programmed.
-
-Worse, both TLB invalidation paths gate the invalidation writes on
-sysmmu_block() succeeding, which it never does - so every unmap silently
-skips the invalidation. A stale TLB entry is a valid entry pointing
-at a freed page, so nothing ever faults: the device reads back garbage
-and its writebacks corrupt whatever the kernel has since reused those pages for.
- 
-This was tracked down on Exynos 8835 with the MFC, where the
-first decoder session of a boot worked and later sessions produced
-garbage along with random kernel memory corruption.
-Patches 1-3 add detection of the capability bit and adapt the enable
-sequence and the invalidation paths, matching the vendor driver's
-handling of these parts. Patch 4 is an independent debugging
-improvement: decode the v7 fault transaction info word (AxID/AxLEN),
-which identifies the issuing port when a master containing several
-DMA engines faults.
-
-Tested on the Samsung Galaxy Tab S9 FE (Exynos 8835/Exynos 1380).
+On no-block hardware the invalidation registers are written with the
+MMU running; the vendor driver never blocks around invalidation. Do
+the same and write the invalidation directly. In the FLPD cache path
+no-block implies a v7+ SysMMU, hence the unconditional flush-all.
 
 Signed-off-by: Markuss Broks <markuss.broks@gmail.com>
 ---
-Markuss Broks (4):
-      iommu/exynos: detect SysMMUs without BLOCK mode
-      iommu/exynos: fix the enable sequence for no-block SysMMUs
-      iommu/exynos: fix TLB invalidation for no-block SysMMUs
-      iommu/exynos: decode the v7 fault transaction info
+ drivers/iommu/exynos-iommu.c | 13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
 
- drivers/iommu/exynos-iommu.c | 37 +++++++++++++++++++++++++++++++++----
- 1 file changed, 33 insertions(+), 4 deletions(-)
----
-base-commit: 415606a7be939835db9b0d6b711887586646346d
-change-id: 20260820-exynos-iommu-fixes-e0e4d8f0fc06
+diff --git a/drivers/iommu/exynos-iommu.c b/drivers/iommu/exynos-iommu.c
+index a3a59d8a4cf1..29b27c7e400a 100644
+--- a/drivers/iommu/exynos-iommu.c
++++ b/drivers/iommu/exynos-iommu.c
+@@ -685,7 +685,14 @@ static void sysmmu_tlb_invalidate_flpdcache(struct sysmmu_drvdata *data,
+ 	spin_lock_irqsave(&data->lock, flags);
+ 	if (data->active && data->version >= MAKE_MMU_VER(3, 3)) {
+ 		clk_enable(data->clk_master);
+-		if (sysmmu_block(data)) {
++		/*
++		 * No-block hardware accepts invalidation writes while the
++		 * MMU is running; it is also v7+, so flush-all covers the
++		 * FLPD cache.
++		 */
++		if (data->no_block) {
++			__sysmmu_tlb_invalidate(data);
++		} else if (sysmmu_block(data)) {
+ 			if (data->version >= MAKE_MMU_VER(5, 0))
+ 				__sysmmu_tlb_invalidate(data);
+ 			else
+@@ -721,7 +728,9 @@ static void sysmmu_tlb_invalidate_entry(struct sysmmu_drvdata *data,
+ 		if (MMU_MAJ_VER(data->version) == 2)
+ 			num_inv = min_t(unsigned int, size / SPAGE_SIZE, 64);
+ 
+-		if (sysmmu_block(data)) {
++		if (data->no_block) {
++			__sysmmu_tlb_invalidate_entry(data, iova, num_inv);
++		} else if (sysmmu_block(data)) {
+ 			__sysmmu_tlb_invalidate_entry(data, iova, num_inv);
+ 			sysmmu_unblock(data);
+ 		}
 
-Best regards,
---  
-Markuss Broks <markuss.broks@gmail.com>
+-- 
+2.55.0
 
 
 
