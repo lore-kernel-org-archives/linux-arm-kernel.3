@@ -4,144 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD8ADC5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37722C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:26:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T60WzhwozfoAxskKPuFoLDg+Fb09FOeo1d/nwH5Krps=; b=Do+TNLZMyCml+jn2JLS4JsEtSn
-	misEXO6MLXAz0bwLnyJgrjf5t/u79tW9ttKJYs7CUKu5CbXx6EVTBMrNCyHkmYV2uXhDqQjUdKbFb
-	35lbnPDQ0rUYxy4PFf4fsnEZrsFsvsOktJZxbvj71AeZfsnHj+MqRAWDpBTvYCZT3+u3MwyxQP6gt
-	YBx4MjsKoXGfFGGdFzRrQuDPONH5BQpLB0uwnuo3jptVM/3m+iVFbMGsFWHA5+MlW61wxNhsbM3BH
-	lB32kmETflGmLJL4H+qtB3vBE3/RAia1QuhsFoZ1dCQ4p4BEX4atEnTZvdvSZu0+AMPhola3KbsWb
-	nVOHsttQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MT5cE37vNNATMSK/0ATPIPek355Lvu0hwGnVbzvXZEc=; b=rcZQGQWHe3U5FUhvN1rJWe3+zJ
+	kdQgBI8ib9Bq2gK+l0qAqYcRrlG9lCv4/OJrnPPo/RMqolgDyDkVqgvoJJ09ZUOE+2XxwiN8l7MfO
+	YoMPnoNS5bguTBYIPHBAO2yuQWbFirq9CBEt4Ycd8HaPBavUyUK61f4GsiDUsTUSpp2xV6xIDMc/x
+	T+r/hcHoy1VDFPbnGFFMK8OfpJQjBzVC7C/Flgdo7oKid4QDsRg4VRO8EyRYoPlerB2CMzrSEhcwP
+	Y5jQfeox8oEv+1K92G43yivtawF1zlXWqnRjCXVeMkmUBM97oUDNiP06pEMrS6JA4hkaURnekI6bN
+	8Gwc6M7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4ZD-0000000BnVO-1yVy;
-	Thu, 20 Aug 2026 15:20:31 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wx4ek-0000000Bno2-15Nb;
+	Thu, 20 Aug 2026 15:26:14 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4ZB-0000000BnUT-150h
+	id 1wx4ef-0000000BnnX-3BzV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 15:20:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZTKW4RWeuI2XPNFKIAXQDLWnvMKsBrwushbsGCLtK3MRH3ht3omkp4mueidbrd3YCr+Z3rPbwFMLq9VfztcajaxlmJ6RpQ5L5W4raVgwKJYWTTT5O7RNXcf5V21dpISKc3G1jlOemAod3+TdEOyCg67HT7T+3QgVEwq/HqlQgDbjWNs3ov9X+uN72ODXwV8uASzRMQEKBgkGGIzgbMVVwD5rqpej0yPkCv/hMro2hIsauUDctb/6e1k2bP88AMphf3dSNHqVbAxKpZuw8Fvj7wXNcB/cimksc5Gn99zMsE5OzSk9qgV8knfHsPvbBDwE2IQuAkXb839Dqd4Jn06iow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T60WzhwozfoAxskKPuFoLDg+Fb09FOeo1d/nwH5Krps=;
- b=thk2Aet80FHYnWtKIYXn9zBGnsjNxeyEmvYCRUIkr1Ibn5pP0j+K+HXQLa1R0HJTcPy9tWRKEAv51TnWolbF6g8zNtLsBQtwH90H1l5+f23pEx6w7oLfNOUEwGdtrlbAPiisJvaQvaL3lqaNfXEW7i+0v5k8AVfqoP0QHf9E+DxoghIDSMx/iR1m5ylLytTV+zWTeiBTvpeIGtETOpbNKoPsGXQVTPY05WYJq1/2cyp97C4sXA7q6FdgOW5bh6GVLXMFSAv77Lan8u2zFkaC1fwj14D7nZ65NzhT1I7agUAnKS6eKKoS3uwpJPoMCLbcJEc6jzl3T6lcw/5zfD507w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T60WzhwozfoAxskKPuFoLDg+Fb09FOeo1d/nwH5Krps=;
- b=phyeTjmJZWLfPCE/ldtPLFdHL99OsFmH3xnHdXYLSNKWsPri220xmeIeiVA4sdyXnB4gRJRWBeoBaxPy1O/o7y/098qgh/tN4EIiw24Xm1pOmfaI4Z49r8annbzUNk46sFVvMFOXV7O6kaEas4Q83YuOztuBiDNps7RwOLTxy+wvSguRDiafgWtjYWTbds1Afuqkc+KydxkgWysV9K+cnsBbTaQ+3Q/G6A7kwJBKwNjoaGKfQfauY6+vFF2kiObXCDnOIvaW4krwucH+fkPNlOHMxZ+aXr4nPuA1bDHCww1ElJAEClsYeDfK7tlZbKBsGundWryJQqd+4Nh60RonWw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM8PR04MB7442.eurprd04.prod.outlook.com (2603:10a6:20b:1d8::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Thu, 20 Aug
- 2026 15:20:20 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.007; Thu, 20 Aug 2026
- 15:20:20 +0000
-Date: Thu, 20 Aug 2026 10:20:11 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Zhipeng Wang (OSS)" <zhipeng.wang_1@oss.nxp.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Frank Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jindong Yue <jindong.yue@nxp.com>,
-	Xuegang Liu <xuegang.liu@nxp.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v4 5/5] irqchip/imx-irqsteer: Allow building as module
-Message-ID: <aocbK_nWJSbmzNkp@SMW015318>
-References: <20260819090543.585131-1-Zhipeng.wang_1@oss.nxp.com>
- <20260819090543.585131-6-Zhipeng.wang_1@oss.nxp.com>
- <aoXJAx131-gU4qXu@SMW015318>
- <AMBPR04MB12334895C9AD42BFCD085EAB9EBA42@AMBPR04MB12334.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <AMBPR04MB12334895C9AD42BFCD085EAB9EBA42@AMBPR04MB12334.eurprd04.prod.outlook.com>
-X-ClientProxiedBy: PH7P221CA0058.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:33c::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 20 Aug 2026 15:26:12 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 0B11B4E41301;
+	Thu, 20 Aug 2026 15:26:06 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C83DA602B8;
+	Thu, 20 Aug 2026 15:26:05 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5D9AC11C76488;
+	Thu, 20 Aug 2026 17:25:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1787239560; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=MT5cE37vNNATMSK/0ATPIPek355Lvu0hwGnVbzvXZEc=;
+	b=qWRLjnEHXjBvqPygZo7VeE3craVfVvnakFesBdtkzMMH+jtYTOIln/7LdaxPkJsYiVO3OT
+	29gG2ohut3IepXPCD9JgLK8qfjrrO/JvXp8mNqwj2CKudEgKIgBLacDxGyLFYaJqhw9HYz
+	KLjAtWZ7+xx+YgKyeGJ9q9fh4oMwo//qncLbgNmDA5mCIsgCpOHuMuTH60HgIE850HR8Hm
+	94H/n7IeitBOje4Ye6A0hSlPpYDy6CrINwOrhhw5KGKfg5Kby4Cuphp2HCVop8ZCNxK5L3
+	dRcnW2GYv/hsIeys9ZC23Mk/tlFRkAYzQBH87qmvtDvHN5r2PMrICEZpTVlhEA==
+Date: Thu, 20 Aug 2026 17:25:56 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Markus Probst <markus.probst@posteo.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <uwe@kleine-koenig.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Michael Langer <michael.brainbug.langer@googlemail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Walleij <linusw@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 4/6] rtc: s35390a: force 24-hour mode
+Message-ID: <20260820152556c6da4fce@mail.local>
+References: <20260820-rtc_s35390a_int1-v5-0-5eb4ef85c6a9@posteo.de>
+ <20260820-rtc_s35390a_int1-v5-4-5eb4ef85c6a9@posteo.de>
+ <202608192220436c9c7207@mail.local>
+ <da52511e1257d1a3d01ad78b53eb983162c66003.camel@posteo.de>
+ <20260819232634fd70f621@mail.local>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM8PR04MB7442:EE_
-X-MS-Office365-Filtering-Correlation-Id: 39aeaec7-61f2-40e4-55ee-08defece8bfe
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|23010399003|10067099003|56012099006|4143699003|3023799007|22082099003|18002099003|11063799006;
-X-Microsoft-Antispam-Message-Info: ggoWAOXpeDmNUnzk3QIYC9851hefUuOG4hRRTgmTrZV90dxGJ46qa6XpCyMu1mBNbwKRx/li8g/AzZNf1ufqAULdO3IHctze/HKpIoZVxY+rYazofveEyxv6/KK3fYy+v9/iJlzkjI8ZdBKZKdp8qfI3uViMP7ztK9LNBKp7HvJnJdOsF4f8PCeSXlRqdgvaU7MuWqfvIxjpYB/2+tFbGohEZyGBOVIWzCu0je19/SkaYDfRn93SSG2WdxpPYxVbKjaW0KaFefZAfqq2BiIiKYhab8Z24pAUv3RMaU/NBGYVl9Tihgd8uhPV0tJF9HZxrdvmUxFCoLz+HMByty/y6XwpU+itsquVBDOYvI19Hbr+wi1DMQfJRjj1SOCEKItDnabI1JO6VF1/GzLj7fdOHGZo/yXowyDNWINGrDKCuxZCWuntZu+67MlMfkd2CL48O0H4xllAUwr38yVgF4XZie1O7ZOx5aMzENBoUn35lmTpliSbruDFa6l1I0pONwHWqZcuhRWMc7PbKqEfvpMZFnuev1PdjJkvlbXqkYFtH7tgSKyT+xh6aVMUMU8Rl7bB4Iw3aRI/QteQ+9CBqeGi4pL9XBcM4tQ8YgJolTxVh3IWTA8m/qiUN29wAHV42wvnt9Tyg6r+eluIsDPLjpiIB42fjw7qz0qaxh5lzxtje9E=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(23010399003)(10067099003)(56012099006)(4143699003)(3023799007)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SUNTcExxSFArK3RtbkJBeWVEei9UR3lONGNOV29qSG5vYzNmUmc3bjdlemZy?=
- =?utf-8?B?bEhzVFFnaXllRzhDWDRXeXlVeXczYTY1NnlhNTI3Y0kwN010aWlybVBRdjZK?=
- =?utf-8?B?cVZHNkJQa1krNHg5QWRxWDM3NVVKSVNJUVBmei83eG1pT2h3SVNKWXBkT1l2?=
- =?utf-8?B?QUtzcTYwNGdPVmpwNFVQbW9ZRndpWTZJcElXS25mcUdkb3RsVWJUTnRHSWwz?=
- =?utf-8?B?L1Z5UXFQYitKSDhINlpRN1lEWVlkOTR4eU13UDVBaHgrU0Jsakg1VHZ5QzNN?=
- =?utf-8?B?R2Q2ZDV6dS80ZWtaaXNDM3U3RjVEcWZ3QUpNdFl2aFpQZ2tTYkNYVnVWZTBB?=
- =?utf-8?B?RmUySm5RdUwralVmUDNTd1R2NW1BWFZiMHd5T3Q0OGhPZ3ZUcEtEKzdUVzl4?=
- =?utf-8?B?ZGtDOWdtR0tvL21FSmI1Mk4zdzJFZFZSMVpyNGR6UUtTMUsxQWlLMk9UeFFy?=
- =?utf-8?B?K2xBYlpYWEsxYXUycVR4SWppSHVQOFB1VUlJbjUrYTlaaXBHWklaMTNXUldO?=
- =?utf-8?B?akw5dE5ORENQWnErc3pha2MrdWp0cEpzVUpUMU9KamFLQzB5c0gybHZ3TlA0?=
- =?utf-8?B?cXlLM0NacEtwb0dkRHR1N0JGOTd2MlNya0VxeFhNT2VWcEFqaEp5UUhuRTdU?=
- =?utf-8?B?MC82WG5IZERNeEVwVUFjL0NVb1B1dFRWSFpwTDUvaWRHNTF3WUdHZXVoM0dn?=
- =?utf-8?B?M1pBeUtmYktjY2lCQ1htMGxadHJVYnRSY0ZXNjJUZjJaYnNRNDVwY1krL2t3?=
- =?utf-8?B?Q0VreW0wc3FoWTh3enNiNTB5aUNYdU8xWDkzcDJJMDJHckR2bkg4Uks2ZnpW?=
- =?utf-8?B?UzdFeFBjSm5aczNORWNselF4Tmo5S2ZoRnV0TFhZTGI2cWFUdEhEUWlrOHBT?=
- =?utf-8?B?NjZXOVQ1czJsblBTK3RSdDNNUWpWWXNqTVJKNU1pdURKeitIdDF0M2NhcWRa?=
- =?utf-8?B?ejZBMnhIVThiU294WG80b21pU0dnNG1PeDJZR1hPN2ZLU3Fra0VTbEpha0Q1?=
- =?utf-8?B?SXRiOERobW5jVGN2QWY5MGhLQWFLWkI5dDJ3QncrMVR2blhEM3YzaDlQWGhJ?=
- =?utf-8?B?Z0t2Q2NucmRmQ2NoY3VLemNQS0Q2bnhac2JhbjNEdnJwN3Z0UmlnYkNiN3pt?=
- =?utf-8?B?YUs1dEZwR3k0VnphZnB0blMrYUgxK3ZhMndTSWlxdXcxT1ZmVUh5cmlIckN5?=
- =?utf-8?B?M28vd2ZZMHpkaTl6cmFoOUExUHc0Qkw2VjE5bTd5VmVZZ29nTi9qd3UvV2ho?=
- =?utf-8?B?SUVRbEJuam1IZ2VLMTVUODZQdlpQQWVZaDFjWnJzUUNCQU1rRjdLdklFS3V3?=
- =?utf-8?B?c1J1MmhGblV1d3pxcDJ1ZUFPSWpUa3RIQXQ4bWdTdStSa3dOWHJhSkpVNURp?=
- =?utf-8?B?OXB1NVV1ZVljdkJxKzVkVFMzWTV4WHN1TDEyK0hYZnhTQ0V0QmJDYm5nblFj?=
- =?utf-8?B?WUhaUWpUdDl6dkhscWlvclA0RjQ5LzNsMXN0cW5LUjZTamMrNjhkYlFMclhB?=
- =?utf-8?B?N25sZUhRRERoQzJtT3J0TXY0KzR6Z2dMZnZDeEZhMXdTbUt4QmQ5WkdXcDh4?=
- =?utf-8?B?UzFRdHlsdW1rVUhDekFveU9ZNDRFL1I2RjlITkg5N0dhUVNEb1BNbGhBT0FT?=
- =?utf-8?B?U01BaEVhQjJRdmk4YXJOdkYzOCtZRFh5TktZRTZnam9zU1piTGNNRHdGSkRp?=
- =?utf-8?B?SzVTRHBzK3gyVC9pZkNHK0RGU2pIK3o3MG9wL3czc0R2Y3JDOTgwZkxPM0tK?=
- =?utf-8?B?MjhUTHRIRGlQWjNPdWlING1ySU56RDlzZHNhVC9TNnVKdnFRcTNDQWE4eGhn?=
- =?utf-8?B?V21CZzVmTnZmWDF1Y3dkamZ1ODZHcHJqS3RzYmJGL2FIQWhwUUE2cGhNOENS?=
- =?utf-8?B?NmpMRUtGVGsydmE0bkZCZ2pVQmdOY2dQb2VBS0w0Q0VqdW01ZnI2eU1lWWlZ?=
- =?utf-8?B?OUhiWGc4QmlsZDJKaER1T0NKaHU3UVlQQ3VXNXYxRkszeTBvVWhpOEo1NDla?=
- =?utf-8?B?YmpNZzViRFRWTDBLdWlsRDhGRklIVXc1ZHVHNU5QbXBpb3ovcEU0M0pFMWMr?=
- =?utf-8?B?L0NXSDV5ZXBtSkpWNS9yOFRYbUlJYkIrQ2ZZUmZxbG9zbE9NalVCanhRYmgv?=
- =?utf-8?B?cTI2T2hsQzJOM1FJL3RiRUhjeHhiY1dmKyt5UUNKUFFRVjFCb050UkJWRFNw?=
- =?utf-8?B?Zmw1WTRpM0pGZVovWWJKYjhCdjl6dVIzMlc3WnFQb2MyRHYveWhvamExcW1j?=
- =?utf-8?B?WVRnL09aYzAyZGtjK3Q1ZVRlSm84UzZDeG00dWpOVDVHT1pDNk85NW42Q0po?=
- =?utf-8?B?bnBXZDZUNmx1TEVXSmRUYzNpSmt6RDY0Uk9rR2V5UFZLakZpS2R5cDQrTkhZ?=
- =?utf-8?Q?SNkzNZwvvATbAQVOBri7OIVjiJphJRfNPI2kE?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39aeaec7-61f2-40e4-55ee-08defece8bfe
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 15:20:20.1661
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dipurKYqUxJL2qUT81VirTHSLbsZLQb6ntvu+thfhoA7hlHqYA+EAqXtHAHl90WpgvJUSA0ZMnCsECcSaAS0bXhMJnwVYowZjxAN053iBj7Nh81xWUnreujqAuMdlwnV
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7442
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260819232634fd70f621@mail.local>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_082029_444074_3F070746 
-X-CRM114-Status: GOOD (  41.74  )
+X-CRM114-CacheID: sfid-20260820_082610_106792_70094EB5 
+X-CRM114-Status: GOOD (  48.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,243 +87,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 20, 2026 at 09:53:13AM +0000, Zhipeng Wang (OSS) wrote:
->
->
->
-> NXP Confidential
-> > -----Original Message-----
-> > From: Frank Li (OSS) <frank.li@oss.nxp.com>
-> > Sent: 2026年8月19日 23:17
-> > To: Zhipeng Wang (OSS) <zhipeng.wang_1@oss.nxp.com>
-> > Cc: Thomas Gleixner <tglx@kernel.org>; Marc Zyngier <maz@kernel.org>;
-> > Frank Li <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>;
-> > Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> > <festevam@gmail.com>; Jindong Yue <jindong.yue@nxp.com>; Xuegang Liu
-> > <xuegang.liu@nxp.com>; linux-kernel@vger.kernel.org; imx@lists.linux.dev;
-> > linux-arm-kernel@lists.infradead.org
-> > Subject: Re: [PATCH v4 5/5] irqchip/imx-irqsteer: Allow building as module
-> >
-> > On Wed, Aug 19, 2026 at 06:05:43PM +0900, Zhipeng.wang_1@oss.nxp.com
-> > wrote:
-> > > From: Jindong Yue <jindong.yue@nxp.com>
-> > >
-> > > Make the driver buildable as a module by turning the Kconfig symbol
-> > > into a tristate and using module_platform_driver() instead of
-> > > builtin_platform_driver().
-> > >
-> > > Now that the driver can be unloaded and reloaded, let the driver core
-> > > own the clock and runtime PM lifetime so that the probe() error path
-> > > and
-> > > remove() do not have to hand-balance them:
-> > >
-> > >  - acquire the clock with devm_clk_get_enabled() instead of a bare
-> > >    devm_clk_get() followed by a manual clk_prepare_enable(), so it is
-> > >    prepared/enabled for the device lifetime and released on unbind;
-> > >  - keep only clk_enable()/clk_disable() in the runtime PM callbacks,
-> > >    since prepare/unprepare is now handled once by devres;
-> >
-> > devm_clk_get_enable() will do prepare() and enable(). tear down also do
-> > unprepare() and disable()
-> >
-> > To avoid both devm_clk() and runtime pm suspend both unprepare and
-> > disable() clock to make wrong clock refererence.
-> >
-> > need in remove function
-> >
-> >     /*
-> >      * Resume the device so runtime_resume() re-enables the clock.
-> >      * devm cleanup (clk_disable_unprepare) runs after .remove() returns,
-> >      * so the clock will be enabled and the disable is safe.
-> >      */
-> >     pm_runtime_resume_and_get(dev);
-> >
-> >     /* devm_clk_get_enable and devm_pm_runtime_enable clean up
-> > automatically */
-> >
-> > Frank
-> >
-> Hi Frank,
->
-> Thanks for catching the clock reference-count underflow — you're right.
->
-> With devm_clk_get_enabled() doing prepare+enable and the devres teardown
-> doing unprepare+disable, having runtime suspend also drop the enable count
-> means the clock can be disabled/unprepared twice (once by runtime PM on the
-> suspend path, once by devres on unbind), underflowing the reference count.
->
-> I've applied your suggestion in remove():
->
->         /*
->          * The device may be runtime-suspended here, in which case the
->          * runtime suspend callback has already dropped the clock enable
->          * count. Resume it so the devres clk_disable_unprepare(), which
->          * runs after remove(), finds the clock enabled and stays balanced.
->          */
->         pm_runtime_resume_and_get(&pdev->dev);
->
-> What will change in the next version:
->   - The series is split per tglx's request: the PM/devres rework, the
->     module-enable change, and the irqdomain helper cleanup are now
->     separate patches rather than one blob.
->
->   - Fabio's IRQ-count validation patch, which carries the same
->     Fixes: 28528fca4908 tag, is folded into the series.
->
-> Thomas suggested collecting the patches that carry
-> Fixes: 28528fca4908 ("irqchip/imx-irqsteer: Add multi output interrupts
-> support") into a single series. This standalone fix carries that same tag:
->
->     [PATCH] irqchip/imx-irqsteer: Call chained_irq_exit() on the handler error path
->     https://lore.kernel.org/all/20260807072626.1231517-1-Zhipeng.wang_1@oss.nxp.com/
->
-> What's your view on it?
+On 20/08/2026 01:26:34+0200, Alexandre Belloni wrote:
+> On 19/08/2026 22:57:13+0000, Markus Probst wrote:
+> > On Thu, 2026-08-20 at 00:20 +0200, Alexandre Belloni wrote:
+> > > On 19/08/2026 22:05:56+0000, Markus Probst wrote:
+> > > > Instead of trying to remember the current 12/24-hour mode, which could
+> > > > result in time corruption if out of sync, we force the use of the 24-hour
+> > > > mode. Set to 24-hour mode if in 12-hour mode on startup and assume
+> > > > 24-hour mode. The 24-hour mode is already forced on reset.
+> > > > 
+> > > > Signed-off-by: Markus Probst <markus.probst@posteo.de>
+> > > > ---
+> > > >  drivers/rtc/rtc-s35390a.c | 67 +++++++++++++++++++++--------------------------
+> > > >  1 file changed, 30 insertions(+), 37 deletions(-)
+> > > > 
+> > > > diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
+> > > > index 575bb256eb25..b34a3f7e8476 100644
+> > > > --- a/drivers/rtc/rtc-s35390a.c
+> > > > +++ b/drivers/rtc/rtc-s35390a.c
+> > > > @@ -64,7 +64,6 @@ MODULE_DEVICE_TABLE(of, s35390a_of_match);
+> > > >  
+> > > >  struct s35390a {
+> > > >  	struct i2c_client *client[8];
+> > > > -	int twentyfourhour;
+> > > >  };
+> > > >  
+> > > >  static int s35390a_set_reg(struct s35390a *s35390a, int reg, u8  *buf, int len)
+> > > > @@ -181,31 +180,6 @@ static int s35390a_disable_test_mode(struct s35390a *s35390a)
+> > > >  	return s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, buf, sizeof(buf));
+> > > >  }
+> > > >  
+> > > > -static char s35390a_hr2reg(struct s35390a *s35390a, int hour)
+> > > > -{
+> > > > -	if (s35390a->twentyfourhour)
+> > > > -		return bin2bcd(hour);
+> > > > -
+> > > > -	if (hour < 12)
+> > > > -		return bin2bcd(hour);
+> > > > -
+> > > > -	return 0x40 | bin2bcd(hour - 12);
+> > > > -}
+> > > > -
+> > > > -static int s35390a_reg2hr(struct s35390a *s35390a, char reg)
+> > > > -{
+> > > > -	unsigned hour;
+> > > > -
+> > > > -	if (s35390a->twentyfourhour)
+> > > > -		return bcd2bin(reg & 0x3f);
+> > > > -
+> > > > -	hour = bcd2bin(reg & 0x3f);
+> > > > -	if (reg & 0x40)
+> > > > -		hour += 12;
+> > > > -
+> > > > -	return hour;
+> > > > -}
+> > > > -
+> > > >  static int s35390a_rtc_set_time(struct device *dev, struct rtc_time *tm)
+> > > >  {
+> > > >  	struct i2c_client *client = to_i2c_client(dev);
+> > > > @@ -225,7 +199,7 @@ static int s35390a_rtc_set_time(struct device *dev, struct rtc_time *tm)
+> > > >  	buf[S35390A_BYTE_MONTH] = bin2bcd(tm->tm_mon + 1);
+> > > >  	buf[S35390A_BYTE_DAY] = bin2bcd(tm->tm_mday);
+> > > >  	buf[S35390A_BYTE_WDAY] = bin2bcd(tm->tm_wday);
+> > > > -	buf[S35390A_BYTE_HOURS] = s35390a_hr2reg(s35390a, tm->tm_hour);
+> > > > +	buf[S35390A_BYTE_HOURS] = bin2bcd(tm->tm_hour);
+> > > >  	buf[S35390A_BYTE_MINS] = bin2bcd(tm->tm_min);
+> > > >  	buf[S35390A_BYTE_SECS] = bin2bcd(tm->tm_sec);
+> > > >  
+> > > > @@ -256,7 +230,7 @@ static int s35390a_rtc_read_time(struct device *dev, struct rtc_time *tm)
+> > > >  
+> > > >  	tm->tm_sec = bcd2bin(buf[S35390A_BYTE_SECS]);
+> > > >  	tm->tm_min = bcd2bin(buf[S35390A_BYTE_MINS]);
+> > > > -	tm->tm_hour = s35390a_reg2hr(s35390a, buf[S35390A_BYTE_HOURS]);
+> > > > +	tm->tm_hour = bcd2bin(buf[S35390A_BYTE_HOURS] & 0x3f);
+> > > >  	tm->tm_wday = bcd2bin(buf[S35390A_BYTE_WDAY]);
+> > > >  	tm->tm_mday = bcd2bin(buf[S35390A_BYTE_DAY]);
+> > > >  	tm->tm_mon = bcd2bin(buf[S35390A_BYTE_MONTH]) - 1;
+> > > > @@ -325,8 +299,7 @@ static int s35390a_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
+> > > >  	else
+> > > >  		buf[S35390A_ALRM_BYTE_WDAY] = 0;
+> > > >  
+> > > > -	buf[S35390A_ALRM_BYTE_HOURS] = s35390a_hr2reg(s35390a,
+> > > > -			alm->time.tm_hour) | 0x80;
+> > > > +	buf[S35390A_ALRM_BYTE_HOURS] = bin2bcd(alm->time.tm_hour) | 0x80;
+> > > >  	buf[S35390A_ALRM_BYTE_MINS] = bin2bcd(alm->time.tm_min) | 0x80;
+> > > >  
+> > > >  	if (alm->time.tm_hour >= 12)
+> > > > @@ -381,8 +354,7 @@ static int s35390a_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alm)
+> > > >  
+> > > >  	if (buf[S35390A_ALRM_BYTE_HOURS] & 0x80)
+> > > >  		alm->time.tm_hour =
+> > > > -			s35390a_reg2hr(s35390a,
+> > > > -				       buf[S35390A_ALRM_BYTE_HOURS] & ~0x80);
+> > > > +			bcd2bin(buf[S35390A_ALRM_BYTE_HOURS] & 0x3f);
+> > > >  
+> > > >  	if (buf[S35390A_ALRM_BYTE_MINS] & 0x80)
+> > > >  		alm->time.tm_min = bcd2bin(buf[S35390A_ALRM_BYTE_MINS] & ~0x80);
+> > > > @@ -459,7 +431,7 @@ static int s35390a_probe(struct i2c_client *client)
+> > > >  	unsigned int i;
+> > > >  	struct s35390a *s35390a;
+> > > >  	struct rtc_device *rtc;
+> > > > -	u8 buf, status1;
+> > > > +	u8 buf, status1, time[7];
+> > > >  	struct device *dev = &client->dev;
+> > > >  	struct nvmem_config nvmem_cfg = {
+> > > >  		.name = "s35390a_nvram",
+> > > > @@ -503,10 +475,31 @@ static int s35390a_probe(struct i2c_client *client)
+> > > >  		return err_read;
+> > > >  	}
+> > > >  
+> > > > -	if (status1 & S35390A_FLAG_24H)
+> > > > -		s35390a->twentyfourhour = 1;
+> > > > -	else
+> > > > -		s35390a->twentyfourhour = 0;
+> > > > +	if (!(status1 & S35390A_FLAG_24H) && err_read != 1) {
+> > > > +		unsigned int hour;
+> > > > +
+> > > > +		status1 |= S35390A_FLAG_24H;
+> > > > +
+> > > > +		err = s35390a_get_reg(s35390a, S35390A_CMD_TIME1, time, sizeof(time));
+> > > > +		if (err < 0)
+> > > > +			return dev_err_probe(dev, err, "reading 12-hour time failed\n");
+> > > > +
+> > > > +		/* converting to 24-hour time */
+> > > > +		time[S35390A_BYTE_HOURS] = bitrev8(time[S35390A_BYTE_HOURS]);
+> > > > +		hour = bcd2bin(time[S35390A_BYTE_HOURS] & 0x3f);
+> > > > +		if (time[S35390A_BYTE_HOURS] & 0x40)
+> > > > +			hour += 12;
+> > > > +
+> > > > +		time[S35390A_BYTE_HOURS] = bitrev8(bin2bcd(hour));
+> > > > +
+> > > > +		err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS1, &status1, sizeof(status1));
+> > > > +		if (err < 0)
+> > > > +			return dev_err_probe(dev, err, "setting 24-hour mode failed\n");
+> > > > +
+> > > > +		err = s35390a_set_reg(s35390a, S35390A_CMD_TIME1, time, sizeof(time));
+> > > > +		if (err < 0)
+> > > > +			return dev_err_probe(dev, err, "setting 24-hour time failed\n");
+> > > 
+> > > No, don't do this, this will break existing users as your conversion may
+> > > happen after a minute rollover. The only function in which you are
+> > > allowed to change the time registers is set_time. You definitively need
+> > > to be able to read 12H mode time but you are allowed to only support
+> > > writing 24h time.
+> > > 
+> > > Also, this is super verbose, adding strings to the kernel makes it
+> > > bloated.
+> > > 
+> > > To avoid any desync, simply test for the S35390A_FLAG_24H bit in status
+> > > in s35390a_rtc_read_time as the register is already read anyway.
+> > > 
+> > I think that would defeat the whole point of the patch, that the rtc is
+> > always in 24-hour mode. If this driver was always used with the rtc, it
+> > already should be in 24-hour mode, as thats the mode this driver does
+> > initialize the rtc.
+> 
+> This assumption may not be true, the RTC may have been initialized by a
+> bootloader or a different system in the factory.
+> 
+> > Your idea would work for the time, but not in combination with alarms.
+> > If the rtc could be in 12-hour mode, then this would need to be
+> > considered in setting and reading alarm. Also setting 24-hour mode
+> > inside set_time would then also require to convert the alarm time.
+> > Effectively making it less maintainable than before.
+> 
+> Note that while setting the time when an alarm has been set is not
+> forbidden, it is never guaranteed to work anyway. I guess something we
+> could do in the core is that whenever the time is set we go over the
+> timerqueue and set the alarm again.
 
-Sorry, I missed, it looks good, you can combine to new fixes series.
+Actually this is already what we do so this is not an issue.
 
->
-> Thanks,
-> Zhipeng
->
-> > >  - enable runtime PM with devm_pm_runtime_set_active_enabled(), which
-> > >    marks the device active (matching the enabled clock) and disables
-> > >    runtime PM on unbind.
-> > >
-> > > With the clock, runtime PM and IRQ domain all owned by devres,
-> > > remove() and the probe() error path only have to dispose of the parent
-> > > IRQ mappings.
-> > >
-> > > Signed-off-by: Jindong Yue <jindong.yue@nxp.com>
-> > > Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
-> > > ---
-> > >  drivers/irqchip/Kconfig            |  2 +-
-> > >  drivers/irqchip/irq-imx-irqsteer.c | 36
-> > > +++++++++++++++++-------------
-> > >  2 files changed, 22 insertions(+), 16 deletions(-)
-> > >
-> > > diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig index
-> > > 20b77fbc51ee..105108d2e6ff 100644
-> > > --- a/drivers/irqchip/Kconfig
-> > > +++ b/drivers/irqchip/Kconfig
-> > > @@ -555,7 +555,7 @@ config CSKY_APB_INTC
-> > >       the controller's register.
-> > >
-> > >  config IMX_IRQSTEER
-> > > -   bool "i.MX IRQSTEER support"
-> > > +   tristate "i.MX IRQSTEER support"
-> > >     depends on ARCH_MXC || ARCH_S32 || COMPILE_TEST
-> > >     default y if ARCH_MXC || ARCH_S32
-> > >     select IRQ_DOMAIN
-> > > diff --git a/drivers/irqchip/irq-imx-irqsteer.c
-> > > b/drivers/irqchip/irq-imx-irqsteer.c
-> > > index a9909ecb6fef..a60cc527e619 100644
-> > > --- a/drivers/irqchip/irq-imx-irqsteer.c
-> > > +++ b/drivers/irqchip/irq-imx-irqsteer.c
-> > > @@ -10,6 +10,7 @@
-> > >  #include <linux/irqchip/chained_irq.h>  #include <linux/irqdomain.h>
-> > > #include <linux/kernel.h>
-> > > +#include <linux/module.h>
-> > >  #include <linux/of.h>
-> > >  #include <linux/of_irq.h>
-> > >  #include <linux/platform_device.h>
-> > > @@ -193,7 +194,7 @@ static int imx_irqsteer_probe(struct platform_device
-> > *pdev)
-> > >             return PTR_ERR(data->regs);
-> > >     }
-> > >
-> > > -   data->ipg_clk = devm_clk_get(&pdev->dev, "ipg");
-> > > +   data->ipg_clk = devm_clk_get_enabled(&pdev->dev, "ipg");
-> > >     if (IS_ERR(data->ipg_clk))
-> > >             return dev_err_probe(&pdev->dev, PTR_ERR(data->ipg_clk),
-> > >                                  "failed to get ipg clk\n");
-> > > @@ -226,12 +227,6 @@ static int imx_irqsteer_probe(struct
-> > platform_device *pdev)
-> > >                     return -ENOMEM;
-> > >     }
-> > >
-> > > -   ret = clk_prepare_enable(data->ipg_clk);
-> > > -   if (ret) {
-> > > -           dev_err(&pdev->dev, "failed to enable ipg clk: %d\n", ret);
-> > > -           return ret;
-> > > -   }
-> > > -
-> > >     /* steer all IRQs into configured channel */
-> > >     if (irqsteer_has_chanctrl(data->devtype_data))
-> > >             writel_relaxed(BIT(data->channel), data->regs + CHANCTRL); @@
-> > > -271,12 +266,21 @@ static int imx_irqsteer_probe(struct
-> > > platform_device *pdev)
-> > >
-> > >     platform_set_drvdata(pdev, data);
-> > >
-> > > -   pm_runtime_set_active(&pdev->dev);
-> > > -   pm_runtime_enable(&pdev->dev);
-> > > +   ret = devm_pm_runtime_set_active_enabled(&pdev->dev);
-> > > +   if (ret)
-> > > +           goto err_irq;
-> > >
-> > >     return 0;
-> > > +
-> > > +err_irq:
-> > > +   for (i = 0; i < data->irq_count; i++) {
-> > > +           if (!data->irq[i])
-> > > +                   break;
-> > > +
-> > > +           irq_set_chained_handler_and_data(data->irq[i], NULL, NULL);
-> > > +           irq_dispose_mapping(data->irq[i]);
-> > > +   }
-> > >  out:
-> > > -   clk_disable_unprepare(data->ipg_clk);
-> > >     return ret;
-> > >  }
-> > >
-> > > @@ -293,8 +297,6 @@ static void imx_irqsteer_remove(struct
-> > platform_device *pdev)
-> > >                                              NULL, NULL);
-> > >             irq_dispose_mapping(irqsteer_data->irq[i]);
-> > >     }
-> > > -
-> > > -   clk_disable_unprepare(irqsteer_data->ipg_clk);
-> > >  }
-> > >
-> > >  #ifdef CONFIG_PM
-> > > @@ -324,7 +326,7 @@ static int imx_irqsteer_suspend(struct device *dev)
-> > >     struct irqsteer_data *irqsteer_data = dev_get_drvdata(dev);
-> > >
-> > >     imx_irqsteer_save_regs(irqsteer_data);
-> > > -   clk_disable_unprepare(irqsteer_data->ipg_clk);
-> > > +   clk_disable(irqsteer_data->ipg_clk);
-> > >
-> > >     return 0;
-> > >  }
-> > > @@ -334,7 +336,7 @@ static int imx_irqsteer_resume(struct device *dev)
-> > >     struct irqsteer_data *irqsteer_data = dev_get_drvdata(dev);
-> > >     int ret;
-> > >
-> > > -   ret = clk_prepare_enable(irqsteer_data->ipg_clk);
-> > > +   ret = clk_enable(irqsteer_data->ipg_clk);
-> > >     if (ret) {
-> > >             dev_err(dev, "failed to enable ipg clk: %d\n", ret);
-> > >             return ret;
-> > > @@ -357,6 +359,7 @@ static const struct of_device_id imx_irqsteer_dt_ids[]
-> > = {
-> > >     { .compatible = "nxp,s32n79-irqsteer",  .data = &s32n79_data },
-> > >     {},
-> > >  };
-> > > +MODULE_DEVICE_TABLE(of, imx_irqsteer_dt_ids);
-> > >
-> > >  static struct platform_driver imx_irqsteer_driver = {
-> > >     .driver = {
-> > > @@ -367,4 +370,7 @@ static struct platform_driver imx_irqsteer_driver = {
-> > >     .probe          = imx_irqsteer_probe,
-> > >     .remove         = imx_irqsteer_remove,
-> > >  };
-> > > -builtin_platform_driver(imx_irqsteer_driver);
-> > > +module_platform_driver(imx_irqsteer_driver);
-> > > +
-> > > +MODULE_DESCRIPTION("i.MX IRQSTEER interrupt multiplexer/remapper
-> > > +driver"); MODULE_LICENSE("GPL");
-> > > --
-> > > 2.34.1
-> > >
-> > >
+
+>This would allow to remove the UIE
+> disabling/enabling dance.
+> 
+> > 
+> > Currently s35390a_init does initialize the rtc in 24-hour mode, while
+> > not updating s35390a->twentyfourhour. So some change needs to be made.
+> > Just setting s35390a->twentyfourhour inside s35390a_init might now be
+> > the simplest solution here.
+> 
+> Or maybe simply stop caching the value.
+> 
+> -- 
+> Alexandre Belloni, co-owner and COO, Bootlin
+> Embedded Linux and Kernel engineering
+> https://bootlin.com
+> 
+
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
