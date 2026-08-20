@@ -4,69 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4B19C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 08:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 173A5C5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 08:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l3rPSY8/H1j5rwG0ZinkqkOyB7YrD7s/UlfIdkhJ1Ss=; b=4/Zuyb+8XrAWsVIBHhQflHZWNZ
-	yKqm1BmQKsc94fePnuKxEEV5vCbkwyu0aUV6Cgs6WwJDPnhdDihD8hftu333ezBolHOTkMXg1SSBz
-	ef/11DeeE3hobX2HpK95I8KOEb/Azn8wBGxECB8lMlBq3e1MJLrNG+SfR3Ob/ZD97P2PTVEOgqW5s
-	Ig4lVPkC59ftjziGNcY0eFxe4nWZ5w38BGhsLRToJPi22E2pIIRSPgH+8tkchHfE70S5t/nWA4+AN
-	UMnldknZx1hu92RVL6MB96lfNIq8QeCeC+MRbHo6J8RmHkE8GxKm/q7JPkJPcsjzsDU0O7bFSwSQ7
-	Y8emFadw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Yw9jNsYyc4cRvafqBjufXAIHcED5B6eFEUJV+Hv3PVA=; b=Qk15ALpECb9ppzmeiFyf0bUalq
+	yVbglimVqVN2GtGhZAhAW3Y5r2pWrGGKmNibQyoeHYR7Rr7owRuo71leWNHqnpWHxjPxjSbzpsylo
+	ojBmaSGZzyOoUTeDNmKvI1BTbte5pyav6SHi+fNd+G4eiGiaWAqJ6FfTsB0iteyhQkrpBPcSVaFl5
+	vs9Prl/nUp38JLjRa+mxBQVTOUB6D7fGRBjO/XgA7k2q3Tk2CShjQlblX/imlQyNOoN8d6ENW1UK7
+	Z8FKL754fS3xiW8DJny1GJZcUgRG1VmQUnwXmML1pGtHMSW4MSccb+FwpSLr3QAPBlaVwfPyDGp8v
+	6LO26idw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwyYL-0000000BCWZ-1Mos;
-	Thu, 20 Aug 2026 08:55:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wwyZQ-0000000BCeP-2yr2;
+	Thu, 20 Aug 2026 08:56:20 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwyYK-0000000BCWQ-1Hl3;
-	Thu, 20 Aug 2026 08:55:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BAD7543783;
-	Thu, 20 Aug 2026 08:55:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B6FB1F000E9;
-	Thu, 20 Aug 2026 08:55:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787216111;
-	bh=l3rPSY8/H1j5rwG0ZinkqkOyB7YrD7s/UlfIdkhJ1Ss=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oETed9BXxV63wuse+XXarKPoAQ3KSpOTyKnyE7NwwDW3L+GqR6KhcBNOifSEIvzfN
-	 sY7w26iUwAfWzk+FIA2DtXNEcUOOdiQ4DrervBhLHeXyVAA1cKsxNbfW5bm9bnwS7J
-	 r+mTKm/eXeanGOwL6ASPhcNCr/3wvvTZk+QbzSPxEhh+ESK+xBBVh4q2HJ0chhSbpQ
-	 JG0Id8T6ephZcPzHH0lAWDF9p2WVUvwbUYKVSWMSmY0d5JbuVqyZLBnSIaAdVYebgl
-	 yf5/DX1OnarTxQ+YNvY7eqOvwarVqg1OtqgpyBa7tjgYsFUxaB1wf7Yx69A+TNSV/t
-	 QRflykiZOcP5Q==
-Date: Thu, 20 Aug 2026 10:55:09 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@kernel.org>, 
-	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, 
-	Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>, Phong LE <ple@baylibre.com>, 
-	kernel@collabora.com, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v10 43/69] drm/vc4: hdmi: Propagate -EDEADLK to the top
- level
-Message-ID: <20260820-sceptical-friendly-panther-6cdfd4@houat>
-References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
- <20260731-dw-hdmi-qp-scramb-v10-43-294364b2cf15@collabora.com>
+	id 1wwyZO-0000000BCdj-2zs2
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Aug 2026 08:56:19 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2cf52d15d88so15178035ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 01:56:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787216178; x=1787820978; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Yw9jNsYyc4cRvafqBjufXAIHcED5B6eFEUJV+Hv3PVA=;
+        b=f1gYCaL9qZlRBf97E1y0RbJgiTm4zXkHb0uMdhqoodfnyrB7/tVEvHD31J0pCMYgjv
+         gW/E/6z2k30vAH4jw7s4+TcV2Jjo6rTjnU4PBdqWSA/bIoCCsXWcZRtIdiWbV7YZIJkR
+         kRgY/yyLQoG030k9J7LFqc+wuFxI/5gF6PuQbpVNuNnCLIPyny8FqMwTOVQJ8XVJ7646
+         XvtUck2HnjMLNwg5UdVup6N7lf7/aJhpwsMsHWz8qG3CVAAw+B8YYYZXsWXa1ryvqMx2
+         mXx/1bLTMsqf/fM6mxFa2nAcpJn5Ywj0DIoGe/MSmpqKVXKb2XhH8wfp6qtEzU3khM6M
+         h79g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787216178; x=1787820978;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Yw9jNsYyc4cRvafqBjufXAIHcED5B6eFEUJV+Hv3PVA=;
+        b=m0tDi5JxYd2pWSa08W4IG5HUQVnh9qq6aj5QBscOd6y9E41rZ7EqX7jNzyPicn9D2j
+         xXM9o1fv8vM8aRPXsd3uAm1YXgiv9SsslXVs/GtIGuNbevONsyotbAqPSm+/uUc4wXqu
+         Yx7Db6PZmVWtLEbkp6t/kAV+z14d3tDN0fLD+/sCNlWKs3662dk9tXKJggvuM374YJAD
+         0Ug+cJcYSPun68nUOLw1++m+1hjUNoJ4yn/HCvZBBBATpqBHwtotL0z9tm7mG454Eigr
+         QZQrK/TB3BvUb1gUTfiRxdnE+C6QFkYIHd7eTBhPG/eiZp2pxr6o236KLe4qrNxIz3kX
+         Oonw==
+X-Forwarded-Encrypted: i=1; AHgh+Ro0m7fjzlB9QbbC0PA4Pjx077hzEWrFgvUriKSJ5U/XN/OHuDqpbsvN0klw1zzuM8lo4k2DszbtRhkBwanaGuML@lists.infradead.org
+X-Gm-Message-State: AFuF++lGlQD2Ay3oj0lgupRwpOXNTxcylxpW4U2M5HqtdAhjCHrjDzIc
+	W4Z7HrBkAKk7sRoIWeeiNsCVWBdTrIT3w0V5VVWSkGQ+Q1EcXTosqqw=
+X-Gm-Gg: AR+sD10B1hIiPkXARjxKU84A3o8AOvTaw7RtzIilMh3hJPeBP7fqDNfnpqRx9Psi0md
+	Ml99NPJmQ7VDVyNlw/IUh1emiztdiKmybhYcSIRe9Ic9IvwBJ1uZ+1ALkyklS6+VfuvpYJrgwgl
+	3UF20HqAmSBq0z4XvmfKVtxLFLLjXkptxCpxmrN41AdeJsljasxILDi/T5iyj47Ku3nl4ORsBvQ
+	wSRh2QlMGMGiu78zEDG21lNRt/m4+4/Xj7xwDupqyQZpdO4yYUZsO5Il4zTwgrMwPMkPOUDoahw
+	ILZZtTmBkHsx446QbUuKGXQ21F5PQVmtzLkH7BSsfZQ+ZSVwyoFyhJulhwTK4TlAq/tXegy1zAx
+	eDv2isABlcdHy9XRUoVRasXMSkKilXx5RJhQVmcCTLBE2uTm1r/pCnr6vXHUIS98LebqHgZ3loz
+	Fb/8WLPA3vQsvzSLFRwzIAVysoUrGqwOydBpZOqHmdTsa1G/aRazp/TzR62+oReteYwkDivIiSk
+	w==
+X-Received: by 2002:a17:90b:2d05:b0:380:21b7:e727 with SMTP id 98e67ed59e1d1-39581470f03mr21556025a91.14.1787216177652;
+        Thu, 20 Aug 2026 01:56:17 -0700 (PDT)
+Received: from DL2XHKPB4.dl.net ([103.63.104.162])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3957faf6849sm5701831a91.10.2026.08.20.01.56.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 01:56:17 -0700 (PDT)
+From: Triet Hoang <triet.hoang.dev@gmail.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Triet Hoang <triet.hoang.dev@gmail.com>
+Subject: [PATCH] drm/mediatek: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
+Date: Thu, 20 Aug 2026 15:56:09 +0700
+Message-ID: <20260820085609.2103835-1-triet.hoang.dev@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="jheie2hl6uizzjqu"
-Content-Disposition: inline
-In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-43-294364b2cf15@collabora.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_015618_775051_623508AB 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,102 +104,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Convert the deprecated SIMPLE_DEV_PM_OPS
+to DEFINE_SIMPLE_DEV_PM_OPS and pm_sleep_ptr().
 
---jheie2hl6uizzjqu
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v10 43/69] drm/vc4: hdmi: Propagate -EDEADLK to the top
- level
-MIME-Version: 1.0
+This lets us drop the __maybe_unused annotations from its suspend and
+resume callbacks, and reduces kernel size in case CONFIG_PM or
+CONFIG_PM_SLEEP is disabled.
 
-On Fri, Jul 31, 2026 at 07:19:50PM +0300, Cristian Ciocaltea wrote:
-> drm_connector_helper_funcs.detect_ctx() is expected to propagate
-> -EDEADLK so that context owners, e.g. drm_helper_probe_detect_ctx(), can
-> perform the required backoff and retry.
->=20
-> vc4_hdmi_handle_hotplug() instead runs its own retry loop and calls
-> drm_modeset_backoff() on an acquire context it does not own.  This drops
-> all locks in the context, including connection_mutex held by the core.
->=20
-> Drop the local retry logic and propagate -EDEADLK to the caller instead.
-> This aligns VC4 with the expected detect_ctx() semantics.
->=20
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->  drivers/gpu/drm/vc4/vc4_hdmi.c | 23 +++++++----------------
->  1 file changed, 7 insertions(+), 16 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdm=
-i.c
-> index ba16e7944cf3..72042fad04c5 100644
-> --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
-> +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-> @@ -344,12 +344,11 @@ static int vc4_hdmi_reset_link(struct drm_connector=
- *connector,
->  	return drm_atomic_helper_reset_crtc(crtc, ctx);
->  }
-> =20
-> -static void vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
-> -				    struct drm_modeset_acquire_ctx *ctx,
-> -				    enum drm_connector_status status)
-> +static int vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
-> +				   struct drm_modeset_acquire_ctx *ctx,
-> +				   enum drm_connector_status status)
->  {
->  	struct drm_connector *connector =3D &vc4_hdmi->connector;
-> -	int ret;
-> =20
->  	/*
->  	 * NOTE: This function should really be called with vc4_hdmi->mutex
-> @@ -368,17 +367,9 @@ static void vc4_hdmi_handle_hotplug(struct vc4_hdmi =
-*vc4_hdmi,
->  	drm_atomic_helper_connector_hdmi_hotplug(connector, ctx, status);
-> =20
->  	if (status !=3D connector_status_connected)
-> -		return;
-> +		return 0;
-> =20
-> -	for (;;) {
-> -		ret =3D vc4_hdmi_reset_link(connector, ctx);
-> -		if (ret =3D=3D -EDEADLK) {
-> -			drm_modeset_backoff(ctx);
-> -			continue;
-> -		}
-> -
-> -		break;
-> -	}
-> +	return vc4_hdmi_reset_link(connector, ctx);
->  }
-> =20
->  static int vc4_hdmi_connector_detect_ctx(struct drm_connector *connector,
-> @@ -416,10 +407,10 @@ static int vc4_hdmi_connector_detect_ctx(struct drm=
-_connector *connector,
->  			status =3D connector_status_connected;
->  	}
-> =20
-> -	vc4_hdmi_handle_hotplug(vc4_hdmi, ctx, status);
-> +	ret =3D vc4_hdmi_handle_hotplug(vc4_hdmi, ctx, status);
->  	pm_runtime_put(&vc4_hdmi->pdev->dev);
-> =20
-> -	return status;
-> +	return ret =3D=3D -EDEADLK ? ret : status;
+Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
+---
+ drivers/gpu/drm/mediatek/mtk_hdmi_v2.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-Don't we mask any error that isn't EDEADLK here?
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+index ffe456238a2b..a2acb2d9742e 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+@@ -1412,7 +1412,7 @@ static const struct hdmi_codec_ops mtk_hdmi_v2_audio_codec_ops = {
+ 	.hook_plugged_cb = mtk_hdmi_v2_audio_hook_plugged_cb,
+ };
+ 
+-static __maybe_unused int mtk_hdmi_v2_suspend(struct device *dev)
++static int mtk_hdmi_v2_suspend(struct device *dev)
+ {
+ 	struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
+ 
+@@ -1421,14 +1421,14 @@ static __maybe_unused int mtk_hdmi_v2_suspend(struct device *dev)
+ 	return 0;
+ }
+ 
+-static __maybe_unused int mtk_hdmi_v2_resume(struct device *dev)
++static int mtk_hdmi_v2_resume(struct device *dev)
+ {
+ 	struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
+ 
+ 	return mtk_hdmi_v2_enable(hdmi);
+ }
+ 
+-static SIMPLE_DEV_PM_OPS(mtk_hdmi_v2_pm_ops, mtk_hdmi_v2_suspend, mtk_hdmi_v2_resume);
++static DEFINE_SIMPLE_DEV_PM_OPS(mtk_hdmi_v2_pm_ops, mtk_hdmi_v2_suspend, mtk_hdmi_v2_resume);
+ 
+ static const struct mtk_hdmi_ver_conf mtk_hdmi_conf_v2 = {
+ 	.bridge_funcs = &mtk_v2_hdmi_bridge_funcs,
+@@ -1511,7 +1511,7 @@ static struct platform_driver mtk_hdmi_v2_driver = {
+ 	.driver = {
+ 		.name = "mediatek-drm-hdmi-v2",
+ 		.of_match_table = mtk_drm_hdmi_v2_of_ids,
+-		.pm = &mtk_hdmi_v2_pm_ops,
++		.pm = pm_sleep_ptr(&mtk_hdmi_v2_pm_ops),
+ 	},
+ };
+ module_platform_driver(mtk_hdmi_v2_driver);
+-- 
+2.53.0
 
-Maxime
-
---jheie2hl6uizzjqu
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaobA7QAKCRAnX84Zoj2+
-di3CAX9taIN5wWfjabsZQCOc93N9yDXa9ZGCjkYY2vFUSE/fV+whVEefexpHg4/R
-F3pHcVEBgJ20yb1ebjodb2eVDBUxXUD4NaTMlRksgE23J/oyYEmSCvMSew5M3fNh
-7EuqooG5SA==
-=WNEd
------END PGP SIGNATURE-----
-
---jheie2hl6uizzjqu--
 
