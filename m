@@ -4,110 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA90C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 18:38:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39884C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 18:51:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y399UwJ+HCYN54RYrd1HkabMCMMPg6Wkn/Pg5u47ll8=; b=MjzynxjcuaTUb4lUzTHHMWQu/h
-	o7IgqIi5if+JsHKmolAm4kgXyoyCK6XCB29ws+wFf/vflpnD5ailNpCKDGxUd5Ykq/kxwwJGNCYvU
-	iiv4wMNA80F5m6ftORF2F/4KWbEaj0in6fI62eRVN3YoGT/5iq+Vnv4iJQuuh1zHH43KrAluMHgA6
-	iCRfSb+Hv9PlM/bHkcup58K2FbBU/IgrkqupiiBEFHVOC+JDSn4AmQvlDliqUxrFakzrcO9VRwW8I
-	tQIjtCDvjpyeO+9hcy2kirmNDdA51LS0UMEvZe/E3jqOOBdvnQ8N5z5MmCmmx+1dWU9Z27w/FSPoH
-	UocKx3tQ==;
+	bh=Pp5J0jgzAEL526K8MSIBx0JpzYWE+QXYN3SwjN7BJQ0=; b=Ko1uncrSZpcOGgRBPlvT6du5Qh
+	YgbTQb6W3/yYCNtcVJ9UHU8AWbA+kYBD5utNHfcx9bzaXp/s0b2MS/wbbBvwaZUiuuKJMPTH0M2/5
+	JS0kOmFo5d9E7rqhE7eV+HSu8GqA+a+WnFeHjW3KbK8va9SL9fD6zPWnd0bzGx2pvKM7bkOK1COOQ
+	Ej9EFKzNifXZ1vPdeHd3Q/m1MW4ztUOYOJWP+Kvm/DAsdX9Xpq6phFRapaPd9ImH7aqCICZof1Tv7
+	qDRsikUR1naGxeN4BB58+FF642RBrQYpvG/PD2IGH1fQ8Fb3J2Km+PvEIxHAeCOE5nb6+URsPElM6
+	+EL+CwTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx7ev-0000000C44Q-1fuY;
-	Thu, 20 Aug 2026 18:38:37 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1wx7rH-0000000C4aw-2rUB;
+	Thu, 20 Aug 2026 18:51:23 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx7es-0000000C43U-0TEY
+	id 1wx7rF-0000000C4aG-0HGT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 18:38:35 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-6a051b737d8so326201a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 11:38:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787251111; cv=none;
-        d=google.com; s=arc-20260327;
-        b=fj68bRfN+B0ezsnd9yj3GSpru5cyt9UYhQGEAyS4iBr2YaPxF2Y5aResTrnCD1l8e+
-         X2F+olDNaUOWzHIcTxl4l/svDssVHAG1prhCuPDMA0BywNeMw9iHvvh5JAbSQUVUSSc3
-         U3XDxdeYX1SICwhdf0lK6CxENo8aICwUKm9R3nx//EaXqOHWpWSLqVA3ghJXNpPC9RZ1
-         w3dc06dHWKWlNsKBaNIkXbkFGyelzW7PrLBHZxUKt0zPdyCMrtOGne1YConIvNtVCtbD
-         7p7nVe9Hy7M0aZKT0wSsx+Lm3s1et33EQ6NKr2QIdG5F+icoIUjizUEMk0CBVrUTWUaD
-         9NOw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=y399UwJ+HCYN54RYrd1HkabMCMMPg6Wkn/Pg5u47ll8=;
-        fh=qwdAshIdZTaaW+qX0WR0dhENqZpszFWKR4rYkamNmB8=;
-        b=VJGFWXlbUgFyiilWQvrTlAroVzeu0YEJflcmmjj+IHm5CYMOL9+EUzeHHOinC/dmhP
-         Kv8+PIfL7FPmVDkprIx7zeYYRVcH6iLea36iFRTIhbZT2+F8rb8k9KpTEkt0QbIBb2YR
-         luRGP6cKBBiFLbQqpVaUEyZwzzjeOObOVO1LUgxJNu8qlHHjQrS31WbTxcTD8X4Mk0Ek
-         UAYm08iZb59+uD7WeJglZY0mJFYvZRfyQxYsIK7L6PWOAVXnQCLp/dbHGPhgt7b01zli
-         eJAqERJ+RTLu3OFoUwfIRrhpWxe8wPiEHCHFY5CLYCWNbT/+a3RUjGtlRHuE1nBEf4XA
-         Y6Yw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 20 Aug 2026 18:51:22 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-4816084e128so26886f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 11:51:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787251111; x=1787855911; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1787251878; x=1787856678; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=y399UwJ+HCYN54RYrd1HkabMCMMPg6Wkn/Pg5u47ll8=;
-        b=j2EJU2dRxtrGfoNL3foCae4ojLXgECjJcUZUT5YXa20jKuR8ZyJO5nJ/UroLHSXi9p
-         8YiR3ZkHTCNqEetQoNsYkQ575fWHBhMHgNLu0uyxGVAEvscWYXuo9/WWbPuNfWmXYQO1
-         noREPHG2Sp8/+orgsm96cRzZdXug30p7wXj+zV2qnVTStub2VoD8bSr6F0FKfLqAmy9+
-         boID4hBODRhYMa1942YB01peZygBrJgo+QKG4N69RF59Rql0hDesW3PMmZ5DLNGjwLvs
-         9Hb2GxriGMHrswvgndf4M0+FJCiH6NetZubGSg5J2YHSEqdMowbWRLGDor+/QfMtPOkv
-         ogsw==
+        bh=Pp5J0jgzAEL526K8MSIBx0JpzYWE+QXYN3SwjN7BJQ0=;
+        b=J95u215XqUuZ68zVRhDHiYkJAP9LaUSF+lZBkih6tAnIgTijZwsdFws1XE6JXzbHpL
+         JxrffoGdXRpJ79g4+cissV2bnXu3vDCqroETaw5Xs+L6bIhUft0cva8DVL1YziX1Az9B
+         Gxo/2aXBost7BWgOUn+Hc9f8TeZsmu5udy1ri5iU24afuDRImY4b5Xyri7WNELIpvMeY
+         55Mr0dkeLUqYUHh982FMWZItm87dGVRenb7dqfIwkxkb6k3SqBmF78ALNFhkpdVhGrLW
+         Io+3NMAOWNqZg3bNU1DbYd4Z2uX3x6wmf0S6k+ktlbHEOz7+wkRiHgY/UiP/3E6SP+8Z
+         DqfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787251111; x=1787855911;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20251104; t=1787251878; x=1787856678;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=y399UwJ+HCYN54RYrd1HkabMCMMPg6Wkn/Pg5u47ll8=;
-        b=fcep3xQIA/5NHQsDZkqTxO6/2CYr32XUbMdj/RYcqZf8zG2KUK9kIRwhi0CbsQo0iZ
-         FQuKvkSlrkFRty1tSXBlC6o6VXFftVYf4XqZ9BEs6Ac9WfxygsSIbbZlTK3Ca1d9P95X
-         thoPqqEEJEroygqsbZ9FJOdIlHt1lQrCJH20PpC+x8cKxkuQjvgLJiYQoVy3tCh3fMKg
-         WNSbnIRBb5Y/AjhbFpGa/rroALnW3YuCaha3axUEypWiREjHoOSeBc0tAbEucJSjXkRc
-         ZS86lrfU5hM3nOvErIGjSfT49rhmyZCjeHWpnrjU7PpR4ZpvNsW0HhBjRNn1zieICzpL
-         6kJg==
-X-Forwarded-Encrypted: i=1; AHgh+RpE65T7WM+j42c3rZQEpR75k4PG9nAVxO3FWgITBogQODbpjzXzJlgLLlfBOhLnPA6+1ZXjkwkuW3LtwJ/Pez1R@lists.infradead.org
-X-Gm-Message-State: AFuF++ltHRGyy/S8RkV+q0FQa17Sl5ysXMuY3VKyPkCrQVK+ZKk5Mwvb
-	mQip0Q06IrZrr1pONR+1O7pD7qUT6tdLfBBkzeN34Uv730pitb85ASmPV7y1ZdMW3279xbbLToz
-	06VYiiDJsAW4O/MTclhSWQ4KpE8qgWwA=
-X-Gm-Gg: AR+sD10kaV9Lfqo+1erfkaVX3emOtIOya26QxS7qTSJElCQ5GUz7qW1olrsGq32o33t
-	tHE3HH8KPy1w22Q+jMakNqwNeJVwFZdLytXuR3fRZ+PE3yU9LHqPEBx4oUmcYDD7reclM/17b6I
-	Ww8wDg4I62Caez3B2PQWn6zIfC4BmXxPI55L1Uz07gH/PnEs+HOpRqgNstuoJVqrOxybHLoPH0M
-	OEkeFaDPaS0ip3VATFIerED9rlUIJms7NyVbs8fko7D6iI0LFwDfTBrK0w2Q0riMhlqJry6l2Fi
-	oq8VVxtBFjpj8wdaKd3S9vYtGDCPrDpD+JbwNGikYD394HB2ItPk0N4ivF0J7Fa+3K5+jZ6YzCX
-	Pyf8udXh0X7IhpBEZyE70SazgjVULdDzYD2D+TJq3FLUzjN9lSTRo0bLjfwHpEu1n4haHnsYwfr
-	2k/eMV3QzQx9gkUwboTo4s3U6xEZTnYKz31kel4VqVzrnZGAeTMz4WgXY=
-X-Received: by 2002:a05:6402:190a:b0:698:663d:d7bd with SMTP id
- 4fb4d7f45d1cf-6a42f1df94emr504720a12.11.1787251111224; Thu, 20 Aug 2026
- 11:38:31 -0700 (PDT)
+        bh=Pp5J0jgzAEL526K8MSIBx0JpzYWE+QXYN3SwjN7BJQ0=;
+        b=KV2qvuNeVjjgPXUaem50PUr6BOSIS6a0qOyDJ8v4T5X6f4CPaIY+ITlADRdEsLXYpD
+         BB8tAsglDsuQFTRIRImC5TJ6OISWJ+m9xLlajTJUtat+1NkLsI6Vrz+WBS2vlYB17JHO
+         IZix2GLXCKwXYDYLEpZkWfnvbqhGj9eBng/huiv/gT1MA+/dbsB+fMzQfwjpSnarfGGs
+         NALRZ2dlYhH6WKWw4a4s9anuoOojg9u1SAtxOenGo7QtO3lAoLfZ6jjiZoI+wFI8b7hm
+         7yxlTzMJgKbnJ/IcJJ3Jia1lcB8pjj1kYVsihmOByVC+ZsLhvkoholKTZ/CRn7AExByz
+         zBtA==
+X-Forwarded-Encrypted: i=1; AHgh+RrwEgumNe4iLWRe7kmPa2ntGBBT3Uh/sCQDkW9xJMpI0EqfX+V5nETe6jKyuxYOJHod+QRqJ/1P+PbiIztV5M41@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZcffIk5S1jCeGtM7u8U7TJJGBbhceQLnqlUjx8R+kcS3EupCO
+	0qLqYlmIuo9kxx5olhNBC/Gdhb6Umk9xek16opOEbIO93+wVg+58MFos
+X-Gm-Gg: AR+sD11uY9LB32V9+3XLHNtNXemozFsD6l/SNAM1/21x+nYKTkqhwAIUqMNbFC07lfn
+	LFNaqqIbDKp9d3QSxRIY1aVKvB2jMcZzMzIdA0bNDfSaFzxakRO7B9bgQCcbUufS/hZvwgZnlGx
+	IsFittg5MyQzn712Fu/UePPP9neYPhC27tUzD8OnC1MjMvng+yjrtXZHd2DT8XpAKpywWU3lgKF
+	7vKinUwWTzqDZ3+CVc6UoMbK4mZ9Efnqn75YIFLVE4DxrODF1Oo4dLnrwB9AkjBUHdIXwd8LmJB
+	AlME42uKk8KWOZcnn9m5qF25LikoeBl7YbM5+1/DZCX9YjmX/l6j/ucXdg6k0iF9BcoI6KC4M2o
+	CudkOy6vIhY5VAHg1pPAb5BK1czp8plh4wMjYgdWQzv1vE/OMJyFCDnYtfSBXD2PVgArYZWcs3N
+	bdTqsub9BbjATdEVbhgSINGVI/V4mkhqDRDV2TFPFntuDSwT0YRf0onPnrw0LrGnl+d9RtcA==
+X-Received: by 2002:a05:600c:548c:b0:499:5b0f:72b with SMTP id 5b1f17b1804b1-499b835251emr9349565e9.1.1787251878389;
+        Thu, 20 Aug 2026 11:51:18 -0700 (PDT)
+Received: from OrangePi5-Plus ([2a06:63c4:9102:701:512e:da32:b75b:2535])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499b91173c4sm684915e9.2.2026.08.20.11.51.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 11:51:17 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Jiaxing Hu <gahing@gahingwoo.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Alexey Charkov <alchark@flipper.net>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
+Date: Thu, 20 Aug 2026 20:50:55 +0200
+Message-ID: <20260820185056.20643-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260820100715.750660-1-gahing@gahingwoo.com>
+References: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com> <20260819105723.632029-1-gahing@gahingwoo.com> <20260819154634.7584-1-royalnet026@gmail.com> <20260819184838.6723-1-royalnet026@gmail.com> <20260820100715.750660-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
-References: <20260723050606.283453-1-rosenp@gmail.com> <aoYJGXfDciTLTZx4@lizhi-Precision-Tower-5810>
-In-Reply-To: <aoYJGXfDciTLTZx4@lizhi-Precision-Tower-5810>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Thu, 20 Aug 2026 11:38:19 -0700
-X-Gm-Features: AcwNN1WadOkdQETjHY5aKJw3lWDWX0-S7dat9vSR7J9yhC3maiVC2GsEIfMKG3c
-Message-ID: <CAKxU2N8SvNqQB6g-esc-+KpO0sNKHAB7EiE9FWbg7Dv41=5MGQ@mail.gmail.com>
-Subject: Re: [PATCH] dmaengine: at_hdmac: ioremap and get irq early
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: dmaengine@vger.kernel.org, 
-	Ludovic Desroches <ludovic.desroches@microchip.com>, Vinod Koul <vkoul@kernel.org>, 
-	Frank Li <Frank.Li@kernel.org>, 
-	"moderated list:MICROCHIP AT91 DMA DRIVERS" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_113834_172157_DFBF5B72 
-X-CRM114-Status: GOOD (  20.23  )
+X-CRM114-CacheID: sfid-20260820_115121_114838_3FD28A86 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,67 +107,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 12:50=E2=80=AFPM Frank Li <Frank.li@oss.nxp.com> wr=
-ote:
->
-> On Wed, Jul 22, 2026 at 10:06:06PM -0700, Rosen Penev wrote:
-> > The functions can return -EPROBE_DEFER. Call them before anything else
-> > to avoid doing extra work.
->
-> just move before one devm_kalloc(), I have not seen much beanfit for it.
-Not sure I follow. devm_platform_ioremap_resource() and
-platform_get_irq() just need a platform_device pointer.
->
-> Frank
->
-> >
-> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> > ---
-> >  drivers/dma/at_hdmac.c | 17 ++++++++++-------
-> >  1 file changed, 10 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
-> > index e5b30a57c477..2f6f5877fc3c 100644
-> > --- a/drivers/dma/at_hdmac.c
-> > +++ b/drivers/dma/at_hdmac.c
-> > @@ -1943,11 +1943,20 @@ static void at_dma_off(struct at_dma *atdma)
-> >  static int __init at_dma_probe(struct platform_device *pdev)
-> >  {
-> >       struct at_dma           *atdma;
-> > +     void __iomem            *regs;
-> >       int                     irq;
-> >       int                     err;
-> >       int                     i;
-> >       const struct at_dma_platform_data *plat_dat;
-> >
-> > +     regs =3D devm_platform_ioremap_resource(pdev, 0);
-> > +     if (IS_ERR(regs))
-> > +             return PTR_ERR(regs);
-> > +
-> > +     irq =3D platform_get_irq(pdev, 0);
-> > +     if (irq < 0)
-> > +             return irq;
-> > +
-> >       /* setup platform data for each SoC */
-> >       dma_cap_set(DMA_MEMCPY, at91sam9rl_config.cap_mask);
-> >       dma_cap_set(DMA_INTERLEAVE, at91sam9g45_config.cap_mask);
-> > @@ -1968,13 +1977,7 @@ static int __init at_dma_probe(struct platform_d=
-evice *pdev)
-> >       if (!atdma)
-> >               return -ENOMEM;
-> >
-> > -     atdma->regs =3D devm_platform_ioremap_resource(pdev, 0);
-> > -     if (IS_ERR(atdma->regs))
-> > -             return PTR_ERR(atdma->regs);
-> > -
-> > -     irq =3D platform_get_irq(pdev, 0);
-> > -     if (irq < 0)
-> > -             return irq;
-> > +     atdma->regs =3D regs;
-> >
-> >       /* discover transaction capabilities */
-> >       atdma->dma_device.cap_mask =3D plat_dat->cap_mask;
-> > --
-> > 2.55.0
-> >
+Hi Jiaxing,
+
+Thank you for running the sweep, and for the shape of it - one field at
+a time with the other four held, three baselines with no drift, and the
+honest reading of RESERVED_0's score printing after its timeout. That
+table is worth more than the five lines it occupies.
+
+On SIZE_E_1: I would keep it at 0, and I would not shrink the diff.
+
+My reasoning, for what it is worth from someone without the hardware:
+your sweep just demonstrated that the traced value is load-bearing in
+four of the five fields, failing in three distinct ways. That gives the
+trace as a whole its authority. A register built from the trace with one
+field swapped to upstream's value is a configuration that no silicon has
+ever run end-to-end - not your RK3576 (which ran 0) and not RK3588
+(which runs a different register entirely). Keeping 0 keeps the value
+honest to its source, and your comment saying it was measured not to
+matter on these two shapes preserves exactly what is known and no more.
+
+One question in the same direction: by the SIZE_E semantics you derived
+on the 17th (SIZE_E_n + 1 = the number of 16-channel atoms in the last
+bank), would different output channel counts exercise different SIZE_E
+fields? If so, two shapes cannot rule out a shape that leans on
+SIZE_E_1 specifically, which would make 0-as-traced the conservative
+choice as well as the honest one.
+
+And thank you for being exact about the tags - 1/13 carrying, 2/13
+dropped because it is no longer the patch I tested. That is the right
+call, and saying it on the thread when v9 posts is better than either of
+the quiet options. The re-run offer for v9 on RK3588 stands; the harness
+is set up and travels well.
+
+The trip went fine, thank you - I am answering from the countryside,
+with the same board on the desk.
+
+Best regards,
+Igor
 
