@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95D56C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 06:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B870C5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 06:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=URdjco2vaIrL7tKiOpW03KbiC1VIMP80ns/Qnh28y7g=; b=DW2hY24rtdnN7b7wxCzEADAo1i
-	fQdnbfcC7s7lq3/fAZBlpLwCRXm3VWv5cYFW2PkoK1DOptn9XuVWXgQ0bQ+PIFMgRUFULpgjWidIs
-	Zsd2UyEQZ/muCB+uWaFIfuWaq9i6+twondjowX7/yt1gSEucHjDGs6uxvjAdSeugSWPmeMG7mB3U+
-	uKeSWrFlP+D3Z6KypBxB/CNAiULb1elzAqnmwg0JxcJOqwV0ybMe3lZKeAC1W/h+LHE1SkgeXgnkE
-	ZeM+hVr1qxOUpbfeiivGMM5x84ATC0pTAYjDpIkuxRe/xS3sLAFocwIMn7oQTejND0qgIgvLnUq3N
-	izzLfLVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VMaTQKJsHb7QC+KLKybjiUaw6XAD1iDhRclDBCk3n4Y=; b=sEoyPivRqNCqJTqOjTOIz3Op8K
+	YNCwqhTI/JsFRM/JKAWibFMINCjfHm+Bpjx9YZEk+BIZzCZ2rc58cLtIFZdG/UfsfmyHuwH7CG38N
+	1SYkGowKrtkhkPlhz/FHIpZaU9U6tSJ1KcD8LB+MsjSMhIw15oRk2MsiOUkQjGKqGlbBR+gDOy99Q
+	LMwG8BMHZ9IkcQE/bq6qwEExm42b3xEUA0KL9tngZcBSc/n+YxZqmM1M2B9GrIDgRUYuZMnTpZsEP
+	Z71Jh5U4btuo3oUwOoJIM7yECevkiGmQV2zCPx3wL9rORGiBxSU2dPYrCWZSLPuJnnw1WIwMrijed
+	ydEQ2n0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwwfM-0000000Az7M-3ACP;
-	Thu, 20 Aug 2026 06:54:20 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wwwgH-0000000AzFg-47KB;
+	Thu, 20 Aug 2026 06:55:17 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwwfJ-0000000Az6b-44nM;
-	Thu, 20 Aug 2026 06:54:19 +0000
-X-UUID: f2c233b09c6311f19a56ed5b684f684d-20260820
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:b9780b3d-5e7d-42fb-9092-b36d87beaf5d,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:20
-X-CID-META: VersionHash:7db8b62,CLOUDID:f21861d1efb1226bc0d257ed0eddec7f,BulkI
-	D:nil,BulkQuantity:0,SF:102|850|865|898|915,TC:nil,Content:0|15|50,EDM:5,I
-	P:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0
-	,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: f2c233b09c6311f19a56ed5b684f684d-20260820
-X-User: gonglinkai@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <gonglinkai@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1439272982; Thu, 20 Aug 2026 14:54:11 +0800
-From: Linkai Gong <gonglinkai@kylinos.cn>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Eric Anholt <eric@anholt.net>,
-	linux-input@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	gonglinkai@kylinos.cn
-Subject: [PATCH] Input: raspberrypi-ts - reject out-of-range point counts and slot IDs
-Date: Thu, 20 Aug 2026 14:53:40 +0800
-Message-Id: <20260820065340.3765457-1-gonglinkai@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1wwwgF-0000000AzF0-0s03
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Aug 2026 06:55:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787208915; x=1818744915;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=utSokGxt+3fSEuTpympSX9BSn+GQNZCKZa3vtKKnUUw=;
+  b=JlZjojJfqU9x0e5bbndUkLTJilGipxu8xKzfH2URjztjt6BHIu2GARwZ
+   SsjDpd42HRpjyFjEjKAYtP/a4YK7d1oLhK2Wnf3Fp0y6Gxh0ONeqDYc56
+   5MC1PJVzU1MAzz3mb2HzYFljK33ATGcCeARWI10r2eiFddC70hFG1ABKJ
+   z+heoE3XnWkEN+P6qrPmECaWdhVZvcbigwfGRcdKNSSGVVq2OOzrNfs65
+   ulCVeV5dN84tEkCFy/6zjY/dOBCdK4wnL+bs51ub5CHOVxaGBU0N7jUYT
+   Tnu9gpMc1Gn8/Ml91rvK5/pqXwzb893D6wL+Ni4U+Lx4QKWIu8mRtufyt
+   w==;
+X-CSE-ConnectionGUID: mooIUGmrSDq6AB5kHVwwDA==
+X-CSE-MsgGUID: LdAJkbteSvmFTjmHhWNRZQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11880"; a="110521105"
+X-IronPort-AV: E=Sophos;i="6.25,232,1779174000"; 
+   d="scan'208";a="110521105"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Aug 2026 23:55:14 -0700
+X-CSE-ConnectionGUID: phWQVRXaQeeqZMoPlqWR/g==
+X-CSE-MsgGUID: lmKVdcoeSyCWDw6qJYc2gw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,232,1779174000"; 
+   d="scan'208";a="269379556"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 19 Aug 2026 23:55:11 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wwwg8-00000000i9l-3PRV;
+	Thu, 20 Aug 2026 06:55:08 +0000
+Date: Thu, 20 Aug 2026 14:54:50 +0800
+From: kernel test robot <lkp@intel.com>
+To: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>,
+	Kees Cook <kees@kernel.org>, Jinjie Ruan <ruanjinjie@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>, Yiqi Sun <sunyiqixm@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH] arm64: syscall: Ensure saved x0 is kept in-sync with
+ tracer updates
+Message-ID: <202608201418.4wnOzo3P-lkp@intel.com>
+References: <20260714143600.23853-1-will@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260714143600.23853-1-will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260819_235418_325697_2357C7D0 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260819_235515_292989_3AB9DFF5 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,44 +91,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rpi_ts_poll() copies a firmware snapshot and walks regs.point[] using
-num_points. The array has RPI_TS_MAX_SUPPORTED_POINTS entries, and the
-GPU is documented to report 0-10 points (99 invalidates the copy).
+Hi Will,
 
-A corrupted count would index past that snapshot. Slot IDs are a 4-bit
-field (0-15) while only 10 MT slots are allocated. Drop the whole frame
-instead of clamping, so a bad report cannot update a subset of contacts.
+kernel test robot noticed the following build errors:
 
-Fixes: 0b9f28fed3f7 ("Input: add official Raspberry Pi's touchscreen driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Linkai Gong <gonglinkai@kylinos.cn>
----
- drivers/input/touchscreen/raspberrypi-ts.c | 4 ++++
- 1 file changed, 4 insertions(+)
+[auto build test ERROR on linux-review/Yiqi-Sun/arm64-ptrace-use-live-x0-for-seccomp-and-audit-after-ptrace/20260815-210721]
 
-diff --git a/drivers/input/touchscreen/raspberrypi-ts.c b/drivers/input/touchscreen/raspberrypi-ts.c
-index 841d39a449b3..bd63d95c094b 100644
---- a/drivers/input/touchscreen/raspberrypi-ts.c
-+++ b/drivers/input/touchscreen/raspberrypi-ts.c
-@@ -78,6 +78,7 @@ static void rpi_ts_poll(struct input_dev *input)
- 		 ts->fw_regs_va + offsetof(struct rpi_ts_regs, num_points));
- 
- 	if (regs.num_points == RPI_TS_NPOINTS_REG_INVALIDATE ||
-+	    regs.num_points > RPI_TS_MAX_SUPPORTED_POINTS ||
- 	    (regs.num_points == 0 && ts->known_ids == 0))
- 		return;
- 
-@@ -87,6 +88,9 @@ static void rpi_ts_poll(struct input_dev *input)
- 		touchid = (regs.point[i].yh >> 4) & 0xf;
- 		event_type = (regs.point[i].xh >> 6) & 0x03;
- 
-+		if (touchid >= RPI_TS_MAX_SUPPORTED_POINTS)
-+			return;
-+
- 		modified_ids |= BIT(touchid);
- 
- 		if (event_type == RPI_TS_FTS_TOUCH_DOWN ||
--- 
-2.25.1
+url:    https://github.com/intel-lab-lkp/linux/commits/Will-Deacon/arm64-syscall-Ensure-saved-x0-is-kept-in-sync-with-tracer-updates/20260815-220235
+base:   https://github.com/intel-lab-lkp/linux Yiqi-Sun/arm64-ptrace-use-live-x0-for-seccomp-and-audit-after-ptrace/20260815-210721
+patch link:    https://lore.kernel.org/r/20260714143600.23853-1-will%40kernel.org
+patch subject: [PATCH] arm64: syscall: Ensure saved x0 is kept in-sync with tracer updates
+config: arm64-randconfig-001-20260820 (https://download.01.org/0day-ci/archive/20260820/202608201418.4wnOzo3P-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 935bfc708590c60147a79c7df145bb6e68b1d388)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260820/202608201418.4wnOzo3P-lkp@intel.com/reproduce)
 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608201418.4wnOzo3P-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> arch/arm64/kernel/ptrace.c:2461:13: error: conflicting types for 'update_syscall_orig_x0_after_ptrace'
+    2461 | static void update_syscall_orig_x0_after_ptrace(struct pt_regs *regs)
+         |             ^
+   arch/arm64/kernel/ptrace.c:563:13: note: previous definition is here
+     563 | static void update_syscall_orig_x0_after_ptrace(struct task_struct *target)
+         |             ^
+>> arch/arm64/kernel/ptrace.c:2490:39: error: incompatible pointer types passing 'struct pt_regs *' to parameter of type 'struct task_struct *' [-Wincompatible-pointer-types]
+    2490 |                 update_syscall_orig_x0_after_ptrace(regs);
+         |                                                     ^~~~
+   arch/arm64/kernel/ptrace.c:563:69: note: passing argument to parameter 'target' here
+     563 | static void update_syscall_orig_x0_after_ptrace(struct task_struct *target)
+         |                                                                     ^
+   arch/arm64/kernel/ptrace.c:2498:38: error: incompatible pointer types passing 'struct pt_regs *' to parameter of type 'struct task_struct *' [-Wincompatible-pointer-types]
+    2498 |         update_syscall_orig_x0_after_ptrace(regs);
+         |                                             ^~~~
+   arch/arm64/kernel/ptrace.c:563:69: note: passing argument to parameter 'target' here
+     563 | static void update_syscall_orig_x0_after_ptrace(struct task_struct *target)
+         |                                                                     ^
+   3 errors generated.
+
+
+vim +/update_syscall_orig_x0_after_ptrace +2461 arch/arm64/kernel/ptrace.c
+
+  2460	
+> 2461	static void update_syscall_orig_x0_after_ptrace(struct pt_regs *regs)
+  2462	{
+  2463		/*
+  2464		 * Keep orig_x0 authoritative so that seccomp (via
+  2465		 * syscall_get_arguments()), audit and the restart path all see the same
+  2466		 * first argument the syscall is dispatched with, even if it has been
+  2467		 * updated by a tracer. Skip this for NO_SYSCALL (set either by the user
+  2468		 * or the tracer), as regs[0] holds the return value (see the comment in
+  2469		 * el0_svc_common()) and can be unwound using syscall_rollback().
+  2470		 * For compat tasks, orig_r0 is provided directly through GPR index 17.
+  2471		 */
+  2472		if (!is_compat_task() && regs->syscallno != NO_SYSCALL)
+  2473			regs->orig_x0 = regs->regs[0];
+  2474	}
+  2475	
+  2476	int syscall_trace_enter(struct pt_regs *regs)
+  2477	{
+  2478		unsigned long flags = read_thread_flags();
+  2479		int ret;
+  2480	
+  2481		if (flags & (_TIF_SYSCALL_EMU | _TIF_SYSCALL_TRACE)) {
+  2482			ret = report_syscall_entry(regs);
+  2483			if (ret || (flags & _TIF_SYSCALL_EMU))
+  2484				return NO_SYSCALL;
+  2485	
+  2486			/*
+  2487			 * Ensure ptrace changes to x0 are visible to seccomp
+  2488			 * ptrace exits (SECCOMP_RET_TRACE).
+  2489			 */
+> 2490			update_syscall_orig_x0_after_ptrace(regs);
+  2491		}
+  2492	
+  2493		/* Do the secure computing after ptrace; failures should be fast. */
+  2494		if (secure_computing() == -1)
+  2495			return NO_SYSCALL;
+  2496	
+  2497		/* Ensure seccomp updates to x0 are visible to audit. */
+  2498		update_syscall_orig_x0_after_ptrace(regs);
+  2499	
+  2500		if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
+  2501			trace_sys_enter(regs, regs->syscallno);
+  2502	
+  2503		audit_syscall_entry(regs->syscallno, regs->regs[0], regs->regs[1],
+  2504				    regs->regs[2], regs->regs[3]);
+  2505	
+  2506		return regs->syscallno;
+  2507	}
+  2508	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
