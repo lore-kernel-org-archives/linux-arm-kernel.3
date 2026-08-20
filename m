@@ -4,117 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC41CC5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA5DC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:54:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J3gtnsrz/6HAoZspZUg9M8ZJWC6bmzmlydxL6z/xP2Y=; b=RYEBHT65QqA3Yz4lYWPALajZjR
-	Eg47b0YFUTOwU8dt/LVj3f9bxAQFgz4k9i7LSQhJ61Ja35Qsf0YLtPRXigqUIZ0B/xSlhN01r5/ZS
-	IOX1jGyvKSHbmCoAxl5BKcMFTVEPrTiX7idXu4fLZ6Vn9AE3zPqWKhfeKurB5AhEVDTkro+FWHUFv
-	nVyndaL2wwaDP0dT/+O1rMbYxqheAyM4iZ8n77mq/vxnKZsdY5uJSDulXHsn6MaX4AK6PGS3rZL/R
-	6NrPQlA9FUxU9x8hCUfDG7dlWMVdKaUOVcL2USbYA14K6bYDQZ/bVva5psMC55xi9QdFKJ6mnhn1z
-	IDj2s+gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+gzOxx9oE6eKHxFZ2hWUiqIgHk0IssfaFnjK3QXCWkg=; b=lQuN+V6XOck08qQX08u2x11Ud6
+	cLHmjJ98JM43aQTGWkxyBDGfd4LLaFio9OvodT/0mydPfxWzMXtgmzSowsccuZ/OODfjCd5gLtoPT
+	3aqKVAVYpn8Dm4OMdw2B4Mkb+Tn1Pyr7oqQy745d8MZRuuH5o/SNMEFEQ2+yH8qcgD2yGZoDu2wKm
+	tEUMKd3sicAh3M0YrOxDRAZUsEYszVC5dzVBL+0WLCaUfDHU3tpz7hbTKX6mgJiy2xgaYDfjsDDld
+	3BQ4bpsM/yC37Jw9jKOhXji443qzZAz7CFt+qbLpK3jT0e/VnyH9Thsw5Inatzyk+q5QXKwVrqxDS
+	qo+4oX4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwx7o-0000000B2Kb-2qlh;
-	Thu, 20 Aug 2026 07:23:44 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wwxbh-0000000B6fS-2VHF;
+	Thu, 20 Aug 2026 07:54:37 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwx7U-0000000B246-0UKj
+	id 1wwxbe-0000000B6eZ-3DLw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 07:23:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pJCRp1E66hrDz9cokNvwfVGacf+xFbPzmwVaOYM41vdpDkXF67lcdCYjY4lzjajCVNE/ZJUxSTsvq/8Qph5o0YbYGCCQjAoTjb/hLns/JCJ4yTIFg1TY6PwDOw7DEHrL6pJkFcmz0ZCh3S8nXXIiAL01YkXVpf+HvTVoitpy+DgW+EJW0PCLf2pXKj/j6oIVvBljbJ7eQAZRV0hDSeBD1/wB9ZGavjy1nZi8ZDLbFraRC4Riw4QN2KMsGnbkmx+0bAMMtj8LhI8J/4zV9SyPwb7S3HeDDAdLSaPK5yblCkC8TMNsr88z+CmQfTHnVeZWl48lt/gfFe5xXWIBG1eotg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=J3gtnsrz/6HAoZspZUg9M8ZJWC6bmzmlydxL6z/xP2Y=;
- b=FmN/Q0d9DwBvI09sNzqDQs+3cAU5vhvDnoak14G7R2xvqnAvA+ewvX4wWexhyMuGJls+CkRco+qZLdAKmWwKeyK3B1ghhCy3k/0zhJVTX829XWQHYhtxQZ9yVzg8iJTjwxZgLhDe9uqGzWu4ibMxkzwZeUDbXQcrrD82VhTqCa+cgYSoIF5mQEE7v7gq5dcpKGruD/0f0Uu2Gy0DvCkeF/5W/kJNJvkTRTQl0Z3tQJsybKTMawxApzJJuSVy/AFVAjG9cV47z1efUAtcFFu898B4Znp+dietQKjXNPxS2L2czbbqntlI7ptKlYLy+kuWg3dN+OdRjZHNaSBCpWGStg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=J3gtnsrz/6HAoZspZUg9M8ZJWC6bmzmlydxL6z/xP2Y=;
- b=AZEw6LDHtzvfeKOXe6yB6WEQ5MpohOkRgeqtUnzpdehfrAW38MWKuPJExxd6zLNSFaW//BaHrZ22g1+WGsu1IE0OjwG3mkzVryJReTV81B57AgNPXw8PNHDZGKbIj/eDcjv9WwbPq/IJgDNX/5ZxuxfxI3n+ZcWpXVPYYExvzm1ffKdLcX0LBi9B47/ksKVhqLyOtsP6FVPLEDBF6wgeCxciOgH4AwahyVOaO2gm+jZOUpxQSvFnPhWwk3z07euOADJOUSKiwVeelrr4TCj7doum3L/KgYaw+TP4DC3f5mbdpSIEeAyknvusk1en7SIGbcbf+NlosDWQUcND8mZfdA==
-Received: from AS4PR09CA0019.eurprd09.prod.outlook.com (2603:10a6:20b:5d4::10)
- by GV2PR10MB7055.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:e2::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Thu, 20 Aug
- 2026 07:23:15 +0000
-Received: from DB5PEPF00014B95.eurprd02.prod.outlook.com
- (2603:10a6:20b:5d4:cafe::7e) by AS4PR09CA0019.outlook.office365.com
- (2603:10a6:20b:5d4::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.8 via Frontend Transport; Thu, 20
- Aug 2026 07:23:15 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DB5PEPF00014B95.mail.protection.outlook.com (10.167.8.233) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Thu, 20 Aug 2026 07:23:15 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 20 Aug
- 2026 09:28:49 +0200
-Received: from localhost (10.252.29.67) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 20 Aug
- 2026 09:23:14 +0200
-From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Thu, 20 Aug 2026 09:22:35 +0200
-Subject: [PATCH v4 07/14] media: stm32: dcmipp: introduce a dcmipp global
- media_pipeline
+	Thu, 20 Aug 2026 07:54:35 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-47f93b2fe4cso1076387f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 00:54:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=asseily.com; s=google; t=1787212472; x=1787817272; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+gzOxx9oE6eKHxFZ2hWUiqIgHk0IssfaFnjK3QXCWkg=;
+        b=BQ7U01T2ylOc2/IU8VcIrCwv9q3j+M8+5ACWuiBUY4SGg41nIhc/YPPzOKCTJrubhz
+         21Llm2tZyfYk8pX5w+DmrDeE0pOIjB74Y6ikEsCZf3I5t34QssWb1wdAvyjNoq+x54Wa
+         kg3OjPjsH/BUkptZZ4Y6h0kgyoD+s5lR3qH0fiVWNu/ClrtmI+vAyNxKN0pf+B5FFMFe
+         YYUplVxzav2bEjr4YmYpjUik4N0EcjU79sVfvMWDqtJpwbC2OoKMWszVYdOJEOOGSkQB
+         TZEYHyvVQ7F3FA5atzSKc8J936ecNm3VL3oYQiIlQaw/TcDX3z6zsnLT8AkLlQeQSSS/
+         g1Lg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787212472; x=1787817272;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+gzOxx9oE6eKHxFZ2hWUiqIgHk0IssfaFnjK3QXCWkg=;
+        b=JdWW3FIOxsc0S3yAW7WWShKB/GTcmsiRrGFep4FNqxw1vy4XXJ0TdSMBBVZz/MEpDh
+         +B0Oz4l3WWNwiTpaqoidUwRwhhOXWP5gyiFLi2ySB0bYSfEBDxTkSS/oawZHQio/ypcT
+         17SddlXFa4hNKfR569BxkEG1UctXLj7YYOkl+DXIer+akcQhsivBzs+5790gGfxk2bYk
+         2r6HJZz/y2+Xvnx0oFaDHxs2ncMrw6oPJNBrPgJAqJPXPMthguvGcvYEJoY5QNh7kv8s
+         w3Sxw9r/aStQDp5ZII/tJfH1a+G1HHP/R+RMw+z+eLHqq1g7XhD11jreRijfDk7fiWpj
+         dljg==
+X-Forwarded-Encrypted: i=1; AHgh+RqtHTRujWg6MmUPVyn4m7HAu7mnWYx8IlMMTmwkfsGQqhBTuhhgika6c/ZEZ/qWXpi72fvm55rkimm2wcQvQwcz@lists.infradead.org
+X-Gm-Message-State: AFuF++nBwRL6ShiqdNM7eQpIw4EJZGa2/10nvoZBaUTumobwEQKpg2gQ
+	/IyTM13IFoh05rqs8rXLKB6tkCbPAWeimDc0ZnVp76Y2MHrAKXdOm+bp2CfwCd+O1hU=
+X-Gm-Gg: AR+sD12YBC+3qlxANwmJz6nAdSvLc7b7ucqAqQUlVB6AxQ67jHnop18mq3UnViWBqg0
+	B8mT0z76eXH7+U8Ags5Xgb6ZkARdQhJsWGiKB22zc8ZXjcOT/sbx+gjWgECDm8CthFaPHy28Y7b
+	pHCp+jXpoRkval5YiM7+eyGI1Pd+DFfsl35TUW8serXm5Mr+wrtJFoTatIFgmo+nJF/YedfvnJE
+	eFpvvMLzIw5q6QvwbEGiWkstR1ItEH+uN1mrc3/nHTG5aQUrSf2W0PxylrAvQN9qI2mDxqK2xPN
+	udjDABHfb49HSdOqrU/sHvI60auQQROS8P//aHmncVPCjRBXX+0XUoZpeUeT+gXRsVZz7bzJWgg
+	5QquyyYLB19641sVRe/pZmP8YdSy8JSeENAvCrSY9bwRhX9TkWlmFGxE0zIr5wXLtWnUsUEh+vm
+	YrokUHNNfxdgW0CA3f8wcv1/aErxMQJX0YsmkPHJpbl/DjXWYhKrDORZgB1+rvhAYNG9HSWApRb
+	TEQNzbqZYYkkQ==
+X-Received: by 2002:a5d:5d0f:0:b0:481:51b5:7503 with SMTP id ffacd0b85a97d-482b1e92a63mr16850901f8f.7.1787212472136;
+        Thu, 20 Aug 2026 00:54:32 -0700 (PDT)
+Received: from Behemoth.triland.local ([178.135.23.60])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482b14d0360sm10342800f8f.33.2026.08.20.00.54.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 00:54:31 -0700 (PDT)
+From: Karl Asseily <karl@asseily.com>
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	heiko@sntech.de
+Cc: bmasney@redhat.com,
+	linux-clk@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Karl Asseily <karl@asseily.com>
+Subject: [PATCH] clk: rockchip: rk3588: let MCLK_SPDIF* rate requests reach the divider
+Date: Thu, 20 Aug 2026 10:54:27 +0300
+Message-Id: <20260820075427.67050-1-karl@asseily.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260820-stm32-dcmipp-pixel-pipes-support-v4-7-d212eb4e3792@foss.st.com>
-References: <20260820-stm32-dcmipp-pixel-pipes-support-v4-0-d212eb4e3792@foss.st.com>
-In-Reply-To: <20260820-stm32-dcmipp-pixel-pipes-support-v4-0-d212eb4e3792@foss.st.com>
-To: Hans Verkuil <hverkuil+cisco@kernel.org>, Hugues Fruchet
-	<hugues.fruchet@foss.st.com>, Alain Volmat <alain.volmat@foss.st.com>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: b4 0.15.2
-X-Originating-IP: [10.252.29.67]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB5PEPF00014B95:EE_|GV2PR10MB7055:EE_
-X-MS-Office365-Filtering-Correlation-Id: f0677ac0-e4cd-4715-cfbf-08defe8be668
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700016|23010399003|10067099003|56012099006|22082099003|18002099003|11063799006;
-X-Microsoft-Antispam-Message-Info: co75OEvTXHei41ncL6EShXfiNlvqnBy8IQDpWZu2W7TwJo2mA2oUNinrE3Y6JIaO7eMkzRpxBBE4Zq9/0UgFHkdeoUkqxTZGaWfvhu9pN+luEh9AygGv3g7NhVPRwO/4lhhX182FmhEF0BL9TmGU5k9D4BTFLpo/PZlaKkyYdKfg2w3MMewtugW7ci3vDH2a3qQSlN4TfassL5GNZH5kq20PAxYYxqKC1gkI5br4683n1BfqBw2O8hN2URrRki9Y+fZyc3y0khweSWkoqJJFEo+lQ01Cy8MGnr05n8B74IIi2kKXTv1C98+l+5//HO7H9xp1sWkoEm77fDWX6aRD+66QHH0UWE4AGEN2L7dMXy3QFPayI/BEMlZRG1+pwQit6LXrPJXAjEsMCDtIvaC+UxF/cltFBhbhI9t0mTDOImHUsLfXjUm5ZHuVMAFcb+YJVswKe4oQJIpyLQTmIuQ6//ouVVEV+1I2/9gvIW8XlJSr03isruOU60udPfhTI1ZgxymPFRWlR8q/eDXwrSco1xZkJj6AWah6pnjAIm8neZaNhuohbL0coLRoUjZszwBin8fKUU+wP7lOsFrmNk1obyW7NtVv5qGPVLB/aWY78ljRvZCbd0gL8B6cXUa8t7SJUzjr9oqC7TdCY5G15b9TrGXIVJ1JwieUT6yku+X4u5tInjS9FNDY/lA+zcyKrVsXd1zFutBuHm6EPm/s/OcUyg==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700016)(23010399003)(10067099003)(56012099006)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: eLVEX0q9bmjZhdZwAEpxl40Ih7jZrIjYwFeqBB6DymY+iFhUNbi/HBl84Fl+ahFgUGiq5IZCvu4otOm/xvTCvsmw50gRydKB/oA2u3uu6KapDYiOlTOQ3Qz63r6+hagrdlDjIWkN087I9ufOPQVKPdusGOEvLlRtU5n26TQn6zo4J0zFVzEN7i6q/M+TZ1fucFomHgPAfbs5tQ9bukL0J9W2IG75GkhoS7rq8QDkZjc5f/aRlhuC806f167lWFDiWKQpg9FZZ/uNpffxEd3sGDVhX+hkLFieiPDzAY/3nzMIOs1+RZUy0YsQOFg3IXKSxqIkawCiwvrqJA1JCMy7i+SyXWN3mxODx1LQYjRPjRwG4L+Srj20ui6vkH1jwsS4y+AqUuWaD7CPguFyvJY7MRfgIiqVIYJdrSxjd2MqvWDWbcX4x8UwyY/oiMdcAQ1q
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 07:23:15.1474
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0677ac0-e4cd-4715-cfbf-08defe8be668
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B95.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR10MB7055
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_002324_191909_3EADFD1E 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20260820_005434_825848_BE6D4B44 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,51 +102,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the introduction of stm32mp25 containing several capture
-devices, it becomes necessary to share the media_pipeline
-structure among all capture devices since subdev pads can be
-shared between several capture devices.
+Every MCLK_SPDIFn gate is declared with flags 0, while the CLK_SPDIFn mux
+immediately above it already carries CLK_SET_RATE_PARENT. The rockchip
+S/PDIF driver calls clk_set_rate() on the gate, which has no .set_rate of
+its own and, without CLK_SET_RATE_PARENT, no way to pass the request up.
+The clock core therefore computes "new rate == current rate", returns 0,
+and changes nothing.
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+The visible effect is that S/PDIF is stuck on whatever divider the
+bootloader left behind. On a board whose audio PLL is parked on the
+48 kHz family, every 44.1 kHz source goes out at 48 kHz, silently, with
+nothing reporting an error. Measured on an RK3588 board playing 44.1 kHz
+material, before and after:
+
+  mclk_spdif0   12287999 Hz    48000 x 256
+  mclk_spdif0   11289598 Hz    44100 x 256
+
+Add CLK_SET_RATE_PARENT to all eight MCLK_SPDIF gates so the request
+propagates to the fractional divider that can satisfy it.
+
+Propagation stops there. Each chain terminates at CLK_SPDIFn_SRC, which
+is declared with flags 0, so a rate request cannot reach a shared PLL and
+pull unrelated consumers off frequency.
+
+Two pairs of gates share a divider - mclk_spdif2 and mclk_spdif2_dp0 both
+sit on clk_spdif2_dp0, and mclk_spdif5 and mclk_spdif5_dp1 on
+clk_spdif5_dp1 - so a rate set on one moves the other. That sharing is in
+the hardware and is not introduced here; before this change neither of
+them could set a rate at all.
+
+Signed-off-by: Karl Asseily <karl@asseily.com>
 ---
- drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c | 3 +--
- drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h  | 1 +
- 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-index f6011b42203c7..53341b7984579 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-@@ -125,7 +125,6 @@ struct dcmipp_bytecap_device {
- 	/* mutex used as vdev and queue lock */
- 	struct mutex lock;
- 	u32 sequence;
--	struct media_pipeline pipe;
- 	struct v4l2_subdev *s_subdev;
- 	u32 s_subdev_pad_nb;
- 
-@@ -410,7 +409,7 @@ static int dcmipp_bytecap_start_streaming(struct vb2_queue *vq,
- 		goto err_buffer_done;
- 	}
- 
--	ret = media_pipeline_start(entity->pads, &vcap->pipe);
-+	ret = media_pipeline_start(entity->pads, &vcap->ved.dcmipp->pipe);
- 	if (ret) {
- 		dev_dbg(vcap->dev, "%s: Failed to start streaming, media pipeline start error (%d)\n",
- 			__func__, ret);
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-index 2d26425b0b0fb..ee9f36268e646 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-@@ -73,6 +73,7 @@ struct dcmipp_device {
- 
- 	/* The Associated media_device parent */
- 	struct media_device		mdev;
-+	struct media_pipeline		pipe;
- 
- 	/* Internal v4l2 parent device*/
- 	struct v4l2_device		v4l2_dev;
+Notes:
+    Generated against broonie/sound.git for-next. clk-rk3588.c
+    carries no ASoC changes, so this should apply to any current tree.
+    
+    Tested on RK3588 hardware running 7.1.3: without this a 44.1 kHz stream leaves
+    the S/PDIF transmitter at 48 kHz; with it mclk_spdif0 retunes and the receiver
+    locks at 44.1 kHz.
+    
+    checkpatch --strict reports "Alignment should match open parenthesis" on the
+    touched lines. That continuation indentation is unchanged by this patch and
+    matches every other clock entry in the file; realigning only these eight would
+    make them the inconsistent ones.
 
+ drivers/clk/rockchip/clk-rk3588.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/clk/rockchip/clk-rk3588.c b/drivers/clk/rockchip/clk-rk3588.c
+index 2ba9976654c..b3d577dccfc 100644
+--- a/drivers/clk/rockchip/clk-rk3588.c
++++ b/drivers/clk/rockchip/clk-rk3588.c
+@@ -960,7 +960,7 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
+ 			RK3588_CLKSEL_CON(33), 0,
+ 			RK3588_CLKGATE_CON(9), 0, GFLAGS,
+ 			&rk3588_spdif0_fracmux),
+-	GATE(MCLK_SPDIF0, "mclk_spdif0", "clk_spdif0", 0,
++	GATE(MCLK_SPDIF0, "mclk_spdif0", "clk_spdif0", CLK_SET_RATE_PARENT,
+ 			RK3588_CLKGATE_CON(9), 1, GFLAGS),
+ 
+ 	GATE(HCLK_SPDIF1, "hclk_spdif1", "hclk_audio_root", 0,
+@@ -973,7 +973,7 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
+ 			RK3588_CLKSEL_CON(35), 0,
+ 			RK3588_CLKGATE_CON(9), 4, GFLAGS,
+ 			&rk3588_spdif1_fracmux),
+-	GATE(MCLK_SPDIF1, "mclk_spdif1", "clk_spdif1", 0,
++	GATE(MCLK_SPDIF1, "mclk_spdif1", "clk_spdif1", CLK_SET_RATE_PARENT,
+ 			RK3588_CLKGATE_CON(9), 5, GFLAGS),
+ 
+ 	COMPOSITE(ACLK_AV1_ROOT, "aclk_av1_root", gpll_cpll_aupll_p, 0,
+@@ -1868,9 +1868,9 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
+ 			RK3588_CLKSEL_CON(123), 0,
+ 			RK3588_CLKGATE_CON(57), 4, GFLAGS,
+ 			&rk3588_spdif2_dp0_fracmux),
+-	GATE(MCLK_SPDIF2_DP0, "mclk_spdif2_dp0", "clk_spdif2_dp0", 0,
++	GATE(MCLK_SPDIF2_DP0, "mclk_spdif2_dp0", "clk_spdif2_dp0", CLK_SET_RATE_PARENT,
+ 			RK3588_CLKGATE_CON(57), 5, GFLAGS),
+-	GATE(MCLK_SPDIF2, "mclk_spdif2", "clk_spdif2_dp0", 0,
++	GATE(MCLK_SPDIF2, "mclk_spdif2", "clk_spdif2_dp0", CLK_SET_RATE_PARENT,
+ 			RK3588_CLKGATE_CON(57), 6, GFLAGS),
+ 	COMPOSITE(CLK_SPDIF5_DP1_SRC, "clk_spdif5_dp1_src", gpll_aupll_p, 0,
+ 			RK3588_CLKSEL_CON(124), 7, 1, MFLAGS, 2, 5, DFLAGS,
+@@ -1880,9 +1880,9 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
+ 			RK3588_CLKSEL_CON(125), 0,
+ 			RK3588_CLKGATE_CON(57), 9, GFLAGS,
+ 			&rk3588_spdif5_dp1_fracmux),
+-	GATE(MCLK_SPDIF5_DP1, "mclk_spdif5_dp1", "clk_spdif5_dp1", 0,
++	GATE(MCLK_SPDIF5_DP1, "mclk_spdif5_dp1", "clk_spdif5_dp1", CLK_SET_RATE_PARENT,
+ 			RK3588_CLKGATE_CON(57), 10, GFLAGS),
+-	GATE(MCLK_SPDIF5, "mclk_spdif5", "clk_spdif5_dp1", 0,
++	GATE(MCLK_SPDIF5, "mclk_spdif5", "clk_spdif5_dp1", CLK_SET_RATE_PARENT,
+ 			RK3588_CLKGATE_CON(57), 11, GFLAGS),
+ 	COMPOSITE_NOMUX(CLK_AUX16M_0, "clk_aux16m_0", "gpll", 0,
+ 			RK3588_CLKSEL_CON(117), 0, 8, DFLAGS,
+@@ -2059,7 +2059,7 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
+ 			RK3588_CLKSEL_CON(149), 0,
+ 			RK3588_CLKGATE_CON(63), 6, GFLAGS,
+ 			&rk3588_spdif3_fracmux),
+-	GATE(MCLK_SPDIF3, "mclk_spdif3", "clk_spdif3", 0,
++	GATE(MCLK_SPDIF3, "mclk_spdif3", "clk_spdif3", CLK_SET_RATE_PARENT,
+ 			RK3588_CLKGATE_CON(63), 7, GFLAGS),
+ 	COMPOSITE(CLK_SPDIF4_SRC, "clk_spdif4_src", gpll_aupll_p, 0,
+ 			RK3588_CLKSEL_CON(150), 7, 1, MFLAGS, 2, 5, DFLAGS,
+@@ -2069,7 +2069,7 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
+ 			RK3588_CLKSEL_CON(151), 0,
+ 			RK3588_CLKGATE_CON(63), 10, GFLAGS,
+ 			&rk3588_spdif4_fracmux),
+-	GATE(MCLK_SPDIF4, "mclk_spdif4", "clk_spdif4", 0,
++	GATE(MCLK_SPDIF4, "mclk_spdif4", "clk_spdif4", CLK_SET_RATE_PARENT,
+ 			RK3588_CLKGATE_CON(63), 11, GFLAGS),
+ 	COMPOSITE(MCLK_SPDIFRX0, "mclk_spdifrx0", gpll_cpll_aupll_p, 0,
+ 			RK3588_CLKSEL_CON(152), 7, 2, MFLAGS, 2, 5, DFLAGS,
 -- 
 2.34.1
 
