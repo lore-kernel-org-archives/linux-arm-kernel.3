@@ -4,107 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29AC7C5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:09:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A7EC5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VWz7OuqsDy/FzjRS0OiNSUvLi8xeYgzLLggshpzDzkE=; b=EObRLuePHKzaqefmOQkMWusYy4
-	VaFTGXe1SOpthmpYsy2caV5WQSZ1lAhD05RO2Ni1kpjlYZIwn1rCkd/uC6QwrJ8K+S+b3e2RJcb4G
-	KXHPAGYOr3QZHyl9CazROKqC0cTk4HYf+zCz2KOt2A/Q+bPujEAt2LTsWHhfOlGx2S5j1YZqIf87e
-	BrPE4gvmL9ZX24f/GjARLYNNsjUI2jgqJ/UYuqOJGcWUNuJacg3mKFFZ5wxkse+w14wnd75MaJKGj
-	7uUjM+qyTx25j9vJmg46rODEt1DpvBiG/IcVVQHy24lgAoD2owcaEoY9BSAs3mAy0tG1PQCDURpCx
-	/bHxynOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tcc4wkxLTgTSQg0ktCkPrGENxcfhQ/cSa7F/3AbRwiY=; b=uq+3FQ5yJA0cPis7r+Sc4iyFsk
+	had1DPvEZdSavW3KQ9+IxS5yJOnM0japNp+5eA15rE6q1kplZqxT7JIpZWIEpPnL08kIYnifOah2w
+	+OUh2IAyvV/9QbRGik9zmwyPDs/oEULJ1zR1cnyMrfSpYR6uMBquQRBByGvSJuj6S6pdQaeCPh43d
+	caczIdJgaFzbWrlYFdA5tfXyaptMqhge5VyIcPBaW4k9h9ffO8AlivNy2Sga9ekgXmzSfr+qxfZLc
+	0nYm8pPgcyl+U8PU3Gqj09FOBYIRvMaARdM9laiNhWF+OzuS8kU5LwZwhkld2EAlrXI6DSBkQ989o
+	yxbHPAXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwzi3-0000000BKPO-23A7;
-	Thu, 20 Aug 2026 10:09:19 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wwzjZ-0000000BKY2-39ol;
+	Thu, 20 Aug 2026 10:10:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwzhz-0000000BKOp-491J
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 10:09:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1787220552;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VWz7OuqsDy/FzjRS0OiNSUvLi8xeYgzLLggshpzDzkE=;
-	b=AuUhz64+qdoyazBhe9QlMf0nIP4yBguG5KB5J49b9NxsgT9XmZXYAJoCQm2V4M8atj1s3t
-	/zy+PgSWR8M66caSFQwEiGQJdgJGe5Uc4k/+slJm8F3GcNZxWBU1c1iaIgSuoW00sjfuhj
-	VoDxGJGfsFHZr2QnH629i25pGR4TgMw=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-500-IqxXsmc4MASBRkWX2kIbGA-1; Thu, 20 Aug 2026 06:09:10 -0400
-X-MC-Unique: IqxXsmc4MASBRkWX2kIbGA-1
-X-Mimecast-MFC-AGG-ID: IqxXsmc4MASBRkWX2kIbGA_1787220549
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-49571407d1dso14074435e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 03:09:10 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787220549; x=1787825349;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VWz7OuqsDy/FzjRS0OiNSUvLi8xeYgzLLggshpzDzkE=;
-        b=lRf3IGPThdoUwALmujVqIjJ0wUFS9F+kisZt/Yw3ptsbemnNb68G2ZULbAri5nqK0g
-         Z0N62Zw7HZhZCRvZFYtBcVjlvMhXRZuBDm7xBbmpRBrFtXt2TErX/L0s0AX1c8Jk3UdQ
-         OIMeDgqknIfNgZuAdHwqw0abjcNLw4NnmO8O0MYGEkMFL2JWPqz8wh4h3Oie2S6zmz+Y
-         2qZDNWVoq98QFsSxOXfjfHZrsQY3RwVZ3jDNelErf6jVD6vJ2CrAxgsluGubvN2B2E3I
-         1b2GT8/6xi9Er/r1frbRRL2MxW4LUnDkZOKmD01byF+wBT4VMzuDmnf4xy/hj4LYFMPb
-         N2Sg==
-X-Forwarded-Encrypted: i=1; AHgh+RrQxipCPUADJavTUyrHt/OHn1UF2ceSzaBwMwHf33tGZp7zeGRLg9SmfQZKB3qr35LYXiMEtvqB7Nvs1/5BRc37@lists.infradead.org
-X-Gm-Message-State: AOJu0YznXVaYtj2H50JmrZZFrWMCgZWV6w2BN2J0/Cmv61kFO6donbGF
-	UKih5I4K1sCQ+MdSdrszuFwPCSIlvIarAagLid02DH/GVuMpoLQ3nrQ5QxD/u8NZCK/jNwzCoNE
-	6I0lyB+DB5Ibb22DwUFG9g7AckIYXr0PgSMzyTvSU9/WqtxfG5k2E7jUqvtTfapNdjFMbCeMjHI
-	UZ
-X-Gm-Gg: AR+sD10cjMYZIiSclAi3I3uHQ//7d8nt9Xq9AdwpBeJxyHJmHSbCGDCzCEc7Si5T5dN
-	CD/1IzfrahZhzsiCML1HauXos5m6ncmVgWf7lcNrNshna3n8BQc6gDHS285YkjziYaP6J8cVoS4
-	qS+DFX08VdCtqtsVIZrkwc7MF36Jgfht0TBTL33URXs+TjLHJZ8DqTNqDQj2gZYy+MLTGzykv/g
-	m/F5acZ1NqURgJDzVSQqu1EPEYMZPkTMjtiCgu+WKhfkcFsIAVHHjO8jNCf1Q9B9Hd4ZHep4n7X
-	mHVheaOct0serCgJ4tyvJA4yGP8L7nrqJneU6b8EUkMwGn3fjNK59LcOS85WMsbUroZ0jF3oRf6
-	mphQxEDx1d7zFhp+t9eGlGH8MJQWFeLS1/SB9jQwip1s=
-X-Received: by 2002:a05:600c:3553:b0:499:8156:cd3f with SMTP id 5b1f17b1804b1-499aa1b0350mr172531395e9.8.1787220549257;
-        Thu, 20 Aug 2026 03:09:09 -0700 (PDT)
-X-Received: by 2002:a05:600c:3553:b0:499:8156:cd3f with SMTP id 5b1f17b1804b1-499aa1b0350mr172530735e9.8.1787220548689;
-        Thu, 20 Aug 2026 03:09:08 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:f0e:9070:527b:9dff:feef:3874? ([2a01:e0a:f0e:9070:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499aa0dd5fcsm143802935e9.14.2026.08.20.03.09.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 20 Aug 2026 03:09:07 -0700 (PDT)
-Message-ID: <78d60d96-d0c7-4eaa-b425-ca4f75263b12@redhat.com>
-Date: Thu, 20 Aug 2026 12:09:06 +0200
+	id 1wwzjY-0000000BKXt-0Igt;
+	Thu, 20 Aug 2026 10:10:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B20243464;
+	Thu, 20 Aug 2026 10:10:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEE381F00A3F;
+	Thu, 20 Aug 2026 10:10:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787220651;
+	bh=tcc4wkxLTgTSQg0ktCkPrGENxcfhQ/cSa7F/3AbRwiY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=UygmRPmf5pPxm/fBvyEuceXA5BvTByMEyOX2bTYsbkYr+IyPNGbf/rcWUqj35/SGz
+	 aoMeI4YZP0WYC/LOPhvaXxfcXeErW8gcW1yiTj49E4acPCeBE4rmWnCS/YGxVlAAVV
+	 GSHMHMHsdKmXkDGM2/MhBuSrTe+59gnM3ZX3jpTJazNcmAu3hkex75V/FREbVvKiN0
+	 EX7ZwGkQ6bJfuoPYHu0j8in9VXrLYb/nm2HDS90cmqIy+IfY08nPgm0VzL4cDy/IBd
+	 C6Lk9ttYHun7o0x6CZzf9tCN/EwwEw84wlznStZjZhc2byzW3UZa2fPFEs7pwOue9D
+	 BFd5Olkoe7hgQ==
+Date: Thu, 20 Aug 2026 12:10:49 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, 
+	Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>, Phong LE <ple@baylibre.com>, 
+	kernel@collabora.com, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
+	Diederik de Haas <diederik@cknow-tech.com>
+Subject: Re: [PATCH v10 67/69] drm/connector: Drop redundant hdmi
+ vendor/product fields
+Message-ID: <20260820-strange-rich-tiger-78a5a4@houat>
+References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
+ <20260731-dw-hdmi-qp-scramb-v10-67-294364b2cf15@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] KVM: arm64: vgic-its: Free the caches when GITS_BASER
- changes
-To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oupton@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
- Sascha Bischoff <sascha.bischoff@arm.com>,
- Sebastian Ene <sebastianene@google.com>, Fuad Tabba <tabba@google.com>,
- kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260819102809.310708-1-fuad.tabba@linux.dev>
- <20260819102809.310708-2-fuad.tabba@linux.dev>
-From: Eric Auger <eauger@redhat.com>
-In-Reply-To: <20260819102809.310708-2-fuad.tabba@linux.dev>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: H3HGVmr8wnZHHFhlrsJfboTj97CqaiT8d93PD8a3Xmk_1787220549
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_030916_129389_19D7BE45 
-X-CRM114-Status: GOOD (  24.13  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="ykye35pgouu6733l"
+Content-Disposition: inline
+In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-67-294364b2cf15@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,75 +82,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fuad,
 
-On 8/19/26 12:28 PM, Fuad Tabba wrote:
-> A guest that disables the ITS and re-points or shrinks GITS_BASER<n>
-> with VALID still set keeps the devices and collections it mapped
-> against the old table, as KVM frees them only when VALID is cleared.
-> The table format is not architected, so a write with a different value
-> is allowed to lose what it describes. Free the list whenever the
-I don't really get "a write with a different value is allowed to lose
-what it describes". A write at which place, in the collection table?
-> stored value changes.
-> 
-> Test for a change rather than a write: its_restore_enable() rewrites
-> GITS_BASER<n> from its probe-time cache on resume, and KVM reports
-> GITS_TYPER.HCC as 0, so nothing re-maps the boot CPU's collection
-> afterwards.
-> 
-> Fixes: 36d6961c2b481 ("KVM: arm/arm64: vgic-its: Free caches when GITS_BASER Valid bit is cleared")
-> Suggested-by: Marc Zyngier <maz@kernel.org>
-> Link: https://lore.kernel.org/all/87ecg9owwa.wl-maz@kernel.org/
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+--ykye35pgouu6733l
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v10 67/69] drm/connector: Drop redundant hdmi
+ vendor/product fields
+MIME-Version: 1.0
+
+On Fri, Jul 31, 2026 at 07:20:14PM +0300, Cristian Ciocaltea wrote:
+> Now that all users migrated to the new drmm_connector_hdmi_init()
+> signature, vendor and product are provided through struct
+> drm_connector_hdmi_funcs, a reference to which is already stored in
+> drm_connector_hdmi.
+>=20
+> Drop the redundant fields from drm_connector_hdmi and point its users to
+> hdmi.funcs->vendor and hdmi.funcs->product instead.
+>=20
+> This allows simplifying the related connector registration tests by
+> getting rid of the now unnecessary KUNIT_EXPECT_MEMEQ() checks.
+>=20
+> Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, R=
+ock 5B
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 > ---
->  arch/arm64/kvm/vgic/vgic-its.c | 9 ++++++---
->  1 file changed, 6 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-> index f6538b1976f9b..3339d9977af27 100644
-> --- a/arch/arm64/kvm/vgic/vgic-its.c
-> +++ b/arch/arm64/kvm/vgic/vgic-its.c
-> @@ -1649,7 +1649,7 @@ static void vgic_mmio_write_its_baser(struct kvm *kvm,
->  				      unsigned long val)
->  {
->  	const struct vgic_its_abi *abi = vgic_its_get_abi(its);
-> -	u64 entry_size, table_type;
-> +	u64 old, entry_size, table_type;
->  	u64 reg, *regptr, clearbits = 0;
->  
->  	/* When GITS_CTLR.Enable is 1, we ignore write accesses. */
-> @@ -1672,7 +1672,9 @@ static void vgic_mmio_write_its_baser(struct kvm *kvm,
->  		return;
+>  drivers/gpu/drm/display/drm_hdmi_state_helper.c |  4 +--
+>  drivers/gpu/drm/drm_connector.c                 |  4 ---
+>  drivers/gpu/drm/tests/drm_connector_test.c      | 41 +++----------------=
+------
+>  include/drm/drm_connector.h                     | 14 ++-------
+>  4 files changed, 8 insertions(+), 55 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gp=
+u/drm/display/drm_hdmi_state_helper.c
+> index 04c9e06b9dc1..83a8fcb41343 100644
+> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> @@ -784,8 +784,8 @@ static int hdmi_generate_spd_infoframe(const struct d=
+rm_connector *connector,
+>  		return 0;
+> =20
+>  	ret =3D hdmi_spd_infoframe_init(frame,
+> -				      connector->hdmi.vendor,
+> -				      connector->hdmi.product);
+> +				      connector->hdmi.funcs->vendor,
+> +				      connector->hdmi.funcs->product);
+>  	if (ret)
+>  		return ret;
+> =20
+> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connec=
+tor.c
+> index b2e8d99c0e9a..f5f38dc4bfa6 100644
+> --- a/drivers/gpu/drm/drm_connector.c
+> +++ b/drivers/gpu/drm/drm_connector.c
+> @@ -656,10 +656,6 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
+>  		connector->hdmi.max_tmds_char_rate =3D hdmi_funcs->supported_tmds_char=
+_rate;
 >  	}
->  
-> -	reg = update_64bit_reg(*regptr, addr & 7, len, val);
-> +	old = *regptr;
-> +
-> +	reg = update_64bit_reg(old, addr & 7, len, val);
->  	reg &= ~GITS_BASER_RO_MASK;
->  	reg &= ~clearbits;
->  
-> @@ -1682,7 +1684,8 @@ static void vgic_mmio_write_its_baser(struct kvm *kvm,
->  
->  	*regptr = reg;
->  
-> -	if (!(reg & GITS_BASER_VALID)) {
-> +	/* The ITS driver rewrites an unchanged GITS_BASER<n> on resume. */
-> +	if (reg != old) {
->  		/* Take the its_lock to prevent a race with a save/restore */
->  		mutex_lock(&its->its_lock);
->  		switch (table_type) {
-One question: There is no vgic_its_invalidate_cache() in the function.
-Is it OK?
+> =20
+> -	/* TODO: remove after conversion to new drmm_connector_hdmi_init() */
+> -	strtomem_pad(connector->hdmi.vendor, hdmi_funcs->vendor, 0);
+> -	strtomem_pad(connector->hdmi.product, hdmi_funcs->product, 0);
+> -
+>  	/*
+>  	 * drm_connector_attach_max_bpc_property() requires the
+>  	 * connector to have a state.
+> diff --git a/drivers/gpu/drm/tests/drm_connector_test.c b/drivers/gpu/drm=
+/tests/drm_connector_test.c
+> index 3d8500ad8be9..42f804500de6 100644
+> --- a/drivers/gpu/drm/tests/drm_connector_test.c
+> +++ b/drivers/gpu/drm/tests/drm_connector_test.c
+> @@ -771,14 +771,11 @@ static void drm_test_connector_hdmi_init_null_produ=
+ct(struct kunit *test)
+> =20
+>  /*
+>   * Test that the registration of a connector with a valid, shorter than
+> - * the max length, product name succeeds, and is stored padded with 0.
+> + * the max length, product name succeeds.
+>   */
+>  static void drm_test_connector_hdmi_init_product_valid(struct kunit *tes=
+t)
+>  {
+>  	struct drm_connector_init_priv *priv =3D test->priv;
+> -	const unsigned char expected_product[DRM_CONNECTOR_HDMI_PRODUCT_LEN] =
+=3D {
+> -		'P', 'r', 'o', 'd',
+> -	};
+>  	int ret;
+> =20
+>  	priv->hdmi_funcs =3D dummy_hdmi_funcs;
+> @@ -793,25 +790,15 @@ static void drm_test_connector_hdmi_init_product_va=
+lid(struct kunit *test)
+>  				       DRM_MODE_CONNECTOR_HDMIA,
+>  				       &priv->ddc);
+>  	KUNIT_EXPECT_EQ(test, ret, 0);
+> -	KUNIT_EXPECT_MEMEQ(test,
+> -			   priv->connector.hdmi.product,
+> -			   expected_product,
+> -			   sizeof(priv->connector.hdmi.product));
+>  }
+> =20
+>  /*
+>   * Test that the registration of a connector with a valid, at max
+> - * length, product name succeeds, and is stored padded without any
+> - * trailing \0.
+> + * length, product name succeeds.
+>   */
+>  static void drm_test_connector_hdmi_init_product_length_exact(struct kun=
+it *test)
+>  {
+>  	struct drm_connector_init_priv *priv =3D test->priv;
+> -	const unsigned char expected_product[DRM_CONNECTOR_HDMI_PRODUCT_LEN] =
+=3D {
+> -		'P', 'r', 'o', 'd', 'u', 'c', 't',
+> -		'P', 'r', 'o', 'd', 'u', 'c', 't',
+> -		'P', 'r',
+> -	};
+>  	int ret;
+> =20
+>  	priv->hdmi_funcs =3D dummy_hdmi_funcs;
+> @@ -826,10 +813,6 @@ static void drm_test_connector_hdmi_init_product_len=
+gth_exact(struct kunit *test
+>  				       DRM_MODE_CONNECTOR_HDMIA,
+>  				       &priv->ddc);
+>  	KUNIT_EXPECT_EQ(test, ret, 0);
+> -	KUNIT_EXPECT_MEMEQ(test,
+> -			   priv->connector.hdmi.product,
+> -			   expected_product,
+> -			   sizeof(priv->connector.hdmi.product));
+>  }
+>
+>  /*
+> @@ -857,14 +840,11 @@ static void drm_test_connector_hdmi_init_product_le=
+ngth_too_long(struct kunit *t
+> =20
+>  /*
+>   * Test that the registration of a connector with a vendor name smaller
+> - * than the maximum length succeeds, and is stored padded with zeros.
+> + * than the maximum length succeeds.
+>   */
+>  static void drm_test_connector_hdmi_init_vendor_valid(struct kunit *test)
+>  {
+>  	struct drm_connector_init_priv *priv =3D test->priv;
+> -	const char expected_vendor[DRM_CONNECTOR_HDMI_VENDOR_LEN] =3D {
+> -		'V', 'e', 'n', 'd',
+> -	};
+>  	int ret;
+> =20
+>  	priv->hdmi_funcs =3D dummy_hdmi_funcs;
+> @@ -879,24 +859,15 @@ static void drm_test_connector_hdmi_init_vendor_val=
+id(struct kunit *test)
+>  				       DRM_MODE_CONNECTOR_HDMIA,
+>  				       &priv->ddc);
+>  	KUNIT_EXPECT_EQ(test, ret, 0);
+> -	KUNIT_EXPECT_MEMEQ(test,
+> -			   priv->connector.hdmi.vendor,
+> -			   expected_vendor,
+> -			   sizeof(priv->connector.hdmi.vendor));
+>  }
+> =20
+>  /*
+>   * Test that the registration of a connector with a vendor name at the
+> - * maximum length succeeds, and is stored padded without the trailing
+> - * zero.
+> + * maximum length succeeds.
+>   */
+>  static void drm_test_connector_hdmi_init_vendor_length_exact(struct kuni=
+t *test)
+>  {
+>  	struct drm_connector_init_priv *priv =3D test->priv;
+> -	const char expected_vendor[DRM_CONNECTOR_HDMI_VENDOR_LEN] =3D {
+> -		'V', 'e', 'n', 'd', 'o', 'r',
+> -		'V', 'e',
+> -	};
+>  	int ret;
+> =20
+>  	priv->hdmi_funcs =3D dummy_hdmi_funcs;
+> @@ -911,10 +882,6 @@ static void drm_test_connector_hdmi_init_vendor_leng=
+th_exact(struct kunit *test)
+>  				       DRM_MODE_CONNECTOR_HDMIA,
+>  				       &priv->ddc);
+>  	KUNIT_EXPECT_EQ(test, ret, 0);
+> -	KUNIT_EXPECT_MEMEQ(test,
+> -			   priv->connector.hdmi.vendor,
+> -			   expected_vendor,
+> -			   sizeof(priv->connector.hdmi.vendor));
+>  }
 
-Besides out of curiosity, why don't we go further and remove ite entries
-that refer to removed collections in vgic_its_free_collection()?
+Unfortunately, these tests were useful, and are there to match what the
+spec asks for.
 
-Thanks
+Maxime
 
-Eric
+--ykye35pgouu6733l
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaobSpAAKCRAnX84Zoj2+
+dramAYCjWXzgq1MCtalAB+zYaNty4o3hVyz5fmoyZfOIGDeNkSVzfl/vUXhlAUk8
+GrGtsbkBgP3nwqkr6NppanVeZeayDRLEyij3Ru99cTZoRLaV0ehGz39hZIN4ulFB
+3pO+8KSu7w==
+=CVix
+-----END PGP SIGNATURE-----
 
+--ykye35pgouu6733l--
 
