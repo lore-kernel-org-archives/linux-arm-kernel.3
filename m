@@ -4,110 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB043C5DF86
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 20:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10E1C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 20:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0kk0AVAj9nGqTqVxVL78VvobkVLKEhMiHFP97YU4FPk=; b=aT6ggGtj8uMufN89cyrv1BhOXa
-	VegtWPST+3lyLT+hGENAonU1TDCJScatrBzbSWA8KYf2+B1Dph5kPTJYh6XOm5+f0E0fLA/jupfTB
-	btoPXSDKJc2fMWFIQV/cV/mgIomKuEJYpfVj3G68BVgQ08p5mKQyptouN06DhARuvAiiqkA+gloCr
-	p0epVNdzrpaWf+IqCgvYdrAgql1dWso2JjTuQUvRNK7VYTduOPSVliFq+HNeBtsyOFnfin51IljIX
-	qCV5DZ3Gr8yMNEIvTPb173imk/46cyGuDxA6QJtbJpegw7WAZTgjdbC/znHfwvC8HZLR6XELynnSx
-	GAt8TP8A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qGoy2n51LwvoRDVHhiJ0uQW/YIqwhoXjWTQlpvrOKkA=; b=4gAt1nzh0yQ5ImReRQuWcr4Q1P
+	fTZ0iS/w1DJu8nXEcl3DFpPeQcHaZQZqZCEJ5QYYNHQGu5EOQINLlDgsRm+S1e2LnJL9zhb44Uube
+	3c+u7/mEU2EOsdaB5Tdr/6VuBroN5WSumIfV9IbQILN9zDw27Hdq1UafKAH2+ZEoKmxVh1HQDoxPd
+	3mB13HRtNSAq1KTUKwI90HiCk1Ix7wxNgUfxS9rIuyi4Xxh+fVWjMHrg00nXMBRpoYEdm094j1DRy
+	aovlI8tc9pz1i/uDjvRqocjaaT2WcKlaGzkUe/jnP9klfqwADIOLQm836eXdoeR8Yuyfe3MB9OPs7
+	bMVaUu+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx9N4-0000000CARH-0ILO;
-	Thu, 20 Aug 2026 20:28:18 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1wx9O5-0000000CAbS-1rmd;
+	Thu, 20 Aug 2026 20:29:21 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx9N1-0000000CAQO-0S7v
+	id 1wx9O3-0000000CAae-0dBw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 20:28:16 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6a157f90752so618434a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 13:28:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787257692; cv=none;
-        d=google.com; s=arc-20260327;
-        b=oP8faLKBTPngyoy41X8PfvdN/S7N5ltY1zp6rq0ttbpaka+Y2sGh/3xp/0vKQahlTX
-         GS75KwXerqdBQrAneOZPEGmgj4fZ7nQOG4Cxvyhy39z9U9tKL52phAjW42/OjeDuhG9V
-         Kt0U8I+pVknT/esAE8JTW2nwUzU93nMnXsDq/ScBWIxl/W/KJnAz6eULP07WWSQFlYsE
-         XsONXxOY/Ym0D8UzYxZ9MM14vrLareL7OkpYk87A5AuXixjHcmRyL0diiU81DkxO13dX
-         bAU12lc+Y6/tTUJAfx8LAnZ3dyf9uoep+AIutBjRF9b11XDXJYALSdU8hOSX24PkWYDc
-         B3TQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=0kk0AVAj9nGqTqVxVL78VvobkVLKEhMiHFP97YU4FPk=;
-        fh=3qmk9nVwywV96j9Onu5c7+HNNaxdZw4rOCUPYlbhqzM=;
-        b=UM7snoS1Y1ZZyLylS18i36lzF63uHoMNAbjQAn8+r82qfnjlxVJ4N/1ErmyYOW7lXk
-         OirAdrH4UBbF6agkv5sfAqelvJI5dEqPzyCguw6mE9v3W9Gb1VuAY/Kl+AaRoZISPWo3
-         ZpUE69cu4RUDy4oB4PGV/w/V2iPmBayLi/dVOTPynSqSL6VsG0r92gB8rXX/Eu8/XNDV
-         eckXyT2qtX1IqDYJD5kVvHD0d8H93iHBAQd3vwYNg9bxqgAXf1UiVGLckYjPv/eVaMQ+
-         /ercx/r/GTzPw50Afo8Hj80YfqaLF/qYaCTIlMani8mNZhxEZ9xbNSHQAo+xPGARtXVx
-         l0Ag==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 20 Aug 2026 20:29:20 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6a17211b9ecso931739a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 13:29:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787257692; x=1787862492; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=0kk0AVAj9nGqTqVxVL78VvobkVLKEhMiHFP97YU4FPk=;
-        b=bmef/OS9TNOOknRF3qQ2ggZOvLVqUzzUa+LryC2UOUNGK8s09gjX9lW3k0e1TeL7jQ
-         FYrMf2hPS356x3ql80M6EXWNH4bWjVJydPomHcVIRUCkhadEqLLogvI553XMCPCbRfmU
-         tNLN5lGAJ1pxCP7DqzbmlZQuq9dpa/Uj53w1WiXDX02GSAO0EWPePFYPe6IkQleE1dxe
-         Bh1EQm57G4Z2KHXpt3Dl6jr39HG1Up06pETJshS05jFi73xt0EKdW3xsBeUYXQkxwCxe
-         rZ5PKYMuDuBAiy5AgsUfy7Faz4xiR3UL86G0k3kteGQNj2c8HolZ33bJBeotSOw/jw8q
-         hsTQ==
+        d=gmail.com; s=20251104; t=1787257757; x=1787862557; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qGoy2n51LwvoRDVHhiJ0uQW/YIqwhoXjWTQlpvrOKkA=;
+        b=ndWOXd/sr7GeEMs4AyVOtnvye3XZ/GumirikRLAaCJ0aaexn9lrBCJUoe/kpXBTN5T
+         tRak0F12t953hVm6/3nQnpZdiNUV4SYoqOv8MwBwbVD++OPsYrb4mE5T2IxEKfavY2gZ
+         ZfwfCdubPwxhKOLQYV7F27NnhAkHEDFiC7viZoLpCTx1pDR3nRdFzW0e/Q3i9K1fKqpi
+         OiOjzKkIXeyuGYcgSbDBGVtZwHERW5i1XsyKnr+Y69suB+jWHxLafUEF8n0O44BJsweD
+         lnp/rEXVn5YwryhlvPXPbrFPiwvAxS8hnMzzt00LXM7i+sGDfutZsNEz0oCZASl98xLw
+         UIKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787257692; x=1787862492;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0kk0AVAj9nGqTqVxVL78VvobkVLKEhMiHFP97YU4FPk=;
-        b=bLb8Vr2ho9n6DzAEdRH2MsqPzPFV92C0Jwj1NGBajE5coRDXmwaiUbz18PUTzvpRuP
-         4zyM88oPzijsHWzAqlUOBc/lCohw3U8QKSIrkMRgzQghJr7XhqcqpxihiUvQQ4QL9opl
-         HbA/55uA1tCKef+QIlOqrcbEc5xn91b4tKgwL2ue7jXYLz69nxFv+vZTB+cv0yiE1pti
-         1QvZ6WYXoHCWCUx55Qvd2mwWMiV0cxvu8G5uQ6HUzFK+lwE3s1oHcFZrnzoQVnigRzDQ
-         bc3GNjLKjs4Uwru434brscUwPTCVB5AEYHYhXO7zE2z5nIlCyntD7MxIZJja32a8slFG
-         O6nw==
-X-Forwarded-Encrypted: i=1; AHgh+RrGRdhk8lHGKkTcQhil8e1xjaePGd9UeWc9ZQ2QeItWR4RpAG/qSfLQe9KvOn1xfeOFXcxchM6FGD98SBFYNrhM@lists.infradead.org
-X-Gm-Message-State: AFuF++nQLk8p5kMtCn2BA+sz+Qm2ow19/rLBIhTAYwZarKyGmQ/XADgY
-	4PmOoSYrZd+9vzQ9WPVIRAwxwXkA6LYf8bWZGy6BDuzrixPEIJ3DXHZE9k/UYErdovsYsKzpp8d
-	SWX1VH0fTT7qvPozk8vyX7mmnv0Z+Gxo=
-X-Gm-Gg: AR+sD12IcEicVPCoYUl4dqPXPPR8PrSHputokqSRnpPXJJCnNfv1obGnODQtXBv0kNp
-	b74PnNXlOMGUsw2Gi5ECx+p23ghmDacVAG7oSYVUoPu3tTEmPVaXKtkUyV3hiEEUQF83ciFwk4L
-	sTroj67JUmz7nQH0v66RdV5102B0cRcSbsb9DWTS6SHJQ0dixltXBigP1tAFKe9zB3uHutO/tmM
-	YtVuM905qOIZxGeODrqDQPnrAhXZh9kWsIJVw4R3peOOmHeWIq2iqLKrzeeCDo5OGXmwCVuPccM
-	xSkgr4IDFSde3BbTgEKyJfHCRbCntopgPkI9A3gh7aGNZjI8QmDLv9CD5Fc01dwXkCI8hJVn0nH
-	b3Lp4fyT6Jgrc8Ul27oDjI7Bxsa2nPOt+cWC1FUdn
-X-Received: by 2002:a05:6402:458d:b0:6a3:87b7:b5a9 with SMTP id
- 4fb4d7f45d1cf-6a42f1f9d6cmr1132151a12.12.1787257692346; Thu, 20 Aug 2026
- 13:28:12 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1787257757; x=1787862557;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qGoy2n51LwvoRDVHhiJ0uQW/YIqwhoXjWTQlpvrOKkA=;
+        b=eKDSmzzai1pntH4P7t58jgzSBsDKeZuSHqyw+7ZytP9LeJa+a1loxu2216NSvu9XG2
+         x0PRIwUSvAQAjpQI+EQjjLSCKfeLcctHC3I58VftYbAX1TxVPCV8FNvKRytgOYLqZvte
+         Rnv9z08X8LsrcWtNWcfnewK6jZBCON6fp/lucd5aBg3vYjf+OqkAVbMbN/cBavQRl/5h
+         a8nJsVg9yMbGv49MONHRLBtota2YQj3NyT16k8zyGT1P86bV1uE83JqxYMMTu0D5YbHG
+         fYlNlJH7Wx9uYEl9PPzyW5D69pj5aFZDf7iqxFvOuTL8bHjAqpcguybrZI2x6Yz6Z06p
+         BVOA==
+X-Forwarded-Encrypted: i=1; AHgh+RrGPuUpVcl/GxPenpxLH2KsZnxL/o3/Y84VldxNPCbBdhSGnJtr93noWYbprZoaEVVxMGSh73xcPdFF1rCQWio1@lists.infradead.org
+X-Gm-Message-State: AOJu0YwA6zy45LxhwHPmEO9MwPwVAxlG2OpUbcKV+fLpp1PdQzA5RJHQ
+	B0BQFsDnsGE9vVTDHqtxTcYpVCjW0fJDEkT7A0ukkrTmiBrhbiaKP38=
+X-Gm-Gg: AR+sD1362HwK75CkeuFNvILmW0qVIk40naukNWfGuCCqgKHf0Msm4XqHww/ER0f6Wqd
+	dsyXZceeDbq5hyx8dICsXBb6kou0xq2QLnqUF1lJgY0OnoSUD1thek2KUfSK9GTkpna2NY3ZTEe
+	+N+bQu819dmTQb2I5HgM8QETU+1azF2lpbuSxhhh12ZWEr49Ir241hBGhISQI8d8QaYSLlCyqYu
+	iljObCjnT+RnlC5tgFYN6Jnki1ln1BAzXPq/Wiym2iFmz/nmbvNBWRm/oNmlrj9ZdjmuyIdAVh9
+	2qDqa9GhZi0GiKNc+GcmjfGaJGge/yBwb2yCidyoQ9OvppOK7QZepTJJVbEviwoSdabdNCBDLsl
+	usTQ4mS5JeeL/2g5cN8kpBzIUoIOzOSyQp2tEeizSNHSY71JMOQYgfgh81Vcvpwx0NoQ2/04Ih2
+	hRAwqmUWCg682VlTYsbx/e7H5MqSO8oaoZ48wZ50/zHbV6+NmlyrvI/WY85w8tS1KL3wdg
+X-Received: by 2002:a17:907:6094:b0:c1f:9c3b:96a7 with SMTP id a640c23a62f3a-c246a6269d2mr95089666b.17.1787257757256;
+        Thu, 20 Aug 2026 13:29:17 -0700 (PDT)
+Received: from i-UX410UAR.lan ([2a02:2168:87cb:3900:b204:3af:b369:d1c3])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c24591df622sm133458066b.46.2026.08.20.13.29.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 13:29:16 -0700 (PDT)
+From: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+To: netdev@vger.kernel.org
+Cc: chester.a.unal@arinc9.com,
+	daniel@makrotopia.org,
+	dqfext@gmail.com,
+	sean.wang@mediatek.com,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	yangshiji66@outlook.com,
+	Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+Subject: [PATCH net v2] net: dsa: mt7530: do not advertise EEE on MT7621/MT7530 switch
+Date: Thu, 20 Aug 2026 23:28:44 +0300
+Message-ID: <20260820202844.1821687-1-vladislav.karmanov.dev@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260817090601.1256389-1-pawlik.dan@gmail.com>
- <20260817161756.5fd2185a@kernel.org> <CALC2Apj7rQv=6uUqaqBjfJ9yO+VCddQqHB=yDhXH7+QUCh2JyA@mail.gmail.com>
- <20260818082933.28b5c9d1@kernel.org> <CALC2Apj-KLB5CVbSvoZWvA4Oan7dmAerK=VP7W86jmErWW8OdQ@mail.gmail.com>
- <CALC2ApiCSY8DkVpd7puTssbJZMWBHGVtFCnG66fiK0PX7-u3Hw@mail.gmail.com> <20260820101851.0b4c284a@kernel.org>
-In-Reply-To: <20260820101851.0b4c284a@kernel.org>
-From: Daniel Pawlik <pawlik.dan@gmail.com>
-Date: Thu, 20 Aug 2026 22:28:00 +0200
-X-Gm-Features: AcwNN1Vsd9SSDhiQPcdRUECjLI5GP2wK-pPfntddOHFbe8M7j0tkDMN1vuQpucI
-Message-ID: <CALC2Apgp1rxK4d4z1XcRJv3=O+7uxLcMuNBS0OTi0TbwA+0Fzw@mail.gmail.com>
-Subject: Re: [PATCH v8] net: airoha: npu: use cacheline-sized buffers for
- mailbox DMA
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, lorenzo@kernel.org, win847@gmail.com, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_132815_197677_EDD8E891 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20260820_132919_207231_2985697E 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,97 +110,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kuba,
-Fair point - the interesting part is the mechanism. I don't have the
-EN7581 TRM, so I can't name the exact register. From ATF, DT, NPU
-firmware, and the instrumented kernel path, the picture looks like this:
+From: Shiji Yang <yangshiji66@outlook.com>
 
-TL;DR: Sub-cacheline map length forces SWIOTLB on this non-coherent
-arm64 setup. SWIOTLB sync/invalidation doesn't explain the failure -
-the response never appears in the bounce buffer. Cache-line-aligned
-streaming buffers avoid SWIOTLB entirely and the probe reads 0.1111. The
-remaining question is why the NPU doesn't produce visible writes in
-the bounce region (high phys ~0xFF6x vs vendor DMA pools ~0x84-0x91).
+There are hardware defects in the MT7530 internal GE PHY EEE support:
+with EEE advertised, some link partners cannot establish a stable
+connection. On a 2-pair (4-wire) cable where both ends advertise gigabit,
+1000BASE-T training cannot succeed, and instead of falling back to
+100 Mbps the port flaps in a loop and no link/DHCP lease is obtained.
+This is confined to the WAN / phylib bring-up path; the DSA/LAN side on
+the same device is unaffected.
 
-What's ruled out:
-- No IOMMU/SMMU on this SoC; DMA addresses equal physical addresses.
-- No EMI MPU - unlike MT7622/MT7986, the Airoha ATF [1] configures
-  only TZPC (secure/non-secure for NPU SRAM and EFUSE), not DMA
-  address ranges.
-- No PMP in NPU firmware =E2=80=94 disassembly of the RISC-V binary shows
-  zero accesses to pmpcfg*/pmpaddr* CSRs.
-- No dma-ranges in DT - the soc node uses identity-mapped ranges;
-  the kernel sees no address translation for NPU DMA.
-- set_memory_decrypted() on swiotlb pages is a no-op on standard
-  arm64 (no CCA/memory encryption on EN7581).
+The MT7530 internal GE PHY advertises EEE by hardware default. The
+eee-broken-100tx / eee-broken-1000t device-tree properties only take
+effect during the late PHY config_init path, which is too late for these
+link partners: they negotiate EEE before the OS disables it and then
+fail to fall back cleanly.
 
-What the bus fabric looks like:
-The ATF bus test code [2] reveals the internal topology. Each DMA
-engine has a dedicated port through the R2C (RBUS-to-DRAM converter)
-bridge:
+Commit af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE
+advertisement") removed the early EEE-advertisement disable from
+mtk_gephy_config_init(), on the rationale that "disabling EEE
+advertisement before the PHY driver initialises keeps it off", i.e. that
+the DSA subdriver already performs that early disable. That rationale
+holds for MT7531, whose mt7531_setup() clears MDIO_AN_EEE_ADV on each
+switch PHY, but not for MT7621 (and the dedicated MT7530 IC), whose
+mt7530_setup() never had such a loop. So af3b4b0e59de removed the only
+early EEE disable covering MT7621/MT7530, reintroducing the flapping.
 
-    port 0: GDMA/HSDMA
-    port 1: PPE
-    port 2: QDMA LAN (TX)
-    port 3: QDMA WAN (TX)
-    port 4: TDMA
-    port 5: NPU
+Regarding the MAC-vs-PHY question: the broken hardware is the PHY (the
+MT7530 internal GE PHY, PHY ID 0x03a29412, driven by mediatek-ge), and
+MediaTek's own recommendation (Landen Chao, 2021) confirms it: "EEE of
+the 10-year-old MT7530 internal gephy has many IOT problems, so it is
+recommended to disable its EEE." However, the disable belongs on the
+DSA side, not in the PHY driver: af3b4b0e59de itself established that
+the PHY-driver-side disable "is somehow enabled afterwards" (it does
+not stick), whereas the early disable done in the DSA setup path is what
+keeps EEE off -- which is exactly why MT7531 does it in mt7531_setup()
+and why af3b4b0e59de considered the mtk-ge disable redundant for MT7531.
 
-The RBUS also has a "DMA block" mechanism (0x1FA000EC) that
-serializes CPU writes against DMA reads within 64B/128B-masked
-regions, with per-engine block counters at 0x1FA000F4-0x1FA00108.
+Restore the early disable for the affected silicon by clearing
+MDIO_AN_EEE_ADV on each switch PHY in mt7530_setup(), gated on a new
+`broken_eee` flag in struct mt753x_info rather than an open-coded ID
+check, mirroring the existing mt7531_setup() loop. Set broken_eee for
+ID_MT7621 and ID_MT7530, which share the same mt7530_setup() and the
+same internal GE PHY. Auto-negotiation then falls back to a stable
+100 Mbps link instead of hanging at gigabit.
 
-All vendor DMA buffers sit in one contiguous region:
+Tested on ASUS RT-AX53U (MT7621): a single clean
+"Link is Up - 100Mbps/Full - flow control off" + DHCP lease on a 2-pair
+cable, where the unpatched driver loops. Confirmed on kernel 6.12 and
+6.18; also confirmed on Netgear R6220 and EdgeRouter-X (both MT7621).
 
-    npu-binary:   0x84000000 (10MB)
-    qdma0-buf:    0x87000000 (32MB)
-    qdma1-buf:    0x89000000 (16MB)
-    npu-pkt:      0x8A000000 (44MB)
-    npu-txpkt:    0x8CC00000 (64MB)
-    npu-txbufid:  0x90C00000
-    npu-ba:       0x90C06800
+Fixes: af3b4b0e59de ("net: phy: mediatek-ge: do not disable EEE advertisement")
+Signed-off-by: Shiji Yang <yangshiji66@outlook.com>
+Signed-off-by: Vladislav Karmanov <vladislav.karmanov.dev@gmail.com>
+---
+Changes in v2:
+- Gate the disable on a new `broken_eee` flag in struct mt753x_info
+  instead of an open-coded priv->id == ID_MT7621 check, so it is easy to
+  extend to further affected silicon (suggested by Daniel Golle).
+- Cover ID_MT7530 (the dedicated MT7530 IC, e.g. BananaPi R2) in addition
+  to ID_MT7621: both share mt7530_setup() and the same internal GE PHY
+  (suggested by Daniel Golle).
+- Address the MAC-vs-PHY placement question in the commit message: the
+  broken hardware is the PHY, but the disable belongs on the DSA side
+  because af3b4b0e59de showed the PHY-driver-side disable does not stick
+  (question by Andrew Lunn).
 
-The ATF bus test uses DRAM_TEST_BASE =3D 0x84000000 exclusively -
-no test exercises DMA at high physical addresses.
+v1: https://lore.kernel.org/netdev/20260818182829.1580811-1-vladislav.karmanov.dev@gmail.com/
 
-The NPU reads the mailbox command from the swiotlb bounce address
-(~0xFF6D0000) successfully - mbox_status returns success. But it
-never writes the response back; the buffer stays zero, causing a
-timeout.
+ drivers/net/dsa/mt7530.c | 11 +++++++++++
+ drivers/net/dsa/mt7530.h |  1 +
+ 2 files changed, 12 insertions(+)
 
-Read-succeeds/write-fails at a high physical address, while all
-production DMA stays in 0x84-0x91, points to the R2C bridge's
-write path having a narrower address reach than the read path.
-Whether that's an address decode window, a write-buffer range
-check, or a port-specific routing constraint isn't visible in
-the open-source ATF or kernel code - likely hardwired or set by
-boot ROM before ATF runs.
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index 2a70fa4..cab46c6 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -2446,6 +2446,15 @@ mt7530_setup(struct dsa_switch *ds)
+ 	if ((val & MT7530_XTAL_MASK) == MT7530_XTAL_40MHZ)
+ 		mt7530_pll_setup(priv);
+ 
++	if (priv->info->broken_eee) {
++		/* Disable EEE advertisement on the switch PHYs. */
++		for (i = MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr);
++		     i < MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr) + MT7530_NUM_PHYS;
++		     i++) {
++			mt7530_phy_write_c45(priv, i, MDIO_MMD_AN, MDIO_AN_EEE_ADV, 0);
++		}
++	}
++
+ 	mt753x_trap_frames(priv);
+ 
+ 	/* Enable and reset MIB counters */
+@@ -3298,6 +3307,7 @@ static const struct phylink_mac_ops mt753x_phylink_mac_ops = {
+ const struct mt753x_info mt753x_table[] = {
+ 	[ID_MT7621] = {
+ 		.id = ID_MT7621,
++		.broken_eee = true,
+ 		.pcs_ops = &mt7530_pcs_ops,
+ 		.sw_setup = mt7530_setup,
+ 		.phy_read_c22 = mt7530_phy_read_c22,
+@@ -3309,6 +3319,7 @@ const struct mt753x_info mt753x_table[] = {
+ 	},
+ 	[ID_MT7530] = {
+ 		.id = ID_MT7530,
++		.broken_eee = true,
+ 		.pcs_ops = &mt7530_pcs_ops,
+ 		.sw_setup = mt7530_setup,
+ 		.phy_read_c22 = mt7530_phy_read_c22,
+diff --git a/drivers/net/dsa/mt7530.h b/drivers/net/dsa/mt7530.h
+index 7e47cd9..fff310f 100644
+--- a/drivers/net/dsa/mt7530.h
++++ b/drivers/net/dsa/mt7530.h
+@@ -851,6 +851,7 @@ struct mt753x_info {
+ 	void (*mac_port_config)(struct dsa_switch *ds, int port,
+ 				unsigned int mode,
+ 				phy_interface_t interface);
++	bool broken_eee;
+ };
+ 
+ /* struct mt7530_priv -	This is the main data structure for holding the state
+-- 
+2.43.0
 
-So I suspect this is less "swiotlb unaligned-length sync is broken"
-and more "this DMA master shouldn't be bounced to that DRAM region" -
-but I can't prove the bridge/decode story without vendor docs.
-
-Regards,
-Dan
-
-[1] https://github.com/Ansuel/atf-airoha
-[2] atf-airoha/plat/ecnt/en7523/cpu_bus_bl2_test.c
-
-
-czw., 20 sie 2026 o 19:18 Jakub Kicinski <kuba@kernel.org> napisa=C5=82(a):
->
-> On Thu, 20 Aug 2026 10:20:08 +0200 Daniel Pawlik wrote:
-> > size=3D24 < cache_line=3D64 fails this regardless of address alignment.
-> > The swiotlb sync code itself is fine, but the NPU cannot DMA-write to
-> > the bounce buffer address range (it reads commands fine, never writes
-> > responses back). This is probably an EN7581 platform limitation.
->
-> Sure, that's pretty much what GPT told us some revisions ago.
-> The question is why.
-
-
-
---=20
-Z powa=C5=BCaniem,
-Daniel Pawlik
 
