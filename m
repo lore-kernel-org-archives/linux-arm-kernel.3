@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB54C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 14:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AF97C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 14:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ELlKloYhHv5Ro+z9hZlmPQVrMHtt1jZZCr8sx3Sqsfw=; b=iY9cbXWl9NO279XhrRbN2Gjh8T
-	FWtukBUw4jzGss4wYNV7wEZ99ecbCXEyDgbZtjKX/aiFnCMtZ3mP42eWn+JDXe50J81Zbc9+xZctU
-	Yntar96TMn1Cxk4J8vBAsQv4vtgeKNclQW2YT7TjNO5iH4bDW1ak6kJ8Mh6ilzwl8hhX5/V4/drI3
-	QTActGarAJWjqVexL2ADz7QXLRKBs//DxTlDfcgIq1UhD4fgtpsl9mwoT8LkDXAPvbzMxjz62Kj6D
-	cDFyRk8zyFaPb3ycM6JzWHk9z0Orx2CChSMSppNa+33kV2ol9UzVfgwRSY4A4jHNTEU6Zop5HjwVe
-	BJE6LBMA==;
+	bh=gB4myMrN8MiD4WDVFN5AZEszA8hveqrcyBNo6QY2cfE=; b=dzIxxMcw26V4vtlAeOQh3aGCnw
+	djfPbS+RPSOpMsOSP+ZX7cD9PKKwKsvkFXxmhP/cZLhZyh4muOzZgR5oKoXyz1s3HyPFZDsaqKEEr
+	+tgK1zGlwMXMFT6e0hOOClZ4bWL49GaHfaKcFyxSyYsdhclHez2uNl1qqA0L01Og7c5RXoe7ylmGY
+	vSZGLNR0ARl+zidBfF2L3Akw9VtVsCZBUFrmqSjmROFSsAsK6HPB9ttnzH+BB5U376NSBoN714SE2
+	B8aox5n2moAnJ/S4+cJI3JckD1uZbtwggolr+Q+LMR3gPxAZ3RosFm8gPEImvKtSWhM9pP7wZ7vB0
+	+bsos/IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx45r-0000000Bk2h-1pVu;
-	Thu, 20 Aug 2026 14:50:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wx465-0000000Bk6a-2I8m;
+	Thu, 20 Aug 2026 14:50:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx45o-0000000Bk2C-0ufG
+	id 1wx464-0000000Bk6D-2Qft
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 14:50:08 +0000
+	Thu, 20 Aug 2026 14:50:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C87F141259;
-	Thu, 20 Aug 2026 14:50:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6E191F000E9;
-	Thu, 20 Aug 2026 14:50:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0B9C160A5D;
+	Thu, 20 Aug 2026 14:50:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC63E1F000E9;
+	Thu, 20 Aug 2026 14:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787237407;
-	bh=ELlKloYhHv5Ro+z9hZlmPQVrMHtt1jZZCr8sx3Sqsfw=;
+	s=k20260515; t=1787237423;
+	bh=gB4myMrN8MiD4WDVFN5AZEszA8hveqrcyBNo6QY2cfE=;
 	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=edr78AESRI6F4wx4+F8Gk+28/3TUy4czOfd524eHZfy/z/mhEk/lHooybwbnfLhrV
-	 5e8wq6k8l0aKmixKdmkr98VJGkt5qS9lvrmApkiCbBUmKi7/2xLNBFIWlLpnineYEU
-	 ck9PQrwcKXEMWNtgnAOT/HNAQU+K4v5Wi4EoID3lxSjgJ0dO+cyEgBk2HjZenKwCJw
-	 vTr2B8/tc3I8CRUnRwUjFdlVAYNdhtFcaz5qq569AoovatmYJBtnAUwpE1+HUXGdAh
-	 +eTeHtOgDBAYrXWaegvyTgsb0aqs3ZbHD6f/4s1kKpHCdjJ/MlQ95FQj5Ok7rpgNc0
-	 whV4QTrH2T7Ew==
-Message-ID: <56cdec83-94dd-4b9b-9c27-6bf9ce8d48e9@kernel.org>
-Date: Thu, 20 Aug 2026 16:50:03 +0200
+	b=ev6zcMxSUeRMarcf9nUTmn2G+U59JzJRbDxH5XnP330b+tTm30WXbiwx8W8LyHy/D
+	 KXTkj+L+oxJaXkSEu0mYFiTGyXK0JJpm8XxVV5p2h2bSi8w+jKWH9qACIjVmT2AlWV
+	 okfUkl2y5CY0DAxg33dCl7rxdflv6U+FQszqhU9vPQioKuk5tWeRVHx8mByX6sFfUi
+	 0n0uOLIxkVOvA58xm3+bBkXmTi2U8andIatF6C7QqjcVp4qaQirkh1FU7jryxqCjAz
+	 hXrjqEbmnwlZAXY7bAVSkCEV6wEPnsUrMg/2qsXaxkuJlqeAG1WEJMps+KPRV2GwEq
+	 mnZ0QC1XFnY6A==
+Message-ID: <144ef4b2-a200-4634-a4ec-539a0ba9a15c@kernel.org>
+Date: Thu, 20 Aug 2026 16:50:13 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH] crypto: stm32/cryp: fix autosuspend cleanup during
- teardown
+Subject: Re: [PATCH] i2c: at91: fix autosuspend cleanup during teardown
 To: Guangshuo Li <lgs201920130244@gmail.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Thorsten Blum <thorsten.blum@linux.dev>, Kees Cook <kees@kernel.org>,
- =?UTF-8?B?TWF4aW1lIE3DqXLDqQ==?= <maxime.mere@foss.st.com>,
- Colin Ian King <colin.i.king@gmail.com>,
- "lionel.debieve@st.com" <lionel.debieve@st.com>,
- linux-crypto@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+ Codrin Ciubotariu <codrin.ciubotariu@microchip.com>,
+ Andi Shyti <andi.shyti@kernel.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+ Ludovic Desroches <ludovic.desroches@atmel.com>,
+ Wenyou Yang <wenyou.yang@atmel.com>, Wolfram Sang <wsa@kernel.org>,
+ linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 Cc: stable@vger.kernel.org
-References: <20260808093623.2744314-1-lgs201920130244@gmail.com>
+References: <20260808152654.2943371-1-lgs201920130244@gmail.com>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -106,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260808093623.2744314-1-lgs201920130244@gmail.com>
+In-Reply-To: <20260808152654.2943371-1-lgs201920130244@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -123,25 +121,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/08/2026 11:36, Guangshuo Li wrote:
-> stm32_cryp_probe() calls pm_runtime_use_autosuspend(), but neither the
-> probe failure path nor stm32_cryp_remove() calls the matching
-> pm_runtime_dont_use_autosuspend() before disabling runtime PM.
+On 08/08/2026 17:26, Guangshuo Li wrote:
+> at91_twi_probe() calls pm_runtime_use_autosuspend(), but neither the
+> probe error path nor at91_twi_remove() calls the matching
+> pm_runtime_dont_use_autosuspend() during teardown.
 > 
 > If the autosuspend delay is set to a negative value while autosuspend
 > is enabled, the runtime PM core increments usage_count to prevent
 > runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
-> during teardown, this reference is not dropped and usage_count remains
-> unbalanced.
+> during teardown, this reference is not dropped.
 > 
-> Add the missing pm_runtime_dont_use_autosuspend() calls to both the
-> probe failure and remove paths before disabling runtime PM.
+> The documentation for pm_runtime_use_autosuspend() also notes that it
+> is important to undo it with pm_runtime_dont_use_autosuspend() at
+> driver exit time, unless runtime PM was initially enabled with
+> devm_pm_runtime_enable().
+> 
+> Add the missing pm_runtime_dont_use_autosuspend() calls to the probe
+> error and driver remove paths.
 > 
 > This issue was found by manual code inspection.
 > 
-> Fixes: 65f9aa36ee47 ("crypto: stm32/cryp - Add power management support")
+> Fixes: d64a818859af ("i2c: at91: add support for runtime PM")
 > Cc: stable@vger.kernel.org
 > Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+
+How many separate I2C, drm, crypto, hwrng etc patches you sent?
 
 You sent vast amount of patches, all separate, making it very difficult
 to track and respond in efficient way. Do not do that.
