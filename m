@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5FBEC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:34:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED6D8C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:34:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7VAih6CJcla7gNd/QP63tx26v6uoeQYaOkiWuBfulpI=; b=vsa2PHlGlnfLFIBEpEqOy9Mpyg
-	gONIC2/ELM2LUXu5KcUxZEfYxpMRBGoos8AXMYQEB71EikAqxx/MbWwVq1j+6ti8hYuxA2YDZW6+q
-	dKrIOth/UV7uGqzUv876b7iyRh1z2x7opT1PitwsZlsPluc7ZmngfY5Y/4ODm25KcPmBiQk01E6Rr
-	LtljRwI9/UJ3ii/VAVv5fp8gpGqj/GaKbVGPqZfRLY2Tykr5Uawy5E2ly2MhGU0YrhymcmdksUd3r
-	rhtvEMHdoAUVzxbQoY75ZwGp9kNCsxj+8Z43T8ZgwF3jZ2SWGdgmiLHoSN22NwApbMhQ+pKWaHVtr
-	3+14sEAA==;
+	bh=vrKwUPeORS8wt2sjjpsZKh/n8E8YlG/FmoB99tvPcuQ=; b=d8hHOZMaRN+834kl7FDXjDXDoo
+	K8BYPi5wX6kDWym7NHvs6oKEw0V7wW2fku1/SFdMkm7ZLtaZMWbkiLcLfOc8RzgTgjrswGlV0JDS9
+	HM93RYRlGjCf7VEu3942GSdXs3q8pt3iJ4Jbf7kGtg8o0az6MEUhBjxJqMP9U31foaaVOnV/XoamY
+	1n63HuTyEMIED0MmO+HqI0Ru2IrBhmC6KWBFUvxYPfCFXhfoN2xzMh9oSiJdxLEGObeSE/LmpPWtE
+	20v/vGKQJJzkoGvXWg8hAUQrR3qA2O+uMnuvyWcPPbhY5eGZHOc9XVLFNZMVITC8MYZZsdhvRI0A7
+	1ECZO6Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4me-0000000Boms-1cGa;
+	id 1wx4me-0000000Bome-113V;
 	Thu, 20 Aug 2026 15:34:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4mW-0000000Boi3-2Gnh
+	id 1wx4mU-0000000BogM-3CiQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 15:34:17 +0000
+	Thu, 20 Aug 2026 15:34:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2A13B153B;
-	Thu, 20 Aug 2026 08:34:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 115B41D31;
+	Thu, 20 Aug 2026 08:34:09 -0700 (PDT)
 Received: from e142334-100.cambridge.arm.com (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2FBB53F763;
-	Thu, 20 Aug 2026 08:34:13 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1ED753F763;
+	Thu, 20 Aug 2026 08:34:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787240055; bh=vre9auiptf+o+amdAV0uA/7EFkQAVeq7gsNLbAqiU8c=;
+	t=1787240052; bh=D+dw7q4S0N+yJRYhBUe7UafbY5UCUkJuweMW4eXTnyM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ILuiY8iGLLhfAIqBKU9UGmoQePaZW4vluIC1qsZoLQQaGLK1np9ZVli07H9RN+ojP
-	 S8hnGYPAty5WZzdm42RTrrzEhXRDmOkWppwJD666o3+vpKjnsZUGsqoVQD9371sizq
-	 ElOfDFmb9U2+2Ch12mQJBdb5ICdboTOWEt2lspcs=
+	b=hcAJQxBJ99jeN2FBGZx4KLmW6K1tUomD2sPRr/GElxK2E5lma7f/fqEMbOs0gLeRA
+	 ycH4w7bs81Xhjqll4F1K+eXNRJsHhUadwAGQC8CmHYBUTHpwXra/9+f8zXTIVAIG8E
+	 4cfzSgLjkeHvkfIUyJiEuYLZ92/jZp76UVWSJSPI=
 From: Muhammad Usama Anjum <usama.anjum@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -54,17 +54,17 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)),
 	linux-kselftest@vger.kernel.org (open list:KERNEL SELFTEST FRAMEWORK)
 Cc: Muhammad Usama Anjum <usama.anjum@arm.com>
-Subject: [PATCH 3/4] selftest/arm64: Fix MTE prctl TAP plan
-Date: Thu, 20 Aug 2026 16:33:25 +0100
-Message-ID: <20260820153331.2448875-4-usama.anjum@arm.com>
+Subject: [PATCH 2/4] selftest/arm64: Treat KSM merge_across_nodes as optional
+Date: Thu, 20 Aug 2026 16:33:24 +0100
+Message-ID: <20260820153331.2448875-3-usama.anjum@arm.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260820153331.2448875-1-usama.anjum@arm.com>
 References: <20260820153331.2448875-1-usama.anjum@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_083416_636754_3F3D71C9 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20260820_083414_891411_2592CDAD 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,34 +79,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MTE prctl test emits one result from check_basic_read() followed by
-one result for each of the seven entries in mte_modes[]. However, the TAP
-plan only accounts for the array entries, producing:
+The MTE KSM test unconditionally saves, enables and restores the
+merge_across_nodes sysfs attribute. The kernel only creates this
+attribute when CONFIG_NUMA=y. A non-NUMA kernel consequently prints the
+following message three times even though all KSM subtests pass:
 
-  # Planned tests != run tests (7 != 8)
+  # ERR: missing /sys/kernel/mm/ksm/merge_across_nodes
 
-Include the basic read check in the plan so that all eight emitted results
-are declared.
+Check whether the attribute exists and only access it when present. This
+preserves the existing setup and restore behavior on NUMA kernels without
+requiring NUMA or reducing KSM coverage on single-node systems.
 
-Fixes: 1f488fb91378 ("kselftest/arm64/mte: Add MTE_STORE_ONLY testcases")
+Fixes: f981d8fa2646 ("kselftest/arm64: Verify KSM page merge for MTE pages")
 Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 ---
- tools/testing/selftests/arm64/mte/check_prctl.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../testing/selftests/arm64/mte/check_ksm_options.c  | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-diff --git a/tools/testing/selftests/arm64/mte/check_prctl.c b/tools/testing/selftests/arm64/mte/check_prctl.c
-index f7f320defa7b9..d16a91117eef9 100644
---- a/tools/testing/selftests/arm64/mte/check_prctl.c
-+++ b/tools/testing/selftests/arm64/mte/check_prctl.c
-@@ -119,7 +119,7 @@ int main(void)
- 	int i;
+diff --git a/tools/testing/selftests/arm64/mte/check_ksm_options.c b/tools/testing/selftests/arm64/mte/check_ksm_options.c
+index 0cf5faef17248..b36945fc883d3 100644
+--- a/tools/testing/selftests/arm64/mte/check_ksm_options.c
++++ b/tools/testing/selftests/arm64/mte/check_ksm_options.c
+@@ -6,6 +6,7 @@
+ #include <errno.h>
+ #include <fcntl.h>
+ #include <signal.h>
++#include <stdbool.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+@@ -22,6 +23,7 @@
  
- 	ksft_print_header();
--	ksft_set_plan(ARRAY_SIZE(mte_modes));
-+	ksft_set_plan(ARRAY_SIZE(mte_modes) + 1);
+ static size_t page_sz;
+ static unsigned long ksm_sysfs[5];
++static bool has_merge_across_nodes;
  
- 	check_basic_read();
- 	for (i = 0; i < ARRAY_SIZE(mte_modes); i++)
+ static unsigned long read_sysfs(char *str)
+ {
+@@ -56,8 +58,11 @@ static void write_sysfs(char *str, unsigned long val)
+ 
+ static void mte_ksm_setup(void)
+ {
+-	ksm_sysfs[0] = read_sysfs(PATH_KSM "merge_across_nodes");
+-	write_sysfs(PATH_KSM "merge_across_nodes", 1);
++	has_merge_across_nodes = !access(PATH_KSM "merge_across_nodes", F_OK);
++	if (has_merge_across_nodes) {
++		ksm_sysfs[0] = read_sysfs(PATH_KSM "merge_across_nodes");
++		write_sysfs(PATH_KSM "merge_across_nodes", 1);
++	}
+ 	ksm_sysfs[1] = read_sysfs(PATH_KSM "sleep_millisecs");
+ 	write_sysfs(PATH_KSM "sleep_millisecs", 0);
+ 	ksm_sysfs[2] = read_sysfs(PATH_KSM "run");
+@@ -70,7 +75,8 @@ static void mte_ksm_setup(void)
+ 
+ static void mte_ksm_restore(void)
+ {
+-	write_sysfs(PATH_KSM "merge_across_nodes", ksm_sysfs[0]);
++	if (has_merge_across_nodes)
++		write_sysfs(PATH_KSM "merge_across_nodes", ksm_sysfs[0]);
+ 	write_sysfs(PATH_KSM "sleep_millisecs", ksm_sysfs[1]);
+ 	write_sysfs(PATH_KSM "run", ksm_sysfs[2]);
+ 	write_sysfs(PATH_KSM "max_page_sharing", ksm_sysfs[3]);
 -- 
 2.47.3
 
