@@ -4,161 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C006C5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1E65C5DF82
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 10:30:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ty5/YlOK6jhAeQysmUgT83beKPjDWgvudsEIa05/S58=; b=JhyAUMiT1PmqyukPJmuBnOxalI
-	/eWD1ERHov/jAMf1+kF3a+FUWt6Uw7J/4Poo7/B1tZfklSxtk3FtRX5o5xwaNKohup+/OdRMGZpzz
-	qIYM5TmJk0ytg+sLxDQNMubAvxcW8MBGluX/LKTQ6FKt3tmKCy4QUzDmEM12NAF2ZigsrVfNls4IJ
-	uryq3ybfQVYy/JVy9ujhnoSaugQujEzrk9eP8eyv1LEl4P8cgEV9BfWe2+8Oax+oox1c74FWeo2TN
-	MC43DI7NlyixuOTCsgSVkdZafD8ammhoTXXHYcUqOXRoO3AaCL28/SK1hqpI1gYw4PkJWutnK9tYN
-	P20fMoTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gHTtDnXZCHKa5y8EGgqexs176ovYBZq6I1x2ikTmc/A=; b=HQMCjT0CoeyxBVbjfF0vEBOcQf
+	1a3DUcG2Kzq9AUIu2tP1EHsVK9pZyc+7q7m8nopgmlRub3IaN7uPtSsX7OmWpMOocN3DRoWXXp5dD
+	GQDOpkekwPrXtyEzfMDT6juG6kV6wOsG8WheF/ocdlZ9COgvSlTtjwjsUSuCoLAP0URfil7GwpvEE
+	eyMKkNjXz/fTRE6QlwnMO4YZid7Cugg4DwsZHL97gHr/dXc2Oy25OUllRWFCwbKwBmTVtHPJJgs6N
+	/E+8p/VqHW4B7EPYhdZDUl/RKVuikVptR+o76cOSheGTbQ/1aJMA9g92PWPDx3DL8FeMnDGXvbSBo
+	EQCpQP+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwzwe-0000000BMEa-3bve;
-	Thu, 20 Aug 2026 10:24:24 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wx024-0000000BMW6-2EDs;
+	Thu, 20 Aug 2026 10:30:00 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwzwc-0000000BME8-1abO
+	id 1wx021-0000000BMVI-446M
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 10:24:23 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67K7LEos2753052
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 10:24:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Ty5/YlOK6jhAeQysmUgT83beKPjDWgvudsEIa05/S58=; b=NlB8zap4bl1dTpi/
-	b77sQXntHv1GfNurcpg1EXnyTgwpZQ+R78j2BoglrlZvcovg72q6QAhNZfrYzcqr
-	GCwMe36xIWlsMUYFJg8JYGU7TK6ZgYfMV+pc0lL6XogJV6HWr0LEOLcfyjLsqv1m
-	ZNq4SlEiH17wGWg3jha9yW8w706I3uJe4rCwJjbfD5Am7ydlP/iNJjbivrLwrwS+
-	x9zOhcGIvabtlfi89CueWIKKke4cwPHsg46q73d9VcaLPyY/MSWxNOaUT6WI97fp
-	1du9a25vtOEz36lozAdQyY+2xlVha4vci5E+Etk7h5hFpMtrrVUJvTbcfOsZ8jJD
-	DQkAog==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g5w498qbc-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 10:24:21 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8487eb67173so3166114b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 03:24:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787221461; cv=none;
+	Thu, 20 Aug 2026 10:29:59 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-39c908d6cb6so24660901fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 03:29:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787221796; cv=none;
         d=google.com; s=arc-20260327;
-        b=KlSUP60fZQy6qBbAXwa58mEyp0Oml3iBTT3Urhxc7PKPnp6z9QtqgVSsHHQi8QVxSy
-         R7pubqcI45oi1IbRcN8ESu4H3oH1JZgsbjtMo9z1m+0UkjSY+SRHuc901tJxrUppY83x
-         PaPq65+NCqnF2509RDlzaNWx/ghX7OUGi+cRu0OP2r9lS9T1bc9VQzFzeKp30Ctc79ld
-         4Iy1YCRWhgShbie/rGVLOMwK3ZgSW7colJV/rCkS2kVrQZZgY8JjnClisbk5b5+itelE
-         3+RJ/1Gd8i8GZJg3SKFL15ieUb6p+dmTWaI/zDQgmNrYTdytx1rd6Hy2lZfB7T4/nf0u
-         Y5Qw==
+        b=bCQFqyMQNeeaqUBets99yP6MpYfkwMKz/nJwWHdMUG+TKzDTW+nt6WDwT6XH8Hvtp6
+         iz/NVV1hbUcCErR6k8vQlkQ6KgPK79oSGhupiw10PiX/DzyatMl5mhpD/j3hZRoXpV1O
+         NNWYZDoJMOpG0s4AkEFUAayUg+u68GuMDY1kiTP2f4jV7ZNWcEtiBTCa+st1lUtucbI5
+         4mVTdkLq5u1w42XbBbqagB3U/wbDZ2V6EzheHfWyykp+zSjvjhZCZ0AGu7iO7ReAOyOh
+         dtvrZBms9vpO0TjqEsH/5IySmDadXaUQTUdraeJt9I7yx4vtKr/u5lNwR1EmszFJyygg
+         bbdg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Ty5/YlOK6jhAeQysmUgT83beKPjDWgvudsEIa05/S58=;
-        fh=YWkk4lTWxyqMwz40UXBDonYb0b9Uwgg9sG7k1k/tpPE=;
-        b=FcgU1owsBX4CltMTLkdDOvM5DL6WS77/gcyG6I12lRolN0B/M3UbXM9E4T0mtonaFJ
-         /3FhFLIqCjh6WIAzNt6L48RIij8RnMhfOsid1k0w5lfu2pF/niSXV4QIt70cQjJ8YBu7
-         eygjAwraVmhVLAfof9HOSbn9YkAbDO2lE9ketypv55fc0oXdrGIqe3VGbdYBHUVo+eQW
-         cm7gJ2OXwr6d0CX3Rk0wfTdhbpnz+fQyhU4lYwHex2eMeNKkAlDWNDEaT/yJX1yGtZXL
-         MPa0lmRZ3fQB8nM7d/SCH9gvzecz1vIGXsbFN/wRg3dvDIEh4Luna1Ahd4DkGWXZjOt0
-         6sbQ==;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=gHTtDnXZCHKa5y8EGgqexs176ovYBZq6I1x2ikTmc/A=;
+        fh=dtZt27UTsImmMFBhzRgtAM28C4kqpjnSWWRjYbiCISk=;
+        b=sq3LiBgBzeetEmq8HjHtTLrPQGhWYT40uXt9RzRX+AZ47EyeJ6jxOlwf3GA/1eP+oB
+         ypvjNSbipCGdRXPp1eY1CczxQjvuSDBGPee6v/lyj4jBCKpSPcPb/jzs0gXxhEU44zKB
+         r6RtCZIUwJFLBg8jN8jLuNOOLDbSMelT0tFtem/f8MKlO/jpsT/NoldTX6WWEkGSikmA
+         3idvOO+ucOHBdIjgKU3oy0H8qRe7+Dt7mKuN1xoJ7zlpwo9M6B/fzxCwElLu4gKoZIoq
+         Jl5oJnUMGVkNEHZIIii0HefrxGBrt2PuFiKBsMEHGOzVRzfeICFE/ljgliRqJlIbKNsH
+         0F6w==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787221461; x=1787826261; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Ty5/YlOK6jhAeQysmUgT83beKPjDWgvudsEIa05/S58=;
-        b=P7CyRzV08rW3u/2qH+fngPIGSBG+kopoAo4dgp9ljVyGbL505W14g+4iV9bgjiSWG/
-         uM56OzoOGktcwtGadQFQ9WT+tgENl5RJ6Ptav27ovCRwkSnx81drCAWmoFDCJFEvl1am
-         Ia7l+8vDBkYLvtkFUUovicujmEEyu4yDKyFqECN5Pizs72D10DYWSw/fW0r4EJKW0dOJ
-         evGNUP5lupNt22q1I+2gWd7u/QVzw7X7Io0SwQZtIV5dVvuwkLjVFqnxwtpJw51n7ffe
-         dt/bhZ0pCZwYKkzP6ry7HMLYkQDfEkmDBbNgDJ2RUnuO0OFhfaa1++9aGHfLIoZ8nON5
-         yvAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787221461; x=1787826261;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1787221796; x=1787826596; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Ty5/YlOK6jhAeQysmUgT83beKPjDWgvudsEIa05/S58=;
-        b=XbpNDpH2eDowFDcUz5k9I4yfBS3V3+4j8xPG52obkxxvZJQjNPrAFRQz7sm1yy8w+4
-         wDNKRCOxSRevvFbA7K6EqyqdH6gPuRP5hNl4QMgXDOCHPRfsngSQjCNMhbcr0YqPh4Mk
-         VyFWyt1qGxqFuyuk03HNZPvbaZ0uHsZpxdzEDMZLwphySk2ppQgbcuxlp8Yiixlvtbsd
-         gpPzz+eDpEXiT1NrDxBRxCeA45C249jOFCZm1t8DxrLWIcTXIooM9Lenw9YZoZqwahzh
-         UnVXdPeu804s53w7JXT1GcLFzfqBq86o37W/ToZ1D14RVr+aZ0k7jPDGa6PmBwNxMZNQ
-         lYmw==
-X-Forwarded-Encrypted: i=1; AHgh+RpLbVmSPLC7d4jGeuSP3trcThDqhtXZYKljwJnIyua5cxqeNSYGfote/7CAm7+M/eBNXAq0E9661Hd7A/qqHbtZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzkMRi2d48xOjaBHnL4pTDpaZrhxTMDY2CbYvYAS6fWjqJ5knF
-	pMFQRiTCZ0KTnWragvVggyvgOOCPxj6obVpyVLVVwRP8vet81r2Fowd3i4jbQfeAWnDQdl4rBpE
-	Pe97p9D2y2CTO4r7fO0jO/XMPAldpNOBuCeNY8V70nhATQjDZ+v9k7hXIKXz8dz9s5QLk6c5Jd6
-	g+JmgSCzUsa6Gl85K25AqT3MXQTcT0Ue5ke/sg1Hila+N3rdYNaAjb
-X-Gm-Gg: AR+sD13axAzPzT9R9CMKdM0Xd/jp8XQ1OPQvFWebnU4mh8Jo0uLe3zkk3y1E/ZzDhQo
-	Kil93/Nc14Tyv6Bj3dufP29ia5IiGnxmkwUAmcKYBGQJgN05XLUEKYgWrD3IP9Wl4hup0G+zDdb
-	HGdzgwfkw7MMXwLH9jAbtf7IUBBXWF1fNMBbHikfNk7tq8dYO2OGH7uj7B9A==
-X-Received: by 2002:a05:6a00:2301:b0:847:7ffd:ce35 with SMTP id d2e1a72fcca58-851d382e720mr19263273b3a.8.1787221461191;
-        Thu, 20 Aug 2026 03:24:21 -0700 (PDT)
-X-Received: by 2002:a05:6a00:2301:b0:847:7ffd:ce35 with SMTP id
- d2e1a72fcca58-851d382e720mr19263163b3a.8.1787221460718; Thu, 20 Aug 2026
- 03:24:20 -0700 (PDT)
+        bh=gHTtDnXZCHKa5y8EGgqexs176ovYBZq6I1x2ikTmc/A=;
+        b=nA7ygrn8eRZzAfxi8XxgsuZzDyXI557GGpeirjv2E2edH7nH7R5o6m0J6C5rXRHud2
+         Pvo3rWqCp25R0SKPB0FFHP7U9AOztg3WpIYCXEB6eOSq4VCv1ayzFyaq1l+WTBFazS2K
+         WmXjsJOdEoobScbZnvcvjAeZ+RiZQunU0Co6vl1+Ha4Z3KBWT7gOuprsDPTqLESc5NHv
+         j1lz5fTqNB7xQoE7vIGXVfjNNUGMilHw1PJGxNbCYYJL9SPTjeiydM/f3KOq+Le42aA1
+         611lN/QCKzDLi9uzI8Op/joESpo+3AYcS6caQHiEKhuXqmBB20HlImNP4Ren1jJ07I87
+         dgLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787221796; x=1787826596;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=gHTtDnXZCHKa5y8EGgqexs176ovYBZq6I1x2ikTmc/A=;
+        b=cmec2Pr1aVraPlppoyjwWCGJ1jDJC4l3/3sq39ICqix5AfeWIk8Zpb7KNONMb8o25J
+         5k6IiyFtB5mJxQtUOkaRzkmzsAyCt6I1uWxYjAvLMaHju1E8ZIlxrPwa5Seg7XuvGSmM
+         rOCA34ejQfSseIwgtSr8cuXTcqx6U6NG8lGAj6jSw4Ok5DEi6ekln7W3stezZa8Zm2MB
+         9WXXa5NP7ngrzwoLPAXkVwuuJhs/0EMAm7ow4c7J9U4tlKa+HQcerhZCZDMEvq4nrjIE
+         YxCefIy5Sq6nXjhxsDiqmoaaFIk7NxRUyf9z5RKT33RZ9P6D4jNW0kNLGJMcVO545GLw
+         DYEQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqPsh47CXELs0mbxMGR8qmpkyBvlujD/msbNE5LrYn4HHFlGjVhkymvIGGIrtGnNU9DDMMBlBeSp7vnMnFIR/V9@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIrxqe2G5GOltl/p8MgBcZdJUEb8M1dZ5w+wTkrqaTTKOLevVi
+	5ah51bHK6DOe9pZwzkbR40tTenJGzyyybJfLjbPaBRugpc3tJtG5WgiZYl8Y9FnRB63uSd/WFlr
+	HbpRYs2d/xMbHJC0TMEtWY8qkf6KKmpM=
+X-Gm-Gg: AR+sD12jWlf/mVVrEhG6ujnqhMDNv3cGbvnus8hB+tNpcesz08Q8urAxRoqRqy1rJSr
+	16V/cXoNi3h0D6tAqOA48z5o+AMDIeaTtnLbOgKc0XgJVhb7SaX14cbxMjuq9WPC36TxLL3f3Yi
+	k+bWZ1k8N3hYKllPsmZ6Hxi/g756w77JfF02SEN40YBmr52cs0ciIWjDDpk11n0Bevw2e4WObno
+	YYKo0i4xpcQMF0+/GVrn00rDoAqTiIVJh3Fd0iTiaquOvQdQ5Vwdxs7l6Ze/3MBuKj0+VUhH/QZ
+	4caveSRoFwott4z6OusuMaOxmoi7LIt85IDsZNnIEV8wqZ+2SuwgV31sviFM9yzMEx1GZedKxlO
+	VRAerP8EcoJL4JXr15i39A10=
+X-Received: by 2002:a05:651c:a105:20b0:396:7e66:45ba with SMTP id
+ 38308e7fff4ca-3a1899c93d3mr20170021fa.8.1787221795510; Thu, 20 Aug 2026
+ 03:29:55 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260618-ux500-power-domains-v7-1-v1-0-eb5e50b1a588@kernel.org>
- <20260618-ux500-power-domains-v7-1-v1-10-eb5e50b1a588@kernel.org>
- <CAPx+jO-ow2vo2wMxERLGse88wLoaR=HLdOWk6Qwv97ZdbE4R5Q@mail.gmail.com> <CAD++jLnzDmxW_SoJ9H1tS2_r+jd7A7FpLVp37nK=dOEPj=GExA@mail.gmail.com>
-In-Reply-To: <CAD++jLnzDmxW_SoJ9H1tS2_r+jd7A7FpLVp37nK=dOEPj=GExA@mail.gmail.com>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Thu, 20 Aug 2026 12:24:09 +0200
-X-Gm-Features: AcwNN1XagjqLsUfXCAJXyqu2taAnOsy7gMxOrYs8oiiblP73dGEaPVwCq6ztGis
-Message-ID: <CAPx+jO-+hLsAdDC9Ep16cO52cA2c=xKeXvngkGqzoC0FyxXj+A@mail.gmail.com>
-Subject: Re: [PATCH 10/11] regulator: db8500: Add power domain regulators
-To: Linus Walleij <linusw@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-        Mark Brown <broonie@kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-        Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org,
-        devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, dmaengine@vger.kernel.org
+References: <CADOrJmbTyrGGkq+9OJDXCgTa2HvNo8BWxoE6yjafcrOq7WNamw@mail.gmail.com>
+ <20260817215428.84740-1-gvalkov@gmail.com> <20260819-generous-nickel-dalmatian-b6bb08@quoll>
+ <CADOrJmYfBe3ADun_kFjFSH6YOSTX7Vu3UsFsL57yuRdaQ=eJCA@mail.gmail.com>
+ <e554c007-67e3-4fbf-b85e-5de02f649e83@kernel.org> <CAGXv+5H7AhZgZ06r9KO3HLZ9Cymkai+Cv9SgVTuSC1PjgGf8hg@mail.gmail.com>
+ <d6c8f19e-f154-4b57-9101-cf3b73e9794f@kernel.org> <CADOrJmYxKTyDkKPaKCpH37RsyyZJZ+4uReE--+uvnHmEdNJVOw@mail.gmail.com>
+ <c38cb98e-0746-4b28-b0c9-ce59e8338048@kernel.org> <CADOrJmb8CTkjRFp7OjynfQSFm3fHT87wemUM4X5yJjTtS=C7tA@mail.gmail.com>
+In-Reply-To: <CADOrJmb8CTkjRFp7OjynfQSFm3fHT87wemUM4X5yJjTtS=C7tA@mail.gmail.com>
+From: George Valkov <gvalkov@gmail.com>
+Date: Thu, 20 Aug 2026 13:29:42 +0300
+X-Gm-Features: AcwNN1W--3JEaqfbnjrk9l_aNGSOT-_KL7O3smYd-mfsUY6q4R3owlstmMzx5Og
+Message-ID: <CADOrJmYdg6_BLdgY3yEDkn5ugBDwUNUyArffrCB7GWJkHqQRwA@mail.gmail.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: net: wireless: add flag marvell,ignore-regulatory-hint
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, briannorris@chromium.org, johannes@sipsolutions.net, 
+	andrew@lunn.ch, krzk+dt@kernel.org, francesco@dolcini.it, 
+	johannes.berg@intel.com, kees@kernel.org, miriam.rachel.korenblit@intel.com, 
+	rafael.beims@toradex.com, avraham.stern@intel.com, error27@gmail.com, 
+	s.kerkmann@pengutronix.de, gregory.clement@bootlin.com, 
+	sebastian.hesselbarth@gmail.com, robh@kernel.org, conor+dt@kernel.org, 
+	Frank.Li@nxp.com, chunfan.chen@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDA3NiBTYWx0ZWRfX2QqOTJ6pOMUL
- 2HX1T1JYxRQUvjVmID7AmS5dRprxEFutb9JTx7RVaQtPUOOUfZ2dM4CoWASdy94VC9ZQR/fD0id
- TuhU0q4bsY/xXYLs53UQBEzGZLbVOx0=
-X-Authority-Analysis: v=2.4 cv=YP+vDxGx c=1 sm=1 tr=0 ts=6a86d5d5 cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=yOCtJkima9RkubShWh1s:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=-_xB5rzH_TN0feDXJEkA:9 a=QEXdDO2ut3YA:10 a=2VI0MkxyNR6bbpdq8BZq:22
-X-Proofpoint-ORIG-GUID: jyURRwSbcin8Sl8HCJY8WPS79pWE71cU
-X-Proofpoint-GUID: jyURRwSbcin8Sl8HCJY8WPS79pWE71cU
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDA3NiBTYWx0ZWRfX6tHLlVW/B+RN
- pzLepvfmdoRG1gbKa2YJfMLhziEcQ5JOSTw3ex0752qdLSkUWHkNUQbqX7JF8JxaumtjgOAglyg
- dPHG7nO4mui2IcF4UAfCMfr41UN5nhDzhFujnOpEiDaYuWDOI5taWzVP0yynD5sRKzBg5iSMh8A
- BsCANdkLGUOEX6HX60sTwmhg+cEPN9kEQDdrDHKa81nDlXfIGF46tEgu70ALbhZK2y0e0BaQQLv
- N6czeac0jH0vuxsoYzyukXXUTLehyluiZcvPUEIpzWt3bW0Hy4UBDJ3ABsBq02OAL1hJzmITIM4
- rVSSlLtISW4TJC384PkSNGwGB/tT+1ZpVdXcAnBUXK0wREHeLg3M9PULZ5J5G7ZDk2By3qPr9jl
- iUFfF7xsd0nqYHpFJh9W+mAJTmpdEckCSLyCOZK0BXDIRPbvR6kRX+5bKX6WdAGXLLRWprtMjgo
- aRRyugZXh4xlwPQmjGQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-19_06,2026-08-19_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 suspectscore=0 bulkscore=0 adultscore=0 impostorscore=0
- lowpriorityscore=0 priorityscore=1501 phishscore=0 clxscore=1015
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608200076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_032422_422874_A996B557 
-X-CRM114-Status: GOOD (  32.40  )
+X-CRM114-CacheID: sfid-20260820_032958_067366_787E973B 
+X-CRM114-Status: GOOD (  45.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,80 +129,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 3:30=E2=80=AFPM Linus Walleij <linusw@kernel.org> w=
-rote:
+On Thu, 20 Aug 2026 at 12:33, George Valkov <gvalkov@gmail.com> wrote:
 >
-> On Wed, Jul 8, 2026 at 5:53=E2=80=AFPM Ulf Hansson <ulf.hansson@oss.qualc=
-omm.com> wrote:
->
-> > On Thu, Jun 18, 2026 at 7:01=E2=80=AFAM Linus Walleij <linusw@kernel.or=
-g> wrote:
-> > >
-> > > Add a DB8500 regulator driver for the VAPE and VSMPS2 compatibility n=
-odes.
-> > >
-> > > Back the regulator enable state with the corresponding power domains.
-> > >
-> > > This is done for off-chip consumers: the corresponding voltage rails =
-are
-> > > routed out so they are used for powering different peripherals using
-> > > these voltages as supplies.
-> > >
-> > > Assisted-by: Codex:gpt-5-5
-> > > Signed-off-by: Linus Walleij <linusw@kernel.org>
-> (...)
-> > > @@ -673,6 +673,7 @@ db8500-prcmu-regulators {
-> > >                                 // DB8500_REGULATOR_VAPE
-> > >                                 db8500_vape_reg: db8500_vape {
-> > >                                         regulator-always-on;
-> > > +                                       power-domains =3D <&pm_domain=
-s DOMAIN_VAPE>;
+> On Thu, 20 Aug 2026 at 11:14, Krzysztof Kozlowski <krzk@kernel.org> wrote:
 > >
-> > Hmm, isn't this the other way around? The power-domains node should
-> > have a regulator supply?
+> > On 20/08/2026 09:50, George Valkov wrote:
+> > >
+> > >
+> > > Krzysztof:
+> > >> regulatory-hint for me means usually regdb, but even with your meaning
+> > >> you tell SW what to do - ignore hardware regulatory information.
+> > >> Property should not tell what SW should do with hardware. Property
+> > >> should tell what is happening here in the hardware. In this case: what
+> > >> is the reason behind.
+> > >>
+> > >> IOW, why user of a board in country X, where regulatory data says X,
+> > >> should have the correct regulatory data ignored?
+> > >
+> > > Because users in X buy a board for X and the regulatory data says U.
+> > >
+> > > Indeed when the ROM regulatory hint is set to US and the driver
+> > > reports this to the OS, the wireless-regdb restrictions for US are
+> > > applied. This would normally be fine, however the third radio in
+> > > WRT3200ACM and WRT32x, reports US on all models including those sold
+> > > in the EU and other non US markets. This creates a conflict with
+> > > radios 0 and 1, which report FR and also with my correct setting: BG.
+> > > With the wireless-regdb restrictions for US, FR and BG applied, radio
+> > > 0 refuses to start.
+> >
+> > So if you move with your router to US, you would need to change DTB?
+> > IOW, the DTB is per user? This is obviously wrong... What if one device
+> > has correct regulatory data written and you ignore it? Why would you
+> > ignore it? If you decide to ignore correct regulatory data, then you can
+> > as well ignore it unconditionally and this property is not needed.
 >
-> They probably have that, but that is not what this is about,
-> it's the other way around.
+> All radios on these devices operate according to their certified
+> region. The firmware for all radios is closed source, locked-down and
+> there is no API to change any regional settings or affect TX power. By
+> design, the regulatory information for this platform is configured
+> from the devinfo partition mtd3:
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm/boot/dts/marvell/armada-385-linksys-rango.dts?h=v7.2#n106
 >
-> > We may even consider to skip to model the regulator altogether and
-> > make the power domain operate directly on the prcmu instead.
+> cat /dev/mtd3
+> admin1_passphrase=[...]
+> admin2_passphrase=[...]
+> cert_region=EU
+> default_passphrase=[...]
+> default_ssid=Linksys07770
+> deviceType=urn:home-linksys-com:device:Router:1
+> devinfo_version=20160121.1
+> hw_mac_addr=[...]
+> hw_revision=1
+> hw_version=48SAM203.0GA
+> manufacturer=Linksys, LLC
+> manufacturerURL=http://www.linksys.com
+> manufacturer_date=2017/12/26
+> mfg_data_version=1
+> modelDescription=Simultaneous Dual-Band Wireless-AC Gigabit Router
+> modelNumber=WRT3200ACM-EU
+> serial_number=[...]
+> sw_version=v1.0.0
+> tc_passphrase=[...]
+> tc_ssid=[...]
+> uuid_key=[...]
+> wps_device_pin=[...]
 >
-> That is what the series tries to do, as a whole. Sorry if that was unclea=
-r...
+> The intent of these patch series is not to make the radios operate in
+> a region other than the one they are certified for, that's obviously
+> not possible. As described in the commit description, the goal is to
+> allow the platform to use the correct region, which is stored in the
+> devinfo partition. The hard-coded region in the ROM of radio 2
+> conflicts with the platform region and should be ignored, otherwise
+> radio 0 and 2 won't even start. And yes this applies to the case where
+> the user bought the device in Europe and has configured their correct
+> country.
 >
-> What we do in this patch is to deal with the fact that two of the power
-> domains, when enabled, also turn on two external power rails outside
-> of the SoC.
+> With routes that allow the region to be changed, a user can move from
+> EU to US, set the region to US and use their device.
+> This is not the case with this model. The radios refuse region change
+> so the user should not use it in other regions.
+> For models sold on the US market, all 3 radios report US. The platform
+> also enforces the US region from the devinfo partition. Even if we
+> ignore the ROM hint from all radios, the platform will still use US. I
+> don't see any regression. My changes are carefully scoped to a
+> particular device which needs them and do not affect any other
+> devices.
 >
-> Since external components such as I2C devices cannot really be
-> claimed as "being inside a power domain" they take a regulator.
+> > > Would you approve any of these or suggest a better name for the flag?
+> > > Should ROM be in upper or lower case?
+> > > I omitted 'in-ROM' to keep it short, because the driver check line is
+> > > already longer than 80 characters.
+> > > - marvell,ignore-regulatory-hint (current)
+> > > - marvell,ignore-regulatory-hint-in-ROM
+> > > - marvell,invalid-regulatory-hint-in-ROM
+> > > - marvell,invalid-regulatory-hint
+> > > - marvell,invalid-regulatory-ROM
+> > > - marvell,invalid-reg-hint-in-ROM
+> >
+> > The point is that the regulatory hint is NOT INVALID. One device was
+> > sold in US with US data, so how could it be invalid?
+>
+> US devices have no issues, because all radios report US.
+> I would love to ask Linksys the same question.
+> My router was sold in Bulgaria and radio 3 reports US. Others bought
+> it from the UK, DE, etc - same thing. Please allow me some time to
+> install a clean firmware and I will post the output from
+> iw reg get
+> so you can see the incorrect regulatory hint and mix of three regions.
+> This will take some time, and I will be left without a working Wi-Fi
+> until I recover using UART.
 
-So with I2C devices you are not referring to the I2C controllers, right?
+iw reg get
+global
+country 98: DFS-UNSET
+(2400 - 2472 @ 40), (N/A, 20), (N/A)
+(5150 - 5250 @ 100), (N/A, 23), (N/A), NO-OUTDOOR, AUTO-BW
+(5250 - 5350 @ 100), (N/A, 20), (0 ms), NO-OUTDOOR, DFS, AUTO-BW
+(5470 - 5725 @ 160), (N/A, 24), (0 ms), DFS
+(5725 - 5730 @ 5), (N/A, 13), (0 ms), DFS
+(5730 - 5850 @ 80), (N/A, 13), (N/A)
+(5850 - 5875 @ 25), (N/A, 13), (N/A), NO-OUTDOOR, PASSIVE-SCAN
+(5945 - 6425 @ 320), (N/A, 12), (N/A), NO-OUTDOOR, PASSIVE-SCAN
+(57240 - 71000 @ 2160), (N/A, 40), (N/A)
 
-Are you saying that these external I2C devices consume the same
-regulator as the power-domain DOMAIN_VAPE uses?
+phy#2
+country US: DFS-FCC
+(902 - 904 @ 2), (N/A, 30), (N/A)
+(904 - 920 @ 16), (N/A, 30), (N/A)
+(920 - 928 @ 8), (N/A, 30), (N/A)
+(2400 - 2472 @ 40), (N/A, 30), (N/A)
+(5150 - 5250 @ 80), (N/A, 23), (N/A), AUTO-BW
+(5250 - 5350 @ 80), (N/A, 24), (0 ms), DFS, AUTO-BW
+(5470 - 5730 @ 160), (N/A, 24), (0 ms), DFS
+(5730 - 5850 @ 80), (N/A, 30), (N/A), AUTO-BW
+(5850 - 5895 @ 40), (N/A, 27), (N/A), NO-OUTDOOR, AUTO-BW, PASSIVE-SCAN
+(5925 - 7125 @ 320), (N/A, 12), (N/A), NO-OUTDOOR, PASSIVE-SCAN
+(57240 - 71000 @ 2160), (N/A, 40), (N/A)
 
-I thought these types of external devices in general use a different
-voltage range. Moreover, do note that DOMAIN_VAPE also has
-corresponding OPPs (performance states) that change the voltage level
-based on the requested OPP. I am not sure an external I2C would be
-able to cope with that.
+phy#1
+country FR: DFS-ETSI
+(2400 - 2483 @ 40), (N/A, 20), (N/A)
+(5150 - 5250 @ 80), (N/A, 23), (N/A), NO-OUTDOOR, AUTO-BW
+(5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS, AUTO-BW
+(5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
+(5725 - 5875 @ 80), (N/A, 13), (N/A)
+(5945 - 6425 @ 320), (N/A, 23), (N/A), NO-OUTDOOR
+(57000 - 71000 @ 2160), (N/A, 40), (N/A)
 
->
-> This is based on my understanding that power domains is an
-> SoC-internal concept only, so there is a clear boundary if something
-> outside of the SoC starts to use such an externalized power rail.
->
-> All this regulator does is to make sure the corresponding power domain
-> is enabled when the regulator is enabled.
->
-> I will repost all the patches once v7.3-rc1 is out.
->
-> Yours,
-> Linus Walleij
+phy#0
+country FR: DFS-ETSI
+(2400 - 2483 @ 40), (N/A, 20), (N/A)
+(5150 - 5250 @ 80), (N/A, 23), (N/A), NO-OUTDOOR, AUTO-BW
+(5250 - 5350 @ 80), (N/A, 20), (0 ms), NO-OUTDOOR, DFS, AUTO-BW
+(5470 - 5725 @ 160), (N/A, 26), (0 ms), DFS
+(5725 - 5875 @ 80), (N/A, 13), (N/A)
+(5945 - 6425 @ 320), (N/A, 23), (N/A), NO-OUTDOOR
+(57000 - 71000 @ 2160), (N/A, 40), (N/A)
 
-Great! I really appreciate that you move this forward!
+global: country 98: DFS-UNSET
+phy#0: country FR: DFS-ETSI
+phy#1: country FR: DFS-ETSI
+phy#2: country US: DFS-FCC
 
-Kind regards
-Uffe
+- phy0 does not start
+- phy1 works
+- phy2 works
+
+And my country is set to BG
+# /etc/config/wireless
+config wifi-device 'radio0'
+    option type 'mac80211'
+    option path 'soc/soc:pcie/pci0000:00/0000:00:01.0/0000:01:00.0'
+    option require_mode 'ac'
+    option cell_density '3'
+    option legacy_rates '0'
+    option htmode 'VHT80'
+    option hwmode '11a'
+    option country 'BG'
+    option channel '100'
+    option disabled '0'
+
+Other users report the same:
+https://github.com/kaloz/mwlwifi/issues/173#issuecomment-307879699
+
+You can also search: WRT3200ACM DFS, there are endless comments.
+
+Greetings!
+Georgi Valkov
 
