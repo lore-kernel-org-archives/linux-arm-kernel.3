@@ -4,92 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A81C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 21:47:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D72BAC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 21:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=S5ocIiFd6KFZwrrDp1pILTG65RoVNAY9CNuzSL/XjFc=; b=ojUQuhd2XNKJ1x1+VtRmBJWnop
-	w6U4gSmrb3uRXpoEL9H9tilBHSCcnwj9vS9KZ/pcpgJmRlHN2pDhXJ9tLxif2na98hrZOZ3ffD4G+
-	U3gGOtlDlswsCif5MmBJLQksjrYE00/OqypovTn5/dJRpBjxc6sSG34N3xhwRjA6lOtZa7Qjikr2i
-	cEdki4r5MEntmS1z34wriVr9SGxiRZUco8G93v1rzsZa3D4lJEFTGFEqyTL4X55tbJty9PUbrisNI
-	GcgjwBCbwvfi5AY2gXFqJkgXdHEnXO5+qTnzBSISx7ATpb70ZNxGkrHh7bvlVN62MrPYwwl6ZkCX4
-	JksA7vbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XoY3PJsNxOGbm0uPnIhjf9GixyLk7qeqjV2ARZe0tmk=; b=cj07t9SIdES9wQDesK9+5AOKe4
+	/Dqwukm7dSU3v759q/zuFzPY1cVshLgemPTfvo+/lMbUOS2iGI2hqRN0LFxoUTZai71DCat0vAwMd
+	hqdiuGkWF4pAo4tFOrnHZp0PEqaupdYs7wgZXblWtgzfM1Y30qEKZlq2ShD5DX1XGWP5A95lFzYc4
+	zm7y3DKU+HeaELH56p6LfCAOWisofrT3VxeopUsd6si6Lie1Rj+11ch21BSkgfNrtnBUJIWu7cbSF
+	CDvrSwyYy0Jn/JFVe5zVPgGv1KqXeBnY1RpOTSugkU/71/r9mlNs2+hIHo7OsBq5WRpSiQT5MLVDB
+	NzGYQXmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxAbj-0000000CFgo-0uWK;
-	Thu, 20 Aug 2026 21:47:31 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1wxAlG-0000000CGGy-212o;
+	Thu, 20 Aug 2026 21:57:22 +0000
+Received: from mail-northcentralusazon11010032.outbound.protection.outlook.com ([52.101.193.32] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxAbg-0000000CFgS-0vBj
+	id 1wxAlE-0000000CGGN-0l4T
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 21:47:29 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6a1a546a6bbso751365a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 14:47:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787262446; x=1787867246; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=S5ocIiFd6KFZwrrDp1pILTG65RoVNAY9CNuzSL/XjFc=;
-        b=UvUur9H3fLXSqHDPlryTAIpi/1/7TRYlBgFC82lXFEr8R04Ss+q/4OQEWreMf76pzM
-         JDv1hHmTIl4Hboed3WvzV/HWlKC3gvVNbZyz0xHXWoVmZ7DmU0Qyt6Dl2JV19d3tjEcG
-         3YtzZpAuXj/e2VhgkH0THZkkEYgLyPYkt26Px7afbivaG7sHIqonXEOpy1kQn46Dw8xk
-         5ypqYGUVpkCnSttpayzWWfc9VrGssYMgNthT3YKvm8rwqD0PhSoPuJfNPVvKkCLbg2dW
-         U2tnJl48AMwm4fdO+787QzYbKANYjYCOlO/KhEa1elhjSi3Ax6MNYjr56/ROVZ7RJr86
-         zOqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787262446; x=1787867246;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=S5ocIiFd6KFZwrrDp1pILTG65RoVNAY9CNuzSL/XjFc=;
-        b=Pu6eEr1iOQnvNNg5AiIAYh75RkBl/beSNew86M1JuOVISzhhhsgvsYB6NuHrboNIqh
-         duSxon3bs0dou3iJmmGpVVkhmlGF+bYg2AEWqpcUng0s+zCqFoOpOJUKAP/nL+ivYvC1
-         OW+JeLCOEB530SCnM7U7o4kcZIZevjn+kAQgBoG5MntRHhlM7qLhlvSyRRT/x1jbPeCE
-         O7BwXf9vIy0ERCAAQja73UmpS8UnqGNnwmYpnrQEy+mLmfYty963FZe+NOmBvrauV3Vb
-         gzmSPCOGlq91T1pKJ28SI4e6oUyb5LArEwPVYONeg2LfCqtYjntVE5/vlub9JWc+N/bJ
-         5GBQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq+vk8ZdR2bzdGCDLuNqS+excdFP9N8G8CremXeO34p9dIv0oyD/9VuRn5d2rWS3xdy1FduEF37kyumwRjpFyor@lists.infradead.org
-X-Gm-Message-State: AFuF++loVPjovZ+baKCi4I8D4RsUwUR/NOyjYE0C0O9zHcWGQTpIIXzt
-	tyWDJr8n0f9ZFC7W3QBGs3L5vJv7R0A07+XM+0gcXcb3rOn3sKLzdSJx
-X-Gm-Gg: AR+sD10p7j8n1Kc/Xf10uEhuPZE1tAhJvaQAnBPZril3qM/Dat6YgmtowBl7TDzsHeo
-	BfVxGFf6uXvzJKPIO9SsatE22RMRIf2j0PpStpvwCTXJXUlv+YF1LpHA6IfG3H97FMAKdUjBb58
-	nNSCfMW1vD9UvK3LKqhIf927UDhJ5f6CmFpu66jEGq0W7neVdxFe4jUxDkzZ2bVVC5Cye5zsH6n
-	ejb7DSS6z3xU7Y+45SUIIvw31OAQsK8g2GXVhCuwwcllcS2FpC0hO1Cm6qrFeo9XP2OJ3ue7iWV
-	qAPWJeYnxP62VqX5pzb/wJTvOKzpu5QR7PMUhMWrvhmdGf7sYPXmqZleGbhea4fl7tpD9U5MMCS
-	BdMy30t5NgZ7DG5LniC7/8+xxl8Yy83tFOBYCUmHW5qzxZoX3iMxnu2VKmqSF1txLNj/LIRS/IU
-	FuT9YeydMkBjWuk+DH0+XBqF24jmbzF8rx5l4B9eBIznPV22+BsBN79By5yvK7LARvrxfaXMxeM
-	QtLOC0SL93wGD6gFOG2GJoI28fcQlSfciovcwlP7Qjh8YM3LkUoG5B0NA==
-X-Received: by 2002:a05:6402:24c8:b0:6a3:f4fe:9d5f with SMTP id 4fb4d7f45d1cf-6a42f1a34e6mr1355647a12.11.1787262445589;
-        Thu, 20 Aug 2026 14:47:25 -0700 (PDT)
-Received: from GOLDENAXE.office-radnicka.localarea.network (c82-214-103-74.loc.akton.net. [82.214.103.74])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a3ff1563c5sm3288724a12.14.2026.08.20.14.47.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 14:47:25 -0700 (PDT)
-From: Bruno Banelli <bbanelli@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Ben Peled <bpeled@marvell.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Bruno Banelli <bbanelli@gmail.com>
-Subject: [PATCH] clk: mvebu: ap806: fix legacy binding failing to probe
-Date: Thu, 20 Aug 2026 23:47:21 +0200
-Message-ID: <20260820214721.11879-1-bbanelli@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 20 Aug 2026 21:57:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IpA36bD28CGtI/FkJ+QiVBgK3NFCCNxdR1Zbl/k3FCq6u2eQLWjTGQjiMDJjrEzdyBnQzSzKr5qpD9ADurh+zJIRaoGjIBtbZEVfIzGCTRGyecDaLLzTdc5HJgrMBA28p7k9dRNkQmvPRLBd1P1LJKRyYlEhkhba1irHmB1e+6wti0J3ihEgWKj1bOsnEKgJCZ2W9Vt7t8oemfhPDJ8jE5n7hF6OMtfh2vQCbuUDyAUZsyooNYLR2F6GDiuWzpjg0fex07mVemlup28Tmm1oHf9HFRnBcIRRrl7+6fmpm/OQDqad9PbqBBe5CWPkSqurFtKtjDnjXC3i6ND6rrlTCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XoY3PJsNxOGbm0uPnIhjf9GixyLk7qeqjV2ARZe0tmk=;
+ b=gJLesTaV7WE1w1WCMafogJ+KEWEEK8Mazt6wUqiBfcqOtvvYCP5T+t/R2E2KwBJTxnzYmvkOnsxzpQTZJNmIHfSEMpLVbMdk2Z68Bjhz0halCD/4Zr3Mp4kOOA+Idgb1JidsFohGJtPj3/+KH2hoOLMVL6i0L+R3uGEzI9npMhuctDrcFQ5MU+AGPOc1pb+AzeB7X3VQhBeSN+qpsz72Ka7hpaqzWS2OztxMFIv/HYm07pe3qnY9YBuvfkaHcqKVWCkkm3ljjUaFQBUy1XWIXvQduoY02RKpE49W3hwYIUoXCqFwyu9DpaX+B6/nu4tXSQwPhdw2cE0jIOSzN3usjA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XoY3PJsNxOGbm0uPnIhjf9GixyLk7qeqjV2ARZe0tmk=;
+ b=VNenTuXxHYI8ksWWBKdYOcRyR9DbOic/v207GyzIy1BKNaOxh02id89Pqec41XTISwF/YZJEmQA+8RHa3u2t6ifQ/ZZ3Lem5+IZrBPnaV/j1i154PkZEI6RSX1v/OXKuEr20CPWAL8aqiRzuW9kQR22kNDHl3mGKEMa2eFESeto=
+Received: from IA1P220CA0019.NAMP220.PROD.OUTLOOK.COM (2603:10b6:208:464::6)
+ by DS4PR12MB9746.namprd12.prod.outlook.com (2603:10b6:8:2a4::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Thu, 20 Aug
+ 2026 21:57:08 +0000
+Received: from MN1PEPF0000ECDA.namprd02.prod.outlook.com
+ (2603:10b6:208:464:cafe::b) by IA1P220CA0019.outlook.office365.com
+ (2603:10b6:208:464::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.10 via Frontend Transport; Thu,
+ 20 Aug 2026 21:57:08 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ MN1PEPF0000ECDA.mail.protection.outlook.com (10.167.242.134) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.360.3 via Frontend Transport; Thu, 20 Aug 2026 21:57:08 +0000
+Received: from localhost (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 20 Aug
+ 2026 16:57:07 -0500
+Date: Thu, 20 Aug 2026 16:56:44 -0500
+From: Michael Roth <michael.roth@amd.com>
+To: Ackerley Tng <ackerleytng@google.com>
+CC: Sean Christopherson <seanjc@google.com>, Paolo Bonzini
+	<pbonzini@redhat.com>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
+	<hpa@zytor.com>, Ashish Kalra <ashish.kalra@amd.com>, Brijesh Singh
+	<brijesh.singh@amd.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton
+	<oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, Steffen Eiden
+	<seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+	<yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, David Hildenbrand <david@kernel.org>, Fuad Tabba
+	<tabba@google.com>, Yan Zhao <yan.y.zhao@intel.com>, "Edgecombe, Rick P"
+	<rick.p.edgecombe@intel.com>, Vishal Annapurve <vannapurve@google.com>,
+	<kvm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>
+Subject: Re: [PATCH v2 2/4] KVM: SEV: Drop page refcount early during RMP
+ fault handling
+Message-ID: <zb5krzhrg3soslplynegqo52brd53wk3meas45udqpjms6oluk@zecqwzn7zziy>
+References: <20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com>
+ <20260818-gmem-no-return-page-v2-2-5298f42d49bb@google.com>
+ <j6bfvbzjivlcsu3slbnaoomxxqyypmfl2bupo3k5ipnt6fc5lo@e5ntbx7yd4qw>
+ <CAEvNRgEruoa4d_8Y1MpkdzbHg3j1Yv=-Y6w6Yy=v6mJgPajjWw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <CAEvNRgEruoa4d_8Y1MpkdzbHg3j1Yv=-Y6w6Yy=v6mJgPajjWw@mail.gmail.com>
+X-Originating-IP: [10.180.168.240]
+X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECDA:EE_|DS4PR12MB9746:EE_
+X-MS-Office365-Filtering-Correlation-Id: 443aac8a-2a60-4431-1db9-08deff05fae1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|7416014|1800799024|23010399003|10067099003|56012099006|3023799007|18002099003|22082099003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: QJvcNZEAVgmkZl3e7WA76TIBBdg+YabKsxNxfQ91fPJAqCIePQ+YnNEXgcNpfQKdokNfAuieFcO45HIAVZCdWALLzXtY1XDn1ehBECLMdIlWQ6L5k92EfT9XSnoV1d9M/46o8vx56UwHGK6s+aLoQcJMLyegniRDC1R6BefAnW74r85Z1Vl0OrRHRLq9O8LRotKab6ucC5y4ULKH9CiE3BGOHOsKlrh5BumNmHHJpdLiMbjVE4lAmMjgOd12Dx//zW54iCU8rqaK+yQtQZRApK+rG4fF1Kb8LipAg+CGFvYjjcPgTnieREExjQv6gCoGVReIs6SGJPH1F2Z4ybIhtjxji4iWzsv9y4dQphNJXn0NfQBjqzJx9uD7+6EYiGhfYKkp5PdcxLIb3rmCucUtf2GJtPLS/GQcpY1n85uZThQYlEHsA2wlxH37v5ats7RiWId1gkSigXqZr2r6IVg14ZTVaT8Y99NmiiW8SEYyjHPdRxZlOUsylVXKzfb4Mki5HcMmWSVPoTowAJ/yGx/PYqkq7PAwFqCT2IyMHy+KgC/nel70JHhVi6qTHuAiQgfy+sNSFeGmJ+DhPjZWhhCacOiK8Mr3BjSzHe26rSr0Cz7CGgqaQ3f4XrVGFedVLoII9amtfzQbqlTkQiu+4iD/S3f67I4oOEt1oUSkmK4k4SgpKPMOTmhhQDW3I0gjAAmilSc4tIhD304Lx1flB4D/lQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(7416014)(1800799024)(23010399003)(10067099003)(56012099006)(3023799007)(18002099003)(22082099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: VozllIeDtKXLfs6FtN6yNnAJKanHFS3a7rgjZFUhFgcIwaBvmgA6QUJZGoAJH7Zf7BHtKP17t3oRp2pyV9KVBG5w32rBaEb2x03BdN4pniOl9MCYbXcI1eYQsqi7TT4+djFdZuWRtPTswmmJ6H1wQTnn2g/XzUgXieh76cAAVWNQJUTEjIz7dJlyPBSKZTENg7HmR4SGZWfoToGGN15S86HSbn7CGUCKnn9Pk+agpyZULmFFT/5QX7R3XJQ2ZgTQ1AenPQ4C9FfVuqHfbH0PzXN2zzyfuuAW/cPHkv/hUCFHj9rVUWr5qNEsD8ejHmKCoB6S0Tzk7+SPH2JKqUCArw8qHHs3AHNC4b6CJwQ7eLHAeQ72GH1bPsV8cpLX9DJkngcMh14tvXQhAB7vtsn3AOl14RDWaJpZ/Nb4YrGe1ocH3DdaTsTCZGj+uyRpdY1l
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 21:57:08.1890
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 443aac8a-2a60-4431-1db9-08deff05fae1
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECDA.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_144728_286425_595B3C0D 
-X-CRM114-Status: GOOD (  17.88  )
+X-CRM114-CacheID: sfid-20260820_145720_285655_BA8AA1EA 
+X-CRM114-Status: GOOD (  41.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,83 +135,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit be69e55df9af ("clk: mvebu: ap806: Prepare the introduction of
-AP807 clock support") factored the probe path into
-ap806_syscon_common_probe() and added a test that picks the Sample at
-Reset decoding table from the device node's compatible string:
+On Thu, Aug 20, 2026 at 07:58:19AM -0700, Ackerley Tng wrote:
+> Michael Roth <michael.roth@amd.com> writes:
+> 
+> > On Tue, Aug 18, 2026 at 09:15:53AM +0000, Ackerley Tng wrote:
+> >> From: Sean Christopherson <seanjc@google.com>
+> >>
+> >> When handling an RMP fault, KVM retrieves the PFN for a private GPA from
+> >> guest_memfd.
+> >>
+> >> Drop the page reference immediately after retrieving the PFN instead of
+> >> holding it across the entire handler so that the later patch can follow up
+> >> with completely not returning refcounted pages from kvm_gmem_get_pfn().
+> >
+> > Regarding this point:
+> >
+> >>
+> >> On a first look, existing RMP table handling (psmash and checking for
+> >> errors) might seem like it works fine, since truncation of the page from
+> >> guest_memfd would have called rmp_make_shared() and removed the PFN from
+> >> the RMP table. However, that is insufficient since a freed page may already
+> >> be used in a different SNP VM.
+> >
+> > In the code this patch is applied on top of, I think the kvm_gmem_get_pfn()
+> > ref is enough to avoid the reused-by-another-SNP-VM scenario until after
+> > caller releases the ref, so I think the above explanation should be adjusted
+> > to also be preparatory for "the later patch".
+> >
+> 
+> I think this sequence of events is possible:
+> 
+> CPU 0: sev_handle_rmp_fault()
+> CPU 0:   kvm_gmem_get_pfn()
+> CPU 0:     filemap_invalidate_lock()
+> CPU 0:     refcount++
+> CPU 0:     filemap_invalidate_unlock()
+> CPU 0:     refcount-- <<== because kvm_release_page_unused(page);
 
-	if (of_device_is_compatible(pdev->dev.of_node,
-				    "marvell,ap806-clock")) {
-		ret = ap806_get_sar_clocks(freq_mode, &cpuclk_freq, &dclk_freq);
-	} else if (of_device_is_compatible(pdev->dev.of_node,
-					   "marvell,ap807-clock")) {
-		ret = ap807_get_sar_clocks(freq_mode, &cpuclk_freq, &dclk_freq);
-	} else {
-		dev_err(dev, "compatible not supported\n");
-		return -EINVAL;
-	}
+Prior to this patch, the kvm_release_page_unused() isn't done until
+after the snp_lookup_rmpentry()/snp_rmptable_psmash().
 
-That is correct for the current binding, where the clock node carries
-"marvell,ap806-clock" or "marvell,ap807-clock".  It is however also
-reached from ap806_syscon_legacy_probe(), whose device node carries
-"marvell,ap806-system-controller" and "syscon" - neither of the two
-compatibles being tested for.  The legacy path therefore prints its
-three deprecation warnings and then fails unconditionally:
+It's possible CPU 1 truncate sequence below can run concurrently
+after filemap_invalidate_unlock() above, but even though it calls
+free_folio(), which might zap the RMP entry, the filemap code will
+only put the refs that it has on the folio so it wouldn't actually
+get freed back to the buggy allocator, so it doesn't seem like the
+psmash-another-guest scenario is reachable. I could certainly be
+misreading things though.
 
-  marvell-ap806-system-controller f06f4000.system-controller:
-    [Firmware Warn]: Using legacy device tree binding
-    [Firmware Warn]: Update your device tree:
-    [Firmware Warn]: This binding won't be supported in future kernel
-    compatible not supported
-    probe with driver marvell-ap806-system-controller failed, error -22
+The psmash-a-now-shared-entry scenario because of a race with the
+VMM/truncate path seems possible prior to this patch, but that's
+pretty similar to the psmash-a-now-shared-entry because of a race
+with the guest scenario and which would generate spurious warning
+messages to console, and that would be similarly addressed via
+patch 1 I think. I'm not sure 
 
-The AP806 system controller is the provider of the AP clocks, so no
-clock is registered at all and every consumer defers indefinitely.  On
-an Armada 8040 that includes the console UART:
+-Mike
 
-  platform f0512000.serial: deferred probe pending: platform:
-    supplier f06f4000.system-controller not ready
-
-which turns the failure into an apparent silent hang once userspace
-starts, rather than a visible probe error.
-
-Before v5.4, ap806_syscon_common_probe() had no compatible test and went
-straight from reading Sample at Reset to decoding freq_mode, so the
-legacy binding did work.  The commit introducing the test described
-itself as "No functional changes", ap806_syscon_legacy_of_match[] still
-advertises the legacy compatible, and the warnings above state only that
-the binding is deprecated.  The breakage therefore looks unintentional.
-
-Accept the legacy compatible in the AP806 branch so that the legacy
-binding works again as it did before v5.4, keeping the deprecation
-warnings intact.
-
-Fixes: be69e55df9af ("clk: mvebu: ap806: Prepare the introduction of AP807 clock support")
-Signed-off-by: Bruno Banelli <bbanelli@gmail.com>
----
- drivers/clk/mvebu/ap806-system-controller.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-Found while booting mainline Linux with U-Boot's control FDT on a
-SolidRun MACCHIATObin (Armada 8040). U-Boot's arch/arm/dts/armada-ap80x.dtsi
-still uses the legacy binding, so any board booting Linux via U-Boot's EFI
-handover with the firmware-supplied FDT hits this.
-
-diff --git a/drivers/clk/mvebu/ap806-system-controller.c b/drivers/clk/mvebu/ap806-system-controller.c
-index 948bd1e71aea..332e7c21ea07 100644
---- a/drivers/clk/mvebu/ap806-system-controller.c
-+++ b/drivers/clk/mvebu/ap806-system-controller.c
-@@ -152,7 +152,9 @@ static int ap806_syscon_common_probe(struct platform_device *pdev,
- 	freq_mode = reg & AP806_SAR_CLKFREQ_MODE_MASK;
- 
- 	if (of_device_is_compatible(pdev->dev.of_node,
--				    "marvell,ap806-clock")) {
-+				    "marvell,ap806-clock") ||
-+	    of_device_is_compatible(pdev->dev.of_node,
-+				    "marvell,ap806-system-controller")) {
- 		ret = ap806_get_sar_clocks(freq_mode, &cpuclk_freq, &dclk_freq);
- 	} else if (of_device_is_compatible(pdev->dev.of_node,
- 					   "marvell,ap807-clock")) {
--- 
-2.43.0
+> 
+> CPU 1: truncate()
+> CPU 1:   filemap_invalidate_lock()
+> CPU 1:   refcount--
+> CPU 1:     kvm_gmem_free_folio()
+> CPU 1:       sev_gmem_make_shared()
+> CPU 1:     folio is freed
+> CPU 1:   filemap_invalidate_unlock()
+> 
+> CPU 2: in some other SNP VM,
+> CPU 2: kvm_gmem_get_pfn() gets the freed folio
+> CPU 2:   sev_gmem_make_private()
+> 
+> CPU 0:   snp_lookup_rmpentry(pfn, &assigned, &rmp_level);
+>            <<== it's assigned but to some other SNP VM
+> CPU 0:   snp_rmptable_psmash(pfn);
+>            <<== this psmash would be smashing in some other SNP VM
+> 
+> And hence I think we do need to check for invalidations using the MMU
+> invalidation protocol.
+> 
+> > Other than that:
+> >
+> > Reviewed-by: Michael Roth <michael.roth@amd.com>
+> >
+> >>
+> >> Hence, adopt the MMU invalidation protocol to guard committing anything
+> >> based on the PFN.
+> >>
+> >> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> >> Signed-off-by: Ackerley Tng <ackerleytng@google.com>
+> >> ---
+> >>  arch/x86/kvm/svm/sev.c | 39 ++++++++++++++++++++++++---------------
+> >>  1 file changed, 24 insertions(+), 15 deletions(-)
+> >>
+> >> diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
+> >> index b2738362a928b..b34b11d7f8fad 100644
+> >> --- a/arch/x86/kvm/svm/sev.c
+> >> +++ b/arch/x86/kvm/svm/sev.c
+> >> @@ -5003,6 +5003,7 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+> >>  	struct kvm_memory_slot *slot;
+> >>  	struct kvm *kvm = vcpu->kvm;
+> >>  	int order, rmp_level, ret;
+> >> +	unsigned long mmu_seq;
+> >>  	struct page *page;
+> >>  	bool assigned;
+> >>  	kvm_pfn_t pfn;
+> >> @@ -5030,18 +5031,22 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+> >>  		return;
+> >>  	}
+> >>
+> >> +	mmu_seq = kvm->mmu_invalidate_seq;
+> >> +	smp_rmb();
+> >> +
+> >>  	ret = kvm_gmem_get_pfn(kvm, slot, gfn, &pfn, &page, &order);
+> >>  	if (ret) {
+> >>  		pr_warn_ratelimited("SEV: Unexpected RMP fault, no backing page for private GPA 0x%llx\n",
+> >>  				    gpa);
+> >>  		return;
+> >>  	}
+> >> +	kvm_release_page_unused(page);
+> >>
+> >>  	ret = snp_lookup_rmpentry(pfn, &assigned, &rmp_level);
+> >>  	if (ret || !assigned) {
+> >>  		pr_warn_ratelimited("SEV: Unexpected RMP fault, no assigned RMP entry found for GPA 0x%llx PFN 0x%llx error %d\n",
+> >>  				    gpa, pfn, ret);
+> >> -		goto out_no_trace;
+> >> +		return;
+> >>  	}
+> >>
+> >>  	/*
+> >> @@ -5069,27 +5074,31 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+> >>  	if (rmp_level == PG_LEVEL_4K)
+> >>  		goto out;
+> >>
+> >> -	ret = snp_rmptable_psmash(pfn);
+> >> -	if (ret) {
+> >> -		/*
+> >> -		 * Look it up again. If it's 4K now then the PSMASH may have
+> >> -		 * raced with another process and the issue has already resolved
+> >> -		 * itself. If it's not assigned, then this must have raced with
+> >> -		 * another process that made this page shared.
+> >> -		 */
+> >> -		if (!snp_lookup_rmpentry(pfn, &assigned, &rmp_level) &&
+> >> -		    ((assigned && rmp_level == PG_LEVEL_4K) || !assigned))
+> >> +	scoped_guard(read_lock, &kvm->mmu_lock) {
+> >> +		if (mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn))
+> >>  			goto out;
+> >>
+> >> -		pr_warn_ratelimited("SEV: Unable to split RMP entry for GPA 0x%llx PFN 0x%llx ret %d\n",
+> >> -				    gpa, pfn, ret);
+> >> +		ret = snp_rmptable_psmash(pfn);
+> >> +		if (ret) {
+> >> +			/*
+> >> +			 * Look it up again. If it's 4K now then the PSMASH may
+> >> +			 * have raced with another process and the issue has
+> >> +			 * already resolved itself. If it's not assigned, then
+> >> +			 * this must have raced with another process that made
+> >> +			 * this page shared.
+> >> +			 */
+> >> +			if (!snp_lookup_rmpentry(pfn, &assigned, &rmp_level) &&
+> >> +			    ((assigned && rmp_level == PG_LEVEL_4K) || !assigned))
+> >> +				goto out;
+> >> +
+> >> +			pr_warn_ratelimited("SEV: Unable to split RMP entry for GPA 0x%llx PFN 0x%llx ret %d\n",
+> >> +					    gpa, pfn, ret);
+> >> +		}
+> >>  	}
+> >>
+> >>  	kvm_zap_gfn_range(kvm, gfn, gfn + PTRS_PER_PMD);
+> >>  out:
+> >>  	trace_kvm_rmp_fault(vcpu, gpa, pfn, error_code, rmp_level, ret);
+> >> -out_no_trace:
+> >> -	kvm_release_page_unused(page);
+> >>  }
+> >>
+> >>  static bool is_pfn_range_shared(kvm_pfn_t start, kvm_pfn_t end)
+> >>
+> >> --
+> >> 2.55.0.699.gb54405d56f-goog
+> >>
 
