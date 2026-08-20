@@ -4,102 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63BD3C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F8B0C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 16:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gJnamaX6JlRGHuZ8sO/4OG43OjrZQHiP9rUJ3vO4bbE=; b=wZd0ZJTPncuCrwY5+mxhiAKLVL
-	LheXKuoclDZepF3rajVQYtUrLuZ0t36WjIYh7P/sF5/Dgtkxpb2pKdlz5osrEMBGHCMSWgC1xcNDe
-	aiSRyBQWHqVTIm33vlUXnIWpz3+jWtson08FBK8k5jMe0wbuojMJv00UUdaIV+jpC98SwIykFx6Bk
-	MFRVMYflQioK+aK0mIHqjamtaAyTBCXIuGq5pY9Bt2GCVbvCElojHkM3AmuywtvCSN6cAFED50VZc
-	A2rFvx54JAcHxJiJValGtv3k/vSykV2O1hFejB+8eOXeDRCq/+/NlvvBhfNLm9lISMcQEQMDlwzie
-	sBKXbcPw==;
+	bh=/1WJxTe2xm1ICrhIugZQDPLYMpnjoP6y+ShVmzvj+b4=; b=Wyu6uoBXdDkLH5U46uE8w2ykXc
+	4Sa2XQFDK+LCRS+VKMCrvVRwRVMOYFTTl7agZAaX+zC9tXKNdWg4XjcBPVlLarVd4EHoRIT2tqOYf
+	2e12DB6pv80Kifq5gu+7DXAglKZOu38+3LdjczLVb2Vwb8ba3TjyzFZomMFmdlhhfrcrsYKhRK7RQ
+	8YuPMzX+5ct5MT3tAdzEYXhw7imKRpuJQ8QI9NXd7AetXlT7NxxpwwSqXfjzYIjm1RAKH2QK+pUP8
+	Ai7kl3QrIf72lAwztgrIxE78w2PczdtjhmaPZTaEpb9mV/FkStTlrmewZDttppu8QdiqlSDp/dKin
+	ebM6JgBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4OB-0000000Bm1o-15qu;
-	Thu, 20 Aug 2026 15:09:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wx5Dq-0000000Br8q-1WmB;
+	Thu, 20 Aug 2026 16:02:30 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4O6-0000000Bm1A-2IxC
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 15:09:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1787238541;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gJnamaX6JlRGHuZ8sO/4OG43OjrZQHiP9rUJ3vO4bbE=;
-	b=eSUKvD17VuzFt1ezUoDVi4h+Do/v8u9+zB6iK0qbYxGUumLhub2eEHBGWcfKtH2lIXxCSk
-	uIplCUrsgbw6lQcY+BMRvxRq8LJtjZUdOczMO7fUgQ9D8LL9jrUhVZu8i46SGTRfUDk+NG
-	8uzA6jk8EYlyQSE37EUUP9fpOzF1Ank=
-Received: from mail-yw1-f198.google.com (mail-yw1-f198.google.com
- [209.85.128.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-246-vaoBK-uFNTG1Qz7cz5VFNg-1; Thu, 20 Aug 2026 11:08:59 -0400
-X-MC-Unique: vaoBK-uFNTG1Qz7cz5VFNg-1
-X-Mimecast-MFC-AGG-ID: vaoBK-uFNTG1Qz7cz5VFNg_1787238539
-Received: by mail-yw1-f198.google.com with SMTP id 00721157ae682-836cda1b76bso99132017b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 08:08:59 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787238539; x=1787843339;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gJnamaX6JlRGHuZ8sO/4OG43OjrZQHiP9rUJ3vO4bbE=;
-        b=F7dbr19g+3aYVaPZuTkrPNcfhecvsXswha1F2ZIyWVbMj/ak1hb5PvOYaTcdB7xVnQ
-         0ie3+4OC2wxZAoCPwlo5Zb4/nGnCTfnfBjc1V00VEGM2kFWkJZXat1tQlU2TU9NOEHpP
-         I+uRKXD9OIJk/maLWMYShZoUqdt0xp0uN2JbpNmQxX3IfrcPED58kipPEMqKSRiHi9Db
-         jXBrxmMxlrOkzenAVWT8XvB4UdIxJRyXjEh21fXyIMbUYbzDoRuwcqzpvKa2nojvMROt
-         QBxoYi341zyIdkAd+W85iGRaDSe3GgTnDiZkVUu0mzdcKQ4Tcxnpkt/3jQIeWRRvEocY
-         Kn8g==
-X-Forwarded-Encrypted: i=1; AHgh+RrzETBAjBEqThiwaGlJUBO4gZew1TYM3P/mrJdTrQSgwpaAR+7Mn4REjrQUgQl9ExXGjibfTa2G0StfyJOH+P3k@lists.infradead.org
-X-Gm-Message-State: AFuF++kdIGSVlY/InVOv7JOuC4VYap0rrJj1A4I7PjlF76O7Et6+ekS7
-	D0uDmOU8VggNjGXxArk+trBodnFxe2Avgtz9H4l9t84z9l+pCLZOu6qb2pUrS7dSAMEsPUZs2w4
-	LksKDNzAhxKuyiiq7wG6L6VprSsCkNNGXyCdvzaJ3OzLb/RnNUiZYDBa9mFtfHVSBrnONPSkj2O
-	n0
-X-Gm-Gg: AR+sD13+JfM4I675hHlcbUBgu0BYP1OfDBPnBcSYIz8e714ac1pslRruosDVGzRSSbD
-	0MTbVLDFDZLAhO/VjJ5oBQZYXAICWWSCDYTTG0afTwSTg+htQlgiAbyjIpLQokOzN7wtx/hmPYo
-	g/lKghMVdotWu/dqwdgmS0TItHGk1Z6eEhMCYKyflMBXfmuvAdRXX3DAibBFtoI34FUaKuNs4L8
-	bUdzlGlx+u+Eqhy3dhlsiVAFsPib8yCWX96IxU+xn9O7LjnKH434KhhaKl7k6WZMFsiXPzZQho7
-	n/jkW00x5rFjRXvOSw4tMtJ9Gdi/yEAUcp9xndMwvVdCyEWZF8QkDQ61Eh1JbD8jtiWSH43DY8P
-	oMb+YUpeh1uqMq9N2JLONmQtbzk9IyJlH97E=
-X-Received: by 2002:a05:690c:c59d:b0:81f:3b6d:a0a4 with SMTP id 00721157ae682-844e3d5d5cemr41714137b3.25.1787238538961;
-        Thu, 20 Aug 2026 08:08:58 -0700 (PDT)
-X-Received: by 2002:a05:690c:c59d:b0:81f:3b6d:a0a4 with SMTP id 00721157ae682-844e3d5d5cemr41713897b3.25.1787238538408;
-        Thu, 20 Aug 2026 08:08:58 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-845186c0dacsm26600967b3.36.2026.08.20.08.08.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 08:08:57 -0700 (PDT)
-Date: Thu, 20 Aug 2026 11:08:55 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Triet Hoang <triet.hoang.dev@gmail.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, luca.ceresoli@bootlin.com,
-	krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com,
-	peter.griffin@linaro.org, alim.akhtar@samsung.com,
-	michal.simek@amd.com, shubhrajyoti.datta@amd.com,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] drivers/clk: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
-Message-ID: <aocYhz_ASVhW8zfm@redhat.com>
-References: <20260820065904.2032536-1-triet.hoang.dev@gmail.com>
+	id 1wx5Dn-0000000Br8G-3EMT;
+	Thu, 20 Aug 2026 16:02:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1787241744;
+	bh=NgH4cC1k4sPYlDBooHzRMAITIKBecBzHZ/fTd5G2PNk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=DC6VOVdbdADn3RntNzAknAEaFIbouGLxbmBetmcHMrmjSmOtxh4v/f+CMSrZrCsh4
+	 mSdTz1AFQlUlMIEmERp8xJX4dlSAQngCtsIxBPc563rbEJZyvBV225vH0vIb5gPG6G
+	 TTm65/KLjABNhPb1HsKXLUU8J7+cYI8CPLMax1AO4thv5DGfzBettTbdHrAp8Cl9CY
+	 8B2TFiUQmlSxGTTESwEcg7gb1kRw2xuXeofljxRtfabBiaz8b3seTeBBY3RdXxAXy9
+	 t1Z3OwWR8a/dxAxZHIvSnXDwjIcQ1vYZHJQmpbfZYM+swMz0bPGUhRqG5ScymWAFMF
+	 WCRpEZnboQQxQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 706FC17E0860;
+	Thu, 20 Aug 2026 18:02:22 +0200 (CEST)
+Message-ID: <61537689daa428a577e6bdab794d044f5405128e.camel@collabora.com>
+Subject: Re: [PATCH 5/7] media: verisilicon: Add Rockchip VPU720 JPEG decoder
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Benjamin Gaignard <benjamin.gaignard@collabora.com>, Philipp Zabel	
+ <p.zabel@pengutronix.de>, Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko
+ Stuebner <heiko@sntech.de>, Ezequiel Garcia
+ <ezequiel@vanguardiasur.com.ar>, Andrzej Pietrasiewicz	
+ <andrzej.p@collabora.com>, Hans Verkuil <hverkuil@kernel.org>, Chen-Yu Tsai
+	 <wenst@chromium.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lucas Sinn	
+ <lucas.sinn@wolfvision.net>, Mauro Carvalho Chehab
+ <mchehab+huawei@kernel.org>, 	linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	devicetree@vger.kernel.org
+Date: Thu, 20 Aug 2026 12:02:20 -0400
+In-Reply-To: <5436875c-9724-41f3-aaf9-76d43e05f0a8@pengutronix.de>
+References: <20260819-rk3588-jpegdec-v1-0-33d74cdf369c@pengutronix.de>
+	 <20260819-rk3588-jpegdec-v1-5-33d74cdf369c@pengutronix.de>
+	 <2816bd84651dcbfd0cd76bbc56e461bd409f9611.camel@collabora.com>
+	 <5436875c-9724-41f3-aaf9-76d43e05f0a8@pengutronix.de>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-Sh7xuFpFF+Uoq55bNVgI"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-In-Reply-To: <20260820065904.2032536-1-triet.hoang.dev@gmail.com>
-User-Agent: Mutt/2.4.0 (2026-06-19)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: xUz6vY4kvo11FtFgYZxYHIKpf7xOnamxExkf1cex-vE_1787238539
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_080902_661251_00B730BB 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20260820_090227_995212_66CF8B9B 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,16 +99,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 20, 2026 at 01:59:04PM +0700, Triet Hoang wrote:
-> Convert the deprecated SIMPLE_DEV_PM_OPS
-> to DEFINE_SIMPLE_DEV_PM_OPS and pm_sleep_ptr().
-> 
-> This lets us drop the __maybe_unused annotations from its suspend and
-> resume callbacks, and reduces kernel size in case CONFIG_PM or
-> CONFIG_PM_SLEEP is disabled.
-> 
-> Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+--=-Sh7xuFpFF+Uoq55bNVgI
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+Hi Sascha,
+
+Le jeudi 20 ao=C3=BBt 2026 =C3=A0 10:03 +0000, Sascha Hauer a =C3=A9crit=C2=
+=A0:
+> On 2026-08-19 11:48, Nicolas Dufresne wrote:
+> > Hi Sascha,
+> >=20
+> > Le mercredi 19 ao=C3=BBt 2026 =C3=A0 12:37 +0200, Sascha Hauer a =C3=A9=
+crit=C2=A0:
+> > > +/* -----------------------------------------------------------------=
+- */
+> > > +/* Register byte offsets from dec_base=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 */
+> > > +/* -----------------------------------------------------------------=
+- */
+> > > +
+> > > +/* REG0: IP version / product ID */
+> > > +#define VDPU720_REG_VERSION		0x000
+> > > +#define VDPU720_PROD_NUM		GENMASK(31, 16)
+> > > +#define VDPU720_BIT_DEPTH		BIT(8)
+> >=20
+> > Can you share a dump and share these register reset values. Looking at =
+the
+> > layout, clearly its highly modified, but probably derived from VSI mult=
+i-codec,
+> > but I'm thinking perhaps we'll learn more from that. Its always nice to=
+ justify
+> > when adding more chips that are not strictly VSI designs (or maybe it i=
+s) to the
+> > hantro dirver.
+>=20
+> Here's a full register dump right after reset:
+>=20
+> 00000000: db1f0005 00000004 00120000 00000000
+
+I've look around as much as I could, and could not find any indication that=
+ this
+is an IP from VSI or derived from a VSI core. It is entirely different from
+vdpu1 in mpp (proper G1, rk3288 and similar) and vdpu2 (modified G1 / VDPU1=
+21).
+In short, this is not a multi-codec core.
+
+So that ball is on your end to show that this driver belongs to hantro rath=
+er
+then its own driver. In absence of evidence, this driver should be part of
+rockchip vendor folder, not vsi. Don't read me wrong, I trust that you have
+tested what the LLM have chosen, but anything can be implement in Hantro re=
+ally,
+it does not mean it should be there.
+
+Nicolas
+
+> 00000010: 00004400 00000000 00000000 00000000
+> 00000020: 00000000 00000000 00000000 00000000
+> 00000030: 00000000 00000000 00000000 00000000
+> 00000040: 000000ff 00000000 00000000 00000000
+> 00000050: 00000000 00000000 00000000 00000000
+> 00000060: 00000000 00000000 00000000 00000000
+> 00000070: 00000000 00000000 000000a8 00000001
+> 00000080: 00200000 00080f06 00000000 00000000
+> 00000090: 00000000 00000000 00000000 00000000
+> 000000a0: 00040000 00001556 00000000 00000000
+> 000000b0: 00000000 00000000 00000000 00000000
+> ...
+> 000003f0: 00000000 00000000 00000000 00000000
+>=20
+> Sascha
+
+--=-Sh7xuFpFF+Uoq55bNVgI
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaoclDAAKCRDZQZRRKWBy
+9J71AQDIPC+bWNjjlyxNCjQSdvKc/XKLnolosfjxhlZ4DMvNMQD/U+0qQgLG7T19
+Z4oo+bnV8HuZ4bzEtkpq2qUeEgaEiwk=
+=SqwL
+-----END PGP SIGNATURE-----
+
+--=-Sh7xuFpFF+Uoq55bNVgI--
 
