@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F7C6C5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB835C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+yKhFj6Jv0bJZgLOm9hZtusw1gz74T4jOjET5lrA2bQ=; b=c1s22klPdCQ57okUaLxdIx4olq
-	JvGmFP5xA6XuTMFjzgO8A8tvpHd8Rh9ogHBu2Gpj93lXFtLxPlEna8+gDyGOomNpqQPGeuhYjFjQJ
-	PSpJo2mm2a1ceIbYeFJZVcKZOBWHq/smr9s0cYa9WxLyQNm5FK1wm32j0k9CW9klZSuh/M21+A8BV
-	3MSfLK36pLIJZLRgI3RwZJT1aI74aTTyhWdqO2XtKqWyzbiw9TwuQ6pp3T+5+Ghv5mmIy38iVdA85
-	o3NLronMktMJ7rhIX8iytml1u2lqbgvTlw0eqEXcqJIsDSEU/uYlClGToaVEuL2RNi7jbUycMtPUE
-	Xirn9l5Q==;
+	bh=UEjYLylXJF/q29NFKj7OUUasMxvnUE+N8UUFRk+cDW8=; b=HIPEwKm0cuvrKlrYpq4H4Sz6tH
+	dxnLkUwvjZ7KmnOXu0ufVs4qMR3Z3FgiC/rgghh93ev9ymEvYxUTwyV9vBIG4O0Rv5Nf8aqLhjs1b
+	PVzj3SXin3KPOpsLV4eFxIoEyil6SQEg9qb2prk4quaTABNtacBf+MhVol89VMnZ5/EG7jBoOOvQK
+	aUv7buP1qiQdv/1kdFGhQ2oGJGYCoscFYlM0Nhvk/vjr310HEgfxg4kb2j/HLqi8BQzTLFJbZ29I6
+	7Czme6Ik+kEG2esAiv6AbLYN/O0/2a/cikHEKx26cpfc7RCkiL5/4V/b32ixOX0wWq0z11QQWTZu3
+	KK1oGL1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwx7N-0000000B20q-0X4Y;
-	Thu, 20 Aug 2026 07:23:17 +0000
-Received: from mail-westeuropeazon11013058.outbound.protection.outlook.com ([52.101.72.58] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wwx7R-0000000B23H-1o22;
+	Thu, 20 Aug 2026 07:23:21 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwx7K-0000000B1zT-10Rx
+	id 1wwx7L-0000000B1zW-34t8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 07:23:15 +0000
+	Thu, 20 Aug 2026 07:23:16 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UshaFyIvGWzI7OVs+q7UXbbPqsXje5cbg1sAluDcAESdRzkmCwTuL0laT7VlvtY+exx+2MwsKl6057xO71a91gOvFovMyn2dinhcl1yeaIes3SeeuHBxBV63vZNT/DbgYUJvqbLjaO0cH+bULJ852Ng+gNEraoAulGkg9mJ141M0y4GDvKzGA/INfgk5A0+l7Ii0/J4VD+WERpkaubwaxxBpd+BY7kHVedJxElbgm0ujmyOJ0fmBAeDXfawcEVlIqXek1BPlFDYRnXXQTrM30KMFCKJbNCGAEGFiyECE78IGkat1Vs+pE6jnN6fufb8lz36a9lFTZe72LWb2b5khCA==
+ b=rDQTt3XbBj5r52n9s+u5miHmvIfQ6vlsRxFuh+PXLn5YDpRwpr0b9pNu3JglCuxN+twe6nZ1GA9w1mHYF8L6zYDA60C3PYum2iP+PvRHzxiM0PFlgpQyoozHbeKwU/0IlnD9VlAb4ZSsndRJ153/YWxp570YyKQagYTtH6g9elFH7kMuZRuYaONDbql1L5ixV+p5eFTRIKX56/Tljr5XB/ZDa0pKGAj907YDXlNN5MPDLKhHyf+T6HQuH46yg37gCJx1Ipnf4U26Uehu0j93Mpf2dHLQJUSFrd0MQ5tRDU/v7+6QgIf2QYS1YFfPDy2wKSYG9IryMURlzp6GNdkmew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+yKhFj6Jv0bJZgLOm9hZtusw1gz74T4jOjET5lrA2bQ=;
- b=gfZg18IYMpDej1+D5poXs3JRUw0MacqB2yf7Y0jRbWOJJajP3t3BzdX7GBzYHxvevcp4SLJfIPnu6mjxqUe9VzIscP9QpIQoM7hKO6L5d1uhIlbwu+m6auv29kAKL+lzgFZEk5txZw/w3CLQBzYh2oa1S4AOkztRXfrR9tkz/YgUGvOb73TrADmpjoRnf/B4zYlMx1kAsZWfX5MBn/rrTkehOQS0qjNQOV0QvxKgoY8K+EB8aN829FuaJlE/SbTaGJQ3Jbz0+bY+2KNs9XYzD/Pj1lWs419NGIzFi3//N63xrn8WrVCBWeJ2Swc98lpTIHndcVFpuJie9Of0RSiqGw==
+ bh=UEjYLylXJF/q29NFKj7OUUasMxvnUE+N8UUFRk+cDW8=;
+ b=qVle/ErP4j3a6onjXNub7lXddHd5b8ihasfsL5JJ2Vu+KPLMjn2eRymZ4wNAYU9NRbt07OG3zyVfBdQT1Mh//dBkKQfPSwyT0qaOWsxeLGt/fML+Y7EoF5Au+JZvx1gbTQLIHFiqatybc7r9cuRx0NnbHFpqgOsChghGTuOx8CDEfABbNYoHHmJS28ql5FEMxcdTaglRC2eGhnVJfSTP+ndXf4T2AaRof4Hs+snBUQFhbkmkMVrfjUvAowJOk4PHbVhv8rzsr4WKxCNZSVcweI92yihmRcGUaVtSOBE7fdRYx0/O5padrZqL9UKwgVtB44DrxKI+2DDjgNVLd+uAYw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
  dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+yKhFj6Jv0bJZgLOm9hZtusw1gz74T4jOjET5lrA2bQ=;
- b=Eayopi1U/4LV9/10Q6swFZJ8iMngwmzg019Dd93m8/tn7F/TBvVScu3FulYiZYmvY7wc9TtSQw9EqbWYnnVMou2P18Yl5OhyIAXzLEXyYZNot6IRjNVMWpWJYnbTdyqaDqxfEpJ6vJGvslcPV4eNuGXSQd6WQkHRq2LlkhzvatQ2d1ey5ZPGpdcPe4bmvxMviWsuvNjjJgMMlw5lV7qOc1J6RcHi0xfDcMopiGWY41TRx6J88K6EwfE9hKS/EVVB1D+I5T2yPy6vnMN6OXCSOnPbVa4xCN5lKgytLIsaQ7lphNGxl4GO0pixJhlVhxjXltwhTO0V/uhDr197SHYWOA==
-Received: from DUZPR01CA0328.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4ba::13) by AS2PR10MB7602.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:545::12) with Microsoft SMTP Server (version=TLS1_2,
+ bh=UEjYLylXJF/q29NFKj7OUUasMxvnUE+N8UUFRk+cDW8=;
+ b=MDUiP0fXuTcqaDco/lz7XnT342TOG3ERtPh9i2Ij3yCZdaOwrB0hpySqVySTqhmT5mj0PrBJP9M0lrIQ1MIb0d+E/M80gmeMO2YnXy6OGu7zEMmDXGlYlvo7O8Njbw1hNcoT/GDDprP8ArIh1wcNFWUNgP8oWNAYWKAp6SWXSF1JCHFYUBtQRruxN6cHARVm+Q1CVxC1woJnZgEe/RvEwj8OncNE6qkiBc0HqKcH1neGl+wsAPALQa9WcfoVE8LPnGvhIJ06Bmjmm1EF3VDY3iil1sgptrd0LR7hkhsa4GTMGh+r/6ZvOspNQ3BG2lM8asp0LLsWRPc3RyxDF+IePA==
+Received: from DUZP191CA0036.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4f8::28)
+ by GV1PR10MB8846.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:1d7::14) with
+ Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Thu, 20 Aug
- 2026 07:23:09 +0000
-Received: from DB5PEPF00014B92.eurprd02.prod.outlook.com
- (2603:10a6:10:4ba:cafe::9d) by DUZPR01CA0328.outlook.office365.com
- (2603:10a6:10:4ba::13) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 07:23:11 +0000
+Received: from DB5PEPF00014B93.eurprd02.prod.outlook.com
+ (2603:10a6:10:4f8:cafe::21) by DUZP191CA0036.outlook.office365.com
+ (2603:10a6:10:4f8::28) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.8 via Frontend Transport; Thu, 20
- Aug 2026 07:23:09 +0000
+ Aug 2026 07:23:11 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
  smtp.mailfrom=foss.st.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=foss.st.com;
@@ -60,25 +60,25 @@ Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
  designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
  client-ip=164.130.1.59; helo=smtpO365.st.com;
 Received: from smtpO365.st.com (164.130.1.59) by
- DB5PEPF00014B92.mail.protection.outlook.com (10.167.8.230) with Microsoft
+ DB5PEPF00014B93.mail.protection.outlook.com (10.167.8.231) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Thu, 20 Aug 2026 07:23:09 +0000
+ 15.21.339.3 via Frontend Transport; Thu, 20 Aug 2026 07:23:11 +0000
 Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
  (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 20 Aug
- 2026 09:28:43 +0200
+ 2026 09:28:45 +0200
 Received: from localhost (10.252.29.67) by STKDAG1NODE2.st.com (10.75.128.133)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 20 Aug
- 2026 09:23:08 +0200
+ 2026 09:23:10 +0200
 From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Thu, 20 Aug 2026 09:22:29 +0200
-Subject: [PATCH v4 01/14] media: stm32: dcmipp: share struct dcmipp_device
- among subdevs
+Date: Thu, 20 Aug 2026 09:22:31 +0200
+Subject: [PATCH v4 03/14] media: stm32: dcmipp: bytecap: protect CMIER
+ register access
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260820-stm32-dcmipp-pixel-pipes-support-v4-1-d212eb4e3792@foss.st.com>
+Message-ID: <20260820-stm32-dcmipp-pixel-pipes-support-v4-3-d212eb4e3792@foss.st.com>
 References: <20260820-stm32-dcmipp-pixel-pipes-support-v4-0-d212eb4e3792@foss.st.com>
 In-Reply-To: <20260820-stm32-dcmipp-pixel-pipes-support-v4-0-d212eb4e3792@foss.st.com>
 To: Hans Verkuil <hverkuil+cisco@kernel.org>, Hugues Fruchet
@@ -93,28 +93,29 @@ X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
  (10.75.128.133)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB5PEPF00014B92:EE_|AS2PR10MB7602:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5de2c65c-3d76-4bf5-a9ee-08defe8be2d3
+X-MS-TrafficTypeDiagnostic: DB5PEPF00014B93:EE_|GV1PR10MB8846:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6422d938-697b-466c-eb95-08defe8be3f8
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|1800799024|23010399003|82310400026|3023799007|56012099006|10067099003|6133799003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 0KO8FPbM5hNbwfL9Kx97DOR4bNi3MZoMPh4wJZP4xUd+YqIOnYJLYhFZLvxToTkzx45GYh5Q8UADI65Ii1LbbU55GHYeAY4LCUrS4ACeCt4VPyOrB+OgDhLP+oEfiyPT7d60xg6YQ9P+zrIB5fjTR2LORtROSrsYm+C5doGlxrMslzLTZ8Xq4qqbWs0YVBcc/KYRdcjTf5GWp5SmiC7lEJBaSnG2A6QgIuuTz5CGfWGh15WJAdwnF7k9Nn19vB5urDVSyXLh+IQ2dXzBDuAzX1y2Fb3e90TbIFGAvliNhgn6IFFSH3GIxeoyU8dHYfStVpkOLQQSf0yzOlzIgNqBAh2e7jfxWp4X77hp6HsnAwV1xTFOUacMHoZBauiqOCRrhLnuOD6jx1x5mIKqYM5aIIu6OOoiInKp+pLE9DVAHTkkQMoUgEBH0PM9SCmqPhyjg4RwZgVsiVFeHmUh2utz3cUXK84Bh5a+btXrwj3RxUcJHSE/v0+ZEBrUYy/bKAGC2BYCej2varVXsiAOiQkyJsjVann6AY23X7s8QVyWFTvzjt4XOwbXtrDb1WyHjU/bUw7ssbSFLWV0Biw1JvMZRDhEFqN9aBv4tWflliIrdCSXQiIIdBYi7x+bSqDxM1EP1qITnbzp9cG4vZeWTr2aYDL0gfgKnYsuEZTivpm5WwkKFxFj1xC1iPRMtfaS3wdB+v+oR/BWJOahe4Q2UNLqSA==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(1800799024)(23010399003)(82310400026)(3023799007)(56012099006)(10067099003)(6133799003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|1800799024|82310400026|10067099003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: DYy3TOqWiYriQhIVxWgk6wKGrtPjvItudw4d9bCeVeExJZrEGMW/ky/JKOlKdC+coUl4dhV4PnGa7xK9cr01oaS9OKz2bX9I2G17Iqm5XwC/xRDTGaY3IjvxZ1nerG0WA+Dqab6MMLF20gaRab7Lx46HXS/TT3Gk/K+iPD3VPFnl07aeglZjeHVIc647v9PbIMIjek6C1MkN0bLpS2/2TPrW54nBu2Z/1QzVhsIM2AuqCXJBy5u1nY3e5lvyWu/9HNVvQwlFOA3DI7v7yT2KghGTvyLdDRwKvJP0gGkqFdtdudLzjHCBgKFkYAGTr+k/D6kDOR5Nk0wujME2jjsvtJ7nnI8qDx+Ddx3zzldxTLC3QvyLPZajJgdLh+WIek9YSZX9Z1DOXjvn9Sd2ixguUCbT7yXQF6NlqdJi4ATMJKjHJ9OuQ2y8WdeagOu7DKEOl3kAqguJDx/vQQ5K7d2boyWxHWw4jV4cgzyDCIdzlZ0JJhFpE4Sx9FnA0Cp9QVPZ8x6XZELFBRC7PMoG0rYU6pGEkyIRJtSYkFNp6WytYxetDwnB5Odk1P3WpXm+cheQBurDJt+T3Lmt+kBzI+TnMJyEOtYvXfmcaIDbtz0zJuu54V3Gzd4w/af9xcRxJdFxcqMSF92puw1RyH7OMLGN1XOd1mc457LMGNFlJFpu02U7l7stNswG4TaQM+5FWXuASxcNKezS26+kBbWc0XcTfw==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(1800799024)(82310400026)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: sHGKb7K54HGyJ15mEUcMfNWbrP9dVV3lLCV6/EmQZClgaqp7KCv+jMJVHjpCUWZp3B59ff/mM3LvsPWBKeNs5lq24RYodG292TZF6P9g6vSKUUqVvLBK7KwrBiyYLNuwfF6mxSE+S/ykXOJYF+ATbNjX5Xz8xQPv3hH4dbs3IXiE/lV9U8lz28e0IRSa3Un2u+wqymsBTeQ7p7xi1iJUo2vLRxUYKXlHjdC6p07drYU4g6LXZbdmfH7oPCAGjQegwAJrD2nGGA7k1nh1lgaqSSw9DpW+ra+FnLkdVplTeqFsOSm8FhPo709ma5YG3BfHztTdejk8ElG6RDrz3ZeTz5esPbQtr1lgL+nmkK399wJ0kAHZf46GvpbCGDx/1dy+Ej58WXgC68H/j7EKfCOK2Jej3Fm4FJGMlX6L2ia2h9oro0twjOBwCD5Z0pI41p0e
+X-MS-Exchange-AntiSpam-MessageData-0: KxBhqsILNMSzQpxN/xK0SjPtXmm4iXP2IoM+PpFYsCWu9KSkO8j/Eam7xpgtifiBC9gbAtO7FIO92JGz816E8Un4YrBLS2Iq/xqLNTSw5tDNNAfOVU1Yzz0ZjKyxbqWkRxup9+TLJlKjeYDZPqfXrMNG8/B+iL3hzXarnKvYUTGResAg2VRs3CRbl9kjwToegp9+DQwFmt84HE8bHl3/R9fJ1fXIT1C+BZE5l+2rye/NHdQx43EGmAGqq3Un8+aV0pNTh64KPnrB9Jj3YlA5P1c9vbJN/BTk3vaNtcSmwPH1LfCb1/8RPX7SoLklxPFnILqemDmb4igCnYhi97/oYBkxVIqc00n17evKgGccdLUEK90SE89Mjmqvfrzs+tRVHDsuLsLsUx5iC9Hw2Ikxl9MgrLwyfPWnkLYHlBTAF4IJ/Nm0nd15ohkk3MW4Ca2y
 X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 07:23:09.1435
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 07:23:11.0664
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5de2c65c-3d76-4bf5-a9ee-08defe8be2d3
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6422d938-697b-466c-eb95-08defe8be3f8
 X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B92.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B93.eurprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB7602
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR10MB8846
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_002314_462581_80EB39B1 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20260820_002315_785248_9A7BB2C5 
+X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,283 +130,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation of need for sharing of data between subdevices,
-make the struct dcmipp_device structure part of dcmipp_common.h
-and share it with subdevs at init time. This allows for simplifying
-parameters of each subdev init function as well.
+CMIER register is common between all pipes and thus needs to be
+protected from concurrent access.  The struct v4l2_device structure,
+unique to the whole driver embeds a spin_lock which can also be used
+by the driver itself as explained in its description.  Rely on this
+spin_lock to protect from concurrent access to the CMIER register.
 
 Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
 ---
- .../st/stm32/stm32-dcmipp/dcmipp-bytecap.c         | 13 ++++---
- .../st/stm32/stm32-dcmipp/dcmipp-byteproc.c        | 11 +++---
- .../platform/st/stm32/stm32-dcmipp/dcmipp-common.h | 43 +++++++++++++++++-----
- .../platform/st/stm32/stm32-dcmipp/dcmipp-core.c   | 33 ++---------------
- .../platform/st/stm32/stm32-dcmipp/dcmipp-input.c  | 12 +++---
- 5 files changed, 55 insertions(+), 57 deletions(-)
+ drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-index f0e809458489f..483af0f39f0d9 100644
+index 0e789bbd1198b..f6011b42203c7 100644
 --- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
 +++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-@@ -857,12 +857,11 @@ static const struct media_entity_operations dcmipp_bytecap_entity_ops = {
- 	.link_validate = dcmipp_bytecap_link_validate,
- };
+@@ -438,7 +438,9 @@ static int dcmipp_bytecap_start_streaming(struct vb2_queue *vq,
+ 	dcmipp_start_capture(vcap, vcap->next);
  
--struct dcmipp_ent_device *dcmipp_bytecap_ent_init(struct device *dev,
--						  const char *entity_name,
--						  struct v4l2_device *v4l2_dev,
--						  void __iomem *regs)
-+struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
-+						  struct dcmipp_device *dcmipp)
- {
- 	struct dcmipp_bytecap_device *vcap;
-+	struct device *dev = dcmipp->dev;
- 	struct video_device *vdev;
- 	struct vb2_queue *q;
- 	const unsigned long pad_flag = MEDIA_PAD_FL_SINK;
-@@ -880,6 +879,8 @@ struct dcmipp_ent_device *dcmipp_bytecap_ent_init(struct device *dev,
- 		goto err_free_vcap;
- 	}
+ 	/* Enable interruptions */
++	spin_lock(&vcap->vdev.v4l2_dev->lock);
+ 	reg_set(vcap, DCMIPP_CMIER, DCMIPP_CMIER_P0ALL);
++	spin_unlock(&vcap->vdev.v4l2_dev->lock);
  
-+	vcap->ved.dcmipp = dcmipp;
-+
- 	/* Initialize the media entity */
- 	vcap->vdev.entity.name = entity_name;
- 	vcap->vdev.entity.function = MEDIA_ENT_F_IO_V4L;
-@@ -930,7 +931,7 @@ struct dcmipp_ent_device *dcmipp_bytecap_ent_init(struct device *dev,
- 	vcap->ved.handler = dcmipp_bytecap_irq_callback;
- 	vcap->ved.thread_fn = dcmipp_bytecap_irq_thread;
- 	vcap->dev = dev;
--	vcap->regs = regs;
-+	vcap->regs = dcmipp->regs;
+ 	vcap->state = DCMIPP_RUNNING;
  
- 	/* Initialize the video_device struct */
- 	vdev = &vcap->vdev;
-@@ -941,7 +942,7 @@ struct dcmipp_ent_device *dcmipp_bytecap_ent_init(struct device *dev,
- 	vdev->ioctl_ops = &dcmipp_bytecap_ioctl_ops;
- 	vdev->lock = &vcap->lock;
- 	vdev->queue = q;
--	vdev->v4l2_dev = v4l2_dev;
-+	vdev->v4l2_dev = &dcmipp->v4l2_dev;
- 	strscpy(vdev->name, entity_name, sizeof(vdev->name));
- 	video_set_drvdata(vdev, &vcap->ved);
+@@ -494,7 +496,9 @@ static void dcmipp_bytecap_stop_streaming(struct vb2_queue *vq)
+ 	media_pipeline_stop(vcap->vdev.entity.pads);
  
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
-index 0c7aeb0888f66..5fcd5123136f8 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
-@@ -571,8 +571,8 @@ void dcmipp_byteproc_ent_release(struct dcmipp_ent_device *ved)
- }
+ 	/* Disable interruptions */
++	spin_lock(&vcap->vdev.v4l2_dev->lock);
+ 	reg_clear(vcap, DCMIPP_CMIER, DCMIPP_CMIER_P0ALL);
++	spin_unlock(&vcap->vdev.v4l2_dev->lock);
  
- struct dcmipp_ent_device *
--dcmipp_byteproc_ent_init(struct device *dev, const char *entity_name,
--			 struct v4l2_device *v4l2_dev, void __iomem *regs)
-+dcmipp_byteproc_ent_init(const char *entity_name,
-+			 struct dcmipp_device *dcmipp)
- {
- 	struct dcmipp_byteproc_device *byteproc;
- 	const unsigned long pads_flag[] = {
-@@ -585,11 +585,11 @@ dcmipp_byteproc_ent_init(struct device *dev, const char *entity_name,
- 	if (!byteproc)
- 		return ERR_PTR(-ENOMEM);
- 
--	byteproc->regs = regs;
-+	byteproc->regs = dcmipp->regs;
- 
- 	/* Initialize ved and sd */
- 	ret = dcmipp_ent_sd_register(&byteproc->ved, &byteproc->sd,
--				     v4l2_dev, entity_name,
-+				     &dcmipp->v4l2_dev, entity_name,
- 				     MEDIA_ENT_F_PROC_VIDEO_SCALER,
- 				     ARRAY_SIZE(pads_flag), pads_flag,
- 				     &dcmipp_byteproc_int_ops,
-@@ -600,7 +600,8 @@ dcmipp_byteproc_ent_init(struct device *dev, const char *entity_name,
- 		return ERR_PTR(ret);
- 	}
- 
--	byteproc->dev = dev;
-+	byteproc->ved.dcmipp = dcmipp;
-+	byteproc->dev = dcmipp->dev;
- 
- 	return &byteproc->ved;
- }
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-index fe5f97233f5e8..e5c0eda8b18af 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-@@ -58,10 +58,36 @@ do {									\
- 		(fmt)->xfer_func = DCMIPP_XFER_FUNC_DEFAULT;		\
- } while (0)
- 
-+struct dcmipp_device {
-+	/* The platform device */
-+	struct platform_device		pdev;
-+	struct device			*dev;
-+
-+	/* Hardware resources */
-+	void __iomem			*regs;
-+	struct clk			*mclk;
-+	struct clk			*kclk;
-+
-+	/* The pipeline configuration */
-+	const struct dcmipp_pipeline_config	*pipe_cfg;
-+
-+	/* The Associated media_device parent */
-+	struct media_device		mdev;
-+
-+	/* Internal v4l2 parent device*/
-+	struct v4l2_device		v4l2_dev;
-+
-+	/* Entities */
-+	struct dcmipp_ent_device	**entity;
-+
-+	struct v4l2_async_notifier	notifier;
-+};
-+
- /**
-  * struct dcmipp_ent_device - core struct that represents a node in the topology
-  *
-  * @ent:		the pointer to struct media_entity for the node
-+ * @dcmipp:		the pointer to the parent dcmipp_device
-  * @pads:		the list of pads of the node
-  * @bus:		struct v4l2_mbus_config_parallel describing input bus
-  * @bus_type:		type of input bus (parallel or BT656)
-@@ -84,6 +110,7 @@ do {									\
-  */
- struct dcmipp_ent_device {
- 	struct media_entity *ent;
-+	struct dcmipp_device *dcmipp;
- 	struct media_pad *pads;
- 
- 	/* Parallel input device */
-@@ -199,19 +226,15 @@ static inline void __reg_clear(struct device *dev, void __iomem *base, u32 reg,
- }
- 
- /* DCMIPP subdev init / release entry points */
--struct dcmipp_ent_device *dcmipp_inp_ent_init(struct device *dev,
--					      const char *entity_name,
--					      struct v4l2_device *v4l2_dev,
--					      void __iomem *regs);
-+struct dcmipp_ent_device *dcmipp_inp_ent_init(const char *entity_name,
-+					      struct dcmipp_device *dcmipp);
- void dcmipp_inp_ent_release(struct dcmipp_ent_device *ved);
- struct dcmipp_ent_device *
--dcmipp_byteproc_ent_init(struct device *dev, const char *entity_name,
--			 struct v4l2_device *v4l2_dev, void __iomem *regs);
-+dcmipp_byteproc_ent_init(const char *entity_name,
-+			 struct dcmipp_device *dcmipp);
- void dcmipp_byteproc_ent_release(struct dcmipp_ent_device *ved);
--struct dcmipp_ent_device *dcmipp_bytecap_ent_init(struct device *dev,
--						  const char *entity_name,
--						  struct v4l2_device *v4l2_dev,
--						  void __iomem *regs);
-+struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
-+						  struct dcmipp_device *dcmipp);
- void dcmipp_bytecap_ent_release(struct dcmipp_ent_device *ved);
- 
- #endif
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
-index 49398d0777646..dd784cfcaac82 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
-@@ -33,31 +33,6 @@
- 	.flags = link_flags,					\
- }
- 
--struct dcmipp_device {
--	/* The platform device */
--	struct platform_device		pdev;
--	struct device			*dev;
--
--	/* Hardware resources */
--	void __iomem			*regs;
--	struct clk			*mclk;
--	struct clk			*kclk;
--
--	/* The pipeline configuration */
--	const struct dcmipp_pipeline_config	*pipe_cfg;
--
--	/* The Associated media_device parent */
--	struct media_device		mdev;
--
--	/* Internal v4l2 parent device*/
--	struct v4l2_device		v4l2_dev;
--
--	/* Entities */
--	struct dcmipp_ent_device	**entity;
--
--	struct v4l2_async_notifier	notifier;
--};
--
- static inline struct dcmipp_device *
- notifier_to_dcmipp(struct v4l2_async_notifier *n)
- {
-@@ -68,8 +43,8 @@ notifier_to_dcmipp(struct v4l2_async_notifier *n)
- struct dcmipp_ent_config {
- 	const char *name;
- 	struct dcmipp_ent_device *(*init)
--		(struct device *dev, const char *entity_name,
--		 struct v4l2_device *v4l2_dev, void __iomem *regs);
-+		(const char *entity_name,
-+		 struct dcmipp_device *dcmipp);
- 	void (*release)(struct dcmipp_ent_device *ved);
- };
- 
-@@ -221,9 +196,7 @@ static int dcmipp_create_subdevs(struct dcmipp_device *dcmipp)
- 
- 		dev_dbg(dcmipp->dev, "add subdev %s\n", name);
- 		dcmipp->entity[i] =
--			dcmipp->pipe_cfg->ents[i].init(dcmipp->dev, name,
--						       &dcmipp->v4l2_dev,
--						       dcmipp->regs);
-+			dcmipp->pipe_cfg->ents[i].init(name, dcmipp);
- 		if (IS_ERR(dcmipp->entity[i])) {
- 			dev_err(dcmipp->dev, "failed to init subdev %s\n",
- 				name);
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c
-index 7d3f5857cbfe8..564f37e2e1dd4 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c
-@@ -515,15 +515,14 @@ void dcmipp_inp_ent_release(struct dcmipp_ent_device *ved)
- 	dcmipp_ent_sd_unregister(ved, &inp->sd);
- }
- 
--struct dcmipp_ent_device *dcmipp_inp_ent_init(struct device *dev,
--					      const char *entity_name,
--					      struct v4l2_device *v4l2_dev,
--					      void __iomem *regs)
-+struct dcmipp_ent_device *dcmipp_inp_ent_init(const char *entity_name,
-+					      struct dcmipp_device *dcmipp)
- {
- 	struct dcmipp_inp_device *inp;
- 	const unsigned long pads_flag[] = {
- 		MEDIA_PAD_FL_SINK, MEDIA_PAD_FL_SOURCE,
- 	};
-+	struct device *dev = dcmipp->dev;
- 	int ret;
- 
- 	/* Allocate the inp struct */
-@@ -531,10 +530,10 @@ struct dcmipp_ent_device *dcmipp_inp_ent_init(struct device *dev,
- 	if (!inp)
- 		return ERR_PTR(-ENOMEM);
- 
--	inp->regs = regs;
-+	inp->regs = dcmipp->regs;
- 
- 	/* Initialize ved and sd */
--	ret = dcmipp_ent_sd_register(&inp->ved, &inp->sd, v4l2_dev,
-+	ret = dcmipp_ent_sd_register(&inp->ved, &inp->sd, &dcmipp->v4l2_dev,
- 				     entity_name, MEDIA_ENT_F_VID_IF_BRIDGE,
- 				     ARRAY_SIZE(pads_flag), pads_flag,
- 				     &dcmipp_inp_int_ops, &dcmipp_inp_ops,
-@@ -543,6 +542,7 @@ struct dcmipp_ent_device *dcmipp_inp_ent_init(struct device *dev,
- 		kfree(inp);
- 		return ERR_PTR(ret);
- 	}
-+	inp->ved.dcmipp = dcmipp;
- 
- 	inp->dev = dev;
- 
+ 	/* Stop capture */
+ 	reg_clear(vcap, DCMIPP_P0FCTCR, DCMIPP_P0FCTCR_CPTREQ);
 
 -- 
 2.34.1
