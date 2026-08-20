@@ -4,148 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C672C5DF82
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57AABC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 07:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FWemyG4N4ylx8AJN2NYbSRutWHMPkhp+MiTGTIekUm4=; b=vCJcrR9PkCtCzNpe8nXgGeOV/l
-	yiDf6Y/1Flhi8gpGf86WpBiu5fCphey/Q5jhzRRbkW9kxdMBVDaVLhr9oNp6mkMstJf1odIZ7W9gE
-	N3noISqMGj5JOuxWVbnBzPh41j5FuUyqZARQ6TX5KnXJeImdKQ1VRiAq4aSt28lzTPIDpWNp5jVLw
-	LTQsJ/ZTqg6GGlSx9D4okuMUOMDHfTxb0pKKvdWQKAVjqgfSLLCY6fsNE9eksvumTC7iihoQqGi3b
-	Ph6F7wS0yAMA9CryQ550e7F6u4DHMGhJoD998Eb0+eBDY5faw4PPDhTpDiEEv58CA2ATWUPvHcOGw
-	KUqdcD+Q==;
+	bh=0TAyv372/LEkCsLr0cT5JC02uRbKUvvVi2UV1V38EE0=; b=yxZknRWO3ukvaq2ZnnenIf4lKj
+	fgD7+hJAjvbFHXovvE2uGOVv8CwzkrhKfIcbKgXwoUUZcu62V4d9LaMIrhTBOfw59vjmCg+XxJyXu
+	zeeK5hecM19eYS37AQZg92gwDdjruxH+jut956CcOb1P9MWhUIRs0Xb3NmPgrtw74g5e7SHXB8zRu
+	kImbB3eBNhgu9f6JlkEY3qabTh5lW0ZAv53HgzCPjUtL22tG0tufdq3H2y/v9Yn/B3IApntKY25CD
+	qU1uE/w34C7x8CkVKXRO7JHsTTGnCrBJL6uaFJLFCEDzz01YSJ1Lbrwe75WU+rlxmw1icInvi5dxn
+	MlumokFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwxUV-0000000B5ja-0cmz;
-	Thu, 20 Aug 2026 07:47:11 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wwxXf-0000000B6Da-3rVt;
+	Thu, 20 Aug 2026 07:50:27 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwxUS-0000000B5iG-41Yt
+	id 1wwxXd-0000000B6Ck-1sOj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 07:47:10 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67K6PYEu1987347
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 07:47:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	FWemyG4N4ylx8AJN2NYbSRutWHMPkhp+MiTGTIekUm4=; b=agAReysmKjIortik
-	PpCcf6FrLsBAFvE0L36aRTnWYqI+2R+0kYuY77jU6VmYzah32kclW2u3mzNnW8OX
-	M4+9abOckXZ1aVh+cheNvogAjrVtl5op3ScbA0oxs18pLFQwmFZE6u51IDK3nA0V
-	AG+BpfPw/uMiNl8Yigark5SmCr0wq6OIJNBtOFYchSOdgDrWOYtfRm0wgHhG8P0F
-	Nd7f2l8UBeQtWDILlHMdk5SsvsbCe5cdm/C7McjEZwwhXr74nCvTNoZUMehQUS8C
-	CGb+yjf1tzdvKdaGaJCxvSQ0UEV5ECe7kaMsaZgJrhH0B1p1NOSSnOcAR84qe4Wt
-	87Yieg==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g5esj3r86-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 07:47:07 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-52d9cef8d15so31665881cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 00:47:07 -0700 (PDT)
+	Thu, 20 Aug 2026 07:50:26 +0000
+Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-3a151eda82dso14597071fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 00:50:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787212223; cv=none;
+        d=google.com; s=arc-20260327;
+        b=b1ewSbAoe+ZOqcQpcpGEd92GlivqKXRLAbZKr+eBY7xieZ/cGMF0BEkrcYRK9jwA8f
+         UTDKtESYDMwsYhHhyQV+q6N9bZUceNibh5Mi4EEXACROhTFSvdTWZmCclpY33Cmox37R
+         5tXAQZ/rWXBrExJuuLl9K5iwi7v9kADGlJfiABcmtA1jHsV3Mi0kQDTPPVGYEsIrYFL4
+         ce9qxkLpby9d5qoRE/tnWaT5ma0IQGTj/lhiqm7yPLncJkOjPxKflQUO8tmQZTnjlC+Y
+         zEn5ZRlklk8zVNV/gzJb6rN9TI1hhOrZs9htu6AS8XLcDhhR2Tr0M9wIzV978FsRFECO
+         RNGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=0TAyv372/LEkCsLr0cT5JC02uRbKUvvVi2UV1V38EE0=;
+        fh=EzrWMrzISwslDc5h7asGfe6YqM/1ooqSmueM2KU24bA=;
+        b=XWXzBtKA8GjFPXX5t+R+McE2eaWR3lwTRGtlVcR32TXEdV01yfoWEjO3SV/BPJ6Pey
+         jNLPjmwAh6Bn2/2JRqnPZhL32JpsFqjoquR9BM9XXlEbVBdVSKXHTYb0NV7Mn0Z7r41H
+         Hb8pvlmz09+Oe/wBcIspykFKm7R+4m8U8weISuFytQJeruCpfMIjFT2Ge6ecyFiYNwwM
+         nUddPG56YmZcsgfIgCaRNqdvUeAQOLno5HwN80OtQxVS1m+AqHsey21kGAtXj9Q/tEuE
+         SDcQGMBYruxaBs++xugIXONeZcm78AaXXcVByynGuSEuxJVZN7z+sY3vC9EZQoDgMtt8
+         eR/w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787212026; x=1787816826; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FWemyG4N4ylx8AJN2NYbSRutWHMPkhp+MiTGTIekUm4=;
-        b=Fd57lA7QYSWmc4i11jWOCxs/wQiG/n1J8hqOaY/l/0dV62t2FwO1nMZhabIIamKepG
-         JWnYuGtttOYLB56IqlxBY6Vt4p3fqnx/3ZeGvINmLAi3uhO8/sGIYdmQHhCq2ppYMcL0
-         caJn0t57FSEw7RJKG8+11iuXG7PIW7LPnhlUFUzufhw0hFkanccOOOCf4x6z/rdEFrDY
-         ZGdZyR6dnWtAw8SIn+f4Xw29JDM+gbD6jBxlLZ87Kw1kuTicLNrGlGaHi6ZDy1rdgH+9
-         vL3UQK+ixqRzv13Y/AYoqD1GL901/0clDcqyCQ2aCvEoKAIsQope/ug1YiovvMFdZZAf
-         3img==
+        d=gmail.com; s=20251104; t=1787212223; x=1787817023; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=0TAyv372/LEkCsLr0cT5JC02uRbKUvvVi2UV1V38EE0=;
+        b=sMgWBf3cpRkOL8iULsss4rjpbLqQ8u//cgm4SNi5xinPTLa38w+xKPxD/1FRvvLyCs
+         gTWna1WgGn42TplcKXkDlitVp1u/13+dqhezYhHNyx9yTvNSqMEvC4BBdrKIShEzwOn/
+         V8bXvtn2sevRaqwxHhSYt6Wz6ANRSLwcKO94LBcKg1gvOaCaKMq+AEdbwZSQ8CjCPWfk
+         p1TVaQ9i93Lb72guRWoTmmLa/PAyOPJ54Hm7ByT+NRrL0FGJMtWndIZMB/T1KUiW/wP3
+         vrbF7lr4Jzb2HqhXnuP5ilaZJakZPD6orOewXQ6frwoqermYpz8LhZcpuboEDJDM1zEt
+         Fllg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787212026; x=1787816826;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FWemyG4N4ylx8AJN2NYbSRutWHMPkhp+MiTGTIekUm4=;
-        b=ZsQIqPdYbUK3jNcwC8MnMOtTz4THzZQK65Sjp20NaTHqPCI2ze+xuGM8dfinhGV8gr
-         QwKts9PLu+kx0N1ntTrNco8rQ78mYpaC2NAvIwOz6EuVe3YsPOuMF++K4t4I0ZzZnVxY
-         SmVs1IwTImjyZoWTu46P1nxuTx7zP04j/VtL1iyEq+NkXGyIREPiH5iIgwhWmajXcpOJ
-         DkLnB4JIvHx8PbnoUY8LK1WkXCvTmmFNE8W58/6noI0tWMEPrK6gLwohUPrV9vBYir6f
-         AwXAn1K6kTtQpa5WiqO6MpWB0BmxC6HRNFMAx/Ijz+CCXaZ+RzFSuX5aJ7xXC7iKjQzv
-         Tdag==
-X-Forwarded-Encrypted: i=1; AHgh+RrluOgga0xYnv0u+5DnBveU7rntxv1yBG3hn+L4S8bK8ZHygV5xbvOVk3A6kr/HIIjKJN0Ve/gGGTTYa70FxUQK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCH8O2NnEJWCN/jVGKfd4iqcWpB9mSDvJXb+wOo3CpG65CLB2A
-	IodQXpi1fr8a5a5omZiA/up4nS0sVjoe16pnqJyu0LN1arUZnMsYdBPk8PrVkCeb5TAS2D0EwPO
-	0r2Ma6i/lauqfJY1DHZ75J8du9zPcYJN81HBOjriIRr9tf8lAEvUvf3c7tqJUOE0Wkp76FMLlG+
-	1PkA==
-X-Gm-Gg: AR+sD13O85eDJeVj4iAUGdnZSk9h002ahFYWqlmdBUuv/xv/yvtKyauhl56HgWQVFpj
-	t55Qf+z0OkIoO7KlAy9YsFu5gcwMcqH/kF+BuWAemZOY4qnBBBwrUsTV/ayU/RT8E4Y+o00ph9d
-	rONejE89YlS/pC9m8LuvjFELK+h9hwBxws9imByLqjZzKlJlOZWSqruoVLW6C1STerbcJbUcygJ
-	C5MNEJC5M481uhpYTybCfj+FAtwyXMkEeaSXSdqzN/9d6pNgSDPp63mJyXESgQNeqQG3IikFpJ+
-	kdg+1P39nsEeD5WnPnAtC3BBPAk7374EjyuOQlyGChZpCEPP0Z7+sgpd1L/x5rOxSslyPmmFxyj
-	tyxI39kg4LfpLO0G+Xoilbfk8GIOP
-X-Received: by 2002:a05:622a:2b4b:b0:51c:a70:5ed with SMTP id d75a77b69052e-52dd5c9313dmr98105121cf.30.1787212026504;
-        Thu, 20 Aug 2026 00:47:06 -0700 (PDT)
-X-Received: by 2002:a05:622a:2b4b:b0:51c:a70:5ed with SMTP id d75a77b69052e-52dd5c9313dmr98104821cf.30.1787212026125;
-        Thu, 20 Aug 2026 00:47:06 -0700 (PDT)
-Received: from [192.168.1.110] ([178.197.219.214])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499aa0dd5fcsm133844445e9.14.2026.08.20.00.47.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 20 Aug 2026 00:47:05 -0700 (PDT)
-Message-ID: <0f8f3d24-41ec-4878-8182-c805c7db7c23@oss.qualcomm.com>
-Date: Thu, 20 Aug 2026 09:47:02 +0200
+        d=1e100.net; s=20251104; t=1787212223; x=1787817023;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0TAyv372/LEkCsLr0cT5JC02uRbKUvvVi2UV1V38EE0=;
+        b=JQ4Z5Zu86dF/gZPjMf3esoT4A85OlQrokTjtsbUcPP8uqNcerGlR8N7k3PAxYEaRyO
+         92sOVIZ+k+f/7mF11LUuyZ0/mLos/5m091yQu2nnz2m0CwiG9golYSgR9qjyCykGBeoY
+         +yvyysNR/6F58P4UD8wqtSXrLQRuvANRvs/+5s7l1SExY3DJeJP9cOHtO8vrC4oVp6WT
+         uEDmYJOLkgwX7g8dH7QGYh8921+wzkrXxYVihOEgL07SEeGt0u/3HTo15D6cQnIJhrKQ
+         TKDKoaZi27dpsoNuJb3MBAkyPpZH9FRZ+zKK5p8xa/Cfhz5ZvIHHK6GGNncRo1hmivwn
+         I+rQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrjZqsil81TCPrfMszpFkCuVDQWZydnLfdEgt38Bl77iTc6reAMptSsLXfk5w4NYzcoxwpCXCotegyHH399Bvm5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIfTg4+sPaUzD0dYlvAKlX02RUQfo2tAEH3d1a3GDy21JqtGiY
+	+/8wQz/LacQ5U+AG0akkX8YmUXo55fm30aauIKHw4F84L8hYI69gFFAZ4F19H2X+EUvqtpJdKNX
+	+I2gfGD8zHkEtoipIwaa0gapbrcqhDWY=
+X-Gm-Gg: AR+sD12DsW1teRgMmgNesFnVlsz61c95tpEOJP18+dLxmXbjN0O2Kdi/+056O3DQ+WF
+	B1pb/R21XzxfhJjgRavHW2LUF/M/vtEEH+CttlT9EgAJGSQ5B63RdVOGic8YHc4Wk99YXufCsCv
+	PWq377jpuFV3cDnDu9x8m7yhEN2LDw4D1BOXBFjloq7DfGr+JPcxNTmVKHVpRqVbIurs7ZByomQ
+	O496Oa8SyRtK7khPtIGkRwkWWR3ZXVWay3pVYgfrkqBm99q/7gD14ITKn53gQ4WgTgzCRhuD1Sz
+	YRq+iu4FRgJ5BxMw2CaIm331FqrFd8rfNzqy1dV4YsFzJkj2lh7aohM7MGkdNu27/JLOLXFEA18
+	zmW0225No2Z79Yx00VwmygOjz6A==
+X-Received: by 2002:a05:651c:199f:b0:3a1:1d3b:67f1 with SMTP id
+ 38308e7fff4ca-3a1896d9d67mr21587801fa.7.1787212223022; Thu, 20 Aug 2026
+ 00:50:23 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 04/12] dt-bindings: npu: rockchip: add
- rockchip,rk3576-rknn-core
-To: "Rob Herring (Arm)" <robh@kernel.org>, Jiaxing Hu <gahing@gahingwoo.com>
-Cc: linux-kernel@vger.kernel.org, tomeu@tomeuvizoso.net,
-        p.zabel@pengutronix.de, ulfh@kernel.org, will@kernel.org,
-        conor+dt@kernel.org, chaoyi.chen@rock-chips.com,
-        dri-devel@lists.freedesktop.org, zhangqing@rock-chips.com,
-        linux-arm-kernel@lists.infradead.org, joro@8bytes.org,
-        devicetree@vger.kernel.org, iommu@lists.linux.dev,
-        linux-pm@vger.kernel.org, linux-rockchip@lists.infradead.org,
-        krzk+dt@kernel.org, alchark@flipper.net, ogabbay@kernel.org,
-        royalnet026@gmail.com, diederik@cknow-tech.com, robin.murphy@arm.com,
-        heiko@sntech.de
-References: <20260817113603.1436067-1-gahing@gahingwoo.com>
- <20260817113603.1436067-5-gahing@gahingwoo.com>
- <178709455518.1014304.1443906758035976924.robh@kernel.org>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Language: en-US
-In-Reply-To: <178709455518.1014304.1443906758035976924.robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: 8a-sR2CqjcRyqicwWIXGHLc6hqzzaiaN
-X-Authority-Analysis: v=2.4 cv=EaL4hvmC c=1 sm=1 tr=0 ts=6a86b0fb cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=+bKQE0WJfmhK2875HamI0Q==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=9GNsruGHAAAA:8 a=EUspDBNiAAAA:8 a=SdGosrV6Qt3YffhYJa8A:9 a=QEXdDO2ut3YA:10
- a=kacYvNCVWA4VmyqE58fU:22 a=gf-oSkQAjqHFJRp-GQfY:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIwMDA1NSBTYWx0ZWRfX59eqxtuClIup
- gXzz80KxJSsy+TU/3CCeFiONsUZSSO0EkpZmF084JHNkCa9iy0utvJTmr0X9D3/lToLLsI8387t
- gJJp0qK4rg+dn0288FNdkXTa85SpeA73X7jcJX+wY2D0CJYKcf0auefqY0QNRPNWYi6hKod5cw9
- mgmcK2JmxONtDpS0QpzlHaasmUhi65RpOVjaRdtZSFiX87K4K6mxB73cFAH/7uu50Rgllz9hHAi
- j5inI7AI5KTbCCRk5LPza28weRC6b+ypRINiLOUm5SpL8RwHhp741s6toZd8Kn9SxTMWoR5LcQd
- IhptghNytb1qki+u4KdShkkR+Y6I2KLuUpiAwpSJL7D8pdsqDR7atFffCvmeH5O7o8oJvy1BIZz
- aUEBepLSBWOqK2jMj+SmuuiGMgvQ6+v75Bx8lXbLqeDPvWVGOogUncQE9vIm+HPpBXG7EbZv9gJ
- 0Mr+24/8jFq2etPwBVA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODIwMDA1NSBTYWx0ZWRfX1viq7osfgPil
- dks/BdNdRUmkRrXwCurqxznm2QyZbbggvDVRq+BDiqORNg3A0kdj058UUtSmSuGiHkOohJpe0Et
- V/IvFSs4ZVARufQle/54qpW4gPTlKNM=
-X-Proofpoint-ORIG-GUID: 8a-sR2CqjcRyqicwWIXGHLc6hqzzaiaN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-19_06,2026-08-19_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 adultscore=0 suspectscore=0 spamscore=0
- phishscore=0 priorityscore=1501 impostorscore=0 lowpriorityscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608200055
+References: <CADOrJmbTyrGGkq+9OJDXCgTa2HvNo8BWxoE6yjafcrOq7WNamw@mail.gmail.com>
+ <20260817215428.84740-1-gvalkov@gmail.com> <20260819-generous-nickel-dalmatian-b6bb08@quoll>
+ <CADOrJmYfBe3ADun_kFjFSH6YOSTX7Vu3UsFsL57yuRdaQ=eJCA@mail.gmail.com>
+ <e554c007-67e3-4fbf-b85e-5de02f649e83@kernel.org> <CAGXv+5H7AhZgZ06r9KO3HLZ9Cymkai+Cv9SgVTuSC1PjgGf8hg@mail.gmail.com>
+ <d6c8f19e-f154-4b57-9101-cf3b73e9794f@kernel.org>
+In-Reply-To: <d6c8f19e-f154-4b57-9101-cf3b73e9794f@kernel.org>
+From: George Valkov <gvalkov@gmail.com>
+Date: Thu, 20 Aug 2026 10:50:10 +0300
+X-Gm-Features: AcwNN1UED2d-bg9Uini4u4mWy-mvYyG-FuFnU3Li4w7hQPYNR666nZuf3FB7ICo
+Message-ID: <CADOrJmYxKTyDkKPaKCpH37RsyyZJZ+4uReE--+uvnHmEdNJVOw@mail.gmail.com>
+Subject: Re: [PATCH v5 1/3] dt-bindings: net: wireless: add flag marvell,ignore-regulatory-hint
+To: Krzysztof Kozlowski <krzk@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>
+Cc: briannorris@chromium.org, johannes@sipsolutions.net, andrew@lunn.ch, 
+	krzk+dt@kernel.org, francesco@dolcini.it, johannes.berg@intel.com, 
+	kees@kernel.org, miriam.rachel.korenblit@intel.com, rafael.beims@toradex.com, 
+	avraham.stern@intel.com, error27@gmail.com, s.kerkmann@pengutronix.de, 
+	gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com, robh@kernel.org, 
+	conor+dt@kernel.org, Frank.Li@nxp.com, chunfan.chen@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_004709_014710_8BEFFFE9 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20260820_005025_531318_BF8B76F6 
+X-CRM114-Status: GOOD (  36.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,41 +129,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/08/2026 01:09, Rob Herring (Arm) wrote:
-> 
-> On Mon, 17 Aug 2026 23:35:55 +1200, Jiaxing Hu wrote:
->> The RK3576 NPU has two cores of the same RKNN block the RK3588 binding
->> already describes, but it wires them up differently: two extra CBUF
->> clocks, two power domains per core, and a single reset instead of two.
->> It also has no NPU SRAM supply.
->>
->> Widen the property ranges to cover both, then pin each SoC back to its
->> own shape in allOf so nothing loosens for RK3588, and keep sram-supply
->> required for rockchip,rk3588-rknn-core only.
->>
->> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->> ---
->>  .../npu/rockchip,rk3588-rknn-core.yaml        | 47 +++++++++++++++++--
->>  1 file changed, 44 insertions(+), 3 deletions(-)
->>
-> 
-> My bot found errors running 'make dt_binding_check' on your patch:
-> 
-> yamllint warnings/errors:
-> 
-> dtschema/dtc warnings/errors:
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/mfd/qcom,spmi-pmic.yaml: Unresolvable reference: /schemas/input/qcom,spmi-haptics.yaml#
-> 
-> doc reference errors (make refcheckdocs):
-> Documentation/translations/pt_BR/process/security-bugs.rst: :doc:`regular path submission </../../../process/submitting-patches>`
-> Documentation/translations/zh_CN/how-to.rst: Documentation/translations/zh_CN/xxx.rst
-> arch/arm/xen/enlighten.c: Documentation/devicetree/bindings/arm/xen.txt
+On Thu, 20 Aug 2026 at 09:53, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>
+> On 20/08/2026 08:42, Chen-Yu Tsai wrote:
+> > On Wed, Aug 19, 2026 at 8:27=E2=80=AFPM Krzysztof Kozlowski <krzk@kerne=
+l.org> wrote:
+> >>
+> >> On 19/08/2026 13:42, George Valkov wrote:
+> >>> On Wed, 19 Aug 2026 at 12:42, Krzysztof Kozlowski <krzk@kernel.org> w=
+rote:
+> >>>>
+> >>>> On Tue, Aug 18, 2026 at 12:54:26AM +0300, Georgi Valkov wrote:
+> >>>>>
+> >>>>> diff --git a/Documentation/devicetree/bindings/net/wireless/marvell=
+,sd8787.yaml b/Documentation/devicetree/bindings/net/wireless/marvell,sd878=
+7.yaml
+> >>>>> index 930b700b73d0..5f235cb9f3e5 100644
+> >>>>> --- a/Documentation/devicetree/bindings/net/wireless/marvell,sd8787=
+.yaml
+> >>>>> +++ b/Documentation/devicetree/bindings/net/wireless/marvell,sd8787=
+.yaml
+> >>>>> @@ -59,6 +59,12 @@ properties:
+> >>>>>      description: Calibration data for sub-band 3 in the 5GHz band.
+> >>>>>      maxItems: 502
+> >>>>>
+> >>>>> +  marvell,ignore-regulatory-hint:
+> >>>>> +    $ref: /schemas/types.yaml#/definitions/flag
+> >>>>> +    description:
+> >>>>> +      Ignore an incorrect regulatory hint from ROM,
+> >>>>> +      so userspace can set the correct regulatory domain.
+> >>>>> +
+> >>>>
+> >>>> Same comments, so you just ignored entire feedback?
+> >>>
+> >>> Do you mean this feedback? I already replied to it:
+> >>>>> Anyway, property looks like SW choice. You must describe hardware
+> >>>>> instead.
+> >>>>
+> >>>> I am sorry, I do not understand what you want me to do?
+> >>>> Can you please send a diff or a clear description suitable for peopl=
+e
+> >>>> who have way less experience than you?
+> >>>
+> >>>
+> >>>> Again: you need to describe the hardware, in commit msg, in property
+> >>>> name and in description. You cannot tell SW what to do, that's not t=
+he
+> >>>> purpose of bindings.
+> >>>
+> >>> I still don't understand what I should do?
+> >>> Can you please show me an example of the changes you want?
+> >>> Else I'm likely to make a wrong guess and implement it. That obviousl=
+y
+> >>> won't help.
+> >>>
+> >>> The commit message already describes the issue with WRT3200ACM and WR=
+T32x.
+> >>>
+> >>> About the description, do you want me to do something like this?
+> >>>     description:
+> >>>       Ignore an incorrect regulatory hint from ROM,
+> >>>       so userspace can set the correct regulatory domain.
+> >>> +    WRT3200ACM and WRT32x are known to need this.
+> >>>
+> >>> About the property name or flag, do you want me to add a separate fla=
+g
+> >>> for each affected hardware device?
+> >>> - wrt3200acm,ignore-regulatory-hint
+> >>> - wrt3200x,ignore-regulatory-hint
+> >>> - the list may grow if someone decides to add other devices
+> >>> - and the driver will need to support all of them
+> >>> - that doesn't make sense, because it isn't scalable
+> >>
+> >> You need to describe the actual problem in the hardware or firmware, a=
+nd
+> >> then name the property and description accordingly. "Ignore regulatory
+> >> hint" is clear instruction to the OS what it should do - ignore the
+> >> wireless-regdb package/instruction etc.
+> >
+> ChenYu:
+> > You probably have it backwards. The driver is taking the hint from the
+> > hardware ROM, which is fixed and thus wrong once someone carries the
+> > device to a different country. I.e. it is a quirk saying the _hardware_
+> > region should not be used.
 
-Most likely false positive due to other things in the kernel broken.
+Almost. I bought the router in Bulgaria and I am in Bulgaria.
+The ROM hint is US. More details below.
 
-But just in case - be sure you tested the bindings.
 
-Best regards,
-Krzysztof
+Krzysztof:
+> regulatory-hint for me means usually regdb, but even with your meaning
+> you tell SW what to do - ignore hardware regulatory information.
+> Property should not tell what SW should do with hardware. Property
+> should tell what is happening here in the hardware. In this case: what
+> is the reason behind.
+>
+> IOW, why user of a board in country X, where regulatory data says X,
+> should have the correct regulatory data ignored?
+
+Because users in X buy a board for X and the regulatory data says U.
+
+Indeed when the ROM regulatory hint is set to US and the driver
+reports this to the OS, the wireless-regdb restrictions for US are
+applied. This would normally be fine, however the third radio in
+WRT3200ACM and WRT32x, reports US on all models including those sold
+in the EU and other non US markets. This creates a conflict with
+radios 0 and 1, which report FR and also with my correct setting: BG.
+With the wireless-regdb restrictions for US, FR and BG applied, radio
+0 refuses to start.
+
+Would you approve any of these or suggest a better name for the flag?
+Should ROM be in upper or lower case?
+I omitted 'in-ROM' to keep it short, because the driver check line is
+already longer than 80 characters.
+- marvell,ignore-regulatory-hint (current)
+- marvell,ignore-regulatory-hint-in-ROM
+- marvell,invalid-regulatory-hint-in-ROM
+- marvell,invalid-regulatory-hint
+- marvell,invalid-regulatory-ROM
+- marvell,invalid-reg-hint-in-ROM
+
+Krzysztof:
+> Do not attach (thread) your patchsets to some other threads (unrelated
+> or older versions). This buries them deep in the mailbox and might
+> interfere with applying entire sets.
+
+I used these flags to keep everything in the same conversation:
+--thread --in-reply-to
+The documentation states I should always start a new thread for
+multi-patch series. Note taken. Thank you for the links!
+
+Kind regards,
+Georgi Valkov
 
