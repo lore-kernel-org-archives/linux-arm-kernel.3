@@ -4,100 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0260AC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 14:02:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A242C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 14:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=czoOrQkTCM70VZKBNhJxXyCegI+z86opj24pXPk8LIQ=; b=WvvSWguG4e+hmdHC+PmhYd2WnG
-	F8Vxx+HaBFsT7D6PvYVGqynpG8Y92hNo4+vKpynI5OIu8Dj2qJmgBAXigtX+qdM+WuZikcOig9HAw
-	x367G9/FAoegZv8kcGAkD5NWd9LVegL7ZRfJIKUzaTUQ560EAcG75SevpUPqA+8OBTbysY3RKriZY
-	T3n8pwdZw/Fv76xuaGj8FCDYxu2kONPoyr36zckEPNblei0dhnLcGJPvpTmV0gZLwcGWekN7bOtr7
-	P+f/NWZV6Se7SBpiXpq0k7FhOdQu9rBe7p69guT6FBZXqtdguhH1+FFnLX4gdRiK0krpqTmtR7OKv
-	nh+l1xow==;
+	bh=1pP8q2KxBJVDEMogvb2LKf+VAT3Bwq0uMd2eAm1GmWI=; b=FaUpBtup5qiOcNfuhYLq+m9xtt
+	tigBqvTsu4qdw1JM0TwHjuWveuTPcbmNYsQFxzZjvIJzY+0JHnc2kZIwoh2NMFNXMkRTWqjQu3VoZ
+	nKzdXqKvAXxYIkZJbLxlaz+ZnZNk/rayOGrHwo4vGS7XyaqLqVoQHeU/CD5XS3q3+FeV2z6/XbyIZ
+	C+WFJaQ6MHn7Z8NCoFtO3bwMbONicYVnkBAqurznPUoK/bZHx1pgCP6ln4g8p40vNcKjhhqZXK059
+	cWAkWwfRQU+touzv9zIMiVZ5Fwchw1JqU9IId94Owr5eCf/3O74RCXLp8C/PkF3g/dPa1ozJC9g1Q
+	jPWq83qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx3L3-0000000Bei5-24tI;
-	Thu, 20 Aug 2026 14:01:49 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1wx3Mh-0000000BfGb-1wSh;
+	Thu, 20 Aug 2026 14:03:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx3Kj-0000000BeQu-1GDC
+	id 1wx3Mg-0000000BfGV-1IGH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 14:01:30 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-47f3b39f2a1so1957177f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 07:01:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787234488; x=1787839288; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=czoOrQkTCM70VZKBNhJxXyCegI+z86opj24pXPk8LIQ=;
-        b=WhL0/gISuuaV85E6ZnW3QIBTjPvQbqKSHT6MEqjxWHawgX+ztz0gfA2/ESnCn8p6b3
-         C+SK61kLp/nEq4W7NXwO0xZpNfHiPrFFGKw4Uub0zBYlOjo8SJp7j5mNRP+VaAqujs8I
-         YXCn48VZgrhkk4253F+YnQ+yXyRMSt5XQ1cNGOB2qFwWhswCnaM8oGcUg3ePNbu7nzUt
-         qJRcEenJXymwTNOMrKCbAmZBfX5UGQl9U6L7oapl3XOwUQ64zqaTykC/R19JuMQ5CtvZ
-         KlqprzAn5WTKUt/hS4K0jIzIGo3bRoPo4WMDT6LKP710L/BZR0wdO9b9ztH3eqXZf4wp
-         cUmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787234488; x=1787839288;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=czoOrQkTCM70VZKBNhJxXyCegI+z86opj24pXPk8LIQ=;
-        b=CiUw92UiMFvQZtSGYTc1yaLbXLKixd0UhCuBiUWeHgNChPFZtcQJZZsTvLh8G5ar/N
-         wKToozzY1/PSl/aWaZHsDzpqRNOVX80emo+UfjdfnyRqPRbc4nD05KjaR86Kwt1NQ9wJ
-         FnTfqzKoMZdQaqaBhc3N/irooLvoNkQ0/NF3O6CEP0EHxDvAktCwsgld/YQ2ImoZmYuu
-         m80SIkzkf4n3unxlhWw5tDNGe8etEw0n8fWnZ0mBMCUOnlWcm1zpIT2pguq+Rh2zZIaI
-         V76ogR0BIA3KABxHQJ3qJjHFblBLHEyry7ssvjKQ6ElN5b+vS8cY5L+nuZyVJZvSVC1H
-         douA==
-X-Forwarded-Encrypted: i=1; AHgh+RqkDdiImzbu5TKVaq0PyDPyfF+hYvpbdVxpVlqVTQdupunYi8Ogdg4jldIGNnJwP77pR0gjYHhT6iysOssiCBaO@lists.infradead.org
-X-Gm-Message-State: AOJu0YycFVU4xCjdXuzhYyOfUySWWDaXatcBf5f0lIRG50lELs7AJKS5
-	upUtAENs42XVCrhhN/fMSa2TjE2t12R2oL5sFZzjRfF6O+CMQWqLeTbs
-X-Gm-Gg: AR+sD11cqqLYb9gv98q+D7tbmxw5hkFP53pBbvj73TlKU/ZnaDnkazzuGYEM+ZgS9gk
-	7qFeySYAf+eMHxSX5gw4/anddPC7xaGN9MMT+stocOxxImejmyVHpAqQutNwbU5Ms9E9IAoDTlY
-	UV5QMTRKw2ztaQJHqAgbjKtLny4Pok050r3YrFyQSVYfi3FMrKxAwL3SKzs0YHV0VmdqJEhW+yj
-	3kqXzAUFs6DDcoX17xfW+dGs8qnG/wr42saR/AKGbn8KIq1i3P/INa9K3KKA6jW1b/Nh/+WXENC
-	D8dF9+wj19R4zNvwDYxGN92ComflSXjuo2iLN9Ntc3Lh62KM+Vkwhvl73P6mDrO20z98yfM1SAy
-	1JcYQSqwuYsbT7l7BoAt5lm9zvI0vy0wlXncMO9p1y8Nhliyw9XJgNvfzI51IygArxYbeNS3dht
-	TepEWruPwRa7Mk65ejlj9aIna6h4f4rG9y6WnQ/rgLDo4EGIdRgdQwgI7nTuSabJBGtbEHGzzve
-	LDH1OFybVl5VowCE+kNR5N/eAOJL7bU2yWFZl909NXlFhpbsvAWnuSdQA==
-X-Received: by 2002:a05:600c:190d:b0:499:873b:471c with SMTP id 5b1f17b1804b1-499aa1738e7mr212033545e9.6.1787234487497;
-        Thu, 20 Aug 2026 07:01:27 -0700 (PDT)
-Received: from [127.0.1.1] (lmontsouris-656-1-83-121.w82-127.abo.wanadoo.fr. [82.127.110.121])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499aa0e473dsm137978275e9.15.2026.08.20.07.01.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 07:01:27 -0700 (PDT)
-From: Amin Gattout <amin.gattout@gmail.com>
-Date: Thu, 20 Aug 2026 16:01:11 +0200
-Subject: [PATCH 4/4] arm64: dts: rockchip: add csi dphy nodes to rk3576
+	Thu, 20 Aug 2026 14:03:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A481A40A33;
+	Thu, 20 Aug 2026 14:03:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D40F1F00A3A;
+	Thu, 20 Aug 2026 14:03:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787234609;
+	bh=1pP8q2KxBJVDEMogvb2LKf+VAT3Bwq0uMd2eAm1GmWI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Q1ffXdaTl4qLXiUJYsCj25Cp9QBB2rZw5CZZFk9NlkBvz2tRwtc8klTF1ZEae3sUB
+	 cjorIBg1XW8Ah+uORZdrRmEj+FXim/5LmmertFtZ0EC+pmZlSuYkwAfoLNWXjt5MqX
+	 PXe2/cg1m8ho4rH7Qc9O8VS5GWml+GcVhV3MRJFOGvyOi2IoSV7t4+PsajucSx/L3t
+	 rUvKC11k3J3T9jXb1lC9mPx49t/cCjptP7G/oLo35Pss1gzg856McuQ/DKYPw44Gjf
+	 3vImftj7pahcXUfcVvfU6Kqh9d6kOZ29pNirm0qx+hsp9q0tIMWbv42TLawi692ALw
+	 KN95591X6sWkw==
+Message-ID: <578653c4-a7c7-498b-a283-f3b17f3d4191@kernel.org>
+Date: Thu, 20 Aug 2026 16:03:25 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dmaengine: qcom: hidma: fix autosuspend cleanup during
+ teardown
+To: Guangshuo Li <lgs201920130244@gmail.com>, Sinan Kaya <okaya@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+ Andy Shevchenko <andy.shevchenko@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+References: <20260808112551.2786782-1-lgs201920130244@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260808112551.2786782-1-lgs201920130244@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260820-rk3576-dphy-v1-4-70e25e8d5e78@gmail.com>
-References: <20260820-rk3576-dphy-v1-0-70e25e8d5e78@gmail.com>
-In-Reply-To: <20260820-rk3576-dphy-v1-0-70e25e8d5e78@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Michael Riesch <michael.riesch@collabora.com>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, Amin Gattout <amin.gattout@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787234481; l=2044;
- i=amin.gattout@gmail.com; s=20260818; h=from:subject:message-id;
- bh=bGK8ht4ZsYBRwxHCHXvcjD3xAuJ63yHglUCiy5arzTU=;
- b=44XQHZryO6sGy33sUIcTlfpaikDf14UiSkCAI8QjIux3seiY5mPvwK9CfmRjJ91dTLd2ARq2C
- DFtOzYij4uWB57MbraTHamPWVk21d/zyK7wnc1Wjdlg9Xw97C2nmNO+
-X-Developer-Key: i=amin.gattout@gmail.com; a=ed25519;
- pk=MSIqDPkCOkwtyP8Fns1m+KFU9SgqoDl2mpLe18vL+hQ=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_070129_396965_F122E8BB 
-X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,73 +117,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip RK3576 features two MIPI CSI-2 DPHYs. Add the device
-tree nodes for them.
+On 08/08/2026 13:25, Guangshuo Li wrote:
+> hidma_probe() calls pm_runtime_use_autosuspend(), but neither the probe
+> failure path nor hidma_remove() calls the matching
+> pm_runtime_dont_use_autosuspend() before disabling runtime PM.
+> 
+> If the autosuspend delay is set to a negative value while autosuspend
+> is enabled, the runtime PM core increments usage_count to prevent
+> runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
+> during teardown, this reference is not dropped and usage_count remains
+> unbalanced.
+> 
+> Add the missing pm_runtime_dont_use_autosuspend() calls to both the
+> probe failure and remove paths before disabling runtime PM.
+> 
+> This issue was found by manual code inspection.
+> 
+> Fixes: 67a2003e0607 ("dmaengine: add Qualcomm Technologies HIDMA channel driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 
-Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 34 ++++++++++++++++++++++++++++++++
- 1 file changed, 34 insertions(+)
+You sent vast amount of patches, all separate, making it very difficult
+to track and respond in efficient way. Do not do that.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index b0c0d3c8b1b1..b7a527614243 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -973,11 +973,21 @@ sdgmac_grf: syscon@26038000 {
- 			reg = <0x0 0x26038000 0x0 0x1000>;
- 		};
- 
-+		csidphy0_grf: syscon@2603a000 {
-+			compatible = "rockchip,rk3576-csidphy-grf", "syscon";
-+			reg = <0x0 0x2603a000 0x0 0x2000>;
-+		};
-+
- 		ioc_grf: syscon@26040000 {
- 			compatible = "rockchip,rk3576-ioc-grf", "syscon", "simple-mfd";
- 			reg = <0x0 0x26040000 0x0 0xc000>;
- 		};
- 
-+		csidphy1_grf: syscon@2604c000 {
-+			compatible = "rockchip,rk3576-csidphy-grf", "syscon";
-+			reg = <0x0 0x2604c000 0x0 0x2000>;
-+		};
-+
- 		cru: clock-controller@27200000 {
- 			compatible = "rockchip,rk3576-cru";
- 			reg = <0x0 0x27200000 0x0 0x50000>;
-@@ -2848,6 +2858,30 @@ hdptxphy: hdmiphy@2b000000 {
- 			status = "disabled";
- 		};
- 
-+		csi_dphy0: phy@2b030000 {
-+			compatible = "rockchip,rk3576-csi-dphy";
-+			reg = <0x0 0x2b030000 0x0 0x10000>;
-+			clocks = <&cru PCLK_CSIDPHY>;
-+			clock-names = "pclk";
-+			#phy-cells = <0>;
-+			resets = <&cru SRST_P_CSIPHY>;
-+			reset-names = "apb";
-+			rockchip,grf = <&csidphy0_grf>;
-+			status = "disabled";
-+		};
-+
-+		csi_dphy1: phy@2b070000 {
-+			compatible = "rockchip,rk3576-csi-dphy";
-+			reg = <0x0 0x2b070000 0x0 0x10000>;
-+			clocks = <&cru PCLK_CSIDPHY1>;
-+			clock-names = "pclk";
-+			#phy-cells = <0>;
-+			resets = <&cru SRST_P_CSIDPHY1>;
-+			reset-names = "apb";
-+			rockchip,grf = <&csidphy1_grf>;
-+			status = "disabled";
-+		};
-+
- 		sram: sram@3ff88000 {
- 			compatible = "mmio-sram";
- 			reg = <0x0 0x3ff88000 0x0 0x78000>;
+Group your work per subsystem.
 
--- 
-2.43.0
+You were asked to clarify and respond to incorrect fixes statement. I do
+not see how you clarified and responded at all.
 
+Best regards,
+Krzysztof
 
