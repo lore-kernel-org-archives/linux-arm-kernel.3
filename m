@@ -4,126 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D10BBC5DF85
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0413C5DF85
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Aug 2026 15:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tl6qZluDNVD0XJHBfRo/3IHu/mfCL6sV0OHSIRwpFco=; b=lw42GMLXMcHJhSF/9X9InXyGpt
-	kS+4ylJ329NL0Sqarj1yhToJRLm4BgOxn1XN0wkXaBd0RgqkKn6IQuKJ+GrlO3t8h7yBUrUxcyWYr
-	bsUTXYUOX2GeUxE4FyC6Nk1U8YyMswhIu0FLBBy4lQ7wzyig0hXVKXHcSa7OwQHrhBI04KOtF+hGh
-	qleXt4b/8BOiBcqijPv3fUmYYcZu/UoyaCPXwKCoEF+YCl881GIZMukDGhi/n6nrZ+xjyf/zMNG6S
-	67V5oy8vEkZWjMDzwxh23SphfZDaLa4yH2bYxvF1+bWuDvw1hOJFvhoxsUKJ/ckc6bqQWRqLNW+FB
-	bRUC1u2g==;
+	bh=cbqnG3DMyrwpxnsNWXHiZn9LCzAndIE7W5YifE88PDY=; b=FeEuZDVTHI4zcfty1sEjMt5T71
+	kAJMlO9x2inkXr4bz/qEhrPXfrHogfPhpV4a+p4P5uqhDicQPtAhWZ6YOr5goC1D/7DqznaqqV8bB
+	8tANRog7tp0DmeQta30dcOCOwDpph/mGqr/qELEZDEEjTyI8pSCBpWoEAwr5ODQUnqIEcjiejivkT
+	VkRzHxC/DQX9V7Ghpra7Ymx5fBrojTCeKY3QXDa95s6qAx4WFJqUb1aNcoSQ4R9QLNrNREvhFZO/E
+	nnT9LCWbFvbzdrDvK7BPwpOYxNUoHkv8+URAPY1rQ+9BH4iZC9V4QEeRoPHvS3oDCjJLRZHbzyanj
+	QC8PFYsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4Rl-0000000BmWp-3tQA;
-	Thu, 20 Aug 2026 15:12:49 +0000
-Received: from mail-swedencentralazon11013039.outbound.protection.outlook.com ([52.101.83.39] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wx4S0-0000000Bmb9-0AYn;
+	Thu, 20 Aug 2026 15:13:04 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wx4Rj-0000000BmVh-253a
+	id 1wx4Ry-0000000BmZo-0rvl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 15:12:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ywjXLdFimGoCXK1pb4DsFKMV2vzhjdWI6ILY6t0auAyRfRhoapsrlV111Zq1L0INN6ASfUemeLxuoXGIAM6rDyQlqJ/KFnJAxV2GrKz51HPHi0G5Pyp6HWb3QBb0CxK5kk2V/Q69HQqpfFZzizwn2J8xn6riJ5/5WPBEcFEQIjnPSc1YANCXwyBYPmfNbrG13qqPjjpdqpH2GEdPsAtZJ0M5+SbKprZuAo8j0dkjEsNIH3zyuQD1PaSYVBuHvT0L1FXu0kl3Xh9gfpRDsz7HwuxkZdU/1+Iz8vDb5ARtpu+5okK0sXgVZpaqMaEVJpRcr1tJHxQrjqja+chPM+tg+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Tl6qZluDNVD0XJHBfRo/3IHu/mfCL6sV0OHSIRwpFco=;
- b=lbEBzcwFiDXqLaEv2XfhDe50/f3sSGNH2fYH8jbyQQ7nTsB5xfjtqzOXBBGBa8h+ZtpmEozx2kbw5uoJEBsZLcacnLVIlL1WYURUMV4Ms8iRWz9lzIGZUVKx7Wyh9W0Nz3CYMmi5IEsDEOgncOLt5i3leaHva4EMJUHjQzOsJUSzrsLMkIa7hj/gUWXfcfDdqBW/t7b5KUrQNVYvgr4ZSN1eN3+oouPvJDzJvoky8O8d16C/MflBlmz3eMmXMTYbbdSHlxSkSah7LyUbq+s4qd844De4x5t0zDQYvz5mHvFj/LqMq0LXLJBEzNfFSntesrcg3KN+QzZOpijFCOUAaQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Tl6qZluDNVD0XJHBfRo/3IHu/mfCL6sV0OHSIRwpFco=;
- b=oXtUBy9V9GiQThGF6hI01ewxAkHa15xXK40+8+9SVeaTQQrabc6eDyREjXGhOtuXMkB2SaO0jZYpflmiayngUIyWc15KmMSAwzntVaDiDf08b99AEdCv9hICkh0wjqy90g5ZKELk5ycoX+AaOlqNFTXveTR9TOwiHdXKiCCLZwb54lJL013MdPAqiM0kBebdCt75QUWAh+jxeRuWQjDOpke8AQJA9YMZIcILZMKId6OVmXr8EeeZtbpDJRvFijo74dtlIYvmKc5UWKelVl+y6tiQCOPk3d288q0rjEoRGrchiTV2XgXUnLHhmexHJ05QQyiir22IOAShXcrq0AAfug==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GVXPR04MB11655.eurprd04.prod.outlook.com (2603:10a6:150:2c2::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Thu, 20 Aug
- 2026 15:12:36 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.007; Thu, 20 Aug 2026
- 15:12:35 +0000
-Date: Thu, 20 Aug 2026 10:12:28 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: dmaengine@vger.kernel.org,
-	Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	"moderated list:MICROCHIP AT91 DMA DRIVERS" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCHv3] dmaengine: at_hdmac: use devm APIs in probe()
-Message-ID: <aocZXKrXxENFihZW@SMW015318>
-References: <20260817201200.10952-1-rosenp@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260817201200.10952-1-rosenp@gmail.com>
-X-ClientProxiedBy: SA0PR11CA0058.namprd11.prod.outlook.com
- (2603:10b6:806:d0::33) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 20 Aug 2026 15:13:03 +0000
+Date: Thu, 20 Aug 2026 17:12:57 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1787238779;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cbqnG3DMyrwpxnsNWXHiZn9LCzAndIE7W5YifE88PDY=;
+	b=ebvlP+j6W3N3VZOYkqOXtyBjSDxTIkLWGo8hBYhqXMqO8RyvjYoztFkOeXPaTb63NTH7Yn
+	xmE17shxKckpIdarz/KY4TQMei0BrJ76UDYynjcFcosT73SfxdDjx34XcWsRxnbGGmk+m/
+	eRs7LN1UKEMf7WxwsV8OJsA8IoaEzcw47iULE2orQtPjdjp96Acn13EvRscEZQSdBDKsLf
+	SH/4RYiVoKiWMj0QXsJNC0k1+1I7i4cb9CYql2Xq1lsULcVXY2I+oT3BQ2Ctn0zLEsh/DA
+	vZe8HN4KGcV8dPJnwJ1BqNV3xis0yefjhnO+aaJdU88MbhQGPWE39r1uF2FazQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1787238779;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cbqnG3DMyrwpxnsNWXHiZn9LCzAndIE7W5YifE88PDY=;
+	b=0A0vBAJLYsxDfMa0hzZKbBIqFxDDFr8x8En/dsyxHUEBFmtlIsvduZX+/h1Fa+j46nSZFv
+	MbD3+qRtpxXUGfCg==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Florian Bezdeka <florian.bezdeka@siemens.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Yury Norov <yury.norov@gmail.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Jan Kiszka <jan.kiszka@siemens.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH RFC 0/3] genirq: Allow drivers to respect userspace IRQ
+ affinities
+Message-ID: <20260820151257.PtSDccEP@linutronix.de>
+References: <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-0-3f79a99cadaf@siemens.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB11655:EE_
-X-MS-Office365-Filtering-Correlation-Id: f0cdcb62-fa0c-4b41-dbfe-08defecd772f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|19092799006|1800799024|376014|11063799006|10067099003|56012099006|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: L4iyJjMZnl8ahs4T9v+8rglKr6YY2GZnnPTIIb31SuPcmX8ZPJwsFCDA42/L5dhaEi11+lLbW0RVk3XvOZ05F6AJ+qO0ejUBIurk+fn5PuLaMzOe2aI694/HCPQhV26xNvb9ZjkxmFS4vOHuXj5iJSoTTIB0FvurGof1CvgnlljEwcjMj7qbPYLBU2Twxsn3PPPrPw9GaXWktTfm4B7PBLVe1ekveNwjqjgkHKYSPYKSp/mawVPPT3HDvPbUPWnJWpG0cIZeoRzHo+l/whU5sH4gVcLQT374zXCbfKd8aBQ4qszRDK7FRiwAeTzQXXywWXz96YBGfo/cFZY7vksLBeUpoZlgCR95pG8dTLnT5Vl6qcE8Jp2q2A7EZfxdqioWuFicGMS2VqGWLZYqGMaRinan3X+JOAN/I8nI2ZAthY/4CRFpCTe7qe2D/g+UYedA0c5yy4sN4eQ7J4RM7Nlcj9u4gXQGxeOw+I00O1W53gvDG7enJbKmMK2TJrzSlySdLtAru+vHqVpoROFSFhmtJhtysMogqCu2SMxSHrKbt41xqZ9oETU3Od2GKVg2F01s4HTfaTxvMkJdpn3yL9AHyJXoQ5oitlOZwJU6tknWVClkxPnC5ItmPBcQ7qAvi6BY6wtrDW+v9aFUR/7hHCvpejA7dCVu7OTVwydTxj8qaJI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(1800799024)(376014)(11063799006)(10067099003)(56012099006)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6VoqYbvUY6N7CSG0+ynGTy0ZxmY372+2xY6ccP9jOFtM+fL6/ObtJiDdQnZ3?=
- =?us-ascii?Q?oVcOHV0+copnPHxPVqS/q21QcWjKntIm5tce7lHMC5qamb3QWciq62e/XP2t?=
- =?us-ascii?Q?AIjdtAZaM+OsVCh/FOtC61CgFmXYOmONpUeiuoG0nUuZUPg2qXXhHse1w6TY?=
- =?us-ascii?Q?hYrMoRmoRD8ZPru57A2vIAcKgCoKtGBWorBw2096jubEs1b/dH0kUZtWumQP?=
- =?us-ascii?Q?Gnl2GZWizTgZRMFlJsTuTnozQ7JzgTT6UKy0KchmNvE9ekRyybjxagqxrC1M?=
- =?us-ascii?Q?LityLkN8riDkwkzFJKSmX+IpRErgQ54n2gZoCzFlYJkFt0YthHnpzPkBDtak?=
- =?us-ascii?Q?jqzkfpkmQh3dpjxrudZJeWmjVjrdGGGT9MPe1YhuyYbRw1ZpOZmBW/rOHfDs?=
- =?us-ascii?Q?C+t9Yr7/a5PRQXMQ3yGinjjpqUenR8hSYPz2SH0R7zwT9mJh1jNKlvImY2wc?=
- =?us-ascii?Q?UvOJNEdht9Qxr1/sVNZYsckWoi972OAuYXMWOEHm7oj124Fde2vQGj1IGhhC?=
- =?us-ascii?Q?M4MHd3/VqUZ4i4WcqUQ027Wvnw8ZVBQ7s7RAQrKRvztO28ShW8JH6qI1MXyZ?=
- =?us-ascii?Q?X7LebqyC9P7QE0fBWZQheHAW66OiZx2mZOKj2o79F2Gonh+mMpAelqgFg6+x?=
- =?us-ascii?Q?gkg0T0t/EloLVOxjJqRVBv9rudmzJySeJdlZvKW4UooPRBOCMrEeXdkJRYLp?=
- =?us-ascii?Q?eyKvoA4V3ZZEMQytFhLe+CXkrzOAXVoccXESvJu6pnB1ILMX23fOSeQE+ion?=
- =?us-ascii?Q?PdeSBORIDof0xbTocMAzW5Id0CNPTEvEVpTcDm7FqgxtE0+8ujj2LkNA76Jb?=
- =?us-ascii?Q?IF6h8I+gNS4ZJNLaKGaoyVU0/34qQTwVrkRVBoUBeZPuNFh+aIHEScumIzrJ?=
- =?us-ascii?Q?ID+tVEdQGrk3hV4cMNla4MyHSr17eVdqTpwbehGLlt3CNdZHZKJh1WCux9Xm?=
- =?us-ascii?Q?d9zNF/rsmyINKrf9Hnp1KrZxB2LfoWiO8A9+Rhwz5myuSiFejYXkQi5gml3j?=
- =?us-ascii?Q?/aJx5ZMJg/DwOd6zAAAEc0wd4zIbBC58SPMtJB5nUdRCBYJSIQeOHAfWXKay?=
- =?us-ascii?Q?MxRfYLJkNm6/Q79uQr+WdB5MMEnUn0t9FNhBRn98YyPKsELl/b7RbqI1WoLQ?=
- =?us-ascii?Q?k+T7918BknfwkSr//gbbEADtQRiZkHjit/SBrMtg88IYO18eoVKxkHtGpVMP?=
- =?us-ascii?Q?WitaB86g18yTAjaiyCciy47igiBK3TH6wbkHOmLnQcZhGME29O53PoOLXL3A?=
- =?us-ascii?Q?TlxriFaQACMkeYhKqwCpFQWMTK/YDy4Ibc3qLr4Czd/boSkoFnSDqXD6BxAy?=
- =?us-ascii?Q?MbuGcqHt1RFzSL1oWHGm2cyOgyfdY135a1gJ0I9vEK30MYCwaeWc8k0ur2Ec?=
- =?us-ascii?Q?0ZCUo5/JWykW0zJkt2gtn6IirkrakoyzQPGIkrQa9HGlZNSOVQvqeVccD6bb?=
- =?us-ascii?Q?ag4Ti5bWWM/8hYZ4oHmm6oGyFGCKrR7qkRiwwX3DkYijtuyOpMCzPe3JM8W0?=
- =?us-ascii?Q?VdIpRgsEXT444wcKVyanGnMH3KXFx7kMsa5XuTMGTnrW726qwCdu/w2l94dL?=
- =?us-ascii?Q?5N1b38K+QYISqv5WX/D19/JzckcYRBizQkx0AjYsBFFuySV11Lkg6BhL6R27?=
- =?us-ascii?Q?XrPdbXyraJgsDiVP/02Z1r3mh7kVFSK1f3IlpdwXqZpIAL24u4/IUSDO+h7K?=
- =?us-ascii?Q?Iaqgp3Wmq95tkDPChRIEsKkIOOfHgQIg//gNn4UPmKidBkgDjv6vi/P6cS0W?=
- =?us-ascii?Q?dJ/r4hyDDjjy3FqYXrv8rAX8l8rp6HO6QuCMbqTw8KyighxRobaR?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0cdcb62-fa0c-4b41-dbfe-08defecd772f
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Aug 2026 15:12:35.7532
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QAlNFh8no1vLZepV5V8PrpQbwmLHRF32aZNx+sMpEEN/oxqqhFHfcg0oeMspkXf7F8ua6ksFxpa30BDcgK7J8Nrc61IK84F4d1CylZqlBdmnQubziKurG8mNQ5mbBLqo
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11655
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-0-3f79a99cadaf@siemens.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_081247_546072_A4F477D8 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20260820_081302_399597_EC8419CD 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,140 +94,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 01:12:00PM -0700, Rosen Penev wrote:
-> Convert resource allocation and setup in probe() to use devm-managed APIs.
-> Simplify the error handling path and removes explicit cleanup code.
->
-> Assisted-by: opencode:big-pickle
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
+On 2026-08-19 16:30:29 [+0200], Florian Bezdeka wrote:
+=E2=80=A6
+> The typical shortcoming of those implementations: They do not honor RT
+> relevant settings like the smp_default_affinity or isolated CPU cores.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+"irqaffinity" if you refer to the boot command argument.
+"default_smp_affinity" if you refer to the proc file.
 
->  v3: fix subject and description
->  v2: remove list_del
->  drivers/dma/at_hdmac.c | 50 ++++++++++--------------------------------
->  1 file changed, 11 insertions(+), 39 deletions(-)
->
-> diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
-> index 971f8bc9ec48..49a85ac66e83 100644
-> --- a/drivers/dma/at_hdmac.c
-> +++ b/drivers/dma/at_hdmac.c
-> @@ -1986,40 +1986,34 @@ static int __init at_dma_probe(struct platform_device *pdev)
->  	atdma->dma_device.cap_mask = plat_dat->cap_mask;
->  	atdma->all_chan_mask = (1 << plat_dat->nr_channels) - 1;
->
-> -	atdma->clk = devm_clk_get(&pdev->dev, "dma_clk");
-> +	atdma->clk = devm_clk_get_enabled(&pdev->dev, "dma_clk");
->  	if (IS_ERR(atdma->clk))
->  		return PTR_ERR(atdma->clk);
->
-> -	err = clk_prepare_enable(atdma->clk);
-> -	if (err)
-> -		return err;
-> -
->  	/* force dma off, just in case */
->  	at_dma_off(atdma);
->
-> -	err = request_irq(irq, at_dma_interrupt, 0, "at_hdmac", atdma);
-> +	err = devm_request_irq(&pdev->dev, irq, at_dma_interrupt, 0, "at_hdmac", atdma);
->  	if (err)
-> -		goto err_irq;
-> +		return err;
->
->  	platform_set_drvdata(pdev, atdma);
->
->  	/* create a pool of consistent memory blocks for hardware descriptors */
-> -	atdma->lli_pool = dma_pool_create("at_hdmac_lli_pool",
-> +	atdma->lli_pool = dmam_pool_create("at_hdmac_lli_pool",
->  					  &pdev->dev, sizeof(struct at_lli),
->  					  4 /* word alignment */, 0);
->  	if (!atdma->lli_pool) {
->  		dev_err(&pdev->dev, "Unable to allocate DMA LLI descriptor pool\n");
-> -		err = -ENOMEM;
-> -		goto err_desc_pool_create;
-> +		return -ENOMEM;
->  	}
->
->  	/* create a pool of consistent memory blocks for memset blocks */
-> -	atdma->memset_pool = dma_pool_create("at_hdmac_memset_pool",
-> +	atdma->memset_pool = dmam_pool_create("at_hdmac_memset_pool",
->  					     &pdev->dev, sizeof(int), 4, 0);
->  	if (!atdma->memset_pool) {
->  		dev_err(&pdev->dev, "No memory for memset dma pool\n");
-> -		err = -ENOMEM;
-> -		goto err_memset_pool_create;
-> +		return -ENOMEM;
->  	}
->
->  	/* clear any pending interrupt */
-> @@ -2086,10 +2080,10 @@ static int __init at_dma_probe(struct platform_device *pdev)
->  	  dma_has_cap(DMA_SLAVE, atdma->dma_device.cap_mask)  ? "slave " : "",
->  	  plat_dat->nr_channels);
->
-> -	err = dma_async_device_register(&atdma->dma_device);
-> +	err = dmaenginem_async_device_register(&atdma->dma_device);
->  	if (err) {
->  		dev_err(&pdev->dev, "Unable to register: %d.\n", err);
-> -		goto err_dma_async_device_register;
-> +		return err;
->  	}
->
->  	/*
-> @@ -2098,27 +2092,15 @@ static int __init at_dma_probe(struct platform_device *pdev)
->  	 * dma_request_channel().
->  	 */
->  	if (pdev->dev.of_node) {
-> -		err = of_dma_controller_register(pdev->dev.of_node,
-> +		err = devm_of_dma_controller_register(&pdev->dev, pdev->dev.of_node,
->  						 at_dma_xlate, atdma);
->  		if (err) {
->  			dev_err(&pdev->dev, "could not register of_dma_controller\n");
-> -			goto err_of_dma_controller_register;
-> +			return err;
->  		}
->  	}
->
->  	return 0;
-> -
-> -err_of_dma_controller_register:
-> -	dma_async_device_unregister(&atdma->dma_device);
-> -err_dma_async_device_register:
-> -	dma_pool_destroy(atdma->memset_pool);
-> -err_memset_pool_create:
-> -	dma_pool_destroy(atdma->lli_pool);
-> -err_desc_pool_create:
-> -	free_irq(platform_get_irq(pdev, 0), atdma);
-> -err_irq:
-> -	clk_disable_unprepare(atdma->clk);
-> -	return err;
->  }
->
->  static void at_dma_remove(struct platform_device *pdev)
-> @@ -2127,22 +2109,12 @@ static void at_dma_remove(struct platform_device *pdev)
->  	struct dma_chan		*chan, *_chan;
->
->  	at_dma_off(atdma);
-> -	if (pdev->dev.of_node)
-> -		of_dma_controller_free(pdev->dev.of_node);
-> -	dma_async_device_unregister(&atdma->dma_device);
-> -
-> -	dma_pool_destroy(atdma->memset_pool);
-> -	dma_pool_destroy(atdma->lli_pool);
-> -	free_irq(platform_get_irq(pdev, 0), atdma);
->
->  	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
->  			device_node) {
->  		/* Disable interrupts */
->  		atc_disable_chan_irq(atdma, chan->chan_id);
-> -		list_del(&chan->device_node);
->  	}
-> -
-> -	clk_disable_unprepare(atdma->clk);
->  }
->
->  static void at_dma_shutdown(struct platform_device *pdev)
-> --
-> 2.55.0
->
+> Device IRQs are balanced over "all" or "all online CPUs".
+=E2=80=A6
+> That raises the question why request_irq() is called on "link up" time,
+> while the low level vector allocation takes place during device probing.
+> At least that seems to be the common pattern. Can someone tell me why
+> this is done this way? Shouldn't we call request_irq() at the same time?
+
+The IRQ vector is created while the system enumerates the IRQ-chips.
+Once the devices are enumerated (such as the NICs) the devices is linked
+with its IRQ. I think an exception are MSI-X devices which could ask for
+one or more interrupt and then (at device's probe time) the PCI core
+will link the requested amount of interrupts so their actual number
+could change.
+The driver _could_ request a "managed interrupt" which would be mapped
+to a specific CPU. The difference to a "regular interrupt" is that if
+that CPU goes down, the interrupt is not "moved" to another CPU. Instead
+is remains off and the driver needs to deal with this (this is common
+for NVME devices).
+
+If the device is not programmed (as in IP address has been assigned,
+link is up) then it should not create any interrupts. So it might be
+reasonable to not request an interrupt either.
+I *think* uarts do the same.
+
+Sebastian
 
