@@ -4,75 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3CD4C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 15:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E022C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 15:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q71+upYaybwhYHm5ytUg6QBQhg1RdIJE2zsLCTzcH0Y=; b=msXFzyhjlfEsTc1dLii8qz7tgt
-	3lqkf18xcPKQ++kvXdFRd5d+j6EjmaMz2mbffuG4UnoirDHCFrppbHNURZNBohRqBOWEFrFOXhnmR
-	kLU2e2zB78JJKXj+oQXXcf4uIn2yURj0FcXvH9tsCXiG8MPjKUfFlMwKTxdmuY5IHf7DTYp8PnVj0
-	iURUJFAyRZMq6GJi0pZSyQMCbCbrm2Cqw7gmyc+985FTmc+irPzj6JzDSbJu7gzIB5lryC+MIqmap
-	hXlQm1OVzgVW7FiBW5GXRcsCXf9PcLUcJfgapSMl80zP35oN28uldxT+76moUjv/jRxaj4HO/L1Fd
-	mm0ljI2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4GYW851qCsBToK11EEMYMqGrrxqkhUiscxOxDQ5WtXo=; b=h5hj3QmZ4WdS/sl8yhMy+FAp5C
+	ZQ53LQryXVN4Jl0lXfmlhHBrJ50KmoQxaB5/equ9sOJVjqxlZFacTlOwoRfGhhqCd3Lx1huIAsv8d
+	RRdcYprcttoM8qQYBCoIaPNK30tpClcqe/aMIanq0Dqd/bCvQ35SQSUkOz5weZn4BikmDwYRbsqc9
+	3vzHHZyC31gahKdFNbQnQqeel38OOpNaqCuSEfamz6M8xoOmqN1Kq0+GiqczZJEFqsnV/+xeHbg/U
+	CzNGN9ivKz7oz37PSxC5tWTWnphEy9vLBZhB/TyjpOVHMsDuqF9yu5CHrnDMHQaMe9CAxQOI5M+Qr
+	1JrpII9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxRRG-0000000DiQd-1GGm;
-	Fri, 21 Aug 2026 15:45:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wxRbR-0000000DjQe-2zYA;
+	Fri, 21 Aug 2026 15:56:21 +0000
+Received: from mail-northeuropeazon11010059.outbound.protection.outlook.com ([52.101.84.59] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxRRD-0000000DiPc-1fon
+	id 1wxRbO-0000000DjQB-08ar
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 15:45:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9DB643ECF;
-	Fri, 21 Aug 2026 15:45:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9F7F1C2BCB3;
-	Fri, 21 Aug 2026 15:45:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1787327146;
-	bh=MGx0GYT9TUvqftU0PVYwjLEeXdmQzZyN+kKeemKuO5g=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=fLfb3qRtBhYIJT0foY+6S/g7gTfYbNMdlgGXQQp24WVbIZOO0Xw3FyvjDIaqfRKBr
-	 zDUOYUOJFhG97lKBfpsEPDQG8FSlizBKXAZj/qTqU8TVOVeBtc5T2cckWj0o3Trzg8
-	 ABwkDWgdTilUfiFc/AaIIFbUXLXSnWnHr91BxL5qPSvHIOaqS25U+mo6JoX7DjrPHC
-	 aGdwFBIneKiMhAR6RXTmzbNpRWwjOSZiofzh0csYOqOXoSyknIxYH3Cdu1R0ySwqo0
-	 /z8RKeu/hTSVRJxwxUh3L1lpCISQx9tgQumQnF43Emj8mQVKxu6Y4VaaykVCdC837/
-	 jB3k2VHAQHhTw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 813E6C5DF97;
-	Fri, 21 Aug 2026 15:45:46 +0000 (UTC)
-From: Sven Peter <sven@kernel.org>
-Date: Fri, 21 Aug 2026 17:44:55 +0200
-Subject: [PATCH v2 2/3] reset: Add Apple SoC CIO reset driver
+	Fri, 21 Aug 2026 15:56:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dfMDfAtQiOpIns84fYURLdWblJdBAlXdnHVxJyz/OKwkNaZ5JqNef0pFDigq0pOeysypruyldCeOlyuUgaNXuPZRLiPsiwG6JWhase635Bsa1zLq1aEQXTlNrxFQPeSOK9dTvGHQGuiQxPYpPTmBfoxiKg/Rae3jVkX3hT+NZZA78w1D3GE62t983uzK4FkwI3pBY5ibESSO3oP1WaXRx7bIWHOPvIGYfzJt7EzjclZs/MiWk1VzWSzaedVqPJB/6qMkOXiAKw0Firb0a1vOWmJyRFA2eKN2mPNTVEf9lipqZHrseso21o3ROBt1OW0aO53vXpMVvg0UB1XYkybKYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4GYW851qCsBToK11EEMYMqGrrxqkhUiscxOxDQ5WtXo=;
+ b=AVUBSBeCeyT9utXvFWIQCRdoTrKCDmB+JbYucs9X30JH1x21XfHpuX81+xA9Vz3tAPVIKDWU0JhNEPLo9qaYapyI2j6W/qYTVvRxrV+SzAAi25QSOiiI8DMQ9JVCakFA2bRHLXQrwzBg3WSgTFvXPNsF8K4+ml/AUWJ0jpC9/YMd40EvrrbVGgYrKfERjK7GV+eeeBe5XJkDtI9lLIH2bWY1wNm11k7jrs9w8oYiAFzypL4lBBdHAcQXIsBfDDdZO+7RvUeTihNkyK7WoC5KdvPL3KkCbd1M7Ia05BRMIR4qsRW3j1Nre5MaR0YkuvKHu/hf2vIxhG1YzVuLveVeBw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4GYW851qCsBToK11EEMYMqGrrxqkhUiscxOxDQ5WtXo=;
+ b=g5cr9feGkkqS8kdXxJURoeH4fEKVqEPZzOJQ+T+nQ4qTH3sKfSNfSwqzligBYbrlxIkofaMDVYy6tJw2XcU879+E68LJjPYICBEcQr5Lq63rV2qq4Ak+UELUVBTQ+lZQxVeQ17GT8/3Ckp0DScAofoGH5OBwkrDd6UVK3DZITHGvvnaxlBz3WPzd4wzbmA/DGdfo+HetERNEa57MAG8rDWBQX9WCfdbubAgOD+YNkUmOCmyUd5XmUOkJxvD0BmSOEBOcoIzDeGUINvqK5/IodvcejhbKaKa2NuAmTz0XEE+rSTLez5/tR2AzBxoGKhXvr8gmC+KTkYWlxFMGD+QRnQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI1PR04MB7150.eurprd04.prod.outlook.com (2603:10a6:800:12a::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
+ 2026 15:56:13 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.008; Fri, 21 Aug 2026
+ 15:56:13 +0000
+Date: Fri, 21 Aug 2026 11:56:05 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: pankaj.gupta@oss.nxp.com
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pankaj Gupta <pankaj.gupta@nxp.com>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v40 4/7] firmware: imx: device context dedicated to priv
+Message-ID: <aoh1FQFxUciEl1PL@lizhi-Precision-Tower-5810>
+References: <20260822-imx-se-if-v40-0-74fbce2f2f95@nxp.com>
+ <20260822-imx-se-if-v40-4-74fbce2f2f95@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260822-imx-se-if-v40-4-74fbce2f2f95@nxp.com>
+X-ClientProxiedBy: SA0PR11CA0064.namprd11.prod.outlook.com
+ (2603:10b6:806:d2::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260821-b4-cio-reset-v2-2-2d045f80a424@kernel.org>
-References: <20260821-b4-cio-reset-v2-0-2d045f80a424@kernel.org>
-In-Reply-To: <20260821-b4-cio-reset-v2-0-2d045f80a424@kernel.org>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Joshua Peisach <jpeisach@ubuntu.com>, asahi@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8719; i=sven@kernel.org;
- h=from:subject:message-id;
- bh=MGx0GYT9TUvqftU0PVYwjLEeXdmQzZyN+kKeemKuO5g=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ1ZH0XKd85te7FARn3G18uD0xf4NDE0n7LSPKvs8Clzv9
- n8ZR/rSjlIWBjEuBlkxRZbt++1Nnzx8I7h006X3MHNYmUCGMHBxCsBElpkzMmywU3ywLOpNLaPk
- h4ms3UoF+3VfNGidinQWmcf2r3/OBHFGhk+BdRvnPo+c8aLvx5QfMZwO62/+MRHU1Pj9/+0d89a
- JJzkA
-X-Developer-Key: i=sven@kernel.org; a=openpgp;
- fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
-X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
- auth_id=407
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB7150:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8c51ec0d-6077-4eeb-f923-08deff9cba0a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|1800799024|376014|23010399003|366016|18002099003|6133799003|56012099006|10067099003|11063799006|4143699003|22082099003;
+X-Microsoft-Antispam-Message-Info: mHwz6x67ga/RonkJjIhbHXzlDpDDq62/ut+cNxYYn5DHSK9D3Y5yii5OQPg4BtnwBDDd4hzf9gIE67/lyeV/gN862+otDanT2MhZEnLqz/RKou/N0CO63RCaU7zbzRyPAnfGfq0RuGV/oSKrSB4C/P2glVz2eosNZWq3kKBxyQMVATSfRbWTmZkDIjVcQhqICFKU09rpEs5a6+HtkusWjMhGXWW+XmoFeoTN0h+OXwmjm18W/YAMdTiSn5xcvwOgIgGYq6OnajHoyx6YdGXaVEAoBPV2RzCEV8OTWd3YBcC3NmG/jFsLfsPg4wkHgLEfCYm45RQPo7VS+JY0F77IjKd3IlS7pJpm3ZBSGk8IxxFHMaOtvLqedSH9R+GKf3ZDUe2FKHFmsqCyk8FyTE8megr3k2QZakSaQaffNvNOzygEsQ9INfGLZYdpIvynZzFPazjn28ZabNvis0Es22qrTVEmjvtsD7FcxxCfQZZkekQ3+GXp8OvMtiyKZgcKp7BCPyYZUjVVL4Mj8xnv02FDzDs9goIVIdWqUW6+fCEyJFeSXKIfSrcj4KbWnjfPVKQBwYFK376VRRt+Y/s5EuntNNYhcWzI944SyHIed26iW2UWHqmae6Ug5nQm1V6xEeF43BZdKMnef7i5UP+NHnuFHwF5aZ+vZp+0hteZ5JM3508=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(1800799024)(376014)(23010399003)(366016)(18002099003)(6133799003)(56012099006)(10067099003)(11063799006)(4143699003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mqlhyljpaEhKAVQZPlOjkYmVwfg8WFAGmcsbxMRdORf9fcaK3uyKUiv3WKAY?=
+ =?us-ascii?Q?pO7+tc5pnW76lVaMLhG0lzUXWx/s9VYPJRZ+LV1HJMkHazXtSAayB8B+ZRyi?=
+ =?us-ascii?Q?pGVGSz4ApEfizz/Som5HvCHPECfS6uadPyuWmPKgtQw+5jtqjUHtaqRyxLqX?=
+ =?us-ascii?Q?B2qtihDCSgPTGbZnCngKP+lNhgV7VneEty9W54WWoflCj8nhAlxYblzqw+NX?=
+ =?us-ascii?Q?d+S6/7Tcp7V7Nm3VfX8BhS0V8tzCbuaXNBieLtNCT/z0b6oXYt2yWCepbWjs?=
+ =?us-ascii?Q?GjC+i7QSAedD53EISSOYKx6xt8V8VY1tVq/u1U80DH1EB4R5u9Tr/tpkzS1M?=
+ =?us-ascii?Q?7UcAknd2HwX1WfxCcvBPiPB/fqdhYUnMSrLpkXjNGIIlQ2USCV+LTx2v4rvb?=
+ =?us-ascii?Q?UnZFR7PH58RMwQtuKedUkaD73yz7BlTlG0eqb73JZI4dDBp92zHgE8SQ8Ngq?=
+ =?us-ascii?Q?e7yokQIc1JQMzCi26cqr1EtFDgWVLY/x/tABPDhfiBiYKrfn9UWaxDUovi4q?=
+ =?us-ascii?Q?ejHv0siAfvPLg0dE9vAhcMo6OBP0cY75eaqFR2b9DQEJNfG5kFQ/iYnB+lNt?=
+ =?us-ascii?Q?ZEjJpqiWx2zMxxbGOiivA9zEUvHkI3V75KT4eaRrk0+K71zdN1psNREzmBLc?=
+ =?us-ascii?Q?C3+o3X41bSKj4LgC/sHBgOY6oETRhjwo6xVfMifoTp5j1RwhYeW3KDSQkShh?=
+ =?us-ascii?Q?jc1PEkdtXwUWhZ5P68WLWm7kJ8mlRMb7IpbuE3RhbhW2P2vSN1g/c2+5HjRR?=
+ =?us-ascii?Q?6W1xb8IvIMG8HfLRb0ZjRtWC0u1NnlsU6wbhhBAgiR/Y8AZs2cWLGvLtI9Sr?=
+ =?us-ascii?Q?OvpXPiz++rpPZ3EoiWHKHkt5mmSko/sBTbB6PUpOYpP0Y5c90OsIBnOtlI/W?=
+ =?us-ascii?Q?ZgILlEH8FZrJftJlmI9wynu3i6ZvaQrAQCE4fapd3i88CTY/DUz2+j0YCWeJ?=
+ =?us-ascii?Q?pbA/v+tjao1vRXOaqJwM0i3ei6Lnkx49oim+LA0sGPd7bmIMSmV7UxYMWHuy?=
+ =?us-ascii?Q?GQI2e+bDu7W+tLCFu6qbsnepd77gy1dUV1lfq3q/JG0HBFwbHKXErvVO5F7q?=
+ =?us-ascii?Q?d4WO3EmtXPXg8EqhBxfsMzvZlDV3hS/Xm/6dbhlYOU3Q0zCJ8oTk0GKCfRnR?=
+ =?us-ascii?Q?CqvHKSLU/dIq+i30iR32DJVnH1AdSWXNF3iUcHKldds4/roqeBZXbAlzUOF5?=
+ =?us-ascii?Q?02xlEJAY4QUTvWbMy3r1M8y05npfci757fXbgbVsrpAiHxMPVb7lnaDZzqLe?=
+ =?us-ascii?Q?aDULEZOvXFB3K0MvxI5XHDbWMWIs8kgU3O692CVVW1wXcz0LauZqh5wppQnq?=
+ =?us-ascii?Q?kFX+/AbfdZV4fUe6qwdHIyFJjI4xYoBH4sfLRNHYqamQnjznMB3OO2sSsprR?=
+ =?us-ascii?Q?YeN3BydY5EF9ZTwF/mIhUB2DWbMi8CDDKFa1Mj5zk3F2cOUbfajd9WuCEPhE?=
+ =?us-ascii?Q?hU5zJJQCynfiL5qA40IhFj4/SVHVNs/+/kakbdgz2be4a8BAaBmoixe98pCv?=
+ =?us-ascii?Q?1wmgSilWr1ea0N9YzL8UBuGYuGk3zWRmXmpc868HXbwmLdVJ7mKN348VCtgt?=
+ =?us-ascii?Q?SztmgJv1UnzEdQOYkpNVwPRe9E5EPtd+q0nb9Tc7wNcqohh6PHBEnIA4CmLD?=
+ =?us-ascii?Q?gcQL3grQuQhSK5GQ73+3iewrNPQ9KAfiTvPehY++RsMZdfzVKyLnYZGtqaZI?=
+ =?us-ascii?Q?C+sPYmGobPdfyrUWlNZ+vXG06LSILMHreqETFHTCCA//cVD9T0scXwTEMjfI?=
+ =?us-ascii?Q?Ms1IxAX+BIHamb57HIk/V8XICf8AwNKZ3sib8I1l5+6LWaT0+FoP?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8c51ec0d-6077-4eeb-f923-08deff9cba0a
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 15:56:13.5827
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3NrYelWUOwvoyuXY2XUbwF20GL5+bkEocHXkrN336pLk8OWDi0RF3ayxj4HFpDIiPJbdpQ05vjNKn9oaDUOkHFDkR30pJinWQi+b7JVJ8MPzcvVgzg15SwrQGc4aGaHF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7150
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260821_085618_218142_5B405F3B 
+X-CRM114-Status: GOOD (  21.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,274 +145,401 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a driver for the reset of the CIO (USB4/Thunderbolt) blocks on
-Apple Silicon SoCs which has to be deasserted before their
-co-processor can be booted. On t8103 each port comes with a dedicated
-register page while t600x uses a single register with one request bit
-per port shared by all ports of a die inside the PMGR MMIO region.
+On Sat, Aug 22, 2026 at 12:06:11AM +0530, pankaj.gupta@oss.nxp.com wrote:
+> From: Pankaj Gupta <pankaj.gupta@nxp.com>
+>
+> Add priv_dev_ctx to prepare enabling misc-device context based send-receive
+> path, to communicate with FW.
+>
+> No functionality change.
+>
+> Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/firmware/imx/ele_base_msg.c | 15 +++++-----
+>  drivers/firmware/imx/ele_common.c   | 55 +++++++++++++++++++++----------------
+>  drivers/firmware/imx/ele_common.h   |  8 +++---
+>  drivers/firmware/imx/se_ctrl.c      | 41 +++++++++++++++++++++++++++
+>  drivers/firmware/imx/se_ctrl.h      |  9 ++++++
+>  5 files changed, 94 insertions(+), 34 deletions(-)
+>
+> diff --git a/drivers/firmware/imx/ele_base_msg.c b/drivers/firmware/imx/ele_base_msg.c
+> index 724f6e913ce7..b70e3ef88a16 100644
+> --- a/drivers/firmware/imx/ele_base_msg.c
+> +++ b/drivers/firmware/imx/ele_base_msg.c
+> @@ -71,8 +71,9 @@ int ele_get_info(struct se_if_priv *priv, struct ele_dev_info *s_info)
+>  	tx_msg->data[0] = upper_32_bits(get_info_addr);
+>  	tx_msg->data[1] = lower_32_bits(get_info_addr);
+>  	tx_msg->data[2] = sizeof(*s_info);
+> -	ret = ele_msg_send_rcv(priv, tx_msg, ELE_GET_INFO_REQ_MSG_SZ, rx_msg,
+> -			       ELE_GET_INFO_RSP_MSG_SZ);
+> +
+> +	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_GET_INFO_REQ_MSG_SZ,
+> +			       rx_msg, ELE_GET_INFO_RSP_MSG_SZ);
+>  	if (ret < 0) {
+>  		ele_get_info_cleanup(priv, get_info_data, get_info_addr, get_info_len);
+>  		return ret;
+> @@ -117,8 +118,8 @@ int ele_ping(struct se_if_priv *priv)
+>  	se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
+>  			    ELE_PING_REQ, ELE_PING_REQ_SZ, true);
+>
+> -	ret = ele_msg_send_rcv(priv, tx_msg, ELE_PING_REQ_SZ, rx_msg,
+> -			       ELE_PING_RSP_SZ);
+> +	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_PING_REQ_SZ,
+> +			       rx_msg, ELE_PING_RSP_SZ);
+>  	if (ret < 0)
+>  		return ret;
+>
+> @@ -165,7 +166,7 @@ int ele_service_swap(struct se_if_priv *priv,
+>  	if (ret)
+>  		return -EINVAL;
+>
+> -	ret = ele_msg_send_rcv(priv, tx_msg, ELE_SERVICE_SWAP_REQ_MSG_SZ,
+> +	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_SERVICE_SWAP_REQ_MSG_SZ,
+>  			       rx_msg, ELE_SERVICE_SWAP_RSP_MSG_SZ);
+>  	if (ret < 0)
+>  		return ret;
+> @@ -213,7 +214,7 @@ int ele_fw_authenticate(struct se_if_priv *priv, dma_addr_t contnr_addr,
+>  	tx_msg->data[1] = 0;
+>  	tx_msg->data[2] = lower_32_bits(img_addr);
+>
+> -	ret = ele_msg_send_rcv(priv, tx_msg, ELE_FW_AUTH_REQ_SZ, rx_msg,
+> +	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_FW_AUTH_REQ_SZ, rx_msg,
+>  			       ELE_FW_AUTH_RSP_MSG_SZ);
+>  	if (ret < 0)
+>  		return ret;
+> @@ -251,7 +252,7 @@ int ele_debug_dump(struct se_if_priv *priv)
+>  	do {
+>  		memset(rx_msg, 0x0, ELE_DEBUG_DUMP_RSP_SZ);
+>
+> -		ret = ele_msg_send_rcv(priv, tx_msg, ELE_DEBUG_DUMP_REQ_SZ,
+> +		ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_DEBUG_DUMP_REQ_SZ,
+>  				       rx_msg, ELE_DEBUG_DUMP_RSP_SZ);
+>  		if (ret < 0)
+>  			return ret;
+> diff --git a/drivers/firmware/imx/ele_common.c b/drivers/firmware/imx/ele_common.c
+> index 04ee5112d346..b662063c3b1c 100644
+> --- a/drivers/firmware/imx/ele_common.c
+> +++ b/drivers/firmware/imx/ele_common.c
+> @@ -46,8 +46,9 @@ int se_update_msg_chksum(u32 *msg, u32 msg_len)
+>  	return 0;
+>  }
+>
+> -int ele_msg_rcv(struct se_if_priv *priv, struct se_clbk_handle *se_clbk_hdl)
+> +int ele_msg_rcv(struct se_if_device_ctx *dev_ctx, struct se_clbk_handle *se_clbk_hdl)
+>  {
+> +	struct se_if_priv *priv = dev_ctx->priv;
+>  	bool is_rsp_wait_with_timeout = false;
+>  	bool wait_uninterruptible = false;
+>  	unsigned long remaining_jiffies;
+> @@ -134,7 +135,7 @@ int ele_msg_rcv(struct se_if_priv *priv, struct se_clbk_handle *se_clbk_hdl)
+>  	return ret;
+>  }
+>
+> -int ele_msg_send(struct se_if_priv *priv,
+> +int ele_msg_send(struct se_if_device_ctx *dev_ctx,
+>  		 void *tx_msg,
+>  		 int tx_msg_sz)
+>  {
+> @@ -146,9 +147,9 @@ int ele_msg_send(struct se_if_priv *priv,
+>  	 * carried in the message.
+>  	 */
+>  	if (header->size << 2 != tx_msg_sz) {
+> -		dev_err(priv->dev,
+> -			"User buf hdr: 0x%x, sz mismatced with input-sz (%d != %d).",
+> -			*(u32 *)header, header->size << 2, tx_msg_sz);
+> +		dev_err(dev_ctx->priv->dev,
+> +			"%s: User buf hdr: 0x%x, sz mismatched with input-sz (%d != %d).",
+> +			dev_ctx->devname, *(u32 *)header, header->size << 2, tx_msg_sz);
+>  		return -EINVAL;
+>  	}
+>
+> @@ -158,9 +159,10 @@ int ele_msg_send(struct se_if_priv *priv,
+>  	 * caller-provided tx_msg pointer after mbox_send_message() returns, so
+>  	 * the caller-owned buffer may be released after a successful send.
+>  	 */
+> -	err = mbox_send_message(priv->tx_chan, tx_msg);
+> +	err = mbox_send_message(dev_ctx->priv->tx_chan, tx_msg);
+>  	if (err < 0) {
+> -		dev_err(priv->dev, "Error: mbox_send_message failure.\n");
+> +		dev_err(dev_ctx->priv->dev,
+> +			"%s: Error: mbox_send_message failure.", dev_ctx->devname);
+>  		return err;
+>  	}
+>
+> @@ -172,38 +174,41 @@ static void ele_msg_send_rcv_cleanup(struct se_if_priv *priv)
+>  	unsigned long flags;
+>
+>  	spin_lock_irqsave(&priv->waiting_rsp_clbk_hdl.clbk_rx_lock, flags);
+> +	priv->waiting_rsp_clbk_hdl.dev_ctx = NULL;
+>  	priv->waiting_rsp_clbk_hdl.rx_msg = NULL;
+>  	priv->waiting_rsp_clbk_hdl.rx_msg_sz = 0;
+>  	spin_unlock_irqrestore(&priv->waiting_rsp_clbk_hdl.clbk_rx_lock, flags);
+>  }
+>
+> -/* API used for send/receive blocking call. */
+> -int ele_msg_send_rcv(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz,
+> -		     void *rx_msg, int exp_rx_msg_sz)
+> +/* API used for send/receive blocking calls. */
+> +int ele_msg_send_rcv(struct se_if_device_ctx *dev_ctx, void *tx_msg,
+> +		     int tx_msg_sz, void *rx_msg, int exp_rx_msg_sz)
+>  {
+> +	struct se_if_priv *priv = dev_ctx->priv;
+>  	unsigned long flags;
+>  	int err;
+>
+>  	guard(mutex)(&priv->se_if_cmd_lock);
+>
+>  	if (atomic_read(&priv->fw_busy)) {
+> -		dev_dbg(priv->dev, "ELE became unresponsive.\n");
+> +		dev_dbg(priv->dev, "%s: ELE became unresponsive.\n", dev_ctx->devname);
+>  		return -EBUSY;
+>  	}
+>  	reinit_completion(&priv->waiting_rsp_clbk_hdl.done);
+>  	/* Publish rx_msg/rx_msg_sz under the lock read by se_if_rx_callback(). */
+>  	spin_lock_irqsave(&priv->waiting_rsp_clbk_hdl.clbk_rx_lock, flags);
+> +	priv->waiting_rsp_clbk_hdl.dev_ctx = dev_ctx;
+>  	priv->waiting_rsp_clbk_hdl.rx_msg_sz = exp_rx_msg_sz;
+>  	priv->waiting_rsp_clbk_hdl.rx_msg = rx_msg;
+>  	spin_unlock_irqrestore(&priv->waiting_rsp_clbk_hdl.clbk_rx_lock, flags);
+>
+> -	err = ele_msg_send(priv, tx_msg, tx_msg_sz);
+> +	err = ele_msg_send(dev_ctx, tx_msg, tx_msg_sz);
+>  	if (err < 0) {
+>  		ele_msg_send_rcv_cleanup(priv);
+>  		return err;
+>  	}
+>
+> -	err = ele_msg_rcv(priv, &priv->waiting_rsp_clbk_hdl);
+> +	err = ele_msg_rcv(dev_ctx, &priv->waiting_rsp_clbk_hdl);
+>
+>  	if (priv->waiting_rsp_clbk_hdl.signal_rcvd) {
+>  		/*
+> @@ -214,7 +219,8 @@ int ele_msg_send_rcv(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz,
+>  		if (err > 0)
+>  			err = -ERESTARTSYS;
+>  		priv->waiting_rsp_clbk_hdl.signal_rcvd = false;
+> -		dev_dbg(priv->dev, "Err[0x%x]:Interrupted by signal.", err);
+> +		dev_dbg(priv->dev, "%s: Err[0x%x]:Interrupted by signal.",
+> +			dev_ctx->devname, err);
+>  	}
+>
+>  	ele_msg_send_rcv_cleanup(priv);
+> @@ -243,6 +249,7 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
+>  {
+>  	struct se_clbk_handle *se_clbk_hdl;
+>  	struct device *dev = mbox_cl->dev;
+> +	const char *devname = NULL;
+>  	struct se_msg_hdr *header;
+>  	bool sz_mismatch = false;
+>  	struct se_if_priv *priv;
+> @@ -266,7 +273,7 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
+>  	if (header->tag == priv->if_defs->cmd_tag) {
+>  		se_clbk_hdl = &priv->cmd_receiver_clbk_hdl;
+>  		spin_lock_irqsave(&se_clbk_hdl->clbk_rx_lock, flags);
+> -		if (!se_clbk_hdl->rx_msg) {
+> +		if (!se_clbk_hdl->dev_ctx || !se_clbk_hdl->rx_msg) {
+>  			spin_unlock_irqrestore(&se_clbk_hdl->clbk_rx_lock, flags);
+>  			dev_warn(dev, "No command receiver registered for message: %.8x\n",
+>  				 *((u32 *)header));
+> @@ -280,8 +287,8 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
+>  		 * SE_IOCTL_ENABLE_CMD_RCV and is not subject to the timeout/circuit-
+>  		 * breaker handling used for rsp_tag messages.
+>  		 */
+> -		dev_dbg(dev, "Selecting cmd receiver: for mesg header:0x%x.",
+> -			*(u32 *)header);
+> +		dev_dbg(dev, "Selecting cmd receiver:%s for mesg header:0x%x.",
+> +			se_clbk_hdl->dev_ctx->devname,  *(u32 *)header);
+>
+>  		/*
+>  		 * Pre-allocated buffer of MAX_NVM_MSG_LEN
+> @@ -296,13 +303,14 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
+>  		 * Clamp the copy length to the pre-allocated receiver buffer (MAX_NVM_MSG_LEN).
+>  		 */
+>  		se_clbk_hdl->rx_msg_sz = min_t(u32, rx_msg_sz, MAX_NVM_MSG_LEN);
+> +		devname = se_clbk_hdl->dev_ctx->devname;
+>  		memcpy(se_clbk_hdl->rx_msg, msg, se_clbk_hdl->rx_msg_sz);
+>  		complete(&se_clbk_hdl->done);
+>  		spin_unlock_irqrestore(&se_clbk_hdl->clbk_rx_lock, flags);
+>  		if (sz_mismatch)
+>  			dev_err(dev,
+> -				"CMD-RCVER NVM: hdr(0x%x) with different sz(%d != %d).\n",
+> -				*(u32 *)header,
+> +				"%s: CMD-RCVER NVM: hdr(0x%x) with different sz(%d != %d).\n",
+> +				devname, *(u32 *)header,
+>  				(header->size << 2), rx_msg_sz);
+>  	} else if (header->tag == priv->if_defs->rsp_tag) {
+>  		bool exception_for_sz_mismatch = check_hdr_exception_for_sz(priv, header);
+> @@ -324,8 +332,8 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
+>  			return;
+>  		}
+>  		exp_rx_msg_sz = se_clbk_hdl->rx_msg_sz;
+> -		dev_dbg(dev, "Selecting resp waiter: for mesg header:0x%x.",
+> -			*(u32 *)header);
+> +		dev_dbg(dev, "Selecting resp waiter:%s for mesg header:0x%x.",
+> +			se_clbk_hdl->dev_ctx->devname, *(u32 *)header);
+>
+>  		/*
+>  		 * For rsp_tag traffic, the sender provides the expected response
+> @@ -337,14 +345,15 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
+>  			sz_mismatch = true;
+>
+>  		se_clbk_hdl->rx_msg_sz = min(rx_msg_sz, exp_rx_msg_sz);
+> +		devname = se_clbk_hdl->dev_ctx->devname;
+>  		memcpy(se_clbk_hdl->rx_msg, msg, se_clbk_hdl->rx_msg_sz);
+>  		complete(&se_clbk_hdl->done);
+>  		spin_unlock_irqrestore(&se_clbk_hdl->clbk_rx_lock, flags);
+>
+>  		if (sz_mismatch)
+>  			dev_err(dev,
+> -				"Rsp to CMD: hdr(0x%x) with different sz(%d != %d).\n",
+> -				*(u32 *)header,
+> +				"%s: Rsp to CMD: hdr(0x%x) with different sz(%d != %d).\n",
+> +				devname, *(u32 *)header,
+>  				(header->size << 2), exp_rx_msg_sz);
+>  	} else {
+>  		dev_err(dev, "Failed to select a device for message: %.8x\n",
+> diff --git a/drivers/firmware/imx/ele_common.h b/drivers/firmware/imx/ele_common.h
+> index 7bf2febefc45..07e6b6a1bafa 100644
+> --- a/drivers/firmware/imx/ele_common.h
+> +++ b/drivers/firmware/imx/ele_common.h
+> @@ -16,12 +16,12 @@
+>
+>  int se_update_msg_chksum(u32 *msg, u32 msg_len);
+>
+> -int ele_msg_rcv(struct se_if_priv *priv, struct se_clbk_handle *se_clbk_hdl);
+> +int ele_msg_rcv(struct se_if_device_ctx *dev_ctx, struct se_clbk_handle *se_clbk_hdl);
+>
+> -int ele_msg_send(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz);
+> +int ele_msg_send(struct se_if_device_ctx *dev_ctx, void *tx_msg, int tx_msg_sz);
+>
+> -int ele_msg_send_rcv(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz,
+> -		     void *rx_msg, int exp_rx_msg_sz);
+> +int ele_msg_send_rcv(struct se_if_device_ctx *dev_ctx, void *tx_msg,
+> +		     int tx_msg_sz, void *rx_msg, int exp_rx_msg_sz);
+>
+>  void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg);
+>
+> diff --git a/drivers/firmware/imx/se_ctrl.c b/drivers/firmware/imx/se_ctrl.c
+> index df3d1da28a75..2ee0f70c38cd 100644
+> --- a/drivers/firmware/imx/se_ctrl.c
+> +++ b/drivers/firmware/imx/se_ctrl.c
+> @@ -284,6 +284,36 @@ static int get_se_soc_info(struct se_if_priv *priv, const struct se_soc_info *se
+>  	return 0;
+>  }
+>
+> +static int init_misc_device_context(struct se_if_priv *priv, int ch_id,
+> +				    struct se_if_device_ctx **new_dev_ctx)
+> +{
+> +	const char *err_str = "Failed to allocate memory";
+> +	struct se_if_device_ctx *dev_ctx;
+> +	int ret = -ENOMEM;
+> +
+> +	dev_ctx = kzalloc_obj(*dev_ctx, GFP_KERNEL);
+> +
+> +	if (!dev_ctx)
+> +		return ret;
 
-Signed-off-by: Sven Peter <sven@kernel.org>
----
- MAINTAINERS                     |   1 +
- drivers/reset/Kconfig           |  10 ++
- drivers/reset/Makefile          |   1 +
- drivers/reset/reset-apple-cio.c | 200 ++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 212 insertions(+)
+		return -ENOMEM;
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e1ec54f4d80e..a1f6fdb9436c 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2636,6 +2636,7 @@ F:	drivers/pinctrl/pinctrl-apple-gpio.c
- F:	drivers/power/reset/macsmc-reboot.c
- F:	drivers/power/supply/macsmc-power.c
- F:	drivers/pwm/pwm-apple.c
-+F:	drivers/reset/reset-apple-cio.c
- F:	drivers/rtc/rtc-macsmc.c
- F:	drivers/soc/apple/*
- F:	drivers/spi/spi-apple.c
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index d009eb0849a3..1e83cb5c68ce 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -22,6 +22,16 @@ config RESET_A10SR
- 	  This option enables support for the external reset functions for
- 	  peripheral PHYs on the Altera Arria10 System Resource Chip.
- 
-+config RESET_APPLE_CIO
-+	tristate "Apple SoC CIO block reset driver"
-+	depends on ARCH_APPLE || COMPILE_TEST
-+	select MFD_SYSCON
-+	help
-+	  This enables the reset driver for the CIO (USB4/Thunderbolt) blocks
-+	  found on Apple Silicon SoCs. It is required to start the blocks
-+	  before the USB4/Thunderbolt host routers inside them can be brought
-+	  up by the thunderbolt driver.
-+
- config RESET_ASPEED
- 	tristate "ASPEED Reset Driver"
- 	depends on ARCH_ASPEED || COMPILE_TEST
-diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-index 3e52569bd276..6554649bc139 100644
---- a/drivers/reset/Makefile
-+++ b/drivers/reset/Makefile
-@@ -7,6 +7,7 @@ obj-y += starfive/
- obj-y += sti/
- obj-y += tegra/
- obj-$(CONFIG_RESET_A10SR) += reset-a10sr.o
-+obj-$(CONFIG_RESET_APPLE_CIO) += reset-apple-cio.o
- obj-$(CONFIG_RESET_ASPEED) += reset-aspeed.o
- obj-$(CONFIG_RESET_ATH79) += reset-ath79.o
- obj-$(CONFIG_RESET_AXS10X) += reset-axs10x.o
-diff --git a/drivers/reset/reset-apple-cio.c b/drivers/reset/reset-apple-cio.c
-new file mode 100644
-index 000000000000..5727c608f82f
---- /dev/null
-+++ b/drivers/reset/reset-apple-cio.c
-@@ -0,0 +1,200 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Apple SoC CIO (USB4/Thunderbolt) block reset driver
-+ *
-+ * Copyright The Asahi Linux Contributors
-+ *
-+ * The CIO blocks have a reset inside the power manager (PMGR) that
-+ * has to be deasserted before their co-processor can be booted. On
-+ * t8103 each port comes with a dedicated register page while t600x
-+ * uses a single register shared by all ports of a die inside the PMGR
-+ * MMIO region.
-+ */
-+
-+#include <linux/bits.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/reset-controller.h>
-+
-+#define APPLE_CIO_RESET_POLL_US 100
-+#define APPLE_CIO_RESET_TIMEOUT_US 100000
-+
-+#define T8103_CIO_CTRL_STRIDE 0x4000
-+#define T8103_CIO_CTRL_INIT_REQ BIT(0)
-+#define T8103_CIO_CTRL_INIT_DONE BIT(2)
-+
-+#define T6000_CIO_CTRL_INIT_REQ(port) BIT(port)
-+#define T6000_CIO_CTRL_INIT_BUSY(port) BIT(16 + (port))
-+
-+struct apple_cio_reset;
-+
-+struct apple_cio_reset_variant {
-+	unsigned int nr_resets;
-+	bool pmgr_child;
-+	int (*deassert)(struct apple_cio_reset *priv, unsigned long id);
-+};
-+
-+struct apple_cio_reset {
-+	struct reset_controller_dev rcdev;
-+	const struct apple_cio_reset_variant *variant;
-+	struct regmap *regmap;
-+	u32 offset;
-+	struct mutex lock; /* serializes access to the shared t600x register */
-+};
-+
-+static int t8103_cio_deassert(struct apple_cio_reset *priv, unsigned long id)
-+{
-+	u32 offset = priv->offset + id * T8103_CIO_CTRL_STRIDE;
-+	u32 val;
-+	int ret;
-+
-+	/*
-+	 * After writing BIT(0) the reset is deasserted and the CIO block comes up.
-+	 * Once the sequence is done BIT(0) is cleared automatically and then BIT(2)
-+	 * is set. There's no way to assert the reset again other than cutting the power
-+	 * to the entire CIO block. Writing the bit again has no effect.
-+	 */
-+	ret = regmap_write(priv->regmap, offset, T8103_CIO_CTRL_INIT_REQ);
-+	if (ret)
-+		return ret;
-+
-+	return regmap_read_poll_timeout(priv->regmap, offset, val,
-+					val == T8103_CIO_CTRL_INIT_DONE,
-+					APPLE_CIO_RESET_POLL_US,
-+					APPLE_CIO_RESET_TIMEOUT_US);
-+}
-+
-+static int t6000_cio_deassert(struct apple_cio_reset *priv, unsigned long id)
-+{
-+	u32 val;
-+	int ret;
-+
-+	/*
-+	 * Note that even the mutex is likely paranoid and not actually required
-+	 * here: The way this controller works is that setting bit N immediately
-+	 * results in bit 16+n being set. Once the reset is fully released both
-+	 * bits are cleared again but macOS specifically waits for the upper one
-+	 * to clear before continuing.
-+	 * Manually clearing bits is ignored and has no effect, the only way to
-+	 * put the block into reset again is shut down its power domains.
-+	 * Thus, there's no need to either RMW here or wait before polling.
-+	 */
-+	guard(mutex)(&priv->lock);
-+
-+	ret = regmap_write(priv->regmap, priv->offset, T6000_CIO_CTRL_INIT_REQ(id));
-+	if (ret)
-+		return ret;
-+
-+	return regmap_read_poll_timeout(priv->regmap, priv->offset, val,
-+					!(val & T6000_CIO_CTRL_INIT_BUSY(id)),
-+					APPLE_CIO_RESET_POLL_US,
-+					APPLE_CIO_RESET_TIMEOUT_US);
-+}
-+
-+static const struct apple_cio_reset_variant apple_t8103_cio_reset = {
-+	.nr_resets = 2,
-+	.deassert = t8103_cio_deassert,
-+};
-+
-+static const struct apple_cio_reset_variant apple_t6000_cio_reset = {
-+	.nr_resets = 4,
-+	.pmgr_child = true,
-+	.deassert = t6000_cio_deassert,
-+};
-+
-+static int apple_cio_reset_deassert(struct reset_controller_dev *rcdev, unsigned long id)
-+{
-+	struct apple_cio_reset *priv =
-+		container_of(rcdev, struct apple_cio_reset, rcdev);
-+
-+	return priv->variant->deassert(priv, id);
-+}
-+
-+static const struct reset_control_ops apple_cio_reset_ops = {
-+	.deassert = apple_cio_reset_deassert,
-+};
-+
-+static const struct regmap_config apple_cio_reset_regmap_config = {
-+	.reg_bits = 32,
-+	.reg_stride = 4,
-+	.val_bits = 32,
-+};
-+
-+static int apple_cio_reset_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct apple_cio_reset *priv;
-+	int ret;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->variant = of_device_get_match_data(dev);
-+	if (!priv->variant)
-+		return -ENODEV;
-+
-+	ret = devm_mutex_init(dev, &priv->lock);
-+	if (ret)
-+		return ret;
-+
-+	if (priv->variant->pmgr_child) {
-+		priv->regmap = syscon_node_to_regmap(dev->of_node->parent);
-+		if (IS_ERR(priv->regmap))
-+			return dev_err_probe(dev, PTR_ERR(priv->regmap),
-+					     "Failed to get parent regmap\n");
-+
-+		ret = of_property_read_u32(dev->of_node, "reg", &priv->offset);
-+		if (ret)
-+			return dev_err_probe(dev, ret, "Failed to read reg offset\n");
-+	} else {
-+		void __iomem *base;
-+
-+		base = devm_platform_ioremap_resource(pdev, 0);
-+		if (IS_ERR(base))
-+			return PTR_ERR(base);
-+
-+		priv->regmap = devm_regmap_init_mmio(dev, base,
-+						     &apple_cio_reset_regmap_config);
-+		if (IS_ERR(priv->regmap))
-+			return dev_err_probe(dev, PTR_ERR(priv->regmap),
-+					     "Failed to init MMIO regmap\n");
-+	}
-+
-+	priv->rcdev.owner = THIS_MODULE;
-+	priv->rcdev.ops = &apple_cio_reset_ops;
-+	priv->rcdev.of_node = dev->of_node;
-+	priv->rcdev.nr_resets = priv->variant->nr_resets;
-+
-+	return devm_reset_controller_register(dev, &priv->rcdev);
-+}
-+
-+static const struct of_device_id apple_cio_reset_match[] = {
-+	{
-+		.compatible = "apple,t8103-cio-reset",
-+		.data = &apple_t8103_cio_reset,
-+	},
-+	{
-+		.compatible = "apple,t6000-cio-reset",
-+		.data = &apple_t6000_cio_reset,
-+	},
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, apple_cio_reset_match);
-+
-+static struct platform_driver apple_cio_reset_driver = {
-+	.driver = {
-+		.name = "apple-cio-reset",
-+		.of_match_table = apple_cio_reset_match,
-+	},
-+	.probe = apple_cio_reset_probe,
-+};
-+module_platform_driver(apple_cio_reset_driver);
-+
-+MODULE_AUTHOR("Sven Peter <sven@kernel.org>");
-+MODULE_DESCRIPTION("Apple SoC CIO block reset driver");
-+MODULE_LICENSE("Dual MIT/GPL");
+> +
+> +	dev_ctx->devname = kasprintf(GFP_KERNEL, "%s0_ch%d",
+> +				     get_se_if_name(priv->if_defs->se_if_type),
+> +				     ch_id);
+> +	if (!dev_ctx->devname)
+> +		goto exit;
+> +
+> +	dev_ctx->priv = priv;
+> +	*new_dev_ctx = dev_ctx;
+> +
+> +	return 0;
+> +exit:
+> +	*new_dev_ctx = NULL;
+> +
+> +	kfree(dev_ctx->devname);
+> +	kfree(dev_ctx);
+> +	return dev_err_probe(priv->dev, ret, "%s", err_str);
 
--- 
-2.55.0
+Needn't var err_str and generally, needn't print msg for -ENOMEM
+
+	return -ENOMEM;
 
 
+> +}
+> +
+>  static int se_if_request_channel(struct device *dev, struct mbox_chan **chan,
+>  				 struct mbox_client *cl, const char *name)
+>  {
+> @@ -328,6 +358,11 @@ static void se_if_probe_cleanup(void *plat_dev)
+>
+>  	dev_set_drvdata(dev, NULL);
+>
+> +	if (priv->priv_dev_ctx) {
+> +		kfree(priv->priv_dev_ctx->devname);
+> +		kfree(priv->priv_dev_ctx);
+> +	}
+> +
+>  	kfree(priv);
+>  }
+>
+> @@ -425,6 +460,12 @@ static int se_if_probe(struct platform_device *pdev)
+>  		load_fw->imem_mgmt = true;
+>  	}
+>
+> +	ret = init_misc_device_context(priv, 0, &priv->priv_dev_ctx);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "Failed[0x%x] to create device contexts.",
+> +				     ret);
+
+Needn't print error code, dev_err_probe() already print for you.
+
+		dev_err_probe(dev, ret, "Failed to ...\n"):
+
+and need "\n" for all error message, please double other.
+
+Frank
+> +
+>  	if (if_node->if_defs.se_if_type == SE_TYPE_ID_HSM) {
+>  		ret = get_se_soc_info(priv, se_info);
+>  		if (ret)
+> diff --git a/drivers/firmware/imx/se_ctrl.h b/drivers/firmware/imx/se_ctrl.h
+> index 54b2a262a2c3..dd4a1ea7e35a 100644
+> --- a/drivers/firmware/imx/se_ctrl.h
+> +++ b/drivers/firmware/imx/se_ctrl.h
+> @@ -20,6 +20,7 @@
+>  #define MESSAGING_VERSION_7		0x7
+>
+>  struct se_clbk_handle {
+> +	struct se_if_device_ctx *dev_ctx;
+>  	struct completion done;
+>  	bool signal_rcvd;
+>  	u32 rx_msg_sz;
+> @@ -44,6 +45,12 @@ struct se_imem_buf {
+>  	u32 state;
+>  };
+>
+> +/* Private struct for each char device instance. */
+> +struct se_if_device_ctx {
+> +	struct se_if_priv *priv;
+> +	const char *devname;
+> +};
+> +
+>  /* Header of the messages exchange with the EdgeLock Enclave */
+>  struct se_msg_hdr {
+>  	u8 ver;
+> @@ -106,6 +113,8 @@ struct se_if_priv {
+>  	struct se_fw_load_info load_fw;
+>
+>  	atomic_t fw_busy;
+> +
+> +	struct se_if_device_ctx *priv_dev_ctx;
+>  };
+>
+>  char *get_se_if_name(u8 se_if_id);
+>
+> --
+> 2.43.0
+>
 
