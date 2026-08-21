@@ -4,88 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC0AC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 07:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A6CC5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 07:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HOpTOcijVncQnGYEtKs8l7VFXU+Ee9wdpHMU7vcpB+4=; b=Sqw9REs8VX3R7NekCB8y2WVVmY
-	MGyfVL4g5/WOMbhiCMl0cfNI+eJ3XShcQuojPhcay4WSnNigOezQSDEj8XpAmS+V6rjmjXdOq1gUd
-	kYakJ6GYkBOERZGEVW/d4rGR5DwmixslqzQgKSArTdP63FIYgtGD9COna4GmhsmYVA0cCoA9gY1k0
-	l1r/drD8v1yenZyHk3Gc8fOjGixvpcSud+5OH38UgctpMepIxtJH69xumoxaFl6LGF81eYgBMAwOk
-	/WLPSU9ZDLdqeyW9/cxeekylHE1T6jCMBOWzePMVBVxGxkMyXPFqPbLJva/PYiWgjbL7Y+aI5eAEr
-	xyh4EaHg==;
+	bh=nxiYwftdpVqx+EtmQ8XKxOub5dhOMa5yQi0CUX9lyho=; b=stP6r3SxgSv0tFEKNuHnWseKaG
+	VaWmwKx6EEWcxxkcSXM2bFxI5jGdII0I2iM51XynYIHMuX1Z9+410sLqvW8uuKNwvunIO1ImsjPvl
+	1QolJQuFarLTei/Wi8G9NU6IZCqtMXpfzxynbWqqflTJvorwjDs2ztydcrb4h76o/SO8LUhUgg9xT
+	lQ3nCQd1zUFtqImsxgPt3zh0movPUkVLhX1wV7kc4axYJu2nrzkeu48fQEjmiEfFxu2ZBF5aX07Ly
+	YFUjngSA+3PLbQe+fuozij4EBSpjuOB6suC4KMPrMpvNXfNpoELuEcDbeHOINrXDls+DNTGTxrrZ1
+	JcX60V2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJtG-0000000CjCV-0vdf;
-	Fri, 21 Aug 2026 07:42:14 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1wxJvR-0000000CjPH-2dT7;
+	Fri, 21 Aug 2026 07:44:29 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJtD-0000000CjBc-2YNq
+	id 1wxJvP-0000000CjOw-3Pkc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 07:42:13 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-84f3ab8750cso489469b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 00:42:11 -0700 (PDT)
+	Fri, 21 Aug 2026 07:44:28 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-383cb94f742so752176a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 00:44:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787298131; x=1787902931; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1787298267; x=1787903067; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HOpTOcijVncQnGYEtKs8l7VFXU+Ee9wdpHMU7vcpB+4=;
-        b=l3ZyLNd2sfchC3vMYcNvg0JOVi/2TEiJUWTZasY0yAUshJKi7VGBRMqYrBRvk/ZoT5
-         il1IayQbPJJOugVitGaTuRuultSChpuRgkMGXu9hjqMAqsmNUzar/zFzqyhN2GrBVdVq
-         0/56vboBl9rhxgnCWpH8YL7jyiTkpALed39HJjZGxBwTu/mgaxO2Y3vw9FWZnrPoegVx
-         Qbd2L8VOZ070/+Kg6sO0WKDl+V0NMGPLShru6cwkzo5sZ3KHBMgA5lNgOxbmPJBpXjMu
-         jcoifS9d/1UIDGCrY5pAvrv+xoA4yBt7qdOysXEN+g1h5U5WWzm+EtEa7jBpYHs7nIAB
-         +c/A==
+        bh=nxiYwftdpVqx+EtmQ8XKxOub5dhOMa5yQi0CUX9lyho=;
+        b=nxcoGJcNqJD3n1/VU+CjvMDlEydaCvfuJRXlc6Mm2l4us0lMwz8rLs4X+uG/2yiPxk
+         3qdgeAYpwX/3lPR1QpgdXC1K0N8pElxBKA2QNCp/LuXmY12qO9jW5AlE3M/kN8IvnsBO
+         tswmK1kHwjKy6JxB35aB3+RfKbAlxGRG16fDu3IMCfzAbji8KvYNeeJ06GxO+kxOJ4NN
+         w9P2TSYKNfb+KMAttz2quJPbC6emBYXisCJcmGF62JjTygleUetB9f3b3g94qUOlAxeY
+         FuKFGemUQz9LvSXSAuhLx0adFrt09QdTAnn1w2DOVjB6e/CFGEHAmS0/WiNo3sXvvhVi
+         sBew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787298131; x=1787902931;
+        d=1e100.net; s=20251104; t=1787298267; x=1787903067;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HOpTOcijVncQnGYEtKs8l7VFXU+Ee9wdpHMU7vcpB+4=;
-        b=fG8py/8gG40gVWKvXJQC1+WpZpKMJoXCyXu14Y4JKjCOvsILiHtLN4YEUrF+4oXNqp
-         ujKCvpitwlOeAeD32Jk6aGTJbZ39K4aVLUgO4lm7+Nmip5ZN9necpWz849Ke53TIgaAD
-         QgB3SAigZXZ62rXNJiQxmuuYIYVbYzeknLb/s+GRxf+0cjUaT6ZsPh0OQPCTvk62cAhw
-         2am/Vb+aCPNE0N76fjq/ZXBjwMuTz8pJysoQyemWgdry0Fmf+imFeRnf6PlkbFkuxOyS
-         108LZxBKaPjVE/ybdlxJv7XfXtGlF4h4xWRRCvlV0wrgnxsp7mpDaXE9nQuSV8ULqUZY
-         7/gA==
-X-Forwarded-Encrypted: i=1; AHgh+RoEbXIVFgTf/uzD1nYUhu1ZvqGn2IKTqZ/eyMt7w4YEbXSTVRME7gpI2cYnTVwitWnFsoEbCKewnXiewpgC14UH@lists.infradead.org
-X-Gm-Message-State: AFuF++muAMdwwo7N2lRNfl5/7jxVXt72T1xDZF035Fn+9IVQ/KbaydFu
-	gNG3D21fQO96uvQYGhQYezI/lOLCPvncYy/4xxLeLVoVFXurWdOk3lSXQggBpjTAQw==
-X-Gm-Gg: AR+sD135+R/S9gx6QadA7xg2ZKVJjSusrVCuHBlw7fgvSrSx2nX5LSyYWKjpsF2Jf87
-	HqS96yib6EecTOdaH9RLb92EpE54V8om7ZpQhOi2kIF+HggyK/x9Hn38m9OdWCEDuZq/5EdsyE2
-	9IILbhljnTXK0Eg3QiAcahA22H6w0KTpkX7i2kYi9mKyHAwMZUGvk171MSwEPqaLneYYO0DroSI
-	tt7J9zN+66ZmeXd07fETBQjUfQVUlgf+8NdFVGSPtlBfZpAYTJUgq87U3vX4EnoBbVluwDjacF3
-	liSf7XZ35o7Ubu1dJBd1BFoa47F5AqrGZan6pXuqc2wLY/rZT2XrKmgYx8IdvHt+ZX7JB7IAOCz
-	IWbEcw9Gn33ichQPMd/fqlSP3ntUXg2O/QgWlgDDLwUErbfEmiPMA9uFQZx6tGJY/EybQoZRpvC
-	rBxxlARXTsOXkBaX5aqkyzL4PP010iB6LyzmoduPWT1kivndGglyjbzNIHQHtGmr6dQ6v15YKnf
-	g==
-X-Received: by 2002:a05:6a00:9099:b0:847:7f3c:b5f5 with SMTP id d2e1a72fcca58-851f9f8f1fcmr6787491b3a.11.1787298130695;
-        Fri, 21 Aug 2026 00:42:10 -0700 (PDT)
+        bh=nxiYwftdpVqx+EtmQ8XKxOub5dhOMa5yQi0CUX9lyho=;
+        b=quDImKNwKXP1B4ZlVVqWGKsO/eKaz+Hnw3/faSu9mZYhymOuFaSaF11UQ1hPSf0EMU
+         rMuUU3c+Or4l8LG7VGErE8zwYhjcbejK2bVTQhe5/grU6mtoy6oYtEnQhoaj1HjRX+Ea
+         oeNq8r2XR7iQXTIRD+CNblU346GBYIG8vf5Fpf/9RqMGoLgtmRft4o9tgLfb4rsyWVDw
+         2e2NGrKtxqtsRp7HVqSe+lo7kigaEtWvqNyA92gZ1XIKKyJVjMJqirPRY5qJVIxasXAZ
+         uzsxeC0tmoCSft3kCY2AffyFax6g8McVCCzJH0/baYXQvaJgHUxez4qrrssBDb5sHcag
+         WowA==
+X-Forwarded-Encrypted: i=1; AHgh+RrB7xh3RElD4o1Ul6/SzkWMV88wCsK4cDLT/0qoId7iwP/oz64LFht9ItQHSXFAB3qPK5WStQnhs6MG/e0c0xhF@lists.infradead.org
+X-Gm-Message-State: AFuF++l29xlrI+hvw3wU/r1jTW8ETteLhiWhl/Bs48gnSByGl4bWILe7
+	GHnpopqVMcHYpC1OqN6Xd/UgiT4CdD+LDU4IXAkU+4e91urRbKVs4kIA+Irn0swdyg==
+X-Gm-Gg: AR+sD12q7gnjxVOHBFz6bJmfoP5UVi0Kx3lrgH+hCmsWz2m030+kF43wU6Xj267eCsl
+	RjE1yQgwXijIaOU1ubEQqhC+8vgnG4bS5KydnYNaY34IIyU9N401gWmnXl0wmSNSI8duW8ynTdE
+	rUrQmuTz3TGscHbvbV++2ZlMEk3pPTZlZ8mwP5OEsfgIHRm7L/M781I6NeyqOxKEkLPqvoh3k5y
+	NjpyRQH3kwBfy4tF3HnIthL69iYOtiy3jdt3Pnq1UvwE1uHAO7Cij5XKtbF35Bpj5g85hcg6xwF
+	PaK+VedFqrZIZFxcDbtWdowZLkq+9tuodwSOmg4S8p0WNohhTg6dyn2W9J/s0i49/KblZwdZKG0
+	D6k0NTHN9VAgYi481iPqEGbnHI+xyqKHpf0YJZhW6Vyoc7OXwXH3WPz4pDaKThYPLA0SxkD+uaO
+	NoxrYg5zo68fpHumjbe0tEKfbLiSknc3RaF9IyKRlhlvJoBywtoU0emnUkdBB/E+qXdZFjrjc5c
+	A==
+X-Received: by 2002:a17:90b:4f48:b0:395:4de4:92c7 with SMTP id 98e67ed59e1d1-395c336489amr7901357a91.3.1787298266888;
+        Fri, 21 Aug 2026 00:44:26 -0700 (PDT)
 Received: from DL2XHKPB4.dl.net ([103.63.104.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-851d33b4135sm2546275b3a.27.2026.08.21.00.42.08
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-395c4c194d2sm2047114a91.15.2026.08.21.00.44.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 00:42:10 -0700 (PDT)
+        Fri, 21 Aug 2026 00:44:26 -0700 (PDT)
 From: Triet Hoang <triet.hoang.dev@gmail.com>
-To: krzk@kernel.org
-Cc: nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	linux-kernel@vger.kernel.org,
+To: miquel.raynal@bootlin.com
+Cc: michal.simek@amd.com,
+	krzk@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	Triet Hoang <triet.hoang.dev@gmail.com>
-Subject: [PATCH] memory: atmel-ebi: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
-Date: Fri, 21 Aug 2026 14:42:03 +0700
-Message-ID: <20260821074203.258920-1-triet.hoang.dev@gmail.com>
+Subject: [PATCH] memory: pl353: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
+Date: Fri, 21 Aug 2026 14:44:17 +0700
+Message-ID: <20260821074417.261168-1-triet.hoang.dev@gmail.com>
 X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_004211_675061_94C07FF5 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20260821_004427_856702_C8944A14 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,39 +110,49 @@ CONFIG_PM_SLEEP is disabled.
 
 Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
 ---
- drivers/memory/atmel-ebi.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/memory/pl353-smc.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/memory/atmel-ebi.c b/drivers/memory/atmel-ebi.c
-index 1e8e8aba2542..3b1246e9ed66 100644
---- a/drivers/memory/atmel-ebi.c
-+++ b/drivers/memory/atmel-ebi.c
-@@ -610,7 +610,7 @@ static int atmel_ebi_probe(struct platform_device *pdev)
- 	return of_platform_populate(np, NULL, NULL, dev);
- }
+diff --git a/drivers/memory/pl353-smc.c b/drivers/memory/pl353-smc.c
+index 28a8cc56003c..047e42c8715a 100644
+--- a/drivers/memory/pl353-smc.c
++++ b/drivers/memory/pl353-smc.c
+@@ -25,7 +25,7 @@ struct pl353_smc_data {
+ 	struct clk		*aclk;
+ };
  
--static __maybe_unused int atmel_ebi_resume(struct device *dev)
-+static int atmel_ebi_resume(struct device *dev)
+-static int __maybe_unused pl353_smc_suspend(struct device *dev)
++static int pl353_smc_suspend(struct device *dev)
  {
- 	struct atmel_ebi *ebi = dev_get_drvdata(dev);
- 	struct atmel_ebi_dev *ebid;
-@@ -625,14 +625,14 @@ static __maybe_unused int atmel_ebi_resume(struct device *dev)
+ 	struct pl353_smc_data *pl353_smc = dev_get_drvdata(dev);
+ 
+@@ -35,7 +35,7 @@ static int __maybe_unused pl353_smc_suspend(struct device *dev)
  	return 0;
  }
  
--static SIMPLE_DEV_PM_OPS(atmel_ebi_pm_ops, NULL, atmel_ebi_resume);
-+static DEFINE_SIMPLE_DEV_PM_OPS(atmel_ebi_pm_ops, NULL, atmel_ebi_resume);
+-static int __maybe_unused pl353_smc_resume(struct device *dev)
++static int pl353_smc_resume(struct device *dev)
+ {
+ 	struct pl353_smc_data *pl353_smc = dev_get_drvdata(dev);
+ 	int ret;
+@@ -56,7 +56,7 @@ static int __maybe_unused pl353_smc_resume(struct device *dev)
+ 	return ret;
+ }
  
- static struct platform_driver atmel_ebi_driver = {
- 	.probe = atmel_ebi_probe,
- 	.driver = {
- 		.name = "atmel-ebi",
- 		.of_match_table	= atmel_ebi_id_table,
--		.pm = &atmel_ebi_pm_ops,
-+		.pm = pm_sleep_ptr(&atmel_ebi_pm_ops),
+-static SIMPLE_DEV_PM_OPS(pl353_smc_dev_pm_ops, pl353_smc_suspend,
++static DEFINE_SIMPLE_DEV_PM_OPS(pl353_smc_dev_pm_ops, pl353_smc_suspend,
+ 			 pl353_smc_resume);
+ 
+ static const struct of_device_id pl353_smc_supported_children[] = {
+@@ -121,7 +121,7 @@ MODULE_DEVICE_TABLE(amba, pl353_ids);
+ static struct amba_driver pl353_smc_driver = {
+ 	.drv = {
+ 		.name = "pl353-smc",
+-		.pm = &pl353_smc_dev_pm_ops,
++		.pm = pm_sleep_ptr(&pl353_smc_dev_pm_ops),
  	},
- };
- builtin_platform_driver(atmel_ebi_driver);
+ 	.id_table = pl353_ids,
+ 	.probe = pl353_smc_probe,
 -- 
 2.53.0
 
