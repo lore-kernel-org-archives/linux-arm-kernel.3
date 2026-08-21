@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD5E5C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:18:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65ED2C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t728sIDYKXsWt1tklLeZZOyQrAcVmDs+fl8JMhF9N7E=; b=H6InhvvEF1jZDBufkYITFCdWQ+
-	e8ODMoHVKod7kJg/COx6le7JU8R0NYyjNMtDqMU/7VQqlDPjj/DBpC0KnkkK/aw+qc2dqRBch6Uqi
-	YZ85Zkanhlc/BDrlcrhCyD1zDgM8FfdRPrh0FJKyTcHkY/74gHyjBdNOC7bY8glzRtGDtp2p8/ao+
-	j74ihrfeCwPnBPJR1ZwfnZ79ZVgvm+MG3NgTWR6CAzVgJoYS17eTbNpIAeNzNtQuKrBTY+CipiHwX
-	8VhvZ/m8iSY4v/fcTGq6b6ie4u5HwYxd36lanpE0WQDk0fDm+mW1YZtTK1ZXTfgHjgQC9VXeObINX
-	kmB3+vRA==;
+	bh=gyHP7DtW0sshgDlPdPfV3Fb0wcri5Z4d+4N94kKmjCY=; b=ZBNmgIM0zgiBpq5n54P0GCOzhv
+	xklqfwkn8DkUXnPS2g9v8cbq9F/gelLtt3JtSHKHj6sevCaFWRhVpTCiXIy11x/DCUYK7QoxonI9J
+	QA4IbY0sfYhqMcB/cBDtLs0x7kGGqU99VqG+GbWNSaWzWL69ADNHpgrXreM6cRrNtypKOaeHv/twz
+	3u6424g/Vinuq9AzZ8M8lSF7xSEs/2e4ird/rF24mDGep+KyihuviP5uYMoZNOJ1AGeMKQTpCYqqi
+	dFW0fLrtzh+lXvLn3+kURpzkKWiumXueuHu5TlOmI5l/wwh5zJnUCOe/aicyVrWj7XCoMZteezOlj
+	kBgYfbeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLNk-0000000CuNW-2pzc;
-	Fri, 21 Aug 2026 09:17:48 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLNh-0000000CuMM-3LNf
+	id 1wxLSc-0000000CujY-1Vtn;
+	Fri, 21 Aug 2026 09:22:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wxLSa-0000000CujI-3j0j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 09:17:47 +0000
-Received: by linux.microsoft.com (Postfix, from userid 1134)
-	id DF2D120B7128; Fri, 21 Aug 2026 02:17:14 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DF2D120B7128
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1787303834;
-	bh=t728sIDYKXsWt1tklLeZZOyQrAcVmDs+fl8JMhF9N7E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aPvbwuE5pQ/edXZxnZOfbfe9yj5dxoJMlJq5tMXLihxTf4tzzA1D8sVsZJ0RlGxZ+
-	 eP1cG84X2j4p/69/11M4Jmngwhjm7iv9RuVIKd2FxMqQ/rWJirrVoxyDqS0axPZMjI
-	 wb0MEGdM6lqgaZQ6E0aLTowFAi1xSMPcR+eU1vq8=
-Date: Fri, 21 Aug 2026 02:17:14 -0700
-From: Shradha Gupta <shradhagupta@linux.microsoft.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"K. Y. Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Michael Kelley <mikelley@microsoft.com>,
-	Shradha Gupta <shradhagupta@microsoft.com>
-Subject: Re: [RFC PATCH 0/2] arm64/hyperv: Enable kexec reboot support
-Message-ID: <aogXmuC2Q692CbQU@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
-References: <20260814093133.3191250-1-shradhagupta@linux.microsoft.com>
+	Fri, 21 Aug 2026 09:22:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E794C600AA;
+	Fri, 21 Aug 2026 09:22:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E17111F000E9;
+	Fri, 21 Aug 2026 09:22:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787304167;
+	bh=gyHP7DtW0sshgDlPdPfV3Fb0wcri5Z4d+4N94kKmjCY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=LIwhA0GXgyX89Xk8x/6GbYlNrVLg4puy0BDTdWaNFwyZcC3Szje8S3aIX/zcRG+n2
+	 2q3S5Y1rAqeV3Hc81Nt926VMWQywkcXH7RCxYIk7XGzkffbGx4AU/zU7qzknyaOD8M
+	 AQ2usFXEPzjHOWubN3lBwVhfEMjKPIhxGtyC/jggyBKXKRzsh25b1E8eIvF7y416ou
+	 JT7+G3rFYs5qOgF1SDeuh0TcrE1fTW7fMpzEe+5woRzM7RYBGSS3izU3+4Y4p6zVbS
+	 Z92/JatSynV1wqtWNB5VUgC7kYhOMn7sEK7rlzZhB4UrL1ZA/OxaoVPW4D3nyF57pw
+	 YzEiCCtMA2Qqg==
+Date: Fri, 21 Aug 2026 11:22:44 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Guangshuo Li <lgs201920130244@gmail.com>, 
+	Codrin Ciubotariu <codrin.ciubotariu@microchip.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Ludovic Desroches <ludovic.desroches@atmel.com>, Wenyou Yang <wenyou.yang@atmel.com>, 
+	Wolfram Sang <wsa@kernel.org>, linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] i2c: at91: fix autosuspend cleanup during teardown
+Message-ID: <aogYAmDqlgmnEd3X@zenone.zhora.eu>
+References: <20260808152654.2943371-1-lgs201920130244@gmail.com>
+ <144ef4b2-a200-4634-a4ec-539a0ba9a15c@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260814093133.3191250-1-shradhagupta@linux.microsoft.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_021745_865873_3D24B7F0 
-X-CRM114-Status: GOOD (  22.59  )
+In-Reply-To: <144ef4b2-a200-4634-a4ec-539a0ba9a15c@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,93 +73,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 02:31:28AM -0700, Shradha Gupta wrote:
+On Thu, Aug 20, 2026 at 04:50:13PM +0200, Krzysztof Kozlowski wrote:
+> On 08/08/2026 17:26, Guangshuo Li wrote:
+> > at91_twi_probe() calls pm_runtime_use_autosuspend(), but neither the
+> > probe error path nor at91_twi_remove() calls the matching
+> > pm_runtime_dont_use_autosuspend() during teardown.
+> > 
+> > If the autosuspend delay is set to a negative value while autosuspend
+> > is enabled, the runtime PM core increments usage_count to prevent
+> > runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
+> > during teardown, this reference is not dropped.
+> > 
+> > The documentation for pm_runtime_use_autosuspend() also notes that it
+> > is important to undo it with pm_runtime_dont_use_autosuspend() at
+> > driver exit time, unless runtime PM was initially enabled with
+> > devm_pm_runtime_enable().
+> > 
+> > Add the missing pm_runtime_dont_use_autosuspend() calls to the probe
+> > error and driver remove paths.
+> > 
+> > This issue was found by manual code inspection.
+> > 
+> > Fixes: d64a818859af ("i2c: at91: add support for runtime PM")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> 
+> How many separate I2C, drm, crypto, hwrng etc patches you sent?
+> 
+> You sent vast amount of patches, all separate, making it very difficult
+> to track and respond in efficient way. Do not do that.
+> 
+> Group your work per subsystem.
+> 
+> You were asked to clarify and respond to incorrect fixes statement. I do
+> not see how you clarified and responded at all.
 
-Gentle Reminder
+Is this a kind of LLM command or what?
 
-Regards,
-Shradha.
+I'm going to check only the patches that have been acked and/or
+reviewed (people have spent time for that), for the rest, please,
+follow Krzysztof's direction, put them all together (or ask your
+AI to do it) and resend.
 
-> Kexec reboot consistently fails on ARM64 Hyper-V guests (Azure VMs).
-> During the kexec shutdown path, VMBus channels are never cleaned up,
-> so in the fresh kexec kernel startup hv_acpi_init() blocks because
-> the hypervisor still holds the old kernel's VMBus session open.
-> 
-> This is because ARM64 lacks the VMBus teardown that x86 performs during
-> kexec via hv_machine_shutdown(). On x86, machine_ops.shutdown is
-> overridden to send CHANNELMSG_UNLOAD and disable SynIC before CPUs
-> go offline. ARM64 has no equivalent mechanism.
-> 
-> Why existing notification mechanisms don't work:
-> 
-> - Reboot notifiers: Fire too early - they run inside
->   kernel_restart_prepare(), BEFORE device_shutdown(). VMBus UNLOAD
->   must happen AFTER device_shutdown() so that PCI drivers can clean
->   up interrupt mappings (PCI_DELETE_INTERRUPT_MESSAGE) before UNLOAD
->   force-closes channels. Sending UNLOAD first causes interrupt
->   mapping leaks because the mappings aren't released on channel
->   close.
-> 
-> - Device .shutdown callbacks: Too narrow - these handle per-device
->   cleanup (e.g., individual VMBus channel teardown), but cannot
->   perform bus-level operations like sending the global VMBus UNLOAD
->   message or removing the SynIC CPU hotplug state via
->   cpuhp_remove_state().
-> 
-> - VMBus parent device .shutdown callback: Also insufficient -
->   cpuhp_remove_state() for SynIC teardown must run after all device
->   shutdown completes, not during it. A parent .shutdown callback
->   still executes within device_shutdown().
-> 
-> - The required window is: after device_shutdown() completes, after
->   cpu_hotplug_enable(), but before smp_shutdown_nonboot_cpus(). That
->   window exists inside machine_shutdown(), which currently has no hook.
-> 
-> The need for an ARM64 shutdown hook was previously discussed in [1]
-> but lacked a concrete failure case at the time. We now have one.
-> 
-> [1] https://lore.kernel.org/linux-arm-kernel/427a8277-49f0-4317-d6c3-4a15d7070e55@igalia.com/
-> 
-> This RFC proposes fixing kexec on ARM64 Hyper-V guests with:
-> 
-> Patch 1: A platform hook (arm64_pre_smp_shutdown_hook) in ARM64's
->   machine_shutdown(), analogous to x86's machine_ops.shutdown. This
->   runs after device_shutdown() and cpu_hotplug_enable(), allowing
->   platform code to inject pre-shutdown logic at the right point in
->   the kexec path.
-> 
->   Design choices I'd like feedback on:
->   - Single function pointer vs full machine_ops struct: ARM64 uses
->     kernel-wide APIs (register_restart_handler, register_platform_power_off)
->     for restart/poweroff rather than x86's monolithic machine_ops, so
->     a targeted hook seemed more consistent with the ARM64 pattern.
->   - On ARM64, machine_shutdown() is only called from kernel_kexec(),
->     unlike x86/powerpc where it's also called from restart/halt/poweroff.
-> 
-> Patch 2: Uses this hook to call hv_kexec_handler() which performs:
->   - vmbus_initiate_unload(): sends CHANNELMSG_UNLOAD to host
->   - cpuhp_remove_state(): disables SynIC (SIMP, SIEFP, SINT) on
->     all CPUs, ensuring the kexec'd kernel starts with clean state
-> 
-> Tested on ARM64 Azure VMs (Ubuntu 22.04, multiple vCPU configs):
-> - kexec reboot succeeds, VM comes back online with SSH
-> - Normal reboot/poweroff unaffected
-> - Multiple consecutive kexec cycles pass
-> 
-> Looking for feedback on:
-> 1. Is the single function pointer hook acceptable for ARM64, or would
->    the ARM64 maintainers prefer a registration API or __weak function?
-> 2. Should this be arm64-specific or generic kexec infrastructure?
-> 
-> Shradha Gupta (2):
->   arm64: Add pre-shutdown hook to machine_shutdown()
->   arm64/hyperv: Add kexec handler using machine_shutdown hook
-> 
->  arch/arm64/hyperv/mshyperv.c         | 37 ++++++++++++++++++++++++++++
->  arch/arm64/include/asm/system_misc.h |  2 ++
->  arch/arm64/kernel/process.c          | 13 ++++++++++
->  3 files changed, 52 insertions(+)
-> 
-> -- 
-> 2.43.0
+Thanks,
+Andi
 
