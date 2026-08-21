@@ -4,109 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C67FC5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:28:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51891C5DF89
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:29:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mI9wJomB1mEoMcf5Syv6RAm3Sw0SkfIqlts4HkuUXYE=; b=QVcmJbPYNbF0xtCnafSCP6205d
-	/amVN4z474BdelUOP8CjzIk690Hh/xrZlUM6pXdkaea4/94hhNUnZ1s3tpsmC3ffQaPGnxGKx1ArN
-	cCm3FSQJcvBA7JHE7i19owCMxkFz1QhJTqpTJVOKGqUH27P6ZYCLhIpELjMLEv014+3sCLOw/foc+
-	GSajy+tmUsBfFYBc/aJsIMVryKmmGc2CDGM69nu1GGfQyySEjziMokmoNrtshjq54mTBGMo4H3L4w
-	U4yeYdG3Kyu5NuV9xs4XiqPDSeGsSiR5vr6OYzOeTv23PBcZsZR7ObaXrQfYcpIdw6QAKMSUVd8XG
-	aoSjVPEw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xJG5qITotgQ4r/8yEzCbVy01AHxnXQ29q5xOCfnqmk4=; b=D3VjbIpkLSZbgfDkpDsjaHj9t3
+	gIzC2zw0IrP0e4YpreKGK0jmf/tRhiNtLF0dBiNld5pVAZSo3ixe9PELzY0kpTU2Uugf3IMAO/pSM
+	IBD239PzNFPHTqoUNly7dN6tOM9ollZIJE5HLJ3iEJ8kGlsTU3Wp3gkT8NOim6ajtYWgh5z6qd39V
+	s15DEgRHyISn/Wh4kACX1BunG8r9nWIpxMz3c3ujMT9JSxLa/VZnLobVtPxNTw9vLLx/FQWM9pUPe
+	YYX1TdMQ+7RPT/kROxRJ7LQOkeZ9j25o6AVooGDcE0sY5byw64QGGBZvXSCKJAJoD0uoL7njlftDo
+	NDQ7JATA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxOMC-0000000DIiq-3B6D;
-	Fri, 21 Aug 2026 12:28:24 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1wxOMi-0000000DItw-4APt;
+	Fri, 21 Aug 2026 12:28:56 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxOMB-0000000DIhy-0Gav
+	id 1wxOMh-0000000DIsP-0WIx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 12:28:24 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6a378f90555so1766013a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 05:28:22 -0700 (PDT)
+	Fri, 21 Aug 2026 12:28:56 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2d5cad1a6baso8673735ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 05:28:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787315301; x=1787920101; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mI9wJomB1mEoMcf5Syv6RAm3Sw0SkfIqlts4HkuUXYE=;
-        b=X13NmlBZzIfn6bqNHDR7bSI/IM0P5CnOEaXuoSwIvDvlI+uRDBe5mL6lKCrtweaTeB
-         ibFE19MymfiFajCi1ESzboBV4/J3S04AHWIKuWbFjweTUSTKNR+kamysvs9PHLlhSB3t
-         b2cWfvObnKeM3xDBe86zRCOQ2aTTpXhkR9WNE66Lh+kMK38e1oT7pJP6o484GF7Mc7Es
-         J9oqyLqqDzSlzyBlxWkli9+ti32ABlYqwxLCkkKbQMEkOC1nyaSpmiq+DbsaohK97CZl
-         8hn3q8I+myuGKUoi2Q1gXfnksm8CLxebqx8StzDFkPG9sD6341zgJNAfAWTYo6JZmT6q
-         pXNg==
+        d=gmail.com; s=20251104; t=1787315334; x=1787920134; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xJG5qITotgQ4r/8yEzCbVy01AHxnXQ29q5xOCfnqmk4=;
+        b=R0Y67kCuiKWl8HqKhfOaGnX04Hfiltfj9KDYy8O5rGkD1z1NQ7yX/g/Ev2S35ShAlg
+         326PpN7Vf8Z5Y6YC2OVsJK6m8DdtR4szi3O858TJAJUL12Im3K8m+wh4CHM6ArQEkOsm
+         AYtrS5vOcMnZJMeeN9TvIt6qR9DtEk9M8akNmnGIOb7sWUibZ1aBFiF6f9c1WMIjwgvi
+         j6Qj1SXJ336Ox8U3YlNEDZ21yNFGel6INkhD8MKU4NA2NvE0qA3blFkf1UvlJsu+VZy/
+         d4xlWWLF/cdAYo7N9vTnfq1iPuP1uksIxrWFMrVs48Megke6sMznagjVSmjDNjR1P2mh
+         4sEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787315301; x=1787920101;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mI9wJomB1mEoMcf5Syv6RAm3Sw0SkfIqlts4HkuUXYE=;
-        b=ovYRT8OrcGljhIdpJQ2kSKVq7MCXyyl+GF8u5QgKDCgRbip7qOrjmiNrHCENAMJDSn
-         pNuuf88ZUc29POFS8U45qTLAI5wGk23MMzUh3Ewm4uXD4eEZaLko3E7+xAFxmKV3HpQY
-         6cAHNuN43CV/wJFpkunJ/BUBa0omkNL+XnN10P/AsjYVTCvQGbDS/4miCMmPMUy2WRwI
-         nbt4QKgu++P4k0pzB1VsJMSyxT9I0UquJIFZ4wYGZL1g3k9gQpcRj1XtteuednINnhEN
-         B3Lhp1lJF0vhJg+mRG7bDtVd0VY5DoPvf/3Fn5FhwtiC2ynfkELvMq7p9Y22Jf2zy0Cr
-         NW0Q==
-X-Forwarded-Encrypted: i=1; AHgh+RrLPQyX5ZBF849TbLnML9qrN8/zXVfXbbzHxhkKP5WAVPj6yE+ufF1Ga0FH7fQFNoejvtRI3wGDkfCyW0EhaLRb@lists.infradead.org
-X-Gm-Message-State: AFuF++lX+cPMg1+x3k9Iu3UW1gxYZi05jwFof4+Frx/huGflrqUQphko
-	SoMZP7PGrbagHZ9z7AKgk838W7efrok0vCwbEKflcemR9RC00fX/9NUm
-X-Gm-Gg: AR+sD11jAFeLoircCwuqPe9ZQ9pVCAGXoHQhMLjKq3UqapGWucM2xPGWm3GdyIEFngX
-	Z1eI8Esn8O245M2EFt9NzFea5HwXbDUA+g3is1Uj+ppsJNtpvE4g1cymwPhzyALWpUxC0UzJNAL
-	e6MpaNJFAgJrZzqVBCxOEB4cyUxRqSCVy7dK223rj2Q3Yi0UNG/t29JuiFLPf5zEnIrUi4Gumjz
-	z3auM9x6e+qS4+CXyy6dIWgA/VaxST4hOmd+XJqp/+4/JXmFK0sYA7M35RmiXhjZcazuMncRiGC
-	i0tHbq987xv+dJ554AJqmTsb5VuoiHrbvwhSA0mBpoDyjCcCV+LPhP2a8uL5hmNyfVIMv7YLrmq
-	aGiaSX0qqvHVmXnkVl8pr8pgXx86iwvRjlJhV+NoKf0sPwaRLyzizXohuJh6JsS382ZJf2szYAs
-	rIndc6hArFBIan3xloUexkJqpCDC9w3qzFHvvTaVxPaJf3eY68LFmpjfKw+Oa0/FD9ZYXCQe9It
-	yYJZ3dBQm4jKPaIwn/m8YRb8LT5EjZUjELcC2Md8lGlpjKojjfZ33CUg8Sqmpy+ihea
-X-Received: by 2002:a05:6402:2187:b0:6a3:905b:3c40 with SMTP id 4fb4d7f45d1cf-6a42f1d0649mr6603642a12.8.1787315301076;
-        Fri, 21 Aug 2026 05:28:21 -0700 (PDT)
-Received: from GLaDOS.station (mob-5-90-140-38.net.vodafone.it. [5.90.140.38])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a3feec9c9dsm6608874a12.4.2026.08.21.05.28.13
+        d=1e100.net; s=20251104; t=1787315334; x=1787920134;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xJG5qITotgQ4r/8yEzCbVy01AHxnXQ29q5xOCfnqmk4=;
+        b=Ymuga7rwmSiTlp25BcQ72kBI89JABItPesXd5bON/9G5nLVJojfB/TvTC02UEu/pmX
+         DYXJRrm3jKbF9Ie3qye6BXDvrc6z/BQfOnzOl6+On/aMInS4lwia3rAzt5RKgrVLHFX7
+         5yZ2ucJvvHGqUubxtMIoXceAYWiAI9b58JqgPEzfY6fPoKw8LZWXkZceiJm0iGU6oYjO
+         gTbiycf9utji4WTAQ/APD8V0UOoPsYyI8jnAOIgL75Ztfx/vSQjvIhvzk/+n2ytn6CX0
+         seqqZ2DgBsmCMFc+mU+6TXS89INLsC7WrEX6NAaH7yn7Q244DPPFa5+hTv7oHpOnCjaI
+         kthw==
+X-Forwarded-Encrypted: i=1; AHgh+RqVcRPMXGjtakEhKJd72FARQrgja76TGgNWZctasUIqj7Z7f/GOv8MLVIm/03QNbjawb0D3rZ1oh5lzBLRF2Jl8@lists.infradead.org
+X-Gm-Message-State: AFuF++mPCb3LNA8D2mddhkXRvMJW/SlQcNOHNPME1NUe7DjtmKC+8Xj6
+	GZ09Mmb7Ho+YGpB/TbC95S9kLxz/R3bnxrKDlKky1BGtXQof7ZYEB57H
+X-Gm-Gg: AR+sD12lP9uYzrcVjVziVC/eaPo0n/hccsRSnJ0d0gKhFxqpcTJpkSHeB+BIjiirnMH
+	65LTodmw22v2hPbZ627Ylls6tQQSgdJthngUnvgVOEjmkWUGemcwbhVcrJcwZBV69hl/Rpnoe9W
+	yyii0WqN9q82XJ3cG6zdRa829E7w+SZBI37798jkt8AVNzXGOuNr4wjcBjPHj7+Iw7UvK2IveYa
+	l/fCiRTwuAKBSnZdbk0/U/QEJ6x0lB4ULIyNVxmmUsXchJcqc1xl9gTzHLXlqyva/Yc/5zIPB99
+	hK5yQUzJVb3ORaUXBGZhQphxqRaerlcrdpzDVDVDk9fpP9TEbWBxdbaK+xoE2YpD35J1yt4/ulL
+	aGCnx7GejenolTNPklTq7A++0c2G66YcvN9W9IGpMNKsR/+zY6daUH4a1oHuNr9+piCPxAAOllM
+	jNoUqdN5kNhJNNArcOucHpkXsrrBarywHZRySOXGJY45IdDglAE91rPaOQH3XJ8p+4xIcJ0Lheg
+	rwzm6UfRumIeban7IqfPhspdacQ25NV18PrCdZ4d1GHCJvOyYGPQky1/sDtDPBR+EEoRJvXViDq
+	yV3B
+X-Received: by 2002:a17:903:b07:b0:2cf:afe8:b722 with SMTP id d9443c01a7336-2d64afe960dmr114112305ad.11.1787315333606;
+        Fri, 21 Aug 2026 05:28:53 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d62d554450sm18134515ad.2.2026.08.21.05.28.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 05:28:19 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
+        Fri, 21 Aug 2026 05:28:53 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Cezary Rojewski <cezary.rojewski@intel.com>,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	alexander.h@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Maud Spierings <maudspierings@gocontroll.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Marek Vasut <marex@nabladev.com>
-Subject: [PATCH v1 3/3] ARM: dts: imx7d: add Variscite MX7CustomBoard support
-Date: Fri, 21 Aug 2026 14:27:52 +0200
-Message-ID: <af43fd35a6ccbcf633966a9b18f21832e8f44366.1787314780.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1787314780.git.stefano.r@variscite.com>
-References: <cover.1787314780.git.stefano.r@variscite.com>
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH v3 0/3] ASoC: mediatek: mt6797: Fix error handling
+Date: Fri, 21 Aug 2026 19:28:37 +0700
+Message-ID: <20260821122840.41266-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_052823_175403_43ADB9FA 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20260821_052855_237743_CA537741 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,224 +107,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-Add device tree support for the Variscite MX7CustomBoard carrier
-board with the VAR-SOM-MX7 system on module.
+Hi all,
 
-Add the supported board configurations for both VAR-SOM-MX7 hardware
-revisions, including eMMC, NAND and WM8731 variants.
+This series fixes and cleans up error handling in the MT6797 ASoC driver.
 
-Also add the resulting DTBs to the i.MX7D device tree Makefile.
+Compile tested only.
 
-Link: https://www.variscite.com/carrier-boards/var-mx7customboard/
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- arch/arm/boot/dts/nxp/imx/Makefile            |  6 +++++
- .../imx/imx7d-var-som-emmc-mx7customboard.dts | 22 ++++++++++++++++++
- ...x7d-var-som-emmc-wm8731-mx7customboard.dts | 23 +++++++++++++++++++
- .../imx/imx7d-var-som-nand-mx7customboard.dts | 22 ++++++++++++++++++
- ...x7d-var-som-nand-wm8731-mx7customboard.dts | 23 +++++++++++++++++++
- .../imx7d-var-som-v2-emmc-mx7customboard.dts  | 23 +++++++++++++++++++
- .../imx7d-var-som-v2-nand-mx7customboard.dts  | 23 +++++++++++++++++++
- 7 files changed, 142 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-mx7customboard.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-wm8731-mx7customboard.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-mx7customboard.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-wm8731-mx7customboard.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-emmc-mx7customboard.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-nand-mx7customboard.dts
+Changes in v2:
+ - Update the subject prefix from ASoC: mt6797: to ASoC: mediatek: mt6797:.
 
-diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
-index 1a2539fa19b4..37da667f9ffb 100644
---- a/arch/arm/boot/dts/nxp/imx/Makefile
-+++ b/arch/arm/boot/dts/nxp/imx/Makefile
-@@ -444,6 +444,12 @@ dtb-$(CONFIG_SOC_IMX7D) += \
- 	imx7d-sdb-reva.dtb \
- 	imx7d-sdb-sht11.dtb \
- 	imx7d-smegw01.dtb \
-+	imx7d-var-som-emmc-mx7customboard.dtb \
-+	imx7d-var-som-emmc-wm8731-mx7customboard.dtb \
-+	imx7d-var-som-nand-mx7customboard.dtb \
-+	imx7d-var-som-nand-wm8731-mx7customboard.dtb \
-+	imx7d-var-som-v2-emmc-mx7customboard.dtb \
-+	imx7d-var-som-v2-nand-mx7customboard.dtb \
- 	imx7d-zii-rmu2.dtb \
- 	imx7d-zii-rpu2.dtb \
- 	imx7s-colibri-aster.dtb \
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-mx7customboard.dts b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-mx7customboard.dts
-new file mode 100644
-index 000000000000..3eb68927804d
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-mx7customboard.dts
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * VAR-MX7CustomBoard for VAR-SOM-MX7 with eMMC
-+ *
-+ * Link: https://variscite.com/carrier-boards/var-mx7customboard/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx7d-var-som.dtsi"
-+#include "imx7d-var-som-emmc.dtsi"
-+#include "imx7d-var-som-mx7customboard.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-MX7 with eMMC on VAR-MX7CustomBoard";
-+	compatible = "variscite,var-som-imx7d-emmc-mx7customboard",
-+		     "variscite,var-som-imx7d",
-+		     "fsl,imx7d";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-wm8731-mx7customboard.dts b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-wm8731-mx7customboard.dts
-new file mode 100644
-index 000000000000..94c4b1fa5d6c
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-wm8731-mx7customboard.dts
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * VAR-MX7CustomBoard for VAR-SOM-MX7 with eMMC and WM8731
-+ *
-+ * Link: https://variscite.com/carrier-boards/var-mx7customboard/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx7d-var-som.dtsi"
-+#include "imx7d-var-som-emmc.dtsi"
-+#include "imx7d-var-som-wm8731.dtsi"
-+#include "imx7d-var-som-mx7customboard.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-MX7 with eMMC & WM8731 on VAR-MX7CustomBoard";
-+	compatible = "variscite,var-som-imx7d-emmc-wm8731-mx7customboard",
-+		     "variscite,var-som-imx7d",
-+		     "fsl,imx7d";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-mx7customboard.dts b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-mx7customboard.dts
-new file mode 100644
-index 000000000000..b1ef719a924b
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-mx7customboard.dts
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * VAR-MX7CustomBoard for VAR-SOM-MX7 with NAND
-+ *
-+ * Link: https://variscite.com/carrier-boards/var-mx7customboard/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx7d-var-som.dtsi"
-+#include "imx7d-var-som-nand.dtsi"
-+#include "imx7d-var-som-mx7customboard.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-MX7 with NAND flash on VAR-MX7CustomBoard";
-+	compatible = "variscite,var-som-imx7d-nand-mx7customboard",
-+		     "variscite,var-som-imx7d",
-+		     "fsl,imx7d";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-wm8731-mx7customboard.dts b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-wm8731-mx7customboard.dts
-new file mode 100644
-index 000000000000..603b2dbf4c8e
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-wm8731-mx7customboard.dts
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * VAR-MX7CustomBoard for VAR-SOM-MX7 with NAND and WM8731
-+ *
-+ * Link: https://variscite.com/carrier-boards/var-mx7customboard/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx7d-var-som.dtsi"
-+#include "imx7d-var-som-nand.dtsi"
-+#include "imx7d-var-som-wm8731.dtsi"
-+#include "imx7d-var-som-mx7customboard.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-MX7 with NAND flash & WM8731 on VAR-MX7CustomBoard";
-+	compatible = "variscite,var-som-imx7d-nand-wm8731-mx7customboard",
-+		     "variscite,var-som-imx7d",
-+		     "fsl,imx7d";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-emmc-mx7customboard.dts b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-emmc-mx7customboard.dts
-new file mode 100644
-index 000000000000..109f52b641f3
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-emmc-mx7customboard.dts
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * VAR-MX7CustomBoard for VAR-SOM-MX7 V2 with eMMC
-+ *
-+ * Link: https://variscite.com/carrier-boards/var-mx7customboard/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx7d-var-som.dtsi"
-+#include "imx7d-var-som-v2.dtsi"
-+#include "imx7d-var-som-emmc.dtsi"
-+#include "imx7d-var-som-mx7customboard.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-MX7_V2 with eMMC flash on VAR-MX7CustomBoard";
-+	compatible = "variscite,var-som-imx7d-v2-emmc-mx7customboard",
-+		     "variscite,var-som-imx7d-v2",
-+		     "fsl,imx7d";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-nand-mx7customboard.dts b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-nand-mx7customboard.dts
-new file mode 100644
-index 000000000000..f0db68373d05
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-nand-mx7customboard.dts
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * VAR-MX7CustomBoard for VAR-SOM-MX7 V2 with NAND
-+ *
-+ * Link: https://variscite.com/carrier-boards/var-mx7customboard/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx7d-var-som.dtsi"
-+#include "imx7d-var-som-v2.dtsi"
-+#include "imx7d-var-som-nand.dtsi"
-+#include "imx7d-var-som-mx7customboard.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-MX7_V2 with NAND flash on VAR-MX7CustomBoard";
-+	compatible = "variscite,var-som-imx7d-v2-nand-mx7customboard",
-+		     "variscite,var-som-imx7d-v2",
-+		     "fsl,imx7d";
-+};
+Changes in v3:
+ - Add a cover letter.
+ - Add Fixes tags.
+ - Add Reviewed-by tags.
+
+ 
+Thanks,
+Phuc
+
+bui duc phuc (3):
+  ASoC: mediatek: mt6797: fix wrong unwind order and error code in
+    enable_clock
+  ASoC: mediatek: mt6797: Use dev_err_probe() for error handling
+  ASoC: mediatek: mt6797: Drop redundant probe error messages
+
+ sound/soc/mediatek/mt6797/mt6797-afe-clk.c | 23 +++++++++-------------
+ sound/soc/mediatek/mt6797/mt6797-afe-pcm.c |  8 ++------
+ 2 files changed, 11 insertions(+), 20 deletions(-)
+
 -- 
-2.47.3
+2.43.0
 
 
