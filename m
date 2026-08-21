@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1288AC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 10:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1419FC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 11:08:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rxl0JlscOt8KvBg6at78h4KSNocazniOg7vaWLLKYPA=; b=I4w3bPtpUUIGYS8ZqY/M5+wJ1G
-	/YcLdQSh5Kb5FumK/hVD53y0iM59BII53IK1zdNxD4/jadkZ3t2M+gU4EDSEbu2K2Z7SedrC0haYL
-	57cn9xS1uEnMg/OdSE6nfV/mhPiwJUnp1Xzkz55dACEO9yw/ImwhsAcbGvSLezocY0ScF03VfuwM9
-	8aHCLq9cRMLTtJs9/2NvaooFvcPk2GUozF0f1TemY+Tgws18kiLK/rK5/QR78KcAksEL1svSHZpFi
-	EtNX19Sp3kW6O8ocZIZdnJ2EbuUlEiGTy2Mp7sSU0yqdpX5Xjl+ZwXvJomCK2Uzvyjg10Y3DRidb6
-	/nRHWBFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BJoZwOuIgjPdC0ssjGngXelUydnEq3wcG4T1qEICItQ=; b=H9UXpcvXt84wXs2qnuygs1Khcq
+	rGU7VgeTfM8llRTUwygu6BOEj82FxgvGeEuKNE/kw43ImKtKgLK0wzU3n8rj6B6FvMEq7LckUm3Ii
+	/AbHxsdNKI/K1ZJsws4D3wZl4BtT/xbVT1q8IzO82p1+9D5FX8Vtu+qksIih3wgTX7VMrh1PFnAbG
+	0kJVdG0vi6n5MVCkg8cBENFmfmNbLkl066LdFGGYgHiDokDaH5BMAkpYZUErxgFarPLmMnQFr84Mb
+	4InsO7UyFRWkIPXDeDKUGu/pWzej3XCRiytff2/yurIxiLvs0cbctsEVOK28I90GRzIhI0FmAA1Jr
+	nmFCvZMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxMyR-0000000D8az-1xQ9;
-	Fri, 21 Aug 2026 10:59:47 +0000
+	id 1wxN6p-0000000D9P7-3pRN;
+	Fri, 21 Aug 2026 11:08:27 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxMyO-0000000D8aW-3bag
+	id 1wxN6n-0000000D9Ob-0qiU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 10:59:45 +0000
+	Fri, 21 Aug 2026 11:08:26 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E96351596
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 03:59:37 -0700 (PDT)
-Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8E5613F66F
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 03:59:41 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0EBE2153B;
+	Fri, 21 Aug 2026 04:08:20 -0700 (PDT)
+Received: from [10.57.68.59] (unknown [10.57.68.59])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5DF903F763;
+	Fri, 21 Aug 2026 04:08:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787309981; bh=18vtLRzZ/1AiNuoaGkYSc9RUHIiM1aUgGl3jXeV3I1k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DRjnpHVx4jjWv9L4CB5YDru1BZffUfi4xnAygWZh/SoytOMW3JT6FQ45Olp/Namt2
-	 x2A5Qy5LPGn5CAMUbm1/mEujDWmM/AvqgLnM8ELc869eoR1OI2ro2Eq409U8Kff13Q
-	 Tg23Ip3l/tU/qScrwQODE1RdOXnIBTQnQoEJe+Uk=
-Date: Fri, 21 Aug 2026 11:59:32 +0100
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH 1/2] ARM: versatile: clock: Make sure clk_init_data is
- fully initialized
-Message-ID: <aogvlFKhqzwyEwhY@e142607>
-References: <cover.1787239869.git.geert+renesas@glider.be>
- <66afbce10c485164340a3947885cdf4217a4ee2d.1787239869.git.geert+renesas@glider.be>
+	t=1787310503; bh=r+nWfseUDNsg7pRvQ6HFhuQDqkGoo3C858WzErP2FVs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=byORhdTJJj/wNVZLhbjCuCla2WOMUWXOZUufawxYXeb+7vu4ikT2xiqhBCyPJoID8
+	 BsSVPG1qW//TuTIAKtG1BomqMKVTwTdG85ypmctJeyPlAlkc8fHd6rQRefn7qpN5Yb
+	 VKaRRlk70XogrEkROd3qsPu/xHUZaDE/EVLVotII=
+Message-ID: <b300856e-46da-4f94-ba4c-24064561024f@arm.com>
+Date: Fri, 21 Aug 2026 12:08:16 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 12/45] arm64: interrupts: Add common exception
+ state helpers
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
+ catalin.marinas@arm.com, liaochang1@huawei.com
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-13-vladimir.murzin@arm.com>
+ <e93ae08b-64e2-4128-b1fd-910c4d197dbd@huawei.com>
+ <86ebda30-26ad-438b-9f98-2ea9e3849cd8@arm.com>
+ <6ac531ab-2a9e-430d-822c-9528971a5cad@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <6ac531ab-2a9e-430d-822c-9528971a5cad@huawei.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <66afbce10c485164340a3947885cdf4217a4ee2d.1787239869.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_035944_933039_85DAE4B4 
-X-CRM114-Status: GOOD (  21.97  )
+X-CRM114-CacheID: sfid-20260821_040825_282875_D5F86626 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,55 +75,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 10:52:24AM +0200, Geert Uytterhoeven wrote:
-> The clk_init_data structure contains several mutually-exclusive members
-> for different methods to specify the possible parents of a clock,
-> prompting drivers to initialize only the members they need.  However,
-> not initializing all members may cause subtle issues, which are only
-> exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
-> enabled.
+On 8/11/26 08:39, Jinjie Ruan wrote:
 > 
-> Make sure all members are fully initialized, to avoid such bugs, and to
-> prevent future breakage when converting drivers to a different method
-> for specifying the parents.
-> 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-
-Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
-
-Best regards,
-Liviu
-
-> ---
-> Compile-tested only.
-> ---
->  arch/arm/mach-versatile/spc.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/mach-versatile/spc.c b/arch/arm/mach-versatile/spc.c
-> index 7c3191aa3e12d1f3..d3f84819532fa498 100644
-> --- a/arch/arm/mach-versatile/spc.c
-> +++ b/arch/arm/mach-versatile/spc.c
-> @@ -522,7 +522,7 @@ static struct clk_ops clk_spc_ops = {
->  
->  static struct clk *ve_spc_clk_register(struct device *cpu_dev)
->  {
-> -	struct clk_init_data init;
-> +	struct clk_init_data init = {};
->  	struct clk_spc *spc;
->  
->  	spc = kzalloc_obj(*spc);
-> -- 
-> 2.43.0
+> 在 2026/8/3 17:40, Vladimir Murzin 写道:
+>> Hi Jinjie,
+>>
+>> On 7/28/26 09:20, Jinjie Ruan wrote:
+>>> Hi Vladimir,
+>>>
+>>> Using two tables as below to map different contexts to the hwstate
+>>> status makes the code appear more concise and clear. What do you think?
+>> I think I already tried something like that and IIRC it hurts code
+>> generation...  I'll have another look before posting next version.
+> Thank you for very much.
 > 
 
--- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+Interestingly, with CONFIG_ARM64_PSEUDO_NMI=n both versions seem to
+have the same codegen, which is not different from the original code.
+However, once CONFIG_ARM64_PSEUDO_NMI=y, codegen starts suffering from
+static branches, with the table approach being slightly worse. Since
+whether we use {p}NMI or not is a runtime decision, the compiler seems
+unable to fully optimize things out.
+
+Perhaps this is the price we have to pay for flexibility, but if
+someone has ideas on how to tune the code generation, I'm all ears.
+
+Cheers
+Vladimir 
+
+>> Cheers
+>> Vladimir
+>>
+
 
