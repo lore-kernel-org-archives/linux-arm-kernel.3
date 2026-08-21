@@ -4,114 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C7EDC5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB87C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c3QAAhtL3DCYX+J+FVgDnG4lhkwd2FV1CW1w8bXGWJU=; b=wDg6Ot0ffPXWWLcti/5aDEXg7X
-	FFPT2+1u+3BjaHIwnXc31Nb75rd0LPwP9RN4C8tdZ0NCotFB02nBH3njIpNlXhFOxtGjLLpm6nQqZ
-	nCpqpNmJYA+6l7+6J7spnIdf+tHQtzu9NPpBG8PKbh+bM95l8QN2DGGHARXs+jt2m/oRfwajHhF+H
-	swAgFf4k8tO5H1NHBZqY12YUQ7IBD/NjQL50LUeX3WugWM5i9ys5DKkeaVAAWMaObOqbicWqmwbzM
-	LRxH780SGNQIQw6JZopc/Y8/1YAu3LL7xEF1ud4ZVk1VWKIo2sNS4W4yNer81R6QaFwS9C0OUHMeZ
-	vP5hfCug==;
+	bh=6L6R8VYj6xTp5O3uTk/05LR+mL9sFpYgJFxBdDLxNPs=; b=2THqROgXLaVrdA6A2TifnCf68V
+	47uRYdguG8p1B3g+xroIt5Fbh0O9tUHwz08R8lHOl0OMOlaeEdxBhuOGSviRNvoNlFYhc2R3BsP08
+	8OAkiAwOMfz3inTNn46dbZMuXEksM3zfRPbv9+Up+XMASENsfltOCP0nNx73PCBMouPjbkUXxwnhx
+	Yu2wz2s2nEGT+uKAvWHhjsFkeWjzPF0Qp1cth0FcVRRU0wsDnLpfH/tYBsFuqc+zMrS7oGn9PG9fe
+	le5scvtCBV5dK4c5LNPkg1dcHv1fMk060qoytnhPOVNJ3VllRnoTnBmj26CJ1ToDBqu6kIXcV3S9J
+	MDulc16A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLSc-0000000CujU-0xDI;
-	Fri, 21 Aug 2026 09:22:50 +0000
-Received: from mail-northeuropeazon11012069.outbound.protection.outlook.com ([52.101.66.69] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wxLTj-0000000CutY-2W4o;
+	Fri, 21 Aug 2026 09:23:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLSY-0000000Cuj1-3Enl
+	id 1wxLTi-0000000CutL-2dVA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 09:22:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vQLRTCpVXl18dXLfih00+xDVi1anpkmFsZN5XstQNo1gcDTffWd5PSjgAU5bqHBD2n5q5pUIyIBq0JyLZbeiplbSKXhK4KHcqNw4vVS27UvhbiK8iz6lIQaGYH7FNjKxdTe8gzltJLNMP3THR3U/vOMqxufOEnc9XW2CtpQeAPuKj74vNSq6CTW4r7xkVVfT2JtHbPJ+ut0reGwQMi6CChyHWIjzOltfp9gQY+LvpfEsnZPe66xFqaTLPytIfN9DEmVleA+d1arQYaxGaeWySl7yk9ZfPNKsgOyZwWfOMPt5AUx6eQi0OywqhJUGdDCzy0Wy5Iz6PGYYu6QxQVssvQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=c3QAAhtL3DCYX+J+FVgDnG4lhkwd2FV1CW1w8bXGWJU=;
- b=ejg5dUMOpF6wlgPfaB7OIlF0MKv93SFyp18GT8PXmwaUmMsoEbw1jJWhjpugtgCknDPYhG9fZEsSY7+jTzvJ+mmtiGP+bwNK90R3kadDYh7yXuFrYlIgMmDXMIbJEU/E7DsZI6VJ/c2XCaSj+Q9cV60UyZyQjYWu5+xDKN9el/NHgmoGWgtUlr1/n0QTgos5rC2RjYrMRHoL6CsOyBVcVTZiAJwLOMr5rRo8wyIxHfXNYFHU0mGrDkN/Sb3lKyZSt0JD2KuXlrOezHZ11aUuiKRQcayTMb2pMGyynpxr+mzHgPtZhS9K34rsU8ad9I1J4hziVMu4nbgmLPLQz/0hSQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=163.com smtp.mailfrom=foss.st.com; dmarc=fail
- (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=c3QAAhtL3DCYX+J+FVgDnG4lhkwd2FV1CW1w8bXGWJU=;
- b=n0AKAZOIK361/qp8N7zgpg1gzS5Ye97+EMtA6DEtM/3qENyT9lPvqyjFWeuNvoWYEEq1Ii+tIemmg3eQDANRw7rYP7cE3X+daQXe2E5k5Oesr3A5Qx1eQnXpe9LcqVR3zjaG7Rlmn6OdK12adHfFwVLkeVcf4SqBC0fQsUU3mIEY/eeFvdVWVsW6sbQeHEwD0GTSN/W1A+UQPW32HTxhOzVqij4tx89kzy6ObcJqf/HUwgbEwTyzJ5+93epXyDHh/0G2s7HHh3taWLanCnJM+nYuFR7rER3uqeNLH9AY3RVFuFY5JhcjmaKh8sbRiyLhWPriliT0h9drvKLt6hjjHA==
-Received: from DUZPR01CA0076.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:46a::7) by VE1PR10MB3887.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:800:161::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
- 2026 09:22:39 +0000
-Received: from DU2PEPF00028CFE.eurprd03.prod.outlook.com
- (2603:10a6:10:46a:cafe::4c) by DUZPR01CA0076.outlook.office365.com
- (2603:10a6:10:46a::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.10 via Frontend Transport; Fri,
- 21 Aug 2026 09:22:38 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DU2PEPF00028CFE.mail.protection.outlook.com (10.167.242.182) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Fri, 21 Aug 2026 09:22:38 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 21 Aug
- 2026 11:28:13 +0200
-Received: from [192.168.8.15] (10.48.86.45) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 21 Aug
- 2026 11:22:37 +0200
-Message-ID: <9b0f76a08a7c1dbaec4684b4bc013263e0149a4b.camel@foss.st.com>
-Subject: Re: [PATCH] pinctrl: stm32: fix the unit of the hwspinlock timeout
-From: Antonio Borneo <antonio.borneo@foss.st.com>
-To: Ju Nan <junan76@163.com>, <linusw@kernel.org>,
-	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>
-CC: <linux-gpio@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Date: Fri, 21 Aug 2026 11:22:25 +0200
-In-Reply-To: <20260805032843.36961-2-junan76@163.com>
-References: <20260805032843.36961-2-junan76@163.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.48.4 
+	Fri, 21 Aug 2026 09:23:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0C5AE4359D;
+	Fri, 21 Aug 2026 09:23:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D03111F000E9;
+	Fri, 21 Aug 2026 09:23:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787304237;
+	bh=6L6R8VYj6xTp5O3uTk/05LR+mL9sFpYgJFxBdDLxNPs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iT16Ytga+6l1zBo40xWJADgJoS177W6lnB/UMu8QqI4XyXBzqPEPg6NaL/a0g9zBs
+	 KzRNkIRNR3OgvRGw1JFO5IhC+JkEPGAb0bTOnzyHD7qCX1TSq38QlllQWh2x6r+yaK
+	 Cp+h+HL97K71OrFtNSM2NVI6qrHcfiilPd9kJN+FUfLgDfSQdErYDTXyad8RS5GgeA
+	 CXpQq61R9hrq9zSfcf9pPWZCQmHPZNsH9V3xyJBk+YrV/VotsgEFiHuaG4rMimBsgu
+	 aTP2BHCsNrpHrePt7Xo21oVMMdrnci4qxH6tTHDEnJ0QN6xG0ujeSkobuO3S445/bs
+	 pdXrQRyzFGaVg==
+Date: Fri, 21 Aug 2026 10:23:52 +0100
+From: Will Deacon <will@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, Eric Biggers <ebiggers@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH 06/12] arm64: assembler: Remove endianness helper macros
+Message-ID: <aogZKCKxXISedTj5@willie-the-truck>
+References: <20260811140132.22778-1-will@kernel.org>
+ <20260811140132.22778-7-will@kernel.org>
+ <a16ed8a4-28cc-4270-a257-b9268ab9e9ea@app.fastmail.com>
+ <aoGGCqMdb8iZvZSM@willie-the-truck>
+ <aob-0tByMtlbIaxQ@willie-the-truck>
+ <03208978-a825-4ae5-b47e-3dd6133ecbf0@app.fastmail.com>
+ <aocFEg5JvsjeMXwj@willie-the-truck>
+ <207397b0-07f2-467c-8419-3109a506cc7d@app.fastmail.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.48.86.45]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028CFE:EE_|VE1PR10MB3887:EE_
-X-MS-Office365-Filtering-Correlation-Id: 387ecf45-9ebe-4f7d-c759-08deff65be83
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|23010399003|1800799024|82310400026|6133799003|56012099006|10067099003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: jYhXf7XTC3vphwwyxsq6exnKBx6G+o4YkasEmM89ZZ2yLNujPG8nleIWUNZFW3p2IcSVGZbYrNOCs82Gz6c12tUok262fpxKQfZVtQ1apFvp/4EqRnnFLuaHZwjwtlbiCPt3K5oIexUUIVNUkMjA0GA85Z8YZNbI7516wzpWOdiXA6w7P+vIl0PvmiB3t0xrlRc1h/7MXwt84WlDELTjNaDpC2p/1e5o0W2JqHhknpy1ahPXV42In9PMV7JYdUhbFacvcXw1yJFAvshnbHLJcDQNAEzy5KGJu+wlpeEAgZB7jzmmWnOprapWo6VM3G691JG7D//Fu5SAERSpAq9HI4r40ZfcePI+7pfOiBewqOIoN5zzDCZbZhBAsi+rHYWYicDP1FVrVfhzIRX/b4tNj5yFAWBrRrxV6dvcZSJNib/j+Q7TQtqkbbii9l3Ra8DdL2P59bDAARxqLupJGvhrOe2EtdgM9MJqxSVYHmJbRvUgHy7rGmWo0pGq1GxYhkzzLtFhKCRHMZdOsFo+LDl8kBsy/cbDgqdXmQXRqe4ioXMr3KkF7ok2KRSSX3Ee/q0cNm5NqlAmR9MZ2eqglBiFamjpyF0pV26eIs1di/3K+FSHYvhwy0qMIHCU4exSaTpIBE/bxXrG3oMCWzf/Gv+zkNELq4ptZ6uCmc114ctZEIEzE2fMskMmDbjKsteSpGanFbQyBXoKKfF+KQM/jqFYDg==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(23010399003)(1800799024)(82310400026)(6133799003)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: haAoGnm1agbBqlWxsaQ6RMaKelZ9Gf5MJ6jqpWjJp61z+HV4NqLhz7YX1MauhQG3RVikUvkj3Rx+PwCEiO8KT4FtBnypl4h+1LCKmKOw0/brjbwQSUNig/VgJVX/srw30mXcC3xKWMZ51E/VUGqe+WYUhtm5QG2M8b0gcF3RAW9eLuF14eMsPBXHgmXw29gwAqZYwwkGMqeJtTX1pTFgqTmsoIOZfXMjQrX2ql2Nzxh1+LPEwK4bmUcwWd6JL/GWAQk0iEkvQIFt7Yp3tV7+KRO2tkgEM/K2nbNyhTx2W0v4m9d9QpP70dDqfTNihG65HdtlxXre7qNL16nhAYLUkdpxdlAX/oUyyMHvXTowub56fguQYGaBFNotJBy0AUu97d/7HsQprMafXzqGFvZlc2wqNlGG9vhSg62clBKmY/TwrfiPNAn5h7SKBq2UPAnc
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 09:22:38.5129
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 387ecf45-9ebe-4f7d-c759-08deff65be83
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028CFE.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR10MB3887
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_022247_109905_34EB4021 
-X-CRM114-Status: GOOD (  19.83  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <207397b0-07f2-467c-8419-3109a506cc7d@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,64 +81,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-08-05 at 11:28 +0800, Ju Nan wrote:
-> HWSPNLCK_TIMEOUT is passed to hwspin_lock_timeout_in_atomic(), whose
-> timeout argument is in milliseconds, not microseconds:
->=20
-> =C2=A0 atomic_delay +=3D HWSPINLOCK_RETRY_DELAY_US;
-> =C2=A0 if (atomic_delay > to * 1000)
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return -ETIMEDOUT;
->=20
-> So the driver asks for a 1 second timeout where the comment next to the
-> macro says it wants 1 millisecond.
->=20
-> The hwspinlock core documents this explicitly:
->=20
-> =C2=A0 If the mode is HWLOCK_IN_ATOMIC (called from an atomic context) th=
-e
-> =C2=A0 timeout is handled with busy-waiting delays, hence shall not excee=
-d
-> =C2=A0 few msecs.
->=20
-> Pass the value the comment always described. The core retries every
-> HWSPINLOCK_RETRY_DELAY_US (100 us), so the semaphore is still polled ten
-> times before giving up, which is far longer than any plausible hold time
-> on the coprocessor side. A timeout is reported with dev_err() and fails
-> the pin configuration or the interrupt allocation, so shortening it
-> degrades gracefully.
->=20
-> Signed-off-by: Ju Nan <junan76@163.com>
+On Thu, Aug 20, 2026 at 04:50:41PM +0300, Ard Biesheuvel wrote:
+> 
+> 
+> On Thu, 20 Aug 2026, at 16:45, Will Deacon wrote:
+> > On Thu, Aug 20, 2026 at 04:27:06PM +0300, Ard Biesheuvel wrote:
+> >> 
+> >> On Thu, 20 Aug 2026, at 16:19, Will Deacon wrote:
+> >> > On Sun, Aug 16, 2026 at 10:42:40AM +0100, Will Deacon wrote:
+> >> >> On Tue, Aug 11, 2026 at 05:04:43PM +0200, Ard Biesheuvel wrote:
+> >> >> > On Tue, 11 Aug 2026, at 16:01, Will Deacon wrote:
+> >> >> > > diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+> >> >> > > index 87a822e5c4ca..8951ce693552 100644
+> >> >> > > --- a/arch/arm64/kernel/head.S
+> >> >> > > +++ b/arch/arm64/kernel/head.S
+> >> >> > > @@ -138,8 +138,7 @@ SYM_CODE_START_LOCAL(record_mmu_state)
+> >> >> > >  	b.ne	0f
+> >> >> > >  	mrs	x19, sctlr_el2
+> >> >> > >  0:
+> >> >> > > -CPU_LE( tbnz	x19, #SCTLR_ELx_EE_SHIFT, 1f	)
+> >> >> > > -CPU_BE( tbz	x19, #SCTLR_ELx_EE_SHIFT, 1f	)
+> >> >> > > +	tbnz	x19, #SCTLR_ELx_EE_SHIFT, 1f
+> >> >> > >  	tst	x19, #SCTLR_ELx_C		// Z := (C == 0)
+> >> >> > >  	and	x19, x19, #SCTLR_ELx_M		// isolate M bit
+> >> >> > >  	csel	x19, xzr, x19, eq		// clear x19 if Z
+> >> >> > 
+> >> >> > There is some more code that can be removed here - see
+> >> >> > 2ced0f30a426c7301350681f838344d5aea711e3
+> >> >> 
+> >> >> Good spot, thanks! I'll do some more surgery at -rc1.
+> >> >
+> >> > Looking at this again, I'm not sure we can remove much here. I think we
+> >> > probably still want to force little-endian (i.e. clear the EE bit) if
+> >> > we're entered as big-endian. I've changed the following EOR to a BIC
+> >> > (see below), but I think that's about all we can do?
+> >> >
+> >> 
+> >> Well, the only case where we allow an active ID map is when doing EFI
+> >> boot, which is guaranteed to be little-endian. Since the kernel is now
+> >> also guaranteed to be little-endian, we should be able to simply kick
+> >> the CPU in LE mode right at the start, no? And simply ignore the case
+> >> of a BE bootloader entering with the MMU and caches enabled?
+> >
+> > Hmm, so why did we support this in the first place given that EFI is
+> > guaranteed to be little-endian? Or was that just because we wanted to
+> > handle the case of a big-endian kernel being loaded by EFI?
+> >
+> 
+> The original report is here:
+> https://lore.kernel.org/linux-arm-kernel/Y9FZsBEu8hSVVIA8@dev-arch.thelio-3990X/
+> 
+> So it would probably have been sufficient at the time to just kick
+> the CPU into LE mode - I don't remember why I added the additional
+> logic tbh.
 
-Please add
-Fixes: 290a9f937e5a ("pinctrl: stm32: use the hwspin_lock_timeout_in_atomic=
-() API")
+Okey doke. I'll do it in v2, but as a standalone patch rather than folding
+it in with this one..
 
-> ---
-> =C2=A0drivers/pinctrl/stm32/pinctrl-stm32.c | 2 +-
-> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm3=
-2/pinctrl-stm32.c
-> index 6a99708a5..dbc9143ec 100644
-> --- a/drivers/pinctrl/stm32/pinctrl-stm32.c
-> +++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
-> @@ -87,7 +87,7 @@
-> =C2=A0#define gpio_range_to_bank(chip) \
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0container_of(chip, struct stm32_gpio_bank, range)
-> =C2=A0
-> -#define HWSPNLCK_TIMEOUT=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A01000 /=
-* usec */
-> +#define HWSPNLCK_TIMEOUT=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A01 /* m=
-sec */
-
-Please change the macro name as HWSPNLCK_TIMEOUT_MS to keep track of the ti=
-me units
-
-> =C2=A0
-> =C2=A0static const char * const stm32_gpio_functions[] =3D {
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0"gpio", "af0", "af1",
-
-Thanks!
-Antonio
+Will
 
