@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12BB2C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 15:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7115EC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 15:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bloMdIx1erIxNEo6r5ccnCWGkwjtqp1KC4sGsNoKRCs=; b=YWYe58ED13CQvSQ0aUlPG/ebFS
-	4/X8292r+0K6WL1amlnC4Fjd2V5/QNmyH1qhsPrVA/XwtwSU5WxRbPvjXEgkQnQy47HZZLPNxDSnT
-	pcIjOjGpSqTDSzeqyL0dJR/QO3C8uvwtsc/rMA1XnmMylbLMn4ad28cKbmDiHfSuohLvnUA5wpbIq
-	UlQ5tZT5EgKpUdNATr7vxXAHvXj8bJne+c1lkPdHntXTVmYp58/i44n+uFROL09ON3JXE/hXY8/IK
-	EkK1BtN+Ds7U4PY37VCjuLd+gwaqCK1kT+N3B4FawQ2NU2JKEKQQz0avVCxtmVZ9RI+xfqAtpgn4u
-	OXnB6uFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VGz7L6wkoxdGySJbwjAgF/GHfHEphRhuL8YSgMKm+ZY=; b=Rl5rkwXpZtOUVq
+	hvWCCiv3jpXcOY0z5lmVPeOacB5RcR/HF03sISU9q82TvoOf896fCFbBVYEPOcTqLHu0DA643+O1w
+	CoFsKgvgIi9Y0H3d/BBf0Z+oB1s45Deq/mILiTG1ukptmJQAh1Ne6KSqZcUoxWPdXWKPzJBwdYSzF
+	Wv0eiIssex0OBAH4P4Fy3NS0ixf4gXcVQVjzZT8mI9E/fN/9UcIDGu73SKjWZH78n15NC0YNrSjzD
+	M2TVOBHsTZVJijunaBbcgM1rrISoPgOs2tcMgoJfEPwm0BGfWmEods67q1Yc+Yimf11q+ic/yma5u
+	Y6eMScrQ5aSpHDuRd8Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxROi-0000000DiAY-351g;
-	Fri, 21 Aug 2026 15:43:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wxRRG-0000000DiQy-1mSE;
+	Fri, 21 Aug 2026 15:45:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxROh-0000000DiA2-29F7
+	id 1wxRRD-0000000DiPd-2xYa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 15:43:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E51E840C0D;
-	Fri, 21 Aug 2026 15:43:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C4051F000E9;
-	Fri, 21 Aug 2026 15:43:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787326990;
-	bh=bloMdIx1erIxNEo6r5ccnCWGkwjtqp1KC4sGsNoKRCs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nrl3XYKFmIFu+1hP2ijxIdOKyFmsG2Jq9bgNDI96dsjzOqx47hIL/R5gZAe5Qld8X
-	 kKra3OiiP8Hws5o7Ch9sIr2QRFxOc48dAyCdFYA6EsmDi+6KM9op0i02ft10+qcEJ5
-	 kkBslkpoBjRdPhg2sfelFCci0Pwdt9BoBLuEdirTmDyhfp0XBCwW1CNE9+j04nbjup
-	 R701wcm8KKbXNpgjeto5IssdtWnxMpaQd9LKfiv+UiqyPkwGhYVn2Qrf8VIZDTkH08
-	 ZjiKJD1Z23fxG3qeEUjBup29F54DSxTmZ3Zha7uRmiB9tzcfG/DJNfkL6NlLQppqsL
-	 iOvW+B6DO/6Fg==
-Date: Fri, 21 Aug 2026 16:43:05 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Muhammad Usama Anjum <usama.anjum@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Amit Daniel Kachhap <amit.kachhap@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>,
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH v2 3/5] selftests/arm64: Treat KSM merge_across_nodes as
- optional
-Message-ID: <918c46fc-f6ca-43a7-9629-0d8abb1c1e54@sirena.org.uk>
-References: <20260821141556.4065894-1-usama.anjum@arm.com>
- <20260821141556.4065894-4-usama.anjum@arm.com>
+	Fri, 21 Aug 2026 15:45:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D707261126;
+	Fri, 21 Aug 2026 15:45:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 84860C19425;
+	Fri, 21 Aug 2026 15:45:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1787327146;
+	bh=Co3rtpcICbG7MUsR5ETBefuCQJYk/RF+cMq9PmdIX1c=;
+	h=From:Subject:Date:To:Cc:From;
+	b=EsW0d08BK3tO/pkeuFSan4xgyf8lg3zwZ4FeyaUDuSHoNqpqtn+us4AimuvEdHYEw
+	 0qIbO+e/f44ipw8Vi1U3JhlW5u+XwpujzmElHw9Ph8oMdB8xFlZLFoHAFWyx/bES3k
+	 p4wDgiHAvQv7ahSZxDeXm0vEasvCmCTd9rdHQdGVyyVOxtX8dMGiDMs1q5a63IKGRe
+	 wi/Zi5uqCJjzey4Cn0qoOlPE6paNqLdGZrh1Jfd4DNyKx/ULRAIOkKJiP614ZjfqUV
+	 VnZ5OAF2T61Sim/LBCr8lK9F3Tng5ClevYJ0M0Hh5rKrZidM052G2uYw1nrK+Gij5D
+	 GqTlfb6Mkh8jQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 58ED5C5DF93;
+	Fri, 21 Aug 2026 15:45:46 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Subject: [PATCH v2 0/3] Apple SoC CIO (USB4/Thunderbolt) reset controller
+Date: Fri, 21 Aug 2026 17:44:53 +0200
+Message-Id: <20260821-b4-cio-reset-v2-0-2d045f80a424@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kglZDEHs6OmuKvS6"
-Content-Disposition: inline
-In-Reply-To: <20260821141556.4065894-4-usama.anjum@arm.com>
-X-Cookie: Package sold by weight, not volume.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNQQ6CMBBFr0Jm7ZhCGxFX3sOwaGGAUUPJFImG9
+ O4WXLt8yfvvrxBImAJcshWEFg7sxwTFIYNmsGNPyG1iKFRxUmdVoTPYsEehQDNaqzunjLNtRZA
+ mk1DH7z13q38cXu5Ozbw1NmPgMHv57H9Lvnl/0kuOCk2ndVmWbeWMuz5IRnoevfRQxxi/58YnK
+ LsAAAA=
+X-Change-ID: 20260809-b4-cio-reset-aa3fb04bad9e
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Joshua Peisach <jpeisach@ubuntu.com>, asahi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2703; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=Co3rtpcICbG7MUsR5ETBefuCQJYk/RF+cMq9PmdIX1c=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ1ZH0eJJ158ufD1h7UJG9u4HT4z0ndbf7vB+Jxz+T03Be
+ 7/KAoF9HaUsDGJcDLJiiizb99ubPnn4RnDppkvvYeawMoEMYeDiFICJvJvOyPDqdOYOpn26Tx6X
+ dPK1v9pUr3Zx+pY9irVsvVZz5fImdR5hZPjqf66mLs3z+1Jx1ZUpdwItFvn7bnw7dVe11yYL/aS
+ 5M9kB
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,43 +90,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---kglZDEHs6OmuKvS6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The CIO blocks used for USB4/Thunderbolt on Apple Silicon SoCs have a
+reset inside the power manager that has to be deasserted before their
+co-processor can be booted. On t8103 and t8112 each port comes with a
+dedicated register page while t600x and t602x use a single register
+with one request bit per port shared by all ports of a die in the
+middle of the PMGR MMIO region.
 
-On Fri, Aug 21, 2026 at 03:15:51PM +0100, Muhammad Usama Anjum wrote:
+The first patch adds the dt-binding, the second one the driver and the
+last one the device tree nodes for all SoCs. This will be used by the
+upcoming USB4/Thunderbolt series to start the host routers before
+booting their co-processors.
 
-> +static bool merge_across_nodes_available(void)
-> +{
-> +	const char *path = PATH_KSM "merge_across_nodes";
-> +
-> +	if (!access(path, R_OK | W_OK))
-> +		return true;
-> +	if (errno == ENOENT)
-> +		return false;
-> +
-> +	ksft_exit_fail_msg("Unable to read and write %s: %s\n", path,
-> +			   strerror(errno));
-> +}
+Best,
 
-If prerequistites for the test aren't available I'd expect this to be a
-skip rather than a fail.
+Sven
 
---kglZDEHs6OmuKvS6
-Content-Type: application/pgp-signature; name="signature.asc"
+---
+Changes in v2:
+- dt-bindings: move the t600x example with the PMGR sub-node over to the
+  PMGR binding itself where it can use the correct number of address
+  cells such that the unit address matches reg again (Conor)
+- bail out of probe when no match data is available (Joshua, sashiko)
+- explain why neither a read-modify-write nor a delay before polling
+  is required for the shared t600x register (sashiko)
+- fix a copy/paste error for the M2 MMIO region in the dts change
+- Link to v1: https://patch.msgid.link/20260809-b4-cio-reset-v1-0-4f33777d9b4b@kernel.org
 
------BEGIN PGP SIGNATURE-----
+To: Sven Peter <sven@kernel.org>
+To: Janne Grunau <j@jannau.net>
+To: Neal Gompa <neal@gompa.dev>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Joshua Peisach <jpeisach@ubuntu.com>
+Cc: asahi@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqIcgkACgkQJNaLcl1U
-h9ALkQf/ZCJ29Aa9p/LhguuXln2b5yf1sALxuc/dqCZcWcS4tCu232TPnpB48Skg
-YTl77e9f+duMFOuKabuwuopz7r7EI4tcIGFR1vkw0+Y3A3h6JpHwdCgo0EB3lww7
-d/ag9bMjCpyzHy/pSzytYu7Zv21g5co/CMtWDZhkgQpBoAZ5EZJdLRGdGiaRqzXs
-xlyymUIK2FFSRo+XJ/4AlRPwSmHAXGY+WCm0S+MvI7w9rXZYQAR3MHxOVwS1lTup
-P6Dl1wZK7BOrCPaweXvWQ7n1Ts465xLcbkn/y8rmzFNsSCaNA8yRW6Ktx/iU8Qtk
-gqSziD1ZuEwvUmR6D4aBIBRR/GJBqQ==
-=PW0u
------END PGP SIGNATURE-----
+---
+Sven Peter (3):
+      dt-bindings: reset: Add Apple SoC CIO reset
+      reset: Add Apple SoC CIO reset driver
+      arm64: dts: apple: Add CIO reset controllers
 
---kglZDEHs6OmuKvS6--
+ .../devicetree/bindings/arm/apple/apple,pmgr.yaml  |  12 ++
+ .../bindings/reset/apple,t8103-cio-reset.yaml      |  61 +++++++
+ MAINTAINERS                                        |   2 +
+ arch/arm64/boot/dts/apple/t600x-dieX.dtsi          |   8 +-
+ arch/arm64/boot/dts/apple/t602x-dieX.dtsi          |   8 +-
+ arch/arm64/boot/dts/apple/t8103.dtsi               |   6 +
+ arch/arm64/boot/dts/apple/t8112.dtsi               |   6 +
+ drivers/reset/Kconfig                              |  10 ++
+ drivers/reset/Makefile                             |   1 +
+ drivers/reset/reset-apple-cio.c                    | 200 +++++++++++++++++++++
+ 10 files changed, 312 insertions(+), 2 deletions(-)
+---
+base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
+change-id: 20260809-b4-cio-reset-aa3fb04bad9e
+
+Best regards,
+--  
+Sven Peter <sven@kernel.org>
+
+
 
