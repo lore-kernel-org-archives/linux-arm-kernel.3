@@ -4,90 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E71DC5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:11:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57176C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dbkBgedk9g4m4xk1s2CtlgrYzdetjX0H3Ph35J0OZRw=; b=Am6cP3AUXuD58HJewe/0R4AZ90
-	5fEgIW6AVCEv7iDEYVgpEo7pM98DUP1NP6s+VAXKa/0zYrFalrco6wNU69coZ821QuRoDCM2UTsqs
-	tXxU/pR4mmaLCTZ7Tymru3438fK8wAM/cNp069NxSF/BlMU2UjpGqOjU+wM4oPlNOcN86ta26OLec
-	topwChxawSOVb9VSesQrWcyoamLH2FmYLr96qPTTXE+Hwx3gpCKUuRZ0jTja8szDRSfP5enziCiAA
-	djOOwQPB59BnaI38PbNrBfZaNtQt0mKh800Zv6eqe22bkgum2xAofKZMihk7JcbQY8tFCvmm8cxUX
-	pITfXAIA==;
+	bh=TU4uJHeueOdwiNcvNtR8y+Kb71SUpDkuCapRVkW68kY=; b=O16xCtUyjND5h13dZDpbSSI1BN
+	9Q1uOk4N3qVxSTSZIhjRT2TMnFb9RTY3VZa8FVePxmdYD+WaM7d1LWv0VqAQiYqDCL8LS01EtZPos
+	kGCOJktcAMcGOBvp5RPCICZ2K3qUz+gfwL/X4GHqxyHGssVb7dWAoTezXGCjQUDUASlVih9i7B7M0
+	nudQfz+EhDEgOikqWZSAPcanrSx0N74Cg2aT+mgHAHY38ci5EuZMcX8cpRgWa3nH191rxnGHWISe5
+	KYU9eauF/PlL76SM8cTdO8ba/t+3mEihb+99KaYe2w85OhhMpoHGx74yDc9QwNy4u4kapaGX6QSxW
+	4hIVddDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxKKw-0000000CmIj-2qq4;
-	Fri, 21 Aug 2026 08:10:50 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1wxKSu-0000000CmsW-37Wi;
+	Fri, 21 Aug 2026 08:19:04 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxKKt-0000000CmIE-447b
+	id 1wxKSs-0000000Cmrj-0Ap5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 08:10:49 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-38dfe7eb825so603457a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 01:10:47 -0700 (PDT)
+	Fri, 21 Aug 2026 08:19:03 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-6a1a546a6bbso1486167a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 01:19:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787299847; x=1787904647; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1787300339; x=1787905139; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=dbkBgedk9g4m4xk1s2CtlgrYzdetjX0H3Ph35J0OZRw=;
-        b=Kiz+aEATDl6mi+KekR+zDFTf8grpwtfSScvqfbQoGXxklk1qgDhglouTOReGrfSfrB
-         Xi9xwPdkhzSC4ZpSsZCH2vzxrvT35C5KE+a8Yqdg0Xjpv37yc/5c08X4kjOEqgoXjtSd
-         sASIl2dOCJEZD2w2hd60FWmWLplP3ipSMAMouXj/6n9jDD83BOOFDKBaBsjvhqS0d1hy
-         bGgKHkMcmIN5xZQqNPUu0y9iX05Ym9DXmRkaIjUAyQUI0Q2/9GH65h4MoR94vV+txh4/
-         uQbpXXLQozmoSO5BTEiGRUP+lBOsEQ4WAvVWS7ydRqqkdmrS5fLAegA0/Vd7zilIDBE8
-         bfAw==
+        bh=TU4uJHeueOdwiNcvNtR8y+Kb71SUpDkuCapRVkW68kY=;
+        b=rt8DIB74Pz4cGlkqlgGu0UyUT57pPv64itEUb48FnwFCIsUC+AZ4XmZibnaTpK472i
+         Lac1p5koNArJXq6hPyquqDiC8sHCsQ7+VnzqI8M0dA9p0Rz6406/qBVNU5hhZ/h3OJL6
+         4NeZotAm/AbMU5ZEAesEi0IZAB5M+vwJwmU+UZL6VPcpSR3n8RtiXfeY5IfJDTZ/2gyF
+         stVPBb2j+66gloZNJYOXHlS1HYQ25FheWc6jd5nhgsw4mVM7vehfGXaJ+K5jsGObYEzt
+         ALReVdSp2qJZ97fEsuw/gOz29O3mmjZKE7C8egt/KgB/ASurnOoqvwJuYA8vkal3rPbJ
+         G7ow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787299847; x=1787904647;
+        d=1e100.net; s=20251104; t=1787300339; x=1787905139;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dbkBgedk9g4m4xk1s2CtlgrYzdetjX0H3Ph35J0OZRw=;
-        b=a4DLJgaaWSL1u7llFw2y4ZpieJhGnu5fEmVQWxrVbFuUNnyTBD1kfbRRRsCzfSdE1g
-         CKEX5vcG2xhzWig+xocyC2NWGh2eWwU4xUVigR1iUpkreOzPqT3XEZhbaUrBw1XpZF+9
-         RNHMpuKMIj3Nv+HjtpeMg2AGkjEbpZ2DKXXwVGmE6xbkcKflhf03jt3gszV3vk4VLDvp
-         PmfIfivK8ECTLpa9x0MKsMJWUTgxmKYGDomzfZZ6oJnuQbLdtzgh5J8S6Quvbf7jdOam
-         /phF79xfc+5RUbFdYL8XfYxW9RyaTbMH0qWm6veg7N/0rkRwXsZrVUyk3jcM+yMNIccN
-         JkxQ==
-X-Gm-Message-State: AFuF++kGafkvZhpA+vRXKAfJ1hc9QwxPwwXNMI/hG1xuKpGhXeFcqJQg
-	YWPSN+2to+ubO+VORHzaoNzYc3QfropGQ2m+nWDXeVI2z1TWvaR9X50=
-X-Gm-Gg: AR+sD13LgSRfmlgLDADRWUTt5cgzIzHBL4LPEM+LWNrQVGGcNPADdjakBMZbEC7b9qI
-	Kps4YcK504G6Dhp5UI2MS6lYhtiSky6asOWrsNv17acPQcyrXxemmMdJk+U4CdW+BMK9kSwTxnW
-	F66u/8mdGxHd/YtCjPxtSSExvHKrCNKb/+Zagi8RMlPmEg7X+C0DjcxIEAhkFulMTycyggXP7UX
-	0+nHLuRslEWFPJDbWQ30CS212PrcbYCl+0IQRWJOMF/MTrtFDWUcz2mf+7ROHvwY5nCagyKzWdC
-	9BWMrtzZFx8SNFLhHmU28NktwQTQGRnxKpm1aPKjOK8UvTzr4lKEf4/5llBub2EVYOdhDW87vbL
-	8D9ZeENCPioMZ0YwZBljvbIh7alXz0rqRXOhr9j8Ho7dHi5F/tR7wEGKn7ohkQgqmuoa/DbAbz4
-	Qlj2mqmMrwVvuEcOFa3zXaAANNeVIGGoy0yX0Zi2wDuzSHeoGnSoHwNA/zoGE52Gg2ceivpCsTS
-	Q==
-X-Received: by 2002:a17:90b:2785:b0:38f:23d6:b4ad with SMTP id 98e67ed59e1d1-395c3594cf5mr8901925a91.8.1787299846867;
-        Fri, 21 Aug 2026 01:10:46 -0700 (PDT)
-Received: from DL2XHKPB4.dl.net ([103.63.104.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-395c4570aadsm2126738a91.3.2026.08.21.01.10.44
+        bh=TU4uJHeueOdwiNcvNtR8y+Kb71SUpDkuCapRVkW68kY=;
+        b=KJQKhkzKZTS8509QxZuQx124vJx0HoQE3KNFB760eVArSZTnHWJvBi6Rnu5XRpPY1u
+         omdDiGSv5oL3zST7oQHjqmLMaKAwBhX1KhQLZE14efeSYY1l7MSeJ0OUYU5Es4Bf59bE
+         W1Mm/8lEhWisXgqiU3gcaBQDz2QprXvb4GYYD09C6BLqiBu2HDIE+OKohJGse/DgqX6j
+         r1bWNkRNYA9M7B+CXsgJfQ3Wxo5sN7uJtJr+6VgvwsUJgmP/hGisZFsdMQivdf0fybK0
+         BDWy70urVHHkZGbwhMChB7fYUa/vRq3efrzxxmA3YAuqzpx8mcDM/01xu/62BUnpr/pA
+         VLsA==
+X-Forwarded-Encrypted: i=1; AHgh+RqWjdjH9amz8IGoUhqeKHGM/uXVaDNDDC6g02AL5PUhq242Pur1+LElU24YJcXY6OpFmwJ1KJ8ha9Hdi8CbqUxV@lists.infradead.org
+X-Gm-Message-State: AFuF++k9V848LMZesR9KtLfDA4arUEePKURy0OeQ0xJIKZsHERZlM3zu
+	q1UPNOWKGftJeXV0PDx9gH1lZImtGRy5k+yJOPeqLAiS0bsKqi3Ndk5l
+X-Gm-Gg: AR+sD13c+0m1l8r8m+ZEakBt2nYGRC+QSKFWQ0lfkjtmK1lBVeiFEskc88Nd7n7bjhd
+	NBtHjYk6uxE0JM2zDRhUhR7CGI/M2N3hDRbjgBlDLHwoU7k8mjRRYXkmGc8SIlEfHotm6u3C45w
+	STDgXsSlOL3qBBqgHSWR06SvpdOtvIr6mARtKejleQtCpoA82O6QnbgpndY+9c/wpzJ9PiMu28n
+	WAIqS+9hiIXoxEABjlkVD7G30vKYT/COCHOjxxUGbpZFIEfnLNYAeHr8XO8/pmCphb1xf4+4fEg
+	L1rUIMhSiP9bS+1Md/mbFn2LnBhZfEXWZdckrkWSDolrx5FAhs3yLehLAordjB6XokgVn/02BFs
+	kpHGf062xPuUxImepPIAulNdTJ7cum5cdOL6jmYopzkOrmuVJoeh8Z70mJ9Eiodhst+6xzo/kfM
+	PstI7TdhsDYfUOQ239GCfWNPFVFbanyaPX//+cPBTyPIaldOEv0L5skNVYsVZSbHIKE0Gqqi/6/
+	Wvnf2/mQkQeVnFNtimtMiqG
+X-Received: by 2002:a05:6402:3805:b0:6a1:1bea:8ea0 with SMTP id 4fb4d7f45d1cf-6a42f0f7634mr5394501a12.3.1787300338853;
+        Fri, 21 Aug 2026 01:18:58 -0700 (PDT)
+Received: from ca91a6afa0c8 ([31.7.57.58])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a3ff1780c9sm5238626a12.28.2026.08.21.01.18.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 01:10:46 -0700 (PDT)
-From: Triet Hoang <triet.hoang.dev@gmail.com>
-X-Google-Original-From: Triet Hoang <triet.hoang@datalogic.com>
-To: krzk@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
+        Fri, 21 Aug 2026 01:18:58 -0700 (PDT)
+From: Valera Kozlov <valera.kozlov19@gmail.com>
+To: bmork@telenor.net
+Cc: amadeus@jmu.edu.cn,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	michal.simek@amd.com,
-	miquel.raynal@bootlin.com,
-	triet.hoang.dev@gmail.com
-Subject: Re: [PATCH] memory: atmel-ebi: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
-Date: Fri, 21 Aug 2026 15:10:43 +0700
-Message-ID: <20260821081043.280014-1-triet.hoang@datalogic.com>
+	linux-mediatek@lists.infradead.org,
+	linux-wireless@vger.kernel.org,
+	lorenzo@kernel.org,
+	nbd@nbd.name,
+	ryder.lee@mediatek.com,
+	sean.wang@mediatek.com,
+	shayne.chen@mediatek.com
+Subject: Re: [PATCH 1/1] wifi: mt76: mt7996: fix mixed FEM check of mt7996 chipset
+Date: Fri, 21 Aug 2026 11:18:30 +0300
+Message-ID: <20260821081830.280417-1-valera.kozlov19@gmail.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <304a5498-b43e-4ffb-8714-29575f2534a1@kernel.org>
-References: <304a5498-b43e-4ffb-8714-29575f2534a1@kernel.org>
+In-Reply-To: <87a4z9f7a5.fsf@miraculix.mork.no>
+References: <87a4z9f7a5.fsf@miraculix.mork.no>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_011048_009255_659ED22B 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20260821_011902_087969_4772C641 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,23 +108,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Aug 2026 09:45:50 +0200
-Krzysztof Kozlowski <krzk@kernel.org> wrote:
+Device: ASUS ZenWiFi BT8 (RT-BE14000), MediaTek MT7988D SoC (tri-band,
+dual PCIe hif/hif2). Confirmed empirically via extended TX PER testing
+that adie_idx=1 is correct for this board (matches Chukun's patch),
+consistent with a mixed-FEM design.
 
-> So I should respond to every email?
+Readouts from the ADIE_ID registers:
 
-Hi Krzysztof,
+root@bt8:~# echo 0x0f00002c >/sys/kernel/debug/ieee80211/phy0/mt76/regidx
+root@bt8:~# grep . /sys/kernel/debug/ieee80211/phy0/mt76/rf_regval
+0x79768a20
+root@bt8:~# echo 0x1f00002c >/sys/kernel/debug/ieee80211/phy0/mt76/regidx
+root@bt8:~# grep . /sys/kernel/debug/ieee80211/phy0/mt76/rf_regval
+0x79778a10
+root@bt8:~# echo 0x2f00002c >/sys/kernel/debug/ieee80211/phy0/mt76/regidx
+root@bt8:~# grep . /sys/kernel/debug/ieee80211/phy0/mt76/rf_regval
+0x79778a10
 
-I am sorry for the inconvenience. 
-I understand that I should have organized the patches 
-into subsystem-based patchsets instead of sending them separately.
+Note that band1/band2 (0x79778a10) match the EE4600 signature exactly
+(needs adie_idx=1), but band0 (0x79768a20) differs from both Zyxel
+devices reported so far (both show 0x79758a02 regardless of which
+adie_idx they need). This is a third, distinct band0 signature -
+suggests band0 alone may not reliably disambiguate the two cases,
+since devices needing different adie_idx values can share it.
 
-Currently, I only have these two patches for the memory controller subsystem. 
-Could you please review them? I will make sure to organize my patches 
-properly in the future.
-
-Thank you for your patience and guidance.
-
-Regards,
-Triet
+Happy to test further register dumps or a proposed fix on this
+hardware if useful.
 
