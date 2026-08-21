@@ -4,128 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A481C5DF89
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 15:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5852C5DF89
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 15:09:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OprH4HtsVY/lU92oB6iSztSUPttSsElEEDcfoW2P6M8=; b=CSUt4QeZrbrnIa3tg41LWW15IH
-	TmyS9KWzHoAIDMYgpv5ikNu+WG7Z8ntG+mlgoFof9zib7RJKYTuypKijJMYHGKTHnZGSJ4Tc3lvzA
-	lSlbPwpkRW4VrCCkWikf7/1Ev1dVDm2H5s2wd+vfMLyPltwO4t+YUcUXPyiMfnvDkwTMurVJqvQ8G
-	zljOd/zZiSep/aNevrD+/LNoiMHUblyu9ieiJlmVY/0/GPSnJSsuEdH8esATZilTmmkseRu4m5oA5
-	QzeFEnz7T0EqP3czt44fVsINqcbSEQ6ckos4MqDpsWQqqhSbCsT1sKd3qJTDngRQDT1IDFW92rhc8
-	DRAQkb7A==;
+	bh=usC3DNBBIj4TQugu5d3XwlmyqLcAb1e/M5i7z3Gh1qo=; b=Bl2+wgTRrDVbpiQLs8oMtUmbMF
+	CLpnE3ChD7mvq72A1SAUlvq+IcPPWPHc0te1pJ5E4pTq2p2ZFcTTZ6ey3x1UpGlFRKuQQBT8UG5Yo
+	6Iz7azr0lwcS8XS5msX80pO28mODN1M3NFaGufd6hg06c5IH9pTLEjiatLmodNoDQqIk6QKOx4MfQ
+	4YJ345kVVIjCtn73+KcQpRY9RWu5sFRQ6IKzSyZy1nJpnHsz6mvgBfnfL5t9Z3W1sM+eXOGVIOjae
+	Jki9NQd2mJIqtnadDr4+Pl6yxj7jBaD4bcURRw/VlMLfi2oOrdTDbCkOoC5Bjk+HdfM65/ooB2e6h
+	+KSUaEqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQjc-0000000DcKh-1KB3;
-	Fri, 21 Aug 2026 15:00:44 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wxQsF-0000000Dd9n-1BBN;
+	Fri, 21 Aug 2026 15:09:39 +0000
+Received: from mail-francesouthazon11011047.outbound.protection.outlook.com ([40.107.130.47] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQj9-0000000DcCv-4916
+	id 1wxQsC-0000000Dd8u-3ud9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 15:00:18 +0000
+	Fri, 21 Aug 2026 15:09:38 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XdEcNrP5/18ZixNkDx63Nl4wPWNPi0tLilLMrdgdpdTloq0Eo17nJh7dxyKh+pT8EQi8otVL3BxyrGs6excacVzV7N58/lWZ1hETVQDJffls51xXHS0j6Gz/3ejq7zreFWI69u6dwIoaNi16QsIYTRnU7vSf/ePRVcNLVFK6yUWqWmcRoaZ4dqjoEdRU03Isdv/Wm4XLg0eJLh3+JKAWar+MTQHV9Ie1s+FbJWnxChDPGyIMQnLSsyx+db49r+REhAmwjDHzlWAv+MAm7q4IB1PMF/uR3K6wg9MQ4h4bSaSffTGGHFZAgDd3EyNC6uDTvLLefSAm5Q62i7FNrHBdiA==
+ b=SBWdnuvlDeYpG4NrUVlGRoZPofTDx1dCohczhnr9hSUOdYQT3sY61SeJ5Ss/tmkD9JSVUftnkhOHU04YNhoVraxyLp40+rOBox407WBW3slFyyStksZxgZb+qHwq3Yqgtv1fWGRzNA6fxK78nuSn7iW3a7PV/7I2IxWz1l8SFwPIT32aMX4POObiVRSojzbAHZLA+wpZLGs+K4iTz69olIOyfhkb6crkeAXTzMUtvU/ZV954COvFVTWJvq9Arwq/t8qmcFQkig4IgAFSlPWa3Dqp78AclG9iNfcw1Xa8xJ+Dw+M274eQwFTu6Kd6KtIgwv32lBZ9DwZusHOT1o+hcg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OprH4HtsVY/lU92oB6iSztSUPttSsElEEDcfoW2P6M8=;
- b=biEwXTzpseK7LK6icm3Ez8H6oSa+0kql4Lwrw2Cj/M4/8sOq+7WEf0FIViFfaG/brsZPRXM0jeY4wu8/bZuXHc3FZteLT+hyJJ9nlfCJ8dbeBlAuOibv/nvFmQ+gTX9jL7OB2spxg+4NXFZVem3Bsb1kpMlj2CP7q/FGfMDa6WtdEjn+0pC6JPo0g8/RbdXhFtluegtDA+vXM7+JNyDTwDdBvITxqpI13VhpE9qxSOrp+srVpmPuC3DBRUmf1LQ4bBI5VjMZHF/Cg5rn6IbkcAA8oij6k25kRijqcvPh3NVtMaK+KzzRamgsHaX5yN3UtiIiK7TQ5FH/pz1CGqoqow==
+ bh=usC3DNBBIj4TQugu5d3XwlmyqLcAb1e/M5i7z3Gh1qo=;
+ b=jGa6jiT5mbyl8s13xzuwg7eAGJ9NDIdlLVERnxs/U7F0R9nnE6shg81MkaA8YGX1vcckySECVxV948Di5b/TONFMSjOdl4p3vA2iwkzRreRjaQSiD8SNLnkcy32yAef/YIqiu50d59iO2NCREVOfzmYGvMz1dVMNJUolNq4THkzZeHXIUl6WSCRCg3wuZBofU3mFTjwdem04kV3i2EjRQsPMG+aM4YZsmIx39LLl5T5S6jxOUoGmnf6UD2CK/WPhTcAxfq2yOnCagCjS6eS9EhBtnz0J7kiN0cXgldCFhR1xS3/+md4y0BmtyqC3QfKERbFIdVPxjg438Hci5aFKTw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OprH4HtsVY/lU92oB6iSztSUPttSsElEEDcfoW2P6M8=;
- b=oxqQxYHdbeaxqMKipdXeVhJuUAh2koO6+yKcs9j21UxF4Zlz9GNQM+QQ9x9AZRFnRKgcBG7OFw9uMKcF/zMZHfCVlshaBymErDWl8nW5FBgbQghN9zkioZE/ex7sM/fhcppKy5OveaJabC/zcECubMovXnyB1wXwYBGBSYkb9HAV7ls5STETOMz3okbHxObPrjEU04rpncnXlkWSCShOrvvg8ioJKkHcxt0BkRt3MfqIoIoLs8Uy2aR3ghigbG44E050ePtzfB/2Rb96ETYIxxGVLRG0jJfqfauqCUcMRHhs4AJHIabyIPoCfG6RMTkx7gDygdWN2jq3QICAt33WfQ==
+ bh=usC3DNBBIj4TQugu5d3XwlmyqLcAb1e/M5i7z3Gh1qo=;
+ b=SfmqDlJEdLr1cpcDmPQeQ6QbCws/VpaEhYki1l4dJ4NDJi0jwIz3MJld9ztcGGsqvAT6XZP6huIufYez8akw5u9kMkIdFNAYAM9+XKliSFkW7MWB0Yozxcs1NDIDmAuqlabaNSfnHlG0h9YadMMDZ7RlZ12fVW9RfuOYxOQ7wTsl6/7DA39sDkZxbVdeDPj2mt6Xa5gNWirKsItG4kX9Qg9a8uswgzHAtkgSfePa2g/U9ldzmUhbdYMf5xQ8fDG/UE0HwL7fHWjeok4sXY3hwKP0qtMMS4xy+BMWQ7+Iqs3TH6Y3kK+Ez3/wDEJC/su8kl3MnoweYnRGo5iSFWj33g==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AMZPR04MB897483.eurprd04.prod.outlook.com (2603:10a6:20b:7ca::14) with
+ by PA2PR04MB10279.eurprd04.prod.outlook.com (2603:10a6:102:406::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.11; Fri, 21 Aug
- 2026 15:00:11 +0000
+ 2026 15:09:32 +0000
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.008; Fri, 21 Aug 2026
- 15:00:11 +0000
-Date: Fri, 21 Aug 2026 10:00:03 -0500
+ 15:09:32 +0000
+Date: Fri, 21 Aug 2026 10:09:22 -0500
 From: Frank Li <Frank.li@oss.nxp.com>
-To: Md Rabbani <rabbanyhmm@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Fabio Estevam <festevam@gmail.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Linus Walleij <linusw@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] pinctrl: freescale: imx1: Fix device node leaks in
- imx1_pinctrl_dt_is_flat_functions()
-Message-ID: <aohn8ybsXRBcbw5t@SMW015318>
-References: <20260821050813.739-1-rabbanyhmm@gmail.com>
+To: "Golla, Nagendra" <Nagendra.Golla@amd.com>
+Cc: vkoul@kernel.org, Frank.Li@kernel.org, michal.simek@amd.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	rafael@kernel.org, git@amd.com, dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH V3 1/6] dmaengine: zynqmp_dma: Fix PM usage count
+ handling in probe error path
+Message-ID: <aohqItUOivG0UXhC@SMW015318>
+References: <20260810100452.426320-1-nagendra.golla@amd.com>
+ <20260810100452.426320-2-nagendra.golla@amd.com>
+ <antKJr1N3A111W_V@SMW015318>
+ <25b9e249-053f-4560-ab3c-eaa30bf0b240@amd.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260821050813.739-1-rabbanyhmm@gmail.com>
-X-ClientProxiedBy: SA9PR03CA0004.namprd03.prod.outlook.com
- (2603:10b6:806:20::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
+In-Reply-To: <25b9e249-053f-4560-ab3c-eaa30bf0b240@amd.com>
+X-ClientProxiedBy: PH8P221CA0023.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d8::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
  (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AMZPR04MB897483:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3ea978d2-4fe2-49df-a206-08deff94e5df
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA2PR04MB10279:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3e971bc0-3205-4610-c06f-08deff963429
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|19092799006|366016|376014|22082099003|18002099003|56012099006|10067099003|11063799006|6133799003;
-X-Microsoft-Antispam-Message-Info: LDF436dL84PKbZ9CFId8waNzOx61Kod4p44z8HI6vR/dGxlrVaZD4vSV/UbHZom1lHNWZ+rt8LoJqV76z4WTEzZUZgpTE4LF0tb/ziqNB6LQs2fOgnM86uDGrUquH1gZBWgexixFNBFUxVB0YbcFE6jNzv/V5m6Qg6ZWm1M2ghJKCL3GAhXzUqFG1K53LZNUt3wE6vW+RbzPv69/Eo4qZURAidA6VXl88Dp8lMjbqFlcksAcJS/Ajz9aLUuFul7eFDlZzaqF1bnNO8JRrsjdsDZUoy3zKPus9zRXUzmXfxGPS2Ao/qqBy+bvFB8uWK3K1m2lw34K1NrKNZcaw/EbACYKolunyLwbmEFh5obPeKL7i7uRGmzXyV51PzFo9HqNQs2BTJ8HAITXnOxYqNhN/7vwy0ZwTJRWDdFR5FZLGPf9/1Sp2ilC6eSH0T1dbu3yXWSzgirhwMBugzIKikIaB4aFYnDZvn75Mj3S+C2HpkYwnXTIvVOkK+KxbwPIMG5Q2wgTb+YYyYzMrV19jwEKhkWoBheRxkbnO0QMI7uXTLANoTF2f5WZ9jQRoxoWzlga+zrfQN+mN6tgacNsB1weTfW/a2/MIy+NO86zok8QQZEDnc8oUw+Jz+gRBBFhhkIQa96KMrOARRzQJ6xYnmhErQ5F2x1jij8elGA6ARcQmlY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(19092799006)(366016)(376014)(22082099003)(18002099003)(56012099006)(10067099003)(11063799006)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|23010399003|19092799006|1800799024|18002099003|22082099003|56012099006|11063799006|4143699003|10067099003;
+X-Microsoft-Antispam-Message-Info: UoEtNOi7EUn5fnnr/oW+F/czsBEgUUui2/iMboUVOuL5vOb7KipkRVqZ7UT1p3QbPUeupEzmUaE+l80ZU51vIZOqIWtPEYSokFVX9YhmOP9gydkb8aEGVIs7mfOTPas1JkP9DuyJZswCfqanatsCeMei1y1SNcotg95aehvgABtH357q+cpe7pacZkF2TX6vrl1yfYD7UgaJgWNMVCU6RKMxt2mxrZoI+ZAUElY7H7aZBSkmEGGjdw0AGqIvBeGocWiUDhZwdeJLeEBClqVTs/ln5EkB28bV2i4WCNOcSyqhC12ac0UWM+5O9hHrk+qv+1FjGTPBYOiMgq/LF72o1cvAKaeE6nZy7HE9VrA6MUay0YBpUpr4DLYJP7PGiJIQhS0tGkSKmrG432LSg4W9pGnF/HpP4Yewzq8zfD6El1oQ2xSIDHSKDyQGYTXHqec0bc7ACn0tq0vqJD7/4B9pvWcZiZvkO8vYC3OzmEUHu+Co4cWTpAJSviCtiCnxdq+CBoeNWuOSAbqU9LIKKF4cfFXbwEH8Wun/jCBQCTNJz8EeHIVjhJuwmUUqkX0A/v5ursJynRk8m4gtYsLexhyiCruYZZsLm6pOsRdkcVtZznirNSSh0+zOYY0SurwZdfkSbkxZmhyJuYjp/0p9gv5Fg5faUWyKnXP9dClLgMJr4sI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(23010399003)(19092799006)(1800799024)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tgeSr48bwXxvzQ1tL9iN+YBHFvIt6BAiIGulg6XRqzGbn76o53mb+BzQq0Kd?=
- =?us-ascii?Q?ITMX2F+vZkmAWaYTPr+0YwzmG2mpQrKYsoJmG11ivB4zuA5A374NSwwY5fme?=
- =?us-ascii?Q?5B3OUyxMY7fEOvNWpuKeHGdf5vL8s4fmC/no88jeC9XtIU0bp4EHuG1Od8mI?=
- =?us-ascii?Q?1omr2ITPLjXfdZ6pQWDOwQZaQMX+T9P+NI+oXYIdJdXNYTIT3sz8zOdxzNKn?=
- =?us-ascii?Q?G1zohxBqIF+d0rV9Gk8IE9WaFoWmH0bQ0+bO6saL4CFpIpESp9X2kWc7RZbx?=
- =?us-ascii?Q?DpeCZe/MpQ+oDK5GNtYjZ/FFXaATpNNPlUVus46Vc7XP95bLj/nzJvZzFD6E?=
- =?us-ascii?Q?fU2j5SmR6VFwqGS0GepWgSVkM1r51YCh0ChFVlOEUMThSdtw/1gTY74oOlhX?=
- =?us-ascii?Q?UFDL7WqZMpXkJe/W1Q+Foh/A+5COFZWejcAF6sPOt+VWks3wnHLcaV3qbDhR?=
- =?us-ascii?Q?TOZne07AZhkyyMbWW1lIXW5T5VqjFEQDTOpBrGCYZ6Z21JremWlzyMgLHDbG?=
- =?us-ascii?Q?/efMcGa9NFuHAldTxQdnh2zVk8EiiESIyMAr3ka/a5Kd307eN83S8MY3ynHQ?=
- =?us-ascii?Q?dPMo/dQnXqsmNoi66jZxbyuCY0k5JJWbVPiNZr1NGztexaWO0X8S7QoBcymz?=
- =?us-ascii?Q?hMiWH52mIp3M1IwA6dKiH4o0YRdBpAigkiJHb29NON+64rOyAd42F0ubkDQa?=
- =?us-ascii?Q?mA+DvH+m5TjS2Uk/EwxqGWiXYM9fJyjFR/oS9Ob0odNlI2zIZmBDln0chEzd?=
- =?us-ascii?Q?ThV323/9dsOi8FF04FnJCLTkhjKBj9oZ4DI2ttAsCAPeDnCIAktGi31ytcQ6?=
- =?us-ascii?Q?wP1DHK/OqrdpYfRvMbqa0zt1mMWxXD7BYX6z6oxpBGoDvY9+DkBDx955NN64?=
- =?us-ascii?Q?zE82H6kkENHzWZFDFxhSxLfAViDVXPTdsfSBb7zXygTyRa6wZPHrWMeN+IVJ?=
- =?us-ascii?Q?yMd67B+pRrlMT+nug6nSF7KTK4tmxGSdppsWcBuiheVCzxmpKF6mb5ArlzQf?=
- =?us-ascii?Q?ppiPnCAD3SevuJNP5DSWXNjpc1W9tc1mIHntXtUCP7Db9Otkzqtz0J+e3XT3?=
- =?us-ascii?Q?7E4AxD4A96R4BRWTkMfjP+eCE6KXPogJKb/Bi4ORQrTNrFAvP5QZLym37wwE?=
- =?us-ascii?Q?oUXCF90NrJJiEdy3+w2VcoHFes7JdUv/jvNFzwrpuAGsFvrFK1Y9Xgyc9Ui5?=
- =?us-ascii?Q?8+lYvoavG1ZJIZuOTgUTfYtN01hkdUCaH730fEwzl612e7ga4z4R+LXC2xwE?=
- =?us-ascii?Q?2Bv/0wPoHKQZeaaMOXmWG8sWwJxZjEgK6bbih3OpktYPQ2I2SyVMSbOsoZ/j?=
- =?us-ascii?Q?15pzoHrDlQomHQiqMtljN1gFO/G9n9Enp2zBW0w78OhX49+GPEM9pY0Bw1kg?=
- =?us-ascii?Q?1qhkmLnXR1O1dBULqmITvp0lWFpRqEuleTq6IUrLo43nR8mnljPWVQxarkHQ?=
- =?us-ascii?Q?4GYUjkrX5So5+eHh+iHG2QGUxUTAc51srg2f9vDKRCa5CPPW/Yv3fPGJTPxR?=
- =?us-ascii?Q?OV+At7JQRPo8U1FK+rOGJtQuzJB4MWzI9V6g8qSYVOoAtKIqF43h0DIUwlDI?=
- =?us-ascii?Q?WOYs9xOgSPL8lQstgK3iNNxtabzMvE7T3Wua3Kvj1Gm+OLt3ZKd7yUV6lSm/?=
- =?us-ascii?Q?OQAq+4DNaxn/2e3J1pnoTZKyhEpnIOpCq+hdVNIeOe37Kco6NL8ZKDpJmfpC?=
- =?us-ascii?Q?Gf4o/7u3ZH8sOUAzWqeOytLzta5QISnsJBNP4ClfyvpvpEveaRceV62rdF2T?=
- =?us-ascii?Q?GhWc8NWwmB8lyee4NyGU5LmwU7C9HguBV4S/8H9iJx79/n5hTxou?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?q5sSk6d3HEIVOD285KSnx6kVwCYnTsPtriFbT6DS4rjYsTChmvZWBisj4FJR?=
+ =?us-ascii?Q?KCC/j226xfOfhx2GPbBK1QwoCYKseR8O++BIf2prD2uuLThqyo+WKKUlIOnc?=
+ =?us-ascii?Q?TBA0TedVGJKOYcGIYwezZgrVv2GleSn0eZ2clL0XXlMhp5CiajXEDhHi+/o9?=
+ =?us-ascii?Q?EdYRf4gr4PPctMsNlouxdmRc3/ciyERPvpFe2vNbniDUh4wn/QxH3+U6pMzC?=
+ =?us-ascii?Q?/Ha9eL8hWncHb8TPnqqFsjaJCsMM2aVs6vQ0P4GTRyWsDfDi2a33ZHobmHK6?=
+ =?us-ascii?Q?IUfctZa74iKOLnN9X9BhPuRzBiTaeuscWd7WxxByXHe+z4QdnYGbCVPkJNYP?=
+ =?us-ascii?Q?DfD6hf2NklUmagSY/O0xeZIcPQ3+a1FPYjGshuuYlY+kTzE+JahGPzf9RrPx?=
+ =?us-ascii?Q?i15lFLcQhTLRbZ9Zgz59+UqRODxKA2FSvZzZoiwAdFs6Fh9BjPGRcy+TJk8B?=
+ =?us-ascii?Q?geVLBdjOsuzX4TpE5E4ErBhYEiApQ/AbxmmwGQICkKGvQLhVGlwPrNr+bCYJ?=
+ =?us-ascii?Q?mUM8S2wDdOmde9uR8D7TBp5FAFUdZCSEYZEJGxTZhyEpe4BmPjsFdxcnmK2D?=
+ =?us-ascii?Q?T/laNSlYxSWOeXcidtDsUBqhuPjPDbJOaPD++s3DZ7fdJCDx4/oBKPPOCJEj?=
+ =?us-ascii?Q?TXtN9EQUxHP5vls7/ErcSu8cX++dC5bG3GCurXqdJ8tOPi/RYhsiQ2eg2pqP?=
+ =?us-ascii?Q?Zb3Ykz7KRWbMfkEt7Tfa74D2KqNuSOv8eYTbGGGFqIPPKAighuNH6+YmxZaT?=
+ =?us-ascii?Q?cN99NzIc75uWQ7c0tHSh9CL9UeBGgoCcu57Qj2ROVfkDo2y1BvclqEVTTSjh?=
+ =?us-ascii?Q?v+82g91FZZCxf3nmLruE8sg0f3V0KYQktJr7OMVOUqVMd9AiDeC+kpvTlBDe?=
+ =?us-ascii?Q?a6sT/uHYMdv7kBAmG+XAbcAe90p+x5nhRf5q9rZv+x1Aos4n+VrUH13Gq6eZ?=
+ =?us-ascii?Q?zOoDbb6pRsfbmIET1hX7v2f8P6BKcDiJD8IeflgYqO8SAjtiWTsbnYOGrfX8?=
+ =?us-ascii?Q?GYgX8HIJrTfGwLBXH0pvNhFEfroKnw2EHJpylfA8yh3RlrrOwDOLq8Gw7liP?=
+ =?us-ascii?Q?86xxmabQuWuFAzg01MELiOcMeGYMIir2CmqgKyw+/byRwqTONnQUHw/LZpRo?=
+ =?us-ascii?Q?bNJDwu9r0sp/79R3Z1QZr9s1+47D5AKoLnZ1Bk2MeJ2VP8KA8rrhaCTMVexr?=
+ =?us-ascii?Q?2X4SFP4VR2by+6oHyvrLwci94CvWL806aIjiIvr+V4PP96k2vuNqVX/E6/EN?=
+ =?us-ascii?Q?byxm6D35xsj4hu8kywpENOIuvvOBeOG56SPZbXQ9aTF2xfaazaC53kywL15s?=
+ =?us-ascii?Q?5xtOJteVqYbCfcTP0/oNH6Ydq4n9eeYN1MdKDT27wVY+ggl974mntzAvY5bf?=
+ =?us-ascii?Q?bUuo2SYoPewrk0ZGirpkgmQsy/hYXkHkS6ucm5M6jaoAAG3Uwa+v+HJ1c8jZ?=
+ =?us-ascii?Q?ltV4dvNH+c+Q9Xd0TsjNAopZZtTgYMB5qFkzZE1RhnhukErJJrEnKTlIBTxD?=
+ =?us-ascii?Q?yk2FeozzRka7hfdu+5rSnrw2VUxHvSYJgyFAiITfSW4DLlu+nDfUtKNZI9cv?=
+ =?us-ascii?Q?C0KH+QBVLHp5jt3Tja7wP8+vrhlZ5xEkrfhkCjsEmbEhMYp9FAnPj7/YWew4?=
+ =?us-ascii?Q?beuAuL/AMj4rWKY+HVV6hKjuLSTQMHXqiKRU5RM7VE5MR7xq+4+n3c0PvUHg?=
+ =?us-ascii?Q?gry5aftZvTUfXpamsS2P7idKEbl5411a3SuOYBVCSPYJpqAV5f7XCmBrP9Sl?=
+ =?us-ascii?Q?4y85Lpf8wUvPTF9q26luZbxDme9rlh6s1wVwoGQGK+3HoxzJevG3?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3ea978d2-4fe2-49df-a206-08deff94e5df
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e971bc0-3205-4610-c06f-08deff963429
 X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 15:00:11.3997
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 15:09:32.1235
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RP3auwNZpLmWSE5Hh77sxrQrfLqxyI0hHUs/pg7nXEmXatNtoHmp05z/UaASOoOuX0B2f0DcmOiLCVJsUOahE7ciuADusNP0MTolpHpzHC9kVZ7sA4DpDrgOg6zRYCqd
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMZPR04MB897483
+X-MS-Exchange-CrossTenant-UserPrincipalName: e/4gN2nckKpyKWwC8fcNi/dUzf30V4UH4t/fLPHNlpIa/SKmzn5R5J5qKxuSu9PVJ0a2D6ms8T4mTydHEU2i57D5xqBB1xsmWiAK/0gdRabdZsqxG1l3eM8DIn6tb+B5
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10279
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_080016_494325_A23C2A9F 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20260821_080936_974798_D97BC2BD 
+X-CRM114-Status: GOOD (  31.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,52 +142,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 11:08:13AM +0600, Md Rabbani wrote:
-> [You don't often get email from rabbanyhmm@gmail.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+On Fri, Aug 21, 2026 at 09:57:49AM +0530, Golla, Nagendra wrote:
+> Hi Frank
 >
-> imx1_pinctrl_dt_is_flat_functions() uses for_each_child_of_node() to
-> iterate over child and grandchild nodes. When the function returns
-> early upon finding an "fsl,pins" property, it does not release the
-> acquired device_node references, leaking their reference counts.
+> On 8/11/2026 9:43 PM, Frank Li wrote:
+> > On Mon, Aug 10, 2026 at 03:34:47PM +0530, Golla Nagendra wrote:
+> > > When pm_runtime_resume_and_get() succeeds during probe, it increments
+> > > the usage count and enables clocks. If a later step (e.g., channel
+> > > probe) fails, the error path only called pm_runtime_disable() without
+> > > a matching pm_runtime_put_sync(), leaking the reference and the clock
+> > > enable.
+> > >
+> > > Add an else branch to drop the usage count acquired by
+> > > pm_runtime_resume_and_get() when runtime PM is still enabled, letting
+> > > the PM core suspend/disable clocks on the success-then-later-failure
+> > > path.
+> > >
+> > > Fixes: 64c6f7da8c2c ("dmaengine: zynqmp_dma: Add runtime pm support")
+> > > Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
+> > > ---
+> > > Changes in V3:
+> > > - New patch: split from V2 2/3 per Frank Li's review to keep the PM usage
+> > >    count fix separate from the per-channel reset changes
+> > > ---
+> > >   drivers/dma/xilinx/zynqmp_dma.c | 2 ++
+> > >   1 file changed, 2 insertions(+)
+> > >
+> > > diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
+> > > index f6a812e49ddc..87986f65d24c 100644
+> > > --- a/drivers/dma/xilinx/zynqmp_dma.c
+> > > +++ b/drivers/dma/xilinx/zynqmp_dma.c
+> > > @@ -1152,6 +1152,8 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
+> > >   err_disable_pm:
+> > >   	if (!pm_runtime_enabled(zdev->dev))
+> >
+> > You just enable runtime pm above few lines.  Is it for CONFIG_PM?
+> >
+> > You should check return value of pm_runtime_enable(), or change to use
+> >
+> > devm_pm_runtime_enable().
+> >
+> > if devm_runtime_enable() failure, you can direct return. Need check
+> > pm_runtime_enabled() here again.
+> >
+> > >   		zynqmp_dma_runtime_suspend(zdev->dev);
+> > > +	else
+> > > +		pm_runtime_put_sync(zdev->dev);
+> >
+> > This one suggest use PM acquire to fix this.
+> Thanks for the review
 >
-> Switch to for_each_child_of_node_scoped() to automatically drop the
-> node references on early return and loop exit, matching the pattern used
-> in pinctrl-imx.c and elsewhere in this driver.
->
-> Signed-off-by: Md Rabbani <rabbanyhmm@gmail.com>
-> ---
+> The probe error path already holds a reference from
+> pm_runtime_resume_and_get().Using PM_RUNTIME_ACQUIRE_IF_ACTIVE() here would
 
-Manush Prajwal already post the same patch
+My means replace pm_runtime_resume_and_get() with PM_RUNTIME_ACQUIRE_IF_ACTIVE()
 
-https://lore.kernel.org/imx/20260814190527.969-1-manushprajwal555@gmail.com/
+> acquire a second reference on top of the existing one incrementing the usage
+> count to 2, and the guard releasing one at scope exit would still leave one
+> leaked reference. The guard is designed for cases where no reference is held
+> yet (like the IRQ handler). Here we just need to release the one existing
+
+call pm_runtime_put() before return 0 at probe, which have not hold
+runtime pm count for IRQ.
 
 Frank
->  drivers/pinctrl/freescale/pinctrl-imx1-core.c | 7 ++-----
->  1 file changed, 2 insertions(+), 5 deletions(-)
+
+> reference, so i am using the pm_runtime_put_sync_suspend().
 >
-> diff --git a/drivers/pinctrl/freescale/pinctrl-imx1-core.c b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-> index b7bd4ef9c0..4a6bdaefa4 100644
-> --- a/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-> +++ b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-> @@ -547,14 +547,11 @@ static int imx1_pinctrl_parse_functions(struct device_node *np,
->   */
->  static bool imx1_pinctrl_dt_is_flat_functions(struct device_node *np)
->  {
-> -       struct device_node *function_np;
-> -       struct device_node *pinctrl_np;
-> -
-> -       for_each_child_of_node(np, function_np) {
-> +       for_each_child_of_node_scoped(np, function_np) {
->                 if (of_property_present(function_np, "fsl,pins"))
->                         return true;
->
-> -               for_each_child_of_node(function_np, pinctrl_np) {
-> +               for_each_child_of_node_scoped(function_np, pinctrl_np) {
->                         if (of_property_present(pinctrl_np, "fsl,pins"))
->                                 return false;
->                 }
-> --
-> 2.55.0.windows.3
->
+> Thanks,
+> Nagendra
+> >
+> > Frank
+> >
+> > >   	pm_runtime_disable(zdev->dev);
+> > >   	return ret;
+> > >   }
+> > > --
+> > > 2.43.7
+> > >
 >
 
