@@ -4,95 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA186C5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F0C5C5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PiWS5xibm4AuM2M11jS2y7wQ/FmG+Wf2gKfhaKMAwvk=; b=g39Ga/dqNS5uO7BEYDasj4NDdq
-	U0Yvmx+fJKM7N5DOg5Ti8gshYC64hlmy1V4jRoWpiVRBcUyNY93CfT3Kbu6uJ53jhhVoP3znDcH0I
-	8f4Jrudy7G2p3QVTJDRelmkxD/Wn4o2+LQUCxM27tSvy/lyITmreJ5/HwJpsUYYf9T/yAxO0i1PCL
-	pmEaTpm9fvjqLwqPygP4hFInH3iugTOGFoJAhHjyQ9+STl8NFYcCSxGEwjue4TgnKGec0PA0xJ3pv
-	TZOQXVbov1Jg45CDqxEfLxheC6jDid6tS1wId3S2KNSJaE3OtX2mpAMXfH9cDUA3gYcAODYrl82h3
-	Di0j8rhQ==;
+	bh=05DUnskBW8qYusWX8ek9jHQJpSgnNnSpmQtWmqnHEBs=; b=SdwUFQhrj+XbOieyuO/X8B5+Ov
+	KpkI5GfM4KWUXBDJVqdu7XeBdDwHKKSVebGZv94sJxmE2FKboUKWxAksTkU95OfXkwf9FlH4uuO4N
+	zDagUcVLfCi3ajdwx6rrkyjXjbHTvVpCISlL+Wmqh5Yy1GeaGugXL3OyCuOC6EoNo1CAncZANESxE
+	TxGsJ5e0ZnNt2Dved8I7OKbyiw0PH1OsVoVLy8tYUWBDFcBOAHygenwsW86LwPKb4iaPr91FRB9+E
+	LuJJMNALvh8Eg66lHYgt3vKHMqPqq/+iTN6Mm3u/1+Z1OyLwaOj3mZoRmR5DFTO1W1Bh5RNvRGgyT
+	EcDC7Y8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLu1-0000000CyDF-1YcL;
-	Fri, 21 Aug 2026 09:51:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wxLuS-0000000CyVH-1W0M;
+	Fri, 21 Aug 2026 09:51:36 +0000
+Received: from mail-wr1-f51.google.com ([209.85.221.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLtj-0000000Cy0l-26wO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 21 Aug 2026 09:50:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=PiWS5xibm4AuM2M11jS2y7wQ/FmG+Wf2gKfhaKMAwvk=; b=X7IZco7Z3kxKKVmuya/yTbJtLU
-	fBoersSKs1qWzPEUlsXAwCcqUhrXme8tk8BZF3jstDO/dpH6I/uyas3i3XoOKmzG5WkzYpiU2AnGz
-	Exlo5qnd0U3FARx2MGiKOSIzb4X0HS5jAAxqbnwnLuN0750nKWYz8t8Cz2Id1RHvwzk/2iGbW2eZg
-	Mtf9QdGxHEJfCPBSExFaQXZ81zWEfoQRfwkMr7DQRY8fU3dLH8yPm7Gt/NMR8J5aI/XN5a3Gno5Qh
-	5Kys6zB0ZipDo32u7OWt+JWbZnjGq+X2BFet2Sxrqez6UcOxPZB3hyG+ldowhVq6o7jzm/EAX9YAs
-	9yaBbOsA==;
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wxLtg-00000003eWv-39n7
+	id 1wxLtj-0000000Cxzy-028Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 09:50:50 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-47fecbb7000so361234f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 02:50:48 -0700 (PDT)
+	Fri, 21 Aug 2026 09:51:05 +0000
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-47f904e80eeso679546f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 02:50:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1787305847; x=1787910647; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1787305849; x=1787910649; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=PiWS5xibm4AuM2M11jS2y7wQ/FmG+Wf2gKfhaKMAwvk=;
-        b=WAN37GJVJbsITPucLNXrQLYcJOfjMHQBaT8fp0iURSDBcB/M4QBO7FRkPwIldWl3f8
-         KqYPD/tPWXryBB/reGgmnJ4hp9Qo7Fhl7hi51VN9nhaoqx+FSrIbnmqc7a5sdmmWJtsT
-         a1/bzdPTjFJbA8q9bChbr5yFNmX/azjpeB4Dr82jsp5G8CKCTl80TL4mgc8HrfKZiVSX
-         kzfDxZFH66DZPHB7aYSx7fRAhQtJ6UaP+XggeWo56U4MJ3zJwl7gDENGRMLJtNBQ5hBw
-         WsuD56dLPfshvODt1x/VqqhKMZogiXBPYvRdd+Cz1EpDn0F0zannbaU831C4oKESDHsq
-         aN4w==
+        bh=05DUnskBW8qYusWX8ek9jHQJpSgnNnSpmQtWmqnHEBs=;
+        b=obfyZRZF/p25QJwjEb6/gpb8vJCvbeNNIFlNjxZXbfgetjVr6tJtJE0QFrDlcpbTxk
+         VBezKZC0pa69jakMDi6XJ5Y3sVbefTHAgGb2dJAhOmu50rDwe+D0vKc7VZ5j6wFD739C
+         Zf8GObqHeB4nyAMjBjj0C+KQ24hewwrvdF8Jj5srHEtEiP7tIIGsStj61Oiy2TP/eC+O
+         lea4bkDW5zpo13n0tKa5Er7SeaeKSYV21boVK5/kHzIWNBCGuVWqgvZ7907C70qQUv56
+         XbCPqYVF3cP3QT/Qq9QBTwH+6dbCTnmi+GPCXY4BREWZhFx9dmcs8bJIU3kZGg4k7trk
+         f6ew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787305847; x=1787910647;
+        d=1e100.net; s=20251104; t=1787305849; x=1787910649;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PiWS5xibm4AuM2M11jS2y7wQ/FmG+Wf2gKfhaKMAwvk=;
-        b=mzXP7fmWr2tQszRg9wDZN3Gv5tWwi0xLtZwHhbl0W032tbAPG4LTX9ogK/GBu0OphI
-         Avd4KSktXhDu9gXcAZABRb6mysnN/DOaSY7HL3LQlyPwmJQkihainBF7deBOP3sNHa9J
-         7uc/cMGCd3WlylGIxxfG4e36kPvYNqZ1MxpQu2TXYrhAh2o/HSUIBswX1c35I7BNAVfc
-         tbsg0dsJV0O3KJusuvboXCe/28p0Asd7wfe7gM+BM6Ucu/18jk+gvrpKXsOygDld+Y6l
-         pSjodO35gRnNH+2NNA9bGyJIOy8kmxciIwLvd2Ufqw/jGE+HJW0iFaqxP0yI768Xucn2
-         eDTw==
-X-Forwarded-Encrypted: i=1; AHgh+RpCohIGGwNV0Bo0eAgxLyLb4FxYrsYg9tr76bMXS2LOUqWqgJVosliQNziLoWzG6CPLxXRytgLFrncorF8jrRj+@lists.infradead.org
-X-Gm-Message-State: AFuF++kMjkT2xMgvSO7AYSc+JfIdk0MxuVTfVgP5NYTa2sBSunSRRUWp
-	0ClbMUPcrbR71bu8xmcXmESJp+zQu6vmQ+nyX4gfdFf6CijGcbXaQMm05FZ42GWEgTU=
-X-Gm-Gg: AR+sD12p2If7n0nqcrRu9epYKx89GcEITkeMkcgi/KjfLxb5biB2FtBy3BC/smUf7LM
-	/M8N5A19gikp3SQbrVrgwhLn5cxUYG617CYYOlzWBvll13e7M0wgbGewSTB4YAb8UU0vxv6kucT
-	QIio+cVDhjxhC7e/eXRv7eNu2JwC0fKxumirD79ofR70iBs+DwlqGS2bocJi9OXjNXpjztZBGEk
-	rtcuzaTBngT4yfG9cB0A+G889DwhEDvwNAtrHRfpTMMwTQ6pOuQINtq4HKOJiPL4t1Fi8VqwRv8
-	O9rH7WLkfL5HhOJCbizwuH0TExHRMmjA6wKHbHzCZVBO4znOAUnr7UxtjDw1Hip++luCuf1kZ1O
-	ZiFxKdXIxdhNLpauWyniLI4imdy2WwyMOtvRMSSZHJYPyfNoM+MgrTnc1Arhe1SVQoNV2Uyofj9
-	VCOq5jrnDWngC04u4VQY01qM2A4gX7l2pbrKt0yukbQrgkUt/KTbxTg04g+bz8vfNv
-X-Received: by 2002:a05:6000:2907:b0:481:5167:abda with SMTP id ffacd0b85a97d-482c0b4c908mr6700276f8f.9.1787305847538;
-        Fri, 21 Aug 2026 02:50:47 -0700 (PDT)
+        bh=05DUnskBW8qYusWX8ek9jHQJpSgnNnSpmQtWmqnHEBs=;
+        b=my5N0djJLbwQPpwrWX4+FNfi7keND92xDGBNcJkXTfXX17s9LcO3PcrGBJVaSsONqr
+         A0WuW2oseKsFQpBktjkpd6rwLEe8ljQuxUiGI0EyN0EJA+XEV8Y20Cz2ctC927YMxE3I
+         0M2cOhYHlw+osAPYh2rZ6wjhU2PNKEdsXfzZgxmYFl35s7Wzn11cD1v2pY3uCZhO5I8c
+         ab5Wi2KvSx2sGueeXiuGehmPlglUBrxD5Z1BLGz+DYKKMUEBMBTt++NlKViNL1AqpIl0
+         R2XUn/PZmE0TGiOr/0C4Vk4r2xnmtO7TyglywVJsGUaIoiSf5/9z8XD3HRqXMS6bUs/x
+         HdLw==
+X-Forwarded-Encrypted: i=1; AHgh+RpUYgeAZMvfg6a1cRs5VMEvnafWGgk8wREv9jxMNBa78clhWwVw53HAU9cqLb0mWvJy6sT2E2euppwv5x7bXsoL@lists.infradead.org
+X-Gm-Message-State: AFuF++mYoYl5rhvzF0cWcc6pMuvB7+xJfBfEoc5FBCacrzKQUun+Cxoo
+	Wq8Lhvq91pXCBzer7dmTCo/6ewMeaosbdft8Bo3Gc5WwAvRTPUDV2tEideTnRUcZJDE=
+X-Gm-Gg: AR+sD11u/JvZkWW4reg+VN+99X5nXOkenqNNAmd9YEV0DYdxnzxqUHYdN/QWCEQqbeg
+	jbHvJNeMk7jPVBH2E5Hhp/ssB4+v0hKQEt04dVbsVOuEjy+DJ7SxZnBLPmxzxHp2EKi0Yl/cFW7
+	Vt8JI5RX/kY/D9zxatfkpOo7lWcSpwItJpMG2bmHCsR09w96d13S1wIPo2Qb6D69y94sCYneImd
+	hVLrlyPFt5OaRhsAzTgmJvFJDgI6h/yRQYjY3XkV4ttthQdkZvWqri2vEjyjIFRypNCCJeSEVwV
+	h5XTYMn8GB0YeCXOf0SBN428gu/OtUmbHycDx0k0cSXv2XhElWk0I/d2kpdBtVDQBHh5Q6/t3MI
+	769qDvhXMasOGlgDaIFMGwsfS5NXNF5KPYDkuJbX0A4gM6fWtzCnRGTH5IlJIbrWZIiwIjHYQ1m
+	G5YLRoiDywfGNREIKNHptVDOX9nwSqZ/MDGZAK9Y23fYK3sW1nm9BUEH9if8qDngKK
+X-Received: by 2002:a05:6000:4811:b0:47f:6f9e:1e82 with SMTP id ffacd0b85a97d-482c0b4ef34mr8274865f8f.9.1787305848760;
+        Fri, 21 Aug 2026 02:50:48 -0700 (PDT)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482b14c3775sm14474284f8f.26.2026.08.21.02.50.46
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482b14c3775sm14474284f8f.26.2026.08.21.02.50.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 02:50:47 -0700 (PDT)
+        Fri, 21 Aug 2026 02:50:48 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Fri, 21 Aug 2026 10:50:33 +0100
-Subject: [PATCH 5/6] perf/core: Return errors from
- perf_report_aux_output_id()
+Date: Fri, 21 Aug 2026 10:50:34 +0100
+Subject: [PATCH 6/6] coresight: perf: Retry failed HW_ID writes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260821-james-cs-hw_id-output-failure-v1-5-9d532ddabcc3@linaro.org>
+Message-Id: <20260821-james-cs-hw_id-output-failure-v1-6-9d532ddabcc3@linaro.org>
 References: <20260821-james-cs-hw_id-output-failure-v1-0-9d532ddabcc3@linaro.org>
 In-Reply-To: <20260821-james-cs-hw_id-output-failure-v1-0-9d532ddabcc3@linaro.org>
 To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
@@ -111,8 +95,8 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_105048_913600_BBED7248 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20260821_025051_085253_E8E3A2CF 
+X-CRM114-Status: GOOD (  19.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,57 +111,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It's useful to know if this failed or not so a retry can be attempted
-later. Return the error code or success.
+Don't set the aux_hwid_done bit when writes fail so that it can be
+retried later if the ring buffer was full.
+
+Add a second attempt on stop in case this session only has one call
+to start. Otherwise there is no chance to retry and it isn't fixed by
+not setting aux_hwid_done.
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- include/linux/perf_event.h | 2 +-
- kernel/events/core.c       | 6 ++++--
- 2 files changed, 5 insertions(+), 3 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 52 +++++++++++++++---------
+ 1 file changed, 32 insertions(+), 20 deletions(-)
 
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 48d851fbd8ea..01d318a4de50 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -1896,7 +1896,7 @@ static inline struct fasync_struct **perf_event_fasync(struct perf_event *event)
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index 09b21a711a87..0ffc5cd9c88f 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -536,6 +536,31 @@ static int etm_event_resume(struct coresight_path *path)
+ 	return ret;
  }
  
- extern void perf_event_addr_filters_sync(struct perf_event *event);
--extern void perf_report_aux_output_id(struct perf_event *event, u64 hw_id);
-+extern int perf_report_aux_output_id(struct perf_event *event, u64 hw_id);
- 
- extern int perf_output_begin(struct perf_output_handle *handle,
- 			     struct perf_sample_data *data,
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index ba5bd6a78fe7..bcdc9e7d2637 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -10565,7 +10565,7 @@ static void perf_log_itrace_start(struct perf_event *event)
- 	perf_output_end(&handle);
- }
- 
--void perf_report_aux_output_id(struct perf_event *event, u64 hw_id)
-+int perf_report_aux_output_id(struct perf_event *event, u64 hw_id)
- {
- 	struct perf_output_handle handle;
- 	struct perf_sample_data sample;
-@@ -10587,12 +10587,14 @@ void perf_report_aux_output_id(struct perf_event *event, u64 hw_id)
- 	ret = perf_output_begin(&handle, &sample, event, rec.header.size);
- 
- 	if (ret)
--		return;
-+		return ret;
- 
- 	perf_output_put(&handle, rec);
- 	perf_event__output_id_sample(event, &handle, &sample);
- 
- 	perf_output_end(&handle);
++static void etm_output_hw_id(struct perf_event *event,
++			     struct etm_event_data *event_data,
++			     struct coresight_path *path,
++			     struct coresight_device *sink)
++{
++	int cpu = smp_processor_id();
++	u64 hw_id;
 +
-+	return 0;
- }
- EXPORT_SYMBOL_GPL(perf_report_aux_output_id);
++	/*
++	 * output cpu / trace ID in perf record, once for the lifetime
++	 * of the event.
++	 */
++	if (!cpumask_test_cpu(cpu, &event_data->aux_hwid_done)) {
++		hw_id = FIELD_PREP(CS_AUX_HW_ID_MAJOR_VERSION_MASK,
++				CS_AUX_HW_ID_MAJOR_VERSION);
++		hw_id |= FIELD_PREP(CS_AUX_HW_ID_MINOR_VERSION_MASK,
++				CS_AUX_HW_ID_MINOR_VERSION);
++		hw_id |= FIELD_PREP(CS_AUX_HW_ID_TRACE_ID_MASK, path->trace_id);
++		hw_id |= FIELD_PREP(CS_AUX_HW_ID_SINK_ID_MASK, coresight_get_sink_id(sink));
++
++		if (!perf_report_aux_output_id(event, hw_id))
++			cpumask_set_cpu(cpu, &event_data->aux_hwid_done);
++	}
++}
++
+ static void etm_event_start(struct perf_event *event, int flags)
+ {
+ 	int cpu = smp_processor_id();
+@@ -544,7 +569,6 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 	struct perf_output_handle *handle = &ctxt->handle;
+ 	struct coresight_device *source, *sink;
+ 	struct coresight_path *path;
+-	u64 hw_id;
  
+ 	if (flags & PERF_EF_RESUME) {
+ 		path = etm_event_get_ctxt_path(ctxt);
+@@ -596,22 +620,7 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 	if (coresight_enable_source(source, event, CS_MODE_PERF, path))
+ 		goto fail_disable_path;
+ 
+-	/*
+-	 * output cpu / trace ID in perf record, once for the lifetime
+-	 * of the event.
+-	 */
+-	if (!cpumask_test_cpu(cpu, &event_data->aux_hwid_done)) {
+-		cpumask_set_cpu(cpu, &event_data->aux_hwid_done);
+-
+-		hw_id = FIELD_PREP(CS_AUX_HW_ID_MAJOR_VERSION_MASK,
+-				CS_AUX_HW_ID_MAJOR_VERSION);
+-		hw_id |= FIELD_PREP(CS_AUX_HW_ID_MINOR_VERSION_MASK,
+-				CS_AUX_HW_ID_MINOR_VERSION);
+-		hw_id |= FIELD_PREP(CS_AUX_HW_ID_TRACE_ID_MASK, path->trace_id);
+-		hw_id |= FIELD_PREP(CS_AUX_HW_ID_SINK_ID_MASK, coresight_get_sink_id(sink));
+-
+-		perf_report_aux_output_id(event, hw_id);
+-	}
++	etm_output_hw_id(event, event_data, path, sink);
+ 
+ out:
+ 	/* Tell the perf core the event is alive */
+@@ -630,7 +639,7 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 	 */
+ 	if (READ_ONCE(handle->event)) {
+ 		perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
+-		perf_aux_output_end(handle, 0);
++		perf_aux_output_end(path->handle, 0);
+ 	}
+ fail:
+ 	event->hw.state = PERF_HES_STOPPED;
+@@ -679,6 +688,7 @@ static void etm_event_pause(struct coresight_path *path,
+ 		if (!size)
+ 			return;
+ 
++		etm_output_hw_id(event, event_data, path, sink);
+ 		perf_aux_output_end(handle, size);
+ 		perf_aux_output_begin(handle, event);
+ 	} else {
+@@ -769,10 +779,12 @@ static void etm_event_stop(struct perf_event *event, int mode)
+ 		 * But we should never get a non-zero size with
+ 		 * an invalid handle.
+ 		 */
+-		if (READ_ONCE(handle->event))
++		if (READ_ONCE(handle->event)) {
++			etm_output_hw_id(event, event_data, path, sink);
+ 			perf_aux_output_end(handle, size);
+-		else
++		} else {
+ 			WARN_ON(size);
++		}
+ 	}
+ 
+ 	/* Disabling the path make its elements available to other sessions */
 
 -- 
 2.43.0
