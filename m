@@ -4,65 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7FEDC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 00:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C6F0C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 01:08:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xrHXGfXq/zm2zKe8cC9mO86sR2J5ITnGUn0IL2hxjQ8=; b=ooqLIx2ZrfoipxjnjSpe1BuRPR
-	K/lDHoU51j5pRu1OOpR7wXhwPyM3z58HvCG5Ca7fu8jbg8IJlFzEijiyN1KoeaGqqNkS32ejfpRlq
-	2j+/oI4iZa3ygZsw85mbMO7PRiufpyzV00fQ9lb1XqdX+Kwv2dbhdVPjhVRr4DNLoHtP6rrGLJd4j
-	39rg+j6yulBPLqiacoqJc93Fq/x/TlOCMIafPIpSAU4SuuUNWdD1IW1m7ANenETsE5Swh1ZH6EEZD
-	QdesCiphBWMZ8Rmo2CY8ivRnn3ET4O8MVW7lfTtPwftEErJjLYJy96lcYpOVRtfxvmvgGerDDRX0g
-	2KbghQRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3cBAaDb2n4Yj0YfebzefO8jXzgNYsaQik+7MKadIvuE=; b=zvV60oxJIV37F5To4KWY2D7ZE8
+	ZoJC2Eym8AG5+hMJOzy4/mYaOIviy3nHh95/uoUDPtQstzInQyrJnQUSA6Gzgl7Z7pBkgkEqHsjvT
+	45IfWHhUf7pH8FwNrcxCUiDhYj9Deof5KEMn2Lu8/WnoHh7bgYKPh21Xarcl9ef77mzBgSKV4U/Th
+	uQ45u+H0DSL+frCchNCO8bqWb03Jr1e/jqFUOhdc1ik7BIGzOZBnPi8LJihhqnPU73kVo+DzY+97c
+	8WlQzXBweRLw1Y2YWvl+68kr9auG4i/TRzyB4lTKezr1e6ISS6T7isb1cVKKMVLBrqF4+98OGAw2f
+	PmTpXt4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxCM5-0000000CMOE-4BRj;
-	Thu, 20 Aug 2026 23:39:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxCM2-0000000CMNW-2ml9
+	id 1wxDkJ-0000000COvL-0tTL;
+	Fri, 21 Aug 2026 01:08:35 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wxDkF-0000000COuU-1tEC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Aug 2026 23:39:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF9CB202C;
-	Thu, 20 Aug 2026 16:39:17 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E8C753F763;
-	Thu, 20 Aug 2026 16:39:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787269161; bh=N9bzHgTPT7M5yE8AGOin8doDdx+BxPy1gflF77tWeWE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PjPN+x0cxlDOswhIzxMCFYv/hiq2OPnMflZZyAmGlXpZI138ae27wQt0tkiIDbEsd
-	 qoymqmWY4oFuX5oDW+1M09I8WaO8CCjK4bVluvkOct9CuAx4+dFfNT+J9rB036STEV
-	 AWYWdESLhUmNcc5u9Ryl84d1s6h2vct2UnVunHWg=
-Date: Fri, 21 Aug 2026 00:39:08 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Leonardo Bras <leo.bras@arm.com>, Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, Fuad Tabba <tabba@google.com>, 
-	Oliver Upton <oupton@kernel.org>, Peter Maydell <peter.maydell@linaro.org>, 
-	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v19 03/14] KVM: arm64: Manage GCS access and registers
- for guests
-Message-ID: <hwz52absjxap7n6olwt3lmjakmtgxxaku5gcofsrcfa45zdygh@dqgylcillnud>
-References: <aoXamcdKoMynTkpX@LeoBrasDK>
- <48be9e5d-357a-4863-8682-8b3f34c69723@sirena.org.uk>
- <aobUGyq8nInJYkdA@LeoBrasDK>
- <97ad6e83-b22b-4881-b644-66fa99f68d64@sirena.org.uk>
- <aocOi3wjcliZqoe7@LeoBrasDK>
+	Fri, 21 Aug 2026 01:08:32 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-698ae09e356so949609a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 18:08:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787274509; x=1787879309; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3cBAaDb2n4Yj0YfebzefO8jXzgNYsaQik+7MKadIvuE=;
+        b=e6aS4K0ubEdo6VvRElYk2hcR5BleRIEXGJFwQTkPZvbUKTN+MOZWaAdDM685F2DuCZ
+         aQ4D/wKtsOOqRBF87IFTLDFtJ4yr5eXqtlvtrkTbnNifZU8AU6xOnmQPlY3wnPKePexS
+         udkM+l59FG6uXx7kG8usIXnIy5uR2Bry25qxKVnPGuQa24tu4NM1fl+1E4eiGl7jYh5v
+         frYf69Xg4Tr0ZrVvQobiqqs5Q3rRxbEgW5foFrEp2q33wfF2hL4B/U7BsuNCfZb2JWJ+
+         D2JBHgMO2hTrTkp9unDD+utgWzu6t+LtFhJAWjV33VP3XuUjAisT1LX+ZJRhp5t9BJni
+         Resw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787274509; x=1787879309;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3cBAaDb2n4Yj0YfebzefO8jXzgNYsaQik+7MKadIvuE=;
+        b=C+fKgt2WLN47hTbtYVn5BUW51BlBi31tfbXv4fi3gKmrg6Yvptv4CrxwAoaNksFxds
+         e3LnbuwnH8ixJYkfEY+o4yXirR6Uk3GsBL5tR8qLDJPzB4loiaOl4/wL/BtIUnCoFFhm
+         UniJdkyd9djBSL/tdJCS1gbfBXoN9Ntj/UL2pC9nZMNa6Y1dfrQSUicOjayBpq3jFg6h
+         sxj2RfSKOWdvQkKF/TmRbbxV/0dzY17KyLFNMEZ6+Ub+1NbLODVHXUsDftFLrcx5CoSh
+         ChTWkZnwYevwEL4oMT6yMcVL8b4M++1GEekNEWFF6solmZbsdJlfTSuWFkZZ3Hk0eIQL
+         axRA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr4P+sb1rkDQsfb/mGyR2NrnHLpYOinSH7hyyqTBRq8VlaUxayMcnxsRrXq/K0IWAgkyKfrIYRSrtFav4BJZ2N4@lists.infradead.org
+X-Gm-Message-State: AFuF++nup2HPehqI7VzxaY1MPc1uiYD4SIVD13TF88NrM2wN28jNIn89
+	VwRniob7Nw7qH0IL7L060ueomITAEjQ8P60YDjHtDSYg66nET08SLIUn
+X-Gm-Gg: AR+sD11pAhiasD91Vm56T2WfcZMZgNgLYQe1LkocRb+GcjxhFIp9QE89+AAEcfCZ5d3
+	iUdG7uttFrVqD84RJL5fPGa+EILMMFUHIz5zXZenfY+io0omg6+S6MXVVtcNaFLY6lMLKAxONTK
+	7AIihdzdnO/WA4GrpjFuswRFt13eh1XK3TGTDEwYpi/SHh7hepBWwBVPndkSEUilTipN+yXbhHs
+	sK/mbv9wgKmPCBQAMDFH+Pl91szj3y4uxEdpc5CN6HvYWUaEtWyGocOasxxejS7nRAxlNgaXar5
+	6AigISKB8XRj7PJ94kry5INxaCLL/wkEdREKvidO6OZ3hswB7lRW0D3LpO1NaMkiQZaF/KhbCXD
+	oTfIdV9uG/49XoIfuOW+4+E3GALs4Uwq2sxBxpBsi1fNw71xNPIQhPbObpx09tz0e6RoCHC9pZs
+	WXUVge1OI9oRGL6U5Az8m1szeVgo0Qk2zE6/+XQ+7++YasDfOFFBvQIZi2XU2ofpG1bkJPrlMHD
+	OHrWGMphhJ2sGbeTmUJhwiadMIPfU4lblddOOMhE0QdUF1iKknWSAaCky3kto5rGw==
+X-Received: by 2002:a05:6402:4348:b0:6a4:21c6:1d14 with SMTP id 4fb4d7f45d1cf-6a42eeb21b4mr3325630a12.0.1787274509430;
+        Thu, 20 Aug 2026 18:08:29 -0700 (PDT)
+Received: from localhost.localdomain ([151.251.247.22])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a3ff1563c5sm3913104a12.14.2026.08.20.18.08.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 18:08:28 -0700 (PDT)
+From: Georgi Valkov <gvalkov@gmail.com>
+To: briannorris@chromium.org,
+	johannes@sipsolutions.net,
+	andrew@lunn.ch,
+	krzk+dt@kernel.org
+Cc: francesco@dolcini.it,
+	johannes.berg@intel.com,
+	kees@kernel.org,
+	miriam.rachel.korenblit@intel.com,
+	wenst@chromium.org,
+	rafael.beims@toradex.com,
+	avraham.stern@intel.com,
+	error27@gmail.com,
+	s.kerkmann@pengutronix.de,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	chunfan.chen@gmail.com,
+	arend.vanspriel@broadcom.com,
+	peddolla.reddy@oss.qualcomm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	stable@vger.kernel.org,
+	gvalkov@gmail.com
+Subject: [PATCH v6 2/3] wifi: mwifiex: add dt flag to avoid conflict with platform reg domain
+Date: Fri, 21 Aug 2026 04:07:27 +0300
+Message-ID: <20260821010728.45065-2-gvalkov@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260821010728.45065-1-gvalkov@gmail.com>
+References: <20260821010728.45065-1-gvalkov@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aocOi3wjcliZqoe7@LeoBrasDK>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_163926_862470_53ACCDCE 
-X-CRM114-Status: GOOD (  43.13  )
+X-CRM114-CacheID: sfid-20260820_180831_508467_147F7E21 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,104 +123,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 20, 2026 at 03:28:39PM +0100, Leonardo Bras wrote:
-> On Thu, Aug 20, 2026 at 03:07:14PM +0100, Mark Brown wrote:
-> > On Thu, Aug 20, 2026 at 11:16:59AM +0100, Leonardo Bras wrote:
-> > > On Wed, Aug 19, 2026 at 05:46:00PM +0100, Mark Brown wrote:
-> > 
-> > > > This is just because there isn't a preexisting ctxt_has_tcrx() check
-> > > > already there, FEAT_GCS architecturally depends on FEAT_TCRX and there
-> > > > was a request to make this explicit in the code to try to optimise
-> > > > things a bit.  The compiler should skip over both blocks at once if TCRX
-> > > > isn't there rather than having two separate tests or static branches.  I
-> > > > didn't add new checks where there were none since I expect that to be
-> > > > unhelpful for code generation, you'd get the reverse situation and emit
-> > > > two checks.
-> > 
-> > > Humm, but then why saving GCSPR_EL2 does not depend on TCRX/E2H? Or maybe a 
-> > > better question, why are not GCSPR_EL2 and GCSCR_EL2 saved in the same 'if' 
-> > > clause under ctxt_has_tcrx() (and E2H set), if they are restored in the 
-> > > same 'if' clause?
-> > 
-> > > As you mentioned, GCS depends on TCRX, so it should be fine, but just by 
-> > > reading the code I see:
-> > > - GCSCR_EL2 :
-> > > 	Save if 	GCS=1, TCRX=1, E2H=1
-> > > 	Restore if 	GCS=1, TCRX=1
-> > > - GCSPR_EL2 :
-> > > 	Save if 	GCS=1,
-> > > 	Restore if	GCS=1, TCRX=1
-> > 
-> > > Which looks kind of confusing for the as a first time reader.
-> > 
-> > > Does it make sense?
-> > 
-> > I agree that the current situation is a bit hard to follow, I'd actually
-> > originally written things without the explict dependency because of that
-> > but Marc wanted the optimisation.
-> 
-> Well, I am not against the explicit dependency thing, it just looks odd 
-> to me that some save/restore have a dependency and it's counterpart does 
-> not. As well as the dependencies for both registers being different.
+WRT3200ACM and WRT32x routers always report a fixed US regulatory domain
+from the mwifiex ROM, which conflicts with the platform regulatory
+configuration on units sold outside the US market. For example:
+- phy0 mwlwifi 5 GHz, hard-coded region 98 EU mapped to FR
+- phy1 mwlwifi 2.4 GHz, hard-coded region 98 EU mapped to FR
+- phy2 mwifiex 2.4 and 5 GHz, hard-coded region US
 
-Hey I feel the question wasn't answered completely :)
+When the system boots, it detects a conflict between the user selected
+region and the radios, e.g. BG FR US, and applies extreme restrictions,
+preventing phy0 from starting on any DFS channel. phy2 works.
 
-Here is the reason for the asymmetric save restore (besides the tcr2
-part):
+Add a device-tree flag, which allows affected devices, where the radio
+conflicts with the platform to ignore the incorrect regulatory hint in
+the ROM of the radio, so the platform regulatory domain can be used.
+This does not allow the user to change the regulatory configuration of
+any radio. It only allows phy0 to start and operate according to its
+certified configuration.
 
-GCSCR
- If guest E2H == 1:
- - L1 accesses to GCSCR_EL2 and GCSCR_EL1 have the same intent -> they
-   both mean access the vCPU GCSCR_EL2.
- - L1 access to GCSCR_EL2 (e.g. msr GCSCR_EL2, x0) traps, KVM updates
-   both the in-memory vCPU GCSCR_EL2, and the hardware GCSCR_EL1 for the
-   the guest. In-memory copy stays up to date.
- - L1 access to GCSCR_EL1 does not trap -> in-memory vCPU GCSCR_EL2
-   becomes stale if it's a write.
- - From above, must save on exit.
+The change affects only platforms which explicitly define this flag, and
+helps overcome the incorrect behaviour of proprietary radio firmware.
 
- If guest E2H == 0:
- - Only L1 accesses to GCSCR_EL2 mean access the vCPU GCSCR_EL2.
- - L1 accesses to GCSCR_EL2 always traps.
- - In-memory vCPU GCSCR_EL2 always stay up to date.
- - From above, no need to save on exit.
+[1] https://github.com/kaloz/mwlwifi/issues/173#issuecomment-307879699
+[2] https://github.com/openwrt/openwrt/issues/9956
 
-GCSPR
- - Regardless of the guest E2H value, hardware could write to the
-   hardware GCSPR_EL1, making the in-memory vCPU GCSPR_EL2 stale.
- - From above, must save on exit.
+Tested-on WRT3200ACM, OpenWrt
+iw reg get: no longer reports region for phy2
 
-Restore is trivial, vCPU GCSCR_EL2/GCSPR_EL2 must be written to the
-hardware EL1 registers because someone else could be using it.
+Cc: stable@vger.kernel.org
+Signed-off-by: Georgi Valkov <gvalkov@gmail.com>
+---
+ drivers/net/wireless/marvell/mwifiex/cfg80211.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Quite a few other registers are saved only if guest E2H == 1 because of
-the same reason.
+diff --git a/drivers/net/wireless/marvell/mwifiex/cfg80211.c b/drivers/net/wireless/marvell/mwifiex/cfg80211.c
+index 7a1ba32f1fb3..293876397b67 100644
+--- a/drivers/net/wireless/marvell/mwifiex/cfg80211.c
++++ b/drivers/net/wireless/marvell/mwifiex/cfg80211.c
+@@ -4897,7 +4897,14 @@ int mwifiex_register_cfg80211(struct mwifiex_adapter *adapter)
+ 				country_code =
+ 					mwifiex_11d_code_2_region(
+ 						adapter->region_code);
++
++				/* If the reg hint in ROM conflicts with platform
++				 * configuration, it should be ignored, so the
++				 * platform regulatory domain can be used.
++				 */
+ 				if (country_code &&
++				    !device_property_read_bool(adapter->dev,
++							       "marvell,invalid-reg-hint-in-rom") &&
+ 				    regulatory_hint(wiphy, country_code))
+ 					mwifiex_dbg(priv->adapter, ERROR,
+ 						    "regulatory_hint() failed\n");
+-- 
+2.55.0
 
-Thanks,
-Wei-Lin Chang
-
-> 
-> >  There's similar things with other
-> > registers in the current code (eg, the PIE and POE registers are in the
-> > same situaton as GCSCR_EL2).  One thing I did miss here is some nesting
-> > inside the PIE checks for EL2, I'll update for that.
-> > 
-> 
-> Awesome!
-> 
-> > I think what would help here would be to move to generating more of the
-> > save/restore sequences rather than open coding them, we could have lists
-> > of registers and then use data about the feature dependencies that the
-> > architecture has (hopefully it's already in the MRS, I didn't check) to
-> > generate these optimised feature checks rather than having to open code
-> > them.  Possibly even list features and generate some of the register
-> > lists, though that would need far more special case handling and it's
-> > *much* less clear if there could be a benefit.
-> 
-> Yeah, that would automatize the feature dependency for register loading, 
-> but maybe code would not be that clear on how it works? I have questionable 
-> taste, though.
-> 
-> Thanks!
-> Leo
 
