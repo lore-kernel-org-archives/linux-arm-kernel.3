@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E0AC5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 14:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D9AFC5DF93
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 14:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z3NRItpj0nUOy3LytGBZhuumw92o8wwWdCrn/ZFcfo4=; b=1JhixXqVc3wHGXwRS6IFy3LyFM
-	BL5y5oGEQcMMjdpc4CBHFyjiy97vvt9aKmEx/QPC1BEjQ8C+Z8++uLthND2yMwpxj3Hsy9qIXQsKD
-	4jFoR+2Hqi6Fyf0L+122VYXodJBOMVz9ulKMWXiDrMO3u9RhYc1qjWkqNnw7WEHWMoioOeiXegCIB
-	X8hQTrGLxhzW04l1eKPvgO4Ax2JVr503GtDsztH2FyWH+/ACG0x225JDI0DX2CJSo++PncxJBGpH1
-	Q7yb9nhvjVOv4PkCvDuhr9uxq4iH6ka7q0zTsXB5ERYKrYzFN/XtCjO0g7lDKC7hqkKByrdrp0B5g
-	68e1+yRw==;
+	bh=pX/VSrHjnic+kAzU8AvRS4tC6p6NKFnM/IlM8LCWHDk=; b=sb4EspptBZ3n90URGI+D99iLoX
+	twvanMkKU38VOXk0pLsgTc5xxiAsY44D+j/LmuJQjZbrlAQzpH/k6xdpJI2GDdvr3ce9KtAky6YYP
+	WK0ZqCGXYxodo0zuX/G0b+yn0PPO8waVBMuHaU0tialYoChhvktliIVR+NTMu4CTqAr/8/ttNEPwp
+	i1F+8zRLkeET3atdvy+zECtAZ9GaSWpjYHMKVbiPtQytJQd5MltMx4JgdNZ8oHG87ffL1YapAi20q
+	uo5/hr+EW+GhijEGTsOBm5z8hl30+we2xkytTpBGlZ356OgR/oqOXNIz/kP3zUROem/BUmudX3Hwh
+	Ol/Cup9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQ2V-0000000DWTT-2A9p;
+	id 1wxQ2V-0000000DWTl-2ZNG;
 	Fri, 21 Aug 2026 14:16:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQ2N-0000000DWQf-4APk
+	id 1wxQ2S-0000000DWS3-18i0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 14:16:05 +0000
+	Fri, 21 Aug 2026 14:16:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A92F722C8;
-	Fri, 21 Aug 2026 07:15:59 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1C398153B;
+	Fri, 21 Aug 2026 07:16:02 -0700 (PDT)
 Received: from e142334-100.cambridge.arm.com (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6D6EE3F85F;
-	Fri, 21 Aug 2026 07:16:01 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D7AC03F85F;
+	Fri, 21 Aug 2026 07:16:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787321763; bh=GkgEk4wxjMWjKEYIzr+cfZNkqDaG360hz+dtvjwvXSM=;
+	t=1787321766; bh=Gxs5Zr+QF55DCl6dC8K9VHi+T/trfWwC5Dw24lTRc7c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=b1vFUYxhNizbO0Ief3w0B/1HpfE0vGXsMMmU8mcpFtaSACD7vU+7JBBLOcNQwFi1v
-	 iQItNHweUyu5fTGH1wXyzpzyuYc+oDxtas9l1EKVFUSv5vMHk5yQzadcjIoFxUMyQ/
-	 7/IgeY0vNePWaH4IwO1SM0/mtPvzdrAd6nmBX01Y=
+	b=vkAEXPiJep+/iEoq2CrJWmSStN4H19aZxb6Hho6hBWYwy1UP1/PF64rOZWhjq+aDh
+	 2QfD1Mu6+Jfh8j5LtsE9VrfImB7SX17BMg2d5Ads2/EchScHmibSOldcJsCXhtXN7O
+	 MN9nyFm1hryOlls9mIsD2Fo2cxTbO/qkfLlYj0SQ=
 From: Muhammad Usama Anjum <usama.anjum@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -54,18 +54,17 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)),
 	linux-kselftest@vger.kernel.org (open list:KERNEL SELFTEST FRAMEWORK)
 Cc: Muhammad Usama Anjum <usama.anjum@arm.com>
-Subject: [PATCH v2 1/5] selftests/arm64: Print TAP header
-Date: Fri, 21 Aug 2026 15:15:49 +0100
-Message-ID: <20260821141556.4065894-2-usama.anjum@arm.com>
+Subject: [PATCH v2 2/5] selftests/arm64: Print missing MTE TAP headers
+Date: Fri, 21 Aug 2026 15:15:50 +0100
+Message-ID: <20260821141556.4065894-3-usama.anjum@arm.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260821141556.4065894-1-usama.anjum@arm.com>
 References: <20260821141556.4065894-1-usama.anjum@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_071604_070691_54FCD1AB 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260821_071608_399077_2A1EF821 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +79,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GCR_EL1 context-switch test prints its TAP plan before forking 1,024
-child processes. When stdout is fully buffered, the plan remains in the
-stdio buffer. Each child inherits the pending "1..1" line and flushes its
-copy from exit(), producing repeated plan lines.
+Most of the remaining MTE tests set a TAP plan and emit results without
+first printing the TAP version header. Direct execution therefore starts
+with a plan such as "1..20" instead of "TAP version 13".
 
-ksft_print_header() enables line buffering before printing the TAP
-header. Call it before the plan so the plan is flushed before the child
-processes are forked.
+Print the header in every remaining MTE test that is missing it. Do so
+before setup and prerequisite checks so early failures and whole-test
+skips also retain the header.
 
-Fixes: 29f080881601 ("kselftest/arm64: check GCR_EL1 after context switch")
-Reviewed-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 ---
-Changes since v1:
-- Explain how line buffering prevents duplicate plan lines.
-- Use the selftests/arm64 subject prefix.
+Newly introduced. This is an output-format consistency change and does
+not fix duplicated output or alter test execution behavior.
 ---
- tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c | 1 +
- 1 file changed, 1 insertion(+)
+ tools/testing/selftests/arm64/mte/check_buffer_fill.c     | 2 ++
+ tools/testing/selftests/arm64/mte/check_child_memory.c    | 2 ++
+ tools/testing/selftests/arm64/mte/check_hugetlb_options.c | 2 ++
+ tools/testing/selftests/arm64/mte/check_ksm_options.c     | 2 ++
+ tools/testing/selftests/arm64/mte/check_mmap_options.c    | 2 ++
+ tools/testing/selftests/arm64/mte/check_tags_inclusion.c  | 2 ++
+ tools/testing/selftests/arm64/mte/check_user_mem.c        | 2 ++
+ 7 files changed, 14 insertions(+)
 
-diff --git a/tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c b/tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c
-index 325bca0de0f6e..d23f154d3288c 100644
---- a/tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c
-+++ b/tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c
-@@ -131,6 +131,7 @@ int main(int argc, char *argv[])
- 	if (err)
- 		return err;
+diff --git a/tools/testing/selftests/arm64/mte/check_buffer_fill.c b/tools/testing/selftests/arm64/mte/check_buffer_fill.c
+index ff4e075033493..039b1d7d85663 100644
+--- a/tools/testing/selftests/arm64/mte/check_buffer_fill.c
++++ b/tools/testing/selftests/arm64/mte/check_buffer_fill.c
+@@ -406,6 +406,8 @@ int main(int argc, char *argv[])
+ 	size_t page_size = getpagesize();
+ 	int item = ARRAY_SIZE(sizes);
  
 +	ksft_print_header();
- 	ksft_set_plan(1);
++
+ 	sizes[item - 3] = page_size - 1;
+ 	sizes[item - 2] = page_size;
+ 	sizes[item - 1] = page_size + 1;
+diff --git a/tools/testing/selftests/arm64/mte/check_child_memory.c b/tools/testing/selftests/arm64/mte/check_child_memory.c
+index 5e97ee792e4d2..e6a8acca2a941 100644
+--- a/tools/testing/selftests/arm64/mte/check_child_memory.c
++++ b/tools/testing/selftests/arm64/mte/check_child_memory.c
+@@ -146,6 +146,8 @@ int main(int argc, char *argv[])
+ 	int err;
+ 	int item = ARRAY_SIZE(sizes);
  
- 	evaluate_test(mte_gcr_fork_test(),
++	ksft_print_header();
++
+ 	page_size = getpagesize();
+ 	if (!page_size) {
+ 		ksft_print_msg("ERR: Unable to get page size\n");
+diff --git a/tools/testing/selftests/arm64/mte/check_hugetlb_options.c b/tools/testing/selftests/arm64/mte/check_hugetlb_options.c
+index aad1234c7e0fe..23e4a7a9950c1 100644
+--- a/tools/testing/selftests/arm64/mte/check_hugetlb_options.c
++++ b/tools/testing/selftests/arm64/mte/check_hugetlb_options.c
+@@ -230,6 +230,8 @@ int main(int argc, char *argv[])
+ 	void *map_ptr;
+ 	unsigned long map_size;
+ 
++	ksft_print_header();
++
+ 	err = mte_default_setup();
+ 	if (err)
+ 		return err;
+diff --git a/tools/testing/selftests/arm64/mte/check_ksm_options.c b/tools/testing/selftests/arm64/mte/check_ksm_options.c
+index 0cf5faef17248..866f0929b6647 100644
+--- a/tools/testing/selftests/arm64/mte/check_ksm_options.c
++++ b/tools/testing/selftests/arm64/mte/check_ksm_options.c
+@@ -132,6 +132,8 @@ int main(int argc, char *argv[])
+ {
+ 	int err;
+ 
++	ksft_print_header();
++
+ 	err = mte_default_setup();
+ 	if (err)
+ 		return err;
+diff --git a/tools/testing/selftests/arm64/mte/check_mmap_options.c b/tools/testing/selftests/arm64/mte/check_mmap_options.c
+index c100af3012cbb..492f2cd41f43b 100644
+--- a/tools/testing/selftests/arm64/mte/check_mmap_options.c
++++ b/tools/testing/selftests/arm64/mte/check_mmap_options.c
+@@ -945,6 +945,8 @@ int main(int argc, char *argv[])
+ 		},
+ 	};
+ 
++	ksft_print_header();
++
+ 	err = mte_default_setup();
+ 	if (err)
+ 		return err;
+diff --git a/tools/testing/selftests/arm64/mte/check_tags_inclusion.c b/tools/testing/selftests/arm64/mte/check_tags_inclusion.c
+index 4b764f2a81857..6b4fa6705d7c1 100644
+--- a/tools/testing/selftests/arm64/mte/check_tags_inclusion.c
++++ b/tools/testing/selftests/arm64/mte/check_tags_inclusion.c
+@@ -175,6 +175,8 @@ int main(int argc, char *argv[])
+ {
+ 	int err;
+ 
++	ksft_print_header();
++
+ 	err = mte_default_setup();
+ 	if (err)
+ 		return err;
+diff --git a/tools/testing/selftests/arm64/mte/check_user_mem.c b/tools/testing/selftests/arm64/mte/check_user_mem.c
+index fb7936c4e0978..af343aa617323 100644
+--- a/tools/testing/selftests/arm64/mte/check_user_mem.c
++++ b/tools/testing/selftests/arm64/mte/check_user_mem.c
+@@ -201,6 +201,8 @@ int main(int argc, char *argv[])
+ 	int tag_offsets[] = {page_sz, MT_GRANULE_SIZE};
+ 	char test_name[TEST_NAME_MAX];
+ 
++	ksft_print_header();
++
+ 	page_sz = getpagesize();
+ 	if (!page_sz) {
+ 		ksft_print_msg("ERR: Unable to get page size\n");
 -- 
 2.47.3
 
