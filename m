@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41A52C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 23:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB571C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 23:37:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qBeQTJcCmTxIDyDVZ2wxVHaFWGBCccQSYczu6X2wyEk=; b=T7ysH4dtC4IKYdlKlfsFwB5CgG
-	WAok0P/3L3i/i2C5k3ulWQmUN/nujba1MIsSRknzyXUDce8Xts848sfRfrHL0k+2Eq0CVUxrZatGv
-	EHFxGFxvECu2XXL7+kpLP/ZxeNZflrAH+RSnZt31aoPugE2JQ7iWn3wsxbCNTpgvhaSrwGi0kTMYU
-	Z0p9CZx2BMp0IngRXaHeu8rg6rBunHaHDCpEWzNRFR2/NhpfPT/Myu5VL9H7JG9aYFil2pQ71Mpgd
-	u7XHrLIO/7R8VEM/q9TAW9SjUfpE+VHjuCVicLRh1gYujMwR6gWajwg7B8zvN/C3QQ+ea71PFr2Wa
-	mcTIsG/g==;
+	bh=5V+eDhsR1l7gTGXw7zOCDC0m5/sh2YoqmdcVnpCZQgM=; b=dd6barYGLyuokEvuJHoG9wk+x2
+	DYbEyyb0LQO3ku9j00RVOrm+IXxITl7VPlkuyUc+PseUjtlU+d6kSC1XHnzLYf9EcxpZiMFzGr/YN
+	CWzIzRtUjrZlxrhzYqwJoq7cGxMXhUmWh6XBZagz+6SMm8x5cxYUsBXHy4FBNESu3vPND0M3K4zYT
+	EUrueD4fYteWWXzdhmCdl+85kO/0+5uRoetDtUfUHuP3OqaXAg1JjMElYIsfkILpHVdhg39/pqkks
+	A3j3RgdLpNZO+/BZsCg8pa3m5Qh1+k6/e2YRGzCOYXkDDshiDPGFg+hwETK1dCgpc2TVIbMjaG3fX
+	qh9GwxhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxYUT-0000000E9XS-0DSo;
-	Fri, 21 Aug 2026 23:17:37 +0000
+	id 1wxYnI-0000000EAMA-2S9T;
+	Fri, 21 Aug 2026 23:37:04 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxYUS-0000000E9XI-1PnH;
-	Fri, 21 Aug 2026 23:17:36 +0000
+	id 1wxYnH-0000000EALs-0Rn9
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Aug 2026 23:37:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F2C341797;
-	Fri, 21 Aug 2026 23:17:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 374381F000E9;
-	Fri, 21 Aug 2026 23:17:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0E92640615;
+	Fri, 21 Aug 2026 23:37:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B17B1F00A3A;
+	Fri, 21 Aug 2026 23:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787354254;
-	bh=qBeQTJcCmTxIDyDVZ2wxVHaFWGBCccQSYczu6X2wyEk=;
+	s=k20260515; t=1787355421;
+	bh=5V+eDhsR1l7gTGXw7zOCDC0m5/sh2YoqmdcVnpCZQgM=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=IJe2+ZflygN5/qQJs4Sul1DBia5fxrGgdQohUaB3jzKfnrtMSH4ZHvJhaeEsC5FVP
-	 F1E0a2XXNtVJtP8mFfDhifzM5zU1zMSV7JRN1moBeLkXs6MRanagHOf/s95I6v0Y4M
-	 bDC0o4EmIxgwX+lGwlfuQdIqDN7rmLsIVRufIZY+5Du8O7tkptIvawld1tmacSqyMz
-	 1xPdrxhjB6xGH4rbDL/B1ci1KEkY1iNHbWZz5FwsSGsLriC+cdZIHwS1fTRCOL4q8s
-	 aR6U1QB1NS2gKwcHjUT/0Bal6twKD0Wb2xbvKfitz4bUXm6v5gDLIgCiUYY/ETlWL8
-	 oW3/lX/qP92xw==
-Date: Sat, 22 Aug 2026 00:17:28 +0100
+	b=h38Q+32ShgEFW6b9POQWwnB6vfv8kstTsH7+rsl0ZxCgsAAImPzvnHvCLlHL0QCfN
+	 veKWjwInFjanmdb1/cOWNmjJNm3zYV1JKisFNLL2v1ta4R07B1/6xZmn3Q+XRgOTNw
+	 SI8QANa+07C3R/L9wBffnkbBlFPV3winnEYG/9Y7A/Sw1AcDEnrUy5z4N7mnkj1fMv
+	 dwCcjzjtKEo+auWxvDFS75TMvFvxd4x0KDdVKRzXNCPdftx1gEVT3e0SHVYqw3xccX
+	 TzneA9HV0l8hNzmXNo6JDkequ4C9ASDpX3ZtNrQbf9q1PE8PMQvTjVM9A1mF/AGGpT
+	 6L6gAlQ/EF7WQ==
+Date: Sat, 22 Aug 2026 00:36:56 +0100
 From: Jonathan Cameron <jic23@kernel.org>
-To: Vladislav Leonov <vlad@zlab.su>
-Cc: andy@kernel.org, dlechner@baylibre.com, heiko@sntech.de,
- linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- nuno.sa@analog.com, sjg@chromium.org
-Subject: Re: [PATCH] iio: adc: rockchip_saradc: Add support for RV1106
-Message-ID: <20260822001728.32f706c5@jic23-huawei>
-In-Reply-To: <20260816114544.35502-1-vlad@zlab.su>
-References: <20260815022036.7c47585e@jic23-huawei>
-	<20260816114544.35502-1-vlad@zlab.su>
+To: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+Cc: Fan Wu <fanwu01@zju.edu.cn>, dlechner@baylibre.com, nuno.sa@analog.com,
+ michal.simek@amd.com, conall.ogriofa@amd.com, bgolaszewski@baylibre.com,
+ DileepKumar.Nagavarapu@amd.com, linux-iio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Subject: Re: [PATCH v2] iio: adc: xilinx-xadc: free IRQ before cancelling
+ the unmask worker on unbind
+Message-ID: <20260822003656.4cd11afe@jic23-huawei>
+In-Reply-To: <c87bd58e-2c23-467e-8ae2-8398052ee8d5@amd.com>
+References: <20260803080343.467906-1-fanwu01@zju.edu.cn>
+	<c87bd58e-2c23-467e-8ae2-8398052ee8d5@amd.com>
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
@@ -71,24 +74,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 16 Aug 2026 14:45:44 +0300
-Vladislav Leonov <vlad@zlab.su> wrote:
+On Mon, 10 Aug 2026 23:27:37 +0530
+Sai Krishna Potthuri <sai.krishna.potthuri@amd.com> wrote:
 
-> Hi Jonathan,
+> On 8/3/2026 1:33 PM, Fan Wu wrote:
+> > The ZYNQ XADC alarm IRQ handler queues zynq_unmask_work via
+> > schedule_delayed_work(); that work is cleared by a devm callback.
+> > Register the devm callback before devm_request_irq() so the devres LIFO
+> > teardown frees the IRQ first, ensuring the handler can no longer queue
+> > work by the time the workqueue is cleared. Otherwise the handler could
+> > re-arm the work and run it after the xadc structure has been freed.
+> > 
+> > This issue was found by an in-house static analysis tool.
+> > 
+> > Fixes: 2a9685d1a3b7 ("iio: adc: xilinx: use more devres helpers and remove remove()")
+> > Cc: stable@vger.kernel.org
+> > Assisted-by: Codex:gpt-5.6
+> > Reviewed-by: David Lechner <dlechner@baylibre.com>
+> > Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>  
 > 
-> Sent a separate patch for the dt-binding fix:
+> Reviewed-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
 > 
->   https://lore.kernel.org/all/20260816113636.33635-1-vlad@zlab.su
-> 
-Just for completeness (as I replied to that just now)
-please send them both as a series so all the info is easily available
-to anyone looking at either part.
 
-Thanks
+Applied to the fixes-togreg branch of iio.git.
+
+I'll be rebasing that on rc1 once available.
+
+Thanks,
 
 Jonathan
 
-> Regards,
-> Vladislav
+> Regards
+> Sai Krishna
+> 
+> 
+> > ---
+> > 
+> > Changes in v2: shorten the commit message and replace the multi-line code
+> > comment with a one-line note, per review feedback from Jonathan Cameron.
+> > The devm registration reorder (the fix) is unchanged; David Lechner's
+> > Reviewed-by was obtained on v1.
+> > 
+> >   drivers/iio/adc/xilinx-xadc-core.c | 9 +++++----
+> >   1 file changed, 5 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/drivers/iio/adc/xilinx-xadc-core.c b/drivers/iio/adc/xilinx-xadc-core.c
+> > --- a/drivers/iio/adc/xilinx-xadc-core.c
+> > +++ b/drivers/iio/adc/xilinx-xadc-core.c
+> > @@ -1395,13 +1395,14 @@ static int xadc_probe(struct platform_device *pdev)
+> >   	}
+> > 
+> >   	if (irq > 0) {
+> > -		ret = devm_request_irq(dev, irq, xadc->ops->interrupt_handler,
+> > -				       0, dev_name(dev), indio_dev);
+> > +		/* Clear out any work queued by the interrupt */
+> > +		ret = devm_add_action_or_reset(dev, xadc_cancel_delayed_work,
+> > +					       &xadc->zynq_unmask_work);
+> >   		if (ret)
+> >   			return ret;
+> > 
+> > -		ret = devm_add_action_or_reset(dev, xadc_cancel_delayed_work,
+> > -					       &xadc->zynq_unmask_work);
+> > +		ret = devm_request_irq(dev, irq, xadc->ops->interrupt_handler,
+> > +				       0, dev_name(dev), indio_dev);
+> >   		if (ret)
+> >   			return ret;
+> >   	}
+> > --
+> > 2.43.0  
+> 
 
 
