@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D92C5DF8E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:30:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7189DC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:30:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n/R8GtrWGADXhpWF6ZZO6tx1YvN32z2nTVacJoZ8tOM=; b=PJHbO5n+XleAGFcIt5dGbMzWck
-	WIp0gdYJkbbBufSn582Pp2vStzEt3/VfpbzqPikIN5AfDHfrGgYEidzy9MvjAGE/6nDgdz2mY+fQL
-	ydSka4oqig764ZZKhq9qzpGz3IXw8dmc7h1bGazxOS9UB7F6xnNeKFicCKilgCnOwrFlBgGp9v/Gu
-	9I+cVUV5VxkM1vuSAviDLzzITVUQFtSAeH8YCRudpMDvRJnMuTPiMsj05Cz1e/0wjLu3PsVzLDksv
-	AVKl0fphb92BTibnu3znXOP/1nmEQOk9BnMISyEMQRMpjzyNY6eukwAoCcCg1t7J5Lr09M6fQoAK8
-	PUlHqIhg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KBEhlJoNhEUfCpIMUFLTjnuolbIcay5rAFRembGkrg4=; b=yx0Xwws9eK06F+BhGhEEEuSsMO
+	Bv0de2LaKe78grS6SPtAboS0iTYBYs+IxU9U23ODrCaWkjXciGqzrOV2sIcTMh8be4O7xfJCkdjJn
+	s09W6s6C6PJdvg3TyCO/Y32IomIkg/LKOKumkbr0amjD5KYfKgTa2rCY90OYIkf6490PefwJs/xn0
+	lKK/cbUGdrnIpxDDIqvHonRYHM8uWyOn6rcvqSy1cp7n4GtmtCHp+yN7z77foYasM3HL9wFToSJY5
+	qQHmaiu9BmkZzzCovYnvmk1Df9A+9zkdCxICNxbcrTcWGNLiXWncWUedg5qwl9r6rwqgqjTagnmfT
+	PtdrkQxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxONu-0000000DJg1-0AnV;
-	Fri, 21 Aug 2026 12:30:10 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1wxOOO-0000000DJvh-0wFj;
+	Fri, 21 Aug 2026 12:30:40 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxONm-0000000DJYg-1t3u
+	id 1wxOOL-0000000DJuX-40U4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 12:30:03 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-84e3007a2b7so755926b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 05:30:02 -0700 (PDT)
+	Fri, 21 Aug 2026 12:30:39 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2cedda2ce6fso5484085ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 05:30:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787315401; x=1787920201; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=n/R8GtrWGADXhpWF6ZZO6tx1YvN32z2nTVacJoZ8tOM=;
-        b=WfF6Hbha3PLuyAPCNM5gC5jsLLKP1zfbxpdwK/bUUNUz3kAkMV8hqMJUZ43v49wKjv
-         bDPAnstDPRdTFuL99umq7xuIwaWeP2DHKQisFAcFA2o61jQ8b7Qlrgl+kKPvyVzV7kVO
-         y+RWgLzHWEj/lenRbcc23vkrYfwBU0YnOkUKU1R5McB05ov82ksWHZngHECDqYTNhGv8
-         V0AmnIS9YrfhBqq0zUy5djMkF22lDYIsnf+k/nPV+Gc1QULMr3F92XBb4zzB//IpKkSm
-         OLPtBp0NYCGhjP2ROSJ+y9oVDuO5ZCVeMu2MARQB0d6Dwg7BlnTjX+Xlyp5sqpCD+hhr
-         caZQ==
+        d=gmail.com; s=20251104; t=1787315437; x=1787920237; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=KBEhlJoNhEUfCpIMUFLTjnuolbIcay5rAFRembGkrg4=;
+        b=AvoGmj+7ED4Sp0uEvpQhL3NSKjNa51/Vs1Ux1OBUnO05wu/t8qXNGQMAOuTC4PAjOC
+         jQ/Lj84L3zcAZbCPRrXIIG9+9dfKeJ8vIzSCWTFWR/b2QW43AYWdYOFQrFXib5ebTZ6C
+         hmFxPI1+3UoOugnSYITfe9dxlA820KgNYxpxN2yfFJRIITK3CK840XBkch4N8ayV+K9q
+         MndtPINkBourck+puvaOYtrD84f64LFGuXkFA4zI54UTjtxsFaUGFh2E4oiHoXOtnd/v
+         V2dMoLf2Y+JZDXTPH4+X/gB93pc4GIp83ZlHx18ky4pvNONllAsad6Apvnr39gzUh49k
+         DiBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787315401; x=1787920201;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=n/R8GtrWGADXhpWF6ZZO6tx1YvN32z2nTVacJoZ8tOM=;
-        b=mmay1VrDlzeUhRMj2o5lY4A3uG9pKAqFc9gZ7+DVc1ZMmC0ZPdppdfTlJyzzvFISlw
-         JiI/dqzGim1LPiqy6Q6aVGn5krXJd2H2IX2Sy2mc3p2lHDB6MzBzPVti2nO2DwaAfY+T
-         a/g8hOxjTsHqvf0OsH93IbdaLWIntWSxWEkEYvepG8rQ+J8994oPX1w6By/j0/jyUME6
-         eAtDai1/F4rO8utO3q2T1us0Wxmw8i8HeAXrILUeEiQx/VwydR3PNkoltFXWBDy90/yX
-         Q4kagTEhKJZUkgGO694q4vJx7WLGyJWq6JORXYaisVDXGn4nspeyoKdEI72QHUAnbjM9
-         rJ+Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rqvrho8onXkTCj9N0dlXsthdL3GKqDTFAXQ1e8lI2wwJ39zasYYyoUklUOFVkiPOHWVbGxuQc9nipvDqngR4tRB@lists.infradead.org
-X-Gm-Message-State: AFuF++msXDFE+7bdjalTNCydCZkV+p1B+PaJU/4tERWbYDEuwk8SHZ58
-	VrmcK0AXKgPBDwJKEfkUquRsxyaHXr6y1OZigQZduH+6uf9EV+gdN5tY
-X-Gm-Gg: AR+sD10kg4N6J8oSKh55uaK8kd4mU7KabohHXwRNJZnIxQp7ieaYqHgSawlE4XBqtYn
-	ZwCPcZ5j8jw/YjMMhU8TMSFalvv1+aY7HZL4klMjRF9dAdyxYYhldeFtt/ugKBHS9FIqQdSVJUz
-	Sajn1It5D/TNr2XVGwZYPOVa4XsvM+o34XyYoFTbHtSIqIJI7QEhBB60wHZ8GFQsf1Tj988LJIb
-	/baSosvbNiHKPtmmyERkWTc5GdEyAsos+VrZACv6B64+DntniMpgqHosE7jNgdq6mET9eo0YgbH
-	KNrbDwuMJh4yRdX34zjF84fh2BTPRio/JVLF7Y7sR4pHggk0zETJ5DZkoLcK1JsEw583Rh7+zKs
-	FZDsT8h2x7oKM3hiFadVWppn4oE5y5nJGEd268hxJ3LtAmH2F65Kx4DTxgyd0jSAu9YNR0Mbd2y
-	NT2dtVE4oboGqa/Sl6Rtjf+hyJEpytC5NK/pmCpIzyfbTjbAs6Caxpc3koMCEdMzxZdqrqGuiEd
-	hgc4su6NcMYYK2Sul60YyfAQMyP+XHADtsncoCs1+fO5jlU0gVLQbc5280LfVHv0fqmi+pI1XRk
-	ywDq
-X-Received: by 2002:a05:6a00:32cb:b0:84a:646f:193 with SMTP id d2e1a72fcca58-851f969b3b6mr10656377b3a.0.1787315401447;
-        Fri, 21 Aug 2026 05:30:01 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1787315437; x=1787920237;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KBEhlJoNhEUfCpIMUFLTjnuolbIcay5rAFRembGkrg4=;
+        b=cRtoUPSvTv1jMwy3bxq05qiqNidnz+dkYRvtxLtOw6ZmMIAZnXs0Bu9e9MR+9Yc2FR
+         aa4vNSEOlEtB67u+UzyImzXMV3skEpwWztg3N5SJ5hFPfoTYdkrn26xQTdw3n0y2n+uF
+         w8jOBemTXmy4ar3+8egy+n9s3/mMGkU9Pkq7AQ3V37JkWSj+mJLIGk9KofQ5TFy0JEVW
+         nqLU1d1fkv2iQAaqJHJIRSa7eblyU+OR+ijXUpWNYSm2TbrBGCGNn/8xlrfD/3FBybe4
+         g/8h01mMLQ6BOmoW7HYbJwmEtelQhDXku5X0PRWKf++GyjMpDc56+Qn4A0olYL9j6g5c
+         opfw==
+X-Forwarded-Encrypted: i=1; AHgh+Rq2KQMYMuq45CtnCpDbK8cTgSfRfBxY6Yd864eX4SQm91yEqFuKJslxZKZagzbV5QQ58YR0mXSF101NKiDOZGuX@lists.infradead.org
+X-Gm-Message-State: AFuF++mWQQYiDozWPW+xffSwHasuL4Bt6+vZOAtAGo57SfuMZFNlrT0/
+	aJrq+yiT80ICmwRLvYXJRH4dEr+ASUjr+9fNv9mxoxXBwllnqnOE9Qb5
+X-Gm-Gg: AR+sD129FbAvVpRbpVZs4trAEv5bVPj/aup56AU4bLHqQF/YQ4320VxuJahTDkOnL38
+	fpGyuGTWWA3SOyoYxsG4GF4zRMoRcR5jU+mHv2PKy9YlP8aqR/eKq5gaL1K+Q59a/igCW3WwR9w
+	oEB4qghHLS/1SmVZ/KUyKf6XNqv1i0s8tunAx/d5Zh00WKiB91ArBg4cGr3VIPvkI0REEGUS/ho
+	y3itbmKf6hffXBlKyFd1+KbSHw78Ab8U85B6nTSXPqN7DglFCZG2p0tOplGe+DyiCpiBTM9108J
+	zTgZ3DGj4ZhA2EcOBNWgmZ1pQ/kd24cDVBWEWWhC6UY7Q1s0B2tlduzb/raLwtO2jgwc/qThyO0
+	wQeWxEvtnwdMPpmXMI+ZZIhV1JOr8fXDzU0JsY2uk2f2wcBIW4b0my8Bsnsd+0fkgPnptMEVWtW
+	m//7gUItSb1qfHwfYS93a7SCFmhTz1PoUDiXB+swjYLLyCU9tQtnU+tQrhDt+Kat5yMH6fGksyT
+	DTjT/eP4NE2lZGBm4CiZGGx3yy3rmJqnYpWe6KzzQDysynUeiIqSUj7XBc0XifIwoQZ1WqoeIBl
+	t8Aw
+X-Received: by 2002:a17:902:f693:b0:2d3:7c58:b0e1 with SMTP id d9443c01a7336-2d64a9a6dadmr114013055ad.0.1787315437005;
+        Fri, 21 Aug 2026 05:30:37 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-851d3389fc4sm2848582b3a.14.2026.08.21.05.29.58
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d62e36e1besm18302235ad.53.2026.08.21.05.30.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 05:30:00 -0700 (PDT)
+        Fri, 21 Aug 2026 05:30:36 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>
@@ -84,17 +83,15 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2 4/4] ASoC: mediatek: mt8183: Drop redundant probe error messages
-Date: Fri, 21 Aug 2026 19:29:28 +0700
-Message-ID: <20260821122928.41343-5-phucduc.bui@gmail.com>
+Subject: [PATCH v2 0/4] ASoC: mediatek: mt8186: Fix clock error handling
+Date: Fri, 21 Aug 2026 19:30:17 +0700
+Message-ID: <20260821123021.41390-1-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260821122928.41343-1-phucduc.bui@gmail.com>
-References: <20260821122928.41343-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_053002_538765_459715A1 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20260821_053037_999863_7CE5474F 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,43 +108,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-The errors handled here are already reported by the called functions,
-either directly or deeper in the call chain. Therefore, the additional
-dev_err() calls are redundant and can be removed.
+Hi all,
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/mediatek/mt8183/mt8183-afe-pcm.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+This series fixes clock error handling in the MT8186 AFE driver.
 
-diff --git a/sound/soc/mediatek/mt8183/mt8183-afe-pcm.c b/sound/soc/mediatek/mt8183/mt8183-afe-pcm.c
-index 2634699534db..46b7a2bb6aaa 100644
---- a/sound/soc/mediatek/mt8183/mt8183-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8183/mt8183-afe-pcm.c
-@@ -809,10 +809,8 @@ static int mt8183_afe_pcm_dev_probe(struct platform_device *pdev)
- 
- 	/* initial audio related clock */
- 	ret = mt8183_init_clock(afe);
--	if (ret) {
--		dev_err(dev, "init clock error\n");
-+	if (ret)
- 		return ret;
--	}
- 
- 	pm_runtime_enable(dev);
- 
-@@ -903,10 +901,8 @@ static int mt8183_afe_pcm_dev_probe(struct platform_device *pdev)
- 
- 	ret = devm_request_irq(dev, irq_id, mt8183_afe_irq_handler,
- 			       IRQF_TRIGGER_NONE, "asys-isr", (void *)afe);
--	if (ret) {
--		dev_err(dev, "could not request_irq for asys-isr\n");
-+	if (ret)
- 		goto err_pm_disable;
--	}
- 
- 	/* init sub_dais */
- 	INIT_LIST_HEAD(&afe->sub_dais);
+The current code may fail to clean up clocks that were already enabled and 
+may not propagate some clock lookup errors.
+
+I also referred to the MT8183 implementation, where the clocks are handled 
+using devm_clk_get(). However, the MT8186 code currently behaves more like 
+devm_clk_get_optional().
+
+I could not find any indication that these clocks are optional, 
+so I dropped patch 5 from v1. If this is confirmed, I can send the change 
+as a separate patch in a later revision.
+
+The changes were found by manual code inspection and compile-tested only.
+
+Link v1 : 
+https://lore.kernel.org/all/20260820111253.97866-1-phucduc.bui@gmail.com/
+
+Changes in v2:
+ - Update the cover letter.
+ - Drop patch 5 from v1.
+ - Add Fixes tags.
+
+Best regards,
+Phuc
+bui duc phuc (4):
+  ASoC: mediatek: mt8186: fix APLL mux setting error handling
+  ASoC: mediatek: mt8186: Fix AFE clock error handling
+  ASoC: mediatek: mt8186: Fix APLL enable error handling
+  ASoC: mediatek: mt8186: Fix MCK error handling
+
+ sound/soc/mediatek/mt8186/mt8186-afe-clk.c | 103 ++++++++++++++-------
+ 1 file changed, 71 insertions(+), 32 deletions(-)
+
 -- 
 2.43.0
 
