@@ -4,54 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41130C5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:53:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C2BC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cdt1dFPAQC3KfJYerMZNMs9WcRyMdKt8cJfu1JXIZ1I=; b=txdJz5VymeBwzULIxtwsVu7PCN
-	1n6OU8QPcRXy48d57IzoaQP+4QgLseH2PJi1dZLngo6Meu9rk93VN4kddcuVfkjKd+geG6YwCbBPs
-	kjaBJ5BiibsuWp5/XPQVzXVtXdqu8zJYm8mtb83NY2II8eDm3mX+8Li9ZvVL7yCeuF8BX8AlzjpJC
-	Edcex6122BodX0a2FZyPhR2xWYk9yEp4QrYZorsRZvPYftE9UzyWxwywzbt36/nJVRtX/fAD4/z4m
-	eKBPTeQN5HkN4SFQazjKQKhRyO9Fk1v/ejcwRcZk80nbK4WrNNMh75UY0iGAi8gDq89XdAPdJdifp
-	+WKLkybA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e4MzLIKdVcx/R3G/gHJETc70ma/fOUw5XK2bbIYAJnQ=; b=WJ9IK4R7DqV6zAWlKbJ3Gfvt9a
+	akNhBeSGXEi8USE9eN3d8+vmcPuSrU7jmT02gc1RciN0ZUQZlPntanY1k6aUBZXTkr/yjYb9Volyy
+	Rh0uNenV5DmesWBRnhGqm9IgYiTVd1T/Iu96faatiU1E+52rxaqq7WBlNJ8K6M0zKv9zhHkvUhw0O
+	1muDYraiMaetpK10jO6zoKnFjbzJj9MVOXlq6hh6ldR6tsiwq40P8sHlIBwEkJy4tJt2HE0ZByQFF
+	U7h9uAK/tZd3dgNIAtn1fXPymL9Wx7smwklzTqPDUK7AZMvR+0X8wTVPAzcEhPnS6tiwNCMm6fv73
+	glMbMNtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxKza-0000000Cpq5-1YlS;
-	Fri, 21 Aug 2026 08:52:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxKzR-0000000Cpl8-0z8p
+	id 1wxL2W-0000000CqaQ-3M8E;
+	Fri, 21 Aug 2026 08:55:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wxL2U-0000000CqZJ-00xA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 08:52:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7CFE561836;
-	Fri, 21 Aug 2026 08:52:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E55311F000E9;
-	Fri, 21 Aug 2026 08:52:37 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Liviu Dudau <liviu.dudau@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-tegra@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 2/2] soc/tegra: pmc: Make sure clk_init_data is fully initialized
-Date: Fri, 21 Aug 2026 10:52:25 +0200
-Message-ID: <70aca0e57b9900db051aade5a1af2e42c4d30ea5.1787239869.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1787239869.git.geert+renesas@glider.be>
-References: <cover.1787239869.git.geert+renesas@glider.be>
+	Fri, 21 Aug 2026 08:55:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B9E71596;
+	Fri, 21 Aug 2026 01:55:45 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 085EB3F66F;
+	Fri, 21 Aug 2026 01:55:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787302548; bh=wcdTd5B/RaOOWV5qretAunfQFbsYHOpwzyHoWc18erI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TWdFNY3b68iy0MWDcR3xLM88mOwb4xQ08AlfOCA1myAiymVJh+Tw6lBpIILF/CvNR
+	 VSseBE1KnZG9LMpSHVGBtblrEpb18HK5IF3Ih1BHtw1ZxB00xBPKLFbHZ7TvhMCp9Y
+	 OEOZvff9FSOJmW4QdM0vtk6Ul7ejpOvX3sL+26fI=
+Date: Fri, 21 Aug 2026 09:55:44 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Muhammad Usama Anjum <usama.anjum@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Amit Daniel Kachhap <amit.kachhap@arm.com>,
+	Mark Brown <broonie@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+	open list <linux-kernel@vger.kernel.org>,
+	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>,
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH 4/4] selftest/arm64: Add MTE test config fragment
+Message-ID: <aogSkJxWf9QndjuE@arm.com>
+References: <20260820153331.2448875-1-usama.anjum@arm.com>
+ <20260820153331.2448875-5-usama.anjum@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260820153331.2448875-5-usama.anjum@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260821_015550_407242_0F4508C3 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,47 +77,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The clk_init_data structure contains several mutually-exclusive members
-for different methods to specify the possible parents of a clock,
-prompting drivers to initialize only the members they need.  However,
-not initializing all members may cause subtle issues, which are only
-exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
-enabled.
+On Thu, Aug 20, 2026 at 04:33:26PM +0100, Muhammad Usama Anjum wrote:
+> The arm64 selftest collection has no Kconfig fragment, so kernels built
+> with the selftest requirements are not guaranteed to provide the support
+> used by the MTE tests.
+> 
+> Add a fragment covering the userspace MTE and tagged-address ABIs, KSM
+> and its sysfs interface, explicit HugeTLB mappings and their proc/sysctl
+> interfaces, and tmpfs-backed file mappings.
+> 
+> Do not request NUMA solely for the optional KSM merge_across_nodes.
+> 
+> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
+> ---
+>  tools/testing/selftests/arm64/mte/config | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>  create mode 100644 tools/testing/selftests/arm64/mte/config
+> 
+> diff --git a/tools/testing/selftests/arm64/mte/config b/tools/testing/selftests/arm64/mte/config
+> new file mode 100644
+> index 0000000000000..8587ce70c294a
+> --- /dev/null
+> +++ b/tools/testing/selftests/arm64/mte/config
+> @@ -0,0 +1,8 @@
+> +CONFIG_ARM64_MTE=y
+> +CONFIG_ARM64_TAGGED_ADDR_ABI=y
+> +CONFIG_HUGETLBFS=y
+> +CONFIG_KSM=y
+> +CONFIG_PROC_FS=y
+> +CONFIG_SYSCTL=y
 
-Make sure all members are fully initialized, to avoid such bugs, and to
-prevent future breakage when converting drivers to a different method
-for specifying the parents.
+You may want CONFIG_PROC_SYSCTL.
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-Compile-tested only.
----
- drivers/soc/tegra/pmc.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+> +CONFIG_SYSFS=y
+> +CONFIG_TMPFS=y
 
-diff --git a/drivers/soc/tegra/pmc.c b/drivers/soc/tegra/pmc.c
-index 41ed716d5857317d..c42e28fe2b8b0ff9 100644
---- a/drivers/soc/tegra/pmc.c
-+++ b/drivers/soc/tegra/pmc.c
-@@ -2694,7 +2694,7 @@ tegra_pmc_clk_out_register(struct tegra_pmc *pmc,
- 			   const struct pmc_clk_init_data *data,
- 			   unsigned long offset)
- {
--	struct clk_init_data init;
-+	struct clk_init_data init = {};
- 	struct pmc_clk *pmc_clk;
- 
- 	pmc_clk = devm_kzalloc(pmc->dev, sizeof(*pmc_clk), GFP_KERNEL);
-@@ -2752,7 +2752,7 @@ tegra_pmc_clk_gate_register(struct tegra_pmc *pmc, const char *name,
- 			    const char *parent_name, unsigned long offset,
- 			    u32 shift)
- {
--	struct clk_init_data init;
-+	struct clk_init_data init = {};
- 	struct pmc_clk_gate *gate;
- 
- 	gate = devm_kzalloc(pmc->dev, sizeof(*gate), GFP_KERNEL);
+These are all covered by defconfig. Are these fragments still necessary?
+Or are they supposed to work on custom configs? If the latter EXPERT may
+be set, hence the PROC_SYSCTL above. You probably also need SHMEM.
+
 -- 
-2.43.0
-
+Catalin
 
