@@ -4,130 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5852C5DF89
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 15:09:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F6F5C5DF89
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 15:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=usC3DNBBIj4TQugu5d3XwlmyqLcAb1e/M5i7z3Gh1qo=; b=Bl2+wgTRrDVbpiQLs8oMtUmbMF
-	CLpnE3ChD7mvq72A1SAUlvq+IcPPWPHc0te1pJ5E4pTq2p2ZFcTTZ6ey3x1UpGlFRKuQQBT8UG5Yo
-	6Iz7azr0lwcS8XS5msX80pO28mODN1M3NFaGufd6hg06c5IH9pTLEjiatLmodNoDQqIk6QKOx4MfQ
-	4YJ345kVVIjCtn73+KcQpRY9RWu5sFRQ6IKzSyZy1nJpnHsz6mvgBfnfL5t9Z3W1sM+eXOGVIOjae
-	Jki9NQd2mJIqtnadDr4+Pl6yxj7jBaD4bcURRw/VlMLfi2oOrdTDbCkOoC5Bjk+HdfM65/ooB2e6h
-	+KSUaEqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h8jP/MvrXSs70WMEBo5IA2IeHY9qdWxXWvVO2bIo13w=; b=M/0hSB7cB7DVsv4oPd8/nIjZaV
+	LRrgfGuo6wjOwVdWonX8pU6cYlaVb3ih3+cMtoXAgpJaSX+5E/ZkdSB957q8kwH2iGsyLQl3eo70p
+	lc5uF729MNLaN/6o3AhU4DfGDIBYA/Ol26KVMPwGhOBdk/4PA1pE9PZ7B5bXCM/D96GnjiQ5uPQZX
+	KnY4LF0HP+ONp9crYvLJ63XpXnMD4Jni1JAQszZXBDTi026w46sU5yoFb9jIOI8Lr8W6Cm/KLeeKT
+	veZTe8D2zVP+YHcpkpy6UKemHgrVyC6qDdiWsIF9ZZpDvHfi2zZx5bHQ87bc2mW6RwuaVD7zr9pfM
+	+KfgtAUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQsF-0000000Dd9n-1BBN;
-	Fri, 21 Aug 2026 15:09:39 +0000
-Received: from mail-francesouthazon11011047.outbound.protection.outlook.com ([40.107.130.47] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wxQss-0000000DdGG-2NgF;
+	Fri, 21 Aug 2026 15:10:18 +0000
+Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQsC-0000000Dd8u-3ud9
+	id 1wxQsp-0000000DdED-0KSZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 15:09:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SBWdnuvlDeYpG4NrUVlGRoZPofTDx1dCohczhnr9hSUOdYQT3sY61SeJ5Ss/tmkD9JSVUftnkhOHU04YNhoVraxyLp40+rOBox407WBW3slFyyStksZxgZb+qHwq3Yqgtv1fWGRzNA6fxK78nuSn7iW3a7PV/7I2IxWz1l8SFwPIT32aMX4POObiVRSojzbAHZLA+wpZLGs+K4iTz69olIOyfhkb6crkeAXTzMUtvU/ZV954COvFVTWJvq9Arwq/t8qmcFQkig4IgAFSlPWa3Dqp78AclG9iNfcw1Xa8xJ+Dw+M274eQwFTu6Kd6KtIgwv32lBZ9DwZusHOT1o+hcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=usC3DNBBIj4TQugu5d3XwlmyqLcAb1e/M5i7z3Gh1qo=;
- b=jGa6jiT5mbyl8s13xzuwg7eAGJ9NDIdlLVERnxs/U7F0R9nnE6shg81MkaA8YGX1vcckySECVxV948Di5b/TONFMSjOdl4p3vA2iwkzRreRjaQSiD8SNLnkcy32yAef/YIqiu50d59iO2NCREVOfzmYGvMz1dVMNJUolNq4THkzZeHXIUl6WSCRCg3wuZBofU3mFTjwdem04kV3i2EjRQsPMG+aM4YZsmIx39LLl5T5S6jxOUoGmnf6UD2CK/WPhTcAxfq2yOnCagCjS6eS9EhBtnz0J7kiN0cXgldCFhR1xS3/+md4y0BmtyqC3QfKERbFIdVPxjg438Hci5aFKTw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=usC3DNBBIj4TQugu5d3XwlmyqLcAb1e/M5i7z3Gh1qo=;
- b=SfmqDlJEdLr1cpcDmPQeQ6QbCws/VpaEhYki1l4dJ4NDJi0jwIz3MJld9ztcGGsqvAT6XZP6huIufYez8akw5u9kMkIdFNAYAM9+XKliSFkW7MWB0Yozxcs1NDIDmAuqlabaNSfnHlG0h9YadMMDZ7RlZ12fVW9RfuOYxOQ7wTsl6/7DA39sDkZxbVdeDPj2mt6Xa5gNWirKsItG4kX9Qg9a8uswgzHAtkgSfePa2g/U9ldzmUhbdYMf5xQ8fDG/UE0HwL7fHWjeok4sXY3hwKP0qtMMS4xy+BMWQ7+Iqs3TH6Y3kK+Ez3/wDEJC/su8kl3MnoweYnRGo5iSFWj33g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA2PR04MB10279.eurprd04.prod.outlook.com (2603:10a6:102:406::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.11; Fri, 21 Aug
- 2026 15:09:32 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.008; Fri, 21 Aug 2026
- 15:09:32 +0000
-Date: Fri, 21 Aug 2026 10:09:22 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: "Golla, Nagendra" <Nagendra.Golla@amd.com>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, michal.simek@amd.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	rafael@kernel.org, git@amd.com, dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH V3 1/6] dmaengine: zynqmp_dma: Fix PM usage count
- handling in probe error path
-Message-ID: <aohqItUOivG0UXhC@SMW015318>
-References: <20260810100452.426320-1-nagendra.golla@amd.com>
- <20260810100452.426320-2-nagendra.golla@amd.com>
- <antKJr1N3A111W_V@SMW015318>
- <25b9e249-053f-4560-ab3c-eaa30bf0b240@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <25b9e249-053f-4560-ab3c-eaa30bf0b240@amd.com>
-X-ClientProxiedBy: PH8P221CA0023.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:2d8::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 21 Aug 2026 15:10:16 +0000
+Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-66ce4a63e17so1258736d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 08:10:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787325011; cv=none;
+        d=google.com; s=arc-20260327;
+        b=U1cHPXH/l48dRYBSmXnG6CJ9gJFa3L7ZCQK25NiA3hYwq+X2QrUG3nOR8aUq7nGMoD
+         CYqp2yB3fi+Gu9VN/yzxk93PvHgaHae3ibWG0okJsmXkLF+pqgWvUflO8olhcqPg3wWT
+         UYpm4fuqN7EY6JmNPqJPXiHZ8FS4GXFZ2o4XCSDscBLEsOHglfMyLSijokqLnsbuGa8q
+         /drMAbUj9l4FDzrRijAERS/5VNVsXksd4bhIBN4minQLoEYbq8YuCuUemqHG0n0IxUQU
+         O2s1W+Vl+4Wbc9CjHF2YoLFTPxRVozjjXD/9n2YbIchAMEKWG0WXFwyTtw5vLQLK4XDs
+         fw9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=h8jP/MvrXSs70WMEBo5IA2IeHY9qdWxXWvVO2bIo13w=;
+        fh=dOtxxkxqWAP0KXEF2RIQfMsN+oQL/4OCGHNm7vad/Qk=;
+        b=SG/OcpQIbXeO/h0blW5WSL7zYG88OVqeLOWwc9KjEnA88uJnHDDIscBJg/G27zif71
+         lVPeGQMZ9G/qFr4GpEEtxNT2eg2XHciFFQ9aNsL5mjxjpXAhYrGXgZ0dL8mOYzGJd9g3
+         kgbOdH+gTrc6h7JiZQPsijTtzJkBHcUfuI8WYMKebNXcvBPAx/ho2Z7HW8YppnPej4j1
+         UmB3fH3wIOWARqB1zrEHiLxIB27EEGWqD/cc7xl1dc3ut+fTR9U0ASkZLSlD8kOZ5/QP
+         W3Axxc4rfs2Ly41ynFFN/D17d2EMl4+yG4fVB48OMlnzP1Gxffi2bu3dEgY5DH2WhDgS
+         LAOw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787325011; x=1787929811; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=h8jP/MvrXSs70WMEBo5IA2IeHY9qdWxXWvVO2bIo13w=;
+        b=T5W12H3JrM2GotFkd7Yrt5rON8quLtzcoxl2mIU4lW0aKiJSc8nwqTc4atXZ6AlSSh
+         fJ2ougAo1E2OPqXD3H69QUmVC/SX8bt+uD8axHPnbM+A31aGIo3WiutqJRu0Fmg2s2ki
+         KugHdkZKjm+I7UzBkiRGnCeBm6sLbOnL4Km4b7vsVm0GXh6ZgVsWJF3ZixxDkqqS3+vV
+         T70FK7SOb6a3n0UzKUeozqLhjBysPgDkEV3i4BkQ9dsY4XdzAvhGqXv7Hl5ImZOPlReW
+         FqZn4pIxivhklayb0NSi1AkEYdVqKirr3nezWKX+z5ZaRScZk1BbWgBlGjBXwXUGu1P5
+         Aokg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787325011; x=1787929811;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=h8jP/MvrXSs70WMEBo5IA2IeHY9qdWxXWvVO2bIo13w=;
+        b=j6HDa8v86grrI5aF2Iv4/91WizoIcGwr/e1prYn+zE9M83kttdeuWb0e7fpTjBl5mV
+         P/IiApnzWuPdeTC8qZ4n29whx/21k0B9hx1hjVHuZIXyEqwuvR4PlgQWkifsuwRFi+Ci
+         C1Q8q87MdPmXaaFfhpwQ+bSi6GMNWsdA514b0SiqfJmq7b5Zd5MV45i69f05wrPkzio0
+         Gr/DMQHEcUfiQb/yLy2WWXQ5zNn41l3AgU/yL5QnVpc/2HN0qgd6A2sMb6cDgp1hWxby
+         Ox/ZzZCEbEh63Ynj5H5eBYEbWey6vurYfyJ8ZVnUt5x8cQboX4qpxePeFC59GAq+r+oG
+         J43A==
+X-Forwarded-Encrypted: i=1; AHgh+RpbK+ujx0J0xNO1lEJ1ma0XhYNHmuCdBLTdAtDVsKq6HgHgKWe+n7O7ZFti0lamBLOFU11LJ4HzWTr/c0JeYZqS@lists.infradead.org
+X-Gm-Message-State: AFuF++nXYnksvHbz4KNmqRxsP4yG+bDBmZ1R4dpbRZ+f5gygdLNVULR9
+	qXevkhj3Z5bsXnB0glS4k7Qor3gjVplE0QrF0HbcpWUnG26pFzZBXvHtnwpjSxTEDYqo1y05nZF
+	xp1MjUGaefrnInHjvcrWJpw51ynvyZ6E=
+X-Gm-Gg: AR+sD10BNATLdCmO8flYb+ZMbEx4pMcFVh9CvfotT2tuh4KJPHDRzbUxj80Ubs1kzhP
+	hgsfABXWDutnHPZqCnfLIOSBt6ipZPt8MQywsalBWBLSgf6uBqfbKHNtrgntykTfodWRdHdNhjJ
+	I/HyPq8cqGd5FvcXyQ/+K4GQ8cCkkjhJuf/rNwmaUpVOYS1u5uVEC/ml2RuSF+XPAqmvLP9/SWC
+	eXP4d7x7Yxdy0uN9xpnGrOEeBYyi3jF8Uf00JmEEnylRp81l4Gix7z9x2bCEYhZscMaweL4FdPd
+	8tG+UEcRM3YiB7rKfnytlIARm3nJJ31aLWcv5jZ/fNsvmRq/ms9hJPYxTZjLhl+3U29N9D//ROW
+	oK7U=
+X-Received: by 2002:a53:dccc:0:b0:66b:ee21:4852 with SMTP id
+ 956f58d0204a3-66ce4a1321amr1957781d50.13.1787325010568; Fri, 21 Aug 2026
+ 08:10:10 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA2PR04MB10279:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3e971bc0-3205-4610-c06f-08deff963429
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|23010399003|19092799006|1800799024|18002099003|22082099003|56012099006|11063799006|4143699003|10067099003;
-X-Microsoft-Antispam-Message-Info: UoEtNOi7EUn5fnnr/oW+F/czsBEgUUui2/iMboUVOuL5vOb7KipkRVqZ7UT1p3QbPUeupEzmUaE+l80ZU51vIZOqIWtPEYSokFVX9YhmOP9gydkb8aEGVIs7mfOTPas1JkP9DuyJZswCfqanatsCeMei1y1SNcotg95aehvgABtH357q+cpe7pacZkF2TX6vrl1yfYD7UgaJgWNMVCU6RKMxt2mxrZoI+ZAUElY7H7aZBSkmEGGjdw0AGqIvBeGocWiUDhZwdeJLeEBClqVTs/ln5EkB28bV2i4WCNOcSyqhC12ac0UWM+5O9hHrk+qv+1FjGTPBYOiMgq/LF72o1cvAKaeE6nZy7HE9VrA6MUay0YBpUpr4DLYJP7PGiJIQhS0tGkSKmrG432LSg4W9pGnF/HpP4Yewzq8zfD6El1oQ2xSIDHSKDyQGYTXHqec0bc7ACn0tq0vqJD7/4B9pvWcZiZvkO8vYC3OzmEUHu+Co4cWTpAJSviCtiCnxdq+CBoeNWuOSAbqU9LIKKF4cfFXbwEH8Wun/jCBQCTNJz8EeHIVjhJuwmUUqkX0A/v5ursJynRk8m4gtYsLexhyiCruYZZsLm6pOsRdkcVtZznirNSSh0+zOYY0SurwZdfkSbkxZmhyJuYjp/0p9gv5Fg5faUWyKnXP9dClLgMJr4sI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(23010399003)(19092799006)(1800799024)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?q5sSk6d3HEIVOD285KSnx6kVwCYnTsPtriFbT6DS4rjYsTChmvZWBisj4FJR?=
- =?us-ascii?Q?KCC/j226xfOfhx2GPbBK1QwoCYKseR8O++BIf2prD2uuLThqyo+WKKUlIOnc?=
- =?us-ascii?Q?TBA0TedVGJKOYcGIYwezZgrVv2GleSn0eZ2clL0XXlMhp5CiajXEDhHi+/o9?=
- =?us-ascii?Q?EdYRf4gr4PPctMsNlouxdmRc3/ciyERPvpFe2vNbniDUh4wn/QxH3+U6pMzC?=
- =?us-ascii?Q?/Ha9eL8hWncHb8TPnqqFsjaJCsMM2aVs6vQ0P4GTRyWsDfDi2a33ZHobmHK6?=
- =?us-ascii?Q?IUfctZa74iKOLnN9X9BhPuRzBiTaeuscWd7WxxByXHe+z4QdnYGbCVPkJNYP?=
- =?us-ascii?Q?DfD6hf2NklUmagSY/O0xeZIcPQ3+a1FPYjGshuuYlY+kTzE+JahGPzf9RrPx?=
- =?us-ascii?Q?i15lFLcQhTLRbZ9Zgz59+UqRODxKA2FSvZzZoiwAdFs6Fh9BjPGRcy+TJk8B?=
- =?us-ascii?Q?geVLBdjOsuzX4TpE5E4ErBhYEiApQ/AbxmmwGQICkKGvQLhVGlwPrNr+bCYJ?=
- =?us-ascii?Q?mUM8S2wDdOmde9uR8D7TBp5FAFUdZCSEYZEJGxTZhyEpe4BmPjsFdxcnmK2D?=
- =?us-ascii?Q?T/laNSlYxSWOeXcidtDsUBqhuPjPDbJOaPD++s3DZ7fdJCDx4/oBKPPOCJEj?=
- =?us-ascii?Q?TXtN9EQUxHP5vls7/ErcSu8cX++dC5bG3GCurXqdJ8tOPi/RYhsiQ2eg2pqP?=
- =?us-ascii?Q?Zb3Ykz7KRWbMfkEt7Tfa74D2KqNuSOv8eYTbGGGFqIPPKAighuNH6+YmxZaT?=
- =?us-ascii?Q?cN99NzIc75uWQ7c0tHSh9CL9UeBGgoCcu57Qj2ROVfkDo2y1BvclqEVTTSjh?=
- =?us-ascii?Q?v+82g91FZZCxf3nmLruE8sg0f3V0KYQktJr7OMVOUqVMd9AiDeC+kpvTlBDe?=
- =?us-ascii?Q?a6sT/uHYMdv7kBAmG+XAbcAe90p+x5nhRf5q9rZv+x1Aos4n+VrUH13Gq6eZ?=
- =?us-ascii?Q?zOoDbb6pRsfbmIET1hX7v2f8P6BKcDiJD8IeflgYqO8SAjtiWTsbnYOGrfX8?=
- =?us-ascii?Q?GYgX8HIJrTfGwLBXH0pvNhFEfroKnw2EHJpylfA8yh3RlrrOwDOLq8Gw7liP?=
- =?us-ascii?Q?86xxmabQuWuFAzg01MELiOcMeGYMIir2CmqgKyw+/byRwqTONnQUHw/LZpRo?=
- =?us-ascii?Q?bNJDwu9r0sp/79R3Z1QZr9s1+47D5AKoLnZ1Bk2MeJ2VP8KA8rrhaCTMVexr?=
- =?us-ascii?Q?2X4SFP4VR2by+6oHyvrLwci94CvWL806aIjiIvr+V4PP96k2vuNqVX/E6/EN?=
- =?us-ascii?Q?byxm6D35xsj4hu8kywpENOIuvvOBeOG56SPZbXQ9aTF2xfaazaC53kywL15s?=
- =?us-ascii?Q?5xtOJteVqYbCfcTP0/oNH6Ydq4n9eeYN1MdKDT27wVY+ggl974mntzAvY5bf?=
- =?us-ascii?Q?bUuo2SYoPewrk0ZGirpkgmQsy/hYXkHkS6ucm5M6jaoAAG3Uwa+v+HJ1c8jZ?=
- =?us-ascii?Q?ltV4dvNH+c+Q9Xd0TsjNAopZZtTgYMB5qFkzZE1RhnhukErJJrEnKTlIBTxD?=
- =?us-ascii?Q?yk2FeozzRka7hfdu+5rSnrw2VUxHvSYJgyFAiITfSW4DLlu+nDfUtKNZI9cv?=
- =?us-ascii?Q?C0KH+QBVLHp5jt3Tja7wP8+vrhlZ5xEkrfhkCjsEmbEhMYp9FAnPj7/YWew4?=
- =?us-ascii?Q?beuAuL/AMj4rWKY+HVV6hKjuLSTQMHXqiKRU5RM7VE5MR7xq+4+n3c0PvUHg?=
- =?us-ascii?Q?gry5aftZvTUfXpamsS2P7idKEbl5411a3SuOYBVCSPYJpqAV5f7XCmBrP9Sl?=
- =?us-ascii?Q?4y85Lpf8wUvPTF9q26luZbxDme9rlh6s1wVwoGQGK+3HoxzJevG3?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3e971bc0-3205-4610-c06f-08deff963429
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 15:09:32.1235
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: e/4gN2nckKpyKWwC8fcNi/dUzf30V4UH4t/fLPHNlpIa/SKmzn5R5J5qKxuSu9PVJ0a2D6ms8T4mTydHEU2i57D5xqBB1xsmWiAK/0gdRabdZsqxG1l3eM8DIn6tb+B5
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10279
+References: <20260819093226.193385-1-zhaoping.shu@mediatek.com>
+ <CAF=yD-Lx7aHQEr6MN7D8LBp9ctZz3B3dmfsyhLbPxWaiK1UBzw@mail.gmail.com> <ef026015528638cb69404f22976479515251e4d5.camel@mediatek.com>
+In-Reply-To: <ef026015528638cb69404f22976479515251e4d5.camel@mediatek.com>
+From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+Date: Fri, 21 Aug 2026 11:09:33 -0400
+X-Gm-Features: AcwNN1WIhUj4DkwKagzxOfTG0D1RVHOFkdHA6O1sbDTgVBzQt97XErr-O1wBuek
+Message-ID: <CAF=yD-JOVSLoasxQHnRE-mvS_oQZ7f=wHeCc7nxBgw2g_4-C8g@mail.gmail.com>
+Subject: Re: [PATCH net v4] net: gro: Fix nesting of TCP GSO SKBs in skb_gro_receive_list()
+To: =?UTF-8?B?Wmhhb3BpbmcgU2h1ICjoiJLlj6zlubMp?= <Zhaoping.Shu@mediatek.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
+	"dsahern@kernel.org" <dsahern@kernel.org>, =?UTF-8?B?SFcgSGUgKOS9leS8nyk=?= <HW.He@mediatek.com>, 
+	=?UTF-8?B?SGFpanVuIExpdSAo5YiY5rW35YabKQ==?= <haijun.liu@mediatek.com>, 
+	"horms@kernel.org" <horms@kernel.org>, "kuba@kernel.org" <kuba@kernel.org>, 
+	=?UTF-8?B?WGlheXUgWmhhbmcgKOW8oOWkj+Wuhyk=?= <Xiayu.Zhang@mediatek.com>, 
+	"pabeni@redhat.com" <pabeni@redhat.com>, "edumazet@google.com" <edumazet@google.com>, 
+	"willemb@google.com" <willemb@google.com>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	=?UTF-8?B?TGFtYmVydCBXYW5nICjnjovkvJ8p?= <Lambert.Wang@mediatek.com>, 
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "davem@davemloft.net" <davem@davemloft.net>, 
+	"kuniyu@google.com" <kuniyu@google.com>, "ncardwell@google.com" <ncardwell@google.com>, 
+	=?UTF-8?B?SXZlbiBZYW5nICjpmLPlhYkp?= <Iven.Yang@mediatek.com>, 
+	Steffen Klassert <steffen.klassert@secunet.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_080936_974798_D97BC2BD 
-X-CRM114-Status: GOOD (  31.64  )
+X-CRM114-CacheID: sfid-20260821_081015_126003_A17B41A1 
+X-CRM114-Status: GOOD (  28.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,83 +131,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 09:57:49AM +0530, Golla, Nagendra wrote:
-> Hi Frank
->
-> On 8/11/2026 9:43 PM, Frank Li wrote:
-> > On Mon, Aug 10, 2026 at 03:34:47PM +0530, Golla Nagendra wrote:
-> > > When pm_runtime_resume_and_get() succeeds during probe, it increments
-> > > the usage count and enables clocks. If a later step (e.g., channel
-> > > probe) fails, the error path only called pm_runtime_disable() without
-> > > a matching pm_runtime_put_sync(), leaking the reference and the clock
-> > > enable.
+> > > @@ -395,12 +396,20 @@ static void tcp4_check_fraglist_gro(struct
+> > > list_head *head, struct sk_buff *skb,
+> > >         struct net *net;
+> > >         int iif, sdif;
 > > >
-> > > Add an else branch to drop the usage count acquired by
-> > > pm_runtime_resume_and_get() when runtime PM is still enabled, letting
-> > > the PM core suspend/disable clocks on the success-then-later-failure
-> > > path.
-> > >
-> > > Fixes: 64c6f7da8c2c ("dmaengine: zynqmp_dma: Add runtime pm support")
-> > > Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
-> > > ---
-> > > Changes in V3:
-> > > - New patch: split from V2 2/3 per Frank Li's review to keep the PM usage
-> > >    count fix separate from the per-channel reset changes
-> > > ---
-> > >   drivers/dma/xilinx/zynqmp_dma.c | 2 ++
-> > >   1 file changed, 2 insertions(+)
-> > >
-> > > diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-> > > index f6a812e49ddc..87986f65d24c 100644
-> > > --- a/drivers/dma/xilinx/zynqmp_dma.c
-> > > +++ b/drivers/dma/xilinx/zynqmp_dma.c
-> > > @@ -1152,6 +1152,8 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
-> > >   err_disable_pm:
-> > >   	if (!pm_runtime_enabled(zdev->dev))
+> > > -       if (likely(!(skb->dev->features & NETIF_F_GRO_FRAGLIST)))
+> > > -               return;
+> > > -
+> > >         p =3D tcp_gro_lookup(head, th);
+> > >         if (p) {
+> > > -               NAPI_GRO_CB(skb)->is_flist =3D NAPI_GRO_CB(p)-
+> > > >is_flist;
+> > > +               /* flist GRO applies to consecutive non-GSO skbs */
+> > > +               if (!skb_is_gso(skb) || !NAPI_GRO_CB(p)->is_flist)
+> > > {
+> > > +                       NAPI_GRO_CB(skb)->is_flist =3D
+> > > NAPI_GRO_CB(p)->is_flist;
+> > > +                       return;
+> > > +               }
+> > > +
+> > > +               /* Fall back to the regular GRO path */
+> > > +               if (NAPI_GRO_CB(p)->count =3D=3D 1)
+> > > +                       NAPI_GRO_CB(p)->is_flist =3D 0;
+> > > +
+> > > +               NAPI_GRO_CB(skb)->is_flist =3D 0;
+> > > +
 > >
-> > You just enable runtime pm above few lines.  Is it for CONFIG_PM?
+> > This reduces the chance to have to flush, by downgrading fraglist GRO
+> > packets if a hardware GRO packet is detected at the stage (count =3D=3D
+> > 1)
+> > where fraglist is not enabled in practice.
 > >
-> > You should check return value of pm_runtime_enable(), or change to use
+> > This is quite a bit of complexity. And if hardware GRO is enabled,
+> > what
+> > are the odds in practice that the device does not produce any
+> > hardware
+> > GRO packets, yet the software GRO stack is capable of assembling
+> > signficant GSO packets. I suspect low.
 > >
-> > devm_pm_runtime_enable().
-> >
-> > if devm_runtime_enable() failure, you can direct return. Need check
-> > pm_runtime_enabled() here again.
-> >
-> > >   		zynqmp_dma_runtime_suspend(zdev->dev);
-> > > +	else
-> > > +		pm_runtime_put_sync(zdev->dev);
-> >
-> > This one suggest use PM acquire to fix this.
-> Thanks for the review
+> > The solution is technically correct. But would simply disabling
+> > fraglist
+> > GRO when hardware GRO is enabled not be simpler? Or only keeping
+> > the flush and avoiding this micro-optimization.
 >
-> The probe error path already holds a reference from
-> pm_runtime_resume_and_get().Using PM_RUNTIME_ACQUIRE_IF_ACTIVE() here would
-
-My means replace pm_runtime_resume_and_get() with PM_RUNTIME_ACQUIRE_IF_ACTIVE()
-
-> acquire a second reference on top of the existing one incrementing the usage
-> count to 2, and the guard releasing one at scope exit would still leave one
-> leaked reference. The guard is designed for cases where no reference is held
-> yet (like the IRQ handler). Here we just need to release the one existing
-
-call pm_runtime_put() before return 0 at probe, which have not hold
-runtime pm count for IRQ.
-
-Frank
-
-> reference, so i am using the pm_runtime_put_sync_suspend().
+> In V2, for the tethering scenario, we directly flush GSO packets.
+> This is the simplest way to address the reported issue,
+> but those packets can no longer be aggregated by regular GRO.
+> This is the main difference from V4 and Jakub pointed out this issue.
 >
-> Thanks,
-> Nagendra
-> >
-> > Frank
-> >
-> > >   	pm_runtime_disable(zdev->dev);
-> > >   	return ret;
-> > >   }
-> > > --
-> > > 2.43.7
-> > >
+> V3 disables fraglist GRO when hardware GRO is enabled.
+> The additional suggestion for V3 is =E2=80=9Creplace these
+> datapath checks by disabling it at configuration time in
+> netdev_fix_features.=E2=80=9D
+> However, if we disable NETIF_F_GRO_FRAGLIST in netdev_fix_features,
+> UDP packets will also can't aggregate by fraglist. This will affect
+> UDP performance.
 >
+> V4 is more complex than V2, but it can maximize the number of
+> packets aggregated by GRO. It works similarly to how regular
+> GRO tries to further aggregate TCP GSO packets.
+>
+> This is a trade-off between code complexity and
+> the GRO aggregation rate. You can choose either approach.
+> If you have another solution in mind, please let me know.
+
+So this code is there only to allow UDP to use fraglist software
+aggregation mode while HW-GRO handles TCP aggregation
+And fraglist aggregation is only really useful in the forwarding
+case.
+
+The benefit over non-fraglist aggregation is moderate. I'm
+a skeptical that maintaining extra code for this edge case
+targets a significant workload and is worth it. Open to other
+opinions. But i'd just fall back onto non-fraglist broadly.
+
+If keeping the optimization, the patch needs to be respun with
+both the commit-msg clarifications, and a Link to this discussion.
 
