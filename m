@@ -4,102 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE932C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 14:59:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A481C5DF89
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 15:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OmCssIUI07ufWPm/xfAJqm7bns7S+UOY74WOaOcLcEg=; b=EZzpCvFnWCtGJ1iQ9R6SU6RyVX
-	dXVgc/U6KauLzbI2IOnWLjWulpmYiaHxr40/tlOciewB5c2a2m8HYlpRMn9UswurGH+kobS3eNmYI
-	gCXhkE4qW4tE7nE2z3IHUOyU+i3K1lTIvGWSfCX0jHqUVfSt0jxrqtVVP+vyVFya7owOxwq+vMFM6
-	5nzTSOY/XisVRpIyLAEL/IkVpAhTzfQByTAYbdZMHi3yEEBXOuD99eKMqHqywmA6wSPTFtvMKXvdW
-	5EqKE/YSk7mAMwymQvIDJRv3fA6RomibtX9/fwKkQkNAmE6k3ehmejUFI8jWyELByoWe044liVKGZ
-	gg4eA4kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OprH4HtsVY/lU92oB6iSztSUPttSsElEEDcfoW2P6M8=; b=CSUt4QeZrbrnIa3tg41LWW15IH
+	TmyS9KWzHoAIDMYgpv5ikNu+WG7Z8ntG+mlgoFof9zib7RJKYTuypKijJMYHGKTHnZGSJ4Tc3lvzA
+	lSlbPwpkRW4VrCCkWikf7/1Ev1dVDm2H5s2wd+vfMLyPltwO4t+YUcUXPyiMfnvDkwTMurVJqvQ8G
+	zljOd/zZiSep/aNevrD+/LNoiMHUblyu9ieiJlmVY/0/GPSnJSsuEdH8esATZilTmmkseRu4m5oA5
+	QzeFEnz7T0EqP3czt44fVsINqcbSEQ6ckos4MqDpsWQqqhSbCsT1sKd3qJTDngRQDT1IDFW92rhc8
+	DRAQkb7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQiR-0000000Dbzm-1bjd;
-	Fri, 21 Aug 2026 14:59:31 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1wxQjc-0000000DcKh-1KB3;
+	Fri, 21 Aug 2026 15:00:44 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQiM-0000000DbxS-3070
+	id 1wxQj9-0000000DcCv-4916
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 14:59:27 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6a41191c9a9so2374171a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 07:59:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787324365; x=1787929165; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=OmCssIUI07ufWPm/xfAJqm7bns7S+UOY74WOaOcLcEg=;
-        b=m7yr5Xa4QedakrPmqsSihDowTt2eFVccQGKH3V6AxnK5EP6FBqnSjC4hSIVYL33dqG
-         F5miazt9GLCTR22nI+rba4R9vUNwK/Auxcu2L4doRX+Vk3AKvXfxqShc5cfNfOA6e2qc
-         Lj3gBHTpjIYAwIjTdCN/4CI3j6sdOhSLucv5+8685rVybvvl6k6shqmBTf0lNq12r4iy
-         hNGKMm1Mgvpzdlx6/X1CTPWXTkSm1inS9kMBk50Ol4tk8SnBYo3bZDHwMvmDsh8sHPLm
-         aJh0c4JuHdg0zJWUoFfDsfBar44FTq6YGUB71ANqvukvXzKl0X3FhN1fVaDNzFepcg2k
-         acnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787324365; x=1787929165;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OmCssIUI07ufWPm/xfAJqm7bns7S+UOY74WOaOcLcEg=;
-        b=WCCXBlBeuldrtR8N9tNwP33Y+TGwZ8MRmki5QmJTNgtV0rC6Ldcr3xSIf6R8IBVxaQ
-         W172Lu67oLVY89YbPL8gp7xHtaqqZwU03pm78XDd771dzaSBWexWvDNukJ8CTfJJ1nrl
-         jNHu29aPbPyPaYGPWxhFoyjuWRx5qF46v45qfxLYBZcCCc+Av3ckT5fFe97xN++F0fPp
-         9QL519+D9knYfFoa2JF1RKuBZgGZwdf64ZMTNuj0o9CvT2G94HvdS0dGwoYQdeQKD4nT
-         4tsw9zi1+ERAJXybo5eUBXyh9oNzBuqB1+z83dTx/r0H5oFIUHikgjHm0mHfFliRGSmJ
-         mA/Q==
-X-Forwarded-Encrypted: i=1; AHgh+RofO1r6HL9kbUvYa139z8pgUy1nSzTHG1ispuyF+kPMkT59PPrI/od2fqW1bEDwvkJsET42Ln8XyUCRDGTo3MHW@lists.infradead.org
-X-Gm-Message-State: AFuF++l0x4+3saoCXl/kZ/NgkvYgm2r7GXf1FEoQQ2oeK0lV5BKNBXAV
-	BsE22z/KOxNPKuoe4zqpprbwafwgqbDf2umqtIq/iu7BsEKJP5V/+ZevEYvW0Pe1
-X-Gm-Gg: AR+sD10kg3SdVJiOMOaAdTBa44Os3sDAJROMR4nW+PwEjlypIvUKHmveGpmFczFVLgA
-	luzLVXG3eE/IOje3QcRpqBpS7QNO6v0iKrjdglMMbHWEvsZOcXupNOwvpQWd+WEXdaBVuexPc/5
-	g9f+GwIxAlL29S71Gj+Q/p6Di/bWLO6eA4DXG1GZqBM5w+zoFlOiQmA4f+g+hHrj0dEwwcafDpy
-	GRpMvcpNV7D2ET+uNbLq1+ChDXtGlFlzwBm+Xh4rvnUo6mDT6S4WTO8EFl72lDVXQs6tPhK6NZj
-	FOi+vLzTmFfTaxpSNDJ25Jgcpa23x5TngGEe0kbu1jSlYUJR4KQD/QSTY1xrkJ1W1y8eBKt5E1a
-	zKjuL/z5SZRD9gF+6WsYaJ5hh/o94cI5d5iuxHr1OTFCqOVgyma4e/liY90W70d4zF0KtzgvB4c
-	XhdNlXRhgPwU6Ewr5VL7HdSs0/rw5g/mXc0ySpNO9LvOyw4wq/qCAoQNuymByxiVKFMpC1ppSrh
-	uT6Zqa/Guen6P2kvWSjmvRm+rV91ol3BxDq9NNSemgq/qq2zhdyAeecmWbrjOW5IFlj6npjmeNB
-	OWVD3YCNThdWH7Dkxt43quDs56YyKUwUfrC5Dw==
-X-Received: by 2002:a05:6402:5406:b0:698:c13e:179a with SMTP id 4fb4d7f45d1cf-6a42f1bcdb3mr7491043a12.10.1787324364681;
-        Fri, 21 Aug 2026 07:59:24 -0700 (PDT)
-Received: from [127.0.1.1] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a411971b19sm6577066a12.11.2026.08.21.07.59.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 07:59:24 -0700 (PDT)
-From: Franz Schnyder <fra.schnyder@gmail.com>
-Date: Fri, 21 Aug 2026 16:58:58 +0200
-Subject: [PATCH 2/2] arm64: dts: apalis-imx8: Add USB HSIC support
+	Fri, 21 Aug 2026 15:00:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XdEcNrP5/18ZixNkDx63Nl4wPWNPi0tLilLMrdgdpdTloq0Eo17nJh7dxyKh+pT8EQi8otVL3BxyrGs6excacVzV7N58/lWZ1hETVQDJffls51xXHS0j6Gz/3ejq7zreFWI69u6dwIoaNi16QsIYTRnU7vSf/ePRVcNLVFK6yUWqWmcRoaZ4dqjoEdRU03Isdv/Wm4XLg0eJLh3+JKAWar+MTQHV9Ie1s+FbJWnxChDPGyIMQnLSsyx+db49r+REhAmwjDHzlWAv+MAm7q4IB1PMF/uR3K6wg9MQ4h4bSaSffTGGHFZAgDd3EyNC6uDTvLLefSAm5Q62i7FNrHBdiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OprH4HtsVY/lU92oB6iSztSUPttSsElEEDcfoW2P6M8=;
+ b=biEwXTzpseK7LK6icm3Ez8H6oSa+0kql4Lwrw2Cj/M4/8sOq+7WEf0FIViFfaG/brsZPRXM0jeY4wu8/bZuXHc3FZteLT+hyJJ9nlfCJ8dbeBlAuOibv/nvFmQ+gTX9jL7OB2spxg+4NXFZVem3Bsb1kpMlj2CP7q/FGfMDa6WtdEjn+0pC6JPo0g8/RbdXhFtluegtDA+vXM7+JNyDTwDdBvITxqpI13VhpE9qxSOrp+srVpmPuC3DBRUmf1LQ4bBI5VjMZHF/Cg5rn6IbkcAA8oij6k25kRijqcvPh3NVtMaK+KzzRamgsHaX5yN3UtiIiK7TQ5FH/pz1CGqoqow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OprH4HtsVY/lU92oB6iSztSUPttSsElEEDcfoW2P6M8=;
+ b=oxqQxYHdbeaxqMKipdXeVhJuUAh2koO6+yKcs9j21UxF4Zlz9GNQM+QQ9x9AZRFnRKgcBG7OFw9uMKcF/zMZHfCVlshaBymErDWl8nW5FBgbQghN9zkioZE/ex7sM/fhcppKy5OveaJabC/zcECubMovXnyB1wXwYBGBSYkb9HAV7ls5STETOMz3okbHxObPrjEU04rpncnXlkWSCShOrvvg8ioJKkHcxt0BkRt3MfqIoIoLs8Uy2aR3ghigbG44E050ePtzfB/2Rb96ETYIxxGVLRG0jJfqfauqCUcMRHhs4AJHIabyIPoCfG6RMTkx7gDygdWN2jq3QICAt33WfQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AMZPR04MB897483.eurprd04.prod.outlook.com (2603:10a6:20b:7ca::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.11; Fri, 21 Aug
+ 2026 15:00:11 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.008; Fri, 21 Aug 2026
+ 15:00:11 +0000
+Date: Fri, 21 Aug 2026 10:00:03 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Md Rabbani <rabbanyhmm@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Linus Walleij <linusw@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] pinctrl: freescale: imx1: Fix device node leaks in
+ imx1_pinctrl_dt_is_flat_functions()
+Message-ID: <aohn8ybsXRBcbw5t@SMW015318>
+References: <20260821050813.739-1-rabbanyhmm@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260821050813.739-1-rabbanyhmm@gmail.com>
+X-ClientProxiedBy: SA9PR03CA0004.namprd03.prod.outlook.com
+ (2603:10b6:806:20::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260821-add-apalis-imx8-usbhsic-v1-2-fb93d73ead44@toradex.com>
-References: <20260821-add-apalis-imx8-usbhsic-v1-0-fb93d73ead44@toradex.com>
-In-Reply-To: <20260821-add-apalis-imx8-usbhsic-v1-0-fb93d73ead44@toradex.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Francesco Dolcini <francesco@dolcini.it>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-pm@vger.kernel.org, linux-usb@vger.kernel.org, 
- Franz Schnyder <franz.schnyder@toradex.com>
-X-Mailer: b4 0.15.2
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AMZPR04MB897483:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3ea978d2-4fe2-49df-a206-08deff94e5df
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|19092799006|366016|376014|22082099003|18002099003|56012099006|10067099003|11063799006|6133799003;
+X-Microsoft-Antispam-Message-Info: LDF436dL84PKbZ9CFId8waNzOx61Kod4p44z8HI6vR/dGxlrVaZD4vSV/UbHZom1lHNWZ+rt8LoJqV76z4WTEzZUZgpTE4LF0tb/ziqNB6LQs2fOgnM86uDGrUquH1gZBWgexixFNBFUxVB0YbcFE6jNzv/V5m6Qg6ZWm1M2ghJKCL3GAhXzUqFG1K53LZNUt3wE6vW+RbzPv69/Eo4qZURAidA6VXl88Dp8lMjbqFlcksAcJS/Ajz9aLUuFul7eFDlZzaqF1bnNO8JRrsjdsDZUoy3zKPus9zRXUzmXfxGPS2Ao/qqBy+bvFB8uWK3K1m2lw34K1NrKNZcaw/EbACYKolunyLwbmEFh5obPeKL7i7uRGmzXyV51PzFo9HqNQs2BTJ8HAITXnOxYqNhN/7vwy0ZwTJRWDdFR5FZLGPf9/1Sp2ilC6eSH0T1dbu3yXWSzgirhwMBugzIKikIaB4aFYnDZvn75Mj3S+C2HpkYwnXTIvVOkK+KxbwPIMG5Q2wgTb+YYyYzMrV19jwEKhkWoBheRxkbnO0QMI7uXTLANoTF2f5WZ9jQRoxoWzlga+zrfQN+mN6tgacNsB1weTfW/a2/MIy+NO86zok8QQZEDnc8oUw+Jz+gRBBFhhkIQa96KMrOARRzQJ6xYnmhErQ5F2x1jij8elGA6ARcQmlY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(19092799006)(366016)(376014)(22082099003)(18002099003)(56012099006)(10067099003)(11063799006)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tgeSr48bwXxvzQ1tL9iN+YBHFvIt6BAiIGulg6XRqzGbn76o53mb+BzQq0Kd?=
+ =?us-ascii?Q?ITMX2F+vZkmAWaYTPr+0YwzmG2mpQrKYsoJmG11ivB4zuA5A374NSwwY5fme?=
+ =?us-ascii?Q?5B3OUyxMY7fEOvNWpuKeHGdf5vL8s4fmC/no88jeC9XtIU0bp4EHuG1Od8mI?=
+ =?us-ascii?Q?1omr2ITPLjXfdZ6pQWDOwQZaQMX+T9P+NI+oXYIdJdXNYTIT3sz8zOdxzNKn?=
+ =?us-ascii?Q?G1zohxBqIF+d0rV9Gk8IE9WaFoWmH0bQ0+bO6saL4CFpIpESp9X2kWc7RZbx?=
+ =?us-ascii?Q?DpeCZe/MpQ+oDK5GNtYjZ/FFXaATpNNPlUVus46Vc7XP95bLj/nzJvZzFD6E?=
+ =?us-ascii?Q?fU2j5SmR6VFwqGS0GepWgSVkM1r51YCh0ChFVlOEUMThSdtw/1gTY74oOlhX?=
+ =?us-ascii?Q?UFDL7WqZMpXkJe/W1Q+Foh/A+5COFZWejcAF6sPOt+VWks3wnHLcaV3qbDhR?=
+ =?us-ascii?Q?TOZne07AZhkyyMbWW1lIXW5T5VqjFEQDTOpBrGCYZ6Z21JremWlzyMgLHDbG?=
+ =?us-ascii?Q?/efMcGa9NFuHAldTxQdnh2zVk8EiiESIyMAr3ka/a5Kd307eN83S8MY3ynHQ?=
+ =?us-ascii?Q?dPMo/dQnXqsmNoi66jZxbyuCY0k5JJWbVPiNZr1NGztexaWO0X8S7QoBcymz?=
+ =?us-ascii?Q?hMiWH52mIp3M1IwA6dKiH4o0YRdBpAigkiJHb29NON+64rOyAd42F0ubkDQa?=
+ =?us-ascii?Q?mA+DvH+m5TjS2Uk/EwxqGWiXYM9fJyjFR/oS9Ob0odNlI2zIZmBDln0chEzd?=
+ =?us-ascii?Q?ThV323/9dsOi8FF04FnJCLTkhjKBj9oZ4DI2ttAsCAPeDnCIAktGi31ytcQ6?=
+ =?us-ascii?Q?wP1DHK/OqrdpYfRvMbqa0zt1mMWxXD7BYX6z6oxpBGoDvY9+DkBDx955NN64?=
+ =?us-ascii?Q?zE82H6kkENHzWZFDFxhSxLfAViDVXPTdsfSBb7zXygTyRa6wZPHrWMeN+IVJ?=
+ =?us-ascii?Q?yMd67B+pRrlMT+nug6nSF7KTK4tmxGSdppsWcBuiheVCzxmpKF6mb5ArlzQf?=
+ =?us-ascii?Q?ppiPnCAD3SevuJNP5DSWXNjpc1W9tc1mIHntXtUCP7Db9Otkzqtz0J+e3XT3?=
+ =?us-ascii?Q?7E4AxD4A96R4BRWTkMfjP+eCE6KXPogJKb/Bi4ORQrTNrFAvP5QZLym37wwE?=
+ =?us-ascii?Q?oUXCF90NrJJiEdy3+w2VcoHFes7JdUv/jvNFzwrpuAGsFvrFK1Y9Xgyc9Ui5?=
+ =?us-ascii?Q?8+lYvoavG1ZJIZuOTgUTfYtN01hkdUCaH730fEwzl612e7ga4z4R+LXC2xwE?=
+ =?us-ascii?Q?2Bv/0wPoHKQZeaaMOXmWG8sWwJxZjEgK6bbih3OpktYPQ2I2SyVMSbOsoZ/j?=
+ =?us-ascii?Q?15pzoHrDlQomHQiqMtljN1gFO/G9n9Enp2zBW0w78OhX49+GPEM9pY0Bw1kg?=
+ =?us-ascii?Q?1qhkmLnXR1O1dBULqmITvp0lWFpRqEuleTq6IUrLo43nR8mnljPWVQxarkHQ?=
+ =?us-ascii?Q?4GYUjkrX5So5+eHh+iHG2QGUxUTAc51srg2f9vDKRCa5CPPW/Yv3fPGJTPxR?=
+ =?us-ascii?Q?OV+At7JQRPo8U1FK+rOGJtQuzJB4MWzI9V6g8qSYVOoAtKIqF43h0DIUwlDI?=
+ =?us-ascii?Q?WOYs9xOgSPL8lQstgK3iNNxtabzMvE7T3Wua3Kvj1Gm+OLt3ZKd7yUV6lSm/?=
+ =?us-ascii?Q?OQAq+4DNaxn/2e3J1pnoTZKyhEpnIOpCq+hdVNIeOe37Kco6NL8ZKDpJmfpC?=
+ =?us-ascii?Q?Gf4o/7u3ZH8sOUAzWqeOytLzta5QISnsJBNP4ClfyvpvpEveaRceV62rdF2T?=
+ =?us-ascii?Q?GhWc8NWwmB8lyee4NyGU5LmwU7C9HguBV4S/8H9iJx79/n5hTxou?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3ea978d2-4fe2-49df-a206-08deff94e5df
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 15:00:11.3997
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RP3auwNZpLmWSE5Hh77sxrQrfLqxyI0hHUs/pg7nXEmXatNtoHmp05z/UaASOoOuX0B2f0DcmOiLCVJsUOahE7ciuADusNP0MTolpHpzHC9kVZ7sA4DpDrgOg6zRYCqd
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMZPR04MB897483
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_075926_787576_AD8B7E49 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20260821_080016_494325_A23C2A9F 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,98 +140,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Franz Schnyder <franz.schnyder@toradex.com>
+On Fri, Aug 21, 2026 at 11:08:13AM +0600, Md Rabbani wrote:
+> [You don't often get email from rabbanyhmm@gmail.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> imx1_pinctrl_dt_is_flat_functions() uses for_each_child_of_node() to
+> iterate over child and grandchild nodes. When the function returns
+> early upon finding an "fsl,pins" property, it does not release the
+> acquired device_node references, leaking their reference counts.
+>
+> Switch to for_each_child_of_node_scoped() to automatically drop the
+> node references on early return and loop exit, matching the pattern used
+> in pinctrl-imx.c and elsewhere in this driver.
+>
+> Signed-off-by: Md Rabbani <rabbanyhmm@gmail.com>
+> ---
 
-Enable the USB HSIC host path on Apalis iMX8 modules.
+Manush Prajwal already post the same patch
 
-Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
----
- arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi      |  6 +++++-
- .../arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi |  6 +++++-
- .../arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi |  6 +++++-
- arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi      | 16 +++++++++++++++-
- 4 files changed, 30 insertions(+), 4 deletions(-)
+https://lore.kernel.org/imx/20260814190527.969-1-manushprajwal555@gmail.com/
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi
-index 6f5af37ba9af9..1d4e92f674f87 100644
---- a/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi
-@@ -133,7 +133,11 @@ &spdif0 {
- 	status = "okay";
- };
- 
--/* TODO: Apalis USBH2, Apalis USBH3 and on-module Wi-Fi via on-module HSIC Hub */
-+/* Apalis USBH2, Apalis USBH3 and on-module Wi-Fi via on-module HSIC Hub */
-+&usbh1 {
-+	vbus-supply = <&reg_usb_host_vbus>;
-+	status = "okay";
-+};
- 
- /* Apalis USBO1 */
- &usbotg1 {
-diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi
-index 93f485140b20c..68fb2eb8c7e67 100644
---- a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi
-@@ -222,7 +222,11 @@ &spdif0 {
- 	status = "okay";
- };
- 
--/* TODO: Apalis USBH2, Apalis USBH3 and on-module Wi-Fi via on-module HSIC Hub */
-+/* Apalis USBH2, Apalis USBH3 and on-module Wi-Fi via on-module HSIC Hub */
-+&usbh1 {
-+	vbus-supply = <&reg_usb_host_vbus>;
-+	status = "okay";
-+};
- 
- /* Apalis USBO1 */
- &usbotg1 {
-diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi
-index 5c86bcee55fb7..baf09624fb27c 100644
---- a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi
-@@ -271,7 +271,11 @@ &spdif0 {
- 	status = "okay";
- };
- 
--/* TODO: Apalis USBH2, Apalis USBH3 and on-module Wi-Fi via on-module HSIC Hub */
-+/* Apalis USBH2, Apalis USBH3 and on-module Wi-Fi via on-module HSIC Hub */
-+&usbh1 {
-+	vbus-supply = <&reg_usb_host_vbus>;
-+	status = "okay";
-+};
- 
- /* Apalis USBO1 */
- &usbotg1 {
-diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
-index 681f24810d52e..64604f91d5673 100644
---- a/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi
-@@ -870,7 +870,21 @@ &spdif0 {
- 	status = "okay";
- };
- 
--/* TODO: Apalis USBH2, Apalis USBH3 and on-module Wi-Fi via on-module HSIC Hub */
-+/* Apalis USBH2, Apalis USBH3 and on-module Wi-Fi via on-module HSIC Hub */
-+&usbh1 {
-+	pinctrl-names = "idle", "active";
-+	pinctrl-0 = <&pinctrl_usb_hsic_idle>;
-+	pinctrl-1 = <&pinctrl_usb_hsic_active>;
-+	adp-disable;
-+	disable-over-current;
-+	hnp-disable;
-+	srp-disable;
-+	status = "disabled";
-+};
-+
-+&usbphynop2 {
-+	status = "okay";
-+};
- 
- /* Apalis USBH4 */
- &usb3_phy {
-
--- 
-2.43.0
-
+Frank
+>  drivers/pinctrl/freescale/pinctrl-imx1-core.c | 7 ++-----
+>  1 file changed, 2 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/pinctrl/freescale/pinctrl-imx1-core.c b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+> index b7bd4ef9c0..4a6bdaefa4 100644
+> --- a/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+> +++ b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+> @@ -547,14 +547,11 @@ static int imx1_pinctrl_parse_functions(struct device_node *np,
+>   */
+>  static bool imx1_pinctrl_dt_is_flat_functions(struct device_node *np)
+>  {
+> -       struct device_node *function_np;
+> -       struct device_node *pinctrl_np;
+> -
+> -       for_each_child_of_node(np, function_np) {
+> +       for_each_child_of_node_scoped(np, function_np) {
+>                 if (of_property_present(function_np, "fsl,pins"))
+>                         return true;
+>
+> -               for_each_child_of_node(function_np, pinctrl_np) {
+> +               for_each_child_of_node_scoped(function_np, pinctrl_np) {
+>                         if (of_property_present(pinctrl_np, "fsl,pins"))
+>                                 return false;
+>                 }
+> --
+> 2.55.0.windows.3
+>
+>
 
