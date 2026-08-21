@@ -4,74 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C798C5DF89
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60438C5DF89
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wml9GtmjLkoEwpaZ0ookkzC/nT7/APO1rgKTmijjSY0=; b=pNO2ltOQzhTDgNMC/OCTGqdqW1
-	XscMYyALlREJtZMPwNAtBHxPbuqqD8vhi79ZXOF1N1L/79GxqGDk63wX9w7TDOswDId7FXEI0jTGq
-	vpoUXvCGoVFMNwOFLl76H1JuW5ccFzSdfcCJNJVzNvYkkLBmESl16EtJ0Gk+YtSOYMVz8ihGp8tMA
-	vw8z1lNAD+8S9pd5j9ep03mU6Wbe15XjW9vA4z9+iqN2xf1WvolcFClZ0HNeSCecYTDqB5cg6n9ya
-	tEcR2MQu4ItMUcpEe7lMXbjJNTHOZ2ibQ2aqDVadJkZEP/nnOSfz1Ff8YPq6DkWGgUKPK85en+DGI
-	SGPvKm2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cOrddxMe438IsC7xeJkXYhGEPOhIf02MCjyvV84OxAQ=; b=hz2HPyTqwtjNN33wvcCOSQCBWO
+	ZyB1EsFKBLzriQ4NZolEMYUhxJ5yfMi85LvtUBHomKrPwnWaM8oceu0yxy64T3KDZv83KC7LeUEvq
+	0st3kWcaetPWxpugEoZXbsY0J+qQsz17abVWR9OwAp9Fwm54ahH9QHtPkN/Xjss3ZSZuCPR95zPsL
+	zUkVTvNgR/FhnEiQxXEEeEXDDBTaDBLD1Z58+IzfjNDgrRBWzOlv9WUg2R18UA/sHuR3hvB4v0uJY
+	NypWnrU2YWCxpQRdYkzNJqmUnLFa6I/QtX07SfzTqcZ6KfgFdkJBJzQh9OcNfwAs9+MyhgUIo8+AG
+	MTt90skA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxOOe-0000000DK7z-3T0g;
-	Fri, 21 Aug 2026 12:30:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wxOOt-0000000DKG3-1TvN;
+	Fri, 21 Aug 2026 12:31:11 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxOOX-0000000DK2n-2exP
+	id 1wxOOd-0000000DK61-0pG4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 12:30:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA825600BC;
-	Fri, 21 Aug 2026 12:30:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27AC61F000E9;
-	Fri, 21 Aug 2026 12:30:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787315448;
-	bh=wml9GtmjLkoEwpaZ0ookkzC/nT7/APO1rgKTmijjSY0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bWavCip7Lx2VQnTOIA6fBLTuwlE0gki9ciaw3JW9ZLLSSubCcmGXIGuuVAdLbober
-	 tdLfuEgTjmoypoHDC/XJwphEgk9HceD1a76lQuSl3rGIUakQf6RiFQNHEY5yqu3BIN
-	 wNv8IaPe9KsG13if74hmjnqLtX/IUzEETjI2Ex7mSFd+a5037b02tK38MH/kKOCCT9
-	 ZExvmYQUIIyk/jjg9oafrDz+h4KFToR3ttqwunpg5i9S+sXf5Xc2qU6rp9LyjrAt31
-	 2VhuJ+bf4qFqHtn8uIuLm0Rc6cmfKdgyQz6Ocbibe+MhaF29V24af5EoNfBtUQs9CT
-	 DhYyPJgjBL6gA==
-Date: Fri, 21 Aug 2026 13:30:42 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>, Fuad Tabba <tabba@google.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v19 03/14] KVM: arm64: Manage GCS access and registers
- for guests
-Message-ID: <b15b02be-f1e0-4439-913b-d9803bdbf669@sirena.org.uk>
-References: <aoXamcdKoMynTkpX@LeoBrasDK>
- <48be9e5d-357a-4863-8682-8b3f34c69723@sirena.org.uk>
- <aobUGyq8nInJYkdA@LeoBrasDK>
- <97ad6e83-b22b-4881-b644-66fa99f68d64@sirena.org.uk>
- <aocOi3wjcliZqoe7@LeoBrasDK>
- <hwz52absjxap7n6olwt3lmjakmtgxxaku5gcofsrcfa45zdygh@dqgylcillnud>
+	Fri, 21 Aug 2026 12:30:58 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2d530328efbso8495755ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 05:30:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787315454; x=1787920254; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cOrddxMe438IsC7xeJkXYhGEPOhIf02MCjyvV84OxAQ=;
+        b=KIxlz8fS/qQmKkwoqlU9LdBlSQLtxhhPs+VuHkiTSluep4NR5llM6LkhJoNt2IqC6Y
+         +auTXpaZKDg5wEEBipbiRqlQ8phHmflqGujwVAIaOGBUYP9e4ZrKCyiazkp1Q5MpHETB
+         H6MxQ+clFV7QZSFx79OwKE/rJ9SG4pVNj4KyJxTx8msjhdb6TFkSZLhpWIgTxtxeOily
+         s777eaeuReN5rCT6wRTTlDwkN70wLdBBMWh/QyvKZ1iYhirPZTIe9HlddJwZP22vj0Kf
+         1bS2+2L+5sfsCp1Yfu69KyT9z+oQDlkN1BP2gJcdV1MKmuJSlI0dXvtvT5eZ5HZSPaRT
+         kc1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787315454; x=1787920254;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cOrddxMe438IsC7xeJkXYhGEPOhIf02MCjyvV84OxAQ=;
+        b=np0EBdwxqEXkU0PMSqZmCszyUELk7m1j9SZipReIVBiCM3YVxxLNGzkTBBMT4jO+YW
+         0KviqbEXF+bDoKNfU34g83jFEW8K7NLKTX3D1k1euk6A+3Qu80no2zpGSTjTVSpBquxI
+         dzfJhZN4++nxKDDZ0cOKX8+px2Tw6GgkM3wz8+VctdnKJnU8ajGSd76l8uPU/hCp9mVC
+         ARJGrf6wrcQXUi+PSCOUBnxdCFpGd738LSJPlwZX+hJTuW0qd9HT5nQRxsRM9O/sbnyF
+         HQw7ZQbuUgiSZ1Ykcf00tmB9gFaZhAuetywlxk6gxefVKcxPYm6GKiaSRzsf93yvVFpv
+         QZNg==
+X-Forwarded-Encrypted: i=1; AHgh+RqFzMh6/ISVoXLQCaupU5m9rpywLp7dqPDNzR902AI0EitHkjLLdAMJ4wSo5804fSNpQJNi1TLLIsLSkU1BipN/@lists.infradead.org
+X-Gm-Message-State: AFuF++krt8sioIQLN3FAvBg1ZLZmLsNxBBEHl6SX7cmoAUjdkRIsPwrp
+	RO4Pg3I9lJOhAjZSN/ojSiv0aa92yVO38Bywob+TBPhlbWVsEcGTMqcbc5qDmQ==
+X-Gm-Gg: AR+sD10LNgxKJvYY2f88ISmQVDuS8zMfikRlnPYx2zyp1RS+P7lFv6z753c7+vb9kt7
+	nTa/lDRiDuvowxHi5LHWSZa+iDv8HZfT+h/RCqGaP/RerpNVlQxPm2A0mBXHn4sPy7gXFx7crnr
+	N8Ybfq+eQCqiUtwRdZtxNVJl04n//Lgy1Qjtm7y8aUUF/oV3yYbMhLeUwXmaaGe4MeOWiSO0qhA
+	aB9wxDpSEH63OtRx5BJhEoXuzwIZ4ZSIpPLAfHVt4rsCc6cR1CBTY0VQVha/Uo5s1Y7RTP1DF0I
+	2xXt9GbApK0uxbFcfHNrMGy6MO+4GqvPcdwGrq0TNQFscpquiUAQ3kx6UL1pOXhvFkhqr4KIgXR
+	15RxD0XO7DEuVBfVoiWRYvmFaF4XJIh7jYqfbYuFD7hIdCEYlyq74fIrZ3hNsHqjDmpgmGMTOIL
+	DQ/TqIieDL2JGP5qamSAT/Uefmk7tgBRyvqaroIEvUe7hWWm3NpvL004A2kGwar+G1Tl4CkXF1g
+	36obAgwa+1YHocINqD0W31ANrbyuJ9kx0juY3InfNlpdeKTsPVDph7qnzfi8UxWmhMY6+d4iFdq
+	eSHY
+X-Received: by 2002:a17:903:3c6c:b0:2ca:9d5a:8b6c with SMTP id d9443c01a7336-2d64adc5f3emr120518305ad.5.1787315454282;
+        Fri, 21 Aug 2026 05:30:54 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d62e36e1besm18302235ad.53.2026.08.21.05.30.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Aug 2026 05:30:53 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Cezary Rojewski <cezary.rojewski@intel.com>,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH v2 4/4] ASoC: mediatek: mt8186: Fix MCK error handling
+Date: Fri, 21 Aug 2026 19:30:21 +0700
+Message-ID: <20260821123021.41390-5-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260821123021.41390-1-phucduc.bui@gmail.com>
+References: <20260821123021.41390-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="QXlPIPOjLDpcKmaK"
-Content-Disposition: inline
-In-Reply-To: <hwz52absjxap7n6olwt3lmjakmtgxxaku5gcofsrcfa45zdygh@dqgylcillnud>
-X-Cookie: Package sold by weight, not volume.
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260821_053055_528832_BC33244B 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,50 +109,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: bui duc phuc <phucduc.bui@gmail.com>
 
---QXlPIPOjLDpcKmaK
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The mt8186_mck_enable() function returns immediately when a clock
+operation fails, leaving previously enabled clocks active.
 
-On Fri, Aug 21, 2026 at 12:39:08AM +0100, Wei-Lin Chang wrote:
+Add error paths to disable previously enabled clocks before returning
+the error.
 
-> Hey I feel the question wasn't answered completely :)
+Fixes: 55b423d5623c ("ASoC: mediatek: mt8186: support audio clock control in platform driver")
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
+ sound/soc/mediatek/mt8186/mt8186-afe-clk.c | 17 +++++++++++++----
+ 1 file changed, 13 insertions(+), 4 deletions(-)
 
-> Here is the reason for the asymmetric save restore (besides the tcr2
-> part):
+diff --git a/sound/soc/mediatek/mt8186/mt8186-afe-clk.c b/sound/soc/mediatek/mt8186/mt8186-afe-clk.c
+index d6b0174e2655..8cc8eb8022b5 100644
+--- a/sound/soc/mediatek/mt8186/mt8186-afe-clk.c
++++ b/sound/soc/mediatek/mt8186/mt8186-afe-clk.c
+@@ -528,7 +528,7 @@ int mt8186_mck_enable(struct mtk_base_afe *afe, int mck_id, int rate)
+ 		if (ret) {
+ 			dev_err(afe->dev, "%s(), clk_prepare_enable %s fail %d\n",
+ 				__func__, aud_clks[m_sel_id], ret);
+-			return ret;
++			goto ERR_ENABLE_MCLK;
+ 		}
+ 		ret = clk_set_parent(afe_priv->clk[m_sel_id],
+ 				     afe_priv->clk[apll_clk_id]);
+@@ -536,7 +536,7 @@ int mt8186_mck_enable(struct mtk_base_afe *afe, int mck_id, int rate)
+ 			dev_err(afe->dev, "%s(), clk_set_parent %s-%s fail %d\n",
+ 				__func__, aud_clks[m_sel_id],
+ 				aud_clks[apll_clk_id], ret);
+-			return ret;
++			goto ERR_SELECT_MCLK;
+ 		}
+ 	}
+ 
+@@ -545,16 +545,25 @@ int mt8186_mck_enable(struct mtk_base_afe *afe, int mck_id, int rate)
+ 	if (ret) {
+ 		dev_err(afe->dev, "%s(), clk_prepare_enable %s fail %d\n",
+ 			__func__, aud_clks[div_clk_id], ret);
+-		return ret;
++		goto ERR_ENABLE_MCLK_DIV;
+ 	}
+ 	ret = clk_set_rate(afe_priv->clk[div_clk_id], rate);
+ 	if (ret) {
+ 		dev_err(afe->dev, "%s(), clk_set_rate %s, rate %d, fail %d\n",
+ 			__func__, aud_clks[div_clk_id], rate, ret);
+-		return ret;
++		goto ERR_SET_MCLK_RATE;
+ 	}
+ 
+ 	return 0;
++
++ERR_SET_MCLK_RATE:
++	clk_disable_unprepare(afe_priv->clk[div_clk_id]);
++ERR_ENABLE_MCLK_DIV:
++ERR_SELECT_MCLK:
++	if (m_sel_id >= 0)
++		clk_disable_unprepare(afe_priv->clk[m_sel_id]);
++ERR_ENABLE_MCLK:
++	return ret;
+ }
+ 
+ void mt8186_mck_disable(struct mtk_base_afe *afe, int mck_id)
+-- 
+2.43.0
 
-...
-
-> Quite a few other registers are saved only if guest E2H == 1 because of
-> the same reason.
-
-There's a big comment in the code about saving in the E2H case only in
-the existing code FWIW:
-
-	/*
-	 * In VHE mode those registers are compatible between EL1 and EL2,
-	 * and the guest uses the _EL1 versions on the CPU naturally.
-	 * So we save them into their _EL2 versions here.
-	 * For nVHE mode we trap accesses to those registers, so our
-	 * _EL2 copy in sys_regs[] is always up-to-date and we don't need
-	 * to save anything here.
-	 */
-	if (vcpu_el2_e2h_is_set(vcpu)) {
-
---QXlPIPOjLDpcKmaK
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqIRPEACgkQJNaLcl1U
-h9Drjgf/Vfk6QH5Vi22Te0vQDa4XeCH2ch4K7HUFQutlQ4xTEjHPq5hmy83/CXXx
-8CsmOBawMC79a2K3lr9cYQiWufkuEwzafLHmPumfTctLJvIIkfu1iIJel1+Guarx
-pOlPJRmPcwYMrjIqg2yFTpK8FlJAyMH/wZrotY3fgZR327dllHXRhWYUfawIP5Bm
-qmxLqyITLJu0pj1BC8pObGV1YUVfJFEEUSHmh6/HccTDJyXEPHZ+6NNlPciWD2bC
-4+02O/3xV+dduqjZeiyXgYiorZV5+UkYVwhLOuuepZ0SqPxzAciqA7/3AKHbWGKS
-1H3+8FzsA/oV9aCUqzsN/uQpzf8VRQ==
-=mXCE
------END PGP SIGNATURE-----
-
---QXlPIPOjLDpcKmaK--
 
