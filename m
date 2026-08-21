@@ -4,84 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA2FC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:54:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FEECC5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 10:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QTj1gaL36pmY1hUg85mdTN81uZ1cHwv626SRuWavoxo=; b=xJH6aoOmP0uIF7+gSJHBTFI6if
-	cV4snqfVwFnla1Wf3/m+pckNIENmUAIbC7q+Y2GB6SpTw94nm1D73c67/EOUK4v7il9mMQ2uGzbvV
-	UJqmCDthgFOf1NnO2LFGZLWmuLM6ZC2vjLOh81MNXE1ANmLbRNZcd0287Z9D0T+SNtXizopOrp+lG
-	jC7Abqi0ohZ7scCdnk8ho5MXTT0vOv5pMSw+lMlK3fcZ1WA9CEXnZJDns0Sclca5XlQVeaZc88K74
-	udNaKYZqo6yyGeSCQc6hH93vAPJ0td0vddATEZEuoNxVtZbTgz6Qtc1r1NAdcXvfHddZDMBvRz2J7
-	kGh10aOQ==;
+	bh=irmyV/0eSa9w7db6iLa2bBa2VlGeL5F1eUiaUcSYjjA=; b=dvTtWWiYlYZY5v1XZOBjefsh4y
+	yFT0CdFHvZo7aCAIjKCUuK1yMvHFoXQ5ciy2AgF4OGqptt2R2Db2yj6tFmw/aTW/df8To3qi4LYU9
+	AOtaH6X9JJRI6a4mgOJwQVpSNQ9D9yJxbdL2QrsB6ngYmmVVwAE9XwKcXsovogZjlS0XnWy+VPrM0
+	cGHbRlvCi57btm8e1hZyeI/r3AaVYMGGm0UIII4x1pM9TT5UWWxqqO+Fcnyq/m6wFJbERf3CI+1rC
+	A8L6y2Twtl59Zn6MR9xZqDrIWD9eIDJz3JkMWYSTs7npKgBWhTGbreO1ZNYmaLab4YgTI3RR8Cwau
+	wi14cfrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLxU-0000000CzQN-3F3h;
-	Fri, 21 Aug 2026 09:54:44 +0000
-Received: from [38.71.22.102] (helo=spam.axera-tech.com)
+	id 1wxM45-0000000D02g-1k4C;
+	Fri, 21 Aug 2026 10:01:33 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLxS-0000000CzOx-2Ah9
+	id 1wxM42-0000000D025-22eU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 09:54:43 +0000
-Received: from spam.axera-tech.com (localhost [127.0.0.2] (may be forged))
-	by spam.axera-tech.com with ESMTP id 67L9Vxtl010041
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 17:31:59 +0800 (+08)
-	(envelope-from lenghonglin@axera-tech.com)
-Received: from aixinexchange02.aixin-chip.com ([10.122.86.161])
-	by spam.axera-tech.com with ESMTPS id 67L9USlF009398
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 21 Aug 2026 17:30:34 +0800 (+08)
-	(envelope-from lenghonglin@axera-tech.com)
-Received: from [127.0.1.1] (10.126.103.103) by aixinexchange02.aixin-chip.com
- (10.122.86.161) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 21 Aug
- 2026 17:30:31 +0800
-From: Leng Honglin <lenghonglin@axera-tech.com>
-Date: Fri, 21 Aug 2026 17:30:05 +0800
-Subject: [PATCH 5/6] arm64: dts: axera: add AX650 Demo initial support
+	Fri, 21 Aug 2026 10:01:32 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-47f59f25ec4so432498f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 03:01:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1787306489; x=1787911289; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=irmyV/0eSa9w7db6iLa2bBa2VlGeL5F1eUiaUcSYjjA=;
+        b=utLBWE68lig/SqKIRQos5J75s09IOWc7yJk90WPvyFkTgLOOPIrxxzf2IEfBOnGPP5
+         dT8jze+wqcLLfiHdXih8Hdn2FZ7yGon0dfsrtQ4Miz8TINZFnXJDAscthA2prjA819Sb
+         xUIe3GAwWMKjxeWYITKXNFowOLQZuDxCtMHn6VmKj/AGEHxaX6/5m1P/k1qXUiGyzcnv
+         +BRmX9YFx5GpN0FfSOL0cK/3TZZNmWZdf+q6D0CrUmoQVzzqfamTF/pomlguFI8VVIRP
+         wF9Cz08LsfRCgTQkKhie6jjRvdMCD6UcnpnSCDK+EG2jxjRL9E4zSN9p7OXqOVLOYohN
+         MzfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787306489; x=1787911289;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=irmyV/0eSa9w7db6iLa2bBa2VlGeL5F1eUiaUcSYjjA=;
+        b=D9SYAeIo0jdCKlf7azjcEI9OmWQzNovntHnL+/XzqBxdRPMzQUK2fKmJNPdLxv2IEx
+         pXEHVzHOqbe1RvJUbh/S25EpgxM6mWDHPxMkQlsXdLUmiRBEVok9oBSY8TuI/vtQX8bK
+         rKarnYvIlhBmdr8wLptYSTFMZQ3sLwoq51Xlf8x3e1db5W4dqRZ5YZ35SBx/F3Dcb2nu
+         h+LmMgRLib3lqzghP89yuZzej0TsK968SjYpgP5Vx0Lq+MZXtCNjyXq+41qtwTIVL3Lg
+         MhmuVKK2GvaPukh4mO36boFSnKEHqheasUem32LUGGQEXVX7cIsnzuMITvp8MVygKrez
+         IT8w==
+X-Forwarded-Encrypted: i=1; AHgh+Rrs37kPxcmleWiQYMrUYndQYuim2Rh3LQZh0xy+Kssqk4LNcey/b4QUFOEqnhwO6YtocjbjXDRkWAm5Iy2BYFqK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyP7iUWRsrH2iHUuP4FJayuyoPt50if7grp9j+Gas4DsH3QGn1B
+	cV4tKOL4tTVYLfnPpgyfnwitxCiAH3gSKmKMUYJCL4zJl0XYPZHz7BJjiStZOZLxWrc=
+X-Gm-Gg: AR+sD12RJnrSa+nZ8oUILtD+6lGjOXOssGg6j7LhwxmHnO5YpE76PRnXbhW+TMqDD7w
+	mj2cO5IPucP3dlOvndnE8KqxRBlRyLY5CvR5liD/zIhhxiy0uohDdASGX/s8B5hRSxxSQ+8z3ZF
+	6kTg6F4ZzUfBEcuWHOZUAiLhFZAo4BMSZUSkzT9gQNVj2Wg/LActehGXNSnK/ZkqJii7+uOmpNB
+	GUwZY8Ztfc5f+lcU3kmg/QGUXPJzFudgXotbBm9mt+q83fcTYv1wQfe1BZFXY7Q7Q5Ff32kgshm
+	Gk9YYcxtOXpZ/3BqIlM/FafemvnUEuPjqvuw/Bb9PMlZrzhP44afPqnq/ELx/jZs8P2rFenCtSm
+	0Z1E6GasHzQ4D8s0S2oQvgtf7a7aXqUAsulUEHeg2DtCjyxZxNd67AySp7nDBznLliqntNsrn92
+	GOJMFOVs3YNeth+se+gaZ9eagtt2l8ttLqQi6JpnWjJgcyAZpSNLIAOUMAoIrE3vr4vA==
+X-Received: by 2002:a05:600c:4e47:b0:499:60bf:c6f7 with SMTP id 5b1f17b1804b1-499b8464503mr76563985e9.13.1787306488617;
+        Fri, 21 Aug 2026 03:01:28 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499b915c6ccsm21562555e9.13.2026.08.21.03.01.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Aug 2026 03:01:28 -0700 (PDT)
+Message-ID: <c7c42471-d537-4196-b78d-9c9aa6c87570@linaro.org>
+Date: Fri, 21 Aug 2026 11:01:26 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/6] coresight: perf: Retry failed HW_ID writes
+To: "coresight@lists.linaro.org" <coresight@lists.linaro.org>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Mike Leach <mike.leach@arm.com>,
+ Leo Yan <leo.yan@linux.dev>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+References: <20260821-james-cs-hw_id-output-failure-v1-0-9d532ddabcc3@linaro.org>
+ <20260821-james-cs-hw_id-output-failure-v1-6-9d532ddabcc3@linaro.org>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260821-james-cs-hw_id-output-failure-v1-6-9d532ddabcc3@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260821-ax650-v1-v1-5-e1b013938e6b@axera-tech.com>
-References: <20260821-ax650-v1-v1-0-e1b013938e6b@axera-tech.com>
-In-Reply-To: <20260821-ax650-v1-v1-0-e1b013938e6b@axera-tech.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Shi Zhicheng
-	<shizhicheng@axera-tech.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will
- Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Krzysztof Kozlowski
-	<krzk@kernel.org>,
-        Alexandre Belloni <alexandre.belloni@bootlin.com>,
-        Linus
- Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <soc@lists.linux.dev>,
-        Leng Honglin
-	<lenghonglin@axera-tech.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787304625; l=5267;
- i=lenghonglin@axera-tech.com; s=20260818; h=from:subject:message-id;
- bh=3X3wyaDmXz7D29E5a4YcUgpvoAFMmWNICN87b2MBl5s=;
- b=A+yOz1mzO41sVuKiZTa2jE7J5fAut/n6hrrXf1ySrHXQN0hbYy5z1gQPEIGfoDRDKYut1egrh
- H2hf2YunhUxADzQZ1JfZIgWAKSmnOpHwJpRpB92tD1zaO8h4LLpQIJA
-X-Developer-Key: i=lenghonglin@axera-tech.com; a=ed25519;
- pk=fo0agzxyiwbJZc3VZRLVthobvWCvq0qAViAw4TxhF80=
-X-Originating-IP: [10.126.103.103]
-X-ClientProxiedBy: aixinexchange02.aixin-chip.com (10.122.86.161) To
- aixinexchange02.aixin-chip.com (10.122.86.161)
-X-DKIM-Results: [10.122.86.161]; dkim=none;
-X-DNSRBL: 
-X-MAIL: spam.axera-tech.com 67L9Vxtl010041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_025442_877364_6EE78BD0 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20260821_030130_551922_A4725781 
+X-CRM114-Status: GOOD (  24.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,216 +113,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial device tree support for the Axera AX650 SoC and Demo board.
 
-Reviewed-by: Shi Zhicheng <shizhicheng@axera-tech.com>
-Signed-off-by: Leng Honglin <lenghonglin@axera-tech.com>
----
- arch/arm64/boot/dts/Makefile             |   1 +
- arch/arm64/boot/dts/axera/Makefile       |   3 +
- arch/arm64/boot/dts/axera/ax650-demo.dts |  30 +++++++
- arch/arm64/boot/dts/axera/ax650.dtsi     | 134 +++++++++++++++++++++++++++++++
- 4 files changed, 168 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-index fc726b215f12..93740acb553d 100644
---- a/arch/arm64/boot/dts/Makefile
-+++ b/arch/arm64/boot/dts/Makefile
-@@ -10,6 +10,7 @@ subdir-y += apm
- subdir-y += apple
- subdir-y += arm
- subdir-y += aspeed
-+subdir-y += axera
- subdir-y += axiado
- subdir-y += bitmain
- subdir-y += blaize
-diff --git a/arch/arm64/boot/dts/axera/Makefile b/arch/arm64/boot/dts/axera/Makefile
-new file mode 100644
-index 000000000000..76f436a9466a
---- /dev/null
-+++ b/arch/arm64/boot/dts/axera/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+dtb-$(CONFIG_ARCH_AXERA) += ax650-demo.dtb
-diff --git a/arch/arm64/boot/dts/axera/ax650-demo.dts b/arch/arm64/boot/dts/axera/ax650-demo.dts
-new file mode 100644
-index 000000000000..aef8f0516232
---- /dev/null
-+++ b/arch/arm64/boot/dts/axera/ax650-demo.dts
-@@ -0,0 +1,30 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2026 Axera Semiconductor Co., Ltd.
-+ */
-+
-+/dts-v1/;
-+
-+#include "ax650.dtsi"
-+
-+/ {
-+	model = "Axera AX650 Demo";
-+	compatible = "axera,ax650-demo", "axera,ax650";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	memory@100000000 {
-+		device_type = "memory";
-+		reg = <0x1 0x00000000 0x2 0x00000000>;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/axera/ax650.dtsi b/arch/arm64/boot/dts/axera/ax650.dtsi
-new file mode 100644
-index 000000000000..4fceaee81496
---- /dev/null
-+++ b/arch/arm64/boot/dts/axera/ax650.dtsi
-@@ -0,0 +1,134 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2026 Axera Semiconductor Co., Ltd.
-+ */
-+
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/ {
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		cpu0: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x0>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu1: cpu@100 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x100>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu2: cpu@200 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x200>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu3: cpu@300 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x300>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu4: cpu@400 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x400>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu5: cpu@500 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x500>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu6: cpu@600 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x600>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu7: cpu@700 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x700>;
-+			enable-method = "psci";
-+		};
-+	};
-+
-+	psci {
-+		compatible = "arm,psci-1.0";
-+		method = "smc";
-+	};
-+
-+	timer {
-+		compatible = "arm,armv8-timer";
-+		interrupts = <GIC_PPI 13
-+			(GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)>,
-+			<GIC_PPI 14
-+			(GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)>,
-+			<GIC_PPI 11
-+			(GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)>,
-+			<GIC_PPI 10
-+			(GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_HIGH)>;
-+	};
-+
-+	/* GIC-400 block base; register frames start at offset 0x1000. */
-+	gic: interrupt-controller@4900000 {
-+		compatible = "arm,gic-400";
-+		#interrupt-cells = <3>;
-+		#address-cells = <0>;
-+		interrupt-controller;
-+		reg = <0x0 0x4901000 0x0 0x1000>,
-+			<0x0 0x4902000 0x0 0x1000>,
-+			<0x0 0x4904000 0x0 0x2000>,
-+			<0x0 0x4906000 0x0 0x2000>;
-+	};
-+
-+	pmu {
-+		compatible = "arm,cortex-a55-pmu";
-+		interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>,
-+			<GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>,
-+			<GIC_SPI 82 IRQ_TYPE_LEVEL_HIGH>,
-+			<GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>,
-+			<GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>,
-+			<GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>,
-+			<GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>,
-+			<GIC_SPI 87 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-affinity = <&cpu0>, <&cpu1>, <&cpu2>, <&cpu3>,
-+			<&cpu4>, <&cpu5>, <&cpu6>, <&cpu7>;
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		uart0: serial@2016000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x02016000 0x0 0x400>;
-+			reg-shift = <2>;
-+			reg-io-width = <4>;
-+			clock-frequency = <200000000>;
-+			interrupts = <GIC_SPI 135 IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
-+		};
-+	};
-+};
+On 21/08/2026 10:50, James Clark wrote:
+> Don't set the aux_hwid_done bit when writes fail so that it can be
+> retried later if the ring buffer was full.
+> 
+> Add a second attempt on stop in case this session only has one call
+> to start. Otherwise there is no chance to retry and it isn't fixed by
+> not setting aux_hwid_done.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>   drivers/hwtracing/coresight/coresight-etm-perf.c | 52 +++++++++++++++---------
+>   1 file changed, 32 insertions(+), 20 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> index 09b21a711a87..0ffc5cd9c88f 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> @@ -536,6 +536,31 @@ static int etm_event_resume(struct coresight_path *path)
+>   	return ret;
+>   }
+>   
+> +static void etm_output_hw_id(struct perf_event *event,
+> +			     struct etm_event_data *event_data,
+> +			     struct coresight_path *path,
+> +			     struct coresight_device *sink)
+> +{
+> +	int cpu = smp_processor_id();
+> +	u64 hw_id;
+> +
+> +	/*
+> +	 * output cpu / trace ID in perf record, once for the lifetime
+> +	 * of the event.
+> +	 */
+> +	if (!cpumask_test_cpu(cpu, &event_data->aux_hwid_done)) {
+> +		hw_id = FIELD_PREP(CS_AUX_HW_ID_MAJOR_VERSION_MASK,
+> +				CS_AUX_HW_ID_MAJOR_VERSION);
+> +		hw_id |= FIELD_PREP(CS_AUX_HW_ID_MINOR_VERSION_MASK,
+> +				CS_AUX_HW_ID_MINOR_VERSION);
+> +		hw_id |= FIELD_PREP(CS_AUX_HW_ID_TRACE_ID_MASK, path->trace_id);
+> +		hw_id |= FIELD_PREP(CS_AUX_HW_ID_SINK_ID_MASK, coresight_get_sink_id(sink));
+> +
+> +		if (!perf_report_aux_output_id(event, hw_id))
+> +			cpumask_set_cpu(cpu, &event_data->aux_hwid_done);
+> +	}
+> +}
+> +
+>   static void etm_event_start(struct perf_event *event, int flags)
+>   {
+>   	int cpu = smp_processor_id();
+> @@ -544,7 +569,6 @@ static void etm_event_start(struct perf_event *event, int flags)
+>   	struct perf_output_handle *handle = &ctxt->handle;
+>   	struct coresight_device *source, *sink;
+>   	struct coresight_path *path;
+> -	u64 hw_id;
+>   
+>   	if (flags & PERF_EF_RESUME) {
+>   		path = etm_event_get_ctxt_path(ctxt);
+> @@ -596,22 +620,7 @@ static void etm_event_start(struct perf_event *event, int flags)
+>   	if (coresight_enable_source(source, event, CS_MODE_PERF, path))
+>   		goto fail_disable_path;
+>   
+> -	/*
+> -	 * output cpu / trace ID in perf record, once for the lifetime
+> -	 * of the event.
+> -	 */
+> -	if (!cpumask_test_cpu(cpu, &event_data->aux_hwid_done)) {
+> -		cpumask_set_cpu(cpu, &event_data->aux_hwid_done);
+> -
+> -		hw_id = FIELD_PREP(CS_AUX_HW_ID_MAJOR_VERSION_MASK,
+> -				CS_AUX_HW_ID_MAJOR_VERSION);
+> -		hw_id |= FIELD_PREP(CS_AUX_HW_ID_MINOR_VERSION_MASK,
+> -				CS_AUX_HW_ID_MINOR_VERSION);
+> -		hw_id |= FIELD_PREP(CS_AUX_HW_ID_TRACE_ID_MASK, path->trace_id);
+> -		hw_id |= FIELD_PREP(CS_AUX_HW_ID_SINK_ID_MASK, coresight_get_sink_id(sink));
+> -
+> -		perf_report_aux_output_id(event, hw_id);
+> -	}
+> +	etm_output_hw_id(event, event_data, path, sink);
+>   
+>   out:
+>   	/* Tell the perf core the event is alive */
+> @@ -630,7 +639,7 @@ static void etm_event_start(struct perf_event *event, int flags)
+>   	 */
+>   	if (READ_ONCE(handle->event)) {
+>   		perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
+> -		perf_aux_output_end(handle, 0);
+> +		perf_aux_output_end(path->handle, 0);
 
--- 
-2.34.1
+Accidentally left this in from hacking. It doesn't do anything so I'll 
+remove it.
 
 
