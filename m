@@ -4,175 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E0BC5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 03:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93C0FC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 03:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	In-Reply-To:Content-Type:References:Message-ID:Subject:CC:To:From:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H4irVj/n/HZz+b0MFf+2Vf9YnSgv12zYihGNH9HeDDE=; b=R9La3MGzSxQNgXMwlb7UrMceUA
-	ZkTnkV4BrW117c4ZguOjLtrVxANkpzIUJzZMrWs/q+hkVObwQz12Q6XFyrrmxF1W2X4IQLjHsWlCp
-	QTFxTfb8eGMHt/FUrcx/1bWVr90ccBr52vKgUL1uVFdEmaAMuNtzpmodm1bfdUwfw1oxCHLkPpm6t
-	kzDtWF5mC2p/Jp4dxoJDXPlDW+Zsxk1EHs+vAjVuhqKRmn3zWkXEJd/m14Bz/qW+6AYAk9FcMiXI5
-	IRqm/ajn0E1mcYSZJcyuQeHisKStku1q1jNINP7s5y5t9EUvjXT0EM0tFJC9CJJ9MqBaURCLabMh5
-	3k0gg+BQ==;
+	bh=SlIkn/kUR+9KoU2/9RIyh2hgyJrbFpNU877EzuaIyr8=; b=D3UykdmNFSVxDO7c/vjXKdbPJi
+	+R3/F1jrxGvvhhPljobXwdvb0q5VfK61LfIfLpzIuyOLWXRJf/90sUU+jk4Hs9Z/fQwDybzogq4IF
+	D1ItQVUGLABiU+Ev3pJ7TJaj6ujYfoW7PYQ+RMCelgQGeXsA1+bBGajzgW4anmQcV0wNpGfJIOt6u
+	BV2Plgi6yhGQ8MnSLUn6vh690j8UiBbggY0DbocPp8WhwUW489X/g3Y5v6dnnWXQc5+DXNeKo7IUv
+	OfL6NEj1LvoDRRa4XhJQiRatAGyOwHZUkSTH40muDoCkvFyVF4PRlm2KJckGthCy93dKEUanMp/zZ
+	i68fmdDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxFnk-0000000CUNk-0MSi;
-	Fri, 21 Aug 2026 03:20:16 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1wxFsG-0000000CUaA-3VIP;
+	Fri, 21 Aug 2026 03:24:56 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxFng-0000000CUNP-4Anb
+	id 1wxFsF-0000000CUZm-0VsV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 03:20:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787282413; x=1818818413;
-  h=date:from:to:cc:subject:message-id:reply-to:references:
-   in-reply-to:mime-version;
-  bh=cd2uguk9UB5FLxJUWQFX5NjUl7nw+ci7/CvKCZ/Ty/Q=;
-  b=XjpBLPiggNVOM05vggJ+fH7XisVExZD6Bau9xwzzMo1+WNTHsBl+eyaO
-   hymlpLEc347UJMPI0KDjAZxWJqKmshRjctpGrsWk+d8N3J9S1H3JFnD/y
-   nkc9rcPnl6ruTn4L3pH5+0ikBqHAmNhXVSYt1FiiBc+rhcSj0EWRgIT+Y
-   axqbOEqhn5tBckKmZCCcMBTqUJV0wj6G+PXAzlW4DMJtj5ral05yjY6Td
-   Da4cn0iBRW8VMJznIkYIb5PhPVg3R4Axj69IfuG+LJWbGfycwO+gM5OzW
-   g3avBtTKTsP+8D74wrlw8OBnANDyvllRmIupxgclgXKoaQ3k+033JqoyM
-   A==;
-X-CSE-ConnectionGUID: fOudaZhiRoihPlILtx1T2Q==
-X-CSE-MsgGUID: AujDk22pT6GtfvQmG/Xthg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11881"; a="87595835"
-X-IronPort-AV: E=Sophos;i="6.25,234,1779174000"; 
-   d="scan'208";a="87595835"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2026 20:20:06 -0700
-X-CSE-ConnectionGUID: sWcT2JDXQYOoyRRqfGNmbw==
-X-CSE-MsgGUID: cpnxZn47RmKo8apL2bDhOg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,234,1779174000"; 
-   d="scan'208";a="264920506"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Aug 2026 20:20:07 -0700
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 20 Aug 2026 20:20:06 -0700
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45 via Frontend Transport; Thu, 20 Aug 2026 20:20:06 -0700
-Received: from CH1PR05CU001.outbound.protection.outlook.com (52.101.193.6) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 20 Aug 2026 20:19:53 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ERugc1w1SKbS2ezsevtzYp/3GY9pxAiI5LDG9RNBbLXWrod22JYmniWMjpnFpNnDhplxAzBPcJqRmLD6/U16E3NLBmzk0Cgn9XDFRnQvME/TifJAJNstTYGHK4cava9i8a/1h6ARQIhq5VICk7aKRmvEMuZWwwkFc4vAdDkJJbkYCnNEDiiyYFcJhhlRQlDQ3kkN8RqVv/wPdRCFSnCUkc1zFBBUg+CXRaBjKwsqw/zwvNyTcaAE3CCCRYmEyH/v8gZD8z5WZkdyYhsHT8VqcqWX8ANFceYqcFBsxzuVoJHWc9oEM9CA4iCbIKGbhyV/aezXpYOSg4dqfy110FluxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H4irVj/n/HZz+b0MFf+2Vf9YnSgv12zYihGNH9HeDDE=;
- b=Zh2dOu5Y8dfjMOcSEZfZMISUhbT7Wl8iH4lQD1XWvjCUvVnBfXvZBjSNYmyblTwD/0oVZy72ma4hbvk9Dq2obi+KGahX1SZrFLXNxEPKdQHhHkQ0SzXaAcPKly78uQ6xRXMbV26tXum4dJe6iSw1pxU72gnr+e1INwnwr56MkW/vV7gVIOVXnBEHIvm2S41l4MOAEumFreVxUvVQ5vVMjaJ6IGC1OtID+PCIHsMpdsnTw2o65UyRJJH6Y4xOv94czRbzksM0L50fn74xEYcYV82KgpIblclQqSeXmshOr5JlNsG6GToYAOw5qodR6jxz5rdsZHMNKKMsou5wOMOXIQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DSVPR11MB9579.namprd11.prod.outlook.com (2603:10b6:8:383::17)
- by LV8PR11MB8463.namprd11.prod.outlook.com (2603:10b6:408:1ed::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
- 2026 03:19:50 +0000
-Received: from DSVPR11MB9579.namprd11.prod.outlook.com
- ([fe80::ab5f:5d0f:fb90:9d]) by DSVPR11MB9579.namprd11.prod.outlook.com
- ([fe80::ab5f:5d0f:fb90:9d%3]) with mapi id 15.21.0339.008; Fri, 21 Aug 2026
- 03:19:48 +0000
-Date: Fri, 21 Aug 2026 11:19:24 +0800
-From: Yan Zhao <yan.y.zhao@intel.com>
-To: Ackerley Tng <ackerleytng@google.com>
-CC: Sean Christopherson <seanjc@google.com>, Paolo Bonzini
-	<pbonzini@redhat.com>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
-	<mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
-	<hpa@zytor.com>, Ashish Kalra <ashish.kalra@amd.com>, Michael Roth
-	<michael.roth@amd.com>, Brijesh Singh <brijesh.singh@amd.com>, Marc Zyngier
-	<maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly
-	<joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose
-	<suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, David Hildenbrand
-	<david@kernel.org>, Fuad Tabba <tabba@google.com>, "Edgecombe, Rick P"
-	<rick.p.edgecombe@intel.com>, Vishal Annapurve <vannapurve@google.com>,
-	<kvm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>
-Subject: Re: [PATCH v2 4/4] KVM: guest_memfd: Stop returning struct page from
- PFN lookup
-Message-ID: <aofDvFeASNE0ihkv@yzhao56-desk.sh.intel.com>
-References: <20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com>
- <20260818-gmem-no-return-page-v2-4-5298f42d49bb@google.com>
- <aoVut/h1u7HdFxkR@yzhao56-desk.sh.intel.com>
- <CAEvNRgFFs2BC7m8YH7RnQSysU+eDqOjQpqAxL09mwJgrT_iYww@mail.gmail.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <CAEvNRgFFs2BC7m8YH7RnQSysU+eDqOjQpqAxL09mwJgrT_iYww@mail.gmail.com>
-X-ClientProxiedBy: TPYP295CA0040.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:7d0:7::12) To DSVPR11MB9579.namprd11.prod.outlook.com
- (2603:10b6:8:383::17)
+	Fri, 21 Aug 2026 03:24:56 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67L21Xi52054360
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 03:24:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=SlIkn/kUR+9KoU2/9RIyh2hg
+	yJrbFpNU877EzuaIyr8=; b=md/KYDa0qD4cvRqRYnTNM2muFiVqfmFH2z+0+YAM
+	ok9vtvBEKPVUDwRWGAO6qiYn9mbuFNTP8dYCv4w9DZvawNWVU4XZ+cStkRugQnZw
+	/PhGBzeD2imvfQLEKi+MqMeBG7Pg/g7CuArF5RWVhz95Kze7WxYDiL1HUdEZpUVw
+	kaAXXYDCrrmx8m8ABTVtYrfWr9kEZD9KHh06zYc+RRQmbIkX4R0FeFaE8uOz9ihw
+	FIWY/4JahYOMeu/ISMxK0GQUGtDGz7FkrARJf0B7/7Av3mzXXQW8eF1KFExAWis7
+	3GlAVlZX6E9Vhy6eivs2hJEZCXLydOwoPIrsAyYLF9oqRw==
+Received: from mail-vs1-f72.google.com (mail-vs1-f72.google.com [209.85.217.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g5vn8cryt-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 03:24:53 +0000 (GMT)
+Received: by mail-vs1-f72.google.com with SMTP id ada2fe7eead31-744e7c36621so173060137.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 20:24:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1787282693; x=1787887493; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=SlIkn/kUR+9KoU2/9RIyh2hgyJrbFpNU877EzuaIyr8=;
+        b=BymhHBwGJF2jp5LKQjezVAYZgcmIvDA+JYsIoGqK9Sdaw4LOnluhhkXx1V7aG2egJN
+         byItYwu8/zy+OCScRiCk07x2Sgd7/eQlIBYkh9vWf84lqrDJVImZ9+5p6cR+ALikGnzy
+         qqCrcV3EaEZBDPadty6nae4gvTMbnoCMDwTWdHtX9ns9tjOs8w4tOqJZuQmqs6dbvh+f
+         6zs1VW1ZWELVJIqZppgTs9HJsuBPPhkeUtXSTPjQic5twCkOj/rPAtbmXUDhbJw7ehzV
+         2JVD9ufF+Lm7gPpd6KvgwzGGBu8wErW+0q7eXbaeUd1N3BY6mrXLgUryZx2XkoaxqLiz
+         CW0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787282693; x=1787887493;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SlIkn/kUR+9KoU2/9RIyh2hgyJrbFpNU877EzuaIyr8=;
+        b=GRPxVhAdu3O5vSroGkdA0uHh9G/vh5KnvXPSDQ9ypOnITg5UeyfyxWic0bL6fwaO4f
+         trdiZ1my5OfAAUjANd6+ghyttHS1YhfvEfMCwChLqMG4XbWbE4KodP2liKjn8GJefPJ1
+         yAYAwJsTtBzMkrYK1Fbzz96BZdgY713XG0Cy4Dsik3IguLEI4yOMGtC1LfDbpmApSXtL
+         /QtipLPhMDuE8fQynJpX/mCwsPA++Xidqc/uA+/MTAzlX7fanQxQq8t4FfBcTQWDDb1f
+         v5g7wTEMRH6TN4ZP4CiXnknFE0UaYZxGLgsKf04Y/obRRNLMelKpUp7AsNVy8jLylB5P
+         GlsQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrmqMp4S8TVY65xkYNguzllWupMh0YIDIYUuOmYvnVeofG4f9ZZ8THXS1tRBqIH6ObHdhZ5xsLR9x1PrcXOCl5y@lists.infradead.org
+X-Gm-Message-State: AFuF++lm7aBSxf3EJYULdpy3aH6BEP4db03GUCNHk83Nf1CA26Wez7F8
+	g1hW6/8IQDGu5k+3NqFesJBubE9g+NU3h98J9Y9Wrd6O8babebu1NMAakho3n3gt6LW54QacfUT
+	O6q1HUWidUzRs4tH119u7w9/vuE+zaaCvkJmwPDMhRSr603bvJzbKuKRf6wpGPI2+/40nHxXdFd
+	oSBw==
+X-Gm-Gg: AR+sD12xAWqWEbUCMtiKE6c67qC/loo7jB+coQ3va+pNoxJ6PBqVI24rfoPh76YsoMg
+	2wjSltA0qZ+lfNrKfnxAViHJlXqCBpH0h9jnj5lmHnImYc+Y59/50rHY8AdY4reqaHGxPHLIx1B
+	vK3noTMQ2NLOkyAjwVyfoYCKPKZC6y9Lfrr8ySBfnrPxswQs9Xx4vTXIgjKZU7GFCBLc3KWJRnH
+	MHNu2ZGuAK4N6S2Qdwr8Gn2frSihNgAkqK1Eglk0rgErjM4kLJ/QQjASJN4Y4S/jZy2TaraAjrt
+	V8aokbMs48G2XoDakhB72U4VMc1n2TVRvG1pcMlu0U5aDLfNCjyxb4t/G4E3eZJo/wOX+t6Kyc7
+	J2FPgJftFWTtZU74=
+X-Received: by 2002:a05:6102:580d:b0:779:dc0d:2b2d with SMTP id ada2fe7eead31-77a63642798mr1213003137.8.1787282692925;
+        Thu, 20 Aug 2026 20:24:52 -0700 (PDT)
+X-Received: by 2002:a05:6102:580d:b0:779:dc0d:2b2d with SMTP id ada2fe7eead31-77a63642798mr1212984137.8.1787282692340;
+        Thu, 20 Aug 2026 20:24:52 -0700 (PDT)
+Received: from oss.qualcomm.com ([188.27.161.240])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a3feec9e2esm4138134a12.5.2026.08.20.20.24.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 20:24:50 -0700 (PDT)
+Date: Fri, 21 Aug 2026 06:24:48 +0300
+From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+        "Rafael J . Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>, linux-pm@vger.kernel.org,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Maulik Shah <maulik.shah@oss.qualcomm.com>,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Ulf Hansson <ulfh@kernel.org>
+Subject: Re: [RFC PATCH 3/3] cpuidle: psci: Initialize the PM domains in
+ powered off state for OSI
+Message-ID: <3s2qeh2teckoalwqaekcs6zk4bpsrdi5ackkn5uu4qyygvawmu@k3lvlpm4fipg>
+References: <20260819151457.256959-1-ulf.hansson@oss.qualcomm.com>
+ <20260819151457.256959-4-ulf.hansson@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DSVPR11MB9579:EE_|LV8PR11MB8463:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1c711a31-29c5-44dd-1e6c-08deff330e85
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|56012099006|4143699003|11063799006|3023799007|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: T3vKudCmMVsl+h7q6ySMf/fZPgWEgYoK9QPNtnGOpEilq+qLcQUBVZv+uwzoRgmaDuyruSI/dcGOODnW3iYCDfU8+6YNKV26wPkmtVqh+IBZGoDqN5IE1rAm+T/44+tU3K+QHa+F5HoY5eHFwaeHS2gsZQdrL/2umuaS9O4EnvtGF3ZdsWkot6ej7JCHZP99xCzRP5daxtlIMLg/ilvGLdyk1+hc4Qwe5879ie2SOFGGd7HkNZzd+lGeS4wMb0nnH5lsyFGNsQ1kFDiPyxL0r/9VG9KhCmMYfSkpf4Yl7PI8X4MXyfAP6eADnyFWWhE+EW4ZFHzPUiNVDki2i9IgVXpXbVmvjZml6hgcrUirUYq0OwRhroTZdjhwL7/5ymZ++12l7UNQ3kA5iyys46W9yC8USd9s5i4IHLZRtQafy7zuhyXtCB34u9w2FN8NW0nPygPCcPcGB8kRMOr55gAb1HqjDAl/5hendvmL9zzTToVJhvfCPKsJXQx5sH9bpcEaN5ssNiyk9aWte2KNe3Xlq9F+V9iJtT0puqhpsWoSn+TENm59VqZ3boClY94znW2t/ck+LIWm78BL2LBAOyz832RxIDTkewHZcVCvmuQoBHF9XmGwY/sTLZmrFqFe6dww9LTmm6H5/WoQq8eRhZE4HLjKjVX30b/Sp4zjyqi0yDQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DSVPR11MB9579.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(56012099006)(4143699003)(11063799006)(3023799007)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mFowjQKV41zrnVOd8vwDI+l1xKrzC7Om/FyN9zGlaX5ptq5QAIs25uGARL10?=
- =?us-ascii?Q?Xbs+/Ilcx+2jjMwRpU1q1EMr3+f3WNda19mjVIHL3EWpo8TjHx4RRzLnnRnq?=
- =?us-ascii?Q?dEGRr6sEuAHl4dw7CMQiLvNV1Ai2q6xOAz5nMURfOuM7xSVhb4imsolQmFt8?=
- =?us-ascii?Q?9RAUPPzFNQSfb1ze6p7cUHFv79XmbYgXowgnX4gA5lVtaKRJBbiku6usbJIk?=
- =?us-ascii?Q?iJafzWQHzDdMZxF6sUXocTJGkx6xRJMhs45bt/gwv35YbEmpNDULEaklJaeV?=
- =?us-ascii?Q?gZXFUjps3kVAB6JotN6XoMGAenSrbSDJccyqP4mhWW0TW/ZT33ZSEdaHiehP?=
- =?us-ascii?Q?IXAgBclFucLPdDttGVNDL4g3n5IkjyGoq+vwUV0o0NVm6I2tLiUI67+NDKCF?=
- =?us-ascii?Q?D6S5eEivlColf9R+N9XLewOoGdnFmEjHXAv5L9UJran++aIFve5A2030I+JL?=
- =?us-ascii?Q?h37yTZ4U6fzyrzFKDi2U/xqJI4grvoYtUgngAUEu1HXNYVjrYEMBeg390eKk?=
- =?us-ascii?Q?Shk/EPs/hNVjxxM+mhD8ZYCSk89rPlKuRmugnGJ628nRBl+qZ7CXzswE1gc0?=
- =?us-ascii?Q?PVbUvWhjQvRwkQ2/GVESaUPI9Q2bcJ1Q9VMnrUPcAjWQtFcB2i2oorDlLKaP?=
- =?us-ascii?Q?/4P6Kngc/6XYg2pE6B5M0XyyiCE+TNt86TLuGzjlJjN0/1ds9aNEDy+1PtMs?=
- =?us-ascii?Q?Xbz6d/p6YUXN/vxmvITEArS9f6P61ki2ony0apNsHcZz/X97uWesMvPyIhpT?=
- =?us-ascii?Q?SV8cRo0PGq0XeqpYq5jjmruuiMt4pgfAH1caPw6TbLLNqZ//92AnhWLUd+bF?=
- =?us-ascii?Q?Z0io2eBreTZ3XJaIj26kNHXTgthi4RhUIGf7ig0aezA7JP1ZZVUghw3ucHe7?=
- =?us-ascii?Q?7YRftOqpB4AEvnG03P06c82UL9Gcjd0oWHsNqAeUZbu9nj9O44rEgKscetTH?=
- =?us-ascii?Q?xoYo31YTynQuxAHRlZ7dY/U/0j2TOQPKY0ZvdfGAVMJ4lJshx3O9jFZ3sn3L?=
- =?us-ascii?Q?1EG2Ka8zLgsZh4YaAnlbC2y5c2wftwEwbouoICImLyFZnlveg6VKKIqTCYtw?=
- =?us-ascii?Q?orum+tI/3SqXOkZQhYYPsfNWNp24+Xf3Fu1cu6n6vISxqXTjBCRHr7JA6FfJ?=
- =?us-ascii?Q?ToJIlIUTj4CaITEArKId/219q+17u/AuOkBOLFrIIHBdH3y3gCBTf34zu4G9?=
- =?us-ascii?Q?fFW1gwWIYR95nQTxPE98KD+fAZP8YTDfzF2N5IsQ/ofpVx305bdjvf5Fyary?=
- =?us-ascii?Q?mkSKBM8Z1K3Fr0l2fW4NScahtQi6A7N4GGxYcZClr/mgOX+NuuguLjYS2K+/?=
- =?us-ascii?Q?c/Yl+6hfwPnz43BEyRcfhgqo9SoNj9OhPRv6kdl7V26jIgpah0ZC2N6gwsr+?=
- =?us-ascii?Q?w+G3ovaUwXqDfGHzg3p/b+iHMWpgKyYaHXs1pl1Ir9lK50pUyLv/ImmrZQxb?=
- =?us-ascii?Q?Xcdg5IGSWE9wUY4tBPJ4bINxZtdp2j6LATs2WQyJZ8aJ6ypnHrXbDe2zvaUq?=
- =?us-ascii?Q?Qvltn8kUcSYVgKzbni7+NBzl78L+yMrIU4ZIvYRKliQ5Q5M3mRBEMU1N3+2r?=
- =?us-ascii?Q?SAg4W66rSAPe/hU6lNMGaw7hZy7dFG94t6xWKw75Q1IX2Xe1HvNVOVSrmdCm?=
- =?us-ascii?Q?vnL5RTuY7LqSHPXH5jt1la97Hqyn0pIcG9As8K2+9xdJx0yk7uTgmWrorN3e?=
- =?us-ascii?Q?2AfYTOrgocSelAvVjPdmmyXLP2kkCtjKXsvzypfnk90QAKzpFR0K1rNH3Om2?=
- =?us-ascii?Q?itRIq95Cew=3D=3D?=
-X-Exchange-RoutingPolicyChecked: UrXXsj8/8VA7Pa9ASha1OgBdzqmHp+5ITyiYuGpzz/wnkpUp2bxjUuLAmsj2Hhlk1Kv82YUhG9v/gVE/7+NgGaqa0oHktzMWU/65ixUKnM2YrdNlAxmrvgWqGSvwntLjKSATXYxXgSmmpOEvCQ/iFxXpnfZ5lZkhPBi5TXRumaYX7n0eGhFHlVpqmdAcb5Lnt6Mq1anYdORpfyqRdKBrXO8pzPHhgs0IEUM34aJeSkBBu/qhMC/l0ZhdpyRzjiTWrvxIB2MQ70hsMh4YvE6Pz9fp7vyKj87H/7tvcSXxJ3DGuLTijLAt0iCM+YbZHOczJFD0JDGKepdHgAnpoFulqg==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1c711a31-29c5-44dd-1e6c-08deff330e85
-X-MS-Exchange-CrossTenant-AuthSource: DSVPR11MB9579.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 03:19:48.6228
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oGiGrhVB7JX8AHIKyB8tKZ2cs3MoYrjKBtbtBf2xukGGjhzmzmB9w+Wgt2kKdwfgvGUGJfLqp+qG5tdziVq1uA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR11MB8463
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260819151457.256959-4-ulf.hansson@oss.qualcomm.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIxMDAyMiBTYWx0ZWRfX3YGJ+kgVZYp8
+ HWNH6S9qtSL0LzyWgEqNNIr0e3lN2Y41ONBtpHFOuKAwHKjPYHx5KL2aF7Tv6wme4ybPd7NT8sW
+ CcPJ4HnEJxIzB8hClPy2nSYns4ewenW8n6uJGzLv2tjzhR7O9QUj1fPg/e2v+ngfzvN5Gt+nwuw
+ 5lDwIULuxaThLvs+jE7gFgcO07tIMZTkP8Vu51ByAZ/GRZyRYGBZ/GeqZn/ZWfuXpQ8uZCdrQ6O
+ qkgzhnt2D68x3jh+hYRxjMSIybuZuFCoTY5yeLF+2qmKra55SDlFLfLKo1Sy5YWk45tSl9UZxA6
+ Vgn+jIyqFaG74PWZftdC37JTP0cmKtUTgzcVT1UgrCj2LTtDgyb4e4PIK6jEFaw1M5kk1jX3AMN
+ AZwB+ycjRY61fD0h1QjeMsKl1IfQsjtgOmY4ypEj78yyWu8pswnjmSQ5yjzZQrkt3i1Z0AJMCbW
+ Si2rjwKKkpML2QZMJpg==
+X-Authority-Analysis: v=2.4 cv=KpJ9H2WN c=1 sm=1 tr=0 ts=6a87c506 cx=c_pps
+ a=DUEm7b3gzWu7BqY5nP7+9g==:117 a=wUpz7uCjLrEXi01cjX+DLw==:17
+ a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=elYLTxGRisG19N56oD0A:9 a=CjuIK1q_8ugA:10
+ a=-aSRE8QhW-JAV6biHavz:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODIxMDAyMiBTYWx0ZWRfX5ttU5PzfPYEF
+ 3QHl62Pg9qaGvLixF80acv1Ov+SD10gVFjrKguSM8pqH50b8ZtK0ifiBW+7iJCgfeVGVHYSX7Ad
+ Ue29tbu7cAVjH7/zFpWyEnRiMT1UjbY=
+X-Proofpoint-ORIG-GUID: HzzP1nHU4GtpSCqUFW_DnApISOmEPBo4
+X-Proofpoint-GUID: HzzP1nHU4GtpSCqUFW_DnApISOmEPBo4
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-21_01,2026-08-20_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 adultscore=0 malwarescore=0 lowpriorityscore=0
+ priorityscore=1501 impostorscore=0 bulkscore=0 suspectscore=0 clxscore=1015
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608210022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_202013_093656_E545CC81 
-X-CRM114-Status: GOOD (  33.18  )
+X-CRM114-CacheID: sfid-20260820_202455_281644_2200680C 
+X-CRM114-Status: GOOD (  22.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,89 +153,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 20, 2026 at 07:47:51AM -0700, Ackerley Tng wrote:
-> Yan Zhao <yan.y.zhao@intel.com> writes:
+On 26-08-19 17:14:53, Ulf Hansson wrote:
+> From: Ulf Hansson <ulfh@kernel.org>
 > 
-> > On Tue, Aug 18, 2026 at 09:15:55AM +0000, Ackerley Tng wrote:
-> >> From: Sean Christopherson <seanjc@google.com>
-> >>
-> >> KVM currently expects guest_memfd PFN lookups to return a refcounted
-> >> struct page, which callers hold across fault handling.
-> >>
-> >> Holding a page reference across fault handling is problematic for
-> >> guest_memfd. In-place memory conversions between confidential
-> >> computing shared and private states inspect folio refcounts to ensure
-> >> exclusive ownership by guest_memfd. A concurrent guest page fault
-> >> taking a reference on the folio causes conversions to fail due to an
-> >> elevated refcount.
-> > Nit:
-> > As this series is based on kvm-x86/next, where there's no in-place memory
-> > conversion yet, kvm_gmem_get_pfn() does not hold shared filemap invalidate lock.
-> >
-> > However, the benefit of dropping the folio reference immediately before
-> > returning from the guest_memfd PFN lookup -- preventing conversion failures due
-> > to an elevated refcount -- should be effective only if the reference is dropped
-> > before releasing the shared filemap invalidate lock.
-> >
-> > Do we need to make this info clear, since I think it's important? :)
-> >
+> At the point when the PM domain and the topology are registered through the
+> genpd subsystem, it's not really known whether corresponding CPUs are
+> online and thus if the PM domain should be initialized as powered on or
+> not. Instead this information becomes available when the CPU devices gets
+> attached to their respective PM domain through dt_idle_attach_cpu().
 > 
-> Is this what you meant?
-> 
->   In-place conversions uses the filemap_invalidate_lock() for
->   synchronization of shared/private state. In kvm_gmem_get_pfn(), the
->   PFN needs to be prepared according to its shared/private state. Hence,
->   the filemap_invalidate_lock() is held while guest_memfd gets a folio
->   and decides to make private before returning a PFN.
-> 
->   In kvm_gmem_get_pfn(), the folio refcount is dropped before releasing
->   filemap_invalidate_lock(). This ensures that a competing conversion
->   grabbing the filemap_invalidate_lock() will never see an elevated
->   refcount due to guest_memfd's folio-getting process.
-> 
-> It seems a bit weird to fit this into the commit message for this
-> patch. I think I could put the above two paragraphs into the patch that
-> introduces the filemap_invalidate_lock in kvm_gmem_get_pfn()?
-Ok. Makes sense.
+> This is a problem when using PSCI OS-initiated mode, as we may end up with
+> a PM domain that has the genpd's status indicating it to be powered on,
+> while it in fact may not be the case. In the less severe scenario, this
+> leads to selecting a shallower domain idle state for the PM domain than
+> necessary. A more critical problem is when a non-CPU device shares the PM
+> domain, leading to their corresponding drivers not being able to trust the
+> status of it.
 
-> >> guest_memfd already notifies KVM of page invalidations, so callers
-> >> within KVM only need to respect the MMU invalidation protocol to safely
-> >> rely on guest_memfd for page presence.
-> >>
-> >> Furthermore, removing struct page from the guest_memfd PFN lookup moves
-> >> KVM closer toward supporting memory backends that are not backed by
-> >> struct page.
-> >
-> > Could we also explain why the lack of SetPageDirty() (and mark_page_accessed())
-> > for a gmem page, due to NULL being passed to kvm_release_faultin_page(), is
-> > harmless?
-> >
-> 
-> Sounds good. What do you think of this, continuing from the paragraph
-> beginning "Furthermore":
-> 
->   Drop the folio reference immediately before returning from the
->   guest_memfd PFN lookup, and stop returning the struct page pointer.
-> 
->   ARM's gmem_abort() is guest_memfd specific. Since guest_memfd no longer
->   returns a page pointer, there's also no need to do any
->   freeing. kvm_release_faultin_page() originally also serves to set the page
->   dirty and accessed under some conditions. The dirty and accessed flags
->   don't matter for guest_memfd anyway, so it is safe to just drop the call to
->   kvm_release_faultin_page().
-> 
->   For ARM's kvm_translate_vncr(), initialize the local page pointer to NULL
->   so that the shared cleanup path that releases fault-in pages safely no-ops
->   for guest_memfd.
-> 
->   For x86, no additional changes are required in the MMU fault path
->   because the page fault tracking structure is zero-initialized at the
->   start of page fault handling, ensuring the refcounted page pointer is
->   already NULL.
-LGTM. Thank you!
+Exactly why a third state like GENPD_STATE_UNKNOWN would be more
+fitting, IMO. Maybe something we can do at some point.
 
+This solution works for now as well.
+
+> 
+> Let's fix these problems by initializing the state for the genpd's to be
+> powered off and in the deepest possible domain idle state, when using
+> OS-initiated mode. The support for ->sync_state() is maintained by setting
+> the GENPD_FLAG_OFF_STAY_ON for the genpds in question.
+> 
+> Reported-by: Maulik Shah <maulik.shah@oss.qualcomm.com>
+> Link: https://lore.kernel.org/all/20260811-domain_off_ss3-v1-0-6a0a0fc023f5@oss.qualcomm.com/
+> Signed-off-by: Ulf Hansson <ulfh@kernel.org>
+
+Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
 
