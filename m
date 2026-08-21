@@ -4,54 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9DD3C5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B52C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:01:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xvQD6+MhAqrZHD+Spx/wMDCkvEy0KGRXaEdYaUDsVII=; b=viqTJO5QL7SAPE6mdJXReIVjRm
-	cS7RgUaBhgTolC8+bV7oGK+BUyZURHLPqsvs6iYmGxcABSECxAZVX++XRoELQAcLPuyjeMFgwbJ+h
-	dYQC0qbQ86aYC0gHR06v11w3tKPTdNM4Hkea9qCg/HX691k2Vb3ZRrXdaOB9QPkkvkUuzWFtELwpl
-	SoyRi3J44zBPhK+KIKOqmpTKRlXf6DkwwU8jxhMazOKxV0IVmCArcTWosCE7n23AfyKIcSqIqB+zk
-	qc+mCYKz79YZ5hjksXOsNsXiTtN1iosc7QLznUECHlb8w/3MXFBOKDkXnfUdkHgQo6As2Cl5tSG7T
-	8wAkedTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5ZMIgV9sSCRM7UCth/wb9kbNDS9+H51ny5rAs4BFkIM=; b=k/Mzv8AQTDP8cxB5voZBZW3yKq
+	31gPGbpeJ/ecHFvBsqPvO9CdWa9C74ZdpZOelUqIaEn/xpHRsrNdRK9IZB5VzemdcG98uh3Sm7W6Z
+	d4WfafL+KmxR9yvsSFefW/1oSdswsyMd8TpnO6UK9kfzgdTyFoIr8OfG8krX/oBr1dJpiwwGG6g+E
+	M0sn8+UDjXSe+doi8Iyf1OO+XdK/1SNjE06EfTWZI7MmwtapcQ1/WKLye0Wd8YMVgF9BuRdKFpiBl
+	hXSyo9rCo8M2czz/g6R3MxTHZCReHt7no7fuR0kWrdLr+eA806F6sRVtADVXK7Qy1n0ZctoZkoliu
+	In6nXtOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxL6j-0000000CrfF-1X0I;
-	Fri, 21 Aug 2026 09:00:13 +0000
-Received: from mail-4319.protonmail.ch ([185.70.43.19])
+	id 1wxL7a-0000000Crx8-2eRv;
+	Fri, 21 Aug 2026 09:01:06 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxL6e-0000000Crdw-3iw6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 09:00:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1787302805; x=1787562005;
-	bh=xvQD6+MhAqrZHD+Spx/wMDCkvEy0KGRXaEdYaUDsVII=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=tq+5clErfQ6SBAbT+ljkuxv8fKbInx4wTP6ZB/qDNkN+SyukAV9CWY2+IgwjvvMRU
-	 W78oaD95cBzScWSBbELl90K5+APT/p+tjOHx2z3k2d6egYXFvApqBawIhdJXKX7oX9
-	 6nRNl/v3NQ5LU2dFH8KQmqqTINl0saEIu8x2GT82ArfoLbSGNAlJ22NOP1uHVlRiAV
-	 7oVKuq9KNqFT4kBI3AWCpHp1FVEoAjvRo2uRlKMjTgbl982Roz9sXbTmtHChLzWQC/
-	 47UsZDvH6dN2gpVVHK9EhlHdj4/UskR5c+KBQSvVH105E0FthAnWdiMrueWCy+9r+8
-	 oCmtnCXtkgsLA==
-Date: Fri, 21 Aug 2026 09:00:01 +0000
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Peter Chiu <chui-hao.chiu@mediatek.com>
-From: Ryan Leung <untilscour@protonmail.com>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Ryan Leung <untilscour@protonmail.com>
-Subject: [PATCH mt76 v2] wifi: mt76: mt7915: publish wcid before MCU add commands
-Message-ID: <20260821-mt7915-wcid-publish-order-v2-1-acf0b7f32cbd@protonmail.com>
-Feedback-ID: 184418679:user:proton
-X-Pm-Message-ID: 925f30d38a406df4b0ed3723747f01510db6bb67
+	id 1wxL7U-0000000CrtV-273c;
+	Fri, 21 Aug 2026 09:01:04 +0000
+X-UUID: d02651e89d3e11f1afed4741b24580c9-20260821
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=5ZMIgV9sSCRM7UCth/wb9kbNDS9+H51ny5rAs4BFkIM=;
+	b=L+IAs+UiuInvI5me+OjvkFTwSKMI2PkAjTFIQJsk5+Uh4DDN8vHQYD+AfcDzX8imF0Em44m7PZRVH1FiJk8Hl1rG/7PorXZAc2fQ5SNWkPDffN6KvPQ0094MP1+S5DQBx3LSc8/80Mveu/hsBB5qVUwcarTPLw+pBnz+D2tnd+E=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:455183c8-ad0c-45fa-8354-4eddc7d3aa62,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:7db8b62,CLOUDID:68b1b8fb-8958-4756-89ca-0c20582edcef,B
+	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
+	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d02651e89d3e11f1afed4741b24580c9-20260821
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
+	(envelope-from <ot_jingcheng.ji@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 759660428; Fri, 21 Aug 2026 02:00:53 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Fri, 21 Aug 2026 17:00:50 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Fri, 21 Aug 2026 17:00:49 +0800
+From: Jingcheng Ji <ot_jingcheng.ji@mediatek.com>
+To: Mark Brown <broonie@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-spi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<jarried.lin@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<justin.yeh@mediatek.com>, Jingcheng Ji <ot_jingcheng.ji@mediatek.com>
+Subject: [PATCH] spi: spi-mtk-nor: Get clocks from devicetree in bulk
+Date: Fri, 21 Aug 2026 17:00:22 +0800
+Message-ID: <20260821090046.2353986-1-ot_jingcheng.ji@mediatek.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_020009_307024_2260469C 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20260821_020100_564083_84CCB10B 
+X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,70 +87,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mt7915_add_interface() enables the BSS/STA in firmware via
-mt7915_mcu_add_bss_info() and mt7915_mcu_add_sta() before publishing
-dev->mt76.wcid[idx] with rcu_assign_pointer(). Firmware can start
-generating tx-status/tx-free events referencing that wcid as soon as it
-processes those MCU commands, but mt76's rx/tx-free handlers (e.g.
-mt7915_mac_tx_free()) look up dev->mt76.wcid[idx] to service them, and
-won't find it published yet. This can lead to memory corruption and
-kernel crashes shortly after an AP interface is brought up.
+The driver currently gets a fixed set of clock inputs by name. This ties
+the driver to the clock names used by existing devicetrees and silently
+ignores any additional clocks declared by a future platform.
 
-This ordering was introduced by commit 8e3e7567b8c1 ("mt76: mt7915: add
-sta_rec with EXTRA_INFO_NEW for the first time only"):
-mt7915_mcu_add_sta() derived its "newly added" flag from
-!rcu_access_pointer(dev->mt76.wcid[idx]), so the publish had to happen
-after that call. Commit 33eb14f10290 ("wifi: mt76: mt7915: use mac80211
-.sta_state op") later replaced that flag with a caller-supplied `newly`
-argument to mt7915_mcu_add_sta(), now simply hardcoded to true, so the
-ordering is no longer required.
+Get every clock described by the devicetree with
+devm_clk_bulk_get_all() and enable the resulting set as a group. Keep
+looking up the "spi" input to derive the transfer rate, and verify that
+the required "sf" input is present. Obtain the clock inputs before
+allocating the SPI controller so a deferred clock probe fails early.
 
-Move the rcu_assign_pointer() before the MCU add_bss_info/add_sta
-calls, so that the wcid is visible to lookups before firmware is told
-it's live. This makes the ordering symmetric with
-mt7915_remove_interface(), which keeps the pointer published until
-after the MCU disable commands have been issued.
+This keeps the existing platforms' behavior while allowing the binding to
+describe all controller clock inputs without requiring driver changes.
 
-Closes: https://github.com/openwrt/openwrt/issues/24594
-Fixes: 8e3e7567b8c1 ("mt76: mt7915: add sta_rec with EXTRA_INFO_NEW for the=
- first time only")
-Signed-off-by: Ryan Leung <untilscour@protonmail.com>
+Signed-off-by: Jingcheng Ji <ot_jingcheng.ji@mediatek.com>
 ---
-Changes in v2:
-- Reword the mt7915_remove_interface() comparison in the commit message
-  to correctly state that the wcid stays published until after the MCU
-  disable calls (not before).
-- Link to v1: https://patch.msgid.link/20260820-mt7915-wcid-publish-order-v=
-1-1-79d2bc981d8b@protonmail.com
----
- drivers/net/wireless/mediatek/mt76/mt7915/main.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/spi/spi-mtk-nor.c | 106 +++++++++++++++++---------------------
+ 1 file changed, 46 insertions(+), 60 deletions(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/main.c b/drivers/net=
-/wireless/mediatek/mt76/mt7915/main.c
-index a8286f8becf9..9c6c339f1b38 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-@@ -273,9 +273,9 @@ static int mt7915_add_interface(struct ieee80211_hw *hw=
-,
- =09mt7915_init_bitrate_mask(vif);
- =09memset(&mvif->cap, -1, sizeof(mvif->cap));
-=20
-+=09rcu_assign_pointer(dev->mt76.wcid[idx], &mvif->sta.wcid);
- =09mt7915_mcu_add_bss_info(phy, vif, true);
- =09mt7915_mcu_add_sta(dev, vif, NULL, CONN_STATE_PORT_SECURE, true);
--=09rcu_assign_pointer(dev->mt76.wcid[idx], &mvif->sta.wcid);
-=20
- =09mutex_unlock(&dev->mt76.mutex);
-=20
-
----
-base-commit: ca800a9302764c445de0da0e84d2252400a770ee
-change-id: 20260820-mt7915-wcid-publish-order-bebef551330c
-
-Best regards,
--- =20
-Ryan Leung <untilscour@protonmail.com>
-
+diff --git a/drivers/spi/spi-mtk-nor.c b/drivers/spi/spi-mtk-nor.c
+index 5e1fdbb40ffb..2a713d27ae8e 100644
+--- a/drivers/spi/spi-mtk-nor.c
++++ b/drivers/spi/spi-mtk-nor.c
+@@ -116,10 +116,8 @@ struct mtk_nor {
+ 	void __iomem *base;
+ 	u8 *buffer;
+ 	dma_addr_t buffer_dma;
+-	struct clk *spi_clk;
+-	struct clk *ctlr_clk;
+-	struct clk *axi_clk;
+-	struct clk *axi_s_clk;
++	struct clk_bulk_data *clks;
++	int num_clks;
+ 	unsigned int spi_freq;
+ 	bool wbuf_en;
+ 	bool has_irq;
+@@ -703,42 +701,12 @@ static int mtk_nor_transfer_one_message(struct spi_controller *host,
+ 
+ static void mtk_nor_disable_clk(struct mtk_nor *sp)
+ {
+-	clk_disable_unprepare(sp->spi_clk);
+-	clk_disable_unprepare(sp->ctlr_clk);
+-	clk_disable_unprepare(sp->axi_clk);
+-	clk_disable_unprepare(sp->axi_s_clk);
++	clk_bulk_disable_unprepare(sp->num_clks, sp->clks);
+ }
+ 
+ static int mtk_nor_enable_clk(struct mtk_nor *sp)
+ {
+-	int ret;
+-
+-	ret = clk_prepare_enable(sp->spi_clk);
+-	if (ret)
+-		return ret;
+-
+-	ret = clk_prepare_enable(sp->ctlr_clk);
+-	if (ret) {
+-		clk_disable_unprepare(sp->spi_clk);
+-		return ret;
+-	}
+-
+-	ret = clk_prepare_enable(sp->axi_clk);
+-	if (ret) {
+-		clk_disable_unprepare(sp->spi_clk);
+-		clk_disable_unprepare(sp->ctlr_clk);
+-		return ret;
+-	}
+-
+-	ret = clk_prepare_enable(sp->axi_s_clk);
+-	if (ret) {
+-		clk_disable_unprepare(sp->spi_clk);
+-		clk_disable_unprepare(sp->ctlr_clk);
+-		clk_disable_unprepare(sp->axi_clk);
+-		return ret;
+-	}
+-
+-	return 0;
++	return clk_bulk_prepare_enable(sp->num_clks, sp->clks);
+ }
+ 
+ static void mtk_nor_init(struct mtk_nor *sp)
+@@ -807,34 +775,47 @@ static const struct of_device_id mtk_nor_match[] = {
+ };
+ MODULE_DEVICE_TABLE(of, mtk_nor_match);
+ 
++static struct clk *mtk_nor_get_clk(struct clk_bulk_data *clks, int num_clks,
++				   const char *id)
++{
++	int i;
++
++	for (i = 0; i < num_clks; i++) {
++		if (clks[i].id && !strcmp(clks[i].id, id))
++			return clks[i].clk;
++	}
++
++	return NULL;
++}
++
+ static int mtk_nor_probe(struct platform_device *pdev)
+ {
+ 	struct spi_controller *ctlr;
+ 	struct mtk_nor *sp;
+ 	struct mtk_nor_caps *caps;
+ 	void __iomem *base;
+-	struct clk *spi_clk, *ctlr_clk, *axi_clk, *axi_s_clk;
+-	int ret, irq;
++	struct clk_bulk_data *clks;
++	struct clk *spi_clk;
++	int num_clks, ret, irq;
+ 
+ 	base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
+ 
+-	spi_clk = devm_clk_get(&pdev->dev, "spi");
+-	if (IS_ERR(spi_clk))
+-		return PTR_ERR(spi_clk);
+-
+-	ctlr_clk = devm_clk_get(&pdev->dev, "sf");
+-	if (IS_ERR(ctlr_clk))
+-		return PTR_ERR(ctlr_clk);
+-
+-	axi_clk = devm_clk_get_optional(&pdev->dev, "axi");
+-	if (IS_ERR(axi_clk))
+-		return PTR_ERR(axi_clk);
+-
+-	axi_s_clk = devm_clk_get_optional(&pdev->dev, "axi_s");
+-	if (IS_ERR(axi_s_clk))
+-		return PTR_ERR(axi_s_clk);
++	num_clks = devm_clk_bulk_get_all(&pdev->dev, &clks);
++	if (num_clks < 0)
++		return dev_err_probe(&pdev->dev, num_clks,
++				     "failed to get clocks\n");
++	if (!num_clks)
++		return dev_err_probe(&pdev->dev, -EINVAL, "no clocks defined\n");
++
++	spi_clk = mtk_nor_get_clk(clks, num_clks, "spi");
++	if (!spi_clk)
++		return dev_err_probe(&pdev->dev, -EINVAL,
++				     "missing \"spi\" clock\n");
++	if (!mtk_nor_get_clk(clks, num_clks, "sf"))
++		return dev_err_probe(&pdev->dev, -EINVAL,
++				     "missing \"sf\" clock\n");
+ 
+ 	caps = (struct mtk_nor_caps *)of_device_get_match_data(&pdev->dev);
+ 
+@@ -867,10 +848,8 @@ static int mtk_nor_probe(struct platform_device *pdev)
+ 	sp->wbuf_en = false;
+ 	sp->ctlr = ctlr;
+ 	sp->dev = &pdev->dev;
+-	sp->spi_clk = spi_clk;
+-	sp->ctlr_clk = ctlr_clk;
+-	sp->axi_clk = axi_clk;
+-	sp->axi_s_clk = axi_s_clk;
++	sp->clks = clks;
++	sp->num_clks = num_clks;
+ 	sp->caps = caps;
+ 	sp->high_dma = caps->dma_bits > 32;
+ 	sp->buffer = dmam_alloc_coherent(&pdev->dev,
+@@ -886,9 +865,15 @@ static int mtk_nor_probe(struct platform_device *pdev)
+ 
+ 	ret = mtk_nor_enable_clk(sp);
+ 	if (ret < 0)
+-		return ret;
+-
+-	sp->spi_freq = clk_get_rate(sp->spi_clk);
++		return dev_err_probe(&pdev->dev, ret,
++				     "failed to enable clocks\n");
++
++	sp->spi_freq = clk_get_rate(spi_clk);
++	if (!sp->spi_freq) {
++		dev_err(&pdev->dev, "invalid spi clock rate\n");
++		ret = -EINVAL;
++		goto err_disable_clk;
++	}
+ 
+ 	mtk_nor_init(sp);
+ 
+@@ -928,6 +913,7 @@ static int mtk_nor_probe(struct platform_device *pdev)
+ 	pm_runtime_set_suspended(&pdev->dev);
+ 	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ 
++err_disable_clk:
+ 	mtk_nor_disable_clk(sp);
+ 
+ 	return ret;
+-- 
+2.45.2
 
 
