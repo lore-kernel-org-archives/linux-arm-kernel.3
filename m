@@ -4,75 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24416C5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9DD3C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rctx8ICNMKjbrNuw++PjuLNGuxOfdbGcRTMtqUS0BKA=; b=Deyu+10ZWKi/3xy7dbGmdpQjy0
-	vlaQT3vBwf/bBaMWectXzYKWei+DHdArAzohdJsuPSYyGjFqmVap2WemFQ3Y1e2EodaetiGwc+Nit
-	DCTZ4EHJlx/djzh8+Kce/w77xn9wdMdhYN0QJ41nmwO5TcY10ys1IGEbPA5lZ9kKaVS2sXwiY21XA
-	1NEvANHpEmWqKPHB1/vqpJ6YpndJQzu7NdPSWQh3yByhV2YhnyIGKSo0z7Xw+lhMEnGEaWjVgqEjy
-	wPjUTnWIHnM0/aVmWN0jN+hARXGsHT68+j0mQGkPOQSy0GkuIs3VsILrlF4JAKyhqPua+ou857Qlw
-	/9ZmEGIw==;
+	bh=xvQD6+MhAqrZHD+Spx/wMDCkvEy0KGRXaEdYaUDsVII=; b=viqTJO5QL7SAPE6mdJXReIVjRm
+	cS7RgUaBhgTolC8+bV7oGK+BUyZURHLPqsvs6iYmGxcABSECxAZVX++XRoELQAcLPuyjeMFgwbJ+h
+	dYQC0qbQ86aYC0gHR06v11w3tKPTdNM4Hkea9qCg/HX691k2Vb3ZRrXdaOB9QPkkvkUuzWFtELwpl
+	SoyRi3J44zBPhK+KIKOqmpTKRlXf6DkwwU8jxhMazOKxV0IVmCArcTWosCE7n23AfyKIcSqIqB+zk
+	qc+mCYKz79YZ5hjksXOsNsXiTtN1iosc7QLznUECHlb8w/3MXFBOKDkXnfUdkHgQo6As2Cl5tSG7T
+	8wAkedTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxL3B-0000000Cqn4-1tor;
-	Fri, 21 Aug 2026 08:56:33 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wxL6j-0000000CrfF-1X0I;
+	Fri, 21 Aug 2026 09:00:13 +0000
+Received: from mail-4319.protonmail.ch ([185.70.43.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxL37-0000000Cqju-3Fn0
+	id 1wxL6e-0000000Crdw-3iw6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 08:56:31 +0000
-X-UUID: 2dd581669d3e11f19a56ed5b684f684d-20260821
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:05466afd-d21a-4964-b9fa-542edf9a990f,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:a026a9d2c773b9fc5a6194e0456b7029,BulkI
-	D:nil,BulkQuantity:0,SF:102|850|865|898,TC:nil,Content:0|15|50,EDM:-3,IP:n
-	il,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LE
-	S:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 2dd581669d3e11f19a56ed5b684f684d-20260821
-X-User: gonglinkai@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <gonglinkai@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 85594952; Fri, 21 Aug 2026 16:56:20 +0800
-From: Linkai Gong <gonglinkai@kylinos.cn>
-To: Abel Vesa <abelvesa@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Peng Fan <peng.fan@nxp.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Ye Li <ye.li@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>,
-	linux-clk@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	gonglinkai@kylinos.cn
-Subject: [PATCH] clk: imx: composite-93: return timeout from gate enable
-Date: Fri, 21 Aug 2026 16:56:16 +0800
-Message-Id: <20260821085616.1129333-1-gonglinkai@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	Fri, 21 Aug 2026 09:00:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1787302805; x=1787562005;
+	bh=xvQD6+MhAqrZHD+Spx/wMDCkvEy0KGRXaEdYaUDsVII=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=tq+5clErfQ6SBAbT+ljkuxv8fKbInx4wTP6ZB/qDNkN+SyukAV9CWY2+IgwjvvMRU
+	 W78oaD95cBzScWSBbELl90K5+APT/p+tjOHx2z3k2d6egYXFvApqBawIhdJXKX7oX9
+	 6nRNl/v3NQ5LU2dFH8KQmqqTINl0saEIu8x2GT82ArfoLbSGNAlJ22NOP1uHVlRiAV
+	 7oVKuq9KNqFT4kBI3AWCpHp1FVEoAjvRo2uRlKMjTgbl982Roz9sXbTmtHChLzWQC/
+	 47UsZDvH6dN2gpVVHK9EhlHdj4/UskR5c+KBQSvVH105E0FthAnWdiMrueWCy+9r+8
+	 oCmtnCXtkgsLA==
+Date: Fri, 21 Aug 2026 09:00:01 +0000
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Peter Chiu <chui-hao.chiu@mediatek.com>
+From: Ryan Leung <untilscour@protonmail.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Ryan Leung <untilscour@protonmail.com>
+Subject: [PATCH mt76 v2] wifi: mt76: mt7915: publish wcid before MCU add commands
+Message-ID: <20260821-mt7915-wcid-publish-order-v2-1-acf0b7f32cbd@protonmail.com>
+Feedback-ID: 184418679:user:proton
+X-Pm-Message-ID: 925f30d38a406df4b0ed3723747f01510db6bb67
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_015630_130862_4E7FD32D 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260821_020009_307024_2260469C 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,56 +66,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx93_clk_composite_gate_enable() always returns 0, even when
-imx93_clk_composite_wait_ready() times out.
+mt7915_add_interface() enables the BSS/STA in firmware via
+mt7915_mcu_add_bss_info() and mt7915_mcu_add_sta() before publishing
+dev->mt76.wcid[idx] with rcu_assign_pointer(). Firmware can start
+generating tx-status/tx-free events referencing that wcid as soon as it
+processes those MCU commands, but mt76's rx/tx-free handlers (e.g.
+mt7915_mac_tx_free()) look up dev->mt76.wcid[idx] to service them, and
+won't find it published yet. This can lead to memory corruption and
+kernel crashes shortly after an AP interface is brought up.
 
-Fixes: 4a3de5aa7743 ("clk: imx: clk-composite-93: check slice busy")
-Signed-off-by: Linkai Gong <gonglinkai@kylinos.cn>
+This ordering was introduced by commit 8e3e7567b8c1 ("mt76: mt7915: add
+sta_rec with EXTRA_INFO_NEW for the first time only"):
+mt7915_mcu_add_sta() derived its "newly added" flag from
+!rcu_access_pointer(dev->mt76.wcid[idx]), so the publish had to happen
+after that call. Commit 33eb14f10290 ("wifi: mt76: mt7915: use mac80211
+.sta_state op") later replaced that flag with a caller-supplied `newly`
+argument to mt7915_mcu_add_sta(), now simply hardcoded to true, so the
+ordering is no longer required.
+
+Move the rcu_assign_pointer() before the MCU add_bss_info/add_sta
+calls, so that the wcid is visible to lookups before firmware is told
+it's live. This makes the ordering symmetric with
+mt7915_remove_interface(), which keeps the pointer published until
+after the MCU disable commands have been issued.
+
+Closes: https://github.com/openwrt/openwrt/issues/24594
+Fixes: 8e3e7567b8c1 ("mt76: mt7915: add sta_rec with EXTRA_INFO_NEW for the=
+ first time only")
+Signed-off-by: Ryan Leung <untilscour@protonmail.com>
 ---
- drivers/clk/imx/clk-composite-93.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+Changes in v2:
+- Reword the mt7915_remove_interface() comparison in the commit message
+  to correctly state that the wcid stays published until after the MCU
+  disable calls (not before).
+- Link to v1: https://patch.msgid.link/20260820-mt7915-wcid-publish-order-v=
+1-1-79d2bc981d8b@protonmail.com
+---
+ drivers/net/wireless/mediatek/mt76/mt7915/main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/clk/imx/clk-composite-93.c b/drivers/clk/imx/clk-composite-93.c
-index ef20ceb2d255..953f67d13978 100644
---- a/drivers/clk/imx/clk-composite-93.c
-+++ b/drivers/clk/imx/clk-composite-93.c
-@@ -43,11 +43,12 @@ static int imx93_clk_composite_wait_ready(struct clk_hw *hw, void __iomem *reg)
- 	return ret;
- }
- 
--static void imx93_clk_composite_gate_endisable(struct clk_hw *hw, int enable)
-+static int imx93_clk_composite_gate_endisable(struct clk_hw *hw, int enable)
- {
- 	struct clk_gate *gate = to_clk_gate(hw);
- 	unsigned long flags;
- 	u32 reg;
-+	int ret;
- 
- 	if (gate->lock)
- 		spin_lock_irqsave(gate->lock, flags);
-@@ -61,17 +62,17 @@ static void imx93_clk_composite_gate_endisable(struct clk_hw *hw, int enable)
- 
- 	writel(reg, gate->reg);
- 
--	imx93_clk_composite_wait_ready(hw, gate->reg);
-+	ret = imx93_clk_composite_wait_ready(hw, gate->reg);
- 
- 	if (gate->lock)
- 		spin_unlock_irqrestore(gate->lock, flags);
-+
-+	return ret;
- }
- 
- static int imx93_clk_composite_gate_enable(struct clk_hw *hw)
- {
--	imx93_clk_composite_gate_endisable(hw, 1);
--
--	return 0;
-+	return imx93_clk_composite_gate_endisable(hw, 1);
- }
- 
- static void imx93_clk_composite_gate_disable(struct clk_hw *hw)
--- 
-2.25.1
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/main.c b/drivers/net=
+/wireless/mediatek/mt76/mt7915/main.c
+index a8286f8becf9..9c6c339f1b38 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7915/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7915/main.c
+@@ -273,9 +273,9 @@ static int mt7915_add_interface(struct ieee80211_hw *hw=
+,
+ =09mt7915_init_bitrate_mask(vif);
+ =09memset(&mvif->cap, -1, sizeof(mvif->cap));
+=20
++=09rcu_assign_pointer(dev->mt76.wcid[idx], &mvif->sta.wcid);
+ =09mt7915_mcu_add_bss_info(phy, vif, true);
+ =09mt7915_mcu_add_sta(dev, vif, NULL, CONN_STATE_PORT_SECURE, true);
+-=09rcu_assign_pointer(dev->mt76.wcid[idx], &mvif->sta.wcid);
+=20
+ =09mutex_unlock(&dev->mt76.mutex);
+=20
+
+---
+base-commit: ca800a9302764c445de0da0e84d2252400a770ee
+change-id: 20260820-mt7915-wcid-publish-order-bebef551330c
+
+Best regards,
+-- =20
+Ryan Leung <untilscour@protonmail.com>
+
 
 
