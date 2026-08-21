@@ -4,70 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7479EC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 16:22:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E37C5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 16:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z9a7nA8HCBztJhljVkb8PGWuj4EJLsv7QEFc+3RJczQ=; b=a5fQeLRwur575llbQl6ZG9q727
-	8cOrcopghzSFUcY74t76qUTnAKd1g9b19qrxlAimWSnVSHnqsLHS6jgpGxtUCC4TL5zJeISD7THI9
-	O1aPjoQAXFP/8XT03pGrgyfNYk5XEwbFt3Vlui+mJPB/WXqDO/QdCJJ71kGhQEmT38eUJM6ltqS+c
-	nLdbO/w276McfiXGmca7cmAlW3dptfohgd3lrNQzk0pRO1wnjhltNzvrV/hfaIl2dG/htqNObU1PU
-	/VwzS29mh+neX2tyn64fxxI9j9U3TMVyxOoSTMdaTMbOqEx5+TsnimA5MHKUdMwPsGHdJGmGBaOr+
-	2QGY+mgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MDQtmdBzMLSyGjq+1y+jmsODvFOZl9MJgWzBTtKwH1Q=; b=XA11pxeLZatYHf
+	vsk6R4bwYJnBaT1xdVpbDYUZdlf5owfyAXsUOVN/Hq+5JWynSbTWBx1+RZMLe1tRX/upSkVwBL2cJ
+	65dPjLV42hWYdcJcKphM8zOTbDxzmRn1qzQr0v0NPOCMbdEQIfrCBgomhgVCgSFUmR0WnV3wZ9EBL
+	UCSpX2Giw2HsbQA5eDI5fWk5hasikaDR3ZvcDzcozsS3IaYaT8IE1IoZG6Hsvt1ZiZx5ymLNvK6/F
+	M5f3TAW+TLHl2AAEhjbtL6bvQZi0H7eOH9tYmk5SPU87mb187f0i5D1gqtdKrQF3EAdnEHjfdceWC
+	7hkq0qtp60i5SluQAdLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxS0r-0000000DnNT-2s8V;
-	Fri, 21 Aug 2026 16:22:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wxS1n-0000000DnZr-1ojc;
+	Fri, 21 Aug 2026 16:23:35 +0000
+Received: from mail-northeuropeazon11012047.outbound.protection.outlook.com ([52.101.66.47] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxRzP-0000000DnHk-0iRc
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 16:22:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC28C41B45;
-	Fri, 21 Aug 2026 16:21:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48BA61F000E9;
-	Fri, 21 Aug 2026 16:21:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787329266;
-	bh=z9a7nA8HCBztJhljVkb8PGWuj4EJLsv7QEFc+3RJczQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fj4rOAqKMbpDe1PX6o7tuErN64y3dcGBFYXjgXLVkXPj53jWdwJjXYhUYfq2uOnJD
-	 SlGd8QJ/IjorY2JFB9BdWQicF8bxvld/RPywOsf+T3W/AAQu1amrHrkWOFq8z3ntWG
-	 lzjZO3JLUWXsZJY2yFKvnda1RtefU2ebxuoTsvOWZ8qWP1a6Esk2kF3eXo/GXz2NY3
-	 fvMykXafeEkOaA72aQFLcxNypD7QHg1WGWK06Eq7PVeN6ngXCliD7rjqMxHlftEOGr
-	 RL6P5S8Mm4EelHXsKwiJPeexoMpgvLj2soMlX3CHtN5NCa08DorvMp9mMAS3MJcu0I
-	 hU9+JxuuuLrKw==
-Date: Fri, 21 Aug 2026 17:21:01 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Muhammad Usama Anjum <usama.anjum@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Amit Daniel Kachhap <amit.kachhap@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>,
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH v2 2/5] selftests/arm64: Print missing MTE TAP headers
-Message-ID: <988acb8e-2918-4f88-99b8-a0b1a09f4793@sirena.org.uk>
-References: <20260821141556.4065894-1-usama.anjum@arm.com>
- <20260821141556.4065894-3-usama.anjum@arm.com>
- <b95d6b82-ce25-4d89-8d8e-8be1f111812f@sirena.org.uk>
- <dd3e1cec-1177-4b34-946e-20f0cfeaff7b@arm.com>
+	id 1wxS1j-0000000DnXU-32od;
+	Fri, 21 Aug 2026 16:23:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Pb8Bea9+CMJdcpKgLKCmNgXPWbJprq3eX2uUtFzHPzQFuzueuZ2AKM1xQqDXnlu2RUapetns+Xfc/HXGue2TGRbPjf4s8Ilt114UjgtHmmyKOMr3MWdRLIElnUMsDiWRPrAVcfnFHOcx9Q2cWRe+tw4vzshSF7jQ2Xh/9jriLdRgNjPGN/RFboxhuknY2+fBN7s2TCqUmEmEWYnxIcMdKX17TjDykwHtIMBo4o0RyIELa4CgM+M94PWjteb7Ur+c9Skac6AcuT64+XhtmTjlAF2B1Vtc2uZyTLXfBjOvvewyHZ5n9GXkwm4pzfvajp6DH95S5dASSeicqmbQZbpU6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MDQtmdBzMLSyGjq+1y+jmsODvFOZl9MJgWzBTtKwH1Q=;
+ b=rPajR7UGWioTSezAwfKimgy4Q6LM6FctMMTM3ZY66aMMv/5sfVn9dJvSV4djYjmO+9q1EooUhbHK7W7/UOlpRTEb4Y4E9mgygsAo12Quhu0cjhSDTwUhwcCrU9kPl7fJjeZH9Ro9Sn+kuUzHVzjh9tZGLzuUiLPAgTd+kU+PUadsq3Ge3n2sH7xdD2HIAC1QpzKr5NyYIklD44DaIviYs+/HQUDqw+gn4geg9jtkkE9DD9tX6DO8hgDoOwuhkgm3vh8EWO4FRI8ZIp/0bM3s69g93hOp4Qs2vpdr/B6fHTFHxpecpYdeM+i+xvLaIatQQE7LnV/8h7yiDodkgf8vpg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MDQtmdBzMLSyGjq+1y+jmsODvFOZl9MJgWzBTtKwH1Q=;
+ b=QuXc1kfp7jtcHHWxyjkHwBURjedwGnJUCwWB5D83gLoDvsnQ+qShW92h8LwIhqMIJ9TWpHYwCS3SXyDI911kod+mQF5SNV1/bQLY8MRgzcHMSx6ytYDlndDRNSV3xF236BnDlNZQWHQvinm2gHMwhOXi4onr/zLmalYguFBKAMD3LnFlYbADf24UHQFvRLPZBnvnV9fbsY1AvmJFHTKcjNvKP2VcRq+PAFqVweoYXjpQ7WR1UxlwiO4oLaUPO0ygeDgOVkhro28JcycO8SqSoBv0X62VjKH51eimS3RDWm/mWkee2kw2K1uEfZHyAua0e3BO+pBYg/Ha7+0J9eWaPA==
+Received: from DU7PR01CA0039.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:50e::12) by AS8PR10MB6338.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:53e::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Fri, 21 Aug
+ 2026 16:23:26 +0000
+Received: from DB1PEPF000509F7.eurprd02.prod.outlook.com
+ (2603:10a6:10:50e:cafe::6f) by DU7PR01CA0039.outlook.office365.com
+ (2603:10a6:10:50e::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.11 via Frontend Transport; Fri,
+ 21 Aug 2026 16:23:25 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DB1PEPF000509F7.mail.protection.outlook.com (10.167.242.153) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.360.3 via Frontend Transport; Fri, 21 Aug 2026 16:23:25 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 21 Aug
+ 2026 18:28:25 +0200
+Received: from localhost (10.48.86.251) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 21 Aug
+ 2026 18:23:24 +0200
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Subject: [PATCH 00/16] Add support for USB Type-C on STM32MP25
+Date: Fri, 21 Aug 2026 18:23:11 +0200
+Message-ID: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-0-c5e27cbc0795@foss.st.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="EOfL+EvY5O+3PccB"
-Content-Disposition: inline
-In-Reply-To: <dd3e1cec-1177-4b34-946e-20f0cfeaff7b@arm.com>
-X-Cookie: Package sold by weight, not volume.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHB7iGoC/y2NQQ6CMBAAv0L27CZLi0j8ivFAy1bWA2C3JSaEv
+ 1uV4ySTmQ2Uo7DCtdog8ioq81SgPlXgx356MMpQGAyZljpTY/bLgOOsCUNWZxvC9YIGY/DY2Ta
+ Q6z2dGwslsEQO8v7Fb/c/a3ZP9ulbPIzIr1yu6dD2/QPQ8eLWkwAAAA==
+X-Change-ID: 20260821-ucpd-host-fusb340-v7-2-rfc-836f0bac0543
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Christian Bruel <christian.bruel@foss.st.com>, Fabrice
+ Gasnier <fabrice.gasnier@foss.st.com>, Heikki Krogerus
+	<heikki.krogerus@linux.intel.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, Philipp Zabel <p.zabel@pengutronix.de>, "Liam
+ Girdwood" <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, "Srinivas
+ Kandagatla" <srini@kernel.org>, Marek Vasut <marex@nabladev.com>, Vinod Koul
+	<vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Pankaj Dev
+	<pankaj.dev@st.com>, Marek Vasut <marex@nabladev.com>
+CC: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-phy@lists.infradead.org>,
+	Thomas Bourgoin <thomas.bourgoin@foss.st.com>
+X-Mailer: b4 0.16.0
+X-Originating-IP: [10.48.86.251]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB1PEPF000509F7:EE_|AS8PR10MB6338:EE_
+X-MS-Office365-Filtering-Correlation-Id: e9a9cbb5-cd30-44c1-2c69-08deffa0870b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|23010399003|36860700016|7416014|376014|10067099003|56012099006|18002099003|11063799006|13003099007|921020;
+X-Microsoft-Antispam-Message-Info: U/mykmKR8dE5bIfkSv47dHsp2xIZXJJBZ36ZtjNtK+ieH+Cp55UzqGGkww9M1FINWr/IJgeef1VGa8r0f2OIO6KEi63FtdwvxjsU/6daarJLhpQ5vBMj3YqzfDmq7po1UyBdtzd2roYlGVnSI00anmmM/YYea4ufMZOcZKDHZdHGlvQgo8vKvjNfC2dXH9dmq3aofHJP03i61r+ilJapzvBYHURM2Ghf2YUva5HM48t9mx27PgtE7umGzDV/bkXHyx2te9zDQL+Abl1Nr2K1RcgLEJlmsqa92skUZhNA6xKJU8geP4bEnyHtwtWcLiI2aw074+MwQggU5RjI3b5KnA7yXqH1ZTo4nfvCvzzWeXA4swbqQTwyHdG+RQUjcME6dYI3+O9Rh0dxDxPZZGJiBvnzKIf4pud+kJXva9wQevtoxuM3nimx9WaRDAB3b5oANqnOElmkFn6cDjPwaSjU6cFPtXIwj+fEg1y3feQMXnscoO0GnTyCp8LrHdpIWaWAC36Gv9+27zewQ+V6wIgVzev49D/pMZis3x33QjQ3OkL+aZ1aD4jl5dy+jjrbOpgTlCwlxyjBPBMaeaSV/GjCw9GdcLNwfGQjcFsnIj6eKjwEGz5n7OdlU9pIPw9Q4JOIIyq+jgw836r9pXlbvyZDMkEtT1Mf6Q9+piyNono0EW2cziHCRwkS+sd+op2MKv+YsfBzY/O9OIJeqI5BC+gSuwVpn8z/vTqGa7Eb/lzrtNbObp72NYPshPqZ9W7TD/IG
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(23010399003)(36860700016)(7416014)(376014)(10067099003)(56012099006)(18002099003)(11063799006)(13003099007)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ILsEs1HXKQUzNlqfqOCQpmiA3K5DOvi501x2rXuvI4oN1E49ThhYZo8kDnBEJtDSAIbFMni1REFCzFEpNRN1lbfHqL7GFeA4QU1erizN/5VCmFSr0+cmHUu4/bmoDuEZ1zB9kxj1e501RxVy+8Lo3hqNnroLoM4+6Nid9K8KLlHpnmEtwaW99E1pBEWmwisfYF5jCKf/iLm74+H/34yU9O946syMvOD4UnMMMTr2r981fEbJ0Pibsz1uQdPwD4FcMcV7CGheeYbKT1oYJikob1iQEUz/ZzUZUnoFlyKyha4vb1jgKk9QQ6IYseSopBLsQcA1bGNeTk5hh/2CZKvTw7o/J5UOhBJUXkxG9GnPHc6s1wAyoSCOecCtL6HPPxvldsUTgcSG685namgBM7CczW4w9/C2wEwWguhLtGSZaTDp91mWt3zVM6MpS9RLaofP
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 16:23:25.7501
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e9a9cbb5-cd30-44c1-2c69-08deffa0870b
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F7.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR10MB6338
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260821_092332_858614_BE1F3A07 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,39 +137,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add support for the UCPD controller found in STM32MP23 and STM32MP25 platforms.
+It is tigtly coupled with external TCPP02/03 I2C companion chip to interface
+and to protect UCB-C DRP port.
 
---EOfL+EvY5O+3PccB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Purpose is to propose a complete set of drivers and bindings to enable USB
+Type-C support on STM32MP25 reference design boards, EVAL and DK, compared
+to alternate UCPD series [1].
 
-On Fri, Aug 21, 2026 at 05:11:28PM +0100, Muhammad Usama Anjum wrote:
-> On 21/08/2026 5:04 pm, Mark Brown wrote:
+This is an on-going work on top of over series [2] and [3].
 
-> > This should probably just be a single patch with patch 1.
+[1] https://lore.kernel.org/all/20260819163410.119755-1-marex@nabladev.com/
+[2] https://lore.kernel.org/linux-phy/20260816213849.1044073-1-marex@nabladev.com/
+[3] https://lore.kernel.org/linux-usb/20260817163101.6203-1-fabrice.gasnier@foss.st.com/
 
-> My idea here is that the first patch would get backported as that's
-> true logs cleanup patch. (1024 lines of 1..1 are avoided with that).
-> This patch wouldn't get backported. Its just formatting fixing of the
-> output.
+---
+Christian Bruel (6):
+      dt-bindings: usb: st,tcpp: Document TCPP USB-C PD protection chip
+      usb: typec: tcpm: Add STM32 tcpp driver
+      dt-bindings: usb: st,stm32-ucpd: Document STM32 UCPD controller
+      usb: typec: tcpm: Add STM32 UCPD driver
+      arm64: dts: st: add i2c1 pinctrl entries for stm32mp25
+      arm64: dts: st: add tcpp pinctrl entries for stm32mp25
 
-I'm not sure there's any problem with the extra backports, and it's a
-spec correctness fix for the output which given the existing scope of
-stable backports is probably reasonable.
+Fabrice Gasnier (10):
+      dt-bindings: usb: add FUSB340 switch binding
+      usb: typec: add FUSB340 SuperSpeed switch driver
+      dt-bindings: nvmem: st,stm32-romem: align patternProperties regex on nvmem-deprecated-cells.yaml
+      arm64: dts: st: Add ucpd node on stm32mp251
+      dt-bindings: usb: dwc3: stm32: refer to dwc3-common
+      dt-bindings: phy: stm32: adapt usb2phy as syscon child on stm32mp25
+      dt-bindings: arm: stm32mp2: allow child nodes since simple-mfd transition
+      arm64: dts: st: enable usb on stm32mp257f-ev1
+      arm64: dts: st: enable usb on stm32mp257f-dk
+      arm64: configs: enable usb and its dependencies used on stm32mp25
 
---EOfL+EvY5O+3PccB
-Content-Type: application/pgp-signature; name="signature.asc"
+ .../bindings/arm/stm32/st,stm32-syscon.yaml        |  10 +
+ .../devicetree/bindings/nvmem/st,stm32-romem.yaml  |   2 +-
+ .../devicetree/bindings/phy/st,stm32-usb2phy.yaml  |  20 +-
+ .../devicetree/bindings/usb/onnn,fusb340.yaml      |  73 ++
+ .../devicetree/bindings/usb/st,stm32-ucpd.yaml     | 134 ++++
+ .../devicetree/bindings/usb/st,stm32mp25-dwc3.yaml |   3 +
+ Documentation/devicetree/bindings/usb/st,tcpp.yaml |  63 ++
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi      |  27 +
+ arch/arm64/boot/dts/st/stm32mp251.dtsi             |  51 ++
+ arch/arm64/boot/dts/st/stm32mp257f-dk.dts          | 111 +++
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts         |  79 ++
+ arch/arm64/configs/defconfig                       |   6 +
+ drivers/usb/typec/mux/Kconfig                      |   8 +
+ drivers/usb/typec/mux/Makefile                     |   1 +
+ drivers/usb/typec/mux/fusb340.c                    | 169 +++++
+ drivers/usb/typec/tcpm/Kconfig                     |  22 +
+ drivers/usb/typec/tcpm/Makefile                    |   2 +
+ drivers/usb/typec/tcpm/st_tcpp.c                   | 418 +++++++++++
+ drivers/usb/typec/tcpm/st_tcpp.h                   |  21 +
+ drivers/usb/typec/tcpm/stm32_ucpd.c                | 818 +++++++++++++++++++++
+ 20 files changed, 2024 insertions(+), 14 deletions(-)
+---
+base-commit: a8eb98861eefbab7fc254c8014712471448b295c
+change-id: 20260821-ucpd-host-fusb340-v7-2-rfc-836f0bac0543
 
------BEGIN PGP SIGNATURE-----
+Best regards,
+--  
+Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqIeuwACgkQJNaLcl1U
-h9DZ/wf/Uc7VZul9UkxOxkJdDi7toiHRQY4lb39/45K0JzG0P2THIgCDZBF2MJUC
-K9g4ZUHZu2IHVZ+vN4LkY5wezIA8DGLPG0unPwlFaLcFIOWvkncf2+rnXP4DFWtI
-5oZjsHYr3Uu4jHQWtmPcsbDyd3cMyMq05UmAs6XGVTQTatpxuw6K0Iaex4TOn4Fz
-rwacvfLU3dcnWfG5va+gw+1O+mNQ7MxeiaBxO57p5tKNKyC42SN6qsoZSDSHrKaV
-GAns01v4GRq+dQGnUEGXE5VkAz7r0eALazIEU92cwegIf3GhjS3aRxfNrVZ9Etuc
-v/WNTRfdkwQJKPT4WTHV9KrDKoX1SQ==
-=ntHK
------END PGP SIGNATURE-----
-
---EOfL+EvY5O+3PccB--
 
