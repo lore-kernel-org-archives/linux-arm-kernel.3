@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 651C3C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:44:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B5AFC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eHFJ0eUAVII379yRAiVcoAVkPJx8Zj6PegKpkPE3upo=; b=36lBsfx+lm41mQEv7Zu0kvKiyK
-	VaAjsBSZt0T96n0JmHN3r1dub0oilZK39WOMHNy80si4A42Or6dnyn0ZjF3X9y607O/VKRdtSif9M
-	lSy/z1fbVpWMcmSEkcCFXQAXuwNMaw5CJGXxAa/v5V+lh/nPgL8GkqmnIWTWJK+74rZ08mXLKwCDS
-	RCbKuk2uDCpvnvO478+JBBmpS+ghB2Dwwnq/rJJWeB4xIUANXpO1A2e+Ba9uAzZpxESNdwzOgf8kM
-	bPpwV7iFi+QD32GrobmUk/WwCX98uSNuTzER6LYbD4LUabFMRDkLNde5xSwZbxllRQn0Re/eOlTlH
-	w7PY4+Tw==;
+	bh=lcX1HcIioN6RDOu7kJFmuhD+cDaBL4tzsJMwf2OP5DE=; b=Ja03vKnMGwm4p95dBDg1rMz4iO
+	hjdW4/xAg3YZo+s3xO/g5xed6lBc1xZVCQQCKDO3PvBuzb2zb4etQ8gowVWmHBy89gPZgQe/qVTrL
+	uef9d8U8Oy7ZtO/UlcBuHNniDgK3gnWQUyzJ4pIhhu4FlaIX0x4Yx+HHeMWrichPr1NkMxjFoc+ua
+	u55ui0fK8mqKTh75CMV8+weStFQgx8bEDN2Z8ITHKZhiVhhyZW4WjWwlMx3HQRkUap6Gho/ianOy3
+	8y6uK5jvO3CRtiJa0Txe6ShA9A4xvn2gjIOASSIeAgPYGaxzDLqGDC1HUkz3Rxx1F5xN9iqorILdD
+	5QMROs4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLnB-0000000CwKx-1iJl;
-	Fri, 21 Aug 2026 09:44:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wxLou-0000000CwXN-2XGd;
+	Fri, 21 Aug 2026 09:45:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLnA-0000000CwKo-1qPb
+	id 1wxLot-0000000CwXH-1dw9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 09:44:04 +0000
+	Fri, 21 Aug 2026 09:45:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE21E403AF;
-	Fri, 21 Aug 2026 09:44:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72AB41F000E9;
-	Fri, 21 Aug 2026 09:43:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 80B42600AA;
+	Fri, 21 Aug 2026 09:45:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEF811F000E9;
+	Fri, 21 Aug 2026 09:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787305443;
-	bh=eHFJ0eUAVII379yRAiVcoAVkPJx8Zj6PegKpkPE3upo=;
+	s=k20260515; t=1787305550;
+	bh=lcX1HcIioN6RDOu7kJFmuhD+cDaBL4tzsJMwf2OP5DE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=XdQX2MJf3kqt+IsJPOusVktomYsFQiT8N16WjjCb1Dklht/wzeEGZ5WD8nLBH4WJl
-	 c4CpefvnFm6CZHL1UvzVWo6hRq+2JgRic4Rdj7vZTr46Q2FBh7zmTFQqR4cEuN1Apa
-	 oujWZPdb4NA0ia5fvEHtgm8L9KTDc1FBoo0C5UI2NaSyttYUh+KTF9Yp4SFlI2dLkm
-	 QIPbL28VRl8tpmzmDXT2b3C4rDhdKs/dKHFOs+jcLyooUQr8YJwInNncq+ae1rDiJ0
-	 SXmWXcTsktt5LDpyLLCpwGGqAsP+dHh+plF72BHuJAG4exHfXq9Yfn3OMjnjpugxHT
-	 DyXqQo53Bv4Kg==
-Message-ID: <f7238047-e434-4e46-9f27-183bd94e77c5@kernel.org>
-Date: Fri, 21 Aug 2026 11:43:55 +0200
+	b=IrUi1wjBqYEnizRjndZOGvVP/lwYsj9xPGf/RV7kVw5jIuU6Hw8sOmOpH4D5mYhlm
+	 vaKbUogJjRjRPMmf0Wm2xMT1ZeomLp8/XQ++X+rm46BkYlMXNVmIINvSYtzqhvMQAr
+	 2X15Pun5aYZbcUYo+bXBIcJZx86r7fdI7jPw5MEXfKs2Ki31Dh4O7xWigsM+Qxk+6C
+	 6qsrqZQupJgk5H014Dn5EE5jwuKVFcK61025lrEgXbeTVEBNf3RQ4Qd3nv8fSA5wvk
+	 uNVQm+muMoFuiHzDF3nEcGs8YdCy7gZZZDNQpJoetgZFJwmLZ+hb0WgiMIa/0n1NWp
+	 l0e186Z/KwRnw==
+Message-ID: <4af6ebe2-c476-4251-829b-2d41239da7ff@kernel.org>
+Date: Fri, 21 Aug 2026 11:45:42 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] dt-bindings: vendor-prefixes: add Axera
+Subject: Re: [PATCH 5/6] arm64: dts: axera: add AX650 Demo initial support
 To: Leng Honglin <lenghonglin@axera-tech.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Shi Zhicheng <shizhicheng@axera-tech.com>,
@@ -57,7 +57,7 @@ To: Leng Honglin <lenghonglin@axera-tech.com>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev
 References: <20260821-ax650-v1-v1-0-e1b013938e6b@axera-tech.com>
- <20260821-ax650-v1-v1-1-e1b013938e6b@axera-tech.com>
+ <20260821-ax650-v1-v1-5-e1b013938e6b@axera-tech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,7 +103,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260821-ax650-v1-v1-1-e1b013938e6b@axera-tech.com>
+In-Reply-To: <20260821-ax650-v1-v1-5-e1b013938e6b@axera-tech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -121,34 +121,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 21/08/2026 11:30, Leng Honglin wrote:
-> Add the Axera Semiconductor vendor prefix for devicetree bindings.
+> Add initial device tree support for the Axera AX650 SoC and Demo board.
 > 
 > Reviewed-by: Shi Zhicheng <shizhicheng@axera-tech.com>
 
-Where did it happen and what was here exactly reviewed? Did reviewer
-understand statement of oversight? I am asking because this is v1 and
-has already clearly visible issue (below).
+I have more doubts, looks more like automated acking.
 
+...
 
-> Signed-off-by: Leng Honglin <lenghonglin@axera-tech.com>
-> ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> index 396044f368e7..1dbafe682724 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -219,6 +219,8 @@ patternProperties:
->      description: Shanghai Awinic Technology Co., Ltd.
->    "^axentia,.*":
->      description: Axentia Technologies AB
-> +  "^axera,.*":
+> +	/* GIC-400 block base; register frames start at offset 0x1000. */
+> +	gic: interrupt-controller@4900000 {
 
-So your domain is axera.com?
+MMIO nodes are not placed in top level and your internal review should
+have tell you that.
 
+Also, entire file looks like failing on dt-style-check.
 
-> +    description: Axera Semiconductor Co., Ltd.
 Best regards,
 Krzysztof
 
