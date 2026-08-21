@@ -4,171 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B515BC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 11:22:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1006C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 11:26:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GtsEkn/+BTHHwNgiX/Dgdv1hLayCqg8HD6WK4uhxMRI=; b=qis1zzd7nocrS6JqS/eqO8Gzxk
-	mYU1OE3FNEjU7ledbGFsjsDz9XXYMPqKocxFt55Y7/CczN/TEq+T+UDE8/1zsWxyUs6W106sI4wJI
-	GVQEsevfNPOTc6weduR94cIACK3PPJlWTfDU5gkocVjOSBMypO6N5aAgdPiInshYpDzQYK50ooaz8
-	Vm9IJI0VEq74mZZcze6RBrTdhSpFT1vjPTprZ1RJQd1dW8OBHRubZloxFDa40Yvgk43MRECPqNo66
-	Bp/UsUNmOonqYaxQ+Rz0nD2z32bSu+x6B2GF0Co+/XBZm502rdmT0QTdE/jAGLN4uEEc5jDOSJTiz
-	3icu1Wow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/l/2KawyGNYLCcvJD2Arzy5A9w3xXQ8Pfc3c3ttLJhQ=; b=slbiB3eEZJfEaPOyuihnLvHNv/
+	KDi6Pf1PCERTCo+hCvCzK9qZ/PW4sYMLSXkFST7wAPXAZZHJKKf1esubujyHCk5niCx5M/1LL1+xl
+	XhMcK9FHphLIehUwPEJZrF6dUwpTupwUHsBSnsK/mqj1sFkFK7HzG5w06hNH/JLLobae5y0n3BxGv
+	zXdaT4SnU7TifzRdycMYgTSGvMHDHXeNvc885tnNdS+Ibqui5S4Ky/TmLeqWbT35qXeZp/lO2fTJB
+	H37Hvw+FlSi6vjO9nObTHaqd28KFR39cr7OeTFzno8v6uMRZ144h6gwfCySD+qVpVugd6a7xA7p/6
+	oFZYNJpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxNK5-0000000DB04-0A7p;
-	Fri, 21 Aug 2026 11:22:09 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxNK2-0000000DAzU-0lCo
+	id 1wxNOG-0000000DBYp-3cxj;
+	Fri, 21 Aug 2026 11:26:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wxNOE-0000000DBYI-2P62
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 11:22:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787311326; x=1818847326;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=dVqpDjhWfYFwUNfGDHeCGktw557cjfp4Gg2Cdn9tvEE=;
-  b=Rtb06mHp7iAkHNvk0Exjy6lDPhc1Fn6SxXPKcwIF65DEmVF77vWusQOs
-   szG9C1bn3o0f1aya2UKZFQsrGRmnwWN4jkkRSWOH7PApbYOv4jU/j6Rne
-   k6He9oK+LOqw50o5GJptssk466SAmLriRrrrLthPyrjQSmN9F8NrlzlCq
-   Z8no0ybe8+Kqeb4TeqmMvW+wGZhs5SFKNcoPPB7TDL8Re+Twy+5w9wtqH
-   BUXgOGdzU7P/SDzFKsEBCY98RyqVdLVjwa8LBJ1UhvBNXH4Z0VkxDYkIh
-   wiICUxIeQE25LSwc1RPnsOzplLDvmaACM7crbkcoyChOHqDtVZG57XCJo
-   g==;
-X-CSE-ConnectionGUID: dJ8hSjUlQ1qKH37ROFJ6Lw==
-X-CSE-MsgGUID: 7DQtnCMpQ2C8OiNoVERNMQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11881"; a="87919222"
-X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
-   d="scan'208";a="87919222"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2026 04:22:05 -0700
-X-CSE-ConnectionGUID: f2x2DIarSaKDC/H33EDN3g==
-X-CSE-MsgGUID: nCrnzgVOQnSW56dT9vBJbQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
-   d="scan'208";a="266910343"
-Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
-  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2026 04:22:04 -0700
-Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
- fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Fri, 21 Aug 2026 04:22:03 -0700
-Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
- FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45 via Frontend Transport; Fri, 21 Aug 2026 04:22:03 -0700
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.43) by
- edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Fri, 21 Aug 2026 04:22:03 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gIf8Y6lRNzWkZE47UEUj6h1DGQJWwa6S80rYNFyKtI47gqL6nL+F5FNtMWFg2LJWpVgVWbQQC72E3XAAtWMSdAPxTj5VyObm7NRwDv8aPjd90dMfO84t8iirrDv/6KgI3dhQUAxr1AzviPOZbwJe6XhlOmyINOVmIClBu21eGFbeo4Q3pMgSjZ3IGPZpyVfirQoa+v8MN54dbvJcf3/A3+bzEPnt51I+Ij67FgFH+WiiU16pqXT1DysTFZwEot36F8+i6nufcZrD5MnU3KtLtn7kV43KSa23NEd+3qVFCTw+NwqE6UWQVbcoMj2pisMKycyexoSYIENxo8iRXl1JKg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GtsEkn/+BTHHwNgiX/Dgdv1hLayCqg8HD6WK4uhxMRI=;
- b=fx3F/3BpvBQhJm93xPgwbH1JMR5TSRULPh59gh/VrDe2x+R/kOnpg0DSGlWP+4rTZsm8ZbKVvmyxnGBsLSFff5QUIL5Ze7r7Uogh+1Rgg8Wu6ZVkaviYe+95c/nS6atHBcw+dQrZwI6zYFKiJYodbylwFmnpeM4PAsGNbwaS2LRhCwOEWEcacTn6/EHIwWnu7l8+zU/vlxr3/MNHoktY4j73VSDkQ9amNyJI0v+s6HIHOHDPjHlyeSDa1u02MjNqINIkFoFJxTnNLTROCLJquV52605BqTBkHlaeFBr3J0759/ed2CgZyG2GG0gTZB7NkSuU6CT7BF2GrFCpuwzcJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DM4PR11MB6117.namprd11.prod.outlook.com (2603:10b6:8:b3::19) by
- MW6PR11MB8437.namprd11.prod.outlook.com (2603:10b6:303:249::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.11; Fri, 21 Aug
- 2026 11:21:59 +0000
-Received: from DM4PR11MB6117.namprd11.prod.outlook.com
- ([fe80::d9b3:e942:2686:3cdd]) by DM4PR11MB6117.namprd11.prod.outlook.com
- ([fe80::d9b3:e942:2686:3cdd%6]) with mapi id 15.21.0339.010; Fri, 21 Aug 2026
- 11:21:59 +0000
-Date: Fri, 21 Aug 2026 13:21:45 +0200
-From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-To: Stanislav Fomichev <sdf.kernel@gmail.com>
-CC: <netdev@vger.kernel.org>, <davem@davemloft.net>, <edumazet@google.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <anthony.l.nguyen@intel.com>,
-	<przemyslaw.kitszel@intel.com>, <andrew+netdev@lunn.ch>, <saeedm@nvidia.com>,
-	<tariqt@nvidia.com>, <mbloch@nvidia.com>, <maxime.chevallier@bootlin.com>,
-	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-	<aleksander.lobakin@intel.com>, <horms@kernel.org>,
-	<magnus.karlsson@intel.com>, <sdf@fomichev.me>, <ast@kernel.org>,
-	<daniel@iogearbox.net>, <hawk@kernel.org>, <john.fastabend@gmail.com>,
-	<guoren@kernel.org>, <dtatulea@nvidia.com>, <witu@nvidia.com>,
-	<martin.lau@kernel.org>, <yoong.siang.song@intel.com>,
-	<intel-wired-lan@lists.osuosl.org>, <linux-kernel@vger.kernel.org>,
-	<linux-rdma@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <bpf@vger.kernel.org>,
-	<linux-csky@vger.kernel.org>, <leon@kernel.org>
-Subject: Re: [PATCH net v3 2/3] xsk: honor XDP_TX_METADATA in zero-copy path
-Message-ID: <aog0yV9ZwSJ14P8Y@boxer>
-References: <20260819160535.1472459-1-sdf@fomichev.me>
- <20260819160535.1472459-3-sdf@fomichev.me>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260819160535.1472459-3-sdf@fomichev.me>
-X-ClientProxiedBy: TL2P290CA0001.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:2::19) To DM4PR11MB6117.namprd11.prod.outlook.com
- (2603:10b6:8:b3::19)
+	Fri, 21 Aug 2026 11:26:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19B851596;
+	Fri, 21 Aug 2026 04:26:20 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D6653F763;
+	Fri, 21 Aug 2026 04:26:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787311583; bh=Bl+hTE7mLTOt5f/k2vBFWuhv1+9Osdu/Tt7Pkm/CsuM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=SzGA+SkJNd0Je+3zKJAyGf1m9WfOuDAW1oZfaMXZJEigu/ojNzVCJHcA443IIKDEN
+	 94WQTAooNVv3FwPmJpVT6tSwVoUgDyIjAxV2ORk9c/0SHMm44bXbr01TpGfFClX2wk
+	 ZqwP8TnJllBLq1SWPM40aYbbwTiiNV4WFktXp/8Q=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v19 03/14] KVM: arm64: Manage GCS access and registers for guests
+Date: Fri, 21 Aug 2026 12:26:13 +0100
+Message-ID: <aog11Xfjf-tmA4PO@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <hwz52absjxap7n6olwt3lmjakmtgxxaku5gcofsrcfa45zdygh@dqgylcillnud>
+References: <aoXamcdKoMynTkpX@LeoBrasDK> <48be9e5d-357a-4863-8682-8b3f34c69723@sirena.org.uk> <aobUGyq8nInJYkdA@LeoBrasDK> <97ad6e83-b22b-4881-b644-66fa99f68d64@sirena.org.uk> <aocOi3wjcliZqoe7@LeoBrasDK> <hwz52absjxap7n6olwt3lmjakmtgxxaku5gcofsrcfa45zdygh@dqgylcillnud>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR11MB6117:EE_|MW6PR11MB8437:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8ee1de98-f849-4937-47fa-08deff766a9c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|10067099003|56012099006|4143699003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: KgeA2flJA+mJ3U6y/UsCzqmJuovAnBvzAvtGBCHKbESUNnc3DkZPCAvyO27V2q87+9CwoDoXwsC5x2NhUC38929Kjikwyv8baae7r7P9vIR5kUGcRUVkXjYwTN63kC90dye/wgDXvo7jJWAco4DM3LtuBShQ4tql7/mYbSmYekg/PaGguMvnG5viASjAzStQtLxcSbEohiNT1ALOYdD6005omzQgXrJsMU3oi+BPZREMedDD8QRXRlhXzYwLjab9CeuZCFxQNFD9g51vLcOGjPIVIzlZcljBAuYmuteMPJoP4JgPHH/Jhvpm3rjSWTZYNPgFX05FhSArbLttu3DIdctGG4oTf2OtPgYjPa3FJ+cAyhBm85e8NgHE1qGXIuKT1HaltXAlGfieK0A8YOajY2+ZFcMAXCcCzplMuGc1Kcc/tHBqt2JODAd61XADa9nm3nWTcf8lfRLhBccaiZ95xHHTIhfAiH+JoE6Jv+HoeD00dJU1YW+0zDiofXMHaWxGnC3XDHWVtxf22LMtx9VfHWp9/pmREl3QuNREbR0qy1sXuGN6WbzJa5wCcf0rfJs8RxVIws4/h+j+iI9/FD77Yvqv40HkJPnGonStKAKGE+ZsijJwRpl8ABr1cbqKPK3buhtIlUrKlTqM5rLic7acUhbsKV+SWi71qZtgWSGC/pg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR11MB6117.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(10067099003)(56012099006)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fIlS8D223UUeuFenCigeOsYPO1Oi/GH98vBeFyqOym8+RdH6zY4G2gsaKvsT?=
- =?us-ascii?Q?DSdbLvBHuBellZvSt2LsSM/5QZ1Iu3Za/qK6J4vOOYY5AQcgTVkLKlWDthIS?=
- =?us-ascii?Q?iTZBJ7tE8SzEmUwSZVbMuCP5OjiSkJZDnaEoHFC6k1RVuM1+x+0dbQmGsvSd?=
- =?us-ascii?Q?W0HMO/8/sHIs+Xpqyctwd2/O2s6buUZBXk0WHHHFsRmBxG42LbJYBIrv6UJu?=
- =?us-ascii?Q?CK6EDA2JU9lE6yLCrwR3XKqeOl8uewg7IhvA3a0PNzzlDvaUx9jaMeq9I73t?=
- =?us-ascii?Q?Bjr+ZWeXwGqFp57I05pp6E2xVAc5knqqEXRKG82GYChiHvDr2StZgH3OH4SR?=
- =?us-ascii?Q?M+yyGLOx1iTZItxx9K7k9t9lQowhqkS4WYUtkD41Tpf4RetNDayOD1N9en2Y?=
- =?us-ascii?Q?Iy8YAQ3+yWrPgKtgJewjsMDy8ua+F6op5q78F6jST/iEyNZ4YRYaJ+qcfGjJ?=
- =?us-ascii?Q?BhcwM5zFpLe/7QczeoGuswtRsQRFs3emMnRwhZlVijpxImJAEdH4uwYZ9FsX?=
- =?us-ascii?Q?THhF+qJNkPnLznYOzHJ8jCqKbB/CKUmz3aBfveiR7CJSjsCB0G1cb30BLYKC?=
- =?us-ascii?Q?wHQ8igngXoX7anyGbME+C86cFKat+fb8cH0INpE7tlOu8dTm0KHUIfg+HDNp?=
- =?us-ascii?Q?jHYJj7dCnqTaHpcsbvf5NcsemOzZYeZAHUiKy1JR1KnzFWIPy6VjuBLe2r5b?=
- =?us-ascii?Q?irQumDLQveO3mW8XNi9ZPeyPeLJJhhbhoO+TeyLuugc49Lk6sYU89o4zYMkS?=
- =?us-ascii?Q?llnHqbOZepiv7w9EvAvabc5cMWPIq4ItLvmYo0KdR+yw7CuTVlhhjqw3frhS?=
- =?us-ascii?Q?Sa9kM98AzK/JHwSxIVtofRSYRfXxdIDhG3uJukHWmpNZAAyqIPRSHMMJHAVc?=
- =?us-ascii?Q?MvNL20jioR/e96gw2jLWrVzU34mnXjHad+EeS43ZvXrE9oJ0HymvJMfsuAk2?=
- =?us-ascii?Q?EM7Bur+OY9emJkm0HkVeXc+XngRATt+AsegpbC5pdGd7R2mrJEtwwlHbKtF7?=
- =?us-ascii?Q?2Nhfvj6X6liMQ+zNKkKvaBRScCLVFPgu7U6k4QyR0RM8dnssSuC9an/peA7+?=
- =?us-ascii?Q?XgTuXThWhLeDtIItQSn3w7dKqIpjuKXQXIFKK3+E1MUqE6do916vUSGMklLt?=
- =?us-ascii?Q?SIOT2jV0DEeuC3Gxl/5OHoZVKtlFLwfI5OGqTTU4K7pRuqMl2X5aX21uxcY9?=
- =?us-ascii?Q?bhKaffdmSj2aveU9PLFz1+gNkChB/dqoZV7fOMtmXI1BkdRKknDb2y03g1Yt?=
- =?us-ascii?Q?6GecG2Nnn/iWHspwmciZPYheGd4+XKs5N7C0rfn229xOVzytmrULnRsyV1XF?=
- =?us-ascii?Q?AZh+3GdP6NrTt+WDd4ZYLpowxnZvChoPciwFmY1yziilwnKk/VTCqT5LtqhN?=
- =?us-ascii?Q?4f6oBkgRue6+bVAQxA0ilY9lpR0hcCXE+7rMywIFMcrp6OsX5ePPfxGsvfwG?=
- =?us-ascii?Q?I1hpVqV1Aj1nJ+blzKeeUDlg2+y3lsQ29M6redwg0SsJlqykqdaHQgxDw6eq?=
- =?us-ascii?Q?KWZG21BTSds9cn8gLKYQE+HXwJM+PVGlsOyg7rFsJgm5zP5dWopSz+Kb6qwV?=
- =?us-ascii?Q?49SzR+JuxgFw2rCGrOPsGVf7wJh3voc+/VWMUlGtEsOvGlupJMXWvuExlmf5?=
- =?us-ascii?Q?QIPJWROyt8ZhaunYot9syjeMVjKETE1/Kd9SbpkleORIg/+bXHtOSXQJrC6e?=
- =?us-ascii?Q?Y1wRhJO26r28QDkGGRZgKTWnxeelrO77PxL0hdMPNwNxdXI1dlz7dLNDE5Oj?=
- =?us-ascii?Q?99wZJDLAZCAfEPJkLaLe8dNjUA3DdTE=3D?=
-X-Exchange-RoutingPolicyChecked: hwWr6K2pTbQ9C/ueJYdnWHiLf8JLoG2GEYtRAiuskN9ggWk6cUnjrYPeIIqaF4R8Q+GdLKVNB9ikbDwf4rE8DYWCSXz3qIOb9ZHHwPoAUPt607ky1BEutYbKyJGzwT/Dp7Sa6eeCPdJh3O+RNMsGD0SPPThswf/GVafpNplshsH5pogJLIfkhw4/hLnOsJ8icdUsDvGC/G04vfG19+z3uxYvqXN+Kkr56+Sk1NJzrf5Tezl/8sSGhvA71A1xXG1A/LDKQxk9sxUiOBChx3rt+yrGLSOs0EjccA6kkqsivoCHDMFcOgL/mEVUM/SDXCFncVGJ0fpcURXagkuuk0UBKA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8ee1de98-f849-4937-47fa-08deff766a9c
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR11MB6117.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 11:21:59.4470
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pnZawhsxW3w667rBVjxtdXn1dhCdV8GkIJVv2HJGjQKdygQXARH2Qtdnuzho+Esrf2Bx8U0OeFU1Vspbale00VWOJh+UC5JwSy3ARiWh8BI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR11MB8437
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_042206_300031_A6448613 
-X-CRM114-Status: GOOD (  20.75  )
+X-CRM114-CacheID: sfid-20260821_042626_881333_BAC00462 
+X-CRM114-Status: GOOD (  36.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,213 +85,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 09:05:34AM -0700, Stanislav Fomichev wrote:
-> The zero-copy path reads TX metadata whenever the UMEM has metadata space,
-> even if the descriptor does not set XDP_TX_METADATA. Pass descriptor
-> options through the metadata helpers and ignore metadata unless the option
-> is set.
+On Fri, Aug 21, 2026 at 12:39:08AM +0100, Wei-Lin Chang wrote:
+> On Thu, Aug 20, 2026 at 03:28:39PM +0100, Leonardo Bras wrote:
+> > On Thu, Aug 20, 2026 at 03:07:14PM +0100, Mark Brown wrote:
+> > > On Thu, Aug 20, 2026 at 11:16:59AM +0100, Leonardo Bras wrote:
+> > > > On Wed, Aug 19, 2026 at 05:46:00PM +0100, Mark Brown wrote:
+> > > 
+> > > > > This is just because there isn't a preexisting ctxt_has_tcrx() check
+> > > > > already there, FEAT_GCS architecturally depends on FEAT_TCRX and there
+> > > > > was a request to make this explicit in the code to try to optimise
+> > > > > things a bit.  The compiler should skip over both blocks at once if TCRX
+> > > > > isn't there rather than having two separate tests or static branches.  I
+> > > > > didn't add new checks where there were none since I expect that to be
+> > > > > unhelpful for code generation, you'd get the reverse situation and emit
+> > > > > two checks.
+> > > 
+> > > > Humm, but then why saving GCSPR_EL2 does not depend on TCRX/E2H? Or maybe a 
+> > > > better question, why are not GCSPR_EL2 and GCSCR_EL2 saved in the same 'if' 
+> > > > clause under ctxt_has_tcrx() (and E2H set), if they are restored in the 
+> > > > same 'if' clause?
+> > > 
+> > > > As you mentioned, GCS depends on TCRX, so it should be fine, but just by 
+> > > > reading the code I see:
+> > > > - GCSCR_EL2 :
+> > > > 	Save if 	GCS=1, TCRX=1, E2H=1
+> > > > 	Restore if 	GCS=1, TCRX=1
+> > > > - GCSPR_EL2 :
+> > > > 	Save if 	GCS=1,
+> > > > 	Restore if	GCS=1, TCRX=1
+> > > 
+> > > > Which looks kind of confusing for the as a first time reader.
+> > > 
+> > > > Does it make sense?
+> > > 
+> > > I agree that the current situation is a bit hard to follow, I'd actually
+> > > originally written things without the explict dependency because of that
+> > > but Marc wanted the optimisation.
+> > 
+> > Well, I am not against the explicit dependency thing, it just looks odd 
+> > to me that some save/restore have a dependency and it's counterpart does 
+> > not. As well as the dependencies for both registers being different.
 > 
-> This does not fix the existing per-WQE metadata handling for mlx5 MPWQEs.
-> Only the descriptor that starts a session passes through
-> xsk_tx_metadata_request() and configures offload state shared by the batch.
-> Metadata on descriptors joining an open session is therefore not validated
-> and does not configure its requested offloads. In addition, a non-NULL
-> metadata pointer from such a descriptor is treated as a timestamp
-> completion request even when XDP_TXMD_FLAGS_TIMESTAMP is not set, so its
-> metadata union can be overwritten with an unrequested timestamp. Fixing
-> mixed metadata states within one MPWQE requires a separate change.
+> Hey I feel the question wasn't answered completely :)
 > 
-> Fixes: 48eb03dd2630 ("xsk: Add TX timestamp and TX checksum offload support")
-> Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
-> Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
+> Here is the reason for the asymmetric save restore (besides the tcr2
+> part):
+> 
+> GCSCR
+>  If guest E2H == 1:
+>  - L1 accesses to GCSCR_EL2 and GCSCR_EL1 have the same intent -> they
+>    both mean access the vCPU GCSCR_EL2.
+>  - L1 access to GCSCR_EL2 (e.g. msr GCSCR_EL2, x0) traps, KVM updates
+>    both the in-memory vCPU GCSCR_EL2, and the hardware GCSCR_EL1 for the
+>    the guest. In-memory copy stays up to date.
+>  - L1 access to GCSCR_EL1 does not trap -> in-memory vCPU GCSCR_EL2
+>    becomes stale if it's a write.
+>  - From above, must save on exit.
+> 
+>  If guest E2H == 0:
+>  - Only L1 accesses to GCSCR_EL2 mean access the vCPU GCSCR_EL2.
+>  - L1 accesses to GCSCR_EL2 always traps.
+>  - In-memory vCPU GCSCR_EL2 always stay up to date.
+>  - From above, no need to save on exit.
+> 
+> GCSPR
+>  - Regardless of the guest E2H value, hardware could write to the
+>    hardware GCSPR_EL1, making the in-memory vCPU GCSPR_EL2 stale.
+>  - From above, must save on exit.
+> 
+> Restore is trivial, vCPU GCSCR_EL2/GCSPR_EL2 must be written to the
+> hardware EL1 registers because someone else could be using it.
+> 
+> Quite a few other registers are saved only if guest E2H == 1 because of
+> the same reason.
+>
 
-Reviewed-by: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-
-> ---
->  drivers/net/ethernet/intel/igc/igc_main.c     |  3 ++-
->  .../ethernet/mellanox/mlx5/core/en/xsk/tx.c   |  2 +-
->  .../net/ethernet/stmicro/stmmac/stmmac_main.c |  3 ++-
->  include/net/libeth/xsk.h                      |  2 +-
->  include/net/xdp_sock_drv.h                    | 22 +++++++++++--------
->  include/net/xsk_buff_pool.h                   |  3 ++-
->  net/xdp/xsk_buff_pool.c                       |  7 ++++--
->  7 files changed, 26 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/intel/igc/igc_main.c b/drivers/net/ethernet/intel/igc/igc_main.c
-> index 39043d8ca1bf..59067939a586 100644
-> --- a/drivers/net/ethernet/intel/igc/igc_main.c
-> +++ b/drivers/net/ethernet/intel/igc/igc_main.c
-> @@ -3074,7 +3074,8 @@ static void igc_xdp_xmit_zc(struct igc_ring *ring)
->  		olinfo_status = xdp_desc.len << IGC_ADVTXD_PAYLEN_SHIFT;
->  
->  		dma = xsk_buff_raw_get_dma(pool, xdp_desc.addr);
-> -		meta = xsk_buff_get_metadata(pool, xdp_desc.addr);
-> +		meta = xsk_buff_get_metadata(pool, xdp_desc.addr,
-> +					     xdp_desc.options);
->  		xsk_buff_raw_dma_sync_for_device(pool, dma, xdp_desc.len);
->  		bi = &ring->tx_buffer_info[ntu];
->  
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c b/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
-> index 3d19dad8f868..d194eeddd7b5 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
-> @@ -99,7 +99,7 @@ bool mlx5e_xsk_tx(struct mlx5e_xdpsq *sq, unsigned int budget)
->  		xdptxd.dma_addr = xsk_buff_raw_get_dma(pool, desc.addr);
->  		xdptxd.data = xsk_buff_raw_get_data(pool, desc.addr);
->  		xdptxd.len = desc.len;
-> -		meta = xsk_buff_get_metadata(pool, desc.addr);
-> +		meta = xsk_buff_get_metadata(pool, desc.addr, desc.options);
->  
->  		xsk_buff_raw_dma_sync_for_device(pool, xdptxd.dma_addr, xdptxd.len);
->  
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index a71f0df26378..62de03e65a90 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -2719,7 +2719,8 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
->  
->  		tx_desc = stmmac_get_tx_desc(priv, tx_q, entry);
->  		dma_addr = xsk_buff_raw_get_dma(pool, xdp_desc.addr);
-> -		meta = xsk_buff_get_metadata(pool, xdp_desc.addr);
-> +		meta = xsk_buff_get_metadata(pool, xdp_desc.addr,
-> +					     xdp_desc.options);
->  		xsk_buff_raw_dma_sync_for_device(pool, dma_addr, xdp_desc.len);
->  
->  		/* To return XDP buffer to XSK pool, we simple call
-> diff --git a/include/net/libeth/xsk.h b/include/net/libeth/xsk.h
-> index 5dcc0d7f65b7..a452b7828ce4 100644
-> --- a/include/net/libeth/xsk.h
-> +++ b/include/net/libeth/xsk.h
-> @@ -196,7 +196,7 @@ __libeth_xsk_xmit_fill_buf_md(const struct xdp_desc *xdesc,
->  	struct libeth_xdp_tx_desc desc;
->  	struct xdp_desc_ctx ctx;
->  
-> -	ctx = xsk_buff_raw_get_ctx(sq->pool, xdesc->addr);
-> +	ctx = xsk_buff_raw_get_ctx(sq->pool, xdesc->addr, xdesc->options);
->  	desc = (typeof(desc)){
->  		.addr	= ctx.dma,
->  		__libeth_xdp_tx_len(xdesc->len),
-> diff --git a/include/net/xdp_sock_drv.h b/include/net/xdp_sock_drv.h
-> index b344789f5df8..d94aeb506379 100644
-> --- a/include/net/xdp_sock_drv.h
-> +++ b/include/net/xdp_sock_drv.h
-> @@ -240,6 +240,7 @@ static inline void *xsk_buff_raw_get_data(struct xsk_buff_pool *pool, u64 addr)
->   * xsk_buff_raw_get_ctx - get &xdp_desc context
->   * @pool: XSk buff pool desc address belongs to
->   * @addr: desc address (from userspace)
-> + * @options: desc options (from userspace)
->   *
->   * Wrapper for xp_raw_get_ctx() to be used in drivers, see its kdoc for
->   * details.
-> @@ -248,9 +249,9 @@ static inline void *xsk_buff_raw_get_data(struct xsk_buff_pool *pool, u64 addr)
->   * pointer, if it is present (initialized to %NULL otherwise).
->   */
->  static inline struct xdp_desc_ctx
-> -xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr)
-> +xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr, u32 options)
->  {
-> -	return xp_raw_get_ctx(pool, addr);
-> +	return xp_raw_get_ctx(pool, addr, options);
->  }
->  
->  #define XDP_TXMD_FLAGS_VALID ( \
-> @@ -318,18 +319,20 @@ xsk_tx_metadata_request(const struct xsk_buff_pool *pool,
->  }
->  
->  static inline struct xsk_tx_metadata *
-> -__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data)
-> +__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data,
-> +			unsigned int options)
->  {
-> -	if (!pool->tx_metadata_len)
-> +	if (!pool->tx_metadata_len || !(options & XDP_TX_METADATA))
->  		return NULL;
->  
->  	return data - pool->tx_metadata_len;
->  }
->  
->  static inline struct xsk_tx_metadata *
-> -xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr)
-> +xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr, u32 options)
->  {
-> -	return __xsk_buff_get_metadata(pool, xp_raw_get_data(pool, addr));
-> +	return __xsk_buff_get_metadata(pool, xp_raw_get_data(pool, addr),
-> +				       options);
->  }
->  
->  static inline void xsk_buff_dma_sync_for_cpu(struct xdp_buff *xdp)
-> @@ -510,7 +513,7 @@ static inline void *xsk_buff_raw_get_data(struct xsk_buff_pool *pool, u64 addr)
->  }
->  
->  static inline struct xdp_desc_ctx
-> -xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr)
-> +xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr, u32 options)
->  {
->  	return (struct xdp_desc_ctx){ };
->  }
-> @@ -530,13 +533,14 @@ xsk_tx_metadata_request(const struct xsk_buff_pool *pool,
->  }
->  
->  static inline struct xsk_tx_metadata *
-> -__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data)
-> +__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data,
-> +			unsigned int options)
->  {
->  	return NULL;
->  }
->  
->  static inline struct xsk_tx_metadata *
-> -xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr)
-> +xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr, u32 options)
->  {
->  	return NULL;
->  }
-> diff --git a/include/net/xsk_buff_pool.h b/include/net/xsk_buff_pool.h
-> index 2bb1d122b1bc..a7df573784fd 100644
-> --- a/include/net/xsk_buff_pool.h
-> +++ b/include/net/xsk_buff_pool.h
-> @@ -154,7 +154,8 @@ struct xdp_desc_ctx {
->  	struct xsk_tx_metadata *meta;
->  };
->  
-> -struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr);
-> +struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr,
-> +				   u32 options);
->  
->  static inline dma_addr_t xp_get_dma(struct xdp_buff_xsk *xskb)
->  {
-> diff --git a/net/xdp/xsk_buff_pool.c b/net/xdp/xsk_buff_pool.c
-> index 78c14f106395..9d2d94f1fb75 100644
-> --- a/net/xdp/xsk_buff_pool.c
-> +++ b/net/xdp/xsk_buff_pool.c
-> @@ -763,6 +763,7 @@ EXPORT_SYMBOL(xp_raw_get_dma);
->   * xp_raw_get_ctx - get &xdp_desc context
->   * @pool: XSk buff pool desc address belongs to
->   * @addr: desc address (from userspace)
-> + * @options: desc options (from userspace)
->   *
->   * Helper for getting desc's DMA address and metadata pointer, if present.
->   * Saves one call on hotpath and double calculation of the actual address.
-> @@ -771,14 +772,16 @@ EXPORT_SYMBOL(xp_raw_get_dma);
->   * Return: new &xdp_desc_ctx struct containing desc's DMA address and metadata
->   * pointer, if it is present (initialized to %NULL otherwise).
->   */
-> -struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr)
-> +struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr,
-> +				   u32 options)
->  {
->  	struct xdp_desc_ctx ret;
->  
->  	addr = __xp_raw_get_addr(pool, addr);
->  
->  	ret.dma = __xp_raw_get_dma(pool, addr);
-> -	ret.meta = __xsk_buff_get_metadata(pool, __xp_raw_get_data(pool, addr));
-> +	ret.meta = __xsk_buff_get_metadata(pool, __xp_raw_get_data(pool, addr),
-> +					   options);
->  
->  	return ret;
->  }
-> -- 
-> 2.53.0-Meta
-> 
+Ah, makes sense.
+Thanks Wei-Lin!
 
