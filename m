@@ -4,69 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE7BC5DF8E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 06:45:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B22C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 06:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aKpcn29rQH7yylcdL2slu9Y0WkaHCgE413djQl/WKyk=; b=UYUQN7ai021Hz1Q53cbUOsKNUT
-	HbIAn5W5bULKpgCGrlZpMSb51Mpa11TKp+LiNAuNd4HSnXYZKsicNTVoQjpkd45v7r5L/JaJ8K/Sa
-	T73CWZ05F71Nu8QuSXUgml7BIFalXgOjjiaN6pbbGaWdVI645dc5xL3ECcl5re4+cQRYLA6rzSr7y
-	6iycrxnWPYzbsCNrnLMAAq3vdac0dHQWIO8raYtY1Rp7knC19+SYuo+KnubYcYwPDxDHyXEicM8GG
-	V03SGvBJHrQzYRLpK4U1PEotP9YASb+6ktKA4RgzHWnhciua6ParM8WnYdXAt5rTmiJEDgG/JdO5k
-	Tt92rVdQ==;
+	bh=ZZV2eo8l44i659VRpU6Jc0rPYdN+/WIVgMkUx/EFXO4=; b=01b+ILpeLOmoCQMC4CHITXjOWm
+	S+VYubSi3mdq+ufmW1mfBQepjN3u2TwPKEtzX0B7bifU+KuJyb6TXIqPa7rq+JOFn4ynRN/N9fydE
+	qHc38PNNvPn/99wnfeo5YVR4DCFlbrDjY1oh0uetSG0ZNdaa8H2txCH+7YVsSpX77tVgDhibkF7xJ
+	vriWt5BL6WvItHcV7v+MkLcm3HupnMNOQPDyymDbDL9LGpZ3ntGwKG29cT6plGVxpbnrF2yldkhVe
+	MmK1gmeo+0fqYH6qfkf3r5EezsVf5dyPs/P19hJq69q6fNzgbhzfNU3XCC4VL4f6M4vLhg3x2go8w
+	qhAK93mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJ0C-0000000CeVT-13dn;
-	Fri, 21 Aug 2026 06:45:20 +0000
-Received: from out-60.mta1.migadu.com ([2001:41d0:203:375::3c] helo=mta1.migadu.com)
+	id 1wxJ3Z-0000000Ceqd-2WjJ;
+	Fri, 21 Aug 2026 06:48:49 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJ09-0000000CeSZ-0OSk
+	id 1wxJ3W-0000000CeqI-0m53
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 06:45:18 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=gYzwu8KYItqSmkpSAUmRmzyO8SidQUvDXcKIjiUX++c=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787294715; v=1; x=1787899515;
- b=NAOWpx5EDh9dJ7kuVhzEwnPhGNMkuawP0M2eh0Iz0gEeKI84sXQwkzAVdY5scVegw+0n3CSC
- 6zlWHmCPDk2cinoyzXfG3H1W/Jryeb843NCLlBj5+k6XsEE1UV1eFeLvMoDgYcLH3aj6H6j5uf1
- n+JoTkhOlA3GPCho645lHIRg=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from claudy.lan (37.156.72.212)
-	by smtp.migadu.com with ESMTPS id fac3905a186fd2e2;
-	Fri, 21 Aug 2026 06:45:14 +0000
-X-Mizu-Trace-ID: fac3905a186fd2e2
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Cc: Eric Auger <eauger@redhat.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 4/4] KVM: arm64: selftests: Add ITS table save tests
-Date: Fri, 21 Aug 2026 07:44:45 +0100
-Message-Id: <20260821064445.615838-5-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260821064445.615838-1-fuad.tabba@linux.dev>
-References: <20260821064445.615838-1-fuad.tabba@linux.dev>
+	Fri, 21 Aug 2026 06:48:47 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-39fa5e3a428so4412101fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 23:48:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787294924; cv=none;
+        d=google.com; s=arc-20260327;
+        b=okigwJB5o9sZW6RClQE6H9CsRwGuXtBlubWoIYyykp+L26hbrCpZpalkgbGULmdSij
+         T5+3wxw22DYNTxFmJSOEelLhGWTbQy9zm1R5GEYUyiFetvFLms9CFrUryaGEAwKz4Kq1
+         19ODUIMlanC7YYK5HfRM4THN/4gzfj6CFRJV1/WTX0u+BjNlkWjWtqZBJ5rbNsxccpW4
+         zbx7pA5Xa5iqcqm5vjnbP6WQ3C60wrAsbv3qp3DND7TKkAF0knePpfHOyCBldxqjSdzt
+         HIRnpC5wPKt8w7uYZlpIqowVrdFQ6WK1iga+I7TSOjrU9UVRMMjYyGT8aXyJcw1Wkw6V
+         JYsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ZZV2eo8l44i659VRpU6Jc0rPYdN+/WIVgMkUx/EFXO4=;
+        fh=jNRt+pHdGKwcNea4WzMwpcwjHmchlwo0NtUeocMTp5I=;
+        b=GZEm9O6tlYM5V2IaOPxW4vW3iqdbUaPK4MvFEBubFWWxEWy1i3qQvKF0ZRIEUghS1Z
+         24Rwche3va78a71Kyl5x8pWKRsU1h1EubJxnmNeNjF+o8bxhqgSyIOkOjl3iqYtgOj9U
+         RRtiiskMJzIw4l8sT/Df+zPkHvSOFx/PCq8AQ942EejNJoPuRcIwPnbspxMMQhjUULR0
+         Kw3IQ77Jk+NSayjDO1WvB0p431wG5cY2KzFrkPhIfud3WPB3SuJkE+8tzKEkS4jQ0MfK
+         lPubDPtqi45fzALaoXjqMIlMVMDQLyzi14VgLZZzSrd7CanT4hukrd0LeXPexpYuN8Mq
+         ycoQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787294924; x=1787899724; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZZV2eo8l44i659VRpU6Jc0rPYdN+/WIVgMkUx/EFXO4=;
+        b=TZo9CHJu4sqLVnAkUEOfarHdakEs3tqYJH8df022fbQzOSggGPd7PpG4Iu5ij0yjaS
+         q0XB/fNrCaNleOLQZ+btrGJlVEvDDHNRMzzJyh/83aSiikhYH9GV3aZvrZMfbQkGMboU
+         FtNGfw9Gc6TaBr204jMWf9XHqsLol7DJVsrKz56u5byuGM/Ur3arhjdIYy4Da73HXUfu
+         o2WCuLpqz3TJGdjuL9NwBF2UhYNYHHQmGzfIU8eBFq486TrXpcYBqDFXywiah4EEIg5+
+         cSzOBiAYn0bZoK3wkpgawKdgGHv/tKjCkJg97IDkmj0dZ8a7m7NgZPHmpnUncqoJitL3
+         8ZQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787294924; x=1787899724;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZZV2eo8l44i659VRpU6Jc0rPYdN+/WIVgMkUx/EFXO4=;
+        b=mnwqKc4M1CgZEtI3RcwsnfQK4bzE66xJTf7w7KSCAadJSucy4mqKIYUu5WoKZbKH0f
+         iQOPl2blf+ndnpJgQ32SDruWOPtc/3+TmZvdjXikWJXPX1v9JWfvBZy+FWJFhP2Nklr0
+         uRXzgL9X+6QhmHw1mtycWmMbcDVsrGf9ydA6gQuOmW8HhGKynUSARSMfiPGCb3VzTPd5
+         YkIB4sKWOUv6SvN32jDhMorF67Yo/LtouVbOb6ECTkO1Abz58WQqOl5XQbNxZZtH2BqO
+         A9hVGAL+dAi43deBYfGjkDniHuCD7n/LKwxqUm2HH+1lWJtl5/BDRtIfLJYQYGeFoZgJ
+         Abpg==
+X-Forwarded-Encrypted: i=1; AHgh+Row8+ufYL6DK6PZftMEA2MkOKRdz+O3m24ShjS17MVtKTG8cCNvNueNS2tBnYET1tEcJnixb/YmSxN9hAG/NBDu@lists.infradead.org
+X-Gm-Message-State: AFuF++no4oKRHGfitt5tN+c5Jh198z/TJOrUi6iZA9VEbEF0U4g7uVBa
+	mne0W52LsUop2+8XSFh3mF6GSq9lTfVVpgYH4Kim6p76zpEG8TZKbCfvwytMKUzp3muSGgVhxPs
+	himuOhRQm/lYUDxEZzMcsO5sBpqF4LcQ=
+X-Gm-Gg: AR+sD12in4ZF9e75d1R7cKaFwFbPkCm00NNmFTkVx0LnwOW2I8Sf/xJh8ccxfs1+40B
+	oIKoFmucyEpCksscIh87t70/u04RJYKJ5UmAxfGYUszt3rjYmfiQpcN1Ov+Qm3aFYZ06Wh79ABA
+	Q8t2QKcF3661JwSlGNnKI5/w1zxtUjE4J+qbZHFPVT8oQnq29IkB39tbUwh3u6RWKiA+GOFnfuo
+	ih+ycta0DlGTgjXY6/9Rj8SB+KlPpmLqeLQ0nCHPhFMs9avvzDuLRGg8/2JukiWEVC8jHqkpWgW
+	twgSRKFeKqHHTRKfF8fVODgF2ziFWTIcJU26T2K4nTx6Mw==
+X-Received: by 2002:a05:651c:222b:b0:3a1:8dd6:aada with SMTP id
+ 38308e7fff4ca-3a1b0e134edmr3994451fa.4.1787294924052; Thu, 20 Aug 2026
+ 23:48:44 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260727-ventura2_initial_dts-v9-0-504c0ec68039@gmail.com>
+ <20260727-ventura2_initial_dts-v9-2-504c0ec68039@gmail.com>
+ <178724902712.20555.7009712214570349708.b4-review@b4> <CAF7HswN1ZzwjfXjG2hV5tEkVZkZYp0CiVNSo_9A4m3tsqQp_Bg@mail.gmail.com>
+In-Reply-To: <CAF7HswN1ZzwjfXjG2hV5tEkVZkZYp0CiVNSo_9A4m3tsqQp_Bg@mail.gmail.com>
+From: Kyle Hsieh <kylehsieh1995@gmail.com>
+Date: Fri, 21 Aug 2026 14:51:47 +0800
+X-Gm-Features: AcwNN1U6V2Do82rvIt74ZZ-aX7aerlDnXhaA1qYUWN10XHuS2TwjSTUhQfWOomU
+Message-ID: <CAF7HswMpfibMRysJQYrkA4EC2Ks3C_20nZkhpVPP3w-J4BoxQA@mail.gmail.com>
+Subject: Re: [PATCH v9 2/2] ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, Tan Siewert <tan.siewert@9elements.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_234517_420823_E583B4B5 
-X-CRM114-Status: GOOD (  28.02  )
+X-CRM114-CacheID: sfid-20260820_234846_279771_956194C4 
+X-CRM114-Status: GOOD (  30.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,484 +121,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cover the two ways a guest can leave a table that
-KVM_DEV_ARM_ITS_SAVE_TABLES has to cope with: a GITS_BASER<coll> write
-that changes the table, which drops the collections it described, and a
-device whose L2 block the guest invalidated, which the save skips. Each
-case then resets and restores, which is what the save exists for.
+Hi Andrew,
 
-Both fail without the preceding patches. The first save returns -EINVAL,
-and the second saves a DTE pointing 8192 entries ahead, at an entry the
-save never wrote.
+On Fri, Aug 21, 2026 at 2:31=E2=80=AFPM Kyle Hsieh <kylehsieh1995@gmail.com=
+> wrote:
+>
+> Hi Tan,
+>
+> Thanks for the review.
+>
+> On Fri, Aug 21, 2026 at 2:04=E2=80=AFAM Tan Siewert <tan.siewert@9element=
+s.com> wrote:
+> >
+> > Hi Kyle,
+> >
+> > > Ventura2 is a Rack Management Controller. It is a modular
+> > > device designed to manage liquid cooling systems and monitor hardware
+> > > states within an IT rack. The system uses an AST2600 BMC for manageme=
+nt.
+> > >
+> > > RMCv2 serves several critical roles:
+> > > - Detects liquid leakage at both tray and rack levels.
+> > > - Communicates with and controls liquid cooling equipment.
+> > > - Manages leakage events and executes system recovery protocols.
+> > >
+> > > Key hardware features include:
+> > > - An extensive I2C and IO expander topology to support comprehensive
+> > >   sensor monitoring and backward compatibility with legacy trays.
+> > > - MCTP over I2C support for asynchronous device communications.
+> > > - A dual-flash design for BMC firmware redundancy.
+> > >
+> > > Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
+> >
+> > *snip*
+> >
+> > > diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dt=
+s b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
+> > > new file mode 100644
+> > > index 000000000000..f1273ca31bf8
+> > > --- /dev/null
+> > > +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
+> > > @@ -0,0 +1,3005 @@
+> > > +// SPDX-License-Identifier: GPL-2.0
+> > > +// Copyright (c) 2023 Facebook Inc.
+> > > +/dts-v1/;
+> > > +
+> > > +#include "aspeed-g6.dtsi"
+> > > +#include <dt-bindings/i2c/i2c.h>
+> > > +#include <dt-bindings/gpio/aspeed-gpio.h>
+> > > +
+> > > +/ {
+> > > +     compatible =3D "facebook,ventura2-rmc", "aspeed,ast2600";
+> > > +     model =3D "Facebook Ventura2 RMC";
+> > > +
+> > > +     aliases {
+> > > +             /*
+> > > +             * Pre-allocate I2C bus aliases for userspace predictabi=
+lity.
+> > > +             * Several I2C channels are intentionally left empty in =
+this
+> > > +             * DTS as they are strictly reserved for future hardware
+> > > +             * feature expansions and add-on boards that will interf=
+ace
+> > > +             * with these busses.
+> > > +             */
+> > > +             /*
+> > > +             * i2c switch 0-0077, pca9548, 8 child channels assigned
+> > > +             * with bus number 16-23.
+> > > +             */
+> >
+> > This alignment is one of the things that seem to be a false-positive fo=
+r
+> > dt-check-style in strict mode (value-whitespace). See [0] where Krzyszt=
+of said
+> > that it may report false-positives, and "Review and investigate warning=
+s from
+> > 'strict' mode, but do not fix them automatically without thinking".
+> >
+> > @Krzysztof wdyt about this one?
+>
+> You're right, and this is a regression I introduced in v9. In v8 these co=
+mment
+> blocks used the standard kernel style. While running dt-check-style, I ap=
+plied
+> the strict-mode output too mechanically and dropped the space before '*' =
+in all
+> 38 comment blocks in the file. I will restore to the standard style in v1=
+0.
 
-Assisted-by: Antigravity:gemini-3.1-pro
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../selftests/kvm/arm64/vgic_its_save.c       | 441 ++++++++++++++++++
- 2 files changed, 442 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/vgic_its_save.c
+This is the part I'd like your input on, since it goes against your v8
+review where you asked me to fix the 49 mixed-indent-chars reported in
+relaxed mode.
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 5f8d17ee5f677..67a18e6d13177 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -184,6 +184,7 @@ TEST_GEN_PROGS_arm64 += arm64/stage2_block_transitions
- TEST_GEN_PROGS_arm64 += arm64/vcpu_width_config
- TEST_GEN_PROGS_arm64 += arm64/vgic_init
- TEST_GEN_PROGS_arm64 += arm64/vgic_irq
-+TEST_GEN_PROGS_arm64 += arm64/vgic_its_save
- TEST_GEN_PROGS_arm64 += arm64/vgic_lpi_stress
- TEST_GEN_PROGS_arm64 += arm64/vgic_v5
- TEST_GEN_PROGS_arm64 += arm64/vpmu_counter_access
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_its_save.c b/tools/testing/selftests/kvm/arm64/vgic_its_save.c
-new file mode 100644
-index 0000000000000..864da01539f3f
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/vgic_its_save.c
-@@ -0,0 +1,441 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * vgic_its_save - KVM_DEV_ARM_ITS_SAVE_TABLES against tables a guest broke.
-+ *
-+ * Both cases are reachable by a guest on its own, and neither may fail a save
-+ * that userspace has to be able to issue:
-+ *
-+ *  - Changing GITS_BASER<coll> drops the collections it described, so the save
-+ *    writes nothing but the terminating invalid entry.
-+ *  - A device the device table can no longer address is skipped, and the saved
-+ *    DTE chain skips it too rather than pointing at an entry never written.
-+ *
-+ * Both cases then reset and restore, which is what the save exists for.
-+ *
-+ * Copyright (c) 2026 Google LLC
-+ * Author: Fuad Tabba <fuad.tabba@linux.dev>
-+ */
-+
-+#include <endian.h>
-+#include <linux/align.h>
-+#include <linux/bitfield.h>
-+#include <linux/sizes.h>
-+
-+#include "kvm_util.h"
-+#include "gic.h"
-+#include "gic_v3.h"
-+#include "gic_v3_its.h"
-+#include "processor.h"
-+#include "ucall.h"
-+#include "vgic.h"
-+
-+#define TEST_MEMSLOT_INDEX	1
-+
-+/* All three ITS table entry sizes are 8 bytes in ABI 0. */
-+#define ESZ			8
-+#define ENTRIES_PER_PAGE	(SZ_64K / ESZ)
-+
-+/* CTE and DTE layout, mirroring KVM's KVM_ITS_*  in arch/arm64/kvm/vgic/vgic.h */
-+#define CTE_VALID_MASK		BIT_ULL(63)
-+#define DTE_VALID_MASK		BIT_ULL(63)
-+#define DTE_NEXT_SHIFT		49
-+#define DTE_NEXT_MASK		GENMASK_ULL(62, 49)
-+
-+/* L1 entry of an indirect table: valid bit plus a 64K aligned L2 address. */
-+#define L1E_VALID_MASK		BIT_ULL(63)
-+#define L1E_ADDR_MASK		GENMASK_ULL(51, 16)
-+
-+#define GITS_BASER_PAGES_MASK	GENMASK_ULL(7, 0)
-+
-+#define POISON			0xdeadbeefdeadbeefULL
-+
-+/* The collection table starts at two pages and is shrunk to one. */
-+#define COLL_TBL_PAGES		2
-+#define COLL_TBL_SZ		(COLL_TBL_PAGES * SZ_64K)
-+
-+/* One more collection than the shrunken table can hold. */
-+#define NR_COLLECTIONS		(ENTRIES_PER_PAGE + 1)
-+
-+/* Two devices, one per L2 block of the indirect device table. */
-+#define DEVICE_A_ID		0
-+#define DEVICE_B_ID		ENTRIES_PER_PAGE
-+
-+/*
-+ * its_send_mapd_cmd() encodes ilog2(itt_size) - 1 as num_eventid_bits, and
-+ * vgic_its_restore_itt() scans BIT_ULL(num_eventid_bits) * ESZ, so the size
-+ * handed to MAPD has to match the ITT allocated for it.
-+ */
-+#define ITT_EVENTID_BITS	13
-+#define ITT_MAPD_SIZE		BIT_ULL(ITT_EVENTID_BITS + 1)
-+#define ITT_SZ			(BIT_ULL(ITT_EVENTID_BITS) * ESZ)
-+
-+static struct kvm_vm *vm;
-+static struct kvm_vcpu *vcpu;
-+static int its_fd;
-+static gpa_t gpa_base;
-+
-+static struct test_data {
-+	gpa_t		device_table;
-+	gpa_t		collection_table;
-+	gpa_t		cmdq_base;
-+	void		*cmdq_base_va;
-+
-+	gpa_t		lpi_prop_table;
-+	gpa_t		lpi_pend_table;
-+
-+	void		*device_l1_va;
-+	gpa_t		device_l2[2];
-+	gpa_t		itt_tables;
-+} test_data;
-+
-+static unsigned long its_baser_offset(unsigned int type)
-+{
-+	int i;
-+
-+	for (i = 0; i < GITS_BASER_NR_REGS; i++) {
-+		unsigned long offset = GITS_BASER + (i * sizeof(u64));
-+		u64 baser = readq_relaxed(GITS_BASE_GVA + offset);
-+
-+		if (GITS_BASER_TYPE(baser) == type)
-+			return offset;
-+	}
-+
-+	GUEST_FAIL("Couldn't find an ITS BASER of type %u", type);
-+	return -1;
-+}
-+
-+static void its_set_enable(bool enable)
-+{
-+	u32 ctlr = readl_relaxed(GITS_BASE_GVA + GITS_CTLR);
-+
-+	if (enable)
-+		ctlr |= GITS_CTLR_ENABLE;
-+	else
-+		ctlr &= ~GITS_CTLR_ENABLE;
-+
-+	writel_relaxed(ctlr, GITS_BASE_GVA + GITS_CTLR);
-+}
-+
-+/*
-+ * Shrink the collection table to a single page, leaving VALID set. BASER
-+ * writes are ignored while the ITS is enabled.
-+ */
-+static void guest_shrink_coll_table(void)
-+{
-+	unsigned long offset = its_baser_offset(GITS_BASER_TYPE_COLLECTION);
-+	u64 baser;
-+
-+	its_set_enable(false);
-+
-+	baser = readq_relaxed(GITS_BASE_GVA + offset);
-+	baser &= ~GITS_BASER_PAGES_MASK;
-+	writeq_relaxed(baser, GITS_BASE_GVA + offset);
-+}
-+
-+static void guest_baser_change(void)
-+{
-+	u32 coll_id;
-+
-+	gic_init(GIC_V3, 1);
-+	gic_rdist_enable_lpis(test_data.lpi_prop_table, SZ_64K,
-+			      test_data.lpi_pend_table);
-+
-+	its_init(test_data.collection_table, COLL_TBL_SZ,
-+		 test_data.device_table, SZ_64K,
-+		 test_data.cmdq_base, SZ_64K);
-+
-+	for (coll_id = 0; coll_id < NR_COLLECTIONS; coll_id++)
-+		its_send_mapc_cmd(test_data.cmdq_base_va, 0, coll_id, true);
-+
-+	guest_shrink_coll_table();
-+
-+	GUEST_DONE();
-+}
-+
-+/* Turn the already installed device table into an indirect one. */
-+static void guest_make_device_table_indirect(void)
-+{
-+	unsigned long offset = its_baser_offset(GITS_BASER_TYPE_DEVICE);
-+	u64 baser;
-+
-+	its_set_enable(false);
-+
-+	baser = readq_relaxed(GITS_BASE_GVA + offset);
-+	writeq_relaxed(baser | GITS_BASER_INDIRECT, GITS_BASE_GVA + offset);
-+
-+	its_set_enable(true);
-+}
-+
-+static void guest_unreachable_device(void)
-+{
-+	u64 *l1;
-+
-+	gic_init(GIC_V3, 1);
-+	gic_rdist_enable_lpis(test_data.lpi_prop_table, SZ_64K,
-+			      test_data.lpi_pend_table);
-+
-+	its_init(test_data.collection_table, SZ_64K,
-+		 test_data.device_table, SZ_64K,
-+		 test_data.cmdq_base, SZ_64K);
-+
-+	guest_make_device_table_indirect();
-+
-+	/* Both L2 blocks present, so both MAPDs are in range. */
-+	l1 = test_data.device_l1_va;
-+	l1[0] = L1E_VALID_MASK | (test_data.device_l2[0] & L1E_ADDR_MASK);
-+	l1[1] = L1E_VALID_MASK | (test_data.device_l2[1] & L1E_ADDR_MASK);
-+
-+	its_send_mapd_cmd(test_data.cmdq_base_va, DEVICE_A_ID,
-+			  test_data.itt_tables, ITT_MAPD_SIZE, true);
-+	its_send_mapd_cmd(test_data.cmdq_base_va, DEVICE_B_ID,
-+			  test_data.itt_tables + ITT_SZ, ITT_MAPD_SIZE, true);
-+
-+	/*
-+	 * Drop the block holding device B. No ITS command and no GITS_BASER
-+	 * write is involved, so nothing tells KVM the device is now
-+	 * unreachable.
-+	 */
-+	l1[1] = 0;
-+
-+	GUEST_DONE();
-+}
-+
-+static void run_guest(void)
-+{
-+	struct ucall uc;
-+
-+	vcpu_run(vcpu);
-+	switch (get_ucall(vcpu, &uc)) {
-+	case UCALL_DONE:
-+		break;
-+	case UCALL_ABORT:
-+		REPORT_GUEST_ASSERT(uc);
-+		break;
-+	default:
-+		TEST_FAIL("Unexpected ucall: %lu", uc.cmd);
-+	}
-+}
-+
-+static int save_tables(void)
-+{
-+	return __kvm_device_attr_set(its_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+				     KVM_DEV_ARM_ITS_SAVE_TABLES, NULL);
-+}
-+
-+static u64 its_reg_get(unsigned long offset)
-+{
-+	u64 val;
-+
-+	kvm_device_attr_get(its_fd, KVM_DEV_ARM_VGIC_GRP_ITS_REGS, offset,
-+			    &val);
-+	return val;
-+}
-+
-+static void its_reg_set(unsigned long offset, u64 val)
-+{
-+	kvm_device_attr_set(its_fd, KVM_DEV_ARM_VGIC_GRP_ITS_REGS, offset,
-+			    &val);
-+}
-+
-+/*
-+ * What a migration target does with the saved tables, in the order
-+ * Documentation/virt/kvm/devices/arm-vgic-its.rst gives: the GITS_ registers
-+ * first, then the tables. The reset in between clears GITS_BASER<n>.Valid,
-+ * which is why the registers have to be written back before the restore.
-+ */
-+static void reset_and_restore_tables(void)
-+{
-+	u64 baser[GITS_BASER_NR_REGS];
-+	int ret, i;
-+
-+	for (i = 0; i < GITS_BASER_NR_REGS; i++)
-+		baser[i] = its_reg_get(GITS_BASER + (i * sizeof(u64)));
-+
-+	ret = __kvm_device_attr_set(its_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+				    KVM_DEV_ARM_ITS_CTRL_RESET, NULL);
-+	TEST_ASSERT(!ret, "Expected the reset to succeed, got ret %d errno %d",
-+		    ret, errno);
-+
-+	for (i = 0; i < GITS_BASER_NR_REGS; i++)
-+		its_reg_set(GITS_BASER + (i * sizeof(u64)), baser[i]);
-+
-+	ret = __kvm_device_attr_set(its_fd, KVM_DEV_ARM_VGIC_GRP_CTRL,
-+				    KVM_DEV_ARM_ITS_RESTORE_TABLES, NULL);
-+	TEST_ASSERT(!ret, "Expected the restore to succeed, got ret %d errno %d",
-+		    ret, errno);
-+}
-+
-+static void poison_range(gpa_t base, size_t size)
-+{
-+	u64 *entry = addr_gpa2hva(vm, base);
-+	size_t i;
-+
-+	for (i = 0; i < size / ESZ; i++)
-+		entry[i] = POISON;
-+}
-+
-+static void setup_memslot(size_t sz)
-+{
-+	size_t pages = sz / vm->page_size;
-+
-+	gpa_base = ((vm_compute_max_gfn(vm) + 1) * vm->page_size) - sz;
-+	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS, gpa_base,
-+				    TEST_MEMSLOT_INDEX, pages, 0);
-+}
-+
-+static gpa_t alloc_64k(size_t nr)
-+{
-+	size_t pages_per_64k = vm_calc_num_guest_pages(vm->mode, SZ_64K);
-+	gpa_t gpa = vm_phy_pages_alloc(vm, nr * pages_per_64k, gpa_base,
-+				       TEST_MEMSLOT_INDEX);
-+
-+	TEST_ASSERT(IS_ALIGNED(gpa, SZ_64K),
-+		    "Allocation at 0x%lx is not 64K aligned, GITS_BASER cannot address it",
-+		    gpa);
-+	return gpa;
-+}
-+
-+static void map_to_guest(gpa_t gpa, size_t nr)
-+{
-+	size_t pages_per_64k = vm_calc_num_guest_pages(vm->mode, SZ_64K);
-+
-+	virt_map(vm, gpa, gpa, nr * pages_per_64k);
-+}
-+
-+static void setup_common(void)
-+{
-+	test_data.cmdq_base = alloc_64k(1);
-+	map_to_guest(test_data.cmdq_base, 1);
-+	test_data.cmdq_base_va = (void *)test_data.cmdq_base;
-+
-+	test_data.lpi_prop_table = alloc_64k(1);
-+	test_data.lpi_pend_table = alloc_64k(1);
-+}
-+
-+static void teardown(void)
-+{
-+	close(its_fd);
-+	kvm_vm_free(vm);
-+	memset(&test_data, 0, sizeof(test_data));
-+}
-+
-+/*
-+ * A GITS_BASER<coll> write that changes the table drops the collections it
-+ * described. The save then has an empty list, so it writes the terminating
-+ * invalid entry and nothing else.
-+ */
-+static void test_baser_change_drops_collections(void)
-+{
-+	u64 *cte;
-+	int ret, i;
-+
-+	pr_info("Testing that a GITS_BASER change drops the collections\n");
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, guest_baser_change);
-+	setup_memslot((4 + COLL_TBL_PAGES) * SZ_64K);
-+	its_fd = vgic_its_setup(vm);
-+
-+	test_data.device_table = alloc_64k(1);
-+	test_data.collection_table = alloc_64k(COLL_TBL_PAGES);
-+	setup_common();
-+
-+	sync_global_to_guest(vm, test_data);
-+	run_guest();
-+
-+	/* Anything KVM writes is then the only thing that changed. */
-+	poison_range(test_data.collection_table, COLL_TBL_SZ);
-+
-+	ret = save_tables();
-+	TEST_ASSERT(!ret, "Expected the save to succeed, got %d errno %d",
-+		    ret, errno);
-+
-+	cte = addr_gpa2hva(vm, test_data.collection_table);
-+
-+	/*
-+	 * Finding the terminator at the head of the table is also what proves
-+	 * the reads below landed in the saved table rather than elsewhere.
-+	 */
-+	TEST_ASSERT(le64toh(cte[0]) == 0,
-+		    "CTE 0: expected the terminating invalid entry, got 0x%llx",
-+		    (unsigned long long)le64toh(cte[0]));
-+
-+	for (i = 1; i < COLL_TBL_SZ / ESZ; i++)
-+		TEST_ASSERT(cte[i] == POISON,
-+			    "CTE %d: expected it untouched, got 0x%llx",
-+			    i, (unsigned long long)cte[i]);
-+
-+	reset_and_restore_tables();
-+
-+	teardown();
-+}
-+
-+/*
-+ * A device whose L2 block the guest dropped is skipped by the save, and the
-+ * DTE chain skips it too: left alone, the surviving device would point at an
-+ * entry the save never wrote.
-+ */
-+static void test_unreachable_device_skipped(void)
-+{
-+	u64 dte;
-+	int ret;
-+
-+	pr_info("Testing that an unreachable device is skipped by the save\n");
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, guest_unreachable_device);
-+	setup_memslot(9 * SZ_64K);
-+	its_fd = vgic_its_setup(vm);
-+
-+	test_data.device_table = alloc_64k(1);
-+	test_data.collection_table = alloc_64k(1);
-+	test_data.device_l2[0] = alloc_64k(1);
-+	test_data.device_l2[1] = alloc_64k(1);
-+	test_data.itt_tables = alloc_64k(2);
-+	setup_common();
-+
-+	map_to_guest(test_data.device_table, 1);
-+	test_data.device_l1_va = (void *)test_data.device_table;
-+
-+	sync_global_to_guest(vm, test_data);
-+	run_guest();
-+
-+	poison_range(test_data.device_l2[0], SZ_64K);
-+	poison_range(test_data.device_l2[1], SZ_64K);
-+
-+	ret = save_tables();
-+	TEST_ASSERT(!ret, "Expected the save to succeed, got %d errno %d",
-+		    ret, errno);
-+
-+	dte = le64toh(*(u64 *)addr_gpa2hva(vm, test_data.device_l2[0]));
-+
-+	/* Device A is still reachable, so it is saved. */
-+	TEST_ASSERT(dte & DTE_VALID_MASK,
-+		    "Device A: expected a valid DTE, got 0x%llx",
-+		    (unsigned long long)dte);
-+
-+	/*
-+	 * Device B is the only device after it and was skipped, so nothing
-+	 * follows A in the saved chain.
-+	 */
-+	TEST_ASSERT(FIELD_GET(DTE_NEXT_MASK, dte) == 0,
-+		    "Device A: expected no next device, got offset %llu",
-+		    (unsigned long long)FIELD_GET(DTE_NEXT_MASK, dte));
-+
-+	/* And nothing was written into the block the guest dropped. */
-+	TEST_ASSERT(*(u64 *)addr_gpa2hva(vm, test_data.device_l2[1]) == POISON,
-+		    "Device B: expected its entry untouched");
-+
-+	reset_and_restore_tables();
-+
-+	teardown();
-+}
-+
-+int main(void)
-+{
-+	TEST_REQUIRE(kvm_supports_vgic_v3());
-+
-+	test_baser_change_drops_collections();
-+	test_unreachable_device_skipped();
-+
-+	pr_info("All ok!\n");
-+	return 0;
-+}
--- 
-2.39.5
+Looking at the output again, all 52 hits on the current file are on comment
+lines. The standard kernel comment style '\t * ' is a tab followed by a
+space, so the tool flags every correctly formatted multi-line comment. The
+49 you saw in v8 were the same thing. [property-order] on the spi node
+behaves the same way - it wants #address-cells and #size-cells split apart,
+which is what Tan asked me to change back.
 
+So I can either restore the kernel comment style and note these as false
+positives in the cover letter, or keep the v9 form that satisfies the tool.
+Which would you prefer for v10?
+
+Thanks,
+Kyle Hsieh
 
