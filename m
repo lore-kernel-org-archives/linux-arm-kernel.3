@@ -4,108 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA82AC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 13:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 281C7C5DF89
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 13:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZNohwqjvouRlAnKm9iB5tZeW1CKNRcmkGAU02I+Ttyg=; b=d39P25sh6x0+Wp2OIwM6lYzljo
-	oTtbRHAnz4l665va5qdyIqrshMthGGP4u9UXjnhdC5APHNtUcRPRF+o1aVpDpP6u5fX81lomG2iPr
-	DKt7D8zuAGOXjx0Z+a76aGcpuAArObDGx0yYlbsecvKJCYNeXkfz8Cmquv0iJ68tuMdCAqiJRF3n5
-	or0CGfDiqRbnqyNvc8UADlNEGi4BkK5VaRd9MOO4n/LcHvZ2GUOGBN+xQ+7vjtkgfZa05KbaFrguq
-	QIyYT5QzlS8hx7K/Lr/xmcfyHmerT0h6tWYFqhtEfMUIDraAjJQ1/GdmU5biF6+RukXCdxGQBehyf
-	WqgVGkVA==;
+	bh=DRc9qjIA9qp29HSwDcRMRLh9QdGpNIQXskKoCe3zzf8=; b=lNVTGTNPFfjMvR6+tuRvqazvda
+	Mry77ydueLs2rYBbuohGYzLjGObd2g1O1jNXCdnEtusO7ObhVD2V7/BhrG0OGmG3our3ZAfFvMf5b
+	jd8Tsfw6c2I2brHoA8Jo7guE5MhU0kv9PQXNe40RbT56AB5UK+UBdaJ4yrn8f1yy39eRftPpTl5dK
+	7jPa8YU8Y10q9OaO3pJWx7hBS3WFQeQJ+IW7vvKtucrOfyGgZS+wEIy0ofRotMQcFr8NNtvpWkKln
+	PvovNDItSwi5RxGxjvYtgC/Put52k51XzAvCy8bMgIak0RO8MNpVHeXKF8tXIxERxo2PNAFjcxk4V
+	8aDsWUGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxPdn-0000000DSeA-2XK6;
-	Fri, 21 Aug 2026 13:50:39 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wxPdt-0000000DSjB-1KbR;
+	Fri, 21 Aug 2026 13:50:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxPdg-0000000DSZP-0JXk
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 13:50:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1787320231;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZNohwqjvouRlAnKm9iB5tZeW1CKNRcmkGAU02I+Ttyg=;
-	b=MLeOSWhH0OofD2ygWGpJemnG6FtEsOXI3bm8VALVT55cgbF7joqsgfr8PUILjDfY3gDi5l
-	WHok52I67u9WSFVY6UXBqC0OMuCaw8djQECtm/6ur5gbLo74pzp0BrWqB6dXRLP+gUg/2n
-	KSVSzay1/l8l9nsVeWFp0RiMhe4bExM=
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
- [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-626-Ga5NPrYAOSCq92d2UPqHhw-1; Fri, 21 Aug 2026 09:50:29 -0400
-X-MC-Unique: Ga5NPrYAOSCq92d2UPqHhw-1
-X-Mimecast-MFC-AGG-ID: Ga5NPrYAOSCq92d2UPqHhw_1787320229
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-38e8e864ef0so1756376a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 06:50:29 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787320229; x=1787925029;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZNohwqjvouRlAnKm9iB5tZeW1CKNRcmkGAU02I+Ttyg=;
-        b=HVdSBoX8KhvRmiAiPTLTKGOA0tJDzifdhnCKjgjCFWeCmiqsyH+B6L2/2AAmAxxidY
-         RWAwbXndyMNO48eTHCBM5rn2fHNMWzD+kz48TlM6hV9BS2T25POY4d9wLjgN5Cs4OaHO
-         mom1EYM095ZMGEEMR0QvOuVt76ncU7TliMhYSEUjKOEsTa2g1RyY8P2OPVNCY9/anuw+
-         VpYt+wdJ40oVQoaGaOjfIYoLq4GT4lLp3PhJ2h9R4ony67B36dsAf9s76WuBv0X40dLw
-         NoipsM2dMcfnTisEi3yZg2nHUWcgjNINwBMJOyCzUXVh/unRBibSvp91Xn6167j22dTP
-         rb3w==
-X-Gm-Message-State: AFuF++nVdgiXh57Le3NojlheZnKnDnaR38lTw7a87CPESPfNyucGp8s7
-	A8s2dQHgoGJHDZMiS4iaC8yUjmhPmPSTopWaO1edcmiveZrZY7jhiHNG8LdHR/SSJE2zSHYXKgZ
-	i5AFl2mZVI5w0G8KqGrUQ/XCgkuY+y/Z7dMTQNW3gIOyiqQnRf+C+MVGYy/LCToGe4Y/D59T4/O
-	wb
-X-Gm-Gg: AR+sD10z31n/dz3wCd3Uohzhu/pOBqt2otdY02F/88ra/5P6esRiUh34s7Uy6d5Wten
-	PG3XJPsGuEbm7Wz5ZI16goIy022cANSN3bGKGnhGdOGiPCMnmIcPYRbDiTh4E7OUr45NZDAtVSr
-	rJdftD9s6BPYKpm9lKQDAotCmTuuSn7z+tk+BVh/wISl8D/rci43VqYyK7HvwkNV3rJq7hEWR/h
-	sFTElzIijFxA/EKZoBBcZu5h8H7lO+r/R66cILcFtu67eYEbrd+TLlnZ7LfC28sJ4ySwZ5fmhKs
-	Kj4Hj7L7jyjNoKQ6juWE50OeS64nwskcZTldHFfl/DcJqgaP7x5FaE7amusPZhlrtk+f+at0UYR
-	/drOkUufOYCZHf530PS/WZKDgc206prit
-X-Received: by 2002:a17:90b:55cc:b0:37c:6910:5758 with SMTP id 98e67ed59e1d1-395c334042emr13744006a91.1.1787320228655;
-        Fri, 21 Aug 2026 06:50:28 -0700 (PDT)
-X-Received: by 2002:a17:90b:55cc:b0:37c:6910:5758 with SMTP id 98e67ed59e1d1-395c334042emr13743913a91.1.1787320228164;
-        Fri, 21 Aug 2026 06:50:28 -0700 (PDT)
-Received: from mpilaniy-mac.redhat.corp ([122.171.22.116])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-395c4c194d2sm3300502a91.15.2026.08.21.06.50.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 06:50:27 -0700 (PDT)
-From: Mukesh Pilaniya <mpilaniy@redhat.com>
-Date: Fri, 21 Aug 2026 19:19:58 +0530
-Subject: [PATCH v3 2/2] kexec: fix error propagation in
- kexec_image_probe_default()
+	id 1wxPdi-0000000DSbN-1mRq;
+	Fri, 21 Aug 2026 13:50:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 30D8143E4E;
+	Fri, 21 Aug 2026 13:50:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0833AC2BCFF;
+	Fri, 21 Aug 2026 13:50:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1787320234;
+	bh=WrxF+hzknbWy6eCuGGX+A/+N5AW7fUPL2sZ1KI+FggQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=kBPZLPAClNuT67QPNeVSObFL/hXnnOWSkbt4NjSDkLTi7ORrJtbV2omrpB2DEc27b
+	 gtVKNZyvDID1EKisQxSlgPra+yduwRXjIyXUqsW4SDQAznnGJC2QsKtN8odZZInv+3
+	 9qc8uoD4z8Bdsde8AeB/akBNKQ5cKPKfb9QN3jRTaVpn68KNJE3WMn1aNn6Q8SGXEV
+	 fhrY60PKBLsXd1QL1qnXiVm5MG/NFXpiazDbaDTw3IMbac+mj7NJcnCAd6hn/AhWMN
+	 0M6Ou6eeYRFOm6LvFxUGhr80jsrHISQZULUDo8vx3B0nyT6y9g7JAaYXATHR84YQ4c
+	 10Aub/HqXgPnw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E9C76C5DF95;
+	Fri, 21 Aug 2026 13:50:33 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Date: Fri, 21 Aug 2026 15:50:29 +0200
+Subject: [PATCH 3/3] phy: apple: atc: Implement the USB4 pipehandler state
 MIME-Version: 1.0
-Message-Id: <20260821-mpilaniy-v3-2-76b355399d2e@redhat.com>
-References: <20260821-mpilaniy-v3-0-76b355399d2e@redhat.com>
-In-Reply-To: <20260821-mpilaniy-v3-0-76b355399d2e@redhat.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Baoquan He <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>, 
- Pasha Tatashin <pasha.tatashin@soleen.com>, 
- Pratyush Yadav <pratyush@kernel.org>, Tao Liu <ltao@redhat.com>, 
- Philipp Rudo <prudo@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, 
- kexec@lists.infradead.org, Mukesh Pilaniya <mpilaniy@redhat.com>
-X-Mailer: b4 0.15.2
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: rSbgaB7CuOecy5-LaETN395pPkX5NbTts16YlOkf2Vg_1787320229
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_065032_203958_15566770 
-X-CRM114-Status: GOOD (  14.46  )
+Message-Id: <20260821-b4-atcphy-usb4-v1-3-45c0b741e0c0@kernel.org>
+References: <20260821-b4-atcphy-usb4-v1-0-45c0b741e0c0@kernel.org>
+In-Reply-To: <20260821-b4-atcphy-usb4-v1-0-45c0b741e0c0@kernel.org>
+To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Sven Peter <sven@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2592; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=WrxF+hzknbWy6eCuGGX+A/+N5AW7fUPL2sZ1KI+FggQ=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ1ZH+HLe+IxdyrffM3xjmi3YIcB+Nfa6d4LOU5O0Bp7CM
+ v6eOIuOUhYGMS4GWTFFlu377U2fPHwjuHTTpfcwc1iZQIYwcHEKwESu3WZkmDDt7KTCF9O+rfRm
+ U37kuvlyb4/eG4UzzhebXjltPf0tIIbhv6dIw76pT2LCiva8NL/+s7jsyjXr203+Vp5Obw4Yti2
+ 9xQAA
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,54 +84,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kexec_image_probe_default() overwrites ret with each loader's probe
-return value and returns whatever the last loader returned when no
-probe matches.  The error code reaching userspace depends on whichever
-loader happens to be last in kexec_file_loaders[].
+USB3 tunneled via USB4 requires dwc3's PIPE interface to be switched to
+the USB4 NHI which will take care of the tunneling. Add the required
+bringup sequence such that USB3 tunnels work once the USB4 NHI is
+upstream.
 
-Only continue to the next loader when a probe returns -ENOEXEC.
-Propagate any other error such as -ENOMEM immediately. Return -ENOEXEC
-only when all loaders have been tried and none matched.
-
-Suggested-by: Pratyush Yadav <pratyush@kernel.org>
-Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
-Reviewed-by: Pratyush Yadav <pratyush@kernel.org>
-Reviewed-by: Philipp Rudo <prudo@redhat.com>
+Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- kernel/kexec_file.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+ drivers/phy/apple/atc.c | 41 +++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 37 insertions(+), 4 deletions(-)
 
-diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-index 59fb9d71e9d8..c11a815e2235 100644
---- a/kernel/kexec_file.c
-+++ b/kernel/kexec_file.c
-@@ -68,17 +68,19 @@ int kexec_image_probe_default(struct kimage *image, void *buf,
- 			      unsigned long buf_len)
- {
- 	const struct kexec_file_ops * const *fops;
--	int ret = -ENOEXEC;
- 
- 	for (fops = &kexec_file_loaders[0]; *fops && (*fops)->probe; ++fops) {
--		ret = (*fops)->probe(buf, buf_len);
--		if (!ret) {
-+		int err = (*fops)->probe(buf, buf_len);
-+
-+		if (!err) {
- 			image->fops = *fops;
--			return ret;
-+			return 0;
- 		}
-+		if (err != -ENOEXEC)
-+			return err;
- 	}
- 
--	return ret;
-+	return -ENOEXEC;
+diff --git a/drivers/phy/apple/atc.c b/drivers/phy/apple/atc.c
+index 96158d348656..613bcd0ae886 100644
+--- a/drivers/phy/apple/atc.c
++++ b/drivers/phy/apple/atc.c
+@@ -1084,6 +1084,41 @@ static int atcphy_configure_pipehandler_usb3(struct apple_atcphy *atcphy, bool h
+ 	return 0;
  }
  
- static void *kexec_image_load_default(struct kimage *image)
++static int atcphy_configure_pipehandler_usb4(struct apple_atcphy *atcphy)
++{
++	int ret;
++
++	ret = atcphy_pipehandler_check(atcphy);
++	if (ret)
++		return ret;
++
++	/* Force disable link detection */
++	clear32(atcphy->regs.pipehandler + PIPEHANDLER_OVERRIDE_VALUES,
++		PIPEHANDLER_OVERRIDE_VAL_RXDETECT0 | PIPEHANDLER_OVERRIDE_VAL_RXDETECT1);
++	set32(atcphy->regs.pipehandler + PIPEHANDLER_OVERRIDE, PIPEHANDLER_OVERRIDE_RXVALID);
++	set32(atcphy->regs.pipehandler + PIPEHANDLER_OVERRIDE, PIPEHANDLER_OVERRIDE_RXDETECT);
++
++	ret = atcphy_pipehandler_lock(atcphy);
++	if (ret) {
++		dev_err(atcphy->dev, "Failed to lock pipehandler\n");
++		return ret;
++	}
++
++	/* Configure PIPE mux to the USB4/Thunderbolt controller */
++	atcphy_pipehandler_set_mux(atcphy, PIPEHANDLER_MUX_CTRL_DATA_USB4,
++				   PIPEHANDLER_MUX_CTRL_CLK_USB4);
++
++	/* Remove link detection override */
++	clear32(atcphy->regs.pipehandler + PIPEHANDLER_OVERRIDE, PIPEHANDLER_OVERRIDE_RXVALID);
++	clear32(atcphy->regs.pipehandler + PIPEHANDLER_OVERRIDE, PIPEHANDLER_OVERRIDE_RXDETECT);
++
++	ret = atcphy_pipehandler_unlock(atcphy);
++	if (ret)
++		dev_warn(atcphy->dev, "Failed to unlock pipehandler\n");
++
++	return 0;
++}
++
+ static int atcphy_configure_pipehandler_dummy(struct apple_atcphy *atcphy)
+ {
+ 	int ret;
+@@ -1130,10 +1165,8 @@ static int atcphy_configure_pipehandler(struct apple_atcphy *atcphy, bool host)
+ 		atcphy->pipehandler_up = true;
+ 		break;
+ 	case ATCPHY_PIPEHANDLER_STATE_USB4:
+-		dev_warn(atcphy->dev,
+-			 "ATCPHY_PIPEHANDLER_STATE_USB4 not implemented; falling back to USB2\n");
+-		ret = atcphy_configure_pipehandler_dummy(atcphy);
+-		atcphy->pipehandler_up = false;
++		ret = atcphy_configure_pipehandler_usb4(atcphy);
++		atcphy->pipehandler_up = true;
+ 		break;
+ 	case ATCPHY_PIPEHANDLER_STATE_DUMMY:
+ 		ret = atcphy_configure_pipehandler_dummy(atcphy);
 
 -- 
-Git-155)
+2.55.0
+
 
 
