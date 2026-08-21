@@ -4,93 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AAB7C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 07:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DE7C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3CkcilZDgcrif3CWjpdH7Ua82cjgdO0MXrtP14Nm7FE=; b=2WmYFDg9mHGhqQj0R0W3gR5lhc
-	3W+yRm2O7HosReYsZGajqdsySlZJIQLyzBW2iZCIE+hBtlmJAhD4bpOM5YwfGG9lrcma6W9GY9TPF
-	rrpxLBmoTjKL1cQlTT2LH3/0GCejg+knBpX2LYcuGhMMgc2bOGGLk8G16fD3ZqP+qrfOpH5nL9OFF
-	OCeLrwe9r+lyqGrnBg7CazVv8ygWPGE3YAskipQ+xNrxLe2wJfMdnttqJo+gs/W6Qjf0cVRPGv0/j
-	4kHj9E9bU7IJx0ZQ+oinu47NIJy/DjwPU4AkPlg6dp+ulPsmnALVIPoZM3Zc+QonaK5YiSJueOLyG
-	bg+uP+KQ==;
+	bh=awWDoA2v6+cFxczNSJAnXgiAIlB01pUEuSfnd8Yczi4=; b=g6KsDZYHa1YGZtVKaPWt7H/k84
+	EnhRIYA4/tThP54Hso5U5xwoz+5VrTq9qszekKQroGg5rU6Sc39q7N+FjtQi5mkc+sOIsSOtRbAvg
+	z4ACHcpWuH4DoQVYpeUZ4h450ePdJZ0XuJU5/1es+t40AFiz8/TrCfLNQWg6qY2zOKpcSLPIMHQpz
+	/7I/gd1GFw4wyCsh5kHixHthuA2dVfrKQjRrLVKnP+0OCyxVy4OeiH34g4QSsYejSZ3LwfDoTP6sN
+	WX1FvSBpWQfs7AOHRhZcaPWS4Y3946vB968tjyGGNhXPRwOBSgN00rhkzejq7XnEeNqmPEdtGKySm
+	0H1ns7Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxK7h-0000000CkkN-07HC;
-	Fri, 21 Aug 2026 07:57:09 +0000
-Received: from mail-pj2-x02.google.com ([2607:f8b0:4864:39::2])
+	id 1wxItr-0000000Cd2e-0ek3;
+	Fri, 21 Aug 2026 06:38:47 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxK7e-0000000Ckjp-0P4w
+	id 1wxItb-0000000Ccp1-3n13
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 07:57:07 +0000
-Received: by mail-pj2-x02.google.com with SMTP id 98e67ed59e1d1-3896ccc93b5so183270a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 00:57:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787299025; x=1787903825; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3CkcilZDgcrif3CWjpdH7Ua82cjgdO0MXrtP14Nm7FE=;
-        b=frbweeUPvPFpW398/LZHqdV9PDVNXqt6fSzJoV1/sw1eyZfFI66w4oTDYCtcBL7FK+
-         SySvGp2YJkIQUS+HM5F6B29IaGwxfCbSNsjFH3FHoT2sFZKMB5B57WcZFO0LbMg83NYD
-         F9BVLGX8xvscZdxL00X7lmgJJ9DfFeeyRXMTMCe8Pp4TETMiBiyOCz3JCLjziwJ6Very
-         a+QWuGWwoBN9AwXruPRNycTgUpxwiifS6udmQndM9pqL45E2czZEm3bL/r/XIonXFv+H
-         NDzKUPaVtF/2wT940x4/EQhvXLIo2akw4rgOMeBVVsa7GyTHNm21+gwKilLtlQUEoqv1
-         qfLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787299025; x=1787903825;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3CkcilZDgcrif3CWjpdH7Ua82cjgdO0MXrtP14Nm7FE=;
-        b=Kb0T2eZZyoNKbjdhQDasok1VfP6/wjglzsSVoLbUv7YTYkPE8qod3glykOEnLQn4cC
-         wsKEmoTjkL36anzaxTIBX0NAwx1ZQBLH0OblrOxrfWi6E+hIhbLbua+R2rnFaxXgquK3
-         B3tqkPcz2jO2o+qI0ZE5Pyg4tbXYsvGrlm9Gy+nFQc5g5ZvwPXSk++P8SjtX5OwzuuZ1
-         EuU7ICsKPoXztvgeqqY3l0GzS8NacP26Pudbez44P3dkQ/ZJNyJ0bYMvswAbloCZr5Am
-         GvDUJXUDLVsBbk36ndeQc+mlpodfo3EWtImx9KBuwrsRVPe64TycByHCH6bCCkREBdPJ
-         739w==
-X-Forwarded-Encrypted: i=1; AHgh+RpEWfOfyXTpiOywXWwQQQhNC5Ea4yNQeIyYXUK08RZUQ3CPPWh/A1o/vHUL3PMfUQvhc/FkRZeYsursNY3drEkm@lists.infradead.org
-X-Gm-Message-State: AFuF++nZ9ju09YMM01tHDfCjZRvYXCRydanCzgYnbkQrHvOJjTqr2e69
-	dErt1S9S44aKsgVJlZS3RawyryPZe8oResl4zvcNIqVBt3l1SHPks+4=
-X-Gm-Gg: AR+sD11M7B8Cm4ifm0+nH5krVPWdTpH9+506eYedNxKT/VBqcuVvXlJeCHsq/OXAMtm
-	WxqRam1ZCj4hf+HhEmEGL6Nq0WnWCh5GxBHASar3xvO4QMKSZTFqkjfMEIQdt6fpGNRBfUz051A
-	CDa3XRkJ5TEgCl7+1bX4qAGCx4AW2BeJV9Nu1DI0DH6g/0VGDgPLK8m8QNLbt9aGdx2z6A90OLc
-	wqCHMcFu9/dtHFrtsFFWdq5cnoK4BS0rH3Bh5f1pjK5niPTvLoXjMi+cPX1oMoNO4p0V+r1bYzJ
-	oiQnV9TDTZ5VIQhqrd4AGNFHMGiFiMeP/9w4/Pc7mSXpeoOUtlO1C1A1I7n7Q9E9YivYh4H2eVj
-	aczRZ8YPQ6zb5LxdQllGzy+B5thCt4Pb2ApxoF+szJmJ0kTBx6jocV+p2HDcTuYSnFEZBZ6UDI5
-	S+tcYq0ZiWfL4+AUMGLKrk59RXDfoqXUaxEn0Ee6eYHGFIg4ioCBpCRFtzxIhoyz9BTb5bpNcqo
-	Q==
-X-Received: by 2002:a17:90b:3d8a:b0:395:4de9:b30 with SMTP id 98e67ed59e1d1-395c353e28dmr8193141a91.5.1787299025251;
-        Fri, 21 Aug 2026 00:57:05 -0700 (PDT)
-Received: from DL2XHKPB4.dl.net ([103.63.104.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-395c467980bsm2113802a91.5.2026.08.21.00.57.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 00:57:04 -0700 (PDT)
-From: Triet Hoang <triet.hoang.dev@gmail.com>
-X-Google-Original-From: Triet Hoang <triet.hoang@datalogic.com>
-To: krzk@kernel.org
-Cc: alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	nicolas.ferre@microchip.com,
-	triet.hoang.dev@gmail.com
-Subject: Re: [PATCH] memory: atmel-ebi: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
-Date: Fri, 21 Aug 2026 14:57:01 +0700
-Message-ID: <20260821075701.270239-1-triet.hoang@datalogic.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <b3f3edef-917f-4bd1-a530-187877afdcfa@kernel.org>
-References: <b3f3edef-917f-4bd1-a530-187877afdcfa@kernel.org>
+	Fri, 21 Aug 2026 06:38:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=y7DmnQUZ8V1wD1RSlsYRG0tn170Pe6C0eclwaVetQGHeYoX+Myd7yJkkn8JE+8R6Zu/06iIOJIf0DIKFpcc7+jJ7SpnzT8H+1ASoP4JLqtWjVticItcwDqkrGgak4pswJOliSTou1RZER9piY5Ti00k1mk+B0C6Z/Q3r6U9LjaNLot1WlA3DYAVyOVE0FgFtFh0rTaCR6Sff21UJYFYQaf1xNlV9kz4eO8awhmSz6oVT80LyTWywsvPhol7x/fhgTtXywcYva8e7Bs909dHWe8+QFB6SVqrijHb1jKVbdhQ2bfsghlvYivWE5fjswaq/9Xq/2qRxmtFQb2B8r1UrfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=awWDoA2v6+cFxczNSJAnXgiAIlB01pUEuSfnd8Yczi4=;
+ b=PRG6IEn64gZicZcR1iS1ApiGIrZF8drU0i6oQEi4+zTprjfwNkDUwObqhD4jWaXorvP2iTowhmrDhR3AJWE7F85ab2MHid46CdbXhBJJsIPkfGRqmH+1X8trMUFkaiz/E0jpMBZ31cermiJPPzRONRnDIQpQ+dOXljtklLUB2Yx9ta2AIiRbfij8oPS40NL9Pki1BunNHqTjLzUxZJfxZ6PQfWpHp/VXaH5WnFuI55M4rZ5/YjZiLhgw9/jd8lhT9L3AFs0MsBoKU8KB95WZGB2BG4rI1DveVJt3R07k9YQ3H00h+//7e917nlaSWKgsHIwJw4FwtftAc6Wp5FQsdQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=lists.infradead.org
+ smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
+ header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=awWDoA2v6+cFxczNSJAnXgiAIlB01pUEuSfnd8Yczi4=;
+ b=UbSc/u/xO+L+WEso0QmfY/hyTXeV8ie1vDT5y6xrgEg0FHL+3+8KGcy+gfLlawCak6u1ly6SDk1F7pV3dehSMncBQniOHWmud9kNwytfqJvLiF1bJtGsEAJUIYpkWe6S7t0gXL1vXpHVnAg59AFn1ZO5fYkpqKjuncJTbPu34P76HmlidwY6xy7tBayK+JXKpNVfyRqPThL8pPqbdNXb7TxPj2RnGUTq1nrGQ4hdrnAxKW1wUMlt4agcl8KHRi7nbDrOClasOw65ZPZ7uStNtKv1H5KJxslydWZ54UXfp+GLQMe4MaSp0yp2fcVpD0rDio98qxk0JMT5ssszFEeU7w==
+Received: from AS4P190CA0017.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:5d0::7)
+ by PA4PR10MB5657.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:262::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
+ 2026 06:38:26 +0000
+Received: from AMS1EPF00000044.eurprd04.prod.outlook.com
+ (2603:10a6:20b:5d0:cafe::8b) by AS4P190CA0017.outlook.office365.com
+ (2603:10a6:20b:5d0::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.11 via Frontend Transport; Fri,
+ 21 Aug 2026 06:38:26 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ AMS1EPF00000044.mail.protection.outlook.com (10.167.16.41) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.360.3 via Frontend Transport; Fri, 21 Aug 2026 06:38:26 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 21 Aug
+ 2026 08:43:25 +0200
+Received: from localhost (10.130.77.105) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 21 Aug
+ 2026 08:38:25 +0200
+From: Alain Volmat <alain.volmat@foss.st.com>
+Date: Fri, 21 Aug 2026 08:38:07 +0200
+Subject: [PATCH v5 05/14] media: stm32: dcmipp: correct swap in YUYV data
+ with parallel input
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260821-stm32-dcmipp-pixel-pipes-support-v5-5-d140efb61d72@foss.st.com>
+References: <20260821-stm32-dcmipp-pixel-pipes-support-v5-0-d140efb61d72@foss.st.com>
+In-Reply-To: <20260821-stm32-dcmipp-pixel-pipes-support-v5-0-d140efb61d72@foss.st.com>
+To: Hans Verkuil <hverkuil+cisco@kernel.org>, Hugues Fruchet
+	<hugues.fruchet@foss.st.com>, Alain Volmat <alain.volmat@foss.st.com>, "Mauro
+ Carvalho Chehab" <mchehab@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+X-Mailer: b4 0.15.2
+X-Originating-IP: [10.130.77.105]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS1EPF00000044:EE_|PA4PR10MB5657:EE_
+X-MS-Office365-Filtering-Correlation-Id: 39b5ec3b-dea6-4502-f71b-08deff4ece05
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|23010399003|6133799003|56012099006|10067099003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: H/TLU0aX782ufYkKuKT7uLz1mLnUbnwakE6AIAZ2PLO/uFYi77t0G/JwC6VbZ2e4Ix+3dm1KNl2qPLiEVQsnizu1kHAzJpMGH7k9KQrUnRazlu9k+8TLv1Y1QOkjvGMSxsAX3H+SxRdfyj4LJsUJai35QgCK6Ly0UHa2aQeC4aGyoaD3syn5QHt3nf6F8FSi7+qfn/xsklsTaVad/SOwgvNhLjPVdq1xllE1+eIOpv2f+eeHHTY9cZKEHnvgP5Taa2ND8ngRRQrm0W3WJiBFqHJ6WrvHTiSDtZOy8fc2cj9T7vdS2/0hSnolJKrZOIsp4hQVzGsEWceEZFfCUyHVmz1umAIwqGJ+mUYupPQ+1hdqJZK7WQhGOcNmDfxj8icV/R8fmFtFLwaxpjeEUeTSpCkcx6qs81hgGzgF5vvh8SsK3+4xMitehKobM0S7JMx7JoJZNfM07w9o4+KDh6FizoMjKwzOq8n5vABNfYggOaEVLAZWmmVyhWFofIYn86Le6Scl1tcMNzzjHyvxntNctThmkirtBbJcpRjqOlF1Ol3akrIkh7mgo6BllsMGz24egGPZXE/bwUi/ptS3ZRWQRTmG5eRDMYcLOvlnsL+nC3h1RBQtMuO7HfZrvtCE6g7yQChnWxqWDAJY9XWQ1mCZiHajpITuiP+Zxx3QvrHAuhjskrasgRNrV856STeSiGPx/oYRX9Xt/EHxh04Tz6CadQ==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(23010399003)(6133799003)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: P2Q5qs24niua4I9uOtHuM/X4NdcWyx1j4YBJWZ65l8SEsfdK0rYSbt/E6qoLD/MJKt9LVMaoOY5Rq8edTF9OD1z2bH/Bj8p0XdJwfTR7ehBv4jotHTYqLL4W1CajdKeL/xmqOwOl/RJiuDulrp7qm91JX00kO7GLqDtR3a3Z1DyPg7g7cuxLRQ0Jp7aq0ywiEuewcJ/3s4lqTfTXJuruV0OPoMsAP/vkb5LSPGBvKkuzqlT4UhR1AFvbVVkXPnDHykQLNZlIpVJS4Bk1HONCgS8fq11GYDbDJYugqKH9InhP7ws0luoBXCnizMwKoHrm+zJiCOT8K2xS+avwteU7pqwPuHkkfsXd3xl5Q1cpysyd5XLCvhCc6nI3CPD+xmyNZnVpF3QXtL4oS3W2oS6SDX0bnXANSzDu312JcEQAE1lMEz5GoTD6n9BMGGYA0KXl
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 06:38:26.1289
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 39b5ec3b-dea6-4502-f71b-08deff4ece05
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000044.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR10MB5657
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_005706_136630_8FFFF1CC 
-X-CRM114-Status: UNSURE (   8.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260820_233832_126843_6CEC688A 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,27 +129,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Aug 2026 09:45:34 +0200
-Krzysztof Kozlowski <krzk@kernel.org> wrote:
+When used with parallel input, the DCMIPP is expecting data to come
+in YUYV order (for all DUMP/MAIN and AUX pipes).  Not doing so will
+lead to bad color generated by the pipes when processing is done.
+The DUMP pipe is also doing by default a swap since, while it accepts
+YUYV data, it will by default generate UYVY data.
 
-> Stop right there, before you spam me more like here:
-> 
-> https://lore.kernel.org/all/?q=f%3Atriet.hoang.dev%40gmail.com
-> 
-> Organize your patches in patchsets targeting subsystems. ALL your patches.
+Current implementation is not correct for parallel input since it is
+performing a cycle swap on the input side and since the dump pipe is
+also internally doing a swap, the data captured from the dump pipe are
+correct, while the data captured from the main / aux pipes are not.
 
-Hi Krzysztof,
+To correct this, only perform cycle swap when it is necessary, hence
+changing from YUYV to UYVY for example, and for all parallel YUV MBUS,
+add the P0PPCR based SWAPYUV to put back the data into the ordering of
+the input.
 
-I am very sorry about the spam.
-I did not mean to send so many separate patches.
+Keep previous behavior when the SWAPYUV is not available (such as
+stm32mp13).
 
-This was due to my lack of experience with git send-email 
-and with organizing patches into subsystem-based patchsets. 
-Thank you for pointing this out.
+Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+---
+ .../st/stm32/stm32-dcmipp/dcmipp-byteproc.c        | 16 ++++++++++++-
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-common.h |  1 +
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-core.c   |  3 ++-
+ .../platform/st/stm32/stm32-dcmipp/dcmipp-input.c  | 28 +++++++++++++++-------
+ 4 files changed, 38 insertions(+), 10 deletions(-)
 
-I will wait for your review of the patches I have already sent 
-before sending anything further.
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+index 5fcd5123136f8..f61618e123224 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-byteproc.c
+@@ -25,6 +25,7 @@
+ #define DCMIPP_P0SCSZR_HSIZE_SHIFT	0
+ #define DCMIPP_P0SCSZR_VSIZE_SHIFT	16
+ #define DCMIPP_P0PPCR	0x5c0
++#define DCMIPP_P0PPCR_SWAPYUV		BIT(0)
+ #define DCMIPP_P0PPCR_BSM_1_2		0x1
+ #define DCMIPP_P0PPCR_BSM_1_4		0x2
+ #define DCMIPP_P0PPCR_BSM_2_4		0x3
+@@ -428,9 +429,11 @@ static int dcmipp_byteproc_configure_scale_crop
+ 	if (!vpix)
+ 		return -EINVAL;
+ 
+-	/* clear decimation/crop */
++	/* clear decimation/crop/swap yuv */
+ 	reg_clear(byteproc, DCMIPP_P0PPCR, DCMIPP_P0PPCR_BSM_MASK);
+ 	reg_clear(byteproc, DCMIPP_P0PPCR, DCMIPP_P0PPCR_LSM);
++	if (byteproc->ved.dcmipp->pipe_cfg->has_swapyuv)
++		reg_clear(byteproc, DCMIPP_P0PPCR, DCMIPP_P0PPCR_SWAPYUV);
+ 	reg_write(byteproc, DCMIPP_P0SCSTR, 0);
+ 	reg_write(byteproc, DCMIPP_P0SCSZR, 0);
+ 
+@@ -451,6 +454,17 @@ static int dcmipp_byteproc_configure_scale_crop
+ 	if (vprediv == 2)
+ 		val |= DCMIPP_P0PPCR_LSM | DCMIPP_P0PPCR_OELS;
+ 
++	/*
++	 * Perform a SWAP YUV if input is parallel since in this mode
++	 * the DCMIPP will swap YUV by default
++	 */
++	if (byteproc->ved.dcmipp->pipe_cfg->has_swapyuv &&
++	    (sink_fmt->code == MEDIA_BUS_FMT_YUYV8_2X8 ||
++	     sink_fmt->code == MEDIA_BUS_FMT_YVYU8_2X8 ||
++	     sink_fmt->code == MEDIA_BUS_FMT_UYVY8_2X8 ||
++	     sink_fmt->code == MEDIA_BUS_FMT_VYUY8_2X8))
++		val |= DCMIPP_P0PPCR_SWAPYUV;
++
+ 	/* decimate using bytes and lines skipping */
+ 	if (val) {
+ 		reg_set(byteproc, DCMIPP_P0PPCR, val);
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
+index b94a9c87f56e2..b491ce00c6562 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
+@@ -118,6 +118,7 @@ struct dcmipp_pipeline_config {
+ 	u32 hw_revision;
+ 	bool has_csi2;
+ 	bool needs_mclk;
++	bool has_swapyuv;
+ };
+ 
+ /**
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+index 3a0a4df410d8a..9aba16096d289 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-core.c
+@@ -108,7 +108,8 @@ static const struct dcmipp_pipeline_config stm32mp25_pipe_cfg = {
+ 	.num_links	= ARRAY_SIZE(stm32mp25_ent_links),
+ 	.hw_revision    = DCMIPP_STM32MP25_VERR,
+ 	.has_csi2	= true,
+-	.needs_mclk	= true
++	.needs_mclk	= true,
++	.has_swapyuv	= true
+ };
+ 
+ #define LINK_FLAG_TO_STR(f) ((f) == 0 ? "" :\
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c
+index 564f37e2e1dd4..75421035cfad5 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-input.c
+@@ -80,15 +80,15 @@ static const struct dcmipp_inp_pix_map dcmipp_inp_pix_map_list[] = {
+ 	PIXMAP_SINK_SRC_PRCR_SWAP(RGB888_3X8, RGB888_3X8, RGB888, 0, MIPI_CSI2_DT_RGB888),
+ 	PIXMAP_SINK_SRC_PRCR_SWAP(RGB888_1X24, RGB888_1X24, RGB888, 0, MIPI_CSI2_DT_RGB888),
+ 	/* YUV422 */
+-	PIXMAP_SINK_SRC_PRCR_SWAP(YUYV8_2X8, YUYV8_2X8, YUV422, 1, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(YUYV8_2X8, YUYV8_2X8, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
+ 	PIXMAP_SINK_SRC_PRCR_SWAP(YUYV8_1X16, YUYV8_1X16, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(YUYV8_2X8, UYVY8_2X8, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(UYVY8_2X8, UYVY8_2X8, YUV422, 1, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(YUYV8_2X8, UYVY8_2X8, YUV422, 1, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(UYVY8_2X8, UYVY8_2X8, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
+ 	PIXMAP_SINK_SRC_PRCR_SWAP(UYVY8_1X16, UYVY8_1X16, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(UYVY8_2X8, YUYV8_2X8, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(YVYU8_2X8, YVYU8_2X8, YUV422, 1, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(UYVY8_2X8, YUYV8_2X8, YUV422, 1, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(YVYU8_2X8, YVYU8_2X8, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
+ 	PIXMAP_SINK_SRC_PRCR_SWAP(YVYU8_1X16, YVYU8_1X16, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
+-	PIXMAP_SINK_SRC_PRCR_SWAP(VYUY8_2X8, VYUY8_2X8, YUV422, 1, MIPI_CSI2_DT_YUV422_8B),
++	PIXMAP_SINK_SRC_PRCR_SWAP(VYUY8_2X8, VYUY8_2X8, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
+ 	PIXMAP_SINK_SRC_PRCR_SWAP(VYUY8_1X16, VYUY8_1X16, YUV422, 0, MIPI_CSI2_DT_YUV422_8B),
+ 	/* GREY */
+ 	PIXMAP_SINK_SRC_PRCR_SWAP(Y8_1X8, Y8_1X8, G8, 0, MIPI_CSI2_DT_RAW8),
+@@ -356,8 +356,20 @@ static int dcmipp_inp_configure_parallel(struct dcmipp_inp_device *inp,
+ 	val |= vpix->prcr_format << DCMIPP_PRCR_FORMAT_SHIFT;
+ 
+ 	/* swap cycles */
+-	if (vpix->prcr_swapcycles)
+-		val |= DCMIPP_PRCR_SWAPCYCLES;
++	/*
++	 * Table dcmipp_inp_pix_map_list take into consideration that SWAPYUV
++	 * bit is available when dealing with 16bit YUV formats. If it is not
++	 * available (such as on stm32mp13), swapcycle setting should be
++	 * reversed
++	 */
++	if (!inp->ved.dcmipp->pipe_cfg->has_swapyuv &&
++	    (src_fmt->code == MEDIA_BUS_FMT_YUYV8_2X8 ||
++	     src_fmt->code == MEDIA_BUS_FMT_YVYU8_2X8 ||
++	     src_fmt->code == MEDIA_BUS_FMT_UYVY8_2X8 ||
++	     src_fmt->code == MEDIA_BUS_FMT_VYUY8_2X8))
++		val |= (!vpix->prcr_swapcycles ? DCMIPP_PRCR_SWAPCYCLES : 0);
++	else
++		val |= (vpix->prcr_swapcycles ? DCMIPP_PRCR_SWAPCYCLES : 0);
+ 
+ 	reg_write(inp, DCMIPP_PRCR, val);
+ 
 
-Regards,
-Triet
+-- 
+2.34.1
+
 
