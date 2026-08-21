@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0D1C5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 07:45:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9373C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 07:46:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=twADtlkwHTNGidQyuXYm9dAZEraqUdYLW4rQMB8MYLA=; b=SzYgjZmrQVWRw+G+EPOOeL8MRU
-	Sut5Ev8yR66PAW8rEkvPnolrS1dCt8iXfUjRGOmJNPZb6FGkMg0g7qUzapCvxft0/mBjCfKwV21VW
-	lsniC3VwuJ30SsvutH8D/nBOSg1JLtUgFR6rWo+eUaYNf4VSdzvguE3sqz1d0TaEGqz0Q5p72WTaG
-	hk3taXi+VicrTjluVrAge/ZwgAhPohU3slUbtBdzJsY9A2UYNPF4CrUb1ZtR++/OWFVZTEB7qzoMl
-	xeuonTYt6CBeGd3QFXYCYlmqx//8aX+wVIVWd5RoT8ab/Xzr1VRak7fevXFvzgSGsVO25pD2ztFBb
-	J/RvLXSg==;
+	bh=ZYNmwYQICuBvIp1G4bMBEx4e1TlctFb3TG99LyuRpyU=; b=c7Hble/lpvrI1IaBZDOJoX+8RG
+	gSiSjbsDqwi1pcc7HHlQTiRV06TjoJBS/MQq+somVMfvYHOjYRJm6fdIR2G1sqCWrXgUdoa3l6NRb
+	ZpjKUilhEAG0GdKzbi6rj33Pqdj2KrcGGVt5F8nokcxgm7/r+eaTtwS8YnQWlgjZcQtFiUNxsmlqW
+	ahHZGZzyi9lzOovZfaA+lenMlP5YrhwKI8IilqrTAARgBXmXCCrJKZRwH+7MmCT86CIEosm4ofrXw
+	HWOJHJbvFpQf+DE7ZF0ryD+weCVJrBeJ8lNVfnqKDwt3LPlvhUhDryGlmv3C1w6eFUal3wPwf2Q5i
+	nYuY4izg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJwc-0000000CjZm-0hPN;
-	Fri, 21 Aug 2026 07:45:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wxJwu-0000000CjgI-1Ajx;
+	Fri, 21 Aug 2026 07:46:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJwZ-0000000CjYL-3uuP
+	id 1wxJwo-0000000Cjey-2Zd1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 07:45:39 +0000
+	Fri, 21 Aug 2026 07:45:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4036943905;
-	Fri, 21 Aug 2026 07:45:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4FB91F000E9;
-	Fri, 21 Aug 2026 07:45:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B197060A7D;
+	Fri, 21 Aug 2026 07:45:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8AE11F000E9;
+	Fri, 21 Aug 2026 07:45:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787298339;
-	bh=twADtlkwHTNGidQyuXYm9dAZEraqUdYLW4rQMB8MYLA=;
+	s=k20260515; t=1787298353;
+	bh=ZYNmwYQICuBvIp1G4bMBEx4e1TlctFb3TG99LyuRpyU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Bu7EGXQZT3tw1LrBuw7orPJW2Msra9zTuU/dQCf53+XbHpZ1e2DAHhYbZnW9j6qjz
-	 rO3OISuT8D3CfPoN7r9otn/VRhKKDH//TFcy0d3vHqjPKoMFMyR14ZOuQoDZAjWzoL
-	 e+l/NKgeEOAj8c5KRxdSHDw9Xy1MMt6vA0ctyy9WDNroxtXnMyQmBJB5cSp++6hdZg
-	 TQo0YLVN4pLKVsyTmDb4VK+NRx3a+w2zFyoggneL/BRhEhCj8UMCvcPoYrRc7tymZT
-	 BbGpKt+LAVrSdXv6O+RbhYqgZ3geaPq7cwVfd3A2SkVqWNeJfrhILN5Ypm0uG64GdQ
-	 vCkhUsNw/8l3A==
-Message-ID: <b3f3edef-917f-4bd1-a530-187877afdcfa@kernel.org>
-Date: Fri, 21 Aug 2026 09:45:34 +0200
+	b=NKG86ijOxqI3MIOkilGC500XbeIvg+WpluQtQnKUjOhmJJyTVIfwgV6CJAI7R/zRn
+	 XC1lwPn0yU+38GKBZ+X4dR2HkWKivRHv05p2I+llt2LTuHAvTQbeQJT42OXgrxkYfi
+	 xr2VOFYKznVEmZhHMf5N4UkLfnSW/soR0AjUulX4mPFnFlMCN1xs9bQIqktMh3VW/s
+	 9WAYZhebGdFVzPSOy/ZBFSLtGHFCuF39gXOI80RnBmHhgwAIfc39wlrbiIQe0TDXs0
+	 mBaZnKcIrblGu46SADNmekp/5IdoTGhQq1zAnN/AgkA+hILGCO36SMi8mOqcj2MbTc
+	 oyGFMT6fgF7RQ==
+Message-ID: <304a5498-b43e-4ffb-8714-29575f2534a1@kernel.org>
+Date: Fri, 21 Aug 2026 09:45:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] memory: atmel-ebi: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
-To: Triet Hoang <triet.hoang.dev@gmail.com>
-Cc: nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
- claudiu.beznea@tuxon.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260821074203.258920-1-triet.hoang.dev@gmail.com>
+Subject: Re: [PATCH] memory: pl353: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
+To: Triet Hoang <triet.hoang.dev@gmail.com>, miquel.raynal@bootlin.com
+Cc: michal.simek@amd.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260821074417.261168-1-triet.hoang.dev@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -97,7 +96,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260821074203.258920-1-triet.hoang.dev@gmail.com>
+In-Reply-To: <20260821074417.261168-1-triet.hoang.dev@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -114,7 +113,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/08/2026 09:42, Triet Hoang wrote:
+On 21/08/2026 09:44, Triet Hoang wrote:
 > Convert the deprecated SIMPLE_DEV_PM_OPS
 > to DEFINE_SIMPLE_DEV_PM_OPS
 > and pm_sleep_ptr().
@@ -127,11 +126,7 @@ On 21/08/2026 09:42, Triet Hoang wrote:
 > Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
 > ---
 
-Stop right there, before you spam me more like here:
-
-https://lore.kernel.org/all/?q=f%3Atriet.hoang.dev%40gmail.com
-
-Organize your patches in patchsets targeting subsystems. ALL your patches.
+So I should respond to every email?
 
 Best regards,
 Krzysztof
