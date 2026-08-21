@@ -4,72 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF459C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:08:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD5E5C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:18:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aGEJQB9358mwZctsDDONapSyTxRcKMMADgC4+MXroNA=; b=Dhy8I0F76+aGyn/FRsehvouhPh
-	+/3DzHThd4a6aZbt7YJZUNXlu96tFW6n8cMPCO/wgBZwKOkZBhIGscB8WJpciiZ5F0qbY4zfEjVCX
-	XUB8yNpWYH3PBw91jSRGo7D9bAiJUNMnlPrwjG64/3bc05gFRRrdS0BXfm9jTynC+yhhy0vDUA6M6
-	GdRIay1sbftSPiGNyKYY0lDwmpr5l0Y5/Epba2uULc/rW5p9O4INStiweI+t9AlFOQmq0B6m7uHXM
-	73n+rWsIGfQYw6On8b+UySdeeBiZgnFN1CifzEMSQ1cxdVaobmLc3OkQ3MpQsuO8wExg/PzNSPFLe
-	8t9YTgLQ==;
+	bh=t728sIDYKXsWt1tklLeZZOyQrAcVmDs+fl8JMhF9N7E=; b=H6InhvvEF1jZDBufkYITFCdWQ+
+	e8ODMoHVKod7kJg/COx6le7JU8R0NYyjNMtDqMU/7VQqlDPjj/DBpC0KnkkK/aw+qc2dqRBch6Uqi
+	YZ85Zkanhlc/BDrlcrhCyD1zDgM8FfdRPrh0FJKyTcHkY/74gHyjBdNOC7bY8glzRtGDtp2p8/ao+
+	j74ihrfeCwPnBPJR1ZwfnZ79ZVgvm+MG3NgTWR6CAzVgJoYS17eTbNpIAeNzNtQuKrBTY+CipiHwX
+	8VhvZ/m8iSY4v/fcTGq6b6ie4u5HwYxd36lanpE0WQDk0fDm+mW1YZtTK1ZXTfgHjgQC9VXeObINX
+	kmB3+vRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLEO-0000000CtQ5-2stP;
-	Fri, 21 Aug 2026 09:08:08 +0000
-Received: from submarine.notk.org ([62.210.214.84])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLEL-0000000CtP4-1PgA
+	id 1wxLNk-0000000CuNW-2pzc;
+	Fri, 21 Aug 2026 09:17:48 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wxLNh-0000000CuMM-3LNf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 09:08:07 +0000
-Received: from gaia.codewreck.org (localhost [127.0.0.1])
-	by submarine.notk.org (Postfix) with ESMTPS id 8F07A14C2D6;
-	Fri, 21 Aug 2026 11:07:52 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=codewreck.org;
-	s=2; t=1787303277;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aGEJQB9358mwZctsDDONapSyTxRcKMMADgC4+MXroNA=;
-	b=M2jn6TbVDXHVkr/DG2auw74KFiKThPfC0XasZSWIF0/2H3vkffPYarZ0Z189yUSvAFBHf/
-	QbLJi8iGq8/DbVwhhl3Z+c5DH2i0qrzOvtU7quhd+lgDZveIW05P/3uIoPAptls8dYDr5E
-	oOqeQZU7+rq3031TM9LrHcMu2FRVn0CvkLU0PheUnT6lGAg/RscCEnLnNWAqzpZxFkv8i6
-	5ZstEmf9todvM8Gtz1f3DPH91+qfKMcPuALJTE2R6K3FFDITuuY7Uc+ft9D1qhN2Dv4z9V
-	u4S8i4qdypfe+OQdqztFxRKI9jUWypUnpz5o+4p92UwGFectm2NXZQS42rRXrw==
-Received: from localhost (gaia.codewreck.org [local])
-	by gaia.codewreck.org (OpenSMTPD) with ESMTPA id 622dfed3;
-	Fri, 21 Aug 2026 09:07:50 +0000 (UTC)
-Date: Fri, 21 Aug 2026 18:07:35 +0900
-From: Dominique Martinet <asmadeus@codewreck.org>
-To: Vincent Jardin <vjardin@free.fr>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Andi Shyti <andi.shyti@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Wolfram Sang <wsa@kernel.org>,
-	Kaushal Butala <kaushalkernelmailinglist@gmail.com>,
-	Shawn Guo <shawn.guo@freescale.com>,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
-	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Carlos Song <carlos.song@nxp.com>,
-	Stefan Eichenberger <eichest@gmail.com>
-Subject: Re: [PATCH v3 0/2] i2c: imx: fix SMBus block-read of 0 locking the
- bus [stable backport question/offer]
-Message-ID: <aogVVwPlOmCqFsg_@codewreck.org>
-References: <20260713-for-upstream-i2c-lx2160-fix-v1-v3-0-073ac9e103a5@free.fr>
+	Fri, 21 Aug 2026 09:17:47 +0000
+Received: by linux.microsoft.com (Postfix, from userid 1134)
+	id DF2D120B7128; Fri, 21 Aug 2026 02:17:14 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DF2D120B7128
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1787303834;
+	bh=t728sIDYKXsWt1tklLeZZOyQrAcVmDs+fl8JMhF9N7E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aPvbwuE5pQ/edXZxnZOfbfe9yj5dxoJMlJq5tMXLihxTf4tzzA1D8sVsZJ0RlGxZ+
+	 eP1cG84X2j4p/69/11M4Jmngwhjm7iv9RuVIKd2FxMqQ/rWJirrVoxyDqS0axPZMjI
+	 wb0MEGdM6lqgaZQ6E0aLTowFAi1xSMPcR+eU1vq8=
+Date: Fri, 21 Aug 2026 02:17:14 -0700
+From: Shradha Gupta <shradhagupta@linux.microsoft.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"K. Y. Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Long Li <longli@microsoft.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Michael Kelley <mikelley@microsoft.com>,
+	Shradha Gupta <shradhagupta@microsoft.com>
+Subject: Re: [RFC PATCH 0/2] arm64/hyperv: Enable kexec reboot support
+Message-ID: <aogXmuC2Q692CbQU@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20260814093133.3191250-1-shradhagupta@linux.microsoft.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260713-for-upstream-i2c-lx2160-fix-v1-v3-0-073ac9e103a5@free.fr>
+In-Reply-To: <20260814093133.3191250-1-shradhagupta@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_020805_788591_8EFB69E7 
-X-CRM114-Status: GOOD (  15.06  )
+X-CRM114-CacheID: sfid-20260821_021745_865873_3D24B7F0 
+X-CRM114-Status: GOOD (  22.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,57 +74,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Vincent Jardin wrote on Mon, Jul 13, 2026 at 08:11:58PM +0200:
-> i2c-imx rejects an SMBus Block Read byte count of 0 (valid per SMBus 3.1
-> 6.5.7) as -EPROTO and returns without emitting a NACK + STOP, leaving the
-> target holding SDA so the bus stays stuck until a power cycle.
+On Fri, Aug 14, 2026 at 02:31:28AM -0700, Shradha Gupta wrote:
+
+Gentle Reminder
+
+Regards,
+Shradha.
+
+> Kexec reboot consistently fails on ARM64 Hyper-V guests (Azure VMs).
+> During the kexec shutdown path, VMBus channels are never cleaned up,
+> so in the fresh kexec kernel startup hv_acpi_init() blocks because
+> the hypervisor still holds the old kernel's VMBus session open.
 > 
-> It was triggered by an MPQ8785 PMBus regulator on a LX2160A i2c
-> bus: when the kernel binds it using the pmbus/hwmon framework, the bus
-> locks up and it does never recovers. It was confirmed with a scope, with
-> and without the fix.
+> This is because ARM64 lacks the VMBus teardown that x86 performs during
+> kexec via hv_machine_shutdown(). On x86, machine_ops.shutdown is
+> overridden to send CHANNELMSG_UNLOAD and disable SynIC before CPUs
+> go offline. ARM64 has no equivalent mechanism.
 > 
-> The same bug is occuring with two independently introduced spots, so the
-> fix is two patches with their respective Fixes: tags and backport ranges
+> Why existing notification mechanisms don't work:
 > 
->   1/2  atomic/polling path       Fixes: 8e8782c71595   v3.16+
->   2/2  IRQ-driven state machine  Fixes: 5f5c2d4579ca   v6.13+
-
-Silly question (half for stable people, half for i2c-imx maintainers),
-but the backport for commit cb2fc3785769 ("i2c: imx: fix locked bus on
-SMBus block-read of 0 (atomic)") to stable brought in b460b15b3cc2
-("i2c: imx: separate atomic, dma and non-dma use case") (also 6.13+) as
-a dep (all the way back to 5.10!);
-with that commit in, 5f5c2d4579ca ("i2c: imx: prevent rescheduling in non
-dma mode") applies almost cleanly on 6.6/6.12[1]... So should we grab
-more easy fixes?
-In particular, I doubt I'll ever hit this SMBus 3.1 bug, but
-5f5c2d4579ca also was a real fix[2], so would it make sense to jump in
-and get both 5f5c2d4579ca and 07fd9385f0d8 ("i2c: imx: fix locked bus on
-SMBus block-read of 0 (IRQ)") for 6.6/6.12?
-
-[1] just a trivial context conflict in the struct there, but it starts
-being more iffy on 6.1 and earlier kernels
-[2] ... We actually ran into that bug on 5.10, our kludgy backport being
-the reason I noticed during today's 5.10.266-rc1 testing...
-
-
-Honestly, I wouldn't have considered backporting either as b460b15b3cc2
-("i2c: imx: separate atomic, dma and non-dma use case") looks too big to
-backport to me, so I definitely wouldn't have done it before, but that
-ship has sailed (it's in the 5.10 -rc right now, but it's been merged a
-couple of weeks ago in higher versions stables), so at this point I
-don't think it's worth reverting either and we might as well keep
-falling forward...
-
-
-
-tl;dr: If maintainers agree, I can send these two for a future 6.6/6.12:
-5f5c2d4579ca ("i2c: imx: prevent rescheduling in non dma mode")
-07fd9385f0d8 ("i2c: imx: fix locked bus on SMBus block-read of 0 (IRQ)")
-
-
-Thanks,
--- 
-Dominique Martinet | Asmadeus
+> - Reboot notifiers: Fire too early - they run inside
+>   kernel_restart_prepare(), BEFORE device_shutdown(). VMBus UNLOAD
+>   must happen AFTER device_shutdown() so that PCI drivers can clean
+>   up interrupt mappings (PCI_DELETE_INTERRUPT_MESSAGE) before UNLOAD
+>   force-closes channels. Sending UNLOAD first causes interrupt
+>   mapping leaks because the mappings aren't released on channel
+>   close.
+> 
+> - Device .shutdown callbacks: Too narrow - these handle per-device
+>   cleanup (e.g., individual VMBus channel teardown), but cannot
+>   perform bus-level operations like sending the global VMBus UNLOAD
+>   message or removing the SynIC CPU hotplug state via
+>   cpuhp_remove_state().
+> 
+> - VMBus parent device .shutdown callback: Also insufficient -
+>   cpuhp_remove_state() for SynIC teardown must run after all device
+>   shutdown completes, not during it. A parent .shutdown callback
+>   still executes within device_shutdown().
+> 
+> - The required window is: after device_shutdown() completes, after
+>   cpu_hotplug_enable(), but before smp_shutdown_nonboot_cpus(). That
+>   window exists inside machine_shutdown(), which currently has no hook.
+> 
+> The need for an ARM64 shutdown hook was previously discussed in [1]
+> but lacked a concrete failure case at the time. We now have one.
+> 
+> [1] https://lore.kernel.org/linux-arm-kernel/427a8277-49f0-4317-d6c3-4a15d7070e55@igalia.com/
+> 
+> This RFC proposes fixing kexec on ARM64 Hyper-V guests with:
+> 
+> Patch 1: A platform hook (arm64_pre_smp_shutdown_hook) in ARM64's
+>   machine_shutdown(), analogous to x86's machine_ops.shutdown. This
+>   runs after device_shutdown() and cpu_hotplug_enable(), allowing
+>   platform code to inject pre-shutdown logic at the right point in
+>   the kexec path.
+> 
+>   Design choices I'd like feedback on:
+>   - Single function pointer vs full machine_ops struct: ARM64 uses
+>     kernel-wide APIs (register_restart_handler, register_platform_power_off)
+>     for restart/poweroff rather than x86's monolithic machine_ops, so
+>     a targeted hook seemed more consistent with the ARM64 pattern.
+>   - On ARM64, machine_shutdown() is only called from kernel_kexec(),
+>     unlike x86/powerpc where it's also called from restart/halt/poweroff.
+> 
+> Patch 2: Uses this hook to call hv_kexec_handler() which performs:
+>   - vmbus_initiate_unload(): sends CHANNELMSG_UNLOAD to host
+>   - cpuhp_remove_state(): disables SynIC (SIMP, SIEFP, SINT) on
+>     all CPUs, ensuring the kexec'd kernel starts with clean state
+> 
+> Tested on ARM64 Azure VMs (Ubuntu 22.04, multiple vCPU configs):
+> - kexec reboot succeeds, VM comes back online with SSH
+> - Normal reboot/poweroff unaffected
+> - Multiple consecutive kexec cycles pass
+> 
+> Looking for feedback on:
+> 1. Is the single function pointer hook acceptable for ARM64, or would
+>    the ARM64 maintainers prefer a registration API or __weak function?
+> 2. Should this be arm64-specific or generic kexec infrastructure?
+> 
+> Shradha Gupta (2):
+>   arm64: Add pre-shutdown hook to machine_shutdown()
+>   arm64/hyperv: Add kexec handler using machine_shutdown hook
+> 
+>  arch/arm64/hyperv/mshyperv.c         | 37 ++++++++++++++++++++++++++++
+>  arch/arm64/include/asm/system_misc.h |  2 ++
+>  arch/arm64/kernel/process.c          | 13 ++++++++++
+>  3 files changed, 52 insertions(+)
+> 
+> -- 
+> 2.43.0
 
