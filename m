@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFBF2C5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41130C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RJQLFYQ/9DV4mfTcY3iE82GbowXg8Ttd7PcFZlNn8es=; b=C+XTSlc8KaSkKAij+tPgNcg+CL
-	nWV0v0gJtoJcSYkgHGIqySdyRRn6fb+jVz5YQb6KDVloNfQ4ZMno8oVBq30vi2RmOUxjXi1b5jM2t
-	wn3Xl+OsTZKMmq77o53FgIdsPketLfzhvbmHGTxr/M4sdF5dAzGjiNHfMx6G8tMRQqfFdBBlzpibG
-	SWTGr55kiDp/70cVz7OIiz4iYovlSAKXlx3mHzlKiDCiTippNEklNTiMR0zmWQkBZC+a5aUaPYI39
-	VBYMPfKF9cutY5SqYsgkaaf72QH2u2no8YLnM3jf8Y3o5sZlMVVpHE7pUSE8JOIPIqJbf7BCvTB33
-	uBRT5zuQ==;
+	bh=Cdt1dFPAQC3KfJYerMZNMs9WcRyMdKt8cJfu1JXIZ1I=; b=txdJz5VymeBwzULIxtwsVu7PCN
+	1n6OU8QPcRXy48d57IzoaQP+4QgLseH2PJi1dZLngo6Meu9rk93VN4kddcuVfkjKd+geG6YwCbBPs
+	kjaBJ5BiibsuWp5/XPQVzXVtXdqu8zJYm8mtb83NY2II8eDm3mX+8Li9ZvVL7yCeuF8BX8AlzjpJC
+	Edcex6122BodX0a2FZyPhR2xWYk9yEp4QrYZorsRZvPYftE9UzyWxwywzbt36/nJVRtX/fAD4/z4m
+	eKBPTeQN5HkN4SFQazjKQKhRyO9Fk1v/ejcwRcZk80nbK4WrNNMh75UY0iGAi8gDq89XdAPdJdifp
+	+WKLkybA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxKzS-0000000Cplx-14GK;
-	Fri, 21 Aug 2026 08:52:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wxKza-0000000Cpq5-1YlS;
+	Fri, 21 Aug 2026 08:52:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxKzO-0000000Cpjm-0c91
+	id 1wxKzR-0000000Cpl8-0z8p
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 08:52:38 +0000
+	Fri, 21 Aug 2026 08:52:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 93A3F4190F;
+	by tor.source.kernel.org (Postfix) with ESMTP id 7CFE561836;
+	Fri, 21 Aug 2026 08:52:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E55311F000E9;
 	Fri, 21 Aug 2026 08:52:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 224A11F00A3A;
-	Fri, 21 Aug 2026 08:52:34 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Liviu Dudau <liviu.dudau@arm.com>,
 	Sudeep Holla <sudeep.holla@kernel.org>,
@@ -44,9 +44,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-tegra@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 1/2] ARM: versatile: clock: Make sure clk_init_data is fully initialized
-Date: Fri, 21 Aug 2026 10:52:24 +0200
-Message-ID: <66afbce10c485164340a3947885cdf4217a4ee2d.1787239869.git.geert+renesas@glider.be>
+Subject: [PATCH 2/2] soc/tegra: pmc: Make sure clk_init_data is fully initialized
+Date: Fri, 21 Aug 2026 10:52:25 +0200
+Message-ID: <70aca0e57b9900db051aade5a1af2e42c4d30ea5.1787239869.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1787239869.git.geert+renesas@glider.be>
 References: <cover.1787239869.git.geert+renesas@glider.be>
@@ -81,22 +81,31 @@ Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
 Compile-tested only.
 ---
- arch/arm/mach-versatile/spc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/soc/tegra/pmc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/mach-versatile/spc.c b/arch/arm/mach-versatile/spc.c
-index 7c3191aa3e12d1f3..d3f84819532fa498 100644
---- a/arch/arm/mach-versatile/spc.c
-+++ b/arch/arm/mach-versatile/spc.c
-@@ -522,7 +522,7 @@ static struct clk_ops clk_spc_ops = {
- 
- static struct clk *ve_spc_clk_register(struct device *cpu_dev)
+diff --git a/drivers/soc/tegra/pmc.c b/drivers/soc/tegra/pmc.c
+index 41ed716d5857317d..c42e28fe2b8b0ff9 100644
+--- a/drivers/soc/tegra/pmc.c
++++ b/drivers/soc/tegra/pmc.c
+@@ -2694,7 +2694,7 @@ tegra_pmc_clk_out_register(struct tegra_pmc *pmc,
+ 			   const struct pmc_clk_init_data *data,
+ 			   unsigned long offset)
  {
 -	struct clk_init_data init;
 +	struct clk_init_data init = {};
- 	struct clk_spc *spc;
+ 	struct pmc_clk *pmc_clk;
  
- 	spc = kzalloc_obj(*spc);
+ 	pmc_clk = devm_kzalloc(pmc->dev, sizeof(*pmc_clk), GFP_KERNEL);
+@@ -2752,7 +2752,7 @@ tegra_pmc_clk_gate_register(struct tegra_pmc *pmc, const char *name,
+ 			    const char *parent_name, unsigned long offset,
+ 			    u32 shift)
+ {
+-	struct clk_init_data init;
++	struct clk_init_data init = {};
+ 	struct pmc_clk_gate *gate;
+ 
+ 	gate = devm_kzalloc(pmc->dev, sizeof(*gate), GFP_KERNEL);
 -- 
 2.43.0
 
