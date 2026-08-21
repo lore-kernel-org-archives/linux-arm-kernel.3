@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F68C5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 17:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 117ECC5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 17:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Amp7TonfLQQCmQ63ymRvTi5wVBJ8saros+nDhb1Tf6M=; b=FjD2uZ7iAzh4S74OwedCsSE1hr
-	KZm+kDKqg6HYP4sntnW2cRcvCLf7tPurdSTOn7bQ4+WMAU9aAsLw305IVrfQ3VUWr6b569zhs3l4R
-	vIDCX+kodnALDfX+jkLtvtg6vTEX/01MQ6JGMgcchgksnZtKRgVyvKOn6X9qE+VwwfvHIy/qqGKtu
-	QcBkFKTYS38fcTdERuxVoSMeFisE4R4tlooyf3ghfuRnF1znKzvmaUAhfLQBwOX1U2KMAjD1sPlb6
-	Y3rzkTQjFiTjNd+3jK+Ar+BMfs+5FTPUHC8agAnnMK91BrFbwexGncoHOpu7zsLYWz9leya0qyXCO
-	KUDGQ4/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4zprVL5/9BVqDOihmvOs/Q42nl1VQUNgjTILqKSw0w0=; b=eoHXerB3H7jFpIexL0Qf63+m/z
+	ul/y43oryONuKuKaaxMtE+FfFmYiNfTV1D2yXICztGdFBetrWatD7y/1xS1Qpc1yJ1QCCL9KXRnUj
+	9OUCaDaRipLJIxT+PCkQ9OikUPkgEVrENwIlV5TIedPTZDV/MDqcIvA9KxtZT8jSfAjdllCMTssgH
+	DUpu/aDQt9wspH8Urf/yV67WQi6b6yeRoy0GLSiG+vA/5ewf+RINZiB3Ky+F+/Qksg6fwNcIS80cu
+	4gNABXN+OXuK9vOPXFBZ43RoRKyrh3/goFtCEAYjyAULBi0CETU3kw0pOYXagQDMzpxCriHn5MXkP
+	4hEz83GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxSot-0000000DtEp-2kUM;
-	Fri, 21 Aug 2026 17:14:19 +0000
-Received: from mta-64-226.siemens.flowmailer.net ([185.136.64.226])
+	id 1wxT0e-0000000Du6Q-3zxa;
+	Fri, 21 Aug 2026 17:26:28 +0000
+Received: from mail.cyberchaos.dev ([195.39.247.168])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxSoq-0000000DtDk-3DT6
+	id 1wxT0c-0000000Du60-2ttC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 17:14:18 +0000
-Received: by mta-64-226.siemens.flowmailer.net with ESMTPSA id 20260821171412bc75df658800020779
-        for <linux-arm-kernel@lists.infradead.org>;
-        Fri, 21 Aug 2026 19:14:12 +0200
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm2;
- d=siemens.com; i=florian.bezdeka@siemens.com;
- h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
- bh=Amp7TonfLQQCmQ63ymRvTi5wVBJ8saros+nDhb1Tf6M=;
- b=isrGfETZuR5SaCfX4BVh97wtJzmgVEzYpQjSgefKxhHm2ej9FvvEQCB+U26g0gSPVVLr8i
- jf/W5DKhgYn9GaMUjGi+287Yd6GX64x3eQcsHhRYWBFL1UOgFSliHEF2RYXm0DR+v1mtteVe
- tfgAHPCMEivxJMS7UxKHmdyZn+DLs2XvzbGnabU8+8iwa9fr11pOEDC9WXNumQFZ2GIWlElA
- SrdOdAxwmir7d1IAKhqr+rD8YaQfdhQ8Ff9kSDqvcZy1qQeT1cbOoaD59exCvHtctIU1c8yK
- wda6R0j6hkiXpdw9ILBPXyVxHMuPjZH3y5M6Oz+3JQZNlllPkYYu71Kw==;
-Message-ID: <8e80acdfaeefa59f455f5e894d177a4a6c8bf3ff.camel@siemens.com>
-Subject: Re: [PATCH RFC 1/3] cpumask: Honor irq_default_affinity in
- cpumask_local_spread()
-From: Florian Bezdeka <florian.bezdeka@siemens.com>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Yury Norov
-	 <ynorov@nvidia.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn	
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet	 <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni	 <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Yury Norov
- <yury.norov@gmail.com>, Rasmus Villemoes	 <linux@rasmusvillemoes.dk>,
- Andrew Morton <akpm@linux-foundation.org>, Clark Williams
- <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Thomas
- Gleixner	 <tglx@kernel.org>, Jan Kiszka <jan.kiszka@siemens.com>,
- netdev@vger.kernel.org, 	linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org,
- linux-rt-devel@lists.linux.dev
-Date: Fri, 21 Aug 2026 19:14:11 +0200
-In-Reply-To: <20260820160947.GZ5F-O0o@linutronix.de>
-References: <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-0-3f79a99cadaf@siemens.com>
-	 <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-1-3f79a99cadaf@siemens.com>
-	 <aoX4HuUxL4tNWvpq@yury> <20260820160947.GZ5F-O0o@linutronix.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 21 Aug 2026 17:26:28 +0000
+Message-ID: <bbaca769-312c-4a24-9524-16cb2b4f277f@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1787333180;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4zprVL5/9BVqDOihmvOs/Q42nl1VQUNgjTILqKSw0w0=;
+	b=HQtt7lVZcfVo8TYCvTeQ0igRuXaLHurfb35TIR+j+82dPXJmzUG154fUu75jZxBEkcGoWz
+	jQF6wuQccZftNV5xbWF9/BZb4GXb3VPF9QyKki+En6V7FOPkbtwAbl5I3vuDSh0u10PNot
+	uaRP2PHGDi0hh8BcUCzRWJymQ8yzwY4=
+Date: Fri, 21 Aug 2026 19:26:12 +0200
 MIME-Version: 1.0
-X-Flowmailer-Platform: Siemens
-Feedback-ID: 519:519-68982:519-21489:flowmailer
+Subject: Re: [PATCH 08/10] HID: apple: Add DockChannel HID transport driver
+To: Yureka Lilian <yureka@cyberchaos.dev>,
+ Michael Reeves <michael.reeves077@gmail.com>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+ Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>,
+ Benjamin Tissoires <bentiss@kernel.org>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, iommu@lists.linux.dev,
+ linux-input@vger.kernel.org
+References: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
+ <20260630-apple-mtp-keyboard-final-v1-8-506d936a1707@gmail.com>
+ <05d39c4d-8405-4fe7-a798-c8a9c92699ed@cyberchaos.dev>
+ <CANpmGNs3s2yLw05jkpZ9mscQNZ9JvfbqEgyW8V=cMD29aU8c2A@mail.gmail.com>
+ <03eb4c22-045e-470e-8259-ebf9b1cfe2ed@cyberchaos.dev>
+Content-Language: en-US
+From: Yureka Lilian <yureka@cyberchaos.dev>
+In-Reply-To: <03eb4c22-045e-470e-8259-ebf9b1cfe2ed@cyberchaos.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_101416_941660_545EC384 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20260821_102626_983504_72CC42AA 
+X-CRM114-Status: GOOD (  30.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +81,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2026-08-20 at 18:09 +0200, Sebastian Andrzej Siewior wrote:
-> On 2026-08-19 14:38:22 [-0400], Yury Norov wrote:
-> > > --- a/lib/cpumask.c
-> > > +++ b/lib/cpumask.c
-> > > @@ -81,8 +82,9 @@ void __init free_bootmem_cpumask_var(cpumask_var_t =
-mask)
-> > >   * @i: index number
-> > >   * @node: local numa_node
-> > >   *
-> > > - * Return: online CPU according to a numa aware policy; local cpus a=
-re returned
-> > > - * first, followed by non-local ones, then it wraps around.
-> > > + * Return: online CPU according to the default IRQ affinity and a nu=
-ma aware
-> > > + * policy; local cpus are returned first, followed by non-local ones=
-, then it
-> > > + * wraps around.
-> > >   *
-> > >   * For those who wants to enumerate all CPUs based on their NUMA dis=
-tances,
-> > >   * i.e. call this function in a loop, like:
-> > > @@ -110,9 +112,9 @@ unsigned int cpumask_local_spread(unsigned int i,=
- int node)
-> >=20
-> > Please don't touch this function. There's ~40 users, and we don't want
-> > to inspect every caller for their intention.
->=20
-> While this might be okay for the NICs, the usage of PMUs shouldn't be
-> changed. So yes, Yury's suggestion to create your own function and then
-> move the drivers one by one makes sense.
-> You might also want to verify that your setup/ design works on some
-> "newer" multi queue NICs even after the number of queues is reconfigured
-> at runtime.
->=20
-> There is also netif_set_affinity_auto().
->=20
+On 8/1/26 23:56, Yureka Lilian wrote:
+> On 7/1/26 16:32, Michael Reeves wrote:
+>> Hi Yureka,
+>>
+>> Thank you for the review and the feedback.
+>>
+>> On Tue, Jun 30, 2026 at 11:21 PM Yureka Lilian 
+>> <yureka@cyberchaos.dev> wrote:
+>> [...]
+>>>> +     strscpy(hid->uniq, dchid->serial, sizeof(hid->uniq));
+>>> If the keyboard appeared before stm, dchip->serial might be 
+>>> uninitialized.
+>> Yes, true, thank you for picking this up!
+>> [...]
+>>>> +     /*
+>>>> +      * Prefer to enable STM first, since it provides device IDs. 
+>>>> Some
+>>>> +      * firmware versions do not expose STM, so let the keyboard 
+>>>> start
+>>>> +      * without it.
+>>>> +      */
+>>>> +     if (iface->dchid->id_ready || !strcmp(iface->name, "stm") ||
+>>>> +         !strcmp(iface->name, "keyboard"))
+>>> I specifically asked for a mechanism to let the keyboard probe even on
+>>> devices which do not expose/have stm. Thanks for adding that!
+>>> However, I think this might need some more sophisticated mechanism to
+>>> decide whether the stm is still going to appear after the keyboard, or
+>>> not at all. I'm not sure if there is a way to tell this at this point,
+>>> or we need to add a timeout for the stm to appearing, which needs to
+>>> expire before we create the other interfaces with fake serials.
+>>>
+>> I do not think there is a way to tell at this point, unfortunately.
+>>
+>> I think the best way to resolve this would be to implement a delayed 
+>> work
+>> item that is scheduled during probe. If STM appears and initalises 
+>> before
+>> the timer (I'm not sure how long it should be right now, I will 
+>> prototype and
+>> experiment) we cancel the delayed work, get the real serial, and spin up
+>> the keyboard. If the timeout expires without seeing the STM 
+>> interface, we
+>> assume the platform does not have one, mark id_ready as true, and
+>> proceed to init the keyboard.
+>
+> I see three ways forward (no specific order):
+>
+> 1) Implement the timeout as you described.
+>
+> 2) Use the approach that always waits for the stm to appear, and is 
+> proven to work well on the M2 devices targeted by this series. A 
+> different behavior that does not wait for the stm / determines the 
+> serials using other means can be added at a later point in the same 
+> driver but with a different compatible string.
+>
+> 3) Add an stm subnode (like the downstream Asahi device trees have for 
+> their dockchannel-mtp nodes [1]) which indicates whether the stm is 
+> present. Check for the existence of this subnode to decide whether to 
+> wait for the stm or add the HID devices with fake serials. Support for 
+> other methods of retrieving the serials can be added later and 
+> indicated by other subnodes.
+>
+> I would appreciate feedback from all of you on which of these options 
+> we should move forward with.
 
-Thanks for this pointer. 4 users and yet another implementation that
-ignores the current userspace settings...
+After checking ioreg -l under macOS on the MacBook Neo (which is the one 
+Apple Silicon MacBook having the non-force-touch trackpad variant, and 
+sending no stm report), I'm convinced it legit has no Serial to report 
+for the keyboard/trackpad HID devices, so we'll always have to use the 
+fake one there.
 
-I'll put this on my "to be revisited" list. Thanks!
+Knowing this, I'd rule out Option 2). Between option 1 (timeout) and 
+option 3 (device tree node), I prefer the device tree node. We already 
+have the keyboard subnode and we know for each MacBook model whether it 
+has an stm or not, so having the stm subnode seems logical. As a bonus, 
+the code for this is quite simple, and I will prepare the v2 of this 
+series shortly.
+
+>
+>>
+>> I will work on this and experiment to see if it's the best solution or
+>> if there's
+>> any others as well as to find the ideal timeout, and submit as part 
+>> of v2.
+>> [...]
+>>
+>> Thanks again,
+>> Michael
+>
+>
+> Thanks,
+>
+> - Yureka
+>
+> Link: 
+> https://github.com/AsahiLinux/linux/blob/asahi-7.1.5-2/arch/arm64/boot/dts/apple/t8112-j413.dts#L260 
+> [1]
+>
 
