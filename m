@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C2BC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:56:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24416C5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e4MzLIKdVcx/R3G/gHJETc70ma/fOUw5XK2bbIYAJnQ=; b=WJ9IK4R7DqV6zAWlKbJ3Gfvt9a
-	akNhBeSGXEi8USE9eN3d8+vmcPuSrU7jmT02gc1RciN0ZUQZlPntanY1k6aUBZXTkr/yjYb9Volyy
-	Rh0uNenV5DmesWBRnhGqm9IgYiTVd1T/Iu96faatiU1E+52rxaqq7WBlNJ8K6M0zKv9zhHkvUhw0O
-	1muDYraiMaetpK10jO6zoKnFjbzJj9MVOXlq6hh6ldR6tsiwq40P8sHlIBwEkJy4tJt2HE0ZByQFF
-	U7h9uAK/tZd3dgNIAtn1fXPymL9Wx7smwklzTqPDUK7AZMvR+0X8wTVPAzcEhPnS6tiwNCMm6fv73
-	glMbMNtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Rctx8ICNMKjbrNuw++PjuLNGuxOfdbGcRTMtqUS0BKA=; b=Deyu+10ZWKi/3xy7dbGmdpQjy0
+	vlaQT3vBwf/bBaMWectXzYKWei+DHdArAzohdJsuPSYyGjFqmVap2WemFQ3Y1e2EodaetiGwc+Nit
+	DCTZ4EHJlx/djzh8+Kce/w77xn9wdMdhYN0QJ41nmwO5TcY10ys1IGEbPA5lZ9kKaVS2sXwiY21XA
+	1NEvANHpEmWqKPHB1/vqpJ6YpndJQzu7NdPSWQh3yByhV2YhnyIGKSo0z7Xw+lhMEnGEaWjVgqEjy
+	wPjUTnWIHnM0/aVmWN0jN+hARXGsHT68+j0mQGkPOQSy0GkuIs3VsILrlF4JAKyhqPua+ou857Qlw
+	/9ZmEGIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxL2W-0000000CqaQ-3M8E;
-	Fri, 21 Aug 2026 08:55:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxL2U-0000000CqZJ-00xA
+	id 1wxL3B-0000000Cqn4-1tor;
+	Fri, 21 Aug 2026 08:56:33 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wxL37-0000000Cqju-3Fn0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 08:55:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B9E71596;
-	Fri, 21 Aug 2026 01:55:45 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 085EB3F66F;
-	Fri, 21 Aug 2026 01:55:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787302548; bh=wcdTd5B/RaOOWV5qretAunfQFbsYHOpwzyHoWc18erI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TWdFNY3b68iy0MWDcR3xLM88mOwb4xQ08AlfOCA1myAiymVJh+Tw6lBpIILF/CvNR
-	 VSseBE1KnZG9LMpSHVGBtblrEpb18HK5IF3Ih1BHtw1ZxB00xBPKLFbHZ7TvhMCp9Y
-	 OEOZvff9FSOJmW4QdM0vtk6Ul7ejpOvX3sL+26fI=
-Date: Fri, 21 Aug 2026 09:55:44 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Muhammad Usama Anjum <usama.anjum@arm.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Amit Daniel Kachhap <amit.kachhap@arm.com>,
-	Mark Brown <broonie@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
-	open list <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)" <linux-arm-kernel@lists.infradead.org>,
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH 4/4] selftest/arm64: Add MTE test config fragment
-Message-ID: <aogSkJxWf9QndjuE@arm.com>
-References: <20260820153331.2448875-1-usama.anjum@arm.com>
- <20260820153331.2448875-5-usama.anjum@arm.com>
+	Fri, 21 Aug 2026 08:56:31 +0000
+X-UUID: 2dd581669d3e11f19a56ed5b684f684d-20260821
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:05466afd-d21a-4964-b9fa-542edf9a990f,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:a026a9d2c773b9fc5a6194e0456b7029,BulkI
+	D:nil,BulkQuantity:0,SF:102|850|865|898,TC:nil,Content:0|15|50,EDM:-3,IP:n
+	il,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LE
+	S:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 2dd581669d3e11f19a56ed5b684f684d-20260821
+X-User: gonglinkai@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <gonglinkai@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 85594952; Fri, 21 Aug 2026 16:56:20 +0800
+From: Linkai Gong <gonglinkai@kylinos.cn>
+To: Abel Vesa <abelvesa@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Peng Fan <peng.fan@nxp.com>,
+	Brian Masney <bmasney@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Ye Li <ye.li@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>,
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	gonglinkai@kylinos.cn
+Subject: [PATCH] clk: imx: composite-93: return timeout from gate enable
+Date: Fri, 21 Aug 2026 16:56:16 +0800
+Message-Id: <20260821085616.1129333-1-gonglinkai@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260820153331.2448875-5-usama.anjum@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_015550_407242_0F4508C3 
-X-CRM114-Status: GOOD (  17.57  )
+X-CRM114-CacheID: sfid-20260821_015630_130862_4E7FD32D 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +87,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 20, 2026 at 04:33:26PM +0100, Muhammad Usama Anjum wrote:
-> The arm64 selftest collection has no Kconfig fragment, so kernels built
-> with the selftest requirements are not guaranteed to provide the support
-> used by the MTE tests.
-> 
-> Add a fragment covering the userspace MTE and tagged-address ABIs, KSM
-> and its sysfs interface, explicit HugeTLB mappings and their proc/sysctl
-> interfaces, and tmpfs-backed file mappings.
-> 
-> Do not request NUMA solely for the optional KSM merge_across_nodes.
-> 
-> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
-> ---
->  tools/testing/selftests/arm64/mte/config | 8 ++++++++
->  1 file changed, 8 insertions(+)
->  create mode 100644 tools/testing/selftests/arm64/mte/config
-> 
-> diff --git a/tools/testing/selftests/arm64/mte/config b/tools/testing/selftests/arm64/mte/config
-> new file mode 100644
-> index 0000000000000..8587ce70c294a
-> --- /dev/null
-> +++ b/tools/testing/selftests/arm64/mte/config
-> @@ -0,0 +1,8 @@
-> +CONFIG_ARM64_MTE=y
-> +CONFIG_ARM64_TAGGED_ADDR_ABI=y
-> +CONFIG_HUGETLBFS=y
-> +CONFIG_KSM=y
-> +CONFIG_PROC_FS=y
-> +CONFIG_SYSCTL=y
+imx93_clk_composite_gate_enable() always returns 0, even when
+imx93_clk_composite_wait_ready() times out.
 
-You may want CONFIG_PROC_SYSCTL.
+Fixes: 4a3de5aa7743 ("clk: imx: clk-composite-93: check slice busy")
+Signed-off-by: Linkai Gong <gonglinkai@kylinos.cn>
+---
+ drivers/clk/imx/clk-composite-93.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
-> +CONFIG_SYSFS=y
-> +CONFIG_TMPFS=y
-
-These are all covered by defconfig. Are these fragments still necessary?
-Or are they supposed to work on custom configs? If the latter EXPERT may
-be set, hence the PROC_SYSCTL above. You probably also need SHMEM.
-
+diff --git a/drivers/clk/imx/clk-composite-93.c b/drivers/clk/imx/clk-composite-93.c
+index ef20ceb2d255..953f67d13978 100644
+--- a/drivers/clk/imx/clk-composite-93.c
++++ b/drivers/clk/imx/clk-composite-93.c
+@@ -43,11 +43,12 @@ static int imx93_clk_composite_wait_ready(struct clk_hw *hw, void __iomem *reg)
+ 	return ret;
+ }
+ 
+-static void imx93_clk_composite_gate_endisable(struct clk_hw *hw, int enable)
++static int imx93_clk_composite_gate_endisable(struct clk_hw *hw, int enable)
+ {
+ 	struct clk_gate *gate = to_clk_gate(hw);
+ 	unsigned long flags;
+ 	u32 reg;
++	int ret;
+ 
+ 	if (gate->lock)
+ 		spin_lock_irqsave(gate->lock, flags);
+@@ -61,17 +62,17 @@ static void imx93_clk_composite_gate_endisable(struct clk_hw *hw, int enable)
+ 
+ 	writel(reg, gate->reg);
+ 
+-	imx93_clk_composite_wait_ready(hw, gate->reg);
++	ret = imx93_clk_composite_wait_ready(hw, gate->reg);
+ 
+ 	if (gate->lock)
+ 		spin_unlock_irqrestore(gate->lock, flags);
++
++	return ret;
+ }
+ 
+ static int imx93_clk_composite_gate_enable(struct clk_hw *hw)
+ {
+-	imx93_clk_composite_gate_endisable(hw, 1);
+-
+-	return 0;
++	return imx93_clk_composite_gate_endisable(hw, 1);
+ }
+ 
+ static void imx93_clk_composite_gate_disable(struct clk_hw *hw)
 -- 
-Catalin
+2.25.1
+
 
