@@ -4,59 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE5EC5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 13:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D639C5DF8E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 13:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8UkEKODWVUl7535Xf1v2A9I+wflAocb22cq9dOH9pjM=; b=Lgwln55QlSDI0AqikNWJZNsR+W
-	e/sRiuULrDimiZE3LHYItstSpoULY+Do3tK4t2ARDlvS9uWoWgHmNEIUSY+JqpWiiIVUkAjK/jBhd
-	eoISXrzeGVuNatggjxkRQqUnbhco2CJ5JG3nUaNVZwGLamfQQiyN2/lsNhgFgI/MVdZ8nb74mgOye
-	PufyrIJg0tYcoCe6fZdXGkyxMFusAxQCCC3xn3M+9Xg8Zo1yYj2bDonGh+9yqd1UmJ7k2JZKQ+3Bc
-	G4ydeEedLWgqDflVlXCiuXmOdMtCzV2bM7/g2qqxPUs+bIjyBV4J8ztjMcv1d3pHGsAuZaLDg3DBb
-	45gipNpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1oKZyEL1iFYFoci4IXHQCxEI6U5/P8tMDAAAIOgG5Z0=; b=VkeO96d8nnVllu7sGhc+5Y0kZZ
+	UUaV88GWhT3ooCRDUwzDz9rEu9Fs5UJeWe4/iJDWW8eeQY1R2vlYdHcJzekvazmQjkHc/S8cAKXRi
+	iDo3+xeE/BBvTjMWI0deZ1wjlf75GWTZkrXR8T+StMcohA9b3WxIjctxPpBE+8bIZQ42yWXV6LZSk
+	jv1XvHmr6VQq8jNdXCHk9aJrzQWS4tmTSiL1G0HhaWVXZGPUuHA4hqMhW6EsAs2jxMwLGGf1uqVJx
+	MqsRisBFWG3QyLB1UA6gEIDg5iO42W7ijWFmwy4gzHWHdgzagtrOrOYtibWiuHo6e+18UyfA6O3LO
+	FLv8xVfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxOtw-0000000DMai-2fJY;
-	Fri, 21 Aug 2026 13:03:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxOtt-0000000DMaN-2y8d
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 13:03:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B3F2A1476;
-	Fri, 21 Aug 2026 06:03:07 -0700 (PDT)
-Received: from [10.57.68.59] (unknown [10.57.68.59])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C97AB3F763;
-	Fri, 21 Aug 2026 06:03:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787317391; bh=2X02zdI2Dc2RpWrQXCYiM/Wk0x9IzqlC8d+lHyBqFHM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NhF1kKNPmwQvNNXz1mU7i0LEnxvLAqLGB42j+I+N/w20W1hIhFSnkglPRhjZ8UuvQ
-	 8d3t00KhaOAhTB6USpCSO3CuIN7YrCtDITAi9Cff/CdEn2nmIduvX1g1aFiyAcofSO
-	 eiak4GCnOox0YLI0Ncv8W4k28pYao5dqDcwhuAVk=
-Message-ID: <18338c14-c7c0-433c-8a88-ba5624313c48@arm.com>
-Date: Fri, 21 Aug 2026 14:03:07 +0100
+	id 1wxOwi-0000000DMj7-0MDw;
+	Fri, 21 Aug 2026 13:06:08 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wxOwf-0000000DMih-3txV;
+	Fri, 21 Aug 2026 13:06:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1787317562;
+	bh=1oKZyEL1iFYFoci4IXHQCxEI6U5/P8tMDAAAIOgG5Z0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=jC8zUfnGP7gSO/2/x9VfE+lhwoDDxQz9Dfv+WfKjkxZBOE5tU4ST2YHpWfTR+nbVf
+	 w39gTOMnUuo5TSPkTKpv/HV/GoR1RGO2//GsX0TVWJrkYbl4/gtsCnct+GviLUwfa/
+	 hxtxbH/Sj2mOWqIdp1C7vyb+i4Mo9eEu+ULVyJXqJzad4c/iHBJ4GDyaRrpZ8Q51Wa
+	 5l26bjb7mAhEv3C38cqwTkkCQKVsl2/EvIWJC1OUb6HEbuuDmsKQtxH19sSkidRPA1
+	 89xeIN+GcvbN04ajeFxO7FYiAOUCKz2GHxnHrmDcVNviP9l0LhppVJVUhQ+1eML4tA
+	 m22TB+4A6jrcg==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0937617E07F7;
+	Fri, 21 Aug 2026 15:05:59 +0200 (CEST)
+Message-ID: <c9ddec85a5de725af79d140132d46371a73d2519.camel@collabora.com>
+Subject: Re: [PATCH 5/7] media: verisilicon: Add Rockchip VPU720 JPEG decoder
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Benjamin Gaignard <benjamin.gaignard@collabora.com>, Philipp Zabel	
+ <p.zabel@pengutronix.de>, Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko
+ Stuebner <heiko@sntech.de>, Ezequiel Garcia
+ <ezequiel@vanguardiasur.com.ar>, Andrzej Pietrasiewicz	
+ <andrzej.p@collabora.com>, Hans Verkuil <hverkuil@kernel.org>, Chen-Yu Tsai
+	 <wenst@chromium.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lucas Sinn	
+ <lucas.sinn@wolfvision.net>, Mauro Carvalho Chehab
+ <mchehab+huawei@kernel.org>, 	linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	devicetree@vger.kernel.org
+Date: Fri, 21 Aug 2026 09:05:58 -0400
+In-Reply-To: <6947a89b-8fa0-499a-9be8-c48d9bb5e7a7@pengutronix.de>
+References: <20260819-rk3588-jpegdec-v1-0-33d74cdf369c@pengutronix.de>
+	 <20260819-rk3588-jpegdec-v1-5-33d74cdf369c@pengutronix.de>
+	 <2816bd84651dcbfd0cd76bbc56e461bd409f9611.camel@collabora.com>
+	 <5436875c-9724-41f3-aaf9-76d43e05f0a8@pengutronix.de>
+	 <61537689daa428a577e6bdab794d044f5405128e.camel@collabora.com>
+	 <6947a89b-8fa0-499a-9be8-c48d9bb5e7a7@pengutronix.de>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-tmfNo+9PGdky19ZZ2lcq"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 00/45] arm64: Add support for FEAT_NMI
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
- catalin.marinas@arm.com, liaochang1@huawei.com
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <d594b97c-747d-41df-8f7c-563ea11974df@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <d594b97c-747d-41df-8f7c-563ea11974df@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_060313_911922_8A17FD42 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20260821_060606_133728_E2938360 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,61 +101,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/14/26 02:52, Jinjie Ruan wrote:
-> 
-> 在 2026/7/28 0:34, Vladimir Murzin 写道:
->> FEAT_NMI provides an architected mechanism for supporting non-maskable
->> interrupts (NMIs) and less-masked interrupts (LMIs).
->>
->> Since we already support pseudo-NMIs via priority masking, introducing
->> another flavour of NMI on top of the existing infrastructure could
->> easily become messy, making the code harder to follow and reason
->> about.
->>
->> To avoid that, this series first makes room for the new NMI "tenant"
->> by restructuring the existing exception masking logic.
->>
->> The main idea is to separate the logical view of exception state from
->> its hardware representation. To achieve this, we introduce logical
->> exception contexts that can be mapped onto the corresponding hardware
->> state. This naturally consolidates the hardware-specific handling into
->> a small number of places, while allowing the rest of the code to
->> operate purely in terms of logical exception contexts.
->>
->> Since this restructuring is non-trivial and carries a risk of subtle
->> behavioural changes, the series adds extensive debug checks to verify
->> that the hardware state always matches the expected logical state.
->>
->> With this restructuring in place, wiring FEAT_NMI into the new
->> framework becomes much more manageable.
->>
->> This work would not have been possible without the contributions of
->> Ada Couprie Diaz, Mark Brown, and Lorenzo Pieralisi - please credit
->> them for everything that works well. Any remaining bugs or issues are
->> entirely my own.
->>
->> I'd especially appreciate feedback on the overall approach. Please
->> don't hesitate to bikeshed the naming or other details - improving
->> clarity is one of the main goals of this series. Of course, technical
->> review is more than welcome as well.
->>
->> The series would also benefit from extensive testing on real hardware
->> (without NMI, with pseudo-NMI, and with FEAT_NMI), as most of the
->> testing so far has been done on QEMU and Fast Model.
-> Hi all,
-> 
-> Apart from gicv5, I have gone through the other patches. Apart from code
-> style issues, patch split and certain specific implementation details, I
-> don't see any major issues. I am very much looking forward to more
-> reviews, discussions, and the next version.
-> 
 
-Thanks Jinjie! I really appreciate you taking the time to go through the series.
+--=-tmfNo+9PGdky19ZZ2lcq
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Cheers
-Vladimir
+Hi,
 
-> Best regards,
-> Jinjie
-> 
+Le vendredi 21 ao=C3=BBt 2026 =C3=A0 06:28 +0000, Sascha Hauer a =C3=A9crit=
+=C2=A0:
+> Patches 1-3 could be useful on their own though, so you might want to
+> take them. They are untested on real Hantro hardware, but I could give
+> them a go on the JPEG encoder.
+
+Ack, they effectively address real issues. See my comment on the end_prepar=
+e()
+on error part.
+
+Nicolas
+
+--=-tmfNo+9PGdky19ZZ2lcq
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaohNNgAKCRDZQZRRKWBy
+9M4sAP0b7XVB6+Qd0ltXyk6c44QXcTPZ8iEAaG+P6UwddRLm6wD9FUdFqv+G4kOa
+6UjQN7bqfdkvp02H7oxIJ5WO9A9mOgk=
+=et6H
+-----END PGP SIGNATURE-----
+
+--=-tmfNo+9PGdky19ZZ2lcq--
 
