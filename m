@@ -4,85 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C207C5DF89
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 14:59:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2E51C5DF93
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 14:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Bmv09nVrxkTx/RCEk8yEB9FeokGQe6GnMpeREDR5iZc=; b=qZFJNujlvEYVoF
-	s7xBjK8Rwh0whgghtWBzpifF1/iqbQGSvDpf2YYbpYD2ySo6sEd9QhZPl9/jstsgoUZB6LsFGGbEc
-	Iuc9UV6OC2SSWMWCzx1Um8/XbjDXhJlhsKYJFkyr5ppmQP2/183u2KqWOxVhhd4vIp4crcfczFl49
-	CRd8/8ObgJdAdZyNqZ5GBdOjFrugHcpUpjXTwom6kUvdfasp9OUfQXrF7hU43+7eS+aRAQXLkbOw3
-	fndEg9qg5rMBlwNTNaHsREZaC4aJ5+WmxKxhBv9yF9wFkTcTk9KZE9h7pz5qVW2VzP3ECom9ZQeFK
-	sQS3+1WcatFvZ9nyItpQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i28649nrMbrzjwe7lKZ6MKTSXfJUvAObdfOOl+7VWTs=; b=MfRGZfBG2BCv6imxyugAxMNh+G
+	lg6Er9HEPo8lPMr7YgE8QXDiVIWYMPDfQPmGqpbE/yZ0w5ryHijj+i+LGYrhevPPrCrVxSNNHvTKy
+	5XsIV9EcffFOFpiQCMdJOm17nRMPXXKiHQ4zECg6LNfeHF4nGyzDHGBxOPw98XBAMmtbyQsmnv3ji
+	bUszFYYB3+ffbC+EFDWlPlJXiSWoLNMf7jvsqTzIaxa2VKhZDxmRYpor+49MyxExzAgktP5TyW1br
+	8uhzZJHzmeNpdv7htodOVEo72wegRSIWxKrCTuURUnFr+1oRBb69LOwz2S0yOJelFJAbGbK5eYK0D
+	q/oDaAPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQiN-0000000DbyD-0i3P;
-	Fri, 21 Aug 2026 14:59:27 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1wxQiR-0000000DbzU-1EBO;
+	Fri, 21 Aug 2026 14:59:31 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQiK-0000000Dbx6-3MhF
+	id 1wxQiL-0000000Dbx8-3AIp
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 21 Aug 2026 14:59:26 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6a17211b9ecso3142203a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 07:59:23 -0700 (PDT)
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-69f7fa1c548so2243731a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 07:59:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787324362; x=1787929162; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Bmv09nVrxkTx/RCEk8yEB9FeokGQe6GnMpeREDR5iZc=;
-        b=dZ1Eo34yKNbXjx6M1mnVGaRQ9JIQWwtPLOBLROlELXwM4AWLU+AO7vfOE4GvHK0rLw
-         VFQGxRpmuXj+t9+OzoH2ZhALw8PrKrBvmlpr9a3/uQViL6oc/XQaszHTohdcsoixOTqx
-         6+gC2PGgZUx6OX32/syxLQiCUSYQ+OQxIj18mtuJOZmKXCbAP51Zh8ICbRdEOLZDRbvM
-         qxKtzAJssYGiEb8pASpBwNzjl25BB9buPKr+lv+VlWrfsahLb4uPAsg0Qma8TdiSEcny
-         F5FmvvRfcBpGrPYWm31Vn3HY/n6TM6TrdigE54PfrGuqJujseFWp9mOYkTIioewiH/vC
-         0NUw==
+        d=gmail.com; s=20251104; t=1787324364; x=1787929164; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=i28649nrMbrzjwe7lKZ6MKTSXfJUvAObdfOOl+7VWTs=;
+        b=DIuB3Z9kG6BIOxJHun1uhCVtSnjZbGRuLE7Pqh97I9bqoyKcETOSIsVeJ2I/y8CIrZ
+         lCYJiJKzLv8ZHPL/RClqfcgGGLTcTKbHUWMHyvaP4BhjnTm8wyp2DOG5EL4dsxGFg77c
+         BHNXKBdmd5rwJG9T4aUImDDcR7aogyfDkXoFb20RsWhZ9Sq1i2W1VBIOWonf5LwfGzCC
+         T7qQq5g8WOHH7yyNGUVvRFd/gl9sFcAfCqoeHkgdNDZWKy4UsHU43sdVgLgnxmTNhQiZ
+         +dT5woe57Ild98dWrjoEmEbFWbVHdWf138yaDtWOruGSqzgphFGAdDOCvW0pWNO8L+FY
+         m26g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787324362; x=1787929162;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Bmv09nVrxkTx/RCEk8yEB9FeokGQe6GnMpeREDR5iZc=;
-        b=hX5A6N7ZQF1CThtqTfGZrGj4IwHS+Pbw1YqWJkZuR2BTz/R2cDqgAY0IREveC5p14h
-         n4G49hiHD2s4LgJrHsSQCdI1+4YLv6TiYUpi7eBTJxsN00gmKY/FjLINkKV05nG1mmR1
-         /zJ+ePxJyPSmwL/KBt0Ov5gMkMvDYLGUe1j2YzUhHt+RNIuL2xelShsDu0gWWyIqKxmJ
-         z00yOG4voZq4XjvK6KBneWUgchL0IWLVGS1OeUwmKvRGlT/TLYy0fKVSNdrlYKsbPQZe
-         HQ64ivV+WbO2bL4wOM+hbe8FbhVgm1L9tBveMIAgaerbeNXvBQiQqHdINorQZ0uD+DFN
-         jB4g==
-X-Forwarded-Encrypted: i=1; AHgh+RoP5gVAdlGpZb14I3z60wwx1bqBlCRc75mNSj/GWLz7001eFnMzSygeQ4doSVYgXLRjJtvcjQkYbk6inQ8Nlue1@lists.infradead.org
-X-Gm-Message-State: AFuF++kUZ9S/EPywQNTHI1USbkKLrNHzqiKpZFHSLGiJ5XTnStO2T2Sn
-	cMdHkXVjAy2Uv1vBE3PvBUMQ3A5AMxrZdX1iyThwndSi0MWbNTnoRLBz
-X-Gm-Gg: AR+sD11DbH0rc/xlmAQkE9ejV+64M0ytqDbwS/6+FlHbO65ugLo1R0TqqMEItUR1Fqa
-	AaeVuSKNaas/w6tu8C/Jb0GrsyKj02iwiEGRuCHXohodNfjT6/leT935Cf5b/bXg5JeMKu7MNFr
-	CRgnWvq+8wU30mlnkHxQgS0HTnUVI6sE8PwjuiumwrIX9+2Id3tZHAxKO+aGgiKSKV2dMy3lVsM
-	75QQzHrnHonf+Sa2QKWuHp9Eb1RZbU+L+J74qzH9NKeDGQmnF20nc1ptTYz+iEIp5RssNWQKeRw
-	GQv87jD+Nnfg+44kFM2/rOh4ejlLGD4YuRLohOB92G+aBFSxxy2EFK93BgwdirCZa3tpcKY2SFt
-	FFfTUWPcRJ011Vwl6pa8BP+PmQKS0v192VEBM4hC/5SHwsBBuuecZRuFXoZVI6Lt6MtTEq4BW4I
-	NVYIDs6cuCUc9DPTebMYoaBSUoaXDenRBerwfzGBuFdDYZp7okSTPz8UBHWv+eufhV2+0w9Gd0y
-	+7AfEZn0epxTfbeoFIlOt/eVIaqdR10CTWKrfdNcfmHJqqjQtk8BZKHm1D1GqcI1d3O5hR44/8G
-	HY4iR0eDuSW0hTQ9XgG+GGxt9KMnOJgJA0a+27jzhUr+Jg22
-X-Received: by 2002:a05:6402:321a:b0:69a:a4cb:2882 with SMTP id 4fb4d7f45d1cf-6a42f216beamr8673257a12.9.1787324362464;
-        Fri, 21 Aug 2026 07:59:22 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1787324364; x=1787929164;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=i28649nrMbrzjwe7lKZ6MKTSXfJUvAObdfOOl+7VWTs=;
+        b=RpBTUp5va7zoKvS0daFi69O6ZYZclyhxxOAuroSXYKK4N/avEagh7Ait73NsRZCzWE
+         yUmbI1WvOFCkoHDNndQkSaAdOC/aPpnwcM6BX4qNw1Nn0MZWpgBFn581InzW/jxOhunK
+         0eB8Pi/HYSo2nDTRSf+hBGwUh8p3jAlAY7mOI35RjaI9KXH3r7rM78WTtsWjprcOdKYf
+         YDDA4HK2mHIvaFENIAp+Y1Dp5HUSz3UQlvbBOk4xp5pvyOdSlEWgCLHHtp4gWI6aULSY
+         IZX3qMVlJTPE+0S3HfXzBURyLSLNGvYxG8li8omYndRqVHXX2PTuoCMUHLVoMfkGBlT2
+         RGjg==
+X-Forwarded-Encrypted: i=1; AHgh+RrfcjavHxb08xyu3/0vXUwN8OgWsqfFHA3CVeql+FGmyhwl/iuqS6pS1tWGB9EaA6/2UBINArJvdZY/rjNl7pdO@lists.infradead.org
+X-Gm-Message-State: AFuF++mpySWd2hHTVAGdEVpTj7h1zcH2x+vnu/NB9AjFGVnTPMt6BNU+
+	XroieK8Oxr4dOuKLA4MBRjPbzk3JisHyNAs6QcJwNfBfE5nQF/JzWU/g
+X-Gm-Gg: AR+sD13yEDlnJjZan7+jzbiv3lhw66L7ERk+nQt+nrpuJsj4/vXqwz7XsX0xdtnGlHq
+	TUwMnXXzP7nqAbIupnubiKjRl6j5k1X6SX+6/jiNg7sm6fNtF9TyyhOZSTxgWB02+Ohwj+NtuUL
+	0znK7BNQ8PfLI4GV7UhThNind/TKopVvJ6I4B9edy6GWF/8q8zX7Q9SnMUPxXaHsfBPK3DaV6W3
+	5k1JlP6lKl7hqzfPijaKaJu6NkGLPoFpTOM2rZEFybRornJnIMSwuhgd0lZTJaDOFnzh/0LIZpG
+	hp35Y2puzSpXKiEH1edOASwUki1AQSEtYDSngD27WSH+KcdD45+BzUz1rWwJeCGHiSjGaH0+LZs
+	EWIRgFtQvvS/rypIs+zE8+mARvoH/1jgUIIEtdOEkqUvDTRzIafcEFC1KWog6v3Mjpm+ayWnKzu
+	OmlQnTdShAEh/Xo39ZDSw/pTsUtDFkWLf7/yqsA3faMh5Qeu/f3Psi8tSUYVd8RgMkCZ0dsvZ7v
+	XNOItBjQh5U+eWuDaKzodanWUwxL8zBXDoDq75jbk6VJcvTw8mH1cd8GK0Hon7+DXUg4+Fc13XT
+	HwDE9V6TTEelj98Aj95M15i2fH0I/90TNvoVeQ==
+X-Received: by 2002:a05:6402:322a:b0:6a1:f895:1ba with SMTP id 4fb4d7f45d1cf-6a42f20b899mr8424396a12.12.1787324363509;
+        Fri, 21 Aug 2026 07:59:23 -0700 (PDT)
 Received: from [127.0.1.1] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a411971b19sm6577066a12.11.2026.08.21.07.59.21
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a411971b19sm6577066a12.11.2026.08.21.07.59.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 07:59:21 -0700 (PDT)
+        Fri, 21 Aug 2026 07:59:23 -0700 (PDT)
 From: Franz Schnyder <fra.schnyder@gmail.com>
-Subject: [PATCH 0/2] arm64: dts: imx8qm: Add USB HSIC support for Apalis
- iMX8
-Date: Fri, 21 Aug 2026 16:58:56 +0200
-Message-Id: <20260821-add-apalis-imx8-usbhsic-v1-0-fb93d73ead44@toradex.com>
+Date: Fri, 21 Aug 2026 16:58:57 +0200
+Subject: [PATCH 1/2] arm64: dts: imx8qm-ss-conn: Add USB HSIC related nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIALBniGoC/yXMwQrCMAyA4VcZORtYypDqq4iHLs3WiM7ROBmMv
- vuqO36H/9/AJKsYXJsNsnzV9D1V0KkBTmEaBTVWg2vdufWOMMSIYQ5PNdTX6nGxPpky+o4vzI4
- o0gC1nrMMuv7Pt/thW/qH8Oe3g1J2/bdeCHsAAAA=
-X-Change-ID: 20260821-add-apalis-imx8-usbhsic-84c9cc211d1f
+Message-Id: <20260821-add-apalis-imx8-usbhsic-v1-1-fb93d73ead44@toradex.com>
+References: <20260821-add-apalis-imx8-usbhsic-v1-0-fb93d73ead44@toradex.com>
+In-Reply-To: <20260821-add-apalis-imx8-usbhsic-v1-0-fb93d73ead44@toradex.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -100,8 +98,8 @@ Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
  Franz Schnyder <franz.schnyder@toradex.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_075924_880505_333C7E9E 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20260821_075925_820779_1A68C4C5 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,35 +114,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Apalis iMX8QM/QP routes the second USB controller in HSIC mode to 
-the USB hub on the module. Add the HSIC host description for the 
-iMX8QM/QP SoCs and enable the HSIC path for the Apalis iMX8 modules.
+From: Franz Schnyder <franz.schnyder@toradex.com>
 
-The HSIC host node is added in the QM/QP specific dtsi to not conflict 
-with the address used by usbotg2 on the iMX8DXL variant. Therefore, it
-can't be described in the shared iMX8 conn dtsi.
+Add the required nodes to support the iMX8QM/QP USB HSIC host controller.
 
-Tested on Apalis iMX8QM with the Apalis eval board.
+Keep the HSIC host node in the QM/QP specific dtsi to not conflict with
+the address used by usbotg2 on the iMX8DXL variant.
 
 Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
 ---
-Franz Schnyder (2):
-      arm64: dts: imx8qm-ss-conn: Add USB HSIC related nodes
-      arm64: dts: apalis-imx8: Add USB HSIC support
+ arch/arm64/boot/dts/freescale/imx8-ss-conn.dtsi   |  9 ++++++++
+ arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi | 26 +++++++++++++++++++++++
+ 2 files changed, 35 insertions(+)
 
- .../arm64/boot/dts/freescale/imx8-apalis-eval.dtsi |  6 ++++-
- .../boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi |  6 ++++-
- .../boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi |  6 ++++-
- .../arm64/boot/dts/freescale/imx8-apalis-v1.1.dtsi | 16 ++++++++++++-
- arch/arm64/boot/dts/freescale/imx8-ss-conn.dtsi    |  9 ++++++++
- arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi  | 26 ++++++++++++++++++++++
- 6 files changed, 65 insertions(+), 4 deletions(-)
----
-base-commit: eba4724641990bd9975ca10ababe726b6143f0b6
-change-id: 20260821-add-apalis-imx8-usbhsic-84c9cc211d1f
+diff --git a/arch/arm64/boot/dts/freescale/imx8-ss-conn.dtsi b/arch/arm64/boot/dts/freescale/imx8-ss-conn.dtsi
+index 176e2e332f87c..44eee9abacfb1 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-ss-conn.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-ss-conn.dtsi
+@@ -384,3 +384,12 @@ gpmi: nand-controller@5b812000 {
+ 		status = "disabled";
+ 	};
+ };
++
++usbphynop2: usbphynop2 {
++	compatible = "usb-nop-xceiv";
++	#phy-cells = <0>;
++	clocks = <&usb2_lpcg IMX_LPCG_CLK_7>;
++	clock-names = "main_clk";
++	power-domains = <&pd IMX_SC_R_USB_0_PHY>;
++	status = "disabled";
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi b/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi
+index ccf9f510e0f88..168f89eebeedb 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8qm-ss-conn.dtsi
+@@ -4,6 +4,32 @@
+  *	Dong Aisheng <aisheng.dong@nxp.com>
+  */
+ 
++&conn_subsys {
++	usbh1: usb@5b0e0000 {
++		compatible = "fsl,imx7ulp-usb", "fsl,imx6ul-usb", "fsl,imx27-usb";
++		reg = <0x5b0e0000 0x200>;
++		interrupt-parent = <&gic>;
++		interrupts = <GIC_SPI 268 IRQ_TYPE_LEVEL_HIGH>;
++		phy_type = "hsic";
++		dr_mode = "host";
++		fsl,usbphy = <&usbphynop2>;
++		fsl,usbmisc = <&usbmisc2 0>;
++		clocks = <&usb2_lpcg IMX_LPCG_CLK_6>;
++		ahb-burst-config = <0x0>;
++		tx-burst-size-dword = <0x10>;
++		rx-burst-size-dword = <0x10>;
++		#stream-id-cells = <1>;
++		power-domains = <&pd IMX_SC_R_USB_1>;
++		status = "disabled";
++	};
++
++	usbmisc2: usbmisc@5b0e0200 {
++		compatible = "fsl,imx7ulp-usbmisc", "fsl,imx7d-usbmisc", "fsl,imx6q-usbmisc";
++		#index-cells = <1>;
++		reg = <0x5b0e0200 0x200>;
++	};
++};
++
+ &usbphy1 {
+ 	compatible = "fsl,imx8qm-usbphy", "fsl,imx7ulp-usbphy";
+ };
 
-Best regards,
---  
-Franz Schnyder <franz.schnyder@toradex.com>
+-- 
+2.43.0
 
 
