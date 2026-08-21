@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB00C5DF93
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 14:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E0AC5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 14:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vsN9L4BT0CMVDu5hTBbGBz375ana+ZapC0dsxckFtS8=; b=vxxnSlQc49t4YhsK0vgU5GsOi/
-	FWUQHr4CtBf8lZ+pa2b5fxYN9nAwFt4S7eBfdRkLdwl7Mmv5GzuBDMjndnH6opH1/eC7VpcyNiif3
-	9FYxaDtuL5C9U0i3EBHnX05DtZVSUQTcsOEsWW39NQvHVP9ZKbjl5Ld+2QGoZn6jU+GKm/Rp1X0JS
-	V6vMDakX+epYFdv+FzgTTPKBPgENKlfTn77DP3KYNyscoruXtnxTfxHlt+UzZpH7X9InCPGkjZU8f
-	6Q0pQiweA+m8Jttf3f+9hxeQJqr0TT/vOEJeG4qfIuJng3mVop4rGti0H2xp/c1RvzgIZgy75k9Q6
-	i12JfhLQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z3NRItpj0nUOy3LytGBZhuumw92o8wwWdCrn/ZFcfo4=; b=1JhixXqVc3wHGXwRS6IFy3LyFM
+	BL5y5oGEQcMMjdpc4CBHFyjiy97vvt9aKmEx/QPC1BEjQ8C+Z8++uLthND2yMwpxj3Hsy9qIXQsKD
+	4jFoR+2Hqi6Fyf0L+122VYXodJBOMVz9ulKMWXiDrMO3u9RhYc1qjWkqNnw7WEHWMoioOeiXegCIB
+	X8hQTrGLxhzW04l1eKPvgO4Ax2JVr503GtDsztH2FyWH+/ACG0x225JDI0DX2CJSo++PncxJBGpH1
+	Q7yb9nhvjVOv4PkCvDuhr9uxq4iH6ka7q0zTsXB5ERYKrYzFN/XtCjO0g7lDKC7hqkKByrdrp0B5g
+	68e1+yRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQ2O-0000000DWQx-1nQZ;
-	Fri, 21 Aug 2026 14:16:04 +0000
+	id 1wxQ2V-0000000DWTT-2A9p;
+	Fri, 21 Aug 2026 14:16:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQ2L-0000000DWPy-3XeW
+	id 1wxQ2N-0000000DWQf-4APk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 14:16:03 +0000
+	Fri, 21 Aug 2026 14:16:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3F643153B;
-	Fri, 21 Aug 2026 07:15:57 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A92F722C8;
+	Fri, 21 Aug 2026 07:15:59 -0700 (PDT)
 Received: from e142334-100.cambridge.arm.com (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 024683F85F;
-	Fri, 21 Aug 2026 07:15:58 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6D6EE3F85F;
+	Fri, 21 Aug 2026 07:16:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787321761; bh=+pFmLDKVHJtPYfEbsWpxCGIG9ybjUqOMcP0D8NbikrQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=MmRdPhP2qgnfJqVLfSdnX3MZd4HgMEv3NiENacNI1n8PClWuMJlL2Lv7iplzcGqi5
-	 87M//L1u32iGqho0O1JscPzPcw/BenPdzi1MbikWc+ZCi0X0BXcwz4cp2KgPuCScpx
-	 JdtONEn+rUU05OTmXDLL/wzBNFdYQvZwuCL67Rjc=
+	t=1787321763; bh=GkgEk4wxjMWjKEYIzr+cfZNkqDaG360hz+dtvjwvXSM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=b1vFUYxhNizbO0Ief3w0B/1HpfE0vGXsMMmU8mcpFtaSACD7vU+7JBBLOcNQwFi1v
+	 iQItNHweUyu5fTGH1wXyzpzyuYc+oDxtas9l1EKVFUSv5vMHk5yQzadcjIoFxUMyQ/
+	 7/IgeY0vNePWaH4IwO1SM0/mtPvzdrAd6nmBX01Y=
 From: Muhammad Usama Anjum <usama.anjum@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -54,15 +54,17 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)),
 	linux-kselftest@vger.kernel.org (open list:KERNEL SELFTEST FRAMEWORK)
 Cc: Muhammad Usama Anjum <usama.anjum@arm.com>
-Subject: [PATCH v2 0/5] selftest/arm64: Fix MTE test setup and TAP reporting
-Date: Fri, 21 Aug 2026 15:15:48 +0100
-Message-ID: <20260821141556.4065894-1-usama.anjum@arm.com>
+Subject: [PATCH v2 1/5] selftests/arm64: Print TAP header
+Date: Fri, 21 Aug 2026 15:15:49 +0100
+Message-ID: <20260821141556.4065894-2-usama.anjum@arm.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260821141556.4065894-1-usama.anjum@arm.com>
+References: <20260821141556.4065894-1-usama.anjum@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_071602_552494_02814377 
-X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-CacheID: sfid-20260821_071604_070691_54FCD1AB 
+X-CRM114-Status: UNSURE (   9.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,41 +80,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Running the mainline arm64 MTE selftests on a Pixel 8 exposed three
-independent reporting problems. Fix each issue independently, then
-add an arm64 Kconfig fragment covering the facilities used by the MTE
-tests.
+The GCR_EL1 context-switch test prints its TAP plan before forking 1,024
+child processes. When stdout is fully buffered, the plan remains in the
+stdio buffer. Each child inherits the pending "1..1" line and flushes its
+copy from exit(), producing repeated plan lines.
 
-Testing was performed on a Pixel 8 with an Android 6.1 kernel built with
-the new configuration. All nine static MTE binaries returned success.
+ksft_print_header() enables line buffering before printing the TAP
+header. Call it before the plan so the plan is flushed before the child
+processes are forked.
 
+Fixes: 29f080881601 ("kselftest/arm64: check GCR_EL1 after context switch")
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
+---
 Changes since v1:
-- Add missing MTE TAP headers as an output-only cleanup and clarify why
-  line buffering prevents duplicate GCR_EL1 plan output.
-- Validate KSM privileges and optional sysfs access before setup.
-- Move and expand the arm64 config fragment, and standardize subjects on
-  the selftests/arm64 prefix.
+- Explain how line buffering prevents duplicate plan lines.
+- Use the selftests/arm64 subject prefix.
+---
+ tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Muhammad Usama Anjum (5):
-  selftests/arm64: Print TAP header
-  selftests/arm64: Print missing MTE TAP headers
-  selftests/arm64: Treat KSM merge_across_nodes as optional
-  selftests/arm64: Fix MTE prctl TAP plan
-  selftests/arm64: Add MTE test config fragment
-
- tools/testing/selftests/arm64/config          | 17 ++++++++++
- .../selftests/arm64/mte/check_buffer_fill.c   |  2 ++
- .../selftests/arm64/mte/check_child_memory.c  |  2 ++
- .../arm64/mte/check_gcr_el1_cswitch.c         |  1 +
- .../arm64/mte/check_hugetlb_options.c         |  2 ++
- .../selftests/arm64/mte/check_ksm_options.c   | 31 +++++++++++++++++--
- .../selftests/arm64/mte/check_mmap_options.c  |  2 ++
- .../testing/selftests/arm64/mte/check_prctl.c |  2 +-
- .../arm64/mte/check_tags_inclusion.c          |  2 ++
- .../selftests/arm64/mte/check_user_mem.c      |  2 ++
- 10 files changed, 59 insertions(+), 4 deletions(-)
- create mode 100644 tools/testing/selftests/arm64/config
-
+diff --git a/tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c b/tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c
+index 325bca0de0f6e..d23f154d3288c 100644
+--- a/tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c
++++ b/tools/testing/selftests/arm64/mte/check_gcr_el1_cswitch.c
+@@ -131,6 +131,7 @@ int main(int argc, char *argv[])
+ 	if (err)
+ 		return err;
+ 
++	ksft_print_header();
+ 	ksft_set_plan(1);
+ 
+ 	evaluate_test(mte_gcr_fork_test(),
 -- 
 2.47.3
 
