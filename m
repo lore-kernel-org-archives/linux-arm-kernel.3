@@ -4,53 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5D49C5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D923C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 09:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Z731BjH5rnDd5aybMq6kivsN8BP8Ax5qUenloHORtJs=; b=QvzYEzima4jmaA
-	LkFrG/5JoB1HTUOmrZkphECSt8+PaHPMpdq89rYoKmX1Rt5DM2bRqn8Kz9gyUECLUN1wxb6zZHRAx
-	VcdyYXIoVVSwwZCxF8waRZSefKDOyWuD3U89jMNVig/LBnfhurtXlVCGdA6hxQ/8KgAvrOhCv6JrG
-	z87Tkq4qm6AUmt6uc8ygEZAiprKZ+nnNGXvbJ0ij8P4Dv9qS0fzdkmanwFJSruu1mJXFJ2HPgrnDI
-	mvRaWf4RKUAHBFqlyygex0s+qoEmyfFjPgutLVmhJI3IP9FY2KH2ox+nALqU9uZDlvvpzMzNa0ai/
-	SCtUF0UyKVMLQpPnabkg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K+xalLcJRHn5taPZFyn1mxTTqtYRsqGDLNTn6gjZr6A=; b=pJI0VXjSHF2BSgYpOf4Zh40iKb
+	dEjfaAAdzsr6PeBW6w0zxGnGBJk/7GICzpWH+lSm2b1Iso6w8CMk5Gt0bpMvowuuTTbjmhAfX0QSO
+	8earN9KDMd3IUOVEIkdXmu15Kc39dLNrdGjTIGAEdmQ5REFMeVG2ksgkEvh0GN1PfaEf4Foh3glXy
+	7Dtca5b79T39zUKNvg0L4FIctcUDOoQ62BCuE5WZQ5IyHTy25KWjOJ72wcb3caL7oW3C9dFh6HHn+
+	dpYb5x7r8EROQF40U69s7FB0olHyeF+oN4KrFUo4x6lgioOukMDdPIG7B1rSwbXKiG/Wjeps1VEqg
+	9lvLvrWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLvo-0000000Cyt3-0DGx;
-	Fri, 21 Aug 2026 09:53:00 +0000
+	id 1wxLwJ-0000000Cyzt-0haD;
+	Fri, 21 Aug 2026 09:53:31 +0000
 Received: from [38.71.22.102] (helo=spam.axera-tech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxLvk-0000000Cyrf-2IDI
+	id 1wxLwH-0000000Cyz5-0Df3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 09:52:58 +0000
+	Fri, 21 Aug 2026 09:53:30 +0000
 Received: from spam.axera-tech.com (localhost [127.0.0.2] (may be forged))
-	by spam.axera-tech.com with ESMTP id 67L9VrYv009889
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 17:31:53 +0800 (+08)
+	by spam.axera-tech.com with ESMTP id 67L9VtPk009892
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 17:31:55 +0800 (+08)
 	(envelope-from lenghonglin@axera-tech.com)
 Received: from aixinexchange02.aixin-chip.com ([10.122.86.161])
-	by spam.axera-tech.com with ESMTPS id 67L9USlA009398
+	by spam.axera-tech.com with ESMTPS id 67L9USlD009398
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 21 Aug 2026 17:30:28 +0800 (+08)
+	Fri, 21 Aug 2026 17:30:32 +0800 (+08)
 	(envelope-from lenghonglin@axera-tech.com)
 Received: from [127.0.1.1] (10.126.103.103) by aixinexchange02.aixin-chip.com
  (10.122.86.161) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 21 Aug
- 2026 17:30:25 +0800
+ 2026 17:30:30 +0800
 From: Leng Honglin <lenghonglin@axera-tech.com>
-Subject: [PATCH 0/6] arm64: Introduce Axera AX650 SoC and AX650 Demo board
-Date: Fri, 21 Aug 2026 17:30:00 +0800
-Message-ID: <20260821-ax650-v1-v1-0-e1b013938e6b@axera-tech.com>
+Date: Fri, 21 Aug 2026 17:30:03 +0800
+Subject: [PATCH 3/6] arm64: Kconfig.platforms: add ARCH_AXERA
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJkaiGoC/yXMQQqAIBCF4avErBMcQcmuEi3MppoWFloRRHfPa
- vnB/94FiSJTgrq4INLBiZeQgWUBfnJhJMF9NiipjKywEu40WooDhR20R2t0j2Qg52ukgc/vqml
- /p72byW/vHu77ATMMxgNsAAAA
-X-Change-ID: 20260818-ax650-v1-9f5c1965d1e6
+Message-ID: <20260821-ax650-v1-v1-3-e1b013938e6b@axera-tech.com>
+References: <20260821-ax650-v1-v1-0-e1b013938e6b@axera-tech.com>
+In-Reply-To: <20260821-ax650-v1-v1-0-e1b013938e6b@axera-tech.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
         Shi Zhicheng
@@ -68,11 +66,11 @@ CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         Leng Honglin
 	<lenghonglin@axera-tech.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787304625; l=2694;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787304625; l=815;
  i=lenghonglin@axera-tech.com; s=20260818; h=from:subject:message-id;
- bh=XiqqMU+n2H4IsNsfEhAreZfC2soM/m4qASUAU3DYM3M=;
- b=LWQupdQRcvIFUKzmTjeNX95B4ozK4icK+Am/IHRM3/dwUbKbHmnmfKebxCCjgZzxFWv3GU9zi
- W9sX3V+Xj8TBw/hZP0ak8mgOAFgdbrbvG9n+2CsyqMcYGYlNR482yoY
+ bh=KAQRACyEfs1m4i3z1bwlpjywSz2sbYjfEzQoCYNTtbE=;
+ b=sbEnqZOxZDmS8OeeSYHyKHriWI4owZeHlQD0WD+IuyEwrfuabbQrBLZKhLIU2nw3To8jHvAAH
+ TZkie3fINzbDpKxNgcPsId0Cx+T79CJMwn64axdOc90lwMWzl8v13nY
 X-Developer-Key: i=lenghonglin@axera-tech.com; a=ed25519;
  pk=fo0agzxyiwbJZc3VZRLVthobvWCvq0qAViAw4TxhF80=
 X-Originating-IP: [10.126.103.103]
@@ -80,10 +78,10 @@ X-ClientProxiedBy: aixinexchange02.aixin-chip.com (10.122.86.161) To
  aixinexchange02.aixin-chip.com (10.122.86.161)
 X-DKIM-Results: [10.122.86.161]; dkim=none;
 X-DNSRBL: 
-X-MAIL: spam.axera-tech.com 67L9VrYv009889
+X-MAIL: spam.axera-tech.com 67L9VtPk009892
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_025257_310725_61269459 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20260821_025329_410063_D08F1FA1 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,72 +96,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Axera AX650 is an Arm64 SoC developed by Axera Semiconductor. The
-AX650 Demo board is based on the AX650 SoC and provides the hardware
-platform used to validate this series.
+Enable the ARCH_AXERA platform option for Axera arm64 platforms.
 
-This series adds the initial upstream support required to build and
-boot the Linux kernel on the AX650 Demo board.
-
-The initial platform support includes:
-
-- Axera AX650 SoC and AX650 Demo devicetree bindings
-- ARCH_AXERA arm64 platform selection
-- arm64 defconfig support
-- Cortex-A55 CPUs and PSCI
-- GIC-400 interrupt controller
-- ARMv8 architectural timer
-- Cortex-A55 PMU
-- UART console
-- 8 GiB system memory
-- Axera ARM64 SoC maintainer information
-
-The patches are organized as follows:
-
-- Patch 1/6: Add the Axera vendor prefix.
-- Patch 2/6: Add devicetree bindings for the AX650 SoC and
-  AX650 Demo board.
-- Patch 3/6: Add the ARCH_AXERA arm64 platform option.
-- Patch 4/6: Enable ARCH_AXERA in the arm64 defconfig.
-- Patch 5/6: Add the initial devicetree description for the AX650 SoC
-  and AX650 Demo board.
-- Patch 6/6: Add Axera ARM64 SoC entries to MAINTAINERS.
-
-The series is intentionally limited to the minimum platform support
-required to boot the board with a serial console. Additional
-peripherals will be added in subsequent patches.
-
-The platform was tested on an AX650 Demo board using the vendor boot
-chain to load the kernel and device tree. A kernel with an embedded
-initramfs successfully reached an interactive shell on the serial
-console, and all 8 CPUs were brought online.
-
+Reviewed-by: Shi Zhicheng <shizhicheng@axera-tech.com>
 Signed-off-by: Leng Honglin <lenghonglin@axera-tech.com>
 ---
-Leng Honglin (6):
-      dt-bindings: vendor-prefixes: add Axera
-      dt-bindings: arm: add Axera AX650 SoC and AX650 Demo board
-      arm64: Kconfig.platforms: add ARCH_AXERA
-      arm64: defconfig: enable ARCH_AXERA
-      arm64: dts: axera: add AX650 Demo initial support
-      MAINTAINERS: add Axera ARM SoC support
+ arch/arm64/Kconfig.platforms | 5 +++++
+ 1 file changed, 5 insertions(+)
 
- Documentation/devicetree/bindings/arm/axera.yaml   |  24 ++++
- .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
- MAINTAINERS                                        |   8 ++
- arch/arm64/Kconfig.platforms                       |   5 +
- arch/arm64/boot/dts/Makefile                       |   1 +
- arch/arm64/boot/dts/axera/Makefile                 |   3 +
- arch/arm64/boot/dts/axera/ax650-demo.dts           |  30 +++++
- arch/arm64/boot/dts/axera/ax650.dtsi               | 134 +++++++++++++++++++++
- arch/arm64/configs/defconfig                       |   1 +
- 9 files changed, 208 insertions(+)
----
-base-commit: ff68e5f557f69a08fdcfa4ce8b1b809d63bd4f45
-change-id: 20260818-ax650-v1-9f5c1965d1e6
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index d2acfac73003..a6f2f009461e 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -54,6 +54,11 @@ config ARCH_ASPEED
+ 	  This enables support for ASPEED's SoC family, such as the
+ 	  ast27XX 8th generation Baseboard Management Controller (BMC).
+ 
++config ARCH_AXERA
++	bool "Axera SoC family"
++	help
++	  This enables support for the Axera SoC family.
++
+ config ARCH_AXIADO
+ 	bool "Axiado SoC Family"
+ 	select GPIOLIB
 
-Best regards,
---  
-Leng Honglin <lenghonglin@axera-tech.com>
+-- 
+2.34.1
 
 
