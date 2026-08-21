@@ -4,60 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C758C5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 02:24:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1FB8C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 02:40:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-ID:Content-Type:
-	MIME-Version:References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nwj029qvfIuS0n2IlGGdFsymc671fa/erueghYr3m0A=; b=nq4C6QtEYlDN00VVBOvlrMlGlk
-	WMeV6lYLcRo43+Gg5V6KVkBQr9CEyYhm8oC2KYpfsQVE1r0j381ESj0QFcfacEeMiaa1O8Dwm8nIp
-	TvV3VSFTzmBfjoLbvD6nDQV8gIYrmqv/RFflKX9/SIW3xP4bynfRRFlqsNa9Iqd1MvD/zrZ/DKqXE
-	Dx4yM9/v7QdXnbR0royovrw3wbBD9Epopiyl01uCedhOHIwVVUbub3b+seA3LN+AhehiK9tUv7MM7
-	VA5GfNXsVuPm9+nZNJMZ3rRfJiqrGT7l7eN0x+IsvaxAjyf2vcmNl4ltun6j+DOnwCwjyAcI7KxrS
-	Vz8ohr9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jbtpPhjBOt68lCtkFvblCddC1916ShOnlAarOKi5cWI=; b=OZw9s/5b3fl950/D2sPPTA41+S
+	T4bXg/TWx+oPQcYrAhRhpNm9b1wum6hN4wgE3c/UMVjP0k0NEdriyaDSoyqEgtmx7G7mCAMgmyQxV
+	bgLOma9fzl1I0yFuIWnaTMlweyOOUzToEvB4XEQU1C+SEK5wSP0ZfvKhcIMRfKIsUDRcZqcSd++1r
+	o9rJl2/PTKMy838/GaqAMC5zmKin09QPpWt0r8SDHaiymLItja8F2sLaPizNXzJusIZoHgbpivE4Y
+	f76R0AF7Ugu+orLKQQyVcdGlrk1Xh5Rs1zMp4aEBX5NkHixTcNRoWzlVZUZxUsSKI8pHy+8187hzD
+	0DEmBlLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxEv5-0000000CS7G-3y3G;
-	Fri, 21 Aug 2026 02:23:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wxFAm-0000000CT1H-3LZa;
+	Fri, 21 Aug 2026 02:40:00 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxEv4-0000000CS76-2SSD;
-	Fri, 21 Aug 2026 02:23:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E251A40179;
-	Fri, 21 Aug 2026 02:23:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB7941F000E9;
-	Fri, 21 Aug 2026 02:23:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787279025;
-	bh=nwj029qvfIuS0n2IlGGdFsymc671fa/erueghYr3m0A=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=FKOdp80K1NCdExfZ1tcV6jarRclI8uxefHf43o0VfsGMY7h6gHGbb2Rx1STpUXm3W
-	 ZqllCnvzbL/8/x8dercSC6kVEvqT2XPEZGyYrbE/rwLPpSiTtbtKl/4vEvNiotiM+H
-	 /ppk8euQ1OD384/8sy5svQj87ViMgNLjapwxeRn6TmnDbBv5i/zXQQ8t/325nQ2NjH
-	 AqolJF6RXXh+L7bpAQA8mNzojnq//qqj9QpSOI+LWw5dQiVChms/JXaexpX7c34u1l
-	 e++Owow0HeRcTCq1jG3DhsIBIx9wYnOEK/idwAIO06GpBh+b3diywe7T4A4oLu4hfJ
-	 p6mVte1Qi/1sw==
-Date: Thu, 20 Aug 2026 20:23:44 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: =?ISO-8859-15?Q?Thomas_Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-cc: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-    linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-    linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-    linux-riscv@lists.infradead.org, loongarch@lists.linux.dev, 
-    linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-    linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
-    linux-sh@vger.kernel.org, linux-alpha@vger.kernel.org
-Subject: Re: [PATCH 07/15] RISC-V: Remove AT_VECTOR_SIZE_ARCH from UAPI
-In-Reply-To: <20260302-at-vector-size-arch-v1-7-a11f03ba2ca8@linutronix.de>
-Message-ID: <236a0edb-76f4-a28c-175b-f43994310a9f@kernel.org>
-References: <20260302-at-vector-size-arch-v1-0-a11f03ba2ca8@linutronix.de> <20260302-at-vector-size-arch-v1-7-a11f03ba2ca8@linutronix.de>
+	id 1wxFAk-0000000CT0a-2xk1
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Aug 2026 02:39:59 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-84eb992a881so355439b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 19:39:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787279998; x=1787884798; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jbtpPhjBOt68lCtkFvblCddC1916ShOnlAarOKi5cWI=;
+        b=mdBc3nFLxdHxKNeaev/R/YDXZ1TpKOK1RSrT3EYCKk+RVc91wgD6PKmR1c8QjodJoY
+         3t3DrqvvwXeWiK9tAKB0zu7BQbjOEb0pzANzsxEEGYd/wSFoOffOYGcOZ2MNw3E+FULq
+         aqkPBw8p/YR89C/AIpcX6Ocsx21Ht1ncSJs4wseToASYGoUQZn4M2Wvd1H+Ktwkb6LpI
+         jTLFutv6sC/zf8Zqofh8gQ/ZkVidEEr3WKoc8/lQfBen5owCZTRemri6u/MKK6p18SIW
+         He73Yu24Qf8OTZDpdMV/CS6IzvxNFDax9fOMTro7iYd8+lvxSMZmnfXBZlErqwR4VWtg
+         mebA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787279998; x=1787884798;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jbtpPhjBOt68lCtkFvblCddC1916ShOnlAarOKi5cWI=;
+        b=QVKCzCQMfgMy+62w8PBYEP+1+ULrMI/FqZuIe3askFdjwdjDWxuA/K3uUAXsRaN2di
+         bNWcN4D/exrafPwDGGGgZ2cLogsGz+oPvLTMNQLode+SofpCBjDcjgV3Rm2vjfN0MomF
+         2uRXDf/yg3oWQjLnTUV/WGpODijR9aTrmrJeqlD0xunRix+7HbzC16xYZFiQuQSngiXR
+         93lstrfWSxs6wJtEPLhkMFT+5pmKeasqgVKMJCKRenhkAL2bQqbEE49wGEQ+NfdBLURa
+         jE2MtPk+7STXqUjc6XTitCDOSWcayNtb7BIgpYkUzzh9HMSWXlEWuPrfwi8s5zGgY3/Q
+         G7iw==
+X-Forwarded-Encrypted: i=1; AHgh+Rr/KVMoOPYCnTcEloY21zmw9q9U7db6CzoFyvKenwTEU2fQzfM4gh9usB9g/L7WgUNj1dPwprjCcc+wqZIJudb4@lists.infradead.org
+X-Gm-Message-State: AFuF++khK824veQAzDpiKfTZMHGEesjhuk1XhFsHxvUtzjUcga9tuMgS
+	pg66tPf9oIuGJUDevBw88oWK2NA6LSAVeZRkpTQesPCijjSbcMT09uQ=
+X-Gm-Gg: AR+sD12vkFJSr+vjozbBuHBGbx0JEwynV7ElSTHru44VovuacenahYLMoPchYraI2wV
+	MS+Udlhw9iynDGZ9f9koq0hGqZu0DJqREdI3fsfWrwTuAUVBtxG52JOlmDpuX1rRgX14/SlTOSJ
+	ODlzkfIpVbNYH+cxchVoTrM7kzgJx1tMgD4Pmlez6eVkqd9u9HULmXdiIOMuB2tosgOlRznCNgA
+	dF7Nywy6+R/Q6S82EP77FX+cILRBK8FbJE4NFf1vC8CqiKhB0zC41JxlC/VTbdOfYBmLIdqJtyV
+	cl/hmyg2j/qMnP3ljFcSBi2plXtbdP3yGtSlBvazDZFdO0Zz1TTLBKOBQnJcS/dHHymgAp7dMOO
+	Ujwb7/h3jV//dyHt2z8iMRpcxOWTEsqVh/olfSTSJo5MFBiDoHnrCr+u2/4ibi2lE87+lpCl3c/
+	OMASZZfhJTVaANmVulKT9NnMjz5z2czbPMEsRr65n2+tv9E+WKbbQtPOF8Ia3vzWLlwWhmQnNv2
+	A==
+X-Received: by 2002:a05:6a00:a91:b0:845:ba94:a56 with SMTP id d2e1a72fcca58-851f987d3a0mr4634028b3a.5.1787279997742;
+        Thu, 20 Aug 2026 19:39:57 -0700 (PDT)
+Received: from DL2XHKPB4.dl.net ([103.63.104.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-851d3617434sm2281487b3a.29.2026.08.20.19.39.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 19:39:56 -0700 (PDT)
+From: Triet Hoang <triet.hoang.dev@gmail.com>
+To: dmitry.torokhov@gmail.com
+Cc: linux-input@vger.kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Triet Hoang <triet.hoang.dev@gmail.com>
+Subject: [PATCH] input: keyboard: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
+Date: Fri, 21 Aug 2026 09:39:51 +0700
+Message-ID: <20260821023951.53199-1-triet.hoang.dev@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: multipart/mixed; BOUNDARY="8323329-746012605-1787278993=:86110"
-Content-ID: <1dd06b80-a066-feec-b1fa-addb8fb6fff9@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260820_193958_745141_17233445 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,27 +103,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+Convert deprecated SIMPLE_DEV_PM_OPS
+to DEFINE_SIMPLE_DEV_PM_OPS and pm_sleep_ptr().
 
---8323329-746012605-1787278993=:86110
-Content-Type: text/plain; CHARSET=ISO-8859-15
-Content-Transfer-Encoding: 8BIT
-Content-ID: <c4da6fb9-7dfb-d0d8-ef0a-6c21140cde31@kernel.org>
+This lets us drop the __maybe_unused annotations
+from the resume callbacks and reduces kernel size
+when CONFIG_PM or CONFIG_PM_SLEEP is disabled.
 
-On Mon, 2 Mar 2026, Thomas Weiﬂschuh wrote:
+Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
+---
+ drivers/input/keyboard/imx-sm-bbm-key.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-> There is nothing userspace can do with this value. In the kernel is
-> always combined with AT_VECTOR_SIZE_BASE, which is not exposed to
-> userspace and also changes from time to time.
-> 
-> Move the symbol to a kernel-internal header.
-> 
-> Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+diff --git a/drivers/input/keyboard/imx-sm-bbm-key.c b/drivers/input/keyboard/imx-sm-bbm-key.c
+index 96486bd23d60..7fbbd44878be 100644
+--- a/drivers/input/keyboard/imx-sm-bbm-key.c
++++ b/drivers/input/keyboard/imx-sm-bbm-key.c
+@@ -187,7 +187,7 @@ static int scmi_imx_bbm_key_probe(struct scmi_device *sdev)
+ 	return ret;
+ }
+ 
+-static int __maybe_unused scmi_imx_bbm_key_suspend(struct device *dev)
++static int scmi_imx_bbm_key_suspend(struct device *dev)
+ {
+ 	struct scmi_imx_bbm *bbnsm = dev_get_drvdata(dev);
+ 
+@@ -196,12 +196,12 @@ static int __maybe_unused scmi_imx_bbm_key_suspend(struct device *dev)
+ 	return 0;
+ }
+ 
+-static int __maybe_unused scmi_imx_bbm_key_resume(struct device *dev)
++static int scmi_imx_bbm_key_resume(struct device *dev)
+ {
+ 	return 0;
+ }
+ 
+-static SIMPLE_DEV_PM_OPS(scmi_imx_bbm_pm_key_ops, scmi_imx_bbm_key_suspend,
++static DEFINE_SIMPLE_DEV_PM_OPS(scmi_imx_bbm_pm_key_ops, scmi_imx_bbm_key_suspend,
+ 			 scmi_imx_bbm_key_resume);
+ 
+ static const struct scmi_device_id scmi_id_table[] = {
+@@ -212,7 +212,7 @@ MODULE_DEVICE_TABLE(scmi, scmi_id_table);
+ 
+ static struct scmi_driver scmi_imx_bbm_key_driver = {
+ 	.driver = {
+-		.pm = &scmi_imx_bbm_pm_key_ops,
++		.pm = pm_sleep_ptr(&scmi_imx_bbm_pm_key_ops),
+ 	},
+ 	.name = "scmi-imx-bbm-key",
+ 	.probe = scmi_imx_bbm_key_probe,
+-- 
+2.53.0
 
-Acked-by: Paul Walmsley <pjw@kernel.org> # arch/riscv
-
-
-- Paul
---8323329-746012605-1787278993=:86110--
 
