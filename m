@@ -4,150 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B8DEC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 10:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CBCC5DF89
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 10:51:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Cc:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nhsGg55M5pWciEoheldJXTLWKPf8tEmhFOiiqExt29A=; b=ZJyof74f+DCeztfCUJ49dmYCPJ
-	aPpjJapVL7i3D2fgNhLn4ZY4kwatm3SXgcJqS8j/R3mXi9FovB0mVcNW6Nqctce7/w/hmc4H6Dbkd
-	iyPg1g94dTrvqPDEgF3iMlq3jGIC5p1XlJTyPjxO6RLaogSpGW5wFwYmr5sE6lRumjpKPQUywkRAG
-	ZKaS4M6GbB/C95O3R5BBxxrOJKKtrcrzC3tkuheJZdd1GPgWiAwiO/3yFVycNHlj8kEJW/KctifMo
-	PT/bFiJV/U44Hn4mRDdy5hhtxrG/nkGMHMEtA8Lfr6Upxz54ycCgglwrnzqaZLdjgcBhMgkJYLILD
-	PR2qsEAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g7Ag3f/lB2XNWTlVN35HrurwX7fpT/KF8zKBG133ajE=; b=FjNYR3NxiMQxULk8Gh3f2DpTik
+	VPNJpEerxvsCUC4hnuK6PwWr9ZjxRc145HG/08ObcZtDNQyF8jKR7mnn12FqyYliasKHRh59tWDMx
+	sAn83XWysAi1dQ9/S4P342625FLZKbAwwIpeo8rykvNaWZzGWNNVMtTfcK7R2Vk6CBMMoNRsJEdnC
+	+w+63iz1/znZ76OrZ8gFtX+ZXQdqJM7sU+Bx6pgAsuMr4HsltQYhyxOwZzbHEtIsWWWq8yc7h3jE9
+	q2sj/jBxb7DWdnvnp7S8CS38qT1AwNVeRkCFWt81sqLHlVIsrEyaYxNaOu9jglWFXSX6o1kgyXtAN
+	dEpPu3/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxMiy-0000000D6to-1XIZ;
-	Fri, 21 Aug 2026 10:43:48 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxMiu-0000000D6t4-2jSR
+	id 1wxMq0-0000000D7OH-2RoX;
+	Fri, 21 Aug 2026 10:51:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wxMpy-0000000D7Nm-0wFx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 10:43:46 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=QsMYnxnztxU9AXrBjriw38LTasuF/89qtt5uYnIEYvAHdj0BXmINyVL3yA/tVceuiniAqg3SXTkShBDtYUDGlRlx+Bejzp6v56udJJ0jMIjVBlcZIXj5SeHZBA/kCgzzxXvSzqRNRqaWjZA5ANKtMmeAzE9eN5O/oEwYSrcgC6LT+LrevtXvpVsKrtAVAQoRfp5gU+ApegN5NqcIA8Gaq6R25UxnWSCEhINs5c+mVMFC5saQ7sP2uTsrcI/br8UTIuhzF+iudo403jpjabCYotkCQJ30wHI9Ooq8Ut56+zVUxwXGujDcKxkMv0FkdyD73q3+SCVW3URb66QjM7sjjg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nhsGg55M5pWciEoheldJXTLWKPf8tEmhFOiiqExt29A=;
- b=jQMvOdOcxAtIZbHSrxbUV2WBVI8nrXWyXyYx+1Oyf38QutQTlAyGn61rUflettWrDHG5faiI3ka7SaHUdZ5WwagLGleHKnFerAXdI4MDdk4YPwDOUwDaaGEqS20tSw/wxYI2jmQ/+yUxXUShcqIARzWJtcNTf9ktgbs0K6JwrJyjRN7GqrE8QYeR872LZFkH8uXjBd6W6In5psfXz9d+OXsX4JakrkIXpdugaKxNnzZ6emZS/ABgds/Sqhxttdns6z+RIF2FUIcuKKxgNXP9dKk9wGcbgn7jHZ4TP23cdmm0to4fNYhX+dQcLhvZJ5XGmvmEJ/jpd6sUKm3221i8JA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nhsGg55M5pWciEoheldJXTLWKPf8tEmhFOiiqExt29A=;
- b=sOkXRB/wghs2vf4FUbXDoftF1R/NG7ax43f2OI1yv1Ic8PbjsTKGgM43gmcL5PzQZk2DmfOJN2xOLDDEDbnuYFJUG9qd630emramnbBu9np3J6JL+CTHU5jJ1kGFTd7p/Z0Z/+UjaVfX4p/lCK8rHu1FGoLD/CX5J1EBguJzrcs=
-Received: from AS4P192CA0053.EURP192.PROD.OUTLOOK.COM (2603:10a6:20b:658::17)
- by VI0PR08MB11685.eurprd08.prod.outlook.com (2603:10a6:800:316::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
- 2026 10:43:38 +0000
-Received: from AMS1EPF00000048.eurprd04.prod.outlook.com
- (2603:10a6:20b:658:cafe::5c) by AS4P192CA0053.outlook.office365.com
- (2603:10a6:20b:658::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.11 via Frontend Transport; Fri,
- 21 Aug 2026 10:43:38 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS1EPF00000048.mail.protection.outlook.com (10.167.16.132) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.3
- via Frontend Transport; Fri, 21 Aug 2026 10:43:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KoWwAZv1nJNK7qmncOC8Yda5TL2EeTNSq8a7X8h+IdPPyAEAHknejqco38c7Pm67zgq27Yjnz1/GCbtr/yLj38tOo4DO53lsuO+FqWs0joXE576tqwxGFHBfwNrckFMwasiEJ4qvk0brz0mpg/yvbJjnHwl0i8UBUKqyO6vYlOnS34ZaO1qt3SF6PwlRWO20XYqVfUPy5rhRNQ3voIZY59SHCXmZa7h1ZCZHsSZ5RETuPlWfIKRKU+Jutx85JFQIfWAbUTAVPXuIoWRYTu+xMxTCZiDnb3m9YDK8I+/6Iy1n9C3ixEUVSXHYP8DR86zl3K77qVJgXck1BA9mXgPGJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nhsGg55M5pWciEoheldJXTLWKPf8tEmhFOiiqExt29A=;
- b=rrl8KVyj5uyoL6yTpq/ahGtZA6iZNhkZj+CK6baWBA3nCwGnTg08XqgRCfYVOZWm0LZyQ7UG4VkV/if3XyrnWrIcchn77uqDjLTi86RcYUKKBoTyFI9ky4RZAuYvKKdF6NOjckjIxBHZuCZmpGThWeoUTApRo3xAh4K2e6ODRYaKmBvvgdoEhohVpURITfRUCjWh4rOkWZwSdr++SHnhXHOI9jjx0iVIflHNd8cHVJdGbDrse7i1NYaof4EOMSmGKWLCY0t9LrPU7RinoYd1e9NJ3TLXIRAI57fyt7U3+0O481o7fdPpLuBG3bLN56ypIeBUjJ8cV++B63dBxkuZOw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nhsGg55M5pWciEoheldJXTLWKPf8tEmhFOiiqExt29A=;
- b=sOkXRB/wghs2vf4FUbXDoftF1R/NG7ax43f2OI1yv1Ic8PbjsTKGgM43gmcL5PzQZk2DmfOJN2xOLDDEDbnuYFJUG9qd630emramnbBu9np3J6JL+CTHU5jJ1kGFTd7p/Z0Z/+UjaVfX4p/lCK8rHu1FGoLD/CX5J1EBguJzrcs=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM0PR08MB3410.eurprd08.prod.outlook.com (2603:10a6:208:df::33)
- by DU0PR08MB8206.eurprd08.prod.outlook.com (2603:10a6:10:3b3::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Fri, 21 Aug
- 2026 10:43:04 +0000
-Received: from AM0PR08MB3410.eurprd08.prod.outlook.com
- ([fe80::b6cc:973e:a807:c3d3]) by AM0PR08MB3410.eurprd08.prod.outlook.com
- ([fe80::b6cc:973e:a807:c3d3%6]) with mapi id 15.21.0339.007; Fri, 21 Aug 2026
- 10:43:04 +0000
-Message-ID: <94385fc5-a5f5-410f-87c4-471957e3ae26@arm.com>
-Date: Fri, 21 Aug 2026 11:43:03 +0100
-User-Agent: Mozilla Thunderbird
-Cc: usama.anjum@arm.com, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Shuah Khan <shuah@kernel.org>,
- Andrey Konovalov <andreyknvl@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Amit Daniel Kachhap <amit.kachhap@arm.com>, Mark Brown <broonie@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, open list <linux-kernel@vger.kernel.org>,
- "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH 4/4] selftest/arm64: Add MTE test config fragment
-To: Catalin Marinas <catalin.marinas@arm.com>
-References: <20260820153331.2448875-1-usama.anjum@arm.com>
- <20260820153331.2448875-5-usama.anjum@arm.com> <aogSkJxWf9QndjuE@arm.com>
-From: Muhammad Usama Anjum <usama.anjum@arm.com>
-Content-Language: en-US
-In-Reply-To: <aogSkJxWf9QndjuE@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO3P123CA0023.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:388::16) To AM0PR08MB3410.eurprd08.prod.outlook.com
- (2603:10a6:208:df::33)
+	Fri, 21 Aug 2026 10:51:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75370153B;
+	Fri, 21 Aug 2026 03:50:57 -0700 (PDT)
+Received: from [10.57.68.59] (unknown [10.57.68.59])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB4CB3F66F;
+	Fri, 21 Aug 2026 03:50:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787309461; bh=ujaPpWhw7P5SdZ0RwuNm60RH8ZxwweX7L99YE79nac4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jGpeA/XjrDUUHgj+HytkADnb50ZAQTL1VeKeCPHWbGtJZbPpmGlk9TuQyzknOHIUa
+	 qPjWahFzGGBXLWCHZZCXlnVfpPi9tuMKSTiyZ3ODM5y4DV3Ju7mUg+/c9/CPuNonmA
+	 6jDUzA7EgYpMyq8d+T4Ix7mUr1GWfD0IzJtymk+I=
+Message-ID: <a94c8d26-9f54-4df4-98bc-8e7272102a87@arm.com>
+Date: Fri, 21 Aug 2026 11:50:53 +0100
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM0PR08MB3410:EE_|DU0PR08MB8206:EE_|AMS1EPF00000048:EE_|VI0PR08MB11685:EE_
-X-MS-Office365-Filtering-Correlation-Id: a38d1d16-8312-4e74-8f54-08deff710ee2
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|6133799003|56012099006|10067099003|4143699003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info-Original: yZxxU+YVwC1MN0Mlq5mXcClDtUf6Vd7Io4phtKFb+OnD79WCylTpVX7/Tp2KLQTh98IhzVlsDrZ32CoikvDNti467GmzDyoEh5RPu3PHJZZgN7c3k7tXuYfilR5GsdZoJWGKZ3JOB8+CLBzpr303M7P2ELn/Wz8uwdnvbc1SmVoFSkr7cNy9lw0aHxAKNU/JQD3SQ24oPAfE+voq8rRAd3KOG6AMCD0LX6bgqh0OZNOlyWZ7duYk/DmyPaBrVtBO+hMPKgu1SxTG50d6gNZEj4AhENPn3rISm7tRSfZ/br1QB8ei2cepIZWWhYe2O735ma+RISgjGWAxsxdYl3vpBpYvj4zaRxlFZqsGTI0aWwO0v2rDSj21y/5r8rL+uoyY9h0hM3iSP4KisYgWRT7UbTESpTfzqYj3Nrolr7IuEEpGi0Tjq/J366TKiaGKvX+1yznQS6LLgOuIZ2lN5+8l4Y+pt2y1J6z8qXVfH1yRwPUEfqmlwS9EZZ55wGAqN7tFv2LAlklAJJ6XNM5VqI/CKuyJEA7NpuUanzKCnGX4OF2fqFBN6d6VKoHpvOITOj3CFPk/oF/6xxCXadX/EFNS764D1WtyAao2P1AWVjedu71Mv5770ZHG0zGAnQLXOEAev45yP3Wb96GkwXpU9h4PpYTMUySt4cl9AdKpGz21Jbw=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR08MB3410.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(6133799003)(56012099006)(10067099003)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: bQpCXB3tRDEMYMjrRrEpys1G18+e398Y49p1LvEQyN4vlq8oK7AwjX1i/ZOqI6MAfVOzgio8GqYf95hCkFXNj7pg/7QmPS2899yU6xrU3eDCn65aXRolyMErD/JGTEVTddku0yvj06Rg1gxPAVXZS9zahN4v1sF/6Rqz2c+VEriHe9TLmj2dyhm70VXaMwZC0hlxWd6UpmMv3SbljMY66If+4fYWTFfsIaWaZn2ukVit8EgSRDPJzCWmBgfRGccG3oyS6Ly5VXSUeYUV0APcNbvjsVz+yabC0+FYt+9RRE1K27vjf8FZgYeIPdo0rDFBGgI3ZGDLH6oxkUvGUVG8OQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8206
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF00000048.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: d7532d13-ee78-4014-c1dd-08deff70faf3
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|35042699022|36860700016|23010399003|14060799003|82310400026|1800799024|6133799003|10067099003|11063799006|4143699003|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: hu4sveUOIl8kXEOwOBy8StAv/K5vjgQ5zXYgEWN2dqjccJCcXE/Lg0ukMN/3b1nD64HgftEgNthmZScUtoK9CbQTypgCoLuN6nPA4jOExwkA2LDhk5rGzAoOnui3smY+mdpt9gpAk25vTyMz/KPJUw7jpL2Wkw0NSyafyBTwGyStwpzehUDrwqg+TUzqt4cJXqKXx8U0XRpxS/H2AAZJO5K+8LA31OLbU50JbOToi1IARlDV4EW3DOu7ACtYcj3OrCi4ykjttNSCD8vTDfmWyuVwUF85Iijr/XjLk7D0WBNWGx9fSHQm/qkO04aPLv+yv84pJ/ADwGs1JoSBxSP4rFR0z3sMBEiOfeXsTDWwjRFO28XYu1LIiCiuJdHAfe/WirRGKIf+cTaviPRFwBsj/s8k2BzArkiPf6QvJLR0tZemcys+JtKWXVAi1atp9gAimPNdsnd0X9rLCqJ0xVvpm7OqsncJUXTKYbkGlGMcdh4SMBeBBKs41qXlN06rTr3HSr9RegSCsM+moVM6fpNKNexvmiCb3R9DDfQtGFByK91i+Wcs5e17LQ3cdnjxO2tu+n1fnAdZ2uWuFJR7dhBajR7EfbKh+VxTiXnZIXVxUv+RTUe+7jO1vIXILvmUpIzg7gsOQ0aBZOh56GGauplPo2KrMsBK2+XxJ2dZmrhp5SeaOrmGevdLpMyoaSNlYCRRnHN6x08s7jjCc4jdEf1wKg==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(35042699022)(36860700016)(23010399003)(14060799003)(82310400026)(1800799024)(6133799003)(10067099003)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: WtXydiqliHuistm6Bf73UysRLPmyNUwpz/zD0sf9LJaESEyNoW8wHL9It55B+QFee6T6+26w/UjNHUbjNbsS/DbHP32r2kQS8qrVm3SYsM9KHZ636nUfkVpYwlFMSbFnhInhXFlB/6BsrWQeLt17YZBmhvz/bJsGLX1O9zjUdiiK0qRfCLkIbonk6xwFEEIIXKm7M+jDHq6BlkBIns5qOLPVWFm9CWmLCYOpyf1yp4IG19nw7GBPLTNCw/d5UyJwtwIOZnbehXiSbKuVbTxckcDTSsYr/vMiabIibKs7GQhG3BTZHul0feomT00s7h1PCn2d5+nnIvOtjOhxATCES3zr7rwC2wCR0xDx3NdeqNR8Xo+2BfAZgbwhn22JpKxYHEwv+0MSCyoyFHpzw7gmXvdqAR+kkSGeqzLlAwTSlSmp0eGPsk0g00lremX/rnE8
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 10:43:37.8189
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a38d1d16-8312-4e74-8f54-08deff710ee2
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000048.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR08MB11685
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 14/45] arm64: entry: Introduce entry specific
+ exception masking helpers
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
+ catalin.marinas@arm.com, liaochang1@huawei.com
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-15-vladimir.murzin@arm.com>
+ <349f178a-9eba-4353-96ab-91fd50ce87da@huawei.com>
+ <6b0a4c25-6e5a-4ff9-b87a-1d12636df08c@arm.com>
+ <e228c980-9e08-46be-9760-1586c3f3fa9e@huawei.com>
+ <174d12f9-2404-4c21-951f-0666adaa3f4a@arm.com>
+ <fea87282-737c-47d3-a40f-e71c7b3228e0@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <fea87282-737c-47d3-a40f-e71c7b3228e0@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_034344_811450_2B07756A 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20260821_035102_337434_0E57B3D9 
+X-CRM114-Status: GOOD (  24.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,62 +77,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/08/2026 9:55 am, Catalin Marinas wrote:
-> On Thu, Aug 20, 2026 at 04:33:26PM +0100, Muhammad Usama Anjum wrote:
->> The arm64 selftest collection has no Kconfig fragment, so kernels built
->> with the selftest requirements are not guaranteed to provide the support
->> used by the MTE tests.
->>
->> Add a fragment covering the userspace MTE and tagged-address ABIs, KSM
->> and its sysfs interface, explicit HugeTLB mappings and their proc/sysctl
->> interfaces, and tmpfs-backed file mappings.
->>
->> Do not request NUMA solely for the optional KSM merge_across_nodes.
->>
->> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
->> ---
->>  tools/testing/selftests/arm64/mte/config | 8 ++++++++
->>  1 file changed, 8 insertions(+)
->>  create mode 100644 tools/testing/selftests/arm64/mte/config
->>
->> diff --git a/tools/testing/selftests/arm64/mte/config b/tools/testing/selftests/arm64/mte/config
->> new file mode 100644
->> index 0000000000000..8587ce70c294a
->> --- /dev/null
->> +++ b/tools/testing/selftests/arm64/mte/config
->> @@ -0,0 +1,8 @@
->> +CONFIG_ARM64_MTE=y
->> +CONFIG_ARM64_TAGGED_ADDR_ABI=y
->> +CONFIG_HUGETLBFS=y
->> +CONFIG_KSM=y
->> +CONFIG_PROC_FS=y
->> +CONFIG_SYSCTL=y
+On 8/11/26 09:46, Jinjie Ruan wrote:
 > 
-> You may want CONFIG_PROC_SYSCTL.
-
-CONFIG_PROC_SYSCTL no longer exists on the linux-next base used for this
-series. It was removed by commit 8d75c338f0bce ("sysctl: remove
-CONFIG_PROC_SYSCTL, it just mirrors CONFIG_SYSCTL"), so CONFIG_SYSCTL is
-the corresponding requirement in this tree.
-
+> 在 2026/8/11 16:37, Vladimir Murzin 写道:
+>> On 8/11/26 09:13, Jinjie Ruan wrote:
+>>> 在 2026/8/3 20:21, Vladimir Murzin 写道:
+>>>> On 7/28/26 10:18, Jinjie Ruan wrote:
+>>>>> 在 2026/7/28 0:34, Vladimir Murzin 写道:
+>>>>>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>>>>>
+>>>>>> The entry code handles interrupt masking differently from the rest of
+>>>>>> the kernel. Exception handlers enter and exit with all exceptions
+>>>>>> masked, but they must temporarily unmask the appropriate set of
+>>>>>> exceptions so that the rest of the handler executes with the expected
+>>>>>> exception state.
+>>>>>>
+>>>>>> For EL0 handlers, this means dropping to masking context appropriate
+>>>>>> for the work to be performed. For EL1 handlers, this means restoring
+>>>>>> the masking context of the interrupted task. In both cases, all
+>>>>>> exceptions must be masked again before returning from the exception
+>>>>>> handler.
+>>>>>>
+>>>>>> The rest of the kernel typically follows the opposite pattern: it
+>>>>>> raises the masking context to protect a critical section and later
+>>>>>> restores the previous context.
+>>>>>>
+>>>>>> Given these different usage patterns, introduce a dedicated set of
+>>>>>> exception masking helpers for the entry code. Keeping these helpers
+>>>>>> separate from the generic interrupt masking APIs makes the intended
+>>>>>> usage explicit and helps avoid mixing the two masking models.
+>>>>>>
+>>>>>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>>>>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>>>>>> ---
+>>>>>>  arch/arm64/include/asm/interrupts/entry.h | 113 ++++++++++++++++++++++
+>>>>>>  1 file changed, 113 insertions(+)
+>>>>>>  create mode 100644 arch/arm64/include/asm/interrupts/entry.h
+>>>>>>
+>>>>>> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
+>>>>>> new file mode 100644
+>>>>>> index 000000000000..d66eb5d633f0
+>>>>>> --- /dev/null
+>>>>>> +++ b/arch/arm64/include/asm/interrupts/entry.h
+>>>>>> @@ -0,0 +1,113 @@
+>>>>>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>>>>>> +/*
+>>>>>> + * Copyright (C) 2025 Arm Ltd.
+>>>>>> + */
+>>>>>> +#ifndef __ASM_INTERRUPTS_ENTRY_H
+>>>>>> +#define __ASM_INTERRUPTS_ENTRY_H
+>>>>>> +
+>>>>>> +#include <asm/arch_gicv3.h>
+>>>>>> +#include <asm/bug.h>
+>>>>>> +#include <asm/cpufeature.h>
+>>>>>> +#include <asm/interrupts/common_flags.h>
+>>>>>> +
+>>>>>> +
+>>>>>> +static __always_inline
+>>>>>> +arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
+>>>>>> +						  arm64_exc_hwstate_t next)
+>>>>>> +{
+>>>>>> +	bool irqs_disabled = arch_irqs_disabled_flags(next.flags);
+>>>>>> +	bool force;
+>>>>>> +
+>>>>>> +	arm64_debug_exc_hwstate(prev);
+>>>>>> +
+>>>>>> +	if (prev.flags == next.flags)
+>>>>>> +		return next;
+>>>>>> +
+>>>>>> +	if (!irqs_disabled)
+>>>>>> +		trace_hardirqs_on();
+>>>>>> +
+>>>>>> +	force = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
+>>>>>> +
+>>>>>> +	__arm64_update_exc_hwstate(next, force);
+>>>>>> +
+>>>>>> +	if (irqs_disabled)
+>>>>>> +		trace_hardirqs_off();
+>>>>>> +
+>>>>>> +	return next;
+>>>>>> +}
+>>>>>> +
+>>>>>> +static __always_inline
+>>>>>> +arm64_exc_hwstate_t arm64_inherit_exc_context(struct pt_regs *regs)
+>>>>>> +{
+>>>>>> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
+>>>>>> +	arm64_exc_hwstate_t next = arm64_inherit_exc_hwstate(regs);
+>>>>>> +
+>>>>>> +	return __arm64_switch_exc_hwstate_to(prev, next);
+>>>>>> +}
+>>>>>> +
+>>>>>> +static __always_inline
+>>>>>> +arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
+>>>>>> +{
+>>>>>> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
+>>>>>> +
+>>>>>> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+>>>>>> +		bool pnmi = system_uses_irq_prio_masking();
+>>>>>> +
+>>>>>> +		WARN_ON_ONCE(context > ERROR_CONTEXT &&
+>>>>>> +			     prev.daif == DAIF_ERRCTX);
+>>>>>> +
+>>>>>> +		WARN_ON_ONCE(context > NONMI_CONTEXT &&
+>>>>>> +			     prev.daif == DAIF_PROCCTX_NOIRQ);
+>>>>> For daif, we can directly compare next and prev because, as the context
+>>>>> drops, the value of daif decreases.
+>>>>>
+>>>>> This is also the opposite of the meanings of "drop" and "lift" in the
+>>>>> function names, which is easy to understand.
+>>>>>
+>>>>> WARN_ON_ONCE(prev.daif < next.daif);
+>>>> That's a very good point! I was too focused on checking the hardware
+>>>> state against the logical exception context, so I missed that we could
+>>>> perform the checks using the hardware state alone.
+>>>>
+>>>> What do you think about:
+>>>>
+>>>>         if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
+>>>>                 WARN_ON_ONCE(prev.daif < next.daif);
+>>>>
+>>>>                 if (prev.daif == next.daif) {
+>>>>                         /*
+>>>>                          * GIC_PRIO_IRQON is larger that GIC_PRIO_IRQOFF so larger PMR value is weaker
+>>>>                          */
+>>>>                         WARN_ON_ONCE(system_uses_irq_prio_masking() && prev.pmr > next.pmr);
+>>>>                         WARN_ON_ONCE(system_uses_nmi() && prev.allint < next.allint);
+>> Hi Jinjie,
+>>
+>>> Hi Vladimir,
+>>>
+>>> I have come up with what I think is a more comprehensible debugging method.
+>>>
+>>> Could we define a function that is the reverse of
+>>> arm64_exc_hwstate_of_context(), such that we can derive the previous
+>>> context from the previous hardware state? That would allow us to
+>>> directly compare below enum types, making the logic significantly easier
+>>> to follow. Any thoughts?
+>>>
+>> I used to have such reverse mapping in my internal version and feedback I
+>> got off-list is to avoid that at all cost. Since I needed it only for debug
+>> I open-coded checks in relevant functions (and that the reason I was focused
+>> on logical exception context rather than using hardware state alone).
+> I believe it would be cleaner to define and use this only when
+> CONFIG_DEBUG_IRQFLAGS is enabled; this would not introduce any overhead
+> in production kernels, correct?
 > 
->> +CONFIG_SYSFS=y
->> +CONFIG_TMPFS=y
-> 
-> These are all covered by defconfig. Are these fragments still necessary?
-> Or are they supposed to work on custom configs? If the latter EXPERT may
-> be set, hence the PROC_SYSCTL above. You probably also need SHMEM.
 
-The entries were added based on the interfaces exercised by the tests,
-rather than only on gaps in arm64 defconfig. The intention was for the
-fragment to supply the MTE test requirements when kselftest-merge is used
-with a custom configuration.
+It is not about overhead - there is no use of such helpers
+outside of debug code anyway. Reverse mapping, in general,
+comes with a few complications:
 
-CONFIG_EXPERT selects DEBUG_KERNEL and exposes many unrelated configuration
-options, so the fragment should enable only the concrete options required by
-the tests.
+- For DAIF-only, NMI and IRQ contexts are represented by the same
+  hardware state, so special handling would be required. Using
+  hardware state for the DAIF-only case and logical context for
+  NMI cases would be unlikely to be acceptable, since it would
+  not be uniform.
 
--- 
-Thanks,
-Usama
+- We might encounter cases where the hardware state temporarily
+  cannot be directly mapped to a logical context. I do not know
+  if we have such cases right now, but that would need to be
+  somehow handled by helpers performing reverse mapping.
+
+- Lastly, such a facility has already been deemed undesirable
+  once, so I would rather not reintroduce it.
+
+IMO, performing checks using the hardware state alone is a good
+compromise between clarity and functionality.
+
+Thanks
+Vladimir
+
 
