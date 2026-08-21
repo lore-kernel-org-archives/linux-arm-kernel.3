@@ -4,120 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C4BEC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 16:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E3E7C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 16:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OYzoKM5lmkaC39sbNzJGopm6Y6YP0IvsOMHeqSwvGiI=; b=3qFOqn3JHRmPUnaZ2/oZEpyWGQ
-	O+VoJJgcBMS0AwfNDTp/oJPHzlPb8TFxBJ9dcRJqyklHEeyKylDSBZ9Qtx0wRmaUnSaCluksy2VIb
-	9Lc8lo2s4kZOdhi74kbc4HJIzBVMb6g/kMN2a4P7vY3lh6AUiKUNDfWiV5t3aWGnp41maHZW/40O4
-	7SlL8yCckpofeEvoAX3qfU7LunUxSAs7UKqZ1xMn/cfFXQ95fKcXtc9eepMvsdAMtdJ7TPIxMwvbp
-	j9WCjCYhNRuf1QdQnAkJU4Ktxco40pMpItc2cnBpniaPOUvsJV2qDj5xb/zZ+x1Eox3JjSwRsGULM
-	g4tLQqHw==;
+	bh=DFhFJP/IVjFFdhwkyRYn3nHcZ9DDbQ4DU++GQypzBxc=; b=0MCEV4wnaE8kPKY6cx1KeZ7mlD
+	5/FnqLAPF54BkxsWbDPnlJInQvEexSfds6DN/ZrwWF552xWQxtJ9KhZlgHwiDVVu/czSyHw4/l7kL
+	+1Xqdu2zTt53zrN36eFMGfPUo8mwX0RipFnu+HMJ3bbJo5A55+0t066uHXacuITAANrwwc6OZniw0
+	1JFRb6cFs7zR2P1a0/ByAfVAZEIqW3OLxPC6VApmJK78TZlCiweKuNeHkbUAMskPFdayonEh/tYGn
+	e0Z9v+RfZn9ZDqAV0NBmX7MSueX4GUcLlBzObKMAe7RijBv8B07Ad+gWqs8VnRC06Gcz0mwAaHVdz
+	b5CflfqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxS5K-0000000DpAc-1JpU;
-	Fri, 21 Aug 2026 16:27:16 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wxS7h-0000000DpKe-3DF0;
+	Fri, 21 Aug 2026 16:29:41 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxS5G-0000000Dp9w-3XI5
+	id 1wxS7d-0000000DpK0-46kX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 16:27:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x0LLp84dybvZs1qRa1VZN432CKA0bzBqa961fux8YKmY94am+SjbUkVfLPTdqvi+56DAAw74vJkm6eB/V96Mz9uYiLi3UzNXpBjK8MJp9JY7Zdhv1rpiXN5o0IoMvLV7ON4cLVbDIsseTtTNRnkai5JbyfIDFWqxySXxOTvtz9LqOdWU4aHjmvVsG/fVgCHHHfThv5EmTAlxIslrL2kaK7voCCJSc5Th/I0Ew1t9NEFFqz2mHeCG3cYMjRM3XWoJBFRNMiLIuUliNMWSoe2V8mAfJXUSi/5VegtYktbmujdsV2r04txX9FL6UgwLXFiYnnARgn96SGZB616INoIrQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OYzoKM5lmkaC39sbNzJGopm6Y6YP0IvsOMHeqSwvGiI=;
- b=y5sp7g1zSV0xTJJb5nDbdzCsbhgJntwxptIx2jRsaiJKOjKYNQXhbtqSnhj8gjsLQnUiWWYLkSPHLADrWQrNkYUnP2ji2r0f9FkKreLPahjSi/Au1vPngI+5BdUyTbGl/gfSIv87HfUW6eRA1xIl4wRWC6Uwc+UNtNIyaJ4uEEW/W3AEhFeKxDAVyYE5cxniZC2LxZZ2onSfWib+jqsQLrOMFptuXlDv0JUHCjZFFN8aKB+tfSee/ExPINojJWTRMAzHw8RIf4p7n9y/DfdzCV7WpBVgVIyrFT77dAVVokGtx2suAElvl7n9QzfvOpaRri0OUNnXZkebQTAC4FfyiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OYzoKM5lmkaC39sbNzJGopm6Y6YP0IvsOMHeqSwvGiI=;
- b=O+Sl39aDrlqFXzKyWSzJZ2ErgR5wEKQzwBhNccF78RwpzFiSX6wT9OJynDfRB1Y4rELBFxlzYA00oFXYhySfjj36Z7hbOXNWIvEC6LM54BthB2dUG6XQUQe0FEbNhEo9J/VkNShsU4GvnJq9azJRWXW8J4XYd9sR0+wgz3UWjWVOqXCwzbdSCb/3b5x16TFX+tQXn+WiF11QdC8dV5UCKOaP33BLHT2LygpdOzh1cQKOx+9RnNulOfJn910z8sB+8n6MQ7g48VOh9aPUiXrmLL6Lh6/lNqwDQPw6SOBI1P6HOsE7IZKKEd8E5pOyZdDGOD92yaVbtfk7lqMDzMcbjQ==
-Received: from DUZPR01CA0238.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b5::9) by DB9PR10MB6642.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:10:3d2::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
- 2026 16:27:06 +0000
-Received: from DB1PEPF000509FB.eurprd03.prod.outlook.com
- (2603:10a6:10:4b5:cafe::55) by DUZPR01CA0238.outlook.office365.com
- (2603:10a6:10:4b5::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.11 via Frontend Transport; Fri,
- 21 Aug 2026 16:27:06 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DB1PEPF000509FB.mail.protection.outlook.com (10.167.242.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Fri, 21 Aug 2026 16:27:06 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 21 Aug
- 2026 18:32:05 +0200
-Received: from [10.48.86.251] (10.48.86.251) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 21 Aug
- 2026 18:27:04 +0200
-Message-ID: <db62c29a-7260-4e19-9279-e38323353c30@foss.st.com>
-Date: Fri, 21 Aug 2026 18:27:03 +0200
+	Fri, 21 Aug 2026 16:29:39 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67LFmUP21875160
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 16:29:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	DFhFJP/IVjFFdhwkyRYn3nHcZ9DDbQ4DU++GQypzBxc=; b=DnVFdtSWrIC5Rfut
+	N+aZ9krtfc7J5XCZZThi1NTJzZ04Q6hGJWFZSgAhV2EBfJGJY49ptTfOEnwc5ifi
+	OQiTqMc/FdaHgScsptGPd2oHTVcgIKmmRWYBnw8QcEmycGSQ0EB6rOLb4vIHvTgx
+	E9R1metkVKVlDDZ7/o44EiNi1nFGpf1rrvXOdYe30yqUQKordhGNOhj8O1h1XZ6C
+	REiaXEKL28pCk7fmy3R9gHCT55Yv+Gz3/pJYnESWnKQW5PMBoy71IST/8rXLmo0o
+	vpgBDmbmAhTeaLsent2m9+yOJT+UzEG6WB4obSQchFFgoTxjpkEpJEz+LB6h9R/f
+	gvX3sQ==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g6gdeaexg-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 16:29:37 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-5174a23afcbso18678661cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 09:29:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1787329776; x=1787934576; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DFhFJP/IVjFFdhwkyRYn3nHcZ9DDbQ4DU++GQypzBxc=;
+        b=a3mKMGEsz8WmKoc8SrqCyrAlHrmhL0O/v4vCSa9KEvnLNIhciNdOlLcrnBngZPAAeC
+         1Z7GL269therR4N8KqQ6ucNHdjEiH69fP/YPdylQyNhaK2UuEgjQMPanvPmFSuXwh1F4
+         DqOttTRc86Wh9xUssNFHcK7YaPHrnzRZ82BNme9N+OxLl7r02duh18IDuQS+isgtA66J
+         cCdm96KgWvyMNWP0xtqTsEcN00Gq9PwJEpr6DqaPDWoFqP8eDek7k/U1cLzG83EgX7aD
+         6EgEaoD88b5o0JgTH0Py16JG0DDQMjz5reaXtRlyWi1Hunax929oi8tATjvVpBdwV5JT
+         hKeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787329776; x=1787934576;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=DFhFJP/IVjFFdhwkyRYn3nHcZ9DDbQ4DU++GQypzBxc=;
+        b=JsR/WacXpapff3Izg1izxhl0oEbIWfFNccV7vjM3pDkOQZiQjgUPTuaCIpTps6rBsS
+         2ib58snNYyOefJl0SpIxDc1gd+aPq76bR82N0YO93ZO+imd+jpRvyPbXcv2JsjzVhvkb
+         4tj7vZJcCx/+G30Zk4ccZtm+qokW+9O7X6TwEPYNz7aRdFy8ScMzjmY8DoPv3hKk9d7W
+         XZljzxNQILA4Z0lupf+48KvmFgJejHnNn0sbSatsRSqGpR1ZPQb24vYhzIYMMmGJre7w
+         bt11XubhzXjmB32a0L6byDdQXaGgR0flcoWtkbBVmomzmp0bqHeTgsxTbIM2dmcRVF9a
+         bQ8A==
+X-Forwarded-Encrypted: i=1; AHgh+Rp6vhmwyX2FwO3KUrcBtQPx3KUdNPQZDpafU9GmB27ouULAhJ7EcVzvQXXKC1noT+uYDMPu1vpNMmiFYTQjpcWK@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiZz3amF+H49lEwAl+RdyS2HndVVlwf4JLpwye1Qaysil7aAZv
+	/4te83wbJUACuzRHziKR+p8KpYwMw7KuFz306WxkpXnDGgm/L4G7dY7Ltyp2asGSsfMFPmfkPTp
+	O/fMEYxjj7/I1+TB7kuSzvPwLSFB3IUooFMxlMRR1IVAbe+r929JagvkeGCc7UMxzAd+uuTaWzl
+	f+0A==
+X-Gm-Gg: AR+sD11IB9Ks5a+eYYEy4x/LdYPEc+NLSYHF0PYOHOUOveX4YDVDAKXlhPtm3/EFG7t
+	nhbRS5+pmgNyZa3TU/gXSiOPm3oddVq+hmXew0MDXoeMZMDI1YOlt4tmfqCz2uezNK+GkaQALbS
+	KezMXMZdU5NfpTEhZkOZ3kSWZm8GsT0SVfino7klMHr+WWDiatGMl7WMuzo+wZ3yZwHQLHrDtR6
+	lWMBLH3YZUg9CfudiQwiGEURK76NgnXNG5eGvPocQSNr6qitx0R/jmNTclR6OEvgh0r062nDV+G
+	pA0B2MzuQRRDmmfCeWpitdB2NOmg7os9bzc3z20BDC+rpWZvDhtWt24wkFIEwfBoBmwH9SdznQi
+	Nx3m9cIwi76XVM0fddu8PW+OqbG3XTpEd
+X-Received: by 2002:ac8:5805:0:b0:52d:9c92:d558 with SMTP id d75a77b69052e-52df5a07540mr72188481cf.23.1787329776272;
+        Fri, 21 Aug 2026 09:29:36 -0700 (PDT)
+X-Received: by 2002:ac8:5805:0:b0:52d:9c92:d558 with SMTP id d75a77b69052e-52df5a07540mr72188021cf.23.1787329775827;
+        Fri, 21 Aug 2026 09:29:35 -0700 (PDT)
+Received: from [192.168.1.2] ([122.171.20.211])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-90c5eec1f31sm66561536d6.13.2026.08.21.09.29.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Aug 2026 09:29:35 -0700 (PDT)
+Message-ID: <3f92d72a-9f3e-4149-b37b-e138bdd86050@oss.qualcomm.com>
+Date: Fri, 21 Aug 2026 21:59:24 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: usb: Document ST UCPD
-To: Marek Vasut <marex@nabladev.com>, <linux-usb@vger.kernel.org>
-CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley
-	<conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Rob
- Herring" <robh@kernel.org>, Sebastian Reichel
-	<sebastian.reichel@collabora.com>, <devicetree@vger.kernel.org>,
-	<kernel@dh-electronics.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>
-References: <20260819163410.119755-1-marex@nabladev.com>
+Subject: Re: [PATCH v2 06/15] dt-bindings: interconnect: Add Qualcomm Kuno NoC
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Taniya Das <quic_tdas@quicinc.com>, Georgi Djakov <djakov@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Linus Walleij <linusw@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+        Radu Rendec <radu@rendec.net>, Robert Marko <robimarko@gmail.com>,
+        Guru Das Srinagesh <linux@gurudas.dev>, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+        linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
+References: <20260814-kuno-soc-support-v2-0-3079794f0f73@oss.qualcomm.com>
+ <20260814-kuno-soc-support-v2-6-3079794f0f73@oss.qualcomm.com>
+ <20260817-benevolent-nyala-from-valhalla-46cbbc@quoll>
 Content-Language: en-US
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-In-Reply-To: <20260819163410.119755-1-marex@nabladev.com>
-Content-Type: text/plain; charset="UTF-8"
+From: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+In-Reply-To: <20260817-benevolent-nyala-from-valhalla-46cbbc@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.251]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509FB:EE_|DB9PR10MB6642:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2fb3e4a3-7159-4259-96b1-08deffa10a63
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|1800799024|36860700016|376014|23010399003|18002099003|13003099007|3023799007|56012099006|10067099003|11063799006|5023799004|22082099003;
-X-Microsoft-Antispam-Message-Info: JI8P2/1LlV4pX6wbFtpUulS+Kup6ZZGif6bSnfBLhx8Typghtxw52ZL7CcFeI0dFSn8IF45kTbKbiUPaRGdD5mZdwvZiyOlbK7gBJTRQotCE5EfjCz6X4UKBI7HCHmnarX/wQKpHeUTB8eQK00ijsaqWWGYe+ttE6QQtkk3tSTMKsMktM+gRGEaDOtQenuTdVTe1RneR7j3rBmMisttLfRFbybBYnzded8kPrWYHppPygJhrliPbD2DrhdKD2ZmAk4PLDfH+qJ3VLYGpw8Q7+ccvZwfL+gIYJtbTQpSYLIjnpbcZqBxmZa7n6vECZb57vfNLqI43E/imSb8uUgBqO5CtWTqm0D15hTzenEjI0jG+RRH+HO7txJNeo5/40Oy5nafCwdpdMge+j6sBHg4stBedWhu46HLqWWQlulglRmzYOIRNfvxObryqyKmjZjG4aKtrrA9RosWZqDlUrUnjfqqTZ0prdQa+GDBwdJ4wavKQLBHTuv6E8iDOHO7321+DBi/Vvn8uhtYaSRvwFMK5/tdh8xmDN7HiSWNXjA2xQNC5+AxtGIjcGypN0OQhvr7Cx2p928HEw9/qP0D646yzCtQv+du0OdcR6HgGrHfrYGAvoATCZGJE3HlGa53Jwumrjx+Epmf9gcD37Fgywu2qBA==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(1800799024)(36860700016)(376014)(23010399003)(18002099003)(13003099007)(3023799007)(56012099006)(10067099003)(11063799006)(5023799004)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: O51Rpk1OOo6f9Lddo7Vdgv1o2u1zYv5zd0Z2oqzxL/SH4MeXzwqORwTTlVyNeuO63Q9S5PMnGwdvTR6vkFBX2RcnggOiaJqeH20DcIsrfe2XonrG0bBGKhHv6Z8qqLxvaHtpBC5RG8CATCD82OWiRcRgoZceIHGRip1T/kPhmSGZxzxR50h4+tXRomwUmCO5d7GClQi1SRvUu4f5q99ueS2fdR2Q/qlZQTJWc9HGAN6vRwPwLQ8Bru4rrzpRoVggr1PXE1ETLdugNCcM+i9xKlHqX20cjudqM5cYP6dQKbsUS+q+4O2b0s4XaEB0sWxZOfLQPVZVlF0BtdkYKn1k3hIoA9z8/oDDpnapA6fxPwNLtRevqnUwbad83/WhEahOYc3wZT+2SE0qKqtp1468x7rN80Kb1VX5YLXqBgFW+c2R/m8a/Wn4aihiRMFKPb7b
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 16:27:06.1092
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2fb3e4a3-7159-4259-96b1-08deffa10a63
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509FB.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR10MB6642
+X-Authority-Analysis: v=2.4 cv=BcroFLt2 c=1 sm=1 tr=0 ts=6a887cf1 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=+KmVXPE0btiop/5qwQKk0Q==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=gEfo2CItAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=acOcqc2iJ3WRxsWVYcEA:9
+ a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22 a=sptkURWiP4Gy88Gu7hUp:22
+X-Proofpoint-GUID: kGPsxJt6-HUC6en_ksSWaFUHE_P1GfcQ
+X-Proofpoint-ORIG-GUID: kGPsxJt6-HUC6en_ksSWaFUHE_P1GfcQ
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODIxMDEyOSBTYWx0ZWRfXyjQutZU7edir
+ Wmv4gTNXwHuJES71BJdzlP44HHxTogqkuXGr2aP79nc+T6YMTTshdz+joLnuFVtJEnqQdeQAgfG
+ DjuQ9jmKkQyvlw2Z2JquLR3P+E4IkBE=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODIxMDEyOSBTYWx0ZWRfX3p9A3LGJcxrc
+ JX7iyzy8D7MIqX0OHzVKCbkJ2hqlGc6OMdW29D+CHEwHbo5+jY3GDy/6v9kbClwT8RZ0cyJGGss
+ p5IC1aoXLoJBr/AXKOcqB2APr28lB5FwRLirTXnCId5Ed6JsuRJqXKkKwoE1esMUcRPK0Dlo0BS
+ N3zrAVIyJpYcmVnvNM8tQgw2wQ8AYHYzWbhlmD2fSGEFIJS/7bg3wknxbFDEQxfeiXB/C/15tWT
+ akXFXHYaiVkVI8FGqGJtQ+1zZsNfknzR9zStoS2ChaKzPEjxTs5pvjcOz5Q0ojPDCFmL6W9N983
+ DeI4V/ajMR0w7hr4Z7Qatbx391VgQ0d67WC009yW4XSREnSu/3bHxo+exxb1bInU5XvIfMDUV+C
+ EMSJK7zNjA+zWh7cIpDedB5vXXL7thVF+k2KzlpXI+RrGekiolEJWODdlEHB+prnqlHxE45doC7
+ lYC2EYuHcYWavdnAZNA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-21_05,2026-08-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 impostorscore=0 phishscore=0 malwarescore=0 suspectscore=0
+ priorityscore=1501 bulkscore=0 clxscore=1015 adultscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608210129
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_092710_915654_3DE42E2F 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20260821_092938_322663_8B308F4F 
+X-CRM114-Status: GOOD (  18.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,202 +166,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/19/26 18:33, Marek Vasut wrote:
-> Document ST UCPD Type-C block. The UCPD integrates the physical
-> layer of the Power Delivery (PD), with CC signaling method, for
-> operation with Type-C cables. Vbus and Vconn control is performed
-> using an external chip, usually ST TCPP01/TCPP02/TCPP03 or similar.
 
-Hi Marek, All,
+On 8/17/2026 12:58 PM, Krzysztof Kozlowski wrote:
+> On Fri, Aug 14, 2026 at 01:01:37PM +0530, Hardeep Sharma wrote:
+>> Document the RPMh-based Network-on-Chip interconnect providers and
+>> associated node-ID definitions for the Qualcomm Kuno SoC.
+>>
+>> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+>> ---
+>>   .../bindings/interconnect/qcom,kuno-rpmh.yaml      | 82 ++++++++++++++++++++
+>>   include/dt-bindings/interconnect/qcom,kuno.h       | 89 ++++++++++++++++++++++
+>>   2 files changed, 171 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/interconnect/qcom,kuno-rpmh.yaml b/Documentation/devicetree/bindings/interconnect/qcom,kuno-rpmh.yaml
+>> new file mode 100644
+>> index 000000000000..ffbf14356f12
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/interconnect/qcom,kuno-rpmh.yaml
+>> @@ -0,0 +1,82 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/interconnect/qcom,kuno-rpmh.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Qualcomm RPMh Network-On-Chip Interconnect on Kuno SoC
+>> +
+>> +maintainers:
+>> +  - Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+>> +
+>> +description: |
+>> +  RPMh interconnect providers support system bandwidth requirements through
+>> +  RPMh hardware accelerators known as Bus Clock Manager (BCM). The provider is
+>> +  able to communicate with the BCM through the Resource State Coordinator (RSC)
+>> +  associated with each execution environment. Provider nodes must point to at
+>> +  least one RPMh device child node pertaining to their RSC and each provider
+>> +  can map to multiple RPMh resources.
+>> +
+>> +  See also: include/dt-bindings/interconnect/qcom,kuno.h
+>> +
+>> +properties:
+>> +  compatible:
+>> +    enum:
+>> +      - qcom,kuno-aggre-noc
+>> +      - qcom,kuno-clk-virt
+>> +      - qcom,kuno-cnoc-main
+>> +      - qcom,kuno-dc-noc
+>> +      - qcom,kuno-mc-virt
+>> +      - qcom,kuno-mem-noc
+>> +      - qcom,kuno-pcie-anoc
+>> +      - qcom,kuno-system-noc
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    minItems: 1
+>> +    maxItems: 4
+>> +
+>> +  clock-names:
+>> +    minItems: 1
+>> +    maxItems: 4
+> Why are these flexible?
+>
+> Look at other bindings how this is done.
+>
+> Best regards,
+> Krzysztof
 
-I've sent a series for the complete case. Please check and review here:
-https://lore.kernel.org/linux-usb/20260821-ucpd-host-fusb340-v7-2-rfc-v1-0-c5e27cbc0795@foss.st.com/
+Thanks for review.
 
-Thanks,
-BR,
-Fabrice
+You're right.
 
-> 
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
-> ---
-> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: kernel@dh-electronics.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> Cc: linux-usb@vger.kernel.org
-> ---
->  .../bindings/usb/st,stm32mp25-ucpd.yaml       | 154 ++++++++++++++++++
->  1 file changed, 154 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/usb/st,stm32mp25-ucpd.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/usb/st,stm32mp25-ucpd.yaml b/Documentation/devicetree/bindings/usb/st,stm32mp25-ucpd.yaml
-> new file mode 100644
-> index 0000000000000..9b13efdc90597
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/st,stm32mp25-ucpd.yaml
-> @@ -0,0 +1,154 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/usb/st,stm32mp25-ucpd.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: STMicroelectronics STM32MP25 UCPD Type-C controller
-> +
-> +maintainers:
-> +  - Marek Vasut <marex@nabladev.com>
-> +
-> +description:
-> +  The UCPD integrates the physical layer of the Power Delivery (PD),
-> +  with CC signaling method, for operation with Type-C cables. Vbus
-> +  and Vconn control is performed using an external chip, usually
-> +  ST TCPP01/TCPP02/TCPP03 or similar.
-> +
-> +properties:
-> +  compatible:
-> +    const: st,stm32mp25-ucpd
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  access-controllers:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    minItems: 2
-> +    maxItems: 2
-> +
-> +  clock-names:
-> +    items:
-> +      - const: apb
-> +      - const: ker
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  nvmem-cells:
-> +    maxItems: 1
-> +
-> +  nvmem-cell-names:
-> +    const: trim
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  reset-names:
-> +    const: phy
-> +
-> +  vconn-gpios:
-> +    description: GPIOs used to control CC1 and CC2 Vconn
-> +
-> +  vdd33-supply:
-> +    description: Regulator that supplies the CC lines driver
-> +
-> +  connector:
-> +    type: object
-> +    $ref: /schemas/connector/usb-connector.yaml#
-> +    unevaluatedProperties: false
-> +
-> +    properties:
-> +      compatible:
-> +        const: usb-c-connector
-> +
-> +      power-role: true
-> +
-> +      typec-power-opmode: true
-> +
-> +    required:
-> +      - compatible
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - interrupts
-> +  - nvmem-cells
-> +  - nvmem-cell-names
-> +  - power-domains
-> +  - resets
-> +  - reset-names
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
-> +
-> +    ucpd: phy@480a0000 {
-> +        compatible = "st,stm32mp25-ucpd";
-> +        reg = <0x480a0000 0x1000>;
-> +        access-controllers = <&rifsc 69>;
-> +        clocks = <&rcc CK_BUS_USBTC>, <&rcc CK_KER_USBTC>;
-> +        clock-names = "apb", "ker";
-> +        interrupts = <46 IRQ_TYPE_LEVEL_HIGH>;
-> +        nvmem-cells = <&ucpdtrim>;
-> +        nvmem-cell-names = "trim";
-> +        power-domains = <&cluster_pd>;
-> +        resets = <&rcc USBTC_R>;
-> +        reset-names = "phy";
-> +
-> +        vconn-gpios = <&tcpp 0 0>, <&tcpp 1 0>;
-> +        vdd33-supply = <&scmi_vdd33ucpd>;
-> +
-> +        connector {
-> +            compatible = "usb-c-connector";
-> +            label = "USB-C";
-> +            data-role = "dual";
-> +            power-role = "source";
-> +            self-powered;
-> +            vbus-gpios = <&gpioa 10 0>;
-> +            vbus-supply = <&reg_usbc_vbus>;
-> +
-> +            altmodes {
-> +                displayport {
-> +                    svid = /bits/ 16 <0xff01>;
-> +                    vdo = <0xffffffff>;
-> +                };
-> +            };
-> +
-> +            ports {
-> +                #address-cells = <1>;
-> +                #size-cells = <0>;
-> +
-> +                port@0 {
-> +                    reg = <0>;
-> +                    usbc0_hs_ep: endpoint {
-> +                        remote-endpoint = <&usb_drd0_hs_ep>;
-> +                    };
-> +                };
-> +                port@1 {
-> +                    reg = <1>;
-> +                    usbc0_ss_ep: endpoint {
-> +                        remote-endpoint = <&usb_drd0_ss_ep>;
-> +                    };
-> +                };
-> +
-> +                port@2 {
-> +                    reg = <2>;
-> +                    usbc0_sbu_ep: endpoint {
-> +                        remote-endpoint = <&usb_sbu_ep>;
-> +                    };
-> +                };
-> +            };
-> +        };
-> +    };
+In v3 I've made the clocks fixed per compatible rather than a flexible 
+range, following the sdx75/glymur interconnect bindings.
+
+v3 : 
+https://lore.kernel.org/all/20260821-kuno-soc-support-v3-0-196e2b306368@oss.qualcomm.com/
+
+Best Wishes
+
+Hardeep Sharma
 
 
