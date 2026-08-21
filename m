@@ -4,88 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0B13C5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 07:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0934C5DF8F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 07:15:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=16wrpIYLOI0m5wqyuFzJT5HPywTkMkA0wd49jWhLIno=; b=nBt/fjblQfiFxK7MWAT70AnQit
-	YE/IyqFUc9QM11vzj9zL34p59R5lW2vXJtsMVO/mRUVV6Pdshqta9Yk1nAtF0Xt8dy2a2lx7plyE6
-	yCYlGT0cevRQ9dv9xkaD59kOXzl2Dhlifdwinh3VsV3EBicwgFcaF2a6mq2NVDj6AZhhGqa69usaj
-	v5+LGIKMbr8qrtj2sVbY0OrQ9Z99npjSd/y0TYP8TsJi7OeQOwdR6ab1zvsZU6JhfP5MDIMFtBTKq
-	qbcWE4q/fTWhU8DljBnyAGxmKfETgwurs31XV5vVdvhDV9WD/di9gXhamZzc3BzU+lSjRGkevRn5q
-	HQtNz9Mg==;
+	bh=9Y/Hk1ij4iIeeDeCgZ2taRMrjGJza1klMebG4Wvu7x0=; b=cCLNkG8HV4MeNldBJHKZ876IhG
+	Dyezyfi3eEXbtNkctduJdl6cSB8h/oIby4oaPz21EBdkgV/pLOg+3Z6Yb6ec8hjLT4KH4lDKHmj5h
+	grEy0CJn8yE7dbDw1NFaQkBRqj9jLA7mL7P20fzOg655lVH5rcucTn0T58MzE8f+lsBo3hBxvmJSp
+	XcuAtnTB7Ayl9fquQ+i8AzRYXgUh9fWgpQv3By1FY/SJKhovmkkxfKy/VI1PsMBUKr4pChg4S1VnY
+	480T9Rw9A1DkY4oa0+G4nLlaIOI0uPCAQDxYHgrILqRflmh8QwXhZApCRsbg0lHm2X9SahTOENkx1
+	XXCpdOvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJPk-0000000Cfm9-126N;
-	Fri, 21 Aug 2026 07:11:44 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wxJTg-0000000Cg8f-3sAv;
+	Fri, 21 Aug 2026 07:15:48 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJPh-0000000Cflm-1n0p
+	id 1wxJTe-0000000Cg7d-2whG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 07:11:42 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2cf50c6f235so8818335ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 00:11:40 -0700 (PDT)
+	Fri, 21 Aug 2026 07:15:47 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-ca7bea5e5b3so580202a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 00:15:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787296300; x=1787901100; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1787296546; x=1787901346; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=16wrpIYLOI0m5wqyuFzJT5HPywTkMkA0wd49jWhLIno=;
-        b=GMTH1COFRS2IeWmeqAstMbRyeECFT0HnbkAmyUygoY4yLKU79olWwU2TfLZg6LnR3+
-         q2XnCgN3LaQVb4uhAJ/IKy1NavIswL/mhZKul+Zu+SR6F6VQ9eI9Gk7KZD9n0VwI6Hep
-         nA96Al4XskKyH8hZ/DssJy9p795D5uaP2zfO/HEFFViShXY8VuZmUU/r6xzkep7Uukc/
-         JEEQBpKzgiw5ACehlwxMRJJZ00rplQHTVykiBLfaN6dl2Xdl4y9KgMWtNbZZUoHR/TRl
-         Xis19CT77RZZMrNEeVxUlT1gUMddmR3himDWiA3DqbrXT0O9s2SMImQWHa7bbtz5Boy0
-         9nZQ==
+        bh=9Y/Hk1ij4iIeeDeCgZ2taRMrjGJza1klMebG4Wvu7x0=;
+        b=cm8vpJFo9QS0LYHZ2sXo8zlAXekpwAYsP8XvLOFU0ctGsL04w5bCMk+SrFgs8LpkJG
+         0D7P+PdST6Yp5ehbsSkEa0IuWE2BlUdUPaHv+sZlJuPmIWtId5hZmywcrXDZjcfqzCWO
+         WRqtB9qFLaqYeFaF7+4BBOc1weEj4A+c8z9vShozY5aS5iU/FvKJBMeYCZ4+kjfx0WH7
+         J92FQUzFML23rBmdXcxAjFiZaB+d1Ovjz8DYrsXmElcfs3NuOk1nkmsRG0GpqyJiMKJZ
+         WQ7KvDBDWz8XFZFZWrJ3VbfqfLaLkXRjVjr1AO9Ih5dp4ukqpldRfWvxtsUlRonBMYQb
+         4Wag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787296300; x=1787901100;
+        d=1e100.net; s=20251104; t=1787296546; x=1787901346;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=16wrpIYLOI0m5wqyuFzJT5HPywTkMkA0wd49jWhLIno=;
-        b=cNOmWyu3Id9omD5yVYRnQGT52lUk+POzGTuKpfZ6zJcay3qj+eEz+xnMetml42HyTV
-         jLs1uFvAyzP1YTzx2a6jbvtXbBIJpNQTPOKRD7UXi/R3lVfdmHhk6iZyWw40/geSxvDQ
-         gvTHRIK9NYlqSncbBLRyDc7R0niEPA0UrUkzwGzHOviYt1/Ium8s3UrgnarYHqi46Gyb
-         P5sTlyIQWl/k48o+FSfcdPcrRHr0JjklwDD/pORiXuxJ+yuWj2t/Cb0isdvupOGgys8C
-         42RsV5frt/zFdID+G5xG+QvXIR284+WYpA2VQ7VDSdz7eFkrLiW1m2JIeQ9Z0OZ7Mbdq
-         DtpQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq44oBRJ0Iy8POGfYieB/e/RI8LTUgk6iVE5l8T4Xhb+0F3yYRWtumOVZbIfRM2vSEgb6sF+IXSL+GeQ6p+WnRi@lists.infradead.org
-X-Gm-Message-State: AFuF++n2AxgLXAvOMyVEoXxE/3EbOqDGaXXE+2vF0K3DkDE4RrwEy9f2
-	Dhv2kxvO4eivBG7t7hh0O4It4zoovMCNBmfad/gwlhuH5aDKWdCQjGE=
-X-Gm-Gg: AR+sD11f2hvb6TOt3GvC42sQc86MrunEn9QPpiX/mMigdH5NHEqpCPqFi49tor9CPRp
-	2saz/aojdao1+8tk28wKN677rtiFWhD2jfHNM1LPmKDP01Xm5QkjgXSNkTTmMI4F8iMdZ5yjVKO
-	pDXpO9KxO9xtgD9Fc/80tLhjAaVafMBj9yG3dXuwytc9IXN6V1HZmJ4GAaJGcaRbo6SCIk30R8y
-	ubrsVJ2ZzNKhaQK4oFI5wGAPC/ctNeDux+Dcwk7hEXxddwTe/nUfZsz6AKFhm+Geul9M3O1t29l
-	C9i1ivCA/IPBaO/bV39Ha8wOh13IjtZ33GfBWresT23SWU76981/EoB8PgYyU2QjR8oyr/b/bs7
-	Igsm0mlybtpo/YixRPWewyF4VNtDpccSvRU82/0WsZL7q7K6wDx6CdYT8Kmh/vW4axbN1IHtybF
-	pqYKSX6OQvnKUBCGy6dAwa2O5U1RpcK+A0sDqA198umdPQIV23mDacOvAW9pTFfBih9cyewQ76S
-	Q==
-X-Received: by 2002:a17:902:fc4f:b0:2d5:e9d5:8ae with SMTP id d9443c01a7336-2d64adf7718mr90616605ad.5.1787296299719;
-        Fri, 21 Aug 2026 00:11:39 -0700 (PDT)
+        bh=9Y/Hk1ij4iIeeDeCgZ2taRMrjGJza1klMebG4Wvu7x0=;
+        b=D1B33uLsC6GmWBszfQ8Sv1WBvag19+5IyZoobbYD5GdDurMtPQ38VvzIBgJuMtjfqH
+         8AMIN4nQbNsqg/QfudQKH8gQINjSTpSa8R9MGw/2kueXkaCvG/3kkbZJljIcQ49XHaoF
+         P7sMdJfOaR2X36muptHr69Wxs63/swJgDZyWLX4oVs1qyecUfUecd3wSxjzbu9v9O3CG
+         c5eCfFrjHVsztWIU+ZpRsz54Vth0Zk5ppbalKqCBbALkeGsqXLkc7SMlmcYIn1U8grNO
+         xB5o5NmZzDLr5/dPhdMgEGv0CZ7lCvOjFi+cAODfZXTObBl7LPmHymYniQ4PbZtfJnU2
+         IAEA==
+X-Forwarded-Encrypted: i=1; AHgh+Rrdm1YO2aiVvW+2ur/F3ZtHrCMnbQAxAAgBoQumqcFQSVoiyeiT8NEsSO5c8tRShpZOTtQBilaVOEqpi2HI/ys3@lists.infradead.org
+X-Gm-Message-State: AFuF++n5N5lqu3QIdtRxuMJ3XTewcDEgHyIn6kIkGiXGCRPZuCb0upQq
+	XxIghZyXpIA6fiIrpgtV2jvrZ5iAdUjghRvgm7ZQTlgQUtjVTPhLVc8=
+X-Gm-Gg: AR+sD10tw/mLlhr5eJStTLleuPivZYDBtKyY3qdKhRDEE0Dz4Oip1UuRzudSjzzY8xT
+	7MbRHzEjj2+dpkgfOFWsa9O4ZTg+xMQ5eg+EBnrEhHApmJNHZXmAaas22Zex0+nN9ZBViWJ62LI
+	Bh/Prdp5W58AwTqL+bxIa4nm0PbkIfWGuO7eX0aLr0aey1acBDinx2TLVJDyaOncbLxVkez9s+5
+	Nm4hMhxUaYu3/kZqbP5U5K7ht78MtaXXQf78j4Qy9JIP2je0c3kWSztkwieU4vqrf0dYoDPQLpq
+	INSpJ9LE9a/sVvDB4yvA/3ID/r4PZRiBpNbdL/pDaIPSPHltCfBm4rZjizS4+lUXn9t5+ERpEpl
+	ihmmPN0bhpJvpWi58QJpGe6k+O9nLGzOp7awB3hxk0dRkk/iPCz88Wzq1d/1ML4ksuHDid1LOTC
+	0JFLkEdfIX1BBEGbJ/BnUwYAIYaO2aXd+Nz6e+Rn8pjeCoFvpFDsqTgS54SaD4xJH5IY/JFz3jD
+	HogcfWWjmiyuA==
+X-Received: by 2002:a17:90a:da87:b0:38e:2860:253f with SMTP id 98e67ed59e1d1-395c3731c29mr8394315a91.12.1787296545832;
+        Fri, 21 Aug 2026 00:15:45 -0700 (PDT)
 Received: from DL2XHKPB4.dl.net ([103.63.104.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d62d5552cesm14793585ad.1.2026.08.21.00.11.37
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-395c4c194d2sm1951676a91.15.2026.08.21.00.15.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 00:11:39 -0700 (PDT)
+        Fri, 21 Aug 2026 00:15:45 -0700 (PDT)
 From: Triet Hoang <triet.hoang.dev@gmail.com>
-To: laurent.pinchart@ideasonboard.com
+To: sean@mess.org
 Cc: mchehab@kernel.org,
-	michal.simek@amd.com,
+	neil.armstrong@linaro.org,
+	khilman@baylibre.com,
+	jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
 	linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Triet Hoang <triet.hoang.dev@gmail.com>
-Subject: [PATCH] [media] v4l: xilinx: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
-Date: Fri, 21 Aug 2026 14:11:24 +0700
-Message-ID: <20260821071125.213335-1-triet.hoang.dev@gmail.com>
+Subject: [PATCH] media: rc: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
+Date: Fri, 21 Aug 2026 14:15:33 +0700
+Message-ID: <20260821071533.215821-1-triet.hoang.dev@gmail.com>
 X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_001141_469807_E75182F5 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20260821_001546_743487_6745056E 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,49 +119,77 @@ CONFIG_PM_SLEEP is disabled.
 
 Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
 ---
- drivers/media/platform/xilinx/xilinx-tpg.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/media/rc/meson-ir.c  | 6 +++---
+ drivers/media/rc/sunxi-cir.c | 8 ++++----
+ 2 files changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/media/platform/xilinx/xilinx-tpg.c b/drivers/media/platform/xilinx/xilinx-tpg.c
-index 7deec6e37edc..8bac01084605 100644
---- a/drivers/media/platform/xilinx/xilinx-tpg.c
-+++ b/drivers/media/platform/xilinx/xilinx-tpg.c
-@@ -686,7 +686,7 @@ static const struct media_entity_operations xtpg_media_ops = {
-  * Power Management
-  */
+diff --git a/drivers/media/rc/meson-ir.c b/drivers/media/rc/meson-ir.c
+index 272ebb0d97c8..795b38ca864a 100644
+--- a/drivers/media/rc/meson-ir.c
++++ b/drivers/media/rc/meson-ir.c
+@@ -567,7 +567,7 @@ static void meson_ir_shutdown(struct platform_device *pdev)
+ 	spin_unlock_irqrestore(&ir->lock, flags);
+ }
  
--static int __maybe_unused xtpg_pm_suspend(struct device *dev)
-+static int xtpg_pm_suspend(struct device *dev)
+-static __maybe_unused int meson_ir_resume(struct device *dev)
++static int meson_ir_resume(struct device *dev)
  {
- 	struct xtpg_device *xtpg = dev_get_drvdata(dev);
+ 	struct meson_ir *ir = dev_get_drvdata(dev);
  
-@@ -695,7 +695,7 @@ static int __maybe_unused xtpg_pm_suspend(struct device *dev)
+@@ -579,7 +579,7 @@ static __maybe_unused int meson_ir_resume(struct device *dev)
  	return 0;
  }
  
--static int __maybe_unused xtpg_pm_resume(struct device *dev)
-+static int xtpg_pm_resume(struct device *dev)
+-static __maybe_unused int meson_ir_suspend(struct device *dev)
++static int meson_ir_suspend(struct device *dev)
  {
- 	struct xtpg_device *xtpg = dev_get_drvdata(dev);
- 
-@@ -895,7 +895,7 @@ static void xtpg_remove(struct platform_device *pdev)
- 	xvip_cleanup_resources(&xtpg->xvip);
+ 	struct meson_ir *ir = dev_get_drvdata(dev);
+ 	unsigned long flags;
+@@ -591,7 +591,7 @@ static __maybe_unused int meson_ir_suspend(struct device *dev)
+ 	return 0;
  }
  
--static SIMPLE_DEV_PM_OPS(xtpg_pm_ops, xtpg_pm_suspend, xtpg_pm_resume);
-+static DEFINE_SIMPLE_DEV_PM_OPS(xtpg_pm_ops, xtpg_pm_suspend, xtpg_pm_resume);
+-static SIMPLE_DEV_PM_OPS(meson_ir_pm_ops, meson_ir_suspend, meson_ir_resume);
++static DEFINE_SIMPLE_DEV_PM_OPS(meson_ir_pm_ops, meson_ir_suspend, meson_ir_resume);
  
- static const struct of_device_id xtpg_of_id_table[] = {
- 	{ .compatible = "xlnx,v-tpg-5.0" },
-@@ -906,7 +906,7 @@ MODULE_DEVICE_TABLE(of, xtpg_of_id_table);
- static struct platform_driver xtpg_driver = {
+ static const struct meson_ir_param meson6_ir_param = {
+ 	.support_hw_decoder = false,
+diff --git a/drivers/media/rc/sunxi-cir.c b/drivers/media/rc/sunxi-cir.c
+index 28e840a7e5b8..7fd48c510143 100644
+--- a/drivers/media/rc/sunxi-cir.c
++++ b/drivers/media/rc/sunxi-cir.c
+@@ -236,19 +236,19 @@ static void sunxi_ir_hw_exit(struct device *dev)
+ 	reset_control_assert(ir->rst);
+ }
+ 
+-static int __maybe_unused sunxi_ir_suspend(struct device *dev)
++static int sunxi_ir_suspend(struct device *dev)
+ {
+ 	sunxi_ir_hw_exit(dev);
+ 
+ 	return 0;
+ }
+ 
+-static int __maybe_unused sunxi_ir_resume(struct device *dev)
++static int sunxi_ir_resume(struct device *dev)
+ {
+ 	return sunxi_ir_hw_init(dev);
+ }
+ 
+-static SIMPLE_DEV_PM_OPS(sunxi_ir_pm_ops, sunxi_ir_suspend, sunxi_ir_resume);
++static DEFINE_SIMPLE_DEV_PM_OPS(sunxi_ir_pm_ops, sunxi_ir_suspend, sunxi_ir_resume);
+ 
+ static int sunxi_ir_probe(struct platform_device *pdev)
+ {
+@@ -422,7 +422,7 @@ static struct platform_driver sunxi_ir_driver = {
  	.driver = {
- 		.name		= "xilinx-tpg",
--		.pm		= &xtpg_pm_ops,
-+		.pm		= pm_sleep_ptr(&xtpg_pm_ops),
- 		.of_match_table	= xtpg_of_id_table,
+ 		.name = SUNXI_IR_DEV,
+ 		.of_match_table = sunxi_ir_match,
+-		.pm = &sunxi_ir_pm_ops,
++		.pm = pm_sleep_ptr(&sunxi_ir_pm_ops),
  	},
- 	.probe			= xtpg_probe,
+ };
+ 
 -- 
 2.53.0
 
