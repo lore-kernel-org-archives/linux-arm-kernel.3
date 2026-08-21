@@ -4,96 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0934C5DF8F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 07:15:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A1CC5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 07:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9Y/Hk1ij4iIeeDeCgZ2taRMrjGJza1klMebG4Wvu7x0=; b=cCLNkG8HV4MeNldBJHKZ876IhG
-	Dyezyfi3eEXbtNkctduJdl6cSB8h/oIby4oaPz21EBdkgV/pLOg+3Z6Yb6ec8hjLT4KH4lDKHmj5h
-	grEy0CJn8yE7dbDw1NFaQkBRqj9jLA7mL7P20fzOg655lVH5rcucTn0T58MzE8f+lsBo3hBxvmJSp
-	XcuAtnTB7Ayl9fquQ+i8AzRYXgUh9fWgpQv3By1FY/SJKhovmkkxfKy/VI1PsMBUKr4pChg4S1VnY
-	480T9Rw9A1DkY4oa0+G4nLlaIOI0uPCAQDxYHgrILqRflmh8QwXhZApCRsbg0lHm2X9SahTOENkx1
-	XXCpdOvg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6xlKCRyJmUt4oo7s6EMRczgy6MnR0ePY4jhsRQ6cVx4=; b=mRkUQNT+Ofxe2GNYvFF3fufnQl
+	gJJsRHLUcTaIiU3njI9LqVWaVEEsqBzMpMhLCl5n+JrULEH8vfrpZfIc9e0kxLG/ZeVdFpm4MKeuj
+	PFqcxO1ESrox+GZGSjdYZ56OT52VkhhjNl+3atvXi1lV0N9nlyZIKwoq7jzWGFPlCbLz1yVBFuYQw
+	30tOVeC3CTm/n7lCcVmWj89og7ibJsDtzdcSRqc+87p4qW7chTjgtLwQf7hxlk3/hVaaLYK7m8XFo
+	ALovQNJqgwguek+gqa5EaFnJDdSdLgltl/Jvb7tny2jc14t4perHds4hMxoC5auXUDWw3Y4mJXXCb
+	72S3vD4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJTg-0000000Cg8f-3sAv;
-	Fri, 21 Aug 2026 07:15:48 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1wxJWT-0000000CgSF-2DpK;
+	Fri, 21 Aug 2026 07:18:41 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJTe-0000000Cg7d-2whG
+	id 1wxJWR-0000000CgRU-0w0D
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 07:15:47 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-ca7bea5e5b3so580202a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 00:15:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787296546; x=1787901346; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9Y/Hk1ij4iIeeDeCgZ2taRMrjGJza1klMebG4Wvu7x0=;
-        b=cm8vpJFo9QS0LYHZ2sXo8zlAXekpwAYsP8XvLOFU0ctGsL04w5bCMk+SrFgs8LpkJG
-         0D7P+PdST6Yp5ehbsSkEa0IuWE2BlUdUPaHv+sZlJuPmIWtId5hZmywcrXDZjcfqzCWO
-         WRqtB9qFLaqYeFaF7+4BBOc1weEj4A+c8z9vShozY5aS5iU/FvKJBMeYCZ4+kjfx0WH7
-         J92FQUzFML23rBmdXcxAjFiZaB+d1Ovjz8DYrsXmElcfs3NuOk1nkmsRG0GpqyJiMKJZ
-         WQ7KvDBDWz8XFZFZWrJ3VbfqfLaLkXRjVjr1AO9Ih5dp4ukqpldRfWvxtsUlRonBMYQb
-         4Wag==
+	Fri, 21 Aug 2026 07:18:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1787296718;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6xlKCRyJmUt4oo7s6EMRczgy6MnR0ePY4jhsRQ6cVx4=;
+	b=ZVjYQZzXFX1PGHsHJoItCFwAdnFShoEOKY84AvBJ6OwBe2rRWC/ajFmRWoPRgq7NOv11uO
+	+iRy8UKJ4ujfAdHF2uVn2KAF/WXL7xLQKK2y55ncnaEwlBU0dDN+hOqAi4HWJh+Hg6VTNb
+	SoLEvS/oPhe+LchwAwcGnG/YmMqsZAc=
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
+ [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-441-ze7NLlDdNgyrhHu1Tz-5IQ-1; Fri, 21 Aug 2026 03:18:26 -0400
+X-MC-Unique: ze7NLlDdNgyrhHu1Tz-5IQ-1
+X-Mimecast-MFC-AGG-ID: ze7NLlDdNgyrhHu1Tz-5IQ_1787296705
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-84859a64079so1073065b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 00:18:26 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787296546; x=1787901346;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1787296705; x=1787901505;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=9Y/Hk1ij4iIeeDeCgZ2taRMrjGJza1klMebG4Wvu7x0=;
-        b=D1B33uLsC6GmWBszfQ8Sv1WBvag19+5IyZoobbYD5GdDurMtPQ38VvzIBgJuMtjfqH
-         8AMIN4nQbNsqg/QfudQKH8gQINjSTpSa8R9MGw/2kueXkaCvG/3kkbZJljIcQ49XHaoF
-         P7sMdJfOaR2X36muptHr69Wxs63/swJgDZyWLX4oVs1qyecUfUecd3wSxjzbu9v9O3CG
-         c5eCfFrjHVsztWIU+ZpRsz54Vth0Zk5ppbalKqCBbALkeGsqXLkc7SMlmcYIn1U8grNO
-         xB5o5NmZzDLr5/dPhdMgEGv0CZ7lCvOjFi+cAODfZXTObBl7LPmHymYniQ4PbZtfJnU2
-         IAEA==
-X-Forwarded-Encrypted: i=1; AHgh+Rrdm1YO2aiVvW+2ur/F3ZtHrCMnbQAxAAgBoQumqcFQSVoiyeiT8NEsSO5c8tRShpZOTtQBilaVOEqpi2HI/ys3@lists.infradead.org
-X-Gm-Message-State: AFuF++n5N5lqu3QIdtRxuMJ3XTewcDEgHyIn6kIkGiXGCRPZuCb0upQq
-	XxIghZyXpIA6fiIrpgtV2jvrZ5iAdUjghRvgm7ZQTlgQUtjVTPhLVc8=
-X-Gm-Gg: AR+sD10tw/mLlhr5eJStTLleuPivZYDBtKyY3qdKhRDEE0Dz4Oip1UuRzudSjzzY8xT
-	7MbRHzEjj2+dpkgfOFWsa9O4ZTg+xMQ5eg+EBnrEhHApmJNHZXmAaas22Zex0+nN9ZBViWJ62LI
-	Bh/Prdp5W58AwTqL+bxIa4nm0PbkIfWGuO7eX0aLr0aey1acBDinx2TLVJDyaOncbLxVkez9s+5
-	Nm4hMhxUaYu3/kZqbP5U5K7ht78MtaXXQf78j4Qy9JIP2je0c3kWSztkwieU4vqrf0dYoDPQLpq
-	INSpJ9LE9a/sVvDB4yvA/3ID/r4PZRiBpNbdL/pDaIPSPHltCfBm4rZjizS4+lUXn9t5+ERpEpl
-	ihmmPN0bhpJvpWi58QJpGe6k+O9nLGzOp7awB3hxk0dRkk/iPCz88Wzq1d/1ML4ksuHDid1LOTC
-	0JFLkEdfIX1BBEGbJ/BnUwYAIYaO2aXd+Nz6e+Rn8pjeCoFvpFDsqTgS54SaD4xJH5IY/JFz3jD
-	HogcfWWjmiyuA==
-X-Received: by 2002:a17:90a:da87:b0:38e:2860:253f with SMTP id 98e67ed59e1d1-395c3731c29mr8394315a91.12.1787296545832;
-        Fri, 21 Aug 2026 00:15:45 -0700 (PDT)
-Received: from DL2XHKPB4.dl.net ([103.63.104.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-395c4c194d2sm1951676a91.15.2026.08.21.00.15.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 00:15:45 -0700 (PDT)
-From: Triet Hoang <triet.hoang.dev@gmail.com>
-To: sean@mess.org
-Cc: mchehab@kernel.org,
-	neil.armstrong@linaro.org,
-	khilman@baylibre.com,
-	jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Triet Hoang <triet.hoang.dev@gmail.com>
-Subject: [PATCH] media: rc: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
-Date: Fri, 21 Aug 2026 14:15:33 +0700
-Message-ID: <20260821071533.215821-1-triet.hoang.dev@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        bh=6xlKCRyJmUt4oo7s6EMRczgy6MnR0ePY4jhsRQ6cVx4=;
+        b=r4LB+mxx7C0dwMkg2FjJKFCPB4K4Z917VLXzurfNCO+s+5WOGLdHLzA34hJgutX7WC
+         D/5HKQfZJOT1uV5lwkvIrnuzcj6/vQ5wdbgZz67EQjas37AZHlsmE5GOWyUAMN1FxMEJ
+         YSTkGsaMcURrVezZv2HJIsU2n0KtRd+QMc2ugYyS58uOjLYtpOBIH3qEA+PP9uSrIi4C
+         lO3oF443Ht0VhDPWRIjUK3+zTUTIjL5Zh1Rj5b583d3G33ComiNn9I9KOwTZs86cglvU
+         hxfFdmg+3PI8QFVW9+2FCssUHqIVUoTrLGq2dBGCXaurNz8JXztCb6SbDxawnE5Way1y
+         qLTw==
+X-Forwarded-Encrypted: i=1; AHgh+RqneEuonJjRBk5bux49e9n6vLgyZKr4xtV7YLIT1b4zOby3ogwCgrXFipZ0pETYPOCeY8hGAoiwnNLjnEHW8c+S@lists.infradead.org
+X-Gm-Message-State: AFuF++nrZRT0y9V7zRcNGSntvCq8yfJfkTAZDXVQ8mq8Tnd3vtkO6Niw
+	tC9F2AN1N6aiz/aWUwOderM5xbEKOY5f5HV6m2LolqRLlVVvGdzZiAhjsb71mqINoeoT6NFJ00n
+	P4dQ2kzXUq4LKQnP5a3+zvJwFD67tPF5QTVCPeT7UUTUqM7tIM5T+/Pez2bb7hSYhiVm8AjbACn
+	FJ
+X-Gm-Gg: AR+sD13Vz0Gvk3Tw8CUzoY/9ld1lhN1RaXipNAQ7kUJmVoCyvErJGp1wkO1/Date0hF
+	mR3fdyfTlycpxXv5xahAhLQC8maXjVBk2+BZmQ/I8MJSF+V3jloa7WZ8oT05t4oW6fStOqa2qRy
+	UIUIWNZkgOIIxOhgwD1OtUEd/JCFjZQYkzUHp7Tb3+miaxqQK8YYqfjLTtpTdnWeOBEhjBeP8xc
+	DfRCiueO3J3tVhcdgFirM2aX6Cxz641u/vVBBOSnqRxPVlupcVFJuq3Pde4X2IhdyKz4s038+3r
+	0ngBBFKycNCT8GgV144KrGfGxxSfYAD6TWTJYk192vhY5VnPeV4rryCHPKqYetskiS/hiDzGWDw
+	hV+BQdHwU0PR19A4QeQ==
+X-Received: by 2002:a05:6a00:179a:b0:847:8449:2ba6 with SMTP id d2e1a72fcca58-851f9f66789mr6258579b3a.8.1787296705123;
+        Fri, 21 Aug 2026 00:18:25 -0700 (PDT)
+X-Received: by 2002:a05:6a00:179a:b0:847:8449:2ba6 with SMTP id d2e1a72fcca58-851f9f66789mr6258522b3a.8.1787296704696;
+        Fri, 21 Aug 2026 00:18:24 -0700 (PDT)
+Received: from [192.168.1.3] ([122.171.22.116])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-851d3361d24sm2509087b3a.5.2026.08.21.00.18.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Aug 2026 00:18:24 -0700 (PDT)
+Message-ID: <713ab0a0-235d-47cf-a0c2-73249fbc8f74@redhat.com>
+Date: Fri, 21 Aug 2026 12:48:15 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] kexec: fix error propagation in
+ kexec_image_probe_default()
+To: Pratyush Yadav <pratyush@kernel.org>, Philipp Rudo <prudo@redhat.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>,
+ Baoquan He <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, Tao Liu <ltao@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ kexec@lists.infradead.org
+References: <20260819-mpilaniy-v2-0-95e929ede0e5@redhat.com>
+ <20260819-mpilaniy-v2-2-95e929ede0e5@redhat.com>
+ <20260820142114.0a36ac78@rotkaeppchen> <2vxzik54zmpp.fsf@kernel.org>
+From: Mukesh Pilaniya <mpilaniy@redhat.com>
+In-Reply-To: <2vxzik54zmpp.fsf@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: g0xRQxrrgpb5KTTy_enP3XQ87na1Pi-WZkUoFCqSjfk_1787296705
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_001546_743487_6745056E 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20260821_001839_333493_5B03C663 
+X-CRM114-Status: GOOD (  24.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,89 +122,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the deprecated SIMPLE_DEV_PM_OPS
-to DEFINE_SIMPLE_DEV_PM_OPS
-and pm_sleep_ptr().
+Hi Philipp,
 
-This lets us drop the __maybe_unused annotations
-from its suspend and resume callbacks,
-also reduces kernel size in case CONFIG_PM or
-CONFIG_PM_SLEEP is disabled.
+On 20/08/26 11:41 pm, Pratyush Yadav wrote:
+> On Thu, Aug 20 2026, Philipp Rudo wrote:
+> 
+>> Hi Mukesh,
+>> Hi Pratyush,
+>>
+>> having this patch makes sense. Personally I'd go with having a
+>> switch-case rather than individual if-blocks. E.g.
+>>
+>> 	switch (ret) {
+>> 		case 0:
+>> 			image->fops = *fops;
+>> 			return 0;
+>> 		case -ENOEXEC:
+>> 			continue;
+>> 		default:
+>> 			return ret;
+>> 	}
+>>
+>> IMHO that is better readable and easier to extend in case other error
+>> codes need special handling as well. But that is only my personal
+>> opinion.
+> 
+> Well, IMO both look roughly the same so I unless Mukesh prefers your
+> version more, we can keep it as-is.
+> 
+Thanks for the review. I agree the switch-case reads nicely, but since
+the current version is functionally equivalent and already
+reviewed, I'll keep it as-is to avoid re-spinning for a style change.
+Happy to switch if you or Pratyush feel strongly about it.
 
-Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
----
- drivers/media/rc/meson-ir.c  | 6 +++---
- drivers/media/rc/sunxi-cir.c | 8 ++++----
- 2 files changed, 7 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/media/rc/meson-ir.c b/drivers/media/rc/meson-ir.c
-index 272ebb0d97c8..795b38ca864a 100644
---- a/drivers/media/rc/meson-ir.c
-+++ b/drivers/media/rc/meson-ir.c
-@@ -567,7 +567,7 @@ static void meson_ir_shutdown(struct platform_device *pdev)
- 	spin_unlock_irqrestore(&ir->lock, flags);
- }
- 
--static __maybe_unused int meson_ir_resume(struct device *dev)
-+static int meson_ir_resume(struct device *dev)
- {
- 	struct meson_ir *ir = dev_get_drvdata(dev);
- 
-@@ -579,7 +579,7 @@ static __maybe_unused int meson_ir_resume(struct device *dev)
- 	return 0;
- }
- 
--static __maybe_unused int meson_ir_suspend(struct device *dev)
-+static int meson_ir_suspend(struct device *dev)
- {
- 	struct meson_ir *ir = dev_get_drvdata(dev);
- 	unsigned long flags;
-@@ -591,7 +591,7 @@ static __maybe_unused int meson_ir_suspend(struct device *dev)
- 	return 0;
- }
- 
--static SIMPLE_DEV_PM_OPS(meson_ir_pm_ops, meson_ir_suspend, meson_ir_resume);
-+static DEFINE_SIMPLE_DEV_PM_OPS(meson_ir_pm_ops, meson_ir_suspend, meson_ir_resume);
- 
- static const struct meson_ir_param meson6_ir_param = {
- 	.support_hw_decoder = false,
-diff --git a/drivers/media/rc/sunxi-cir.c b/drivers/media/rc/sunxi-cir.c
-index 28e840a7e5b8..7fd48c510143 100644
---- a/drivers/media/rc/sunxi-cir.c
-+++ b/drivers/media/rc/sunxi-cir.c
-@@ -236,19 +236,19 @@ static void sunxi_ir_hw_exit(struct device *dev)
- 	reset_control_assert(ir->rst);
- }
- 
--static int __maybe_unused sunxi_ir_suspend(struct device *dev)
-+static int sunxi_ir_suspend(struct device *dev)
- {
- 	sunxi_ir_hw_exit(dev);
- 
- 	return 0;
- }
- 
--static int __maybe_unused sunxi_ir_resume(struct device *dev)
-+static int sunxi_ir_resume(struct device *dev)
- {
- 	return sunxi_ir_hw_init(dev);
- }
- 
--static SIMPLE_DEV_PM_OPS(sunxi_ir_pm_ops, sunxi_ir_suspend, sunxi_ir_resume);
-+static DEFINE_SIMPLE_DEV_PM_OPS(sunxi_ir_pm_ops, sunxi_ir_suspend, sunxi_ir_resume);
- 
- static int sunxi_ir_probe(struct platform_device *pdev)
- {
-@@ -422,7 +422,7 @@ static struct platform_driver sunxi_ir_driver = {
- 	.driver = {
- 		.name = SUNXI_IR_DEV,
- 		.of_match_table = sunxi_ir_match,
--		.pm = &sunxi_ir_pm_ops,
-+		.pm = pm_sleep_ptr(&sunxi_ir_pm_ops),
- 	},
- };
- 
--- 
-2.53.0
+>>
+>> Independent on which implementation you use.
+>>
+>> Reviewed-by: Philipp Rudo <prudo@redhat.com>
+> 
+> Thanks for reviewing!
+> 
+> One tiny suggestion. Can you please reply in-line the next time around?
+> It is a bit easier reading this response below the code that it refers
+> to.
+> 
+>>
+>>
+>> On Wed, 19 Aug 2026 23:17:23 +0530
+>> Mukesh Pilaniya <mpilaniy@redhat.com> wrote:
+>>
+>>> kexec_image_probe_default() overwrites ret with each loader's probe
+>>> return value and returns whatever the last loader returned when no
+>>> probe matches.  The error code reaching userspace depends on whichever
+>>> loader happens to be last in kexec_file_loaders[].
+>>>
+>>> Only continue to the next loader when a probe returns -ENOEXEC.
+>>> Propagate any other error such as -ENOMEM immediately. Return -ENOEXEC
+>>> only when all loaders have been tried and none matched.
+>>>
+>>> Suggested-by: Pratyush Yadav <pratyush@kernel.org>
+>>> Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
+>>> ---
+>>>  kernel/kexec_file.c | 12 +++++++-----
+>>>  1 file changed, 7 insertions(+), 5 deletions(-)
+>>>
+>>> diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
+>>> index 59fb9d71e9d8..b3060e984ef3 100644
+>>> --- a/kernel/kexec_file.c
+>>> +++ b/kernel/kexec_file.c
+>>> @@ -68,17 +68,19 @@ int kexec_image_probe_default(struct kimage *image, void *buf,
+>>>  			      unsigned long buf_len)
+>>>  {
+>>>  	const struct kexec_file_ops * const *fops;
+>>> -	int ret = -ENOEXEC;
+>>>  
+>>>  	for (fops = &kexec_file_loaders[0]; *fops && (*fops)->probe; ++fops) {
+>>> -		ret = (*fops)->probe(buf, buf_len);
+>>> -		if (!ret) {
+>>> +		int ret = (*fops)->probe(buf, buf_len);
+>>> +
+>>> +		if (ret == 0) {
+>>>  			image->fops = *fops;
+>>> -			return ret;
+>>> +			return 0;
+>>>  		}
+>>> +		if (ret != -ENOEXEC)
+>>> +			return ret;
+>>>  	}
+>>>  
+>>> -	return ret;
+>>> +	return -ENOEXEC;
+>>>  }
+>>>  
+>>>  static void *kexec_image_load_default(struct kimage *image)
+>>>
+>>
+> 
 
 
