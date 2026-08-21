@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7672FC5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 21:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 772E8C5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 22:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gRq+qzopR5CZIo+DD/Zd0DVuepZBIeDP3cju5ARGMHc=; b=p0v5ysvRuO1okN3EjuyLzb8E5V
-	d8T6dO7Zevn1fP/y/LYL/9cwe071pVWBh1W99XsKl5artsr3kZQHHU6ZcRHxbjuIJQmAJBJFXuOSE
-	rcaTzJ3PxiB6DuggEVxT2bA3CICwd/9O46VyCq6hVSB/mjj65tKFYobXSP4hO9a0s14fUnmWJGNib
-	K49rnj5v/WVCmKvti4PqoRROPaIfFxZpM7N3QTzlsx9PdCrDORmgg98z2MycjVLEwmJVbEVo61eeq
-	TGus4JjWHcynLMV3kpY3T5MLyfZOUY6D7tKH/zGJMDEh403M5/ts/855+vrrqqOa0ULSPt8sSbQZ+
-	pGdEdOGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FMsnrWky6nnIbMZo7oybp8hGSrSxKTLqYIBn/2T4aqI=; b=aJOqutKr/xb6JCG+aU+Mb/1Enb
+	/HyXGJ+jtu92FqKNcW76WhWFVxQ1eUTqLguhFcQJw9KFiuO4PN/qiuJCKJAH3w/XTZ/BhNKyw1M9W
+	ffhiVAaVCX4sAwch5qg7Jf9fiI4HiHut0XR6L9caswEGlfM129W/WoKcFpgaHemB1GnFylsxvHKQ9
+	QHYy/bK4QXvraJ+NOVMSQCIEQiP3kPst0rbr0DEeVpsdRDOjUgODwh7dEf2QRUFx93izpQd7YKWRA
+	4wI+J2YE3jjTKPQnJF9+2i8xEWGio7jHL097aElu6AB2SLoA1qKzrZikXN3BTVuh45Zdy5TiIaWge
+	qI1R8JTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxX9O-0000000E51F-2WYW;
-	Fri, 21 Aug 2026 21:51:46 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wxXIe-0000000E5fv-4Aji;
+	Fri, 21 Aug 2026 22:01:21 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxX9B-0000000E4ul-4Ahm
+	id 1wxXIY-0000000E5fb-2i8T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 21:51:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=gRq+qzopR5CZIo+DD/Zd0DVuepZBIeDP3cju5ARGMHc=; b=liZAiCoCP4ol9dukgTEARohKuc
-	brmBSIKeQBGXhO7xh6NtcNaVQTR9Z256F6uu6m02+LYAHT36HrMKJ2zy9FhHH4EvzFd92X/QXrVts
-	ODngfqA5Jp5npblw++iUdeKB1dmlOetDy+FD3D58IsWrOTYuPnPPZLfZrxOsd8DTpzTWTQE3RbznC
-	awfbMDnFApzKn0JXwmCN77kNK5iPM2tYYaMSDcOMnAXIkSmlIzuP1l9MRPvW0005blI30fXtasGU8
-	kL9hoJmxc94oeyIRi6ONhn2U223CdtiEFT/sjUlFLUKiaDp6VxRtbFN/KusSQhxRMnCoYJOYIFy+t
-	fFaQi9Tg==;
-Received: from [177.139.22.20] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wxX8o-007ErF-CK; Fri, 21 Aug 2026 23:51:10 +0200
-From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Fri, 21 Aug 2026 18:50:45 -0300
-Subject: [PATCH v8 4/4] arm64: vdso32: Implement
- __vdso_futex_robust_try_unlock()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260821-tonyk-robust_arm-v8-4-077707b6f1c7@igalia.com>
-References: <20260821-tonyk-robust_arm-v8-0-077707b6f1c7@igalia.com>
-In-Reply-To: <20260821-tonyk-robust_arm-v8-0-077707b6f1c7@igalia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Peter Zijlstra <peterz@infradead.org>, Florian Weimer <fweimer@redhat.com>, 
- Darren Hart <dvhart@infradead.org>, Ingo Molnar <mingo@kernel.org>, 
- Davidlohr Bueso <dave@stgolabs.net>, Arnd Bergmann <arnd@arndb.de>, 
- Uros Bizjak <ubizjak@gmail.com>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arch@vger.kernel.org, kernel-dev@igalia.com, 
- LKML <linux-kernel@vger.kernel.org>, 
- =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-X-Mailer: b4 0.15.2
+	Fri, 21 Aug 2026 22:01:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787349675; x=1818885675;
+  h=date:from:to:cc:subject:message-id;
+  bh=pj5avFMWdUFjdAoJBkO/qnxiaO0qUFxXBT/FaTjjIBg=;
+  b=DbtnqoGcsBinICmYTK5NM/tL7C8QBLd0AoHJQLNLPnKbDMemu4u2+85J
+   K4UAcUYCt2VKI+UVpXOvlDaqvtpv3Yu+kdHbUTQRUi9QWW8YcIomCglq9
+   I+NbVKJ2cy6VW/Wo5cC+UJMSDhWH9sAJMOZ1dWvRmakAjaAqhXG302lqu
+   PDCfKULjYtdQimcH4qrbWY8hyuyEBe9KHnCniXrnZuIAHSTB3LupcsPNh
+   73CeGwxOuP3NAier6N/TIXxZ/Ra2y11AZcjAYXlM9Imetk+8E9xzB1Sae
+   3lv+zKtSHHp4NZba78xU79uCi9Z/DZjtd3JlgSzjcYcdHPo/xTmxSmAqo
+   g==;
+X-CSE-ConnectionGUID: LeX/FXXOQ3aAamjlhNMPyg==
+X-CSE-MsgGUID: akr7Qo+RRry9ZjvE50G4yw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11882"; a="98494975"
+X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
+   d="scan'208";a="98494975"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2026 15:01:13 -0700
+X-CSE-ConnectionGUID: rFjV5Q/2QU6IbNEjpuX+bg==
+X-CSE-MsgGUID: RdoW6DhHTYCvgLYWT/DZlA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
+   d="scan'208";a="271672962"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 21 Aug 2026 15:01:12 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wxXIT-00000000qVh-2mRl;
+	Fri, 21 Aug 2026 22:01:09 +0000
+Date: Sat, 22 Aug 2026 06:00:33 +0800
+From: kernel test robot <lkp@intel.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: [linusw-nomadik:b4/ux500-power-domains-v7-2] BUILD SUCCESS
+ 2a0960023575ddaed421e8c109b6fc17bb45bafc
+Message-ID: <202608220621.eNlrsDFF-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_145134_353306_4B71EC64 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20260821_150114_754134_D471EDD1 
+X-CRM114-Status: UNSURE (   5.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,156 +83,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Based on aarch64 implementation, provide a 32 bit entry point for
-this vDSO.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/ux500-power-domains-v7-2
+branch HEAD: 2a0960023575ddaed421e8c109b6fc17bb45bafc  ARM: dts: ux500: Remove DB8500 EPOD regulators
 
-In order to keep compatibility with arm64_futex_robust_unlock_get_pop(),
-make sure to store the pop address at r2 and the compare result value
-at r3.
+elapsed time: 2927m
 
-Signed-off-by: André Almeida <andrealmeid@igalia.com>
----
-v7:
- - The store needs to be a release store, so s/strex/stlex/
- - result reg clobber modified to "=&r" to make sure the compiler don't use
- the r3 reg for something else
- - pop_reg will be read after the execution so it should be an output
- parameter with "+Q"
----
- arch/arm64/kernel/vdso.c            | 15 ++++++++++++++-
- arch/arm64/kernel/vdso32/Makefile   |  4 ++++
- arch/arm64/kernel/vdso32/vdso.lds.S |  9 +++++++++
- arch/arm64/kernel/vdso32/vfutex.c   | 34 ++++++++++++++++++++++++++++++++++
- 4 files changed, 61 insertions(+), 1 deletion(-)
+configs tested: 99
+configs skipped: 1
 
-diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
-index dc6b582736d0..5cae9c17ec72 100644
---- a/arch/arm64/kernel/vdso.c
-+++ b/arch/arm64/kernel/vdso.c
-@@ -78,11 +78,19 @@ static inline void vdso_futex_update_ips(struct mm_struct *mm)
- 				VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_end));
- }
- 
-+static inline void aarch32_vdso_futex_update_ips(struct mm_struct *mm)
-+{
-+	unsigned long vdso = (unsigned long) mm->context.vdso;
-+
-+	__vdso_futex_update_ips(mm, true,
-+				VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_start),
-+				VDSO_SYMBOL(vdso, futex_list32_try_unlock_cs_end));
-+}
- #else
- static inline void vdso_futex_update_ips(struct mm_struct *mm) {}
-+static inline void aarch32_vdso_futex_update_ips(struct mm_struct *mm) {}
- #endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
- 
--
- static int vdso_mremap(const struct vm_special_mapping *sm,
- 		struct vm_area_struct *new_vma)
- {
-@@ -195,6 +203,8 @@ static int aarch32_mremap(const struct vm_special_mapping *sm,
- {
- 	current->mm->context.vdso = (void *)new_vma->vm_start;
- 
-+	aarch32_vdso_futex_update_ips(current->mm);
-+
- 	return 0;
- }
- 
-@@ -327,6 +337,7 @@ static int aarch32_sigreturn_setup(struct mm_struct *mm)
- 	return PTR_ERR_OR_ZERO(ret);
- }
- 
-+
- int aarch32_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
- {
- 	struct mm_struct *mm = current->mm;
-@@ -347,6 +358,8 @@ int aarch32_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
- 	}
- 
- 	ret = aarch32_sigreturn_setup(mm);
-+
-+	aarch32_vdso_futex_update_ips(mm);
- out:
- 	mmap_write_unlock(mm);
- 	return ret;
-diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
-index 4bd60f059f4a..f3190125c68b 100644
---- a/arch/arm64/kernel/vdso32/Makefile
-+++ b/arch/arm64/kernel/vdso32/Makefile
-@@ -97,6 +97,10 @@ munge := ../../../arm/vdso/vdsomunge
- hostprogs := $(munge)
- 
- c-obj-vdso := note.o
-+ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+  c-obj-vdso += vfutex.o
-+endif
-+
- c-obj-vdso-gettimeofday := vgettimeofday.o
- 
- ifneq ($(c-gettimeofday-y),)
-diff --git a/arch/arm64/kernel/vdso32/vdso.lds.S b/arch/arm64/kernel/vdso32/vdso.lds.S
-index 12bfc39e8aab..52ced27d6045 100644
---- a/arch/arm64/kernel/vdso32/vdso.lds.S
-+++ b/arch/arm64/kernel/vdso32/vdso.lds.S
-@@ -89,6 +89,15 @@ VERSION
- #endif /* CONFIG_COMPAT_32BIT_TIME */
- 		__vdso_clock_gettime64;
- 		__vdso_clock_getres_time64;
-+#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+		__vdso_futex_robust_list32_try_unlock;
-+#endif
- 	local: *;
- 	};
- }
-+
-+#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+VDSO_futex_list32_try_unlock_cs_success = __futex_list32_try_unlock_cs_success;
-+VDSO_futex_list32_try_unlock_cs_start = __futex_list32_try_unlock_cs_start;
-+VDSO_futex_list32_try_unlock_cs_end = __futex_list32_try_unlock_cs_end;
-+#endif
-diff --git a/arch/arm64/kernel/vdso32/vfutex.c b/arch/arm64/kernel/vdso32/vfutex.c
-new file mode 100644
-index 000000000000..0d9080b17965
---- /dev/null
-+++ b/arch/arm64/kernel/vdso32/vfutex.c
-@@ -0,0 +1,34 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+#include <linux/stringify.h>
-+#include <vdso/futex.h>
-+
-+__u32 __vdso_futex_robust_list32_try_unlock(__u32 *lock, __u32 tid, __u32 *pop)
-+{
-+	register __u32 *pop_reg asm("r2") = pop, result_reg asm("r3") = 0;
-+	__u32 val, zero = 0;
-+
-+	asm volatile (
-+		".globl						  "
-+		"__futex_list32_try_unlock_cs_start,		  "
-+		"__futex_list32_try_unlock_cs_success,		  "
-+		"__futex_list32_try_unlock_cs_end		\n"
-+
-+		"retry:						\n"
-+		"	ldrex %[val], %[lock]			\n"
-+		"	cmp %[tid], %[val]			\n"
-+		"	bne __futex_list32_try_unlock_cs_end	\n"
-+		"	stlex %[result], %[zero], %[lock]	\n"
-+		"__futex_list32_try_unlock_cs_start:		\n"
-+		"	cmp %[result], #0			\n"
-+		"	bne retry				\n"
-+		"__futex_list32_try_unlock_cs_success:		\n"
-+		"	str %[zero], %[pop_reg]			\n"
-+		"__futex_list32_try_unlock_cs_end:		\n"
-+
-+		: [val] "=&r" (val), [result] "=&r" (result_reg), [pop_reg] "+Q" (*pop_reg)
-+		: [tid] "r" (tid), [lock] "Q" (*lock), [zero] "r" (zero)
-+		: "cc", "memory"
-+	);
-+
-+	return val;
-+}
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
--- 
-2.55.0
+tested configs:
+alpha                            allnoconfig    gcc-16.1.0
+alpha                           allyesconfig    gcc-16.1.0
+alpha                              defconfig    gcc-16.1.0
+arc                             allmodconfig    gcc-16.1.0
+arc                             allyesconfig    gcc-16.1.0
+arc                  randconfig-001-20260820    gcc-16.1.0
+arc                  randconfig-002-20260820    gcc-10.5.0
+arm                  randconfig-001-20260820    clang-24
+arm                  randconfig-002-20260820    clang-24
+arm                  randconfig-003-20260820    gcc-8.5.0
+arm                  randconfig-004-20260820    clang-24
+arm64                         randconfig-001    gcc-14.3.0
+arm64                randconfig-001-20260820    clang-24
+arm64                randconfig-002-20260820    clang-24
+arm64                randconfig-003-20260820    clang-24
+arm64                randconfig-004-20260820    clang-24
+csky                            allmodconfig    gcc-16.1.0
+csky                 randconfig-001-20260820    gcc-16.1.0
+csky                 randconfig-002-20260820    gcc-16.1.0
+hexagon              randconfig-001-20260820    clang-18
+hexagon              randconfig-002-20260820    clang-19
+i386                            allmodconfig    gcc-14
+i386       buildonly-randconfig-001-20260820    gcc-14
+i386       buildonly-randconfig-002-20260820    clang-22
+i386       buildonly-randconfig-003-20260820    gcc-14
+i386       buildonly-randconfig-004-20260820    clang-22
+i386       buildonly-randconfig-005-20260820    gcc-14
+i386       buildonly-randconfig-006-20260820    gcc-13
+i386                 randconfig-001-20260820    gcc-14
+i386                 randconfig-002-20260820    gcc-14
+i386                 randconfig-003-20260820    gcc-14
+i386                 randconfig-004-20260820    gcc-14
+i386                 randconfig-005-20260820    clang-22
+i386                 randconfig-006-20260820    clang-22
+i386                 randconfig-007-20260820    clang-22
+i386                 randconfig-011-20260820    gcc-14
+i386                 randconfig-012-20260820    gcc-14
+i386                 randconfig-013-20260820    gcc-14
+i386                 randconfig-014-20260820    gcc-14
+i386                 randconfig-015-20260820    clang-22
+i386                 randconfig-016-20260820    gcc-14
+i386                 randconfig-017-20260820    clang-22
+loongarch                          defconfig    clang-24
+loongarch            randconfig-001-20260820    clang-18
+loongarch            randconfig-002-20260820    gcc-14.3.0
+nios2                           allmodconfig    gcc-11.5.0
+nios2                            allnoconfig    gcc-11.5.0
+nios2                randconfig-001-20260820    gcc-11.5.0
+nios2                randconfig-002-20260820    gcc-11.5.0
+parisc                          allmodconfig    gcc-16.1.0
+parisc                          allyesconfig    gcc-16.1.0
+parisc                             defconfig    gcc-16.1.0
+parisc                        randconfig-001    gcc-8.5.0
+parisc               randconfig-001-20260820    gcc-8.5.0
+parisc               randconfig-002-20260820    gcc-11.5.0
+powerpc              randconfig-001-20260820    clang-24
+powerpc              randconfig-002-20260820    gcc-8.5.0
+powerpc                   sam440ep_defconfig    gcc-16.1.0
+powerpc64            randconfig-001-20260820    clang-24
+powerpc64            randconfig-002-20260820    gcc-10.5.0
+riscv                randconfig-001-20260820    gcc-8.5.0
+riscv                randconfig-002-20260820    clang-21
+s390                 randconfig-001-20260820    gcc-8.5.0
+s390                 randconfig-002-20260820    clang-24
+sh                                 defconfig    gcc-16.1.0
+sh                   randconfig-001-20260820    gcc-10.5.0
+sh                   randconfig-002-20260820    gcc-12.5.0
+sparc                randconfig-001-20260820    gcc-8.5.0
+sparc                randconfig-002-20260820    gcc-16.1.0
+sparc64              randconfig-001-20260820    gcc-11.5.0
+sparc64              randconfig-002-20260820    gcc-9.5.0
+um                   randconfig-001-20260820    gcc-14
+um                   randconfig-002-20260820    gcc-14
+x86_64     buildonly-randconfig-001-20260820    gcc-14
+x86_64     buildonly-randconfig-002-20260820    gcc-14
+x86_64     buildonly-randconfig-003-20260820    clang-22
+x86_64     buildonly-randconfig-004-20260820    clang-22
+x86_64     buildonly-randconfig-005-20260820    clang-22
+x86_64     buildonly-randconfig-006-20260820    clang-22
+x86_64               randconfig-001-20260820    gcc-14
+x86_64               randconfig-002-20260820    gcc-14
+x86_64               randconfig-003-20260820    clang-22
+x86_64               randconfig-004-20260820    clang-22
+x86_64               randconfig-005-20260820    clang-22
+x86_64               randconfig-006-20260820    clang-22
+x86_64               randconfig-011-20260820    clang-22
+x86_64               randconfig-012-20260820    clang-22
+x86_64               randconfig-013-20260820    gcc-13
+x86_64               randconfig-014-20260820    clang-22
+x86_64               randconfig-015-20260820    gcc-14
+x86_64               randconfig-016-20260820    clang-22
+x86_64               randconfig-071-20260820    clang-22
+x86_64               randconfig-072-20260820    gcc-14
+x86_64               randconfig-073-20260820    clang-22
+x86_64               randconfig-074-20260820    clang-22
+x86_64               randconfig-075-20260820    clang-22
+x86_64               randconfig-076-20260820    clang-22
+xtensa               randconfig-001-20260820    gcc-8.5.0
+xtensa               randconfig-002-20260820    gcc-13.4.0
 
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
