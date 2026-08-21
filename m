@@ -4,97 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 092EDC5DF89
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 030E5C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/AXB9IQGSbDb13imfwWL/kXTtQeUapOU81HM4JBB/5w=; b=BjuNOgpjslq9YFWnlcMdTNygoF
-	tXOsVkFv/gmZh6ZVBODiCYtG8Uyy6OUdEYWCeZFFp45o0QFSLqjeL54Vtj6z9FjBX4QnioCVFX6Ft
-	qSbDO9A9oUst6bQ8EQIYxkGKhpHt2NN+30LvpwpXbxZ2+DjMKGxyP962bSxgHdSPrMV7G/DMVqp0E
-	Jb65LjoZyAJHqQrjhPKuaBL2IgkXwPzHeZxcHcLwKYUYCYZu+Z5z8f+Qi9K8xj5DlHHqQPyi8k7lK
-	xCTNJ2fQEvj716UxeHc/C1ns/dVvjehlKW9zmqqe8drm/NX79mq+8UqUF44GQEfg1x7MdydzQtr/2
-	/XLkp5aA==;
+	bh=8+hizvcdqGonufv2DpcVufMd01dDompVLkD4kRlhkmw=; b=bWQt7gPuAjXgfhfGUxIHogqv7s
+	y0qKZQZfNf0HRacxDLYomiUJhsK7PSnWGw0Lkka8mV2EErKkCSck8pOy+E5vZY/QHYeWgzI9xnjDC
+	wUMz2DXdzuV7IpCjagR+UDfQ8WcNtZEupod89OawcRDsCf9hhiReIc0ndanBote7uM/Y5jefh1Khr
+	1jiy/2HAbUL7kvrItopWIjE24obyCUMlSucbc2A3Dzv1VbZMWh3nb4gYOIXDCuwHagAvgfuUJ41nt
+	2lTQ+nEJgicxJi1hA6aoAKuYCxfc4POvzL7xu31xohKB47Wvy8RfF8k6FnoIvQXnvHiAN6tGL0S2U
+	PhLnNpRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxOR3-0000000DKrh-30FB;
-	Fri, 21 Aug 2026 12:33:25 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1wxOVE-0000000DLKo-0rYG;
+	Fri, 21 Aug 2026 12:37:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxOQz-0000000DKpe-2xpl
+	id 1wxOVC-0000000DLKi-3tC3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 12:33:22 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2cfbbdfa60bso7265875ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 05:33:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787315601; x=1787920401; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/AXB9IQGSbDb13imfwWL/kXTtQeUapOU81HM4JBB/5w=;
-        b=LId+jGacR3ocbUWUA/hW8JFJQerKtpYAup8yTiOSImcK8s8u7qm3egwcnk3kNUkmDs
-         bN076NNCBwZDYlYpTTWeLEzCgr/OynYCwHR85FOyzYeO/EuhN0HT0DEXBqRicdC7PX1K
-         p0IckS0jEoeq4JUuhgjiO6FeqcW/vlJUwyMhFp4ABtzHtg5wMRUY1DMTpWQXxmPFdreK
-         vGFeooFV/q9n2wmqITjilRiodCqHmnA580V62sSho1S0xSaonWUKg4p2k0QpBMdxZCym
-         DwKO5q+lvSTRm42o000yvWcFjDUA34NjMxNjSGK0oxUNJtiefRIKwC+MNnMe+V/xuZeL
-         7fIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787315601; x=1787920401;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/AXB9IQGSbDb13imfwWL/kXTtQeUapOU81HM4JBB/5w=;
-        b=lB1Fuk6iFaxvAyuQxryTqUrVMjdpJ5PaW65AVE7dZhEc0p9vrJToYuGFvz6TqZ2Rn3
-         WD3YSYoH/aejYttuTQXSJkQ980fQmYzIthQM41539+1n9YXdHuGaKibxKrckM9foh/xN
-         uNeSKQ1APqq0WIXc0i61vdCYKkpfniZxI+vQt2rVtJYuY4V8pt9Y8Xp7En7DVT5sTWiD
-         +Km+VmaiLFo+NhD5NtM+cG5tHqbFtYgNug5K3Mp3MzK134wBHO367d3rPvXXp89qn3Sn
-         lg6aVGorOywr4drrhkiqvIyfjD0A1ajhbMWc8kmCndgQbxMn+wqgxgY9bRN66sVXymls
-         +1Sw==
-X-Forwarded-Encrypted: i=1; AHgh+RqQscrxI8YogfwZqs8ouEp8/hofEHh0MB/D8gt2ttOrQunczvz8ABoQwNZBw+Lq3fWinwrCU82Ps2OZWD1WXHWj@lists.infradead.org
-X-Gm-Message-State: AFuF++lhryuWvZk5n3it60b+eTyZO2ZqsdcA3m/EafBCje0YBQjWmglG
-	vOAQRHu22FnZ0j0Te2HOTXyfsmHZbeP2BW1jdXJTvBoInx4DuVZkjvAL
-X-Gm-Gg: AR+sD123KYBcR4Q7/Hrp6eivor3Lj1YhkniBQoVVi2kJzziVTHvbt2fL8q77t4BCfQA
-	6+vN9qxBQbBhh1X6gUadYRLFKF5crsteJMHAydPgLKTXBU7hMVx8n5RTpANUXZDy/XTVz9RgCv2
-	Zd6U67gbj46NU8mxBfhiGep3wF7PkuvtP1TEoi0LCn36HaCEEOArjCV8dM6jRJXecp0TsxjWsyK
-	i63OXy7Mgkp3omqTlvjA7xXubvV7sQmlMftLtPU3u0QH2WuxABAKw0LqIlF0K1FQTmBvhdoUGue
-	IEHH1E4Uy5bUhnVj3pShYirUG4q5gv9ybKBm4qCtaxLODtQ/MPJ7RMeljo3b+P/ZVOai8RGNe0a
-	MNU7x4ujNaN/zEzKHEGZeafUIljhDgXJecZE51BuBdyHjGMclJkxpg4ks3WBPpjPKLsEtakXEas
-	3nOQWwUm9Q41U2SqQ5ofmezba7Dca5HNbz4iPKBBcnGR7/YG3JZ+6K4fAeuTQ6eWDWNnBc86h1i
-	PcW0uJvqOVgxmDbHybFGdbZJfbtgxG+xBIi+Km5gCQIhpEDixrp96PTq9QG8EQjUVKBN4r4zKPb
-	rN0N
-X-Received: by 2002:a17:902:f70e:b0:2cf:afa5:b19a with SMTP id d9443c01a7336-2d64afd7c86mr130049755ad.11.1787315598800;
-        Fri, 21 Aug 2026 05:33:18 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d62e36e1d8sm18402285ad.52.2026.08.21.05.33.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 05:33:18 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Simon Horman <horms@kernel.org>
-Cc: netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH net v4 3/3] net: xilinx: axienet: Fix IRQ error handling
-Date: Fri, 21 Aug 2026 19:32:49 +0700
-Message-ID: <20260821123249.41527-4-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260821123249.41527-1-phucduc.bui@gmail.com>
-References: <20260821123249.41527-1-phucduc.bui@gmail.com>
+	Fri, 21 Aug 2026 12:37:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9B7B143BE8
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 12:37:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 806E81F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 12:37:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787315861;
+	bh=8+hizvcdqGonufv2DpcVufMd01dDompVLkD4kRlhkmw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=nXLJAeWUTKD79L+pbwJbn+9CpAZES2OLZcIdizQnTfVGc7TE5nSca7PXL/pw9PKf/
+	 LGq4mmubFlDIVBeL8eMU7UP1U7FlEn8maKIBwxfELo8naNUDEczA+lmMYVK2RN1KGc
+	 fk6SJmlxqmlWEphZ7J9geKJGaNuhl/aELbXMNGqPwM03kCQPX2lpyJhZ45nl8Ywmj7
+	 cW2f4usgidgSOdwF08/Dfaza6tqjkz6iUncz9jpF89eKDMX9BC2cQae3BCIxxUxQm7
+	 58IEFHenUsHZS+V0LwgN/n7ckKq2dzAK+91kJnV/MHKymRRCE25OPquEdcnZ/5Q7Uy
+	 RRcifVFuUbOEA==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5aeb2bc82ccso992992e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 05:37:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpP4H7vx9sLd7sYWQLf/55alZRzxp623C12QWp4YZa7yYBTH0Ukccc217LOLfq9tjV8nByV4pkOLPHwoY3maGP6@lists.infradead.org
+X-Gm-Message-State: AFuF++l3EXspCXjEiAAFlTuuanPIJEhU97GIIilq40iubTgxcckfwn45
+	ZG86PcTGGCsrtwDaAz/nxTw13nh8VPEoxH9PFdFYb/WpdQNVJU4wQQOPN6SK8erSFIRE+G7xv6v
+	DhyJDikEgw0TPpuJcow0e1GQWapsniQM=
+X-Received: by 2002:a05:6512:3c94:b0:5b2:e5b7:2419 with SMTP id
+ 2adb3069b0e04-5b4841e99d8mr2026186e87.5.1787315860266; Fri, 21 Aug 2026
+ 05:37:40 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_053321_796138_465A5786 
-X-CRM114-Status: GOOD (  13.56  )
+References: <cover.1787239869.git.geert+renesas@glider.be> <66afbce10c485164340a3947885cdf4217a4ee2d.1787239869.git.geert+renesas@glider.be>
+In-Reply-To: <66afbce10c485164340a3947885cdf4217a4ee2d.1787239869.git.geert+renesas@glider.be>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 21 Aug 2026 14:37:27 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmNWGOLdo4apkCf39Au+N=9Gjn0Uwa1xHdYU49_-x2FfA@mail.gmail.com>
+X-Gm-Features: AcwNN1X-YF9gwMXQysAFmBNyelij8BztSmG4GmXtlxed1V2wjsfBBNI0pYxaxjQ
+Message-ID: <CAD++jLmNWGOLdo4apkCf39Au+N=9Gjn0Uwa1xHdYU49_-x2FfA@mail.gmail.com>
+Subject: Re: [PATCH 1/2] ARM: versatile: clock: Make sure clk_init_data is
+ fully initialized
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org, 
+	linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,44 +83,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On Fri, Aug 21, 2026 at 10:52=E2=80=AFAM Geert Uytterhoeven
+<geert+renesas@glider.be> wrote:
 
-irq_of_parse_and_map() returns 0 when parsing or mapping an IRQ fails,
-while platform_get_irq() returns a negative error code on failure.
-Handle both cases and preserve the original IRQ lookup errors instead
-of returning -ENOMEM.
+> The clk_init_data structure contains several mutually-exclusive members
+> for different methods to specify the possible parents of a clock,
+> prompting drivers to initialize only the members they need.  However,
+> not initializing all members may cause subtle issues, which are only
+> exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
+> enabled.
+>
+> Make sure all members are fully initialized, to avoid such bugs, and to
+> prevent future breakage when converting drivers to a different method
+> for specifying the parents.
+>
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-Fixes: 28ef9ebdb64c ("net: axienet: make use of axistream-connected attribute optional")
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
+Looks right to me:
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Changes in v4 : 
- - Add error handling for irq_of_parse_and_map()
-
- drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 3927ababf833..68b580191508 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -2971,10 +2971,14 @@ static int axienet_probe(struct platform_device *pdev)
- 			dev_err(&pdev->dev, "could not map DMA regs\n");
- 			return PTR_ERR(lp->dma_regs);
- 		}
--		if (lp->rx_irq <= 0 || lp->tx_irq <= 0) {
-+		if (!lp->rx_irq || !lp->tx_irq) {
- 			dev_err(&pdev->dev, "could not determine irqs\n");
- 			return -ENOMEM;
- 		}
-+		if (lp->rx_irq < 0)
-+			return lp->rx_irq;
-+		if (lp->tx_irq < 0)
-+			return lp->tx_irq;
- 		if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO)
- 			return lp->eth_irq;
- 
--- 
-2.43.0
-
+Yours,
+Linus Walleij
 
