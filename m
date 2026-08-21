@@ -4,117 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5374EC5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F174C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:03:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WwQeFFyV5A7G2/bOxKhAsTXPyij4PLOSK3Zu0PMYfhU=; b=pddJWQ3KTs5qUVQ7H+nMCLg8Ng
-	/cc0T2XcZhIIVeNDllFg9vh09KzRgpnXqoCKD6DIsUGWo3ABw7NpWmtqtxq39VfRkR3bR5aXFyOkY
-	euUS2jffadxcVTbINd6+fY9+6VIf1N9u8iHQVr4zN0drdqCA4tGwR9VLL3c6DjrlgUzZN5JDl9qhX
-	yFtFJOWxY8vPq2kYac1OuHOzWZrw+PorxQbRLn3NZ9udD9m6WYLJoEX8lpmGupYNChhRO0mLcfRt+
-	JcohU1jqhGqXBzq98CP4v9EpQ+rqV1aFDo4jMwkDADYyqVLM2tLxhJe/8R/jjYRl6yur7wZZpBB9k
-	+Fu+gzig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Cc:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vGPS2eQWmXs1O3rDZ8NrIlJ3BVy8MOKbNxwAPOVl8FA=; b=XparzmijRBYaDRXuTwyfuQfWx+
+	9HSO8K9Gipl8WVbUl1HWWaWpiL8/zqSCz7GrxulZXbQ4obmIuI3Nvob0BhlI76hqTTDTtnfb5292k
+	au9mmuj1zuC80aDM9NhzLV2F/fpS76L42fUorPwpH+oCMK5bmTm9Va6VLdi047nnmagrg0bdQQbIR
+	f/dWEfqm4WvHWD7JT6SAkRNHVVhql/Ho+iEpFWLbtaJJcPnIJyI8LTSkFDibqsjnFjAEnoL/7ddpS
+	w0mX02BY9N8mjh39wEJ3xyCh5lZ9HufySzmfAfcDcbFmu5mPDBkwRAXbJaE7wjPBpXzOB+y8q2sD4
+	rAuQAFbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxIto-0000000CcyS-06Nt;
-	Fri, 21 Aug 2026 06:38:44 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wxKE0-0000000ClJJ-4Al0;
+	Fri, 21 Aug 2026 08:03:41 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxIte-0000000Ccrv-3iyX
+	id 1wxKDx-0000000ClIs-2cba
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 06:38:37 +0000
+	Fri, 21 Aug 2026 08:03:39 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=mK5RWEyuMn/dWfmw0uvnBGMWw31yA+yVPJrqAfYqqlYJTt4XNfFRsnzh5HEjcr7QzXGL6BaBWB9Gaa2VbzDE9hmfF0FAn3kzkoiuJ/Z3XyNCRki/VijINjrFihc8uL5h1CDuOV4iPMnt8hIHGPsKNUdioDarZ4CZvYFiWWFYUzuFpbZM7sxk6t7UqZg4ct9mLEao4215kwPtrVo74rnsB2g7Ptj+nO0CoX2mTVTf+1F26jQ50eMMppeKp8Nz+TxBsdAvhCGzKyUN7WwD8gLQBtRIazvTU7opbkal94KJj8jqP/B6es95S52P4UF07reNgO/Q3v7UoWPFJ9ke3i4sSw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vGPS2eQWmXs1O3rDZ8NrIlJ3BVy8MOKbNxwAPOVl8FA=;
+ b=am51YIQdJg7j+znsV8i9VZuDr5oK5f+wHPDVgw6KkUg7Y02l6yD9bzHywTG2gYcoTd/FdCXs0bxKVW2H5rm8WsTJVCDx2c3FysZLS3aii31gPrg88A+1uzfiw9ouY5Msyu2H08Z02hw5rel6ehZdxtNYE96gIWI3vilHIxvQffgWhn0VLL8e31E4tGv2sX95PmH2TquYdZ/Cjb4amUw8tS2JGoh/RakQsQPWyZfC+2yQMlII/hmddhdtOCHH93ltNzZUnuLmwOIcimcBirjqm4Cfheyf4nM+p0tdTkBWHoEmrPglcbLN/xyqNImr1+Gg0De/Tl94XlqN4djPlXBJ3w==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vGPS2eQWmXs1O3rDZ8NrIlJ3BVy8MOKbNxwAPOVl8FA=;
+ b=J+Hyonuhm/ihyQ8TvuOcT0IqXDYtxkaF2vmf6a31VQWEILOEpTEWBvz96IqeXWv/vdyIkjk6MXvB/dF5mabjO8a+lC7WUe/ULYRH/hp9RbavbjdQ7aM5LWWcnC1WybDVWgdOoFux/QCqnMOYSkEAwxiVWjQd7aEs5I81phqGOMY=
+Received: from AS4P191CA0021.EURP191.PROD.OUTLOOK.COM (2603:10a6:20b:5d9::6)
+ by DB9PR08MB6361.eurprd08.prod.outlook.com (2603:10a6:10:261::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Fri, 21 Aug
+ 2026 08:03:30 +0000
+Received: from AMS0EPF000001A9.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5d9:cafe::22) by AS4P191CA0021.outlook.office365.com
+ (2603:10a6:20b:5d9::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.11 via Frontend Transport; Fri,
+ 21 Aug 2026 08:03:29 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS0EPF000001A9.mail.protection.outlook.com (10.167.16.149) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.3
+ via Frontend Transport; Fri, 21 Aug 2026 08:03:28 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VACiXmgwzgtMi4chRH4BD9MBK+LRUwlnzvIFRtWJ0e9qXHwkNf1lq3Mj/6FnvnOrsRCxRAKA3yW2rm956mYcv02/hZiUYySqZ81K/XGsAoQHbo69ieXMUO+Z+TBpefFlrCskg43KZ7lYHQFZHPftH9Sz7MO/2Zn4WQ+EPg5BdcI6zalfj3ZFy1GPD+xKeloUiGpBP3mo+CMpp8CvBaXnolZp0sHh7s1Q7Gdjp/1dLvCi3TcSplm2zb1raM3bff7FDVqIpzGmM+kwXdMbElJ9Rn05qj2fnI6cw5RD+UMG/kVSB3OZiaCJgidfILGcDGC7HHF7PCBia4tKZ7w5LPcEgA==
+ b=aMnJdUoqux1XHJoER3G+ydD3JASMgWz8ELu/R+9spVK5s/ocyB1yB1LZJKVBnyGaDVWDo15zj1uIerqHbHXUzjZoCVZJcd7i1jvxuHF3djF5ZjaYSAmwGmx0qBWdcT8kTrxIKbKXh4ZUV+ci0c+6Hxdwl6hne4KIVmIcTEqlmbYTlFcTNZ0WDPpP6gtqZCRfCjCF0z/4KREoPtM8+UrwyIjIPsIFOCzQr8OxHood3pFZefMd86LCiTDivQLt3mbI+u6oFXT48fARL18TGSBDsXPpQ6O7MCiWDMrIhUkgemACVlt5cBfXQPI30uyMHgpt0HWb2wIqA4reSYiDou5rlQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WwQeFFyV5A7G2/bOxKhAsTXPyij4PLOSK3Zu0PMYfhU=;
- b=OE0wdhvS/69IlOYE054BkbiumPmvcBDhedSGiUi/u6PagxM5Kov7CDNBMuIp4lS0C97OnxJxM9DTAKjA6U7/TMMgjvdAKZL6GS9tsmR8dSIMsebsv1C7X1m6VvS+JeTSBfTXIjKS58pkIwmekuoxyKQWcA7VNtW5TQsMn5ExjII8ZY5cwJgXFy0UfIHSKWJKxVbmeEq6kmg/Ns36sG0VzTtOGxvKE3FKuz+qukMaUkyELx7yP4hCQJEkRBnKL2jlWm1m7nmEkPi5Cx8s+eBqAMM2fus6TUrSlvqOJHsOURRUYFfSftzPeMD7ogSNkFBnnLVx9Y/2GtAEyGfqlLUBOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=lists.infradead.org
- smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
- header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
+ bh=vGPS2eQWmXs1O3rDZ8NrIlJ3BVy8MOKbNxwAPOVl8FA=;
+ b=c8fdn2/noa8fHoK2PBNTNtPnNtxpCzxvymjhd6xY30g/0jClIx9FgXg8LoK2Bdlwx6FWBbCZuf8/jg/w6vkggE/ysShV93P3xktQral4NVR+dSHHbwEOQkKfgZ9A9e0uS8d/0rMlLbh2W98hmBSOdYgPngzOek5dZd2L5bT3aeIhX1rFruurLJu6jdRHuowK7V+IuvkVlbSZeEJo67AzYN6G1KeWFGDegsxbHkTCv7ySlPC/R9P4DrBbjrb3izZnzKHqWT5n+4nwl70EbJrLhmZvVpWAp2wSznKPew40Ree8q5CW8xMZjj7p1UzdLbhN+YoRisfelT7g8nWLc/WchA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WwQeFFyV5A7G2/bOxKhAsTXPyij4PLOSK3Zu0PMYfhU=;
- b=W5Y5nUoSSPQwl//IW6vqSfwA+xpn3YbwRHe3vWVuBY0/JkGm0Svl1EiToh1E4t10PakzMYv6TLDLrwwYC2Q+yVAp2XnuXwZRmopfOkyENIfj1dPRKoXmFafALJTQ5GfrFt+PeMiefUwxjpNzAZ+scIEXNCxm4Lv2sRb82wshtORTAd7EJVTRwmW58rEjwuwmpK92nGGx8iBQnDjyd0GICSQOulCFluvhCXh5YfIAaZmzHY2VyK1zbV5bQWDJQiqVGPoPXjdYO4GSm4fJV35WEP63dgWg5BJX+Q2vKnal3b1wZ1Loqmt3AystXUAeoUixMUrNsTcI6DK5fjGKP71FBA==
-Received: from AS4P190CA0034.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:5d1::10)
- by AM0PR10MB3700.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:156::18) with
+ bh=vGPS2eQWmXs1O3rDZ8NrIlJ3BVy8MOKbNxwAPOVl8FA=;
+ b=J+Hyonuhm/ihyQ8TvuOcT0IqXDYtxkaF2vmf6a31VQWEILOEpTEWBvz96IqeXWv/vdyIkjk6MXvB/dF5mabjO8a+lC7WUe/ULYRH/hp9RbavbjdQ7aM5LWWcnC1WybDVWgdOoFux/QCqnMOYSkEAwxiVWjQd7aEs5I81phqGOMY=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from AM0PR08MB3410.eurprd08.prod.outlook.com (2603:10a6:208:df::33)
+ by DBBPR08MB6172.eurprd08.prod.outlook.com (2603:10a6:10:1f4::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Fri, 21 Aug
- 2026 06:38:28 +0000
-Received: from AMS1EPF00000043.eurprd04.prod.outlook.com
- (2603:10a6:20b:5d1:cafe::4d) by AS4P190CA0034.outlook.office365.com
- (2603:10a6:20b:5d1::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.11 via Frontend Transport; Fri,
- 21 Aug 2026 06:38:28 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AMS1EPF00000043.mail.protection.outlook.com (10.167.16.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.360.3 via Frontend Transport; Fri, 21 Aug 2026 06:38:28 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 21 Aug
- 2026 08:43:28 +0200
-Received: from localhost (10.130.77.105) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 21 Aug
- 2026 08:38:27 +0200
-From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Fri, 21 Aug 2026 08:38:11 +0200
-Subject: [PATCH v5 09/14] media: stm32: dcmipp: addition of a dcmipp-isp
- subdev
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
+ 2026 08:02:55 +0000
+Received: from AM0PR08MB3410.eurprd08.prod.outlook.com
+ ([fe80::b6cc:973e:a807:c3d3]) by AM0PR08MB3410.eurprd08.prod.outlook.com
+ ([fe80::b6cc:973e:a807:c3d3%6]) with mapi id 15.21.0339.007; Fri, 21 Aug 2026
+ 08:02:48 +0000
+Message-ID: <b0edb8cb-5f8d-4b87-a6ec-74003422cd2f@arm.com>
+Date: Fri, 21 Aug 2026 09:01:52 +0100
+User-Agent: Mozilla Thunderbird
+Cc: usama.anjum@arm.com, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Shuah Khan <shuah@kernel.org>, Andrey Konovalov <andreyknvl@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Amit Daniel Kachhap <amit.kachhap@arm.com>, Yeoreum Yun
+ <yeoreum.yun@arm.com>, open list <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH 4/4] selftest/arm64: Add MTE test config fragment
+To: Mark Brown <broonie@kernel.org>
+References: <20260820153331.2448875-1-usama.anjum@arm.com>
+ <20260820153331.2448875-5-usama.anjum@arm.com>
+ <3c469ee4-cc64-4d79-8e78-deeff30c59a6@sirena.org.uk>
+ <630beb10-66fb-4d9e-9b86-df406ef585a9@arm.com>
+ <04a6555a-7def-4a2f-b91c-91483f7d3b28@sirena.org.uk>
+From: Muhammad Usama Anjum <usama.anjum@arm.com>
+Content-Language: en-US
+In-Reply-To: <04a6555a-7def-4a2f-b91c-91483f7d3b28@sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260821-stm32-dcmipp-pixel-pipes-support-v5-9-d140efb61d72@foss.st.com>
-References: <20260821-stm32-dcmipp-pixel-pipes-support-v5-0-d140efb61d72@foss.st.com>
-In-Reply-To: <20260821-stm32-dcmipp-pixel-pipes-support-v5-0-d140efb61d72@foss.st.com>
-To: Hans Verkuil <hverkuil+cisco@kernel.org>, Hugues Fruchet
-	<hugues.fruchet@foss.st.com>, Alain Volmat <alain.volmat@foss.st.com>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <linux-media@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: b4 0.15.2
-X-Originating-IP: [10.130.77.105]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS1EPF00000043:EE_|AM0PR10MB3700:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e39a5ea-3407-4fa6-c697-08deff4ecf73
+X-ClientProxiedBy: LO4P123CA0214.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:1a5::21) To AM0PR08MB3410.eurprd08.prod.outlook.com
+ (2603:10a6:208:df::33)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: AM0PR08MB3410:EE_|DBBPR08MB6172:EE_|AMS0EPF000001A9:EE_|DB9PR08MB6361:EE_
+X-MS-Office365-Filtering-Correlation-Id: 31a73914-2d45-4a2a-8d26-08deff5aaf4f
+x-checkrecipientrouted: true
+NoDisclaimer: true
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|82310400026|23010399003|1800799024|10067099003|6133799003|3023799007|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: qVCNfeCz8KQHF+aFaxb885g+HPOhT7rks+RXgoPHwiTbGveC4zsy9ggjHl5+xZPh+E7oWo4by4D/Bjxlb/YtxqIW2nrHYiZfjJEUY1h64ZHZsaTc8pHVMHtHCgLf2AFe8BklULlLF86ATDsSQpn6l9FhoOZ0yXR/fXbXKKQcaJKVjovewsSbfnrFjilkbAt5PBCe1t5lWwKgq1bHCTn0esqzUBhxTfR6LHDok+YhSyQijpwv7EemajemoKtAKNShllItOIoN1crYH7wV5pXqYE5DFqZsT4LiI/SG6KOiMfffM11n62OHzACwjNVPMiybUpeSfeRq/HLm9XrYEd9Ph99369IG9+puMvyKb/8iSpauN1alUA//NB6CFtkp/I2JDKKieDJLsF6D96CVS1Oipl4aFv1YvkuCTbplTFSFh01uXR6jjBn+61C6Qx747tVYbMxAuhXsJmYx/4Uf+bs3ST4AHhg92dnYmmMuRiVs3z0af0VjD0IbCAooFRec51QD7hx8axaTKlsqoQequVBghG2DCdD5dDT89SbyNRQvIX+F/cIanPAMSDUCppuDTlhlP/lwtba2byn70WXprvMA7/vVcpOY5J5vXzTNzqPEd9tNQFTb/F+jKlMpPzo/yha6eAeCWx+8ohBiiYvtdG4pKDYFMAPUL0M0Paffbb5jJGt/NjLFkprNq9HDCKlvCn/AGHCv4cWKOprafPi/wWQJMA==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(82310400026)(23010399003)(1800799024)(10067099003)(6133799003)(3023799007)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|18002099003|22082099003|4143699003|56012099006|6133799003|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info-Original: Ibjnjf0xFu1NWUkxbu5NpC2rkJ2SpGc0xhSjjkOfNG143ZOh0e40I6AyZyaVAbR6dsjRMqknT3/IylApc1XiuWUFCOnStLiCx/a8SDdDB3Wl42b1Z1tGP3LWSxAZk49N7XKLQXzP9sGnsC+FcVuRnSfT01nSP81i46P2SvorRgF+05UZxXZd3x7R+d+PmaeT6bKiHSKCNlfFHdcU5lVhN4v3wLyLQKSDru5BSPz7Fd6yJPgckBWHD0iJrO/ppuVWXTp5yEOwEHOIjRQzM7nEBQt/GnQFCzXOtwYm4VmvQ0bQ5HILeaSXXRSOhGE7nM5aecxWYUDSBmfKnWYnq2wb1VqgL1I/hs1OBkSyHmXmhJdOs1JQjvhgewBX3PNF/68ZQUg0W/D436wz0UazBSnoa/UYnuGS9/bIrlIFmX2BM5TO6ZC8CYNpKCc4TiH2iLsW7i6kTDBr6e/L1IMQSUvxR8mo+YS9jbaG6rfPQ2rs/NnQVMOA1LCOYU73IXJ3NHL8ZnywzHqOpelr5t4wFED0Q5nWqAsuQgN/tDJGWcCdRFBr14rQRkyg+mDgoj1MUBdTihqCw/1xIJbsj90tZ62ddKn5r7YAMy+kajnRLzZb5VjbkFS4oWNKQSacDgiY63s1rs0YGMOMp2Pu541j5zyL4so34eFmPRY6jIy6TS+PNmk=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR08MB3410.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(18002099003)(22082099003)(4143699003)(56012099006)(6133799003)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: Xjp1T49arT4kfMRkhlBLy+wu9wCbcWFqG+HkHVCM9ELG69p5v4uhfuaf/EOCfOrL+juhCWuOvmYdPsTmK0pz9mXIhe9EOXvWU6MJkc2l8vgsD1arn8UfOdFHcfbCBXv4nmU/zstIotxHBTFo9xeLvkIydt8/zaKcylM0rc3/50F7TDIcjsob+tFv0iE22Yl2d9flLu1uaCtZcbdgRPps54KxUsPUCisqciYoE8fjvQF1wPvJ69wk2eadJFAFRqiYXQmYrL5x0+SKxTVjFxXpFRabn38bS+OIv5rjSZIFHTFycMVnaRdcKduUm4eP1wnaKCwRDWnOHgtyYHQv23krKg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB6172
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001A9.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 95075a82-18b2-4f73-ca5d-08deff5a817c
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|14060799003|1800799024|36860700016|376014|23010399003|35042699022|56012099006|6133799003|10067099003|11063799006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: aPV/3gfgOCM83/1QxDFVZO9K1Q5pQlmNbngUmuB86yf265NoOrUq1c/tuAQGp2TJPntj/9CkkcTmZQCTlWDyKejV2ehcJvF1zQtigWSVJOMDylWgf3Ha+E20Hj1IGzo3x5iK8AghqNTrHyPYCR+a+W+EmzseKrO6I0wAhX2nihbfUaONvVFGVEqQXJhB1bNLcuHvNM6qjfp2woYguDeQsi9jqb/P2n+RiFzk/0JuLM/24ZDfcgsBnBibQ1LctVmu2hlt9dVqDDrNkJi0yiXOEzRAq0wDfvDOALRuab4LwVncw0FTXsj84G1A7mljFnQSdSbaUgvG//yomRathzX1J5ElS1i1DJuxIqa1fYkPphMl25/NvlsKxkiUFeC2TF+JVkioUl6p4u5PTqOVYoBcarIIhCQHQcYFk4sxNE25PW+W7AWcYxOUgXHF+blowbqIv1tRf2bf7G/KhhxE1ddguoljp87kq94MBeJiZ8mYw9PRmBfyx7WWZ3wNWvYpKn/kmSxaBI/IlXwHu3rhecaYh4eslHDVF/UnHy9c2UnE8ZBWl+oOGNSQMSCLkyYnwPIjtCL9QAovFUvwUV5BNfDsMJ7OR32YxJLxaxK6ulbRZCV7DlzMZbmLkiJN6SLe0sKkaa0trVNQFBjEn/cVreFJluNDw4nxvZ3LDPpIc6axccBLlC+U8EXlJU7OT4qECcFBtCT/VWDtI+BnAXmHS9ZVKA==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(14060799003)(1800799024)(36860700016)(376014)(23010399003)(35042699022)(56012099006)(6133799003)(10067099003)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: R2Xh2s3/0cskXS9qVikT5wj71Qz0s0ohtGFZJXYDffF7tCi2ZO2eRt29DXMj5pk4/gaKpzJxkWPb9XpIJXZ1o5+yYKOcXeoKF+EJyu7DpmVoKBVf/VcTbfGODtsxOr52Qcg2AYgWSNyR2P96agibvnIaynIJ6t1C9CJjx0uLN+s0ie/vSnnypwBg/sVclH/Wpb7Yq1smHJ4gHpYESzk5Le/+UJv7YVE7cIbkHarkKZliGDpB9a5NzJ3I2YSaxb7sVabDbgO0ipiSPeca81A98c0wRj2BNEV6lqv3L63Ypr5oHfsijb7xOJo5ixg8m34G1Nw+WwnSi0lCtWIZdMVUOIpE7xENafs8m7FR6nGl290Hq2ihIK6Gy0JKkovXYxqYt6pah7vVN3IwIuyOgCRX3nnVcPep9OSng98fRcD648x8szGcvWjaPMS+HOnz0kTy
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 06:38:28.5251
+X-MS-Exchange-AntiSpam-MessageData-0: PDp2ur0YKmaR7U1QGVLVL4YfL39j77IKZAxGvZRZIMqqjW3NP//OszCzRndrI23jZSYyXFc9G0q69pPX7OG0WNZA5jKLcDr6oNKNFKR5f5mSV95ZlRTwhqgaykwsyqe4ojAWs9N1Ai+jtiQ2CWeWVpSzLHuV471ugcRWEUHGOJ0PyqVlRGpTiD06x5ZVd18UicBmruOy1y/yX5whL/k+sFFl1XuiDRuekNFYDOI0MM5E1rdKzdpkziGVnws117iRaDvuUClItBfT0jR5EIJaHGKlI5kWS9RNJh8HYDwB3p7IjlD076xw0cywaxThUvC6r7yFBg2t8762z4qXIFAqaDUZV4Ruk7oQusbZJ0ss4Ud4p7w3U5cMu9SzVzkyn+nE51xDUuWfoot929hrIrmuiP2tEhr/foMi+e9to5AajOr68qLa1ozcd1jaC7Ws9t5Q
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 08:03:28.5659
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e39a5ea-3407-4fa6-c697-08deff4ecf73
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000043.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 31a73914-2d45-4a2a-8d26-08deff5aaf4f
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A9.eurprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR10MB3700
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB6361
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_233835_176138_F0BA1183 
-X-CRM114-Status: GOOD (  22.98  )
+X-CRM114-CacheID: sfid-20260821_010337_763086_F7248566 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,546 +165,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ISP subdev is the first element after input of the main pipeline.
-Part (static configuration) of this block is done via this subdev while
-other configuration done on a per-frame basis will be done via a output
-metadata device attached to this subdev.
-This subdev handled the following features of the ISP block:
-  - statistic removal (top / bottom of the frame)
-  - decimation
-  - demosaicing
-  - control of frame export to the aux pipeline
+On 20/08/2026 5:42 pm, Mark Brown wrote:
+> On Thu, Aug 20, 2026 at 04:42:16PM +0100, Muhammad Usama Anjum wrote:
+>> On 20/08/2026 4:38 pm, Mark Brown wrote:
+> 
+>>> Is tooling going to pick this up or should this be at the arm64/ level?
+> 
+>> Yes, it will be picked up. The top-level kselftest-merge target recursively
+>> finds every file named config under tools/testing/selftests, so
+>> arm64/mte/config is included.
+> 
+> That's good, though looking at the list we have requirements for
+> CONFIG_SYSFS in other tests, probably some of the other stuff as well so
+> we should either do something at the top level or decide we're going to
+> do this independently for all the subdirectories.  Top level seems
+> easier TBH.
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
----
- .../media/platform/st/stm32/stm32-dcmipp/Makefile  |   2 +-
- .../platform/st/stm32/stm32-dcmipp/dcmipp-common.h |   3 +
- .../platform/st/stm32/stm32-dcmipp/dcmipp-isp.c    | 491 +++++++++++++++++++++
- 3 files changed, 495 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile b/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
-index 54231569ed6fe..a708534a51af4 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/Makefile
-@@ -1,5 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- stm32-dcmipp-y := dcmipp-core.o dcmipp-common.o dcmipp-input.o dcmipp-byteproc.o dcmipp-bytecap.o
--stm32-dcmipp-y += dcmipp-pixelcommon.o
-+stm32-dcmipp-y += dcmipp-pixelcommon.o dcmipp-isp.o
- 
- obj-$(CONFIG_VIDEO_STM32_DCMIPP) += stm32-dcmipp.o
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-index 9ec6d589b5036..c699905ee6e8c 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-common.h
-@@ -283,5 +283,8 @@ void dcmipp_byteproc_ent_release(struct dcmipp_ent_device *ved);
- struct dcmipp_ent_device *dcmipp_bytecap_ent_init(const char *entity_name,
- 						  struct dcmipp_device *dcmipp);
- void dcmipp_bytecap_ent_release(struct dcmipp_ent_device *ved);
-+struct dcmipp_ent_device *dcmipp_isp_ent_init(const char *entity_name,
-+					      struct dcmipp_device *dcmipp);
-+void dcmipp_isp_ent_release(struct dcmipp_ent_device *ved);
- 
- #endif
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-isp.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-isp.c
-new file mode 100644
-index 0000000000000..1586cc9c59a6b
---- /dev/null
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-isp.c
-@@ -0,0 +1,491 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Driver for STM32 Digital Camera Memory Interface Pixel Processor
-+ *
-+ * Copyright (C) STMicroelectronics SA 2026
-+ * Authors: Hugues Fruchet <hugues.fruchet@foss.st.com>
-+ *          Alain Volmat <alain.volmat@foss.st.com>
-+ *          for STMicroelectronics.
-+ */
-+
-+#include <linux/v4l2-mediabus.h>
-+#include <media/v4l2-rect.h>
-+#include <media/v4l2-subdev.h>
-+
-+#include "dcmipp-common.h"
-+#include "dcmipp-pixelcommon.h"
-+
-+#define DCMIPP_P1FSCR	0x804
-+#define DCMIPP_P1FSCR_PIPEDIFF BIT(18)
-+
-+#define DCMIPP_P1SRCR	0x820
-+#define DCMIPP_P1SRCR_LASTLINE_SHIFT	0
-+#define DCMIPP_P1SRCR_FIRSTLINEDEL_SHIFT	12
-+#define DCMIPP_P1SRCR_CROPEN		BIT(15)
-+
-+#define DCMIPP_P1DECR	0x830
-+#define DCMIPP_P1DECR_ENABLE		BIT(0)
-+#define DCMIPP_P1DECR_HDEC_SHIFT	1
-+#define DCMIPP_P1DECR_VDEC_SHIFT	3
-+
-+#define DCMIPP_P1DMCR	0x870
-+#define DCMIPP_P1DMCR_ENABLE		BIT(0)
-+#define DCMIPP_P1DMCR_TYPE_SHIFT	1
-+#define DCMIPP_P1DMCR_TYPE_MASK		GENMASK(2, 1)
-+#define DCMIPP_P1DMCR_TYPE_RGGB		0x0
-+#define DCMIPP_P1DMCR_TYPE_GRBG		0x1
-+#define DCMIPP_P1DMCR_TYPE_GBRG		0x2
-+#define DCMIPP_P1DMCR_TYPE_BGGR		0x3
-+
-+#define ISP_MEDIA_BUS_SINK_FMT_DEFAULT MEDIA_BUS_FMT_RGB565_1X16
-+#define ISP_MEDIA_BUS_SRC_FMT_DEFAULT MEDIA_BUS_FMT_RGB888_1X24
-+
-+struct dcmipp_isp_device {
-+	struct dcmipp_ent_device ved;
-+	struct v4l2_subdev sd;
-+	struct device *dev;
-+
-+	void __iomem *regs;
-+};
-+
-+static const struct v4l2_mbus_framefmt fmt_default = {
-+	.width = DCMIPP_FMT_WIDTH_DEFAULT,
-+	.height = DCMIPP_FMT_HEIGHT_DEFAULT,
-+	.code = ISP_MEDIA_BUS_SINK_FMT_DEFAULT,
-+	.field = V4L2_FIELD_NONE,
-+	.colorspace = DCMIPP_COLORSPACE_DEFAULT,
-+	.ycbcr_enc = DCMIPP_YCBCR_ENC_DEFAULT,
-+	.quantization = DCMIPP_QUANTIZATION_DEFAULT,
-+	.xfer_func = DCMIPP_XFER_FUNC_DEFAULT,
-+};
-+
-+static inline unsigned int dcmipp_isp_set_compose(__u32 size, __u32 req)
-+{
-+	unsigned int i = 0;
-+
-+	if (req > size)
-+		return size;
-+
-+	/* Maximum decimation factor is 8 */
-+	while (size > req && i++ < 3)
-+		size /= 2;
-+
-+	return size;
-+}
-+
-+static void dcmipp_isp_adjust_fmt(struct v4l2_mbus_framefmt *fmt, u32 pad)
-+{
-+	/* Only accept code in the pix map table */
-+	if (!dcmipp_pixelpipe_pix_map_by_code(fmt->code, DCMIPP_ISP, pad))
-+		fmt->code = IS_SRC(pad) ? ISP_MEDIA_BUS_SRC_FMT_DEFAULT :
-+					  ISP_MEDIA_BUS_SINK_FMT_DEFAULT;
-+
-+	fmt->width = clamp_t(u32, fmt->width, DCMIPP_FRAME_MIN_WIDTH,
-+			     DCMIPP_FRAME_MAX_WIDTH) & ~1;
-+	fmt->height = clamp_t(u32, fmt->height, DCMIPP_FRAME_MIN_HEIGHT,
-+			      DCMIPP_FRAME_MAX_HEIGHT);
-+
-+	if (fmt->field == V4L2_FIELD_ANY || fmt->field == V4L2_FIELD_ALTERNATE)
-+		fmt->field = V4L2_FIELD_NONE;
-+
-+	dcmipp_colorimetry_clamp(fmt);
-+}
-+
-+static int dcmipp_isp_init_state(struct v4l2_subdev *sd,
-+				 struct v4l2_subdev_state *state)
-+{
-+	for (unsigned int i = 0; i < sd->entity.num_pads; i++) {
-+		struct v4l2_mbus_framefmt *mf;
-+
-+		mf = v4l2_subdev_state_get_format(state, i);
-+		*mf = fmt_default;
-+		mf->code = IS_SRC(i) ? ISP_MEDIA_BUS_SRC_FMT_DEFAULT :
-+				       ISP_MEDIA_BUS_SINK_FMT_DEFAULT;
-+
-+		if (IS_SINK(i)) {
-+			struct v4l2_rect r = {
-+				.top = 0,
-+				.left = 0,
-+				.width = DCMIPP_FMT_WIDTH_DEFAULT,
-+				.height = DCMIPP_FMT_HEIGHT_DEFAULT,
-+			};
-+
-+			*v4l2_subdev_state_get_crop(state, i) = r;
-+			*v4l2_subdev_state_get_compose(state, i) = r;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int dcmipp_isp_enum_mbus_code(struct v4l2_subdev *sd,
-+				     struct v4l2_subdev_state *state,
-+				     struct v4l2_subdev_mbus_code_enum *code)
-+{
-+	return dcmipp_pixelpipe_enum_mbus_code(DCMIPP_ISP, code);
-+}
-+
-+static int dcmipp_isp_enum_frame_size(struct v4l2_subdev *sd,
-+				      struct v4l2_subdev_state *state,
-+				      struct v4l2_subdev_frame_size_enum *fse)
-+{
-+	return dcmipp_pixelpipe_enum_frame_size(DCMIPP_ISP, fse);
-+}
-+
-+static int dcmipp_isp_set_fmt(struct v4l2_subdev *sd,
-+			      struct v4l2_subdev_state *state,
-+			      struct v4l2_subdev_format *fmt)
-+{
-+	if (fmt->which == V4L2_SUBDEV_FORMAT_ACTIVE &&
-+	    v4l2_subdev_is_streaming(sd))
-+		return -EBUSY;
-+
-+	dcmipp_isp_adjust_fmt(&fmt->format, fmt->pad);
-+
-+	if (IS_SINK(fmt->pad)) {
-+		struct v4l2_mbus_framefmt *src_fmt =
-+			v4l2_subdev_state_get_format(state, 1);
-+		struct v4l2_rect r = {
-+			.top = 0,
-+			.left = 0,
-+			.width = fmt->format.width,
-+			.height = fmt->format.height,
-+		};
-+
-+		/* Adjust SINK pad crop/compose */
-+		*v4l2_subdev_state_get_crop(state, 0) = r;
-+		*v4l2_subdev_state_get_compose(state, 0) = r;
-+
-+		/* Forward format to SRC pads */
-+		*src_fmt = fmt->format;
-+		src_fmt->code = dcmipp_pixelpipe_src_format(fmt->format.code);
-+		*v4l2_subdev_state_get_format(state, 2) = *src_fmt;
-+	} else {
-+		struct v4l2_mbus_framefmt *sink_fmt =
-+			v4l2_subdev_state_get_format(state, 0);
-+		struct v4l2_rect *compose =
-+			v4l2_subdev_state_get_compose(state, 0);
-+
-+		fmt->format = *sink_fmt;
-+		fmt->format.code = dcmipp_pixelpipe_src_format(sink_fmt->code);
-+		if (compose->width && compose->height) {
-+			fmt->format.width = compose->width;
-+			fmt->format.height = compose->height;
-+		}
-+		/* Set to the 2nd SRC pad */
-+		*v4l2_subdev_state_get_format(state, fmt->pad == 1 ? 2 : 1) =
-+			fmt->format;
-+	}
-+
-+	/* Update the selected pad format */
-+	*v4l2_subdev_state_get_format(state, fmt->pad) = fmt->format;
-+
-+	return 0;
-+}
-+
-+static void dcmipp_isp_adjust_crop(struct v4l2_rect *r,
-+				   const struct v4l2_mbus_framefmt *fmt)
-+{
-+	struct v4l2_rect crop_min = {
-+		.width = fmt->width,
-+		.height = DCMIPP_FRAME_MIN_HEIGHT,
-+	};
-+
-+	/*
-+	 * Crop is related here to the statistics removal, that is
-+	 * firsts and/or lasts lines of the frame. Up to the first
-+	 * 7 lines can be skipped
-+	 */
-+#define DCMIPP_ISP_MAX_TOP_CROP	7
-+	v4l2_rect_set_min_size(r, &crop_min);
-+	if (r->top > DCMIPP_ISP_MAX_TOP_CROP)
-+		r->top = DCMIPP_ISP_MAX_TOP_CROP;
-+	if ((r->height + r->top) > fmt->height)
-+		r->height = fmt->height - r->top;
-+}
-+
-+static int dcmipp_isp_set_selection(struct v4l2_subdev *sd,
-+				    struct v4l2_subdev_state *state,
-+				    struct v4l2_subdev_selection *s)
-+{
-+	struct dcmipp_isp_device *isp = v4l2_get_subdevdata(sd);
-+	struct v4l2_mbus_framefmt *sink_fmt, *src_fmt;
-+	struct v4l2_rect *crop, *compose;
-+	__u32 pad;
-+
-+	if (IS_SRC(s->pad))
-+		return -EINVAL;
-+
-+	if (s->which == V4L2_SUBDEV_FORMAT_ACTIVE &&
-+	    v4l2_subdev_is_streaming(sd))
-+		return -EBUSY;
-+
-+	crop = v4l2_subdev_state_get_crop(state, s->pad);
-+	compose = v4l2_subdev_state_get_compose(state, s->pad);
-+
-+	switch (s->target) {
-+	case V4L2_SEL_TGT_CROP:
-+		sink_fmt = v4l2_subdev_state_get_format(state, s->pad);
-+		dcmipp_isp_adjust_crop(&s->r, sink_fmt);
-+
-+		*crop = s->r;
-+		*compose = s->r;
-+
-+		dev_dbg(isp->dev, "s_selection: crop (%d,%d)/%ux%u\n",
-+			crop->left, crop->top, crop->width, crop->height);
-+		break;
-+	case V4L2_SEL_TGT_COMPOSE:
-+		s->r.top = 0;
-+		s->r.left = 0;
-+		if (s->r.width < DCMIPP_FRAME_MIN_WIDTH)
-+			s->r.width = DCMIPP_FRAME_MIN_WIDTH;
-+		s->r.width = dcmipp_isp_set_compose(crop->width, s->r.width);
-+		if (s->r.height < DCMIPP_FRAME_MIN_HEIGHT)
-+			s->r.height = DCMIPP_FRAME_MIN_HEIGHT;
-+		s->r.height = dcmipp_isp_set_compose(crop->height, s->r.height);
-+		*compose = s->r;
-+
-+		dev_dbg(isp->dev, "s_selection: compose (%d,%d)/%ux%u\n",
-+			compose->left, compose->top,
-+			compose->width, compose->height);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	/* Update the source pad size */
-+	for (pad = 1; pad < sd->entity.num_pads; pad++) {
-+		src_fmt = v4l2_subdev_state_get_format(state, pad);
-+		src_fmt->width = s->r.width;
-+		src_fmt->height = s->r.height;
-+	}
-+
-+	return 0;
-+}
-+
-+#define STM32_DCMIPP_IS_BAYER_VARIANT(code, variant)	\
-+	((code) == MEDIA_BUS_FMT_S##variant##8_1X8 ||	\
-+	 (code) == MEDIA_BUS_FMT_S##variant##10_1X10 ||	\
-+	 (code) == MEDIA_BUS_FMT_S##variant##12_1X12 ||	\
-+	 (code) == MEDIA_BUS_FMT_S##variant##14_1X14 ||	\
-+	 (code) == MEDIA_BUS_FMT_S##variant##16_1X16)
-+static void dcmipp_isp_config_demosaicing(struct dcmipp_isp_device *isp,
-+					  struct v4l2_subdev_state *state)
-+{
-+	__u32 code = v4l2_subdev_state_get_format(state, 0)->code;
-+	unsigned int val = 0;
-+
-+	/* Disable demosaicing */
-+	reg_clear(isp, DCMIPP_P1DMCR,
-+		  DCMIPP_P1DMCR_ENABLE | DCMIPP_P1DMCR_TYPE_MASK);
-+
-+	/* Only perform demosaicing if format is bayer */
-+	if (code < MEDIA_BUS_FMT_SBGGR8_1X8 || code >= MEDIA_BUS_FMT_JPEG_1X8)
-+		return;
-+
-+	dev_dbg(isp->dev, "Input is RawBayer, enable Demosaicing\n");
-+
-+	if (STM32_DCMIPP_IS_BAYER_VARIANT(code, BGGR))
-+		val = DCMIPP_P1DMCR_TYPE_BGGR << DCMIPP_P1DMCR_TYPE_SHIFT;
-+	else if (STM32_DCMIPP_IS_BAYER_VARIANT(code, GBRG))
-+		val = DCMIPP_P1DMCR_TYPE_GBRG << DCMIPP_P1DMCR_TYPE_SHIFT;
-+	else if (STM32_DCMIPP_IS_BAYER_VARIANT(code, GRBG))
-+		val = DCMIPP_P1DMCR_TYPE_GRBG << DCMIPP_P1DMCR_TYPE_SHIFT;
-+	else if (STM32_DCMIPP_IS_BAYER_VARIANT(code, RGGB))
-+		val = DCMIPP_P1DMCR_TYPE_RGGB << DCMIPP_P1DMCR_TYPE_SHIFT;
-+
-+	val |= DCMIPP_P1DMCR_ENABLE;
-+
-+	reg_set(isp, DCMIPP_P1DMCR, val);
-+}
-+
-+static bool dcmipp_isp_is_aux_output_enabled(struct dcmipp_isp_device *isp)
-+{
-+	struct media_link *link;
-+
-+	for_each_media_entity_data_link(isp->ved.ent, link) {
-+		if (link->source != &isp->ved.pads[2])
-+			continue;
-+
-+		if (!(link->flags & MEDIA_LNK_FL_ENABLED))
-+			continue;
-+
-+		if (!strcmp(link->sink->entity->name, "dcmipp_aux_postproc"))
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
-+static void dcmipp_isp_config_decimation(struct dcmipp_isp_device *isp,
-+					 struct v4l2_subdev_state *state)
-+{
-+	struct v4l2_rect *crop = v4l2_subdev_state_get_crop(state, 0);
-+	struct v4l2_rect *compose = v4l2_subdev_state_get_compose(state, 0);
-+	u32 decr;
-+
-+	decr = (fls(crop->width / compose->width) - 1) << DCMIPP_P1DECR_HDEC_SHIFT |
-+	       (fls(crop->height / compose->height) - 1) << DCMIPP_P1DECR_VDEC_SHIFT;
-+	if (decr)
-+		decr |= DCMIPP_P1DECR_ENABLE;
-+
-+	reg_write(isp, DCMIPP_P1DECR, decr);
-+}
-+
-+static int dcmipp_isp_enable_streams(struct v4l2_subdev *sd,
-+				     struct v4l2_subdev_state *state,
-+				     u32 pad, u64 streams_mask)
-+{
-+	struct dcmipp_isp_device *isp = v4l2_get_subdevdata(sd);
-+	struct v4l2_rect *crop = v4l2_subdev_state_get_crop(state, 0);
-+	struct v4l2_subdev *s_subdev;
-+	struct media_pad *s_pad;
-+	int ret;
-+
-+	/* Perform configuration only if no other pad is enabled */
-+	if (sd->enabled_pads)
-+		return 0;
-+
-+	/* Get source subdev */
-+	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
-+	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
-+		return -EINVAL;
-+	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
-+
-+	/* Check if link between ISP & Pipe2 postproc is enabled */
-+	if (dcmipp_isp_is_aux_output_enabled(isp))
-+		reg_clear(isp, DCMIPP_P1FSCR, DCMIPP_P1FSCR_PIPEDIFF);
-+	else
-+		reg_set(isp, DCMIPP_P1FSCR, DCMIPP_P1FSCR_PIPEDIFF);
-+
-+	/* Configure Statistic Removal */
-+	crop = v4l2_subdev_state_get_crop(state, 0);
-+	reg_write(isp, DCMIPP_P1SRCR,
-+		  ((crop->top << DCMIPP_P1SRCR_FIRSTLINEDEL_SHIFT) |
-+		   (crop->height << DCMIPP_P1SRCR_LASTLINE_SHIFT) |
-+		   DCMIPP_P1SRCR_CROPEN));
-+
-+	/* Configure Decimation */
-+	dcmipp_isp_config_decimation(isp, state);
-+
-+	/* Configure Demosaicing */
-+	dcmipp_isp_config_demosaicing(isp, state);
-+
-+	ret = v4l2_subdev_enable_streams(s_subdev, s_pad->index, BIT_ULL(0));
-+	if (ret < 0) {
-+		dev_err(isp->dev,
-+			"failed to start source subdev streaming (%d)\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int dcmipp_isp_disable_streams(struct v4l2_subdev *sd,
-+				      struct v4l2_subdev_state *state,
-+				      u32 pad, u64 streams_mask)
-+{
-+	struct dcmipp_isp_device *isp = v4l2_get_subdevdata(sd);
-+	struct v4l2_subdev *s_subdev;
-+	struct media_pad *s_pad;
-+	int ret;
-+
-+	/* Don't do anything if there are still other pads enabled */
-+	if ((sd->enabled_pads & ~BIT(pad)))
-+		return 0;
-+
-+	/* Get source subdev */
-+	s_pad = media_pad_remote_pad_first(&sd->entity.pads[0]);
-+	if (!s_pad || !is_media_entity_v4l2_subdev(s_pad->entity))
-+		return -EINVAL;
-+	s_subdev = media_entity_to_v4l2_subdev(s_pad->entity);
-+
-+	/* Disable all blocks */
-+	reg_write(isp, DCMIPP_P1SRCR, 0);
-+	reg_write(isp, DCMIPP_P1DECR, 0);
-+	reg_write(isp, DCMIPP_P1DMCR, 0);
-+
-+	ret = v4l2_subdev_disable_streams(s_subdev, s_pad->index, BIT_ULL(0));
-+	if (ret < 0) {
-+		dev_err(isp->dev,
-+			"failed to disable source subdev streaming (%d)\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct v4l2_subdev_pad_ops dcmipp_isp_pad_ops = {
-+	.enum_mbus_code		= dcmipp_isp_enum_mbus_code,
-+	.enum_frame_size	= dcmipp_isp_enum_frame_size,
-+	.get_fmt		= v4l2_subdev_get_fmt,
-+	.set_fmt		= dcmipp_isp_set_fmt,
-+	.get_selection		= dcmipp_pixelpipe_get_selection,
-+	.set_selection		= dcmipp_isp_set_selection,
-+	.enable_streams		= dcmipp_isp_enable_streams,
-+	.disable_streams	= dcmipp_isp_disable_streams,
-+};
-+
-+static const struct v4l2_subdev_video_ops dcmipp_isp_video_ops = {
-+	.s_stream = v4l2_subdev_s_stream_helper,
-+};
-+
-+static const struct v4l2_subdev_ops dcmipp_isp_ops = {
-+	.pad = &dcmipp_isp_pad_ops,
-+	.video = &dcmipp_isp_video_ops,
-+};
-+
-+static void dcmipp_isp_release(struct v4l2_subdev *sd)
-+{
-+	struct dcmipp_isp_device *isp = v4l2_get_subdevdata(sd);
-+
-+	kfree(isp);
-+}
-+
-+static const struct v4l2_subdev_internal_ops dcmipp_isp_int_ops = {
-+	.init_state = dcmipp_isp_init_state,
-+	.release = dcmipp_isp_release,
-+};
-+
-+void dcmipp_isp_ent_release(struct dcmipp_ent_device *ved)
-+{
-+	struct dcmipp_isp_device *isp =
-+			container_of(ved, struct dcmipp_isp_device, ved);
-+
-+	dcmipp_ent_sd_unregister(ved, &isp->sd);
-+}
-+
-+struct dcmipp_ent_device *dcmipp_isp_ent_init(const char *entity_name,
-+					      struct dcmipp_device *dcmipp)
-+{
-+	struct dcmipp_isp_device *isp;
-+	const unsigned long pads_flag[] = {
-+		MEDIA_PAD_FL_SINK, MEDIA_PAD_FL_SOURCE,
-+		MEDIA_PAD_FL_SOURCE,
-+	};
-+	int ret;
-+
-+	/* Allocate the isp struct */
-+	isp = kzalloc_obj(*isp);
-+	if (!isp)
-+		return ERR_PTR(-ENOMEM);
-+
-+	isp->regs = dcmipp->regs;
-+
-+	/* Initialize ved and sd */
-+	ret = dcmipp_ent_sd_register(&isp->ved, &isp->sd,
-+				     &dcmipp->v4l2_dev, entity_name,
-+				     MEDIA_ENT_F_PROC_VIDEO_PIXEL_FORMATTER,
-+				     ARRAY_SIZE(pads_flag), pads_flag,
-+				     &dcmipp_isp_int_ops, &dcmipp_isp_ops,
-+				     NULL, NULL);
-+	if (ret) {
-+		kfree(isp);
-+		return ERR_PTR(ret);
-+	}
-+
-+	isp->ved.dcmipp = dcmipp;
-+	isp->dev = dcmipp->dev;
-+
-+	return &isp->ved;
-+}
+I wanted to keep limited scope of this series. Hence was just looking
+from mte's perspective which is narrow. You are right on putting one
+config file for all of arm64. I'll run/look through all of arm64 to
+see which more configs are needed and move the config file in top level. 
 
 -- 
-2.34.1
-
+Thanks,
+Usama
 
