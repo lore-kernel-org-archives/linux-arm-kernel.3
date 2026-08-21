@@ -4,79 +4,190 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2635AC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE6CC5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:22:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HnxxoPZ9rBwZE28ldZtryAuQOmZ55lBngPfJ04thMi4=; b=ARTCqZMtoZpIBVbiVGNeWhiVl8
-	V6B8CQSpQPmZtAid4hxdTwcZtDAW1hrllpWUMxEqm+eiW3Fez1MJyBgkhXqykncjuZbP5/TLseIfr
-	WXVEDUrC3W3F7pdhQ19lXLWTKDOxlxHQ7yDIXEDWdrqNhXWo1cr7BPLyB0RR8kDXEA6GEne+HqXGX
-	7aF23on1f7VZTQPAruQAG3Gle9In1JwRgnL+DbmdV67vMSHY9VrY4y75n/pFNMphlscplsd8LHvdM
-	Ls9CIjMhiIOjrYYMj2gBI2yPm6cqloFzBfh841f3WjZL+m7oesrTsyQS7noR7VYtAX+HiHmpeZ37Z
-	5RJgCCNg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8JJ4PU1w/CslgxtJLCOa1o4SY/M/lMPOG1hqS5Ccb0I=; b=c03Egop/pMMK9/s2JGg9w/+ytM
+	9IP19NdhXhLB6UDOqW4F92PwzvZqwCRgSMB8GlzPVIjxgpr4HMtrJfOE53T2XKafsIfSa5fFE83HL
+	IaTgrhq6qKkxQ0nFVqtc7Dzpg0TGsNVpH6e+hOllggHcCGpprOcRY57Pwzkzc/AWO0huLP6gsKmOK
+	JWTbp1IrepgQgRQN5S1YIF0qBncNuVmXj1NqMoU9KJwwd/1cQ/nQVJiS9E7qjDOOCbg2yzJ2miiSu
+	gUQb6B35H4pmkr/S7ZdT8HoPSXQ/yz/bIfY4WFAR12N6FH1gw/lm7hja4s5PZzGDcOUcBmDF5cuxA
+	y4NEWifw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxNxo-0000000DGRy-1gLK;
-	Fri, 21 Aug 2026 12:03:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wxOGO-0000000DIF1-21TP;
+	Fri, 21 Aug 2026 12:22:24 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxNxE-0000000DFw4-1x0A;
-	Fri, 21 Aug 2026 12:02:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0862444BB0;
-	Fri, 21 Aug 2026 12:02:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DD5C5C2BCF7;
-	Fri, 21 Aug 2026 12:02:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1787313755;
-	bh=2UdzR7Mnrg71FEMEb2N22cxnvddOVC1L0Kj5QL7nZl0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=bRSTOYswRtu7r0vuINgbBJhwPPb1bpcea4g68DFU4MbJ5MREH7BK9Rclwn+KXkhku
-	 i7JDC4RmurkSkEjvrlKa0JikWuNPl7Rn1geEzKudH2uAc8JH0yXXo8HcKWsVwc55PK
-	 hj6dBHoGS1n8jr4b/pPrdvXOmVZER/vNtQWnvssdeXGarHGa5GLAGRUwboLwlsu9+0
-	 PcDIrtu1OEPxGWfGGxfSNxNyWt9cJHfDX+5P+XxzV6UBrUie8YIIPIT4M0N/E4A3fS
-	 pOBcheIvDEa2ka/xMtg8rYFvl3IdctkQfLkGmrC6BfQ8KQ7i7V2fiHx0ydoZ7pmHiz
-	 zZ5TgefoiJxuA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CA433C5DF89;
-	Fri, 21 Aug 2026 12:02:35 +0000 (UTC)
-From: Jason Yang via B4 Relay <devnull+jason98166.gmail.com@kernel.org>
-Date: Fri, 21 Aug 2026 20:02:35 +0800
-Subject: [PATCH v4 7/7] phy: rockchip-samsung-dcphy: Add MIPI D-PHY
- receiver support
+	id 1wxOGM-0000000DIEg-2NJL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Aug 2026 12:22:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787314943; x=1818850943;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=ZxywOCVtcW0wuFuX6A63sYHcsMPhuvZWcHrIQIMtxpE=;
+  b=Rr+MpFoIM9KpCPthoPsX4RsuAsXoEHLFxXdIcw0VqQaJIJCk9qkChX7c
+   Ay5nW5kPt233xrWKF7diHI/q878hbfJB824SWRkLx4H7QoaDcIl9fq326
+   OhmlfnY4YhjHcVrjW1TKvjlbgrBGAzDB/KBCu0ObApEzSgu0faIr4y73s
+   SqgMRRqVuBigLh+IhfApb/sns68KW8W+AP1TCx7CWqV+9oAZV9m0Lg2Kg
+   pUQPpGLsiOZfFk6x9kwFLxlFwz1mDbZE861j5j3GbULc3c+M5DB5kn3Hy
+   nx/9Nn73Qax+ajiDX0xjc+HAxKMfNFQRa+N+8jgNbEFe1wSXu2ViD/zBT
+   w==;
+X-CSE-ConnectionGUID: EqKD31g5TUuL8zmUBpvvsg==
+X-CSE-MsgGUID: J1AA7PkVRX+eki/4Saiv6w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11881"; a="87922911"
+X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
+   d="scan'208";a="87922911"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2026 05:22:20 -0700
+X-CSE-ConnectionGUID: uI7PjAtqRv24mdOTrqvRbQ==
+X-CSE-MsgGUID: 11f4ZY/+TAi96/zWwVovbg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
+   d="scan'208";a="262619822"
+Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2026 05:22:19 -0700
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 21 Aug 2026 05:22:19 -0700
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45 via Frontend Transport; Fri, 21 Aug 2026 05:22:19 -0700
+Received: from CH5PR02CU005.outbound.protection.outlook.com (40.107.200.1) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 21 Aug 2026 05:22:16 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VOFJHSuKwWJKcKbi0Q3W/IKbBNCe3xfTVYN8n3GURzMvYKmBwaS6ITjV1eSpTG3Gcg2xSPE1ovnqgnEbwLq4wVtMA6+Ejwxgql5EzOikvq1JBMteF/Uk0lo/oiVpjnD8afUUVl084PivGqg4chReJn0L3YnZP/3/gp6oHnkT2oRws1Oc6YjTzUeuAnxiL1pCrbWqo6a20LgDL2c18IDAVkkXQ8ioPy4QApvEdyk1n2gO2Q4/UEVuyRwEhG3LjkJ/b5xMQs8iw61IExKfxvnaS5R/JbMpdB/62OSDVgFkGVlQG56jFHUspWQFlWK2jlZoiYRv12P7s3FLIwiaYfyxQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8JJ4PU1w/CslgxtJLCOa1o4SY/M/lMPOG1hqS5Ccb0I=;
+ b=QJ+wuE9/X8erbtMc+0+jOfHDwGGQNNbHk+vPy3bgrnSWgQrL6KQrXh/PoQyanSuzXUhkDE6In28g5oQjzbJEy7oocAqYvwb8zRVXiWGVl6UxtV0nsXgJyh166b4hpHqjf2Sv98U29iPGdb4oSrnZ/7U48urqBAzB8HMoOAmkK3ImoHUgUzv4sj4DZZ6iOYlKbTiRPK2iDOWubGp4Ldg7Yt/YeoF9lECevBODsUwLlwjx6m6XMTjwn26gQJbYXWIK4pBGoKvy7dPoNGmFcUriXBD6Uc3vVeO/xYmlaJpHEF9E3JhHz8IB67CkgCZKYwkGHDe+NrzJosPzkVTgeXnVIA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from IA3PR11MB8986.namprd11.prod.outlook.com (2603:10b6:208:577::21)
+ by PH7PR11MB5768.namprd11.prod.outlook.com (2603:10b6:510:131::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
+ 2026 12:22:08 +0000
+Received: from IA3PR11MB8986.namprd11.prod.outlook.com
+ ([fe80::e6f0:6afb:6ef9:ab5c]) by IA3PR11MB8986.namprd11.prod.outlook.com
+ ([fe80::e6f0:6afb:6ef9:ab5c%6]) with mapi id 15.21.0339.008; Fri, 21 Aug 2026
+ 12:22:08 +0000
+From: "Loktionov, Aleksandr" <aleksandr.loktionov@intel.com>
+To: Stanislav Fomichev <sdf.kernel@gmail.com>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>
+CC: "davem@davemloft.net" <davem@davemloft.net>, "edumazet@google.com"
+	<edumazet@google.com>, "kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "Nguyen, Anthony L"
+	<anthony.l.nguyen@intel.com>, "Kitszel, Przemyslaw"
+	<przemyslaw.kitszel@intel.com>, "andrew+netdev@lunn.ch"
+	<andrew+netdev@lunn.ch>, "saeedm@nvidia.com" <saeedm@nvidia.com>,
+	"tariqt@nvidia.com" <tariqt@nvidia.com>, "mbloch@nvidia.com"
+	<mbloch@nvidia.com>, "maxime.chevallier@bootlin.com"
+	<maxime.chevallier@bootlin.com>, "mcoquelin.stm32@gmail.com"
+	<mcoquelin.stm32@gmail.com>, "alexandre.torgue@foss.st.com"
+	<alexandre.torgue@foss.st.com>, "Lobakin, Aleksander"
+	<aleksander.lobakin@intel.com>, "horms@kernel.org" <horms@kernel.org>,
+	"Karlsson, Magnus" <magnus.karlsson@intel.com>, "Fijalkowski, Maciej"
+	<maciej.fijalkowski@intel.com>, "sdf@fomichev.me" <sdf@fomichev.me>,
+	"ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net"
+	<daniel@iogearbox.net>, "hawk@kernel.org" <hawk@kernel.org>,
+	"john.fastabend@gmail.com" <john.fastabend@gmail.com>, "guoren@kernel.org"
+	<guoren@kernel.org>, "dtatulea@nvidia.com" <dtatulea@nvidia.com>,
+	"witu@nvidia.com" <witu@nvidia.com>, "martin.lau@kernel.org"
+	<martin.lau@kernel.org>, "Song, Yoong Siang" <yoong.siang.song@intel.com>,
+	"intel-wired-lan@lists.osuosl.org" <intel-wired-lan@lists.osuosl.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-rdma@vger.kernel.org" <linux-rdma@vger.kernel.org>,
+	"linux-stm32@st-md-mailman.stormreply.com"
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "bpf@vger.kernel.org"
+	<bpf@vger.kernel.org>, "linux-csky@vger.kernel.org"
+	<linux-csky@vger.kernel.org>, "leon@kernel.org" <leon@kernel.org>
+Subject: RE: [PATCH net v3 2/3] xsk: honor XDP_TX_METADATA in zero-copy path
+Thread-Topic: [PATCH net v3 2/3] xsk: honor XDP_TX_METADATA in zero-copy path
+Thread-Index: AQHdL/SmXgyqtDdYQUaVd2408OQu7Laob2Cw
+Date: Fri, 21 Aug 2026 12:22:07 +0000
+Message-ID: <IA3PR11MB8986C83D3B64E9670AAFF1D4E5A32@IA3PR11MB8986.namprd11.prod.outlook.com>
+References: <20260819160535.1472459-1-sdf@fomichev.me>
+ <20260819160535.1472459-3-sdf@fomichev.me>
+In-Reply-To: <20260819160535.1472459-3-sdf@fomichev.me>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: IA3PR11MB8986:EE_|PH7PR11MB5768:EE_
+x-ms-office365-filtering-correlation-id: 32a87d19-98d6-4ed5-546a-08deff7ed189
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|22082099003|18002099003|4143699003|56012099006|38070700021|11063799006|10067099003;
+x-microsoft-antispam-message-info: oP6rfCLg2+dqK1YMQuIf2KZ7VSQlKEz8D2OKSGY91Qa9v+w2m29+lh7udbeVt+4yFaDFHtqd2bJsfu9nQNKIGLQfcAC+9exGpeYwVUguIUoPOyyteEIh0fks9YcR1Pnah++FayLr7cE9hXdcTGWqKn3LS9MRn90+zwFmrb/Sf8JL7zfVq51fvTGbVKaLEYxKo0/MO3FDS3aCEDFaJesMCMRnVqBCSnjDe7i0WgHx55ZRHqwgoaUDZFpgVeDbSIVeUJlZjlQemC3noTRsRbW2jCXUyLSoN9APaji2aY5YPl1lG3HDHhgF4yLCJo2R3i4YHz+Subt5m2FRp/yjXNZQOZ5eelLu4yknYY+6NzpkVSd1LJ5Ghim5Q4cBWBh58uX86Rda6KiiPcUE+wzhfqQtPhF6kf0Q04Xn29iTQUn8aeikn6kcvx+pqISbwomndaSoESo9OQI/3oNUfoiEIqlzSk/HI4axTMd+Iv6paEFks52tWZrT0LmLPeSYGAVSWUmpqI93MeXtUWPAZ9wLt8OabDnz8ONGDpm1OMHWBJLX6j2Tu2to1mc66O4hkY1LBvvT2IlOtg01F3Nn4yK73tWLBGe1kyx1MF/WEwzdvVfL4j6uUsSWO/Nh6rPMLqNlbQUhQiuX4N7GqcK7yupZ4cdLYsLgSqPUa/FBbkG5gjMDhGMUQvGW2TcET5gO+QO56fGXRoavAUCHROviS/OXrg39bg==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA3PR11MB8986.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(22082099003)(18002099003)(4143699003)(56012099006)(38070700021)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?bpFjVRlZ4ICH3yjjtMROUKtBtTQvGj3iK9BUIs7fSi81V68bQ6nDG8KRjjbo?=
+ =?us-ascii?Q?2q9uejvX/3glcrsNkrHZrEBt9TpCsyAzUI8BafZgYFVdW7rXu+YbvKoH/YOc?=
+ =?us-ascii?Q?sF1Omz+nEl/Rda4xZitg4PCX8yubUcukyoceOkXj8uI7tMyfsnlMTf4/fQ2H?=
+ =?us-ascii?Q?ZFL8wncSFE9YCL8qV3m6Ow7RpwOi1LWoNIIEWFccN2TbSb1W1hsOYtXMfMfx?=
+ =?us-ascii?Q?ZVnL4CJ9xRIDBqOw8EjV3F4Q2JGQcp65SZcm6eKiPUK+fLCdwnGYkgSo8J6y?=
+ =?us-ascii?Q?wRexSaX4SLQ1PRVR27oGJ+LJrxbFi+P25YNP7GTqlOsVhg/0JTOcJZLMgH7N?=
+ =?us-ascii?Q?vewJa5kV/WCCsrIa50uoKDz1uEddTjXNeE2UCDCrddhSzFlM5J+syBkIE32I?=
+ =?us-ascii?Q?xOYs3kGsKRK95IBanDf70k3IW4rDVK9tSYPoztYr+kNTmL6kAURYZkTTc0/u?=
+ =?us-ascii?Q?HaZTFEMfieTlZPWkRcAxLbIOoGGHaH6YxccdPf8XQ8PfBUyR0mWg4hWt4Ngk?=
+ =?us-ascii?Q?0h+RduFBCubsfGWcTRKoIhLgh149uYNe+ZUBiIHR7N3cEc4P7RQA/9PVaOlP?=
+ =?us-ascii?Q?37C+jpoarbwnHtlaIR2a7x5n72ZmpGuNNKXdPLQ+ovF7taeKIKy2u0A5ClKz?=
+ =?us-ascii?Q?yWo/Hg2DJDyqxOu9Xb/y9iI+ouTSqpLkccdrn8ZrIKfZbCMg5rmo2Y/J9vNX?=
+ =?us-ascii?Q?PgmYaIuIfj+WAEGeXHLDwjXtJS3dbNjuP+OWS2nuUZC+7gNLJn7ZbGAD0eJW?=
+ =?us-ascii?Q?hpBO4YZ1DkeyfgqnevRWTEmjOEN5A/CMPE49GWy7pHDWIYJWz7ffXNsFG20j?=
+ =?us-ascii?Q?4B8oVa6on2GiFtXxI1XxmWWMI34njgy/MBl/wVtuDSJODL2xoooz/YQnZkB5?=
+ =?us-ascii?Q?OWpVcpCcbYfe5omhn8BVsVGD+2ZqQ9ihRSTfJCoTLOPlyn80Qgynn8B5KqJ7?=
+ =?us-ascii?Q?3h4BpFRtcnqbRUVQL5hTLRlRxvaFXLaxkOYRflbcboumtatYVBKN7Iv0rehG?=
+ =?us-ascii?Q?f7ptKVSBPWZeT7u9W2qXkesvmNb8KUbyOSDdGiKyYXormf5/xM74MF4qVIcn?=
+ =?us-ascii?Q?krrQ3cgv/JTr3DzUcyLCPlsb3lsapFkAXBF7gzoKPTqf25V4KV4rRwQo4Rp/?=
+ =?us-ascii?Q?ozw2pl6CA/4APHeATzxiLwiIpffgqDAVsW6RPIaXMuZbASpGbeAQyg8deXbg?=
+ =?us-ascii?Q?R/w9WYSwIODC1hM2FtRKmpuBIKoO8cx+gI/U5q+0JOK11LyqO/DtVyvWMIYB?=
+ =?us-ascii?Q?OLdbpgITBsNEDz12ircKwix143RkbYJtRYy26ZN5wSkL4xG98qptguU/vhN8?=
+ =?us-ascii?Q?4IpFE8+sgp8n9tdHE02iCk1C4uzu53iQKBrl5v8FqlTEMdgaL9MZX1CgdStE?=
+ =?us-ascii?Q?a2c159UQeZ/I5OkEfdhlXMsYfqokxOLnVjeDcQ5FWZqyP2kPYn31FcKjU1bH?=
+ =?us-ascii?Q?JoFBZXI32/FQI17pvn/sfg6P6npGF5OHZ2s1JRBQ52uH74/QQ2I8Jo71uRmL?=
+ =?us-ascii?Q?hKay4AEr/7Xc+/3vkSUaiozjNrnamJgyDttICM7zZGKDqs5AqE/Oiqw6HhTr?=
+ =?us-ascii?Q?8TOV9I1lIyLY3HW+EMNW5ysftsvdG0Fylc7VX/vkCTke+mP/KhNgoLmUtNkF?=
+ =?us-ascii?Q?QVEWx1pOO9YjnL+45RH4QySR/jeQeK+m0m5Z60ll5c/WES4UvmgqIEB2tgm8?=
+ =?us-ascii?Q?V3VpFfxEXaTrwLlDZxofY8GbaISh27rAsN/b1SE45A93wjXSwooG6nr9SIH7?=
+ =?us-ascii?Q?3jB7Thci90ni8GdZcngfqRz6rvLsHhs=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260821-dcphy-rx-v1-v4-7-f1797634233d@gmail.com>
-References: <20260821-dcphy-rx-v1-v4-0-f1797634233d@gmail.com>
-In-Reply-To: <20260821-dcphy-rx-v1-v4-0-f1797634233d@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Guochun Huang <hero.huang@rock-chips.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Michael Riesch <michael.riesch@collabora.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Jason Yang <jason98166@gmail.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787313753; l=16417;
- i=jason98166@gmail.com; s=20260721; h=from:subject:message-id;
- bh=6dBCw8OahdISBi/SPeu4nYYJMh77hTufrIaviVdmQhc=;
- b=N6yyDSgsjtz2zqcRW3s5HFAJk08oMaoUiW7UP/oRR5iqBpznWe8korJ7zAjmWO9XxSF426FzU
- kH5ildPV/cQAw/buwT1si3jxufYUh+fJwN7VB58XBn9nIKm+kGTSXo2
-X-Developer-Key: i=jason98166@gmail.com; a=ed25519;
- pk=xQmD001Q/ooHl39PxyQtusbUQmgbOsSfpFryRVWZ/k4=
-X-Endpoint-Received: by B4 Relay for jason98166@gmail.com/20260721 with
- auth_id=887
-X-Original-From: Jason Yang <jason98166@gmail.com>
+X-Exchange-RoutingPolicyChecked: T6OCH/5iCgNEE7muiyVVFw/YSyipv2xHtoJg39C13rDt/1tIRfdKizjT8utLKHRv9F3RPQwPN1XPWeeQV6+4EayMY38Xm5OgXGomr70znpSUHWyHdiODdQtsNhFD/0eWBH8mXgiBNxBTt6gho94qlnYElUJUEYpKqJGGs4xa0Q3ssdqa0imnNf4aQ6zf46N7QHtUWSf2+aVYFycf0zP8ilplciQw9/2DH0myBhkD81UdICkn2OJQ30UCMuqJBmk34JPYsSbBGSvIFUzWZ1kUuk5cQ31BXi4+Ikf6xD/2PNAAjKfd6gIpgKCxWLiiFSEs28XI1Vxj7FgYMe23f4qJwg==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: IA3PR11MB8986.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 32a87d19-98d6-4ed5-546a-08deff7ed189
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Aug 2026 12:22:07.9547
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: uZJFi7jZkZmHPV7zdZK5Dh4/0sYnJE+GVutUcHe1QOGUrD7UwZsyaQl5aG4No2XSxNUXoCO0xLgmXcYkSKkYI0KShdFqNHvg4dGSA8igtc0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB5768
+X-OriginatorOrg: intel.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260821_052222_679698_3A47D928 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,469 +199,272 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jason98166@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jason Yang <jason98166@gmail.com>
-
-Add the receiver (CSI) half of the block, so a MIPI CSI-2 camera can use
-the same PHY that already drives a MIPI DSI output on RK3588. It follows
-the receiver start-up sequence in the RK3588 TRM [1]. The HS-RX settle
-values come from the RK3588 vendor kernel.
-
-The initial deskew calibration that the D-PHY specification asks for
-above 1.5 Gbps is not implemented; the vendor kernel programs it from
-RK3576 onwards only.
-
-Tested on RK3588 with an IMX219 on the receiver and a DSI panel on the
-transmitter of the same PHY.
-
-[1] RK3588 TRM: sections 22.6.3 (receiver start-up) and 22.6.4.3
-    (worked receiver example)
-
-Assisted-by: Claude:claude-fable-5
-Signed-off-by: Jason Yang <jason98166@gmail.com>
----
- drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c | 386 +++++++++++++++++++++-
- 1 file changed, 383 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c b/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
-index d27a5916bd40..947ce7a09c7c 100644
---- a/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
-@@ -244,6 +244,63 @@
- #define T_TA_GET(x)		FIELD_PREP(GENMASK(7, 4), x)
- #define T_TA_GO(x)		FIELD_PREP(GENMASK(3, 0), x)
- 
-+/* D-PHY receiver registers (clock lane + four data lanes) */
-+#define DPHY_SC_GNR_CON0	0x0b00
-+#define DPHY_SC_GNR_CON1	0x0b04
-+#define DPHY_SC_ANA_CON1	0x0b0c
-+#define HS_RX_BIAS_CON(x)	FIELD_PREP(GENMASK(15, 11), x)
-+#define DPHY_SC_ANA_CON2	0x0b10
-+#define HS_TERM_SW(x)		FIELD_PREP(GENMASK(2, 0), x)
-+#define DPHY_SC_ANA_CON3	0x0b14
-+#define ULPS_HYS_SW_DPHY(x)	FIELD_PREP(GENMASK(10, 8), x)
-+#define DPHY_SC_TIME_CON0	0x0b30
-+#define T_CLK_SETTLE(x)		FIELD_PREP(GENMASK(7, 0), x)
-+#define T_CLK_MISS(x)		FIELD_PREP(GENMASK(11, 8), x)
-+#define COMBO_SD0_GNR_CON0	0x0c00
-+#define COMBO_SD0_GNR_CON1	0x0c04
-+#define COMBO_SD0_ANA_CON1	0x0c0c
-+#define COMBO_SD0_ANA_CON2	0x0c10
-+#define SKEW_DLYSEL(x)		FIELD_PREP(GENMASK(9, 8), x)
-+#define RX_TERM_SW(x)		FIELD_PREP(GENMASK(2, 0), x)
-+#define COMBO_SD0_ANA_CON3	0x0c14
-+#define SEL_ESCPOL		BIT(11)
-+#define LP_HYS_SW(x)		FIELD_PREP(GENMASK(5, 4), x)
-+#define COMBO_SD0_ANA_CON7	0x0c24
-+#define CLK_DBL_CTRL(x)		FIELD_PREP(GENMASK(7, 6), x)
-+#define COMBO_SD0_TIME_CON0	0x0c30
-+#define T_HS_SETTLE(x)		FIELD_PREP(GENMASK(7, 0), x)
-+#define SETTLE_CLK_SEL		BIT(8)
-+#define COMBO_SD0_TIME_CON1	0x0c34
-+#define T_ERR_SOT_SYNC(x)	FIELD_PREP(GENMASK(7, 0), x)
-+#define COMBO_SD0_DESKEW_CON2	0x0c48
-+#define SKEW_CAL_CLK_COARSE_SET(x) FIELD_PREP(GENMASK(4, 0), x)
-+#define COMBO_SD1_GNR_CON0	0x0d00
-+#define COMBO_SD1_GNR_CON1	0x0d04
-+#define COMBO_SD1_ANA_CON1	0x0d0c
-+#define COMBO_SD1_ANA_CON2	0x0d10
-+#define COMBO_SD1_ANA_CON3	0x0d14
-+#define COMBO_SD1_ANA_CON7	0x0d24
-+#define COMBO_SD1_TIME_CON0	0x0d30
-+#define COMBO_SD1_TIME_CON1	0x0d34
-+#define COMBO_SD1_DESKEW_CON2	0x0d48
-+#define COMBO_SD2_GNR_CON0	0x0e00
-+#define COMBO_SD2_GNR_CON1	0x0e04
-+#define COMBO_SD2_ANA_CON1	0x0e0c
-+#define COMBO_SD2_ANA_CON2	0x0e10
-+#define COMBO_SD2_ANA_CON3	0x0e14
-+#define COMBO_SD2_ANA_CON7	0x0e24
-+#define COMBO_SD2_TIME_CON0	0x0e30
-+#define COMBO_SD2_TIME_CON1	0x0e34
-+#define COMBO_SD2_DESKEW_CON2	0x0e48
-+#define DPHY_SD3_GNR_CON0	0x0f00
-+#define DPHY_SD3_GNR_CON1	0x0f04
-+#define DPHY_SD3_ANA_CON1	0x0f0c
-+#define DPHY_SD3_ANA_CON2	0x0f10
-+#define DPHY_SD3_ANA_CON3	0x0f14
-+#define DPHY_SD3_TIME_CON0	0x0f30
-+#define DPHY_SD3_TIME_CON1	0x0f34
-+#define DPHY_SD3_DESKEW_CON2	0x0f48
-+
- /* MIPI_CDPHY_GRF registers */
- #define MIPI_DCPHY_GRF_CON0		0x0000
- #define S_CPHY_MODE			FIELD_PREP_WM16(BIT(3), 1)
-@@ -283,6 +340,7 @@ struct samsung_mipi_dcphy_plat_data {
- struct samsung_mipi_phy {
- 	struct phy *phy;
- 	unsigned int lanes;
-+	unsigned long long hs_clk_rate;
- };
- 
- struct samsung_mipi_dcphy {
-@@ -979,6 +1037,260 @@ struct samsung_mipi_dphy_timing samsung_mipi_dphy_timing_table[] = {
- 	{  80,  2,   0,  0, 28,  5,  0, 22,  2,  0,  5},
- };
- 
-+/* D-PHY receiver HS-RX configuration lookup */
-+struct samsung_mipi_dphy_rx_hsfreq_range {
-+	u32 range_h_mbps;
-+	u16 cfg_bit;
-+};
-+
-+/*
-+ * HS RX settle values taken verbatim from the rk3588 vendor kernel.
-+ * The TRM defines these fields but defers the per-data-rate table to a
-+ * timing supplement. Each cfg_bit is a pre-combined SETTLE_CLK_SEL |
-+ * T_HS_SETTLE value for the data-lane TIME_CON0: bit 8 selects the
-+ * divide-by-2 settle clock below 1500 Mbps per the TRM (the vendor
-+ * table switches one bucket early, at 1490 Mbps, and is kept
-+ * unchanged). The TRM marks bit 8 read-only, but the vendor kernel has
-+ * always programmed it. Sorted by .range_h_mbps ascending.
-+ */
-+static const struct samsung_mipi_dphy_rx_hsfreq_range samsung_mipi_dphy_rx_hsfreq_ranges[] = {
-+	{   80, 0x105 }, {  100, 0x106 }, {  120, 0x107 }, {  140, 0x108 },
-+	{  160, 0x109 }, {  180, 0x10a }, {  200, 0x10b }, {  220, 0x10c },
-+	{  240, 0x10d }, {  270, 0x10e }, {  290, 0x10f }, {  310, 0x110 },
-+	{  330, 0x111 }, {  350, 0x112 }, {  370, 0x113 }, {  390, 0x114 },
-+	{  410, 0x115 }, {  430, 0x116 }, {  450, 0x117 }, {  470, 0x118 },
-+	{  490, 0x119 }, {  510, 0x11a }, {  540, 0x11b }, {  560, 0x11c },
-+	{  580, 0x11d }, {  600, 0x11e }, {  620, 0x11f }, {  640, 0x120 },
-+	{  660, 0x121 }, {  680, 0x122 }, {  700, 0x123 }, {  720, 0x124 },
-+	{  740, 0x125 }, {  760, 0x126 }, {  790, 0x127 }, {  810, 0x128 },
-+	{  830, 0x129 }, {  850, 0x12a }, {  870, 0x12b }, {  890, 0x12c },
-+	{  910, 0x12d }, {  930, 0x12e }, {  950, 0x12f }, {  970, 0x130 },
-+	{  990, 0x131 }, { 1010, 0x132 }, { 1030, 0x133 }, { 1060, 0x134 },
-+	{ 1080, 0x135 }, { 1100, 0x136 }, { 1120, 0x137 }, { 1140, 0x138 },
-+	{ 1160, 0x139 }, { 1180, 0x13a }, { 1200, 0x13b }, { 1220, 0x13c },
-+	{ 1240, 0x13d }, { 1260, 0x13e }, { 1280, 0x13f }, { 1310, 0x140 },
-+	{ 1330, 0x141 }, { 1350, 0x142 }, { 1370, 0x143 }, { 1390, 0x144 },
-+	{ 1410, 0x145 }, { 1430, 0x146 }, { 1450, 0x147 }, { 1470, 0x148 },
-+	{ 1490, 0x149 }, { 1580, 0x007 }, { 1740, 0x008 }, { 1910, 0x009 },
-+	{ 2070, 0x00a }, { 2240, 0x00b }, { 2410, 0x00c }, { 2570, 0x00d },
-+	{ 2740, 0x00e }, { 2910, 0x00f }, { 3070, 0x010 }, { 3240, 0x011 },
-+	{ 3410, 0x012 }, { 3570, 0x013 }, { 3740, 0x014 }, { 3890, 0x015 },
-+	{ 4070, 0x016 }, { 4240, 0x017 }, { 4400, 0x018 }, { 4500, 0x019 },
-+};
-+
-+static int samsung_mipi_dphy_rx_lookup_hsfreq(u32 lane_mbps, u16 *cfg_bit)
-+{
-+	unsigned int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(samsung_mipi_dphy_rx_hsfreq_ranges); i++) {
-+		if (lane_mbps <= samsung_mipi_dphy_rx_hsfreq_ranges[i].range_h_mbps) {
-+			*cfg_bit = samsung_mipi_dphy_rx_hsfreq_ranges[i].cfg_bit;
-+			return 0;
-+		}
-+	}
-+
-+	return -ERANGE;
-+}
-+
-+/* SKEW_DLYSEL per data rate, from the RK3588 TRM ANA_CON2 description */
-+static u32 samsung_mipi_dphy_rx_data_lane_dlysel(u32 lane_mbps)
-+{
-+	if (lane_mbps < 1500)
-+		return 0;
-+	if (lane_mbps < 2000)
-+		return SKEW_DLYSEL(3);
-+	if (lane_mbps < 3000)
-+		return SKEW_DLYSEL(2);
-+	if (lane_mbps < 4000)
-+		return SKEW_DLYSEL(1);
-+	return 0;
-+}
-+
-+/*
-+ * Per-data-lane register bases, indexed by lane number. The clock lane
-+ * shares the same block spacing but is programmed separately: its
-+ * TIME_CON0 holds T_CLK_SETTLE/T_CLK_MISS rather than the per-rate
-+ * T_HS_SETTLE/SETTLE_CLK_SEL, and it has no deskew configuration.
-+ */
-+static const u32 rx_data_lane_gnr_con0[] = {
-+	COMBO_SD0_GNR_CON0, COMBO_SD1_GNR_CON0,
-+	COMBO_SD2_GNR_CON0, DPHY_SD3_GNR_CON0,
-+};
-+
-+static const u32 rx_data_lane_gnr_con1[] = {
-+	COMBO_SD0_GNR_CON1, COMBO_SD1_GNR_CON1,
-+	COMBO_SD2_GNR_CON1, DPHY_SD3_GNR_CON1,
-+};
-+
-+static const u32 rx_lane_time_con0[] = {
-+	COMBO_SD0_TIME_CON0, COMBO_SD1_TIME_CON0,
-+	COMBO_SD2_TIME_CON0, DPHY_SD3_TIME_CON0,
-+};
-+
-+static const u32 rx_lane_time_con1[] = {
-+	COMBO_SD0_TIME_CON1, COMBO_SD1_TIME_CON1,
-+	COMBO_SD2_TIME_CON1, DPHY_SD3_TIME_CON1,
-+};
-+
-+/*
-+ * These RX analog tuning values come from the vendor kernel. The
-+ * termination (RX_TERM_SW/HS_TERM_SW = 2) is the 96.6 ohm setting the
-+ * TRM ANA_CON2 value list annotates as the default, although the
-+ * register itself resets to 102 ohm. Data lane 0 differs on purpose:
-+ * the vendor's default receive profile applies the LP hysteresis and
-+ * the swapped escape clock polarity to lane 0 only, and no manual
-+ * skew-calibration delay there against three 30 ps steps on the other
-+ * lanes. Data lane 3 is a plain D-PHY lane with no ANA_CON7, so it
-+ * gets no CLK_DBL_CTRL write.
-+ */
-+static void samsung_mipi_dphy_rx_config_common(struct samsung_mipi_dcphy *samsung)
-+{
-+	struct samsung_mipi_phy *rx = &samsung->rx;
-+	u32 dlysel = samsung_mipi_dphy_rx_data_lane_dlysel(div_u64(rx->hs_clk_rate,
-+								   1000000));
-+	u32 ana_con2_common = dlysel | RX_TERM_SW(2);
-+
-+	/* Clock lane */
-+	regmap_write(samsung->regmap, DPHY_SC_ANA_CON1, HS_RX_BIAS_CON(0x10));
-+	regmap_write(samsung->regmap, DPHY_SC_ANA_CON2, HS_TERM_SW(2));
-+	regmap_write(samsung->regmap, DPHY_SC_ANA_CON3, ULPS_HYS_SW_DPHY(6));
-+
-+	/* Data lane 0; a zero lane count is rejected at power-on */
-+	regmap_write(samsung->regmap, COMBO_SD0_ANA_CON1, HS_RX_BIAS_CON(0x10));
-+	regmap_write(samsung->regmap, COMBO_SD0_ANA_CON2, ana_con2_common);
-+	regmap_write(samsung->regmap, COMBO_SD0_ANA_CON3,
-+		     ULPS_HYS_SW_DPHY(6) | LP_HYS_SW(3) | SEL_ESCPOL);
-+	regmap_write(samsung->regmap, COMBO_SD0_ANA_CON7, CLK_DBL_CTRL(1));
-+	regmap_write(samsung->regmap, COMBO_SD0_DESKEW_CON2,
-+		     SKEW_CAL_CLK_COARSE_SET(0));
-+
-+	/* Data lane 1 */
-+	if (rx->lanes > 1) {
-+		regmap_write(samsung->regmap, COMBO_SD1_ANA_CON1,
-+			     HS_RX_BIAS_CON(0x10));
-+		regmap_write(samsung->regmap, COMBO_SD1_ANA_CON2,
-+			     ana_con2_common);
-+		regmap_write(samsung->regmap, COMBO_SD1_ANA_CON3,
-+			     ULPS_HYS_SW_DPHY(6));
-+		regmap_write(samsung->regmap, COMBO_SD1_ANA_CON7,
-+			     CLK_DBL_CTRL(1));
-+		regmap_write(samsung->regmap, COMBO_SD1_DESKEW_CON2,
-+			     SKEW_CAL_CLK_COARSE_SET(3));
-+	}
-+
-+	/* Data lane 2 */
-+	if (rx->lanes > 2) {
-+		regmap_write(samsung->regmap, COMBO_SD2_ANA_CON1,
-+			     HS_RX_BIAS_CON(0x10));
-+		regmap_write(samsung->regmap, COMBO_SD2_ANA_CON2,
-+			     ana_con2_common);
-+		regmap_write(samsung->regmap, COMBO_SD2_ANA_CON3,
-+			     ULPS_HYS_SW_DPHY(6));
-+		regmap_write(samsung->regmap, COMBO_SD2_ANA_CON7,
-+			     CLK_DBL_CTRL(1));
-+		regmap_write(samsung->regmap, COMBO_SD2_DESKEW_CON2,
-+			     SKEW_CAL_CLK_COARSE_SET(3));
-+	}
-+
-+	/* Data lane 3 */
-+	if (rx->lanes > 3) {
-+		regmap_write(samsung->regmap, DPHY_SD3_ANA_CON1,
-+			     HS_RX_BIAS_CON(0x10));
-+		regmap_write(samsung->regmap, DPHY_SD3_ANA_CON2,
-+			     ana_con2_common);
-+		regmap_write(samsung->regmap, DPHY_SD3_ANA_CON3,
-+			     ULPS_HYS_SW_DPHY(6));
-+		regmap_write(samsung->regmap, DPHY_SD3_DESKEW_CON2,
-+			     SKEW_CAL_CLK_COARSE_SET(3));
-+	}
-+}
-+
-+static int samsung_mipi_dphy_rx_config_settle(struct samsung_mipi_dcphy *samsung)
-+{
-+	struct samsung_mipi_phy *rx = &samsung->rx;
-+	u32 lane_mbps = div_u64(rx->hs_clk_rate, 1000000);
-+	unsigned int i;
-+	u16 cfg_bit;
-+	int ret;
-+
-+	ret = samsung_mipi_dphy_rx_lookup_hsfreq(lane_mbps, &cfg_bit);
-+	if (ret) {
-+		dev_err(samsung->dev, "no RX hsfreq cfg for %u Mbps\n",
-+			lane_mbps);
-+		return ret;
-+	}
-+
-+	/*
-+	 * Clock-lane settle uses the fixed value from the TRM RX bring-up
-+	 * example, unlike the per-rate data-lane settle below.
-+	 */
-+	regmap_write(samsung->regmap, DPHY_SC_TIME_CON0,
-+		     T_CLK_SETTLE(0x01) | T_CLK_MISS(0x03));
-+
-+	for (i = 0; i < rx->lanes; i++) {
-+		regmap_update_bits(samsung->regmap, rx_lane_time_con0[i],
-+				   T_HS_SETTLE(0xff) | SETTLE_CLK_SEL, cfg_bit);
-+		regmap_update_bits(samsung->regmap, rx_lane_time_con1[i],
-+				   T_ERR_SOT_SYNC(0xff), T_ERR_SOT_SYNC(0x03));
-+	}
-+
-+	return 0;
-+}
-+
-+static void samsung_mipi_dphy_rx_lane_disable(struct samsung_mipi_dcphy *samsung)
-+{
-+	struct samsung_mipi_phy *rx = &samsung->rx;
-+	unsigned int i;
-+
-+	regmap_update_bits(samsung->regmap, DPHY_SC_GNR_CON0, PHY_ENABLE, 0);
-+	for (i = 0; i < rx->lanes; i++)
-+		regmap_update_bits(samsung->regmap, rx_data_lane_gnr_con0[i],
-+				   PHY_ENABLE, 0);
-+}
-+
-+static int samsung_mipi_dphy_rx_lane_enable(struct samsung_mipi_dcphy *samsung)
-+{
-+	struct samsung_mipi_phy *rx = &samsung->rx;
-+	unsigned int i;
-+	u32 sts;
-+	int ret;
-+
-+	regmap_write(samsung->regmap, DPHY_SC_GNR_CON1, T_PHY_READY(0x1450));
-+	regmap_update_bits(samsung->regmap, DPHY_SC_GNR_CON0,
-+			   PHY_ENABLE, PHY_ENABLE);
-+
-+	for (i = 0; i < rx->lanes; i++) {
-+		regmap_write(samsung->regmap, rx_data_lane_gnr_con1[i],
-+			     T_PHY_READY(0x1450));
-+		regmap_update_bits(samsung->regmap, rx_data_lane_gnr_con0[i],
-+				   PHY_ENABLE, PHY_ENABLE);
-+	}
-+
-+	ret = regmap_read_poll_timeout(samsung->regmap, DPHY_SC_GNR_CON0,
-+				       sts, sts & PHY_READY, 200, 4000);
-+	if (ret) {
-+		dev_err(samsung->dev, "RX clock lane not ready\n");
-+		goto err_lane_disable;
-+	}
-+
-+	for (i = 0; i < rx->lanes; i++) {
-+		ret = regmap_read_poll_timeout(samsung->regmap,
-+					       rx_data_lane_gnr_con0[i],
-+					       sts, sts & PHY_READY,
-+					       200, 2000);
-+		if (ret) {
-+			dev_err(samsung->dev, "RX data lane %u not ready\n", i);
-+			goto err_lane_disable;
-+		}
-+	}
-+
-+	return 0;
-+
-+err_lane_disable:
-+	samsung_mipi_dphy_rx_lane_disable(samsung);
-+	return ret;
-+}
-+
- static void samsung_mipi_dcphy_bias_block_enable(struct samsung_mipi_dcphy *samsung)
- {
- 	regmap_write(samsung->regmap, BIAS_CON0, I_DEV_DIV_6 | I_RES_100_2UA);
-@@ -988,6 +1300,55 @@ static void samsung_mipi_dcphy_bias_block_enable(struct samsung_mipi_dcphy *sams
- 						 REG_400M_400MV | REG_645M_645MV);
- }
- 
-+static int samsung_mipi_dphy_rx_power_on(struct samsung_mipi_dcphy *samsung)
-+{
-+	struct samsung_mipi_phy *rx = &samsung->rx;
-+	int ret;
-+
-+	if (!rx->hs_clk_rate || !rx->lanes)
-+		return -EINVAL;
-+
-+	reset_control_assert(samsung->s_phy_rst);
-+
-+	/* default output voltage select:
-+	 * dphy: 400mv
-+	 * cphy: 530mv
-+	 */
-+	regmap_update_bits(samsung->regmap, BIAS_CON4,
-+			   I_MUX_SEL_MASK, I_MUX_400MV);
-+
-+	samsung_mipi_dphy_rx_config_common(samsung);
-+
-+	ret = samsung_mipi_dphy_rx_config_settle(samsung);
-+	if (ret)
-+		goto out_deassert;
-+
-+	ret = samsung_mipi_dphy_rx_lane_enable(samsung);
-+
-+out_deassert:
-+	reset_control_deassert(samsung->s_phy_rst);
-+
-+	return ret;
-+}
-+
-+static int samsung_mipi_dphy_rx_power_off(struct samsung_mipi_dcphy *samsung)
-+{
-+	reset_control_assert(samsung->s_phy_rst);
-+
-+	samsung_mipi_dphy_rx_lane_disable(samsung);
-+
-+	reset_control_deassert(samsung->s_phy_rst);
-+
-+	/*
-+	 * Let the lanes settle out of reset before the receiver may be
-+	 * brought up again. The delay follows the vendor driver; the TRM
-+	 * does not document a teardown sequence.
-+	 */
-+	usleep_range(500, 1000);
-+
-+	return 0;
-+}
-+
- static void samsung_mipi_dphy_tx_lane_enable(struct samsung_mipi_dcphy *samsung)
- {
- 	regmap_write(samsung->regmap, DPHY_MC_GNR_CON1, T_PHY_READY(0x2000));
-@@ -1513,17 +1874,36 @@ static int samsung_mipi_dcphy_exit(struct phy *phy)
- static int samsung_mipi_dcphy_rx_configure(struct phy *phy,
- 					   union phy_configure_opts *opts)
- {
--	return -EOPNOTSUPP;
-+	struct samsung_mipi_dcphy *samsung = phy_get_drvdata(phy);
-+
-+	samsung->rx.lanes = opts->mipi_dphy.lanes > 4 ? 4 : opts->mipi_dphy.lanes;
-+
-+	/* The sensor supplies the link clock, so the PLL stays off. */
-+	samsung->rx.hs_clk_rate = opts->mipi_dphy.hs_clk_rate;
-+
-+	return 0;
- }
- 
- static int samsung_mipi_dcphy_rx_power_on(struct phy *phy)
- {
--	return -EOPNOTSUPP;
-+	struct samsung_mipi_dcphy *samsung = phy_get_drvdata(phy);
-+
-+	/* CPHY part to be implemented later */
-+	if (samsung->type != PHY_TYPE_DPHY)
-+		return -EOPNOTSUPP;
-+
-+	return samsung_mipi_dphy_rx_power_on(samsung);
- }
- 
- static int samsung_mipi_dcphy_rx_power_off(struct phy *phy)
- {
--	return -EOPNOTSUPP;
-+	struct samsung_mipi_dcphy *samsung = phy_get_drvdata(phy);
-+
-+	/* CPHY part to be implemented later */
-+	if (samsung->type != PHY_TYPE_DPHY)
-+		return -EOPNOTSUPP;
-+
-+	return samsung_mipi_dphy_rx_power_off(samsung);
- }
- 
- static const struct phy_ops samsung_mipi_dcphy_tx_ops = {
-
--- 
-2.43.0
 
 
+> -----Original Message-----
+> From: Stanislav Fomichev <sdf.kernel@gmail.com>
+> Sent: Wednesday, August 19, 2026 6:06 PM
+> To: netdev@vger.kernel.org
+> Cc: davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
+> pabeni@redhat.com; Nguyen, Anthony L <anthony.l.nguyen@intel.com>;
+> Kitszel, Przemyslaw <przemyslaw.kitszel@intel.com>;
+> andrew+netdev@lunn.ch; saeedm@nvidia.com; tariqt@nvidia.com;
+> mbloch@nvidia.com; maxime.chevallier@bootlin.com;
+> mcoquelin.stm32@gmail.com; alexandre.torgue@foss.st.com; Lobakin,
+> Aleksander <aleksander.lobakin@intel.com>; horms@kernel.org; Karlsson,
+> Magnus <magnus.karlsson@intel.com>; Fijalkowski, Maciej
+> <maciej.fijalkowski@intel.com>; sdf@fomichev.me; ast@kernel.org;
+> daniel@iogearbox.net; hawk@kernel.org; john.fastabend@gmail.com;
+> guoren@kernel.org; dtatulea@nvidia.com; witu@nvidia.com;
+> martin.lau@kernel.org; Song, Yoong Siang <yoong.siang.song@intel.com>;
+> intel-wired-lan@lists.osuosl.org; linux-kernel@vger.kernel.org; linux-
+> rdma@vger.kernel.org; linux-stm32@st-md-mailman.stormreply.com; linux-
+> arm-kernel@lists.infradead.org; bpf@vger.kernel.org; linux-
+> csky@vger.kernel.org; leon@kernel.org
+> Subject: [PATCH net v3 2/3] xsk: honor XDP_TX_METADATA in zero-copy
+> path
+>=20
+> The zero-copy path reads TX metadata whenever the UMEM has metadata
+> space, even if the descriptor does not set XDP_TX_METADATA. Pass
+> descriptor options through the metadata helpers and ignore metadata
+> unless the option is set.
+>=20
+> This does not fix the existing per-WQE metadata handling for mlx5
+> MPWQEs.
+> Only the descriptor that starts a session passes through
+> xsk_tx_metadata_request() and configures offload state shared by the
+> batch.
+> Metadata on descriptors joining an open session is therefore not
+> validated and does not configure its requested offloads. In addition,
+> a non-NULL metadata pointer from such a descriptor is treated as a
+> timestamp completion request even when XDP_TXMD_FLAGS_TIMESTAMP is not
+> set, so its metadata union can be overwritten with an unrequested
+> timestamp. Fixing mixed metadata states within one MPWQE requires a
+> separate change.
+>=20
+> Fixes: 48eb03dd2630 ("xsk: Add TX timestamp and TX checksum offload
+> support")
+> Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
+> Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
+> ---
+>  drivers/net/ethernet/intel/igc/igc_main.c     |  3 ++-
+>  .../ethernet/mellanox/mlx5/core/en/xsk/tx.c   |  2 +-
+>  .../net/ethernet/stmicro/stmmac/stmmac_main.c |  3 ++-
+>  include/net/libeth/xsk.h                      |  2 +-
+>  include/net/xdp_sock_drv.h                    | 22 +++++++++++-------
+> -
+>  include/net/xsk_buff_pool.h                   |  3 ++-
+>  net/xdp/xsk_buff_pool.c                       |  7 ++++--
+>  7 files changed, 26 insertions(+), 16 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/intel/igc/igc_main.c
+> b/drivers/net/ethernet/intel/igc/igc_main.c
+> index 39043d8ca1bf..59067939a586 100644
+> --- a/drivers/net/ethernet/intel/igc/igc_main.c
+> +++ b/drivers/net/ethernet/intel/igc/igc_main.c
+> @@ -3074,7 +3074,8 @@ static void igc_xdp_xmit_zc(struct igc_ring
+> *ring)
+>  		olinfo_status =3D xdp_desc.len << IGC_ADVTXD_PAYLEN_SHIFT;
+>=20
+>  		dma =3D xsk_buff_raw_get_dma(pool, xdp_desc.addr);
+> -		meta =3D xsk_buff_get_metadata(pool, xdp_desc.addr);
+> +		meta =3D xsk_buff_get_metadata(pool, xdp_desc.addr,
+> +					     xdp_desc.options);
+>  		xsk_buff_raw_dma_sync_for_device(pool, dma,
+> xdp_desc.len);
+>  		bi =3D &ring->tx_buffer_info[ntu];
+>=20
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
+> b/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
+> index 3d19dad8f868..d194eeddd7b5 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
+> @@ -99,7 +99,7 @@ bool mlx5e_xsk_tx(struct mlx5e_xdpsq *sq, unsigned
+> int budget)
+>  		xdptxd.dma_addr =3D xsk_buff_raw_get_dma(pool, desc.addr);
+>  		xdptxd.data =3D xsk_buff_raw_get_data(pool, desc.addr);
+>  		xdptxd.len =3D desc.len;
+> -		meta =3D xsk_buff_get_metadata(pool, desc.addr);
+> +		meta =3D xsk_buff_get_metadata(pool, desc.addr,
+> desc.options);
+>=20
+>  		xsk_buff_raw_dma_sync_for_device(pool, xdptxd.dma_addr,
+> xdptxd.len);
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index a71f0df26378..62de03e65a90 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -2719,7 +2719,8 @@ static bool stmmac_xdp_xmit_zc(struct
+> stmmac_priv *priv, u32 queue, u32 budget)
+>=20
+>  		tx_desc =3D stmmac_get_tx_desc(priv, tx_q, entry);
+>  		dma_addr =3D xsk_buff_raw_get_dma(pool, xdp_desc.addr);
+> -		meta =3D xsk_buff_get_metadata(pool, xdp_desc.addr);
+> +		meta =3D xsk_buff_get_metadata(pool, xdp_desc.addr,
+> +					     xdp_desc.options);
+>  		xsk_buff_raw_dma_sync_for_device(pool, dma_addr,
+> xdp_desc.len);
+>=20
+>  		/* To return XDP buffer to XSK pool, we simple call diff
+> --git a/include/net/libeth/xsk.h b/include/net/libeth/xsk.h index
+> 5dcc0d7f65b7..a452b7828ce4 100644
+> --- a/include/net/libeth/xsk.h
+> +++ b/include/net/libeth/xsk.h
+> @@ -196,7 +196,7 @@ __libeth_xsk_xmit_fill_buf_md(const struct
+> xdp_desc *xdesc,
+>  	struct libeth_xdp_tx_desc desc;
+>  	struct xdp_desc_ctx ctx;
+>=20
+> -	ctx =3D xsk_buff_raw_get_ctx(sq->pool, xdesc->addr);
+> +	ctx =3D xsk_buff_raw_get_ctx(sq->pool, xdesc->addr, xdesc-
+> >options);
+>  	desc =3D (typeof(desc)){
+>  		.addr	=3D ctx.dma,
+>  		__libeth_xdp_tx_len(xdesc->len),
+> diff --git a/include/net/xdp_sock_drv.h b/include/net/xdp_sock_drv.h
+> index b344789f5df8..d94aeb506379 100644
+> --- a/include/net/xdp_sock_drv.h
+> +++ b/include/net/xdp_sock_drv.h
+> @@ -240,6 +240,7 @@ static inline void *xsk_buff_raw_get_data(struct
+> xsk_buff_pool *pool, u64 addr)
+>   * xsk_buff_raw_get_ctx - get &xdp_desc context
+>   * @pool: XSk buff pool desc address belongs to
+>   * @addr: desc address (from userspace)
+> + * @options: desc options (from userspace)
+>   *
+>   * Wrapper for xp_raw_get_ctx() to be used in drivers, see its kdoc
+> for
+>   * details.
+> @@ -248,9 +249,9 @@ static inline void *xsk_buff_raw_get_data(struct
+> xsk_buff_pool *pool, u64 addr)
+>   * pointer, if it is present (initialized to %NULL otherwise).
+>   */
+>  static inline struct xdp_desc_ctx
+> -xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr)
+> +xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr, u32
+> +options)
+>  {
+> -	return xp_raw_get_ctx(pool, addr);
+> +	return xp_raw_get_ctx(pool, addr, options);
+>  }
+>=20
+>  #define XDP_TXMD_FLAGS_VALID ( \
+> @@ -318,18 +319,20 @@ xsk_tx_metadata_request(const struct
+> xsk_buff_pool *pool,  }
+>=20
+>  static inline struct xsk_tx_metadata *
+> -__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data)
+> +__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data,
+> +			unsigned int options)
+>  {
+> -	if (!pool->tx_metadata_len)
+> +	if (!pool->tx_metadata_len || !(options & XDP_TX_METADATA))
+>  		return NULL;
+>=20
+>  	return data - pool->tx_metadata_len;
+>  }
+>=20
+>  static inline struct xsk_tx_metadata *
+> -xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr)
+> +xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr, u32
+> +options)
+>  {
+> -	return __xsk_buff_get_metadata(pool, xp_raw_get_data(pool,
+> addr));
+> +	return __xsk_buff_get_metadata(pool, xp_raw_get_data(pool,
+> addr),
+> +				       options);
+>  }
+>=20
+>  static inline void xsk_buff_dma_sync_for_cpu(struct xdp_buff *xdp) @@
+> -510,7 +513,7 @@ static inline void *xsk_buff_raw_get_data(struct
+> xsk_buff_pool *pool, u64 addr)  }
+>=20
+>  static inline struct xdp_desc_ctx
+> -xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr)
+> +xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr, u32
+> +options)
+>  {
+>  	return (struct xdp_desc_ctx){ };
+>  }
+> @@ -530,13 +533,14 @@ xsk_tx_metadata_request(const struct
+> xsk_buff_pool *pool,  }
+>=20
+>  static inline struct xsk_tx_metadata *
+> -__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data)
+> +__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data,
+> +			unsigned int options)
+>  {
+>  	return NULL;
+>  }
+>=20
+>  static inline struct xsk_tx_metadata *
+> -xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr)
+> +xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr, u32
+> +options)
+>  {
+>  	return NULL;
+>  }
+> diff --git a/include/net/xsk_buff_pool.h b/include/net/xsk_buff_pool.h
+> index 2bb1d122b1bc..a7df573784fd 100644
+> --- a/include/net/xsk_buff_pool.h
+> +++ b/include/net/xsk_buff_pool.h
+> @@ -154,7 +154,8 @@ struct xdp_desc_ctx {
+>  	struct xsk_tx_metadata *meta;
+>  };
+>=20
+> -struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool,
+> u64 addr);
+> +struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool,
+> u64 addr,
+> +				   u32 options);
+>=20
+>  static inline dma_addr_t xp_get_dma(struct xdp_buff_xsk *xskb)  {
+> diff --git a/net/xdp/xsk_buff_pool.c b/net/xdp/xsk_buff_pool.c index
+> 78c14f106395..9d2d94f1fb75 100644
+> --- a/net/xdp/xsk_buff_pool.c
+> +++ b/net/xdp/xsk_buff_pool.c
+> @@ -763,6 +763,7 @@ EXPORT_SYMBOL(xp_raw_get_dma);
+>   * xp_raw_get_ctx - get &xdp_desc context
+>   * @pool: XSk buff pool desc address belongs to
+>   * @addr: desc address (from userspace)
+> + * @options: desc options (from userspace)
+>   *
+>   * Helper for getting desc's DMA address and metadata pointer, if
+> present.
+>   * Saves one call on hotpath and double calculation of the actual
+> address.
+> @@ -771,14 +772,16 @@ EXPORT_SYMBOL(xp_raw_get_dma);
+>   * Return: new &xdp_desc_ctx struct containing desc's DMA address and
+> metadata
+>   * pointer, if it is present (initialized to %NULL otherwise).
+>   */
+> -struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool,
+> u64 addr)
+> +struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool,
+> u64 addr,
+> +				   u32 options)
+>  {
+>  	struct xdp_desc_ctx ret;
+>=20
+>  	addr =3D __xp_raw_get_addr(pool, addr);
+>=20
+>  	ret.dma =3D __xp_raw_get_dma(pool, addr);
+> -	ret.meta =3D __xsk_buff_get_metadata(pool,
+> __xp_raw_get_data(pool, addr));
+> +	ret.meta =3D __xsk_buff_get_metadata(pool,
+> __xp_raw_get_data(pool, addr),
+> +					   options);
+>=20
+>  	return ret;
+>  }
+> --
+> 2.53.0-Meta
+
+Reviewed-by: Aleksandr Loktionov <aleksandr.loktionov@intel.com>
 
