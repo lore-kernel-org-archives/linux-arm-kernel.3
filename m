@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1419FC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 11:08:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07142C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 11:11:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BJoZwOuIgjPdC0ssjGngXelUydnEq3wcG4T1qEICItQ=; b=H9UXpcvXt84wXs2qnuygs1Khcq
-	rGU7VgeTfM8llRTUwygu6BOEj82FxgvGeEuKNE/kw43ImKtKgLK0wzU3n8rj6B6FvMEq7LckUm3Ii
-	/AbHxsdNKI/K1ZJsws4D3wZl4BtT/xbVT1q8IzO82p1+9D5FX8Vtu+qksIih3wgTX7VMrh1PFnAbG
-	0kJVdG0vi6n5MVCkg8cBENFmfmNbLkl066LdFGGYgHiDokDaH5BMAkpYZUErxgFarPLmMnQFr84Mb
-	4InsO7UyFRWkIPXDeDKUGu/pWzej3XCRiytff2/yurIxiLvs0cbctsEVOK28I90GRzIhI0FmAA1Jr
-	nmFCvZMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pGdy+s6vvPVR2eFIPkWzRLCO2S6RRjq3+ZNaOFZQhkk=; b=ZJyKcb+Q5rzdyxy6o47UvNPQ0S
+	rNdUKfByEQ4ZmbS35EOxeCD3XFl5pE8gzdcr+GJaYU3gHCamu9Oq9rS24tfpJiQp+JMxMHWjrWjx+
+	17x+jvT0aN8Lsz19OamwqDdg/3DE9nFU/gtr2nzwURYXLJbV/X7Y9Vm6XBpsFuN0QBAC6XHVskR0A
+	GIzDMzpNcbyKjrgStE51yrnZVaRsUKUEu3d7mk7YcZViFn4PomAUroHUhBQK50lkCSiI9RkK+ZxHS
+	S05bpFcHs1SMSaDDpTX/vDJUjkobyvdRE3e7l5aTe+wfPY796R4es4rtfFgFIRshjFPuKNH/QOCqK
+	3RhYiPMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxN6p-0000000D9P7-3pRN;
-	Fri, 21 Aug 2026 11:08:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxN6n-0000000D9Ob-0qiU
+	id 1wxN9t-0000000D9fg-1aHg;
+	Fri, 21 Aug 2026 11:11:37 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wxN9q-0000000D9eX-2BBI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 11:08:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0EBE2153B;
-	Fri, 21 Aug 2026 04:08:20 -0700 (PDT)
-Received: from [10.57.68.59] (unknown [10.57.68.59])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5DF903F763;
-	Fri, 21 Aug 2026 04:08:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787310503; bh=r+nWfseUDNsg7pRvQ6HFhuQDqkGoo3C858WzErP2FVs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=byORhdTJJj/wNVZLhbjCuCla2WOMUWXOZUufawxYXeb+7vu4ikT2xiqhBCyPJoID8
-	 BsSVPG1qW//TuTIAKtG1BomqMKVTwTdG85ypmctJeyPlAlkc8fHd6rQRefn7qpN5Yb
-	 VKaRRlk70XogrEkROd3qsPu/xHUZaDE/EVLVotII=
-Message-ID: <b300856e-46da-4f94-ba4c-24064561024f@arm.com>
-Date: Fri, 21 Aug 2026 12:08:16 +0100
+	Fri, 21 Aug 2026 11:11:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787310695; x=1818846695;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=G4qsN+t5UgXO9pKDlrGNxXYn6SnistljpZuq4z5UJsc=;
+  b=gsC3ufmjxgEsFe/CzgboKjJhVFHpUxlNUnsqoR3f+uqFxgTYwR3/V+Bz
+   1K/5X+9cXlKM3sD/fOLBzwETlsAkHJbHTTxxIznzKm+e59/9xtPdmfK/A
+   fpo9DYVGPd1qDgeK4CghxT60h1flm/sOPB38z4PXdHxCSNAtKUEiMV1uC
+   YjEEEyBjLPzXsWn2N8KmlUTaftEVlc0q+Wwj3kHhr+/Mqj9yRhJtaTCnz
+   7SVrKbDmLhyUU85wRMRT0gBZs29FVO2aeQ22C9lN/vflxgk/Fch0j2P5E
+   C0Jyjgxd21QmRlU7MC+9ZNinixytL5/UkLHLh7s9zPzvED3x3hIFyJrkZ
+   A==;
+X-CSE-ConnectionGUID: 9vwiD1QZTBW743mQgI4ovA==
+X-CSE-MsgGUID: UZLeUcH3TjOgCl3oY7dhEA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11881"; a="87776343"
+X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
+   d="scan'208";a="87776343"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2026 04:11:34 -0700
+X-CSE-ConnectionGUID: /pKJlKLZQBS+cJSz6ZSKFw==
+X-CSE-MsgGUID: I0Z0KE3kQI2pfkI7eWmRew==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
+   d="scan'208";a="289846566"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 21 Aug 2026 04:11:31 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wxN9k-00000000pmz-2UIv;
+	Fri, 21 Aug 2026 11:11:28 +0000
+Date: Fri, 21 Aug 2026 19:10:55 +0800
+From: kernel test robot <lkp@intel.com>
+To: Abdurrahman Hussain <abdurrahman@nexthop.ai>,
+	Michal Simek <monstr@monstr.eu>, Andi Shyti <andi.shyti@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Subject: Re: [PATCH v5] i2c: xiic: restore non-managed runtime PM to fix clk
+ WARN flood
+Message-ID: <202608211944.Zpc0ks4e-lkp@intel.com>
+References: <20260820-i2c-xiic-restore-runtime-pm-teardown-v5-1-ca5db9605508@nexthop.ai>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 12/45] arm64: interrupts: Add common exception
- state helpers
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
- catalin.marinas@arm.com, liaochang1@huawei.com
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-13-vladimir.murzin@arm.com>
- <e93ae08b-64e2-4128-b1fd-910c4d197dbd@huawei.com>
- <86ebda30-26ad-438b-9f98-2ea9e3849cd8@arm.com>
- <6ac531ab-2a9e-430d-822c-9528971a5cad@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <6ac531ab-2a9e-430d-822c-9528971a5cad@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260820-i2c-xiic-restore-runtime-pm-teardown-v5-1-ca5db9605508@nexthop.ai>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_040825_282875_D5F86626 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20260821_041134_635933_46D4B69B 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,36 +91,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/11/26 08:39, Jinjie Ruan wrote:
-> 
-> 在 2026/8/3 17:40, Vladimir Murzin 写道:
->> Hi Jinjie,
->>
->> On 7/28/26 09:20, Jinjie Ruan wrote:
->>> Hi Vladimir,
->>>
->>> Using two tables as below to map different contexts to the hwstate
->>> status makes the code appear more concise and clear. What do you think?
->> I think I already tried something like that and IIRC it hurts code
->> generation...  I'll have another look before posting next version.
-> Thank you for very much.
-> 
+Hi Abdurrahman,
 
-Interestingly, with CONFIG_ARM64_PSEUDO_NMI=n both versions seem to
-have the same codegen, which is not different from the original code.
-However, once CONFIG_ARM64_PSEUDO_NMI=y, codegen starts suffering from
-static branches, with the table approach being slightly worse. Since
-whether we use {p}NMI or not is a runtime decision, the compiler seems
-unable to fully optimize things out.
+kernel test robot noticed the following build warnings:
 
-Perhaps this is the price we have to pay for flexibility, but if
-someone has ideas on how to tune the code generation, I'm all ears.
+[auto build test WARNING on d58772d8520c7ef247c4b95c9bd76d3a25da9ff5]
 
-Cheers
-Vladimir 
+url:    https://github.com/intel-lab-lkp/linux/commits/Abdurrahman-Hussain/i2c-xiic-restore-non-managed-runtime-PM-to-fix-clk-WARN-flood/20260820-052507
+base:   d58772d8520c7ef247c4b95c9bd76d3a25da9ff5
+patch link:    https://lore.kernel.org/r/20260820-i2c-xiic-restore-runtime-pm-teardown-v5-1-ca5db9605508%40nexthop.ai
+patch subject: [PATCH v5] i2c: xiic: restore non-managed runtime PM to fix clk WARN flood
+config: openrisc-randconfig-r072-20260821 (https://download.01.org/0day-ci/archive/20260821/202608211944.Zpc0ks4e-lkp@intel.com/config)
+compiler: or1k-linux-gcc (GCC) 13.4.0
+smatch: v0.5.0-9187-g5189e3fb
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260821/202608211944.Zpc0ks4e-lkp@intel.com/reproduce)
 
->> Cheers
->> Vladimir
->>
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608211944.Zpc0ks4e-lkp@intel.com/
 
+All warnings (new ones prefixed by >>):
+
+>> Warning: drivers/i2c/busses/i2c-xiic.c:106 struct member 'irq' not described in 'xiic_i2c'
+>> Warning: drivers/i2c/busses/i2c-xiic.c:106 struct member 'irq' not described in 'xiic_i2c'
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
