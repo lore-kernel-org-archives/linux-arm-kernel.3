@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 772E8C5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 22:01:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1A3C5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 22:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FMsnrWky6nnIbMZo7oybp8hGSrSxKTLqYIBn/2T4aqI=; b=aJOqutKr/xb6JCG+aU+Mb/1Enb
-	/HyXGJ+jtu92FqKNcW76WhWFVxQ1eUTqLguhFcQJw9KFiuO4PN/qiuJCKJAH3w/XTZ/BhNKyw1M9W
-	ffhiVAaVCX4sAwch5qg7Jf9fiI4HiHut0XR6L9caswEGlfM129W/WoKcFpgaHemB1GnFylsxvHKQ9
-	QHYy/bK4QXvraJ+NOVMSQCIEQiP3kPst0rbr0DEeVpsdRDOjUgODwh7dEf2QRUFx93izpQd7YKWRA
-	4wI+J2YE3jjTKPQnJF9+2i8xEWGio7jHL097aElu6AB2SLoA1qKzrZikXN3BTVuh45Zdy5TiIaWge
-	qI1R8JTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0NeHBJUd51yUtarGVxbHliftzknjEZ2v7UACWXEhCdc=; b=EufIkM+Y0aUailv+a1zk6bfH5n
+	wgcG9sCDnstY4IBZ0ePPiMvB8rVXiXAK2CttGFlh9S/Ja8OSiIwAYanzZ3V6j53As6zLQSzPFKXQ/
+	KUw1IpWbTIEoDbziq1Tr57NSfcnZg/RhfCXxnlFKuXxjqvqt/Y/z56vnAy6gTbJNz/zjOSJo2Ju11
+	/Yqx8+UY6gDG4mLQ9mKEUakWzRC1r5jYw8rHzGF+sqon7SAQRhCfoq3a4e1VV71oIOZd/QPQWriQB
+	6nKaO9ALVxan7GlqMhTVVFEV8/pAX7d+NjwDaSTRXUnPfRGpJF1+oynB0otarWK8PXCzlgR/NDJ9g
+	EulSJXbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxXIe-0000000E5fv-4Aji;
-	Fri, 21 Aug 2026 22:01:21 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1wxXay-0000000E6ST-1sUs;
+	Fri, 21 Aug 2026 22:20:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxXIY-0000000E5fb-2i8T
+	id 1wxXaw-0000000E6SN-3YSq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 22:01:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787349675; x=1818885675;
-  h=date:from:to:cc:subject:message-id;
-  bh=pj5avFMWdUFjdAoJBkO/qnxiaO0qUFxXBT/FaTjjIBg=;
-  b=DbtnqoGcsBinICmYTK5NM/tL7C8QBLd0AoHJQLNLPnKbDMemu4u2+85J
-   K4UAcUYCt2VKI+UVpXOvlDaqvtpv3Yu+kdHbUTQRUi9QWW8YcIomCglq9
-   I+NbVKJ2cy6VW/Wo5cC+UJMSDhWH9sAJMOZ1dWvRmakAjaAqhXG302lqu
-   PDCfKULjYtdQimcH4qrbWY8hyuyEBe9KHnCniXrnZuIAHSTB3LupcsPNh
-   73CeGwxOuP3NAier6N/TIXxZ/Ra2y11AZcjAYXlM9Imetk+8E9xzB1Sae
-   3lv+zKtSHHp4NZba78xU79uCi9Z/DZjtd3JlgSzjcYcdHPo/xTmxSmAqo
-   g==;
-X-CSE-ConnectionGUID: LeX/FXXOQ3aAamjlhNMPyg==
-X-CSE-MsgGUID: akr7Qo+RRry9ZjvE50G4yw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11882"; a="98494975"
-X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
-   d="scan'208";a="98494975"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2026 15:01:13 -0700
-X-CSE-ConnectionGUID: rFjV5Q/2QU6IbNEjpuX+bg==
-X-CSE-MsgGUID: RdoW6DhHTYCvgLYWT/DZlA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
-   d="scan'208";a="271672962"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by fmviesa005.fm.intel.com with ESMTP; 21 Aug 2026 15:01:12 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wxXIT-00000000qVh-2mRl;
-	Fri, 21 Aug 2026 22:01:09 +0000
-Date: Sat, 22 Aug 2026 06:00:33 +0800
-From: kernel test robot <lkp@intel.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Subject: [linusw-nomadik:b4/ux500-power-domains-v7-2] BUILD SUCCESS
- 2a0960023575ddaed421e8c109b6fc17bb45bafc
-Message-ID: <202608220621.eNlrsDFF-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_150114_754134_D471EDD1 
-X-CRM114-Status: UNSURE (   5.43  )
-X-CRM114-Notice: Please train this message.
+	Fri, 21 Aug 2026 22:20:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C0874600E2;
+	Fri, 21 Aug 2026 22:19:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE52F1F000E9;
+	Fri, 21 Aug 2026 22:19:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787350776;
+	bh=0NeHBJUd51yUtarGVxbHliftzknjEZ2v7UACWXEhCdc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZmAsk+SSUHDa7FIVusSqVMl28Vnrrjcs9YyxiPH2/vuDK3RQT7DL/2d6lIKLnpK2T
+	 VQoX+P/voxQP5Y5DapVxuSUAL3z6z/Nao/VRmnOTUOaIgmcUCTpUNvsDblcJiQyEtQ
+	 tXL/MDjl9MQLO/inaadHMNglRayg4DU4K+iJ1aVDEYAlT0rFWfYM8o5rc9Rvdg+G00
+	 JzuLyTltWLp6Ta1TXHZ8SrIxAda4enCwzjA/tY1LsUt0QfoqbhXJEZgTH752He90yu
+	 RRvwfEY2gMRd/J/ZC1w11UEHIrG3qJ+N+iTNO88F8As4wMBVWz4EGbq3Wr9jwb0NKr
+	 LZxQitHNf6cAQ==
+Date: Fri, 21 Aug 2026 23:19:30 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>, Fuad Tabba <tabba@google.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v19 06/14] KVM: arm64: Validate GCS exception lock when
+ emulating ERET
+Message-ID: <02b970b2-dbd9-490f-bfc0-be10708e0f9b@sirena.org.uk>
+References: <20260812-arm64-gcs-v19-0-9105afd828ac@kernel.org>
+ <20260812-arm64-gcs-v19-6-9105afd828ac@kernel.org>
+ <vdmz43ogvmwu4liilfqzdrgsf5v765bucl7mybhfdxj7yrywkd@5mssukdegdwg>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="h4LzlXfWWvj49V3N"
+Content-Disposition: inline
+In-Reply-To: <vdmz43ogvmwu4liilfqzdrgsf5v765bucl7mybhfdxj7yrywkd@5mssukdegdwg>
+X-Cookie: Package sold by weight, not volume.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,119 +82,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/ux500-power-domains-v7-2
-branch HEAD: 2a0960023575ddaed421e8c109b6fc17bb45bafc  ARM: dts: ux500: Remove DB8500 EPOD regulators
 
-elapsed time: 2927m
+--h4LzlXfWWvj49V3N
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-configs tested: 99
-configs skipped: 1
+On Fri, Aug 21, 2026 at 03:32:58PM +0100, Wei-Lin Chang wrote:
+> On Wed, Aug 12, 2026 at 08:12:05PM +0100, Mark Brown wrote:
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+> > +/*
+> > + * A subset of the pseudocode ELFromSPSR(), validity checks are
+> > + * assumed to have been done in code that is not GCS specific.
+> > + */
+> > +static inline int exlock_el_from_spsr(u64 spsr)
+> > +{
+> > +	return FIELD_GET(GENMASK(3, 2), spsr);
+> > +}
 
-tested configs:
-alpha                            allnoconfig    gcc-16.1.0
-alpha                           allyesconfig    gcc-16.1.0
-alpha                              defconfig    gcc-16.1.0
-arc                             allmodconfig    gcc-16.1.0
-arc                             allyesconfig    gcc-16.1.0
-arc                  randconfig-001-20260820    gcc-16.1.0
-arc                  randconfig-002-20260820    gcc-10.5.0
-arm                  randconfig-001-20260820    clang-24
-arm                  randconfig-002-20260820    clang-24
-arm                  randconfig-003-20260820    gcc-8.5.0
-arm                  randconfig-004-20260820    clang-24
-arm64                         randconfig-001    gcc-14.3.0
-arm64                randconfig-001-20260820    clang-24
-arm64                randconfig-002-20260820    clang-24
-arm64                randconfig-003-20260820    clang-24
-arm64                randconfig-004-20260820    clang-24
-csky                            allmodconfig    gcc-16.1.0
-csky                 randconfig-001-20260820    gcc-16.1.0
-csky                 randconfig-002-20260820    gcc-16.1.0
-hexagon              randconfig-001-20260820    clang-18
-hexagon              randconfig-002-20260820    clang-19
-i386                            allmodconfig    gcc-14
-i386       buildonly-randconfig-001-20260820    gcc-14
-i386       buildonly-randconfig-002-20260820    clang-22
-i386       buildonly-randconfig-003-20260820    gcc-14
-i386       buildonly-randconfig-004-20260820    clang-22
-i386       buildonly-randconfig-005-20260820    gcc-14
-i386       buildonly-randconfig-006-20260820    gcc-13
-i386                 randconfig-001-20260820    gcc-14
-i386                 randconfig-002-20260820    gcc-14
-i386                 randconfig-003-20260820    gcc-14
-i386                 randconfig-004-20260820    gcc-14
-i386                 randconfig-005-20260820    clang-22
-i386                 randconfig-006-20260820    clang-22
-i386                 randconfig-007-20260820    clang-22
-i386                 randconfig-011-20260820    gcc-14
-i386                 randconfig-012-20260820    gcc-14
-i386                 randconfig-013-20260820    gcc-14
-i386                 randconfig-014-20260820    gcc-14
-i386                 randconfig-015-20260820    clang-22
-i386                 randconfig-016-20260820    gcc-14
-i386                 randconfig-017-20260820    clang-22
-loongarch                          defconfig    clang-24
-loongarch            randconfig-001-20260820    clang-18
-loongarch            randconfig-002-20260820    gcc-14.3.0
-nios2                           allmodconfig    gcc-11.5.0
-nios2                            allnoconfig    gcc-11.5.0
-nios2                randconfig-001-20260820    gcc-11.5.0
-nios2                randconfig-002-20260820    gcc-11.5.0
-parisc                          allmodconfig    gcc-16.1.0
-parisc                          allyesconfig    gcc-16.1.0
-parisc                             defconfig    gcc-16.1.0
-parisc                        randconfig-001    gcc-8.5.0
-parisc               randconfig-001-20260820    gcc-8.5.0
-parisc               randconfig-002-20260820    gcc-11.5.0
-powerpc              randconfig-001-20260820    clang-24
-powerpc              randconfig-002-20260820    gcc-8.5.0
-powerpc                   sam440ep_defconfig    gcc-16.1.0
-powerpc64            randconfig-001-20260820    clang-24
-powerpc64            randconfig-002-20260820    gcc-10.5.0
-riscv                randconfig-001-20260820    gcc-8.5.0
-riscv                randconfig-002-20260820    clang-21
-s390                 randconfig-001-20260820    gcc-8.5.0
-s390                 randconfig-002-20260820    clang-24
-sh                                 defconfig    gcc-16.1.0
-sh                   randconfig-001-20260820    gcc-10.5.0
-sh                   randconfig-002-20260820    gcc-12.5.0
-sparc                randconfig-001-20260820    gcc-8.5.0
-sparc                randconfig-002-20260820    gcc-16.1.0
-sparc64              randconfig-001-20260820    gcc-11.5.0
-sparc64              randconfig-002-20260820    gcc-9.5.0
-um                   randconfig-001-20260820    gcc-14
-um                   randconfig-002-20260820    gcc-14
-x86_64     buildonly-randconfig-001-20260820    gcc-14
-x86_64     buildonly-randconfig-002-20260820    gcc-14
-x86_64     buildonly-randconfig-003-20260820    clang-22
-x86_64     buildonly-randconfig-004-20260820    clang-22
-x86_64     buildonly-randconfig-005-20260820    clang-22
-x86_64     buildonly-randconfig-006-20260820    clang-22
-x86_64               randconfig-001-20260820    gcc-14
-x86_64               randconfig-002-20260820    gcc-14
-x86_64               randconfig-003-20260820    clang-22
-x86_64               randconfig-004-20260820    clang-22
-x86_64               randconfig-005-20260820    clang-22
-x86_64               randconfig-006-20260820    clang-22
-x86_64               randconfig-011-20260820    clang-22
-x86_64               randconfig-012-20260820    clang-22
-x86_64               randconfig-013-20260820    gcc-13
-x86_64               randconfig-014-20260820    clang-22
-x86_64               randconfig-015-20260820    gcc-14
-x86_64               randconfig-016-20260820    clang-22
-x86_64               randconfig-071-20260820    clang-22
-x86_64               randconfig-072-20260820    gcc-14
-x86_64               randconfig-073-20260820    clang-22
-x86_64               randconfig-074-20260820    clang-22
-x86_64               randconfig-075-20260820    clang-22
-x86_64               randconfig-076-20260820    clang-22
-xtensa               randconfig-001-20260820    gcc-8.5.0
-xtensa               randconfig-002-20260820    gcc-13.4.0
+> It feels a bit odd to me to have this function named exlock specific, as
+> it's just spsr_to_el, right?
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+As the comment mentions it's not quite that - ELFromSPSR() in the
+pseudocode has rather more going on in it that I'd managed to convince
+myself wasn't relevant in this specific context.  I didn't want to give
+it a name that would cause someone to think it did the full thing and
+trip them up using it in a different context where those things do
+matter.  I do agree that this results in awkward naming.
+
+Please delete unneeded context from mails when replying.  Doing this
+makes it much easier to find your reply in the message, helping ensure
+it won't be missed by people scrolling through the irrelevant quoted
+material.
+
+--h4LzlXfWWvj49V3N
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqIzvEACgkQJNaLcl1U
+h9BZIwf/ba+nE8Vy9gULofY3/WFN8ZxH4XRxW6e/DbaSGPJBBf2HHUHVp8/s5DLk
+oZUJmCtk/wioY00bc1GOA6wZ0tK8mPMpqB1suUh2OfsA39XPZc3uSIaP3Sc74Mwq
+9h3hysTkO/9Ne86KmOkBq2Plkjc3M1fZok/SEgdkXW0mw5q3bfczzS9J+XaUZzN4
+4liLWN5tx1n5E7tFE8f9UTU17cufCZGuCCWjOhBXR0iilRj6uvenzU1ioVpi7Z3g
+HDT/zdt1sylOzCwoKOWPe8mK0EQfTZSRgpJowSWzBhoPq4+VR3VmOd49XeFy+vzC
+uld3QEPfmTg0AP56dErhncG/Q2yZ8A==
+=qOw0
+-----END PGP SIGNATURE-----
+
+--h4LzlXfWWvj49V3N--
 
