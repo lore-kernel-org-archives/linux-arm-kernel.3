@@ -4,140 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C8CC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 04:37:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F11DC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 05:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=43wavXFd2W0yCmQfZPP8z9f1TJ6ckUJTrKkUig5dr6s=; b=hDvX7XamFziUV0y4HUSSLF/tos
-	eqhnBn41haSle4+c4chxWMSS94/1RyWFC5jeJIj50lZmaSW/cAu3a/BmpLtVbb9ymA3DsWeRqfEtB
-	asYh8bQeUetmq476hbn/SM2tKcG4AONKx5isvyi+T6Yih2HJ4xu1nbvRCSMkqyrBIPs1rZTu8XqYw
-	5WRqE+C/2kIQt5/mbx6REMhbM/hqJNKbcf6/QUTImAOcZ1oWqGcQkAgy4nnB0vHtWT15zJ8HaHdFJ
-	LeFLJ+M4lZmGX48CRKENWWPBeQYA86HEipUOHrQlRWVlzKLG/FOYkIOyOOayTZhwJH13ao4bIxRrR
-	w5Ou0wpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=li+qf0ogeiJJV/dt6j1H68lCeDSe/pGSxo0/wCxLe7o=; b=CWL0EVOAgbIzJESBsJI0SwmGTW
+	zGLvf+lPLRTVAEtwTZW19tFPaABfeEoNt8y/svncAXnrhUafWbEfzoc+c++n9635SK2E+wqDpoh7F
+	Ls3tqRb84FSTyXoDxdtN6pdy/pXq5iGEZgbjPf7aDahmwicnjNuxkBgeyxlY3qAI/MUGOCikn7wGj
+	gE0CcvsmaTTw72ySXqOtc68mRM7NQ1Md382ShZ8ypj9aLr8zH5UqRte5b+4fWX8qdb3BWhmUbHl7H
+	Js5lNGNVZ6gznmcioBOPlLoMrsToydKFJ7w6A/Twax+QHK51VJl0p9HfsEpKsX3DfwMZJNPZSFPop
+	ycCYFydQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxH09-0000000CXHL-3oab;
-	Fri, 21 Aug 2026 04:37:09 +0000
-Received: from mail-northcentralusazon11010041.outbound.protection.outlook.com ([52.101.193.41] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1wxHUk-0000000CXzQ-1JBq;
+	Fri, 21 Aug 2026 05:08:46 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxH06-0000000CXH0-24kf
+	id 1wxHUh-0000000CXyl-04Ov
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 04:37:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V6FuLObCoo9S/RE51MAMoVGrn+CPkDtmtWPlQNbptNPscgzql06NRP6gcIIKbO/VD4RUaZxB4XM71NdHjSBlJd/YkEbJr2DT2o/kTNF/d50EBHe+5TjSM5ViXWdHilTED3g3lCpVnCSzgyKNPkOr31oxhszCmqnLHbVahnS0JktWszNdVmmBUOW0sSYTF0BD3lL+98yLcFJMLB5rVAZTBHyhf8ZFyrcjyfs2r4cSppFacjrx4mX+79PsHuACO5Kl8RjwGfay5Vvy3Z/Ew7bSz64jvZsYZsIE93pFUd+23AVlCqn9t/Mke5TVZAYq9Nq7209ZTUx2jWelMQHCLo4O9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=43wavXFd2W0yCmQfZPP8z9f1TJ6ckUJTrKkUig5dr6s=;
- b=eW/KA/sPkAPEmHxiOwynMgWm/YQWTw33sKPzS1LWjDDLsQGpfulS6TlUS5Os776O60S55iMgHTWsdInyddHSrEfNY5kPMKMeVSRE4LHHOE03lR7UmeMrG5/Rz602IAeFHBnYBySEOiHkG8UOlnAxCehAE3BJMybLkZeTVHVMFxJkGG/7vLCJn5Ym2bBJSUIYoSdiNzgnJ7CSBYojXNh4rFcddOI74L4wpkAMQsl7zhfiLRuRHNekIRDnEEG25J9FELnywcuqrnp/eUauptfWNLpcKm4yFAzSX91TNU6t9RlMOHD6qMSfj9KeGbfLUHigMdSzXRgFz32Sv1biPD/HRQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=43wavXFd2W0yCmQfZPP8z9f1TJ6ckUJTrKkUig5dr6s=;
- b=2cNPV0KVlqA3iAW45naFT9AZ4TzeESFZDdqqqDKlotAhVyovFS1PW+v/97+eiqlcuNo3vHEZfkZaTDlh4mMLlgYT5bn+qblqx+eIaB/ys0SEXNuNU3k+a4nq7UkKO7oSn6ZR07rHALyt9JZa0gFKbMZeSYHHHTdWgF/UgNxr918=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DS4PR12MB999075.namprd12.prod.outlook.com (2603:10b6:8:2fc::20)
- by CH2PR12MB4245.namprd12.prod.outlook.com (2603:10b6:610:af::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Fri, 21 Aug
- 2026 04:37:00 +0000
-Received: from DS4PR12MB999075.namprd12.prod.outlook.com
- ([fe80::4c9d:851d:3f44:800f]) by DS4PR12MB999075.namprd12.prod.outlook.com
- ([fe80::4c9d:851d:3f44:800f%6]) with mapi id 15.21.0339.008; Fri, 21 Aug 2026
- 04:36:59 +0000
-Message-ID: <f3b91b66-238b-41bf-9c11-4b27314807d8@amd.com>
-Date: Fri, 21 Aug 2026 10:06:52 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V3 4/6] dt-bindings: dma: xlnx,zynqmp-dma: Add Versal Net
- compatible support
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, michal.simek@amd.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, rafael@kernel.org,
- git@amd.com, dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org
-References: <20260810100452.426320-1-nagendra.golla@amd.com>
- <20260810100452.426320-5-nagendra.golla@amd.com>
- <20260812-benevolent-ammonite-of-mathematics-5dcafc@quoll>
-Content-Language: en-US
-From: "Golla, Nagendra" <Nagendra.Golla@amd.com>
-In-Reply-To: <20260812-benevolent-ammonite-of-mathematics-5dcafc@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5PR01CA0232.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1f4::6) To DS4PR12MB999075.namprd12.prod.outlook.com
- (2603:10b6:8:2fc::20)
+	Fri, 21 Aug 2026 05:08:44 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2ceab75934dso8892795ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 22:08:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787288921; x=1787893721; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=li+qf0ogeiJJV/dt6j1H68lCeDSe/pGSxo0/wCxLe7o=;
+        b=okZmr0ggnJc3ifHXiSPSS31AETgBR3M7U9Ls0Ls8tHAcM3QJqZ84bpcN28RZnhAcSW
+         eHV4aryEzYW+79+Q9G2fHo9rPKz7/oqCOevzHwdZrif3DjqGB33vWFYvHzRVoywUeWqr
+         lAjG2DNhSUOumB2fqbNzsO+CAn2cZ9vdYtKmR6o6F6PsRQz4rH2EfGCx7yQ/2O4K3Uzn
+         krSRSHm6MX31sOiGuytK3npd1x3bcuLg7g8NZwy4kukIoJeS9rmt6m5l3uclnHSO5n+O
+         EUFw4RaNiGXUeX6qmy20kqh8tVNc2NED4rCE3rSiQnoH/MzHrvR4CcPwMn3Ot0ShB1ra
+         4ZEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787288921; x=1787893721;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=li+qf0ogeiJJV/dt6j1H68lCeDSe/pGSxo0/wCxLe7o=;
+        b=X1uYjx7fU98wGzDxoKb+0HJd0pAtQz1fynmKvYoKYZScaeMOZWdxx0q6lWgvFSVBw+
+         eMAdKK4vNILXcNSagqF1itPz2Aqm2TtJYPVfYBEuJY6ThUME3/o6wCfkSbtDDZGfyIey
+         6GaymPU/5Dsx1Fwqj8XzckO97Az50KuMvoY/p0Fb4mbAERl1nQSlo7hwG8jHCA/dkonb
+         DhaUmq3c++/MfItjaRIu7NMEX2eUujPZ/L7vILJsmqxodsiQ1SGdXyjfLZ0hbwNnpNNu
+         Wk0D3O5r89v9RuJYMd5X8CZoAT2H2BNrXL7mnVoKCeOlON71Qvq+FoYRXgdLdsDcwiV/
+         SU2g==
+X-Forwarded-Encrypted: i=1; AHgh+RqFBvtvyNi/N8UIl7vRPDvT6L3FDSqGpdT17gLoP7rbkE2/WjLhAo80Ph17PmHOemlTdMPpLddCHTElaFJH65K5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfyoxxR9aGstNgu8Ri/eDT/1WH/SvU2kV3GsTOQYyq2VT1le4r
+	RIC8hszz3GKbCb0UJ+PEeGjv8/wHHQvyqVhbD4+s7NiVYtjJUyFN49X1
+X-Gm-Gg: AR+sD1093uX94R4fQNtmdEOg7JvLvi9XHJIvOw9+S+CXO0X9qAQ71j97Ztq9uQNpvkT
+	4zLy27jP3nf8eMmTLCxYlEzVXj1FN52CRLOTgNrBxpngIsCt6hnEVMJ/bjbJAEqTAZJw8iUYNa+
+	q+jvnKQWpkZnMAOIPFnK7oN2/iSZWFrnKsI4t2S4xELsaCrbyTaJlmVZD1wqgZsM9qsGZ/8HYhp
+	ep4yeWjlMTFFlSvSNBPwWgUbr8aRpYMpUwdouXn5wD/OSv7LqCRRu89ryYFg0bAKVp04uhIzUl8
+	JoLbewbwcq+xZ4dCQqMMkjJYPG0vsmRUhmYuzRsGg6dsYuo1CAHw8QBaARvVRxlP7oC33HpLNYJ
+	DSMjkOtr2o8NEczemyj7crXh6MAdlB2wxwzJEzCucram3j2Nx/Vp/UFSDbAkY1pAUs5GsqK7V+c
+	InKA1a0MHmkYhHsHv8Vsb5jTkirmkcjkIkmQwuDuRqMEPGlg7O9DuP+17x0vfQa6GY4TejiZlUU
+	nr2VDe3GFizteS3PnXM9mXBRhwheRVcMHLlegF7m3fd2Z0=
+X-Received: by 2002:a17:902:d4cc:b0:2c9:aae1:a61a with SMTP id d9443c01a7336-2d64b0c6a16mr64910855ad.14.1787288921196;
+        Thu, 20 Aug 2026 22:08:41 -0700 (PDT)
+Received: from DESKTOP-8BCFI4I ([202.12.123.126])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-327bef3993dsm20673822eec.5.2026.08.20.22.08.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Aug 2026 22:08:40 -0700 (PDT)
+From: Md Rabbani <rabbanyhmm@gmail.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Linus Walleij <linusw@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-gpio@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Md Rabbani <rabbanyhmm@gmail.com>
+Subject: [PATCH] pinctrl: freescale: imx1: Fix device node leaks in imx1_pinctrl_dt_is_flat_functions()
+Date: Fri, 21 Aug 2026 11:08:13 +0600
+Message-ID: <20260821050813.739-1-rabbanyhmm@gmail.com>
+X-Mailer: git-send-email 2.55.0.windows.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS4PR12MB999075:EE_|CH2PR12MB4245:EE_
-X-MS-Office365-Filtering-Correlation-Id: b24fbbe9-c535-4375-675a-08deff3dd6ed
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|22082099003|56012099006|18002099003|3023799007|6133799003|4143699003|10067099003|11063799006;
-X-Microsoft-Antispam-Message-Info: ckz0XftzmfMuU4e4r/htf2Pm/aKLupxKI2HJeUX/tzJ+CmoU8nmYBf0hKObkgtkfSqlaCfVVASTZ6NwdUnNtDta6j3E18DrrnQZv6lV7doHyWuuDLtBclHxKWjun4DMquJibCOf8D96BFMp1ffd+CesvApVXez/2HIkApWhQ1kJCcRJWO9cWDYU+ZrOhFI9vFS3Xg8r+zcczXIT6gmGylAOp9eYlm0YkC4YJqDaNSrib4qIvp1Kkgxil8NFemzv6aISO/Bkz+X9zYtqksfBubbpxeD72IQ+WHx5gzIPI8pcCNJGnz9wJ8+oL2+kc5gufG2JwQ1+MSq6WlwAkAYi9VdfQ6CBKCItiYiaMH2h7qOudbhXoHNOD6WqAoqPD6dx6AwyqbruEZ9HjbzX4yxJSEaDEAospvRYH0Hy/gKlPTUoeiSNySCGgym7rDyxGIXhlX2Oq1KpBf0CmRltAmO3E5MUIYAfHXhtyW9W9LpCrz6BKcPJR5ykZQC0ZdX0Pc49opDeYAPZLkTlH5evXL1ZaqFXcfS5veenUWwBhShPEhvjvvJYPHp3jJbEDNvgEr9DicxU597R8Xn2EEBmfYM3aFVUKo9OCYAhiNXZ9OcLEvJgCr6j+mAwyQ8B4h6Dvq8wvJx3nUhlVOZ08cLgS65OIrv70prWuH4O/yiXFnzEEASE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PR12MB999075.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(22082099003)(56012099006)(18002099003)(3023799007)(6133799003)(4143699003)(10067099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?anBmMGQ4NUhPekVPK09sQmFJTkxST3IvYU5Ucm9DSXZpVkU0RWo3aUQrOXNQ?=
- =?utf-8?B?Uk1CTVdVYzZIbXV3eWR1ZTJOUjNkUldaM3ltTGFGV0dXa05KY0RkUkNWOWdL?=
- =?utf-8?B?cWxmNkdrZDVvcDVyZ0YyUEhkTDhOWmhwcVBFaHJxNXdDN3dNaC9FWTQ4cFJn?=
- =?utf-8?B?NG9ibll2RlN4SG5aSUZLdTZSeG9SZFZlS1dkTllORkcxTmVYUkxyTDBiM3JC?=
- =?utf-8?B?Qnl6djZvZ0RESXVLcmo0RzFmdlY1aDYyNTVSanJyYSs0Y1VCNnVVTm5lMWVl?=
- =?utf-8?B?RldWQnhuT3Y3cGtDUTNZWG5nbzFZTzdyZXh1a2ZpejhBUkpVc2JLT3dJeTlW?=
- =?utf-8?B?b0J1WFJSSWtuYTdBaTh6akZWT1RkN25ISzVYYldwcERCQ1VhM2hsMkZ2czgv?=
- =?utf-8?B?OHFCb3BsUk9HVmEzaFU3b3NmUWpqVmxoVHBLWXE2K2YwWkhiWVBVQXhvUjBC?=
- =?utf-8?B?N2UrMWRMOUxhRXlURjhsS1ZJaDF4RjFCNVhPNVVGTHQxOUxVQkFXVmE1NS80?=
- =?utf-8?B?R21QUXhnMFZRTERsejNmZHRoYlltMldTVUthMlltY1YwWStZSTlBZkF1SGpT?=
- =?utf-8?B?UUJNcnhDeXBxTTByT05WWlBVQmNYS3pxcVBiZGtPbGlsSGdmRFhBdEptOHk1?=
- =?utf-8?B?MUlXenRTelpubDlVcVFBbDYyb1FYeDdRQlpkRUh0SkhCT0h5V1dtWWc3QTZL?=
- =?utf-8?B?NUdmT2ZxZlRGMit4U2tUSi9LZ3JTT3p0ZkZTeFNCM3ZZMGRiQlNISkI1TlRV?=
- =?utf-8?B?c0hzUkpSZ3c4RnNPYUYzK1VKeXNtUDg5SWV3S0R1eU1SU3V3RG5CUFh3ajQ2?=
- =?utf-8?B?enJ6NGFud0I1LzdLZG40ZVJtbXBmN2dkMTJPNXV3b2ZaSWZPRGNSWE1tdTlL?=
- =?utf-8?B?aWd5eFhpd3ZGWEdmd0lJNkp0L2RIYWFnSFVXcHBjeWE1VUdpNGV1M0NDeTBI?=
- =?utf-8?B?Q2RCMVhaS1lqRHl1bjNENWt4S0ZMVnd1YUVoNWJZS0pNaXZ0cjh1elM2dk1i?=
- =?utf-8?B?K3hFMlBSOXhlZU5lQW5OKzhMUW5rZ0hhaGdnQU1uQWZidkFOR3k5VTc5WUJt?=
- =?utf-8?B?MzlnMWpaNVREMjVYMkpGS0NPem9WYTNrR01nY01YSm9TRDB2YkFiYk5PVFd4?=
- =?utf-8?B?TDNiQWdPRjI4cTNha1k4YlE5Zi9uYm1SV2kvRWtROVN3cE1uS3NHb3hnU3VL?=
- =?utf-8?B?RDJBUmtmMjVVcDJXV1ZRUjFXSG4zVUFTTitCTG1aSGtVTVNiRkpZUm50OW5n?=
- =?utf-8?B?aEQxRFZGSDQ3MlVGNE5JVFRiZi83dzlIVWFWTlJJVXN3dGo3N3Q5L1lJTUpM?=
- =?utf-8?B?dkV3Y0FMVTJMa0ZiVUMzSlJvaDN1K0JuaHl3bzVGekFidXc3WVJFTUhOSm4r?=
- =?utf-8?B?MytjRTNpdVI3ZEQ2UmMzbXVMa3ovUTlLbW5JdEhEMnBKb2hJU0NPRlhxTWcw?=
- =?utf-8?B?S3NqOEd5akNINXd3WWIybWR1cmdNKzB2OUs2L3RqbUdHWm5OY2xTcUZ2MUJR?=
- =?utf-8?B?djBST2wzME11V0xnOWR3dDFhcmlYNWJ4Q29xU05keUt0ZFVhOUw2cWlZQ3Rj?=
- =?utf-8?B?WCtOU0treit6eTBUemJMbzhiUnlCR2Q2emNSc256a1dqRWZOYmdNTk9hTjFE?=
- =?utf-8?B?RkRVc3BaRE5NZGlCSWxDT0lUZW9vNG52OXpNRU1kREpJSS80SEtNZWRTZlg2?=
- =?utf-8?B?NnhlWXRMRlZpY0ljajJWdXNkeTJic2JZMWdLWUsvNjJGLzVPQlh1TW5xcTFM?=
- =?utf-8?B?bGx4SlcwTk51L1NvSE5rKzN6dXcyN3JxWXRjSjVDTTUrVDhtZitqaVE4aGFM?=
- =?utf-8?B?N2szTFh5OUNCMThXMUdVK1YvZm53aW9HNG1ZL2pIMWZjQ2wrK0FiZG1YNUEv?=
- =?utf-8?B?cjRmd3lSVUhRRjhQK3BTOWVJS0hlV0llUnZ4Z29pcDliL2E2N1A0eVRka0Ew?=
- =?utf-8?B?dmlJU0orMURCU096a3pEUUQ0R0ZpLy82ZU5KSkl3MVM3dVhFVUYxZ1UwYTIr?=
- =?utf-8?B?MmRnNmdXTG1YR3FXek5hanMrSlhXSHlCazluYnVtWEdldHhKR0hFaDFzaDFE?=
- =?utf-8?B?dEJZelR0MGd4OXdZYjN5YUJTaTVUS0h6RE9NdU5uRzVPdVBjUlpiVnhOYklP?=
- =?utf-8?B?Y3NRY1pMUGd0NTllYUpEMDEvNlVxbGNSL2JreENnNjYxbWwvd3ZEUnBSWDJK?=
- =?utf-8?B?ckhRWTVZTjFnRWRBRXFadHJ5Tm8zWW1uUytBOFhJRU13ejNRb0hlUk02dWp6?=
- =?utf-8?B?dVZWaXZtUjJFNlVQS0Vta0JTRXJyeUk1cEU4cnJqbHhOa3BqS3JqUlpIM3NO?=
- =?utf-8?B?blB1c2FSWGxQaTc2M2ZpY3ZINjhhRU0zaXAvL0dnU29JejJlOHd2Zz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b24fbbe9-c535-4375-675a-08deff3dd6ed
-X-MS-Exchange-CrossTenant-AuthSource: DS4PR12MB999075.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 04:36:59.8142
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uDmbVQsB58t46KIxLLbPHcT1bYjj+W+VwxJtEHmKzRFaNrZPbYqAwCotEuedD1jAyHz8mwhoewlKhgohKQDnuQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4245
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_213706_547653_A29182DD 
-X-CRM114-Status: GOOD (  23.27  )
+X-CRM114-CacheID: sfid-20260820_220843_060365_E783ECB9 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,101 +102,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof
+imx1_pinctrl_dt_is_flat_functions() uses for_each_child_of_node() to
+iterate over child and grandchild nodes. When the function returns
+early upon finding an "fsl,pins" property, it does not release the
+acquired device_node references, leaking their reference counts.
 
-On 8/12/2026 4:13 PM, Krzysztof Kozlowski wrote:
-> On Mon, Aug 10, 2026 at 03:34:50PM +0530, Golla Nagendra wrote:
->> From: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
->>
->> Introduce a new compatible string amd,versal-net-dma-1.0 for
->> Versal Net ZDMA.The new compatible requires xlnx,zynqmp-dma-1.0 as a
->> fallback.
->>
->> Add a reset property to describe the per-channel reset line exposed
->> on Versal Gen2 and Versal Net. Mark the resets property as required
->> for both Versal Gen2 and Versal Net, and not applicable for other
->> platforms.
-> 
-> I cannot find previous discussion in my inbox and cover letter has no
-> links to previous versions (when finally will you start using b4?), so
-> you might get the same review over and over.
+Switch to for_each_child_of_node_scoped() to automatically drop the
+node references on early return and loop exit, matching the pattern used
+in pinctrl-imx.c and elsewhere in this driver.
 
-Thanks for the review
+Signed-off-by: Md Rabbani <rabbanyhmm@gmail.com>
+---
+ drivers/pinctrl/freescale/pinctrl-imx1-core.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
 
-Please fin the previous version lore links below
-https://lore.kernel.org/all/20260525105042.2249542-2-nagendra.golla@amd.com/
-
-https://lore.kernel.org/all/20260618071056.2024286-2-nagendra.golla@amd.com/
-> 
->>
->> Note that making resets required for Versal Gen2 results in an ABI
->> break but this is unavoidable. When DMA is used by two software components
->> back to back (e.g., firmware before Linux boot), DMA functionality fails
->> due to configuration differences or the DMA being left in a bad state by
->> the previous user. The channel can only be cleanly re-configured after
->> a DMA channel reset,making it essential.
-> 
-> So this was never working? What exactly is unavoidable?
-
-It does work in many scenarios when there was no other FW using the DMA 
-prior to Linux boot. But there's no guarantee that the channel is left 
-in a clean state and we have observed error scenarios where a reset is 
-necessary before Linux can reconfigure the IP. We added the reset to fix 
-this and hence making it a required property is unavoidable. We are only 
-doing this for Versal Gen2 and Versal Net where this provision is 
-available. We are unable to enforce this for older devices because there 
-is no per-channel reset there.
-
-Thanks,
-Nagendra
-
-> 
->>
->> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
->> Co-developed-by: Golla Nagendra <nagendra.golla@amd.com>
->> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
->> ---
->> Changes in V3:
->> - Use allOf:if:then: to restrict the resets property per-compatible,
->>    making it required for amd,versal2-dma-1.0 and amd,versal-net-dma-1.0
->>    and explicitly setting resets: false for all other platforms
->> - Add amd,versal-net-dma-1.0 compatible string with xlnx,zynqmp-dma-1.0
->>    as fallback
->> - Switch compatible from enum to oneOf to accommodate the new multi-item
->>    entry for Versal Net
->> - Add ABI break justification
->> ---
->>   .../dma/xilinx/xlnx,zynqmp-dma-1.0.yaml       | 25 ++++++++++++++++---
->>   1 file changed, 22 insertions(+), 3 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml
->> index 2da86037ad79..87c65aef5c7d 100644
->> --- a/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml
->> +++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml
->> @@ -18,15 +18,31 @@ maintainers:
->>   
->>   allOf:
->>     - $ref: ../dma-controller.yaml#
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            enum:
->> +              - amd,versal2-dma-1.0
->> +              - amd,versal-net-dma-1.0
-> 
->> +    then:
->> +      required:
->> +        - resets
->> +    else:
->> +      properties:
->> +        resets: false
-> 
-> Entire allOf goes after "required:" block, by convention, see
-> example-schema.
-> 
-> Best regards,
-> Krzysztof
-> 
+diff --git a/drivers/pinctrl/freescale/pinctrl-imx1-core.c b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+index b7bd4ef9c0..4a6bdaefa4 100644
+--- a/drivers/pinctrl/freescale/pinctrl-imx1-core.c
++++ b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+@@ -547,14 +547,11 @@ static int imx1_pinctrl_parse_functions(struct device_node *np,
+  */
+ static bool imx1_pinctrl_dt_is_flat_functions(struct device_node *np)
+ {
+-	struct device_node *function_np;
+-	struct device_node *pinctrl_np;
+-
+-	for_each_child_of_node(np, function_np) {
++	for_each_child_of_node_scoped(np, function_np) {
+ 		if (of_property_present(function_np, "fsl,pins"))
+ 			return true;
+ 
+-		for_each_child_of_node(function_np, pinctrl_np) {
++		for_each_child_of_node_scoped(function_np, pinctrl_np) {
+ 			if (of_property_present(pinctrl_np, "fsl,pins"))
+ 				return false;
+ 		}
+-- 
+2.55.0.windows.3
 
 
