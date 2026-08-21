@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59F3FC5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 07:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F4EC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 07:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K1I7aZMjRXvCaOpbeSXZzskXq8kx2GUMjlj6C7bc1U8=; b=TvpLAgJoLM5sa7rxomYDhSONAT
-	CNTbZEW7d2csq7IfuhoPXwj0GXc5BfcXoISldYVsNXBJ9RINPv8W+8Df6LYPJo2MX9nSqx/SJkPCr
-	JhfocmGfn5mXUtyFreGvpXsji9FS3Cy0ZcMfLJJh5fBDtoJu1TAInCQoYUwXDWJ7av/NUiroMhLM7
-	W4eUAnuEqiI45kmpNFvtfoFzqL0uaIuxJMUMBmvzzT1WDMAW6OxmMDhbGzeiD4A/QeCh1gZbGUvnM
-	rCCc7tstmZePx75iyp4yZQdTgUJWYkeljxSMYdck+hdFEifizXf8YSgy3fAZjCT9lGPbVWkyrd7iK
-	CJsUn30Q==;
+	bh=yUdIZCjzGdQCUoVnSmJ5ekBkqW8+FEP5GNixuQZzy7A=; b=3ldJAxezboXbTKFcVjqH+aSzIe
+	gSvzxe02lChETW7c6YTRqiAPWvgA9E+jxWYk4YwJLtKG07b8IyVJ8T7xEMBQVakUjENwUGqV2j4KK
+	SxyggXCtaJeyIYv/q81DwzHGpU/3hmWxONCG1HblUZQI7zzESc969txefcMLqqrfNexkCgmL24YDT
+	ZezBvRjKunn6GJ+ig3kIMydgX9oCbFfuxQ+X/Z2Oizti9HnaYfeBvCCfq7deUI3GHDyyg7JyndXmK
+	XYJ0vW35hjhaucKuN9pCHVhTi8H/NER+E+dU+Y+ed0rdm8xK6WHBQGMoo7o9WPMn2wyLF/MtwdTb+
+	Emrqp8Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJaM-0000000Ch05-3TtD;
-	Fri, 21 Aug 2026 07:22:42 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wxJef-0000000ChTE-2lzA;
+	Fri, 21 Aug 2026 07:27:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJaK-0000000CgzU-3ABD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 07:22:41 +0000
-From: Kurt Kanzenbach <kurt@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1787296956;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K1I7aZMjRXvCaOpbeSXZzskXq8kx2GUMjlj6C7bc1U8=;
-	b=Eh0tOm0kHAXCPERXM0REoNprMkim0+iXF/rczlOD8MvdLjRPiap7J0KnSiXw3+hk3/0v/n
-	DzlaxjbiP/TuzGyL+ZE2KWrEaoRKPjV+Tprw8FpJlV25yejJNloX7rWJjTUw5jKo8UQmYj
-	WeNfjvddesIxmaGPL6s153RrihRU21HvsKYwRTLzMXXx+XSjqFz4D7VLMKgu2vDwNSnrsS
-	fY4C8esFC5SvdLQlrXffpPe1+QaSXPc1ImFj/gceUTi0+2FYOe+KXOUzZfi+4kEr03YqxS
-	W+nbl7UTPOoWl7a9gTaZz7JsGRPGJ0YjRsmhznL7s3/lTJH9CBxU7VYjPbzhCw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1787296956;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K1I7aZMjRXvCaOpbeSXZzskXq8kx2GUMjlj6C7bc1U8=;
-	b=GpTDiyKgCEKtCl0bNBKhy/6wMAHCCrh95o67Qh53WlJ9/s3qNgKhq//kP3QVaSIleAdmoK
-	Uy7G9q9K2WugfzDw==
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Lorenzo Bianconi
- <lorenzo@kernel.org>
-Subject: Re: [PATCH net-next] net: stmmac: stm32: Set TSO/TBS Tx queues
- default settings
-In-Reply-To: <20260820144528.7107ba90@kernel.org>
-References: <20260812-stm32mp2_txtime-v1-1-f9e2462cc85d@linutronix.de>
- <20260817103337.74c30adc@kernel.org> <87mrujzzjv.fsf@jax.kurt.home>
- <20260818075335.48936b08@kernel.org> <87h5kq1s1f.fsf@jax.kurt.home>
- <20260820144528.7107ba90@kernel.org>
-Date: Fri, 21 Aug 2026 09:22:35 +0200
-Message-ID: <87y0e0x7ic.fsf@jax.kurt.home>
+	id 1wxJed-0000000ChSx-0u6d;
+	Fri, 21 Aug 2026 07:27:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2687060A7E;
+	Fri, 21 Aug 2026 07:27:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D60B11F000E9;
+	Fri, 21 Aug 2026 07:27:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787297225;
+	bh=yUdIZCjzGdQCUoVnSmJ5ekBkqW8+FEP5GNixuQZzy7A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=eWVtrVHsQR9xJOfNnb79lgmzA0sUhKpRNHGY2f51sjp4udKyWjKXlkTW6M4yD784i
+	 4fzySkyox3pzR3qkj09hvX/UMSGfaQhO+NnLtFYuYj2biw/YiXqtJ16LxxAYumygx1
+	 oQxziV5j0xAu5d6vXYCiIt0aE93BY6yMNjFPmnY93XRyO45otuwH/rZSipA4jUqdF0
+	 /xNQBbpMutPguzUXjU6b/gA3kHFQ8VhlKIU7ir+3kE+YRMCfNn4t2xGYnEruQLmkRX
+	 bNHVw4LKQNwWbWjEJXAcAFc/ZKfoFQIhaZbOVfPGV/ohRvserZFOreUY6H85vqH2w+
+	 0IxoniNoLH2tw==
+Date: Fri, 21 Aug 2026 09:27:01 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Vladislav Leonov <vlad@zlab.su>
+Cc: Jonathan Cameron <jic23@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Andy Shevchenko <andy@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, Rob Herring <robh@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
+	Simon Glass <sjg@chromium.org>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: iio: adc: rockchip-saradc: Fix RV1106
+ compatible
+Message-ID: <20260821-bouncy-sticky-dalmatian-4f72c2@quoll>
+References: <20260816113636.33635-1-vlad@zlab.su>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_002240_943741_1174FB98 
-X-CRM114-Status: GOOD (  23.28  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260816113636.33635-1-vlad@zlab.su>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,108 +73,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---=-=-=
-Content-Type: text/plain
-Content-Transfer-Encoding: quoted-printable
+On Sun, Aug 16, 2026 at 02:36:36PM +0300, Vladislav Leonov wrote:
+> rockchip,rv1106-saradc was folded into the fallback enum together
+> with rockchip,rk3576-saradc, falling back to rockchip,rk3588-saradc.
+> The two IP blocks are not equivalent, though: per the RV1106 TRM v0.3,
+> chapter 20 (SAR-ADC), RV1106 only has 2 channels at 10-bit resolution,
+> versus 8 channels at 12-bit on RK3588. Documenting it as falling back
+> to rk3588-saradc allows device trees that would bind against the wrong
+> channel table and report an incorrect voltage scale.
+> 
+> Remove rockchip,rv1106-saradc from the RK3588 fallback enum and give
+> it its own standalone compatible entry, matching the dedicated match
+> table entry added by the driver patch.
+> 
+> Fixes: bdba14f6122c ("dt-bindings: iio: adc: rockchip-saradc: Add RV1106 compatible")
+> Link: https://lore.kernel.org/all/20260810090826.146758-1-vlad@zlab.su
+> Signed-off-by: Vladislav Leonov <vlad@zlab.su>
+> ---
+>  .../devicetree/bindings/iio/adc/rockchip-saradc.yaml         | 5 ++---
+>  1 file changed, 2 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml
+> index f0551d665916..dc56855527b8 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml
+> @@ -22,9 +22,7 @@ properties:
+>        - const: rockchip,rk3562-saradc
+>        - const: rockchip,rk3588-saradc
+>        - items:
+> -          - enum:
+> -              - rockchip,rk3576-saradc
+> -              - rockchip,rv1106-saradc
+> +          - const: rockchip,rk3576-saradc
+>            - const: rockchip,rk3588-saradc
+>        - items:
+>            - enum:
+> @@ -35,6 +33,7 @@ properties:
+>                - rockchip,rv1108-saradc
+>                - rockchip,rv1126-saradc
+>            - const: rockchip,rk3399-saradc
+> +      - const: rockchip,rv1106-saradc
 
-On Thu Aug 20 2026, Jakub Kicinski wrote:
-> On Wed, 19 Aug 2026 09:35:40 +0200 Kurt Kanzenbach wrote:
->> >> I want to use ETF Qdisc with hardware offload, which is currently not
->> >> possible on the stm32mp2.=20=20
->> >
->> > Do you need multiple queues for ETF/normal traffic?
->> > Or one ETF and one "normal"?
->> >
->> > How do you sort the traffic between the queues?=20=20
->>=20
->> So the stm32mp2 has two CPU cores. I've isolated CPU1 for Profinet. That
->> one uses Tx/Rx queue 1 with ETF to reduce the Tx jitter. Everything else
->> is routed to Tx/Rx queue 0.
->>=20
->> Config looks like this:
->>=20
->> #
->> # Tx Assignment with SP.
->> #
->> # Tx Q 0 - Everything else
->> # Tx Q 1 - RTC
->> #
->> tc qdisc replace dev ${INTERFACE} handle 100 parent root mqprio num_tc 2=
- \
->>   map 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 \
->>   queues 1@0 1@1 \
->>   hw 1
->>=20
->> #
->> # Enable Tx launch time support for TC 1.
->> #
->> tc qdisc replace dev ${INTERFACE} parent 100:2 etf \
->>   clockid CLOCK_TAI \
->>   delta 500000 \
->>   offload
->>=20
->> On Rx incoming frames are steered via PCP field (vlan tagged).
->
-> Thanks for explaining!
+So this goes to an enum with all the other single-entries.
 
-No problem.
+Anyway, where is a driver binding to above compatible (see DT submitting
+patches). git grep on a week old next gave me nothing.
 
->
->> >> It seems like a static configuration in the driver today. I basically
->> >> followed the same convention as dwmac-imx, dwmac-intel, dwmac-mediatek
->> >> and dwmac-qcom-ethqos. Only dwmac-socfpga does it differently.
->> >>=20
->> >> Tx Launch Time requires a different DMA descriptor layout. Currently
->> >> tc_setup_etf() just returns -EINVAL if the DMA configuration is not
->> >> setup appropriately. I guess a dynamic configuration requires to chan=
-ge
->> >> the DMA config and perform a full release/open cycle.=20=20
->> >
->> > release/open is not ideal but still better than hardcoding?=20=20
->>=20
->> For sure it's better than hardcoding :). But, again the driver does it
->> statically. Maybe there's a good reason for it. Maybe not. I'm not that
->> familiar with the stmmac driver. I'll prototype something to see whether
->> we can enable TBS at run time using the ETF Qdisc callback. It may take
->> some time though.
->
-> I think the m in stmmac stand for 'mistake'.=20
+Best regards,
+Krzysztof
 
-:D
-
-> We need to start cleaning it up.
-
-No objections here. I've briefly looked at the TBS thingy. I think we
-just need to reconfigure one Tx queue instead of doing a full
-release/open cycle. The XDP/ZC code does something similar. So the
-infrastructure seems to be in place.
-
-However, we need to keep track of what SoC implementation can enable TBS
-on which queue. For gmac4 we can probably reuse tbs_en and for xgmac
-there's is capability field tbs_ch_num. Let's see.
-
-Thanks,
-Kurt
-
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQJHBAEBCgAxFiEEvLm/ssjDfdPf21mSwZPR8qpGc4IFAmqH/LsTHGt1cnRAbGlu
-dXRyb25peC5kZQAKCRDBk9HyqkZzgiBtEACuo+fjtobS7lE+ee/yAu66iJrTfedY
-ZgknzqKhL5HxIBGp8o4QXc7/LwcBTUUpj19rYRHPSWcqF0QJMjzvWBDdivdcGuWj
-g0WEF25OgNtVE+xZCQ2U+JodvI6IhmAMxlywIly0QzgzBNO7MFMmUk/3+7meK0b7
-tfZaRikU+nGWfMOG23xytyL39eEcaBRIBH9kXP+t+GYtI3Dw22gd7K9C4DpWxTxN
-loKtoMXFtUqxlVy+2XBCSl5Fm3yt0r+mpZDeXEKIpndEMCf7uEhfg/4QuFi4b5vW
-fqm49d+4pC30b/QAbNkYq/tc4XVSaoaIO1wRpyOspCjcbUyz84ed7uzVPYY741p/
-5mB80PGTKqvxR1lDksaoeX0nt3YPUOk573/inK7ak1DB+6lDAnqU+1mC+YXcqohz
-k7KDTixfC4xjFnof8hRULtRVAd0OQcDUlz4LGx0G7vJB1I6NQEzuHvl4XawvpHUp
-Na8+NLnHGsAAbx/IkcIyxvHH9xjZ+lVBlhmaCBFhA7TmCi5RiHj9/Rf+GuJZW2lB
-hpRcC48QF4Tyq43NSduyZ7W2Z7y0sWSx85OYEdMR9bIyzYDkBwCGNQLI5EnRqPyz
-3KplXYGtxa8zP0C9AoRiCfMIt/gsj+AGbDAs5VTHkhy9pRVk9o95kXOoww3CB2ri
-n8ueyZTfPq1PKQ==
-=pNYD
------END PGP SIGNATURE-----
---=-=-=--
 
