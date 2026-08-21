@@ -4,131 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05358C5DF89
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 14:15:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9E0C5DF93
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 14:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s16IKdpLJRfDYpDNzUCONtkPI26CsB1V8ZfBYbJmy14=; b=rag5x4zeMmguVY53Dqd016lX/k
-	3LpdgkWntGNqpM0t3sXzUs/OjgMU3bktGW58KwiBWcRPeE7/0f4G1tW4evDqLOq6pEkPgtbv+TkeA
-	QAyPLETTMWJRD7/wybfpf5kLpJSwXmgxF1IBID8QlQYAVDvKOtmEL047ouMMeXsWby+xk4uh/v0/B
-	8KBCJrYmVHXA8tt/TXHJyaM0k4dgq7w/D8YPFgzVzQ2S4jm8JbvSuSPJ4YLWUY729zCuBfDgge5NN
-	q7Sx9QalZsU091fm51+5aE9Jqn/qlQK7MbDnTxCFsVDMEGasnIcdAVoaoWrFnYBUdAIsrxI9cFFqD
-	ZE5Wf3Aw==;
+	bh=fEGCs1VdSwLUClsSqU9qiEm2eAYxQOEyLbAznPBbvOw=; b=mgL8fKYnmRriQ1Ol2zuC5o/069
+	Sxe0I20nh3ZmA93wv7inpw0yFndf6f+laINJAs4T6JT50B82z5OOEQOhVqCaq9PAnS/69P8CoUfma
+	2NdkvmJvuyDyX7P6aLoiukgseDDDQ8mU5vGf1QEO7HmqFZlcbOFICRLFAANPmDGt9rZNkXlvwzO3s
+	HViZMlx96qXkTH4iE3It7OABCIUgoGNM4tqLEtqZi98FUstKMtYZgY1SDm0xH0bqLEeZFiG2ETuKs
+	jMbsbqZrOybCxZGfleePcCkk27phCrov4EnWcJL1tBk+E1uc1pHe18BVa9E+Px283Nln32BpXPuLj
+	rIP2musQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQ1v-0000000DWGg-0IZ4;
-	Fri, 21 Aug 2026 14:15:35 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQ1t-0000000DWG8-0MPJ
+	id 1wxQ24-0000000DWJ8-0xY7;
+	Fri, 21 Aug 2026 14:15:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wxQ21-0000000DWId-2Sx3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 14:15:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QfgQGEPXGWzXwsH8BCHLa943tsTuSODVTCsiIJxFK+q1oG/F4siLrHSTJRmiTY8Ywr8pLUiiLg1UaHY26C7DBOHjKXQlOYFuxU+l+O0yXqmF6pRwq4m0pA0TPkgNr7YvfWMchdD0V4JJkY7rPNB6Ze2HzucGK+Jsf7sNF0B2hkG3+Ad2y1glZtFYnUnyHS1vb8asXrkAj3mUQYz0yvosDaSZMUsmh4tYEi18omyLqMFwCqr6jRW/S9Aii0DXV7l64hb1/EWsrKWQ7U9rffCI0BcvYmv3b+hksWZ1aYFRe9yyMCIC+olgjZh4M3mAC2xUsi6PQNzaESoOGF6rhRMUIA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=s16IKdpLJRfDYpDNzUCONtkPI26CsB1V8ZfBYbJmy14=;
- b=cnzub0ehGSkO2g44F2nF+bcJu+ih7AjLMdIwpZkqlCcl0csBw3lm+TTj8qngiO26fWDI1WfF5EGnMeDNArH2Vb28FfWuCBM8cnIbwg69zst5JClHjXnaLElkeSvPYB/RImDNAu2U2gku3MH+OdIsTRHS+dIF5X9nls9rAfraXALEJK8iiuf3ezTLqkYFBKC2ywszN9i4u0MaWmwOPaSYkdYWq/7Hl3IxmOnvuOzMFfzTsejAuYhzV2NmoUJZGSvYnSM4kg8A5xOGXVc1quaCgp372s6KZSbGZ6eNPCE+Aa7cvqjBvDxG4y1hr8lEuKAUJ3QJsP/fTIUk5sueAJgIWw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=s16IKdpLJRfDYpDNzUCONtkPI26CsB1V8ZfBYbJmy14=;
- b=dP77Wyd7MOXDVljQtfAZEiYTMlXvQON4lZCxfD5hDV1BFTGjFmaQ4ZAqsfYvHttzzk3SwfIqzIN8eCLEwac1nU0KNiYAdrpKtDCZ7A8xn8r1Mc8+nYonu2fZRCAWwO9q/zSkx9y48jx77uxN10hnqhWOq2+Fl63jIK2lXg12gkKI4aE4Quj0pW2iO+Gtpg0bSf5gGwu6pBEB8KDmurVhup4H0Ie52q/aV8zDSFdKN+mvHGfjj56nh3TG2GECkNKlTREF81tGqfqQVUzZ/1jfVnYQn53c+yMNnvPrweAL8QLZY3BwdtZseKlyZ6V+rz4gUc/aY8lkkisS80ZpC0s2rw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAXPR04MB9708.eurprd04.prod.outlook.com (2603:10a6:102:24e::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Fri, 21 Aug
- 2026 14:15:26 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.008; Fri, 21 Aug 2026
- 14:15:25 +0000
-Date: Fri, 21 Aug 2026 09:15:16 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Zhipeng.wang_1@oss.nxp.com
-Cc: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Radu Rendec <radu@rendec.net>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jindong Yue <jindong.yue@nxp.com>, xuegang.liu@nxp.com,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 1/9] irqchip/imx-irqsteer: Call chained_irq_exit() on
- the handler error path
-Message-ID: <aohddKWL31fSXH2D@SMW015318>
-References: <20260821101039.4037925-1-Zhipeng.wang_1@oss.nxp.com>
- <20260821101039.4037925-2-Zhipeng.wang_1@oss.nxp.com>
+	Fri, 21 Aug 2026 14:15:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E5799153B;
+	Fri, 21 Aug 2026 07:15:35 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5412E3F85F;
+	Fri, 21 Aug 2026 07:15:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787321739; bh=wr+oDs6GaWbQ12XdjZDarAcNoSJgxK7egAFc5/zGO30=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RHs4kc7X/JIMYPOZt3UHHS0UF10RItxSgEwu/gJcUgPays+T/VhcyM3Zj0+O6JD9q
+	 9pEGZIgyxqw6W8R+la4pH2O0tDoFOQm5XMRiwmLROx9/wX+H6eO1I8xzF4hz8EPt9l
+	 PN5eYbMbey7tAMIoAinLM0uQF5Utj7iLYrYHg0Ew=
+Date: Fri, 21 Aug 2026 15:15:26 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Mark Brown <broonie@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Shuah Khan <shuah@kernel.org>, Fuad Tabba <tabba@google.com>, Oliver Upton <oupton@kernel.org>
+Cc: Peter Maydell <peter.maydell@linaro.org>, 
+	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v19 05/14] KVM: arm64: Set PSTATE.EXLOCK when entering an
+ exception
+Message-ID: <wu4y6mfg7avc32gg55vkxy565errbecy6kgckmthrjvuben2sc@xmrqciocdmgb>
+References: <20260812-arm64-gcs-v19-0-9105afd828ac@kernel.org>
+ <20260812-arm64-gcs-v19-5-9105afd828ac@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260821101039.4037925-2-Zhipeng.wang_1@oss.nxp.com>
-X-ClientProxiedBy: PH7PR17CA0001.namprd17.prod.outlook.com
- (2603:10b6:510:324::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB9708:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5d9cddce-2021-46da-d954-08deff8ea541
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|19092799006|1800799024|376014|10067099003|56012099006|6133799003|3023799007|4143699003|22082099003|18002099003|11063799006;
-X-Microsoft-Antispam-Message-Info: uo+y3vPNENJG28G7ySf08WL9Kt2INqxj7TOw87NrnAPuDqdsTEpwJnyTQycsnPpMeS7Oq8PprzzpbVs8l07Z1w5kX7BHjeUI61C8V8NputvgMuX1AEBazI0ElKe+3nMcq7SEdrAyYrZIOvKrhoPhpn5235cKKxusMAclw0p86SHqkpmdsY+gvC6ukdWPjvEVwcGFcf0K1bJ9OBtBxc0J6bbrfl33ZQR3aO4IYYsajwmMXg6rvIP0BzS6uIgPDtEkEkzGLGeoHn/OyJj7xBQHtTg4ZR6+0pjc2DYVrMOLHmFmJK+U2nrUNpv751zbmI9QOXIVuQPuvQkmS/aZh7gPb0LXg3Qn5eVZNY3vqQtJpl3n+Jz9XuanO8L27a+qedUVYp5S3Hf3VnrpKU0e3oCVPhf3Fi0zFxEDewc5vXrq/mfXvIe9yNDM6PqXrdaznGLXKwWtiCVpP4SQiZxx5bVCXC4Ev3P3yCL6ONo6r5FIy7DVg0631B6O6GhJsYGtLQFcCmlWWdC9ervaqCS3LcwwBGd+TR7aGD+l/z9uFoakNCrYRTGlanPTuyVzfNbBkUo0x7cuYP6iK88B/niugxdCDZJa3OdPCaFxuD0lt9GysBDT0sXm1y9G+CSeMCStS9GrRu/m3JJOKyN4VeYaAGh3kdiW18/KPYb9cwxw8KEEbv0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(19092799006)(1800799024)(376014)(10067099003)(56012099006)(6133799003)(3023799007)(4143699003)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fBLgzgqfy5GZ8BzifEAKy+aFynO4pGbkncNjuk+NyMVPFAPvyYu4eIKSs5wk?=
- =?us-ascii?Q?rmQx9WoqayVBu9duLdQeCwbvQYbf+owL+NUb8JGo3Wegs+Ok2R9KqUsxc/CX?=
- =?us-ascii?Q?obqXlODHp9W0NTaifIoWD90agmTQ4+1L9e/S+Jl9Du0TbfkX6cQ4R7ll7MrR?=
- =?us-ascii?Q?9SSvC4mAkPn4xnDlY73opax/AIqlNuJ/ipwXbOEjpxolWQDwiebG2OIapxY1?=
- =?us-ascii?Q?a6pmMtDsU6gcnh6zKI/TXbaXou2fQMVzM3OKAs+kZIk4PPt4FshGDZTN2xbJ?=
- =?us-ascii?Q?nAHNayTTZtIAbkILkAawS4EQ8v36o0XDG5UMdChouJyMGxfhpIID8KZrzNne?=
- =?us-ascii?Q?KyDtppCw/6iu/aQBNxrGozyXMJtPrtCdVe+dCOHEwZTyZWWVKbX3Dt+9mlin?=
- =?us-ascii?Q?V3iyoqYQ9H5qqE+6zqn+ifbxToI9lIST5K4t/pDDUSZyrsgVJ3ACr0KwkQAV?=
- =?us-ascii?Q?HazaRM5WB6RK/3JlQrRFz+/s+galUG2BScHYaJnP0Zt0mZyWBdfch+wTo+4g?=
- =?us-ascii?Q?IpEIKmgGvtRDbJaaZaKLfD53y7RbV9JGYOBaeudqD+6GI1RrILdn3kw3hMaU?=
- =?us-ascii?Q?1ivEfIHJSLYv1DufjhOj2USfY9XBAosnGatHxEHypUN1JMvWN+5bkUIJsghF?=
- =?us-ascii?Q?LwPjy8G+3V405wJKIKTGkEGndqV8ruLS4oG8+AanFmR52e7/l2cccC/sUVvc?=
- =?us-ascii?Q?3Ux2qCl39iCsYNvpSF1zP5J1Kl0s5tYOWZlcQTo3mg7CfERsLYxu32GzyzEs?=
- =?us-ascii?Q?Hlm196kUH9XUleYxDPxAffXB0pMZTi7f72F0oAeA4OgcVtUU1v2UnozXbVg2?=
- =?us-ascii?Q?TZ6OgKRbeFEgmTkYU2Bb2qQcLPIdSXpdJdDWY0uVpHxG1z0uP2Fv8c6iG1Y7?=
- =?us-ascii?Q?oXN0Orl3M0dfgf+XBtp5iOaejUWB+gujxdEKHLYGkAATUrGVzGLYzsSRBdOw?=
- =?us-ascii?Q?jMBFd5r5Hg1fIrDhKyGHRrec3Fza6hV9z6JqPRIF3QdzSnhG60CNAPnXGV1p?=
- =?us-ascii?Q?QBQQRiOiaBwAWC1Nt27cK2z49bhQxgTU202EGaXTMPkeYFAgai49VaVZFHLy?=
- =?us-ascii?Q?vWo+H8yTGjxU5270ti+jh0F2Ob7aaHAmeFuxUy+vbgHasX159tEkXs7HMVsl?=
- =?us-ascii?Q?iE4GXLArQOON4zFiffA6xo6F29PHyLKwqonjH64tosA7Ko+XpjO1SOIKc7pE?=
- =?us-ascii?Q?UcIipOdKMs5FHtSMZZp85ZKN56rsBIeyYbPs/+fdzdhJiLHYhKwShR8SP96F?=
- =?us-ascii?Q?xKbG0trTSiXe/kpBXp71e9lCoJmSHpg6yLmBimq3vb9yiJT+Irlg8fE4Yxsp?=
- =?us-ascii?Q?HUIZrWi3KlBO3iAX2vPSRHurDtw5WDTYaq5QyIuLFuwiL5mKZFYEgSe2EvNT?=
- =?us-ascii?Q?xvrpjumreIP7YoXFQCSy48ob1WFi4pI7tPiaV8t65EFEsE59BG8PHxs7iioW?=
- =?us-ascii?Q?c3YBpBreOSDo7Ibv4nZ66L3z7erzTZRrpR6CIsBBG6aE9szM3u0sXHbHKHMd?=
- =?us-ascii?Q?H5bxQaz1oyLCaQbRL/bkPuGU49tfM4NPdbMK6ZgZkWagrohw0Gr8UAFNxtXl?=
- =?us-ascii?Q?/Mn7Sw9otAwMKQu6oRbyfUyfBmXY6d7k1Nz7WPbY/xo5IvaaU5dsl6Lhcmzj?=
- =?us-ascii?Q?N0WRtcMooscPY0fdiXq9sICXduJwFhxA5p94UdnHe9ZMlIztE0dVI6kZJQsz?=
- =?us-ascii?Q?4sJGk2N8nMNnFUlzwfqq/l3zqFim5dvRAvuHaRibO8IKlpnbjt8FQ22x9CUs?=
- =?us-ascii?Q?/tRjkTsTMtHKmKrpD3CLOi5JO4eEzZQDwBOniyoXo+mx/mBwvWfi?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5d9cddce-2021-46da-d954-08deff8ea541
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 14:15:25.9308
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fsqUOFhYtShk2BnOHL95OdbRpHIq40N41kgu56XG3GAh4SgHbBhgefMN06+EhduN5YVfnf7ANHFW3APr6ak0+OcBwdfxstdS5JxLo5FsPXSN3GNdsDXQIMPaxd6mKHxu
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9708
+In-Reply-To: <20260812-arm64-gcs-v19-5-9105afd828ac@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_071533_133613_BE8F3202 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20260821_071541_701214_771B8315 
+X-CRM114-Status: GOOD (  22.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,54 +74,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 07:10:31PM +0900, Zhipeng.wang_1@oss.nxp.com wrote:
-> From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
->
-> A chained handler must pair every chained_irq_enter() with a
-> chained_irq_exit() before returning, so that the parent interrupt's flow
-> control is completed (EOI for fasteoi parents, unmask for level-triggered
-> parents). Skipping it leaves the parent interrupt unacknowledged, blocking
-> further interrupts multiplexed through that line.
->
-> When imx_irqsteer_get_hwirq_base() fails, the handler returned early
-> without calling chained_irq_exit(). Route the error path through the
-> existing chained_irq_exit() so the parent interrupt is always completed
-> before returning.
->
-> Fixes: 28528fca4908 ("irqchip/imx-irqsteer: Add multi output interrupts support")
-> Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+On Wed, Aug 12, 2026 at 08:12:04PM +0100, Mark Brown wrote:
+> As per DDI 0487 R_WTXBY we need to manage PSTATE.EXLOCK when entering an
+> exception, when the exception is entered from a lower EL the bit is cleared
+> while if entering from the same EL it is set to GCSCR_ELx.EXLOCKEN.
+> Implement this behaviour in enter_exception64().
+> 
+> Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
 > ---
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-
->  drivers/irqchip/irq-imx-irqsteer.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx-irqsteer.c
-> index 87b07f517be3..1b8d0c8eedb9 100644
-> --- a/drivers/irqchip/irq-imx-irqsteer.c
-> +++ b/drivers/irqchip/irq-imx-irqsteer.c
-> @@ -154,7 +154,7 @@ static void imx_irqsteer_irq_handler(struct irq_desc *desc)
->  	if (hwirq < 0) {
->  		pr_warn("%s: unable to get hwirq base for irq %d\n",
->  			__func__, irq);
-> -		return;
-> +		goto out;
->  	}
->
->  	for (i = 0; i < 2; i++, hwirq += 32) {
-> @@ -172,6 +172,7 @@ static void imx_irqsteer_irq_handler(struct irq_desc *desc)
->  			generic_handle_domain_irq(data->domain, pos + hwirq);
->  	}
->
-> +out:
->  	chained_irq_exit(irq_desc_get_chip(desc), desc);
+>  arch/arm64/include/uapi/asm/ptrace.h |  1 +
+>  arch/arm64/kvm/hyp/exception.c       | 37 ++++++++++++++++++++++++++++++++++++
+>  2 files changed, 38 insertions(+)
+> 
+> diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
+> index 6fed93fb2536..6113b9f9771b 100644
+> --- a/arch/arm64/include/uapi/asm/ptrace.h
+> +++ b/arch/arm64/include/uapi/asm/ptrace.h
+> @@ -56,6 +56,7 @@
+>  #define PSR_C_BIT	0x20000000
+>  #define PSR_Z_BIT	0x40000000
+>  #define PSR_N_BIT	0x80000000
+> +#define PSR_EXLOCK_BIT 0x400000000
+>  
+>  #define PSR_BTYPE_SHIFT		10
+>  
+> diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
+> index bef40ddb16db..15b00e0ee1ec 100644
+> --- a/arch/arm64/kvm/hyp/exception.c
+> +++ b/arch/arm64/kvm/hyp/exception.c
+> @@ -65,6 +65,38 @@ static void __vcpu_write_spsr_und(struct kvm_vcpu *vcpu, u64 val)
+>  		vcpu->arch.ctxt.spsr_und = val;
 >  }
->
->
-> base-commit: bd5f485f3f026225b86573e559af0b7254ef4184
-> --
-> 2.34.1
->
->
+>  
+> +static unsigned long compute_exlock(struct kvm_vcpu *vcpu,
+> +				    unsigned long mode,
+> +				    unsigned long target_mode)
+> +{
+> +	u64 gcscr;
+> +
+> +	if (!kvm_has_gcs(kern_hyp_va(vcpu->kvm)))
+> +		return 0;
+> +
+> +	/* GCS can't be enabled for 32 bit */
+> +	if (mode & PSR_MODE32_BIT)
+> +		return 0;
+> +
+> +	/* When taking an exception to a higher EL EXLOCK is cleared. */
+> +	if ((mode | PSR_MODE_THREAD_BIT) != target_mode)
+> +		return 0;
+
+This is essentially doing an EL comparison, which is also done in
+kvm_check_illegal_exlock_return() later. Would it be clearer if we
+follow the EL comparison pattern there? exlock_el_from_spsr() can have
+more use too.
+
+Thanks,
+Wei-Lin Chang
+
+> +
+> +	/*
+> +	 * When taking an exception to the same EL EXLOCK is set to
+> +	 * the effective value of GCSR_ELx.EXLOCKEN.
+> +	 */
+> +	if (is_hyp_ctxt(vcpu))
+> +		gcscr = __vcpu_read_sys_reg(vcpu, GCSCR_EL2);
+> +	else
+> +		gcscr = __vcpu_read_sys_reg(vcpu, GCSCR_EL1);
+> +
+> +	if (gcscr & GCSCR_ELx_EXLOCKEN)
+> +		return PSR_EXLOCK_BIT;
+> +
+> +	return 0;
+> +}
+> +
+
+[...]
 
