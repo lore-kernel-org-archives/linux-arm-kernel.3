@@ -4,55 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA6B7C5DF89
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 13:27:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E6FC5DF89
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 13:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RMOVq/yYVJ/t1zHFfNFBFWkMeYoxZiohJENLsBDPSw8=; b=knzOVr9NNpB5bsEYArKi0gp1m8
-	aXwb+NSGjEvMqzbx+yVjleJ5+Q/LlZcy4vSl8ofHDBA6ci9nbOyx2KYX5p35t7jWlnYtPNswLn/oY
-	R9fgwVmwD0iLReb82IrKHcqq0ZyqatnXM9MHTaSJfTS90xTh13tN5bFwbNiByToZnwfktKfI3Esgh
-	by9mOuzna2PmZk07tcDJ3ReFgkeNNWOWZ8dTI/qEwvSDJttV4WKJ5JhUA/PNPILfVOkjTHqh1lSWP
-	2VssqDwS4RjWOYqD1mR6/p04Ett1p9vOjBSksdh9ScraBi7vvq9DJ6hNvAVywiPLSiN12ztTwjD9d
-	OoMj2NKQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=93TKIYVELb3f7XMDYi0bAF+lcotYrliPfpYhNsdjWuM=; b=xR2N4Vws2e8zS7pNvFTWODpX8n
+	//aLcUCZ5ty3lSGC6I4x+HiQbZqdLOblkZAI/SaRQKzuVRroCtCrmJ9vEpiGbda2PcGUimivbDCAo
+	lsP2wTlMv+PVrVeg1MiGZ/JmvchZHxhqCh8yBHrKlOkuIU7ps8D/QE8K7cvxmGEVGAMvrh2n00ghb
+	gZ9+EfTyyFUC06wgGCU2cgp0WlmGWgdmOVafPZXid+tILouLuUM8/imeJSobkq6Bub4iZz7m9Bn7N
+	vGjpzwiWfObz3vMIekyRkEI0OXreinybwq2ZqImGgd/PEIc4U7HOoH8LnqwuFH5/Zb5c9H6njEkVx
+	Zk9ahAeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxPGq-0000000DOs8-3AwE;
-	Fri, 21 Aug 2026 13:26:56 +0000
-Received: from mail-4325.protonmail.ch ([185.70.43.25])
+	id 1wxPHA-0000000DOwy-3vQk;
+	Fri, 21 Aug 2026 13:27:16 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxPGn-0000000DOr1-3EXP
+	id 1wxPH7-0000000DOw2-3VIu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 13:26:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1787318809; x=1787578009;
-	bh=RMOVq/yYVJ/t1zHFfNFBFWkMeYoxZiohJENLsBDPSw8=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=Jj4+o+sHnk0QyXaTkOcWoRiXcP+0Ztgdi86Jhsn+2sMQ3710fSX//lP+wty6TCqYE
-	 7wRkhnCo2wNe53PdYNY6v1xtuvVfBwWISt0ErMpMUJdf6DAapYiIeEZu8Ic0oAPh9x
-	 AFY/2esZrVP3qSiw6DgGXvuTJowOOFYeUU/LPrcUOxSVgTrG4m2p8o90M4qypE3CKc
-	 PQUBXYBPBPwe844PqosYaVmGF9x1/GtRNTA6ehPU5r0gMJsm8rxkwY9+quaJHWAf55
-	 OaaavzlysmX3eNZ8PhNsL5DSqaXtdPo/tFScou0p9YyTJGmMidt6K74w+tZVXdAa1t
-	 Y6wBZQkchD6Zw==
-Date: Fri, 21 Aug 2026 13:26:43 +0000
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-From: Ryan Leung <untilscour@protonmail.com>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Ryan Leung <untilscour@protonmail.com>
-Subject: [PATCH mt76] wifi: mt76: fix wcid teardown ordering in mt76_reset_device()
-Message-ID: <20260821-mt76-wcid-null-before-cleanup-v1-1-0e364d9062d6@protonmail.com>
-Feedback-ID: 184418679:user:proton
-X-Pm-Message-ID: 6c7e4c8903af770bdbcc283a100b1d8847502fc7
+	Fri, 21 Aug 2026 13:27:15 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-47fecbbafdaso348573f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 06:27:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787318830; x=1787923630; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=93TKIYVELb3f7XMDYi0bAF+lcotYrliPfpYhNsdjWuM=;
+        b=iHNCyDZrHmsvz+tBNrYZJKG16VOPBuAmkLxxxkEgSX5AEv0M1cy68Vzec9S1YMzdaH
+         zVVjY0Alh2CoBUItyJXAeMdDvS9//4PyVdrKRa/lQztX1uzImDcxZEoyUS6Twldu9zVd
+         DTSjO06KEqhk/6ppeVY8Z5op4vpD3rPEic43LGpefesB2z6LvdK5RfJ1NI85jErXMGfL
+         aYVF64fjq2S3ivHesEUe+XtA5XSFRaFwrSMEBHSo1V2KxVlrzDngKOe7ZGUqKimzjOsu
+         Jc5OGBub7CesEEVtl5vzwQ0A5zH4PYFTLDUwJ5gEcZ3yuUjyzj28lXUFwaJsE+eXUFBc
+         qUnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787318830; x=1787923630;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=93TKIYVELb3f7XMDYi0bAF+lcotYrliPfpYhNsdjWuM=;
+        b=q8qBfUKekiRXNiLBJktilVnI5/s6IeuGSAX4MNQuq+LTzPwWJICwx/WyJdE+5PZiwT
+         pvClbkIPQzBsuLnZLgIrgw9S5lXE9o44fKvaD0cMaT2h/YC2KsJKG7gvp76I/T5XG39i
+         CgxKJ1dMBMpurGrTVk6dU0S8F8LTSFkIbfPBw/Ncsf/FE1FkZuru3WJd3kbjq0iqQ9YA
+         qE9SK0PCAej0kmddD4eIYxUi9oWJtYhYKUcJg29/6SUfw+ZzT3Z1DYWivWGSNYuVSZ2G
+         Alp9rX+I5yjY992anesOkHayX2aK1jfAjBCGV+/WHs/EnzD+RaCIpCs+GXRYHsNUWutj
+         9FCg==
+X-Forwarded-Encrypted: i=1; AHgh+RoKa7hRFELcZxmi7c3ag02iglIH9I/++JCZAh+azlAsG9Yo551UuM7Nnn587D8Lw0g9JK/vX8vFQgxZYYQxK6AY@lists.infradead.org
+X-Gm-Message-State: AFuF++lhHyYVueSlh4PLn1oM8v0ALsexydCq9Vvk5IyE/vgz7qjLoH0m
+	p/SDoF5CxxIDILwaUIjPjC8L5dboIbgxNAFQ4Z2Q9Qbi4mYkVIzQCxWn
+X-Gm-Gg: AR+sD13nanESvbrxx5reQStXJyp7GgScQWcNrUZASiR8CvKJ96dPjZFpcFpbTUA7rG/
+	Qab+SYLWNnQzJuVFE5IghNnzWzWrQDTZGDZEDyTpd8KkiCmR7diQrGnjuNVI9LBHityPd2T1/WT
+	vVzFR1l+Omg+dWg8WcD19rXScdrWXm2G9qvMjxntOLv4708Hu8dZOD+hk8WK0AxPPOcCiWCNGE2
+	FY9RPoArxPvsBXnKNt8cJZgxlUxwsnEUUQAfoIg3z6WVnqox+z9iypS5CaYMk3ne1ySNzt6GdwG
+	ndWgXPrXnOmyHBhYtya5UjG7Ve+uuUdP/TRL0dSGp6a0TZ7byddhy7dzVRKSpXLicIZ9uxXqoqi
+	y557CMsxh/HHFR50CQwb6/aYCHGdF6oVdLdE2gmqfh0KiRMKQlUYYD5nzuqgLQMHkM/d0gvTq4o
+	BsS1Rw/TxFf8VQSnuD+keh6tw4x7GQR8HVpgB5kU3tL98f+xR+nT9+Bh6DrmM5hWnzkqXs4hgkL
+	fd0BQ==
+X-Received: by 2002:a05:6000:41dc:b0:482:aa2a:52f6 with SMTP id ffacd0b85a97d-482c0b41f95mr10002245f8f.1.1787318830006;
+        Fri, 21 Aug 2026 06:27:10 -0700 (PDT)
+Received: from [10.45.28.226] ([15.248.2.234])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482bf82594esm3408856f8f.29.2026.08.21.06.27.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Aug 2026 06:27:09 -0700 (PDT)
+Message-ID: <12442106-e756-4902-b9fd-c760da04f849@gmail.com>
+Date: Fri, 21 Aug 2026 14:27:08 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/5] KVM: arm64: Add pre_fault_memory implementation
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: maz@kernel.org, oupton@kernel.org, pbonzini@redhat.com,
+ joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
+ yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+ shuah@kernel.org, corbet@lwn.net, vladimir.murzin@arm.com,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ isaku.yamahata@intel.com, Jack Thomson <jackabt@amazon.com>
+References: <20260612162354.73378-1-jackabt.amazon@gmail.com>
+ <20260612162354.73378-3-jackabt.amazon@gmail.com> <ak5sAxb3G6hhFmBF@raptor>
+ <alEXGmKiXgWPPdhF@raptor>
+Content-Language: en-US
+From: "Thomson, Jack" <jackabt.amazon@gmail.com>
+In-Reply-To: <alEXGmKiXgWPPdhF@raptor>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_062653_969128_43B0F5B0 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260821_062713_888933_66A0FF9D 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,47 +111,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mt76_reset_device() tears down each wcid's pktid idr before clearing
-dev->wcid[i], which is the reverse of the ordering used on the
-sta removal path. Until the pointer is cleared, a concurrent lookup
-under status_lock can still find the wcid and access its
-already destroyed idr.
 
-Clear dev->wcid[i] before calling mt76_wcid_cleanup(), reproducing
-the ordering mac80211 already enforces for normal sta removal (where
-mt76_sta_pre_rcu_remove() clears dev->wcid[idx] before
-mt76_wcid_cleanup() runs via the .sta_state callback).
+Hi Alex,
 
-Fixes: 065c79df595a ("wifi: mt76: mt7915: fix list corruption after hardwar=
-e restart")
-Signed-off-by: Ryan Leung <untilscour@protonmail.com>
----
- drivers/net/wireless/mediatek/mt76/mac80211.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 10/07/2026 5:00 pm, Alexandru Elisei wrote:
+>> Does it guarantee that, after it completes and returns to userspace, the
+>> address range [gpa, gpa + size] is mapped in the VM's stage 2 tables? Or
+>> does it guarantee that the address range was mapped at stage 2 at some
+>> point during the ioctl's execution, but parts, or all of it, might not be
+>> mapped after the ioctl completes and returns to userspace?
+> 
+> Nevermind, spend some time thinking about it and it turns out it's
+> impossible for KVM to guarantee that the memory is still mapped after the
+> ioctls returns.  So I answered my own question, thanks.
+> 
+> Alex
+> 
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mac80211.c b/drivers/net/wi=
-reless/mediatek/mt76/mac80211.c
-index abbe65cbcd89..0eb021be837a 100644
---- a/drivers/net/wireless/mediatek/mt76/mac80211.c
-+++ b/drivers/net/wireless/mediatek/mt76/mac80211.c
-@@ -856,8 +856,8 @@ void mt76_reset_device(struct mt76_dev *dev)
- =09=09=09continue;
-=20
- =09=09wcid->sta =3D 0;
--=09=09mt76_wcid_cleanup(dev, wcid);
- =09=09rcu_assign_pointer(dev->wcid[i], NULL);
-+=09=09mt76_wcid_cleanup(dev, wcid);
- =09}
- =09rcu_read_unlock();
-=20
+Yeah it's best effort, as if a vCPU had faulted the range itself. This
+could be undone by an invalidation or memslot update. The value is in
+the common cast (for us, post-copy migration) the guest doesn't pay the
+stage-2 fault fault cost at run time.
 
----
-base-commit: ca800a9302764c445de0da0e84d2252400a770ee
-change-id: 20260821-mt76-wcid-null-before-cleanup-cdb4d640f7de
+I think it would be worth me adding a sentence to the documentation
+noting there is no persistance guarentee.
 
-Best regards,
--- =20
-Ryan Leung <untilscour@protonmail.com>
-
-
+-- 
+Thanks,
+Jack
 
