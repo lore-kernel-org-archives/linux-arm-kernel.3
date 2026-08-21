@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00CE5C5DF89
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 10:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4735C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 10:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PgY1M31eUBna9lj2b3bxg1PT8jUYs9RMaq/pBozhfFo=; b=ZA7x4/NLuDzIUyyune4jWkdqtO
-	6wNyBE+EfPPbamtdv47zFuajNXHjvxd60sBSkHxVzcpd7co7895ddHZvyv/+uowZwp0gpuxMUD6FG
-	cw7IPsZst1VSlCJ8R3WkupNVYoQgohanz/ligMY5wICdL95xbQJJeo8PbQ1a9wd5OzZcltat38WX+
-	DZG73V6069Oz1P0BSIZ96OUPfmsTIMQ/FdiQE8TuzlAjFZBzgKwTTiyOSWdD0saM6sJO0I2kCF19I
-	KQRfzbPoN2+VzluyQm9LMZU4RUY/dHgnJVVWHr4z5v1De7FIG9XMxPK10eJfgh9t+W8Xn9RHCnpZc
-	edYtIgZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ByiWSQ8eh42tvoIiWE2lsESYBO+Hgwyud5gxkh10Hsc=; b=uep7euzCARtnxd4hEskwTJxGEA
+	9p4zgZZyntl6yJHuqbMWs7qGxQ2wblbIkk9yFEBIdjkWhVa6gopnLFwDvhFNvCotI2x7Ux0qaqd+I
+	rliM8hf56bkZEdCTetdtyYK2iHeraNZoMe68OHzYLD4rNoAXJKEZnEnCbzaJ7OfFECPTMl5TrwWAf
+	8dAdP7zuPHSCtmQuf+6fcTC5x5Jn23rjLBXxUOuvYl6mYulcJvTCF+qe1DHYqWGqIiku80HOxEzYO
+	ziqBQEw7bnpzU5/aX5D0qSml93NEcW/WBui6sQJrxnCpGQ4iShJekM2QRNrIgod0gXDzznPRhH+2a
+	60g67gcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxMte-0000000D7n3-0oF5;
-	Fri, 21 Aug 2026 10:54:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxMtc-0000000D7me-224j;
-	Fri, 21 Aug 2026 10:54:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9EA9160A71;
-	Fri, 21 Aug 2026 10:54:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD0D01F000E9;
-	Fri, 21 Aug 2026 10:54:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787309687;
-	bh=PgY1M31eUBna9lj2b3bxg1PT8jUYs9RMaq/pBozhfFo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OPLlhxMuijwp1cpaegIpHgaDEYqSlPEXLfZeN11vQaKUhms/r5LmyldSO7pCLrmVS
-	 ue+KfDTc0/yBxcBxztTS4g8WiV4mdpI2aE6MYqcnYzAkEjfSIjVnUXMF8qiBmCrwo+
-	 xSbikCEK4FTzg4rJWAwKe6PXM5/9ni7AOC1rqIvWIDt7WV9XA833Hoe/PUwQumKOgQ
-	 qFOAiwSdF5BCbWFPQwJe7lc3JPb0NAn89tVFq8G+9Gab7zgiiABqHbPzEEzWpsy4V4
-	 x2W7B17UYSrqGOfryBJj6wfe7bekhkGHJMXvadaZ+NlkpmXJsakU92hIlS8qKupigd
-	 2BPmkWnXkRMzA==
-Date: Fri, 21 Aug 2026 11:54:42 +0100
-From: Simon Horman <horms@kernel.org>
-To: Shiji Yang <yangshiji66@outlook.com>
-Cc: netdev@vger.kernel.org, Rex Lu <rex.lu@mediatek.com>,
-	Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] net: ethernet: mtk_wed: increase WED v2 WDMA RESV_BUFF
- to 0x80
-Message-ID: <20260821105442.GI265046@horms.kernel.org>
-References: <OSZPR01MB779537889255E2F606E47EABBCA52@OSZPR01MB7795.jpnprd01.prod.outlook.com>
+	id 1wxMu0-0000000D7s2-1cdG;
+	Fri, 21 Aug 2026 10:55:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wxMty-0000000D7rI-2YMT
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Aug 2026 10:55:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63C6E153B;
+	Fri, 21 Aug 2026 03:55:05 -0700 (PDT)
+Received: from [10.57.68.59] (unknown [10.57.68.59])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D32CC3F66F;
+	Fri, 21 Aug 2026 03:55:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787309709; bh=KiagOudW+pTgtW3kjnN7v28ThC+8ziEgw7Tys2uqlvY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tEZZkdr1CZL3BylTAPCjgW9DQljVWaScCrd7NxczztefZ1vXTpXOfNZfS0QoAyWlW
+	 cN2knDWCKN1hLUGwP4Qo8larnr4vgibwngKyC+ZW27dzkWgq1BDdcGmgEhJWNCBYMQ
+	 Xr8qRWKs/t3mDITHtgMm9bWqQoLRvNG9EaxJKlZs=
+Message-ID: <1b132c5d-41ea-4776-a080-c5b411618984@arm.com>
+Date: Fri, 21 Aug 2026 11:55:06 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <OSZPR01MB779537889255E2F606E47EABBCA52@OSZPR01MB7795.jpnprd01.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 13/45] arm64: process: Use helper to check
+ exception state
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
+ catalin.marinas@arm.com, liaochang1@huawei.com
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-14-vladimir.murzin@arm.com>
+ <1694f91a-1f0a-4e25-94c8-3885c4560eea@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <1694f91a-1f0a-4e25-94c8-3885c4560eea@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260821_035510_692672_B48FAFB4 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +73,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 09:07:07PM +0800, Shiji Yang wrote:
-> Change WDMA RESV_BUFF from 0x40 to 0x80 to avoid CDM TX FIFO overflow.
-> Without this patch mt7986 and mt7981 may have WDMA TX hang issue. This
-> patch was pulled from mtk-openwrt-feeds GPL open source project.
+On 8/11/26 08:43, Jinjie Ruan wrote:
 > 
-> Link: https://github.com/mediatek/mtk-openwrt-feeds/commit/07c87502e854b68b48544d101b6fe17ec059b97b
-> Signed-off-by: Shiji Yang <yangshiji66@outlook.com>
+> 在 2026/7/28 0:34, Vladimir Murzin 写道:
+>> debug_switch_state() explicitly checks the hardware exception state
+>> for both the pseudo-NMI and non-NMI paths. The expected state matches
+>> the NOIRQ_CONTEXT exception context introduced alongside the exception
+>> masking helpers and state checkers.
+>>
+>> Use the helper instead of open-coding these checks.
+>>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> ---
+>>  arch/arm64/kernel/process.c | 21 ++-------------------
+>>  1 file changed, 2 insertions(+), 19 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+>> index 581f80e9b9b7..0fd09136d398 100644
+>> --- a/arch/arm64/kernel/process.c
+>> +++ b/arch/arm64/kernel/process.c
+>> @@ -51,6 +51,7 @@
+>>  #include <asm/exec.h>
+>>  #include <asm/fpsimd.h>
+>>  #include <asm/gcs.h>
+>> +#include <asm/interrupts/common_flags.h>
+>>  #include <asm/mmu_context.h>
+>>  #include <asm/mpam.h>
+>>  #include <asm/mte.h>
+>> @@ -703,25 +704,7 @@ void update_sctlr_el1(u64 sctlr)
+>>  
+>>  static inline void debug_switch_state(void)
+>>  {
+>> -	if (system_uses_irq_prio_masking()) {
+>> -		unsigned long daif_expected = 0;
+>> -		unsigned long daif_actual = read_sysreg(daif);
+>> -		unsigned long pmr_expected = GIC_PRIO_IRQOFF;
+>> -		unsigned long pmr_actual = read_sysreg_s(SYS_ICC_PMR_EL1);
+>> -
+>> -		WARN_ONCE(daif_actual != daif_expected ||
+>> -			  pmr_actual != pmr_expected,
+>> -			  "Unexpected DAIF + PMR: 0x%lx + 0x%lx (expected 0x%lx + 0x%lx)\n",
+>> -			  daif_actual, pmr_actual,
+>> -			  daif_expected, pmr_expected);
+>> -	} else {
+>> -		unsigned long daif_expected = DAIF_PROCCTX_NOIRQ;
+>> -		unsigned long daif_actual = read_sysreg(daif);
+>> -
+>> -		WARN_ONCE(daif_actual != daif_expected,
+>> -			  "Unexpected DAIF value: 0x%lx (expected 0x%lx)\n",
+>> -			  daif_actual, daif_expected);
+>> -	}
+>> +	arm64_debug_exc_context(NOIRQ_CONTEXT);
 
-As a bug fix for code present in the net tree, this should
+Hi Jinjie,
 
-1. Be targeted at the net tree
+> Hi Vladimir,
+> 
+> After taking another look, I have a small suggestion:
+> 
+> if you postpone the introduction of arm64_debug_exc_context() and
+> arm64_debug_exc_hwstate() from the previous patch to this one, the code
+> review will be easier.
+> 
 
-   Subject: [PATCH net] ...
+Yes, I can do that in the next version. I assume I can preserve your
+Reviewed-by tags since it is just a mechanical change; otherwise,
+please shout.
 
-2. Be CCed to stable
+Cheers
+Vladimir
 
-3. Have a fixes tag. Perhaps this one?
+> Best regards,
+> Jinjie
+> 
+>>  }
+>>  
+>>  /*
+> 
 
-   Fixes: cf26df8833cc ("net: ethernet: mtk_eth_wed: add mtk_wed_configure_irq and mtk_wed_dma_{enable/disable}")
-
-I'm unsure if the maintainers would like a repost because of this.
-But at any rate, please keep it in mind for the future.
-
-More information on the netdev development processes can be found here:
-https://docs.kernel.org/process/maintainer-netdev.html
-
-The above not withstanding, this looks good to me.
-
-Reviewed-by: Simon Horman <horms@kernel.org>
 
