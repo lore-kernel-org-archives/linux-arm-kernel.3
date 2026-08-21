@@ -4,71 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5623C5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 16:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D87B7C5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 16:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yAUIv3QVPUxeZj+2jjQt2DSdbC2rNzRDTLXd8pgK7IU=; b=rYWyi7DWEgCJ460XKj5IyHZFwe
-	Ht/cpVwt2xPTW/oGoLq4B+cgkZtX5XHYYl/DtUUDKwBuJoYwbOSJPLrtfDTi2SGSGzVGmHXTYgAuw
-	/I6qdjTgVmR/JuzBLlKcWzz8WDyUizsDc3l/M0eBEvo/GvYoNGQDchROev8eijZrWvqpl5qavbEk/
-	a+TObdnRrvZWAwO8YhPNP9beuNSnkbOFPOvU19gKBrBPOWpL+X0EEgOPL5c2zd2VPK4t7aAoIiaOj
-	dJoLuPhwF6+QwxqUdt/52W7iyNRNcT9rNkMeIETeubxisHrq2O2n0kNdbo1uWengiFb5zRLJB6e3A
-	9B1GaeAA==;
+	bh=XaEo/Q8DPjC2aRIBe2o2/H6K72zUa3Cj/+YcwwZbnbs=; b=uPuR7+zUoofPpw+S+XdHBGUeTv
+	LI2M5SHwmdghan308EexHTssrT5PgTQylb4ykCE62YMjOr0W+leea/pnp1Pe9MeJi9doO6EeEBPtb
+	BjhTTX1SWe9h43nek/5elxrUP57eZW7FZ4219icbEzLetCpfoU8hjRSzcaxpAQ/eAXoocfJGbjoZJ
+	/22Bg8+695xA3TM10Iz0vouUxL/vtgcXlFsaX3ABZYLnOr14WD7RDvzdXKjHv0mEaA4Ge4I5F8Vcw
+	KIAQHMx/z2uEhLE6JX8svhuQAcSpFU/nyHPSJsx3fA0vYxDimW/IpegicBLHVZPH3g45/1KEhibrN
+	RfCCTpjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxSPB-0000000Dqc4-2ZBp;
-	Fri, 21 Aug 2026 16:47:45 +0000
-Received: from mta-65-227.siemens.flowmailer.net ([185.136.65.227])
+	id 1wxSUd-0000000Dr6J-2dl5;
+	Fri, 21 Aug 2026 16:53:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxSP8-0000000DqbL-0gVL
+	id 1wxSUc-0000000Dr6A-1MCw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 16:47:44 +0000
-Received: by mta-65-227.siemens.flowmailer.net with ESMTPSA id 20260821164737602604db9200020717
-        for <linux-arm-kernel@lists.infradead.org>;
-        Fri, 21 Aug 2026 18:47:37 +0200
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm2;
- d=siemens.com; i=florian.bezdeka@siemens.com;
- h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
- bh=yAUIv3QVPUxeZj+2jjQt2DSdbC2rNzRDTLXd8pgK7IU=;
- b=TBwnOHPPmjRt/JJJmjAiFj3ThMLkDziWdpLctnwdO+1UQAOFwoxw3/tkqalYvIdHHJQ8AT
- aVz42iTgxiI3vccu4INGZGXK2lFvmYyB0RLzrmaiPlm6h6uHrjBmi6NPuO50z/w4gYMBYa3n
- q4N8k1dHw7zStWfaztBAoDzvbYBLUcSGHDv50xi0rhJrkAadwWhGoX72zFrh8c6U6VKc3kur
- rKCiJupR9LV9FBoqDeJk0+E9s2oHpHNGrRy7uMg+N5VIIo81OrGibQOke/9d3R6X2l0jgnu1
- dszOSZsmJJFhQ3VrrIRrtpcf8/kNstKWOHRbSrwuR0vIAtlc8Vjpp8XQ==;
-Message-ID: <f452f083e6597a145ae24f80f1db7f2315bab6c2.camel@siemens.com>
-Subject: Re: [PATCH RFC 0/3] genirq: Allow drivers to respect userspace IRQ
- affinities
-From: Florian Bezdeka <florian.bezdeka@siemens.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn	
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet	 <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni	 <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Yury Norov
- <yury.norov@gmail.com>, Rasmus Villemoes	 <linux@rasmusvillemoes.dk>,
- Andrew Morton <akpm@linux-foundation.org>,  Sebastian Andrzej Siewior	
- <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, Steven
- Rostedt	 <rostedt@goodmis.org>, Thomas Gleixner <tglx@kernel.org>, Jan
- Kiszka	 <jan.kiszka@siemens.com>, netdev@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org,
- linux-rt-devel@lists.linux.dev
-Date: Fri, 21 Aug 2026 18:47:36 +0200
-In-Reply-To: <f9daddae-a1c3-4823-a4b0-733775e1ad15@lunn.ch>
-References: <20260819-flo-net-7-2-make-stmmac-default-affinity-aware-v1-0-3f79a99cadaf@siemens.com>
-	 <f9daddae-a1c3-4823-a4b0-733775e1ad15@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 21 Aug 2026 16:53:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AFDAD43B41;
+	Fri, 21 Aug 2026 16:53:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2760A1F00A3A;
+	Fri, 21 Aug 2026 16:53:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787331201;
+	bh=XaEo/Q8DPjC2aRIBe2o2/H6K72zUa3Cj/+YcwwZbnbs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=IiLg7fYD2mLzDGhg1ZIVX5mtxwWk9W9LY1e43z+2XG/JU8ynt+bY8ByiZ85e71j6p
+	 ELSVKC4xQPmFfV9ivnzhZhq/vGS8Cea6dJ/8k3RVvWLW0DeP0eCt0PEuve1wgNUGsW
+	 0+LAFoRuFOJisvFU9UMmA1m1t3pmDI1RDZXv4zlqBCH2QerdVPachu1puaAh34sV+t
+	 CUtso9d0ojl86wVFIao808FfLRWhdzEB97NQtYyxUW3Jc6cSjsfeRi6r8OQ+vnBi+l
+	 DMBFLl4Bo8qO0pDxaa1WL/uQ9T7uXvnpK0cpNEiXS0LXjdYV0WUM84ldDsuqAEg7gG
+	 Mt6fp70/46VOg==
+Date: Fri, 21 Aug 2026 17:53:15 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, pierluigi.p@variscite.com,
+	alexander.h@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Marek Vasut <marex@nabladev.com>
+Subject: Re: [PATCH v1 1/3] dt-bindings: arm: fsl: add Variscite VAR-SOM-MX7
+ boards
+Message-ID: <20260821-map-zombie-8253e7519ad9@spud>
+References: <cover.1787314780.git.stefano.r@variscite.com>
+ <2e7d5abd893afb7f5362a5b3b8ee83730546674f.1787314780.git.stefano.r@variscite.com>
 MIME-Version: 1.0
-X-Flowmailer-Platform: Siemens
-Feedback-ID: 519:519-68982:519-21489:flowmailer
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_094742_697961_3B5D8D92 
-X-CRM114-Status: GOOD (  18.39  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yDB3euLzDHcfq/YN"
+Content-Disposition: inline
+In-Reply-To: <2e7d5abd893afb7f5362a5b3b8ee83730546674f.1787314780.git.stefano.r@variscite.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +89,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+--yDB3euLzDHcfq/YN
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On Thu, 2026-08-20 at 01:54 +0200, Andrew Lunn wrote:
-> > That raises the question why request_irq() is called on "link up" time,
-> > while the low level vector allocation takes place during device probing=
-.
->=20
-> If the interface is admin down, the hardware should not be generating
-> any interrupts. So there is no need to request them.
->=20
-> > At least that seems to be the common pattern. Can someone tell me why
-> > this is done this way? Shouldn't we call request_irq() at the same time=
-?
->=20
-> If you want to change anything, move the low level vector allocation
-> into open(). But you need to be careful of EPROBE_DEFER. If the
-> interrupt controller has not loaded yet, i _guess_ the low level
-> vector allocation will return EPROBE_DEFER, and the MAC driver will
-> try to probe again later. If you get EPROBE_DEFER in open(), there is
-> nothing you can do about it.
->=20
-> 	Andrew
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Moving (=3Ddelaying) the vector allocation into open() would not help
-here. The /proc/irq/<n> interface is populated on request_irq(),
-normally done inside open() as well. Up to this point userspace is not
-able to set any affinities.
+--yDB3euLzDHcfq/YN
+Content-Type: application/pgp-signature; name=signature.asc
 
-This is one of the shortcomings mentioned in the cover letter. Once
-/proc/irq/<n> appears, it might already be too late for a proper
-affinity setting, the IRQ might have fired already. In addition there is
-no notification mechanism that informs userspace about newly requested
-IRQs.
+-----BEGIN PGP SIGNATURE-----
 
-It's more of the opposite that might help: Moving request_irq() into the
-probe() phase. I'm wondering why the pattern is
-    vector alloc =3D> probe()
-    request irq =3D> open()
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaoiCewAKCRB4tDGHoIJi
+0jGqAQDjp9T4So4L2JtvC9C4rr4NY7BPcQ03c5SD9yuip+zf9gD/WxGCtpoJX6jJ
+voEyZu9VSz/C+ghr3z9s6Uuh3BBIGAc=
+=7LRq
+-----END PGP SIGNATURE-----
 
-Seems that we would not "waste" too much resources when we move
-request_irq() calls into probe() as well. But as always: I might miss
-something.
-
-Florian
+--yDB3euLzDHcfq/YN--
 
