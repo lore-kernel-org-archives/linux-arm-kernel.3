@@ -4,190 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE6CC5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65CA4C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:26:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8JJ4PU1w/CslgxtJLCOa1o4SY/M/lMPOG1hqS5Ccb0I=; b=c03Egop/pMMK9/s2JGg9w/+ytM
-	9IP19NdhXhLB6UDOqW4F92PwzvZqwCRgSMB8GlzPVIjxgpr4HMtrJfOE53T2XKafsIfSa5fFE83HL
-	IaTgrhq6qKkxQ0nFVqtc7Dzpg0TGsNVpH6e+hOllggHcCGpprOcRY57Pwzkzc/AWO0huLP6gsKmOK
-	JWTbp1IrepgQgRQN5S1YIF0qBncNuVmXj1NqMoU9KJwwd/1cQ/nQVJiS9E7qjDOOCbg2yzJ2miiSu
-	gUQb6B35H4pmkr/S7ZdT8HoPSXQ/yz/bIfY4WFAR12N6FH1gw/lm7hja4s5PZzGDcOUcBmDF5cuxA
-	y4NEWifw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LeUTGI4sBiv/atNV7ksmJDHElcZjr1wREd3dlCZT53o=; b=L2mKDBE2M1MXTvTT4/7bRdYIsm
+	qlDQtf8b/iTgRMuzzaJO2/CUtRVCqCIDbgCTCWshL3U2+HlYnlNo6CLUCNnNsBKanSNbHpyiY3RDD
+	ErlVS+y5Fh9hRWV8ida8MzK9BKBdnOaheg9atvTue1twCumq90wFxA2vAh+4CeRf8z+e3FVQAllOR
+	G32vwW030JDAtU6jYlU/TiViG8VI8TdtJQ7/bdtO36OjA3DryBmTk5FU85Mg7tyUQl6uDk1+mYCTf
+	jlvb9dWbHuY0amndwVsO4j9NwPUBU0ffwteNHkJAL8/sC6Vs+o15pLJaCSPWTbsjj3Yj1AC+0LqV2
+	r1lws2gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxOGO-0000000DIF1-21TP;
-	Fri, 21 Aug 2026 12:22:24 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1wxOKY-0000000DIT1-04mF;
+	Fri, 21 Aug 2026 12:26:42 +0000
+Received: from mail-northeuropeazon11010025.outbound.protection.outlook.com ([52.101.84.25] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxOGM-0000000DIEg-2NJL
+	id 1wxOKS-0000000DISI-44dC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 12:22:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787314943; x=1818850943;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=ZxywOCVtcW0wuFuX6A63sYHcsMPhuvZWcHrIQIMtxpE=;
-  b=Rr+MpFoIM9KpCPthoPsX4RsuAsXoEHLFxXdIcw0VqQaJIJCk9qkChX7c
-   Ay5nW5kPt233xrWKF7diHI/q878hbfJB824SWRkLx4H7QoaDcIl9fq326
-   OhmlfnY4YhjHcVrjW1TKvjlbgrBGAzDB/KBCu0ObApEzSgu0faIr4y73s
-   SqgMRRqVuBigLh+IhfApb/sns68KW8W+AP1TCx7CWqV+9oAZV9m0Lg2Kg
-   pUQPpGLsiOZfFk6x9kwFLxlFwz1mDbZE861j5j3GbULc3c+M5DB5kn3Hy
-   nx/9Nn73Qax+ajiDX0xjc+HAxKMfNFQRa+N+8jgNbEFe1wSXu2ViD/zBT
-   w==;
-X-CSE-ConnectionGUID: EqKD31g5TUuL8zmUBpvvsg==
-X-CSE-MsgGUID: J1AA7PkVRX+eki/4Saiv6w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11881"; a="87922911"
-X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
-   d="scan'208";a="87922911"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2026 05:22:20 -0700
-X-CSE-ConnectionGUID: uI7PjAtqRv24mdOTrqvRbQ==
-X-CSE-MsgGUID: 11f4ZY/+TAi96/zWwVovbg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,235,1779174000"; 
-   d="scan'208";a="262619822"
-Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Aug 2026 05:22:19 -0700
-Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
- fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Fri, 21 Aug 2026 05:22:19 -0700
-Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
- FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45 via Frontend Transport; Fri, 21 Aug 2026 05:22:19 -0700
-Received: from CH5PR02CU005.outbound.protection.outlook.com (40.107.200.1) by
- edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Fri, 21 Aug 2026 05:22:16 -0700
+	Fri, 21 Aug 2026 12:26:38 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VOFJHSuKwWJKcKbi0Q3W/IKbBNCe3xfTVYN8n3GURzMvYKmBwaS6ITjV1eSpTG3Gcg2xSPE1ovnqgnEbwLq4wVtMA6+Ejwxgql5EzOikvq1JBMteF/Uk0lo/oiVpjnD8afUUVl084PivGqg4chReJn0L3YnZP/3/gp6oHnkT2oRws1Oc6YjTzUeuAnxiL1pCrbWqo6a20LgDL2c18IDAVkkXQ8ioPy4QApvEdyk1n2gO2Q4/UEVuyRwEhG3LjkJ/b5xMQs8iw61IExKfxvnaS5R/JbMpdB/62OSDVgFkGVlQG56jFHUspWQFlWK2jlZoiYRv12P7s3FLIwiaYfyxQA==
+ b=fmSOGjtTc4bUDhLgL9WZlylSN4BYXxsZ/WbSz7jylcTtCUPfzuSCFWaPiPqwdL7pfXdk5SPe2mevn5kdgw9gm6MlCLiT0V9V46JfdJp9aCAQu6i2Nrd0oW0YGELFDUbMV13zi8RIHA+9DFD5bP2AhETIB+Eygsc/+ih61/TXM6vaqpeIpMwyTS1C8v9V82+rHhWGLnFT41dmRKYra3tkXF5TgXwl0+ibKeEEyXCcPB4sUik9ggtuJ1hXr1HVRqBuoRAo4ILLH09I1kUdVYgeOtICQBbaHmtMOZYsdeZjv8v+EUx53IUyQD7Udjq2wpSCKjcKI8+BdO4FQaBqtbcwxA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8JJ4PU1w/CslgxtJLCOa1o4SY/M/lMPOG1hqS5Ccb0I=;
- b=QJ+wuE9/X8erbtMc+0+jOfHDwGGQNNbHk+vPy3bgrnSWgQrL6KQrXh/PoQyanSuzXUhkDE6In28g5oQjzbJEy7oocAqYvwb8zRVXiWGVl6UxtV0nsXgJyh166b4hpHqjf2Sv98U29iPGdb4oSrnZ/7U48urqBAzB8HMoOAmkK3ImoHUgUzv4sj4DZZ6iOYlKbTiRPK2iDOWubGp4Ldg7Yt/YeoF9lECevBODsUwLlwjx6m6XMTjwn26gQJbYXWIK4pBGoKvy7dPoNGmFcUriXBD6Uc3vVeO/xYmlaJpHEF9E3JhHz8IB67CkgCZKYwkGHDe+NrzJosPzkVTgeXnVIA==
+ bh=LeUTGI4sBiv/atNV7ksmJDHElcZjr1wREd3dlCZT53o=;
+ b=d+4nYYjjXUQUVnptu0YJ5Mlnzjc+nh+DubkSNDDZSqqRj+vShSRzd7BSqcemNlBS1RRgD5eBgOKEkz2PJ+4d9HtDheCfEDRl1YLdOA1Eqq3eqLet8tpj6siq9E8lJfSGJ0S7CO3Hlg4hGtfJ8E7GTmpn5K5tBS4qfP7Bkz7e8M5X1djqh2w3Gua1A6Oq5gE65FKlil/9wo5m+jXRNZDoQc+pYFv+eIwSCnZXqVRDRyY9jSoS8grFPpR3QT2v40NDaVCc8JaxKxjkCo4vM5sXzOK913dpHOgKAHPqxoS3apjaWO5VgWYakRmkUL0/QTp1s9wX2Eau0i/nom1Y9fXCpA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from IA3PR11MB8986.namprd11.prod.outlook.com (2603:10b6:208:577::21)
- by PH7PR11MB5768.namprd11.prod.outlook.com (2603:10b6:510:131::21) with
- Microsoft SMTP Server (version=TLS1_2,
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LeUTGI4sBiv/atNV7ksmJDHElcZjr1wREd3dlCZT53o=;
+ b=GZtN5i6NQOUbGdSC/GzpaRjDPkUMooH06MHVwoJuIZbcuR53sqisR0kAyOyqn39B4old2M76sFzpfIltd+I6CnUS/0i69HkyBHj8W5/5a58Wj08uWcQ+17bJG+gdgWGpbeOdI5B/D5iEwLT7N6sMP0JuRDOMVe9LsQlWQnBLvPI5nVtj8T3a0/iYXLa42unW73vRLE+tXLMavE+2x+pOY9e96H5fdiPu0wcgzPqo9puPD9BuItkMnlJltgyWYeV/l7lYm6yucqNjH2ByqCafZJCaOIjFAHG7KPPX6UTfrmqCJLES05FcrALchRLN8oUOCE6jd6VnPNlyA8KayJ3fdA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19) by GV1PR04MB10427.eurprd04.prod.outlook.com
+ (2603:10a6:150:1d1::22) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
- 2026 12:22:08 +0000
-Received: from IA3PR11MB8986.namprd11.prod.outlook.com
- ([fe80::e6f0:6afb:6ef9:ab5c]) by IA3PR11MB8986.namprd11.prod.outlook.com
- ([fe80::e6f0:6afb:6ef9:ab5c%6]) with mapi id 15.21.0339.008; Fri, 21 Aug 2026
- 12:22:08 +0000
-From: "Loktionov, Aleksandr" <aleksandr.loktionov@intel.com>
-To: Stanislav Fomichev <sdf.kernel@gmail.com>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>
-CC: "davem@davemloft.net" <davem@davemloft.net>, "edumazet@google.com"
-	<edumazet@google.com>, "kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "Nguyen, Anthony L"
-	<anthony.l.nguyen@intel.com>, "Kitszel, Przemyslaw"
-	<przemyslaw.kitszel@intel.com>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "saeedm@nvidia.com" <saeedm@nvidia.com>,
-	"tariqt@nvidia.com" <tariqt@nvidia.com>, "mbloch@nvidia.com"
-	<mbloch@nvidia.com>, "maxime.chevallier@bootlin.com"
-	<maxime.chevallier@bootlin.com>, "mcoquelin.stm32@gmail.com"
-	<mcoquelin.stm32@gmail.com>, "alexandre.torgue@foss.st.com"
-	<alexandre.torgue@foss.st.com>, "Lobakin, Aleksander"
-	<aleksander.lobakin@intel.com>, "horms@kernel.org" <horms@kernel.org>,
-	"Karlsson, Magnus" <magnus.karlsson@intel.com>, "Fijalkowski, Maciej"
-	<maciej.fijalkowski@intel.com>, "sdf@fomichev.me" <sdf@fomichev.me>,
-	"ast@kernel.org" <ast@kernel.org>, "daniel@iogearbox.net"
-	<daniel@iogearbox.net>, "hawk@kernel.org" <hawk@kernel.org>,
-	"john.fastabend@gmail.com" <john.fastabend@gmail.com>, "guoren@kernel.org"
-	<guoren@kernel.org>, "dtatulea@nvidia.com" <dtatulea@nvidia.com>,
-	"witu@nvidia.com" <witu@nvidia.com>, "martin.lau@kernel.org"
-	<martin.lau@kernel.org>, "Song, Yoong Siang" <yoong.siang.song@intel.com>,
-	"intel-wired-lan@lists.osuosl.org" <intel-wired-lan@lists.osuosl.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-rdma@vger.kernel.org" <linux-rdma@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "bpf@vger.kernel.org"
-	<bpf@vger.kernel.org>, "linux-csky@vger.kernel.org"
-	<linux-csky@vger.kernel.org>, "leon@kernel.org" <leon@kernel.org>
-Subject: RE: [PATCH net v3 2/3] xsk: honor XDP_TX_METADATA in zero-copy path
-Thread-Topic: [PATCH net v3 2/3] xsk: honor XDP_TX_METADATA in zero-copy path
-Thread-Index: AQHdL/SmXgyqtDdYQUaVd2408OQu7Laob2Cw
-Date: Fri, 21 Aug 2026 12:22:07 +0000
-Message-ID: <IA3PR11MB8986C83D3B64E9670AAFF1D4E5A32@IA3PR11MB8986.namprd11.prod.outlook.com>
-References: <20260819160535.1472459-1-sdf@fomichev.me>
- <20260819160535.1472459-3-sdf@fomichev.me>
-In-Reply-To: <20260819160535.1472459-3-sdf@fomichev.me>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: IA3PR11MB8986:EE_|PH7PR11MB5768:EE_
-x-ms-office365-filtering-correlation-id: 32a87d19-98d6-4ed5-546a-08deff7ed189
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|22082099003|18002099003|4143699003|56012099006|38070700021|11063799006|10067099003;
-x-microsoft-antispam-message-info: oP6rfCLg2+dqK1YMQuIf2KZ7VSQlKEz8D2OKSGY91Qa9v+w2m29+lh7udbeVt+4yFaDFHtqd2bJsfu9nQNKIGLQfcAC+9exGpeYwVUguIUoPOyyteEIh0fks9YcR1Pnah++FayLr7cE9hXdcTGWqKn3LS9MRn90+zwFmrb/Sf8JL7zfVq51fvTGbVKaLEYxKo0/MO3FDS3aCEDFaJesMCMRnVqBCSnjDe7i0WgHx55ZRHqwgoaUDZFpgVeDbSIVeUJlZjlQemC3noTRsRbW2jCXUyLSoN9APaji2aY5YPl1lG3HDHhgF4yLCJo2R3i4YHz+Subt5m2FRp/yjXNZQOZ5eelLu4yknYY+6NzpkVSd1LJ5Ghim5Q4cBWBh58uX86Rda6KiiPcUE+wzhfqQtPhF6kf0Q04Xn29iTQUn8aeikn6kcvx+pqISbwomndaSoESo9OQI/3oNUfoiEIqlzSk/HI4axTMd+Iv6paEFks52tWZrT0LmLPeSYGAVSWUmpqI93MeXtUWPAZ9wLt8OabDnz8ONGDpm1OMHWBJLX6j2Tu2to1mc66O4hkY1LBvvT2IlOtg01F3Nn4yK73tWLBGe1kyx1MF/WEwzdvVfL4j6uUsSWO/Nh6rPMLqNlbQUhQiuX4N7GqcK7yupZ4cdLYsLgSqPUa/FBbkG5gjMDhGMUQvGW2TcET5gO+QO56fGXRoavAUCHROviS/OXrg39bg==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA3PR11MB8986.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(22082099003)(18002099003)(4143699003)(56012099006)(38070700021)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?bpFjVRlZ4ICH3yjjtMROUKtBtTQvGj3iK9BUIs7fSi81V68bQ6nDG8KRjjbo?=
- =?us-ascii?Q?2q9uejvX/3glcrsNkrHZrEBt9TpCsyAzUI8BafZgYFVdW7rXu+YbvKoH/YOc?=
- =?us-ascii?Q?sF1Omz+nEl/Rda4xZitg4PCX8yubUcukyoceOkXj8uI7tMyfsnlMTf4/fQ2H?=
- =?us-ascii?Q?ZFL8wncSFE9YCL8qV3m6Ow7RpwOi1LWoNIIEWFccN2TbSb1W1hsOYtXMfMfx?=
- =?us-ascii?Q?ZVnL4CJ9xRIDBqOw8EjV3F4Q2JGQcp65SZcm6eKiPUK+fLCdwnGYkgSo8J6y?=
- =?us-ascii?Q?wRexSaX4SLQ1PRVR27oGJ+LJrxbFi+P25YNP7GTqlOsVhg/0JTOcJZLMgH7N?=
- =?us-ascii?Q?vewJa5kV/WCCsrIa50uoKDz1uEddTjXNeE2UCDCrddhSzFlM5J+syBkIE32I?=
- =?us-ascii?Q?xOYs3kGsKRK95IBanDf70k3IW4rDVK9tSYPoztYr+kNTmL6kAURYZkTTc0/u?=
- =?us-ascii?Q?HaZTFEMfieTlZPWkRcAxLbIOoGGHaH6YxccdPf8XQ8PfBUyR0mWg4hWt4Ngk?=
- =?us-ascii?Q?0h+RduFBCubsfGWcTRKoIhLgh149uYNe+ZUBiIHR7N3cEc4P7RQA/9PVaOlP?=
- =?us-ascii?Q?37C+jpoarbwnHtlaIR2a7x5n72ZmpGuNNKXdPLQ+ovF7taeKIKy2u0A5ClKz?=
- =?us-ascii?Q?yWo/Hg2DJDyqxOu9Xb/y9iI+ouTSqpLkccdrn8ZrIKfZbCMg5rmo2Y/J9vNX?=
- =?us-ascii?Q?PgmYaIuIfj+WAEGeXHLDwjXtJS3dbNjuP+OWS2nuUZC+7gNLJn7ZbGAD0eJW?=
- =?us-ascii?Q?hpBO4YZ1DkeyfgqnevRWTEmjOEN5A/CMPE49GWy7pHDWIYJWz7ffXNsFG20j?=
- =?us-ascii?Q?4B8oVa6on2GiFtXxI1XxmWWMI34njgy/MBl/wVtuDSJODL2xoooz/YQnZkB5?=
- =?us-ascii?Q?OWpVcpCcbYfe5omhn8BVsVGD+2ZqQ9ihRSTfJCoTLOPlyn80Qgynn8B5KqJ7?=
- =?us-ascii?Q?3h4BpFRtcnqbRUVQL5hTLRlRxvaFXLaxkOYRflbcboumtatYVBKN7Iv0rehG?=
- =?us-ascii?Q?f7ptKVSBPWZeT7u9W2qXkesvmNb8KUbyOSDdGiKyYXormf5/xM74MF4qVIcn?=
- =?us-ascii?Q?krrQ3cgv/JTr3DzUcyLCPlsb3lsapFkAXBF7gzoKPTqf25V4KV4rRwQo4Rp/?=
- =?us-ascii?Q?ozw2pl6CA/4APHeATzxiLwiIpffgqDAVsW6RPIaXMuZbASpGbeAQyg8deXbg?=
- =?us-ascii?Q?R/w9WYSwIODC1hM2FtRKmpuBIKoO8cx+gI/U5q+0JOK11LyqO/DtVyvWMIYB?=
- =?us-ascii?Q?OLdbpgITBsNEDz12ircKwix143RkbYJtRYy26ZN5wSkL4xG98qptguU/vhN8?=
- =?us-ascii?Q?4IpFE8+sgp8n9tdHE02iCk1C4uzu53iQKBrl5v8FqlTEMdgaL9MZX1CgdStE?=
- =?us-ascii?Q?a2c159UQeZ/I5OkEfdhlXMsYfqokxOLnVjeDcQ5FWZqyP2kPYn31FcKjU1bH?=
- =?us-ascii?Q?JoFBZXI32/FQI17pvn/sfg6P6npGF5OHZ2s1JRBQ52uH74/QQ2I8Jo71uRmL?=
- =?us-ascii?Q?hKay4AEr/7Xc+/3vkSUaiozjNrnamJgyDttICM7zZGKDqs5AqE/Oiqw6HhTr?=
- =?us-ascii?Q?8TOV9I1lIyLY3HW+EMNW5ysftsvdG0Fylc7VX/vkCTke+mP/KhNgoLmUtNkF?=
- =?us-ascii?Q?QVEWx1pOO9YjnL+45RH4QySR/jeQeK+m0m5Z60ll5c/WES4UvmgqIEB2tgm8?=
- =?us-ascii?Q?V3VpFfxEXaTrwLlDZxofY8GbaISh27rAsN/b1SE45A93wjXSwooG6nr9SIH7?=
- =?us-ascii?Q?3jB7Thci90ni8GdZcngfqRz6rvLsHhs=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ 2026 12:26:31 +0000
+Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa]) by GV2PR04MB12318.eurprd04.prod.outlook.com
+ ([fe80::a498:2b5a:cbdb:d6fa%3]) with mapi id 15.21.0339.007; Fri, 21 Aug 2026
+ 12:26:30 +0000
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: Ying Liu <victor.liu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Stone <daniels@collabora.com>,
+	Leandro Ribeiro <leandro.ribeiro@collabora.com>,
+	Pekka Paalanen <pekka.paalanen@collabora.com>
+Cc: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] drm/imx: dcss: Silence blend mode not set boot warning
+Date: Fri, 21 Aug 2026 12:26:06 +0000
+Message-ID: <20260821122608.2077746-1-laurentiu.palcu@oss.nxp.com>
+X-Mailer: git-send-email 2.53.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AM0PR10CA0021.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:208:17c::31) To GV2PR04MB12318.eurprd04.prod.outlook.com
+ (2603:10a6:150:32b::19)
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: T6OCH/5iCgNEE7muiyVVFw/YSyipv2xHtoJg39C13rDt/1tIRfdKizjT8utLKHRv9F3RPQwPN1XPWeeQV6+4EayMY38Xm5OgXGomr70znpSUHWyHdiODdQtsNhFD/0eWBH8mXgiBNxBTt6gho94qlnYElUJUEYpKqJGGs4xa0Q3ssdqa0imnNf4aQ6zf46N7QHtUWSf2+aVYFycf0zP8ilplciQw9/2DH0myBhkD81UdICkn2OJQ30UCMuqJBmk34JPYsSbBGSvIFUzWZ1kUuk5cQ31BXi4+Ikf6xD/2PNAAjKfd6gIpgKCxWLiiFSEs28XI1Vxj7FgYMe23f4qJwg==
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12318:EE_|GV1PR04MB10427:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8d283c3e-eb63-443c-aa14-08deff7f6dfc
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|19092799006|23010399003|18002099003|56012099006|6133799003|10067099003|11063799006|921020;
+X-Microsoft-Antispam-Message-Info: 15SWnGEpLmR9F3FtmEtCYehUADtgOFLm2SspOhylQvq4wr40DqyJyoysY9uFnBG5OqFM/ld4Rz1Q8wApAbFQUOD+QhHHsnXjKSWC3J9k+YDd+RQPaXjgCQS9nvnKKzeGFocF6fdiZrnB2tA2wNa2iK/T9BwjoTCGQmYFVWwZHoEyIamc+L9uF+FPOLdDAW5bJGG4TaCys7nJU0cw/SFrdz/SCyWQCKTwgNIjtkl72mkCoky9rtWGPWmOQIyj1lnYaiGpV2nnkUPEF8B4MNx8sx++zFA6N3sVfmy6rAuxP2YEMOIVtuZWXIbKo+fXPcfffztMwaLLqbFooDJ7mDVkMinHoOzsytTLA1t5jOP1qiE8dFLoM96KPT2lYIcMLghNPLEs+Pvr87Zx16WXw3MHpJ/RxlQy+dlLSpAxu7w1TvR8MiBhjuDDVYiyInz9xUOkyb1KZ9/PEsimUD2QocFtC1rTXnXBK9q5vG+GL7+3hVkgWzrHEHoHiVkgr2zmkH9Gh63s6kmQWGPdJsGP1r/ISCanGM+3Hg3dK4kyroCBhC2rbY3zFjCJx3d4Jdgi+ZiN9TFljcEnO0amyvoQfYQWkUKNurE/GphA8eskbagV5BZ++R06MS+x6xFTjTcb9TNHwINzrsbgLmVAoSMLVX+ESE+XCz3sgRBZhLDNH1uLekrHjcBmToWAA8XPlK2kC33BGSCfcpVnkjp+46clc8jhhg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12318.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(19092799006)(23010399003)(18002099003)(56012099006)(6133799003)(10067099003)(11063799006)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5PP90toWNIwTEB1URQ3fRbHl+igu3Gs8pl5yoJNmRNYIodVazS+JMV6tJx1i?=
+ =?us-ascii?Q?ST6CFPLaE/n2KFWWIqg3jmU6t+WddyvbKKY7fi/+Orow34IBl1586f3hF0lV?=
+ =?us-ascii?Q?DMPubin5Hk2HHIDTddvXoKocAhLggLHLYWeGtloivxGNK0GrDT6TnSyjVWBi?=
+ =?us-ascii?Q?59clLBkuNtJ3mrQxSowNtpRHrbWzh2umWuHWaBWwZqujf/ObipYvh6rUGeNd?=
+ =?us-ascii?Q?/8hOp9WSCaFKLujxX/g7ZuRp24Lq1IAkXCOqM1nWDnJj4lLbKVNe50J2VvYq?=
+ =?us-ascii?Q?4DyLJblVBBdAbv2oOpC40Ol2sBFLp09kfqXNL+0ATjuu5MO/JF1Ee0FDYVBr?=
+ =?us-ascii?Q?CIxVRDfAaGIT3+o0uR1nzQ19oUEpyXKKcGWtZakj0F1DcFbLlo7gT5B/vghK?=
+ =?us-ascii?Q?J7Wrnb2nQXtHMt/3i2TTCYL61Q7Q4Xxoa73ZoGL0aBfO9Fca7EP05kR2HokM?=
+ =?us-ascii?Q?KvqAgpDgc7B094xwUa3xZefOJ+KBM8suY/nzDQWqNVhAPV08dOodoSgL3mGP?=
+ =?us-ascii?Q?dvCG3wo4+x5CIACBlnsSFhbH+SugX7x1P6IPfZ4XKW+0k7NfMmFjK+hpqAKp?=
+ =?us-ascii?Q?0tkU9e+9rDmkxXbdYujWrh/Jkmwy5vP6txM3YEZahqvz7nhaXQLzJgWq9v0y?=
+ =?us-ascii?Q?LJ+mmtyOWYONfwxh6ptH+VgdOgKM0DuV7JTsJyVz1PNysjRyhfA+kjMLuimb?=
+ =?us-ascii?Q?QMQ0/bJFsb7AN6xvYONarMssgEGa+iLxWo1A7YTpgU5gaRsiJ+iRFOaIS+tN?=
+ =?us-ascii?Q?pk9jvzhgXzytFkh+8XMg3b9iDlJDcCWlc9L1Zxq1zDtR4Fi1KwbZkkDgMdeH?=
+ =?us-ascii?Q?cHFPgEr1jJvl9iVrU+ljvjHIZFhRb44j/m4jyOh/clPSm4gBakMCmVYI2OYV?=
+ =?us-ascii?Q?BulDmzOrscFM/xRR5BX0G5bR89yB/zGQpafW6vury3xbXlW/glhR+XmvHPu5?=
+ =?us-ascii?Q?ZANUUsVXK0+vTc/w0ihU8wbUICavO/G/QiNq3pbBot2hEL/U44W24SwBIHZH?=
+ =?us-ascii?Q?gVCaakSJeP8DKAHw+gh/PuHCq+chf/HTWIgJNok5nq3ZdltkTeG2Ozbi3R7Y?=
+ =?us-ascii?Q?Ihap43/8PJaAZXqIQ8AGawtNOmHD5MZbxbB0zKBc5QNZqI+4DztWVXtiEkdt?=
+ =?us-ascii?Q?r9ihAqIcnBhayVWhT3PPk16ZTH45bIFYH3maY/Lrt3L5u67+OM6NDYE9awcQ?=
+ =?us-ascii?Q?oWuV0UJxSr1Zwuoe0zWO3Ugu/xxPvehtDJMX47gTgJ3fwVygfmOg4RbwmzRR?=
+ =?us-ascii?Q?9S7gdoZBDL1M/WRmo8Aq12dlmhE6JovJ5ixCJzDD38E0fgQCfvVflUJxJi/k?=
+ =?us-ascii?Q?e1IbrSkH+CZ5IRotiPQv1d7lIYghg9sNiw+qsnrB7vjdiA8yqb/X86jgwlso?=
+ =?us-ascii?Q?Fh6sbLh6vFyqtsL1iNFR6/h3ibm9REpmZxRUQ3ud2wmC0i+wn+XGQdMJrBYP?=
+ =?us-ascii?Q?sct2hDnPpIujxLOA+jt5NNtCT+sQ9vsK+coIR9YRXBayvKGkP8eu/8e2ffAI?=
+ =?us-ascii?Q?zRLKd9av15Og8DVg8PXAUgxLh2UPl85urfhnLNso1IcLDKJMYWmWVE7Jy/hf?=
+ =?us-ascii?Q?G+zNzTaMPBUIyNrpP4UDBFXochBRLQI+Oo/ipkJhLNKcV1pnyzYC+2FrOXBD?=
+ =?us-ascii?Q?7qI0wEj28rVMEKwh7AX1QXZkaDidQhCYpEbests2SpxpxqLKlrL6x6IA7jkJ?=
+ =?us-ascii?Q?+oGIE/OVbkk/rpWfkAf+3bdHCaQbiXbvte5Jb8KMgH6Ta061pml3fSdrE04C?=
+ =?us-ascii?Q?3caX2PhKp91IUPNI5uS60mVcRDG7sc0=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8d283c3e-eb63-443c-aa14-08deff7f6dfc
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12318.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: IA3PR11MB8986.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 32a87d19-98d6-4ed5-546a-08deff7ed189
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Aug 2026 12:22:07.9547
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 12:26:30.7601
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: uZJFi7jZkZmHPV7zdZK5Dh4/0sYnJE+GVutUcHe1QOGUrD7UwZsyaQl5aG4No2XSxNUXoCO0xLgmXcYkSKkYI0KShdFqNHvg4dGSA8igtc0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB5768
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qnL1+3rC8itDuX+n5i4OanO/OweDTF7447Tr7jxWH9YEKJvajIZ/Sb8A7BWViK9qIJfg0OVht2kmtn8C+Q4huw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10427
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_052222_679698_3A47D928 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20260821_052637_021627_8F7CBB8F 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,269 +152,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This addresses the following warning that appears at boot time:
 
+--snip--
+[PLANE:39:plane-0] pixel format with alpha exposed but blend mode not setup
+WARNING: drivers/gpu/drm/drm_mode_config.c:872 at drm_mode_config_validate+0x36c/0x520 [drm]
+--snip--
 
-> -----Original Message-----
-> From: Stanislav Fomichev <sdf.kernel@gmail.com>
-> Sent: Wednesday, August 19, 2026 6:06 PM
-> To: netdev@vger.kernel.org
-> Cc: davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
-> pabeni@redhat.com; Nguyen, Anthony L <anthony.l.nguyen@intel.com>;
-> Kitszel, Przemyslaw <przemyslaw.kitszel@intel.com>;
-> andrew+netdev@lunn.ch; saeedm@nvidia.com; tariqt@nvidia.com;
-> mbloch@nvidia.com; maxime.chevallier@bootlin.com;
-> mcoquelin.stm32@gmail.com; alexandre.torgue@foss.st.com; Lobakin,
-> Aleksander <aleksander.lobakin@intel.com>; horms@kernel.org; Karlsson,
-> Magnus <magnus.karlsson@intel.com>; Fijalkowski, Maciej
-> <maciej.fijalkowski@intel.com>; sdf@fomichev.me; ast@kernel.org;
-> daniel@iogearbox.net; hawk@kernel.org; john.fastabend@gmail.com;
-> guoren@kernel.org; dtatulea@nvidia.com; witu@nvidia.com;
-> martin.lau@kernel.org; Song, Yoong Siang <yoong.siang.song@intel.com>;
-> intel-wired-lan@lists.osuosl.org; linux-kernel@vger.kernel.org; linux-
-> rdma@vger.kernel.org; linux-stm32@st-md-mailman.stormreply.com; linux-
-> arm-kernel@lists.infradead.org; bpf@vger.kernel.org; linux-
-> csky@vger.kernel.org; leon@kernel.org
-> Subject: [PATCH net v3 2/3] xsk: honor XDP_TX_METADATA in zero-copy
-> path
->=20
-> The zero-copy path reads TX metadata whenever the UMEM has metadata
-> space, even if the descriptor does not set XDP_TX_METADATA. Pass
-> descriptor options through the metadata helpers and ignore metadata
-> unless the option is set.
->=20
-> This does not fix the existing per-WQE metadata handling for mlx5
-> MPWQEs.
-> Only the descriptor that starts a session passes through
-> xsk_tx_metadata_request() and configures offload state shared by the
-> batch.
-> Metadata on descriptors joining an open session is therefore not
-> validated and does not configure its requested offloads. In addition,
-> a non-NULL metadata pointer from such a descriptor is treated as a
-> timestamp completion request even when XDP_TXMD_FLAGS_TIMESTAMP is not
-> set, so its metadata union can be overwritten with an unrequested
-> timestamp. Fixing mixed metadata states within one MPWQE requires a
-> separate change.
->=20
-> Fixes: 48eb03dd2630 ("xsk: Add TX timestamp and TX checksum offload
-> support")
-> Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
-> Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
-> ---
->  drivers/net/ethernet/intel/igc/igc_main.c     |  3 ++-
->  .../ethernet/mellanox/mlx5/core/en/xsk/tx.c   |  2 +-
->  .../net/ethernet/stmicro/stmmac/stmmac_main.c |  3 ++-
->  include/net/libeth/xsk.h                      |  2 +-
->  include/net/xdp_sock_drv.h                    | 22 +++++++++++-------
-> -
->  include/net/xsk_buff_pool.h                   |  3 ++-
->  net/xdp/xsk_buff_pool.c                       |  7 ++++--
->  7 files changed, 26 insertions(+), 16 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/intel/igc/igc_main.c
-> b/drivers/net/ethernet/intel/igc/igc_main.c
-> index 39043d8ca1bf..59067939a586 100644
-> --- a/drivers/net/ethernet/intel/igc/igc_main.c
-> +++ b/drivers/net/ethernet/intel/igc/igc_main.c
-> @@ -3074,7 +3074,8 @@ static void igc_xdp_xmit_zc(struct igc_ring
-> *ring)
->  		olinfo_status =3D xdp_desc.len << IGC_ADVTXD_PAYLEN_SHIFT;
->=20
->  		dma =3D xsk_buff_raw_get_dma(pool, xdp_desc.addr);
-> -		meta =3D xsk_buff_get_metadata(pool, xdp_desc.addr);
-> +		meta =3D xsk_buff_get_metadata(pool, xdp_desc.addr,
-> +					     xdp_desc.options);
->  		xsk_buff_raw_dma_sync_for_device(pool, dma,
-> xdp_desc.len);
->  		bi =3D &ring->tx_buffer_info[ntu];
->=20
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
-> b/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
-> index 3d19dad8f868..d194eeddd7b5 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
-> @@ -99,7 +99,7 @@ bool mlx5e_xsk_tx(struct mlx5e_xdpsq *sq, unsigned
-> int budget)
->  		xdptxd.dma_addr =3D xsk_buff_raw_get_dma(pool, desc.addr);
->  		xdptxd.data =3D xsk_buff_raw_get_data(pool, desc.addr);
->  		xdptxd.len =3D desc.len;
-> -		meta =3D xsk_buff_get_metadata(pool, desc.addr);
-> +		meta =3D xsk_buff_get_metadata(pool, desc.addr,
-> desc.options);
->=20
->  		xsk_buff_raw_dma_sync_for_device(pool, xdptxd.dma_addr,
-> xdptxd.len);
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index a71f0df26378..62de03e65a90 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -2719,7 +2719,8 @@ static bool stmmac_xdp_xmit_zc(struct
-> stmmac_priv *priv, u32 queue, u32 budget)
->=20
->  		tx_desc =3D stmmac_get_tx_desc(priv, tx_q, entry);
->  		dma_addr =3D xsk_buff_raw_get_dma(pool, xdp_desc.addr);
-> -		meta =3D xsk_buff_get_metadata(pool, xdp_desc.addr);
-> +		meta =3D xsk_buff_get_metadata(pool, xdp_desc.addr,
-> +					     xdp_desc.options);
->  		xsk_buff_raw_dma_sync_for_device(pool, dma_addr,
-> xdp_desc.len);
->=20
->  		/* To return XDP buffer to XSK pool, we simple call diff
-> --git a/include/net/libeth/xsk.h b/include/net/libeth/xsk.h index
-> 5dcc0d7f65b7..a452b7828ce4 100644
-> --- a/include/net/libeth/xsk.h
-> +++ b/include/net/libeth/xsk.h
-> @@ -196,7 +196,7 @@ __libeth_xsk_xmit_fill_buf_md(const struct
-> xdp_desc *xdesc,
->  	struct libeth_xdp_tx_desc desc;
->  	struct xdp_desc_ctx ctx;
->=20
-> -	ctx =3D xsk_buff_raw_get_ctx(sq->pool, xdesc->addr);
-> +	ctx =3D xsk_buff_raw_get_ctx(sq->pool, xdesc->addr, xdesc-
-> >options);
->  	desc =3D (typeof(desc)){
->  		.addr	=3D ctx.dma,
->  		__libeth_xdp_tx_len(xdesc->len),
-> diff --git a/include/net/xdp_sock_drv.h b/include/net/xdp_sock_drv.h
-> index b344789f5df8..d94aeb506379 100644
-> --- a/include/net/xdp_sock_drv.h
-> +++ b/include/net/xdp_sock_drv.h
-> @@ -240,6 +240,7 @@ static inline void *xsk_buff_raw_get_data(struct
-> xsk_buff_pool *pool, u64 addr)
->   * xsk_buff_raw_get_ctx - get &xdp_desc context
->   * @pool: XSk buff pool desc address belongs to
->   * @addr: desc address (from userspace)
-> + * @options: desc options (from userspace)
->   *
->   * Wrapper for xp_raw_get_ctx() to be used in drivers, see its kdoc
-> for
->   * details.
-> @@ -248,9 +249,9 @@ static inline void *xsk_buff_raw_get_data(struct
-> xsk_buff_pool *pool, u64 addr)
->   * pointer, if it is present (initialized to %NULL otherwise).
->   */
->  static inline struct xdp_desc_ctx
-> -xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr)
-> +xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr, u32
-> +options)
->  {
-> -	return xp_raw_get_ctx(pool, addr);
-> +	return xp_raw_get_ctx(pool, addr, options);
->  }
->=20
->  #define XDP_TXMD_FLAGS_VALID ( \
-> @@ -318,18 +319,20 @@ xsk_tx_metadata_request(const struct
-> xsk_buff_pool *pool,  }
->=20
->  static inline struct xsk_tx_metadata *
-> -__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data)
-> +__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data,
-> +			unsigned int options)
->  {
-> -	if (!pool->tx_metadata_len)
-> +	if (!pool->tx_metadata_len || !(options & XDP_TX_METADATA))
->  		return NULL;
->=20
->  	return data - pool->tx_metadata_len;
->  }
->=20
->  static inline struct xsk_tx_metadata *
-> -xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr)
-> +xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr, u32
-> +options)
->  {
-> -	return __xsk_buff_get_metadata(pool, xp_raw_get_data(pool,
-> addr));
-> +	return __xsk_buff_get_metadata(pool, xp_raw_get_data(pool,
-> addr),
-> +				       options);
->  }
->=20
->  static inline void xsk_buff_dma_sync_for_cpu(struct xdp_buff *xdp) @@
-> -510,7 +513,7 @@ static inline void *xsk_buff_raw_get_data(struct
-> xsk_buff_pool *pool, u64 addr)  }
->=20
->  static inline struct xdp_desc_ctx
-> -xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr)
-> +xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr, u32
-> +options)
->  {
->  	return (struct xdp_desc_ctx){ };
->  }
-> @@ -530,13 +533,14 @@ xsk_tx_metadata_request(const struct
-> xsk_buff_pool *pool,  }
->=20
->  static inline struct xsk_tx_metadata *
-> -__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data)
-> +__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data,
-> +			unsigned int options)
->  {
->  	return NULL;
->  }
->=20
->  static inline struct xsk_tx_metadata *
-> -xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr)
-> +xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr, u32
-> +options)
->  {
->  	return NULL;
->  }
-> diff --git a/include/net/xsk_buff_pool.h b/include/net/xsk_buff_pool.h
-> index 2bb1d122b1bc..a7df573784fd 100644
-> --- a/include/net/xsk_buff_pool.h
-> +++ b/include/net/xsk_buff_pool.h
-> @@ -154,7 +154,8 @@ struct xdp_desc_ctx {
->  	struct xsk_tx_metadata *meta;
->  };
->=20
-> -struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool,
-> u64 addr);
-> +struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool,
-> u64 addr,
-> +				   u32 options);
->=20
->  static inline dma_addr_t xp_get_dma(struct xdp_buff_xsk *xskb)  {
-> diff --git a/net/xdp/xsk_buff_pool.c b/net/xdp/xsk_buff_pool.c index
-> 78c14f106395..9d2d94f1fb75 100644
-> --- a/net/xdp/xsk_buff_pool.c
-> +++ b/net/xdp/xsk_buff_pool.c
-> @@ -763,6 +763,7 @@ EXPORT_SYMBOL(xp_raw_get_dma);
->   * xp_raw_get_ctx - get &xdp_desc context
->   * @pool: XSk buff pool desc address belongs to
->   * @addr: desc address (from userspace)
-> + * @options: desc options (from userspace)
->   *
->   * Helper for getting desc's DMA address and metadata pointer, if
-> present.
->   * Saves one call on hotpath and double calculation of the actual
-> address.
-> @@ -771,14 +772,16 @@ EXPORT_SYMBOL(xp_raw_get_dma);
->   * Return: new &xdp_desc_ctx struct containing desc's DMA address and
-> metadata
->   * pointer, if it is present (initialized to %NULL otherwise).
->   */
-> -struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool,
-> u64 addr)
-> +struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool,
-> u64 addr,
-> +				   u32 options)
->  {
->  	struct xdp_desc_ctx ret;
->=20
->  	addr =3D __xp_raw_get_addr(pool, addr);
->=20
->  	ret.dma =3D __xp_raw_get_dma(pool, addr);
-> -	ret.meta =3D __xsk_buff_get_metadata(pool,
-> __xp_raw_get_data(pool, addr));
-> +	ret.meta =3D __xsk_buff_get_metadata(pool,
-> __xp_raw_get_data(pool, addr),
-> +					   options);
->=20
->  	return ret;
->  }
-> --
-> 2.53.0-Meta
+The warning started appearing after the commit mentioned below was
+introduced. Add the alpha and blending properties to the primary plane.
 
-Reviewed-by: Aleksandr Loktionov <aleksandr.loktionov@intel.com>
+Fixes: 860e748bddcc ("drm: ensure blend mode supported if pixel format with alpha exposed")
+Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+---
+ drivers/gpu/drm/imx/dcss/dcss-crtc.c  |  6 ++++++
+ drivers/gpu/drm/imx/dcss/dcss-dev.h   |  3 ++-
+ drivers/gpu/drm/imx/dcss/dcss-dtg.c   | 12 ++++++++----
+ drivers/gpu/drm/imx/dcss/dcss-plane.c | 11 ++++++++++-
+ 4 files changed, 26 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/gpu/drm/imx/dcss/dcss-crtc.c b/drivers/gpu/drm/imx/dcss/dcss-crtc.c
+index ab41759a9f52d..8358219c94c0d 100644
+--- a/drivers/gpu/drm/imx/dcss/dcss-crtc.c
++++ b/drivers/gpu/drm/imx/dcss/dcss-crtc.c
+@@ -5,6 +5,7 @@
+ 
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
++#include <drm/drm_blend.h>
+ #include <drm/drm_vblank.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
+@@ -202,6 +203,11 @@ int dcss_crtc_init(struct dcss_crtc *crtc, struct drm_device *drm)
+ 		return ret;
+ 	}
+ 
++	drm_plane_create_alpha_property(&crtc->plane[0]->base);
++	drm_plane_create_blend_mode_property(&crtc->plane[0]->base,
++					     BIT(DRM_MODE_BLEND_PIXEL_NONE) |
++					     BIT(DRM_MODE_BLEND_COVERAGE));
++
+ 	crtc->irq = platform_get_irq_byname(pdev, "vblank");
+ 	if (crtc->irq < 0)
+ 		return crtc->irq;
+diff --git a/drivers/gpu/drm/imx/dcss/dcss-dev.h b/drivers/gpu/drm/imx/dcss/dcss-dev.h
+index b032e873d227c..9b3bd2f3a7ef1 100644
+--- a/drivers/gpu/drm/imx/dcss/dcss-dev.h
++++ b/drivers/gpu/drm/imx/dcss/dcss-dev.h
+@@ -147,7 +147,8 @@ bool dcss_dtg_is_enabled(struct dcss_dtg *dtg);
+ void dcss_dtg_ctxld_kick_irq_enable(struct dcss_dtg *dtg, bool en);
+ bool dcss_dtg_global_alpha_changed(struct dcss_dtg *dtg, int ch_num, int alpha);
+ void dcss_dtg_plane_alpha_set(struct dcss_dtg *dtg, int ch_num,
+-			      const struct drm_format_info *format, int alpha);
++			      const struct drm_format_info *format, int alpha,
++			      unsigned int blend_mode);
+ void dcss_dtg_plane_pos_set(struct dcss_dtg *dtg, int ch_num,
+ 			    int px, int py, int pw, int ph);
+ void dcss_dtg_ch_enable(struct dcss_dtg *dtg, int ch_num, bool en);
+diff --git a/drivers/gpu/drm/imx/dcss/dcss-dtg.c b/drivers/gpu/drm/imx/dcss/dcss-dtg.c
+index 6bbfd9aa27aca..21da9d3cce4cb 100644
+--- a/drivers/gpu/drm/imx/dcss/dcss-dtg.c
++++ b/drivers/gpu/drm/imx/dcss/dcss-dtg.c
+@@ -3,6 +3,7 @@
+  * Copyright 2019 NXP.
+  */
+ 
++#include <drm/drm_blend.h>
+ #include <linux/clk.h>
+ #include <linux/delay.h>
+ #include <linux/interrupt.h>
+@@ -268,17 +269,20 @@ bool dcss_dtg_global_alpha_changed(struct dcss_dtg *dtg, int ch_num, int alpha)
+ }
+ 
+ void dcss_dtg_plane_alpha_set(struct dcss_dtg *dtg, int ch_num,
+-			      const struct drm_format_info *format, int alpha)
++			      const struct drm_format_info *format, int alpha,
++			      unsigned int blend_mode)
+ {
+ 	/* we care about alpha only when channel 0 is concerned */
+ 	if (ch_num)
+ 		return;
+ 
+ 	/*
+-	 * Use global alpha if pixel format does not have alpha channel or the
+-	 * user explicitly chose to use global alpha (i.e. alpha is not OPAQUE).
++	 * DCSS supports either global alpha or per-pixel blending, following
++	 * the coverage blending formula (with global alpha set to opaque).
++	 * When the pixel blend mode is PIXEL_NONE, the per-pixel alpha is
++	 * meant to be ignored, so fall back to global alpha in that case too.
+ 	 */
+-	if (!format->has_alpha || alpha != 255)
++	if (!format->has_alpha || blend_mode == DRM_MODE_BLEND_PIXEL_NONE)
+ 		dtg->alpha_cfg = (alpha << DEFAULT_FG_ALPHA_POS) & DEFAULT_FG_ALPHA_MASK;
+ 	else /* use per-pixel alpha otherwise */
+ 		dtg->alpha_cfg = CH1_ALPHA_SEL;
+diff --git a/drivers/gpu/drm/imx/dcss/dcss-plane.c b/drivers/gpu/drm/imx/dcss/dcss-plane.c
+index 1746dc5d4b642..06413d0612349 100644
+--- a/drivers/gpu/drm/imx/dcss/dcss-plane.c
++++ b/drivers/gpu/drm/imx/dcss/dcss-plane.c
+@@ -209,6 +209,14 @@ static int dcss_plane_atomic_check(struct drm_plane *plane,
+ 		return -EINVAL;
+ 	}
+ 
++	/* DCSS supports either per-pixel or global alpha. Not both. */
++	if (new_plane_state->fb->format->has_alpha &&
++	    new_plane_state->pixel_blend_mode != DRM_MODE_BLEND_PIXEL_NONE &&
++	    new_plane_state->alpha != DRM_BLEND_ALPHA_OPAQUE) {
++		DRM_DEBUG_KMS("Both per-pixel and global alpha not supported.\n");
++		return -EINVAL;
++	}
++
+ 	return 0;
+ }
+ 
+@@ -336,7 +344,8 @@ static void dcss_plane_atomic_update(struct drm_plane *plane,
+ 	dcss_dtg_plane_pos_set(dcss->dtg, dcss_plane->ch_num,
+ 			       dst.x1, dst.y1, dst_w, dst_h);
+ 	dcss_dtg_plane_alpha_set(dcss->dtg, dcss_plane->ch_num,
+-				 fb->format, new_state->alpha >> 8);
++				 fb->format, new_state->alpha >> 8,
++				 new_state->pixel_blend_mode);
+ 
+ 	if (!dcss_plane->ch_num && (new_state->alpha >> 8) == 0)
+ 		enable = false;
+-- 
+2.53.0
+
 
