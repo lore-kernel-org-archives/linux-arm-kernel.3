@@ -4,92 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0FFC5DF8E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 05:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B51C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 06:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p4zubKJfP4d5jonGYtKrpPAyp+ZFeoBJ9/vh3Z7kgRY=; b=bLGCyG/YSAlV+ivAuIeXFs0rFG
-	DA+fPjzaPH9w/drUe5iqwSDuyATRnCH9wRXfDG7e2h/mjCpxvYkw5edRYJliFOwqBDwlgxeTyMWJE
-	+KsAHwQ2eWDb4+XiwGoWfOG/LhG4s4Q/LOw4IZUEzfFtZZ7+XQ8AbZgB2QHxArgh4PuLzc0JRBnHg
-	nHEYYVYnHboRawOooHQVeEVcmSg/7cw0a58/mAQlTAiUzFPMXr6GztELfzVS6VRNzn13zGBUIpbvW
-	CTuqP0oBdQyaP0Ov5SXFfXa24I9wIfOHr1kmrM6N0Pyr7l9vyZ8PruA7iZ1wMnQQIbtTcey8GXACB
-	syMROujA==;
+	bh=JKCC8iilhEhoJvbAR8DOfY14Y8gG8HGfbnSi/c7ugos=; b=YSPpscTb5VC3Vk5RiPjtGKZSC5
+	6mYxBa/TfW6RcEdAO7XvKzv6eP1jS7aNtTR89FTyjsq0+fsib4wyTpeUCzzaLT4nf72v9Hq2QtDqw
+	Oz1pS3M0RJe6DzoYc1z6Fmon98+PBOYVzwo+MNNr2gPzRTwEKngobFOSgAshHFpeegOzPI5f+fM+n
+	LhfoZSKMV9Uu36Hu1KBMnyK/JjoRAWQhOzw5y2x7pAzbksEnxWEEeA1WNnarBA19p+t8fITQnqqmq
+	9y6p/fRzkDPyj6utk+nFWOXyYYI9a5wpllAEdasRC6Qx4KGlPSTqCnqDyts9jiU6g9JTlWpM6xN+/
+	fW76T4pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxIGD-0000000CaH9-3zwh;
-	Fri, 21 Aug 2026 05:57:49 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1wxIi2-0000000Cbin-0yPn;
+	Fri, 21 Aug 2026 06:26:34 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxIGC-0000000CaGU-0475
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 05:57:49 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-38e041ea211so584031a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Aug 2026 22:57:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787291867; x=1787896667; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=p4zubKJfP4d5jonGYtKrpPAyp+ZFeoBJ9/vh3Z7kgRY=;
-        b=Y2muQlJnuPhVJ745qAF93dcE9Ab9tS62vgN0Oo+eg/hQxPZKVxYhRW2457LwYK2NWS
-         2ZRHPNXrhyAzjk4FMCRb4hZdv9Ea5002o3x41EhtNLCxxUsVfqZkIWSZBvBNXk5mDBI5
-         3iZroVWySC1AzvvUvCPmlvx9kt64/UEbUls88J+OgOUM1UaV/GZY+jOr/sV66AVj5BhI
-         Rv4jNKiSlM2ykm6RuC8EVVz7n5bPD0A/swjb1u+aUJGqxckj//eSML8tj2iDycPgUZoi
-         cr2LPfJQ5oB8EfYJjAflEDuKhtIaAXW3sdHuKcW1xZ+XFoQRkcfX+LaQP026wGxCDVVT
-         ai7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787291867; x=1787896667;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=p4zubKJfP4d5jonGYtKrpPAyp+ZFeoBJ9/vh3Z7kgRY=;
-        b=P2C9XieCIA4oJiMCQcOUcRx4LDuhPs7a0/wc6LJ36J8P1sZgC3emlby1PmJjEzDtAB
-         T5acG6FmyRDp89pT+weMD3/4jQuKqeOyvCjNJ0pXiPBQdq8OeSZtQ1SgygB9THOEQzNh
-         /elnaxzrf6DxyGlVmMGJOc3KrxjtMYcc6CZrmN7xxUB2OvFyGv9agJjv7S7zyQkmFCR7
-         kTiTskiNox/z4xceO7BtapCic33S9/Jf7ZujQIaj2khB457W3WbnfJjdiHltTry7HhHl
-         diL21NeAGPHGgvEnUH8FPDLO90N9ffQaHs/u1gg9IeS8FI+DFFH8s2VTj3UV0nmhZNN/
-         aV9w==
-X-Forwarded-Encrypted: i=1; AHgh+Rriqs49rPt+LAXmtXwGTI8MwLPYKatFMbrPaBs0RVHw8k/D8LQYIFlPaOuRi2ONWYiWGTUDjVWshUTksCm8gWW9@lists.infradead.org
-X-Gm-Message-State: AFuF++kUymxwLECbP2Hc3we5r9YCmz583J6kIE2ifDhqDh/dY4A+iOBg
-	m6J0OQ1AtatPEOfmQ5QEbTtvgJMb94xjCF3Rz3TwYeN+HDWUUpiwmjKg
-X-Gm-Gg: AR+sD11KpL9GYIAiyr0PF1w6T+IaSHE3cuN38vHvAgiETsRRFy5tnHBBCVw3QpMiFfT
-	6K6AsyfN1mBoK5lyAq2bCBvFJCux53jC8Nv5f9Q/HfQjgdDsp0i55LP5kJNAhRi5BYv+gj/dXMV
-	AEceIovkr/YjFG3CIECaAkgqjoxYjIepn0+2mFm5o6Sm+XB7MLx1cZ2y479YktbAd3BaAATNK8R
-	MBKKpvHcjjHEEIQ91GZjoBWdYIDxfPJnSHEdqo8uMj1Ofpb9OUy3AmmPS/xGcwgbRAO/s4xyMLt
-	Xn0xqcpenQFQHCsC4um3bGpPYp1Mj5MfHyTEuHMmT/5NuvGUuheN7sK29ZEZTF6njCxSdyoPXEG
-	AckW0yXM/5MWqI9pwCE1Li33hc3htXcokhXmb8ytwsrEbM3H584LXqKEnWwiCL1I+vehlens9UH
-	TM+Gy2mPsoa8hbIwbDu4fjLrYkV9ySL3KdpnTjC6iMJDGqbngDcu/IPJzWhmyCzMec/UAvY+Fqv
-	fAhQpeaCbR5XbIzEUVsXRw7A4eyzMeYIjpjAUm1Q62+4No=
-X-Received: by 2002:a17:90b:6cb:b0:366:3517:1aa2 with SMTP id 98e67ed59e1d1-395c2f13243mr8189537a91.0.1787291867058;
-        Thu, 20 Aug 2026 22:57:47 -0700 (PDT)
-Received: from DESKTOP-8BCFI4I ([202.12.123.126])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1416ad3dd15sm20391581c88.2.2026.08.20.22.57.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Aug 2026 22:57:46 -0700 (PDT)
-From: Md Rabbani <rabbanyhmm@gmail.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	id 1wxIhx-0000000CbgB-0Cs4;
+	Fri, 21 Aug 2026 06:26:32 +0000
+X-UUID: 39b160789d2911f19a56ed5b684f684d-20260821
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:ffd5387b-5664-439d-96e2-ee90ef3099e4,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-5
+X-CID-META: VersionHash:7db8b62,CLOUDID:e8d79b2bec317e838dcede8c7e027a19,BulkI
+	D:nil,BulkQuantity:0,SF:102|136|865|898,TC:nil,Content:0|15|50,EDM:-3|-100
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 39b160789d2911f19a56ed5b684f684d-20260821
+X-User: liujiajia@kylinos.cn
+Received: from nature.lan [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <liujiajia@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 883801387; Fri, 21 Aug 2026 14:26:21 +0800
+From: Jiajia Liu <liujiajia@kylinos.cn>
+To: Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Ying Hsu <yinghsu@chromium.org>,
+	Archie Pusaka <apusaka@chromium.org>,
+	Abhishek Pandit-Subedi <abhishekpandit@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jing Cai <jing.cai@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Chris Lu <chris.lu@mediatek.com>
+Cc: linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Md Rabbani <rabbanyhmm@gmail.com>
-Subject: [PATCH] net: stmmac: fix device node reference leaks in stmmac_mtl_setup()
-Date: Fri, 21 Aug 2026 11:57:18 +0600
-Message-ID: <20260821055718.57-1-rabbanyhmm@gmail.com>
-X-Mailer: git-send-email 2.55.0.windows.3
+	linux-mediatek@lists.infradead.org,
+	Jiajia Liu <liujiajia@kylinos.cn>
+Subject: [PATCH v3 1/2] Bluetooth: btusb: mediatek: Fix leaked runtime PM reference in reset
+Date: Fri, 21 Aug 2026 14:26:05 +0800
+Message-ID: <290cf3c065ebee3d1dcaaa4e805e1875d0f999e8.1787292206.git.liujiajia@kylinos.cn>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260820_225748_239983_587C33AD 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20260820_232629_415179_E7389C32 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,64 +84,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In stmmac_mtl_setup(), q_node is shared across the RX and TX queue
-parsing loops. When the RX queue loop breaks early because the number
-of parsed queues reaches plat->rx_queues_to_use, q_node retains an
-acquired reference count. If the error check passes
-(queue == plat->rx_queues_to_use), execution proceeds directly to the
-TX queue loop, where of_get_next_child() immediately overwrites q_node
-with the first TX child, permanently leaking the retained RX child
-device node reference.
+MT7925 on HP Pro Mini 260 sometimes timed out during reloading driver
+and reset usb device. btusb_suspend is not called again after closing
+bluetooth interface.
 
-Switch both loops to for_each_child_of_node_scoped() so child node
-references are automatically dropped upon loop exit or early break,
-and remove the now-unnecessary function-scoped q_node variable and
-its manual of_node_put() at the exit label.
+ usbcore: registered new interface driver btusb
+ Bluetooth: hci0: HW/SW Version: 0x00000000, Build Time: 20260605184935
+ Bluetooth: hci0: Execution of wmt command timed out
+ Bluetooth: hci0: Failed to send wmt patch dwnld (-110)
+ Bluetooth: hci0: Failed to set up firmware (-110)
+ usb 3-10: reset high-speed USB device number 4 using xhci_hcd
+ Bluetooth: hci0: HW/SW Version: 0x00000000, Build Time: 20260605184935
+ Bluetooth: hci0: Device setup in 1856545 usecs
+ Bluetooth: hci0: AOSP extensions version v1.00
+ Bluetooth: hci0: AOSP quality report is supported
+ Bluetooth: MGMT ver 1.23
 
-Signed-off-by: Md Rabbani <rabbanyhmm@gmail.com>
+btusb_mtk_reset calls usb_autopm_get_interface to resume the device
+before driving the hardware reset, but never calls the matching
+usb_autopm_put_interface. Every hardware reset therefore leaks a PM
+usage reference of the interface, preventing the device from being
+runtime suspended again until it is unbound.
+
+Add the BTUSB_RESET flag. It is set right after the PM reference
+is acquired (unless the reset goes through a GPIO) and is cleared in
+btusb_disconnect, which drops the reference as well. If the flag is
+already set when a new reset is requested, the previously queued reset
+has not finished yet, so drop the newly acquired reference and return.
+
+Also clear BTMTK_HW_RESET_ACTIVE if usb_autopm_get_interface fails,
+otherwise no further reset could ever be attempted.
+
+Fixes: 25b6d7593a3a ("Bluetooth: btmtk: introduce btmtk reset work")
+Assisted-by: Claude:qwen3.8-max
+Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index dc5f951a31..6128ed1bd5 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -130,7 +130,6 @@ static struct stmmac_axi *stmmac_axi_setup(struct platform_device *pdev)
- static int stmmac_mtl_setup(struct platform_device *pdev,
- 			    struct plat_stmmacenet_data *plat)
- {
--	struct device_node *q_node;
- 	struct device_node *rx_node;
- 	struct device_node *tx_node;
- 	u8 queue = 0;
-@@ -169,7 +168,7 @@ static int stmmac_mtl_setup(struct platform_device *pdev,
- 		plat->rx_sched_algorithm = MTL_RX_ALGORITHM_SP;
+Changes in v3:
+- rename BTUSB_USB_RESET_ACTIVE to BTUSB_RESET (Luiz)
+
+- test_and_clear_bit BTUSB_RESET in btusb_disconnect (Luiz)
+
+- handle multiple reset requests int btusb_mtk_reset (sashiko)
+  set BTUSB_RESET if no reset_gpio after usb_autopm_get_interface.
+  If the flag is already set, add log and drop newly acquired reference
+  and return.
+
+- clear BTMTK_HW_RESET_ACTIVE if usb_autopm_get_interface fails and add
+  error log. (sashiko)
+
+Changes in v2:
+- Fix the race window (sashiko)
+  Add and set BTUSB_USB_RESET_ACTIVE flag before usb_queue_reset_device.
+  Release PM reference in btusb_disconnect if this flag is set.
+
+Changes in v1:
+- add usb_autopm_put_interface after usb_queue_reset_device
+
+---
+ drivers/bluetooth/btusb.c | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
+index 184e95c1625e..360cec460ce7 100644
+--- a/drivers/bluetooth/btusb.c
++++ b/drivers/bluetooth/btusb.c
+@@ -957,6 +957,7 @@ struct qca_dump_info {
+ #define BTUSB_USE_ALT3_FOR_WBS	15
+ #define BTUSB_ALT6_CONTINUOUS_TX	16
+ #define BTUSB_HW_SSR_ACTIVE	17
++#define BTUSB_RESET		18
  
- 	/* Processing individual RX queue config */
--	for_each_child_of_node(rx_node, q_node) {
-+	for_each_child_of_node_scoped(rx_node, q_node) {
- 		if (queue >= plat->rx_queues_to_use)
- 			break;
+ struct btusb_data {
+ 	struct hci_dev       *hdev;
+@@ -2891,8 +2892,19 @@ static int btusb_mtk_reset(struct hci_dev *hdev, void *rst_data)
+ 	}
  
-@@ -227,7 +226,7 @@ static int stmmac_mtl_setup(struct platform_device *pdev,
- 	queue = 0;
+ 	err = usb_autopm_get_interface(data->intf);
+-	if (err < 0)
++	if (err < 0) {
++		bt_dev_err(hdev, "Failed usb_autopm_get_interface: %d", err);
++		clear_bit(BTMTK_HW_RESET_ACTIVE, &btmtk_data->flags);
+ 		return err;
++	}
++
++	if (!data->reset_gpio &&
++	    test_and_set_bit(BTUSB_RESET, &data->flags)) {
++		bt_dev_err(hdev, "last usb reset failed? Not resetting again");
++		clear_bit(BTMTK_HW_RESET_ACTIVE, &btmtk_data->flags);
++		usb_autopm_put_interface_no_suspend(data->intf);
++		return -EBUSY;
++	}
  
- 	/* Processing individual TX queue config */
--	for_each_child_of_node(tx_node, q_node) {
-+	for_each_child_of_node_scoped(tx_node, q_node) {
- 		if (queue >= plat->tx_queues_to_use)
- 			break;
+ 	/* Release MediaTek ISO data interface */
+ 	btusb_mtk_release_iso_intf(hdev);
+@@ -4497,6 +4509,9 @@ static void btusb_disconnect(struct usb_interface *intf)
+ 	if (data->reset_gpio)
+ 		gpiod_put(data->reset_gpio);
  
-@@ -276,7 +275,6 @@ static int stmmac_mtl_setup(struct platform_device *pdev,
- out:
- 	of_node_put(rx_node);
- 	of_node_put(tx_node);
--	of_node_put(q_node);
- 
- 	return ret;
- }
++	if (test_and_clear_bit(BTUSB_RESET, &data->flags))
++		usb_autopm_put_interface_no_suspend(data->intf);
++
+ 	if (intf == data->intf) {
+ 		if (data->isoc)
+ 			usb_driver_release_interface(&btusb_driver, data->isoc);
 -- 
-2.55.0.windows.3
+2.55.0
 
 
