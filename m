@@ -4,149 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CB7C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 07:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A3CEC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 07:55:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=; b=lPlV0CcNo1xxX476kyXkDbohzr
-	EHo9VYkAkjijBNAaCuXflJUVUKEj8o5jmPYm5Jkyoz9hpVTTGxI3nXGRUKTtv4n7352gMzaSo89ea
-	lblxzBA5F/RQ9c6qWnLA3J/UjqdgGhM9gOyCUrASiohVNzW8FKalBd7VuZ4MN2UgR+VPlaKlsHsG4
-	9pS7yFWDImpft/2gNhpW4KNUf1v+MN4IWfDk2l9a1jncFA7Mfo5ORWMHrYzf81XLMMHfSZHJxXDOD
-	T61cmxX2zyYTK7RoDIysXWqyfDr49aklaw4ABkkISQcIc1xWYYaZZYFtzWXaNysm0v04k997jCFWT
-	3QOSxPPA==;
+	bh=ggncsFl+P4gYhgD6NGF6aVdrd2Isxhm9KFLNVg0s6ZA=; b=pZVAI1VcLY9FqW1/ws4km66C2S
+	6PXsJ2dZZPSpisq9UgyjKvN1hjOcPtM2weTEtkR3krJeIjk14kgj5UpWz5ZPgIiQs1fTO43YxQFnF
+	csSwaidX8Q9TO9qics4NUVp13jfmwSI5VpL+YRqAvwWaGLnnLG7sIi79TSIh0xvapMThKAQNJUNQN
+	IpZOmTfmmOcg5W5cirKZoj4ah+gTOknT+EbA//4HQsK5Aau8FZch/uC4UZa5kaFeRbhKE0mRZbazT
+	5b+s4IzY/uffRyT8ykZQk/aDlUqf9MxkMg8gUGGMW4I5Ie+gHPbP+tisR+px1AxLO7aMxnGigJ8Dj
+	JpU2nHFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJxu-0000000Cjrx-2IVW;
-	Fri, 21 Aug 2026 07:47:02 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wxK5z-0000000Cka4-2Wbl;
+	Fri, 21 Aug 2026 07:55:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxJxr-0000000CjrA-2xZA
+	id 1wxK5z-0000000CkZw-0H56
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 07:47:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bxbG0+bDaXp7FaiCCXi6WAWV7+eYccf+AXht/oRK2KjluDU9nrO+K7JyphXyww5ci/CTNfAtPn/l/yPAkD3CeYRpfEVTtGki+1Qhmjd4WHfM3U1g3TvdlouMen8ZmaN8HZnvTRyEOnr6fa8HWOTTPxJKpkjrK7+mfg0JlD+m2A73EeLyi/oeTGoOfDnasImMhK8rPWndrIawEAHZFsMXpdMsRY6LJDFII0peyJ8Lg32foipEXyAZmzWYcXsOkfN1aSs+VkEdSz+QF//tTNuQhuB9eIf2yIfOCzSfUOHhSPt0HIn2Vb/mTcIYhqqhnYSO3B6SLnzVY+zKgz8FmKcXsQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=;
- b=JKY90SkjiWk5xzHpQY5IdbBet8mIpUj/upST32lDO8rseKB7cxYT69fCSyCtJ6tB21tLSK8C/RDlG2D2DRIyFiSGKsAvwmUXpRMmrPDENZo9V8ESEQzTj+C6fRMOfPq4LB/rniN3jj+jYRdYaKkHIeleoL6PtO00UZDe3Ohw2OmLz9V9mOrgqIPv652FOzjLlvVroC5Y3DfizCfYc1w+vSFh0im8J9bMNGleTEqcWxE/kLp1HXqWrCbfEds8PgkPld7Xgmn+Y1NGrNvS/rmySh8FCtJZGeg5AVoUgL61O2dc91fjlJLJ4vuKTjKErZG12bWGb4AdoLaT4FNjQ/FiXQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=;
- b=nKTofNHNJIntGCb5fD+WZrrFF7l/X+LOLyUGaT0ylg/Gdm3Y6ZBxToTqcRUZim1FriS8ULEmL79l9BJyLxXNNABiNNqGck0/S4BnMlEJwMWM0wg7pBMS2INoWanCM3pv8AbbkDC7g4TWyDiySSsDyC1UrUeubkF9TmGMrqxIS8quYrksbtwlIUF1O59/vKmzQogo3YlsiP8FWocGEv7kXVPj/B4DFRNxjuDWnENisCrwHRcIaF2QlesnakHJumKoukhWJfX3TO9Yj7Kc4R9iq+AiDSrndCVuOQYZLa2J9O4lCeK8UV75+QovDkSZkM8d2Aj6T/+WAxxpoQUSMmS9IA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8469.eurprd04.prod.outlook.com (2603:10a6:20b:414::15)
- by AM9PR04MB9016.eurprd04.prod.outlook.com (2603:10a6:20b:40a::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
- 2026 07:32:35 +0000
-Received: from AM9PR04MB8469.eurprd04.prod.outlook.com
- ([fe80::1f31:d3d0:6150:b49c]) by AM9PR04MB8469.eurprd04.prod.outlook.com
- ([fe80::1f31:d3d0:6150:b49c%3]) with mapi id 15.21.0339.010; Fri, 21 Aug 2026
- 07:32:35 +0000
-From: pankaj.gupta@oss.nxp.com
-Date: Fri, 21 Aug 2026 18:32:24 +0530
-Subject: [PATCH v39 7/7] arm64: dts: imx8ulp: add reserved memory for
- EdgeLock Enclave
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260821-imx-se-if-v39-7-41e4257c2afc@nxp.com>
-References: <20260821-imx-se-if-v39-0-41e4257c2afc@nxp.com>
-In-Reply-To: <20260821-imx-se-if-v39-0-41e4257c2afc@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787317340; l=2461;
- i=pankaj.gupta@nxp.com; s=20260817; h=from:subject:message-id;
- bh=8LTJ7dQk+ZmHVQUVQ7z2QFEU98qQ6ZendsUWTwEehrU=;
- b=dWU9leOKOBU2ymMuJyL2q4j2ekoSiY6iN4ScCT2FgjkfHASPpogYXeWPdwZCQ7POGeo2Aqv4a
- rKzxzgqOypqAuTnoL8NTFNS4b1MZQnlrsNvvnpEpCbn+mkcEsgwgAJs
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=g4ZgzIWbpXnSxRsoH+l6PWLP78a+Mzpl8e6RQe74d5Y=
-X-ClientProxiedBy: JH0PR01CA0056.apcprd01.prod.exchangelabs.com
- (2603:1096:990:5d::15) To AM9PR04MB8469.eurprd04.prod.outlook.com
- (2603:10a6:20b:414::15)
+	Fri, 21 Aug 2026 07:55:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BABFC41436;
+	Fri, 21 Aug 2026 07:55:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7D471F000E9;
+	Fri, 21 Aug 2026 07:55:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787298922;
+	bh=ggncsFl+P4gYhgD6NGF6aVdrd2Isxhm9KFLNVg0s6ZA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=j9lrqwmTCZ92FSDw0hL1RsBDQMIsVTp4wfsGe1iG7NqhFs8Yh8/jZUGXADUZmhCsK
+	 PtqGLLSTRysk5QpnLjrPM84cqCL9dWRERHtS7bLAuc+RtSpGMBpr4UFlUrl54moj4k
+	 dmx6MaNzoRmzmkr+3SV8T6+bcPkki49DajnFIuhUwIjPCNUSxd6srb1jHnz7O4fWxH
+	 ll/xDflUUW181xC/QK29yf4hP0GC90ZMPLkKR2+KbUE3Fq0EMWghy3QO5UqyDBw4mL
+	 8HPDRbCJ2hvtOPl5++OqjEYUNuvHlgZV5EmUd15OZyXobRa7mKwzSDz18bbfAOWsJZ
+	 ySAZdCSmqCmww==
+Date: Fri, 21 Aug 2026 09:55:18 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Aiden Isik <aidenisik@member.fsf.org>
+Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+	Chanwoo Choi <cw00.choi@samsung.com>, Peter Griffin <peter.griffin@linaro.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Aiden Isik <aidenisik+git@member.fsf.org>, 
+	linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: clock: Add Exynos5515 SoC
+Message-ID: <20260821-orthodox-lilac-alligator-80806c@quoll>
+References: <20260818-for-next-lucky7-clock-v2-0-cda0cc80f158@member.fsf.org>
+ <20260818-for-next-lucky7-clock-v2-1-cda0cc80f158@member.fsf.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8469:EE_|AM9PR04MB9016:EE_
-X-MS-Office365-Filtering-Correlation-Id: f949694e-f8d1-4a46-2b59-08deff565e3b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|19092799006|23010399003|1800799024|10067099003|11063799006|56012099006|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: 7buZ195S3wnMfGBm9li2v/IpdVHP91wGBJsU25b+HUHsftnLdHU8FlAjpUyOK9v+bmyQsjXnRhGcT1wgbgxVYJB/c3R8wr80ikVVzZsM8OnulINfKVXkQUvS110+yUCE1UjqsHrPmz7pGEToKS9wzQuCey0HBgJm6bv5xWagcxGdRC4D/WwvsbnB1VV864m0hZY3LateIqPpbf5MAnnKP5cEp/F2L0rJRy7u3QVUmp5ZXT+U4sMXLnw91MXQyiHaoBJngli3xTTTNlo7GhbGzLor65lBqRNGP/1e0bbh8drQaIj+qfcfyuQLE1iRcC7QWXsFmqxfgu/ytw7LwhvvBj5A/m37QWcJ7Bc3Dysrh4fh3ZMYpBD12TqqFH11Do4amUwMr6s86fnzq3LYs1SJU4rHzbstGBHCC26PPLw/Bfldc1pY6Mi5+5F4ZH2sX73pd19fRXhRxeemJBM5ebMe6Kh4YZW2CD7pivnOAGJlyZC5OIkPO3jqMcW+rOppOvJAyF4aLIJd5kVkSZqYcPqVZnEnhtFL4CBQfi/qsVAF+Ommp47teXHMN7uR3NrmPFVpIxBQBC+Hkva2LZAIyuGwaO+8B3ve6lezXD8Sy2L041bhheUKK7ptFVa3iM9WQ6BZYXVp9yjf1t2O2LxN1g626mq7uyAuMWD+5qdk3HqX6rK6/8M3bLlI7l5Pp4VwfgOqbKPNRwN5N5szcvkXw9Fn6A==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8469.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(19092799006)(23010399003)(1800799024)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Wm0zWGJMSVBGQnM4Tno0blVTMmRVQWNmOG1BSDdncU9hK2lZRDFDYW92OXl3?=
- =?utf-8?B?bS8wdGVGU0RmOWE3a0hSRElnNGJkMys2bXZ5L1ZKOHhZOWM0ZURFR0ZIY0s5?=
- =?utf-8?B?SVFxOVI0M3M5QkRXaTdWMTNXbTFyT2hEOXNzWmwrRktCQ096bkdwN1o5Nkh5?=
- =?utf-8?B?Tnc0SHFlaTRHZDBHbytpQm12bVJTSG1tUUFuSkZqTEpud2lMdk9WcnMyVXN2?=
- =?utf-8?B?a3NXa0wvaC93d2d3TEE2MHJzY0Q3Q3NybEdRMDdOaG9WUEhlRXlwTzhTT21I?=
- =?utf-8?B?MWVBOTBvL21yVkJqWVg0eUxZOThENTdFNnhtQVlXZ0czWWErb2ZRSkdaaVp6?=
- =?utf-8?B?aERFbVIzc1gxSWVja3pVakF6aEVqeTBLV29ldHNhelcrNys5ajl3MmxqVW1R?=
- =?utf-8?B?T05SRlJES1hTTFc2MW1jTkk3MGlxdW9SMDRhaTVPdnRrRWdvWTBSOUlrU2lK?=
- =?utf-8?B?TFdhbUpsMlJBQVZwVHVQUXczWEFHTFdjS3QrcS9IS29wYXJkampWUC9xam1T?=
- =?utf-8?B?OXdYSkl0OStRR3pObjBwOEpjcVdzTTVBdG9UQ21aVkFGeDVDK2ozU1JmS3BP?=
- =?utf-8?B?U296N0ZOSDdBekxvOEJoU2ZrclFMbXZta05KMGkrbllZQW02T21rWWg2dmNT?=
- =?utf-8?B?UUtDOWhKSzc3SWtFT0lCWXFYVTVJMGRiTTl1UXRaODJHZWFEZDkwRXhlNWxB?=
- =?utf-8?B?enBUeW1jcnJMUk5aYnRudGVYTGIzTjlLZ0g0Sk5SRDNVZmpvN3B1c0tRclR2?=
- =?utf-8?B?bjlHN1k3QXc5Q1d6Nkg3UTZYYTdsem5sRmw3Q1JGWVRrd0J1NUtzZ0t2Z0Zt?=
- =?utf-8?B?VDFrNHVJd3R3TmxwbXBDZGtaTW8wN25PbUNRMDNBWEpSNDRzUTRKK0xSdHFI?=
- =?utf-8?B?WEpIb2lvTFlqYVByNTV0VWxYd0J2emtwWXhEU3g2QUJGK2IvSlJPS2dLUVJS?=
- =?utf-8?B?ZWJJa3I3ZE9DNklEbXVMc1lXK0ZGekt1YURoY3FTc3FZajR6anN6REVkRXZM?=
- =?utf-8?B?cEdHVW9SRWpHZ2JZbjVYQ3lLdWMzTzVBcnpCVjg0RXdIYlplWjcxZ0hDUHVH?=
- =?utf-8?B?bXRoa1B0RHNidmdXdzZZVU53WjI2SmRGV3ArcEk2eEpxczVhaks4NFhBZUFG?=
- =?utf-8?B?Q01UTTlKNmNXWVhDelJWN29wOHFIRkk5amx6TWQvVnB3aWwzdHpGQWo1M0Fo?=
- =?utf-8?B?M3M4OC9LT0dDK0dpTEJweGZxeW9IRVJkNWoxM3pDV2tNWW9FNFRqV0xaejgw?=
- =?utf-8?B?OWEvZXJjL1NCekJjWm9lRjBMR0VmOWNKYjFISmdCWkhKVmFtTDJJVWpOTXMy?=
- =?utf-8?B?VEtWNjFTUFZDRUs1eDQxajdhV2lGeVNaZm5uaGpKdkdiOHpoU0gwZ2pFaXZL?=
- =?utf-8?B?UE1ISWRUZ2VBTCtUbXJUekp1L1hqQ1d2a250aDYyMU1VdlJCSjZNQ1ZPakNV?=
- =?utf-8?B?R091enJzRjd2TERiOXU2WjFzajRRbjBNdlNBcy9oYzlNdE5lY3NSampVdWNk?=
- =?utf-8?B?Nm96VWJySExEdGJVcUMxTlZCTGttTHlwT1FidDdMVVRsWmFMNDlvczRtNTFu?=
- =?utf-8?B?Tlp2aUJSVmI5am9rRHJRK1VSVkNnR2dZZ1ZSVWlNZG5ubG5xdi9XNnNrWm1t?=
- =?utf-8?B?Nm1zMlF6b2VrcEoyZHZXWEFRZ1JuSEsra3RVbmc2UEp1V1NQNjV5NXBxemh2?=
- =?utf-8?B?MmZaZUdoSFlJZTVrdWIyd25TZ28vemtSU0R3ZkVuM2lISkhxU2c1VVZwenQz?=
- =?utf-8?B?TDhNOVliS0FOQnBPdlgvMHFVbEZpN1p6a2NiQ3JsakZtbmxGMzZKdEJyZDhT?=
- =?utf-8?B?ZEc2cTJXbmpjL3NsVStIajhMaTNTTU1rbDh5VjJ4b09FMjBpNnE1eHVKZDMy?=
- =?utf-8?B?UXp6NVVsRjArcTBOeW5oaWFMK0Jud0dtV3hHUzdIR1RlSWZLQXlQb1lFQytD?=
- =?utf-8?B?OHBMY05WZnlRc1BzanBuMXBCSlJFTllQNXplWFRmZyt2NDFxSUZETTlFTmgw?=
- =?utf-8?B?L1U2TFNKeUpQQldYMGtQTW50T3EzNGxMM0Qxd2kxTEtHeG1CSmlpczRDbXZG?=
- =?utf-8?B?MmxRQ1pBb3hpNHJaZXF3aThmdjk1V3ZBU1hOWFhSdmFYanB4OVFzQy8waWJW?=
- =?utf-8?B?Q0FoSU5LeGdiT21maVNoYXExSnhTajhMdjVnOFptdlI2ajFxcUtlTGpXdkN4?=
- =?utf-8?B?WWlvUmtCZy9OdkpIdjNicG82ZEY0RDJBYjhnTXprekI1cU5PUGZaN2xOZ0FY?=
- =?utf-8?B?Wlp3Um13UFJoWWdNd2gxWnRJUkZBT1NxUjhxa0h5ejRqQVc1ZkZwOTlzQW1H?=
- =?utf-8?B?V21naUFRME9XdkZQRzU2OEx1WjM4UVNyVUFRUDBWUWlqV0ZST1V1U20zYmM3?=
- =?utf-8?Q?WINNz68UFJLL8tYZKWLDUwZgxwGul1a+tAiBV?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f949694e-f8d1-4a46-2b59-08deff565e3b
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8469.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 07:32:35.0072
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ygNXn2SJFL61tEGgv9xmVx5F/T4JvIKpDokEP/BxyuM+T/v3XixW/KxuHxN7ivnCRpRRJXIpPBvE4HusTPwO5wHYUDuc9Y40LAznRIVEBEk6dZk4x/XGz/fOy6wJVqiI
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB9016
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_004659_749567_43040291 
-X-CRM114-Status: GOOD (  16.28  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260818-for-next-lucky7-clock-v2-1-cda0cc80f158@member.fsf.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,82 +75,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
+On Tue, Aug 18, 2026 at 10:58:35PM +0100, Aiden Isik wrote:
+> Add devicetree documentation for the Exynos5515 SoC's CMUs.
+> 
+> Add device tree bindings for the following CMUs:
+> - CMU_TOP
+> - CMU_PERI
+> - CMU_FSYS
+> 
+> Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
+> ---
+>  .../bindings/clock/samsung,exynos5515-cmu.yaml     | 145 ++++++++++++++++
+>  include/dt-bindings/clock/samsung,exynos5515-cmu.h | 191 +++++++++++++++++++++
+>  2 files changed, 336 insertions(+)
 
-Reserve 1MB of DDR for the EdgeLock Enclave. The enclave hardware can only
-access DDR in the 0x80000000 - 0xafffffff window, so constrain the pool to
-that range with alloc-ranges and let the kernel choose the placement rather
-than hardcoding an address.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Provide this as a shared imx8ulp-firmware.dtsi that also enables the hsm0
-node and wires up its memory-region, so every i.MX8ULP board can bring up
-the enclave with a single include instead of duplicating the reserved
-memory node. Include it from imx8ulp-evk.
-
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8ulp-evk.dts      |  3 ++-
- .../arm64/boot/dts/freescale/imx8ulp-firmware.dtsi | 31 ++++++++++++++++++++++
- 2 files changed, 33 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-index 5dea66c1e7aa..885242fd07ce 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-@@ -1,11 +1,12 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright 2021 NXP
-+ * Copyright 2021, 2025 NXP
-  */
- 
- /dts-v1/;
- 
- #include "imx8ulp.dtsi"
-+#include "imx8ulp-firmware.dtsi"
- 
- / {
- 	model = "NXP i.MX8ULP EVK";
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-new file mode 100644
-index 000000000000..e4bc352f68af
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ *
-+ * Default reserved memory and EdgeLock Enclave (ELE) enablement shared by
-+ * i.MX8ULP boards. Include this from a board dts to bring up the secure
-+ * enclave without having to duplicate the reserved-memory node. The ELE
-+ * hardware can only access DDR in the 0x80000000 - 0xafffffff window, so the
-+ * pool is constrained to that range with alloc-ranges and the kernel is left
-+ * to place the 1 MiB region.
-+ */
-+
-+/ {
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		ele_reserved: ele-reserved {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0x80000000 0 0x30000000>;
-+			size = <0 0x100000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&hsm0 {
-+	memory-region = <&ele_reserved>;
-+	status = "okay";
-+};
-
--- 
-2.43.0
+Best regards,
+Krzysztof
 
 
