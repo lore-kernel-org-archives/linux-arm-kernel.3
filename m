@@ -4,61 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4735C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 10:55:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6527CC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 10:56:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ByiWSQ8eh42tvoIiWE2lsESYBO+Hgwyud5gxkh10Hsc=; b=uep7euzCARtnxd4hEskwTJxGEA
-	9p4zgZZyntl6yJHuqbMWs7qGxQ2wblbIkk9yFEBIdjkWhVa6gopnLFwDvhFNvCotI2x7Ux0qaqd+I
-	rliM8hf56bkZEdCTetdtyYK2iHeraNZoMe68OHzYLD4rNoAXJKEZnEnCbzaJ7OfFECPTMl5TrwWAf
-	8dAdP7zuPHSCtmQuf+6fcTC5x5Jn23rjLBXxUOuvYl6mYulcJvTCF+qe1DHYqWGqIiku80HOxEzYO
-	ziqBQEw7bnpzU5/aX5D0qSml93NEcW/WBui6sQJrxnCpGQ4iShJekM2QRNrIgod0gXDzznPRhH+2a
-	60g67gcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F0KP1CVviwJmQQN3FEHfy11YDTSlCdnZqE0N40hpbfA=; b=L0fSzsRvPnXe2Prs0RfemZZGAN
+	LDSCemXYrU7s5dUzKGsjHbKmjf7xB0s9HfYNQkukRfS+bPB01wzqYOMHwlXj86g9eyA3xQh1TEM4/
+	oSZq1hE2XRkS38D8BxZcd+EC3ODm61G5tR0nuHOh2pDI7mqpIIuOXwwKxn675r/T6V4HoE0sfe1m+
+	oYIEULsmuGzyCipItYGlhR/GXp2VrzETUdWufUg355L6T8l5PpOPUNrmCUkgH/IsOf3hRBGh9niJV
+	vfKfT1V/eGUVDvwW21qJzbnxpr1DTlzCWCTJkS8U2lw8P6Ht8SyCmu4D67gMws3DxzTwHmmOEUNO8
+	qWoCQpAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxMu0-0000000D7s2-1cdG;
-	Fri, 21 Aug 2026 10:55:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxMty-0000000D7rI-2YMT
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 10:55:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63C6E153B;
-	Fri, 21 Aug 2026 03:55:05 -0700 (PDT)
-Received: from [10.57.68.59] (unknown [10.57.68.59])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D32CC3F66F;
-	Fri, 21 Aug 2026 03:55:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787309709; bh=KiagOudW+pTgtW3kjnN7v28ThC+8ziEgw7Tys2uqlvY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tEZZkdr1CZL3BylTAPCjgW9DQljVWaScCrd7NxczztefZ1vXTpXOfNZfS0QoAyWlW
-	 cN2knDWCKN1hLUGwP4Qo8larnr4vgibwngKyC+ZW27dzkWgq1BDdcGmgEhJWNCBYMQ
-	 Xr8qRWKs/t3mDITHtgMm9bWqQoLRvNG9EaxJKlZs=
-Message-ID: <1b132c5d-41ea-4776-a080-c5b411618984@arm.com>
-Date: Fri, 21 Aug 2026 11:55:06 +0100
-MIME-Version: 1.0
+	id 1wxMvA-0000000D82V-06YJ;
+	Fri, 21 Aug 2026 10:56:24 +0000
+Received: from mail-southcentralusazon11012037.outbound.protection.outlook.com ([40.93.195.37] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wxMv6-0000000D81r-1DvK;
+	Fri, 21 Aug 2026 10:56:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bJEOSJHt52oM3auQhhCx0s3cBXOIOIxWvTqFbGlr4pV9Z0LRcvrMkBp6I4XpFIe/1DjS+PLISs1NcnrYhMRKprNAZB0qXwV1am9zJulI2LJKees6nPyWeWtA/zGriO+ylYgod2jt4sy+EoxZ0XI2p9rnyiT3dyc460+A/GNuA1FZW8tfdNhJHzEbJVn9j6w/a68VqixNGnJsEoz7gl4HLqw2OCl7B6AbYupyfjCnKMRQpCFlii/eM1fB4S5Nuj6ZNHYOKDs6S930otxRy1/lrxc52OuK7auInZ77ChiWwyMqo1zBvGTNSBLCRZg/tQ58L7ug66o1zJ8EdZxNEph+kg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F0KP1CVviwJmQQN3FEHfy11YDTSlCdnZqE0N40hpbfA=;
+ b=uiZhdD4bNIVvlhV0YXjBtzLE0GGQ+aU9jfzlNSDUmagSHAlnUsSeb4CN+QZe9S/G2O2YvZ/DMbHu4wENi6QisZyslbRbgjZCRut15pon7I9K2L6/vnOkDfEYURrXMjBH7kuu6mbjhOkW2I4WWW+xu7ZUGYu9PyKaKBw5/cDGJ8T2JBwKiKzm73UNyR2sdAC1YphMt43HgCcqu1sJnKn4FIIS1QdhDDaXN33spkIGfux1UZrpPDJvQ+Ek+zG1F1CqBg8+JFffOdIupaXOXHqUUmIc4c17edDycAzAvVRMVmVYaZUCqBiVMhYwM0h4rmQ9k1VNLrLso+q6xlXqA8rLMg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F0KP1CVviwJmQQN3FEHfy11YDTSlCdnZqE0N40hpbfA=;
+ b=Pk6r4CqQufJO+JciZi38Fd3QgqKrFVha0M0p/foU3KGCu17XxaUlO8lyef4wN347zhmoL51qzb/A0iF1cpOWiXpWI3WA27Lj2cr2iTlJjl2klTjcfmN/Emdl1++ikGb4t6YLRQmpNvbtJ2d6Az/djLSgWJPuHT41c2ecWzO/XqY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
+ by CY1PR12MB9557.namprd12.prod.outlook.com (2603:10b6:930:fe::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
+ 2026 10:56:14 +0000
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287%5]) with mapi id 15.21.0339.010; Fri, 21 Aug 2026
+ 10:56:14 +0000
+Message-ID: <5d066598-7aff-4912-89c6-23761fdccc7b@amd.com>
+Date: Fri, 21 Aug 2026 12:56:08 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 13/45] arm64: process: Use helper to check
- exception state
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
- catalin.marinas@arm.com, liaochang1@huawei.com
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-14-vladimir.murzin@arm.com>
- <1694f91a-1f0a-4e25-94c8-3885c4560eea@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <1694f91a-1f0a-4e25-94c8-3885c4560eea@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 0/2] mmc: Make sure clk_init_data is fully initialized
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+ Ulf Hansson <ulfh@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Adrian Hunter <adrian.hunter@intel.com>
+Cc: linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org
+References: <cover.1787240090.git.geert+renesas@glider.be>
+Content-Language: en-US
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <cover.1787240090.git.geert+renesas@glider.be>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BY1P220CA0023.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:5c3::11) To LV5PR12MB9779.namprd12.prod.outlook.com
+ (2603:10b6:408:301::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|CY1PR12MB9557:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9cb210b5-889b-4fb9-ba8a-08deff72d1d8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|6133799003|10067099003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: /mUGVvVnwxc1Nzew9B19ilobS7c+hQVwJHCGOAXktuC5SibE20DFjn1G57a0PxSo8TaIQtLpAdMij9gTfpXIHxhF3EtuY0vJnbSSOp/v8rsIFNVaA5v2dh8u33s4CjtbfpILjFYRyn18wDCtrGI+xJHyb6M+wDQVJKMWQw/el9OjPnoDP/vtejKpZoPjnUtBrHgyTtc7WO/k0m60kKmsVkV1A7/wmymSqc1i1tRgE7cMPTIA2HRitnuT8jsmQjcwgaSVmXM9Qs3sP9abtFZ7iPflJQmzztsTgl8JxQoLRIliNHrO+VNeO7imA4GlPmAgzj5FJy+imijW2tWXYaoW4EUjuCTbO3DX1u5uyAOEqG05O3ZX6LWqozV4D6h07N5wGAtVfR4SzsKCtgrifBuFGJscy9YZYuElBzPHY8+zJksYtGt5C2Ugl8SoHO9LGeaoQg5IIvtmUWp4eezo0Cez2fgQwVkyfv61rtGvTzdd87KhxUHEMCdngOfVNczUOdWbb8UOY3ADyd0OEmGlGsWQ5FrmvRilS/dvu+gYe/I3j7Q8UIicfqe6/Jw6vmvbkQgzZZxQXlSaR3WsUkAfoA0His+nD4lbRklbIcHL09EAsdhDDZWsql1vJ64PCD3hvsRb
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(6133799003)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WUhXeERFQ1NEeVJSUjBUbDNTK2Q4Ym9XbTNtQnkxSUx6M1cyT1hZeTBaaU9a?=
+ =?utf-8?B?S1Qrb29iMFd6WmtSVENNYTA0NFJIamxBaGlJODhNcTdCN2NLM0tMeGw1NndV?=
+ =?utf-8?B?cFoyWFYxM0N1cHYzSFVkb0xGZU04anJFK1BKZTdzTk9Pb3BOQ3V2dEg1UnJH?=
+ =?utf-8?B?UHBkTjJ0UktVNE1Veit0MEJvbG1id0R6TXhNeTBxSWJXU0txVXVFT0orOWQ0?=
+ =?utf-8?B?cEkrVlFKT0lIaUpLdllYSUhGV0M0dW9oLzZWZ2hGbzZXN1FWTnlUYUtZY1Zo?=
+ =?utf-8?B?d2Ewa0FYcWtHeEovUG0xRmxIdG9UeGtSV3N2K2N3Sksyc0xMd0FoVGVkdHhG?=
+ =?utf-8?B?VE02cUdQZHJsZUFVSGdQSXJOaE45TW9LdXNab0FENWdVS0tLN0NZWlpuVFcw?=
+ =?utf-8?B?WHlUb1JONFBlaFcvdmlleWl4RGV4VW5BVXFtN0Y0TmtzVTZiQnNVOSs0SDhw?=
+ =?utf-8?B?UmtGbXRNd0N1VitId2RZSzFMMGk5UWJjWk40VEdxOWpPYmtUWStYTXZpSVJR?=
+ =?utf-8?B?bVhNaURycndNZWlzSXNTRmVQZlZqajhBajcycG1DL1BPeGVYT1BPODhoMXRi?=
+ =?utf-8?B?L25RZExvWW83aEsxUHVRMzE2ZllYbXlBYVYrUXNhMHRueEZXYVF1QStkNGk4?=
+ =?utf-8?B?Nm5tVUVRM0NzelpMemlKSUdnTk43cHI2KysraGI3SkRlbmxOYXBTQ1JpYi96?=
+ =?utf-8?B?WTIvWmVaUEJVNTEzajl4UWRhbWg5RnI0U2pSaDRwRDVPVHp2UGw1ZFhxamdt?=
+ =?utf-8?B?SVNvak80RkF3Zi9WOTlGbzBqRU53ZFo2WnN5L2g4aWIzZDBtMGwvalhzbkdK?=
+ =?utf-8?B?WU9jWmVQMVp1WXZRdFkyQTJtSXpTNGhtMDN0MnF3R0ZqSGhEa1g3a2p4cFZi?=
+ =?utf-8?B?TEU4Y3A0Zk9WbEdHOTgxcVRGWGhGamNQM1dldGRVR3dvSDdlUFAxZWJLc3c5?=
+ =?utf-8?B?cDE2Lyt1K05qZ1BsMDFxQmJ6dExoL0FNN3FsOStFVjRLVm9TdmxsVXZOWXlI?=
+ =?utf-8?B?SjdiSHJQOEEzQ0V3bHVKbmVDWitPZDVYaW9aRGwzMzZsaDk0QWdleHJpMDN0?=
+ =?utf-8?B?UWRpNS84cW9ldVpOMWpGV3VsSThUWHRMSkFrMnFBZFY5M0RjVFh4WUczVVJN?=
+ =?utf-8?B?bXcvM2l5VVIvSFFRcXhodGNhYVRjSGJNck5kaU44czdYTGFvbVN0dnhjNnhs?=
+ =?utf-8?B?alRFbDA4Nk00TVp1V1cyZzlPQTBLS2ZpWnFsdm9hSlZoTWg4UnZnZGNCTHhn?=
+ =?utf-8?B?MklyVEFZdFdHSXl3V1FDTlNRTnRlK0VsUnNoUW80aGZ5ak42YVVjcUE5YUxS?=
+ =?utf-8?B?T2psMFF6eEdMWVNtaHJpNWoyQXZFeUpaTmtvMnp1ME8vSWM4TkE4VFBTaDN6?=
+ =?utf-8?B?c1l1eTRBckRwY0FEVkJqV2UraUl0TkRmd0pMb2FpL3htU3AzUEt2bG9ucWJi?=
+ =?utf-8?B?V2tsdHBDd1o2UWJ5eHF3bXRPc0ZNWExpME9DMUl6UEI2N3AxZm95TjNJWEM3?=
+ =?utf-8?B?M3d3aHVUOTdJR0N4ZEVScnJHdjBESDUxM0pKZVBqUlY0US8xdzMwa1dacG1I?=
+ =?utf-8?B?eXhmeFVWOXE2R1cwRk9qQU9YMGZRNzNtNXlQMjlWdkdhcENnNlJsYUxmc0ZY?=
+ =?utf-8?B?ZnJhR21jbkRjOUhuMlZRbUwyekJzcDArWHQvYW82bXMrYmR4RWtjVFN5Nzlm?=
+ =?utf-8?B?cENoOHlJdi9ibXBZeStMTkNKbXkyUEhnbGplUVZUUGlOWEVsUTRzVUdzUnEx?=
+ =?utf-8?B?MFQ1WTFLNG5QUlNEckJ4dG9Yay9QM29kWldSbUZOa0RDL0o1cHN2Uk5JS3o5?=
+ =?utf-8?B?U1FGdzd3UGIwNTVMTDFXVkFISU9tZEdJd1J0bEc1U3NiN0Y2SGxJd1pHcU1D?=
+ =?utf-8?B?cWJVZ25ja3FHSEZqM3I1Yjg5QnFFK0dHTnk4eEx4ZGVBZURMc281NnhIenZi?=
+ =?utf-8?B?MU1zUk04QXd0SDJ4eGFIckRTajh2cURQWHRiY0RFWmxldkVHdXJCbUlXV29Z?=
+ =?utf-8?B?eWVZcFRFckJjOXdGNDY1Y0Vqb24zdlBXZC9yK2R2bWx0bzZXa1AvU2J5RC9P?=
+ =?utf-8?B?UGpHR1hvcDEwM3JIdUV1NTBaTVN5R0k4bkJjb1hHWHlpS2haSFJYSEZCZG02?=
+ =?utf-8?B?d2lxcXE2KzE1VFpCdDVPVkphVVB4Kzg2ZllhNFYwZk5CZDFzTit4dEpza1kw?=
+ =?utf-8?B?R2VFc016L1ZuRU5TZmR1b3NTZHZYSVlaWVZKL2xqaU5EZzdMNkpJVzEyR0V4?=
+ =?utf-8?B?MytMNEtTSngwenZlNE9McnFYTVM5M2ZtRE9UU24xQlNTK3RXL09hZ29wRTZI?=
+ =?utf-8?B?clVoNGtJZWhDSHVWNktGUDl4eHJibFR3QTNJdzhuQzRJTVZtUFArdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9cb210b5-889b-4fb9-ba8a-08deff72d1d8
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 10:56:14.6449
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1FMy9F9jWiXD9Nt2Av1iL+kJixYrc40G1Yb9VEBROoUJCsTyp2ndYXkQWoEt2liQ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR12MB9557
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_035510_692672_B48FAFB4 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20260821_035620_489894_569030DF 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,83 +192,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/11/26 08:43, Jinjie Ruan wrote:
-> 
-> 在 2026/7/28 0:34, Vladimir Murzin 写道:
->> debug_switch_state() explicitly checks the hardware exception state
->> for both the pseudo-NMI and non-NMI paths. The expected state matches
->> the NOIRQ_CONTEXT exception context introduced alongside the exception
->> masking helpers and state checkers.
->>
->> Use the helper instead of open-coding these checks.
->>
->> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> ---
->>  arch/arm64/kernel/process.c | 21 ++-------------------
->>  1 file changed, 2 insertions(+), 19 deletions(-)
->>
->> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
->> index 581f80e9b9b7..0fd09136d398 100644
->> --- a/arch/arm64/kernel/process.c
->> +++ b/arch/arm64/kernel/process.c
->> @@ -51,6 +51,7 @@
->>  #include <asm/exec.h>
->>  #include <asm/fpsimd.h>
->>  #include <asm/gcs.h>
->> +#include <asm/interrupts/common_flags.h>
->>  #include <asm/mmu_context.h>
->>  #include <asm/mpam.h>
->>  #include <asm/mte.h>
->> @@ -703,25 +704,7 @@ void update_sctlr_el1(u64 sctlr)
->>  
->>  static inline void debug_switch_state(void)
->>  {
->> -	if (system_uses_irq_prio_masking()) {
->> -		unsigned long daif_expected = 0;
->> -		unsigned long daif_actual = read_sysreg(daif);
->> -		unsigned long pmr_expected = GIC_PRIO_IRQOFF;
->> -		unsigned long pmr_actual = read_sysreg_s(SYS_ICC_PMR_EL1);
->> -
->> -		WARN_ONCE(daif_actual != daif_expected ||
->> -			  pmr_actual != pmr_expected,
->> -			  "Unexpected DAIF + PMR: 0x%lx + 0x%lx (expected 0x%lx + 0x%lx)\n",
->> -			  daif_actual, pmr_actual,
->> -			  daif_expected, pmr_expected);
->> -	} else {
->> -		unsigned long daif_expected = DAIF_PROCCTX_NOIRQ;
->> -		unsigned long daif_actual = read_sysreg(daif);
->> -
->> -		WARN_ONCE(daif_actual != daif_expected,
->> -			  "Unexpected DAIF value: 0x%lx (expected 0x%lx)\n",
->> -			  daif_actual, daif_expected);
->> -	}
->> +	arm64_debug_exc_context(NOIRQ_CONTEXT);
 
-Hi Jinjie,
 
-> Hi Vladimir,
+On 8/21/26 12:06, Geert Uytterhoeven wrote:
+> 	Hi all,
 > 
-> After taking another look, I have a small suggestion:
+> The clk_init_data structure contains several mutually-exclusive members
+> for different methods to specify the possible parents of a clock,
+> prompting drivers to initialize only the members they need.  However,
+> not initializing all members may cause subtle issues, which are only
+> exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
+> enabled.
 > 
-> if you postpone the introduction of arm64_debug_exc_context() and
-> arm64_debug_exc_hwstate() from the previous patch to this one, the code
-> review will be easier.
+> Hence this series aims to make sure all members are fully initialized,
+> to avoid such bugs, and to prevent future breakage when converting
+> drivers to a different method for specifying the parents.
 > 
+> Part One[1] fixed all cases that I identified to be real bugs, in
+> response to a crash I saw on BeagleBone Black.
+> 
+> This series is the MMC subpart of Part Two, which fixes remaining cases
+> that are currently harmless.  These are still fragile, and may cause
+> future breakage when converting drivers to a different method for
+> specifying the parents.
+> 
+> Thanks for your comments!
+> 
+> [1] "[PATCH treewide 0/5] clk: Make sure clk_init_data is fully
+>       initialized (part 1)"
+>      https://lore.kernel.org/cover.1787165329.git.geert+renesas@glider.be
+> 
+> Geert Uytterhoeven (2):
+>    mmc: meson-gx: FIXME: Make sure clk_init_data is fully initialized
 
-Yes, I can do that in the next version. I assume I can preserve your
-Reviewed-by tags since it is just a mechanical change; otherwise,
-please shout.
 
-Cheers
-Vladimir
+It looks like a broken series to me.
 
-> Best regards,
-> Jinjie
-> 
->>  }
->>  
->>  /*
-> 
+Thanks,
+Michal
+
 
 
