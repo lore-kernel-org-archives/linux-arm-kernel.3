@@ -4,89 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B76EC5DF93
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 14:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21907C5DF93
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 14:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ewwHaDetIrA+vgMh3Wa99Zcn4emIb2urv/j4pGIGyRc=; b=ieS1Y/XCL7rHbGE6JmHbtCJFGg
-	vm8AtEaEcKfuLEcrWEURUkbgBcf7KXb/+ZTXP0/AvuE5dEFzTx6CB0tKVjG54fEHQGK49nXiIMpAT
-	jHTApREi0PxxS1lCb3EWYTfKaKR5/Q0WzhSJykiFlLEIFiYkXESU7QrnzOWB2JqDtpmpi3kN263Wi
-	6s2q2NU6cIuO3JRWTzGcQpDIHAPkad1EUTEX+C29/iL99WiGuuVBJJVak7iUQXeZc+zmDD8Ai/7SP
-	aKs3AoQcM0iW2pAERT8bhTDZfuHpURL14mtJI2zwDo60r4ycDyz6z7AERJHfP8PFyyX+j1IJ843TX
-	wrdmKx5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PcDUuHIzpA5LChowCsRJya3d7qQYR4H5AYNdkyfZwIU=; b=3BeH+oQTFvSiSA+XwyPq8IuPol
+	dCXqxXjv9ZHUxi0lcqmOE5cW+R0OW2FtVPvlpokbvUxoVVR64AjVuAaiWbjE0V1fdT9KjHuCtyodO
+	gYfNVdQ4Yl1+zvV/NJMkK0amXnrks9QPoP+cqt59geEU1mSRAsZoBrb//+wOP1INLeVCpRlKPJfX5
+	4CIlf2qrXo8u4sK8t1JLbnRDC4Vgj+cabpvNJ6yI5UryN7XWcAsmgPeEZ7/MJpylgCUtOtR0kW2ax
+	nYDkcT4R2mRfA1rnP/Hu+Yd9wBj1Ox1RQxpy0OgwDpNtfs2g8XjGswAdYr4czjLQuGrpIrxGfzotS
+	ojKfNvgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQec-0000000DbFk-0bym;
-	Fri, 21 Aug 2026 14:55:34 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wxQgq-0000000DbWp-40T9;
+	Fri, 21 Aug 2026 14:57:52 +0000
+Received: from mail-westeuropeazon11010055.outbound.protection.outlook.com ([52.101.69.55] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxQeZ-0000000DbFA-0753;
-	Fri, 21 Aug 2026 14:55:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1787324127;
-	bh=1NQCXjNbBWwickplrcTUufFSsIqB6xtRWIcoEJzcS/c=;
-	h=From:Date:Subject:To:Cc:From;
-	b=BN/hgGc7tJB5TOhqbH1VtlDpFPjq0Z/o1jiL//Vm4uzbjSaUY95N3M25kDlPQFDSU
-	 n4KADhUWh+TQUO3YwPY9QDHDGu0axorVn1ca56HXUTPqZ9MTGLv9XQHqkI+PJHresr
-	 j5+Rnwm6R+xPDWJGddvBXa4fI20SFDOFWH8x67tWb4ed+vJh7bdDg5b02Oz0+xj7s9
-	 FWBsQE7XzO9slQOJQfzIRmCZEl5P/aR/bBAewVwBme8s+E9d07Y6usHA2Gz0bM5jve
-	 CmLIngEseZ+rDYd7z6fqgZwzmNS/9XA/x6n9aWnhMCYnMGewrkXZQyxtu7P9Pqi4aE
-	 mpx9mDTUeKIGQ==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3212E17E07FC;
-	Fri, 21 Aug 2026 16:55:27 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id DE7E3480029; Fri, 21 Aug 2026 16:55:26 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 21 Aug 2026 16:55:25 +0200
-Subject: [PATCH] drm/connector: Cache out-of-band hotplug events
+	id 1wxQgn-0000000DbVR-3CL1
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Aug 2026 14:57:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KhZhd4Mwd/+m4X85F4g7as+WiU5YgaWEV8wUyFWsseL1ILdASA7DE+pTRrnAvT5616ARIZayppwoj9Esi2axm8AH0TYJE5NXKLjW/XGceGl8bDVoYd+IF7ufmkJcYdFD3pO30LyCmZCoH01KrEglv0qrAkAKt1y0U3NVA2+D3LKwKetvDhn9uae1S25P7QEJh0J9uYJrS9H3/Wph7Frwpw1+MlC0LTBuVkbuItdsRq53QyakkUnN6qSwRUT8WDooSYpH1vAFmyH6Ei+cYVU8C5gXnh3dNF4ors9K9O7JidUCSh3OUEiT66ggm62nl7ePjw5I4BQ/DvNIi5ufTla7pQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PcDUuHIzpA5LChowCsRJya3d7qQYR4H5AYNdkyfZwIU=;
+ b=P5IMZN8H35Xlq6QqJwwZRJimVmFHpeUe7AKCuHmIHWEJTAY/Fw1tBiXSi3gOSq3qHsiaLEZl5ZefQhkkjxq+Egxr36I/D6bRB2G3nflDO0KVBnAaTevvEE0rjDXl9jm1MJ6JVnaa6ybORv7MKRZrWqi9V/j10SUMktmj+WxWnCvwvmadE3lE+AjL58mQbGEhFb1HusQAEPy8zkyZskEmdoZR9HAUEbPJ9Ua1ZuFy8MKnwLJd5Zm+xqxvp/zaue1lC+Mvvu6dq43KyTYEWJmS1vA0OdOiAkvs0R899wRIQEAa3EcR9kscDn+kCfv2ceml/FjGKwbKH4uysy267la9GQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=linuxfoundation.org
+ smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
+ header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PcDUuHIzpA5LChowCsRJya3d7qQYR4H5AYNdkyfZwIU=;
+ b=BO6MvwXXS8FVfeRRsY19csrjktZT3ujp/s4zIZ+XqMmSIA6SOU9QVZQ7Q/3z4QlAn9C81viLZjqs86BWmsPp59z3AO99NULqueeJqYJT9tjDm2gKchVXbz3HXH2RPmCmvi2eNwtpu78oMIbvgmt41AlgFwUYCfdJ8hW7iiFcVdiUBAKMFYn7i41sfQtQVlHobiXbRpfJeoSkLtTelsSX/CkjfFmDZ8NyX/pXV4HdP9y4PZKfQIlG25IkEmFdeE/L6uGvBvs8PDvtW1vKeRZsxnTzGb/64ymhnHjuqNPKy4iYLl+1YxN1L+zacBN1sJBMKzx/kQRxcZxhwcGjUNU10w==
+Received: from DU2PR04CA0253.eurprd04.prod.outlook.com (2603:10a6:10:28e::18)
+ by AM9PR10MB4006.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1f2::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.11; Fri, 21 Aug
+ 2026 14:57:44 +0000
+Received: from DU6PEPF0000A7E4.eurprd02.prod.outlook.com
+ (2603:10a6:10:28e:cafe::a5) by DU2PR04CA0253.outlook.office365.com
+ (2603:10a6:10:28e::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.11 via Frontend Transport; Fri,
+ 21 Aug 2026 14:57:44 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ DU6PEPF0000A7E4.mail.protection.outlook.com (10.167.8.43) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.360.3 via Frontend Transport; Fri, 21 Aug 2026 14:57:44 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 21 Aug
+ 2026 17:02:43 +0200
+Received: from localhost (10.48.86.251) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 21 Aug
+ 2026 16:57:43 +0200
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Date: Fri, 21 Aug 2026 16:57:40 +0200
+Subject: [PATCH v2 3/3] ARM: dts: stm32: fix vdda supply for onboard hub on
+ stm32mp135f-dk
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260821-drm-connector-oob-hotplug-cache-v1-1-e92e146fdc7b@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNQQ6CMBCF4auQWTsJLaFWr2JcwDDQGu2QKRgSw
- t2tuvwW7387ZNbIGa7VDsrvmKOkAnOqgEKXJsY4FIOtrau9NTjoC0lSYlpEUaTHIMv8XCekjgK
- jaRrv3Pky+tZCqczKY9x+D7f733ntH2X+zcJxfADhoKoMgwAAAA==
-X-Change-ID: 20260821-drm-connector-oob-hotplug-cache-13386679f852
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Heiko Stuebner <heiko@sntech.de>, Dmitry Baryshkov <lumag@kernel.org>
-Cc: Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
- Yongxing Mou <yongxing.mou@oss.qualcomm.com>, 
- Igor Paunovic <royalnet026@gmail.com>, Alexey Charkov <alchark@flipper.net>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8127;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=1NQCXjNbBWwickplrcTUufFSsIqB6xtRWIcoEJzcS/c=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGqIZt4ubM9D3a95wpwtPauhCcqBVhY12e2Iy
- 4WVohUQYtf6DYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqiGbeAAoJENju1/PI
- O/qaM4oQAJLqYGr/dRsHKecUjFoHDbkSwLOS3splckwN6j7W/kNnfYZAlyaItktY9BFssum3Gp5
- eDhbScjxPc96yxeSOC9CbyK3PnFpyNz6phr4HygpskbJDl2NwQILyAEscnIrOY42BjxINCmU54k
- JtykrXzwEbAwtYyxfjTa8adMNxfF8Mte00eTM+vuUZVFc78r/RQeN/v+oD0z3M61B5PcMFm4zRr
- TrG/j5vdwb+BgQb8mxQCgaEx+7Cg8++N/uMSaxGBR0IX/92n1IvIDAEWPW0SivDsiaZqNa5Lo6f
- MpwK3tmATyy66PgkfJcShVCnpfyD5TwdUQcYj3Y+5a9B7WDKiH+JAHVW1V2U4hBhwUN29c2Koxo
- CZm03EpXn9zaZFOSjNVXBziusgGQmasmQJ6puj2XHBMxJus/nuYUq7tg0RgsIm4qtQQC4A5P1wZ
- /eE3pc38MEAHgRS0kEe53Rqld7f4NQLr0+Q7p1ASxFowUEfZKEvRoVV8crjv+W9qY5qSlwwN20L
- XztmdpVXjH3GZNF3tepcnRgXVksp//Gg6/F3DKMsMwNxRL0HCXa+4V4wu+QWdE5ZSRpCMnCSsId
- t4njpEAdN9CXglcJDnZzpE/x3QatCDdLCM6FXddalWhI39dQt32wCTMPwGtBjkr9pobRVaBqOL2
- DqjrwEkXqbmg6otZ/Nr4lcA==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Message-ID: <20260821-usb_fixes_vdda-v1-v2-3-23cc919b59fb@foss.st.com>
+References: <20260821-usb_fixes_vdda-v1-v2-0-23cc919b59fb@foss.st.com>
+In-Reply-To: <20260821-usb_fixes_vdda-v1-v2-0-23cc919b59fb@foss.st.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Catalin Popescu
+	<catalin.popescu@leica-geosystems.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Gabriel Fernandez <gabriel.fernandez@foss.st.com>, Fabrice Gasnier
+	<fabrice.gasnier@foss.st.com>
+X-Mailer: b4 0.16.0
+X-Originating-IP: [10.48.86.251]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU6PEPF0000A7E4:EE_|AM9PR10MB4006:EE_
+X-MS-Office365-Filtering-Correlation-Id: bc6a9095-acd9-47f6-bee7-08deff948e86
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|23010399003|82310400026|7416014|376014|22082099003|18002099003|56012099006|10067099003|11063799006;
+X-Microsoft-Antispam-Message-Info: AY8oXhrtczfC4Tis5TK/ayY31cn+NGD+rkBVIifnLMjim94CEPu1P64pOJvdBAlA0iv/7n7WE+b3Y/LMLcMv3jlcb5M69qGXGa9EXprEC9b5l0JUutkJq24XEpI0nro+XV4QJeeCiJzpmTSYOiSxyTTh+fouliXizuDAm92POx/S1S/eHJVYi4lTWTpvjNq9OhtH4+N4hq/iPhrDIH0aOnHUrxrBtHDq1Q8E83VLjDNgPke/2TCiaHVcb/vF7ky80cg+gj5qpBKj61f9ZcJu36CCQVJ2lGyg2iRwpvF13QI38lyImAXmmBwbTFc+UHk4TUPwGUx7X6G5Ch06AxR2tF9IZfVPYlgg9DrEpwfXS35QY+R0B+Irg/bzKcCHBRFdTpW4uEKP5dAgaapqy14jPrCfJyBI303NdmOBmCtc0fuPf+Ln5TUgPF/2EqUVj5N54mzwKrY6nACs+6i0ag42oMSPTYOlR1BtSycltk4UIloP1m56Ot8PdDOOL9u+fhde7IUaPoGh/msZcStX6fgxByT6uZnow59D96up64Gb1AQZsgBDmTnWJojbP0NMsEW1Xl+ydC8W57EGe0fs8mse3rDQqQy9QoJ8KZPoubNh56VNwjNLgVNNsxkyt3pckKCyoGelqypU9gpbpcIV6LnF3DcNp7oGU2yiwoc6nm8rVOkAiPR2y3Zu2miOkXnS8tU2p7EyWvg/WM0+dqelxuxyjw==
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(23010399003)(82310400026)(7416014)(376014)(22082099003)(18002099003)(56012099006)(10067099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 5bce5E4tNo1EG5z30gQfemE2a6axnNX1Dj6GtFdGO1NW5UZDK+1YPKDDu2HuGoGZVhaBqkChm8bXWOdnMF6qo5AVITPaVw9VAiFU2vbfBhhF8BDqvaSWTPcyd+6w9jCTj1uTUwRnCr59F/b+46DQHCwyo4TFLBE/GiuQliPvI9RplD0wfmoXQ9vrZVfH5enIigUSXGMKnMpDD2nEsaQG/HGbn4I4g8R8gR9BNQH1VYIiMwlJkbM5NwyY77RJRLOocHF2IqlSukIjOykbjeS7+dz2vCSoZF04otvgYbD2GG1twZWUTgd471fZTxj/DG74W9TAZgY/8mBfskqVcKSRoQoEGKr0XqUJUioWXwyNkYKHWnw9fuVYTgSzfukw/OQc2M0CovBwQ9JDIF+Fo0EDdJcnjWgxYesByqurdVh/Zq4MAFnpudFEMl0ijfBkASMX
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 14:57:44.3470
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bc6a9095-acd9-47f6-bee7-08deff948e86
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E4.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR10MB4006
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_075531_290958_4933492F 
-X-CRM114-Status: GOOD (  24.05  )
+X-CRM114-CacheID: sfid-20260821_075750_096247_C5105027 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,244 +133,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the USB-C state machine finished negotiating DP AltMode before the
-DRM device has been probed, the out-of-band hotplug events fired to
-early and are lost. Without replugging the display or reloading the
-USB-C driver, the DRM driver assumes nothing is plugged.
+stm32mp135f-dk uses Microchip USB2514 HUB. Since vdda supply has been
+added, the regulator framework wrongly associates the 'vdda' supply
+dedicated to ADC, so the wrong regulator is referenced.
+Only the 3v3 regulator is used to supply both the digital and the analog
+part of the HUB.
 
-Reproducing this race condition at boot time depends on kernel
-configuration and exact USB-C equipment due to timing, but it can easily
-be reproduced by reloading the DRM driver consuming the out-of-band
-hotplug events without reloading the USB-C driver.
-
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Fixes: 673655f7944f ("usb: misc: onboard_dev: add vdda support for Microchip USB2514")
+Signed-off-by: Gabriel Fernandez <gabriel.fernandez@foss.st.com>
+Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 ---
-This has been tested together with the patch series adding USB-C DP
-AltMode support for Rockchip RK3588/RK3576. This is mostly independent
-and should also affect other platforms, so I'm sending it separately.
+ arch/arm/boot/dts/st/stm32mp135f-dk.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-I ran into this during development via the module reload path, but it
-seems Heiko [0] and Igor [1] managed to hit the race condition with a
-normal boot.
+diff --git a/arch/arm/boot/dts/st/stm32mp135f-dk.dts b/arch/arm/boot/dts/st/stm32mp135f-dk.dts
+index 6022e73f58af..5528b99ecf50 100644
+--- a/arch/arm/boot/dts/st/stm32mp135f-dk.dts
++++ b/arch/arm/boot/dts/st/stm32mp135f-dk.dts
+@@ -628,6 +628,7 @@ hub@1 {
+ 		compatible = "usb424,2514";
+ 		reg = <1>;
+ 		vdd-supply = <&scmi_v3v3_sw>;
++		vdda-supply = <&scmi_v3v3_sw>;
+ 	};
+ };
+ 
 
-[0] https://lore.kernel.org/dri-devel/20767137.geO5KgaWL5@diego/
-[1] https://lore.kernel.org/dri-devel/20260811211534.8618-1-royalnet026@gmail.com/
----
- drivers/gpu/drm/drm_connector.c     | 106 ++++++++++++++++++++++++++++++++++++
- drivers/gpu/drm/drm_crtc_internal.h |   1 +
- drivers/gpu/drm/drm_drv.c           |   1 +
- 3 files changed, 108 insertions(+)
-
-diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-index 8b4baed060f3..b69e3776b153 100644
---- a/drivers/gpu/drm/drm_connector.c
-+++ b/drivers/gpu/drm/drm_connector.c
-@@ -33,6 +33,7 @@
- #include <drm/drm_sysfs.h>
- #include <drm/drm_utils.h>
- 
-+#include <linux/cleanup.h>
- #include <linux/export.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
-@@ -81,6 +82,22 @@
- static DEFINE_MUTEX(connector_list_lock);
- static LIST_HEAD(connector_list);
- 
-+/*
-+ * List of connector fwnodes with their last out-of-band hotplug status
-+ * required to forward them to a connector on registration. This ensures
-+ * the connector sees a HPD event, if the event arrived before the DRM
-+ * driver was probed (either due to module reload, or because of bad
-+ * timing during bootup).
-+ */
-+struct drm_oob_hotplug_state {
-+	struct list_head head;
-+	struct fwnode_handle *fwnode;
-+	enum drm_connector_status status;
-+};
-+
-+static DEFINE_MUTEX(oob_hotplug_list_lock);
-+static LIST_HEAD(oob_hotplug_list);
-+
- struct drm_conn_prop_enum_list {
- 	int type;
- 	const char *name;
-@@ -130,6 +147,19 @@ void drm_connector_ida_destroy(void)
- 		ida_destroy(&drm_connector_enum_list[i].ida);
- }
- 
-+void drm_connector_oob_hotplug_cleanup(void)
-+{
-+	struct drm_oob_hotplug_state *e, *tmp;
-+
-+	scoped_guard(mutex, &oob_hotplug_list_lock) {
-+		list_for_each_entry_safe(e, tmp, &oob_hotplug_list, head) {
-+			list_del(&e->head);
-+			fwnode_handle_put(e->fwnode);
-+			kfree(e);
-+		}
-+	}
-+}
-+
- /**
-  * drm_get_connector_type_name - return a string for connector type
-  * @type: The connector type (DRM_MODE_CONNECTOR_*)
-@@ -829,6 +859,36 @@ void drm_connector_cleanup(struct drm_connector *connector)
- }
- EXPORT_SYMBOL(drm_connector_cleanup);
- 
-+/**
-+ * drm_connector_replay_oob_hotplug_event - send cached OOB HPD event
-+ * @connector: the connector that should receive the event
-+ *
-+ * Send the cached out-of-band hotplug as a new out-of-band hotplug event.
-+ */
-+static void drm_connector_replay_oob_hotplug_event(struct drm_connector *connector)
-+{
-+	struct fwnode_handle *fwnode = connector->fwnode;
-+	enum drm_connector_status status;
-+	struct drm_oob_hotplug_state *e;
-+	bool found = false;
-+
-+	if (!fwnode || !connector->funcs->oob_hotplug_event)
-+		return;
-+
-+	scoped_guard(mutex, &oob_hotplug_list_lock) {
-+		list_for_each_entry(e, &oob_hotplug_list, head) {
-+			if (e->fwnode == fwnode || fwnode->secondary == e->fwnode) {
-+				status = e->status;
-+				found = true;
-+				break;
-+			}
-+		}
-+	}
-+
-+	if (found)
-+		connector->funcs->oob_hotplug_event(connector, status);
-+}
-+
- /**
-  * drm_connector_register - register a connector
-  * @connector: the connector to register
-@@ -849,6 +909,7 @@ EXPORT_SYMBOL(drm_connector_cleanup);
-  */
- int drm_connector_register(struct drm_connector *connector)
- {
-+	bool replay_oob_hotplug = false;
- 	int ret = 0;
- 
- 	if (!connector->dev->registered)
-@@ -888,6 +949,7 @@ int drm_connector_register(struct drm_connector *connector)
- 	mutex_lock(&connector_list_lock);
- 	list_add_tail(&connector->global_connector_list_entry, &connector_list);
- 	mutex_unlock(&connector_list_lock);
-+	replay_oob_hotplug = true;
- 	goto unlock;
- 
- err_late_register:
-@@ -898,6 +960,10 @@ int drm_connector_register(struct drm_connector *connector)
- 	drm_sysfs_connector_remove(connector);
- unlock:
- 	mutex_unlock(&connector->mutex);
-+
-+	if (replay_oob_hotplug)
-+		drm_connector_replay_oob_hotplug_event(connector);
-+
- 	return ret;
- }
- EXPORT_SYMBOL(drm_connector_register);
-@@ -3671,6 +3737,41 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
- 	return found;
- }
- 
-+/**
-+ * drm_connector_record_oob_hotplug_status - Cache OOB hotplug status
-+ * @fwnode - fwnode for the DRM connector
-+ * @status - out-of-band status info
-+ *
-+ * Cache the latest out-of-band hotplug status for a fwnode so it can be
-+ * (re)played from when the DRM device is (re)registered after this event
-+ * arrived.
-+ */
-+static void drm_connector_record_oob_hotplug_status(struct fwnode_handle *fwnode,
-+						    enum drm_connector_status status)
-+{
-+	struct drm_oob_hotplug_state *e;
-+
-+	if (!fwnode)
-+		return;
-+
-+	guard(mutex)(&oob_hotplug_list_lock);
-+
-+	list_for_each_entry(e, &oob_hotplug_list, head) {
-+		if (e->fwnode == fwnode) {
-+			e->status = status;
-+			return;
-+		}
-+	}
-+
-+	e = kzalloc(sizeof(*e), GFP_KERNEL);
-+	if (!e)
-+		return;
-+
-+	e->fwnode = fwnode_handle_get(fwnode);
-+	e->status = status;
-+	list_add_tail(&e->head, &oob_hotplug_list);
-+}
-+
- /**
-  * drm_connector_oob_hotplug_event - Report out-of-band hotplug event to connector
-  * @connector_fwnode: fwnode_handle to report the event on
-@@ -3683,12 +3784,17 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
-  *
-  * This function can be used to report these out-of-band events after obtaining
-  * a drm_connector reference through calling drm_connector_find_by_fwnode().
-+ *
-+ * The last status for each fwnode is cached and replayed when a matching DRM
-+ * connector device is (re)registered.
-  */
- void drm_connector_oob_hotplug_event(struct fwnode_handle *connector_fwnode,
- 				     enum drm_connector_status status)
- {
- 	struct drm_connector *connector;
- 
-+	drm_connector_record_oob_hotplug_status(connector_fwnode, status);
-+
- 	connector = drm_connector_find_by_fwnode(connector_fwnode);
- 	if (IS_ERR(connector))
- 		return;
-diff --git a/drivers/gpu/drm/drm_crtc_internal.h b/drivers/gpu/drm/drm_crtc_internal.h
-index 83146ffef00c..c2714ea256a7 100644
---- a/drivers/gpu/drm/drm_crtc_internal.h
-+++ b/drivers/gpu/drm/drm_crtc_internal.h
-@@ -188,6 +188,7 @@ int drm_mode_getencoder(struct drm_device *dev,
- /* drm_connector.c */
- void drm_connector_ida_init(void);
- void drm_connector_ida_destroy(void);
-+void drm_connector_oob_hotplug_cleanup(void);
- void drm_connector_unregister_all(struct drm_device *dev);
- int drm_connector_register_all(struct drm_device *dev);
- int drm_connector_set_obj_prop(struct drm_mode_object *obj,
-diff --git a/drivers/gpu/drm/drm_drv.c b/drivers/gpu/drm/drm_drv.c
-index 3c570f9393b9..c1aeab297ff9 100644
---- a/drivers/gpu/drm/drm_drv.c
-+++ b/drivers/gpu/drm/drm_drv.c
-@@ -1239,6 +1239,7 @@ static void drm_core_exit(void)
- 	drm_sysfs_destroy();
- 	WARN_ON(!xa_empty(&drm_minors_xa));
- 	drm_connector_ida_destroy();
-+	drm_connector_oob_hotplug_cleanup();
- }
- 
- static int __init drm_core_init(void)
-
----
-base-commit: d3d1e0c4343385fb343a552e4f3b6b97d5762fc2
-change-id: 20260821-drm-connector-oob-hotplug-cache-13386679f852
-
-Best regards,
---  
-Sebastian Reichel <sebastian.reichel@collabora.com>
+-- 
+2.43.0
 
 
