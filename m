@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B055C5DF87
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 10:03:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 048F0C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 10:03:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sqxmVykiJ3GAwdzv0FTtziWnptmRk7WlfqxH5k+keMY=; b=kicdxGtzx6gpT9Hp8LBQWB7dGO
-	oTJ44FfqlWUkEnPf+9eWegwh3FkYNONcCDvFFNQFv4bxPS6rEzk425sFq7oRYcEoZI8VRUboOJQDP
-	v+m/wzfLBwGVZ344xzYs5cUutA2NpoxebbVQo4G8CS6e2pXP+xy2q7Gmp0aQ3+fc2jK6q37MFMYGq
-	Cuibz+WxHLuogUmPtO4nJSWYrGRybawRSQQY+Ir5ScdLutVWb6RBE4YssbJ5fZU97Zo3CSw/EJWDe
-	SY78KPO48DT3LGXBDxlKCXNOIILoIj8sKVOqkBszKUwgej2sCxm/JBw2pe3KUaWKdVI+980prZOKM
-	4INR7/3Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rv/scIPz8G4Cn2mcgUby929gL9p3oFxwNFjqH9wW/Lw=; b=bfsRFSxOgrnFMB+Zw5cEMrylAV
+	P5ZTvzem3fWW3+ToJyXU7B5G54ejd44GsR8f6ayIQm1lDIl8AeiUe0s0VcSt19VSFAXTwFDWk2w8k
+	rvDaZAx/nQH7kgoaVyBHR0hWheP2umkwxSHiGvc8vGqaDXqEfHyV5JKNOiSJntEsr9ypKr0QxM0Z4
+	BEwRS++iBJG4fouzZ5V3RV+eVdYLI0uhcksmAHGlODiv3tgJMXRRzTDv2nQ2/nUw41bSBDgttMMxd
+	cyiM6zsjNiksRWp1XpalJXKayK51vj39VmEAYrXYlCInt4SwVImhK/Gcie1kSujoqC2fNpFdH6Ptx
+	1D85rrXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxM5h-0000000D0HC-39aL;
-	Fri, 21 Aug 2026 10:03:13 +0000
+	id 1wxM5n-0000000D0J4-3ac2;
+	Fri, 21 Aug 2026 10:03:19 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxM5g-0000000D0Gw-2l2W
+	id 1wxM5k-0000000D0Hq-0ekJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 10:03:12 +0000
+	Fri, 21 Aug 2026 10:03:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C67DC60DB6;
+	by tor.source.kernel.org (Postfix) with ESMTP id 97ACD60DBF;
+	Fri, 21 Aug 2026 10:03:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00A881F00A3A;
 	Fri, 21 Aug 2026 10:03:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C2E71F000E9;
-	Fri, 21 Aug 2026 10:03:07 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Chen-Yu Tsai <wens@kernel.org>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -50,10 +50,12 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-tegra@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 0/2] drm: Make sure clk_init_data is fully initialized
-Date: Fri, 21 Aug 2026 12:03:01 +0200
-Message-ID: <cover.1787239944.git.geert+renesas@glider.be>
+Subject: [PATCH 1/2] drm/sun4i: Make sure clk_init_data is fully initialized
+Date: Fri, 21 Aug 2026 12:03:02 +0200
+Message-ID: <0f37278d04c02461e17f42032a379dccfb773171.1787239944.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1787239944.git.geert+renesas@glider.be>
+References: <cover.1787239944.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -70,8 +72,6 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-	Hi all,
-
 The clk_init_data structure contains several mutually-exclusive members
 for different methods to specify the possible parents of a clock,
 prompting drivers to initialize only the members they need.  However,
@@ -79,46 +79,73 @@ not initializing all members may cause subtle issues, which are only
 exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
 enabled.
 
-Hence this series aims to make sure all members are fully initialized,
-to avoid such bugs, and to prevent future breakage when converting
-drivers to a different method for specifying the parents.
+Make sure all members are fully initialized, to avoid such bugs, and to
+prevent future breakage when converting drivers to a different method
+for specifying the parents.
 
-Part One[1] fixed all cases that I identified to be real bugs, in
-response to a crash I saw on BeagleBone Black.
-
-This series is the DRM subpart of Part Two, which fixes remaining cases
-that are currently harmless.  These are still fragile, and may cause
-future breakage when converting drivers to a different method for
-specifying the parents.
-
-Thanks for your comments!
-
-[1] "[PATCH treewide 0/5] clk: Make sure clk_init_data is fully
-     initialized (part 1)"
-    https://lore.kernel.org/cover.1787165329.git.geert+renesas@glider.be
-
-Geert Uytterhoeven (2):
-  drm/sun4i: Make sure clk_init_data is fully initialized
-  drm/tegra: Make sure clk_init_data is fully initialized
-
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+Compile-tested only.
+---
  drivers/gpu/drm/sun4i/sun4i_hdmi_ddc_clk.c  | 2 +-
  drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c | 2 +-
  drivers/gpu/drm/sun4i/sun4i_tcon_dclk.c     | 2 +-
  drivers/gpu/drm/sun4i/sun8i_hdmi_phy_clk.c  | 2 +-
- drivers/gpu/drm/tegra/sor.c                 | 2 +-
- 5 files changed, 5 insertions(+), 5 deletions(-)
+ 4 files changed, 4 insertions(+), 4 deletions(-)
 
+diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_ddc_clk.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_ddc_clk.c
+index b1beadb9bb59f8ff..958099d137f8df9b 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_hdmi_ddc_clk.c
++++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_ddc_clk.c
+@@ -109,7 +109,7 @@ static const struct clk_ops sun4i_ddc_ops = {
+ 
+ int sun4i_ddc_create(struct sun4i_hdmi *hdmi, struct clk *parent)
+ {
+-	struct clk_init_data init;
++	struct clk_init_data init = {};
+ 	struct sun4i_ddc *ddc;
+ 	const char *parent_name;
+ 
+diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c
+index fbf7da9d9592141b..15b09d5479d97aa3 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c
++++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_tmds_clk.c
+@@ -202,7 +202,7 @@ static const struct clk_ops sun4i_tmds_ops = {
+ 
+ int sun4i_tmds_create(struct sun4i_hdmi *hdmi)
+ {
+-	struct clk_init_data init;
++	struct clk_init_data init = {};
+ 	struct sun4i_tmds *tmds;
+ 	const char *parents[2];
+ 
+diff --git a/drivers/gpu/drm/sun4i/sun4i_tcon_dclk.c b/drivers/gpu/drm/sun4i/sun4i_tcon_dclk.c
+index 4afb12bd5281f0d1..bdac1d622cc41351 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_tcon_dclk.c
++++ b/drivers/gpu/drm/sun4i/sun4i_tcon_dclk.c
+@@ -167,7 +167,7 @@ static const struct clk_ops sun4i_dclk_ops = {
+ int sun4i_dclk_create(struct device *dev, struct sun4i_tcon *tcon)
+ {
+ 	const char *clk_name, *parent_name;
+-	struct clk_init_data init;
++	struct clk_init_data init = {};
+ 	struct sun4i_dclk *dclk;
+ 	int ret;
+ 
+diff --git a/drivers/gpu/drm/sun4i/sun8i_hdmi_phy_clk.c b/drivers/gpu/drm/sun4i/sun8i_hdmi_phy_clk.c
+index a4d31fe3abff1ab1..bd0dba95421b3d8e 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_hdmi_phy_clk.c
++++ b/drivers/gpu/drm/sun4i/sun8i_hdmi_phy_clk.c
+@@ -143,7 +143,7 @@ static const struct clk_ops sun8i_phy_clk_ops = {
+ int sun8i_phy_clk_create(struct sun8i_hdmi_phy *phy, struct device *dev,
+ 			 bool second_parent)
+ {
+-	struct clk_init_data init;
++	struct clk_init_data init = {};
+ 	struct sun8i_phy_clk *priv;
+ 	const char *parents[2];
+ 
 -- 
 2.43.0
 
-Gr{oetje,eeting}s,
-
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
 
