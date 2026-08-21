@@ -4,140 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65CA4C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34022C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 12:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LeUTGI4sBiv/atNV7ksmJDHElcZjr1wREd3dlCZT53o=; b=L2mKDBE2M1MXTvTT4/7bRdYIsm
-	qlDQtf8b/iTgRMuzzaJO2/CUtRVCqCIDbgCTCWshL3U2+HlYnlNo6CLUCNnNsBKanSNbHpyiY3RDD
-	ErlVS+y5Fh9hRWV8ida8MzK9BKBdnOaheg9atvTue1twCumq90wFxA2vAh+4CeRf8z+e3FVQAllOR
-	G32vwW030JDAtU6jYlU/TiViG8VI8TdtJQ7/bdtO36OjA3DryBmTk5FU85Mg7tyUQl6uDk1+mYCTf
-	jlvb9dWbHuY0amndwVsO4j9NwPUBU0ffwteNHkJAL8/sC6Vs+o15pLJaCSPWTbsjj3Yj1AC+0LqV2
-	r1lws2gg==;
+	bh=/h0XzmwWRXUqJNSMv5UtY0V0xlijWuRLVo42IsC8mD4=; b=3MzcAZvUVzTTC0epMZ2nPDlPYk
+	8sTd1waSyM/RkXWb/sB7IiX/WhYJu3RG2l8mZYyKEi1FDf2ye1kB9mnrr2+p8q0zsu89EMJD1BSp8
+	HeOelHC1urBpDIoH5tZwxibLO/yVTrahYw7ylWmWe3KPSaht0DAFGFSMpAG3dmrS6SFUKvDE2zWzl
+	48H1e/svoMxrZtOkzfqGFEglIY9wwWMHH8HpFGRWbs67kGcrGiBuYMmTnAZgOXWlsN3opV9Fc/dAf
+	HqmTG0MGkDl4iicH7L0JbTUDeRBa3NLNW9xuFXXLmAPUQZr3eyzaVKfswUL65MWDsWuj6w/fm4zf8
+	0UBMC5sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxOKY-0000000DIT1-04mF;
-	Fri, 21 Aug 2026 12:26:42 +0000
-Received: from mail-northeuropeazon11010025.outbound.protection.outlook.com ([52.101.84.25] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wxOLy-0000000DId6-2PKd;
+	Fri, 21 Aug 2026 12:28:10 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxOKS-0000000DISI-44dC
+	id 1wxOLv-0000000DIca-3V2U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 12:26:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fmSOGjtTc4bUDhLgL9WZlylSN4BYXxsZ/WbSz7jylcTtCUPfzuSCFWaPiPqwdL7pfXdk5SPe2mevn5kdgw9gm6MlCLiT0V9V46JfdJp9aCAQu6i2Nrd0oW0YGELFDUbMV13zi8RIHA+9DFD5bP2AhETIB+Eygsc/+ih61/TXM6vaqpeIpMwyTS1C8v9V82+rHhWGLnFT41dmRKYra3tkXF5TgXwl0+ibKeEEyXCcPB4sUik9ggtuJ1hXr1HVRqBuoRAo4ILLH09I1kUdVYgeOtICQBbaHmtMOZYsdeZjv8v+EUx53IUyQD7Udjq2wpSCKjcKI8+BdO4FQaBqtbcwxA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LeUTGI4sBiv/atNV7ksmJDHElcZjr1wREd3dlCZT53o=;
- b=d+4nYYjjXUQUVnptu0YJ5Mlnzjc+nh+DubkSNDDZSqqRj+vShSRzd7BSqcemNlBS1RRgD5eBgOKEkz2PJ+4d9HtDheCfEDRl1YLdOA1Eqq3eqLet8tpj6siq9E8lJfSGJ0S7CO3Hlg4hGtfJ8E7GTmpn5K5tBS4qfP7Bkz7e8M5X1djqh2w3Gua1A6Oq5gE65FKlil/9wo5m+jXRNZDoQc+pYFv+eIwSCnZXqVRDRyY9jSoS8grFPpR3QT2v40NDaVCc8JaxKxjkCo4vM5sXzOK913dpHOgKAHPqxoS3apjaWO5VgWYakRmkUL0/QTp1s9wX2Eau0i/nom1Y9fXCpA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LeUTGI4sBiv/atNV7ksmJDHElcZjr1wREd3dlCZT53o=;
- b=GZtN5i6NQOUbGdSC/GzpaRjDPkUMooH06MHVwoJuIZbcuR53sqisR0kAyOyqn39B4old2M76sFzpfIltd+I6CnUS/0i69HkyBHj8W5/5a58Wj08uWcQ+17bJG+gdgWGpbeOdI5B/D5iEwLT7N6sMP0JuRDOMVe9LsQlWQnBLvPI5nVtj8T3a0/iYXLa42unW73vRLE+tXLMavE+2x+pOY9e96H5fdiPu0wcgzPqo9puPD9BuItkMnlJltgyWYeV/l7lYm6yucqNjH2ByqCafZJCaOIjFAHG7KPPX6UTfrmqCJLES05FcrALchRLN8oUOCE6jd6VnPNlyA8KayJ3fdA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
- (2603:10a6:150:32b::19) by GV1PR04MB10427.eurprd04.prod.outlook.com
- (2603:10a6:150:1d1::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.10; Fri, 21 Aug
- 2026 12:26:31 +0000
-Received: from GV2PR04MB12318.eurprd04.prod.outlook.com
- ([fe80::a498:2b5a:cbdb:d6fa]) by GV2PR04MB12318.eurprd04.prod.outlook.com
- ([fe80::a498:2b5a:cbdb:d6fa%3]) with mapi id 15.21.0339.007; Fri, 21 Aug 2026
- 12:26:30 +0000
-From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-To: Ying Liu <victor.liu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Frank Li <Frank.Li@nxp.com>,
+	Fri, 21 Aug 2026 12:28:08 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-6a0a4a28cbdso1829195a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 05:28:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787315285; x=1787920085; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/h0XzmwWRXUqJNSMv5UtY0V0xlijWuRLVo42IsC8mD4=;
+        b=s9F5rqbhHIQeeqW4MKfZoIWmzjo+DtNCMk4yIKnQXSdgBs+SnxkYTZ2drUbW81/r4s
+         +ectmqumnKgFF1s044WRub4pROLVFGhz+20Ri0IKEl4WmHx8fwIayM6ATh8ffuBgC1eE
+         jxpQuduOZgdlej8/Uoqo1m1HNnK+zoymqOItHWLIsD7DrwrpRKLMi9HMjDyo1syDrp6o
+         TukR2cVcvlr3GRp9lWkqtP195ubvU4zvTUYrlEVtIOB4TTREOcSkG57k1iLuQcXt3Pz0
+         2TQlFP1Oz15OL76scml9nX2s9+90WfXHgIgRJ1lqU6nzNqiAOjnioSPL8abQTv3tnmyD
+         KpRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787315285; x=1787920085;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/h0XzmwWRXUqJNSMv5UtY0V0xlijWuRLVo42IsC8mD4=;
+        b=s9nNaszTvWQNLwdO9E1GK8sanYg2xJHFyzVwby5HWXOZDVj4oqOvPQI/wtmE/emlDU
+         ECnBnjNjook169PlPu9qXcNRIw0EPqfnRp7R1BtkJIXC0D86LAWbC+BTodIbwwa7Omg1
+         2BdzpFfo6pMQNDfrrn6V9p08IPeAxAj/QCTheYasnJgCFLlB23FS8/Ujc1SJPW2ASpWU
+         tQ6EoKojvEa/nw6G0u3Z4lnN1bABcnS+Ii8xGNTS3GPN4ksFLsrlWH24Tf4OxP8c5VZH
+         cPGCLod1Qehgi8LxGMetp1tGvAU7AuPoM6+/4/QtQWX+RenV5+pqjUkeybcXcwWc6k9q
+         GXtg==
+X-Forwarded-Encrypted: i=1; AHgh+RriFqf7pdse5g+DO/efzPbgrbbuxRa0omdFdwEczkYyqERkCVUmUpFp57HuNwMcAsEwPfKR/A2qTOdqhf73l43Z@lists.infradead.org
+X-Gm-Message-State: AFuF++mn/ICTot7P6MzIDQujDOsy+EbhVlXV8AP9Sb0sev8opUf/9NGt
+	DBt9T0tO7sr4PupuCuaOaJZKuFSM/B1T22JQRy3j2qrbv8YtekLE/8Qc
+X-Gm-Gg: AR+sD11fAxFC/6qG+m6I5cuASrLQARSuTrY86QjHpWv/gwp/4xctMDk66FFGsvKanCN
+	g7LIHqrtybPB4ANkGmn6HxKObA0G5Uo7Ld9muTVqgKvj0zEtNePFNN+W2R0yi0t19gPYqXTBQxw
+	3ort6j4HQoTe/fFdUo843WmpGjDGxWpbROT2Kl9VGUd8l+qbqJxheivDImy/2fY42Yw19xJzEso
+	rgewweZhbLIFgAfmbBkkLF/qAdMNflPDQG7H/uphBWlvr5CV3M766elhXORRhybDrlAlQud5fI5
+	eF7wbV15PdnMUd03wKZPdRgLQ74cU8nW3eqXwlWkNOyGqjWuPU0W3qmebPW1ouYs7JhlK3ZJsf2
+	8PiZ0mTWoSfKJo9hCnEZdQgCvRply95P9gW0OpBAdqGHTtT9TzLgvWacN1EysksxXg80R5Ujmtb
+	03MJXGLZwIrHaSo+gA8ILMVvxlhLHHn+Kb/8xliZ4Wf+3lxCJ9JnejGhYHSgBHekn/VPlLzrfWy
+	qh7U1+3gLo5SG8Qb5BBiaWwqzmnO+YQKNgQWT5z0AKdj7hb7mJJ7j75xQ==
+X-Received: by 2002:a05:6402:380f:b0:6a3:9e00:8ed2 with SMTP id 4fb4d7f45d1cf-6a42f27795amr6967378a12.16.1787315285116;
+        Fri, 21 Aug 2026 05:28:05 -0700 (PDT)
+Received: from GLaDOS.station (mob-5-90-140-38.net.vodafone.it. [5.90.140.38])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a3feec9c9dsm6608874a12.4.2026.08.21.05.28.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Aug 2026 05:28:04 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	alexander.h@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Daniel Stone <daniels@collabora.com>,
-	Leandro Ribeiro <leandro.ribeiro@collabora.com>,
-	Pekka Paalanen <pekka.paalanen@collabora.com>
-Cc: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] drm/imx: dcss: Silence blend mode not set boot warning
-Date: Fri, 21 Aug 2026 12:26:06 +0000
-Message-ID: <20260821122608.2077746-1-laurentiu.palcu@oss.nxp.com>
-X-Mailer: git-send-email 2.53.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AM0PR10CA0021.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:208:17c::31) To GV2PR04MB12318.eurprd04.prod.outlook.com
- (2603:10a6:150:32b::19)
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Marek Vasut <marex@nabladev.com>
+Subject: [PATCH v1 0/3] Add support for Variscite VAR-SOM-MX7 and MX7CustomBoard
+Date: Fri, 21 Aug 2026 14:27:49 +0200
+Message-ID: <cover.1787314780.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12318:EE_|GV1PR04MB10427:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8d283c3e-eb63-443c-aa14-08deff7f6dfc
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|19092799006|23010399003|18002099003|56012099006|6133799003|10067099003|11063799006|921020;
-X-Microsoft-Antispam-Message-Info: 15SWnGEpLmR9F3FtmEtCYehUADtgOFLm2SspOhylQvq4wr40DqyJyoysY9uFnBG5OqFM/ld4Rz1Q8wApAbFQUOD+QhHHsnXjKSWC3J9k+YDd+RQPaXjgCQS9nvnKKzeGFocF6fdiZrnB2tA2wNa2iK/T9BwjoTCGQmYFVWwZHoEyIamc+L9uF+FPOLdDAW5bJGG4TaCys7nJU0cw/SFrdz/SCyWQCKTwgNIjtkl72mkCoky9rtWGPWmOQIyj1lnYaiGpV2nnkUPEF8B4MNx8sx++zFA6N3sVfmy6rAuxP2YEMOIVtuZWXIbKo+fXPcfffztMwaLLqbFooDJ7mDVkMinHoOzsytTLA1t5jOP1qiE8dFLoM96KPT2lYIcMLghNPLEs+Pvr87Zx16WXw3MHpJ/RxlQy+dlLSpAxu7w1TvR8MiBhjuDDVYiyInz9xUOkyb1KZ9/PEsimUD2QocFtC1rTXnXBK9q5vG+GL7+3hVkgWzrHEHoHiVkgr2zmkH9Gh63s6kmQWGPdJsGP1r/ISCanGM+3Hg3dK4kyroCBhC2rbY3zFjCJx3d4Jdgi+ZiN9TFljcEnO0amyvoQfYQWkUKNurE/GphA8eskbagV5BZ++R06MS+x6xFTjTcb9TNHwINzrsbgLmVAoSMLVX+ESE+XCz3sgRBZhLDNH1uLekrHjcBmToWAA8XPlK2kC33BGSCfcpVnkjp+46clc8jhhg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12318.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(19092799006)(23010399003)(18002099003)(56012099006)(6133799003)(10067099003)(11063799006)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5PP90toWNIwTEB1URQ3fRbHl+igu3Gs8pl5yoJNmRNYIodVazS+JMV6tJx1i?=
- =?us-ascii?Q?ST6CFPLaE/n2KFWWIqg3jmU6t+WddyvbKKY7fi/+Orow34IBl1586f3hF0lV?=
- =?us-ascii?Q?DMPubin5Hk2HHIDTddvXoKocAhLggLHLYWeGtloivxGNK0GrDT6TnSyjVWBi?=
- =?us-ascii?Q?59clLBkuNtJ3mrQxSowNtpRHrbWzh2umWuHWaBWwZqujf/ObipYvh6rUGeNd?=
- =?us-ascii?Q?/8hOp9WSCaFKLujxX/g7ZuRp24Lq1IAkXCOqM1nWDnJj4lLbKVNe50J2VvYq?=
- =?us-ascii?Q?4DyLJblVBBdAbv2oOpC40Ol2sBFLp09kfqXNL+0ATjuu5MO/JF1Ee0FDYVBr?=
- =?us-ascii?Q?CIxVRDfAaGIT3+o0uR1nzQ19oUEpyXKKcGWtZakj0F1DcFbLlo7gT5B/vghK?=
- =?us-ascii?Q?J7Wrnb2nQXtHMt/3i2TTCYL61Q7Q4Xxoa73ZoGL0aBfO9Fca7EP05kR2HokM?=
- =?us-ascii?Q?KvqAgpDgc7B094xwUa3xZefOJ+KBM8suY/nzDQWqNVhAPV08dOodoSgL3mGP?=
- =?us-ascii?Q?dvCG3wo4+x5CIACBlnsSFhbH+SugX7x1P6IPfZ4XKW+0k7NfMmFjK+hpqAKp?=
- =?us-ascii?Q?0tkU9e+9rDmkxXbdYujWrh/Jkmwy5vP6txM3YEZahqvz7nhaXQLzJgWq9v0y?=
- =?us-ascii?Q?LJ+mmtyOWYONfwxh6ptH+VgdOgKM0DuV7JTsJyVz1PNysjRyhfA+kjMLuimb?=
- =?us-ascii?Q?QMQ0/bJFsb7AN6xvYONarMssgEGa+iLxWo1A7YTpgU5gaRsiJ+iRFOaIS+tN?=
- =?us-ascii?Q?pk9jvzhgXzytFkh+8XMg3b9iDlJDcCWlc9L1Zxq1zDtR4Fi1KwbZkkDgMdeH?=
- =?us-ascii?Q?cHFPgEr1jJvl9iVrU+ljvjHIZFhRb44j/m4jyOh/clPSm4gBakMCmVYI2OYV?=
- =?us-ascii?Q?BulDmzOrscFM/xRR5BX0G5bR89yB/zGQpafW6vury3xbXlW/glhR+XmvHPu5?=
- =?us-ascii?Q?ZANUUsVXK0+vTc/w0ihU8wbUICavO/G/QiNq3pbBot2hEL/U44W24SwBIHZH?=
- =?us-ascii?Q?gVCaakSJeP8DKAHw+gh/PuHCq+chf/HTWIgJNok5nq3ZdltkTeG2Ozbi3R7Y?=
- =?us-ascii?Q?Ihap43/8PJaAZXqIQ8AGawtNOmHD5MZbxbB0zKBc5QNZqI+4DztWVXtiEkdt?=
- =?us-ascii?Q?r9ihAqIcnBhayVWhT3PPk16ZTH45bIFYH3maY/Lrt3L5u67+OM6NDYE9awcQ?=
- =?us-ascii?Q?oWuV0UJxSr1Zwuoe0zWO3Ugu/xxPvehtDJMX47gTgJ3fwVygfmOg4RbwmzRR?=
- =?us-ascii?Q?9S7gdoZBDL1M/WRmo8Aq12dlmhE6JovJ5ixCJzDD38E0fgQCfvVflUJxJi/k?=
- =?us-ascii?Q?e1IbrSkH+CZ5IRotiPQv1d7lIYghg9sNiw+qsnrB7vjdiA8yqb/X86jgwlso?=
- =?us-ascii?Q?Fh6sbLh6vFyqtsL1iNFR6/h3ibm9REpmZxRUQ3ud2wmC0i+wn+XGQdMJrBYP?=
- =?us-ascii?Q?sct2hDnPpIujxLOA+jt5NNtCT+sQ9vsK+coIR9YRXBayvKGkP8eu/8e2ffAI?=
- =?us-ascii?Q?zRLKd9av15Og8DVg8PXAUgxLh2UPl85urfhnLNso1IcLDKJMYWmWVE7Jy/hf?=
- =?us-ascii?Q?G+zNzTaMPBUIyNrpP4UDBFXochBRLQI+Oo/ipkJhLNKcV1pnyzYC+2FrOXBD?=
- =?us-ascii?Q?7qI0wEj28rVMEKwh7AX1QXZkaDidQhCYpEbests2SpxpxqLKlrL6x6IA7jkJ?=
- =?us-ascii?Q?+oGIE/OVbkk/rpWfkAf+3bdHCaQbiXbvte5Jb8KMgH6Ta061pml3fSdrE04C?=
- =?us-ascii?Q?3caX2PhKp91IUPNI5uS60mVcRDG7sc0=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8d283c3e-eb63-443c-aa14-08deff7f6dfc
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12318.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Aug 2026 12:26:30.7601
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qnL1+3rC8itDuX+n5i4OanO/OweDTF7447Tr7jxWH9YEKJvajIZ/Sb8A7BWViK9qIJfg0OVht2kmtn8C+Q4huw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10427
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_052637_021627_8F7CBB8F 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20260821_052807_893088_1B627C72 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,130 +118,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This addresses the following warning that appears at boot time:
+This patch series adds support for the Variscite VAR-SOM-MX7 system on
+module and the MX7CustomBoard carrier board.
 
---snip--
-[PLANE:39:plane-0] pixel format with alpha exposed but blend mode not setup
-WARNING: drivers/gpu/drm/drm_mode_config.c:872 at drm_mode_config_validate+0x36c/0x520 [drm]
---snip--
+The series includes:
 
-The warning started appearing after the commit mentioned below was
-introduced. Add the alpha and blending properties to the primary plane.
+- DT bindings for the supported VAR-SOM-MX7 board configurations
+- VAR-SOM-MX7 device tree support, including V1 and V2 hardware revisions
+- MX7CustomBoard carrier board support
+- eMMC and NAND storage variants
+- optional WM8731 audio codec support
 
-Fixes: 860e748bddcc ("drm: ensure blend mode supported if pixel format with alpha exposed")
-Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
----
- drivers/gpu/drm/imx/dcss/dcss-crtc.c  |  6 ++++++
- drivers/gpu/drm/imx/dcss/dcss-dev.h   |  3 ++-
- drivers/gpu/drm/imx/dcss/dcss-dtg.c   | 12 ++++++++----
- drivers/gpu/drm/imx/dcss/dcss-plane.c | 11 ++++++++++-
- 4 files changed, 26 insertions(+), 6 deletions(-)
+The implementation follows the standard SOM + carrier board pattern,
+where the common SOM dtsi contains the on-module peripherals and
+hardware revision differences, while the MX7CustomBoard dtsi contains
+the carrier-specific interfaces.
 
-diff --git a/drivers/gpu/drm/imx/dcss/dcss-crtc.c b/drivers/gpu/drm/imx/dcss/dcss-crtc.c
-index ab41759a9f52d..8358219c94c0d 100644
---- a/drivers/gpu/drm/imx/dcss/dcss-crtc.c
-+++ b/drivers/gpu/drm/imx/dcss/dcss-crtc.c
-@@ -5,6 +5,7 @@
- 
- #include <drm/drm_atomic.h>
- #include <drm/drm_atomic_helper.h>
-+#include <drm/drm_blend.h>
- #include <drm/drm_vblank.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-@@ -202,6 +203,11 @@ int dcss_crtc_init(struct dcss_crtc *crtc, struct drm_device *drm)
- 		return ret;
- 	}
- 
-+	drm_plane_create_alpha_property(&crtc->plane[0]->base);
-+	drm_plane_create_blend_mode_property(&crtc->plane[0]->base,
-+					     BIT(DRM_MODE_BLEND_PIXEL_NONE) |
-+					     BIT(DRM_MODE_BLEND_COVERAGE));
-+
- 	crtc->irq = platform_get_irq_byname(pdev, "vblank");
- 	if (crtc->irq < 0)
- 		return crtc->irq;
-diff --git a/drivers/gpu/drm/imx/dcss/dcss-dev.h b/drivers/gpu/drm/imx/dcss/dcss-dev.h
-index b032e873d227c..9b3bd2f3a7ef1 100644
---- a/drivers/gpu/drm/imx/dcss/dcss-dev.h
-+++ b/drivers/gpu/drm/imx/dcss/dcss-dev.h
-@@ -147,7 +147,8 @@ bool dcss_dtg_is_enabled(struct dcss_dtg *dtg);
- void dcss_dtg_ctxld_kick_irq_enable(struct dcss_dtg *dtg, bool en);
- bool dcss_dtg_global_alpha_changed(struct dcss_dtg *dtg, int ch_num, int alpha);
- void dcss_dtg_plane_alpha_set(struct dcss_dtg *dtg, int ch_num,
--			      const struct drm_format_info *format, int alpha);
-+			      const struct drm_format_info *format, int alpha,
-+			      unsigned int blend_mode);
- void dcss_dtg_plane_pos_set(struct dcss_dtg *dtg, int ch_num,
- 			    int px, int py, int pw, int ph);
- void dcss_dtg_ch_enable(struct dcss_dtg *dtg, int ch_num, bool en);
-diff --git a/drivers/gpu/drm/imx/dcss/dcss-dtg.c b/drivers/gpu/drm/imx/dcss/dcss-dtg.c
-index 6bbfd9aa27aca..21da9d3cce4cb 100644
---- a/drivers/gpu/drm/imx/dcss/dcss-dtg.c
-+++ b/drivers/gpu/drm/imx/dcss/dcss-dtg.c
-@@ -3,6 +3,7 @@
-  * Copyright 2019 NXP.
-  */
- 
-+#include <drm/drm_blend.h>
- #include <linux/clk.h>
- #include <linux/delay.h>
- #include <linux/interrupt.h>
-@@ -268,17 +269,20 @@ bool dcss_dtg_global_alpha_changed(struct dcss_dtg *dtg, int ch_num, int alpha)
- }
- 
- void dcss_dtg_plane_alpha_set(struct dcss_dtg *dtg, int ch_num,
--			      const struct drm_format_info *format, int alpha)
-+			      const struct drm_format_info *format, int alpha,
-+			      unsigned int blend_mode)
- {
- 	/* we care about alpha only when channel 0 is concerned */
- 	if (ch_num)
- 		return;
- 
- 	/*
--	 * Use global alpha if pixel format does not have alpha channel or the
--	 * user explicitly chose to use global alpha (i.e. alpha is not OPAQUE).
-+	 * DCSS supports either global alpha or per-pixel blending, following
-+	 * the coverage blending formula (with global alpha set to opaque).
-+	 * When the pixel blend mode is PIXEL_NONE, the per-pixel alpha is
-+	 * meant to be ignored, so fall back to global alpha in that case too.
- 	 */
--	if (!format->has_alpha || alpha != 255)
-+	if (!format->has_alpha || blend_mode == DRM_MODE_BLEND_PIXEL_NONE)
- 		dtg->alpha_cfg = (alpha << DEFAULT_FG_ALPHA_POS) & DEFAULT_FG_ALPHA_MASK;
- 	else /* use per-pixel alpha otherwise */
- 		dtg->alpha_cfg = CH1_ALPHA_SEL;
-diff --git a/drivers/gpu/drm/imx/dcss/dcss-plane.c b/drivers/gpu/drm/imx/dcss/dcss-plane.c
-index 1746dc5d4b642..06413d0612349 100644
---- a/drivers/gpu/drm/imx/dcss/dcss-plane.c
-+++ b/drivers/gpu/drm/imx/dcss/dcss-plane.c
-@@ -209,6 +209,14 @@ static int dcss_plane_atomic_check(struct drm_plane *plane,
- 		return -EINVAL;
- 	}
- 
-+	/* DCSS supports either per-pixel or global alpha. Not both. */
-+	if (new_plane_state->fb->format->has_alpha &&
-+	    new_plane_state->pixel_blend_mode != DRM_MODE_BLEND_PIXEL_NONE &&
-+	    new_plane_state->alpha != DRM_BLEND_ALPHA_OPAQUE) {
-+		DRM_DEBUG_KMS("Both per-pixel and global alpha not supported.\n");
-+		return -EINVAL;
-+	}
-+
- 	return 0;
- }
- 
-@@ -336,7 +344,8 @@ static void dcss_plane_atomic_update(struct drm_plane *plane,
- 	dcss_dtg_plane_pos_set(dcss->dtg, dcss_plane->ch_num,
- 			       dst.x1, dst.y1, dst_w, dst_h);
- 	dcss_dtg_plane_alpha_set(dcss->dtg, dcss_plane->ch_num,
--				 fb->format, new_state->alpha >> 8);
-+				 fb->format, new_state->alpha >> 8,
-+				 new_state->pixel_blend_mode);
- 
- 	if (!dcss_plane->ch_num && (new_state->alpha >> 8) == 0)
- 		enable = false;
+The final board device trees combine the supported VAR-SOM-MX7
+configurations with the MX7CustomBoard carrier board.
+
+Stefano Radaelli (3):
+  dt-bindings: arm: fsl: add Variscite VAR-SOM-MX7 boards
+  ARM: dts: imx7d: add Variscite VAR-SOM-MX7 support
+  ARM: dts: imx7d: add Variscite MX7CustomBoard support
+
+ .../devicetree/bindings/arm/fsl.yaml          |  17 +
+ arch/arm/boot/dts/nxp/imx/Makefile            |   6 +
+ .../imx/imx7d-var-som-emmc-mx7customboard.dts |  22 +
+ ...x7d-var-som-emmc-wm8731-mx7customboard.dts |  23 +
+ .../boot/dts/nxp/imx/imx7d-var-som-emmc.dtsi  |  99 +++
+ .../nxp/imx/imx7d-var-som-mx7customboard.dtsi | 378 +++++++++++
+ .../imx/imx7d-var-som-nand-mx7customboard.dts |  22 +
+ ...x7d-var-som-nand-wm8731-mx7customboard.dts |  23 +
+ .../boot/dts/nxp/imx/imx7d-var-som-nand.dtsi  |  73 ++
+ .../imx7d-var-som-v2-emmc-mx7customboard.dts  |  23 +
+ .../imx7d-var-som-v2-nand-mx7customboard.dts  |  23 +
+ .../boot/dts/nxp/imx/imx7d-var-som-v2.dtsi    |  64 ++
+ .../dts/nxp/imx/imx7d-var-som-wm8731.dtsi     |  65 ++
+ arch/arm/boot/dts/nxp/imx/imx7d-var-som.dtsi  | 633 ++++++++++++++++++
+ 14 files changed, 1471 insertions(+)
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-mx7customboard.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-wm8731-mx7customboard.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-mx7customboard.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-mx7customboard.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-wm8731-mx7customboard.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-emmc-mx7customboard.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-nand-mx7customboard.dts
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-wm8731.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som.dtsi
+
+
+base-commit: 9400c5b6aa357be2379c98ae86a207bc21dc7a48
 -- 
-2.53.0
+2.47.3
 
 
