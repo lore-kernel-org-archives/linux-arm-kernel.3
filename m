@@ -4,96 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57176C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BDDAC5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 08:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TU4uJHeueOdwiNcvNtR8y+Kb71SUpDkuCapRVkW68kY=; b=O16xCtUyjND5h13dZDpbSSI1BN
-	9Q1uOk4N3qVxSTSZIhjRT2TMnFb9RTY3VZa8FVePxmdYD+WaM7d1LWv0VqAQiYqDCL8LS01EtZPos
-	kGCOJktcAMcGOBvp5RPCICZ2K3qUz+gfwL/X4GHqxyHGssVb7dWAoTezXGCjQUDUASlVih9i7B7M0
-	nudQfz+EhDEgOikqWZSAPcanrSx0N74Cg2aT+mgHAHY38ci5EuZMcX8cpRgWa3nH191rxnGHWISe5
-	KYU9eauF/PlL76SM8cTdO8ba/t+3mEihb+99KaYe2w85OhhMpoHGx74yDc9QwNy4u4kapaGX6QSxW
-	4hIVddDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cRXvKJlBvjmrfmlI5acUpwKe8I6Y8Qdakl+yD9gPAuA=; b=ksUk3Eg8LfLFma
+	bwDO9rgfVY368qVdlaSJRwYEy4YenWx4uq7FnU5MAxUzLBPzNdMqyDJIhZ5819+Z7miGCFJ9QRlbj
+	APlsuLRSCHRiWQnx0tKf36kxfifXCSF2+eH/9luUGEZ73Zw/4dkkk/1kAcsQ0DNPMUujylFO0xhqb
+	XmIGnRK4YDO6+n0byMc3Dzh7sLgO7w6/4zuWH+FtoAHEjpNkOoF+is4/DbBAs9Ll53764lu3fldsi
+	EQBqGSNJ7PqDMHsAitWHyJdCeIabnl1RMY/EwnF1WFBD0j3qGT/pNe2Qn8IHdcIvo3Uz85emaac4J
+	8uwlRKfIxqBjvccF5EHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxKSu-0000000CmsW-37Wi;
-	Fri, 21 Aug 2026 08:19:04 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1wxKaL-0000000CnSr-2Tlb;
+	Fri, 21 Aug 2026 08:26:45 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxKSs-0000000Cmrj-0Ap5
+	id 1wxKaC-0000000CnPo-0zxR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Aug 2026 08:19:03 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-6a1a546a6bbso1486167a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 01:19:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787300339; x=1787905139; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TU4uJHeueOdwiNcvNtR8y+Kb71SUpDkuCapRVkW68kY=;
-        b=rt8DIB74Pz4cGlkqlgGu0UyUT57pPv64itEUb48FnwFCIsUC+AZ4XmZibnaTpK472i
-         Lac1p5koNArJXq6hPyquqDiC8sHCsQ7+VnzqI8M0dA9p0Rz6406/qBVNU5hhZ/h3OJL6
-         4NeZotAm/AbMU5ZEAesEi0IZAB5M+vwJwmU+UZL6VPcpSR3n8RtiXfeY5IfJDTZ/2gyF
-         stVPBb2j+66gloZNJYOXHlS1HYQ25FheWc6jd5nhgsw4mVM7vehfGXaJ+K5jsGObYEzt
-         ALReVdSp2qJZ97fEsuw/gOz29O3mmjZKE7C8egt/KgB/ASurnOoqvwJuYA8vkal3rPbJ
-         G7ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787300339; x=1787905139;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TU4uJHeueOdwiNcvNtR8y+Kb71SUpDkuCapRVkW68kY=;
-        b=KJQKhkzKZTS8509QxZuQx124vJx0HoQE3KNFB760eVArSZTnHWJvBi6Rnu5XRpPY1u
-         omdDiGSv5oL3zST7oQHjqmLMaKAwBhX1KhQLZE14efeSYY1l7MSeJ0OUYU5Es4Bf59bE
-         W1Mm/8lEhWisXgqiU3gcaBQDz2QprXvb4GYYD09C6BLqiBu2HDIE+OKohJGse/DgqX6j
-         r1bWNkRNYA9M7B+CXsgJfQ3Wxo5sN7uJtJr+6VgvwsUJgmP/hGisZFsdMQivdf0fybK0
-         BDWy70urVHHkZGbwhMChB7fYUa/vRq3efrzxxmA3YAuqzpx8mcDM/01xu/62BUnpr/pA
-         VLsA==
-X-Forwarded-Encrypted: i=1; AHgh+RqWjdjH9amz8IGoUhqeKHGM/uXVaDNDDC6g02AL5PUhq242Pur1+LElU24YJcXY6OpFmwJ1KJ8ha9Hdi8CbqUxV@lists.infradead.org
-X-Gm-Message-State: AFuF++k9V848LMZesR9KtLfDA4arUEePKURy0OeQ0xJIKZsHERZlM3zu
-	q1UPNOWKGftJeXV0PDx9gH1lZImtGRy5k+yJOPeqLAiS0bsKqi3Ndk5l
-X-Gm-Gg: AR+sD13c+0m1l8r8m+ZEakBt2nYGRC+QSKFWQ0lfkjtmK1lBVeiFEskc88Nd7n7bjhd
-	NBtHjYk6uxE0JM2zDRhUhR7CGI/M2N3hDRbjgBlDLHwoU7k8mjRRYXkmGc8SIlEfHotm6u3C45w
-	STDgXsSlOL3qBBqgHSWR06SvpdOtvIr6mARtKejleQtCpoA82O6QnbgpndY+9c/wpzJ9PiMu28n
-	WAIqS+9hiIXoxEABjlkVD7G30vKYT/COCHOjxxUGbpZFIEfnLNYAeHr8XO8/pmCphb1xf4+4fEg
-	L1rUIMhSiP9bS+1Md/mbFn2LnBhZfEXWZdckrkWSDolrx5FAhs3yLehLAordjB6XokgVn/02BFs
-	kpHGf062xPuUxImepPIAulNdTJ7cum5cdOL6jmYopzkOrmuVJoeh8Z70mJ9Eiodhst+6xzo/kfM
-	PstI7TdhsDYfUOQ239GCfWNPFVFbanyaPX//+cPBTyPIaldOEv0L5skNVYsVZSbHIKE0Gqqi/6/
-	Wvnf2/mQkQeVnFNtimtMiqG
-X-Received: by 2002:a05:6402:3805:b0:6a1:1bea:8ea0 with SMTP id 4fb4d7f45d1cf-6a42f0f7634mr5394501a12.3.1787300338853;
-        Fri, 21 Aug 2026 01:18:58 -0700 (PDT)
-Received: from ca91a6afa0c8 ([31.7.57.58])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a3ff1780c9sm5238626a12.28.2026.08.21.01.18.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 01:18:58 -0700 (PDT)
-From: Valera Kozlov <valera.kozlov19@gmail.com>
-To: bmork@telenor.net
-Cc: amadeus@jmu.edu.cn,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-wireless@vger.kernel.org,
-	lorenzo@kernel.org,
-	nbd@nbd.name,
-	ryder.lee@mediatek.com,
-	sean.wang@mediatek.com,
-	shayne.chen@mediatek.com
-Subject: Re: [PATCH 1/1] wifi: mt76: mt7996: fix mixed FEM check of mt7996 chipset
-Date: Fri, 21 Aug 2026 11:18:30 +0300
-Message-ID: <20260821081830.280417-1-valera.kozlov19@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <87a4z9f7a5.fsf@miraculix.mork.no>
-References: <87a4z9f7a5.fsf@miraculix.mork.no>
+	Fri, 21 Aug 2026 08:26:41 +0000
+Received: by chaosmail.tech (Postfix) id 7FA911C889D;
+	Fri, 21 Aug 2026 08:26:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1787300789;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=cRXvKJlBvjmrfmlI5acUpwKe8I6Y8Qdakl+yD9gPAuA=;
+	b=nyFBk2NIG+IFRstAdqBeInuHzsBzJpkhVCowihjTTjgRtu92ETNhQONfa7ryFp9BBwGgWv
+	NiM/MrQmaGzBxr0HcHdeuYIyLQ1CTKzYnhvASjJOW09rtNYavcDt0MYnukAM0xZs+EGq5e
+	ezI6zxm4TdzdtJK/zn8bqvBpDNV6LVQ=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Subject: [PATCH v5 0/3] usb: typec: tipd: Add sn201202x (ACE3) support
+Date: Fri, 21 Aug 2026 10:26:18 +0200
+Message-Id: <20260821-tipd-ace3-v5-0-3244ed3bdc3f@chaosmail.tech>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23PQW7DIBAF0KtErEMFDGNMVr1HlQXGQ0zVxJFxr
+ ESR715IF0WKl1/M+8w8WaIpUmKH3ZNNtMQUx0sOuN8xP7jLiXjsc2ZKqEYYhXyO1547T8CFFV1
+ AIyigZXn+OlGI91fX1/Evp1v3TX4uBWViiGkep8frs0WWua3eRXLBDeSXHhoJrfvMm4zp7OLPx
+ 0x+YKV8UTU3NVeZS9Bo0XR9A7jJ4Z+3QtY8H8ZbABUUeaeD3+S65k3NdVnetoidRGGlfuPruv4
+ CxXNVvnYBAAA=
+X-Change-ID: 20260725-tipd-ace3-090bf570ef59
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sasha Finkelstein <k@chaosmail.tech>, 
+ Alyssa Milburn <amilburn@zall.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787300788; l=2547;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=OcJwANzjnbtC7spRiQbQ995Co/XEkiV88Frn1JEIpQY=;
+ b=bqhzQ6Y3P7OuE3J2rwJ2IiTvx8QIMdCKLG6d4Rqi5ltlARf3q4dQy3K6nNAEdfhwDKamkWTcg
+ oryytV1HUIOBMzgRqd39mPwnG3Olu+FfTh5JABytwEo3ISydxbZz2+Z
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_011902_087969_4772C641 
-X-CRM114-Status: UNSURE (   8.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260821_012636_752687_C45B531E 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,30 +84,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Device: ASUS ZenWiFi BT8 (RT-BE14000), MediaTek MT7988D SoC (tri-band,
-dual PCIe hif/hif2). Confirmed empirically via extended TX PER testing
-that adie_idx=1 is correct for this board (matches Chukun's patch),
-consistent with a mixed-FEM design.
+Add support for sn201202x (a.k.a ACE3), an Apple-specific tps6598x
+variant that wraps the tps6598x core register set with a SPMI based
+regmap-like protocol, first appearing in Apple M3 devices. This series
+first makes the core parts bus-agnostic, and then adds the new SPMI
+interface as a custom regmap implementation.
 
-Readouts from the ADIE_ID registers:
+To simplify the merge strategy, the device tree entries will be sent
+in a future patch series.
 
-root@bt8:~# echo 0x0f00002c >/sys/kernel/debug/ieee80211/phy0/mt76/regidx
-root@bt8:~# grep . /sys/kernel/debug/ieee80211/phy0/mt76/rf_regval
-0x79768a20
-root@bt8:~# echo 0x1f00002c >/sys/kernel/debug/ieee80211/phy0/mt76/regidx
-root@bt8:~# grep . /sys/kernel/debug/ieee80211/phy0/mt76/rf_regval
-0x79778a10
-root@bt8:~# echo 0x2f00002c >/sys/kernel/debug/ieee80211/phy0/mt76/regidx
-root@bt8:~# grep . /sys/kernel/debug/ieee80211/phy0/mt76/rf_regval
-0x79778a10
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+---
+Changes in v5:
+- Rebase on usb-next
+- Link to v4: https://patch.msgid.link/20260806-tipd-ace3-v4-0-79855b150914@chaosmail.tech
 
-Note that band1/band2 (0x79778a10) match the EE4600 signature exactly
-(needs adie_idx=1), but band0 (0x79768a20) differs from both Zyxel
-devices reported so far (both show 0x79758a02 regardless of which
-adie_idx they need). This is a third, distinct band0 signature -
-suggests band0 alone may not reliably disambiguate the two cases,
-since devices needing different adie_idx values can share it.
+Changes in v4:
+- Unexport variant data
+- One more debugfs-safety fix
+- Link to v3: https://patch.msgid.link/20260801-tipd-ace3-v3-0-8332f2eca4fc@chaosmail.tech
 
-Happy to test further register dumps or a proposed fix on this
-hardware if useful.
+Changes in v3:
+- Restore accidentally deleted static
+- Fix building with tracepoints
+- Sleep the device on failed probe
+- Link to v2: https://patch.msgid.link/20260727-tipd-ace3-v2-0-1345957bd635@chaosmail.tech
+
+Changes in v2:
+- Use a -core module instead of building everything twice
+- Fix completion handling
+- Make regmaps debugfs-safe
+- Link to v1: https://patch.msgid.link/20260725-tipd-ace3-v1-0-73202d36138a@chaosmail.tech
+
+---
+Alyssa Milburn (1):
+      usb: typec: tipd: Factor out i2c specifics
+
+Sasha Finkelstein (2):
+      dt-bindings: usb: tps6598x: Add sn201202x/ACE3
+      usb: typec: tipd: Add sn201202x support
+
+ Documentation/devicetree/bindings/usb/apple,sn201202x.yaml |  78 +++++++++++++++++++++++++++++++
+ MAINTAINERS                                                |   2 +
+ drivers/usb/typec/tipd/Kconfig                             |  20 +++++++-
+ drivers/usb/typec/tipd/Makefile                            |  14 ++++--
+ drivers/usb/typec/tipd/core.c                              | 246 ++++++++++++++++++++++--------------------------------------------------------------------------
+ drivers/usb/typec/tipd/i2c.c                               | 106 ++++++++++++++++++++++++++++++++++++++++++
+ drivers/usb/typec/tipd/spmi.c                              | 300 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ drivers/usb/typec/tipd/tps6598x.h                          | 132 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 8 files changed, 702 insertions(+), 196 deletions(-)
+---
+base-commit: 3d9eeb336131bc5a174367c384fa00c15c8744fd
+change-id: 20260725-tipd-ace3-090bf570ef59
+
+Best regards,
+--  
+Sasha Finkelstein <k@chaosmail.tech>
+
 
