@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397ACC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 10:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 613B7C5DF87
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Aug 2026 10:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W08VrwQTG4ozaD3duJ/a697tF/FWVywzfwdzs+EDc9A=; b=h7Eb/urTZwi+ElwK2ED4iIF70I
-	o0qxZXbqAh0x5fg8npESrl/jMvCdd8fC35rCXA1xQ9pHDVC0CXSxIgJLz9spa5/EjrI+JufqB0d/n
-	6OcVqQlQ8QKJ8+rlwlTIxouVES+oGDzZZCAz5lTmIC4HLAFg+LmM4bCmH+xoBAPIS/SP7C/zeCaHA
-	KNqP7k5mthPi6KdwTdfw4RfH5uZwIt47riO5QJLwGMrG7b7vEFJDbaQOHhXf8I/YOIkjmW82WGNBi
-	3wVZ9UPrpSPxn2699Q0YZD99pa8/9GE9B4JEnb8EKiSOE68GEg4+no35stA1bFsTAnxRaHEpoAaKf
-	Qn5PKYMQ==;
+	bh=AkTkC1l251bvUW6Wv/xTLd5HH/z3uzYxD3i6DfSUpQU=; b=Pohl6EdiN9Jy07r/fHLonOY/FU
+	Wwjrb5I2K3++NLjSBnThk0QTbHHwoyjOYkJCPzyyxVdhf9th0jR81hcmDNifjzZClY77t6rCLlEMe
+	M8WcL7fIVsq22l3on3dBVN/Wem+Ys4QkfBx2Xtza8ofqhhYaMIezMYLaJxGBvvXIR77jbve2JQBIq
+	Iv6g8L3UCu7FB2Ewdgm+83ZwZfOQSb6HBZXUAtXNFAn6YLr8JArZzuBj9PX8g85nbfU6p26raICzi
+	abNIgWwmF+YSwl9ayiLdoPGqwTyOI4hXb83qjFmK4yQfGbNzZ1cUSA/bs+r2gfeude9e9jrmIu7GY
+	L2G/afEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxM7C-0000000D0es-2QdB;
-	Fri, 21 Aug 2026 10:04:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wxM7G-0000000D0go-3Dog;
+	Fri, 21 Aug 2026 10:04:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxM77-0000000D0c4-3Eer;
-	Fri, 21 Aug 2026 10:04:41 +0000
+	id 1wxM7B-0000000D0e9-1dD1;
+	Fri, 21 Aug 2026 10:04:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 86C3F400AB;
+	by tor.source.kernel.org (Postfix) with ESMTP id CB67460DBF;
+	Fri, 21 Aug 2026 10:04:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D948F1F00A3E;
 	Fri, 21 Aug 2026 10:04:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC0111F000E9;
-	Fri, 21 Aug 2026 10:04:38 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Neil Armstrong <neil.armstrong@linaro.org>,
 	Hans Verkuil <hverkuil@kernel.org>,
@@ -45,9 +45,9 @@ Cc: linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 2/3] media: microchip: Make sure clk_init_data is fully initialized
-Date: Fri, 21 Aug 2026 12:04:29 +0200
-Message-ID: <85c229d88f297fe32c3f2ea42d727b116bdeb998.1787240035.git.geert+renesas@glider.be>
+Subject: [PATCH 3/3] media: samsung: exynos4-is: Make sure clk_init_data is fully initialized
+Date: Fri, 21 Aug 2026 12:04:30 +0200
+Message-ID: <2cace1b92cc8333eca63874de17dd5d5b1f9e5d6.1787240035.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1787240035.git.geert+renesas@glider.be>
 References: <cover.1787240035.git.geert+renesas@glider.be>
@@ -82,22 +82,22 @@ Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
 Compile-tested only.
 ---
- drivers/media/platform/microchip/microchip-isc-clk.c | 2 +-
+ drivers/media/platform/samsung/exynos4-is/media-dev.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/media/platform/microchip/microchip-isc-clk.c b/drivers/media/platform/microchip/microchip-isc-clk.c
-index 24358d804e75d75c..65d5fb8019b341b8 100644
---- a/drivers/media/platform/microchip/microchip-isc-clk.c
-+++ b/drivers/media/platform/microchip/microchip-isc-clk.c
-@@ -231,7 +231,7 @@ static int isc_clk_register(struct isc_device *isc, unsigned int id)
- 	struct regmap *regmap = isc->regmap;
- 	struct device_node *np = isc->dev->of_node;
- 	struct isc_clk *isc_clk;
--	struct clk_init_data init;
-+	struct clk_init_data init = {};
- 	const char *clk_name = np->name;
- 	const char *parent_names[3];
- 	int num_parents;
+diff --git a/drivers/media/platform/samsung/exynos4-is/media-dev.c b/drivers/media/platform/samsung/exynos4-is/media-dev.c
+index 2e08c4435859e8d2..638babf52822113c 100644
+--- a/drivers/media/platform/samsung/exynos4-is/media-dev.c
++++ b/drivers/media/platform/samsung/exynos4-is/media-dev.c
+@@ -1313,7 +1313,7 @@ static int fimc_md_register_clk_provider(struct fimc_md *fmd)
+ 
+ 	for (i = 0; i < FIMC_MAX_CAMCLKS; i++) {
+ 		struct cam_clk *camclk = &cp->camclk[i];
+-		struct clk_init_data init;
++		struct clk_init_data init = {};
+ 		const char *p_name;
+ 
+ 		ret = of_property_read_string_index(dev->of_node,
 -- 
 2.43.0
 
