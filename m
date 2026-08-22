@@ -4,76 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0540C5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 09:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91576C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 09:39:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nANyRlRp+UkSq6EI3GqMNoey2QrmOEinp6jNFIdmAoQ=; b=n7OUI78FoqMLRGJbcovIdeumn2
-	c/eTAyI5r2pfblV1r6xlO+3NfcGPFy4zQtfiHdCjzhKa3JoN2/2ZkViBpglGWLJGpQeTU1JKNnGPN
-	BUmxk9HXgdPV7MInIWNWqImVXNOcC/4i9UNRU0mOfd1/TdDCIOXVQ4xJO2tzNMIeDjBa7iJarL47l
-	bM8LQmro4apu98U9saaNIxTWhbrNkJl9fAPsmJt4EsuwLK+AiWvZGUISAfms7zfQKFwRBOPf1Hw6g
-	vbfFDWRpX4mkp0byGDQACCDueswBhzfcVggxRD+2qF6HM2YxhluT/j8hL1chvSbtQq/NkUhc920L5
-	yuw0EbzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SWkv33Y+74+gq7J0O5ontHRvQtInE5grEbn+LzFrXq4=; b=B4g1Ia/V39BXMrofcDpnKVzMFT
+	uq88Pjw2PFbxEsFgcs+mLwYG6NkxRF483x99NNUUHLNaNvaqle8THWgiAWDZrCZquXUY9KsScQVy9
+	WZwiBlTzObE3SstjSw+sPuup/rDakGv4svy93O5xyBUgcZpa4krVgrSyVH+QdD6MUaXIsf0r4h/cW
+	jBsJxwpmQ6uJpsOIejIT3PZx3Re4Jy3A1YsaDlUSdYJ4k1DPnb+trUx7EuHgvEDcU4ox94Vm7tGm7
+	5xogM2B734uHSF5nPpTM+U+LuIlY8A7BHKk3Vzww/VsuBt1lGCD2fjlZjaHk27a4xeL2Zl1blyMg9
+	3WJK6GWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxhn1-0000000EPyD-19cA;
-	Sat, 22 Aug 2026 09:13:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wxiCA-0000000EQrc-1DRZ;
+	Sat, 22 Aug 2026 09:39:22 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxhmy-0000000EPy6-472N
+	id 1wxiC7-0000000EQqb-2YPR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Aug 2026 09:13:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 548E540F1D;
-	Sat, 22 Aug 2026 09:13:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 354D31F00A3A;
-	Sat, 22 Aug 2026 09:13:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787390000;
-	bh=nANyRlRp+UkSq6EI3GqMNoey2QrmOEinp6jNFIdmAoQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=elF6RZnVm9Jun9jZU8qVzOuioObw5gPGTU00/vjkri1/GUBXUx6rbMcSnIc8w0mQU
-	 cA4kIbFLo5BiCTXm1ZDJp6h3UWnIu83kvPiCHuJaovXIv1pH4C13YPxDlJbEiCU37L
-	 vEma+jIltAzo4kBr8Jx/bnbD7381+3SCrXw4yfg6a4qlbWJd90tZuvxUCeZwmLwuMc
-	 m86rbZgWohHvcxI+Es9XaZ/ioYN3/NMnpPMVJpIORv63wqM/PBt79ugesFAB/qP43Y
-	 60zZwa2cljaYzwjF80vHI78igHQrU7GHXOrgP1a4XWiSgWsL+s/P1qwaP/J/YfLcZZ
-	 AOkq9iXuXT5qQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wxhmv-00000000Ej5-3tj1;
-	Sat, 22 Aug 2026 09:13:18 +0000
-Date: Sat, 22 Aug 2026 10:13:17 +0100
-Message-ID: <86se464ixe.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Oliver Upton <oupton@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	kvmarm@lists.linux.dev,
+	Sat, 22 Aug 2026 09:39:21 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-39266382df6so1466159a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 02:39:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787391558; x=1787996358; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SWkv33Y+74+gq7J0O5ontHRvQtInE5grEbn+LzFrXq4=;
+        b=AdnXbMh347Xg3fp4zuSRHSamdPYnEDDvx7ZybFQpsAvMg2joFy7V4M50LNHWNrG1XM
+         q+9kj2EZIgbqi5KKZp3npp+lZdoCbvE59Bge9g2VkbWoPThixSMXdHJ5GS4ZoyeEgeh1
+         V3XICs7VE+bnrnqRu633wSDRyT3r3GvdBcAuhAIrwHwzfMeAV63z8dEWmXaTzEfloDQ2
+         K61rOu++0Y/dyyV2uiLZwZiWcweII4QVOQCZfEb+kiG79K1gFu09ChKlfn6CcCLqUh1j
+         zdLUTdUxZDbdX8C4EfIXysYBzk3nQ21bL7Xftd0Xw8XwI0yS6XOiAYgmYjkNYYKIT2Wg
+         PqpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787391558; x=1787996358;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SWkv33Y+74+gq7J0O5ontHRvQtInE5grEbn+LzFrXq4=;
+        b=ktKHsSmFteMXMYcrVZKjcDOOwlPYOaeRGIuo5io/XDSdrYYzW4AzyFvgY0PhcaHsJ/
+         CEloXiU58Ql6V1V2ZK+DJ49cKsXPBiImocauXHt3RpamqrcOe6v/8WXA/yXug7YMZeGF
+         kvtMwBvkb9nnLA7RzsbIJIvxnEVxsJaEfRQI0OmnsD5/FeW3PlAjP81n90LMNELrI1fv
+         P2eXCDVsLFJlWYlEcwnEFo8YJtXg+vOVFIYVsOhsFXc6w9BtQw8O+mOJnSy+aU/h3OEC
+         K9wNXc1TY1mHXAA60tjI6GLM9xZhkxBZHeufLLHhigalUNyAwCs03/8TsbtGbB5++kw8
+         VAsw==
+X-Forwarded-Encrypted: i=1; AHgh+RoAu/YyjIUfOzfKyswvnbIx+0vH1mPgQn3pt+fpVYr+wYIkokL8Jafn23uadN09mQlmNZbryeupy23GTZFsqB/H@lists.infradead.org
+X-Gm-Message-State: AFuF++l7lvtCqjG0OeEY7qKtY9hFT28xH4nPOKaAxsLGwvwdwo/GgvYc
+	5XvS++tf6vHKDDh9ixotglK3lXGC10n1KxEGKeCzx9+RRVBsxn2eobV1
+X-Gm-Gg: AR+sD12uq5QybFrz7o8OaumDw3OrrPpND38zq8fZCgsL+Va2fxcm73a0bBhw5wgl6JT
+	y1yMc60WbU8VLBVcgscuYaCAV9B4Bsq0C+EGGiwQNOMOrDTz1Z8sZT/8zNq64TZDJyvctDLr+8m
+	CsGTVj6Bq1/4pY8TrNPZivgprhdAl6fgNdGUlvSEmrUmQ+riKadf63sNtxlP09CMABP8bHUPjUj
+	E/hKkdRxYh551RfqvOHq3KQzYz1W/G5RJx5PxvJqW8tZoEBxsikA9CCE6IRMYgW7kLQSlHpkzCZ
+	SRH9SPVksLV+zhJIv+rh9lVabx9Wq7M66jNCahUyb5FJWCfC+jKZPu4ktOvCyHG7x4WB9MHoPmu
+	i+wfbeDgWMQLww09SGecJ7D16HvAaiS7u5ltz8e9n/5h9eKwFjQBVYHi0EeTPG2kOWz+uhMFYwo
+	eLIHFKFj6YqvM55HWNAqQumgpaLFlwa57WV3yhleRaVSk/8pO/e+Nv1+fpnIW7ZVs=
+X-Received: by 2002:a17:90b:3945:b0:37f:fb1d:63fa with SMTP id 98e67ed59e1d1-395c37199b7mr23933867a91.15.1787391558342;
+        Sat, 22 Aug 2026 02:39:18 -0700 (PDT)
+Received: from Ultimate.. ([2406:b400:53:4f23:d4ee:2200:a28b:c285])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-395e49d8d26sm2171183a91.10.2026.08.22.02.39.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 22 Aug 2026 02:39:17 -0700 (PDT)
+From: Udaya Kiran Challa <challauday369@gmail.com>
+To: angelogioacchino.delregno@collabora.com,
+	matthias.bgg@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: skhan@linuxfoundation.org,
+	me@brighamcampbell.com,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH] arm64: Defer the GMID_EL1 read to {init,update}_cpu_features()
-In-Reply-To: <20260819142558.1300100-1-fuad.tabba@linux.dev>
-References: <20260819142558.1300100-1-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, mark.rutland@arm.com, suzuki.poulose@arm.com, broonie@kernel.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Udaya Kiran Challa <challauday369@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v5] dt-bindings: arm: mediatek: mediatek,g3dsys: Convert to DT schema
+Date: Sat, 22 Aug 2026 15:08:29 +0530
+Message-Id: <20260822093829.46295-1-challauday369@gmail.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260822_023919_653260_A5A4959E 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,54 +105,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Aug 2026 15:25:58 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> __cpuinfo_store_cpu() gates the GMID_EL1 read on the raw
-> ID_AA64PFR1_EL1, so it reads the register on MTE hardware even when the
-> kernel has disabled MTE (CONFIG_ARM64_MTE=n or arm64.nomte). KVM sets
-> HCR_EL2.TID5 in that case, which traps the read to EL2 and injects an
-> UNDEF:
-> 
->   Internal error: Oops - Undefined instruction: 0000000002000000 [#1]
->   pc : __cpuinfo_store_cpu+0xf4/0x264
->   Call trace:
->    __cpuinfo_store_cpu+0xf4/0x264 (P)
->    secondary_start_kernel+0xc8/0x1d0
->    __secondary_switched+0xc0/0xc4
->   Kernel panic - not syncing: Attempted to kill the idle task!
-> 
-> Only pKVM is affected, and only for a CPU onlined after KVM init: its
+Convert the MediaTek G3D system controller devicetree binding
+from the legacy text format to DT schema.
 
-Is that for a CPU that has gone through a an offline/online cycle?
-Because otherwise, such a CPU wouldn't be able to boot at all (we have
-a strong requirement that pKVM sees all CPUs at boot time).
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Udaya Kiran Challa <challauday369@gmail.com>
+---
+Changelog:
 
-If that's the case, some clarification would be good. Otherwise, some
-clarification is absolutely required! ;-)
+Changes since v4:
+- Add Mediatek Soc maintainers in the send list
 
-> PSCI CPU_ON relay sets the host HCR before the CPU enters EL1, whereas
-> plain nVHE sets it at CPUHP_AP_KVM_ONLINE, after cpuinfo_store_cpu().
-> 
-> Defer the read to {init,update}_cpu_features() and gate it on the
-> sanitised ID register, as MPAM already does. system_supports_mte()
-> cannot serve as the gate, as update_cpu_features() also runs during
-> initial SMP bring-up, before smp_cpus_done() calls
-> setup_system_features(). The init path gains the CONFIG_ARM64_MTE test
-> the update path already had, leaving SYS_GMID_EL1 uninitialised when
-> MTE is compiled out, where its only other user (lib/mte.S) is not
-> built.
+Link to v4:https://lore.kernel.org/all/20260326181726.64957-1-challauday369@gmail.com/
 
-I'm starting to wonder whether having CPUs to go through a feature
-collection process during an offline/online cycle is a good idea. The
-data should still be there, and is not expected to change.
+Changes since v3:
+- Fix $id path to match new location
 
-Is it just that we don't have the correct tracking information?
+Link to v3:https://lore.kernel.org/all/20260325181509.3430-1-challauday369@gmail.com/
 
-Thanks,
+Changes since v2:
+- Move binding to soc/mediatek directory
+- Rename file to mediatek,mt2701-g3dsys.yaml based on fallback compatible
 
-	M.
+Link to v2:https://lore.kernel.org/all/20260323180616.23333-1-challauday369@gmail.com/
 
+Changes since v1:
+- Drop redundant description for reg
+- Drop redundant description for provider properties
+
+Link to v1:https://lore.kernel.org/all/20260315080302.454233-1-challauday369@gmail.com/
+---
+ .../bindings/arm/mediatek/mediatek,g3dsys.txt | 30 ----------
+ .../soc/mediatek/mediatek,mt2701-g3dsys.yaml  | 58 +++++++++++++++++++
+ 2 files changed, 58 insertions(+), 30 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/arm/mediatek/mediatek,g3dsys.txt
+ create mode 100644 Documentation/devicetree/bindings/soc/mediatek/mediatek,mt2701-g3dsys.yaml
+
+diff --git a/Documentation/devicetree/bindings/arm/mediatek/mediatek,g3dsys.txt b/Documentation/devicetree/bindings/arm/mediatek/mediatek,g3dsys.txt
+deleted file mode 100644
+index 7de43bf41fdc..000000000000
+--- a/Documentation/devicetree/bindings/arm/mediatek/mediatek,g3dsys.txt
++++ /dev/null
+@@ -1,30 +0,0 @@
+-MediaTek g3dsys controller
+-============================
+-
+-The MediaTek g3dsys controller provides various clocks and reset controller to
+-the GPU.
+-
+-Required Properties:
+-
+-- compatible: Should be:
+-	- "mediatek,mt2701-g3dsys", "syscon":
+-		for MT2701 SoC
+-	- "mediatek,mt7623-g3dsys", "mediatek,mt2701-g3dsys", "syscon":
+-		for MT7623 SoC
+-- #clock-cells: Must be 1
+-- #reset-cells: Must be 1
+-
+-The g3dsys controller uses the common clk binding from
+-Documentation/devicetree/bindings/clock/clock-bindings.txt
+-The available clocks are defined in dt-bindings/clock/mt*-clk.h.
+-
+-Example:
+-
+-g3dsys: clock-controller@13000000 {
+-	compatible = "mediatek,mt7623-g3dsys",
+-		     "mediatek,mt2701-g3dsys",
+-		     "syscon";
+-	reg = <0 0x13000000 0 0x200>;
+-	#clock-cells = <1>;
+-	#reset-cells = <1>;
+-};
+diff --git a/Documentation/devicetree/bindings/soc/mediatek/mediatek,mt2701-g3dsys.yaml b/Documentation/devicetree/bindings/soc/mediatek/mediatek,mt2701-g3dsys.yaml
+new file mode 100644
+index 000000000000..ad3df062d5db
+--- /dev/null
++++ b/Documentation/devicetree/bindings/soc/mediatek/mediatek,mt2701-g3dsys.yaml
+@@ -0,0 +1,58 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/soc/mediatek/mediatek,mt2701-g3dsys.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek G3D System Controller
++
++maintainers:
++  - Sean Wang <sean.wang@mediatek.com>
++  - Ryder Lee <ryder.lee@mediatek.com>
++
++description: |
++  The MediaTek G3D system controller provides clocks and reset control
++  for the GPU subsystem on MediaTek SoCs.
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - const: mediatek,mt2701-g3dsys
++          - const: syscon
++      - items:
++          - const: mediatek,mt7623-g3dsys
++          - const: mediatek,mt2701-g3dsys
++          - const: syscon
++
++  reg:
++    maxItems: 1
++
++  "#clock-cells":
++    const: 1
++
++  "#reset-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - "#clock-cells"
++  - "#reset-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++     soc {
++       #address-cells = <2>;
++       #size-cells = <2>;
++       g3dsys: syscon@13000000 {
++         compatible = "mediatek,mt7623-g3dsys",
++                      "mediatek,mt2701-g3dsys",
++                      "syscon";
++         reg = <0 0x13000000 0 0x200>;
++         #clock-cells = <1>;
++         #reset-cells = <1>;
++       };
++     };
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
