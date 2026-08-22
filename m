@@ -4,63 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91FE6C5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 19:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06805C5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 19:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zDyng24oNDCdDgCI0OnzaGcRhJHZICMrLTy9e+W9GRc=; b=WROZFDd4KYalC+wfG0PRV2+JPb
-	x3ykqzQu7HfHjYA+KUhJFgutBCZpbvbMZvN2GvX7m3UyG/jdjcTv/JfiGTszFVpAgwaE0FeY4KCD/
-	il7r/BevmF5Q9a8Fqmb1VLelZG9KEgV5yb342FNRr2ihGVC17RxyA3NinFkL6DK9kVHzG+1S6576m
-	NcB88VKV1uxizw4FVTOKKxcVMNFD5aqXdP/wBE1zzYNvnaX+syuVX9CZDMZQhx6rNfvD+XyTPIfP9
-	IhTRSslf2P/OiZEQrwpZIXx6Pqk3ACkAHExFQ1fPq32k00isrwYvxM9/qTaBBpeoNQq4SJ5senWhT
-	dL5D8S9w==;
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+UOlbWmhlZGcXSZas1atuG02Rkmo7MvD1GEC9/IVszM=; b=X+hYfkooammVEuudkFByob3/ah
+	Gnc303cYegjGVFcY+sJwfDs1/5qOmeFV1ZADi31ctj8Nq0Mxe+0odtLtMmN1D6OnYHjiZI3HEgOrU
+	SJ4VoT/J0l+aiH/ynS19Hq71GNlW0Hb30d3tV48zMWTt99ijMGO3K2Rcry7FR/QrAk7vk4DqsLYUB
+	+Y96WBc60n/OBQ4cl5g15b//pIjcpPPsAD6w4uXkIuIOFu4jUkLwvwqX3yLMfNMcIWdXkt7uSImH0
+	Rrkj4z8P60Kw1RuA4SwpAcbBcue+AbjWj3juc7m7CV7BmjFa/f1xwmOjhQMuf4W4URNgAgEUGuSH1
+	1hYnkdQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxrdx-0000000EkSf-17v8;
-	Sat, 22 Aug 2026 19:44:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wxrhM-0000000EkeT-2fZq;
+	Sat, 22 Aug 2026 19:48:12 +0000
+Received: from mail-4316.protonmail.ch ([185.70.43.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxrdw-0000000EkSK-1jMY;
-	Sat, 22 Aug 2026 19:44:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD0F440392;
-	Sat, 22 Aug 2026 19:44:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FE6E1F000E9;
-	Sat, 22 Aug 2026 19:44:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787427879;
-	bh=zDyng24oNDCdDgCI0OnzaGcRhJHZICMrLTy9e+W9GRc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=D8iTDr7L0yisd/hYhMolRDHGlp5Di+L7AhGGezgIMmFOIKCi1DP87M+cb1GLdZTwP
-	 0ptycL6pV5+xi9cfKIyijKCsJ6CghBerhIPFGdzP9dW/oo3vkVkguOv8waYn+/fbx7
-	 yMV0dJMzJOU8g5RZ+cA25/w2KXoe6/Rl2lRIUM4ySF7fHxXDa27Arpsj2ukuWG7RkZ
-	 ecHE0J1TXumklmlBhqqbwvd+LxrEXBFQfU/6nuydaWWhiRcwNkIKzVAHFAOSyAUai2
-	 T02Ou0aFDLi11/phwDmaKLqiCL5RsYxbal5Pp8DfkUsIfSnrjFn8oVrvENHpBRkqAJ
-	 xLQri/PdQtnyA==
-Date: Sat, 22 Aug 2026 12:44:38 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: =?UTF-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>, Conor Dooley
- <conor.dooley@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S
- . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
- Abeni <pabeni@redhat.com>, Heiner Kallweit <hkallweit1@gmail.com>, Russell
- King <linux@armlinux.org.uk>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH net-next 0/3] net: Make sure clk_init_data is fully
- initialized
-Message-ID: <20260822124438.527c40b7@kernel.org>
-In-Reply-To: <cover.1787240118.git.geert+renesas@glider.be>
-References: <cover.1787240118.git.geert+renesas@glider.be>
+	id 1wxrhJ-0000000Eke9-1dSS
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 22 Aug 2026 19:48:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail; t=1787428084; x=1787687284;
+	bh=+UOlbWmhlZGcXSZas1atuG02Rkmo7MvD1GEC9/IVszM=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=AuUjeS4Qg8skiBG8zgzWsFH8mgr62jLVrdjl+P4UNmaN8E0hnsOICdXWz6yUA5QM8
+	 1kjPq9/ydCZct3aqkuT5/ixqPZoHXQv+jeqbpKNBax16FGVHMf/5QIbW6swx56vj6Y
+	 6FZi16MBpqBZ9TNGIXJwV+TIpG/9oPTLfUjGLEBXBIYqVUlzJwz/CnlKsxf8ynLxUr
+	 FIcBy4NGKFFzXr6u4hobl8AgP90u3ACKn7l74ofcxNR4Nr4Huy+KhZenHgLAGor6rV
+	 VFYOXNsDJSuqxc32zyKthfYrR0pzKNOobFLiR5GJnGlbJLWBKwkpRZ7phE4ijOmTdK
+	 oAhyq4E5Tdc2A==
+Date: Sat, 22 Aug 2026 19:47:58 +0000
+To: Heiko Stuebner <heiko@sntech.de>
+From: Richard DeFrese <richard.defrese@proton.me>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Richard DeFrese <richard.defrese@proton.me>
+Subject: [PATCH] arm64: dts: rockchip: route ES8388 MCLK to the IO pin on Orange Pi 5/5B
+Message-ID: <20260822194730.526392-1-richard.defrese@proton.me>
+Feedback-ID: 216883557:user:proton
+X-Pm-Message-ID: c644c4c6ff2315eb917bb9194d3fe04645365cd6
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260822_124810_079812_0808C729 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,15 +67,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Aug 2026 12:07:29 +0200 Geert Uytterhoeven wrote:
->  drivers/net/ethernet/cadence/macb_main.c | 2 +-
->  drivers/net/mdio/mdio-mux-meson-g12a.c   | 2 +-
->  drivers/net/phy/air_en8811h.c            | 4 ++--
+The on-board ES8388 codec on the Orange Pi 5 and 5B has no analog output:
+the codec's master clock (MCLK) never reaches its pin.
 
-Hi Geert!
+RK3588 gates the I2S MCLK-to-IO routing in SYS_GRF SOC_CON6 (bit 1 for
+I2S1), exposed as I2S1_8CH_MCLKOUT_TO_IO. The codec references the internal
+mux (I2S1_8CH_MCLKOUT) instead, so nothing enables the IO gate: the
+12.288 MHz MCLK is generated inside the SoC but never driven out to the
+codec. With the ES8388 as I2S bit/frame master, the SoC I2S controller then
+never receives a valid clock and aborts:
 
-Unfortunately we don't queue -next patches during the merge window,
-you'll have to repsot.
--- 
-pw-bot: defer
+  rockchip-i2s-tdm fe480000.i2s: clear failed, reset txrx
+
+Point the codec's "clocks" at I2S1_8CH_MCLKOUT_TO_IO so the ES8388 driver
+enables the gate in clk_prepare_enable() at probe; "assigned-clocks" stays
+on I2S1_8CH_MCLKOUT to keep the 12.288 MHz rate.
+
+Signed-off-by: Richard DeFrese <richard.defrese@proton.me>
+---
+ arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi b/arch=
+/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi
+index 6e081bc06..5ac3e0d9d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi
+@@ -87,7 +87,7 @@ &i2c6 {
+ =09es8388: audio-codec@10 {
+ =09=09compatible =3D "everest,es8388", "everest,es8328";
+ =09=09reg =3D <0x10>;
+-=09=09clocks =3D <&cru I2S1_8CH_MCLKOUT>;
++=09=09clocks =3D <&cru I2S1_8CH_MCLKOUT_TO_IO>;
+ =09=09AVDD-supply =3D <&vcca_3v3_s0>;
+ =09=09DVDD-supply =3D <&vcca_1v8_s0>;
+ =09=09HPVDD-supply =3D <&vcca_3v3_s0>;
+--=20
+2.53.0
+
+
 
