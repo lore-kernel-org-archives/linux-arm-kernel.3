@@ -4,95 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE06C5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 08:19:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E9AC5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 08:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8W+kWi80hTbgKc8WD5gFQsUGSWJf7sfWCY60HPdtDo8=; b=wRVEheqNNzXuk63ymPUEtXg5j7
-	y5ZFz4zlr0pbYNEOOiiwOc3QFfUaxlYJiQ9JRPCnPb3cmlMv4ntLL/mDbAyr21vwQp1LbuBOg7Crh
-	G+5GjntajU4kfUM9sZGl3+zR/4KOzH9payftb1nUPNUmrAko4E0W4Iav+4kpbQLT2Gm3DbtErhdtl
-	Pa0+xuhgfoTEYe4EJIeHhsO/fmNJHajDF2EUhPJK82lrfYeqHQFVoHSXmNd27dLpXS+NONslig4nV
-	FQfSEs+pr5O8QR5zAN5asOlhBZRYtKkYfrLr5GUMO4QaO/GJdz+Xcy8zisoqKy3gtM6q+8kzD1lhF
-	/6fnTnXw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=goS0hO9F9PB7GW9OY4RoUpd4niO++BgWcgqth7XojbQ=; b=hnuoi4u24Z5tU+w6P+knSQkp+x
+	m85nhyaESudlTSzIdJ4kmZS8aLwQ/bvZbf/8r/UQazW7IkhgaGfMvwyOF0eDGU2p48gH9Q3rXefiJ
+	ZYmLeCaNLO6/iqC1yoAVLmeDWgL3DYhgEcoC8n9Wt6A4ekqXwdIzToljnv4/CTdn8JFaxp/t4Mafk
+	ze4KL1+yVXC3wYlihxYdmCpR7/AYs/17zC+kQkKdwk/1eLqSzaP2uKhKBWbvR6SBG3T6qt5bnGsna
+	5oJAXVVoh1yqJNSTAp4sVdvOIKUypk0pvI332BBNOKYnhGS6np03GN7MILoBSJ07WZxqQlOJp6Bu6
+	TRaMsa1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxgwj-0000000ENuY-1z2s;
-	Sat, 22 Aug 2026 08:19:21 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1wxhHF-0000000EOqY-16k3;
+	Sat, 22 Aug 2026 08:40:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxgwg-0000000ENu2-1ttg
+	id 1wxhHD-0000000EOqL-3xdY
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Aug 2026 08:19:19 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-c1670dad7a8so322092466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 01:19:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787386756; x=1787991556; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8W+kWi80hTbgKc8WD5gFQsUGSWJf7sfWCY60HPdtDo8=;
-        b=i8FCiAAGJKeGYOa28n28Lnl9A8MMj60BarrldNlPHwh1gElOuq8HXoBwJxOlk4LY7E
-         BcVRG/h3MRfBsTVC8mMCFCCs1VzN5MLHPW7V+liJ/OcqpZqGXe/hKOyfOqYKTjYldzdD
-         jwjBq8hbnTm/bcVibz2DLEMlWbzGsSzzPcZAOnDyzTMR2dadP9uUAdSiDOiYpdQQlqN/
-         0XouiB8UJnQMdTqlvjgenr0DiJtoj4ILeKAKrcrroBeNr3WLKPXiMhZuT7O8vFfV45Wb
-         aXIrGnHSZRbV9LhY/kzb2lgCro0v9nq7H3/L1MgLpokFQvp2nyMFuRjPjzy1VMcwxSph
-         KYUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787386756; x=1787991556;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8W+kWi80hTbgKc8WD5gFQsUGSWJf7sfWCY60HPdtDo8=;
-        b=dvs6zRgtbbDoZkM5hDWQEeVgPce6QQ21g1nNXq31nH4tpBjbIPPUBp+hN6QBDMiIK7
-         kja6dpgGE7ijVH7NK6W0Hg0Lu7ke1fpFGqyNGozBfwMF+C2YJk29wuvWpGt5GD0h9DI5
-         YMeluhXjHm34VZTjea3u2qroydWnMogfxseHZ3tiuJh6mJ5UItZFAv1cJb6uaIkUGGpd
-         UxA31p9McomeO+IejukqvD+OW6ctZKBNuxEzpz/WcnoaDF8vOzvHNxd23GCoFvAlE1Hk
-         pNdsu3iSbXIFQsHAinOcQqqJfbnweE4aB0hXIXupiNWVigNqepoK+KgbJER5JpJBhLpr
-         vvwQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpT+9aW4pFg9Vu76qrDfLH7ceWNNgL9MgGWBGi+s/j+FWwxZIIoUUn/3ICOeIJk8+EvICDYp4fflHAkBCEeqkh9@lists.infradead.org
-X-Gm-Message-State: AFuF++nvwMHf31H3f03rppen+DbOih6jZyqZZV6eeTpOsayzWoDk33hO
-	9CRn/kf359sBimvC/3wIR74K7O4528bjJEAHnd6MMbs9dylWi5T57fXp
-X-Gm-Gg: AR+sD138iPDfrOLSQ+0VBusQpfUf9kdm7bjClZFlIAXOr/MgoHbAVO8Ts/WRZQoFjtE
-	FUynpcGtI0jCTH/RY7b+/ePOPG4zBn7QPYfpLZxLBqwDdN9lkbDwWlDEqBNOsSlH+EhUsYfKO51
-	4ZEwX6Eitukj/7mSzdFYtmewcqBgLmuWF2MZQ6VUmTmXEMT6xqyare2AcfD0bSFFynHB9Afri22
-	tvjc4E+8+Zr2HpWzyK0BJlYaQibBYR96kQx79d5QxaDEKjbzisRaLrhxa971R217WIQAZT5dTtX
-	99M4hMyduMz8DMKp0DEJbKXLgWU2PThk6FETBpZoraDHHKcsnHd+vTU8lf5+lqTBCn5mDP4nZFb
-	qMlalaCck7RK+aT3Fh/Kg5Rcm2m19iijbvAD+BWDHupStPccCA7O/pbLB4GW8ygxfFltqc1H/qM
-	bOnxhaBPz2I3QGiTZPvtmeoPI8ETd+YoTkbEuhxzlOYkB0PLD8jnuHvAPv7NkH7/yw+i7+upeLS
-	1CqQBywFCNJhkF3gXAYWQ1f2cuTxbUvm+ckFuEFsT48q46B24kBxzQ0JRAhzwat9JQNiFOsdDOw
-	eTv1o0rC+iG3GXRHjkmL8RwoFC3oTagQ2D22WzKxtD0igDnZqu8x5mC95P4y+6I3W9nSA62ct8d
-	oj+Q2N/bW
-X-Received: by 2002:a17:907:d12:b0:c24:82b9:361c with SMTP id a640c23a62f3a-c2482b93766mr1016989566b.17.1787386756173;
-        Sat, 22 Aug 2026 01:19:16 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-a0f5-8c01-3de3-cd62-aa6f-2fb0.310.pool.telefonica.de. [2a02:3100:a0f5:8c01:3de3:cd62:aa6f:2fb0])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c24962bd8fasm295741866b.28.2026.08.22.01.19.15
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 22 Aug 2026 01:19:15 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	coresight@lists.linaro.org,
+	Sat, 22 Aug 2026 08:40:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E8C39600E2;
+	Sat, 22 Aug 2026 08:40:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D00A1F000E9;
+	Sat, 22 Aug 2026 08:40:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787388030;
+	bh=goS0hO9F9PB7GW9OY4RoUpd4niO++BgWcgqth7XojbQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=RCdeEWOl7vwP1easXifPNcEyw4TI9oZUWFv5A1RU6B3fxLxq9AvRr28vJjMKPpvO6
+	 OubQ97d9U7wPbWvXMmFxbcsaxDsoxlRleDvSeqq/70aPfuTgsgYa4aYB/GJ+Mk49Q+
+	 FO4kXaByqE1uzQ9vufOYXrdw2H9oAlouqVPFbgM0aVe0JEGo9ceAmy4qbk1VHlqSUC
+	 bgHU1ukKRmct/nKHNaYA/+zKxP+xHhkkfD/tWqKNB2VufWYdxm1WPbL9dcwB23chYz
+	 I91SPZ+39OlX3L28S0gNLQLsOa5prphUE8zHyuZKXobdb475E20IU08wi8M7E7FFdg
+	 g3OgOKAN9To4g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wxhHA-00000000EOp-2Ehu;
+	Sat, 22 Aug 2026 08:40:28 +0000
+Date: Sat, 22 Aug 2026 09:40:28 +0100
+Message-ID: <86tsom4kg3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Eric Auger <eric.auger@redhat.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] dt-bindings: arm: Fix CoreSight CTI Kconfig symbol
-Date: Sat, 22 Aug 2026 10:19:12 +0200
-Message-Id: <20260822081912.88774-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_011918_510400_C5998386 
-X-CRM114-Status: GOOD (  11.61  )
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v2 3/5] KVM: arm64: vgic-v3: Unregister redistributors before freeing regions
+In-Reply-To: <aoiiHw4hBHB7C5uL@gmail.com>
+References: <20260819224229.82948-1-kmehltretter@gmail.com>
+	<20260819224229.82948-4-kmehltretter@gmail.com>
+	<874igpp3qm.wl-maz@kernel.org>
+	<aoiiHw4hBHB7C5uL@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, oupton@kernel.org, kvmarm@lists.linux.dev, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, eric.auger@redhat.com, christoffer.dall@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,31 +99,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The option exposing CoreSight CTI integration registers is
-CONFIG_CORESIGHT_CTI_INTEGRATION_REGS, not
-CONFIG_CORESIGHT_CTI_INTEGRATION_TEST.
+On Fri, 21 Aug 2026 20:09:32 +0100,
+Karl Mehltretter <kmehltretter@gmail.com> wrote:
+>=20
+> On Thu, Aug 20, 2026 at 09:58:57AM +0100, Marc Zyngier wrote:
+> > The other bit of interest is in __kvm_vgic_vcpu_destroy(), and its
+> > conditional removal of the RD iodevs. Can't we just get rid of this
+> > whole block altogether now that we have a saner failing path?
+>=20
+> I tested removing that block.
+> It reintroduces the use-after-free fixed by ae8f8b376102
+> (=E2=80=9CKVM: arm64: Unregister redistributor for failed vCPU creation=
+=E2=80=9D).
 
-Fixes: b39b46fb9c6a ("dt-bindings: arm: Adds CoreSight CTI hardware definitions")
-Assisted-by: Codex:gpt-5.6-sol
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
- Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+At the very least:
 
-diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
-index 949444aba1f8b..345e93ca39f96 100644
---- a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
-+++ b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
-@@ -43,7 +43,7 @@ description: |
-   connection. Any user / client application will require additional information
-   on the connections between the CTI and other components for correct operation.
-   This information might be found by enabling the Integration Test registers in
--  the driver (set CONFIG_CORESIGHT_CTI_INTEGRATION_TEST in Kernel
-+  the driver (set CONFIG_CORESIGHT_CTI_INTEGRATION_REGS in Kernel
-   configuration). These registers may be used to explore the trigger connections
-   between CTI and other CoreSight components.
- 
--- 
-2.53.0
+		vgic_cpu->rd_iodev.base_addr =3D VGIC_ADDR_UNDEF;
 
+should be removed, as it serves no purpose anymore: all vcpus, valid
+or not, should now go through vgic_unregister_redist_iodev() which
+resets the value. It isn't massively useful on teardown anyway, so you
+might as well kill the extra one.
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
