@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0191C5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 05:03:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11268C5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 05:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jaKW2U+yMxpMkfu3V+tl4dxFwdr/bp4aDLEXOqceHEc=; b=dQN9b6qW6tghkhqoOxLGt7jv8G
-	CG4yxx21Y6pOv7bTjX8BH8OZuRsMlR/SprA/4J4664fzsxJoAsU6mcYwVdQ1Mnug5qjzpfG7Fzc3I
-	L8zodtSS4a58NENEtf3mdgih5Whv5KNPzIJNaXZmYWlxML7MUrqWqkJJcTa0Kf+KSODsEB6Y5T5sc
-	yyKV62GwsVyvk5nA8XCHK/ey+83UTZAdCJ4EdOIL7Yn4nAd70Gs++yszKFh5tIOkIuyZ+2lcK36ca
-	xfHuER7ua8EKE05dsPx2NXxwzGqbv/6x2UXo1yy6rpn9FxybdMwMRlj5e52JHs0VRrZPnu5IAcx5G
-	K4T8QGgw==;
+	bh=5WH5D0JtSfK72vdeI0nhh2PL53o2bVvJzV3Cx+3KNFU=; b=VgHTCUIQKn35IrfyTeDXATVtGZ
+	IN19km4MGuOwZt3mdheXRZp7Oh77JzZNTeHCH4A8T/uxutHT/+UierjZ4S6QxT6qLMooIUvz6dD8a
+	BixfYxBIqCO1zx0pNgxUHrotnRQMldZekQwwfqqmh42G62PlT4Bw6nv/bbHqA6wzSWaxVZlAzKJZO
+	dlaZYZqrN+ZqyP0yCHUKvwvLLEKw0w5q68NVrlkS738Q4r5uRaDEfbOEOoLc8aQ+qtNomWIg4ll6v
+	R5rsV6O6RPwc6V6dmkYyv4KH4OzyHfMhf6z6rdY0ynLH1jO7obphT+iX2G/of7qiatCEbIREuchTM
+	lRHvW4Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxdsv-0000000EI9t-3jaH;
-	Sat, 22 Aug 2026 05:03:13 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1wxeED-0000000EIh9-3n1x;
+	Sat, 22 Aug 2026 05:25:13 +0000
+Received: from mini.riabenko.com ([2a01:d0:333:0:d250:99ff:fe83:4d25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxdst-0000000EI9A-1kho
+	id 1wxeEB-0000000EIgg-1iBM
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Aug 2026 05:03:12 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-84830c774a0so1935884b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 22:03:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787374990; x=1787979790; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jaKW2U+yMxpMkfu3V+tl4dxFwdr/bp4aDLEXOqceHEc=;
-        b=EVpWQhkn5cQisV/eDUEESZfOJ4rz9nmgUMAxC8wZTMZwa7UVlFyJ1XEZUTQvWcz6/D
-         FbsJxnV+unPhe5NA5jkbgGLiCG042nNuavKjpb5kcIMveCJuyKn3AvblNSxJz7MmxLd7
-         ag5S4IOT84Al9yNheAVmq+etL5H/1/ZKTudAOMWYFqUdzQfznDWULNydMnGWV8TClOUs
-         XL1gDZ+LfnyieRseEX9AWm4Z5ilMDDWVmGF/uETgNB2Dyl7taZdEWI+CWArq7wYMTuZ6
-         Oyx0VaVn9bgBb+IxGLopqI4D2B04x5kMTHbKvuYmxJIw2onEmPwJYAKprRJ+6v5aTf/A
-         oemw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787374990; x=1787979790;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jaKW2U+yMxpMkfu3V+tl4dxFwdr/bp4aDLEXOqceHEc=;
-        b=jeEfbS1dzv4HKBIW8BGkeTbY9gf9W1/KzUmXS1k1ACslhGE3fFPhjSIhqcy8RSvwXp
-         ltE0xhoC3+Ofm5x2JMEVR9Sa8bH7Rbr4Az7DGhY58EqmDCITF2HH/r0kQsd/nkZ9DXUK
-         fx4krMk5I743HWS4DgPFkJ8rsHlZIfEzEjaRVepiw7IDQTHrPb54cw0jloyYxW6PVkcx
-         SHdiJmB9kUW+DgOOAwJqceB/s9SBgJca42DQg+z+beoKu8xpNxx+QBL8wwY1y/UtJa9B
-         0jER+kf6qTwG7D8XiBPiWORMaPp18msABRuUvmkP230uTMgVupr7dCWPHxpy/GGTDBLH
-         402g==
-X-Forwarded-Encrypted: i=1; AHgh+RotmKLTYaAjDW2ZiWmvqxth4ipQ/rkYpRLMb1cN/YePLmnb7qs7j/6tPFZuJQ3h63JjQBj7Kqyc2l54Nr1NaB+z@lists.infradead.org
-X-Gm-Message-State: AFuF++k8fRMPXmxTInywUMpXsrUd9lFalSbP378wPwL8zTKjUCaVTYUd
-	zVrA9czArkR2r0pI5N8uio0vNNOcaLZN5BrgPPPHnwyu9JkjG5Xwj6Q=
-X-Gm-Gg: AR+sD13Gha2dJtY5hsB9HNqs4+GCMkJWFfzoSKMC0T8KWOXylVd/tDC6AlIO+NgIEV+
-	y+/QB6cQ2GaYiFX7hevOBjlGG5cM99ZV7Gn4HTnFms+dduOWvGYVwawH5KH4BYqBsMqP/HKgsgK
-	fnyTuFnBWKjnqBEg86bka6lGFFCwJ7tKVj/9L2LvAQQEUeIBputN1J6Eca8Qj0HilP6oXQKvSBC
-	m7DDQi371XT16nJPPFcLzE6g5u5jp9coKoEP8NoQx3daramampNoFOCeoPRLUrRy1UvANedDamB
-	sD/ymWblPAabZl9/u5tEM6kUnF6SYIzSuuuUUZak0hCgzXhty1qmwne+oUMErcSfba4TAXl+Gl+
-	TdE8oqp1zsjTiI58FyqggdzaLP6ySD5clQAKSRX+5XlzbsOjdu0iseasbJvbNQUvk/DoZwRID7m
-	uxIS8+B9fRiFEGf9hZOhUPGyEfJJ7EWZJ/6gCFnb03NQIH2iJkMbQyLHeu+xMJdMc37xhX2mVSE
-	SuYzIisnTidQZkshCRB/vnEPR2S3VwJk1dO4SAVlncaj10rCgZAdGCRXw/S/3aBFaIQjw==
-X-Received: by 2002:a05:6a21:a49:b0:3bf:7bf7:7913 with SMTP id adf61e73a8af0-3cd301370b3mr22342048637.14.1787374990316;
-        Fri, 21 Aug 2026 22:03:10 -0700 (PDT)
-Received: from codespaces-2db70c.m2fxbej512jepnsor2itp05j3d.ix.internal.cloudapp.net ([207.46.224.81])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14186183f31sm3060974c88.13.2026.08.21.22.03.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 22:03:10 -0700 (PDT)
-From: Triet Hoang <triet.hoang.dev@gmail.com>
-To: miquel.raynal@bootlin.com
-Cc: richard@nod.at,
-	vigneshr@ti.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	christophe.kerello@foss.st.com,
-	triet.hoang.dev@gmail.com,
-	johan@kernel.org,
-	linux-mtd@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Sat, 22 Aug 2026 05:25:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=riabenko.com; s=selector; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:From:Sender:Reply-To:Subject:Date:
+	Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=5WH5D0JtSfK72vdeI0nhh2PL53o2bVvJzV3Cx+3KNFU=; b=T3JuoMR9ELdbyGbSwz1h2H7w0d
+	8r576PZcWwLwV9x67G5rGYNtHRfValfZ7J+GcWdPMKC/z+SOKEoruLQRsTM4P0HyFt71TYiKb/mmr
+	ju5hiy2a4u4+du8GrSsvNOpjYIt+W4BVZYIUwjvyQJX4Oyq+I4AfwZktqHO/nTMCQM8QJsgF68j9r
+	imfSVJYP9SYAADXdsJni6gJk4anBkdQP2h1PNwfkNjSS11AB5AQl8n70YXx1VGw5M40whcBdWXCTH
+	QXJsI+ULEzMq1RrGxV0h+mGubY13r9wttE0UTLvjCfkmd4Z/hW/bbzqNKLM7QfBX3gss9f8/RC4tc
+	lkW3BqWA==;
+Received: from librecmc.lan ([192.168.10.1] helo=desk.lan)
+	by mini.riabenko.com with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <roman@riabenko.com>)
+	id 1wxeDt-0000000005R-1xxc;
+	Sat, 22 Aug 2026 08:24:53 +0300
+From: Roman Riabenko <roman@riabenko.com>
+To: andrew@lunn.ch,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org
+Cc: andre.przywara@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] mtd: rawnand: stm32_fmc2: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
-Date: Sat, 22 Aug 2026 04:59:56 +0000
-Message-ID: <20260822045957.12511-1-triet.hoang.dev@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Roman Riabenko <roman@riabenko.com>
+Subject: [PATCH v2] arm64: dts: allwinner: a64: olinuxino: Fix phy-mode
+Date: Sat, 22 Aug 2026 08:23:53 +0300
+Message-ID: <20260822052353.22881-1-roman@riabenko.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_220311_464818_1A25421F 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20260821_222511_504734_FE5CA2D4 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,59 +83,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the deprecated SIMPLE_DEV_PM_OPS to DEFINE_SIMPLE_DEV_PM_OPS
-and pm_sleep_ptr().
+The 'rgmii' mode does not appear to describe the RGMII timing in Olimex
+A64-OlinuXino boards. The PCB layout shows that the clock and data
+traces have roughly the same lengths for both RX and TX and, thus, do
+not appear to implement the 2 ns RGMII delay or introduce any
+significant delay.
 
-This lets us drop the __maybe_unused annotations from its suspend 
-and resume callbacks, also reduces kernel size in case CONFIG_PM 
-or CONFIG_PM_SLEEP is disabled.
+According to the KSZ9031RNX datasheet, the PHY adds a typical 1.2 ns RX
+delay and no TX delay by default. The 'rgmii-id' mode causes the PHY
+driver to enable appropriate internal RGMII delays.
 
-Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
+Packet loss in the downlink direction is observed with the 'rgmii' mode
+and is severe enough to interfere with downloads and disrupt software
+installation. No packet loss is observed with 'rgmii-id'.
+
+Adjusting the TX delay in the DT was found to be unnecessary with
+'rgmii-id'.
+
+Signed-off-by: Roman Riabenko <roman@riabenko.com>
 ---
- drivers/mtd/nand/raw/stm32_fmc2_nand.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/drivers/mtd/nand/raw/stm32_fmc2_nand.c b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
-index c08d6b176372..9f42f8ab3212 100644
---- a/drivers/mtd/nand/raw/stm32_fmc2_nand.c
-+++ b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
-@@ -2076,7 +2076,7 @@ static void stm32_fmc2_nfc_remove(struct platform_device *pdev)
- 	stm32_fmc2_nfc_wp_enable(nand);
- }
- 
--static int __maybe_unused stm32_fmc2_nfc_suspend(struct device *dev)
-+static int stm32_fmc2_nfc_suspend(struct device *dev)
- {
- 	struct stm32_fmc2_nfc *nfc = dev_get_drvdata(dev);
- 	struct stm32_fmc2_nand *nand = &nfc->nand;
-@@ -2090,7 +2090,7 @@ static int __maybe_unused stm32_fmc2_nfc_suspend(struct device *dev)
- 	return 0;
- }
- 
--static int __maybe_unused stm32_fmc2_nfc_resume(struct device *dev)
-+static int stm32_fmc2_nfc_resume(struct device *dev)
- {
- 	struct stm32_fmc2_nfc *nfc = dev_get_drvdata(dev);
- 	struct stm32_fmc2_nand *nand = &nfc->nand;
-@@ -2118,7 +2118,7 @@ static int __maybe_unused stm32_fmc2_nfc_resume(struct device *dev)
- 	return 0;
- }
- 
--static SIMPLE_DEV_PM_OPS(stm32_fmc2_nfc_pm_ops, stm32_fmc2_nfc_suspend,
-+static DEFINE_SIMPLE_DEV_PM_OPS(stm32_fmc2_nfc_pm_ops, stm32_fmc2_nfc_suspend,
- 			 stm32_fmc2_nfc_resume);
- 
- static const struct stm32_fmc2_nfc_data stm32_fmc2_nfc_mp1_data = {
-@@ -2153,7 +2153,7 @@ static struct platform_driver stm32_fmc2_nfc_driver = {
- 	.driver	= {
- 		.name = "stm32_fmc2_nfc",
- 		.of_match_table = stm32_fmc2_nfc_match,
--		.pm = &stm32_fmc2_nfc_pm_ops,
-+		.pm = pm_sleep_ptr(&stm32_fmc2_nfc_pm_ops),
- 	},
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts b/arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts
+index fd3794678c33..8cb2381e21da 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts
+@@ -102,10 +102,9 @@ &ehci1 {
+ &emac {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&rgmii_pins>;
+-	phy-mode = "rgmii";
++	phy-mode = "rgmii-id";
+ 	phy-handle = <&ext_rgmii_phy>;
+ 	phy-supply = <&reg_dcdc1>;
+-	allwinner,tx-delay-ps = <600>;
+ 	status = "okay";
  };
- module_platform_driver(stm32_fmc2_nfc_driver);
+ 
 -- 
-2.53.0
+2.54.0
 
 
