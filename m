@@ -4,74 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27745C5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 17:47:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B30AEC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 18:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d7wGI6rY14jaaHYUxcqFHLnsSsbhaMKq2yfxDsNBo5k=; b=CGxMi45uZZOp3/7o2zlEMq7cQE
-	dNRfQtVK8nNa7N7WoZT9HcOHtJ6whpf0ysBxEqTU5RhExzZ0UFRVUHe9cACYBNyOzZ05+1t8sNcY9
-	d/yvKUuM5BikIRrKeuqKNyVQXDS9ytPqKxSMnvt616udv1Eupl/DzgziFaVQ+gVGSwaz/Y31Nr8+d
-	iFDIKbd/0CLKl51YSXA7oCo9iIZ5vXXtvZpd5C0R8dJrzz/bBPBHGmZ7hF2ndrJ9dy9B5Y/Oziwlf
-	tJPm+CDCyaDr0+nTqL+ihvTna6vO8frJo01WAJmi09bvRX6DQgxjFLA3IpklYOs+LDsc3bfi3XIqz
-	w5LYUzNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2x0V8y7AtTqO+N9yrnBcjanzCtGg0yM/mYBEKDfCal0=; b=FJhYt/SCHNLeA5P/YTSuSpJ+ED
+	YF67bzGti+2sFxYr1hJV52gOr0/gsQtmReJvK0QkXSPNySyj2UFxP/vxx1fQ2drUYKnsf02hly/fn
+	N+hdaYXURChMM/Qj3BxjOmMN5Mh8tt2mbsIOElZIZKFl9mk+mOuaTUA3uSeqooa9Mh8CQfEZCCXt8
+	BOpVmJ1NUwSrNcZEBfJjhkN3fTahz1Pl3yTqB/UDGb/OxWtkzeX75uuBJqUhwER81iIRR/9XzdMUe
+	5ZR5vhCxxMQfzf36XxgMH7408u4nsxgtbgr5NYUcgfbROPxUtAFXUYbbwwT2OFEhgDR6EVDL9rDb0
+	W36qdtPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxpoO-0000000Eh7F-1SkF;
-	Sat, 22 Aug 2026 17:47:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wxqD1-0000000Ehmj-1YH8;
+	Sat, 22 Aug 2026 18:12:47 +0000
+Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxpoH-0000000Eh6K-2cxf
+	id 1wxqCy-0000000EhmF-0eFP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Aug 2026 17:47:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 926AC43976;
-	Sat, 22 Aug 2026 17:47:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9EB11F00A3E;
-	Sat, 22 Aug 2026 17:47:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787420832;
-	bh=d7wGI6rY14jaaHYUxcqFHLnsSsbhaMKq2yfxDsNBo5k=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Nf8k3Gs6QeTLL3pinx6bwjZIfnxGRSuu3DrIW4TU4bR6ZaTkw8JLLp2tc07LHNwwj
-	 xn8ESLycIGcB92zPeZrb4EC26p63Ip3+Fps0gqyUXv6DmKDQys7ovYTW/TprPzvOHf
-	 Dj4SNR5FPcOI1pSUabYbsvtIckg1LstqmrrljShDE9utbzRvyfD/Uwh7AAWGaEq/Fe
-	 bL23sSkAGrXmxJ3vF/+mKeWkquu4K22i9G/ugkNuDxkA8hFYVOp2APE90KD7cZ4v4P
-	 2DLbDEOgkiHaIiMGdEblHFP2R6epkfbqD6OpH+5zHhAYW7arVn8Pavqricdc3NHvnb
-	 OM7iBudbYoKWA==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Sat, 22 Aug 2026 18:46:53 +0100
-Subject: [PATCH v2 1/2] KVM: arm64: Fix spurious warning for benign stage 2
- teardown race
+	Sat, 22 Aug 2026 18:12:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xQ1m/KzG7xoEghfLfNZ4wUwbs5lnDIF8nCi/zzPh0iQdQgptwCGGyRgAOtIggeIerpldTfqVcEY2TVlDcQNH13lg4/F5Mcc0vXm//MTktxTgzOGpQiu2SuWcwNFz4uyLR7mOgHIcuEUGGR0lTFZHa7DEtgyRHSix9LafVllcPG1HZ33rfdVir+ypviBPaz4s7rYNGiWOYYS6oxGfZ7RIGc2Ikfy/xbtiL8WBhHRA9sQUJcm4IFw+4O29UtCEKlJEFtr3NWPHpnWZOwJxX7jN4Wtyf1Z7zASSLmuTFw4BgxX3YzCum1YnhPyRlHdd4yQpB6oGEia8qQvZ3eENiExvnQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2x0V8y7AtTqO+N9yrnBcjanzCtGg0yM/mYBEKDfCal0=;
+ b=u8cuOIUsw8uVWctKkmKzRVWgYv+5T+9dzGmeG756j456qGauoSwljRnW1a7TC6Tuf5w3FiEh4y3unIxQFJWEB0v5nNMQRvIUYWsP+MWWQOO/v5IxfGAVPp5Az1mRmHMqxky/bBYbTlA1NimScT1R5QPCv2hqe1V/is0GN652kS3Wnp3WfsJPY3K937ooYuXNw7F57Tt/Cj5ny0xktkKwp5rkqXSldU86LtFpq6GNjng+oE90wbZL7DxFiXG4TwK3N77F4/McUA488WyU99GJflu7A7zIbZqmJQcv0aiaf8iMIqJ5PgomQtgFUi79M/Xi0RuzsplciCV3GlpJH2DF4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2x0V8y7AtTqO+N9yrnBcjanzCtGg0yM/mYBEKDfCal0=;
+ b=HKXKmnPtOdK7QFZv6lj2olftA9Gw1e5l1nvL/sF0U+5ZHWJN0Q8p8n8IdLX6OPu3C9zRqO6d6V70HPTy08PGRhUTfhJGoiOmhuVE9lo2WP/aBBWUVPsf+x6oT/9mFtP2doRDlz+c4ZnMOsAXWIFEHgGxQZcTq1mevN+mCCJtBBPWMRRz9KlxdGhnQd7oYm3lqAG6PtcnLvfAz9Beu4ymSWMsqjGHYq+DsF8iFo8klw39yabA8gumzW1wnWo9sBGNB1uoDdOGtrBMzLDMKkf1eoz/CVsA1GCQLQ2RidQrcryGV7oHThAxdg7ojQ5+ivUl2Ddty2h+7JY4ru6KI+SOEw==
+Received: from DS1PR04CA0021.namprd04.prod.outlook.com (2603:10b6:8:243::16)
+ by CH3PR12MB7642.namprd12.prod.outlook.com (2603:10b6:610:14a::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.11; Sat, 22 Aug
+ 2026 18:12:36 +0000
+Received: from SA2PEPF000015CA.namprd03.prod.outlook.com
+ (2603:10b6:8:243:cafe::86) by DS1PR04CA0021.outlook.office365.com
+ (2603:10b6:8:243::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.11 via Frontend Transport; Sat,
+ 22 Aug 2026 18:12:36 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SA2PEPF000015CA.mail.protection.outlook.com (10.167.241.200) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.360.3 via Frontend Transport; Sat, 22 Aug 2026 18:12:35 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Sat, 22 Aug
+ 2026 11:12:19 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Sat, 22 Aug 2026 11:12:19 -0700
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.126.190.182)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
+ Transport; Sat, 22 Aug 2026 11:12:17 -0700
+Date: Sat, 22 Aug 2026 11:12:15 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<praan@google.com>, <kevin.tian@intel.com>, <smostafa@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>
+Subject: Re: [PATCH v9 01/12] iommu/arm-smmu-v3: Do not enable EVTQ/PRIQ
+ interrupts in kdump kernel
+Message-ID: <aonmf/mKFhBDca5D@nvidia.com>
+References: <cover.1784663183.git.nicolinc@nvidia.com>
+ <35000f29472b5e12114073d614168c251551ff0a.1784663184.git.nicolinc@nvidia.com>
+ <178735412597.18212.9285735691655908532.b4-review@b4>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260822-kvm-arm-nested-virt-fix-v2-1-ac4059a0eaa6@kernel.org>
-References: <20260822-kvm-arm-nested-virt-fix-v2-0-ac4059a0eaa6@kernel.org>
-In-Reply-To: <20260822-kvm-arm-nested-virt-fix-v2-0-ac4059a0eaa6@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
- Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
- Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Christoffer Dall <christoffer.dall@arm.com>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>, 
- Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, 
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, stable@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10133; i=ljs@kernel.org;
- h=from:subject:message-id; bh=8LNmGXzlmgxMWU1FepZ/orH8subma92NfOqYuZvssUc=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLI6H8wqW2Ml8OftwyCR3ywK7NaxC6qf6jQv52yXyZi/0
- qGs/drEjlIWBjEuBlkxRZbnX8T3B4mEzeu84O8GM4eVCWQIAxenAExkvzIjw9LjvAHnnNqF1e+6
- Nt6W5trsdWyrEnflcY3ePybv+wMz2Bn+SnNrtW8VsZZyuD6tId+9T8xNTOFi/q6PGa3sWj8YKmd
- xAwA=
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <178735412597.18212.9285735691655908532.b4-review@b4>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015CA:EE_|CH3PR12MB7642:EE_
+X-MS-Office365-Filtering-Correlation-Id: 29f7a0a5-5512-47f6-b7ff-08df0078f1aa
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|376014|1800799024|82310400026|6133799003|56012099006|10067099003|4143699003|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: QGf3cK83eg5oUXslpX6NkJDGUv5JTTMKJ+nFD4nazqFEF0Y4A1HIOe8f0+fSS3w/LfuDISiIy4ZTNfdf+sqLOGrvJnRfj2CO9MOvDLOxMWBIYIvtGu9c05L3Oqs3FTQEdkg6F+T7NA/F1KJDwvSkD5WdVx5oWNAmmCYndPRIa53voHZ3FjumxiPHJkiZKMMPurLmy1iDAr9q6goyLm9FrxfZo/nbF40RqtcwoqiHlSw4K24UKNaA39c75rXFrfxJE3lUdXEi8LNkuYF6QuU4fmGHzmg9cyVe8rJXX4KmpMFKgmzl6Bw+jjXZvjTxuO59w5WOF5PfeJYo1msJhhTuL+sNEnZGWnTlg0RheZC/7q50UfM9DFqT3Vr3ONLm444nc4ul3yxNZYsJAHJJ3TIton8PRkrSR+WpBREG1412+NFfhG6GVJKSOp7GKynHQuK1EPBn4iJhUVXRLIoqx1DeaFPNWFAH4fbtkle+7jXTquohpzXBvAf+6fNaB7xuCNqd6VlgBUXn4eliPhgfkZj1oVck/ZCeFT+RFrdH1rSzIegniT7sAWKb+pJzABfsnor4n6Zs8i5CcxtCEZTN0L9dydit1EB0x0/+7D8SklGVzLNGpJiDP6cCxvk3lv/6od+AY9Hvxe94q9j8Pxr1/iVnTgpH9Yn20kLGvlRxnChP7LqtBIhTlhejbjaxhL6c7aLPaBOOzlefn4/Ry49oNHYPzw==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(1800799024)(82310400026)(6133799003)(56012099006)(10067099003)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: s64udPM9QJlGpmRh7OEVc0X9GFYoGQkneRrhBgUNQoaUV10wU7eVulAXwr1su7xOMdqiKqI+B3unKi/Dyz3lBOxOwAj0Rzspzs3Y6fbwzmLkO5Xlw9EM4hr/cKwBxWtuz0x0LLT0AE+ZyIZkrCHUyXMEDDRKjZ+MilzbTQXY2pERjJBdKAfNdcq0qNs0tWXu5k5ZLlYUf7ZKaYxYCa8D4JzGnob9C6pVhoiTnQPm+W3H8JWJPqRqQRx6aHKXWD9PnU+NyjivMitrMnjq8cN5p/VKG/HwM/p48rsjS6rUZ/5Nb0UJQl3Gf9+d4UOERXsQFbGIAw7ENBO2VFV6jMPGULnNBz8qp0v02FTh9K/stk8cjrwrA4cVbnXFKjYyG+slye+AIZYV03DawZS3vKSfByaXG01sKF9HH+RVmp8DVh4JGkqfqh08timz3mGU+J4v
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2026 18:12:35.9636
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 29f7a0a5-5512-47f6-b7ff-08df0078f1aa
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CA.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7642
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260822_111244_205923_1FFFC3ED 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,266 +131,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A batch of kernel warnings were triggered in the L0 host kernel when using
-kvmtool to experiment with nested virtualisation.
+On Fri, Aug 21, 2026 at 08:15:25PM -0300, Jason Gunthorpe wrote:
+> >  static irqreturn_t arm_smmu_combined_irq_handler(int irq, void *dev)
+> >  {
+> > -	arm_smmu_gerror_handler(irq, dev);
+> > +	irqreturn_t ret = arm_smmu_gerror_handler(irq, dev);
+> > +
+> > +	/* In kdump, EVTQ/PRIQ are disabled and there is no thread to wake */
+> > +	if (is_kdump_kernel())
+> > +		return ret;
+> >  	return IRQ_WAKE_THREAD;
+> 
+> To Robin's earlier point, how about some ARM_SMMU_FEAT_EVTQ ? We already have
+> ARM_SMMU_FEAT_PRI. Unset these by kdump instead of sprinkling kdump things
+> everywhere?
+> 
+> I'm not especially kean on these kdump annotations as a long term
+> maintainability, but having a FEAT to protect a well defined area of
+> functionality seems more understandable long term.
 
-The issue was observed on an M2 macbook pro with 24 GiB of RAM running
-asahi linux 7.1.6-400.asahi.fc44.aarch64+16k with 16 KiB page size.
+I've added a new patch adding ARM_SMMU_FEAT_EVTQ.
 
-The bug is confirmed to exist in mainline and does not appear to be
-impacted by any downstream patches carried by asahi.
+> > +> @@ -4682,19 +4691,30 @@ static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
+> >  		/*
+> >  		 * Cavium ThunderX2 implementation doesn't support unique irq
+> >  		 * lines. Use a single irq line for all the SMMUv3 interrupts.
+> > +		 *
+> > +		 * In kdump, EVTQ/PRIQ are disabled, so no threaded handling.
+> >  		 */
+> 
+> Why? I mean I get we might not need a threaded IRQ handler without PRI, but is
+> there a reason kdump would not want to create one anyhow?
 
-kvmtool was used to establish an L1 guest with 8 CPUs and 8 GiB of RAM.
+In kdump case, only GERROR is left. So, I thought it could match
+the non-combined case.
 
-kvmtool was then run again within the L1 guest to establish an L2 guest
-with 4 CPUs and 4 GiB of RAM.
+But it's probably okay to remain to be threaded. Also, since we
+gate interrupts with the FEAT_PRIQ and FEAT_EVTQ in the combined
+handler, it makes things here cleaner.
 
-Then it was run again to establish another inner guest with 2 CPUs and 2
-GiB of RAM at L3.
-
-Both the L2 and L3 guests were then exited and another L2 guest was
-established with the same characteristics.
-
-Sufficient memory pressure was present in the L0 host to trigger indirect
-reclaim, waking kcompactd up and triggering migration.
-
-Shortly afterwards all of the kvmtool instances were stopped, at which
-point three warnings were observed in dmesg in quick succession on the
-host, with the second and the third occurring 114us and 189us after the
-first, respectively.
-
-In each case the call trace was the same:
-
-WARNING: arch/arm64/kvm/mmu.c:336 at __unmap_stage2_range+0x64/0x80,
-CPU#5: kcompactd0/66
-...
-__unmap_stage2_range (arch/arm64/kvm/mmu.c:335 (discriminator 3)) (P)
-kvm_stage2_unmap_range (arch/arm64/kvm/mmu.c:346)
-kvm_nested_s2_unmap (arch/arm64/kvm/nested.c:1168 (discriminator 14))
-kvm_unmap_gfn_range (arch/arm64/kvm/mmu.c:2416)
-kvm_mmu_notifier_invalidate_range_start (arch/arm64/kvm/../../../virt/kvm/kvm_main.c:718 ...)
-mn_hlist_invalidate_range_start (mm/mmu_notifier.c:525)
-__mmu_notifier_invalidate_range_start (mm/mmu_notifier.c:580)
-try_to_migrate_one (./include/linux/mmu_notifier.h:478 ./include/linux/mmu_notifier.h:471 mm/rmap.c:2459)
-rmap_walk_anon (mm/rmap.c:3001)
-rmap_walk (mm/rmap.c:3106 mm/rmap.c:3101)
-try_to_migrate (mm/rmap.c:2774)
-migrate_folio_unmap (mm/migrate.c:1330 (discriminator 3))
-migrate_pages_batch (mm/migrate.c:1909)
-migrate_pages_sync (mm/migrate.c:2026)
-migrate_pages (mm/migrate.c:2135)
-compact_zone (mm/compaction.c:2663)
-compact_node (mm/compaction.c:2932)
-kcompactd (mm/compaction.c:3230)
-kthread (kernel/kthread.c:436)
-ret_from_fork (arch/arm64/kernel/entry.S:858)
-
-Analysing this:
-
-try_to_migrate() performs the first part of migration on a folio -
-establishing migration entries in all page tables mapping it - calling
-try_to_migrate_one() for each VMA the folio is mapped in.
-
-Immediately prior to installing the migration entry, try_to_migrate_one()
-calls mmu_notifier_invalidate_range_start() to signal to notifiers that the
-existing page table entry is about to be unmapped.
-
-Since this range happened to contain folios used by the virtual machine
-(given its memory consumption this was highly likely to be a target) this
-in turn triggers arm64 kvm code via an MMU notifier:
-
-mmu_notifier_invalidate_range_start()
-  -> ... -> kvm_mmu_notifier_invalidate_range_start()
-    -> kvm_mmu_unmap_gfn_range()
-      -> kvm_unmap_gfn_range()
-        -> kvm_nested_s2_unmap()
-          -> kvm_stage2_unmap_range()
-            -> __unmap_stage2_range()
-               -> stage2_apply_range()
-       	       <- -EINVAL, triggering a WARN_ON()
-
-Since commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page
-tables") kvm_unmap_gfn_range() invokes kvm_nested_s2_unmap() which takes
-the rather drastic step of evicting the entirety of the stage 2 shadow page
-tables for each nested guest:
-
-	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
-		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
-
-		if (kvm_s2_mmu_valid(mmu))
-			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
-	}
-
-This will iterate through every valid MMU.
-
-mmu_notifier_invalidate_range_start() sets the MMU_NOTIFIER_RANGE_BLOCKABLE
-flag when signalling notifiers, so may_block is true here.
-
-__unmap_stage2_range() wraps invocation of stage2_apply_range() in a
-WARN_ON():
-
-	WARN_ON(stage2_apply_range(mmu, start, end, KVM_PGT_FN(kvm_pgtable_stage2_unmap),
-				   may_block));
-
-Which is precisely the triggered warning and means stage2_apply_range() is
-returning an error.
-
-In arm64 return values are stored in the x0 register and in each splat w0
-(since it's a 32-bit value) is 0xffffffea which, by two's complement, is
--0b00010110 or -EINVAL.
-
-The only way in which stage2_apply_range() can return an error is if either
-the passed in walk function (kvm_pgtable_stage2_unmap()) returns an error
-or mmu->pgt is NULL:
-
-	static int stage2_apply_range(...)
-	{
-		do {
-			struct kvm_pgtable *pgt = mmu->pgt;
-			if (!pgt)
-				return -EINVAL;
-
-			next = stage2_range_addr_end(addr, end);
-			ret = fn(pgt, addr, next - addr);
-			if (ret)
-				break;
-			if (resched && next != end)
-				cond_resched_rwlock_write(&kvm->mmu_lock);
-		} while (addr = next, addr != end);
-
-		return ret;
-	}
-
-This loop is batched by stage2_range_addr_end() at the granularity of
-kvm_granule_size(KVM_PGTABLE_MIN_BLOCK_LEVEL), which for a 16 KiB page size
-kernel is 32 MiB.
-
-kvm_pgtable_stage2_unmap() only returns an error if
-kvm_pgtable_walk_begin() or _kvm_pgtable_walk() return an error. On arm64
-the former doesn't ever do so, and the latter only returns -EINVAL if
-either pgd is NULL (we gate that already) or an invalid pgt->start_level is
-specified (not the case).
-
-So the cause of the warning is that mmu->pgt is NULL here.
-
-This field is protected by kvm->mmu_lock, but after each invocation of the
-walk function, if the end of the range has not yet been reached, the lock
-is dropped.
-
-This is done by calling cond_resched_rwlock_write() which drops
-kvm->mmu_lock when yielding the time slice before reacquiring it upon being
-scheduled again:
-
-		if (resched && next != end)
-			cond_resched_rwlock_write(&kvm->mmu_lock);
-
-Note that resched = may_block here and is always true for these walks.
-
-This points to something else racing this code to clearing the pgt, and
-brings us back to the observation above that the issue occurs when tearing
-down the L2 guest.
-
-Upon L0's userspace mm_struct teardown, stage 2 mappings for IPAs mapped by
-the guest are unmapped via mmu notifier:
-
-exit_mm()
-  -> mmput()
-    -> __mmput()
-      -> exit_mmap()
-        -> mmu_notifier_release()
-	  -> ... -> kvm_mmu_notifier_release()
-            -> kvm_flush_shadow_all()
-              -> kvm_arch_flush_shadow_all()
-	        -> kvm_free_stage2_pgd()
-		  -> [ acquire kvm->mmu_lock for write ]
-		  -> mmu->pgt = NULL [ among other tasks ]
-		  -> [ release kvm->mmu_lock for write ]
-
-So there is a benign race resulting in a spurious warning:
-
-	Thread A - notify: migration   | Thread B - notify: release
-	-------------------------------|---------------------------------
-	< kvm->mmu_lock held >         |
-	stage2_apply_range()           |
-	  get mmu->pgt, check !NULL    |
-	  ...                          | kvm_arch_flush_shadow_all()
-	  cond_resched_rwlock_write(); |   < contend, sleep kvm->mmu_lock >
-	< drop kvm->mmu_lock >         |   < acquire kvm->mmu_lock>
-                                       |   ...
-				       |   kvm_free_stage2_pgd()
-                                       |     mmu->pgt = NULL
-				       |   < invalidate MMU >
-				       |   ...
-				       |   < release kvm->mmu_lock >
-	[ scheduled ]		       |
-	stage2_apply_range()           |
-	  < loop to next >             |
-	  get, mmu->pgt, check !NULL   |
-	  is NULL, return -EINVAL      |
-        __unmap_stage2_range()         |
-	  WARN_ON(-EINVAL) <--- entirely spurious - the race was handled
-                                 correctly.
-
-This does not hide any other errors as the only other error that can arise
-is from kvm_pgtable_stage2_unmap() which calls kvm_pgtable_walk()
-first which gates on !NULL pgt->pgd returning -EINVAL if it is NULL anyway.
-
-On reflection this race seems rather likely when there is host memory
-pressure concurrent with nested guest teardown - the lock release will
-cause interleaving warnings once for every valid MMU as long as at least 1
-block remains to be unmapped by stage2_apply_range().
-
-Fix the spurious warning by updating stage2_apply_range() to no longer
-treat concurrent PGT teardown on lock release as an error - whether the
-walker is tearing down page tables or doing something else this is a
-legitimate reason to abort the operation without error.
-
-This keeps the warning in place for all other circumstances.
-
-In practice only __unmap_stage2_range() actually does anything with the
-error so this only impacts that.
-
-Fixes: ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page tables")
-Cc: stable@vger.kernel.org
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- arch/arm64/kvm/mmu.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 74e7e7f7564c..31e049ded093 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -59,19 +59,25 @@ static phys_addr_t stage2_range_addr_end(phys_addr_t addr, phys_addr_t end)
-  * long will also starve other vCPUs. We have to also make sure that the page
-  * tables are not freed while we released the lock.
-  */
--static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t addr,
-+static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
- 			      phys_addr_t end,
- 			      int (*fn)(struct kvm_pgtable *, u64, u64),
- 			      bool resched)
- {
- 	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
-+	phys_addr_t addr = start;
- 	int ret;
- 	u64 next;
- 
- 	do {
- 		struct kvm_pgtable *pgt = mmu->pgt;
-+		/*
-+		 * We may be raced on PGT teardown when we release the
-+		 * kvm->mmu_lock. That's fine as the PGT is legitimately no
-+		 * longer present.
-+		 */
- 		if (!pgt)
--			return -EINVAL;
-+			return resched && addr > start ? 0 : -EINVAL;
- 
- 		next = stage2_range_addr_end(addr, end);
- 		ret = fn(pgt, addr, next - addr);
-
--- 
-2.55.0
-
+Thanks
+Nicolin
 
