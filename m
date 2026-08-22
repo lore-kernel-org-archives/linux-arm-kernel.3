@@ -4,47 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22431C5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 07:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512D3C5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 07:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XviFG8sDQ7+lvUoVjqxltW2yCT0wFNF6qXQo7VooJMo=; b=JHcd/8whhoSwwoSeMoCN66nJZI
-	bJATPqGvyzLy/zeXfjQJt4awddCIXkDFDbFJk49lfpNmHzAZB4tJI8aGAIdgAlQUEVyWiKRZsPl2O
-	3Iah1r/5c16G97hWSxS2rUkhM6xjhB6osA7NfqWjDNdNrVLp/ffHd14iHHMIlx+FX7YdW9o+4BEoB
-	zxijOA2lGY62uR9TUI3MzZFY5Wdmpdht5vGc4NTJChxKaebZ5Juq51Jdl+zb/MJyxwemh3eiaWKF4
-	IAYWC/6C7WVGy1s7Pg9E1cgeE1goJJPLqkUrnk6a7H22u/HspqKxasEzjzfw/Muz6+G3FPFAnFvrn
-	l2XDyuaA==;
+	bh=2L5O99jQ5jMH3/ZfNLN4ePAqoJtT/Ha0IVk0UXWwOWs=; b=f0YbNOhZWRawjZo+SkZ8yBSNfT
+	ud0KWLDnjmzmRi5QGngvckXGIebMe0vQ0aRda0NQgyHSoiGfFy2nDoiic+3wQWBLsSzL9DMQPXFwW
+	BAC0eki/RuzVTuHzGD8ZOtc7ywVZWx6ymuY6VZ29i+KqRYEcfHyJrXhN2I9DkoPakVDzaWeFMyEmj
+	g/V1mxf+yHHRpMyAf3y8/KQb111A1ot3c7dfgpkLVxHIomhwmKWikAc/ZOK4jdnpZjwH+nqHdkbAk
+	qHvxS4HlrOrdCYxDkrWsHm83Jjz1n2hihDSGC4Y5n21Ghp+ecYR2+no+yKT3czhWv9RGmEIavTlPV
+	oSnsoz0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxgTS-0000000ELsv-1OEs;
-	Sat, 22 Aug 2026 07:49:06 +0000
+	id 1wxgTV-0000000ELwe-2MNT;
+	Sat, 22 Aug 2026 07:49:09 +0000
 Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxgTK-0000000ELnk-1W4t;
-	Sat, 22 Aug 2026 07:49:01 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4235F11C81B;
-	Sat, 22 Aug 2026 09:48:51 +0200 (CEST)
+	id 1wxgTP-0000000ELq6-2Xw2;
+	Sat, 22 Aug 2026 07:49:05 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A336111C814;
+	Sat, 22 Aug 2026 09:48:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1787384932;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	s=dkim; t=1787384937; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=XviFG8sDQ7+lvUoVjqxltW2yCT0wFNF6qXQo7VooJMo=;
-	b=PSccTpouFtFJFKkzAnp60JcxIUWQFk0oWnf0QdHeV5AKzoK6YndUJy1g0TlNCNxkXOC6Pc
-	WbjV4mgWlc3MpenrSMPCKfRxoG3rWrRutSb974IdHtMDugySgvo8IZwXtfVE8Z92MIFwHS
-	CgPQGxMfClzuJ12fV1vBvKPixQ4Pnwy7Exk4rHhI1icl/6o7eziN47DOfzUOYOsVhyIq4n
-	FjpeHbl3hdLP2YcPTWd+Ev318wSzohJjPJ90ZuE6u4/4RuRrFwjitDNLvFzWTMBAmDj6wc
-	EKN7FPwAUX+Q6GbqC8v3vArfevm2czWIxM4/u3OPjaxf3lHyUDZ0M8XUC8drQA==
+	bh=2L5O99jQ5jMH3/ZfNLN4ePAqoJtT/Ha0IVk0UXWwOWs=;
+	b=Uy9wex9zeflIc5sXrnf6UpDhjwFjGqxghrNV+rL8o9+jBbZnUe6/EpCCU5z1lHUmgybsd+
+	FJ3ds0cpwFDAgB+cW6gGsQU9s4YyKlaODnkiPkruoRv03n9OMnlvnfBHUGDRFUAfGQDuro
+	bwhgXXWixa+rfw47QQUUjaNaVZrdQhZ8CWFE0OvyJpOl6a3l2MCKpMQtIGJlOlId56EGxz
+	bwy+zPwa/GDPgRufWnuWJpqNe//2WZwQGpF91O+kTPKmnXSO91mXTiaWWTzugi77stCJTP
+	rJJd0Im4lOh8XY5NxaONAHlZJynAKWv1f2DhRua9kGB/vOij5voujgLiHUD97Q==
 From: Marek Vasut <marex@nabladev.com>
 To: linux-usb@vger.kernel.org
 Cc: fabrice.gasnier@foss.st.com,
 	Marek Vasut <marex@nabladev.com>,
-	Pankaj Dev <pankaj.dev@st.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20Le=20Goffic?= <clement.legoffic@foss.st.com>,
-	Gatien Chevallier <gatien.chevallier@foss.st.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Christian Bruel <christian.bruel@foss.st.com>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -52,6 +48,7 @@ Cc: fabrice.gasnier@foss.st.com,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
+	Pankaj Dev <pankaj.dev@st.com>,
 	Rahul Kumar <rahul.kumar05@st.com>,
 	Rob Herring <robh@kernel.org>,
 	Rosen Penev <rosenp@gmail.com>,
@@ -63,19 +60,18 @@ Cc: fabrice.gasnier@foss.st.com,
 	linux-kernel@vger.kernel.org,
 	linux-phy@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v3 5/9] dt-bindings: usb: dwc3: Document ST STM32MP2 DWC3 xHCI USB controller
-Date: Sat, 22 Aug 2026 09:46:38 +0200
-Message-ID: <20260822074816.548662-6-marex@nabladev.com>
+Subject: [PATCH v3 6/9] usb: dwc3: dwc3-generic-plat: Add ST STM32MP2 DWC3 xHCI USB controller glue
+Date: Sat, 22 Aug 2026 09:46:39 +0200
+Message-ID: <20260822074816.548662-7-marex@nabladev.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260822074816.548662-1-marex@nabladev.com>
 References: <20260822074816.548662-1-marex@nabladev.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_004858_705820_BED7A7BF 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20260822_004903_946826_21395054 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,16 +86,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ST STM32MP2 SoC contains single instance of DWC3 USB controller with
-glue logic wrapper around it controlled by syscon. Document the glue
-logic and DWC3 controller.
+The ST STM32MP2 SoC contains one instance of DWC3 USB controller with
+glue logic wrapper around it controlled by syscon. Extend the generic
+DWC3 platform driver with ST STM32MP2 glue logic specifics.
 
-Co-developed-by: Pankaj Dev <pankaj.dev@st.com>
-Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
-Co-developed-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-Co-developed-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
 Signed-off-by: Marek Vasut <marex@nabladev.com>
 ---
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
@@ -124,120 +114,87 @@ Cc: linux-phy@lists.infradead.org
 Cc: linux-stm32@st-md-mailman.stormreply.com
 Cc: linux-usb@vger.kernel.org
 ---
-V2: Fix up Sob/Cdb lines
-V3: - Document maximum-speed
-    - Switch resets to maxItems: 1
-    - Drop label from example
-    - Use generic over-current-active-low
-    - Use ref: snps,dwc3-common.yaml and drop generic dr_mode/maximum-speed/phys/phy-names
+V2: No change
+V3: - Use generic over-current-active-low
 ---
- .../bindings/usb/st,stm32mp25-dwc3.yaml       | 97 +++++++++++++++++++
- 1 file changed, 97 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/usb/st,stm32mp25-dwc3.yaml
+ drivers/usb/dwc3/dwc3-generic-plat.c | 44 ++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/usb/st,stm32mp25-dwc3.yaml b/Documentation/devicetree/bindings/usb/st,stm32mp25-dwc3.yaml
-new file mode 100644
-index 0000000000000..96bd557327252
---- /dev/null
-+++ b/Documentation/devicetree/bindings/usb/st,stm32mp25-dwc3.yaml
-@@ -0,0 +1,97 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/usb/st,stm32mp25-dwc3.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
+index ca69ac0eb07ce..f670576511b59 100644
+--- a/drivers/usb/dwc3/dwc3-generic-plat.c
++++ b/drivers/usb/dwc3/dwc3-generic-plat.c
+@@ -22,6 +22,12 @@
+ #define EIC7700_HSP_AXI_LP_XM_CSYSREQ	BIT(0)
+ #define EIC7700_HSP_AXI_LP_XS_CSYSREQ	BIT(16)
+ 
++#define STM32MP2_USB3DRCR_HOST_PORT_POWER_CONTROL_PRESENT	BIT(0)
++#define STM32MP2_USB3DRCR_OVRCUR_POLARITY			BIT(1)
++#define STM32MP2_USB3DRCR_VBUSEN_POLARITY			BIT(2)
++#define STM32MP2_USB3DRCR_USB2ONLYH				BIT(3)
++#define STM32MP2_USB3DRCR_USB2ONLYD				BIT(4)
 +
-+title: STMicroelectronics STM32 MPU DWC3 USB SoC controller
+ struct dwc3_generic {
+ 	struct device		*dev;
+ 	struct dwc3		dwc;
+@@ -85,6 +91,38 @@ static int dwc3_spacemit_k1_init(struct dwc3_generic *dwc3g)
+ 	return 0;
+ }
+ 
++static int dwc3_stm32mp25_init(struct dwc3_generic *dwc3g)
++{
++	struct device *dev = dwc3g->dev;
++	bool ovrcur_polarity_low = device_property_read_bool(dev, "over-current-active-low");
++	bool prt_pwr_ctrl = device_property_read_bool(dev, "st,enable-port-power-control");
++	bool usb2only_conf = device_property_match_string(dev, "phy-names", "usb3-phy") < 0;
++	bool vbusen_polarity_low = device_property_read_bool(dev, "st,vbusen-active-low");
++	struct regmap *regmap;
++	u32 drcr;
 +
-+description:
-+  The STM32 MPU DWC3 USB SoC controller block supports both
-+  Host(SS/HS/FS/LS) and Device(SS/HS/FS) mode operation
++	regmap = syscon_regmap_lookup_by_phandle_args(dev->of_node, "st,syscfg", 1, &drcr);
++	if (IS_ERR(regmap))
++		return dev_err_probe(dev, PTR_ERR(regmap), "No st,syscfg phandle specified\n");
 +
-+maintainers:
-+  - Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-+  - Marek Vasut <marex@nabladev.com>
++	return regmap_update_bits(regmap, drcr,
++				  STM32MP2_USB3DRCR_HOST_PORT_POWER_CONTROL_PRESENT |
++				  STM32MP2_USB3DRCR_OVRCUR_POLARITY |
++				  STM32MP2_USB3DRCR_VBUSEN_POLARITY |
++				  STM32MP2_USB3DRCR_USB2ONLYD |
++				  STM32MP2_USB3DRCR_USB2ONLYH,
++				  FIELD_PREP(STM32MP2_USB3DRCR_HOST_PORT_POWER_CONTROL_PRESENT,
++					     prt_pwr_ctrl) |
++				  FIELD_PREP(STM32MP2_USB3DRCR_OVRCUR_POLARITY,
++					     ovrcur_polarity_low) |
++				  FIELD_PREP(STM32MP2_USB3DRCR_VBUSEN_POLARITY,
++					     vbusen_polarity_low) |
++				  FIELD_PREP(STM32MP2_USB3DRCR_USB2ONLYD,
++					     !!usb2only_conf) |
++				  FIELD_PREP(STM32MP2_USB3DRCR_USB2ONLYH,
++					     !!usb2only_conf));
++}
 +
-+allOf:
-+  - $ref: snps,dwc3-common.yaml#
+ static int dwc3_generic_probe(struct platform_device *pdev)
+ {
+ 	const struct dwc3_generic_config *plat_config;
+@@ -231,12 +269,18 @@ static const struct dwc3_generic_config eic7700_dwc3 =  {
+ 	.properties = DWC3_DEFAULT_PROPERTIES,
+ };
+ 
++static const struct dwc3_generic_config stm32mp25_dwc3 =  {
++	.init = dwc3_stm32mp25_init,
++	.properties = DWC3_DEFAULT_PROPERTIES,
++};
 +
-+properties:
-+  compatible:
-+    const: st,stm32mp25-dwc3
-+
-+  reg:
-+    maxItems: 1
-+
-+  access-controllers:
-+    maxItems: 1
-+
-+  clocks:
-+    minItems: 3
-+    maxItems: 3
-+
-+  clock-names:
-+    items:
-+      - const: ref
-+      - const: bus_early
-+      - const: suspend
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 1
-+
-+  over-current-active-low:
-+    type: boolean
-+    description: Over-Current signal polarity is active-low
-+
-+  st,syscfg:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    description: Phandle to system configuration controller.
-+    items:
-+      - items:
-+          - description: phandle to syscfg
-+          - description: USB3DR control offset within syscfg
-+
-+  st,enable-port-power-control:
-+    type: boolean
-+    description: Enable Host-Mode Port Power Control (bit-3 of capability param HCCPARAMS)
-+
-+  st,vbusen-active-low:
-+    type: boolean
-+    description: VBUS-ENABLE signal polarity is active-low
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - phys
-+  - phy-names
-+  - resets
-+  - st,syscfg
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
-+
-+    usb@48300000 {
-+        compatible = "st,stm32mp25-dwc3";
-+        reg = <0x48300000 0x100000>;
-+        clocks = <&rcc CK_KER_USB2PHY2>, <&rcc CK_BUS_USB3DR>, <&rcc CK_KER_USB2PHY2>;
-+        clock-names = "ref", "bus_early", "suspend";
-+        interrupts = <GIC_SPI 228 IRQ_TYPE_LEVEL_HIGH>;
-+        phys = <&usb2_phy>, <&usb3_phy>;
-+        phy-names = "usb2-phy", "usb3-phy";
-+        resets = <&rcc USB3DR_R>;
-+        over-current-active-low;
-+        st,syscfg = <&syscfg 0x4800>;
-+        st,vbusen-active-low;
-+    };
+ static const struct of_device_id dwc3_generic_of_match[] = {
+ 	{ .compatible = "spacemit,k1-dwc3", &spacemit_k1_dwc3},
+ 	{ .compatible = "spacemit,k3-dwc3", },
+ 	{ .compatible = "fsl,ls1028a-dwc3", &fsl_ls1028_dwc3},
+ 	{ .compatible = "eswin,eic7700-dwc3", &eic7700_dwc3},
+ 	{ .compatible = "starfive,jhb100-dwc3", },
++	{ .compatible = "st,stm32mp25-dwc3", &stm32mp25_dwc3 },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, dwc3_generic_of_match);
 -- 
 2.53.0
 
