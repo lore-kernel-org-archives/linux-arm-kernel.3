@@ -4,113 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C556CC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 07:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE3E2C5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 07:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zoyg9tDcqSP32PikNEbdsojOFRXroqmGh2a+jLRJlR4=; b=UUyHkST4gsJJBNj2jg0zNxqad5
-	ISsAqBiBE4ru36N6n4yvqNjAQ05e1s2mPcmmsbfllsdW+t4UpUBVT5TPpPpkCD7CPVL7zskQU7bMK
-	vAVEqBjOhQdr8sSmf+LBUdfuXeDZfnmfR5fZefgNDFLvukndsnZfZoZM+SE1nnpo0nVzFek9GD37J
-	8sU69zv1rKQQKJP3CGAr7MwC0esGfO4+3x5yawRU4I9Q0I9tbh7Jlii48230jWyVlDqav/0HfXbTK
-	w9cEd06s6TNuZmKT+/Bbj6edYBA24WWk6HTutE0ZdvDuBMszid45slxlg5dkwQOiMA8olbgfcC5OT
-	dWv1FcIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7EEflvdgZQe7OvkOracGJyX6vR4Npi3B22FWFR0VKLU=; b=24MV5QhMXPLs5NqLn7B1RKqcsg
+	XdwXTHBJZR8AEC3Tg//MjVJL4hUwo5B1zJl/Wq9pHptVOVNMPkkkY8O1y6XnBxzlwgmcpnek7AxYy
+	yXRRhB3CCbQAe5s1N8R3YdTTleglR6pKo5qQxTnRChKaJkm5Od7ncJlW+uH01t0bANXbwflGU27sE
+	sMqqithht6n3IUU0CqdUi4qBwjsyCz5g5TYQcY1sdDoWDQ4/6zQMNBegqVxDJmvZ4WKac5gZK/jaU
+	hxybLQbKMIxu7nrEaACBPP3JNkp58oMfjz7zDVwjrXFHExlcH+z2udEO/8b8/VqpCCE3RMahBnsun
+	IhZjtfrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxg9N-0000000EL8m-0XRT;
-	Sat, 22 Aug 2026 07:28:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wxgD6-0000000ELLm-0UrA;
+	Sat, 22 Aug 2026 07:32:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxg9L-0000000EL8d-3vwb;
-	Sat, 22 Aug 2026 07:28:20 +0000
+	id 1wxgD1-0000000ELLR-0muW
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 22 Aug 2026 07:32:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id ED097600E2;
-	Sat, 22 Aug 2026 07:28:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3C2B1F000E9;
-	Sat, 22 Aug 2026 07:28:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EC7B240851;
+	Sat, 22 Aug 2026 07:32:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDCC71F000E9;
+	Sat, 22 Aug 2026 07:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787383696;
-	bh=zoyg9tDcqSP32PikNEbdsojOFRXroqmGh2a+jLRJlR4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=QTgt7+XcJRB5w8VYmQk904bwW7lt2vamXm7poD1+CB7ak3Hkak+nSVVq1ydhqEU45
-	 ONclfaJZKoKpW5Be09Kx5dBn+oo2gFv9d8ijYvXPO8pQv1m/VSXWZ0GpFRdpoP1tVi
-	 txAUCrnIMbpuH5kRBcgU4V8rkGL8VTAarmB4Zfn78eS5ehYPo7u6VaLJyMBJVPfKPB
-	 Eb6LKHJpzZYPKVglcFpEq4NUe9S3DbCPnoAgSv/FM1U7KYuI2jjKgLrMQACEJIUrOQ
-	 wqGStNxLOYNUDCJYxcix98x9nPLxgAeTv14AD6m9a709R7Q3s1POPoK1Ky447s3Ndl
-	 jlPZy40qnqkiQ==
-Message-ID: <8054f9c4-e17f-4b4f-aabe-3939c65f8f24@kernel.org>
-Date: Sat, 22 Aug 2026 09:28:07 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 16/16] arm64: configs: enable usb and its dependencies
- used on stm32mp25
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Christian Bruel <christian.bruel@foss.st.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Srinivas Kandagatla <srini@kernel.org>,
- Marek Vasut <marex@nabladev.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Pankaj Dev <pankaj.dev@st.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
-References: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-0-c5e27cbc0795@foss.st.com>
- <20260821-ucpd-host-fusb340-v7-2-rfc-v1-16-c5e27cbc0795@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-16-c5e27cbc0795@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1787383926;
+	bh=7EEflvdgZQe7OvkOracGJyX6vR4Npi3B22FWFR0VKLU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=V2ahLVo7vaGqAGyqKtSSqu/dWNmdSL5N1EWqpBPVbDqfrabVuuj2kE1hdyTxZj88f
+	 W72c+CparEppW9iw8s7MYdnnAu5f77KKOCVq1PQeIXNQbwO3hKGlhVyNVKkSdvc3t8
+	 AdD5nHMfmhaMUkNFWR3RYnJzDAUmKeUnPHdfVOXVFqQ4CIZD/E/m8RSwNB+5iixPpJ
+	 LrP57PdfhPWhqa6iPqHZVlNIitIzGD7HYX4ItdZuVKmi/TxLlU+m2buzU0njW/+lJ2
+	 FyPt1poIYh5V0cWNqhYAx4OMo8jaM596jyzhnKseTgDYiQ2+1V5ERDbPYRXiXqAfTm
+	 Q+XK7jLr+ABaw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wxgCy-00000000Dbx-3uWw;
+	Sat, 22 Aug 2026 07:32:05 +0000
+Date: Sat, 22 Aug 2026 08:32:04 +0100
+Message-ID: <86y0dy4nm3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jintack Lim <jintack.lim@linaro.org>,
+	Christoffer Dall <christoffer.dall@linaro.org>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 2/2] KVM: arm64: nv: Fix null ptr deref in kvm_nested_s2_unmap() on S2 teardown
+In-Reply-To: <20260812-kvm-arm-nested-virt-fix-v1-2-4ad883f1b6a5@kernel.org>
+References: <20260812-kvm-arm-nested-virt-fix-v1-0-4ad883f1b6a5@kernel.org>
+	<20260812-kvm-arm-nested-virt-fix-v1-2-4ad883f1b6a5@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ljs@kernel.org, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, jintack.lim@linaro.org, christoffer.dall@linaro.org, christoffer.dall@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,23 +94,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/08/2026 18:23, Fabrice Gasnier wrote:
-> Enable USB drivers used on stm32mp25 reference design boards.
-> In addition to the USB HighSpeed and SuperSpeed PHY drivers,
-> enable the USB Type-C related drivers used on those boards e.g. UCPD,
-> external TCPP i2c protection chip and FUSB340 SuperSpeed mux.
+On Wed, 12 Aug 2026 14:31:21 +0100,
+"Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
 > 
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> Commit 7270cc9157f4 ("KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU
+> notifiers") introduced VNCR_EL2 invalidation in kvm_nested_s2_unmap().
+> 
+> However at the point of this being performed concurrent stage 2 teardown of
+> a nested guest can cause kvm->arch.mmu.pgt to be set to NULL.
+> 
+> This happens in kvm_flush_shadow_all() -> kvm_arch_flush_shadow_all() ->
+> kvm_free_stage2_pgd() and is performed under the kvm->mmu_lock.
+> 
+> Commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page
+> tables") introduced the teardown of the entire nested MMU range, which then
+> invokes stage2_apply_range() with resched=true:
+> 
+> mmu_notifier_invalidate_range_start()
+>   -> ... -> kvm_mmu_notifier_invalidate_range_start()
+>     -> kvm_mmu_unmap_gfn_range()
+>       -> kvm_unmap_gfn_range()
+>         -> kvm_nested_s2_unmap()
+>           -> kvm_stage2_unmap_range()
+>             -> __unmap_stage2_range()
+>                 -> stage2_apply_range()
+> 
+> This means that stage2_apply_range() can drop the kvm->mmu_lock and thus
+> concurrent progress can be made in lockstep with
+> kvm_arch_flush_shadow_all().
+> 
+> If kvm_arch_flush_shadow_all() advances ahead of stage2_apply_range() and
+> completes its operation it guarantees a NULL pointer deref.
+> 
+> Since kvm_free_stage2_pgd() is performed under the kvm->mmu_lock this will
+> either be observed NULL or not and serialised against
+> kvm_free_stage2_pgd().
+> 
+> Resolve the issue by explicitly checking for a NULL value. Since this
+> shouldn't be possible if blocking is not allowed, raise a warning if it is
+> ever NULL in this case.
+> 
+> Fixes: 7270cc9157f4 ("KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU notifiers")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 > ---
->  arch/arm64/configs/defconfig | 6 ++++++
->  1 file changed, 6 insertions(+)
+>  arch/arm64/kvm/nested.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index 17123f0b6dab..9fc0b1696dcb 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -1295,7 +1295,11 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+>  			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+>  	}
+>  
+> -	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+> +	/* NULL pgt should only be possible if raced when mmu_lock dropped. */
+> +	if (kvm->arch.mmu.pgt)
+> +		kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+> +	else
+> +		WARN_ON(!may_block);
 
-Subject prefix is imprecise - you update one config, not configs. Look
-at git history how this should be named - arm64: defconfig:
+I don't think the WARN_ON() should be here. We already have one at the
+iterator level, which will fire in the same conditions.
 
-Also, you completely missed company name - it's not your private config
-- and actual name of upstream boards using it.
+Thanks,
 
-Best regards,
-Krzysztof
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
