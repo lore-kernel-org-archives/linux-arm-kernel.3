@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E9AC5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 08:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB3D9C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 08:52:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=goS0hO9F9PB7GW9OY4RoUpd4niO++BgWcgqth7XojbQ=; b=hnuoi4u24Z5tU+w6P+knSQkp+x
-	m85nhyaESudlTSzIdJ4kmZS8aLwQ/bvZbf/8r/UQazW7IkhgaGfMvwyOF0eDGU2p48gH9Q3rXefiJ
-	ZYmLeCaNLO6/iqC1yoAVLmeDWgL3DYhgEcoC8n9Wt6A4ekqXwdIzToljnv4/CTdn8JFaxp/t4Mafk
-	ze4KL1+yVXC3wYlihxYdmCpR7/AYs/17zC+kQkKdwk/1eLqSzaP2uKhKBWbvR6SBG3T6qt5bnGsna
-	5oJAXVVoh1yqJNSTAp4sVdvOIKUypk0pvI332BBNOKYnhGS6np03GN7MILoBSJ07WZxqQlOJp6Bu6
-	TRaMsa1A==;
+	bh=pRT2HC3e4K5AX5o2Ld9A4kx4qzpZuC59viiQU6xaBO8=; b=cikH7N3/uM1BAPvYZ1g9Q3K4B9
+	QVxe9ZdOEixB1/lA4COiVr5gHYGuoBQHyGJDGqHtG5+iIfVT1Jx4OLAhgoPK1z7zsH/2MoipJ+7ND
+	uvZEEbHNHIRWbFSXdZ6vw54cTqy/0U4X7OPYWMBJwMdT8HzKK2d751TboXPJitwOyGdVCH8Aefz9a
+	Hnx6qKA5rZUhmkcrMTz5obSmBGctw7Ukw8Zmy3v143J2V03tMzdhPd/MZyVp6wh6QuonV5s95emWv
+	SAgKvXXPa8YnnZc4jyr5nNpQXMFPXcHDC7ssdJ8d/yNnMAuOilnJQU5ByJB3zpYNGi5m4AKfBjnOY
+	hgJ7GxvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxhHF-0000000EOqY-16k3;
-	Sat, 22 Aug 2026 08:40:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wxhSw-0000000EPME-1VMs;
+	Sat, 22 Aug 2026 08:52:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxhHD-0000000EOqL-3xdY
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Aug 2026 08:40:32 +0000
+	id 1wxhSu-0000000EPM5-32SA;
+	Sat, 22 Aug 2026 08:52:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E8C39600E2;
-	Sat, 22 Aug 2026 08:40:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D00A1F000E9;
-	Sat, 22 Aug 2026 08:40:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 19E25414C6;
+	Sat, 22 Aug 2026 08:52:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 515641F000E9;
+	Sat, 22 Aug 2026 08:52:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787388030;
-	bh=goS0hO9F9PB7GW9OY4RoUpd4niO++BgWcgqth7XojbQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=RCdeEWOl7vwP1easXifPNcEyw4TI9oZUWFv5A1RU6B3fxLxq9AvRr28vJjMKPpvO6
-	 OubQ97d9U7wPbWvXMmFxbcsaxDsoxlRleDvSeqq/70aPfuTgsgYa4aYB/GJ+Mk49Q+
-	 FO4kXaByqE1uzQ9vufOYXrdw2H9oAlouqVPFbgM0aVe0JEGo9ceAmy4qbk1VHlqSUC
-	 bgHU1ukKRmct/nKHNaYA/+zKxP+xHhkkfD/tWqKNB2VufWYdxm1WPbL9dcwB23chYz
-	 I91SPZ+39OlX3L28S0gNLQLsOa5prphUE8zHyuZKXobdb475E20IU08wi8M7E7FFdg
-	 g3OgOKAN9To4g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wxhHA-00000000EOp-2Ehu;
-	Sat, 22 Aug 2026 08:40:28 +0000
-Date: Sat, 22 Aug 2026 09:40:28 +0100
-Message-ID: <86tsom4kg3.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Eric Auger <eric.auger@redhat.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 3/5] KVM: arm64: vgic-v3: Unregister redistributors before freeing regions
-In-Reply-To: <aoiiHw4hBHB7C5uL@gmail.com>
-References: <20260819224229.82948-1-kmehltretter@gmail.com>
-	<20260819224229.82948-4-kmehltretter@gmail.com>
-	<874igpp3qm.wl-maz@kernel.org>
-	<aoiiHw4hBHB7C5uL@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, oupton@kernel.org, kvmarm@lists.linux.dev, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, eric.auger@redhat.com, christoffer.dall@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1787388756;
+	bh=pRT2HC3e4K5AX5o2Ld9A4kx4qzpZuC59viiQU6xaBO8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=d4wsDVas/Q9Ljsb3PtAKhZFGFePpBzd2LGdfe18PfvmSgCQwAC0heZVkr/JDM22p+
+	 /lpi4SgWAMQS7TjiDfvjPJNcEHRfq4UCBtre6W3mYtPmBfbxh9AfwPwN8fWTJPScEx
+	 yTxiTGlSvhRSCcEj60gelX8IG3De5QnUuFfx3foONNbmK0SNZQil5AZ/NbXSqgKGYp
+	 ZH8d8PFFzbmMP6t6hdRb32n/jYYTvXAFXl7+yBZwdEYekSaLNTLG+mahagyO784bNm
+	 oSM0DLu4UZhkTMq4r8A7glmS5oaYGe3F+J6VUN0bYHUsknTwf/pbuVZrWj5jIr3ESz
+	 Tyvj4CSrPhboA==
+Date: Sat, 22 Aug 2026 10:52:32 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Shiji Yang <yangshiji66@outlook.com>, netdev@vger.kernel.org,
+	Rex Lu <rex.lu@mediatek.com>, Felix Fietkau <nbd@nbd.name>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] net: ethernet: mtk_wed: increase WED v2 WDMA RESV_BUFF
+ to 0x80
+Message-ID: <aoljUFw-rQTLDXg0@lore-qca>
+References: <OSZPR01MB779537889255E2F606E47EABBCA52@OSZPR01MB7795.jpnprd01.prod.outlook.com>
+ <20260821174121.326f3c49@kernel.org>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2D5i0aIdzt8Hqvqs"
+Content-Disposition: inline
+In-Reply-To: <20260821174121.326f3c49@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,30 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Aug 2026 20:09:32 +0100,
-Karl Mehltretter <kmehltretter@gmail.com> wrote:
+--2D5i0aIdzt8Hqvqs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Aug 21, Jakub Kicinski wrote:
+> On Wed, 19 Aug 2026 21:07:07 +0800 Shiji Yang wrote:
+> > Change WDMA RESV_BUFF from 0x40 to 0x80 to avoid CDM TX FIFO overflow.
+> > Without this patch mt7986 and mt7981 may have WDMA TX hang issue. This
+> > patch was pulled from mtk-openwrt-feeds GPL open source project.
 >=20
-> On Thu, Aug 20, 2026 at 09:58:57AM +0100, Marc Zyngier wrote:
-> > The other bit of interest is in __kvm_vgic_vcpu_destroy(), and its
-> > conditional removal of the RD iodevs. Can't we just get rid of this
-> > whole block altogether now that we have a saner failing path?
->=20
-> I tested removing that block.
-> It reintroduces the use-after-free fixed by ae8f8b376102
-> (=E2=80=9CKVM: arm64: Unregister redistributor for failed vCPU creation=
-=E2=80=9D).
+> Lorenzo, could you TAL? (incl. Simon's suggestion of the Fixes tag)
 
-At the very least:
+sure, I am AFK now, I will review it next week.
 
-		vgic_cpu->rd_iodev.base_addr =3D VGIC_ADDR_UNDEF;
+Regards,
+Lorenzo
 
-should be removed, as it serves no purpose anymore: all vcpus, valid
-or not, should now go through vgic_unregister_redist_iodev() which
-resets the value. It isn't massively useful on teardown anyway, so you
-might as well kill the extra one.
+--2D5i0aIdzt8Hqvqs
+Content-Type: application/pgp-signature; name=signature.asc
 
-	M.
+-----BEGIN PGP SIGNATURE-----
 
---=20
-Without deviation from the norm, progress is not possible.
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaoljUAAKCRA6cBh0uS2t
+rMCMAQD5Qhui+X9AUoo4oP0JV/Wuu0TQWDg8vvOxE6LmoOSbHgD/XM3ORM99Gp+R
+ASb7s30VS2r9X2oSaUY9H1C0wOUwYAw=
+=geZr
+-----END PGP SIGNATURE-----
+
+--2D5i0aIdzt8Hqvqs--
 
