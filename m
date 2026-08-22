@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1CEAC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 07:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9FC2C5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 08:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b71gCC+k/ow2F9I1vD8obsXEh1cTAgN4mksV3ZSTdiU=; b=JxQdAX4SDQMW+rORs0/ALy8YMw
-	SYlEt8ktjgb3KQUhM/Sbv5ezS9YwYu2H7NDCioByWnq8wtTtlRS/i/oMuYMMtg/KVUmyi9XsW64nQ
-	u7ew2ZP2pNxGSYxF6yE+u7CWOucq9APl3v15fXr1k0dk59xFRAtjqdrb1NjjrLivayYuGIxr3AyDP
-	ntYs9W0HiDiIcrGsUlmDS7YeSWCt94Fit+0bpTkYZB1H3H1KPYrBCVv51oUV6RE/xjqtxCL/j1kS2
-	iHppdLsxsRybbxzxpwH0P+wRbSLb3bQ04l0kta6ge6wK7EOd9RdVHLY7bxuhueADlviY71j4KRgyY
-	p84yxusQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TqtkQkyTl4mS7J4aXez7TT37PaSDo7fJmYQG5Touqio=; b=0QgOV+HMnQHxgO6Ww5AIfUdv8Z
+	GANoqx+UgramEF1CE1FH97dY7Dm5P0hyAMCM67e6Aoz+jD4yg9kTR4Y4/wrsS09IPaLl5kK+pBEW5
+	rDYBmi8AwQG0OFVpV+QVVKiEoHWlMnMfNJWcJ9q8EXl4KM/BhBxVBsiEN+8zLostNqUExGGtBVA4j
+	2PTyx4sR4HvMZAcwsp+ecYnevweDzmORDNVe0L252FUFwAWaORQQuFgeMnsKWHIlewhfYCsTUWhM6
+	hhgB2mCMPiFefNXqCQoVjIAwl4eU8BvZPCIR9dnBkHjlvou3YNa/0O4k0vFFgqmHd4N8PVR1BwH7Q
+	5Z/VDVvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxgar-0000000EMtk-3lrj;
-	Sat, 22 Aug 2026 07:56:45 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1wxggU-0000000ENHA-38XD;
+	Sat, 22 Aug 2026 08:02:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxgap-0000000EMsI-237j;
-	Sat, 22 Aug 2026 07:56:44 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 278CE11C825;
-	Sat, 22 Aug 2026 09:56:36 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1787385397;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=b71gCC+k/ow2F9I1vD8obsXEh1cTAgN4mksV3ZSTdiU=;
-	b=AQneZjyGLZaZJaVm3tKxA8Hhi55/aO20sgctI7Ix0juSm2LWB2+jZ66/YMu+0VRqm/mEU1
-	5m/M1VcCh+OG1Qur2Fy6ybGH5ib1LboZXilQiwUD2lGItjlv2GjpgEQzN5fnnpXPh7M1U3
-	jMG1MouwPZhsi6agPhLOVKDjjfcNpjKFdAu7Jrd4wo7Uop7h3GbIKQX6lJYR6fdu2NntQv
-	zfUOPtHe4A0VGaFcRaBtCCHdL+NqVpaJB5K6D6U2Dz1BV5DigMs4NvuqLgun75Ezw1LOyr
-	kYmyYj+NWnRK4qEZwkK/+RwnN5JjFS4hHJFIQVWaxI3iOsArgrPDyP2EukwmJQ==
-Message-ID: <745a30e5-3fc3-406c-9263-1c1c8ca9135c@nabladev.com>
-Date: Sat, 22 Aug 2026 07:00:00 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/16] arm64: dts: st: Add ucpd node on stm32mp251
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Christian Bruel <christian.bruel@foss.st.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Srinivas Kandagatla <srini@kernel.org>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Pankaj Dev <pankaj.dev@st.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
- Thomas Bourgoin <thomas.bourgoin@foss.st.com>
-References: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-0-c5e27cbc0795@foss.st.com>
- <20260821-ucpd-host-fusb340-v7-2-rfc-v1-8-c5e27cbc0795@foss.st.com>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-8-c5e27cbc0795@foss.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_005643_708503_C9F51570 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+	id 1wxggT-0000000ENH0-3LW0
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 22 Aug 2026 08:02:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CEDA7600E2;
+	Sat, 22 Aug 2026 08:02:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 859A81F000E9;
+	Sat, 22 Aug 2026 08:02:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787385752;
+	bh=TqtkQkyTl4mS7J4aXez7TT37PaSDo7fJmYQG5Touqio=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=UUa6eNWYSEbut5PHH26edBdMvSMZu/joqPiO+Ue81cleWKGByVzMqnbWVYaV3L3jB
+	 S/W7TS5tjinUyzRpOR2AOPUlGNe27baRi4yqYFwGlkgZtAqDQMyqPuJdRiGYQ8nEy8
+	 WUX3CDSyhvn+3kpSGU/fb1Z6RH1tSDgPoBrNrYRA4l50kBSejiEL0QNSIFODL/yDbd
+	 6abf8ay7m6k8bDqHIcFVwafATqQkHiOhSGOv5EUIkDIawcvl7c5Sy24qpAAkM8YRvH
+	 BoW5Uu7XiXq8S7n3Z8HxwHz6p+sFgxYDRWkTc0LIXWu+fOlBADiRV1zov5nfkkBeLw
+	 fj6jV8GdyvR9Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wxggQ-00000000E2n-2bnS;
+	Sat, 22 Aug 2026 08:02:30 +0000
+Date: Sat, 22 Aug 2026 09:02:30 +0100
+Message-ID: <86wlti4m7d.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Eric Auger <eauger@redhat.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] KVM: arm64: vgic-its: Make the ITS table save reliable
+In-Reply-To: <20260821064445.615838-1-fuad.tabba@linux.dev>
+References: <20260821064445.615838-1-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, eauger@redhat.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, sascha.bischoff@arm.com, sebastianene@google.com, tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,54 +91,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/21/26 6:23 PM, Fabrice Gasnier wrote:
-> Describe UCPD bindings and nvmem cells to access trim values.
-> This provides the PD and CC USB-C cable signaling functions.
+On Fri, 21 Aug 2026 07:44:41 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
 > 
-> Co-developed-by: Christian Bruel <christian.bruel@foss.st.com>
-> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-> Co-developed-by: Thomas Bourgoin <thomas.bourgoin@foss.st.com>
-> Signed-off-by: Thomas Bourgoin <thomas.bourgoin@foss.st.com>
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> ---
->   arch/arm64/boot/dts/st/stm32mp251.dtsi | 51 ++++++++++++++++++++++++++++++++++
->   1 file changed, 51 insertions(+)
+> Hi folks,
 > 
-> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> index 9dc7a05fce99..be54dd56713b 100644
-> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
+> Changes since v1 [1]:
+>   - Free the LPI translation cache in vgic_mmio_write_its_baser() too,
+>     inside the its_lock section. (Eric)
+>   - Reworded patch 1 to name the register the write is to. (Eric)
+>   - Rebased onto kvmarm/next.
+> 
+> Marc pointed out on the v2 ITS series [2] that patch 3 fixed the wrong
+> end of the problem: KVM should drop the collections when the guest
+> changes the table that described them, rather than validating them at
+> save time. He also called that patch's -EINVAL a mistake, since it
+> aborts a save userspace has to be able to issue. This series does both,
+> following his answers [3] to the two open questions: purge the whole
+> list, and skip the offending device rather than fail.
+> 
+> vgic_mmio_write_its_baser() now frees the cached devices or collections
+> whenever the stored register value changes, not only when VALID is
+> cleared, and drops the translation cache with them. It tests for a
+> change rather than a write because the ITS driver rewrites an unchanged
+> GITS_BASER<n> on resume. With that in place the check patch 3 added is
+> unreachable, so it is reverted, and vgic_its_save_device_tables() skips
+> a device the table can no longer address instead of failing the save.
+> 
+> compute_next_devid_offset() now calls vgic_its_check_id(), which reads
+> guest memory for an indirect table, so the save does 2n reads rather
+> than n. It stays linear, as the scan stops at the first
+> reachable successor. Patch 1's Fixes: tag names a v4.15 commit, so it
+> will be picked up for stable. Drop the tag if that is not wanted.
+> 
+> Patches 1 and 3 apply to v7.2 unchanged, but patch 2 reverts a commit
+> only in kvmarm/next, so the series is based there.
+> 
+> Tested on QEMU: the new selftest, vgic_irq, vgic_lpi_stress and boots.
+> Both cases of the new selftest reset and restore the tables they saved,
+> and both fail without the series.
+> 
+> Based on kvmarm/next (aa8e5dc6a7a2a).
 
-[...]
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-> @@ -1818,10 +1839,40 @@ part-number-otp@24 {
->   				reg = <0x24 0x4>;
->   			};
->   
-> +			ucpd_trim_3a_cc1: trim_3a_cc1@1bd,1 {
-> +				reg = <0x1bd 0x1>;
-> +				bits = <1 4>;
-> +			};
-> +
-> +			ucpd_trim_3a_cc2: trim_3a_cc2@1bf,1 {
-> +				reg = <0x1bf 0x1>;
-> +				bits = <1 4>;
-> +			};
+	M.
 
-These two fuse fields ^ do not seem to match STM32MP25xx documentation ?
-
-RM0457 Rev 5
-Table 876. UCPD software trim data
-Page 5013
-
-                Non-volatile memory location
-Name                 Address       Bits
-3A0_CC1[3:0]       0x5400 01E8     11:8
-3A0_CC2[3:0]       0x5400 01E8     11:8
-^^^^^^^                   ^^^^     ^^^^
-
->   			package-otp@1e8 {
->   				reg = <0x1e8 0x1>;
->   				bits = <0 3>;
->   			};
-[...]
+-- 
+Without deviation from the norm, progress is not possible.
 
