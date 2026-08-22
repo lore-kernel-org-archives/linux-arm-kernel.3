@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C98C5DF9D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 13:54:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B803C5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 13:54:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NcGHYE7YHIQuleStFkafOmsPgUJAwjDqEsHvPsytY4A=; b=J8kMipPDI7nKkA0riN8CIbDV5m
-	yUxtiH7gcN4H7amOSncTRnWgux/LahEK5VXYsFrV1vvI1IiSWTkmE2mnbXWDfUFI+63JSNqx4B6Hg
-	y/mScD7vXuJZ6xxypCPYUt/Xdndv5TKYsXneabbOZcSPcuFloownhLxSwz7TRByyhrMK6RHrT7RAC
-	fv1nfz/yKC+jGhz70znDeVT8Ud5q59ZFh5qB4SqDt0V7gPASVS6LSbo83ROVGsKzuAQOrHWQkSSDX
-	86wOda4g8ZX38CtYXbuLryhm0SLNDiMhE+xLVRpanSoAnTzLZdykJSL9GJwrL3mZOPSQh6oW2WblD
-	7uG5lEzA==;
+	bh=Fli+nS6RhVan3nt659uJs8jpsHJEZUSGw+6iw8TgCBk=; b=thxB3LZafS+LzKntMSY3Tgs6LN
+	fn9cm8jj3vD9Zz2GahmMjxI3C2MAUWiGBCIHPOnDOgwrG7NiFaf2DjBk/vE4FPUgCPtG+UYYdQhFK
+	5W7YxYD38DcugNqBiGaVh+e//j4sSsxHsiKDxzpBfgzEAKsb1jJDcltIMUkmBIAXv5RyQ0Fdqfbt/
+	N2T9+ohIL2zNY7zeZJ442R2sEN+m0Qr4aIAwiQ5gcWYSyRi93moPKyByxZvpcCZclqWmfKILDxQP8
+	9WtYf6aWp2K3IqK+EgPMgddsNC46J/HymDD12Yeix5m/NB28cnL079VuD+q7ewCdZyixHfGwpgLNz
+	D5YZiHGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxmB0-0000000EYmu-2ftx;
-	Sat, 22 Aug 2026 13:54:26 +0000
-Received: from mail-wm1-x345.google.com ([2a00:1450:4864:20::345])
+	id 1wxmB1-0000000EYoG-0QgT;
+	Sat, 22 Aug 2026 13:54:27 +0000
+Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxmAn-0000000EYbS-06gI
+	id 1wxmAq-0000000EYea-3BWM
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Aug 2026 13:54:14 +0000
-Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-4955843c6cdso15912155e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 06:54:11 -0700 (PDT)
+	Sat, 22 Aug 2026 13:54:17 +0000
+Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-49564d4b849so6805915e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 06:54:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787406850; x=1788011650; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787406854; x=1788011654; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=NcGHYE7YHIQuleStFkafOmsPgUJAwjDqEsHvPsytY4A=;
-        b=kY7L0g1E71qIFhFb78f9Nrt9O06XGoHkvZGyNtypoOh/10JnXthNFR3OSD7fKB5WR0
-         d+BBy1G5/yWT/3yAdvWm+oHxD/OEhvwezkUYUk7T4s/TOSSbT1xJkF7X6pvj/uSCN2eg
-         /+2whcy30+VJdndPH8pY9nfeSwnGrNCJ0TB5OWxmRju92S1BvwmhpD/loovOCR0/wjiF
-         m9QMr5/Mjyd0nR8r4+oPzJ6kpHVZPEf+Vbn4Kz+Yix7EiWrcUkmIccoYVQYTm0LJBCAo
-         VK8Bi1YrdpLN2CMP0UiY1IK3SvakoWouRN9SD0rAJUmUVvWk5bWRHgLAVshx9b8UCiG0
-         fPZg==
+        bh=Fli+nS6RhVan3nt659uJs8jpsHJEZUSGw+6iw8TgCBk=;
+        b=hJeACPqRIP8uotOoUeDWEW3zUaskV9frjqT6m71vxDCY7OGJxmZ3syFrUrXUiprhll
+         Tz5Q9Mi866CazJx4Z9KfteITBDxkoGmPUsVNzFSrxyWZ+6jMMhuy+QvqSKr9CRcKBKg+
+         r8PufsYiRRBJK9i5aFmatshlQdPn08A1UlUDY3WEo8k+E3QUYtd5fJsUiYVTcVs15lfC
+         TiNxtfmqHJd0UX1rI0ga9M+SbjJzBIkpRLSYM7YcWUUx9al7OnokNU6zPjOh/RbI87fK
+         ptX2U8DQzNC37h+E0BDJ+XxwhiXIjDvSmfYdzY3xJ9n69CCytI5FiviI+jdiV2qW8J+G
+         YbTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787406850; x=1788011650;
+        d=1e100.net; s=20251104; t=1787406854; x=1788011654;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=NcGHYE7YHIQuleStFkafOmsPgUJAwjDqEsHvPsytY4A=;
-        b=j2qLu0mEUpl6nOAh/E5ZjzqGMqoZLKeqgNmf125mZoCCD7VJI/fyzrYiTLFeI++9HQ
-         qrtEFT9DFWRXm5l73C+8KUPej3VtN1wBZuQ3q0rXy9IdoUzVWPdZnTbgcLoX3q6RgQtb
-         Y/U5dlCwqOy2METEfQ9qcFUZqn/fQJzFyafrglDiTC3qTq81ldAlQ+WjrTkGeyJR7ayo
-         Rsk2/tBWMqHwV7ncFaf8w1NEqUms7HpQcDPPVgV4HmXrKuFIQFn0itumMKHvA/F7/LV+
-         5VwoWIW88Fi3FbSWLJfIBOuxjrxS2r1681ISpaSindbYip8bLOFHC+nPjPbPYsvUoqs+
-         zGpQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rr1czS0AJDm+KYPkihObYEC3+b4gATpPP+C3mtjqV1+r6PU4Q7A6dA3A7z7Xhcr3uGY5DtkqpqqkatqTzuB+RdE@lists.infradead.org
-X-Gm-Message-State: AFuF++lYekUlAMyTrj+6ZP7SW5GlXRS1+Zl7NKYp6Ti5e3kH+yZ2OVf6
-	6oePtO8PyHLkktPSykyQ17R5sQSqqmq5QcPTc9RY25BzD3B4yyZbcDF73umSYU3bV/o/Ey9SMQ=
+        bh=Fli+nS6RhVan3nt659uJs8jpsHJEZUSGw+6iw8TgCBk=;
+        b=P0Ig3LyYff4DxWq2oSTDJNUbidSpwx6FccEw4s5+vjKlU4MUUXbprip3Xf7sp4qUW3
+         5mRTPodYbTQVbJPH1FzNPGGvfqLWa+F9jEKOwzIi4BvfE+WDj+wR4+xfSs/z/04iRJdm
+         8sa+W6IUlcT6J4vEyyXWuvvploMlJ0TRn0hDITZxoc1WxQFHK+lwwjTYoErl4gXDsxPT
+         28ChsynyJoC1SBu6GvL4yYCpUzjNUxrF/NXSp7NPNNF3rCjPG/lnnUVGsl/oTLTyhITS
+         POHanYgLbord+4Jwd2DYfoSJCkbVl9V1wxW1P0/OlvVte9QzGvY/R32zoQDPuOBmCI6N
+         SHhw==
+X-Forwarded-Encrypted: i=1; AHgh+RrTScYRB1ts0gQHM2qw534iY7o2chN+bSki/p5VZkBNFj4Sxx0UapVlcuF4dWSTDiNqeDBYJkPLseCvnbiMd4iE@lists.infradead.org
+X-Gm-Message-State: AFuF++nmvpuKDomi3ndhVrY7N7YHmFSWIwnbwPBjQfLy0Wc1CSChr5Vz
+	2Cqgyesf3JvkLa/G1aEMU1GsciJRoF2CFJ6dCdUyUoe/CwzjgbA3VUC4kOht+jv2wyKLWv4w1Q=
 	=
-X-Received: from wmbeq6.prod.google.com ([2002:a05:600c:8486:b0:496:c04d:501e])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:8b77:b0:499:48bb:417e
- with SMTP id 5b1f17b1804b1-499b82f4163mr187121695e9.2.1787406850393; Sat, 22
- Aug 2026 06:54:10 -0700 (PDT)
-Date: Sat, 22 Aug 2026 15:53:28 +0200
+X-Received: from wmfu6.prod.google.com ([2002:a05:600c:1386:b0:495:4396:e1fc])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4f87:b0:499:5a50:b022
+ with SMTP id 5b1f17b1804b1-499b830d220mr157719645e9.3.1787406853968; Sat, 22
+ Aug 2026 06:54:13 -0700 (PDT)
+Date: Sat, 22 Aug 2026 15:53:31 +0200
 In-Reply-To: <20260822135323.795946-11-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20260822135323.795946-11-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2053; i=ardb@kernel.org;
- h=from:subject; bh=ZgfBeS04NmMym7tXXunDIhp6k1y9y951qTGwH0jNq+o=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIatz5R0+ffGnRqHZvHKiZ171Tuq2SUp6rLQk556gl5X1W
- i/DWes6SlkYxLgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwERETjH8M/j158SWE9PaK6yK
- v2ytKl+pf26qsfCdLZf/86WJtv8K2sjwP73gZ/33YNcPt9OyeQsCeNaV807jMt4k6LzywRmh2Rv W8gAA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3229; i=ardb@kernel.org;
+ h=from:subject; bh=E47PSMirXFpI2/XCsflkCaR86s287Dpi3LlkrwYeMZU=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIatz5YP+Sf2p1kr7Q6vXvzG479h57WWiGrOK0SxDm5Zur
+ rn/05U6SlkYxLgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwETM0hj+xzDKsHPO3dNxlH9C
+ 0+uIc6a1D/ek6rI+m2n6kfsH+/Iz2xj+xz1lvlS6rabo2mvOz1OevZxXu7UtMFJsxfK5+yQPz9Z 5ygoA
 X-Mailer: git-send-email 2.55.0.860.g4b6b3295ed-goog
-Message-ID: <20260822135323.795946-17-ardb+git@google.com>
-Subject: [RFC PATCH 6/9] arm64: Enable the execmem ROX cache for module text
+Message-ID: <20260822135323.795946-20-ardb+git@google.com>
+Subject: [RFC PATCH 9/9] arm64: ftrace: Simplify PLT handling
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-kernel@vger.kernel.org
 Cc: Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
@@ -88,8 +88,8 @@ Cc: Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
 	linux-mm@kvack.org, linux-modules@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_065413_115898_B3B9D3BD 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20260822_065416_823257_3753A69F 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,69 +106,96 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Wire up the existing support for the execmem ROX cache on arm64, so that
-it will be used for module .text and .init.text regions. This will be
-relied upon by a subsequent patch in order to allocate those regions
-from a single chunk of memory.
+Instead of emitting the ftrace trampoline PLT into a separate ELF
+section, allocate them at the start of the ordinary PLT array, so
+that no special sections are needed.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/Kconfig   |  1 +
- arch/arm64/mm/init.c | 19 ++++++++++++++++++-
- 2 files changed, 19 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/module.lds.h |  1 -
+ arch/arm64/kernel/module-plts.c     | 18 +++++-------------
+ arch/arm64/kernel/module.c          |  9 +--------
+ 3 files changed, 6 insertions(+), 22 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b3afe0688919..080b97b0bbd5 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -27,6 +27,7 @@ config ARM64
- 	select ARCH_HAS_DMA_OPS if XEN
- 	select ARCH_HAS_DMA_PREP_COHERENT
- 	select ARCH_HAS_ACPI_TABLE_UPGRADE if ACPI
-+	select ARCH_HAS_EXECMEM_ROX
- 	select ARCH_HAS_FAST_MULTIPLIER
- 	select ARCH_HAS_FORTIFY_SOURCE
- 	select ARCH_HAS_GCOV_PROFILE_ALL
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 97987f850a33..e6c98045046e 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -531,7 +531,8 @@ struct execmem_info __init *execmem_arch_setup(void)
- 			[EXECMEM_DEFAULT] = {
- 				.start	= start,
- 				.end	= end,
--				.pgprot	= PAGE_KERNEL,
-+				.pgprot	= PAGE_KERNEL_ROX,
-+				.flags	= EXECMEM_ROX_CACHE,
- 				.alignment = 1,
- 				.fallback_start	= fallback_start,
- 				.fallback_end	= fallback_end,
-@@ -548,9 +549,25 @@ struct execmem_info __init *execmem_arch_setup(void)
- 				.pgprot	= PAGE_KERNEL,
- 				.alignment = 1,
- 			},
-+			[EXECMEM_MODULE_DATA] = {
-+				.start	= start,
-+				.end	= end,
-+				.pgprot	= PAGE_KERNEL,
-+				.alignment = 1,
-+				.fallback_start	= fallback_start,
-+				.fallback_end	= fallback_end,
-+			},
- 		},
- 	};
+diff --git a/arch/arm64/include/asm/module.lds.h b/arch/arm64/include/asm/module.lds.h
+index 24fc9401c514..95540e956b41 100644
+--- a/arch/arm64/include/asm/module.lds.h
++++ b/arch/arm64/include/asm/module.lds.h
+@@ -1,6 +1,5 @@
+ SECTIONS {
+ 	.plt 0 : { BYTE(0) }
+-	.text.ftrace_trampoline 0 : { BYTE(0) }
  
-+	if (!system_supports_bbml2_noabort())
-+		execmem_info.ranges[EXECMEM_DEFAULT].flags |= EXECMEM_NO_HUGE_VMAP;
-+
- 	return &execmem_info;
+ #ifdef CONFIG_KASAN_SW_TAGS
+ 	/*
+diff --git a/arch/arm64/kernel/module-plts.c b/arch/arm64/kernel/module-plts.c
+index e30876b90e30..6900d2242f1b 100644
+--- a/arch/arm64/kernel/module-plts.c
++++ b/arch/arm64/kernel/module-plts.c
+@@ -275,12 +275,14 @@ static int partition_branch_plt_relas(Elf64_Sym *syms, Elf64_Rela *rela,
+ 	return i;
  }
+ 
++static const int ftrace_plts = IS_ENABLED(CONFIG_DYNAMIC_FTRACE) ? NR_FTRACE_PLTS : 0;
 +
-+void execmem_fill_trapping_insns(void *ptr, size_t size)
-+{
-+	memset32(ptr, AARCH64_BREAK_FAULT, size / sizeof(__le32));
-+}
- #endif /* CONFIG_EXECMEM */
+ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 			      char *secstrings, struct module *mod)
+ {
+-	unsigned long core_plts = 0;
++	unsigned long core_plts = ftrace_plts;
+ 	Elf64_Sym *syms = NULL;
+-	Elf_Shdr *pltsec, *tramp = NULL;
++	Elf_Shdr *pltsec;
+ 	int i;
+ 
+ 	/*
+@@ -290,9 +292,6 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 	for (i = 0; i < ehdr->e_shnum; i++) {
+ 		if (!strcmp(secstrings + sechdrs[i].sh_name, ".plt"))
+ 			mod->arch.core.plt_shndx = i;
+-		else if (!strcmp(secstrings + sechdrs[i].sh_name,
+-				 ".text.ftrace_trampoline"))
+-			tramp = sechdrs + i;
+ 		else if (sechdrs[i].sh_type == SHT_SYMTAB)
+ 			syms = (Elf64_Sym *)sechdrs[i].sh_addr;
+ 	}
+@@ -336,15 +335,8 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 	pltsec->sh_flags = SHF_EXECINSTR | SHF_ALLOC;
+ 	pltsec->sh_addralign = L1_CACHE_BYTES;
+ 	pltsec->sh_size = (core_plts  + 1) * sizeof(struct plt_entry);
+-	mod->arch.core.plt_num_entries = 0;
++	mod->arch.core.plt_num_entries = ftrace_plts;
+ 	mod->arch.core.plt_max_entries = core_plts;
+ 
+-	if (tramp) {
+-		tramp->sh_type = SHT_NOBITS;
+-		tramp->sh_flags = SHF_EXECINSTR | SHF_ALLOC;
+-		tramp->sh_addralign = __alignof__(struct plt_entry);
+-		tramp->sh_size = NR_FTRACE_PLTS * sizeof(struct plt_entry);
+-	}
+-
+ 	return 0;
+ }
+diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+index 6e5b488a219e..620c2b70115e 100644
+--- a/arch/arm64/kernel/module.c
++++ b/arch/arm64/kernel/module.c
+@@ -454,14 +454,7 @@ static int module_init_ftrace_plt(const Elf_Ehdr *hdr,
+ 				  struct module *mod)
+ {
+ #if defined(CONFIG_DYNAMIC_FTRACE)
+-	const Elf_Shdr *s;
+-	struct plt_entry *plts;
+-
+-	s = find_section(hdr, sechdrs, ".text.ftrace_trampoline");
+-	if (!s)
+-		return -ENOEXEC;
+-
+-	plts = (void *)s->sh_addr;
++	struct plt_entry *plts = (void *)sechdrs[mod->arch.core.plt_shndx].sh_addr;
+ 
+ 	__init_plt(&plts[FTRACE_PLT_IDX], FTRACE_ADDR);
+ 
 -- 
 2.55.0.860.g4b6b3295ed-goog
 
