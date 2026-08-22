@@ -4,92 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B803C5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 13:54:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7964C5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 14:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fli+nS6RhVan3nt659uJs8jpsHJEZUSGw+6iw8TgCBk=; b=thxB3LZafS+LzKntMSY3Tgs6LN
-	fn9cm8jj3vD9Zz2GahmMjxI3C2MAUWiGBCIHPOnDOgwrG7NiFaf2DjBk/vE4FPUgCPtG+UYYdQhFK
-	5W7YxYD38DcugNqBiGaVh+e//j4sSsxHsiKDxzpBfgzEAKsb1jJDcltIMUkmBIAXv5RyQ0Fdqfbt/
-	N2T9+ohIL2zNY7zeZJ442R2sEN+m0Qr4aIAwiQ5gcWYSyRi93moPKyByxZvpcCZclqWmfKILDxQP8
-	9WtYf6aWp2K3IqK+EgPMgddsNC46J/HymDD12Yeix5m/NB28cnL079VuD+q7ewCdZyixHfGwpgLNz
-	D5YZiHGQ==;
+	bh=EZ6C0Isq4P3g9HCeDb2DCK4xJJyRP1XpM/O6f7kjrf0=; b=q1/3TAgyS1YvzRoOmPPVrUizlh
+	Mj2Oz4LZw8KU5clfaX5b3RcvSS0LdFk1azE7GFgyemwiPwRI+mft7Z21KTZJRE3l5ChyuvB/68qB9
+	YYGEeKtKsqW0EMKpuiG096FXgh+86JpdUEfzS244w3zasMJKO22ovQLutjokZXpyC0U1IcjMkw14/
+	IeWjlIpFLWyLo9B5ejrMWG8X+ZFB3GVoPPLEz14xm7AlPgn/6ooZ8El8adJLgWYW0oXT3ZfOk1/JK
+	9dpK3lXEIv1OxWO/EM1jlGK/+kuyPMsDn3vac3fmDIGmUZ7UhXd9+1YOSvebCrSS46OM4n2Eo8ElQ
+	HMGQYxWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxmB1-0000000EYoG-0QgT;
-	Sat, 22 Aug 2026 13:54:27 +0000
-Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
+	id 1wxmg7-0000000EaaO-2OxW;
+	Sat, 22 Aug 2026 14:26:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxmAq-0000000EYea-3BWM
+	id 1wxmg6-0000000EaaF-1VfS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Aug 2026 13:54:17 +0000
-Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-49564d4b849so6805915e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 06:54:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787406854; x=1788011654; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Fli+nS6RhVan3nt659uJs8jpsHJEZUSGw+6iw8TgCBk=;
-        b=hJeACPqRIP8uotOoUeDWEW3zUaskV9frjqT6m71vxDCY7OGJxmZ3syFrUrXUiprhll
-         Tz5Q9Mi866CazJx4Z9KfteITBDxkoGmPUsVNzFSrxyWZ+6jMMhuy+QvqSKr9CRcKBKg+
-         r8PufsYiRRBJK9i5aFmatshlQdPn08A1UlUDY3WEo8k+E3QUYtd5fJsUiYVTcVs15lfC
-         TiNxtfmqHJd0UX1rI0ga9M+SbjJzBIkpRLSYM7YcWUUx9al7OnokNU6zPjOh/RbI87fK
-         ptX2U8DQzNC37h+E0BDJ+XxwhiXIjDvSmfYdzY3xJ9n69CCytI5FiviI+jdiV2qW8J+G
-         YbTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787406854; x=1788011654;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Fli+nS6RhVan3nt659uJs8jpsHJEZUSGw+6iw8TgCBk=;
-        b=P0Ig3LyYff4DxWq2oSTDJNUbidSpwx6FccEw4s5+vjKlU4MUUXbprip3Xf7sp4qUW3
-         5mRTPodYbTQVbJPH1FzNPGGvfqLWa+F9jEKOwzIi4BvfE+WDj+wR4+xfSs/z/04iRJdm
-         8sa+W6IUlcT6J4vEyyXWuvvploMlJ0TRn0hDITZxoc1WxQFHK+lwwjTYoErl4gXDsxPT
-         28ChsynyJoC1SBu6GvL4yYCpUzjNUxrF/NXSp7NPNNF3rCjPG/lnnUVGsl/oTLTyhITS
-         POHanYgLbord+4Jwd2DYfoSJCkbVl9V1wxW1P0/OlvVte9QzGvY/R32zoQDPuOBmCI6N
-         SHhw==
-X-Forwarded-Encrypted: i=1; AHgh+RrTScYRB1ts0gQHM2qw534iY7o2chN+bSki/p5VZkBNFj4Sxx0UapVlcuF4dWSTDiNqeDBYJkPLseCvnbiMd4iE@lists.infradead.org
-X-Gm-Message-State: AFuF++nmvpuKDomi3ndhVrY7N7YHmFSWIwnbwPBjQfLy0Wc1CSChr5Vz
-	2Cqgyesf3JvkLa/G1aEMU1GsciJRoF2CFJ6dCdUyUoe/CwzjgbA3VUC4kOht+jv2wyKLWv4w1Q=
-	=
-X-Received: from wmfu6.prod.google.com ([2002:a05:600c:1386:b0:495:4396:e1fc])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4f87:b0:499:5a50:b022
- with SMTP id 5b1f17b1804b1-499b830d220mr157719645e9.3.1787406853968; Sat, 22
- Aug 2026 06:54:13 -0700 (PDT)
-Date: Sat, 22 Aug 2026 15:53:31 +0200
-In-Reply-To: <20260822135323.795946-11-ardb+git@google.com>
-Mime-Version: 1.0
-References: <20260822135323.795946-11-ardb+git@google.com>
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3229; i=ardb@kernel.org;
- h=from:subject; bh=E47PSMirXFpI2/XCsflkCaR86s287Dpi3LlkrwYeMZU=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIatz5YP+Sf2p1kr7Q6vXvzG479h57WWiGrOK0SxDm5Zur
- rn/05U6SlkYxLgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwETM0hj+xzDKsHPO3dNxlH9C
- 0+uIc6a1D/ek6rI+m2n6kfsH+/Iz2xj+xz1lvlS6rabo2mvOz1OevZxXu7UtMFJsxfK5+yQPz9Z 5ygoA
-X-Mailer: git-send-email 2.55.0.860.g4b6b3295ed-goog
-Message-ID: <20260822135323.795946-20-ardb+git@google.com>
-Subject: [RFC PATCH 9/9] arm64: ftrace: Simplify PLT handling
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-kernel@vger.kernel.org
-Cc: Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>, 
-	Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>, 
-	Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
-	Aaron Tomlin <atomlin@atomlin.com>, "=?UTF-8?q?Adrian=20Barna=C5=9B?=" <abarnas@google.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, linux-modules@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_065416_823257_3753A69F 
-X-CRM114-Status: GOOD (  15.63  )
+	Sat, 22 Aug 2026 14:26:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AD89243CAD;
+	Sat, 22 Aug 2026 14:26:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CB771F000E9;
+	Sat, 22 Aug 2026 14:26:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787408793;
+	bh=EZ6C0Isq4P3g9HCeDb2DCK4xJJyRP1XpM/O6f7kjrf0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FuKRZhu3u7sHEKjTJsJSyY192beLDzTRq2ZCTupKepDO7+Pqmz67aqtuhRIdme8fX
+	 goDZEVsdTyzm1PRecpMxydmcOr7Z1k3d8jda7PS/XtOROWbYelZe26m5xwsWl+TMbJ
+	 1bbMfV3KKRpJJQzMz2YOpAyXXRKepZ2IEL6VS3G7eEYs11d/jRE4gBp+PhkqSewbuX
+	 YAsQz1oFUjtgXpkzkVflCU/JZUVNw6Qq3NVCdlIDA7sE8dwYKOzKB13NVaoI3zigVt
+	 qgjhwIXUUT/xU76BkjdMLv+zWx3aZLSeXoXmP8EOWL+Q1r3Ie4GHs7wirI4CC+fNi5
+	 WzYmQYmX+3dLg==
+Date: Sat, 22 Aug 2026 15:26:25 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Jintack Lim <jintack.lim@linaro.org>, Christoffer Dall <christoffer.dall@linaro.org>, 
+	Christoffer Dall <christoffer.dall@arm.com>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 2/2] KVM: arm64: nv: Fix null ptr deref in
+ kvm_nested_s2_unmap() on S2 teardown
+Message-ID: <aomxdiB1gXnUZAz5@gremlin>
+References: <20260812-kvm-arm-nested-virt-fix-v1-0-4ad883f1b6a5@kernel.org>
+ <20260812-kvm-arm-nested-virt-fix-v1-2-4ad883f1b6a5@kernel.org>
+ <86y0dy4nm3.wl-maz@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86y0dy4nm3.wl-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,99 +76,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+On Sat, Aug 22, 2026 at 08:32:04AM +0100, Marc Zyngier wrote:
+> On Wed, 12 Aug 2026 14:31:21 +0100,
+> "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
+> >
+> > Commit 7270cc9157f4 ("KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU
+> > notifiers") introduced VNCR_EL2 invalidation in kvm_nested_s2_unmap().
+> >
+> > However at the point of this being performed concurrent stage 2 teardown of
+> > a nested guest can cause kvm->arch.mmu.pgt to be set to NULL.
+> >
+> > This happens in kvm_flush_shadow_all() -> kvm_arch_flush_shadow_all() ->
+> > kvm_free_stage2_pgd() and is performed under the kvm->mmu_lock.
+> >
+> > Commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page
+> > tables") introduced the teardown of the entire nested MMU range, which then
+> > invokes stage2_apply_range() with resched=true:
+> >
+> > mmu_notifier_invalidate_range_start()
+> >   -> ... -> kvm_mmu_notifier_invalidate_range_start()
+> >     -> kvm_mmu_unmap_gfn_range()
+> >       -> kvm_unmap_gfn_range()
+> >         -> kvm_nested_s2_unmap()
+> >           -> kvm_stage2_unmap_range()
+> >             -> __unmap_stage2_range()
+> >                 -> stage2_apply_range()
+> >
+> > This means that stage2_apply_range() can drop the kvm->mmu_lock and thus
+> > concurrent progress can be made in lockstep with
+> > kvm_arch_flush_shadow_all().
+> >
+> > If kvm_arch_flush_shadow_all() advances ahead of stage2_apply_range() and
+> > completes its operation it guarantees a NULL pointer deref.
+> >
+> > Since kvm_free_stage2_pgd() is performed under the kvm->mmu_lock this will
+> > either be observed NULL or not and serialised against
+> > kvm_free_stage2_pgd().
+> >
+> > Resolve the issue by explicitly checking for a NULL value. Since this
+> > shouldn't be possible if blocking is not allowed, raise a warning if it is
+> > ever NULL in this case.
+> >
+> > Fixes: 7270cc9157f4 ("KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU notifiers")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> > ---
+> >  arch/arm64/kvm/nested.c | 6 +++++-
+> >  1 file changed, 5 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index 17123f0b6dab..9fc0b1696dcb 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -1295,7 +1295,11 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+> >  			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+> >  	}
+> >
+> > -	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+> > +	/* NULL pgt should only be possible if raced when mmu_lock dropped. */
+> > +	if (kvm->arch.mmu.pgt)
+> > +		kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+> > +	else
+> > +		WARN_ON(!may_block);
+>
+> I don't think the WARN_ON() should be here. We already have one at the
+> iterator level, which will fire in the same conditions.
 
-Instead of emitting the ftrace trampoline PLT into a separate ELF
-section, allocate them at the start of the ordinary PLT array, so
-that no special sections are needed.
+Ack, was an abundance of caution, will take out on respin.
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm64/include/asm/module.lds.h |  1 -
- arch/arm64/kernel/module-plts.c     | 18 +++++-------------
- arch/arm64/kernel/module.c          |  9 +--------
- 3 files changed, 6 insertions(+), 22 deletions(-)
+>
+> Thanks,
+>
+> 	M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
-diff --git a/arch/arm64/include/asm/module.lds.h b/arch/arm64/include/asm/module.lds.h
-index 24fc9401c514..95540e956b41 100644
---- a/arch/arm64/include/asm/module.lds.h
-+++ b/arch/arm64/include/asm/module.lds.h
-@@ -1,6 +1,5 @@
- SECTIONS {
- 	.plt 0 : { BYTE(0) }
--	.text.ftrace_trampoline 0 : { BYTE(0) }
- 
- #ifdef CONFIG_KASAN_SW_TAGS
- 	/*
-diff --git a/arch/arm64/kernel/module-plts.c b/arch/arm64/kernel/module-plts.c
-index e30876b90e30..6900d2242f1b 100644
---- a/arch/arm64/kernel/module-plts.c
-+++ b/arch/arm64/kernel/module-plts.c
-@@ -275,12 +275,14 @@ static int partition_branch_plt_relas(Elf64_Sym *syms, Elf64_Rela *rela,
- 	return i;
- }
- 
-+static const int ftrace_plts = IS_ENABLED(CONFIG_DYNAMIC_FTRACE) ? NR_FTRACE_PLTS : 0;
-+
- int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
- 			      char *secstrings, struct module *mod)
- {
--	unsigned long core_plts = 0;
-+	unsigned long core_plts = ftrace_plts;
- 	Elf64_Sym *syms = NULL;
--	Elf_Shdr *pltsec, *tramp = NULL;
-+	Elf_Shdr *pltsec;
- 	int i;
- 
- 	/*
-@@ -290,9 +292,6 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
- 	for (i = 0; i < ehdr->e_shnum; i++) {
- 		if (!strcmp(secstrings + sechdrs[i].sh_name, ".plt"))
- 			mod->arch.core.plt_shndx = i;
--		else if (!strcmp(secstrings + sechdrs[i].sh_name,
--				 ".text.ftrace_trampoline"))
--			tramp = sechdrs + i;
- 		else if (sechdrs[i].sh_type == SHT_SYMTAB)
- 			syms = (Elf64_Sym *)sechdrs[i].sh_addr;
- 	}
-@@ -336,15 +335,8 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
- 	pltsec->sh_flags = SHF_EXECINSTR | SHF_ALLOC;
- 	pltsec->sh_addralign = L1_CACHE_BYTES;
- 	pltsec->sh_size = (core_plts  + 1) * sizeof(struct plt_entry);
--	mod->arch.core.plt_num_entries = 0;
-+	mod->arch.core.plt_num_entries = ftrace_plts;
- 	mod->arch.core.plt_max_entries = core_plts;
- 
--	if (tramp) {
--		tramp->sh_type = SHT_NOBITS;
--		tramp->sh_flags = SHF_EXECINSTR | SHF_ALLOC;
--		tramp->sh_addralign = __alignof__(struct plt_entry);
--		tramp->sh_size = NR_FTRACE_PLTS * sizeof(struct plt_entry);
--	}
--
- 	return 0;
- }
-diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
-index 6e5b488a219e..620c2b70115e 100644
---- a/arch/arm64/kernel/module.c
-+++ b/arch/arm64/kernel/module.c
-@@ -454,14 +454,7 @@ static int module_init_ftrace_plt(const Elf_Ehdr *hdr,
- 				  struct module *mod)
- {
- #if defined(CONFIG_DYNAMIC_FTRACE)
--	const Elf_Shdr *s;
--	struct plt_entry *plts;
--
--	s = find_section(hdr, sechdrs, ".text.ftrace_trampoline");
--	if (!s)
--		return -ENOEXEC;
--
--	plts = (void *)s->sh_addr;
-+	struct plt_entry *plts = (void *)sechdrs[mod->arch.core.plt_shndx].sh_addr;
- 
- 	__init_plt(&plts[FTRACE_PLT_IDX], FTRACE_ADDR);
- 
--- 
-2.55.0.860.g4b6b3295ed-goog
-
+--
+Cheers, Lorenzo
 
