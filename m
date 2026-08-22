@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9FC2C5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 08:02:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E65E9C5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 08:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TqtkQkyTl4mS7J4aXez7TT37PaSDo7fJmYQG5Touqio=; b=0QgOV+HMnQHxgO6Ww5AIfUdv8Z
-	GANoqx+UgramEF1CE1FH97dY7Dm5P0hyAMCM67e6Aoz+jD4yg9kTR4Y4/wrsS09IPaLl5kK+pBEW5
-	rDYBmi8AwQG0OFVpV+QVVKiEoHWlMnMfNJWcJ9q8EXl4KM/BhBxVBsiEN+8zLostNqUExGGtBVA4j
-	2PTyx4sR4HvMZAcwsp+ecYnevweDzmORDNVe0L252FUFwAWaORQQuFgeMnsKWHIlewhfYCsTUWhM6
-	hhgB2mCMPiFefNXqCQoVjIAwl4eU8BvZPCIR9dnBkHjlvou3YNa/0O4k0vFFgqmHd4N8PVR1BwH7Q
-	5Z/VDVvA==;
+	bh=XJ1sRYzSe5gmp5y69f27mpBK8RaS1RNxeM0V94UPPv8=; b=U6KcEWQcQUfytulyaXcudXhOsS
+	J74u9qXtPEKqz6n81ajXZpQf6f548nuX8VqmEWRidLlbYxk0NemxDtMJa1FM3GRznlYnq+l1/bCTu
+	DMTzofnjxo71IdaYYlW9KLWSr7mxSQ/vlX1H74sMhoWdpFM8MlvxYwtsrmz0e8bLjXA0Z8ZZUiGSG
+	sM4igELcSGBBS2OBSnJDXap1/v0OL1ZRy9dT4+rhisoFc5YbRQAbrGQfmT2tk/FsrX4+ZfYnmSL9e
+	IvVVpu+SBiUOWk6nKawWtEkvqd1KJq9y/7UymSaZaz35XSI307/dAjo6ypdpU7KYSU3dFLbA1aU/L
+	IhrJfgKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxggU-0000000ENHA-38XD;
-	Sat, 22 Aug 2026 08:02:34 +0000
+	id 1wxgqD-0000000ENbN-3Qcr;
+	Sat, 22 Aug 2026 08:12:37 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxggT-0000000ENH0-3LW0
+	id 1wxgqB-0000000ENbH-39us
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Aug 2026 08:02:33 +0000
+	Sat, 22 Aug 2026 08:12:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CEDA7600E2;
-	Sat, 22 Aug 2026 08:02:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 859A81F000E9;
-	Sat, 22 Aug 2026 08:02:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E4FA0600E2;
+	Sat, 22 Aug 2026 08:12:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AAFD1F000E9;
+	Sat, 22 Aug 2026 08:12:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787385752;
-	bh=TqtkQkyTl4mS7J4aXez7TT37PaSDo7fJmYQG5Touqio=;
+	s=k20260515; t=1787386354;
+	bh=XJ1sRYzSe5gmp5y69f27mpBK8RaS1RNxeM0V94UPPv8=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=UUa6eNWYSEbut5PHH26edBdMvSMZu/joqPiO+Ue81cleWKGByVzMqnbWVYaV3L3jB
-	 S/W7TS5tjinUyzRpOR2AOPUlGNe27baRi4yqYFwGlkgZtAqDQMyqPuJdRiGYQ8nEy8
-	 WUX3CDSyhvn+3kpSGU/fb1Z6RH1tSDgPoBrNrYRA4l50kBSejiEL0QNSIFODL/yDbd
-	 6abf8ay7m6k8bDqHIcFVwafATqQkHiOhSGOv5EUIkDIawcvl7c5Sy24qpAAkM8YRvH
-	 BoW5Uu7XiXq8S7n3Z8HxwHz6p+sFgxYDRWkTc0LIXWu+fOlBADiRV1zov5nfkkBeLw
-	 fj6jV8GdyvR9Q==
+	b=VzsFlLlZyTQaI+HK8Ko3rj3I/ZeYtiIgyEfqtFLzRZ67OtlQZjiop54B44PP5wcJO
+	 eoId8gVC+ctFYjtwC9ThjbOO/5RpXNupkZK8dgmUAo5gKl0+4boQVJSRwj6GvA49vW
+	 kdiTQHyzX7MwNCHl6RD23j/zNK8ApoomHiyc0v1MZZOcxyMxKtceBd9UURagUO8XDK
+	 VsYjYH8uguYdPAK9VV48NfhkAaYnHSeCnPdjQYnJA2YJNy73MTbX+Ko4eWY5J07axK
+	 1Pld7LM5Ld+dKiZxIieNz8I9mQUac6Td54S2lJg/8AOFb45IjB0N/Y9p7TqO6DVY+c
+	 gHKJ+EVKc9nRw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wxggQ-00000000E2n-2bnS;
-	Sat, 22 Aug 2026 08:02:30 +0000
-Date: Sat, 22 Aug 2026 09:02:30 +0100
-Message-ID: <86wlti4m7d.wl-maz@kernel.org>
+	id 1wxgq8-00000000ECd-2A2P;
+	Sat, 22 Aug 2026 08:12:32 +0000
+Date: Sat, 22 Aug 2026 09:12:32 +0100
+Message-ID: <86v7924lqn.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Eric Auger <eauger@redhat.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	kvmarm@lists.linux.dev,
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/4] KVM: arm64: vgic-its: Make the ITS table save reliable
-In-Reply-To: <20260821064445.615838-1-fuad.tabba@linux.dev>
-References: <20260821064445.615838-1-fuad.tabba@linux.dev>
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Shen Yongchao <grayhat@foxmail.com>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] KVM: arm64: nv: Delay freeing of shadow S2 structures until VM destruction
+In-Reply-To: <aoiQuVs5jzB5La4i@gremlin>
+References: <20260821161829.1032561-1-maz@kernel.org>
+	<20260821161829.1032561-3-maz@kernel.org>
+	<aoiQuVs5jzB5La4i@gremlin>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, eauger@redhat.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, sascha.bischoff@arm.com, sebastianene@google.com, tabba@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: ljs@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev, grayhat@foxmail.com, kmehltretter@gmail.com, weilin.chang@arm.com, stable@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,49 +92,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Aug 2026 07:44:41 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
+On Fri, 21 Aug 2026 19:15:45 +0100,
+"Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
 > 
-> Hi folks,
+> On Fri, Aug 21, 2026 at 05:18:29PM +0100, Marc Zyngier wrote:
+> > We free the shadow S2 structures from kvm_arch_flush_shadow_all(), which
+> > is a Bad Idea(tm). Freeing the page tables is fair game (this is what
+> > this callback is for), but freeing the container that could still be
+> > referenced by another part of the system is not great.
 > 
-> Changes since v1 [1]:
->   - Free the LPI translation cache in vgic_mmio_write_its_baser() too,
->     inside the its_lock section. (Eric)
->   - Reworded patch 1 to name the register the write is to. (Eric)
->   - Rebased onto kvmarm/next.
+> Yes.
 > 
-> Marc pointed out on the v2 ITS series [2] that patch 3 fixed the wrong
-> end of the problem: KVM should drop the collections when the guest
-> changes the table that described them, rather than validating them at
-> save time. He also called that patch's -EINVAL a mistake, since it
-> aborts a save userspace has to be able to issue. This series does both,
-> following his answers [3] to the two open questions: purge the whole
-> list, and skip the offending device rather than fail.
+> >
+> > Instead, grow separate destructors that gets called when we tear the VM
+> > down for good. From there, we can nuke both the individual MMUs as well
+> > as the global array that points to them, safe in the knowledge that the
+> > vcpus themselves have been destroyed already.
+> >
+> > Fixes: 4f128f8e1aaac ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
 > 
-> vgic_mmio_write_its_baser() now frees the cached devices or collections
-> whenever the stored register value changes, not only when VALID is
-> cleared, and drops the translation cache with them. It tests for a
-> change rather than a write because the ITS driver rewrites an unchanged
-> GITS_BASER<n> on resume. With that in place the check patch 3 added is
-> unreachable, so it is reverted, and vgic_its_save_device_tables() skips
-> a device the table can no longer address instead of failing the save.
+> LGTM so:
 > 
-> compute_next_devid_offset() now calls vgic_its_check_id(), which reads
-> guest memory for an indirect table, so the save does 2n reads rather
-> than n. It stays linear, as the scan stops at the first
-> reachable successor. Patch 1's Fixes: tag names a v4.15 commit, so it
-> will be picked up for stable. Drop the tag if that is not wanted.
-> 
-> Patches 1 and 3 apply to v7.2 unchanged, but patch 2 reverts a commit
-> only in kvmarm/next, so the series is based there.
-> 
-> Tested on QEMU: the new selftest, vgic_irq, vgic_lpi_stress and boots.
-> Both cases of the new selftest reset and restore the tables they saved,
-> and both fail without the series.
-> 
-> Based on kvmarm/next (aa8e5dc6a7a2a).
+> Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-Reviewed-by: Marc Zyngier <maz@kernel.org>
+Thanks.
+
+> A couple thoughts/questions below.
+
+[...]
+
+> > @@ -1310,16 +1319,12 @@ void kvm_nested_s2_flush(struct kvm *kvm)
+> >
+> >  void kvm_arch_flush_shadow_all(struct kvm *kvm)
+> >  {
+> > -	for (int i = kvm->arch.nested_mmus_size - 1; i >= 0; i--) {
+> > +	for (int i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> 
+> Hmm why this was in reverse before? :) I guess some product of the
+> kvfree() bit or maybe something else?
+
+We allocate s2_mmus in S2_MMU_PER_VCPU chunks. Which means that it
+complicates the freeing of the these structures, as they can only be
+freed once all S2 PTs of that chunk have been freed. We have three
+options:
+
+- scan forward, and use complicated logic to work out that you have
+  freed the last PTs of a chunk, freeing with a negative offset from
+  the current point in the loop. Works, but hard to reason about in
+  fewer than 3 seconds.
+
+- scan backward, use simpler logic to ensure you have reached the
+  beginning of a chunk, nuke it.
+
+- have two loops, one for the PTs, one for the MMUs. That's what we
+  end-up with due to the different garbage collection phases.
+
+Cheers,
 
 	M.
 
