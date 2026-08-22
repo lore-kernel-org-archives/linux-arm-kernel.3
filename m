@@ -4,97 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04110C5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 01:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 198C0C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 02:08:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XNcfeMEYwNlJBKitvYBP+hWuT3fX1KTsmGqaiTl4+vY=; b=apKxtDl04Pad2fdR7M+JGZyny1
-	RftkarhInsUDR52yl7KSdX6gI8iJVtY70+dhFk5dwzvu83qV0nRb8ELl46P13M0hqRV+Pi2oNlRkj
-	cbbeYZcQKVHtsDtLaafP4briL2otDaLizmdTJoljaUaD/BVCjYMsAlLK2i8/RT45JHn0tb5vo88aR
-	JUmN0gBYAgnNcHLKMO4BA3uYY9KjD6aWMknz/v4iUGyn88zj6c2qD5MrSrKcThkuisafzIp0dbzxA
-	QripV8P6VYGqe866iuuVeuB+OCFVpX8Sifh182khJclmLByjqKFnT7h4keQgcpro8tZMXgrVZo/TH
-	zY1oABTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JpQzK2uzwXP/DEEdgbDNGAPShOCtQo7XQEPH4y28aoQ=; b=H9ok2FX9u0k8NjnKV2LEu5kKBF
+	uRMJrVyNpbrMd5Lk7Fqorc/Yj9TCIbm2/ozEQkGP7qhOYbH8vwEoPYo9w6e+KlmNSNVvl3PzfWeXr
+	+fxiPthOY7hmoLGKIMvKT/tnMsH7YD3IDCCur0IXrSXo/XDvYEi1sD9cT+M5BcNvRDSdq1IO2iDQV
+	EWqlYPd6ifUv3iHBNRsOkUXAMoLaaAwvIeNkat3suR333sE42A0GPfkWXwocbcIf+iXXn5J43/fR8
+	6xr++peWesV12uK89/daW47Bu20qt+roqMMHU4SLgG3agihgAdukX+lNjH26F11yDZJI4s/Z6Zxje
+	xXedr3Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxaRG-0000000EDix-20NX;
-	Sat, 22 Aug 2026 01:22:26 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1wxb9O-0000000EEfS-3Wf9;
+	Sat, 22 Aug 2026 02:08:02 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxaRE-0000000EDib-2aS9
+	id 1wxb9L-0000000EEf6-3tTR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Aug 2026 01:22:25 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-cbb7926836eso1229398a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Aug 2026 18:22:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787361743; x=1787966543; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XNcfeMEYwNlJBKitvYBP+hWuT3fX1KTsmGqaiTl4+vY=;
-        b=sGsUxTo97E4IuEofrxgZHdL0x1MJ8kEZCvCXIZfPAz5emBWZKR5RLSVEA2aDc2e4A2
-         HYx0FwlVH06c5ygQlp0taTLmLLFkrDAISOwQeEHtQEiECmNG1rQTf/dMAV5/M752b7pj
-         p8XBby1qlbnT/JO0Oebz8v+gmYNPYA+WSjjFBhaV8gYEiHksjNT7ie64DNpRvWV1jSYj
-         jddlIOoKi8EyWBTuy/6UkBzK3kUSo9muTnKqkgCy0PYHMTdnjPSO94lAJpjPbb5oOk/o
-         oANBkWr/ilm+u8J8JWmU4VUtDeueVWRv7uxORgw9/rpn3KODnU5EEykOrgzgy5RZixBD
-         xpbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787361743; x=1787966543;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XNcfeMEYwNlJBKitvYBP+hWuT3fX1KTsmGqaiTl4+vY=;
-        b=BYgZQ0v3I/hJYgwfBYrSUs+LGclzlZUppgyD+seRCOjQwQWypCUlYqsU4jM+DHzDK7
-         +zpCskYhdhGuAeWrMx4JQjJu0f0YrfCt+7Hi9+60WpQUOicX89Ml0T4prrrBNZp2/LJ3
-         DATR6F9JsNi/4ChE+FsCSq+TKhSw6vvd6ic68ZOd8u6wPW0+G3Mf9+Ye6Uj7THW0DDOs
-         a5a0kdr4FM3zVXdZII2NN/WhUZ8RO8liccOwCHXTkZYWouBaRs50sjOEWyCjBT/puwkk
-         jpY/HSdKQ40PQz2k3Vl8zyRut5DD52HkyqrhCWU2vDecNhk67wlU0c3dJS1y0zVPGdUr
-         gD0w==
-X-Forwarded-Encrypted: i=1; AHgh+Rp2CDIXGuQwn0CgNCa31UbTZ8lUiysnK+zjIVqfmblLp1z/NNrBdpEwQGTcX83GH6fDmateQqIGyZ9zuBSVwzvU@lists.infradead.org
-X-Gm-Message-State: AFuF++ksweaj9RUe7HlvgUHjF82L5fy6n/X4QXkOe5wRV9vcVsfjZ6Z1
-	IuOoEpf03DYINa0QLfj6MXusI22YTCBJpYJhOWn8mn0MoNALjQD4ZicR
-X-Gm-Gg: AR+sD10iMqVm7pLMSLMozKjW9TpmBSDymHxCTZFoqOecEDS+zgChcFd83VTgUE1yU3Q
-	B4TOF4tiI8o/TFhbP0hvMZJGpdR5b1neU47R93NUmQmzZRcO7byQlVL/QpQknlf6WKJhBOli/DV
-	YMJ3dPU+6I2Pkw9Cynv8+jLezM67+/izCB88k8mKxSStPIsKm+5WnjfHe/6VENPfPupEwq7vll6
-	ivL3/ZzPy3Bzw0f4ppLujLAM+CIAHGXHVDu3HVp5TKMnAi6kNe2HvrPqepNmqB4c02iULVziLub
-	EKnqx4SMcURtE+LECN9k7QfbtFdQimiToN1AITtyeEbhIoEkxG4rm3hjtmePn+RmCjKovVrllsX
-	PAi8yhLWxzs9FijcyckJKgvwRE68444JGdl9E17tqUC/o39tZJRi8VlPvMQyI6cZgNiA1rrrPIy
-	KpYwktMYOKNS7EmxlcJMbSZ+I5qypvwJlxKFjQ5i55RxyMwF1z5cEB2s8OcWPhFlFtozjczA2Lq
-	2iVytSQwiQzr4S2EghdpzI1jseVQrBBYE/4qTb73lfRKLkHNVWR6Vpc7i/fvSI=
-X-Received: by 2002:a05:6a00:1407:b0:851:8394:1696 with SMTP id d2e1a72fcca58-8520ba16a9bmr3668474b3a.12.1787361743351;
-        Fri, 21 Aug 2026 18:22:23 -0700 (PDT)
-Received: from hanzj-mi.. (ec2-99-79-140-187.ca-central-1.compute.amazonaws.com. [99.79.140.187])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8520f03b243sm144370b3a.31.2026.08.21.18.22.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Aug 2026 18:22:23 -0700 (PDT)
-From: hanzhijian <hanzhijian1991@gmail.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	kernel@pengutronix.de,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	hanzhijian <hanzhijian1991@gmail.com>
-Subject: [PATCH] PCI: imx6: fix pwrctrl device leak on PM runtime setup failure
-Date: Sat, 22 Aug 2026 09:22:05 +0800
-Message-ID: <20260822012205.2459806-1-hanzhijian1991@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Sat, 22 Aug 2026 02:08:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MWSDs2EsUFFzrKHXEtukzDwKHtgQmWiHv8KQPsR1ZGWbKWt9A06zKROvwlnupi2j+/yvsBQv+in6Y2KYT8Mp9ppmeyooBJHPtMTQf8d428iw/MSsmRskYOaHLCV1BmR+BQLd9rt7AwJNM56p6Pn1TnM3LP1Yt8/s/G7inNARwoelVQkE+N/B+XsBBF1q0j31AWdZBOwM8lkqWopDCBdtUQOsJD9TCdNwhKZG4/i4fMMsRMG+oPqziwG4bybiqXw6ww/xXc+I8jd3g5+bZDeDyuc8qRgkwuZl23h1PN0Sq/M8tgISBU62oQ5AEFXy9khx3+9FlE0HDQyhs9K7V4bKhA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JpQzK2uzwXP/DEEdgbDNGAPShOCtQo7XQEPH4y28aoQ=;
+ b=mLx5tEck2kLQI2XgHkgY5ccm9DmwQU8LBB+VspQhG/lA5LbXtEyUWcbqrGF0T7MTM3CUlKYmxClfrZNEdPL3R+2SxbVClOhwHcz9xG2o8995hcKi/euHKvIrVYbkGTSsxEMREdui9CNSdUw/JFKOQY22zar6h1WKN7uE3JEcD7u7gznxpNR/OsKOhK90w9NbnZOXu7hk5Ki5C3xYTOA11fk9RaoCsKxnpZhDm2/PNzb3u4nCYL64IzUmTe4yKZ8/eR4aCdhVYnEtVhweGMslpYztXWGwZ4bJUnakjqEujNSrkOT3UHYa7xR2Ogu8TQcCEWDIzu8sk2TFFJkpSVGNGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JpQzK2uzwXP/DEEdgbDNGAPShOCtQo7XQEPH4y28aoQ=;
+ b=SJ7PX8Azxxshb4mkOiXo+TLeuAY7jWySIilE7BPVji2/qNN/hUmj/GCLIMOQw849pADCueQ1HPG/Ln8vp8uc8hVm27TkKzdXU5OksaUdUiMFyJM3YRNDIS0NxZgf6Ms0i65T0QBRt9sGPWlDtkFRUGmWpy22zC+sxMDSrd0eSBZNXtTpFdpPGUPw230qJcXRZviiebwA1gwZ7LD6iNoyF68ILYYr2QMkH4iq7AFdnJFZRfcIsuoWe5hX3LmlumCYeS7wNsVzSljDRJGL6EJGde024UhjETEriRYKdXxTV0YtqE/GohPZBmQRqbvdWJeLx+D1uyYUV/fsz99e8gA3mw==
+Received: from SJ0PR03CA0027.namprd03.prod.outlook.com (2603:10b6:a03:33a::32)
+ by LV3PR12MB9215.namprd12.prod.outlook.com (2603:10b6:408:1a0::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.11; Sat, 22 Aug
+ 2026 02:07:47 +0000
+Received: from SJ5PEPF000001F0.namprd05.prod.outlook.com
+ (2603:10b6:a03:33a:cafe::af) by SJ0PR03CA0027.outlook.office365.com
+ (2603:10b6:a03:33a::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.11 via Frontend Transport; Sat,
+ 22 Aug 2026 02:07:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SJ5PEPF000001F0.mail.protection.outlook.com (10.167.242.68) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.360.3 via Frontend Transport; Sat, 22 Aug 2026 02:07:47 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 21 Aug
+ 2026 19:07:42 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Fri, 21 Aug 2026 19:07:42 -0700
+Received: from nvidia.com (10.127.8.14) by mail.nvidia.com (10.126.190.182)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
+ Transport; Fri, 21 Aug 2026 19:07:40 -0700
+Date: Fri, 21 Aug 2026 19:07:40 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<praan@google.com>, <kevin.tian@intel.com>, <smostafa@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <jamien@nvidia.com>
+Subject: Re: [PATCH v9 07/12] iommu/arm-smmu-v3-kexec: Add ASID/VMID
+ reservation helpers
+Message-ID: <aokEbBb0q9/FA7pS@nvidia.com>
+References: <cover.1784663183.git.nicolinc@nvidia.com>
+ <9f9d227c0adf472e93293008e7083973688d015e.1784663184.git.nicolinc@nvidia.com>
+ <178735412602.18212.13622444378152698190.b4-review@b4>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <178735412602.18212.13622444378152698190.b4-review@b4>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F0:EE_|LV3PR12MB9215:EE_
+X-MS-Office365-Filtering-Correlation-Id: 48fa04ad-124a-4bb9-b60c-08defff2298d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|23010399003|82310400026|11063799006|10067099003|4143699003|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: bLdp4fSbeWLUB8xH2XcKbw6l7Wa3zDtlSXwTubpixstfSsqE33xrQPasyRkKSi8RQ+I8hVS4IYo2HbTMbo2bZ0H4P25jnozIyrUwuxbyppVdMhCD0rciLD0Ko/p0xXHIqQvlgHkBe+dT/attPzjn6mSUmqB8ch/oypE8lV0UHdtI7cQLCb75oF8gIADoaliQj6KZ1NAGf/q40lS01/CZVyuguHHaVvSfCDRKLwQCgoEEXKaplpH42g4GGnqMe1G3knJ1KbRD9EGQlNY6vkiFqxpAypk0R5uyBgb4OrAMQO6nhmGtB4l3OMcwHMZI4Gfm7wxmnqufQ4cG979s4Qh+cY/Fi+zQiqcHeXX5xcgpF+TDfhj2WHGKWB5Lbut6iqOPQ0sK/BIVOvXvOzqXGT89O6inGaHp65pa8aIXMETfcHz8Zxq9mSxpPjaakIpoRCKcqCr0YUK4BENXeT6KI8oZab8AUkOxgAGOIq9IVftUF7+b4dIx3JpXPOgxBWpl8w0bTKhZVW4oImkR8mPmwovqmc9hWmAFKAt7b4yMR53KBsPsZHisML4ZttGJiG7RVCAfjnYIaFQHcB8EP/Ao1n7dF+K56vZlr+WyIQswdbpgkRd697mYjmiGdr9s6nke4CDhftbj0J2iWlV+E+YetTV/siQZ/Mqui9mfvGl/HqvBb2U7hAh/Q+Wl4lAc97uUyLHfNlCGNFjx6M6krMwY8imI5Q==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(23010399003)(82310400026)(11063799006)(10067099003)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: zxW01dBIzZYNd9masFMbtHYzVhWSHTeCol2MjaA7iP7zCWeUKGdIcvXABI0dsZYLmtGOBcdst1fbzkRA0hablIZ3wCdSK0PRD6W7rNTvC1gyfyL1fNPJrCw8lcBEzFhAaBHDCnkz+S7PrhFF9jbau1IZsu5xBcgftWMxdovdfY+Xt0YeP+aIK5ElrKn7yWmJ0Po7XiAhlsr9kwPSlHQNPoETgQL0hZyXfZlQLRGD+3jKBx/HqLBfsnfh6d++qL0zwD8lXyoHoJxVIXUEurqOciHeih4Kc7A82EwjhpvZPIW2RaGhUMyA0yv0kmlV425RF10ZVYm3a+G0bwF/D1ROZsTth4mZq85mIMr8SQNl9m2kFCikC3TjSoFKpyzDrfPRhKxjEcS7yIFFH/ZdAFJjwglIvAObH5tYHo6KXq4+X23nGgZef+UEqXvy3OrmL39H
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Aug 2026 02:07:47.6732
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 48fa04ad-124a-4bb9-b60c-08defff2298d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F0.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9215
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260821_182224_665580_9960D193 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20260821_190759_972646_82D631B2 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,34 +131,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In imx_pcie_probe(), after pci_pwrctrl_create_devices() creates the
-pwrctrl devices, the error paths for imx_add_pcie_ep() and
-dw_pcie_host_init() both jump to err_pwrctrl_destroy to tear them down.
-However, the error path for devm_pm_runtime_set_active_enabled() returns
-directly, leaking the pwrctrl devices.
+On Fri, Aug 21, 2026 at 08:15:26PM -0300, Jason Gunthorpe wrote:
+> > +static int arm_smmu_kexec_resv_asid(struct arm_smmu_device *smmu, u32 asid)
+> > +{
+> > +	int ret;
+> > +
+> > +	/* A valid CD never has ASID 0; both kernels share the same HW limit */
+> > +	if (!asid || asid >= 1UL << smmu->asid_bits)
+> > +		return -EINVAL;
+> > +
+> > +	guard(mutex)(&arm_smmu_asid_lock);
+> > +
+> > +	/* The value entry marks the ASID as in-use and identifies its scan */
+> > +	ret = xa_insert(&arm_smmu_asid_xa, asid,
+> > +			xa_mk_value(arm_smmu_kexec_scan_id), GFP_KERNEL);
+> > +	/*
+> > +	 * An -EBUSY against a value entry safely shares a permanent reservation
+> > +	 * made by another scan. A pointer entry means a live domain that will
+> > +	 * free its ASID for reuse eventually: keep -EBUSY to fail the scan.
+> > +	 */
+> > +	if (ret == -EBUSY && xa_is_value(xa_load(&arm_smmu_asid_xa, asid)))
+> > +		ret = 0;
+> 
+> Huh. Somewhere I had a patch to make ASID per smmu instance, just like vmid.
+> I think you might actually need it here? Is it possible that one instance
+> could probe, the core code could start changing domains and end up with an
+> unintended ASID conflict on a later instance? Then things go sideways?
 
-Jump to err_pwrctrl_destroy instead so the pwrctrl devices are cleaned
-up on this error path too.
+Yes. I've noticed a problem: SMMU-A allocates ASIDx from the global
+space for a default domain, later SMMU-B wants to reserve ASIDx.
 
-Signed-off-by: hanzhijian <hanzhijian1991@gmail.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+So my local v10 adds a new patch making ASID per smmu. If you would
+like your version, I can swap that.
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 39790e66b..616c42932 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -1975,7 +1975,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 			pm_runtime_no_callbacks(dev);
- 			ret = devm_pm_runtime_set_active_enabled(dev);
- 			if (ret < 0)
--				return ret;
-+				goto err_pwrctrl_destroy;
- 		}
- 
- 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
--- 
-2.43.0
+> 
+> If you have that you can also drop the arm_smmu_kexec_resv_lock?
 
+Yes. The entire thing ended up cleaner actually.
+
+Thanks
+Nicolin
 
