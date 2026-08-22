@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1087DC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 15:08:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C5EBC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 15:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3WRamQXpDUK+MxHYzTl3WtRIEBUdJqjnF0kXvecvEq4=; b=1ochwnc7Wj6dR9eJV5SEF1HLxD
-	phVbmvqAbxtkY2fiEJ0M5W1u1wMxRV0cwAvB3YgqXTERhTdbPfaWF6rk8TeT1WfVJ815Xhkw2695v
-	Qe/CpZOwKm6LE2zg6CCtoiljgYNdVyNP3Hto9EBtM64lYq0ZboACe+GR7msnfichF8Kc58UcoUBwJ
-	+v32+qLa1Ms0VQbHDsP/KScBPrSAsLlOrG9NosSXZAlt5CPQx5ITu8qGQRnrZ/XFUyGuH744SV2iU
-	cKDEnszaY6ArHXePxDKuT7uMcPfCBv+LkhSnYoS8EQiMVhxLnRW/28v+U+CYZTjr2J4sJIkPifXU4
-	puErsK8A==;
+	bh=7/zhBj9KsrWu1iz3uRFGRfIc5hKkqLHf63XbozGChRc=; b=owwrEMtw+RM5RAbtvygM4H7gx0
+	IDg302EVzUyU+irxhap7ycixK+I0JNgaxcOTls/nEtMo78PF20Z5N5Z54XB0DwWR071JwpOglbP9A
+	2G/7e3NH1OOAUhQ0SastUylkGrwLBgFMHy/Ugm1lzOKTe0kZ2Z8/+sT+DjZlPWIBt9A7RV0bbEe1y
+	y3/wtp6FY4a6KX9lKM2WVnC4LwM7YS3GCxZnJIS6yHJ/Jx2tqE5u73jBSo55IA9Xq4qXlrhD6D8p4
+	YBNmqR/c58O3GaBUV1t1eoJg0oCp6BEJuTWIkuo6Qvc2ETlnWufGJmx4Rlzo6Z6kpF3ZpQS447d8r
+	mAFT4c1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxnKM-0000000EcW1-3yM1;
-	Sat, 22 Aug 2026 15:08:10 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1wxnKU-0000000EcY8-3Me4;
+	Sat, 22 Aug 2026 15:08:18 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxnKK-0000000EcVO-3WG7
+	id 1wxnKQ-0000000EcXE-2ArK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Aug 2026 15:08:09 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-ca766c1c9ccso1404890a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 08:08:08 -0700 (PDT)
+	Sat, 22 Aug 2026 15:08:15 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-84830c774a0so2291728b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 08:08:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787411288; x=1788016088; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1787411294; x=1788016094; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3WRamQXpDUK+MxHYzTl3WtRIEBUdJqjnF0kXvecvEq4=;
-        b=AyhjPBIX9+1gEubqeUuOi6EDMJlfU3ZIepdCXdShWImkwyUeeVIsCZgK1ragy+skOV
-         otYyn+mYPkTKVA1n2FDN4QltrlsEvFde+pbxQGxBIe7NeZHPhcKS/SfwH28AR7E7rwKL
-         1yvejZDBtFz8cfo01UkOCBHQWm689xQ8TJZboEZ/mWK2g+LqyIC/c527e5mBChMG1WeZ
-         1aLTnAD6gPMe714Kp7vCPW9P0TYEy/JYKcKj6knVzJN1tCenabo7inODWoULRXBbLFeN
-         xwQAiloiQGIB8SJ50ogeG5P0OedPKaPkBoX5dv53HY+KvwlXomruKX92/F4Xw7Lpu7Uf
-         FzPw==
+        bh=7/zhBj9KsrWu1iz3uRFGRfIc5hKkqLHf63XbozGChRc=;
+        b=gHi0uoRXE1yUZX+k7VFyCWykEcuB2qnObzu9EyHQlT4kcIp5IdKhY/HtCqlQ2kI3It
+         Xp9Wn3GleLJQNPSqTTcU8dFAqFvI/BPsiIFgKg4uhPGkevHU+Ck8w2L75aLMV/kNtiVC
+         1cswXD9T0nklxTsHxgOZFfPNy9vzYBqdA8jGe3gSkVFMmw+VcDcWVUVVypXI+2QUDbCh
+         3ekNFyU0tPibZR5T87X990jkZTbZabJb03jfMworLVTvwP4toNPi4151ORITetdi7xYd
+         TBzCwdcbkN1PYNQ24uXgsTOFtZOlIGhyj7KeLH51rRZIp08z0rxn9DRvPO1jBmEgQg9o
+         b7UA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787411288; x=1788016088;
+        d=1e100.net; s=20251104; t=1787411294; x=1788016094;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=3WRamQXpDUK+MxHYzTl3WtRIEBUdJqjnF0kXvecvEq4=;
-        b=AZJkAQSuKVpr2T2VLlihADVOQA/eI3wTbp1Uyrmmmq6p4TnYZASkw65IgIaApGKSkz
-         dMGrneSKPH5DFuiQVUUKnxKZkooWonILN9Z5YvMyz2p9ZstakS9YzgeXEjyqHSwZeVyG
-         0FRRwKXAuZeBcigxeKZ4B0vm9d5oGVaxGZSNno3s7L1ZTC5LP0mzUR+HavawcPQpxcdw
-         aYwW0WbG5/WqyQp2dA6RZY2AveofG3VKTE8knQsjHx1XdlqYNUFxtW1WH/3z27G3BL/H
-         3g496crlPGw9DFJneb0zguSioX4Qzgv0bSe/t04D6GOtV96gQd4em8VLDe0eG8slq1XY
-         tldg==
-X-Forwarded-Encrypted: i=1; AHgh+RqV6zb+82E6UdICcPYzLQJEwQj0JFA7B/3GtTIppYG7IXUFjT3Gn1b0NbZGeRAJbGJijye0FcLSZteL8wbON2AS@lists.infradead.org
-X-Gm-Message-State: AFuF++kH7ZOeycR3NC+uKpUl7aWIAGIVoeGTBsL6C8GGwh4Y5EP+IY+s
-	+G6ueMwuS43Jlz1hEYRRUlaAf2jpPDqab37y0K69tenzdJtMmV+4hYIq
-X-Gm-Gg: AR+sD12LTKaUFKKuksuTkAJsWbnz1cwxi552xiZREdb8LFe2i3ULzbNgWA4g44DFxcH
-	U8t4Y9zub20u4CmEMJnxnRgzOYQJJ39r3pXOj+RKfNG0J26MknRJyTviWimoQvMshq/Ochbazlb
-	YHYOiIIrOyJPyMAlZZ82enQ1aP7/H79QZBKscl9Q4Rd77EsIQE7Isr7dPQA6rR3iL0/C7EqNsZE
-	sKPCA1DBbPt3xNjIIcVQdlHQYMhoyspVfXp/oIygR2bp9ELe2/kE43wLMFYp0/3GXRf4vgt1Wkv
-	ALJHIB2bL+gMdmawLEh0QV9Utsvam5kaSVRk3uEZedxkz86OhaJBP6lDv58m8U1tO7xXOFM3rXG
-	/4n+UD0EuN0kCMskD9XR6nnQDw45DZhZ2hAFZ0pC0eZWCn5h9U3u7Q1wbarZtHDsmr5qWHBd4Yd
-	YpbXv1Pud25+0WEt30VLYD5YGIGodWrDwjcV/ft1vtz7urqg4UiVxAY30aJSzTigMB7mYMILlIp
-	VsnWw7JvmWNoR4QUAl0zJe386eD8sZJqA5A0F1a2BqaI4FWYmPqovRKWMp4LA==
-X-Received: by 2002:aa7:88c4:0:b0:82f:2b0:2809 with SMTP id d2e1a72fcca58-8520b942d1fmr10233534b3a.1.1787411287768;
-        Sat, 22 Aug 2026 08:08:07 -0700 (PDT)
+        bh=7/zhBj9KsrWu1iz3uRFGRfIc5hKkqLHf63XbozGChRc=;
+        b=R48Ai/c6/RonIWpm/BnFyVPMh7AoA26Ee8+mokjobnoOaaJx3i5NcnmlVuWJ8G2aPj
+         9VuWe8/4YixsTT1jLrcVh2UFw+ptwc1psr4t/1VCjay/SlkUB9i22xdwgvetKadVmnPv
+         yzXOv0QDU1l3wQPqCpmsHiBCli9c7ANLlKXhqlI7JsVaatg0UhOacoFMLUQNQUiKeAee
+         Sb2hreQ7Nz9X5TmxtU/fQO1mO6duwoJB2d6gJOQ27ja9w79LtT5MAObk+iaVdvQP165K
+         1YrJGuc5/qhUcdpB8cOcBykL+YzP+VRRazZG5WfQteZyFkzk5gp3x6PMml/1UZsohaM5
+         RYAw==
+X-Forwarded-Encrypted: i=1; AHgh+RoIXV5GUqgU+fVPenszk//zCyGCpbTEbt90ww/t+jzaprdyiQLfFNYZuwF4X2Oa5KLpEOSVzQ/Wr4msivwcb185@lists.infradead.org
+X-Gm-Message-State: AFuF++kB8kZW2uV33r2wr7JTTiUonNCLz0szfqJFlLChoT/qpYFK6Dbx
+	qNYqhyVqnJYodeGsrpfo7eHQL2BiUY52ZiKgWttVyhghnf0TZKGTaMdQ
+X-Gm-Gg: AR+sD13Qx/Ek3NOrGoiT/SXOwywjeWMlMDYz8WHgK4htkk05o3M49GwK6zaxscNO2tJ
+	bgGDOqN7PLXFDOudh+5P6LKwd7MlUiPR5QUJCkDdpRU2MI4yTxjTphyEwJ61q/iIZI4Pj2Ro/4q
+	SI6FuHH6Zb3DL06HwwOxxoi7xcUoqZs/CIdM7O4UabvZDgOTVSre94PzKKXY1eb88sKH5m1pXfc
+	DjQvgtXhE9halDmstVRpG+ls7EwIRXqkM/LB7ReXAFGcdXTRRcic7KzJ/kte+AdM6Ghrf7Avm4A
+	iTp94+9azaEr0MxvmUpjNSmpS6ySmO3iKRnL6iYdyWH6btEVu+MD/NS83OpZuYaU9ZP2LNAVyE3
+	xRv53693lsY9qi0DqcKgRM/+0ioUbrm+rZ2OCBCK+zNUyZt7JF13x2TYmbeBcizLj173GOEK6mC
+	Pd2ol4EkbwFUYDQnqevnC89EEtMlEPRAENOUdKPa8DwK7i+amWP59+cC7w049SKYYCWvNT7t734
+	A0jFnNmoqFZynVoNnglIZ5xGEggx90X7jq4V5c0m3F4LAcgCzRQOGWQ
+X-Received: by 2002:a05:6a00:14d4:b0:84a:2fff:cef9 with SMTP id d2e1a72fcca58-851f9f84b8emr18586843b3a.13.1787411293482;
+        Sat, 22 Aug 2026 08:08:13 -0700 (PDT)
 Received: from junjungu-PC.localdomain ([223.166.246.74])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8520f03b1ebsm628242b3a.30.2026.08.22.08.08.02
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8520f03b1ebsm628242b3a.30.2026.08.22.08.08.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 22 Aug 2026 08:08:07 -0700 (PDT)
+        Sat, 22 Aug 2026 08:08:13 -0700 (PDT)
 From: Felix Gu <ustc.gu@gmail.com>
-Date: Sat, 22 Aug 2026 23:07:47 +0800
-Subject: [PATCH 1/3] PCI: dra7xx: Fix clock enable leak on probe failure
+Date: Sat, 22 Aug 2026 23:07:48 +0800
+Subject: [PATCH 2/3] PCI: dra7xx: Fix device link leak when devm_phy_get()
+ fails
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260822-dra7xx-v1-1-23e204d5548b@gmail.com>
+Message-Id: <20260822-dra7xx-v1-2-23e204d5548b@gmail.com>
 References: <20260822-dra7xx-v1-0-23e204d5548b@gmail.com>
 In-Reply-To: <20260822-dra7xx-v1-0-23e204d5548b@gmail.com>
 To: Vignesh Raghavendra <vigneshr@ti.com>, 
@@ -92,16 +93,16 @@ Cc: linux-omap@vger.kernel.org, linux-pci@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Felix Gu <ustc.gu@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787411275; l=1209;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787411275; l=1121;
  i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=iqwaq39/Zpa0iH6/a6W3yQV4x79xW81LRfZe/TmtbhQ=;
- b=JQwJxBp9JSiXLkuvgP9DsAqIhnNVN95oebkqBf5QP+o8m9TooJuuD3/GmQ47Qgmh0RJ1HbYN/
- XhZFZF9+3GCASDzQMKX+JxGYZMzSbVHilzqclpMzDdh1CfPZODqjapy
+ bh=B23Kydln9+sFNwl/EddPsXeSNGxgpJc+Bv5D8Nfp/CM=;
+ b=TX1ESX7RK6u/H0zkVg6E0SCFWHpFzbnS5YCn4VL1Y4bMfduClDLmt6rcMJoaUKwAyiOBXMhmO
+ cENEnoJzPM9DLryFJyE8Xfafq84ILfLThjpcV/5SGBtHXPuUruKAjOu
 X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
  pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_080808_887185_2CCC963A 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20260822_080814_570186_5E899E40 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,39 +117,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dra7xx_pcie_probe() enables the optional clock but never disables it
-when probing fails afterwards.
+When devm_phy_get() fails, the code returned immediately and left the
+already created device links behind.
 
-Switch to devm_clk_get_optional_enabled(), which disables the clock
-automatically on failure.
+Jump to the existing err_link cleanup instead so those links are
+deleted on failure.
 
-Fixes: 5af9405397bf ("PCI: dra7xx: Get an optional clock")
+Fixes: 7a4db656a635 ("PCI: dra7xx: Create functional dependency between PCIe and PHY")
 Signed-off-by: Felix Gu <ustc.gu@gmail.com>
 ---
- drivers/pci/controller/dwc/pci-dra7xx.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+ drivers/pci/controller/dwc/pci-dra7xx.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pci-dra7xx.c b/drivers/pci/controller/dwc/pci-dra7xx.c
-index 6ae5b27e27b3..d43253f7dea6 100644
+index d43253f7dea6..bf32b14436f9 100644
 --- a/drivers/pci/controller/dwc/pci-dra7xx.c
 +++ b/drivers/pci/controller/dwc/pci-dra7xx.c
-@@ -732,15 +732,11 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
- 	if (!link)
- 		return -ENOMEM;
- 
--	dra7xx->clk = devm_clk_get_optional(dev, NULL);
-+	dra7xx->clk = devm_clk_get_optional_enabled(dev, NULL);
- 	if (IS_ERR(dra7xx->clk))
- 		return dev_err_probe(dev, PTR_ERR(dra7xx->clk),
- 				     "clock request failed");
- 
--	ret = clk_prepare_enable(dra7xx->clk);
--	if (ret)
--		return ret;
--
+@@ -740,8 +740,10 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
  	for (i = 0; i < phy_count; i++) {
  		snprintf(name, sizeof(name), "pcie-phy%d", i);
  		phy[i] = devm_phy_get(dev, name);
+-		if (IS_ERR(phy[i]))
+-			return PTR_ERR(phy[i]);
++		if (IS_ERR(phy[i])) {
++			ret = PTR_ERR(phy[i]);
++			goto err_link;
++		}
+ 
+ 		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
+ 		if (!link[i]) {
 
 -- 
 2.43.0
