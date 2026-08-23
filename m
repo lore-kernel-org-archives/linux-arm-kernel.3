@@ -4,83 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 067CDC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 15:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B1FC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 15:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bGssleoR8j5d5BjeV9KwAwh1Wr2o/KlpY4sV/yr+LHU=; b=B9pCyRELWNovchcGCt6MGJwHHS
-	w39D2nMR2y33qknh1rqlkHWetCoyA/d+hUN+bzg6UcsKaYoWkXfteCQOKvtPhPAzBte3LOye93fM9
-	P8ZWWd0FV/TF3/prVnUAu8DXi0LU9Ir19CQMKD8PfXVmC5lnNIy326obmzLWnHNWixfIIRcUgnc8W
-	GP/yaZpZwZAG+jO9PydOIpplfPTVhdU2JAjKuOBGqDMtlmxUXO2BTgGZTgv1W+hYQppFvdmVla+A3
-	ylHb15TcjYl5ax6GUcMufDDGcuFak6z55UThKvl46bJNnu3U0BStbwJqiRuu0wPrrrKpGWM5996XB
-	lBAGWcxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w9CIQFXWYmHnbG2olip8/ZEkH+fpGsI4/iC0LU8BgT8=; b=Eevvc/Nb6bZ9ThcSrBk0SrB9u8
+	jVcqlrEtkpkfOutBMuPtsG6f906ySyWUgOqbLyhj3RfVuRB2aUpIXkUjiVl09y4yjr4ksAojMtwd+
+	Iwr6VES/c3B47rLzZ2aDtdxB2UcVXSrvM9ls7qNn02Vp6lfgn5u8Knpz/Zc1AGCzbAxrtCMwFpyI5
+	zzehCahasJ5A23PWav4DB/ljXJX6Oq2EEAQU0NQln/iytv6YyGYQwrpFPCWNLrMANxIYtfIEzPCyB
+	PmcI+r4m83gdr9keu/OzYxCc8IAA+YeqX6lHOZ8lQSD6fp5RI9SurYtGjJEn5zE9/ziIvCx/kqlAO
+	WhdkPEBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyAJU-0000000FSK6-2VSz;
-	Sun, 23 Aug 2026 15:40:48 +0000
-Received: from mail-wr1-f49.google.com ([209.85.221.49])
+	id 1wyAQ5-0000000FSbM-2eQp;
+	Sun, 23 Aug 2026 15:47:37 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.53])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyAJS-0000000FSJT-0Xwa
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 15:40:47 +0000
-Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-47362928f65so1037065f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 08:40:45 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787499644; x=1788104444;
-        h=content-transfer-encoding:content-type:subject:from:cc:to
-         :content-language:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bGssleoR8j5d5BjeV9KwAwh1Wr2o/KlpY4sV/yr+LHU=;
-        b=aIvmXUdx+vMTWSWBFiCgISkGCuCzaPAdUUnF5WfkOzC3rtJPmnoapz0fcNa0Km6X6m
-         KpAfrLdq3IZ8F6A+/DI9YhwB7E38rOjUKFRXiBCiJBZbQyhuRL3QrNpVMh94jQpXXKum
-         CcaWi4NWW68PbMcVbRdLLYQXCwJkfAv1pq+HnCR83Qb9v1oZLBdnjceQ+DurEs+SOVvG
-         vwhgvo9FxFBooj4ZKXD8ewCocR/t5j2dq3OMSUXHMBPQjM9iH7I9QUkdq50X42JBjD9A
-         yaVKCZopnJa0m5cw+mZTF7Hdygpm47ag7gxhUTOWG2yFk7AHQ2UvqDI/iYM1UO8aAhJx
-         BwhA==
-X-Forwarded-Encrypted: i=1; AHgh+Rr2fDeR6UndJrZw73Wa5qV6g256ZFSAE15JKjjumxwJz+f6qO7q3jkiWltcYx2RkoR8UFGYIhF2nYiFAnm3KQU1@lists.infradead.org
-X-Gm-Message-State: AFuF++m5sL6Q7VL6CHGcXzgkvNYY5qu+4itIMiHeNTb7DrXl/+O45Mcj
-	5oUdxGKxrPdEkI5S+Xe/VPJDKclhGQYMO6sthaie0SV9c8eKctzgeCN9
-X-Gm-Gg: AR+sD10XcWt78a9RQQ4hU7qV6I4cBzH5iSlMcSfyp2xVzMcg3Dvbv1cJpiy/VgFdyyS
-	XhsCy+KzTNmFM0H+AUkmRTPugA4adcflyBvyb0gSBWQDb5GCM+XtCrcSnWumjusikB4M404TPJy
-	iKaD7gvUnCh9LFaZXpXQymM66n7XeRTaazdV8lGoM/rkPxp703J5XaIBaE6BQ7NXMbwm8wHrYk4
-	A02PHPXtcegqnDcGLnS8N9lXC9Ldk191sYR5f1D01RP8929Mt3efYw31+XUytWWh2uNlY7V/9fy
-	pEeZQ8hfF+sp2E3Ye2t6LAPYlSUcUS3OamEFm7MxDQDbxw2bAKLZPOdiEKzt6sKEULwOPiBRt9K
-	axytxbZPOTJ0oFDkq9uY/7AzlUc79jb2G8+ZQHPk1VMei12nqzTT9ChclRT7dZFOe8K5/kzhxMi
-	1Rc3zVIdu+26RrWtmAGPvWCccu+0C0w1Q9gBqIYAum1xBdmCVEs4wPU/TkuS7X8FvCJzgh20Q3f
-	79XAy6eDCTcgl/xNVG5vw==
-X-Received: by 2002:a05:6000:2dc9:b0:482:9a18:d753 with SMTP id ffacd0b85a97d-482c0b44acbmr22762075f8f.5.1787499643925;
-        Sun, 23 Aug 2026 08:40:43 -0700 (PDT)
-Received: from [192.168.1.135] ([83.106.158.114])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482c9c0acaesm5321239f8f.29.2026.08.23.08.40.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 23 Aug 2026 08:40:42 -0700 (PDT)
-Message-ID: <3930906f-783b-4d72-9260-ba25cc8081cb@linux.com>
-Date: Sun, 23 Aug 2026 16:40:42 +0100
+	id 1wyAQ2-0000000FSaJ-2A7f;
+	Sun, 23 Aug 2026 15:47:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1787500043; bh=w9CIQFXWYmHnbG2olip8/ZEkH+fpGsI4/iC0LU8BgT8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=srn+GyZPEnMK4kg4bSMoFXogNGO9du+8flrEMmhAqlBq3I0KgSXMHHizr66oxav+W
+	 Pl4DDBE+ifSb17x8BC5sd3JMsh7aL5dXx2c24omnTXaC8GzpouFvjItwOr3ZPyU1S4
+	 ZHxMpb93dR6Acy9k4EU8XFYIni0Jy3NCI7utlT4A=
+Received: from ubuntu2204.localdomain ([2409:8d20:2b:671:9e54:40ff:fe02:3f0f])
+	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
+	id BD29E410; Sun, 23 Aug 2026 23:47:18 +0800
+X-QQ-mid: xmsmtpt1787500040tw6cbvwgm
+Message-ID: <tencent_E56643A62E2161842C400BD1D30FBB698B05@qq.com>
+X-QQ-XMAILINFO: N9Ft9za/J3VVfWHLwHdJtJlKBggkypGRGIJ4KXQ5Ej/xgIbPkSKUuOBGM5Fk/Q
+	 bqI8M0QO5ccrZWcxSY1OFArbWv0NLfkmBJcZdQT9xl8zFWecZ7IMJCldFkeXWNnUanJ/xdk8Yatq
+	 fwXiWHquHrXvr2NblcMAkoipWG8zv4nL89WEc1xS0aPrUk7ihFqgtuqkqeiQifnpa9W76GsJ4x6Y
+	 v7MQkZ1MSGn07jP6ylzfXdPsC7JSn0KmudabG2bml3So4RLjvIEC8J5IcY3Lj2uj+VI+pIy48E87
+	 0SDeeGxi1rGSx3nP7UmeC76vzGfP2kh7yWlzNxWRvuIWEB+Rpi9e0PEz1vu3C4rakFy41AvWFQ2M
+	 cEbDY0MzBqQNJ2ro1uE9BXPgNCreoo2EmyJO0xRPv7RgODg2+AwWl2pjtJiEatoFQNQiF492A08g
+	 rAStHvh/E2LFKTbtKDntm51HQqUaaV9RRwqPP0GBauO60ExCi8fybA6lVt1+Sy0UIxJ/A8SsdwP8
+	 YlP4LpRI0rKC8hXCQp3qyTaeQWIQk34+wJgm9GbhLK0zPh0lUkbuPTrrACCko4cslRCV7o6PgPQp
+	 GNEaU7onqTI00vQWQ8RuvKPR4TqEXpkvDkHgJqWH8mQbY90mWtDeUk1OirSQPJH2x07rCNPcLLTF
+	 x56F4po+nBac+gxukWF6e1Y+t/wDCfgH7kowPIGRqi50SfSWOM7JJt8Y4D7+6qh/YJN8ecS4vFGr
+	 hdNu4Aq1Elf95tyQVnso6z8sMdZy9M0w9dpnBlbXHtIeBqjWTwGJ43p6ZDtwSKNF5zbkJ59Z1Vsj
+	 uCFtrUhS1Ay4KG3TUWLXAzAFnP2urDYFUydpzh9XuRxodlKtAjD1xADKbfjeiZFkHMZ4wHthS8Bi
+	 J2ie/k/itnGiSbFBkKY//zW07QV/Kwdw+QCnML61ZL3YP60HS513Lrq1n1c1sYaUajGUr01JEaoX
+	 Z3qmF9PcD2OSuqauvhl3G1hKUirNZTERNHl/8QWecmcFyMTkEJVAd8GdeW3CaKCvwcahJTYm3prI
+	 kiCSJtm+Pb2TM9RMJ0sWWReR17W8Jn8q3b+xiT9f0oFXH8rTsPING7dKB4k6gJtgLBrTfpIXovdv
+	 L2mGIzl5LNlg6BnIlPO+HRMnlz+Gm/x814fCth1aSfbERkNb9d0yq+U1z6ssTqngetjqd5hIzOrt
+	 +PUz0=
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+From: Cunhao Lu <1579567540@qq.com>
+Date: Sun, 23 Aug 2026 23:46:53 +0800
+Subject: [PATCH 1/2] dt-bindings: arm: rockchip: Add LubanCat 5IO board
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: Neil Armstrong <neil.armstrong@linaro.org>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jian Hu <jian.hu@amlogic.com>
-Cc: Brian Masney <bmasney@redhat.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Lucas Tanure <tanure@linux.com>
-Subject: [RFC] clk: meson: t7: Intermittent boot instability and memory
- corruption on VIM4
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-OQ-MSGID: <20260823-add-lubancat-5io-v1-1-e6b7894e8c60@qq.com>
+References: <20260823-add-lubancat-5io-v1-0-e6b7894e8c60@qq.com>
+In-Reply-To: <20260823-add-lubancat-5io-v1-0-e6b7894e8c60@qq.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Cunhao Lu <1579567540@qq.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_084046_181784_D26CAACC 
-X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-CacheID: sfid-20260823_084734_953323_1E4A4523 
+X-CRM114-Status: UNSURE (   7.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,52 +88,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The EmbedFire LubanCat 5IO is a carrier board for the LubanCat 5 BTB
+core board based on the Rockchip RK3588 SoC. Add devicetree binding
+documentation for it.
 
-While testing mainline Linux on the Khadas VIM4 (Amlogic A311D2 / T7), I 
-am hitting intermittent system instability, storage loss, and memory 
-corruption during boot, unless I append clk_ignore_unused to the kernel 
-command line.
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Because the failure is intermittent, I am running 100-reboot test 
-campaigns to bisect the remaining clocks and isolate which clocks are 
-critical and cannot be safely disabled.
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index a799bb843f74..81744fbee98a 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -216,6 +216,13 @@ properties:
+           - const: embedfire,lubancat-4
+           - const: rockchip,rk3588s
+ 
++      - description: EmbedFire LubanCat 5IO
++        items:
++          - enum:
++              - embedfire,lubancat-5io
++          - const: embedfire,lubancat-5-btb
++          - const: rockchip,rk3588
++
+       - description: Engicam PX30.Core C.TOUCH 2.0
+         items:
+           - const: engicam,px30-core-ctouch2
 
-As testing takes significant time over serial console, I wanted to check 
-if Amlogic or the maintainers could shed light on this:
+-- 
+2.34.1
 
-Are there specific T7 clocks or hardware domains that must remain 
-critical/protected even without an explicit in-kernel consumer?
-
-Current clocks being disabled that don't kill the board on a test run:
-
-[    0.380313] clk: Disabling unused clocks
-[    0.380413] clk: Disabled unused clock: rtc_dualdiv
-[    0.380718] clk: Disabled unused clock: rtc_duandiv_in
-[    0.381377] clk: Unprepared unused clock: a73_div16
-[    0.381972] clk: Unprepared unused clock: cpu_div16
-[    0.382605] clk: Unprepared unused clock: f50m
-[    0.383174] clk: Unprepared unused clock: fixed_pll_dco
-[    0.383786] clk: Unprepared unused clock: hdmi_pll_osc
-[    0.384416] clk: Unprepared unused clock: sys1_pll_osc
-[    0.385056] clk: Unprepared unused clock: earc_osc
-[    0.385652] clk: Unprepared unused clock: pcie_refclk_osc
-[    0.386323] clk: Unprepared unused clock: eth_pll_osc
-[    0.386961] clk: Unprepared unused clock: pcie_osc
-[    0.387548] clk: Unprepared unused clock: mclk_pll_osc
-[    0.388187] clk: Unprepared unused clock: usb_pll1_osc
-[    0.388826] clk: Unprepared unused clock: usb_pll0_osc
-[    0.389465] clk: Unprepared unused clock: tcon_pll_osc
-[    0.390105] clk: Unprepared unused clock: top_pll_osc
-[    0.390738] clk: Unprepared unused clock: aud_pll_osc
-[    0.391361] clk: Unprepared unused clock: ddr_pll_osc
-
-I am not forcing any clock to be disabled; I am forcing all clocks to 
-stay on and letting them be disabled if unused one by one.
-
-Any guidance or hints on required platform clocks would be greatly 
-appreciated.
-
-Thanks,
-Lucas Tanure
 
