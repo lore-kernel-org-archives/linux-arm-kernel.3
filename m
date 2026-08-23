@@ -4,74 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9CDC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 15:40:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 067CDC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 15:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VA2BpY1RprxIVjKDa8wnO4x1UZu8z1xRvCFWVXDq1RU=; b=SQOgWJqWoYJClANjMuN+ovkGv1
-	FrNsGSq5Td127pbB76JFeK1NKL7lXqNBv3YCWro7WfxUf9yyBrVo7Vyss0/pc5rJslFB9wz+UFWPp
-	uU6wajx8eRxODJNjNHWhCXybPO4SZo38N34nENn10JpuzZ/lJyWTCps23i8jtPcvjDW6mxt2LQ2oJ
-	cj11fmi4IkohBlDlDD3csiPt1rMoQj+CfUqsSdMiy3hs3jKWQwRNKOMbHRx6MZx6qkLGxe9PbI9HS
-	W5TXYWnXg+LpYGsb4jUgy7pVUqMHGCaMADUCT6U714qlNO7hLOGJB9r1UBHF8ldTxdT47X+ykKETr
-	iVHnP4Cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bGssleoR8j5d5BjeV9KwAwh1Wr2o/KlpY4sV/yr+LHU=; b=B9pCyRELWNovchcGCt6MGJwHHS
+	w39D2nMR2y33qknh1rqlkHWetCoyA/d+hUN+bzg6UcsKaYoWkXfteCQOKvtPhPAzBte3LOye93fM9
+	P8ZWWd0FV/TF3/prVnUAu8DXi0LU9Ir19CQMKD8PfXVmC5lnNIy326obmzLWnHNWixfIIRcUgnc8W
+	GP/yaZpZwZAG+jO9PydOIpplfPTVhdU2JAjKuOBGqDMtlmxUXO2BTgGZTgv1W+hYQppFvdmVla+A3
+	ylHb15TcjYl5ax6GUcMufDDGcuFak6z55UThKvl46bJNnu3U0BStbwJqiRuu0wPrrrKpGWM5996XB
+	lBAGWcxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyAIb-0000000FSFO-1qS6;
-	Sun, 23 Aug 2026 15:39:53 +0000
-Received: from out-233.mta0.migadu.com ([2001:41d0:1004:224b::e9] helo=mta0.migadu.com)
+	id 1wyAJU-0000000FSK6-2VSz;
+	Sun, 23 Aug 2026 15:40:48 +0000
+Received: from mail-wr1-f49.google.com ([209.85.221.49])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyAIZ-0000000FSEy-0iv7
+	id 1wyAJS-0000000FSJT-0Xwa
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 15:39:53 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=W0TlGb6F34q6Kl5UWG4lZXAn8pUN8AHkhRFYqa9i08k=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787499588; v=1; x=1788104388;
- b=b/tRiIGPdhOV0e2DLocmqNoU8j0p0drjU2CPlRJIZrzTerB20k9WOvIinMsw8wQdXq5vq8IG
- CzdgnLcwL0ha6AdSJL2+WHwsoFhqdt2HW5sJ1KrFUW48YJPOyECthSAOXsl4ag8QjNTlfnsjYJD
- FnYU1Voj6d3HjEZLvzov/oU4=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from mail-lf1-f46.google.com (209.85.167.46)
-	by smtp.migadu.com with ESMTPS id 3dabbba86fb9ba55;
-	Sun, 23 Aug 2026 15:39:48 +0000
-X-Mizu-Trace-ID: 3dabbba86fb9ba55
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5b2a8173142so5435e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 08:39:44 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RoOiYNSj6zWESMUjLAanRkxPctNjLcg8fIQzMcJMwE9WHo+M+yrIzNs+1yVmDU8WvcwiIWtYoST5ubNbeI3Hdkf@lists.infradead.org
-X-Gm-Message-State: AFuF++mMM9Z3sV8Z5Hr0v+/xr6Pr9S3VER01tQ2ng5ihD8FeF6w+5e5i
-	waQTh23iVH/Rp/XIXs6AjzL+zlQ8uhFZ0QyPYbeM1tw1Upwm+EESjUzsBkG3ebI3903yYwUjP07
-	NEMK2DQn0zN8KXoG//gAqxAwdhyJV1GqFXAuRT2pR
-X-Received: by 2002:a05:6512:1093:b0:5b1:571f:715f with SMTP id
- 2adb3069b0e04-5b48c2f784amr130059e87.3.1787499583194; Sun, 23 Aug 2026
- 08:39:43 -0700 (PDT)
+	Sun, 23 Aug 2026 15:40:47 +0000
+Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-47362928f65so1037065f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 08:40:45 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787499644; x=1788104444;
+        h=content-transfer-encoding:content-type:subject:from:cc:to
+         :content-language:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bGssleoR8j5d5BjeV9KwAwh1Wr2o/KlpY4sV/yr+LHU=;
+        b=aIvmXUdx+vMTWSWBFiCgISkGCuCzaPAdUUnF5WfkOzC3rtJPmnoapz0fcNa0Km6X6m
+         KpAfrLdq3IZ8F6A+/DI9YhwB7E38rOjUKFRXiBCiJBZbQyhuRL3QrNpVMh94jQpXXKum
+         CcaWi4NWW68PbMcVbRdLLYQXCwJkfAv1pq+HnCR83Qb9v1oZLBdnjceQ+DurEs+SOVvG
+         vwhgvo9FxFBooj4ZKXD8ewCocR/t5j2dq3OMSUXHMBPQjM9iH7I9QUkdq50X42JBjD9A
+         yaVKCZopnJa0m5cw+mZTF7Hdygpm47ag7gxhUTOWG2yFk7AHQ2UvqDI/iYM1UO8aAhJx
+         BwhA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr2fDeR6UndJrZw73Wa5qV6g256ZFSAE15JKjjumxwJz+f6qO7q3jkiWltcYx2RkoR8UFGYIhF2nYiFAnm3KQU1@lists.infradead.org
+X-Gm-Message-State: AFuF++m5sL6Q7VL6CHGcXzgkvNYY5qu+4itIMiHeNTb7DrXl/+O45Mcj
+	5oUdxGKxrPdEkI5S+Xe/VPJDKclhGQYMO6sthaie0SV9c8eKctzgeCN9
+X-Gm-Gg: AR+sD10XcWt78a9RQQ4hU7qV6I4cBzH5iSlMcSfyp2xVzMcg3Dvbv1cJpiy/VgFdyyS
+	XhsCy+KzTNmFM0H+AUkmRTPugA4adcflyBvyb0gSBWQDb5GCM+XtCrcSnWumjusikB4M404TPJy
+	iKaD7gvUnCh9LFaZXpXQymM66n7XeRTaazdV8lGoM/rkPxp703J5XaIBaE6BQ7NXMbwm8wHrYk4
+	A02PHPXtcegqnDcGLnS8N9lXC9Ldk191sYR5f1D01RP8929Mt3efYw31+XUytWWh2uNlY7V/9fy
+	pEeZQ8hfF+sp2E3Ye2t6LAPYlSUcUS3OamEFm7MxDQDbxw2bAKLZPOdiEKzt6sKEULwOPiBRt9K
+	axytxbZPOTJ0oFDkq9uY/7AzlUc79jb2G8+ZQHPk1VMei12nqzTT9ChclRT7dZFOe8K5/kzhxMi
+	1Rc3zVIdu+26RrWtmAGPvWCccu+0C0w1Q9gBqIYAum1xBdmCVEs4wPU/TkuS7X8FvCJzgh20Q3f
+	79XAy6eDCTcgl/xNVG5vw==
+X-Received: by 2002:a05:6000:2dc9:b0:482:9a18:d753 with SMTP id ffacd0b85a97d-482c0b44acbmr22762075f8f.5.1787499643925;
+        Sun, 23 Aug 2026 08:40:43 -0700 (PDT)
+Received: from [192.168.1.135] ([83.106.158.114])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482c9c0acaesm5321239f8f.29.2026.08.23.08.40.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 23 Aug 2026 08:40:42 -0700 (PDT)
+Message-ID: <3930906f-783b-4d72-9260-ba25cc8081cb@linux.com>
+Date: Sun, 23 Aug 2026 16:40:42 +0100
 MIME-Version: 1.0
-References: <20260822095346.53882-1-kmehltretter@gmail.com>
-In-Reply-To: <20260822095346.53882-1-kmehltretter@gmail.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Sun, 23 Aug 2026 16:39:06 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwcJ7zvw5bgqmt2-OiW7q01Vwm3rn1gTFn-39Lu4qDWJg@mail.gmail.com>
-X-Gm-Features: AcwNN1U6KyA3LCwgTCyTTj8u2ge9LgDR8EDiemOl63d62mt3Rz0sod8kkzdxcH4
-Message-ID: <CA+EHjTwcJ7zvw5bgqmt2-OiW7q01Vwm3rn1gTFn-39Lu4qDWJg@mail.gmail.com>
-Subject: Re: [PATCH v3 0/5] KVM: arm64: fix VGICv3 redistributor rollback
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
-	Eric Auger <eric.auger@redhat.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jian Hu <jian.hu@amlogic.com>
+Cc: Brian Masney <bmasney@redhat.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Lucas Tanure <tanure@linux.com>
+Subject: [RFC] clk: meson: t7: Intermittent boot instability and memory
+ corruption on VIM4
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_083951_532628_B9205087 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20260823_084046_181784_D26CAACC 
+X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,60 +96,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Karl,
+Hi,
 
-On Sat, 22 Aug 2026 at 10:53, Karl Mehltretter <kmehltretter@gmail.com> wrote:
-...
-> Testing: built the patched kernel and the arm64 vgic_init selftest with
-> GCC 13.3.0 in an arm64 Linux container. The selftest passed under QEMU
-> 11.0.2 TCG with -machine virt,virtualization=on,gic-version=3 and -cpu max.
+While testing mainline Linux on the Khadas VIM4 (Amlogic A311D2 / T7), I 
+am hitting intermittent system instability, storage loss, and memory 
+corruption during boot, unless I append clk_ignore_unused to the kernel 
+command line.
 
-Applied this on kvmarm/next: protected and non-protected guest boots
-under pKVM, plus VHE and nVHE, and the vgic_init, vgic_irq and
-vgic_lpi_stress selftest. Also built the base with only patches 4-5
-and confirmed the new test fails without patches 1-3.
+Because the failure is intermittent, I am running 100-reboot test 
+campaigns to bisect the remaining clocks and isolate which clocks are 
+critical and cannot be safely disabled.
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+As testing takes significant time over serial console, I wanted to check 
+if Amlogic or the maintainers could shed light on this:
 
-Cheers,
-/fuad
+Are there specific T7 clocks or hardware domains that must remain 
+critical/protected even without an explicit in-kernel consumer?
 
+Current clocks being disabled that don't kill the board on a test run:
 
-> ---
-> Changes since v2:
-> - Patch 1: limit free_index rollback to the immediate registration failure
->   under slots_lock instead of generic unregistration. (Sashiko)
-> - Patch 2: reset all assignments and region counters after a failed region
->   update (Marc), and serialize REDIST and REDIST_REGION writes with vCPU
->   creation so rollback cannot miss an unpublished assignment.
-> - Patch 3: add an already-locked unassignment primitive, move failed-vCPU
->   cleanup to kvm_vgic_vcpu_destroy(), and remove the redundant base_addr
->   reset. (Marc)
-> - Patch 4: match vm_create_with_vcpus() by using void * for the guest-code
->   argument. (Sashiko)
-> - Patch 5: document how the first three redistributors span regions 0
->   and 1; no functional change.
->
-> Previous version:
-> v2: https://lore.kernel.org/r/20260819224229.82948-1-kmehltretter@gmail.com
->
-> Karl Mehltretter (5):
->   KVM: arm64: vgic-v3: Undo assignment on iodev registration failure
->   KVM: arm64: vgic-v3: Reset redistributors after failed region setup
->   KVM: arm64: vgic-v3: Separate redistributor teardown from unassignment
->   KVM: arm64: selftests: Pass guest code to vm_gic_create_with_vcpus()
->   KVM: arm64: selftests: Test VGICv3 redistributor region retry
->
->  arch/arm64/kvm/vgic/vgic-init.c               |  46 +++----
->  arch/arm64/kvm/vgic/vgic-kvm-device.c         |  20 +++
->  arch/arm64/kvm/vgic/vgic-mmio-v3.c            |  83 ++++++++-----
->  arch/arm64/kvm/vgic/vgic.h                    |   1 +
->  tools/testing/selftests/kvm/arm64/vgic_init.c | 116 ++++++++++++++++--
->  5 files changed, 200 insertions(+), 66 deletions(-)
->
->
-> base-commit: 57e7cf13ac26bf1a3dba6cfa601f7b2481811575
-> --
-> 2.39.5 (Apple Git-154)
+[    0.380313] clk: Disabling unused clocks
+[    0.380413] clk: Disabled unused clock: rtc_dualdiv
+[    0.380718] clk: Disabled unused clock: rtc_duandiv_in
+[    0.381377] clk: Unprepared unused clock: a73_div16
+[    0.381972] clk: Unprepared unused clock: cpu_div16
+[    0.382605] clk: Unprepared unused clock: f50m
+[    0.383174] clk: Unprepared unused clock: fixed_pll_dco
+[    0.383786] clk: Unprepared unused clock: hdmi_pll_osc
+[    0.384416] clk: Unprepared unused clock: sys1_pll_osc
+[    0.385056] clk: Unprepared unused clock: earc_osc
+[    0.385652] clk: Unprepared unused clock: pcie_refclk_osc
+[    0.386323] clk: Unprepared unused clock: eth_pll_osc
+[    0.386961] clk: Unprepared unused clock: pcie_osc
+[    0.387548] clk: Unprepared unused clock: mclk_pll_osc
+[    0.388187] clk: Unprepared unused clock: usb_pll1_osc
+[    0.388826] clk: Unprepared unused clock: usb_pll0_osc
+[    0.389465] clk: Unprepared unused clock: tcon_pll_osc
+[    0.390105] clk: Unprepared unused clock: top_pll_osc
+[    0.390738] clk: Unprepared unused clock: aud_pll_osc
+[    0.391361] clk: Unprepared unused clock: ddr_pll_osc
+
+I am not forcing any clock to be disabled; I am forcing all clocks to 
+stay on and letting them be disabled if unused one by one.
+
+Any guidance or hints on required platform clocks would be greatly 
+appreciated.
+
+Thanks,
+Lucas Tanure
 
