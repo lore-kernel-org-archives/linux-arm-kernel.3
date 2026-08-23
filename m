@@ -4,71 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0128C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 17:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C4CC5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 18:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lg4VOKVSngR8oIbwvQ7anmn0kEJI3kf6N5PwARaunaI=; b=Bwqcg+hDYopo5HCKAnWYZKtOzO
-	5Ap/Jdt4om64PerDqbw6yET8MsCv3WAc8Ecmj8WMFol496EgKsqmxNMvgfzmixThQ3meqs0+MosRi
-	rN9xaeH6/OseSqiXegBV9uni1mjtuW/bFYGAoq8g4zDJ4u+MD+BJ6oKpETFh6CcEZgFs2GZQyFjS+
-	fokH+OrK0uRNd1HYaYS/f67EXQHEazGwKZjUbY9I05Ic8sI73m30wrFq3x5lEX0jkK+xfXhrprFa+
-	g6mrK2Oxk1q0mnmdRA8hWx0MWqyTCyOmP7LmRBaLFIwmAb6gEgV4pRzT23XT7VT3DhaLtzUkedqqz
-	goaKXKmA==;
+	bh=3gq37rj4bzCyBTGwM7oPPXQqhYUmg5gV71MEIz1jHkg=; b=X3c4oOnuLxaS/SvD/GOId9WD7c
+	paqzLqYZGVW4XBSewiq5ify8I1HXshzefYgJrxVXiR1YS2ZBYugd/LN9gAgAvuvDtqrWFgw19Wy6J
+	HSGFRK3O7MRWYIOIpliWEUyMpdO+Kso/7tXnpXRtzz6XBYBMbMKYmvlzuEZpQpol+b7YRFzMo+L18
+	VeXJY7oi33glrqq1ai0SyYtHJwCZ3JLmH2pXRdpm3YZwULGyufjVyNZg4qD13lrpx51D5Fq/heha7
+	F7ScCflr6cw788tGDeHOCW1S8Q5NLX0gmfUWe7OJ/AxURDZ7/lbyoIUSgJcFW+UyL35K6deqYr1yL
+	XVSlwV6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyCE0-0000000FVpW-0CGQ;
-	Sun, 23 Aug 2026 17:43:16 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1wyCcd-0000000FWQK-1kMw;
+	Sun, 23 Aug 2026 18:08:43 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyCDw-0000000FVp8-3dys
+	id 1wyCca-0000000FWPz-30FJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 17:43:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787506993; x=1819042993;
-  h=date:from:to:cc:subject:message-id;
-  bh=+77qb95wWuBtWsB/rTcGB1RqEA3o5s434ffTHriEE78=;
-  b=CoxZAvNIMlcVE0YVURFtjRjnWJGj2vCstYgp6kbC8fOmn/0KJQw/ZbXY
-   mLQWQSLca/e8f5oK7LuEks/OJgPEYyILZD37Z0hApuZFHzQrWaehYgBfM
-   joOlBxkByLRfbjn9JID7oX5cYF1PHZ24ULsgTuIKz3RJ7EtKa9hoMqoTy
-   MCUI3DqFk1yjnk0q9L27sNrv25aRoTIGwG8dQwG4ngBO/7wwOScbDiiAi
-   YVeWWdeqUSsrB+aaGYGIDDjawBYydSMyaaJYqRKl+3iNhc0uZIlZ6G8Pq
-   Cw8tZSl4gAFlC9evk9hlxVgkbDm3SpyL4aCU4IvJPQXt+Q77ILzYVdO3J
-   w==;
-X-CSE-ConnectionGUID: BpKzuwGpSYGCMP1JF05wgw==
-X-CSE-MsgGUID: R66xQvvrTd+rNAYMrlsmOw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11884"; a="90483655"
-X-IronPort-AV: E=Sophos;i="6.25,239,1779174000"; 
-   d="scan'208";a="90483655"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Aug 2026 10:43:10 -0700
-X-CSE-ConnectionGUID: kb/MmFyKQ023oqNrvqtO/g==
-X-CSE-MsgGUID: U7/xGOSTSIOv/qnjX7aMAA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,239,1779174000"; 
-   d="scan'208";a="291644491"
-Received: from lkp-server01.sh.intel.com (HELO 3532383e6126) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 23 Aug 2026 10:43:09 -0700
-Received: from kbuild by 3532383e6126 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wyCDn-000000000o1-0mbp;
-	Sun, 23 Aug 2026 17:43:04 +0000
-Date: Mon, 24 Aug 2026 01:41:31 +0800
-From: kernel test robot <lkp@intel.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Subject: [linusw-nomadik:b4/ux500-dts-ab8500-regulators] BUILD
- SUCCESS b173b6f24531107eacedf184f8e023b3227629e6
-Message-ID: <202608240119.kvC7D8xa-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Sun, 23 Aug 2026 18:08:42 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-4815bce4652so1399340f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 11:08:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787508518; x=1788113318; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3gq37rj4bzCyBTGwM7oPPXQqhYUmg5gV71MEIz1jHkg=;
+        b=IREqmkcqzy3R8SdMRTDUh+7Apu+yCZ4x8Ht/m2ObApIgmd9IUR6lDAr4OdJntpup1q
+         M1sW6iQ/qVrWM2+b+grDoPnRolTrb1TU6737mJne+ZZF+PimNdmmpzJoRAqY2btzgJ+P
+         2pyLELs/9PVduCpI13HXDj3y14DAgSQksiXpE5iUwBB5uwjPmSXBQG9uPtgnyaHXT4DK
+         RcQm4XLaeeierfPIBf43y522ucwvPkXf2RMRuSS0xRRu1tXpg+hngsMMW737fWTIgZVZ
+         kFoC2a10ZULQUMHVhrhlbkUj/miVloaMFPrO2Wf7f3KBzHt4U69MbjHMdmekFwdQHVm9
+         jUNQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787508518; x=1788113318;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3gq37rj4bzCyBTGwM7oPPXQqhYUmg5gV71MEIz1jHkg=;
+        b=Df2SULwTIJ4EPxCu4tLtuz4XTGVbxurb8z1yJjHqtwIhICP645EsShjvW4vCg0tFI2
+         hRDZ/M8uHdbHxTtq32Lk/+AHN5aqCGI7gJ8Er364g5kB782cMPpnJ63XBI/C5FX19HHc
+         +UTUJbX58w2Fr4I55EuQyZTs9WrJbzgKwHDcNBu0oHW9xUENRfzngeMlTumEy9yYJAsV
+         cJDcJlpU0oOUjeENsW7F2FXJjRzg03liVTlCeOufFM5yzOzz22qByYm20G9Lzvby3/CU
+         jJEf6xi1zjDc+minakXxFFYFjN4xAYhwSVoHJRLK/YceKfn3wBDuDUhOxZatuaOLvebv
+         B33w==
+X-Forwarded-Encrypted: i=1; AHgh+RoAsAUtJl0JqWyncmKtwAZCZm5G5DRs+F+2RqQiJVocIy4YoBJQzZ7wn4o6bAGSyfqvlXxm5sUB0GfgLV+GrHbS@lists.infradead.org
+X-Gm-Message-State: AFuF++kwp1p4lXMqMN9HC+n1dFvWuMnKGlFiA7lqPs/fP786miY3bouV
+	ODqgJuqFKWS5HJA297TfZBWi/nIAfgD6kAvLKRlegieOw/e1CcpzfIHY
+X-Gm-Gg: AR+sD131eTKkXH/uD0JwivTkMsK4vA2XLTJ02Rv8AzR24hl34dsVRqpalvSzyBrHgal
+	dnHzvJMviXghLB+DGDgyYP70BMEWCNSOl5OQWNLlGQVva+SPp3J0k2p8kSzhDeifyOXo0dhjlGe
+	jhN9/vWGTtR1+pg2xWps3HW5wXIJb5JIHdCBV+ygqyWVN3pPKhHEsJXTl3O3Nu/kH/jd8IRPEVJ
+	M00vQ8BCO8w/bRHrimzo+L2+3F2Geyn4++U9ByLP6dvVDGGWjWjhOWi7gvOlVhkUM6Oq491/qF1
+	vAp+pjy83YQDAVreMD4t1HZL26UtgZKvDFR9kYb/U3I7wFTWGGpmhceVxMQiC2ElC9lpsAywUk/
+	A/JiKvk5lGEn2ihewtXVka1HBO2IHmf2QFOKA6IPvk0ZRt90rmiO/1BbdgYAURxZdty7Co6ZxPv
+	GgSGbdxuTEkO5+KeHgutbICnGhYCwDOXaZz+wqg+2oKoCR1XHbjkJHQ8yOPsR3AUh2A9gRV+pIE
+	CXypdZxKD4awLUyxeYRq1/rwenggOisz/Mgwmn+1P5OIa4LKThl
+X-Received: by 2002:a05:6000:310f:b0:47f:f4b9:88b7 with SMTP id ffacd0b85a97d-482c0b58818mr25065061f8f.1.1787508518013;
+        Sun, 23 Aug 2026 11:08:38 -0700 (PDT)
+Received: from nixos-office (195-23-151-163.net.novis.pt. [195.23.151.163])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482d4710ac5sm219571f8f.32.2026.08.23.11.08.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Aug 2026 11:08:37 -0700 (PDT)
+From: Julian Braha <julianbraha@gmail.com>
+To: florian.fainelli@broadcom.com,
+	rjui@broadcom.com,
+	sbranden@broadcom.com,
+	linux@armlinux.org.uk,
+	tglx@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de
+Cc: bcm-kernel-feedback-list@broadcom.com,
+	radu@rendec.net,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	arnd@arndb.de,
+	maz@kernel.org,
+	sudeep.holla@kernel.org,
+	mark.rutland@arm.com,
+	lpieralisi@kernel.org,
+	Julian Braha <julianbraha@gmail.com>
+Subject: [PATCH v2] irqchip: gic-v3: fix unmet dependency on ARM_PSCI_FW
+Date: Sun, 23 Aug 2026 19:08:32 +0100
+Message-ID: <20260823180832.1246363-1-julianbraha@gmail.com>
+X-Mailer: git-send-email 2.55.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_104312_973345_506BFB29 
-X-CRM114-Status: UNSURE (   5.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260823_110840_778063_285936F8 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,35 +114,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/ux500-dts-ab8500-regulators
-branch HEAD: b173b6f24531107eacedf184f8e023b3227629e6  ARM: dts: ux500: Fix up regulator assignments
+ARM_GIC_V3 currently selects HAVE_ARM_SMCCC_DISCOVERY without ensuring its
+dependency, ARM_PSCI_FW, is met. However, ARM_PSCI_FW is always enabled on
+for arm64, and the GICv3 driver only uses HAVE_ARM_SMCCC_DISCOVERY to
+identify the NVIDIA T241, which is arm64 anyway.
 
-elapsed time: 764m
+Also adds fallbacks for callers to avoid needing #ifdef guards when
+HAVE_ARM_SMCCC_DISCOVERY is disabled (32bit arm).
 
-configs tested: 15
-configs skipped: 1
+This unmet dependency was found by kconfirm, a static analysis tool for
+Kconfig.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Fixes: 35727af2b15d ("irqchip/gicv3: Workaround for NVIDIA erratum T241-FABRIC-4")
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Julian Braha <julianbraha@gmail.com>
+---
+Changes since v1:
+- remove select and dependency on ARM_PSCI_FW, 
+- make the HAVE_ARM_SMCCC_DISCOVERY 'select' conditional on arm64
+Link to v1: https://lore.kernel.org/all/20260801212235.2692694-1-julianbraha@gmail.com/
+---
+ drivers/irqchip/Kconfig   | 2 +-
+ include/linux/arm-smccc.h | 7 +++++++
+ 2 files changed, 8 insertions(+), 1 deletion(-)
 
-tested configs:
-alpha            allnoconfig    gcc-16.1.0
-alpha           allyesconfig    gcc-16.1.0
-alpha              defconfig    gcc-16.1.0
-arc             allmodconfig    gcc-16.1.0
-arc             allyesconfig    gcc-16.1.0
-csky            allmodconfig    gcc-16.1.0
-i386            allmodconfig    gcc-14
-loongarch          defconfig    clang-24
-nios2           allmodconfig    gcc-11.5.0
-nios2            allnoconfig    gcc-11.5.0
-parisc          allmodconfig    gcc-16.1.0
-parisc          allyesconfig    gcc-16.1.0
-parisc             defconfig    gcc-16.1.0
-sh                 defconfig    gcc-16.1.0
-sh         rsk7201_defconfig    gcc-16.1.0
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 20b77fbc51ee..dae023fed7d6 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -37,7 +37,7 @@ config ARM_GIC_V3
+ 	bool
+ 	select IRQ_DOMAIN_HIERARCHY
+ 	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
+-	select HAVE_ARM_SMCCC_DISCOVERY
++	select HAVE_ARM_SMCCC_DISCOVERY if ARM64
+ 	select IRQ_MSI_IOMMU
+ 
+ config ARM_GIC_ITS_PARENT
+diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+index 4de81848fe2e..248624c1af7c 100644
+--- a/include/linux/arm-smccc.h
++++ b/include/linux/arm-smccc.h
+@@ -324,6 +324,7 @@ enum arm_smccc_conduit {
+ 	SMCCC_CONDUIT_HVC,
+ };
+ 
++#ifdef CONFIG_HAVE_ARM_SMCCC_DISCOVERY
+ /**
+  * arm_smccc_1_1_get_conduit()
+  *
+@@ -363,6 +364,12 @@ s32 arm_smccc_get_soc_id_version(void);
+  * When ARM_SMCCC_ARCH_SOC_ID is not present, returns SMCCC_RET_NOT_SUPPORTED.
+  */
+ s32 arm_smccc_get_soc_id_revision(void);
++#else   /* CONFIG_HAVE_ARM_SMCCC_DISCOVERY */
++#define arm_smccc_1_1_get_conduit()	SMCCC_CONDUIT_NONE
++#define arm_smccc_get_version()		0
++#define arm_smccc_get_soc_id_version()	SMCCC_RET_NOT_SUPPORTED
++#define arm_smccc_get_soc_id_revision()	SMCCC_RET_NOT_SUPPORTED
++#endif	/* CONFIG_HAVE_ARM_SMCCC_DISCOVERY */
+ 
+ #ifndef __ASSEMBLY__
+ 
+-- 
+2.55.0
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
