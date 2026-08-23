@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7220C5DF98
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A25A9C5DF81
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 22:14:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RGGhD71B+UtcIgYaLVJcbUJD2ZD+NnVvBK4/H22TbeY=; b=jox7fHm7jSnTfvshZc4/6JrsAK
-	w1LED85XrPXa0/Ra67Kh0ZEwzC27S1M5rsBvoNVrMLxA2GANB4FdNeJOpFp+nujsB1rE+zMKHMhyR
-	lF9/DnU7b5zzq5ohj1YRR9WnrcbN8YQ2PS9B9/n5rvkinJkMMyxEdCj4TOnlRD6JqfIlIqmMp16RW
-	zQbGU7aUePxotNcUF6daYlaPUUlB7QVk+Rx/7Vr0e/FaRqadaQIQxcheBQwn6DXtYDGkt4G6RmjdA
-	GNLLScy+N72eYx+8b1/uAH+vsZuuUuMzLADOgfieKO4jRUMqHua8lzAAClNZ+CiLcXfeWGtJJ7DpA
-	A7obDJfg==;
+	bh=/IrZMEnYMWz3cHmLNm2dkUh37mtplEA3JG88ye8+6jg=; b=nZ1gSVb0VhUn0JF5teA9hAJ6k8
+	OkLKkucboci1vWHDNOjrp2gYOwWVCHzuXOQLERaZWxvlJ98d02ZCArfURU1o+jZtbSOhxQ7VIEx8/
+	cVUkJInUCRGyMiUCdFuex0oZ+6AH1LdcICKQDFZ1DwhMh9vX1gLvvsBakrPQnAuoyT7DHG3mEAIPw
+	Mu6xW33JxkmLL+QP4hqQCIjB75m7QioiETt/3LR1lW0nwoyBrCOqu0JD+9Ugt7cm0ll2+hh3a9iYK
+	bMrYJEcKF6TGLG6n5jh1KDb6We5uS4AUKV6MFXcd7aIIN4aYARo3k3V8qqR/jHK109CEc/FqESUc6
+	NodjiRKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyGRq-0000000FdVx-03y2;
-	Sun, 23 Aug 2026 22:13:50 +0000
-Received: from mout01.posteo.de ([185.67.36.65])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyGRn-0000000FdSP-0IR6
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wyGRp-0000000FdVk-2Vum;
 	Sun, 23 Aug 2026 22:13:49 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wyGRi-0000000FdSM-3d98
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 23 Aug 2026 22:13:47 +0000
 Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id 20C2B240029
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 00:13:38 +0200 (CEST)
+	by mout02.posteo.de (Postfix) with ESMTPS id 6722324010A
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 00:13:39 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
-	s=1984.8680eb; t=1787523218;
-	bh=RGGhD71B+UtcIgYaLVJcbUJD2ZD+NnVvBK4/H22TbeY=;
+	s=1984.8680eb; t=1787523219;
+	bh=/IrZMEnYMWz3cHmLNm2dkUh37mtplEA3JG88ye8+6jg=;
 	h=From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
-	b=NGC2XMQzK4SKEo39F5FQEsE4u36Jnk391NjIetlE15aKlFuIRASANj5TpZM3KWPnj
-	 SYGEKVg8RUs/ThvMn/Evat1E9R2mmAFv47gvLwxSpMC7iEjdq6GmUP0XcXj5VAxHaB
-	 RCYG9ahmfH45qHz0PlPobMj99wtX56ASdyfpheIMZE1hxaFGd2wjXnwzH2IUvAyde/
-	 60fMbadcFVqH/ieMHUDKN8IojMSW5CwaxTcxGafjiDQyQEM9EYcJKSr42MhGkDCMPr
-	 t2C6gH14F3amh+KpfYwvnkEc9ORlZcr1zhGQkHNcv3SrHXgGYIvx9MKO/QCKoX3s0R
-	 ZyNJvIr+2jWPA==
+	b=WYJYffWhlyBZmEmkxNB3LQia3wFnmvGyx5Y4Ov0sc5lmbSOpOAlsIpwmv7c4Nf4sk
+	 84W5sOqcY7aoW7syKn9MaDA+8kSKWSWMWeE251UGpixl2NFl10a8nYXFRN/6MQrdqD
+	 wSCM4QyYLSmboCnMcCZSZ9MpDCRcZwKtx/8AL5H6MyVBxEjBCz6n4+scF1ZWPpHQCn
+	 hQoDUzN6TlMPRhV9FzfniyD6NHEBhsq/P7/BEf7H2OXtnqh4ngsLLCDowFT/dy13Mg
+	 kQhCxCW9vQhAQSz9EOFsNrGUPTKVHmRB8cQh9lVBBBMJv0A6p/q6FQEh8IJPIQCJKy
+	 PRd3SkHEl7Mfw==
 Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hSpGS0L7hz9rxG;
-	Mon, 24 Aug 2026 00:13:36 +0200 (CEST)
+	by submission (posteo.de) with ESMTPSA id 4hSpGT3Qvpz9rxM;
+	Mon, 24 Aug 2026 00:13:37 +0200 (CEST)
 From: Markus Probst <markus.probst@posteo.de>
-Date: Sun, 23 Aug 2026 22:13:37 +0000
-Subject: [PATCH v6 2/6] rtc: s35390a: Add missing newline to dev_err
+Date: Sun, 23 Aug 2026 22:13:38 +0000
+Subject: [PATCH v6 3/6] rtc: s35390a: Fix alarm not disabling
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260824-rtc_s35390a_int1-v6-2-df96569e3412@posteo.de>
+Message-Id: <20260824-rtc_s35390a_int1-v6-3-df96569e3412@posteo.de>
 References: <20260824-rtc_s35390a_int1-v6-0-df96569e3412@posteo.de>
 In-Reply-To: <20260824-rtc_s35390a_int1-v6-0-df96569e3412@posteo.de>
 To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
@@ -66,21 +66,21 @@ To: Alexandre Belloni <alexandre.belloni@bootlin.com>,
 Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Markus Probst <markus.probst@posteo.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=693;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1828;
  i=markus.probst@posteo.de; h=from:subject:message-id;
- bh=QV/D+X9L6iHtWxf2FTb2FsPSMVe+HAIVh5ovcaU9Yq0=;
- b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqi3CL/C+wj/SLSlMghuXQQx+KveV+75kqZarzH
- rCmqwpuFYiJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCaotwixsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9JAmBAAqleV98Lrq20PB4seo3FXRA/0V/IGf3B
- dN25sqyogRybKiH6Qz6RtlnyGGihqz4Y31CoH2h89Af/g5QZqTpH9LRhw7kHvK1pprte/a9TVDj
- VEcnZpKtsJQzEOqDzIuWOMJyUExI2N+Q0/snJV76UJLQFium8lcWscpSEEKPbQW4J50aMFOp9Av
- S8e+0KwyHVOMxuiLPqFiZzdbdunDys5grI11+Ip46jZa9awldc2Zz2xu9mvZeqiTpyMUYM3UbvS
- IOdzy2eV964iN8F/cER5AQTMG1ALufm71c4aju78tYuwjiWmlrU7z1OM7QWwaYNVPFpu7oOsnV7
- sOmSGxkpbZLUVjZw/XfcBLs+TlAiwkJEi92EMFBgnnRZAal8tODWuMc7DSyFs9MBgAMCwR7f3OK
- VwgZdqoqw3RXDu5Xw8yXISOP2kfqMgzKUomQOor6kpaIMIrVe/28nWbSGhjbUrUG+DI0sIrza73
- qyzW91Xjf2Jq/cvT9h5tMtWaEUL9cu1Ypj3r6Jocpvv4dJm3feZzYACSSk7epi5ncykmpaLgjMr
- 98lI2NXFTJ82c9h+wEIVayzok5zEiwZp7bRzB4k1kJFC84Il5iE7pP8m7XpHk/k8wCooApk487H
- ikPw5muwasKcXvWqYzG9UUoxpDU1maIhK91wB4IaAn74QKCzvLYc=
+ bh=6wArxx1l8Hm9Dqx4mugbk8wsFGsXoxVI7ksSr89OEeg=;
+ b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqi3CLQl55gBgvrM/M9v1NpZhXV7ZnxQZraiajG
+ 93dX/UfKACJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCaotwixsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9L0FxAAndicxt/5tY0unPWKk7b9pgr9QvNDS4p
+ ullvjAXIT+y1NnCWvtgp/VxsyCB0fQj+CqCnimz/bW44w7W1bd90fqbQFeQCelNJqLnUfWtOCqI
+ x9nn5a8X85HqCiLUdi/NnCYCLQiQi0oK3hpc1oXLLyxRXAD0ec0BdRYdmg6l/r+cSbYxbXxXJsO
+ S798MrhkHkE18Qhlx21u9g54Eupn6CdLnPiTMK+YLuvXkOJ3Cb0uL36r6B3G7Rmgmg86mBCiaAg
+ K16FVBg8n4ey6NR7RrZosjRbRBO9MZbjD9cLX9eZ9WfSx6kse3u6sUzM8ixgXnxwn4DXfdCKAR2
+ rD4nbyUOvS+NAKsouUozV1QUSvQtPTjwFBghl+E7hH1Y4EKmmp939jdECER8JCk2ikh6cJgyf7W
+ hbMvzRwuV/qws3m57Dv7e4igiljY04L9pHHNTojHRqr4CRkRSq9fwggIIMqVn8WtoKU334stUQU
+ +xQE2mKWoy1FC/LG1niBHnUytc9x6/6lNfiE7BrFhsHQJmbodFxCpfgOQljRzgOTAV9ONQ/rbyB
+ FeW+KDOVPeKTxcJZDdN+6nZS9mLAN9VOB40Vs12yT0UZojeFeY9VJifpmpkKKrdCGSgyvJ/N6JD
+ FksrHzO7mz14a9s0nmFiUmuJy0tG+8jDAF4IHGplrBMp1GrG/e40=
 X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
  fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
 Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
@@ -126,8 +126,8 @@ Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
   aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
 OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_151348_143839_1CE9967D 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20260823_151343_208102_4553ACE1 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,25 +142,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fixes: 3bd32722c827d ("rtc: s35390a: improve irq handling")
+Implement alarm_irq_enable callback.
+
+Fixes: 542dd33a4925 ("drivers/rtc/rtc-s35390a.c: add wakealarm support for rtc-s35390A rtc chip")
 Signed-off-by: Markus Probst <markus.probst@posteo.de>
 ---
- drivers/rtc/rtc-s35390a.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/rtc/rtc-s35390a.c | 29 ++++++++++++++++++++++++-----
+ 1 file changed, 24 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
-index b72eef4fb099..4cfe7034c516 100644
+index 4cfe7034c516..575bb256eb25 100644
 --- a/drivers/rtc/rtc-s35390a.c
 +++ b/drivers/rtc/rtc-s35390a.c
-@@ -494,7 +494,7 @@ static int s35390a_probe(struct i2c_client *client)
- 		buf = 0;
- 		err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &buf, 1);
- 		if (err < 0) {
--			dev_err(dev, "error disabling alarm");
-+			dev_err(dev, "error disabling alarm\n");
- 			return err;
- 		}
- 	} else {
+@@ -270,6 +270,24 @@ static int s35390a_rtc_read_time(struct device *dev, struct rtc_time *tm)
+ 	return 0;
+ }
+ 
++static int s35390a_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
++{
++	struct s35390a *s35390a = dev_get_drvdata(dev);
++	u8 sts;
++	int err;
++
++	if (enabled)
++		sts = S35390A_INT2_MODE_ALARM;
++	else
++		sts = S35390A_INT2_MODE_NOINTR;
++
++	err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &sts, sizeof(sts));
++	if (err < 0)
++		return err;
++
++	return 0;
++}
++
+ static int s35390a_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
+ {
+ 	struct i2c_client *client = to_i2c_client(dev);
+@@ -410,11 +428,12 @@ static int s35390a_rtc_ioctl(struct device *dev, unsigned int cmd,
+ }
+ 
+ static const struct rtc_class_ops s35390a_rtc_ops = {
+-	.read_time	= s35390a_rtc_read_time,
+-	.set_time	= s35390a_rtc_set_time,
+-	.set_alarm	= s35390a_rtc_set_alarm,
+-	.read_alarm	= s35390a_rtc_read_alarm,
+-	.ioctl          = s35390a_rtc_ioctl,
++	.read_time		= s35390a_rtc_read_time,
++	.set_time		= s35390a_rtc_set_time,
++	.set_alarm		= s35390a_rtc_set_alarm,
++	.read_alarm		= s35390a_rtc_read_alarm,
++	.alarm_irq_enable	= s35390a_rtc_alarm_irq_enable,
++	.ioctl			= s35390a_rtc_ioctl,
+ };
+ 
+ static int s35390a_nvmem_read(void *priv, unsigned int offset, void *val,
 
 -- 
 2.54.0
