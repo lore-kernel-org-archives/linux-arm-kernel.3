@@ -4,63 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA75C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 00:05:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D27EC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 00:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=duQ86+wN0ZS4fzoMXgzUx9KzRhQyssWsDaclYlPUpRg=; b=k6CdoKlrUn7a179eRVqbKCTVJd
-	O91EWKjtP8O9kr8EXsvH/x+tgt0+3x10c3ikE+xqNjwlCWyL5uW7iAMDpFKZKvepleZrOVAwUkNpX
-	5ZGK0JRfLs/KXebXMLBvoYawVLA/VLVsaNae4koafyawKSr3rPK3jU8AoRZ1BQvxt2WZa6Mx3A1+v
-	3vuR++7ocP3+ladVTrrDuw5jPbIGCQ9C+PPteciCz8F/COWRjNbB/ML/QR6FDjBze39K1PSqjbFIF
-	TaHWsFkAhGBseBpRFIBQxO22fK3iPp+LJ5dhMejRBONwA/G5x97Xw23xEhyCR/xjWjuhc0LSEk6lN
-	XZN1xHnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PnfycOpIeVLKHmflGiUF526cXqauQ3cReF2OjuRBrdk=; b=gAm7Xp+T8b5SD1yRqv51iHR0GT
+	Os564YDDycNTMUUudaz7i5EjHyDb8MGkQhzqyXETUN4C9X6fbkOqPrqeGNOB9s9u/kPAlrbSWy4p4
+	u8gbwRJc3VeD+dXRFWiU0SNxs3cGIalHZEEXLoUUtc9FaMA1eDvD0G0CnVVL9g6BVDgQcTXdn3TgR
+	Ujap5jHcMNAfOjx+V3Rz0rZ23PD6WnO8ML8Zx/2ltI8OWFoWFDAE1aTyg2oVJTxWwqdO3hHzBwnSc
+	re2DWR7dI7bBZKzhNIYkHbhrCVrqQEHWgbpPTKLIAbkn9wzy2uJLVCuC4eq1W2/Rens5FxBSydLfV
+	3uy2ZeEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxvhz-0000000EuMV-00VI;
-	Sun, 23 Aug 2026 00:05:07 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wxvzB-0000000Ev8b-3G5U;
+	Sun, 23 Aug 2026 00:22:53 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxvhv-0000000EuM8-48am
+	id 1wxvz9-0000000Ev7s-23zK
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 00:05:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=duQ86+wN0ZS4fzoMXgzUx9KzRhQyssWsDaclYlPUpRg=; b=fafGSauAonvof8yzK+PfRPxCN7
-	YAoQpzFb2TPH/99SJVAYegTh8AciPFU7sQlkD5Hm/MazIZtYxT7sInNSJhBG3qqrsdSSiUetrxm7b
-	hVN7DbboS7lqn3RHr2t1u9iZjgC5iEk8tFD/NHuqqSMoB7yogBXniYb3+tGifjUI11oc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wxvha-0015GQ-4A; Sun, 23 Aug 2026 02:04:42 +0200
-Date: Sun, 23 Aug 2026 02:04:42 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, shuah@kernel.org,
-	joabreu@synopsys.com, yi.fang.gan@intel.com, jun.ann.lai@intel.com,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Sun, 23 Aug 2026 00:22:52 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-c15d47266baso258185166b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 17:22:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=lex.la; s=google; t=1787444569; x=1788049369; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PnfycOpIeVLKHmflGiUF526cXqauQ3cReF2OjuRBrdk=;
+        b=ktLZeiQ3R6PLIUs0QNPgLUVOcj4mbqJSGK6JPzXWzSCfg6SnV5fayypsUoGl/oGITg
+         2HVHvnTHVORmAi/SzAx4wpjsog3jPHN7wsTPL/CjNZRFUAP/1TB/p+3aNV2muKdJi4R7
+         t2iMU5gtDzDQ4r+7X/NyTKB99g3J+g239mDwOzW1So2h4cY6erS+FgWSz120M1Ft+FT/
+         lzKnprVs88WCwyEv5opOO3eiX6BW7obnsfwfM0WiNjgVBVEwJ4DZslk6edXGlqm3Uvmr
+         nKXUu+0WqsdeXlX5YFLqj4BwhvJFMtWpFwE0AfLzk7wrYzXF2PbhtMjIoRisyfWtaQAJ
+         eM2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787444569; x=1788049369;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PnfycOpIeVLKHmflGiUF526cXqauQ3cReF2OjuRBrdk=;
+        b=C2n05mDfWbuvZ3SMBBuT8r8Iqadj9B1LVY9v9TuqfhcnWfLx8V6IsTlxnxuAuZphy0
+         IkMsDDmpPXejadALI6OyRAgd38x45uA8dQjZAHMDmzE5fgS4+3gZNgujfehw6kT1gVwo
+         F5EuhUKcMjTmZjiLp3uhqQwq6S8ma05yxDSzl+RGYZsU+8xYd9OPsqc+JeHNGX7TWQxl
+         Po8cFfP9KgNBFukzkWeZ2Lxlmy7HMCoSYXj+dA6YOiOYYtAQgU0tmMCn5P/3Bjl2TGPz
+         ZFMCq7Pw3Reuf4VsCXIcPCjlPnzTd+5a2XsVQpvlQbOqlAH7LUd1nevN7rflPCjRDWAD
+         /jow==
+X-Forwarded-Encrypted: i=1; AHgh+Rq6c5TQNKGma64C/MwkU/etI5x3RHNSOt7wRJprZag7Ok8qOY3q8KTBFlkG1BVwf7fZshpEmN8sh7CuaVEmFnG6@lists.infradead.org
+X-Gm-Message-State: AFuF++lYU1VTcbehqFgBK9MqH3BInhSelZFzLNzHAmaXWi8EnhTXh/oV
+	vYr+mI187x68oGBgEyN/0s9bPP0W+MDIUrx0+qBOqPHeDmvEN04odgXLp/zzyGWeskY=
+X-Gm-Gg: AR+sD11Mg6qN837CZ+mfR/tiJBvOWE8YHx2kZE8gmABgxpyLY21NWwehqr3ICoeMhVX
+	J4ov1Z/1QusYPXuQClDc+WT536l39sT7W6qzCN8JARVVa0vzdivj2v6bs6uTYG99qmrEdgH35rd
+	FiZMOv5UTDdFCDJcoEWa2BIH85hwKkEveiSydE9bjyIzFWSqk8ONvm0ZuwB3TAuSkVJ3+l7xJYi
+	3/RIDBlgtsjiEu5F+Hf2i7bLyR+Vw3xF+cZzaZY85uvm6ORJQwDO+lWhBBAVYhsHZpOSbvMJBYR
+	1qKAY11HK4LS+R1822/kR5oFhl65RGMqP2rhlCuotljpzLDVVZ6LiaIGLS3hhyBFQPwQUQxIIQZ
+	JihEXHKzSJQeIfpV2Gju36P5+/eScEhUl75XUZcFYnnYzUD9N+3lc/VodXZuQAwyQLEcicgoh0W
+	dE1YbdU69A95FUaDhX5ANecFeqIXRw39crTMGdxdpRL8hkIwKs9VakBdb/GxQHYXFoqijP1tz3y
+	x4ZtK1Q
+X-Received: by 2002:a17:906:6a27:b0:c20:2eee:97be with SMTP id a640c23a62f3a-c246a33ed69mr1775593266b.7.1787444568708;
+        Sat, 22 Aug 2026 17:22:48 -0700 (PDT)
+Received: from ownbook.home.lex.la ([84.17.55.225])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c24968a2e42sm438394466b.59.2026.08.22.17.22.46
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sat, 22 Aug 2026 17:22:48 -0700 (PDT)
+From: Aleksei Sviridkin <f@lex.la>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: "Chester A . Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>,
+	Qingfang Deng <dqfext@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net v2 6/6] selftests: drv-net: Add VLAN test
-Message-ID: <d614d8de-0da2-4673-bd11-02497d8a37e0@lunn.ch>
-References: <20260821170959.79708-1-ovidiu.panait.rb@renesas.com>
- <20260821170959.79708-7-ovidiu.panait.rb@renesas.com>
+	linux-mediatek@lists.infradead.org,
+	Aleksei Sviridkin <f@lex.la>
+Subject: Re: [PATCH net 1/2] net: dsa: mt7530: populate lpi_interfaces to fix EEE support
+Date: Sun, 23 Aug 2026 03:22:46 +0300
+Message-ID: <20260823002246.28455-1-f@lex.la>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <c501d5f8-015c-4ce1-87ee-c4cdaea57f7e@lunn.ch>
+References: <20260822195252.2934-1-f@lex.la> <20260822195252.2934-2-f@lex.la> <c501d5f8-015c-4ce1-87ee-c4cdaea57f7e@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260821170959.79708-7-ovidiu.panait.rb@renesas.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_170504_032223_5335282A 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20260822_172251_532616_05E7DF32 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,59 +116,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 05:09:59PM +0000, Ovidiu Panait wrote:
-> Add a test that validates ping traffic over VLAN interfaces. It aims
-> to catch drivers which mishandle hardware VLAN tag stripping, in
-> particular QinQ.
-> 
-> Three VLAN configurations are covered, each with hardware VLAN stripping
-> enabled and disabled:
-> - a single 802.1q VLAN interface
-> - a single 802.1ad VLAN interface
-> - an 802.1q VLAN stacked on top of an 802.1ad interface
-> 
-> NETIF=end1 LOCAL_V4=172.16.0.2 REMOTE_V4=172.16.0.3 \
-> REMOTE_TYPE=ssh REMOTE_ARGS=root@172.16.0.3 \
-> run_kselftest.sh -t drivers/net:vlan.py
->   TAP version 13
->   1..1
->   # timeout set to 360
->   # selftests: drivers/net: vlan.py
->   # # Interface: end0, driver: st_gmac
->   # TAP version 13
->   # 1..6
->   # ok 1 vlan.test.8021q_hw
->   # ok 2 vlan.test.8021q_sw
->   # ok 3 vlan.test.8021ad_hw
->   # ok 4 vlan.test.8021ad_sw
->   # ok 5 vlan.test.qinq_hw
->   # ok 6 vlan.test.qinq_sw
->   # # Totals: pass:6 fail:0 xfail:0 xpass:0 skip:0 error:0
+> This is very verbose. Is it AI generated? Please revise it and make it
+> suitable for a human.
 
-> +def _setup(cfg, outer_proto, inner_proto, hw_strip):
-> +    """Configure VLAN stripping and create the VLAN interfaces."""
-> +
-> +    feat = ethtool(f"-k {cfg.ifname}", json=True)[0]
-> +    set_ethtool_feat(cfg.ifname, feat, {"rx-vlan-offload": hw_strip})
+AI assisted, English is not my first language and I lean on it for
+prose. The verbosity is my fault though, I reviewed and approved every
+word. v2 will carry the Why only and move the mechanism notes below
+the scissors.
 
+> It is normal to assume phylink is correct. Now, if you do find it
+> doing the wrong thing, we want to know so we can fix it. So if you do
+> want to validate it here, make it very noisy if the validation fails.
 
-+        if current[name]["active"] != state:
-+            no_change = False
-+            if current[name]["fixed"]:
-+                raise KsftXfailEx(f"Device does not support {name}")
-
-I'm not too familiar with the self test framework, so i could have
-this wrong.
-
-It looks to me like you fail the text if it is fixed. But does not
-fixed just mean the hardware does not support it? So i think it should
-actually skip the test?
-
-Now, if it does not say fixed, but ethtool -K reports EOPNOTSUPP, that
-would be an error.
-
-Having said that, thanks for spending the time to add a test. We need
-more tests like this.
-
-     Andrew
+That note was about a possible defensive check in
+mt753x_phylink_mac_enable_tx_lpi(), not something this series adds. If
+I ever send it, it will warn loudly.
 
