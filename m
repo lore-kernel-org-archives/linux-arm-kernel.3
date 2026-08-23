@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B4FC5DF98
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 11:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9423BC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 11:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YQaLLlpkKxkLjqvn1plws6iiMsPgyQSLJFR/D8i9QGU=; b=AjaLbtylUaCZ/5nD+DUfzgLJFo
-	fn8WZRmHGkCjkDQXPdwoORzjDSyNM+P0dhSTqvjj6bRKc7knQu/pOVZ00BcLNOrnFXS1Uv5qXS696
-	HFfPd7uIEkHt88ub+UAfdCxeNnkUfHaZb032swMxlNmT4+r08dLqztfFSdxywKZWJkWgGvO9XC8qr
-	Yl0Nar+xa5Ua8fVgx+NNSw2FkdCTFx3ucnIvzWsFB9SNYTOupuM9op7aO0P63BIomPySeJ4UDYAVN
-	MxC9Fto0JaK47MDVu8tH+TwjzTwF7k6KJTVV6BA1UA/VctbEwnWJl2ZV1SGbFaYVOPELvpgc3b+sW
-	pkMAb/ow==;
+	bh=JNbaKBJKZiPBWFXiQZSzBAcWECdyW1psqwwnhscXogA=; b=XQ+2on8QKCEB7HzOIHspG4OJBy
+	eXxJG+LPFBUvhziaH1dLshkFv6+9hhcaAwRDJsYXuI484K9XAHMLlHoROrMce3l6XWwDnJYaoxEEb
+	DM+lGUBBrHqq2KedXG3P5HiP8iHI/mSMQ6V3krktCtYv4ky46+PpnYyLeonfb1SqUIOq9GdSkcaOU
+	3sJ1O7fmUht8Zy6g5/NKmvHeIHLirftREGGjVWBcU26hQunCj7P431k4zUqCQ6SMoYZ8XOd6h9iEZ
+	VVy5YIhQpg90NbqpMVBdxgTAIx1/OviPOJjzdkOdrCAXGSq6LIFuae6cI2ABnIgy73LbpjnlbJYfb
+	mEwc7FpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy6fB-0000000FIDL-0Par;
-	Sun, 23 Aug 2026 11:46:57 +0000
+	id 1wy6fK-0000000FILJ-1oiF;
+	Sun, 23 Aug 2026 11:47:06 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy6f9-0000000FICZ-3iMW;
-	Sun, 23 Aug 2026 11:46:55 +0000
+	id 1wy6fI-0000000FIJk-3PMS;
+	Sun, 23 Aug 2026 11:47:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 53D1760052;
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D5F9600C8;
+	Sun, 23 Aug 2026 11:47:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 879281F000E9;
 	Sun, 23 Aug 2026 11:46:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A024F1F00A3A;
-	Sun, 23 Aug 2026 11:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787485615;
-	bh=YQaLLlpkKxkLjqvn1plws6iiMsPgyQSLJFR/D8i9QGU=;
+	s=k20260515; t=1787485623;
+	bh=JNbaKBJKZiPBWFXiQZSzBAcWECdyW1psqwwnhscXogA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=GSIuPgnvgzZ4CFYoUAhrhANp3tu/pbO210YpfuQqjqQ/tBAryQK1c2a0SOosec/eA
-	 yWDoIEDNqNG+cvENXJU7C9WjN8EQuViGIhZdcEPKwUMERxTu+HAWX2a9waaB9H4/gW
-	 7bHXcGDM4P8IOZ5WxvuPci3wjljTVN5k1JtDbJ+dasGW9geZ20pv+wzaQCccEm3cdH
-	 prEcGCQ01vF7YLanTsmCAl6yxR3TU0uFvhqMK/QEbdV0Clr7S0eLTT7ed5ALhsfcXz
-	 A4ALG9Zpo5vv3ruvhaY1JOhPwDhHjH4NaIaxsk+ine8OMUU2x1ov3volVFb6jbj73q
-	 hUa0ANwFrdJpA==
+	b=MIM7FsVqFQDwxEVqELOzWyRouVAcV/zT99s47WF8sDGz0/F3hE64vb8Nc7ZGQ6TZQ
+	 guKkDJgym0SQoUX7GbxQVEzrbPfAdBfUlyqfFTws30j9T4oZBaJ7m1FzhBRlM8Y541
+	 hk6+RYrgiHCw7kuAJrpr8CJzF6KPkdCCz8i4QVZemN8l3ab46v110aaqS4AR28vYwb
+	 XER8Eo2D0JhPLqBYOMP72mYryOFYB59Iciip8vmWeHAvcBSgfnOEyWj3W057KVdhr+
+	 06QPG/smqTW3N4dHyZfBcpY04dITAwYDaqovV12DxZIUwhAjWFVLe3/5Bz9DqWxsND
+	 NhbUa8zPT1Xug==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Sun, 23 Aug 2026 14:46:14 +0300
-Subject: [PATCH v2 3/6] mm/vmalloc: constify vm parameter of
- get_vm_area_page_order()
+Date: Sun, 23 Aug 2026 14:46:15 +0300
+Subject: [PATCH v2 4/6] mm/vmalloc: make set_area_direct_map HUGE_VMAP
+ friendly
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260823-execmem-set-vm-perms-v0-2-v2-3-b013a37d84b3@kernel.org>
+Message-Id: <20260823-execmem-set-vm-perms-v0-2-v2-4-b013a37d84b3@kernel.org>
 References: <20260823-execmem-set-vm-perms-v0-2-v2-0-b013a37d84b3@kernel.org>
 In-Reply-To: <20260823-execmem-set-vm-perms-v0-2-v2-0-b013a37d84b3@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
@@ -91,53 +91,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-get_vm_area_page_order() and vm_area_page_order() do not need to modify
-struct vm_struct passed to them.
+set_area_direct_map() always updates direct map alias permissions in
+single page increments.
 
-Constify the parameter.
+For HUGE_VMAP areas it's suboptimal. Not only the loop in
+set_area_direct_map() needlessly has more iterations (e.g times 512 on
+x86), but it also causes fragmentation of the direct map that could be
+avoided for the HUGE_VMAP areas populated with large pages.
 
-Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
+All pages in an area are always of the same order: either same-order
+large pages when VM_ALLOW_HUGE_VMAP is set and all huge pages were
+successfully allocated, or order-0 page when VM_ALLOW_HUGE_VMAP is
+cleared or when huge pages allocation fails and fallback path is taken.
+
+Instead of updating the direct map permissions for every order-0 page in
+an area, use the area's page_order as the loop increment and update the
+large pages in one call to set_direct_map_{invalid,default}_noflush().
+
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- mm/vmalloc.c | 4 ++--
- mm/vmalloc.h | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ mm/vmalloc.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
 
 diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 9bd94e2f2895..a3e2e4244c0f 100644
+index a3e2e4244c0f..395358b363fc 100644
 --- a/mm/vmalloc.c
 +++ b/mm/vmalloc.c
-@@ -3124,7 +3124,7 @@ EXPORT_SYMBOL(vm_map_ram);
- 
- static struct vm_struct *vmlist __initdata;
- 
--static inline unsigned int vm_area_page_order(struct vm_struct *vm)
-+static inline unsigned int vm_area_page_order(const struct vm_struct *vm)
+@@ -3361,12 +3361,15 @@ static inline void set_area_direct_map(const struct vm_struct *area,
+ 				       int (*set_direct_map)(struct page *page,
+ 							     unsigned int nr))
  {
- #ifdef CONFIG_HAVE_ARCH_HUGE_VMALLOC
- 	return vm->page_order;
-@@ -3133,7 +3133,7 @@ static inline unsigned int vm_area_page_order(struct vm_struct *vm)
- #endif
+-	unsigned long i;
++	unsigned int nr = (1U << vm_area_page_order(area));
++
++	for (unsigned long i = 0; i < area->nr_pages; i += nr) {
++		if (page_address(area->pages[i])) {
++			int err = set_direct_map(area->pages[i], nr);
+ 
+-	/* HUGE_VMALLOC passes small pages to set_direct_map */
+-	for (i = 0; i < area->nr_pages; i++)
+-		if (page_address(area->pages[i]))
+-			set_direct_map(area->pages[i], 1);
++			WARN_ON_ONCE(err);
++		}
++	}
  }
  
--unsigned int get_vm_area_page_order(struct vm_struct *vm)
-+unsigned int get_vm_area_page_order(const struct vm_struct *vm)
- {
- 	return vm_area_page_order(vm);
- }
-diff --git a/mm/vmalloc.h b/mm/vmalloc.h
-index 8866ddcff668..211869f36509 100644
---- a/mm/vmalloc.h
-+++ b/mm/vmalloc.h
-@@ -12,7 +12,7 @@ void __init vmalloc_init(void);
- int __must_check vmap_pages_range_noflush(unsigned long addr, unsigned long end,
- 		pgprot_t prot, struct page **pages,
- 		unsigned int page_shift, gfp_t gfp_mask);
--unsigned int get_vm_area_page_order(struct vm_struct *vm);
-+unsigned int get_vm_area_page_order(const struct vm_struct *vm);
- #else
- static inline void vmalloc_init(void) {}
- 
+ /*
 
 -- 
 2.53.0
