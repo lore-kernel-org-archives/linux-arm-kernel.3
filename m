@@ -4,104 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D27EC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 00:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7474FC5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 01:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PnfycOpIeVLKHmflGiUF526cXqauQ3cReF2OjuRBrdk=; b=gAm7Xp+T8b5SD1yRqv51iHR0GT
-	Os564YDDycNTMUUudaz7i5EjHyDb8MGkQhzqyXETUN4C9X6fbkOqPrqeGNOB9s9u/kPAlrbSWy4p4
-	u8gbwRJc3VeD+dXRFWiU0SNxs3cGIalHZEEXLoUUtc9FaMA1eDvD0G0CnVVL9g6BVDgQcTXdn3TgR
-	Ujap5jHcMNAfOjx+V3Rz0rZ23PD6WnO8ML8Zx/2ltI8OWFoWFDAE1aTyg2oVJTxWwqdO3hHzBwnSc
-	re2DWR7dI7bBZKzhNIYkHbhrCVrqQEHWgbpPTKLIAbkn9wzy2uJLVCuC4eq1W2/Rens5FxBSydLfV
-	3uy2ZeEQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gJTfLnp0J7T2ypG1rf2UnD2iP61DjaHR8pWm0DBXUoM=; b=1YY+OXyQ/p7mKxRVjChrIc2YyA
+	yFPcxN4jnHpAGn+4Gr4CaJkM2T5cRNpcOlZnIJWMk9WKa2QtzHPFFLZVHxpnkw9vY3zX0n/WNSy8D
+	V9pZq/9FFPcRXUQycbbLOSXiYJ5TsOMtLUj9Zh2NxKf5SLve/yNZ/e+bBJAIqRO75hVU2pB3nJlzq
+	nWTWjTfONzEVL1rKTFdcAyrkYw/2wdSPiiQSsdeYeSPeCQkFHjQ+ccsG+Nh7hjAQgXMFD11SHWG0N
+	0xryFv2NA9zgIYFDfRSxo+jnBI0XBg9VN+QQYeBlYONj2kpCAEgNumChULwKW/2yG5WPl78Ne9KqL
+	IVShQ7dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxvzB-0000000Ev8b-3G5U;
-	Sun, 23 Aug 2026 00:22:53 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1wxwkW-0000000ExXo-0ags;
+	Sun, 23 Aug 2026 01:11:48 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxvz9-0000000Ev7s-23zK
+	id 1wxwkT-0000000ExXI-2zT7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 00:22:52 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-c15d47266baso258185166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 17:22:50 -0700 (PDT)
+	Sun, 23 Aug 2026 01:11:46 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-8485ef63b68so1712373b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 18:11:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lex.la; s=google; t=1787444569; x=1788049369; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PnfycOpIeVLKHmflGiUF526cXqauQ3cReF2OjuRBrdk=;
-        b=ktLZeiQ3R6PLIUs0QNPgLUVOcj4mbqJSGK6JPzXWzSCfg6SnV5fayypsUoGl/oGITg
-         2HVHvnTHVORmAi/SzAx4wpjsog3jPHN7wsTPL/CjNZRFUAP/1TB/p+3aNV2muKdJi4R7
-         t2iMU5gtDzDQ4r+7X/NyTKB99g3J+g239mDwOzW1So2h4cY6erS+FgWSz120M1Ft+FT/
-         lzKnprVs88WCwyEv5opOO3eiX6BW7obnsfwfM0WiNjgVBVEwJ4DZslk6edXGlqm3Uvmr
-         nKXUu+0WqsdeXlX5YFLqj4BwhvJFMtWpFwE0AfLzk7wrYzXF2PbhtMjIoRisyfWtaQAJ
-         eM2w==
+        d=gmail.com; s=20251104; t=1787447504; x=1788052304; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=gJTfLnp0J7T2ypG1rf2UnD2iP61DjaHR8pWm0DBXUoM=;
+        b=N8JLWcT3h7VME9l4EVIM+Qg/9JdTtFqru3hbU6fdzG8BkEHLohqsl80xPr7i7mb00x
+         GEr1M3ucdgqFcxvmPSNGk705TMrLPLJU6z3Jt6NLhb77D/PPrell0Z8HjPljf65SAY2q
+         SVQCTJ4gKq79Te3E4AieIyxzLywwOoNlLV043j7ZgV5gv++vVJGwwSRciQTrSEFnZWu/
+         kZA3Ko60N3aFfvBMyj5VqqF0+/CHURP8X5z0l/DgcfL2n6ij8i/eChWIDFqZaxq0FeMx
+         mqMNPNAvLWlWneF5W8FlpWM4pEsbQsCt2ug2EZzkJAdTDRvg9HNkIgigsVs5L+I3VTqZ
+         4FzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787444569; x=1788049369;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PnfycOpIeVLKHmflGiUF526cXqauQ3cReF2OjuRBrdk=;
-        b=C2n05mDfWbuvZ3SMBBuT8r8Iqadj9B1LVY9v9TuqfhcnWfLx8V6IsTlxnxuAuZphy0
-         IkMsDDmpPXejadALI6OyRAgd38x45uA8dQjZAHMDmzE5fgS4+3gZNgujfehw6kT1gVwo
-         F5EuhUKcMjTmZjiLp3uhqQwq6S8ma05yxDSzl+RGYZsU+8xYd9OPsqc+JeHNGX7TWQxl
-         Po8cFfP9KgNBFukzkWeZ2Lxlmy7HMCoSYXj+dA6YOiOYYtAQgU0tmMCn5P/3Bjl2TGPz
-         ZFMCq7Pw3Reuf4VsCXIcPCjlPnzTd+5a2XsVQpvlQbOqlAH7LUd1nevN7rflPCjRDWAD
-         /jow==
-X-Forwarded-Encrypted: i=1; AHgh+Rq6c5TQNKGma64C/MwkU/etI5x3RHNSOt7wRJprZag7Ok8qOY3q8KTBFlkG1BVwf7fZshpEmN8sh7CuaVEmFnG6@lists.infradead.org
-X-Gm-Message-State: AFuF++lYU1VTcbehqFgBK9MqH3BInhSelZFzLNzHAmaXWi8EnhTXh/oV
-	vYr+mI187x68oGBgEyN/0s9bPP0W+MDIUrx0+qBOqPHeDmvEN04odgXLp/zzyGWeskY=
-X-Gm-Gg: AR+sD11Mg6qN837CZ+mfR/tiJBvOWE8YHx2kZE8gmABgxpyLY21NWwehqr3ICoeMhVX
-	J4ov1Z/1QusYPXuQClDc+WT536l39sT7W6qzCN8JARVVa0vzdivj2v6bs6uTYG99qmrEdgH35rd
-	FiZMOv5UTDdFCDJcoEWa2BIH85hwKkEveiSydE9bjyIzFWSqk8ONvm0ZuwB3TAuSkVJ3+l7xJYi
-	3/RIDBlgtsjiEu5F+Hf2i7bLyR+Vw3xF+cZzaZY85uvm6ORJQwDO+lWhBBAVYhsHZpOSbvMJBYR
-	1qKAY11HK4LS+R1822/kR5oFhl65RGMqP2rhlCuotljpzLDVVZ6LiaIGLS3hhyBFQPwQUQxIIQZ
-	JihEXHKzSJQeIfpV2Gju36P5+/eScEhUl75XUZcFYnnYzUD9N+3lc/VodXZuQAwyQLEcicgoh0W
-	dE1YbdU69A95FUaDhX5ANecFeqIXRw39crTMGdxdpRL8hkIwKs9VakBdb/GxQHYXFoqijP1tz3y
-	x4ZtK1Q
-X-Received: by 2002:a17:906:6a27:b0:c20:2eee:97be with SMTP id a640c23a62f3a-c246a33ed69mr1775593266b.7.1787444568708;
-        Sat, 22 Aug 2026 17:22:48 -0700 (PDT)
-Received: from ownbook.home.lex.la ([84.17.55.225])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c24968a2e42sm438394466b.59.2026.08.22.17.22.46
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 22 Aug 2026 17:22:48 -0700 (PDT)
-From: Aleksei Sviridkin <f@lex.la>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: "Chester A . Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>,
-	Qingfang Deng <dqfext@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org,
+        d=1e100.net; s=20251104; t=1787447504; x=1788052304;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gJTfLnp0J7T2ypG1rf2UnD2iP61DjaHR8pWm0DBXUoM=;
+        b=isb3kx0qV+sYB9Qo1tlULnDADyeAuKf+7f6vLvCbW8Ap9wD8hLv/oAzrsVCbqOD+bm
+         DJwbV4ysFIEGqpLr/ETDTedUpClEMeGtwmPy2l4JLeg19cJDRjaiWKK8TN3zybsljoNt
+         WsVS0AS4gdCWBmWdiDbK/T5Orbjtvg1LWYz3u2I3BfEyXtZjsIeUa8oxqt0oTSBxitg7
+         kFeop6ASpsfbSU5AyakPHe60UB0RleWENEwyS9o3V32XzBj1s1PB2/5nXGn2S/M8aQMs
+         E4PiT5ygYpezv1GYldCBKCgQIyELZAYI8hajnDQ3tcxKTi16oELvZxjdMiqFQsHjMrL6
+         tHJg==
+X-Forwarded-Encrypted: i=1; AHgh+RrH5CE2taSK0ld0YZcthetyhSbTGbFoGYEKmTc0ruGzr6Z8c2wQJpB475NsUUuNIB2tO9UdiJO8h9e20Ea4kN0K@lists.infradead.org
+X-Gm-Message-State: AFuF++k4WtROm/gWEPx4iSQTONTQGBIOYtwso54leXB8fwU2v1vI+nhD
+	4toiDJIhBkrwnhsner2zjXUzqizhpZh4Ks/omPT3ev+9HG2OYejTWKmC
+X-Gm-Gg: AR+sD12iVn4WagZqRPn81+whV5y14Vjmyo5L8Ont049nVkaFAhVTEOdmRedV2Qh84Cm
+	ltnHgKvB+kfRpuw/muOD3fhyM/PrBBrqL10COdpMGGaNOjr3qUUcYb8tr5otqijqXPWIovBB2Xo
+	SkBW58whMeQMdPKXf5lii6ocOEsXF3oaAFjBE94Kd1liLR9aeV7PPCYjjeL/9g6wEGBOExfVY3k
+	osybPKBX1hDD4BwNY1fphTFFAtZTsSTnlVPgB6gLziwy4nWo8F5vUJNPTRgGGz5lCFuTUcTnqq9
+	I3agck37wsNO5pqKwdzWPR6xFWL9LjtjdsvMOCuxN8bUXHEQD2BXdvLwZA9sDvFF45k21nSGauG
+	2Rsr4H9gkolKe1SrGpik/lf4inIEyhrZphv6rd+crIJj/I4dzaUIzIsBVNTGQ7rvUkquc0YuFr3
+	HdnBd+Kwhie4dzgOwx/dOcCRIUNUItY096QCzpY9BoHZvLsv4UdQpJOxxlLoGLs617X7gf4Nhbg
+	L2lnTtZJ6+wtyOWXv/yAyI9XOlWgctpOiHcVFfrLbYgiAhDHnc0
+X-Received: by 2002:a17:90b:558b:b0:37f:fdc8:71b4 with SMTP id 98e67ed59e1d1-395c33371a9mr31055560a91.2.1787447504358;
+        Sat, 22 Aug 2026 18:11:44 -0700 (PDT)
+Received: from hanzj-mi.. (ec2-99-79-140-187.ca-central-1.compute.amazonaws.com. [99.79.140.187])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-395e49b406bsm4272706a91.8.2026.08.22.18.11.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 22 Aug 2026 18:11:44 -0700 (PDT)
+From: hanzhijian <hanzhijian1991@gmail.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	kernel@pengutronix.de,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Aleksei Sviridkin <f@lex.la>
-Subject: Re: [PATCH net 1/2] net: dsa: mt7530: populate lpi_interfaces to fix EEE support
-Date: Sun, 23 Aug 2026 03:22:46 +0300
-Message-ID: <20260823002246.28455-1-f@lex.la>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <c501d5f8-015c-4ce1-87ee-c4cdaea57f7e@lunn.ch>
-References: <20260822195252.2934-1-f@lex.la> <20260822195252.2934-2-f@lex.la> <c501d5f8-015c-4ce1-87ee-c4cdaea57f7e@lunn.ch>
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	hanzhijian <hanzhijian1991@gmail.com>,
+	sashiko-bot@kernel.org
+Subject: [PATCH] PCI: imx6: fix power domain leak on probe failure
+Date: Sun, 23 Aug 2026 09:11:25 +0800
+Message-ID: <20260823011125.2876504-1-hanzhijian1991@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_172251_532616_05E7DF32 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260822_181145_758331_47D5BC67 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,19 +110,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> This is very verbose. Is it AI generated? Please revise it and make it
-> suitable for a human.
+imx_pcie_attach_pd() attaches the "pcie" and "pcie_phy" power domains
+and creates device links to them, but nothing detaches them when
+imx_pcie_probe() subsequently fails or defers.  This leaks the power
+domains and device links on every probe failure or deferral.
 
-AI assisted, English is not my first language and I lean on it for
-prose. The verbosity is my fault though, I reviewed and approved every
-word. v2 will carry the Why only and move the mechanism notes below
-the scissors.
+Save the device links and add imx_pcie_detach_pd() to release them,
+calling it from the probe error paths.
 
-> It is normal to assume phylink is correct. Now, if you do find it
-> doing the wrong thing, we want to know so we can fix it. So if you do
-> want to validate it here, make it very noisy if the validation fails.
+Reported-by: sashiko-bot@kernel.org
+Link: https://lore.kernel.org/all/20260822013640.182C01F000E9@smtp.kernel.org/
+Signed-off-by: hanzhijian <hanzhijian1991@gmail.com>
+---
+ drivers/pci/controller/dwc/pci-imx6.c | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
 
-That note was about a possible defensive check in
-mt753x_phylink_mac_enable_tx_lpi(), not something this series adds. If
-I ever send it, it will warn loudly.
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 39790e66b..4df548679 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -182,6 +182,9 @@ struct imx_pcie {
+ 	struct device		*pd_pcie;
+ 	/* power domain for pcie phy */
+ 	struct device		*pd_pcie_phy;
++	/* device links for the power domains */
++	struct device_link	*pd_link;
++	struct device_link	*pd_phy_link;
+ 	struct phy		*phy;
+ 	const struct imx_pcie_drvdata *drvdata;
+ 
+@@ -662,6 +665,7 @@ static int imx_pcie_attach_pd(struct device *dev)
+ 		dev_err(dev, "Failed to add device_link to pcie pd\n");
+ 		return -EINVAL;
+ 	}
++	imx_pcie->pd_link = link;
+ 
+ 	imx_pcie->pd_pcie_phy = dev_pm_domain_attach_by_name(dev, "pcie_phy");
+ 	if (IS_ERR(imx_pcie->pd_pcie_phy))
+@@ -675,10 +679,24 @@ static int imx_pcie_attach_pd(struct device *dev)
+ 		dev_err(dev, "Failed to add device_link to pcie_phy pd\n");
+ 		return -EINVAL;
+ 	}
++	imx_pcie->pd_phy_link = link;
+ 
+ 	return 0;
+ }
+ 
++static void imx_pcie_detach_pd(struct imx_pcie *imx_pcie)
++{
++	if (imx_pcie->pd_link)
++		device_link_del(imx_pcie->pd_link);
++	if (imx_pcie->pd_pcie)
++		dev_pm_domain_detach(imx_pcie->pd_pcie, true);
++
++	if (imx_pcie->pd_phy_link)
++		device_link_del(imx_pcie->pd_phy_link);
++	if (imx_pcie->pd_pcie_phy)
++		dev_pm_domain_detach(imx_pcie->pd_pcie_phy, true);
++}
++
+ static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool enable)
+ {
+ 	if (enable)
+@@ -1956,8 +1974,10 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 		return ret;
+ 
+ 	ret = pci_pwrctrl_create_devices(dev);
+-	if (ret)
++	if (ret) {
++		imx_pcie_detach_pd(imx_pcie);
+ 		return dev_err_probe(dev, ret, "failed to create pwrctrl devices\n");
++	}
+ 
+ 	pci->use_parent_dt_ranges = true;
+ 	if (imx_pcie->drvdata->mode == DW_PCIE_EP_TYPE) {
+@@ -1999,6 +2019,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 	return 0;
+ 
+ err_pwrctrl_destroy:
++	imx_pcie_detach_pd(imx_pcie);
+ 	if (ret != -EPROBE_DEFER)
+ 		pci_pwrctrl_destroy_devices(dev);
+ 	return ret;
+-- 
+2.43.0
+
 
