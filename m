@@ -4,140 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B6AEC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 11:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04333C5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 11:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ouuGFnsKjQNpuwoM6dF1Y+jtDqYejK1GOyVqd3Z99ks=; b=niCrLTFjuAC7/1aO+niQCTLuNO
-	WM59F48eH/30rUYx2w4eR5cIlU6YVDFtcprMQtv2p8pYX9W58ilP3GNysiVlT+dveNQhcU8qRpBnT
-	aQEkl3jtETmdk7i19NzrDu00fSCwByktVE482GH9HtgquSw+quMiNs0fRFTquFtcRw+FrgIYgUcTW
-	zYf8FB2A5CE7Dn9OR4V1UJzm7dhdfMbsFA27r8prX3LYFF8hJNW6yJ74awPwBe/fc08ZJVnig4iLs
-	5k362nOAhVuLH7zMSPu17r1+Ooa8cnK6aRvyph4hEHU4uq8Ukh2SljgAD94kyy0VA/f38SO39dNN5
-	+uj5Q/XQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gic4a9l1Tysqkb/KXwcHfceHx++tdNsSZ7fJK8rIj4o=; b=Bj54bUyLvOO5Gq5rCPR5fYAcTp
+	MXr7XJ5oQgqASVybeJpUauPSLvgs6xIAuVeNUhgMfq6BUFgmZr/M+oiYmhu7fBf9HnX6BrE+YV5o0
+	LGmi+/+lMymLNFYbk7bg/MnsFJr7Beqit4gSxKmuzC0xQKyCgQLOxfdT6FQdkXnTVPqwSNAz25pL4
+	ptM11QBUUMYmUL7hG46XR2ir9teRkqY2u6IaqBJdhZbLH3A29ITv5cT0Nvp08l6YaSCWnZs8Jo1cc
+	RwtaF8QweRsyRpXkLsOlg9ySaNB+amBbMIthGm51l5/mhv4w6rDrQstjm8kDpHTwxi6SblYJTUWI+
+	YILsaFZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy6BF-0000000FGvh-1oWy;
-	Sun, 23 Aug 2026 11:16:01 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1wy6OY-0000000FHWo-2cwQ;
+	Sun, 23 Aug 2026 11:29:46 +0000
+Received: from mail-wm1-f51.google.com ([209.85.128.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy6BC-0000000FGvM-2Z7o
+	id 1wy6OW-0000000FHW9-0HqQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 11:16:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HZKa2mIGxHF9iyCzOd7qutwjVcV8sjFJvsZbCyutyFplWy+eqRo/RTp2sbXuW+gPvB/Gw2k5ra/j9rV4bVoAEoWRO5N6/5EphnRF52PZO2Lyx5+VlQkVu5qzNNkzncsJ+DqO3OfCfQhLI9dJ6B8v/BHIeFdJKmLJO+mjrVPlunZrZY1dEcVYa9fB9EOb7hfPuniU3yZ1TSqymYmC9UmLhUDoleYtMO2M+BCr5+vQcxbRP1bbo3aIkrl4pK/1ygTwXgxuUKnS58eLyRX46XomKIemZBc3ZFLzgxJ60OxFjfW1gPWu8xBuv8dSE6c3u2jhF23Uw5KkjqUhsS2ea/3hdw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ouuGFnsKjQNpuwoM6dF1Y+jtDqYejK1GOyVqd3Z99ks=;
- b=vFsILYgs/bR1eokhsOLLKBG04wNpcit7hwN6DvzUDi1j0r1HZeYm5SI68dFYAfP9ocVHRxe94ZEGAnnZtf09YoXT10H17PvDq/ZtDDc0H4eOt+vw8ye69GAmbxPaDs/oa2ZPICIyHzN3Mc9D8TrOKNY6cVVTpEJc87KEcOk2uQc+KaYxmEbCr/ZFL9H7DMnH6lTTnDJbKMzqKaD7Bojyb8YNhI/aYHjV4ZeZG2lKWsBue6s4EI/Yx9OAZ0Z24R6RhE+zMexegNs5j/ArSsgMfbKS6Q1ghEUSK7WKHqemR6/2c9ja8TZcjNNdItOyAsL3iSEDTXYjPIsifPgo2C7HBw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ouuGFnsKjQNpuwoM6dF1Y+jtDqYejK1GOyVqd3Z99ks=;
- b=o6cRBE5wsVxBkoTu09tG5m4TAEJHe1YQJFeNz/GYaEJDehsrP5d9PF0jQQqMfjbZ86aRUzjjQlDJ+FqzWzppcqJyvUuBTtVipzHzcglKypvbx9KlEYrUF6F0D3D48aEo2yGghqr2OmeI5p3ADL273gsupQ96XEbU4QAVrjL8Vrk=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SA1PR12MB6798.namprd12.prod.outlook.com (2603:10b6:806:25a::22)
- by LV2PR12MB6014.namprd12.prod.outlook.com (2603:10b6:408:170::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.11; Sun, 23 Aug
- 2026 11:15:53 +0000
-Received: from SA1PR12MB6798.namprd12.prod.outlook.com
- ([fe80::e317:e4a3:6ae9:8c54]) by SA1PR12MB6798.namprd12.prod.outlook.com
- ([fe80::e317:e4a3:6ae9:8c54%2]) with mapi id 15.21.0315.011; Sun, 23 Aug 2026
- 11:15:53 +0000
-Message-ID: <a0512e2e-f570-4b42-bd3c-0091bcfe1c04@amd.com>
-Date: Sun, 23 Aug 2026 16:45:47 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dmaengine: xilinx_dma: Fix hardware buffer descriptor
- reuse order
-To: Alex Bereza <alex@bereza.email>, "Pandey, Radhey Shyam"
- <radheys@amd.com>, Vinod Koul <vkoul@kernel.org>,
- Frank Li <Frank.Li@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Kedareswara rao Appana <appana.durga.rao@xilinx.com>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260817-fix-hw-buf-desc-reuse-v1-1-d79827a844c7@bereza.email>
- <QjUGg1to3KFvzKpfc2FoL0vjidDyRPAjT3cURLYpXEfdqk7LPzrRq6dCkhEROkPP47rIdqQYBa-BYKkdSV-oGQ==@protonmail.internalid>
- <e2877b7e-eb3f-4a4c-aa94-ed0907578e6f@amd.com>
- <DKS25RPXGPXB.2I0LD9EHK9GAP@bereza.email>
-Content-Language: en-US
-From: "Gupta, Suraj" <suraj.gupta2@amd.com>
-In-Reply-To: <DKS25RPXGPXB.2I0LD9EHK9GAP@bereza.email>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PNYP287CA0103.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:2bb::10) To SA1PR12MB6798.namprd12.prod.outlook.com
- (2603:10b6:806:25a::22)
+	Sun, 23 Aug 2026 11:29:45 +0000
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4956869750eso14890215e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 04:29:42 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787484581; x=1788089381;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Gic4a9l1Tysqkb/KXwcHfceHx++tdNsSZ7fJK8rIj4o=;
+        b=a8uSrTgUpqJe+aSDl68brYV16mgUmpB7tfD4R+4cZKCd4QwRRb/vusHoDfNtuOAnL0
+         mq/rwMoqLu8yqWzXrWfZ+n4YUtb5rGbXA7QDHqIK82MR4opkxnqbcmPkFQBKKDz71hSc
+         cLbvRL616B3HFuzbDxumI2CY7imAtcciys/K4ViSyhnHtuTJal6Rdo+zLEKxgutZ50as
+         xzwdabtjI8GDzCL300jyuEVSnOXynhNBD1NofeJiyUrUxx70pwXii+OY4jKmiZXd0iv8
+         opPFkdkgedPv8zHKSt9/ZpuSYftKcxQp+0ojTSJZRGzHw2dFbcf6om2vQYXi2yFcn5CO
+         K/VQ==
+X-Gm-Message-State: AFuF++lV/j+woIURWAjBJp1Wv2CBjfMQQfm+cvS+En9hgD+dcpsBvv/2
+	BYvMZ9m99YNinYrhuLSKyC7U1fqz8k3mP0TmZv6JQeu5rqyOabczlyje
+X-Gm-Gg: AR+sD11wCJK6mcN+mogU5u3RF/lHTnuXfnJCXP0Fs1ezYDTVwShVQY7eWayNnAVF+hm
+	U/5aXruONT1PW9VFsRyWgSvwjhavSzTV9blmG4v7KjCY0cngFgAWB7rKaV3TJruZdRRK73f8h3q
+	adg6zpXHPNo7Od5KZL7BPv4kEWMWY/X8k/cDBYZ9BZM9VObG1RvP31IH1XhAFa6HUt65oS4Lq7F
+	3zb6zYXh2zf44nuem2J8ZSLLiK1ZhXDGiHb1sBENcJPjpiWW5HZNyGiy301tH/PtQsHZHqyyhKO
+	OoAAyYjEy/1JAmmxMTZrGBuQAQr4o5NhT7MbueMPvyvB3OAV3O4y1EndTem7hVI83MPk5KtnFr+
+	YRsT6x0OctHifsYmV6QtTM7FEvXXFlahn3iFoFcjmTNjog9OsTwWsWRFGP9H9iQMGydnGl+tAaX
+	yvVWizWWy7rJ1fu1W/GpR4TuTz3cjxgZ+tiNmF68JQPtgt3bIP+HbdAaOrSP6q4tPMVcjNe/sd7
+	DYKaGUekn07mpdxw0TnVGJ5cglBOxKd
+X-Received: by 2002:a05:600c:548c:b0:499:8aff:59b6 with SMTP id 5b1f17b1804b1-499c19f514emr95373715e9.14.1787484581078;
+        Sun, 23 Aug 2026 04:29:41 -0700 (PDT)
+Received: from [192.168.1.135] ([83.106.158.114])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499c3553681sm46417835e9.1.2026.08.23.04.29.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 23 Aug 2026 04:29:39 -0700 (PDT)
+Message-ID: <78722571-a418-4962-b1ac-216519303aa2@linux.com>
+Date: Sun, 23 Aug 2026 12:29:38 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR12MB6798:EE_|LV2PR12MB6014:EE_
-X-MS-Office365-Filtering-Correlation-Id: 426b62e8-3c5b-4d95-7f43-08df0107e55a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|56012099006|18002099003|4143699003|11063799006|22082099003|10067099003;
-X-Microsoft-Antispam-Message-Info: taAtzvOZbJpq9GleRaTLn08t9Mtup1iJbx2rGW78XbeVC4UPh47O5kGlChBkiL0V1O2rNd4XeSyCdw98kkIRJHvNCZMdxyvOzbH6yn2YA7Z2fHdNxmPGy0JxR3u1e5qQD1KdM84TI+7ZuceYym/i+Rpj8Ba6TkfJW5i88DH3igKY3BwJ1js4p/QQaOeJmpkUizT1zbhlzo7EyEyGtURi5mNDriXdYMQy+bx213opesBbFLgV/2EnWNCDjtPhE1U566mFIIqFZiwuvtqR7d0bfliO9E2NHl3LhFMKrp33jXRqCt7lF56FRDPa5gp5RNFfe4F9QYEsduyPK5pCGNB1aPOaUdlT7ipQzxkj6QDFQ/nUJ914IQc1MycjX1qYAfkz4LhuJa+RXR40DYb7QrD2BkY9d8YHL7Becwgi1utrw5WK8yJ35xqNu4fqO/Qxwm3B3lX4gF6HHeWJG3WaH7jLlSYkjrgdQMsZnmgbxL7H+OZUvPmWOlOFAmwvxAqsDglkmVhacy2+UtZX1Bsy7u7jCjTNfVkH5Ay1Hpu2SfDr1qSs6Oq5f4FhJBPF61fsN7OIiuy4lmGy1C9xNEbo2LVWQcqaaJiQlsoBJ0oximD7NIO5TJqE7Dv+DEEEU3qVCi9Wcz+A5NN5rvRr4YNOYmeBV+iNIvDcrNi5fSp9Xa6U80s=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB6798.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(56012099006)(18002099003)(4143699003)(11063799006)(22082099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QmNIdndZbEQ0YzlGT0tLcHNsRXZ4YjV0WU9McW5NczlTUW5LaTJMTFk5dzZm?=
- =?utf-8?B?V1lIT3IvOStmTC9oTUVnTzdRT3A5VGFxOFAvcUVjQVFYZUJDSmN6QkNyUFlh?=
- =?utf-8?B?clRHY2ZGSlR5bktENWtqRDZYc0lWQkhLbjFzd1FMakQzR3Z3cmIwQk5Zc1Uw?=
- =?utf-8?B?V05maGVxK1FHZjVwMlpjUnF6NVQ5eWdaM3QxSU1mWTRyN2ZvK01lVVloZnht?=
- =?utf-8?B?UkMvc1VxQ1VQRUFxd0JNRU00cVpKNTdnWFg0ZDEwME9ZY3BYcVVQNFdHYVhl?=
- =?utf-8?B?Um5CUnJFcUpBdVpxdmNJc1dMNnFnR1pEQytJZVNCM3hheGV0NVNHamt6OGR6?=
- =?utf-8?B?d1l2dFBlOHYxOENRb1NreTBCRmUwd1NDRm9WOFErdnlJN0Z6T0lCc2RwaktQ?=
- =?utf-8?B?dy82SytzZG9tMmE2eUVTRU1EQk5TT2loRjM0TFBlZHVYQ2F3VFpnY1E0V1VX?=
- =?utf-8?B?Z3krSnFJaWRjUUU2OW9yVHNSZm1iMHNiQ2ZJMndra1ROWG80ZHdkcmo0VjJC?=
- =?utf-8?B?dkpsYnpTZThzUndsV2pSTDVQcGRVaTBUaWJyNmJGOVpRUFNOTnpMR0lra3FY?=
- =?utf-8?B?U25sS3pldnMwSHFZZXQxakFENzRLMGFYSHFyV3FMVDNhb3FsaGlJQzcyVzNw?=
- =?utf-8?B?TlJHV0ZXak9aRWJVRTNlclZpT004QURVTTV1WG1rb2tSa1FZUEI1aVhObTFq?=
- =?utf-8?B?MGl3aHhjblExM0owRXJCWGhIQUxEcnh6TTlUZytrK0tDb3JwazJIVGxQZEx6?=
- =?utf-8?B?K2ZLZE9yYmFnalpHSS8wNENVK1RmdzJNczlydy9BdmdJb2IxT1FUWHl1Rk5S?=
- =?utf-8?B?ekFFS0M4ZUtmRUlYZkF2MEh3ZUppVFd6VnkrV2xZYnVYM05PbnU4eFZ6UDFz?=
- =?utf-8?B?cXhlU1JmeEhXU1RZek8rNG1LaVBnNi9RbXBuRVN5QXV0cjQzY3lSdVNvRkk2?=
- =?utf-8?B?L3YrYkVNVzJGSjR6KytyWmpha2RJeGMrS0pEZlR0ZVJqOW5xRUlhU0h6a1hO?=
- =?utf-8?B?eDBrQ3lCUTNwOGpXajcvWGdhSU5zNmd0SlFOMXZYMzhkM3hYd1ExcURsdXdj?=
- =?utf-8?B?aUFpZkpoQVJCbVZSUlYyZ2F5VTcyOWZLcXNNajdFeUtTanI1L3N4RjZLV2NN?=
- =?utf-8?B?aE1ZQjdDblRRVk1FWDJ6Vjh5aUhFZVdMam9pZjFlY3h4dmQ3dHE3RVJEckM2?=
- =?utf-8?B?SVpMNFc3SjdJWkNlRmtWRzNXT2d1N1FoOEFQMlJLR0VxUVJSUDRUVndlbVpl?=
- =?utf-8?B?QTc0dnAyTnZSbzFzMUFZYkNIVWMyV0orMTJMclVxamNTRVZxa05wZXl5WVNR?=
- =?utf-8?B?YTZWRFc3YkRxaUgyNUZhYlYyR0k1VXBGdkZTRllsaU1BYkpKeGdDWktYTmtr?=
- =?utf-8?B?YjVwTlhoL1lRVHYyaUFacEJqY2JVbzI0NEgwN0xCRGg3QThxYjRLUncwdWxa?=
- =?utf-8?B?Z3hIUUg3cDNhMHkwZENsMUJZbWxOVC90OVJqazlNTjhDVGtpT2xFQkVCNk5i?=
- =?utf-8?B?dHNCOTlXb0tUcytTZU95Uzh6ekp5cW91aURvUW5IOHdicjl5eVhZLy9wSlM0?=
- =?utf-8?B?ejM2SU1LaWtSbnk0T0VLN2g0dW9EMGZDbGZ6cS9YakRqaG9oNEdoSU04dE5X?=
- =?utf-8?B?aDBsV1NuRUNrM2UvRk1VS0VveXhKWWdpVGxBU3FJaGJNZVBoWlFqckhkdGpY?=
- =?utf-8?B?ZkszMTROdEc2ak80Y3FLWEt4REdyaEMxOEtteDRQb2JxUWtYUlc3V1BYUk41?=
- =?utf-8?B?THlLQUQyM2xsbGpTdXRDU1lOekMxSHkvUEJoYll3MlZVekZ0eHNib3pFeUUx?=
- =?utf-8?B?elU2MXE5OGwvMHBXY3RqRWlMMGtYSG1kb2haTUx0NXRFcGRCaVJ6Qk51d1FL?=
- =?utf-8?B?cmJjOG5PUHhQL1ZvRnNwcXU0RVVQeWRUWmhmZjZOLzlnVk85anVZTWpsSnBI?=
- =?utf-8?B?T1lUazBhZ1YyZ2pkMVZjVUNEN3pYaWM3RFJtb0ExTHhMVnFhalJKZWNodHRL?=
- =?utf-8?B?bktUd3BlbEJEbjRFeDlUWlM4NkJ1NUR4TW9VR0pQT2g0bUhrN3RXMmtwMWhT?=
- =?utf-8?B?b0FtQ1lzbTlzN0ExR3NQMjlrbDJrSHB1SFNjL3NoNDRra1FTNTNjeGJIVzly?=
- =?utf-8?B?d1VvUmdENzRlREVScjRyV0tPd1Y4d2R5TVRRcjJzamRrWXBKbnJ3VTNlTS9L?=
- =?utf-8?B?dUxCRjJTQUpEZXc1MS9NN0g1OW1zWlh0VkxJbVZjMTcrVERXeng0QTArM3pp?=
- =?utf-8?B?cWVndTZFQ2hGenQ4blJIc0tqVVVYMzBZYlgva29NT2FTSGhrbDdQbDZZeGtZ?=
- =?utf-8?B?RHZzdDZSMmhRNzB3dHc1cEprQ1FVK0tVSDRlNzdzc0JoUkJuRGZLZz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 426b62e8-3c5b-4d95-7f43-08df0107e55a
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB6798.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Aug 2026 11:15:53.5211
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sjkW51DlXrGLAxMQn2KSj0QELJ2gRQjP6+cWaNiZmArKCrcPAfYj+/kyBQSDEAh+XMkqGKaty0+vpxwB39KxbA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB6014
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] arm64: dts: amlogic: t7: use the real UART pclk
+To: Xianwei Zhao <xianwei.zhao@amlogic.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260818191159.11523-1-tanure@linux.com>
+ <20260818191159.11523-2-tanure@linux.com>
+ <c428305a-265c-4cc5-be01-be5b21dc22ca@amlogic.com>
+Content-Language: en-US
+From: Lucas Tanure <tanure@linux.com>
+In-Reply-To: <c428305a-265c-4cc5-be01-be5b21dc22ca@amlogic.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_041558_799055_47921278 
-X-CRM114-Status: GOOD (  28.76  )
+X-CRM114-CacheID: sfid-20260823_042944_118213_C43F2D47 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,106 +94,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 8/18/2026 5:41 PM, Alex Bereza wrote:
-> On Tue Aug 18, 2026 at 12:58 PM CEST, Radhey Shyam Pandey wrote:
->>
->> + Suraj
->>
->> On 8/17/2026 2:53 PM, Alex Bereza wrote:
->>> xilinx_dma_alloc_chan_resources() builds a static ring of hardware
->>> buffer descriptors once and the driver uses this ring throughout the
->>> lifetime of a channel. This requires the allocation order of hardware
->>> buffer descriptors from chan->free_seg_list to stay in sync with the
->>> hardware buffer descriptor ring built at channel allocation time by
->>> returning oldest descriptors to chan->free_seg_list first.
->>>
->>> When chan->pending_list is not empty e.g. during
->>> xilinx_dma_terminate_all() the chan->free_seg_list and the order of the
->>> static hardware buffer descriptor ring get out of sync. Descriptors age
->>> in this order: pending -> active -> done. So freeing pending_list first
->>> returns the newest buffer descriptors to the chan->free_seg_list first
->>> and thus breaks the order required by the static hardware buffer
->>> descriptor ring. Then when the channel is reused, after a wrap around of
->>> the free_seg_list the DMA will find a hardware buffer descriptor with a
->>> length field that is still zeroed and stop with something like this:
->>>
->>>     xilinx-vdma 86000000.dma: Channel 000000003a21d7b8 has errors 10, cdr 6de4c000 tdr 6de4c000
->>>
->>
->> Just to understand - can you share steps on how are seeing this issue ?
->> During terminate_all hw is in reset so how is free ordering matter?
->> Want to ensure that change of order in not masking a real corruption.
+On 19/08/2026 03:39, Xianwei Zhao wrote:
+> Hi Lucas,
 > 
-> To reproduce, pending_list must not be empty when
-> xilinx_dma_terminate_all() is called. For example by calling
-> dmaengine_submit without calling dma_async_issue_pending and then
-> terminating.
-> 
-> Since pending_list was freed first, the newest descriptors were appended
-> to the tail of the free_seg_list. Then when you continue to use the
-> channel and allocate new descriptors from free_seg_list you will
-> eventually cause the hardware to walk into a buffer descriptor with
-> length 0. This happens after a lap of free_seg_list, when you get the
-> descriptor freed from the pending_list previously. The hardware buffer
-> descriptor ring reads a different descriptor than what you "allocated"
-> from free_seg_list and fails, since the read descriptor's length field
-> is still 0. This is because the hardware ring order is different from
-> the order in free_seg_list, caused by the wrong freeing order.
-> 
-> The reset does not help to prevent this, because the hardware advances
-> along the hardware buffer descriptor ring via the next pointer. But the
-> driver hands out the descriptors in free_seg_list order, which no longer
-> matches hardware buffer descriptor ring order. The reset only re-syncs
-> the starting point, but not the order of the two.
-> 
-
-Looks fine to me.
-
-Reviewed-by: Suraj Gupta <suraj.gupta2@amd.com>
-
-Thanks,
-Suraj
+> On 2026/8/19 03:11, Lucas Tanure wrote:
+>> uart_a lists the 24MHz crystal for all three of its clocks, because
+>> the T7 clock controller driver did not exist when these boards were
+>> added.
 >>
->>> After this no more descriptors are completed and a consumer potentially
->>> blocks and waits forever. The only way to get out of this error state is
->>> to rebuild the static hardware buffer descriptor ring and the
->>> free_seg_list by releasing and re-acquiring the channel.
->>>
->>> Fix the order in which hardware buffer descriptors are returned to
->>> free_seg_list to ensure the mentioned requirement holds.
->>>
->>> Fixes: 23059408b6a3 ("dmaengine: xilinx_dma: Fix race condition in the driver for multiple descriptor scenario")
->>> Signed-off-by: Alex Bereza <alex@bereza.email>
->>> ---
->>>    drivers/dma/xilinx/xilinx_dma.c | 2 +-
->>>    1 file changed, 1 insertion(+), 1 deletion(-)
->>>
->>> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
->>> index bef2b031dba1..0817b74f7450 100644
->>> --- a/drivers/dma/xilinx/xilinx_dma.c
->>> +++ b/drivers/dma/xilinx/xilinx_dma.c
->>> @@ -920,9 +920,9 @@ static void xilinx_dma_free_descriptors(struct xilinx_dma_chan *chan)
->>>
->>>    	spin_lock_irqsave(&chan->lock, flags);
->>>
->>> -	xilinx_dma_free_desc_list(chan, &chan->pending_list);
->>>    	xilinx_dma_free_desc_list(chan, &chan->done_list);
->>>    	xilinx_dma_free_desc_list(chan, &chan->active_list);
->>> +	xilinx_dma_free_desc_list(chan, &chan->pending_list);
->>>
->>>    	spin_unlock_irqrestore(&chan->lock, flags);
->>>    }
->>>
->>> ---
->>> base-commit: 0d995da5fb97e8c312834575604d4423eb6225b7
->>> change-id: 20260817-fix-hw-buf-desc-reuse-b730e9e02185
->>>
->>> Best regards,
->>> --
->>> Alex Bereza <alex@bereza.email>
->>>
->>>
-
+>> That leaves the real UART bus clock without a user, so the kernel
+>> turns it off when it disables unused clocks at the end of boot, and
+>> the board hangs.
+>>
+>> Point uart_a at the real clocks, the way meson-s4.dtsi does, and drop
+>> the placeholders from the two board files.
+>>
+>> Fixes: 4fef056588f5 ("arm64: dts: amlogic-t7-a311d2-khadas-vim4: add 
+>> initial device-tree")
+>> Fixes: 6f048cc7a635 ("arm64: dts: add board AN400")
+>> Signed-off-by: Lucas Tanure<tanure@linux.com>
+>> Assisted-by: Claude:claude-fable-5
+>> ---
+>>   arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts       | 2 --
+>>   arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 2 --
+>>   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi                   | 4 ++++
+>>   3 files changed, 4 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
+>> b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
+>> index cab2ee9ea0d3..dcbcd08a78b9 100644
+>> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
+>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
+>> @@ -33,7 +33,5 @@ xtal: xtal-clk {
+>>   };
+>>
+>>   &uart_a {
+>> -       clocks = <&xtal>, <&xtal>,
+>> <&xtal>;
+>> -       clock-names = "xtal", "pclk", "baud";
+>>          status = "okay";
+>>   };
+>> diff --git
+>> a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+>> b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+>> index c41525a34b72..677069e58f30 100644
+>> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+>> @@ -266,6 +266,4 @@ &sd_emmc_c {
+>>
+>>   &uart_a {
+>>          status = "okay";
+>> -       clocks = <&xtal>, <&xtal>,
+>> <&xtal>;
+>> -       clock-names = "xtal", "pclk", "baud";
+>>   };
+>> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>> b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>> index cc371fcd1896..7847582e77ed 100644
+>> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+>> @@ -587,6 +587,10 @@ uart_a: serial@78000 {
+>>                                  compatible = "amlogic,t7-uart",
+>> "amlogic,meson-s4-uart";
+>>                                  reg = <0x0 0x78000 0x0 0x18>;
+>>                                  interrupts = <GIC_SPI 168
+>> IRQ_TYPE_EDGE_RISING>;
+>> +                               clocks = <&xtal>,
+>> +                                        <&clkc_periphs
+>> CLKID_SYS_UART_A>,
+>> +                                        <&xtal>;
+>> +                               clock-names = "xtal", "pclk", "baud";
+>>                                  status = "disabled";
+>>                          };
+> 
+> I agree with moving the UART clock configuration to the DTSI file. 
+> However, it seems a little odd to keep the XTAL clock definition in the 
+> DTS, as the alias may not be consistent across different boards, which 
+> could result in compilation errors. Could we move the XTAL clock 
+> definition to the DTSI as well, similar to other Amlogic SoCs?
+I think keeping it in the board files is actually better here, as the 
+crystal (xtal) physically belongs to the board rather than the SoC. To 
+keep things clean without moving xtal into amlogic-t7.dtsi, I've updated 
+v2 to modify only the board DTS files.
 
