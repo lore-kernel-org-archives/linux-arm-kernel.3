@@ -4,95 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC71CC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 21:07:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A11EC5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 22:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NXEuJBGfzMeA2VoyieQfWVfmlZbv0eldSLa+1qSHcFI=; b=aTdIUKGpy6dOaQdF106cn3jJAW
-	+L0La+HfMM00RMVlGBAfI/odGwQBXyI5rvZXxzdg38+nYcs/5pa5M/tlTegXjk63QvakQPcdYdTA3
-	gsfcxBTdiD6izXeG+NuF1GLQ0zFrKIUQcMEbNnUzX1YN0QdEBA6/VwBx6nRWNSQfTUQ/G6BR7RjBB
-	q+1rv65y0PDds8AzvCBIil79fm+VIVxv0YvGCW9xTShWdJOI+J9mLv9RGZuzD/0CyLyzPJ8nJy0nw
-	+kgtqqmYg2JKtil3bFrrROEucjGYFYHjoS7TL+xANfx/nButSv5lRclfnZ1J2FdcjGnDhCLvv0iVN
-	eYJDb1ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MplZuiFkcRk91N2qld/yV/3LPqhrmUhV4Gfo5LDx2lk=; b=JT8enuztNrNmUj
+	L2Zk1nis/7KoWKq1axpKfIGFjqhK/bVGgCPu1XQWPjgN5wn5FBcVo8+MErCDEzMe8ybSeRh7iWE8L
+	aK1nXdBmC1XnQXRaH8jpbmoPj05kN9lEWPgKxxS6jUI28KzWU+l/7AUs2PCRBYqaiy7hW0FyrofQs
+	+vNnh15v4GMFW0rs1ksQX0vOmxXKGN7pOSjSWoeMw9mHBz6fdQAhVzXPsaNn6jZhar5IRfym9btkK
+	qIeW0FM780iHRRshYttMNKQ9cfwYyJk19BS4Gvoc9qFZ9gFqWJMt0bZwnI7IeJIpCG0teagFfDBFp
+	rl8UI6T7B5oR2y9ZLupA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyFP2-0000000Fc2V-3IKo;
-	Sun, 23 Aug 2026 21:06:52 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1wyGRp-0000000FdVt-3bej;
+	Sun, 23 Aug 2026 22:13:49 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyFP0-0000000Fc1n-00VZ
+	id 1wyGRj-0000000FdSK-0MHD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 21:06:51 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-69fdfd98eb8so521840a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 14:06:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787519208; x=1788124008; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=NXEuJBGfzMeA2VoyieQfWVfmlZbv0eldSLa+1qSHcFI=;
-        b=cjGeOs/K4v8Nj4Ojuh8QuyP6ov2dPJzunx9qx4W5fq9SewCrB1TnIW4KKdK7L8pfzS
-         +g+UVgMfptgLR1kEqAt8s3Kk8+0NpzFUHUzRc6Fk+k+ec4Tu2Xvpq1+K81y8PgXbqE0T
-         MCUnYcaOQLSXWre9iLiOnm+dfI3CpaCtN//3EndBAGDTyMIDmBz7an/pKbJfAjd7os6p
-         b9SC80rI0IT6swdqGCc5BoMUEoovsX1+fQ6S7acTi+VzUac0dfZG9gW8soukcCEBrhlK
-         MZ23YFiCc9NNb7JxtjH12Z64GoY7CfhEAo9T2jpUd8g7xukbwmE2OdVgFzP0AefkJ9F5
-         AwgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787519208; x=1788124008;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NXEuJBGfzMeA2VoyieQfWVfmlZbv0eldSLa+1qSHcFI=;
-        b=Xc+pAvW0hDuNzh1ApNYlvn7C1aBowkXvpdZGwxCxJsP5vaoPY7rOcyS3OIGjlHf/x8
-         53NIIua7ZOxb24lbG7y+ZGqLJ5trNg+xSOKVOtdK/VHCwdFQmoGpsFCYo9k5+DevgzLO
-         bpv7jHlSXbkqgZ7E1MAohoZhGeyMG+8wDpmTTxnsN/GhlnZRyAuPW+R81SNWi7jU0v7/
-         +G9FCbTXDLd6LLGq0f4gDNDVe8oQMsUc+shJSV93CuAxfvP0dHl3eXDcvwoImeIpu1g0
-         yjuVttOrDr5/C982B9S2kj9IPP4XxXDDAranQ6AmgzqiS00zCiHX+EfbpIfB9xHT1I/i
-         PXvg==
-X-Forwarded-Encrypted: i=1; AHgh+Rp17ZK/KzMOJTT/chRmJPAV1vo3a8whwYkuygtmKrHVz3rd8xcO+2wkflIzGvRXU7/8sCpkTufCZU8L9sOzgPsG@lists.infradead.org
-X-Gm-Message-State: AFuF++n8wACsfz76Li808kG7FKHKl8Gaeb5KGyquRPKcR7IZPaETj7PP
-	ChnNMASbdziHgInLeMjSShuJ0E9bgAMWn9njbsH6h85kqeOZWAWIP4lv
-X-Gm-Gg: AR+sD112AldQUJruRWZ3u9vMESPCdk4NOZ3qsh+wZmqXgJGAFVRuEWXdFC4mKb1Y9vo
-	pKKMbQQmQlkA2WH4xOle4QDsoAGIC4IrVy0yUzpfyZqwoRc71c+yk7WYQGgZNJqJhSar7atT84m
-	fzBXsqBVhypOZfPxsCq99AusdsIaW7Sb8+7qBe9f9O0cOGVOphea5G+x3g2cBwPlHUh95oiqKtX
-	Ifq6SpEj3NcHrGITZLJ5FL+hIZdCNvvNJGFTbzP+L8NJAfWf1mL3UcFLhcPgOsgDAEf3ugyCb/q
-	m29HH4ubbSlswzj+fSzC7GqY+Qrx9S35wU/nQnmVpFqPQLUxYiUk0327/VI6ESt+2WW6fAN5dSU
-	Pzzlgn9nXaPEulqeYG5+7bWHpJxc7wK0hRy1uquAQvU3jkvwg1zJjsGY/7L7vqmgCXykMrwDj92
-	fJ09adOQ4IzPMuEEZtitNVcWR2xsx0xp+QJYvWmK5z70Tb3KvCLCM61EPG24AXWjALqhRgJTqUo
-	1rk3V4eH5iQofg6ATQydNyAHRI=
-X-Received: by 2002:a05:6402:d0e:b0:6a3:fee5:adc8 with SMTP id 4fb4d7f45d1cf-6a42eeb84dcmr12976866a12.0.1787519207688;
-        Sun, 23 Aug 2026 14:06:47 -0700 (PDT)
-Received: from ?IPV6:2a02:a449:4071:0:32d0:42ff:fe10:6983? ([2a02:a449:4071:0:32d0:42ff:fe10:6983])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a59e1ccf69sm5175122a12.25.2026.08.23.14.06.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 23 Aug 2026 14:06:46 -0700 (PDT)
-Message-ID: <a239b296-ba90-45d1-b8b8-713ab29fda5c@gmail.com>
-Date: Sun, 23 Aug 2026 23:06:45 +0200
+	Sun, 23 Aug 2026 22:13:48 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id 04CD8240106
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 00:13:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
+	s=1984.8680eb; t=1787523216;
+	bh=MplZuiFkcRk91N2qld/yV/3LPqhrmUhV4Gfo5LDx2lk=;
+	h=From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:To:Cc:Autocrypt:OpenPGP:From;
+	b=NorLgh4r9iDqAA+w+OmGJGL2EKgeLe4viqIMayPZgwIopygbfVSgzDK/+3wOYSjfT
+	 GF1dOdjegs+qJ0gLtAxUa7f5N8uQp6B18PcKKFEmpKECd7UIUJT8xWAxlia2JRSLiT
+	 Cv43/dDGpxciVaqOISK+tHlWFY+aTZz8LQ4eJ6apWslPf+yKrmg2GOSasK2CHu62wC
+	 RF+Fp8Th+OShMxli9/bc/CgywAo0p9cS15H2AOpMZftf4d50R0jpndaWpNdO4D5BBc
+	 lZAq3bVB2rSrdPZdB5HK+9ftAy1I4zVnfXSDyTyFqs5uo09DBbDEhVj5P96AVwZJUl
+	 QdPmNX3DOl72A==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4hSpGN2XjNz9rxG;
+	Mon, 24 Aug 2026 00:13:32 +0200 (CEST)
+From: Markus Probst <markus.probst@posteo.de>
+Subject: [PATCH v6 0/6] rtc: s35390a: Allow use of output pin for interrupt
+ signal 1 for wakealarm
+Date: Sun, 23 Aug 2026 22:13:34 +0000
+Message-Id: <20260824-rtc_s35390a_int1-v6-0-df96569e3412@posteo.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v1] drm: rockchip: add
- drm_plane_create_blend_mode_property
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, andy.yan@rock-chips.com
-Cc: hjc@rock-chips.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <1ab6fb88-3b84-49b5-aa05-202a84edbd3d@gmail.com>
- <25031028.6Emhk5qWAg@diego>
-Content-Language: en-US, ar-EG
-From: Johan Jonker <jbx6244@gmail.com>
-In-Reply-To: <25031028.6Emhk5qWAg@diego>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XQ0WrDIBQG4FcJXs+inuhir/YeYxQ1x9VBY6c2t
+ JS8+2w6WAjZ5Q//+c7h3EnGFDCTfXMnCceQQxxqUC8NcUczfCINfc1EMKGYAkZTcYcMEjQzhzA
+ UTqVUzllgXQ+e1LFzQh+uM/n+8cz5Yr/QlYfz20j4fam7yrNGrMlIXTydQtk34+tOkMfkMeQS0
+ 22+beRz8f8zRk4Z5VYI0MiVRfF2jrlg3PU4Y6P4AzrGNwBRAc+Z09r0vFduDcASkBsAVAA7UN5
+ YAyjkGmgXAN8C2goABwCmHSjp14BcAGLrB7ICEm2LvpNOGb0Epmn6ATTPGZruAQAA
+X-Change-ID: 20260630-rtc_s35390a_int1-556ccb308d3f
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>, 
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Michael Langer <michael.brainbug.langer@googlemail.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Linus Walleij <linusw@kernel.org>, 
+ Fabien Lahoudere <fabien.lahoudere@collabora.co.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Markus Probst <markus.probst@posteo.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4674;
+ i=markus.probst@posteo.de; h=from:subject:message-id;
+ bh=tzySERR8gl03N9DBItQQQHL9eo+EXoLfE8GGPtlxV28=;
+ b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqi3CLFlJdx0aGrDTjaXbGngPkSwec4rWBgpOcK
+ UtBAMuJrDuJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCaotwixsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9KoKA/8CcWMaY1Qm47WHC0qP5x/7qMmYOBzIOz
+ xJ3Us5k5s/zK+4VfTpzki2dB8Ie7Qw2Gn61aF9rcIO7ssdOyJcSr+Ru/Lay7pVzK4k1hkvVTgeb
+ vAjNLpAlGuvcuk4AsMtb1kj35O03qB3/TchqT1bWxEwb8y980RykYt7G+IkPt/NFn8zewVCNiHv
+ VmYLudTb/ISMFqgPpmAWnoxyA6CZj7nrMZyBPM19p3NODlTWEVmToHuTyUlNUR3Nb3K7JkTUWj0
+ XWa0fMUIa0i6DVcKmMLXpEKi7dLdohLijAJQvbVj6q42udLV+ocvB77gLlp4GN2mhqfcK4jRrUL
+ DjAAmmqCX8vAvmpztCrsLqNjW5yLmZLZQ0QzmK/XHdBMdE+V3DkrkFasynyfobzVBJKconkSgsP
+ 9W0/MbaJi2+gitkaLdJf25QModkNf81EHAwZHFQTlUD6gnd9sqFacyzI79d0LyGbcVb+3fylvo0
+ 0LNBkYZ1P1NZq3nsX8QuoFBn8gpBv5TnXgkbF/hlEvrFLaLL1DwFfdMVuPqyO9NzU6nfVJPinx1
+ R1TFr+int0Fqnu3uWrzdukl2vM/uWrGaiVkDJ01Fo/TVxQL2EBwprmUa6YtmoGc/DeorurLYpQp
+ qVNSkRzGQF9rJ4bm+KpTQYZB5/GCG6YxxgodD1e2El7F8dVqqVAI=
+X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
+ fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+  keydata=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
+  aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_140650_063219_FD146C80 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20260823_151343_825573_FBA599C9 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,92 +147,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add pinctrl to allow the use of output pin for interrupt signal 1
+for wakealarm. This is needed for wakealarms to work on Synology NAS
+devices.
 
+I could only partially test the pinctrl patch. My testing system runs
+ACPI, which makes it impossible for me to configure pinctrl there. I did
+however verify that with missing pinctrl configuration in the devicetree,
+the register were correctly set. So there should be no regressions.
+Every other function than ignore, disable and wakeup should also be
+considered untested.
 
-On 8/23/26 21:19, Heiko Stübner wrote:
-> Hi Johan,
-> 
-> Am Sonntag, 23. August 2026, 14:29:09 Mitteleuropäische Sommerzeit schrieb Johan Jonker:
->> A validate_blend_mode_for_alpha_formats() function was added that
->> fills the kernel log with warnings for Rockchip VOP version 1 SoCs.
->> Add a drm_plane_create_blend_mode_property() function as fix.
-> 
+Also If I am not mistaken, wake alarms on these systems are currently broken:
+(not tested, judged by looking at the devicetrees).
 
-> This is missing explanation on why PIXEL_NONE is the correct value.
-> 
-> VOP2 seems to support all 3 blend modes? So a sentece explaining
-> the pixel_none value would be helpful.
-> 
-> 
+- arch/arm/boot/dts/marvell/armada-370-synology-ds213j.dts
+- arch/arm/boot/dts/marvell/armada-xp-synology-ds414.dts
+- arch/arm/boot/dts/marvell/kirkwood-synology.dtsi
+- arch/arm/boot/dts/marvell/kirkwood-ds110jv10.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds111.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds112.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds210.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds212.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds212j.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds411.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds411j.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds411slim.dts
+- arch/arm/boot/dts/marvell/kirkwood-rs212.dts
+- arch/arm/boot/dts/marvell/kirkwood-rs411.dts
 
-Hi,
+If thats the case it can be fixed by using this patch series and adding
+the example in the devicetree to the s35390a devicetree.
 
-In the vop_plane_atomic_update() function there's a comment with win0 blend broken:
+If somebody still runs one of these systems, please test.
 
-	/*
-	 * Blending win0 with the background color doesn't seem to work
-	 * correctly. We only get the background color, no matter the contents
-	 * of the win0 framebuffer.  However, blending pre-multiplied color
-	 * with the default opaque black default background color is a no-op,
-	 * so we can just disable blending to get the correct result.
-	 */
+Thanks
+- Markus Probst
 
-In the function vop2_plane_init() there are these blends: 
+Signed-off-by: Markus Probst <markus.probst@posteo.de>
+---
+Changes in v6:
+- instead of forcing 24-hour mode, check on rtc access
+- Link to v5: https://patch.msgid.link/20260820-rtc_s35390a_int1-v5-0-5eb4ef85c6a9@posteo.de
 
-	unsigned int blend_caps = BIT(DRM_MODE_BLEND_PIXEL_NONE) |
-				  BIT(DRM_MODE_BLEND_PREMULTI) |
-				  BIT(DRM_MODE_BLEND_COVERAGE);
+Changes in v5:
+- fix issues reported by Sashiko
+  - fix time corruption on setting 24-hour mode
+  - fix setting 24-hour even if uninitialized
+- Link to v4: https://patch.msgid.link/20260815-rtc_s35390a_int1-v4-0-3133309c365f@posteo.de
 
-My question:
-Could someone with more know-how tell us what VOP version 1 is capable of?
-Is there anything that needs to be set like in other drivers?
+Changes in v4:
+- fix issues reported by Sashiko
+  - require "pins" property in dt
+  - remove maintainers entry for include/dt-bindings/rtc (which only
+    existed in previous iterations)
+  - fix multiple reads to status1, which clears interrupt flags
+  - fix not waiting for Power-On Circuit check
+  - fix missing pinctrl dt callbacks
+- enforce minimum length of "pins" property in dt
+- fix pmin2 on int2 affecting int1
+- force use of 24-hour mode
+- Link to v3: https://patch.msgid.link/20260805-rtc_s35390a_int1-v3-0-e836faba3e25@posteo.de
 
-For example:
-		switch (pixel_blend_mode) {
-		case DRM_MODE_BLEND_PREMULTI:
-			break;
-		case DRM_MODE_BLEND_COVERAGE:
-			break;
-		case DRM_MODE_BLEND_PIXEL_NONE:
-		default:
-			break;
-		}
+Changes in v3:
+- fix issues reported by Sashiko
+  - fix use of uninitialized time data
+  - remove dependence on `CONFIG_OF`
+  - add missing `pinctrl_enable` call
+  - fix wrong index used in `s35390a_pinconf_set`
+  - fix interrupt not cleared
+  - fix `device_set_wakeup_capable` called to late in probe
+  - fix mode caching even on failure
+  - fix failure on synology quirk mode update ignored
+- only set irq in alarm_irq_enable callback
+- fix alarm time not set if set_alarm is called with alarm disabled
+- use pinmux instead of pinconf
+- move patternProperties below properties in dt
+- remove dt-bindings header
+- add '#clock-cells' dt property
+- merge 32768khz and user frequency mode into "clock"
+- remove alarm mode
+- refer to mode now as function in the code, to match phrasing in pinmux
+- resolve checkpatches --strict warnings
+- remove mode_init bool and instead set initial function to -1
+- remove err_read probe variable and reuse err
+- rebase onto v6.2-rc6
+- Link to v2: https://patch.msgid.link/20260801-rtc_s35390a_int1-v2-0-f10c99ad1d6c@posteo.de
 
-If someone comes up with another solution/patch that's also fine, as long the kernel warnings are gone.
+Changes in v2:
+- remove sii,wakealarm-output-pin property
+- add pinctrl
+- add fix to allow disabling of wake alarms
+- add synology quirk
+- Link to v1: https://patch.msgid.link/20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de
 
-Thanks!
+---
+Markus Probst (6):
+      dt-bindings: rtc: Add pinctrl for S35390A
+      rtc: s35390a: Add missing newline to dev_err
+      rtc: s35390a: Fix alarm not disabling
+      rtc: s35390a: Read 24-hour mode on access
+      rtc: s35390a: Add pinctrl
+      rtc: s35390a: Add synology quirk
 
-Johan
-
-
-
-> Heiko
-> 
->> Signed-off-by: Johan Jonker <jbx6244@gmail.com>
->> ---
->>
->> https://lore.kernel.org/all/20260526181700.25310-3-leandro.ribeiro@collabora.com/
->> ---
->>  drivers/gpu/drm/rockchip/rockchip_drm_vop.c | 2 ++
->>  1 file changed, 2 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
->> index 0090d8ff0c79..0bc5b606f021 100644
->> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
->> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
->> @@ -1850,6 +1850,8 @@ static void vop_plane_add_properties(struct drm_plane *plane,
->>  	if (flags)
->>  		drm_plane_create_rotation_property(plane, DRM_MODE_ROTATE_0,
->>  						   DRM_MODE_ROTATE_0 | flags);
->> +	drm_plane_create_blend_mode_property(plane,
->> +					     BIT(DRM_MODE_BLEND_PIXEL_NONE));
->>  }
->>  
->>  static int vop_create_crtc(struct vop *vop)
->>
-> 
-> 
-> 
-> 
+ .../devicetree/bindings/rtc/sii,s35390a.yaml       | 111 +++++
+ .../devicetree/bindings/rtc/trivial-rtc.yaml       |   3 -
+ drivers/rtc/Kconfig                                |   2 +
+ drivers/rtc/rtc-s35390a.c                          | 467 ++++++++++++++++-----
+ 4 files changed, 486 insertions(+), 97 deletions(-)
+---
+base-commit: 237a1c39e8dfd3e1c6f1f023eea37a48ec04cc63
+change-id: 20260630-rtc_s35390a_int1-556ccb308d3f
 
 
