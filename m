@@ -4,102 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C4CC5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 18:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C62AC5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 19:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3gq37rj4bzCyBTGwM7oPPXQqhYUmg5gV71MEIz1jHkg=; b=X3c4oOnuLxaS/SvD/GOId9WD7c
-	paqzLqYZGVW4XBSewiq5ify8I1HXshzefYgJrxVXiR1YS2ZBYugd/LN9gAgAvuvDtqrWFgw19Wy6J
-	HSGFRK3O7MRWYIOIpliWEUyMpdO+Kso/7tXnpXRtzz6XBYBMbMKYmvlzuEZpQpol+b7YRFzMo+L18
-	VeXJY7oi33glrqq1ai0SyYtHJwCZ3JLmH2pXRdpm3YZwULGyufjVyNZg4qD13lrpx51D5Fq/heha7
-	F7ScCflr6cw788tGDeHOCW1S8Q5NLX0gmfUWe7OJ/AxURDZ7/lbyoIUSgJcFW+UyL35K6deqYr1yL
-	XVSlwV6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/W6mkeoXvnonMNZUI3njI0qG2gH3SwBOtWLJBh8UHlM=; b=J0yNqeGCjys3uqm913rDGYWRHF
+	LJNubKrXkYqPn9zcEk7nkF0GLn2U2u9Mzt11amA02AkL7Kjwi18H+EiAQinQLCuHtXAt3pfLpUIFq
+	u3ol2IkdMlaBRrxvlJ5cNCMqRkltyAvqZ9pCv1PSAvpY4zvWyb4df9tV/hnFrkOqzzLnmcwg1/FB/
+	LzvfbaMJWz81wuCTBfVD2LgcMbgoT7tOVt6AHnP7QL24rWa+bUc5eX+xuKKdHE+3SAagJrpurNe6O
+	U+9zyBfvgojLN15U6iYIgFgFIfel372fHFJImaybjmSaRWtym6YQg6Fv0TJzhPHdpSfT92eSHEtbC
+	YC8mqLvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyCcd-0000000FWQK-1kMw;
-	Sun, 23 Aug 2026 18:08:43 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wyDap-0000000FY6M-3tJJ;
+	Sun, 23 Aug 2026 19:10:55 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyCca-0000000FWPz-30FJ
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 18:08:42 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-4815bce4652so1399340f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 11:08:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787508518; x=1788113318; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3gq37rj4bzCyBTGwM7oPPXQqhYUmg5gV71MEIz1jHkg=;
-        b=IREqmkcqzy3R8SdMRTDUh+7Apu+yCZ4x8Ht/m2ObApIgmd9IUR6lDAr4OdJntpup1q
-         M1sW6iQ/qVrWM2+b+grDoPnRolTrb1TU6737mJne+ZZF+PimNdmmpzJoRAqY2btzgJ+P
-         2pyLELs/9PVduCpI13HXDj3y14DAgSQksiXpE5iUwBB5uwjPmSXBQG9uPtgnyaHXT4DK
-         RcQm4XLaeeierfPIBf43y522ucwvPkXf2RMRuSS0xRRu1tXpg+hngsMMW737fWTIgZVZ
-         kFoC2a10ZULQUMHVhrhlbkUj/miVloaMFPrO2Wf7f3KBzHt4U69MbjHMdmekFwdQHVm9
-         jUNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787508518; x=1788113318;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3gq37rj4bzCyBTGwM7oPPXQqhYUmg5gV71MEIz1jHkg=;
-        b=Df2SULwTIJ4EPxCu4tLtuz4XTGVbxurb8z1yJjHqtwIhICP645EsShjvW4vCg0tFI2
-         hRDZ/M8uHdbHxTtq32Lk/+AHN5aqCGI7gJ8Er364g5kB782cMPpnJ63XBI/C5FX19HHc
-         +UTUJbX58w2Fr4I55EuQyZTs9WrJbzgKwHDcNBu0oHW9xUENRfzngeMlTumEy9yYJAsV
-         cJDcJlpU0oOUjeENsW7F2FXJjRzg03liVTlCeOufFM5yzOzz22qByYm20G9Lzvby3/CU
-         jJEf6xi1zjDc+minakXxFFYFjN4xAYhwSVoHJRLK/YceKfn3wBDuDUhOxZatuaOLvebv
-         B33w==
-X-Forwarded-Encrypted: i=1; AHgh+RoAsAUtJl0JqWyncmKtwAZCZm5G5DRs+F+2RqQiJVocIy4YoBJQzZ7wn4o6bAGSyfqvlXxm5sUB0GfgLV+GrHbS@lists.infradead.org
-X-Gm-Message-State: AFuF++kwp1p4lXMqMN9HC+n1dFvWuMnKGlFiA7lqPs/fP786miY3bouV
-	ODqgJuqFKWS5HJA297TfZBWi/nIAfgD6kAvLKRlegieOw/e1CcpzfIHY
-X-Gm-Gg: AR+sD131eTKkXH/uD0JwivTkMsK4vA2XLTJ02Rv8AzR24hl34dsVRqpalvSzyBrHgal
-	dnHzvJMviXghLB+DGDgyYP70BMEWCNSOl5OQWNLlGQVva+SPp3J0k2p8kSzhDeifyOXo0dhjlGe
-	jhN9/vWGTtR1+pg2xWps3HW5wXIJb5JIHdCBV+ygqyWVN3pPKhHEsJXTl3O3Nu/kH/jd8IRPEVJ
-	M00vQ8BCO8w/bRHrimzo+L2+3F2Geyn4++U9ByLP6dvVDGGWjWjhOWi7gvOlVhkUM6Oq491/qF1
-	vAp+pjy83YQDAVreMD4t1HZL26UtgZKvDFR9kYb/U3I7wFTWGGpmhceVxMQiC2ElC9lpsAywUk/
-	A/JiKvk5lGEn2ihewtXVka1HBO2IHmf2QFOKA6IPvk0ZRt90rmiO/1BbdgYAURxZdty7Co6ZxPv
-	GgSGbdxuTEkO5+KeHgutbICnGhYCwDOXaZz+wqg+2oKoCR1XHbjkJHQ8yOPsR3AUh2A9gRV+pIE
-	CXypdZxKD4awLUyxeYRq1/rwenggOisz/Mgwmn+1P5OIa4LKThl
-X-Received: by 2002:a05:6000:310f:b0:47f:f4b9:88b7 with SMTP id ffacd0b85a97d-482c0b58818mr25065061f8f.1.1787508518013;
-        Sun, 23 Aug 2026 11:08:38 -0700 (PDT)
-Received: from nixos-office (195-23-151-163.net.novis.pt. [195.23.151.163])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482d4710ac5sm219571f8f.32.2026.08.23.11.08.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Aug 2026 11:08:37 -0700 (PDT)
-From: Julian Braha <julianbraha@gmail.com>
-To: florian.fainelli@broadcom.com,
-	rjui@broadcom.com,
-	sbranden@broadcom.com,
-	linux@armlinux.org.uk,
-	tglx@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de
-Cc: bcm-kernel-feedback-list@broadcom.com,
-	radu@rendec.net,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	arnd@arndb.de,
-	maz@kernel.org,
-	sudeep.holla@kernel.org,
-	mark.rutland@arm.com,
-	lpieralisi@kernel.org,
-	Julian Braha <julianbraha@gmail.com>
-Subject: [PATCH v2] irqchip: gic-v3: fix unmet dependency on ARM_PSCI_FW
-Date: Sun, 23 Aug 2026 19:08:32 +0100
-Message-ID: <20260823180832.1246363-1-julianbraha@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	id 1wyDan-0000000FY5s-3tIk;
+	Sun, 23 Aug 2026 19:10:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=/W6mkeoXvnonMNZUI3njI0qG2gH3SwBOtWLJBh8UHlM=; b=o6pulzMO03REegWhuuub+t8v3d
+	fsJQF+E0p8GSd/S95Kwk/5mdjKiT0tPOtr3GvhNT+YDv6MiP6wpgBzKBT9JQjUtvPr0JFQNcnb6ta
+	r5cJZQYy7vXGMgiyppwKTAxnTN9wfgUoGNaV9o1NqbAxEU1i66C0thPUmBlS4c5cJ7vQnExVl6mVk
+	xPkijEuj3K2TuqXest7lqlNETwhQ6mH+OorjXwNflJek0MQiSy+HXpCQvohTq4ZviqXU9Ji4YL7yh
+	npchf11iQcDW46NEXtLXcJHWntRZIPPnLY8ch9lN/wzs6yJuI9m+7mmHA2OmVQSxS2Un3YT9MN3Em
+	ZyZ+uCrw==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Johan Jonker <jbx6244@gmail.com>
+Cc: hjc@rock-chips.com, andy.yan@rock-chips.com,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, dri-devel@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] drm/rockchip: rk3066_hdmi: convert to devm_drm_bridge_alloc()
+ API
+Date: Sun, 23 Aug 2026 21:10:31 +0200
+Message-ID: <9306866.NyiUUSuA9g@diego>
+In-Reply-To: <dea8a038-577b-45da-bff3-703e9099b7e1@gmail.com>
+References: <dea8a038-577b-45da-bff3-703e9099b7e1@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_110840_778063_285936F8 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20260823_121054_049359_B01C2C46 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,69 +68,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ARM_GIC_V3 currently selects HAVE_ARM_SMCCC_DISCOVERY without ensuring its
-dependency, ARM_PSCI_FW, is met. However, ARM_PSCI_FW is always enabled on
-for arm64, and the GICv3 driver only uses HAVE_ARM_SMCCC_DISCOVERY to
-identify the NVIDIA T241, which is arm64 anyway.
+Hi Johan,
 
-Also adds fallbacks for callers to avoid needing #ifdef guards when
-HAVE_ARM_SMCCC_DISCOVERY is disabled (32bit arm).
+Am Sonntag, 23. August 2026, 14:47:25 Mitteleurop=C3=A4ische Sommerzeit sch=
+rieb Johan Jonker:
+> The function devm_drm_bridge_alloc() is the new API for allocating DRM br=
+idges.
+> This conversion was missed during the initial conversion of all bridges to
+> the new API.
+>=20
+> Signed-off-by: H=C3=BCseyin BIYIK <boogiepop@gmx.com>
+> Signed-off-by: Johan Jonker <jbx6244@gmail.com>
 
-This unmet dependency was found by kconfirm, a static analysis tool for
-Kconfig.
+the authorship is ambigous here. First Signed-off-by should be from the
+patch author, yet this one makes you the author.
 
-Fixes: 35727af2b15d ("irqchip/gicv3: Workaround for NVIDIA erratum T241-FABRIC-4")
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Julian Braha <julianbraha@gmail.com>
----
-Changes since v1:
-- remove select and dependency on ARM_PSCI_FW, 
-- make the HAVE_ARM_SMCCC_DISCOVERY 'select' conditional on arm64
-Link to v1: https://lore.kernel.org/all/20260801212235.2692694-1-julianbraha@gmail.com/
----
- drivers/irqchip/Kconfig   | 2 +-
- include/linux/arm-smccc.h | 7 +++++++
- 2 files changed, 8 insertions(+), 1 deletion(-)
+So either the author needs to change or the signed-off-by line
+needs to go.
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index 20b77fbc51ee..dae023fed7d6 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -37,7 +37,7 @@ config ARM_GIC_V3
- 	bool
- 	select IRQ_DOMAIN_HIERARCHY
- 	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
--	select HAVE_ARM_SMCCC_DISCOVERY
-+	select HAVE_ARM_SMCCC_DISCOVERY if ARM64
- 	select IRQ_MSI_IOMMU
- 
- config ARM_GIC_ITS_PARENT
-diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
-index 4de81848fe2e..248624c1af7c 100644
---- a/include/linux/arm-smccc.h
-+++ b/include/linux/arm-smccc.h
-@@ -324,6 +324,7 @@ enum arm_smccc_conduit {
- 	SMCCC_CONDUIT_HVC,
- };
- 
-+#ifdef CONFIG_HAVE_ARM_SMCCC_DISCOVERY
- /**
-  * arm_smccc_1_1_get_conduit()
-  *
-@@ -363,6 +364,12 @@ s32 arm_smccc_get_soc_id_version(void);
-  * When ARM_SMCCC_ARCH_SOC_ID is not present, returns SMCCC_RET_NOT_SUPPORTED.
-  */
- s32 arm_smccc_get_soc_id_revision(void);
-+#else   /* CONFIG_HAVE_ARM_SMCCC_DISCOVERY */
-+#define arm_smccc_1_1_get_conduit()	SMCCC_CONDUIT_NONE
-+#define arm_smccc_get_version()		0
-+#define arm_smccc_get_soc_id_version()	SMCCC_RET_NOT_SUPPORTED
-+#define arm_smccc_get_soc_id_revision()	SMCCC_RET_NOT_SUPPORTED
-+#endif	/* CONFIG_HAVE_ARM_SMCCC_DISCOVERY */
- 
- #ifndef __ASSEMBLY__
- 
--- 
-2.55.0
+
+Heiko
+
+> ---
+>  drivers/gpu/drm/rockchip/rk3066_hdmi.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/rockchip/rk3066_hdmi.c b/drivers/gpu/drm/roc=
+kchip/rk3066_hdmi.c
+> index f28d6a883e09..39c65ee07caa 100644
+> --- a/drivers/gpu/drm/rockchip/rk3066_hdmi.c
+> +++ b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
+> @@ -703,7 +703,6 @@ rk3066_hdmi_register(struct drm_device *drm, struct r=
+k3066_hdmi *hdmi)
+>  			 DRM_MODE_ENCODER_TMDS, NULL);
+> =20
+>  	hdmi->bridge.driver_private =3D hdmi;
+> -	hdmi->bridge.funcs =3D &rk3066_hdmi_bridge_funcs;
+>  	hdmi->bridge.ops =3D DRM_BRIDGE_OP_DETECT |
+>  			   DRM_BRIDGE_OP_EDID |
+>  			   DRM_BRIDGE_OP_HDMI |
+> @@ -747,9 +746,10 @@ static int rk3066_hdmi_bind(struct device *dev, stru=
+ct device *master,
+>  	int irq;
+>  	int ret;
+> =20
+> -	hdmi =3D devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
+> -	if (!hdmi)
+> -		return -ENOMEM;
+> +	hdmi =3D devm_drm_bridge_alloc(dev, struct rk3066_hdmi, bridge,
+> +				     &rk3066_hdmi_bridge_funcs);
+> +	if (IS_ERR(hdmi))
+> +		return PTR_ERR(hdmi);
+> =20
+>  	hdmi->dev =3D dev;
+>  	hdmi->drm_dev =3D drm;
+>=20
+
+
+
 
 
