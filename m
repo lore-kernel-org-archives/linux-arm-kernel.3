@@ -4,87 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35AEEC5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 10:11:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C6BC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 10:42:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=exiQu/n7a35eCwkPUfkUf1Yr2art4np6KjKYg+xxX4s=; b=YtqILdJ+Zqny4FFAD+9TrioOWS
-	bOH0wcOOmhmDFVnhjkx+D0RHTzdK6Unn9obEDw0IHVCYLNv94eJj1/Xo2aKv+0N3muwJQOatx4Zb4
-	31k62huBAMOnS6NdUiC0bm7YbBfLfuSXwl5f1pnn05j8R2yfLfiylxc+UlABkg7+uOLNffmVb1rgL
-	IghK/nKNGeqzOfVqhMbxwtp25yNauEaJaVEs4yZX2eKmLXzeQYSsf1ouuRaFFfnsEaFHA8ZE2aLLY
-	reHtMlO/NfxjJyfQLGwy7O2/DvNXxObDZXEQ6BaZ3pTURFuLi4MwxC3aMi7ARR6/oj7BgBpPBDZ/y
-	sIeboS2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yQUVqT2GsNnO1vNVmJUiz/YI3RE2fLyeDnXMk0gCVEc=; b=QUYGao2BErjdN1pQZfESvh0tns
+	i5uO5jvum/SJhOOpbjlZ6oBxDFdipkG4IB4yNngE/c1w04F2rInn9ZabrQb79KXhMY2zLo/xhuK3/
+	D/wiiqKUF4fH3oGc0lLetttp/c7XCoZVaXYxH23AVLFVh+Lu9Ok4LveexsS/FxLAJ8i4Eyp7TXHN7
+	sZwQhQUoktcP3m/57wc5nq7xv8xM9Q7CKc8ZeCWfTviq0h1dPK/pF7n4BjaV4UuMVK/iEjEQiz69c
+	KAAVCzxWN3M4Ld0WVRUhb+h4eA+wRSeSz3TWXH5dcF2/CD9yhi/Hez9yB7ny7Y74xC8f0Rr+UCHob
+	nWCVcU/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy5AB-0000000FEho-14uC;
-	Sun, 23 Aug 2026 10:10:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wy5eQ-0000000FG4k-2a4Y;
+	Sun, 23 Aug 2026 10:42:06 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy5A7-0000000FEhg-1fMl
+	id 1wy5eN-0000000FG41-42ON
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 10:10:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 472EB60052;
-	Sun, 23 Aug 2026 10:10:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D74CA1F000E9;
-	Sun, 23 Aug 2026 10:10:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787479845;
-	bh=exiQu/n7a35eCwkPUfkUf1Yr2art4np6KjKYg+xxX4s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=ScB/ITwx9MAGtoO1/gup7gxttaecBHwOpwRZf5zXmDnDFpsvMdxiSdxD6mv0DZlUn
-	 QPZvQ7R/UG3oyNJowVOx/fCqjmlvjIXn20t4p3aPaLENhn8aoYFNwUQgNZEeZLvplu
-	 pbR+NZIs0avcYCyJ68lUIzPfb4MV501M25jZ11Y/2ThVztvbmGZHuSqARSRVxppRj0
-	 tGAr23kxoljNtXQMbbbUv4JROP0xX4o+7MXCuwbBsZGjZdLyMbftTDsl/2j4FayCcv
-	 +WLd2rECSZKFgCssuY389oRLDuK8wvlEzn1/2skftMM6wBJKDGbiUndjNQit907VQG
-	 OiQLEYu7Wzv6g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wy5A3-00000000Oc2-1TO6;
-	Sun, 23 Aug 2026 10:10:43 +0000
-Date: Sun, 23 Aug 2026 11:13:15 +0100
-Message-ID: <87h5klno04.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Will Deacon <will@kernel.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matt Fleming <matt@codeblueprint.co.uk>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sebastian Ene <sebastianene@google.com>
-Subject: Re: [PATCH v3 0/2] arm64: ptdump flush fixes
-In-Reply-To: <20260814222458.584906-1-weilin.chang@arm.com>
-References: <20260814222458.584906-1-weilin.chang@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: will@kernel.org, weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, rppt@kernel.org, ryan.roberts@arm.com, david@kernel.org, anshuman.khandual@arm.com, dev.jain@arm.com, ardb@kernel.org, mark.rutland@arm.com, matt@codeblueprint.co.uk, vdonnefort@google.com, sebastianene@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Sun, 23 Aug 2026 10:42:05 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-c1c50c1e29bso400295266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 03:42:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787481721; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Gw89U5ZVJVIMZsjavf3HaEVVip2dzFZrwULFVldcqHfgyt3Kv4tODAgBhmmcF6cevb
+         EREiO+DBMIzdlKlJVmm7nGG+NbtGecKB6/dPO5+gKjrnhpPQBpSj1JmnUH+vfFT5Zt9D
+         eCdhmtsqGGI6EV40AQNxHoje0PyrAJvWg6DgW5V9SwMOI4odX9GdjpXJK+2pnzXKDZj4
+         pskyahm/2A3NKy5ltrWlsU6fmGHcWQZ1ER1Gdr5LXqqaAUYY4NDWMH1rCnDHVScfqXXR
+         CRFYaUZmVggapd4iPKoSUE+ZOwY0horJv0tVlYrE3GiMpYZhdHZWx6LgK7pC4xvWOrxT
+         e5XA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=yQUVqT2GsNnO1vNVmJUiz/YI3RE2fLyeDnXMk0gCVEc=;
+        fh=8iN437u8czz4dlcEn43svY1plESJGDrf9uCCDqojN6E=;
+        b=EvtLa8kLvGstJ83xBHAGIS2jNjf1krEVg3EPkCWO23Uh75vvF+3/PUl/B+S1idEd5m
+         YHfmIMb0Ltfy/oi4VxbwqSLeFLgERLpDe8SKcVvDom0onXfV1EA+R+Z7y9DXXO+GxbOI
+         TZpahTwqve5ayLnXSZ5mSXyIP3iTjEBztlJMjZc2KFQ2NRnsXpyRuDqSOAv7rkQmpPFx
+         UNtOdPCjjoMS4uroGmMIBbqDb4kR7XgPJGN87s+X1tPufkZLqXGsi45khm/0NDntzk07
+         O7m1DXXTLojPgbp6DwNVCtMUkbEqQ4QEBbs3wd7Ucc5kpAk+4ZrN643gGGYzTSPqm6Zq
+         y01w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787481721; x=1788086521; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=yQUVqT2GsNnO1vNVmJUiz/YI3RE2fLyeDnXMk0gCVEc=;
+        b=UEb/O1qF1+FrTiOmq0PZmeHWiCiyvWtHc58Z3C6L0fxRH/BB68ltpUrEWJiZmDDs40
+         FUBCCVDybBI1xPjfrpZwoz56UgUtQuuGHuTlCYiM+v2zcWXJlxyW/atp0LiIoFuTgusZ
+         MGr6L3l7T9m2TeD5QBEJYTDAo1YSuAIYZsclKoYWBHHdQ0TbzRs+ybrz0mj2vhT0oiod
+         2lKSv9N1HqffwHFEvYplKWFdxp2tGd9Y4yXEAtJZ9JrUEsZrnasJANCoelWZbVeKjoXA
+         BNtjESaDadYluGzH/MKB24EIImjkK5nhEeA2fU5NsTZwUc6/7zJfx8Ru772jAyE2+KUj
+         lQKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787481721; x=1788086521;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yQUVqT2GsNnO1vNVmJUiz/YI3RE2fLyeDnXMk0gCVEc=;
+        b=IqIRpLMtUL6jKpKkPWB80jtUXaGyxm5k6BN2Fz1pZGgin0zwHXp/rbA7Kc49QX2qJ6
+         JJaECvFVubnJvl7eoA8avDrqbggvfMI9CwbWEjxj1H0foj7HwK9vQZnz4H0aVXFq+p0g
+         8Ya2XKWgIB3YNf/zSWb6SMaMhYRVNddcOtal938TxC93JXA4Igh3nLD6XZvaHhNzE6QY
+         R2K28qZfjQg0FCyXcSKqo4+FRetWM6PyEk1fVDx8PKkdQ77sZdyTCq/VzbrdfuWd55zB
+         a5uOV78GYFPa/1TB1xbcaaEM3q7ia62Lzk3T1iYa6a8ZPKwHsT9jMaOWCn1rAKtNVLpG
+         tiWQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrMJniQaJIsGH+osEIoH0i1L6oHp7f+to4nT/qWadaDWNNdFUwJEcUlz5YIJXD+YoRIy3DBlowIyukG/v5jKwio@lists.infradead.org
+X-Gm-Message-State: AFuF++negeUQShb+yzdD+0S4vvJMRSCazCx6zlg9/pTYw2EHwMDGvqLD
+	hFggh3PxSNdNf4MjEfuOVGLsiOpFBuewgm8gkzomxENd2eu4shsYpkBc7qwhuedObPd7mjCiP/b
+	K/mfk5/bs6JpkrySpU+JLoK+0EgSkQQ8=
+X-Gm-Gg: AR+sD119PQ4hLddksK8KGOjwVer7X/jLaLR+SJRd26l15tWTPOjfK3P47eLMHOtD5yU
+	rUQfyon7xl4MmafBgvopplHSBaTVTGFXhkVLoxjlJenpxaQjSAnblkCdE7kX025GPUm/+trcpap
+	yqMwM2ZeIOl2+vUvV/k2YZB1PNXQl0kq6ZIAWE++4BPXgeE1IyyaFeMtvwoD6mFQyplqfg7zcjc
+	byeW4tx/5vCDcRFSkSw/JeQNzHo/ZvqlFpKbXSvZlAEb7HHVWTICgSZW76PR+tbFz6GdUePIOlQ
+	cCy1HBupLhJp0Sk7cM6i5gBHd53ue0MPy09Lg1ElfiFvHhPbz0Vrx3BUGEdTeMVWBMqn7NLwbW2
+	YyeUQ7lVqq9nazYsg0Mk7lUCYA1FK9A==
+X-Received: by 2002:a17:907:c706:b0:c20:f913:9337 with SMTP id
+ a640c23a62f3a-c246a657f9fmr2290057766b.20.1787481721077; Sun, 23 Aug 2026
+ 03:42:01 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260820085941.380401-1-pawlik.dan@gmail.com> <20260822122727.4f437bb5@kernel.org>
+In-Reply-To: <20260822122727.4f437bb5@kernel.org>
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+Date: Sun, 23 Aug 2026 12:41:49 +0200
+X-Gm-Features: AcwNN1Whb7yUsS76NaQO16mZ6ya_4eh39L6AFwo6dWX5dJOjIcUnhZ_fwDLV2K4
+Message-ID: <CALC2Api8nhePvuUPsw9CE6nX-0pFOMO5qy=4fzqox8_XM4eSqw@mail.gmail.com>
+Subject: Re: [PATCH v10 1/2] net: airoha: npu: fix missing streaming DMA mask
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, lorenzo@kernel.org, nbd@nbd.name, 
+	sean.wang@mediatek.com, Mark-MC.Lee@mediatek.com, davem@davemloft.net, 
+	edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch, 
+	yangshiji66@outlook.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260823_034204_020755_39BB5DAB 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,40 +121,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Aug 2026 23:24:56 +0100,
-Wei-Lin Chang <weilin.chang@arm.com> wrote:
-> 
-> Hi,
-> 
-> This series fixes two problems around ptdumps:
-> 
-> 1. note_page_flush(), which flushes out the last row of ptdumps, does
->    not account for address spaces that have IA < 64. Other than making
->    the last region extremely huge, the attributes of the last region
->    within the address spaces appear to extend all the way to 1 << 64.
-> 
-> 2. KVM/arm64's stage-2 ptdump missed calling note_page_flush().
-> 
-> To address Will's comment [1], I have created an end_address field for
-> struct ptdump_pg_state, and initialized it with the end address of the
-> ptdumps. It follows the same convention as the last range->end:
-> exclusive end, except for the case where the address space ends at
-> 1 << 64. In that case it is set as ULONG_MAX.
-> 
-> Caching the end address avoids duplicating the range iteration in
-> note_page_flush(), at the cost of duplicating state in ptdump_pg_state.
-> 
-> Series is based on v7.2-rc5.
+Hi,
 
-Reviewed-by: Marc Zyngier <maz@kernel.org>
+I tested both patches independently:
 
-Will, if you're OK with patch #1, do you want the whole thing to go
-via the arm64 or the kvmarm tree?
+- Patch 1 alone (DMA mask): NPU reports version 0.0 - probe fails.
+  The streaming mask is correct but 24-byte buffers still bounce
+  through swiotlb, and the NPU can't write to that address range.
 
-Thanks,
+- Patch 2 alone (cacheline buffers): NPU reports version 0.1111 -
+  works. Cache-line-aligned allocations bypass swiotlb entirely.
 
-	M.
+So patch 2 is the essential fix, but patch 1 is still good to have as
+a defensive measure - without a proper streaming DMA mask, any
+future sub-cacheline streaming mapping would silently break.
 
--- 
-Jazz isn't dead. It just smells funny.
+Dan
+
+sob., 22 sie 2026 o 21:27 Jakub Kicinski <kuba@kernel.org> napisa=C5=82(a):
+>
+> On Thu, 20 Aug 2026 10:59:40 +0200 Daniel Pawlik wrote:
+> > The driver calls dma_set_coherent_mask() but never dma_set_mask(),
+> > leaving the streaming DMA mask at the bus default. On the non-coherent
+> > EN7581 platform (Cortex-A53), this causes the NPU mailbox to hang
+> > after approximately 41 calls when using streaming DMA mappings.
+>
+> Can you confirm if patch 2 is still needed after this fix?
+
+
+
+--
+Z powa=C5=BCaniem,
+Daniel Pawlik
 
