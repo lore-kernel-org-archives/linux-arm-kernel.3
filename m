@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D4BC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 12:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC1FC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 12:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QcOyNHWPz7ng4uDzBlXxrpitR6L8eYl60PHRY+S3DYM=; b=TPi4PJ6dtL9JBvZChToFmdHQZ7
-	148DrC84avwFD2OnE99mS5WJwy04UGThQ5iQRf8LFYWNFiU5f3MwuDYsGr6Y6dNwMqONJvvRWKhCX
-	A1j/KD1Lqzq5Pxt4iFzPKpGEH35aPTh4MkKpoKn6Yq4XsoRnekETm3dtQ5MX9iXVKJcj5QD28huie
-	Sc5bbfMTWrTgUHGRa9C38IjZ4xi/FqEpbe6o7h+Over9/UMv+7LOlI9zqEDvQ0Fg38uIgu/sfJA9q
-	gC+ap3xnP8cJIWt4431Mvh+GbCkQ9pgYKd1MCesy65vrsferL8nxEHgDUGDxizrqP+j6mU1J7rlb7
-	Ai1TZnbg==;
+	bh=Xyd94O5ucYyASZOwn/menIsiXveXzi9oR7nKej3n2Ig=; b=0h45vvVxQ9TAvcEeZhEFeqXP4R
+	aBx51wCjEkNY/ex+lTLzMnZOb25w7YQRkAdmfK4vYIqkju4rIIPTXhqPBGyc9Z5gUIvVTQnLDsjYt
+	aRSmYbCsb/sc1XBL/RN14wtOq+oAuR3Dg5zKiUWD+GTh5os6Px1ltP8G1XqlpBhW78x60rfCVBrnI
+	9TGZmyzhJTYnIJ0Yv9faE4Ggi233LdFnoPcHIByFS6nFVeE5IQTvNTph3NckJ02NRZkIZTA7pfx25
+	OQmRAVMK8OeOeGYjt/E9wUMI92n9jRc5ofGwYazd5js4MzFtmmwUg7AJvl/fTNUn9Fi/4z+J6Y4dZ
+	lkZ7IOyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy7QU-0000000FLoW-3RpT;
-	Sun, 23 Aug 2026 12:35:50 +0000
-Received: from relay.yourmailgateway.de ([185.244.194.184])
+	id 1wy7RS-0000000FLxp-45Iu;
+	Sun, 23 Aug 2026 12:36:50 +0000
+Received: from mail.zlab.su ([109.73.193.145])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy7QR-0000000FLmv-0AK9
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 12:35:48 +0000
-Received: from relay01-mors.netcup.net (localhost [127.0.0.1])
-	by relay01-mors.netcup.net (Postfix) with ESMTPS id 4hSYRc22r8z9B7n;
-	Sun, 23 Aug 2026 14:35:40 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1787488540;
-	bh=QcOyNHWPz7ng4uDzBlXxrpitR6L8eYl60PHRY+S3DYM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=etJPKPk+m8wvTiIOCazzOgcsEG3x1/N/wsI1leC42TvEeF110m95m4micdC3JaG9r
-	 69w2uDvmhon7IbsimItHYC40PNdDxLCF8xfBsU/L2+m11XJR8nxVGOWjVX6wPKHhDQ
-	 qOqjF/+PqYm558oTIsK/fECHYHUZtRr5LlZlPMGKHbK0d5vimI/EI0le/1H48djrwN
-	 n7hghb507g9w0zalNwuW8hQFSoKZyjccVO8YjgzCVlsFCvr/DlGQJhU4wdXdtNVNpb
-	 AKqIvEabzff8FQaKk06A9zqvuORA2tDwXRQJQ5BZFSMHr6fEi74t7CtOlKTpv4rHcm
-	 r56YuaN/vgGRA==
-Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
-	by relay01-mors.netcup.net (Postfix) with ESMTPS id 4hSYRc1LnHz7x9l;
-	Sun, 23 Aug 2026 14:35:40 +0200 (CEST)
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4hSYRY4TRMz8svk;
-	Sun, 23 Aug 2026 14:35:36 +0200 (CEST)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 080F65FA13;
-	Sun, 23 Aug 2026 14:35:32 +0200 (CEST)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <092cc12c-0b64-4352-89ad-7afc824552b1@leemhuis.info>
-Date: Sun, 23 Aug 2026 14:35:31 +0200
+	id 1wy7RN-0000000FLwt-0GPs;
+	Sun, 23 Aug 2026 12:36:49 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 35A7DBFD8D;
+	Sun, 23 Aug 2026 15:21:39 +0300 (MSK)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zlab.su; s=dkim;
+	t=1787487701; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Xyd94O5ucYyASZOwn/menIsiXveXzi9oR7nKej3n2Ig=;
+	b=TF49ASepgpcLcF9HdLr1/hObVNd/CtTttC1CbR4Sk/Q4M0bOqdD61PbIXhaa2IfXAIKuj4
+	ITz3UtbRnnpe7ZbAkshx7ULIl7DUqiUqslvox8r8zjDMRcn8gKq/fVwOIqGGUSjebVwM20
+	AWkAiaqQjOprwJodnjMTJTNl8DyAtlq8NnESWhZAjVdS4fs0GJHVQxxW3f1Xzoc/bbSt9i
+	1CAC42+NcMBtv85IWZ0PKD8VR+1TFS5ypyoOEPULDRAcSM6oEklSiOiiVXXI8nmCjdxDRa
+	AOqvMMbPAvq1pO8trRogTO7v3KaHnRwHpR7xRujziFnzr/di7Wsa0Wt/+G+cDA==
+From: Vladislav Leonov <vlad@zlab.su>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Vladislav Leonov <vlad@zlab.su>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Joshua Crofts <joshua.crofts1@gmail.com>,
+	Simon Glass <sjg@chromium.org>,
+	linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [PATCH v2 2/3] dt-bindings: iio: adc: rockchip-saradc: Group single-entries into an enum list
+Date: Sun, 23 Aug 2026 15:20:33 +0300
+Message-ID: <20260823122039.20831-3-vlad@zlab.su>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260823122039.20831-1-vlad@zlab.su>
+References: <20260823122039.20831-1-vlad@zlab.su>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: Restore get_cycles() return value
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Thomas Gleixner <tglx@kernel.org>,
- Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- regressions@lists.linux.dev
-References: <20260820-b4-arm-get-cycles-v1-1-33d0ee0cf141@aspeedtech.com>
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-Content-Language: de-DE, en-US
-In-Reply-To: <20260820-b4-arm-get-cycles-v1-1-33d0ee0cf141@aspeedtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-PPP-Message-ID: <178748853244.3065954.16034214713717909973@mxe9fb.netcup.net>
-X-Rspamd-Server: rspamd-worker-8404
-X-Rspamd-Queue-Id: 080F65FA13
-X-NC-CID: /Zpw8zn8NKrQBsqtOJqOe30EKBgSJx/EAwkCHhrgsg3rzeFGsm0=
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_053547_427622_12061E39 
-X-CRM114-Status: UNSURE (   5.81  )
+X-CRM114-CacheID: sfid-20260823_053645_623810_4E0C4CD8 
+X-CRM114-Status: UNSURE (   8.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,15 +82,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/20/26 11:10, Ryan Chen wrote:
-> read_current_timer() returned 0 on success, so the get_cycles() ternary
-> yielded the cycle count on success and 0 on failure. delay_read_timer()
-> returns true on success, but the ternary was left alone, so get_cycles()
-> now yields 0 on success and an uninitialised variable on failure.
+Group single-entries into an enum list
 
-For the record and those that haven't seen this yet: this afaics was
-discussed earlier already and fixed upstream by e1e3a0ab69c64e ("ARM:
-Fix get_cycles() after delay_read_timer() conversion").
+Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
+Signed-off-by: Vladislav Leonov <vlad@zlab.su>
+---
 
-Ciao, Thorsten
+Changes in v2:
+- Patch introduced in v2.
+
+ .../bindings/iio/adc/rockchip-saradc.yaml           | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml
+index f0551d665916..78ec9a33da24 100644
+--- a/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml
++++ b/Documentation/devicetree/bindings/iio/adc/rockchip-saradc.yaml
+@@ -12,15 +12,16 @@ maintainers:
+ properties:
+   compatible:
+     oneOf:
+-      - const: rockchip,saradc
+-      - const: rockchip,rk3066-tsadc
+-      - const: rockchip,rk3399-saradc
+-      - const: rockchip,rk3528-saradc
++      - enum:
++          - rockchip,saradc
++          - rockchip,rk3066-tsadc
++          - rockchip,rk3399-saradc
++          - rockchip,rk3528-saradc
++          - rockchip,rk3562-saradc
++          - rockchip,rk3588-saradc
+       - items:
+           - const: rockchip,rk3506-saradc
+           - const: rockchip,rk3528-saradc
+-      - const: rockchip,rk3562-saradc
+-      - const: rockchip,rk3588-saradc
+       - items:
+           - enum:
+               - rockchip,rk3576-saradc
+-- 
+2.47.3
+
 
