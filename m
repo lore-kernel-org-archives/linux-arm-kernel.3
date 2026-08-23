@@ -4,91 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D92FC5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 05:00:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B204CC5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 05:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LHlqmGMbfsxtCYIUcQEVll9m/OkCwVr2FmGex2YgLq0=; b=LOCr1HuefR9C7reqQnUbvsQCUW
-	MJEHaqvCkpdcQs5s+mjRVPT226h+AyWCYp/cBt5kLV2X7wIEHQghKFatDEswYklXu/2ITjs19IR/W
-	AeHOrXeGLvzAljsNUE7rwtyNjfGfbTsQfYW/Rsk5Jd3k97EZQGbeG44awGllRQ+QuLelz7peU2OMk
-	BVBNCEyw4kI/c1KYXl8uxXQPVf4dm9utvWquNoeAV9eGIeRphZpzd0o/6v2RmH4sPh1M33RNCLCUt
-	jHO+fdxLw+oT/6KcBTcbUpqQ0AvCv+87QDaOiRGMLBotz5JpLGnLUhkgUVmyruXJNe+PQFQWH0e0i
-	sZbrEQGQ==;
+	bh=JA5XMiOxCtI6Cv6cvLy2e2rZtS3fpKUachOjJ9i3SoA=; b=NzU1FXd8eB4RsaHfmYtVWSOuKp
+	rUo+z5p3eVQg8pOsqwWpDCAaHCPUooSCr5De5pwfB8o8TZp5gNl/6l4KmckpZ+nuBKkulsNhptqKc
+	aOJX2pFVdLTvscV/5wExGJuMajmzyFLTJUENK9fENopgsk3Yd1M2DLDD/GRbTgWAMZ5FN6WgU0Xp8
+	AxGBenxWBNJY1vDOTsbwIRjmsPUTK2kmbwNU/1IZIhNTz4Ko+5X7Bp49axxRDyGhm/mNQjNjGEwaR
+	C8+6dgiYZ9l8MzcpA47xW71ALvaA45esu/CamMV9E2Z5nq4qgzYXn6PdPouo6J5BrkQgADg1t49wt
+	peU7yLRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy0Jd-0000000F4gS-2qNN;
-	Sun, 23 Aug 2026 05:00:17 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1wy0MP-0000000F4pT-0TGY;
+	Sun, 23 Aug 2026 05:03:09 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy0Jb-0000000F4g4-0Bsw
+	id 1wy0MM-0000000F4p8-2MqG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 05:00:16 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-38a0c7e841fso3178002a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 22:00:14 -0700 (PDT)
+	Sun, 23 Aug 2026 05:03:07 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2d032846c95so28920845ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 22:03:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787461214; x=1788066014; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1787461386; x=1788066186; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LHlqmGMbfsxtCYIUcQEVll9m/OkCwVr2FmGex2YgLq0=;
-        b=jArwNp91mLESlLsP9zA6Qax+nNKC/PnhZv/atll9dx5fcWYYfauY6GGQw2CRrFw8uG
-         /8N71/T0f9VCELiyZ//evEyeHKr1utYJXDvhTXKBp7eysP520OwMKmaSxEcRglBTYlmY
-         gOl6YtnyocAOxyuVamJC3/rJJDprVf2xNWGn+Ayt+wQSw1e/6nQgk1V23ThAIoIZhRUb
-         Uw76kvDlzxKTG5IOdjRPqgciOgK7u/ozb0YetXjNe8b47wdyc+ZYXXB7/F/Fy9ZVEQxm
-         LE8Vp36gnb1V3NxyFfFRqpzCsd9BUE1buvFzNjJ8+Ijf7vtrsveCgCJD59ZQKImZHiz2
-         6muA==
+        bh=JA5XMiOxCtI6Cv6cvLy2e2rZtS3fpKUachOjJ9i3SoA=;
+        b=MOt16oCyy6RehpyiEBfn5bPejbMmrQT7N5T2AMJ6olVYLn6r/Eu6Mh8WwgdOTIXrJ7
+         R7Okf8Lk3JMQZ6whp9QJnZWWzNbMOWUziJodUkssxrktbFcE+yZd2t78szKVpKLpQB8j
+         /U0lwm6R+SK9ZchqjJCNf5IbBCsCGfnS8QOf90DqYSRVN9tejCE02h3c/27BUHa+XCOs
+         QI+aJ9hJaSr52q4RCGLopOi/dPvgzmLlHQQSbGr4202W9/La9FBlpEghu8GOcaXRHIf3
+         ifOvScvj7v9hC8t2/Ivi7d4EKa4Gile7r1ene8f6XV7ATcho3/5894PKu8wFkn9QLrd4
+         RHaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787461214; x=1788066014;
+        d=1e100.net; s=20251104; t=1787461386; x=1788066186;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=LHlqmGMbfsxtCYIUcQEVll9m/OkCwVr2FmGex2YgLq0=;
-        b=cavvpy+FQ6fIc9Ug4ugVtAQc3iAl1UJQIBJYhm1U/ArstxlWCslHX7KjjerrzG6nb7
-         m3e6bSvlwpLD49h9YQIiDWWRnG6CvPgI1w8s3R5NUZQoL5JZM9U8WPqXzgLTGPpWdtk0
-         5p0kvL4PDa9grhztAgG0WrpffQ0Au61Fzl3t8TlfNiYBJSw/M1Kbhwg8oik6GgbJEn4y
-         r7way1w7cnKYDRCp2V0ItLZdzVhiKwI6+PhgsNqrOXmGZHnvL79Ki8rvFXhT/kv/FGnn
-         iJ6/2TU+Yw4kRs0TZZhyxCOkIo6ea2w/JaeVCn6rfbWLJUHaEzPu//iGrKuAJ6nIWPfv
-         0WeQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqpQzHKdlNi/6fsn51KPNYWkCvPOEhfbxXtDSdEsdlNQZQw1KG/lXo4yUO+e35+sfKtYQ5aqBKETw3d/1GDs5zJ@lists.infradead.org
-X-Gm-Message-State: AFuF++k3Tfn75ODU1C5xhBaV8mF6a8+TLEVG51Qq8SBOL0z2uSiSFl2Z
-	/3qK5TgjYa63iAO/P0ebqnbqpjh8hA8rxA8JdL2CxpO2K8iBrs9YoSGH
-X-Gm-Gg: AR+sD11CPh+R0s4d8ZrC/8VsXwbTdodyFnebEUVprinpYlrX6+GIdOxFbtRNFfwDIK1
-	+T5zInM+5dp2QiXScCC/aDYlkrQ/bIZJPVaKhJ8fliFQr1u52+Gi+fkfaT3Gq9is6lMHe6mJHBG
-	dkzJxwMwZhDc+CS3/ZdSekpbh7PJ4uepqfJEDWGZNz1XkI5wtSuNuQqX/F47gqpuKiflQwJPeFF
-	AizxJQ4uhOu/TroMuryveafo9vtf4ITB8dC6JBE2iJC9cSJFaoum253vqxj/DXxdgmZErzdD/nF
-	Fi+aU1s0+Sv1H7E3vFIJBJLAmSo6PZd7dNe0tfW1s0EsNK1ijZ/sfuBKhNPycc2aWeeBK6vrOMa
-	puCMzlCFweJCHUsYgR2Yf4UgdaW9B3H9zHtYOiAIYofhL0jTQvkJkWmqXM4z4efWIwud41raaLL
-	DBDcAZX9cwQQRqGJsGVFU8pKTTnAlnPjl+ew4pwFJBu72E4CvN4ttbjDR8pmW2dpVhHAGfZNA3x
-	sLS5S6mnnOgqpP5ic9jSR3saJ6P+N90cPjeyVuBMEOkl+lklNihBy7T6spqgvxeCfP3AV9nYueU
-	DQhmPLCfls8e/5Qf9dDJFKoDjFPyW2nbJNFsPA==
-X-Received: by 2002:a17:90b:3c84:b0:390:b41a:b92b with SMTP id 98e67ed59e1d1-395c3542369mr34039656a91.4.1787461214151;
-        Sat, 22 Aug 2026 22:00:14 -0700 (PDT)
+        bh=JA5XMiOxCtI6Cv6cvLy2e2rZtS3fpKUachOjJ9i3SoA=;
+        b=QUdOfep25w9Q7UQsJ9mtzobRPJdsEdBDth6bymBj5ZIb4juk8ZcAWG6Jfmg02QSHG9
+         7fiHp86s/ioRWsGmvS0wz2Zxr3CDAtxgq54DNozMbtkOV0zy7LMMr4+MlrfMG3RSbrQ5
+         +baVufnQ/c0kSZphh4WwWHdUg3eg0VSt/+QX0cvm5VgFFn0H+/pQA14KO80YH/3mX/UH
+         CpxSwk9IOuIvhsQRXvoGcsfzAubGRnTaZT/Z7oybg5bqKUGf8cHnHlgkAkUS/z3MdJNy
+         QhWVeD3BHgbh7a2u+rSRuINRlHonRoQazhLers3hnMkEMoYQ4wQBDlLBFHb6EW5det58
+         w1iw==
+X-Forwarded-Encrypted: i=1; AHgh+RqWD0YV8svVz8Y7zyXgvn/ZWHCIqws0uvpX6J/5FGW+5tH4/7xVODYWQKiIJAsJ13mYuFuup030VdlSEUSjsvGt@lists.infradead.org
+X-Gm-Message-State: AFuF++maSYuJnPjcUEd1kk/eSyifHRCEqudB4gMm7dYBBmDIgu/iBUCB
+	0OwuQjzWb24viewZLr0jCbMoHRwg7tVsM5rOu2E0zqGc/w9ZuT6h/Nxk
+X-Gm-Gg: AR+sD10ArG3M4ZlkLriCmwZ/GmiWKC9igKiODTY+MmiWVMatYOxM5AW1K9HOwuBmmR+
+	NGfwcCPD/k1DT9K/lISXhiLa0B98SdQsHzCyNqEwl3cGvtZ17LIfF2MBMMYT99UJsEgh/0NDQCk
+	/xlQekcnBuNvhP8mgdRvzMoXJOzeAE5G8TWD9pVrI1QSCv4u4hIVYOS8SiCyYbcckfKIolf6DO7
+	Wq9a6W498CLS3aMKH5wCWquUTrr2atoYI6iNlrA7nQPn9eEPINE80muhcYDSgEqawGt8VWGhjjH
+	E+81t0yaNrfgyPgF0eMUdz/tm2XJ3CTuoZWqotq5CZY0r+PH6BNbQPx1Y7zRYx8NMZdmOmnz25r
+	4fIgDjFvtuhS34XZMHMFd9DuKCeUAw0KKVh6FGK+DVpeEDob62GaCg8124OlyW1UpJ6vX0dM8UM
+	M/Hm7grqJWGfHQI5ohZh3xHfcDZ0zRiVPEsN32e1zegAyd2v9xIo0IDgNmuNq//Hx28pTnRhRJy
+	tNzXP8a0Bk89dKLMCjrmTDsvN9RANfLRDZ4iDYMpJ/75nUQo1I/1QTs6PAmiBrLX3tnfBlUZ5Xx
+	IzUn9rvzjrJlHR/rgCojboHhfOnWpPuj11++kw==
+X-Received: by 2002:a05:6a20:7292:b0:3b4:7e2d:a3c2 with SMTP id adf61e73a8af0-3cd301c72f7mr26440958637.18.1787461385654;
+        Sat, 22 Aug 2026 22:03:05 -0700 (PDT)
 Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-395c9128498sm2813642a91.2.2026.08.22.22.00.12
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc199daeccbsm134270a12.7.2026.08.22.22.03.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 22 Aug 2026 22:00:13 -0700 (PDT)
+        Sat, 22 Aug 2026 22:03:05 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
-To: linux-sound@vger.kernel.org
-Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE),
+To: dmaengine@vger.kernel.org
+Cc: Ludovic Desroches <ludovic.desroches@microchip.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:MICROCHIP AT91 DMA DRIVERS),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCHv4] ASoC: xilinx: formatter_pcm: use more devm in probe
-Date: Sat, 22 Aug 2026 22:00:12 -0700
-Message-ID: <20260823050012.17067-1-rosenp@gmail.com>
+Subject: [PATCHv4] dmaengine: at_hdmac: use devm APIs in at_dma_probe()
+Date: Sat, 22 Aug 2026 22:03:03 -0700
+Message-ID: <20260823050303.17725-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_220015_102275_775446F7 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20260822_220306_612612_DBD648D9 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,171 +100,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use devm_clk_get_enabled() to let the clock be enabled automatically
-and cleaned up on unbind, dropping the manual clk_prepare_enable() and
-clk_disable_unprepare() calls in probe and remove. As a result, move the
-clk struct member into probe, which is the only place it's used.
+Convert resource allocation and setup in probe() to use devm-managed APIs.
+Simplify the error handling path and remove explicit cleanup code.
 
-Simplify the probe error paths by returning directly instead of
-jumping to clk_err, and use devm_snd_soc_register_component() return
-value directly. Also remove error message from ioremap as it throws one
-itself. Same with devm_request_irq().
-
-Assisted-by: opencode:deepseek-v4-flash-free
+Assisted-by: opencode:big-pickle
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
-Reviewed-by: Michal Simek <michal.simek@amd.com>
-Reviewed-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
- v4: use dev_err_probe
- v3: rebase.
- v2: add signed-off-by. Further clean up some stuff.
- sound/soc/xilinx/xlnx_formatter_pcm.c | 79 ++++++++-------------------
- 1 file changed, 22 insertions(+), 57 deletions(-)
+ v4: adjust subject and description again
+ v3: fix subject and description
+ v2: remove list_del
+ drivers/dma/at_hdmac.c | 50 ++++++++++--------------------------------
+ 1 file changed, 11 insertions(+), 39 deletions(-)
 
-diff --git a/sound/soc/xilinx/xlnx_formatter_pcm.c b/sound/soc/xilinx/xlnx_formatter_pcm.c
-index 95312b4ddc5b..3c321c19f829 100644
---- a/sound/soc/xilinx/xlnx_formatter_pcm.c
-+++ b/sound/soc/xilinx/xlnx_formatter_pcm.c
-@@ -81,7 +81,6 @@ struct xlnx_pcm_drv_data {
- 	int mm2s_irq;
- 	struct snd_pcm_substream *play_stream;
- 	struct snd_pcm_substream *capture_stream;
--	struct clk *axi_clk;
- 	unsigned int sysclk;
- };
+diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
+index 971f8bc9ec48..49a85ac66e83 100644
+--- a/drivers/dma/at_hdmac.c
++++ b/drivers/dma/at_hdmac.c
+@@ -1986,40 +1986,34 @@ static int __init at_dma_probe(struct platform_device *pdev)
+ 	atdma->dma_device.cap_mask = plat_dat->cap_mask;
+ 	atdma->all_chan_mask = (1 << plat_dat->nr_channels) - 1;
  
-@@ -595,100 +594,68 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
- 	u32 val;
- 	struct xlnx_pcm_drv_data *aud_drv_data;
- 	struct device *dev = &pdev->dev;
-+	struct clk *axi_clk;
-+
-+	axi_clk = devm_clk_get_enabled(dev, "s_axi_lite_aclk");
-+	if (IS_ERR(axi_clk))
-+		return dev_err_probe(dev, PTR_ERR(axi_clk), "failed to get s_axi_lite_aclk");
+-	atdma->clk = devm_clk_get(&pdev->dev, "dma_clk");
++	atdma->clk = devm_clk_get_enabled(&pdev->dev, "dma_clk");
+ 	if (IS_ERR(atdma->clk))
+ 		return PTR_ERR(atdma->clk);
  
- 	aud_drv_data = devm_kzalloc(dev, sizeof(*aud_drv_data), GFP_KERNEL);
- 	if (!aud_drv_data)
- 		return -ENOMEM;
- 
--	aud_drv_data->axi_clk = devm_clk_get(dev, "s_axi_lite_aclk");
--	if (IS_ERR(aud_drv_data->axi_clk)) {
--		ret = PTR_ERR(aud_drv_data->axi_clk);
--		dev_err(dev, "failed to get s_axi_lite_aclk(%d)\n", ret);
--		return ret;
--	}
--	ret = clk_prepare_enable(aud_drv_data->axi_clk);
--	if (ret) {
--		dev_err(dev,
--			"failed to enable s_axi_lite_aclk(%d)\n", ret);
--		return ret;
--	}
+-	err = clk_prepare_enable(atdma->clk);
+-	if (err)
+-		return err;
 -
- 	aud_drv_data->mmio = devm_platform_ioremap_resource(pdev, 0);
--	if (IS_ERR(aud_drv_data->mmio)) {
--		dev_err(dev, "audio formatter ioremap failed\n");
--		ret = PTR_ERR(aud_drv_data->mmio);
--		goto clk_err;
--	}
-+	if (IS_ERR(aud_drv_data->mmio))
-+		return PTR_ERR(aud_drv_data->mmio);
+ 	/* force dma off, just in case */
+ 	at_dma_off(atdma);
  
- 	val = readl(aud_drv_data->mmio + XLNX_AUD_CORE_CONFIG);
- 	if (val & AUD_CFG_MM2S_MASK) {
- 		aud_drv_data->mm2s_presence = true;
- 		ret = xlnx_formatter_pcm_reset(aud_drv_data->mmio +
- 					       XLNX_MM2S_OFFSET);
--		if (ret) {
--			dev_err(dev, "audio formatter reset failed\n");
--			goto clk_err;
--		}
-+		if (ret)
-+			return dev_err_probe(dev, ret, "audio formatter reset failed\n");
- 		xlnx_formatter_disable_irqs(aud_drv_data->mmio +
- 					    XLNX_MM2S_OFFSET,
- 					    SNDRV_PCM_STREAM_PLAYBACK);
+-	err = request_irq(irq, at_dma_interrupt, 0, "at_hdmac", atdma);
++	err = devm_request_irq(&pdev->dev, irq, at_dma_interrupt, 0, "at_hdmac", atdma);
+ 	if (err)
+-		goto err_irq;
++		return err;
  
- 		aud_drv_data->mm2s_irq = platform_get_irq_byname(pdev,
- 								 "irq_mm2s");
--		if (aud_drv_data->mm2s_irq < 0) {
--			ret = aud_drv_data->mm2s_irq;
--			goto clk_err;
--		}
-+		if (aud_drv_data->mm2s_irq < 0)
-+			return aud_drv_data->mm2s_irq;
-+
- 		ret = devm_request_irq(dev, aud_drv_data->mm2s_irq,
- 				       xlnx_mm2s_irq_handler, 0,
- 				       "xlnx_formatter_pcm_mm2s_irq", aud_drv_data);
--		if (ret) {
--			dev_err(dev, "xlnx audio mm2s irq request failed\n");
--			goto clk_err;
--		}
-+		if (ret)
-+			return ret;
- 	}
- 	if (val & AUD_CFG_S2MM_MASK) {
- 		aud_drv_data->s2mm_presence = true;
- 		ret = xlnx_formatter_pcm_reset(aud_drv_data->mmio +
- 					       XLNX_S2MM_OFFSET);
--		if (ret) {
--			dev_err(dev, "audio formatter reset failed\n");
--			goto clk_err;
--		}
-+		if (ret)
-+			return dev_err_probe(dev, "audio formatter reset failed\n");
- 		xlnx_formatter_disable_irqs(aud_drv_data->mmio +
- 					    XLNX_S2MM_OFFSET,
- 					    SNDRV_PCM_STREAM_CAPTURE);
+ 	platform_set_drvdata(pdev, atdma);
  
- 		aud_drv_data->s2mm_irq = platform_get_irq_byname(pdev,
- 								 "irq_s2mm");
--		if (aud_drv_data->s2mm_irq < 0) {
--			ret = aud_drv_data->s2mm_irq;
--			goto clk_err;
--		}
-+		if (aud_drv_data->s2mm_irq < 0)
-+			return aud_drv_data->s2mm_irq;
-+
- 		ret = devm_request_irq(dev, aud_drv_data->s2mm_irq,
- 				       xlnx_s2mm_irq_handler, 0,
- 				       "xlnx_formatter_pcm_s2mm_irq",
- 				       aud_drv_data);
--		if (ret) {
--			dev_err(dev, "xlnx audio s2mm irq request failed\n");
--			goto clk_err;
--		}
-+		if (ret)
-+			return ret;
+ 	/* create a pool of consistent memory blocks for hardware descriptors */
+-	atdma->lli_pool = dma_pool_create("at_hdmac_lli_pool",
++	atdma->lli_pool = dmam_pool_create("at_hdmac_lli_pool",
+ 					  &pdev->dev, sizeof(struct at_lli),
+ 					  4 /* word alignment */, 0);
+ 	if (!atdma->lli_pool) {
+ 		dev_err(&pdev->dev, "Unable to allocate DMA LLI descriptor pool\n");
+-		err = -ENOMEM;
+-		goto err_desc_pool_create;
++		return -ENOMEM;
  	}
  
- 	dev_set_drvdata(dev, aud_drv_data);
+ 	/* create a pool of consistent memory blocks for memset blocks */
+-	atdma->memset_pool = dma_pool_create("at_hdmac_memset_pool",
++	atdma->memset_pool = dmam_pool_create("at_hdmac_memset_pool",
+ 					     &pdev->dev, sizeof(int), 4, 0);
+ 	if (!atdma->memset_pool) {
+ 		dev_err(&pdev->dev, "No memory for memset dma pool\n");
+-		err = -ENOMEM;
+-		goto err_memset_pool_create;
++		return -ENOMEM;
+ 	}
  
--	ret = devm_snd_soc_register_component(dev, &xlnx_asoc_component,
--					      NULL, 0);
--	if (ret) {
--		dev_err(dev, "pcm platform device register failed\n");
--		goto clk_err;
--	}
+ 	/* clear any pending interrupt */
+@@ -2086,10 +2080,10 @@ static int __init at_dma_probe(struct platform_device *pdev)
+ 	  dma_has_cap(DMA_SLAVE, atdma->dma_device.cap_mask)  ? "slave " : "",
+ 	  plat_dat->nr_channels);
+ 
+-	err = dma_async_device_register(&atdma->dma_device);
++	err = dmaenginem_async_device_register(&atdma->dma_device);
+ 	if (err) {
+ 		dev_err(&pdev->dev, "Unable to register: %d.\n", err);
+-		goto err_dma_async_device_register;
++		return err;
+ 	}
+ 
+ 	/*
+@@ -2098,27 +2092,15 @@ static int __init at_dma_probe(struct platform_device *pdev)
+ 	 * dma_request_channel().
+ 	 */
+ 	if (pdev->dev.of_node) {
+-		err = of_dma_controller_register(pdev->dev.of_node,
++		err = devm_of_dma_controller_register(&pdev->dev, pdev->dev.of_node,
+ 						 at_dma_xlate, atdma);
+ 		if (err) {
+ 			dev_err(&pdev->dev, "could not register of_dma_controller\n");
+-			goto err_of_dma_controller_register;
++			return err;
+ 		}
+ 	}
+ 
+ 	return 0;
 -
--	return 0;
--
--clk_err:
--	clk_disable_unprepare(aud_drv_data->axi_clk);
--	return ret;
-+	return devm_snd_soc_register_component(dev, &xlnx_asoc_component, NULL, 0);
+-err_of_dma_controller_register:
+-	dma_async_device_unregister(&atdma->dma_device);
+-err_dma_async_device_register:
+-	dma_pool_destroy(atdma->memset_pool);
+-err_memset_pool_create:
+-	dma_pool_destroy(atdma->lli_pool);
+-err_desc_pool_create:
+-	free_irq(platform_get_irq(pdev, 0), atdma);
+-err_irq:
+-	clk_disable_unprepare(atdma->clk);
+-	return err;
  }
  
- static void xlnx_formatter_pcm_remove(struct platform_device *pdev)
-@@ -705,8 +672,6 @@ static void xlnx_formatter_pcm_remove(struct platform_device *pdev)
+ static void at_dma_remove(struct platform_device *pdev)
+@@ -2127,22 +2109,12 @@ static void at_dma_remove(struct platform_device *pdev)
+ 	struct dma_chan		*chan, *_chan;
  
- 	if (ret)
- 		dev_err(&pdev->dev, "audio formatter reset failed\n");
+ 	at_dma_off(atdma);
+-	if (pdev->dev.of_node)
+-		of_dma_controller_free(pdev->dev.of_node);
+-	dma_async_device_unregister(&atdma->dma_device);
 -
--	clk_disable_unprepare(adata->axi_clk);
+-	dma_pool_destroy(atdma->memset_pool);
+-	dma_pool_destroy(atdma->lli_pool);
+-	free_irq(platform_get_irq(pdev, 0), atdma);
+ 
+ 	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
+ 			device_node) {
+ 		/* Disable interrupts */
+ 		atc_disable_chan_irq(atdma, chan->chan_id);
+-		list_del(&chan->device_node);
+ 	}
+-
+-	clk_disable_unprepare(atdma->clk);
  }
  
- static const struct of_device_id xlnx_formatter_pcm_of_match[] = {
+ static void at_dma_shutdown(struct platform_device *pdev)
 -- 
 2.55.0
 
