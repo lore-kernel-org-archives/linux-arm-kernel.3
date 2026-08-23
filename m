@@ -4,60 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02053C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 05:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7895C5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 06:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bhied+RrHvfAlPalGsWSr2PGKdyWrajPn0cro9XXUAU=; b=rYdMfyE/spus5AfQoMDI4TgaTA
-	KvQJNGLklRG/+mAKmbrqzgS0tk/UKswIDh2+vjv6eysofRC/v74q1s2yg0q7jJ21m88n/06Fwob2i
-	W0B7OUFJEn4iEdV7iZthjraumA+CfWZftHxB0Lg2y//rpWS6jTPD9kIRlsw/kOJX4LSjPDHgb0AtC
-	EpNkbnu8ks6GdIFqOrs4JSuPMNYUYCMEuuhMniGk9zkeT2S6w7xs3MFRGgJhT3Fbf/zNBGyGquzXe
-	yg4izpHdddRljiLlReKqhM9iTY2oxRjz4N13RrR+8AL2UC79Jb1pyZsdfdGasBiDR+Hx3/9gpVP8x
-	ayUe1oVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4zZ964UaOcqM6aIvLP+DeBwxQG6DN76Q94+laK2Fad4=; b=ThH/y0GlIL3+PScz4AJM0ENzKQ
+	fhsH2ps+hBMwoEDdDMzzziZBjOZVlWDtccyXN8mFJcg+NnCwjq3K08KrYUKDjnBEPOngDczSRkU5H
+	2Fms1SSQNNzU25deUdop3VnSp32U0CFMXh1IogQDOp+A4n/XFvli5y5FHdX8lxOKDtrlhoY7XPDYu
+	ppP/yGYIA38JwxYADEQ6kc4xQMCoeHg5aDTbon07SGm7ER9+cmevF6c/IUqxnM7E64hvWPsOidThK
+	RWzaT9zRqjVGJBPgDb98xFfq3OMscSKFeX6Q7CmkB5MC+nigfVvm+Z+Yqfl79/P0dgKa3cMm6LCQw
+	sHfPqOTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy0uf-0000000F6HD-1b4L;
-	Sun, 23 Aug 2026 05:38:33 +0000
-Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
+	id 1wy1fu-0000000F7dn-3oxs;
+	Sun, 23 Aug 2026 06:27:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy0uc-0000000F6Gc-17sL
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 05:38:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1787463500; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=bhied+RrHvfAlPalGsWSr2PGKdyWrajPn0cro9XXUAU=;
-	b=OVEQ85wZgpp6Lvsml17Mm8SAwmnYgDuFVDSEDyhGQqFI73fm5nMNcLq6v2HghxDZtqd64JrbjZmL7efNqA1CDZOKgMzjF1IS1z1f7/piSGX7NDYp+i1SzGJdKygZsf6GsCHgbBn9G7QnzLwCmqod/ESqkMg8J3mpKfGMDKA4vZI=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0X9PtKmb_1787463498;
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X9PtKmb_1787463498 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sun, 23 Aug 2026 13:38:19 +0800
-Date: Sun, 23 Aug 2026 13:38:18 +0800
-From: Yao Yuan <yaoyuan@linux.alibaba.com>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Wei-Lin Chang <weilin.chang@arm.com>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] KVM: arm64: Fix spurious warning for benign stage
- 2 teardown race
-Message-ID: <dycpfrkpphjy5xnb57t2zvdmlpkx76lbow7w23l3d2fwgbfjjj@lbk4uh7awc2p>
-References: <20260822-kvm-arm-nested-virt-fix-v2-0-ac4059a0eaa6@kernel.org>
- <20260822-kvm-arm-nested-virt-fix-v2-1-ac4059a0eaa6@kernel.org>
+	id 1wy1ft-0000000F7dW-1dPI;
+	Sun, 23 Aug 2026 06:27:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1EA6760008;
+	Sun, 23 Aug 2026 06:27:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D7F41F000E9;
+	Sun, 23 Aug 2026 06:27:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787466439;
+	bh=4zZ964UaOcqM6aIvLP+DeBwxQG6DN76Q94+laK2Fad4=;
+	h=From:Date:Subject:To:Cc;
+	b=TGY2e4QO+Z9kVs0AgtHsqhw1zDiHU3+6xDoMX2i6/dgHwFp4asR/MJX+1tPIeHn1p
+	 KAejm6pC0LKkWtENq3YrDesupEtH082B5QA0vuY+WAXFllVqTBdfW22ZzOKrw+aBFP
+	 JStGAXQFpg6SSYxSzAYO7akYvlk6l+B000SV6ORA3Xya/VloWGJ89Na8A0rVRfMGOe
+	 7Xv7p4uuDPCxNlj3oW/5alh5GMAsEdoPDLFw2I/ArasNwj4/7OyCbG4sQ8h+nxLl73
+	 ka/47JM8b01UE7cd2qv5m1uryg7Q+uurtxb/UQc8o1vTXqUIHPMyZGqm6Di7n5EoyR
+	 TmRW7V9ydbD6g==
+From: Eugen Hristev <ehristev@kernel.org>
+Date: Sun, 23 Aug 2026 09:27:09 +0300
+Subject: [PATCH v4] media: bcm2835-unicam: Fix log status runtime access
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260822-kvm-arm-nested-virt-fix-v2-1-ac4059a0eaa6@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_223830_897190_A095343C 
-X-CRM114-Status: GOOD (  19.71  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260823-bcmpipm-v4-1-faf20d9c3e2b@kernel.org>
+X-B4-Tracking: v=1; b=H4sIALySimoC/2XNyw7CIBQE0F8xrMXwaJG68j+MC7jcKmofgUo0T
+ f9dqotqXE4yZ2YkEYPHSHarkQRMPvquzaFYrwicTXtC6l3ORDChWCk4tdD0vm+ognKrcSuFrID
+ kdh+w9o/30uH4yfFuLwjDzOfG2cehC8/3VeJz7381ccqpRGu0dlqzotxfMbR423ThRObZJL6hW
+ KDI0EhnlAILVc3+oFyg4l+PMkNQrHIGLBNV/QOnaXoBQfimiyMBAAA=
+X-Change-ID: 20260521-bcmpipm-6c578e73239c
+To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Hans Verkuil <hverkuil@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+Cc: Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Eugen Hristev <ehristev@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3369; i=ehristev@kernel.org;
+ h=from:subject:message-id; bh=6caN5GbikuqADZTPUPquRicuKp50Ix0df0KcUGo/32s=;
+ b=owGbwMvMwCXWkjcnuXne3fmMp9WSGLK6Ju1XWH+w+K3IrHauEPFJx90dTcVjja/p7Ko9dHyv9
+ LHyVUfMO0pZGMS4GGTFFFmqTf7VCvfvcD/paqkCM4eVCWQIAxenAEzEm53hf9WdrJ+/3+yelvz3
+ xsU1Tdmn55tJb50/7VvTAa/uQmZHNk5Ghpd3L65K4Gppu39q0cc13ry8t3l+9B7RNq34//peGcP
+ vfSwA
+X-Developer-Key: i=ehristev@kernel.org; a=openpgp;
+ fpr=AB184498D27A77B65D7852C81EB31E020EAC2FC8
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,63 +89,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 22, 2026 at 06:46:53PM +0800, Lorenzo Stoakes (ARM) wrote:
-> A batch of kernel warnings were triggered in the L0 host kernel when using
-> kvmtool to experiment with nested virtualisation.
+When requesting log status, the block might be powered off, but registers
+are being read.
+Avoid reading the registers if the device is not resumed, thus also avoid
+powering up the device just for log status.
 
-...
+Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
+Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+---
+Changes in v4:
+- rebased on latest tree, no additional change.
+- Link to v3: https://patch.msgid.link/20260611-bcmpipm-v3-1-c609dacb029f@kernel.org
 
-> Fixes: ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page tables")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> ---
->  arch/arm64/kvm/mmu.c | 10 ++++++++--
->  1 file changed, 8 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 74e7e7f7564c..31e049ded093 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -59,19 +59,25 @@ static phys_addr_t stage2_range_addr_end(phys_addr_t addr, phys_addr_t end)
->   * long will also starve other vCPUs. We have to also make sure that the page
->   * tables are not freed while we released the lock.
->   */
-> -static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t addr,
-> +static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
->  			      phys_addr_t end,
->  			      int (*fn)(struct kvm_pgtable *, u64, u64),
->  			      bool resched)
->  {
->  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
-> +	phys_addr_t addr = start;
->  	int ret;
->  	u64 next;
->
->  	do {
->  		struct kvm_pgtable *pgt = mmu->pgt;
-> +		/*
-> +		 * We may be raced on PGT teardown when we release the
-> +		 * kvm->mmu_lock. That's fine as the PGT is legitimately no
-> +		 * longer present.
-> +		 */
->  		if (!pgt)
-> -			return -EINVAL;
-> +			return resched && addr > start ? 0 : -EINVAL;
+Changes in v3:
+- Changed to check return value of pm_runtime_get_if_active() and only call
+  pm_runtime_put() if the device is active.
+- Link to v2: https://patch.msgid.link/20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org
 
-Hi,
+Changes in v2:
+- changed to use pm_runtime_get_if_active()
+- add corresponding put()
+- Link to v1: https://patch.msgid.link/20260521-bcmpipm-v1-1-3eba88d88045@kernel.org
 
-I can understand the addr checking makes sure only return 0
-when the mmu_lock is dropped at least once and get pgt =
-NULL, may a variable like drop_lock = true when
-cond_resched_rwlock_write(&kvm->mmu_lock) happens can have
-better readability, but depends on you and others' opinion.
+To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+To: Ray Jui <rjui@broadcom.com>
+To: Scott Branden <sbranden@broadcom.com>
+To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Hans Verkuil <hverkuil@kernel.org>
+To: Naushir Patuck <naush@raspberrypi.com>
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: linux-media@vger.kernel.org
+Cc: linux-rpi-kernel@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+---
+ drivers/media/platform/broadcom/bcm2835-unicam.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
+index 14bb916dd7b1..7745aee711cb 100644
+--- a/drivers/media/platform/broadcom/bcm2835-unicam.c
++++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+@@ -2043,6 +2043,7 @@ static int unicam_log_status(struct file *file, void *fh)
+ 	struct unicam_node *node = video_drvdata(file);
+ 	struct unicam_device *unicam = node->dev;
+ 	u32 reg;
++	int pm_active;
+ 
+ 	/* status for sub devices */
+ 	v4l2_device_call_all(&unicam->v4l2_dev, 0, core, log_status);
+@@ -2052,6 +2053,14 @@ static int unicam_log_status(struct file *file, void *fh)
+ 		 node->fmt.fmt.pix.width, node->fmt.fmt.pix.height);
+ 	dev_info(unicam->dev, "V4L2 format:         %08x\n",
+ 		 node->fmt.fmt.pix.pixelformat);
++
++	pm_active = pm_runtime_get_if_active(unicam->dev);
++	if (!pm_active) {
++		dev_info(unicam->dev,
++			 "Live data N/A due to device inactive\n");
++		return 0;
++	}
++
+ 	reg = unicam_reg_read(unicam, UNICAM_IPIPE);
+ 	dev_info(unicam->dev, "Unpacking/packing:   %u / %u\n",
+ 		 unicam_get_field(reg, UNICAM_PUM_MASK),
+@@ -2065,6 +2074,9 @@ static int unicam_log_status(struct file *file, void *fh)
+ 	dev_info(unicam->dev, "Write pointer:       %08x\n",
+ 		 unicam_reg_read(unicam, UNICAM_IBWP));
+ 
++	if (pm_active == 1)
++		pm_runtime_put(unicam->dev);
++
+ 	return 0;
+ }
+ 
 
->
->  		next = stage2_range_addr_end(addr, end);
->  		ret = fn(pgt, addr, next - addr);
->
-> --
-> 2.55.0
+---
+base-commit: 903c1cf6dff9964e71eda98a39e2e5d442050472
+change-id: 20260521-bcmpipm-6c578e73239c
+
+Best regards,
+--  
+Eugen Hristev <ehristev@kernel.org>
+
 
