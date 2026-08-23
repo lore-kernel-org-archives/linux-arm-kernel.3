@@ -4,92 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74BEEC5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 12:29:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D4BC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 12:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gQbaM/nV7s8rQwS5hxI6vhWiwkwOmBmwl7dlesgVmd0=; b=QAHev7bZo7TwNtN59VwJOg2JBT
-	OwubiOljbjagU/FYjisbQOoN8tSbSCQyhzNNfpd+aMFxQNyAPlqOwPZJcwhe6AuVe4c4haGa9IUb5
-	KwvW6cJ7FwXkObUUmiW1lPMsMpDKCQDWg6DrXaPUAvw8DAgocV2DS+HXw9sPkyB2fNMdNWON45oUh
-	zoJNr41DfOnN9DyBGQagsD7Ni8eLCV8XZh/s1/Xp+ftDjToujqG0pPJnG19He0cgzqHzi+G5VhzQT
-	TeTGMTtnFxGQrj86jDpIauTFkk+COtkJFTsqMKerb2k0bVE6oOr93AHik19G+cEYccAKpuQkoboBe
-	RsSdLU1w==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QcOyNHWPz7ng4uDzBlXxrpitR6L8eYl60PHRY+S3DYM=; b=TPi4PJ6dtL9JBvZChToFmdHQZ7
+	148DrC84avwFD2OnE99mS5WJwy04UGThQ5iQRf8LFYWNFiU5f3MwuDYsGr6Y6dNwMqONJvvRWKhCX
+	A1j/KD1Lqzq5Pxt4iFzPKpGEH35aPTh4MkKpoKn6Yq4XsoRnekETm3dtQ5MX9iXVKJcj5QD28huie
+	Sc5bbfMTWrTgUHGRa9C38IjZ4xi/FqEpbe6o7h+Over9/UMv+7LOlI9zqEDvQ0Fg38uIgu/sfJA9q
+	gC+ap3xnP8cJIWt4431Mvh+GbCkQ9pgYKd1MCesy65vrsferL8nxEHgDUGDxizrqP+j6mU1J7rlb7
+	Ai1TZnbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy7KA-0000000FLKA-41tZ;
-	Sun, 23 Aug 2026 12:29:18 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1wy7QU-0000000FLoW-3RpT;
+	Sun, 23 Aug 2026 12:35:50 +0000
+Received: from relay.yourmailgateway.de ([185.244.194.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy7K7-0000000FLJ3-0yx2
+	id 1wy7QR-0000000FLmv-0AK9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 12:29:17 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-6a18af264f9so575000a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 05:29:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787488151; x=1788092951; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:content-language:cc:to
-         :subject:from:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=gQbaM/nV7s8rQwS5hxI6vhWiwkwOmBmwl7dlesgVmd0=;
-        b=gLANTptY7CnRqkp5wmjhA+4mPZ2a/lZbO4DfU9T/+xDD8zHIBzMhXuMhkFV4UHc5+v
-         UzLfa5M1YXFoHfrt9Tu99qSg0D+YP0Uukg0otDjHxmxdFrEqvDORpEtfRYN8Lk1VNWC+
-         MCYQVNrx5HLCLVEnf7KkjDvUksbUbQEEhdI+bqUM9HC9bofyyYha7cUehky4vCKJPaxL
-         gOxYN0TNojKwErGd2AOYFSHiF2iJlHU/daqvesSbg9WYl4xKYoObVCretQYIMM/mC/P4
-         d+4/uL89C7ESKCvIIaYynhaRzfplZcqNKQmyEMbN7s6gLInoWSBYn9g0GxB/g46ltFYR
-         auuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787488151; x=1788092951;
-        h=content-transfer-encoding:content-type:content-language:cc:to
-         :subject:from:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gQbaM/nV7s8rQwS5hxI6vhWiwkwOmBmwl7dlesgVmd0=;
-        b=a3sLJaE+LpOPLCFpWz4KuDCz9oOgebxFihhAvf8v6iEBH3sBi3f3pl8Z+YCc+Ga1F5
-         kDTblE/Ezux+Lb+KxRYs/JCjj/Vb61Y5mxGGSA3A3Pd8YSfIzfDf6GalHtnl5vIl41nj
-         2kBwBo4sN1w/bu8Np6a2mGblEVYhUzVyjvQqSQqUjj8PMM8QIZ26fs7FDickRC3/qrWi
-         zMRNxCzvsZYSBV7NmMv05sKGP8ukzHlN1P0vFUUgp4fP1VK0tSTvvsmTC6fGmFgxW8z8
-         U6/tM+swtMVpiuQ9aZWJ9z3IzvzEuhaC8WJgazrMMVbEQf57f8iRmPznE84D6liZTAGe
-         v3uw==
-X-Forwarded-Encrypted: i=1; AHgh+RoAR2/T91V2ZHaZAorvDDh7FaLvsN1L+KEDZOV/d1ZHMAieHBu70W6Y+YcQy9rNiRmNl5bNyT7XepJQaVEQ6Dz5@lists.infradead.org
-X-Gm-Message-State: AFuF++kmG6nJ2RJqwgQBz3neR4SVgj8HrA9UYiS60LON0WlbVVMUwrs9
-	Fu7jUY9cDIrmxQmCK5a6AwXxy2cjg7gPJbU01Zihjhd+2E0JrrT061Tp
-X-Gm-Gg: AR+sD11T5lvVGkmSpOoD8jEgLhBK/dpzBo05/TQsx2+gIOjqN5LYvXW+qiJ0LHWjhdC
-	TFBLqXHU48lztnBlQIDk67w3PSwcTOe9mc+Z740IKSKcridU2Pixx/bPh5So8ELlaD1NKtnuE9z
-	vsr0PJX12oxyK4J6V0+BvAh1sayNkCpu6sKOyPgO7dVmoR+ZTXdrQJDIUjjv18VR/MG3ewhOFt1
-	cBL8+veNjK/InlEtw866602h74b9q6KKre+cDhR239e0Lfr8VPB0IqYZmHLqVhOh+YWpHCqbB/0
-	OFW2N+J/urF4Zyn36nS5dCUAdKWZDWU9q3hlKaIjCFJ9bJiLJbWYvjC88yqybWU2iabsuJgynig
-	NmJLQYcosSldiT36q6fQ652jYePOAQM8NdyKWcpSuhluY8+joOsbkExukag6C/bZUAF1TqizWGJ
-	B6dpwNWIn+c/BjJNuHqjgS2VZNMcSBMWuSP8t3adPBajxZpSML27wUg5PlBLj3is5Za99InLc1h
-	qx4avI7uqFtE7yCMcZAXwshkZk=
-X-Received: by 2002:a17:907:1c26:b0:c21:8555:5f55 with SMTP id a640c23a62f3a-c246a65eda7mr1238908466b.2.1787488150919;
-        Sun, 23 Aug 2026 05:29:10 -0700 (PDT)
-Received: from ?IPV6:2a02:a449:4071:0:32d0:42ff:fe10:6983? ([2a02:a449:4071:0:32d0:42ff:fe10:6983])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c24966f9c9fsm738037566b.39.2026.08.23.05.29.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 23 Aug 2026 05:29:10 -0700 (PDT)
-Message-ID: <1ab6fb88-3b84-49b5-aa05-202a84edbd3d@gmail.com>
-Date: Sun, 23 Aug 2026 14:29:09 +0200
+	Sun, 23 Aug 2026 12:35:48 +0000
+Received: from relay01-mors.netcup.net (localhost [127.0.0.1])
+	by relay01-mors.netcup.net (Postfix) with ESMTPS id 4hSYRc22r8z9B7n;
+	Sun, 23 Aug 2026 14:35:40 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
+	s=key2; t=1787488540;
+	bh=QcOyNHWPz7ng4uDzBlXxrpitR6L8eYl60PHRY+S3DYM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=etJPKPk+m8wvTiIOCazzOgcsEG3x1/N/wsI1leC42TvEeF110m95m4micdC3JaG9r
+	 69w2uDvmhon7IbsimItHYC40PNdDxLCF8xfBsU/L2+m11XJR8nxVGOWjVX6wPKHhDQ
+	 qOqjF/+PqYm558oTIsK/fECHYHUZtRr5LlZlPMGKHbK0d5vimI/EI0le/1H48djrwN
+	 n7hghb507g9w0zalNwuW8hQFSoKZyjccVO8YjgzCVlsFCvr/DlGQJhU4wdXdtNVNpb
+	 AKqIvEabzff8FQaKk06A9zqvuORA2tDwXRQJQ5BZFSMHr6fEi74t7CtOlKTpv4rHcm
+	 r56YuaN/vgGRA==
+Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
+	by relay01-mors.netcup.net (Postfix) with ESMTPS id 4hSYRc1LnHz7x9l;
+	Sun, 23 Aug 2026 14:35:40 +0200 (CEST)
+Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4hSYRY4TRMz8svk;
+	Sun, 23 Aug 2026 14:35:36 +0200 (CEST)
+Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
+	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 080F65FA13;
+	Sun, 23 Aug 2026 14:35:32 +0200 (CEST)
+Authentication-Results: mxe9fb;
+        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
+Received-SPF: pass (mxe9fb: connection is authenticated)
+Message-ID: <092cc12c-0b64-4352-89ad-7afc824552b1@leemhuis.info>
+Date: Sun, 23 Aug 2026 14:35:31 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Johan Jonker <jbx6244@gmail.com>
-Subject: [RFC PATCH v1] drm: rockchip: add
- drm_plane_create_blend_mode_property
-To: heiko@sntech.de
-Cc: hjc@rock-chips.com, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, dri-devel@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Language: en-US, ar-EG
+Subject: Re: [PATCH] ARM: Restore get_cycles() return value
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Thomas Gleixner <tglx@kernel.org>,
+ Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ regressions@lists.linux.dev
+References: <20260820-b4-arm-get-cycles-v1-1-33d0ee0cf141@aspeedtech.com>
+From: Thorsten Leemhuis <regressions@leemhuis.info>
+Content-Language: de-DE, en-US
+In-Reply-To: <20260820-b4-arm-get-cycles-v1-1-33d0ee0cf141@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-PPP-Message-ID: <178748853244.3065954.16034214713717909973@mxe9fb.netcup.net>
+X-Rspamd-Server: rspamd-worker-8404
+X-Rspamd-Queue-Id: 080F65FA13
+X-NC-CID: /Zpw8zn8NKrQBsqtOJqOe30EKBgSJx/EAwkCHhrgsg3rzeFGsm0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_052915_285659_3DE4A84E 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20260823_053547_427622_12061E39 
+X-CRM114-Status: UNSURE (   5.81  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,32 +92,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A validate_blend_mode_for_alpha_formats() function was added that
-fills the kernel log with warnings for Rockchip VOP version 1 SoCs.
-Add a drm_plane_create_blend_mode_property() function as fix.
+On 8/20/26 11:10, Ryan Chen wrote:
+> read_current_timer() returned 0 on success, so the get_cycles() ternary
+> yielded the cycle count on success and 0 on failure. delay_read_timer()
+> returns true on success, but the ternary was left alone, so get_cycles()
+> now yields 0 on success and an uninitialised variable on failure.
 
-Signed-off-by: Johan Jonker <jbx6244@gmail.com>
----
+For the record and those that haven't seen this yet: this afaics was
+discussed earlier already and fixed upstream by e1e3a0ab69c64e ("ARM:
+Fix get_cycles() after delay_read_timer() conversion").
 
-https://lore.kernel.org/all/20260526181700.25310-3-leandro.ribeiro@collabora.com/
----
- drivers/gpu/drm/rockchip/rockchip_drm_vop.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-index 0090d8ff0c79..0bc5b606f021 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-@@ -1850,6 +1850,8 @@ static void vop_plane_add_properties(struct drm_plane *plane,
- 	if (flags)
- 		drm_plane_create_rotation_property(plane, DRM_MODE_ROTATE_0,
- 						   DRM_MODE_ROTATE_0 | flags);
-+	drm_plane_create_blend_mode_property(plane,
-+					     BIT(DRM_MODE_BLEND_PIXEL_NONE));
- }
- 
- static int vop_create_crtc(struct vop *vop)
--- 
-2.39.5
-
+Ciao, Thorsten
 
