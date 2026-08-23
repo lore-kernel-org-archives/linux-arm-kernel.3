@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF012C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 07:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B074CC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 07:51:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d76hSxmuaOFdQA12QBnAjVEJYYylYbR4s4u+o28nAZM=; b=EIBRdNW0iifMAOuBR5Ii6B1PMt
-	dkWjap+gHl2ikN3CHaTaQSONs3CPSsoCT9eSYmzaaEJe6UTV3n8qJXKSk1yp12gxvfrDlExvZ6f4v
-	V1i6X4KCoeG9zq+wvWfs9hl2GMr7L1zppWcs3Y7RQm6Jqod8S9oP+2cTlBH0hV8/XqCCmgIa3KTRm
-	RPOELe854BnUcPgzl7lXLCdJJk/vn4Ru5DCRUBTcimeC+mhr0pLpVnw3GJqQzZdPHL8C/yK0+Op72
-	c3bwaWz5wChki5rODbP07uEblC4jB7+G+L5NuNUahGoQNmxir6SOgcPMVj1CezdY9+vjWgCnlHFsa
-	N96keOBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3DIEEbwz6PHcPkpp1UT7HF1ofN3OEvJ90bHzV9iEJXw=; b=SiqvCYfNU6AhTpz9mLcitvoZJt
+	oCp1xhqgFQs/VGhMfSPsqAPRWc5W5LuogQQOwXiSGaWG1E6pCRa+oaBnkcVxVMoxO6gCzhET0aXGt
+	k6gOl79UpqtLhC2O94D9mPFym3XRVCs/OPlgPnIEPyh8cWKcZS1alRPCDkUNeXwsfSCg5icB7Ak3J
+	umzwCqKYCt/7JD3lhxqtqd5WaVNw96pqmS6f7FSwKNgmsjK7DH+/U8T9kLcqN0mKiZHSIJNWDEzbX
+	hZH6vTsk4CnPWtK6HtTMadE9RrYw5JQ0aIbBU8WKgIDGkV50zjKZ+6i5GDGcQ/iECMxZfBiS4FT55
+	SNkIXiwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy2xz-0000000F9yq-0x9f;
-	Sun, 23 Aug 2026 07:50:07 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wy2yu-0000000FA46-1Z2V;
+	Sun, 23 Aug 2026 07:51:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy2xv-0000000F9yC-3Kja
+	id 1wy2yt-0000000FA40-1iOt
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 07:50:06 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 51C2B1A17BE;
-	Sun, 23 Aug 2026 07:50:02 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2286B60378;
-	Sun, 23 Aug 2026 07:50:02 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1858B11C77DF9;
-	Sun, 23 Aug 2026 09:49:55 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1787471401; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=d76hSxmuaOFdQA12QBnAjVEJYYylYbR4s4u+o28nAZM=;
-	b=GE+BuqPWdq+dCDRIuQsUYk33c5ZLhde79ZffEBZQCz4ZKPPwsC0q8UuaKH4+gKL4zaEXJB
-	1HGQELhX0VrKd2x8epsfb01d8IAjHMgmTknXGGUHsY18CKgAFm/jXrouRi+OJu3V27SHg8
-	vQzJ1iiC60EP4P1U2gkdvhRmPW3XzrFBQzK3gKnbcdd1Fa6HKzpoab3RZ/w3zIjGxPKC3K
-	V4oRt+wj1N47FVMwHa8wl7x6wgy1DQ5WlNSk7gSnn2wOt0VEVKzyLVz2LJBJ8QTH/Da9/P
-	WhUxL38B/fD5s+noP9s16NJ5TlMcFLuFIOehHo12fe4+MDZST+/Dw9Ojhf7ELA==
-Message-ID: <c632ca88-f5e5-4595-b507-955d1a2fcab7@bootlin.com>
-Date: Sun, 23 Aug 2026 09:49:55 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 2/6] net: stmmac: Enable double VLAN processing
- only when supported
-To: Ovidiu Panait <ovidiu.panait.rb@renesas.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- shuah@kernel.org, joabreu@synopsys.com, yi.fang.gan@intel.com,
- jun.ann.lai@intel.com
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org
-References: <20260821170959.79708-1-ovidiu.panait.rb@renesas.com>
- <20260821170959.79708-3-ovidiu.panait.rb@renesas.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260821170959.79708-3-ovidiu.panait.rb@renesas.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_005004_001054_F90528C1 
-X-CRM114-Status: GOOD (  15.66  )
+	Sun, 23 Aug 2026 07:51:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B7F740C2B;
+	Sun, 23 Aug 2026 07:51:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B04B1F000E9;
+	Sun, 23 Aug 2026 07:51:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787471462;
+	bh=3DIEEbwz6PHcPkpp1UT7HF1ofN3OEvJ90bHzV9iEJXw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=jQcpZfEiS6+cwHQ6IbXiCpOmUF3Ik2OYTaiKQ0E4XMoV4J+s9mi7uN/D21utY1vyC
+	 B2LeV/550wDICtyUannmRKF8t7WiUqQY3Oui81RhPsxSmfC8au+lfTWPQBSShj/PQS
+	 01YrLJeXjXHDzIQ8/BR5yyG3am75louqHIn7rpBDPmxWLM9uZ2nMWfGKkrIsHWZcMD
+	 SYgfvb4PKgWs2wIUEVVhI6kfChs94ZruzET9M3x4r0qOR3zoq44uVfkOsXVKv3Vgzn
+	 PqG1yrDF4+INochMXIqLCktuDFH4hhD0lRkAVHfHedPtsFH2SdMJd1X4JonrXUW1rq
+	 xJVTuqhKKY26A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wy2yp-00000000NkD-3aq5;
+	Sun, 23 Aug 2026 07:50:59 +0000
+Date: Sun, 23 Aug 2026 08:53:31 +0100
+Message-ID: <87tsolnuh0.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] KVM: arm64: Fix spurious warn, null ptr deref on S2 teardown race
+In-Reply-To: <20260822-kvm-arm-nested-virt-fix-v2-0-ac4059a0eaa6@kernel.org>
+References: <20260822-kvm-arm-nested-virt-fix-v2-0-ac4059a0eaa6@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ljs@kernel.org, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, christoffer.dall@arm.com, weilin.chang@arm.com, yaoyuan@linux.alibaba.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,72 +93,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 8/21/26 19:09, Ovidiu Panait wrote:
-> stmmac_vlan_update() turns on double/S-VLAN processing whenever an
-> 802.1ad VLAN is registered, without checking whether the MAC actually
-> supports double VLAN processing. That capability is reported in
-> dma_cap.dvlan.
+On Sat, 22 Aug 2026 18:46:52 +0100,
+"Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
 > 
-> This was found while investigating a separate bug in the double VLAN RX
-> stripping path. The outer 802.1ad tags were unexpectedly stripped by the
-> MAC (because the ESVL bit was set).
+> When GFNs are invalidated in L0 an MMU notifier triggers
+> kvm_unmap_gfn_range() which tears down all of the stage 2 shadow page
+> tables for nested guests via kvm_nested_s2_unmap().
 > 
-> Check dma_cap.dvlan before enabling EDVLP/ESVL/DOVLTC bits, so that double
-> VLAN processing is enabled only on supported hardware. Also, advertise
-> NETIF_F_HW_VLAN_STAG_RX and NETIF_F_HW_VLAN_STAG_FILTER only when
-> dma_cap.dvlan is set.
+> To avoid lockup, the kvm->mmu_lock is dropped while doing this and the task
+> rescheduled once for each block of physical address space (32 MiB for 16
+> KiB page size), with the lock being reacquired once the task is scheduled
+> again.
 > 
-> Fixes: 3cd1cfcba26e ("net: stmmac: Implement VLAN Hash Filtering in XGMAC")
-> Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
-> ---
-> v2 changes:
-> - Advertised NETIF_F_HW_VLAN_STAG_RX and NETIF_F_HW_VLAN_STAG_FILTER only
->   when dma_cap.dvlan is set (reported by Sashiko).
+> This results in a potential race between this L0 tear down and tear down of
+> the guest itself in kvm_flush_shadow_all(), a race which has been observed
+> on real hardware.
 > 
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 11 +++++++++--
->  1 file changed, 9 insertions(+), 2 deletions(-)
+> When this race occurs it causes an invalid kernel warning when the PGT of a
+> nested MMU is cleared by kvm_flush_shadow_all() ->
+> kvm_arch_flush_shadow_all() -> kvm_free_stage2_pgd().
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 16fe56a1f617..880cf3fab913 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -6820,6 +6820,9 @@ static int stmmac_vlan_update(struct stmmac_priv *priv, bool is_double)
->  	if (!netif_running(priv->dev))
->  		return 0;
->  
-> +	if (!priv->dma_cap.dvlan)
-> +		is_double = false;
-> +
->  	return stmmac_update_vlan_hash(priv, priv->hw, hash, is_double);
->  }
->  
-> @@ -7954,14 +7957,18 @@ static int __stmmac_dvr_probe(struct device *device,
->  	ndev->watchdog_timeo = msecs_to_jiffies(watchdog);
->  #ifdef STMMAC_VLAN_TAG_USED
->  	/* Both mac100 and gmac support receive VLAN tag detection */
-> -	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX | NETIF_F_HW_VLAN_STAG_RX;
-> +	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX;
-> +	if (priv->dma_cap.dvlan)
-> +		ndev->features |= NETIF_F_HW_VLAN_STAG_RX;
-> +
->  	if (dwmac_is_xmac(priv->plat->core_type)) {
->  		ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
->  		priv->hw->hw_vlan_en = true;
->  	}
->  	if (priv->dma_cap.vlhash) {
->  		ndev->features |= NETIF_F_HW_VLAN_CTAG_FILTER;
-> -		ndev->features |= NETIF_F_HW_VLAN_STAG_FILTER;
-> +		if (priv->dma_cap.dvlan)
-> +			ndev->features |= NETIF_F_HW_VLAN_STAG_FILTER;
->  	}
->  	if (priv->dma_cap.vlins)
->  		ndev->features |= NETIF_F_HW_VLAN_CTAG_TX;
+> Patch 1 fixes this by having stage2_apply_range() no longer return an error
+> when it has experienced a benign race with pgt teardown when it drops the
+> lock.
+> 
+> Patch 2 addresses something more serious - bad timing can turn this spurious
+> warning into a NULL pointer dereference.
+> 
+> kvm_arch_flush_shadow_all() calls kvm_uninit_stage2_mmu() which calls
+> kvm_free_stage2_pgd() on the canonical kvm->arch.mmu for that guest's S2
+> mappings, making it NULL.
+> 
+> This is problematic if it happens before stage2_apply_range() reacquires
+> the kvm->mmu_lock, as it ultimately returns to kvm_nested_s2_unmap() which
+> dereferences kvm->arch.mmu.pgt with the mmu lock held under the incorrect
+> assumption that it means it's valid, resulting in a NULL pointer
+> dereference.
+> 
+> Fix that by checking if kvm->arch.mmu.pgt is NULL before dereferencing it
+> in kvm_nested_s2_unmap() and kvm_nested_s2_wp().
 
+With the commit message for patch #1 trimmed to something that fits on
+a couple of standard terminal screens ;-) :
+
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
