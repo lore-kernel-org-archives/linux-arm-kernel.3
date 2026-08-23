@@ -4,54 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2ECDC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 19:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5751C5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 19:50:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JHIFFPoPBok4Enb1vmDibOlXvjE96+mvh5k+3E9o3Q4=; b=sZ2LMuxClWYefkYs70l4cSKPSA
-	yaudkT0zfproRpPlx6PYorBjEPRJnLFCErUieLAdDYeQhU29ydyHPoXAkhj1tVxQnxqT5KhUldlUU
-	6HvN5YO5VTekXRICievqgIykClJO0cXzDmi2rVAkqmVyVufNOsh9JquuvFn0fEV6UBBsY7rodCjOK
-	/7DHD22ErNbN0G26keNCnGAQ6Hr4/hDzJ3GuyWmzMyWFYZM2oz//GPcGsKPt+fo/Dlp/2t2qTU+gw
-	UFib9XIyVsJI4BNyAA4lOFAD6Kzwky9Ku4DNvJgPM+TTtIYXjVGgBIroV1U56N+5boIs5DGIAX5Ml
-	1IuRG1Hg==;
+	bh=pQKnZDxeohOW6VM9kosMPFjb8ePOTXj9OU7E2dBPW+s=; b=zQssj6KdnXVbkqcPGNO637p/pf
+	xWoXctBZIWp/rIut5hnR6ep0lJZ7n0gjaXMZTAUMFGBynGTYVwaZKsV1yO08p0V8SJLn9K3KoAhW/
+	evxwkrhCcW85/JpubhomTWMVN9vt44NL1x9U6rkqy0u9DLGP3cLgMIdhPksO7DIdW9C6/prOmvVPZ
+	+2aBh3ssS/Y8oPb8o+sqx3rf0LWTCefly5acSEa617W7Zrpi6HTcYKCW9S6ulbjL5CrdVIMPcL8Gn
+	qVMgwABGKJARWID28iwTNiZ6nRH3Iaz2DUhQF4qy75S60Uc9/1fVgMFJ7Q1HJc43z3/41CJit9/uf
+	TEIkFDLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyDjK-0000000FYhT-1hII;
-	Sun, 23 Aug 2026 19:19:42 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wyECx-0000000FZeJ-2jwj;
+	Sun, 23 Aug 2026 19:50:19 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyDjH-0000000FYgf-3Cdm;
-	Sun, 23 Aug 2026 19:19:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=JHIFFPoPBok4Enb1vmDibOlXvjE96+mvh5k+3E9o3Q4=; b=yRSIcm0K+2lJ8cWUbdK8pWzTNU
-	TfHVkAKDP77B+xQF1Lglr2vLwDSXcVqdK98cKyUGyWv/LbnUxHInIWIS1LHajfG4pHqhUqTK7/jbn
-	3havtYtAE6CumxuekTvkOpAh7mSNKUxsHSPKioljrWIH/NDBW5f3rj9etT+SrupqI2rreW59nW30o
-	1YeV+dee1Jz81c6P9o/BorXHbbiMHrLRLRVPH6wqpHCp+87xUDFqwaUGE6qb6Zy8CmvPHI/42wKgB
-	O3MVopmuwtwwUiupII0/cqJ0YE29nRPx/Vkl9qZ+LmbM2uVCm26N5OZkloDFFzGp2bZkTjIZNDQkG
-	GRCXoH2A==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Johan Jonker <jbx6244@gmail.com>, andy.yan@rock-chips.com
-Cc: hjc@rock-chips.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v1] drm: rockchip: add drm_plane_create_blend_mode_property
-Date: Sun, 23 Aug 2026 21:19:28 +0200
-Message-ID: <25031028.6Emhk5qWAg@diego>
-In-Reply-To: <1ab6fb88-3b84-49b5-aa05-202a84edbd3d@gmail.com>
-References: <1ab6fb88-3b84-49b5-aa05-202a84edbd3d@gmail.com>
+	id 1wyECt-0000000FZdE-2BJS
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 23 Aug 2026 19:50:18 +0000
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfout.phl.internal (Postfix) with ESMTP id CE575EC01A5;
+	Sun, 23 Aug 2026 15:50:09 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-03.internal (MEProxy); Sun, 23 Aug 2026 15:50:09 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1787514609; x=1787601009; bh=pQKnZDxeoh
+	OW6VM9kosMPFjb8ePOTXj9OU7E2dBPW+s=; b=VZfZauhOQaHcDD8Lq8LM/pmZRd
+	nVazpJ3BCIwRX/Qs6S7KcQ2+vHU9whE6khErzX15mJvKhJNNDR1kHXsnbaIuSr63
+	ufMFACxLFA/pGpgb/d0g82CSsnF4C/RYjv2EzPVOLMB2A8kLR4zLLm/wPo54XWV4
+	qMqpqTjV3O5x9bXwqHH32eoJOvK8ugiMSQRaTZZrusq9zRJOu7mP+ZdfEvljP0Be
+	Z44uCmxynw8U0WxlexsqOw7KHQJC/rnvfhm3H/+h7jNlopWnWIokyxLxeWHswC1s
+	j/OM+c6eX8hNxGLzOWFAKPd/33OvACno6Gr5Ama9/JolSXdIjONy5534plNQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1787514609; x=1787601009; bh=pQKnZDxeohOW6VM9kosMPFjb8ePOTXj9OU7
+	E2dBPW+s=; b=guCDXltvLKP7vB0PN4d07t+niTl0JA3Qfc7bREgejZ2KZi7KtC9
+	A411G8OJSSoKNah1UOk9uqu48gieBEyy7BwhG40emz1OamaGD/I+zICMh3s1GrXs
+	TpDnD737hgaIA7dvmUzG+oPpphL/yV3Ni3SWEJewRk+EKUm+pYtskg0GgvzVzLp9
+	ZbOVlsEr3sFXzUD8N5sfMFYx/H9quBr/iwf44FVzQ0YlldFeMUapV3BLylRX3Dhj
+	CnnfoMOw9axJRseXi2UmW27pULYWbbVEol37pvxauFlox64mPH10RR3c6r1usBO+
+	GBffrMDlgKr8J/0KJh34FTm4qUkdW3kakmg==
+X-ME-Sender: <xms:8E6LagQGo4DwS3TBlmbpTE42HpdjKzh9ymQ0Ah0MnwzAVXQHhWyTzA>
+    <xme:8E6LaiW7_CKQJRYKjeGpimug3E8_JVZcEegpCj08ztaaWkVawy_qv4XpoZgn5T4VB
+    oY7_dEO850_dDmiDMT0WLOFuN9ZsmHUnc3w52meOArWDxM1ly5UNDo>
+X-ME-Received: <xmr:8E6Laq9su9Idxv2ABaAxtsxKU71lXplROg2C2JtLbkuCVpqdO8liyuyILsYhPwFQ_JD_6sbBjQ_2x0iSbecH57V_5T_ik_aXExA>
+X-ME-Proxy-Cause: dmFkZTEgrk7A58agCDVcNKxfDluB8i4Efx5YmwwxBhKTud2OzRsywHdKffRyobKFKCEKCN
+    sFUvmCo4CAyvgWf8Bhyvpt1YqjWK0/zcxoheKuyfThaV90hW6k4ZwLacDrMYlDkYiyNLIH
+    JG8iJMtaEI9BE9iq0OnlzxBqW6RC89CZ6zkqicfRmy26QD0sBvT+orAIi6LQJ/VOsMdZaK
+    k8mjSks0botyaotjJUIYa1tv1VudpwFM1ueAKcPDNZTnyZbacbxa3+muVRw+J+Ut/nR9Th
+    hMxbEidqEtF7AeZ80LvKooHB4sGQ0PeUrfDqXi8IMk0oXfUah52Ah7YzF0p1upWm0ZbOZF
+    PcGUpKXYmSm/t3EUE9UPI6snQUdMyiLFe3bXljxhLBx1wum8yHUD+b6gP7Me4egyhjvmvE
+    XxjzrW27GaV569oHAqf5U41kIBrB5gwo1EZVQexNzlvIAjd+0AvfBED1odPK+G41dP8tut
+    VH1DL69/eYg/xuFZUkC0hYcOkFQ/ahxQPpyZeWuZZhJ4QrYzONfJ3Fjbk0nG1/XxDU7ZoQ
+    w9tVPfeZ0ijoneq/kV+dwKh1za6hURDCdyGmB2RaTHrq7njqcy9EDGGWFMWtzIVUqwN6I7
+    DJl4p5QPkPE1CkVS7kNu7TBitX44daVRMiTK2nroH5xrJK7xMT25llwNqUgQ
+X-ME-Proxy: <xmx:8E6Laq0RglNLJUS8M7oBoAB3bwqZ4Z6C-2bCnZsqHcgpyvuox5AR5A>
+    <xmx:8E6LancJ9EIBYVPcOisEWNhOB4i43xgWxfeglfz1K-BBTF8_JoKoNg>
+    <xmx:8E6LapCR41oWBXbNDsFgq-cAlDsov___sf5DhW6f5UPzbhHCOxLNyQ>
+    <xmx:8E6Lam9-01NBZiS6Y9r7gWfc9ey2GJcGtvqQOv5z8098NlmqwSnj6g>
+    <xmx:8U6Laruj9DN9mm4zjg8UOMRpgH4lJrT19_MbtFw5OkN0MGUCz_v865xz>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 23 Aug 2026 15:50:07 -0400 (EDT)
+Date: Sun, 23 Aug 2026 21:50:05 +0200
+From: Janne Grunau <j@jannau.net>
+To: Sasha Finkelstein <k@chaosmail.tech>
+Cc: Sven Peter <sven@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Alyssa Milburn <amilburn@zall.org>
+Subject: Re: [PATCH v5 2/3] usb: typec: tipd: Factor out i2c specifics
+Message-ID: <20260823195005.GA773834@robin.jannau.net>
+References: <20260821-tipd-ace3-v5-0-3244ed3bdc3f@chaosmail.tech>
+ <20260821-tipd-ace3-v5-2-3244ed3bdc3f@chaosmail.tech>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260821-tipd-ace3-v5-2-3244ed3bdc3f@chaosmail.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_121939_804551_900C5211 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20260823_125015_912530_8625825C 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,49 +113,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Johan,
-
-Am Sonntag, 23. August 2026, 14:29:09 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb Johan Jonker:
-> A validate_blend_mode_for_alpha_formats() function was added that
-> fills the kernel log with warnings for Rockchip VOP version 1 SoCs.
-> Add a drm_plane_create_blend_mode_property() function as fix.
-
-This is missing explanation on why PIXEL_NONE is the correct value.
-
-VOP2 seems to support all 3 blend modes? So a sentece explaining
-the pixel_none value would be helpful.
-
-
-Heiko
-
-> Signed-off-by: Johan Jonker <jbx6244@gmail.com>
+On Fri, Aug 21, 2026 at 10:26:20AM +0200, Sasha Finkelstein wrote:
+> From: Alyssa Milburn <amilburn@zall.org>
+> 
+> Make the core driver more bus-agnostic to prepare for SPMI variants of
+> the tipd chip
+> 
+> Signed-off-by: Alyssa Milburn <amilburn@zall.org>
+> Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 > ---
->=20
-> https://lore.kernel.org/all/20260526181700.25310-3-leandro.ribeiro@collab=
-ora.com/
-> ---
->  drivers/gpu/drm/rockchip/rockchip_drm_vop.c | 2 ++
->  1 file changed, 2 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c b/drivers/gpu/dr=
-m/rockchip/rockchip_drm_vop.c
-> index 0090d8ff0c79..0bc5b606f021 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-> @@ -1850,6 +1850,8 @@ static void vop_plane_add_properties(struct drm_pla=
-ne *plane,
->  	if (flags)
->  		drm_plane_create_rotation_property(plane, DRM_MODE_ROTATE_0,
->  						   DRM_MODE_ROTATE_0 | flags);
-> +	drm_plane_create_blend_mode_property(plane,
-> +					     BIT(DRM_MODE_BLEND_PIXEL_NONE));
->  }
-> =20
->  static int vop_create_crtc(struct vop *vop)
->=20
+>  drivers/usb/typec/tipd/Kconfig    |   8 +++--
+>  drivers/usb/typec/tipd/Makefile   |  11 ++++---
+>  drivers/usb/typec/tipd/core.c     | 230 ++++++++++++++++++++++++-----------------------------------------------------------------------------------------------------------------------
+>  drivers/usb/typec/tipd/i2c.c      | 106 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>  drivers/usb/typec/tipd/tps6598x.h | 123 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>  5 files changed, 280 insertions(+), 198 deletions(-)
+> 
+> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
+> index 522f56742aa9..36fccd45858b 100644
+> --- a/drivers/usb/typec/tipd/core.c
+> +++ b/drivers/usb/typec/tipd/core.c
+> @@ -2085,33 +1950,14 @@ static const struct tipd_data tps25750_data = {
+>  	.connect = tps6598x_connect,
+>  };
+>  
+> -static const struct of_device_id tps6598x_of_match[] = {
+> -	{ .compatible = "ti,tps6598x", &tps6598x_data},
+> -	{ .compatible = "ti,tps66993", &tps66993_data},
+> -	{ .compatible = "apple,cd321x", &cd321x_data},
+> -	{ .compatible = "ti,tps25750", &tps25750_data},
+> -	{}
+> -};
+> -MODULE_DEVICE_TABLE(of, tps6598x_of_match);
+> -
+> -static const struct i2c_device_id tps6598x_id[] = {
+> -	{ .name = "tps6598x", .driver_data = (kernel_ulong_t)&tps6598x_data },
+> -	{ }
+> -};
+> -MODULE_DEVICE_TABLE(i2c, tps6598x_id);
+> -
+> -static struct i2c_driver tps6598x_i2c_driver = {
+> -	.driver = {
+> -		.name = "tps6598x",
+> -		.pm = &tps6598x_pm_ops,
+> -		.of_match_table = tps6598x_of_match,
+> -	},
+> -	.probe = tps6598x_probe,
+> -	.remove = tps6598x_remove,
+> -	.id_table = tps6598x_id,
+> +const struct tipd_data *tipd_hw_variants[] = {
+> +	[TIPD_VARIANT_CD321X] = &tipd_cd321x_data,
+> +	[TIPD_VARIANT_TPS6598X] = &tipd_tps6598x_data,
+> +	[TIPD_VARIANT_TPS66993] = &tipd_tps6598x_data,
 
+this should be &tipd_tps66993_data
 
-
-
+Janne
 
