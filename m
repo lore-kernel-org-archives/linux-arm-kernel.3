@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C42D2C5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 23:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EFD3C5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 23:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vmy0i3VZMA4HR325lbcOKfgC/mnsKmGPoPBOA/3Q7xg=; b=ql72Cln0c8cGc9pbieWU7JjFvV
-	RFQUUu4yVX9M9qZ15bQB/L2D0bCCVCBDXISm1jR1DeTNAtGrcTbGiYyMrvZa40CUXnoMezgytpH7Z
-	kjFR8NjprzZdP/dKWOqBwgeVHRJEjHyTxiybMyvHn97YtSUmlj/2D1zDwjjM8NjReswGfS3DCl3cY
-	3NTUgbIbBn7JtmpljAyS8l/4hU35tQPAN1w4/ga+yLvFtYEcyxITGhnMIyoIu9Wd9Guf8QqfHxlVO
-	76CmG0iceqg8v/v8GvikuoWxtZCpu3ovIWB5xulGmAMipXKQUTIQt201RAAFC7UqXyIaDlJaaKN92
-	3pqY624A==;
+	bh=RxJ7bJC9fshEg18tC8CqCMJJPORI/U6b98X15Dyh4Vc=; b=KvHxhjjamQufIF3+8sX8dhbZSp
+	BHfKv+JRwSBgMzkZ1ILsn0oexrptwx5UEtUEyehd2cR7V1yRasjsGoxZkZKwltViduAyZsYBya38B
+	mgymdA8TJDn6p1I9p6jEjETMp0IBth9+NADP2F09QTPXc58C5vmWMZN1e1Ak4PC0xpAbhrivrA4Jq
+	zXkIryWsqr4WzDvqyRkNqWffduom312PI+juwlvzzahHuKovElTWGtwuybWUiGQReLy9TwhTwUQsW
+	Y7mUZzpsE7Uk+ejes+y+1z1o6kpOdgvPmTEXrdXGWySe94DiBLrPytXGMprMiBOxoMfXDtP0gqCXN
+	CiBScfRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyHsk-0000000FgjT-2Wpf;
-	Sun, 23 Aug 2026 23:45:42 +0000
-Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
+	id 1wyHuS-0000000FgtA-3RoI;
+	Sun, 23 Aug 2026 23:47:28 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyHsi-0000000Fgj4-2aV0
+	id 1wyHuQ-0000000Fgsp-2ijj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 23:45:41 +0000
-Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-8efb708b1a0so17532676d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 16:45:40 -0700 (PDT)
+	Sun, 23 Aug 2026 23:47:27 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-51c2a818fc4so18954281cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 16:47:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787528739; x=1788133539; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1787528845; x=1788133645; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vmy0i3VZMA4HR325lbcOKfgC/mnsKmGPoPBOA/3Q7xg=;
-        b=KWmQJ1b61/OEi74e47ME3uW+rffVqhiTKqU3km8iqntZKZinYBQOcAeHAZfvhD8/iH
-         dyFCnu3ZARzXeGCW7dMyoTpdN/GxjCJ1sa8L18/oh1W0Kfo//2iG+rlHkPfNzhnj3O/x
-         JV5EAhpFJkv64VA75+VbYJ37v7Nxc495QnRkZsXKUDBWla3N/1OoEKicoiaap7EH8phF
-         nReddiR+Btm6m9jZrbnpyWN1Gqr/VMxhVByAO7AMR3SO5P3L6gwNJwbwaVQ/C22TjO+E
-         uzM1Kr6o4ibVQKdeXJmCJGIT+l01dlo0aRzL8IICKztLk1VN4d9cW9Qm7anKlF/dGPPc
-         aBfA==
+        bh=RxJ7bJC9fshEg18tC8CqCMJJPORI/U6b98X15Dyh4Vc=;
+        b=AYG3UL+woWdmvgbjxObhqcptD6b3smnhxeWKHcr8ljjR/6Oa/h8zwwBd220EQbZxhn
+         59HuknviImPKM9aMt9kpgJs8EqvPLYOukU5uesw16AKSjucdihHCCrSZdnomdU539o/a
+         w5W3Chedxoa/Mo9PkbxaOzx/AMHZ4Qlb8IlT/QOVozLsj5h5yZvv1bG3t1C+WvK44Et4
+         U6Eulq09xpFO9USss5GqbadZEl3jh3W11mzt2PBIclaX71sOL3WoNznLBw2k5UPNwQIG
+         bDoyMTPWnukyKHQo6JJPpvLHSxQhVErfV3OgqVbI9Y85xO/fWrykxjzb/tepOL8HlBoH
+         mfjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787528739; x=1788133539;
+        d=1e100.net; s=20251104; t=1787528845; x=1788133645;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vmy0i3VZMA4HR325lbcOKfgC/mnsKmGPoPBOA/3Q7xg=;
-        b=GR03sXlihwoutujLIkrspexcffi8kUMvmPVZkLmBKv2N2K3S8VScPYIVLMTBfu+1q7
-         4R+CfyqJKhP+/CAJlLsuS2sDXtYncupnQydFUdxAvMaJ3pVUd7DK01L4LRaKPMzduS60
-         tVRymtaSSmWAIlxfZrR/hYwzrAOT8MwAGuEYGjfbuy09H8aouZIiT25NqJlJVx0BcoZn
-         0FnFIPdziyxhoF5G6pETsvO/QCi29hpO1TLhx7t6sYzgG/NrINoO5WmBQet10kYbN4Mw
-         ridNSPB1YyZlCB1Ql8f+MML2MHv39YRf4WuS+o0Djm+lNVCjYQFusdyYh6ZO6lrnP4zx
-         JAOQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpsQfymySHBp1v3OLmmDtwxB4K3YXxCYaWaPZ1w+cBLBgmYAYql1S0yyXNuAXSgHYost/zcZWsR3+CNPRak5X1p@lists.infradead.org
-X-Gm-Message-State: AFuF++kan6eB4S7cMx1V6XW8YnJyz2WewrD9qFJzU6yigs5if6Z75FpU
-	Yudn2Y0duMVjKgXUCeVv26XljkCXT3OMeA8uC35F5DUm+byWe1ZMROb5
-X-Gm-Gg: AR+sD10MySUFWC0qi0BlqLl6589g6CPyaYYOyK6vaOCzfX7+dr9eK8KoqY3hZs9nl1d
-	h121+jYkizKdd5UGefW3nLUnvWaeGx3qbFWSotmD/P2tqcfXKtvQj0//pEcmK9iszdtk9dFmZ9M
-	xpqSIuJxVvrYkGFDoTODvoymv/FtZCKQzPEzJXDdUNSvv+3woOATvslubo7p2fA4U0szzLUmwMp
-	o1WRID3jnJHJbQcr/7Lrb3OQGzECW5FeF9RDVtg+6vpQINVvJNx4RwfF4zEVCvZiF7ngN2CLvqU
-	b0In5uDlaqMAmcYlf68HbBb+0CJlyl5Bnk7wRLI7e8dJfI5B7nlySoisdIiDjjuW6kBv23nkL7j
-	asoZQ59B8Yy4b3BsyV1kneTvpS3bgGHr/XzBBCkN3D/4wib7W1uBm0yLuuyUaKXtSgHMr/4/hwB
-	MJg9qcGwAuc/tHtG8a/YNiDPSDKLXVbEiIiu62CezpuYQilHA3MtSinMxGsGISwF9GrZsrCqsWC
-	j8T+HEe8XpIv+BCwhbjRzIXLCtz+LmbuIdkDpoL1fd3ba6Hi/fEOMnLnMRE/nQEPdpjBfiD0HTD
-	cbQVXh5KiS4fDCTX8ES9mnhgtDk3O+5u8/nyIg==
-X-Received: by 2002:ac8:5916:0:b0:50d:e471:2d1e with SMTP id d75a77b69052e-52df5a7e229mr226286061cf.35.1787528739209;
-        Sun, 23 Aug 2026 16:45:39 -0700 (PDT)
+        bh=RxJ7bJC9fshEg18tC8CqCMJJPORI/U6b98X15Dyh4Vc=;
+        b=StD0pFVipmKEq8AguXqd8kDVGObaP8WaUY8w5CEHGqR0vb+XE3Wx6nTMjqp1vC3TqE
+         PiDZEz0L5DMvlpdygI0ilYkIk1f0jwgSmuKFLoNdMrLcMEqGQCCW9qcdqMVfBesAXNWb
+         mGToyk77m1nMjZI7I3uzUeB009nw5PmoRbiQLA5d2iqveIKiXWXNd00voDaUW+5W+xsJ
+         +fcWC16Ano9CWyR7Z3T/XDKheqLnmAQOUMV6hhVGBbzDW4v7Xg2tcLcVffivZCe1LoHM
+         mcRKPL4zoIyWkJdr42cUszuP0nSfBmbu16DLTn4WBJVBzYrqTOab+FH+xSopoKh9FZYZ
+         yBBg==
+X-Forwarded-Encrypted: i=1; AHgh+Rp7L/YzRRtjzmkWvA8q4s32d2klfVz6N6gpCErDCQrKN4UB7/yi2qudl+ZUSxPbrq8Pkny/C5mVglu4oqc7k71v@lists.infradead.org
+X-Gm-Message-State: AFuF++nlsr6YJeOZL1lSpkrnVjm0zFFby3Gt21hb2IP17vNlWAtT3pjJ
+	rs2HZL3rG0q+WfuDkPE9KZHX5WruZ83GzAlbyyiu1LLXZse1plTKnrGB
+X-Gm-Gg: AR+sD12QfGinWBX8kN9GY++u7A61N7f61KXtvmuql/fOcMnSTM9Z56F5nQUfp+3OhkP
+	UO1hrr62u0uI4rDKMdx//4KFnhhN/c7nLhw+GnDkl3j6/hte7bw/FmcXAXEJiUudaI6Gb0t4cTY
+	nTkXlAalzVHKFtiY9yCvOr0IQUuSkjl+92IkPIKr+lgTU/BY6TGHfaKw4UtSpauH8NqRa5FaAKO
+	DGJFOuhK+PpqR3PtTIglgDPyur/+BKI/w73x6LLCq/+5ta1oulSQ4/kwOg32dVboIMbpnw6IkQB
+	cgYTu5MkODyi36ze6oIMqSLPJyaeZ3lpY3EABcnCZTBlkPC7+pzkNzNE01tHih6kSaHFA3g2qSA
+	XBC9J3oKvAUFZHoJHc/5IY5Zmk+OGd+D1Td0PXcdtB6GyDkysAluAUssymdk3tZR9FwyPQEezaO
+	O/lKkEB1p7XnvM1o9ChKAbkRYZKBZrrzf4pOB2H9W07W73zwZZy+iuCDfA2uM25adPJsM/NJRB0
+	0cpTV+7ZQU5TicwIIf4/1elVbElwAHKuR/at5jKoVRbhL8OtZ4g5fUwKHUGB0NyuDaGj4topvVK
+	CLI+9gzbT+uoC1hJzv+jxGEp5s4e1mWzOXiRKg==
+X-Received: by 2002:a05:622a:1c0c:b0:51c:a8:51cd with SMTP id d75a77b69052e-52e09b81035mr153613501cf.1.1787528845452;
+        Sun, 23 Aug 2026 16:47:25 -0700 (PDT)
 Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52e099baf17sm36510031cf.12.2026.08.23.16.45.36
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52e09aad030sm36778851cf.15.2026.08.23.16.47.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Aug 2026 16:45:38 -0700 (PDT)
+        Sun, 23 Aug 2026 16:47:24 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: devicetree@vger.kernel.org
 Cc: Andrew Lunn <andrew@lunn.ch>,
@@ -78,18 +78,17 @@ Cc: Andrew Lunn <andrew@lunn.ch>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Baruch Siach <baruch@tkos.co.il>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,...),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] ARM: dts: armada-385-clearfog-gtr: fix vmmc property name
-Date: Sun, 23 Aug 2026 16:45:35 -0700
-Message-ID: <20260823234535.72052-1-rosenp@gmail.com>
+Subject: [PATCH] ARM: dts: marvell: add missing SDHCI clock-names
+Date: Sun, 23 Aug 2026 16:47:21 -0700
+Message-ID: <20260823234721.72903-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_164540_654889_D14378D7 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20260823_164726_719426_A2CBDE04 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,30 +103,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SDHCI node references the 3.3V regulator through a bare "vmmc"
-property, which is not part of the mmc controller DT binding; the
-correct property is "vmmc-supply".
+The marvell,armada-380-sdhci binding requires "clock-names", and
+the sdhci-pxav3 driver requests its io clock by name before falling
+back to an unnamed lookup. Both Armada 38x and 39x nodes only carry
+an unnamed clocks reference, so dtbs_check reports "'clock-names'
+is a required property" on every board.
 
-Fixes: aecc313490ae ("ARM: dts: mvebu: add support for SolidRun Clearfog GTR")
+Add clock-names = "io" to both nodes. No functional change: the
+driver already obtains the clock through its fallback.
+
 Assisted-by: opencode:big-pickle
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- arch/arm/boot/dts/marvell/armada-385-clearfog-gtr.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm/boot/dts/marvell/armada-38x.dtsi | 1 +
+ arch/arm/boot/dts/marvell/armada-39x.dtsi | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/arch/arm/boot/dts/marvell/armada-385-clearfog-gtr.dtsi b/arch/arm/boot/dts/marvell/armada-385-clearfog-gtr.dtsi
-index 48b09df53c60..3262b726a1c7 100644
---- a/arch/arm/boot/dts/marvell/armada-385-clearfog-gtr.dtsi
-+++ b/arch/arm/boot/dts/marvell/armada-385-clearfog-gtr.dtsi
-@@ -235,7 +235,7 @@ mmc@d8000 {
- 				pinctrl-0 = <&cf_gtr_sdhci_pins>;
- 				pinctrl-names = "default";
- 				status = "okay";
--				vmmc = <&reg_3p3v>;
-+				vmmc-supply = <&reg_3p3v>;
- 				wp-inverted;
+diff --git a/arch/arm/boot/dts/marvell/armada-38x.dtsi b/arch/arm/boot/dts/marvell/armada-38x.dtsi
+index 1155bee20523..598022645dd2 100644
+--- a/arch/arm/boot/dts/marvell/armada-38x.dtsi
++++ b/arch/arm/boot/dts/marvell/armada-38x.dtsi
+@@ -627,6 +627,7 @@ sdhci: mmc@d8000 {
+ 					<0x18454 0x4>;
+ 				interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+ 				clocks = <&gateclk 17>;
++				clock-names = "io";
+ 				mrvl,clk-delay-cycles = <0x1F>;
+ 				status = "disabled";
  			};
- 
+diff --git a/arch/arm/boot/dts/marvell/armada-39x.dtsi b/arch/arm/boot/dts/marvell/armada-39x.dtsi
+index 218fcf99ae07..81dd4ca5fbc9 100644
+--- a/arch/arm/boot/dts/marvell/armada-39x.dtsi
++++ b/arch/arm/boot/dts/marvell/armada-39x.dtsi
+@@ -381,6 +381,7 @@ mmc@d8000 {
+ 					<0x18454 0x4>;
+ 				interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+ 				clocks = <&gateclk 17>;
++				clock-names = "io";
+ 				mrvl,clk-delay-cycles = <0x1F>;
+ 				status = "disabled";
+ 			};
 -- 
 2.55.0
 
