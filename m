@@ -4,61 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B93C5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 01:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B85CCC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 04:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eGjo9W1zeaNUaxcyVSx22a5cPQpUD8Dq7hycGs4Q1Vc=; b=kOL5GyAeU9RfFjDvawbhFhCzWf
-	22VlVg2EoNW08yZ8Hi0XC3ozWK5ed10ijjtjjrCNfTLdgUBhhStQXTJhx9cQuY9PK5SeWIYvcJYCz
-	4ahhy2pIlVz6x9koNl9EdaGBeK7Zcg5WyxmJu/6H6ilz1x1fywpi9XQkpd1R5jRNesRwfTHqjFIL1
-	CS0gSSnbIHaGXRtF7rxN3Dlgy0PqiS9UDChkY+/AbdTzKf5ChSviYY+ky7gSTciqkJ08U9d55xUw9
-	IGauaAu1rZSN/S9B9iz1uSI1DVgbpzdkVW6mAtBzCt67flWkUYPiVLM/y1tWrFgbHTxhLdDFdzvTk
-	7oqztQkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZSqjSSah5KBgALutr0hY72c4Zb4Ws8WYQo3Q/l3ach8=; b=5D+APQPKADW1dCvimQlmLmUqz6
+	HfPbfw8JzV734QoL9KbaAGZZBVnsHdtB7lB6mlQTc6Z3DJ0OZ3tdiTO1pWJTBgiMNhPhQ2W6TM72/
+	FBS+cs0Jn5+6Ue4aaq2gSJ/AuKt9O+1fOgqsNL7sBkoC/JMbdcwuAbsTvIBq0JGyW9lYKW/DxOsLJ
+	4X/PHlh97asa7Nv7gcHyOW+M7N+IO9IrUUsVgxIWZG5iRoXoVLDoypYBY164Jh1IhfyBHQNu01mtU
+	3esFiYnq0PQPL60juUp/Dp3cjt/qaOhkQzIdnBVGGW/zoOfNPi/iLEP79j5qBXzyhiry83oJU+Xnj
+	t6p5WUzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxxRa-0000000EzIe-1I93;
-	Sun, 23 Aug 2026 01:56:18 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1wy04a-0000000F4GE-1Ekl;
+	Sun, 23 Aug 2026 04:44:44 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxxRU-0000000EzIC-3oth;
-	Sun, 23 Aug 2026 01:56:16 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1wxxRA-000000006xL-2s0B;
-	Sun, 23 Aug 2026 01:55:52 +0000
-Date: Sun, 23 Aug 2026 02:55:48 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Aleksei Sviridkin <f@lex.la>
-Cc: "Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
-	Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
-	Qingfang Deng <dqfext@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net 2/2] net: ethernet: mtk_eth_soc: populate
- lpi_interfaces to fix EEE support
-Message-ID: <aopGvtyZ_208mrXu@makrotopia.org>
-References: <20260822195252.2934-1-f@lex.la>
- <20260822195252.2934-3-f@lex.la>
+	id 1wy04X-0000000F4Fg-2aJw
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 23 Aug 2026 04:44:43 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-c15d111ca99so273699466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 21:44:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787460280; cv=none;
+        d=google.com; s=arc-20260327;
+        b=P6F8f60etZJgps9/z4WZUQzg8Yu9zht8GRMpePhydD3jkGb6YVeBUzvaV5lizlYVPp
+         S/JqLMDlGS0pJ3BbfdcDxZuSb1lDVjip5ojuD6jVn1DU6c21YJNaE67ZF0MwfaE+7MbO
+         dsiBu6Gt3t+kJGxZ9HRnJ7Wi+0PyGuaWvk84DGLfcN8pLkvxrRq8mzckASoD85DT+uPV
+         L+lTgM0UU2Gg1deg5vFTB0zMMdC4b6JshKdrJoGXad5pKxTuIhuPCCZZZ6KkcndlAqB7
+         bKeDLQFee21KUfP+finc6SAErEmEqctlMnlEf7DDvVb80U0K2E8fh3bfTIeGNnO9EWfC
+         OM3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ZSqjSSah5KBgALutr0hY72c4Zb4Ws8WYQo3Q/l3ach8=;
+        fh=FC5BwoAVkt3n4GMpJKYQBLTHSTHnnYzLNOu+EiLuXCI=;
+        b=m9B5yfDonsoUFUh/z9+HlbjlWvEFJ407uaKdkj+Lc3B584PjoemdNh0Q19Y8tffCnm
+         cdVoicr9vHxX/bg/lw5Sav538K3I/ZnFMoUa9NUkLURDN9ksBdQbiSNkh2S1u+gIMOb4
+         aSxblgEnpXWwBNcy9Uc/UD/MiOjOJfwNIuLMuU0BvAweWv0KIhltv0Dj5G0pKe7KqLm0
+         0EZxTg83df4RTt5kzK+aKWcfSYwdU/o+ORpSWEfMRrZM50dXZpyDAHNDnZ3iGRITacli
+         zi0zyzFoioD2pBGefalZ/QIRq2SUjxxRjJbSUEtzN76PgYDzVucK2PTWlpU98AfBKU9s
+         0+qA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787460280; x=1788065080; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZSqjSSah5KBgALutr0hY72c4Zb4Ws8WYQo3Q/l3ach8=;
+        b=JYvp32GEKZ/I/fkiu9Tdq8vLwTbEw5gCE7rCD0DaLQ2RL1wI3c3k2SKo603Ij21jo7
+         6esNLMrwWzSkMR/WUNuLny8pSIeMbr299V6UBaWU/ynt+PWqW2O2nhb9ekU06VzwelYT
+         2ddGktv1RIKSWlEhVS88DXsY8iTk/YcmqDuKCTavSegBUcFCJYOTxcbIM18sstC6LMWe
+         7i5SONM2CMaZLOXUPlCHW5N7LxgXafOsQCximP1gDKr8T5MH069HmqmcXYqRrjcmRvo5
+         kpB6cNJPgrGv92VaMPP7C7yreEWihGt97e1fPNqsnRrWFj/se3r/KBI/FknJE50U7RfC
+         XiVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787460280; x=1788065080;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZSqjSSah5KBgALutr0hY72c4Zb4Ws8WYQo3Q/l3ach8=;
+        b=FpaLxG5v9azxaKkjnIrL4LJTkzov7UL8TUT7NQlhxee2lRpVk1UJuvNLrynmq7+KOg
+         QrGosdTtnCp5PThTibVJg6zV0dukNukaRjcfRypwqkBUSAhn3t+qgYYN2S6+eaRdBbdX
+         8fFyiE17m4HMW5DbEryuPF+98iU5BDceCckJJeThaqFzFUQKCuEYb6jdnGPwWaV6G6hg
+         iRejc2vr44H5DSQnHPxXMzkPMIcMdSSpY7DMTdRFt2IS52jjmD09Tg/lBdwQSfUTFl6n
+         Rwp6vZWDxRt9z71v2WXvK9k9W+lqyYik/sZyjuTp0ZDNMqCDYxpuK9A+7GS175Zae5JI
+         A1Cw==
+X-Forwarded-Encrypted: i=1; AHgh+Ro7bnql1ztnhOWqK91K4yCGB+rGsDjHEb34JQ8FXQQYUGIBh1cvE/fnp2FNd5A3iIQ92YtATzH0LHYXEdl0KcFA@lists.infradead.org
+X-Gm-Message-State: AFuF++lMAVeKkV2LTE9GmN2hS8wAAwCiAX9V4c3k/ZGzxljmGc4PFyuK
+	aTN0Nxz5x3x4iLRp82rP8kUg0l927whQqx1WjXdmqeiKRf29l/lXCGvX2JS9VbdC9PDqaWLKn9J
+	/Eh+bjkVNLFBeuZBCnUhPm422NT/1WpA=
+X-Gm-Gg: AR+sD10v3eXl9xA+hvvNiKXlF4eezscXsTu3gNirxHwobswxhKMMGXc9z40pRDPTywh
+	EKzse3AeO2tEsg9hzps3zab8vhI9OW7oEHuYhq+WsNC1F2zcoOz3Fd6K0dxMuehwXojVNqYIzQi
+	KRqENBvcY2Yhl609mIl8bAuslMCh6UvTAXjq4W3XCim0GbzptNJwLl94zlFuCsnoAZQ7H+lJWo7
+	kqdhTu7b6PlvNIrCt+SLusSYBRulao9WKvM6PCp8BBBWlV9r3xz4pzH7nX8LteRFduqivHAw3p9
+	T9UY5ryMb9YhHOlFuwPaKVxmOYIFd2paLBJw/FXkdnx+96mqIY2YCFkXZV0HVJY4SiP65cyslih
+	xxlwmtFcK5KH3BoB18YwDlHqD1G5hR+GY0FL4fsrEoCs5YMKsmAwPER4Ije2KNySajdHeOcHTbn
+	pooE5qxc1xBCRh0SQl9zMibJtNJJLmTWazsxYrbea9de9ed8oCMr/ERaXz
+X-Received: by 2002:a17:907:8990:b0:c20:3679:a2e6 with SMTP id
+ a640c23a62f3a-c24925eb3ffmr1126262966b.10.1787460279494; Sat, 22 Aug 2026
+ 21:44:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260822195252.2934-3-f@lex.la>
+References: <20260504031209.618949-1-rosenp@gmail.com> <20260506110910.su2s6ncsi2xfdiwm@pureblood>
+ <CAKxU2N8PUdxo54oHtcroqe+Q88k0obxPg_9OCRsNsoOwvcS25Q@mail.gmail.com> <20260630123029.ozveska7eoenci3s@unturned>
+In-Reply-To: <20260630123029.ozveska7eoenci3s@unturned>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Sat, 22 Aug 2026 21:44:27 -0700
+X-Gm-Features: AcwNN1WOqpjNvvrbFuuZdDr0EWOQvQOz6eBeeTVou_Zk_7DEeqlQ6lYFj7PXzJE
+Message-ID: <CAKxU2N9wE48D2WLPvta98kB6xXciOdvpOzgGrnS9kkBHYfUwXA@mail.gmail.com>
+Subject: Re: [PATCHv2] firmware: ti_sci: simplify resource allocation
+To: Nishanth Menon <nm@ti.com>
+Cc: dmaengine@vger.kernel.org, Peter Ujfalusi <peter.ujfalusi@gmail.com>, 
+	Vignesh R <vigneshr@ti.com>, Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+	Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_185612_955405_FFFA8A34 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20260822_214441_701008_754AD2DF 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,77 +123,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Aleksei,
-
-On Sat, Aug 22, 2026 at 10:52:52PM +0300, Aleksei Sviridkin wrote:
-> mtk_add_mac() fills in phylink_config.lpi_capabilities and
-> phylink_config.lpi_timer_default, but never populates
-> phylink_config.lpi_interfaces. phylink only treats a MAC as supporting
-> phylink managed EEE when the tx_lpi methods are implemented and both
-> the LPI capabilities and the LPI interfaces are non-empty, so EEE is
-> unavailable on every MAC that uses mtk_phylink_ops:
-
-Thank you for tracking this down. The missing lpi_interfaces and the
-placement after the SoC specific fixups look correct to me, and so
-does keeping the xGMII modes out of the mask, given that
-mtk_mac_enable_tx_lpi() refuses them.
-
-[...]
-> This also makes lpi_capabilities take effect for the first time, so
-> correct its value in the same change. MAC_MCR only has EEE force bits
-> for 100 Mbps (MAC_MCR_EEE100M) and 1 Gbps (MAC_MCR_EEE1G), and
-> MAC_EEECR only carries wakeup times for those two speeds
-> (MAC_EEE_WAKEUP_TIME_100, MAC_EEE_WAKEUP_TIME_1000), so the MAC cannot
-> signal LPI at 2.5 Gbps: drop MAC_2500FD. Correcting the value here
-[...]
-
-This conclusion does not follow from the register layout. MAC_MCR has
-no 2.5 Gbps speed setting either: FORCE_SPD is a 2-bit field with
-2'b00=10M, 2'b01=100M, 2'b10=1000M and 2'b11 reserved, and SPD_STATUS
-in the MAC status register knows the same three speeds (MT7988A
-register manual, GMAC chapter, MAC_Px_MCR/MAC_Px_SR). This is why
-mtk_gdm_mac_link_up() programs MAC_MCR_SPEED_1000 for SPEED_2500:
-2500Base-X on this hardware is 1000Base-X run at 2.5 times the clock,
-the MAC operates in its 1000M mode and does not know the difference.
-By the same "no bit, hence no support" logic the MAC could not do
-2.5 Gbps at all.
-
-FORCE_EEE1G is therefore the bit which would govern LPI on a
-2500Base-X link, and whether that works in practice is simply
-untested. That was also the assumption in the original submission:
-v2 of the EEE patch, before the conversion to phylink managed EEE,
-had
-
-		case SPEED_2500:
-		case SPEED_1000:
-			mcr |= MAC_MCR_EEE1G;
-
-so MAC_2500FD in lpi_capabilities was not an accident [1].
-
-The AN8855 comparison in patch 1/2 points the same way: its PMCR has
-a 3-bit FORCE_SPEED field with a discrete 2500 encoding next to
-AN8855_PMCR_FORCE_EEE2P5G, while mt753x folds SPEED_2500 (and even
-SPEED_10000) onto PMCR_FORCE_SPEED_1000. AN8855 grew per-speed EEE
-bits together with per-speed speed encodings; their absence on MT7531
-follows from the absent speed encodings and tells us nothing about
-LPI in the overclocked 1G mode.
-
-There are still good reasons to leave 2.5 Gbps out for now: MediaTek's
-current SDK driver only sets the EEE force bits for 100M and 1G link
-speed, EEE signalling on 2500Base-X is outside 802.3, and it is not
-documented whether the 1us unit of the wakeup timers still holds with
-the port clock at 2.5 times the rate. So I am fine with the resulting
-masks in both patches, just please reword "the MAC cannot signal LPI
-at 2.5 Gbps" to say unvalidated rather than impossible, in both
-commit messages, before someone quotes it as a hardware fact.
-
-If FORCE_EEE1G does work on the overclocked link, the rate matched
-EN8811H port from your cover letter would be exactly the setup to
-benefit, so this seems worth an experiment at some point.
-
-[1] https://lore.kernel.org/all/20250210125246.1950142-1-dqfext@gmail.com/
-
-Cheers,
-
-Daniel
+On Tue, Jun 30, 2026 at 5:30=E2=80=AFAM Nishanth Menon <nm@ti.com> wrote:
+>
+> On 18:42-20260629, Rosen Penev wrote:
+> > On Wed, May 6, 2026 at 4:09=E2=80=AFAM Nishanth Menon <nm@ti.com> wrote=
+:
+> > >
+> > > For some reason, replying drops the CC list. manually added them in.
+> > Found the issue:
+> >
+> > https://lore.kernel.org/lkml/20260630014129.1548147-1-rosenp@gmail.com/=
+T/#u
+>
+>
+> Please repost with additionally CC LAKML and the TISCI maintainers for
+> the patch, this would go through my tree.
+https://lore.kernel.org/dmaengine/20260630013917.1537819-1-rosenp@gmail.com=
+/
+>
+> --
+> Regards,
+> Nishanth Menon
+> Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DD=
+B5 849D 1736 249D
+> https://ti.com/opensource
 
