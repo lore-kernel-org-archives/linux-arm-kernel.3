@@ -4,77 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7895C5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 06:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FF6BC5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 07:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4zZ964UaOcqM6aIvLP+DeBwxQG6DN76Q94+laK2Fad4=; b=ThH/y0GlIL3+PScz4AJM0ENzKQ
-	fhsH2ps+hBMwoEDdDMzzziZBjOZVlWDtccyXN8mFJcg+NnCwjq3K08KrYUKDjnBEPOngDczSRkU5H
-	2Fms1SSQNNzU25deUdop3VnSp32U0CFMXh1IogQDOp+A4n/XFvli5y5FHdX8lxOKDtrlhoY7XPDYu
-	ppP/yGYIA38JwxYADEQ6kc4xQMCoeHg5aDTbon07SGm7ER9+cmevF6c/IUqxnM7E64hvWPsOidThK
-	RWzaT9zRqjVGJBPgDb98xFfq3OMscSKFeX6Q7CmkB5MC+nigfVvm+Z+Yqfl79/P0dgKa3cMm6LCQw
-	sHfPqOTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PpvEmSfetcKu58vemKhIVNLIz2Kr8KQYzNtwaCQIwdM=; b=jtkVO+gxEgmZH9u8U6NhW+6W7f
+	Ai5/Dezw8WeTgigN3McHUd7xlS7YmnAdxW0tBfJVpRYOE/x3sdbS4CIIFpV+yvQ/6BxznXSxrpUVp
+	d9T2+IaM4N1dW0DlR39tDcXyWbnn9t5kWgDzwoGkpTifx29Mt0D6lZ7U2bkRWo5D5xqC/Vpm2nBM5
+	eH1nBBJq00/cwoKTZmKj0MCqMNNEcEwK3trHtp3Irn8uYlfeiZbUPIBp0LOD/NWqzlx/nepoUHbVZ
+	sGLtfmHeCCdWtekoI2rHFSGX4D+CmK8qHhMh+OdygGQkczl2lTK9V0NPAwr/S9FezblhIaMTRjRy3
+	f9HGDaEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy1fu-0000000F7dn-3oxs;
-	Sun, 23 Aug 2026 06:27:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wy2My-0000000F8O1-1J0B;
+	Sun, 23 Aug 2026 07:11:52 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy1ft-0000000F7dW-1dPI;
-	Sun, 23 Aug 2026 06:27:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1EA6760008;
-	Sun, 23 Aug 2026 06:27:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D7F41F000E9;
-	Sun, 23 Aug 2026 06:27:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787466439;
-	bh=4zZ964UaOcqM6aIvLP+DeBwxQG6DN76Q94+laK2Fad4=;
-	h=From:Date:Subject:To:Cc;
-	b=TGY2e4QO+Z9kVs0AgtHsqhw1zDiHU3+6xDoMX2i6/dgHwFp4asR/MJX+1tPIeHn1p
-	 KAejm6pC0LKkWtENq3YrDesupEtH082B5QA0vuY+WAXFllVqTBdfW22ZzOKrw+aBFP
-	 JStGAXQFpg6SSYxSzAYO7akYvlk6l+B000SV6ORA3Xya/VloWGJ89Na8A0rVRfMGOe
-	 7Xv7p4uuDPCxNlj3oW/5alh5GMAsEdoPDLFw2I/ArasNwj4/7OyCbG4sQ8h+nxLl73
-	 ka/47JM8b01UE7cd2qv5m1uryg7Q+uurtxb/UQc8o1vTXqUIHPMyZGqm6Di7n5EoyR
-	 TmRW7V9ydbD6g==
-From: Eugen Hristev <ehristev@kernel.org>
-Date: Sun, 23 Aug 2026 09:27:09 +0300
-Subject: [PATCH v4] media: bcm2835-unicam: Fix log status runtime access
+	id 1wy2Mv-0000000F8Ne-3mWr
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 23 Aug 2026 07:11:51 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-cbe827e3cb4so2797551a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 00:11:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787469109; x=1788073909; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PpvEmSfetcKu58vemKhIVNLIz2Kr8KQYzNtwaCQIwdM=;
+        b=mYxmdbrRedSy6HJwOHbb/Q18TrRRpCA+/sJsdndXT9MyBiZxR+RuqS3caGdFmrlht6
+         0QQL9uHGm2+gvm6eAfWpDbIrTFraTcOqLMAxIZDXmAPJ9L05cgFWzh3DFl1w3G8AfemE
+         xOxcwG97iLYxU3sWo7fs68G0CkxjRp/g9i+Z4afMfCnSBF/kY9Lghlfp3+LWy0fsyFxI
+         cN+ChG+0lsnoZKbfd9Gxbas5tMqebQCuZ0pO8RbEzS48KoK7TXnaIQ/3GxtPHTBQS+YU
+         cuehzkRTGAuVQG+/sowxKnduwLqkv+cQXF4AEBaYJ5lQOBlW/hPY+kWktY2bfgCOzYgS
+         G0Sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787469109; x=1788073909;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PpvEmSfetcKu58vemKhIVNLIz2Kr8KQYzNtwaCQIwdM=;
+        b=EzccMsyHUzj+b59wtu3DM/W3VA221cTWZQyLznW4SkQDfiE3/4ZazjU4l53wTKzgMc
+         gEFS+9GQmHV/f+vJCIH3sZSBKqRV/4kD1nEa/+h+7AzMdywenphVDEj9RY79gVOga2HE
+         Lb5il0sjvQ9OqfTn3Qq5o5rEHYMWmH0yrHhMBOMu5wJ36IkS7KmPTQGdLQLOsGS5ggtq
+         1kPsbg9Rrr5ZqX2HOJcvoV5+YYT3x+T/ulxWHGtT+i9nDLvKOox05nxTnCGjHK20AsrJ
+         hhktHFLqKk6UpLHQGzInILSXA0kW/RP7NyOF2c8KP0JRmmxpI3qLhAYHElcKTtAPWorj
+         5DQg==
+X-Forwarded-Encrypted: i=1; AHgh+RqSnVORfqLMYpxBJysTc4c+eQrAwq9DEv7konRr8BFBpQAKhIYllCRDdGOnm3SFXlGNSoAyrVC+jKksUu4x5huj@lists.infradead.org
+X-Gm-Message-State: AFuF++lLRLNazC2YXnbFO8h2cduZA+kqrsLt04iX4JOKf4N/GtlDKgMV
+	4TQdP51vu1jdbfgJLG0HkUu1rkTwQjXOWZWqFYVKPxEI0R4znoMGNpr6
+X-Gm-Gg: AR+sD133NXq/BbYvkZ7B6QVkCF0h8gkulZuvfj0g6XxjNlN4S60lBCL+vZkEvnBoME1
+	S4IC2XMshvL47elJIWw5i7+KO8+WyehPE4n2JKA4GP91xALRFjq/VDgKL6H4FJOiUWlVKUnKMT+
+	2BuFRH2buVhMq+9BKQEa4tpM16GnvID735TSpfWl+Z5eoXLpi5TkIuhDpiNSOvOKuGCOBXwOH3g
+	eiJzdh6Fcyfnt8diY8DJz9ReBl0jCZkBqF6K/xwiYu9oqUksW5R2caPpXwobjHUWZla7gqLssi3
+	3wiGizKTWroYwLcY3LixntYUatjs70ZyejcguHty8Hlf67hZ9IQblMglXUiN5EEdrjGjlYHk5JQ
+	SztdfIv3wFqF3zqE+60dBqkd1X9zCU2E4NCN8GB7yL+uRxFNewLZ6B+Lo0RhDShVUKnAhQSQqme
+	4ObpBdZkhr3J9vXFOJXGX+y8G0BEPelFLC/K5dfBWINeYTZXP9xqTJXfKotdh7QppA1KLY8ds0x
+	/ZXtb9hQbQgaRhU7TjTLCW9GUCRnvyT8m78Nm1EQ04Z48yiQtYs
+X-Received: by 2002:a05:6a00:a8c:b0:84e:d5e6:a085 with SMTP id d2e1a72fcca58-851f969b7a9mr28112156b3a.0.1787469108569;
+        Sun, 23 Aug 2026 00:11:48 -0700 (PDT)
+Received: from hanzj-mi.. (ec2-99-79-140-187.ca-central-1.compute.amazonaws.com. [99.79.140.187])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8520f149e77sm1034990b3a.42.2026.08.23.00.11.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Aug 2026 00:11:48 -0700 (PDT)
+From: hanzhijian <hanzhijian1991@gmail.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	kernel@pengutronix.de,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	hanzhijian <hanzhijian1991@gmail.com>,
+	sashiko-bot@kernel.org
+Subject: [PATCH v2] PCI: imx6: fix resource leaks in probe error paths
+Date: Sun, 23 Aug 2026 15:11:28 +0800
+Message-ID: <20260823071129.2980059-1-hanzhijian1991@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260823011125.2876504-1-hanzhijian1991@gmail.com>
+References: <20260823011125.2876504-1-hanzhijian1991@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260823-bcmpipm-v4-1-faf20d9c3e2b@kernel.org>
-X-B4-Tracking: v=1; b=H4sIALySimoC/2XNyw7CIBQE0F8xrMXwaJG68j+MC7jcKmofgUo0T
- f9dqotqXE4yZ2YkEYPHSHarkQRMPvquzaFYrwicTXtC6l3ORDChWCk4tdD0vm+ognKrcSuFrID
- kdh+w9o/30uH4yfFuLwjDzOfG2cehC8/3VeJz7381ccqpRGu0dlqzotxfMbR423ThRObZJL6hW
- KDI0EhnlAILVc3+oFyg4l+PMkNQrHIGLBNV/QOnaXoBQfimiyMBAAA=
-X-Change-ID: 20260521-bcmpipm-6c578e73239c
-To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Hans Verkuil <hverkuil@kernel.org>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-Cc: Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Eugen Hristev <ehristev@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3369; i=ehristev@kernel.org;
- h=from:subject:message-id; bh=6caN5GbikuqADZTPUPquRicuKp50Ix0df0KcUGo/32s=;
- b=owGbwMvMwCXWkjcnuXne3fmMp9WSGLK6Ju1XWH+w+K3IrHauEPFJx90dTcVjja/p7Ko9dHyv9
- LHyVUfMO0pZGMS4GGTFFFmqTf7VCvfvcD/paqkCM4eVCWQIAxenAEzEm53hf9WdrJ+/3+yelvz3
- xsU1Tdmn55tJb50/7VvTAa/uQmZHNk5Ghpd3L65K4Gppu39q0cc13ry8t3l+9B7RNq34//peGcP
- vfSwA
-X-Developer-Key: i=ehristev@kernel.org; a=openpgp;
- fpr=AB184498D27A77B65D7852C81EB31E020EAC2FC8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260823_001149_978630_5FC7A83F 
+X-CRM114-Status: GOOD (  19.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,92 +113,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When requesting log status, the block might be powered off, but registers
-are being read.
-Avoid reading the registers if the device is not resumed, thus also avoid
-powering up the device just for log status.
+imx_pcie_probe() leaks both pwrctrl devices and power domains on
+failure:
 
-Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
-Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+- imx_pcie_attach_pd() attaches the "pcie" and "pcie_phy" power domains
+  and creates device links to them, but the device links are only kept
+  in a local variable and nothing detaches the domains on probe failure
+  or deferral, so all of them leak.
+
+- A failure of devm_pm_runtime_set_active_enabled() returns directly
+  without destroying the pwrctrl devices.
+
+- A partial failure inside imx_pcie_attach_pd() leaks the power domains
+  and device links that were already attached.
+
+Save the device links, add imx_pcie_detach_pd() to release the power
+domains and device links in reverse order of acquisition, call it from
+the probe error paths, and make imx_pcie_attach_pd() release everything
+it has attached so far on failure.
+
+Reported-by: sashiko-bot@kernel.org
+Link: https://lore.kernel.org/all/20260822013640.182C01F000E9@smtp.kernel.org/
+Signed-off-by: hanzhijian <hanzhijian1991@gmail.com>
 ---
-Changes in v4:
-- rebased on latest tree, no additional change.
-- Link to v3: https://patch.msgid.link/20260611-bcmpipm-v3-1-c609dacb029f@kernel.org
+ drivers/pci/controller/dwc/pci-imx6.c | 42 ++++++++++++++++++++++++---
+ 1 file changed, 38 insertions(+), 4 deletions(-)
 
-Changes in v3:
-- Changed to check return value of pm_runtime_get_if_active() and only call
-  pm_runtime_put() if the device is active.
-- Link to v2: https://patch.msgid.link/20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org
-
-Changes in v2:
-- changed to use pm_runtime_get_if_active()
-- add corresponding put()
-- Link to v1: https://patch.msgid.link/20260521-bcmpipm-v1-1-3eba88d88045@kernel.org
-
-To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-To: Ray Jui <rjui@broadcom.com>
-To: Scott Branden <sbranden@broadcom.com>
-To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Hans Verkuil <hverkuil@kernel.org>
-To: Naushir Patuck <naush@raspberrypi.com>
-Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: linux-media@vger.kernel.org
-Cc: linux-rpi-kernel@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
----
- drivers/media/platform/broadcom/bcm2835-unicam.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-index 14bb916dd7b1..7745aee711cb 100644
---- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-+++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-@@ -2043,6 +2043,7 @@ static int unicam_log_status(struct file *file, void *fh)
- 	struct unicam_node *node = video_drvdata(file);
- 	struct unicam_device *unicam = node->dev;
- 	u32 reg;
-+	int pm_active;
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 39790e66b..a2bae4a2c 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -182,6 +182,9 @@ struct imx_pcie {
+ 	struct device		*pd_pcie;
+ 	/* power domain for pcie phy */
+ 	struct device		*pd_pcie_phy;
++	/* device links for the power domains */
++	struct device_link	*pd_link;
++	struct device_link	*pd_phy_link;
+ 	struct phy		*phy;
+ 	const struct imx_pcie_drvdata *drvdata;
  
- 	/* status for sub devices */
- 	v4l2_device_call_all(&unicam->v4l2_dev, 0, core, log_status);
-@@ -2052,6 +2053,14 @@ static int unicam_log_status(struct file *file, void *fh)
- 		 node->fmt.fmt.pix.width, node->fmt.fmt.pix.height);
- 	dev_info(unicam->dev, "V4L2 format:         %08x\n",
- 		 node->fmt.fmt.pix.pixelformat);
-+
-+	pm_active = pm_runtime_get_if_active(unicam->dev);
-+	if (!pm_active) {
-+		dev_info(unicam->dev,
-+			 "Live data N/A due to device inactive\n");
-+		return 0;
+@@ -639,6 +642,26 @@ static int imx6q_pcie_abort_handler(unsigned long addr,
+ }
+ #endif
+ 
++static void imx_pcie_detach_pd(struct imx_pcie *imx_pcie)
++{
++	if (imx_pcie->pd_phy_link) {
++		device_link_del(imx_pcie->pd_phy_link);
++		imx_pcie->pd_phy_link = NULL;
 +	}
++	if (!IS_ERR_OR_NULL(imx_pcie->pd_pcie_phy)) {
++		dev_pm_domain_detach(imx_pcie->pd_pcie_phy, true);
++		imx_pcie->pd_pcie_phy = NULL;
++	}
++	if (imx_pcie->pd_link) {
++		device_link_del(imx_pcie->pd_link);
++		imx_pcie->pd_link = NULL;
++	}
++	if (!IS_ERR_OR_NULL(imx_pcie->pd_pcie)) {
++		dev_pm_domain_detach(imx_pcie->pd_pcie, true);
++		imx_pcie->pd_pcie = NULL;
++	}
++}
 +
- 	reg = unicam_reg_read(unicam, UNICAM_IPIPE);
- 	dev_info(unicam->dev, "Unpacking/packing:   %u / %u\n",
- 		 unicam_get_field(reg, UNICAM_PUM_MASK),
-@@ -2065,6 +2074,9 @@ static int unicam_log_status(struct file *file, void *fh)
- 	dev_info(unicam->dev, "Write pointer:       %08x\n",
- 		 unicam_reg_read(unicam, UNICAM_IBWP));
+ static int imx_pcie_attach_pd(struct device *dev)
+ {
+ 	struct imx_pcie *imx_pcie = dev_get_drvdata(dev);
+@@ -660,12 +683,18 @@ static int imx_pcie_attach_pd(struct device *dev)
+ 			DL_FLAG_RPM_ACTIVE);
+ 	if (!link) {
+ 		dev_err(dev, "Failed to add device_link to pcie pd\n");
++		imx_pcie_detach_pd(imx_pcie);
+ 		return -EINVAL;
+ 	}
++	imx_pcie->pd_link = link;
  
-+	if (pm_active == 1)
-+		pm_runtime_put(unicam->dev);
+ 	imx_pcie->pd_pcie_phy = dev_pm_domain_attach_by_name(dev, "pcie_phy");
+-	if (IS_ERR(imx_pcie->pd_pcie_phy))
+-		return PTR_ERR(imx_pcie->pd_pcie_phy);
++	if (IS_ERR(imx_pcie->pd_pcie_phy)) {
++		int ret = PTR_ERR(imx_pcie->pd_pcie_phy);
 +
++		imx_pcie_detach_pd(imx_pcie);
++		return ret;
++	}
+ 
+ 	link = device_link_add(dev, imx_pcie->pd_pcie_phy,
+ 			DL_FLAG_STATELESS |
+@@ -673,8 +702,10 @@ static int imx_pcie_attach_pd(struct device *dev)
+ 			DL_FLAG_RPM_ACTIVE);
+ 	if (!link) {
+ 		dev_err(dev, "Failed to add device_link to pcie_phy pd\n");
++		imx_pcie_detach_pd(imx_pcie);
+ 		return -EINVAL;
+ 	}
++	imx_pcie->pd_phy_link = link;
+ 
  	return 0;
  }
+@@ -1956,8 +1987,10 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 		return ret;
  
-
----
-base-commit: 903c1cf6dff9964e71eda98a39e2e5d442050472
-change-id: 20260521-bcmpipm-6c578e73239c
-
-Best regards,
---  
-Eugen Hristev <ehristev@kernel.org>
+ 	ret = pci_pwrctrl_create_devices(dev);
+-	if (ret)
++	if (ret) {
++		imx_pcie_detach_pd(imx_pcie);
+ 		return dev_err_probe(dev, ret, "failed to create pwrctrl devices\n");
++	}
+ 
+ 	pci->use_parent_dt_ranges = true;
+ 	if (imx_pcie->drvdata->mode == DW_PCIE_EP_TYPE) {
+@@ -1975,7 +2008,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 			pm_runtime_no_callbacks(dev);
+ 			ret = devm_pm_runtime_set_active_enabled(dev);
+ 			if (ret < 0)
+-				return ret;
++				goto err_pwrctrl_destroy;
+ 		}
+ 
+ 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
+@@ -1999,6 +2032,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 	return 0;
+ 
+ err_pwrctrl_destroy:
++	imx_pcie_detach_pd(imx_pcie);
+ 	if (ret != -EPROBE_DEFER)
+ 		pci_pwrctrl_destroy_devices(dev);
+ 	return ret;
+-- 
+2.43.0
 
 
