@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47476C5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 07:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED32C5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 09:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0fhUMIAyhHyUqTny7qIQebeim9hGmWBvshZ2J8DNqrQ=; b=qZVoFstj9RzPtjGb/Vg0nyQRP7
-	j1gfZ0iCSacrmvL2wWddOIXtYTVCGqMfFXH1iWuVKR0qzLr00uYzTDGYONigin52VtIE6yyNRoDCJ
-	023QtJQWEmrTem4MPD3lvo6shYj+vos20+BEm+OjcakNYeNTekCpaZkxEY+fUwzTss0L8cLYVlk2Z
-	mQStoBpQT9gnVmgWC0MrK7b7wkatOOAV+WRaoBJP3UgEcvhhj52NOGiMlqQgnf3V+5xwvWqV1sgxE
-	nw+0vpNe0busHgoumeLnreQNVpCfiPTIb7Xgy5DP6WRjjXmBCCGO1+lEb3jXgZYeKg8hx5OWUvT6X
-	iYw+RDwA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=J9RvZrBIdEyhXTZKOsLAel+chPCFREQL34KQiCjJBoc=; b=bSCHSerPvMx0gP
+	Mxi0fdsbDLz5e+5kafK00GkmCDdBDvbnR2Ow61Y7TCGT/j4lLwdTn7Nnc6lOTiSoTXIiu68lHSV8S
+	2EzT2EjUhMDH/RBarap9kWqOJqif6dWEe8igdJjl1SQTzAFqVtCQprBj7cn3OZkX38bALplJPx2+0
+	DevFsdgMwI7c28Wg5Dp2MWHWdshhv9DQ/vXSaArCJ8/6LmdDujSmDp+ZKFtPyPv9SJ1D+nbMK3Zc+
+	54YHTu311k5PUpJEL0SzNXoOoaftuA+DVOwhPpozW9bSP9GQWpmHjuHM0IS+3BEzXKX9X/UFisUuh
+	HU9cRj8HB8VoSbzeHb9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy30q-0000000FACk-36q2;
-	Sun, 23 Aug 2026 07:53:04 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wy4eg-0000000FE0D-2Uba;
+	Sun, 23 Aug 2026 09:38:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy30o-0000000FACK-0fxI
+	id 1wy4ef-0000000FE07-4AY0
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 07:53:03 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id B0CE04E41360;
-	Sun, 23 Aug 2026 07:52:59 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7AE4460378;
-	Sun, 23 Aug 2026 07:52:59 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1525511C77E04;
-	Sun, 23 Aug 2026 09:52:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1787471574; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=0fhUMIAyhHyUqTny7qIQebeim9hGmWBvshZ2J8DNqrQ=;
-	b=plJijy2n0SbryKMd9AR/5KgVmzUabWpxH7JMMgRN2K+TOZwa0S3GQqNsr776OnuQFQqjjk
-	aVCM5FvJl9w9Co/WAZvA5Jkjm56NEuv5SP4WoqB5NOp+46c/TA6svpMdpRG6NIAFXLd1Ga
-	TujJqqWbXPDpKOvIPRs+ZZyQxWT5vbKyzeRe5FWc3qTcu+O39VkxpZS+9opViyO3ejZyQn
-	XiPyN6yVSZ9ZB/p17VtqVxEQhh+Tg28QL8Me/zrX3oPIpf/WImc7HAurQOyqd//+BDISk6
-	7Q/udo9c/BOLVcL3i3BwX5Y0cSdjQfrqYEdF5F+qqdZY9JeNwhGVwOCViLdwzw==
-Message-ID: <44aa070c-830b-4d5e-bc02-cba5f10c585a@bootlin.com>
-Date: Sun, 23 Aug 2026 09:52:49 +0200
+	Sun, 23 Aug 2026 09:38:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8BC1E43FE9
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 09:38:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E1C31F01559
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 09:38:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787477897;
+	bh=J9RvZrBIdEyhXTZKOsLAel+chPCFREQL34KQiCjJBoc=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=Sc3Og1hGUgph5/jhNJr52g0TZnkxUukiEKw0o3mxMlFiNWvzeS25zKRqajwUxf0Kv
+	 g/KGWp/BPiQjL5GVQNQCtDOW1kQPQ/pdUIXj0+H+pIn00//8yZq5LvwEhe+5zmnnnV
+	 vEcXxOt7pi5p7fAUKmLgSmSrivcZH4MNHCEHGBe6jlWx1gQf31Q9zbh+dFo3/rHL9E
+	 2WRuNijrvXrTAkUK982olL96U4GHKJflhCXeP8U17ILz9yn8Hz5uwuJCbjpbC1iC4i
+	 nKwAIoEAeS+Yt8FNVWzRkAuH2J3qjDQvwHeLZJc0E1AYNzGZyUysiixZA3Q47qo47A
+	 10AeAw5K/g5bw==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-39c8ee87f7eso25429771fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 02:38:17 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrGJY4kIkobaMDmakFdhYJEchQ+62XBSnaMcCdSi0Atn2J5d5oSCZe57YHT6+D+XEW9kmCNmS/IGzrMYcs3nD06@lists.infradead.org
+X-Gm-Message-State: AFuF++nbiKPErJICDfaFlSlPI07bQmZnYyznD9PSiPwWom+nHIzxBzY2
+	AshX/lJEw3n7YENoyivyR9wANRnXJbKIBlmXFfaH4Jz1ft9/DjefrCiNB9oNQWP76FnpwMbYL2J
+	jEVkqyU+5zS3IoKyGdXL4IvoNbM/X/bU=
+X-Received: by 2002:a05:651c:1442:b0:3a1:660f:1350 with SMTP id
+ 38308e7fff4ca-3a1aec49305mr48641171fa.14.1787477895444; Sun, 23 Aug 2026
+ 02:38:15 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 3/6] net: stmmac: Move double VLAN handling to a
- dedicated op
-To: Ovidiu Panait <ovidiu.panait.rb@renesas.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- shuah@kernel.org, joabreu@synopsys.com, yi.fang.gan@intel.com,
- jun.ann.lai@intel.com
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org
-References: <20260821170959.79708-1-ovidiu.panait.rb@renesas.com>
- <20260821170959.79708-4-ovidiu.panait.rb@renesas.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260821170959.79708-4-ovidiu.panait.rb@renesas.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_005302_515265_DFE90FFA 
-X-CRM114-Status: GOOD (  19.81  )
+References: <20260711-a733-clk-v2-0-974d188cbe0c@pigmoral.tech> <20260711-a733-clk-v2-4-974d188cbe0c@pigmoral.tech>
+In-Reply-To: <20260711-a733-clk-v2-4-974d188cbe0c@pigmoral.tech>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Sun, 23 Aug 2026 17:38:02 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65KKifCUYUxnZ5Vm=XNqNdiNC1i+U9mgX2djtPkwvtN2g@mail.gmail.com>
+X-Gm-Features: AcwNN1UTLEsKUosntgBh7NOvOvGIMKcXp1q9YUSzig1E8HC9fcenC9Vi6iz9ITA
+Message-ID: <CAGb2v65KKifCUYUxnZ5Vm=XNqNdiNC1i+U9mgX2djtPkwvtN2g@mail.gmail.com>
+Subject: Re: [PATCH v2 4/8] clk: sunxi-ng: a733: Add PLL clocks support
+To: Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Jerome Brunet <jbrunet@baylibre.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,183 +81,578 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+(trimmed recipient list a bit)
 
-On 8/21/26 19:09, Ovidiu Panait wrote:
-> The double VLAN bits (EDVLP, ESVL, DOVLTC) are currently handled inside
-> update_vlan_hash(). This ties the double VLAN state to the hash filter
-> update, even though the two features are independent: hash filtering is
-> controlled by dma_cap.vlhash and double vlan by dma_cap.dvlan.
-> 
-> In preparation for removing double vlan support from dwmac4, move the
-> double vlan logic into a separate update_dvlan_state() VLAN operation.
-> 
-> Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-
-This is some nice code simplification, no more is_double everywhere, thanks!
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
+On Sat, Jul 11, 2026 at 4:12=E2=80=AFPM Junhui Liu <junhui.liu@pigmoral.tec=
+h> wrote:
+>
+> Add PLL clock support for the main CCU of the Allwinner A733 SoC. The
+> structure is mostly similar to the sun55i, with the addition of a
+> PLL_REF clock that normalizes the hardware-detected DCXO/hosc frequency
+> (19.2MHz, 24MHz, or 26MHz) into a consistent 24MHz reference for all
+> subsequent PLLs.
+>
+> The behaviors of PLL_AUDIO0 and PLL_AUDIO1 are ported from the vendor
+> driver. Specifically, PLL_AUDIO0 is configured with SDM parameters to
+> provide a 22.5792MHz * 4 output, while PLL_AUDIO1 is integrated into
+> the main CCU without using SDM.
+>
+> Tested-by: Jerome Brunet <jbrunet@baylibre.com>
+> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 > ---
-> v2 changes: None.
-> 
->  drivers/net/ethernet/stmicro/stmmac/hwif.h    |  6 ++-
->  .../net/ethernet/stmicro/stmmac/stmmac_main.c |  6 +--
->  .../net/ethernet/stmicro/stmmac/stmmac_vlan.c | 45 ++++++++-----------
->  3 files changed, 25 insertions(+), 32 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> index 6f26dbf95ce1..66837caafa84 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-> @@ -632,8 +632,8 @@ struct stmmac_est_ops {
->  
->  struct stmmac_vlan_ops {
->  	/* VLAN */
-> -	void (*update_vlan_hash)(struct mac_device_info *hw, u32 hash,
-> -				 bool is_double);
-> +	void (*update_vlan_hash)(struct mac_device_info *hw, u32 hash);
-> +	void (*update_dvlan_state)(struct mac_device_info *hw, bool enable);
->  	void (*enable_vlan)(struct mac_device_info *hw, u32 type);
->  	void (*rx_hw_vlan)(struct mac_device_info *hw, struct dma_desc *rx_desc,
->  			   struct sk_buff *skb);
-> @@ -650,6 +650,8 @@ struct stmmac_vlan_ops {
->  
->  #define stmmac_update_vlan_hash(__priv, __args...) \
->  	stmmac_do_void_callback(__priv, vlan, update_vlan_hash, __args)
-> +#define stmmac_update_dvlan_state(__priv, __args...) \
-> +	stmmac_do_void_callback(__priv, vlan, update_dvlan_state, __args)
->  #define stmmac_enable_vlan(__priv, __args...) \
->  	stmmac_do_void_callback(__priv, vlan, enable_vlan, __args)
->  #define stmmac_rx_hw_vlan(__priv, __args...) \
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 880cf3fab913..802f9e67a4bc 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -6820,10 +6820,10 @@ static int stmmac_vlan_update(struct stmmac_priv *priv, bool is_double)
->  	if (!netif_running(priv->dev))
->  		return 0;
->  
-> -	if (!priv->dma_cap.dvlan)
-> -		is_double = false;
-> +	if (priv->dma_cap.dvlan)
-> +		stmmac_update_dvlan_state(priv, priv->hw, is_double);
->  
-> -	return stmmac_update_vlan_hash(priv, priv->hw, hash, is_double);
-> +	return stmmac_update_vlan_hash(priv, priv->hw, hash);
->  }
->  
->  /* FIXME: This may need RXC to be running, but it may be called with BH
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-> index 983a90cb9767..1e47ae62093e 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-> @@ -161,8 +161,20 @@ static void vlan_restore_hw_rx_fltr(struct net_device *dev,
->  		vlan_write_filter(dev, hw, i, hw->vlan_filter[i]);
->  }
->  
-> -static void vlan_update_hash(struct mac_device_info *hw, u32 hash,
-> -			     bool is_double)
-> +static void vlan_update_dvlan_state(struct mac_device_info *hw, bool enable)
-> +{
-> +	void __iomem *ioaddr = hw->pcsr;
-> +	u32 value;
+>  drivers/clk/sunxi-ng/Kconfig           |   5 +
+>  drivers/clk/sunxi-ng/Makefile          |   2 +
+>  drivers/clk/sunxi-ng/ccu-sun60i-a733.c | 539 +++++++++++++++++++++++++++=
+++++++
+>  3 files changed, 546 insertions(+)
+>
+> diff --git a/drivers/clk/sunxi-ng/Kconfig b/drivers/clk/sunxi-ng/Kconfig
+> index 202e793dc754..cffa83056934 100644
+> --- a/drivers/clk/sunxi-ng/Kconfig
+> +++ b/drivers/clk/sunxi-ng/Kconfig
+> @@ -67,6 +67,11 @@ config SUN55I_A523_R_CCU
+>         default ARCH_SUNXI
+>         depends on ARM64 || COMPILE_TEST
+>
+> +config SUN60I_A733_CCU
+> +       tristate "Support for the Allwinner A733 CCU"
+> +       default ARCH_SUNXI
+> +       depends on ARM64 || COMPILE_TEST
 > +
-> +	value = readl(ioaddr + VLAN_TAG);
-> +	if (enable)
-> +		value |= VLAN_EDVLP | VLAN_ESVL | VLAN_DOVLTC;
-> +	else
-> +		value &= ~(VLAN_EDVLP | VLAN_ESVL | VLAN_DOVLTC);
-> +	writel(value, ioaddr + VLAN_TAG);
+>  config SUN60I_A733_R_CCU
+>         tristate "Support for the Allwinner A733 PRCM CCU"
+>         default ARCH_SUNXI
+> diff --git a/drivers/clk/sunxi-ng/Makefile b/drivers/clk/sunxi-ng/Makefil=
+e
+> index d3702bdb7a23..3a39eb9287da 100644
+> --- a/drivers/clk/sunxi-ng/Makefile
+> +++ b/drivers/clk/sunxi-ng/Makefile
+> @@ -36,6 +36,7 @@ obj-$(CONFIG_SUN50I_H616_CCU) +=3D sun50i-h616-ccu.o
+>  obj-$(CONFIG_SUN55I_A523_CCU)  +=3D sun55i-a523-ccu.o
+>  obj-$(CONFIG_SUN55I_A523_MCU_CCU)      +=3D sun55i-a523-mcu-ccu.o
+>  obj-$(CONFIG_SUN55I_A523_R_CCU)        +=3D sun55i-a523-r-ccu.o
+> +obj-$(CONFIG_SUN60I_A733_CCU)  +=3D sun60i-a733-ccu.o
+>  obj-$(CONFIG_SUN60I_A733_R_CCU)        +=3D sun60i-a733-r-ccu.o
+>  obj-$(CONFIG_SUN4I_A10_CCU)    +=3D sun4i-a10-ccu.o
+>  obj-$(CONFIG_SUN5I_CCU)                +=3D sun5i-ccu.o
+> @@ -65,6 +66,7 @@ sun50i-h616-ccu-y             +=3D ccu-sun50i-h616.o
+>  sun55i-a523-ccu-y              +=3D ccu-sun55i-a523.o
+>  sun55i-a523-mcu-ccu-y          +=3D ccu-sun55i-a523-mcu.o
+>  sun55i-a523-r-ccu-y            +=3D ccu-sun55i-a523-r.o
+> +sun60i-a733-ccu-y              +=3D ccu-sun60i-a733.o
+>  sun60i-a733-r-ccu-y            +=3D ccu-sun60i-a733-r.o
+>  sun4i-a10-ccu-y                        +=3D ccu-sun4i-a10.o
+>  sun5i-ccu-y                    +=3D ccu-sun5i.o
+> diff --git a/drivers/clk/sunxi-ng/ccu-sun60i-a733.c b/drivers/clk/sunxi-n=
+g/ccu-sun60i-a733.c
+> new file mode 100644
+> index 000000000000..f80db6ab1a98
+> --- /dev/null
+> +++ b/drivers/clk/sunxi-ng/ccu-sun60i-a733.c
+> @@ -0,0 +1,539 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2023 rengaomin@allwinnertech.com
+> + * Copyright (C) 2026 Junhui Liu <junhui.liu@pigmoral.tech>
+> + * Based on the A523 CCU driver:
+> + *   Copyright (C) 2023-2024 Arm Ltd.
+> + */
+> +
+> +#include <linux/clk-provider.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +
+> +#include <dt-bindings/clock/sun60i-a733-ccu.h>
+> +#include <dt-bindings/reset/sun60i-a733-ccu.h>
+> +
+> +#include "../clk.h"
+
+What do you need this for?
+
+> +
+> +#include "ccu_common.h"
+> +
+> +#include "ccu_div.h"
+> +#include "ccu_mult.h"
+> +#include "ccu_nkmp.h"
+> +#include "ccu_nm.h"
+> +
+> +/*
+> + * The DCXO oscillator, the root of most of the clock tree, which may be
+> + * 19.2MHz, 24MHz, or 26MHz.
+> + */
+> +static const struct clk_parent_data hosc[] =3D {
+> +       { .fw_name =3D "hosc" }
+> +};
+> +
+> +/***********************************************************************=
+***
+> + *                              PLLs                                    =
+  *
+> + ***********************************************************************=
+***/
+> +
+> +/*
+> + * Undocumented, taken from the vendor kernel.
+> + * PLL_REF normalizes the DCXO frequency to a 24MHz reference for downst=
+ream
+> + * PLLs.
+> + */
+> +#define SUN60I_A733_PLL_REF_REG                0x000
+> +static struct ccu_nkmp pll_ref_clk =3D {
+> +       .enable         =3D BIT(27),
+> +       .lock           =3D BIT(28),
+> +       .n              =3D _SUNXI_CCU_MULT(8, 8),
+> +       .m              =3D _SUNXI_CCU_DIV(16, 7), /* output divider */
+> +       .p              =3D _SUNXI_CCU_DIV(1, 1), /* input divider */
+> +       .common         =3D {
+> +               .reg            =3D SUN60I_A733_PLL_REF_REG,
+> +               .hw.init        =3D CLK_HW_INIT_PARENTS_DATA("pll-ref", h=
+osc,
+> +                                                          &ccu_nkmp_ops,
+> +                                                          CLK_SET_RATE_G=
+ATE),
+> +       },
+> +};
+> +
+> +/*
+> + * Most clock-defining macros expect an *array* of parent clocks, even i=
+f
+> + * they do not contain a muxer to select between different parents.
+> + * The macros ending in just _HW take a simple clock pointer, but then c=
+reate
+> + * a single-entry array out of that. The macros using _HWS take such an
+> + * array (even when it is a single entry one), this avoids having those
+> + * helper arrays created inside *every* clock definition.
+> + * This means for every clock that is referenced more than once it is
+> + * useful to create such a dummy array and use _HWS.
+> + */
+> +static const struct clk_hw *pll_ref_hws[] =3D {
+> +       &pll_ref_clk.common.hw
+> +};
+> +
+> +#define SUN60I_A733_PLL_DDR_REG                0x020
+> +static struct ccu_nkmp pll_ddr_clk =3D {
+> +       .enable         =3D BIT(27),
+> +       .lock           =3D BIT(28),
+> +       .n              =3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
+> +       .m              =3D _SUNXI_CCU_DIV(20, 3), /* output divider */
+> +       .p              =3D _SUNXI_CCU_DIV(1, 1), /* input divider */
+> +       .common         =3D {
+> +               .reg            =3D SUN60I_A733_PLL_DDR_REG,
+> +               .hw.init        =3D CLK_HW_INIT_PARENTS_HW("pll-ddr", pll=
+_ref_hws,
+> +                                                        &ccu_nkmp_ops,
+> +                                                        CLK_SET_RATE_GAT=
+E |
+> +                                                        CLK_IS_CRITICAL)=
+,
+> +       },
+> +};
+> +
+> +/*
+> + * There is no actual clock output with that frequency (2.4 GHz), instea=
+d it
+> + * has multiple outputs with adjustable dividers from that base frequenc=
+y.
+> + * Model them separately as divider clocks based on that parent here.
+> + */
+> +#define SUN60I_A733_PLL_PERIPH0_REG    0x0a0
+> +static struct ccu_nm pll_periph0_4x_clk =3D {
+> +       .enable         =3D BIT(25) | BIT(26) | BIT(27),
+
+The gate helper sort of expects this to be just one bit. And the three
+bits here are for the three individual outputs (2x, 800M, 480M). I think
+you should move the bits to the individual outputs, and use BIT(31) here
+instead (or just leave out the enable bit for this one).
+
+> +       .lock           =3D BIT(28),
+> +       .n              =3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
+> +       .m              =3D _SUNXI_CCU_DIV(1, 1), /* input divider */
+> +       .common         =3D {
+> +               .reg            =3D SUN60I_A733_PLL_PERIPH0_REG,
+> +               .hw.init        =3D CLK_HW_INIT_PARENTS_HW("pll-periph0-4=
+x",
+> +                                                        pll_ref_hws, &cc=
+u_nm_ops,
+> +                                                        CLK_SET_RATE_GAT=
+E),
+> +       },
+> +};
+> +
+> +static const struct clk_hw *pll_periph0_4x_hws[] =3D {
+> +       &pll_periph0_4x_clk.common.hw
+> +};
+> +
+> +static SUNXI_CCU_M_HWS(pll_periph0_2x_clk, "pll-periph0-2x", pll_periph0=
+_4x_hws,
+> +                      SUN60I_A733_PLL_PERIPH0_REG, 20, 3, 0);
+> +static const struct clk_hw *pll_periph0_2x_hws[] =3D {
+> +       &pll_periph0_2x_clk.common.hw
+> +};
+> +static SUNXI_CCU_M_HWS(pll_periph0_800M_clk, "pll-periph0-800M", pll_per=
+iph0_4x_hws,
+> +                      SUN60I_A733_PLL_PERIPH0_REG, 16, 3, 0);
+> +static SUNXI_CCU_M_HWS(pll_periph0_480M_clk, "pll-periph0-480M", pll_per=
+iph0_4x_hws,
+> +                      SUN60I_A733_PLL_PERIPH0_REG, 2, 3, 0);
+> +static const struct clk_hw *pll_periph0_480M_hws[] =3D {
+> +       &pll_periph0_480M_clk.common.hw
+> +};
+> +static CLK_FIXED_FACTOR_HWS(pll_periph0_600M_clk, "pll-periph0-600M",
+> +                           pll_periph0_2x_hws, 2, 1, 0);
+> +static CLK_FIXED_FACTOR_HWS(pll_periph0_400M_clk, "pll-periph0-400M",
+> +                           pll_periph0_2x_hws, 3, 1, 0);
+> +static CLK_FIXED_FACTOR_HWS(pll_periph0_300M_clk, "pll-periph0-300M",
+> +                           pll_periph0_2x_hws, 4, 1, 0);
+
+Technically this is divided from the 600M one.
+
+> +static CLK_FIXED_FACTOR_HWS(pll_periph0_200M_clk, "pll-periph0-200M",
+> +                           pll_periph0_2x_hws, 6, 1, 0);
+
+This one from the 400M one.
+
+> +static CLK_FIXED_FACTOR_HWS(pll_periph0_150M_clk, "pll-periph0-150M",
+> +                           pll_periph0_2x_hws, 8, 1, 0);
+
+This one from the 300M one.
+
+The same comments apply to PLL periph1 as well.
+
+
+[...]
+
+> +#define SUN60I_A733_PLL_VIDEO0_REG     0x120
+> +static struct ccu_nm pll_video0_12x_clk =3D {
+> +       .enable         =3D BIT(26) | BIT(27),
+
+Same thing as peri0. The gates are for the individual outputs. They should
+be modeled as such. Also applies to the other video PLLs.
+
+[...]
+
+> +/*
+> + * PLL_AUDIO0 has a m1 divider in addition to the usual N, M factors.
+> + * Since we only need some fixed frequency from this PLL (22.5792MHz x 4=
+),
+> + * ignore the divider and force it to 1 (encoded as 0), in the probe fun=
+ction
+> + * below.
+> + * The M factor must be an even number to produce a 50% duty cycle outpu=
+t.
+> + */
+> +#define SUN60I_A733_PLL_AUDIO0_REG     0x260
+> +static struct ccu_sdm_setting pll_audio0_sdm_table[] =3D {
+> +       { .rate =3D 90316800, .pattern =3D 0xa002872b, .m =3D 20, .n =3D =
+75 }, /* 22.5792 * 4 */
+> +};
+> +
+> +static struct ccu_nm pll_audio0_4x_clk =3D {
+> +       .enable         =3D BIT(27),
+> +       .lock           =3D BIT(28),
+> +       .n              =3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
+> +       .m              =3D _SUNXI_CCU_DIV(16, 7),
+> +       .sdm            =3D _SUNXI_CCU_SDM_DUAL_PAT(pll_audio0_sdm_table,=
+ 0,
+> +                                                 0x268, BIT(31),
+> +                                                 0x26c, BIT(27) | BIT(31=
+)),
+
+Ideally we should call this the "new fractional" mode. But that's probably
+a different subject.
+
+> +       .common         =3D {
+> +               .reg            =3D SUN60I_A733_PLL_AUDIO0_REG,
+> +               .features       =3D CCU_FEATURE_SIGMA_DELTA_MOD,
+> +               .hw.init        =3D CLK_HW_INIT_PARENTS_HW("pll-audio0-4x=
+", pll_ref_hws,
+> +                                                        &ccu_nm_ops,
+> +                                                        CLK_SET_RATE_GAT=
+E),
+> +       },
+> +};
+> +
+> +#define SUN60I_A733_PLL_AUDIO1_REG     0x280
+> +static struct ccu_nm pll_audio1_clk =3D {
+> +       .enable         =3D BIT(27),
+> +       .lock           =3D BIT(28),
+> +       .n              =3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
+> +       .m              =3D _SUNXI_CCU_DIV(1, 1), /* input divider */
+> +       .common         =3D {
+> +               .reg            =3D SUN60I_A733_PLL_AUDIO1_REG,
+
+You should still fill in the CCU_FEATURE_SIGMA_DELTA_MOD flag and .sdm fiel=
+d.
+Even though you aren't using it here, it could have been left on somehow,
+and if the kernel doesn't know about it, it can't turn it off, and then
+the clock coming out of it won't be correct.
+
+> +               .hw.init        =3D CLK_HW_INIT_PARENTS_HW("pll-audio1", =
+pll_ref_hws,
+> +                                                        &ccu_nm_ops,
+> +                                                        CLK_SET_RATE_GAT=
+E),
+> +       },
+> +};
+> +
+> +static const struct clk_hw *pll_audio1_hws[] =3D {
+> +       &pll_audio1_clk.common.hw
+> +};
+> +static SUNXI_CCU_M_HWS(pll_audio1_div2_clk, "pll-audio1-div2", pll_audio=
+1_hws,
+> +                      SUN60I_A733_PLL_AUDIO1_REG, 20, 3, 0);
+> +static SUNXI_CCU_M_HWS(pll_audio1_div5_clk, "pll-audio1-div5", pll_audio=
+1_hws,
+> +                      SUN60I_A733_PLL_AUDIO1_REG, 16, 3, 0);
+
+Perhaps these should be made fixed? Otherwise the names don't apply correct=
+ly.
+
+> +
+> +#define SUN60I_A733_PLL_NPU_REG                0x2a0
+> +static struct ccu_nkmp pll_npu_clk =3D {
+> +       .enable         =3D BIT(27),
+> +       .lock           =3D BIT(28),
+> +       .n              =3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
+> +       .m              =3D _SUNXI_CCU_DIV(20, 3), /* output divider */
+> +       .p              =3D _SUNXI_CCU_DIV(1, 1), /* input divider */
+> +       .common         =3D {
+> +               .reg            =3D SUN60I_A733_PLL_NPU_REG,
+> +               .hw.init        =3D CLK_HW_INIT_PARENTS_HW("pll-npu", pll=
+_ref_hws,
+> +                                                        &ccu_nkmp_ops,
+> +                                                        CLK_SET_RATE_GAT=
+E),
+> +       },
+> +};
+> +
+> +#define SUN60I_A733_PLL_DE_REG         0x2e0
+> +static struct ccu_nm pll_de_12x_clk =3D {
+> +       .enable         =3D BIT(26) | BIT(27),
+
+Same as before. These are gates for the individual outputs. Please move the=
+m
+there.
+
+> +       .lock           =3D BIT(28),
+> +       .n              =3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
+> +       .m              =3D _SUNXI_CCU_DIV(1, 1), /* input divider */
+> +       .common         =3D {
+> +               .reg            =3D SUN60I_A733_PLL_DE_REG,
+> +               .hw.init        =3D CLK_HW_INIT_PARENTS_HW("pll-de-12x", =
+pll_ref_hws,
+> +                                                        &ccu_nm_ops,
+> +                                                        CLK_SET_RATE_GAT=
+E),
+> +       },
+> +};
+> +
+> +static const struct clk_hw *pll_de_hws[] =3D {
+> +       &pll_de_12x_clk.common.hw
+> +};
+> +static SUNXI_CCU_M_HWS(pll_de_4x_clk, "pll-de-4x", pll_de_hws,
+> +                      SUN60I_A733_PLL_DE_REG, 20, 3, 0);
+> +static SUNXI_CCU_M_HWS(pll_de_3x_clk, "pll-de-3x", pll_de_hws,
+> +                      SUN60I_A733_PLL_DE_REG, 16, 3, 0);
+
+Should we make the values fixed or the divider read-only?
+
+> +
+> +/*
+> + * Contains all clocks that are controlled by a hardware register. They
+> + * have a (sunxi) .common member, which needs to be initialised by the c=
+ommon
+> + * sunxi CCU code, to be filled with the MMIO base address and the share=
+d lock.
+> + */
+> +static struct ccu_common *sun60i_a733_ccu_clks[] =3D {
+> +       &pll_ref_clk.common,
+> +       &pll_ddr_clk.common,
+> +       &pll_periph0_4x_clk.common,
+> +       &pll_periph0_2x_clk.common,
+> +       &pll_periph0_800M_clk.common,
+> +       &pll_periph0_480M_clk.common,
+> +       &pll_periph1_4x_clk.common,
+> +       &pll_periph1_2x_clk.common,
+> +       &pll_periph1_800M_clk.common,
+> +       &pll_periph1_480M_clk.common,
+> +       &pll_gpu0_clk.common,
+> +       &pll_video0_12x_clk.common,
+> +       &pll_video0_4x_clk.common,
+> +       &pll_video0_3x_clk.common,
+> +       &pll_video1_12x_clk.common,
+> +       &pll_video1_4x_clk.common,
+> +       &pll_video1_3x_clk.common,
+> +       &pll_video2_12x_clk.common,
+> +       &pll_video2_4x_clk.common,
+> +       &pll_video2_3x_clk.common,
+> +       &pll_ve0_clk.common,
+> +       &pll_ve1_clk.common,
+> +       &pll_audio0_4x_clk.common,
+> +       &pll_audio1_clk.common,
+> +       &pll_audio1_div2_clk.common,
+> +       &pll_audio1_div5_clk.common,
+> +       &pll_npu_clk.common,
+> +       &pll_de_12x_clk.common,
+> +       &pll_de_4x_clk.common,
+> +       &pll_de_3x_clk.common,
+> +};
+> +
+> +static struct clk_hw_onecell_data sun60i_a733_hw_clks =3D {
+> +       .hws    =3D {
+> +               [CLK_PLL_REF]           =3D &pll_ref_clk.common.hw,
+> +               [CLK_PLL_DDR]           =3D &pll_ddr_clk.common.hw,
+> +               [CLK_PLL_PERIPH0_4X]    =3D &pll_periph0_4x_clk.common.hw=
+,
+> +               [CLK_PLL_PERIPH0_2X]    =3D &pll_periph0_2x_clk.common.hw=
+,
+> +               [CLK_PLL_PERIPH0_800M]  =3D &pll_periph0_800M_clk.common.=
+hw,
+> +               [CLK_PLL_PERIPH0_480M]  =3D &pll_periph0_480M_clk.common.=
+hw,
+> +               [CLK_PLL_PERIPH0_600M]  =3D &pll_periph0_600M_clk.hw,
+> +               [CLK_PLL_PERIPH0_400M]  =3D &pll_periph0_400M_clk.hw,
+> +               [CLK_PLL_PERIPH0_300M]  =3D &pll_periph0_300M_clk.hw,
+> +               [CLK_PLL_PERIPH0_200M]  =3D &pll_periph0_200M_clk.hw,
+> +               [CLK_PLL_PERIPH0_160M]  =3D &pll_periph0_160M_clk.hw,
+> +               [CLK_PLL_PERIPH0_150M]  =3D &pll_periph0_150M_clk.hw,
+> +               [CLK_PLL_PERIPH1_4X]    =3D &pll_periph1_4x_clk.common.hw=
+,
+> +               [CLK_PLL_PERIPH1_2X]    =3D &pll_periph1_2x_clk.common.hw=
+,
+> +               [CLK_PLL_PERIPH1_800M]  =3D &pll_periph1_800M_clk.common.=
+hw,
+> +               [CLK_PLL_PERIPH1_480M]  =3D &pll_periph1_480M_clk.common.=
+hw,
+> +               [CLK_PLL_PERIPH1_600M]  =3D &pll_periph1_600M_clk.hw,
+> +               [CLK_PLL_PERIPH1_400M]  =3D &pll_periph1_400M_clk.hw,
+> +               [CLK_PLL_PERIPH1_300M]  =3D &pll_periph1_300M_clk.hw,
+> +               [CLK_PLL_PERIPH1_200M]  =3D &pll_periph1_200M_clk.hw,
+> +               [CLK_PLL_PERIPH1_160M]  =3D &pll_periph1_160M_clk.hw,
+> +               [CLK_PLL_PERIPH1_150M]  =3D &pll_periph1_150M_clk.hw,
+> +               [CLK_PLL_GPU0]          =3D &pll_gpu0_clk.common.hw,
+> +               [CLK_PLL_VIDEO0_12X]    =3D &pll_video0_12x_clk.common.hw=
+,
+> +               [CLK_PLL_VIDEO0_4X]     =3D &pll_video0_4x_clk.common.hw,
+> +               [CLK_PLL_VIDEO0_3X]     =3D &pll_video0_3x_clk.common.hw,
+> +               [CLK_PLL_VIDEO1_12X]    =3D &pll_video1_12x_clk.common.hw=
+,
+> +               [CLK_PLL_VIDEO1_4X]     =3D &pll_video1_4x_clk.common.hw,
+> +               [CLK_PLL_VIDEO1_3X]     =3D &pll_video1_3x_clk.common.hw,
+> +               [CLK_PLL_VIDEO2_12X]    =3D &pll_video2_12x_clk.common.hw=
+,
+> +               [CLK_PLL_VIDEO2_4X]     =3D &pll_video2_4x_clk.common.hw,
+> +               [CLK_PLL_VIDEO2_3X]     =3D &pll_video2_3x_clk.common.hw,
+> +               [CLK_PLL_VE0]           =3D &pll_ve0_clk.common.hw,
+> +               [CLK_PLL_VE1]           =3D &pll_ve1_clk.common.hw,
+> +               [CLK_PLL_AUDIO0_4X]     =3D &pll_audio0_4x_clk.common.hw,
+> +               [CLK_PLL_AUDIO1]        =3D &pll_audio1_clk.common.hw,
+> +               [CLK_PLL_AUDIO1_DIV2]   =3D &pll_audio1_div2_clk.common.h=
+w,
+> +               [CLK_PLL_AUDIO1_DIV5]   =3D &pll_audio1_div5_clk.common.h=
+w,
+> +               [CLK_PLL_NPU]           =3D &pll_npu_clk.common.hw,
+> +               [CLK_PLL_DE_12X]        =3D &pll_de_12x_clk.common.hw,
+> +               [CLK_PLL_DE_4X]         =3D &pll_de_4x_clk.common.hw,
+> +               [CLK_PLL_DE_3X]         =3D &pll_de_3x_clk.common.hw,
+> +       },
+> +       .num    =3D CLK_FANOUT3 + 1,
+> +};
+> +
+> +static const struct sunxi_ccu_desc sun60i_a733_ccu_desc =3D {
+> +       .ccu_clks       =3D sun60i_a733_ccu_clks,
+> +       .num_ccu_clks   =3D ARRAY_SIZE(sun60i_a733_ccu_clks),
+> +
+> +       .hw_clks        =3D &sun60i_a733_hw_clks,
+> +};
+> +
+> +static const u32 pll_regs[] =3D {
+> +       SUN60I_A733_PLL_REF_REG,
+> +       SUN60I_A733_PLL_DDR_REG,
+> +       SUN60I_A733_PLL_PERIPH0_REG,
+> +       SUN60I_A733_PLL_PERIPH1_REG,
+> +       SUN60I_A733_PLL_GPU_REG,
+> +       SUN60I_A733_PLL_VIDEO0_REG,
+> +       SUN60I_A733_PLL_VIDEO1_REG,
+> +       SUN60I_A733_PLL_VIDEO2_REG,
+> +       SUN60I_A733_PLL_VE0_REG,
+> +       SUN60I_A733_PLL_VE1_REG,
+> +       SUN60I_A733_PLL_AUDIO0_REG,
+> +       SUN60I_A733_PLL_AUDIO1_REG,
+> +       SUN60I_A733_PLL_NPU_REG,
+> +       SUN60I_A733_PLL_DE_REG,
+> +};
+> +
+> +static int sun60i_a733_ccu_probe(struct platform_device *pdev)
+> +{
+> +       void __iomem *reg;
+> +       u32 val;
+> +       int i, ret;
+> +
+> +       reg =3D devm_platform_ioremap_resource(pdev, 0);
+> +       if (IS_ERR(reg))
+> +               return PTR_ERR(reg);
+> +
+> +       /*
+> +        * The PLL clock code does not model all bits, for instance it do=
+es
+> +        * not support a separate enable and gate bit. We present the
+> +        * gate bit(27) as the enable bit, but then have to set the
+> +        * PLL Enable, LDO Enable, and Lock Enable bits on all PLLs here.
+> +        */
+> +       for (i =3D 0; i < ARRAY_SIZE(pll_regs); i++) {
+> +               val =3D readl(reg + pll_regs[i]);
+> +               val |=3D BIT(31) | BIT(30) | BIT(29);
+> +               writel(val, reg + pll_regs[i]);
+> +       }
+> +
+> +       /* Enforce m1 =3D 0 for PLL_AUDIO0 */
+> +       val =3D readl(reg + SUN60I_A733_PLL_AUDIO0_REG);
+> +       val &=3D ~BIT(1);
+> +       writel(val, reg + SUN60I_A733_PLL_AUDIO0_REG);
+
+We should also force the divider for all the divN or Nx outputs.
+
+
+Thanks
+ChenYu
+
+> +
+> +       ret =3D devm_sunxi_ccu_probe(&pdev->dev, reg, &sun60i_a733_ccu_de=
+sc);
+> +       if (ret)
+> +               return ret;
+> +
+> +       return 0;
 > +}
 > +
-> +static void vlan_update_hash(struct mac_device_info *hw, u32 hash)
->  {
->  	void __iomem *ioaddr = hw->pcsr;
->  	u32 value;
-> @@ -173,21 +185,9 @@ static void vlan_update_hash(struct mac_device_info *hw, u32 hash,
->  
->  	if (hash) {
->  		value |= VLAN_VTHM | VLAN_ETV;
-> -		if (is_double) {
-> -			value |= VLAN_EDVLP;
-> -			value |= VLAN_ESVL;
-> -			value |= VLAN_DOVLTC;
-> -		} else {
-> -			value &= ~VLAN_EDVLP;
-> -			value &= ~VLAN_ESVL;
-> -			value &= ~VLAN_DOVLTC;
-> -		}
-> -
->  		writel(value, ioaddr + VLAN_TAG);
->  	} else {
->  		value &= ~(VLAN_VTHM | VLAN_ETV);
-> -		value &= ~(VLAN_EDVLP | VLAN_ESVL);
-> -		value &= ~VLAN_DOVLTC;
->  		value &= ~VLAN_VID;
->  
->  		writel(value, ioaddr + VLAN_TAG);
-> @@ -236,8 +236,7 @@ static void vlan_set_hw_mode(struct mac_device_info *hw)
->  	writel(value, ioaddr + VLAN_TAG);
->  }
->  
-> -static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash,
-> -				      bool is_double)
-> +static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash)
->  {
->  	void __iomem *ioaddr = hw->pcsr;
->  
-> @@ -253,15 +252,6 @@ static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash,
->  		value = readl(ioaddr + VLAN_TAG);
->  
->  		value |= VLAN_VTHM | VLAN_ETV;
-> -		if (is_double) {
-> -			value |= VLAN_EDVLP;
-> -			value |= VLAN_ESVL;
-> -			value |= VLAN_DOVLTC;
-> -		} else {
-> -			value &= ~VLAN_EDVLP;
-> -			value &= ~VLAN_ESVL;
-> -			value &= ~VLAN_DOVLTC;
-> -		}
->  
->  		value &= ~VLAN_VID;
->  		writel(value, ioaddr + VLAN_TAG);
-> @@ -275,8 +265,6 @@ static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash,
->  		value = readl(ioaddr + VLAN_TAG);
->  
->  		value &= ~(VLAN_VTHM | VLAN_ETV);
-> -		value &= ~(VLAN_EDVLP | VLAN_ESVL);
-> -		value &= ~VLAN_DOVLTC;
->  		value &= ~VLAN_VID;
->  
->  		writel(value, ioaddr + VLAN_TAG);
-> @@ -285,6 +273,7 @@ static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash,
->  
->  const struct stmmac_vlan_ops dwmac_vlan_ops = {
->  	.update_vlan_hash = vlan_update_hash,
-> +	.update_dvlan_state = vlan_update_dvlan_state,
->  	.enable_vlan = vlan_enable,
->  	.add_hw_vlan_rx_fltr = vlan_add_hw_rx_fltr,
->  	.del_hw_vlan_rx_fltr = vlan_del_hw_rx_fltr,
-> @@ -295,11 +284,13 @@ const struct stmmac_vlan_ops dwmac_vlan_ops = {
->  
->  const struct stmmac_vlan_ops dwxlgmac2_vlan_ops = {
->  	.update_vlan_hash = dwxgmac2_update_vlan_hash,
-> +	.update_dvlan_state = vlan_update_dvlan_state,
->  	.enable_vlan = vlan_enable,
->  };
->  
->  const struct stmmac_vlan_ops dwxgmac210_vlan_ops = {
->  	.update_vlan_hash = dwxgmac2_update_vlan_hash,
-> +	.update_dvlan_state = vlan_update_dvlan_state,
->  	.enable_vlan = vlan_enable,
->  	.add_hw_vlan_rx_fltr = vlan_add_hw_rx_fltr,
->  	.del_hw_vlan_rx_fltr = vlan_del_hw_rx_fltr,
-
+> +static const struct of_device_id sun60i_a733_ccu_ids[] =3D {
+> +       { .compatible =3D "allwinner,sun60i-a733-ccu" },
+> +       { /* sentinel */ }
+> +};
+> +
+> +static struct platform_driver sun60i_a733_ccu_driver =3D {
+> +       .probe  =3D sun60i_a733_ccu_probe,
+> +       .driver =3D {
+> +               .name                   =3D "sun60i-a733-ccu",
+> +               .suppress_bind_attrs    =3D true,
+> +               .of_match_table         =3D sun60i_a733_ccu_ids,
+> +       },
+> +};
+> +module_platform_driver(sun60i_a733_ccu_driver);
+> +
+> +MODULE_IMPORT_NS("SUNXI_CCU");
+> +MODULE_DESCRIPTION("Support for the Allwinner A733 CCU");
+> +MODULE_LICENSE("GPL");
+>
+> --
+> 2.54.0
+>
+>
 
