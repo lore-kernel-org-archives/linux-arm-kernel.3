@@ -4,110 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0825C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Aug 2026 22:37:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA75C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 00:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=POBb41hMSzY1caDEN4VAGdVyeL6t9zbft7UqUCEzIuo=; b=X8DhuZnx0je2gVVourJB0ak1PD
-	x2ZU3u8Z5ODMNgOgoGavglrynbcGeNjr3hn+KTMrJIdt6Zyv+7r+57US23tHGqX0RayZPiJA0OQWr
-	8osoeYjV3J+u46B8xsicXEZu0TrwVo5fz28Cf11+QQ5BetTzmyLbklbVTtR13DznK0S7rU8VsPQa1
-	S3IYx3brepKKEx4rnZIqPO2sFfSs4ef6nWIVBxDSukIQnFKD+fqU5v1esz6a1uFspKoHpUky1peQh
-	xdAHFkitsW5DRwkej9tnIpN84xDY5XHx1n2Fmn/MlTr0PUOAMBHleBq5GZFH400v4yHsJVlTAVCpH
-	G3Wb48bg==;
+	bh=duQ86+wN0ZS4fzoMXgzUx9KzRhQyssWsDaclYlPUpRg=; b=k6CdoKlrUn7a179eRVqbKCTVJd
+	O91EWKjtP8O9kr8EXsvH/x+tgt0+3x10c3ikE+xqNjwlCWyL5uW7iAMDpFKZKvepleZrOVAwUkNpX
+	5ZGK0JRfLs/KXebXMLBvoYawVLA/VLVsaNae4koafyawKSr3rPK3jU8AoRZ1BQvxt2WZa6Mx3A1+v
+	3vuR++7ocP3+ladVTrrDuw5jPbIGCQ9C+PPteciCz8F/COWRjNbB/ML/QR6FDjBze39K1PSqjbFIF
+	TaHWsFkAhGBseBpRFIBQxO22fK3iPp+LJ5dhMejRBONwA/G5x97Xw23xEhyCR/xjWjuhc0LSEk6lN
+	XZN1xHnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxuKp-0000000ErFP-1EjZ;
-	Sat, 22 Aug 2026 22:37:07 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wxvhz-0000000EuMV-00VI;
+	Sun, 23 Aug 2026 00:05:07 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wxuKm-0000000ErF6-29g7
+	id 1wxvhv-0000000EuM8-48am
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Aug 2026 22:37:05 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2ceb096e675so26093325ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Aug 2026 15:37:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787438223; cv=none;
-        d=google.com; s=arc-20260327;
-        b=fj2kmBl6hC9ZPrXNVWGHHpL8NJMoqBWv59ZVWLTT1BF8mK08pRH8RHh9I7Z1cu5rFu
-         T1UwYHGjNkXY+bItwvAgiOfZF+nFHIxWF9dyUxOWNYKPYp8swFhCzytz1RPquNngtq1A
-         01XA3AqaQ11xPwO6NugPMI3A5pE6YX7DQQu98CVmyQE9nSAh1qYfI1O8FLhZ2kyC6Wnz
-         lBH/MMe5YfJ2vpAF7oZ4zje1Ne1bH5frRBlb1cv872tsqLKSfFDuD5a/ZX+Fumrz9cOi
-         Tx5ftRDa6scNghEwo6a5WQgbxaRt1wZSuZSIDZmcz7L4iXf5ImFXWm9KFm7FmF1w4PaR
-         3L8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=POBb41hMSzY1caDEN4VAGdVyeL6t9zbft7UqUCEzIuo=;
-        fh=R+2egKqtqEPgYNqgFnH6d/AqACw6jV+PxIxeN1RM+WQ=;
-        b=F52lRtnGi7tJig8sPnq+05hHRj1nf9hpcdm1yEt2gMQrAVTTn2rGkYuKTgf59wR8vW
-         3z5YmxWsW198aeoJ9uqF9EkT5n7HBd3ErJGoI16A1CL8xY1fHhwDJcY6a8pIU13DpqV7
-         qqtZRDaIVnyHZG2bqLY6XHqXT5ezuY0MzamHrzBHI+j1YnTChVvMi9Nc+v7ZmITAm3So
-         wDRHthNqdZtZKkSXOVpscndeejNILgXlw8WW3gbdrAMfoEFOWxVLzoxaET9akLQ1Onfo
-         Mc4WYhqSfsBQcJyfyW6UjlF/MryBO/hWfTTBF7hhGqhI+knQp2fiuOtqB5SNDMHOkQ3X
-         48mA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787438223; x=1788043023; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=POBb41hMSzY1caDEN4VAGdVyeL6t9zbft7UqUCEzIuo=;
-        b=CCVxm2OelitIDyUYQ7ZOsF127f/7SiAJAF97F53Zebo5sjFFu/IEEprvb2DKNjd+Hj
-         REWKsxXg6kXQaYlk8or/xvMMYii/NDpjvk8BTncLBKZq7AFcLlB8Z+uuNSOfkcGtq70o
-         Pspj9HKF2yQzeGjbk2WxNi0p2hHPNtEJtWNQqV26jofcu+C5zgskd9dCtVZkyy5tT7oL
-         S7Rt1cYVwd8I3N/CjxTA8ER78rkWmn9gUuZqxEVRQHn/7IHL54QTgJoqf98c3mQ31lxq
-         88C+5nQNfF7EgglkxiKmBnl6hADqY+gg6j/0MI6uYAo2XQT4AfNAtedFc/M2pRfM7RMp
-         4WTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787438223; x=1788043023;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=POBb41hMSzY1caDEN4VAGdVyeL6t9zbft7UqUCEzIuo=;
-        b=WtoIe6Ak5EU3TgU+fqKTU2RjCCwTRfy4BtipOC7TLgtPEQqhXrgpXTUWySsb6B8ecj
-         rAyLE9NxRnCuRFURclmSPFI/fpNwYgy8Vn+K6x4wp/HZ58Dzh21K8+OMK7akJyl6x3pq
-         ymE/TNN+nlSeI7KtnYzTjAP5NTfsn7rua6OdJHSBjmRVEWfTpWe3S+tyEPzbARYwT4u+
-         bcn04gH2nK35ugW4TzH2GO81d1Sc0jrtmB5+tUKKPXFVIa4q1aEReRX/fBE8o/iZWnpk
-         W58Qc4k3eBh1PGAlMUJoT4fim+yISfukG0McutMcPRdxSyM+dwWak4ILNtfjDRrnopbB
-         Isaw==
-X-Forwarded-Encrypted: i=1; AHgh+Rp18dWa/eclPzer91H+64F1SMKI+zVrT/O7MqbSzb2H8YCP4gR+Qvgq0DWG1BXl5ad/Sj2KS1OfMR36Cp8KKJiS@lists.infradead.org
-X-Gm-Message-State: AFuF++kS4MI0E7weOrUYA9la5Xk52MWCM4gq7sevSbJrA5rST0jOSADi
-	UUNQJlQSLKnAJg7vgMvtD7jfjj3OxzlrZZTeLzL5D+XepX1KydDlzkFbqKPwavC81QPk28vNk7U
-	p0qqXath+I+PAQXewBrAPac1it2ZerYbNbSr+
-X-Gm-Gg: AR+sD12L1inoKdkr7pGUIzjJLjaT2mtTpaw9ouQ6aFO1k/Cou9+iJ112CQikJQYAzEM
-	bwO84FtrmBaaWb8dVbfQ5bH0GSx0V34DYo7mmW05YcD8LsY+bsoQsSefrWjbdrbn+lFBuRR0wur
-	ZYZSHiy4mRG/BOK61vUPr2fmwTxSjNSXGbDCH28Cnn9hd0SxKfQRwO1VdmwohODqBPD7zWm0vYb
-	42+tVERbHcF0i/Fa9+zKpWlgJlyHGQ8n7l8izAwUUTVpwEcXB7rPIAmxMFBVo1Q3e1FxYnVhB6K
-	bYHCL8/soay3gWF8IEZXosws1Cnb9K/y0TNwU/Rx4+Sh1youthvmZeQLELrahOwhOY9Dwu5jqLC
-	6sQ9sjPsYUB2FnUq1eFAdvih6IzdokMc+M2KKaPUjMeL3kCowvuVOd5+gsqEhf/Krj4NmyCljSH
-	3Z5Ml4dwpWx6vUHsU=
-X-Received: by 2002:a17:902:d552:b0:2ca:e19c:97b with SMTP id
- d9443c01a7336-2d670b85ea7mr162565105ad.5.1787438223003; Sat, 22 Aug 2026
- 15:37:03 -0700 (PDT)
+	Sun, 23 Aug 2026 00:05:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=duQ86+wN0ZS4fzoMXgzUx9KzRhQyssWsDaclYlPUpRg=; b=fafGSauAonvof8yzK+PfRPxCN7
+	YAoQpzFb2TPH/99SJVAYegTh8AciPFU7sQlkD5Hm/MazIZtYxT7sInNSJhBG3qqrsdSSiUetrxm7b
+	hVN7DbboS7lqn3RHr2t1u9iZjgC5iEk8tFD/NHuqqSMoB7yogBXniYb3+tGifjUI11oc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wxvha-0015GQ-4A; Sun, 23 Aug 2026 02:04:42 +0200
+Date: Sun, 23 Aug 2026 02:04:42 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, shuah@kernel.org,
+	joabreu@synopsys.com, yi.fang.gan@intel.com, jun.ann.lai@intel.com,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH net v2 6/6] selftests: drv-net: Add VLAN test
+Message-ID: <d614d8de-0da2-4673-bd11-02497d8a37e0@lunn.ch>
+References: <20260821170959.79708-1-ovidiu.panait.rb@renesas.com>
+ <20260821170959.79708-7-ovidiu.panait.rb@renesas.com>
 MIME-Version: 1.0
-References: <20260821123249.41527-1-phucduc.bui@gmail.com> <20260821123249.41527-4-phucduc.bui@gmail.com>
- <e225c560-eae8-4487-be66-f624e5e215ee@amd.com>
-In-Reply-To: <e225c560-eae8-4487-be66-f624e5e215ee@amd.com>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Sun, 23 Aug 2026 05:36:51 +0700
-X-Gm-Features: AcwNN1WrjE6UThXJFzEWU5wxN93h5aaiCp90Hxp9q8ViHfzBnLWUh1xBoSjqiDo
-Message-ID: <CAABR9nHwTFFGVS3Y0MXsBx2ubtexaZ6hqcZYQ5au1UjxEjb+qQ@mail.gmail.com>
-Subject: Re: [PATCH net v4 3/3] net: xilinx: axienet: Fix IRQ error handling
-To: "Gupta, Suraj" <suraj.gupta2@amd.com>
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Michal Simek <michal.simek@amd.com>, 
-	Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260821170959.79708-7-ovidiu.panait.rb@renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260822_153704_559141_ED916BF6 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260822_170504_032223_5335282A 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,17 +75,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gupta,
+On Fri, Aug 21, 2026 at 05:09:59PM +0000, Ovidiu Panait wrote:
+> Add a test that validates ping traffic over VLAN interfaces. It aims
+> to catch drivers which mishandle hardware VLAN tag stripping, in
+> particular QinQ.
+> 
+> Three VLAN configurations are covered, each with hardware VLAN stripping
+> enabled and disabled:
+> - a single 802.1q VLAN interface
+> - a single 802.1ad VLAN interface
+> - an 802.1q VLAN stacked on top of an 802.1ad interface
+> 
+> NETIF=end1 LOCAL_V4=172.16.0.2 REMOTE_V4=172.16.0.3 \
+> REMOTE_TYPE=ssh REMOTE_ARGS=root@172.16.0.3 \
+> run_kselftest.sh -t drivers/net:vlan.py
+>   TAP version 13
+>   1..1
+>   # timeout set to 360
+>   # selftests: drivers/net: vlan.py
+>   # # Interface: end0, driver: st_gmac
+>   # TAP version 13
+>   # 1..6
+>   # ok 1 vlan.test.8021q_hw
+>   # ok 2 vlan.test.8021q_sw
+>   # ok 3 vlan.test.8021ad_hw
+>   # ok 4 vlan.test.8021ad_sw
+>   # ok 5 vlan.test.qinq_hw
+>   # ok 6 vlan.test.qinq_sw
+>   # # Totals: pass:6 fail:0 xfail:0 xpass:0 skip:0 error:0
 
->
-> ENOMEM is a slightly misleading errno for "IRQ not found" on the OF path
-> -EINVAL/-ENXIO would be more accurate. Since we are here, better to
-> correct that also.
->
+> +def _setup(cfg, outer_proto, inner_proto, hw_strip):
+> +    """Configure VLAN stripping and create the VLAN interfaces."""
+> +
+> +    feat = ethtool(f"-k {cfg.ifname}", json=True)[0]
+> +    set_ethtool_feat(cfg.ifname, feat, {"rx-vlan-offload": hw_strip})
 
-Thanks for pointing this out. I agree that -ENOMEM is misleading here.
-I'll address this separately.
 
-Best regards,
-Phuc
++        if current[name]["active"] != state:
++            no_change = False
++            if current[name]["fixed"]:
++                raise KsftXfailEx(f"Device does not support {name}")
+
+I'm not too familiar with the self test framework, so i could have
+this wrong.
+
+It looks to me like you fail the text if it is fixed. But does not
+fixed just mean the hardware does not support it? So i think it should
+actually skip the test?
+
+Now, if it does not say fixed, but ethtool -K reports EOPNOTSUPP, that
+would be an error.
+
+Having said that, thanks for spending the time to add a test. We need
+more tests like this.
+
+     Andrew
 
