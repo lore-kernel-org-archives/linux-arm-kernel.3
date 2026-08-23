@@ -4,76 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD98DC5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 22:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D7DC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 22:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=j9C1iPF4ZEMa6VEifcus3DSe6CTk1WSW6z66vHKWYnk=; b=fG3N/6OHeS7xUMVaK/tVb30FW5
-	Tr7qwS0fXGTWl0ByuTJ6SvV26rvGARBVJFWXE5blc0tlyIdG9i5OjsU8rIVC3ILXN7RlzzFUTEAVb
-	FQootsA4pnrb+Apch0Y5RzEaJifw2KbBYI/2sF0NGC+MaiPPPzc4tIdx+ML77so+R8slE7/2FBHle
-	trDnEaRt5aiT3GpnYpbXWJTS8m1mKrFWA6OpAVDNia48hA5fehGNZGCnSzriS2xZZoB2lXymPhOmC
-	S0301SfrtCCTwpC7ZZ9DMCwdmk81Nk2gTPhfWrWhQXOpVDookCdOytF5vUbTdHCdEr+RkVJuvkqeI
-	K6S3Q9HA==;
+	bh=CqO2eF1E/cLxqGSvCisTSlVPdaIBeR7m9dvhWx5XYYo=; b=V927+86buMd+ZsBRA8umuR3uz8
+	0LeJqomccGFtl9SC9TfIkQ4Cb5DH+vZF4uMVD9y6J75wf9mgCZBARm7oEyZxl8Bqwiu6FvFhl3tvt
+	tjfzqZYUWy76tfGx2gjb+AzA2G8qHs2kKcdW9Rlvcsioj9/S1T3u13PeodbmEyO0UzzEZT1aB7LtU
+	jPS9uVu8IsN9BZMf6WNrnrYiYDfUMAQkhWa4NOUdE+0muibhO0MfCiT3J1Hob1LfDW0PdSEubVXqi
+	8F65SmktVqXwqr2z5BedUCTKzTaSKK+9oGV1Kxbya0YTkQt9X9r7fvpNTyazCpBo/3vjGh4eHxJck
+	sl3jiMNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyGcl-0000000FeKD-37vw;
-	Sun, 23 Aug 2026 22:25:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wyH7x-0000000FfKH-0D0r;
+	Sun, 23 Aug 2026 22:57:21 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyGck-0000000FeK7-0qXK
+	id 1wyH7t-0000000FfJZ-3Exj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 22:25:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D96243CF9;
-	Sun, 23 Aug 2026 22:25:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 668A1C2BCB8;
-	Sun, 23 Aug 2026 22:25:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1787523905;
-	bh=cq1hYsxSF8q8kGHGEdS0KX9Ra636QhedZrafPgp9MF4=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=G1e+R70kZaq6JfUd4XQR/TVBzuSQmU8TWfyq9UiSZxswyqovfTUoT8A07B4+ZBRKj
-	 P0LUxLvrOa+6eJ8CO2b+4EbiaL5eWXAi71gwbZu/f0Hw+GM7nLw1GJvwlxIFJcaBxZ
-	 P+9cniXYPA54HeqKB0UvYbOXOfcQQh/XlhoG6C6CPUQ6AxHEh8j3oJiyTidyYOeTRP
-	 TiUnXGvlHOcXRS6JMHoHJ9AwYDmvRzykxyPORZGYOpUzZdJsJKshZLS5yj8VJXauOK
-	 H9CDqeB3C4buXwkqScazqn4yC3HLOUGwbdPBdL9qVW+IliMflzw5c0spJwAtMzxQM1
-	 w0HdMBlVpZwzQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3E72EC5DF97;
-	Sun, 23 Aug 2026 22:25:05 +0000 (UTC)
-From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
-Date: Mon, 24 Aug 2026 00:24:56 +0200
-Subject: [PATCH] arm64: dts: lx2160a: fix incorrect pinmux
+	Sun, 23 Aug 2026 22:57:19 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2caea3f742bso44859945ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 15:57:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787525836; x=1788130636; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CqO2eF1E/cLxqGSvCisTSlVPdaIBeR7m9dvhWx5XYYo=;
+        b=KBAhbstVm5Fru4EFgonDqYI+JVs1f+6Ny0MCq4YRJYOS4fFmZGscVDqYChRWNaMAGo
+         9sQX8r4rX8hCWoK5Y9Xj+juLXPLvro7E4fmqAif0yXrMQdaXeGxoSYMBEr0r0Osn93QI
+         iHIv/pXSTbJtenPqopfES2FcMqVKeP4z8cZsakNRAswCHjUpgNsiYRKPmp9T5p7JBQp9
+         W2Ro5BDvpPQhUIpq/O6VACkU2HmmUHXDHis7ixAtHFyLGpS/5ScXvOA7Cjux6Z5uR0cL
+         eTsct0RLNUrArC8egawe+NbbxYdM1j8XFlrUmGPKjnE4Qa3NbdVtZM8L1bIJaIV3XxvZ
+         1Z4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787525836; x=1788130636;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CqO2eF1E/cLxqGSvCisTSlVPdaIBeR7m9dvhWx5XYYo=;
+        b=OxcZnI/SQB0CDSkN0ZFkn3KCsIYWqVVTxuMOXNC29FhcPL1ss09dP/jOtucVuJmEad
+         hlOCiwiz8mz5rQNHdJJEw7JbOYKl7BrdMzvNg0D39nkotq1spIUCLwFUc9MdrMCKCMKE
+         WRPQfChsBoFwk6/xb16m31sJ/pb3he4buWl3Fdx1sFru10C5h6J+V2mCzdl+xZJaK8d9
+         5nqctFpm9Xq7Ahp1ki/pV4OIU6kc9fBNFwc8CgqM0VjcNY36zCwOL5Bk7KLGup4chptA
+         KCDV/5634zJXtFgj2tvO8JhxGWeCTQu3F9VkcaKe4Gnbd/sP5U6rZlOLDCg0mGrsn0qO
+         E2Aw==
+X-Forwarded-Encrypted: i=1; AHgh+Rp2fA6F3Nfh/lMJ6v8YhGEaZTA3cWWhfL9W3PJ8ivwo4lOh1pHzj6c8DO3IpryrfGVG9iM4ZOI1XPWXGE7g1hHQ@lists.infradead.org
+X-Gm-Message-State: AFuF++naJe7jQ0f2ObFqUU1iUnykOqyRhqk2pDDfOkG6KSu1V73KWfSi
+	7MxaImxJ38EugafnMzco4pWvlaecmsCAu1cGwOlKBe7WBcgg9x4rH2kt
+X-Gm-Gg: AR+sD10Nj1CuraAfZsDyMM2oLWDi7VFXdFUB8tLZYEv28OrjbAF2p6RopZiu+lJJKtB
+	u6tvHVbspy94Nfnqc3uXyR1rcAPNLLi5LkOPrcMieM+xD/KAbdY1RNCwad/wC+s/LEobjxuUujT
+	/gsCrU3rEKKm/NTN3Ym/CaqpaVcdAyAwB81TlcQdMQHSYToRnDFZbnFgkAVN5wiPv+nf7szlkzW
+	OFz+qNOy5jO5uXvogzEov8/E//thgLd/V8gCKzsUHrgVFqtp8Ej+GgH5VWi7kaujVw9wCOFPKtk
+	HDRmbANVobCGStzEMjX5PAS/EisRuUOjAdbt8PWAsiflVO8IN1Q7mDDyMi3n0OAM8F0K3jDQpkX
+	IC+x/hHrW6oUdAsSgxdU9F1HC1RrGOBmJhZ0zGb9knrLILVNT2P3kZPIXJ3zSu56yVcWu2fvBMs
+	z28ovZ55zjEkVEUh3jvMXq9u+KxI7ARrlD99rWOkwowN5MuxOE2mtEpiPFO0joGEnSEmj7VkvGd
+	mOTEYmBP5RI0ffTvpczNxfAlIFBeFI5X7JafORx0Y1qedrkTlQPfCgLIjIfphsVoNLIWMOidePx
+	uLR4PDyMHp/dkrI56ekCAEgJZzVxtwCsyW5lNkXVhFCl7/0m
+X-Received: by 2002:a17:90b:33c8:b0:38f:57f0:1f5d with SMTP id 98e67ed59e1d1-395c397f4ecmr34800142a91.15.1787525836228;
+        Sun, 23 Aug 2026 15:57:16 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e35])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-395c9174be7sm3416564a91.3.2026.08.23.15.57.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Aug 2026 15:57:15 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: devicetree@vger.kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dennis Gilmore <dennis@ausil.us>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,...),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] ARM: dts: helios4: fix lm75 supply name
+Date: Sun, 23 Aug 2026 15:57:14 -0700
+Message-ID: <20260823225714.33938-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260824-for-upstream-lx2160a-pinmux-fix-v1-1-33a3c8d5ea8a@free.fr>
-X-B4-Tracking: v=1; b=H4sIADdzi2oC/x2NQQqDMBAAvyJ7diEubdB+pXiIZm0XNIaNkYD49
- 4YeZw4zFyRW4QSv5gLlU5LsoULXNjB/Xfgwiq8MZMianh647Io5pkPZbbgW6qxxGCVsueAiBa0
- 3A/c0+ec8Qa1E5ar/h/d43z/EZGZkcQAAAA==
-To: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Josua Mayer <josua@solid-run.com>
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Vincent Jardin <vjardin@free.fr>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787523904; l=1744;
- i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
- bh=v7b3i0icYOPqdG+BqtL6lYNtCLmPe90OESWp1UB4moI=;
- b=ezvxDYGXs6w7Ps/jMEObsLtPsg3EUttJ5frsgrfiS1kdS3jut+ZHF5FBxc6FpWlv0zBsho0Pc
- UYsr1nbTKn0DQLloefJC+hR9tYSMkslaNs5TIRd93+OqdiSsPlxadad
-X-Developer-Key: i=vjardin@free.fr; a=ed25519;
- pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
-X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
- auth_id=871
-X-Original-From: Vincent Jardin <vjardin@free.fr>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260823_155717_815061_DCE919C0 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,62 +101,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: vjardin@free.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vincent Jardin <vjardin@free.fr>
+The lm75 driver requests a regulator named "vs" (the +VS power pin
+of the chip).  The Helios4 DTS incorrectly used vcc-supply instead
+of vs-supply, causing the regulator core to emit:
 
-For gpio1 value set for pinctrl is outside the mask and so will do
-nothing.
-Add the missing offset for value field to be the same as the mask as
-expected.
+  lm75 0-004c: supply vs not found, using dummy regulator
 
-Fixes: 284ad7064aaa ("arm64: dts: lx2160a: complete pinmux for rcwsr12 configuration word")
-Signed-off-by: Vincent Jardin <vjardin@free.fr>
+Fix the property name to match the binding and the driver.
+
+Fixes: ced8025b569e ("ARM: dts: armada388-helios4")
+Assisted-by: opencode:big-pickle
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/arm/boot/dts/marvell/armada-388-helios4.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-index 1d73abffa6b7..b9f079c49e19 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-@@ -1803,7 +1803,7 @@ fspi_data74_pins: xspi1-data74-pins {
- 			};
+diff --git a/arch/arm/boot/dts/marvell/armada-388-helios4.dts b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+index 626a7339a5d0..af96d27e7159 100644
+--- a/arch/arm/boot/dts/marvell/armada-388-helios4.dts
++++ b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+@@ -200,7 +200,7 @@ usb3-ilimit-hog {
+ 				temp_sensor: temp@4c {
+ 					compatible = "ti,lm75";
+ 					reg = <0x4c>;
+-					vcc-supply = <&reg_3p3v>;
++					vs-supply = <&reg_3p3v>;
+ 				};
  
- 			gpio1_31_28_pins: xspi1-data74-gpio-pins {
--				pinctrl-single,bits = <0x0 0x1 (0x7 << 15)>;
-+				pinctrl-single,bits = <0x0 (0x1 << 15) (0x7 << 15)>;
- 			};
- 
- 			fspi_data30_pins: xspi1-data30-pins {
-@@ -1811,7 +1811,7 @@ fspi_data30_pins: xspi1-data30-pins {
- 			};
- 
- 			gpio1_27_24_pins: xspi1-data30-gpio-pins {
--				pinctrl-single,bits = <0x0 0x1 (0x7 << 18)>;
-+				pinctrl-single,bits = <0x0 (0x1 << 18) (0x7 << 18)>;
- 			};
- 
- 			fspi_dqs_sck_cs10_pins: xspi1-base-pins {
-@@ -1819,7 +1819,7 @@ fspi_dqs_sck_cs10_pins: xspi1-base-pins {
- 			};
- 
- 			gpio1_23_20_pins: xspi1-base-gpio-pins {
--				pinctrl-single,bits = <0x0 0x1 (0x7 << 21)>;
-+				pinctrl-single,bits = <0x0 (0x1 << 21) (0x7 << 21)>;
- 			};
- 
- 			esdhc0_cmd_data30_clk_vsel_pins: sdhc1-base-sdhc-vsel-pins {
-
----
-base-commit: 3d6d817622b0a9721e3cc404df3469171582be13
-change-id: 20260824-for-upstream-lx2160a-pinmux-fix-6d09e82bd5cb
-
-Best regards,
+ 				eeprom@53 {
 -- 
-Vincent Jardin <vjardin@free.fr>
-
+2.55.0
 
 
