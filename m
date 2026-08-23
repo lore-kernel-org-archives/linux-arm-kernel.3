@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4541C5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 11:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABCAC5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 23 Aug 2026 11:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qrz6vWIs7Ln59X+fS+7H6xGzZNfsFTViY3UVWM/k9UQ=; b=X+re4GhBopKFOif2uKmevYWiYa
-	k94GiB5PlQKtMAVPLQ2LiLtSNXK4db5VmOKet/vSguQobmcYg/55rj6sYktBrR+HkUEjqwVGFx+DZ
-	P2P90h+H8YwCoFQkt6AxFMcMNJZf4q+8C1Q9ZVM2bePvoE9GDipgv22h9/hDvItTTsMKtfpxUdqFG
-	Otroa3qs+6G3gUltrp3y2fDvvy/zsETrgsKYa2OYYThrWELPUwePR4mh0zWewWRaV9MfyTmtKTR0A
-	wKYnUlfgZWKRc7pv/6w7A8lRSF9pPxC8tuvFGPJRhrCFCnTNwJgeEtdeAfoeF6PectyFSN9pcZ48f
-	+vFZELBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Lrb3AaG5i4+pyOfjbgQo+jz5A6PG6nAPFo2gdyz4uew=; b=lDGItIe/SV4Rkx
+	tTOzsy43kO/G8LOn635tcEpBGpQO0YdWt70RZrEpSkQGYKqw/PPFha9N0IstRv1qPK93HxsIJbEIz
+	QobNNHK2QE1KK85PLaQJ5zW0XUoRC4RjKytOELmyBsvldD16R8ySl4f0pFd2bCkvlaupgDb+bnaHV
+	xB3dmDrhue/+c5v9AtuY6+eqMfgfCgbPepqmqXAhPXHOgScjZf33W+71tW5nE6/GVQFII9JpUdpYt
+	QCvSII12eodtyePHnBUtK1Ii/cnWbPC8JCzYToC+qUs/fQ1EI6PSLRMJ3TDjFOEQ1E59BH3FES6zl
+	w5+FT30yUHBUwXt/4bdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy6Xb-0000000FHly-2S3V;
-	Sun, 23 Aug 2026 11:39:07 +0000
-Received: from mail-wm1-f50.google.com ([209.85.128.50])
+	id 1wy6el-0000000FI3h-1kin;
+	Sun, 23 Aug 2026 11:46:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wy6XY-0000000FHlE-31ot
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 23 Aug 2026 11:39:06 +0000
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4953de5be0aso15451715e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 04:39:04 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787485143; x=1788089943;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Qrz6vWIs7Ln59X+fS+7H6xGzZNfsFTViY3UVWM/k9UQ=;
-        b=Pd0pbX5FDQkn1MvYDPhK3V7aAZ/2xs/KuXrEdwIBKScPgDNeOB7BgmAxD5NS9jdUaF
-         2mif4+BgHXxPIERo0CkInSPOI72Bc9pGhXHaaJEbWUcWWrBbqvY+uIFx22Pismpf1I8p
-         L9sYJO6U1JtSqZbUTGb1nEUgVScMxUIPA6HVkUBV5vRinyLm/vc6DcZNEeJ9EqqjSlP0
-         L8BvK6o0HMtT+cH2+NYsaLzuihu/oQ+/uh9tVZddu1njx4h2U4MJ12S2QezOJvF8lnUq
-         HrRIk+7MdNxj9+ZwJ9YOrYH2lKY3gujXhpUpEkZZotsJjcebZRF67AAM0gNBRxVbpDXq
-         B7PA==
-X-Gm-Message-State: AFuF++l6sx8p3IilccR6LWJZCqpw4OsXA539+8lbLY/ll/4RKTqBd/uF
-	uOlkn7pNftY/FyRGq9YbF6oJ22M/kCThngnGHXSzOxA2tfO++c2ZXzop
-X-Gm-Gg: AR+sD1111InEvR2qoS1JnSGU+aFsYNIEI2Kd70OZBozSy0MGJXnGEyTVVt5mRp31nM+
-	PZRWoSBZsmQvDtjYhS708vOB7BFu7BZSzwCcbpe78z2HLyfNDJmiNfyqxKntCaNW7NuFtgBVPur
-	kQ+8qcGrsQ1FHYItyerYNC0SIOqVoLEC+HsaOgd2fLa+C17qZXe+qmbNl2p5jfTL9wpll/6urRR
-	LObf2HFCQOpJHkfmqmZcg3Qgb4X64vCf4yi3y3Yd4Kq9BbRWzmKpXMmQKBeLwrDdDlIKJQAx9ZC
-	DRsfnhJmwCHNZF1ymesHVvOK684a1Y0Ix9bSFPWeq6CczA/l+pG2XMSeaKS65V6XcFjXvcSLM5A
-	NQ2uBjFQfc9qEqRudF3lvlOfXoclPFDpR5vkZUwQD8Mx67FZ1aHaIIvzzD/9RuhQB8gNV5BEexU
-	tKhUlWQnepO2lPVSjy1oYTYjak9CtGU/K0ako0vG4H5xMv98mHaxKlJuuh931/Fquf0NOCXX/Xr
-	YW8iYlwvVo8fyjpPv6pGd13PrmzvhPS
-X-Received: by 2002:a05:600c:c48f:b0:493:bd2a:93be with SMTP id 5b1f17b1804b1-499b8325d80mr195726245e9.6.1787485142600;
-        Sun, 23 Aug 2026 04:39:02 -0700 (PDT)
-Received: from [192.168.1.135] ([83.106.158.114])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499b9b57ab4sm61139535e9.2.2026.08.23.04.39.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 23 Aug 2026 04:39:01 -0700 (PDT)
-Message-ID: <0969d872-faff-4b0f-81ad-972b7aa9bb7f@linux.com>
-Date: Sun, 23 Aug 2026 12:39:00 +0100
+	id 1wy6ej-0000000FI3W-2QlY;
+	Sun, 23 Aug 2026 11:46:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C8AE60052;
+	Sun, 23 Aug 2026 11:46:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD03A1F000E9;
+	Sun, 23 Aug 2026 11:46:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787485588;
+	bh=Lrb3AaG5i4+pyOfjbgQo+jz5A6PG6nAPFo2gdyz4uew=;
+	h=From:Subject:Date:To:Cc;
+	b=KxsWQ55VlofiuDkDqLgek/1eVhKQq7dlOrawBrJveRKSZ1yGnkgnqiGKv46o2hZM0
+	 1f20ZKFiMj+1fxQNOTXgRAyLxU2lfST+kmfN/+1qWuc+RAy6F0PaDSCzoCbeQS5vHo
+	 LSPO3vI0V7PtU3PthwkC+vp2ll5Q1rwMpxKdF+mluTuDJZ1prHz/55dPjwK5+lHlts
+	 RBZlLhx4emUfToOGA/bT35i9FhDMh5qEWu7LHj8Q7lPVdPY4MUGzRJqPcWoki4Vf+b
+	 3igd+UgVgyQ0xUwwiiKuXFOAflN/AhFVsnUUeSYuG8OoCfanjQms6d3jJWtydQaeV+
+	 kI8IOB9eqYv8A==
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Subject: [PATCH v2 0/6] arch, mm/execmem: resolve confusion about
+ set_direct_map_valid_noflush()
+Date: Sun, 23 Aug 2026 14:46:11 +0300
+Message-Id: <20260823-execmem-set-vm-perms-v0-2-v2-0-b013a37d84b3@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: dts: amlogic: t7: use the real UART pclk
-To: Ronald Claveau <linux-kernel-dev@aliel.fr>,
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-References: <20260818191159.11523-1-tanure@linux.com>
- <20260818191159.11523-2-tanure@linux.com>
- <c428305a-265c-4cc5-be01-be5b21dc22ca@amlogic.com>
- <6673edea-6822-4368-9374-29f92195fcf5@aliel.fr>
-Content-Language: en-US
-From: Lucas Tanure <tanure@linux.com>
-In-Reply-To: <6673edea-6822-4368-9374-29f92195fcf5@aliel.fr>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_043905_619502_70EE5AA0 
-X-CRM114-Status: GOOD (  18.12  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42OQQ7CIBBFr2JYO0orqdWV9zAuAIcWdWjDUKIxv
+ btFL+Dy/fz/8t+CMXpkcVy9RcTs2Q9hgXq9ErbXoUPw14VFLetGtlUD+ERLSMCYIBOMGIkhS6j
+ BaGzVXivXKCeW/RjR+efXfb78mCdzQ5uKsDSMZgQTdbB9iYiGRFsimAInbR5YOr3nNMTX92Cui
+ uufL7kCCQd5UErv9FXt3OmOMeBjM8ROXOZ5/gChQWkL+QAAAA==
+X-Change-ID: 20260816-execmem-set-vm-perms-v0-2-bae847a4f64f
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>, 
+ Brendan Jackman <brendan.jackman@linux.dev>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ David Hildenbrand <david@kernel.org>, 
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
+ Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+ Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <pjw@kernel.org>, Pavel Machek <pavel@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+ Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>, 
+ Will Deacon <will@kernel.org>, x86@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-pm@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ loongarch@lists.linux.dev
+X-Mailer: b4 0.17-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,95 +94,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/08/2026 08:25, Ronald Claveau wrote:
-> On 8/19/26 4:39 AM, Xianwei Zhao wrote:
->> Hi Lucas,
->>
->> On 2026/8/19 03:11, Lucas Tanure wrote:
->>> uart_a lists the 24MHz crystal for all three of its clocks, because
->>> the T7 clock controller driver did not exist when these boards were
->>> added.
->>>
->>> That leaves the real UART bus clock without a user, so the kernel
->>> turns it off when it disables unused clocks at the end of boot, and
->>> the board hangs.
->>>
->>> Point uart_a at the real clocks, the way meson-s4.dtsi does, and drop
->>> the placeholders from the two board files.
->>>
->>> Fixes: 4fef056588f5 ("arm64: dts: amlogic-t7-a311d2-khadas-vim4: add
->>> initial device-tree")
->>> Fixes: 6f048cc7a635 ("arm64: dts: add board AN400")
->>> Signed-off-by: Lucas Tanure<tanure@linux.com>
->>> Assisted-by: Claude:claude-fable-5
->>> ---
->>>    arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts       | 2 --
->>>    arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 2 --
->>>    arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi                   | 4 ++++
->>>    3 files changed, 4 insertions(+), 4 deletions(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
->>> b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
->>> index cab2ee9ea0d3..dcbcd08a78b9 100644
->>> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
->>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-an400.dts
->>> @@ -33,7 +33,5 @@ xtal: xtal-clk {
->>>    };
->>>
->>>    &uart_a {
->>> -       clocks = <&xtal>, <&xtal>,
->>> <&xtal>;
->>> -       clock-names = "xtal", "pclk", "baud";
->>>           status = "okay";
->>>    };
->>> diff --git
->>> a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
->>> b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
->>> index c41525a34b72..677069e58f30 100644
->>> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
->>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
->>> @@ -266,6 +266,4 @@ &sd_emmc_c {
->>>
->>>    &uart_a {
->>>           status = "okay";
->>> -       clocks = <&xtal>, <&xtal>,
->>> <&xtal>;
->>> -       clock-names = "xtal", "pclk", "baud";
->>>    };
->>> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->>> b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->>> index cc371fcd1896..7847582e77ed 100644
->>> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->>> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
->>> @@ -587,6 +587,10 @@ uart_a: serial@78000 {
->>>                                   compatible = "amlogic,t7-uart",
->>> "amlogic,meson-s4-uart";
->>>                                   reg = <0x0 0x78000 0x0 0x18>;
->>>                                   interrupts = <GIC_SPI 168
->>> IRQ_TYPE_EDGE_RISING>;
->>> +                               clocks = <&xtal>,
->>> +                                        <&clkc_periphs
->>> CLKID_SYS_UART_A>,
->>> +                                        <&xtal>;
->>> +                               clock-names = "xtal", "pclk", "baud";
->>>                                   status = "disabled";
->>>                           };
->>
->> I agree with moving the UART clock configuration to the DTSI file.
->> However, it seems a little odd to keep the XTAL clock definition in the
->> DTS, as the alias may not be consistent across different boards, which
->> could result in compilation errors. Could we move the XTAL clock
->> definition to the DTSI as well, similar to other Amlogic SoCs?
-> 
-> It seems similar to changes in this series :
-> 
-> https://lore.kernel.org/all/20260420-add-bluetooth-t7-vim4-v4-0-9505df0e7016@aliel.fr/
-> 
-> What do you think ?
-> 
-Thanks for pointing out that series, though I wasn't aware of it.
-And after reading I don't agree with it. The clocks are not redundant, 
-they are there because we agreed sometime ago that xtal belongs to the 
-board files.
-So I still vote for my change in v2, that I will send in a few minutes.
+Recent discussion about implementation of execmem's ROX caches on arm64
+revealed a confusion about how set_direct_map_valid_noflush()
+implemented on different architectures.
+
+On arm64 it sets or clears the PTE_VALID bit marking a PTE as present or
+not present.
+
+On other architectures it's a range version of
+set_direct_map_invalid_noflush() and set_direct_map_default_noflush()
+
+Unlike arm64::set_direct_map_valid_noflush(),
+set_direct_map_default_noflush() not only marks PTE as present, but also
+sets its default protection mode.
+
+Other than that, initial design of execmem ROX caches didn't rely on
+restoration of large mappings that's now available on x86, but
+completely removed the memory allocated for the ROX cache from the
+direct map to ensure that large mappings are not split. This precluded
+usage of VM_FLUSH_RESET_PERMS for the ROX cache allocations and required
+execmem to implement manipulation of the direct map alias.
+
+Current implementation of ROX caches does not remove the direct map
+alias but simply calls set_memory_rox() that updates the permissions in
+both vmalloc address space and the direct map and relies on
+collapse_large_pages() in x86 CPA to keep large mappings.
+
+This allow using VM_FLUSH_RESET_PERMS for execmem ROX cache allocations
+with small adjustments to set_direct_map APIs and vmalloc::reset_perms()
+behaviour: adding number of pages parameter to set_direct_map APIs and
+making resetting of the direct map permissions in vmalloc VMAP_HUGE
+friendly.
+
+Implement these adjustments, make execmem always use
+VM_FLUSH_RESET_PERMS and revert set_direct_map_valid_noflush() changes.
+
+[1] https://lore.kernel.org/all/20260611130144.1385343-4-abarnas@google.com
+
+---
+v2 changes:
+* move setting of VM area order back to __vmalloc_area_node()
+* add tags, thanks!
+
+v1: https://patch.msgid.link/20260816-execmem-set-vm-perms-v0-2-v1-0-90944a3ad43f@kernel.org
+
+---
+Mike Rapoport (Microsoft) (6):
+      set_memory: add number of pages parameter to set_direct_map APIs
+      mm/vmalloc: set area's page_order after allocation succeeds
+      mm/vmalloc: constify vm parameter of get_vm_area_page_order()
+      mm/vmalloc: make set_area_direct_map HUGE_VMAP friendly
+      mm/execmem: use VM_FLUSH_RESET_PERMS for ROX cache allocations
+      Revert "arch: introduce set_direct_map_valid_noflush()"
+
+ arch/arm64/include/asm/set_memory.h     |  5 ++--
+ arch/arm64/mm/pageattr.c                | 24 ++++---------------
+ arch/loongarch/include/asm/set_memory.h |  5 ++--
+ arch/loongarch/mm/pageattr.c            | 27 ++++-----------------
+ arch/riscv/include/asm/set_memory.h     |  5 ++--
+ arch/riscv/mm/pageattr.c                | 23 ++++--------------
+ arch/s390/include/asm/set_memory.h      |  5 ++--
+ arch/s390/mm/pageattr.c                 | 20 ++++------------
+ arch/x86/include/asm/set_memory.h       |  5 ++--
+ arch/x86/mm/pat/set_memory.c            | 16 ++++---------
+ include/linux/set_memory.h              | 12 ++++------
+ kernel/power/snapshot.c                 |  4 ++--
+ mm/execmem.c                            | 42 ++++++---------------------------
+ mm/secretmem.c                          |  6 ++---
+ mm/vmalloc.c                            | 26 ++++++++++----------
+ mm/vmalloc.h                            |  2 +-
+ 16 files changed, 61 insertions(+), 166 deletions(-)
+---
+base-commit: 1029098ee3275ea5b78e329ce132262affa2f8cc
+change-id: 20260816-execmem-set-vm-perms-v0-2-bae847a4f64f
+
+--
+Sincerely yours,
+Mike.
+
 
