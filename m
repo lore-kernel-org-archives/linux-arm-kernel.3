@@ -4,123 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85608C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 13:19:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC08C5DF9B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 13:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wCzOjEA9OywrEATDl45R1TfXZBBJe+6tm4EMtmxJt4w=; b=dkJZFHoAytkm6tSez88nxLCKyW
-	IOCjwk6ukoo+BoXf6xxP6wCUfrnowyqddMD0a9rcwi66qDuN0TxRZzO27/6upazmMobfTlqGKhShX
-	nV2+GwlDsh5a9kFUXMSST63rZRTzU+y/EfOdPu3rRdri/4R2pgjRp/kQudDGRF2rEn7Dnv4o/C+IL
-	BL1EqpXyEGaG70g6rhUaajejwQHkkgFgbUVTkrba5jrZyO1VTEd98ZlZHSBwdgP905WbY0VHAKhKZ
-	s/GpvppZfhu7/9/oadI1QewR/Xwe5qAAOGubpJ8kW0Sno+CbsmyRTOpdCQx7+kWF8i2Kdz9EVug5L
-	FWXJfkMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lEgYKKEkha5zVelFKuaU6d4W/gqiYgaF9FnZq2+a+Sk=; b=Ja+zcoUW+2zAq3jVoeaSfxejyq
+	Dhq+eNCFCZJu73k0pnp/dNc54IMpZv0ZUHXS35giB4PWZrIu8pafkhmpYwDMfuvPweHvXT0SjZ10D
+	YA3DXUkLga4N68zGZMqk6WSIZZURWdHagHKWeP6bjk9EYpPMcG6Qc0Y8V3OLQn01zRB/vbQs8eQq/
+	Os/Ue6Wyth+od1k2N3Jt1vz7+gJcEYXYPgRNBQQoYbyEnCnr1XkSW6IxuBXOtvgn7O1+QbvmlFKqk
+	3V+VjFnthVwnoAyzpfjmk6SbxKgYNBKf6zkPRgm8Kqi8WTueoy60sU/oU+84zY1vQecP6pDSkPtbZ
+	7wOblH7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyUaS-0000000Ggp4-43bH;
-	Mon, 24 Aug 2026 13:19:40 +0000
-Received: from mail-francecentralazon11013019.outbound.protection.outlook.com ([40.107.162.19] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wyUjp-0000000GhTN-3X1a;
+	Mon, 24 Aug 2026 13:29:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyUaK-0000000GgoY-3hc3;
-	Mon, 24 Aug 2026 13:19:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rfjVAVqSU8aYdjj2UcjvMmMs9AAhMqB+Y9lXrk/uBCUg2G6OLvo7C+16XbpujCA0BeaPGKqXPh5zTAcMMKgJGfNCcaJ/GKZAcH5crtzPVWcp2BuZe+5cDW3SPH42o5psfATwa9yiYZRuAQdA9EK/u22thRePIt6OUHrntmGgSIql47MxCm7jnqnoyamedmXDMFDqLxpeOOWZb6r8q1B2VtdTCkTEbEOTg8pFlNzXYqUT48lxZM5U8au5BEeI27/TcBZ5P0BXPwrz7vduNY9A5CmqEKC1Eg6B18Xpo0QbEaAaGySR1+eapcBL+wdO5r9mKVUPeMv1rsA1B0uqJqvH0Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wCzOjEA9OywrEATDl45R1TfXZBBJe+6tm4EMtmxJt4w=;
- b=URgoKEyZIdkzbVm20saGD0aoN2QEeJjyPlWQ3UtQQ9/OMkrdlc8m49zyr+l8UBYAv5OYe+prksZwL2WdDnEiOC4NID3N6l2yUQP+0AT0xfw3OuhXPFov4VrNdUYCe5nFh/9hNZ5I2fktBuFlImyZETSD4UkJgYPElHP/hpMP3Wu3y4kUaRtjwYDo75dbo8ge2igJHQNuCRbfh8tIxKZmsZNPhz0CKSPikoNoo2sTZpu7nboOnBE0Mf9MYdnYqST6KYfyQpKtm3R7Nz4Z3btncypz6S6vEAaTVhOZGp3MLImShqbP4eIZLq80amUTmpeTBzNlTWNYxPJJZapLmrInHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wCzOjEA9OywrEATDl45R1TfXZBBJe+6tm4EMtmxJt4w=;
- b=NaQoMwwbQFks28EXWVzr1ItwOWJItlXZoJWDR28rVJvDY2ZXcPRkZqapD0m31LSpWc/SDL4YKq981TLsA9Uvhmu/R9V+Cc4AMgX5E62NgtU33oYolySK+nbObzk7WQelSdDFMLcmvnbKSh+B0IcA3SdJ1O0qW9V3RdUAWDbMJrT1w4vT3JkGrIajFES5wg6pkcsg71t0dTsen9qa7omio8fW4RpMOIgYWnH67nwM4AGt1978dJsNGmYDdL3I0Ja8sSbV34syhl1N+RofgthZRR1elzeihsOWtIQJxoEjIbTeN6ccmnXQihUyBxWbr6u4/oiIIcPo3Jzajnz9D6zSyg==
-Received: from AS4PR10CA0023.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5d8::15)
- by DB4PR10MB6144.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:388::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Mon, 24 Aug
- 2026 13:19:25 +0000
-Received: from AM4PEPF00027A65.eurprd04.prod.outlook.com
- (2603:10a6:20b:5d8:cafe::77) by AS4PR10CA0023.outlook.office365.com
- (2603:10a6:20b:5d8::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.12 via Frontend Transport; Mon,
- 24 Aug 2026 13:19:24 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AM4PEPF00027A65.mail.protection.outlook.com (10.167.16.86) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.360.3 via Frontend Transport; Mon, 24 Aug 2026 13:19:24 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 24 Aug
- 2026 15:24:43 +0200
-Received: from [10.48.86.251] (10.48.86.251) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 24 Aug
- 2026 15:19:23 +0200
-Message-ID: <a6c55491-7cbe-4856-bb45-b7f5872966fc@foss.st.com>
-Date: Mon, 24 Aug 2026 15:19:21 +0200
+	id 1wyUjp-0000000GhTH-1e4Y
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Aug 2026 13:29:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 711D5600E2;
+	Mon, 24 Aug 2026 13:29:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 072771F000E9;
+	Mon, 24 Aug 2026 13:29:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787578160;
+	bh=lEgYKKEkha5zVelFKuaU6d4W/gqiYgaF9FnZq2+a+Sk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=F/oshU4Il1Bt2lQkvGtNOAp6PSQO58YZxwo/DMx+p9l1JiOviAMbhb8tc9egUBgiS
+	 NVKQzJ3MihmJvtgtMMoaVv0AXT/GFQAmRkQKcbLeKUmw/QWJvG0pwFAnfWIReBGuXu
+	 vdYeViL60lKXaV8vyoONOrDUG11QfUevJffrwTG17JQly1GKZ8lYrTwdJRgJmqCuds
+	 sBCSM6CvNZfuXDU8V+kphQWICyI0aF8ujjIiGTKZMI0lSHitlvAyIj/1ulOBAB8+tY
+	 I4wQtbS3snLfcQJnvzDoqqFVXOTTErOS11hpSnhdcrAHxh3z6/97zsLgGlBe12kInT
+	 oOqOSPA3jCsiA==
+Date: Mon, 24 Aug 2026 14:29:14 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Yao Yuan <yaoyuan@linux.alibaba.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Wei-Lin Chang <weilin.chang@arm.com>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] KVM: arm64: Fix spurious warning for benign stage
+ 2 teardown race
+Message-ID: <aoxETjo-1vbTuLuZ@gremlin>
+References: <20260822-kvm-arm-nested-virt-fix-v2-0-ac4059a0eaa6@kernel.org>
+ <20260822-kvm-arm-nested-virt-fix-v2-1-ac4059a0eaa6@kernel.org>
+ <dycpfrkpphjy5xnb57t2zvdmlpkx76lbow7w23l3d2fwgbfjjj@lbk4uh7awc2p>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 9/9] arm64: dts: st: Add USB nodes on stm32mp251
-To: Marek Vasut <marex@nabladev.com>, <linux-usb@vger.kernel.org>
-CC: Pankaj Dev <pankaj.dev@st.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Christian Bruel
-	<christian.bruel@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, Rahul Kumar <rahul.kumar05@st.com>,
-	Rob Herring <robh@kernel.org>, Rosen Penev <rosenp@gmail.com>, Thinh Nguyen
-	<Thinh.Nguyen@synopsys.com>, Vinod Koul <vkoul@kernel.org>,
-	<devicetree@vger.kernel.org>, <kernel@dh-electronics.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-phy@lists.infradead.org>, <linux-stm32@st-md-mailman.stormreply.com>
-References: <20260822074816.548662-1-marex@nabladev.com>
- <20260822074816.548662-10-marex@nabladev.com>
-Content-Language: en-US
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-In-Reply-To: <20260822074816.548662-10-marex@nabladev.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.251]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM4PEPF00027A65:EE_|DB4PR10MB6144:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6ae98eac-9034-48a7-d332-08df01e2515e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|82310400026|1800799024|23010399003|56012099006|10067099003|4143699003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: LKGQ+lukUjNcB/acinK9XiWx0Er1ZaghSyPB3U3Oyc0R37PMJDZ1Qhux0tf/rDUQviTeZT41VTyEa1OGA9A31IuNPR4Bx8dHx8pZRMtERXWvkoTrUgPwiy3FF2qgWBcr4jN9LaCZhzic28g9EmA072gD5Ix91x6G4dgK8TtBBStVfOKIICmftBKbJUbI2KvPMOTpfdh+TOW6WHL/zvWUBfw5XhSuEzIJrM4l2f8WRtpkkXXnw3TJi/aF49eJSBf7z9ejyMozkCfC0TqOJsKyeKaR1xh9BfZ4R1vKBI37xvCq0mMnLDuijYK3HiVaAdgXe/uO5wutqAesHCtD398DxhVqzQ9VmChYXlwhwJG9EPRq/W+060iiU2dhUJZpJp8qu3SuXtjWGwz5kiNpQE4M5rk9dKIbs/YiPoHgnWlZAKIVbjiDoHlqISzH4G9PF48nMJQ0JWGYjWRY9YZ8WQZOGLNkTBuaZkwbgT0WBdloaAR2jRotsliRj7uP1VMXbSZWmsJvJ1ZbW21izrPFQ/jJoORrQtNbU7Twl0qwtESBqrzaLeGe5YypAyHFEisPtU62A740TVe9I46DJJ+YyIJnf07zO+X+gQhZQAwl08kguO+LwmAL9cs1PAerjb464GuvydQysRdJz2dsAScxzG03KsEAblN1mV49/Wkb/UK8ERqTFOKePQladEYlAypBsiC4ylJCWTfbjhVXklECN8pqcQ==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(82310400026)(1800799024)(23010399003)(56012099006)(10067099003)(4143699003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: cv0BORWU0EyZsxx0XHEogXXuVtrSdzd9Z6EMbF0qMZsy4+eSoaVypQ4KZYzs7e/kw8/QZBTFOV6Z3CM9jFO/6fjtPy9xbx9jfVXhYKPBZ9NXDGPPZtaQa6vM7SHElE8MGmoP6fmvh1Qy6bGkH9dNHQ/d6W9XPLhs+j9rQ18mg+jm7D8BVFkh7/KmY30e2dST9PoC9wDPYol7768b/fSyF7LFOW6kf18Z0uwrsSBart3wCpPVK/h/ZYs6cuS1/9OLdA2VON1ViaQ7bvuG/4Z0eYU560tyx7JKfkPEBeETtR8FN0f3+1CfZCqnkCZcJCi181mBDhKu+JRQ26TSwdvgoWAm/U3tWsdc2a2l7mc8pZmBxo4kQM9Q0Dbd2RcIwsgKASOTjLjnNyrTzl+T+77PXr3F3XWzse5+ZkqpcQdWTKveQFyVu1QAzAc0NdSzOH4X
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2026 13:19:24.8401
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6ae98eac-9034-48a7-d332-08df01e2515e
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A65.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB4PR10MB6144
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_061934_510537_D8A9ED2A 
-X-CRM114-Status: GOOD (  14.60  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <dycpfrkpphjy5xnb57t2zvdmlpkx76lbow7w23l3d2fwgbfjjj@lbk4uh7awc2p>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,145 +76,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Aug 23, 2026 at 01:38:18PM +0800, Yao Yuan wrote:
+> On Sat, Aug 22, 2026 at 06:46:53PM +0800, Lorenzo Stoakes (ARM) wrote:
+> > A batch of kernel warnings were triggered in the L0 host kernel when using
+> > kvmtool to experiment with nested virtualisation.
+>
+> ...
+>
+> > Fixes: ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page tables")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> > ---
+> >  arch/arm64/kvm/mmu.c | 10 ++++++++--
+> >  1 file changed, 8 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > index 74e7e7f7564c..31e049ded093 100644
+> > --- a/arch/arm64/kvm/mmu.c
+> > +++ b/arch/arm64/kvm/mmu.c
+> > @@ -59,19 +59,25 @@ static phys_addr_t stage2_range_addr_end(phys_addr_t addr, phys_addr_t end)
+> >   * long will also starve other vCPUs. We have to also make sure that the page
+> >   * tables are not freed while we released the lock.
+> >   */
+> > -static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t addr,
+> > +static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
+> >  			      phys_addr_t end,
+> >  			      int (*fn)(struct kvm_pgtable *, u64, u64),
+> >  			      bool resched)
+> >  {
+> >  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+> > +	phys_addr_t addr = start;
+> >  	int ret;
+> >  	u64 next;
+> >
+> >  	do {
+> >  		struct kvm_pgtable *pgt = mmu->pgt;
+> > +		/*
+> > +		 * We may be raced on PGT teardown when we release the
+> > +		 * kvm->mmu_lock. That's fine as the PGT is legitimately no
+> > +		 * longer present.
+> > +		 */
+> >  		if (!pgt)
+> > -			return -EINVAL;
+> > +			return resched && addr > start ? 0 : -EINVAL;
+>
+> Hi,
+>
+> I can understand the addr checking makes sure only return 0
+> when the mmu_lock is dropped at least once and get pgt =
+> NULL, may a variable like drop_lock = true when
+> cond_resched_rwlock_write(&kvm->mmu_lock) happens can have
+> better readability, but depends on you and others' opinion.
+
+Yeah good point, also the condition is resched && next != end, so this was far
+too forgiving already :)
+
+So perhaps:
+
+static int stage2_apply_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
+			      phys_addr_t end,
+			      int (*fn)(struct kvm_pgtable *, u64, u64),
+			      bool resched)
+{
+	...
+	bool lock_dropped = false;
+	...
+	do {
+		...
+		if (!pgt)
+			return lock_dropped ? 0 : -EINVAL;
+		...
+		if (resched && next != end) {
+			cond_resched_rwlock_write(&kvm->mmu_lock);
+			lock_dropped = true;
+		}
+	} while (...);
+	...
+}
+
+That keeps it simple and clear and we don't try to infer anything too
+complicated from the state just 'the lock was dropped'.
+
+>
+> Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+
+Thanks :)
 
 
-On 8/22/26 09:46, Marek Vasut wrote:
-> From: Pankaj Dev <pankaj.dev@st.com>
-> 
-> Add USB controller and PHY nodes to stm32mp251 DT.
-> This includes two USB 2.0 FEMTO PHYs, USB 2.0 host
-> controller and DWC3 DRD controller nodes.
-> 
-> Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
-> Co-developed-by: Marek Vasut <marex@nabladev.com>
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
-> ---
-> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: Christian Bruel <christian.bruel@foss.st.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-> Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> Cc: Pankaj Dev <pankaj.dev@st.com>
-> Cc: Rahul Kumar <rahul.kumar05@st.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Rosen Penev <rosenp@gmail.com>
-> Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> Cc: Vinod Koul <vkoul@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: kernel@dh-electronics.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-phy@lists.infradead.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> Cc: linux-usb@vger.kernel.org
-> ---
-> V2: - Fix up Sob/Cdb lines
->     - Move PHY into syscfg subnode
->     - Turn st,stm32mp25-syscfg into simple-mfd
->     - Use clock-cells = <1> to discern OSC and future PLL clock from the PHY
-> V3: - Describe OHCI clock as the CMN clock
->     - Fix up Sob/Cdb lines further
-> ---
->  arch/arm64/boot/dts/st/stm32mp251.dtsi | 65 +++++++++++++++++++++++++-
->  1 file changed, 64 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> index 6e985f115b195..dd2f7ddd9b634 100644
-> --- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> +++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-> @@ -1746,6 +1746,47 @@ stmmac_axi_config_1: stmmac-axi-config {
->  				};
->  			};
->  
-> +			usbh_ohci: usb@482e0000 {
-> +				compatible = "generic-ohci";
-> +				reg = <0x482e0000 0x1000>;
-> +				access-controllers = <&rifsc 63>;
-> +				clocks = <&usb2_phy1 1>, <&rcc CK_BUS_USB2OHCI>;
-> +				interrupts = <GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH>;
-> +				phys = <&usb2_phy1>;
-> +				phy-names = "usb";
-> +				resets = <&rcc USBH_R>;
-> +				status = "disabled";
-> +			};
-> +
-> +			usbh_ehci: usb@482f0000 {
-> +				compatible = "generic-ehci";
-> +				reg = <0x482f0000 0x1000>;
-> +				access-controllers = <&rifsc 63>;
-> +				clocks = <&usb2_phy1 0>, <&rcc CK_BUS_USB2EHCI>;
-> +				companion = <&usbh_ohci>;
-> +				interrupts = <GIC_SPI 139 IRQ_TYPE_LEVEL_HIGH>;
-> +				phys = <&usb2_phy1>;
-> +				phy-names = "usb";
-> +				resets = <&rcc USBH_R>;
-> +				status = "disabled";
-> +			};
-> +
-> +			usb3dr: usb@48300000 {
-> +				compatible = "st,stm32mp25-dwc3";
-> +				reg = <0x48300000 0x100000>;
-> +				access-controllers = <&rifsc 66>;
-> +				clocks = <&rcc CK_KER_USB2PHY2>,
-> +					 <&rcc CK_BUS_USB3DR>,
-> +					 <&rcc CK_KER_USB2PHY2>;
-> +				clock-names = "ref", "bus_early", "suspend";
-> +				interrupts = <GIC_SPI 228 IRQ_TYPE_LEVEL_HIGH>;
-> +				phys = <&usb2_phy2>, <&combophy PHY_TYPE_USB3>;
-> +				phy-names = "usb2-phy", "usb3-phy";
-> +				resets = <&rcc USB3DR_R>;
-> +				st,syscfg = <&syscfg 0x4800>;
-> +				status = "disabled";
-> +			};
-> +
->  			pcie_ep: pcie-ep@48400000 {
->  				compatible = "st,stm32mp25-pcie-ep";
->  				reg = <0x48400000 0x100000>,
-> @@ -2002,9 +2043,31 @@ exti1: interrupt-controller@44220000 {
->  		};
->  
->  		syscfg: syscon@44230000 {
-> -			compatible = "st,stm32mp25-syscfg", "syscon";
-> +			compatible = "st,stm32mp25-syscfg", "syscon", "simple-mfd";
->  			reg = <0x44230000 0x10000>;
->  			#clock-cells = <0>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +
-> +			usb2_phy1: phy@2400 {
-> +				compatible = "st,stm32mp25-usb2phy1";
-> +				reg = <0x2400 0x24>;
-> +				#phy-cells = <0>;
-> +				#clock-cells = <1>;
-> +				clocks = <&rcc CK_KER_USB2PHY1>;
-> +				resets = <&rcc USB2PHY1_R>;
-> +				status = "disabled";
-> +			};
-> +
-> +			usb2_phy2: phy@2800 {
-> +				compatible = "st,stm32mp25-usb2phy2";
-> +				reg = <0x2800 0xc>;
+>
+> >
+> >  		next = stage2_range_addr_end(addr, end);
+> >  		ret = fn(pgt, addr, next - addr);
+> >
+> > --
+> > 2.55.0
 
-Hello Marek,
-
-Similar to stm32mp231: should update size ?
-
-				reg = <0x2800 0x10>;
-
-Thanks & BR,
-Fabrice
-
-> +				#phy-cells = <0>;
-> +				#clock-cells = <1>;
-> +				clocks = <&rcc CK_KER_USB2PHY2EN>;
-> +				resets = <&rcc USB2PHY2_R>;
-> +				status = "disabled";
-> +			};
->  		};
->  
->  		pinctrl: pinctrl@44240000 {
-
+--
+Cheers, Lorenzo
 
