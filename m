@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C46EC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 22:30:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E6ABC5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 22:51:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fMg2aNicO0aB4QTFjgM7IykBRV4mduECWJB/Q/hH7A8=; b=uZjmoaobZrvRKUkLrf6Nh5IupN
-	lFSXPncStlAKc7lQT/9kdMx/z48zv+t+6Fwzoxj+gxlP6nLfQz8+dduXW6KXa2bju4SvGiYClPOGd
-	tHcIJbhM+XxyeX6mqXX3Wskkwqz9CeGpvLoHDDT9fwIfZYQWDnERi1yKhllJPEY5CapII3fW1fRBq
-	4VzWwahe4rApkbYe4fbVuCwndl0ibhphksqjc7KOYX2urTLAOBsXm4og2NE0pHyjoHfNEyvNqVkm3
-	+0Y6tzUEq0AZBnEjEoFKIj0zdXKcsDrfRQ+X5+0ok5O+CrWl//jVpOKFYsDpf9KtvYsD/EKuYABPp
-	SldvtCXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZbVphlX7nHILauFpZLGbnK6gFDl7ET10FXthNtKOgQY=; b=MHBnvRg3jguBA/
+	Xh+31iYHJQ71LM5KkTz6J6B0ExW3Fx2WJIutLNeu2IEiHPTMMxG+5AKkIY3sf/ampCHM3btwwSUlm
+	nl7Rz7Dja82LRdVRddorp1haUNFkjpHl37D9ZZjSs2eSK/nPwyfocTq2/9uzgfLjiMr8yCY7UJz6B
+	dl59Jhm/4W+2uM6pMJgu+IZNNN9tyoWL51HuQsQRbk0SnVXlsmWiXTWdMud8PALXe83cJiyZSs+Jw
+	h3Iyn+HvHCac10ZZk26qlrsIeRLBRNH3N6/CXy4ZeK9jnKcko0meHiAivymQtIIL7qDIs0rexCOwO
+	+xoR6ZVF41mmzBr+vDww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wydBi-0000000HSM6-0FZK;
-	Mon, 24 Aug 2026 22:30:42 +0000
-Received: from out-9.mta1.migadu.com ([2001:41d0:203:375::9] helo=mta1.migadu.com)
+	id 1wydVY-0000000HSvK-3haP;
+	Mon, 24 Aug 2026 22:51:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wydBe-0000000HSKJ-2HW5
+	id 1wydVW-0000000HSuq-3RKv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 22:30:40 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=C+tpSL7TVsBh+8q3t9TH1pAT+xgr21uNVTJjRSpvMQQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787610636; v=1; x=1788215436;
- b=sxyvxy/2PjurScy+WmlNVkeSh3yS2+0KhcXYqbFwZ04JZ+TqS1wrdrHPr9TtdVDrnLDtEZ7m
- lczVK75MJa5Zp/cZ9m51ig3cqjb3Vxfgy/3+43E/bW0Jp64fIRho6V6VXrd2FDX7kQMIvheOBXK
- y6bFPQ90xNEfhSH/cAg92dVU=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from mail-lf1-f52.google.com (209.85.167.52)
-	by smtp.migadu.com with ESMTPS id b0a1aecb9f4d6d88;
-	Mon, 24 Aug 2026 22:30:36 +0000
-X-Mizu-Trace-ID: b0a1aecb9f4d6d88
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5b2a73da7e1so3546e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 15:30:32 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpYvsC0DnirYaqMRJKetAP5NIkVENTGjZHHs87+SprgDVNyohXCjNNCZZZW4sXy8VqCZuc1WLTxpFu0e7qXaDsd@lists.infradead.org
-X-Gm-Message-State: AFuF++kQkMvzUfDJiH4HVYWJE5mT0QvxR/ZAS7dsYpmt1CcrbBx3iz8m
-	QMj3SlFbHVwe95KVwDiSPGzknWkg9636AJokps6RGFdZeQjwZh7Zun5bWuhSMUNnsqWsu9AuYrM
-	KIsaDWpdJRS0eL9aEn6ItQeVCOtQnmqhlOXRKG62I
-X-Received: by 2002:a05:6512:68c:b0:5b2:a5e9:3aba with SMTP id
- 2adb3069b0e04-5b49cf97240mr50807e87.6.1787610631348; Mon, 24 Aug 2026
- 15:30:31 -0700 (PDT)
+	Mon, 24 Aug 2026 22:51:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3095A6011F
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 22:51:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A85851F000E9;
+	Mon, 24 Aug 2026 22:51:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787611868;
+	bh=ZbVphlX7nHILauFpZLGbnK6gFDl7ET10FXthNtKOgQY=;
+	h=From:Subject:Date:To:Cc;
+	b=Z6dW8C63FFhJUEn5aS/j4KPe/qVrzqv10yaFOcYsMwTz20Jl++0Q/00iHNfFcaxUQ
+	 Vu1siwuBXSJ6JwxQJ/skJxSqrTpELIWrsfdnuW6k6C72NkmnvllljPdVVKWCTbr0eC
+	 9kgOT6MP5v6vOJI7DGbj3wGbvvHB7Q22Qb3XcWmnIfIT7+42HJxPQt5R/D7TwKhTjG
+	 6ASdX/Pzm6/czpW4T9AOGbeJB4QAfH7/g70QZJh4HkhlCpZi29ugmbq6k6FcNprOba
+	 DPpBefYUzFRvAgIyD6jbGQDrfWqmH49JJLeGysvT5vF5xcCdG1wMiYZzkzfjqVZsGk
+	 dzzqrENO+YHIg==
+From: Linus Walleij <linusw@kernel.org>
+Subject: [PATCH 0/2] ARM: dts: ux500: Add the Imagis ISA1200 to Janice and
+ Gavini
+Date: Tue, 25 Aug 2026 00:51:02 +0200
+Message-Id: <20260825-ux500-dts-add-imagis-img1200-v1-0-6319ac50e3a3@kernel.org>
 MIME-Version: 1.0
-References: <20260824184155.2644646-1-fuad.tabba@linux.dev> <aoypji6EJ8zToWvh@arm.com>
-In-Reply-To: <aoypji6EJ8zToWvh@arm.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 24 Aug 2026 23:29:54 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwueqEAVq-7_ioRN+1h3LNPAqHX3rTqbXODViJJM-D_pQ@mail.gmail.com>
-X-Gm-Features: AcwNN1V5iZSXwG_fjN9lRaKeKRg6baF9PCHCMd29lA92d-wgYEEVof0B_z2gkoM
-Message-ID: <CA+EHjTwueqEAVq-7_ioRN+1h3LNPAqHX3rTqbXODViJJM-D_pQ@mail.gmail.com>
-Subject: Re: [PATCH v3] arm64: Don't read GMID_EL1 when MTE is disabled
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_153038_784008_91F613F2 
-X-CRM114-Status: GOOD (  21.45  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MQQqDQAwAvyI5N5Bd3CL9ivSwmuw2h1rZtCKIf
+ zf0NMwc5gCTpmLw6A5osqnpZ3EJtw7mV16qoLI7RIp3GmKPvz0RIX8NMzPqO1c1Rw3RM82lEA8
+ pTJLAF2uTovt/Pz7P8wINsRL3bgAAAA==
+X-Change-ID: 20260824-ux500-dts-add-imagis-img1200-0cff0d851be5
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ Linus Walleij <linusw@kernel.org>, Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,62 +73,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Aug 2026 at 21:29, Catalin Marinas <catalin.marinas@arm.com> wrote:
->
-> On Mon, Aug 24, 2026 at 07:41:55PM +0100, Fuad Tabba wrote:
-> > +/*
-> > + * Reading GMID_EL1 when the kernel has disabled MTE traps to EL2, and the raw
-> > + * ID_AA64PFR1_EL1 reflects neither CONFIG_ARM64_MTE nor the cmdline override.
-> > + */
-> > +static inline bool gmid_el1_accessible(u64 pfr1)
-> > +{
-> > +     if (!IS_ENABLED(CONFIG_ARM64_MTE))
-> > +             return false;
-> > +
-> > +     pfr1 &= ~id_aa64pfr1_override.mask;
-> > +     pfr1 |= id_aa64pfr1_override.val;
-> > +
-> > +     return id_aa64pfr1_mte(pfr1);
-> > +}
->
-> Can this function not use __read_sysreg_by_encoding() directly and not
-> get an argument at all? We'd get the override from that function rather
-> than open-coding it here.
+This adds the device tree entries for the newly merged ISA1200
+to the Ux500 Janice and Gavini device trees.
 
-Like this?
+Signed-off-by: Linus Walleij <linusw@kernel.org>
+---
+Linus Walleij (2):
+      ARM: dts: ux500: Add the Imagis ISA to Janice DTS
+      ARM: dts: ux500: Add the Imagis ISA to Gavini DTS
 
-      static inline bool gmid_el1_accessible(void)
-      {
-              if (!IS_ENABLED(CONFIG_ARM64_MTE))
-                      return false;
+ arch/arm/boot/dts/st/ste-ux500-samsung-gavini.dts | 56 ++++++++++++++++++++++-
+ arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts | 56 ++++++++++++++++++++++-
+ 2 files changed, 110 insertions(+), 2 deletions(-)
+---
+base-commit: b6b019a1d9b90ac51174f0ca15b1338b61506bf9
+change-id: 20260824-ux500-dts-add-imagis-img1200-0cff0d851be5
 
-              return
-id_aa64pfr1_mte(__read_sysreg_by_encoding(SYS_ID_AA64PFR1_EL1));
-      }
+Best regards,
+-- 
+Linus Walleij <linusw@kernel.org>
 
-> Eventually, once we get Suzuki's clamping fix,
-> it also ensures we won't be able to bump the MTE version to unsafe
-> values (but that's a different fix from this one).
-
-Agreed it's separate, but v3 applies the override without checking
-that the CPU has MTE2, so id_aa64pfr1.mte=2 on a CPU without it reads
-a GMID_EL1 that isn't there. On the boot CPU that's before the
-override is sanitised. Should I check the raw register before applying
-the override, until the clamp lands?
-
->
-> If you are worried about additional trapping of the MRS, we should go
-> for Will's improvement to always read the cached values in
-> __read_sysreg_by_encoding().
-
-Not worried :) __cpuinfo_store_cpu() has already read ID_AA64PFR1_EL1
-a few lines up.
-
-Cheers,
-/fuad
-
-
->
-> --
-> Catalin
 
