@@ -4,117 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10540C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 11:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80CBFC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 11:12:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yyAlnjllRJoc8EnuoheqRfmGGLiMMzIInITnv3UMbRQ=; b=3UIz4BJjXGWKyuDVR+sIW+6+MT
-	0awiuJl/uDKUwt7rBu9X37tLQpXkoiNFj3u1SUPi+3Abl+kDSwSxo08JOxCTGAoj4+x88T4Eeh1Wt
-	7JucusDEcmMKYFdSRwFns8xuTqXCX0C5hex2BujV0mY/9gYNdiV1tIBuzFqfGCwSTfoyUesGGkvSr
-	JqX2vnupx/jdVMq3KN6RsW1WHCaf6u8YGnYrgJ8+m1wU3RKgGSdFpIO4y3xvE71BkefJ6NapFIBee
-	fq97Dt88GVmbTJ9ttCC6wIVadm7JWVIvXoY5svbo++7+DheL+Jb4+z//o6EiDsyN6RSb5nwARv5Lu
-	mUUaT+Mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mx+rPoWvI9AkDoOzj5LLsBB5vj6AWlJD0KdPs8BiNks=; b=JhEpII23E1zzLzDxC5jl1IIFtK
+	5xupRRYhk9jnk6QuE8rGKujj4vNrVM3LGGz0DUPuKaySoHESMQc93+NhfGhgdIzAHYi0NgCaxBuMx
+	vw6dXufu9mzJHc4eCLueCz5pDOE37zMV9B0YoNVkfZG3o6W+zWIf1LEgVOLMOcxDScYwsPzXjsPGZ
+	XrLqodkES2ZzgWgaygf7KGLITapmC5f2L4cfdsgTZqXMOMtJuOxU8WoWHYzVg93Rj9w0AySqq/SfV
+	IZTBUYp2emk+e8DFnciAySNitjgEeJAuQaXCZ8BTWlA+0ZKGN1Rj37d15MVImlwJDWMV4f/z8qH1k
+	JoWFgx8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySai-0000000GU8A-35zS;
-	Mon, 24 Aug 2026 11:11:51 +0000
-Received: from flow-b5-smtp.messagingengine.com ([202.12.124.140])
+	id 1wySb0-0000000GUHa-1O8h;
+	Mon, 24 Aug 2026 11:12:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySaT-0000000GTwq-3Es3;
-	Mon, 24 Aug 2026 11:11:36 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailflow.stl.internal (Postfix) with ESMTP id 70909130005D;
-	Mon, 24 Aug 2026 07:11:32 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Mon, 24 Aug 2026 07:11:33 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1787569892; x=
-	1787573492; bh=yyAlnjllRJoc8EnuoheqRfmGGLiMMzIInITnv3UMbRQ=; b=O
-	bcmMFcah6VWQt1lnG5fWb89SOZ3pwISwWy3p7CkV2x42aThFTrnAu8t4E/LZekJF
-	s+q/ocaKEHRRlfXqKekfwPi0nh/Tsrda6Y8xINyhGRshWR2WfICQoCG2sIdzLgSa
-	N2jJxH3kDxIKx/O9KgwjKeUX5aEw5/CwX/8pUW2a6vkRvZLcRb2Vt1kx6bcAelen
-	Xbv84H9xJQk5RcyTtC6v8l62zgMRS45OA6pf58i1TmM4WkTKOyjZ6v3wCOhWhjrv
-	GIxm7HCOhML0ILf1LM0FgExULfgqVEa9vZVDx5OCKQIqqrs4wyl57AyX1SHUA8o3
-	v/1iI/arpufs4cblVXerQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1787569892; x=1787573492; bh=y
-	yAlnjllRJoc8EnuoheqRfmGGLiMMzIInITnv3UMbRQ=; b=VteIXgpBHVXXIXkqf
-	4HCbBg/HxjDfGZmZmx2cFGv+qddpamknSZWVFu7h1bir4/3k7vngpPBA/oMPEoK1
-	0BRUKy6Lk35gSAeELWBi2ojq+hQM+pfcJBjZHR7VRtVygZubjJeMGgvL3oi4lVxP
-	s0za+L+K+zKEKy3uM8fOWUUacQXU9r0PE5JLYixhaUbti+h2//pvziceRPt3Iwds
-	S894DiKQnSG8vSfuPxGBPdBaaA6fOP1h1oF/M2Ft3CYBEqOamVdNi3BN8+I2tQPm
-	ohDQrEPzjEXoRMjvfp8CsS1u6RU4i5BdZ3PAiOVHHsen5WLehm1PnTsT34pW3wTq
-	arJ3A==
-X-ME-Sender: <xms:5CaMaow3Y9GlBm23J6UMqeNaEmT_CxYshE55VnVeypQhJWDGoxkqYg>
-    <xme:5CaMatUl5894Ar-smezsR07OJLdMlv_Z8TgbSgLhRXn_3B7GZGLVUHnQMeUddkVyw
-    -UFE6epYV3xzGvna_JgEy_SXad9kEBh5R-BDQWtA4SWAV3vjMEKG2vO>
-X-ME-Received: <xmr:5CaMatROTP5BS99rFddvYAmDMlvP5q2DsEruo6QrtGtgh7HbtHzScIL7Ed2ra9vlhNuWfU2taQ>
-X-ME-Proxy-Cause: dmFkZTFZCbpsgW1YFD8tkPvHCNfxYRvTZ4blFH/NRV/HzygHIZO36nEMOhE1d730qpXJvh
-    mj3vwdyckgY6cjcLbWoO+E+Y3xnZHjj3a4qFKPUp4C1ItOyypDc5v9ubc43QMrvknpo3YV
-    t254bBqkhHFILTMaiaOskey67wujVC060Hg7shRsjYN75EBvtRkSi+gTwzTAT9QI5uwF5a
-    jKY8X+yRsMvgEojvqKUbS+n33ebqC8Mk85kgoigVyIrVFWYfmyd/lA/A6ULdG/inFBXWp7
-    ziuYhhyF6f7lNHjxbQ4kgWN86q7p7VmrRBdAb8OqXw1LSsz5kDP4W0+4ny2SVIkbn/odIK
-    sf4O9rLwTvN1owLeLJeRDej9R2fOMuPzGWUO9AyRJmv3oebnLgAG7tohV4GtAlGdkl39OS
-    WN1gKehlQbcq1i1RlPATIOvCydwYlmIBO+5j+aMcmi/KyXBdPWuxCg08+8l083ANX9+4Wh
-    40CtErh+EM+/Uov4XapNrslCi+GV7ACGr6yic20uXHqWtpf8rOabFMZWcw5dcinjlpn5ng
-    TaGaEoh5ZLYRbUrrMix0OIZW/rhunExybkwfqmYWxrhObNq9A0WLtpe6H0rxgCAtQg1Tnm
-    /w4vkuKbnsu5g4Ww4vy+x68JXfx+et5DEchqGAMWeiQKRWR70aujF0munKRQ
-X-ME-Proxy: <xmx:5CaMakNOmqtW3dImjCTsB_6OQBT0mPRyOupzhql2fsz44o3uNvDKrA>
-    <xmx:5CaMaixAGBFlnZfVEcOQ13XGVqWdaKNCJX6lZaT8wZ3lUvAnzVRxqg>
-    <xmx:5CaMampzz8uSV1XhNbY0oEySIk2_EiQjvmyavhpQmGLzzvWmSt8NtA>
-    <xmx:5CaMami4gaUg9lKBXW8yorn1F6_c0NK0afXHrxzkSPuMeW3Ke-_2mA>
-    <xmx:5CaMakJOZuXrm-zfUA2uFgrYmI50Ki5veIfFe31BhuTy93qLc22OkTBB>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 24 Aug 2026 07:11:25 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: tomeu@tomeuvizoso.net,
-	heiko@sntech.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	ulfh@kernel.org,
-	p.zabel@pengutronix.de,
-	ogabbay@kernel.org,
-	zhangqing@rock-chips.com
-Cc: royalnet026@gmail.com,
-	u.kleine-koenig@baylibre.com,
-	chaoyi.chen@rock-chips.com,
-	diederik@cknow-tech.com,
-	alchark@flipper.net,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jiaxing Hu <gahing@gahingwoo.com>
-Subject: [PATCH v9 13/13] arm64: dts: rockchip: rk3576-rock-4d: enable NPU
-Date: Mon, 24 Aug 2026 23:09:02 +1200
-Message-ID: <d06951df2d4e1dca108be71c5e66bbb088610a21.1787568944.git.gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <f1805c2bce56c89d8ace35f67c665b24bab90965.1787568944.git.gahing@gahingwoo.com>
-References: <f1805c2bce56c89d8ace35f67c665b24bab90965.1787568944.git.gahing@gahingwoo.com>
+	id 1wySay-0000000GUEO-2Nio
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Aug 2026 11:12:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D6CD1416EB;
+	Mon, 24 Aug 2026 11:12:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9641E1F000E9;
+	Mon, 24 Aug 2026 11:12:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787569923;
+	bh=mx+rPoWvI9AkDoOzj5LLsBB5vj6AWlJD0KdPs8BiNks=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AMLFr5yZzIs0z67GZnwj0OMggnSxwjtK/svgoRHvLnZJLflICjZ7c2H/0ZLr8XRBQ
+	 5peiDCre1Ou8Z17lQI6z7iqe4HP79Am7rOUrqCSkivt2tlw6V656d0fFf3inVa0ilc
+	 LREZ5spgc8ePqqERgIM4DGL+XM8vLXJBlXG7T9t2XLYv3UCSLqOzHVPmG7Aab4KDho
+	 pGz1SEWBqKdmf0x9ghpwGzEbRm5UTisGHBnqw+0ZmEMpGEaT2tebudhm35NtO/NbMN
+	 dcCnvz2BRnKAmLUzV4NpD/iZKt0SLlKiWMhpo5BFzjprSZTMUVGSp89AAcFK1kRU3W
+	 NSVohXySukHMw==
+Date: Mon, 24 Aug 2026 12:11:57 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>, Fuad Tabba <tabba@google.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v19 06/14] KVM: arm64: Validate GCS exception lock when
+ emulating ERET
+Message-ID: <e0decd21-bd0e-4eab-aa94-b9e97e7b4d7d@sirena.org.uk>
+References: <20260812-arm64-gcs-v19-0-9105afd828ac@kernel.org>
+ <20260812-arm64-gcs-v19-6-9105afd828ac@kernel.org>
+ <vdmz43ogvmwu4liilfqzdrgsf5v765bucl7mybhfdxj7yrywkd@5mssukdegdwg>
+ <02b970b2-dbd9-490f-bfc0-be10708e0f9b@sirena.org.uk>
+ <q3lxbu2palhkejnkvncs2iili6vvkcl7boftn4snf4fjy6fhvg@ehrwmqt6eh3m>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_041134_403033_EDE95223 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="TdbCqlH/hxhqcRtu"
+Content-Disposition: inline
+In-Reply-To: <q3lxbu2palhkejnkvncs2iili6vvkcl7boftn4snf4fjy6fhvg@ehrwmqt6eh3m>
+X-Cookie: Accuracy, n.:
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,60 +84,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable rknn_core_0 and its IOMMU on the Radxa ROCK 4D, and hand
-vdd_npu_s0 to the NPU power domain as its domain-supply, so the rail is
-switched by the domain that gates the block.
 
-Measured on a ROCK 4D with this in place. The rail's regulator debugfs
-reports open_count 1, so the domain is the consumer that took it. A
-sampler running beside an inference caught use_count at 1, and three
-reads at rest report use_count 0 with the rail disabled, so it follows
-the domain rather than staying on. Over the same run the genpd
-active_time of all four NPU domains rises by roughly 60ms per inference,
-and the inferences either side of that are 128 of 128 channels against
-the CPU reference.
+--TdbCqlH/hxhqcRtu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-rknn_core_0 keeps npu-supply on the same rail, which the binding
-requires. Only rknn_core_0 is enabled: the driver binds one core per
-node and the second core is left to whoever can test it.
+On Sun, Aug 23, 2026 at 02:18:15PM +0100, Wei-Lin Chang wrote:
+> On Fri, Aug 21, 2026 at 11:19:30PM +0100, Mark Brown wrote:
 
-Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
----
- arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+> > As the comment mentions it's not quite that - ELFromSPSR() in the
+> > pseudocode has rather more going on in it that I'd managed to convince
+> > myself wasn't relevant in this specific context.  I didn't want to give
+> > it a name that would cause someone to think it did the full thing and
+> > trip them up using it in a different context where those things do
+> > matter.  I do agree that this results in awkward naming.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-index 272af1012..79e039bee 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-@@ -722,6 +722,10 @@ &pcie0 {
- 	status = "okay";
- };
- 
-+&pd_npu {
-+	domain-supply = <&vdd_npu_s0>;
-+};
-+
- &pinctrl {
- 	hdmi {
- 		hdmi_tx_on_h: hdmi-tx-on-h {
-@@ -779,6 +783,15 @@ wifi_en_h: wifi-en-h {
- 	};
- };
- 
-+&rknn_core_0 {
-+	npu-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_mmu_0 {
-+	status = "okay";
-+};
-+
- &sai6 {
- 	status = "okay";
- };
--- 
-2.43.0
+> Right sorry, I missed the pseudocode part. ELFromSPSR pseudocode is
+> doing more than what its name indicates...
 
+> If we want to stick with the pseudocode then what do you think about
+> el_from_spsr_nocheck/el_from_spsr_raw?
+
+Yeah, those names could help though given your other comment about this
+not looking the same as the code in exception.c I ended up changing it
+to this:
+
+        /* Check the EL only, ignore thread mode */
+        pstate = vcpu->arch.ctxt.regs.pstate;
+        cur_mode = (pstate & PSR_MODE_MASK) | PSR_MODE_THREAD_BIT;
+        target_mode = (spsr & PSR_MODE_MASK) | PSR_MODE_THREAD_BIT;
+
+instead.
+
+--TdbCqlH/hxhqcRtu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqMJv0ACgkQJNaLcl1U
+h9CjOQf/QMmd6D+ASrY8SyYNHelRK0EJIwW4oBSv0gXC6TA0EC73stA7cfWcDeY6
+U23YT5yN83tHNVoYDjoFrCutJf47NIZNcOJtQbUdTekGUcr5t/upVCOo2nrS5SJg
+syjCHDN8fK+T/qD6u3qWQSbJAe/K5lr67Olv4W9Oxg+qwAiMvb14NtuSQWu+RLwk
+hJpyPCK+UCYOB4XM3rEYX+6O2zkJa1SfhUHPdR+yGguBA7I4kAeimhpttufCkTTr
+UDY/P7qmfzE5jrgnh/NFDKWxClVFO6Rh+N/S+Qre6cY9PVPT8G1A3n9HGPxYPzdd
+n2Jqdfo3C3vbaigTCWrY2B4EwG8l5w==
+=YW/9
+-----END PGP SIGNATURE-----
+
+--TdbCqlH/hxhqcRtu--
 
