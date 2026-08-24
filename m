@@ -4,64 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD76C5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 10:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0191AC5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 10:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qsbOD0ovJYP26C+oDXqBau2VZmi+nsbV8iJk5BuDqPg=; b=JS2Ckzh4obcrB9WutklhzIiVYO
-	lrLkB4eqCFIZMVpeOeTPV9BSW8U46SMfLJSuo/rLSkd4ENkIox2ymgpN8cuvuJYfB6972UiEICRhx
-	KGoPqtRiS0c5YZBZxE23YOtUc0hjk+/RWbldj3/Lb2WUkAg6hlTxFTfJqFEBZk1jE6EN5xHRbfyD9
-	9XriNImMw1ffoepI0+1O+Q8G1+8oyJVKFyxNxu9MZ5mWI7tYwTZYJudDHBqeHwjku4SZh0AWe6aWK
-	oXoI25+TMW4WxeZoyiiD+RX1ay3SKHrNQFfwpk5iW5CxEhRosYgp8DXPS3YzyuGEqDY6nKDUvIUtH
-	DU1BSkiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JasxvAxgDwF6PHb0Xon1M2J++7S8J/Lp3ZKYpbJenO4=; b=K3XEQVezsX7c+dmY8T9e6IqIu7
+	xLUmU1HQfJWIT1L8c1kB80DFa+n9C7yFiIarRaPmgeCFULfYeApSdXjyoK1Q1pKg2aDdb3RGTComi
+	huDlZTDB4Gqacz/aRVkc6a90R27TLOeUjMGPDTpotmpyKIt/VVKGBG0o39soa5/OxDx9I0VokBjzg
+	Xb5xYhevWtoAT5e4m4L3ud7HYV+QOApfxE1W/oSOlgNqxvEkHiPCGeQxGrFdAxelNMS3cEU+zATQr
+	zAi3INT/PnbF1vLlrZEaB1OXdnkBBgewpBwJ1ODwF7BtKhoYPHpzuNw43qcpDlc6cG4hRcF6+BQ1D
+	Ks78wRvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyS5w-0000000GQB6-0NKB;
-	Mon, 24 Aug 2026 10:40:02 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1wySI6-0000000GQxG-22On;
+	Mon, 24 Aug 2026 10:52:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyS5t-0000000GQ9n-08Zb
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 10:39:59 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 890CC201917;
-	Mon, 24 Aug 2026 12:39:53 +0200 (CEST)
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1wyS5p-0035gX-1U;
-	Mon, 24 Aug 2026 12:39:53 +0200
-Received: from pengutronix.de (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 26F6358B2AD;
-	Mon, 24 Aug 2026 10:39:53 +0000 (UTC)
-Date: Mon, 24 Aug 2026 12:39:52 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Zi-Yu Chen <zychennvt@gmail.com>
-Cc: arnd@arndb.de, olof@lixom.net, soc@lists.linux.dev, 
-	ychuang3@nuvoton.com, schung@nuvoton.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 RESEND] arm64: dts: nuvoton: ma35d1: add CAN nodes
-Message-ID: <20260824-smooth-jolly-sponge-ba4b95-mkl@pengutronix.de>
-References: <20260708082457.460710-1-zychennvt@gmail.com>
+	id 1wySI5-0000000GQx5-1znS;
+	Mon, 24 Aug 2026 10:52:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 910BE600C8;
+	Mon, 24 Aug 2026 10:52:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7DED1F00A3A;
+	Mon, 24 Aug 2026 10:52:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787568752;
+	bh=JasxvAxgDwF6PHb0Xon1M2J++7S8J/Lp3ZKYpbJenO4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=EGFVYM5WJQO2tQJILlSpoGHkXAia65eM4tCgcRJG+M4QdrTD6aWy/u7fKoExDH9QU
+	 r4SdbTCcr/5mdVQAt7GSqfclkGfAgt7RyfdAwT+Qy7exfeCpK/IKdhjvhAokcXsHzd
+	 iybruUvkIdYEzzy58yDhrGXih/IOhCSvfoPgDSizFaARTEXf5BFw/bX15GbCIPSUt3
+	 HowxxxxmEf+a8DqFmouReIydakHs2ZAP1vnTk0bG+jB0lEedx+3viDsNK9GIlexn4w
+	 8JWJPuW6MdG+Ndzo2w4OJxZXnXFcPnpV8JqghfdI/UVL7jwZjl5LH3+04SY+Kqxefw
+	 ZYqnjfUjhFH/g==
+Message-ID: <c2ed44e5-ed5c-41f7-a782-57c82968495e@kernel.org>
+Date: Mon, 24 Aug 2026 12:52:26 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="orpiuns42rsyvflb"
-Content-Disposition: inline
-In-Reply-To: <20260708082457.460710-1-zychennvt@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_033957_227625_78D4195B 
-X-CRM114-Status: GOOD (  11.39  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] media: dt-bindings: Add rockchip rkisp2 bindings
+To: Paul Elder <paul.elder@ideasonboard.com>,
+ laurent.pinchart@ideasonboard.com
+Cc: michael.riesch@collabora.com, xuhf@rock-chips.com,
+ stefan.klug@ideasonboard.com, mehdi.djait@linux.intel.com,
+ linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Heiko Stuebner <heiko@sntech.de>
+References: <20260824090406.3695880-1-paul.elder@ideasonboard.com>
+ <20260824090406.3695880-2-paul.elder@ideasonboard.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260824090406.3695880-2-paul.elder@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,45 +117,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 24/08/2026 11:03, Paul Elder wrote:
+> Add documentation for the Rockchip rkisp2 bindings. This is meant to
+> support multiple versions of Rockchip ISPs going forward, including the
+> 2.x series and 3.x series. The current version only adds the compatible
+> for the RK3588, which is a 3.0.
+> 
+> Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
 
---orpiuns42rsyvflb
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 RESEND] arm64: dts: nuvoton: ma35d1: add CAN nodes
-MIME-Version: 1.0
+Testing is disabled for some time but it's not really a reason to opt out.
 
-On 08.07.2026 16:24:57, Zi-Yu Chen wrote:
-> Add controller nodes for the four Bosch M_CAN blocks found on the
-> Nuvoton MA35D1 SoC.
->
-> Additionally, configure pinctrl and enable CAN1 and CAN3 on the
-> MA35D1 SOM board. Also, update the APLL frequency to 200MHz to ensure
-> the CAN controllers receive the required input clock for 50MHz operation.
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
 
-50 MHz is an unusual CAN clock frequency. Better use a multiple of 40
-MHz. Within the limits of the m_can IP core, the higher the multiple the
-better.
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
 
-regards,
-Marc
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+Please kindly resend and include all necessary To/Cc entries.
 
---orpiuns42rsyvflb
-Content-Type: application/pgp-signature; name="signature.asc"
+A nit, subject: drop second/last, redundant "bindings". The
+"dt-bindings" prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
 
------BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCaowfdgAKCRDMOmT6rpmt
-0mIAAPsFglUP+fkdaOYrAYAkWdF9FEg7F4iWq6H/hk8EI1q70AD9EjWExtou8CWm
-bUAesYOpNW53On7fiKeR6VuPs+71UAw=
-=L8lk
------END PGP SIGNATURE-----
-
---orpiuns42rsyvflb--
+Best regards,
+Krzysztof
 
