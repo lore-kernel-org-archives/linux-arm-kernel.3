@@ -4,105 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC9EC5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 10:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 723ECC5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 11:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fcd+vXPL1cf35aspIvOuzP59f2xpzJU2+HsZSxprbes=; b=QLeLBnm95tyttNJLLYdwNyBx7F
-	EKIsdMwgKA8Vzw4sO+2hAqrs1NmOhq52R4rwKvy6eSiyYTo4JYbWmO9DDF5vya9UwWBbJkafYNQ38
-	0ZW1EVyZR2e0Qow2ZCXTUhyioVuljljKPN9uv3z1r1NQtN9AtilRB4dhCEjZlVvuXTDZZ9DdeOhPf
-	i09EqbmX/kCw4omXElFIQ6YAvhGmax2a8Zd4XtHVvi8YsyR2k6GdPcxSRVpVyeeiLqqpnMNgO94b8
-	8g6tXeOYnDzRWHCi2wssDfkRdGsh96zSJZRfULRl1AA11U0zBc9WqPOJ4BaXM3PeIG/bXaVOE59F9
-	Q3YD1a4w==;
+	bh=hHlrmazqcVpvEqwVpnhYhqqkG2VxRO9nSsjD2wAwwls=; b=nyEfyVyzk4F//9gnaG3XREWoUm
+	Ewbj7eXYT4bIrE+MHX8KCvz4h4EUF9Vy/Q/X8ypQDwJzDgvsQWYN2lsITCiT8V3Q5SVMguksWX600
+	EfLGOJ5RbejyEfb2oBFZkHG+44sCDnUFvU4PH/5XJvoz4sC7g2h/+U/9yxt1hzMuO7V5hpa+346ED
+	Smc2zUd3J/RAgI+1PIPkdTW7h951hWaCwFKJIiUdoQfHe5cXe+zVcZmM8ldzLtCtSgRfuxY20k770
+	F97hb+LSdVDijAc81zstt6IOfj1e5InS70yvYO5SMzFjIsJCOru9f9E8VR7LvPNtnsPIF7LMiJAoa
+	HNo+gfKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySIf-0000000GR6C-3BWB;
-	Mon, 24 Aug 2026 10:53:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wySRN-0000000GRdn-2oyy;
+	Mon, 24 Aug 2026 11:02:09 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySIc-0000000GR5h-2FPj;
-	Mon, 24 Aug 2026 10:53:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2063D600C8;
-	Mon, 24 Aug 2026 10:53:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93E0A1F000E9;
-	Mon, 24 Aug 2026 10:53:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787568783;
-	bh=fcd+vXPL1cf35aspIvOuzP59f2xpzJU2+HsZSxprbes=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Aq68ML6L4hwbv1yIcsrOqOO02erQtrajmRwHD1TjeJaWXgj7i5TiLsMPb8o0Fam7N
-	 kKB2CPq++jzPh1RJBsrQjmuM1oV63kDT9u4uqCz+yLDeQyrmuxYInfb1n/abkUqkIl
-	 bksM/JJcTxCG7xj1lxuu3dNil+EzXqv4laVvBUsm0DHCVxnHS+Wl/7D1shtQHzmoRj
-	 FDOdebV7RsxbVNygCW2WLHpcooo7eyMb66swqP1bf5qfHzn8/UvT/rgauUFVjQaYP4
-	 yljdNdxPOQpWLLl4/IStRWaF7fIS9qWzX+LNJc23QlOvkEehngpE4aQ1rF3qIVssIp
-	 RbC/08CWgDvbg==
-Message-ID: <9c763002-7fad-4319-93a8-90adf02eca20@kernel.org>
-Date: Mon, 24 Aug 2026 12:52:58 +0200
+	id 1wySRK-0000000GRdS-1Q0R
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Aug 2026 11:02:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1787569315; x=1788174115; i=markus.elfring@web.de;
+	bh=hHlrmazqcVpvEqwVpnhYhqqkG2VxRO9nSsjD2wAwwls=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=KpBKffmnlNwfBHHo68jOWUBJ8rSDNw7f/FsXT756kTcwAOTnpZuukL5TQNiOELK9
+	 2tBQ6h6BKP9wOgCS6yUGd7naJvr3eqaij7jJN4EPDHl+S/WlIucVpWLuHlU5A4cGt
+	 EvSCw1ZGPiGnpX41CndfjeC/S+eVjGUaNCy9cxpnQK8GHFy4YQaVjcDoCqedByHUe
+	 XqQQfOWEwiCBeqr9KQkuFXy5NpmbTapV32DRWTsyzpHDG9aYfFvVvhv1oH55GwHWF
+	 PfS7x5JSWs8zGYyb8haoI3P/r5zDsPofuhJMVRgrbFDKn/IrXTPKVIdo8z0GP+zjQ
+	 sszXDdc0979kMnwd6Q==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1N2BMA-1wn5Pp1Vd8-00ssm3; Mon, 24
+ Aug 2026 13:01:55 +0200
+Message-ID: <4f3ab9c9-7f0a-4e1b-84ad-7fe5b0b211a8@web.de>
+Date: Mon, 24 Aug 2026 13:01:53 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] arm64: dts: rockchip: add ISP nodes to rk3588
-To: Paul Elder <paul.elder@ideasonboard.com>,
- laurent.pinchart@ideasonboard.com
-Cc: Xu Hongfei <xuhf@rock-chips.com>, michael.riesch@collabora.com,
- stefan.klug@ideasonboard.com, mehdi.djait@linux.intel.com,
- linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Heiko Stuebner <heiko@sntech.de>
-References: <20260824090406.3695880-1-paul.elder@ideasonboard.com>
- <20260824090406.3695880-3-paul.elder@ideasonboard.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260824090406.3695880-3-paul.elder@ideasonboard.com>
+To: hanzhijian1991@gmail.com, imx@lists.linux.dev, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de,
+ Bjorn Helgaas <bhelgaas@google.com>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
+ <kw@linux.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Lucas Stach <l.stach@pengutronix.de>, Manivannan Sadhasivam
+ <mani@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>
+Cc: sashiko-bot@kernel.org, LKML <linux-kernel@vger.kernel.org>,
+ kernel-janitors@vger.kernel.org, Fabio Estevam <festevam@gmail.com>,
+ Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>
+References: <20260824075512.3386898-1-hanzhijian1991@gmail.com>
+Subject: Re: [PATCH v3] PCI: imx6: fix resource leaks in probe error paths
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20260824075512.3386898-1-hanzhijian1991@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:6EMYblq/sqAKTZ76CQ1mfxMBjYW6kcppsrGFyVBiFlmeGRh/w0q
+ 8n6uM+Svx1idjlfZ4aBdDWZf+ECp5vGN7Cl4kk+pgzO8icwq14XbaZ4l1GIZHShY+ML4ONY
+ gSj8C+4hRXb8XqeOhnIu+S7r5V/4sqLTTZWf9Qyr4YYouAzs/m9mnbjE8/ff6/AggxPDufP
+ istixft1SeG+GhxBGGW8Q==
+UI-OutboundReport: notjunk:1;M01:P0:+/Dpa6abCrU=;g9PZbIhB4O05A6xzneizjiJwAbD EoG/el32INtZ86rU7CctfKubjJA652e7K71+UgtGVME9OhL9Ck6UdO6NFruoYxJHXlTyzIGzY e9E9qmA37168zhgf0YaPhKQd2O1PADPwe5YVzM9LFmTXcQGFIaUC2fJRHp/buLdwNY6qR2k1+ sEgGgZoTfCfHAMsrw8aB/Ye0CSOGKUZt7VRZo114vFJq4BkFpnieVBQeA3nqf+Hubm2Fi2x5K tl1JA7AdiyalUf9euz4Gb9l1OvjK76NZ4NnWlj1052cpB/ABvJ0MbxieLzd2k3mw/ncT1gUBB MUFGmuYt7VE4SorroqprXFUzReP5O2KxRCh0ymb5Wu1+fXoD5H/Sy+ZHsfKJ4DN/k9tOjzvS+ xR2K5NscOpmfxl+PAi4K+NoNmsBCnt1RXDWCjFHP1K3NzGfBfxrnvteWIXTtXgEXL4BjYl1tW yz+y8XuHdHZrPoEwFWfuc+OCD9WiZ9fPhsGjQ48Vk2gVWsjcQYWwW0hbkR4ACpbZSvwSvQ/D6 L7Faf2WfX8WCi9k9N/FUPpnHSumQsQdT2HERq+w7yOBcV9ouURwCy4YDNJNqEkuHOa5EzWuWI bTXRHQiVPMsdJAmDD4rOhH1DYAgnkq54P9rx44oXbUHvAIedL5kwwBa2k3AD3AchQ6W2jug/X C2hFqPFw6p8hHBlF8wpi2nsBhMDraj3y+7C0FEVrVQ0l8w1lJ79/+0S5L2kN/fgstJPIlY2OL W+sbGg3Jg1TzSvRMNlLamq3M/sl8AOEG5+FYf12TvhlKvIvvyNNnnf68EjYPltWccZhZHzy05 Z46vIqL5dpU7o/bpD9DeIIPaQsMdvWoCkFk9HTN6f+EjYFqoAgZYwAjht3hPCDEmP3PfhNZY/ jhw6XSppvcveM7GMxllBELl/4hcJuavkgql4uvfON4nCL/0OTYDSsLucCvFK7dtiYs9REbv5X pDChcbzPAesSVZ4BV2Tqf6m+YOrFauAz3pTQ/BHJJN9kg8OqOwPiMWz47py6OMMdPNkHn6GaV pAzsfWaRQKF7ZNg+q2eSPXxycsyQtZw7ukUXybBKiMFE0TMBDDFCAJMuKecmZwme6zB8/DVsC Da8QagNiUj92/TfTpO5fWfWpdVf5nn7Tw1PR/ivrOmCwAHHuBBFokUvuTkQexosBYWLMCHGWF MX2EXn/m44pUPZhDmjl+zyd+rrmJUlJVSZJzNoXhFW1GkbwlBhvhvJvmGgDC0N0vaWBElfxT5 9C28e9DnU6mT1ZYfly3aJ4zCQfjKDJCHG9KkWi0W7fTwMr7an8AOWbPgyR2LOkiDIYT0lHjYl DMx5JNMPaE5NH0gdM3MWYJyBvsQ/nFqZj/2aEeJ23vUeN0Ri9hp7DfPE9vnhTn352E6cy/BZO qyvnvJ1EUsbo56/MI+YEXszauHWGS3MUzZdrGzbVz4JGyO+vhjISRxUK38PQjgpnJNNPmDyn0 Y4glAl0jTvObI21X56ZZPEpODA4d/Iydw85f3l6/Bupv7ENTCHnyfUvkQwFDlSbFlGe6X9huL sekMfC4HZXi2QRkDf/dZ17k4apYxoY3ETsNQ3lc6QjTCmqErUqpqisjXQf4SAlPJQLeh7BGtB EUw5U4y0fqpNCTNGLOjFf5GfZ4vF+Vacmh9tst5xuR6NoKfE0dkSAw9s+6oabUi6suft9K8CZ /y8ZuXut9s8IMXAHh2dSWo0k6+n3sLaey1f1/dn4Kc9GDd9w7NaaZcZMOEBRhbxRoD3iolOBD P4rJV0B3BvdzTWbIaqhRNVRp/mRneFFZOwUjMx4Af4JyuABl334PZIP3a7K6TmpWbOZs1v+OW HZDaxfljU3oU8FQ3n8r9dhWarhuV7PA919SZ6Ianab36RubeIVPIZxjwcFLhKoqbgbwXLiC5P lDVacFqT7ue3bbIk/XQEpmIfGNy4/zZQAbEmc8qyEUeR+iNN2IvCSVFmU2P++2WsqXLSu1r24 CH9IJzhWYoyyw27goF4z4rWZOYnlaZeJ1i9LnXct7CuUXha7n9ZXZEJAN1YOXNMAeI7TIXpma ChsOroqPYrKjiRDI+w+I4gXu8n44wh25rox3RnGhcaxLOX9zVUPqEcvodjU/7+Nnrsap+sdm5 1iAbf/9R9aOs5rKTH7wyhQPNdFU55ZjF5QCDXjoAFBmm35R2+4BincFmL8NSrS6jmRwx2mG31 Mg7gG0f639kTgYkzN4+CSmBGkPw5BT86lSqYYHg+Lk6D4Xmr81IALxyB2xfsrylpBtJqX+uda fBfX+BGp31AzxU9lbiBmT8R2bvHQdFRwiD5Z7lbnISFJjWAfBgWm8cEVsrCEOiSEJ6DtNOUnh T9p0mAsTND1tszOjUJti1Ab5woaLNN6QDIZDlqsvduduQJYBuevviMxTiNS3fIBPNEu9+DwD/ etbeh2y1HrFyYP9+d8kdmclaTXlfasxXWl5saiDoEM1Dv+CYGCGsYHdgpdNJh/fSQbxAqAiZF cXtyo5kwdrl+RSmjq/eS/SWBTVONs/N55C5/hL1UYR/bKh1/lj9GYlkibmdxfovimQplm8ut3 AEykK7ZMSMuPmX3OzMNkyN2zauUqbcqwqzz6HliLM2EfJvK2Q5ASIZ6c5QLNsg36u1jU87D35 UzT28wX81e9r6YTc6yw8wf2bpQxA7EtOAIqmb4gm8yj730XYPsWt+Yx17HIDrXE5QMZ9OBSbc FgIyapxrj4pqI/SEH8tIeBQginGM0DHb7H1QWOz52ZQuMogzyfhNwFc05eKHhf8igfrEbrJMy SlG/l5hUA5K7SmgIq2MEMEHib9LJWc6qiSU1Zg2D6HAqyiHfEGRCeh6Zdsy66ZLk/ojTSAltL oGYOXIUGlNnGLITGcCCHSvbSvRVH9mfOwLVrwwYGHiMRQWR/QMcjbcf5Kkh/wNavNGLs36nzb zY3uagRXAHNNB9BQHj8/NPA8XQXoNDyMVOqRDnCFqJ09QY7ycHPV6LDDPnZm3sJKrH0qwusuY vhGy/uM6BYOrKBnElrqZD09Jx9Nk9NkNEFD9hwlHbIzRZWBSSAd7lRwOxWeNvxoJjrdF5daH/ pR4gAyEO4mxN6w2ObcH63I01YufQb7OrrqYwUCoaaPt+ZnUTaQ1+7Jb+nLNcYyf2XqSdumzYc yKVFsQ7W4q/Go9HAfQubQOPZYoMXtiS8G2vczNUL3oI8cydBBZifPlhrnf3nYL8S4A3izcow2 vf8g+A+sfjQtTrIIe8676MXI7XRTLzkY2k2SZlx1GTa+nl/EgwPSe8kwNChyvBdULQxAz88vH NnO++6vkkEigZ94MfggXUgfL/vtkWz1x+27Wf54Y6XAIhpoaEh0uVz9Ymo5VT81PgRVuPNgfd vPfGBHAyFHMUVvawX4Y19/y7qglb1rJVSbYeArUlwtkXGZGAcydM4Sb60lpJ1waPHJYGHtiTa AuqP/erAh+2n494BwcHvZEwhdajLDc9JizDSioHqjaEsh/G6Ej1UUmoMEi0uD1teMhGhlYNXq Ir7n8QjejAasy53PGxbuEvtQ/Y7Ta8XRmlzoDU3FKRJ1TjxCjf0N1MI42yo0OzjGs6jFRxGCk cmNbUVa3yuBbouA03F+qdNnC3GpB836CjSdy0M8CT/Jj+jqFBbCHpcnb3PIGisoKZPNiPfceg fTV8RYTKOOD6tZicXv6mYqihXnHdKWac8+vUTzGz4ctE1Xm9we1XTUqNVM4PYNUT8fHuheFOr vfzO+7bq0X7gbad/E3LTd2epWCZaZ3pZ6ljNMqPkjtSp0x0P1pOUNZ6MCzdQGn282rDaSUDsq ocjAEsfoUasuuvEsdWssIVfuCUJwXlduWFi22RPDstH0LqhyRE+NOTaZMOvnrBcfvow/mna7w ljwDswh7+NftRHMxqYGLQcyVc60PLARaWh97377AW3uwJ0GX7Lu0qezR0pNQrd2vbl+2sz7cd
+ FMR3NFpbjrezDrTNC64jrsF2p9RB+OcSkizbeWynz59o/BLhpBCx+iqkXUdNsXOtIIClTjpsi zS29Kmh8kCq6tOxP/SJxD5Akp5n9azUjxDFke7JTG58V/CincTy+A7Wq4pk9mSg+1iR4cKJLN J5Od+kxvm27tZIb3fjW7NIC912mzvgMpZ7c8exyaEhojdTZCgjxMGiCcHKWBodR59xWtbmpZj L/PYHF8YD1V2HU4SVCJKwtZCZ3Ad8ADT6mAycRXSyTEJUzUZYnZxQwLL5QXEZiiPi+EhC385g +PeAzSPuQrO36hwL4IvvS49NKBCm77ZOOHD+pW15yY+BDYJ+MFGEhqxsU5K65yTwX0E4xDENZ 7J/9F1eXBDT6tOxbacsLaGy8gyrCXisda9R37mASJVQcTIAn7+T6HGwROLrikAFYamOoNpJEJ BKKHUuYvAyx+TsAfed+dYDCg++2/Cfy8d0SYMeAJYpzH2QJ7X1HxyQTtkABKtW1eIEVMNPjlp SPCmREnghuQGnqUnBo7pwN39fhU+HfP6nq5UVsSTbM4nRqUFSCf4zSJ54pTLeap4WLYbPpBOu jJGZINZFVfVJADFstBz+xjHUZbDNWkrCe/AnsPLBj064ldp4pYiv8FzSFnOQFOQ3tO1yXHlGg EHuC2jUW80S3lGov7Xn0CwOw37TuUeOkqYxCRuNGe06+LG/s300ETelRY2reBBURe/diceD7A 4CPwT1BqU7OaoiwYlW47Sa90s88Ud/f7TYuZ4cQqRhr1TYdERnqW1Nv43EWjDtZiDhwKkirK1 kRT9u9lWbldlPBuDUUsD3qPxXni6uZGq/WEQ12wNtI5uYC6D7Tfo+eekgVsLq3DXvodSPEVHH TmB9v7nlvP48AlI8NzuYYpC1PdnP5/0l7S9UMMKzTPUCXE78knp50aZZJj/XgxmsB1xX6wN2X fOqoYz5Ji1If3NeV9uvL+CjHQDhr5FcW7vSt21ygGlpQEyzUv+CI6L6R5M1KczDUWq8a/cS54 EIRALf++176dYv3y0bYtsBMNqN7/OF5M1MsRa154g5O+L4Wg79ZSoSFE2f6WEndpLylVmnOTi knIwEeJFqT+o6HvWqrq0yQGaonKQw7XMSQLg7dquE7MRyxiwvU3+2Tn5mlv21IkyDj2TjXj0M eyeGt0/PWiLVdOLHej+VI9WA9NBcuNt9EGwXY85ntrXZQoEoJarzItJvwljw43LiWfMNoKdAV J+G1sP8RtKTYH89okMnzniRW1oqvp8A5YNQiXQ/LgaiL/ZKE6jiykWkkkRWZP8hVo1XqzJLdG pPtMEqtU5HsEusE7WeF9qxAG+cgGxb8eI0fslOuICAQk7fO1n3dLMWuN80Wo6/urMisKWxZTT Kfke24DVe1S/u553BYathMUj2H4BqcAjmAhs+ttgCrzriLtHqB/HoJrGU+wWnKZj4d6+Z19we qi6VDof1r/dW7ly0pdgEGzn7eNcgNHaE3RcwFBfzzpT82/A+ADE6ttJc/Sme+yIzOSVMpZsNQ 1dXYSbeyoEJy+Jt32AvPcA+azSocgoy6frcMVv/e3zBVPNEZvh5xSIpLwU542gxvUyt8PcA+6 E//S+D6wIF5sV57pojI33g2DyBmt+4hN4CwK76XCWZX9RqM03lEEDFS7kFCzwI/cJ1VA86S2v QhTfFaXea2uBqoeeaNqKHxIW+QxI5nyoOXVieVHuts4pG5MvSqlJ0OgJMQDKS5Afdjgf0i4g1 yqZiIvBg1Cf6bCyBzVtXm852jC7u0YRZf+SQbUTKk3NlxEi7ila3445+RmgiJDhFanHDwVaOA j6tvs2ZcUGeOe75UgiJFgyHOFSo6taDzhjL4CcqkiFIfFewg2/fc6ji4923jkHRnPQP28QZYp iZwDxvdL/Y35Zd2pP0OWfUJ7PjBU+EXFzMAcg7Bj22CXsH6BB4FZzg1/pry1lNPs/qyAPPHGA ZI0CjsO0aG10FjidQO7+sp1ZgUlbwrlmBs/AHRFk4RIPYkpUwqEUoQcVx9tyOLYPMkU5JoaQm WRFXTb17t6paUuCbzRJc1dTJJ3lEPM80QWa2uH8c9revnBxOAICOkiWuf3wsijUZM0x7Lp5Yw 0/YwCWM8pQeCyIVkD0k92p41QNijS54vsZ1gn6Eactk/Jfpk3nlUFCpPyx8qPft7tz46rqaU0 9aJGU9PeUYpaAY7lxiBrMdog71o5+HfqkCbilfKIgZR6XoycRoaC32Bi44VFqGKZEGjt8/AIZ PBdkUs/XTTRbKos3dIOWyjohBf+7/AZNfXQFy9ufBkzUh5Ntx/Iw+OJmCplbiBJIcKBQ5sXHd AaR+4WsYM08rrIt0bUmoOAI8AlSIvzEsMMq+1MdTyPzVJWpyWJyF3FDiC+O2ldUiPFM43ju2Z ltcE/vB877553RzdrIfJz6HSeyW2vgK2vaHB7FrxIXhoK2rcq4k9/6oqN3q5MTd9NLqL5BmYZ uQFi6pD/Q3lk3LlDAe62tAcf2gHKsf0HCkZDw6XvaMKwcAibR0+cch74qA2GIT9Ceweip/uEd FgZt/nGpNfeimI3y1rDQ2nDQPEHGpQI0GdDf+L+gpwArrXGX8EhUoKwJKHIG7ApA2YkDaWZc1 oxqE3Tm+i8DT/gjXuduwaIuN5ffWy0JpttbRM675UTffYFtJNehM7QryxNiubYlbtb7nOKRHI QU/h1mXuHgHozh6Q9KoKONcJCmvi+psaw/UOvVRPB8PH621P9DicDJTbZIYyOrvdrQryhtS4G 81fWrPStgjX+1bVyDwM+IVHipTz0+R7Ft9IIXaXv9uAu2CoD1ikkYkXJzOVPj4VxyjDCw0Zfp rWa33vPMY+bCdyWximmKMdhP1Sx3Nphi
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260824_040206_744997_9B7BCF2C 
+X-CRM114-Status: UNSURE (   6.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,24 +89,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/08/2026 11:03, Paul Elder wrote:
-> From: Xu Hongfei <xuhf@rock-chips.com>
-> 
-> Add device tree nodes for the ISP and their iommus on the RK3588.
-> 
-> Signed-off-by: Xu Hongfei <xuhf@rock-chips.com>
-> Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
-> 
-> ---
-> No change in v2
-> ---
->  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 57 +++++++++++++++++++
->  1 file changed, 57 insertions(+)
-> 
+> imx_pcie_probe() leaks both pwrctrl devices and power domains on
+> failure:
+=E2=80=A6
 
-Why is DTS in the middle of driver patches? Please organize your work
-correctly, see submitting patches in DT.
+How do you think about to add any tags (like =E2=80=9CFixes=E2=80=9D and =
+=E2=80=9CCc=E2=80=9D) accordingly?
 
-Best regards,
-Krzysztof
+See also:
+* https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/=
+Documentation/process/submitting-patches.rst?h=3Dv7.2#n145
+* https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/=
+Documentation/process/stable-kernel-rules.rst?h=3Dv7.2#n34
+
+
+Would you like to avoid a bit of duplicate source code here?
+
+
+> Signed-off-by: hanzhijian <hanzhijian1991@gmail.com>
+
+Can an other representation be more desirable for the =E2=80=9Cpersonal na=
+me=E2=80=9D
+according to the requirements for the Developer's Certificate of Origin?
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/submitting-patches.rst?h=3Dv7.2#n396
+
+
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 42 ++++++++++++++++++++++++---
+=E2=80=A6
+
+Some contributors would appreciate patch version descriptions.
+https://lore.kernel.org/all/?q=3D%22This+looks+like+a+new+version+of+a+pre=
+viously+submitted+patch%22
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/submitting-patches.rst?h=3Dv7.2#n310
+
+Regards,
+Markus
 
