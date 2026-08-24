@@ -4,141 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B216C5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 17:44:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A777CC5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 17:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wIXa1i4FToCq5BvtMUKZe6PS6FxIaYe/Fw1HFVvct3k=; b=rhsivEHW4Mu4KSVcIow+/SlD37
-	teiUluoVaD3zy67yGkDYSlNn8+/lys96wY2OGYM7QvY+tgcrKQ8os+9B11qBImrw1zpyz/GLB/8wE
-	9rWHGpziIleh1Q9d+p978wEPwhNw0TZ2MnM+2APovRWsnu5npBzWgKdrMshx9l+/9xylLvKBWWwZH
-	yH632gFgfWG7NLplSYDPjBTluFd5O4QrDiQ9wbmtXqxiVAoULpVJLINOyNFXFOHQHUx6AFuyGp1Y4
-	LaTSclst1ufu7dpmvrEVuTJaiwQrxtBi4Mqwef1wBT1G1w0z9eFoz939RTkHelJAyJzbQR+mwu9Nb
-	oXFkvatA==;
+	bh=bNWcOKtXMRQgYg/YFNMPsFxR3DaZppMUZM3MBSPYFjo=; b=MAHNpXK6ORBEXlxaFPl/j43dyx
+	FRmSfaUO3fEVGFgfsroCKq/pnIIgSxL3Jc1yyzgdvWPrKpqXQ/HXGU5Nx1Rj7nQtnatrco25ju96z
+	sAgqa6OIScbT0QGqhULQFIZUxZdVLqqLcg/kxwbu/UIpLp31kTSvu0VhxIpr/BVNUgYw26HxdpLsD
+	Sd+TahAY4azhp46oECntQ3XtACSF9hkMSteYrUrPyj6JMoslDYwGIddUGQF4YzhB9HXT8s57clyet
+	0/zdhZZmlOtlwHy8GqHKtEeXPKkWi5xjU0PesHlMirA0U80wk7+neBqyD5HYgIKt4ALodxLrx0tUY
+	zIIgjyVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyYi5-0000000HC7S-1OZk;
-	Mon, 24 Aug 2026 17:43:49 +0000
+	id 1wyYjb-0000000HCSv-39la;
+	Mon, 24 Aug 2026 17:45:23 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyYi2-0000000HC6A-00Nv
+	id 1wyYjZ-0000000HCS6-2BWH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 17:43:47 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67OFnRW32384990
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 17:43:45 GMT
+	Mon, 24 Aug 2026 17:45:22 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67OFmpbq2857113
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 17:45:21 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	wIXa1i4FToCq5BvtMUKZe6PS6FxIaYe/Fw1HFVvct3k=; b=pV2oM7kXSREA308K
-	koty8zjmLK2Qxgtx0h1S9TsF7kqd+00WHGUOhcZldg9ghYpsxQICTuzIq/CXrJ5k
-	lhuYUKIAr308OeTycSyA36DHP+XlDSIfoWq8oXmZqigQMsMvWWOvlv2D9pB0e1+y
-	e2xwI7EYbFs44mabOjXo8CES5+LWWhJTn2HAm0Ag6fDhRpm9y94kzQGWEKfSvtco
-	09uNoRZAir2JORF+VpsLQa17WQUrgk0FyTuVPn2lq2AvF8N4F4QQ17DoRu5Y2N82
-	1n6FYBVmBux9da1SaHEw1yXTyIWhbY17ghDXywA11Jerwds6dsZorA0T2mKUnxJc
-	u7IzLA==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g8kv7a0rx-1
+	bNWcOKtXMRQgYg/YFNMPsFxR3DaZppMUZM3MBSPYFjo=; b=nkN1N2rVXI16kjTo
+	nqcMuUZQ4Fg4sO4kv0V8uLUIubPxlJNLA53XqwH+Tz6DAHtOFlm3RJi5W/QEPoj3
+	QK9z6GSBPuPdf1Lk09du9JJ3XAfLMKJLNT4K2dJwNYFZPsJtPSO1ObLMD4goRJl1
+	ji71K1O9oG9Y8V8ndb9IHdpg8YlqQG9nSjEbZiWlijQe84ouHlhhaOggg+M6Gd7m
+	CLOrIaZEXJ9VMwHF4KvDCg8aLT/YZSfvCC3VQCybqnhapgTFpAjOi+zX+akwk/Q+
+	IXeD3Kz4QA8yFYfxEY1gVRXVZGo7bJOZ8PNAsBaWtNmHLW+k5lRz6cM9RJE0s5q4
+	faAB9w==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g8kdsj5ar-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 17:43:45 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cc12e8e22b7so3891164a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 10:43:45 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 17:45:20 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cb5ea36f969so4460372a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 10:45:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787593422; x=1788198222; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1787593520; x=1788198320; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=wIXa1i4FToCq5BvtMUKZe6PS6FxIaYe/Fw1HFVvct3k=;
-        b=kI8gskZOM8jwLJwlksgFQIungJLR0243vbAcIHYctczqhtkV76RMXXbPKNfiAHrqGr
-         I4VxubjTRU9LnBZeQ5vNuZu+nOX5iQaGTRJRY8m3Az0jNmlhLbgRixhglyo6iYQfRADC
-         CT8j7nvDayabWJWE3fc26UczWnTzbbvn7nC6Y6ROctGwUoEyElxXD4/qdgzP+A1LWXOh
-         vzlXAIxM2gkXOGiU2Me1Rj9B0ZXpMF/ed2JtYhXKO9HNp7yRUv7rX4L6qXOj5I1b3NnG
-         qW7/C+NPlQ5wvLNuipHR3GzeNzoLtlOhQzKaymAS0u4IVpYiYtY7sDPRfccpyIlpSX6x
-         Grqw==
+        bh=bNWcOKtXMRQgYg/YFNMPsFxR3DaZppMUZM3MBSPYFjo=;
+        b=Py3TguV+Kp238Nc/8qHKzxA5RPc4/e+xRQkT5+CUSTBqvpCuwCTpo6qYGpm/UpdSlp
+         lpgIE8ehZBFf80l8CXTUE7SLmk93R70M1PWSRxxi5zmgqBbgjSAOx9EQ+/kP6vBt0fS7
+         HCJrtp30Y3ndNuWVZdpqQRmYVGaYtXQ6RTOpjkg93S+JQ+CtUNfCd+HGCmehDlqLAiQH
+         9HaBXW/eL8Dt4wrCBykgPahPcA93sEBFcAsN0ysXNxxsYoaLR00CgLtWl3NbzOB+/HB6
+         3gCp9ydPNUpwbXwH57GthLvkp4iWUWrH2hdfXO28n65c51mjWwKvsvEQ9Xk/gFtDHDrN
+         rqhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787593422; x=1788198222;
+        d=1e100.net; s=20251104; t=1787593520; x=1788198320;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=wIXa1i4FToCq5BvtMUKZe6PS6FxIaYe/Fw1HFVvct3k=;
-        b=XObwyxZBpjb58e75rEpmRJNxdgsGJnJA0ATeCohLyReK8L6Z/Na83Kyyq255y/yrlF
-         Q3i2EW1SEhcbjOzNSnmpi3JNy0WsKZbMSf6LZ4ZM+tCK7rWXR9Tu73UlbG8LPMEjV4Zb
-         TmPgSefHci5dNEfZs/TkyvN6hWZRv22jUBDmipZoQoaI5WZaQ2XaHyfVu+GNhG4/L3l+
-         Qh5HyV7MrXIRHIabuc3nrF/tzSgsLLeqqbyWKKyIJ+DMuCf3Slzcbt0oNpePZEP4wfMu
-         M+JkjGdUHHwku5W6Yrmdg5T9KqFwNsJDWSFOT8I6fl1yNmNlUPgbFH+oImIm1OYeJHL8
-         Sc/g==
-X-Forwarded-Encrypted: i=1; AHgh+RqHjrL/lTzr+HrE0Coqxso7C13uLqRIHtxOSf6uEM9dXuekLxV3Pwek9Gp6IlmaEQFftwXOLz+IOA14NNgaHs3o@lists.infradead.org
-X-Gm-Message-State: AFuF++lzM47WeRJSgGGhdsn+I7LNHnGnvFPO+XNSisKxahZKaEzVujYT
-	BnfEIdI1E9gSF1ET3flF7SRTd2ubtw16G5vz6iI0iN4HjFglbcYresyJGFI0IUBBK+7J3ExCPQX
-	l9P4dSJkAiRafh8f1WYwPp9bjdtBQsIN2jQHzN31Es9uy9S3ku9mJ3mgJXvi5DjHQ2kTtHCRMXr
-	g0xA==
-X-Gm-Gg: AR+sD10odYbC2ViTL4iFv5wKyD23DSEgkDoXEifwy0fdS5OjgsmKWp2ASBdgJGyJHo6
-	HWGuXKsLenXMjfWwKBWSEnUajwpa7r1xtdGca0LGMlb/UnrlMySqpqOn1F8FJUZF4vaYwI/RhWI
-	JOfHMnDk7SNaZY+Tu1yA1y8gB/MIqAchNj/x4UJ2ilf0eR9bemJK6eLPF8l8+qVTSWVVQoFwGSJ
-	ILu5pQKjcBQdZmsKNx4mLnM/yu/qjCiAIRRx8BvhGpx0adQoiHls7q9+F1Jmg2tXVzL2KYCQxWq
-	uKQNj0oCxxN9kvQMGnwHjSgIzvfkBV96mZm3ieTPoH84okCcWk2BA5JmshiprEAn5ufTauUi1+/
-	uqdFQOHCDzJoU1nD9xtuzwmhoDA==
-X-Received: by 2002:a05:6a21:4d8b:b0:3cd:6f46:aceb with SMTP id adf61e73a8af0-3cd91103da8mr982755637.8.1787593421691;
-        Mon, 24 Aug 2026 10:43:41 -0700 (PDT)
-X-Received: by 2002:a05:6a21:4d8b:b0:3cd:6f46:aceb with SMTP id adf61e73a8af0-3cd91103da8mr982668637.8.1787593421228;
-        Mon, 24 Aug 2026 10:43:41 -0700 (PDT)
+        bh=bNWcOKtXMRQgYg/YFNMPsFxR3DaZppMUZM3MBSPYFjo=;
+        b=Bmu/j9g9cAy0B8vEvmzJjbsJq0g8ef3GDl7h4NCrU3G9cRrzd2iS6kojR16Gzg/G/4
+         4CQkGFHkkuJwVJ3GgIli3rLhJjLDrjEp8zqCEECnUM9hzaUZB4yzyOeeg8Wg1+ZuchJc
+         Izu8S9p9htt+3P7FLV860qHTV4rcyEbd9/lOQySrCV5Z40AIRhnX01C5ARDuFS27ckWb
+         hx4aDr5HdeLx7x1pN5WFTJgbUBBs0KlQrRk6ZJa4gN0r6jlex/ji+oNpzoGJmHa4A/Gj
+         DiVnTFPCJ7erCFrfTHlAa8/75/lHWnWOSjvUViSwjgI1p0eFCbkCyp5fzZrCk7WCSe8/
+         9+jQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrhwYRW3PH/RpjksZBOupNGY1tsiOkudVNeuzxkpSZtuFo4b4xxlmdUnW67NQZLYkWXLWnlplsCfb9osQwAzktT@lists.infradead.org
+X-Gm-Message-State: AFuF++kxZd4BtY4JeuSN2MTqq8tkbc/t7/zk+sbP6lvrbPnpSgSHQJW9
+	5NcRhDz0sAXeghYrL7OLrHoAG/KXfRqrFv7T263gBhNYsZIydVzjVpx+tL8JzUKuuy1wUDItVEe
+	nGL4lKnnWSXwvB6CDOh4JLzDdk06/D+lohpgtIegAIEWZTPoR624iTMJZdk/cn+tgtqGU5sJnKm
+	gYYw==
+X-Gm-Gg: AR+sD13KRaudCJWYqKXdwtN5sYGP8cp057qkbhEJwHMYNFl5C/DU1Gv1MUD1Yc8du/K
+	Rj5EzGX2smBroBS4tT90QbviekEGux9ggva/RmAVDHPp9CdqC+EWewZQub9SIbz8tk/JXHmOTmi
+	lRKlUxQI8CkgSZSWzN3bNjW4f40NgEopH2YFizG197Q4lGvTC2Rn0iGh1byAQ/i2lR2m1PQudCN
+	DvowxczIldWGyzsMNqQCysiS92bKcDJxYRSYnfLQkk2juLhCsqCTmvWIIMUw8peVezJPFCkGNPI
+	UA0anso549SUwA9yKa5/h9xny7fEfEs08Zt7QNKdEocd3Tk2t9sdZCFkbtzDzPQxPhGAXsSfD6v
+	7mN+t2l8I2/lNuNRObKEIb64UZQ==
+X-Received: by 2002:a05:6a21:790:b0:3c3:7ac4:dac0 with SMTP id adf61e73a8af0-3cd300d467dmr57067901637.13.1787593520182;
+        Mon, 24 Aug 2026 10:45:20 -0700 (PDT)
+X-Received: by 2002:a05:6a21:790:b0:3c3:7ac4:dac0 with SMTP id adf61e73a8af0-3cd300d467dmr57067819637.13.1787593519750;
+        Mon, 24 Aug 2026 10:45:19 -0700 (PDT)
 Received: from localhost ([50.35.46.84])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-327f91d2d1esm29442144eec.17.2026.08.24.10.43.40
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141860c697esm24112160c88.3.2026.08.24.10.45.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 10:43:40 -0700 (PDT)
-Date: Mon, 24 Aug 2026 10:43:37 -0700
+        Mon, 24 Aug 2026 10:45:19 -0700 (PDT)
+Date: Mon, 24 Aug 2026 10:45:16 -0700
 From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 To: Sudeep Holla <sudeep.holla@kernel.org>
 Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         kernel-team@meta.com, Cristian Marussi <cristian.marussi@arm.com>,
         Breno
  Leitao <leitao@debian.org>
-Subject: Re: [PATCH v3 4/9] firmware: arm_scmi: Fall back to ACPI HID when
- "compatible" is absent
-Message-ID: <20260824104337.00002275@oss.qualcomm.com>
-In-Reply-To: <20260813-acpi_scmi_pcc-v3-4-cb6b88b4ebb3@kernel.org>
+Subject: Re: [PATCH v3 5/9] firmware: arm_scmi: Pass protocol ID to
+ chan_available() transport callback
+Message-ID: <20260824104516.00002b8c@oss.qualcomm.com>
+In-Reply-To: <20260813-acpi_scmi_pcc-v3-5-cb6b88b4ebb3@kernel.org>
 References: <20260813-acpi_scmi_pcc-v3-0-cb6b88b4ebb3@kernel.org>
-	<20260813-acpi_scmi_pcc-v3-4-cb6b88b4ebb3@kernel.org>
+	<20260813-acpi_scmi_pcc-v3-5-cb6b88b4ebb3@kernel.org>
 Organization: Qualcomm
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=Cfg4Irrl c=1 sm=1 tr=0 ts=6a8c82d1 cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI0MDE0OSBTYWx0ZWRfX+VFOB0ycELmL
+ djp2NkiuOOqVK16i3r5VWSbS6Kd8lhFePPDVTCcxCNn5BtSbg4XFXoEsEBOO1zH3UhZI2qg/CH4
+ m4xONwqaj2CJizfu0k5l4DWvTpLGwdk=
+X-Proofpoint-ORIG-GUID: FpgTDsBfvYOhz_DQoCH0R1gnFbRiUvqC
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI0MDE0OSBTYWx0ZWRfXwZ9JGBSWv5TK
+ shRM0zfgNWfq/y783Rk5wJyihhHMPMjo+c7zkJ25b51jcn3upUqw2yf5wGsJ8DyyrQMzZxUM8j8
+ yoqFxMdjbosPTtrw7cb1ofT4k0MMzUQYGVNiwh3KWaFz/sAKDpmi7j3L+jNlfAOlWW4scyQygwx
+ BQHJWc9zW7Bz280ThD3VUgKZpLtyJWJvO/GO29VP+d3+fGt5XefF8/fhjUU209IsP9uCIMg8ZNM
+ 2Xo85nh2G6widlU1ANyFyyJdaZNXgJd1mY8hCk+PIlxjHRUmvvIBVG+CBQz9ElK8hzH2us2zVpR
+ wMfBRyWjC1SQL58tFygXhxdIiXmPqKn0RgY8lWLqMXKQ20iQ9cNO5romJYu/9LB+pJs40JWdcvL
+ ZvtGZ/4MeVBMQbmn3CPxscLo/vxd0QWlWQ4UuB++4wgEOpABa62jkqn/8dsqQbuENMtJ5Of8jRz
+ t8u3ftnRSTOTq6fSDMQ==
+X-Proofpoint-GUID: FpgTDsBfvYOhz_DQoCH0R1gnFbRiUvqC
+X-Authority-Analysis: v=2.4 cv=d8DFDxjE c=1 sm=1 tr=0 ts=6a8c8330 cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
  a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=VwQbUJbxAAAA:8 a=l6Goj-m7ziazzFgbZv4A:9 a=CjuIK1q_8ugA:10
- a=x9snwWr2DeNwDh03kgHS:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI0MDE0OSBTYWx0ZWRfXzo++QmgZP5uX
- YB7AymkXPOCxdABy4u8w90A36DLER5uazF6PjxiPcRoOXtp3OA94Iy6xRmHhxeaGelxvUaTb7yD
- rJAYMJQSebBFURY8UFHRcKx76blesZg=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI0MDE0OSBTYWx0ZWRfX7hU/JnotPFmx
- C6fJsPfJPyuZNONKYwUSrYZZB4j9/iP9QEGOl4b0yqOe4PxcUXgTswLqqu8EO+2nzEEvwO5YMtm
- 4SCrgsLsf/Mm5KWuEG494233S0dIJnGTHgPOGE//Zwnfnw/Xa30ZNh/ZpgcCz7p5TbQteeALgSL
- izYSkeU/gvTxUOhLJrFCUlndniBK+D8vH0UvGOfU7byZHI3frMNuES9emCZMqgBrhaXqBZ0vTdP
- tVeXjOVKxWB3vrbbBAf28HNxjxN+L9liYog6944Nd93ZVur2yse5qOJxKD4VeQzf1EuzVU5j/nm
- hb02demMDC3znGflSH94U9Cjw7UDO3ohbkDYOhnufzuzQLZ0n12qtNB5LTjYAxLeF4yUOp0vjhR
- G0edOhrIUPlyNYgqRpDtQcYccSmFHEQ5NdEu2MVi4Oha83tC+nrBhZ0A4w//YDdhTbEyZlFIzQn
- g0wP1eBn7DWL9Qa8Qbg==
-X-Proofpoint-ORIG-GUID: 3mV7qfup9pDdGNRhJ7EAV-quvuKQ0icu
-X-Proofpoint-GUID: 3mV7qfup9pDdGNRhJ7EAV-quvuKQ0icu
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=mK2TJSJBIbLwxmLH4kIA:9 a=CjuIK1q_8ugA:10
+ a=bFCP_H2QrGi7Okbo017w:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-24_05,2026-08-24_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 phishscore=0 impostorscore=0 spamscore=0 suspectscore=0
- priorityscore=1501 malwarescore=0 clxscore=1015 lowpriorityscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608240149
+ suspectscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0 priorityscore=1501
+ malwarescore=0 spamscore=0 phishscore=0 clxscore=1015 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608240149
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_104346_056511_A10748B8 
-X-CRM114-Status: GOOD (  23.33  )
+X-CRM114-CacheID: sfid-20260824_104521_572416_D8BDCAC1 
+X-CRM114-Status: GOOD (  24.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,76 +152,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Aug 2026 12:32:59 +0100
+On Thu, 13 Aug 2026 12:33:00 +0100
 Sudeep Holla <sudeep.holla@kernel.org> wrote:
 
-> scmi_debugfs_common_setup() uses the "compatible" property to
-> populate the debugfs transport type string. ACPI-described SCMI
-> devices do not provide that DT property, so the string remains
-> NULL and debugfs setup falls through the allocation failure path.
+> Extend the SCMI transport_ops chan_available() callback to include the
+> protocol ID (prot_id) as an argument. This allows transports to determine
+> channel availability based on the specific protocol being used, improving
+> flexibility in platforms that share transport channels across multiple
+> protocols. This will be useful when ACPI PCC transport gets added.
 > 
-> Check the property lookup result and use the ACPI HID as the
-> fallback transport type when an ACPI companion is present.
+> Updated all existing users and definitions of chan_available() in
+> SCMI core and transport drivers (mailbox, optee, etc.) accordingly.
 > 
-> All supported DT SCMI platforms are expected to provide "compatible",
-> so the non-ACPI fallback is not needed for normal DT operation. Keep
-> the explicit "unknown" fallback anyway to avoid passing NULL to
-> kstrdup() if that assumption is ever violated.
+> No functional change.
 > 
 > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-Can drop some complexity in here and rely on the stubs in acpi.h a little more.
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+
 
 > ---
->  drivers/firmware/arm_scmi/driver.c | 16 ++++++++++++++--
->  1 file changed, 14 insertions(+), 2 deletions(-)
+>  drivers/firmware/arm_scmi/common.h             | 3 ++-
+>  drivers/firmware/arm_scmi/driver.c             | 2 +-
+>  drivers/firmware/arm_scmi/transports/mailbox.c | 3 ++-
+>  drivers/firmware/arm_scmi/transports/optee.c   | 3 ++-
+>  drivers/firmware/arm_scmi/transports/smc.c     | 3 ++-
+>  drivers/firmware/arm_scmi/transports/virtio.c  | 3 ++-
+>  6 files changed, 11 insertions(+), 6 deletions(-)
 > 
+> diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+> index 042867c28b88..1ab4543e0f4a 100644
+> --- a/drivers/firmware/arm_scmi/common.h
+> +++ b/drivers/firmware/arm_scmi/common.h
+> @@ -207,7 +207,8 @@ struct scmi_chan_info {
+>   * @poll_done: Callback to poll transfer status
+>   */
+>  struct scmi_transport_ops {
+> -	bool (*chan_available)(struct fwnode_handle *fwnode, int idx);
+> +	bool (*chan_available)(struct fwnode_handle *fwnode, int prot_id,
+> +			       int idx);
+>  	int (*chan_setup)(struct scmi_chan_info *cinfo, struct device *dev,
+>  			  bool tx);
+>  	int (*chan_free)(int id, void *p, void *data);
 > diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-> index 9014723e0f7f..9ad827c6a9ab 100644
+> index 9ad827c6a9ab..aad678db0f6e 100644
 > --- a/drivers/firmware/arm_scmi/driver.c
 > +++ b/drivers/firmware/arm_scmi/driver.c
-> @@ -16,6 +16,7 @@
+> @@ -2768,7 +2768,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct fwnode_handle *fwnode,
+>  	if (idr_find(idr, prot_id))
+>  		return -EEXIST;
 >  
->  #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
->  
-> +#include <linux/acpi.h>
->  #include <linux/bitmap.h>
->  #include <linux/cleanup.h>
->  #include <linux/debugfs.h>
-> @@ -3063,6 +3064,15 @@ static void scmi_debugfs_common_cleanup(void *d)
->  	kfree(dbg->type);
+> -	if (!info->desc->ops->chan_available(fwnode, idx)) {
+> +	if (!info->desc->ops->chan_available(fwnode, prot_id, idx)) {
+>  		cinfo = idr_find(idr, SCMI_PROTOCOL_BASE);
+>  		if (unlikely(!cinfo)) /* Possible only if platform has no Rx */
+>  			return -EINVAL;
+> diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
+> index b692cae4ff25..56af2cb0f424 100644
+> --- a/drivers/firmware/arm_scmi/transports/mailbox.c
+> +++ b/drivers/firmware/arm_scmi/transports/mailbox.c
+> @@ -77,7 +77,8 @@ static void rx_callback(struct mbox_client *cl, void *m)
+>  		      core->shmem->read_header(smbox->shmem), NULL);
 >  }
 >  
-> +static const char *scmi_acpi_device_hid(struct acpi_device *adev)
-> +{
-> +#ifdef CONFIG_ACPI
-
-Hmm. Ugly that acpi_device_id returns an empty string.
-
-However given when !CONFIG_ACPI the stub for ACPI_COMPANION(dev) is
-NULL.  You don't need this dance anyway.
-
-> +	return adev ? acpi_device_hid(adev) : "unknown";
-> +#else
-> +	return "unknown";
-> +#endif
-> +}
-> +
->  static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
+> -static bool mailbox_chan_available(struct fwnode_handle *fwnode, int idx)
+> +static bool
+> +mailbox_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
 >  {
->  	char top_dir[16];
-> @@ -3080,8 +3090,10 @@ static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
->  		return NULL;
->  	}
+>  	int num_mb;
+>  	struct device_node *of_node = to_of_node(fwnode);
+> diff --git a/drivers/firmware/arm_scmi/transports/optee.c b/drivers/firmware/arm_scmi/transports/optee.c
+> index 07d3affa0964..6022f74d28f3 100644
+> --- a/drivers/firmware/arm_scmi/transports/optee.c
+> +++ b/drivers/firmware/arm_scmi/transports/optee.c
+> @@ -314,7 +314,8 @@ static int invoke_process_msg_channel(struct scmi_optee_channel *channel, size_t
+>  	return 0;
+>  }
 >  
-> -	fwnode_property_read_string(dev_fwnode(info->dev), "compatible",
-> -				    &c_ptr);
-> +	if (fwnode_property_read_string(dev_fwnode(info->dev), "compatible",
-> +					&c_ptr))
-> +		c_ptr = scmi_acpi_device_hid(ACPI_COMPANION(info->dev));
-> +
->  	dbg->type = kstrdup(c_ptr, GFP_KERNEL);
->  	if (!dbg->type) {
->  		kfree(dbg->name);
+> -static bool scmi_optee_chan_available(struct fwnode_handle *fwnode, int idx)
+> +static bool
+> +scmi_optee_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
+>  {
+>  	u32 channel_id;
+>  	struct device_node *of_node = to_of_node(fwnode);
+> diff --git a/drivers/firmware/arm_scmi/transports/smc.c b/drivers/firmware/arm_scmi/transports/smc.c
+> index 1079cd01190b..ee9e44468c1e 100644
+> --- a/drivers/firmware/arm_scmi/transports/smc.c
+> +++ b/drivers/firmware/arm_scmi/transports/smc.c
+> @@ -84,7 +84,8 @@ static irqreturn_t smc_msg_done_isr(int irq, void *data)
+>  	return IRQ_HANDLED;
+>  }
+>  
+> -static bool smc_chan_available(struct fwnode_handle *fwnode, int idx)
+> +static bool
+> +smc_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
+>  {
+>  	struct device_node *of_node = to_of_node(fwnode);
+>  	struct device_node *np __free(device_node) = NULL;
+> diff --git a/drivers/firmware/arm_scmi/transports/virtio.c b/drivers/firmware/arm_scmi/transports/virtio.c
+> index 6b060d61e0ca..3d608c8c4fe8 100644
+> --- a/drivers/firmware/arm_scmi/transports/virtio.c
+> +++ b/drivers/firmware/arm_scmi/transports/virtio.c
+> @@ -375,7 +375,8 @@ static unsigned int virtio_get_max_msg(struct scmi_chan_info *base_cinfo)
+>  	return vioch->max_msg;
+>  }
+>  
+> -static bool virtio_chan_available(struct fwnode_handle *fwnode, int idx)
+> +static bool
+> +virtio_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
+>  {
+>  	struct scmi_vio_channel *channels, *vioch = NULL;
+>  
 > 
 
 
