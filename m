@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE787C5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 18:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC852C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 18:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8CxzkvtARMGmYtTwDNQoanbV8QBtAB4TWfMhXLg+ir8=; b=bLn5bG5RNQ0/oEcmTZ/CFW+6d6
-	+Sw+bqdajo2xGaQcUExp+mFsLiEhW5oppOSbDGV0fK58qNe1DsMqWebxSUgklvC8mVh9Iwv66Yp73
-	SyXtOhOi7bIixKsraPei4eKxIZIiqEXsDO2FekfS9Do9Mc67Nz+mwESCAV8VLBQreWFT1R2wS3qZ+
-	7odSbyXu4tHtxvQEA7c+waHzvnIYF2ypUL61ty68G9XKi7teLaAEfM0TM7yAHma9KJhl4ohCS2AW+
-	IpxgLs/zcbdeKnw+uyqemLrcw9KpIPTKuVCNNJ5X4iwTsmNx0y88xjTYdd/xC/TY0TFlkUTXY2o5U
-	dk/w4urw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XWDg2XEA4poCXeeXekpvxzrwX0YOnWk4tZzyElyznvY=; b=dOlrl2mo6B8DRcKN7v7YOBIPqI
+	P1HcM7oBs95Lu+wYRFYwWlL2JgkPr0ZdJsQtlgQE0BTUtfTGzK+vtLtO1h1d9uswCfEp2B6lK6RoQ
+	TQ0uiM5vGn/IpYdYqxbtubr3MpRVqJN4N3cDl91TqhuOyJDK96CPhnnH4pFvAAp3C/Lmx6zAJ30Ji
+	F3TXkb2jQDt4aXP013XeM74fV8BQsLXzR0gfGHaXHOHB5PCnAvZAYHL10a0h51QHG1fvqyoEHlFia
+	bBtykqJn3SdtS3NSek4U5llw80WrHO4FuImDB9AFqSKgDZKBfC1zBTA/NEZybbyoQOdhfmkgJt4+Y
+	rpCaJk8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyZcS-0000000HHD1-3kXh;
-	Mon, 24 Aug 2026 18:42:05 +0000
-Received: from out-70.mta1.migadu.com ([2001:41d0:203:375::46] helo=mta1.migadu.com)
+	id 1wyZkm-0000000HHYh-0777;
+	Mon, 24 Aug 2026 18:50:40 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyZcP-0000000HHCZ-3oDU
+	id 1wyZki-0000000HHYM-3p35
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 18:42:03 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=mKxOK6il8hO1+Kr1wMob41kUctuaK3oMCEbCR+rq6j8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787596919; v=1; x=1788201719;
- b=sL2MbGqPKEJtwD0Uew0sm8yj/F/1904h2M/fmxOZgst/PE5lXRZATioZ3v+j9/uDCpnueBvi
- arFCb/cHAdMtmKY4NEiJ+s0cvkw7Mfjwm0Wl0xtGdPWVtkxNs7ecS0nr+QrmHkGxOtHqC6kS5aI
- S7ppblMWi9+vO6QbvZd9tXnw=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from claudy.local (2a01:4b00:ad36:1d00:3a05:25ff:fe33:35a9)
-	by smtp.migadu.com with ESMTPS id 9451ed2f0a70d1e3;
-	Mon, 24 Aug 2026 18:41:59 +0000
-X-Mizu-Trace-ID: 9451ed2f0a70d1e3
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v3] arm64: Don't read GMID_EL1 when MTE is disabled
-Date: Mon, 24 Aug 2026 19:41:55 +0100
-Message-Id: <20260824184155.2644646-1-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
+	Mon, 24 Aug 2026 18:50:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787597437; x=1819133437;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=vwsIkq3vGwtCk1Yi+102hhzLj4F624CUHBps8Z9LWeo=;
+  b=hgQ6ZUqa9KdkY0WhVtGOd/vHeNU+0zNKds05IZOhKjY9WcFRvsIOQpvC
+   o8U6EYkRyLjdcWbvKrJAiz8tjZ7HFwi2tMjcaF6CGpDNeb/9s32BYj+4L
+   UK0hyOd/H4AFJ7ZlJnxqDADGczgwXWZUK19xEN1BnuZPkHW+b2AO3e6zX
+   r2CoyW0Hs5rHWtzDPwEDpAl7qGMBoOWSNEghRSBCBYsRXnJm9BvGOzAjc
+   nBjNf01ivlVxqwfgl0xctubG+xuQ+cUGGn/BzDBdmbb797hUiN5Q4khed
+   B5Rhw+bMlf8QH5/9Hmk7NK1hK3W+4G0sRtnBWklsl1GLzo5MMaNKcK16N
+   g==;
+X-CSE-ConnectionGUID: yBdPpU4yRweTSOBZRlCE+Q==
+X-CSE-MsgGUID: Yt6bDgqJQXOJRR527c5bYg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11885"; a="87931493"
+X-IronPort-AV: E=Sophos;i="6.25,241,1779174000"; 
+   d="scan'208";a="87931493"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Aug 2026 11:50:36 -0700
+X-CSE-ConnectionGUID: ZaMwmeuaTQyvIhm+6uASJA==
+X-CSE-MsgGUID: ixMfBGXHSPaLCnIE9XMeQg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,241,1779174000"; 
+   d="scan'208";a="260930454"
+Received: from lkp-server01.sh.intel.com (HELO 3532383e6126) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 24 Aug 2026 11:50:32 -0700
+Received: from kbuild by 3532383e6126 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wyZkV-000000003nH-1Jc8;
+	Mon, 24 Aug 2026 18:50:25 +0000
+Date: Tue, 25 Aug 2026 02:49:45 +0800
+From: kernel test robot <lkp@intel.com>
+To: Rosen Penev <rosenp@gmail.com>, linux-sound@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, Michal Simek <monstr@monstr.eu>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCHv4] ASoC: xilinx: formatter_pcm: use more devm in probe
+Message-ID: <202608250212.z7M3tz5i-lkp@intel.com>
+References: <20260823050012.17067-1-rosenp@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260823050012.17067-1-rosenp@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_114202_095647_4F24EC80 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20260824_115037_021248_0A8F03CC 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,119 +91,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__cpuinfo_store_cpu() gates the GMID_EL1 read on the raw
-ID_AA64PFR1_EL1, so it reads the register on MTE hardware even when the
-kernel has disabled MTE (CONFIG_ARM64_MTE=n or arm64.nomte). KVM sets
-HCR_EL2.TID5 in that case, trapping the read to EL2, where pKVM injects
-an UNDEF the host cannot handle:
+Hi Rosen,
 
-  Internal error: Oops - Undefined instruction: 0000000002000000 [#1]
-  pc : __cpuinfo_store_cpu+0xf4/0x264
-  Kernel panic - not syncing: Attempted to kill the idle task!
+kernel test robot noticed the following build errors:
 
-Only pKVM is affected, and only on a CPU that is offlined and brought
-back online: a first bring-up either precedes KVM's initcall or is
-refused by pKVM's CPU_ON relay. That relay sets the host HCR before the
-CPU enters EL1, whereas plain nVHE sets it at CPUHP_AP_KVM_ONLINE,
-after cpuinfo_store_cpu().
+[auto build test ERROR on v7.2]
+[also build test ERROR on linus/master next-20260821]
+[cannot apply to xilinx-xlnx/master]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Gate the read on ID_AA64PFR1_EL1 with the cmdline override applied, and
-on CONFIG_ARM64_MTE, which no register value reflects. That leaves the
-SYS_GMID_EL1 feature register uninitialised when MTE is off, and it has
-no readers.
+url:    https://github.com/intel-lab-lkp/linux/commits/Rosen-Penev/ASoC-xilinx-formatter_pcm-use-more-devm-in-probe/20260822-220012
+base:   v7.2
+patch link:    https://lore.kernel.org/r/20260823050012.17067-1-rosenp%40gmail.com
+patch subject: [PATCHv4] ASoC: xilinx: formatter_pcm: use more devm in probe
+config: csky-allmodconfig (https://download.01.org/0day-ci/archive/20260825/202608250212.z7M3tz5i-lkp@intel.com/config)
+compiler: csky-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260825/202608250212.z7M3tz5i-lkp@intel.com/reproduce)
 
-Fixes: f35abcbb8a084 ("KVM: arm64: Trap MTE access and discovery when MTE is disabled")
-Cc: stable@vger.kernel.org
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608250212.z7M3tz5i-lkp@intel.com/
 
-Notes:
-    Changes since v2:
-    - Keep the GMID_EL1 read in __cpuinfo_store_cpu() and gate it on the
-      local ID_AA64PFR1_EL1 with the cmdline override applied, rather than
-      deferring the read to {init,update}_cpu_features() (Will). This also
-      keeps reg_gmid set in cpu_data[0], which v2 dropped (Catalin).
-    
-    Changes since v1:
-    - Clarified that the trap only fires on a CPU that is offlined and
-      brought back online, not a late first boot (Marc).
-    
-    Tested on QEMU with -machine virt,mte=on, under pKVM.
-    
-    Offline/online CPU1 with arm64.nomte on the host cmdline: unpatched
-    panics in __cpuinfo_store_cpu(), patched does not.
+All errors (new ones prefixed by >>):
 
- arch/arm64/include/asm/cpufeature.h | 15 +++++++++++++++
- arch/arm64/kernel/cpufeature.c      |  6 ++----
- arch/arm64/kernel/cpuinfo.c         |  2 +-
- 3 files changed, 18 insertions(+), 5 deletions(-)
+   sound/soc/xilinx/xlnx_formatter_pcm.c: In function 'xlnx_formatter_pcm_probe':
+>> sound/soc/xilinx/xlnx_formatter_pcm.c:632:51: error: passing argument 2 of 'dev_err_probe' makes integer from pointer without a cast [-Wint-conversion]
+     632 |                         return dev_err_probe(dev, "audio formatter reset failed\n");
+         |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         |                                                   |
+         |                                                   char *
+   In file included from include/linux/device.h:15,
+                    from include/sound/soc.h:15,
+                    from sound/soc/xilinx/xlnx_formatter_pcm.c:17:
+   include/linux/dev_printk.h:278:64: note: expected 'int' but argument is of type 'char *'
+     278 | __printf(3, 4) int dev_err_probe(const struct device *dev, int err, const char *fmt, ...);
+         |                                                            ~~~~^~~
+>> sound/soc/xilinx/xlnx_formatter_pcm.c:632:32: error: too few arguments to function 'dev_err_probe'; expected at least 3, have 2
+     632 |                         return dev_err_probe(dev, "audio formatter reset failed\n");
+         |                                ^~~~~~~~~~~~~
+   include/linux/dev_printk.h:278:20: note: declared here
+     278 | __printf(3, 4) int dev_err_probe(const struct device *dev, int err, const char *fmt, ...);
+         |                    ^~~~~~~~~~~~~
 
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index a57870fa96db5..5bb242721e4b9 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -1085,6 +1085,21 @@ static inline bool cpu_has_lpa2(void)
- #endif
- }
- 
-+/*
-+ * Reading GMID_EL1 when the kernel has disabled MTE traps to EL2, and the raw
-+ * ID_AA64PFR1_EL1 reflects neither CONFIG_ARM64_MTE nor the cmdline override.
-+ */
-+static inline bool gmid_el1_accessible(u64 pfr1)
-+{
-+	if (!IS_ENABLED(CONFIG_ARM64_MTE))
-+		return false;
-+
-+	pfr1 &= ~id_aa64pfr1_override.mask;
-+	pfr1 |= id_aa64pfr1_override.val;
-+
-+	return id_aa64pfr1_mte(pfr1);
-+}
-+
- #endif /* __ASSEMBLER__ */
- 
- #endif
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9a22df0c5120f..4b339346f6c78 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -1228,7 +1228,7 @@ void __init init_cpu_features(struct cpuinfo_arm64 *info)
- 		init_cpu_ftr_reg(SYS_MPAMIDR_EL1, info->reg_mpamidr);
- 	}
- 
--	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
-+	if (gmid_el1_accessible(info->reg_id_aa64pfr1))
- 		init_cpu_ftr_reg(SYS_GMID_EL1, info->reg_gmid);
- }
- 
-@@ -1490,11 +1490,9 @@ void update_cpu_features(int cpu,
- 	 * they read/write depends on the GMID_EL1.BS field. Check that the
- 	 * value is the same on all CPUs.
- 	 */
--	if (IS_ENABLED(CONFIG_ARM64_MTE) &&
--	    id_aa64pfr1_mte(info->reg_id_aa64pfr1)) {
-+	if (gmid_el1_accessible(info->reg_id_aa64pfr1))
- 		taint |= check_update_ftr_reg(SYS_GMID_EL1, cpu,
- 					      info->reg_gmid, boot->reg_gmid);
--	}
- 
- 	/*
- 	 * If we don't have AArch32 at all then skip the checks entirely
-diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-index d50e2a9b066b3..52a161fc38250 100644
---- a/arch/arm64/kernel/cpuinfo.c
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -502,7 +502,7 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
- 	info->reg_id_aa64smfr0 = read_cpuid(ID_AA64SMFR0_EL1);
- 	info->reg_id_aa64fpfr0 = read_cpuid(ID_AA64FPFR0_EL1);
- 
--	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
-+	if (gmid_el1_accessible(info->reg_id_aa64pfr1))
- 		info->reg_gmid = read_cpuid(GMID_EL1);
- 
- 	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
--- 
-2.39.5
 
+vim +/dev_err_probe +632 sound/soc/xilinx/xlnx_formatter_pcm.c
+
+   584	
+   585	static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+   586	{
+   587		int ret;
+   588		u32 val;
+   589		struct xlnx_pcm_drv_data *aud_drv_data;
+   590		struct device *dev = &pdev->dev;
+   591		struct clk *axi_clk;
+   592	
+   593		axi_clk = devm_clk_get_enabled(dev, "s_axi_lite_aclk");
+   594		if (IS_ERR(axi_clk))
+   595			return dev_err_probe(dev, PTR_ERR(axi_clk), "failed to get s_axi_lite_aclk");
+   596	
+   597		aud_drv_data = devm_kzalloc(dev, sizeof(*aud_drv_data), GFP_KERNEL);
+   598		if (!aud_drv_data)
+   599			return -ENOMEM;
+   600	
+   601		aud_drv_data->mmio = devm_platform_ioremap_resource(pdev, 0);
+   602		if (IS_ERR(aud_drv_data->mmio))
+   603			return PTR_ERR(aud_drv_data->mmio);
+   604	
+   605		val = readl(aud_drv_data->mmio + XLNX_AUD_CORE_CONFIG);
+   606		if (val & AUD_CFG_MM2S_MASK) {
+   607			aud_drv_data->mm2s_presence = true;
+   608			ret = xlnx_formatter_pcm_reset(aud_drv_data->mmio +
+   609						       XLNX_MM2S_OFFSET);
+   610			if (ret)
+   611				return dev_err_probe(dev, ret, "audio formatter reset failed\n");
+   612			xlnx_formatter_disable_irqs(aud_drv_data->mmio +
+   613						    XLNX_MM2S_OFFSET,
+   614						    SNDRV_PCM_STREAM_PLAYBACK);
+   615	
+   616			aud_drv_data->mm2s_irq = platform_get_irq_byname(pdev,
+   617									 "irq_mm2s");
+   618			if (aud_drv_data->mm2s_irq < 0)
+   619				return aud_drv_data->mm2s_irq;
+   620	
+   621			ret = devm_request_irq(dev, aud_drv_data->mm2s_irq,
+   622					       xlnx_mm2s_irq_handler, 0,
+   623					       "xlnx_formatter_pcm_mm2s_irq", aud_drv_data);
+   624			if (ret)
+   625				return ret;
+   626		}
+   627		if (val & AUD_CFG_S2MM_MASK) {
+   628			aud_drv_data->s2mm_presence = true;
+   629			ret = xlnx_formatter_pcm_reset(aud_drv_data->mmio +
+   630						       XLNX_S2MM_OFFSET);
+   631			if (ret)
+ > 632				return dev_err_probe(dev, "audio formatter reset failed\n");
+   633			xlnx_formatter_disable_irqs(aud_drv_data->mmio +
+   634						    XLNX_S2MM_OFFSET,
+   635						    SNDRV_PCM_STREAM_CAPTURE);
+   636	
+   637			aud_drv_data->s2mm_irq = platform_get_irq_byname(pdev,
+   638									 "irq_s2mm");
+   639			if (aud_drv_data->s2mm_irq < 0)
+   640				return aud_drv_data->s2mm_irq;
+   641	
+   642			ret = devm_request_irq(dev, aud_drv_data->s2mm_irq,
+   643					       xlnx_s2mm_irq_handler, 0,
+   644					       "xlnx_formatter_pcm_s2mm_irq",
+   645					       aud_drv_data);
+   646			if (ret)
+   647				return ret;
+   648		}
+   649	
+   650		dev_set_drvdata(dev, aud_drv_data);
+   651	
+   652		return devm_snd_soc_register_component(dev, &xlnx_asoc_component, NULL, 0);
+   653	}
+   654	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
