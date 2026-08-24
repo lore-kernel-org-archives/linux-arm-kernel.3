@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65ADCC5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43422C5DF9B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=He6RFHl6rq/FSWjt0HcY9MKwV1uNr7NSbctKQDp7TZo=; b=O1f6OhypBixvvz0pU4pN81SUPI
-	5epqdVuR2X/K5uhld/LpjzwvJfifDumalyPhsN20q9N17mQD5FJIX3RvAvA5a3gFyKN+8KmysOn8q
-	i2gTq/cbHlU3S9SIeTDMSWSn6IetG0uyIOe5RQpUuUY63MpTkSCYJQ2eaTVCYxWaKTLcZX00A7xDh
-	kLiWbrP3oApHVq2XP+ZNl1lPQp47zKzQ9TTCxouW0jmXK94iMA6WybnA/HbpK1nulN5jxhoVK+HvY
-	SKcr3KUJeYzceC9PdvZmBWv8wmVQ0iS1P+mtq6axtvNDNGLbcRH4NuI8konsecxheR+HLKcF2Am1X
-	T90bB6TA==;
+	bh=+MIjWVFV9tiFSCvKJHotyKhr1YJnlwFE+nvcQBHjOak=; b=0vH1mpJ9wG0TfERy0RBEdq3SCz
+	5Fl6PuTsJW3f6btvy1+3Pl7hq7fORfHhnkHwQGgsC0048FWzCs4lDorKRc79yDopCQ+0AtZvMouwp
+	RremOB0eMRAMIFxJeO0d6JnME1Rl6gDoLIs8HlTJHBaCCdWaJmIBhUAWOjd2lObc2GgzaUh2gAJkX
+	znAeUOl6SGVRArZvSSsEc6ONAEb2oCXpm8elDcp2OgWkvLGb3C51IRKolcCcBc+9OBlN/iXFiZnEl
+	ZQDiM5khAdM7DC0c0qFp08UH6y0YLldZsEKZcWY5hPZmSBAEI1gfCKkDk2jBbK6U5IjyuJ8BfFkIt
+	il0ev9hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWVV-0000000GuX4-1SOE;
-	Mon, 24 Aug 2026 15:22:41 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wyWVj-0000000GubB-2VhU;
+	Mon, 24 Aug 2026 15:22:56 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWVQ-0000000GuWI-3wnE
+	id 1wyWVg-0000000GuZV-293Z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 15:22:39 +0000
+	Mon, 24 Aug 2026 15:22:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1787584955;
+	s=mimecast20190719; t=1787584971;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=He6RFHl6rq/FSWjt0HcY9MKwV1uNr7NSbctKQDp7TZo=;
-	b=MW/GyNL0BCUbO9s8h5DZRO525c7oEv8qpvqeEUUejpk57p+O8Vk/ju4V4KL3wgAoS+sJZg
-	dIovVGNr1OOolpRlFbxaniDQ8F48qpYQFfQCfp3GuSp63/+vM2hDSnKvPJ7//ECaqsQWPk
-	zivuQwFIeRK4I52/ivuVt2T7WBu/eW0=
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com
- [209.85.219.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=+MIjWVFV9tiFSCvKJHotyKhr1YJnlwFE+nvcQBHjOak=;
+	b=KKKx8dRxSYqpmAHArSMpwZ99gJ+kTGo2mfYrtRUGinsXU9jgr9tPyLBkIF6j7RHH9htuJB
+	eYLbxJTyl/kL4rtUaNh+Xc9JbQD5ZAqU3rFKnAZcWIN9tUh2zim0imUZSHgbE7LnEjCfMC
+	txA+aqBe8YvCY6JA0hwCLtYFpos6dKk=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-253-kKP4sjjwPBmRSKsrdDDj6w-1; Mon, 24 Aug 2026 11:22:34 -0400
-X-MC-Unique: kKP4sjjwPBmRSKsrdDDj6w-1
-X-Mimecast-MFC-AGG-ID: kKP4sjjwPBmRSKsrdDDj6w_1787584954
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-8ef8249f871so37917426d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 08:22:34 -0700 (PDT)
+ us-mta-122-pCgy9fWLMn6_U6aRwewLwA-1; Mon, 24 Aug 2026 11:22:44 -0400
+X-MC-Unique: pCgy9fWLMn6_U6aRwewLwA-1
+X-Mimecast-MFC-AGG-ID: pCgy9fWLMn6_U6aRwewLwA_1787584962
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-8f0f45415cfso35806566d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 08:22:44 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787584954; x=1788189754;
+        d=1e100.net; s=20251104; t=1787584962; x=1788189762;
         h=user-agent:in-reply-to:content-disposition:content-type
          :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=He6RFHl6rq/FSWjt0HcY9MKwV1uNr7NSbctKQDp7TZo=;
-        b=Kl0SzjZRTJJLOLPAK0YgiT+7nTCFgQv2NpvrU0k+G/HIhwlauQA7L9BNQBFDHBpDXQ
-         NOuna+ISRltrjJf5Y1OllL7DKaRwqscdA0ytNlTB51lcT5yMpNZTTLJQ7J+WGhmIXRlW
-         oV5caqjTdbxz4+knYMJWkFY+cwzeyVziyzgN/ZXIBnZ10txArJfZ77KNWhBnNmNO3EGI
-         vc8dFxYNHAsaaejDoTaX9uwwXPLa5ZFRXU6GIbswdGXC2sKiq6GIBYUOEl+0N4kkBNmg
-         hH1+9YjrJtapon9hxSG8cJIQmw66NuFTihWYBrVui5PvdEd5xdVg1/2S5BV2zdrlT8ac
-         bTAA==
-X-Forwarded-Encrypted: i=1; AHgh+RqixrYh4wq74ruSIaMJ5feXIbeDVg8z/Ecrt5cUgRy6muY8EBhRaC33S5WsWbrCmhohbm5ZviOU9g8MuZmlDxPJ@lists.infradead.org
-X-Gm-Message-State: AFuF++n6OKSfUTypW9iDP0rdP5aq2bYv1vrq13DvU7c+Gko7zH0jkpex
-	5apMJu6GEw4cIUmfQPs+EsH99IAYqVwPcxBDVwc4hXPxT6dHijQelIAandFm1BDHqnskz4SGJjN
-	eOmIoEZbSdnUuToaJKE43qxcojGC0u/xTEtQZLRCAUs0/Xu/Tzk0vXTAUY2Az99OxzoM6iAMILb
-	25
-X-Gm-Gg: AR+sD10XGya0adqEM3P7VNAuy4QAYDyc4ssALS69dTRtZtQs4Lweh8m+zc7DosNE478
-	kbsrnlmJD0unea0UBEfj03TUWWzAbV2hegJKlfSAx89v/vdeLkjZdHi7KQDhX9sU1JMQbV23q5Y
-	QhoCRVfjQYOsixyxNEDrdmd9rSjGBTeSNEgwLgaNM3vuIROYYjmVwGVXa86Nbd9oGfG1V3cT2K2
-	tv+IR92T/UwgACJKWmj3aKBlYWM0+xmyoXaPBG1Y5BIiYBNgSHKPAv5uk4RvXgRfaaS76kio/Ai
-	qwtpsVbhR30fOXR2e9uafy7i2Vqg7dSriyTaUI6lG8PVgzKhPA82LeNcxKIj1wxZ6C9ttLC9mDT
-	nTLOjie+ZEsPNaYTKrNVsqgcjNWJrcQaR8VI=
-X-Received: by 2002:ad4:5c89:0:b0:908:3e1c:647f with SMTP id 6a1803df08f44-90c8fa9093emr222737206d6.32.1787584953847;
-        Mon, 24 Aug 2026 08:22:33 -0700 (PDT)
-X-Received: by 2002:ad4:5c89:0:b0:908:3e1c:647f with SMTP id 6a1803df08f44-90c8fa9093emr222736316d6.32.1787584953292;
-        Mon, 24 Aug 2026 08:22:33 -0700 (PDT)
+        bh=+MIjWVFV9tiFSCvKJHotyKhr1YJnlwFE+nvcQBHjOak=;
+        b=gw3CeqkuQl3WdkFBS7BQhQlVg9sXDId4hQoaMKCRYRgPsPs70T5a5x78NSypp5pe1i
+         xLwd5r3s/Ce6EODxh7uQQ7ZjV2C8l5knoHVwXJwcx+11skHPh3jRasv8wr8KWqsSnJtg
+         2GKKvuNUiAuMaSYVHdhk5BYoHjpFvI4YWhSEDVUm+t8KOakLWrQxCsD7IiN5bupMEmkZ
+         /Ugo+Cn83UntBRbDSiN3fzoXcTmlySVowwuYEv/RXY89QNFbIEmSNY6E/ucYfuzBWCcd
+         nZnrVwdfs8hggcEmdFarE+gnEEwMiGirxBvYWjHPlB3aRvGTjQ6zgqO0X4WwxZ3ulzXV
+         2DuA==
+X-Forwarded-Encrypted: i=1; AHgh+RrZH8GytDDny5SkEXrAt7Q2wgp42dSR8K/sPadChwA47uC11nPyOiAS49Z9glW27G/jyNwxiF/XEDXP89NuyLcn@lists.infradead.org
+X-Gm-Message-State: AFuF++lwNRln7pwitjbAK7sPLwjr1M10gH1etk1LpmfnaZOKWO7b9nHD
+	viGe1t63Jra2bFhhR1x1W18C8ZBd1a3ySQq6iLwQrkGMseemi5hK+itRnXNPGi47z42lq7tCGTB
+	ATfLAizMIgFxmDEXXKJh0kSJ/D9PXRJ9FpINjt5KiK6imKn8p59I3fXDGaOI9lmZRlld9W4iEOL
+	KNzUln8ZvXRvc=
+X-Gm-Gg: AR+sD10dvGVWPQTjBbpITDjXLUt85dZSJ5I42S8k2mfIye048zhzNj4RsTeilQOzo+h
+	E8A/s2Od/h6x3gX17myfpL7UsL7odtG4Sl3Oz39hEMIAZBViMZhSN4UgQdmZ7R30IYor25JMaBh
+	zc+Q5b3/uscS+x9HsuoTGccbDbfJXVlLBLgI+84VcaESVgYgcfV0mlE2K+ukwM7J+Z6mV0ybRpp
+	SSX6dtnagcm+IV3/mjXQYcmwbzzebMhPJDTWij+u3NkDCS5lBEuihKewfHa2mk2RhXEw3enI7Po
+	W5Ylfg/5ae7WgP/qJ4q1LGSArXDrd16yPkPk2rvEGsi9S7cwoFZzc8h+QM96eWpUxYME5IIMLT0
+	m39jjZo/ykxThv/pGRhL8uXfVvwWDSblP7Yo=
+X-Received: by 2002:a05:6214:4113:b0:8df:98e0:4594 with SMTP id 6a1803df08f44-90c80c5c09fmr261568956d6.15.1787584961611;
+        Mon, 24 Aug 2026 08:22:41 -0700 (PDT)
+X-Received: by 2002:a05:6214:4113:b0:8df:98e0:4594 with SMTP id 6a1803df08f44-90c80c5c09fmr261568266d6.15.1787584961110;
+        Mon, 24 Aug 2026 08:22:41 -0700 (PDT)
 Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-90c93619bbcsm64952496d6.20.2026.08.24.08.22.31
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-90c9393202esm65746196d6.27.2026.08.24.08.22.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 08:22:32 -0700 (PDT)
-Date: Mon, 24 Aug 2026 11:22:31 -0400
+        Mon, 24 Aug 2026 08:22:40 -0700 (PDT)
+Date: Mon, 24 Aug 2026 11:22:39 -0400
 From: Brian Masney <bmasney@redhat.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>
 Cc: Ulf Hansson <ulfh@kernel.org>,
@@ -88,22 +88,22 @@ Cc: Ulf Hansson <ulfh@kernel.org>,
 	Adrian Hunter <adrian.hunter@intel.com>, linux-mmc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH 1/2] mmc: meson-gx: FIXME: Make sure clk_init_data is
+Subject: Re: [PATCH 2/2] mmc: sdhci-of-arasan: Make sure clk_init_data is
  fully initialized
-Message-ID: <aoxhtzBk0SH7D8hQ@redhat.com>
+Message-ID: <aoxhvzXB_Cn2vExX@redhat.com>
 References: <cover.1787240090.git.geert+renesas@glider.be>
- <4b9a377a810b69a4eb885fc00cb34ef63e7fc1f1.1787240090.git.geert+renesas@glider.be>
+ <0235d3a3d5b71a125eeff6d7be25ddaec80ce539.1787240090.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-In-Reply-To: <4b9a377a810b69a4eb885fc00cb34ef63e7fc1f1.1787240090.git.geert+renesas@glider.be>
+In-Reply-To: <0235d3a3d5b71a125eeff6d7be25ddaec80ce539.1787240090.git.geert+renesas@glider.be>
 User-Agent: Mutt/2.4.0 (2026-06-19)
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: CUjr0sWrYyY_Xa-vRZafWtBqv1Txuk0J8ITBo8R32ek_1787584954
+X-Mimecast-MFC-PROC-ID: k2THPgYXfOacNFIjFxgB30jT9mCs24hIniIf46hO64s_1787584962
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_082237_055886_DF2940EA 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20260824_082252_651396_6FA2E316 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,7 +118,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 12:06:03PM +0200, Geert Uytterhoeven wrote:
+On Fri, Aug 21, 2026 at 12:06:04PM +0200, Geert Uytterhoeven wrote:
 > The clk_init_data structure contains several mutually-exclusive members
 > for different methods to specify the possible parents of a clock,
 > prompting drivers to initialize only the members they need.  However,
@@ -131,9 +131,6 @@ On Fri, Aug 21, 2026 at 12:06:03PM +0200, Geert Uytterhoeven wrote:
 > for specifying the parents.
 > 
 > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-
-It looks like the FIXME should be dropped in the commit title? With that
-dropped:
 
 Reviewed-by: Brian Masney <bmasney@redhat.com>
 
