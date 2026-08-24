@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8403FC5DF9B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 13:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D961C5DF9B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 13:38:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iDn1o2DLL+y0sd22jeA5t6tGJEqFYhPXPnftrfb3MMM=; b=v7D/t9lQDCa3szhb8hxzePREfn
-	DFwXFFXHmKYRLVoR4MPAB7g46WCKrluHY8BzKOpPocF9LYnWDOup0X+7UyJeAqgIXw4MxeA44V16V
-	ztHKmPJC4kXm4/IlbUmLWF/A3+9MIB41jWQmCd5pEeGqXw9cA09Mo/5Stn0Sp0/YmZNqxd7XcvF7G
-	CJHWlWPXEDNyl7vOKdt0sB7W84j3khJti6yInKOfE14pJI5b6PE6AomeT+ABeL6+s8YRT5EGZgD8E
-	4V7F9weT4otyzrnmOpBQ3D366jf/2XnzpIk3sxGjbVBoaMBiMmRuSEXK9hQKSoCej2IfVmlj6hXZZ
-	d1wBrXpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vAE6rfAHaXAtrVTJwnoUcnHs4BjSY9cziCo40xej1Wk=; b=IhkPZ+3oL+9Su42EmJ9E12X1t9
+	SItcfGRzOEiZtC0aVZuHggcS+36lahRuJ/cVqet29C9r8NoFo+v3hIxNWA1FhNGiMjXtQzu9eMaAn
+	i9Snuta5VLBkGwPZEtZT5EjeGnqQ7e0H8u9EVs/EmoakR5HswzB6AcmA0SEGsgDlMkzHjLAhY0a0Y
+	fn+RbLHt12jNtnrELU8CExvZAlMfsRD6yDm9yqixJuICRVQAn0dTkRUsL4zySPXneGU14bNtJyqNs
+	bkYSCNplrDCTI9ZDbO7XJlohVvQrwOHDOE/QrTgBeEK14+CYab/nMo19FpLQXxrbeOM6TyEZdTwCJ
+	jGBUdS2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyUke-0000000Ghha-1frp;
-	Mon, 24 Aug 2026 13:30:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyUkc-0000000Ghh8-2hRy
+	id 1wyUsd-0000000GiKO-2vMw;
+	Mon, 24 Aug 2026 13:38:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wyUsa-0000000GiJi-2fm3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 13:30:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B0E64600E2;
-	Mon, 24 Aug 2026 13:30:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 987D81F000E9;
-	Mon, 24 Aug 2026 13:30:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787578209;
-	bh=iDn1o2DLL+y0sd22jeA5t6tGJEqFYhPXPnftrfb3MMM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gdcKIYQLI5HeVyXSM2OirRq2RIF0UF0dCL/O3mP/vsUNEeHf8rogh7W5b5tsJmPe6
-	 NVqMzKfWLFtxBjl5Tj+xuyECb4p8kzVDDFyXvNA47tYycOpvzlvir47tSmEQRZZ0+0
-	 /FzuZ7AzJYpJs0F+xIVB4lNdCpZMF1YfpEln3kfMHZnhloiTZG28ValSOYheFKVbVj
-	 jExroxeuXDXK42Ma+1vtxiyqTqJ964htlRa/CmUUdAnmXCd2fdS/oR9epj83dKmMss
-	 GKzBKqLpw2Sd2dmQBeW4krCm8NmWEXJ53YQwH00S3k/0+ksUTXdxgrpx/dM1LiLojN
-	 FrZ8KiFolO3aA==
-Date: Mon, 24 Aug 2026 14:30:02 +0100
-From: Will Deacon <will@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Dev Jain <dev.jain@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matt Fleming <matt@codeblueprint.co.uk>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sebastian Ene <sebastianene@google.com>
-Subject: Re: [PATCH v3 0/2] arm64: ptdump flush fixes
-Message-ID: <aoxHWvUwgzqzg_cQ@willie-the-truck>
-References: <20260814222458.584906-1-weilin.chang@arm.com>
- <87h5klno04.wl-maz@kernel.org>
+	Mon, 24 Aug 2026 13:38:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5FC9116F2;
+	Mon, 24 Aug 2026 06:38:17 -0700 (PDT)
+Received: from [10.2.198.93] (e142334-100.cambridge.arm.com [10.2.198.93])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C1E2E3F7D8;
+	Mon, 24 Aug 2026 06:38:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787578701; bh=GYHYebrAL0+TRGK1g/XM7dg2jWMltwNxv4cPMxYybAM=;
+	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
+	b=RWUiqeLt7NX7jbsLD82QYFKmXgk2WxNgYjzJ3ekuCXsrhEXDkcW+uYrXfIfvQxHq7
+	 2U+0v99DzGABm3HSj5KMTL6yM9MrCnAEVnkpTGTR/WYkC6h9JmJuF1FVw+fgGBOV57
+	 0iTGwq0s0qiaXaxLuMA0MmLt4wRf+rXHS5zxmH7Q=
+Message-ID: <67ab6c51-4511-46ab-931b-a4323551147a@arm.com>
+Date: Mon, 24 Aug 2026 14:38:18 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87h5klno04.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Cc: usama.anjum@arm.com, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev
+Subject: Re: [PATCH] arm64: clear_page[s] using memset
+To: Linus Walleij <linusw@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Ryan Roberts <ryan.roberts@arm.com>
+References: <20260306-aarch64-clear-pages-c-v1-1-77c1bb0f1c21@kernel.org>
+ <ac7YJPo4Np2zxxEp@arm.com>
+ <CAD++jL=G81=ueo7djqUETToE459kpFGniWvBwnYbJtmXrm8MFw@mail.gmail.com>
+ <adULAT2xus5z3HdQ@arm.com>
+ <CAD++jLmMxj1C7sGz-Yt8Y+NC1CbrUTTSH4QvcZfYuJAcNoYYCQ@mail.gmail.com>
+From: Usama Anjum <usama.anjum@arm.com>
+Content-Language: en-US
+In-Reply-To: <CAD++jLmMxj1C7sGz-Yt8Y+NC1CbrUTTSH4QvcZfYuJAcNoYYCQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260824_063824_779690_66723C4F 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,41 +79,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 23, 2026 at 11:13:15AM +0100, Marc Zyngier wrote:
-> On Fri, 14 Aug 2026 23:24:56 +0100,
-> Wei-Lin Chang <weilin.chang@arm.com> wrote:
-> > 
-> > Hi,
-> > 
-> > This series fixes two problems around ptdumps:
-> > 
-> > 1. note_page_flush(), which flushes out the last row of ptdumps, does
-> >    not account for address spaces that have IA < 64. Other than making
-> >    the last region extremely huge, the attributes of the last region
-> >    within the address spaces appear to extend all the way to 1 << 64.
-> > 
-> > 2. KVM/arm64's stage-2 ptdump missed calling note_page_flush().
-> > 
-> > To address Will's comment [1], I have created an end_address field for
-> > struct ptdump_pg_state, and initialized it with the end address of the
-> > ptdumps. It follows the same convention as the last range->end:
-> > exclusive end, except for the case where the address space ends at
-> > 1 << 64. In that case it is set as ULONG_MAX.
-> > 
-> > Caching the end address avoids duplicating the range iteration in
-> > note_page_flush(), at the cost of duplicating state in ptdump_pg_state.
-> > 
-> > Series is based on v7.2-rc5.
+On 08/04/2026 8:47 am, Linus Walleij wrote:
+> On Tue, Apr 7, 2026 at 3:47 PM Catalin Marinas <catalin.marinas@arm.com> wrote:
+>> On Tue, Apr 07, 2026 at 11:25:55AM +0200, Linus Walleij wrote:
+>>> Quoting my own commit message hehe:
+>>>
+>>>> No performance regressions can be seen, the fastpath
+>>>> benchmarks differences are in the noise.
+>>>
+>>> This was tested on hardware with Ryan Robert's fastpath tool.
+>>
+>> BTW, have you tried the perf bench mmap test again with the new
+>> clear_page? Both with single page and multiple pages scenarios. And
+>> ideally on more than one platform.
+>>
+>> Will pointed out (in a private chat) that current clear_page() uses
+>> non-temporal stores while memset() doesn't. It may not make any
+>> difference in practice but it would be good to have some numbers.
 > 
-> Reviewed-by: Marc Zyngier <maz@kernel.org>
+> Hm interesting point, the perf bench mmap test isn't specifically
+> in fastpath but since it tends to come up I guess we can add it?
 > 
-> Will, if you're OK with patch #1, do you want the whole thing to go
-> via the arm64 or the kvmarm tree?
+> Ryan: is it easy to add this test to fastpath? Or easy for me to do
+> myself? I looked at the instructions but they were a bit intimidating...
+> 
+> The test is the following:
+> 
+>     We boot the kernel with cmdline like this:
+>     "default_hugepagesz=1G hugepagesz=1G hugepages=32" to make sure
+>     we have ample hugepages. This was then tested with the same
+>     cmdline as the original series:
+> 
+>     perf bench mem mmap -p 1GB -f demand -s 32GB -l 5
+> 
+>     The first run was discarded as the memory hierarchy is cold on
+>     the first run. Then I ran the above command 5 times and averaged
+>     the throughput
 
-I can pick 'em both up, as I already have some other fixes on my radar
-for -rc1.
+I've ran tests for with 1 warmup and 3 repeats in 4 sessions (12 times). 
 
-Cheers,
+Results for SUT Class aws-m7g.metal:
+╭─────────────┬────────────────────────────────────────────────┬───────────────────────────────────────────────┬───────────────────────────────────────────╮
+│ Benchmark   │ Result Class                                   │   next-20260821 without this patch (base)     │   next-20260821 with this patch           │
+├─────────────┼────────────────────────────────────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────┤
+│ perf/mem    │ memset -k 1GB -f default -s 16GB (bytes/sec)   │                                63932542232.12 │                                     1.92% │
+│             │ mmap -p 1GB -f demand -s 32GB -l 5 (bytes/sec) │                                63272579168.03 │                                    -0.57% │
+│             │ mmap -p 4KB -f demand -s 32GB -l 5 (bytes/sec) │                                49692830849.48 │                                    -1.11% │
+╰─────────────┴────────────────────────────────────────────────┴───────────────────────────────────────────────┴───────────────────────────────────────────╯
 
-Will
+Results for SUT Class cesw-aarch64-ampereone-1s-a192-32x:
+╭─────────────┬────────────────────────────────────────────────┬───────────────────────────────────────────────┬───────────────────────────────────────────╮
+│ Benchmark   │ Result Class                                   │   next-20260821 without this patch (base)     │   next-20260821 with this patch           │
+├─────────────┼────────────────────────────────────────────────┼───────────────────────────────────────────────┼───────────────────────────────────────────┤
+│ perf/mem    │ memset -k 1GB -f default -s 16GB (bytes/sec)   │                                33895562998.71 │                                     0.25% │
+│             │ mmap -p 1GB -f demand -s 32GB -l 5 (bytes/sec) │                                34338454210.17 │                                     1.16% │
+│             │ mmap -p 4KB -f demand -s 32GB -l 5 (bytes/sec) │                                25687107580.90 │                                    -0.85% │
+╰─────────────┴────────────────────────────────────────────────┴───────────────────────────────────────────────┴───────────────────────────────────────────╯
+
+
+> 
+> The x86 commit cb431accb36e51b64ce34b5cc4d5ed292895fd84
+> also mentions this test:
+> 
+> perf bench mem memset -k 1GB -f default -s 16GB
+> 
+> I tried it on QEMU, no real benefits with either the previous or this
+> patch, and no regressions either. (x86 passes -f x86-64-stosq
+> which are some optimized memset instructions)
+> 
+> Yours,
+> Linus Walleij
+> 
+
+Thanks,
+Usama
+
 
