@@ -4,101 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9F8C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 07:55:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2C5C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 07:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fD7HDEqAve3vYidUjX8s8f4KzZ+OcpC6vSRwhTvcNpE=; b=GlgzaULfY6W6DLNhXPItRRvrI0
-	Y0SIsxRbv0T21QB+tY/ZPNf96sZB66lYgYF3uVpYfHj9sjzgzbKay2C7TPuvYNXh0u0uheDtKlpgG
-	k+7iRVcjidt+095QRqduX7tdEZ8sTd2SY6+JtWtTWLggcKtUnMEh4mP58CHyEhNv7mS5v62kuCjKJ
-	wfA5nxMcBFhfQY9mlSHm+XaNDOxHRNI5K4rnxq/kwFXf6Oap2Vqb5Cm6cDo+c3Xp/MaAbETfQjAoa
-	PeB9jHa8xMrfdb5UFu2aqcZr62D5gIMBirqtm5nnaXFBSa1y39W4udGoIFowUfsjlFsNOTA3CtqKS
-	d6KA2sWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oczCj5f3UWMs39FGECP1/K93ViDAX6FAuEBjSlTzqVE=; b=jlb+TW198luM1XjxYt4j4CJJAI
+	A8GskxslG7Dibl+HIXxIHiUktLIJJwz7YJxXuaHzfPXKueqs1EajbDm5g/RHZKvjiqWcLYboyyqBi
+	/ofYffuEGtaYpQ1pUm1lETBukmvP2XoVP5fJ2UWAnK6cLb7CbignO+O4FnnzQEKVwM8kOGCgNM0Cg
+	PId3e+jBycHPIyhwUKux+FbeZufZkxRwPXQBG+67VyuLPOxJb/rYQbJ3OjWYiFnSkDtw8CbLPEF21
+	eIWWD8eHpuc0Hc2QalsegjNxuAPt7+nRBgokokGliv439P7+Yo94k6KcWTsniHMZ623O3DcuQJuM2
+	JEhiSYSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyPWp-0000000G9x0-3vZn;
-	Mon, 24 Aug 2026 07:55:35 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1wyPYw-0000000GABR-1oFj;
+	Mon, 24 Aug 2026 07:57:46 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyPWn-0000000G9wT-2xdo
+	id 1wyPYu-0000000GAAu-0CSD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 07:55:35 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2d560775ca2so25372855ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 00:55:32 -0700 (PDT)
+	Mon, 24 Aug 2026 07:57:45 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67O67etn1662625
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 07:57:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=oczCj5f3UWMs39FGECP1/K93
+	ViDAX6FAuEBjSlTzqVE=; b=ovgqGziCxKRiwicrKzukwp+Vw5GFK9548mfORnVf
+	O53d80Esj50DcLKwJfUquyd8gQdmqd9aSE/jKEmLtsk3GpoBqTBm3SfpqGZ2PPbk
+	WeVczAQNgwfIUaGvZMIqQ+p7XAgir3mldG3r0V3SuJIlGlWPouFEaNP7SwPhsYlr
+	QIMZxlyIKlNquzN9U9zhbQLW3lCY8nwysjlZ0KjX6lMWSX6AkR/zqURB9v7gaXqr
+	tlOr+uiMEaEpbp4AgdAgEO3fHVp+uvahtZoeyhDQsPpfqskTIJvU7WfA/TE3dpQH
+	OvU5BHt7zntrSmyLXDiH+BVHbO3wDe6CSWdm+FTdbJBfNA==
+Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g8gdsgfq8-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 07:57:43 +0000 (GMT)
+Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5bfd13481easo1051332e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 00:57:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787558131; x=1788162931; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fD7HDEqAve3vYidUjX8s8f4KzZ+OcpC6vSRwhTvcNpE=;
-        b=glAJe3jIRVm8Em24KYFK5emyWvC0Bfsx7S2EuouL7TMH6M+BVFJMOssYM2VBr1Wo1y
-         HGQQPprxy9+L3B6W8FE+M1Rg6l5faVcRRNwEP9PVvKt7nqo44msj8G/GcSXRrizjfD0a
-         60zfRfSONXtAl9Lem9FdjO6qLp7K4bwMa9N5XusZOJlGqK4mJeJGbeT60mp4AR9MK0Fr
-         d52nI0JkGqlarNbvFEkTSMH/XKdXfQMELY8BJ6ZfFNWukPY3V1cahpJn/rH942tQZ9d9
-         eoK0wnlDyPLpA9GK5rNFIWHdlm9hHOI2qOIw0qjJ0WwpYOfYlbL31IJMffEQxuuEymdA
-         rUQg==
+        d=oss.qualcomm.com; s=google; t=1787558259; x=1788163059; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=oczCj5f3UWMs39FGECP1/K93ViDAX6FAuEBjSlTzqVE=;
+        b=GnYKD8ep7tjAZ01FrTW2Wst+M+fRGW01UqNy17pIZtyl13GsyQ2hXiImStd3e21WiN
+         VBrgh8WfCUFVFHU7McgkvjHH7obRm55E8gYvV60v09niazxadQzLlCK1JBabwEUxYFe5
+         TV7BnLjPVjqBbRDz//9vysFOzNOAWKLaHecMw0sp1CUkBgWVli6HFE7A/2PMrVnEcHUA
+         HbA41zWM9qohoNUNiWUS593mScRNPEFUxsZYW4H1YXxy6o2/rjjY2Phvds9kUha00ks0
+         aFFNhb0QvZd83MNtx/f0PQjbqaVfPSEMsvPemPEGvoukAf48EyBSd7lbO5J7T8nJm6Rh
+         P/Gg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787558131; x=1788162931;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fD7HDEqAve3vYidUjX8s8f4KzZ+OcpC6vSRwhTvcNpE=;
-        b=orSjvnX+aG2d+hOGBjRzKxQ6aRDvTSZzFjOS9yNz8oVHCyyPg1T0N+ADT5VE790d6+
-         rdmOX/wC0L2Yd95cC01tioxvqnAIvRxYIV84T0pdFcU/jew8kWrxfN9I4a/dd5IPRR67
-         5QW9bsQunwynlJKu5ARXcaI514QbTBery9vTWJLTbFM1vQdhjttkcr5VIEBNW8Ud7+rm
-         e4fSj07wjhgGVd/Yl+HFrVz0m5XtKEVvPlkqYTt111At4Q71VL63n/StCFOmRAZ1ovIP
-         2TVMl3gAW1AiXEglKHiNya30eD0GGJVCqv16bTCFfUAN2M0ggyR/aRN05hafmRq5uYwi
-         8wLA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro9Z697eSgzHzkP3l8O9on2gIQ1CzlNIS9kmW7RL/+i0NePdA4yjG7ZskV3nM/qVTh34gaOcVQ0XzDglX7PNF/h@lists.infradead.org
-X-Gm-Message-State: AFuF++l3hkuLNb7MsAku4Zcv/WJqGhSOpHNJ3ITMgQut/Vv1Kg2qvAwh
-	qKcJpgKWRbCn625TlEg0jwf/MhWdNWO0x2NOv5ySwIrTyCFJsot+NuW6
-X-Gm-Gg: AR+sD13RQJtVtd2WmNEvWADEjUjQc29eC6EiIHpqbAtJhWpOXe6rQFDQyAxdlhoF/Qn
-	0qHdhfK2oyyAIEUmi4LQp0yEZ5MhpJ+MrROTDgmC5xkiYWTh/9NfKihn7C/4jkg4sb8LBg3yjRN
-	TGDfCyeAT7C1cqiCWFyguiH2/veTCCK4Zh/u6OkjZ/aFaeHarvMfPr9JA10inH+yfAfXJNmJwwM
-	cL4r0Vkgqb3lbhTd7Qk/7c51+ske/G0qAkrRuQ7ggWWCZGmD72dfC56CtS7Pje+2BPJtSn07iH8
-	pTzHBn7iodLudKEUgmcRLVwxUf6E7DoqxVkqTpQ1CeLGFtPQV0Knua0eMFBwDOj5s7q+4PylsLj
-	qaEV4yAw+oDkF7btNUmYnW5XenEu09RWBRtD3tkDSzX+GHzhLoomHCgxu/xmyDEkZEFnGc10tUA
-	Nq2Tk/WpwqdeIvlMWl1zNCbob9ACfW983avM5FfwyQDTf328QA1r8oyscGt2dLnUTTMo3NKG/fn
-	ZdtW+GFQEA0QevXH2UES+PGF29j7AvXs9kk0iRU8Z0aBnZo6Ks3
-X-Received: by 2002:a17:902:f70b:b0:2d6:3c2f:6a4 with SMTP id d9443c01a7336-2d670d07a21mr311514175ad.13.1787558131477;
-        Mon, 24 Aug 2026 00:55:31 -0700 (PDT)
-Received: from hanzj-mi.. (ec2-99-79-140-187.ca-central-1.compute.amazonaws.com. [99.79.140.187])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d67679e55bsm14421565ad.30.2026.08.24.00.55.19
+        d=1e100.net; s=20251104; t=1787558259; x=1788163059;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oczCj5f3UWMs39FGECP1/K93ViDAX6FAuEBjSlTzqVE=;
+        b=d2sQPefPb/nvu9uCFsgq/g3dHTETksuGHXJKcHZjMq4aweozSgi3j83qRX/0kD6x9J
+         U9H+hMtdTYXeDbW9w8bYeO5yquWyFZ9ieP1rAKT5jCPDHR1WrxTs1MvoCEwbL90lX+n9
+         fN+u9L3sBP79FYVauXuG9P2qc6YGcRXozOAXHPZn6lqc/JrQwRBWZax9f7raM9MM/9kx
+         Fii00KrYGyt0uib+Hxr2xOSvCSrpTJY+6z+xlEFgjhBFm3PoAWZojU+cuZ9IN5KnjUOw
+         KyXrk6ites9GA0l88F40pqAAKaFDQNNS0dwvhSRIgip9rCJJyD6bf/PRDYTy+oQX6n4x
+         FN2w==
+X-Forwarded-Encrypted: i=1; AHgh+RrFnAdnPtFpyu1JDLZzWlSyjSTHeLtJhGpEujq/MZepXnvOyYg4Cu9s38qA4iyf7IWqBAKtJPY9K+xIl0V5um61@lists.infradead.org
+X-Gm-Message-State: AFuF++ktqLzVGGIT7qNrMaQHYTYgz1zZEVd61CAnk848wsgnVuZm5qze
+	Z2Mq0awc/RG0A7wOSsGSW/Q/BwvohFpqhuV4oE/XABm0NhGeNKu81SPse2f5bEwis3ipWOwLccZ
+	KO2bMJYcj6RMOmeCmEL2kv+WFT9sNkgDlNosTnbeA1uBlTIWh7A9zzuSbM7sWs7QOJlsZ8iOE/Y
+	DNcQ==
+X-Gm-Gg: AR+sD10HphqKlMfj0tHGZnX26NbFfa6l4+9o+tGNrle1MOMQ9gaqdn3aT/mV8Tr0G82
+	TZ73nDh2Y7CZ47UEIXdc43O7lhoZywVy2GjL1d3WXiGAS3Zvs23eKQWnaGe/Wm6tXggk/3hTYRK
+	2ZjHIbFAnlgSXHgM9bgsdwXE2MlkmHa4TZfU855NCkyLpjwnZxhw+l7ol0vYXspPrtuAh1Sqc7F
+	wH7TOriWBwN0OW3aeZ67G6VVshuzqzLdjDm5Bd9L4Vs/0KC3cxhdxuuZNBMrrPkkyVzALDoDCni
+	otLLZz123vohJWGSlrO/jL+eO9lD4qjAzpfIV2jl1xbf/IlQy+qBBeDUqGqOcC/Xy1LaIAdQ+5u
+	YNVGodwLK2GJUUYI=
+X-Received: by 2002:a05:6102:2d03:b0:77b:2d24:db60 with SMTP id ada2fe7eead31-77bd3189574mr5175335137.10.1787558259428;
+        Mon, 24 Aug 2026 00:57:39 -0700 (PDT)
+X-Received: by 2002:a05:6102:2d03:b0:77b:2d24:db60 with SMTP id ada2fe7eead31-77bd3189574mr5175296137.10.1787558258934;
+        Mon, 24 Aug 2026 00:57:38 -0700 (PDT)
+Received: from oss.qualcomm.com ([188.27.161.240])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a59e00129fsm8633622a12.1.2026.08.24.00.57.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 00:55:31 -0700 (PDT)
-From: hanzhijian <hanzhijian1991@gmail.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	kernel@pengutronix.de,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	hanzhijian <hanzhijian1991@gmail.com>,
-	sashiko-bot@kernel.org
-Subject: [PATCH v3] PCI: imx6: fix resource leaks in probe error paths
-Date: Mon, 24 Aug 2026 15:55:12 +0800
-Message-ID: <20260824075512.3386898-1-hanzhijian1991@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260823071129.2980059-1-hanzhijian1991@gmail.com>
-References: <20260823071129.2980059-1-hanzhijian1991@gmail.com>
+        Mon, 24 Aug 2026 00:57:37 -0700 (PDT)
+Date: Mon, 24 Aug 2026 10:57:35 +0300
+From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Taniya Das <quic_tdas@quicinc.com>, Georgi Djakov <djakov@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Linus Walleij <linusw@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+        Radu Rendec <radu@rendec.net>, Robert Marko <robimarko@gmail.com>,
+        Guru Das Srinagesh <linux@gurudas.dev>, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+        linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v3 07/15] interconnect: qcom: Add Kuno interconnect
+ provider driver
+Message-ID: <mhjq6szchgrgoegi7jrzmeumlhdjr2njkh5jdyjb3cjb4pd2hb@qjvx34fyo5au>
+References: <20260821-kuno-soc-support-v3-0-196e2b306368@oss.qualcomm.com>
+ <20260821-kuno-soc-support-v3-7-196e2b306368@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260821-kuno-soc-support-v3-7-196e2b306368@oss.qualcomm.com>
+X-Proofpoint-GUID: rbv0PdVoc_iVy_sdQA2cfL0DNB4Vm2sW
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI0MDA2OSBTYWx0ZWRfXyRMtc4cYQJ+i
+ AwjSa3t7j/8wrwdXm1MIlGeEUUBbQ+JTljxZPRzQrWgcRHFAb9Ga2/C70LUjo6jYF14pGKzViaE
+ tzMwxcejYRfQ2tNg1sTPN3AMYhuKqjhm7s42hWzx3dUm5JIVbtIoVKr26Px6uxYSjU7RcnZJlM6
+ YZy7iHl1JImClwZjqn1k9tnwK1/TjLG9XAY23wXH6W9hniTu9T0hmMqYnIR4E3PkoiKkpQlGr2M
+ 7yNYoXXkWjQnSUlekYYXtg2OSLdy81UDYPFVZ+RI1RUNw62kZ/uOb1S+aGwttENPQd9TjGeHEEI
+ kQvwdr2DiNzRwJDY81MA5P5Rd9DeYHpSEsOIb0kUGhxOMLT9xMcu9LdLumCELZL4xaVYeY83VLs
+ /JMrlqkB4BKWuNECrvTKGURCwfgI93hSh1E4ONRY1rjohokEmdH+vqyu8uiLkvRegUnNukZ3mGu
+ JTmUNzQfL+AbEiCAhcg==
+X-Authority-Analysis: v=2.4 cv=Fqo1OWrq c=1 sm=1 tr=0 ts=6a8bf977 cx=c_pps
+ a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=wUpz7uCjLrEXi01cjX+DLw==:17
+ a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=PAQKBgKzElogREcGxNUA:9 a=CjuIK1q_8ugA:10
+ a=tNoRWFLymzeba-QzToBc:22
+X-Proofpoint-ORIG-GUID: rbv0PdVoc_iVy_sdQA2cfL0DNB4Vm2sW
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI0MDA2OSBTYWx0ZWRfX+Xs+bYF38RSY
+ cejvgLyg82+8p70/IJ8+mmt/UmHf4OjNi8opcnSU5CST8mWBc/17kAaIDBLrzSwxhy1bGyYRQLB
+ uarT0+nZjGRsR5xa8oPrDsKb2+Vvt/8=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-24_02,2026-08-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 malwarescore=0 adultscore=0 lowpriorityscore=0 suspectscore=0
+ impostorscore=0 phishscore=0 spamscore=0 clxscore=1015 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608240069
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_005533_855321_0F4B138B 
-X-CRM114-Status: GOOD (  19.64  )
+X-CRM114-CacheID: sfid-20260824_005744_199177_36F52F21 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,135 +162,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx_pcie_probe() leaks both pwrctrl devices and power domains on
-failure:
+On 26-08-21 21:39:00, Hardeep Sharma wrote:
+> Add the interconnect provider driver for the Qualcomm Kuno SoC to
+> enable bus bandwidth voting on the platform. This includes the
+> aggre-noc and cnoc-main NoC instances with their associated BCM
+> nodes.
+> 
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+> ---
+>  drivers/interconnect/qcom/Kconfig  |  13 +
+>  drivers/interconnect/qcom/Makefile |   2 +
+>  drivers/interconnect/qcom/kuno.c   | 977 +++++++++++++++++++++++++++++++++++++
+>  3 files changed, 992 insertions(+)
+> 
 
-- imx_pcie_attach_pd() attaches the "pcie" and "pcie_phy" power domains
-  and creates device links to them, but the device links are only kept
-  in a local variable and nothing detaches the domains on probe failure
-  or deferral, so all of them leak.
+[...]
 
-- A failure of devm_pm_runtime_set_active_enabled() returns directly
-  without destroying the pwrctrl devices.
+> diff --git a/drivers/interconnect/qcom/kuno.c b/drivers/interconnect/qcom/kuno.c
+> new file mode 100644
+> index 000000000000..9a5bd53e7ed9
+> --- /dev/null
+> +++ b/drivers/interconnect/qcom/kuno.c
+> @@ -0,0 +1,977 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+> + */
 
-- A partial failure inside imx_pcie_attach_pd() leaks the power domains
-  and device links that were already attached.
+[...]
 
-Save the device links, add imx_pcie_detach_pd() to release the power
-domains and device links in reverse order of acquisition, call it from
-the probe error paths, and make imx_pcie_attach_pd() release everything
-it has attached so far on failure.
+> +static const struct of_device_id qnoc_of_match[] = {
+> +	{ .compatible = "qcom,kuno-aggre-noc", .data = &kuno_aggre_noc },
+> +	{ .compatible = "qcom,kuno-clk-virt", .data = &kuno_clk_virt },
+> +	{ .compatible = "qcom,kuno-cnoc-main", .data = &kuno_cnoc_main },
+> +	{ .compatible = "qcom,kuno-dc-noc", .data = &kuno_dc_noc },
+> +	{ .compatible = "qcom,kuno-mc-virt", .data = &kuno_mc_virt },
+> +	{ .compatible = "qcom,kuno-mem-noc", .data = &kuno_mem_noc },
+> +	{ .compatible = "qcom,kuno-pcie-anoc", .data = &kuno_pcie_anoc },
+> +	{ .compatible = "qcom,kuno-system-noc", .data = &kuno_system_noc },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, qnoc_of_match);
+> +
+> +static struct platform_driver qnoc_driver = {
+> +	.probe = qcom_icc_rpmh_probe,
+> +	.remove = qcom_icc_rpmh_remove,
+> +	.driver = {
+> +		.name = "qnoc-kuno",
+> +		.of_match_table = qnoc_of_match,
+> +		.sync_state = icc_sync_state,
+> +	},
+> +};
 
-Reported-by: sashiko-bot@kernel.org
-Link: https://lore.kernel.org/all/20260822013640.182C01F000E9@smtp.kernel.org/
-Signed-off-by: hanzhijian <hanzhijian1991@gmail.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 42 ++++++++++++++++++++++++---
- 1 file changed, 38 insertions(+), 4 deletions(-)
+qnoc_driver_init() and core_initcall()
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 39790e66b..467006d83 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -182,6 +182,9 @@ struct imx_pcie {
- 	struct device		*pd_pcie;
- 	/* power domain for pcie phy */
- 	struct device		*pd_pcie_phy;
-+	/* device links for the power domains */
-+	struct device_link	*pd_link;
-+	struct device_link	*pd_phy_link;
- 	struct phy		*phy;
- 	const struct imx_pcie_drvdata *drvdata;
- 
-@@ -639,6 +642,26 @@ static int imx6q_pcie_abort_handler(unsigned long addr,
- }
- #endif
- 
-+static void imx_pcie_detach_pd(struct imx_pcie *imx_pcie)
-+{
-+	if (imx_pcie->pd_phy_link) {
-+		device_link_del(imx_pcie->pd_phy_link);
-+		imx_pcie->pd_phy_link = NULL;
-+	}
-+	if (!IS_ERR_OR_NULL(imx_pcie->pd_pcie_phy)) {
-+		dev_pm_domain_detach(imx_pcie->pd_pcie_phy, true);
-+		imx_pcie->pd_pcie_phy = NULL;
-+	}
-+	if (imx_pcie->pd_link) {
-+		device_link_del(imx_pcie->pd_link);
-+		imx_pcie->pd_link = NULL;
-+	}
-+	if (!IS_ERR_OR_NULL(imx_pcie->pd_pcie)) {
-+		dev_pm_domain_detach(imx_pcie->pd_pcie, true);
-+		imx_pcie->pd_pcie = NULL;
-+	}
-+}
-+
- static int imx_pcie_attach_pd(struct device *dev)
- {
- 	struct imx_pcie *imx_pcie = dev_get_drvdata(dev);
-@@ -660,12 +683,18 @@ static int imx_pcie_attach_pd(struct device *dev)
- 			DL_FLAG_RPM_ACTIVE);
- 	if (!link) {
- 		dev_err(dev, "Failed to add device_link to pcie pd\n");
-+		imx_pcie_detach_pd(imx_pcie);
- 		return -EINVAL;
- 	}
-+	imx_pcie->pd_link = link;
- 
- 	imx_pcie->pd_pcie_phy = dev_pm_domain_attach_by_name(dev, "pcie_phy");
--	if (IS_ERR(imx_pcie->pd_pcie_phy))
--		return PTR_ERR(imx_pcie->pd_pcie_phy);
-+	if (IS_ERR(imx_pcie->pd_pcie_phy)) {
-+		int ret = PTR_ERR(imx_pcie->pd_pcie_phy);
-+
-+		imx_pcie_detach_pd(imx_pcie);
-+		return ret;
-+	}
- 
- 	link = device_link_add(dev, imx_pcie->pd_pcie_phy,
- 			DL_FLAG_STATELESS |
-@@ -673,8 +702,10 @@ static int imx_pcie_attach_pd(struct device *dev)
- 			DL_FLAG_RPM_ACTIVE);
- 	if (!link) {
- 		dev_err(dev, "Failed to add device_link to pcie_phy pd\n");
-+		imx_pcie_detach_pd(imx_pcie);
- 		return -EINVAL;
- 	}
-+	imx_pcie->pd_phy_link = link;
- 
- 	return 0;
- }
-@@ -1956,8 +1987,10 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 		return ret;
- 
- 	ret = pci_pwrctrl_create_devices(dev);
--	if (ret)
-+	if (ret) {
-+		imx_pcie_detach_pd(imx_pcie);
- 		return dev_err_probe(dev, ret, "failed to create pwrctrl devices\n");
-+	}
- 
- 	pci->use_parent_dt_ranges = true;
- 	if (imx_pcie->drvdata->mode == DW_PCIE_EP_TYPE) {
-@@ -1975,7 +2008,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 			pm_runtime_no_callbacks(dev);
- 			ret = devm_pm_runtime_set_active_enabled(dev);
- 			if (ret < 0)
--				return ret;
-+				goto err_pwrctrl_destroy;
- 		}
- 
- 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
-@@ -2001,6 +2034,7 @@ static int imx_pcie_probe(struct platform_device *pdev)
- err_pwrctrl_destroy:
- 	if (ret != -EPROBE_DEFER)
- 		pci_pwrctrl_destroy_devices(dev);
-+	imx_pcie_detach_pd(imx_pcie);
- 	return ret;
- }
- 
--- 
-2.43.0
+then
 
+qnoc_driver_exit() and module_exit()
+
+Please have a look at all other Qualcomm interconnect drivers in upstream.
 
