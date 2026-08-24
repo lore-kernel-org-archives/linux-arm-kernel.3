@@ -4,106 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49216C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:19:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 194C7C5DF9B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W56P5fyFkxTQYTvITDSYgEvGIOW/RQqOkycdQuJNc4A=; b=OGXaUmC8zc22+x6DO4xJVqbYeB
-	E+MfTJlB4OT0OQkXQzRiT+fuofsayR/U7j9VgQNhruy/gKD7E4GG7MZep2bgqw1D2OTETb9uCYENf
-	dKiesBA1l6yA8Z0YfM4vhfRZGEbE6nwX6M1d1OHIUj0ahTbzJjjIaqZflDkG2z2rIpRZceCfRKfvE
-	NWEp8XVKee6VHgNRrDSMh6GSXGAn43Ue/RnlsAyFNlvP1iL/DSiYPc5cK7l9s3C7TlDqXh0nfHR/Z
-	Om8AHDWjGuF+NINTsUd6t5MCUEX9K+Ru8cqS5XHl2ob0Qnzm33vfNOmu0Wfj96+P343NS0Sq9lmWx
-	dZKNyXXQ==;
+	bh=BdX85KyNezFeIkaudjveBucT1NAtxBw+6rosp/2zUFg=; b=rWJhO9zaGpdUzPa0Iv+Upzrw6F
+	N9WgbqNMP16TSFheDebDHHpDW5i7WKMzj4H176WpArXyc6VJzR6lU7YoG5DH4gzeo6+90iLbV5Rwc
+	7yUu5vhan1eAuGy4CxU0CcaoEeM3rYeRvp08ZT9P9g2LP2+TwZjshv/vRBfgcCzXlH197AG1xzn7E
+	2rp0whXNbR23cTS4HzENp3RJLM/urJqi2A8d8a08pWICMphm8n1Rbynib/M/hl/fsuMpKbS/PexMK
+	O4p72HSexzeF8lfgrZWeZGzT88TAZfExzkaz4kB7f1wXFYO+OBZ73opLaIVPq6HNIlJm+T5RE4kxD
+	vNnaiHkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWSO-0000000Gtss-0n7H;
-	Mon, 24 Aug 2026 15:19:28 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wyWSW-0000000Gtw3-1Kje;
+	Mon, 24 Aug 2026 15:19:36 +0000
+Received: from mail-northeuropeazon11011054.outbound.protection.outlook.com ([52.101.65.54] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWSL-0000000GtsO-2mtp
+	id 1wyWSP-0000000Gtsq-0lay
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 15:19:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1787584764;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=W56P5fyFkxTQYTvITDSYgEvGIOW/RQqOkycdQuJNc4A=;
-	b=EIVx3+/rlDVQHNI4OBcslJp9asyIc5IE5JPv2efzq9cGLOu+aIORrMA/Zbfp64F1ZBxNp+
-	iOOJu6WoX2FN97ahEI2fZsRVXAQ38C0ZZbg8qIuM1z5LCOLm+oucBWZwrUBBeM/4BiS7Ah
-	cpqzYr9mS9kaafspH7QeEGenBAH9dys=
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
- [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-681-DgRcOvBMOVesOfuvyUvSew-1; Mon, 24 Aug 2026 11:19:23 -0400
-X-MC-Unique: DgRcOvBMOVesOfuvyUvSew-1
-X-Mimecast-MFC-AGG-ID: DgRcOvBMOVesOfuvyUvSew_1787584763
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c0e702df8so48803261cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 08:19:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787584763; x=1788189563;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=W56P5fyFkxTQYTvITDSYgEvGIOW/RQqOkycdQuJNc4A=;
-        b=lbg4//8Mw62NbKhGFseS2MCQphDFKCVnsX+L1RmVVKTbyb4ZecEb2njdrgttD08FB6
-         U6iiglI8rItDJnznvhQJ/EIg3oADwb8QfiAFJg6OmfkNJJ7Q0S5pLRg56jqfIgOXqMHj
-         NVGgEncUeX03P7LF5tUEudCdSYDpyY7+jxyfAX1mOIcUZRS1s3Lb5UMjaaL4QQ9OFpT2
-         mxFfXTpp/MmVWyJytwcwwPi+hU92SjqsM1f125G2hBkFCYliT8oBc888LhcHt4dQ8Iuk
-         4v1sKFzOT4j//ZBRIzmGzGa2eSE8TxyJurmg8K4u5lfFIeA6636+k/zhXcbffH8il3kl
-         prZg==
-X-Forwarded-Encrypted: i=1; AHgh+RrxppEdCj/NZDBF5TXnjq1v8VvU5qCl0f1JZQbXbqzC7R4l/YpebPeQFCff7oud3Bu5VGedM97lxIpe4kwUYO9I@lists.infradead.org
-X-Gm-Message-State: AFuF++kLX7C740WrFCiKwlJqba7A97021+CcHNYhHBWO6bBfqH7e+qpC
-	iyF1mF0nIhlJh8ZTJsAuAVWqckD+uI1rIWF/srXHkcd+db9iiwgRoCQQBG+PcAE0VHFiOVYq1gP
-	AAici7iByomnfA7N/sQhxWt7aw3R7mgpTAcZarBeJiftivIsL6MFnOS272BC+c5vn0hK6Nhu3HH
-	+G
-X-Gm-Gg: AR+sD108+EaD7JfnocQ2cjT0vMTzUVCfNjPIHw0JIBPW5XpG/GiZv4hs5/d6kjimtHi
-	pNrq1zniV35TUDiNdL/Lnk9SMy90KJdnO67ukQiXOFDBIpvRYDnkNDYpxOSAhm/QZrVAdKONoBu
-	ZJLB3a8EtCN+B7CVKxjGq/+KqIe/blEVVGudXIkYuUiYbtZ+ZdolNPlMfCLKTm+DjfgpA34BfrT
-	KRMGXcv33H8jQfR3NcUDnPPORBkYy1pxfgImhj7igzRz9lYn4jFZvUGYhikmDioHN6rIZtvQ9nU
-	b6rDPcvYTVXiw+UxXyfvzxauQP48lOaW0sR/y4E01Whx/ri9JSe1yA52GrwZmJje/qjjeiTgXRJ
-	XGbwOdKY2R7g2vOP6Ylv+m44ZUsDaQw088uI=
-X-Received: by 2002:ac8:7f8d:0:b0:51c:257c:8164 with SMTP id d75a77b69052e-52df59fb802mr250057501cf.25.1787584762583;
-        Mon, 24 Aug 2026 08:19:22 -0700 (PDT)
-X-Received: by 2002:ac8:7f8d:0:b0:51c:257c:8164 with SMTP id d75a77b69052e-52df59fb802mr250056601cf.25.1787584762022;
-        Mon, 24 Aug 2026 08:19:22 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52e09aca33esm48989201cf.21.2026.08.24.08.19.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 08:19:21 -0700 (PDT)
-Date: Mon, 24 Aug 2026 11:19:20 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Liviu Dudau <liviu.dudau@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH 2/2] soc/tegra: pmc: Make sure clk_init_data is fully
- initialized
-Message-ID: <aoxg-FCFslaM9Ep_@redhat.com>
-References: <cover.1787239869.git.geert+renesas@glider.be>
- <70aca0e57b9900db051aade5a1af2e42c4d30ea5.1787239869.git.geert+renesas@glider.be>
-MIME-Version: 1.0
-In-Reply-To: <70aca0e57b9900db051aade5a1af2e42c4d30ea5.1787239869.git.geert+renesas@glider.be>
-User-Agent: Mutt/2.4.0 (2026-06-19)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: H0aSXgbUrP7jr-nKGAsHhU9DBN2yNkg0PEz4PmG9jBw_1787584763
-X-Mimecast-Originator: redhat.com
+	Mon, 24 Aug 2026 15:19:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kQHUSKHQqzZvTMCuFANM9ACdsXKgKK25sP3LVH21AdDGgVnehmCXSO7joKTTZevyOzxAzxo7Sgoq44SKsJht7nEZYFww2WAZ6PUnm+ZvnEoYKyLHY2CSeLQ14KmbKm5Fb7gDCSgWqUH1OvsmqEzYRNfuXmaf4vzxdPoRDftwVLmo2/TnAdSejS7uQaRf2UPFz0Y/TNcGExOxoz55MOajleOGxzoN4JWSUbT3Bj2WomlAZao7KjyTtZXk9x2hsml3N3LwcOzJ2XkE3fALrVN2e5O2L12ML8AhS4Y61axbAv32ZcYDLoUyWNIZxFk04pqcB+acsjrGWLCxjvDXw7X/1w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BdX85KyNezFeIkaudjveBucT1NAtxBw+6rosp/2zUFg=;
+ b=jkXXK4rHVrkocrYswsWYVXzseDT/l28jxs8lOvnh4Sccs5f9M4Brxqs6XNktWa95Ufk9jgaJgF5PiL0zVy29IcedHyGZm6Rn5FaOfQz6u+K0cvtJHV8vTbPd99P1biTR2jRJUYfwLp+aSUpae6wRK+u8i8I6sba2cLRv0nfd3WlTu8VVMh8SktOdQQBw2tc6USCoFHc7u8G0QcULKaQGpRACruimte+ChNX9hwqZ61HxrPJ55zOotEh2FSPwlC5HyrXbswbo/3pYBpT1zU6KXVhZetIwjUpYKia1byMFwhbBgnvX/WKLij5N+HqtdnaZgn5mTJ4v9jq9zjEJ58xOzw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BdX85KyNezFeIkaudjveBucT1NAtxBw+6rosp/2zUFg=;
+ b=CIBNsgnFqpXs6Q0WkBFlM5vaoVLgnkGWmE9DEA5ha2P64BCN4Qjq2Nl4e5J3yOeMxX44s0I8I0tgraq7JxtVnTAbFULFRx3PXnn2U/J46jlcFXMJINcmbwVm6k/wAOzXfVvm8+DI1DTWS8I7hHUzEpfiwAqtSE/+JMN4QWh4qdXJsgBpupcF+YFf1NeHOKP17zVAw7/M2nG8rAW0Q8Y9f58BQCpsRBVCmDGqXlZ07JQqYuN54Xg3V1sGNjUmcIF4yWTXcMn5k50dyB+kTrsFabFs1P70xX7TPM0Rd4uWMXrcgUXjkHskaK9ZI63AQsg5X+mjmixjrZwNRekl9kKqpQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DU2PR04MB9212.eurprd04.prod.outlook.com (2603:10a6:10:2fb::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Mon, 24 Aug
+ 2026 15:19:24 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.012; Mon, 24 Aug 2026
+ 15:19:24 +0000
+Date: Mon, 24 Aug 2026 10:19:16 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Alex Bereza <alex@bereza.email>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Kedareswara rao Appana <appana.durga.rao@xilinx.com>,
+	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] dmaengine: xilinx_dma: Fix hardware buffer descriptor
+ chain after cyclic DMA
+Message-ID: <aoxg9NkrKiRmIFGJ@SMW015318>
+References: <20260818-fix-hw-buf-desc-after-cyclic-mode-v2-1-530ff44c6a81@bereza.email>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20260818-fix-hw-buf-desc-after-cyclic-mode-v2-1-530ff44c6a81@bereza.email>
+X-ClientProxiedBy: SA9PR10CA0027.namprd10.prod.outlook.com
+ (2603:10b6:806:a7::32) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB9212:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3623e263-112f-4858-9a51-08df01f3147c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|23010399003|1800799024|376014|56012099006|10067099003|22082099003|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: bYg7nXCCly9TI490AG1PTxrw8s9NvYMn0AmXMfQsDN3hsI2sssZKQ+sKu/VZTwHB66fWC0wKpCAyg/R3G5cqSa3ll3w+sitYOyvXmln3EyDt4Spnp+uViG3DjBfI0zr1O1Ije8pOxe8oJaJjycMpnS6spNTnDxEuFw7P9yEUnKrvsAZOL7f8t0jmXwBmo0fWjUzEYQLI0407/eky9iYQr7tU0SF3aKWowa9cc/MjaiBRa0jleuCLjfBFfxweeSjCRjMUFQNwrGJbgcORD8/APdf6Lny+Z4n5JHKvDjZobE/Qfo+T23vGmmmhWg6WbKZPl0XfMyGEYY9vpwvUhMNf4hU/itD4PgmyRbMVBTbBWQG++VeHsdSIwZ4p2rPVeHDgNMwEJCePSa5m+fjFcCkcsfU9LXNmIieGmjvSGSY6NBXdstusZGktz3KMahGygbtDElvf0NjSWJDWXJV6Wz+tovdBBSQrJEvMj+yCTBn0iqKgz2Td6KrmvfRPraDzOVHlhUxU3nL9H15p72h+JYzgyn55VNDjgfkgbSv4/7C20JdCUQ2T8RPMLzdgbMIaFA4UXricIYTa3/HRiyupr7xW0730i8Y+U7PN8tKZVzIviIau4B0FPvtQp3iMNVWwuG3J
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(23010399003)(1800799024)(376014)(56012099006)(10067099003)(22082099003)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8IY3RG+mcLRyytoMsPZWCuuTG4G/23dysk9MsYl5ehibFokOfDlt0K88C9Pp?=
+ =?us-ascii?Q?pReKBkPzpXsRdwcGJGAnQ96UgWMnND6TPcdwZtWlC+u6jx+6uQ8ClVmaQl+V?=
+ =?us-ascii?Q?Vt2yVLyIWN4ZCEAFK279G/0Dp3chyq79B7Qyj3cSykyu/YqiAvjBbuZOxYly?=
+ =?us-ascii?Q?Na8i8zXha/lz1YAuRmisjb3Mo26JfWoom5x5VPahLwIvaAECZNakqq9NXJKz?=
+ =?us-ascii?Q?MRQpeiy3Ut1fJJIz2bLneGqaP78VGpsp2xgU+kALjU1ksSqF1o4xReZAoffT?=
+ =?us-ascii?Q?a1ba+0omfPjSx9f/AJ4nSuVu0HqOsOlMG8vgH6J6XKhMVTox9dKumtF7tfur?=
+ =?us-ascii?Q?/TJDtSrD+yoVBko894sYkGdIN047nzEZCbaBGLeZCSD0OFRIRXyx+vE6fDDj?=
+ =?us-ascii?Q?8ItEUxr6gGWU8iYG6uXobkhaJterbhCYITivtIGo8kDjGkhJ4xzNVAB+4sIn?=
+ =?us-ascii?Q?o7MgzfyKpOHFlgnLwBR9f5MSqp3r0PeaYprI/gNx7j4IvQEwMI8ksNBWtmfF?=
+ =?us-ascii?Q?6b8JbLPtCEz0wC4j/WQNbcNpsazX+ak59O1CyBJzyMjMXQ6/9gl0YwEiX7zO?=
+ =?us-ascii?Q?u8b09Gv9PeuJIthnVSLcYzQS2s6ZzooqoqKVGP9jjTMHqv4g13jMxz3q6gBE?=
+ =?us-ascii?Q?0RNtmg232GpF1fHGrA6FPfP1zZdhQetasktSvo0AAiAkT4IQ+cwmaS62BYOB?=
+ =?us-ascii?Q?O0WKpU+zSgMEXKywuHffajW085+akezN1WcxzYdqSgaM2OddZQ5ArDGdGrMZ?=
+ =?us-ascii?Q?N/s0I5yo8ZWDlF858fbQY2/+Vyf/4q25cy7iwy5LNs5SmIQvZIp0oAAso6Wj?=
+ =?us-ascii?Q?e8icGn27goy8IZRUw0NYkNzhHwCD/ufB3uKV9e5vYcrUKZwhpuy+eNI8YLj/?=
+ =?us-ascii?Q?kQRIZh7fwvxsn44YkItpVoK5NpPgyM0CJOmQHjyylsex1H2sVj1N75UGRGyH?=
+ =?us-ascii?Q?Rj3zVRrtbRVXaoVts6GmKEo214FfQ1XMB23TOIZz4+XcwqlcWSdZZN0pu+7T?=
+ =?us-ascii?Q?Uecz4UsIapS1VUiMv1LxwFBjt/8k2cOhZcS65VI72eRCelChYHnf7nD1sjsX?=
+ =?us-ascii?Q?7WeA0sGC5Ny6YrrvCwciiF0Nj7tWy7Z8ni9/9xN6za8bMC9o9ZmVTuTAMfhs?=
+ =?us-ascii?Q?6BJ5z5SLnvhvZRjIDa5F/Nsio7rujX4at0nzIXgWUq5H3/DVH6H9IX8I0/pT?=
+ =?us-ascii?Q?WDF/j/55Q9h6DKhiyQsVmcALo+GyFbkocplsS5Z2Lzs0VXOERN0JKxTzfh2f?=
+ =?us-ascii?Q?cqIvFgUYeg3LW6c626dHiWEE29+B6IKzpdE0hhh1Lu71qqdSeGsemVCcBWfb?=
+ =?us-ascii?Q?b+/MC0u1wE0gRHlzu/A4ACWOBQ/UPNf7mlNvgEpOg7qyUpSQacoefjXft2rb?=
+ =?us-ascii?Q?OrVlRI/guCAKt3q9sBqqeu560amb5QujI3fEhMhXO5KNuUjPLLTtLc/lHF7b?=
+ =?us-ascii?Q?QltC8zu4ItGPhpVudviPTjyZTO/QQAVHfBFhdcOwDPMByupbAvF72y9mZZSg?=
+ =?us-ascii?Q?QzRdW50aX8u3Z/agcxA+K8Tn2A/YAfiKvHjA51Kp9b6FOBU+eWCnqLXxWduq?=
+ =?us-ascii?Q?8XTlAPtHnldBaQ9VeWU0QFy6Gj8o3mWWDNJwmzQpiWcY3ZVF4WlobBq2Fqqg?=
+ =?us-ascii?Q?M4IYA0C0uuHCkxzO+Q14FsuQuhrH0awbn3SJPmo7KBxsLfaCxKvSUivok71Z?=
+ =?us-ascii?Q?8ONykkUR7ntFxUXoncfg+OeDHY/bzR9FC/fqBpMlfDLwODIAkWfkyzUs3+xJ?=
+ =?us-ascii?Q?c5FO4Ncd7td9mFyFcI5hVSDnHIj0TdcEdKjkJUI1h5uaEWfVlnQV?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3623e263-112f-4858-9a51-08df01f3147c
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2026 15:19:24.5207
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jqWaDYoMJjkbth5TqO0Z8S0Sp5vCqLVUB2TtpmWm1aZbCF5CDRMhB+mp/CkI/bjQlJeH/gemfIPnJm8URJ0Aoy6AxAB2I6DFpXs8TQopduJBF1+dmKV6MV00z13gHzSK
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9212
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_081925_781857_4F255E4B 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20260824_081929_227501_04B25808 
+X-CRM114-Status: GOOD (  26.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,20 +139,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 10:52:25AM +0200, Geert Uytterhoeven wrote:
-> The clk_init_data structure contains several mutually-exclusive members
-> for different methods to specify the possible parents of a clock,
-> prompting drivers to initialize only the members they need.  However,
-> not initializing all members may cause subtle issues, which are only
-> exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
-> enabled.
-> 
-> Make sure all members are fully initialized, to avoid such bugs, and to
-> prevent future breakage when converting drivers to a different method
-> for specifying the parents.
-> 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+On Tue, Aug 18, 2026 at 09:36:29AM +0200, Alex Bereza wrote:
+> Using the DMA in cyclic mode modifies the hardware buffer descriptor
+> chain in xilinx_dma_prep_dma_cyclic so that the last descriptor used by
+> the cyclic transfer points back to the first descriptor, but it never
+> restores the original descriptor ring. This breaks using non-cyclic mode
+> after cyclic mode with an error like:
+>
+>   xilinx-vdma 86000000.dma: Channel 00000000354d5c8d has errors 100, cdr 6de40000 tdr 6de40400
+>
+> The only way to get out of this error state is to rebuild the hardware
+> buffer descriptor ring by releasing and re-acquiring the channel.
+>
+> Fix using non-cyclic mode after cyclic mode by always restoring the
+> original buffer descriptor ring in the same manner as it is set up by
+> xilinx_dma_alloc_chan_resources().
+>
+> Fixes: 23059408b6a3 ("dmaengine: xilinx_dma: Fix race condition in the driver for multiple descriptor scenario")
+> Signed-off-by: Alex Bereza <alex@bereza.email>
+> ---
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
+> Changes in v2:
+> - Use pointer arithmetic instead of potential 64 bit division in
+>   xilinx_dma_clean_hw_desc() as suggested by Frank Li
+>   <Frank.Li@kernel.org> and sashiko-bot - Thanks!
+> - Link to v1: https://patch.msgid.link/20260817-fix-hw-buf-desc-after-cyclic-mode-v1-1-1fe47e701d6c@bereza.email
+>
+> To: Vinod Koul <vkoul@kernel.org>
+> To: Frank Li <Frank.Li@kernel.org>
+> To: Michal Simek <michal.simek@amd.com>
+> To: Kedareswara rao Appana <appana.durga.rao@xilinx.com>
+> Cc: dmaengine@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> ---
+>  drivers/dma/xilinx/xilinx_dma.c | 24 +++++++++++++++++-------
+>  1 file changed, 17 insertions(+), 7 deletions(-)
+>
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+> index bef2b031dba1..650e078fcdb7 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -756,15 +756,25 @@ xilinx_aximcdma_alloc_tx_segment(struct xilinx_dma_chan *chan)
+>  	return segment;
+>  }
+>
+> -static void xilinx_dma_clean_hw_desc(struct xilinx_axidma_desc_hw *hw)
+> +static void xilinx_dma_clean_hw_desc(struct xilinx_dma_chan *chan,
+> +				     struct xilinx_axidma_tx_segment *segment)
+>  {
+> -	u32 next_desc = hw->next_desc;
+> -	u32 next_desc_msb = hw->next_desc_msb;
+> +	dma_addr_t next;
+> +	u32 i;
+>
+> -	memset(hw, 0, sizeof(struct xilinx_axidma_desc_hw));
+> +	/*
+> +	 * Restore the buffer descriptor's next descriptor pointer to the value
+> +	 * set up in xilinx_dma_alloc_chan_resources(). Otherwise using the DMA
+> +	 * in cyclic mode leaves the next descriptor pointer altered and
+> +	 * prevents subsequent non-cyclic transfers.
+> +	 */
+> +	i = segment - chan->seg_v;
+> +	next = chan->seg_p +
+> +	       sizeof(*chan->seg_v) * ((i + 1) % XILINX_DMA_NUM_DESCS);
+>
+> -	hw->next_desc = next_desc;
+> -	hw->next_desc_msb = next_desc_msb;
+> +	memset(&segment->hw, 0, sizeof(segment->hw));
+> +	segment->hw.next_desc = lower_32_bits(next);
+> +	segment->hw.next_desc_msb = upper_32_bits(next);
+>  }
+>
+>  static void xilinx_mcdma_clean_hw_desc(struct xilinx_aximcdma_desc_hw *hw)
+> @@ -786,7 +796,7 @@ static void xilinx_mcdma_clean_hw_desc(struct xilinx_aximcdma_desc_hw *hw)
+>  static void xilinx_dma_free_tx_segment(struct xilinx_dma_chan *chan,
+>  				struct xilinx_axidma_tx_segment *segment)
+>  {
+> -	xilinx_dma_clean_hw_desc(&segment->hw);
+> +	xilinx_dma_clean_hw_desc(chan, segment);
+>
+>  	list_add_tail(&segment->node, &chan->free_seg_list);
+>  }
+>
+> ---
+> base-commit: 0d995da5fb97e8c312834575604d4423eb6225b7
+> change-id: 20260817-fix-hw-buf-desc-after-cyclic-mode-cf0a7834ab50
+>
+> Best regards,
+> --
+> Alex Bereza <alex@bereza.email>
+>
 
