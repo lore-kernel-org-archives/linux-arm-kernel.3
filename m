@@ -4,128 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BAE1C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 06:25:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63078C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 06:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nQiKOvNAzzAP5bzzy3oCf6etpJ4me7o2INgLuv6lebM=; b=BRRmj14Ny6BDIs1ULXIhFFr7+V
-	jtWI0LlRPh7wXt8hd+msdzOsPnb6Bu5QY8/sjfrFKzvlYvzoFg6hlBMT/wHQ+Gdt9ZxyAABEA9bSe
-	cZt8BuFM2rFq7sKpcHtGDGXcnknB5rIBqQeq7uR/+emmiGFZHHopYWhLVPiYuNyjMuM/mgPeDy6wQ
-	5P0GEIHiQD/kwPfZmSx/M3x+o09NtWxAXmD6z7Sax43DFV9WP33Mjwf9rdc3CQ6T5acLcRU+iZF4e
-	Menx5FcxrUfxk7gAG754aMRh2gYnoItEdDAFI6GUni1AW1vTCG1WRo22blYrq0m7Dgbb5wg03ChE2
-	NTLm7KSg==;
+	bh=FDn6899fPu1r5FUSOmv8Gae/HU2/udkX/602bmn8dOY=; b=s6uvIR5FEUZixyNpizJmu+100T
+	bjhkUIZ+p0ztuWhihvzlTVhU7lJHJsaJDOGrYspp1N1uQMZPTd/S8nP2FcbSQUEgW7n6EjtWFXapf
+	drnCSVtN5oYDjgME0J7d1xyFTAdo2zBUCXqwpMRxotWcNUeBQDfv1eViosr9uSppzcx9Jtdvb2dpr
+	95mQ2bhwKZTtN0EiZFCkFx8AAQ9xUboTs6Bvclcp20u5AE4J6ieGjPv+BzCtsAuQs7vo/eZnUHhvG
+	YoLl9T3uxg5RysPvoO8sNlGarKUbDAODBhoxT43N9UiAO+E3aZ9JZ4PDqvhtUkFLd0Ea3pfb6NRYj
+	wI7+T2Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyO7g-0000000FzQ1-3G8z;
-	Mon, 24 Aug 2026 06:25:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wyOLO-0000000G0Xt-2Fm4;
+	Mon, 24 Aug 2026 06:39:42 +0000
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyO7d-0000000FzPl-2Dya
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 06:25:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EE67C43E97;
-	Mon, 24 Aug 2026 06:25:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C47E51F000E9;
-	Mon, 24 Aug 2026 06:25:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787552728;
-	bh=nQiKOvNAzzAP5bzzy3oCf6etpJ4me7o2INgLuv6lebM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=HGuzhHFc2XUwClmXGVpwVpzeTrii9LRKiYMo/vRzQS4bT8ZXm4np6g3mkUWq5XSsQ
-	 4oH/T2l0Hgy8bTcIJ/25NlkO+ew2FK5h4SBdr36aZeBEOwLTVThQSgFXK0JK5iWptu
-	 GUFsH13aA8MZ1vgZV1UxXsOuHShaWKc+ZRgCINeJ0jsxP9yDXerbIKMkfl+wStxrKE
-	 L2KwIiE9UzHG9vMFS8wUdc2qQmxJEZMkoelKwEtVMs841bhFfQVVKt69TGsMh5cF7z
-	 SAVYJV8X744QkvkziWKxuYkwapUMyMT31Wip4LnFcGAtI8JUgvVCYIsCVzPF1r3biv
-	 ehslSh/EpxPhA==
-Message-ID: <17aa3974-95fe-419a-a382-3c053e66d640@kernel.org>
-Date: Mon, 24 Aug 2026 08:25:15 +0200
+	id 1wyOLM-0000000G0WN-14nf;
+	Mon, 24 Aug 2026 06:39:42 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id C6BEF201763;
+	Mon, 24 Aug 2026 08:39:35 +0200 (CEST)
+Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <s.hauer@pengutronix.de>)
+	id 1wyOLH-0033ie-2C;
+	Mon, 24 Aug 2026 08:39:35 +0200
+Received: from [::1] (helo=dude02.red.stw.pengutronix.de)
+	by dude02.red.stw.pengutronix.de with esmtp (Exim 4.98.2)
+	(envelope-from <s.hauer@pengutronix.de>)
+	id 1wyOLH-0000000DClv-24Rq;
+	Mon, 24 Aug 2026 08:39:35 +0200
+From: Sascha Hauer <s.hauer@pengutronix.de>
+Date: Mon, 24 Aug 2026 08:39:34 +0200
+Subject: [PATCH 1/3] media: verisilicon: Fix the cleanup when a codec
+ ->run() fails
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] arm64: dts: google: Add initial dts for
- frankel/blazer/mustang
-To: Doug Anderson <dianders@chromium.org>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>,
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org,
- soc@lists.linux.dev, Juan Yescas <jyescas@google.com>,
- RD Babiera <rdbabiera@google.com>, Brian Norris <briannorris@google.com>,
- William McVicker <willmcvicker@google.com>, kernel-team@android.com
-References: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
- <20260722-contrib-pg-pixel10-initial-dts-v2-4-3abae9717feb@linaro.org>
- <20260724-dancing-skunk-of-novelty-72c1b8@quoll>
- <CAD=FV=U0HUdjPcg+5Vx8_ag0zLd3CZx5w5SFr38p+YwRnC_G6w@mail.gmail.com>
- <CAD=FV=V2+D1m5L-0d81W3E_ih2us-SrddeBUAJtMybpQons7Ww@mail.gmail.com>
- <c0657108-1958-4c4c-b5f5-0eb24e81b2b4@kernel.org>
- <CAD=FV=VY4AeAf=TMZfJYRo6C0iSqmL-P0GzxRvZHfnNsf+GnYQ@mail.gmail.com>
- <56db332f-a18e-4a9e-be9d-67d2e25c3666@kernel.org>
- <CAD=FV=WUMKGRUbAyd7XFFc-NGoJEKRwu4MaUnEQUDB9Mq6YYXA@mail.gmail.com>
- <d6685094-b241-415e-9e56-d2fba75f3269@kernel.org>
- <CAD=FV=WPu5tuWA7MhC=48r=1uP3LK6hSqY7Egy=56V1Dqq1wRg@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <CAD=FV=WPu5tuWA7MhC=48r=1uP3LK6hSqY7Egy=56V1Dqq1wRg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260824-rk3588-jpegdec-v1-1-180a30a2852d@pengutronix.de>
+References: <20260824-rk3588-jpegdec-v1-0-180a30a2852d@pengutronix.de>
+In-Reply-To: <20260824-rk3588-jpegdec-v1-0-180a30a2852d@pengutronix.de>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Hans Verkuil <hverkuil@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Sascha Hauer <s.hauer@pengutronix.de>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787553575; l=7452;
+ i=s.hauer@pengutronix.de; s=20230412; h=from:subject:message-id;
+ bh=5XP0SVL2RUuvyFfFtVGcvS8brF+pimCgJHyJS4sBR3M=;
+ b=aFscmFybfu7z0cyGWCGzxUDhiSbbkInSQr+vszMVQFrLMf1VTKe10YU59DPz9W2rWzaqviS6k
+ lOOqZFFcAqIAOFnOI2rYR12Sle+64ownRDBeRenxsVPynO1k48R4q3Q
+X-Developer-Key: i=s.hauer@pengutronix.de; a=ed25519;
+ pk=4kuc9ocmECiBJKWxYgqyhtZOHj5AWi7+d0n/UjhkwTg=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260823_233940_458587_333E9546 
+X-CRM114-Status: GOOD (  25.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,73 +87,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/08/2026 18:40, Doug Anderson wrote:
-> Hi,
-> 
-> On Thu, Aug 20, 2026 at 11:51 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->>>>> I think I've presened my problem fairly concretely [1]. If you hate
->>>>
->>>> There is no description of the problem at [1], except "bootloader adds
->>>> the same type of calibration data".
->>>>
->>>> So I repeat my questions: to every UFS node? To every node? To one UFS
->>>> node (but how do you guarantee that?)?
->>>
->>> I'm sure it's not what you want to hear, but I guess my answer would
->>> be "for these boards".
->>
->> No, the question is how many aliases you need. Devices might have more
->> than one UFS storage, e.g. ExynosAuto.
-> 
-> How many UFS aliases do I need for this board? The answer is in the
-> patch that started this whole discussion: one UFS alias.
-> 
-> 
->> And then someone might need to calibrate UFS and SPI NOR storage? And MMC?
-> 
-> Not for this board.
+A codec ->run() operation that fails leaves three things behind, and they
+cannot be untangled one at a time, so fix them together.
 
-We do not talk about your board. You are adding GENERIC alias, so you
-are solving GENERIC problem for everyone and needs to be addressed as such.
+hantro_start_prepare_run() sets up the controls of the request attached
+to the source buffer, hantro_end_prepare_run() completes them again and
+arms the watchdog for the job that is about to be started. That pairing
+does not survive the error paths. The two ->run() operations that do
+reach hantro_end_prepare_run() arm a watchdog for a job that is never
+started: device_run() finishes the job synchronously via
+hantro_job_finish_no_pm() and nothing cancels the delayed work, so it
+expires two seconds later and aborts whatever unrelated job happens to be
+running by then.
 
-If you are solving here only your board problem and do not care how does
-it scale or whether it makes sense for anyone else, then topic is done -
-we do not need this feature.
+Split the two jobs hantro_end_prepare_run() would otherwise have to do.
+It keeps its meaning for the success path, complete the request and arm
+the watchdog, and a new hantro_abort_prepare_run() completes the request
+and nothing else for the error paths. Note the resulting invariant: after
+hantro_end_prepare_run() the ->run() operation must return 0, as the
+watchdog is armed and only the interrupt handler disarms it.
 
-> 
-> If you're asking about all future boards, of course they may have
-> other things to calibrate / tune. My point is that the contract here
-> is between the bootloader that will be run on these boards and the
-> device tree that will be run on these boards.
-> 
-> FWIW: the idea of a bootloader using an alias to find a node is not
-> something I invented. Coreboot (the upstream, open-source project)
-> uses "wifi" and "bluetooth" aliases to find nodes on Chromebooks. It
-> uses these aliases to place MAC addresses (which are stored by
-> manufacturing outside of DT) into the DT nodes (where bindings expect
-> them). Perhaps coreboot is doing it wrong, but this concept isn't new,
-> and I didn't invent it.
-> 
-> 
->>> I'm not quite clear on the "overlay" suggestion here. You're saying
->>> that we should require the base device tree to be compiled with "-@"?
->>> ...and not because we necessarily have any overlays upstream, but
->>> because the bootloader will generate an overlay dynamically? Compiling
->>> with "-@" would mean we could give a "ufs:" label to the UFS node and
->>> with "-@" that would be preserved. The bootloader could then use the
->>> "ufs:" label to find the node. When compiling with "-@", the exposed
->>> labels are essentially ABI. Did I get that right?
->>
->> I am saying that if you cannot answer my questions earlier (and you did
->> not)
-> 
-> I'm still not quite sure which question I didn't answer, but I guess
-> at this point it doesn't matter.
+rockchip_vpu981_av1_dec_run() then calls hantro_irq_done() on its error
+path and returns the error code to device_run(), which finishes the job a
+second time. The buffers have already been given back by then, so the
+second attempt trips the WARN_ON(!src) in hantro_job_finish_no_pm() and
+bails out. Without the watchdog change this at least reached the first
+finish by accident, because the cancel_delayed_work() in
+hantro_irq_done() returned true for the watchdog the error path had just
+armed. Neither behaviour is something to rely on, so drop the call and
+let device_run() clean the job up. No other codec calls hantro_irq_done()
+from ->run().
 
-I gave you the code which solves your problem, IMO. I do not see so far
-any reason to reimplement it with aliases.
+That leaves device_run() itself. It takes a pm_runtime reference and
+enables the clocks, then on any subsequent failure jumps to a single
+err_cancel_job label that calls hantro_job_finish_no_pm() - which
+releases neither. Release the acquired resources there.
 
-Best regards,
-Krzysztof
+This last part is what ties the three together. hantro_irq_done() ends up
+in hantro_job_finish(), which already drops the pm reference and disables
+the clocks, so as long as the AV1 error path still goes through it,
+releasing the same resources in device_run() would trip the
+
+  WARN_ON(core->enable_count == 0)
+
+in clk_core_disable() and underflow dev->power.usage_count. Conversely,
+as soon as a failed job no longer arms the watchdog, hantro_irq_done()
+stops releasing anything at all and the resources are leaked until
+device_run() takes over.
+
+The late_postproc setup is skipped on the error path as well. It is part
+of preparing the run, the hardware is not started and the next job
+configures it again, so hantro_abort_prepare_run() simply does not have
+it. Only the sunxi variant sets late_postproc, and its only decoder is
+VP9.
+
+Fixes: 892bb6ecead9 ("media: hantro: do a PM resume earlier")
+Fixes: e2da465455ce ("media: hantro: Support VP9 on the G2 core")
+Fixes: 727a400686a2 ("media: verisilicon: Add Rockchip AV1 decoder")
+Assisted-by: Claude:claude-opus-5
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+ drivers/media/platform/verisilicon/hantro_drv.c    | 35 ++++++++++++++++++++--
+ .../media/platform/verisilicon/hantro_g2_vp9_dec.c |  2 +-
+ drivers/media/platform/verisilicon/hantro_hw.h     |  1 +
+ .../verisilicon/rockchip_vpu981_hw_av1_dec.c       |  3 +-
+ 4 files changed, 36 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
+index ad71c0402ef3b..a9ebf856096e6 100644
+--- a/drivers/media/platform/verisilicon/hantro_drv.c
++++ b/drivers/media/platform/verisilicon/hantro_drv.c
+@@ -147,6 +147,18 @@ void hantro_start_prepare_run(struct hantro_ctx *ctx)
+ 	}
+ }
+ 
++/**
++ * hantro_end_prepare_run() - finish the preparation of a job and arm the
++ *			      watchdog
++ * @ctx:	context the job belongs to
++ *
++ * Complete the controls of the request that hantro_start_prepare_run() set up
++ * and arm the watchdog. The caller must go on and start the hardware, as only
++ * the interrupt handler disarms the watchdog again.
++ *
++ * A ->run() operation that gives up before the hardware is started must call
++ * hantro_abort_prepare_run() instead.
++ */
+ void hantro_end_prepare_run(struct hantro_ctx *ctx)
+ {
+ 	struct vb2_v4l2_buffer *src_buf;
+@@ -167,6 +179,21 @@ void hantro_end_prepare_run(struct hantro_ctx *ctx)
+ 			      msecs_to_jiffies(2000));
+ }
+ 
++/**
++ * hantro_abort_prepare_run() - give up on a job before the hardware is started
++ * @ctx:	context the job belongs to
++ *
++ * Counterpart of hantro_end_prepare_run() for the error paths of ->run().
++ */
++void hantro_abort_prepare_run(struct hantro_ctx *ctx)
++{
++	struct vb2_v4l2_buffer *src_buf;
++
++	src_buf = hantro_get_src_buf(ctx);
++	v4l2_ctrl_request_complete(src_buf->vb2_buf.req_obj.req,
++				   &ctx->ctrl_handler);
++}
++
+ static void device_run(void *priv)
+ {
+ 	struct hantro_ctx *ctx = priv;
+@@ -182,15 +209,19 @@ static void device_run(void *priv)
+ 
+ 	ret = clk_bulk_enable(ctx->dev->variant->num_clocks, ctx->dev->clocks);
+ 	if (ret)
+-		goto err_cancel_job;
++		goto err_pm_put;
+ 
+ 	v4l2_m2m_buf_copy_metadata(src, dst);
+ 
+ 	if (ctx->codec_ops->run(ctx))
+-		goto err_cancel_job;
++		goto err_clk_disable;
+ 
+ 	return;
+ 
++err_clk_disable:
++	clk_bulk_disable(ctx->dev->variant->num_clocks, ctx->dev->clocks);
++err_pm_put:
++	pm_runtime_put_autosuspend(ctx->dev->dev);
+ err_cancel_job:
+ 	hantro_job_finish_no_pm(ctx->dev, ctx, VB2_BUF_STATE_ERROR);
+ }
+diff --git a/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c b/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
+index 56c79e339030e..78100d1c7e850 100644
+--- a/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
++++ b/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
+@@ -895,7 +895,7 @@ int hantro_g2_vp9_dec_run(struct hantro_ctx *ctx)
+ 
+ 	ret = start_prepare_run(ctx, &decode_params);
+ 	if (ret) {
+-		hantro_end_prepare_run(ctx);
++		hantro_abort_prepare_run(ctx);
+ 		return ret;
+ 	}
+ 
+diff --git a/drivers/media/platform/verisilicon/hantro_hw.h b/drivers/media/platform/verisilicon/hantro_hw.h
+index 13e573f1f19de..c6addab4d758b 100644
+--- a/drivers/media/platform/verisilicon/hantro_hw.h
++++ b/drivers/media/platform/verisilicon/hantro_hw.h
+@@ -431,6 +431,7 @@ void hantro_irq_done(struct hantro_dev *vpu,
+ 		     enum vb2_buffer_state result);
+ void hantro_start_prepare_run(struct hantro_ctx *ctx);
+ void hantro_end_prepare_run(struct hantro_ctx *ctx);
++void hantro_abort_prepare_run(struct hantro_ctx *ctx);
+ 
+ irqreturn_t hantro_g1_irq(int irq, void *dev_id);
+ void hantro_g1_reset(struct hantro_ctx *ctx);
+diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+index e4e21ad373233..99ffb4a743764 100644
+--- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
++++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+@@ -2192,8 +2192,7 @@ int rockchip_vpu981_av1_dec_run(struct hantro_ctx *ctx)
+ 	return 0;
+ 
+ prepare_error:
+-	hantro_end_prepare_run(ctx);
+-	hantro_irq_done(vpu, VB2_BUF_STATE_ERROR);
++	hantro_abort_prepare_run(ctx);
+ 	return ret;
+ }
+ 
+
+-- 
+2.47.3
+
 
