@@ -4,84 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46F2BC5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 16:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A599C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 16:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xsGnbQA8QAYssJEiwKJBqXhMXzwX6AojwnfU11zwctw=; b=IeNpbhq4yGvPgGu8GaShS0tVWu
-	65rCRK8Pfzzk3lTZYF7HXPG45chZZ8fDFi8r1MUtbhd0gTvE+gGu6sd6hdRv2YruSMJr7KZSe9JQO
-	x2ZpY/715/K/qXg2Oy/rKk4Unf1nPfVLtz5gLRbknbu12rIZC0UNLpJSnvCvr8K4cX/1NaW3rjEmu
-	lsM43MpX5txrB3J4YpYDB+p2meGd5zsBIStKk67LJEtQczWqyQKCeQs0ontCZ5o/IJl6OrbDXHjo4
-	o7cYRQOw2wd8bBt1nh3W0DKcWSFOWQXMzZ1y3aZdUIjHhnqffT8RSiwa02eqBSa2jDDEvzy2gf4th
-	NcqyYtsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=r8ZiiYT+9qVzSyjIbRiqcRyxSZUtJgeMflUyVARDCFk=; b=FDBMu5ZGqv9SeafyS7NJO9X81c
+	4dfefihYvyRx+G5AWrDDqC1kXbvblZ1t3QCIg3e8W0TLhGDEbVHe5/R2CIdpOYHA7pSldoVsOT9QH
+	rl121IgG13ix0l72JRPmiOsgez0E7AyB6txSPHDwup/BP95kBn2f1cCHnI8ycbtmIyotgQ2pRiea2
+	cZfRN6MXrEf02/39yOCAsFRSYEkubMFWUv2iX64HANM1GM893FQjCIR4nVnBNgbAMzhM+aXu3rxu8
+	K2h72C2M41ilWW7vwSOxmMQM6JLhbQ/Il0XdvfOXtdjmu/7432XX2BDdJOu6ac5Q2cm4lfyOgArTF
+	EV/06+xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyXAY-0000000H03w-2Mdw;
-	Mon, 24 Aug 2026 16:05:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyXAW-0000000H03Q-3eHX
+	id 1wyXBH-0000000H09z-2zhV;
+	Mon, 24 Aug 2026 16:05:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wyXBE-0000000H08z-2CFG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 16:05:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8507443460;
-	Mon, 24 Aug 2026 16:05:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64AF21F000E9;
-	Mon, 24 Aug 2026 16:05:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787587504;
-	bh=xsGnbQA8QAYssJEiwKJBqXhMXzwX6AojwnfU11zwctw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=oGuiO1LZ3ig7k40y934Bkb26zxOl+gCmvsoyCPCt41DopBZ07UOx08JFnXCpTAYI6
-	 ljHXRpzeaO7zaI/9raud+2BZ4lYtYscpwPXWe0buj/ypgPejhjTJVFqLG6wBue80NB
-	 2ATPRsC+u5a7/3D/j2efO39bhQyuvjp+X4pxYjN/1n5jS/7ayT9dHjtkEJ2SrBILfS
-	 3Soiu2RKGKoZpxsg2TWYUyKsMraBnYLRm0L2X2h/OJe79ygzHpxrY1bOd50i2TvfnC
-	 9bPCD1Bs4ee++RSM4InUzipMv3/tixwfihPceRiazpRM2NOArkQsxxy/kWn/cJ3TcL
-	 ZrxRWzfqMk8rg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wyXAT-00000000lIs-3GSr;
-	Mon, 24 Aug 2026 16:05:01 +0000
-Date: Mon, 24 Aug 2026 17:07:33 +0100
-Message-ID: <87cxv7o62i.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Julian Braha <julianbraha@gmail.com>
-Cc: florian.fainelli@broadcom.com,
-	rjui@broadcom.com,
-	sbranden@broadcom.com,
-	linux@armlinux.org.uk,
-	tglx@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	bcm-kernel-feedback-list@broadcom.com,
-	radu@rendec.net,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	arnd@arndb.de,
-	sudeep.holla@kernel.org,
-	mark.rutland@arm.com,
-	lpieralisi@kernel.org
-Subject: Re: [PATCH v2] irqchip: gic-v3: fix unmet dependency on ARM_PSCI_FW
-In-Reply-To: <20260823180832.1246363-1-julianbraha@gmail.com>
-References: <20260823180832.1246363-1-julianbraha@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: julianbraha@gmail.com, florian.fainelli@broadcom.com, rjui@broadcom.com, sbranden@broadcom.com, linux@armlinux.org.uk, tglx@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de, bcm-kernel-feedback-list@broadcom.com, radu@rendec.net, kernel@pengutronix.de, festevam@gmail.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, arnd@arndb.de, sudeep.holla@kernel.org, mark.rutland@arm.com, lpieralisi@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 24 Aug 2026 16:05:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 492D816F2;
+	Mon, 24 Aug 2026 09:05:43 -0700 (PDT)
+Received: from e142334-100.cambridge.arm.com (e142334-100.cambridge.arm.com [10.2.198.93])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DD55E3F85F;
+	Mon, 24 Aug 2026 09:05:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787587547; bh=1MvPs/PV2tLB4HDsvTjKWixuWNV1rCXGW/G3quH+LLs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=vw1mzenUY8gK8nUmmAxeKjb9a86TCQ0iVEQWg8R7B4POGuzbglchYJbzDSfmmTfv0
+	 gXGiOcK9oIuGSjJ3XjCUH6YEhOp7EgFCD0Z04j3UVhXsw8NB6vnhAHCoq6Him6v4/4
+	 emWSAony0re2jPv4WqmCIZPzZeU8g/k+ttOmssaA=
+From: Muhammad Usama Anjum <usama.anjum@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)),
+	linux-kernel@vger.kernel.org (open list),
+	bpf@vger.kernel.org (open list:BPF [GENERAL] (Safe Dynamic Programs and Tools)),
+	linux-mm@kvack.org (open list:MEMORY MANAGEMENT - CORE)
+Cc: Muhammad Usama Anjum <usama.anjum@arm.com>
+Subject: [PATCH 0/7] arm64: Batch PSTATE.TCO handling in kernel nofault loops
+Date: Mon, 24 Aug 2026 17:04:45 +0100
+Message-ID: <20260824160523.3907021-1-usama.anjum@arm.com>
+X-Mailer: git-send-email 2.47.3
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260824_090548_697397_4C84BE2E 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,33 +91,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 23 Aug 2026 19:08:32 +0100,
-Julian Braha <julianbraha@gmail.com> wrote:
-> 
-> ARM_GIC_V3 currently selects HAVE_ARM_SMCCC_DISCOVERY without ensuring its
-> dependency, ARM_PSCI_FW, is met. However, ARM_PSCI_FW is always enabled on
-> for arm64, and the GICv3 driver only uses HAVE_ARM_SMCCC_DISCOVERY to
-> identify the NVIDIA T241, which is arm64 anyway.
-> 
-> Also adds fallbacks for callers to avoid needing #ifdef guards when
-> HAVE_ARM_SMCCC_DISCOVERY is disabled (32bit arm).
+With Hardware Tag-Based KASAN in asynchronous or asymmetric mode, kernel
+nofault loops currently set and clear PSTATE.TCO around every access.
 
-What does this 'Also' tell you? That this part is in the wrong patch.
+Introduce bare nofault accessors, batching hooks, and an internal scope
+guard. Convert maccess page-fault cleanup to scoped form. Skip
+page-fault setup for zero-sized kernel nofault copies and zero-length
+BPF string operations. Then use bare primitives in the maccess and BPF
+loops. For non-empty operations, this reduces the code-derived dynamic
+MSR TCO execution count from 2N to 2. Two-string BPF comparisons fall
+from 4N to 2.
 
-This should be split in two different patches, fixing different
-problems.  One to allow graceful fallback of the SMCCC_DISCOVERY stuff
-when it isn't selected, and another to only force the selection of
-that option on arm64 when GICv3 is selected.
+The BPF changes and an earlier maccess implementation with explicit
+cleanup were tested with QEMU arm64 using Hardware Tag-Based KASAN in
+synchronous, asynchronous, and asymmetric modes. All nine arm64 MTE
+kselftests passed in each mode, as did the 138 focused BPF string_kfuncs
+and varlen subtests. The focused BPF tests also passed with the default
+non-MTE arm64 CPU model. Both final maccess scoped-guard patches were
+arm64 cross-built. Runtime tests have not been rerun after that
+conversion.
 
->
-> This unmet dependency was found by kconfirm, a static analysis tool for
-> Kconfig.
+Muhammad Usama Anjum (7):
+  arm64: uaccess: Add batched kernel nofault accessors
+  uaccess: Add scope guard for bare kernel nofault regions
+  maccess: Skip setup for zero-sized kernel nofault copies
+  maccess: Use a scoped guard for page faults
+  maccess: Batch TCO handling in kernel nofault loops
+  bpf: Skip setup for zero-length string kfunc operations
+  bpf: Batch TCO handling in string kfuncs
 
-I'm not sure this is massively relevant here, but since the trend is
-to turn commit messages into advertising billboards...
-
-	M.
+ arch/arm64/include/asm/uaccess.h | 71 ++++++++++++++++++++++++--------
+ include/linux/uaccess.h          | 20 +++++++++
+ kernel/bpf/helpers.c             | 41 ++++++++++++------
+ mm/maccess.c                     | 68 ++++++++++++++++--------------
+ 4 files changed, 139 insertions(+), 61 deletions(-)
 
 -- 
-Jazz isn't dead. It just smells funny.
+2.47.3
+
 
