@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF68C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 13:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 970CBC5DF9B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 13:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lRd3nAZ/IAGc/XV72YoIVwNp+sB1Vr1EJbegUfNq6tE=; b=JOU+iwy6vuQi1Usqn7K0Jc+KOF
-	kkXEPs8/ubCZpztQGi1wvCnFD6uTjgNWpFmL3oGftXMIvL7EeIbrv+dSkOzO+e64UBxEwMySJzU9K
-	8q9uidgZ+1UGv+m3yIyWuIzHupMPO6GlywD5GjCnQb2y0+rXjvItADCUvgVmDb33QRsh+6O/7/NRw
-	2aV60rVyHULKnjEipXXH6ODxQE/XSZctH/zU8nu2sO2SSNvltD+l9OUsSebVjX+R9oKCt5/WGlEAY
-	67t8vOMzNz82uWz7lurmeUYVyPf0AjpmLF9EGyb24LYIJIUR1dJ6Nv5LMyWKhOivwVy8M93kCY6Uk
-	ghtEkvyA==;
+	bh=DOrFZmbGa9pv6Ty9w9HeOjKrDU232cvU4GqO1tK+lD4=; b=QQuyxdsOVi9/F5G+hx2CI+c6lE
+	6TUDJ9LrNVtTBiTpmJmUWUnLjQPXULp4GQl59hlEJ9kBbAWsSu0vJ0sh77r5tBjAECc3o735tW+Cr
+	ol3t+bL/mm7fyrQ9uhnmZ4Ks3/XDYz0U7VdVQjubCq90gVxpY3WTwH98y94OtxjDTeHfwV0vV/rcb
+	fdEGJbPBHLWbZpWgX+I6Hi3Ex3UiHlPqBXeftHBmWrJUXYctyjVs6wIKMa40HiB770e57WhrLGyXX
+	qLn8gH6b/0aqkXB1TJFNvyHeYs9PHaG+vQneYYL5yLFjrvQ37hEWyZT6iXok83T8NTYWWNHtQz+1A
+	ZHEvwxKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyUWX-0000000GgBr-0I6n;
-	Mon, 24 Aug 2026 13:15:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wyUWg-0000000GgDk-21va;
+	Mon, 24 Aug 2026 13:15:46 +0000
+Received: from smtp2-g21.free.fr ([212.27.42.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyUWV-0000000GgBk-2UUJ
+	id 1wyUWZ-0000000GgBY-1qd3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 13:15:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1C2BE42A17;
-	Mon, 24 Aug 2026 13:15:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12A4F1F000E9;
-	Mon, 24 Aug 2026 13:15:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787577335;
-	bh=lRd3nAZ/IAGc/XV72YoIVwNp+sB1Vr1EJbegUfNq6tE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gRRv2nWF8/4N4nY0TflgH7iRoCmfGjPZxowmeTFtuBU3RSCqG15I4QBz7uB8k8PUK
-	 45pWyaXKSaAv/gOR3OZLA+miHJurTairAmXz6ZrYR/7BmdxnaizEcMSIJJLN8Ljhtx
-	 vfgHr32IQ2IFi/v+dYxQdlMj13AyJQQm6C70J8N1RKTsropumZBPYL4yrB+mgPFWIb
-	 7XLmlzhcOvZQaBqox3fJjPQp62pCf0aBDBwSlob4nVRZqVPaY+gGkvcnrvKFHuJzmD
-	 RINHZ2nTTgMEaAFam/IJY+n5q0OulU+REB6H7Tsv7U5b4DQQOegkBl9hMoInGhqp1C
-	 +lrPP7VUZWtUw==
-Date: Mon, 24 Aug 2026 14:15:29 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Christoffer Dall <christoffer.dall@arm.com>, Wei-Lin Chang <weilin.chang@arm.com>, 
-	Yao Yuan <yaoyuan@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] KVM: arm64: Fix spurious warn, null ptr deref on
- S2 teardown race
-Message-ID: <aoxD4omq8gKYdFKL@gremlin>
-References: <20260822-kvm-arm-nested-virt-fix-v2-0-ac4059a0eaa6@kernel.org>
- <87tsolnuh0.wl-maz@kernel.org>
+	Mon, 24 Aug 2026 13:15:43 +0000
+Received: from L30177.local (unknown [46.193.67.97])
+	(Authenticated sender: vjardin@free.fr)
+	by smtp2-g21.free.fr (Postfix) with ESMTPSA id 1AADF2003C3;
+	Mon, 24 Aug 2026 15:15:21 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
+	s=smtp-20201208; t=1787577333;
+	bh=xu6YOcOWUBosY162fqI8wR2m/f4r2kHKyQ4LgFRs438=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tE4EsFIyKBG0hbwT2YlOyTcRsEht1e52R4KqWyfTanay+mfqAwtAkoG1w1cFurfZt
+	 SkfaeudBWXGjB+X7+h+60FuCj/T8LrPiPMLS4KAwanudCZE7zsTm+F5LHD4LUZmRXF
+	 8+ILdE3Xgf8lis1SoejHi23/R3aXAwFve2c8WXX0IEknqv3X1GKhTxZQbRHX8j8qaj
+	 z8ZQ4QVPmV815FF5Cgi0JRxLH7rJoI3nuWvsDD0vlcWQwQgckip9KTQuv826hjRINh
+	 u0fFBGgouNOHIuLfOlMnTuJpTfhtiYbEx3Rly44yQKf0kAf63ZCY3TwUsjM5gH7wDS
+	 yTu6KM+L5RDdQ==
+Date: Mon, 24 Aug 2026 15:15:18 +0200
+From: Vincent Jardin <vjardin@free.fr>
+To: Josua Mayer <josua@solid-run.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: lx2160a: fix incorrect pinmux
+Message-ID: <aoxD5mwdBCU5Gnfg@L30177.local>
+References: <20260824-for-upstream-lx2160a-pinmux-fix-v1-1-33a3c8d5ea8a@free.fr>
+ <3d4fe161-895e-4820-a99d-8cd5fd6d9ad2@solid-run.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87tsolnuh0.wl-maz@kernel.org>
+In-Reply-To: <3d4fe161-895e-4820-a99d-8cd5fd6d9ad2@solid-run.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260824_061539_922292_D6AB7BE9 
+X-CRM114-Status: UNSURE (   6.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,63 +79,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 23, 2026 at 08:53:31AM +0100, Marc Zyngier wrote:
-> On Sat, 22 Aug 2026 18:46:52 +0100,
-> "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
-> >
-> > When GFNs are invalidated in L0 an MMU notifier triggers
-> > kvm_unmap_gfn_range() which tears down all of the stage 2 shadow page
-> > tables for nested guests via kvm_nested_s2_unmap().
-> >
-> > To avoid lockup, the kvm->mmu_lock is dropped while doing this and the task
-> > rescheduled once for each block of physical address space (32 MiB for 16
-> > KiB page size), with the lock being reacquired once the task is scheduled
-> > again.
-> >
-> > This results in a potential race between this L0 tear down and tear down of
-> > the guest itself in kvm_flush_shadow_all(), a race which has been observed
-> > on real hardware.
-> >
-> > When this race occurs it causes an invalid kernel warning when the PGT of a
-> > nested MMU is cleared by kvm_flush_shadow_all() ->
-> > kvm_arch_flush_shadow_all() -> kvm_free_stage2_pgd().
-> >
-> > Patch 1 fixes this by having stage2_apply_range() no longer return an error
-> > when it has experienced a benign race with pgt teardown when it drops the
-> > lock.
-> >
-> > Patch 2 addresses something more serious - bad timing can turn this spurious
-> > warning into a NULL pointer dereference.
-> >
-> > kvm_arch_flush_shadow_all() calls kvm_uninit_stage2_mmu() which calls
-> > kvm_free_stage2_pgd() on the canonical kvm->arch.mmu for that guest's S2
-> > mappings, making it NULL.
-> >
-> > This is problematic if it happens before stage2_apply_range() reacquires
-> > the kvm->mmu_lock, as it ultimately returns to kvm_nested_s2_unmap() which
-> > dereferences kvm->arch.mmu.pgt with the mmu lock held under the incorrect
-> > assumption that it means it's valid, resulting in a NULL pointer
-> > dereference.
-> >
-> > Fix that by checking if kvm->arch.mmu.pgt is NULL before dereferencing it
-> > in kvm_nested_s2_unmap() and kvm_nested_s2_wp().
->
-> With the commit message for patch #1 trimmed to something that fits on
-> a couple of standard terminal screens ;-) :
+Hi Josua,
 
-Haha sure will put it on a diet and respin :)
+> Reviewed-by: Josua Mayer <josua@solid-run.com>
 
->
-> Reviewed-by: Marc Zyngier <maz@kernel.org>
+Sorry, I did miss your review while doing a v2 based on the Bot's comments.
+Please, can you resubmit your reviewed by on this serie:
+  https://lore.kernel.org/all/20260824-for-upstream-lx2160a-pinmux-fix-v2-0-0a525d5f4cd5@free.fr/
+?
 
-Thanks!
-
->
-> 	M.
->
-> --
-> Jazz isn't dead. It just smells funny.
-
---
-Cheers, Lorenzo
+thank you,
+  Vincent
 
