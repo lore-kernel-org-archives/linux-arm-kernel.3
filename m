@@ -4,150 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF3C0C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 11:52:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B49A8C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 12:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LzxqMflwKO5Na/m08OoIrLLFXSwEw43l+/aNS8d0JqY=; b=YBG30cr643UWm8lGEmJbM7gv9P
-	zuu694C5ysPJsuaqmwNc2EmBAbUsxVIz9lOPFAxTJSB+V2VZHiKOqaz2OmqEVsfgeA7juGrML3Gy9
-	TSNczw4DXhlLsaq7hQBjWCgoWrmDGoD9edMI73R54FTwft65CLzElJtddCi/5y+iPr4yQwzXgGeUZ
-	p2PbIOjgXiHHavottlLtL6FxFKWOl1EAjN+5DjlyoQznWkqGFmpCDn1t6CjScBXdQi7sdTGUCEIlp
-	hgNmi5L68q4mTObiCwMvLYFjOtKWOnKeBjQZBlzVagDOf+MMvYGeE8TPjH5LG+GHXDxvVZl+1VSV7
-	gsXAdOEQ==;
+	bh=62+RwwvwBs9flF4NhLotZyvHsTVuGBmcx8T5gxkggCM=; b=OUq0W8KGlC5KG7bCH0MT83VErY
+	SDPUIhK0gR2whsj1IEHddPcejq5ODxiYeJGTmqYLA+ST3L1brD+so74tbDXGw2Exl30yjHIe5Y4RP
+	SAT/j2egUOe403RelWYw6p9byXlryDF7o2LfVjnNsf0Q7n8kHdaqrAgUbd3sa/Li9PBQ2mWum4OdB
+	WKfB7ngSFS+nbCKPf3WOKfwR7GMpbLgEQlGEnIDl/MxS4XCErlLSkCeP9IGNw5GgOadAZTyZtBEs6
+	X4/frZ5UbiD6PRhPpawZHZ+12yJvBqAupudN4waoARfmUXN3lKrF8UAtw7jHOZyxQwfqtNWz7FlKj
+	10BhLGTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyTE4-0000000GYFC-1eHh;
-	Mon, 24 Aug 2026 11:52:28 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wyTLr-0000000GZ5H-3Qwb;
+	Mon, 24 Aug 2026 12:00:31 +0000
+Received: from mout.web.de ([212.227.15.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyTE2-0000000GYEd-1bKl
+	id 1wyTLp-0000000GZ2O-2cLv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 11:52:27 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67OBMKMe2274632
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 11:52:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	LzxqMflwKO5Na/m08OoIrLLFXSwEw43l+/aNS8d0JqY=; b=F/BgdSS8clS99KgE
-	ln/Y7Q00FCX+nGtbe/+Yft7sGhFr7OTYFucFgL66UgGRIcAAfrAleITNFt3cUDHU
-	PfjVrGutPfdPBFxvd+SO06Eh0yg6RokbEaFtEbEJQ6Gipe2t931xLgpwV5ezY4iK
-	Wo11KVugOMXaNmP53Mqt6gY57ygEWZsdpOW3Hxw2t8Y5Q2GUboNUCgLOzkw9Dqbj
-	iuzfQa1BYPIhXwxaG1ZcW6Oi25netVd3e0obdIafEGQHou25mW6aob4XuCOKDINq
-	4bg/DjyYUJ66k2hR7QS5W9SHvWYfJjKA+vVn1Ravono2PYDMOWR42Fm573gF2xV5
-	eJTXEA==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g8kdsgf7u-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 11:52:25 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-84e3d575d6eso2154363b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 04:52:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787572345; x=1788177145; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LzxqMflwKO5Na/m08OoIrLLFXSwEw43l+/aNS8d0JqY=;
-        b=C6HVB7frORoCk9nsJeZTlZhvuvWXz7AhiiG2XxNdJX2xIIyp1bDnlKOWKyU7yL22gP
-         w3xdK8pEuegq3MuPBLsU2eylRHwC8RazRxgMRLpVFs7ah1W/bVEiP023BSkX15RZsPvo
-         uvW9XU5CLuVhqccKlHNEX6ahYk51cTDoLpuTBK2UD5+HLBRKvPcCch2XYTInAq3qgcC3
-         P5Mmw3giqXTtKwKjvOufIG9zQXp8hrEM2Fmm/xULg3PBqIapGHv0H6STQlLS6WDFW9lL
-         hITaVlTIUR9mNKUXe92yHZkLppu2/J9htpE1MBQz+kCguFrOV/5eK6KOE2bNbn2C+I6F
-         PB0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787572345; x=1788177145;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LzxqMflwKO5Na/m08OoIrLLFXSwEw43l+/aNS8d0JqY=;
-        b=FdkrxAMAEoslvQbFTn3C5Pdvc2TWRaa5pMDAKNXVYegvbCMpaQB9lR+qf/GEBUbSon
-         bzRoUbJXy/82TZLK3sA2r/WGJrgw9FvSTBvMB3d/1fiQhSNpV5vAP0bbSlU8JWMVzqcl
-         TPJ1+1F2sps98tum0fFTEfp7qRqo10V24mbwVATS+NkthiCi/YzqBWfhTiseeqOssaxY
-         cvjicDxgA3txH94eJQZeebumxFYYJpXl78aqhGJc90xFsb225FfWy4UGn8cxdOuBXnDv
-         5tM0iXWi9Hk4YdYM66lOMsR9lh7HMiU5SbZSnw6U7GGOsrGsEqxx/eQhUt1fySC+dF3U
-         blow==
-X-Forwarded-Encrypted: i=1; AHgh+RpWtN45VhTvEZG/z8+81s9IH5AVAsLh2cUzzT9WNkxg4gOQxBd4s2ZxoYJS39oNzPs91VPja40krU3j37l/y2QJ@lists.infradead.org
-X-Gm-Message-State: AFuF++nDhXZ1hCrXiljb7X2kyB5SZMj+D1uHXfHlDxNPeBHHBHvD3Hji
-	orwOcWsZpZW8w4VFO63CYgB6QIqafs+Lut5nzCCD4IHuE2kJ0uRP85WqdMi4pqeSIjgwI2mL9IA
-	0k+miqYRaoK+oz+AUJ5cUZxiIjAq42kthNrWe9eqnH7WAAPe//T2xvPWZIs4f60dF9c4rRrym5d
-	cRHg==
-X-Gm-Gg: AR+sD13sT0ULi+mZB140KUTvNIpIXvoDO7TBWc3eihNzF5yU5oHkIvdIMjqORq0N/2p
-	zbNW118NZaoCwItjGHOfwIz3nx+fjl5aAPm6CwRciTvKpG/2hSh+zBB447lfi4WzJAOy0pn6RVz
-	HWj3cTM0jUNEPv/y+KIrUb6VBBWpRzuc/pi8IpagUd5KT/3HxBEMGAtaCiaByC3VJotLWzbhqR5
-	+fr4No8sOvfYCMYNnfgsUOGEXjWRiWa1+DL2hsQgsnn5GqYD2JKUIhvICaXKiWtOetcaAe/AiZg
-	MX0Qw4HpQsHb8zjHB3U4vvQkknQ2ZIY1TcfmNF4FNHV64jAYX8T84uFSJsT9/4SLzby5Mo5ur9s
-	xGHasXVthFmh1WVQq4Rh3R3T/qkFFBXbMkZU=
-X-Received: by 2002:a05:6a21:888a:b0:3cd:3e77:1dcd with SMTP id adf61e73a8af0-3cd3e771df5mr36827807637.1.1787572345245;
-        Mon, 24 Aug 2026 04:52:25 -0700 (PDT)
-X-Received: by 2002:a05:6a21:888a:b0:3cd:3e77:1dcd with SMTP id adf61e73a8af0-3cd3e771df5mr36827697637.1.1787572344804;
-        Mon, 24 Aug 2026 04:52:24 -0700 (PDT)
-Received: from [10.217.218.158] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc199e4b1d6sm885985a12.15.2026.08.24.04.52.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Aug 2026 04:52:24 -0700 (PDT)
-Message-ID: <3eb3b7ed-88d1-4185-accf-c81c14b1d408@oss.qualcomm.com>
-Date: Mon, 24 Aug 2026 17:22:17 +0530
+	Mon, 24 Aug 2026 12:00:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1787572821; x=1788177621; i=markus.elfring@web.de;
+	bh=62+RwwvwBs9flF4NhLotZyvHsTVuGBmcx8T5gxkggCM=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=nRCEMk+19YYoSnrn4/FSd5GyIGXTcKB0v+NJpXj79tR8/cyI92jLgMqNHc7z8Klj
+	 wex/0Gwhy2w4ngXyZUbCweIna1sodJUQtzmd4G3LyalYaxxeX5B6mQzXbXaZEjuif
+	 wLw+sz9G3vsnwWnG+klui/PaGDBXf8hOpo3br8Wpy0Bk/YKDaDRpa7aajizg6dDFG
+	 TUUQgwBUIa7wJC7Chy/6xANQ1UZjbEYUYrLMPDfgSI1zSYPQs1qZQjGLbKg2GSOE8
+	 2LBu5C57hLw19JxZsv9I6RYLuS6qVzSznpIL1NJ6QKlbdMtL6m0r4BOX77eIT8rGY
+	 pV6fu/OBn2ANZpAhfA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MHVaf-1xBtcS258z-006g5B; Mon, 24
+ Aug 2026 14:00:21 +0200
+Message-ID: <4e6642f2-c42a-4ccc-9e6a-51b7c9e05e4d@web.de>
+Date: Mon, 24 Aug 2026 14:00:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/7] spi: qcom-geni: Use geni_se_set_rate() for setting
- source clock frequency
-To: Praveen Talari <praveen.talari@oss.qualcomm.com>,
-        konrad.dybcio@oss.qualcomm.com, Sudeep Holla <sudeep.holla@kernel.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Jiri Slaby <jirislaby@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
-        Andi Shyti <andi.shyti@kernel.org>
-Cc: chandana.chiluveru@oss.qualcomm.com, arm-scmi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-serial@vger.kernel.org, linux-spi@vger.kernel.org,
-        linux-i2c@vger.kernel.org
-References: <20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-v1-0-61171ab1cdce@oss.qualcomm.com>
- <20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-v1-5-61171ab1cdce@oss.qualcomm.com>
-Content-Language: en-US
-From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
-In-Reply-To: <20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-v1-5-61171ab1cdce@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI0MDA5OSBTYWx0ZWRfXyCKuWxOWL/9P
- O2hkDiCSpp58Sre7u6Ccg0IwImKDsz85iw5xm6XS5Cvi7uLcZF371qqBewhY1EMLmk9OWP+9PzM
- nFnFpJGstHLwIpPVfZfMKZHD24/aQcY=
-X-Proofpoint-ORIG-GUID: Y2371wfVNtFm2ZsZCBcJstAIPC_WgoOv
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI0MDA5OSBTYWx0ZWRfXzThNhx21G00d
- HBtUVv0Y8fli7eC+SWD+4R6jTK6bTI8f93X0eKSplgP1ades5yMRFRssdJCXYGF9EIk2nUK8dCk
- Dw7Ys8r8xqYTDq7njQexCgzt5yok3WCuuq0viSPyuinAouurEaTzPtfSzvXKtNU3z3XUifmSDmG
- RnHMVpnqvF1/jv3ZpREyTMX/TtN8EGY+nOmcwgvaA1ANSqEZf8lV4NoTnxp93Bo8HjslkMeWK50
- MAWNYMh6zzI5/xIdaDuDjZuQWfWQiQJMG12/HcsRHAb9MwgLSijbWlPzQ5Hdc3EDT4XBsafMY93
- Dr0IIzXGgCVS3O16b6Hm41rn8/5b1BbEeCiCv59ViliAiQ+czu6KU0wS3dWgTTaiSpDMNFx7Lcm
- Di/3of+H0PRFsyLPVXhA5i5iJtkN2nMRcRFl9wn7GneMgp7WwSxFT25MTTrzQiIVaSusrZKB3Ca
- 9+dzXLz5MflZFZWDGVg==
-X-Proofpoint-GUID: Y2371wfVNtFm2ZsZCBcJstAIPC_WgoOv
-X-Authority-Analysis: v=2.4 cv=d8DFDxjE c=1 sm=1 tr=0 ts=6a8c3079 cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=dtH3bwBEVQU6Jqvc-V0A:9 a=QEXdDO2ut3YA:10
- a=2VI0MkxyNR6bbpdq8BZq:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-24_03,2026-08-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0 priorityscore=1501
- malwarescore=0 spamscore=0 phishscore=0 clxscore=1015 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608240099
+Subject: Re: [PATCH] bus: arm-cci: fix device_node refcount leak in
+ cci_probe_ports()
+To: Robin Murphy <robin.murphy@arm.com>,
+ Manush Prajwal <manushprajwal555@gmail.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
+References: <6a887550.f7f62383.10ed1b.5875@mx.google.com>
+ <5bd32eba-881a-4395-841d-909536262dcb@web.de>
+ <566ce354-88f0-4e68-86a4-a8d68bb65254@arm.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <566ce354-88f0-4e68-86a4-a8d68bb65254@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:0V8cm89j+8+JIvAVff8UlBokp1Une7vqwO5JSFvU1FFDn/RsAap
+ h+dnlg+X5oWn7mI6+OZ6r7HA/KlljaRkZPyTbux8FTdp+uHor6CK2mueeSAWeoXKTuUrhui
+ T6kCBPHpYJfYeX1rQNQ0F0/D/NAIteDSbPDSAC0zsooqkN2waGCIz15ll+DOWCeF/U1u+7Q
+ 7hGzRjZEFQhArv/Qc9xgA==
+UI-OutboundReport: notjunk:1;M01:P0:FYML/a6VJwI=;06Vq2be0Kw2lMipAMwq3I6cd51e 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_045226_436759_12BA871A 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20260824_050029_954594_CFD4C520 
+X-CRM114-Status: UNSURE (   5.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,65 +87,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+>>> cci_probe_ports() has two device_node refcount bugs in its
+>>> for_each_available_child_of_node() loop over "cp":
+>> =E2=80=A6
+>>
+>> How do you think about to add any tags (like =E2=80=9CFixes=E2=80=9D an=
+d =E2=80=9CCc=E2=80=9D) accordingly?
+>=20
+> No.
+>=20
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/=
+Documentation/process/stable-kernel-rules.rst?h=3Dv7.2-rc5#n15
+Have you got special imaginations for the bug severity?
 
-
-On 8/5/2026 1:27 AM, Praveen Talari wrote:
-> On the SA8255P platform there is no Linux clock handler for the SE
-> source clock, so the driver has no way to look up the source clock
-> index and divider needed to fill the GSI CONFIG0 TRE for a requested
-> transfer frequency. To work around this, firmware instead exposes the
-> SE HW supported source clock frequencies as OPPs on the perf domain
-> device.
-> 
-> geni_se_domain_attach() now populates se->clk_perf_tbl from this OPP
-> table at attach time, mirroring clk_perf_tbl on the Linux-clock-managed
-> path. This lets get_spi_clk_cfg() call geni_se_clk_freq_match() to pick
-> the closest supported source clock frequency and divider on SA8255P
-> exactly as it already does when a Linux clock is present, and fill in
-> the GSI CONFIG0 TRE accordingly.
-> 
-> Switch get_spi_clk_cfg() and spi_geni_runtime_resume() from calling
-> dev_pm_opp_set_rate() directly to the new geni_se_set_rate() helper, so
-> the matched frequency is applied to the correct device (the perf
-> domain device on the firmware managed path, or se->dev otherwise)
-> without the SPI driver needing to know which resources_init variant is
-> in use.
-> 
-
-let me suggest little compressed commit message removing some duplication.
-
-geni_se_domain_attach() now populates clk_perf_tbl from
-the performance-domain OPP table, allowing firmware-managed
-platforms to use geni_se_clk_freq_match().
-
-Use geni_se_set_rate() instead of dev_pm_opp_set_rate()
-so clock programming is handled centrally by the GENI core,
-independent of the underlying clock-control mechanism.
-
-> Signed-off-by: Praveen Talari <praveen.talari@oss.qualcomm.com>
-> ---
->   drivers/spi/spi-geni-qcom.c | 17 ++++++-----------
->   1 file changed, 6 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/spi/spi-geni-qcom.c b/drivers/spi/spi-geni-qcom.c
-
-[...]
-
-> @@ -150,9 +148,9 @@ static int get_spi_clk_cfg(unsigned int speed_hz,
->   
->   	dev_dbg(mas->dev, "req %u=>%u sclk %lu, idx %d, div %d\n", speed_hz,
->   				actual_hz, sclk_freq, *clk_idx, *clk_div);
-> -	ret = dev_pm_opp_set_rate(mas->dev, sclk_freq);
-> +	ret = geni_se_set_rate(&mas->se, sclk_freq);
->   	if (ret)
-> -		dev_err(mas->dev, "dev_pm_opp_set_rate failed %d\n", ret);
-> +		dev_err(mas->dev, "geni_se_set_rate failed %d\n", ret);
-little verbose - "Failed to set source clock rate %d">   	else
->   		mas->cur_sclk_hz = sclk_freq;
->   
-> @@ -847,7 +845,7 @@ static int setup_se_xfer(struct spi_transfer *xfer,
->   	}
-
-[...]
-
+Regards,
+Markus
 
