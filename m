@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B42C5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 16:39:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E8D5C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 16:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sqwRY2t2GG/HXlNPtzthyAZCQ4zDXDfIWhWR0nQ8CGc=; b=QwGi5XO98T197t7UrJwwEJ3yT+
-	jIw5B6HTPV4RqapySlawrlW/vr17zOLXjG1L8p2nGsccCSJz5/cqzqAuG8fesbq1UDj8K4C21XquW
-	bzGcCZNqCsqz1ZYsD4tk3b7jKm9OIGlMv3xjOt49PVxbcBr/bbkLHcbP7gHIg0MziNHP1fQajJkjb
-	7YtFuiAg6zIAxPaj+Z2Vwm8CwcyQMoMH4UfQOxr09/bc4UCeNp3WRGX3v85I40fJeRr3vLcI4JrPy
-	stUHeH5rqJd3b2RQaJw0BJvcxJdX0EnSieWmpwO7eQ/Ran3Hc51dNTYWS5Wp2mNyoEHogOeG0yoYU
-	gNzTyDPw==;
+	bh=2vY9YzZNbcL9K90Cph9Ptq0BERrBXLPYz9JYuyHnqY4=; b=TYSyouoCR0HUNfuTd08/ZjLC1R
+	UlW/JpmkOQmRUxscZDEw0ElJsLWcr+jHI0nKwr9qDORRl9MEH9y9XuIdp9dudWzOpxO6wgwIpHayL
+	khHbni55YbvuyKAPKs0CdQvkKUOT7odVmKcPXctsYSqGEpRG8GuRm2GJKv6OvTU/jBBb8DNKwprDU
+	hoOp+3ydU926pvG3CC9wfdxvSUZY5G3M/KbRKAy2D26tqbr6/Iqf4KLSYYH/+3GroF/Q/AyE1C1+n
+	LVlrDHQSgDou01FjQkob1gK/mi5RbfxRVO9wsOXNtciCOOYWJVwNZqFKiRJFMTk5HI5RSFjt4lhqn
+	TGkctEkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyXhJ-0000000H49N-1x36;
-	Mon, 24 Aug 2026 16:38:57 +0000
+	id 1wyXpD-0000000H4hX-1JDL;
+	Mon, 24 Aug 2026 16:47:07 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyXhF-0000000H48q-2LmE;
-	Mon, 24 Aug 2026 16:38:53 +0000
+	id 1wyXpB-0000000H4hB-3LAd
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Aug 2026 16:47:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D1F7404C7;
-	Mon, 24 Aug 2026 16:38:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC75A1F00A3A;
-	Mon, 24 Aug 2026 16:38:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6643D43CBE;
+	Mon, 24 Aug 2026 16:47:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B3FC1F000E9;
+	Mon, 24 Aug 2026 16:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787589533;
-	bh=sqwRY2t2GG/HXlNPtzthyAZCQ4zDXDfIWhWR0nQ8CGc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cVEbCejIw7fUoGqozdRq73PJRbL3ssn1jeYvkLhnCatNT1/nLXOBgLQ0ikTR9NMsu
-	 NBODwqN999Q+Sfi76XYduxvKn0AAEiskHomhO1Sat/xdyZ6hZntbxWUJBdYrGxtKrw
-	 RQUYn26RLEfs90HTNXB+bav6T3XW1MDqs+GjfLEb5xCc6gbM2i7wqEj7+GwhFq0kWs
-	 8ULReDc38D/6z1L4PxbQJYQioPaLjTrJFmYEefBJ1EU2v+sv4Bd+3iPHpaarZ8Zyir
-	 mOYxC6gwSQizZ+jU9m5xRvdMC4kiyHF7LCfN2Y9QEWPgoq9X1+zE6Gi/I4VkmI5h0Y
-	 p7gMNMt4hHWaQ==
-Date: Mon, 24 Aug 2026 17:38:48 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Vladislav Leonov <vlad@zlab.su>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Joshua Crofts <joshua.crofts1@gmail.com>,
-	Simon Glass <sjg@chromium.org>, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH v2 2/3] dt-bindings: iio: adc: rockchip-saradc: Group
- single-entries into an enum list
-Message-ID: <20260824-stiffly-caress-91a7d95592bf@spud>
-References: <20260823122039.20831-1-vlad@zlab.su>
- <20260823122039.20831-3-vlad@zlab.su>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mwYF2VLTXBcJVgoO"
-Content-Disposition: inline
-In-Reply-To: <20260823122039.20831-3-vlad@zlab.su>
+	s=k20260515; t=1787590025;
+	bh=2vY9YzZNbcL9K90Cph9Ptq0BERrBXLPYz9JYuyHnqY4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=VtgNgZsM+8pAzWXm1RYtyJLm2weKI7T61YATk9XOyX0nO6whnS1DB+PXXtPF6JsiT
+	 +vZH3JFDwXoNy2vP2G9ivKhzCy/pqg3Byk5yux8qeuqccaCgUM0xI/o/ZQcvZGe3SW
+	 l/s/hPr5j6s5QijmVinmuyLiPKRWa3wcvX52F6i6irdKVzU5OzPmaTmwfk2hFwZaaN
+	 DInD73ZUlatPCw/dv9Qx01a0irmmfoPEnC31SpHZpfgAVbVdVIXk/F3IDMorUciBo+
+	 B27bIy5IxzAo4SA1VjqPyBhdS7bBgg9HBkcns893qZ0DMA7o2jyMKph/5saGrUPipx
+	 CYYQ5nx9jADTg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wyXp9-00000000mST-21Hz;
+	Mon, 24 Aug 2026 16:47:03 +0000
+Date: Mon, 24 Aug 2026 17:49:35 +0100
+Message-ID: <878q5vo44g.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Shanker Donthineni <sdonthineni@nvidia.com>
+Cc: Thomas Gleixner <tglx@kernel.org>,
+	"Steven\
+ Price" <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH] irqchip/gic-v3-its: zero ITS tables in the shared view after decryption
+In-Reply-To: <20260824155928.2396620-1-sdonthineni@nvidia.com>
+References: <20260824155928.2396620-1-sdonthineni@nvidia.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sdonthineni@nvidia.com, tglx@kernel.org, steven.price@arm.com, suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,23 +87,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---mwYF2VLTXBcJVgoO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Mon, 24 Aug 2026 16:59:27 +0100,
+Shanker Donthineni <sdonthineni@nvidia.com> wrote:
+> 
+> its_alloc_pages_node() allocates pages, some with __GFP_ZERO, before
+> calling set_memory_decrypted() to share them with the untrusted
+> hypervisor. In an Arm CCA Realm, allocator clearing occurs through the
+> Protected IPA.
+> 
+> set_memory_decrypted() changes the RIPAS of the Protected IPA from
+> RIPAS_RAM to RIPAS_EMPTY. The RMM architecture requires the backing
+> DATA Granule to be wiped before it becomes GRAN_UNDELEGATED. Wiping is
+> a confidentiality operation, not a zero-initialization guarantee: it
+> may be implemented by changing the MEC or writing random data.
+> Consequently, zeroes written through the Protected IPA are not
+> guaranteed to be observed through the corresponding Unprotected IPA
+> alias.
+> 
+> This is harmless for tables that the guest fully populates before use,
+> but the GICv3 ITS indirect device table is sparse. The guest writes only
+> the L1 entries for devices it maps, while both the guest and the
+> hypervisor's ITS emulation rely on unused entries being zero.
+> Unspecified nonzero values can make an unpopulated entry appear valid,
+> causing the guest to skip the required L2 allocation and the hypervisor
+> to consume a bogus pointer. Interrupt translation then fails,
+> potentially hanging the guest when it first uses the device. This is
+> exposed when guest_memfd reuses the same backing Granule for the
+> Unprotected IPA mapping rather than supplying a fresh Host page.
+> 
+> Strip __GFP_ZERO before allocation and clear the page through the
+> Unprotected IPA alias after set_memory_decrypted(), so the requested
+> zeroes are written in Non-secure PAS and are visible to both the guest
+> and the Host. This also matches dma_direct_alloc(), which clears memory
+> after dma_set_decrypted().
+> 
+> Fixes: b08e2f42e86b ("irqchip/gic-v3-its: Share ITS tables with a non-trusted hypervisor")
+> Cc: <stable@vger.kernel.org> # 6.18+
+> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+https://lore.kernel.org/r/20260820105026.53208-1-steven.price@arm.com
 
---mwYF2VLTXBcJVgoO
-Content-Type: application/pgp-signature; name=signature.asc
+	M.
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaoxzlwAKCRB4tDGHoIJi
-0kGXAQDe6WT4X2xsTPjTCUY9zPGU5BTZNXdzwhP0cgJ3PUZFxAEA39XrZeoLINvt
-WuD3NSdPjZe+7irgZTXSUyIpuds1TQs=
-=yfyJ
------END PGP SIGNATURE-----
-
---mwYF2VLTXBcJVgoO--
+-- 
+Jazz isn't dead. It just smells funny.
 
