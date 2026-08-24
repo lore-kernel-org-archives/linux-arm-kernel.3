@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE28C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 18:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE787C5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 18:42:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XO7IN4C+8NrFxSN+X2KRtw6O/KbRqUgR1TA74zKM5gA=; b=i1ThMLjalNAhCXNrZMiMWCzHpj
-	TxyqDRDdGTQQe6fTCtRVOTlJgz+JSzFr41HsG6XJJEn+mjlEEgIqUy2VuFj61pZzPlriUGMq5gxs6
-	saiPzYZQzfkrtRTyRywRRFk/0ek8oZ/cKxiVnoE0LuFfxqUAl6xoyz/HeBBg5HDEh7fc3+XSwt0eA
-	gvFVtbb0XxFTAxiKI/I8PYcNnerkC4okbMUSknktSyrYPcUDoC3WMkxL5tBowOlc32DssKYFPQoHI
-	FNOmw5gJQ0A0S3WKoXeDGAMHEKeF//ePPDMqqtWUSUUaLLB2fqzTuMPFskowzj3SDGZjTrX11OdRt
-	1ZCFwxJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8CxzkvtARMGmYtTwDNQoanbV8QBtAB4TWfMhXLg+ir8=; b=bLn5bG5RNQ0/oEcmTZ/CFW+6d6
+	+Sw+bqdajo2xGaQcUExp+mFsLiEhW5oppOSbDGV0fK58qNe1DsMqWebxSUgklvC8mVh9Iwv66Yp73
+	SyXtOhOi7bIixKsraPei4eKxIZIiqEXsDO2FekfS9Do9Mc67Nz+mwESCAV8VLBQreWFT1R2wS3qZ+
+	7odSbyXu4tHtxvQEA7c+waHzvnIYF2ypUL61ty68G9XKi7teLaAEfM0TM7yAHma9KJhl4ohCS2AW+
+	IpxgLs/zcbdeKnw+uyqemLrcw9KpIPTKuVCNNJ5X4iwTsmNx0y88xjTYdd/xC/TY0TFlkUTXY2o5U
+	dk/w4urw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyZXu-0000000HGsy-1PTJ;
-	Mon, 24 Aug 2026 18:37:22 +0000
-Received: from out-250.mta1.migadu.com ([2001:41d0:203:375::fa] helo=mta1.migadu.com)
+	id 1wyZcS-0000000HHD1-3kXh;
+	Mon, 24 Aug 2026 18:42:05 +0000
+Received: from out-70.mta1.migadu.com ([2001:41d0:203:375::46] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyZXr-0000000HGsA-0RjO
+	id 1wyZcP-0000000HHCZ-3oDU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 18:37:20 +0000
+	Mon, 24 Aug 2026 18:42:03 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=z1eMC5A17e3WPWEyqxdEPWPA4oSgaXmtkR6wiU7W6FA=;
+DKIM-Signature: a=rsa-sha256; bh=mKxOK6il8hO1+Kr1wMob41kUctuaK3oMCEbCR+rq6j8=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787596637; v=1; x=1788201437;
- b=mJXmk3jeZbI1SIcXfQv1vYZx5ckwop3z3niKPeeDVZVHZK+Ml9+4L0VJEZy3ird3/vq26WMD
- UknAGKXCx30aV5Y0/Wg6c9GHLM+fHASaX+hLVCRR8Dk4i6BP76MRWtttx1MERekwRa51Fz3MK45
- HcNpm9KCnzIdG635HRwdZ4hg=
+ t=1787596919; v=1; x=1788201719;
+ b=sL2MbGqPKEJtwD0Uew0sm8yj/F/1904h2M/fmxOZgst/PE5lXRZATioZ3v+j9/uDCpnueBvi
+ arFCb/cHAdMtmKY4NEiJ+s0cvkw7Mfjwm0Wl0xtGdPWVtkxNs7ecS0nr+QrmHkGxOtHqC6kS5aI
+ S7ppblMWi9+vO6QbvZd9tXnw=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from mail-lf1-f51.google.com (209.85.167.51)
-	by smtp.migadu.com with ESMTPS id 2f0139afb1039777;
-	Mon, 24 Aug 2026 18:37:06 +0000
-X-Mizu-Trace-ID: 2f0139afb1039777
+Received: from claudy.local (2a01:4b00:ad36:1d00:3a05:25ff:fe33:35a9)
+	by smtp.migadu.com with ESMTPS id 9451ed2f0a70d1e3;
+	Mon, 24 Aug 2026 18:41:59 +0000
+X-Mizu-Trace-ID: 9451ed2f0a70d1e3
 X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5b2a8173142so957e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 11:37:06 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrYDJpJi8bC1dlYb8TBJAeIbPsrT1mBy+TcBvR87cygBpnfsA8qC0sWx+p7myu7VpyX1QhOk3wz5tQaTBmWuZik@lists.infradead.org
-X-Gm-Message-State: AFuF++ngfvqpVrKnJTbBYhaoc8sYaF/BVviNjEwIDRbE89hGQ61Bz/a5
-	/vyFooRHCgeQfLqZevO6ZgeMIuhlXXEtT19JHNxNbdCfc+cC293BhIXnrslDtPGa5cOxV9tzc+b
-	KjT//FIq44j5xIb3+855CSqBT3T0plGBEhwXrgQQi
-X-Received: by 2002:a05:6512:68c:b0:5b2:a5e9:3aba with SMTP id
- 2adb3069b0e04-5b49cf97240mr7768e87.6.1787596625703; Mon, 24 Aug 2026 11:37:05
- -0700 (PDT)
-MIME-Version: 1.0
-References: <20260824071004.504894-1-fuad.tabba@linux.dev> <aoxCk5lFQv6lFwHQ@willie-the-truck>
- <CA+EHjTy6Xh=eNg22fBdjPzZOZitzvcDX2L5zbSUFCsX1n6XobQ@mail.gmail.com> <aoxpG13UZfKJ2Rfu@willie-the-truck>
-In-Reply-To: <aoxpG13UZfKJ2Rfu@willie-the-truck>
 From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 24 Aug 2026 19:36:29 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTynGY1DFY=SP27MF=ioCQA4jnwnpJWCj1DLRqsqEyEUgA@mail.gmail.com>
-X-Gm-Features: AcwNN1V9W7VHXq___zx5wU5QYK_PcNw-jBsBbWE1dTJRfIwYwTjUmk-5HFvXctg
-Message-ID: <CA+EHjTynGY1DFY=SP27MF=ioCQA4jnwnpJWCj1DLRqsqEyEUgA@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: Defer the GMID_EL1 read to {init,update}_cpu_features()
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH v3] arm64: Don't read GMID_EL1 when MTE is disabled
+Date: Mon, 24 Aug 2026 19:41:55 +0100
+Message-Id: <20260824184155.2644646-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_113719_352272_FC2783C5 
-X-CRM114-Status: GOOD (  33.16  )
+X-CRM114-CacheID: sfid-20260824_114202_095647_4F24EC80 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,74 +76,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Aug 2026 at 16:54, Will Deacon <will@kernel.org> wrote:
->
-> On Mon, Aug 24, 2026 at 04:14:41PM +0100, Fuad Tabba wrote:
-> > On Mon, 24 Aug 2026 at 14:09, Will Deacon <will@kernel.org> wrote:
-> >
-> > > > +     /*
-> > > > +      * info->reg_gmid deferred to {init,update}_cpu_features because
-> > > > +      * reading it traps to EL2 when MTE is disabled.
-> > > > +      */
-> > >
-> > > I don't think we should defer this, as I've been actively doing the
-> > > opposite for parallel CPU onlining (where the ID registers can be read
-> > > concurrently by incoming CPUs to amortise the cost of a trap) and also
-> > > for the RNG traps during early boot:
-> > >
-> > > https://lore.kernel.org/all/annJ0oDB2HObQC5j@willie-the-truck/
-> > >
-> > > If you look at the diff I sent in the thread above (I didn't get a
-> > > reply), the idea is that __read_sysreg_by_encoding() reads from the ID
-> > > register values stashed by cpuinfo_store_cpu(). So you could use that
-> > > to check id_aa64pfr1 before reading gmid, as it will give you the
-> > > sanitised view.
-> >
-> > I just did, but I don't think it'll work. The thing is,
-> > __read_sysreg_by_encoding() gives the override-applied local value,
-> > not the folded sys_val.
-> >
-> > arm64.nomte is a command-line override, so that works. But
-> > CONFIG_ARM64_MTE=n sets none. Any gate would still need an explicit
-> > IS_ENABLED(CONFIG_ARM64_MTE).
-> >
-> > That said, I don't have to defer it. I can keep the info->reg_gmid
-> > read in __cpuinfo_store_cpu() and gate that read on the state that
-> > arms the trap:
-> >
-> >         static inline bool gmid_el1_accessible(u64 pfr1)
-> >         {
-> >                 if (!IS_ENABLED(CONFIG_ARM64_MTE))
-> >                         return false;
-> >                 if (system_capabilities_finalized())
-> >                         return system_supports_mte();
-> >                 return id_aa64pfr1_mte(pfr1);
-> >         }
-> >
-> >
-> > TID5 is set from system_supports_mte() and only once capabilities are
-> > finalised, so the local check is still correct before that. Gating on
-> > system_supports_mte() keeps the different-physical-CPU case you want
-> > to preserve working: if one re-onlines with MTE while the system view
-> > has it folded off, the gate stays false and it won't read GMID_EL1.
->
-> I still don't understand why you have system_supports_mte() here. If
-> the CPU has MTE, the CONFIG option is enabled and the cmdline override
-> isn't set, we can read GMID just fine on this CPU, regardless of the
-> system capabilities.
+__cpuinfo_store_cpu() gates the GMID_EL1 read on the raw
+ID_AA64PFR1_EL1, so it reads the register on MTE hardware even when the
+kernel has disabled MTE (CONFIG_ARM64_MTE=n or arm64.nomte). KVM sets
+HCR_EL2.TID5 in that case, trapping the read to EL2, where pKVM injects
+an UNDEF the host cannot handle:
 
-I could gate on the local value with the override applied instead.
+  Internal error: Oops - Undefined instruction: 0000000002000000 [#1]
+  pc : __cpuinfo_store_cpu+0xf4/0x264
+  Kernel panic - not syncing: Attempted to kill the idle task!
 
-> > If you agree, I'll respin with that.
->
-> I can't tell who's calling gmid_el1_accessible() so it's hard to tell
-> whether I agree or not. May as well send a v3 though, so we can see what
-> you have in mind!
+Only pKVM is affected, and only on a CPU that is offlined and brought
+back online: a first bring-up either precedes KVM's initcall or is
+refused by pKVM's CPU_ON relay. That relay sets the host HCR before the
+CPU enters EL1, whereas plain nVHE sets it at CPUHP_AP_KVM_ONLINE,
+after cpuinfo_store_cpu().
 
-Sending it now. Probably shorter than just describing it.
+Gate the read on ID_AA64PFR1_EL1 with the cmdline override applied, and
+on CONFIG_ARM64_MTE, which no register value reflects. That leaves the
+SYS_GMID_EL1 feature register uninitialised when MTE is off, and it has
+no readers.
 
-Cheers,
-/fuad
+Fixes: f35abcbb8a084 ("KVM: arm64: Trap MTE access and discovery when MTE is disabled")
+Cc: stable@vger.kernel.org
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
 
-> Will
+Notes:
+    Changes since v2:
+    - Keep the GMID_EL1 read in __cpuinfo_store_cpu() and gate it on the
+      local ID_AA64PFR1_EL1 with the cmdline override applied, rather than
+      deferring the read to {init,update}_cpu_features() (Will). This also
+      keeps reg_gmid set in cpu_data[0], which v2 dropped (Catalin).
+    
+    Changes since v1:
+    - Clarified that the trap only fires on a CPU that is offlined and
+      brought back online, not a late first boot (Marc).
+    
+    Tested on QEMU with -machine virt,mte=on, under pKVM.
+    
+    Offline/online CPU1 with arm64.nomte on the host cmdline: unpatched
+    panics in __cpuinfo_store_cpu(), patched does not.
+
+ arch/arm64/include/asm/cpufeature.h | 15 +++++++++++++++
+ arch/arm64/kernel/cpufeature.c      |  6 ++----
+ arch/arm64/kernel/cpuinfo.c         |  2 +-
+ 3 files changed, 18 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index a57870fa96db5..5bb242721e4b9 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -1085,6 +1085,21 @@ static inline bool cpu_has_lpa2(void)
+ #endif
+ }
+ 
++/*
++ * Reading GMID_EL1 when the kernel has disabled MTE traps to EL2, and the raw
++ * ID_AA64PFR1_EL1 reflects neither CONFIG_ARM64_MTE nor the cmdline override.
++ */
++static inline bool gmid_el1_accessible(u64 pfr1)
++{
++	if (!IS_ENABLED(CONFIG_ARM64_MTE))
++		return false;
++
++	pfr1 &= ~id_aa64pfr1_override.mask;
++	pfr1 |= id_aa64pfr1_override.val;
++
++	return id_aa64pfr1_mte(pfr1);
++}
++
+ #endif /* __ASSEMBLER__ */
+ 
+ #endif
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 9a22df0c5120f..4b339346f6c78 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -1228,7 +1228,7 @@ void __init init_cpu_features(struct cpuinfo_arm64 *info)
+ 		init_cpu_ftr_reg(SYS_MPAMIDR_EL1, info->reg_mpamidr);
+ 	}
+ 
+-	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
++	if (gmid_el1_accessible(info->reg_id_aa64pfr1))
+ 		init_cpu_ftr_reg(SYS_GMID_EL1, info->reg_gmid);
+ }
+ 
+@@ -1490,11 +1490,9 @@ void update_cpu_features(int cpu,
+ 	 * they read/write depends on the GMID_EL1.BS field. Check that the
+ 	 * value is the same on all CPUs.
+ 	 */
+-	if (IS_ENABLED(CONFIG_ARM64_MTE) &&
+-	    id_aa64pfr1_mte(info->reg_id_aa64pfr1)) {
++	if (gmid_el1_accessible(info->reg_id_aa64pfr1))
+ 		taint |= check_update_ftr_reg(SYS_GMID_EL1, cpu,
+ 					      info->reg_gmid, boot->reg_gmid);
+-	}
+ 
+ 	/*
+ 	 * If we don't have AArch32 at all then skip the checks entirely
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index d50e2a9b066b3..52a161fc38250 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -502,7 +502,7 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
+ 	info->reg_id_aa64smfr0 = read_cpuid(ID_AA64SMFR0_EL1);
+ 	info->reg_id_aa64fpfr0 = read_cpuid(ID_AA64FPFR0_EL1);
+ 
+-	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
++	if (gmid_el1_accessible(info->reg_id_aa64pfr1))
+ 		info->reg_gmid = read_cpuid(GMID_EL1);
+ 
+ 	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
+-- 
+2.39.5
+
 
