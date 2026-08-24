@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D3CC5DF94
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A370C5DF81
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 11:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,65 +12,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0j4qmzLAQl+sVGlmTA0IeZm9e3K6ICC0PLOlup5PmHM=; b=oC9qQ8HPKAZbwNY/gQj+rCYJ1u
-	Fj2H9NOVyqgY7mhg/vujUD+Sur3nEs+qMrBP0eD+eq8LKdHkH92PlesvTLnEB2+vUVuLs58JP8Nik
-	B+OVgBIO2t4Nwd11ugN73czcwrRDcQh14RuGSmDM9lBIYHhnyinOFW+ZyfM8lIceqHIzs9cn46Tfe
-	4LmOPXDjL7Xt9yjMWzNgqTItUMv0VnC4BpGZJ9b/MLm80bGCixwCFZ8iWh/wrgYQVCT03T+ZMq6aB
-	MzeaxeyJr+PGpScUSTr9zO00K6oCec7bsCV6AE0dNiJFGNmdD4bl+OjEbeVekB85/OXQCOYRkXs2X
-	QkXNlu/A==;
+	bh=sEqNGNEN3QI8hqb6DA/beDgL/pDDkQRhTHMi91Qgs5M=; b=AFwSM8zaDoDAF3rpU1zzIoqCjE
+	Uw5TthOLpDlZ/7ZEj3df+nq6pQxDo9E5pSCHzI/OMbf7sve3OZ2+i3TV39UUzbDHtyM356cJzDO96
+	yh+0WsWsmq/9gIxrMebMzu7cNnq0jB51W5AyXfHPFeBmpM3kdmadlH/wMzCHL+9WAQ0fae9ew/7Bi
+	h+cf3pQueghzkACqeDIai5qe5yQGwePIClvrAO3/7DyODLk6UjK4SrvclRMjHNlHgtI+WEzZW19EQ
+	tu/DcSSd/Z3v746wdaYraTigM0fKTtBB640Pfgy9bawMMQMiL+bmCr4S+Nse+6CKfYKvQDZtKFcC1
+	0UgfM9JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySU8-0000000GRwa-1s9j;
-	Mon, 24 Aug 2026 11:05:00 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1wySU9-0000000GRxY-3YVj;
+	Mon, 24 Aug 2026 11:05:01 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySTx-0000000GRsD-1sGi
+	id 1wySTz-0000000GRt2-0Zoo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 11:04:50 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-6a17cb94b26so6297423a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 04:04:48 -0700 (PDT)
+	Mon, 24 Aug 2026 11:04:52 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6a374bea882so6349335a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 04:04:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1787569488; x=1788174288; darn=lists.infradead.org;
+        d=sartura.hr; s=sartura; t=1787569489; x=1788174289; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0j4qmzLAQl+sVGlmTA0IeZm9e3K6ICC0PLOlup5PmHM=;
-        b=TbWMVyPostYKp6KLP3RR3YP275plhvsZiRBkG4aiDUFH+yUsQMVx+NnFry4vnvvyFX
-         iIkG/IQKkXV9Bz3BksMzKVh5bGtQMnMKzaAXpTB2IU1hcgHVlAlYewErKHYbRH+3Y1oR
-         cQRX155DK7cdRlXL+70iD9NP1JGWI0/f+TYnADhBF8T2fjiuWJh8h38aSFVoF5SvQiRd
-         t6AndqyJiyuvhCwOq06VIjKwl6pmlJ7C5DeXdT0j+cdz/QxbNckJkc0fifFBKl9nGl60
-         F1Ip2pfYKNEFGYKcoKreqdvf/ls02grT0YL69fIJ31+jSN/sblhrHdgC9Z8ZYJxKux8f
-         2uaw==
+        bh=sEqNGNEN3QI8hqb6DA/beDgL/pDDkQRhTHMi91Qgs5M=;
+        b=G1zk8aO3F1JY5Ni9yPM1GdkLL7LqVLbvubLjmHUg4DbnVrFqUgT7kBTSwnlPCMG2DW
+         axHhokSaZGtYK5SPvrRdsX1ott7TMY7yDE1T7u6l/y/p+W5t0SXdGKjW0ymxHjy6sRIt
+         fY21qtr+SHjBfxFQ7DzQnRjVm//va0YdUO8QTvtw0JvfTE/Obe2kwFa3s+CqZnQeN0ar
+         A1LZ+txAQ4fO6x16ZnhQdTvIgLaXesDFKpUiStFWorOAS+YRQT2qjty9Hk6uQYEND/LV
+         aEVGr4XtZ6bOQXt/qa4HCOJu2dwTSwDYRThxJ5PfVqZDL59tUXasXcLo9AFg93s/DcW5
+         4seQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787569488; x=1788174288;
+        d=1e100.net; s=20251104; t=1787569489; x=1788174289;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0j4qmzLAQl+sVGlmTA0IeZm9e3K6ICC0PLOlup5PmHM=;
-        b=jtQmAeGzNzc5klxl3CDFi+SiavYV0/bNXwyhcH/bx/sReYaHIVtEYTGDTQyRMVOm0/
-         XzxQt8ORogcE7P9n8GD31oJE/dJbRHBXzP08bS/57LEej/HMpny6G8/OazllBl0F7uRT
-         P0lngHrLe9/0kP4eiw+qLZxinhXfsWqFz6Tda1W/mdlEZsYY/OWNEReAFPqyRtUf3v7K
-         0f8d7yn3hvvoHrnYY6J4saQcL9FYlKX+atVkBi0e6witJeDH38IWfQuD9pVRCIhQKLpV
-         VgsY1Jreu/NQbkdAlMIF1MAF+uz93pCPCy1+8OAIp7gOx1oPz3JF9MarXEtr6bBPp17e
-         weTQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpOe/5fbuRIlQNAoaFll/t3r4KP87ecTThx3dyGyLYKKYiPPCOupQhfXzxs2uwcfz7p6m1kFCy/qYTRzlJ9ka2Z@lists.infradead.org
-X-Gm-Message-State: AFuF++kr6TSz6vaK8K2oNkvFSEXTR1WZKDw8PIHVnM2HuasooXQrWOOl
-	JQKPSUwbmOPTJQjE1HherAEZ/2PitvgpV1gjqZAgNFSFUQSmmTWMLlL5IQqYLx/zgT8=
-X-Gm-Gg: AR+sD11W7Xu/qijoEpIeVkxn2LJmIlfLb+NCLGlLsrbPb9kaN4HnYZ8jASSZTyHpLzU
-	Yc3r5IrkrHRuVDizI0iMjuEHAcpHS/ojt5LlYchFX5S2mQXuv8RVuuB9nk9bwNEsteS+TEW+ljd
-	ucAFuekCI7r/qoErgcCHBiuvPrargUtmGc/yvQywdAxTPPglbEsGeIabVZoKTbVvOXRtQ4rIfRx
-	JHhHCZOJIOarqXn2execn5BaefsKai4MJNi8YRylz8kGYLadpzWCeFxL+3EMMIzHmj1M+z6BFbV
-	uD6T80B3TjYweW5f7ToWKZVVxU8Qo+zyJbIAp/XOQXKpVsE2LbdGCBdzzD5/51Y/TJPzQe8FJMB
-	kkbZbDkIpe9tg0oa+U+ZejtI/O8iUKiXne4q2gcfuE3zOxcZdsEWElu2sEH6JHnIbnm/ED0/QW7
-	8YFyQs4qO4IXhRE1pwatI1pTWuhwLX2rlrT9CHPJufCmn8BEEB/N3S+ppRt3qyPPm+idxlF6L7Y
-	vghKJLC8z6y5bKjbKPZttTNEjNl2s3pQp6KXlzBUOsDK9iDgsalNgY2/P7Nm94rAGNF+sUwc83C
-	By0UM4KJjN36RLXYgwaA7GmQCS51Q7AwXLfdGQ==
-X-Received: by 2002:a17:906:f049:b0:c24:6045:2a94 with SMTP id a640c23a62f3a-c246a39f420mr2623291966b.4.1787569487786;
-        Mon, 24 Aug 2026 04:04:47 -0700 (PDT)
+        bh=sEqNGNEN3QI8hqb6DA/beDgL/pDDkQRhTHMi91Qgs5M=;
+        b=mDZZd7AL6Th8novlRvFdT6qlj1kvITo6jgCmY4L0C0S8EErms3jlgYfilczRqmXYzh
+         i4Lom67FoY2bd79/r4djZ0S2RvLAj+kU1phkkaH3fvOADXlbcjvMs+3BkpCyfSID0Ttx
+         33lfturbahBbNdqYfPLlXokNHKnU9kLpYQFTJpp+8Kh22ytgTnrUdRi53i3d4qsBhHtB
+         CRFanPV2/M3CyPhA5oPJPa633OAF5maiw4702kNp4uonJUynGqevYFhUJ+ydx5SMXrXS
+         XbvOGry0/+oh3tAAS0gGbLcO2bG2fLREyNM0x/EGjkZQT6PtxncHv08ZZj54fnpx7Ekk
+         FwmA==
+X-Forwarded-Encrypted: i=1; AHgh+RrEirVvTxpf17CrLIddXJUMrutndxYBKGj3Y8Riw2dKDOP1j5gDbsutwmJJNThtNtc7TxCa0S7zk+IzT+52HIV0@lists.infradead.org
+X-Gm-Message-State: AFuF++kK/W/qWnE+t9LdPtFrSlZOlpC6bI38cJ3j1yL8mQKfBXUu1vXq
+	ihphtOP8adfBDm5OCK3N4EAxLfd51Q6XH1FFg8T3sG6J7y30zp3RBsTJoLS110sfffs=
+X-Gm-Gg: AR+sD133rvs8Pg5gPy2WH7BtR+84S52ihxyU6b5qXEbEpRK4WqwhkO7Oe8u6sQF515U
+	XxmNTBq9yCd0Ok9ZkqqvA9r6S6YaQLN/a2c5+oJsyi7rt5+J0AcEuoAIi/ZjCQxr1g4uUPTknTg
+	W8kbgGSx9vIX7tlG0+Y2B3rPGAhgW07r/UKHSwzh9CdB3M2lCnk7Kre+Ja6PYfR0ewDjzp5yLMz
+	H+l4yGC5PXgr8n90DbwaJOztHHPL9qDmeaFEQfsdvc2nnTsXtPmor9t6rbG0Ok46I6At7xSrLp2
+	V0RHqf+YiPiPp6X3+O4mnKFmsHj9fsUt6aJv935mJf11sPzJul5EHbqZNoIQ8NvsAKwqEHKHXNY
+	cujAGfnLByncC6ePeyNMPBDFN6bCmEQQ8v7NrT8V5Y4XPT3J3PpvAq9nej3pVGkvlHv1qtRgLM9
+	wD4BjRD5T9inB5yZlm3rTWlyQgJn+YZ9q4OWwjYCiVbVSF96fI2KGwohvU06tJLqbr4WwZoyEE6
+	RwBGojfH16kooZearVPxT4+Djh9Bkk4q6SdyEu6anoAAM96A0y/vC93gP+c+1dBZeYdbB44wtH0
+	7t9j5G3tdLThRMdBQByyyY6MAWMZpTjoHeAfvQ==
+X-Received: by 2002:a17:906:f246:b0:c21:61a6:8821 with SMTP id a640c23a62f3a-c246a6cd384mr2330091566b.23.1787569489516;
+        Mon, 24 Aug 2026 04:04:49 -0700 (PDT)
 Received: from threadripper-fedora-workstation (cpe-109-60-82-103.zg3.cable.xnet.hr. [109.60.82.103])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2496738e7esm1331954166b.46.2026.08.24.04.04.46
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2496738e7esm1331954166b.46.2026.08.24.04.04.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 04:04:46 -0700 (PDT)
+        Mon, 24 Aug 2026 04:04:48 -0700 (PDT)
 From: Robert Marko <robert.marko@sartura.hr>
 To: ulfh@kernel.org,
 	robh@kernel.org,
@@ -86,17 +86,18 @@ To: ulfh@kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: luka.perkov@sartura.hr,
 	Robert Marko <robert.marko@sartura.hr>
-Subject: [PATCH 3/4] arm64: dts: microchip: ev23x71a: enable QSPI
-Date: Mon, 24 Aug 2026 12:56:51 +0200
-Message-ID: <20260824110432.1074136-3-robert.marko@sartura.hr>
+Subject: [PATCH 4/4] arm64: dts: microchip: ev23x71a: enable eMMC
+Date: Mon, 24 Aug 2026 12:56:52 +0200
+Message-ID: <20260824110432.1074136-4-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260824110432.1074136-1-robert.marko@sartura.hr>
 References: <20260824110432.1074136-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_040449_528813_AA13934A 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20260824_040451_209183_99555816 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,34 +112,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the QSPI controller and describe the onboard SPI NOR flash.
+Enable the eMMC connected to SDMMC0 in 8-bit DDR mode.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 ---
- .../arm64/boot/dts/microchip/lan9696-ev23x71a.dts | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts b/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts
-index 4012ea7d07bb..985ca31e74e7 100644
+index 985ca31e74e7..89a161b87d6f 100644
 --- a/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts
 +++ b/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts
-@@ -463,6 +463,21 @@ phy27: phy@27 {
+@@ -478,6 +478,16 @@ flash@0 {
  	};
  };
  
-+&qspi0 {
++&sdmmc0 {
++	pinctrl-0 = <&emmc_sd_pins>;
++	pinctrl-names = "default";
++	bus-width = <8>;
++	mmc-ddr-1_8v;
++	non-removable;
++	disable-wp;
 +	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <100000000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		spi-tx-bus-width = <1>;
-+		spi-rx-bus-width = <4>;
-+		m25p,fast-read;
-+	};
 +};
 +
  &serdes {
