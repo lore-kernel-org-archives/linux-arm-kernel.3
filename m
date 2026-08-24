@@ -4,74 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EFC7C5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 01:09:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7026AC5DF8C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 02:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=82TQkR/Grc7Vk96Ux4CBl42uCtjliG4AMjjeE0Q0oec=; b=VyVqH3mxexwjjXUBz7vf11MR/M
-	KBYvHhsrs8eq0AYqFcOF6d8s0YkEvJQ+sWHM48wjlFjobmZjMklt9o9dKWC2UhjsSuhpe/etrnO5p
-	MqvYp25rRmy6UbPtaScl2UWPydaN96WiVgHdVZJu6UC3dAs/ahnAVEBvDFkYnUyauQQr3egkK3x9h
-	p3UXoYW1cdImKSxCph8HMvH3mKfA/Id1EuHgVOmf672PbFCo6ew3zlQ9v+u+LU5FxrG3s8tBJBVQk
-	fr0D1BpRf+4hSkWSJGCOrVL0/+08jSMKGT+ReQcqnBC1qHrHSsQHajQV8H608YzVD6OWEeQDhvmko
-	LCh0VzFw==;
+	bh=D+q5vVy3/mHMMRg8yJeHxHFAos4TmuZ4TO7+Jg4SLdw=; b=XmfpeZmR3e2Tl5kTZqW3TqL+0a
+	lx/xienKSYBJe2K3kMafsAAntGO2q2bUfqTdUvpTf4S/+fji13CNn2e9Y4/VDFxZ2QujR+HS8NKKR
+	BEnrmi2EO8PZEBtLgGbtFqWrM7sgL9nkJfxYudWu91s8f+ga1AHeMTjWNRf4wL1bPiG/8OTC4QThn
+	sMyqejFm8naCsh5ZkbF4DyFSYHrWAM0ngJnJ0tKG1yyjS1vWwqfJwRRVsJt16CpzbIKHgnnzVHqWK
+	yrr+8CB21oNiOfj43JmhS01dCuUz3Ld1AH+gIZ2fobAFEdWN4WdqYt1oURsLp9f3HXNALwPpUWtAQ
+	tw0GUasQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyJBt-0000000FjOj-1Q4G;
-	Mon, 24 Aug 2026 01:09:33 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wyKIq-0000000Fllc-297g;
+	Mon, 24 Aug 2026 02:20:48 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyJBj-0000000FjLC-273Z;
-	Mon, 24 Aug 2026 01:09:26 +0000
-X-UUID: 6deb77809f5811f19a56ed5b684f684d-20260824
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:391ad985-496b-4dd4-a59c-801c0866842b,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:258bb1fb369b99c8782552f16bfad1c9,BulkI
-	D:nil,BulkQuantity:0,SF:81|82|102|136|865|898,TC:nil,Content:0|15|50,EDM:-
-	3|-100,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 6deb77809f5811f19a56ed5b684f684d-20260824
-X-User: liujiajia@kylinos.cn
-Received: from nature.lan [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <liujiajia@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1873175886; Mon, 24 Aug 2026 09:09:17 +0800
-From: Jiajia Liu <liujiajia@kylinos.cn>
-To: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Ying Hsu <yinghsu@chromium.org>,
-	Archie Pusaka <apusaka@chromium.org>,
-	Abhishek Pandit-Subedi <abhishekpandit@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jing Cai <jing.cai@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Chris Lu <chris.lu@mediatek.com>
-Cc: linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1wyKIm-0000000Fljf-0J9H
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Aug 2026 02:20:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DUmaXREHIhNdS5iQHoH62in2gI3a6W1cBodB/y2fgrIn77O6nUHVg4RlAAxooMs9HQVAj/iyVZI2lMcq0bmQfIZWz78BPqNkclgvrNq+z4oszBfblt8mNaluU8p6BtQw60cx0b7cbj4uiJOgsTEoRoGHvr207s2VFbGnXrkW6t7D5wU6eX57+S8Q3zGHPADFwUeSyetCwv6zoVRpOU2G+bpGpTGG4cj+xocusmM4Cm8W3iwSdmUYRV5d/I0S7/wWi72biohaX9NyPqCt8Tv9AafLOj+OmNmssBr1cY6OeMi3TxKEMV3U4A6s1hPBSVZIddSuKAO74ok6ruvRJHsUTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=D+q5vVy3/mHMMRg8yJeHxHFAos4TmuZ4TO7+Jg4SLdw=;
+ b=lJrhuU+vUN6ehiWqIBW8+98B6ghAMEmh0jd/aK2GS/+quk1T2EO1Pw+drEETXACDxd1+r6+dgh5JMkVS2NY3ZDdcrqX3C5nGNeBmHxcDgKCUejzoE7CQb0n8Vs30Wgci5mgiN04zBlhJV3BEzcEPWXB5b9P0sBmQAObvYjakfhfyCFwsSy3R2vZ56IwIGr28swaUWiHpfojEDoQt9M9t64lU5EQ/s655RfTfgdQ6nrRq9fwC4nWbQa5r4Vm2V+8LynUk8IFsAr1uRBFG/GEio/eyHieTSjLyI3cDGja7kwbUSNa5sPvd5BSBj+x9Ob6LWsgUSCgu+0g3QwDc6Eb9rQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=D+q5vVy3/mHMMRg8yJeHxHFAos4TmuZ4TO7+Jg4SLdw=;
+ b=iHcoJUI/ukbwMku0EilC7EO4inUJ2viy4tnrzlGryLg+QwRmgHaKuMFZgEdWPopd1h1NVlX6YOknAEWXtfeaCTszcN+erpo0bm0H9YSordfeVVFerGYMrXzEnw23i7ocENit+XnH/L94UXm4nC8fQFrPlAUKbGMX8HQqXXIM1Ys1+Z3i4g8TRr5gamD6tR6Tjyc9QfggO3UO1mb9zv2rV1M/jiRzAiyfr92sSCp8/1/J6rjVxdMWd23fFMkQ9CIfHMta/uJU6HrctfEWh76QsEjFablUFhkrP70QED65LG0dATdapvvft1VPPMDFr9oqEqKKjvGFwjk975GDFmDhWA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
+ (2603:10a6:150:112::20) by VE1PR04MB7360.eurprd04.prod.outlook.com
+ (2603:10a6:800:1a3::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Mon, 24 Aug
+ 2026 02:20:40 +0000
+Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
+ ([fe80::d247:853:3e16:1994]) by GVXPR04MB10021.eurprd04.prod.outlook.com
+ ([fe80::d247:853:3e16:1994%5]) with mapi id 15.21.0339.012; Mon, 24 Aug 2026
+ 02:20:40 +0000
+From: Chancel Liu <chancel.liu@oss.nxp.com>
+To: Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	imx@lists.linux.dev
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Jiajia Liu <liujiajia@kylinos.cn>
-Subject: [PATCH v4 2/2] Bluetooth: btusb: Fix leaked runtime PM reference in btusb_reset
-Date: Mon, 24 Aug 2026 09:09:00 +0800
-Message-ID: <309cc8501019921f480073be76d146825dfc8524.1787477831.git.liujia6264@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <59a4c09e1cb02ad8c375a08e5af164d64a3d7061.1787477831.git.liujia6264@gmail.com>
-References: <59a4c09e1cb02ad8c375a08e5af164d64a3d7061.1787477831.git.liujia6264@gmail.com>
-MIME-Version: 1.0
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 02/17] arm64: dts: imx91-11x11-evk: Add board muxes to select between PDM and MQS1
+Date: Mon, 24 Aug 2026 11:20:05 +0900
+Message-ID: <20260824022020.2812810-3-chancel.liu@oss.nxp.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260824022020.2812810-1-chancel.liu@oss.nxp.com>
+References: <20260824022020.2812810-1-chancel.liu@oss.nxp.com>
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SEWP216CA0092.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2bf::18) To GVXPR04MB10021.eurprd04.prod.outlook.com
+ (2603:10a6:150:112::20)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB10021:EE_|VE1PR04MB7360:EE_
+X-MS-Office365-Filtering-Correlation-Id: 11d34aba-bf4a-4010-76bd-08df01864aaf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|366016|23010399003|10067099003|11063799006|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 1Cd+qIAvMHFkJc4nDwWpzoC5aNJVNfimpTWJxi19xKwbuPJCflzUDamnLZpfdy6yalaxwsxxGr0GxIn+K6Ax1KIFnXh6NOTJEfvPZv+iClbUN8BEpfCyD75BYXUPqmd6X4u0xDdMw4kwMeV3ThU0E4pqAq9jPFKnSQKPvt4X+a11ArNpef+ZAgS19EksQ9LGYvut43qvlgpKLIpe4nE/eLk3X/nZhZ4Fh/ldU3pZiekJFbhhO1v4o3Zxlndx0sBAV8ZZWk7ypsW7KYCdI9M1h0hXWyWq6mpQda/If0f6zMfkdIluCvod88k+/GFMCQRtSlm48mexgcxj8658mhqaSMZ6K+WEMjgogGMp2byMZ0JPebW193KSukMRyqwSlet7Wv2KRLyZeptiFdKce56K2PAvRLICUgRomgxuWNgU1hAwVZLU+/OCLhtsDQriQzRdDqYpTGUVKpHJJyxFc8hv/6mLSU84xfjpKmdwNlVvjhp09LYtDCNmbf5C8PYHd+VEkYgN2gM7SX8PKSXHvgqLxSUAGDuzYbnUPlB3mS2vnXOtySkMF6mNnc7Sp6FoSco+hDPvls/P6zCHBHOzvgQg/tZIqjtoR+9gsiPlQ9p2vnTbhUpfYLnKKs//zrN7y4srWQmEKeSSA+qpGKVjaq9JL77SaW5oAwOmSN5ZVx/9wyc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB10021.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(366016)(23010399003)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ohHn8skvUsKtXn+6dzu+Y0bzdOXlqyG0GlZqKL/tftSveh/V7+DyQeGMZAvz?=
+ =?us-ascii?Q?Xtr63SatM299OFd6LCyiJbCwhdZmSNjOgvQkU0+R6H7JuqnZr3aEvt/ijzVF?=
+ =?us-ascii?Q?KBnOBycHGKcSTG6qU1oxXOgBOyNtQqDth6ULnqprTZ3d4iOM+eyq+ur16qV1?=
+ =?us-ascii?Q?mNsewb9e58+2lxe8j4Z6xVk+rPhb+zbxSoSMYRRc5QvUugtFHmeqG+DP+dAz?=
+ =?us-ascii?Q?4YAAwPFa4W3NBeABEqYmeZaOegU5egs13K3B5zRTHvH8ETFpoyHXjD8/GLQG?=
+ =?us-ascii?Q?3lRhkQLyYAANZcbSTMoDCxtMSVdkMxx0bvRDbDzzodXXz7uz/vpP6CsC5q5m?=
+ =?us-ascii?Q?hgNwoIDYznkTBLZBNfwuVYRv1dyMXQsuQ7FWCB33o5+suq7o+3KVGFTdHRWc?=
+ =?us-ascii?Q?oxGV53kGtd7tVdXKKweizzUtfdT0KOff6nlTAbNw0oJoSYqdTHzEkRJaIYUZ?=
+ =?us-ascii?Q?z44WaX7QPwTdC97NkYKVEuDF/noaJDnoikfrDvSxijgtejU7DiPTVmFf6KZa?=
+ =?us-ascii?Q?mTrTSfIjlbxlfKcTWQw8j0EeOBoL0BwK2aQoatDV9TtXeP54GiiUa5Iqstzq?=
+ =?us-ascii?Q?ishR7z7yZW8LMswURLe5xboFQKSIWL41cpYcniskP0/7bwOf/uXVAQMqb28C?=
+ =?us-ascii?Q?6oMftTsxAI+mWzqng4waa42xHdb1iGUx9mLI6u1YH6h7dMZCDtq52Giy4GzJ?=
+ =?us-ascii?Q?ADd7ZP7OsB3t2mRj+x0NSNdDOadlIwrHrCRO47PCnFK167Whdp60juX8Nr0+?=
+ =?us-ascii?Q?EY5c8D6SL+i8zqUYLYLSB8H7A6nOYkRqAgiXXtI4DQui634MUZm2S9ChGGjM?=
+ =?us-ascii?Q?EJ8tR2fcMVd1TQOitCmcAOvmUp66+DERbEQiPy5vhAN3pp08sxERBIaUba2Y?=
+ =?us-ascii?Q?e0h15zEQCqh0HJzmmCzAOFsuV4P1G2KEiIMvMVwncFv6XMlDIyFqC9Xa2M0P?=
+ =?us-ascii?Q?cUxJRrFpWxCeS5g645AFUnbEK9HlRHs+LYKqppjIngRWnpVP3f6YezVxIV5+?=
+ =?us-ascii?Q?dOasToWIj7wpN0HoaPcayrrvtNjU3SD5N6r6oelmKGLc7ilUBSLXSjdIJdGh?=
+ =?us-ascii?Q?StgegyJjL+iwS0owyyZXEqSmlfGw7lnfapnoStga7lyWtPwVSn3AlWA0afFb?=
+ =?us-ascii?Q?0vFpSJQ+S5bFSrjMsqE+onEKfh3NxMUflp/N0m8kUp80Z0xWxaPmKf7f13Wb?=
+ =?us-ascii?Q?z1aRrwgPOnbErTBVLbA4O8BlUCa7T+S/x4mCmtpIu+OI9sJPqzNBGRNqZ9wK?=
+ =?us-ascii?Q?Ttn/wcr/KJdCfIWyPkpwArm32Fqw55bElB2wzt1DL9zhkzaEBdZz/G/O4518?=
+ =?us-ascii?Q?h/3wstXrSAtp2OK7DDr/EVwRbKw6UYLUqCM6nOyi3FAiYpRKKuZlQZ68kSAd?=
+ =?us-ascii?Q?gfBgILLs1PmEhOMAqY2deUim1eL934ra6FNBiAvGw1i+eFh0ROEvkGkKb97s?=
+ =?us-ascii?Q?/u+Ue7kKdqpcLoAtk1WDBw+Ig/AcJgEx1yre9swY0JSYp46qxO/I2hB+wbA2?=
+ =?us-ascii?Q?KV3znMxkxqizYxbXHujppPencKa0xTrGPEfmXya0sJmZNtwOYXgr9bCL/0g3?=
+ =?us-ascii?Q?WytofHjQvidM+CpFqu8aSEC0AjfhZ3Uv0ZBUvcHagQ33m9UmwS9tOwTaeikR?=
+ =?us-ascii?Q?agcT/JuIsRHYGatXhUJ3mzacvkcie+NemwErdhwUJ2ldY2wAwbisNQhlD1Q/?=
+ =?us-ascii?Q?53uAgYw70f8/ERCes4b82YU4SRXbobNNXrNMV3bgNs+7IZ52pEbiA1oBqLBn?=
+ =?us-ascii?Q?fP9Rb7PjHbvcow2YV7BRUWUD3R/G8sxA1IkIwqbxEWYZQv+byIie?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 11d34aba-bf4a-4010-76bd-08df01864aaf
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB10021.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2026 02:20:40.1659
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wW0EqlqiyK9yior/f5tvZf/JQfwOn13ovX1ZCJJz5RqaN+nWdkstxCfWH4QzmDdKtGa1mXGcSJl9jgo8Ybwyt9IU+Ub06w3b3ojj/7MgrVjz3uWrb5cvGQ1H7njlb6uq
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7360
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_180923_833088_BB509688 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20260823_192044_126903_6743247C 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,71 +144,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-btusb_reset calls usb_autopm_get_interface to resume the device
-before queuing a reset of it, but never calls the matching
-usb_autopm_put_interface.
+From: Chancel Liu <chancel.liu@nxp.com>
 
-usb_queue_reset_device ends up in usb_reset_device(), and since
-btusb provides no pre_reset/post_reset callbacks the interface is
-merely unbound and rebound: the interface device object survives
-this cycle, and so does its PM usage count, which is not cleared
-when the driver is unbound.
+PDM has pin conflict with MQS1. Add GPIO-controlled board muxes to
+route shared signals between PDM and MQS1.
 
-As a result every reset permanently leaks a PM usage reference,
-preventing the interface from being runtime suspended again until
-it is unbound.
-
-Set BTUSB_RESET flag before usb_queue_reset_device so that
-btusb_disconnect drops the reference. If the flag is already set,
-drop one reference.
-
-Fixes: c9209b269afd ("Bluetooth: btusb: Introduce generic USB reset")
-Assisted-by: Claude:qwen3.8-max
-Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
+Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
 ---
+ .../boot/dts/freescale/imx91-11x11-evk.dts    | 21 ++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
 
-Changes in v4:
-- do not return if BTUSB_RESET is set in case the first reset failed.
-  (sashiko)
-
-Changes in v3:
-- handle multiple reset requests int btusb_reset (sashiko)
-  set BTUSB_RESET after usb_autopm_get_interface. If the flag is
-  already set, drop newly acquired reference and return.
-
-Changes in v2:
-- Fix the race window (sashiko)
-  set BTUSB_USB_RESET_ACTIVE flag before usb_queue_reset_device.
-
-Changes in v1:
-- add usb_autopm_put_interface after usb_queue_reset_device
-
----
- drivers/bluetooth/btusb.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
-index c95f72484fc0f..f92ea1178bc26 100644
---- a/drivers/bluetooth/btusb.c
-+++ b/drivers/bluetooth/btusb.c
-@@ -1033,13 +1033,15 @@ static void btusb_reset(struct hci_dev *hdev)
- 	int err;
+diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+index 5716febb5a50..4d1ada6a3942 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+@@ -41,6 +41,25 @@ chosen {
+ 		stdout-path = &lpuart1;
+ 	};
  
- 	data = hci_get_drvdata(hdev);
--	/* This is not an unbalanced PM reference since the device will reset */
- 	err = usb_autopm_get_interface(data->intf);
- 	if (err) {
- 		bt_dev_err(hdev, "Failed usb_autopm_get_interface: %d", err);
- 		return;
- 	}
- 
-+	if (test_and_set_bit(BTUSB_RESET, &data->flags))
-+		usb_autopm_put_interface_no_suspend(data->intf);
++	pdm_mqs1_mux: mux-controller-0 {
++		compatible = "gpio-mux";
++		#mux-control-cells = <0>;
++		#mux-state-cells = <1>;
++		mux-gpios = <&adp5585 2 GPIO_ACTIVE_HIGH>;
++	};
 +
- 	bt_dev_err(hdev, "Resetting usb device.");
- 	usb_queue_reset_device(data->intf);
- }
++	pinctrl-gpiomux {
++		compatible = "pinctrl-multiplexer";
++
++		mqs1_fun: mqs1-grp {
++			mux-states = <&pdm_mqs1_mux 1>;
++		};
++
++		pdm_fun: pdm-grp {
++			mux-states = <&pdm_mqs1_mux 0>;
++		};
++	};
++
+ 	reg_vref_1v8: regulator-adc-vref {
+ 		compatible = "regulator-fixed";
+ 		regulator-max-microvolt = <1800000>;
+@@ -484,7 +503,7 @@ bluetooth {
+ 
+ &micfil {
+ 	pinctrl-names = "default", "sleep";
+-	pinctrl-0 = <&pinctrl_pdm>;
++	pinctrl-0 = <&pinctrl_pdm>, <&pdm_fun>;
+ 	pinctrl-1 = <&pinctrl_pdm_sleep>;
+ 	assigned-clocks = <&clk IMX93_CLK_PDM>;
+ 	assigned-clock-parents = <&clk IMX93_CLK_AUDIO_PLL>;
 -- 
-2.53.0
+2.50.1
 
 
