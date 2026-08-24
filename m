@@ -4,97 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C134C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 07:25:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06BEDC5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 07:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mReJpvtLm9dqdv3WCFEniwlCeMYP2iFL9V8+lCtTCl4=; b=VSjioZP01fAYUdWSLYy4cUgkdd
-	Fb9jWticNygF2R37fsjeySkhZJSkjtOIxCLoNxLsd5B2sO4xvKnSabVgSgwXv9asMEfUXJt3ZsByG
-	duVpeW5naMoSvHuvzODZAeoHkDX9ZfHC6bvmvczH/hfRWDg35+x42hRSa5CIGDU/0C+rHdlPHwQNj
-	9uSAqirxZQOztpZnRYlJgEB2UtyqiTvWQzdQeIzuQv3Oejy/FRd/on4cAnCy+f53mDaQ+6Fd/smKg
-	SYPOkpifzNcZaVuNWDHC+ZSUpf1n0pcEzxG4m0YbHwTgfhlMp5TUHIVP5yEvEonNqNvC/PKTS8D8/
-	w+Z4Q9BQ==;
+	bh=hpXldSP37oQmlhckItfAzwUOG6JobW41WzP0kSdLesI=; b=VNRUNwIHKpsLmNBVRQKQiE9Ge8
+	aw5MsRlpT9Ygl/EdxntANl5uER4+Ld2qW2eGnP/nus3YUdwArAwmjYxu4ZHUagU2unr5GeiXk/HoD
+	bZbw0rZa+KS+HBTuZv7fFhD21cyPBQNvI1vYRpaIH9UwzkikuZZQhLcHRkdsbzRmqgiPCspbyy58O
+	CbfNYLH+rSS0/fORHH/bIqdKLv86m+Ygz47jThMluDXDk6iND/5KkpbBNxVAXDs0KeFoGkWA7Bs7c
+	F5LFa4pTaNiFJC+MECUEyfdJ4HaZaOv6fSDZXsytH4Bgdh4POgQePHEPBfIv86/rz1+k6ga4MDzJe
+	E5OHd3mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyP3E-0000000G4Ji-2E1P;
-	Mon, 24 Aug 2026 07:25:00 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1wyP5v-0000000G4Zv-2uGn;
+	Mon, 24 Aug 2026 07:27:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyP3C-0000000G4IW-17FP
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 07:24:59 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c15d111ca99so367511766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 00:24:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1787556296; x=1788161096; darn=lists.infradead.org;
-        h=in-reply-to:references:to:cc:subject:from:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=mReJpvtLm9dqdv3WCFEniwlCeMYP2iFL9V8+lCtTCl4=;
-        b=lChfjKCpKuc99RWRk/6gwfmlAPmqqlnqj2J/2HJ7Y8dU6VZAtetvmZ1zydC4NF0LOh
-         Zts+iOJwuHAIQ82jsmnchJofkpuGiMk+oBpg8DJSsgFJ95EnMFhGDcx0cN07Iehl4TxK
-         HdKOTTupSjNOjhXTbm2lEdVREWhMTGSUTitFOHjAujL5XJGTFA+q5pY9txtJKLojN2jC
-         HhabEQl7eYrafEjIboZDcg3ysuMg9d3z0G3m9routddemieag7EGUuh7CGNtGanUbngu
-         smEm1vxmx01+rFuyj28c7KO2CMmHT89q8moajCnK3x+hBLY1yvlPYd2AKSeYEYV/7cVA
-         h4kQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787556296; x=1788161096;
-        h=in-reply-to:references:to:cc:subject:from:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mReJpvtLm9dqdv3WCFEniwlCeMYP2iFL9V8+lCtTCl4=;
-        b=ROMi1zQXoDwbU+Q0OeYLWnzYpMzuD6JWVkom3sDeEFxj/JpV1IvsPztiwlDVHdHwur
-         pVuRkd95zAORubOzNs9Ez/rALGAeExt7kyPb4Fkn616Uo9wQn7k0QK2Gnni/pQ2mI/Pu
-         GcnIV689K8Zz7NSNPq950w2oYyjkzorURZEOqnR9VGRuJ1M6qXY/smNYYBnBikh4+N7E
-         f7jJWvsb8ffIYx6lXTrsjtnedPnc/xi3Dh2npdAHYsIrzOBOAo8U9ZYiOpOJbKYxgF2g
-         MXhl48zuRYLP5tV3HERS6MkO5msEEOTm60eE2wf4uEN6gCxTDRWegdIAh8aZP5d87wSO
-         lMbQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrqowE/ht3W8RnVMNaOHg077QXTx7ev6gz7Md86JKDm1y11YePE9U4F4MJIRkHmr/mdqGU5F4ZfRkWDq64/nLi6@lists.infradead.org
-X-Gm-Message-State: AFuF++nFPNG+ymX0fbuUpENKAaMpxrQFp/XoLf+amfqZFqVSVBsmCRFd
-	Psseo6NHBe/Nov+G3nwPwXTfWuO9tvhxck+gIEDUhpmFNeUrH2UKSjZ4z71eB5ta96c=
-X-Gm-Gg: AR+sD135r/ztZzapIDqxeakGOjAN+06a2MYkYE08DtQRujWUINUCddP9w4Dqt6kmQaT
-	fzg49TuEujJEAREs11NYoKVTcMqeZUnb666LhhSGuoeQEQS2OQqTu7aGKCXbY3n9a0cffC47bT6
-	vMjju6HkfmRcTFrTcrfsSTEWbutYEgT2MvW/OFXRkNA3FeNIVUp/JVa4cbLI40uJbAn9btxrvTT
-	4ObeVF02FRSq9Ye4s1U6oBGQPyaMlC+ycqHypBYtdAMiV4En8UWpYQtkpvzLKyNXuADaH45hD1R
-	SD2IrRxJGjkL1DF3Jyz5gJgfQ48BoOd1Ohg/rGRu8dhgxRa5PilnPmwI8VAfm1ZWQLpN/ZmP8zM
-	dzAHDroixrQvUDWRmDLvdWblb+nkp3bH5hYoZO5f1ruVPGnZKtmu0ydSO/JqX07ToNhF2XaveoU
-	yj86gsbU3xcqqf6Hw2fqfHaWMnoOfTNQj/SEhkwHZ9RDVhyGbmKz4v7KpKLXDwjcEopMBh04742
-	D0FS+3gEwcZOPPnXWfuaRFeCm9jxVPInNUj90HS19t2peMbQOM=
-X-Received: by 2002:a17:907:1c26:b0:c1f:29ce:76a1 with SMTP id a640c23a62f3a-c249272d9d8mr2094529166b.19.1787556296453;
-        Mon, 24 Aug 2026 00:24:56 -0700 (PDT)
-Received: from localhost (host-212-171-227-71.retail.telecomitalia.it. [212.171.227.71])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c24966f64e0sm1399310066b.32.2026.08.24.00.24.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Aug 2026 00:24:56 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 24 Aug 2026 09:24:55 +0200
-Message-Id: <DKWZTL9MS4PC.UYFAW9NOZG5N@baylibre.com>
-From: "Carlo Caione" <ccaione@baylibre.com>
-Subject: Re: [PATCH] dt-bindings: usb: mtu3: Add MT8512
-Cc: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "AngeloGioacchino Del
- Regno" <angelogioacchino.delregno@collabora.com>,
- <devicetree@vger.kernel.org>, "Julien Stephan" <jstephan@baylibre.com>,
- <linux-mediatek@lists.infradead.org>, "Matthias Brugger"
- <matthias.bgg@gmail.com>, "Conor Dooley" <conor+dt@kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>, "David
- Lechner" <dlechner@baylibre.com>, <linux-arm-kernel@lists.infradead.org>,
- "Chunfeng Yun" <chunfeng.yun@mediatek.com>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>, "Carlo Caione"
- <ccaione@baylibre.com>
-X-Mailer: aerc 0.22.0
-References: <20260721-ccaione-upstream-mt8512-mtu3-binding-v1-1-2f229c39f121@baylibre.com> <178576344579.3104650.10771178654777991535.robh@kernel.org>
-In-Reply-To: <178576344579.3104650.10771178654777991535.robh@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_002458_321515_E209E831 
-X-CRM114-Status: GOOD (  11.21  )
+	id 1wyP5u-0000000G4Zf-18TH;
+	Mon, 24 Aug 2026 07:27:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 300B1600AD;
+	Mon, 24 Aug 2026 07:27:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B017B1F000E9;
+	Mon, 24 Aug 2026 07:27:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787556464;
+	bh=hpXldSP37oQmlhckItfAzwUOG6JobW41WzP0kSdLesI=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=Hghfi3F3hhjgblfEVPUEEPHALjTTBAgKBK8MbewWtmMLpyrYB+8Jo29/224FAiShM
+	 0SLcU5txHHDDVRBQmZbs0Km1ZqbqYphsVzR3okw73rVZzhWFSwmbPshMJk+4ij8Gwk
+	 wBlW/tVqVoMXtxSb8VWH+7r37m/WC7KmAwdV5lxYZr50+jzu/iInwaVg4PoIgWPYV+
+	 C5co0jxq4J2+miGm/bYP5+zECjtlCOUz+jUuPUU4mw1mdcjIPjf5Qqh658+sfYqF50
+	 oCrhxE7AzAMSOiSyXc8TzEpXzk6qb68sZUnHfTQBzsRUMB6GzKuCnUN8V+wutnGyd3
+	 qgVllw8rmVK3Q==
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [RFC V3 0/8] mm: Drop pxd_ERROR()
+From: Mike Rapoport <rppt@kernel.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-mm@kvack.org, akpm@linux-foundation.org, david@kernel.org, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
+ WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org, 
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, 
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+ linux-um@lists.infradead.org, linux-arch@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260818040041.1891769-1-anshuman.khandual@arm.com>
+References: <20260818040041.1891769-1-anshuman.khandual@arm.com>
+Date: Mon, 24 Aug 2026 10:27:34 +0300
+Message-Id: <178755645423.3606540.14531883744138096395.b4-review@b4>
+X-Mailer: b4 0.17-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,30 +81,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Aug 3, 2026 at 3:24 PM CEST, Rob Herring (Arm) wrote:
->
-> On Tue, 21 Jul 2026 10:00:28 +0200, Carlo Caione wrote:
->> The MT8512 USB controller uses the standard MTU3 device MAC and IPPC
->> register layout and is handled by the generic mediatek,mtu3 driver. Add
->> the SoC-specific compatible so the controller can be described without a
->> legacy split node.
->>=20
->> For now the only user of this is on the U-Boot side but we want to keep
->> bindings in sync.
->>=20
->> Signed-off-by: Carlo Caione <ccaione@baylibre.com>
->> ---
->>  Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml | 1 +
->>  1 file changed, 1 insertion(+)
->>=20
->
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+On Tue, 18 Aug 2026 09:30:33 +0530, Anshuman Khandual <anshuman.khandual@arm.com> wrote:
+> mm: Drop pxd_ERROR()
+> 
+> pxd_ERROR() macros have been provided by all platforms, which are very much
+> identical and can be dropped off completely if these pgtable printing could
+> be moved to callers in generic MM aka all pxd_clear_bad().
+> 
+> But first cleanups and re-organizations are required in some platforms that
+> are using these macros internally. Afterwards [pte|pmd|pud|p4d|pgd]_ERROR()
+> macros have been completely dropped from the entire tree.
+> 
+> [...]
 
-Thanks, who should pick up this change?
+Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-Cheers,
-
---
-Carlo Caione
+-- 
+Sincerely yours,
+Mike.
 
 
