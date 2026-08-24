@@ -4,140 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A777CC5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 17:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8CCC5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 17:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bNWcOKtXMRQgYg/YFNMPsFxR3DaZppMUZM3MBSPYFjo=; b=MAHNpXK6ORBEXlxaFPl/j43dyx
-	FRmSfaUO3fEVGFgfsroCKq/pnIIgSxL3Jc1yyzgdvWPrKpqXQ/HXGU5Nx1Rj7nQtnatrco25ju96z
-	sAgqa6OIScbT0QGqhULQFIZUxZdVLqqLcg/kxwbu/UIpLp31kTSvu0VhxIpr/BVNUgYw26HxdpLsD
-	Sd+TahAY4azhp46oECntQ3XtACSF9hkMSteYrUrPyj6JMoslDYwGIddUGQF4YzhB9HXT8s57clyet
-	0/zdhZZmlOtlwHy8GqHKtEeXPKkWi5xjU0PesHlMirA0U80wk7+neBqyD5HYgIKt4ALodxLrx0tUY
-	zIIgjyVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/YiyuDQDgrAZIpdgTwrDK4kXwmBpmKtp2/U0jYeeTno=; b=Ott8Pp+79lEP1DNOzM2Aa01NTo
+	rlnJBC9K3LVEhwR/eGP40TFLIZXwqFFqQUHYdTz9gjiv38CCN3nliJhiHg0tnuwzCcj/n84RKtotR
+	/L/xWpteX72ZkoqAf/C6UVEub2DLQhiESaz+d1lUI/3Ey3XcM3p0jOUaY7P86mpTxbqNLWlUv3xBb
+	cSGsjE6znITmyzyOZlxgZ8rq4stEa6gpluVsvop+rwo5dDGOh/iCApEzQJtSUEsjRxWwtN7XFn50d
+	JNr3BMH5OOuPmTdM+ZtLHiE7hoibvcwK3evpsqAJaaK+CFCyViI81wd9VrGCyuyq3o1SNxCDbF+Yu
+	yVuLgvJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyYjb-0000000HCSv-39la;
-	Mon, 24 Aug 2026 17:45:23 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wyYko-0000000HChB-0RX4;
+	Mon, 24 Aug 2026 17:46:38 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyYjZ-0000000HCS6-2BWH
+	id 1wyYkj-0000000HCg8-2biA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 17:45:22 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67OFmpbq2857113
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 17:45:21 GMT
+	Mon, 24 Aug 2026 17:46:36 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67OH89iG3138169
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 17:46:32 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	bNWcOKtXMRQgYg/YFNMPsFxR3DaZppMUZM3MBSPYFjo=; b=nkN1N2rVXI16kjTo
-	nqcMuUZQ4Fg4sO4kv0V8uLUIubPxlJNLA53XqwH+Tz6DAHtOFlm3RJi5W/QEPoj3
-	QK9z6GSBPuPdf1Lk09du9JJ3XAfLMKJLNT4K2dJwNYFZPsJtPSO1ObLMD4goRJl1
-	ji71K1O9oG9Y8V8ndb9IHdpg8YlqQG9nSjEbZiWlijQe84ouHlhhaOggg+M6Gd7m
-	CLOrIaZEXJ9VMwHF4KvDCg8aLT/YZSfvCC3VQCybqnhapgTFpAjOi+zX+akwk/Q+
-	IXeD3Kz4QA8yFYfxEY1gVRXVZGo7bJOZ8PNAsBaWtNmHLW+k5lRz6cM9RJE0s5q4
-	faAB9w==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g8kdsj5ar-1
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=/YiyuDQDgrAZIpdgTwrDK4
+	kXwmBpmKtp2/U0jYeeTno=; b=opQMH1cww9OVaof7Ohg2xNARlePSxjt6quxPOh
+	EdnTByDoeyi0ov828H3NZBQvJqzDCg0xXP2nD+7IhC/v4pY5hJsvE7hbNizBAhw2
+	k+9Q25FeTTeesK1j/4vK61vKYJ2dxbShSedzrYzknVgW7iMkTlGw2TV3sryb43TF
+	shjvese12OxRXDxE3vAyRUtH9RxYfqBW3vIsFp98QxB0jmWxu6TPL/KU3Tj3c/vD
+	3s1W/72dHlOtQbX5B/1leKhkP6qSDXfy28wiascjB7WzxFFeD/X13YFFU3CnosNO
+	OXMXIstwkmJOTl+hPOF9b+/eyHEYym3c87EMr+/PF1g/DrIQ==
+Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com [209.85.217.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g8t3dr524-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 17:45:20 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cb5ea36f969so4460372a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 10:45:20 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 17:46:32 +0000 (GMT)
+Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-75116a48926so3048778137.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 10:46:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787593520; x=1788198320; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=bNWcOKtXMRQgYg/YFNMPsFxR3DaZppMUZM3MBSPYFjo=;
-        b=Py3TguV+Kp238Nc/8qHKzxA5RPc4/e+xRQkT5+CUSTBqvpCuwCTpo6qYGpm/UpdSlp
-         lpgIE8ehZBFf80l8CXTUE7SLmk93R70M1PWSRxxi5zmgqBbgjSAOx9EQ+/kP6vBt0fS7
-         HCJrtp30Y3ndNuWVZdpqQRmYVGaYtXQ6RTOpjkg93S+JQ+CtUNfCd+HGCmehDlqLAiQH
-         9HaBXW/eL8Dt4wrCBykgPahPcA93sEBFcAsN0ysXNxxsYoaLR00CgLtWl3NbzOB+/HB6
-         3gCp9ydPNUpwbXwH57GthLvkp4iWUWrH2hdfXO28n65c51mjWwKvsvEQ9Xk/gFtDHDrN
-         rqhg==
+        d=oss.qualcomm.com; s=google; t=1787593592; x=1788198392; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=/YiyuDQDgrAZIpdgTwrDK4kXwmBpmKtp2/U0jYeeTno=;
+        b=Dda1HbzNE9FF4NrGea2hmiP3YJp9X7G53dATuie3TOF0XI36l6y4d/U5NzygiS1hMQ
+         lWr6IVbD/aIq0FBQ5Lk5CStZSKKTYFYO4rSw+biaR5a7Fsl5tAy2T9E6IA40BUz3/4AK
+         w5gr7/hJord6Kq5xfkjJMESnD7jCA9L+GeACaeHZTfJVvvkr4AESPf8CkY/CjNrC8L4u
+         NwBToGm2MjOWqALtkh706Wj4Jmd7ZICWpievk3OixXE83kjGTxnP0pjq5y/mvqjdB6zB
+         c7Af8gfGy4e/zbR0KBzvBWxMoRZ59+OGPadIlhQ/Y5mGAyMkp39Kr7Xwr/Uc7FYazwC8
+         syzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787593520; x=1788198320;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bNWcOKtXMRQgYg/YFNMPsFxR3DaZppMUZM3MBSPYFjo=;
-        b=Bmu/j9g9cAy0B8vEvmzJjbsJq0g8ef3GDl7h4NCrU3G9cRrzd2iS6kojR16Gzg/G/4
-         4CQkGFHkkuJwVJ3GgIli3rLhJjLDrjEp8zqCEECnUM9hzaUZB4yzyOeeg8Wg1+ZuchJc
-         Izu8S9p9htt+3P7FLV860qHTV4rcyEbd9/lOQySrCV5Z40AIRhnX01C5ARDuFS27ckWb
-         hx4aDr5HdeLx7x1pN5WFTJgbUBBs0KlQrRk6ZJa4gN0r6jlex/ji+oNpzoGJmHa4A/Gj
-         DiVnTFPCJ7erCFrfTHlAa8/75/lHWnWOSjvUViSwjgI1p0eFCbkCyp5fzZrCk7WCSe8/
-         9+jQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrhwYRW3PH/RpjksZBOupNGY1tsiOkudVNeuzxkpSZtuFo4b4xxlmdUnW67NQZLYkWXLWnlplsCfb9osQwAzktT@lists.infradead.org
-X-Gm-Message-State: AFuF++kxZd4BtY4JeuSN2MTqq8tkbc/t7/zk+sbP6lvrbPnpSgSHQJW9
-	5NcRhDz0sAXeghYrL7OLrHoAG/KXfRqrFv7T263gBhNYsZIydVzjVpx+tL8JzUKuuy1wUDItVEe
-	nGL4lKnnWSXwvB6CDOh4JLzDdk06/D+lohpgtIegAIEWZTPoR624iTMJZdk/cn+tgtqGU5sJnKm
-	gYYw==
-X-Gm-Gg: AR+sD13KRaudCJWYqKXdwtN5sYGP8cp057qkbhEJwHMYNFl5C/DU1Gv1MUD1Yc8du/K
-	Rj5EzGX2smBroBS4tT90QbviekEGux9ggva/RmAVDHPp9CdqC+EWewZQub9SIbz8tk/JXHmOTmi
-	lRKlUxQI8CkgSZSWzN3bNjW4f40NgEopH2YFizG197Q4lGvTC2Rn0iGh1byAQ/i2lR2m1PQudCN
-	DvowxczIldWGyzsMNqQCysiS92bKcDJxYRSYnfLQkk2juLhCsqCTmvWIIMUw8peVezJPFCkGNPI
-	UA0anso549SUwA9yKa5/h9xny7fEfEs08Zt7QNKdEocd3Tk2t9sdZCFkbtzDzPQxPhGAXsSfD6v
-	7mN+t2l8I2/lNuNRObKEIb64UZQ==
-X-Received: by 2002:a05:6a21:790:b0:3c3:7ac4:dac0 with SMTP id adf61e73a8af0-3cd300d467dmr57067901637.13.1787593520182;
-        Mon, 24 Aug 2026 10:45:20 -0700 (PDT)
-X-Received: by 2002:a05:6a21:790:b0:3c3:7ac4:dac0 with SMTP id adf61e73a8af0-3cd300d467dmr57067819637.13.1787593519750;
-        Mon, 24 Aug 2026 10:45:19 -0700 (PDT)
-Received: from localhost ([50.35.46.84])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141860c697esm24112160c88.3.2026.08.24.10.45.18
+        d=1e100.net; s=20251104; t=1787593592; x=1788198392;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=/YiyuDQDgrAZIpdgTwrDK4kXwmBpmKtp2/U0jYeeTno=;
+        b=fsjujc1M7EodlsPYel8y2yAdwTfrsnHd7ssZYXdoZaZ/BIseO5yUvPBX8NuM0eIN6i
+         Zr01akGCa4WRb05l4SKGH1knF79ESKC4rQbQ7PxbI71U4DUta/Jo5odmRXTL7uw05ci4
+         Hjuyo7yoK7EIsjIXgOePb8fQGIXRWKxAVPsBdLrWqYFRdrcDoX/sSYkjGq32HXX/j4Pn
+         Wjth0+bj0Aty7c4Cy1BF7aRnfR8RfTFQZ6xWd2e2kMMKwhMnbHSi6noaJ+ccq8WlYN3s
+         K64/ZBKAVcLwK1ZEnDAGKoOJj5G9rLw2IiDBwN9Vq4d0B9KkUUxvwEEqb6NccN9NBMGe
+         C8Rw==
+X-Forwarded-Encrypted: i=1; AHgh+Ro1fN7ExuPua5nAnettf+LYnKtOvRSHyFTE5DoIJTd7GMmQEvezvn+6q8nD6vsHlpfD6jyvrKaT0hgVqE441QqL@lists.infradead.org
+X-Gm-Message-State: AFuF++kLjvrXea6XhafdtIvG4JRlG/usoyCItQimv0evwV3nwBSMG0b+
+	KG8WV6pMeA1xZmCO61JduUHhmESspmrilgFUJKpWCoTnDteAlnGugfSBZKtfwccbcfp28FoWy1P
+	MHJNE9frTiLPVvkRNqlp+MRrzybrbhtPJ+3MYHFptTw0aWmQ0DMdVtKlt0HGIqNdFssgwyD5l9J
+	AKfQ==
+X-Gm-Gg: AR+sD11xdW9cRYqAN+f+XQLvLKQAAowVy+3wtla5YviXbfIJ9BybSHgfqnkrjMXEAa5
+	2sEk/wvilsSmY6dboEhIRL8Ilzv/MyPBc4fMtDghHVqBBa+Mm0niL8Cxy5d5sGvDubTkL9jREFQ
+	c+ogrGxBadcFG63KXk9N0kkP18coaSAi6XBAi6B3m2/mZK8WG0wCqdVERTY97ZG2yYhp9G2Dzn2
+	3tFxQKKyxxhZpuK7yUTATifXXxZfFP+CNLfABQtt1FIkur4CeX/piBJb4MwfFQ7UTMBPFA2Df2q
+	Wmu90Tp+UYe6TSd8SaAJw9YMRo8pXpbfgILWcichA33bWibDlB12OyqA2ZFXjUmZf8uhpuI2lwr
+	2HK/9s0aJTV4QQ3w=
+X-Received: by 2002:a05:6102:3ece:b0:772:dae3:d4d5 with SMTP id ada2fe7eead31-77a622293d5mr11922385137.1.1787593591717;
+        Mon, 24 Aug 2026 10:46:31 -0700 (PDT)
+X-Received: by 2002:a05:6102:3ece:b0:772:dae3:d4d5 with SMTP id ada2fe7eead31-77a622293d5mr11922345137.1.1787593591096;
+        Mon, 24 Aug 2026 10:46:31 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a59e001305sm10346144a12.4.2026.08.24.10.46.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 10:45:19 -0700 (PDT)
-Date: Mon, 24 Aug 2026 10:45:16 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        kernel-team@meta.com, Cristian Marussi <cristian.marussi@arm.com>,
-        Breno
- Leitao <leitao@debian.org>
-Subject: Re: [PATCH v3 5/9] firmware: arm_scmi: Pass protocol ID to
- chan_available() transport callback
-Message-ID: <20260824104516.00002b8c@oss.qualcomm.com>
-In-Reply-To: <20260813-acpi_scmi_pcc-v3-5-cb6b88b4ebb3@kernel.org>
-References: <20260813-acpi_scmi_pcc-v3-0-cb6b88b4ebb3@kernel.org>
-	<20260813-acpi_scmi_pcc-v3-5-cb6b88b4ebb3@kernel.org>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+        Mon, 24 Aug 2026 10:46:29 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Date: Mon, 24 Aug 2026 19:46:07 +0200
+Subject: [PATCH net] net: stmmac: hold runtime PM reference in setup_tc
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI0MDE0OSBTYWx0ZWRfX+VFOB0ycELmL
- djp2NkiuOOqVK16i3r5VWSbS6Kd8lhFePPDVTCcxCNn5BtSbg4XFXoEsEBOO1zH3UhZI2qg/CH4
- m4xONwqaj2CJizfu0k5l4DWvTpLGwdk=
-X-Proofpoint-ORIG-GUID: FpgTDsBfvYOhz_DQoCH0R1gnFbRiUvqC
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI0MDE0OSBTYWx0ZWRfXwZ9JGBSWv5TK
- shRM0zfgNWfq/y783Rk5wJyihhHMPMjo+c7zkJ25b51jcn3upUqw2yf5wGsJ8DyyrQMzZxUM8j8
- yoqFxMdjbosPTtrw7cb1ofT4k0MMzUQYGVNiwh3KWaFz/sAKDpmi7j3L+jNlfAOlWW4scyQygwx
- BQHJWc9zW7Bz280ThD3VUgKZpLtyJWJvO/GO29VP+d3+fGt5XefF8/fhjUU209IsP9uCIMg8ZNM
- 2Xo85nh2G6widlU1ANyFyyJdaZNXgJd1mY8hCk+PIlxjHRUmvvIBVG+CBQz9ElK8hzH2us2zVpR
- wMfBRyWjC1SQL58tFygXhxdIiXmPqKn0RgY8lWLqMXKQ20iQ9cNO5romJYu/9LB+pJs40JWdcvL
- ZvtGZ/4MeVBMQbmn3CPxscLo/vxd0QWlWQ4UuB++4wgEOpABa62jkqn/8dsqQbuENMtJ5Of8jRz
- t8u3ftnRSTOTq6fSDMQ==
-X-Proofpoint-GUID: FpgTDsBfvYOhz_DQoCH0R1gnFbRiUvqC
-X-Authority-Analysis: v=2.4 cv=d8DFDxjE c=1 sm=1 tr=0 ts=6a8c8330 cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=mK2TJSJBIbLwxmLH4kIA:9 a=CjuIK1q_8ugA:10
- a=bFCP_H2QrGi7Okbo017w:22
+Message-Id: <20260824-stmmac-setup-tc-enable-pm-v1-1-45172d241a4b@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQ6CMBBG4auQWTsJVATxKsbFWH51ElubTiUkh
+ LvbuPwW721kyAqjS7NRxqKmn1jRHRryL4lPsM7V5Fo3tGfXs5UQxLOhfBMXz4hyf4NT4K6fRE7
+ DcR6nkWqfMh66/t9Xiih02/cf8hEh1nAAAAA=
+X-Change-ID: 20260824-stmmac-setup-tc-enable-pm-149aa563d797
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Jose Abreu <Jose.Abreu@synopsys.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Proofpoint-ORIG-GUID: PZhTqHRhoKOiK3XH-4g9_qYOo4O3f9Ki
+X-Authority-Analysis: v=2.4 cv=OLAXGyaB c=1 sm=1 tr=0 ts=6a8c8378 cx=c_pps
+ a=N1BjEkVkxJi3uNfLdpvX3g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=O7mAVgsXz2YliqE_5DUA:9 a=QEXdDO2ut3YA:10
+ a=crWF4MFLhNY0qMRaF8an:22
+X-Proofpoint-GUID: PZhTqHRhoKOiK3XH-4g9_qYOo4O3f9Ki
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI0MDE1MCBTYWx0ZWRfXyKJukLDbS9U3
+ U4st/5/yv9zYcttEiUFCgvQF0ipsq9as7b4D40Cf4NClrpmrknilOjvGC/cgzr0uU8tyWE5AkQK
+ 84KpiCWSItpETr5kM11RUQcNM/i3tzg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI0MDE1MCBTYWx0ZWRfX6I/dfcy/RliC
+ 6dsjzUvdSb5SoaN9QJmI+VTvv5E2JQvhz5xpE4vt3TiHVGswK6lH67mjLgcslEvIHdPmxOUCcpz
+ W9q0V1zpcPuT6dEHCP2GHR3IkNK4STOtzvpJlfLYOcAJzdxaN3P1vEyS3239u1nR/jhSrwfF5sa
+ VAd9e6yH/g+fyBEIsXWGPaPLIEuiYGRafXs5WqwGPsbFp9/aNgN5njm9qTYsVC3jCsy5JVlV+GN
+ sGr7lTm71OqD+w2q0CTfOPTfIJBDMVRIqQi4bAy66I7SBLolQimykRl93iXzFhCs2SWClfdHfoG
+ 3tW+puP/RUBklfUlw0JT8n2iTJYV2hvRkQnaV0SlPH9i/OiLWey7Y2qDEqGsjhVD2V0qhcvCYhN
+ TuOhjRJYdYcgBnVGEdlVaAHqiivuT6nceksOsyv2gbKWkLoPycIXOUWYDnwmxao/4HLQmJbsQ8K
+ x6uUs9fTEdzx/bMA/5w==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-24_05,2026-08-24_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 bulkscore=0 adultscore=0 priorityscore=1501
- malwarescore=0 spamscore=0 phishscore=0 clxscore=1015 impostorscore=0
+ bulkscore=0 impostorscore=0 adultscore=0 malwarescore=0 suspectscore=0
+ priorityscore=1501 spamscore=0 phishscore=0 lowpriorityscore=0 clxscore=1015
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608240149
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608240150
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_104521_572416_D8BDCAC1 
-X-CRM114-Status: GOOD (  24.89  )
+X-CRM114-CacheID: sfid-20260824_104635_311412_231FAA3C 
+X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,117 +155,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Aug 2026 12:33:00 +0100
-Sudeep Holla <sudeep.holla@kernel.org> wrote:
+The qdisc offload callbacks invoked by stmmac_setup_tc() program
+MTL/MAC registers, but they can be reached while the interface is down,
+when stmmac_release() has dropped the runtime PM usage counter and the
+device may be suspended with its clocks gated. Accessing the registers
+in that state can trigger a bus error.
 
-> Extend the SCMI transport_ops chan_available() callback to include the
-> protocol ID (prot_id) as an argument. This allows transports to determine
-> channel availability based on the specific protocol being used, improving
-> flexibility in platforms that share transport channels across multiple
-> protocols. This will be useful when ACPI PCC transport gets added.
-> 
-> Updated all existing users and definitions of chan_available() in
-> SCMI core and transport drivers (mailbox, optee, etc.) accordingly.
-> 
-> No functional change.
-> 
-> Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+Hold a runtime PM reference while configuring the register-touching
+qdisc offloads (mqprio, cbs and taprio) so the device is active, and its
+clocks enabled, whenever the MTL/MAC registers are programmed.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+The TC block callback stmmac_setup_tc_block_cb() programs the MTL/MAC
+registers as well, but it runs asynchronously from stmmac_setup_tc(),
+outside the runtime PM reference held there. Hold a runtime PM reference
+for the whole stmmac_setup_tc_block_cb() call as well, covering the
+cls_u32/cls_flower setup and the queue enable/disable accesses.
 
+No reference is held for the TC_SETUP_BLOCK bookkeeping itself, the
+TC_QUERY_CAPS query or the tc-etf path, since none of them touch the
+registers synchronously. In particular the block bind/unbind must reach
+flow_block_cb_setup_simple() even when the device is suspended, so the
+driver never leaves a stale flow_block_cb on its block list.
 
-> ---
->  drivers/firmware/arm_scmi/common.h             | 3 ++-
->  drivers/firmware/arm_scmi/driver.c             | 2 +-
->  drivers/firmware/arm_scmi/transports/mailbox.c | 3 ++-
->  drivers/firmware/arm_scmi/transports/optee.c   | 3 ++-
->  drivers/firmware/arm_scmi/transports/smc.c     | 3 ++-
->  drivers/firmware/arm_scmi/transports/virtio.c  | 3 ++-
->  6 files changed, 11 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-> index 042867c28b88..1ab4543e0f4a 100644
-> --- a/drivers/firmware/arm_scmi/common.h
-> +++ b/drivers/firmware/arm_scmi/common.h
-> @@ -207,7 +207,8 @@ struct scmi_chan_info {
->   * @poll_done: Callback to poll transfer status
->   */
->  struct scmi_transport_ops {
-> -	bool (*chan_available)(struct fwnode_handle *fwnode, int idx);
-> +	bool (*chan_available)(struct fwnode_handle *fwnode, int prot_id,
-> +			       int idx);
->  	int (*chan_setup)(struct scmi_chan_info *cinfo, struct device *dev,
->  			  bool tx);
->  	int (*chan_free)(int id, void *p, void *data);
-> diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-> index 9ad827c6a9ab..aad678db0f6e 100644
-> --- a/drivers/firmware/arm_scmi/driver.c
-> +++ b/drivers/firmware/arm_scmi/driver.c
-> @@ -2768,7 +2768,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct fwnode_handle *fwnode,
->  	if (idr_find(idr, prot_id))
->  		return -EEXIST;
->  
-> -	if (!info->desc->ops->chan_available(fwnode, idx)) {
-> +	if (!info->desc->ops->chan_available(fwnode, prot_id, idx)) {
->  		cinfo = idr_find(idr, SCMI_PROTOCOL_BASE);
->  		if (unlikely(!cinfo)) /* Possible only if platform has no Rx */
->  			return -EINVAL;
-> diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
-> index b692cae4ff25..56af2cb0f424 100644
-> --- a/drivers/firmware/arm_scmi/transports/mailbox.c
-> +++ b/drivers/firmware/arm_scmi/transports/mailbox.c
-> @@ -77,7 +77,8 @@ static void rx_callback(struct mbox_client *cl, void *m)
->  		      core->shmem->read_header(smbox->shmem), NULL);
->  }
->  
-> -static bool mailbox_chan_available(struct fwnode_handle *fwnode, int idx)
-> +static bool
-> +mailbox_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
->  {
->  	int num_mb;
->  	struct device_node *of_node = to_of_node(fwnode);
-> diff --git a/drivers/firmware/arm_scmi/transports/optee.c b/drivers/firmware/arm_scmi/transports/optee.c
-> index 07d3affa0964..6022f74d28f3 100644
-> --- a/drivers/firmware/arm_scmi/transports/optee.c
-> +++ b/drivers/firmware/arm_scmi/transports/optee.c
-> @@ -314,7 +314,8 @@ static int invoke_process_msg_channel(struct scmi_optee_channel *channel, size_t
->  	return 0;
->  }
->  
-> -static bool scmi_optee_chan_available(struct fwnode_handle *fwnode, int idx)
-> +static bool
-> +scmi_optee_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
->  {
->  	u32 channel_id;
->  	struct device_node *of_node = to_of_node(fwnode);
-> diff --git a/drivers/firmware/arm_scmi/transports/smc.c b/drivers/firmware/arm_scmi/transports/smc.c
-> index 1079cd01190b..ee9e44468c1e 100644
-> --- a/drivers/firmware/arm_scmi/transports/smc.c
-> +++ b/drivers/firmware/arm_scmi/transports/smc.c
-> @@ -84,7 +84,8 @@ static irqreturn_t smc_msg_done_isr(int irq, void *data)
->  	return IRQ_HANDLED;
->  }
->  
-> -static bool smc_chan_available(struct fwnode_handle *fwnode, int idx)
-> +static bool
-> +smc_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
->  {
->  	struct device_node *of_node = to_of_node(fwnode);
->  	struct device_node *np __free(device_node) = NULL;
-> diff --git a/drivers/firmware/arm_scmi/transports/virtio.c b/drivers/firmware/arm_scmi/transports/virtio.c
-> index 6b060d61e0ca..3d608c8c4fe8 100644
-> --- a/drivers/firmware/arm_scmi/transports/virtio.c
-> +++ b/drivers/firmware/arm_scmi/transports/virtio.c
-> @@ -375,7 +375,8 @@ static unsigned int virtio_get_max_msg(struct scmi_chan_info *base_cinfo)
->  	return vioch->max_msg;
->  }
->  
-> -static bool virtio_chan_available(struct fwnode_handle *fwnode, int idx)
-> +static bool
-> +virtio_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
->  {
->  	struct scmi_vio_channel *channels, *vioch = NULL;
->  
-> 
+Fixes: 1f705bc61aee ("net: stmmac: Add support for CBS QDISC")
+Fixes: 4dbbe8dde848 ("net: stmmac: Add support for U32 TC filter using Flexible RX Parser")
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 34 ++++++++++++++++++++---
+ 1 file changed, 30 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index b2b7d0242dd3..4baf40fb01dc 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -6392,9 +6392,13 @@ static int stmmac_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
+ 				    void *cb_priv)
+ {
+ 	struct stmmac_priv *priv = cb_priv;
+-	int ret = -EOPNOTSUPP;
++	int ret;
+ 
+ 	if (!tc_cls_can_offload_and_chain0(priv->dev, type_data))
++		return -EOPNOTSUPP;
++
++	ret = pm_runtime_resume_and_get(priv->device);
++	if (ret < 0)
+ 		return ret;
+ 
+ 	__stmmac_disable_all_queues(priv);
+@@ -6411,6 +6415,8 @@ static int stmmac_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
+ 	}
+ 
+ 	stmmac_enable_all_queues(priv);
++	pm_runtime_put(priv->device);
++
+ 	return ret;
+ }
+ 
+@@ -6420,26 +6426,46 @@ static int stmmac_setup_tc(struct net_device *ndev, enum tc_setup_type type,
+ 			   void *type_data)
+ {
+ 	struct stmmac_priv *priv = netdev_priv(ndev);
++	int ret;
+ 
+ 	switch (type) {
+ 	case TC_QUERY_CAPS:
+ 		return stmmac_tc_query_caps(priv, priv, type_data);
+ 	case TC_SETUP_QDISC_MQPRIO:
+-		return stmmac_tc_setup_mqprio(priv, priv, type_data);
++		ret = pm_runtime_resume_and_get(priv->device);
++		if (ret < 0)
++			return ret;
++
++		ret = stmmac_tc_setup_mqprio(priv, priv, type_data);
++		break;
+ 	case TC_SETUP_BLOCK:
+ 		return flow_block_cb_setup_simple(type_data,
+ 						  &stmmac_block_cb_list,
+ 						  stmmac_setup_tc_block_cb,
+ 						  priv, priv, true);
+ 	case TC_SETUP_QDISC_CBS:
+-		return stmmac_tc_setup_cbs(priv, priv, type_data);
++		ret = pm_runtime_resume_and_get(priv->device);
++		if (ret < 0)
++			return ret;
++
++		ret = stmmac_tc_setup_cbs(priv, priv, type_data);
++		break;
+ 	case TC_SETUP_QDISC_TAPRIO:
+-		return stmmac_tc_setup_taprio(priv, priv, type_data);
++		ret = pm_runtime_resume_and_get(priv->device);
++		if (ret < 0)
++			return ret;
++
++		ret = stmmac_tc_setup_taprio(priv, priv, type_data);
++		break;
+ 	case TC_SETUP_QDISC_ETF:
+ 		return stmmac_tc_setup_etf(priv, priv, type_data);
+ 	default:
+ 		return -EOPNOTSUPP;
+ 	}
++
++	pm_runtime_put(priv->device);
++
++	return ret;
+ }
+ 
+ static u16 stmmac_select_queue(struct net_device *dev, struct sk_buff *skb,
+
+---
+base-commit: 7cbfb180945ce529608e4d4e24a6d483699fab1e
+change-id: 20260824-stmmac-setup-tc-enable-pm-149aa563d797
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
 
