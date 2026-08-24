@@ -4,94 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B166C5DF9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 16:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 883EDC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 16:32:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IO0g4mIiXj10EzMo2R/KDJ9Eie2fuSqpmAU+xz/5e2k=; b=ScT2YLxmHm+tNraPLEr9z8X+Bd
-	M7NReCDw/AkZurdDf/zQ363DkZL+Ul4+do/CYuN4O6UfcOAnWjRruqnAPpHXWXlA7HYFSae4hUWya
-	iWsJAFP1WfZ9EEw4DeFxuF28M2zir4FiXOjX+z9OlYvDcQLs9/2NnT2iVBdUB3OAW6ZXWWcWnc8VU
-	ZHrNs68Ib7Zk4oZckn1eoVUsNCPJjNr+zXOnVwMvoN5VNIM0vV22qWUK5p1YCT/uOyDKK+XxWlnvR
-	ERkpuZyXv3dN/uixKPUlswvNV11uyuTD7K3YVqURBdcWzvDTejBEGOTo3KNnvwrERnFKQZn213NBQ
-	TNuN1whQ==;
+	bh=LhrPuOzVrJQuV9lsTwwlx5y9U44yPp4q3nusbgeXo2I=; b=ou0SIURQojxyevrvFAmQnXXRiY
+	9gD2c0OG9L9v+twFgbviEirktl06m99Fhz+2FPRk0zaeFU7DNGzGn4Z2SGQj1SMMBNT+M+Yk+4kqa
+	WJf3zH25FRW2j2zP2e3vC5QiVl98bFHXahqlwlTM17udYt3EWkGRmfQEDvne1zXWSYdARoCrdUDh7
+	EfosICBtBZT7tE/ctG4a389Zbhxkknv9j5tGsqUEL1k0X2zj1/leFMkTEQCyuvytTKx04d2t3dxiq
+	awsurnadR9U/7zcO4/CBx9YWMQi94biRcJbMGHfihwRQ9GVb7a92BAAar1CmdJfpxvU2RJ4EObwBD
+	THRZAq/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyXSX-0000000H2GV-2Bqs;
-	Mon, 24 Aug 2026 16:23:41 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wyXag-0000000H3DQ-1hwM;
+	Mon, 24 Aug 2026 16:32:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyXSS-0000000H2FH-2y1q
+	id 1wyXaf-0000000H3D0-1MKI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 16:23:37 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-47f92e3c14bso2748716f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 09:23:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787588615; x=1788193415; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=IO0g4mIiXj10EzMo2R/KDJ9Eie2fuSqpmAU+xz/5e2k=;
-        b=iCQZ0csbXzabOXH/m1DFD5j3dr4i/9ePSvldFVotdZWso0c7ba+vsEsABj6KNaEdlx
-         EIuisLQWqzvLNCal3habvSWYMBOYHwS4dRoJlSDYTh0OdlfuYmxxnxFEYf7P3hMv4sKB
-         XxXm+I30wSH9jMo+rGI/6FxQwKmyaOn5cCFSj+R0QlhnafH6J/6cMSitOuSMobSWNnBy
-         w9YeuzE1ODgdkv2vKRw20IN2iUGIa8esFquQHeKvZw7/vMAA3eDlb9EWLrP4Zu6Vwguv
-         qe/CL4cm5pQRwh16VxbjZIHOzeNYG9fI/TIWh4rGAcBEhHEssqKmAeHHFE187Q6ZzlqS
-         om1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787588615; x=1788193415;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IO0g4mIiXj10EzMo2R/KDJ9Eie2fuSqpmAU+xz/5e2k=;
-        b=pIs2cMxU3+w6N3hKmlBaKUpsukoNxE+k6Bkb7iqkKt3+Gq/Sjbo5PkIn0xWjvmAZXw
-         2YT5erfYF+J4dWVeIHf1DTr7nonY/+YKEZ38jqxjqu9NCXjqIRbyF22+jhrHVvNHrUjy
-         5KvFz0qPIeyibT2kJFgaxOpHAqA2+A7G24DtGpFMQE52759GCntcXanm3oVPJbqoFJ3P
-         yrGXGRuBQjpZqvoCZNkPZoNIiM6iJeoFd0+aJPMWbDuHyy8ccqYlmsocezb+I8kGwXdw
-         R70hmOaAgq3g6CUmclYmTmUu2wpB7nTOW21spVimS46xTdUiYZ4/+n/491UyoXDDq8mL
-         cdTg==
-X-Forwarded-Encrypted: i=1; AHgh+RqEoimpb1v8900UYZxt7lV3x3Uf3Oq00RSwakMniHwl/KXO8Lqc3Ng04DXcSv1XG/uZV9nlENdxxYeGsX1GmKux@lists.infradead.org
-X-Gm-Message-State: AFuF++kqmxNvq5HBrxpg/fWQDs2+b8ZKUPqQ3Xe8nfj8eqxpJ4M+lY1T
-	U6zyLZl/cDyPjBjrGvFyBiwjrANru4pgV5VsNG+1ufVlvAskrX4aJF53IZyWNjbjmg==
-X-Gm-Gg: AR+sD12Q4u8IGz/fkue5RwrjU8iocvfBYNdbzT+omf2C8Tx4RXM4Osxv7Dx1i3Ui3qL
-	OxNWpgBPMT5mUffgRVxwvQlBWVizS0Zy2QLp8XBZqliEuCp5/kpIQUISxt/e75VEYzyuHISd0iM
-	uZ0nvH/m3y413WlufcQfF+zBNOIuSgQhg9sifVV8s+F9gulm0zysmvryVY6rFezrLQd6bXqYD35
-	Z1xEX2AvgWdHZkK7KPW6Ud2vUcMm+dRi5Jb4K+FYLSCqU/QnX9YMVriyk0fstiqCZ0Dfw+PyfXA
-	g6DypKX0A2oQUUgOWRVBYKFm9/kQ8K7QKVIZ/xQBPelt2vIkm/wJZC0t8/CjQSzcgebMXvOeplp
-	40iKIp2YGNAX64/6EiWOjxMATD717GBUw46XA37mKGBGzNGzZqvx6gmUVP188sJI/QyEcMKrwDY
-	CzwEoztny1Xh47iMmA1SbV0PGE2q+bqaDfyucM/izOzh//7u0R7jN86BYdY5nCIN7MdousuNa6h
-	QEd53Xb7+dy+cw8xZe68qkHJxVBR3hi
-X-Received: by 2002:a05:6000:22c2:b0:47f:d011:f644 with SMTP id ffacd0b85a97d-482c0b54606mr34306523f8f.4.1787588614220;
-        Mon, 24 Aug 2026 09:23:34 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482c9b69a49sm8579616f8f.7.2026.08.24.09.23.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 09:23:33 -0700 (PDT)
-Date: Mon, 24 Aug 2026 17:23:30 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com,
-	qperret@google.com
-Subject: Re: [PATCH v4 09/17] KVM: arm64: Add selftests for the pKVM heap
- allocator
-Message-ID: <aoxwAukYucNw1T2p@google.com>
-References: <20260731143541.956291-1-vdonnefort@google.com>
- <20260731143541.956291-10-vdonnefort@google.com>
- <CA+EHjTy7SUFsE3N5ERV_FQw-3GyEo17mqe2=RbV1wz8bVT+JXw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTy7SUFsE3N5ERV_FQw-3GyEo17mqe2=RbV1wz8bVT+JXw@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_092336_787597_290D0B63 
-X-CRM114-Status: GOOD (  22.61  )
+	Mon, 24 Aug 2026 16:32:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6E5A76013A;
+	Mon, 24 Aug 2026 16:32:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24D721F00A3A;
+	Mon, 24 Aug 2026 16:32:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787589124;
+	bh=LhrPuOzVrJQuV9lsTwwlx5y9U44yPp4q3nusbgeXo2I=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=VgyGBGEAkTpxfsmdtd5GPvM1gNtyyHb10JeS97wAjq4+4hbGFNYo1qaBNnBlXCWaV
+	 6+iJntSXs6cDktovYK9IBgEgdsgsTt5xHbzGnShlUfrp6FfMdbvQdZoT91J8vrQBiu
+	 icCaPBW/bOsb1Cxmkmob09d8dO04wu+7kM/a8Faw8xJffPjJc1XjYdYu3uiwbmzeVV
+	 DLNmTiixbGIHdlteuwENpLOdx7axNnV+f1Z/XLgukSnA22dne+7fQraOaoDSAI3iKL
+	 7P8VSrQ+V2QdEKduAxUe8/2ztfOQ0IDEGpaRH6y1LTorBVWuSWLxuPw/F1KwYz4V+f
+	 +MGuZkA4jrSPA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wyXac-00000000lr9-1KhW;
+	Mon, 24 Aug 2026 16:32:02 +0000
+Date: Mon, 24 Aug 2026 17:34:34 +0100
+Message-ID: <87bjaro4th.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Li Dou <li8d6kernel@163.com>
+Cc: tglx@kernel.org,
+	radu@rendec.net,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] irqchip/gic-v3: Remove the ISB between AP0Rn and AP1Rn
+In-Reply-To: <20260824023403.1312-1-li8d6kernel@163.com>
+References: <20260824023403.1312-1-li8d6kernel@163.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: li8d6kernel@163.com, tglx@kernel.org, radu@rendec.net, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,90 +82,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[...]
-
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > index 346365e76ef2..d99c9b1b0c82 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > @@ -633,6 +633,28 @@ static void handle___pkvm_finalize_teardown_vm(struct kvm_cpu_context *host_ctxt
-> >         cpu_reg(host_ctxt, 1) = __pkvm_finalize_teardown_vm(handle);
-> >  }
-> >
-> > +#ifdef CONFIG_NVHE_EL2_DEBUG
-> > +static void handle___pkvm_hyp_alloc_selftest(struct kvm_cpu_context *host_ctxt)
-> > +{
-> > +       struct pkvm_hyp_req req = { .type = PKVM_HYP_NO_REQ };
-> > +       int ret;
-> > +
-> > +       ret = hyp_allocator_selftest();
-> > +       if (ret == -ENOMEM) {
-> > +               req.type = PKVM_HYP_REQ_HYP_ALLOC_SELFTEST;
-> > +               req.mem.nr_pages = hyp_alloc_selftest_topup_needed();
-> > +       }
-> > +
-> > +       cpu_reg(host_ctxt, 1) = ret;
-> > +       pkvm_hyp_req_to_smccc(host_ctxt, &req);
-> > +}
-> > +#else
-> > +static void handle___pkvm_hyp_alloc_selftest(struct kvm_cpu_context *host_ctxt)
-> > +{
-> > +       cpu_reg(host_ctxt, 1) = -EPERM;
-> > +}
-> > +#endif
+On Mon, 24 Aug 2026 03:34:03 +0100,
+Li Dou <li8d6kernel@163.com> wrote:
 > 
-> My tag stands, but thought about this while going through Sashiko's reviews.
+> ARM GICv3 specification says(in section 4.8.4 "System register access to
+> the Active Priorities registers"):
 > 
-> The other arm writes x2 through pkvm_hyp_req_to_smccc(), this one does
-> not, and -EPERM is an error so pkvm_call_hyp_req() goes and decodes
-> x2. Nothing initialises it on a call with no arguments.
+> 	an ISB is not required between each write to ICC_AP0R<n>_EL1,
+> 	Secure ICC_AP1R<n>_EL1, and Non-secure ICC_AP1R<n>_EL1.
 > 
-> It is inert because pkvm_selftests() sits behind the same #ifdef, but
-> the handler is registered either way and nothing states the rule.
-> errno_to_smccc(-EPERM, host_ctxt) here would write the zero, and it
-> may be worth saying on pkvm_call_hyp_req() that any handler reached
-> through it has to set x2.
-> 
-> Cheers,
-> /fuad
+> It means we can use one ISB after resetting AP0Rn and AP1Rn for context
+> synchronization. So just remove the previous one.
 
-Clearly not something that would happen but I can put the #ifdef inside
-handle___pkvm_hyp_alloc_selftest() so it looks cleaner:
+I'm afraid you have misinterpreted the spec.
 
-  static void handle___pkvm_hyp_alloc_selftest(struct kvm_cpu_context *host_ctxt)
-  {
-          struct pkvm_hyp_req req = { .type = PKVM_HYP_NO_REQ };
-          int ret = -EPERM;
+Within each of the AP0Rn, Secure AP1Rn and Non-Secure AP1Rn classes,
+for any value of 'n', there is no need for any synchronisation.
 
-  #ifdef CONFIG_NVHE_EL2_DEBUG
-          ret = hyp_allocator_selftest();
-          if (ret == -ENOMEM) {
-                  req.type = PKVM_HYP_REQ_HYP_ALLOC_SELFTEST;
-                  req.mem.nr_pages = hyp_alloc_selftest_topup_needed();
-          }
-  #endif
-          cpu_reg(host_ctxt, 1) = ret;
-          pkvm_hyp_req_to_smccc(host_ctxt, &req);
-  }
+However, between classes, you absolutely need an ISB. And this is the
+reason why, just above the note you quote:
 
-Regarding pkvm_call_hyp_req(), how about a proper kerneldoc?
+<quote>
+Writes to these registers in any order other than the following can
+result in UNPREDICTABLE behavior:
 
- /**
-  * pkvm_call_hyp_req() - Issue an HVC that can return hypervisor requests
-  * @f: Hypervisor function symbol to call.
-  * @...: Arguments to pass to the hypercall.
-  *
-  * Re-issue an HVC and process any pending hypervisor request until completion
-  * or error.
-  *
-  * Only use this helper for HVCs whose hypervisor handlers format their return
-  * registers with pkvm_hyp_req_to_smccc().
-  *
-  * Return: Result of the hypercall or a negative error if the hyp request
-  * handling failed.
-  */
+1. ICC_AP0R<n>_EL1.
+2. Secure ICC_AP1R<n>_EL1.
+3. Non-secure ICC_AP1R<n>_EL1.
+</quote>
+
+While you can perfectly write each individual register of (1), (2) or
+(3) without any synchronisation, you absolutely must have a CSE
+*between* each of (1), (2) and (3). Linux being non-secure only, you
+only deal with (1) and (3), and you must have an ISB in between.
+Without it, reordering can happen and you end-up violating the above
+rule.
+
+To conclude, this patch does not optimise anything. Not only this is
+something that only happens once per CPU boot (aka *never*), it
+instead introduces a very subtle ordering bug.
+
+It therefore must not be applied.
+
+	M.
 
 -- 
-Vincent
-
+Jazz isn't dead. It just smells funny.
 
