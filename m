@@ -4,151 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BDFDC5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 07:41:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4E11C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 07:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=27aV82B2iwHpqeN6UcRflHNO30IeqGoP2gG6U77lA7U=; b=ornJp4P8GdzFVICbVXlpCSVZuW
-	z3rsWjlmc3DZu8iQgO3ShN/2strDWixJ8P4TpCVCGCxj9N5WtMbKYLMVH74ocpG+IlmTUNtdX24Rt
-	4Y3XbJmTtv/AO/O3jc9GqFMs7kNAqg8Hkj2FKyIC102uWviZzmezmeqNN/Evt7XevAKWdAeTD+lBc
-	jgF/H1/jXCrTh2Ijj8lO1K5Df/fdepWtoc8Eam/khV9z9vQvsDr8tQFVlKV6AbYIv0DTLRvkjoNLZ
-	GlvF1hHWoH42I+gLwDUlrP5pvAmjKUXP5XYrW8DfzKt/z7gQ+AZqarYbo8vHis2AJB+oR0mew8UT+
-	3vd8sV2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fb6pO/YtoQ+aEwuzp1VKZ4xMFmki4UGYSxov3DmXxi4=; b=VLhfNNDkyz/KsmPr3RbCpHlXQo
+	5BXji7CY0SR74waw338B/9Y60yy7tyvbXIF0vzcJapbMc4RgwJ3UIsTzjGJ+o7yLltZG9NktLPaMN
+	OVqTDBPEFTC6FX03SFlmFcbKE04KTpXJIinnJvKTZummZO0JiwgcKU3kJBRBF81ICizISbAeVrp92
+	9AvoJVodBEqLr4jprdWZ7Mpv3QdBVdXomlVdDsqnsghB3Dep4Kljxa/fWaWPbFwNf4ZGz3S8SPMtv
+	GXppP/2yzp0Pxi8YneUcmPgK39X+GFOvFNhDSVcK4JhSXgbO8ArRJDS3JihAPRdfv+8e0uJ+MugQY
+	EBJaMN7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyPIp-0000000G6uD-0xKe;
-	Mon, 24 Aug 2026 07:41:07 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wyPKZ-0000000G78W-224k;
+	Mon, 24 Aug 2026 07:42:55 +0000
+Received: from out-184.mta1.migadu.com ([2001:41d0:203:375::b8] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyPIn-0000000G6tn-1nEV
+	id 1wyPKW-0000000G76o-0p09
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 07:41:06 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67O5RYA52042553
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 07:41:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=27aV82B2iwHpqeN6UcRflHNO
-	30IeqGoP2gG6U77lA7U=; b=Qi8LoCT7QC+bCW8Y2IWJiN22jB6q9JMo+jE/HwLZ
-	1NYR05hrm6/W1X4knaq/TtgBHPHYQYo2wtHFucITlI8bi88cn1da77bNqvxtiNe7
-	gShKs3D8nA1kf80Aq0jRgM6HE4CJw3PN19jyVdDGamiulJPYzN961GiuqI5vFUuQ
-	QNmBLKaFOeTUsk2vd6aXG9Mm/Qw7/l42zmxIzeNfj26JkM21P/JXzbd34CVu/6oj
-	y/4K+Puzwcpf5a1E+fGY/Q8FD3N39JuAK6Yr1KuC3aAm4cTBj83gZtB8zQLMg5Fg
-	iy6v6TT12KeEB26h7ucCfb6whHwP8q9AbimerF7Wa2KCwA==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g88k7hfk8-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 07:41:03 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51c1b4d961dso29928341cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 00:41:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787557263; x=1788162063; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=27aV82B2iwHpqeN6UcRflHNO30IeqGoP2gG6U77lA7U=;
-        b=aHb7HOdiUwjpRRVkqKjSgwryNu67FVqioTZ/d7bKMQU9av4OLUAweDgjW1SdAIg9dq
-         QW5ZGH6Jr+ErZyDUhQVaavg0UoFDQ6ozFxIohRmOgFADORdQmfHtNnA3WefS5m1o8i52
-         6+wMubSLTGQMzWme2u9gzRV0L5F7gp4UFDV2GL4f5kPHjykHgnwpOyxf+dsZ73ZgVyE/
-         CSRDTjHAhs3J/vBbnBXXGSpViKogHddcXvg7l3Ck51hDfKgiAQiC1KGEnFvUth8D4qLG
-         w7y6/MwZPaz6V4YiTr+bO128+VNs8gP+CEEfWuCgCAdlwTK1wrSPRFB/pAcv7Pn4n7/q
-         cxEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787557263; x=1788162063;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=27aV82B2iwHpqeN6UcRflHNO30IeqGoP2gG6U77lA7U=;
-        b=n86Tghy3/YcGNNRyY5Q/9oox4KyVnkmxBXdPuBesKqXeV/EDY6xUdYaobpWwv08CDF
-         m2nNefKjhf2WuV8sFj8la6aLrC57snXTkc9IJbfd79lVibjK3i5J4LY5WOhxBUbFEItm
-         KEMmnZdqWQkACp8s95va9Wv+jJWRp4sihqMqFxVzi9vOKjMrxS1dGFMkJnEwr885Ovsx
-         qwjOTzsW1jUgotjpuus1YfVGeiJaOu8tCqHlRw1cRh+3ISff81mDNnveUDF9ixL1RBba
-         cWqUZsGxtwgOSJ+qnifFcgWxQDkywP7k5MkcbLlsygnVkfGVxttKPnS5SzwVv5yaIFTJ
-         kh3A==
-X-Forwarded-Encrypted: i=1; AHgh+Rqx3hupi2CcDSXrZZTLR+AAA9lXP6pnjFgCHPRt7AJYwWeP95Boq75zUG7qVT34CxbUvu5eeFEG1scecukmYutx@lists.infradead.org
-X-Gm-Message-State: AFuF++lXkHWMUqznaX7kZZQp3CQ6mlyrikiA04WOlBbnE9Q2zUXXbySn
-	BWNDRqx72vto7FxpfwKWuxS7+izHYZpG8NTpiYJWvbhUNVBHBdNGOtq8bapFMZSMi24LnxKjycl
-	YHiqmVLhM5gRU3HRC1hnDAAFllN62MEQvbl/qFy1P+dvCD4ndXATbQe3tCVAPFFaQL7AbLleZQk
-	N6WA==
-X-Gm-Gg: AR+sD10VkZr9hf9VnHvb3cJAwd5vfjkDr3rBe+D3ISGrG8BAlGldYfTWx9atSmzhCVh
-	R4coECc7MoD90WCig1xKZjKva2pqNuklJD5DmQyGgR2UTiwS63r4mRZK4TAHZMlawQVdnadpGgG
-	HcFckX6GgCuUXUn3G39j4L/lFdIl+P+p1TM3Mvcb9JdoTyEw+OK23oJirLy4KDrh3/Yba4O0HcI
-	76BA1pvnZSMJ4XElsxrq/oQwx0lCiIORn6DOQzWrEv6K21UDT8zDoPJviclfYz0Bc5asETv0JMJ
-	P25P6Yx//Biyp9vqzj94pHy/CS1IT3YMFdBbBTR50mthJK/KtmnkDqwgFto9ddyqU+6ePJzXCJe
-	KYhRlJEo9yIEEm5M=
-X-Received: by 2002:ac8:5a16:0:b0:517:63df:91a5 with SMTP id d75a77b69052e-52de33af115mr214786291cf.19.1787557262871;
-        Mon, 24 Aug 2026 00:41:02 -0700 (PDT)
-X-Received: by 2002:ac8:5a16:0:b0:517:63df:91a5 with SMTP id d75a77b69052e-52de33af115mr214786031cf.19.1787557262330;
-        Mon, 24 Aug 2026 00:41:02 -0700 (PDT)
-Received: from oss.qualcomm.com ([188.27.161.240])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c24962bd8fasm1717117466b.28.2026.08.24.00.40.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 00:41:01 -0700 (PDT)
-Date: Mon, 24 Aug 2026 10:40:58 +0300
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-        Taniya Das <quic_tdas@quicinc.com>, Georgi Djakov <djakov@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Linus Walleij <linusw@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-        Radu Rendec <radu@rendec.net>, Robert Marko <robimarko@gmail.com>,
-        Guru Das Srinagesh <linux@gurudas.dev>, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
-        linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v3 11/15] clk: qcom: Add Global Clock Controller driver
- for Kuno
-Message-ID: <jvtygc6q3hts3vynb6jaivlmryrhzkifxiyiaxoghukkfbt7qi@ch4k4adkpdci>
-References: <20260821-kuno-soc-support-v3-0-196e2b306368@oss.qualcomm.com>
- <20260821-kuno-soc-support-v3-11-196e2b306368@oss.qualcomm.com>
+	Mon, 24 Aug 2026 07:42:54 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=q8/l5C+i6hyPfzKiQB5E1nf0gY1rHDKqf5inh26G/MI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1787557370; v=1; x=1788162170;
+ b=Jy/J/+KNZpCR1hC7inQ4owY2NuOsyXQK6kBeqW+mksksC3Gtj0v7fdMRKVfq6VQz1Dl9VdAE
+ VDloy0wAe7JDYFrT2R5lnYXGuQv3o4Y0eVMzmAcTQ7qT+GLU8djxvW4P/EqJhuthBJT45qnjLsK
+ Sj9FFJrzuk/wo6qPuVY6s11k=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from claudy.local (2a01:4b00:ad36:1d00:3a05:25ff:fe33:35a9)
+	by smtp.migadu.com with ESMTPS id 5d1d4802d51e7f8a;
+	Mon, 24 Aug 2026 07:42:49 +0000
+X-Mizu-Trace-ID: 5d1d4802d51e7f8a
+X-Migadu-Flow: FLOW_OUT
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Thomas Gleixner <tglx@kernel.org>,
+	Eric Auger <eauger@redhat.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/4] irqchip/gic-v4, KVM: arm64: Fix the vgic init error paths
+Date: Mon, 24 Aug 2026 08:42:41 +0100
+Message-Id: <20260824074245.710955-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260821-kuno-soc-support-v3-11-196e2b306368@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=b4iCJNGx c=1 sm=1 tr=0 ts=6a8bf58f cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=wUpz7uCjLrEXi01cjX+DLw==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=EUspDBNiAAAA:8 a=TGsF1qQkE8-pbLwaU88A:9 a=CjuIK1q_8ugA:10
- a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI0MDA2NiBTYWx0ZWRfX2mYuw36ZJS2Z
- PQIlkYp2iKt2GH8WsXj7hNnCLgVDbm6WPCGxpFdxOWTOYTjM5okebJV5NlFPSM+amYkbgtIjMs4
- /0V6HX1LPzbb71dYYNffdyy6nBOvac8=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI0MDA2NiBTYWx0ZWRfX7yS9o41u0/Wq
- nc7YHIFowJbApnE5OuNloaAf+3kRYfFQxu/79B2r6GFAcmkI8VoCRCXDYbjjNLWu7eJNgzGx6Hq
- 4nq+e3FdB/5DITwYzfIPY0myN4j5XIjBQTM/C8e8VVM+MBszIBsrMuhUogM3MqqX6xnUvP4DZX8
- NUr9EsAgROyuTZ04ANxtRSI5bnJ79h/Y6oZXwgwN9mUz/tcNNqwLoYQcK+/u1HS6hqCE4I2bL04
- n/Nt7Tjux51zNI6IcLJm3MDRYEtDHPsEy1QA8Ofh4EwMShw42eBqEE3fJaBi0eWMnGUp7WpJd0o
- 3b/rX6HPyIi1FcdYfxYpCsv7tiVme2HBik2piIwv6wlLqnBDd9GS2OT7V6euh3KaQ3H/FMNKFGu
- eLMBnW8lgE61biydrxuiknnOkn68heNxMos3bHLavXl06ehA4ziIePSm5kwxjEalEzfBztt3uft
- fyGwVW9coMEhpXpopyA==
-X-Proofpoint-ORIG-GUID: FW7C3C7D9gj8sP4GpIL5dc7qFc06QPkk
-X-Proofpoint-GUID: FW7C3C7D9gj8sP4GpIL5dc7qFc06QPkk
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-24_02,2026-08-21_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 phishscore=0 bulkscore=0 clxscore=1015
- lowpriorityscore=0 impostorscore=0 adultscore=0 priorityscore=1501
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608240066
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_004105_469841_1B39BBC4 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20260824_004252_526051_F175AE2F 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,14 +80,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-08-21 21:39:04, Hardeep Sharma wrote:
-> Add the global clock controller (GCC) driver for the Qualcomm Kuno SoC,
-> providing the PLLs, root clock generators, gate/branch clocks and resets
-> used by the peripheral devices such as UART, SPI, I2C, USB, SD, PCIe and
-> Ethernet.
-> 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+Hi folks,
 
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+Changes since v1 [1]:
+  - New patch 4: restore its_vm.nr_vpes in vgic_v4_teardown() so that
+    its_free_vcpu_irqs() frees every vPE. (sashiko, Marc)
+  - Patch 2: corrected the commit message. Skipping a vPE with no SGI
+    domain avoids a wrong free, not a warning.
+  - Patch 3: added a second Fixes: tag. The SPI-array leak arrived with
+    the routing call, well before the vPE one.
+  - No code changes to patches 1 to 3.
+
+Four fixes on the paths that run when vgic init fails partway. Each one
+needs an allocation failure to reach.
+
+Sashiko reported the vgic_init() case [2] while reviewing the SPI-array
+leak fix, and the two irq-gic-v4.c fixes came out of chasing the first
+[3]. Then, just when I thought I'd squashed every bug Sashiko could
+find, it turned up one more in its v1 review: the pre-existing nr_vpes
+one, fixed in patch 4 as Marc suggested [4].
+
+Patch 1 clears the irq domain and fwnode pointers at the four GICv4
+sites that free them and leave them set. Patch 2 makes
+its_alloc_vcpu_irqs() release what it allocated when the SGI loop
+fails, which is both the SGI domains and the vPE irqs, wider than the
+SGI-domain leak I described before posting v1 [3]. Patch 3 releases the
+SPI array and the vPEs on vgic_init()'s later failure paths, so
+KVM_DEV_ARM_VGIC_CTRL_INIT is all or nothing and a retry starts from
+scratch. Patch 4 is Marc's suggested fix [4] for the nr_vpes overload.
+
+These patches run across two subsystems, but ordering matters, which is
+why this is one series. Patch 2 reuses its_free_sgi_irqs() from an
+error path, which only works once patch 1 has cleared the pointers.
+Patch 3 runs vgic_v4_teardown() on a path it never ran on before, which
+adds a route into what patch 1 fixes. Patch 4 is only correct on top of
+patch 3, which is what stops online_vcpus outgrowing the vPE array.
+
+Based on kvmarm/next (aa8e5dc6a7a2a).
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20260820125053.2951078-1-fuad.tabba@linux.dev/
+[2] https://lore.kernel.org/all/20260807105558.73D701F000E9@smtp.kernel.org/
+[3] https://lore.kernel.org/all/CA+EHjTyDix+y6NTLTsXP5j9Sn2VLOZcsw94LntQxg_etRBJZuA@mail.gmail.com/
+[4] https://lore.kernel.org/all/87ik51np8e.wl-maz@kernel.org/
+
+Fuad Tabba (4):
+  irqchip/gic-v4: Clear the domain and fwnode pointers after freeing
+    them
+  irqchip/gic-v4: Unwind what its_alloc_vcpu_irqs() allocated on failure
+  KVM: arm64: vgic: Tear down what vgic_init() created when it fails
+  KVM: arm64: vgic-v4: Restore nr_vpes before freeing the vPE resources
+
+ arch/arm64/kvm/vgic/vgic-init.c | 11 +++++++++--
+ arch/arm64/kvm/vgic/vgic-v4.c   |  3 +++
+ drivers/irqchip/irq-gic-v4.c    | 34 +++++++++++++++++++++++++++------
+ 3 files changed, 40 insertions(+), 8 deletions(-)
+
+
+base-commit: aa8e5dc6a7a2a1141ab40706a51010adcd0e57d2
+-- 
+2.39.5
+
 
