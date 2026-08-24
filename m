@@ -4,59 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB79EC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 11:42:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04352C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 11:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KHOpoEdx6sAdpQxdlI+Wy7alzqV/AK0WHQTc8WJWFHE=; b=BdHCTqQ06vi4Hy80hfQUsT6PXf
-	7mqSsiaugL7ZKSmKuwmn41ywc+rjsCFtqRs0RM9kmu87XAsCfFMgJWJNhhVReWm8cPju87zEoKBwR
-	FLZzsUj8m/K9VGt2L18lH96PpHxXMo53BpZcvQcUqNm17IZp/qHOaBNmTSrgag1hdK6VaAu41X68u
-	O1o1KlkDRXh93CAWxbcV+VXrEeH+bUYZb9LAPzQZ1Syi4Kp4Qx2Z6j0h+kmx3f+Bu5NZ55n0Ap+zM
-	qlYY7BeKJNFZyC5Yv/LqwWlz16DjbifCQZkqZonCSJztafuL5eb/rQfyqZ5pdBZ0x9Pe2KiqP9QMR
-	4Y0szSkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WUNMFi16YVSDDXWqlKTWG6K4KUhSm7Gu8pZ9yMgd8Ao=; b=3CoMBhYYWJI6dKMAfCtowkFz4I
+	s56o+2VD2rA2ZDpq6yCzlnQjanQdXFv06QYJXlzlnbhjF66E/c6JybNYiGDMWUH/Jto8Bof0d2aoH
+	5aHhmtJyUeXqbNKWmJJBMYepficW711YibojSB4Vu/Rc8U6obPz+DUBe1iHZQ0p3RvEOuGAm8dwVK
+	FVvv/QKmy0fP2AIz+fbNbFPPPBYqp4K7EramBnxD0qKruz/FpEI5o1EZi/1/6SK3fSUr2Rj3lTsg9
+	70gx+ijAL2N51X2rAvxtR9b2jPubdh3ATXdZ7LRxhivBFJdaacnpKDAp4bqz/fN5ULL307EXLUed7
+	dtwFa8nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyT45-0000000GXFu-1oNb;
-	Mon, 24 Aug 2026 11:42:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyT42-0000000GXEl-21sB
+	id 1wyT9l-0000000GXhM-3BFP;
+	Mon, 24 Aug 2026 11:48:01 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wyT9j-0000000GXgj-3tZy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 11:42:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D1671756;
-	Mon, 24 Aug 2026 04:41:59 -0700 (PDT)
-Received: from [10.57.70.220] (unknown [10.57.70.220])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3429A3F66F;
-	Mon, 24 Aug 2026 04:42:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787571722; bh=50CME7CgCbOvbtl/iWrw4jnUPnZ5Evy5HokIhTg4SvY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=InoE8EYNBzl8GgsO6hioqCP9oBK7gpn/8Cbt3wPK6LDvFNQV4Zs+cHLOabTlst7cd
-	 Y15Gp4DcaUBgur7LTJ9KnPEnpcQI9YcuP++Rg4ICgOmzEqC1bOTZWd/sdtKccVJ45P
-	 8sItpfHBlcXeqXZThiuw4JoH59o+r6jn3QDUkCng=
-Message-ID: <78f188cd-706b-42cf-82a1-527c1efefce1@arm.com>
-Date: Mon, 24 Aug 2026 12:41:51 +0100
+	Mon, 24 Aug 2026 11:48:01 +0000
+ARC-Seal: i=3; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=A1XDQnmQhZZoH2HxKltvuCwfniwBJjePhEqZhp5bYmWkyN39Xcks4CEN/xFZdjyMNobEP2mgPEWIpuR3FFSbUzFENskFEvAhdOitFy8Ik6xhMx3vVzOcyJexPhDLjd+iNo40pl76YiPlwY8bqwDBO/2cxyZail8nLqrz9HgWjXIaN+vwjcdLU0aYvyRNf/E2NB+aDupsbn+DB/y3viIm0rl2cnYw/o+6hf6M9m/ERg4LFpqypojt5+4ulVaz9iradu6fgLOG3n/DXFnV4vozNOdOMHphbcqLcpBb+rOXIbkSDeRMSLgSA5ihY3CP/A4uJ3KosMNBEWcu7pij/cikfA==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WUNMFi16YVSDDXWqlKTWG6K4KUhSm7Gu8pZ9yMgd8Ao=;
+ b=R06kOlvBaVEzy223yvyADM6z7jfqt2Y6U3PSV2yvQNuXOAx2ooGIoCz5NCu1pzeiLT/JXo12WtBm+8tE0tCRROa47/N5xqzOKi+t0qak2ic3wryguayYhX8ahA3RdTDohuY+oB61NAq8o/QAp0VX/PS/7dMlukCC4Jm2ErPlrZBqLrt6nmSBxvOIE/IDjL5ciLrnazmBrd4gPdRjnpJmgEWtVEvZrtsGa4FFUN9+CDJ+Zg8aWqq/2wFFoXATBNcmxdoFVp6dwQxKs6yqa3J25IlkS01pXfqGeGQuwk5IcK2kNCE5ZrXdp9dqvFVb1rXuUlDrrM+HKCZrtQZT6DtN6A==
+ARC-Authentication-Results: i=3; mx.microsoft.com 1; spf=fail (sender ip is
+ 52.17.62.50) smtp.rcpttodomain=free.fr smtp.mailfrom=solid-run.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=solid-run.com; dkim=pass (signature was verified)
+ header.d=solid-run.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=solid-run.com] dkim=[1,1,header.d=solid-run.com]
+ dmarc=[1,1,header.from=solid-run.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WUNMFi16YVSDDXWqlKTWG6K4KUhSm7Gu8pZ9yMgd8Ao=;
+ b=mrlFK1B6WtCwZ6gIEGv++pB2pIMaG0QWJiCO1T8+56ezShVko5Cqv4eE+eOdI4MXcFsiW6NSycCVofUE9FOQ1GRhRjuZ1R7kv1/FkhnIaDa8+TxQ9he5ezLIgaLQrzAav9CLKYDSjaRZbtRuEjJSO4ZDppCKyswHPjNLVL5rO4fKglhzN521Trg4Yt7rXRwiT4zPYOMUrMCJQPs09MxLH7EYsRCzEPubSsWEiln/C8cTtnydjRZSox4foehjxrkX21xFbG8IacEhtlKJc2ipoiUe4Hf/pwiUXqQ7vpcNWmExfcO5q2Tt6RldPrM9yo1o6I0qYJk66qjW/6uvlflEQA==
+Received: from AS4P190CA0005.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:5de::17)
+ by AM9PR04MB7524.eurprd04.prod.outlook.com (2603:10a6:20b:286::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Mon, 24 Aug
+ 2026 11:47:54 +0000
+Received: from AMS1EPF00000049.eurprd04.prod.outlook.com
+ (2603:10a6:20b:5de:cafe::2a) by AS4P190CA0005.outlook.office365.com
+ (2603:10a6:20b:5de::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.12 via Frontend Transport; Mon,
+ 24 Aug 2026 11:47:54 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 52.17.62.50)
+ smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
+ header.d=solid-run.com;dmarc=pass action=none header.from=solid-run.com;
+Received-SPF: Fail (protection.outlook.com: domain of solid-run.com does not
+ designate 52.17.62.50 as permitted sender) receiver=protection.outlook.com;
+ client-ip=52.17.62.50; helo=eu-dlp.cloud-sec-av.com;
+Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
+ AMS1EPF00000049.mail.protection.outlook.com (10.167.16.133) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.3
+ via Frontend Transport; Mon, 24 Aug 2026 11:47:54 +0000
+Received: from emails-4773976-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-6-140.eu-west-1.compute.internal [10.20.6.140])
+	by mta-outgoing-dlp-517-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id D5F8080632;
+	Mon, 24 Aug 2026 11:47:53 +0000 (UTC)
+ARC-Seal: i=2; cv=pass; a=rsa-sha256; d=checkpointcloudsec.com;
+ s=arcselector01; t=1787572073;
+ b=SD27eJvQ6qaFgM+2ptnaWiEdjIxBoxMI1FquwbBAs9Nz1NzXbt+bVhlcEbTdrUC6FL/CS
+ bLxlGX4QdepCKlrw3Hk4sKxAK3kcEjKBdXqphKd1h2tSbmT3Nl7VCjRzgn5IK3B1L7ibmG9
+ nFzHYnc/+KOlK3Kc1RqSU/rT6YdHFRE=
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed;
+ d=checkpointcloudsec.com; s=arcselector01; t=1787572073; h=from : to :
+ subject : date : message-id : content-type : mime-version;
+ bh=WUNMFi16YVSDDXWqlKTWG6K4KUhSm7Gu8pZ9yMgd8Ao=;
+ b=ZmgPQW3WbC+OPtGqmAWh9goynivlFasi/WGZNpjyFe/kth7t2haZwK9mC54AaCaKJKIUB
+ +z/EujYdL/d6Qqde1Ee6zOlDR9mwufzA1+OBxlgqB+LiGpvtZuPS6gGVf27BQvJKMuMbqNu
+ ayGWhZYzZ5gpvgM6jBXYY7TYbHKBzzQ=
+ARC-Authentication-Results: i=2; mx.checkpointcloudsec.com;
+ arc=pass;
+ dkim=none header.d=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WUNMFi16YVSDDXWqlKTWG6K4KUhSm7Gu8pZ9yMgd8Ao=;
+ b=mrlFK1B6WtCwZ6gIEGv++pB2pIMaG0QWJiCO1T8+56ezShVko5Cqv4eE+eOdI4MXcFsiW6NSycCVofUE9FOQ1GRhRjuZ1R7kv1/FkhnIaDa8+TxQ9he5ezLIgaLQrzAav9CLKYDSjaRZbtRuEjJSO4ZDppCKyswHPjNLVL5rO4fKglhzN521Trg4Yt7rXRwiT4zPYOMUrMCJQPs09MxLH7EYsRCzEPubSsWEiln/C8cTtnydjRZSox4foehjxrkX21xFbG8IacEhtlKJc2ipoiUe4Hf/pwiUXqQ7vpcNWmExfcO5q2Tt6RldPrM9yo1o6I0qYJk66qjW/6uvlflEQA==
+Received: from VI1PR04MB5807.eurprd04.prod.outlook.com (2603:10a6:803:ec::21)
+ by PA4PR04MB8000.eurprd04.prod.outlook.com (2603:10a6:102:c1::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Mon, 24 Aug
+ 2026 11:47:44 +0000
+Received: from VI1PR04MB5807.eurprd04.prod.outlook.com
+ ([fe80::3da4:2827:d637:37de]) by VI1PR04MB5807.eurprd04.prod.outlook.com
+ ([fe80::3da4:2827:d637:37de%3]) with mapi id 15.21.0339.012; Mon, 24 Aug 2026
+ 11:47:44 +0000
+From: Josua Mayer <josua@solid-run.com>
+To: "vjardin@free.fr" <vjardin@free.fr>, Frank Li <Frank.Li@nxp.com>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>
+CC: "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] arm64: dts: lx2160a: fix incorrect pinmux
+Thread-Topic: [PATCH] arm64: dts: lx2160a: fix incorrect pinmux
+Thread-Index: AQHdM05IkBx6n9kXmU2mUUeZjBW/xLatFiKA
+Date: Mon, 24 Aug 2026 11:47:43 +0000
+Message-ID: <3d4fe161-895e-4820-a99d-8cd5fd6d9ad2@solid-run.com>
+References: <20260824-for-upstream-lx2160a-pinmux-fix-v1-1-33a3c8d5ea8a@free.fr>
+In-Reply-To: <20260824-for-upstream-lx2160a-pinmux-fix-v1-1-33a3c8d5ea8a@free.fr>
+Accept-Language: de-DE, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=solid-run.com;
+x-ms-traffictypediagnostic: VI1PR04MB5807:EE_|PA4PR04MB8000:EE_|AMS1EPF00000049:EE_|AM9PR04MB7524:EE_
+X-MS-Office365-Filtering-Correlation-Id: 983d8c4a-c2b3-4dc0-525d-08df01d588a1
+x-cloud-sec-av-info: solidrun,office365_emails,sent,inline
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|23010399003|366016|1800799024|38070700021|6133799003|10067099003|5023799004|56012099006|18002099003|22082099003|15866825006|41080700001;
+X-Microsoft-Antispam-Message-Info-Original: smXinkvCs3xrYa01zZ6REnyJfhfmQFG6oCL3QXI5YyvuGS9XIdTdf4uFNZUkXe+gf0RNZzX7eXqZjAT0NUzilSrdGD9ZucyOBlmoO8N4Sw2iWl4gEONqJIVwDOn13XDSVsV/uIM04bZ1QD0UE4woljY4FT342G7GuwcYQrtdvQCYXL58wRUEIS6/R7Xut7NuuCoZ1dr5v4pw342yCCDOM4qrLoNbJld+/t54d/MDYmUwO1iSARMXbM6WXyuzSidNvEvwxhy+O6VDs89u4fgNT34bICYEadU3IHAc3FbR7L25fDh6yascKDIQVYLnKdWLSNEG2imy3fsQ1t4A9NoixBk0zXp9fc0FiK/Q81aMvkE3RIBQ89H5PXStCv4hqEqTkDJZXvXylqhDts1trJDSSVJ5QgsVy8A1GqMuTkDaBDDGZnBt/IlGeuc6uWbvbMcYcIdJJO9p1bjuK2yK18HJigWue6MjULXHLnnxaK+JsOHW2K/WLZcOAAClgRMRIfDfPmiFrrHPBOYnjh5w08Y063/HBGNb3RUyNLU5Gp4WQl7KsBwhuPg3O9KDC+ygbawKCQ6TcsE/KCmxgANeNDy8rSNaRnt5Ps5eQaDT6JfbYSViYI8VP0cWsHWyuOKd7feqFjlP2vroAXR7XwnjDn9WOyYTTnn5Ttf+7OlVBt50iZ7nqgN6sAPZAftf6euYYRzVBRLon6Jw6fUPlTrttxuySt4wzBBY4xuGYNM7b6hR91J2A/wqxNdHyQpuZofQWd/Pr34zrh8AhGihifDSKT8SXw==
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR04MB5807.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(366016)(1800799024)(38070700021)(6133799003)(10067099003)(5023799004)(56012099006)(18002099003)(22082099003)(15866825006)(41080700001);DIR:OUT;SFP:1102;
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <43468595530F484E9995D6380E5B7852@eurprd04.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] bus: arm-cci: fix device_node refcount leak in
- cci_probe_ports()
-To: Manush Prajwal <manushprajwal555@gmail.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, sudeep.holla@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-References: <6a887550.f7f62383.10ed1b.5875@mx.google.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <6a887550.f7f62383.10ed1b.5875@mx.google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-Exchange-RoutingPolicyChecked: UMZ95d7TM7R6xSFmz/2EPylSmkuwtfRY74Llc/w6MaG6KKauHOhVML5KU4qDD/CHlJTrET6KelI9Ymal6eaE5Cbbosww2+4QcX1IrRywVDd6OoYO1hx1+A16/jDbLMC+hNxhF2SFB3gk5hZCUBIHwgtjcSYATUOvDErQi366X3yA9Ss9TPltdyvTAHdGur9DN4jqAi2akA+adsXwoEbaBzYzPJopT6rimOMmtGspx3V9p/VK+uZUPLdDoCmR21yl7fkYbsYIXl9V+kItzn+ffiKMbEJ5UhCeMKQiqD4oCDkzmU8B3vCLMarTJPpkrTJ1Uah76eLaVkq9YeQDtwRgkA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB8000
+X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
+X-CLOUD-SEC-AV-UUID: f48711a327304ad589f54ce01190b47a:solidrun,office365_emails,sent,inline:01e4d69cb00ddb784d974af47c8a159a
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rH+9HOGpChsJOy6x1WaRmJGdEZS2ScwgHPOm9zktl5ZU4fHpyQMi6Inwqo2uu/UDeiqG2fTwerd3KqGdEcgPPzzux5Hh/e+Zr1CRFFh6mY/+UXa72cVBIYDRFNoshj6bWauTI7wNwKO+jHpviWFoAf1WYRqbCQK6SCZRRtpUrFcUDZqaJravVTf2BDfmr5FI10At/Dq0HBTA6c/Jm2FjDBDvtnU+phe4Rjh8R86DlhU9RxxrMNQNhqG8VgNu+iHNo7sZDlYd/Lz2MeiwNoeCHLDcKRcJ44svytOgTOKzpBk6d2+cm97uLCw0rtgbUJEeGV4zC4vM9D6f3TPmEj2Knw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WUNMFi16YVSDDXWqlKTWG6K4KUhSm7Gu8pZ9yMgd8Ao=;
+ b=bIox6uI8nuWkkPDjyzEyTim4PK2PGmUx921rJqUo6Nd/PcXO3W7UhMlxotVAqG8udOH2MKdUmUaf+zfY8QSAK+AGoFVYk+P5ZDsxMdNCeEb+5kwFYU6PzjSnenBtAVNg2NW4dzJaIvSx5ls3VMYP0P9X/y6oZ3Oe8NWbMPHtC0X53AaX3vSehu+sf7uLNqZAuSxw/wsss49kydBG5ThamT2Wt1i9aMGXDzhGHugDO5n+vKp/B5CD9p9hhRyFbiUr3qkQkoYr2bb4dPUNtDKgbLvwtJG1DWzHP/veKcX44Ff3yIFDb/j/kBQkxMznEycCX+j+eoiIYOTJq421AIhwFQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+Authentication-Results-Original: mx.checkpointcloudsec.com; arc=pass;
+ dkim=none header.d=none
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF00000049.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: c9f8e3f6-4e56-405c-385d-08df01d5827f
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|36860700016|35042699022|1800799024|82310400026|7416014|376014|23010399003|18002099003|22082099003|5023799004|56012099006|6133799003|10067099003|41080700001|15866825006;
+X-Microsoft-Antispam-Message-Info: 9VUPcJ7wd3PHHl1srcsOoGVbf3N7GldUS3NMJFcaaEaCM1Pt19Mnz1EKl7Y/j0aG6q9cL1vAvMYFCaBkBcxiLi7WB5iEyguASUJ2Z3znDzMOu5FZMUjmyKoHVlbjDqzhmsVBkmZX1EJEjdxDG/KA9VvVCEjkKlpQX4+3VoyD4xeZOAr03+phpUmnIaenYU5gkiuYEvF7U/riLOHyI14ynB+YtiTa3+YSw+2ZN1VwhErjs16un9KkjjLPWhM7k3qW+FyLB1MLvuInTtLhZLBndZS3If3sOsjEBtehriMCj46ta0xqIS4Web5AiAYgu2gRGf1nRwKcAwlVKfxfuy0X8jsbp8bu+F2StNeLZaeiRM/tOoSFmQC3YrccjN5j/VNVsfRhb37yUZrLG+J/fecJr0pHs9Q4h/E+msn+VXRsX/gCKQNmc4B68pKwlF9pOEEh72+/GrlC9odDaZLtovI2qoQXdVTsz1eEKQfF7dyTg3JYiPpPVhVpchaSHI3KSe9io+bwClhRVKhhwt6HqlHsSAXHsxp8T2VJqa3bZ/uyGZA0fcUM9WKf6lYiSoQv/L5NS4k3v8iNbTH6V5Dh32rQzaS411jouP7IRGTzp/KWKe/8tsG5yK9Cpa0V35Z4dzC8JDoY3CdqvZkn1N1HNu9Ji/UCf/TWgThfSwIiqEEtuW+266XmiGt44YDoy4NWDpfFoKEA1xP3bTbIJrWM59PN6wWwqRvivaxUeqU47m7pSPT7pwnXRTROmBgi39P83iZaAuHeda8oz2xvfB1RH7lQlIBlGdsdOem1uvA2hzxEvoU=
+X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(14060799003)(36860700016)(35042699022)(1800799024)(82310400026)(7416014)(376014)(23010399003)(18002099003)(22082099003)(5023799004)(56012099006)(6133799003)(10067099003)(41080700001)(15866825006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 6lJmKiJl1CpMvtnkV8z5ZdWnaRfQKOfh2Y9bRuMY411UixPO2JbHKCZNuiDRgpSC+V9M5ihV/sKAgGFGppKcLouPqn/e/jTs9ZPbGovaSUdvUW3FA2wqoXMpWC8HBJGvwvK/pybdJRZ461t497bbaM46SVDHYQNEzVcWaioqIA/tX/KA4C8416tvBorOWqC43kUK9+u0/ts5GqG+UeuhM2mRVM8ZScsQFdJcMZj/myBQ761zE7fr6JS1HpssgJVDxQgx01dHTxDxIXQerBUdOep0LyLnwvwkiQ2rmFmQuaG93bf0ssZFPTz0RXZ9Z8Qkl6XseKzlKmiqgMTFOzTU+45hH15dLQaeBIRmZFu2iT6LHExpjCsIRgYyIHhgKZed7FsLRpKTp+GSJ23bRVf8Myr9swmEGKZD+RV2CPGmZuiJ8ClEIdVUwm0jk6L0ylxR
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2026 11:47:54.1010
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 983d8c4a-c2b3-4dc0-525d-08df01d588a1
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000049.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7524
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_044207_112236_BA61D57F 
-X-CRM114-Status: GOOD (  23.73  )
+X-CRM114-CacheID: sfid-20260824_044800_137434_CFD48120 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,83 +186,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-21 4:57 pm, Manush Prajwal wrote:
-> cci_probe_ports() has two device_node refcount bugs in its
-> for_each_available_child_of_node() loop over "cp":
-> 
->   - When the computed port index "i" reaches nb_cci_ports, the loop
->     breaks out without releasing the reference the iterator was
->     holding on "cp", leaking it.
-
-Note that this could only happen if the DT is bogus and specifies more 
-control interfaces than can physically exist. And even then, holding an 
-extra reference to a child node doesn't do any harm, since a) we already 
-hold a reference on the parent node, and b) it's not like you could 
-remove the system interconnect at runtime anyway.
-
->   - When a port is successfully parsed, "cp" is stored into
->     ports[i].dn for later use, but the loop keeps iterating afterwards.
->     The next for_each_available_child_of_node() step puts the
->     reference on the previous "cp" to advance to the next sibling, so
->     the pointer saved in ports[i].dn is left referencing a node whose
->     reference was already dropped.
-
-...and similarly this isn't a practical issue as we never dereference 
-the saved pointers; they're only used for comparison, which in reality 
-happens once in cci_ace_init_ports() immediately after this is done once 
-. Plus we do already hold a reference on their parent node, and it's not 
-like you could remove the system interconnect at runtime anyway ;)
-
-> Rework the loop around for_each_available_child_of_node_scoped()
-> so the iterator's reference is dropped automatically on every exit
-> path, including the early break. Since a matched node is kept alive
-> in ports[i].dn past the end of the loop, take an explicit reference
-> with of_node_get() when storing it.
-
-However, for the sake of good practice, just in case anyone were to try 
-to copy this code as an example for something else, it seems like a 
-reasonable cleanup to me.
-
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
-
-> Signed-off-by: Manush Prajwal <manushprajwal555@gmail.com>
-> ---
->   drivers/bus/arm-cci.c | 6 ++----
->   1 file changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/bus/arm-cci.c b/drivers/bus/arm-cci.c
-> index 000000000..000000000 100644
-> --- a/drivers/bus/arm-cci.c
-> +++ b/drivers/bus/arm-cci.c
-> @@ -438,8 +438,7 @@
->   static int cci_probe_ports(struct device_node *np)
->   {
->   	struct cci_nb_ports const *cci_config;
->   	int ret, i, nb_ace = 0, nb_ace_lite = 0;
-> -	struct device_node *cp;
->   	struct resource res;
->   	const char *match_str;
->   	bool is_ace;
-> @@ -455,7 +455,7 @@ static int cci_probe_ports(struct device_node *np)
->   	if (!ports)
->   		return -ENOMEM;
-> 
-> -	for_each_available_child_of_node(np, cp) {
-> +	for_each_available_child_of_node_scoped(np, cp) {
->   		if (!of_match_node(arm_cci_ctrl_if_matches, cp))
->   			continue;
-> 
-> @@ -498,7 +498,7 @@ static int cci_probe_ports(struct device_node *np)
->   			ports[i].type = ACE_LITE_PORT;
->   			++nb_ace_lite;
->   		}
-> -		ports[i].dn = cp;
-> +		ports[i].dn = of_node_get(cp);
->   	}
-> 
->   	/*
-> --
-> 2.46.2.windows.1
-> 
-
+QW0gMjQuMDguMjYgdW0gMDA6MjQgc2NocmllYiBWaW5jZW50IEphcmRpbiB2aWEgQjQgUmVsYXk6
+DQo+IEZyb206IFZpbmNlbnQgSmFyZGluIDx2amFyZGluQGZyZWUuZnI+DQo+DQo+IEZvciBncGlv
+MSB2YWx1ZSBzZXQgZm9yIHBpbmN0cmwgaXMgb3V0c2lkZSB0aGUgbWFzayBhbmQgc28gd2lsbCBk
+bw0KPiBub3RoaW5nLg0KPiBBZGQgdGhlIG1pc3Npbmcgb2Zmc2V0IGZvciB2YWx1ZSBmaWVsZCB0
+byBiZSB0aGUgc2FtZSBhcyB0aGUgbWFzayBhcw0KPiBleHBlY3RlZC4NCj4NCj4gRml4ZXM6IDI4
+NGFkNzA2NGFhYSAoImFybTY0OiBkdHM6IGx4MjE2MGE6IGNvbXBsZXRlIHBpbm11eCBmb3IgcmN3
+c3IxMiBjb25maWd1cmF0aW9uIHdvcmQiKQ0KPiBTaWduZWQtb2ZmLWJ5OiBWaW5jZW50IEphcmRp
+biA8dmphcmRpbkBmcmVlLmZyPg0KPiAtLS0NCj4gIGFyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNj
+YWxlL2ZzbC1seDIxNjBhLmR0c2kgfCA2ICsrKy0tLQ0KPiAgMSBmaWxlIGNoYW5nZWQsIDMgaW5z
+ZXJ0aW9ucygrKSwgMyBkZWxldGlvbnMoLSkNCj4NCj4gZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQv
+Ym9vdC9kdHMvZnJlZXNjYWxlL2ZzbC1seDIxNjBhLmR0c2kgYi9hcmNoL2FybTY0L2Jvb3QvZHRz
+L2ZyZWVzY2FsZS9mc2wtbHgyMTYwYS5kdHNpDQo+IGluZGV4IDFkNzNhYmZmYTZiNy4uYjlmMDc5
+YzQ5ZTE5IDEwMDY0NA0KPiAtLS0gYS9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9mc2wt
+bHgyMTYwYS5kdHNpDQo+ICsrKyBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2ZzbC1s
+eDIxNjBhLmR0c2kNCj4gQEAgLTE4MDMsNyArMTgwMyw3IEBAIGZzcGlfZGF0YTc0X3BpbnM6IHhz
+cGkxLWRhdGE3NC1waW5zIHsNCj4gIAkJCX07DQo+ICANCj4gIAkJCWdwaW8xXzMxXzI4X3BpbnM6
+IHhzcGkxLWRhdGE3NC1ncGlvLXBpbnMgew0KPiAtCQkJCXBpbmN0cmwtc2luZ2xlLGJpdHMgPSA8
+MHgwIDB4MSAoMHg3IDw8IDE1KT47DQo+ICsJCQkJcGluY3RybC1zaW5nbGUsYml0cyA9IDwweDAg
+KDB4MSA8PCAxNSkgKDB4NyA8PCAxNSk+Ow0KPiAgCQkJfTsNCj4gIA0KPiAgCQkJZnNwaV9kYXRh
+MzBfcGluczogeHNwaTEtZGF0YTMwLXBpbnMgew0KPiBAQCAtMTgxMSw3ICsxODExLDcgQEAgZnNw
+aV9kYXRhMzBfcGluczogeHNwaTEtZGF0YTMwLXBpbnMgew0KPiAgCQkJfTsNCj4gIA0KPiAgCQkJ
+Z3BpbzFfMjdfMjRfcGluczogeHNwaTEtZGF0YTMwLWdwaW8tcGlucyB7DQo+IC0JCQkJcGluY3Ry
+bC1zaW5nbGUsYml0cyA9IDwweDAgMHgxICgweDcgPDwgMTgpPjsNCj4gKwkJCQlwaW5jdHJsLXNp
+bmdsZSxiaXRzID0gPDB4MCAoMHgxIDw8IDE4KSAoMHg3IDw8IDE4KT47DQo+ICAJCQl9Ow0KPiAg
+DQo+ICAJCQlmc3BpX2Rxc19zY2tfY3MxMF9waW5zOiB4c3BpMS1iYXNlLXBpbnMgew0KPiBAQCAt
+MTgxOSw3ICsxODE5LDcgQEAgZnNwaV9kcXNfc2NrX2NzMTBfcGluczogeHNwaTEtYmFzZS1waW5z
+IHsNCj4gIAkJCX07DQo+ICANCj4gIAkJCWdwaW8xXzIzXzIwX3BpbnM6IHhzcGkxLWJhc2UtZ3Bp
+by1waW5zIHsNCj4gLQkJCQlwaW5jdHJsLXNpbmdsZSxiaXRzID0gPDB4MCAweDEgKDB4NyA8PCAy
+MSk+Ow0KPiArCQkJCXBpbmN0cmwtc2luZ2xlLGJpdHMgPSA8MHgwICgweDEgPDwgMjEpICgweDcg
+PDwgMjEpPjsNCj4gIAkJCX07DQo+ICANCj4gIAkJCWVzZGhjMF9jbWRfZGF0YTMwX2Nsa192c2Vs
+X3BpbnM6IHNkaGMxLWJhc2Utc2RoYy12c2VsLXBpbnMgew0KPg0KPiAtLS0NCj4gYmFzZS1jb21t
+aXQ6IDNkNmQ4MTc2MjJiMGE5NzIxZTNjYzQwNGRmMzQ2OTE3MTU4MmJlMTMNCj4gY2hhbmdlLWlk
+OiAyMDI2MDgyNC1mb3ItdXBzdHJlYW0tbHgyMTYwYS1waW5tdXgtZml4LTZkMDllODJiZDVjYg0K
+Pg0KPiBCZXN0IHJlZ2FyZHMsDQpUaGFua3MhDQoNClJldmlld2VkLWJ5OiBKb3N1YSBNYXllciA8
+am9zdWFAc29saWQtcnVuLmNvbT4NCg==
 
