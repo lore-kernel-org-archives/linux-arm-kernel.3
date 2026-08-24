@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A599C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 16:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49874C5DF9D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 16:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=r8ZiiYT+9qVzSyjIbRiqcRyxSZUtJgeMflUyVARDCFk=; b=FDBMu5ZGqv9SeafyS7NJO9X81c
-	4dfefihYvyRx+G5AWrDDqC1kXbvblZ1t3QCIg3e8W0TLhGDEbVHe5/R2CIdpOYHA7pSldoVsOT9QH
-	rl121IgG13ix0l72JRPmiOsgez0E7AyB6txSPHDwup/BP95kBn2f1cCHnI8ycbtmIyotgQ2pRiea2
-	cZfRN6MXrEf02/39yOCAsFRSYEkubMFWUv2iX64HANM1GM893FQjCIR4nVnBNgbAMzhM+aXu3rxu8
-	K2h72C2M41ilWW7vwSOxmMQM6JLhbQ/Il0XdvfOXtdjmu/7432XX2BDdJOu6ac5Q2cm4lfyOgArTF
-	EV/06+xQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1tsHM56Af+xS/wSTkYaeejENR/tdpIY/K0Iqzm/97eo=; b=j/H8B2oKraZd/B8Dt70uGi7tPm
+	VKLMFBnolE5TwO/EGOZi+0eETWvOBeQ7CQ5ugdw0CTkYXrzq4LZJ9XA9LTLQ5XNjzbJ14bvQbyS40
+	SSiz6pgLeln2G6YXW68RWtog1SuWe7rb5sqzmNsqhAzpngwFy8HKe4pfw2yuUSXghDf0v0ocbd/98
+	hRiZSdZrMWUkoDVAe08/CPb8zbGLfVChJ8ZeL0Lq3eMtxo4KAn4Qc/yfaR2YLjUPLlTvlHrqDo5b2
+	e3t7ZuGKXltEzgQN8g6z6Cs050Y6guPyE8JN7kEInugMgrMdW/OYS9koY4eLjrNaRQwXuom+6MeCn
+	nZf67aPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyXBH-0000000H09z-2zhV;
-	Mon, 24 Aug 2026 16:05:51 +0000
+	id 1wyXBN-0000000H0C9-4Aat;
+	Mon, 24 Aug 2026 16:05:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyXBE-0000000H08z-2CFG
+	id 1wyXBL-0000000H0BG-1Hmo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 16:05:50 +0000
+	Mon, 24 Aug 2026 16:05:56 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 492D816F2;
-	Mon, 24 Aug 2026 09:05:43 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 57321176C;
+	Mon, 24 Aug 2026 09:05:50 -0700 (PDT)
 Received: from e142334-100.cambridge.arm.com (e142334-100.cambridge.arm.com [10.2.198.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DD55E3F85F;
-	Mon, 24 Aug 2026 09:05:43 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E50133F85F;
+	Mon, 24 Aug 2026 09:05:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787587547; bh=1MvPs/PV2tLB4HDsvTjKWixuWNV1rCXGW/G3quH+LLs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=vw1mzenUY8gK8nUmmAxeKjb9a86TCQ0iVEQWg8R7B4POGuzbglchYJbzDSfmmTfv0
-	 gXGiOcK9oIuGSjJ3XjCUH6YEhOp7EgFCD0Z04j3UVhXsw8NB6vnhAHCoq6Him6v4/4
-	 emWSAony0re2jPv4WqmCIZPzZeU8g/k+ttOmssaA=
+	t=1787587554; bh=mAnn8lCC8CIaJdHDU1rhT42Z2WA5jMjaMEMo8Y0pB/s=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KXcATGYiblCFLHpkpJ3dWLchgVGcO9Fkn7aLt+0hDsnP3bpXXPHFXftjmt7pR58vR
+	 2bXx6QlmsEr8OZamAZdP5OCw7v/hT+jfDQRoSou7GvXm1ImM5oCovGMfQyOGW9P/Gn
+	 em69FAcrIUlVaiYSuADP1SL6CUzdUrdZlVbQffZ4=
 From: Muhammad Usama Anjum <usama.anjum@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -67,16 +67,17 @@ To: Catalin Marinas <catalin.marinas@arm.com>,
 	bpf@vger.kernel.org (open list:BPF [GENERAL] (Safe Dynamic Programs and Tools)),
 	linux-mm@kvack.org (open list:MEMORY MANAGEMENT - CORE)
 Cc: Muhammad Usama Anjum <usama.anjum@arm.com>
-Subject: [PATCH 0/7] arm64: Batch PSTATE.TCO handling in kernel nofault loops
-Date: Mon, 24 Aug 2026 17:04:45 +0100
-Message-ID: <20260824160523.3907021-1-usama.anjum@arm.com>
+Subject: [PATCH 2/7] uaccess: Add scope guard for bare kernel nofault regions
+Date: Mon, 24 Aug 2026 17:04:47 +0100
+Message-ID: <20260824160523.3907021-3-usama.anjum@arm.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260824160523.3907021-1-usama.anjum@arm.com>
+References: <20260824160523.3907021-1-usama.anjum@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_090548_697397_4C84BE2E 
-X-CRM114-Status: UNSURE (   7.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260824_090555_401232_629718C6 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,41 +92,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With Hardware Tag-Based KASAN in asynchronous or asymmetric mode, kernel
-nofault loops currently set and clear PSTATE.TCO around every access.
+A batched nofault region must run its end hook on every exit. Pairing the
+hooks by hand makes early returns and error paths easy to get wrong.
 
-Introduce bare nofault accessors, batching hooks, and an internal scope
-guard. Convert maccess page-fault cleanup to scoped form. Skip
-page-fault setup for zero-sized kernel nofault copies and zero-length
-BPF string operations. Then use bare primitives in the maccess and BPF
-loops. For non-empty operations, this reduces the code-derived dynamic
-MSR TCO execution count from 2N to 2. Two-string BPF comparisons fall
-from 4N to 2.
+Add a scope guard that starts the region on entry and ends it when the
+scope is left. Callers can keep their natural control flow while the
+architecture state remains balanced on success and failure.
 
-The BPF changes and an earlier maccess implementation with explicit
-cleanup were tested with QEMU arm64 using Hardware Tag-Based KASAN in
-synchronous, asynchronous, and asymmetric modes. All nine arm64 MTE
-kselftests passed in each mode, as did the 138 focused BPF string_kfuncs
-and varlen subtests. The focused BPF tests also passed with the default
-non-MTE arm64 CPU model. Both final maccess scoped-guard patches were
-arm64 cross-built. Runtime tests have not been rerun after that
-conversion.
+No functional change until a caller uses the guard.
 
-Muhammad Usama Anjum (7):
-  arm64: uaccess: Add batched kernel nofault accessors
-  uaccess: Add scope guard for bare kernel nofault regions
-  maccess: Skip setup for zero-sized kernel nofault copies
-  maccess: Use a scoped guard for page faults
-  maccess: Batch TCO handling in kernel nofault loops
-  bpf: Skip setup for zero-length string kfunc operations
-  bpf: Batch TCO handling in string kfuncs
+Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
+---
+ include/linux/uaccess.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
- arch/arm64/include/asm/uaccess.h | 71 ++++++++++++++++++++++++--------
- include/linux/uaccess.h          | 20 +++++++++
- kernel/bpf/helpers.c             | 41 ++++++++++++------
- mm/maccess.c                     | 68 ++++++++++++++++--------------
- 4 files changed, 139 insertions(+), 61 deletions(-)
-
+diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
+index 7ae1854673471..b25e778ddc38a 100644
+--- a/include/linux/uaccess.h
++++ b/include/linux/uaccess.h
+@@ -653,6 +653,10 @@ do {							\
+ #define __end_kernel_nofault_bare()	do {} while (0)
+ #endif
+ 
++DEFINE_LOCK_GUARD_0(__kernel_nofault_bare,
++		    __begin_kernel_nofault_bare(),
++		    __end_kernel_nofault_bare())
++
+ /**
+  * get_kernel_nofault(): safely attempt to read from a location
+  * @val: read into this variable
 -- 
 2.47.3
 
