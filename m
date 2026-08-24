@@ -4,76 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 723ECC5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 11:02:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFA8C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 11:04:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hHlrmazqcVpvEqwVpnhYhqqkG2VxRO9nSsjD2wAwwls=; b=nyEfyVyzk4F//9gnaG3XREWoUm
-	Ewbj7eXYT4bIrE+MHX8KCvz4h4EUF9Vy/Q/X8ypQDwJzDgvsQWYN2lsITCiT8V3Q5SVMguksWX600
-	EfLGOJ5RbejyEfb2oBFZkHG+44sCDnUFvU4PH/5XJvoz4sC7g2h/+U/9yxt1hzMuO7V5hpa+346ED
-	Smc2zUd3J/RAgI+1PIPkdTW7h951hWaCwFKJIiUdoQfHe5cXe+zVcZmM8ldzLtCtSgRfuxY20k770
-	F97hb+LSdVDijAc81zstt6IOfj1e5InS70yvYO5SMzFjIsJCOru9f9E8VR7LvPNtnsPIF7LMiJAoa
-	HNo+gfKA==;
+	bh=YuCDKY9mXTrdYYrt4yEzUU2rfGaRGeNzZjabp91Amlo=; b=YDDFUsZS/OvQbcv7uUr8Xc1ZRe
+	SezUggxTbjU138djqte8883YFlcgC8bC5ERZXuH3E/JjmyMF3PDvNXBYcgZrRXusf6wBGJHbBHM4a
+	G6t103s3kCGqu88kBJpjOMQObrw+zG6H3DnbpBuNiIFXwhr43mBzkn1WQa30miZnC36kP8crIsEEZ
+	oFBpr2nhK5hqFAAVwehX/eWJclY5ocf6C8qlb+kceHLukGTt4HbT3UQIGjJ76KPSVCMEvoBmVt6ra
+	0Z6VsKYrRTGHkxoXaRfMnEbqDzY2ZvzBJGQ+XI/AxYqCarqJGyW6doknxUok8oXrubcz4ZiX/wenm
+	cvbmaGfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySRN-0000000GRdn-2oyy;
-	Mon, 24 Aug 2026 11:02:09 +0000
-Received: from mout.web.de ([212.227.15.3])
+	id 1wySTz-0000000GRtZ-0snq;
+	Mon, 24 Aug 2026 11:04:51 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySRK-0000000GRdS-1Q0R
+	id 1wySTw-0000000GRrr-0fjL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 11:02:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1787569315; x=1788174115; i=markus.elfring@web.de;
-	bh=hHlrmazqcVpvEqwVpnhYhqqkG2VxRO9nSsjD2wAwwls=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=KpBKffmnlNwfBHHo68jOWUBJ8rSDNw7f/FsXT756kTcwAOTnpZuukL5TQNiOELK9
-	 2tBQ6h6BKP9wOgCS6yUGd7naJvr3eqaij7jJN4EPDHl+S/WlIucVpWLuHlU5A4cGt
-	 EvSCw1ZGPiGnpX41CndfjeC/S+eVjGUaNCy9cxpnQK8GHFy4YQaVjcDoCqedByHUe
-	 XqQQfOWEwiCBeqr9KQkuFXy5NpmbTapV32DRWTsyzpHDG9aYfFvVvhv1oH55GwHWF
-	 PfS7x5JSWs8zGYyb8haoI3P/r5zDsPofuhJMVRgrbFDKn/IrXTPKVIdo8z0GP+zjQ
-	 sszXDdc0979kMnwd6Q==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb006
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1N2BMA-1wn5Pp1Vd8-00ssm3; Mon, 24
- Aug 2026 13:01:55 +0200
-Message-ID: <4f3ab9c9-7f0a-4e1b-84ad-7fe5b0b211a8@web.de>
-Date: Mon, 24 Aug 2026 13:01:53 +0200
+	Mon, 24 Aug 2026 11:04:50 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-c197eaaab00so550546266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 04:04:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1787569486; x=1788174286; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YuCDKY9mXTrdYYrt4yEzUU2rfGaRGeNzZjabp91Amlo=;
+        b=EVRAQ/RKipQf9z3Qe1t59oWj6AEgm1dTFTqrSECb2ObxfvyAZBDRn6SbOCLOhmhjiJ
+         +Qq8Xx7ldUXVegkN8sToE3jqsiJJnkf4Y4fqIC3DhdlpdSfdwczzRO8MTu2vYGN8ZRTh
+         tBLWN+LxqXbUXNa3Kz9ffgLfj7voF8AztLwQLDoOdZfONIgCe6z0FDFYrVub8ElT6mhi
+         Z5f7fsRlMj8JKZZJLkIV5CEbxN2qQ/w2iS8gDRRFQBtmNmp/zIGpk/sNTDgJqK5gSTpZ
+         FzGif0Y6av9aQHHRo0lrw/bOsB+zLo5xLVz+yXkvP011DRfmNKBvmlt5y9t2LW9EuFDu
+         Iqxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787569486; x=1788174286;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YuCDKY9mXTrdYYrt4yEzUU2rfGaRGeNzZjabp91Amlo=;
+        b=PL08tt2/WaVGCtQx8ixoqIEYECN2MBWkYLFiGfI5sfP5G4yCg/Zs1Eohr8XkQQypd9
+         YD1gffp1IsnWExmmwSEUWKGxd4hY3JSoebFxuD9GjBqMmuv55dRL5vQdKlmtR+GQoh+X
+         iGfwyOOmyNDObdmfbaOVYR9+/5opsvIjKOQICkco36EhbuOGEnN3vYALj0r0uMFai/3l
+         ZCRtRDGwGTjO3x50Qaz5/lLBmVa51/w/CZjXwvdG6h9ScGd6naahPje+ALniNWhlyobV
+         fUsT4YQcMCq8EH2entxS0jgikO2cur5l6UREdG+yjJKrhBtJciVOiMaJSj+IGXrZ4eS4
+         MHJw==
+X-Forwarded-Encrypted: i=1; AHgh+Rr1S2iV2IZMTXt56rpPVCPzJcRFHBnvmbEOPb/5UyyAVg+i3DcnZX06c9lXymW5MFbs7FIzVfdRRVIGUac56tu4@lists.infradead.org
+X-Gm-Message-State: AFuF++nLABwEfUGyHaaYac3gPUT6MgNfmynLC2+4Kt/Rxkj3KN+GOUGG
+	zWIByCgwExXcKUnswqQzBtyyYKq0jWoeyY8dY646mH5ZbTyHaK83aoRGqBG7JpDIMqw=
+X-Gm-Gg: AR+sD10L5fVVQdMGWkq7Paml7amHGvqHGDGloE3+O3TplzbAY0oWS44WxnAq5OK6ckf
+	cR1T7ibJ8HSljrnq/d02w0S0CiTC3Hih+lq9SNW+Tk38OPcx1R7bziI4bqo5CX7FVmyG+JsM7fn
+	Sys7PvTy+Gxl6Ns8+1z/LQ1H71LJ561aWetqdFJ0WGiFchoNhu5iRkW/oJFEi2tlq//QngXq4Kk
+	bjsa2Sr/v6CtCzzy5Wy3KEyE3Rhp3+Pu2hJI1PUF8pSA97l0h8vXIJ0LhUj9ve2Jt8YhZ2UbXS5
+	OHXGUVW+b0n5h8kjv/kPl0kuVxvpTOQ9p6tTY1qmleOgUUjojLXmNmcd5gkHVy5nYakrTGkglOX
+	f3pe/a+IiLwAPPwIlq/InwkPdC/KYXneds+xQF8db+zisjOeF/TAw5kF+9K6Q7yNqAAOp20TRHI
+	tTH8bVd64GRB2+EeYz4u43hfS8MqHjotZtgr4AjU3t9RDUwdrNnzOuRhXUMMxN8Ce7sJpbSzJam
+	JaY8pOXrqWlkLHcxKsTdPpRZYlfCWaxgVBvE0lAXu35C+/905/spFr4lbPRqL35tkvXYJUkPBLm
+	ub8GVYidBke5xJQnE5At3z+o7nEP5Eagg+J/ww==
+X-Received: by 2002:a17:907:7252:b0:c16:8adf:f183 with SMTP id a640c23a62f3a-c246a683ff5mr2769437566b.14.1787569486011;
+        Mon, 24 Aug 2026 04:04:46 -0700 (PDT)
+Received: from threadripper-fedora-workstation (cpe-109-60-82-103.zg3.cable.xnet.hr. [109.60.82.103])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2496738e7esm1331954166b.46.2026.08.24.04.04.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Aug 2026 04:04:45 -0700 (PDT)
+From: Robert Marko <robert.marko@sartura.hr>
+To: ulfh@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	aubin.constans@microchip.com,
+	linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: luka.perkov@sartura.hr,
+	Robert Marko <robert.marko@sartura.hr>
+Subject: [PATCH 2/4] arm64: dts: microchip: lan969x: add SDMMC nodes
+Date: Mon, 24 Aug 2026 12:56:50 +0200
+Message-ID: <20260824110432.1074136-2-robert.marko@sartura.hr>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260824110432.1074136-1-robert.marko@sartura.hr>
+References: <20260824110432.1074136-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: hanzhijian1991@gmail.com, imx@lists.linux.dev, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel@pengutronix.de,
- Bjorn Helgaas <bhelgaas@google.com>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?=
- <kw@linux.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Lucas Stach <l.stach@pengutronix.de>, Manivannan Sadhasivam
- <mani@kernel.org>, Richard Zhu <hongxing.zhu@nxp.com>
-Cc: sashiko-bot@kernel.org, LKML <linux-kernel@vger.kernel.org>,
- kernel-janitors@vger.kernel.org, Fabio Estevam <festevam@gmail.com>,
- Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>
-References: <20260824075512.3386898-1-hanzhijian1991@gmail.com>
-Subject: Re: [PATCH v3] PCI: imx6: fix resource leaks in probe error paths
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20260824075512.3386898-1-hanzhijian1991@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:6EMYblq/sqAKTZ76CQ1mfxMBjYW6kcppsrGFyVBiFlmeGRh/w0q
- 8n6uM+Svx1idjlfZ4aBdDWZf+ECp5vGN7Cl4kk+pgzO8icwq14XbaZ4l1GIZHShY+ML4ONY
- gSj8C+4hRXb8XqeOhnIu+S7r5V/4sqLTTZWf9Qyr4YYouAzs/m9mnbjE8/ff6/AggxPDufP
- istixft1SeG+GhxBGGW8Q==
-UI-OutboundReport: notjunk:1;M01:P0:+/Dpa6abCrU=;g9PZbIhB4O05A6xzneizjiJwAbD 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 rWa33vPMY+bCdyWximmKMdhP1Sx3Nphi
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_040206_744997_9B7BCF2C 
-X-CRM114-Status: UNSURE (   6.41  )
+X-CRM114-CacheID: sfid-20260824_040448_442079_074B5335 
+X-CRM114-Status: UNSURE (   9.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,42 +112,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> imx_pcie_probe() leaks both pwrctrl devices and power domains on
-> failure:
-=E2=80=A6
+Add nodes for both SDMMC controllers.
 
-How do you think about to add any tags (like =E2=80=9CFixes=E2=80=9D and =
-=E2=80=9CCc=E2=80=9D) accordingly?
+Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+---
+ arch/arm64/boot/dts/microchip/lan9691.dtsi | 24 ++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-See also:
-* https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/=
-Documentation/process/submitting-patches.rst?h=3Dv7.2#n145
-* https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/=
-Documentation/process/stable-kernel-rules.rst?h=3Dv7.2#n34
+diff --git a/arch/arm64/boot/dts/microchip/lan9691.dtsi b/arch/arm64/boot/dts/microchip/lan9691.dtsi
+index a8541c6a098d..2d943ea75768 100644
+--- a/arch/arm64/boot/dts/microchip/lan9691.dtsi
++++ b/arch/arm64/boot/dts/microchip/lan9691.dtsi
+@@ -414,6 +414,30 @@ qspi0: spi@e0804000 {
+ 			status = "disabled";
+ 		};
+ 
++		sdmmc0: mmc@e0830000 {
++			compatible = "microchip,lan9691-sdhci",
++				     "microchip,sam9x60-sdhci";
++			reg = <0xe0830000 0x00000300>;
++			interrupts = <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks GCK_ID_SDMMC0>, <&clks GCK_ID_SDMMC0>;
++			clock-names = "hclock", "multclk";
++			assigned-clocks = <&clks GCK_ID_SDMMC0>;
++			assigned-clock-rates = <100000000>;
++			status = "disabled";
++		};
++
++		sdmmc1: mmc@e0838000 {
++			compatible = "microchip,lan9691-sdhci",
++				     "microchip,sam9x60-sdhci";
++			reg = <0xe0838000 0x00000300>;
++			interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks GCK_ID_SDMMC1>, <&clks GCK_ID_SDMMC1>;
++			clock-names = "hclock", "multclk";
++			assigned-clocks = <&clks GCK_ID_SDMMC1>;
++			assigned-clock-rates = <45000000>;
++			status = "disabled";
++		};
++
+ 		qspi2: spi@e0834000 {
+ 			compatible = "microchip,lan9691-qspi";
+ 			reg = <0xe0834000 0x00000100>,
+-- 
+2.55.0
 
-
-Would you like to avoid a bit of duplicate source code here?
-
-
-> Signed-off-by: hanzhijian <hanzhijian1991@gmail.com>
-
-Can an other representation be more desirable for the =E2=80=9Cpersonal na=
-me=E2=80=9D
-according to the requirements for the Developer's Certificate of Origin?
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
-cumentation/process/submitting-patches.rst?h=3Dv7.2#n396
-
-
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 42 ++++++++++++++++++++++++---
-=E2=80=A6
-
-Some contributors would appreciate patch version descriptions.
-https://lore.kernel.org/all/?q=3D%22This+looks+like+a+new+version+of+a+pre=
-viously+submitted+patch%22
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
-cumentation/process/submitting-patches.rst?h=3Dv7.2#n310
-
-Regards,
-Markus
 
