@@ -4,47 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59DB7C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 19:35:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE8EEC5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 19:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-Id:From:
-	In-Reply-To:Date:Subject:To:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NQpiRTqyDmsFHrQhXSOP3qjTy3lJ+JjfdqVFx2AjjoM=; b=w0ZnhjNJMngc5wC1Q9Z9PmAP2O
-	M5bStXY+/vxFT1kppKnRwyjyQifLWpiXp9PKrKyiEM/RuDyb/S8bEe7OOHKOT/jGa4tmBu3qpm4AW
-	pUWFBkXD6ym69CutNaPYf9PzimZ2bxhD1ahTY5uK3tt9iiLZEnA+jLTShlUOnjhZBFSSnS8p2PCR8
-	BkUlcndYLzoTRo5WLaKg5p+LsnbB1RRflrEwYWiojnLEmPWZ9RlkItAimAdlQ3w7IxA5hhAxDtzWo
-	fKZR1XXS2aNsTXcY0XrdvdD+1/Z9Wj4S1oVqP5Y40B3VfOOmE+5FuvNyqJ0mzuBbjKN6kqyV8wvX3
-	gszpvGVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:In-Reply-To:Subject:
+	Content-Transfer-Encoding:Mime-Version:Message-Id:To:References:Date:From:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G2ERPFIrOa+gDnsmMFvcRecBvtEZUGxg6dBSiPNWMUk=; b=iBIz9ZpL1IHGQdQheqXHm87u9y
+	srSKPqCykdorJsSLoLD/bBy+lY6f685P6EJAIpcwbsXx46WI6RJVqoGdivK0OXkAHS/ML2Pcx6Px5
+	IlOMDj3eo5t4XDhCy0/9pw78XHgmhUE5xKrAu2GCBnMN9dJaz881T8E2F+SeS4fhl6MIQzjhPK4d2
+	g58BS1RGlbaxdL1FQAYWTOAhqErTB/GX1FqXiU4sTjNKYmWcHFdJgYmiEPG6bfkuyuGDUbmcP4D0g
+	Ve3t0RTRrKtRswjaQXXg0gqa0KsHoEXeg3sbOhkXFEOLZx6Ciw39rLmXvzlVWgJqvUuEDi5hUXrWj
+	0XKTEOQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyaRb-0000000HJY9-0XDD;
+	id 1wyaRb-0000000HJYJ-1GuT;
 	Mon, 24 Aug 2026 19:34:55 +0000
-Received: from sg-2-4.ptr.blmpb.com ([71.18.227.4])
+Received: from sg-2-1.ptr.blmpb.com ([71.18.227.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyaRW-0000000HJWw-2pgz
+	id 1wyaRX-0000000HJWm-2Aw7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 19:34:52 +0000
+	Mon, 24 Aug 2026 19:34:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604220257; d=cherr.cc; t=1787600084; h=from:subject:
+ s=feishu2604220257; d=cherr.cc; t=1787600082; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=NQpiRTqyDmsFHrQhXSOP3qjTy3lJ+JjfdqVFx2AjjoM=;
- b=oCGKsyWfAUBYis17BXo7stZKB8sy5L9MG9snJ4/4Ss4RRDngkdD5zfiTJ8DfKSnm6tj6Y5
- WEvu/UMYlcvKM5TtX06gKvEyhpqGxA3ROxWUiHkAtqRUh+E5nX8KJICb8pUNMe+MfmaCcQ
- iVt5fjeLoNHe2CsPQG7QNYSmlcfWoi6BpoRi3pLI4pmtTE6XoCi2okw8FyVlP/fltyPXTT
- 81hAMnGuAtVtXo3zwT8ofxEwvuH+8yT0P/q0lPI07SBRIdT81Kni5qfImpbfvezrfDZgpL
- kxF3bt7xrVXWwvL8pjEvDZdYWymVGvUnscfIWCwFQ4whPhe/5Oom1VE7ShpKbw==
-Cc: <imx@lists.linux.dev>, <linux-media@vger.kernel.org>, 
-	<linux-arm-kernel@lists.infradead.org>, <stable@vger.kernel.org>, 
-	"Shengzhuo Wei" <me@cherr.cc>
-Mime-Version: 1.0
-X-Lms-Return-Path: <lba+26a8c9cd2+c8be14+lists.infradead.org+me@cherr.cc>
-Content-Transfer-Encoding: 7bit
-X-Original-From: Shengzhuo Wei <me@cherr.cc>
+ bh=G2ERPFIrOa+gDnsmMFvcRecBvtEZUGxg6dBSiPNWMUk=;
+ b=xTIl7NjwTnuivp6bfW656TfpVRSSSTXptfLdk2s8Yba7gWvdY2s4jkDcDljDxMfgGnnbvQ
+ FLUzyjET8n0yY5l3Z0FLEHJdmsLaFDDlQYv+TT50PCy4U1+Ge1X3j6UbX/izAJf+eAFjpL
+ fhPo7LQF82pDRa+nhbOhJwFyQ4xY9fBLWc4HpC9DjyCYFEOMA4CjESS4DqSXpnBEaLeUvF
+ CoLrCbX61D577fpcHOmvgDuLn87YSkvIYO8eGRz61ajHFR7ftwrDQLQkFBTAX5vOJs3vtO
+ jbyG8OMKIc347W4bCZtmllBJIRCaDbtsXNejtYzbh6OQK54mMJpTUEceZH9DoQ==
 Content-Type: text/plain; charset=UTF-8
+From: "Shengzhuo Wei" <me@cherr.cc>
+Date: Tue, 25 Aug 2026 03:34:31 +0800
+X-Lms-Return-Path: <lba+26a8c9cd0+212099+lists.infradead.org+me@cherr.cc>
+Received: from [192.168.9.107] ([111.42.148.163]) by smtp.feishu.cn with ESMTPS; Tue, 25 Aug 2026 03:34:40 +0800
+References: <20260825-media-timeout-work-v1-0-ebfebbeb6c31@cherr.cc>
 To: "Mirela Rabulea" <mirela.rabulea@nxp.com>, 
 	"Mauro Carvalho Chehab" <mchehab@kernel.org>, 
 	"Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, 
@@ -59,17 +57,19 @@ To: "Mirela Rabulea" <mirela.rabulea@nxp.com>,
 	"Matthias Brugger" <matthias.bgg@gmail.com>, 
 	"AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>, 
 	"irui wang" <irui.wang@mediatek.com>, "kyrie wu" <kyrie.wu@mediatek.com>
-Subject: [PATCH 3/3] media: mediatek: jpeg: cancel job timeout work before m2m release
-Date: Tue, 25 Aug 2026 03:34:32 +0800
-In-Reply-To: <20260825-media-timeout-work-v1-0-ebfebbeb6c31@cherr.cc>
-From: "Shengzhuo Wei" <me@cherr.cc>
-Message-Id: <20260825-media-timeout-work-v1-3-ebfebbeb6c31@cherr.cc>
-Received: from [192.168.9.107] ([111.42.148.163]) by smtp.feishu.cn with ESMTPS; Tue, 25 Aug 2026 03:34:41 +0800
-References: <20260825-media-timeout-work-v1-0-ebfebbeb6c31@cherr.cc>
+Message-Id: <20260825-media-timeout-work-v1-2-ebfebbeb6c31@cherr.cc>
+Mime-Version: 1.0
+Content-Transfer-Encoding: 7bit
+X-Original-From: Shengzhuo Wei <me@cherr.cc>
 X-Mailer: b4 0.14.2
+Subject: [PATCH 2/3] media: verisilicon: hantro: cancel watchdog work before m2m release
+In-Reply-To: <20260825-media-timeout-work-v1-0-ebfebbeb6c31@cherr.cc>
+Cc: <imx@lists.linux.dev>, <linux-media@vger.kernel.org>, 
+	<linux-arm-kernel@lists.infradead.org>, <stable@vger.kernel.org>, 
+	"Shengzhuo Wei" <me@cherr.cc>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_123450_897638_19F63A2E 
-X-CRM114-Status: UNSURE (   6.77  )
+X-CRM114-CacheID: sfid-20260824_123451_777119_5BB87624 
+X-CRM114-Status: UNSURE (   6.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,36 +85,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Each job arms jpeg->job_timeout_work, cancelled only by the IRQ
-completion path. If a job stalls, mtk_jpeg_remove() frees
-jpeg->m2m_dev via v4l2_m2m_release() with the timeout still pending,
-and mtk_jpeg_job_timeout_work() then dereferences the freed m2m_dev
-and the stale ctx it returns -- a use-after-free.
+Each job arms vpu->watchdog_work, cancelled only by the
+job-completion path. If a job stalls, hantro_remove() drops the last
+reference to vpu->m2m_dev via v4l2_m2m_put() with the watchdog still
+pending, and hantro_watchdog() then dereferences the freed m2m_dev --
+a use-after-free.
 
-Drain the work before the m2m device is released. The device-level
-job_timeout_work was missed by the earlier fix for ctx->jpeg_work.
+Drain the watchdog before the m2m device is released.
 
-Fixes: 5fb1c2361e56 ("mtk-jpegenc: add jpeg encode worker interface")
-Fixes: dedc21500334 ("media: mtk-jpegdec: add jpeg decode worker interface")
+Fixes: 775fec69008d ("media: add Rockchip VPU JPEG encoder driver")
 Cc: stable@vger.kernel.org
 Signed-off-by: Shengzhuo Wei <me@cherr.cc>
 Assisted-by: GLM:5.3
 ---
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 1 +
+ drivers/media/platform/verisilicon/hantro_drv.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index d147ec48308110ae8520662e182dc0445447d8d0..f0fe14e83d515f5011cbfe051abbf565568013d0 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -1405,6 +1405,7 @@ static void mtk_jpeg_remove(struct platform_device *pdev)
- 
- 	pm_runtime_disable(&pdev->dev);
- 	video_unregister_device(jpeg->vdev);
-+	cancel_delayed_work_sync(&jpeg->job_timeout_work);
- 	v4l2_m2m_release(jpeg->m2m_dev);
- 	v4l2_device_unregister(&jpeg->v4l2_dev);
- }
+diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
+index 2e81877f640fb429b18d2f4fd64bc0c392cf600e..1b04b98371a48184f390a13791243fd00d6b80ef 100644
+--- a/drivers/media/platform/verisilicon/hantro_drv.c
++++ b/drivers/media/platform/verisilicon/hantro_drv.c
+@@ -1284,6 +1284,7 @@ static void hantro_remove(struct platform_device *pdev)
+ 	hantro_remove_dec_func(vpu);
+ 	hantro_remove_enc_func(vpu);
+ 	media_device_cleanup(&vpu->mdev);
++	cancel_delayed_work_sync(&vpu->watchdog_work);
+ 	v4l2_m2m_put(vpu->m2m_dev);
+ 	v4l2_device_unregister(&vpu->v4l2_dev);
+ 	clk_bulk_unprepare(vpu->variant->num_clocks, vpu->clocks);
 
 -- 
 2.47.3
