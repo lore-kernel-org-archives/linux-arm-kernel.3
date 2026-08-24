@@ -4,64 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFA3C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9BF0C5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/9k6rsVugii8EldIM+liTdiDInblrdlEJ5qzcfjbqtE=; b=ab6Ccx74pAihCL6yv91ACi5UJ0
-	ludPwAMXUPvKuRf3xkzNiTm80ICfyu2cTE8vf5CBL8Mv1kgPXWRCPy0VIVFu54rhH4VYdMV3urzB0
-	MfwZEQUskQ/FZ56qZg7fyoQZ84ZZOm4mraE1icGOMkhldNVVBrGScrxneAzQl0z9hiSrT6c92Y5z9
-	e55JzvFkvmYSSiwV6i8NVlZ3grPbRb4AGpHka3RntpHPWAGdLRafLws8hzNQRmcEq6jonYqDXK4F0
-	ovpVZ/JmY8ceHc5yztD5FuWPSeRjeab7AeNrkTWDszzNe20rmZC2tEGJROTKVXmI4GAoFhTmNwLQ/
-	Rx6/+UVw==;
+	bh=Q/YK2XBpqlieY7KJvqGJYsHNS+SMvy1GkrZAPQ1gJ5k=; b=VAOgWdT9fIaBZvn7+KrVKwINNS
+	kRtk8JoD2CyTLqmk0SZ2EckkO+ANYWUO2FS/5l7pHtFlpsiaW69pw8sqTUHuELta6JAMmhfcGjmIn
+	SrfObZBFQDWNMlxmIq8HDGWM9D+v77GaJ1Fihc2Vol4fL6EUfklM1oSMr1Y4gIp/4TN/dY9a+VEkQ
+	JqWqVMgZPiM2W7616T47H+xJ4edEfcWHxj6uyrWySOV8WzEgtWY9fNtEGvvMFPPaAl7DV9d6BHxCU
+	+EZEY0z8UAGqzlaymiDCdyKK36h1c1l5AIGjniCJjdgfp4oqSJwZtVVscOwFeGz9Mup0HgJig+8dS
+	lWND03Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyX01-0000000GyWu-0Cnl;
-	Mon, 24 Aug 2026 15:54:13 +0000
+	id 1wyX07-0000000GyY5-0fEI;
+	Mon, 24 Aug 2026 15:54:19 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWzx-0000000GyWV-14Tt
+	id 1wyX05-0000000GyXv-2ZFl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 15:54:11 +0000
+	Mon, 24 Aug 2026 15:54:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 97EDA4020F;
-	Mon, 24 Aug 2026 15:54:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8433B1F000E9;
-	Mon, 24 Aug 2026 15:54:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5EB444020F;
+	Mon, 24 Aug 2026 15:54:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FD5F1F000E9;
+	Mon, 24 Aug 2026 15:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787586848;
-	bh=/9k6rsVugii8EldIM+liTdiDInblrdlEJ5qzcfjbqtE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=i34Sn+YZq8PcxLC+hvz4ODhBULqEE+xdp1P8tmuwrvivsHtQaY2PEAj3pHbk2k8te
-	 CP/zTT3p1WTNMMHLRDizZmHRhgt5zhKIv8d+N0sTbH7yw5f4lCpuA9KTCW36UuhKhm
-	 50RQeoVxfz7XB8TI2fhCGe2IzmxthYm2BSEVNqf/O6DYUCgASWomJ1KCZOCZY0JmVg
-	 +hjHuOagZJ52EgDl0a4oPLDnGqL9tjMjCRlzomM2UhLi2SSJV9l+fihu73XwwJxZeT
-	 Qy4Jls5988PnIkRWV12AMXZ0wrV+v3X0Nh7LWfDeaIgtDWmJBgz7+UBGw5o4noY2rx
-	 egZ4USfZ5E4kQ==
-Date: Mon, 24 Aug 2026 16:54:03 +0100
-From: Will Deacon <will@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
+	s=k20260515; t=1787586857;
+	bh=Q/YK2XBpqlieY7KJvqGJYsHNS+SMvy1GkrZAPQ1gJ5k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=XBDmeh7tkQdYARPGjPdNBK5kC6zjthQwiRE3A8fSloO/zwyEpGoDL5WZfn1vWgPyJ
+	 3HsYSxOzVN3azk/1bfhQRhwCqOoZBTWxKVMRY78nX/TTx2SsywelssenqSr4Lghtd/
+	 rY3vZehxVuRS0sdmO69AYs04PDwv+E9ZmrruC4AWhnZG/7ythH2wsv0h26DNnTr7a/
+	 qjimLt1MYiq6LJifz+Y8v9Krph0vn7Ek5q5RjJNyxZ30c2H78UjDpLoKj1iSrcoDE+
+	 XE92ftUKKLS65/jS0wX554/1eL4RwAlvVvYzfESciWGxiKAG+b8EHcA9nYW/+nh8EV
+	 +0LvQQUQ9fSTQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wyX02-00000000l0h-3eHA;
+	Mon, 24 Aug 2026 15:54:15 +0000
+Date: Mon, 24 Aug 2026 16:56:46 +0100
+Message-ID: <87ecfno6kh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: Defer the GMID_EL1 read to
- {init,update}_cpu_features()
-Message-ID: <aoxpG13UZfKJ2Rfu@willie-the-truck>
-References: <20260824071004.504894-1-fuad.tabba@linux.dev>
- <aoxCk5lFQv6lFwHQ@willie-the-truck>
- <CA+EHjTy6Xh=eNg22fBdjPzZOZitzvcDX2L5zbSUFCsX1n6XobQ@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTy6Xh=eNg22fBdjPzZOZitzvcDX2L5zbSUFCsX1n6XobQ@mail.gmail.com>
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] KVM: arm64: Fix spurious warn, null ptr deref on S2 teardown race
+In-Reply-To: <aoxD4omq8gKYdFKL@gremlin>
+References: <20260822-kvm-arm-nested-virt-fix-v2-0-ac4059a0eaa6@kernel.org>
+	<87tsolnuh0.wl-maz@kernel.org>
+	<aoxD4omq8gKYdFKL@gremlin>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ljs@kernel.org, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, christoffer.dall@arm.com, weilin.chang@arm.com, yaoyuan@linux.alibaba.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,65 +95,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 04:14:41PM +0100, Fuad Tabba wrote:
-> On Mon, 24 Aug 2026 at 14:09, Will Deacon <will@kernel.org> wrote:
+On Mon, 24 Aug 2026 14:15:29 +0100,
+"Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
 > 
-> > > +     /*
-> > > +      * info->reg_gmid deferred to {init,update}_cpu_features because
-> > > +      * reading it traps to EL2 when MTE is disabled.
-> > > +      */
+> On Sun, Aug 23, 2026 at 08:53:31AM +0100, Marc Zyngier wrote:
+> > On Sat, 22 Aug 2026 18:46:52 +0100,
+> > "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
+> > >
+> > > When GFNs are invalidated in L0 an MMU notifier triggers
+> > > kvm_unmap_gfn_range() which tears down all of the stage 2 shadow page
+> > > tables for nested guests via kvm_nested_s2_unmap().
+> > >
+> > > To avoid lockup, the kvm->mmu_lock is dropped while doing this and the task
+> > > rescheduled once for each block of physical address space (32 MiB for 16
+> > > KiB page size), with the lock being reacquired once the task is scheduled
+> > > again.
+> > >
+> > > This results in a potential race between this L0 tear down and tear down of
+> > > the guest itself in kvm_flush_shadow_all(), a race which has been observed
+> > > on real hardware.
+> > >
+> > > When this race occurs it causes an invalid kernel warning when the PGT of a
+> > > nested MMU is cleared by kvm_flush_shadow_all() ->
+> > > kvm_arch_flush_shadow_all() -> kvm_free_stage2_pgd().
+> > >
+> > > Patch 1 fixes this by having stage2_apply_range() no longer return an error
+> > > when it has experienced a benign race with pgt teardown when it drops the
+> > > lock.
+> > >
+> > > Patch 2 addresses something more serious - bad timing can turn this spurious
+> > > warning into a NULL pointer dereference.
+> > >
+> > > kvm_arch_flush_shadow_all() calls kvm_uninit_stage2_mmu() which calls
+> > > kvm_free_stage2_pgd() on the canonical kvm->arch.mmu for that guest's S2
+> > > mappings, making it NULL.
+> > >
+> > > This is problematic if it happens before stage2_apply_range() reacquires
+> > > the kvm->mmu_lock, as it ultimately returns to kvm_nested_s2_unmap() which
+> > > dereferences kvm->arch.mmu.pgt with the mmu lock held under the incorrect
+> > > assumption that it means it's valid, resulting in a NULL pointer
+> > > dereference.
+> > >
+> > > Fix that by checking if kvm->arch.mmu.pgt is NULL before dereferencing it
+> > > in kvm_nested_s2_unmap() and kvm_nested_s2_wp().
 > >
-> > I don't think we should defer this, as I've been actively doing the
-> > opposite for parallel CPU onlining (where the ID registers can be read
-> > concurrently by incoming CPUs to amortise the cost of a trap) and also
-> > for the RNG traps during early boot:
-> >
-> > https://lore.kernel.org/all/annJ0oDB2HObQC5j@willie-the-truck/
-> >
-> > If you look at the diff I sent in the thread above (I didn't get a
-> > reply), the idea is that __read_sysreg_by_encoding() reads from the ID
-> > register values stashed by cpuinfo_store_cpu(). So you could use that
-> > to check id_aa64pfr1 before reading gmid, as it will give you the
-> > sanitised view.
+> > With the commit message for patch #1 trimmed to something that fits on
+> > a couple of standard terminal screens ;-) :
 > 
-> I just did, but I don't think it'll work. The thing is,
-> __read_sysreg_by_encoding() gives the override-applied local value,
-> not the folded sys_val.
-> 
-> arm64.nomte is a command-line override, so that works. But
-> CONFIG_ARM64_MTE=n sets none. Any gate would still need an explicit
-> IS_ENABLED(CONFIG_ARM64_MTE).
-> 
-> That said, I don't have to defer it. I can keep the info->reg_gmid
-> read in __cpuinfo_store_cpu() and gate that read on the state that
-> arms the trap:
-> 
->         static inline bool gmid_el1_accessible(u64 pfr1)
->         {
->                 if (!IS_ENABLED(CONFIG_ARM64_MTE))
->                         return false;
->                 if (system_capabilities_finalized())
->                         return system_supports_mte();
->                 return id_aa64pfr1_mte(pfr1);
->         }
-> 
-> 
-> TID5 is set from system_supports_mte() and only once capabilities are
-> finalised, so the local check is still correct before that. Gating on
-> system_supports_mte() keeps the different-physical-CPU case you want
-> to preserve working: if one re-onlines with MTE while the system view
-> has it folded off, the gate stays false and it won't read GMID_EL1.
+> Haha sure will put it on a diet and respin :)
 
-I still don't understand why you have system_supports_mte() here. If
-the CPU has MTE, the CONFIG option is enabled and the cmdline override
-isn't set, we can read GMID just fine on this CPU, regardless of the
-system capabilities.
+Oliver can probably do so when applying the series.
 
-> If you agree, I'll respin with that.
+Thanks,
 
-I can't tell who's calling gmid_el1_accessible() so it's hard to tell
-whether I agree or not. May as well send a v3 though, so we can see what
-you have in mind!
+	M.
 
-Will
+-- 
+Jazz isn't dead. It just smells funny.
 
