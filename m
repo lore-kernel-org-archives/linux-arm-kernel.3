@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F1B7C5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 19:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C201C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 19:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
 	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=62nqyVIxBlg6+4lpbd2oJmqrhuKyMAdbCBEghkHxbjA=; b=REdXn3BCZtjEDnFExrNXfQqmhE
-	1TQYCa9BokWELv3D4vtFmmq4FwmpThukKZZEvFqa3KCE0UJyUttotyr28Lkypp92zZYafbrIhUcpr
-	keVpc2+SaGEj3cvyF2J0x4eTosgGoU1vKSah6Jgy98UKFCgBmPuWTnhkf5Y5pyJNyAUB16vHDrSEp
-	MmOyW/sWVfCc07LB3IZII1aDJ/aWeRajww0DiKQcHgD0kAhiJAbaVQaQJgHrXpO8kscbRyI2JYXn+
-	84HBtTfNGpfqt8XIKCPyKBphwkk1vEaToSMoguqEPCLliAY7Ll8DpQAm7EKIgJCg4ItZrl8esovEG
-	xZOkDV3g==;
+	bh=Nd0lEx9hD6ylLpwOU9yD0wtJ3+jV/rg5UBsT4/paZVY=; b=Lq/4hjuE7WXctPxhPfvHLOoTNz
+	pli9Bt9IqsAdXgvdSSWw1/GOlulNjb3BhrFYEBaDKG0KoooF9aaQAZn2qhJdn+jQQbPpsbRzlGH6a
+	lkmyoOnDYGebO4SwkCCxORdqrTEAE208WqNHlW9EeoAw+Zn7Sq8lDwg67GKwPQr3qXzEUmtiXWLLd
+	YjGW8GQy2I8ma4/P1zUfWrBK8b25WQwriq8e5KJRPI8o15po5BUaEWwnW7I7M4XzdVAf2+z6n9zo4
+	ug+jOxYAfzcIaMD3CVUiXysjVyLoOtk0YyfvZNQn6rKrplQ5qQLca3yQ7/gUZh1R63M2CoczYm5h2
+	kSrOInYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyaCA-0000000HImA-397B;
-	Mon, 24 Aug 2026 19:18:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wyaCH-0000000HInN-3h3i;
+	Mon, 24 Aug 2026 19:19:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyaC9-0000000HIlv-3rh4
+	id 1wyaCC-0000000HImF-0ihC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 19:18:58 +0000
+	Mon, 24 Aug 2026 19:19:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3B49444011;
-	Mon, 24 Aug 2026 19:18:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F7DA1F000E9;
-	Mon, 24 Aug 2026 19:18:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6789C60120;
+	Mon, 24 Aug 2026 19:18:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DA491F00A3A;
+	Mon, 24 Aug 2026 19:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787599137;
-	bh=62nqyVIxBlg6+4lpbd2oJmqrhuKyMAdbCBEghkHxbjA=;
+	s=k20260515; t=1787599139;
+	bh=Nd0lEx9hD6ylLpwOU9yD0wtJ3+jV/rg5UBsT4/paZVY=;
 	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=e5IKGurNu8DYxMcN2x94VS7yxTCzucRDnaFZXDkzxcOuRv34ztjuYF1Jvds2Nk6CG
-	 keCOvlXp6aUMI5rLh5E1UfaT9uaAY+yrD2z2Wg63BKLBrbFjJ5bKvZUy0ER/8BbLuK
-	 HkRvGqA3HyglcdzRS8g27dAEbitChf95m3aYVFjO5Gk5S/2G/QtbI53EdTPUkVqo2R
-	 FVWOPNgP9nogvDm9CdE2gwwR6SIvo+u2TDMZoY2vc7054FWD/cXi04EnriDo6wl8AJ
-	 KUmjx7aHLEDJRbNl2gFa6f4ZoKTOjDPXvmxJC5kmYjQ28MY7cIgGqzvI/NQdYu60vm
-	 AAgwQ1N0jSGDg==
+	b=Na94BTRF2RKxdkL+GaueRXmE0Ircw2EfbvvwCsLbwOsTjgK3B9rTx/kvlVO0PgzAe
+	 WIiH5041aIY06VghRYSALGmPs7okvNfsZd04XRbTZrfTJPxfa9hUg06HyovG8fQ3lK
+	 6Zi8xpWfQVs7pjFqm3rfO57bFpl38WG8mzRhm30G3eD9yh5AR4l6hOisw8J4Vpf4hc
+	 txiY8o5eIx/AOCVMV7kh6rAf5oY7LhfNuaWnWBZcffF88lwQtpq+4YW0Lwht4HeQ/k
+	 Lfb0GdLZdl4Wlvhux20orhrZVxbL2Ld8QqJhMYEZ2p88S6t9hCkDxz4LoWb0ACv1Qp
+	 NpPOWDCkBXGfA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0A5E3924A4C;
-	Mon, 24 Aug 2026 19:18:05 +0000 (UTC)
-Subject: Re: [GIT PULL] Mailbox changes for v7.3
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0D903924A4C;
+	Mon, 24 Aug 2026 19:18:07 +0000 (UTC)
+Subject: Re: [GIT PULL] second dma-mapping update for Linux 7.3
 From: pr-tracker-bot@kernel.org
-In-Reply-To: <CABb+yY10r9s2czQkkz8BPjhUy+kcAgxjqhFCiBEAwPv2ha6S9A@mail.gmail.com>
-References: <CABb+yY10r9s2czQkkz8BPjhUy+kcAgxjqhFCiBEAwPv2ha6S9A@mail.gmail.com>
+In-Reply-To: <20260824145253.1740671-1-m.szyprowski@samsung.com>
+References: <CGME20260824145300eucas1p10b9c95dddfc11e7847607f9c473b6f38@eucas1p1.samsung.com> <20260824145253.1740671-1-m.szyprowski@samsung.com>
 X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <CABb+yY10r9s2czQkkz8BPjhUy+kcAgxjqhFCiBEAwPv2ha6S9A@mail.gmail.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git tags/mailbox-v7.3
-X-PR-Tracked-Commit-Id: 14af7a96afa39f4f3c1972705489b9ba15c01857
+X-PR-Tracked-Message-Id: <20260824145253.1740671-1-m.szyprowski@samsung.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linux.git tags/dma-mapping-7.3-2026-08-24-2
+X-PR-Tracked-Commit-Id: 04a19b35dc05354445f0096befad63af885bb77e
 X-PR-Merge-Tree: torvalds/linux.git
 X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 8bfab832ad6905ba70e69bad87a78f6d90cce64a
-Message-Id: <178759908440.3075085.10094272050651721719.pr-tracker-bot@kernel.org>
-Date: Mon, 24 Aug 2026 19:18:04 +0000
-To: Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+X-PR-Merge-Commit-Id: 2f43193b88188b184a967c9427602e019f1b8708
+Message-Id: <178759908641.3075085.6062286800482339777.pr-tracker-bot@kernel.org>
+Date: Mon, 24 Aug 2026 19:18:06 +0000
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy <robin.murphy@arm.com>, "Aneesh
+ Kumar K . V" <aneesh.kumar@kernel.org>, linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,12 +75,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Mon, 24 Aug 2026 09:50:22 -0500:
+The pull request you sent on Mon, 24 Aug 2026 16:52:51 +0200:
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git tags/mailbox-v7.3
+> https://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linux.git tags/dma-mapping-7.3-2026-08-24-2
 
 has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/8bfab832ad6905ba70e69bad87a78f6d90cce64a
+https://git.kernel.org/torvalds/c/2f43193b88188b184a967c9427602e019f1b8708
 
 Thank you!
 
