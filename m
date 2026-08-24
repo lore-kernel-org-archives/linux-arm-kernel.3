@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE591C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 11:11:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B200DC61CE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 11:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mPwoBZVvD5IiMKU/tQGUb6tRYFOiIEKnit/tY33hzAg=; b=n0WzFh9ShmTP/li627XiMkRgiu
-	rOjUFYXvZ1ii+ExYEjO547Uc+rPkItM+HYGo841r+kqmFt1PiIBdzaXbNYdvJM2IdDtEfJNjaS5rd
-	kBBw6qcxAasQwWp++CIhQkodCI0RVKyMcm5dbNxaW46DNlyNsKk77nIJEeG2301mkazZoQ9Z0QQFY
-	RS/p2k1bBb12PMmNjSIpBxx3dFtqCPopasNgHvUwNWZVGM4AnMt7B0J/6MgnlcMlSLQ9hhM1A7nJi
-	bm+H4xKswE5g5lmiRvcwxydHwkGWtOwpchi3GRIbleg+flNaxBt0kikvBkj0Qf+XU/uVEE43oOrnv
-	HWfGLyfQ==;
+	bh=1rtSl7F1lXnj0NSEGIt5XoDJWgiooLMidXujnASVSco=; b=ePvRqsQnBhD2x64idXSZSxvwTT
+	25a5isg8iwjnAnSHqIPcOPDz/4Y9WOQrOectu1hvI9uRUyLxyad69DACwz3ysAoMEWo3EfEdNNYON
+	srjkHmOgkRh+DJBFgR5CR+ifR1U+91phh0fwFdqsJHjfjUsh9sWrxsKoKNqYjPlOZ2G5LA1+Qs4vh
+	x/ak56E+MTtvcySznalSPd/zk8c39Phw+eYfpWPsJv/UF4F1kVq25MJK61STfCzQv4dhFP87pvWMU
+	wrYPJcFQzlr2XRl5Mf2I8eJK0dJN1SEFk5Eoa9etvd8POdsVz0SKJm0v1YtRuO3wYOGiFkdPSHIu4
+	KpR4zIpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySa8-0000000GThc-2OeQ;
-	Mon, 24 Aug 2026 11:11:12 +0000
-Received: from flow-b1-smtp.messagingengine.com ([202.12.124.136])
+	id 1wySaX-0000000GU14-45RB;
+	Mon, 24 Aug 2026 11:11:37 +0000
+Received: from flow-b5-smtp.messagingengine.com ([202.12.124.140])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySZy-0000000GTY6-2CYm;
-	Mon, 24 Aug 2026 11:11:11 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailflow.stl.internal (Postfix) with ESMTP id 3B6911300135;
-	Mon, 24 Aug 2026 07:11:01 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Mon, 24 Aug 2026 07:11:01 -0400
+	id 1wySaK-0000000GTmE-0S0L;
+	Mon, 24 Aug 2026 11:11:32 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailflow.stl.internal (Postfix) with ESMTP id 3550A130005D;
+	Mon, 24 Aug 2026 07:11:22 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Mon, 24 Aug 2026 07:11:22 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1787569861; x=
-	1787573461; bh=mPwoBZVvD5IiMKU/tQGUb6tRYFOiIEKnit/tY33hzAg=; b=b
-	EdFHpR+0iIgguJ5knlecoPPU84GQRS2Q/rSaQ9FLWUJsrMAT2iz16aF6sUYj5d6L
-	nO8uAZEtfHjcK2nTAmyHIfqFiVutggeWseXmqhwutApuq6m6FV4T+qD1DYTlXf7j
-	VQzHuFZiHx+E/M8G3XuQwF92pmXBgLYqSQGQ8pMa3JblMOfKF92vpnIUzIUUZ9cn
-	MfopijmbX6Qlgp3so/vH/GTiUS38K0bLSLv6iJydfgWnruw8p/2pqvzeILpnv3gl
-	UwPH3mhnurSNbSHXgdPp+3RzUz9+/BA2TQhfKXHDxhSz6j/e6kKY6GgBhR/zfqHC
-	B9DPhaKtAKuLmvg3I2kYA==
+	:reply-to:subject:subject:to:to; s=fm2; t=1787569882; x=
+	1787573482; bh=1rtSl7F1lXnj0NSEGIt5XoDJWgiooLMidXujnASVSco=; b=g
+	Ab7AfNHJ0GpIKgQEhN8zWUn/b4YWAZiYpD16JZyQz3m7ge156hQJq1wX+7WpE0wn
+	t4dIKniENZFRKRMoV+8/QzSGGmIxoMpdIZp3PI+905jeXmi7eC7iB2utHkspgyR6
+	I2+s8M5b809W/0desbG22kBUQA3zOV6V2A9GoeytRcRtYcJ6lvXiFcBLlOkhVQie
+	YQsnxHs4shDKS6pgzlxLp96GNI+GdcpPzkdl19oUlm5lMVvbIuBBJqPErixvTKku
+	1UUieYBLNHtfAhpYq2JDSKhurDdSJwCzEPYuLx9OmDBjQUXPB3Jbuv9UVY8Lv+Jg
+	0QSTqYklfQh4lrrkbDoFw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1787569861; x=1787573461; bh=m
-	PwoBZVvD5IiMKU/tQGUb6tRYFOiIEKnit/tY33hzAg=; b=aP5+D+pG0DkGZTXzV
-	sMSkmnS3nIb5R9yaAH6vt33kouuCGN448Kghkm0igFnuiZwxYdurbqQlRsq+wBI/
-	XWeiuOeYi9llFmbO/hX31D7fMgih/uYL++mFrf0upS9AKkfNG5Q4dWrPa4pgWI8M
-	2ZRVKARc+gJFAmIOkirz58FAA0L/jbySG651LmfWRq2OajzGkmpX/XB7LUq1fo3d
-	XkV0LSQzP5/j0FQrMNFj3V4imh9nTU5P1OPYa9UB4ZABBfIEMnG9egzY+IaFe2Od
-	raBvKnUISMcf38AWJtcUWySRsYNgdi1F2DxtkC4bEAKSQhwodXpnxHnVb3QXjsdA
-	eA76w==
-X-ME-Sender: <xms:xCaMaiZRtDXy3gkAiW_G6h3y-KOr6tkhjblE2Lx9bpP5VGjspreXqQ>
-    <xme:xCaMalQwmcKVnNJqPiFM_ntUrekTX48uPaiuU32kBtEFbk2Ego9JukWfQN8KMGHId
-    Tjch8Mayd__jymMpP7SPvhMfp6UGG_rHwe8heYl1u_OluBNF4mRaRI>
-X-ME-Received: <xmr:xCaMaqQS7Tj1BbNW-BM9ulAx6I3TOU_lH7vFilgiloRFwAG-eDiYmykvuEM7T0U7e0JYzIigAA>
-X-ME-Proxy-Cause: dmFkZTEt2gBugJtB8YdAQO+aerkdLtvOUYoJ//IB6cDd1MOKFyvdoo19DoYWXq4Mp4hwHS
-    sE6hGGhD8jZUQBFwSAEaqbrlLtNQJOHU12L29C7L5mnTVCRDAkeZmIOqYt5aFhTZMqqF3G
-    unWCdor0kTLNZ6dWF7cUnC4Ml9JFy0XsJkLfAerTv9dDlmfLQuI7Z1HUYFax+IrCJ7fGCI
-    XLH+e8l5UTeju4F0WLIDQKTm3VKh6I0RUAfiZDqICKkcn0tjqfxr5W0qSqbmY3m8OLjF81
-    SRCTZ/Jk/x6QsFPKWShpc/DZt/tSPSQhu7KTzKKLnfU9kSgS3yyLa7Ees1TsHDveRaSRPZ
-    u6xDZ/tzaQM0vEElZp+dLqHPRViVeyjwGiftjMqxn8X0Uops1J40hY8JLSdz3udEDkUK7S
-    V1ZxQdQF8EpyL8iCqKP4M4DuhJ+TAn6021aMGKGgcKUGp8bPUfeNvsWvY3DwTrNAV1ZTAw
-    /fanRDkyYg1h4gx7LgS6rPdUWh9WdG21Njmb1GgDqtER/58Ji3atdVjOpISc0PD5O7+J57
-    XMKs5nmv9Ly8+r+zYqvFdnyINxMecIbHwfQQ6ULXNIjMwDPOJcdy5kyvvbD1BTODMUFfxa
-    f0pBF3ozMq5XwAcz+q1gnyh+eom+mKZPiRLbLd0pFMsoqMLspveVkUAm6B8w
-X-ME-Proxy: <xmx:xCaMag3_kIqowIFgETD1-v_PYjn_gZIA2dXq3MrXu8P_15Y0ZvJwPA>
-    <xmx:xCaMaqwbZuEM811qHaZ12m3bUqc6c6k2992SYw0S6UUjhUd_UPusBA>
-    <xmx:xCaMajuWwLIDGus6XafmMxJNvYiEJAygOCRWEtFLkMFwFGniYkbv4A>
-    <xmx:xCaMasS0rekSOpDLtPXRaCeGOn-ChnW_DuC3bKE1rKFxrkq3ofpKIg>
-    <xmx:xCaMavQxgkG4rGs3sZUHWWfXiAOSGeUCv56G3cUQAn4iYXe0T3izoCW1>
+	:x-me-sender:x-sasl-enc; s=fm3; t=1787569882; x=1787573482; bh=1
+	rtSl7F1lXnj0NSEGIt5XoDJWgiooLMidXujnASVSco=; b=gdhIzk8cascdyWtxY
+	pwdhidzO+6uw2/34rxt/lJrOGi+vLW838M4g/G5/mElP+dh9PzpAhtB0xJtQs6/R
+	m1YfsLo66I43480nuXfmlOsFPxWocrTJQmxYuESWjN7mhGNArJfGexUrSB9jF2vp
+	gZXKNibZ8PLaaj8Eqb3Ll1K6F3jFoqnXaIpCCSe/6tIOCJEBzezzlg9wlVO6XzaX
+	x5UQoQzNp58JQdLxveJcPWtg8CJYL7n6zIq9UHrqoXrBiQk1jRs+0HaSFEmguAbR
+	kGoQXZAYyVySzSqiKykD5VsROaIqtgIqcz6OLqyPFy7QUIltp1nooU2Mj8fmlQMd
+	m2SEQ==
+X-ME-Sender: <xms:2SaMatc6FZoEETuqgsnO0OdKCljMRlLM7W5L5VrM2EbJE0UdquaFLw>
+    <xme:2SaMarG2_X6D3ed6XWFuOye-Lb4NsmzZUNhuCMIpqPov8BMKzcXlV-tqZgzulrw7Y
+    jthds02SySbdMS_a63C0PEXweonrDDeOWe7kxM2qvcFwC1Fkm_wyOzG>
+X-ME-Received: <xmr:2SaMaj3WLUR_K-3Fh7ut41_vj-bSMBz6LWwi48V7jx44DLmv0d0edk2qxTt-GQ9WeGdxZskzVw>
+X-ME-Proxy-Cause: dmFkZTEdm1O3I+6yUCQhEEs4EtQt+8VO6pi5vpyg6HaTYLChLltZMtW0KqcxOTRThnAFfq
+    2Odn8CVRgbiOBBf0a9qI7rqOV5OU70z0PINZsuhrlAKWEQ7HTj3AwF2BGC6e4eXqtsWmgM
+    ABtM/CB+/iwRE60tddV5LlUAIS+GXU0agRuJMw5RaHEpnxpI517wJc0pj0K5/mU5vAHa+4
+    bnn7QF+ZXFIDrUNOAJcrFcmUWLhF5mNy4tzd1pm6IERi9logac9iAqP1avrzWoONr9En/c
+    tslmUfAQGWDaSWWVDv0FVMgwKXsyNda2wRjvNQbjI2mm4YcRdpQIhaYDUMhDNUItM8EcRy
+    L5nzHgeVKHGt8gkqydWsa6IuLKJzwoShLmyrMq6UUtb8DuFvH2xZo6EkLWlnGbmV8DSKp8
+    eyQHreN8hOaRXM1k08cWA1tjbCnU/XGlHUQJQdywCShQWY/LoOZVba9byP7Sv76uIwonLW
+    mbgt2V1b6B0f1CaWUcbg/WmwpzDOnXdm0ZYaNswmLbVZ6SYH/QuvsGWaO/j9GKlMvffkEp
+    0m73z92Hlc8YFdYpT3MAcAkO/jNnqUTdwmNj0AqIdq8WzM5qqRlxO+RY2g/LGksHKncK9s
+    HNbYWvUks5cH1q6up1PGfU8YAHMaI2p4AaD5jCQMxe62/oTV7Ln8wRCyWaYw
+X-ME-Proxy: <xmx:2SaMajK964MkttrwPJWcSLXDf589LYC0UqJucw4H3v5fHtHJ8uSI0g>
+    <xmx:2SaMam1P-vMVrv-wnNrS1JZ-wHnJGqE6EVG39ZTFhdvXfLN5KvvP9g>
+    <xmx:2SaMamgFRtauoJamT_410nxHHRv5nHB7ocxkPKn8l_5Z4MZ63FP8vQ>
+    <xmx:2SaMau143G7fd3vIbwHP5yYFT_juir2EumQR_pIDxQX-fJVAsCvXfQ>
+    <xmx:2SaMavV7tqkU_35AyfGkSw1Xy6DK3bq1SQfxa9MHLNfViSvylljYeISQ>
 Feedback-ID: i7a5e4b5f:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 24 Aug 2026 07:10:53 -0400 (EDT)
+ 24 Aug 2026 07:11:15 -0400 (EDT)
 From: Jiaxing Hu <gahing@gahingwoo.com>
 To: tomeu@tomeuvizoso.net,
 	heiko@sntech.de,
@@ -103,17 +103,17 @@ Cc: royalnet026@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jiaxing Hu <gahing@gahingwoo.com>
-Subject: [PATCH v9 10/13] accel/rocket: select the per-core clock and reset counts from match data
-Date: Mon, 24 Aug 2026 23:08:59 +1200
-Message-ID: <dccf59e99abeb12510e14187da03c6f3887685b2.1787568944.git.gahing@gahingwoo.com>
+Subject: [PATCH v9 12/13] arm64: dts: rockchip: rk3576: add NPU (RKNN) nodes
+Date: Mon, 24 Aug 2026 23:09:01 +1200
+Message-ID: <4c39fe5a956ab58a643703152adac74ac0e9acde.1787568944.git.gahing@gahingwoo.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <f1805c2bce56c89d8ace35f67c665b24bab90965.1787568944.git.gahing@gahingwoo.com>
 References: <f1805c2bce56c89d8ace35f67c665b24bab90965.1787568944.git.gahing@gahingwoo.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_041105_723145_157EAC8C 
-X-CRM114-Status: GOOD (  18.62  )
+X-CRM114-CacheID: sfid-20260824_041124_654523_99013039 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,124 +128,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3576 carries the same RKNN block with a different set of clocks and
-resets, so the counts cannot stay compile-time constants. Add a soc_data
-struct to the of_device_id match data and take the bulk counts from it.
-RK3588 keeps four clocks and two resets, so nothing changes for it, and
-the arrays keep their present sizes: the SoC that needs a longer one
-grows it in the patch that adds the names.
+Add the two RKNN cores and their IOMMUs. Both cores are disabled by
+default; boards enable what they wire up.
 
-rocket_core_reset() is switched over as well. It is the same array, and
-leaving it on ARRAY_SIZE() would walk entries that were never acquired
-once a SoC asks for fewer.
+PD_NPU0 and PD_NPU1 are siblings under PD_NPUTOP and hold one core each,
+but the convolution buffer and the DSU sit above them: ACLK_RKNN_CBUF,
+HCLK_RKNN_CBUF and CLK_RKNN_DSU0 belong to the block rather than to
+either core, and PD_NPUTOP already lists all three. Add them to both
+core domains as well, so a core domain switching state has the clocks of
+the path it shares running, and give each core domain the BIU reset that
+the pmdomain driver now cycles once power is on.
+
+Each core lists both core domains, its own first, so that a core in use
+has the whole block powered. Whether a single core can reach the shared
+path with the sibling domain off is not something this series
+establishes; listing both is the description that has been tested here.
+The IOMMU in front of each core lists that core's domain only.
+
+Label the outer PD_NPU node so a board can attach the NPU rail to the
+domain that gates the block.
 
 Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
 ---
- drivers/accel/rocket/rocket_core.c |  8 ++++----
- drivers/accel/rocket/rocket_core.h |  7 +++++++
- drivers/accel/rocket/rocket_drv.c  | 12 +++++++++---
- 3 files changed, 20 insertions(+), 7 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 82 +++++++++++++++++++++++-
+ 1 file changed, 79 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/accel/rocket/rocket_core.c b/drivers/accel/rocket/rocket_core.c
-index 5dd260bac..b202d1581 100644
---- a/drivers/accel/rocket/rocket_core.c
-+++ b/drivers/accel/rocket/rocket_core.c
-@@ -23,7 +23,7 @@ int rocket_core_init(struct rocket_core *core)
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index b0c0d3c8b..2d0133cdf 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -1042,7 +1042,7 @@ power: power-controller {
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
  
- 	core->resets[0].id = "srst_a";
- 	core->resets[1].id = "srst_h";
--	err = devm_reset_control_bulk_get_exclusive(&pdev->dev, ARRAY_SIZE(core->resets),
-+	err = devm_reset_control_bulk_get_exclusive(&pdev->dev, core->soc->num_resets,
- 						    core->resets);
- 	if (err)
- 		return dev_err_probe(dev, err, "failed to get resets for core %d\n", core->index);
-@@ -32,7 +32,7 @@ int rocket_core_init(struct rocket_core *core)
- 	core->clks[1].id = "hclk";
- 	core->clks[2].id = "npu";
- 	core->clks[3].id = "pclk";
--	err = devm_clk_bulk_get(dev, ARRAY_SIZE(core->clks), core->clks);
-+	err = devm_clk_bulk_get(dev, core->soc->num_clks, core->clks);
- 	if (err)
- 		return dev_err_probe(dev, err, "failed to get clocks for core %d\n", core->index);
+-				power-domain@RK3576_PD_NPU {
++				pd_npu: power-domain@RK3576_PD_NPU {
+ 					reg = <RK3576_PD_NPU>;
+ 					#power-domain-cells = <1>;
+ 					#address-cells = <1>;
+@@ -1070,14 +1070,22 @@ power-domain@RK3576_PD_NPUTOP {
+ 						power-domain@RK3576_PD_NPU0 {
+ 							reg = <RK3576_PD_NPU0>;
+ 							clocks = <&cru HCLK_RKNN_ROOT>,
+-								 <&cru ACLK_RKNN0>;
++								 <&cru ACLK_RKNN0>,
++								 <&cru CLK_RKNN_DSU0>,
++								 <&cru ACLK_RKNN_CBUF>,
++								 <&cru HCLK_RKNN_CBUF>;
++							resets = <&cru SRST_A_RKNN0_BIU>;
+ 							pm_qos = <&qos_npu_m0>;
+ 							#power-domain-cells = <0>;
+ 						};
+ 						power-domain@RK3576_PD_NPU1 {
+ 							reg = <RK3576_PD_NPU1>;
+ 							clocks = <&cru HCLK_RKNN_ROOT>,
+-								 <&cru ACLK_RKNN1>;
++								 <&cru ACLK_RKNN1>,
++								 <&cru CLK_RKNN_DSU0>,
++								 <&cru ACLK_RKNN_CBUF>,
++								 <&cru HCLK_RKNN_CBUF>;
++							resets = <&cru SRST_A_RKNN1_BIU>;
+ 							pm_qos = <&qos_npu_m1>;
+ 							#power-domain-cells = <0>;
+ 						};
+@@ -1261,6 +1269,74 @@ power-domain@RK3576_PD_VO1 {
+ 			};
+ 		};
  
-@@ -109,9 +109,9 @@ void rocket_core_fini(struct rocket_core *core)
- 
- void rocket_core_reset(struct rocket_core *core)
- {
--	reset_control_bulk_assert(ARRAY_SIZE(core->resets), core->resets);
-+	reset_control_bulk_assert(core->soc->num_resets, core->resets);
- 
- 	udelay(10);
- 
--	reset_control_bulk_deassert(ARRAY_SIZE(core->resets), core->resets);
-+	reset_control_bulk_deassert(core->soc->num_resets, core->resets);
- }
-diff --git a/drivers/accel/rocket/rocket_core.h b/drivers/accel/rocket/rocket_core.h
-index f6d738285..ba74c5339 100644
---- a/drivers/accel/rocket/rocket_core.h
-+++ b/drivers/accel/rocket/rocket_core.h
-@@ -27,9 +27,16 @@
- #define rocket_core_writel(core, reg, value) \
- 	writel(value, (core)->core_iomem + (REG_CORE_##reg) - REG_CORE_S_STATUS)
- 
-+/* Per-SoC differences, selected by the of_device_id match data. */
-+struct rocket_soc_data {
-+	unsigned int num_clks;		/* clk_bulk count */
-+	unsigned int num_resets;	/* reset_bulk count */
-+};
++		rknn_core_0: npu@27700000 {
++			compatible = "rockchip,rk3576-rknn-core";
++			reg = <0x0 0x27700000 0x0 0x1000>,
++			      <0x0 0x27701000 0x0 0x1000>,
++			      <0x0 0x27703000 0x0 0x1000>;
++			reg-names = "pc", "cna", "core";
++			interrupts = <GIC_SPI 247 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_RKNN0>, <&cru HCLK_RKNN_ROOT>,
++				 <&cru CLK_RKNN_DSU0>, <&cru PCLK_NPUTOP_ROOT>,
++				 <&cru ACLK_RKNN_CBUF>, <&cru HCLK_RKNN_CBUF>;
++			clock-names = "aclk", "hclk", "npu", "pclk",
++				      "aclk_cbuf", "hclk_cbuf";
++			resets = <&cru SRST_A_RKNN0>;
++			reset-names = "srst_a";
++			power-domains = <&power RK3576_PD_NPU0>, <&power RK3576_PD_NPU1>;
++			iommus = <&rknn_mmu_0>;
++			status = "disabled";
++		};
 +
- struct rocket_core {
- 	struct device *dev;
- 	struct rocket_device *rdev;
-+	const struct rocket_soc_data *soc;
- 	unsigned int index;
- 
- 	int irq;
-diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/rocket_drv.c
-index 8bbbce594..6e7dc91c5 100644
---- a/drivers/accel/rocket/rocket_drv.c
-+++ b/drivers/accel/rocket/rocket_drv.c
-@@ -176,6 +176,7 @@ static int rocket_probe(struct platform_device *pdev)
- 
- 	rdev->cores[core].rdev = rdev;
- 	rdev->cores[core].dev = &pdev->dev;
-+	rdev->cores[core].soc = of_device_get_match_data(&pdev->dev);
- 	rdev->cores[core].index = core;
- 
- 	rdev->num_cores++;
-@@ -213,8 +214,13 @@ static void rocket_remove(struct platform_device *pdev)
- 	}
- }
- 
-+static const struct rocket_soc_data rk3588_soc_data = {
-+	.num_clks = 4,
-+	.num_resets = 2,
-+};
++		rknn_mmu_0: iommu@27702000 {
++			compatible = "rockchip,rk3576-npu-iommu", "rockchip,rk3568-iommu";
++			reg = <0x0 0x27702000 0x0 0x100>,
++			      <0x0 0x27702100 0x0 0x100>;
++			interrupts = <GIC_SPI 247 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_RKNN0>, <&cru HCLK_RKNN_ROOT>,
++				 <&cru CLK_RKNN_DSU0>, <&cru ACLK_RKNN_CBUF>,
++				 <&cru HCLK_RKNN_CBUF>;
++			clock-names = "aclk", "iface", "npu",
++				      "aclk_cbuf", "hclk_cbuf";
++			#iommu-cells = <0>;
++			power-domains = <&power RK3576_PD_NPU0>;
++			status = "disabled";
++		};
 +
- static const struct of_device_id dt_match[] = {
--	{ .compatible = "rockchip,rk3588-rknn-core" },
-+	{ .compatible = "rockchip,rk3588-rknn-core", .data = &rk3588_soc_data },
- 	{}
- };
- MODULE_DEVICE_TABLE(of, dt_match);
-@@ -240,7 +246,7 @@ static int rocket_device_runtime_resume(struct device *dev)
- 	if (core < 0)
- 		return -ENODEV;
- 
--	err = clk_bulk_prepare_enable(ARRAY_SIZE(rdev->cores[core].clks), rdev->cores[core].clks);
-+	err = clk_bulk_prepare_enable(rdev->cores[core].soc->num_clks, rdev->cores[core].clks);
- 	if (err) {
- 		dev_err(dev, "failed to enable (%d) clocks for core %d\n", err, core);
- 		return err;
-@@ -260,7 +266,7 @@ static int rocket_device_runtime_suspend(struct device *dev)
- 	if (!rocket_job_is_idle(&rdev->cores[core]))
- 		return -EBUSY;
- 
--	clk_bulk_disable_unprepare(ARRAY_SIZE(rdev->cores[core].clks), rdev->cores[core].clks);
-+	clk_bulk_disable_unprepare(rdev->cores[core].soc->num_clks, rdev->cores[core].clks);
- 
- 	return 0;
- }
++		rknn_core_1: npu@27708000 {
++			compatible = "rockchip,rk3576-rknn-core";
++			reg = <0x0 0x27708000 0x0 0x1000>,
++			      <0x0 0x27709000 0x0 0x1000>,
++			      <0x0 0x2770b000 0x0 0x1000>;
++			reg-names = "pc", "cna", "core";
++			interrupts = <GIC_SPI 248 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_RKNN1>, <&cru HCLK_RKNN_ROOT>,
++				 <&cru CLK_RKNN_DSU0>, <&cru PCLK_NPUTOP_ROOT>,
++				 <&cru ACLK_RKNN_CBUF>, <&cru HCLK_RKNN_CBUF>;
++			clock-names = "aclk", "hclk", "npu", "pclk",
++				      "aclk_cbuf", "hclk_cbuf";
++			resets = <&cru SRST_A_RKNN1>;
++			reset-names = "srst_a";
++			power-domains = <&power RK3576_PD_NPU1>, <&power RK3576_PD_NPU0>;
++			iommus = <&rknn_mmu_1>;
++			status = "disabled";
++		};
++
++		rknn_mmu_1: iommu@2770a000 {
++			compatible = "rockchip,rk3576-npu-iommu", "rockchip,rk3568-iommu";
++			reg = <0x0 0x2770a000 0x0 0x100>,
++			      <0x0 0x2770a100 0x0 0x100>;
++			interrupts = <GIC_SPI 248 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_RKNN1>, <&cru HCLK_RKNN_ROOT>,
++				 <&cru CLK_RKNN_DSU0>, <&cru ACLK_RKNN_CBUF>,
++				 <&cru HCLK_RKNN_CBUF>;
++			clock-names = "aclk", "iface", "npu",
++				      "aclk_cbuf", "hclk_cbuf";
++			#iommu-cells = <0>;
++			power-domains = <&power RK3576_PD_NPU1>;
++			status = "disabled";
++		};
++
+ 		gpu: gpu@27800000 {
+ 			compatible = "rockchip,rk3576-mali", "arm,mali-bifrost";
+ 			reg = <0x0 0x27800000 0x0 0x20000>;
 -- 
 2.43.0
 
