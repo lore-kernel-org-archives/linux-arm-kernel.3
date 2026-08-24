@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED7ABC5DF94
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F336AC5DF9D
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 08:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rvwvU2fx//eAu2LlByDRKWPs/wkyAhNxSDJe0aj8Fuk=; b=ktCQCv/HUi+GD2Q5WzJo/vbS1q
-	EvnJWa71X7890Y+/Dy5tk2KMsuPOQeC8l+qEN3ZjOSNvaF6YquU9UE4NJmkEthEc1o3pjhxPO0pfE
-	hRy/WtSjv0UMMZeMhkY6RDlwjZiX3raWvltdGgJD5/TMgMF1yiacGxY/pM6W3hciLmi9aaObGJS3S
-	8jph3kTYaqPiBsSu/BQRBf+WwZXl1uhEd64Y611zpJZEqHfCuXIvyVD8sBFtGAbQFiQ9pseXUgHa0
-	AUsJMhLvjkIAZje4ckHRopdVo/l8vfwEVgbpE8na+fMmHbrWwfXzL3MsecH2SlBFh8R9UnVJ94ahh
-	vB4mRqtw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CgyNog9WpL8OyqKZAIeKVr+B+H34q6AdaVPTiDSA/FQ=; b=KnULVZqT7Ura5t1O001cF3ifmW
+	XJRKeKoXiswEPM+/s/3u3HC8TbGIHVhoiqQa7uZUCtQLYkdu3I3GZHJ0unqWdm2UbI5TQ4o+cp/9x
+	E4XenQ7WZcIek/puBAogAiQ8hfV1j1jZlybWgPI+ALAvcDv5ZeLISd8lLPneOOo/yx1xPNJ6dDiE/
+	btwApHC/X+4yHIe22VD3ptcEzknDRF3JMfXR43prbgLzigsmdq0Sgr3zhP2FIx9wuwQBTGoouh708
+	4BIKGg8LU2jh1AooOdiirtRe2EF1jEQ5fTGuMDPxtJbGtcUMCMxi4dUXOdWCdDvn2MtiVZrQ2C2WL
+	XwcX71bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyQ1D-0000000GCWc-3TLB;
-	Mon, 24 Aug 2026 08:26:59 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1wyQ18-0000000GCUs-31MG;
+	Mon, 24 Aug 2026 08:26:54 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyQ18-0000000GCUr-2NVX
+	id 1wyQ14-0000000GCU7-2H1L
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 08:26:55 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-381b831d535so4541008a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 01:26:54 -0700 (PDT)
+	Mon, 24 Aug 2026 08:26:52 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-cbe6295f05bso2820259a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 01:26:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787560014; x=1788164814; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rvwvU2fx//eAu2LlByDRKWPs/wkyAhNxSDJe0aj8Fuk=;
-        b=sKuWtkyafVDLHd83nT2w71bhFOVd+7zmF/3AV/tHZ/7HQrAA7/+YQdH9NeyGrseiXL
-         GsIrX+ctiDuWcbvTNoOExxGpxRBClxwdq7L6efY5ulUi6TWd5RBFSnt2UMGXBuR66XeX
-         gpBx+VU1ss1jpC+tQ5V57Lm7UR3d3ASAiMxS1dEDgh8CHcZyeLnl9zm+/1k+HtdmxQDN
-         lhC7Ls9wokHku+HtDajofyuddqi4IVatDaO1qicewdyz342Sg49hv+l2Sh90o8ssrH8m
-         709EEqTjxZX5oX/3zOmEDMydNnBgoIprz/5c7vEsA89o0NOOUrde9O+Rlo01HPqKvGcM
-         8iQw==
+        d=gmail.com; s=20251104; t=1787560009; x=1788164809; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CgyNog9WpL8OyqKZAIeKVr+B+H34q6AdaVPTiDSA/FQ=;
+        b=VJ7YMaTjnfB0vtB642n3ctztRSHJ6v7BWFuITr8XC4QxV6MpTlwSZZp88erArS2v8j
+         bcTsrp90ZraSEeAN8ckXGwnxN2xeS60NzDWTMBCK2bzOhAHM15JUzOfgo4AvDaLnkegN
+         1oxUED6ieXwwcfwHOT+LZTiQpKnamQAnyIV/mtEU0EQ7/K33xc7af6gOQXb/Oxvg8SMS
+         GjhijsGTD+56cMEKJ69sd7hs1gI/hbHBIw271XHu6NZT3pOHag++qJtVTOf5R3MnbkI6
+         4tN93slwqI9hmfO+v2eCOTKmYvnaF2UbCnN7C+5Mn554h9JC4WsmSXlIb6AIpsok3pfG
+         LhZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787560014; x=1788164814;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rvwvU2fx//eAu2LlByDRKWPs/wkyAhNxSDJe0aj8Fuk=;
-        b=J0AOPDvzAdBLnUhsGhUjOEOp+brLu5dRE4N/EN8cANDl5/MqJfh48/gCCQe5JLsUsH
-         3CNgsoVCOZdB0dHTKxVuzaWDTDrIBTWdj0APwjwk0lcLKGpu/Y7YOB/UMVqdXcbGSs8w
-         NMksrl3vCsEMcjmzb1S8nkcXsKwI3O6wyTMUfy9BCaoXhojtw0k7IUbQHyLEUlbmFXRI
-         CSPmt++Tc3LSjN6rAMgU6vdQhfstsZGqjlkN+lclWKo5H/G7Y8Z2fhMhecuW4+TBFByu
-         MLxUinziaDNvTXekNfTscebC8UxiJntNYg82PjDG/Bd6dAQ+07e/5e39g2ydnTOXh73u
-         8E1g==
-X-Forwarded-Encrypted: i=1; AHgh+RqQkBjmOECVFctPnghEMA/oitO2mSVpZbdoHp+bssIG+jY7rGpkjzIQGtFs5I1ANLGLPiitwxbECDcrd3THcZuC@lists.infradead.org
-X-Gm-Message-State: AFuF++n7JaVE3EfRPDR0lowuYn2sGTo6qYTuO8iky/GOtoc9+ZVHON7O
-	g17+O1NQpFbEiwBLpAcrJptP+qDeJgiVhH5JmQgKknkwmp8mBPIThVL8
-X-Gm-Gg: AR+sD12KbzwI/qHbHr3jyuqcb9D/vlWv3kHz6n9zV05PlXGyqevcDRXj9U+uBUNOG5x
-	1s0yRmLh/8h/87XUwxwtM24VqgvF3M7Pz+j9jwutem2zOwPYRy+nkKNPqvqBjepTBH0QjWBATIP
-	hxv94lkBS/zIJJf61wrvwLkujj5Ux2K8y+leAWE/8HHrczF2zVDSUnhu4Cdda6tgn+TE9dkPzEj
-	hJ4kfiO0LuW29HR35RJMQ4CshwKsrJ7cTdwEAh6w5O1K4aWEW7WTGX87sa/mWraTtmMvHHSuyNL
-	DBFp+J+T+/N4FHSf0aUIRTIopenu9v17YJw/l8ZVAswTuLEVDxn9NG6hKgxNhs2X2rn3aAV56+b
-	9V2AMhiOmX+d3dl229o1dmTZGmQltdLNl3Co0MbMO45W7LKOMwQkRmhkN+BSlrXEsNA3LgOqhz7
-	eYtBoSGkXVMpBbigcJWT+QrBBA9IQDPGsoZn8WjHbgnMNAoGXR/zU/ILOqjC+0eo/dB7BU/hgHQ
-	2cgSERb1ZSfxFFpAxDNruparthnwUxJ3sK7Eout2rKR0S/ZbIDWWUppSCcbrRHynEcNvRJjzHfU
-	MjwdmKUvHgHzmcGv/Ehb5r/uxFIdbb9pwSDgp64ttNNqLmxbdjzfEON98iQz6fJV8O+EHCW90n/
-	bieRyc+ptd21LoTGSYbL5vdXRIj+ckc/R+TzwTkYZ0pqj/JI=
-X-Received: by 2002:a17:90b:5347:b0:395:a7eb:a4d8 with SMTP id 98e67ed59e1d1-395c3a4bd22mr48059051a91.14.1787560013592;
-        Mon, 24 Aug 2026 01:26:53 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1787560009; x=1788164809;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CgyNog9WpL8OyqKZAIeKVr+B+H34q6AdaVPTiDSA/FQ=;
+        b=p6pWADW8hQtVMee8ipi272B317f6QWdBGamF3uQcVoOTbtNEj7NuVFbDVs+4tZUBW4
+         mQSrZYT37DDwrq8UO9YKEH4+ymXgOrf4RNM6owUHSdHnHJC/UMZT8K4H3o+fRTR8G1EM
+         NABnavEFXXsWi9/7mkpbB6U4nxswtZmlWJr0dPj9I0b88SNHr3ssz+K6r+ZpPfNjHmVk
+         Wf/85bJy2BYsV5yoZuLyPZzQvLNt8n+PjluAVohrhl4tQ7FMc3lca1qtO5vDGPOJVcVE
+         l2lL+QRtlRd04FsQfjuLVHDqri8fONKYExwQKsuestYX/uQKLkQkZPSeJ9hhHzNetvN1
+         jm+A==
+X-Forwarded-Encrypted: i=1; AHgh+RosWKJSyByoN1h9MAwq9pqF5H5xPjDBM+pFgdnsGMDcI9l28HFRSPFGGunGNemjt6FngJFPsryDzQxii5mZk9zQ@lists.infradead.org
+X-Gm-Message-State: AFuF++nwJjOh4wVGeU96o/yOlO6ePrFOZSybO+ulFzc51YfYp1NNCisQ
+	AjoUVgmK7LsTZkFbXLasLRoNVU9O4719C796ja46Xbm82JeMA91upk+652g30aIb
+X-Gm-Gg: AR+sD11WIflnyVQrHchY5BEpetz3YtsK5e0yvTddBODnsxVKC9d5BSQ6PfdZQj1GBDg
+	1TuL55lqkIi9BPFf3c/h9UozTGuIbXQG5dXnYuJbSwV7miUvxO3UCqz8nLUYZS5FoKmLGWCpxkJ
+	Mii6dsYpBk0OS+l4IQ/uIWagKiW2k4RF8mvxs0sGHjHQ8b+zeZ7dvEmvradvQsMyZhcUncgteJm
+	NZQsSO2Zhs2F+ZOiKb55TQedOyr/L6eHBGhp8EYw+zIn50h70hjgPG96EhPAdKodNydaP10qE0l
+	BwUGEPOTYNiaFrK1mxQjAEueH+eWwgtLFXMqZvUHBS8/xzAjay3adpXzjEdjBy/CdQhAsSPZPQ1
+	AJCMXZ3cBjxXuwjeu4fz6iYn5HYXLCko3DsL9sqHOvL+jUUSMF6E08bCv+a2hWGEzdqtNOyLCir
+	riD6O32ImATODEh/I3ms0HQUzvGLCz2AzcsatlJpkdFBWodERW5XFrm8Wch2fp/x/Q7rEpr0VMU
+	rzVNy63nDjBbn51uw9O1Yh3NW5gMPjnOZaeRGwzC1tkVYv1Z7IbKyLsuoWBlT+dqdZ0kYLoAT4D
+	VlAUJ5faDr8Go6XH4JuAJ3f4WBmezcfrp5OxsqbLq2evNoHJoytp2IHjxjbnNE6qQNXOMdA2xBz
+	w/k7eWKtkAfq3Lxg6/Q8iIg0OMQG8oG6LEO0fdfg3fAFjnno=
+X-Received: by 2002:a17:90b:4ac8:b0:380:ce69:2669 with SMTP id 98e67ed59e1d1-395a0510f96mr35860154a91.9.1787560009190;
+        Mon, 24 Aug 2026 01:26:49 -0700 (PDT)
 Received: from localhost.localdomain ([101.251.7.10])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-327f90c0dd3sm25994595eec.7.2026.08.24.01.26.49
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-327f90c0dd3sm25994595eec.7.2026.08.24.01.26.44
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 24 Aug 2026 01:26:53 -0700 (PDT)
+        Mon, 24 Aug 2026 01:26:48 -0700 (PDT)
 From: Laxman Acharya Padhya <acharyalaxman8848@gmail.com>
 To: Sven Peter <sven@kernel.org>,
 	Janne Grunau <j@jannau.net>
@@ -81,17 +80,15 @@ Cc: Neal Gompa <neal@gompa.dev>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH v2 1/4] soc: apple: rtkit: free syslog buffer before reinitializing
-Date: Mon, 24 Aug 2026 14:11:37 +0545
-Message-ID: <c14026054a393b581d3dd91a618892616424e202.1787559303.git.acharyalaxman8848@gmail.com>
+Subject: [PATCH v2 0/4] soc: apple: rtkit: harden syslog shared-buffer handling
+Date: Mon, 24 Aug 2026 14:11:36 +0545
+Message-ID: <cover.1787559303.git.acharyalaxman8848@gmail.com>
 X-Mailer: git-send-email 2.51.2
-In-Reply-To: <cover.1787559303.git.acharyalaxman8848@gmail.com>
-References: <cover.1787559303.git.acharyalaxman8848@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_012654_654088_47F2DDD9 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20260824_012650_582226_312A6894 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,32 +103,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A second SYSLOG_INIT message overwrites syslog_msg_buffer without
-freeing the previous allocation. Free the old buffer before allocating
-its replacement.
+Split the syslog hardening into focused changes as requested. The first
+patch fixes the SYSLOG_INIT reinitialization leak. The second prevents
+zero-sized messages and out-of-bounds shared-memory copies. The third
+corrects the entry-count boundary, and the fourth rate limits validation
+warnings controlled by the coprocessor.
 
-Fixes: 9bd1d9a0d8bb ("soc: apple: Add RTKit IPC library")
-Cc: stable@vger.kernel.org
-Signed-off-by: Laxman Acharya Padhya <acharyalaxman8848@gmail.com>
----
- drivers/soc/apple/rtkit.c | 3 +++
- 1 file changed, 3 insertions(+)
+The index-boundary change has not been tested on Apple hardware running
+Linux. Asahi m1n1 describes the initialization field as COUNT, consistent
+with the kernel's syslog_n_entries name, but patch 3 is kept independent so
+it can be reverted without removing the shared-memory bounds protection.
 
-diff --git a/drivers/soc/apple/rtkit.c b/drivers/soc/apple/rtkit.c
-index a3fdac8f6f06..1886f7eba77d 100644
---- a/drivers/soc/apple/rtkit.c
-+++ b/drivers/soc/apple/rtkit.c
-@@ -422,6 +422,9 @@ static void apple_rtkit_ioreport_rx(struct apple_rtkit *rtk, u64 msg)
- 
- static void apple_rtkit_syslog_rx_init(struct apple_rtkit *rtk, u64 msg)
- {
-+	kfree(rtk->syslog_msg_buffer);
-+	rtk->syslog_msg_buffer = NULL;
-+
- 	rtk->syslog_n_entries = FIELD_GET(APPLE_RTKIT_SYSLOG_N_ENTRIES, msg);
- 	rtk->syslog_msg_size = FIELD_GET(APPLE_RTKIT_SYSLOG_MSG_SIZE, msg);
- 
+Testing:
+  - arm64 GCC build of drivers/soc/apple/rtkit.o with W=1 in Docker
+  - scripts/checkpatch.pl --strict on each patch
+
+Changes since v1:
+  - inline the one-use shared-memory bounds check
+  - use == 0 for the crashlog copy and < 0 for syslog copies
+  - split the SYSLOG_INIT leak fix into patch 1
+  - split the idx == n_entries change into patch 3
+  - make the zero-size guard independent of the leak fix
+  - rate limit existing malformed-syslog warnings in patch 4
+  - rebase onto upstream commit 0a0d1d55dad5
+
+Laxman Acharya Padhya (4):
+  soc: apple: rtkit: free syslog buffer before reinitializing
+  soc: apple: rtkit: bound syslog copies to the shared buffer
+  soc: apple: rtkit: reject syslog indices outside the entry count
+  soc: apple: rtkit: rate limit malformed syslog warnings
+
+ drivers/soc/apple/rtkit.c | 75 +++++++++++++++++++++++++--------------
+ 1 file changed, 49 insertions(+), 26 deletions(-)
+
+
+base-commit: 0a0d1d55dad570724bf8c7ea83409639cfb4be9b
 -- 
 2.51.2
-
 
