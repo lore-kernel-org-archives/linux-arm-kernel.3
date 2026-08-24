@@ -4,110 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8A6BC5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 20:31:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F394CC5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 20:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BdqbJq/msOBCkkDUN/S0Xt6oyVT9dXF1dmGv+lvM+gQ=; b=vL3Jefp3e5IXLdjBtzNYsPBwlh
-	dSnjSKu1V7VdNmlEakwGGj9HjPUmMRRPsK3RC2srj4V2n1pWkFarlIMAHBAJcF2oFpyYWz5oGYQXh
-	UrvixxbTHOoTtX8TMHLJJNwQ9GjGZURgV1w+XoOy0DSv13SluHE0C0pPERxux7TP502AMkNcnpSrx
-	mP2Vt0dcVJi3JuFkwpBEVhTJFdkonv/siyN6ts+a+81LTIxrb+ED1xXvLD40yQ9Dwe2OyT/pgxrgN
-	OQ+w5SD741677myXwpY2OrrYY6JvGNTDQzzODMuSiraDz8UMfkM+v6kOJ9ShhIAb+jYRyM0EupNMh
-	JsNld/Mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z4jEU6U0u0LqbGF45B6q6T3g10Qn9JSYxM3kkdagB24=; b=lbNuEN/GE27f2Uw9KSYKlEAxAc
+	xR04CjEr853qU4OGad5DYmQ4gjztLPySARc0kfrocSZSEOPJU8YtxiT+JPg7vC6BVEvzOEO1pUJ/t
+	Z3Ma8Ld+GyblnxGUqsSrc9O1NjJEIWVmS47RZ5pCRiSqeftJt6Mgu4uMgu3MyovBt4ZJkm6T30Jxi
+	bWNNdvv5N04eUJPdFxgWI4LvRgd9e24qXBXTCZZJfhxNvpQ7dcYt1rCFgawh0TSiLsnz7pXCJTJLl
+	tCOWfy5bt4Iwy4UX2QKl3n9V4xhHRYxUD8yClPERA3zhqMFKxAkM2J0CYUOqVV5MsotlrBeXF8tFF
+	Qw83Ajjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wybKH-0000000HMw0-1Gbb;
-	Mon, 24 Aug 2026 20:31:25 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1wybNC-0000000HN4S-2TKt;
+	Mon, 24 Aug 2026 20:34:26 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wybKC-0000000HMv6-0XH8
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 20:31:24 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6a10d02ff43so7831489a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 13:31:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787603478; cv=none;
-        d=google.com; s=arc-20260327;
-        b=FwOfARP/In7ayUnCQHj4T9TmkWdFfRcOuC+XwDAFL198BDAyAc5uynnh5393IZq9Bu
-         hDQQS1uIgQ2OZiiH0IZf19rciXYwU7SUSjtJ+Vc3pYZVYxk+MNI+0uDNZySgtNN3zkJU
-         kLN+21Sf7C0JSuGxhN91MECh7imD6lRoLt6IPMcdcWKZHLuc1YRhyoKfZsvGATG07Ktf
-         /bEqzHy+sn8vwVJiVdcT5I1necKvRnELL5tNkMiczOuSabH2yu47kIM9oqTt+t3Q9KXZ
-         8qvnd34x/RnU0J/VPdPFazmg73yPNCKkoiVYiWpFnF4W2fQ7OTEsYM9joXTivdWN4+eV
-         rzkg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=BdqbJq/msOBCkkDUN/S0Xt6oyVT9dXF1dmGv+lvM+gQ=;
-        fh=JNfE3tAzCAsKLJyT5n7q0Pz3lHLTA18ENsQWSTFT8b0=;
-        b=ThBU0GisNtonQn1ESY+6qozY8BA/rIUJCTnQjazZcjrrwjvhC4NK/KQBzymv8/FngR
-         MO7jXLU3bD11VL3BrC91AEhz04SilljpcklMhyWDojwaA7yMQVu0sx92RduydSgGzvrf
-         b2fO6b2iQxO5KEfTxMPLvMnMJvcue2mpyYmPwH9UYmvqSfT6oMx9GWYAXUcXpHXd80ZT
-         49JY1ceP4ZKEEsFEduq+ntOsTSRb4wjL8fu+Koeh4JUUhiEnu/eeRxutKscuFvsLEDKW
-         PxRrjY5tfkOFOpUO5Q2JZ78xHM60rJBEk/jjSfEOtUzebuqpbqbqAJ5oUuVMr1kAuQeW
-         CTcg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787603478; x=1788208278; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BdqbJq/msOBCkkDUN/S0Xt6oyVT9dXF1dmGv+lvM+gQ=;
-        b=RCmhgyINnxXXpW8OGlCJWsW8xjHeJuKHJ08D+luVvNDORyec5QHrqPP17cKYd46jkb
-         mIiWiXJjBEKrBTYNS62UHgNKetpG58ebdtAYRa8wJn9ej85/u7rE35CXdoptBBQHdXJn
-         lNf408pagbCR+AXoTHS4M3NI6lRzURULpjo9W8Wi6TQGZOjRTRX6zJHH8Qmh3Sol1zR+
-         sR3SxjaTy05JV1cmONVl3RMMxdn0sos13aCiA/z6/FZz49NPsTJxx89DzfDaV5K06NZh
-         nw0IStTVsgKRNgltvqJgD8AHHz9C+2y4B8HCvh7WuRo23aAX2vrv7NgYS0UZWMEG2WfR
-         i+4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787603478; x=1788208278;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BdqbJq/msOBCkkDUN/S0Xt6oyVT9dXF1dmGv+lvM+gQ=;
-        b=ocAhauTCjzZoOys/DTAJTP+0CHVak5Ar2n6/qGyMuln1dPWpNyhtThGaCXEzyNN1Ir
-         WGgvQc4iMJFif/+CtQFvMYp+DrXfmQRy8rFZqWpMem6yZTvZZrC5P7y0OoIG9uHaSXRP
-         tHRb0REQPW4bCjncDvfL/9Ad1txhtBVJ9QhdDDUsqUhoYXhnSbJQtLRrzTtnCMfL+7d+
-         ZSm+aqUXhb8AjfCg/frN1DNk2xya99f6ZXHj5KpvI/PtW9NcPLGGtVgMItCpwtejOvMh
-         XX1c6gpHlren/ugT9437HQMSSt2r012RpAImGPqoownUMPxZFmxU6poMmcpNcW7xz+98
-         rkJA==
-X-Forwarded-Encrypted: i=1; AHgh+Rp1Ln2m0nqsy9U8dnGJS/EKS82T1lohQ6/wAPpLH3+QTmtkuaLAPjzW7PeDubJ/9jQQQdLLJtTdmHr/dmMYoCqW@lists.infradead.org
-X-Gm-Message-State: AFuF++kX2MSoYANTV6hM1hSFwmRWnVa92De/3NaL6cAhVZ2ZMA9yQIdp
-	a/MF5Sm12Kn0cYPn+YE8dZsYiz4nWnJz03QupHghFEfRFtCAlXjf8CRTt2i7n+k/Az+GxnKnN+N
-	0e0NeUpw5Eog9jyZ8pVFwqXUMpGd5p8M=
-X-Gm-Gg: AR+sD1338z6JoU86gCZ8EfMyOCCsF5pmrz1ZaCliqzwJ980vHNazM2B5obECtgnRw9i
-	ojIkts2iksoeb/PUwzSFmA463CAyIHvuLqJ8Ecwxxqo4u8UcvqtmBeVtZyAEGA7ShiFc+XvNvcx
-	aVLwBcUdn0XkPTGXZstMl9Gonl8v9JjxrSM2Qh/SYF9WVLrwEGo1h8/WNw1ZAH2usJ4+U9nqOQR
-	vODh3h/GtT5d7Cduv0H6AZ4rwHsuoAxRfbJsKSRAw4dWgdMw/wihU4cisMuT0u+i6QuEM39cMo9
-	DnlAt1SQywh4QmiEAaHEu9JhisueleOTZ2lXXo4EO7hr5pad2wi5rA6QQEv08mlHosxkH87xaMd
-	5gIEFbkNmT0gTGWVTLsa8c8gGPiYPravY1OCz4NJQqmevn74oa3Kz/21qllMgKT9Shm0f8wDQyJ
-	lYCVtl2os2CSLXMWMmNn80YZJsrTvzD9Z0m1m41DRN9NIyYsydNZP7cC4w
-X-Received: by 2002:a05:6402:1906:b0:6a1:f8ad:6c0c with SMTP id
- 4fb4d7f45d1cf-6a42f1fce20mr35518310a12.16.1787603478279; Mon, 24 Aug 2026
- 13:31:18 -0700 (PDT)
+	id 1wybNA-0000000HN43-1ubI;
+	Mon, 24 Aug 2026 20:34:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787603664; x=1819139664;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=2MrkHVT10I+ikXQqQrjMRHXvIvGgZfTC4WyLFmPpgsE=;
+  b=XYASzSSxzWaxAzkHnAmgXxycBdK6sAbLEQ9ZMbGo9qEnrAgJUjF8SyUx
+   u28QzVpEOhg1w+WMTxHD+dw3PoF+TDk0K9diefodyVL7hYX/osfl7RmRW
+   AXMzP2/D55YJbaCA7ykz3Z7OHYUryTANXz1CS4jbfGxnDzg4jojDelF/0
+   ti5Rnw5YF+I3EoGKoZYAi7EcvoaUlWhMViumaw0FttD8DuTj43j0yJI89
+   wyPUh7KjkBkvr0AvwfK+96nh75U/1DMCM6Lvxt9ubUsrjNgTrU+ZirjKr
+   bs4SNI74oEvxxz009OcauFkDPw6jrKG2ayEOHKmvOBk3IjjEBgbGvxs3S
+   Q==;
+X-CSE-ConnectionGUID: Jwq1K2kwT2SVAPKEe+oJig==
+X-CSE-MsgGUID: ViAQs4hfS+qhcJKD/SQ5dw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11885"; a="88080368"
+X-IronPort-AV: E=Sophos;i="6.25,241,1779174000"; 
+   d="scan'208";a="88080368"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Aug 2026 13:34:22 -0700
+X-CSE-ConnectionGUID: zJbr1P3hRuaBtCHtXYXuNg==
+X-CSE-MsgGUID: +2KsQ0I8QACC9QeIeu7urA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,241,1779174000"; 
+   d="scan'208";a="266574027"
+Received: from lkp-server01.sh.intel.com (HELO 3532383e6126) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 24 Aug 2026 13:34:19 -0700
+Received: from kbuild by 3532383e6126 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wybMv-0000000044t-27oL;
+	Mon, 24 Aug 2026 20:34:11 +0000
+Date: Tue, 25 Aug 2026 04:33:37 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Dmitry Baryshkov <lumag@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Yongxing Mou <yongxing.mou@oss.qualcomm.com>,
+	Igor Paunovic <royalnet026@gmail.com>,
+	Alexey Charkov <alchark@flipper.net>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, kernel@collabora.com,
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: Re: [PATCH] drm/connector: Cache out-of-band hotplug events
+Message-ID: <202608250407.a5fV5DFE-lkp@intel.com>
+References: <20260821-drm-connector-oob-hotplug-cache-v1-1-e92e146fdc7b@collabora.com>
 MIME-Version: 1.0
-References: <20260823050012.17067-1-rosenp@gmail.com> <219e4bf6-f7c2-4651-b032-e9b1ea11feab@sirena.org.uk>
-In-Reply-To: <219e4bf6-f7c2-4651-b032-e9b1ea11feab@sirena.org.uk>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Mon, 24 Aug 2026 13:31:07 -0700
-X-Gm-Features: AcwNN1Xu99UHBB5ytUNfFVDP-9LDqFJzbdzdqQIBKkcj-I4Wbr-XxYcud_LSSAE
-Message-ID: <CAKxU2N_Jt2kfV0mpLTa7s8sEYBgk=2L8_SvdRPWjgf-_QMtEnA@mail.gmail.com>
-Subject: Re: [PATCHv4] ASoC: xilinx: formatter_pcm: use more devm in probe
-To: Mark Brown <broonie@kernel.org>
-Cc: linux-sound@vger.kernel.org, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Michal Simek <michal.simek@amd.com>, 
-	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260821-drm-connector-oob-hotplug-cache-v1-1-e92e146fdc7b@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_133121_054761_F7846B6A 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20260824_133424_532871_7072D68B 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,16 +98,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 4:41=E2=80=AFAM Mark Brown <broonie@kernel.org> wro=
-te:
->
-> On Sat, Aug 22, 2026 at 10:00:12PM -0700, Rosen Penev wrote:
-> > Use devm_clk_get_enabled() to let the clock be enabled automatically
-> > and cleaned up on unbind, dropping the manual clk_prepare_enable() and
-> > clk_disable_unprepare() calls in probe and remove. As a result, move th=
-e
-> > clk struct member into probe, which is the only place it's used.
->
-> This doesn't apply against current code, please check and resend.
-I resent a version that I checked against master as well as linux-next.
+Hi Sebastian,
+
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on d3d1e0c4343385fb343a552e4f3b6b97d5762fc2]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Sebastian-Reichel/drm-connector-Cache-out-of-band-hotplug-events/20260821-165525
+base:   d3d1e0c4343385fb343a552e4f3b6b97d5762fc2
+patch link:    https://lore.kernel.org/r/20260821-drm-connector-oob-hotplug-cache-v1-1-e92e146fdc7b%40collabora.com
+patch subject: [PATCH] drm/connector: Cache out-of-band hotplug events
+config: parisc-defconfig (https://download.01.org/0day-ci/archive/20260825/202608250407.a5fV5DFE-lkp@intel.com/config)
+compiler: hppa-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260825/202608250407.a5fV5DFE-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608250407.a5fV5DFE-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> Warning: drivers/gpu/drm/drm_connector.c:3750 function parameter 'fwnode' not described in 'drm_connector_record_oob_hotplug_status'
+>> Warning: drivers/gpu/drm/drm_connector.c:3750 function parameter 'status' not described in 'drm_connector_record_oob_hotplug_status'
+>> Warning: drivers/gpu/drm/drm_connector.c:3750 function parameter 'fwnode' not described in 'drm_connector_record_oob_hotplug_status'
+>> Warning: drivers/gpu/drm/drm_connector.c:3750 function parameter 'status' not described in 'drm_connector_record_oob_hotplug_status'
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
