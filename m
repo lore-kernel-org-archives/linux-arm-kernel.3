@@ -4,97 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9A96C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 12:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF60C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 12:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rq4CL1HpZA87nEWIN6bZhJKfM5EHEzo0xnV7w+OMOBY=; b=BztsGaxyELSSp0pdxjTtEAVhg5
-	f+GeU6zI9O2UoEcEjxvX2z5Qi20JusSPI5+ySovicXDYczSsx3ajn3MHNnHDTB2JOz0BTQNWEqX+s
-	ccyvdy4upgjZ8PxRcmWLRPrHgItoiy9fFgFun/7oPW+UnN6TZvzmyhtkpm7jozTXINWxomga7BEoi
-	mBENQnHwFzKbLU+779OCv+MvJWIXHXEColDIM4Ucqt57mZch1RVf75bv+6tjYmRAcWOlayXIGd3EA
-	C4KKZC8QCMI2BpnPQ1fJ3DCd41AogUX+eYgTHSkn6XxGYqIWnJay2ZrSPe/mxozv7w8l2uxos6NqM
-	jVh+Jypw==;
+	bh=WISvvk6eNRreWRsq3TswK9YBEbN+xmIZxZMKO/B6o1o=; b=oCkuseTQtt/ijjRIPmuCTudcJP
+	7yx17uJxhwgnEr/Pto1LHjp7JKCEP67C3X7OaXX+tXm6vCRDDn0mrWi6aeFgopgZGjdjKfy66t1gp
+	bWskxr3MmZU34ITH6FHK0FTM2yz6euH+BqDVPH1/hQ85jCK406IfE37XIUrVNmow3AXmVstVXpQUX
+	j/NbWVNkuzf+eJrSJDvLSMlTbLUUnkvxNKzmRcAp/1z5ROnuon32GF0GrFCp3yPiCa1bZn7IHOJU3
+	NgplDR5Ou2vY8Ac2KtlclnhQ8RKGddMaCrPdNL4mk5AWuVe3eWAK1wS68nQDPMy6k80WwyMNrItwa
+	BWfJd6aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyU8M-0000000Gcz3-1zBj;
-	Mon, 24 Aug 2026 12:50:38 +0000
-Received: from mail2.dspace.de ([80.228.58.149] helo=mail.dspace.de)
+	id 1wyU9w-0000000Gd9M-3756;
+	Mon, 24 Aug 2026 12:52:16 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyU8J-0000000GcyG-28ri
+	id 1wyU9t-0000000Gd8f-1p2J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 12:50:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=dspace.de; i=@dspace.de; q=dns/txt; s=dkim1;
-  t=1787575835;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=Rq4CL1HpZA87nEWIN6bZhJKfM5EHEzo0xnV7w+OMOBY=;
-  b=Noqz+fQ5xkvPtoP12QMCrfjKfB9TYiqkxgAOuCukl8gtDPgtkeAvZ0wM
-   M9P7D/cztaOdpS+2EgufQ8mdDItTBkAGfrJj2FHgsFIIS9tVOWXj+pH64
-   7LNokAW9/1+iHrN/CUkjprQMbJnpaUm1pOeZBZystUzLAf5zfF4ZB0e+l
-   4=;
-X-CSE-ConnectionGUID: Hkk5cpyeSmOOcs3EgSe1/w==
-X-CSE-MsgGUID: 1CmGOfl8ROSga6u2nnxjCg==
-X-IronPort-AV: E=Sophos;i="6.25,240,1779141600"; 
-   d="scan'208";a="5059063"
-Received: from unknown (HELO Z1-1000) ([10.1.1.222])
-  by mail.dspace.de with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Aug 2026 14:50:33 +0200
-Received: from VM-Z1-1000-LIVE.dspace.de (localhost [127.0.0.1])
-	by Z1-1000 (Postfix) with ESMTP id 664CA60038;
-	Mon, 24 Aug 2026 14:50:33 +0200 (CEST)
-Received: from exchange.dspace.de (EX-DE-PAD-SE.dspace.de [10.100.196.14])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	Mon, 24 Aug 2026 12:52:15 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by Z1-1000 (Postfix) with ESMTPS id 55C6760037;
-	Mon, 24 Aug 2026 14:50:33 +0200 (CEST)
-Received: from PascalKW11-NB.dspace.de (10.71.4.31) by EX-DE-PAD-SE.dspace.de
- (10.100.196.14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 24 Aug
- 2026 14:50:32 +0200
-From: Pascal Kneuper <PKneuper@dspace.de>
-To: kuba@kernel.org
-CC: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com, 0x1207@gmail.com,
-	si.yanteng@linux.dev, larysa.zaremba@intel.com,
-	aleksander.lobakin@intel.com, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	DBaldin@dspace.de, Pascal Kneuper <PKneuper@dspace.de>
-Subject: [PATCH net v2] net: stmmac: restore NET_IP_ALIGN in the RX DMA
- offset
-Date: Mon, 24 Aug 2026 14:50:14 +0200 (CEST)
-Message-ID: <20260824125014.47862-1-PKneuper@dspace.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260813092923.284285-1-PKneuper@dspace.de>
-References: <20260813092923.284285-1-PKneuper@dspace.de>
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 8E22F867B3;
+	Mon, 24 Aug 2026 12:52:11 +0000 (UTC)
+Authentication-Results: smtp-out1.suse.de;
+	none
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E7F8A1340C;
+	Mon, 24 Aug 2026 12:52:09 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id CD1vN3k+jGpyNwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Mon, 24 Aug 2026 12:52:09 +0000
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: jfalempe@redhat.com,
+	javierm@redhat.com,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	geert@linux-m68k.org,
+	rdunlap@infradead.org
+Cc: dri-devel@lists.freedesktop.org,
+	linux-doc@vger.kernel.org,
+	amd-gfx@lists.freedesktop.org,
+	rust-for-linux@vger.kernel.org,
+	linux-hyperv@vger.kernel.org,
+	intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	nouveau@lists.freedesktop.org,
+	linux-renesas-soc@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	sashiko-reviews@lists.linux.dev,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Subject: [PATCH v2 08/13] drm/panic: Split draw_panic_plane()
+Date: Mon, 24 Aug 2026 14:43:39 +0200
+Message-ID: <20260824125201.218863-9-tzimmermann@suse.de>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260824125201.218863-1-tzimmermann@suse.de>
+References: <20260824125201.218863-1-tzimmermann@suse.de>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.71.4.31]
-X-ClientProxiedBy: EX-DE-PAD-SE.dspace.de (10.100.196.14) To
- EX-DE-PAD-SE.dspace.de (10.100.196.14)
-X-C2ProcessedOrg: 563f5800-21cf-4d8d-8aed-fddd1469e4ee
-Content-Transfer-Encoding: quoted-printable
-X-TBoneOriginalFrom: Pascal Kneuper <PKneuper@dspace.de>
-X-TBoneOriginalTo: kuba@kernel.org
-X-TBoneOriginalCC: andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com, 0x1207@gmail.com,
-	si.yanteng@linux.dev, larysa.zaremba@intel.com,
-	aleksander.lobakin@intel.com, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	DBaldin@dspace.de, Pascal Kneuper <PKneuper@dspace.de>
-X-TBoneDomainSigned: false
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Rspamd-Queue-Id: 8E22F867B3
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Spamd-Result: default: False [-4.00 / 50.00];
+	REPLY(-4.00)[]
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_055035_993949_B0D83EF5 
-X-CRM114-Status: GOOD (  20.20  )
+X-CRM114-CacheID: sfid-20260824_055213_618872_7E69B2B2 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,95 +104,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the RX path was converted to zero-copy, the page pool page is hande=
-d
-to the stack directly as the skb head, and the offset the DMA engine writ=
-es
-at is what determines the alignment of the packet headers.
+Move locking and parameters from draw_panic_plane() into the new
+helper drm_panic_display_panic_screen(). Call draw_panic_plane() from
+there.
 
-Before the conversion the payload was copied into an skb obtained from
-napi_alloc_skb(), which reserves NET_SKB_PAD + NET_IP_ALIGN. The
-conversion moved the headroom into stmmac_rx_offset() but did not carry
-over NET_IP_ALIGN, so on architectures where NET_IP_ALIGN is 2 the IP
-header now lands misaligned:
+The new helper drm_panic_display_panic_screen() is now the DRM core's
+interface for displaying a panic screen. The code remaining in
+draw_panic_plane() still does all the heavy lifting. It will become a
+plane helper for DRM drivers.
 
-  64 (NET_SKB_PAD) + 14 (ethernet) + 20 (IP) =3D 98
-
-Same for the XDP branch:
-
-  256 (XDP_PACKET_HEADROOM) + 14 (ethernet) + 20 (IP) =3D 290
-
-On ARM32 this is fatal, because ldm and ldrd trap on unaligned addresses
-even when CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS is set.
-
-Any received echo request panics the machine, e.g:
-
-  Unhandled fault: alignment exception (0x001) at 0x81873062
-  Internal error: : 1 [#1] SMP ARM
-  Hardware name: Altera SOCFPGA Arria10
-  PC is at icmp_echo+0x38/0xa8
-  LR is at icmp_rcv+0x22c/0x370
-  Call trace:
-   icmp_echo from icmp_rcv+0x22c/0x370
-   icmp_rcv from ip_protocol_deliver_rcu+0x2c/0x224
-   ip_protocol_deliver_rcu from ip_local_deliver+0xc8/0x1a0
-   ip_local_deliver from ip_sublist_rcv_finish+0x3c/0x50
-   ip_sublist_rcv_finish from ip_list_rcv_finish+0x110/0x118
-   ip_list_rcv_finish from ip_list_rcv+0xc8/0xdc
-   ip_list_rcv from __netif_receive_skb_list_core+0x170/0x1c0
-   ...
-   napi_complete_done from stmmac_napi_poll_rx+0xcb0/0x1030
-  Code: e24dd068 e59020a0 e28dc010 e0822001 (e8920003)
-  Kernel panic - not syncing: Fatal exception in interrupt
-
-The faulting instruction is the ldm of *icmp_hdr(skb) in icmp_echo().
-
-Fix by adding NET_IP_ALIGN back to the RX offset, which restores the
-alignment the stack used to get.
-
-Note that commit a955318fe67e ("stmmac: align RX buffers") made a similar
-change in 2021 and was reverted by commit 12d125b4574b ("stmmac: Revert
-"stmmac: align RX buffers"") because it caused packet corruption. That
-patch raised the offset from 0 without adjusting the buffer size
-accounting, so the DMA engine could arguably write past the end of the RX
-buffers, though this was never root caused.
-Commit df542f669307 ("net: stmmac: Switch to zero-copy in non-XDP RX
-path") since derives the page pool allocation from stmmac_rx_offset(), so
-the extra bytes are accounted for.
-
-Fixes: df542f669307 ("net: stmmac: Switch to zero-copy in non-XDP RX path=
-")
-Cc: Daniel Baldin <DBaldin@dspace.de>
-Assisted-by: GitHub-Copilot-CLI:claude-opus-5
-Signed-off-by: Pascal Kneuper <PKneuper@dspace.de>
----
 v2:
- - also add NET_IP_ALIGN to the XDP branch, reproduced the same panic
-   with an XDP_PASS program attached (Jakub Kicinski)
- - retitle accordingly, v1 was non-XDP only
+- use panic_type argument in draw_panic_plane() (Sashiko)
 
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+---
+ drivers/gpu/drm/drm_panic.c | 62 ++++++++++++++++++++-----------------
+ 1 file changed, 34 insertions(+), 28 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
-net/ethernet/stmicro/stmmac/stmmac_main.c
-index a71f0df263785..4d4b155d0d931 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1527,9 +1527,9 @@ static void stmmac_display_rings(struct stmmac_priv=
- *priv,
- static unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
- {
- 	if (stmmac_xdp_is_enabled(priv))
--		return XDP_PACKET_HEADROOM;
-+		return XDP_PACKET_HEADROOM + NET_IP_ALIGN;
-=20
--	return NET_SKB_PAD;
-+	return NET_SKB_PAD + NET_IP_ALIGN;
+diff --git a/drivers/gpu/drm/drm_panic.c b/drivers/gpu/drm/drm_panic.c
+index bc7c096c4236..2048a3bf736f 100644
+--- a/drivers/gpu/drm/drm_panic.c
++++ b/drivers/gpu/drm/drm_panic.c
+@@ -936,42 +936,25 @@ static void drm_panic_clear_description(void)
+ 	desc_line->txt = NULL;
  }
-=20
- static int stmmac_set_bfsize(int mtu)
---=20
-2.47.3
+ 
+-static void draw_panic_plane(struct drm_plane *plane, const char *description)
++static void draw_panic_plane(struct drm_plane *plane, const char *description,
++			     enum drm_panic_type panic_type, u32 fg_color, u32 bg_color,
++			     unsigned int qr_version)
+ {
+ 	struct drm_scanout_buffer sb = { };
+ 	int ret;
+-	unsigned long flags;
+-#if defined(CONFIG_DRM_PANIC_FOREGROUND_COLOR)
+-	u32 fg_color = CONFIG_DRM_PANIC_FOREGROUND_COLOR;
+-#else
+-	u32 fg_color = 0x00ffffff;
+-#endif
+-#if defined(CONFIG_DRM_PANIC_BACKGROUND_COLOR)
+-	u32 bg_color = CONFIG_DRM_PANIC_BACKGROUND_COLOR;
+-#else
+-	u32 bg_color = 0x00000000;
+-#endif
+-#if IS_ENABLED(CONFIG_DRM_PANIC_SCREEN_QR_CODE)
+-	unsigned int qr_version = panic_qr_version;
+-#else
+-	unsigned int qr_version = 0;
+-#endif
+-
+-	if (!drm_panic_trylock(plane->dev, flags))
+-		return;
+ 
+ 	ret = plane->helper_private->get_scanout_buffer(plane, &sb);
+ 
+ 	if (ret || !drm_panic_is_format_supported(sb.format))
+-		goto unlock;
++		return;
+ 
+ 	/* One of these should be set, or it can't draw pixels */
+ 	if (!sb.set_pixel && !sb.pages && iosys_map_is_null(&sb.map[0]))
+-		goto unlock;
++		return;
+ 
+ 	drm_panic_set_description(description);
+ 
+-	ret = draw_panic_dispatch(&sb, drm_panic_type, fg_color, bg_color, qr_version);
++	ret = draw_panic_dispatch(&sb, panic_type, fg_color, bg_color, qr_version);
+ 	if (!ret) {
+ 		/*
+ 		 * Only flush if we have a panic screen to display. Otherwise
+@@ -982,9 +965,33 @@ static void draw_panic_plane(struct drm_plane *plane, const char *description)
+ 	}
+ 
+ 	drm_panic_clear_description();
++}
+ 
+-unlock:
+-	drm_panic_unlock(plane->dev, flags);
++static void drm_panic_display_panic_screen(struct drm_plane *plane, const char *description)
++{
++#if defined(CONFIG_DRM_PANIC_FOREGROUND_COLOR)
++	u32 fg_color = CONFIG_DRM_PANIC_FOREGROUND_COLOR;
++#else
++	u32 fg_color = 0x00ffffff;
++#endif
++#if defined(CONFIG_DRM_PANIC_BACKGROUND_COLOR)
++	u32 bg_color = CONFIG_DRM_PANIC_BACKGROUND_COLOR;
++#else
++	u32 bg_color = 0x00000000;
++#endif
++#if IS_ENABLED(CONFIG_DRM_PANIC_SCREEN_QR_CODE)
++	unsigned int qr_version = panic_qr_version;
++#else
++	unsigned int qr_version = 0;
++#endif
++	struct drm_device *dev = plane->dev;
++	unsigned long flags;
++
++	if (drm_panic_trylock(dev, flags)) {
++		draw_panic_plane(plane, description, drm_panic_type,
++				 fg_color, bg_color, qr_version);
++		drm_panic_unlock(dev, flags);
++	}
+ }
+ 
+ static struct drm_plane *to_drm_plane(struct kmsg_dumper *kd)
+@@ -997,10 +1004,9 @@ static void drm_panic(struct kmsg_dumper *dumper, struct kmsg_dump_detail *detai
+ 	struct drm_plane *plane = to_drm_plane(dumper);
+ 
+ 	if (detail->reason == KMSG_DUMP_PANIC)
+-		draw_panic_plane(plane, detail->description);
++		drm_panic_display_panic_screen(plane, detail->description);
+ }
+ 
+-
+ /*
+  * DEBUG FS, This is currently unsafe.
+  * Create one file per plane, so it's possible to debug one plane at a time.
+@@ -1017,7 +1023,7 @@ static ssize_t debugfs_trigger_write(struct file *file, const char __user *user_
+ 	if (kstrtobool_from_user(user_buf, count, &run) == 0 && run) {
+ 		struct drm_plane *plane = file->private_data;
+ 
+-		draw_panic_plane(plane, "Test from debugfs");
++		drm_panic_display_panic_screen(plane, "Test from debugfs");
+ 	}
+ 	return count;
+ }
+-- 
+2.55.0
 
 
