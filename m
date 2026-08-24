@@ -4,144 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12116C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 09:54:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE512C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 09:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wzb6tRJHrDVJQGqbEkCo5jb01Nj4kloA91RfnwZIyDU=; b=LA4E/A5tmAelljXiNjXpnnacSr
-	IvbkTI+7bbie6GwYNFfdJX8yk3Hr92cjfSBmUPBQNryWX9XDWcSK913c8Xo4mHmXO40Un/m8YUUMm
-	XNZZ9/CA026mln+8CbkAv5JwB1peqYm+NDoDnj2JIorEn/P0s/sEw9tKvmrNzyngo6qfLQrOn3sYI
-	/02I7GEMbkXV3pYboJF6qhPKUx7MwX8unfVXTypD4x4Bkn4Ol/xQtW1hKzOPYVBhas3gPu7ceYzA4
-	y9venrafvx7mLm4qxIkOTaLz4tgo3fItZXjPKR83v8siQtTrBMiNAxm0Rq8IpsBNXzBnNkQAH7mRh
-	s6BGEHhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CsskcMB2dvjU+nJnFs1web3IeTOM4DlaOeuWxlSh7G0=; b=KSNj9NAhue9osK5MVLwmUdzTBx
+	kszu8R+VJ1i+VVoknXknLRAANLYI7Ji7rsgCjpTu/VdBCfIz4qM2ajIwFa3rT4umfX3BifMjguPiW
+	IWczcCQaB1ZCvPKgsCwDgdOgDwQ2TpfwWen3GrlsxlTqSwDR4zVsg3a9Opa6UyV4YnKulStPqF6nr
+	Hzo86BEziMckM1iyHsMXaYP9uYbB7uOrpMhXIlNX4i4+t6TrilS/tB3mO7VG4fniFWYt8sJ3uJmff
+	Evb/LI7LRxmwppoGJ/OtXchnvBiM6DXtjXtUnP6NC8BZsVc7uarHzrHSymVYmy4j1fW+LYX2N5U2y
+	68LCa8QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyRNy-0000000GLEc-2aOJ;
-	Mon, 24 Aug 2026 09:54:34 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wyRT0-0000000GLjl-0rd8;
+	Mon, 24 Aug 2026 09:59:46 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyRNs-0000000GLC8-20l5
+	id 1wyRSx-0000000GLjJ-2yHL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 09:54:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QUqZm6o5P8rS3uTMmNniau+wK1AHWnd9Rj0cIKqR/ghKC9N8WNGEZw8AICsBC4HPd3k0cJHyC+azpMTaZRqYzL7fZFBtVUrUCSQ4+IWCn9yrqQtr/MhAEwYngPaEUebeO++6HEyuN+bxhag5MrWnPEuBiiz9vBySz3lVosR8daXvuaXwLYRWD0Egplp89akNRixjKvhQQlfyPZdt/vkUHruM0PtMeJUK/Ez5fHDISzuWq9LR/w5mVONlCQdHAnBpKiTxEHNnMY68htDuSnfcGsFulgdQnn9m0adu9KJeGZ4cJ85bnuAi33LD1TBqsuWmxzKG0ynlShc55dz/WpRJ0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wzb6tRJHrDVJQGqbEkCo5jb01Nj4kloA91RfnwZIyDU=;
- b=RQADQwIOinmpw5FmgJPf4Tpxdk8P6Uo1GaUhXOgm1dmZHUqsdUkejZiipTBg6bGUwXTiQq9A6g17/3WuDkeIRPdW3QRsmjRcSt1lvMy+nGNcSFVzR1tcfowtYu6CTnn+EbTGF18NKblbLGEaBtQlyTdL//uf7b+1yipT2NSsBCAC6C1gxxTZ6yqblkjSOo5Bjg9ZHWmSC3IG5bZhtTQ1qSh2qCWB+9vO2W/kFLUkGDXlWnkVayKUhcE+7MvROVAO/ptnyqpnl4Tnwnuz+p6MDGBrW0ktv0eNDL4aaN4O1wLHHLkVHWuWyxz+o/CVS7WiWGbN0eGgc7oWAdrpe2PHjA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wzb6tRJHrDVJQGqbEkCo5jb01Nj4kloA91RfnwZIyDU=;
- b=IVdiyYjYhXda3lbzW81gBJvtlapT4hIRdxG/5g2HbwGVIMBpew52LANp5xJUQz5amb4fQfcolP0IqXKMCCY0x3sZNtyWQu57IdIZsw8AwPg+yqtGEHZDLPYKMZmcxnSoEK41x7lTbuNpwdBTMGDn6BULFCzxr3RcWBgOxyHjUJa2IfCxOj4hpdPyKqkIiM03PIzKhQHpmoOJfJXJja41FifLa49Dka2gZiRhMkrLlkkf7jopONVCzw+zUyM91d85USNpxnAr1a9fjv4QDyHV4t5Ec+K/wH5uDqYlxdt+JE2XXc76oK4iuSaoxESZOD2Gz/MTB8m/YIFrPQASDkMAlA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHXPR12MB999244.namprd12.prod.outlook.com
- (2603:10b6:610:2fc::17) by DS7PR12MB8275.namprd12.prod.outlook.com
- (2603:10b6:8:ec::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Mon, 24 Aug
- 2026 09:54:23 +0000
-Received: from CHXPR12MB999244.namprd12.prod.outlook.com
- ([fe80::168f:599c:f74d:7688]) by CHXPR12MB999244.namprd12.prod.outlook.com
- ([fe80::168f:599c:f74d:7688%4]) with mapi id 15.21.0339.010; Mon, 24 Aug 2026
- 09:54:23 +0000
-From: KobaK <kobak@nvidia.com>
-To: Breno Leitao <leitao@debian.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	Tushar Dave <tdave@nvidia.com>,
-	Kai-Heng Feng <kaihengf@nvidia.com>,
-	Rupak Roy <rupakr@nvidia.com>,
-	Mohammed Karamathulla <mohammedk@nvidia.com>
-Subject: Re: [RFC PATCH 1/3] arm64: add CPU prefetch and cache modulation sysfs interface
-Date: Mon, 24 Aug 2026 17:54:05 +0800
-Message-ID: <20260824095405.3-3-kobak@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <aoXEBXXvTDBimnHi@gmail.com>
-References: <20260817022335.3-1-kobak@nvidia.com> <20260817022335.3-2-kobak@nvidia.com> <aoXAdSY_EyPlOOnK@gmail.com> <aoXEBXXvTDBimnHi@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SG2P153CA0049.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::18)
- To CHXPR12MB999244.namprd12.prod.outlook.com (2603:10b6:610:2fc::17)
+	Mon, 24 Aug 2026 09:59:45 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67O994NL2448667
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 09:59:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=CsskcMB2dvjU+nJnFs1web
+	3IeTOM4DlaOeuWxlSh7G0=; b=OzqQnXk7PY3Vj89vH0FzXzO/QKzZHSFWwtgO5e
+	n31jdTIsjDrXr8fPpg68OASzXTFSBd/Xr+n7auB6cJtb73c50vK/goekPELqm0HQ
+	tMJLaWHMrIX10NemHdPMuiVst2RhBkgyyngVk558tN7Q5w+GTJCNiC2z/KCruh+5
+	EO//X+MIiLN0kyPYI+gjK7ulgE8PQsZPf3N5usaXgYZNpAPpS89nmqr5q5KDzMYR
+	9H53stiBKlhOQoBHmrgIainO26MAwG/UJqGDIfCLPbOiw4xOxDYKtaTzYNcl1Xcy
+	XtwK0gW7rDR21IHmKcWnl7sPi8Hqe5PUmFGDC/+Df2ylhzuQ==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g8j7r0hbe-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 09:59:31 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c083f1818so35404731cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 02:59:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1787565570; x=1788170370; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=CsskcMB2dvjU+nJnFs1web3IeTOM4DlaOeuWxlSh7G0=;
+        b=DgAJAGdPynZVaZEjPc2g5gCFEJN7WOHJ8r38YEd7ZYtGvp601ijkCVBLWNjD7MKTrt
+         yw6MUBnq5nVn/eiXAxr2aqmhvLN36RjyJgJX3TxwBzy/lkthD3FfBVdV81nAc1p0izIg
+         /D4rP1CX7P2csF8EHuQe8YHyhWMFYG/HULSFZwZWFeyCtYmnY/dqtMlh2oo97hCxyQaE
+         9ibsum0lMP54ljr98SqPpYKifBNg6i95ktBhjmdUKwVDCJuyOCYMc+UJrK6d+2Vag17c
+         UXU2xoMIZhGbyJ8xJ93E7TnIN8RV7zs/cWi77nK6kPJzvKdhBW9iQT36KW0C8te8DSw8
+         FP0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787565570; x=1788170370;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=CsskcMB2dvjU+nJnFs1web3IeTOM4DlaOeuWxlSh7G0=;
+        b=pvv1Lac/ZV2Kcw2TcI2eisaWtVXC5qE7UqEpsXTGRAkbQcwSRAOQI5PMwAvEcD0Jx8
+         yCrSrDix2l73rIqSLL9Px86TbDiYM65VgCAgYhdkoS7gFQdmDbOJnwSDf7uCPLOu1glK
+         1+crbsMt93lNrGc9ZkFO9Ca6DG6KGHrvlw1xBaJeK6WEY78gBqp2kgyNsD+7nDszo2wT
+         XQgj55/y5PjKFqYCnKm98i1v5huW2bfyPhZyssVwIk5IREJO4rHXsC3fTEtybmr9CEX1
+         u1biKYf51H/2xQWK+LFRwtNE51EefyzF/n8Y2fkxkooA1KBHtJuvBvifQsW69V7VmmV1
+         s5vw==
+X-Forwarded-Encrypted: i=1; AHgh+RouLZNT4bzOkc85uSeh2VRKxvXdaM90ZMyooP/qrNvnyI2NxNurOqW3WgIVDaEbfOLDT+01rt0kkAUAbJsCoPaB@lists.infradead.org
+X-Gm-Message-State: AFuF++lLE61Wn2rzdwOWLBik4g8E3ajJ9JH5RveDLDY0YmhKckLFX0jh
+	XEDhhFgBZQbK7/kXBeZulbkoRqbvxFFiiLQK/k7EAHQ9pvDbF04GrnxdwcSl8121zDVF95HfLqZ
+	UAfudxE8WTE2RySQKt9vGrsQsbDm285IKnruUfQtb1FGhg6JmRjzUQd4eQfR6WQu7FKoP3q4yAe
+	EcRA==
+X-Gm-Gg: AR+sD13I03vQIGIjGw2PPPLdVeiCrsUSubKP9N128+SlJluadjK9ayaQ/bhIdOEHqT/
+	NymSvEWcqLy450xhrk6ninX0VMiKwAGL+zqr0u719l82eb7OxMVSVL9qiPns5UlSuX2o5+vdJ3Q
+	jFsJJ8NKxqhQJBvc1/V3d95+lhPWB1tXrtehgo/7qly4BAyExK4tzeCQRIaPM433VUam5WRmq/w
+	HfkGhBT6ISeemMaAByy0rtTMlKbcidCg/4VO4ri1wPyib4xp/HsD8uPxHB9N5EOXq5qm91we8qs
+	u7ZlIwNA5BNYw3Iv6Bwe0et0ys7Dr0DPHcZZqAE+KDndftqYhJWhIgIXy7Ypev/x7dicBrOfHC4
+	APj6m23yASfChF/M=
+X-Received: by 2002:a05:622a:1315:b0:51c:b900:513f with SMTP id d75a77b69052e-52df5712136mr245717441cf.10.1787565570498;
+        Mon, 24 Aug 2026 02:59:30 -0700 (PDT)
+X-Received: by 2002:a05:622a:1315:b0:51c:b900:513f with SMTP id d75a77b69052e-52df5712136mr245717191cf.10.1787565570104;
+        Mon, 24 Aug 2026 02:59:30 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c24966f9cbcsm1315592766b.29.2026.08.24.02.59.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Aug 2026 02:59:29 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Date: Mon, 24 Aug 2026 11:59:08 +0200
+Subject: [PATCH net v3] net: stmmac: drop gso_enabled_types and rely on
+ netdev features
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHXPR12MB999244:EE_|DS7PR12MB8275:EE_
-X-MS-Office365-Filtering-Correlation-Id: b828092d-f06f-4e3a-f164-08df01c5acd6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|10067099003|6133799003|18002099003|22082099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: xaNPL85BCvYArdTfosugma9minjTzoB0iNWK+haPhiJ5KXWya3C0knRILsebmbs3lVZqsOkctb0eJAdK+XD7iWFkK6rKJSL7GBMnt3Yue4fLBRt79FsS//8XwHkauGlRGJXV0jLmcn1LGoUJqGA2hfwyQQGM87m63BN9EwySG7GZ6w938BrTX8y9GhY5taDeJZzxXxClCRlzUBrcCUVkwykz2iAoenZ/PbAL+Q8a4q4ruLPk8kuWr13Ib1D0W+1g+294Y/R+2XsX6hBmHRrS8y5CbCXp6m8S92l/hnrJxd1Ksz1JDGWKpoxxCRV8GLnqtYtiIODQkdJSQC0tEzi2GdtjNKhN/+3pcLj8rvpfjrt/JZrfNGNCxqsGyWMuserK9RviPWl5xuXHlYLJ3q8J8z2HOvaRcwIldInUR7FWFySJE0NrYFgmn5iSwd6GJvJ+QLLasuTgBfjwMH9PiZ6XR5cLAVPljHdVzHLS/PVXQRvlMmJfnkx/GXUpFz+ZkUUaDqU7KQENRbv7n5OnAy8Htx8SByDvAqelZ4m/QUR509sjruApEIecDXauqsnDvapLdTRUmYq3bUSC1gZOqN+XnaTZqK2iE61O8ZUIbcgHQQB1mypiq/oxg+5qBMzuDiYoTJXWCjl4RlULBmRodXXf7S/UF4nR79P4PugHvCTqUM0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHXPR12MB999244.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(10067099003)(6133799003)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y09rK09mamJyKzMwRlo2cmhHRHpvdTE5MEp0NnFpSFBnSVdGMEJDOG1rUDBo?=
- =?utf-8?B?ckpCZXpPR2V6UkNRcndqMDdaUTgvSjBVQkFJMUo1Q05scW1nVFFFbVAyUEl1?=
- =?utf-8?B?VmFiWVBublk4MW9HL2xjcitXakpPdHJtc2YvWGMwNEE1VFMweEZRQmlTdHJ4?=
- =?utf-8?B?QzY2OFdlYWU2SkowTUZWVEp6OEczckFoYUQ0TGtkaEVjWEF6ejl4cDZacU5l?=
- =?utf-8?B?ZnVJQVhOd085ZlhBNDdpRzZvd282NHUyYUFaY0VVZW5WZXRIM0NOZEZVSngr?=
- =?utf-8?B?QzgzeDY3L1B0R2xvcXZORGQ2dWJvdkloMHNWSkNFTHBsQTBEdmhCeEhZVkw4?=
- =?utf-8?B?V09GSmZTZEU1SkNaNE1QSXdGTnBVOTlwNXNzNTY5WTJ0c0hIWUhwU3NLQkkw?=
- =?utf-8?B?YlNxZVliWjl5cFBmdGFCcDNEanBCQnpHTU1lVDNSZU9BV3lBdEJnSXFHbStR?=
- =?utf-8?B?M3FRVjkwbVBvRFpYVmlDd2g2MTFtcjJkZmJPMDU3UVNpYkZCQWdaME1zVC9N?=
- =?utf-8?B?WHV1K3BqbE9vRk9oRzVVcFZuT0w3bFBWU0k4amExQkhnK1dtNWNIKy9qN0xq?=
- =?utf-8?B?Wi9pVkhPVzhjS1Z3VFBKY3JaelRtNWdSdDZBY1ArR1Z2YmcxcTRMQnN6T2Rz?=
- =?utf-8?B?ZGxzTFgwMk5HQjZWMzY2c2x6YXM2SWpVNkQ3a0dwczZiZVMyQ0xXeE5USDcz?=
- =?utf-8?B?b3l0WFl4Rzd0dVY2aENkSUl6bmNXSzdvQ2Y3NlB1S29veTl5c2lIN2ZvU1cv?=
- =?utf-8?B?Vm5aVHlyOTF2dWlvK01sVzJnd0xGTTYxdEpjTmtScG1DbEV6L3BkRjlYZTVC?=
- =?utf-8?B?dzNHVGxST09rc1NFNDJ6UWxoaGc2U2NpYUVuVkt3YTRJQ3Z1WWdTY1pmQTRC?=
- =?utf-8?B?eDBrN3NoV2piaUpzUjZTcUlpbHZSRktDYlc2dzlJZkt5ZXVUMGc3eFlMbXNL?=
- =?utf-8?B?SXNMVGlDSEJnaWJVQzBJRHI3SzJ2M3R2RElFSW8vL2hPQytkcFlOa2NCM002?=
- =?utf-8?B?a0N4VWVlenJkeW9CVEZkY1BXMGQrb1dXREMwSC85ZWgzZlZaZHdQSENWWDE5?=
- =?utf-8?B?YkQzM3VWNFN5NWo3ckxPb2lDbVdtbVhZOHAxTHFxanlydjBKYWpjLzRFU0hp?=
- =?utf-8?B?RXBHb1RPdTdGOHZlc0RZNzlBZE5TMGFWVE1yTEswc3pBSEdnYm5tTW1RbEtO?=
- =?utf-8?B?MUs2U2VXVFR3MjFOU0JjT08wZyt2VVRITis2dEVCZnNLcTFTQlo1a2dyVFpa?=
- =?utf-8?B?cEZhbTBGR0g4cmhjc3hPTlhOYWt3RXRXc2hKMGk3ajg2c0hFM3h6SFdnR1hl?=
- =?utf-8?B?TVMvcC96OHJaYTBkM1FodlVnSGlTVzFHN2xEM1Jvd0JneUt1Tk5Nc3o0eEth?=
- =?utf-8?B?Vk42eU9ncU1mdGxyZkdoY2tzZnp2Y0xDTlF4RDEzTnFBdlpsQlhWaWtkT0M0?=
- =?utf-8?B?b1VGVEd0R3ptOTVaKzdXQVRXMHBOTmlzeXJxd2FBY1ZOOEtOZVZQSzNjMUxS?=
- =?utf-8?B?Q2FTL2N5eENUNWpUdGhIcllHYU4yN2Z4TUt2SHB3WHlZZ25ld2tEaS9ZU3N5?=
- =?utf-8?B?eFdHNStQUU92angxZkJMQnJkZGx6NHZuRzVYUnlPQ0hVcGtySDNyQ2JTei9u?=
- =?utf-8?B?MW0vcnhNYk13Y0wwcGcwSmxKMThScXlFRXNZa2tpZC84U1pya01vNi9OMDdH?=
- =?utf-8?B?c25uSWUyaTNFdjFqZTdYbzJHK0tCTGZHbVBNQ0xBbUo0YW9qNTFmNWpvZmFM?=
- =?utf-8?B?Y1hBcUFDUCtBL1IrOU9iUTUwR3JUTmViYkhjb1hldDRzdHNHckIwK0hGb2pL?=
- =?utf-8?B?VGdKYjc1TFVTZkdPWFhEVytFN1YvOXI0QVl5d2xEdFU1M1RMblV3UG54eVFm?=
- =?utf-8?B?Uld6NWhqMFN1OVI5QXJQSlRnNkVsWW1TczZEQkRDZmVVWEI0azhRa0VIU3d4?=
- =?utf-8?B?UnIxU2Q3b0NCbDcvcHprUklCWTN6ZnIxbi9CbHpQUXlFWFN4Y1BFUm9nR29O?=
- =?utf-8?B?ME9pdWRIU0FuVU1Nc3Nxc1RWVmNQM3V4em5JWTM4ZEp4Z1U5MzBocWxOVWNG?=
- =?utf-8?B?VlRVOXlJaVVOMnlJRDFZTDZQam1QL1hWeE1RaCtwQ2lxN0pQUmFIaHpraW92?=
- =?utf-8?B?S0U1SC9aUDFiRElRM3ljQ2ZRekl0L3U1Yk96VG5PNm5aSFpIMFRybXpIeCty?=
- =?utf-8?B?aUtKdXhSZVI2K1RVRXpkNkhXUloxQ2p2Q1ZZcnNVa2l5QldSZWU5YjhlSU9k?=
- =?utf-8?B?SnRQN01teitWY1YxS3NVWjl0TWtlYlYxa2NzQTVYZ2ZvcVIyZmhQczVScUpy?=
- =?utf-8?Q?44hYZNGKwcLQ8meGV0?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b828092d-f06f-4e3a-f164-08df01c5acd6
-X-MS-Exchange-CrossTenant-AuthSource: CHXPR12MB999244.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2026 09:54:23.0615
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gG7+CZOFFrYqvNAmmxEWsrdGllUlRf1eQM3SZBkvm48CCZMUKpXSpiHyAeyQiLhCbRLljk+XhdPohIKSOjMJug==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8275
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260824-stmmac-fix-tso6-features-v3-1-c73a7a4a0ec7@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XNSw6CMBAG4KuQri1ph1dx5T2Mi1Km0kSodgrRE
+ O5uw8qF0c0k/zy+WRlhcEjsmK0s4OLI+SmF4pAxM+jpitz1KTMQUAslFKc4jtpw6548kq+5RR3
+ ngMQb25sK27JUCCyd3wOmpZ0+swkju6Tm4Cj68NrfLXIf/ZcXySW3CjrZVG0lKjh5ovwx65vx4
+ 5instsLfHgSfniQvAZM0YkaO9WXX7xt296J0u4HHAEAAA==
+X-Change-ID: 20260808-stmmac-fix-tso6-features-7fdc5e9448e2
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI0MDA4NCBTYWx0ZWRfX73Ekg3/79/QT
+ Q31ynFGEDtnNgpMFQrDHF28QW/XlxG12JmFtmvfu1hnbJfnk1+0af5v8jzCF5rGBJTLDHxnpoe9
+ Ejt6jgw+OB5WVg9CqdOt424wW1pUXxvbYb50neLcU5KFy6ZnV6DMsFc/THNnbs3lNJYyQ1IMYxn
+ FH+xZiu9zu0uUuOkxQnuxd/BpKhkdynIfjvvncrLJ02rHRy2qdn6kevIyHoy7B7yWWsGqpc/b6K
+ ZSI5qcNap7JKJkmmXku3AE5YMqQ3DHIgWyvKJqteV/4iiW8F3tDot1srZNzpolHjefIlEm99vXc
+ Vp4cg3PvPC7ubFBwhdxCerxIHnfiiQ/ll5k7s+h252QUkQ57lhMfRSIKjg5Wz7tJPkx8iWT6MB3
+ AHqpQreYvSgKdQMENd0EXoZ5R+UxQofjEjV1keZkilv795hZEtPg3plvbCS/7aMXMFQkODZMHKT
+ dsnI4sb09S5v8oNnMcg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI0MDA4NCBTYWx0ZWRfX5Ny+n1rN1FVo
+ QkuXhaAwQD5eSuRtUBcwJaBnrJRS8ucTiOBuz7+6MeGvLTjNAjlywowZo30zDhe/ChkBpJCeDS2
+ KIOHtxbYV3wogLWOZk3Bzj69oxEhP7g=
+X-Proofpoint-GUID: ROrVxYa0YzZapAKCUD4eJ1dMCdeIFJxd
+X-Authority-Analysis: v=2.4 cv=IL8yzAvG c=1 sm=1 tr=0 ts=6a8c1603 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=v9nI2CDhc2Qv1RY0d5sA:9 a=QEXdDO2ut3YA:10
+ a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-ORIG-GUID: ROrVxYa0YzZapAKCUD4eJ1dMCdeIFJxd
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-24_03,2026-08-21_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 malwarescore=0 phishscore=0 priorityscore=1501 suspectscore=0
+ spamscore=0 bulkscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608240084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_025428_549345_08FC57E9 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260824_025943_872259_BD835E4A 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,24 +157,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Breno,
+The gso_enabled_types field is used by stmmac_xmit() to decide whether a
+GSO skb should be passed to stmmac_tso_xmit(). It is updated in
+stmmac_set_features() based solely on NETIF_F_TSO, so disabling IPv4
+TSO while keeping IPv6 TSO (NETIF_F_TSO6) enabled zeroes the mask. As a
+result IPv6 GSO frames, which the networking stack still generates since
+NETIF_F_TSO6 is enabled, fall through to the non-TSO xmit path where
+they are not handled.
 
-Thanks for reviewing and testing this.
+The networking stack already manages the GSO logic: a GSO skb is only
+delivered to the driver when the matching offload feature (NETIF_F_TSO,
+NETIF_F_TSO6 or NETIF_F_GSO_UDP_L4) is enabled, otherwise the frame is
+segmented in software before reaching ndo_start_xmit().
+stmmac_features_check() also validates each GSO frame against the TSO
+hardware constraints and falls back to software GSO when they are not met.
 
-The current read result is consumed by cpumod_attr_show(), but you are right
-that the persistent cached-value plumbing is unnecessary. For v2, I plan to
-return the value through call.value, emit it directly, and remove the cached
-fields and helpers that no longer have a consumer.
+Drop the gso_enabled_types field and rely on skb_is_gso() in
+stmmac_xmit() instead, which correctly routes IPv6 GSO frames to the TSO
+path when NETIF_F_TSO is disabled. This also removes the data race
+between stmmac_set_gso_types(), called from the feature-set path, and
+the lockless read of gso_enabled_types in stmmac_xmit().
 
-I also agree about the permissions issue. The register-backed reads perform a
-synchronous IPI, so allowing unprivileged reads could generate a steady IPI
-stream. I plan to change the six register-backed controls to 0600 and retain
-affected_cpus as 0444 metadata.
+Fixes: 2e4082e4b739 ("net: stmmac: simplify GSO/TSO test in stmmac_xmit()")
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+---
+Changes in v3:
+- Drop gso_enabled_types field and rely on the network stack to manage
+  TSO/GSO logic.
+- Link to v2: https://lore.kernel.org/r/20260812-stmmac-fix-tso6-features-v2-1-72c3b06eb8d4@oss.qualcomm.com
 
-I have recorded your Tested-by, but I will confirm that it still applies after
-these changes before carrying it into v2. The resend is currently on hold
-pending arm64 maintainer direction.
+Changes in v2:
+- Fix possible race between stmmac_set_gso_types() and stmmac_xmit().
+- Fix fixes tag.
+- Link to v1: https://lore.kernel.org/r/20260808-stmmac-fix-tso6-features-v1-1-f82b17595052@oss.qualcomm.com
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |  2 --
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 19 +------------------
+ 2 files changed, 1 insertion(+), 20 deletions(-)
 
-Thanks,
-Koba
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index 8ba8f03e1ce0..7582fca63741 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -265,8 +265,6 @@ struct stmmac_priv {
+ 	u32 rx_coal_frames[MTL_MAX_RX_QUEUES];
+ 
+ 	int hwts_tx_en;
+-	/* skb_shinfo(skb)->gso_type types that we handle */
+-	unsigned int gso_enabled_types;
+ 	bool tx_path_in_lpi_mode;
+ 	bool sph_active;
+ 	bool sph_capable;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index b2b7d0242dd3..3a956c8b611b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4375,18 +4375,6 @@ static void stmmac_flush_tx_descriptors(struct stmmac_priv *priv, int queue)
+ 	stmmac_set_queue_tx_tail_ptr(priv, tx_q, queue, tx_q->cur_tx);
+ }
+ 
+-static void stmmac_set_gso_types(struct stmmac_priv *priv, bool tso)
+-{
+-	if (!tso) {
+-		priv->gso_enabled_types = 0;
+-	} else {
+-		/* Manage oversized TCP frames for GMAC4 device */
+-		priv->gso_enabled_types = SKB_GSO_TCPV4 | SKB_GSO_TCPV6;
+-		if (priv->plat->core_type == DWMAC_CORE_GMAC4)
+-			priv->gso_enabled_types |= SKB_GSO_UDP_L4;
+-	}
+-}
+-
+ static void stmmac_set_gso_features(struct net_device *ndev)
+ {
+ 	struct stmmac_priv *priv = netdev_priv(ndev);
+@@ -4420,8 +4408,6 @@ static void stmmac_set_gso_features(struct net_device *ndev)
+ 	if (priv->plat->core_type == DWMAC_CORE_GMAC4)
+ 		ndev->hw_features |= NETIF_F_GSO_UDP_L4;
+ 
+-	stmmac_set_gso_types(priv, true);
+-
+ 	dev_info(priv->device, "TSO feature enabled\n");
+ }
+ 
+@@ -4771,8 +4757,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	if (priv->tx_path_in_lpi_mode && priv->eee_sw_timer_en)
+ 		stmmac_stop_sw_lpi(priv);
+ 
+-	if (skb_is_gso(skb) &&
+-	    skb_shinfo(skb)->gso_type & priv->gso_enabled_types)
++	if (skb_is_gso(skb))
+ 		return stmmac_tso_xmit(skb, dev);
+ 
+ 	if (priv->est && priv->est->enable &&
+@@ -6206,8 +6191,6 @@ static int stmmac_set_features(struct net_device *netdev,
+ 			stmmac_enable_sph(priv, priv->ioaddr, sph_en, chan);
+ 	}
+ 
+-	stmmac_set_gso_types(priv, features & NETIF_F_TSO);
+-
+ 	if (features & NETIF_F_HW_VLAN_CTAG_RX)
+ 		priv->hw->hw_vlan_en = true;
+ 	else
+
+---
+base-commit: 7cbfb180945ce529608e4d4e24a6d483699fab1e
+change-id: 20260808-stmmac-fix-tso6-features-7fdc5e9448e2
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+
 
