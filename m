@@ -4,113 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AEFDC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 12:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9A96C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 12:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rj5OrcPbUSHUeRrK+Yhe+jiBoqRvGnLexb+l8ZGxfyk=; b=VOOv3eJCuTf7MFyDTD3HS7aVV1
-	6WNoKdmTsT5nCn3j+RfFIxU8r/fLgzVifigzk+BS7e6OtkMWqhTdRjgU/0NiUxhcTKUur8IgnRhx1
-	MRrVUBFvtgesYErt3CbBSc7WCbrQUVJCFxMTz4aA6WFrspPrU6/6HxU8pfiG+5NjUJBtnbGy2fe2L
-	o21wCP5drGW2MNNsqkAtJvYkAxSzc0QaKUfbNuPdQ7QoZ+nA/C6hA6ESS3SwPuwEWuVCuhByJhO7b
-	wTVemA89EYuQVkIqDHKMdCPKzmpxCwHJgSNXOG7NELDtjipdustuxx534KoIVul9aV34PLtUTZ3Bx
-	8QH8LS3Q==;
+	bh=Rq4CL1HpZA87nEWIN6bZhJKfM5EHEzo0xnV7w+OMOBY=; b=BztsGaxyELSSp0pdxjTtEAVhg5
+	f+GeU6zI9O2UoEcEjxvX2z5Qi20JusSPI5+ySovicXDYczSsx3ajn3MHNnHDTB2JOz0BTQNWEqX+s
+	ccyvdy4upgjZ8PxRcmWLRPrHgItoiy9fFgFun/7oPW+UnN6TZvzmyhtkpm7jozTXINWxomga7BEoi
+	mBENQnHwFzKbLU+779OCv+MvJWIXHXEColDIM4Ucqt57mZch1RVf75bv+6tjYmRAcWOlayXIGd3EA
+	C4KKZC8QCMI2BpnPQ1fJ3DCd41AogUX+eYgTHSkn6XxGYqIWnJay2ZrSPe/mxozv7w8l2uxos6NqM
+	jVh+Jypw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyU7x-0000000Gcv2-1GEX;
-	Mon, 24 Aug 2026 12:50:13 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1wyU8M-0000000Gcz3-1zBj;
+	Mon, 24 Aug 2026 12:50:38 +0000
+Received: from mail2.dspace.de ([80.228.58.149] helo=mail.dspace.de)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyU7v-0000000Gcub-0jve
+	id 1wyU8J-0000000GcyG-28ri
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 12:50:12 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5b4747943b8so2861042e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 05:50:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787575808; cv=none;
-        d=google.com; s=arc-20260327;
-        b=eeTsU24JdWMKOtdmAwUfepv5lZgI2YKkhuxFXRwdMwJ2bhlevi6E/hTPAORy6dbHZl
-         0SeDUsjiSEbVieN+DNLXo11oysqsBpLiVj6ESMNf597MoBBhy7mv8UtdnGp1kbGOMjg5
-         qRPHpwTky2Ez/JivQEXAahzWrhLZtLHUw0BksStmbiSgVyav389NkGjWZOr6jdk7nOOn
-         t+PPstdkoThmUdwZCQkxS99Sn/ujEE2dvZSa45Go4WpxYFHBjM2Uuan/AynEGZqF99q5
-         18WLxNVKyglOFvhxd8oBJGv0CX0QHvaQ0/HcPZtD5rFAUdONTTIDQOzWo8IVchbhsxCM
-         v9GQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=rj5OrcPbUSHUeRrK+Yhe+jiBoqRvGnLexb+l8ZGxfyk=;
-        fh=vuIZAav61ViUEPd//HJ8SWwCHbMyisrLiNSELrM4wVk=;
-        b=lfDxzxQu0idH5orVgSMs9EDnKiLFv5FNUaXAeqIk9UJXKeHo9x35eYwBF1tddEv47U
-         Ca/OmFOS3FWpSmWe8DAvM5f97kqOacYWqIlbnV+Jgc214T6KH4wd5ZaVh61w5T4B9ePS
-         DBOE8dc89feMOUeTlmsVqTRg3ryHRLcqLFnXUEiQuBNmRN6dNocgESA2Ym73MZyq9PYA
-         A1sWc9wFT4SuAfVGscO9fmAA5BMEpUxnQUvMv9IosCT85kUFpwGObYE//Tmj/0MBCpXz
-         dT3wt0aEVMsYx5EMX8i/xiThKRmmIzHWHNffJA8+2vN0Ben/ruUezuaLSMebZJ+aIzgW
-         FQOw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 24 Aug 2026 12:50:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787575808; x=1788180608; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=rj5OrcPbUSHUeRrK+Yhe+jiBoqRvGnLexb+l8ZGxfyk=;
-        b=imifpBqt3m3atkfvHObXUygLYWrREdcU2jLJRArWciOq1IQee7ej+c6DwTfxyJePZO
-         kg2IZyrkjibNrSmxJ8qw4QcoXU9pNXJH6IDN/yg4qv2nFqc/qUrMHkZBr02eLF9y92+g
-         PY966i0UUVoM6jAXctBb/QiJFHRS9r15yk3PihSSU+h9Qknns8eRyCXcpJ5QBGqNR6lf
-         ANdQy3008eWfwctdQG9iaPSCTYIXX5/8orTId/wZKZzmom8iancLE8EmMVMIvA3vYelI
-         lDrZUdOBc6mZ25o7WfiNYpKS6GTP2Uv6y4xAZmIC1s65Y3Oet9KTSUmEBi0P4noGagFA
-         D9XQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787575808; x=1788180608;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rj5OrcPbUSHUeRrK+Yhe+jiBoqRvGnLexb+l8ZGxfyk=;
-        b=KKrbqsuDX/on51h/DIXLijvKwF6nuvfEdb+ZilDAOpqcYQI97zQlZQNqAt5s5wE81D
-         9fIneK6blP0UlB0jJvbwPaIcyDBb9QMf02VOFdkHDvjue/kZu/8/0VDHRKMlcLGV3wpM
-         En6VkwggDv+qd0pKP8SY9LedBKUh5sJdo8lcwLm9t7ca8uuzihx8gY2PLu9p3kA93JGs
-         5Xf4gzZJNNbuNCzWJPznqzIr2UHyXTJN+DWt5vMu+V02i3OGo0P+KcvW4kMeeLYF6FmX
-         l0JEeZ3h57IxufbS/NPx8KI0RkDeHGBa8VJBb0cjuE6yKQdPHTmCbPmxLkTfSTh4jNGA
-         eOAw==
-X-Forwarded-Encrypted: i=1; AHgh+Rq74NmDXuHagikR7qcaIBbLmgA0ih9uTGnwDt2hbje2A9CVVq55aUAiBNFTxugbIJNAzELMmGgAixvH/FaRMJw5@lists.infradead.org
-X-Gm-Message-State: AFuF++keg937BxhnUgX33sn3kMIEBeWX+nn9/4RwituDq/GagERVLZUa
-	5NjQUzPMypD7nv7y42YehWhivkX8mPdgeHCs0YmU6wc4fRgl54+dw8b1tuthzQ/avooIuHUpKA3
-	3gApRht+lfUMWMxHQoOxThBBP41mY91Q=
-X-Gm-Gg: AR+sD10nIeqZBm361encI4JI8PRaNY/wYLDJ3+xbtyxnnddJBRNHVZceTIb4IJzYVsS
-	Ph+u9l540sg/Zx+EM1v7byk2iruFgQmzHiNQWIWb716fFOqfZjgU8GDW9BHQrhJj/jPkSXQ2iKH
-	BdoFNUFme5f4tGch9qZcPg3BNFwwTurJ5dj8bNvzCxzTibpbunonI5saAG/MnDL+xPP2Uq7UpXp
-	bkrBqUySljw2BCld0DYZIj1yO5hN0O7MAUevxiZO8Fr9g72kkFfvMjOBJ6RhzhEKZvOtVXGLU38
-	sQZqo7rg1FJFe5x1ceu4JK72MolDDrJrJJszFw6WXAcNbvJwuQ8xqyP6Ks4XoBAigFZVyl3/J73
-	y/c4qBrYLSRtAYHg+Lzwb2G2qF3oQJBuT
-X-Received: by 2002:a05:6512:3d09:b0:5b0:cce:da00 with SMTP id
- 2adb3069b0e04-5b48b484764mr5090274e87.1.1787575808126; Mon, 24 Aug 2026
- 05:50:08 -0700 (PDT)
+  d=dspace.de; i=@dspace.de; q=dns/txt; s=dkim1;
+  t=1787575835;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=Rq4CL1HpZA87nEWIN6bZhJKfM5EHEzo0xnV7w+OMOBY=;
+  b=Noqz+fQ5xkvPtoP12QMCrfjKfB9TYiqkxgAOuCukl8gtDPgtkeAvZ0wM
+   M9P7D/cztaOdpS+2EgufQ8mdDItTBkAGfrJj2FHgsFIIS9tVOWXj+pH64
+   7LNokAW9/1+iHrN/CUkjprQMbJnpaUm1pOeZBZystUzLAf5zfF4ZB0e+l
+   4=;
+X-CSE-ConnectionGUID: Hkk5cpyeSmOOcs3EgSe1/w==
+X-CSE-MsgGUID: 1CmGOfl8ROSga6u2nnxjCg==
+X-IronPort-AV: E=Sophos;i="6.25,240,1779141600"; 
+   d="scan'208";a="5059063"
+Received: from unknown (HELO Z1-1000) ([10.1.1.222])
+  by mail.dspace.de with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Aug 2026 14:50:33 +0200
+Received: from VM-Z1-1000-LIVE.dspace.de (localhost [127.0.0.1])
+	by Z1-1000 (Postfix) with ESMTP id 664CA60038;
+	Mon, 24 Aug 2026 14:50:33 +0200 (CEST)
+Received: from exchange.dspace.de (EX-DE-PAD-SE.dspace.de [10.100.196.14])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by Z1-1000 (Postfix) with ESMTPS id 55C6760037;
+	Mon, 24 Aug 2026 14:50:33 +0200 (CEST)
+Received: from PascalKW11-NB.dspace.de (10.71.4.31) by EX-DE-PAD-SE.dspace.de
+ (10.100.196.14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 24 Aug
+ 2026 14:50:32 +0200
+From: Pascal Kneuper <PKneuper@dspace.de>
+To: kuba@kernel.org
+CC: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com, 0x1207@gmail.com,
+	si.yanteng@linux.dev, larysa.zaremba@intel.com,
+	aleksander.lobakin@intel.com, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	DBaldin@dspace.de, Pascal Kneuper <PKneuper@dspace.de>
+Subject: [PATCH net v2] net: stmmac: restore NET_IP_ALIGN in the RX DMA
+ offset
+Date: Mon, 24 Aug 2026 14:50:14 +0200 (CEST)
+Message-ID: <20260824125014.47862-1-PKneuper@dspace.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260813092923.284285-1-PKneuper@dspace.de>
+References: <20260813092923.284285-1-PKneuper@dspace.de>
 MIME-Version: 1.0
-References: <20260821101039.4037925-1-Zhipeng.wang_1@oss.nxp.com>
- <20260821101039.4037925-4-Zhipeng.wang_1@oss.nxp.com> <aohftK95_iDsTPPm@SMW015318>
- <AMBPR04MB12334D1C91BFC42AEDB26E7F2EBA02@AMBPR04MB12334.eurprd04.prod.outlook.com>
-In-Reply-To: <AMBPR04MB12334D1C91BFC42AEDB26E7F2EBA02@AMBPR04MB12334.eurprd04.prod.outlook.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Mon, 24 Aug 2026 09:49:54 -0300
-X-Gm-Features: AcwNN1UOE8_YKDKnzMxa-AYkEswtmNEYtfnyPTae-IZsOuoBl4dxSuzeIfXj93w
-Message-ID: <CAOMZO5CdZk3oyMpwPcTEeROBWBr70r9J7Vt-MiEA4+Y7abE5Sw@mail.gmail.com>
-Subject: Re: [PATCH v5 3/9] irqchip/imx-irqsteer: Validate IRQ count before
- creating domain
-To: "Zhipeng Wang (OSS)" <zhipeng.wang_1@oss.nxp.com>
-Cc: "Frank Li (OSS)" <frank.li@oss.nxp.com>, Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Frank Li <frank.li@nxp.com>, Radu Rendec <radu@rendec.net>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Jindong Yue <jindong.yue@nxp.com>, Xuegang Liu <xuegang.liu@nxp.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain
+X-Originating-IP: [10.71.4.31]
+X-ClientProxiedBy: EX-DE-PAD-SE.dspace.de (10.100.196.14) To
+ EX-DE-PAD-SE.dspace.de (10.100.196.14)
+X-C2ProcessedOrg: 563f5800-21cf-4d8d-8aed-fddd1469e4ee
 Content-Transfer-Encoding: quoted-printable
+X-TBoneOriginalFrom: Pascal Kneuper <PKneuper@dspace.de>
+X-TBoneOriginalTo: kuba@kernel.org
+X-TBoneOriginalCC: andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com, 0x1207@gmail.com,
+	si.yanteng@linux.dev, larysa.zaremba@intel.com,
+	aleksander.lobakin@intel.com, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	DBaldin@dspace.de, Pascal Kneuper <PKneuper@dspace.de>
+X-TBoneDomainSigned: false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_055011_238180_33FD831C 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20260824_055035_993949_B0D83EF5 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,33 +109,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Zhipeng,
+Since the RX path was converted to zero-copy, the page pool page is hande=
+d
+to the stack directly as the skb head, and the offset the DMA engine writ=
+es
+at is what determines the alignment of the packet headers.
 
-On Mon, Aug 24, 2026 at 6:38=E2=80=AFAM Zhipeng Wang (OSS)
-<zhipeng.wang_1@oss.nxp.com> wrote:
+Before the conversion the payload was copied into an skb obtained from
+napi_alloc_skb(), which reserves NET_SKB_PAD + NET_IP_ALIGN. The
+conversion moved the headroom into stmmac_rx_offset() but did not carry
+over NET_IP_ALIGN, so on architectures where NET_IP_ALIGN is 2 the IP
+header now lands misaligned:
 
-> Hi Frank,
->
-> Makes sense, I'll restructure it that way for the next version:
->
->  - Move Fabio's IRQ-count validation up so the count is validated before
->    the domain is created, and add proper error handling there.
->  - Since the invalid count is then rejected before the domain exists,
->    the domain leak can no longer happen, so managing the domain with
->    devm is no longer a fix. I'll drop its Fixes tag and reframe it as an
->    improvement.
->  - Move that devm conversion after the new devm_irq_domain_create_linear(=
-)
->    helper, together with the other cleanup.
+  64 (NET_SKB_PAD) + 14 (ethernet) + 20 (IP) =3D 98
 
-My motivation for sending [PATCH v4 1/2] irqchip/imx-irqsteer: Convert
-to devm_pm_runtime_enable()
-https://lore.kernel.org/lkml/aoXZf2z-50H8rimI@lizhi-Precision-Tower-5810/
-was the "Unbalanced pm_runtime_enable!"
-error during driver unbinding.
+Same for the XDP branch:
 
-This was seen on kernel 6.18, so I would like this error fixed in your
-series with a Fixes tag, so stable kernels like 6.18 can be fixed.
+  256 (XDP_PACKET_HEADROOM) + 14 (ethernet) + 20 (IP) =3D 290
 
-Thanks
+On ARM32 this is fatal, because ldm and ldrd trap on unaligned addresses
+even when CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS is set.
+
+Any received echo request panics the machine, e.g:
+
+  Unhandled fault: alignment exception (0x001) at 0x81873062
+  Internal error: : 1 [#1] SMP ARM
+  Hardware name: Altera SOCFPGA Arria10
+  PC is at icmp_echo+0x38/0xa8
+  LR is at icmp_rcv+0x22c/0x370
+  Call trace:
+   icmp_echo from icmp_rcv+0x22c/0x370
+   icmp_rcv from ip_protocol_deliver_rcu+0x2c/0x224
+   ip_protocol_deliver_rcu from ip_local_deliver+0xc8/0x1a0
+   ip_local_deliver from ip_sublist_rcv_finish+0x3c/0x50
+   ip_sublist_rcv_finish from ip_list_rcv_finish+0x110/0x118
+   ip_list_rcv_finish from ip_list_rcv+0xc8/0xdc
+   ip_list_rcv from __netif_receive_skb_list_core+0x170/0x1c0
+   ...
+   napi_complete_done from stmmac_napi_poll_rx+0xcb0/0x1030
+  Code: e24dd068 e59020a0 e28dc010 e0822001 (e8920003)
+  Kernel panic - not syncing: Fatal exception in interrupt
+
+The faulting instruction is the ldm of *icmp_hdr(skb) in icmp_echo().
+
+Fix by adding NET_IP_ALIGN back to the RX offset, which restores the
+alignment the stack used to get.
+
+Note that commit a955318fe67e ("stmmac: align RX buffers") made a similar
+change in 2021 and was reverted by commit 12d125b4574b ("stmmac: Revert
+"stmmac: align RX buffers"") because it caused packet corruption. That
+patch raised the offset from 0 without adjusting the buffer size
+accounting, so the DMA engine could arguably write past the end of the RX
+buffers, though this was never root caused.
+Commit df542f669307 ("net: stmmac: Switch to zero-copy in non-XDP RX
+path") since derives the page pool allocation from stmmac_rx_offset(), so
+the extra bytes are accounted for.
+
+Fixes: df542f669307 ("net: stmmac: Switch to zero-copy in non-XDP RX path=
+")
+Cc: Daniel Baldin <DBaldin@dspace.de>
+Assisted-by: GitHub-Copilot-CLI:claude-opus-5
+Signed-off-by: Pascal Kneuper <PKneuper@dspace.de>
+---
+v2:
+ - also add NET_IP_ALIGN to the XDP branch, reproduced the same panic
+   with an XDP_PASS program attached (Jakub Kicinski)
+ - retitle accordingly, v1 was non-XDP only
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
+net/ethernet/stmicro/stmmac/stmmac_main.c
+index a71f0df263785..4d4b155d0d931 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1527,9 +1527,9 @@ static void stmmac_display_rings(struct stmmac_priv=
+ *priv,
+ static unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
+ {
+ 	if (stmmac_xdp_is_enabled(priv))
+-		return XDP_PACKET_HEADROOM;
++		return XDP_PACKET_HEADROOM + NET_IP_ALIGN;
+=20
+-	return NET_SKB_PAD;
++	return NET_SKB_PAD + NET_IP_ALIGN;
+ }
+=20
+ static int stmmac_set_bfsize(int mtu)
+--=20
+2.47.3
+
 
