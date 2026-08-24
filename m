@@ -4,143 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8CCC5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 17:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BE0C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 17:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/YiyuDQDgrAZIpdgTwrDK4kXwmBpmKtp2/U0jYeeTno=; b=Ott8Pp+79lEP1DNOzM2Aa01NTo
-	rlnJBC9K3LVEhwR/eGP40TFLIZXwqFFqQUHYdTz9gjiv38CCN3nliJhiHg0tnuwzCcj/n84RKtotR
-	/L/xWpteX72ZkoqAf/C6UVEub2DLQhiESaz+d1lUI/3Ey3XcM3p0jOUaY7P86mpTxbqNLWlUv3xBb
-	cSGsjE6znITmyzyOZlxgZ8rq4stEa6gpluVsvop+rwo5dDGOh/iCApEzQJtSUEsjRxWwtN7XFn50d
-	JNr3BMH5OOuPmTdM+ZtLHiE7hoibvcwK3evpsqAJaaK+CFCyViI81wd9VrGCyuyq3o1SNxCDbF+Yu
-	yVuLgvJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6rHFjSqf+6DCLeGgGMXnp2u+e8Dc03oxwYB+p+SScKQ=; b=y76Uq9oUaTMTjdBUS18oxmpFNv
+	7+Bwdk405o4Uf2q2oceGgxnV2k6NK33wfvQ30LsJ8A9MeCXewDipwEkgviIDQE3Y9NBBB4fZcVGhH
+	X3HqXrziA/YCMIduWJPRIylcMtjuhWDB5YZB6j8EwHEKti0oJH+lc0SiHi0GLmYYhggRAuoODm2se
+	WuGgJc7LXV82Xg9coPBQ7Rk3kq6Jq+d8unWzILk5IOwJKnpuyHgL595XTGSTT8HyRMZMhhgaxeohg
+	eIPXqLBqtNc30lXEgop7WTwXDCIdxZINTB+GAyLl9mvdiLI5rrlU+dJ0bAzEeYbqiDUdKKsVIBckl
+	WnVkjh7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyYko-0000000HChB-0RX4;
-	Mon, 24 Aug 2026 17:46:38 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wyYms-0000000HD0A-1ciE;
+	Mon, 24 Aug 2026 17:48:46 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyYkj-0000000HCg8-2biA
+	id 1wyYmp-0000000HCzN-3jxn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 17:46:36 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67OH89iG3138169
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 17:46:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=/YiyuDQDgrAZIpdgTwrDK4
-	kXwmBpmKtp2/U0jYeeTno=; b=opQMH1cww9OVaof7Ohg2xNARlePSxjt6quxPOh
-	EdnTByDoeyi0ov828H3NZBQvJqzDCg0xXP2nD+7IhC/v4pY5hJsvE7hbNizBAhw2
-	k+9Q25FeTTeesK1j/4vK61vKYJ2dxbShSedzrYzknVgW7iMkTlGw2TV3sryb43TF
-	shjvese12OxRXDxE3vAyRUtH9RxYfqBW3vIsFp98QxB0jmWxu6TPL/KU3Tj3c/vD
-	3s1W/72dHlOtQbX5B/1leKhkP6qSDXfy28wiascjB7WzxFFeD/X13YFFU3CnosNO
-	OXMXIstwkmJOTl+hPOF9b+/eyHEYym3c87EMr+/PF1g/DrIQ==
-Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com [209.85.217.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g8t3dr524-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 17:46:32 +0000 (GMT)
-Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-75116a48926so3048778137.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 10:46:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787593592; x=1788198392; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=/YiyuDQDgrAZIpdgTwrDK4kXwmBpmKtp2/U0jYeeTno=;
-        b=Dda1HbzNE9FF4NrGea2hmiP3YJp9X7G53dATuie3TOF0XI36l6y4d/U5NzygiS1hMQ
-         lWr6IVbD/aIq0FBQ5Lk5CStZSKKTYFYO4rSw+biaR5a7Fsl5tAy2T9E6IA40BUz3/4AK
-         w5gr7/hJord6Kq5xfkjJMESnD7jCA9L+GeACaeHZTfJVvvkr4AESPf8CkY/CjNrC8L4u
-         NwBToGm2MjOWqALtkh706Wj4Jmd7ZICWpievk3OixXE83kjGTxnP0pjq5y/mvqjdB6zB
-         c7Af8gfGy4e/zbR0KBzvBWxMoRZ59+OGPadIlhQ/Y5mGAyMkp39Kr7Xwr/Uc7FYazwC8
-         syzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787593592; x=1788198392;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=/YiyuDQDgrAZIpdgTwrDK4kXwmBpmKtp2/U0jYeeTno=;
-        b=fsjujc1M7EodlsPYel8y2yAdwTfrsnHd7ssZYXdoZaZ/BIseO5yUvPBX8NuM0eIN6i
-         Zr01akGCa4WRb05l4SKGH1knF79ESKC4rQbQ7PxbI71U4DUta/Jo5odmRXTL7uw05ci4
-         Hjuyo7yoK7EIsjIXgOePb8fQGIXRWKxAVPsBdLrWqYFRdrcDoX/sSYkjGq32HXX/j4Pn
-         Wjth0+bj0Aty7c4Cy1BF7aRnfR8RfTFQZ6xWd2e2kMMKwhMnbHSi6noaJ+ccq8WlYN3s
-         K64/ZBKAVcLwK1ZEnDAGKoOJj5G9rLw2IiDBwN9Vq4d0B9KkUUxvwEEqb6NccN9NBMGe
-         C8Rw==
-X-Forwarded-Encrypted: i=1; AHgh+Ro1fN7ExuPua5nAnettf+LYnKtOvRSHyFTE5DoIJTd7GMmQEvezvn+6q8nD6vsHlpfD6jyvrKaT0hgVqE441QqL@lists.infradead.org
-X-Gm-Message-State: AFuF++kLjvrXea6XhafdtIvG4JRlG/usoyCItQimv0evwV3nwBSMG0b+
-	KG8WV6pMeA1xZmCO61JduUHhmESspmrilgFUJKpWCoTnDteAlnGugfSBZKtfwccbcfp28FoWy1P
-	MHJNE9frTiLPVvkRNqlp+MRrzybrbhtPJ+3MYHFptTw0aWmQ0DMdVtKlt0HGIqNdFssgwyD5l9J
-	AKfQ==
-X-Gm-Gg: AR+sD11xdW9cRYqAN+f+XQLvLKQAAowVy+3wtla5YviXbfIJ9BybSHgfqnkrjMXEAa5
-	2sEk/wvilsSmY6dboEhIRL8Ilzv/MyPBc4fMtDghHVqBBa+Mm0niL8Cxy5d5sGvDubTkL9jREFQ
-	c+ogrGxBadcFG63KXk9N0kkP18coaSAi6XBAi6B3m2/mZK8WG0wCqdVERTY97ZG2yYhp9G2Dzn2
-	3tFxQKKyxxhZpuK7yUTATifXXxZfFP+CNLfABQtt1FIkur4CeX/piBJb4MwfFQ7UTMBPFA2Df2q
-	Wmu90Tp+UYe6TSd8SaAJw9YMRo8pXpbfgILWcichA33bWibDlB12OyqA2ZFXjUmZf8uhpuI2lwr
-	2HK/9s0aJTV4QQ3w=
-X-Received: by 2002:a05:6102:3ece:b0:772:dae3:d4d5 with SMTP id ada2fe7eead31-77a622293d5mr11922385137.1.1787593591717;
-        Mon, 24 Aug 2026 10:46:31 -0700 (PDT)
-X-Received: by 2002:a05:6102:3ece:b0:772:dae3:d4d5 with SMTP id ada2fe7eead31-77a622293d5mr11922345137.1.1787593591096;
-        Mon, 24 Aug 2026 10:46:31 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a59e001305sm10346144a12.4.2026.08.24.10.46.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 10:46:29 -0700 (PDT)
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Date: Mon, 24 Aug 2026 19:46:07 +0200
-Subject: [PATCH net] net: stmmac: hold runtime PM reference in setup_tc
-MIME-Version: 1.0
+	Mon, 24 Aug 2026 17:48:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h6T4Y/A3h84A/WFRNppZdn3Fr/r9P4HklKqni8brBQ2nPAT6SdQJPnKwe/GjnGowztCQ4nJeLSQTLTiIOjf6WxBKvDuBGuebwl2MFSlKeCCcwbpQg42zstedKCbQXyodxe4fO7jAw5kjSyct5O2A3hDgaiFMYauck5gpxMAWvIRFPyd1YFs8FZRqiU1KmssHwCu6iuFHQE2tVJQ/b0kr900mHH3k758xQniQ7VUG0MpSr7vUOha7CJVUil0cm0VNTluToNXdoYTIztBQWMEib5N9QVOJVfpY43v6J6Lhzg/Amo8cl9OgWIYTlzpd54jgKBjh43dOoZoxO8zCxiI0Dg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6rHFjSqf+6DCLeGgGMXnp2u+e8Dc03oxwYB+p+SScKQ=;
+ b=fdvK6BcUAaYlARJ9eNzrzl/pUCII6c2sN+xTcM4BZNfWuifm/cB+E1cx8U93et0VSyEVAIsPCZ12wsbXx0Wuv32GkDseVfnVussebR//c8WbrKWU9gov18e04wnnDXi2s6cAHE82Hw7FBtLv53iPqCH2uv8JGYlHqv3SVMHEP1qqKWYHWCKmacPsHvJ8YircPKSRypNsuhGVSvaDAuHQSowVi2hv5nogO79nCDg7k82Ba351ujdvNCkr3uFBpZcOBYHhIdDz6mPc99ooIJpFqzCZIh3IatN+6rR/Y99x0vt2deAlkWm96zJfhsqwjf+6xeVDofUPT2LdK+wwqm4sfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6rHFjSqf+6DCLeGgGMXnp2u+e8Dc03oxwYB+p+SScKQ=;
+ b=JAEk9nG8wmvAkx2HCUKbtXyHweN25krVF8Cez1WAOKSIztkJ/torqMrqrydZYuLCdFLLybIa03b+ptyh21e3Yz3SOg9H6te/2sXS2EfsNbOVMCwso3nopNh/2nnUhVQuqGaMFciyBmU4JakPaA9OEUoaBxqBy51BgQrO24Tk3mn76HBQo9u1GSPE9JLlr1jbGKh9Ff+KF8XyZhj2XQKIPCTnqRXa9Jk9cKw5XaPYDNSqjXKeu7m4+qwJ/o1TcOF1+dIbxbb4havqyGL30nEl3g49sp0splXAmxhLH0QAQDgOLgI3e083/cTGlfHFfr0YyTfdOPCIDasQ4KjiQDJTNA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8469.eurprd04.prod.outlook.com (2603:10a6:20b:414::15)
+ by AMBPR04MB084187.eurprd04.prod.outlook.com (2603:10a6:20b:7de::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Mon, 24 Aug
+ 2026 17:33:26 +0000
+Received: from AM9PR04MB8469.eurprd04.prod.outlook.com
+ ([fe80::1f31:d3d0:6150:b49c]) by AM9PR04MB8469.eurprd04.prod.outlook.com
+ ([fe80::1f31:d3d0:6150:b49c%3]) with mapi id 15.21.0339.012; Mon, 24 Aug 2026
+ 17:33:26 +0000
+From: pankaj.gupta@oss.nxp.com
+Date: Tue, 25 Aug 2026 04:33:34 +0530
+Subject: [PATCH v42 2/7] dt-bindings: arm: fsl: add imx-se-fw binding doc
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260824-stmmac-setup-tc-enable-pm-v1-1-45172d241a4b@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQ6CMBBG4auQWTsJVATxKsbFWH51ElubTiUkh
- LvbuPwW721kyAqjS7NRxqKmn1jRHRryL4lPsM7V5Fo3tGfXs5UQxLOhfBMXz4hyf4NT4K6fRE7
- DcR6nkWqfMh66/t9Xiih02/cf8hEh1nAAAAA=
-X-Change-ID: 20260824-stmmac-setup-tc-enable-pm-149aa563d797
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Jose Abreu <Jose.Abreu@synopsys.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-ORIG-GUID: PZhTqHRhoKOiK3XH-4g9_qYOo4O3f9Ki
-X-Authority-Analysis: v=2.4 cv=OLAXGyaB c=1 sm=1 tr=0 ts=6a8c8378 cx=c_pps
- a=N1BjEkVkxJi3uNfLdpvX3g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=O7mAVgsXz2YliqE_5DUA:9 a=QEXdDO2ut3YA:10
- a=crWF4MFLhNY0qMRaF8an:22
-X-Proofpoint-GUID: PZhTqHRhoKOiK3XH-4g9_qYOo4O3f9Ki
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI0MDE1MCBTYWx0ZWRfXyKJukLDbS9U3
- U4st/5/yv9zYcttEiUFCgvQF0ipsq9as7b4D40Cf4NClrpmrknilOjvGC/cgzr0uU8tyWE5AkQK
- 84KpiCWSItpETr5kM11RUQcNM/i3tzg=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI0MDE1MCBTYWx0ZWRfX6I/dfcy/RliC
- 6dsjzUvdSb5SoaN9QJmI+VTvv5E2JQvhz5xpE4vt3TiHVGswK6lH67mjLgcslEvIHdPmxOUCcpz
- W9q0V1zpcPuT6dEHCP2GHR3IkNK4STOtzvpJlfLYOcAJzdxaN3P1vEyS3239u1nR/jhSrwfF5sa
- VAd9e6yH/g+fyBEIsXWGPaPLIEuiYGRafXs5WqwGPsbFp9/aNgN5njm9qTYsVC3jCsy5JVlV+GN
- sGr7lTm71OqD+w2q0CTfOPTfIJBDMVRIqQi4bAy66I7SBLolQimykRl93iXzFhCs2SWClfdHfoG
- 3tW+puP/RUBklfUlw0JT8n2iTJYV2hvRkQnaV0SlPH9i/OiLWey7Y2qDEqGsjhVD2V0qhcvCYhN
- TuOhjRJYdYcgBnVGEdlVaAHqiivuT6nceksOsyv2gbKWkLoPycIXOUWYDnwmxao/4HLQmJbsQ8K
- x6uUs9fTEdzx/bMA/5w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-24_05,2026-08-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 impostorscore=0 adultscore=0 malwarescore=0 suspectscore=0
- priorityscore=1501 spamscore=0 phishscore=0 lowpriorityscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608240150
+Message-Id: <20260825-imx-se-if-v42-2-2e8efac0bb16@nxp.com>
+References: <20260825-imx-se-if-v42-0-2e8efac0bb16@nxp.com>
+In-Reply-To: <20260825-imx-se-if-v42-0-2e8efac0bb16@nxp.com>
+To: Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787612614; l=3245;
+ i=pankaj.gupta@nxp.com; s=20260817; h=from:subject:message-id;
+ bh=T+yyPOpdxzPdIuNJ+imfCdmSEVDwuOuBb/dhiIQRNpY=;
+ b=NnfUvqSJbdupgndpo5JaYSIxYV/ushESKJXxVkc57d28uqc4eLYPyB03vB/No3/7ov4MHw0Pc
+ 3OK+GHdzTzhB4nBSKr4uyVKo9X9x+vbECQxLH5ZY6LBWNco2rhvrSG2
+X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
+ pk=g4ZgzIWbpXnSxRsoH+l6PWLP78a+Mzpl8e6RQe74d5Y=
+X-ClientProxiedBy: SI2PR02CA0003.apcprd02.prod.outlook.com
+ (2603:1096:4:194::13) To AM9PR04MB8469.eurprd04.prod.outlook.com
+ (2603:10a6:20b:414::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8469:EE_|AMBPR04MB084187:EE_
+X-MS-Office365-Filtering-Correlation-Id: a3aee5cf-2647-4817-d84f-08df0205cd9c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|1800799024|23010399003|366016|921020|6133799003|3023799007|10067099003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: oYcT3S3bBa1LBUHYVi7jRbYA+j/mIoUx0rt87H2U63lhvVWn0uqxlhiHnG7MXvFsgGLlMUg+3n3o/AJf8/5X78kJ5/+2+9BPHVXXPNrCQ7Aa5Gxk+0baDcwyeKRdG7IdOJn6+a2radujfiMVYOfyrdZkgd5sR+QHgE6lGle2Xa3aZ2bRHv6KtAmMqH8UKSSs9L39FSvdE+Ulx3ed4gg1X8wXUpJVDgzz3/BgnAJ5W4sYx9GGlj+soGmTcZFapIswXOerj9ZiU4yWQBjE/8yDi5p4BtF/SZ0M6nNk1r32UaaWoPuSgpzBBzz6uningHBGnwJ1oSMMYJPW1mJXo80OPCQrnL242ttMG1fFf3bqmxKpgm4bw8FxFzvj9nNMU+OzzTrvb5i7vhM8ACSjh4xl4Yx9OAHPEf5qREmBNhbgdPzY9uoaCqLXRThj493iN+/3cXXLGzpGzUq8Q9hMtmojv5OfP8xHO3LUi5WrqjgPok6s64RWbmGFp5PNholEdtdNytozDUA0RyOKBS3CXzvgACfel1QCDYxI5Aj2tIuj3udXIQCmumIda5DsVF5m2U/MK4/HEYsudcC4vQKfbJyFBmln/N8D3uoD6+z+xqeWEDgyuLWlMVDNQOZdD8zfx6YV//HUOwv9MldfMvDEriwDucC1pPTdMUMI93xoOM+irqg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8469.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(1800799024)(23010399003)(366016)(921020)(6133799003)(3023799007)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OTZSamVVN2lIdVViY3hjQ04ybU95aEpRMnZrNGRURktEM1RwcTVhUkZlS2Rp?=
+ =?utf-8?B?R09jWnVMTXN4dW4rTDV6MjhoTm1VbUZ2Y0lpdUVLWU5mRGo2UzlPYmxCdmlK?=
+ =?utf-8?B?U2VyeW5yREpVQ2pwNVdhS0FsaXVMY0ZWbmgvaU0reU5uY2tDalJqZjRXakp6?=
+ =?utf-8?B?SkNTdHBleGFGK2NCakV6amV5NmFIdk55MFkvU2dzOWlxSlNmRlBtcnZoS3Zp?=
+ =?utf-8?B?SWYrQ1pHcm93b2JWbEdoUFJ5aVVOOXBTOXJMb2o5bHhBVVVZeHNrWTdzeU9o?=
+ =?utf-8?B?ZFVUT3F1a2dweVFVNFFSb2c0TjRUMVVqam1nMG1wZEpFYU5jZ2JYMWFtQnhK?=
+ =?utf-8?B?b2tGNTdnYmxQc1BWOWtnL01vVmoxWDNTck9MVXh5ZStNWG42VGM2Y3AxTzZj?=
+ =?utf-8?B?WjVoVUZIVXhLTHRHbEhwb1lLVXFKb091MXZ5YkVWNGFZanZwc3ZrUHZ3bG5D?=
+ =?utf-8?B?T1dNQkpmRHdRTnIyMzkydnkyT2Q3V2lzWkdrV0pBWmZYMDhhYTJGNjVDSU1I?=
+ =?utf-8?B?M2VDTU1WRXVOY3dqWE9nT05qWUx6OTFhSVNaS3BCQjh1OCtobFNRSWNDbUhq?=
+ =?utf-8?B?OXpqTTdUWEZoYTcrck1hZWxaaFFjbnRwVnJmdURhaVZKRzNXZnZHbEo2NldH?=
+ =?utf-8?B?YWE2ZXU2L09hMW0zQmxjQmxSKzBDZ0lWb2FRbXNDWU45SUVJS0tGVU54L3pK?=
+ =?utf-8?B?NGpZVUl4eUhqU1AzdGFZNE54TCthZzVQcUVlNGJ1NGw0YW02Wlc3Mjh2SE90?=
+ =?utf-8?B?SUtUL0FwbGoxWk9PRUpLaEpNTFpRZ1ByejZ4MkIwSVFwbWtNay9yamxpRFQv?=
+ =?utf-8?B?M1pNdTdkUG51cmVMODJ0NngrMVllbHpHbUxyZTlJV2k3RjJtbE9NV2EveXc3?=
+ =?utf-8?B?bkR3bjdtbHl6TkU4dWUzN1VweFhFeXhQdW5RVHFmR0Y5aWQ1UzRnZW5BQTJo?=
+ =?utf-8?B?THkxYnBhMUx1MmJQd2JHTFFCUks3NVdLNXF3OTI1NWVwRGFsajNBNE1MVGxx?=
+ =?utf-8?B?RkxWZUJtRjN1NUtmaUFIQWdMZktFWm5XTEVidmFWaENSOWFNVXk0Vm1oVWU3?=
+ =?utf-8?B?bmMzV2psNDRobVVMQUpHcHZxQlZVVTQxOXBYOWQ2bEt4ZGJCOFduSWNSQlRZ?=
+ =?utf-8?B?L2wzaGpTQ0VEc1grdXVoUUg2QXdpR3VqNEZRTlNoN2Q4bUlUK3c5ekpYWE9X?=
+ =?utf-8?B?K2VIV1pZcmFxSTFkRkpiSkkwRzJHaUI1THdTL01rdm1mYXR1YTRxMmdURDNw?=
+ =?utf-8?B?MTNCT2ZLR2lrRU44SjEyRjFvVWxLTXBqRTliOGRxTFF3STBTV3E3emJ3anJ2?=
+ =?utf-8?B?TkQzMmNlR3o1LzhYU2dnU0hvK1VDMlUwTDdTK2VkOHAvWWRHb1M5MTdXMll1?=
+ =?utf-8?B?MkVaZ0ZLV1lWeXkwQjNWVW9jakN2WkZDVHJCMWovUXZFR01PTWFQakFhcTBH?=
+ =?utf-8?B?TGlMV3BEVzJWSXlPS1JiMUNLNGxIU3I2aUJhMUE5eXJoZ2RSTWxFUmlwaHJ2?=
+ =?utf-8?B?REZsanNLdS9Ua0xJYXhYMFZuT3paclBYWDdBeXpmRjMrYzdKb0kyREdmamdY?=
+ =?utf-8?B?WHFsK2VVSzZtZHluL2FWcjlqdDZobzM3L3p2a3BpVk81S0FPcU10empGZ0VZ?=
+ =?utf-8?B?NHNuOW5qdW9IK2VRd1BRT0Z0Zkc0ckVtMXNUMWlVSzZMRyt6azFXV0ZUS0hC?=
+ =?utf-8?B?MUhwb0NQU3FCNFg1dWxuZTdPQ2laU3VuTStjNUh2d1RqVFRsWkc4VU5WSHZu?=
+ =?utf-8?B?TWcwenFtKzFxRGxGdEd6azZiSTZGMjBPWitFb3dyci8rNkQxU2FTclNaY3Ar?=
+ =?utf-8?B?bjkvOW9scmJTbTB5N1lSRHZUVFVyRHhPSmpkVE1mSUZMaW1JRm1vS3RucU5O?=
+ =?utf-8?B?aWF4UE5XdVRheS8za2toSEYrNmpYQzBkaFZ6SGtMRTZiYUtMV3pLbU5lWVJq?=
+ =?utf-8?B?NHBMTE51ZjV4dXRyeDg5b1l1NkVFcENaNHRxNU5HNnk3WFY3WTMzcnBobk91?=
+ =?utf-8?B?NHZnU1JmcEQwclZFSVhhUEgva1VoeStiWDR0SmZYdnl5Zktqd2hkMTJqbzhv?=
+ =?utf-8?B?RzdNd29aVHJkSXRqdWNYRWNQcFBja2RDUUljeTBIRC9ZTlRYb3BKRVEySUV2?=
+ =?utf-8?B?OWtlUi9kV0RCNjNGYVAweGNleHRCNmtKcjVnbEdkNzg3bjE2QXpoQ0JhcFo5?=
+ =?utf-8?B?ZHFvK2MzMEpxK1N1cTdmY0NXQ0NqTzhzanpYM2tWYnB0dCt5YnFsZi9UTUhq?=
+ =?utf-8?B?YXdVekxxeDBWdVV6SVR1cTk3b3Rtc29rV1FVQmxJcVMrTjVodkhDVWo1SFF5?=
+ =?utf-8?B?c3RIbG1PbG9LVnpKVStVc241cjRGV0Rjd2hEWWppbjVqMDJBY3JSWkphNi80?=
+ =?utf-8?Q?+k7+atJGEw8LeZ1Uyx48qY1j+ymDyRvbiQ276?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a3aee5cf-2647-4817-d84f-08df0205cd9c
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8469.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2026 17:33:26.0152
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dG4M9caUXhtT63bFAuvmS6e5iyQ8eFVqJLLseM6yx4H4jaM99ufyt3yWVc799HMcAObWhjZoq3QGVwXZ7RNB2oIMxVNt0LVfvr3RdLt/wXhkVY9y2MuZONWwqEqtl38T
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB084187
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_104635_311412_231FAA3C 
-X-CRM114-Status: GOOD (  19.23  )
+X-CRM114-CacheID: sfid-20260824_104843_930095_B81EB15D 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,120 +160,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The qdisc offload callbacks invoked by stmmac_setup_tc() program
-MTL/MAC registers, but they can be reached while the interface is down,
-when stmmac_release() has dropped the runtime PM usage counter and the
-device may be suspended with its clocks gated. Accessing the registers
-in that state can trigger a bus error.
+From: Pankaj Gupta <pankaj.gupta@nxp.com>
 
-Hold a runtime PM reference while configuring the register-touching
-qdisc offloads (mqprio, cbs and taprio) so the device is active, and its
-clocks enabled, whenever the MTL/MAC registers are programmed.
+The NXP security hardware IP(s) like: i.MX EdgeLock Enclave, V2X etc.,
+creates an embedded secure enclave within the SoC boundary to enable
+features like:
+- HSM
+- SHE
+- V2X
 
-The TC block callback stmmac_setup_tc_block_cb() programs the MTL/MAC
-registers as well, but it runs asynchronously from stmmac_setup_tc(),
-outside the runtime PM reference held there. Hold a runtime PM reference
-for the whole stmmac_setup_tc_block_cb() call as well, covering the
-cls_u32/cls_flower setup and the queue enable/disable accesses.
+Secure-Enclave(s) communication interface are typically via message
+unit, i.e., based on mailbox linux kernel driver. This driver enables
+communication ensuring well defined message sequence protocol between
+Application Core and enclave's firmware.
 
-No reference is held for the TC_SETUP_BLOCK bookkeeping itself, the
-TC_QUERY_CAPS query or the tc-etf path, since none of them touch the
-registers synchronously. In particular the block bind/unbind must reach
-flow_block_cb_setup_simple() even when the device is suspended, so the
-driver never leaves a stale flow_block_cb on its block list.
+Driver configures multiple misc-device on the MU, for multiple
+user-space applications, to be able to communicate over single MU.
 
-Fixes: 1f705bc61aee ("net: stmmac: Add support for CBS QDISC")
-Fixes: 4dbbe8dde848 ("net: stmmac: Add support for U32 TC filter using Flexible RX Parser")
-Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+It exists on some i.MX processors. e.g. i.MX8ULP, i.MX93 etc.
+
+Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 34 ++++++++++++++++++++---
- 1 file changed, 30 insertions(+), 4 deletions(-)
+ .../devicetree/bindings/firmware/fsl,imx-se.yaml   | 91 ++++++++++++++++++++++
+ 1 file changed, 91 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index b2b7d0242dd3..4baf40fb01dc 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -6392,9 +6392,13 @@ static int stmmac_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
- 				    void *cb_priv)
- {
- 	struct stmmac_priv *priv = cb_priv;
--	int ret = -EOPNOTSUPP;
-+	int ret;
- 
- 	if (!tc_cls_can_offload_and_chain0(priv->dev, type_data))
-+		return -EOPNOTSUPP;
+diff --git a/Documentation/devicetree/bindings/firmware/fsl,imx-se.yaml b/Documentation/devicetree/bindings/firmware/fsl,imx-se.yaml
+new file mode 100644
+index 000000000000..fa81adbf9b80
+--- /dev/null
++++ b/Documentation/devicetree/bindings/firmware/fsl,imx-se.yaml
+@@ -0,0 +1,91 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/firmware/fsl,imx-se.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	ret = pm_runtime_resume_and_get(priv->device);
-+	if (ret < 0)
- 		return ret;
- 
- 	__stmmac_disable_all_queues(priv);
-@@ -6411,6 +6415,8 @@ static int stmmac_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
- 	}
- 
- 	stmmac_enable_all_queues(priv);
-+	pm_runtime_put(priv->device);
++title: NXP i.MX HW Secure Enclave(s) EdgeLock Enclave
 +
- 	return ret;
- }
- 
-@@ -6420,26 +6426,46 @@ static int stmmac_setup_tc(struct net_device *ndev, enum tc_setup_type type,
- 			   void *type_data)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
-+	int ret;
- 
- 	switch (type) {
- 	case TC_QUERY_CAPS:
- 		return stmmac_tc_query_caps(priv, priv, type_data);
- 	case TC_SETUP_QDISC_MQPRIO:
--		return stmmac_tc_setup_mqprio(priv, priv, type_data);
-+		ret = pm_runtime_resume_and_get(priv->device);
-+		if (ret < 0)
-+			return ret;
++maintainers:
++  - Pankaj Gupta <pankaj.gupta@nxp.com>
 +
-+		ret = stmmac_tc_setup_mqprio(priv, priv, type_data);
-+		break;
- 	case TC_SETUP_BLOCK:
- 		return flow_block_cb_setup_simple(type_data,
- 						  &stmmac_block_cb_list,
- 						  stmmac_setup_tc_block_cb,
- 						  priv, priv, true);
- 	case TC_SETUP_QDISC_CBS:
--		return stmmac_tc_setup_cbs(priv, priv, type_data);
-+		ret = pm_runtime_resume_and_get(priv->device);
-+		if (ret < 0)
-+			return ret;
++description: |
++  NXP's SoC may contain one or multiple embedded secure-enclave HW
++  IP(s) like i.MX EdgeLock Enclave, V2X etc. These NXP's HW IP(s)
++  enables features like
++    - Hardware Security Module (HSM),
++    - Security Hardware Extension (SHE), and
++    - Vehicular to Anything (V2X)
 +
-+		ret = stmmac_tc_setup_cbs(priv, priv, type_data);
-+		break;
- 	case TC_SETUP_QDISC_TAPRIO:
--		return stmmac_tc_setup_taprio(priv, priv, type_data);
-+		ret = pm_runtime_resume_and_get(priv->device);
-+		if (ret < 0)
-+			return ret;
++  Communication interface to the secure-enclaves(se) is based on the
++  messaging unit(s).
 +
-+		ret = stmmac_tc_setup_taprio(priv, priv, type_data);
-+		break;
- 	case TC_SETUP_QDISC_ETF:
- 		return stmmac_tc_setup_etf(priv, priv, type_data);
- 	default:
- 		return -EOPNOTSUPP;
- 	}
++properties:
++  compatible:
++    enum:
++      - fsl,imx8ulp-se-ele-hsm
++      - fsl,imx93-se-ele-hsm
++      - fsl,imx95-se-ele-hsm
 +
-+	pm_runtime_put(priv->device);
++  mboxes:
++    items:
++      - description: mailbox phandle to send message to se firmware
++      - description: mailbox phandle to receive message from se firmware
 +
-+	return ret;
- }
- 
- static u16 stmmac_select_queue(struct net_device *dev, struct sk_buff *skb,
++  mbox-names:
++    items:
++      - const: tx
++      - const: rx
++
++  memory-region:
++    maxItems: 1
++
++  sram:
++    maxItems: 1
++
++required:
++  - compatible
++  - mboxes
++  - mbox-names
++
++allOf:
++  # memory-region
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - fsl,imx8ulp-se-ele-hsm
++              - fsl,imx93-se-ele-hsm
++    then:
++      required:
++        - memory-region
++    else:
++      properties:
++        memory-region: false
++
++  # sram
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - fsl,imx8ulp-se-ele-hsm
++    then:
++      required:
++        - sram
++
++    else:
++      properties:
++        sram: false
++
++additionalProperties: false
++
++examples:
++  - |
++    secure-enclave {
++      compatible = "fsl,imx95-se-ele-hsm";
++      mboxes = <&ele_mu0 0 0>, <&ele_mu0 1 0>;
++      mbox-names = "tx", "rx";
++    };
++...
 
----
-base-commit: 7cbfb180945ce529608e4d4e24a6d483699fab1e
-change-id: 20260824-stmmac-setup-tc-enable-pm-149aa563d797
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+2.43.0
 
 
