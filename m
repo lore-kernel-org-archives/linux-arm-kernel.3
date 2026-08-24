@@ -4,101 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB732C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 10:09:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 288FDC5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 10:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g8YaeJXoEsR+KIxdOfRdm9BJRSQRSpPIKEb03BqqpcM=; b=1gYbPx2t311OFLlnqUWpnpYIB5
-	Hnw9EEd5AaRQAkXhq431HFRZzIafPXDtUij9NcvpVlSCQ6f339mBPAR0k1vSVnrG3qiQ/WeWvybeq
-	ebJJiJg8zSGuS+oNEK//0A8nkJJzS3zFDpCRxitmpugU5hX+7h9tKmVE9MGZ03/MxEpCKeaKqwlWa
-	LYY18wn+BDYbn4tmT02Frf5snlLIVPHVls3gGAduMVnnXBT4V4eHa1ysIjbTva4QeZlVq0+/+EELx
-	oXQli7Pocft3kIw19qgm/wnRSUnVFARqKArAm55TJsdUxRPn1cCguJGKykUG6w7LKEXPm08J6SMph
-	qZOVCZIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/G6JHHmUMXAZAuPErI9MI7O6LPyLxiR+Q+4e9xH84iE=; b=Vaakr9/vA/nZwzUZlXfFEkqiLP
+	4HaNJkOTYvS7trBmHbf09v4R33w3uwP0O1Hl0laoT6KWF0smhzPyeu5DHUk50UDIDN5MPpMZPmDl1
+	r7HwVpIH/qQRLzsUSHY+TKqw+ClT5AMwwU5XNJYQZTxCmZGk45m4Nh1DIkiicKHQCeIlL8Y/gcnZh
+	lSIZpo27yCDFIGJxruupH7vDlwTEMnEKaSf8movt/mrei3c+S2Pb6dt0YvCId/fnOhtjEanhWYTD7
+	Msf9SNYhi3/8EPMs0PKhmOswg493tMCk21qsE30rNgcxCwBwsfv7kYZ0xfV+Dyp8x0XOAg5Rfa0GK
+	jmWbT/ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyRcF-0000000GMrE-2QRf;
-	Mon, 24 Aug 2026 10:09:19 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1wyRdV-0000000GN3V-3SQT;
+	Mon, 24 Aug 2026 10:10:37 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyRcD-0000000GMqZ-3WjM
+	id 1wyRdR-0000000GN2m-1W2i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 10:09:19 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2ce7d2adef4so43292735ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 03:09:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787566157; x=1788170957; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=g8YaeJXoEsR+KIxdOfRdm9BJRSQRSpPIKEb03BqqpcM=;
-        b=aSawtg8DUp019LJ2ubDZVm+GncsJZez/LS4bH3YSDebNZ1MRRgaIOWlAszQ3gyDpGD
-         dJuGteO+Mfr+ASkZN/9U/7fRox82BgWll/6u9O9d09EWz+Cxm55mw9DGsJ0HgsfSzpG/
-         Sv1f5ntDW0JpZs5MMvPMne24sby5AWXNmYc+FFEyJYg6FF+3RuvkdJWT58QIVMlbE7kH
-         ub5ST3xRDK7r39jBovrFwp5aoiMJBP+9wN9GXiUkISU3jX1zTB/hOboLwi47t/ozFlwE
-         +VaTFaq80OFjViMj7GmCamlvwmAobrULlzknlWl9fkUIbkTMiac963ko9fiBEqT7Ue95
-         izwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787566157; x=1788170957;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=g8YaeJXoEsR+KIxdOfRdm9BJRSQRSpPIKEb03BqqpcM=;
-        b=drHOwSaeMsVLaVEFA6HlIp3NODmFUX5VG2LfMhD8/EkB0OTgyJ+RgOPxDT0MvW2Lt5
-         OATeIObcycQixeg1CWQ8fuGv7oERmeN6XaoPGqk5YqAgaUBuGOaN0AdD9hxiKB9GnSrc
-         jkJ5kkEnKrYPEVsZUzPc7Pt+GoMPN1ZP9JrvTHChDAqlm5mPvdsA/JO1qSsUaPgOvavj
-         tUGm43EeufYb5px72nlCe5GsU4WwDEHIZoQ7KvMVhtQFubTXBuPgK5T0oUw0fpS9QjNa
-         uBs9nW827o+RLwoxXHqAWB0q5XxazXePR1/52Zf1f054Klzn6Ctm25HtUyJNSCtdeVHV
-         I9jg==
-X-Forwarded-Encrypted: i=1; AHgh+RqrLquONxejRcVvOCmkjA9RMYbaJzZ6Vh/haCdPHOnRtURt7mj0bJb/J/Augbw0GcdtrFDOFu0oNaNrUP24PEkO@lists.infradead.org
-X-Gm-Message-State: AFuF++kVzBFlH0buG/jUYdgnUtJZDGGOgANRDQf8yGZv7Qr92smvKiHC
-	3V16KSFSegDvuvDzSLXvCmkglYKSoVELNECpx66Vwf9zzQcxkZyRi9E/78joKA==
-X-Gm-Gg: AR+sD12t8YQpWOCv96b51viUjU86usJoJo8yRviD4o/wyo224XnYc3C12AaoiaLLcUR
-	8tbSd49nTjbEyk/7ZW+au+bHbFDoaqDsUcCoY9Bl5K/qvIXZAS5/Ioe3oMBt2m7mKg6bi+RouoQ
-	wB+D8zDcyWaX3GTqZ3sOQ1zP/Shi5dxxES4bKV6t9nnKkqDf0WewkTY0gUYZJusjofWcslk2CKN
-	S60nNusXg4ZMfFN7IRsKLtVQ6HqlTJsLLibQY1OzcH7bgbb8daQvvajqsGet/rHmgeFwENswNoO
-	xvK06SI0okPYqWH4aRaEW0QXcYqNyJFF+bxfJnkFbo+ErEUkeIZhwMIA2TVcj8urYEayTEPwKh8
-	JKuYKQ/LJ2IggaFm7WrG2E4TytBUFiLLHGiAjpnn/Nx9iK8AiLIY2KeO2r9YYwj+z2nlD0D24pl
-	apA0SkIUi3bNi49f2q9u8kW4zzmTRyEvk1wYyb9Ph6QHCTjBQkzLNGt//Q2jsMgrbHYOOUhk35t
-	rtAuZCmidcaj08Vf3GhFSBDkCt0IJThASBdlYCJB+xM9/0goIcI4LhLLXMNa7mZXxLnDHOJibXW
-	mx6Z
-X-Received: by 2002:a17:902:e802:b0:2ca:d91d:d3a7 with SMTP id d9443c01a7336-2d64b0c8bb5mr447392395ad.10.1787566156947;
-        Mon, 24 Aug 2026 03:09:16 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d676761beasm15666115ad.5.2026.08.24.03.09.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 03:09:16 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: Samuel Holland <samuel@sholland.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Stefan Roese <sr@denx.de>,
-	Maxime Ripard <mripard@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH net] net: ethernet: sun4i-emac: Fix IRQ error handling
-Date: Mon, 24 Aug 2026 17:09:01 +0700
-Message-ID: <20260824100901.31675-1-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 24 Aug 2026 10:10:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787566233; x=1819102233;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=DpurCEyDDvgUvpooP8pGIDbm+medW0s5MT27a9B3Z6U=;
+  b=GMfyGQm+LYGmjAkzxv9o7wPqNbMLG3VMB/zZ+8yP0a91HV7vf1waJr4y
+   o9feIEt0A6nrqK6w22OLYtdZMpbi3og4bRN7QZpZ4KM1hj62/eS4a1xZ2
+   +o8KrzkM8BDQUSE8x7D7x87Qi/e4846KuoqE2g+HmCi/fwv2viZIG/wGS
+   u6pE2qDo61QO3NqcniLLCIr4HqewYkSCCrmohoPCxlapg4abR3TFNCO5q
+   HpBXggazJzCVy7PBIBZ+KGu9vkOl743zcKGv+y41+4SorJaXooMicrkHz
+   D2/SdpbZZXghNvOXcijilpoIjkm9UVvgStdEjq2cfFKJNxXOekRxVu6Gg
+   Q==;
+X-CSE-ConnectionGUID: vzlO+tFQS/27Vas3RelsZQ==
+X-CSE-MsgGUID: mvOYekOISBmgncfSqYv26w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11884"; a="87779345"
+X-IronPort-AV: E=Sophos;i="6.25,240,1779174000"; 
+   d="scan'208";a="87779345"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Aug 2026 03:10:32 -0700
+X-CSE-ConnectionGUID: 4KeKS+ocRNS7U5gU3ywyIw==
+X-CSE-MsgGUID: PBahJZh1S7SuTBmMEru8GA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,240,1779174000"; 
+   d="scan'208";a="267007381"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Aug 2026 03:10:32 -0700
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Mon, 24 Aug 2026 03:10:31 -0700
+Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45 via Frontend Transport; Mon, 24 Aug 2026 03:10:31 -0700
+Received: from BN1PR04CU002.outbound.protection.outlook.com (52.101.56.48) by
+ edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Mon, 24 Aug 2026 03:10:30 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=o07m4DXKJXvf9OswEVnNcabmqW2qXrQ9uMVOlEgD7G1D13fgfBjDDjGt3D4MHnZcdZ2rEQW1QEVmOCv58ky7LzZJK/9/io+ifJhJgFEJoPImUATrOVZEAe1xSDt4iS1aPRcGzO6Tg9FtEUZR+rtTuCWnGO08qz0zeh7pQB6+2v5YWPrhH9K83jvI0JZgDRewrsGUGXWAyOLGv49V0XFiS/ovASrJrdoOcvO57c2/IqfD4LCDSUgtBux+S3bB/6NGqfscgmx6YJ9Fg0uL6EMgYRAi8MNp90xSyWtFDLXFQgwX8yYNhOHGgHXI+LajB0UaKMnD54lM9SmfWHxhDQJ68A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/G6JHHmUMXAZAuPErI9MI7O6LPyLxiR+Q+4e9xH84iE=;
+ b=w+dlOnIY5dcEwGZL/f3VOixruI4UHMz2K4DBhI0TCKN/3zE73nfpjvOtSfHPLe72ZEXEjoZMgkszMeD5ILbgVWnu7vdPPo+lBvbPryN+nbxvRS8fYbU1ePCU7eCpCsDC96Sh2ChqcekyPPBu2jGt+EGgsuxQgZIfnqFTEMN+V+UNFZVA3Wg7OWg9mBYMhhmbLWLGinsimIiGzpHaMDl3S+cXAWf3saRAjfdw7myPPK4xNs+QkH86RTdv6Od08CmHo9NN4V0EE5fPdhOzM1+L69l0mpokovpIfsSZGhM3ULJdzKH2xf+oASn9AKBM55E3E7W8q683D05Aal0nuACYrw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
+ by IA4PR11MB8889.namprd11.prod.outlook.com (2603:10b6:208:565::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Mon, 24 Aug
+ 2026 10:10:28 +0000
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456%3]) with mapi id 15.21.0339.012; Mon, 24 Aug 2026
+ 10:10:27 +0000
+Message-ID: <823e897f-13c0-4b07-8833-3bbfe37059ca@intel.com>
+Date: Mon, 24 Aug 2026 13:10:20 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] perf dlfilter: Add non-empty branch stack filter
+To: Amir Ayupov <aaupov@fb.com>, <linux-perf-users@vger.kernel.org>,
+	<coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>, "Suzuki
+ K Poulose" <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>,
+	"Leo Yan" <leo.yan@arm.com>, Peter Zijlstra <peterz@infradead.org>, Ingo
+ Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	"Alexander Shishkin" <alexander.shishkin@linux.intel.com>, Jiri Olsa
+	<jolsa@kernel.org>, Ian Rogers <irogers@google.com>, John Garry
+	<john.g.garry@oracle.com>, "Will Deacon" <will@kernel.org>
+CC: <linux-doc@vger.kernel.org>, Mike Leach <mike.leach@arm.com>, "Jonathan
+ Corbet" <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, "Swapnil
+ Sapkal" <swapnil.sapkal@amd.com>
+References: <cover.1787005265.git.aaupov@fb.com>
+ <58f96797f94467859fec160320a7b9426be8cce7.1787005265.git.aaupov@fb.com>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <58f96797f94467859fec160320a7b9426be8cce7.1787005265.git.aaupov@fb.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DB9PR05CA0029.eurprd05.prod.outlook.com
+ (2603:10a6:10:1da::34) To IA1PR11MB7198.namprd11.prod.outlook.com
+ (2603:10b6:208:419::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|IA4PR11MB8889:EE_
+X-MS-Office365-Filtering-Correlation-Id: 38494c4f-6127-4b14-ac33-08df01c7eb9d
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|7416014|921020|6133799003|56012099006|11063799006|10067099003|4143699003|3023799007|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: rd/w9oT3RhR4y3w1g4Fe4RjwDQMLIxL9ewIATDWD5R3/YbUyt787Gu+5wbLGXPCRPDu+Rbxp5Bdjgf68yTG8aDgcibI6I+2K6T9DyEmiQaXBo4/AmHdrDt70BEvPqUdYzaAztHX1DnJ6ZbUO0IgR/CwaoIlkTx326b4N4w9gIjG6/vN9tzJzWbwQbDGVp0oDA1kCzlsqMiijn794iAoua8VD9NtStnziTWdfDF8VvjWP4Sm58IzAJ6pDdsKKkYefN5ZHES6ajM+hi+uzbmAx1t1Y6AjmhunbFda4sInd4yEDjyqwtoBTJweHpFOIishexe9d+Ciz2jQ8MJbXS7r89FeKixDDt3GXqEMVZkPCc619mXILHwHvGrMWt0kXFEboHBfLzemAGy4WDDbUlDcxmjOjxzr5vCC0yyf4RroYaHpwnTl8NRzW0r4nLNe02H1TMPNO9am8T9MolHG//CVMlNKz4jQDMO43czRLWRaG/y5YpzfQnE6lezCuQ5NyglhSLjod5265N7brbu/XtLXRLiduaUrucQwGWLX0vAaAyX/6iCQtVj6lB3yXCOD5z4YnJxxUWuq+DiFnDrEYUXwUVCy5/P1Dqlx4LYgZMKT8icafBIoUaOktQHSJwirh2G6HN+1UcGl0iKYrTvrVM4qT0i6sNOEqhSqfwb5xe789eVsPPJG5KPxATjq9uEI2dyT9oBhW+vMdZ0siQSvboL5y4Q==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(7416014)(921020)(6133799003)(56012099006)(11063799006)(10067099003)(4143699003)(3023799007)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eDJHK09vVmxQN0R6cGlkbFJ1V0VzamVLNmZQMHBLQW0vc1ZqM2xxVkVHTTVx?=
+ =?utf-8?B?OUswaU1XWjlIUEF1L1ZUQjUvSzNyMFUwZ050b1VNUUVKVUU0Wndpek9mc2k5?=
+ =?utf-8?B?bjBQWmpCN1cwMnVsQUR6SVNoNVU2Q2RwRXZkOWUyZVJxSE5KSG15b0I0azg4?=
+ =?utf-8?B?Z3YxR0xzSDFxYU5oSlFOTXppMlBtS2RzQ0dtYVo1SVlvUFpBVS93TGZNZkc2?=
+ =?utf-8?B?dVBpemU4UUM0YXFNLy9jTCtCdllJUlUvRGZwSkZ5VHBHeU9nRmRjMTJpcmY4?=
+ =?utf-8?B?c0VSRnlUUUNzdTV1QVpRRGI1SDBYa1VLem1VZTZsV0U0M1dCVEplU0FRd2RK?=
+ =?utf-8?B?NVl5RXlOd05WbG81MjExUDhIcmtuWUxCYWpzdzVWMUNFSEJ6UHc1TTIxRG1X?=
+ =?utf-8?B?a1pYNzFSQnFndG9pZk9UOHhWUExNUVVsMjlycmZWVGJZbE11WFhPSzA0a0NP?=
+ =?utf-8?B?Ulo4ZkRDNW9IbkxoTWU1Um1McDJqWllkWEJLTnVSTVY1TWpaNFI3b3lxUWN1?=
+ =?utf-8?B?cFMrNWpWRlh1eXZBaTZiallHQXZJS0dYREozdER2akQ3VmJDUWlHQk1xU0ZX?=
+ =?utf-8?B?em5SSmM2RisySGRVeGRRQy8zSTJjbFhyQStOTnIvYzlVL25EbnRPMC8wNEJO?=
+ =?utf-8?B?K2VPeE5CN3VwZzdCdE1PSGhScXV5YitoV2pwclM1WnpTenVoR2I0V3YvOXNt?=
+ =?utf-8?B?bnNPNFVvNGhBMGY5NlJSK3MzdnptNHFyZ2tYN3Z0UXpaVHd2WHBVZmVKMjVa?=
+ =?utf-8?B?cGxmRTZFSXdCZUZHSzgyY3B3TTRLVGtXeUdJWTFZaEVkUm9FQmQ4V0dxWVlV?=
+ =?utf-8?B?T0xZMkRwTVBVUmpvQkRIMXFYbTNXU29jSENjRTN1MkZxR2pQSTlsL1VQNnpx?=
+ =?utf-8?B?elF2bUFwYllpdWdUN3BnWXBxZGVZL0poS2MzbUt1c1dqV3M5Q1FiR01mTnNP?=
+ =?utf-8?B?TjFZc3ZDUTk5Qk5OTGU1alMvczVsZUQyOTllWi9kZFN0amhXeVRDeVlWOVMx?=
+ =?utf-8?B?OHFnUTh6bm1odllrYlpzYTNUN2VmZlRBaGMyTnJLaHZuZTkwcGNlbURBa2lq?=
+ =?utf-8?B?TnpraU0ybUxnSUgrTEQxQlMwWE4wM1p6ZWsrVllzWDZROEhGRzcydlJHNlFP?=
+ =?utf-8?B?SkQwbzlHQTBXZHBEeGpqZUszd3ZKRE1yNFNmbVVDbXhUejBnODJtWTI2S0dB?=
+ =?utf-8?B?YkZHTURFS3B1N1FCMFd6Q1B4eFBaUDdBakVqelVudWRreGlkdnpmSmhTelNk?=
+ =?utf-8?B?NDFmYXN6Ui9VRXcxcnI1MElDYW9IUGthZ0JFcVVFVWFFVUNKUHZtOHM2RkY1?=
+ =?utf-8?B?NHoxczFlVjdoRHNEK0JQakVBTldkeTBEVktDdkpFcFFmNTRaZ2tBRVdpWm9x?=
+ =?utf-8?B?Ym5rRUhuSmVZSk02SXcxY0ErNUVDL3ZmTHRSR285bmVsTm51Tkk1ZzlTeFRv?=
+ =?utf-8?B?OUllV3BSazViT29pbklQMXkyWDFZRUFaWHQ1a2JkRHA1aGZRa0RBN2lHVGtW?=
+ =?utf-8?B?Q2U5Q1d3VE9RTk9hbndkU050T1pQbERkV1NDNGdlalFXeW8vbXhCV0ZQdHJR?=
+ =?utf-8?B?YzJORGdJNThvTkJzcmpoUnljZjYyRU4xZTVkQk5xc2FKN3Q1ZGZRaDVkdHpR?=
+ =?utf-8?B?SE9RYTdiaTRwMGdKZjhCMDF3ZXYyM0lFZ2YzS0ZQVEdiZngwVWNVZzA4VFky?=
+ =?utf-8?B?K1RmV01jajVpYWZSYWRFWm9ybHZBT1M4L1lEZTh5c0ZnNHhzQkZJYmZ1bERT?=
+ =?utf-8?B?TDU1K1VSaDVrYmc5dE9PNHM1djFzRVZ0RGJ2a0g3NG5kSDhDd0xmTzZYbUxV?=
+ =?utf-8?B?VzFDWU01empyNDVCV3Q2dkh3ZXl3WXZXUHZHb1dnZ3ZKUjc0R2M1akZTNWho?=
+ =?utf-8?B?QmZFdFpIejdzOWNxdkFQelBrNkRCM1BweFZocXpGc2lBdlRhNnppR3VwcUlm?=
+ =?utf-8?B?clhKZ2k1aUdFVDIxVjhzenZkNkI2ZldYNGdZMi9pUFEwS1N5bVhtVUhXYjhJ?=
+ =?utf-8?B?a1VSSy84NzVNdEI5bXpTejlKMmN6S1F5ckh0TU9PSTJwSFFnbkZoM2hlTHhP?=
+ =?utf-8?B?ZXJ5Z2psRzNsOG5TWW9HZ1Z5UmZoTUhPcDdHTE42aStublRBdWNEcng3NzZv?=
+ =?utf-8?B?SU5uQUtaOU5oQ1hFQUZBbzNBUXI0aEZVL0daOGU4eSt6bGQ2bDNWYjU4K0R0?=
+ =?utf-8?B?MVZhSUJBVXlUNyt5R0xyUFlmdUJKNDFEVEFPSlZGRm5sbmRORjdVVVVlemV4?=
+ =?utf-8?B?ajgvVDI0ckVYd1d4TGs0YjBESVBFRWZDRTZGcjJOVkMvUEJ2eHN5TExPeDc5?=
+ =?utf-8?B?anV3ZHQwWGRoVXZNMG0waFBCRHM0V1hCaFZCY2x2ZnVuckJGYzBpRVE4dFd2?=
+ =?utf-8?Q?x3KlYDOc7JISUkik=3D?=
+X-Exchange-RoutingPolicyChecked: L009SahB4cZTOH0pZeMw+atubmwb+eYM29N7v/Gt/yKX+Uy+Yg7ukkbep+WlGb+bHgk0iFCZsot27w28+O4kYER495CYJo12mE9UfRSUcVCcX82DfmJ39T+yQYzytMuQLbp4KVUoqzj+w142geEevUvVVqyn9u2LVqHwabhybYTmxsrOaHBzmJC/7sTAqTdX7wBSNl/yS5lIPsjTlWJz7VtGIjWFG4ERoM1rYcPZS6/X00GeYEf7n4WXEt2GEQS4124qFiO83tQh3s/KqiSWEh1/IEkaG/EjR83uIRdOA9NU43cdePLkev4NcsulyPh469BvttZ3doC3MnR5S9AoHw==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 38494c4f-6127-4b14-ac33-08df01c7eb9d
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2026 10:10:27.7054
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mJ0/wCVjQdrRA6xCvgTaBCxFukqb1hAyjm3cD5JsRPHeNv1KMCsl3nwOOvmnAy8JDb35wlsLt8seWY8KsjRfcA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR11MB8889
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_030917_881229_9E857C51 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20260824_031034_112878_AB83086A 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,37 +196,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On 18/08/2026 01:22, Amir Ayupov wrote:
+> --itrace=L adds decoded branch history to existing samples, but a sample
+> that was recorded while the decoder had no trace for that thread keeps an
+> empty branch stack. Consumers of the resulting perf script output, such
+> as profile generators for context-sensitive PGO, have no use for those
+> samples.
+> 
+> Add an opt-in dlfilter that drops samples whose parsed branch stack is
+> empty, so users can exclude them without changing default sample
+> semantics. Build and install it alongside perf's existing dlfilters.
+> 
+> Assisted-by: Devmate:GPT-5.6
+> Signed-off-by: Amir Ayupov <aaupov@fb.com>
+> Reviewed-by: James Clark <james.clark@linaro.org>
 
-irq_of_parse_and_map() returns 0 when parsing or mapping an IRQ fails.
-The current code checks for -ENXIO and therefore does not detect the
-failure.
+Reviewed-by: Adrian Hunter <adrian.hunter@intel.com>
 
-Check for a zero return value and convert it to -ENXIO.
-
-Fixes: 492205050d77 ("net: Add EMAC ethernet driver found on Allwinner A10 SoC's")
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- drivers/net/ethernet/allwinner/sun4i-emac.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/allwinner/sun4i-emac.c b/drivers/net/ethernet/allwinner/sun4i-emac.c
-index 42174249ef61..942454e29488 100644
---- a/drivers/net/ethernet/allwinner/sun4i-emac.c
-+++ b/drivers/net/ethernet/allwinner/sun4i-emac.c
-@@ -996,9 +996,9 @@ static int emac_probe(struct platform_device *pdev)
- 	/* fill in parameters for net-dev structure */
- 	ndev->base_addr = (unsigned long)db->membase;
- 	ndev->irq = irq_of_parse_and_map(np, 0);
--	if (ndev->irq == -ENXIO) {
-+	if (!ndev->irq) {
- 		netdev_err(ndev, "No irq resource\n");
--		ret = ndev->irq;
-+		ret = -ENXIO;
- 		goto out_iounmap;
- 	}
- 
--- 
-2.43.0
+> ---
+>  tools/perf/Makefile.perf                      |  1 +
+>  .../dlfilters/dlfilter-nonempty-brstack.c     | 26 +++++++++++++++++++
+>  2 files changed, 27 insertions(+)
+>  create mode 100644 tools/perf/dlfilters/dlfilter-nonempty-brstack.c
+> 
+> diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+> index 29cfd44c427f3..750bd1cce1287 100644
+> --- a/tools/perf/Makefile.perf
+> +++ b/tools/perf/Makefile.perf
+> @@ -425,6 +425,7 @@ PROGRAMS += $(OUTPUT)$(LIBJVMTI)
+>  endif
+>  
+>  DLFILTERS := dlfilter-test-api-v0.so dlfilter-test-api-v2.so dlfilter-show-cycles.so
+> +DLFILTERS += dlfilter-nonempty-brstack.so
+>  DLFILTERS := $(patsubst %,$(OUTPUT)dlfilters/%,$(DLFILTERS))
+>  
+>  # what 'all' will build and 'install' will install, in perfexecdir
+> diff --git a/tools/perf/dlfilters/dlfilter-nonempty-brstack.c b/tools/perf/dlfilters/dlfilter-nonempty-brstack.c
+> new file mode 100644
+> index 0000000000000..9e66205b841d5
+> --- /dev/null
+> +++ b/tools/perf/dlfilters/dlfilter-nonempty-brstack.c
+> @@ -0,0 +1,26 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * dlfilter-nonempty-brstack.c: Filter out samples with no branch stack
+> + * Copyright (c) 2026, Meta Platforms, Inc.
+> + */
+> +#include <stddef.h>
+> +
+> +#include <perf/perf_dlfilter.h>
+> +
+> +int filter_event(void *data, const struct perf_dlfilter_sample *sample, void *ctx)
+> +{
+> +	/* Return 1 to filter out the sample, 0 to keep it */
+> +	return !sample->brstack_nr;
+> +}
+> +
+> +const char *filter_description(const char **long_description)
+> +{
+> +	static char *long_desc =
+> +		"Instruction trace decoders can add branch history to existing "
+> +		"samples, but samples that were recorded while no trace was "
+> +		"being collected get an empty branch stack. Filter those out so "
+> +		"that only samples carrying branch history remain.";
+> +
+> +	*long_description = long_desc;
+> +	return "Keep only samples with a non-empty branch stack";
+> +}
 
 
