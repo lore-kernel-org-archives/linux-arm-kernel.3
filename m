@@ -4,109 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13EB9C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:09:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68456C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bhpD1Qot1nB0odatRQQdC2qV2f6sUYU0tBNW6tyOY/c=; b=NJeHDPTyTnlZKHBQuS5enZuA77
-	TQA0NsX6fX4aNC/BvGp4quFxdQmO5IMqaA8a9UPPz2DDG5U1Tw50iyh41vhJgmIjOHzyB5D7GSkRZ
-	bbpmLOGanRcCCiv/4+/sOWpRN0hwSnUh45JW3aXnE2a3Fa00lB9cqUV7g14WGXcXJBMj0Vo/o0QMU
-	wdnVLmWGUiSm+tiQiAtjH6GEQ9LDpiJNmPkSu0c4/K0JXAh6ewd2CZp4s/pAtf7msQFi0l37BCOon
-	XINaty/yTZms3elIGlg1x/NN1+U6YwcWKeW65OX07vxYqdIV8yX8jxslsOEseBWDuPYWIFie/l/Ww
-	GZ1dspPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2Lsvwk0HBXGTqj9EpGbXJ4HAkyrmqgCdWFetUf5pmqk=; b=ilPhQHPFKVych8DqIjFMIWUf4n
+	0AYnrI57J0UPjYcdrteO4SZYn7NQpayaJngMKEl7Q02I6As/Q4B9KWFeQwDv+DUMPvsC5WPiI3NC8
+	TM72zWzYDYl5tatcXVEh56RZ6naV4dSbRs61JMVvvlZN+GzZ0AN4xrDeTeE+dpCsILoTbxelxQzMy
+	pPZfWjEm/7KBBxz56KMAtKEVEcnxFPGYObXD4XuytyXs3bHKHLRBYGDHKPAN1hwyTyT1gerN2BGtf
+	hKVkx3atzpKx1mwDzudHZn3q6nxitpgD5BMijBQvhsndTruJe1btGGShJdPuNI3JN+ss1FaRBWB6i
+	2+f00lkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWID-0000000Gs2m-2D9s;
-	Mon, 24 Aug 2026 15:08:57 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1wyWOc-0000000GtM6-2CCf;
+	Mon, 24 Aug 2026 15:15:37 +0000
+Received: from out-33.mta1.migadu.com ([2001:41d0:203:375::21] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWI8-0000000Gs0i-1CX5
+	id 1wyWOV-0000000GtL2-3pdH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 15:08:54 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-c1600d040e4so533532866b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 08:08:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787584130; x=1788188930; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bhpD1Qot1nB0odatRQQdC2qV2f6sUYU0tBNW6tyOY/c=;
-        b=c9J24r8KtIf/1JCCSGHyIqbLceYu8veytUvVPnnVEeSIGTzSjS0LivfLOIyLqlSN0b
-         owA+ZKQ5kHgOFbibbq7YjWohqbojM4FfpsQzhutNmMfaNd63Sd9He074mtMhlaXzno6s
-         3kOWsz16xcBoYnFXA77Gf+qBwELKsXlkaA2Wda038GlsScbFrjGnMX7ZkHyOtLreDQo3
-         kFKeKyjtfxxcRHuxTOJRJPu5RUSFeZ1zpXCbj/2FyisJAL0E3QvU2Ujghu966b5DvRE5
-         5s0jYMV8ejQrtai55pynFDkIJiG05fLgCVQ2q1T5oFBek+BYT4kTEQp0VxHkWVDmaKI4
-         Ky2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787584130; x=1788188930;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bhpD1Qot1nB0odatRQQdC2qV2f6sUYU0tBNW6tyOY/c=;
-        b=kX94rchkMhh9pw7PBUip0IyBKtgeDKaqc9Rwpmxth1/QV6qzSaQoBK4wKvhmwbRrMX
-         4dR4jNGIvwkJ9sWdPcypO5aLQhHCskSdAVOnIQV7gGJynrMituDD9gzafp+Mk28G8bum
-         Br3KdB1gwAhn3B92OTxBHck6TlwtPFh/ySOBPBmarvsC/GHanlvkBlofjM1pIwQhR5yv
-         mNh8pBFNAqp/5+7GPDDHgOoXwUJWYyl2iQvl4e8HWjooeaqNg2TLdexFzTrOld+kpGiI
-         Jl/Vv6Ls4dIB55l4fndckdAicbOgWDPkkot//6v+zLrnMTtiM861X/OnFDUTm5uSB2ZJ
-         l3zA==
-X-Forwarded-Encrypted: i=1; AHgh+RoZuzHJDZQJIRHyyzIpY08/sEfJ6EuFd/fDbNLbyFPqNnJZeGvEYfo/WVvz2ef71Q5Ze3mSQhZnH9VVLc27Ag6+@lists.infradead.org
-X-Gm-Message-State: AFuF++mDNH3QkiC04ZftyKi+zXcqy5XQ4VesBKDS0K6IipDEioZSWXPi
-	9vKkq9PPawH60m6SPTjzPXphfu205ntD+q9ZPCobwWHZMUwV087fEyuf
-X-Gm-Gg: AR+sD10DJn0qjbHGvQDjbE09knTwGBjUQD5sTYnSgCdtSmpne8RmFa4JHHofeKCUQAO
-	Fz8lQG4drakHsNSVk93L8Wtcgx6t0mizbNKuRSZhI9TnuqqE1DeUrkvNHF6sjqI2MTqg1E/oUUL
-	jllRyPJ3bKDu6+M+1XNURbW/XWXrHJCqlXG1e9gUeZ+FulJrFxzkh5d0uKchFdncSC560NT1P+Y
-	I9NhYLW7sg8vfvyVO3CCpDoib6McItgj4qw0+95ftyGtWWVllaOE87hl0NLadVZmdJaa4i7Olh+
-	j6T2B9B39QbuaKlRvSyBP/8LnO/AUoz5NMSBVAcuBPzkU1T/3Zi51Y4xfreWppZYjAUyjg7+PNN
-	SVzPRjGfCbsJdZ8NF1elXHTyRhTK1nM7URXwS4xe0z0YerLuBpqn6skqJL2rTvrWwPOGU5c2gNB
-	hQWKq8c1HCCYT7SccG6wkBYfT71Imc0AAfN4VXT1aqnHxOdsYB80BhfTA/16KpEisEHVor60Rkk
-	dz8DOWVgTCxAOFO3sHme8HeXA==
-X-Received: by 2002:a17:907:1905:b0:c1c:49d9:4c34 with SMTP id a640c23a62f3a-c244d74b596mr3123013666b.11.1787584130205;
-        Mon, 24 Aug 2026 08:08:50 -0700 (PDT)
-Received: from GLaDOS.station ([109.55.72.80])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2496297189sm1273530066b.22.2026.08.24.08.08.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 08:08:49 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	alexander.h@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Maud Spierings <maudspierings@gocontroll.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Marek Vasut <marex@nabladev.com>
-Subject: [PATCH v3 3/3] ARM: dts: imx7d: add Variscite MX7CustomBoard support
-Date: Mon, 24 Aug 2026 17:08:30 +0200
-Message-ID: <df6c1605e62c5d343aeb68cd706eabe3806191f7.1787583584.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1787583584.git.stefano.r@variscite.com>
-References: <cover.1787583584.git.stefano.r@variscite.com>
+	Mon, 24 Aug 2026 15:15:30 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=c06Gx503jxl6pcEkyyFWb7rMuvr9i6fZ7D0GH9SHlCw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1787584523; v=1; x=1788189323;
+ b=Ry7Yu3ZYXmvAejDifO6nVNevgszyvptiW0V9Z9BNV9Y9iCVxneQtvygxoUKz5aMw+JIbXcYf
+ Osxzsh9UQFHzvfxcAjgsrjqh8n3YGsbziWnHsPCFG72RXdo0YGLAQMRQIzcw2b3bqkkeAQqAxpo
+ xrYbwpWA5WISZXJV5/rISklk=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from mail-lf1-f46.google.com (209.85.167.46)
+	by smtp.migadu.com with ESMTPS id 348971528b6b59f6;
+	Mon, 24 Aug 2026 15:15:23 +0000
+X-Mizu-Trace-ID: 348971528b6b59f6
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5b2a73da7e1so13027e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 08:15:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rolm4HjulO2govvjUOAR1Se9UwYgVLICPhZ7Ue77S2p/bJTF7Po7gK2kPOiSZd6kG9P3HXsmpriIK9gGwb/RJPh@lists.infradead.org
+X-Gm-Message-State: AFuF++ki+HlOQMxiJ/AfhIIwpeFTboJnX1/2asV7eWymte27ZkZSs+Ty
+	VCHVYt2v+DaYGMdzSfNSOKiO88GvSuwS8WYLtMQWRe5XuS0UvIeeNmNBfB1+0FUQa6D/CxojsWJ
+	9j5lOeFurB8v3D1Zjg1uqrkuw1INdJbItGAfvO6Qw
+X-Received: by 2002:a05:6512:ad5:b0:5b2:8963:e5d4 with SMTP id
+ 2adb3069b0e04-5b48c308b7fmr281232e87.5.1787584518113; Mon, 24 Aug 2026
+ 08:15:18 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260824071004.504894-1-fuad.tabba@linux.dev> <aoxCk5lFQv6lFwHQ@willie-the-truck>
+In-Reply-To: <aoxCk5lFQv6lFwHQ@willie-the-truck>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 24 Aug 2026 16:14:41 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTy6Xh=eNg22fBdjPzZOZitzvcDX2L5zbSUFCsX1n6XobQ@mail.gmail.com>
+X-Gm-Features: AcwNN1XvpxGBrD3A5SrELJ33c_fc3D2mqO8UzqmTV8IHCn1exQF3tnUOLYiOz8g
+Message-ID: <CA+EHjTy6Xh=eNg22fBdjPzZOZitzvcDX2L5zbSUFCsX1n6XobQ@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: Defer the GMID_EL1 read to {init,update}_cpu_features()
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_080853_167308_45A04871 
-X-CRM114-Status: GOOD (  17.34  )
+X-CRM114-CacheID: sfid-20260824_081528_442950_61380F5B 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,232 +82,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+Hi Will,
 
-Add device tree support for the Variscite MX7CustomBoard carrier board
-with the VAR-SOM-MX7 system on module.
+On Mon, 24 Aug 2026 at 14:09, Will Deacon <will@kernel.org> wrote:
 
-This includes supported board configurations for both VAR-SOM-MX7
-hardware revisions, with eMMC and NAND variants, and WM8731 variants
-for the first hardware revision.
+> > +     /*
+> > +      * info->reg_gmid deferred to {init,update}_cpu_features because
+> > +      * reading it traps to EL2 when MTE is disabled.
+> > +      */
+>
+> I don't think we should defer this, as I've been actively doing the
+> opposite for parallel CPU onlining (where the ID registers can be read
+> concurrently by incoming CPUs to amortise the cost of a trap) and also
+> for the RNG traps during early boot:
+>
+> https://lore.kernel.org/all/annJ0oDB2HObQC5j@willie-the-truck/
+>
+> If you look at the diff I sent in the thread above (I didn't get a
+> reply), the idea is that __read_sysreg_by_encoding() reads from the ID
+> register values stashed by cpuinfo_store_cpu(). So you could use that
+> to check id_aa64pfr1 before reading gmid, as it will give you the
+> sanitised view.
 
-Also add the resulting DTBs to the i.MX7D device tree Makefile.
+I just did, but I don't think it'll work. The thing is,
+__read_sysreg_by_encoding() gives the override-applied local value,
+not the folded sys_val.
 
-Link: https://www.variscite.com/carrier-boards/var-mx7customboard/
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
-v2->v3:
- - 
+arm64.nomte is a command-line override, so that works. But
+CONFIG_ARM64_MTE=n sets none. Any gate would still need an explicit
+IS_ENABLED(CONFIG_ARM64_MTE).
 
-v1->v2:
- - Fixed commit message
- - Fixed model names
+That said, I don't have to defer it. I can keep the info->reg_gmid
+read in __cpuinfo_store_cpu() and gate that read on the state that
+arms the trap:
 
- arch/arm/boot/dts/nxp/imx/Makefile            |  6 +++++
- .../imx/imx7d-var-som-emmc-mx7customboard.dts | 22 ++++++++++++++++++
- ...x7d-var-som-emmc-wm8731-mx7customboard.dts | 23 +++++++++++++++++++
- .../imx/imx7d-var-som-nand-mx7customboard.dts | 22 ++++++++++++++++++
- ...x7d-var-som-nand-wm8731-mx7customboard.dts | 23 +++++++++++++++++++
- .../imx7d-var-som-v2-emmc-mx7customboard.dts  | 23 +++++++++++++++++++
- .../imx7d-var-som-v2-nand-mx7customboard.dts  | 23 +++++++++++++++++++
- 7 files changed, 142 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-mx7customboard.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-wm8731-mx7customboard.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-mx7customboard.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-wm8731-mx7customboard.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-emmc-mx7customboard.dts
- create mode 100644 arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-nand-mx7customboard.dts
+        static inline bool gmid_el1_accessible(u64 pfr1)
+        {
+                if (!IS_ENABLED(CONFIG_ARM64_MTE))
+                        return false;
+                if (system_capabilities_finalized())
+                        return system_supports_mte();
+                return id_aa64pfr1_mte(pfr1);
+        }
 
-diff --git a/arch/arm/boot/dts/nxp/imx/Makefile b/arch/arm/boot/dts/nxp/imx/Makefile
-index 1a2539fa19b4..37da667f9ffb 100644
---- a/arch/arm/boot/dts/nxp/imx/Makefile
-+++ b/arch/arm/boot/dts/nxp/imx/Makefile
-@@ -444,6 +444,12 @@ dtb-$(CONFIG_SOC_IMX7D) += \
- 	imx7d-sdb-reva.dtb \
- 	imx7d-sdb-sht11.dtb \
- 	imx7d-smegw01.dtb \
-+	imx7d-var-som-emmc-mx7customboard.dtb \
-+	imx7d-var-som-emmc-wm8731-mx7customboard.dtb \
-+	imx7d-var-som-nand-mx7customboard.dtb \
-+	imx7d-var-som-nand-wm8731-mx7customboard.dtb \
-+	imx7d-var-som-v2-emmc-mx7customboard.dtb \
-+	imx7d-var-som-v2-nand-mx7customboard.dtb \
- 	imx7d-zii-rmu2.dtb \
- 	imx7d-zii-rpu2.dtb \
- 	imx7s-colibri-aster.dtb \
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-mx7customboard.dts b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-mx7customboard.dts
-new file mode 100644
-index 000000000000..855b621b0ee8
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-mx7customboard.dts
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * VAR-MX7CustomBoard for VAR-SOM-MX7 with eMMC
-+ *
-+ * Link: https://variscite.com/carrier-boards/var-mx7customboard/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx7d-var-som.dtsi"
-+#include "imx7d-var-som-emmc.dtsi"
-+#include "imx7d-var-som-mx7customboard.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-MX7 with eMMC & WM8904 on VAR-MX7CustomBoard";
-+	compatible = "variscite,var-som-imx7d-emmc-mx7customboard",
-+		     "variscite,var-som-imx7d",
-+		     "fsl,imx7d";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-wm8731-mx7customboard.dts b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-wm8731-mx7customboard.dts
-new file mode 100644
-index 000000000000..94c4b1fa5d6c
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-emmc-wm8731-mx7customboard.dts
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * VAR-MX7CustomBoard for VAR-SOM-MX7 with eMMC and WM8731
-+ *
-+ * Link: https://variscite.com/carrier-boards/var-mx7customboard/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx7d-var-som.dtsi"
-+#include "imx7d-var-som-emmc.dtsi"
-+#include "imx7d-var-som-wm8731.dtsi"
-+#include "imx7d-var-som-mx7customboard.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-MX7 with eMMC & WM8731 on VAR-MX7CustomBoard";
-+	compatible = "variscite,var-som-imx7d-emmc-wm8731-mx7customboard",
-+		     "variscite,var-som-imx7d",
-+		     "fsl,imx7d";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-mx7customboard.dts b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-mx7customboard.dts
-new file mode 100644
-index 000000000000..0da9653ecffc
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-mx7customboard.dts
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * VAR-MX7CustomBoard for VAR-SOM-MX7 with NAND
-+ *
-+ * Link: https://variscite.com/carrier-boards/var-mx7customboard/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx7d-var-som.dtsi"
-+#include "imx7d-var-som-nand.dtsi"
-+#include "imx7d-var-som-mx7customboard.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-MX7 with NAND flash & WM8904 on VAR-MX7CustomBoard";
-+	compatible = "variscite,var-som-imx7d-nand-mx7customboard",
-+		     "variscite,var-som-imx7d",
-+		     "fsl,imx7d";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-wm8731-mx7customboard.dts b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-wm8731-mx7customboard.dts
-new file mode 100644
-index 000000000000..603b2dbf4c8e
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-nand-wm8731-mx7customboard.dts
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * VAR-MX7CustomBoard for VAR-SOM-MX7 with NAND and WM8731
-+ *
-+ * Link: https://variscite.com/carrier-boards/var-mx7customboard/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx7d-var-som.dtsi"
-+#include "imx7d-var-som-nand.dtsi"
-+#include "imx7d-var-som-wm8731.dtsi"
-+#include "imx7d-var-som-mx7customboard.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-MX7 with NAND flash & WM8731 on VAR-MX7CustomBoard";
-+	compatible = "variscite,var-som-imx7d-nand-wm8731-mx7customboard",
-+		     "variscite,var-som-imx7d",
-+		     "fsl,imx7d";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-emmc-mx7customboard.dts b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-emmc-mx7customboard.dts
-new file mode 100644
-index 000000000000..12971bfefdcc
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-emmc-mx7customboard.dts
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * VAR-MX7CustomBoard for VAR-SOM-MX7 V2 with eMMC
-+ *
-+ * Link: https://variscite.com/carrier-boards/var-mx7customboard/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx7d-var-som.dtsi"
-+#include "imx7d-var-som-v2.dtsi"
-+#include "imx7d-var-som-emmc.dtsi"
-+#include "imx7d-var-som-mx7customboard.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-MX7-5G_V2 with eMMC & WM8904 on VAR-MX7CustomBoard";
-+	compatible = "variscite,var-som-imx7d-v2-emmc-mx7customboard",
-+		     "variscite,var-som-imx7d-v2",
-+		     "fsl,imx7d";
-+};
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-nand-mx7customboard.dts b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-nand-mx7customboard.dts
-new file mode 100644
-index 000000000000..1c465e89f198
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d-var-som-v2-nand-mx7customboard.dts
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * VAR-MX7CustomBoard for VAR-SOM-MX7 V2 with NAND
-+ *
-+ * Link: https://variscite.com/carrier-boards/var-mx7customboard/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx7d-var-som.dtsi"
-+#include "imx7d-var-som-v2.dtsi"
-+#include "imx7d-var-som-nand.dtsi"
-+#include "imx7d-var-som-mx7customboard.dtsi"
-+
-+/ {
-+	model = "Variscite VAR-SOM-MX7-5G_V2 with NAND flash & WM8904 on VAR-MX7CustomBoard";
-+	compatible = "variscite,var-som-imx7d-v2-nand-mx7customboard",
-+		     "variscite,var-som-imx7d-v2",
-+		     "fsl,imx7d";
-+};
--- 
-2.47.3
 
+TID5 is set from system_supports_mte() and only once capabilities are
+finalised, so the local check is still correct before that. Gating on
+system_supports_mte() keeps the different-physical-CPU case you want
+to preserve working: if one re-onlines with MTE while the system view
+has it folded off, the gate stays false and it won't read GMID_EL1.
+
+If you agree, I'll respin with that.
+
+Cheers,
+/fuad
+
+
+
+
+
+>
+> The only snag is that I didn't convert all the registers over, so
+> there's some work there.
+>
+> WDYT?
+>
+> Will
 
