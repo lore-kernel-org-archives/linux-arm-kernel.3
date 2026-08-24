@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4046C5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 18:21:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE28C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 18:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VC4G+XqTAfrFRT64hospUFqXl0HFoiSRWtgAhJL/a7Q=; b=gEz7AHOwb8/qWljKDTUifDbt67
-	luk9ucJpuwwmYuTdqz+7ZJr8hOFVHYuBs3I9H+S+zHFkFlkmseYBW6Rpph3NQtL3MkuVrNpZTqsKC
-	bMV40Aw0ulfbNBnU+CFfhAXn1merxj0j+md2FUgYIDvcZHJzzs7MQ6486H+gHG+MqScrslbQj2nZn
-	ptW2cLh25DIiKJ7Lre/Rjl3970bbK9oRT19DT1REy26nAbUwrGr9FnAZc/HKdLTMtFFhiYZJvQzyO
-	rAb/YM2tiBuA1GW/Nyt5CWxK/Xz0eyzy9WGPDMxPOxCLv/i130y8KRftJr8XnCygfru0UO/S06znZ
-	i7p9fGcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XO7IN4C+8NrFxSN+X2KRtw6O/KbRqUgR1TA74zKM5gA=; b=i1ThMLjalNAhCXNrZMiMWCzHpj
+	TxyqDRDdGTQQe6fTCtRVOTlJgz+JSzFr41HsG6XJJEn+mjlEEgIqUy2VuFj61pZzPlriUGMq5gxs6
+	saiPzYZQzfkrtRTyRywRRFk/0ek8oZ/cKxiVnoE0LuFfxqUAl6xoyz/HeBBg5HDEh7fc3+XSwt0eA
+	gvFVtbb0XxFTAxiKI/I8PYcNnerkC4okbMUSknktSyrYPcUDoC3WMkxL5tBowOlc32DssKYFPQoHI
+	FNOmw5gJQ0A0S3WKoXeDGAMHEKeF//ePPDMqqtWUSUUaLLB2fqzTuMPFskowzj3SDGZjTrX11OdRt
+	1ZCFwxJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyZII-0000000HFVu-0m2f;
-	Mon, 24 Aug 2026 18:21:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wyZXu-0000000HGsy-1PTJ;
+	Mon, 24 Aug 2026 18:37:22 +0000
+Received: from out-250.mta1.migadu.com ([2001:41d0:203:375::fa] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyZI9-0000000HFU2-1nLm;
-	Mon, 24 Aug 2026 18:21:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE21143B8B;
-	Mon, 24 Aug 2026 18:21:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF6FA1F000E9;
-	Mon, 24 Aug 2026 18:21:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787595664;
-	bh=VC4G+XqTAfrFRT64hospUFqXl0HFoiSRWtgAhJL/a7Q=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=asWIVPnDJTek2DU4bX3bTdXnsGHKhQxERRvr5tTvYCyhEWPtoUjvefBo1gyS1UW0c
-	 qme9iVwF6OuNAv4rALq0+Yfbe8SiiVdJ8RTdEsOiFgTFIKUPGg9DcUoFYrSVzvtMkv
-	 AccRbe9dGSIBTIwycaqHVW21yHOuY5/ZutfX58TL0zVHMMJydHLoIdRSSjHQCT++HR
-	 AOP1axogqC8H9N5vYkOAO+mryC5l1cVUCqP7Q8RRf720hk4w1MO6WT0fqsNtPta5fZ
-	 lyIuDqzXTu8HFeEeJvbuF1JW2MIREZJaMdP5TI7wCJeO3fzNmW2bXdMyxMF9IhV2su
-	 R5dLvVnF8MjAQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 727BB3924A4C;
-	Mon, 24 Aug 2026 18:20:13 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1wyZXr-0000000HGsA-0RjO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Aug 2026 18:37:20 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=z1eMC5A17e3WPWEyqxdEPWPA4oSgaXmtkR6wiU7W6FA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1787596637; v=1; x=1788201437;
+ b=mJXmk3jeZbI1SIcXfQv1vYZx5ckwop3z3niKPeeDVZVHZK+Ml9+4L0VJEZy3ird3/vq26WMD
+ UknAGKXCx30aV5Y0/Wg6c9GHLM+fHASaX+hLVCRR8Dk4i6BP76MRWtttx1MERekwRa51Fz3MK45
+ HcNpm9KCnzIdG635HRwdZ4hg=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from mail-lf1-f51.google.com (209.85.167.51)
+	by smtp.migadu.com with ESMTPS id 2f0139afb1039777;
+	Mon, 24 Aug 2026 18:37:06 +0000
+X-Mizu-Trace-ID: 2f0139afb1039777
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5b2a8173142so957e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 11:37:06 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrYDJpJi8bC1dlYb8TBJAeIbPsrT1mBy+TcBvR87cygBpnfsA8qC0sWx+p7myu7VpyX1QhOk3wz5tQaTBmWuZik@lists.infradead.org
+X-Gm-Message-State: AFuF++ngfvqpVrKnJTbBYhaoc8sYaF/BVviNjEwIDRbE89hGQ61Bz/a5
+	/vyFooRHCgeQfLqZevO6ZgeMIuhlXXEtT19JHNxNbdCfc+cC293BhIXnrslDtPGa5cOxV9tzc+b
+	KjT//FIq44j5xIb3+855CSqBT3T0plGBEhwXrgQQi
+X-Received: by 2002:a05:6512:68c:b0:5b2:a5e9:3aba with SMTP id
+ 2adb3069b0e04-5b49cf97240mr7768e87.6.1787596625703; Mon, 24 Aug 2026 11:37:05
+ -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] net: ethernet: mtk_wed: increase WED v2 WDMA RESV_BUFF to
- 0x80
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178759561210.3051903.7350962309805353332.git-patchwork-notify@kernel.org>
-Date: Mon, 24 Aug 2026 18:20:12 +0000
-References: <OSZPR01MB779537889255E2F606E47EABBCA52@OSZPR01MB7795.jpnprd01.prod.outlook.com>
-In-Reply-To: <OSZPR01MB779537889255E2F606E47EABBCA52@OSZPR01MB7795.jpnprd01.prod.outlook.com>
-To: Shiji Yang <yangshiji66@outlook.com>
-Cc: netdev@vger.kernel.org, rex.lu@mediatek.com, nbd@nbd.name,
- lorenzo@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
+References: <20260824071004.504894-1-fuad.tabba@linux.dev> <aoxCk5lFQv6lFwHQ@willie-the-truck>
+ <CA+EHjTy6Xh=eNg22fBdjPzZOZitzvcDX2L5zbSUFCsX1n6XobQ@mail.gmail.com> <aoxpG13UZfKJ2Rfu@willie-the-truck>
+In-Reply-To: <aoxpG13UZfKJ2Rfu@willie-the-truck>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 24 Aug 2026 19:36:29 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTynGY1DFY=SP27MF=ioCQA4jnwnpJWCj1DLRqsqEyEUgA@mail.gmail.com>
+X-Gm-Features: AcwNN1V9W7VHXq___zx5wU5QYK_PcNw-jBsBbWE1dTJRfIwYwTjUmk-5HFvXctg
+Message-ID: <CA+EHjTynGY1DFY=SP27MF=ioCQA4jnwnpJWCj1DLRqsqEyEUgA@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: Defer the GMID_EL1 read to {init,update}_cpu_features()
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260824_113719_352272_FC2783C5 
+X-CRM114-Status: GOOD (  33.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,29 +83,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Mon, 24 Aug 2026 at 16:54, Will Deacon <will@kernel.org> wrote:
+>
+> On Mon, Aug 24, 2026 at 04:14:41PM +0100, Fuad Tabba wrote:
+> > On Mon, 24 Aug 2026 at 14:09, Will Deacon <will@kernel.org> wrote:
+> >
+> > > > +     /*
+> > > > +      * info->reg_gmid deferred to {init,update}_cpu_features because
+> > > > +      * reading it traps to EL2 when MTE is disabled.
+> > > > +      */
+> > >
+> > > I don't think we should defer this, as I've been actively doing the
+> > > opposite for parallel CPU onlining (where the ID registers can be read
+> > > concurrently by incoming CPUs to amortise the cost of a trap) and also
+> > > for the RNG traps during early boot:
+> > >
+> > > https://lore.kernel.org/all/annJ0oDB2HObQC5j@willie-the-truck/
+> > >
+> > > If you look at the diff I sent in the thread above (I didn't get a
+> > > reply), the idea is that __read_sysreg_by_encoding() reads from the ID
+> > > register values stashed by cpuinfo_store_cpu(). So you could use that
+> > > to check id_aa64pfr1 before reading gmid, as it will give you the
+> > > sanitised view.
+> >
+> > I just did, but I don't think it'll work. The thing is,
+> > __read_sysreg_by_encoding() gives the override-applied local value,
+> > not the folded sys_val.
+> >
+> > arm64.nomte is a command-line override, so that works. But
+> > CONFIG_ARM64_MTE=n sets none. Any gate would still need an explicit
+> > IS_ENABLED(CONFIG_ARM64_MTE).
+> >
+> > That said, I don't have to defer it. I can keep the info->reg_gmid
+> > read in __cpuinfo_store_cpu() and gate that read on the state that
+> > arms the trap:
+> >
+> >         static inline bool gmid_el1_accessible(u64 pfr1)
+> >         {
+> >                 if (!IS_ENABLED(CONFIG_ARM64_MTE))
+> >                         return false;
+> >                 if (system_capabilities_finalized())
+> >                         return system_supports_mte();
+> >                 return id_aa64pfr1_mte(pfr1);
+> >         }
+> >
+> >
+> > TID5 is set from system_supports_mte() and only once capabilities are
+> > finalised, so the local check is still correct before that. Gating on
+> > system_supports_mte() keeps the different-physical-CPU case you want
+> > to preserve working: if one re-onlines with MTE while the system view
+> > has it folded off, the gate stays false and it won't read GMID_EL1.
+>
+> I still don't understand why you have system_supports_mte() here. If
+> the CPU has MTE, the CONFIG option is enabled and the cmdline override
+> isn't set, we can read GMID just fine on this CPU, regardless of the
+> system capabilities.
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+I could gate on the local value with the override applied instead.
 
-On Wed, 19 Aug 2026 21:07:07 +0800 you wrote:
-> Change WDMA RESV_BUFF from 0x40 to 0x80 to avoid CDM TX FIFO overflow.
-> Without this patch mt7986 and mt7981 may have WDMA TX hang issue. This
-> patch was pulled from mtk-openwrt-feeds GPL open source project.
-> 
-> Link: https://github.com/mediatek/mtk-openwrt-feeds/commit/07c87502e854b68b48544d101b6fe17ec059b97b
-> Signed-off-by: Shiji Yang <yangshiji66@outlook.com>
-> 
-> [...]
+> > If you agree, I'll respin with that.
+>
+> I can't tell who's calling gmid_el1_accessible() so it's hard to tell
+> whether I agree or not. May as well send a v3 though, so we can see what
+> you have in mind!
 
-Here is the summary with links:
-  - net: ethernet: mtk_wed: increase WED v2 WDMA RESV_BUFF to 0x80
-    https://git.kernel.org/netdev/net/c/c0ef04232f9f
+Sending it now. Probably shorter than just describing it.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Cheers,
+/fuad
 
-
+> Will
 
