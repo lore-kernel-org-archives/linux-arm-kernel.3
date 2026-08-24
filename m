@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 831CAC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 13:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11835C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 13:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OlzJ7OqVnSYFcGsvn6hw98wKPBswIcyCPnPIRgWwcr8=; b=kZRP/lf4T+ViSlwI/p7Ie3+4V/
-	VxXGDhqku7h1LfsudDqYWx1TIT3eLxelIN0xRAqjETtVStN2/o75E2rYbEahDir+m/wais8XCEOVP
-	pxHEsNylklVdHHeL1OjI9gAC9hJ1Js9/WBQyBilDUurMgAe6xKgDdfcUGyUFtGTkOYGUJFwXoUUSc
-	Jl5XccsRGN2WqXhlDWd8Es/sBid5HlOz1AF1FT4rfvd6P9FH6g7WdA/UWn6romMTLp5KNZRAWLYYv
-	kXD0u24VxJJXtFB8XLhpdLs/30Peddtwpitn6qRmEIQMpv9PDTdFJQ3zAo64xcnUy0QS8afVFvnsS
-	WF3dj+2g==;
+	bh=n7HiGwiy8zh65H/ghfLKcvCaAQ1QBuBFk3PdyU2HykY=; b=kz+44FqFWD0yqx7gjHtg53JoLH
+	/nN/OymJt3fiYQBF9godjk7nxk4/ierc7oFuygh0xvebMt//u78D/HSfmasKJ7vCP8yhDSHT0NZY6
+	hkDiY7+Wbfg/73ho8Myb2xVTOZCXQpxx3x5KIDqEWRR/qIc7RnsZaCw9i5J3hiWk6z8WN67E9IIZH
+	h0W0m4z4xu7aHy651+GtAN6lep1++Odd94zPhWp5lHbB+tyZTAq3zJTt+d/fjjwcxYt1bNqMEDe8P
+	PwLeGEVSR9ZhHHaclAnkrEs7/NCnn1V2LvuLEkB8OEdrLMDQ9/f7KvPKwtFdNRPr7zjTtemfBCr9L
+	nNfxq2aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyUQt-0000000GfKr-2XO8;
-	Mon, 24 Aug 2026 13:09:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wyUSW-0000000GfT9-3QMd;
+	Mon, 24 Aug 2026 13:11:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyUQr-0000000GfKl-3qVx
+	id 1wyUSV-0000000GfT2-3h8H
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 13:09:45 +0000
+	Mon, 24 Aug 2026 13:11:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6A27F40A90;
-	Mon, 24 Aug 2026 13:09:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 356731F000E9;
-	Mon, 24 Aug 2026 13:09:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B79140681;
+	Mon, 24 Aug 2026 13:11:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA5DF1F000E9;
+	Mon, 24 Aug 2026 13:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787576985;
-	bh=OlzJ7OqVnSYFcGsvn6hw98wKPBswIcyCPnPIRgWwcr8=;
+	s=k20260515; t=1787577087;
+	bh=n7HiGwiy8zh65H/ghfLKcvCaAQ1QBuBFk3PdyU2HykY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JBE8sGwWi5IYI/fZv3pG+Y0XyRHrjiaEye7JXAjA9gyMGYl/AQZSlRB2b7xJIcxFN
-	 ttahjaPYiljdsrSiy7V8tIfZn+Zj8HC2UtaPUTMV7/3kH2eZ0wfSkgyEjZDZA2hnI0
-	 I40T4m1XmhMKUdcC3V0MRVhlBE8DYTcK17ROhv2O3Uz8Jl8yeel10RKLMYZzRjyG44
-	 UUvHADaDLB6T3zr6UJHeLoN0wlL4N0Fn5fGrCf6am6+7uNjCYSruZjrVLb0RHHfN4X
-	 jLS0Jfw8c2CD+byqg5i0eHtiZhWZxSNfk3PhX6NmBFOLGd2gWh15Y3wTLLXT402nFc
-	 vxK+KKt6Sm7hw==
-Date: Mon, 24 Aug 2026 14:09:39 +0100
+	b=o0VtTwaVRqk1Dla6o9ikX8ehZRhFLRvgPMp2mxYi/khhbWyA9gGo0waep43QA/sRf
+	 euxBdA7EIKPc4iin04QTtnISHevt3xYr+NItQVfXyAicmxGdHa7MyStMM8WX7QNPAS
+	 u8ZzLsLL2hlIuG2ipFHPxdntXjplJwTtyyNqZ3Rp5kjDeL10kNJwHKelby5Gvo4rMB
+	 tODx4lfhpK47P1fl6L3DjCidb4/BWYWFTW0pyVxgk2g7R9KyS5RfvYbilzZhtA51NO
+	 yByd9QPW3bOI/wGNyi4YyUJOB1TU3HbcQckrEefKcxPlTG+RuoMRddRlnqdjEG/hhJ
+	 AspuCfHlYou5Q==
+Date: Mon, 24 Aug 2026 14:11:22 +0100
 From: Will Deacon <will@kernel.org>
 To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+Cc: Marc Zyngier <maz@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
 	Oliver Upton <oupton@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v2] arm64: Defer the GMID_EL1 read to
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: Defer the GMID_EL1 read to
  {init,update}_cpu_features()
-Message-ID: <aoxCk5lFQv6lFwHQ@willie-the-truck>
-References: <20260824071004.504894-1-fuad.tabba@linux.dev>
+Message-ID: <aoxC-nyNc7Z6hHrK@willie-the-truck>
+References: <20260819142558.1300100-1-fuad.tabba@linux.dev>
+ <86se464ixe.wl-maz@kernel.org>
+ <CA+EHjTwCuSO37k3mJSJLPW4kHHN+MTWYiLRLQMzNzisMsunQ=A@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260824071004.504894-1-fuad.tabba@linux.dev>
+In-Reply-To: <CA+EHjTwCuSO37k3mJSJLPW4kHHN+MTWYiLRLQMzNzisMsunQ=A@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,80 +77,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 08:10:04AM +0100, Fuad Tabba wrote:
-> __cpuinfo_store_cpu() gates the GMID_EL1 read on the raw
-> ID_AA64PFR1_EL1, so it reads the register on MTE hardware even when the
-> kernel has disabled MTE (CONFIG_ARM64_MTE=n or arm64.nomte). KVM sets
-> HCR_EL2.TID5 in that case, which traps the read to EL2 and injects an
-> UNDEF:
+On Sun, Aug 23, 2026 at 02:09:02PM +0100, Fuad Tabba wrote:
+> On Sat, 22 Aug 2026 at 10:13, Marc Zyngier <maz@kernel.org> wrote:
+> > On Wed, 19 Aug 2026 15:25:58 +0100,
+> > Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> > >
+> > > __cpuinfo_store_cpu() gates the GMID_EL1 read on the raw
+> > > ID_AA64PFR1_EL1, so it reads the register on MTE hardware even when the
+> > > kernel has disabled MTE (CONFIG_ARM64_MTE=n or arm64.nomte). KVM sets
+> > > HCR_EL2.TID5 in that case, which traps the read to EL2 and injects an
+> > > UNDEF:
+> > >
+> > >   Internal error: Oops - Undefined instruction: 0000000002000000 [#1]
+> > >   pc : __cpuinfo_store_cpu+0xf4/0x264
+> > >   Call trace:
+> > >    __cpuinfo_store_cpu+0xf4/0x264 (P)
+> > >    secondary_start_kernel+0xc8/0x1d0
+> > >    __secondary_switched+0xc0/0xc4
+> > >   Kernel panic - not syncing: Attempted to kill the idle task!
+> > >
+> > > Only pKVM is affected, and only for a CPU onlined after KVM init: its
+> >
+> > Is that for a CPU that has gone through a an offline/online cycle?
+> > Because otherwise, such a CPU wouldn't be able to boot at all (we have
+> > a strong requirement that pKVM sees all CPUs at boot time).
+> >
+> > If that's the case, some clarification would be good. Otherwise, some
+> > clarification is absolutely required! ;-)
 > 
->   Internal error: Oops - Undefined instruction: 0000000002000000 [#1]
->   pc : __cpuinfo_store_cpu+0xf4/0x264
->   Call trace:
->    __cpuinfo_store_cpu+0xf4/0x264 (P)
->    secondary_start_kernel+0xc8/0x1d0
->    __secondary_switched+0xc0/0xc4
->   Kernel panic - not syncing: Attempted to kill the idle task!
+> Yes, an offline/online cycle: every CPU's first bring-up happens
+> before KVM's initcall, so hotplug is the only way to reach
+> cpuinfo_store_cpu() with TID5 set. I'll say so in v2, along with a
+> note on the reproducer (offline then online CPU1 with arm64.nomte, on
+> QEMU with MTE enabled).
 > 
-> Only pKVM is affected, and only for a CPU that is offlined and brought
-> back online. Every CPU's first bring-up precedes KVM's initcall, and
-> pKVM refuses CPU_ON for a CPU that was not online when KVM initialised,
-> so hotplug is the only path to cpuinfo_store_cpu() with TID5 set. pKVM's
-> PSCI CPU_ON relay sets the host HCR before the CPU enters EL1, whereas
-> plain nVHE sets it at CPUHP_AP_KVM_ONLINE, after cpuinfo_store_cpu().
+> As a side note, to answer a question Will asked me offlist, it's not
+> an issue in any of the Android versions: Android 17 (and earlier)
+> never gets the trap. The Android commit that disables MTE there does
+> the HCR_ATA hunks only, and there is no handle_host_mte() either, so
+> the read is untrapped.
 > 
-> Defer the read to {init,update}_cpu_features() and gate it on the
-> sanitised ID register, as MPAM already does. system_supports_mte()
-> cannot serve as the gate, as update_cpu_features() also runs during
-> initial SMP bring-up, before smp_cpus_done() calls
-> setup_system_features(). The init path gains the CONFIG_ARM64_MTE test
-> the update path already had, leaving SYS_GMID_EL1 uninitialised when
-> MTE is compiled out, where its only other user (lib/mte.S) is not
-> built.
+> > > PSCI CPU_ON relay sets the host HCR before the CPU enters EL1, whereas
+> > > plain nVHE sets it at CPUHP_AP_KVM_ONLINE, after cpuinfo_store_cpu().
+> > >
+> > > Defer the read to {init,update}_cpu_features() and gate it on the
+> > > sanitised ID register, as MPAM already does. system_supports_mte()
+> > > cannot serve as the gate, as update_cpu_features() also runs during
+> > > initial SMP bring-up, before smp_cpus_done() calls
+> > > setup_system_features(). The init path gains the CONFIG_ARM64_MTE test
+> > > the update path already had, leaving SYS_GMID_EL1 uninitialised when
+> > > MTE is compiled out, where its only other user (lib/mte.S) is not
+> > > built.
+> >
+> > I'm starting to wonder whether having CPUs to go through a feature
+> > collection process during an offline/online cycle is a good idea. The
+> > data should still be there, and is not expected to change.
+> >
+> > Is it just that we don't have the correct tracking information?
 > 
-> Fixes: f35abcbb8a084 ("KVM: arm64: Trap MTE access and discovery when MTE is disabled")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> ---
+> I think you're right. Nothing on the arm64 side tells a re-online from
+> a first boot, so secondary_start_kernel() collects everything again.
 
-[...]
-
-> diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-> index d50e2a9b066b3..c8967f185e3dd 100644
-> --- a/arch/arm64/kernel/cpuinfo.c
-> +++ b/arch/arm64/kernel/cpuinfo.c
-> @@ -502,12 +502,14 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
->  	info->reg_id_aa64smfr0 = read_cpuid(ID_AA64SMFR0_EL1);
->  	info->reg_id_aa64fpfr0 = read_cpuid(ID_AA64FPFR0_EL1);
->  
-> -	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
-> -		info->reg_gmid = read_cpuid(GMID_EL1);
-> -
->  	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
->  		__cpuinfo_store_cpu_32bit(&info->aarch32);
->  
-> +	/*
-> +	 * info->reg_gmid deferred to {init,update}_cpu_features because
-> +	 * reading it traps to EL2 when MTE is disabled.
-> +	 */
-
-I don't think we should defer this, as I've been actively doing the
-opposite for parallel CPU onlining (where the ID registers can be read
-concurrently by incoming CPUs to amortise the cost of a trap) and also
-for the RNG traps during early boot:
-
-https://lore.kernel.org/all/annJ0oDB2HObQC5j@willie-the-truck/
-
-If you look at the diff I sent in the thread above (I didn't get a
-reply), the idea is that __read_sysreg_by_encoding() reads from the ID
-register values stashed by cpuinfo_store_cpu(). So you could use that
-to check id_aa64pfr1 before reading gmid, as it will give you the
-sanitised view.
-
-The only snag is that I didn't convert all the registers over, so
-there's some work there.
-
-WDYT?
+I think that's deliberate, because we support the mostly theoretical
+case of a different physical CPU being hotplugged in. Even though it's
+a bit far-fetched for most systems, I don't think it's something we
+should break unless we have a good reason to do so.
 
 Will
 
