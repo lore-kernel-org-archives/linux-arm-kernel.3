@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0191AC5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 10:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC9EC5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 10:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JasxvAxgDwF6PHb0Xon1M2J++7S8J/Lp3ZKYpbJenO4=; b=K3XEQVezsX7c+dmY8T9e6IqIu7
-	xLUmU1HQfJWIT1L8c1kB80DFa+n9C7yFiIarRaPmgeCFULfYeApSdXjyoK1Q1pKg2aDdb3RGTComi
-	huDlZTDB4Gqacz/aRVkc6a90R27TLOeUjMGPDTpotmpyKIt/VVKGBG0o39soa5/OxDx9I0VokBjzg
-	Xb5xYhevWtoAT5e4m4L3ud7HYV+QOApfxE1W/oSOlgNqxvEkHiPCGeQxGrFdAxelNMS3cEU+zATQr
-	zAi3INT/PnbF1vLlrZEaB1OXdnkBBgewpBwJ1ODwF7BtKhoYPHpzuNw43qcpDlc6cG4hRcF6+BQ1D
-	Ks78wRvA==;
+	bh=fcd+vXPL1cf35aspIvOuzP59f2xpzJU2+HsZSxprbes=; b=QLeLBnm95tyttNJLLYdwNyBx7F
+	EKIsdMwgKA8Vzw4sO+2hAqrs1NmOhq52R4rwKvy6eSiyYTo4JYbWmO9DDF5vya9UwWBbJkafYNQ38
+	0ZW1EVyZR2e0Qow2ZCXTUhyioVuljljKPN9uv3z1r1NQtN9AtilRB4dhCEjZlVvuXTDZZ9DdeOhPf
+	i09EqbmX/kCw4omXElFIQ6YAvhGmax2a8Zd4XtHVvi8YsyR2k6GdPcxSRVpVyeeiLqqpnMNgO94b8
+	8g6tXeOYnDzRWHCi2wssDfkRdGsh96zSJZRfULRl1AA11U0zBc9WqPOJ4BaXM3PeIG/bXaVOE59F9
+	Q3YD1a4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySI6-0000000GQxG-22On;
-	Mon, 24 Aug 2026 10:52:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wySIf-0000000GR6C-3BWB;
+	Mon, 24 Aug 2026 10:53:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySI5-0000000GQx5-1znS;
-	Mon, 24 Aug 2026 10:52:33 +0000
+	id 1wySIc-0000000GR5h-2FPj;
+	Mon, 24 Aug 2026 10:53:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 910BE600C8;
-	Mon, 24 Aug 2026 10:52:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7DED1F00A3A;
-	Mon, 24 Aug 2026 10:52:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2063D600C8;
+	Mon, 24 Aug 2026 10:53:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93E0A1F000E9;
+	Mon, 24 Aug 2026 10:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787568752;
-	bh=JasxvAxgDwF6PHb0Xon1M2J++7S8J/Lp3ZKYpbJenO4=;
+	s=k20260515; t=1787568783;
+	bh=fcd+vXPL1cf35aspIvOuzP59f2xpzJU2+HsZSxprbes=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=EGFVYM5WJQO2tQJILlSpoGHkXAia65eM4tCgcRJG+M4QdrTD6aWy/u7fKoExDH9QU
-	 r4SdbTCcr/5mdVQAt7GSqfclkGfAgt7RyfdAwT+Qy7exfeCpK/IKdhjvhAokcXsHzd
-	 iybruUvkIdYEzzy58yDhrGXih/IOhCSvfoPgDSizFaARTEXf5BFw/bX15GbCIPSUt3
-	 HowxxxxmEf+a8DqFmouReIydakHs2ZAP1vnTk0bG+jB0lEedx+3viDsNK9GIlexn4w
-	 8JWJPuW6MdG+Ndzo2w4OJxZXnXFcPnpV8JqghfdI/UVL7jwZjl5LH3+04SY+Kqxefw
-	 ZYqnjfUjhFH/g==
-Message-ID: <c2ed44e5-ed5c-41f7-a782-57c82968495e@kernel.org>
-Date: Mon, 24 Aug 2026 12:52:26 +0200
+	b=Aq68ML6L4hwbv1yIcsrOqOO02erQtrajmRwHD1TjeJaWXgj7i5TiLsMPb8o0Fam7N
+	 kKB2CPq++jzPh1RJBsrQjmuM1oV63kDT9u4uqCz+yLDeQyrmuxYInfb1n/abkUqkIl
+	 bksM/JJcTxCG7xj1lxuu3dNil+EzXqv4laVvBUsm0DHCVxnHS+Wl/7D1shtQHzmoRj
+	 FDOdebV7RsxbVNygCW2WLHpcooo7eyMb66swqP1bf5qfHzn8/UvT/rgauUFVjQaYP4
+	 yljdNdxPOQpWLLl4/IStRWaF7fIS9qWzX+LNJc23QlOvkEehngpE4aQ1rF3qIVssIp
+	 RbC/08CWgDvbg==
+Message-ID: <9c763002-7fad-4319-93a8-90adf02eca20@kernel.org>
+Date: Mon, 24 Aug 2026 12:52:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] media: dt-bindings: Add rockchip rkisp2 bindings
+Subject: Re: [PATCH v2 2/5] arm64: dts: rockchip: add ISP nodes to rk3588
 To: Paul Elder <paul.elder@ideasonboard.com>,
  laurent.pinchart@ideasonboard.com
-Cc: michael.riesch@collabora.com, xuhf@rock-chips.com,
+Cc: Xu Hongfei <xuhf@rock-chips.com>, michael.riesch@collabora.com,
  stefan.klug@ideasonboard.com, mehdi.djait@linux.intel.com,
  linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
  Heiko Stuebner <heiko@sntech.de>
 References: <20260824090406.3695880-1-paul.elder@ideasonboard.com>
- <20260824090406.3695880-2-paul.elder@ideasonboard.com>
+ <20260824090406.3695880-3-paul.elder@ideasonboard.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,7 +100,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260824090406.3695880-2-paul.elder@ideasonboard.com>
+In-Reply-To: <20260824090406.3695880-3-paul.elder@ideasonboard.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -118,38 +118,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 24/08/2026 11:03, Paul Elder wrote:
-> Add documentation for the Rockchip rkisp2 bindings. This is meant to
-> support multiple versions of Rockchip ISPs going forward, including the
-> 2.x series and 3.x series. The current version only adds the compatible
-> for the RK3588, which is a 3.0.
+> From: Xu Hongfei <xuhf@rock-chips.com>
 > 
+> Add device tree nodes for the ISP and their iommus on the RK3588.
+> 
+> Signed-off-by: Xu Hongfei <xuhf@rock-chips.com>
 > Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
+> 
+> ---
+> No change in v2
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 57 +++++++++++++++++++
+>  1 file changed, 57 insertions(+)
+> 
 
-Testing is disabled for some time but it's not really a reason to opt out.
-
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
-
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
-
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time.
-
-Please kindly resend and include all necessary To/Cc entries.
-
-A nit, subject: drop second/last, redundant "bindings". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
-
+Why is DTS in the middle of driver patches? Please organize your work
+correctly, see submitting patches in DT.
 
 Best regards,
 Krzysztof
