@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B82C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 10:19:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9983C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 10:20:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EDaqviIjZuxlDEo1LAssKWLXNSktY9rLgZN6ZXeVI1w=; b=cXogEdowrdtZDKF/kkoqppKfkX
-	jEuUN0jhIhGC9PqLmiSW0h+/rsYMDivifUDE372KmNT2uswv5/1mP0JgRoje6bY3gAtjFwEvpn3eb
-	K5YkFjtP2Xha/7oSqvvN1pEm4S4wkaQJS6aznBVxV9cbbAfXUsyoEAkkVtlBFpOp+4P3xOFm3KlXs
-	lS30WDSXJZo0g+gPIMgm9YXSQYVOXjuDi7VNNKVbdeL0vn3pSdd3mPyyn22k/EwtCBDLhMoILZLEc
-	1iZfrOEXTAS1zyNbDtEDBITJDuup8Gc9cS5lVgW3xWlrAWlReqPp6/+1bA+lm1WRshqoC0jEGGQ5b
-	Y9h4tADA==;
+	bh=kP4bmdXmXS3DS6R8vDn0Rac2upM01LYINyBFr62ugPo=; b=QVM0ic5b9xb/OI5asU2P0KRE1J
+	UsSeisKRWBv5h1EYO5Ae1TU2ZESckMZsROG357Yd+prNxUIFminmlUwNX7X7za4uzofMdD4zciPrN
+	ZKcta+jL7E+SVg38n0LCpD0+PVjm5H3pPGeAGl5+vcO3jOmIBSsZhgCYaGqmLwaP+fJX945B27nfC
+	iz/9+HtjRVYe/1wTOMLTGop4y+Hn18jMGbkxLLm1TSOCJ9SLal+KZl0Vfr7/YXHCJ33T0wU/8AsWM
+	FilftOPjBs5pvW2RsdCOttLwOF3/W80RPlZL0uHAb961U6fkxNLjc3rijD85+SSONmapDehvv7H0X
+	FVh8i1UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyRm2-0000000GNk6-3KOc;
-	Mon, 24 Aug 2026 10:19:26 +0000
-Received: from sender6-op-o11.zoho.com ([165.173.180.11])
+	id 1wyRml-0000000GNrw-0Yac;
+	Mon, 24 Aug 2026 10:20:11 +0000
+Received: from sender5-op-o11.zoho.com ([165.173.182.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyRm0-0000000GNjY-0nH2;
-	Mon, 24 Aug 2026 10:19:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1787566757; cv=none; 
+	id 1wyRmf-0000000GNqP-2gz9;
+	Mon, 24 Aug 2026 10:20:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1787566799; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=NjkPGi2z90N/qcNSj4UVefeV77WR0yv0SVaqGlT2liozH2pFcoflpzgC4eZlsSnwetPsvZfxjlE9LPVYoZcDBuVDvvjXvakrOOOT5Gr+xHsub1Ss4zWug7FZ1T2DHOf50VMpMGd3WN3NFsVu4UV1PYBPVofVM1TZIy7pyGTf4pQ=
+	b=MjlXq010zON+lhCukkiDKvUkuY8wnt1XnNGvuBKXbURyCVOL4FS47MC31P2QnjSKZiE9XZk7xLR9OrxBjSn3LT8druCQf9oql09xzqfsBSiDVniQXQAyvZcRvGGnOcMeg05nSqfdkPkyOiSm8rt/tTYj0Y6tQZoC+oqmm+EZELA=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1787566757; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=EDaqviIjZuxlDEo1LAssKWLXNSktY9rLgZN6ZXeVI1w=; 
-	b=WVbe/PAa2IUSNI89XeSdGdH4KFQozxlc1Y0Do5kU880Oc5g40MLCB/32mTp3sHqRMzRbgET1uGS5pdTYfoeib0dP5qQVHRCxNelENTx0xmapjFQkMLVdNO30f1C43AJ+FzTvfCOwBqHhz++zdjXGlSXzVabSfTZCk53xvDPhcvQ=
+	t=1787566799; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=kP4bmdXmXS3DS6R8vDn0Rac2upM01LYINyBFr62ugPo=; 
+	b=meWbWJYT3NkBsUR8+RQuHM6446urMJohtPi8nJNa1x5wjk2gP2zBi5aZE0RxlhHBJlTyoa0KNtHsZ852hObqb4DnFF0MFpXVGXGAF4jhrwpgAwSdPqd36RVojLhEi9RB7j6Umf9oQrkdI5z4VHqSoK09e8ccvhqiYiU9ogFhTXk=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
 	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1787566757;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1787566799;
 	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
 	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=EDaqviIjZuxlDEo1LAssKWLXNSktY9rLgZN6ZXeVI1w=;
-	b=VQWKNZIzXORzcUOUp75yxFwQlROELLB11epx4N3ll/oQagvx1T1n+dGLRoHx4Q+T
-	dlOfA6PMuZpRqgV6c6d/DAl3HTPa1BOD4omzh+gfasefQeEDuk2dx3Drf+/WNdrM1EX
-	BbntqT8c5J+akvYBJbAn5oH4woltNCxiTksVRW7I=
-Received: by mx.zohomail.com with SMTPS id 1787566756102122.65970812260821;
-	Mon, 24 Aug 2026 03:19:16 -0700 (PDT)
-Message-ID: <fdd0ff49-4603-4868-ad9f-ddecf1408eab@collabora.com>
-Date: Mon, 24 Aug 2026 12:19:12 +0200
+	bh=kP4bmdXmXS3DS6R8vDn0Rac2upM01LYINyBFr62ugPo=;
+	b=MXQa01zm9fNrYBbSS58u6mFLXD0DDjh4TsB9mkoL/a4eWFlrcAV7CdIMyGm4Ta4L
+	47ISE3IjNS2kQidHF7n+t6Gr6zZkSiYGGKqtlxxg8XtFc9iDdd4vw1WZ0wPQM0DuIvR
+	tjbdt+3rPSrCfAVH8tWkEjKFyUN96qb5A5NhZ77A=
+Received: by mx.zohomail.com with SMTPS id 1787566797597783.6306751888679;
+	Mon, 24 Aug 2026 03:19:57 -0700 (PDT)
+Message-ID: <e6e917df-21d8-4641-9116-64fac30b8f63@collabora.com>
+Date: Mon, 24 Aug 2026 12:19:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] media: verisilicon: Complete the request on the
- ->run() error paths
+Subject: Re: [PATCH 3/3] media: verisilicon: Allow the EOS event to be
+ subscribed
 To: Sascha Hauer <s.hauer@pengutronix.de>,
  Nicolas Dufresne <nicolas.dufresne@collabora.com>,
  Philipp Zabel <p.zabel@pengutronix.de>,
@@ -62,15 +62,15 @@ Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
  linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 References: <20260824-rk3588-jpegdec-v1-0-180a30a2852d@pengutronix.de>
- <20260824-rk3588-jpegdec-v1-2-180a30a2852d@pengutronix.de>
+ <20260824-rk3588-jpegdec-v1-3-180a30a2852d@pengutronix.de>
 Content-Language: en-US
 From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <20260824-rk3588-jpegdec-v1-2-180a30a2852d@pengutronix.de>
+In-Reply-To: <20260824-rk3588-jpegdec-v1-3-180a30a2852d@pengutronix.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_031924_266727_72B692CA 
-X-CRM114-Status: GOOD (  21.87  )
+X-CRM114-CacheID: sfid-20260824_032006_375092_568E7CBF 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,151 +87,74 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 Le 24/08/2026 à 08:39, Sascha Hauer a écrit :
-> Several codec ->run() operations return early without completing the
-> request, even though hantro_start_prepare_run() has already run and set up
-> the controls of the request attached to the source buffer.
+> hantro queues a V4L2_EVENT_EOS in three places.  vidioc_encoder_cmd()
+> sends it when a V4L2_ENC_CMD_STOP has drained the encoder:
 >
-> The buffers are still returned to userspace, device_run() finishes the job
-> with VB2_BUF_STATE_ERROR, but nothing completes the control handler object
-> bound to the media request. vb2_buffer_done() only unbinds the request
-> object owned by videobuf2 itself, so num_incomplete_objects never drops to
-> zero and the request stays in MEDIA_REQUEST_STATE_QUEUED forever: poll() on
-> the request file descriptor never returns and MEDIA_REQUEST_IOC_REINIT
-> fails with -EBUSY. The request is only cleaned up when userspace closes it.
+> 	if (ec->cmd == V4L2_ENC_CMD_STOP &&
+> 	    v4l2_m2m_has_stopped(ctx->fh.m2m_ctx))
+> 		v4l2_event_queue_fh(&ctx->fh, &hantro_eos_event);
 >
-> The vb2 buf_request_complete() callback does not help here, it is only
-> called from __vb2_queue_cancel() for buffers that were never queued to the
-> driver.
+> hantro_buf_queue() sends it for a capture buffer queued after the last
+> one, and hantro_stop_streaming() when the output queue stops while
+> draining.
 >
-> Call hantro_abort_prepare_run() on those paths, which completes the request
-> and leaves the watchdog alone.
+> No application can ask for any of them.  The ioctl ops offer
 >
-> Fixes: 42cb2a8f27d2 ("media: hantro: change hantro_codec_ops run prototype to return errors")
+> 	.vidioc_subscribe_event = v4l2_ctrl_subscribe_event,
+>
+> and v4l2_ctrl_subscribe_event() only knows about V4L2_EVENT_CTRL, so
+> VIDIOC_SUBSCRIBE_EVENT for V4L2_EVENT_EOS fails with -EINVAL and the
+> queued events are dropped on the floor.  An application following the
+> drain sequence in the stateful encoder documentation has to fall back to
+> V4L2_BUF_FLAG_LAST, which hantro does set, so this has gone unnoticed.
+>
+> Dispatch on the event type and hand V4L2_EVENT_EOS to
+> v4l2_event_subscribe(), the way coda-common.c does.  Everything else
+> keeps going to the control handler.
+>
+> V4L2_EVENT_SOURCE_CHANGE is deliberately not added, hantro never sends
+> one.
+>
+> Fixes: daf3999c12dc ("media: hantro: Implement support for encoder commands")
 > Assisted-by: Claude:claude-opus-5
 > Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 
 Reviewed-by Benjamin Gaignard <benjamin.gaignard@collabora.com>
 
 > ---
->   drivers/media/platform/verisilicon/hantro_g1_h264_dec.c        | 4 +++-
->   drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c         | 4 +++-
->   drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c        | 9 +++++++--
->   drivers/media/platform/verisilicon/rockchip_vpu2_hw_h264_dec.c | 4 +++-
->   drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c | 4 +++-
->   drivers/media/platform/verisilicon/rockchip_vpu2_hw_vp8_dec.c  | 4 +++-
->   6 files changed, 22 insertions(+), 7 deletions(-)
+>   drivers/media/platform/verisilicon/hantro_v4l2.c | 13 ++++++++++++-
+>   1 file changed, 12 insertions(+), 1 deletion(-)
 >
-> diff --git a/drivers/media/platform/verisilicon/hantro_g1_h264_dec.c b/drivers/media/platform/verisilicon/hantro_g1_h264_dec.c
-> index ad5c1a6634f5c..14ebb25ea24be 100644
-> --- a/drivers/media/platform/verisilicon/hantro_g1_h264_dec.c
-> +++ b/drivers/media/platform/verisilicon/hantro_g1_h264_dec.c
-> @@ -255,8 +255,10 @@ int hantro_g1_h264_dec_run(struct hantro_ctx *ctx)
->   
->   	/* Prepare the H264 decoder context. */
->   	ret = hantro_h264_dec_prepare_run(ctx);
-> -	if (ret)
-> +	if (ret) {
-> +		hantro_abort_prepare_run(ctx);
->   		return ret;
-> +	}
->   
->   	/* Configure hardware registers. */
->   	src_buf = hantro_get_src_buf(ctx);
-> diff --git a/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c b/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c
-> index 851eb67f19f50..e866ff86019a0 100644
-> --- a/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c
-> +++ b/drivers/media/platform/verisilicon/hantro_g1_vp8_dec.c
-> @@ -442,8 +442,10 @@ int hantro_g1_vp8_dec_run(struct hantro_ctx *ctx)
->   	hantro_start_prepare_run(ctx);
->   
->   	hdr = hantro_get_ctrl(ctx, V4L2_CID_STATELESS_VP8_FRAME);
-> -	if (WARN_ON(!hdr))
-> +	if (WARN_ON(!hdr)) {
-> +		hantro_abort_prepare_run(ctx);
->   		return -EINVAL;
-> +	}
->   
->   	/* Reset segment_map buffer in keyframe */
->   	if (V4L2_VP8_FRAME_IS_KEY_FRAME(hdr) && ctx->vp8_dec.segment_map.cpu)
-> diff --git a/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c b/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c
-> index e8c2e83379def..5778813a9eb2f 100644
-> --- a/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c
-> +++ b/drivers/media/platform/verisilicon/hantro_g2_hevc_dec.c
-> @@ -596,7 +596,7 @@ int hantro_g2_hevc_dec_run(struct hantro_ctx *ctx)
->   	/* Prepare HEVC decoder context. */
->   	ret = hantro_hevc_dec_prepare_run(ctx);
->   	if (ret)
-> -		return ret;
-> +		goto abort_prepare_run;
->   
->   	/* Configure hardware registers. */
->   	set_params(ctx);
-> @@ -604,7 +604,7 @@ int hantro_g2_hevc_dec_run(struct hantro_ctx *ctx)
->   	/* set reference pictures */
->   	ret = set_ref(ctx);
->   	if (ret)
-> -		return ret;
-> +		goto abort_prepare_run;
->   
->   	set_buffers(ctx);
->   	prepare_tile_info_buffer(ctx);
-> @@ -634,4 +634,9 @@ int hantro_g2_hevc_dec_run(struct hantro_ctx *ctx)
->   	vdpu_write(vpu, G2_REG_INTERRUPT_DEC_E, G2_REG_INTERRUPT);
->   
+> diff --git a/drivers/media/platform/verisilicon/hantro_v4l2.c b/drivers/media/platform/verisilicon/hantro_v4l2.c
+> index 83af9fa1ce949..9e19daffe0075 100644
+> --- a/drivers/media/platform/verisilicon/hantro_v4l2.c
+> +++ b/drivers/media/platform/verisilicon/hantro_v4l2.c
+> @@ -765,6 +765,17 @@ static int vidioc_encoder_cmd(struct file *file, void *priv,
 >   	return 0;
-> +
-> +abort_prepare_run:
-> +	hantro_abort_prepare_run(ctx);
-> +
-> +	return ret;
 >   }
-> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_h264_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_h264_dec.c
-> index 6da87f5184bcb..d412d5d661226 100644
-> --- a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_h264_dec.c
-> +++ b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_h264_dec.c
-> @@ -473,8 +473,10 @@ int rockchip_vpu2_h264_dec_run(struct hantro_ctx *ctx)
 >   
->   	/* Prepare the H264 decoder context. */
->   	ret = hantro_h264_dec_prepare_run(ctx);
-> -	if (ret)
-> +	if (ret) {
-> +		hantro_abort_prepare_run(ctx);
->   		return ret;
+> +static int hantro_subscribe_event(struct v4l2_fh *fh,
+> +				  const struct v4l2_event_subscription *sub)
+> +{
+> +	switch (sub->type) {
+> +	case V4L2_EVENT_EOS:
+> +		return v4l2_event_subscribe(fh, sub, 0, NULL);
+> +	default:
+> +		return v4l2_ctrl_subscribe_event(fh, sub);
 > +	}
+> +}
+> +
+>   const struct v4l2_ioctl_ops hantro_ioctl_ops = {
+>   	.vidioc_querycap = vidioc_querycap,
+>   	.vidioc_enum_framesizes = vidioc_enum_framesizes,
+> @@ -787,7 +798,7 @@ const struct v4l2_ioctl_ops hantro_ioctl_ops = {
+>   	.vidioc_remove_bufs = v4l2_m2m_ioctl_remove_bufs,
+>   	.vidioc_expbuf = v4l2_m2m_ioctl_expbuf,
 >   
->   	src_buf = hantro_get_src_buf(ctx);
->   	set_params(ctx, src_buf);
-> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c
-> index 61621b1be8a2f..0ba078b9d1875 100644
-> --- a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c
-> +++ b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_jpeg_enc.c
-> @@ -143,8 +143,10 @@ int rockchip_vpu2_jpeg_enc_run(struct hantro_ctx *ctx)
+> -	.vidioc_subscribe_event = v4l2_ctrl_subscribe_event,
+> +	.vidioc_subscribe_event = hantro_subscribe_event,
+>   	.vidioc_unsubscribe_event = v4l2_event_unsubscribe,
 >   
->   	memset(&jpeg_ctx, 0, sizeof(jpeg_ctx));
->   	jpeg_ctx.buffer = vb2_plane_vaddr(&dst_buf->vb2_buf, 0);
-> -	if (!jpeg_ctx.buffer)
-> +	if (!jpeg_ctx.buffer) {
-> +		hantro_abort_prepare_run(ctx);
->   		return -ENOMEM;
-> +	}
->   
->   	jpeg_ctx.width = ctx->dst_fmt.width;
->   	jpeg_ctx.height = ctx->dst_fmt.height;
-> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_vp8_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_vp8_dec.c
-> index d079075448c96..15f4872dd2bdd 100644
-> --- a/drivers/media/platform/verisilicon/rockchip_vpu2_hw_vp8_dec.c
-> +++ b/drivers/media/platform/verisilicon/rockchip_vpu2_hw_vp8_dec.c
-> @@ -519,8 +519,10 @@ int rockchip_vpu2_vp8_dec_run(struct hantro_ctx *ctx)
->   	hantro_start_prepare_run(ctx);
->   
->   	hdr = hantro_get_ctrl(ctx, V4L2_CID_STATELESS_VP8_FRAME);
-> -	if (WARN_ON(!hdr))
-> +	if (WARN_ON(!hdr)) {
-> +		hantro_abort_prepare_run(ctx);
->   		return -EINVAL;
-> +	}
->   
->   	/* Reset segment_map buffer in keyframe */
->   	if (V4L2_VP8_FRAME_IS_KEY_FRAME(hdr) && ctx->vp8_dec.segment_map.cpu)
+>   	.vidioc_streamon = v4l2_m2m_ioctl_streamon,
 >
 
