@@ -4,64 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10814C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 11:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F411C61CE2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 11:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fZkHgvgEO8RpEDJnWnxIGKrcvJnO5W8LsXcKRsHQFeA=; b=WA3FeSDWYsYf8kP9K/ksEqiVT2
-	+ZBAo/UrMOxuO7MB70qwzDp1i7bbXbBvBY6eg3StxjdFU5a+vYqDV2z7m7EivqWZa5M0nQE9T7pTP
-	dpityH6j8AIvVLSuUnaq7OCxXnaSCt6d89yZr3HS1BgqqyqlPNPtsz0cVvb2YurCtJDV8u6iu7rSD
-	5jhl81BSf2Hpq9db5+yeQj1acvXRe5Vvr8xT0QhSQLFn5FTrVIpSUaykMcv9G7VcpDS7AdyLYpRRr
-	iwqkso4g0L5vIH3WNW0gyb/u3H8Fy7hXmjmmoY2OX5/v65mwpMABf6BzzJOrQd9Sa6CTrx05b6sF+
-	5wdYTelw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oKDwkKFdwrcmFN7x0IH5wcFZWSaTZtPwLThwa5S+U3E=; b=N/qLVLdh4oJMC/OQEDnvpiki4d
+	5qN/SdOxR/KoCQGeVqLplo0y7VrH9XXJ68xMzMtdqzReWNGSWHrOTCY1sckAK2eJYlyv5UPL6vt+z
+	Ujc3GTLNoooAl2OmMaiplz9ZoCskf55RZta2AGXGFnjeP+ZyaTQ9HRRy4+ghKQh9QKWmalHSQZcrV
+	CNCSxONTWqnAqhXuw5yuFAj1Vl3GEQdPaou9HjDl1sZYRqaGyPVRB4mYvBzWD8vshLauZGoTCNYQ2
+	Efy/IvRP4tTNTOCBvg5kzyaZx1NECzo4maIOkA8axNUc9t/wBYQq2vN0ibg/I3lDESXdxACSHEP+D
+	TPwm0KNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySY9-0000000GSVm-35xZ;
-	Mon, 24 Aug 2026 11:09:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wySYL-0000000GSZ7-3rVl;
+	Mon, 24 Aug 2026 11:09:21 +0000
+Received: from flow-b1-smtp.messagingengine.com ([202.12.124.136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wySY6-0000000GSVX-02H1
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 11:09:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1CC2E600C8;
-	Mon, 24 Aug 2026 11:09:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 508671F000E9;
-	Mon, 24 Aug 2026 11:09:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787569744;
-	bh=fZkHgvgEO8RpEDJnWnxIGKrcvJnO5W8LsXcKRsHQFeA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZNe1YYIlDOOgljZkVmleYw+CtH+Rb37EkPkT9fQPTuTaZEKdBqXbe4J8lGMj9LkyB
-	 6mgbans8mPyD5VxUO2CH6LnwiXKrTFyK0ujHMHNSQBiMjDLkLcFdTib1ddVEjZULlY
-	 IB1JwwUm3NYjTxfVu0CN5Et4A2nZ/TxXNQqZeJ4UlqoPdFYFecOtj048tWW8gYqEM7
-	 iHD8PovAke6lOiYYXBx+tjfhHq+FHQdg9ifdb1DL5XhyCHF1xtFR5cRDq9wO3nk0lg
-	 9u85wreMm2P8Qu/SGry4hW+nfH8agPBD77ZzhCg4LlG6oetgRTciMH44Q6yrPy9mxR
-	 xL+b/UfCWuWWg==
-Date: Mon, 24 Aug 2026 12:09:00 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Steffen Eiden <seiden@linux.ibm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Shen Yongchao <grayhat@foxmail.com>, 
-	Karl Mehltretter <kmehltretter@gmail.com>, stable@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] KVM: arm64: nv: Delay freeing of shadow S2
- structures until VM destruction
-Message-ID: <aowmMrvuy1vYYnKd@gremlin>
-References: <20260821161829.1032561-1-maz@kernel.org>
- <20260821161829.1032561-3-maz@kernel.org>
- <myjs4ge5zolj4drqql7lewoazu6simr32acdgi3jgy65quolhc@amx3hctoyuth>
- <aowl4sQHuoooFhqS@gremlin>
+	id 1wySYI-0000000GSWz-0qGR;
+	Mon, 24 Aug 2026 11:09:20 +0000
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailflow.stl.internal (Postfix) with ESMTP id 2525C1300124;
+	Mon, 24 Aug 2026 07:09:14 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-06.internal (MEProxy); Mon, 24 Aug 2026 07:09:14 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm2; t=1787569753; x=1787573353; bh=oKDwkKFdwr
+	cmFN7x0IH5wcFZWSaTZtPwLThwa5S+U3E=; b=klN+LqOf/qYi0/5sz3c48ozaRL
+	sbRav5EW6VfC3hCckf6j0Ycbc0b5AmFqR/d16ewvoh1+k5MmvlpuyqsoHCResYzV
+	v+Z0X2ZTjGpw2+e0LYnYsIX4L1mnTQ3yy7o0MXYGVxvAZo780X7XVIK04k8USwS3
+	sB0veH9CpTbRG0w7mpFUIPfEh9c4j0JCPu3ogfuPIViIYZ+SdPe4nHhZuRtUxbNT
+	xz70OseChRqrytJBd3qGF1MpFsSsFkkMb0kXylzotDi6XqUruWNycraERVXiLsE0
+	5PYymyOKm+YZh45iiXZdBteGgHNJlxi4d6x7IkRzNSI98/HrsZo4JxpDAqLw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1787569753; x=1787573353; bh=oKDwkKFdwrcmFN7x0IH5wcFZWSaTZtPwLTh
+	wa5S+U3E=; b=chjWAmYOTiDOzYds7G+pP43Kt79gfwddn/0MNNpBioNWzS36PAe
+	vvYtTYJrqA9cEmAT4nBTUY2A4yn6FnoIYOkyQYDg8utooBnXCVFP4MS1pjlR9QYj
+	NCCogsWaxBilZkLqAKmukcJ4xTVEzWIKiPS5SlfFWk17FMymfeJSi5g0xpgqf0gJ
+	mg6C0WjB8a5gNUjOb8iuqTEatsTb75IDjQgrpiXl64XaN72OnG61JwuTeh6Znaws
+	UbywihBsReSB2Cv6KHvc0Ilvzj190iA7Z4LKvaGVvHK4TcwTI1ubq7PoUblygmsx
+	FePInCAWY3PDNFqFXmoPRblTBY3vSobalZQ==
+X-ME-Sender: <xms:VyaMal0Sf4gum3Zrhe7v1_BrGLz_NA-lOvJf9_N2gcxNZVYweiJFTw>
+    <xme:VyaMar_eOP0hCl0j99HxffZKuk4nS3xyWBSad5zkoD16RHbZ9YLHVVMQJwoxDB1bp
+    8HAEeaPhpIXXpaB-hp8jGMWpnu1D4CWEOok3PF1tW-Rl5UVmuHsPYt2>
+X-ME-Received: <xmr:VyaMajN4QjrgCU6GEoEa2w3uIShxhGcUXqLX_ypGCvIccfr-W5rZxQOph2SEhKASy1bLsdBxNQ>
+X-ME-Proxy-Cause: dmFkZTEmiCd0WkfWdWqfQiCmPz7vfgcmfReIbpni7lOV+CDWG0kkA23NO/IVtO+gBTF1hE
+    sRR82hYA857JlUBXdSxvNZxNiHA7XKFBVmcM7J4iD0HWSGI2S7jdSuwkfw6MrzYiPjHrEH
+    pMdj5rmGeTwSmpfbatYhAR81nxpJ+JyZS00wEMkE9Y1pzdQgBhPU9RYhrIr82Wz9o4xzjM
+    E0EYKk8e7qzT3f6yrgtQL2hx1o7o+VLbTxjs5pwQxd2B6p1a9ApbDsaYkHnBgmaiQZjJ8G
+    p+76A7WdT4gh0IYQTmP706Q1s3Hm4vQQFgnKTsej9PiVx0Ka1yLX+NmljEW9kcNe42YVZ9
+    cF4JgRGEzVaG8b/VW3caDnB/MiNHVHcPAXS0J818xRTZV9NJCfZ16cdzNe/VvB9wt2HEPt
+    FFIatQiN0LOXMmmhJE1bpEBF6eSYxW2pRl4ICoNRrq9oRTTQy69QHfftvvFvhTgZcdZPya
+    0JE4tcIYNWZOUNoHDioIpOK9TOYMSS+t1ZEeu3JNZ1PzMoFqxSHmpjw+skmuw+dvsg6Ovd
+    un5umSAqdpYL/5EzjgzZZwNKm6/WeRipo2gmFooWbOfzT8kzMtGu9z/ycgG21n+NMC944o
+    a4BmdNvCpg5PYjSPa/h7WEPC3PKCnkpeMJ7Fe41fb0IyTMgZGfKQKei8beKQ
+X-ME-Proxy: <xmx:VyaMavC2_3ZOCTtj2GgaPw-Nv9blcBx76zZqcLO-A-sBUuU_YNLXJA>
+    <xmx:VyaMalNZBGUs3GRSH-eENCE1eccR4F4AuPtGgte9YsinDw1trL6Pww>
+    <xmx:VyaMalbgeJANa4v8WjT1Khj9RblHmN-MFSQBkmnebY3IQmCF5JEU_w>
+    <xmx:VyaMakOEnZ5eQv4wS854ZIqZk7sD3i1kYDHb5UFrKa3TR3O0bKnkHA>
+    <xmx:WSaMageWIVIYxp37zZKQ5DbfsRt4i9PLT_jgDpHX9aHdhgR8rowxPJH6>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 24 Aug 2026 07:09:04 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: tomeu@tomeuvizoso.net,
+	heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	ulfh@kernel.org,
+	p.zabel@pengutronix.de,
+	ogabbay@kernel.org,
+	zhangqing@rock-chips.com
+Cc: royalnet026@gmail.com,
+	u.kleine-koenig@baylibre.com,
+	chaoyi.chen@rock-chips.com,
+	diederik@cknow-tech.com,
+	alchark@flipper.net,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: [PATCH v9 00/13] accel/rocket: RK3576 NPU (RKNN) enablement
+Date: Mon, 24 Aug 2026 23:08:49 +1200
+Message-ID: <cover.1787568658.git.gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aowl4sQHuoooFhqS@gremlin>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260824_040918_725166_B2AAC308 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,23 +124,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 12:07:25PM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Sun, Aug 23, 2026 at 03:11:31PM +0100, Wei-Lin Chang wrote:
-> > On Fri, Aug 21, 2026 at 05:18:29PM +0100, Marc Zyngier wrote:
-> >
-> > [...]
-> >
-> > > +void kvm_destroy_nested(struct kvm *kvm)
-> > > +{
-> > > +	for (int i = 0; i < kvm->arch.nested_mmus_size; i+= S2_MMU_PER_VCPU)
-> >
-> > nit:                                                     ^ missing space
->
-> Ack will fix on respin :)
+Based on Igor Paunovic's "[PATCH v2] accel/rocket: request the core
+clocks by name", as v6 through v8 were.
 
-Sorry I have not had my coffee yet this morning :)) this is Marc's series and
-not mine... :P Disregard...
+  https://lore.kernel.org/linux-rockchip/20260729130743.128876-1-royalnet026@gmail.com/
 
---
-Cheers, Lorenzo
+Tested on a Radxa ROCK 4D, on next-20260814.
+
+This adds the RK3576 NPU to accel/rocket, which today supports RK3588
+only. The RK3576 carries two cores of the same RKNN block, wired up
+differently. Two extra convolution buffer clocks, two power domains per
+core, one reset rather than two, no NPU SRAM rail, and a PC_TASK_CON
+that packs the task number into sixteen bits rather than twelve.
+
+What changed since v8
+
+A new 3/13, and the rest is answers to the v8 thread.
+
+RK3576 did not recover from a job timeout. The block came back with
+MMU_DTE_ADDR complaining and every following inference returned the
+output zero point. rocket_reset() called pm_runtime_put_noidle(), which
+drops the usage count without starting the idle path, so the core stayed
+runtime-active, the power domain never dropped, the BIU reset the domain
+cycles on power-on never fired, and the MMU never answered again.
+
+pm_runtime_put_autosuspend() is the whole fix. Measured three runs in one
+boot on a ROCK 4D with one variable between them, each forcing a timeout
+and then running the same convolution:
+
+  put                after the timeout          the next inference
+  put_noidle         runtime-active, rail up    0 of 128, MMU_DTE_ADDR
+  put_autosuspend    suspended, rail down       128 of 128, no message
+  put_noidle again   runtime-active, rail up    0 of 128, MMU_DTE_ADDR
+
+The third run is there so the failure reads as deterministic rather than
+intermittent.
+
+Igor Paunovic ran the differential on RK3588: 45 induced resets across
+three cores, with and without 1/13 and 2/13, and the domain dropped every
+time with no MMU message on either kernel. That is what scopes this to
+RK3576. An earlier draft of 3/13 carried Reported-by on his name and that
+was wrong. He called it "your non-recovery" and said he could not
+reproduce it, and the put_noidle against put_autosuspend split was mine.
+He is on 3/13 for the RK3588 result, which is what he contributed.
+
+2/13 now masks the block before synchronize_irq(). hw_submit() arms
+INTERRUPT_MASK on every submit and only the hardirq clears it, so on an
+ordinary timeout it is still live and a completion can arrive after the
+sync returns. The next submit re-arms it. Igor Paunovic raised this and
+wrote the line.
+
+That write is guarded by pm_runtime_get_if_active(), and it needs to be.
+It is the first register access rocket_reset() has ever made, and the
+function holds no runtime PM reference of its own. The only one in the
+window belongs to in_flight_job, and the completion path can have put it
+before the timeout worker arrives. drm_sched_stop() sits in between, can
+block, and subtracts every pending job's credits, so nothing keeps the
+core resumed. A register access with the domain down takes an async
+SError on this hardware, which is the failure 6/13 and 8/13 describe from
+the power-on side. Igor asked the general form of this on v8, whether
+rocket_reset() should hold a reference, and it was deferred because
+nothing in the path touched a register. 2/13 is what makes it matter.
+
+His Tested-by on the v8 shape of that patch is deliberately not carried
+here, because this is not the patch he tested. 1/13 is unchanged and
+keeps his.
+
+11/13 includes <linux/device-id/of.h> rather than
+<linux/mod_devicetable.h>, which Uwe Kleine-Koenig asked for. The driver
+needed nothing else out of the wider header.
+
+5/13 carries a git note naming the base and the one prerequisite, so the
+dependency is in the patch rather than only in this letter, which Rob
+Herring's bot asked for. dt_binding_check is clean on all three bindings
+the series touches with dtschema 2026.6 and yamllint 1.38.0, and
+CHECK_DTBS is clean on all 13 rk3576 and all 48 rk3588 dtbs.
+
+Two things I have left alone and would rather hear about than guess at.
+8/13 does three things: it adds the settle delay, renames a macro, and
+gives RK3576_PD_NPU a regulator, which also makes every RK3576 board
+force that domain off at probe. It may want splitting. And 12/13 gives
+each core both NPU domains, which is the description that has been
+tested here rather than the topology; if it should be one domain per
+core, 5/13's minItems has to change with it.
+
+Nothing else moved. The completion path, the register field layout v7
+corrected, and the rail and reset arrangement v8 settled are all
+unchanged.
+
+Jiaxing Hu (13):
+  accel/rocket: take the completion register writes under job_lock
+  accel/rocket: wait for a running IRQ handler before resetting a core
+  accel/rocket: let the core suspend after a reset
+  accel/rocket: factor the completion tail out of the IRQ handler
+  dt-bindings: npu: rockchip: add rockchip,rk3576-rknn-core
+  dt-bindings: power: rockchip: allow resets in a power domain node
+  dt-bindings: iommu: rockchip: describe the RK3576 NPU MMU
+  pmdomain/rockchip: add optional per-domain power-on settle delay
+  pmdomain/rockchip: cycle optional power-domain resets on power-on
+  accel/rocket: select the per-core clock and reset counts from match
+    data
+  accel/rocket: add RK3576 NPU (RKNN) support
+  arm64: dts: rockchip: rk3576: add NPU (RKNN) nodes
+  arm64: dts: rockchip: rk3576-rock-4d: enable NPU
+
+ .../bindings/iommu/rockchip,iommu.yaml        |  28 +++++
+ .../npu/rockchip,rk3588-rknn-core.yaml        |  47 ++++++-
+ .../power/rockchip,power-controller.yaml      |   8 ++
+ .../boot/dts/rockchip/rk3576-rock-4d.dts      |  13 ++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi      |  82 +++++++++++-
+ drivers/accel/rocket/rocket_core.c            |  28 ++++-
+ drivers/accel/rocket/rocket_core.h            |  11 +-
+ drivers/accel/rocket/rocket_device.c          |   7 +-
+ drivers/accel/rocket/rocket_drv.c             |  28 ++++-
+ drivers/accel/rocket/rocket_drv.h             |   2 +
+ drivers/accel/rocket/rocket_job.c             | 119 ++++++++++++++----
+ drivers/pmdomain/rockchip/pm-domains.c        |  75 +++++++----
+ 12 files changed, 385 insertions(+), 63 deletions(-)
+
+
+base-commit: d589af98928d20eb39b04ecce3eecbe7ec802222
+-- 
+2.43.0
+
 
