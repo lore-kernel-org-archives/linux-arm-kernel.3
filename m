@@ -4,94 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB7FC5DF9B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E73AC5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:20:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DGVlK1rqoRCdYtqSwH3QAU+C34HZwUZucnX4J/0Qdok=; b=mTTeqp5mPWs7mcwhO2O4Ax07ob
-	RZcDAmWnEZcjg39W4uDskyk3/DvpTLtBI61NVdhgmSFvB6mFz0JLecyzd9IFMviOMhSUpVl3NbGDt
-	hSwkMu4cPrU7NcPr3XMTtOxP2JQiHyklCHmeHzyx6FtJlkALqmP/GU5R6qAEGYzAW48XPyDAquobT
-	Udt4gsWo5oLHKyB++OsD/BTmy3xIZ8Mjl7HBXVLqhGaBpF8yd6jXmk6ZjH0TdVy0pyOZHR5az16yd
-	91C6OJL819r0wV1UnSI1kd45heicK6rC9+ja/570tSMZQLeX2Ay9v9JXZBnFgD5pU5mSRmgJFlPhw
-	jo2TPDOA==;
+	bh=wMSWmiH1cJai0IaGDoQ6OFd5v1bPfnDOVCJrWuwjf80=; b=iSlglQaQyagTBUDvmzci/y4dgl
+	rApBX0u09yfthkCtDiu661XzCZAG3k44/NMM/9meoBmTvlrGLU+KJRoKdte+9UItUDQJJHRmga37s
+	BrJToOvWIDBNfE6puafcQHJnGhd+7QAdczRR0bdT8+6OKB7qcnoIi2KllFraOJsk/Emh0UIOsFZJz
+	OdE6j7RRSSq34Mih+HbJaLVgTaSQtiJqx3feL/q/AYcKivUNWPiZP5Jq1Sk5smQriu/vhWeaqoreM
+	nxlo8ibJPP+lcxn/DDQxXXbfL3VTMkpq1MpeDJq7/tvU3CLBii5fN8GM8/WqiqqgnvouQ1/MulPJg
+	nEVVTIDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWSg-0000000Gu1v-2YpJ;
-	Mon, 24 Aug 2026 15:19:46 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wyWSy-0000000GuAp-48NB;
+	Mon, 24 Aug 2026 15:20:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWSX-0000000GtwN-3QQ7
+	id 1wyWSw-0000000Gu99-2INi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 15:19:39 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-499a4d1d7f1so19371895e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 08:19:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787584776; x=1788189576; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DGVlK1rqoRCdYtqSwH3QAU+C34HZwUZucnX4J/0Qdok=;
-        b=Jo6EWcz38gvAkJxLG0jGxJCA4VEOfADB7LpD31KGldwWFWsFvi9ibAp0YaIVgiMV+X
-         JP3dnRx0jvyzCufsRxHdVOOFIf8b8qYbWVWFP3AK/JfJjTSF71fvcjfxvqBmKo5Tw7if
-         qivAYBo3KkGaLCwpmFtq3rvaqW2uSk1HUy2AU04AywLlas5riwXdcGsOSKOysf9n4W0o
-         bzXJ6YNchdkfIiHT3rvX6FTb76wATUtJjcOU/nNBcRmsTDzrA1XZ0nWAw8Ws2ZcWJCLP
-         t+7MqqWfbyOG41+/YjI7ufeulJ92hrLu1sXazkN9WhLv7NQbaPrsbZHtHpkqSGxaz2pc
-         bkrQ==
+	Mon, 24 Aug 2026 15:20:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1787584801;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wMSWmiH1cJai0IaGDoQ6OFd5v1bPfnDOVCJrWuwjf80=;
+	b=LeoM0iFDJo8NWNziD7hM78sIEYia5w7TwqxaNou21AovXxFC1Dr/xS9Qc7uDDESZYbvdMz
+	tZenoRNFbGH8OJtIblr2IYonChU2kPiXiEv6kXSNCmLEd1sQVOIBmNpnrQQdHRBH3sWr5w
+	f6Dyz2IazZiqEJaslnmTKDOL18nOEmo=
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
+ [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-126-3WM5JJEGOtqudg3OFq6aQg-1; Mon, 24 Aug 2026 11:19:59 -0400
+X-MC-Unique: 3WM5JJEGOtqudg3OFq6aQg-1
+X-Mimecast-MFC-AGG-ID: 3WM5JJEGOtqudg3OFq6aQg_1787584799
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-8f0f45415cfso35772676d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 08:19:59 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787584776; x=1788189576;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1787584799; x=1788189599;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=DGVlK1rqoRCdYtqSwH3QAU+C34HZwUZucnX4J/0Qdok=;
-        b=oJ//2q68QPN2o6Jjovduikuhh/BiQCde29B50L7hq09ERLA+53Jb2c8Ye/4sqLn5ri
-         YlOmFNgMqiH3FlysCsxCGdl2ZEml2gBZeJLUhh1gflRc1ffvdXWYdnWc6DmyX3uDcNEC
-         rGu8LSlOYn9Fjls6v/Ab725uJyIXROjl9HXD0QT+6dC9Erl2BCEM630y/hk0czndkICZ
-         INGoqEpVMfyDuuz3elpnHzEXmfU+TvXBRp1hIylSEjxqdALsPxJjP577W9V9RcBpk5p6
-         +PDjeGxtJhSbPrmCoTabBVghVcZfD0MLAA7rixbcAAQGHP6T5yyxTnt744Ci3G7cIexh
-         n2tQ==
-X-Forwarded-Encrypted: i=1; AHgh+RphwepASrQt56nk8R3l19btYa/rBMglwj0AG48LabHFYAZUTcK89OrkuFJS/0CeuwEROxNBPD6JTVYtKINHqD+i@lists.infradead.org
-X-Gm-Message-State: AFuF++k6yM2jsQHQiqNfruIqRwTmPf0pnTxrt/fZqkIShbvtnc25O2EY
-	gFQOBEexugFc2FIROQA8aLYIvxuiXaQoJLeAGx1rMMUIQKSkHn+XYrDm78bPBEFykQ==
-X-Gm-Gg: AR+sD12A/i2Uva6XNyQerDyOplaDH/Bi43L/hpvzZDt/TvAjngix6R0D2aQ2bX3rRrp
-	/NFoiCUHtv71vLsDXx4RqCs5JIyN+qAW9BaRlWe4nahNIBk9oFRrvgBqHmsMY85yVK4Y+Br8mm8
-	tdAIklyi1xryP758lKKNeb3Xy0kKBRKy3BAj5QuERizWHVx7Whzt8TPz/9Jn1XKEMvtjflJSeLm
-	eHDz2SktR72SNLqJSb4+FyHfHStW4j8jU3vrnxieHIH99/EnaB2vCnWIK6lVY9lVg1i5f4iKvtB
-	BhtopD+Ratc9xFklzEucp72OEeJLseq08d1LTd5iRm6rL7hvFEwtaFrmTi+9eOJXziGi0M/rUsd
-	RArbitdHht2upP6shuH5iqsfciq4FsbJHdF5zUCXSQR67dLsQgCZv1pVlCMf1LpV3DiG4NeJfBN
-	ZynMhAGl1Czau2U+v8AMqik0pqhXBPXPQiurhcnbYNJtKeGt47H2t04wIs1l7hEzL03fi5dE03l
-	yATcmK5nKiHITbJciaxPJnFM4t4+OQZ
-X-Received: by 2002:a05:600c:4687:b0:493:e451:a9e1 with SMTP id 5b1f17b1804b1-499b82fdac4mr337202065e9.2.1787584775321;
-        Mon, 24 Aug 2026 08:19:35 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499c7ccac8csm68380715e9.3.2026.08.24.08.19.34
+        bh=wMSWmiH1cJai0IaGDoQ6OFd5v1bPfnDOVCJrWuwjf80=;
+        b=amyJqoAt0Ig41CVZwa2XN44+5VlQ3rQp3ZUbqa9Qwtdo7TiR8z1vqwCzYVlfjlxCgz
+         LoPbq1t8gHta14hVlroBSes3oRnEgfPs6HpoFbFHYPaGoHkIM/M7BokitrBPyfcMm/Pz
+         9WE/ALWuqw4jR5vUhWLhXPXsS6Wz0zLs0UCkYj6MpfsGXd2RvDK8Di0NpHacFtlcBb9s
+         PVLBDZ58KilMsOzijc9wdbEiW/+kGOqAJAVDYKDzo8OYSDLzLiBkNCK4YHZZkSoZe/pp
+         0/eMZDJtO0nW0d62qRdq0ZF1hEVoWmyLb+QAL3YumLlMbnZrp/h2UdzVVArnrZ5K/qPf
+         7AdQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq5vWRh8nk/wgc0m1b294H+4iU62Z4NPuPx+xLBrOcNWoUUjYudqglHCqj6qzujRXSLAa5GlVbFluUUo/gjhCrd@lists.infradead.org
+X-Gm-Message-State: AFuF++laNFsU9/0DqPou3fe0Oaa/cFwyNlDjQbsQH0pdEPnvV3jyABxQ
+	dNJxS0mB/1FGw52irzmx9fDhGG2sNK+pyQ7/LZgWD3WhEjSxME9sMpfSZ/WvSGTR4fYFQGw+AxX
+	7RDucFYKESMPg3WW1VhrrznnyEo+g3IvnEtCpUe84v/YJlB6+ZRzBV6Vuz+unuNuIl3R8QqQW6x
+	y5
+X-Gm-Gg: AR+sD13oayA9FQ3WPjXHNuVQ5FubiPu3xyqpaTEXbEHnAYX3ridyaeDQCJ2CkeR+uGp
+	Uw3c4DjpCEPLZxqpMVwljI0qy7xXZCNtjoopxookq5/DUf/tDYQX4S/X4aTrrZh8pTsA7kSSDET
+	Vd+cjWuaEvYQAQh+Cysj9AUe4fb2EIXoi36W60avBIkByoJ5m6CsrTeoXKsMKpsXASWefZhCyL8
+	G1MsLgk+nEAbJ6OzmceIPXfWOfyJ2bVQUqHJ9Ub5WBkfeYXGo9eLc+/06YlhASKd500miUM2zTA
+	xIPmBQJqHJbYajuJ3HvkmZ6eDWMpF64h0VNgay6IBUCb2UlcrX/rBiPtKLYS+10BT46a+K0Lx1e
+	ll2v4AnkyPSybrsXLFR5hpxOfwlWlllyJPS8=
+X-Received: by 2002:ad4:5d4c:0:b0:908:98fa:f374 with SMTP id 6a1803df08f44-90c8094440bmr304531296d6.6.1787584798998;
+        Mon, 24 Aug 2026 08:19:58 -0700 (PDT)
+X-Received: by 2002:ad4:5d4c:0:b0:908:98fa:f374 with SMTP id 6a1803df08f44-90c8094440bmr304530556d6.6.1787584798413;
+        Mon, 24 Aug 2026 08:19:58 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-90c93931452sm64597986d6.26.2026.08.24.08.19.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 08:19:34 -0700 (PDT)
-Date: Mon, 24 Aug 2026 16:19:31 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com,
-	qperret@google.com
-Subject: Re: [PATCH v4 04/17] KVM: arm64: Add a heap allocator for the pKVM
- hyp
-Message-ID: <aoxhA91kHwy7P3re@google.com>
-References: <20260731143541.956291-1-vdonnefort@google.com>
- <20260731143541.956291-5-vdonnefort@google.com>
- <CA+EHjTw9KcKgGDgD=khN8qGPgJAe9POhu1uLby9abDbogwu5sA@mail.gmail.com>
+        Mon, 24 Aug 2026 08:19:57 -0700 (PDT)
+Date: Mon, 24 Aug 2026 11:19:56 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Eugen Hristev <ehristev@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	linux-media@vger.kernel.org, linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH 0/3] media: Make sure clk_init_data is fully initialized
+Message-ID: <aoxhHNZjrh2kUXXQ@redhat.com>
+References: <cover.1787240035.git.geert+renesas@glider.be>
 MIME-Version: 1.0
+In-Reply-To: <cover.1787240035.git.geert+renesas@glider.be>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: UBcJZzSNWHxOk3O5HRonuNY4sjwwIXgfu8GCoEcSagw_1787584799
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CA+EHjTw9KcKgGDgD=khN8qGPgJAe9POhu1uLby9abDbogwu5sA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_081937_877795_D7C187EB 
-X-CRM114-Status: GOOD (  20.15  )
+X-CRM114-CacheID: sfid-20260824_082002_662969_95E4E009 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,50 +117,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 03:22:55PM +0100, Fuad Tabba wrote:
-> Hi Vincent,
+On Fri, Aug 21, 2026 at 12:04:27PM +0200, Geert Uytterhoeven wrote:
+> 	Hi all,
 > 
-> On Fri, 31 Jul 2026 at 15:36, 'Vincent Donnefort' via kernel-team
-> <kernel-team@android.com> wrote:
-> ...
-> > +static int hyp_allocator_destroy_chunk(struct hyp_allocator *allocator,
-> > +                                      struct chunk_hdr *prev,
-> > +                                      struct chunk_hdr *chunk)
-> > +{
-> > +       struct chunk_hdr *next;
-> > +
-> > +       next = prev ? chunk_get_next(chunk) : NULL;
-> > +       if (!hyp_allocator_can_destroy_chunk(allocator, prev, next, chunk))
-> > +               return -EINVAL;
-> > +
-> > +       /* Last chunk in the allocator */
-> > +       if (!prev) {
-> > +               allocator->first_unmapped = chunk_unmapped(chunk);
-> > +               allocator->head = allocator->tail = NULL;
-> > +               return 0;
-> > +       }
+> The clk_init_data structure contains several mutually-exclusive members
+> for different methods to specify the possible parents of a clock,
+> prompting drivers to initialize only the members they need.  However,
+> not initializing all members may cause subtle issues, which are only
+> exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
+> enabled.
 > 
-> hyp_allocator_destroy_chunk() has only two callers, both in
-> hyp_allocator_free(), and both pass a non-NULL prev. So this !prev
-> branch cannot be reached, and nor can the matching "if (!prev) return
-> true;" in hyp_allocator_can_destroy_chunk() or the false arm of "next
-> = prev ? chunk_get_next(chunk) : NULL".
+> Hence this series aims to make sure all members are fully initialized,
+> to avoid such bugs, and to prevent future breakage when converting
+> drivers to a different method for specifying the parents.
 > 
-> The empty-allocator reset it looks like it is handling already happens
-> in hyp_allocator_reclaim_chunk(), in the addr == allocator->start
-> case. Could these be dropped?
+> Part One[1] fixed all cases that I identified to be real bugs, in
+> response to a crash I saw on BeagleBone Black.
+> 
+> This series is the media subpart of Part Two, which fixes remaining
+> cases that are currently harmless.  These are still fragile, and may
+> cause future breakage when converting drivers to a different method for
+> specifying the parents.
+> 
+> Thanks for your comments!
 
-Ha yes, correct, that's leftover of the Android version. I can then remove that
-allocator argument in hyp_allocator_can_destroy_chunk().
+For the series:
 
-> 
-> With that:
-> 
-> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-> 
-> Cheers,
-> /fuad
-> 
-> To unsubscribe from this group and stop receiving emails from it, send an email to kernel-team+unsubscribe@android.com.
-> 
+Reviewed-by: Brian Masney <bmasney@redhat.com>
+
 
