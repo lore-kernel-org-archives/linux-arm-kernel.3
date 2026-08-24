@@ -4,47 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F68C5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 12:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7614C61CE3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 12:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qQvLeJqvaSKGAjRKWWzrEIrvz+PY52tPM09VH4yW1IM=; b=df++KQrwn1ywIdVYmmAhxpiD2k
-	FL1PN3AAogpbZG7YQDEe3RNN/W9P++IpQyDlgFVRMzl9hYUEPi+IfsdNEmcP7mLyMnrlmG8r1yGUl
-	kSEOZkAt5H1/Zs3k/E0rcHBGW0jDpAZDNLQbKDcNCPm9MMcv2lRnquM9jWpDa67Ug1eF31Xsbj8cP
-	vNu7xKWTaA2ekXwZu+XeKUYExSL0q/wRLaDhvnbC4ejo/+XU8YGA8X4uc9IMLyqDuZaArVEsqB0rR
-	/kQNKvQTjwk+dI8xS0iC/V4FIOSB7Ooslk6naUeW+VveJpSpGQelXYdj9RSdYabBkVV5sW2bpY6d5
-	xo52sn5w==;
+	bh=nBNm64Do0yMi6eg+lktNipkmpIXwtijB3dY2IOtN9Kg=; b=jEX1k9o1CvzYfWJXATzxgyvurs
+	FZKOdRSG7Zd/6uS4FanNoeaQNhKk6y5Aw2wzkFAdmBJqu+N6EvpX6fKa+VtqbNMjTkub1L1t8lZVR
+	A1m/SCKvGBPVU8WdcjxN77XJLeAycRh8o6E7NObjiq0eMrI/pkbuf4w/ED8S4mh3fgzVgxvO1a0Kz
+	sLjSkD+rR2kFvmM+vcmaMD1vcOUBEM7XKLojtt1sJ8BUO3Xtaw6+IJZXBcPpS+4B5VrwJ82etq3Ys
+	SvhHghLD3AbSFTot5Ma6Thf4bhIo/oRF3N5I4wm5w4jchi/yVKvgmWGUwtyq3UlbvqUVP/9zT0jfq
+	89t6hegQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyUA4-0000000GdBF-04hy;
-	Mon, 24 Aug 2026 12:52:24 +0000
+	id 1wyUAO-0000000GdJj-1lH4;
+	Mon, 24 Aug 2026 12:52:44 +0000
 Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyUA1-0000000GdAa-3ddN
+	id 1wyUAJ-0000000GdGQ-28OJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 12:52:23 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	Mon, 24 Aug 2026 12:52:41 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 98D7D86833;
-	Mon, 24 Aug 2026 12:52:11 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id B7B2E86823;
+	Mon, 24 Aug 2026 12:52:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1787575930; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nBNm64Do0yMi6eg+lktNipkmpIXwtijB3dY2IOtN9Kg=;
+	b=o94tW+dS1XyV818RG7hX2fE0xNtuyNTS7rGx6jkSG1x1RxGzbD6xkxquSZFd7VfCT1Bkag
+	5RLmH5XohflnKv8A3TNtagfRbI8iFtJaO300RahK1ddmTa4yCB0JusHSmRz291BbqxUXLz
+	mKTFSsEpEC3gzJrcwuGPG1iDoPHiHbo=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1787575930;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nBNm64Do0yMi6eg+lktNipkmpIXwtijB3dY2IOtN9Kg=;
+	b=x1GwUmd54pcBD1kzhHqE+7Xyvz4Y2yjrBkk/6BLz9ZXaSqY4i2TN2kwy8BU+d708NDKRuk
+	abpZ+QJBZHgFmKAw==
 Authentication-Results: smtp-out1.suse.de;
 	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1787575926; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nBNm64Do0yMi6eg+lktNipkmpIXwtijB3dY2IOtN9Kg=;
+	b=vYjkh/rrdb092WXxmm3APEe+u8e91ejm0wyq685FYAt0bQqjhT4sb87UuLd6rmEYyigkvr
+	kcVrww68Vcbz3wi37CSF2yRHK7Cuu8HKQ6wBVzVm8fpkbuPyUkBPp4utFyw/3/58Nr68fg
+	m0BemhHw/D8H/XsPFIYJwCarkK0t7RA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1787575926;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nBNm64Do0yMi6eg+lktNipkmpIXwtijB3dY2IOtN9Kg=;
+	b=m6d6k4ZRT7y2gDom701TpE7liTcsQCL2yNDvLod9kpod2abp/fUg9UQH8zobQ54RU6JQZZ
+	SEmoLlioPV5GKzBw==
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 76CE81340F;
-	Mon, 24 Aug 2026 12:52:10 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 3B2771333B;
+	Mon, 24 Aug 2026 12:52:06 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id YNnDG3o+jGpyNwAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Mon, 24 Aug 2026 12:52:10 +0000
+	id OJxLDXY+jGpyNwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Mon, 24 Aug 2026 12:52:06 +0000
 From: Thomas Zimmermann <tzimmermann@suse.de>
 To: jfalempe@redhat.com,
 	javierm@redhat.com,
@@ -67,29 +103,42 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-renesas-soc@vger.kernel.org,
 	virtualization@lists.linux.dev,
 	sashiko-reviews@lists.linux.dev,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v2 09/13] drm/panic: Restrict to primary planes; unconditionally unregister
-Date: Mon, 24 Aug 2026 14:43:40 +0200
-Message-ID: <20260824125201.218863-10-tzimmermann@suse.de>
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	stable@vger.kernel.org
+Subject: [PATCH v2 01/13] drm/panic: Do not use un-escaped URL as format string
+Date: Mon, 24 Aug 2026 14:43:32 +0200
+Message-ID: <20260824125201.218863-2-tzimmermann@suse.de>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260824125201.218863-1-tzimmermann@suse.de>
 References: <20260824125201.218863-1-tzimmermann@suse.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[]
-X-Rspamd-Queue-Id: 98D7D86833
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+X-Spamd-Result: default: False [-6.80 / 50.00];
+	REPLY(-4.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_HAS_DN(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[23];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FREEMAIL_TO(0.00)[redhat.com,gmail.com,ffwll.ch,linux.intel.com,kernel.org,linux-m68k.org,infradead.org];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo];
+	FROM_EQ_ENVFROM(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RCVD_TLS_ALL(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLqirfcw6gnbcr9a9yhi49fhi6)];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_055222_078152_7BEDEE45 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20260824_055239_830618_70BD00C3 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,46 +153,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Restrict panic handling to primary displays. Overlays and cursors
-should not display panic output. If there are exceptions, they can
-be registered by the driver itself.
+Replace the direct use of DRM_PANIC_SCREEN_QR_CODE_URL in snprintf()
+with a %s conversion specifier. Avoids a possible vulnerabilty from
+a crafted URL string.
 
-For cleanup, unregister each plane unconditionally. The kmsg dumper
-already keeps track of the registration status so DRM doesn't have
-to.
+As the attacker needs to control the kernel at the Kconfig level, the
+potential for an exploit is likely low.
 
 Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Reviewed-by: Jocelyn Falempe <jfalempe@redhat.com>
+Fixes: cb5164ac43d0 ("drm/panic: Add a QR code panic screen")
+Cc: Javier Martinez Canillas <javierm@redhat.com>
+Cc: Jocelyn Falempe <jfalempe@redhat.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: <stable@vger.kernel.org> # v6.12+
 ---
- drivers/gpu/drm/drm_panic.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/drm_panic.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/drm_panic.c b/drivers/gpu/drm/drm_panic.c
-index 2048a3bf736f..7dbbcc1c219f 100644
+index e576c4791861..ba21df4be338 100644
 --- a/drivers/gpu/drm/drm_panic.c
 +++ b/drivers/gpu/drm/drm_panic.c
-@@ -1079,6 +1079,8 @@ void drm_panic_register(struct drm_device *dev)
- 		return;
+@@ -658,7 +658,8 @@ static int drm_panic_get_qr_code_url(u8 **qr_image)
+ 	char *kmsg;
+ 	int max_qr_data_size, url_len;
  
- 	drm_for_each_plane(plane, dev) {
-+		if (plane->type != DRM_PLANE_TYPE_PRIMARY)
-+			continue;
- 		if (!plane->helper_private || !plane->helper_private->get_scanout_buffer)
- 			continue;
- 		plane->kmsg_panic.dump = drm_panic;
-@@ -1105,11 +1107,8 @@ void drm_panic_unregister(struct drm_device *dev)
- 	if (!dev->mode_config.num_total_plane)
- 		return;
+-	url_len = snprintf(url, sizeof(url), CONFIG_DRM_PANIC_SCREEN_QR_CODE_URL "?a=%s&v=%s&z=",
++	url_len = snprintf(url, sizeof(url), "%s?a=%s&v=%s&z=",
++			   CONFIG_DRM_PANIC_SCREEN_QR_CODE_URL,
+ 			   utsname()->machine, utsname()->release);
  
--	drm_for_each_plane(plane, dev) {
--		if (!plane->helper_private || !plane->helper_private->get_scanout_buffer)
--			continue;
-+	drm_for_each_plane(plane, dev)
- 		kmsg_dump_unregister(&plane->kmsg_panic);
--	}
- }
- 
- /**
+ 	max_qr_data_size = drm_panic_qr_max_data_size(panic_qr_version, url_len);
 -- 
 2.55.0
 
