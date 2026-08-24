@@ -4,104 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E41E4C61CE3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22F82C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/goNprm3vb+vqF+2+ZaUSBOvzdh+ZGsOcB6bvYFMahs=; b=f8DHkq2mwPp+EyMgt8UQTHiW2J
-	vBhKmT5gwFQIeKH/EDbSHZEYdtaEw8NViZf+1jzzI1hEAwGmylv00oO+BB8vsFCY3ZaISitbWZbDq
-	WhoLGy7+TJVjPzqLmuAidydfxuAW6aEe97K+8V/++sXsn5iFbPTyJhzxYATGyiA2c8awWUjlnUPHl
-	pLm2q6zom9UT9XEPkGW8BhkxfdygA+fJnxrEyKVTXrUNLnyjqKfDKHDAnW78vOSJM0QYI/jitKt12
-	ejGBibXlWgKMrAeWhCzNhWXLoB6qcpJ5RsgDMcsAw069yUair4nF9Lhk/sJqyI9AB+O2vUUgjxfht
-	XrHiuM5w==;
+	bh=HpPhACJ/E+7XpzP2QlMsFbTZFZkYuiCZLkbADyHIXK4=; b=Da6Z7Pi+RLZiB1HkOqeztptznd
+	pyKHSDQ55Vseq6ntrm+P0VuwlSuCU8UoVSDj3kWbr/bOtex9W9HIRhDhVJSz1oTR6d73T94Xfd3Jp
+	NXuYwjJwj7hxxdRTREtajIL368i9NUj4T73LJqf5aNiqDGGr4CecLcE5rpiG6EKaD9PruVzg/THeI
+	3ZDwfrqWgFKY6qGrKydljGcCrUfs85Mtx/1luzn0BiUPqDJc6JC5itfdiBNrJPC53VKqrbrgI1axd
+	o/Wbf8MTH+A6FL3pvzO4V/XRYFUFg/2LhQpVSfJEVLRRRISOvzK7nP8O+RXtkqT4YolUGkxk9CpBl
+	8dHuAQIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWcK-0000000Gvhk-3784;
-	Mon, 24 Aug 2026 15:29:44 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWcH-0000000Gvg0-0Qgp
+	id 1wyWfm-0000000Gw2p-1dvg;
+	Mon, 24 Aug 2026 15:33:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wyWfi-0000000Gw2E-1OIz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 15:29:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1787585380;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/goNprm3vb+vqF+2+ZaUSBOvzdh+ZGsOcB6bvYFMahs=;
-	b=dWHpnMI9KLnxCUbUwoz/Qb/oJXKZzWvjL60pzC6v2rIE0fLTeU087rD+KNHjZip6Yuz6/i
-	r+tXrumCl7ZHRYiQUDx0eSyaa/R3OEC5tBnAM5Efl3G+bX+DOxnwWD/J5dT56nAZ0iw4by
-	WXKvc1gLtQrQeWfAgqQjUEyHNr58+1s=
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com
- [209.85.160.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-516-BMIB-JyKPHyCJgocy8pGGA-1; Mon, 24 Aug 2026 11:29:38 -0400
-X-MC-Unique: BMIB-JyKPHyCJgocy8pGGA-1
-X-Mimecast-MFC-AGG-ID: BMIB-JyKPHyCJgocy8pGGA_1787585378
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-52dd69b00cfso45438001cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 08:29:38 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787585378; x=1788190178;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/goNprm3vb+vqF+2+ZaUSBOvzdh+ZGsOcB6bvYFMahs=;
-        b=itz7rwblRvV6rIbSx1jS9611+3HF6aqqd1yvAaMTPSqv4fNew/3/3Ut3PG7ZlJa0Vh
-         IAVXBO8PiKJ7xJlxxpagkAOzp6GroqLrryzp/90csAnt380yoELnljinMrXvDZKIfbm9
-         G8Zl2yehO7RAMrO1FvUttBtgYqNIH24k78TAee4Xzo5cvzahjeHSk9Xq8lUMO295JAXP
-         iyxrYHhY1D++QOkbDK9CccUQngJeBg/1pp1ZbfnXqEzhRkAYYxLN6kOrvUdhygYT8O+V
-         cQmSB6Gp3KkegksV5Bw7XGUk7NWVT0EJsjT8pK9REl0Vj15t4TI6xskEb+enatdcMm4o
-         rPQA==
-X-Forwarded-Encrypted: i=1; AHgh+RqFHiyCDSdb9KVXnuZUQmRErZxgwoad/Lr2zvdJ2EZtTmDG3p2n2N9ODGt+llH8UEWUBXpdGoMknYLUjhKWopWQ@lists.infradead.org
-X-Gm-Message-State: AFuF++kMj5f7CMv6H5o59O3syInfO7dxks1L1CihNMEcKCr8AS8ipYc/
-	VYiUFYAWRS67Cz3b8GE//oFc6O0vn3Q6eY53zETHoUfkDJkS0EjZf+NGqKrRFdTo2qPMiFz3x9r
-	gwAuHLdmoMRTbXT2XueXxArUHj8ohg4YsFgpiHPiD9NvwB/RD9rt7Xuu9PpgqfMrUgyU9Il+2fQ
-	OJJmoyuFCNf/g=
-X-Gm-Gg: AR+sD11g44UKI0WojORnBi8R27WhKaM7bQU3zhc7VGoKJZcpYNsj0CaGaxVxeBODWSr
-	YQ4VRilini+QVrkWNe38IZwWzRTu7q5Dyr/6Ntc+TyCpNKxGp7EjyPLwyP0gDs6E1yeRhuQbuNS
-	hMvNoTLpJWKpJjIuC/Xtm7qtGFDLbw6kuclVpX0QtMvQ7CYE07a4jflMdCwCdogv6CXfxXCQqHP
-	D88Qo4NeCsNg7RcOQJcnYorhr1TUBKt0uZmXQfq+pVDNC9wNrJWW6cFzBejIrKUFbj4kP11iBpA
-	IYfKDbemj8eYozKkQnfTq3b91R2yKyTAPJ245cyhwsUP/7NmRpgaO+daHprMvewURugQw9Y2m/1
-	lgkzkRc7lIT/NbZuD6rx1C6aoIqfzk0XExb0=
-X-Received: by 2002:a05:6214:212d:b0:8c4:edb4:a44a with SMTP id 6a1803df08f44-90c80f9357fmr293301076d6.23.1787585377975;
-        Mon, 24 Aug 2026 08:29:37 -0700 (PDT)
-X-Received: by 2002:a05:6214:212d:b0:8c4:edb4:a44a with SMTP id 6a1803df08f44-90c80f9357fmr293300306d6.23.1787585377513;
-        Mon, 24 Aug 2026 08:29:37 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-90c936183d0sm65105676d6.22.2026.08.24.08.29.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 08:29:36 -0700 (PDT)
-Date: Mon, 24 Aug 2026 11:29:35 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Lucas Tanure <tanure@linux.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>, Jian Hu <jian.hu@amlogic.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC] clk: meson: t7: Intermittent boot instability and memory
- corruption on VIM4
-Message-ID: <aoxjX3HabY0brgXk@redhat.com>
-References: <3930906f-783b-4d72-9260-ba25cc8081cb@linux.com>
+	Mon, 24 Aug 2026 15:33:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7723C1756;
+	Mon, 24 Aug 2026 08:33:09 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C2E753F7D8;
+	Mon, 24 Aug 2026 08:33:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787585593; bh=GbLBNOdNjgQai/PHZoJkCa1ZnvdKrjzzqeispktifLc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NiNQ7Rd70L0XzIuxmFTQiwO5A/RjIThmPUxIourbxsZQi3qgmFZMUZ5N44Y9XIBXi
+	 lONRS5Od8pOIi6qDyRrQ5SqcNumEBXdFG9UEEH1AgKkEKg3AC48DVb3YXEyBX4HaRC
+	 tCYqwEs89BHsflcwq9AfGQYs0333A+WfjS78Ond0=
+Date: Mon, 24 Aug 2026 16:33:09 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: Defer the GMID_EL1 read to
+ {init,update}_cpu_features()
+Message-ID: <aoxkNQGmtvr-iV6k@arm.com>
+References: <20260824071004.504894-1-fuad.tabba@linux.dev>
+ <aoxCk5lFQv6lFwHQ@willie-the-truck>
+ <CA+EHjTy6Xh=eNg22fBdjPzZOZitzvcDX2L5zbSUFCsX1n6XobQ@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <3930906f-783b-4d72-9260-ba25cc8081cb@linux.com>
-User-Agent: Mutt/2.4.0 (2026-06-19)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: -rKAXJCUV_VwpMg2_J-iQlFSISgOM9ddGrY8v5le3e4_1787585378
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <CA+EHjTy6Xh=eNg22fBdjPzZOZitzvcDX2L5zbSUFCsX1n6XobQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_082941_280857_B405F5DB 
-X-CRM114-Status: GOOD (  17.71  )
+X-CRM114-CacheID: sfid-20260824_083314_453301_062B2A05 
+X-CRM114-Status: GOOD (  28.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,62 +75,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lucas,
-
-On Sun, Aug 23, 2026 at 04:40:42PM +0100, Lucas Tanure wrote:
-> While testing mainline Linux on the Khadas VIM4 (Amlogic A311D2 / T7), I am
-> hitting intermittent system instability, storage loss, and memory corruption
-> during boot, unless I append clk_ignore_unused to the kernel command line.
+On Mon, Aug 24, 2026 at 04:14:41PM +0100, Fuad Tabba wrote:
+> Hi Will,
 > 
-> Because the failure is intermittent, I am running 100-reboot test campaigns
-> to bisect the remaining clocks and isolate which clocks are critical and
-> cannot be safely disabled.
+> On Mon, 24 Aug 2026 at 14:09, Will Deacon <will@kernel.org> wrote:
 > 
-> As testing takes significant time over serial console, I wanted to check if
-> Amlogic or the maintainers could shed light on this:
+> > > +     /*
+> > > +      * info->reg_gmid deferred to {init,update}_cpu_features because
+> > > +      * reading it traps to EL2 when MTE is disabled.
+> > > +      */
+> >
+> > I don't think we should defer this, as I've been actively doing the
+> > opposite for parallel CPU onlining (where the ID registers can be read
+> > concurrently by incoming CPUs to amortise the cost of a trap) and also
+> > for the RNG traps during early boot:
+> >
+> > https://lore.kernel.org/all/annJ0oDB2HObQC5j@willie-the-truck/
+> >
+> > If you look at the diff I sent in the thread above (I didn't get a
+> > reply), the idea is that __read_sysreg_by_encoding() reads from the ID
+> > register values stashed by cpuinfo_store_cpu(). So you could use that
+> > to check id_aa64pfr1 before reading gmid, as it will give you the
+> > sanitised view.
 > 
-> Are there specific T7 clocks or hardware domains that must remain
-> critical/protected even without an explicit in-kernel consumer?
+> I just did, but I don't think it'll work. The thing is,
+> __read_sysreg_by_encoding() gives the override-applied local value,
+> not the folded sys_val.
 > 
-> Current clocks being disabled that don't kill the board on a test run:
+> arm64.nomte is a command-line override, so that works. But
+> CONFIG_ARM64_MTE=n sets none. Any gate would still need an explicit
+> IS_ENABLED(CONFIG_ARM64_MTE).
+
+We need to revive this series:
+
+https://lore.kernel.org/all/20260302115653.1517326-1-maz@kernel.org/
+
+I don't remember where we left it but in principle config off or
+override should look similar to the kernel.
+
+There's also the override making an absent feature present. Suzuki has
+attempted to fix this in a reply:
+
+https://lore.kernel.org/all/afc5bd00-28ca-413b-b047-ee53589c285d@arm.com/
+
+> That said, I don't have to defer it. I can keep the info->reg_gmid
+> read in __cpuinfo_store_cpu() and gate that read on the state that
+> arms the trap:
 > 
-> [    0.380313] clk: Disabling unused clocks
-> [    0.380413] clk: Disabled unused clock: rtc_dualdiv
-> [    0.380718] clk: Disabled unused clock: rtc_duandiv_in
-> [    0.381377] clk: Unprepared unused clock: a73_div16
-> [    0.381972] clk: Unprepared unused clock: cpu_div16
-> [    0.382605] clk: Unprepared unused clock: f50m
-> [    0.383174] clk: Unprepared unused clock: fixed_pll_dco
-> [    0.383786] clk: Unprepared unused clock: hdmi_pll_osc
-> [    0.384416] clk: Unprepared unused clock: sys1_pll_osc
-> [    0.385056] clk: Unprepared unused clock: earc_osc
-> [    0.385652] clk: Unprepared unused clock: pcie_refclk_osc
-> [    0.386323] clk: Unprepared unused clock: eth_pll_osc
-> [    0.386961] clk: Unprepared unused clock: pcie_osc
-> [    0.387548] clk: Unprepared unused clock: mclk_pll_osc
-> [    0.388187] clk: Unprepared unused clock: usb_pll1_osc
-> [    0.388826] clk: Unprepared unused clock: usb_pll0_osc
-> [    0.389465] clk: Unprepared unused clock: tcon_pll_osc
-> [    0.390105] clk: Unprepared unused clock: top_pll_osc
-> [    0.390738] clk: Unprepared unused clock: aud_pll_osc
-> [    0.391361] clk: Unprepared unused clock: ddr_pll_osc
+>         static inline bool gmid_el1_accessible(u64 pfr1)
+>         {
+>                 if (!IS_ENABLED(CONFIG_ARM64_MTE))
+>                         return false;
+>                 if (system_capabilities_finalized())
+>                         return system_supports_mte();
+>                 return id_aa64pfr1_mte(pfr1);
+>         }
 > 
-> I am not forcing any clock to be disabled; I am forcing all clocks to stay
-> on and letting them be disabled if unused one by one.
 > 
-> Any guidance or hints on required platform clocks would be greatly
-> appreciated.
+> TID5 is set from system_supports_mte() and only once capabilities are
+> finalised, so the local check is still correct before that. Gating on
+> system_supports_mte() keeps the different-physical-CPU case you want
+> to preserve working: if one re-onlines with MTE while the system view
+> has it folded off, the gate stays false and it won't read GMID_EL1.
 
-I have an outstanding series that disables unused clocks via the
-sync_state callback:
+I think this would be the easiest to backport and we can look at
+reworking this infrastructure in the future (Will's proposal, Marc's
+override fixes etc.)
 
-https://lore.kernel.org/linux-clk/20260626-clk-sync-state-v1-0-4156d8196dc8@redhat.com/
-
-Be sure to not have clk_ignore_unused in your kernel command line.
-
-I suggest comparing the list of which clocks are disabled with that
-series against your list of clocks above.
-
-Brian
-
+-- 
+Catalin
 
