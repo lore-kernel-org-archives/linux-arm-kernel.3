@@ -4,61 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A9FEC5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 12:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598C8C5DF9B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 12:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bCcgY3lLh6ue860a/zVapP8m6zMDu6P19pQqsgn1ByA=; b=m2u1WtUZnWN+4Pfd8Uh/iAN03c
-	nye5WSMEjIbRpPEMiaRzH7SqOI2V32uQcdDUjVGoyZSdSDKpQ7ve2XDjB9lE/u7wsERzUzzN0X+aM
-	bMxDn5aqpTA4w/rwbL6yCL0aA5lMSylKHpnh4wU7xCVf/vP7Xv8P2ugEIkyUYLW2KvLCSW5gJ2hwx
-	K8JjWDG5zKYinY3033Bdc6SIGX3YugVb3eb3XCqjHRLHBih7aikOJygeKdo4o5FT3QKU7tv8LsbA6
-	MO9cOFH2D+BVSjmHmRfnINwct29xM2j+m+G4bTWHhutgKw3BucJOG/hRylAIP+nDLrSNuqaRomPJE
-	3UEGMLnQ==;
+	bh=LYsstLUHA4+O8kBjsO8+8kq4A2q37DKWSh7yXTB84NU=; b=YRmBFvnWoUmbAnqPJWGbD6QrVj
+	fy5WjD+fHaX89pQBOanOI1R2DGLQr9xYaB9mfgMoViDCe0/uQLwk1IE3NEP7ErysLKHNeM75Dm9S/
+	UXDQokWJfGC8V/k2iDajatRocCplo8sNw2XMKxEHH5NWVgfzC2l1YaFWQOi3VVOZyb8RLuaUXljku
+	Tyu35941pL8GK2tZEwdCNyGu4xix9mnvZxTGTe9msXp0Z9UQQ+D3pmdtuJrjG5YCgZYgfpRjvXj0O
+	EsLrklofdvidU3VH99pCKHqfnWZXcnFjiGgNJSTyEwaQnjgoigdhcZC63ejTRBHVZxRObyzH3wfFR
+	CC2LgojA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyTjW-0000000GbKD-0oVu;
-	Mon, 24 Aug 2026 12:24:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyTjT-0000000GbJm-1nZM
+	id 1wyTs5-0000000Gc6P-0JjP;
+	Mon, 24 Aug 2026 12:33:49 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wyTs1-0000000Gc5t-3xEe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 12:24:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1AF21570;
-	Mon, 24 Aug 2026 05:24:48 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BCF303F85F;
-	Mon, 24 Aug 2026 05:24:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787574292; bh=y57nrII56IaKQCTkiVNkBmQs5pkbLltNP8lUNCbyO6U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jym1L6H92LJ/ZEJ0f6m2PDeg5wOYnfGAe7lasGu2UlAEFzUhhpJ4ysD5Ged73UoCs
-	 AYvCSuS7g1mUxW7/HmqK0QL62fCiICEFeVuQaaQKPDeKC/BMFOrAdDQPY7Ibc7CUpg
-	 CNfIOWekQZ3G0R36KR+1NQ62WmegcqwE3HAhed30=
-Date: Mon, 24 Aug 2026 13:24:47 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v2] arm64: Defer the GMID_EL1 read to
- {init,update}_cpu_features()
-Message-ID: <aow4D2g2nZNwN285@arm.com>
-References: <20260824071004.504894-1-fuad.tabba@linux.dev>
+	Mon, 24 Aug 2026 12:33:47 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-69c600f76ccso5703947a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 05:33:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ffroot-co-za.20251104.gappssmtp.com; s=20251104; t=1787574823; x=1788179623; darn=lists.infradead.org;
+        h=content-type:mime-version:message-id:date:user-agent:references
+         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=LYsstLUHA4+O8kBjsO8+8kq4A2q37DKWSh7yXTB84NU=;
+        b=qHKj2b947M0g9b/BRq7C/YPlrNlJy3gvK2xW5I8YP/7xhCXe9YZhG5BbvOue7ddquD
+         Xs611c6tGT+16ghVQZUHVHYME/IVbn3AjYN98H3rzzV9OmUQfPa9pfQNsvVhLR3uLnIB
+         bKeWq4PD2lm0TO1fwhxAhNzpk/lQmmwIK7cMJNx5Qn//+U3Y2ByZL/xwzuliiqMmU2A+
+         l34rCCifmn+5ui4KzC/UfI5Oh9k/ECaHq19TQwpRZ7aKzEr7zzCSs4qI+NJNdyDoVItH
+         ig1RbCaliDEn5/Qequysttu7C6Kr7+7PbzIpii0ZaCICln3pboPtwDioMLMuuv8g6Y1h
+         9m+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787574823; x=1788179623;
+        h=content-type:mime-version:message-id:date:user-agent:references
+         :in-reply-to:subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=LYsstLUHA4+O8kBjsO8+8kq4A2q37DKWSh7yXTB84NU=;
+        b=eq2Y57v8DK1GvoAwZw+90p3fI946twPAZdoKqz0AWj/hKchgkpQyDBhzUAP7m0o/d/
+         mPW/IzL9FI91Y6122gQHeOd/vnp0DHy4/FTxsrYdAt+IUT9Amy2GKdF4mJwI7ft06Fd9
+         jWKOtFuQYXh55y1V2GRwOVaqDuRn8V7Fzi8f0hhwPj4YWxfFRmfIK3pfHSG6YBvK5HfF
+         W6IQ+GqT2c/GwP/eQoDCkUf+Pig9U6qymjNZOs7JhjgcuW6HDQvbe7p/zRWV8WY0gUHY
+         /a1CruAOW3QJ4GKCUFp9qszRoG9aIlyQ2VJfAIpRl6mhNNIiKO5I/PWe349Yuu8jV0t2
+         iezg==
+X-Forwarded-Encrypted: i=1; AHgh+RoiSgzEuVSAALl2+7ou2uVAg1cd+nhPwhPKGg+oglPLxBYhmgTNVRMFcL0a4rknw66Cd5MssS4vKdoQBJejts5e@lists.infradead.org
+X-Gm-Message-State: AFuF++nhEGNlrZv6ysJipn3TY4N5d1lybNvwXB31bfKbudF9Cu08ZR7u
+	QOWEz4LACCMB/is6NQEehsZPwD4JqnOQdQDUO54tDkYY6r/fxfZS52m2wiilgq4BZlVMn4NKQaK
+	hjAv8eNA=
+X-Gm-Gg: AR+sD10+wSw1dPcBMtBZg8qKUr9ybmCIdVcb7FDJtlvN+z9rijnXT82M18Jx2doQS5K
+	eKqnPwB03eVQDyZJv4tIKTcVN/APag5hdbi0K8t70ZCmkHnu4D3sP8nDM5IVFvbl190I5jaDMZe
+	HxFRU3W1/oc1SPIUomd8kIRKU8Ki3FWrYUqpb3zJgOC+2Ia7qPig+rzfTz9JpcPibQOKvY5XqkK
+	Y3kN8ixdQcmOpRaDp3eALRx5o2LQCe+7of6SiTBI+4gZZrI/ykhhQfpNH2p4KJGAGqe3OD2ppFM
+	nbiX6+54HHV444/MfJXlWkADtDkFMklJ7B2gOPjZoFrClBEk8J3xlhGRxn/I3hIxZX+OM1M8aq5
+	8m+IKJLJnHFn6c9GMfaTYtslEIYry0ewrXSB3jPQhP3R5tHQr1ZCHdYUyMOo+2r9900qLHCksYH
+	s52fTFinWDeJmSeCKalMwKBRkMibtWLxF+WV5FqSdXo2Uze9nAIG/M9r3kUG7kzO4VChoN3OAjX
+	/fbZtBQUYLOz43m
+X-Received: by 2002:a05:6402:24c8:b0:6a1:4458:7f2d with SMTP id 4fb4d7f45d1cf-6a42f172088mr22058897a12.5.1787574822559;
+        Mon, 24 Aug 2026 05:33:42 -0700 (PDT)
+Received: from dev-ag ([102.33.165.38])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a59e1d741asm8342424a12.27.2026.08.24.05.33.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Aug 2026 05:33:41 -0700 (PDT)
+From: Andrew Gaylard <ag@ffroot.co.za>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org,  wellslutw@gmail.com,  andrew+netdev@lunn.ch,
+  davem@davemloft.net,  edumazet@google.com,  pabeni@redhat.com,
+  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] net: sunplus: fix tx_poll spin_lock missing irqsave in
+ NAPI context
+In-Reply-To: <20260822135103.6711ba25@kernel.org> (Jakub Kicinski's message of
+	"Sat, 22 Aug 2026 13:51:03 -0700")
+References: <20260820130159.1584806-1-ag@ffroot.co.za>
+	<20260822135103.6711ba25@kernel.org>
+User-Agent: mu4e 1.12.14; emacs 30.2
+Date: Mon, 24 Aug 2026 14:33:36 +0200
+Message-ID: <sa67blfpujj.fsf@dev-ag>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260824071004.504894-1-fuad.tabba@linux.dev>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_052455_528355_8E47A8EE 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20260824_053346_121340_8B5E3591 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,48 +104,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 08:10:04AM +0100, Fuad Tabba wrote:
-> diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-> index d50e2a9b066b3..c8967f185e3dd 100644
-> --- a/arch/arm64/kernel/cpuinfo.c
-> +++ b/arch/arm64/kernel/cpuinfo.c
-> @@ -502,12 +502,14 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
->  	info->reg_id_aa64smfr0 = read_cpuid(ID_AA64SMFR0_EL1);
->  	info->reg_id_aa64fpfr0 = read_cpuid(ID_AA64FPFR0_EL1);
->  
-> -	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
-> -		info->reg_gmid = read_cpuid(GMID_EL1);
-> -
->  	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
->  		__cpuinfo_store_cpu_32bit(&info->aarch32);
->  
-> +	/*
-> +	 * info->reg_gmid deferred to {init,update}_cpu_features because
-> +	 * reading it traps to EL2 when MTE is disabled.
-> +	 */
+Jakub Kicinski <kuba@kernel.org> writes:
 
-The only nit I have is that cpu_data[0] now won't have the GMID_EL1 set.
-It doesn't matter as we don't expose it via c_show() or sysfs, rather
-for consistency. We have this inconsistency already with mpamidr.
+> On Thu, 20 Aug 2026 15:01:59 +0200 Andrew Gaylard wrote:
+>> spl2sw_tx_poll() runs in NAPI (softirq) context and acquires
+>> comm->tx_lock with plain spin_lock(). The hardirq handler
+>> spl2sw_ethernet_interrupt() acquires the same lock, so a hardirq on
+>> the same CPU while the NAPI poll holds the lock would deadlock with
+>> IRQs disabled. Use spin_lock_irqsave/spin_unlock_irqrestore.
+>
+> Please explain how the issue was found and how the fix was tested.
+> I mean - this is an ancient driver, if you don't have a way to test the
+> fix you should not be sending the patch.
 
-I guess we just need to call init_cpu_features() on the per-CPU data
-before the assignment to boot_cpu_data. Something like (untested):
+I'm testing on a Tibbo LTTP3G2 board:
+https://tibbo.com/store/tps/ltpp3g2.html
 
-diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-index d50e2a9b066b..d22f3514ab8b 100644
---- a/arch/arm64/kernel/cpuinfo.c
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -538,7 +538,7 @@ void __init cpuinfo_store_boot_cpu(void)
- {
- 	struct cpuinfo_arm64 *info = &per_cpu(cpu_data, 0);
- 	__cpuinfo_store_cpu(info);
-+	init_cpu_features(info);
+This work is part of getting it to boot, getting it stable, adding a
+couple of missing drivers, and sending the changes upstream.
 
- 	boot_cpu_data = *info;
--	init_cpu_features(&boot_cpu_data);
- }
+I found the issue using lockdep. At least, I though I did, but I've not
+been able to reproduce it, so I must have been mistaken.
 
-Either way:
+Apologies.  Please drop this patch.
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+-- 
+Andrew
 
