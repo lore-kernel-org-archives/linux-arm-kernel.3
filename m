@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D071EC5DF9C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B211AC5DF94
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 21:26:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YiZyZbLBmJ3iUV5hx0olprybllFCvpy0oQ3B2dYGzK8=; b=iqtsPV9AZ31xoLhQso6IrJqatx
-	XlxrR4OK940W2K9tVWB+SwV1eBvmqt7DScvmYUoe0PYWk1LJFY2GSt3oXjOXodgHxlr9CplF0ohL9
-	tHAgYzcA/DAJOM2vhCWxC4e98JzBnrHHyyXmc9+qQEMoAb7Fv5j1T1BDfrufUwMBuMsxj2Q/qX5Xu
-	t6MrGHKCj+vMpXR+FowFh6QmTvRu987lYR5xHwq5zw/tJ/jDzLqS20JU/gQjtMmVluPA748dEpbO+
-	HJPNTXJd+ymmH4UWzkFGwijS4rcvRqJ/hHzEPag59hrqbKi1mXTWo4f1q+ZDfHJ1nLubQFAxscbXm
-	MDRYCcxg==;
+	bh=4tAj96xgG7HC5qPAzDZbXskx+mZuW4iSMixnum1/ujM=; b=fs0s+8TbQA8yybGwo7tfKLK1z0
+	evQUiGLp+iYS1vMQQ8cGkQ807tQ0bpQZBQ/EFXKQops7l3cbG/9ivb4Ct2cUvKctkkhmA4LEKlFCY
+	8E7qcrd9tkz7EIhofkEEzHKvd2OFWna0jLJR6266vMCWxGYuiDT4lzKdUXZtJOEAnbzAcEqzpiyGI
+	HDXmqegrKK5VfJYz2FVSwLqWiF9futuz5zez07Prkrrgp1NJmlGQF4ZcCnRvNPLWPCM8kLAWWUaBF
+	Lm9wJ3CK5Z0mzPZrs9HWVTYNwFfvvmZA6BOEokuoSZPGDfWFXsjOeOVljEsvCzFmzEQWJVUilUFlz
+	OPZyS2Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wycAy-0000000HPIC-0G48;
-	Mon, 24 Aug 2026 21:25:52 +0000
+	id 1wycAx-0000000HPI3-3dLZ;
+	Mon, 24 Aug 2026 21:25:51 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wycAw-0000000HPHS-2Dso
+	id 1wycAw-0000000HPHX-2DqT
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 24 Aug 2026 21:25:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B51AF4380C;
+	by sea.source.kernel.org (Postfix) with ESMTP id CF09444042;
 	Mon, 24 Aug 2026 21:25:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7D331C2BCF4;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9ABF8C2BCFB;
 	Mon, 24 Aug 2026 21:25:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1787606749;
-	bh=MtrNk79y9UlhhIe4pbAdt5QRKJ67Z3i4LU97ujPXueM=;
+	bh=7/5axdhQNXuY4I+yRWh2TmDa+ZyuwP/SOiSz4/cxhM4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=LV1VGOuKH6vtbfL6sKT2y++7zjUIto9i952tLgrMaBj3pdijOa9gc7Dq8YJ4+d0h6
-	 QQc2YP1OyOMJpDiZZGqUY8O3kUY0SB4n1ZHf+YG/I1ROurlJm/88Jj9xRhe3YG87vy
-	 EaqxNR5w7TUuaJAxFtLRjm7VGBPD6KEug7IhD0XtdminlLj3R/mOwNTxXxOfErwjWD
-	 0Y/eNq7wi8qXZWub+0f+kbM3rphMeGhSS3YFkbe5CP8f9uz65k7fVRwmYnE2xih68v
-	 31YEa5j9J6Y3Y2lFMNbCJMNThtU93YHZEuDrm3Gyfr2aCSneZbXT/yC9mONnuhzIX7
-	 QiXEm7wc/rliw==
+	b=kZhy8DieTbw+ALnGykhI3m4qhio2noa/k4KS7zOU++MwKqhTBzE2cSqBpttHlJXPf
+	 Xp2vm2YXyBV5wMYD2TBUjTyB83tzoBDsMZu1J/yqjT+6TpvLYwwHU/+EE38tHEb/0Q
+	 vPsumbmv2/VB85EGWBhbwofwS/e35AY8xaP5XrDmoFn3f42mSRqGz64mHXvnZOP6+l
+	 UqhRBl4uD+sLTyG5CG6GN21mjhXsYZkECfuRhBTR/TShx125je/E2gNKQp1JjSbk+V
+	 XJccXhxA07Qe87wwD8rBVi1QyLWUqvWo9khsZl5xhbokc7R2fnzm4dOVo3FffdJgKZ
+	 bUaCiY6XJ78FA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5C956C5DF9C;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7CAD0C5DF81;
 	Mon, 24 Aug 2026 21:25:49 +0000 (UTC)
 From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
-Date: Mon, 24 Aug 2026 23:25:29 +0200
-Subject: [PATCH v3 1/3] arm64: dts: lx2160a: fix incorrect pinmux
+Date: Mon, 24 Aug 2026 23:25:31 +0200
+Subject: [PATCH v3 3/3] arm64: dts: lx2160a: fix the iic5 spi3 pinmux
+ offset and value
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260824-for-upstream-lx2160a-pinmux-fix-v3-1-5556ff1e6be2@free.fr>
+Message-Id: <20260824-for-upstream-lx2160a-pinmux-fix-v3-3-5556ff1e6be2@free.fr>
 References: <20260824-for-upstream-lx2160a-pinmux-fix-v3-0-5556ff1e6be2@free.fr>
 In-Reply-To: <20260824-for-upstream-lx2160a-pinmux-fix-v3-0-5556ff1e6be2@free.fr>
 To: Frank Li <Frank.Li@nxp.com>, Carlos Song <carlos.song@nxp.com>, 
@@ -64,11 +65,11 @@ Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Thibaut Collet <thbt.cllt@gmail.com>, Vincent Jardin <vjardin@free.fr>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787606747; l=1674;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787606747; l=1585;
  i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
- bh=tk7MyEzbkFZ9falPdlkYVsr2TClhONYWQaNZkpaH8F4=;
- b=sGMzLO+RIZh/oxKRvZgGXdsZ95+HjPTv+ykAhYxa76E4oapS1VBZ/VzyRGoiUEqngmIjPT6+f
- 99nZ4asHgAFB3p79gFJdvAGg6a1GsHqf76xMANmZqfx2eipXYrOoN7d
+ bh=QDg/PMlX4cUoUaMiOfnzx35qrvv5wjRXmhdG/ya3lcg=;
+ b=w/L0OfexC4Q+IyPr+msl2FmmJigxz+valXAqzNpFZL1/w+8IKFjamnyUEiKTnalyeYRtJY5Jg
+ YiehfGbb1fQC5+jpWIw0wSCtOeSE7OA1OvUKoeIUiXWkROC8xu0EzTq
 X-Developer-Key: i=vjardin@free.fr; a=ed25519;
  pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
 X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
@@ -91,51 +92,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Vincent Jardin <vjardin@free.fr>
 
-For gpio1 value set for pinctrl is outside the mask and so will do
-nothing.
+The iic5-spi3-pins node has both of its first two cells wrong.
 
-Add the missing offset for value field to be the same as the mask as
-expected.
+The offset selects the register within the node's reg range, where:
+  0x0 is RCWSR12,
+  0x4 is RCWSR13,
+  0x8 is RCWSR14.
+
+An offset of 0x3 is not one of them and is not even aligned for the
+declared 32 bit register width. It is the only node in this pinmux that
+does not use 0x0, 0x4 neither 0x8.
+
+The value is wrong too:
+  IIC5_PMUX is RCWSR12[11:9] and it encodes 0b000 for IIC5,
+  0b001 for GPIO_1[25:24],
+  0b010 for SDHC1_CLK_SYNC_OUT/IN,
+  0b011 for {IIC5_SCL,IIC5_SDA} = {SPI3_SOUT,SPI3_SIN}.
+
+This node selects the last of those, so it needs 0x3, not the 0x2, which
+is the value of the neighbouring sdhc1 clock sync node it was copied
+from.
 
 Fixes: 284ad7064aaa ("arm64: dts: lx2160a: complete pinmux for rcwsr12 configuration word")
-Suggested-by: Thibaut Collet <thbt.cllt@gmail.com>
 Reviewed-by: Josua Mayer <josua@solid-run.com>
 Signed-off-by: Vincent Jardin <vjardin@free.fr>
 ---
- arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi
-index ae6e37870c5e5..d4522a19405a9 100644
+index d9d4500a40510..bccf2d6730230 100644
 --- a/arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi
 +++ b/arch/arm64/boot/dts/freescale/fsl-lx216x.dtsi
-@@ -1622,7 +1622,7 @@ fspi_data74_pins: xspi1-data74-pins {
+@@ -1602,7 +1602,7 @@ esdhc0_clksync_pins: iic5-sdhc-clk-pins {
  			};
  
- 			gpio1_31_28_pins: xspi1-data74-gpio-pins {
--				pinctrl-single,bits = <0x0 0x1 (0x7 << 15)>;
-+				pinctrl-single,bits = <0x0 (0x1 << 15) (0x7 << 15)>;
+ 			dspi2_miso_mosi_pins: iic5-spi3-pins {
+-				pinctrl-single,bits = <0x3 (0x2 << 9) (0x7 << 9)>;
++				pinctrl-single,bits = <0x0 (0x3 << 9) (0x7 << 9)>;
  			};
  
- 			fspi_data30_pins: xspi1-data30-pins {
-@@ -1630,7 +1630,7 @@ fspi_data30_pins: xspi1-data30-pins {
- 			};
- 
- 			gpio1_27_24_pins: xspi1-data30-gpio-pins {
--				pinctrl-single,bits = <0x0 0x1 (0x7 << 18)>;
-+				pinctrl-single,bits = <0x0 (0x1 << 18) (0x7 << 18)>;
- 			};
- 
- 			fspi_dqs_sck_cs10_pins: xspi1-base-pins {
-@@ -1638,7 +1638,7 @@ fspi_dqs_sck_cs10_pins: xspi1-base-pins {
- 			};
- 
- 			gpio1_23_20_pins: xspi1-base-gpio-pins {
--				pinctrl-single,bits = <0x0 0x1 (0x7 << 21)>;
-+				pinctrl-single,bits = <0x0 (0x1 << 21) (0x7 << 21)>;
- 			};
- 
- 			esdhc0_cmd_data30_clk_vsel_pins: sdhc1-base-sdhc-vsel-pins {
+ 			i2c5_pins: iic6-i2c-pins {
 
 -- 
 2.43.0
