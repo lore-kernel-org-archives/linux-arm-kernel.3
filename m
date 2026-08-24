@@ -4,184 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 288FDC5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 10:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C37C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 10:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/G6JHHmUMXAZAuPErI9MI7O6LPyLxiR+Q+4e9xH84iE=; b=Vaakr9/vA/nZwzUZlXfFEkqiLP
-	4HaNJkOTYvS7trBmHbf09v4R33w3uwP0O1Hl0laoT6KWF0smhzPyeu5DHUk50UDIDN5MPpMZPmDl1
-	r7HwVpIH/qQRLzsUSHY+TKqw+ClT5AMwwU5XNJYQZTxCmZGk45m4Nh1DIkiicKHQCeIlL8Y/gcnZh
-	lSIZpo27yCDFIGJxruupH7vDlwTEMnEKaSf8movt/mrei3c+S2Pb6dt0YvCId/fnOhtjEanhWYTD7
-	Msf9SNYhi3/8EPMs0PKhmOswg493tMCk21qsE30rNgcxCwBwsfv7kYZ0xfV+Dyp8x0XOAg5Rfa0GK
-	jmWbT/ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9TPOtzbmQGRV73MYqtxOj+BiN3+8SVX1XW9kMVr6SL8=; b=qI0jno5an/UHqi0lARijpg1/5v
+	nb4INhFW9nDWEUiyWkvSXgBgfTFhnox2fEzTeKI40bXZGh/mCfTkGEQtyQaI0BOjgJEOJaC+VF+GK
+	EA+pWaLZZnVI6M2AaS20ik0vjeqMhG9XQ+VAX7hEsmgTV8eZo5ERAMiZdmQksP1djXB1ebnYcFcKk
+	K3/E+sjDCpbc5Sp4IJx2yU8ziFoVHcL6afj16uoApEcMlO+BOUzk41rGcGFfEFYGD+e4zTJGqDYvx
+	LtbsPUzGkmA+SWp5bfhEqlRpdyS924tLdqjtwDAb1oiNgcQrtjopg9bAR6ALdXVqNoH4nQvOHiuVH
+	vcqRlv7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyRdV-0000000GN3V-3SQT;
-	Mon, 24 Aug 2026 10:10:37 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1wyRl7-0000000GNcF-2HLl;
+	Mon, 24 Aug 2026 10:18:29 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyRdR-0000000GN2m-1W2i
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 10:10:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787566233; x=1819102233;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=DpurCEyDDvgUvpooP8pGIDbm+medW0s5MT27a9B3Z6U=;
-  b=GMfyGQm+LYGmjAkzxv9o7wPqNbMLG3VMB/zZ+8yP0a91HV7vf1waJr4y
-   o9feIEt0A6nrqK6w22OLYtdZMpbi3og4bRN7QZpZ4KM1hj62/eS4a1xZ2
-   +o8KrzkM8BDQUSE8x7D7x87Qi/e4846KuoqE2g+HmCi/fwv2viZIG/wGS
-   u6pE2qDo61QO3NqcniLLCIr4HqewYkSCCrmohoPCxlapg4abR3TFNCO5q
-   HpBXggazJzCVy7PBIBZ+KGu9vkOl743zcKGv+y41+4SorJaXooMicrkHz
-   D2/SdpbZZXghNvOXcijilpoIjkm9UVvgStdEjq2cfFKJNxXOekRxVu6Gg
-   Q==;
-X-CSE-ConnectionGUID: vzlO+tFQS/27Vas3RelsZQ==
-X-CSE-MsgGUID: mvOYekOISBmgncfSqYv26w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11884"; a="87779345"
-X-IronPort-AV: E=Sophos;i="6.25,240,1779174000"; 
-   d="scan'208";a="87779345"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Aug 2026 03:10:32 -0700
-X-CSE-ConnectionGUID: 4KeKS+ocRNS7U5gU3ywyIw==
-X-CSE-MsgGUID: PBahJZh1S7SuTBmMEru8GA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,240,1779174000"; 
-   d="scan'208";a="267007381"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Aug 2026 03:10:32 -0700
-Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Mon, 24 Aug 2026 03:10:31 -0700
-Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
- FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45 via Frontend Transport; Mon, 24 Aug 2026 03:10:31 -0700
-Received: from BN1PR04CU002.outbound.protection.outlook.com (52.101.56.48) by
- edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Mon, 24 Aug 2026 03:10:30 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o07m4DXKJXvf9OswEVnNcabmqW2qXrQ9uMVOlEgD7G1D13fgfBjDDjGt3D4MHnZcdZ2rEQW1QEVmOCv58ky7LzZJK/9/io+ifJhJgFEJoPImUATrOVZEAe1xSDt4iS1aPRcGzO6Tg9FtEUZR+rtTuCWnGO08qz0zeh7pQB6+2v5YWPrhH9K83jvI0JZgDRewrsGUGXWAyOLGv49V0XFiS/ovASrJrdoOcvO57c2/IqfD4LCDSUgtBux+S3bB/6NGqfscgmx6YJ9Fg0uL6EMgYRAi8MNp90xSyWtFDLXFQgwX8yYNhOHGgHXI+LajB0UaKMnD54lM9SmfWHxhDQJ68A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/G6JHHmUMXAZAuPErI9MI7O6LPyLxiR+Q+4e9xH84iE=;
- b=w+dlOnIY5dcEwGZL/f3VOixruI4UHMz2K4DBhI0TCKN/3zE73nfpjvOtSfHPLe72ZEXEjoZMgkszMeD5ILbgVWnu7vdPPo+lBvbPryN+nbxvRS8fYbU1ePCU7eCpCsDC96Sh2ChqcekyPPBu2jGt+EGgsuxQgZIfnqFTEMN+V+UNFZVA3Wg7OWg9mBYMhhmbLWLGinsimIiGzpHaMDl3S+cXAWf3saRAjfdw7myPPK4xNs+QkH86RTdv6Od08CmHo9NN4V0EE5fPdhOzM1+L69l0mpokovpIfsSZGhM3ULJdzKH2xf+oASn9AKBM55E3E7W8q683D05Aal0nuACYrw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
- by IA4PR11MB8889.namprd11.prod.outlook.com (2603:10b6:208:565::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Mon, 24 Aug
- 2026 10:10:28 +0000
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456%3]) with mapi id 15.21.0339.012; Mon, 24 Aug 2026
- 10:10:27 +0000
-Message-ID: <823e897f-13c0-4b07-8833-3bbfe37059ca@intel.com>
-Date: Mon, 24 Aug 2026 13:10:20 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] perf dlfilter: Add non-empty branch stack filter
-To: Amir Ayupov <aaupov@fb.com>, <linux-perf-users@vger.kernel.org>,
-	<coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>, "Suzuki
- K Poulose" <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>,
-	"Leo Yan" <leo.yan@arm.com>, Peter Zijlstra <peterz@infradead.org>, Ingo
- Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	"Alexander Shishkin" <alexander.shishkin@linux.intel.com>, Jiri Olsa
-	<jolsa@kernel.org>, Ian Rogers <irogers@google.com>, John Garry
-	<john.g.garry@oracle.com>, "Will Deacon" <will@kernel.org>
-CC: <linux-doc@vger.kernel.org>, Mike Leach <mike.leach@arm.com>, "Jonathan
- Corbet" <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, "Swapnil
- Sapkal" <swapnil.sapkal@amd.com>
-References: <cover.1787005265.git.aaupov@fb.com>
- <58f96797f94467859fec160320a7b9426be8cce7.1787005265.git.aaupov@fb.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
- 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
- 4, Domiciled in Helsinki
-In-Reply-To: <58f96797f94467859fec160320a7b9426be8cce7.1787005265.git.aaupov@fb.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DB9PR05CA0029.eurprd05.prod.outlook.com
- (2603:10a6:10:1da::34) To IA1PR11MB7198.namprd11.prod.outlook.com
- (2603:10b6:208:419::15)
+	id 1wyRl4-0000000GNbi-3iIW;
+	Mon, 24 Aug 2026 10:18:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1787566695; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Vty+lnonCfkUWiOF/SSVZY92GjXasmd1w9NuoRw8rVeRiWT3l4tVpmPwWzzQEmgyLKxIDgoUZSb0Uprk5CGPFZkKaNUiiKnBdbMCQ9nlBbchSPx+3AAQl/qWo/ZcpH5h24F4KgdMb8JTuPb0QzsKyDSAtxaCSQzdXivnzlxNbag=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1787566695; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=9TPOtzbmQGRV73MYqtxOj+BiN3+8SVX1XW9kMVr6SL8=; 
+	b=Vy8wzpbbHQuasDws18W6snVeEqxdJEV4QS7zIsu3xZI0SEy5HmigOS28RgFlgOUcAhdmE5ejUM1rfd/fC9EZqEI1HbpEhc+yyt0HtQnfpiz9kg7Di2aeT07sgyA0tcdlHkOrAoRzZbeAeHFYue2wFvNu5ZNhno8lYgA4mMzuzAk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
+	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1787566695;
+	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=9TPOtzbmQGRV73MYqtxOj+BiN3+8SVX1XW9kMVr6SL8=;
+	b=XPtRbULAn4jq/NdvDbzor9DYIvRF+TpYBD26bQf5oh0UXtw5pn5Nnuk+TSx8+ZdR
+	rgR4qxSBci5vHavVyIZd2WyntoGXqlGNDoI3lXynJB5p8opg+bZUTP0RqmAVB0N8aTp
+	BBFaCrbWe/lio0FBrUoEKwd6Zsg3yQ3NH3lynOs0=
+Received: by mx.zohomail.com with SMTPS id 1787566694200896.890085447856;
+	Mon, 24 Aug 2026 03:18:14 -0700 (PDT)
+Message-ID: <72c028ad-a7c5-45d8-b50f-b39cbca19879@collabora.com>
+Date: Mon, 24 Aug 2026 12:18:08 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|IA4PR11MB8889:EE_
-X-MS-Office365-Filtering-Correlation-Id: 38494c4f-6127-4b14-ac33-08df01c7eb9d
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|7416014|921020|6133799003|56012099006|11063799006|10067099003|4143699003|3023799007|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: rd/w9oT3RhR4y3w1g4Fe4RjwDQMLIxL9ewIATDWD5R3/YbUyt787Gu+5wbLGXPCRPDu+Rbxp5Bdjgf68yTG8aDgcibI6I+2K6T9DyEmiQaXBo4/AmHdrDt70BEvPqUdYzaAztHX1DnJ6ZbUO0IgR/CwaoIlkTx326b4N4w9gIjG6/vN9tzJzWbwQbDGVp0oDA1kCzlsqMiijn794iAoua8VD9NtStnziTWdfDF8VvjWP4Sm58IzAJ6pDdsKKkYefN5ZHES6ajM+hi+uzbmAx1t1Y6AjmhunbFda4sInd4yEDjyqwtoBTJweHpFOIishexe9d+Ciz2jQ8MJbXS7r89FeKixDDt3GXqEMVZkPCc619mXILHwHvGrMWt0kXFEboHBfLzemAGy4WDDbUlDcxmjOjxzr5vCC0yyf4RroYaHpwnTl8NRzW0r4nLNe02H1TMPNO9am8T9MolHG//CVMlNKz4jQDMO43czRLWRaG/y5YpzfQnE6lezCuQ5NyglhSLjod5265N7brbu/XtLXRLiduaUrucQwGWLX0vAaAyX/6iCQtVj6lB3yXCOD5z4YnJxxUWuq+DiFnDrEYUXwUVCy5/P1Dqlx4LYgZMKT8icafBIoUaOktQHSJwirh2G6HN+1UcGl0iKYrTvrVM4qT0i6sNOEqhSqfwb5xe789eVsPPJG5KPxATjq9uEI2dyT9oBhW+vMdZ0siQSvboL5y4Q==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(7416014)(921020)(6133799003)(56012099006)(11063799006)(10067099003)(4143699003)(3023799007)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eDJHK09vVmxQN0R6cGlkbFJ1V0VzamVLNmZQMHBLQW0vc1ZqM2xxVkVHTTVx?=
- =?utf-8?B?OUswaU1XWjlIUEF1L1ZUQjUvSzNyMFUwZ050b1VNUUVKVUU0Wndpek9mc2k5?=
- =?utf-8?B?bjBQWmpCN1cwMnVsQUR6SVNoNVU2Q2RwRXZkOWUyZVJxSE5KSG15b0I0azg4?=
- =?utf-8?B?Z3YxR0xzSDFxYU5oSlFOTXppMlBtS2RzQ0dtYVo1SVlvUFpBVS93TGZNZkc2?=
- =?utf-8?B?dVBpemU4UUM0YXFNLy9jTCtCdllJUlUvRGZwSkZ5VHBHeU9nRmRjMTJpcmY4?=
- =?utf-8?B?c0VSRnlUUUNzdTV1QVpRRGI1SDBYa1VLem1VZTZsV0U0M1dCVEplU0FRd2RK?=
- =?utf-8?B?NVl5RXlOd05WbG81MjExUDhIcmtuWUxCYWpzdzVWMUNFSEJ6UHc1TTIxRG1X?=
- =?utf-8?B?a1pYNzFSQnFndG9pZk9UOHhWUExNUVVsMjlycmZWVGJZbE11WFhPSzA0a0NP?=
- =?utf-8?B?Ulo4ZkRDNW9IbkxoTWU1Um1McDJqWllkWEJLTnVSTVY1TWpaNFI3b3lxUWN1?=
- =?utf-8?B?cFMrNWpWRlh1eXZBaTZiallHQXZJS0dYREozdER2akQ3VmJDUWlHQk1xU0ZX?=
- =?utf-8?B?em5SSmM2RisySGRVeGRRQy8zSTJjbFhyQStOTnIvYzlVL25EbnRPMC8wNEJO?=
- =?utf-8?B?K2VPeE5CN3VwZzdCdE1PSGhScXV5YitoV2pwclM1WnpTenVoR2I0V3YvOXNt?=
- =?utf-8?B?bnNPNFVvNGhBMGY5NlJSK3MzdnptNHFyZ2tYN3Z0UXpaVHd2WHBVZmVKMjVa?=
- =?utf-8?B?cGxmRTZFSXdCZUZHSzgyY3B3TTRLVGtXeUdJWTFZaEVkUm9FQmQ4V0dxWVlV?=
- =?utf-8?B?T0xZMkRwTVBVUmpvQkRIMXFYbTNXU29jSENjRTN1MkZxR2pQSTlsL1VQNnpx?=
- =?utf-8?B?elF2bUFwYllpdWdUN3BnWXBxZGVZL0poS2MzbUt1c1dqV3M5Q1FiR01mTnNP?=
- =?utf-8?B?TjFZc3ZDUTk5Qk5OTGU1alMvczVsZUQyOTllWi9kZFN0amhXeVRDeVlWOVMx?=
- =?utf-8?B?OHFnUTh6bm1odllrYlpzYTNUN2VmZlRBaGMyTnJLaHZuZTkwcGNlbURBa2lq?=
- =?utf-8?B?TnpraU0ybUxnSUgrTEQxQlMwWE4wM1p6ZWsrVllzWDZROEhGRzcydlJHNlFP?=
- =?utf-8?B?SkQwbzlHQTBXZHBEeGpqZUszd3ZKRE1yNFNmbVVDbXhUejBnODJtWTI2S0dB?=
- =?utf-8?B?YkZHTURFS3B1N1FCMFd6Q1B4eFBaUDdBakVqelVudWRreGlkdnpmSmhTelNk?=
- =?utf-8?B?NDFmYXN6Ui9VRXcxcnI1MElDYW9IUGthZ0JFcVVFVWFFVUNKUHZtOHM2RkY1?=
- =?utf-8?B?NHoxczFlVjdoRHNEK0JQakVBTldkeTBEVktDdkpFcFFmNTRaZ2tBRVdpWm9x?=
- =?utf-8?B?Ym5rRUhuSmVZSk02SXcxY0ErNUVDL3ZmTHRSR285bmVsTm51Tkk1ZzlTeFRv?=
- =?utf-8?B?OUllV3BSazViT29pbklQMXkyWDFZRUFaWHQ1a2JkRHA1aGZRa0RBN2lHVGtW?=
- =?utf-8?B?Q2U5Q1d3VE9RTk9hbndkU050T1pQbERkV1NDNGdlalFXeW8vbXhCV0ZQdHJR?=
- =?utf-8?B?YzJORGdJNThvTkJzcmpoUnljZjYyRU4xZTVkQk5xc2FKN3Q1ZGZRaDVkdHpR?=
- =?utf-8?B?SE9RYTdiaTRwMGdKZjhCMDF3ZXYyM0lFZ2YzS0ZQVEdiZngwVWNVZzA4VFky?=
- =?utf-8?B?K1RmV01jajVpYWZSYWRFWm9ybHZBT1M4L1lEZTh5c0ZnNHhzQkZJYmZ1bERT?=
- =?utf-8?B?TDU1K1VSaDVrYmc5dE9PNHM1djFzRVZ0RGJ2a0g3NG5kSDhDd0xmTzZYbUxV?=
- =?utf-8?B?VzFDWU01empyNDVCV3Q2dkh3ZXl3WXZXUHZHb1dnZ3ZKUjc0R2M1akZTNWho?=
- =?utf-8?B?QmZFdFpIejdzOWNxdkFQelBrNkRCM1BweFZocXpGc2lBdlRhNnppR3VwcUlm?=
- =?utf-8?B?clhKZ2k1aUdFVDIxVjhzenZkNkI2ZldYNGdZMi9pUFEwS1N5bVhtVUhXYjhJ?=
- =?utf-8?B?a1VSSy84NzVNdEI5bXpTejlKMmN6S1F5ckh0TU9PSTJwSFFnbkZoM2hlTHhP?=
- =?utf-8?B?ZXJ5Z2psRzNsOG5TWW9HZ1Z5UmZoTUhPcDdHTE42aStublRBdWNEcng3NzZv?=
- =?utf-8?B?SU5uQUtaOU5oQ1hFQUZBbzNBUXI0aEZVL0daOGU4eSt6bGQ2bDNWYjU4K0R0?=
- =?utf-8?B?MVZhSUJBVXlUNyt5R0xyUFlmdUJKNDFEVEFPSlZGRm5sbmRORjdVVVVlemV4?=
- =?utf-8?B?ajgvVDI0ckVYd1d4TGs0YjBESVBFRWZDRTZGcjJOVkMvUEJ2eHN5TExPeDc5?=
- =?utf-8?B?anV3ZHQwWGRoVXZNMG0waFBCRHM0V1hCaFZCY2x2ZnVuckJGYzBpRVE4dFd2?=
- =?utf-8?Q?x3KlYDOc7JISUkik=3D?=
-X-Exchange-RoutingPolicyChecked: L009SahB4cZTOH0pZeMw+atubmwb+eYM29N7v/Gt/yKX+Uy+Yg7ukkbep+WlGb+bHgk0iFCZsot27w28+O4kYER495CYJo12mE9UfRSUcVCcX82DfmJ39T+yQYzytMuQLbp4KVUoqzj+w142geEevUvVVqyn9u2LVqHwabhybYTmxsrOaHBzmJC/7sTAqTdX7wBSNl/yS5lIPsjTlWJz7VtGIjWFG4ERoM1rYcPZS6/X00GeYEf7n4WXEt2GEQS4124qFiO83tQh3s/KqiSWEh1/IEkaG/EjR83uIRdOA9NU43cdePLkev4NcsulyPh469BvttZ3doC3MnR5S9AoHw==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 38494c4f-6127-4b14-ac33-08df01c7eb9d
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2026 10:10:27.7054
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mJ0/wCVjQdrRA6xCvgTaBCxFukqb1hAyjm3cD5JsRPHeNv1KMCsl3nwOOvmnAy8JDb35wlsLt8seWY8KsjRfcA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR11MB8889
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] media: verisilicon: Fix the cleanup when a codec
+ ->run() fails
+To: Sascha Hauer <s.hauer@pengutronix.de>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Hans Verkuil <hverkuil@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260824-rk3588-jpegdec-v1-0-180a30a2852d@pengutronix.de>
+ <20260824-rk3588-jpegdec-v1-1-180a30a2852d@pengutronix.de>
+Content-Language: en-US
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+In-Reply-To: <20260824-rk3588-jpegdec-v1-1-180a30a2852d@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_031034_112878_AB83086A 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20260824_031826_959018_DCBC35F1 
+X-CRM114-Status: GOOD (  37.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,72 +85,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/08/2026 01:22, Amir Ayupov wrote:
-> --itrace=L adds decoded branch history to existing samples, but a sample
-> that was recorded while the decoder had no trace for that thread keeps an
-> empty branch stack. Consumers of the resulting perf script output, such
-> as profile generators for context-sensitive PGO, have no use for those
-> samples.
-> 
-> Add an opt-in dlfilter that drops samples whose parsed branch stack is
-> empty, so users can exclude them without changing default sample
-> semantics. Build and install it alongside perf's existing dlfilters.
-> 
-> Assisted-by: Devmate:GPT-5.6
-> Signed-off-by: Amir Ayupov <aaupov@fb.com>
-> Reviewed-by: James Clark <james.clark@linaro.org>
 
-Reviewed-by: Adrian Hunter <adrian.hunter@intel.com>
+Le 24/08/2026 à 08:39, Sascha Hauer a écrit :
+> A codec ->run() operation that fails leaves three things behind, and they
+> cannot be untangled one at a time, so fix them together.
+>
+> hantro_start_prepare_run() sets up the controls of the request attached
+> to the source buffer, hantro_end_prepare_run() completes them again and
+> arms the watchdog for the job that is about to be started. That pairing
+> does not survive the error paths. The two ->run() operations that do
+> reach hantro_end_prepare_run() arm a watchdog for a job that is never
+> started: device_run() finishes the job synchronously via
+> hantro_job_finish_no_pm() and nothing cancels the delayed work, so it
+> expires two seconds later and aborts whatever unrelated job happens to be
+> running by then.
+>
+> Split the two jobs hantro_end_prepare_run() would otherwise have to do.
+> It keeps its meaning for the success path, complete the request and arm
+> the watchdog, and a new hantro_abort_prepare_run() completes the request
+> and nothing else for the error paths. Note the resulting invariant: after
+> hantro_end_prepare_run() the ->run() operation must return 0, as the
+> watchdog is armed and only the interrupt handler disarms it.
+>
+> rockchip_vpu981_av1_dec_run() then calls hantro_irq_done() on its error
+> path and returns the error code to device_run(), which finishes the job a
+> second time. The buffers have already been given back by then, so the
+> second attempt trips the WARN_ON(!src) in hantro_job_finish_no_pm() and
+> bails out. Without the watchdog change this at least reached the first
+> finish by accident, because the cancel_delayed_work() in
+> hantro_irq_done() returned true for the watchdog the error path had just
+> armed. Neither behaviour is something to rely on, so drop the call and
+> let device_run() clean the job up. No other codec calls hantro_irq_done()
+> from ->run().
+>
+> That leaves device_run() itself. It takes a pm_runtime reference and
+> enables the clocks, then on any subsequent failure jumps to a single
+> err_cancel_job label that calls hantro_job_finish_no_pm() - which
+> releases neither. Release the acquired resources there.
+>
+> This last part is what ties the three together. hantro_irq_done() ends up
+> in hantro_job_finish(), which already drops the pm reference and disables
+> the clocks, so as long as the AV1 error path still goes through it,
+> releasing the same resources in device_run() would trip the
+>
+>    WARN_ON(core->enable_count == 0)
+>
+> in clk_core_disable() and underflow dev->power.usage_count. Conversely,
+> as soon as a failed job no longer arms the watchdog, hantro_irq_done()
+> stops releasing anything at all and the resources are leaked until
+> device_run() takes over.
+>
+> The late_postproc setup is skipped on the error path as well. It is part
+> of preparing the run, the hardware is not started and the next job
+> configures it again, so hantro_abort_prepare_run() simply does not have
+> it. Only the sunxi variant sets late_postproc, and its only decoder is
+> VP9.
+>
+> Fixes: 892bb6ecead9 ("media: hantro: do a PM resume earlier")
+> Fixes: e2da465455ce ("media: hantro: Support VP9 on the G2 core")
+> Fixes: 727a400686a2 ("media: verisilicon: Add Rockchip AV1 decoder")
+> Assisted-by: Claude:claude-opus-5
+> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+
+Reviewed-by Benjamin Gaignard <benjamin.gaignard@gmail.com>
 
 > ---
->  tools/perf/Makefile.perf                      |  1 +
->  .../dlfilters/dlfilter-nonempty-brstack.c     | 26 +++++++++++++++++++
->  2 files changed, 27 insertions(+)
->  create mode 100644 tools/perf/dlfilters/dlfilter-nonempty-brstack.c
-> 
-> diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
-> index 29cfd44c427f3..750bd1cce1287 100644
-> --- a/tools/perf/Makefile.perf
-> +++ b/tools/perf/Makefile.perf
-> @@ -425,6 +425,7 @@ PROGRAMS += $(OUTPUT)$(LIBJVMTI)
->  endif
->  
->  DLFILTERS := dlfilter-test-api-v0.so dlfilter-test-api-v2.so dlfilter-show-cycles.so
-> +DLFILTERS += dlfilter-nonempty-brstack.so
->  DLFILTERS := $(patsubst %,$(OUTPUT)dlfilters/%,$(DLFILTERS))
->  
->  # what 'all' will build and 'install' will install, in perfexecdir
-> diff --git a/tools/perf/dlfilters/dlfilter-nonempty-brstack.c b/tools/perf/dlfilters/dlfilter-nonempty-brstack.c
-> new file mode 100644
-> index 0000000000000..9e66205b841d5
-> --- /dev/null
-> +++ b/tools/perf/dlfilters/dlfilter-nonempty-brstack.c
-> @@ -0,0 +1,26 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * dlfilter-nonempty-brstack.c: Filter out samples with no branch stack
-> + * Copyright (c) 2026, Meta Platforms, Inc.
+>   drivers/media/platform/verisilicon/hantro_drv.c    | 35 ++++++++++++++++++++--
+>   .../media/platform/verisilicon/hantro_g2_vp9_dec.c |  2 +-
+>   drivers/media/platform/verisilicon/hantro_hw.h     |  1 +
+>   .../verisilicon/rockchip_vpu981_hw_av1_dec.c       |  3 +-
+>   4 files changed, 36 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
+> index ad71c0402ef3b..a9ebf856096e6 100644
+> --- a/drivers/media/platform/verisilicon/hantro_drv.c
+> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
+> @@ -147,6 +147,18 @@ void hantro_start_prepare_run(struct hantro_ctx *ctx)
+>   	}
+>   }
+>   
+> +/**
+> + * hantro_end_prepare_run() - finish the preparation of a job and arm the
+> + *			      watchdog
+> + * @ctx:	context the job belongs to
+> + *
+> + * Complete the controls of the request that hantro_start_prepare_run() set up
+> + * and arm the watchdog. The caller must go on and start the hardware, as only
+> + * the interrupt handler disarms the watchdog again.
+> + *
+> + * A ->run() operation that gives up before the hardware is started must call
+> + * hantro_abort_prepare_run() instead.
 > + */
-> +#include <stddef.h>
-> +
-> +#include <perf/perf_dlfilter.h>
-> +
-> +int filter_event(void *data, const struct perf_dlfilter_sample *sample, void *ctx)
+>   void hantro_end_prepare_run(struct hantro_ctx *ctx)
+>   {
+>   	struct vb2_v4l2_buffer *src_buf;
+> @@ -167,6 +179,21 @@ void hantro_end_prepare_run(struct hantro_ctx *ctx)
+>   			      msecs_to_jiffies(2000));
+>   }
+>   
+> +/**
+> + * hantro_abort_prepare_run() - give up on a job before the hardware is started
+> + * @ctx:	context the job belongs to
+> + *
+> + * Counterpart of hantro_end_prepare_run() for the error paths of ->run().
+> + */
+> +void hantro_abort_prepare_run(struct hantro_ctx *ctx)
 > +{
-> +	/* Return 1 to filter out the sample, 0 to keep it */
-> +	return !sample->brstack_nr;
+> +	struct vb2_v4l2_buffer *src_buf;
+> +
+> +	src_buf = hantro_get_src_buf(ctx);
+> +	v4l2_ctrl_request_complete(src_buf->vb2_buf.req_obj.req,
+> +				   &ctx->ctrl_handler);
 > +}
 > +
-> +const char *filter_description(const char **long_description)
-> +{
-> +	static char *long_desc =
-> +		"Instruction trace decoders can add branch history to existing "
-> +		"samples, but samples that were recorded while no trace was "
-> +		"being collected get an empty branch stack. Filter those out so "
-> +		"that only samples carrying branch history remain.";
-> +
-> +	*long_description = long_desc;
-> +	return "Keep only samples with a non-empty branch stack";
-> +}
-
+>   static void device_run(void *priv)
+>   {
+>   	struct hantro_ctx *ctx = priv;
+> @@ -182,15 +209,19 @@ static void device_run(void *priv)
+>   
+>   	ret = clk_bulk_enable(ctx->dev->variant->num_clocks, ctx->dev->clocks);
+>   	if (ret)
+> -		goto err_cancel_job;
+> +		goto err_pm_put;
+>   
+>   	v4l2_m2m_buf_copy_metadata(src, dst);
+>   
+>   	if (ctx->codec_ops->run(ctx))
+> -		goto err_cancel_job;
+> +		goto err_clk_disable;
+>   
+>   	return;
+>   
+> +err_clk_disable:
+> +	clk_bulk_disable(ctx->dev->variant->num_clocks, ctx->dev->clocks);
+> +err_pm_put:
+> +	pm_runtime_put_autosuspend(ctx->dev->dev);
+>   err_cancel_job:
+>   	hantro_job_finish_no_pm(ctx->dev, ctx, VB2_BUF_STATE_ERROR);
+>   }
+> diff --git a/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c b/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
+> index 56c79e339030e..78100d1c7e850 100644
+> --- a/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
+> +++ b/drivers/media/platform/verisilicon/hantro_g2_vp9_dec.c
+> @@ -895,7 +895,7 @@ int hantro_g2_vp9_dec_run(struct hantro_ctx *ctx)
+>   
+>   	ret = start_prepare_run(ctx, &decode_params);
+>   	if (ret) {
+> -		hantro_end_prepare_run(ctx);
+> +		hantro_abort_prepare_run(ctx);
+>   		return ret;
+>   	}
+>   
+> diff --git a/drivers/media/platform/verisilicon/hantro_hw.h b/drivers/media/platform/verisilicon/hantro_hw.h
+> index 13e573f1f19de..c6addab4d758b 100644
+> --- a/drivers/media/platform/verisilicon/hantro_hw.h
+> +++ b/drivers/media/platform/verisilicon/hantro_hw.h
+> @@ -431,6 +431,7 @@ void hantro_irq_done(struct hantro_dev *vpu,
+>   		     enum vb2_buffer_state result);
+>   void hantro_start_prepare_run(struct hantro_ctx *ctx);
+>   void hantro_end_prepare_run(struct hantro_ctx *ctx);
+> +void hantro_abort_prepare_run(struct hantro_ctx *ctx);
+>   
+>   irqreturn_t hantro_g1_irq(int irq, void *dev_id);
+>   void hantro_g1_reset(struct hantro_ctx *ctx);
+> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> index e4e21ad373233..99ffb4a743764 100644
+> --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> @@ -2192,8 +2192,7 @@ int rockchip_vpu981_av1_dec_run(struct hantro_ctx *ctx)
+>   	return 0;
+>   
+>   prepare_error:
+> -	hantro_end_prepare_run(ctx);
+> -	hantro_irq_done(vpu, VB2_BUF_STATE_ERROR);
+> +	hantro_abort_prepare_run(ctx);
+>   	return ret;
+>   }
+>   
+>
 
