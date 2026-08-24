@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C201C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 19:19:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59DB7C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 19:35:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-Id:From:
+	In-Reply-To:Date:Subject:To:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Cc:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nd0lEx9hD6ylLpwOU9yD0wtJ3+jV/rg5UBsT4/paZVY=; b=Lq/4hjuE7WXctPxhPfvHLOoTNz
-	pli9Bt9IqsAdXgvdSSWw1/GOlulNjb3BhrFYEBaDKG0KoooF9aaQAZn2qhJdn+jQQbPpsbRzlGH6a
-	lkmyoOnDYGebO4SwkCCxORdqrTEAE208WqNHlW9EeoAw+Zn7Sq8lDwg67GKwPQr3qXzEUmtiXWLLd
-	YjGW8GQy2I8ma4/P1zUfWrBK8b25WQwriq8e5KJRPI8o15po5BUaEWwnW7I7M4XzdVAf2+z6n9zo4
-	ug+jOxYAfzcIaMD3CVUiXysjVyLoOtk0YyfvZNQn6rKrplQ5qQLca3yQ7/gUZh1R63M2CoczYm5h2
-	kSrOInYg==;
+	bh=NQpiRTqyDmsFHrQhXSOP3qjTy3lJ+JjfdqVFx2AjjoM=; b=w0ZnhjNJMngc5wC1Q9Z9PmAP2O
+	M5bStXY+/vxFT1kppKnRwyjyQifLWpiXp9PKrKyiEM/RuDyb/S8bEe7OOHKOT/jGa4tmBu3qpm4AW
+	pUWFBkXD6ym69CutNaPYf9PzimZ2bxhD1ahTY5uK3tt9iiLZEnA+jLTShlUOnjhZBFSSnS8p2PCR8
+	BkUlcndYLzoTRo5WLaKg5p+LsnbB1RRflrEwYWiojnLEmPWZ9RlkItAimAdlQ3w7IxA5hhAxDtzWo
+	fKZR1XXS2aNsTXcY0XrdvdD+1/Z9Wj4S1oVqP5Y40B3VfOOmE+5FuvNyqJ0mzuBbjKN6kqyV8wvX3
+	gszpvGVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyaCH-0000000HInN-3h3i;
-	Mon, 24 Aug 2026 19:19:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wyaRb-0000000HJY9-0XDD;
+	Mon, 24 Aug 2026 19:34:55 +0000
+Received: from sg-2-4.ptr.blmpb.com ([71.18.227.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyaCC-0000000HImF-0ihC
+	id 1wyaRW-0000000HJWw-2pgz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 19:19:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6789C60120;
-	Mon, 24 Aug 2026 19:18:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DA491F00A3A;
-	Mon, 24 Aug 2026 19:18:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787599139;
-	bh=Nd0lEx9hD6ylLpwOU9yD0wtJ3+jV/rg5UBsT4/paZVY=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=Na94BTRF2RKxdkL+GaueRXmE0Ircw2EfbvvwCsLbwOsTjgK3B9rTx/kvlVO0PgzAe
-	 WIiH5041aIY06VghRYSALGmPs7okvNfsZd04XRbTZrfTJPxfa9hUg06HyovG8fQ3lK
-	 6Zi8xpWfQVs7pjFqm3rfO57bFpl38WG8mzRhm30G3eD9yh5AR4l6hOisw8J4Vpf4hc
-	 txiY8o5eIx/AOCVMV7kh6rAf5oY7LhfNuaWnWBZcffF88lwQtpq+4YW0Lwht4HeQ/k
-	 Lfb0GdLZdl4Wlvhux20orhrZVxbL2Ld8QqJhMYEZ2p88S6t9hCkDxz4LoWb0ACv1Qp
-	 NpPOWDCkBXGfA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D0D903924A4C;
-	Mon, 24 Aug 2026 19:18:07 +0000 (UTC)
-Subject: Re: [GIT PULL] second dma-mapping update for Linux 7.3
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20260824145253.1740671-1-m.szyprowski@samsung.com>
-References: <CGME20260824145300eucas1p10b9c95dddfc11e7847607f9c473b6f38@eucas1p1.samsung.com> <20260824145253.1740671-1-m.szyprowski@samsung.com>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20260824145253.1740671-1-m.szyprowski@samsung.com>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linux.git tags/dma-mapping-7.3-2026-08-24-2
-X-PR-Tracked-Commit-Id: 04a19b35dc05354445f0096befad63af885bb77e
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 2f43193b88188b184a967c9427602e019f1b8708
-Message-Id: <178759908641.3075085.6062286800482339777.pr-tracker-bot@kernel.org>
-Date: Mon, 24 Aug 2026 19:18:06 +0000
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy <robin.murphy@arm.com>, "Aneesh
- Kumar K . V" <aneesh.kumar@kernel.org>, linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+	Mon, 24 Aug 2026 19:34:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2604220257; d=cherr.cc; t=1787600084; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=NQpiRTqyDmsFHrQhXSOP3qjTy3lJ+JjfdqVFx2AjjoM=;
+ b=oCGKsyWfAUBYis17BXo7stZKB8sy5L9MG9snJ4/4Ss4RRDngkdD5zfiTJ8DfKSnm6tj6Y5
+ WEvu/UMYlcvKM5TtX06gKvEyhpqGxA3ROxWUiHkAtqRUh+E5nX8KJICb8pUNMe+MfmaCcQ
+ iVt5fjeLoNHe2CsPQG7QNYSmlcfWoi6BpoRi3pLI4pmtTE6XoCi2okw8FyVlP/fltyPXTT
+ 81hAMnGuAtVtXo3zwT8ofxEwvuH+8yT0P/q0lPI07SBRIdT81Kni5qfImpbfvezrfDZgpL
+ kxF3bt7xrVXWwvL8pjEvDZdYWymVGvUnscfIWCwFQ4whPhe/5Oom1VE7ShpKbw==
+Cc: <imx@lists.linux.dev>, <linux-media@vger.kernel.org>, 
+	<linux-arm-kernel@lists.infradead.org>, <stable@vger.kernel.org>, 
+	"Shengzhuo Wei" <me@cherr.cc>
+Mime-Version: 1.0
+X-Lms-Return-Path: <lba+26a8c9cd2+c8be14+lists.infradead.org+me@cherr.cc>
+Content-Transfer-Encoding: 7bit
+X-Original-From: Shengzhuo Wei <me@cherr.cc>
+Content-Type: text/plain; charset=UTF-8
+To: "Mirela Rabulea" <mirela.rabulea@nxp.com>, 
+	"Mauro Carvalho Chehab" <mchehab@kernel.org>, 
+	"Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, 
+	"Pengutronix Kernel Team" <kernel@pengutronix.de>, 
+	"Fabio Estevam" <festevam@gmail.com>, 
+	"Hans Verkuil" <hverkuil@kernel.org>, "Ming Qian" <ming.qian@nxp.com>, 
+	"Nicolas Dufresne" <nicolas.dufresne@collabora.com>, 
+	"Benjamin Gaignard" <benjamin.gaignard@collabora.com>, 
+	"Philipp Zabel" <p.zabel@pengutronix.de>, 
+	"Ezequiel Garcia" <ezequiel@vanguardiasur.com.ar>, 
+	"Bin Liu" <bin.liu@mediatek.com>, 
+	"Matthias Brugger" <matthias.bgg@gmail.com>, 
+	"AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>, 
+	"irui wang" <irui.wang@mediatek.com>, "kyrie wu" <kyrie.wu@mediatek.com>
+Subject: [PATCH 3/3] media: mediatek: jpeg: cancel job timeout work before m2m release
+Date: Tue, 25 Aug 2026 03:34:32 +0800
+In-Reply-To: <20260825-media-timeout-work-v1-0-ebfebbeb6c31@cherr.cc>
+From: "Shengzhuo Wei" <me@cherr.cc>
+Message-Id: <20260825-media-timeout-work-v1-3-ebfebbeb6c31@cherr.cc>
+Received: from [192.168.9.107] ([111.42.148.163]) by smtp.feishu.cn with ESMTPS; Tue, 25 Aug 2026 03:34:41 +0800
+References: <20260825-media-timeout-work-v1-0-ebfebbeb6c31@cherr.cc>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260824_123450_897638_19F63A2E 
+X-CRM114-Status: UNSURE (   6.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,16 +85,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Mon, 24 Aug 2026 16:52:51 +0200:
+Each job arms jpeg->job_timeout_work, cancelled only by the IRQ
+completion path. If a job stalls, mtk_jpeg_remove() frees
+jpeg->m2m_dev via v4l2_m2m_release() with the timeout still pending,
+and mtk_jpeg_job_timeout_work() then dereferences the freed m2m_dev
+and the stale ctx it returns -- a use-after-free.
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linux.git tags/dma-mapping-7.3-2026-08-24-2
+Drain the work before the m2m device is released. The device-level
+job_timeout_work was missed by the earlier fix for ctx->jpeg_work.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/2f43193b88188b184a967c9427602e019f1b8708
+Fixes: 5fb1c2361e56 ("mtk-jpegenc: add jpeg encode worker interface")
+Fixes: dedc21500334 ("media: mtk-jpegdec: add jpeg decode worker interface")
+Cc: stable@vger.kernel.org
+Signed-off-by: Shengzhuo Wei <me@cherr.cc>
+Assisted-by: GLM:5.3
+---
+ drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Thank you!
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index d147ec48308110ae8520662e182dc0445447d8d0..f0fe14e83d515f5011cbfe051abbf565568013d0 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -1405,6 +1405,7 @@ static void mtk_jpeg_remove(struct platform_device *pdev)
+ 
+ 	pm_runtime_disable(&pdev->dev);
+ 	video_unregister_device(jpeg->vdev);
++	cancel_delayed_work_sync(&jpeg->job_timeout_work);
+ 	v4l2_m2m_release(jpeg->m2m_dev);
+ 	v4l2_device_unregister(&jpeg->v4l2_dev);
+ }
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+2.47.3
 
