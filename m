@@ -4,104 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4497CC5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 16:23:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35FB6C5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 16:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uT29tK1X+zzdSzlTrvlxuqbFiFhBRPSANstyBBDVrSw=; b=WzWk3oi2ldo2VN0zXvhQGz1+LY
-	VKvoW8r4/HP8JvWGX3UnL3o3nAa1WAtFTV/1oCnd5+zPzpunVmUzc6HuzXocfXemWA9yyv3Jzx7cu
-	KSa3Mt7sUTTiNksc6Dtg9yI8dKJeS0ZyUoNB0nteZVc+vBiSq3K8m5Xywu6S5ztnHK3qtHh9uR59r
-	v+WxoZrIk9/ERLp+xpPvqgfJEXNknKQ5mB1xOIXrDeOSQ8EYcz6FptgYt5GpU37Ku/p9ccLq79a0P
-	ZKmIod1KaR8QW3oaB+u83ETxKG/mrTJSx+kotPKfuuIY8eSmrpE4rb9M7z4QtPBlX4aW5wl++beHZ
-	U4Q23RBg==;
+	bh=CwmlFwHeRisZZT3F5zFXXcvqYRIh+d9XK7eSaoBpCG4=; b=RFvAOPi7dgF72PC7G8nV+4xgVP
+	MUeI1JB7Sz2N1iWEAdd3uyWWqtjkXkf84VHa+0AS9DXdFkJfSZE/Aljo515I9GqpxvuKPuQH73Xxr
+	mJoocf9mUb4YyB3lxpYWkq3/j75OASuxz3BgrbxPAVmYRhH5MjHQt9uxdmXV5s8czYjr8h8lsIJlm
+	Z5oBn57k4USY/IUtc6CeRHxGmIxrxJg0yrZPK0bSeHoa18X7sxl2qWhVTnvky+PrI/RjBRMiNuDOr
+	c6oBqUn5j53W5ukmKy5S4/6j/VucI4ra1I2RGQDq6AgYlz5eCyWpQdgL8UPHxyBd5z8gSdZK8sKeb
+	5wG4A9pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyXSJ-0000000H2Dr-0z2b;
-	Mon, 24 Aug 2026 16:23:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wyXTB-0000000H2Op-2ojV;
+	Mon, 24 Aug 2026 16:24:21 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyXSH-0000000H2DC-1dWE
+	id 1wyXT8-0000000H2Np-2VVE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 16:23:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1787588604;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uT29tK1X+zzdSzlTrvlxuqbFiFhBRPSANstyBBDVrSw=;
-	b=DzDUiQmFqyn8HNd/MlryR4ianoB0p6E5RNw2qGyhD5IceYli1xrFBPDxeufuYNJKqLv+Rv
-	WUSHMFDK4+3zqiBIL5Drc0RcF1PMFSKK8N9osBV7Fcpv38KtiC3K207hcRVo3ldIHYQqdh
-	rwcDQ/Q8z2l2A/lv/7GDP2IgbAWaCyE=
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com
- [209.85.160.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-404-HgvhOy0MNMaeaUOPB9zoSA-1; Mon, 24 Aug 2026 12:23:20 -0400
-X-MC-Unique: HgvhOy0MNMaeaUOPB9zoSA-1
-X-Mimecast-MFC-AGG-ID: HgvhOy0MNMaeaUOPB9zoSA_1787588600
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-52827090cc5so962491cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 09:23:20 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787588600; x=1788193400;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uT29tK1X+zzdSzlTrvlxuqbFiFhBRPSANstyBBDVrSw=;
-        b=AL/Uswmun97mIzOWcRRKN90IXhEZxolpstUEOqFYqOP+YPJOweJiglhSlPxtneNQE4
-         tZZtSEJ95rvUlcUWrNtWfB5v/VGpFrBGjW52DoPY5C15VPxdtqGDsVICLcWFggaKfoFJ
-         okhuGw3c3pVZ6ey7whNij9XTETZOJCpQwUXdiCIh7SzTDX4Tg6+NayqEbgNJH4xUiJJq
-         8c9Dnspu0x2abyCX6XcraX7ztasM61aZj8GYN1ZQSDbvaf8Jodemb2lIpRIb3uWgyxGS
-         t5o4qBuN52+fSuRlraf21Cx4MuInjm6sr6ecR9t6Q86QkUJ7Fo1Epql9pjWsrcCiw47q
-         5kcg==
-X-Forwarded-Encrypted: i=1; AHgh+RpD8DeIKjiKArfwQbZFL0WNDEuQJEx9+CDR6kPTIYw/0Ci++maTRy5cGYBF/APPf25uDFlkYTvxef6vhn7u71uz@lists.infradead.org
-X-Gm-Message-State: AFuF++ny5pNUTjD4dWtYCgd77f0fpUTKA0Isb6o1k0OUSeYiM3cmo44R
-	diYPbY7BVcpaLgegsipQ7uIRkT0eps4496EOYuO60A9kzJlwr9yu0ogQRJJvdfJL23b7Y6gdEKa
-	0hajRA+fyd2HEOfYCh/VXv06uO52o3QcYUP9LqMtABZOVk6+v/eCok8wDORjHtrd/KQKzMWmFcL
-	XW
-X-Gm-Gg: AR+sD13F5jghMuGB/slgjKtqTBkm18Opw4/2gRZyDMtVykEOBvP6AvWiTzO1vuqiUGk
-	x+VhddNIAd5/9rfH9iHzAbkdDjKzthRzEu5z/pMqkhRElJpEqN0leYYP/HtPxNoXgpEg2rNNozK
-	JpYXc9g+fO+Jvem1ZlQHPcXNUTLtuiDLZzj5ziysGoREXetalIfjueJJXDUjymHuv1UA0GSHuyn
-	MoCD8LjQeI4mxRVOtk2cFzZOOdUsCWU/S8u1BHH7nnHPxPNwZC8XzATnKIv2jWIK9oBF8x2XP24
-	QxWUL97Ul9P06LqpwhRQWenh4h5XvJyMYPbry1MSA3fZpqdr9VWoxCpk4JvbKh+Rs1wjMtPAZ0H
-	n/+7Qxc98aUCg2fxT0MOJb+GH7/bny0v68oA=
-X-Received: by 2002:a05:622a:11cf:b0:51b:fcc1:a0b7 with SMTP id d75a77b69052e-52e2ec51619mr4730651cf.8.1787588599993;
-        Mon, 24 Aug 2026 09:23:19 -0700 (PDT)
-X-Received: by 2002:a05:622a:11cf:b0:51b:fcc1:a0b7 with SMTP id d75a77b69052e-52e2ec51619mr4729811cf.8.1787588599474;
-        Mon, 24 Aug 2026 09:23:19 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-90c935e1768sm65958086d6.3.2026.08.24.09.23.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 09:23:18 -0700 (PDT)
-Date: Mon, 24 Aug 2026 12:23:16 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
-	cylee12@realtek.com, afaerber@suse.com, jyanchou@realtek.com,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com,
-	cy.huang@realtek.com, stanley_chang@realtek.com
-Subject: Re: [PATCH v13 04/11] clk: realtek: Introduce common probe() and
- remove()
-Message-ID: <aoxv9PJd6r_8DaNA@redhat.com>
-References: <20260812020009.3480538-1-eleanor.lin@realtek.com>
- <20260812020009.3480538-5-eleanor.lin@realtek.com>
+	Mon, 24 Aug 2026 16:24:21 +0000
+ARC-Seal: i=3; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=rignrY3I6sH1vsLPwyKC4vP9UhD7Ig3ATJ3LApqUvhh/p23zuGhNcRKZ1K5aL3VgOZ+bYtRcgQCHxXGCX2Ic4pbyH+Qy1fYKFl1C+OOnizgjZkF32IT8cvwxGyVD46wuvhi1ln8kGwd4wtzj8of/LZ3nlhwJdCRMFQ5Kk/NOfXTs65rqHQ/iphLWv0UZhsXec83ALBImO8J/WKrB9XOeA8158Kqcx8iF4sm5pdhm46nRUw1UjZ+t6oOtHKSEZfCeBqzSII8en/JtSrGMjuO8+s+SO6xxrHoYDgIZ2KMIlJpMiHD775oBcmzOfK2XNRmod7nc2NTJVjVerVM6mFyZ3w==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CwmlFwHeRisZZT3F5zFXXcvqYRIh+d9XK7eSaoBpCG4=;
+ b=yuuD9REFTPC1Ymso3KZlakQi1vz+YEg9HL5QbQbelCZkkb0DLsBiB5g+RmOz7tBmSxOYdGk2+WHk07g9uBxUJqKKdsLOVXFSSKBuT2FC3NzPJZL2T1gcMgBFCianyLRZDWcp4nLlM8aZX1YfVH0I6AL6OHqooRea9SOF8LIe/msVCAL4mmJoGsMJiYeqUW9W6ZOExKBKqc2cWIxKUObxRu+mW9xBFFidlMiN8if0Do8FIqPX/sxRA8O+cOmplhKJWwf/T48w1rwch7hHjC9lfUp+s982kvtEOLvXMesKsNAhpsZstnRh6PCXWaOCRx8mdZJtnMtaSjN6KKkz2L/Lqg==
+ARC-Authentication-Results: i=3; mx.microsoft.com 1; spf=fail (sender ip is
+ 52.17.62.50) smtp.rcpttodomain=free.fr smtp.mailfrom=solid-run.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=solid-run.com; dkim=pass (signature was verified)
+ header.d=solid-run.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=solid-run.com] dkim=[1,1,header.d=solid-run.com]
+ dmarc=[1,1,header.from=solid-run.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CwmlFwHeRisZZT3F5zFXXcvqYRIh+d9XK7eSaoBpCG4=;
+ b=uX6jiE9Up662UfiFoyQx0zkRjivIHvayejClfPj6+yESXwwAx+TywzHcqFytVmYwpTnF/3Gr641yB6+aTdcVj/T0ceZUn3ys6jWTmhsUb33M3GGsqqNDD/TIhD4yUyHrrpUcxiA3DywEDh2ouMFA+xwM7JSrk5sDHPQfEXFl6I0a/SBOWN56rjpuJ3o0loRLKI6f+ILPZVso50zM7ZhkvIhGa6bQSA7w6kt+1xUOIxnXETGIAX1SG/4vYDIdsSnBJ8neQrTfAVNFoxWEBfJGQUnxtQS0J0Hry8wWVFMhTJCYMLNANn0d4ZaS9RSfP/5Botpgk0mmi+/iog1ViBgRFQ==
+Received: from DU2PR04CA0315.eurprd04.prod.outlook.com (2603:10a6:10:2b5::20)
+ by MRWPR04MB11492.eurprd04.prod.outlook.com (2603:10a6:501:75::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Mon, 24 Aug
+ 2026 16:24:12 +0000
+Received: from DB3PEPF0000885D.eurprd02.prod.outlook.com
+ (2603:10a6:10:2b5:cafe::88) by DU2PR04CA0315.outlook.office365.com
+ (2603:10a6:10:2b5::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.12 via Frontend Transport; Mon,
+ 24 Aug 2026 16:24:11 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 52.17.62.50)
+ smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
+ header.d=solid-run.com;dmarc=pass action=none header.from=solid-run.com;
+Received-SPF: Fail (protection.outlook.com: domain of solid-run.com does not
+ designate 52.17.62.50 as permitted sender) receiver=protection.outlook.com;
+ client-ip=52.17.62.50; helo=eu-dlp.cloud-sec-av.com;
+Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
+ DB3PEPF0000885D.mail.protection.outlook.com (10.167.242.8) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.3
+ via Frontend Transport; Mon, 24 Aug 2026 16:24:11 +0000
+Received: from emails-1928565-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-6-140.eu-west-1.compute.internal [10.20.6.140])
+	by mta-outgoing-dlp-511-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id 953507E96F;
+	Mon, 24 Aug 2026 16:24:11 +0000 (UTC)
+ARC-Seal: i=2; cv=pass; a=rsa-sha256; d=checkpointcloudsec.com;
+ s=arcselector01; t=1787588651;
+ b=HZSd9q75icRk9Nor9UrK24kPQKUoe6T3mgoQBcd8rO7usEA14xA7SXO6pxhgSXVorQhft
+ 7MMSOfhrE47lwmhcpUHKKSpKSL/yXcncef18eER7Fn9NcHgmdVSdvS5+5TyvioSH/dlNq/h
+ eB/WQdnG0MwV83m7wqZOt8ag1v68M2k=
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed;
+ d=checkpointcloudsec.com; s=arcselector01; t=1787588651; h=from : to :
+ subject : date : message-id : content-type : mime-version;
+ bh=CwmlFwHeRisZZT3F5zFXXcvqYRIh+d9XK7eSaoBpCG4=;
+ b=ptLgXbi36gyZPOGHZGcnbSvEgutMNqyGMRkLAzcr/PTyjiGGiwpAc30UTkRAdsUJLUrvn
+ x0scZSezSVQ1MTOA4cGPjxHCwLarmrvt3R2WjwR+x9lLsGcdcrGo8lCNoj/FDOdFy3HFn07
+ 8Z/k97oxoXlL2Jyi5S+kxCM5VvkH/Rg=
+ARC-Authentication-Results: i=2; mx.checkpointcloudsec.com;
+ arc=pass;
+ dkim=none header.d=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CwmlFwHeRisZZT3F5zFXXcvqYRIh+d9XK7eSaoBpCG4=;
+ b=uX6jiE9Up662UfiFoyQx0zkRjivIHvayejClfPj6+yESXwwAx+TywzHcqFytVmYwpTnF/3Gr641yB6+aTdcVj/T0ceZUn3ys6jWTmhsUb33M3GGsqqNDD/TIhD4yUyHrrpUcxiA3DywEDh2ouMFA+xwM7JSrk5sDHPQfEXFl6I0a/SBOWN56rjpuJ3o0loRLKI6f+ILPZVso50zM7ZhkvIhGa6bQSA7w6kt+1xUOIxnXETGIAX1SG/4vYDIdsSnBJ8neQrTfAVNFoxWEBfJGQUnxtQS0J0Hry8wWVFMhTJCYMLNANn0d4ZaS9RSfP/5Botpgk0mmi+/iog1ViBgRFQ==
+Received: from VI1PR04MB5807.eurprd04.prod.outlook.com (2603:10a6:803:ec::21)
+ by VI2PR04MB10569.eurprd04.prod.outlook.com (2603:10a6:800:273::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Mon, 24 Aug
+ 2026 16:24:00 +0000
+Received: from VI1PR04MB5807.eurprd04.prod.outlook.com
+ ([fe80::3da4:2827:d637:37de]) by VI1PR04MB5807.eurprd04.prod.outlook.com
+ ([fe80::3da4:2827:d637:37de%3]) with mapi id 15.21.0339.012; Mon, 24 Aug 2026
+ 16:24:00 +0000
+From: Josua Mayer <josua@solid-run.com>
+To: "vjardin@free.fr" <vjardin@free.fr>, Frank Li <Frank.Li@nxp.com>, Carlos
+ Song <carlos.song@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+CC: "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Thibaut Collet <thbt.cllt@gmail.com>
+Subject: Re: [PATCH v2 3/3] arm64: dts: lx2160a: fix the iic5 spi3 pinmux
+ offset and value
+Thread-Topic: [PATCH v2 3/3] arm64: dts: lx2160a: fix the iic5 spi3 pinmux
+ offset and value
+Thread-Index: AQHdM8o59PecM5rgEkajYYajdW3UWLatYlqA
+Date: Mon, 24 Aug 2026 16:24:00 +0000
+Message-ID: <a8175728-6218-4350-8605-e92def33a6f2@solid-run.com>
+References: <20260824-for-upstream-lx2160a-pinmux-fix-v2-0-0a525d5f4cd5@free.fr>
+ <20260824-for-upstream-lx2160a-pinmux-fix-v2-3-0a525d5f4cd5@free.fr>
+In-Reply-To: <20260824-for-upstream-lx2160a-pinmux-fix-v2-3-0a525d5f4cd5@free.fr>
+Accept-Language: de-DE, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=solid-run.com;
+x-ms-traffictypediagnostic: VI1PR04MB5807:EE_|VI2PR04MB10569:EE_|DB3PEPF0000885D:EE_|MRWPR04MB11492:EE_
+X-MS-Office365-Filtering-Correlation-Id: 96c4c838-1f8b-4a32-d1a9-08df01fc219b
+x-cloud-sec-av-info: solidrun,office365_emails,sent,inline
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|366016|38070700021|6133799003|56012099006|10067099003|4143699003|18002099003|22082099003|15866825006|41080700001;
+X-Microsoft-Antispam-Message-Info-Original: 6IvQRKEDRnCCSWnIYmJmeJXROrUQ/iDszyLtKA8OLeLX13dbmMeLmbSEgLH9oKNFkjvMJKhYQRfPchxLbf/UF8HirPb+Hy0D23xpnewQrJlLctdfLM1xUCxSueh8FFYaEIHJWN03iWaCvCtl+pOiL3aITRD+ZMMLzXApkuzzOSMKeKf28dPm+VRQFPUGdeT2uttJo4jfvIX4W22okWvtdmJtAJgY4xAKbVl7Tu2YIlKrgcMTWtjw7lhM9fDJO9hSf7jR+Yz/4V6bSxSCSwyrrY8EvtHkwRsgXcwL3hGykisC4tc+lfUneziYE5pSeA7xLfjw0ELH2dgp8JqHOduGYhfjWJlk57QnCrhIfZEr4kKM2ySgNwdMLnE3qcYFNuN3ZWyUhPhQCOWDgvHfzb9Rc791N3JwevTnNnsww+VjitJANXfKdKlWo8QJm2SDLijOCbqQdmFGLFs4Ki8yytXdmHljvaacdZUuNKXjrweFvxQ4OWxOHwWH4DXv1JyysqJyo3Wlk0ekqg6irELBziPRKzQ/+i6b+h9D4pl8qTPChXvAxbhmas5tTIadfYFu7cMkJ/KddPsE04/tgRGcgqzH2ekt4TPFfNy5XTAf+B/f4TKUauYCrhkYrDUgGSB+q9R7mTQ1yclKycc9gqn47RiqehGyGGbUrxzR1r0EhFmxmZvoZIsSyi5xkGlKyERGXi7zCSyIQPjbWLFHrLuCJvppitYtGz5WAn25Qh2eDOX7+CacIPXGo59vLkBeRCmDDaZhO9ooOVgEwWpCpwkItcUBYQDQUZ+45oupuVcrNDEITsY=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR04MB5807.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(366016)(38070700021)(6133799003)(56012099006)(10067099003)(4143699003)(18002099003)(22082099003)(15866825006)(41080700001);DIR:OUT;SFP:1102;
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <6791AAAC1A29D54591B56D7785EF112B@eurprd04.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-In-Reply-To: <20260812020009.3480538-5-eleanor.lin@realtek.com>
-User-Agent: Mutt/2.4.0 (2026-06-19)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 9XGY9b7Sw2q9MmdjrX6dG-tdySc5WPP2CDY5VGvCwgA_1787588600
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+X-Exchange-RoutingPolicyChecked: H3LjyArzuowC5E5fIP9jDme/PYu15h5ENxNg2V04gtzyhNXA8xBvBD7U+5XrVsgGXcd/NzlUyLYS5oq4I3d+N90VSWBwhgWslRuOkq9ex31eoovfV+i77dUHjt9kwnhTFjAkaaBPPNneD/loJOyzG4ZhNn947iwJX8degkYTU55mxlFH71yIPSp+IGWwZl0D+biPBWQZRbwZocZGCJgFVhXLvFMDU88nawHlymkLyItrgT7cBhQjFNvOqw+9ixFG51renlr64cz0wgxG4KnUDDBy+uMwU0tZFy0M+ReBZW3y1h3S6AX5vMTocM3ZLO3vk8acgKaJqHDUzQRID1mvIw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10569
+X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2.checkpointcloudsec.com>
+X-CLOUD-SEC-AV-UUID: 8fee4b7358e1420394a906e2f3ed1d6a:solidrun,office365_emails,sent,inline:1d5dc2100f085a568c1eeb485abea290
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TCdiUf32pnpSElSO9q8NKNV9lnsUOWqWy6TdOq2efGs/3/c6CcZTZjsnONLK4eaD027TbvClJJ9ZNcsKIJ2PciWGZWk60EpL7Az37Mi31PI9jI/6SQseF1lPgWj9u5yvy/mAa6fwi3iKhyhC8+T9o5k2FnNDlvr2sNrvkgCEn2bXg//iigtiQlCDo/ZznD669GdgVAyi5o3xrNlB758cUWvSSITlx3rpLLlmORu9WkZd+lrSvlpCABZ/NRN2Ur8YRD4ITn2xvFgBfpsgyboX47d8/psq491Sna5ljQftddAKvQEnVDCBf9h8vUi2OxMBsL3qgvu+AvdA8rc9y/DipQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CwmlFwHeRisZZT3F5zFXXcvqYRIh+d9XK7eSaoBpCG4=;
+ b=m+iLXgbhqzTYBFPrBsbVvj8Xs8KGu5c0YI0sh5Z5Wd7cLwtWia95iXlrW5rJNxzafzVgPL1z8WgmOc5NsS3oljNt57de7hbPj/q58nl8kTskf5kcDYvt06q47G543D0VFNTyNCq1OpgAVOMzhDxhJIlcPk+wG0RZDnCF1XKAdVFJ3VF0LpfBD3L8UsYA7x5PLOiZ9Pl0uYo3JShuoB76ZQJMn+KRh4dPAoVCYkiBivIEzSpj8snyI2mAcu64q36r59vX07J83zaf0Kq3a6+u+TpiIFA7GD1NwnprYE71fg+PQiHUdYDX0DGuhkdvhUQUb6HJvjc6TGOZvKQqee6d9A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+Authentication-Results-Original: mx.checkpointcloudsec.com; arc=pass;
+ dkim=none header.d=none
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB3PEPF0000885D.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: e3a9ea69-13e3-4549-579e-08df01fc1ae6
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|14060799003|36860700016|35042699022|82310400026|1800799024|6133799003|10067099003|4143699003|56012099006|18002099003|22082099003|15866825006|41080700001;
+X-Microsoft-Antispam-Message-Info: g0dD8hzaOXN+hTr6erF1yTZffoS1uJhl1axHTOQcMPZxINfYGqpC1hS4Dg3TFjyhg7LEPhVXzivg5RJMqMopZOJ/KqLnpGlptHh8EAO6Znc4YNJ2geAaL401f5onWPoaJEWe/zYBkGEePIqppv+pP/Oo/KnE3QD980YoNKvQjTcAkHLy6jZoS2tOzyZjR0XsOeiAi7ODh7nqiHcSoWweVIbzJ27p78WiwFLKXKuqF38OFsTq8dKdh5xPUQTTDdPJ+nEjUT3Lk1V1K2irkTotq3zMoulQeQ0vYUvOKK4qVq1XGmYMzmXNbddT7p127bmZqzp/7h/Rf9RhykhLotzxViAwxFfZ3CjgN0oqdfgUdjZ7RUHEdqahgh5xwvmpMzhAWYsHY/lyTRSQrPwpWZ9SuSogj/mHDagk7/n+TSj1Y/JHjhJnvjpNs67FLxxWEFlPbXOw1rgc+1xR7iHWtJBTD7bJDvSLQbHsaiUbvEsJGk45074hwGV2vN9UVyXXEy2Y10NvQFUwoZw1Tb9lymK82RSXJUDgxz5jpcsp37tNpJqn4vivibAdd7bGQMcKQU1zb8Ipkog7zR2lF4s5yjKxwtYYh2nU4FLQjEUUYsaBZpT8m0Jbl3yEqc0k9bijkYzGzLzxahr/POI8Wl7IbmtdWW7UAhEJzNF6TBnuY0x0AP7uGnmGy3a4dS+hsH3Oyqd2Fgp1AAUuNZPnoczCVuf04aH5dDQKnn8IZalXrZWrBTbH9sVB3PhOIG46JGJVAgE7+04dNx8Y2vrxUz2UBkSel3SZga8g4O5r4VgNxzx1cHc=
+X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(14060799003)(36860700016)(35042699022)(82310400026)(1800799024)(6133799003)(10067099003)(4143699003)(56012099006)(18002099003)(22082099003)(15866825006)(41080700001);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: G/nq8HWnCN0T4ZKXWuUtGA8yIMxqX0JH/ADgZVGs3j7R4uj4Kzh7tgoWeVMApBaUSCEOoAxYkoNt5paGWXunfSXv5ieAh9o9go22BmIw6Pajay+baA7t/IuI2EcUvmLNt+3BZ37T+n4phIGvDpBVsQRQ2B+WtCkl8yYd07rUglbmn0aIAmzfbuWT7/9FEJkyEoprdAjncRi7C+00KetxEWqJuc2OhNRZnwLWnskf5xzhS/8Rw3xK2UVsWDLGQgcozQxfTFPt/F6e2JnVf8PuoS41NH5kIiA8wm+M5q6fyKVkHi1TbbxN7yyuhG6gfWoQC4lQXqZ6mCJ/3QglP3O7hpv9n8FmlNM9Z5xSIIfE1nJGSGs52ww/kawkgQG1l+j0+BVFfvpML83EmSPCnIbvK2elA+ynxILQVU1XR2vkScXwIXLNukLaue5+Mgc3ds8V
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2026 16:24:11.6737
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96c4c838-1f8b-4a32-d1a9-08df01fc219b
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885D.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR04MB11492
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_092325_504981_886FB471 
-X-CRM114-Status: GOOD (  37.45  )
+X-CRM114-CacheID: sfid-20260824_092419_200623_799D3D1E 
+X-CRM114-Status: GOOD (  20.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,230 +189,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yu-Chun,
-
-On Wed, Aug 12, 2026 at 10:00:02AM +0800, Yu-Chun Lin wrote:
-> From: Cheng-Yu Lee <cylee12@realtek.com>
-> 
-> Add rtk_clk_probe() to set up the shared regmap, register clock hardware,
-> and add the clock provider.
-> 
-> Add rtk_clk_remove() to clear the regmap pointers in the clock descriptors
-> during driver unbind to prevent dangling pointers.
-> 
-> Additionally, if the "#reset-cells" property is present in the device tree,
-> it creates and registers an auxiliary device using the provided aux_name.
-> This allows the dedicated reset driver to bind to this device, enabling
-> both clock and reset drivers to share the same regmap.
-> 
-> Reviewed-by: Brian Masney <bmasney@redhat.com>
-> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> ---
-> Changes in v13:
-> - None.
-> ---
->  MAINTAINERS                          |  1 +
->  drivers/clk/Kconfig                  |  1 +
->  drivers/clk/Makefile                 |  1 +
->  drivers/clk/realtek/Kconfig          | 30 ++++++++++
->  drivers/clk/realtek/Makefile         |  4 ++
->  drivers/clk/realtek/clk-rtk-common.c | 83 ++++++++++++++++++++++++++++
->  drivers/clk/realtek/clk-rtk-common.h | 38 +++++++++++++
->  7 files changed, 158 insertions(+)
->  create mode 100644 drivers/clk/realtek/Kconfig
->  create mode 100644 drivers/clk/realtek/Makefile
->  create mode 100644 drivers/clk/realtek/clk-rtk-common.c
->  create mode 100644 drivers/clk/realtek/clk-rtk-common.h
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index a752551f32f9..e55eb1c06119 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22746,6 +22746,7 @@ M:	Cheng-Yu Lee <cylee12@realtek.com>
->  M:	Yu-Chun Lin <eleanor.lin@realtek.com>
->  S:	Supported
->  F:	Documentation/devicetree/bindings/clock/realtek*
-> +F:	drivers/clk/realtek/*
->  F:	drivers/reset/realtek/*
->  F:	include/dt-bindings/clock/realtek*
->  F:	include/dt-bindings/reset/realtek*
-> diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-> index 1717ce75a907..97ad817457db 100644
-> --- a/drivers/clk/Kconfig
-> +++ b/drivers/clk/Kconfig
-> @@ -525,6 +525,7 @@ source "drivers/clk/nuvoton/Kconfig"
->  source "drivers/clk/pistachio/Kconfig"
->  source "drivers/clk/qcom/Kconfig"
->  source "drivers/clk/ralink/Kconfig"
-> +source "drivers/clk/realtek/Kconfig"
->  source "drivers/clk/renesas/Kconfig"
->  source "drivers/clk/rockchip/Kconfig"
->  source "drivers/clk/samsung/Kconfig"
-> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-> index cc108a75a900..b1aa373e9f84 100644
-> --- a/drivers/clk/Makefile
-> +++ b/drivers/clk/Makefile
-> @@ -141,6 +141,7 @@ obj-$(CONFIG_COMMON_CLK_PISTACHIO)	+= pistachio/
->  obj-$(CONFIG_COMMON_CLK_PXA)		+= pxa/
->  obj-$(CONFIG_COMMON_CLK_QCOM)		+= qcom/
->  obj-y					+= ralink/
-> +obj-$(CONFIG_COMMON_CLK_REALTEK)	+= realtek/
->  obj-y					+= renesas/
->  obj-$(CONFIG_COMMON_CLK_ROCKCHIP)	+= rockchip/
->  obj-$(CONFIG_COMMON_CLK_SAMSUNG)	+= samsung/
-> diff --git a/drivers/clk/realtek/Kconfig b/drivers/clk/realtek/Kconfig
-> new file mode 100644
-> index 000000000000..ed97531e321d
-> --- /dev/null
-> +++ b/drivers/clk/realtek/Kconfig
-> @@ -0,0 +1,30 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +config COMMON_CLK_REALTEK
-> +	tristate "Clock driver for Realtek SoCs"
-> +	depends on ARCH_REALTEK || COMPILE_TEST
-> +	default ARCH_REALTEK
-> +	help
-> +	  Enable the common clock framework infrastructure for Realtek
-> +	  system-on-chip platforms.
-> +
-> +	  This provides the base support required by individual Realtek
-> +	  clock controller drivers to expose clocks to peripheral devices.
-> +
-> +	  If you have a Realtek-based platform, say Y.
-> +
-> +if COMMON_CLK_REALTEK
-> +
-> +config RTK_CLK_COMMON
-> +	tristate "Realtek Clock Common"
-> +	depends on RESET_CONTROLLER
-> +	select AUXILIARY_BUS
-> +	select MFD_SYSCON
-> +	select RESET_RTK_COMMON
-> +	help
-> +	  Common helper code shared by Realtek clock controller drivers.
-> +
-> +	  This provides utility functions and data structures used by
-> +	  multiple Realtek clock implementations, and include integration
-> +	  with reset controllers where required.
-> +
-> +endif
-> diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
-> new file mode 100644
-> index 000000000000..13000ed4ba11
-> --- /dev/null
-> +++ b/drivers/clk/realtek/Makefile
-> @@ -0,0 +1,4 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
-> +
-> +clk-rtk-y += clk-rtk-common.o
-> diff --git a/drivers/clk/realtek/clk-rtk-common.c b/drivers/clk/realtek/clk-rtk-common.c
-> new file mode 100644
-> index 000000000000..e8422ecbad79
-> --- /dev/null
-> +++ b/drivers/clk/realtek/clk-rtk-common.c
-> @@ -0,0 +1,83 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2019-2026 Realtek Semiconductor Corporation
-> + * Author: Cheng-Yu Lee <cylee12@realtek.com>
-> + */
-> +
-> +#include <linux/auxiliary_bus.h>
-> +#include <linux/device.h>
-> +#include <linux/export.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include "clk-rtk-common.h"
-> +
-> +static int rtk_reset_controller_register(struct device *dev, const char *aux_name,
-> +					 struct regmap *map)
-> +{
-> +	struct auxiliary_device *adev;
-> +
-> +	if (!of_property_present(dev->of_node, "#reset-cells"))
-> +		return 0;
-> +
-> +	if (!aux_name) {
-> +		dev_err(dev, "DTS requires reset controller, but aux_name is missing\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	adev = devm_auxiliary_device_create(dev, aux_name, (void *)map);
-> +	if (!adev)
-> +		return -ENOMEM;
-> +
-> +	return 0;
-> +}
-> +
-> +int rtk_clk_probe(struct platform_device *pdev, const struct rtk_clk_desc *desc)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct regmap *regmap;
-> +	struct clk_hw *hw;
-> +	int i, ret;
-> +
-> +	regmap = device_node_to_regmap(dev->of_node);
-
-Looking at the Sashiko comments for this series. device_node_to_regmap()
-has this note in drivers/mfd/syscon.c:
-
-/**
- * device_node_to_regmap() - Get or create a regmap for specified device node
- * @np: Device tree node
- *
- * Get a regmap for the specified device node. If there's not an existing
- * regmap, then one is instantiated. This function should not be used if the
- * device node has a custom regmap driver or has resources (clocks, resets) to
- * be managed. Use syscon_node_to_regmap() instead for those cases.
- *
- * Return: regmap ptr on success, negative error code on failure.
- */
-
-Should this be moved to syscon_node_to_regmap()?
-
-> +	if (IS_ERR(regmap))
-> +		return dev_err_probe(dev, PTR_ERR(regmap), "failed to get regmap\n");
-> +
-> +	for (i = 0; i < desc->num_clks; i++)
-> +		desc->clks[i]->regmap = regmap;
-> +
-> +	for (i = 0; i < desc->clk_data->num; i++) {
-> +		hw = desc->clk_data->hws[i];
-> +		if (!hw)
-> +			continue;
-> +
-> +		ret = devm_clk_hw_register(dev, hw);
-> +		if (ret)
-> +			return dev_err_probe(dev, ret, "failed to register hw of clk%d\n", i);
-> +	}
-> +
-> +	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
-> +					  desc->clk_data);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to add clock provider\n");
-> +
-> +	platform_set_drvdata(pdev, (void *)desc);
-> +
-> +	return rtk_reset_controller_register(dev, desc->aux_name, regmap);
-> +}
-> +EXPORT_SYMBOL_NS_GPL(rtk_clk_probe, "CLK_REALTEK");
-> +
-> +void rtk_clk_remove(struct platform_device *pdev)
-> +{
-> +	const struct rtk_clk_desc *desc = platform_get_drvdata(pdev);
-> +
-> +	if (!desc)
-> +		return;
-> +
-> +	for (int i = 0; i < desc->num_clks; i++)
-> +		desc->clks[i]->regmap = NULL;
-
-Looking at the Sashiko comments, is this remove callback really needed?
-
-Brian
-
+QW0gMjQuMDguMjYgdW0gMTU6MTIgc2NocmllYiBWaW5jZW50IEphcmRpbiB2aWEgQjQgUmVsYXk6
+DQoNCj4gRnJvbTogVmluY2VudCBKYXJkaW4gPHZqYXJkaW5AZnJlZS5mcj4NCj4NCj4gVGhlIGlp
+YzUtc3BpMy1waW5zIG5vZGUgaGFzIGJvdGggb2YgaXRzIGZpcnN0IHR3byBjZWxscyB3cm9uZy4N
+Cj4NCj4gVGhlIG9mZnNldCBzZWxlY3RzIHRoZSByZWdpc3RlciB3aXRoaW4gdGhlIG5vZGUncyBy
+ZWcgcmFuZ2UsIHdoZXJlOg0KPiAgIDB4MCBpcyBSQ1dTUjEyLA0KPiAgIDB4NCBpcyBSQ1dTUjEz
+LA0KPiAgIDB4OCBpcyBSQ1dTUjE0Lg0KPg0KPiBBbiBvZmZzZXQgb2YgMHgzIGlzIG5vdCBvbmUg
+b2YgdGhlbSBhbmQgaXMgbm90IGV2ZW4gYWxpZ25lZCBmb3IgdGhlDQo+IGRlY2xhcmVkIDMyIGJp
+dCByZWdpc3RlciB3aWR0aC4gSXQgaXMgdGhlIG9ubHkgbm9kZSBpbiB0aGlzIHBpbm11eCB0aGF0
+DQo+IGRvZXMgbm90IHVzZSAweDAsIDB4NCBuZWl0aGVyIDB4OC4NCj4NCj4gVGhlIHZhbHVlIGlz
+IHdyb25nIHRvbzoNCj4gICBJSUM1X1BNVVggaXMgUkNXU1IxMlsxMTo5XSBhbmQgaXQgZW5jb2Rl
+cyAwYjAwMCBmb3IgSUlDNSwNCj4gICAwYjAwMSBmb3IgR1BJT18xWzI1OjI0XSwNCj4gICAwYjAx
+MCBmb3IgU0RIQzFfQ0xLX1NZTkNfT1VUL0lOLA0KPiAgIDBiMDExIGZvciB7SUlDNV9TQ0wsSUlD
+NV9TREF9ID0ge1NQSTNfU09VVCxTUEkzX1NJTn0uDQo+DQo+IFRoaXMgbm9kZSBzZWxlY3RzIHRo
+ZSBsYXN0IG9mIHRob3NlLCBzbyBpdCBuZWVkcyAweDMsIG5vdCB0aGUgMHgyLCB3aGljaA0KPiBp
+cyB0aGUgdmFsdWUgb2YgdGhlIG5laWdoYm91cmluZyBzZGhjMSBjbG9jayBzeW5jIG5vZGUgaXQg
+d2FzIGNvcGllZA0KPiBmcm9tLg0KPg0KPiBGaXhlczogMjg0YWQ3MDY0YWFhICgiYXJtNjQ6IGR0
+czogbHgyMTYwYTogY29tcGxldGUgcGlubXV4IGZvciByY3dzcjEyIGNvbmZpZ3VyYXRpb24gd29y
+ZCIpDQo+IFNpZ25lZC1vZmYtYnk6IFZpbmNlbnQgSmFyZGluIDx2amFyZGluQGZyZWUuZnI+DQo+
+IC0tLQ0KPiAgYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvZnNsLWx4MjE2eC5kdHNpIHwg
+MiArLQ0KPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pDQo+
+DQo+IGRpZmYgLS1naXQgYS9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9mc2wtbHgyMTZ4
+LmR0c2kgYi9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9mc2wtbHgyMTZ4LmR0c2kNCj4g
+aW5kZXggZmFlNzA1ZGQwNzY2OS4uYmY1ZDliNjcxZDg1OCAxMDA2NDQNCj4gLS0tIGEvYXJjaC9h
+cm02NC9ib290L2R0cy9mcmVlc2NhbGUvZnNsLWx4MjE2eC5kdHNpDQo+ICsrKyBiL2FyY2gvYXJt
+NjQvYm9vdC9kdHMvZnJlZXNjYWxlL2ZzbC1seDIxNnguZHRzaQ0KPiBAQCAtMTYwMiw3ICsxNjAy
+LDcgQEAgZXNkaGMwX2Nsa3N5bmNfcGluczogaWljNS1zZGhjLWNsay1waW5zIHsNCj4gIAkJCX07
+DQo+ICANCj4gIAkJCWRzcGkyX21pc29fbW9zaV9waW5zOiBpaWM1LXNwaTMtcGlucyB7DQo+IC0J
+CQkJcGluY3RybC1zaW5nbGUsYml0cyA9IDwweDMgKDB4MiA8PCA5KSAoMHg3IDw8IDkpPjsNCj4g
+KwkJCQlwaW5jdHJsLXNpbmdsZSxiaXRzID0gPDB4MCAoMHgzIDw8IDkpICgweDcgPDwgOSk+Ow0K
+PiAgCQkJfTsNCj4gIA0KPiAgCQkJaTJjNV9waW5zOiBpaWM2LWkyYy1waW5zIHsNCj4NClJldmll
+d2VkLWJ5OiBKb3N1YSBNYXllciA8am9zdWFAc29saWQtcnVuLmNvbT4NCg0KVGhhbmtzIGZvciBj
+aGVja2luZyBhbGwgdGhlc2UhDQo=
 
