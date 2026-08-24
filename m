@@ -4,58 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65AB7C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 14:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EDF7C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 14:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AgFapjuXFKBtN+qsIeiAzufEVU9drC5m1l1hMvaPzTY=; b=WP6JrNiHxPCM4txOHe1l0iiuKl
-	MqfUFo2OIu/XdltZPTPAGp+Su8ciKgi2+8RJsy7hg12FBrIhqBEXJ/OIXLIfgJeo6Qm/y9aMaToOT
-	7OwaIkOe0lAYyAxx0Nfx11N6RXOv4vXk3RxIxGLcU9g8dmWxKj3+0twp6TonsvpWT6QX+i4zRNr8s
-	KsEYra3Hz6ECuPxmbYjgf6gCGxF27CrFyBDJMJfbaX5ZUh+nToEyQ/i1DpqC+oKNZXRP6qrF6ihKK
-	uuImuBEX4xhnLf6UmuM/I3v5NpGNfdr17cpafWsD3sXyx5V7r7SUM3SK6v2abBHqjFIUQ6RF10+ef
-	1xPyr00Q==;
+	bh=Vm1p9M4lR0nH2xefCtH9dUaY37Y2P9W6T0kJp4WGVyI=; b=YO8DNQh0mfhqebbPe0Jph+wsVt
+	KaRLoTELsYqeyHeL2cs1f9Z6fCG73Mkn/sr7UjTzxXisTqFn0tMD1tuZwLudowYqj0dWc6hjy7pZg
+	IgaxEO4nk8U6JrsLo5ldB/YBT5/zn9UIaIfPW4PHrG5lYjnHiHtk5lctRq/4Zuhq7WQVxwZGCMjvL
+	n1IMIYGAzEBFzDAIZEXX2XeNDMkieHf/+nseaeRcTKMOuS/LgRl8C5XfGkNWONtbTvo+xIEjxpRCR
+	T2hVcDcu6CeGC4YPe7qyubdqzJEU5lkuIVhOKVgYw/SwbvmKwP0m3s4eNDkBl7TWVLypT8AaETPig
+	NDynX72Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyVp7-0000000Gnv9-2SeB;
-	Mon, 24 Aug 2026 14:38:53 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1wyVpC-0000000Gnwz-3Pmb;
+	Mon, 24 Aug 2026 14:38:58 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyVp3-0000000Gnu4-3cYl;
-	Mon, 24 Aug 2026 14:38:51 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 90B14201B99;
-	Mon, 24 Aug 2026 16:38:43 +0200 (CEST)
-Message-ID: <9650b30e936b58c37ccc73934a66e2d8edb02331.camel@pengutronix.de>
-Subject: Re: [PATCH 04/16] usb: typec: tcpm: Add STM32 UCPD driver
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, Greg Kroah-Hartman	
- <gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Christian Bruel	 <christian.bruel@foss.st.com>, Heikki Krogerus
- <heikki.krogerus@linux.intel.com>,  Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark
- Brown <broonie@kernel.org>,  Srinivas Kandagatla	 <srini@kernel.org>, Marek
- Vasut <marex@nabladev.com>, Vinod Koul	 <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, Pankaj Dev	 <pankaj.dev@st.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
-Date: Mon, 24 Aug 2026 16:38:43 +0200
-In-Reply-To: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-4-c5e27cbc0795@foss.st.com>
-References: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-0-c5e27cbc0795@foss.st.com>
-	 <20260821-ucpd-host-fusb340-v7-2-rfc-v1-4-c5e27cbc0795@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1wyVp7-0000000Gnua-0HeS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 24 Aug 2026 14:38:54 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-69c108fee7fso5754193a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 07:38:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787582330; cv=none;
+        d=google.com; s=arc-20260327;
+        b=pVeelcAxnopy/R0ro4OdYx7abPwXoNqdyQsiO6TPssplDVddYX5Hc//45nIfMlcycX
+         ylyZjaDmx0RmTXdGMH+XwmGELjzimR0jzu3kuvNYRhBfSMlti+EU6boasS1mwkXa9FG4
+         hUbViA1ITba+bA3cAvsr2xtN55F3rU30U6x8Cr+F31jBHuJ7k3Ov9XZEQA6Ieqk737ux
+         E8Uy55Agi1Y6gCai7ud+mXzA3o/LdYSvMV04Aoaf9VZqFVj42Ah/5ofdiJMYctfrpA9o
+         TC4BG4SpM0uF5ErEu1hBTb3D1RGjEbLC+nCByXNo/Kqi3Yi7q6fwlmZidf/pFrcFPEQ6
+         DTuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Vm1p9M4lR0nH2xefCtH9dUaY37Y2P9W6T0kJp4WGVyI=;
+        fh=9WsG+xmQ5KIhQKUnWUR9ijSYoayzZCmLVa4ABau9n4k=;
+        b=dy74QOjqESGD8oRgnC8go5XzlVapD/DUr6s2rl00Q+4tiK90+sNeSHmzhXfkEXps4I
+         n9HD2QANzP8HMWKBDtUCMrZXN5F/ypd3gr/wiIqotToSi7XYgEgHQQktx7PPQt8Kbibw
+         wI/nlCwmtv8Fh93BEjxCV5mzD2XJfjPRxYhzurvSaBYaym6pMTqzlaIrM69th3TGAZIW
+         DO3cMWMR9fji4z/dL0gUEXg4F3nYsxpv2Nbg3yIABHDiFp5GkHsrz/AkBmuVYQXUrBtP
+         0JAt24UGal7KRUVLre6fwkQ78GNm6vjlCWGkCOdmz7Ybx6YcOCKGY2geVAMl/6AeIKZA
+         UBJA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1787582330; x=1788187130; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Vm1p9M4lR0nH2xefCtH9dUaY37Y2P9W6T0kJp4WGVyI=;
+        b=BxUJ1aium1l5XMgEpz8CLnJF/qTdvt8PO0TFoL4bD3UvtwDvt5kwokJNrz33J1CXb2
+         ep5rtrscyh7OitEFD5OUsCQx/oCZ6zNecGUTM1HqUdzeGDdkuu6Ai7SAEkiGyixe3LN8
+         AeV0Z0UbfzwZKHm2TTsZArkik10k8G4c9jGzd5lumPCj5a8CjR/yfyYFp3YS3uEIa8e2
+         ZUrPiTOF2+Ad4bJRCXEivXF0jLb+KKRP2Rw7mu7OcDsAAZF3YCcdtFnuJYbNFqwwVTmI
+         Ns4B11igiO3TlNoLD0tSP6qi7z+o0kyVvDbZnLkpkDJgYxyVelBmv5DQNFD3rWn0SINW
+         6g5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787582330; x=1788187130;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Vm1p9M4lR0nH2xefCtH9dUaY37Y2P9W6T0kJp4WGVyI=;
+        b=XTX+uyE9/dqLuQAzK47l3IjwJPdIROfJ2N0Y7+K/+bQwUAwQkrsxcpYp9mFpqwHVof
+         yzREd/JbnsoBO7Jotjr1l8x0Ahb5sgBIRbqlp5KqbcFEnoF7XrT3ZHCfZwLr5M3rTmLW
+         TCw7zyYOtYzE8ChzP8bJrRcJzhqVR3bwkAef/hFzr8bvx68o9EuPghfTRFU24PePAxg/
+         69GrDIRycvoVHxI3chrRhCMErCXkZPgC9wGvksvYkiSCjmUGjUrcRJYNyuvhJawBxqlN
+         VMc4feGweQZ0bQ4edX4w2GLcJ/Y4fack48WdfDFCFIXTgKy3rsW5x/t6lx6zUlEw6FM/
+         CWUA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr8rBiSqduBzmHwPEo701czNeI7H7QKU0rmqCCRswJT9ZRogCpch7Wp+jm5gXtFgCY9joKz+qbMsDL/9m5B12vC@lists.infradead.org
+X-Gm-Message-State: AFuF++mlepOlZ51Vse2l38nhReu+xIxbd6n4GClcKWKVdwqS43ocLc7c
+	UnyUiQM09f5Wc2G53fdThW/eYAxWSqaDcPf3FGVodOAGdPwJzb4vl+vNZvNByOyx0hURaAKm9zV
+	q6ts6Rywu2o6LQQBUyWyl0mVO+CTAFi5YJwGhlLxzlw==
+X-Gm-Gg: AR+sD109CrjxlqoDLuxJipgtDg9aVEXZGLVTkHSG1tYS7qgQx5HGFjS9NcShT+6glhl
+	WoZovnTfXsX1v03J0nozP8UdAW/AMFyCPQcKpP+lwqTLfjAZKtO7M9f8xJJu+8/kPCGlZU+xiBW
+	n8WKk7RwkXP+H+lPkp7RoVoL50403OcMBw4seWXwgWryo0b1j1fgaBn/YH7GiaglJZxwQdxjF/E
+	QNE6NR3lOZL4ca6zKSx1KclOumkV6xQ20ZadKXZ1RjaNlaKq5NCQ/TvfeNgrl2QuDmKpjxhkbRd
+	q1GOv2s1T0sV5jKCOIehBcpvo8iCyQpB00qkOUKhe8Jk4dkRpt9vOEwPvfDXBvJ+dmJT3ZtVdzR
+	STwc=
+X-Received: by 2002:a05:6402:a50a:10b0:6a4:cc9:e32b with SMTP id
+ 4fb4d7f45d1cf-6a582b608b0mr13946214a12.9.1787582330522; Mon, 24 Aug 2026
+ 07:38:50 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260721204704.400781-1-shenwei.wang@oss.nxp.com> <20260721204704.400781-3-shenwei.wang@oss.nxp.com>
+In-Reply-To: <20260721204704.400781-3-shenwei.wang@oss.nxp.com>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Mon, 24 Aug 2026 08:38:38 -0600
+X-Gm-Features: AcwNN1WkCFZbvWxe4PQA8OwbQcV2Qi4oWD0S_a9VEHwbP89HadQ5rWBGiqMxI74
+Message-ID: <CANLsYkxZbr9hKaJJGXwYXErLwQ-A07eb-oeNXY1CceHHa0Tdmg@mail.gmail.com>
+Subject: Re: [PATCH v15 2/5] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
+ subnode support
+To: Shenwei Wang <shenwei.wang@oss.nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>, 
+	linux-gpio@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Shenwei Wang <shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>, 
+	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-imx@nxp.com, 
+	Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, b-padhi@ti.com, Andrew Lunn <andrew@lunn.ch>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_073850_055359_AA03C877 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20260824_073853_148148_8B2B6FF0 
+X-CRM114-Status: GOOD (  26.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,150 +125,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fr, 2026-08-21 at 18:23 +0200, Fabrice Gasnier wrote:
-> From: Christian Bruel <christian.bruel@foss.st.com>
->=20
-> Add support for the STM32 UCPD controller providing USB Type=E2=80=91C
-> Configuration Channel (CC) management and USB Power Delivery (PD)
-> protocol handling.
->=20
-> The driver integrates with the TCPM (Type-C Port Manager) framework.
-> On this platform, VBUS monitoring is handled by an external TCPP03
->=20
-> Note the driver doesn't allow PD, so the role can only be set at
-> plug time.
->=20
-> The UCPD can be a wakeup source, in such a case, keep the hardware
-> enabled. Else, keep track of the vbus state as provider and as
-> consumer, to be restored after low power.
->=20
-> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+On Tue, 21 Jul 2026 at 14:48, Shenwei Wang <shenwei.wang@oss.nxp.com> wrote:
+>
+> From: Shenwei Wang <shenwei.wang@nxp.com>
+>
+> Remote processors may announce multiple GPIO controllers over an RPMSG
+> channel. These GPIO controllers may require corresponding device tree
+> nodes, especially when acting as providers, to supply phandles for their
+> consumers.
+>
+> Define an RPMSG node to work as a container for a group of RPMSG channels
+> under the imx_rproc node. Each subnode within "rpmsg" represents an
+> individual RPMSG channel. The name of each subnode corresponds to the
+> channel name as defined by the remote processor.
+>
+> All remote devices associated with a given channel are defined as child
+> nodes under the corresponding channel node.
+>
+> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
 > ---
->  drivers/usb/typec/tcpm/Kconfig      |  12 +
->  drivers/usb/typec/tcpm/Makefile     |   1 +
->  drivers/usb/typec/tcpm/stm32_ucpd.c | 818 ++++++++++++++++++++++++++++++=
-++++++
->  3 files changed, 831 insertions(+)
->=20
-[...]
-> diff --git a/drivers/usb/typec/tcpm/stm32_ucpd.c b/drivers/usb/typec/tcpm=
-/stm32_ucpd.c
+>  .../devicetree/bindings/gpio/gpio-rpmsg.yaml  | 55 +++++++++++++++++++
+>  .../bindings/remoteproc/fsl,imx-rproc.yaml    | 53 ++++++++++++++++++
+>  2 files changed, 108 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml b/Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
 > new file mode 100644
-> index 000000000000..b5c9dc417814
+> index 000000000000..41eb2e149942
 > --- /dev/null
-> +++ b/drivers/usb/typec/tcpm/stm32_ucpd.c
-> @@ -0,0 +1,818 @@
-[...]
-> +static int stm32_ucpd_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev =3D &pdev->dev;
-> +	struct i2c_client *tcpp_client;
-> +	struct device_node *tcpp_np;
-> +	struct stm32_ucpd *ucpd;
-> +	int ret;
+> +++ b/Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
+> @@ -0,0 +1,55 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/gpio/gpio-rpmsg.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +	ucpd =3D devm_kzalloc(dev, sizeof(*ucpd), GFP_KERNEL);
-> +	if (!ucpd)
-> +		return -ENOMEM;
+> +title: Generic RPMSG GPIO Controller
 > +
-> +	ucpd->dev =3D dev;
-> +	platform_set_drvdata(pdev, ucpd);
+> +maintainers:
+> +  - Shenwei Wang <shenwei.wang@nxp.com>
 > +
-> +	ucpd->vdd =3D devm_regulator_get(&pdev->dev, "ucpd");
-> +	if (IS_ERR(ucpd->vdd))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(ucpd->vdd), "vdd get failed\n=
-");
+> +description:
+> +  On an AMP platform, some GPIO controllers are exposed by the remote processor
+> +  through the RPMSG bus. The RPMSG GPIO transport protocol defines the packet
+> +  structure and communication flow between Linux and the remote firmware. Those
+> +  controllers are managed via this transport protocol. For more details of the
+> +  protocol, check the document below.
+> +  Documentation/driver-api/gpio/gpio-rpmsg.rst
 > +
-> +	ucpd->vconn =3D devm_regulator_get_optional(&pdev->dev, "vconn");
-> +	if (IS_ERR(ucpd->vconn)) {
-> +		if (PTR_ERR(ucpd->vconn) !=3D -ENODEV)
-> +			return dev_err_probe(&pdev->dev, PTR_ERR(ucpd->vconn),
-> +					     "vconn get failed\n");
-> +		ucpd->vconn =3D NULL;
-> +	}
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - fsl,rpmsg-gpio
+> +          - const: rpmsg-gpio
+> +      - const: rpmsg-gpio
 > +
-> +	ucpd->base =3D devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(ucpd->base))
-> +		return PTR_ERR(ucpd->base);
+> +  reg:
+> +    description:
+> +      The reg property represents the index of the GPIO controllers. Since
+> +      the driver manages controllers on a remote system, this index tells
+> +      the remote system which controller to operate.
+> +    maxItems: 1
 > +
-> +	ucpd->num_clks =3D devm_clk_bulk_get_all(dev, &ucpd->clks);
-> +	if (ucpd->num_clks <=3D 0)
-> +		return ucpd->num_clks ? : -ENOENT;
+> +  "#gpio-cells":
+> +    const: 2
 > +
-> +	ucpd->reset =3D devm_reset_control_get_exclusive(dev, "ucpd");
-> +	if (IS_ERR(ucpd->reset))
-> +		return dev_err_probe(dev, PTR_ERR(ucpd->reset), "Failed to get UCPD re=
-set\n");
+> +  gpio-controller: true
 > +
-> +	ret =3D stm32_ucpd_get_trim_values(ucpd);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to get trim values\n");
+> +  interrupt-controller: true
 > +
-> +	ucpd->vconn_cc1_gpio =3D devm_gpiod_get_optional(dev, "vconn-cc1", GPIO=
-D_OUT_LOW);
-> +	if (IS_ERR(ucpd->vconn_cc1_gpio))
-> +		return dev_err_probe(dev, PTR_ERR(ucpd->vconn_cc1_gpio), "vconn-cc1 ge=
-t failed\n");
+> +  "#interrupt-cells":
+> +    const: 2
 > +
-> +	ucpd->vconn_cc2_gpio =3D devm_gpiod_get_optional(dev, "vconn-cc2", GPIO=
-D_OUT_LOW);
-> +	if (IS_ERR(ucpd->vconn_cc2_gpio))
-> +		return dev_err_probe(dev, PTR_ERR(ucpd->vconn_cc2_gpio), "vconn-cc2 ge=
-t failed\n");
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#gpio-cells"
+> +  - gpio-controller
 > +
-> +	ucpd->ucpd_irq =3D platform_get_irq_byname(pdev, "ucpd");
-> +	if (ucpd->ucpd_irq < 0)
-> +		return ucpd->ucpd_irq;
+> +allOf:
+> +  - $ref: /schemas/gpio/gpio.yaml#
 > +
-> +	ucpd->tcpc_dev.fwnode =3D device_get_named_child_node(dev, "connector")=
-;
-> +	if (IS_ERR(ucpd->tcpc_dev.fwnode))
-> +		return dev_err_probe(dev, PTR_ERR(ucpd->tcpc_dev.fwnode), "connector n=
-ot found");
+> +unevaluatedProperties: false
+> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> index c18f71b64889..b9b559b186af 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> @@ -88,6 +88,34 @@ properties:
+>        This property is to specify the resource id of the remote processor in SoC
+>        which supports SCFW
+>
+> +  rpmsg:
+> +    type: object
+> +    additionalProperties: false
+> +    description:
+> +      Represents the RPMSG bus between Linux and the remote system. Contains
+> +      a group of RPMSG channel devices running on the bus.
 > +
-> +	tcpp_np =3D of_parse_phandle(dev->of_node, "st,tcpp", 0);
-> +	if (!tcpp_np)
-> +		return -EINVAL;
+> +    properties:
+> +      rpmsg-io:
+> +        type: object
+> +        additionalProperties: false
+> +        properties:
+> +          '#address-cells':
+> +            const: 1
 > +
-> +	tcpp_client =3D of_find_i2c_device_by_node(tcpp_np);
-> +	of_node_put(tcpp_np);
+> +          '#size-cells':
+> +            const: 0
 > +
-> +	/* tcpp driver must be probed so tcpp_init() can be called from tcpm_re=
-gister_port() */
-> +	if (!tcpp_client || !tcpp_client->dev.driver)
-> +		return -EPROBE_DEFER;
+> +        patternProperties:
+> +          "^gpio@[0-9a-f]+$":
+> +            type: object
+> +            $ref: /schemas/gpio/gpio-rpmsg.yaml#
+> +            unevaluatedProperties: false
 > +
-> +	ucpd->tcpp_dev =3D &tcpp_client->dev;
+> +        required:
+> +          - '#address-cells'
+> +          - '#size-cells'
 > +
-> +	/* No irq until tcpm_port is ready */
-> +	irq_set_status_flags(ucpd->ucpd_irq, IRQ_NOAUTOEN);
-> +	ret =3D devm_request_threaded_irq(dev, ucpd->ucpd_irq, NULL, ucpd_irq_h=
-andler, IRQF_ONESHOT,
-> +					dev_name(dev), ucpd);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "failed to get irq\n");
-> +		goto put_tcpp;
-> +	}
+>  required:
+>    - compatible
+>
+> @@ -150,5 +178,30 @@ examples:
+>                  &mu 3 1>;
+>        memory-region = <&vdev0buffer>, <&vdev0vring0>, <&vdev0vring1>, <&rsc_table>;
+>        syscon = <&src>;
 > +
-> +	init_tcpc_dev(&ucpd->tcpc_dev);
+> +      rpmsg {
+> +        rpmsg-io {
+> +          #address-cells = <1>;
+> +          #size-cells = <0>;
 > +
-> +	ret =3D regulator_enable(ucpd->vdd);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "failed to enable regulator\n");
-> +		goto put_tcpp;
-> +	}
+> +          gpio@0 {
+> +            compatible = "rpmsg-gpio";
+> +            reg = <0>;
+> +            gpio-controller;
+> +            #gpio-cells = <2>;
+> +            #interrupt-cells = <2>;
+> +            interrupt-controller;
+> +          };
 > +
-> +	ret =3D clk_bulk_prepare_enable(ucpd->num_clks, ucpd->clks);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "failed to enable clocks\n");
-> +		goto disable_regulator;
-> +	}
-> +
-> +	ret =3D reset_control_deassert(ucpd->reset);
+> +          gpio@1 {
+> +            compatible = "rpmsg-gpio";
+> +            reg = <1>;
+> +            gpio-controller;
+> +            #gpio-cells = <2>;
+> +            #interrupt-cells = <2>;
+> +            interrupt-controller;
+> +          };
+> +        };
 
-No reset_control_assert() in the error path and in stm32_ucpd_remove()?
+As I (and Arnaud) have stated before, I don't think this is the best
+way to lay out bindings for rpmsg-gpio nodes.  I am currently thinking
+about a representation that aligns better with other virtio devices.
 
-regards
-Philipp
+> +      };
+>      };
+>  ...
+> --
+> 2.43.0
+>
 
