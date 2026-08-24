@@ -4,63 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22F82C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3888FC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 15:33:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HpPhACJ/E+7XpzP2QlMsFbTZFZkYuiCZLkbADyHIXK4=; b=Da6Z7Pi+RLZiB1HkOqeztptznd
-	pyKHSDQ55Vseq6ntrm+P0VuwlSuCU8UoVSDj3kWbr/bOtex9W9HIRhDhVJSz1oTR6d73T94Xfd3Jp
-	NXuYwjJwj7hxxdRTREtajIL368i9NUj4T73LJqf5aNiqDGGr4CecLcE5rpiG6EKaD9PruVzg/THeI
-	3ZDwfrqWgFKY6qGrKydljGcCrUfs85Mtx/1luzn0BiUPqDJc6JC5itfdiBNrJPC53VKqrbrgI1axd
-	o/Wbf8MTH+A6FL3pvzO4V/XRYFUFg/2LhQpVSfJEVLRRRISOvzK7nP8O+RXtkqT4YolUGkxk9CpBl
-	8dHuAQIw==;
+	bh=m93WWasZDeL8P3xfxnXr9E+Q6j/e1mlv0XnZZsIFzXY=; b=J3Uz6/5XY/eGcfQ0fS64ow16re
+	yo47K+PmpKmQ75PpyMZFXXcqiVx49ljDSlidf3jNrOL3QAxLTU5cIurPAKZSNAJpLjm/R9RfHFLzc
+	rrSSwenOSykYiuaX2zci+vfHfpasHqBCc/BeWlqytO8jXAvMB77tjRRigs/9yGgFNP3euLGTsQ5+T
+	/x9g6Q2k1d1y/OFqzOGOBXQDYQ7KG0J+cs/PsVuNOqOVYaogzaeFUi7J5o4wrl7g/poiskxUgyiyk
+	9fl+KHE/tz649ZQRsofdMr8Wts3B7ptIDuhJ9cML6bZA47uZ7MmQvXHYTJlTxnna9IXoiawu7kJem
+	3f7Ns36g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWfm-0000000Gw2p-1dvg;
-	Mon, 24 Aug 2026 15:33:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyWfi-0000000Gw2E-1OIz
+	id 1wyWg2-0000000Gw55-2FAw;
+	Mon, 24 Aug 2026 15:33:34 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wyWfz-0000000Gw4B-0MS5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 15:33:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7723C1756;
-	Mon, 24 Aug 2026 08:33:09 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C2E753F7D8;
-	Mon, 24 Aug 2026 08:33:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787585593; bh=GbLBNOdNjgQai/PHZoJkCa1ZnvdKrjzzqeispktifLc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NiNQ7Rd70L0XzIuxmFTQiwO5A/RjIThmPUxIourbxsZQi3qgmFZMUZ5N44Y9XIBXi
-	 lONRS5Od8pOIi6qDyRrQ5SqcNumEBXdFG9UEEH1AgKkEKg3AC48DVb3YXEyBX4HaRC
-	 tCYqwEs89BHsflcwq9AfGQYs0333A+WfjS78Ond0=
-Date: Mon, 24 Aug 2026 16:33:09 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: Defer the GMID_EL1 read to
- {init,update}_cpu_features()
-Message-ID: <aoxkNQGmtvr-iV6k@arm.com>
-References: <20260824071004.504894-1-fuad.tabba@linux.dev>
- <aoxCk5lFQv6lFwHQ@willie-the-truck>
- <CA+EHjTy6Xh=eNg22fBdjPzZOZitzvcDX2L5zbSUFCsX1n6XobQ@mail.gmail.com>
+	Mon, 24 Aug 2026 15:33:33 +0000
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 256EB2010D6;
+	Mon, 24 Aug 2026 17:33:25 +0200 (CEST)
+Message-ID: <699de61dc2bfebdf18cdb0e377d1ba63886b4e12.camel@pengutronix.de>
+Subject: Re: [PATCH v2 2/2] usb: gadget: udc: add Axiado AX3000 and AX3005
+ UDC driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>, Krutik Shah	
+ <krutikshah@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Tzu-Hao Wei	 <twei@axiado.com>, Karthikeyan Mitran
+ <kmitran@axiado.com>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	openbmc@lists.ozlabs.org
+Date: Mon, 24 Aug 2026 17:33:25 +0200
+In-Reply-To: <20260817-axiado-ax3000-usb-device-controller-v2-2-0ef033dd0a68@axiado.com>
+References: <20260817-axiado-ax3000-usb-device-controller-v2-0-0ef033dd0a68@axiado.com>
+	 <20260817-axiado-ax3000-usb-device-controller-v2-2-0ef033dd0a68@axiado.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTy6Xh=eNg22fBdjPzZOZitzvcDX2L5zbSUFCsX1n6XobQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_083314_453301_062B2A05 
-X-CRM114-Status: GOOD (  28.40  )
+X-CRM114-CacheID: sfid-20260824_083331_279261_AE3E6BB7 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,73 +69,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 04:14:41PM +0100, Fuad Tabba wrote:
-> Hi Will,
-> 
-> On Mon, 24 Aug 2026 at 14:09, Will Deacon <will@kernel.org> wrote:
-> 
-> > > +     /*
-> > > +      * info->reg_gmid deferred to {init,update}_cpu_features because
-> > > +      * reading it traps to EL2 when MTE is disabled.
-> > > +      */
-> >
-> > I don't think we should defer this, as I've been actively doing the
-> > opposite for parallel CPU onlining (where the ID registers can be read
-> > concurrently by incoming CPUs to amortise the cost of a trap) and also
-> > for the RNG traps during early boot:
-> >
-> > https://lore.kernel.org/all/annJ0oDB2HObQC5j@willie-the-truck/
-> >
-> > If you look at the diff I sent in the thread above (I didn't get a
-> > reply), the idea is that __read_sysreg_by_encoding() reads from the ID
-> > register values stashed by cpuinfo_store_cpu(). So you could use that
-> > to check id_aa64pfr1 before reading gmid, as it will give you the
-> > sanitised view.
-> 
-> I just did, but I don't think it'll work. The thing is,
-> __read_sysreg_by_encoding() gives the override-applied local value,
-> not the folded sys_val.
-> 
-> arm64.nomte is a command-line override, so that works. But
-> CONFIG_ARM64_MTE=n sets none. Any gate would still need an explicit
-> IS_ENABLED(CONFIG_ARM64_MTE).
+On Mo, 2026-08-17 at 22:57 -0700, Naveen Kumar Rajgiri Bassappa wrote:
+> Add a driver for the USB device controller integrated into the Axiado
+> AX3000 and AX3005 SoCs.
+>=20
+> The controller is based on the Corigine USB 3.1 device IP core and uses a=
+n
+> xHCI-like programming model with a command ring, an event ring, and
+> per-endpoint transfer rings composed of Transfer Request Blocks (TRBs).
+>=20
+> The driver implements the USB gadget and endpoint operations, including
+> endpoint enable and disable, request queue and dequeue, halt and wedge
+> handling, and standard endpoint 0 control requests.
+>=20
+> It supports High-Speed and SuperSpeed operation, control, bulk,
+> interrupt, and isochronous transfers, and scatter-gather requests.
+>=20
+> Signed-off-by: Naveen Kumar Rajgiri Bassappa <rbnaveenkumar@axiado.com>
+> ---
+>  MAINTAINERS                      |    2 +
+>  drivers/usb/gadget/udc/Kconfig   |   14 +
+>  drivers/usb/gadget/udc/Makefile  |    1 +
+>  drivers/usb/gadget/udc/crg_udc.c | 4491 ++++++++++++++++++++++++++++++++=
+++++++
+>  drivers/usb/gadget/udc/crg_udc.h |  355 +++
+>  5 files changed, 4863 insertions(+)
+>=20
+[...]
+> diff --git a/drivers/usb/gadget/udc/crg_udc.c b/drivers/usb/gadget/udc/cr=
+g_udc.c
+> new file mode 100644
+> index 000000000000..bb3ed394d984
+> --- /dev/null
+> +++ b/drivers/usb/gadget/udc/crg_udc.c
+> @@ -0,0 +1,4491 @@
+[...]
+> +static int crg_udc_init_hw(struct crg_gadget_dev *crg_udc)
+> +{
+> +	struct device *dev =3D crg_udc->dev;
+> +	int ret;
+> +
+> +	crg_udc->clk =3D devm_clk_get_optional(dev, NULL);
+> +	if (IS_ERR(crg_udc->clk))
+> +		return dev_err_probe(dev, PTR_ERR(crg_udc->clk),
+> +				     "failed to get clock\n");
+> +
+> +	ret =3D clk_prepare_enable(crg_udc->clk);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to enable clock\n");
+> +
+> +	ret =3D devm_add_action_or_reset(dev, crg_udc_clk_disable, crg_udc->clk=
+);
+> +	if (ret)
+> +		return ret;
+> +
+> +	crg_udc->rst =3D devm_reset_control_get_optional_exclusive(dev, NULL);
+> +	if (IS_ERR(crg_udc->rst))
+> +		return dev_err_probe(dev, PTR_ERR(crg_udc->rst),
+> +				     "failed to get reset\n");
+> +
+> +	ret =3D reset_control_deassert(crg_udc->rst);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to deassert reset\n");
+> +
+> +	ret =3D devm_add_action_or_reset(dev, crg_udc_reset_assert, crg_udc->rs=
+t);
+> +	if (ret)
+> +		return ret;
 
-We need to revive this series:
+This looks like it could be simplified with
+devm_reset_control_get_optional_exclusive_deasserted()
 
-https://lore.kernel.org/all/20260302115653.1517326-1-maz@kernel.org/
-
-I don't remember where we left it but in principle config off or
-override should look similar to the kernel.
-
-There's also the override making an absent feature present. Suzuki has
-attempted to fix this in a reply:
-
-https://lore.kernel.org/all/afc5bd00-28ca-413b-b047-ee53589c285d@arm.com/
-
-> That said, I don't have to defer it. I can keep the info->reg_gmid
-> read in __cpuinfo_store_cpu() and gate that read on the state that
-> arms the trap:
-> 
->         static inline bool gmid_el1_accessible(u64 pfr1)
->         {
->                 if (!IS_ENABLED(CONFIG_ARM64_MTE))
->                         return false;
->                 if (system_capabilities_finalized())
->                         return system_supports_mte();
->                 return id_aa64pfr1_mte(pfr1);
->         }
-> 
-> 
-> TID5 is set from system_supports_mte() and only once capabilities are
-> finalised, so the local check is still correct before that. Gating on
-> system_supports_mte() keeps the different-physical-CPU case you want
-> to preserve working: if one re-onlines with MTE while the system view
-> has it folded off, the gate stays false and it won't read GMID_EL1.
-
-I think this would be the easiest to backport and we can look at
-reworking this infrastructure in the future (Will's proposal, Marc's
-override fixes etc.)
-
--- 
-Catalin
+regards
+Philipp
 
