@@ -4,140 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3618C61CE3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 12:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 831CAC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 13:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vDSmxFASz+fkrhZzUl77TDXseYfLE5/RPWlWXgBn8tc=; b=gIZM3aomUWXYb7m3J25xxcUQwi
-	G0OiUrNlNKd6ja2E+tWGNWo8ORbbLF9gGUCW+0W0N1wP83hSaOVrnaVU3oyOOJ0WhQG4BFJxWd5xy
-	GbwtG+TxSqjzJe8SUCRdDOBfu4hEZ4I6kjHyMFvuJlw1v77s/t/LKsSyt5nWGksrdvvyG0pBeW9mk
-	VHa4gHDGiOKOQdPYIl1cmmZwJ42ksy9LzXXz2adbd06IoOgN07adxjPf8Ch0deNLpdkFlSWjbseJv
-	UOnzeMihSs6W2VrmZJhrRESpIMCOTnVyniGylW23wh+fjNReZao7h/cfwHiZZ5dgz+0KQY1sbuWNX
-	UqqmoFtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OlzJ7OqVnSYFcGsvn6hw98wKPBswIcyCPnPIRgWwcr8=; b=kZRP/lf4T+ViSlwI/p7Ie3+4V/
+	VxXGDhqku7h1LfsudDqYWx1TIT3eLxelIN0xRAqjETtVStN2/o75E2rYbEahDir+m/wais8XCEOVP
+	pxHEsNylklVdHHeL1OjI9gAC9hJ1Js9/WBQyBilDUurMgAe6xKgDdfcUGyUFtGTkOYGUJFwXoUUSc
+	Jl5XccsRGN2WqXhlDWd8Es/sBid5HlOz1AF1FT4rfvd6P9FH6g7WdA/UWn6romMTLp5KNZRAWLYYv
+	kXD0u24VxJJXtFB8XLhpdLs/30Peddtwpitn6qRmEIQMpv9PDTdFJQ3zAo64xcnUy0QS8afVFvnsS
+	WF3dj+2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyUGh-0000000GeUE-3lmL;
-	Mon, 24 Aug 2026 12:59:15 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1wyUQt-0000000GfKr-2XO8;
+	Mon, 24 Aug 2026 13:09:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyUGe-0000000GeTL-1fQU
+	id 1wyUQr-0000000GfKl-3qVx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 12:59:14 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 0CB6F1F45F;
-	Mon, 24 Aug 2026 12:52:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1787575936; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vDSmxFASz+fkrhZzUl77TDXseYfLE5/RPWlWXgBn8tc=;
-	b=b4nMG6oIR8iSZpPaxrfQN5El39KyJKWOEUkCl5OpvExfqATh7u37VIHqx0UpbT7dzcyHEG
-	K4vV6RD0Om6GKZQcrBs5K9EaY1FzQuFh/Z+sKJHf9sG+PpMbTK8DDGWc9XOTG4yc4dS5Re
-	PklyOhYU70PfsEeeipUqnvzVv3RqA6c=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1787575936;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vDSmxFASz+fkrhZzUl77TDXseYfLE5/RPWlWXgBn8tc=;
-	b=R8q1M4c+MTfap+bhVzUARZPw+Ip5Cx2kFP2H4j43ky/kG30qAYU0IK3vKqihQHuDtZz/tm
-	35RFhgjyy1dy8RAQ==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1787575932; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vDSmxFASz+fkrhZzUl77TDXseYfLE5/RPWlWXgBn8tc=;
-	b=aBIRFlP6paT4N3trcB0wPfhixBBoQsU36F61Y0v/hO7DXQYNDSa9zd5H7K7ncQxcr9tPsi
-	xvzYmMOVBJh2p8VBqzHj4FE1LiGmN/AMxW4zUs6eqVfFlY/oEK9aQGNq61pEKImaPkzmbc
-	Ceu8+9dRXR4/fdalXZJnU5QaNM/Lyzo=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1787575932;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vDSmxFASz+fkrhZzUl77TDXseYfLE5/RPWlWXgBn8tc=;
-	b=+QrvSpZBbEhaJ/Ac1pHKNBtWLjVml1HSeW+8DbrU/qF0mIG/CYkefnNqcpB6FMAUIZxejZ
-	LWyBVGsREBZCYsBg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8768513331;
-	Mon, 24 Aug 2026 12:52:11 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id MLvbH3s+jGpyNwAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Mon, 24 Aug 2026 12:52:11 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: jfalempe@redhat.com,
-	javierm@redhat.com,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	geert@linux-m68k.org,
-	rdunlap@infradead.org
-Cc: dri-devel@lists.freedesktop.org,
-	linux-doc@vger.kernel.org,
-	amd-gfx@lists.freedesktop.org,
-	rust-for-linux@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	nouveau@lists.freedesktop.org,
-	linux-renesas-soc@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	sashiko-reviews@lists.linux.dev,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Subject: [PATCH v2 11/13] drm/panic: Internalize panic locking in DRM core and helpers
-Date: Mon, 24 Aug 2026 14:43:42 +0200
-Message-ID: <20260824125201.218863-12-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260824125201.218863-1-tzimmermann@suse.de>
-References: <20260824125201.218863-1-tzimmermann@suse.de>
+	Mon, 24 Aug 2026 13:09:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6A27F40A90;
+	Mon, 24 Aug 2026 13:09:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 356731F000E9;
+	Mon, 24 Aug 2026 13:09:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787576985;
+	bh=OlzJ7OqVnSYFcGsvn6hw98wKPBswIcyCPnPIRgWwcr8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JBE8sGwWi5IYI/fZv3pG+Y0XyRHrjiaEye7JXAjA9gyMGYl/AQZSlRB2b7xJIcxFN
+	 ttahjaPYiljdsrSiy7V8tIfZn+Zj8HC2UtaPUTMV7/3kH2eZ0wfSkgyEjZDZA2hnI0
+	 I40T4m1XmhMKUdcC3V0MRVhlBE8DYTcK17ROhv2O3Uz8Jl8yeel10RKLMYZzRjyG44
+	 UUvHADaDLB6T3zr6UJHeLoN0wlL4N0Fn5fGrCf6am6+7uNjCYSruZjrVLb0RHHfN4X
+	 jLS0Jfw8c2CD+byqg5i0eHtiZhWZxSNfk3PhX6NmBFOLGd2gWh15Y3wTLLXT402nFc
+	 vxK+KKt6Sm7hw==
+Date: Mon, 24 Aug 2026 14:09:39 +0100
+From: Will Deacon <will@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v2] arm64: Defer the GMID_EL1 read to
+ {init,update}_cpu_features()
+Message-ID: <aoxCk5lFQv6lFwHQ@willie-the-truck>
+References: <20260824071004.504894-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-7.30 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.999];
-	MIME_GOOD(-0.10)[text/plain];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	ARC_NA(0.00)[];
-	FREEMAIL_TO(0.00)[redhat.com,gmail.com,ffwll.ch,linux.intel.com,kernel.org,linux-m68k.org,infradead.org];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	R_RATELIMIT(0.00)[to_ip_from(RLqirfcw6gnbcr9a9yhi49fhi6)];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo,gitlab.freedesktop.org:url]
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_055912_742112_2C8E6387 
-X-CRM114-Status: GOOD (  22.52  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260824071004.504894-1-fuad.tabba@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,261 +74,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-None of the DRM drivers handles panic locking. Declare the interfaces
-in an internal header file. Move the trylock required during the panic
-into the DRM core's sources.
+On Mon, Aug 24, 2026 at 08:10:04AM +0100, Fuad Tabba wrote:
+> __cpuinfo_store_cpu() gates the GMID_EL1 read on the raw
+> ID_AA64PFR1_EL1, so it reads the register on MTE hardware even when the
+> kernel has disabled MTE (CONFIG_ARM64_MTE=n or arm64.nomte). KVM sets
+> HCR_EL2.TID5 in that case, which traps the read to EL2 and injects an
+> UNDEF:
+> 
+>   Internal error: Oops - Undefined instruction: 0000000002000000 [#1]
+>   pc : __cpuinfo_store_cpu+0xf4/0x264
+>   Call trace:
+>    __cpuinfo_store_cpu+0xf4/0x264 (P)
+>    secondary_start_kernel+0xc8/0x1d0
+>    __secondary_switched+0xc0/0xc4
+>   Kernel panic - not syncing: Attempted to kill the idle task!
+> 
+> Only pKVM is affected, and only for a CPU that is offlined and brought
+> back online. Every CPU's first bring-up precedes KVM's initcall, and
+> pKVM refuses CPU_ON for a CPU that was not online when KVM initialised,
+> so hotplug is the only path to cpuinfo_store_cpu() with TID5 set. pKVM's
+> PSCI CPU_ON relay sets the host HCR before the CPU enters EL1, whereas
+> plain nVHE sets it at CPUHP_AP_KVM_ONLINE, after cpuinfo_store_cpu().
+> 
+> Defer the read to {init,update}_cpu_features() and gate it on the
+> sanitised ID register, as MPAM already does. system_supports_mte()
+> cannot serve as the gate, as update_cpu_features() also runs during
+> initial SMP bring-up, before smp_cpus_done() calls
+> setup_system_features(). The init path gains the CONFIG_ARM64_MTE test
+> the update path already had, leaving SYS_GMID_EL1 uninitialised when
+> MTE is compiled out, where its only other user (lib/mte.S) is not
+> built.
+> 
+> Fixes: f35abcbb8a084 ("KVM: arm64: Trap MTE access and discovery when MTE is disabled")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
----
- Documentation/gpu/drm-kms.rst        |  3 ++
- MAINTAINERS                          |  3 +-
- drivers/gpu/drm/drm_atomic_helper.c  |  2 +-
- drivers/gpu/drm/drm_drv.c            |  2 +-
- drivers/gpu/drm/drm_panic.c          |  4 ++
- drivers/gpu/drm/drm_panic_internal.h | 55 +++++++++++++++++++++++
- include/drm/drm_panic.h              | 65 ----------------------------
- 7 files changed, 66 insertions(+), 68 deletions(-)
- create mode 100644 drivers/gpu/drm/drm_panic_internal.h
+[...]
 
-diff --git a/Documentation/gpu/drm-kms.rst b/Documentation/gpu/drm-kms.rst
-index 0dd440a14946..8988fd64369b 100644
---- a/Documentation/gpu/drm-kms.rst
-+++ b/Documentation/gpu/drm-kms.rst
-@@ -421,6 +421,9 @@ Plane Panic Functions Reference
- .. kernel-doc:: include/drm/drm_panic.h
-    :internal:
- 
-+.. kernel-doc:: drivers/gpu/drm/drm_panic_internal.h
-+   :internal:
-+
- .. kernel-doc:: drivers/gpu/drm/drm_panic.c
-    :export:
- 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 472c5c48729d..f3dfdd9314bd 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -9018,7 +9018,8 @@ S:	Supported
- T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	drivers/gpu/drm/drm_draw.c
- F:	drivers/gpu/drm/drm_draw_internal.h
--F:	drivers/gpu/drm/drm_panic*.c
-+F:	drivers/gpu/drm/drm_panic.c
-+F:	drivers/gpu/drm/drm_panic_internal.h
- F:	drivers/gpu/drm/tests/drm_panic_test.c
- F:	include/drm/drm_panic.h
- F:	include/drm/drm_panic_helper.h
-diff --git a/drivers/gpu/drm/drm_atomic_helper.c b/drivers/gpu/drm/drm_atomic_helper.c
-index 285aac3554df..af3934df3313 100644
---- a/drivers/gpu/drm/drm_atomic_helper.c
-+++ b/drivers/gpu/drm/drm_atomic_helper.c
-@@ -41,7 +41,6 @@
- #include <drm/drm_drv.h>
- #include <drm/drm_framebuffer.h>
- #include <drm/drm_gem_atomic_helper.h>
--#include <drm/drm_panic.h>
- #include <drm/drm_print.h>
- #include <drm/drm_self_refresh_helper.h>
- #include <drm/drm_vblank.h>
-@@ -49,6 +48,7 @@
- 
- #include "drm_crtc_helper_internal.h"
- #include "drm_crtc_internal.h"
-+#include "drm_panic_internal.h"
- 
- /**
-  * DOC: overview
-diff --git a/drivers/gpu/drm/drm_drv.c b/drivers/gpu/drm/drm_drv.c
-index c808958a2188..02ff02931515 100644
---- a/drivers/gpu/drm/drm_drv.c
-+++ b/drivers/gpu/drm/drm_drv.c
-@@ -50,13 +50,13 @@
- #include <drm/drm_file.h>
- #include <drm/drm_managed.h>
- #include <drm/drm_mode_object.h>
--#include <drm/drm_panic.h>
- #include <drm/drm_print.h>
- #include <drm/drm_privacy_screen_machine.h>
- #include <drm/drm_ras_genl_family.h>
- 
- #include "drm_crtc_internal.h"
- #include "drm_internal.h"
-+#include "drm_panic_internal.h"
- 
- MODULE_AUTHOR("Gareth Hughes, Leif Delgass, José Fonseca, Jon Smirl");
- MODULE_DESCRIPTION("DRM shared core routines");
-diff --git a/drivers/gpu/drm/drm_panic.c b/drivers/gpu/drm/drm_panic.c
-index 0fe9a0d67db3..9a6e3704bf09 100644
---- a/drivers/gpu/drm/drm_panic.c
-+++ b/drivers/gpu/drm/drm_panic.c
-@@ -35,6 +35,7 @@
- 
- #include "drm_crtc_internal.h"
- #include "drm_draw_internal.h"
-+#include "drm_panic_internal.h"
- 
- MODULE_AUTHOR("Jocelyn Falempe");
- MODULE_DESCRIPTION("DRM panic handler");
-@@ -976,6 +977,9 @@ int drm_plane_helper_display_panic_screen(struct drm_plane *plane, const char *d
- }
- EXPORT_SYMBOL(drm_plane_helper_display_panic_screen);
- 
-+#define drm_panic_trylock(dev, flags) \
-+	raw_spin_trylock_irqsave(&(dev)->mode_config.panic_lock, flags)
-+
- static void drm_panic_display_panic_screen(struct drm_plane *plane, const char *description)
- {
- #if defined(CONFIG_DRM_PANIC_FOREGROUND_COLOR)
-diff --git a/drivers/gpu/drm/drm_panic_internal.h b/drivers/gpu/drm/drm_panic_internal.h
-new file mode 100644
-index 000000000000..c68d64c56e15
---- /dev/null
-+++ b/drivers/gpu/drm/drm_panic_internal.h
-@@ -0,0 +1,55 @@
-+/* SPDX-License-Identifier: GPL-2.0 or MIT */
-+
-+/*
-+ * Copyright (c) 2024 Intel
-+ * Copyright (c) 2024 Red Hat
-+ */
-+
-+#ifndef __DRM_PANIC_INTERNAL_H__
-+#define __DRM_PANIC_INTERNAL_H__
-+
-+#include <linux/spinlock.h>
-+
-+struct drm_device;
-+
-+#ifdef CONFIG_DRM_PANIC
-+
-+/**
-+ * drm_panic_lock - protect panic printing relevant state
-+ * @dev: struct drm_device
-+ * @flags: unsigned long irq flags you need to pass to the unlock() counterpart
-+ *
-+ * This function must be called to protect software and hardware state that the
-+ * panic printing code must be able to rely on. The protected sections must be
-+ * as small as possible. It uses the irqsave/irqrestore variant, and can be
-+ * called from irq handler. Examples include:
-+ *
-+ * - Access to peek/poke or other similar registers, if that is the way the
-+ *   driver prints the pixels into the scanout buffer at panic time.
-+ *
-+ * - Updates to pointers like &drm_plane.state, allowing the panic handler to
-+ *   safely deference these. This is done in drm_atomic_helper_swap_state().
-+ *
-+ * - An state that isn't invariant and that the driver must be able to access
-+ *   during panic printing.
-+ */
-+#define drm_panic_lock(dev, flags) \
-+	raw_spin_lock_irqsave(&(dev)->mode_config.panic_lock, flags)
-+
-+/**
-+ * drm_panic_unlock - end of the panic printing critical section
-+ * @dev: struct drm_device
-+ * @flags: irq flags that were returned when acquiring the lock
-+ *
-+ * Unlocks the raw spinlock acquired by either drm_panic_lock() or
-+ * drm_panic_trylock().
-+ */
-+#define drm_panic_unlock(dev, flags) \
-+	raw_spin_unlock_irqrestore(&(dev)->mode_config.panic_lock, flags)
-+
-+#else
-+static inline void drm_panic_lock(struct drm_device *dev, unsigned long flags) {}
-+static inline void drm_panic_unlock(struct drm_device *dev, unsigned long flags) {}
-+#endif
-+
-+#endif /* __DRM_PANIC_INTERNAL_H__ */
-diff --git a/include/drm/drm_panic.h b/include/drm/drm_panic.h
-index 430df536de14..99572b7eeab9 100644
---- a/include/drm/drm_panic.h
-+++ b/include/drm/drm_panic.h
-@@ -8,11 +8,9 @@
- #ifndef __DRM_PANIC_H__
- #define __DRM_PANIC_H__
- 
--#include <linux/module.h>
- #include <linux/types.h>
- #include <linux/iosys-map.h>
- 
--#include <drm/drm_device.h>
- #include <drm/drm_fourcc.h>
- 
- struct page;
-@@ -85,71 +83,8 @@ struct drm_scanout_buffer {
- 	 * set_pixel()
- 	 */
- 	void *private;
--
- };
- 
--#ifdef CONFIG_DRM_PANIC
--
--/**
-- * drm_panic_trylock - try to enter the panic printing critical section
-- * @dev: struct drm_device
-- * @flags: unsigned long irq flags you need to pass to the unlock() counterpart
-- *
-- * The panic-printing code calls this function. The panic printing attempt must
-- * be aborted if the trylock fails.
-- *
-- * Return:
-- * %0 when failing to acquire the raw spinlock, nonzero on success.
-- */
--#define drm_panic_trylock(dev, flags) \
--	raw_spin_trylock_irqsave(&(dev)->mode_config.panic_lock, flags)
--
--/**
-- * drm_panic_lock - protect panic printing relevant state
-- * @dev: struct drm_device
-- * @flags: unsigned long irq flags you need to pass to the unlock() counterpart
-- *
-- * This function must be called to protect software and hardware state that the
-- * panic printing code must be able to rely on. The protected sections must be
-- * as small as possible. It uses the irqsave/irqrestore variant, and can be
-- * called from irq handler. Examples include:
-- *
-- * - Access to peek/poke or other similar registers, if that is the way the
-- *   driver prints the pixels into the scanout buffer at panic time.
-- *
-- * - Updates to pointers like &drm_plane.state, allowing the panic handler to
-- *   safely deference these. This is done in drm_atomic_helper_swap_state().
-- *
-- * - An state that isn't invariant and that the driver must be able to access
-- *   during panic printing.
-- */
--
--#define drm_panic_lock(dev, flags) \
--	raw_spin_lock_irqsave(&(dev)->mode_config.panic_lock, flags)
--
--/**
-- * drm_panic_unlock - end of the panic printing critical section
-- * @dev: struct drm_device
-- * @flags: irq flags that were returned when acquiring the lock
-- *
-- * Unlocks the raw spinlock acquired by either drm_panic_lock() or
-- * drm_panic_trylock().
-- */
--#define drm_panic_unlock(dev, flags) \
--	raw_spin_unlock_irqrestore(&(dev)->mode_config.panic_lock, flags)
--
--#else
--
--static inline bool drm_panic_trylock(struct drm_device *dev, unsigned long flags)
--{
--	return true;
--}
--
--static inline void drm_panic_lock(struct drm_device *dev, unsigned long flags) {}
--static inline void drm_panic_unlock(struct drm_device *dev, unsigned long flags) {}
--
--#endif
--
- #if defined(CONFIG_DRM_PANIC_SCREEN_QR_CODE)
- size_t drm_panic_qr_max_data_size(u8 version, size_t url_len);
- 
--- 
-2.55.0
+> diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+> index d50e2a9b066b3..c8967f185e3dd 100644
+> --- a/arch/arm64/kernel/cpuinfo.c
+> +++ b/arch/arm64/kernel/cpuinfo.c
+> @@ -502,12 +502,14 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
+>  	info->reg_id_aa64smfr0 = read_cpuid(ID_AA64SMFR0_EL1);
+>  	info->reg_id_aa64fpfr0 = read_cpuid(ID_AA64FPFR0_EL1);
+>  
+> -	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
+> -		info->reg_gmid = read_cpuid(GMID_EL1);
+> -
+>  	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
+>  		__cpuinfo_store_cpu_32bit(&info->aarch32);
+>  
+> +	/*
+> +	 * info->reg_gmid deferred to {init,update}_cpu_features because
+> +	 * reading it traps to EL2 when MTE is disabled.
+> +	 */
 
+I don't think we should defer this, as I've been actively doing the
+opposite for parallel CPU onlining (where the ID registers can be read
+concurrently by incoming CPUs to amortise the cost of a trap) and also
+for the RNG traps during early boot:
+
+https://lore.kernel.org/all/annJ0oDB2HObQC5j@willie-the-truck/
+
+If you look at the diff I sent in the thread above (I didn't get a
+reply), the idea is that __read_sysreg_by_encoding() reads from the ID
+register values stashed by cpuinfo_store_cpu(). So you could use that
+to check id_aa64pfr1 before reading gmid, as it will give you the
+sanitised view.
+
+The only snag is that I didn't convert all the registers over, so
+there's some work there.
+
+WDYT?
+
+Will
 
