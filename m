@@ -4,78 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F89CC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 16:02:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B01C5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 16:04:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
+	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wdoFeUu5GvTX8rBFW3cJrIUVf+aY84rF9rqx5dNRKh8=; b=tj/jKfNv32xw6Y+nD0j2uDGex8
-	kGEBZ/je7K6gOS7RdRWIRv+fq+rwVbK5JyJZjGdvHsAB+6E0RWEB1YKct0dvxPWZIy5j9DgLT00Co
-	zZj64ue1BPU82BYRJd+/czO5fRXPfWVBEAq502bhN7mooGuvAM48w5U41Pp++Iba9XuJ6kx6K50cX
-	YjXx6RaBL8OZzPsY2v/alYAyR7SQH8sIWYfFQOXuYA7l/ei5mKLuSeceL9zKW6JqHUttbmp0mEzbz
-	DnhdqF3C5WVrjID65Uoazk9BuVO4OX2oWJyuefCtmu+pwBVKLsL237Pxpr9cChQR20a9ioefjM8X+
-	HLk//JrQ==;
+	bh=5Yw9p/e/gTObI0E0KW0aPmvh3/jojeNij8byOhPchOM=; b=k5M5wXbnINdVMBfIo8v26AA0AX
+	aUNNwGhYby1h97dlTxxV8jko5kfKXb0dM1H/xT2MjW4fnNRF/zPMUGIKqduzT1z5ZXqL8w2PkUVR0
+	rW6FOFN90EgJE5Nfy4nVrqoUexpBo+w/NmGnkw3FGNvS9m50SHANWjtZvEImuPJ3JECCs6vVO8Pgd
+	ARyuh94ykN0v34ubWhe0rqcX65MsZeMUuUMGGBcs1EIjlIRzQ2NC2mN0a5uQidIH6Ljw+lyWri4Rg
+	moxK2cjPhwXLukofpfU01WaTCbEqKKba03fGWzoNOe1OIbkizqQQhAZ+ct1UKzr+hvVOVfDqwalsA
+	LKXwaPwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyX7t-0000000Gzaq-3hRb;
-	Mon, 24 Aug 2026 16:02:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wyX9M-0000000GzrO-0k6E;
+	Mon, 24 Aug 2026 16:03:52 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyX7q-0000000GzZs-3mpm
+	id 1wyX9I-0000000Gzpb-2O4g
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 16:02:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DEB766011F;
-	Mon, 24 Aug 2026 16:02:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 366391F000E9;
-	Mon, 24 Aug 2026 16:02:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787587337;
-	bh=wdoFeUu5GvTX8rBFW3cJrIUVf+aY84rF9rqx5dNRKh8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=oL3MYuOo1TlVQzpRjyI9MYDJjupL+OGdle/lbGRs24gLXCWfSvbXMzpZ26w8j6Wt7
-	 so4DQmY9Vpwe5btinEUOafrffDEs+bX1qvdcgXuVjFDABJU3UhlplZsMEs+pn+KLiU
-	 eFyQwioGfNqyHYn+4Avwf6lR2nSSxOb32VpzxcvmIvaNy+y+bO6LkEWd446Fpl+roM
-	 Swjz3YGlKxnwymVXA2OcfSWQ8u85pPZTA2QoD/ROGDcL+TCmcJQBGO7dFuHpccgLTp
-	 J6zuh+EMKWPnBtNg+0EbP2D+W0psfn8WYrDOzG2HVgF0TrteSW9/i3/AM7gtb09M/Z
-	 a/cZ5XJ2MGr/g==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matt Fleming <matt@codeblueprint.co.uk>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Sebastian Ene <sebastianene@google.com>
-Subject: Re: [PATCH v3 0/2] arm64: ptdump flush fixes
-Date: Mon, 24 Aug 2026 17:01:55 +0100
-Message-ID: <178757828014.164243.15117526586847861889.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260814222458.584906-1-weilin.chang@arm.com>
-References: <20260814222458.584906-1-weilin.chang@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 24 Aug 2026 16:03:50 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 047214E4138D;
+	Mon, 24 Aug 2026 16:03:44 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BB11A5FFC1;
+	Mon, 24 Aug 2026 16:03:43 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 78E4511C7984B;
+	Mon, 24 Aug 2026 18:03:33 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1787587418; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=5Yw9p/e/gTObI0E0KW0aPmvh3/jojeNij8byOhPchOM=;
+	b=aMfQljN/arHfb158wkr6CLAxSet5iYUnnt2uZH3SAyBHHe34JaDMHVlouYUDP/wu9UFPHk
+	hhToPHJMaibC6ufFX3eAdBc4N0QOCeo3982Ddg5EQrWbF8Nx4HyjmUWDJUKiY1f9LSiZj+
+	Z4qfvh5Sk96mK6eM1+uMQa95BFrAKYezzqHsO7LBQqj5M79l+3mFih7KxEYPtwLavaHp3o
+	a3aFmclYXZxSB51anNKIJr9sIm2ahqqrgQkVk/ps+tRSZRlM7kFhE7Yueqf5+hyAy8XQsf
+	w4Ct0qOqMzO8kHzgAy56q4Qg0mRmKjqhR8680oSotZYxSN/ShI1rvqATHHzXLQ==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 24 Aug 2026 18:03:32 +0200
+Message-Id: <DKXAUOKYDIWV.B30CB2QWDDXQ@bootlin.com>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Subject: Re: [PATCH net-next 1/3] net: macb: Make sure clk_init_data is
+ fully initialized
+Cc: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-amlogic@lists.infradead.org>, <linux-clk@vger.kernel.org>
+To: "Geert Uytterhoeven" <geert+renesas@glider.be>, "Conor Dooley"
+ <conor.dooley@microchip.com>, "Andrew Lunn" <andrew+netdev@lunn.ch>, "David
+ S . Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>,
+ "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>,
+ "Heiner Kallweit" <hkallweit1@gmail.com>, "Russell King"
+ <linux@armlinux.org.uk>, "Neil Armstrong" <neil.armstrong@linaro.org>,
+ "Kevin Hilman" <khilman@baylibre.com>, "Jerome Brunet"
+ <jbrunet@baylibre.com>, "Martin Blumenstingl"
+ <martin.blumenstingl@googlemail.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <cover.1787240118.git.geert+renesas@glider.be>
+ <00772e2fb1f8433a5d6c47dbd28cb4149495e1ab.1787240118.git.geert+renesas@glider.be>
+In-Reply-To: <00772e2fb1f8433a5d6c47dbd28cb4149495e1ab.1787240118.git.geert+renesas@glider.be>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260824_090348_762284_F4EBB3F7 
+X-CRM114-Status: GOOD (  16.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,28 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Aug 2026 23:24:56 +0100, Wei-Lin Chang wrote:
-> This series fixes two problems around ptdumps:
-> 
-> 1. note_page_flush(), which flushes out the last row of ptdumps, does
->    not account for address spaces that have IA < 64. Other than making
->    the last region extremely huge, the attributes of the last region
->    within the address spaces appear to extend all the way to 1 << 64.
-> 
-> [...]
+Hello Geert,
 
-Applied to arm64 (for-next/core), thanks!
+On Fri Aug 21, 2026 at 12:07 PM CEST, Geert Uytterhoeven wrote:
+> The clk_init_data structure contains several mutually-exclusive members
+> for different methods to specify the possible parents of a clock,
+> prompting drivers to initialize only the members they need.  However,
+> not initializing all members may cause subtle issues, which are only
+> exposed when CONFIG_INIT_STACK_ALL_PATTERN or CONFIG_INIT_STACK_NONE is
+> enabled.
+>
+> Make sure all members are fully initialized, to avoid such bugs, and to
+> prevent future breakage when converting drivers to a different method
+> for specifying the parents.
+>
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+> Compile-tested only.
+> ---
+>  drivers/net/ethernet/cadence/macb_main.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ether=
+net/cadence/macb_main.c
+> index 1476bce77f34d2a5..319e43098f57ed7b 100644
+> --- a/drivers/net/ethernet/cadence/macb_main.c
+> +++ b/drivers/net/ethernet/cadence/macb_main.c
+> @@ -5376,7 +5376,7 @@ static int fu540_c000_clk_init(struct platform_devi=
+ce *pdev, struct clk **pclk,
+>  			       struct clk **hclk, struct clk **tx_clk,
+>  			       struct clk **rx_clk, struct clk **tsu_clk)
+>  {
+> -	struct clk_init_data init;
+> +	struct clk_init_data init =3D {};
+>  	int err =3D 0;
+> =20
+>  	err =3D macb_clk_init_dflt(pdev, pclk, hclk, tx_clk, rx_clk, tsu_clk);
 
-[1/2] arm64: ptdump: Make note_page_flush() range aware
-      https://git.kernel.org/arm64/c/902caade3cfd
-[2/2] KVM: arm64: ptdump: Flush the last region
-      https://git.kernel.org/arm64/c/beca1b97a21d
+Reviewed-by: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
 
-Cheers,
--- 
-Will
+I cannot give you a Tested-by because this triggers only on
+sifive,fu540-c000-gem compatible matching upstream devicetrees
+sifive/hifive-{unleashed,unmatched}-a00.dts
 
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+Thanks,
+
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
