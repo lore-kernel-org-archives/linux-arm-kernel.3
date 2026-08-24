@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DDFAC5DF8C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 00:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E518C5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 00:05:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rWm2gOFF46IKwvZet9m1yBgyP8pz5pmvbsrAu+4BmRc=; b=Wljy+F9Jyfq17MkEHtAasVzymy
-	voJ07CGQX0giAPnHhghNGK85QGaJCO5dBjKuZjHaQcqTDMEfvCrJryUOeR02nAFL/N3R+IqXuvKjw
-	cSpzy0mf0GodfwP/QB1xZptXL+iifabXtz5+n6cJA5XQqQiMhs9j7f/A6qNK3JcB44aiSFL/Lh7gV
-	SGF6soY2LmD0Z6P+ZPpuXEE4jYCVwcuKkdCp8m3d91r1QESg+kY3T32gXeKeOtXZZYG9vbEqxGpum
-	Kf3yvqTgAKQXT7D+/Z4nO/3hVY3Kmoj0NsGKqIvOfZpy+eUTMSsHEQH/vGsSNrXgTMNrfUcRFlv0k
-	rMMzoCRw==;
+	bh=PnAW/+M2N3uaW3xnWGqAHnUdUrdmX0tYWAkQfErLz7w=; b=C0o4I9DVa4N/8eapinisdYIGW8
+	0mJt4msuOkZHf9t5UEzJTB/PIQG1LwB9k6ss5hv15cosL/3n8rLRfXbY+/mCqg5oXYkq6t0rMhDaG
+	6edU4YTOZdA+H7tlK/zl2yRHiflsJvf1lm3nF8up892O+qJeeMjUUxlbzajmsFFZQQFq/LeWCyDQ5
+	LbYizjhdeuCXipaUWxvKVo3KkUuGDrbOr0vR0i9UVO9Qtl73kr92Oz97cFAZpJXLTvLVfNq0wjRWF
+	EW9S7PuuuDdo5WwKpmSz8twPRRkmVdPzfDB+gG3JkMIqXCdRIriJWYydLMdUhXJp92pUZoQYynuW6
+	U6WVTDqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyIAS-0000000FhXU-3QLu;
-	Mon, 24 Aug 2026 00:04:00 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1wyIBr-0000000Fhcn-4A3D;
+	Mon, 24 Aug 2026 00:05:28 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyIAR-0000000FhX9-0Ctt
+	id 1wyIBp-0000000FhcT-2xaY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 00:04:00 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-84847482584so1812898b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 17:03:58 -0700 (PDT)
+	Mon, 24 Aug 2026 00:05:26 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-3900e39d935so2838027a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 23 Aug 2026 17:05:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787529838; x=1788134638; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1787529925; x=1788134725; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rWm2gOFF46IKwvZet9m1yBgyP8pz5pmvbsrAu+4BmRc=;
-        b=QFZcLi2/uCiQbq3yrT1yJ2uxiSOMTdpKQX6XBE4GCGov4/4xOYUwPOJHyav5FngV7/
-         oJhce5yIJ1F1W9vNq3MNwtt5Q35CmDbv8EsUHdQswkJuYAmoQ3e/MnHY3tiGQx9oKOEY
-         qIZtFh5+ssjpf3XIjv6ZpaR620PT43H0Cc0MYSWNJdh9wH0nfbxueFIapLh3lZH4DPBK
-         k1jBVwEnCcDDcz5wkgPEv+ZR6cAWstg7IpKOUcI9qPPay5kxQwL2AIoITjRjRgXQM4Gw
-         eF5Zc+IcYFSMchDq2lzOBHpX1sPNKuJYe2nEzCohgEEeivT3WahGn0gqjbTMLEEC7xEu
-         pa9Q==
+        bh=PnAW/+M2N3uaW3xnWGqAHnUdUrdmX0tYWAkQfErLz7w=;
+        b=a6VnxRMlJ44EOUzTTV7D1/NVIb8nQFfAIJzneVxqU7iRp+aJMYQhX2nbse/JYGOeCw
+         Vu2uXtFsul0mxZPx+f+MJ9TzMIIk6Fk9nbEuEU0XutdYf+9KM5lpCG3f0HofCetNfVs8
+         DGV9f1iN6AjsMFV8oJWXPoZ69YaskRK0Oer0ZCs0GdMUT8aJY3Fn5C7YzWaJNe4v5Nlo
+         FTIUqu5aANEvEZ3Vngbf9JO99nweHqrQVVDCWoZotgztlrA1DxDaGxXsZXPG6BeeRGsQ
+         i4hn5jqTmtN9O8XC/k3qyOgv02Z0xm+3+KXXBNaHOXcSMER0CofzRsdzRSKmf4D91rck
+         FyNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787529838; x=1788134638;
+        d=1e100.net; s=20251104; t=1787529925; x=1788134725;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rWm2gOFF46IKwvZet9m1yBgyP8pz5pmvbsrAu+4BmRc=;
-        b=MXOFB4iys6dWhCA9t0CdYCzQXYbc2RSQt0MOZ1f4BcaMYqdaeeRRHb8tym8/8PBYLC
-         EAX9pbM8olRq+xTGXOavqMKlu82SqykI3TfxUBOrAfsk4c/2fzbuBjcyq/hVliloMTi6
-         s1k2znIMA4DdDc/4fxqQEvy+C/duhwOhr4D2HqVo8xR3jloNOKo3C/Wy/diIBg8DrsIg
-         1QQgjkYNOeVGQ3IQbp/3V8Tz8q2G46olzc0N9BBinMPU7Zliy1+QbVtGw2TsRb/2puY+
-         ILDSc/NDu5ud4Pq+vcK8sd7J0w5/mpVvUQX6C+z2mnZMRjjgXQ1MZxjDipkTi7uwCJOa
-         CSLg==
-X-Forwarded-Encrypted: i=1; AHgh+RrTl6ufD332zRSosxz+kEAVED/SHvtetKp/1KYUDIM1Ri5wln3kD3xMX6eKKl6ziMO7SIHssTNVmWZ/74+Wgm1M@lists.infradead.org
-X-Gm-Message-State: AFuF++lrez7N+47dOKT9PwPTuOYSK4n74hNwfu0SExtsJ/98G1OCEe+Q
-	WMijFGGtAQBShN4DQtJJrh++sfqkmb91yub2DywaS0jY8LCAqPzx8kVP
-X-Gm-Gg: AR+sD116EzyVyW8hsYODPW2x6NCbvM2T63uz4eM4nLKRrstdmq3uVscPGQY2Fum8YNx
-	BS5SO1aWnyGDzClvg1e6YdRauOR0QVEgdoZ6mDZ9IFYdiIoMiBsDVCVL+jXVjPJQYDj5pre4cHP
-	7T9ghlcobhFnJDs2K9N/Ug/5FhPsebS9ojIey4X8XosSfIRZts+4lgSq/5hMKYQxlOV6aPMtkt/
-	tjzVMVB2elJ9wPvATeJeE0+15o0hbaj7jsHwXOp6tNiMRSELc9kk5lBxsu7xA1RbvIq+YVKxuUF
-	bLTR3F3kDlzxivqgUVcVMf0rK5Ia5SdKpxEHGXH7FOdxWBUg+FbE9htDZjaJydCmSCxU0Kipcq5
-	FXajNhQwfq6/GfasfrovQ6brWYotgvUyM3GUuaoiBux7zzSkHjR47J6BmjSJdjRzYMo3dVGwqdE
-	ozt8m2WG8e8DEpVtzY7q+d3AqaIp9uon3cTinJWIO6rr3Av3BOrsZvSx0JxP+5Mvamt/9AjO4TQ
-	VHPx8VmZnGF1fUXlw4pU+jwQYTXbJCEXVbr3fYdpd3/gE/NvEO5U2WDDWXyQXOyffMcWzbvgaH2
-	BcPjK5qybspTARy3S+OSOnSpb9FuU0ZW8WlqLTevBcq+RLgg
-X-Received: by 2002:a05:6a00:1407:b0:84e:c851:a058 with SMTP id d2e1a72fcca58-851dfa0ac9amr27654239b3a.10.1787529838013;
-        Sun, 23 Aug 2026 17:03:58 -0700 (PDT)
+        bh=PnAW/+M2N3uaW3xnWGqAHnUdUrdmX0tYWAkQfErLz7w=;
+        b=Gv3QI4Nk21y7F9N/Y3wHzjDeqwyPaa1xlVrYeuqhGOzV3TMGFsWUkquzULqedKpbd7
+         mmUn+16UW2sBkGnTPHRqGLkR7LeJD9uh1djZuYTNGZSb1MAJD1hhx2lV5OMIja1Sn/br
+         wyYDFL4JcQAOEhb4OQXxy7ODgSAbFsLMHqRg+c966qnRME/Qy9njt2/w/6yqEsoDlXgj
+         efxQQ4o+C+fmnYQOEDnS9zeqSaJ8g1HMAj1RvzLFrhadvTKZ61IOV8Qrs2b9ALSwWo57
+         xXSY22vGWTI+kq0lvnV4bsaJKONJZqcr0MgSxV2D+WhTXKbfpyt578lHxpN1PVdDnBmq
+         dI7A==
+X-Forwarded-Encrypted: i=1; AHgh+RrBVQwg7pddb0btqJzx4qjT04C9nCBUZ0xLLi0hon2l+glLFSK8V3LvRYx1bqIizvrNJDcK12Dtcg3hmDlvAs79@lists.infradead.org
+X-Gm-Message-State: AFuF++n/Oy5W82YUEPYJHdZjxbhSOwI/2UcFGtNH7tfhhy4HhzybkGae
+	nB6K717c1JfJ0um2Hanjy2uGYJwzw70KEtwxgockeaOpBc8l6+wp++vg
+X-Gm-Gg: AR+sD10DqWGpRbyaY3eFILbwaiwulTzex9JrhzPK0UwpYWr3oHYl9INNv6YB6pIYkWv
+	YSXgwYJHAko9IFHIiMPVRB4/1B7vanl6SmiE3kufE6noUN6rclj6rzXR5iF+kk5ZNbBkRHHTUwL
+	33i0RHUiUsy952ylqzaXUddchKJ7Weui9NKAC2lK0MLjh1lG8iKGvwUuuMknBZJ1SiL2pEW66d7
+	xCBb3AQ9qU1rJO4g7kQJZWNPNkrKoh+l30ixhsBo5INYrqFpXYpvAsVul+s+bRc4Qup9aT4Yzi1
+	ntJJr1Bt2Tgu4igPTigALkFZNdPaIi4+7cxZ1SWle5iOB7SuxTUP9CFi3AZvT42KMvZ9v+B7B4N
+	0SLrH0bYMxdbrUD4FO6uNbi/dFk3Wd+JnCqoHHBnoth5KpbZG2Mbya00vyE/XH48XjfKiNMU6VJ
+	35WoVeqStHTLOPI6b2upniXgMUFCeGXy/Q2K9xxQZ2EcwzLe8uzz9Yel8+bJamn4jiSfJw8nlZm
+	WvOXXEzSoHautGb29PDzAMKD/LuWSMZ+0JzcRgCAOjlldhgLwOvFII7frNM1XNhYuwdyBLu0FwM
+	UCtmyqN2zZC7TuQaXOFCi6JeI59wcwYxJWm5rlZSpGA=
+X-Received: by 2002:a17:90a:d605:b0:38e:5964:97a8 with SMTP id 98e67ed59e1d1-395df5e8fefmr26414134a91.16.1787529924655;
+        Sun, 23 Aug 2026 17:05:24 -0700 (PDT)
 Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8520ef0c76fsm1393108b3a.18.2026.08.23.17.03.56
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-395e49d7eb9sm7672228a91.9.2026.08.23.17.05.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 23 Aug 2026 17:03:57 -0700 (PDT)
+        Sun, 23 Aug 2026 17:05:24 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: devicetree@vger.kernel.org
 Cc: Andrew Lunn <andrew@lunn.ch>,
@@ -78,18 +78,18 @@ Cc: Andrew Lunn <andrew@lunn.ch>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Grzegorz Jaszczyk <jaz@semihalf.com>,
+	Dennis Gilmore <dennis@ausil.us>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,...),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] ARM: dts: armada-395-gp: drop unsupported SDHCI clock-frequency
-Date: Sun, 23 Aug 2026 17:03:56 -0700
-Message-ID: <20260824000356.79844-1-rosenp@gmail.com>
+Subject: [PATCH] ARM: dts: armada-388-helios4: fix vmmc property name
+Date: Sun, 23 Aug 2026 17:05:21 -0700
+Message-ID: <20260824000521.80492-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260823_170359_345382_ED13D78D 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20260823_170525_758389_457E370E 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,34 +104,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SDHCI node carries a "clock-frequency" property, but the
-marvell,armada-380-sdhci binding does not define it and dtbs_check
-rejects the node as a result. No driver consumes it either: only a
-few other sdhci-pltfm based drivers (imx, mcf, iproc, arasan,
-dwcmshc, xenon) read that property, while sdhci-pxav3 derives the
-maximum clock from the io clock rate.
+The sdhci@d8000 node references the 3.3V regulator through a bare
+"vmmc" property, which is not part of the mmc controller DT
+binding. The binding requires supply properties in the form
+"vmmc-supply", so the current entry is ignored by the driver.
 
-Remove the property.
+Rename the property to "vmmc-supply" so the fixed regulator is
+correctly wired up as the card power supply.
 
-Fixes: 356645123581 ("ARM: dts: mvebu: armada-395-gp: add support for the Armada 395 GP Board")
+Fixes: ced8025b569e ("ARM: dts: armada388-helios4")
 Assisted-by: opencode:big-pickle
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- arch/arm/boot/dts/marvell/armada-395-gp.dts | 1 -
- 1 file changed, 1 deletion(-)
+ arch/arm/boot/dts/marvell/armada-388-helios4.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/marvell/armada-395-gp.dts b/arch/arm/boot/dts/marvell/armada-395-gp.dts
-index b854b73a64b4..fafa204387fd 100644
---- a/arch/arm/boot/dts/marvell/armada-395-gp.dts
-+++ b/arch/arm/boot/dts/marvell/armada-395-gp.dts
-@@ -59,7 +59,6 @@ sata@a8000 {
- 
- 			/* CON18 */
- 			mmc@d8000 {
--				clock-frequency = <200000000>;
- 				broken-cd;
+diff --git a/arch/arm/boot/dts/marvell/armada-388-helios4.dts b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+index 0b23d4da8276..092290da1f4a 100644
+--- a/arch/arm/boot/dts/marvell/armada-388-helios4.dts
++++ b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+@@ -304,7 +304,7 @@ mmc@d8000 {
+ 					     &helios_sdhci_cd_pins>;
+ 				pinctrl-names = "default";
+ 				status = "okay";
+-				vmmc = <&reg_3p3v>;
++				vmmc-supply = <&reg_3p3v>;
  				wp-inverted;
- 				bus-width = <8>;
+ 			};
+ 
 -- 
 2.55.0
 
