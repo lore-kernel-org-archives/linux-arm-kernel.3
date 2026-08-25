@@ -4,55 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B40BAC61DCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 13:46:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F455C61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 13:46:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GGNpv0ysH3QqkmWn9iBNpqWrgtqpMIDqeVSc6xbSDpg=; b=PYc+ePZY5u2Mgs
-	sLf9Fgt+DZoThFntxW0yyI8hcCxFUsWxsibIpxz2fHbFJdOky+qaknMS788mHncdnoAi8fZXvN29R
-	kYExm18G2RiRF5lsa6zXA5AGezUOjlGH0HlDden9owz1/wcsoHJkaMmzD6YSP4F4Jy1o3C9Xmo0VP
-	vo/5CkL23pmxkQ3ebZBsHVNFI7pTGIRUnVuF1aW2Am5AIoIgTygLL/NRXqs+bIUhqwNEqgBpznXGV
-	OsNMVQl5892aQrBO9MJEwBswufU3v+rSRsllISUXKYLqZfHAmV7OK4HkKzM1EJqc2ofHHQBTa0X0y
-	wLQc3TGsKeTFuge3yDIg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1hllzfCxfiepo9yxSB3nYX6lRMxPUHdcaSPZbP8QM3k=; b=eM9R0+avlZ7R/7xAM59c2kxI3l
+	9gu8hSaG/YnJoiqbbrtUbbkmTzDk/6L37VBdYcpgQRUzVOJVpvWrOsbFO/xlsf87BpZJO/85pkWSB
+	b4naeq1Z2H/FmEgnHNjdnlGC6mYW79ZThekTv15toQJm3kZ/xmFQFEkzyrv3FVsZd6IOXOOt9ojMc
+	/gIIwCFVvvxTuV3CeWYXNppq0dJHJqmtaAg06M5cd/eEKzm6pavmOWGTRjvlemHXKGFURNAwNEeEm
+	DP/RoKAVCv/Oi3e+Ky6vN0/8Ml1PHSCGHqSnafiNw6mqLsdTngp9XlYCR6tkENjbbohjeQNEIOxli
+	EzEvghUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyrUC-00000000tIA-1vLX;
+	id 1wyrUC-00000000tJK-3gaj;
 	Tue, 25 Aug 2026 13:46:44 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyrU2-00000000tEQ-3Wrj;
-	Tue, 25 Aug 2026 13:46:37 +0000
+	id 1wyrU2-00000000tEN-3hQr;
+	Tue, 25 Aug 2026 13:46:39 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 018F22024A1;
-	Tue, 25 Aug 2026 15:46:28 +0200 (CEST)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id E7B4920248F;
+	Tue, 25 Aug 2026 15:46:27 +0200 (CEST)
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <s.hauer@pengutronix.de>)
-	id 1wyrTv-003Hb4-2g;
+	id 1wyrTv-003Hb3-2e;
 	Tue, 25 Aug 2026 15:46:27 +0200
 Received: from [::1] (helo=dude02.red.stw.pengutronix.de)
 	by dude02.red.stw.pengutronix.de with esmtp (Exim 4.98.2)
 	(envelope-from <s.hauer@pengutronix.de>)
-	id 1wyrTv-00000002q5P-2sCh;
+	id 1wyrTv-00000002q5P-2tcQ;
 	Tue, 25 Aug 2026 15:46:27 +0200
 From: Sascha Hauer <s.hauer@pengutronix.de>
-Subject: [PATCH v2 0/4] media: rockchip: Add JPEG decoder driver
-Date: Tue, 25 Aug 2026 15:44:05 +0200
-Message-Id: <20260825-rockchip-jpegdec-v2-0-86af859a3266@pengutronix.de>
+Date: Tue, 25 Aug 2026 15:44:06 +0200
+Subject: [PATCH v2 1/4] media: dt-bindings: Add Rockchip JPEG decoder
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACacjWoC/2WNQQrCMBBFr1JmbWQSbAiuvId0ockkHYUkJLVUS
- u9uLLhy+R7891eoVJgqnLsVCs1cOcUG6tCBHW8xkGDXGBQqjUZJUZJ92pGzeGQKjqxAp41B63W
- vLbRZLuR52ZPXofHIdUrlvT/M8mt/sdN/bJYChUEpjVJ33yNeMsXwmkqKvBwdwbBt2wfEkwY7t
- QAAAA==
-X-Change-ID: 20260821-rockchip-jpegdec-0d6880cf656c
+Message-Id: <20260825-rockchip-jpegdec-v2-1-86af859a3266@pengutronix.de>
+References: <20260825-rockchip-jpegdec-v2-0-86af859a3266@pengutronix.de>
+In-Reply-To: <20260825-rockchip-jpegdec-v2-0-86af859a3266@pengutronix.de>
 To: Lucas Sinn <lucas.sinn@wolfvision.net>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,16 +59,16 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Sascha Hauer <s.hauer@pengutronix.de>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787665587; l=1833;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787665587; l=4988;
  i=s.hauer@pengutronix.de; s=20230412; h=from:subject:message-id;
- bh=mRWayqQ4wjjMoVMzdTT1rAzWvbAxJEF/PCFVYCuhJbo=;
- b=cYpcyUJNccn6xQidWcaZAtxFNgG50tHrk9i/3M8vbXg6tLI/wl+Zo7pgHl4T+bKdzlPbFIzbW
- SY7cNt9759iBX3UBzfqMbldWqTGmW+FDoCpuVGP8PNOHdtUj4QHMd5L
+ bh=k5mGGRPuryscTon02MUVQfTJNU4kS4KkNEahr6hHoho=;
+ b=d6x7fTUktIlyYGeK4lZ1FOXY69mb9gRh35Nw8SHlMuTIE6Bh3kU2MQq9mXrEh/fY5B6l1wYRP
+ 0q89oyMNvS5BQlaES5uG11H5WFGfUkZllhtatmZmYt1unbvVLvQcD9t
 X-Developer-Key: i=s.hauer@pengutronix.de; a=ed25519;
  pk=4kuc9ocmECiBJKWxYgqyhtZOHj5AWi7+d0n/UjhkwTg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_064635_041336_083F4D02 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20260825_064635_233747_49481C58 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,46 +83,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the Rockchip JPEG decoder hardware. The JPEG decoder
-is an in-house IP which is integrated into various Rockchip SoCs. The driver is
-tested on a RK3588 board but reportedly works on RK3568 as well.
+Add a devicetree binding schema for the JPEG hardware decoder Rockchip
+integrates into a number of its SoCs.  Documents the single register
+window (task registers plus the LLP link-table block at offset 0x300),
+the decode interrupt, the AXI and AHB clocks and resets, the IOMMU and
+the power domain.
 
+The core is not tied to one SoC.  Downstream it is known as the VDPU720
+and the same block sits on the RK3528, RK3562, RK356x, RK3576, RK3588 and
+RV1126B, with only the clocks, the resets and the power domain differing,
+none of which this schema constrains.  A compatible per SoC is all it
+takes to cover them; the RK3568 and the RK3588 are the two that have been
+tested and are enabled here.
+
+The resets and the power domain are required.  The block cannot be
+reached with its domain off, and the driver falls back to pulsing the
+reset lines when a frame times out and the in-block soft reset does not
+complete, which a node without them would leave with no way to recover.
+
+The IOMMU stays optional.  The driver never refers to it, it is a platform
+integration detail, and rockchip-vpu.yaml does not require it for the
+other codec blocks on these SoCs either.
+
+Assisted-by: Claude:claude-opus-5
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 ---
-Changes in v2:
-- rename clocks from aclk/hclk to axi/ahb
-- Add missing Signed-off-by
-- Fix suspend/resume path
-- Pad the capture buffer to the mode's MCU width, not to a macroblock
-- Reject a frame header picture size outside the supported range
-- Set the capture payload at decode time, not at queue time
-- Trim comments in the driver
-- Link to v1: https://lore.kernel.org/r/20260824-rockchip-jpegdec-v1-0-8011822bf500@pengutronix.de
+ .../bindings/media/rockchip,jpeg-decoder.yaml      | 92 ++++++++++++++++++++++
+ MAINTAINERS                                        |  8 ++
+ 2 files changed, 100 insertions(+)
 
----
-Sascha Hauer (4):
-      media: dt-bindings: Add Rockchip JPEG decoder
-      media: rockchip: Add JPEG decoder driver
-      arm64: dts: rockchip: rk3588: Add JPEG decoder node
-      arm64: dts: rockchip: rk356x: Add JPEG decoder node
+diff --git a/Documentation/devicetree/bindings/media/rockchip,jpeg-decoder.yaml b/Documentation/devicetree/bindings/media/rockchip,jpeg-decoder.yaml
+new file mode 100644
+index 0000000000000..351b2faa11699
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/rockchip,jpeg-decoder.yaml
+@@ -0,0 +1,92 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/rockchip,jpeg-decoder.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Rockchip JPEG Decoder
++
++maintainers:
++  - Lucas Sinn <lucas.sinn@wolfvision.net>
++  - Sascha Hauer <s.hauer@pengutronix.de>
++
++description:
++  Rockchip's in-house JPEG/MJPEG hardware decoder, known downstream as the
++  VDPU720.  The same core is integrated into a number of Rockchip SoCs, which
++  differ only in the clocks, resets and power domain they are wired to.  A
++  dedicated Link List Processor (LLP) register block, located at offset 0x300
++  within the same register window, allows the hardware to decode a chain of
++  frames autonomously ("link mode").
++
++properties:
++  compatible:
++    enum:
++      - rockchip,rk3568-jpegd
++      - rockchip,rk3588-jpegd
++
++  reg:
++    maxItems: 1
++    description:
++      The decoder register window.  It covers both the task (function)
++      registers at offset 0x000 and the LLP (link table) registers at
++      offset 0x300.
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: AXI clock
++      - description: AHB clock
++
++  clock-names:
++    items:
++      - const: axi
++      - const: ahb
++
++  resets:
++    items:
++      - description: AXI reset line
++      - description: AHB reset line
++
++  reset-names:
++    items:
++      - const: axi
++      - const: ahb
++
++  power-domains:
++    maxItems: 1
++
++  iommus:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - power-domains
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/power/rk3588-power.h>
++    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
++
++    video-codec@fdb90000 {
++        compatible = "rockchip,rk3588-jpegd";
++        reg = <0xfdb90000 0x400>;
++        interrupts = <GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH 0>;
++        clocks = <&cru ACLK_JPEG_DECODER>, <&cru HCLK_JPEG_DECODER>;
++        clock-names = "axi", "ahb";
++        resets = <&cru SRST_A_JPEG_DECODER>, <&cru SRST_H_JPEG_DECODER>;
++        reset-names = "axi", "ahb";
++        iommus = <&jpegd_mmu>;
++        power-domains = <&power RK3588_PD_VDPU>;
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8014b9f8253ed..baea7e42663a7 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23424,6 +23424,14 @@ F:	Documentation/userspace-api/media/v4l/metafmt-rkisp1.rst
+ F:	drivers/media/platform/rockchip/rkisp1
+ F:	include/uapi/linux/rkisp1-config.h
+ 
++ROCKCHIP JPEG DECODER DRIVER
++M:	Lucas Sinn <lucas.sinn@wolfvision.net>
++M:	Sascha Hauer <s.hauer@pengutronix.de>
++L:	linux-media@vger.kernel.org
++L:	linux-rockchip@lists.infradead.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/media/rockchip,jpeg-decoder.yaml
++
+ ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
+ M:	Daniel Golle <daniel@makrotopia.org>
+ M:	Aurelien Jarno <aurelien@aurel32.net>
 
- .../bindings/media/rockchip,jpeg-decoder.yaml      |   92 +
- MAINTAINERS                                        |    9 +
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      |   22 +
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |   24 +
- drivers/media/platform/rockchip/Kconfig            |    1 +
- drivers/media/platform/rockchip/Makefile           |    1 +
- drivers/media/platform/rockchip/rkjpegd/Kconfig    |   14 +
- drivers/media/platform/rockchip/rkjpegd/Makefile   |    3 +
- .../rockchip/rkjpegd/rkjpegd-vdpu720-regs.h        |  230 ++
- drivers/media/platform/rockchip/rkjpegd/rkjpegd.c  | 2328 ++++++++++++++++++++
- 10 files changed, 2724 insertions(+)
----
-base-commit: db2ddb87143519e20a95aa36c60b36107b736a58
-change-id: 20260821-rockchip-jpegdec-0d6880cf656c
-
-Best regards,
 -- 
-Sascha Hauer <s.hauer@pengutronix.de>
+2.47.3
 
 
