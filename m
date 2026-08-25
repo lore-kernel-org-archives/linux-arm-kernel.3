@@ -4,124 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAFC4C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 16:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A52C61DBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 17:07:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iaZWKHAckqeA7K7xB+lhxHxtbFfTIKiixJPwaw0cQfE=; b=XSbtD5VJbMRuDoSWw0edVLOqka
-	cQxgRVWxwA0Yj3sYIbuyXMijUZTgxtJvLLpIKmLW7kVCIhIUaHd/tlaIXWLdamZqBNINM1xIP5pI3
-	3XkBAJGWjZwn4ZLgxzeq8zVxjJzbeLLlLvtQK1folbzLqgnoK2bS+bL/VVFcrwQtvK2/cpSxOthNh
-	xVQetya2S7e21KRDH8YCVo0bKyHcMiNR6q9YlrLrlAJkS/AhndskkFPw3cxl4o15AIu3TiTP6cjhW
-	iWypuL+O18RhNFUJHXd1Gh1bhUmy2sBJaW8zj5L/tcAgZsuPCnrvVEBL5I9sZAcKYq9RWmTzldIrb
-	qS4mXHAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bj2g1RQRxCbMBdA5rwuLTDfC67Rmlu8p6CaftxfrFeY=; b=uEFvIoB2Fh3eIdZNKeiwFP1N8g
+	ctWWWp78vYG0hDotBDCzUBtf6UEBGIAv+UhEih7lcRySkEyRp7Tf2vVLOpDVjXWXjiUOjrk3J8gqt
+	xkUCB7CM1K9yWhDifNZNxtBinkSrVBn88Ro2IY8/kllC20scOXrfwOoxllPtratSbivgoTXlxvtrW
+	LRJ89C6sJQSUDuVsNClXul/vLEkwDQlLPxew6sR4jomSA+Rgg3t79lyREEsNU7hLP9T83EZ6W2zMi
+	QdHox2C36w/puC27yNop8NCOUhDezcjt0CJGHQ3+SAXeWx6gL1rxs7NQLRzREuwZLZhz+COo/fxtO
+	SPQFDvWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyuSO-00000001AB7-42bW;
-	Tue, 25 Aug 2026 16:57:04 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1wyubt-00000001AhC-2KAK;
+	Tue, 25 Aug 2026 17:06:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyuSM-00000001AAm-1Rcz
+	id 1wyubs-00000001Ah2-2WJt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 16:57:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787677022; x=1819213022;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=GUHBtX8i/XXdFP4nTGCmtXDoyJYGQXwhXsT4+TfHfKY=;
-  b=Hfm4HpAUenh1gAAPbehWgg4oBmGdlljVra4bsHFPgA69Vocd+W+4ivow
-   M3cpqZvH3meR/ZhhB3r2/DKBIcK525M/0wWHWq5FTzopE8EVQwktNhSdc
-   rYof8/TgGDVl7rGbJBBuwQ++WnK41PR+toFf8l6RPK58MlJiowkTDTjem
-   NEli9GrXWSOw4ohV+dAT/KI1h56643eNU1F5Q6VcDkpTByMElEDbxAraS
-   WRDMEenPzIh1rGcmHzhfZU0hAxnsaQfsCCo2UeFDBCXnt1J72ZixeBASQ
-   gpnAL7QDZabSnJb9NMtBngRlC59knjePZbsAWU13tZYpPV53N49fnnPFd
-   A==;
-X-CSE-ConnectionGUID: ipofKm7KTRCsOcv43NKP0w==
-X-CSE-MsgGUID: VDqKKidQTh+DBbUO7IbHvA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11886"; a="88206687"
-X-IronPort-AV: E=Sophos;i="6.25,243,1779174000"; 
-   d="scan'208";a="88206687"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2026 09:57:01 -0700
-X-CSE-ConnectionGUID: yAPm+p4JStOXHfag/PiOnQ==
-X-CSE-MsgGUID: gpPNc10qQBSRPWPPMyM1YA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,243,1779174000"; 
-   d="scan'208";a="270819353"
-Received: from aschende-mobl.amr.corp.intel.com (HELO [10.125.109.12]) ([10.125.109.12])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2026 09:57:00 -0700
-Message-ID: <687afc72-5b6a-4138-8d33-fe5b6b7aef00@intel.com>
-Date: Tue, 25 Aug 2026 09:57:01 -0700
+	Tue, 25 Aug 2026 17:06:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 07BB4408A2;
+	Tue, 25 Aug 2026 17:06:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74B5B1F000E9;
+	Tue, 25 Aug 2026 17:06:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787677611;
+	bh=bj2g1RQRxCbMBdA5rwuLTDfC67Rmlu8p6CaftxfrFeY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TprJ7xxJidQiclhVmzR7uTnPdxnygmo/1eEVQIMmYK1TAkDTTBsmRPf0TX3lxWiMp
+	 vxTYeSJM37E0iSXa6xUlrorX5KmCLHR8rZA1L7lY0FjX6GlRIoBDKH4k4adynQ8Y5l
+	 0WOQFDAL44Mgl2zv16PVisH4q1OSAoniC4xRusd9NbESz4N6wrGs4hZ/v9Pe3Hl/rD
+	 JHh++0H7dgP40e92dBW4flhauaJp/b3BKK29HBx9dAzCRmdzPWFCVOFp2lBVdLY1I5
+	 9/GRoEzkY8xTfo5VKkWJ29z5dU4wDrJNZVXMwj2W7b3/YO+PG6gbZZ/+hbXFsaZnPu
+	 q2hZBTn9T2E4w==
+Date: Tue, 25 Aug 2026 18:06:45 +0100
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Robin Murphy <robin.murphy@arm.com>,
+	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>,
+	Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>
+Subject: Re: [PATCH v2 3/8] iommu/arm-smmu-v3: Optimize range invalidation
+ for latency
+Message-ID: <ao3LpdSgK7ZBrLza@willie-the-truck>
+References: <akzm5BoV0rToJ7ij@google.com>
+ <20260708001058.GA422027@nvidia.com>
+ <an3MSKEj7VhT4WkP@google.com>
+ <20260813141320.GF730363@nvidia.com>
+ <an3ew9xbnLe1dr5g@google.com>
+ <1791d7da-ecd9-4475-8f27-c8857477b442@arm.com>
+ <20260813180102.GH730363@nvidia.com>
+ <an7UNAA1WlEXG23-@willie-the-truck>
+ <20260814123417.GB510472@nvidia.com>
+ <20260818184338.GF5432@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/3] x86/mm: add set_direct_map_ro_noflush()
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- Xueyuan Chen <xueyuan.chen21@gmail.com>, akpm@linux-foundation.org
-Cc: ljs@kernel.org, usama.arif@linux.dev, catalin.marinas@arm.com,
- will@kernel.org, linux-arm-kernel@lists.infradead.org, tglx@kernel.org,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
- hpa@zytor.com, rppt@kernel.org, ryan.roberts@arm.com, ziy@nvidia.com,
- baohua@kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Lance Yang <lance.yang@linux.dev>
-References: <20260730090647.2401252-1-xueyuan.chen21@gmail.com>
- <20260730090647.2401252-4-xueyuan.chen21@gmail.com>
- <2931f8a6-3780-4d6a-b19d-61cbbdad1a3a@intel.com>
- <1e04196a-7079-4a8d-a1b7-844e60d08728@kernel.org>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <1e04196a-7079-4a8d-a1b7-844e60d08728@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_095702_476754_883E89B1 
-X-CRM114-Status: GOOD (  14.44  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260818184338.GF5432@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,54 +86,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/25/26 09:43, David Hildenbrand (Arm) wrote:
->> int set_direct_map_invalid_noflush(struct page *page)
->> int set_direct_map_default_noflush(struct page *page)
->> int set_direct_map_valid_noflush(struct page *page, unsigned nr, ...
->> int set_direct_map_ro_noflush(const void *addr, unsigned long nr_pages)
->>
->> Which one of these things is not like the other, despite being named
->> just like them?
->>
-> That's called out in the cover letter:
+On Tue, Aug 18, 2026 at 03:43:38PM -0300, Jason Gunthorpe wrote:
+> On Fri, Aug 14, 2026 at 09:34:17AM -0300, Jason Gunthorpe wrote:
 > 
-> "
-> This series adds set_direct_map_ro_noflush() so mm code can make a
-> direct-map range read-only, then uses it for the persistent huge zero
-> folio. The helper is direct-map specific, takes an address-based range as
-> discussed for set_direct_map* helpers[2], and leaves TLB invalidation to
-> the caller.
-> "
+> > I'm also wondering if we are even OK with this errata today? The
+> > current RIL algorithm also does not guarentee the split up RILs will
+> > cover every CONT. This will happen to be true if the input range has
+> > certain properties but I have no idea if the SVA path or even the
+> > proposed CONT iopgtable change guarentees that.
+> 
+> I've looked into this and it looks like the current RIL implementation
+> does not meet the requirement to solve the errata, and these days SVA
+> provides CONT entries from the mm.
+> 
+> The errata says the RIL command must cover the *entire* CONT group. I
+> read this text as meaning two contiguous RILs with a split that is
+> inside a CONT group is still vulnerable to this errata. Each CONT
+> group must be fully covered by at least one RIL.
+> 
+> So the algorithm we have today where we take the range and split it
+> into many RILs has nothing that prevents the RIL split from landing
+> inside a CONT. SVA is not guarenteed to produce ranges with an
+> alignment or size that make this algorithm happen to choose aligned
+> splits.
+> 
+> I've prepared an errata fix patch that detects the errata and triggers
+> a very simplified version of this single-RIL algorithm only for SVA
+> invalidations. That will fix today's kerenel, it is reasonably small
+> and can go to -stable.
+> 
+> I've adjusted this series on top of that to use the double-RIL version
+> with no over invalidation that Robin suggested for paging domains and
+> single-RIL with over invalidation for SVA domains. This also turned
+> out pretty good.
+> 
+> For the iommupt integration, and enabling CONT for the paging
+> domains.. Ugh.
+> 
+> It seems at least our Spark CPU has this errata and requires CONT
+> support to work in paging domains, or it runs into its own isochronous
+> HW problems. So the easy answer of disable CONT isn't desirable.
+> 
+> So.. what I've come up with is a little tweak that still allows the 4k
+> granule's 64K CONT to work without any over invalidation, so we can
+> turn it on by default. That is enough for spark to work. Everything
+> else stays with status quo of no CONT.
+> 
+> If someone has another smart idea now is the time..
 
-My concern is not so much what the function is doing or whether or how
-the specific function is documented. It's more about whether the new
-function is consistent across all functions with a similar purpose and
-name. Also, if it is _not_ consistent there needs to be reasoning behind
-the inconsistency. I think that is missing here.
+The documentation for 3673557 gives a possible workaround of:
 
-In this case, look at the call site:
+  - When invalidating a contiguous set of page tables, perform the
+    invalidation sequence twice. Only the invalidation sequence needs to
+    be performed twice, not the SYNC.
 
-	addr = (unsigned long)folio_address(huge_zero_folio);
-	set_direct_map_ro_noflush((void *)addr, HPAGE_PMD_NR);
+and we just merged something very similar from Ashish. Could we use that
+for domains that want to use contiguous ptes?
 
-It *has* a folio. But it does a folio_address() and two casts to massage
-it into the type for set_direct_map_ro_noflush().
-
-If set_direct_map_ro_noflush() just took a 'struct page *', there would
-be one folio=>page conversion, no casting, and complete consistency with
-the other set_direct_map*() functions.
-
-I'd also be OK with set_direct_map_ro_noflush() taking a folio, with the
-implication being that it might eventually make sense to convert the
-other set_direct_map*() functions to folios. But page vs. folio
-confusion is much less likely to cause bugs than a void* versus another
-pointer.
-
-IOW, what I think I want is:
-
-int set_direct_map_ro_noflush(struct page *page, unsigned long nr_pages)
-
-Or _maybe_:
-
-int set_direct_map_ro_noflush(struct folio *folio)
+Will
 
