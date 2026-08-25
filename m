@@ -4,98 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E1EAC5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 07:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33487C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 07:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s3xyRM/wAlBwrs4J1zBbo6tL/K6FbpaVSr4RYy/4QHY=; b=wC6YPZV/Tk4yWUARGcCPy7Qmft
-	rMG1auPWzCwmwJ0jNMHAaWIuVr1GhPbfNYBPgPYV69DQBYGMsOS2Bfr2agvSHfnUV9QIgn9//etNX
-	tjqONCZr/soh69LWyDG8Szbh/Me1zTZOXIIVb8JhIqcwb6g2gWxL5w1/dn4ou5ybrv/G5xY2Iiv8A
-	VJ5/AN1NFMhkk/O7fdg3puWDaD/FEN4MnKUgP+gucbTRIarwv6b9DyLbH76P04BAf1CxIWjK0kq9x
-	ZI39yUVU/5SUoh89js48e/btdk/Hxo/ET48CMSJAFS3OXrGsBbZo6Xxi4S57kk5NKtKe+wXcmod+Z
-	atDcFsIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rYTDFbaE1JJfaMo+4gmChPHhIQlrt73MEiayTTjME6k=; b=JcXOlSC5yAWTrwGXljh1bKI6DV
+	nKY1nMjM9xAJSZuqExlxdAtjwxXlZr2PeDJoloKyzH+XTn3fUAro0Av+32zbO2enxHxXoZx+ySvl5
+	exCEsrQdpz3k5kxOddWUSg9G+eeMKgcgE5rTTLzrYY/nmijrdiPuAV/eb2MRfOYELvtIYON89HLUw
+	SIDoFwiGpyF9PJi/hcHBRkWkJlYGWsqXqLwxGMhX6E0mFfBQmpJwTxKzJB/Y68mh5SJCSfSlewYxX
+	uA1jZxSpzioJL/4sUwclEcJyC+O32yt3ntMwWdY1Zpn6XFiUF4964lf7kXSXvOrQb81hD5Cue9Pmf
+	Af24ITJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wylF2-00000000GOx-2M0I;
-	Tue, 25 Aug 2026 07:06:40 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1wylTc-00000000HJh-05uT;
+	Tue, 25 Aug 2026 07:21:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wylEx-00000000GOZ-0PSo
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 07:06:38 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-c207cb16cf5so689862966b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 00:06:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787641593; x=1788246393; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=s3xyRM/wAlBwrs4J1zBbo6tL/K6FbpaVSr4RYy/4QHY=;
-        b=r9ApBGPI6FwaRKeupVpH5z/Dg7uqmT2g2UsmaiDicyV9dB0HiE3PJeieTLO9+8HFIk
-         H51awosV28qKyfjweRn+hZbG5hr0SrtBmYuFd30WL4xfq6Z6PSj/QlNC40JzHpr+G3gf
-         u1dmTM9VIA1K8vXJPaxroJnge3Dwtbo+rICOtptCVqOdBzelu3tenRoMIVC3MZy6Kx+x
-         3g4QBObsa0qg7lF9ILBfVJXq5rZke5b/fxr5hmm5mzEKcGGHHxYf7AdesR5xVeKkCF1Q
-         tE2c5C2f+sfSnnsth6AUipZsVXhO/0nfzy51Vjx8HH34ThZVxiDzdrRa0vSKafyHEqDc
-         JuLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787641593; x=1788246393;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=s3xyRM/wAlBwrs4J1zBbo6tL/K6FbpaVSr4RYy/4QHY=;
-        b=T9MeCArs4VtHUwXj5E/zaRxmV8ecdx/ainEglmX2i0X0PpX9Gkgpf7J+KNT2fGgoJm
-         JOMgeGUkZBdRztbWyqNEzlwd7hu3gD5O32G6RRkjTS1TEHcGsibnYBIkjQ5vWg5CHjAz
-         B/16QFDmk2IkSKNUVhzwsjK8v3lN9m2gW2wcT271yBnPKXzfunj5M+k37CJL2bBpqY8n
-         F/L0iw/WXR8hnYIuuMNGmM0mhWiah0PVCYHkl+Ciz7DwRT1wEFFKVxFQxwbdOa4rM4/V
-         ABjy0CHRdCOCXQJ53OZCIsXErBDiRdwVR2Z5AUPISVwV+AsL0yO9OyoWgDjXSiPmvfL5
-         EpGg==
-X-Forwarded-Encrypted: i=1; AHgh+RqKkX6ry9LY86r+Qh8R/H4jsYmPAln9rPWcTdi8XBNI40UNZCQ3rRCFyFiOaPXeVd5+b9Qwtsbmk2l041j2kko3@lists.infradead.org
-X-Gm-Message-State: AFuF++kdg3WLuqKHXIAo/EokyfZDoOWCyuRBe7Ka1dINhsESTBOsj/2q
-	BVNvPKpdjs234rar+VnLRUzVfwy2yLqc32S7HD49/du5FyqpCwyrbmBT
-X-Gm-Gg: AR+sD13YrglGt95TrKWMvOEArbP4jNfkZLXeny6b+7ONMLl52g6K3CnHsZLhi7iGyCg
-	MnWn771dPP6a0j6JBItcq+lyvZMJdDve+Nb0uyTmZ6Z4rngRXf1KDH2B7wnLahxlrD83R9kd0yl
-	uBTg7rskBYfGH8q1pdM0n14MWi9zC1BwfOVtioZsfihYxdDDMaHWg3SME4/NwBBbgi/b531LRHc
-	3bvi6mxwxbttbrhBm1QCN7FqhFKb5OMONqHsQy6XT2iVuzP7qUSGWQjd3dpUCOT/UhuzXXR4sFo
-	q5fyHnpR69e24oF6UoWDjlyf7tqwTk4BpGpUaZtPbpUBqzXIbWptnp1WQaAw7+rPEWc5wtyvK2/
-	x/t2yH/Nrbg8PZz3oF2f6Jmes6GkZe5D2arc+GJAEaxrxK6GaTttfNOAHUkF8nd4i00NhzakcIf
-	sgjyXdb8JZdg9cLVxwWqx2TijSht92tk1LvlLcxeWffVpUd6Iz+f1pcEEbmJ6Vfr/uceaFFpb6y
-	uqjplQVf6fXAO5flOp32CrlEQIq93rif8bDHegh2rxPIiPY+rl9ldCiJsks3D0XkRDhz8d6AgvN
-	dOBP8Bb51hMZGzZruhW8EtdmBBXC248re4U=
-X-Received: by 2002:a17:906:a353:10b0:c1c:5c90:1bb0 with SMTP id a640c23a62f3a-c246a353d2emr2513381166b.8.1787641592969;
-        Tue, 25 Aug 2026 00:06:32 -0700 (PDT)
-Received: from franzs-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2496295627sm1565087966b.15.2026.08.25.00.06.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 00:06:32 -0700 (PDT)
-Date: Tue, 25 Aug 2026 09:06:31 +0200
-From: Franz Schnyder <fra.schnyder@gmail.com>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, "Ivan T. Ivanov" <iivanov@suse.de>, 
-	Francesco Dolcini <francesco@dolcini.it>, Frank Li <frank.li@nxp.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	kvmarm@lists.linux.dev, imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v4] arm64: errata: Add NXP iMX8QM workaround for A53
- cache coherency issue
-Message-ID: <f5nfbi2lmc73wtxxmzs4damrjtd67p4eb4p2zy5ssqrc3wohne@cjcxqua5dps6>
-References: <20260824-imx8qm-cache-coherency-v4-v4-1-b2e528c7d05e@nxp.com>
+	id 1wylTZ-00000000HJT-0aa8;
+	Tue, 25 Aug 2026 07:21:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7F7B24004F;
+	Tue, 25 Aug 2026 07:21:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54B6A1F000E9;
+	Tue, 25 Aug 2026 07:21:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787642500;
+	bh=rYTDFbaE1JJfaMo+4gmChPHhIQlrt73MEiayTTjME6k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=L5uKnFVN6U7JlDpZjykUYsM31mRreDBUSIQQxhl6O0emTFTI0MCN5iu57fN5BLwsY
+	 clMRmla9IT/J2d4ZtzQkQMz64gKEL7j+jJI4AO7krfKlUj3p3t8nTnI4RUG1dthoIy
+	 yjfFJpTJq3h71mEBqLe51I6RCD3NLSbg8E3K80luAGV1qOEPXwuSMBbwDDIOvILkQj
+	 2Xryd1YQ6/+UlWjX+jTQAUnVzN+56Zu1uB/bcHQxvVaHTLuU7VygGRMRDJ0ZUktl7l
+	 OXg6A4BlxLOq0jhKVFXXk06vroD1BwrvR8kaiEeTwfChjcv/OVzJL3Qkcxpa+d1DXi
+	 9KLhSCW+m64jg==
+Message-ID: <d24d59bb-2330-41c9-a6cc-a4c7053f8526@kernel.org>
+Date: Tue, 25 Aug 2026 09:21:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260824-imx8qm-cache-coherency-v4-v4-1-b2e528c7d05e@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_000635_155236_B4467CFE 
-X-CRM114-Status: GOOD (  16.45  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] media: dt-bindings: Add Rockchip JPEG decoder
+To: Sascha Hauer <s.hauer@pengutronix.de>,
+ Lucas Sinn <lucas.sinn@wolfvision.net>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260824-rockchip-jpegdec-v1-0-8011822bf500@pengutronix.de>
+ <20260824-rockchip-jpegdec-v1-1-8011822bf500@pengutronix.de>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260824-rockchip-jpegdec-v1-1-8011822bf500@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,49 +119,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 12:02:04PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
+On 24/08/2026 09:01, Sascha Hauer wrote:
+> Add a devicetree binding schema for the JPEG hardware decoder Rockchip
+> integrates into a number of its SoCs.  Documents the single register
+> window (task registers plus the LLP link-table block at offset 0x300),
+> the decode interrupt, the aclk/hclk clocks, the AXI/AHB resets, the IOMMU
+> and the power domain.
 > 
-> According to NXP errata document IMX8_1N94W[1], the i.MX8QuadMax SoC
-> suffers from a cache coherency issue (ERR050104). The upper bits, above
-> bit 35, of the ARADDR and ACADDR buses within the Arm A53 subsystem
-> have been incorrectly connected. This causes some TLBI and IC
-> maintenance operations exchanged between the A53 and A72 core clusters
-> to be corrupted.
+> The core is not tied to one SoC.  Downstream it is known as the VDPU720
+> and the same block sits on the RK3528, RK3562, RK356x, RK3576, RK3588 and
+> RV1126B, with only the clocks, the resets and the power domain differing,
+> none of which this schema constrains.  A compatible per SoC is all it
+> takes to cover them; the RK3568 and the RK3588 are the two that have been
+> tested and are enabled here.
 > 
-> The workaround requires:
+> The resets and the power domain are required.  The block cannot be
+> reached with its domain off, and the driver falls back to pulsing the
+> reset lines when a frame times out and the in-block soft reset does not
+> complete, which a node without them would leave with no way to recover.
 > 
->   - Downgrading targeted TLBI operations to broadcast-all variants.
->     Instead of patching the low-level __TLBI_1 macro (which interferes
->     with the REPEAT_TLBI workaround and causes excessive over-
->     invalidation), redirect high-level TLB flush functions
->     (flush_tlb_mm, __do_flush_tlb_range, flush_tlb_kernel_range,
->     __flush_tlb_kernel_pgtable) to use VMALLE1IS via static key checks.
+> The IOMMU stays optional.  The driver never refers to it, it is a platform
+> integration detail, and rockchip-vpu.yaml does not require it for the
+> other codec blocks on these SoCs either.
 > 
->   - Upgrading IC IVAU to IC IALLUIS for both kernel (via ALTERNATIVE in
->     invalidate_icache_by_line) and EL0 userspace (via trap-and-upgrade
->     in user_cache_maint_handler with SCTLR_EL1.UCI=0).
+> Assisted-by: Claude:claude-opus-5
+> ---
+>  .../bindings/media/rockchip,jpeg-decoder.yaml      | 92 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  8 ++
+>  2 files changed, 100 insertions(+)
 > 
->   - Disabling KVM since correct TLB maintenance cannot be guaranteed
->     for guests.
-> 
->   - No need to touch SMMU Broadcast TLB Maintenance (BTM) since i.MX8QM
->     does not support broadcast TLB.
-> 
-> SoC detection uses devicetree compatible string "fsl,imx8qm" or
-> "fsl,imx8qp" since the boot CPU MIDR_EL1 (0x410fd034) and AIDR_EL1 (0)
-> are not unique to this SoC.
-> 
-> [1] https://www.nxp.com/docs/en/errata/IMX8_1N94W.pdf
+> diff --git a/Documentation/devicetree/bindings/media/rockchip,jpeg-decoder.yaml b/Documentation/devicetree/bindings/media/rockchip,jpeg-decoder.yaml
+> new file mode 100644
+> index 0000000000000..e20c1bf43ef3e
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/rockchip,jpeg-decoder.yaml
+> @@ -0,0 +1,92 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/rockchip,jpeg-decoder.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip JPEG Decoder
+> +
+> +maintainers:
+> +  - Lucas Sinn <lucas.sinn@wolfvision.net>
+> +  - Sascha Hauer <s.hauer@pengutronix.de>
+> +
+> +description:
+> +  Rockchip's in-house JPEG/MJPEG hardware decoder, known downstream as the
+> +  VDPU720.  The same core is integrated into a number of Rockchip SoCs, which
+> +  differ only in the clocks, resets and power domain they are wired to.  A
+> +  dedicated Link List Processor (LLP) register block, located at offset 0x300
+> +  within the same register window, allows the hardware to decode a chain of
+> +  frames autonomously ("link mode").
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - rockchip,rk3568-jpegd
+> +      - rockchip,rk3588-jpegd
 
-Hi Peng,
+How this can be v1 if you send VPU720 for rk3588 already?
 
-I tested this on our HW and the random crashes that occured when both
-the A72 and A53 clusters were enabled no longer happen.
+https://lore.kernel.org/all/20260819-rk3588-jpegdec-v1-4-33d74cdf369c@pengutronix.de/
 
-Tested-by: Franz Schnyder <franz.schnyder@toradex.com> # Toradex Apalis iMX8QM
+Were there more versions?
 
-Thanks
-
-Franz
+Best regards,
+Krzysztof
 
