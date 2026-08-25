@@ -4,88 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA942C61DBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 17:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E284C61DBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 17:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Date:Cc:To:From:MIME-Version:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=57hPk6B4v1KETwUArfZSnqqRqUE15uxO2Lfbtp7crWY=; b=pSSDRkvAaBILmPzqrem3Z+9dct
-	XibbYkDOVxEi6pHzkqXBgKgEQyTmCraHvcJCtxgd76L2De2FAFLBUunZvqrSh+T2yiG0fT5PDmDkL
-	oCjNyv105tU45GJwNF7Rk1Opt9rYCsegi0uZBGgtrCGnj5t333H2TUmIKCsBOyU177kQpHjH3nRDH
-	0gs5EcMATwt7r5WAtMDIbGxaDkRKFpBo7HF4lOQzdJ7bwOSdM1Wn/+WnteMxQMgxc8l7PJP3pM57h
-	2051ebr6cpjc8+UPkX4Gj02QMMJc5hg+rUmCfceiwPyZTPoqV4TOKt8vzacDPijmq/o1a9e74Pka2
-	7wL03iSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gwb8vYO3uznd15Zsf6rDYA4qtHhV4Fr7KW8splPiq7U=; b=aw/w7PkYME43c73758cto2SvyY
+	tcmaHGQMBeQHZU0CQtYNJIli7pMHnFEVn/UBmk5IDZ2Zp2ktutVjixCqKWZs/IxvVakKr3N8ZSnLk
+	8oYVBGPXuD6FzHabVpDZ1cudsOZh0f2YkNWcsh9Ur+ekcGB5O70hr463FJnaAEoVejqccoPv8HbH6
+	z/OE17MdSC5uznvjzjl+dbwSaDTurLm5X/RNf8Ozj6EdZxE7ZBXTAoEVRa3pAqjpvXj5zE0ljQ4gq
+	XnBFjC148bk4hVW1UmLYFUza1wyn44ehQLq85TcMu465pjwktPnzm7Kb6fVy2mgE7xRJnYllSMFAt
+	65QXRuYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyv2Y-00000001E2X-32Rc;
-	Tue, 25 Aug 2026 17:34:26 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1wyv3j-00000001EFq-3wLF;
+	Tue, 25 Aug 2026 17:35:39 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyv2W-00000001E1J-0Wh5
+	id 1wyv3g-00000001EFQ-3LD4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 17:34:25 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2d032846c95so1688765ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 10:34:23 -0700 (PDT)
+	Tue, 25 Aug 2026 17:35:37 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2d3b440b97aso7325ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 10:35:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787679263; x=1788284063; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:subject:date:cc:to:from
-         :mime-version:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=57hPk6B4v1KETwUArfZSnqqRqUE15uxO2Lfbtp7crWY=;
-        b=U+f2J4E8SwpcK/bUTwT08OIns/4i1/ZWnuwtOlc9+dzZc5QMr+jG3QGuSx2I7xttcH
-         +S9RfhI3SZJOimOnfPHXQU9svIG6myX2p9XQekcvQb+l1V5xpRdqsvHJb3xCbHLDPELI
-         47sOUyk4BI7W2BrwMkfFfBt7zQthOPPip3oWgELSY4wrJdcdhQr8wtE0tU0k6dVj9ynl
-         83UosUbDSvFDIoWPsdHT4Hb97CLKamURKT45z04eJviS4BuqL0IRZMPoNOiYw0HYEGEp
-         rtHDM7htt5NHpTA9puQzvC25oQhIIrsYUEP4n1jPso/SmYxZK27sV53AjFPqKsAXpGfK
-         eovw==
+        d=google.com; s=20251104; t=1787679335; x=1788284135; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Gwb8vYO3uznd15Zsf6rDYA4qtHhV4Fr7KW8splPiq7U=;
+        b=lsGaqg0Ri6ojd+M2cWFrhJQmTcoPNPMHjJhHS3PmgHVoY2ichDoGVEvECj0Jt3vcd2
+         fg4JT7hPPx+HJCS4DfAt3OqPKvYSWYZ0XTsMsl0Y9z+DObjchMwlw39yjSejR8aJxCno
+         +BzyeMKzABfmhmUJ4TKNghwUaMAhnzekVxAdZ43dfPmD+W+TRPzQLLFDsw7oG2oCw6YY
+         Xsi0qg+QHFBcdV9mIehMWMjGFehvDJWB2K/Ko7o+wei57wFt/0+FAXKWE3kb32/IraUH
+         uCUb8tJBRFSf2lKRXGSvZOCvlc/EEXIdGJxKe3nlU3+YjN82PoSduSUweRJNeKyu5JyK
+         MbzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787679263; x=1788284063;
-        h=content-transfer-encoding:content-type:subject:date:cc:to:from
-         :mime-version:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=57hPk6B4v1KETwUArfZSnqqRqUE15uxO2Lfbtp7crWY=;
-        b=qr68FoP3W+Atarlmg7SDUWgORTZAEFFOq9fLPlak2ny+aZoVpAYGxeJCvcbwxArWaF
-         0vC095hila5P51kUyBZx+l+2y8QKXnDgg0IjC3YLAF5VNDmOK59ZdKVZ+DDxis3HbnCT
-         yVxt9vHqULr3wk4e4sXgWKKhecRGtu+XBbWvRZYy7suSs6VLQzBBuFTWPZv5jXb71AnV
-         pU4pwemXJ38ddL0TxEdWqD4OtDnsECSMNE/EN15HNzIbTLS3zFA7jJZXhB4He0UrAjSa
-         i5UKeZq8gxp3iIU9/nS5RltnpCn4bb5ZnCjB6djkD1JJyAhY3tMZ/Q2TjFN5fzHlp2EE
-         JIOQ==
-X-Forwarded-Encrypted: i=1; AHgh+Ro/NG5mH/NeblInu7J0klc+dJ44iDnm3TuXuDFN9atqBuMDgAKp9dBZQ+8vVkfJU1d6p3wQWZcwuXmJ7uI+vQzm@lists.infradead.org
-X-Gm-Message-State: AFuF++mH7RxKigji9ivH3EAKtK5kVc270fKN0Udwx7BQnOLgIQkR11Bm
-	/btnfq0dTzoWMWabwr0oAqW5V5Ftgue5oRm/Bgv159FIn6+cCXuL6QEo
-X-Gm-Gg: AR+sD12QUInZBKf3d1oMLaViniiOXslnDdAXiju+WPhjsPJ59mNU9hrtrqQaIMyZ8/d
-	ODFdZwW0fELUkBS+cCgxdXTwnHN8LlLmG6Tpcf1wgaWVvjf/ohRo783MxH1yJ5O8jnTzWSSY05P
-	4Mpp9bjzm7VFYOFfblgEaK3bW7TfRIvka1mXLhKaw7tZHkyQwUSD06QRabYRHurN/16jxJFU92Y
-	sb8ywcrZG8FOgNQgtxZkaz9AMW8mOLecQ3XGrYcB4EyvonGIsYSy80zGB+dnfLUAOOmne0pfWxI
-	EkYL3q5nOnlLFIzJqpf/aLHAIVb4HPLrDO/yVO+qLmd+MLCohCKvfqWnam13qoGiVrNN+S0rfy/
-	iHJS0uTl7YiaRz9zEb01m557RDpBwuvK5oEkvb3QstFkzFJ/bW9FGEjicYKdpqQWQ2re+tqgCt6
-	ZC3oGpn7QGKa78wgvBIZmDC8gl5570fhmX2ykDs28fvYMBqUrfiZiHs/71J4kvUiKEfk6no6Zkh
-	RJ/SDOpeGGIrAykmmhBLVb2iQ+sh8pO309mVIQ5n5vXawB7gS08Gvi9ww==
-X-Received: by 2002:a17:902:e949:b0:2d6:3c2f:6a5 with SMTP id d9443c01a7336-2d64b1d68bemr710709365ad.14.1787679262972;
-        Tue, 25 Aug 2026 10:34:22 -0700 (PDT)
-Received: from manush ([2406:7400:94:a5e3:4d43:ded5:1c68:7d38])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3283d884d5esm465303eec.17.2026.08.25.10.34.19
+        d=1e100.net; s=20251104; t=1787679335; x=1788284135;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Gwb8vYO3uznd15Zsf6rDYA4qtHhV4Fr7KW8splPiq7U=;
+        b=h+/lvVq6+NY3ymUfY86PfcLhi+IB3oYI3qNlD+VMSH5lmxjYbHEsIxJBzoxWQFATuZ
+         lHZMOP7CLAmY3S0ZjyT2az652JwxzJi2ERwMx2b1jZOQu836pP5Em9WKP31plT0WXBSE
+         lEU6xoAR8TXoMQEdE1WXwm28f5aaaYf1ne5cX7ZzlbBvcgJY1tz4GKQN7b4IIaxMmk1C
+         AAvd8eHUjrXMabZx6BAGSqgZFkQS8leUlJeXUwQVAj5iJS8gL+ru9xuk7ZZ9h/uLq9mZ
+         2H7vKK9lzFqkVJVhRbl+yNcJ8DDNUKYuEoorXyFwpwYJVdrBX9nHbmWkYX45X/qzl2j1
+         uJQQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqyPOuNmoAbpLTV7P7coW7eBCeckVD0dkaMgTcJ4ESYFF4DUcLsh/VO6KW9xjsDlb0FQ2A0XKCQlHxQcamJ1/Gw@lists.infradead.org
+X-Gm-Message-State: AFuF++nPG2YIIXZukITJBpgIuBECnA1sdNdHKNoCX9OVXZcBM9Zp7f7u
+	5YXbucnFGz7gKU43eq8ScWjcbAcu3mR37xFWpfmlsnqBNd6yVWEcTahl6NBQENpCPQ==
+X-Gm-Gg: AR+sD115w7qtCG1d/3jQKusykw1pAvdSk7WA6j9ZzPGMOvt4AYrt9lEMYkAgGRFVmt6
+	IjzseyVGerl6DWqqJyBVhr9q7273HPZgfHFUBpImSbZqruD1VLERPVcbsa0Nn0u2fOoyZ2ULVLf
+	VxF42eKYlJ4+7aRVTM/kbyXximvhkIAM9CrBimyh+TfoUsDo5EKe0PSS0GDgc0E/rIbuuT/IaCB
+	Ki7VQT83T6Qnmr6cMlZUp/QBDlxZCUIMTdAJoreng7oAuvVWSwgJZ9v+GG92MEuOwcvpP0bDNm+
+	9QtsCiCUG5lUJvciPwkv0MfQb+A25pNzAyakE6czyp1RlINWuMGwf0L2Qn5h32Ghtts4QnGA5wS
+	xKgCYB6AhnCisWk9cx2Nge7tfL2vLlHOzcW0uC190LvaR67Ra8767FBJp1FJuReSMMK4QTA+nv1
+	Fex1AFNTCKyw5MN4NtvCb44cUEagU7ePQTbaE/AESFqiWIVj3Ug67pojuouK0Pi3ZgvnR64G8/K
+	TcPUYF4Vl5feHYJGl0wquP9Og==
+X-Received: by 2002:a17:903:8c8:b0:2d5:c090:3810 with SMTP id d9443c01a7336-2d6e0518b75mr9553085ad.2.1787679334305;
+        Tue, 25 Aug 2026 10:35:34 -0700 (PDT)
+Received: from google.com (164.210.142.34.bc.googleusercontent.com. [34.142.210.164])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39668767d65sm579978a91.8.2026.08.25.10.35.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 10:34:22 -0700 (PDT)
-Message-ID: <6a8dd21e.b12cec6a.f9ff0.b637@mx.google.com>
-X-Mailer: git-send-email-equivalent-ps1
+        Tue, 25 Aug 2026 10:35:33 -0700 (PDT)
+Date: Tue, 25 Aug 2026 17:35:28 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v9 01/12] iommu/arm-smmu-v3: Refactor arm_smmu_setup_irqs
+Message-ID: <ao3SYLiFAQnsfJGb@google.com>
+References: <20260728210928.1050849-1-praan@google.com>
+ <20260728210928.1050849-2-praan@google.com>
+ <178767577112.3356902.15076197547390630060.b4-review@b4>
 MIME-Version: 1.0
-From: "Manush Prajwal" <manushprajwal555@gmail.com>
-To: jassisinghbrar@gmail.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com
-Cc: linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Markus.Elfring@web.de
-Date: 25 Aug 2026 23:04:22 +0530
-Subject: [PATCH v4] mailbox: mtk-cmdq: fix runtime PM usage counter leak in
- cmdq_mbox_flush()
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <178767577112.3356902.15076197547390630060.b4-review@b4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_103424_201384_EFB577F7 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260825_103536_860432_E85859DC 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,84 +106,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cmdq_mbox_flush() calls pm_runtime_get_sync() and returns its err=
-or=0D=0Acode directly on failure. Per Documentation/power/runtime=
-_pm.rst,=0D=0Apm_runtime_get_sync() does not drop the usage count=
-er on error, so the=0D=0Acaller is expected to release the refere=
-nce itself. The early return=0D=0Ahere skipped that, leaking a ru=
-ntime PM usage count on cmdq->mbox.dev=0D=0Aon every failed resum=
-e. v2 fixed this by switching to=0D=0Apm_runtime_resume_and_get()=
-, which performs the get-and-put=0D=0Ainternally on failure.=0D=0A=
-=0D=0AMarkus Elfring additionally pointed out that the "out:" and=
- "wait:"=0D=0Alabels duplicate the same pm_runtime_mark_last_busy=
-() +=0D=0Apm_runtime_put_autosuspend() + return sequence. That du=
-plication=0D=0Ahides a second, separate leak: the "wait:" path's =
-timeout branch=0D=0A(readl_poll_timeout_atomic() failing) returns=
- -EFAULT directly,=0D=0Awithout ever calling pm_runtime_mark_last=
-_busy() /=0D=0Apm_runtime_put_autosuspend(), so the pm_runtime re=
-ference taken at=0D=0Afunction entry is leaked on every polling t=
-imeout too.=0D=0A=0D=0AFix both by merging the two exit sequences=
- into one common "out_pm:"=0D=0Alabel reached by both "out:" and =
-"wait:", using "ret" to carry the=0D=0Areturn value. "ret" is exp=
-licitly reset to 0 on both success paths=0D=0Abefore reaching "ou=
-t_pm:", since pm_runtime_resume_and_get() can=0D=0Areturn a posit=
-ive value (e.g. 1) on success, not just 0, and that=0D=0Astale va=
-lue must not leak into the function's return value.=0D=0A=0D=0AVe=
-rified the merged exit path with a standalone model of the four=0D=0A=
-possible outcomes (initial get failure, "out:" success, "wait:"=0D=0A=
-success, "wait:" timeout): the runtime PM refcount returns to its=
-=0D=0Astarting value and the return code is correct on every path=
-.=0D=0A=0D=0ASigned-off-by: Manush Prajwal <manushprajwal555@gmai=
-l.com>=0D=0A---=0D=0Av4:=0D=0A- Add parentheses to the function n=
-ame in the summary phrase=0D=0A  (cmdq_mbox_flush -> cmdq_mbox_fl=
-ush()), per Markus Elfring's review.=0D=0A=0D=0A- Reformat this c=
-hangelog so each version identifier stands on its=0D=0A  own line=
- and blocks are separated by blank lines, per Markus=0D=0A  Elfri=
-ng's review.=0D=0A=0D=0A- No functional change from v3. Still no =
-Fixes tag: I don't have a=0D=0A  git history for this file availa=
-ble in my current environment to=0D=0A  identify the commit that =
-introduced this exit path with confidence,=0D=0A  and would rathe=
-r leave the tag off than guess a SHA. Still happy to=0D=0A  add i=
-t in a v5 if Markus or anyone else on Cc can point at the right=0D=0A=
-  commit.=0D=0A=0D=0Av3:=0D=0A- Fix the pm_runtime leak on the "w=
-ait:" timeout path found while=0D=0A  addressing Markus Elfring's=
- duplicate-code comment, by merging the=0D=0A  "out:" and "wait:"=
- exit sequences into a single "out_pm:" label.=0D=0A=0D=0A- Add M=
-atthias Brugger and AngeloGioacchino Del Regno plus the=0D=0A  li=
-nux-mediatek and linux-arm-kernel lists to Cc, per MAINTAINERS'=0D=0A=
-  "ARM/Mediatek SoC support" entry (matches any drivers/mailbox/m=
-tk-*.c=0D=0A  filename), per Markus Elfring's review.=0D=0A=0D=0A=
-v2:=0D=0A- Use pm_runtime_resume_and_get() instead of pm_runtime_=
-get_sync()=0D=0A  plus a manual pm_runtime_put_noidle() on the er=
-ror path, per Markus=0D=0A  Elfring's review.=0D=0A=0D=0A drivers=
-/mailbox/mtk-cmdq-mailbox.c | 15 +++++++--------=0D=0A 1 file cha=
-nged, 7 insertions(+), 8 deletions(-)=0D=0A=0D=0Adiff --git a/dri=
-vers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbo=
-x.c=0D=0Aindex e523c84b4..d4e5f6a7b 100644=0D=0A--- a/drivers/mai=
-lbox/mtk-cmdq-mailbox.c=0D=0A+++ b/drivers/mailbox/mtk-cmdq-mailb=
-ox.c=0D=0A@@ -565,7 +565,7 @@ static int cmdq_mbox_flush(struct m=
-box_chan *chan, unsigned long timeout)=0D=0A        int ret;=0D=0A=
-=0D=0A-       ret =3D pm_runtime_get_sync(cmdq->mbox.dev);=0D=0A+=
-       ret =3D pm_runtime_resume_and_get(cmdq->mbox.dev);=0D=0A  =
-      if (ret < 0)=0D=0A                return ret;=0D=0A=0D=0A@@=
- -590,22 +590,21 @@ static int cmdq_mbox_flush(struct mbox_chan *=
-chan, unsigned long timeout)=0D=0A        cmdq_thread_disable(cmd=
-q, thread);=0D=0A=0D=0A out:=0D=0A        spin_unlock_irqrestore(=
-&thread->chan->lock, flags);=0D=0A-       pm_runtime_mark_last_bu=
-sy(cmdq->mbox.dev);=0D=0A-       pm_runtime_put_autosuspend(cmdq-=
->mbox.dev);=0D=0A-=0D=0A-       return 0;=0D=0A+       ret =3D 0;=
-=0D=0A+       goto out_pm;=0D=0A=0D=0A wait:=0D=0A        cmdq_th=
-read_resume(thread);=0D=0A        spin_unlock_irqrestore(&thread-=
->chan->lock, flags);=0D=0A+       ret =3D 0;=0D=0A        if (rea=
-dl_poll_timeout_atomic(thread->base + CMDQ_THR_ENABLE_TASK,=0D=0A=
-                                      enable, enable =3D=3D 0, 1,=
- timeout)) {=0D=0A                dev_err(cmdq->mbox.dev, "Fail t=
-o wait GCE thread 0x%x done\n",=0D=0A                        (u32=
-)(thread->base - cmdq->base));=0D=0A-=0D=0A-               return=
- -EFAULT;=0D=0A+               ret =3D -EFAULT;=0D=0A        }=0D=0A=
-+=0D=0A+out_pm:=0D=0A        pm_runtime_mark_last_busy(cmdq->mbox=
-.dev);=0D=0A        pm_runtime_put_autosuspend(cmdq->mbox.dev);=0D=0A=
--       return 0;=0D=0A+       return ret;=0D=0A }=0D=0A--=0D=0A2=
-.46.2.windows.1
+On Tue, Aug 25, 2026 at 01:36:11PM -0300, Jason Gunthorpe wrote:
+> > [ ... 84 lines skipped ... ]
+> > +	/* Setup interrupt handlers */
+> > +	ret = arm_smmu_setup_irqs(smmu);
+> > +	if (ret) {
+> > +		dev_err(smmu->dev, "failed to setup irqs\n");
+> > +		return ret;
+> > +	}
+> > +
+> 
+> The sashiko remark makes sense to me, we should not enable interrupts
+> until everything has been initialized and things are ready to go. So
+> this is better done after the device reset call, which is the thing
+> that is setting up the queue pointers in HW..
+> 
+> I'm not sure what to make of the MSI register ordering around kdump
+> comment.. Nicolin?
+> 
 
+Ack. I agree with Sashiko's remarks, we'd need to call this within
+device_reset right before the SMMU is enabled (same place as today).
+I factored this out to avoid setting up irq handlers multiple times
+across a suspend / resume cycle (for e.g. we can't request_irq multiple
+times for the same irq). Otherwise, we'd have to de-register IRQ
+handlers in the suspend callback. Maybe we could do this ONCE based on 
+some smmu->inited bool?
+
+> But the refactoing looks fine to me
+> 
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> 
+
+Thanks,
+Praan
 
