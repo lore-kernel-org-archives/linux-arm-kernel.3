@@ -4,108 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D22C61DB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 07:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8C90C61DB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 07:48:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V/xJK88pfs277nwbYNBwPuRxCY6IirnLC5W4+cq/H6A=; b=XS/vpYNBn8tQWEJwM53CjNKdzx
-	tqROvw3zn8kaMdk9mxUWqLO47oPbGcYZAcw2btVI1g+KsB+QcNXM3TX1d0neaYDW1+K3OhJTUlhQV
-	D7gWWKwfokwfmlLnFMUM5BNb+t6L3CI3Q9zSAAMDghaQtRelmwoll3/L30wHyKrmRF75i3U3FLasN
-	9PRi1VmDX055s4YzayQep83RtWFSVz3XOcqlPt9XZOWJrkmx9PLjjKPA3fzvp0MKV6W8KsACfsIPN
-	JnCP+vmHIkbQ4pA+satEMhGBSDkDSd6yNo2B24KBsabseZowTvwMI0/D/N3gVL6VuS0jPXle0dLKm
-	UgbDr4yw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZJUJN6ld//E0oYxxhQc1cF1kLfN83MVx+Qj3fLngnwI=; b=mrG8/83Swfg6Z/hDGqR13s0VyA
+	TXvnNykJXpAwd9RWrInz2StaDGLCghe+H6NZ0MaQCYci0ZeuzfZGk7WCzsN9hThZtdRClHjTHOUDv
+	32kT2MgIXSUIWi+V5iPMk4lLxHVki1IW2DhWeTdJRxGPPi8zkstXXpoNicgGnbAeg0BRbCZ5lmIdo
+	CwMWW/GiyOvyIj9I4kYwOOo2sufgrwPVTtPCzlCRGjycgE5pTIsS5FPHn8kspJZ4URlfHNvo9Xca+
+	AznMzqJ7bYnmLtbhh9xH/omAZiLnJEVcqxiNS+pdJlXHR90xtdpPxOsgsliczq+5itlR1yPFJq3jc
+	CsWBTbeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wylpl-00000000JVM-478a;
-	Tue, 25 Aug 2026 07:44:37 +0000
-Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
+	id 1wylsu-00000000Jgl-2YNq;
+	Tue, 25 Aug 2026 07:47:52 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wylph-00000000JUK-23IB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 07:44:36 +0000
-Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-66d06b5f023so2815497d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 00:44:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787643872; cv=none;
-        d=google.com; s=arc-20260327;
-        b=X20yH7LBck65TIU7UVO1jvSOmvn6npESZO0wpQ87/YSu8qcVssZ8CbzOgRzSoeACdp
-         lN9ZZTi7j/CvmyrZBCCQoHAvDQHlhLYOkbund2HK/Gy4wD3fg4c3gqVo8bjDI9I7TDI1
-         jovd7ErG033RekURijoIeWgRLqvn2G++ku2HkkYEti3WCiLXDMwsDb6fSoxU0P//nZTO
-         iJk1y3o7+r6T/Ku+fXiH+BZQ4p4nG9bVFh4TbU7qhMlm9SOhRb5GDviaPGmO+42EGiXR
-         tiUJ52CruyJ3w/jj6W0F6P5xmWymgoU3fGq2wVbvcIPTZwyHZflP8TtBBBw2UG+hkwM3
-         hMtw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=V/xJK88pfs277nwbYNBwPuRxCY6IirnLC5W4+cq/H6A=;
-        fh=s/BtchOkI7pqyRVUzzNFdjeuxCfxwROIz5nbnEIZQrI=;
-        b=S/noX7fWNi7/cBxQ1iDMKvMTH9vAx3yk8zqpJ3YQWruJFmNHWmLdcJuC2kAIqJn0T5
-         xAJVSQo4Hlx2rcDiifZfN9O/Tz2U6A8GfI2v+fLzgf5ThcBifF6HqTej9/BRs2QBU5m4
-         HKeUvjK5awGA6VcHDowaG0z+iSHyDyna8Q/qRf4GsMp15CAgAjHFmtfQGazb5VY9egh6
-         B0IEwR9gA4avDIN4KZfGrVx3R9l18TD6HBJ0DpF6nGZ6XeGPWDhM356zE4A7/B/ua1xO
-         EnqyYzOvLez2FqsId8aRxa9HFdXZFVoY5MGlZmH9mSh30qVYp2AbaHqwrRXUkJZTxj6z
-         VnOQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1787643872; x=1788248672; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=V/xJK88pfs277nwbYNBwPuRxCY6IirnLC5W4+cq/H6A=;
-        b=TPJIs2+dzBjJv7VPX4Ug643td/FkJ1S9QdyvmbmioPttPS+ZAkjK95vi5hg5njFU5b
-         B2xA1sEvPWERUxQ2JNgtfEvRFvNP1MrTTZd649vveAvonPlkD/OEDHMbmMof97JbeFek
-         hZUACxdZuO/NIL44kx/zLVqWcHqy4+f8/kFFU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787643872; x=1788248672;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=V/xJK88pfs277nwbYNBwPuRxCY6IirnLC5W4+cq/H6A=;
-        b=CbP5TegiYTdym2A/kIoR6WHC/+dkMjSwPveTBd/Vqd73cf7l7U+DXIahmd5b8bChzV
-         src/u5KDVhbTqc6UA1e9Az6CF729bgTsDNmJLy5bgQy9swNqQqBcTAfn9NmwyNIJh79M
-         PTFvgx7cK49ma4vcwTXsiTa+JClcQv6jeTX8bmZsSnVfE2wIp/TgkYNuiOUt64i38vjw
-         vhJjMKAwwVLTo0+q0Uiucyx98LV1w/ylm81KV1b3JuTaKGKJqWWJX0Kal9hhiTcc0RzY
-         G7Mq5gv8ZfC0NrOB2N1yUf7X/OwaGrvwLIMUF1q5/aukD2536hR2Pr4BJbGpnYu6mTh9
-         ePOQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoN8uktBVblDipzeGV5HOF7ZxxVAltzMIcvYtfc4c2zIeVXF4IhXd1D/ZxguCUrb8w4AHr2mw2i6H6Tz/92TRYO@lists.infradead.org
-X-Gm-Message-State: AFuF++k4ug6/lsRpiBV0Yw4mgYY2EJeWeRAUMVs349dI7QiJU3+JWJOy
-	Se87HN0VZWSWTF6FyA/B+R17NkM6ZPSqC230IzfFvkSHGEW2z7GuSct2LeRVPtdESJPUU82Cdr+
-	pnNEoLpyJzZL1VH2Jk/7YmfyNfGjSbjapsHozC/YQ
-X-Gm-Gg: AR+sD13SW37kJsyRBfSs9YMRkiamwtPRxzmJpdLVJRop9ULlUtPUHf8w9Gahxau5lEo
-	gHwbk/ZnP/o+fQuuD9lGXKiJS+TVAAipei96+HDMunmR0r5L3dkcoq8joVNCmx702CHb6TTBeiP
-	E04p5sOfuMkXFGqklL+zggyYmTCtECF4FmrX59vLeDC2X6fWF3fbgILCo+lwP8s3V5E6ueh2Mgp
-	qg04sw/VvQf+nLDpK7w4A6/55hKDM3pVJeG2a5IwV0nuC10h145C8ut/qHqkTcxyyBHtseaMrVl
-	X7hd833H/5rGVkGRK3ICLaw6ixfJtAnFfR1jbVwrBbALz0MweFUcEEa0M2WribQ2Wdk8Zsn8
-X-Received: by 2002:a05:690e:1449:b0:66d:1131:b81d with SMTP id
- 956f58d0204a3-66d1131bc41mr2549091d50.29.1787643871703; Tue, 25 Aug 2026
- 00:44:31 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260825041628.988369-1-wenst@chromium.org> <20260825041628.988369-2-wenst@chromium.org>
-In-Reply-To: <20260825041628.988369-2-wenst@chromium.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 25 Aug 2026 15:44:21 +0800
-X-Gm-Features: AcwNN1VHbO3y1ftfkF_7R2W7KDk8RFMySudnf-TTSiUhjGplV2Fwnh0fieb32LM
-Message-ID: <CAGXv+5Het3zp_OTp=_ktg+_d5Q55zkE0SwQnM7TVyJDmOdBtyA@mail.gmail.com>
-Subject: Re: [PATCH v5 1/7] regulator: core: Add "enable and wait" functions
-To: Mark Brown <broonie@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
-	Andi Shyti <andi.shyti@kernel.org>
-Cc: Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev, 
-	linux-input@vger.kernel.org, linux-i2c@vger.kernel.org, 
+	id 1wylsr-00000000JgF-2o4i;
+	Tue, 25 Aug 2026 07:47:51 +0000
+Received: from localhost.localdomain (unknown [111.196.241.250])
+	by APP-03 (Coremail) with SMTP id rQCowABXWzmWSI1q0uM4Bg--.20181S2;
+	Tue, 25 Aug 2026 15:47:34 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+To: Atish Patra <atish.patra@linux.dev>,
+	Yu Chien Peter Lin <peterlin@andestech.com>
+Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Charles Ci-Jyun Wu <dminus@andestech.com>,
+	Leo Yu-Chi Liang <ycliang@andestech.com>,
+	Locus Wei-Han Chen <locus84@andestech.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Clement Leger <cleger@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: [PATCH] perf: riscv: Clear PMU pending interrupt through vendor helper
+Date: Tue, 25 Aug 2026 15:34:33 +0800
+Message-ID: <20260825151001.2-andes-pmu-clear-caplitmus-rv@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowABXWzmWSI1q0uM4Bg--.20181S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7AFyxKr1kXr4xWryxKry8Xwb_yoW8JFy5pr
+	Z09FW8ArnYqF4jva45A3W8uF1rua45u3yYk3yqk39rZa13Jry5XFn8JryfArnYvFW8G347
+	urWxWrW5AFnYkF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0pRiSdgUUUUU=
+X-Originating-IP: [111.196.241.250]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_004433_529421_123C9883 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20260825_004750_075925_A0447CA3 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,46 +92,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 25, 2026 at 12:33=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> =
-wrote:
->
-> In device power sequencing and initialization use cases, it is common
-> for the driver to enable the regulator and then wait for a certain
-> period of time to pass before continuing.
->
-> In cases where the regulator supply is always on, or has been turned on
-> or left on by another consumer, the driver could shorten the delay or
-> skip it altogether, provided that enough time has already passed since
-> the regulator was _actually_ turned on.
->
-> Tracking this requires support from the regulator core. Introduce a
-> "last turned on" timestamp field to the regulator device, and "enable
-> and wait" functions to the single and bulk regulator consumer APIs.
-> The existing "enable without wait" functions are then converted to
-> macros that expand to the new functions.
->
-> The timestamp is updated each time the regulator is actually turned on.
-> For regulators left on by hardware default or by firmware, the core will
-> set the timestamp if it detects it was left on and its supply (and their
-> supply, and so on) is on as well. This is unfortunately best effort
-> only. The core can only assume a dangling regulator (one without a
-> supply) has power. This also applies to the dummy regulator.
->
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
-> Changes since v4:
-> - Try to update last_on timestamp for regulators that were left on
+When no hardware counters are in use, the PMU overflow handler clears the
+pending interrupt directly in CSR_SIP with BIT(riscv_pmu_irq_num).
 
-Sashiko flaged a few issues with the changes:
+For Andes PMU, riscv_pmu_irq_num is 274 and the pending bit lives in the
+vendor SLIP CSR. The direct clear therefore uses an out-of-width shift and
+the wrong CSR, unlike the other exits from the same handler.
 
-- _regulator_is_enabled() called and subsequent timestamp update
-  without lock
-- bulk consumer wait_us incorrectly assigned
-- _regulator_is_enabled() could return an error
+Use ALT_SBI_PMU_OVF_CLEAR_PENDING() on this early return as well.
 
-Will fix and send a new version. I probably should get a local AI review
-working first.
+Fixes: bc969d6cc96a ("perf: RISC-V: Introduce Andes PMU to support perf event sampling")
+Assisted-by: Codex:gpt-5
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+ drivers/perf/riscv_pmu_sbi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 50220f7b46d9..ff95f5f13603 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -1058,6 +1058,6 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	/* Firmware counter don't support overflow yet */
+ 	fidx = find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
+ 	if (fidx == RISCV_MAX_COUNTERS) {
+-		csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
++		ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
+ 		return IRQ_NONE;
+ 	}
 
-ChenYu
 
