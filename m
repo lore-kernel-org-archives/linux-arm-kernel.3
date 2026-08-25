@@ -4,147 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2EEFC61DB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 09:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D56C61DB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 09:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=M+zmB4FaBxQwRnntc4G0vf4U+IcSlAlvto72WrWto68=; b=c2HofwqlbgiiWD5Y0uWAKzVYIH
-	CfUmH59ZVsyIPnhSNPhZGfx1AGQljSqVZeFYu76N333hQZUA53y5Y2Me+XNqn4JMzQtjSBjR/uDCF
-	3keFI5BtWsZ2l6t5AhjGuQkUDSpCOW4WkUIbMEpCjhluL955WKnsI7aTkb+jHfwkoL5ztrYBe3CTC
-	7rcko92fOBa+ABS3yGVAb+d+VCwG9ZWoId2R9yxB2fvmdBhJkpMtsdqJmTFjVCKjIqQywVFqePwUO
-	PiUkJ5flO9RDgxyJ3y9x1eNNyCHnaJ2qkmRqOMmH/MSOO/oeiN8e3EJ3rsHyJIKLXkH+Kle8mwDjK
-	NxPRBeTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kDhALPMamfs8J9DX/MUW6kSV45nkQCQ8DCdIurOOpto=; b=ohYjs7lLC2tWE0fKFvvux9kPjg
+	XzEamOLyT6SWaNMTaRqYHczT9ZhSZ4rlmXlS+5+3bRkHivaPYrsBqZvkKN0uCHl8UI8M2gHfJ5CBn
+	kCDjFrO45Mx545jcW/a/K0Pl6JmT6WMso1Mfop155lpMVL92aXTIfVpE9AZqfKPzz4ExrgXx1Da/h
+	HMvdAs3OWFLxorCuiklJFcWX8ME91NMFUbPwe7yxPxHl4wQpBb+RRTZ3ORgEqEgKmK0KiEqI0OCbc
+	GrZ7IyKXoIOP3EX54g6Bn4kvenb/z5+RBeVJ3pCLBwe7EotBOUVFGPMVJO3XdEfY71WXeon4Mm2na
+	jLbk361w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wynPI-00000000UJv-0mR0;
-	Tue, 25 Aug 2026 09:25:26 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wynTk-00000000UqM-09vL;
+	Tue, 25 Aug 2026 09:30:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wynPF-00000000UIk-2CzS
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 09:25:22 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67P88PNv196240
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 09:25:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=M+zmB4FaBxQwRnntc4G0vf
-	4U+IcSlAlvto72WrWto68=; b=TsjMiogKQTLeqCIy9ijYWYZxjByT/yky3VbR9s
-	iFriS8DCHasxY6yx2+bYvzcUovO/5GfGUEZTYj31dIO7kcSqOJpk1jlyuiEpR2AO
-	OZZUNbK1iziFoVzQotZWVtUatDZ7tTGbvRWRKyTNtMm1eZbT5KIOKEIMg+gfaYLM
-	14EoM9StPukICt4D6YkElgXehVG8GRD89FrBwxT/FQEPSlgWOOKP9/tmtmZ33lRL
-	Jj+M0j1xZB4Ki0T81M0oRKK4jg9NsYMRkB/lbWf4SKB9L/IXGZV1kf30iXJQYPnb
-	xT3oXpSXLQLYtcQX6ldBqwYu2eq27FHSRfxn6dgWowvneZGA==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g93pvh59b-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 09:25:20 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-52b4f6ac06aso83645281cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 02:25:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787649920; x=1788254720; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=M+zmB4FaBxQwRnntc4G0vf4U+IcSlAlvto72WrWto68=;
-        b=Z3PsqEBCwH8TTXWlUlxYD6+P65pv9nTWcsxhNrmLfrAqecem9M4D2G0qtcbrP1sZVV
-         4Wo3qpmCxGWc1PaKhbf4iONW/pzva5qTX1NRjomZ7uzxhPWlJbFAtgq2ptl8r7kKNEjj
-         dxR9qTs2iJOIEzi506JMIIdv124iNNrVVBfJqXuGCcJX8DPVPYyEQNduUYyUIiCf5TOg
-         XohKEPJKjiczCOzIJd5EWo1xeX8dnotl+7tnflCFlekMsyvZrcHTqnRsHC6mOoP2NZ63
-         ICcSuz7j7FQOm2uFp5NcjjIJ73bUZzkUmb7S4pXEK3z3fBabYl5xJYsqcRerN2O30D+6
-         gWbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787649920; x=1788254720;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=M+zmB4FaBxQwRnntc4G0vf4U+IcSlAlvto72WrWto68=;
-        b=ezE1TpSaGBoYkrS8wbgp5LOSY0b3/Xgj6GsmIEKCaCwksSS4a35U0z0WwHsae8ioYj
-         QyDnQj16BO7uu6HRYeIOdUMoCHzMYYFYasL3WJrmrBykhGaTlU+hEJOyu752cuD6Ye9t
-         JXA+H//kaY6FTlYpRnJhrrFQWXjrRLNljLvn15UKgELSm5bSjdCTpGxoS4dsIxVc+L8q
-         gnq10xSNFyuI32tlg37x7BVREj18/oQ8PlfOklOLXu/eUcc7uaf8GSD5j+aiHFJf+8Ws
-         Moq0us/wEorRk19cQdEzoD+BFCNpsoWB9xKr3HfPDFddhJAvLjW6YgnBi9VBzBeKv2T9
-         3lkg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq4dXQ0512dyu1SeuG1WGMyZGTkr/4SnweZ0hr2ojYEBjfSACLIGEW2M2R/fQzOIv7NQeH4/L8y1O/8MwBADBxR@lists.infradead.org
-X-Gm-Message-State: AFuF++kYKLVIbvjX+NzFn09wjmj4yu3BL5C2rE2jjGJ0Ha/PZX6giOB7
-	+QAS4TXccaQIYgsWODpnJEFh8YL5rCqkagkfWMXg2MB+yd83MeyrW5EO8d0zuJWe+paXnQmK+GX
-	FpSm4HfbgYsyAkyz9ggdoxXlHcm1gVroA0I0gxS07ncFM2gPksEHc68SpRR9cTRi/A5aETirTuO
-	ol1w==
-X-Gm-Gg: AR+sD12ECEuV+JveePgSDWJCe9qIgg2CL1E1/qXcoSfL1w77UqaXZri8PmLjagBplAJ
-	BylBhLUYvUZfjjSOfPgekgqujJnvEMQhyTsIYY4wDC8thHwwdPqo4WoM5j0mRUZBNUNXoM7b0HF
-	o+ll08wene9lh2XBILivm2UvCK0Z1i+ZhVymny+qMtFAJIBS/oOWAmbpQOQyVcSIa1UKtgnhhG6
-	dci8D10J7JJcyT6uHlixPF9x8TEZzD9FW6MHP4Zrn+epPPxI7THg8dGuPHxuz1v2zDXcaY/Yd9L
-	UZzp2GIayO8GYAc+xGYRF/YcfXUT7DoJOeN91EHNvQSNb2t7FxZb/3DSr/lPreUC/zKJPTxGkPd
-	3lwLAvPe5i+RQoA==
-X-Received: by 2002:ac8:5cce:0:b0:51a:6feb:dc8f with SMTP id d75a77b69052e-52e2f05e946mr60063441cf.9.1787649919767;
-        Tue, 25 Aug 2026 02:25:19 -0700 (PDT)
-X-Received: by 2002:ac8:5cce:0:b0:51a:6feb:dc8f with SMTP id d75a77b69052e-52e2f05e946mr60063151cf.9.1787649919356;
-        Tue, 25 Aug 2026 02:25:19 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c24966f9c9fsm1781846466b.39.2026.08.25.02.25.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 02:25:18 -0700 (PDT)
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Date: Tue, 25 Aug 2026 11:24:57 +0200
-Subject: [PATCH net] net: stmmac: re-apply taprio offload in
- __stmmac_open()
+	id 1wynTi-00000000Uq7-2lLh;
+	Tue, 25 Aug 2026 09:29:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F06D6011F;
+	Tue, 25 Aug 2026 09:29:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A670C1F000E9;
+	Tue, 25 Aug 2026 09:29:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787650196;
+	bh=kDhALPMamfs8J9DX/MUW6kSV45nkQCQ8DCdIurOOpto=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=YoLwcGy9xPn4EOaPipJ13rzqF+5OQHK0Ng4I2Pzmj048hObkYrSsmDtadOYin//0k
+	 9HwjRq4b15ha7NU86cMwHbio7y24oVOSBoxIwEweHTDnlXbDQ6tEJUscNOGfH/2Q8B
+	 DEva+o3WM8ntPLJFKMT/hC2XAJCtPqXXqMtvrTMnU2BYM9QGIIwjgDNAirY9Edes7o
+	 3xbojB0hO3r2jgJ5u4eaYW0REwPkciJxCEfgs7cdpH7HhGXPgCFB6dac7OdN7Wbrb1
+	 B6BGL4bManH+w8UDKu4Umn/vTLM0TxUISXLNYYxq1ZXs7Fnpw0SNruG9t/9fAVpbB8
+	 c53su173V4iWw==
+Date: Tue, 25 Aug 2026 11:29:53 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, 
+	Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>, Phong LE <ple@baylibre.com>, 
+	kernel@collabora.com, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
+	Maud Spierings <maud_spierings@hotmail.com>, Diederik de Haas <diederik@cknow-tech.com>
+Subject: Re: [PATCH v10 07/69] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+Message-ID: <20260825-massive-jolly-agama-a95e3d@penduick>
+References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
+ <20260731-dw-hdmi-qp-scramb-v10-7-294364b2cf15@collabora.com>
+ <20260819-amigurumi-lorikeet-of-infinity-fd8c2d@houat>
+ <ad65a396-02fb-4816-b978-e3a0c46688b2@collabora.com>
+ <20260820-gorgeous-adder-of-reading-5a93f3@houat>
+ <28743613-22ec-4208-ad55-d018764bf846@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260825-stmmac-est-reapply-after-open-v1-1-dfa80735e0a1@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQrCMBAF0KuUWTuQBK3Fq4iLsf3VAZuGmSBK6
- d0NLt/mbeQwhdOl28jwVtc1N8RDR+NT8gOsUzOlkPowpCN7XRYZGV7ZIKW8vixzhfFakDkOcTo
- HiSfce2pHMcz6+f9Xyqh02/cfrBRr1HQAAAA=
-X-Change-ID: 20260824-stmmac-est-reapply-after-open-181d70a15eb6
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Jose Abreu <Jose.Abreu@synopsys.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-        Rayagond Kokatanur <rayagond@vayavyalabs.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI1MDA3OSBTYWx0ZWRfXwDCSyJhLrt4q
- WYlY3Y09Ef1sdZGYnSLmARlokkVnLMRPr+f/5bqV6zEDakW7oZmuGkw7Nl8piNj0u8nW0GyKdHV
- pCCa54BRr9sOtljmZj0FgYtNVKON4LU=
-X-Proofpoint-GUID: Nw81Xx-L6zhPB0qtjIhVUHVwyiyuo53t
-X-Proofpoint-ORIG-GUID: Nw81Xx-L6zhPB0qtjIhVUHVwyiyuo53t
-X-Authority-Analysis: v=2.4 cv=Ru716imK c=1 sm=1 tr=0 ts=6a8d5f80 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=JpBpa1p7AAAA:8 a=koEEtHZmf8gcZ7dLqiUA:9 a=QEXdDO2ut3YA:10
- a=dawVfQjAaf238kedN5IG:22 a=YCh05so4W2E6r1tszMC6:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI1MDA3OSBTYWx0ZWRfX5FeFhgoeUf5B
- IlpJbVHAA5hZ1u7V+Oz7QLTgYhSJ7q8w6T7mwOesp7k8U8za6A3U0RWDZ1zKAqAyevGpwF28rl4
- Dcl/+TNXlPEy4DaxowQ2o0SwV85S1OIDkl0BKWVYraHRLCLYjl7bam/aLdSSPKjGtHgWHmmUJpH
- A/Zyqd6ckP7+TiQHda8HG8xYTIlynCRLkG1W7W1+yMwGmhmpCzb7TmP6uPwXbSoOog4It3lKun2
- 4d1W4IfFJIHQCwo6eQB5NlZt89rRUtqvCGZ1qj16tOZOiy2M7LYS7x2D+FBPI7UyUcZSwrBgpm2
- nHJZLkRYH6c8blRfBfvGFXgSnDQ7RhsCgJEtr3siH6CDF9z7TCfDl5xYkcMFbwJlsw+fU2TqOsZ
- flZKQlTelKZzRnSPB4NWCqOU3OaraG7lMzUHLxqUt7M1t6JzDaxAfTOLPWLU+7FhMGsOtKfAx0+
- 5ZKzf01HwaTxkMllaTQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-25_02,2026-08-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 clxscore=1015 suspectscore=0 adultscore=0 lowpriorityscore=0
- phishscore=0 malwarescore=0 impostorscore=0 spamscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608250079
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_022521_762903_70AB000D 
-X-CRM114-Status: GOOD (  20.28  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="rknqritovu2w3mde"
+Content-Disposition: inline
+In-Reply-To: <28743613-22ec-4208-ad55-d018764bf846@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,160 +86,300 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The core soft reset issued in stmmac_init_dma_engine() clears the
-MTL_EST registers, but nothing re-applies the taprio offload after it:
-priv->est->enable stays true while the hardware EST block is left
-disabled. The TX/XDP paths then keep dropping frames larger than
-priv->est->max_sdu[] and taprio is reported as offloaded, although the
-EST block is not programmed.
 
-Re-apply the taprio offload in __stmmac_open() after PTP is up. The
-base time is recomputed from the reserved base time and the current PTP
-time, since the timestamp counter has been re-initialized and the
-previously programmed base time is stale.
+--rknqritovu2w3mde
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v10 07/69] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+MIME-Version: 1.0
 
-Fixes: b60189e0392f ("net: stmmac: Integrate EST with TAPRIO scheduler API")
-Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_est.c  | 28 +++++++++++++++++++++++
- drivers/net/ethernet/stmicro/stmmac/stmmac_est.h  |  2 ++
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  7 ++++++
- drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 26 ++-------------------
- 4 files changed, 39 insertions(+), 24 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-index afc516059b89..594f61c07dbb 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-@@ -80,6 +80,34 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
- 	return 0;
- }
- 
-+void stmmac_est_reconfigure(struct stmmac_priv *priv)
-+{
-+	struct timespec64 current_time, time;
-+	ktime_t current_time_ns, basetime;
-+	u64 cycle_time;
-+
-+	mutex_lock(&priv->est_lock);
-+
-+	priv->ptp_clock_ops.gettime64(&priv->ptp_clock_ops, &current_time);
-+	current_time_ns = timespec64_to_ktime(current_time);
-+
-+	time.tv_nsec = priv->est->btr_reserve[0];
-+	time.tv_sec = priv->est->btr_reserve[1];
-+	basetime = timespec64_to_ktime(time);
-+
-+	cycle_time = (u64)priv->est->ctr[1] * NSEC_PER_SEC + priv->est->ctr[0];
-+
-+	time = stmmac_calc_tas_basetime(basetime, current_time_ns, cycle_time);
-+	priv->est->btr[0] = (u32)time.tv_nsec;
-+	priv->est->btr[1] = (u32)time.tv_sec;
-+
-+	if (stmmac_est_configure(priv, priv, priv->est,
-+				 priv->plat->clk_ptp_rate))
-+		netdev_err(priv->dev, "failed to re-configure EST\n");
-+
-+	mutex_unlock(&priv->est_lock);
-+}
-+
- static void est_irq_status(struct stmmac_priv *priv, struct net_device *dev,
- 			   struct stmmac_extra_stats *x, u32 txqcnt)
+On Fri, Aug 21, 2026 at 10:04:14PM +0300, Cristian Ciocaltea wrote:
+> On 8/20/26 7:56 PM, Maxime Ripard wrote:
+> > On Wed, Aug 19, 2026 at 10:33:04PM +0300, Cristian Ciocaltea wrote:
+> >> On 8/19/26 1:12 PM, Maxime Ripard wrote:
+> >>> On Fri, Jul 31, 2026 at 07:19:14PM +0300, Cristian Ciocaltea wrote:
+> >>>> Add the connector-level infrastructure to support HDMI 2.0 scramblin=
+g:
+> >>>>
+> >>>> - A drm_connector_hdmi_scrambler_supported() helper to report whether
+> >>>>   the source supports the scrambling capability, based on the presen=
+ce
+> >>>>   of the newly introduced .scrambler_{enable|disable}() callbacks in
+> >>>>   drm_connector_hdmi_funcs are mandatory
+> >>>> - A scrambler_needed flag to be managed by the hdmi state helpers ba=
+sed
+> >>>>   on the negotiated TMDS character rate and the source/sink scrambli=
+ng
+> >>>>   capabilities
+> >>>> - A scrambler_enabled flag to track whether scrambling is currently
+> >>>>   active
+> >>>> - A delayed work item (scdc_work) to monitor sink-side scrambling st=
+atus
+> >>>>   and retry the setup if the sink resets it
+> >>>> - A scdc_work_initialized flag to support lazy initialization of the
+> >>>>   work item on the first scrambling enable and guard the teardown pa=
+ths
+> >>>>
+> >>>> These are intended to be used by SCDC scrambling helpers to coordina=
+te
+> >>>> scrambling setup and teardown between the source driver and the DRM
+> >>>> core.
+> >>>>
+> >>>> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+> >>>> Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 L=
+TS, Rock 5B
+> >>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> >>>> ---
+> >>>>  drivers/gpu/drm/drm_connector.c | 31 ++++++++++++---
+> >>>>  include/drm/drm_connector.h     | 83 ++++++++++++++++++++++++++++++=
++++++++++++
+> >>>>  2 files changed, 109 insertions(+), 5 deletions(-)
+> >>>>
+> >>>> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_c=
+onnector.c
+> >>>> index 4721cdeafc84..a18410faf040 100644
+> >>>> --- a/drivers/gpu/drm/drm_connector.c
+> >>>> +++ b/drivers/gpu/drm/drm_connector.c
+> >>>> @@ -622,12 +622,29 @@ int drmm_connector_hdmi_init(struct drm_device=
+ *dev,
+> >>>>  	 * default with the actual controller capability. A value of zero =
+keeps
+> >>>>  	 * the limit inferred from supported_hdmi_ver.
+> >>>>  	 */
+> >>>> -	if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_2_0)
+> >>>> +	if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_2_0) {
+> >>>> +		if (!hdmi_funcs->scrambler_enable || !hdmi_funcs->scrambler_disab=
+le) {
+> >>>> +			drm_err(dev, "Scrambler callbacks missing for HDMI 2.x\n");
+> >>>> +			return -EINVAL;
+> >>>> +		}
+> >>>> +
+> >>>>  		connector->hdmi.max_tmds_char_rate =3D HDMI_2_0_TMDS_CHAR_RATE_MA=
+X_HZ;
+> >>>> -	else if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_1_3)
+> >>>> -		connector->hdmi.max_tmds_char_rate =3D HDMI_1_3_TMDS_CHAR_RATE_MA=
+X_HZ;
+> >>>> -	else if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_1_0)
+> >>>> -		connector->hdmi.max_tmds_char_rate =3D HDMI_1_0_TMDS_CHAR_RATE_MA=
+X_HZ;
+> >>>> +	} else {
+> >>>> +		/*
+> >>>> +		 * Scrambler callbacks are only valid for connectors advertising
+> >>>> +		 * HDMI 2.0 capability. drm_connector_hdmi_scrambler_supported()
+> >>>> +		 * relies on their presence to report scrambling support.
+> >>>> +		 */
+> >>>> +		if (hdmi_funcs->scrambler_enable || hdmi_funcs->scrambler_disable=
+) {
+> >>>> +			drm_err(dev, "Scrambler callbacks unexpected for HDMI 1.x\n");
+> >>>> +			return -EINVAL;
+> >>>> +		}
+> >>>> +
+> >>>> +		if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_1_3)
+> >>>> +			connector->hdmi.max_tmds_char_rate =3D HDMI_1_3_TMDS_CHAR_RATE_M=
+AX_HZ;
+> >>>> +		else if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_1_0)
+> >>>> +			connector->hdmi.max_tmds_char_rate =3D HDMI_1_0_TMDS_CHAR_RATE_M=
+AX_HZ;
+> >>>> +	}
+> >>>
+> >>> I'd put it into a separate test (possibly earlier). Merging both the
+> >>> tmds rate default and the scrambler callbacks check makes it messier
+> >>> than it would be if we had two separate tests.
+> >>
+> >> Ack. How about the following?
+> >>
+> >> 	if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_2_0)
+> >> 		connector->hdmi.max_tmds_char_rate =3D HDMI_2_0_TMDS_CHAR_RATE_MAX_H=
+Z;
+> >> 	else if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_1_3)
+> >> 		connector->hdmi.max_tmds_char_rate =3D HDMI_1_3_TMDS_CHAR_RATE_MAX_H=
+Z;
+> >> 	else if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_1_0)
+> >> 		connector->hdmi.max_tmds_char_rate =3D HDMI_1_0_TMDS_CHAR_RATE_MAX_H=
+Z;
+> >>
+> >> 	if (hdmi_funcs->supported_tmds_char_rate) {
+> >> 		if (hdmi_funcs->supported_tmds_char_rate > connector->hdmi.max_tmds_=
+char_rate) {
+> >> 			drm_err(dev, "Enforced max_tmds_char_rate exceeds %llu spec limit\n=
+",
+> >> 				connector->hdmi.max_tmds_char_rate);
+> >> 			return -EINVAL;
+> >> 		}
+> >>
+> >> 		connector->hdmi.max_tmds_char_rate =3D hdmi_funcs->supported_tmds_ch=
+ar_rate;
+> >> 	}
+> >>
+> >> 	if (hdmi_funcs->supported_hdmi_ver >=3D HDMI_VERSION_2_0) {
+> >> 		if (!hdmi_funcs->scrambler_enable || !hdmi_funcs->scrambler_disable)=
  {
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-index f70221c9c84a..fcbee673f2e7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-@@ -65,3 +65,5 @@
- #define EST_GCL_DATA			0x00000034
- 
- extern const struct stmmac_est_ops dwmac510_est_ops;
-+
-+void stmmac_est_reconfigure(struct stmmac_priv *priv);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index efa35cfecc4f..d71d430519d3 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -48,6 +48,7 @@
- #include "stmmac_ptp.h"
- #include "stmmac_fpe.h"
- #include "stmmac.h"
-+#include "stmmac_est.h"
- #include "stmmac_pcs.h"
- #include "stmmac_xdp.h"
- #include <linux/reset.h>
-@@ -4158,6 +4159,12 @@ static int __stmmac_open(struct net_device *dev,
- 
- 	stmmac_setup_ptp(priv);
- 
-+	/* The core soft reset in stmmac_hw_setup() clears the MTL_EST
-+	 * registers, so re-apply the taprio offload after PTP is up.
-+	 */
-+	if (priv->est && priv->est->enable)
-+		stmmac_est_reconfigure(priv);
-+
- 	stmmac_init_coalesce(priv);
- 
- 	phylink_start(priv->phylink);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-index 960249960004..3682c9d3f3ca 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-@@ -8,6 +8,7 @@
-   Author: Rayagond Kokatanur <rayagond@vayavyalabs.com>
- *******************************************************************************/
- #include "stmmac.h"
-+#include "stmmac_est.h"
- #include "stmmac_ptp.h"
- 
- #define PTP_SAFE_TIME_OFFSET_NS	500000
-@@ -55,7 +56,6 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
- 	u32 quotient, reminder;
- 	int neg_adj = 0;
- 	bool xmac, est_rst = false;
--	int ret;
- 
- 	xmac = dwmac_is_xmac(priv->plat->core_type);
- 
-@@ -84,30 +84,8 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
- 
- 	/* Calculate new basetime and re-configured EST after PTP time adjust. */
- 	if (est_rst) {
--		struct timespec64 current_time, time;
--		ktime_t current_time_ns, basetime;
--		u64 cycle_time;
--
--		mutex_lock(&priv->est_lock);
--		priv->ptp_clock_ops.gettime64(&priv->ptp_clock_ops, &current_time);
--		current_time_ns = timespec64_to_ktime(current_time);
--		time.tv_nsec = priv->est->btr_reserve[0];
--		time.tv_sec = priv->est->btr_reserve[1];
--		basetime = timespec64_to_ktime(time);
--		cycle_time = (u64)priv->est->ctr[1] * NSEC_PER_SEC +
--			     priv->est->ctr[0];
--		time = stmmac_calc_tas_basetime(basetime,
--						current_time_ns,
--						cycle_time);
--
--		priv->est->btr[0] = (u32)time.tv_nsec;
--		priv->est->btr[1] = (u32)time.tv_sec;
- 		priv->est->enable = true;
--		ret = stmmac_est_configure(priv, priv, priv->est,
--					   priv->plat->clk_ptp_rate);
--		mutex_unlock(&priv->est_lock);
--		if (ret)
--			netdev_err(priv->dev, "failed to configure EST\n");
-+		stmmac_est_reconfigure(priv);
- 	}
- 
- 	return 0;
+> >> 			drm_err(dev, "Scrambler callbacks missing for HDMI 2.x\n");
+> >> 			return -EINVAL;
+> >> 		}
+> >> 	} else {
+> >> 		/*
+> >> 		 * Scrambler callbacks are only valid for connectors advertising
+> >> 		 * HDMI 2.0 capability. drm_connector_hdmi_scrambler_supported()
+> >> 		 * relies on their presence to report scrambling support.
+> >> 		 */
+> >> 		if (hdmi_funcs->scrambler_enable || hdmi_funcs->scrambler_disable) {
+> >> 			drm_err(dev, "Scrambler callbacks unexpected for HDMI 1.x\n");
+> >> 			return -EINVAL;
+> >> 		}
+> >> 	}
+> >=20
+> > I don't think we need the else clause at all. It's not valid, but it's
+> > also not creating any issue.
+>=20
+> As discussed a while ago, we used to have a scrambler_supported flag, inf=
+erred
+> from supported_hdmi_ver, which allowed helpers to verify the capability w=
+hen
+> needed.  That flag has now been removed and replaced by
+> drm_connector_hdmi_scrambler_supported(), which relies exclusively on the
+> presence of the scrambler callbacks to report whether the capability is
+> supported.=20
+>=20
+> If we don't ensure that these callbacks are *not* set for HDMI 1.x cases,=
+ one
+> could set supported_hdmi_ver to HDMI_VERSION_1_4, for example, while still
+> providing the scrambler_{enable,disable} funcs.  This would lead to an
+> inconsistency between the maximum TMDS character rate inferred from
+> supported_hdmi_ver and the capability reported by
+> drm_connector_hdmi_scrambler_supported().
 
----
-base-commit: 2db9bfa3e27bdea15e05ea70b56bad3d21e570ec
-change-id: 20260824-stmmac-est-reapply-after-open-181d70a15eb6
+This is the problem then. scrambler is mandatory for HDMI2.0, and
+HDMI1.4 will never reach HDMI2.0 TMDS rates.
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+scrambler supported is HDMI 2.0 and scrambler_enable and
+scrambler_disable are set. if HDMI 1.4 is used, then the scrambler must
+not be supported, ever.
 
+> > I'd move that second check earlier together with the infoframe callbacks
+> > checks and so on too.
+>=20
+> Ack.
+>=20
+> >>>>  	if (hdmi_funcs->supported_tmds_char_rate) {
+> >>>>  		if (hdmi_funcs->supported_tmds_char_rate > connector->hdmi.max_tm=
+ds_char_rate) {
+> >>>> @@ -635,6 +652,7 @@ int drmm_connector_hdmi_init(struct drm_device *=
+dev,
+> >>>>  				connector->hdmi.max_tmds_char_rate);
+> >>>>  			return -EINVAL;
+> >>>>  		}
+> >>>> +
+> >>>>  		connector->hdmi.max_tmds_char_rate =3D hdmi_funcs->supported_tmds=
+_char_rate;
+> >>>>  	}
+> >>
+> >> [...]
+> >>
+> >>>> +	/**
+> >>>> +	 * @scdc_work: Work item currently used to monitor sink-side scram=
+bling
+> >>>> +	 * status and retry setup if the sink resets it.
+> >>>> +	 */
+> >>>> +	struct delayed_work scdc_work;
+> >>>> +
+> >>>> +	/**
+> >>>> +	 * @scdc_work_initialized: Tracks whether @scdc_work has been set =
+up via
+> >>>> +	 * INIT_DELAYED_WORK(). The work item is initialized lazily on the=
+ first
+> >>>> +	 * scrambling enable, so this guards the teardown paths against to=
+uching
+> >>>> +	 * an uninitialized work item.
+> >>>> +	 */
+> >>>> +	bool scdc_work_initialized;
+> >>>> +
+> >>>
+> >>> Why should we track whether it's initialized or not? I'd always
+> >>> initialize it, but only ever schedule something if we're using the
+> >>> scrambler.
+> >>
+> >> Having this initialized in the connector would lead to a module depend=
+ency
+> >> cycle.
+> >>
+> >> Currently the work function lives in drm_hdmi_helper.c, which is built=
+ into
+> >> drm_display_helper module:
+> >>
+> >> static void drm_connector_hdmi_scdc_work(struct work_struct *work)
+> >> {
+> >> 	[...]
+> >> 	if (READ_ONCE(connector->hdmi.scrambler_enabled) &&
+> >> 	    !drm_scdc_get_scrambling_status(connector))
+> >> 		drm_connector_hdmi_try_scrambling_setup(connector);
+> >> 	[...]
+> >> }
+> >>
+> >> int drm_connector_hdmi_enable_scrambling(struct drm_connector *connect=
+or,
+> >> 					 const struct drm_connector_state *conn_state)
+> >> {
+> >>
+> >> 	[...]
+> >> 	if (!hdmi->scdc_work_initialized) {
+> >> 		INIT_DELAYED_WORK(&hdmi->scdc_work,
+> >> 				  drm_connector_hdmi_scdc_work);
+> >> 		hdmi->scdc_work_initialized =3D true;
+> >> 	}
+> >> 	[...]
+> >> }
+> >>
+> >> If we move INIT_DELAYED_WORK() into the connector (i.e. in drm.ko), th=
+e work
+> >> function has to be reachable from there.  The following attempts to ac=
+complish
+> >> that would fail:
+> >>
+> >> - Keep the work function in drm_hdmi_helper.c and export it from
+> >>   drm_display_helper.
+> >>
+> >> - Move the work function into drm_connector.c and export=20
+> >>   drm_connector_hdmi_try_scrambling_setup(), or a wrapper function, fr=
+om=20
+> >>   drm_display_helper.
+> >=20
+> > An alternative could be to move drm_connector_hdmi_init to
+> > drm_hdmi_helper.c, no?
+>=20
+> I haven't considered this option so far, as I believe it would also requi=
+re some
+> refactoring to get right - for example, moving HDMI-related initializatio=
+n from
+> the generic drm_connector_init_only() to drm_connector_hdmi_init(), and
+> splitting drm_connector_cleanup() into a dedicated drm_connector_hdmi_cle=
+anup()
+> utility.
+>=20
+> > But yeah, if we can't let's keep it like that
+>=20
+> Should I proceed with this refactoring, or would it be better to postpone=
+ it
+> until I send out the HDMI 2.1 patches, to avoid expanding this series even
+> further?
+
+we can postpone it if you prefer, or even to a separate series
+
+Maxime
+
+--rknqritovu2w3mde
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCao1gkAAKCRAnX84Zoj2+
+djqXAX0Y6VbpTJNSZbe1MC1QKpKRbqoI0GO+AEUaoUFbEqKxoFeSG3oN8H6ze/73
+1wzjEfoBfRJxfhnKeR12YZsvSMh8ty39/yGFcQZUWib9nFFeku70iJqArqd2JD4O
+InyrPq+8tA==
+=NLfL
+-----END PGP SIGNATURE-----
+
+--rknqritovu2w3mde--
 
