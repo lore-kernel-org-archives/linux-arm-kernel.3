@@ -4,101 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD9ECC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 12:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BFADC61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 12:55:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZAN0remZKwTzPxuAENpiQH5fEVpl+tgiLHbVt5de6NI=; b=oXmU/fE9xnQfNWsyam6FXDGsMs
-	vQ+6VQ4heQmpcJ6hwrQU9XJulqftEgTh4OIfq4jtqbdmTVnPRcawxzVwfwGHDoNYcAuRiHrnJ1e5D
-	isdzmKf5wnvggyLb3tFrvIKV4BdBD2u+BC4JLG+bZ5pNpigoi1ZTh2qYw2EoqhtdOnW49jE9XqND+
-	EpHJzSzUjJFkYyI7zXDsck/x4GFzWb7746WnEAOpjCfbn2W5xx3bgMll+n7HE48tr/GnWuVFLVh6L
-	7+OfmjRcyIyTTxDCEglq/xYgujN4hInysnENeWT6fjUPJjN01c9zlOz+TsYiF2XDu3JZfwU5WBhui
-	lXerzoIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QLDj2hZCve2ZWWLDxKombVsx7zXm/NyM2HtS7v1LdNE=; b=Ler9B3cUugXW7tFpdMhDIj16lk
+	H3PyfwsESAVVI6yvN0CZb1J5Z2Fk3S4gi40goRbV3GD+SlaWEZ0ArNvBxMKNGAXtOqxj1uycPC1JW
+	FPSVTILNY1QtVNrfAJXlrrP7ys6Vg0MoCsCN0KyLhgVyRnVLssr6bRzq4XEIziQmtgwcTARyzzXs3
+	biEVWoWZDrYwj4n5AY4izAVxxCq77JidvdnOWRx7ePV1yx/8QRiUTYwcqeoC8pU/S9C2wCjfcVJd0
+	azP56/Ukc9UzPxZjepuNn/jwLmnd75UJc6getP89UR1eliSAitW+ZXy/DXDpDi32PtwyRjjhU2tBP
+	DqcgLBnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyqXX-00000000o7v-01qn;
-	Tue, 25 Aug 2026 12:46:07 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1wyqgB-00000000omY-13ku;
+	Tue, 25 Aug 2026 12:55:03 +0000
+Received: from submarine.notk.org ([62.210.214.84])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyqXU-00000000o6R-18Pe
+	id 1wyqg7-00000000ole-16V4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 12:46:05 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c082647cd0dso41983566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 05:46:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787661962; x=1788266762; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ZAN0remZKwTzPxuAENpiQH5fEVpl+tgiLHbVt5de6NI=;
-        b=ZKRXPn19fZUZ1sN2PfBYTkBpZU/iPyWUAbCSzWBW4JT5vL2SE4cS7T/AFVsO2h3CgN
-         WSRgX2rkF5ARtAXpphy8rvvzIvX/iXjHEJDcYsPXZKtsN3PAcGTqNIx1fS2BXQdivGYr
-         ZGaCJdBzEDjytVM1TQ0AnH6LgR6BU9rQgs+n8i2GP8ANeZb+1jz28KOfze2Wo9KbuCnv
-         OC8VChg0Wh4YExasRdWE26ntBNM/XBha1HfL/RyYxAdfE2AKHXUb+nFrWjZWibuz67+v
-         Wt8py+69N3W0P0rA+sVdBnMIgYkJhaSw6mBdcd3xFvprm4RCbQ1FSVN3mh3WGwXMkP93
-         1kcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787661962; x=1788266762;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZAN0remZKwTzPxuAENpiQH5fEVpl+tgiLHbVt5de6NI=;
-        b=qYmd9l4r9YSZVmb0183xlpj4zU06vutMCA6IVif+O1xcQ4q1KKvbElkUo36ptENWS/
-         XRVZemwD4x4XveUeHiC6G5wDBDH73BFyvDNFdPQf7AGyuDDtOWvJYOY/e4cvnKtFuPrT
-         5OVczqBoTpFZIzhqZC3rzyEuSthbJHvswjlAnejUpw74FhjO3pBf4vlCQ/0l6/zkR6Fb
-         f0FOtTm1y5+i7JFm5ttXkD/HTTzOtMxhkLdAvxSX1YfGizFR+fXk3HisS9gV/Kgz0cYb
-         Gg2HjyYT6VJVTaK85n5M1vtpZ4Slig3EdywWD+m8lMOSTQOdqVBWQt19t/EmhDd0zDyS
-         CV5g==
-X-Forwarded-Encrypted: i=1; AHgh+Rp1YQvSs7miz0lVDf4Zuz18iPhN33aPUkmoCPMxxe+41hSQLasPcW8yIL2ESA1s8Uh8SgEyCd2F88TTPWDfNptX@lists.infradead.org
-X-Gm-Message-State: AFuF++lKZGDzTCw5iR6qkwwOz3TSiYmQ/9n8ojURhv6dU43qD6C+N87b
-	odxk9Mumit/symwn0DLzgrejjYGoPcQY7eVkW+K2kIc1DaXmvqYOFT7Q
-X-Gm-Gg: AR+sD136SqzB/Y4cELt6NybY1hIQr46lBEMr0ZJmV47b1IwMK2wKfsXZg0lSiQEqitg
-	UQ3jbNhfffDvChiOxt+cdgx2qz3uSjOJPkDWt3zsu5PIGS+GYtjVIEjpF8kF4XLjc5ZdlcPfhTC
-	56Y5M6G8slX5k1/yt9pQytAJTN7UPdp+OXGVKrexeemlpepQiCkcOKS8TsN5mbSq5BKzy8D+p/B
-	q40QYL9YJ9kp9y3I9o4rMrl4sLOE5iOAMFp+g4dOnItrPLWGEhoN3W9POVvI3dGQL9pmDVQToDz
-	dIW1mkFBrCtH3wAHKYRNZT0zF/gpoqoIuzqhfXJA++jw0F5EVDtTQx2wMKGvqrHSjRsuoJPQ0kd
-	WOsC546+phG1FMENCZASDB3vZWrvWYmWq35t0ujuheEldL0ZwJy/Wv136GVo89+5VnoC6nHAcFN
-	vHtKD4UPF62TOGtQL0V14qExE9n3fAcNVtIdXNtBTkHOeE6fu+Q5nRtZjKjeBaz/sjHN05zEnVI
-	GLHF5RufMmXb/+U03I5SzlDGLJvKOO/2HP4
-X-Received: by 2002:a17:907:d0e:b0:c20:c5f4:e19f with SMTP id a640c23a62f3a-c246a65fe29mr2143386466b.4.1787661962050;
-        Tue, 25 Aug 2026 05:46:02 -0700 (PDT)
-Received: from OrangePi5-Plus (178-223-53-162.dynamic.isp.telekom.rs. [178.223.53.162])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c249629929dsm1824340566b.23.2026.08.25.05.45.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 05:46:00 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Jiaxing Hu <gahing@gahingwoo.com>,
-	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	Oded Gabbay <ogabbay@kernel.org>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Alexey Charkov <alchark@flipper.net>,
-	Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v9 03/13] accel/rocket: let the core suspend after a reset
-Date: Tue, 25 Aug 2026 14:45:42 +0200
-Message-ID: <20260825124544.11766-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <CAEWPSH5MVzoQMaFOEQ93+1pOPmcXCDNfuXsv5j-X8Lb1fy_hrg@mail.gmail.com>
-References: <cover.1787568658.git.gahing@gahingwoo.com> <b5265e47492897d0ada844c2ff7f477bb715cd07.1787568944.git.gahing@gahingwoo.com> <CAEWPSH5MVzoQMaFOEQ93+1pOPmcXCDNfuXsv5j-X8Lb1fy_hrg@mail.gmail.com>
+	Tue, 25 Aug 2026 12:55:02 +0000
+Received: from gaia.codewreck.org (localhost [127.0.0.1])
+	by submarine.notk.org (Postfix) with ESMTPS id DD6F414C2DE;
+	Tue, 25 Aug 2026 14:54:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=codewreck.org;
+	s=2; t=1787662494;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QLDj2hZCve2ZWWLDxKombVsx7zXm/NyM2HtS7v1LdNE=;
+	b=34qD/RmW3+YAfFU49MNmHd7+ykPxdE3JfNqfWQGiB7qIcaGMHrcpvRq4xnu2MOVwCKGEcI
+	wMQD841PBTKqMyrQCUmnj5PVf1Ba4K+8EIVmcrNNwGwkloZ12UHr38dDA2El9tZpXBayNw
+	Tcfg7mpgC0VK2f4yq54KKSZtHXBbg7P28Otj3GK0/rPVKQ4auwEr1cHA/JZZCUmCG7g2mt
+	Fu45QbiuoeeyZsBYbzQcUYP9JgS0e0SESGZCW/v9aU4BFcJ9YVxCC9QArt9gJ30cND4nkm
+	ces1Us63jDfQcluY0mPH44hR/ZlfYjfjUIBR4PKgDSgs0fcaXSsk/9xnE2IjHA==
+Received: from localhost (gaia.codewreck.org [local])
+	by gaia.codewreck.org (OpenSMTPD) with ESMTPA id 2988523d;
+	Tue, 25 Aug 2026 12:54:47 +0000 (UTC)
+Date: Tue, 25 Aug 2026 21:54:32 +0900
+From: Dominique Martinet <asmadeus@codewreck.org>
+To: Sasha Levin <sashal@kernel.org>
+Cc: Vincent Jardin <vjardin@free.fr>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Andi Shyti <andi.shyti@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Wolfram Sang <wsa@kernel.org>,
+	Kaushal Butala <kaushalkernelmailinglist@gmail.com>,
+	Shawn Guo <shawn.guo@freescale.com>,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Carlos Song <carlos.song@nxp.com>,
+	Stefan Eichenberger <eichest@gmail.com>
+Subject: Re: [PATCH v3 0/2] i2c: imx: fix SMBus block-read of 0 locking the
+ bus [stable backport question/offer]
+Message-ID: <ao2QiAGMU3g5dQB8@codewreck.org>
+References: <aogVVwPlOmCqFsg_@codewreck.org>
+ <202608250009.7e963743cf842d4e@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <202608250009.7e963743cf842d4e@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_054604_325169_B014663B 
-X-CRM114-Status: UNSURE (   7.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260825_055500_528290_8801A8D6 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,13 +86,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-My mail client wrapped the tag comment in the previous mail, which
-would truncate the disclosure when the trailer is collected. Here it
-is again, on one line:
+Sasha Levin wrote on Tue, Aug 25, 2026 at 07:49:30AM -0400:
+> Dominique Martinet wrote on Fri, Aug 21, 2026 at 06:07:35PM +0900:
+> > tl;dr: If maintainers agree, I can send these two for a future 6.6/6.12:
+> > 5f5c2d4579ca ("i2c: imx: prevent rescheduling in non dma mode")
+> > 07fd9385f0d8 ("i2c: imx: fix locked bus on SMBus block-read of 0 (IRQ)")
+> 
+> Thanks for the offer, but let's not take these on 6.6/6.12.
 
-Tested-by: Igor Paunovic <royalnet026@gmail.com> # RK3588, three cores, induced reset, JOB_TIMEOUT_MS=2
+Ok, thanks for taking the time to check and reply!
 
-Sorry for the noise.
+> 5f5c2d4579ca splits the read path, and the split leaves the block_err
+> handling in the atomic variant only, while the live non-dma path ends up
+> back in the unfixed handler. On 6.6/6.12 the block-read-of-0 fix that
+> shipped in 6.12.101 and its 6.6 sibling landed in the shared
+> i2c_imx_read(), which both paths still go through - so pulling the rework
+> in would actually re-open the bus lockup those trees are already
+> protected against.
 
-Igor
+Yes, a backport would only make sense with both patches...
+
+> Your premise is right that b460b15b3cc2 is now everywhere, but
+> 5f5c2d4579ca also carries five Fixes: follow-ups, four of them tagged
+
+... but now that you've pointed out the others I agree it's more trouble
+than it's worth (even if they all apply cleanly after trivially fixing
+5f5c2d4579ca's backport), so I'm fine with this
+(And that can be reconsidered if more people report timeouts fixed by
+5f5c2d4579ca...)
+
+
+Thanks,
+-- 
+Dominique Martinet | Asmadeus
 
