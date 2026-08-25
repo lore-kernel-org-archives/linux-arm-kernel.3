@@ -4,91 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 468E6C61DB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 08:35:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2813EC61DB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 08:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JL8FfVObPRfzmPLrYv9XOcmMQBBUynJpo83SRKzY/PQ=; b=gmj4JCEnhxxTYWWlultrJ5NpU6
-	ozXfuvgjHxaMdRfYFBP3LMKSn+slnQchFrAkVCuTEqY91dwfyelSnToc/CAb/rgngWMuGC3RzufkF
-	XBBdVWAJhvJTnLPqHbxMm0bj+r98WOSV0fTNaQy00sr28WtVlxM3o5gyKUkl6DB/BaFEgon02BFmg
-	iPf59Ola4RbB9SYm0iftx5DIc3geddo4crh7NeBDvy8pVrZj9DOGCWO7JLWr6tSl1HZhyutjaEid5
-	07TsX+PWxoypt9+G9q5CpBygBJbxMaerr3WIADywxLL+PdbHYvjPOld2L0BSLspwu6vEE/Cg3M+G3
-	NgYFnqjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZkEyccE1SP4/O8FRxuMTjwZTWvb3WH5wHagpAHgazS0=; b=APevy2seQF60vcKJusMb04hp/E
+	bEJFdtZhix0tTWDXOKJcM/4APi8H4V72SSh+mokcRTJUy0NRAn2Q35pfhPIXMxUisIJBi+/3IhXwY
+	w+YrGhLFgFSdW4rHi9c3N5ji5sd6BnA1yzwcEJDQeyJq5QhJcKtVhLix6TneSKUxwSqrHF9+JxBSO
+	mn908LbINlXsniR3R9D/fAc/eH63NDY+cBv9cFngelKHM1j0sBmV8X8Ug4hmosNu/x1fwtWAYGrwH
+	Otfg9YJ+dlW/SMkkmMxtCzSpLnT7vH6Yx0KLEkTor1U+mpewF0/TvVWDOcpm6MoQKyIwAvscG8Ewf
+	BmGveOAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wymcP-00000000OVV-1Pg7;
-	Tue, 25 Aug 2026 08:34:53 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1wymgK-00000000PHQ-24sj;
+	Tue, 25 Aug 2026 08:38:56 +0000
+Received: from out-60.mta0.migadu.com ([91.218.175.60] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wymcM-00000000OUj-48RH
+	id 1wymgH-00000000PGU-2FpR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 08:34:52 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-cbeea240819so2692104a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 01:34:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787646890; x=1788251690; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JL8FfVObPRfzmPLrYv9XOcmMQBBUynJpo83SRKzY/PQ=;
-        b=hkIgak2UZQjwQ1Ed9+6C1nrZFojgRNaMKU9QitmsgQWr0hA7wWh1HhfYz/V61CcZ7y
-         zG6EY17XyMYS8HaEDM/xOZkg3AC75m5PZtwAAD4K5mu+RwkL2ygIsVCVcZLHB15j4Wvy
-         +vwEZXJgPesbI7JHt8dH1CkiUJ/B6yasXzB/3hbLfQUrAU1LLgPWyngrIH1HCC8o2ejg
-         vf8Y8mhwuWB8HkfAj7bCf3Cw1jMtFOOyWHq4d2m+j2Rym/7AN+a0veAMX4bnxV6KyOAT
-         XAZVj3PFpu/eVCy/qUnYUZJr0ekezFIn7Wgo3wDqIe0/sE2sm/+a9xvvaVF54aN5IUD5
-         YDBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787646890; x=1788251690;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JL8FfVObPRfzmPLrYv9XOcmMQBBUynJpo83SRKzY/PQ=;
-        b=S7Sx//nRAt3Q9PPpWV1paqKgElhBuympMH7J7gWwOShUuIZZ6P55Le0r9y7t24eTdQ
-         hn8zXLzMEcn/gsDZBlmTGg7/7Ct9i/uNxrTyoKYcNbkGIASf8zuK4FGobxszDYBWwwA/
-         A4l7npaHNgXSR0RJe2cZBI3P9KL5VwDZ/OssDYmB4ly5X3uTiMWOPFU8zdI/yUslmVnl
-         0Z1OipYYYvHrkZtxvBlpaGNCIR6MM2aZwDpNw+HeOwFzKJZGomgHt0/W3UUo0iuR/ESz
-         Tc4ACRV2F5sEoo5sykcxpECI4xg+ymifys6lUnmc40RfSKWI43T7qZ6gTzTHu7Ofrnmb
-         21QQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rp1pSIMz9sqMTJTk6ju/RWMWgslDlbmFwlhT5tlqyJGuCdQ/gIgIl2Fv0FziN8GB5LdhcIsjf29TKbe06Kt5cMW@lists.infradead.org
-X-Gm-Message-State: AFuF++muL2JarS1RIoEtxDCQiyzp2pceSWeedkaJtObvlfZJYUVrwF4F
-	7XARjO/JiFEvTd9oUaTm7tQVBGpAbNZJeaCk/5/ATQNdcVNEE3A8GEs=
-X-Gm-Gg: AR+sD12ZTxI+J6Mx5022u9KRBpAnXTC2tiJ2zreT5uwwzgZQ77sEcWxJvqvgii6r2Ft
-	dCXM3tRa7edhLGOb60NFVOln8IfsKJnXQxrNfRFuzuDdzKPy2BUqo97BZ2oFiA93K2Jl3aYO2iU
-	R0KDR7wYC/ONlh0+q40NuORHJ/OnrzMk2bHp61QRSfAdKVUseV02yRmtR2+JYgMJLEmjgU38KZh
-	frwICyKoYHYELpKnm+ZdIwgGyBJODZs5fiIwIFJ3MDVPCYypyPsle+WPoD6IH/TcomosMWO78IR
-	PD3180hhCIzQECgtEeYGI3hr+YHe2t7Of0PC0P9e6oD3Gc6ynNvGE1chw/gl+CueJEVev7EY1HR
-	gS1YGqNb8/w7P4eJ1Zz1pELeFqJnuTpe+B0Qw44MUNE2akpuYtXoNvgC9yO3O41Pwf6JthSUUQz
-	JHFSqkbcQza9sMIJ99A1HbGUishQiNhGWZ0zvhCi3UqMZ3EQe2k47Vth7mlBKPBAzlt4gZIV76i
-	w==
-X-Received: by 2002:a05:6300:67c8:b0:3cc:3d08:da3e with SMTP id adf61e73a8af0-3cd2fdd1cfcmr63045003637.2.1787646889730;
-        Tue, 25 Aug 2026 01:34:49 -0700 (PDT)
-Received: from DL2XHKPB4.dl.net ([103.63.104.162])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc19f39d4b5sm1517520a12.8.2026.08.25.01.34.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 01:34:49 -0700 (PDT)
-From: Triet Hoang <triet.hoang.dev@gmail.com>
-To: miquel.raynal@bootlin.com
-Cc: krzk@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	michal.simek@amd.com,
-	triet.hoang.dev@gmail.com
-Subject: Re: [PATCH] memory: pl353: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
-Date: Tue, 25 Aug 2026 15:34:45 +0700
-Message-ID: <20260825083445.249154-1-triet.hoang.dev@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <87ld9uk482.fsf@bootlin.com>
-References: <87ld9uk482.fsf@bootlin.com>
+	Tue, 25 Aug 2026 08:38:55 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=ZkEyccE1SP4/O8FRxuMTjwZTWvb3WH5wHagpAHgazS0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1787647130; v=1; x=1788251930;
+ b=MmsGmhnri+5vlJsN04OHRZxwt/rImBtKjM+7pU9Q+4j7ozrepuPyyoy9PCm8gF5mDAtwK1Np
+ cvtD9hVydAiohxMCxf4NeTyvgOlMaG0QdwC4zy2JvxLM1aFYZx3ZsoTqvlENToIncYfuVAJMhTF
+ HhkrOkArfzwRdrTu6bi6bIN8=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from mail-lf1-f54.google.com (209.85.167.54)
+	by smtp.migadu.com with ESMTPS id dd98221a07cdc1a1;
+	Tue, 25 Aug 2026 08:38:50 +0000
+X-Mizu-Trace-ID: dd98221a07cdc1a1
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5b0129cf6ffso5262e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 01:38:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Roefpx4y9eoO1EGky9aObFRWXr2HfrPv2vzBs4PclIXkZbbtGGwYKoSvn2vESgoCwDxJzedtW8QxOENw8tLyNeQ@lists.infradead.org
+X-Gm-Message-State: AFuF++n4pk2bINZ50RjjYu2NdA47gbXKS0S3cDPpYP1T/PU6emxyuhwn
+	YnrpSkOifqIwKio/O6lQargmSpsOksamcDX2AwSrZyosZzhir3Jmbbl2Fnu5M0rFhGK4vcj6IyF
+	sYWm2isXNx7LoX4RednbmYACHrkfk+IeuIzjDgpZ5
+X-Received: by 2002:a05:6512:3d8a:b0:5ae:b918:79d5 with SMTP id
+ 2adb3069b0e04-5b49de33a82mr59200e87.2.1787647125805; Tue, 25 Aug 2026
+ 01:38:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260731143541.956291-1-vdonnefort@google.com>
+ <20260731143541.956291-11-vdonnefort@google.com> <CA+EHjTxU2GCpSR587oR_EaMOvXfu+teCnfC2KCg=vpOtf4sgRA@mail.gmail.com>
+ <aoxzjag7xr_emuvX@google.com> <CA+EHjTxraCfN1bfZ9ygRiyxxyEPeHw4mg6f6O0qzPBpFi165Qg@mail.gmail.com>
+ <ao1CspwFUHyhj0dE@google.com> <CA+EHjTz3Fua-vSezqu3ennb1bZpUjCopE0Ud8N3ssFUrRGNZ-A@mail.gmail.com>
+ <ao1QPyLXVGuH1XLn@google.com>
+In-Reply-To: <ao1QPyLXVGuH1XLn@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 25 Aug 2026 09:38:09 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTyLPzuV7rfm4f6MOBDB-rCg=s413yiJUmb2o8pS6u9aYg@mail.gmail.com>
+X-Gm-Features: AcwNN1XQLeBQ7u9EOQoGMHte78AwqW0cwF4cJoFF4AYKd0NiyQxRZAlxD9ORrkU
+Message-ID: <CA+EHjTyLPzuV7rfm4f6MOBDB-rCg=s413yiJUmb2o8pS6u9aYg@mail.gmail.com>
+Subject: Re: [PATCH v4 10/17] KVM: arm64: Add a shrinker for pKVM
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
+	qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_013451_032815_6FEAC202 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260825_013854_103080_C5B46D9F 
+X-CRM114-Status: GOOD (  30.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,17 +87,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Aug 2026 10:13:17 +0200, Miquel Raynal wrote:
+On Tue, 25 Aug 2026 at 09:20, Vincent Donnefort <vdonnefort@google.com> wrote:
+...
+> > It would still fall through to the top-up pages once the chunks run
+> > out, which is where your last point comes in. hyp_allocator_map() only
+> > raises a request when it finds the mc empty, so pages sitting in there
+> > are ones a top-up just put there for a retry. Could the reclaim leave
+> > them alone altogether, and drop the mc.nr_pages term v4 added to
+> > hyp_allocator_reclaimable(), which is what advertises them to the
+> > shrinker?
+>
+> There's nothing that prevents a users from topping-up the allocator mc... but to
+> never actually use the memory. That's why I think it is better to drain it.
 
-> Here is the occasion for sending a v2 with your two patches: wrapping at
-> 50 chars is abusive :)
-> 
-> Other than that, I guess the diff is fine.
-> 
-> Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Agreed, that settles it.
 
-Thanks for your review. I will correct this and send the v2.
+...
 
-Regards,
-Triet
+> > It's the retry that fails, not the reclaim. With target == 1,
+> > hyp_allocator_drain_memcache() pops one page and target is done, so
+> > the chunk loop never runs. But the top-up was sized to the exact
+> > shortfall, so the retry now runs the mc dry one page early, sets
+> > topup_needed = 1, returns -ENOMEM again, and pkvm_call_hyp_req() goes
+> > round for another top-up.
+> >
+> > Nothing errors out, it just doesn't converge for as long as the
+> > shrinker keeps pace.
+> >
+> > Keep in mind, I am not as familiar with this code as you are. So I
+> > might be completely off here :)
+>
+> Ha yes, a concurrent topup with shrinking wouldn't cooperate well and I am not
+> sure how better we can do. But note the shrinker always "scans" half of the
+> reclaimable memory. So it is unlikely a user needs to top it up during
+> shrinking: if we reclaim hyp allocator memory that's because there's plenty
+> unused!
+>
+> But I am happy to start with the memory mapped into the allocator and then if
+> necessary finish with the allocator->mc: if there are memory in allocator->mc
+> that's probably because a topup is pending.
+
+Sounds good. Would the tail ULONG_MAX drain need bounding too, so it
+doesn't empty the mc regardless?
+
+Thanks!
+/fuad
+
+>
+> --
+> Vincent
+>
+> >
+> > Cheers,
+> > /fuad
+> >
+> > > >
+> > > > >
+> > > > > However now looking at it. I wonder if I don't want to ratelimit here the number
+> > > > > of pages reclaimed in one go to limit the time spent at EL2. Especially we do
+> > > > > all that with the allocator lock taken...
+> > > >
+> > > > Ratelimiting would cap the time under the lock, but it wouldn't stop a
+> > > > concurrent shrink from taking the topup pages, would it?
+> > >
+> > > Yes, my only intent is to avoid blocking at EL2 for too long.
+> > >
+> > > --
+> > > Vincent
+> > >
+> > > >
+> > > > Cheers,
+> > > > /fuad
+> > > >
+> > > >
+> > > > >
+> > >
+> > > [...]
 
