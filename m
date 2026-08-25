@@ -4,73 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2651C61DBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 13:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC3FC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 13:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=obQKP09CHzI3oI6cWTnZgbb3Pr3kwiToCNqXpKlHYrs=; b=L/fLQ7o+8+3E9x1DAMqrmeAjZK
-	dmlrszNjrvdErX+mk9JtEKwf4LoHCmMauJEM2BDhNIm4xA0R6XbzpIMqZPeP7RgRCdkBwTp/S6DHt
-	9UwcEJmvDLzhRYqwMDHGC6F51O1ErkznRajs/DBE+hN+2/HDDCQe3glBF/c47LlwyFvJsr7pyOH9V
-	t2xvQgarTX1Nx5JzSDiFZo0BQ08xWI6Sg/LP5FUk7VUeSB2q/SVgWUIYy1UCEweI//cEJNSNd83jE
-	y+rXIju6zkL98R0G9HwVZB1YdqKmJN2q4j57KX0FOUAwb+G+NCP8w24tC6WkIx2p6w/lMr4jmAwtd
-	jCtiySKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kvk4CpyRnpUi0v/8Sx5izR15HLoSoZ8+40PGLVaFKSc=; b=rORPnyUOFY1QqFt4BZn6//FHmI
+	kM+H90jd5AR2mhO9bG/5ChB/4sec0w2YrSEgyzMgweCdA6nYNqTYhxJo94mLN0nJn5ZDhzjAsdhqZ
+	Vxkz13YD8e76NToDaZs4Mkc8CFCQhVvCu0KGOswPCyemecxsKscw9sVPcG1SqO77qKua2r9wn1QgS
+	47FWJj2BkI6HLhcvDSidylrt2ZlOFG+5KABZe6I6TTW2Ku4FpjIlWSembhxpeOFLJsnf51LUlE1eb
+	dJfvt0vwpiR79Sj4mNfs4comKAaA+rwVoIwf1RDe1JOi6ouyBJtQ3mAw1rsAnJk+aPutAawR27ntn
+	nHb3wbcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyrFG-00000000rss-0bG2;
-	Tue, 25 Aug 2026 13:31:18 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wyrHu-00000000s7T-2I1Q;
+	Tue, 25 Aug 2026 13:34:02 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyrFD-00000000rru-24CP
+	id 1wyrHs-00000000s6b-1HTn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 13:31:17 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 425544E412E4;
-	Tue, 25 Aug 2026 13:31:12 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 14058604C4;
-	Tue, 25 Aug 2026 13:31:12 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E3BFA11C792B6;
-	Tue, 25 Aug 2026 15:30:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1787664667; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=obQKP09CHzI3oI6cWTnZgbb3Pr3kwiToCNqXpKlHYrs=;
-	b=lU4e9zl7GduiDG6itsz7WGWMhIR9hmzqzkwulLrSONC1ikgrt/goD+8xEa+yY7ae1XnoUx
-	O3wZVfUnQD89chgOEtgsuL4hXTagSWGF82EBqNHwqVByvMtJV3JA9LVmRyuN60VTuder2P
-	mQwOlbn4+2d1YgKLM+uSKSUjYDmxjqD0YWr/TTysnG9oaZWSTEJe4+SMEVXtfOcdPmyph7
-	367rVe/8RjNzr0FXKyvrDR3zGNF3yWvQM4PGa45dCBZDxr1qmTNxtBa7+gg3uaiYktT2yw
-	iyYbvv8T8PgkABKItpZaiagsWjuVAlNWgLCoCvPJBmNPwX65ip0ikXZyws6eyA==
-Message-ID: <324e6485-633c-4a2a-ba62-661f75dd6c31@bootlin.com>
-Date: Tue, 25 Aug 2026 15:30:58 +0200
+	Tue, 25 Aug 2026 13:34:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=opYFaVKp225FJARseS4hP9yL3uuJhWag/IqToEk13kyOJNPx62Sby43c3FHVHF0XD/pTAA9mad6xY/QTHDDp1QEtm6fF7QiU1nGsW0kqdBe4/4BJiw4IUhMDY5VcwZOr2Zdy7McST8e/h2i/lAH1JMM/fqfbor1Xn6StyTddQtoLOAj/w6hdCRPj0+GtQXo8GJVS0INRCNRa7ZZfW/m35qLOiY+QPF4atl/Bk5eduHWIa5Gin2MfRnbCmEfvjMBtu3QCdA1sKuCYVwJmYAfGoJKQ97pKiH+FFIgBvjO0pS+2jaJDirHCVdzrydcScgTWDyll9ivc+lqeKgubS4Wt7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kvk4CpyRnpUi0v/8Sx5izR15HLoSoZ8+40PGLVaFKSc=;
+ b=dQDNEtsJwQ8BPetOvPKTdLkP7vCMy0yYhnT0e4jc8VLlIpY/jWJsgIgnRs2v+twZ9rC9+D5ud5h/CjITvEa2Z2WtCGZNxtjzn6ja1M6O8jtsTewblegb3U37ZwegHV1Tow6JxdJNUoXHMCFV1J2V9J1KL1fhg8YmXalG3XSDNdinBI5NvJCpRxsouOmedGRx4qFVodGKMQApfSEtXbaS3p0RB/XapYbhRvzQJ2mPyX80WApVhlMkRaf8m/tYI61oGLQG3VpuhQnf/XFou1KiA9lXpmVpCYkOHlwKdawMEnV1fcqua2gDi7RdW0pGy/GCAp9/SXvyPI7fuwS3qQKTGg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kvk4CpyRnpUi0v/8Sx5izR15HLoSoZ8+40PGLVaFKSc=;
+ b=OMftNE5YY5GRsGfsF8zPJy4E9wz7sBu70Nc5VqMvFCTOgeP3p0ZQHUK5UDO4ddSwswrOaRoA4U/6yEpmSoV65EGJhoGRAr7BCjFJFt5lENT+A0qNlxhrUdrmchcpZhMHVRIlIJO3NJnUPOo5TfbHLeIOyVpm9u2CwrI8np1jqDhEE1CNmjnRW3rOeGSro4p8x+/rOJf8ufuqudhmnOQV+7FnOLmXscXUIS5Xvb4E8Q+zn9sqsCZTMg02tekTR6xiXyMiIzgXjj470CwQlrBCs1iJr5vaTmvOzRMG/FKdV6o6yVPESztjQMjfmDGYzGWV27ukZVgDDPN5ijtJfkBXNg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DS0PR12MB7535.namprd12.prod.outlook.com (2603:10b6:8:13a::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Tue, 25 Aug
+ 2026 13:33:45 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0339.012; Tue, 25 Aug 2026
+ 13:33:44 +0000
+Date: Tue, 25 Aug 2026 10:33:42 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v9 00/12] iommu/arm-smmu-v3: Implement Runtime/System
+ Sleep ops
+Message-ID: <20260825133342.GA3332773@nvidia.com>
+References: <20260728210928.1050849-1-praan@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260728210928.1050849-1-praan@google.com>
+X-ClientProxiedBy: BL1PR13CA0192.namprd13.prod.outlook.com
+ (2603:10b6:208:2be::17) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: re-apply taprio offload in
- __stmmac_open()
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Jose Abreu <Jose.Abreu@synopsys.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,
- Rayagond Kokatanur <rayagond@vayavyalabs.com>
-References: <20260825-stmmac-est-reapply-after-open-v1-1-dfa80735e0a1@oss.qualcomm.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260825-stmmac-est-reapply-after-open-v1-1-dfa80735e0a1@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS0PR12MB7535:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5dcc8c08-032f-456f-8d39-08df02ad7bc4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|6133799003|22082099003|18002099003|11063799006|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: 7/szAVdWDVhLEeI75nxNZ2If0oObvUeHNLVdE8rcR1c+8TGn5iADJ0pr1cKlyIwu2Bqhh8zBFr501z7eRmv+bAUu90lT0bCAwzNy9xZie6DdiDC/iEZExlt8Yc9+mXR4klc59hhnGXRtoFSyy8dt5duvOn1rEQYXA2PbyahV1sWGrIqh7tylc4GJvUMDuDaph+FVBXI6vSOt2CdYyBr57MZfheP/jxoY05TaRLIq7FctwK5qSwtBu0YGgXnAHJ0W6rSWQk4AFP86sMgD154UVvguqiaYmluQIZPI+az6AKWosXdMHSEhn9dc/jlAWA7bv45OD0TNeu+/udc3yBmulGCSZAxsk3wpEVCovof+XO1P4nPrdnD3x2YgdAyXeRhJtuL75CqX71xXpybDIerEzQMBErhi+uOedw/Q1ybP9yYqS+LbWWcam2dQCrml6NfTE642vZ8UNcFmSln+3gHGgJ44JV6cOe6THdxFx5FXJpFHSBy7W6r9QpfInqP5nZlvaU41mO1ZfzjWgbagKQ1Wn9nbYzqRVdU9RySLBy1G+9TI63yW/SXnRZamNCoe97bMAvPGpyWLOCpEkdhVqROZf/jK7PQ08nIYWBO8zDHzi4XITqU3KXTY7OSAAEUfeQGNnSoeXQwL2XFz6TwA/M3X5XKrS8+a00V6tr0418xdDzg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(6133799003)(22082099003)(18002099003)(11063799006)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?c7y8HDkzkSHcYBypAiQtMfN5QeyOTFhZBlAFtmDOYyd0cufzCon18KwQFl8+?=
+ =?us-ascii?Q?59iuLC8WRh9bKVM7HN+UG5KEYeKhAEv7V2wohe+YQHKRYsLH3cqO8QIu3/sn?=
+ =?us-ascii?Q?oJViD74zSkYTnlyKsoF1zB3LKEUde4IU2+AkUqrLtUmZDTesy4+kLwlM5Qau?=
+ =?us-ascii?Q?EV3oQ1f6uaKGKoZYDGaTtRGCemYXGNkL+cYMMxs9KXiDOdkYJJf3JPYs6m/r?=
+ =?us-ascii?Q?pjI2lpKgvVfk4f0JDAxK2XcSOKcYXJaCWQV8wqxUZ0JE6aub43eHs9TxMeH2?=
+ =?us-ascii?Q?k2XrZWXgxPdPMcU+JeqrRasFq3YUqY9I3X2xO6Wo8hQcAdDyDtDIaTWq+P6e?=
+ =?us-ascii?Q?EX87ZgSwYc7UBFD68CS/qSmsSdEU8vMClq2KeYRa6XA2y5n6O4jLilL2M+N2?=
+ =?us-ascii?Q?KiuPZbS4RvXF1CuNvjFRWo36quwyzXNyL/AYe2NsarHXaF6Ik/9W1HM68Bab?=
+ =?us-ascii?Q?9qU8QiKV+nssRvlboVuxAGgYmc/54Vmm5qHFBXOXIyvX6/Q9gg6WztrgB+iL?=
+ =?us-ascii?Q?TBVi6+Ksz2vwuZp7nutyxHVJv5X9sH7SLpCdoHhAAcBPPGH2CHmhqae800+t?=
+ =?us-ascii?Q?PppSZgr7e8vLJonPbEjW+sHk0cqj0ja5/GwSCCUmWDYZttWJAzHJc5laTkDT?=
+ =?us-ascii?Q?BcTPIse5btoEaNMOlI6+9jg5dPN84XHmpKNJl1p3gMSvvcp2ZNs4ciZbJIZ+?=
+ =?us-ascii?Q?H3TCUmAIf26gpvcbDzcnPb8QgQm2GugCFCaIqDSjh/kepLQjWWEZPPIzr3Ny?=
+ =?us-ascii?Q?Ia/SGEacu/dUL1EhaDvXwM2OctbRwuot2AZhXnz2ypsrf4O9Z7XCdHTupbJj?=
+ =?us-ascii?Q?gGvNdgOffYjByujfGPD2XeFNrFyH7AIksblElipIObW7llkSdqxChplvhwXR?=
+ =?us-ascii?Q?UDPU0jbEqH9ZvJhGT2S4j0qPbNl/uLSnFKr8xD9qRXqlV2vU7NZhb7Jt1LHy?=
+ =?us-ascii?Q?s0P4/xMzAtqfHk6i6X7X3FYniJKZNuGPV3hl7Jh1nVCZLxj5WhiL8WiG6pG/?=
+ =?us-ascii?Q?P767clDvnvRPCAWzVveiiEB2OPeZU/LGO2oq0k6Z4oakA7g5DQVt1wg5IVN5?=
+ =?us-ascii?Q?uEq1rFsVb1xuPOnszpqNr2ygbuLaiZxnQ6OqcfPMtOmj1sI6igrsYEsixs1U?=
+ =?us-ascii?Q?GJUp4AdPnFTtS1zvePOEVQ1FEaa3JJTMaMHvJM45sN5Za8fgfF8aFdpuYMgg?=
+ =?us-ascii?Q?qujKhCTKFzpjl+8RZZOfsw6cdYCe6YEe0ElG+irgg3jY6VrUMZs+XLyXtbS6?=
+ =?us-ascii?Q?gT7RQMjjWy3MqimrMAeV6XPvqOMMfW8o9J8cAAtcO3GPKNfYuuN5TXZa2xBP?=
+ =?us-ascii?Q?Heols/XnwRqC+RX/dgC0o91mIWwZXPFwB6CTQdh7oLGtDVi7bs9IkCyICFgC?=
+ =?us-ascii?Q?8uybhJqAPmRqYr3kruSjj4EMg4XfS6Y3CF/Y8mUgZ6nEkIpFrVTZmmi/2Etk?=
+ =?us-ascii?Q?EAmWJKbY666CrmUIa6puZDUhbnNB8yS6oDdiCzIqwjFbnkuiG05MojqkKPzb?=
+ =?us-ascii?Q?qlkBh3OQzOmnszcU68geeOlgIgZzSjIzwBkSdV3sSVVb1vttNg5R2vvKCu9F?=
+ =?us-ascii?Q?x1HQ5+9MCLdHZDsjLAz1Z0XtZ6iLkHCAAYAkm64ygCeDmwVNzEVw2w/DbA49?=
+ =?us-ascii?Q?eFsq8J+5IiErif09DUjK9QyCzApLYC9vfXqmAhEVYyEWLOBRbj/4TK3Ft4SD?=
+ =?us-ascii?Q?F3A74dWxeK4IEFV3oFmPzjzZ9+t7Dg01vVlwUMVAcGmzQ1b2?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5dcc8c08-032f-456f-8d39-08df02ad7bc4
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2026 13:33:44.1822
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Pk0ASt0ws4dX/8A78ZQegmxw0WsQIyHQquIkMWhS4T2jeDNGoRACVnLS3LN78UKh
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7535
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_063115_672333_0677E928 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20260825_063400_352873_81ECFD37 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,32 +140,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Lorenzo,
+On Tue, Jul 28, 2026 at 09:09:16PM +0000, Pranjal Shrivastava wrote:
 
-On 8/25/26 11:24, Lorenzo Bianconi wrote:
-> The core soft reset issued in stmmac_init_dma_engine() clears the
-> MTL_EST registers, but nothing re-applies the taprio offload after it:
-> priv->est->enable stays true while the hardware EST block is left
-> disabled. The TX/XDP paths then keep dropping frames larger than
-> priv->est->max_sdu[] and taprio is reported as offloaded, although the
-> EST block is not programmed.
-> 
-> Re-apply the taprio offload in __stmmac_open() after PTP is up. The
-> base time is recomputed from the reserved base time and the current PTP
-> time, since the timestamp counter has been re-initialized and the
-> previously programmed base time is stale.
+> [v9]
+>  - Replaced atomic_fetch_or_relaxed() with atomic_fetch_or() for
+>    correct ordering while asserting the STOP_FLAG
+>  - Moved arm_smmu_drain_queues() after the cmdq->lock wait loop in
+>    runtime_suspend() as per feedback in v8.
+>  - Refactored suspend sequence to use arm_smmu_disable_irqs() and
+>    synchronize_irq() for safe GERROR handling.
+>  - Fixed an off-by-one error in suspend polling timeouts.
+>  - Dropped arm_smmu_cmdq_can_elide() check from inv_range
+>  - Renamed arm_smmu_cmdq_can_elide() to arm_smmu_is_active().
+>  - Removed redundant bitwise masking from owner_prod reads.
+>  - Added comments to explain locking, gating and elision better.
+>  - Added comments to explain secondary cmdq draining and gating.
+>  - Rebased on arm/smmu/updates
 
-I agree with idea, but the way I see that, this new reconfigure method shares
-some code with stmmac_tc.c's tc_taprio_configure() step (the base time computation).
+There are alot of scary looking sashiko remarks, are you planning to
+resend this with some of them addressed?
 
-Can you also take a pass on that, so that we have a single helper (your new
-stmmac_est_reconfigure) that does the base time computation and the EST setup, that
-would be used in the .ndo_open, clock adjust and tc_taprio configuration ?
-
-Maybe rename it stmmac_setup_est() to keep consistency with the stmmac_setup_ptp()
-that comes before, this would also open the door for an equivalent
-stmmac_cleanup_est() if we ever need it.
-
-Maxime
-
+Jason
 
