@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A52C61DBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 17:07:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A80BAC61DBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 17:14:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bj2g1RQRxCbMBdA5rwuLTDfC67Rmlu8p6CaftxfrFeY=; b=uEFvIoB2Fh3eIdZNKeiwFP1N8g
-	ctWWWp78vYG0hDotBDCzUBtf6UEBGIAv+UhEih7lcRySkEyRp7Tf2vVLOpDVjXWXjiUOjrk3J8gqt
-	xkUCB7CM1K9yWhDifNZNxtBinkSrVBn88Ro2IY8/kllC20scOXrfwOoxllPtratSbivgoTXlxvtrW
-	LRJ89C6sJQSUDuVsNClXul/vLEkwDQlLPxew6sR4jomSA+Rgg3t79lyREEsNU7hLP9T83EZ6W2zMi
-	QdHox2C36w/puC27yNop8NCOUhDezcjt0CJGHQ3+SAXeWx6gL1rxs7NQLRzREuwZLZhz+COo/fxtO
-	SPQFDvWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cnwzr2QEPZbTsG5fmDxIEKuhR4IfwyHeop7Gc/UGR2g=; b=OF+o9mKoJr2Dz1ZtT7mZcNA2PL
+	IlR/fBni1gtQBEc+3Mo2RlITDSz/uUw/KuN8f20aMwvEFpee9XuQWO0rGZ5vr4kv1EeMBgTKikRaD
+	k1ycczZktutuFiTQsfP1aIS6ysP3UO2dSMxAIHsEpcaef8/Iw71Mo11cOg1PQRVML+fxv8E5Lmkf3
+	+8cStnx8iolm+LLjqgrpsg9Mw6BHGSBfG7nwsNJ2BJ7A87ssv2RvPCkA4+OQAwFMZFDwDssnlMb0q
+	3HHTMLNxyeGwVQ/ZX8VUzYSbprSLLdwy3+2QkUpJX1pHOl+LHnO5ZyBffxWiNZMWXVtJSxNgWFcly
+	der5cmTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyubt-00000001AhC-2KAK;
-	Tue, 25 Aug 2026 17:06:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wyujY-00000001BB5-2Sdo;
+	Tue, 25 Aug 2026 17:14:48 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyubs-00000001Ah2-2WJt
+	id 1wyujV-00000001BAk-2xGr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 17:06:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 07BB4408A2;
-	Tue, 25 Aug 2026 17:06:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74B5B1F000E9;
-	Tue, 25 Aug 2026 17:06:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787677611;
-	bh=bj2g1RQRxCbMBdA5rwuLTDfC67Rmlu8p6CaftxfrFeY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TprJ7xxJidQiclhVmzR7uTnPdxnygmo/1eEVQIMmYK1TAkDTTBsmRPf0TX3lxWiMp
-	 vxTYeSJM37E0iSXa6xUlrorX5KmCLHR8rZA1L7lY0FjX6GlRIoBDKH4k4adynQ8Y5l
-	 0WOQFDAL44Mgl2zv16PVisH4q1OSAoniC4xRusd9NbESz4N6wrGs4hZ/v9Pe3Hl/rD
-	 JHh++0H7dgP40e92dBW4flhauaJp/b3BKK29HBx9dAzCRmdzPWFCVOFp2lBVdLY1I5
-	 9/GRoEzkY8xTfo5VKkWJ29z5dU4wDrJNZVXMwj2W7b3/YO+PG6gbZZ/+hbXFsaZnPu
-	 q2hZBTn9T2E4w==
-Date: Tue, 25 Aug 2026 18:06:45 +0100
-From: Will Deacon <will@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>,
-	Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>
-Subject: Re: [PATCH v2 3/8] iommu/arm-smmu-v3: Optimize range invalidation
- for latency
-Message-ID: <ao3LpdSgK7ZBrLza@willie-the-truck>
-References: <akzm5BoV0rToJ7ij@google.com>
- <20260708001058.GA422027@nvidia.com>
- <an3MSKEj7VhT4WkP@google.com>
- <20260813141320.GF730363@nvidia.com>
- <an3ew9xbnLe1dr5g@google.com>
- <1791d7da-ecd9-4475-8f27-c8857477b442@arm.com>
- <20260813180102.GH730363@nvidia.com>
- <an7UNAA1WlEXG23-@willie-the-truck>
- <20260814123417.GB510472@nvidia.com>
- <20260818184338.GF5432@nvidia.com>
+	Tue, 25 Aug 2026 17:14:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1787678085; x=1819214085;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=lgQBRPrl/nvc5f3CC0Mq/mPd8cl7M4MjjXACHNFSUxo=;
+  b=rONb4csV8PHUH28V4a4OVzlVVSipDlvoVFhdsrPNysB7pBaYWzLNIUOn
+   x19600arySh5bOGsdxRKLUNsfKr8QtVWAC/GdPXdgm55rDIdOSIp44S68
+   OTdwrq8K5jW6Xah+VLOJx34VL0f30tsS52X4mx6uTe7HfYgL67DLWaGYG
+   Z5vb1DW48j7q2+3CKWEcUaCgZiJB0cQ45qi6YzZyMnEvVI5aVA+BRilSk
+   MphjnB3VOZCXfUOUL5Dr6PKAP/cZM4y2+fXQcjvwpTo+By8d0Z/Y/8uih
+   y24DDFB7DMkCuSK8xAm3PmkqTUwO3BLWzGVcZ8x/RGZxo1bbSiocO6Jl+
+   w==;
+X-CSE-ConnectionGUID: Fm4WJO+JQtCEf0ZpwAwKqA==
+X-CSE-MsgGUID: 4+gyDQLjQUepiV5YM5XrCA==
+X-IronPort-AV: E=Sophos;i="6.25,243,1779174000"; 
+   d="scan'208";a="61743666"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Aug 2026 10:14:43 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 25 Aug 2026 10:14:43 -0700
+Received: from [10.159.227.160] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Tue, 25 Aug 2026 10:14:41 -0700
+Message-ID: <0cc2d875-7aab-4091-816c-031f21f3cbac@microchip.com>
+Date: Tue, 25 Aug 2026 19:14:43 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260818184338.GF5432@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] arm64: dts: microchip: lan969x: add SDMMC nodes
+To: Robert Marko <robert.marko@sartura.hr>, <ulfh@kernel.org>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <linux-mmc@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <luka.perkov@sartura.hr>
+References: <20260824110432.1074136-1-robert.marko@sartura.hr>
+ <20260824110432.1074136-2-robert.marko@sartura.hr>
+Content-Language: en-US, fr
+From: Aubin Constans <aubin.constans@microchip.com>
+In-Reply-To: <20260824110432.1074136-2-robert.marko@sartura.hr>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260825_101446_132307_C4B46058 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,62 +90,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 03:43:38PM -0300, Jason Gunthorpe wrote:
-> On Fri, Aug 14, 2026 at 09:34:17AM -0300, Jason Gunthorpe wrote:
+On 24/08/2026 12:56, Robert Marko wrote:
+> Add nodes for both SDMMC controllers.
 > 
-> > I'm also wondering if we are even OK with this errata today? The
-> > current RIL algorithm also does not guarentee the split up RILs will
-> > cover every CONT. This will happen to be true if the input range has
-> > certain properties but I have no idea if the SVA path or even the
-> > proposed CONT iopgtable change guarentees that.
+> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+> ---
+>   arch/arm64/boot/dts/microchip/lan9691.dtsi | 24 ++++++++++++++++++++++
+>   1 file changed, 24 insertions(+)
 > 
-> I've looked into this and it looks like the current RIL implementation
-> does not meet the requirement to solve the errata, and these days SVA
-> provides CONT entries from the mm.
+> diff --git a/arch/arm64/boot/dts/microchip/lan9691.dtsi b/arch/arm64/boot/dts/microchip/lan9691.dtsi
+> index a8541c6a098d..2d943ea75768 100644
+> --- a/arch/arm64/boot/dts/microchip/lan9691.dtsi
+> +++ b/arch/arm64/boot/dts/microchip/lan9691.dtsi
+> @@ -414,6 +414,30 @@ qspi0: spi@e0804000 {
+>                          status = "disabled";
+>                  };
 > 
-> The errata says the RIL command must cover the *entire* CONT group. I
-> read this text as meaning two contiguous RILs with a split that is
-> inside a CONT group is still vulnerable to this errata. Each CONT
-> group must be fully covered by at least one RIL.
-> 
-> So the algorithm we have today where we take the range and split it
-> into many RILs has nothing that prevents the RIL split from landing
-> inside a CONT. SVA is not guarenteed to produce ranges with an
-> alignment or size that make this algorithm happen to choose aligned
-> splits.
-> 
-> I've prepared an errata fix patch that detects the errata and triggers
-> a very simplified version of this single-RIL algorithm only for SVA
-> invalidations. That will fix today's kerenel, it is reasonably small
-> and can go to -stable.
-> 
-> I've adjusted this series on top of that to use the double-RIL version
-> with no over invalidation that Robin suggested for paging domains and
-> single-RIL with over invalidation for SVA domains. This also turned
-> out pretty good.
-> 
-> For the iommupt integration, and enabling CONT for the paging
-> domains.. Ugh.
-> 
-> It seems at least our Spark CPU has this errata and requires CONT
-> support to work in paging domains, or it runs into its own isochronous
-> HW problems. So the easy answer of disable CONT isn't desirable.
-> 
-> So.. what I've come up with is a little tweak that still allows the 4k
-> granule's 64K CONT to work without any over invalidation, so we can
-> turn it on by default. That is enough for spark to work. Everything
-> else stays with status quo of no CONT.
-> 
-> If someone has another smart idea now is the time..
+> +               sdmmc0: mmc@e0830000 {
+> +                       compatible = "microchip,lan9691-sdhci",
+> +                                    "microchip,sam9x60-sdhci";
+> +                       reg = <0xe0830000 0x00000300>;
+> +                       interrupts = <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
+> +                       clocks = <&clks GCK_ID_SDMMC0>, <&clks GCK_ID_SDMMC0>;
+> +                       clock-names = "hclock", "multclk";
+> +                       assigned-clocks = <&clks GCK_ID_SDMMC0>;
+> +                       assigned-clock-rates = <100000000>;
 
-The documentation for 3673557 gives a possible workaround of:
+If always targeting an e.MMC, capped at the High Speed DDR mode, one might consider
+a multiple of 52 MHz here.
 
-  - When invalidating a contiguous set of page tables, perform the
-    invalidation sequence twice. Only the invalidation sequence needs to
-    be performed twice, not the SYNC.
+> +                       status = "disabled";
+> +               };
+> +
+> +               sdmmc1: mmc@e0838000 {
+> +                       compatible = "microchip,lan9691-sdhci",
+> +                                    "microchip,sam9x60-sdhci";
+> +                       reg = <0xe0838000 0x00000300>;
+> +                       interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
+> +                       clocks = <&clks GCK_ID_SDMMC1>, <&clks GCK_ID_SDMMC1>;
+> +                       clock-names = "hclock", "multclk";
+> +                       assigned-clocks = <&clks GCK_ID_SDMMC1>;
+> +                       assigned-clock-rates = <45000000>;
+> +                       status = "disabled";
+> +               };
+> +
+>                  qspi2: spi@e0834000 {
+>                          compatible = "microchip,lan9691-qspi";
+>                          reg = <0xe0834000 0x00000100>,
+> --
+> 2.55.0
+> 
 
-and we just merged something very similar from Ashish. Could we use that
-for domains that want to use contiguous ptes?
-
-Will
 
