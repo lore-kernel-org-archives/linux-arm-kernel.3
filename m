@@ -4,98 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6BC8C5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 24 Aug 2026 23:05:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC22C5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 00:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WGnZD8PU2ZM2OuEJ0fefI9bGemjyRjfKxbkU0KSOSbI=; b=x2LO1YD0mRqa6HscdAEKVjRGTj
-	crb1Dc//W1g0EYZ7AiTqidXunQVj0mOAHXPG+WFlfwLAgzi27AQy0PESXbXRVi6Op5xr4ja+ma8/T
-	KFEEGw2Srl1YlhvOcJnFqFW/uJtvmz3Ywqh9ZFsAu2+H1BNSOOYds+i+LR5aR4FOSjJRcG7/RRXVX
-	KrJDK9rDGpdNkXTDpeIcV6yAXWIteM4rhaoLHuqW8DOiSvV4IiznJTOykLzuWTF/MsVpQ/pnYC6bb
-	4lJjy0FRQNJ0eqd1ejwVqv16rdGH0TeL3utMAQJ+/VZOAhye6XJQrM+gwiAWcHwKEn49k+vCVrvMR
-	zBqJRpDw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cFqARnaWsfVIsueHxYAc51tuCHmb5rqqqqfMHtoWdZU=; b=Fi6o7xr0ScH4eBwVB8kjv78PWl
+	AhIFZONFkTgdxtNXTwas6aX8b9z2geGghrPvXAZbhIOzHTVVwsRyI0PD+V0szxdi9HWt1TAy4gk+B
+	xGxMskOAMzmO5JI5mqNn34VCCKJCfDDLhQneR+wSYi2pIfoHIA/bY/Jqa2PkFpm5RU0peHu7p/5pf
+	7UReKqkxLtryCOIPwuiGmc08q0VS1zaux4IjavhW3s93YbpofAmHbGEOO2x/2v2WZWMW914jLvkzj
+	Uf7ZxRKRcT/+27riAPqYY5zkkq1j4cT99jhbK2Q+59zdg2Gtd9gAwqgqKZp2zoosPjp8XhKzU9hVG
+	+UTZHwbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wydil-0000000HTkr-0lz6;
-	Mon, 24 Aug 2026 23:04:51 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1wyerF-0000000HWgk-0RY4;
+	Tue, 25 Aug 2026 00:17:41 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wydii-0000000HTkU-00I3
+	id 1wyerC-0000000HWgH-0Lr6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 24 Aug 2026 23:04:49 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-cbedda4c154so2517542a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 16:04:47 -0700 (PDT)
+	Tue, 25 Aug 2026 00:17:39 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6a41191c9a9so8156071a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 17:17:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787617055; cv=none;
+        d=google.com; s=arc-20260327;
+        b=UPt2CqXd/YitLz+AZGzrC8ppUonpajf+xN6WaXQieC7mqL+QJuaxSU+BbuF0P9ojlx
+         T2Gr7StqldxHzWbFqHfH//ufK52BJlz5LbHlluQqxrjEt8+z5pk4botxQkYK2qyqYDKf
+         LRrPJo1NylzcPKL5K+6VitxBF0BMnqsIxla5jJPcRRPx8jf2cDcjfWPZhnYN0DgZaOtW
+         eBoClFIte+ArRGz4o7D3o0BmgvEAZj/et/NIARYMqw1x8zvbEWai9s0FcpnK4Ba5kJk/
+         Nmchnr3PR++dxknpSo0uvo02/5UVDARZkFrFDhPDgzVyG+j17grvtVLeP3vrsHT/5FWv
+         35WA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=cFqARnaWsfVIsueHxYAc51tuCHmb5rqqqqfMHtoWdZU=;
+        fh=85nDYd9rp8noPvQXXwanCXwVyYYnyJzgqjCPm5moxaE=;
+        b=FjAsqa56HUq7Inu+PP1SV9MDQ1QYBbvQioncGXTFIwmfWVhiZh2Qsz2wosnJ5wSxKk
+         hLqz7LoYeJ0SuehQseUaZTshhe+Ti+v7W9q/x/ybTV5XRRC2yRB35oRAXPksbdkJrGs2
+         2urSTC7UfFXFkDzSYFfPmeFxAD3aJaRTP4MpxY+zjtbQ2utwnH8PBcJXB8dX9Z0sT05K
+         Zl+cF7+wAwpbpwzx114bEr/phOA6DDxiarExqtWV04fbBm5cuvIhXWKu5NpgxORYwlmd
+         YtYhVXgU1srF0k/wcm8Xs93ReaxFgry4x0KrHkMncHVChuWYbgculJ5dv14APWNfHeT/
+         H9zQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787612687; x=1788217487; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WGnZD8PU2ZM2OuEJ0fefI9bGemjyRjfKxbkU0KSOSbI=;
-        b=sLb8dymSa/dBygxihwCD5YwcDKZlqP8oTaf0hM+Iuh8kRSnJTZdgqfHnhmKmf2icgo
-         5PgxTYzvsNzb3WY89GPLnVIApt5UZ3u023QK/XXNLd0Qw2lR3aE27h+RpTnMtfXQOaWF
-         614vY9NJBzkZSu1th/cJEeokyI5y5ysgbzL4WR8huPwprQbUZIeTm59Rn8EHT/aKh2Qh
-         Z+RjvjEnCqfVyxd7AJcu4C+ej9CXVdU9JjRB03MO6Lk3c4GS/5xUmEspFm9xH+6SPch0
-         xarYvcodDdpegyyxiQnhc3XF3fBa5oqUinNKXEdeG1qubn3i3TPKsD6Mrp2YdSIi+UWC
-         27MQ==
+        d=google.com; s=20251104; t=1787617055; x=1788221855; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cFqARnaWsfVIsueHxYAc51tuCHmb5rqqqqfMHtoWdZU=;
+        b=OCCy50mL6itbC83aKHsVuix8kxn/Di3EemsTaICOfb7fzuUGyk2lI8PwhAoacO63Ia
+         HLi8VXF6aLpCK+cZXBVwutLOyHyrAyU/KVIlnzBFcdZVVxlRcE+PRZjW0JVQqlascPav
+         jAPGCSLKxbaukgHA+/qt7HkQnyhCA6zyjqCQhhCeKaU+tr7nMYhNVyRDUNw/vdvFpWIS
+         HU8H2z3jymgC62rngLQRLYD4jwCNH1P1hGHvu8nnoeWk3uAa1Xz903TGzNRNMfZ2YodZ
+         hhB/xRFUQJVYWdf2a0m29RR50XnGsMGBt4y3glgUAFiVUfBj3GxRM1XRbZtD4+7nVgDv
+         DV2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787612687; x=1788217487;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=WGnZD8PU2ZM2OuEJ0fefI9bGemjyRjfKxbkU0KSOSbI=;
-        b=YpYYODYNf/t1tKZfI58vLNxOEWmPpfMAYzoMfJjyvmnHR+IHLPMgjhJIEyldsneAsy
-         V01U24jBpAp9aCQpjOO+vZ5Jra5+VGEtKCvX27PW1vsS4rEsKKHBo0L/UeXxF0iXFoc8
-         4UnF3uUpCGv7rqV+99lVObhoUiNrQhQsxnZT5K8WY1jrU6UAZ6K0hEjadCIx1UWVn1OA
-         scSHRnGoBWYaHU9++pkghK+RpaLM2rAwfNz0NTczMUGMWMWy4CCdGGswWF8g97d5FicC
-         TuL85XaznGeVKkZ83ImmK/BflXMMRGpomBuRVFIqBLgxuHuKP/4FlMfBrzge5RsMCpb2
-         DCVw==
-X-Forwarded-Encrypted: i=1; AHgh+RpsYXOv75UUXNpICyJeoPZc683A6NrcWq2E6IyyQIusjpSsmE9IlnxveoFszQVGJtPFv7kpCd+R9Or9EM/uDW/u@lists.infradead.org
-X-Gm-Message-State: AFuF++lOOPo3Fj7e3pnf6yxV8puG0Eijyt6KMhnojvB688e68v2dxkTy
-	R8Z+QSbkcNnAj+RSDPGNQjIG4kvQtUN78SgWuXw+uZ7/k3TJ+EXbRNOF
-X-Gm-Gg: AR+sD12S6v6zCqKRbGK00moIDRMqfiJ83DwDZQjDPZDlzUP63TUXtzpRcTEVIGc6hQz
-	ZbFLkHsfG/bLuemBrD/3NUGfgZxvIsNj7YOSEHxdXqn+Q6v5SYv9gTlNp2QTrAsLJqzeurtm/SX
-	Qty/dNJl7V7LMLaBJVWdpuef7upJAfMVga23vaTqRN9oQLcZvKtgLTHGju7LCItdf1Z69CYMM4F
-	/0C7g/HiuzubsO5IXDtvLG7tktwlXL0GOxwf6TxxtP3dkK7La4q35kIEjtTTxWydYWbA/jK7KZS
-	IthuGkxXQtRLuBRpRi10w2bDfzw67hEIiS15g3WHdCJx54IBFg7719cT73dbtW2ar+T1zqu25P0
-	8geYPtsBg4jIMNlIy2qyweO+UcRRMN7R06Z/cWMMifv0SVBPa976waUZo+2RyXe+T/CavATFIjl
-	B9n+NmYwjLKj/rJ2lP5xCqz9Tzm47Kp7W5TtMURQICqUuZyGGQZrmVhENq1G0t5+T+LTGqnsvVc
-	b2CPgQ2eE4/MpMf9+yQGDSvX50sJKTuxvpvRWSM125zdPdfMxTl
-X-Received: by 2002:a17:90b:5745:b0:380:f389:447b with SMTP id 98e67ed59e1d1-396464ce7bcmr4294356a91.11.1787612686607;
-        Mon, 24 Aug 2026 16:04:46 -0700 (PDT)
-Received: from hanzj-mi.. (ec2-99-79-140-187.ca-central-1.compute.amazonaws.com. [99.79.140.187])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39645b39efdsm1214065a91.5.2026.08.24.16.04.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 16:04:46 -0700 (PDT)
-From: Zhijian Han <hanzhijian1991@gmail.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Zhijian Han <hanzhijian1991@gmail.com>,
-	sashiko-bot@kernel.org
-Subject: [PATCH] PCI: imx6: fix endpoint init error handling
-Date: Tue, 25 Aug 2026 07:04:27 +0800
-Message-ID: <20260824230427.3649829-1-hanzhijian1991@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20251104; t=1787617055; x=1788221855;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cFqARnaWsfVIsueHxYAc51tuCHmb5rqqqqfMHtoWdZU=;
+        b=pmE1SFOsHs8EVXrLBxBIngpuv4FcyZrRYc7j3ywvDW4P5k0hynqejjNg44Sen+eSF2
+         fpjDoWHam5oXtl0uu4sdyM2spbrF/9BOpo6XzF2T0nWq+hhB8t/Sw7Xe4NTJ3zwH3Fd3
+         dLDHDJ1okZ/GsEsGS1xY0w9b4C+PNNGJvCgZe05RT1fOSTXz5XH6lmzO18Hdu2D4s1vH
+         yGKQSIUY1fN2our+89BdW3e+m0zpJU34DkbCLePtfzVVgl/BocA1igW6qGjv/OzqaSXg
+         eANMyLx/2bwO9QLwQCkw3C2GrPIeRx+X7cIVd8rp8f5CbCZyjihES7K3EqkvjqmQ9qkE
+         Odzg==
+X-Forwarded-Encrypted: i=1; AHgh+RqjHoAe08wFj/MEhmn5/5yX6L+BcfomSkQ0KYSvYGyl2u2i2ZoJJGJQWsVZK2Ukzrn7fk22o8gM10xVVww2iV7s@lists.infradead.org
+X-Gm-Message-State: AFuF++keF4QBMFzmGlgd8PokFB3YW/T512zWMBwI7a7BQgaSlafL725R
+	gkSgLL43bISdRn/unXbZ+gLo36n+Km0ET5hjHp/rUFAGCwyGf1LOw2ZSdfHG40tkD0iMRu4ZGT7
+	b7ps6QjQbnb3/+OZJVFJzyyprHxzAJI1aK8aSqaX7
+X-Gm-Gg: AR+sD10ElkSWdMNUL7/T0htrH2vGtkX4e+XKdkaaCjNCAYN578b1Q0SiYY/mVIDGTmU
+	libYy5v8d3U2kLAk2kawzNz6rxiG0VjU1EJwPzBcgUWuU+3QSZFjEhbdS6bxEm0Tkn87Kd2LAu9
+	W9OMFUDgR7iUNjKtkDO/JaSknwd5Eq5xZXL5veVN8dUpipdKVUeInPsFfY5ew4zWSsXepSm5hkf
+	W/orWgGu0sj6TYG5wg2SB6b+aI6+ByQ4XUUHbT7JgFwDOtMr6uh8rzRHyupvSl8BQXMBLAs/Oiv
+	sSppGdLL8ASsiXYuSzdjXtk/7O4uIb0OO8nfky0aGFE3WcsAJ/Xku+Q4/jBqwECqiz8M8AN+KwU
+	OjF7PdDzweHqmN3Zf5QH/vlF+or6Baz0YSXsG5XteaEJVSRY962QC6U1ucCkGtRtcRkExyN+6xr
+	+z8mwbjbK0ONMF
+X-Received: by 2002:a17:906:3e5a:b0:c20:2165:d74f with SMTP id
+ a640c23a62f3a-c246a6ca4f5mr2781903566b.22.1787617054440; Mon, 24 Aug 2026
+ 17:17:34 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260708031129.3503195-1-jthoughton@google.com>
+ <20260708031129.3503195-12-jthoughton@google.com> <aoR_5LHPsVXUnxt6@arm.com>
+In-Reply-To: <aoR_5LHPsVXUnxt6@arm.com>
+From: James Houghton <jthoughton@google.com>
+Date: Mon, 24 Aug 2026 17:16:56 -0700
+X-Gm-Features: AcwNN1XeyQDNjfznf_slsJ2-WVr_gTFPPucM9IuBLkDPTtT4L5ACRlCs4qb6Unw
+Message-ID: <CADrL8HXpA7D3UAScj0+TpuqEPcQvLGA6htABnwYnOBXorBQrNw@mail.gmail.com>
+Subject: Re: [PATCH 11/18] hugetlb_vmemmap: Use try_populate_vmemmap_pmd for
+ replacing in-use PMDs
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
+	Oscar Salvador <osalvador@suse.de>, Nikos Nikoleris <nikos.nikoleris@arm.com>, 
+	Linu Cherian <linu.cherian@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	David Hildenbrand <david@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, 
+	Yu Zhao <yuzhao@google.com>, Frank van der Linden <fvdl@google.com>, 
+	David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_160448_045341_79BCF789 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20260824_171738_159911_F78A2B86 
+X-CRM114-Status: GOOD (  34.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,71 +127,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx_add_pcie_ep() ignores the return value of imx_pcie_host_init(), so
-a failure to enable the clocks, regulators, or PHY during endpoint
-initialization goes unnoticed and the driver proceeds to initialize the
-endpoint against unpowered hardware.
+On Tue, Aug 18, 2026 at 8:53=E2=80=AFAM Catalin Marinas <catalin.marinas@ar=
+m.com> wrote:
+>
+> On Wed, Jul 08, 2026 at 03:11:21AM +0000, James Houghton wrote:
+> > diff --git a/arch/arm64/include/asm/pgalloc.h b/arch/arm64/include/asm/=
+pgalloc.h
+> > index 1b4509d3382c..c8946250d431 100644
+> > --- a/arch/arm64/include/asm/pgalloc.h
+> > +++ b/arch/arm64/include/asm/pgalloc.h
+> > @@ -121,4 +121,13 @@ pmd_populate(struct mm_struct *mm, pmd_t *pmdp, pg=
+table_t ptep)
+> >                      PMD_TYPE_TABLE | PMD_TABLE_AF | PMD_TABLE_PXN);
+> >  }
+> >
+> > +#define __HAVE_ARCH_TRY_POPULATE_VMEMMAP_PMD
+> > +static inline int try_populate_vmemmap_pmd(pmd_t *pmdp, pte_t *pgtable=
+,
+> > +                                        unsigned long addr)
+> > +{
+> > +     /* BBML2_NOABORT is required. Its presence has been checked. */
+> > +     pmd_populate_kernel(&init_mm, pmdp, pgtable);
+> > +     return 0;
+> > +}
+>
+> This patch adds the same function in 4 different arch files. Can we not
+> have a single generic implementation in linux/pgalloc.h, bracketed by
+> some ARCH_WANTS_* (macro or config)?
+>
+> I think the same goes for patch 4 with try_update_vmemmap_pte(), we can
+> reduce the code duplication.
 
-It also returns directly without calling imx_pcie_host_exit() when
-dw_pcie_ep_init() or dw_pcie_ep_init_registers() fails, leaking the
-clocks, regulators, and PHY that imx_pcie_host_init() acquired.
+Yeah putting the generic version behind an ARCH_WANTS ifdef is so much
+better. Then I can just nix the EOPNOTSUPP branch; a compile error is
+always better.
 
-Check the return value of imx_pcie_host_init() and jump to a new
-err_host_exit label that calls imx_pcie_host_exit() from the endpoint
-initialization error paths, mirroring the root port path which releases
-these resources through the dw_pcie_host_init() framework.
+> > diff --git a/include/linux/pgalloc.h b/include/linux/pgalloc.h
+> > index 9174fa59bbc5..ed446d95ca37 100644
+> > --- a/include/linux/pgalloc.h
+> > +++ b/include/linux/pgalloc.h
+> > @@ -26,4 +26,24 @@
+> >                       arch_sync_kernel_mappings(addr, addr);          \
+> >       } while (0)
+> >
+> > +#ifndef __HAVE_ARCH_TRY_POPULATE_VMEMMAP_PMD
+> > +/*
+> > + * try_populate_vmemmap_pmd - Populate a PMD that is in use by the vme=
+mmap.
+> > + * @addr: Base address of the remapped PMD.
+> > + * @pmdp: Page table pointer to be overwritten.
+> > + * @pgtable: Pointer to the page table that the new PMD will point to.
+> > + *
+> > + * This function is only to be used to update PMDs that map the vmemma=
+p to
+> > + * point to a page of already-populated PTEs that map the same pages.
+> > + *
+> > + * Implementations of this function must ensure that, while the update=
+ is taking
+> > + * place, CPUs will not fault on the remapped virtual address range.
+> > + */
+> > +static inline int try_populate_vmemmap_pmd(pmd_t *pmdp, pte_t *pgtable=
+,
+> > +                                        unsigned long addr)
+>
+> Nit: if we follow try_update_vmemmap_pte(), we could place 'addr' first.
+> It matches pgd_populate_kernel() as well in this file.
 
-Reported-by: sashiko-bot@kernel.org
-Link: https://lore.kernel.org/all/20260824152857.DB9771F00A3D@smtp.kernel.org/
-Signed-off-by: Zhijian Han <hanzhijian1991@gmail.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
+Will do.
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index 39790e66b..1dad93e9d 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -1634,7 +1634,10 @@ static int imx_add_pcie_ep(struct imx_pcie *imx_pcie,
- 	struct dw_pcie_rp *pp = &pci->pp;
- 	struct device *dev = pci->dev;
- 
--	imx_pcie_host_init(pp);
-+	ret = imx_pcie_host_init(pp);
-+	if (ret)
-+		return ret;
-+
- 	ep = &pci->ep;
- 	ep->ops = &pcie_ep_ops;
- 
-@@ -1646,7 +1649,7 @@ static int imx_add_pcie_ep(struct imx_pcie *imx_pcie,
- 	ret = dw_pcie_ep_init(ep);
- 	if (ret) {
- 		dev_err(dev, "failed to initialize endpoint\n");
--		return ret;
-+		goto err_host_exit;
- 	}
- 	imx_pcie_host_post_init(pp);
- 
-@@ -1654,12 +1657,16 @@ static int imx_add_pcie_ep(struct imx_pcie *imx_pcie,
- 	if (ret) {
- 		dev_err(dev, "Failed to initialize DWC endpoint registers\n");
- 		dw_pcie_ep_deinit(ep);
--		return ret;
-+		goto err_host_exit;
- 	}
- 
- 	pci_epc_init_notify(ep->epc);
- 
- 	return 0;
-+
-+err_host_exit:
-+	imx_pcie_host_exit(pp);
-+	return ret;
- }
- 
- static void imx_pcie_msi_save_restore(struct imx_pcie *imx_pcie, bool save)
--- 
-2.43.0
+> > +{
+> > +     return -EOPNOTSUPP;
+> > +}
+> > +#endif
+> > +
+> >  #endif /* _LINUX_PGALLOC_H */
+> > diff --git a/mm/hugetlb_vmemmap.c b/mm/hugetlb_vmemmap.c
+> > index 977249e22ed0..b445febac0d2 100644
+> > --- a/mm/hugetlb_vmemmap.c
+> > +++ b/mm/hugetlb_vmemmap.c
+> > @@ -55,6 +55,7 @@ static int vmemmap_split_pmd(pmd_t *pmd, struct page =
+*head, unsigned long start,
+> >                            struct vmemmap_remap_walk *walk)
+> >  {
+> >       pmd_t __pmd;
+> > +     int ret;
+> >       int i;
+> >       unsigned long addr =3D start;
+> >       pte_t *pgtable;
+> > @@ -74,8 +75,15 @@ static int vmemmap_split_pmd(pmd_t *pmd, struct page=
+ *head, unsigned long start,
+> >               set_pte_at(&init_mm, addr, pte, entry);
+> >       }
+> >
+> > +     ret =3D 0;
+> >       spin_lock(&init_mm.page_table_lock);
+> >       if (likely(pmd_leaf(*pmd))) {
+> > +             /* Make pte visible before pmd. See comment in pmd_instal=
+l(). */
+> > +             smp_wmb();
+> > +             ret =3D try_populate_vmemmap_pmd(pmd, pgtable, start);
+> > +             if (ret)
+> > +                     goto free;
+> > +
+> >               /*
+> >                * Higher order allocations from buddy allocator must be =
+able to
+> >                * be treated as independent small pages (as they can be =
+freed
+> > @@ -84,21 +92,17 @@ static int vmemmap_split_pmd(pmd_t *pmd, struct pag=
+e *head, unsigned long start,
+> >               if (!PageReserved(head))
+> >                       split_page(head, get_order(PMD_SIZE));
+> >
+> > -             /* Make pte visible before pmd. See comment in pmd_instal=
+l(). */
+> > -             smp_wmb();
+> > -             /*
+> > -              * On arm64, this requires BBML2_NOABORT. Its support has
+> > -              * already been checked.
+> > -              */
+> > -             pmd_populate_kernel(&init_mm, pmd, pgtable);
+> >               if (!(walk->flags & VMEMMAP_SPLIT_NO_TLB_FLUSH))
+> >                       flush_tlb_kernel_range(start, start + PMD_SIZE);
+> > -     } else {
+> > -             pte_free_kernel(&init_mm, pgtable);
+> > -     }
+> > -     spin_unlock(&init_mm.page_table_lock);
+> > +     } else
+> > +             goto free;
+> >
+> > -     return 0;
+> > +out:
+> > +     spin_unlock(&init_mm.page_table_lock);
+> > +     return ret;
+> > +free:
+> > +     pte_free_kernel(&init_mm, pgtable);
+> > +     goto out;
+> >  }
+>
+> Would 'free' first with fall through 'out' read better?
 
+Yes, yes it would. I think the current ordering is just a holdover
+from earlier attempts at writing this function.
+
+Thanks!
 
