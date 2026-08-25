@@ -4,89 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44DE3C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 12:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B1E1C61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 12:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xyj2t2ZPJet7pQNjQ/Ax+H9J0fk7chnHKPGRi/WPS70=; b=kN93qW3C7+i/HRMlvD0wEfQgjm
-	jloNFCKdNMwRYnh/x2aKTl5kNtPBh3mSPwL14rljxmpQXnX5/KY9Kly/c6GHu39LK5+Ezb39cPiNd
-	kgRD61QuFRxLuxdIzeX0iIPqaVsQQDSkeEyTtR7jwJsWHV5IknJl6jcYrQAudB9zHRoQR5yEWCghl
-	QWkUX0bAJOr4pYKJwUDLMJnCod7vsF8Au2rMlalw4wc4htU3sKRUvveNAnuOOMj56xYTNywzD9fEh
-	oi9UgMv2UnXPrWFiR/99mMJw4xCyJ0NvLIEI3LPB6BTBY7PRRRjIRquZco7Ao0H0TQAvOcVUshIy0
-	Twj6q9dw==;
+	bh=TFI3yyLn9l19QnGbVm2do/qnURFM3qOYJajHXsZKIRI=; b=PCS3cr19SlAfSy62NkG/HQZ4ic
+	+LsMLa0adbHbwQ1cRjRsZxtHPHdY5vTffRw/dKYZYZij7P5vHxXK270xMs4DUpQqUi0RQAq2eKL7G
+	4n498lNd5ABPy9yJBhf/ANFCI5djM9tXHP/utAdLhjknleSPE50qGGxve31hua5LpF0gw4lWBzJq4
+	JedxFwBg7y+PKrPLTdy8Fo8wE5Kt0Ghz5bJ54vEFf+nM+pOTzNlMzp+6u0h8SvGXyeG9Ir2sEuGDH
+	dKan5eoEPqTwM/yiqdwMs/tGzY1pLdIR9Eyyu6y5Kigc+b0CvcNEZLqn1qJhPdDWrQlwCzH7p62Yq
+	IgpAOWdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyqTB-00000000nX5-0uxW;
-	Tue, 25 Aug 2026 12:41:37 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wyqUo-00000000nkB-036k;
+	Tue, 25 Aug 2026 12:43:18 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyqT7-00000000nVk-3FUQ
+	id 1wyqUk-00000000njX-3DKx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 12:41:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1787661692;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xyj2t2ZPJet7pQNjQ/Ax+H9J0fk7chnHKPGRi/WPS70=;
-	b=iWa3RA6sEacwB/85tMdSeWtuiJA2MZxmax/yQkOf9NpchqbpffgLjZyvvcXRcjHChigvpf
-	VjGr4DcYhRvHniC5jWts52wsyXBOkMJC0ZTaA9NzN7SWciHMrfTeFSgTaX7FlgKSjUvJgE
-	lh/KA7VolhU6IYl2NdbqF4hg8Q1RgmU=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-170-kVtEiiVEOIqlkY40LMcG6w-1; Tue,
- 25 Aug 2026 08:41:28 -0400
-X-MC-Unique: kVtEiiVEOIqlkY40LMcG6w-1
-X-Mimecast-MFC-AGG-ID: kVtEiiVEOIqlkY40LMcG6w_1787661683
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C71D91955DDF;
-	Tue, 25 Aug 2026 12:41:22 +0000 (UTC)
-Received: from gerbillo.redhat.com (unknown [10.44.48.127])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 20396362;
-	Tue, 25 Aug 2026 12:41:15 +0000 (UTC)
-From: Paolo Abeni <pabeni@redhat.com>
-To: hartmnn.p@gmail.com
-Cc: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	andre.przywara@arm.com,
-	clabbe.montjoie@gmail.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: stmmac: dwmac-sun8i: reset the EMAC when opening, not when probing
-Date: Tue, 25 Aug 2026 14:41:11 +0200
-Message-ID: <20260825124111.178799-1-pabeni@redhat.com>
-In-Reply-To: <20260822045641.19282-1-hartmnn.p@gmail.com>
-References: <20260822045641.19282-1-hartmnn.p@gmail.com>
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
-X-Mimecast-MFC-PROC-ID: 75hxEJBylUL4w1d9dItwCa3pT9o1h1a_Xy89IoDRbL4_1787661683
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+	Tue, 25 Aug 2026 12:43:16 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-c1671ec8692so667723566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 05:43:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1787661792; x=1788266592; darn=lists.infradead.org;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=TFI3yyLn9l19QnGbVm2do/qnURFM3qOYJajHXsZKIRI=;
+        b=jb4TTnPykuk1KhBgFInniVnxIAjgW0ACxw1RItvZrDxB4UaoRbo2ydO/ZC/mnME4Mw
+         7pDiQopWlDQkEDgQwL/HtR8YlWnhK9nPd9ZjlHVxKedoC1kxh1yA4IBHskni6209VgKR
+         K2x/XLDXu7BYJJJbZTBN6D3amwC/gLmNXF8zQIAQ+rTVMtOPhMb3pNONmwK0xLFAvyms
+         NjoGc1gFVSB/Wa37oOX3M1QsmvC2IKIsTU/8pq/9gSRLoeIlG82fEAlbOGhLB1UymTH9
+         IceJeJDeuVtWw5s3IlVeAXBkbf/sjFrAZAymytjxeogFTuuuetCDGAh3ZVIkAgHNy8J9
+         4WHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787661792; x=1788266592;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=TFI3yyLn9l19QnGbVm2do/qnURFM3qOYJajHXsZKIRI=;
+        b=Us1UmcVjg+39BiAf/6D4R8UIb/qnddFNJjjXxJRdkWQ0ueCt/1e2ue9II0M+1ymPli
+         25i84cgWFczLwnToap4RBUs4qXwE83IyrHKOQix+7d6LmhjVQ9/qRk9emPpZMRjJ3Fcq
+         rP7h1tvK1aEiPdOE/6wqbja5gEezpXFLJoABea1/0vyLPN9CagbV63qZNwkxCh22Jv3L
+         NHnZI+Bycwap2asjJWdoNpWGrAFR0nDAgH8IXURFfP/ynFxtW6ywPh82IpNwOF34vRFW
+         4MxrMLmjcSNqr7gQwP0ttZVdA+oqjk1w+D2yeAKa/yxSkwweuGzkGlAHexwpIuOexxh2
+         RFqg==
+X-Forwarded-Encrypted: i=1; AHgh+RrdCHTE3FKHiuj/bi1jdUI5YEH6ZyeUXFtLyb5sN/+0OcdQZVZ1ACT5FANFPOi1n3nEr6a3Gpbuo/6hj88T7bHr@lists.infradead.org
+X-Gm-Message-State: AFuF++kg49sgEm8SxER88x/mJtATd5y7Jf4oOom2DNi9UNcFb7t4EzwX
+	GPv8oCtC+5l5hQbWOgWkv8wGeW9MhSSNVLXkgJkm6vyLQaplnLbRupwrIXVwE8ZUr58=
+X-Gm-Gg: AR+sD125D946tSwvsOxJZkNpVUralmh2DfvRoauXtlMLlwiQ1Fc04Rugcl8E6x47Lae
+	UxRRzXZqiJ4ZvTu9Eh636X0mUQrHo+ivpVk8d6UxXKUV4+DKanKBFKqqZ/3W2Zss9RX6tEObdjF
+	JRVpHvw54qmg3w/0pGnmDFz9roI6SwuqyjH/0fqGL0mwkwQLVOQ7UiKAg1En+KHcFPYXOk20Fmu
+	0jL6MlGCvGfXaAksCBgvECWjwCVkn+6BpatkcK8QuKLkS+5u9juRBZF0wmLtq9KA5yz20FIkiNM
+	/yCsWdURL5FN9see03CfYnsthPQ6n/i/1xM/Zs/Eflgd9jZVjfW7nUXCJ/psT+wvkHyrQJtLows
+	aSTjkXKOnE1punU3bYbDpQrSCtdOZ9HsM7kQ6MrgIbyGEoS26EgJU8xEjdfUHiMKS1XtmKaS3tQ
+	zXSDAMnKl8MnOPSds0WUs/TILFzBUmiMVQeXmHdH/aSruB3c11Oq/y53A5
+X-Received: by 2002:a17:907:1c27:b0:c21:382e:9a38 with SMTP id a640c23a62f3a-c2491c2a110mr2907599166b.2.1787661792297;
+        Tue, 25 Aug 2026 05:43:12 -0700 (PDT)
+Received: from localhost ([2001:4090:a244:80d4:489b:7642:1b32:84d6])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c24966f809bsm1943085966b.41.2026.08.25.05.43.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Aug 2026 05:43:11 -0700 (PDT)
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=14a369f1291804ff25a36242752313e74f8647a8095442ea6e38a796f654;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Tue, 25 Aug 2026 14:43:01 +0200
+Message-Id: <DKY17OVPN49B.3U7OKB7NIMLF2@baylibre.com>
+From: "Markus Schneider-Pargmann" <msp@baylibre.com>
+To: "Andrew Davis" <afd@ti.com>, "Markus Schneider-Pargmann (TI)"
+ <msp@baylibre.com>, "Nishanth Menon" <nm@ti.com>, "Vignesh Raghavendra"
+ <vigneshr@ti.com>, "Tero Kristo" <kristo@kernel.org>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Nathan Chancellor" <nathan@kernel.org>,
+ "Nick Desaulniers" <nick.desaulniers+lkml@gmail.com>, "Bill Wendling"
+ <morbo@google.com>, "Justin Stitt" <justinstitt@google.com>, "Judith
+ Mendez" <jm@ti.com>, "Daniel Schultz" <d.schultz@phytec.de>, "Siddharth
+ Vadapalli" <s-vadapalli@ti.com>, "Paresh Bhagat" <p-bhagat@ti.com>, "Bryan
+ Brattlof" <bb@ti.com>, "Jai Luthra" <jai.luthra@ideasonboard.com>, "Devarsh
+ Thakkar" <devarsht@ti.com>, "Beleswar Padhi" <b-padhi@ti.com>, "Francesco
+ Dolcini" <francesco.dolcini@toradex.com>, "Stefano Radaelli"
+ <stefano.radaelli21@gmail.com>
+Cc: "Vishal Mahaveer" <vishalm@ti.com>, "Kevin Hilman"
+ <khilman@baylibre.com>, "Sebin Francis" <sebin.francis@ti.com>, "Kendall
+ Willis" <k-willis@ti.com>, "Akashdeep Kaur" <a-kaur@ti.com>,
+ <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>, "Hari Nagalla"
+ <hnagalla@ti.com>
+Subject: Re: [PATCH v7 07/11] arm64: dts: ti: k3-am62a-ti-ipc-firmware: Move
+ wkup reserved memory
+X-Mailer: aerc 0.21.0-146-gb5c16ebe1835
+References: <20260701-topic-am62a-ioddr-dt-v6-19-v7-0-e9db8b16821a@baylibre.com> <20260701-topic-am62a-ioddr-dt-v6-19-v7-7-e9db8b16821a@baylibre.com> <f9a23a59-4346-4408-92c6-11b9162f0efa@ti.com>
+In-Reply-To: <f9a23a59-4346-4408-92c6-11b9162f0efa@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_054133_891001_40CDBF96 
-X-CRM114-Status: GOOD (  36.12  )
+X-CRM114-CacheID: sfid-20260825_054314_825683_9B39FB60 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,199 +117,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
-Full review at: https://netdev-ai.bots.linux.dev/sashiko/
----
-net: stmmac: dwmac-sun8i: reset the EMAC when opening, not when probing
+--14a369f1291804ff25a36242752313e74f8647a8095442ea6e38a796f654
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-The EMAC soft reset is moved out of sun8i_dwmac_probe() and into the
-stmmac_dma_ops->reset hook, so it runs from stmmac_init_dma_engine()
-instead of at probe time.  A new helper sun8i_dwmac_soft_reset() holds the
-assert-and-poll sequence, and sun8i_dwmac_reset() is kept as a thin
-wrapper for the mdio-mux switch callback.
+Hi Andrew,
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> index 48c52eb96233..748ebabd933c 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> @@ -272,8 +272,34 @@ static const struct emac_variant emac_variant_h6 = {
->  /* sun8i_dwmac_dma_reset() - reset the EMAC
->   * Called from stmmac via stmmac_dma_ops->reset
->   */
-> +static int sun8i_dwmac_soft_reset(void __iomem *ioaddr)
+On Thu Jul 9, 2026 at 9:33 PM CEST, Andrew Davis wrote:
+> On 7/1/26 7:39 AM, Markus Schneider-Pargmann (TI) wrote:
+>> Move the reserved memory regions used for wkup_r5fss0_core0 to the
+>> k3-am62a-ti-ipc-firmware.dtsi. These are all the same for the other
+>> boards as well, so we can combine them here similar to what is already
+>> done for the mcu_r5fss0_core0 memory regions.
+>
+> The reason we left this region here in the base DTSI is this region
+> is for the DM firmware and is required for the SoC to function.
+> The other firmware regions are all optional.
 
-[Severity: Low]
-This isn't a bug, but the existing header block now sits above the wrong
-function.  Neither statement in it holds for sun8i_dwmac_soft_reset():
-the ops table binds .reset = sun8i_dwmac_dma_reset, and the new helper
-has a second caller, sun8i_dwmac_reset(), used by the mdio-mux switch
-callback.  sun8i_dwmac_dma_reset() is then the only dma ops callback in
-this file without a header comment naming it, unlike
-sun8i_dwmac_dma_init() just below.  Should the comment move down with the
-function it describes?
+I left this in the base dts before and Nishanth pointed out that it
+should be in the ipc-firmware.dtsi so it only needs to be changed in one
+place:
 
-> +{
-> +	u32 v;
-> +
-> +	v = readl(ioaddr + EMAC_BASIC_CTL1);
-> +	writel(v | 0x01, ioaddr + EMAC_BASIC_CTL1);
-> +
-> +	/* The timeout was previously set to 10ms, but some board (OrangePI0)
-> +	 * need more if no cable plugged. 100ms seems OK
-> +	 */
-> +	return readl_poll_timeout(ioaddr + EMAC_BASIC_CTL1, v,
-> +				  !(v & 0x01), 100, 100000);
-> +}
+  That was the entire purpose of splitting ipc-firmware.dtsi out -
+  if the default firmware carveouts have changed, do the change in
+  ipc-firmware.dtsi. That way some other firmware people will have could
+  potentially have their own dtsi files and handle things appropriately
+  there, even if they are using the same evm OR if they use the exact
+  ipc-firmware on different boards, that will appropriately introduce
+  the change there as well. BUT, do check first.
 
-[Severity: Medium]
-Is 100 ms still enough in the new context?  The comment above the poll
-was written for a probe-time reset, where the PHY had been powered and
-clocking since boot.
+https://lore.kernel.org/r/20260507155710.5zch4ghhzrj7hnlh@immovably
 
-In the new call site the PHY may have left BMCR_PDOWN only microseconds
-earlier.  __stmmac_open() and stmmac_resume() both do:
+Maybe I am misunderstanding what you are suggesting. Also note that the
+memory-region list in wkup_r5fss0_core0 which references the memory
+regions defined in the base dts were always in the ipc-firmware.dtsi.
 
-	phylink_prepare_resume(priv->phylink);
-	...
-	ret = stmmac_hw_setup(dev);
+Could you please help me understand how this is modeled so I can update
+the patches appropriately?
 
-and phylink_prepare_resume() itself says:
+Thanks!
 
-	/* IEEE 802.3 22.2.4.1.5 allows PHYs to stop their receive clock
-	 * when PDOWN is set. ... Note that 802.3 allows PHYs 500ms before
-	 * the clock meets requirements. We do not implement this delay.
-	 */
-	if (pl->config->mac_requires_rxc && phydev && phydev->suspended)
-		phy_resume(phydev);
+Best
+Markus
 
-Only stmmac_reset_queues_param() and descriptor clearing sit between
-phy_resume() and stmmac_init_dma_engine() -> sun8i_dwmac_dma_reset(), so
-on a PHY that is slow to restart RXC after power-down the poll can expire
-and stmmac_hw_setup() returns -ETIMEDOUT on ifup, MTU change and system
-resume.
+--14a369f1291804ff25a36242752313e74f8647a8095442ea6e38a796f654
+Content-Type: application/pgp-signature; name="signature.asc"
 
-The other stmmac variants that soft-reset in this hook allow more
-headroom: 200 ms in dwmac_lib.c, 1 s in dwmac4_lib.c and dwmac-imx.c, 2 s
-in dwmac-loongson.c.  Would raising the budget here be reasonable?
+-----BEGIN PGP SIGNATURE-----
 
->  static int sun8i_dwmac_dma_reset(void __iomem *ioaddr)
->  {
-> +	int err;
-> +
-> +	/* The MAC soft reset only completes once the PHY is driving the RX
-> +	 * clock. Doing it here rather than at probe means phylib has already
-> +	 * attached and resumed the PHY, so the clock is running by
-> +	 * construction -- including after a warm reboot that left the PHY
-> +	 * powered down.
-> +	 */
+iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCao2N1RsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlMY
+0wD+MW1P+fXLHbnT0Q5q0xRZNdlX5mzZrZjflYaQeXlZQVkBALnL4EjrbB40bxbu
+e80zmZ+OmW/bF+SzGKpJy8SoyqYK
+=pVaV
+-----END PGP SIGNATURE-----
 
-[Severity: Medium]
-Is the stated precondition accurate for all callers of the hook?  The
-commit message says:
-
-  "stmmac calls it from stmmac_init_dma_engine(), under stmmac_hw_setup(),
-   whose only two callers are __stmmac_open() and stmmac_resume() -- both
-   of which run after stmmac_init_phy() has attached and resumed the PHY."
-
-stmmac_resume() does not call stmmac_init_phy() at all, and __stmmac_open()
-is also reached from stmmac_change_mtu() and the XDP re-open path without
-going through stmmac_open() -> stmmac_init_phy().
-
-What actually guarantees a running receive clock before stmmac_hw_setup()
-on those paths is phylink_prepare_resume(), added by commit 06232cb44bc8e
-three weeks before this patch:
-
-	phylink_prepare_resume(priv->phylink);
-
-	stmmac_reset_queues_param(priv);
-
-	ret = stmmac_hw_setup(dev);
-
-In the current tree the behaviour is fine, since stmmac sets
-mac_requires_rxc unconditionally, so phylink_prepare_resume() does resume
-a suspended PHY first.  But the patch carries Fixes: 9f93ac8d4085 (2017).
-In a stable tree without 06232cb44bc8e, would sun8i_dwmac_dma_reset()
-assert SOFT_RST with an external PHY still in BMCR_PDOWN on every resume
-and every MTU change, turning a probe-time failure into a resume and
-MTU-change failure?
-
-Could the commit message name phylink_prepare_resume() as the actual
-dependency, and note it explicitly for backporters?
-
-> +	err = sun8i_dwmac_soft_reset(ioaddr);
-> +	if (err)
-> +		return err;
-> +
->  	writel(0, ioaddr + EMAC_RX_CTL1);
->  	writel(0, ioaddr + EMAC_TX_CTL1);
->  	writel(0, ioaddr + EMAC_RX_FRM_FLT);
-> @@ -740,23 +766,12 @@ static void sun8i_dwmac_flow_ctrl(struct mac_device_info *hw,
->  
->  static int sun8i_dwmac_reset(struct stmmac_priv *priv)
->  {
-> -	u32 v;
-> -	int err;
-> -
-> -	v = readl(priv->ioaddr + EMAC_BASIC_CTL1);
-> -	writel(v | 0x01, priv->ioaddr + EMAC_BASIC_CTL1);
-> +	int err = sun8i_dwmac_soft_reset(priv->ioaddr);
-
-[Severity: Medium]
-This isn't a problem introduced by this patch -- the mdio-mux reset call
-site predates it -- but does the failure mode survive there for the
-H3/V3s variants, the only ones with soc_has_internal_phy = true?
-
-The commit message mentions the retained caller:
-
-  "sun8i_dwmac_reset() stays for the mdio-mux switch callback, which needs
-   a reset after changing the syscon and cannot use the hook."
-
-That callback still runs at probe time.  mdio_mux_read() invokes the
-switch callback before forwarding the first MDIO transfer:
-
-drivers/net/mdio/mdio-mux.c:mdio_mux_read() {
-	...
-	r = pb->switch_fn(pb->current_child, cb->bus_number, pb->switch_data);
-	if (r)
-		goto out;
-	...
-}
-
-so during sun8i_dwmac_probe() -> sun8i_dwmac_register_mdio_mux() ->
-mdio_mux_init() -> of_mdiobus_register(), the callback runs with
-current_child == -1, selects the external child, unpowers the internal
-PHY and calls sun8i_dwmac_reset() -> sun8i_dwmac_soft_reset() before
-phylib has attached or resumed the external PHY.
-
-On a board whose external PHY came back from a warm reboot in BMCR_PDOWN
--- the scenario in the commit message -- would the poll return -ETIMEDOUT,
-switch_fn fail, mdio_mux_read() abort, and the external PHY never be
-discovered?
-
-The new comment in sun8i_dwmac_dma_reset() states that phylib has already
-attached and resumed the PHY, which this second caller of the same helper
-does not honour.
-
->  
-> -	/* The timeout was previously set to 10ms, but some board (OrangePI0)
-> -	 * need more if no cable plugged. 100ms seems OK
-> -	 */
-> -	err = readl_poll_timeout(priv->ioaddr + EMAC_BASIC_CTL1, v,
-> -				 !(v & 0x01), 100, 100000);
-> -
-> -	if (err) {
-> +	if (err)
->  		dev_err(priv->device, "EMAC reset timeout\n");
-> -		return err;
-> -	}
-> -	return 0;
-> +
-> +	return err;
->  }
-
-[ ... ]
--- 
-This is an AI-generated review.
-
+--14a369f1291804ff25a36242752313e74f8647a8095442ea6e38a796f654--
 
