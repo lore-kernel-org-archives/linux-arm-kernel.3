@@ -4,64 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90FBDC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 16:44:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E717DC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 16:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HhDnYJp6idU/zB/vpIZI1eo8XyX+VQJ6y+dK4kTg7es=; b=Ec4Hidp9tvta59/xY8cUF8adE9
-	2mmdGdxRxepuMUURbhMsa5Cw9kARiVaYSYB8nOnUOJ29lSc/Su2GXAGjxU05QbwpVgieeStZiF+3U
-	O3+50PWvf/Pv8QfR9KCb0riTrmsZKwWnlsgQsatTe1ofo9CYug9bi/LMkvomV6+8yr3sTJTjr7oi4
-	Mnvxo+SPb2lbYvsGFNwRr6wVK8t5x81a/bJn/Jmr0acP4GHAO4bnh1KthLo2qz6gA8+PhG90w+nQE
-	NNy0A12eKqeyWicIb2qU2wFlqXLrrpvLEmfcoHFDov3xSsVHBbm6y3N5h9q/rBWEutVbvY0Wk0OD6
-	WjK/K3BA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=q8dPIM4A/v95p+QMQCVEpCH7GAGaiR7HlheeCmMpr1c=; b=BXQVakZ6jKx5awjOEhZ55ctky/
+	tT5aJO64oSYmYtyTa7fzkvUGDf0k89TZ4pTpl2jHMPcwSXWhT83f8UvzwyVDOyzxhPFcbJfo/HX5Y
+	zoN90EsPN3+mEXyq0XfghxRXGim6vEH5HyjusHfRMwNgYUqszNSc3OOy8phcL14fyuRM4ESWZP96T
+	4Qt5TTLetvX7/dHy6/M76ws87q4UTHC2THnBB5Mm2k0Nxyxk7YzE/T3jdCv0YTHngjhx/Zb52F38a
+	pb6+56JDyVNTeUU2/iH+hKU395sA0k5abS1C+HedJNBjMsEJlCd9/GhxyU/UaoXaXH7AzK1QUUBe/
+	yoGQwLAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyuG8-000000018Wj-3Fa2;
-	Tue, 25 Aug 2026 16:44:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wyuI3-000000018sB-2yMI;
+	Tue, 25 Aug 2026 16:46:23 +0000
+Received: from mail-japanwestazon11011064.outbound.protection.outlook.com ([40.107.74.64] helo=OS0P286CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyuG7-000000018Wd-174v
+	id 1wyuHz-000000018r0-47P0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 16:44:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4234D60133;
-	Tue, 25 Aug 2026 16:44:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 216351F000E9;
-	Tue, 25 Aug 2026 16:44:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787676261;
-	bh=HhDnYJp6idU/zB/vpIZI1eo8XyX+VQJ6y+dK4kTg7es=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lc5N3dWni19ze5u+0uMkDDn2EcJBmW8KejCOvedJ1G3bvff6VjTKA++o4r2/zX4ah
-	 pdXF7g5OKNCO26VzY76H8NWtdQ+AhxPhl2LKUn7KlfKzUOKR8d9/y0AhriYtro1GJA
-	 1FhdvugucOPlDv6fTQ81FCQEQ3Q4ip4voc3N/T5lqkX8NhMXpmx2wtHePEjKcuhtRS
-	 IW5CRx8ruYhDfNNkjRwTgkZVpIp3X0B22RVLoKfGV7lhe+RMqRl1zSTniq2G1cZ5Dp
-	 j10p3MT+bnpNHHTLgz+knj6X6hsg14ZRrFXprL7IFZdoUAyfYpcjlOmugdUrxGN9nk
-	 NncWc4mFC4qHw==
-Date: Tue, 25 Aug 2026 17:44:14 +0100
-From: Will Deacon <will@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Xueyuan Chen <xueyuan.chen21@gmail.com>, akpm@linux-foundation.org,
-	ljs@kernel.org, usama.arif@linux.dev, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	x86@kernel.org, hpa@zytor.com, rppt@kernel.org,
-	ryan.roberts@arm.com, ziy@nvidia.com, baohua@kernel.org,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	Lance Yang <lance.yang@linux.dev>
-Subject: Re: [PATCH v6 2/3] arm64/mm: add set_direct_map_ro_noflush()
-Message-ID: <ao3GXvT2ltf89_rG@willie-the-truck>
-References: <20260730090647.2401252-1-xueyuan.chen21@gmail.com>
- <20260730090647.2401252-3-xueyuan.chen21@gmail.com>
- <c81ff923-800c-4ef4-b6e4-ec9f5eb1671f@kernel.org>
+	Tue, 25 Aug 2026 16:46:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZeRppCJba9q2yAHaAtntxZMoqO3WpDHgSlIHFTWtosut+VbEo22LZJ3h2oK+sgTzwYc19c3QJ2hBihMRK1Ef9/05ptf28fv8zvX4Fawy7AAFnWkgrlFxl3c8o9EpH5hedivsbcWPjNyF5ueteTZJWRvanW16hY0qhMdnnk4bDUXryGHRTiAkmiH5UonP72Q0I/Ur/yYG/PoV3Av1xRLGu0DYxQmD5GBmnZGOHX80Y8ZItsgOUqQ8CLf7cAPhHz6B8NrMN8mDA13U99MQb70k6VOV7z1I1q2Oc9k+4VsdMhYHi1tyJ/u3FcogZCLPRb8CZTyvD4bW5cxY7+iuNFexCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q8dPIM4A/v95p+QMQCVEpCH7GAGaiR7HlheeCmMpr1c=;
+ b=Lo66nocPLVNq9n12rxr1muCApQTos21JlRdMF0YrreEl9k5sFZK+xx5kKTinv0DEKPebn9stUb8goCnJoSI288VbHXYsk5y+DW5hUQjjPb1CvR0dLDCoizmwlSELICYeKR95C234VoidzFuSIgoO3n6MzFQbwwhNkiefvZ5tjsJ5JQJ9JSSDE2TVGpcQB8QWVlpP252Mur0BoKzu+YznMfPiXebwlnJaGwIQO53q+mw8nJ6hirIAVBoBqkyetd/oVX+doJpjoOIpO2wesUkKi9eBClLBmZlYsQ7w5pz3SfMn4p+bgNTyrarsYlXE6vm7GlQHmc0+msoEue2DCMm3/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 8.62.32.50) smtp.rcpttodomain=bootlin.com smtp.mailfrom=renesas.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=renesas.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q8dPIM4A/v95p+QMQCVEpCH7GAGaiR7HlheeCmMpr1c=;
+ b=FbmqjdxxGg+srizMz4GnkWQwdFN/oWH2ZsiTE6u1T/nNeAM8QzVDoApttYBDil/w+s+PZpo5urLeDitJMObuvQyFIMA6Amr+VLTMXOrM9Y1cBUTiR8pAGtMzHQyPIkE0I37jV6NAbHuSo6JlN634XSSxkyoeKOFTD5ThOuLbq/4=
+Received: from OSTPR01CA0056.jpnprd01.prod.outlook.com (2603:1096:604:222::20)
+ by TYCPR01MB18448.jpnprd01.prod.outlook.com (2603:1096:405:391::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Tue, 25 Aug
+ 2026 16:46:06 +0000
+Received: from OS1PEPF0000D20E.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:604:222:cafe::27) by OSTPR01CA0056.outlook.office365.com
+ (2603:1096:604:222::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.7 via Frontend Transport; Tue, 25
+ Aug 2026 16:46:06 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 8.62.32.50)
+ smtp.mailfrom=renesas.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=renesas.com;
+Received-SPF: Pass (protection.outlook.com: domain of renesas.com designates
+ 8.62.32.50 as permitted sender) receiver=protection.outlook.com;
+ client-ip=8.62.32.50; helo=ejcrelay005p.adwin.renesas.com; pr=E
+Received: from ejcrelay005p.adwin.renesas.com (8.62.32.50) by
+ OS1PEPF0000D20E.mail.protection.outlook.com (10.167.240.37) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.3
+ via Frontend Transport; Tue, 25 Aug 2026 16:46:05 +0000
+Received: from vm01.adwin.renesas.com (DEU-5CG20946WF.adwin.renesas.com [10.226.92.185])
+	by ejcrelay005p.adwin.renesas.com (Postfix) with ESMTP id 2F3F130001CA;
+	Wed, 26 Aug 2026 01:45:59 +0900 (JST)
+From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+To: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	shuah@kernel.org,
+	joabreu@synopsys.com,
+	jun.ann.lai@intel.com,
+	yi.fang.gan@intel.com
+Cc: linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Subject: [PATCH net v3 0/5] net: stmmac: Fix double VLAN 802.1ad tag handling
+Date: Tue, 25 Aug 2026 16:45:17 +0000
+Message-ID: <20260825164522.4244-1-ovidiu.panait.rb@renesas.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c81ff923-800c-4ef4-b6e4-ec9f5eb1671f@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OS1PEPF0000D20E:EE_|TYCPR01MB18448:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: bc75787f-e49d-4152-f4fa-08df02c85b60
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|23010399003|36860700016|1800799024|921020|6133799003|10067099003|56012099006|11063799006|18002099003|3023799007|13003099007;
+X-Microsoft-Antispam-Message-Info: zRWmB2PX0DLMc2S1JoR3rELfarcVJMb3B6aZBB2GffjDQp9I6LSWuDkw2IGOb93qYyDSz5S9TGXaOzSFGNKKHKCOw3JCaEqiDTTAV8N/+VqMtfTRPXSWBxi35c20/2FJfjr34vqCnkV06JwwxSkTB594pTmCjtG8NAVGZphc1SCyIkrH+3xsvgkYJTAL953nfsOCcDEo70CDuIcany/NGCatyTnPE/q1/HTYz7MW8KF2mamngSvT9IyNCPXsob8I3Hw2QS62IensYsiSmfYtoOq/LZk+H4EfSqedtYe/eY/0E5aVaQBafszeUc8DYT9NcbzU196qQNcbE2KORoSSFChy5Csa06OsW5tjIaPjBvNAO7W5RUpgCMsVfn0wvWAtTXrw92Ccco3RjrTPhyyARd+mt7XzVagR+8NF8V0RuCqTkt55WzgAyZo7LQ5jBM3+kGRJ2fKVbxdfUfSJ3qRF6oOEDCNRB2L34dVWIM7+g/2h5LvTyr7tUUxGU/rGjh+7qG5WLjiVhHI7PSGw+PmHKyQYRSecBod3fGr/r1SM1xg6uoiWDdFOiZ63MAYShhlb6oz2I3ceuPuGCaghxasqLKqXlaA0oKDV77hNJ60SpU3o/Idv+f8v9YHOT+LtDn7oiSUyZSVWQr7IIkAkrNcW0Snjo1BUl3lgrokT2tEt2OsrV3daznfnjXRtvPSCYGMcaGiT59vMS2+JvHAmihLQJPP+bDSaLscDZLBuC7znwbIzhYV9NIYyKnBxhR2XePTE
+X-Forefront-Antispam-Report: CIP:8.62.32.50;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ejcrelay005p.adwin.renesas.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(23010399003)(36860700016)(1800799024)(921020)(6133799003)(10067099003)(56012099006)(11063799006)(18002099003)(3023799007)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: OgmnabQKhRHZ9aepcLXzcdIs4EmrJMZVVR/X9OJ7ZDja28WyZrnz8Ueb4L+h4VgTo4MAXme29kyxO0IXCAmBi8x3MXZxl/ziJD6ZfgZpEIyN4bxx/t+UdEBEx6ywtv3RseVADmQ7jnVmIAjLZOhueUPRMosafa5TnLk8CelIX2ZMCQ9BjRQmgilGb9HCQZ+xAkOuQHEB/qHlCUAOxRPBfhQyMRJL/kvJEDj1v07ZatgAmF4CaH6YepgTw5iSh8vUqcRqzMZDRMcVccRqXXDJcCcarOV85XLqh9IQaTqGVQXomTJ0cPha7FJXmFv7gN4KBSczJCmFRKpSQARM4eBWn3iS2KmRXWR644W5orDvKya1kXIc8QIjPhf064GMfh/wiVY/I/v37oN5agJ1DAFpzNx3yKyXOhsJiv8pgHDrut18Z9dcRUifOFY/OuGsd8zx
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2026 16:46:05.9082
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bc75787f-e49d-4152-f4fa-08df02c85b60
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=53d82571-da19-47e4-9cb4-625a166a4a2a;Ip=[8.62.32.50];Helo=[ejcrelay005p.adwin.renesas.com]
+X-MS-Exchange-CrossTenant-AuthSource: OS1PEPF0000D20E.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB18448
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260825_094620_049165_CBCC19D8 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,66 +130,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 25, 2026 at 05:52:20PM +0200, David Hildenbrand (Arm) wrote:
-> On 7/30/26 11:06, Xueyuan Chen wrote:
-> > Implement set_direct_map_ro_noflush() for arm64 with update_range_prot() on
-> > the linear map, setting PTE_RDONLY and clearing PTE_WRITE. Keep the
-> > existing can_set_direct_map() guard and leave TLB invalidation to the
-> > caller.
-> > 
-> > Co-developed-by: Lance Yang <lance.yang@linux.dev>
-> > Signed-off-by: Lance Yang <lance.yang@linux.dev>
-> > Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> > ---
-> >  arch/arm64/include/asm/set_memory.h |  2 ++
-> >  arch/arm64/mm/pageattr.c            | 10 ++++++++++
-> >  2 files changed, 12 insertions(+)
-> > 
-> > diff --git a/arch/arm64/include/asm/set_memory.h b/arch/arm64/include/asm/set_memory.h
-> > index 90f61b17275e..7083260303c3 100644
-> > --- a/arch/arm64/include/asm/set_memory.h
-> > +++ b/arch/arm64/include/asm/set_memory.h
-> > @@ -14,6 +14,8 @@ int set_memory_valid(unsigned long addr, int numpages, int enable);
-> >  int set_direct_map_invalid_noflush(struct page *page);
-> >  int set_direct_map_default_noflush(struct page *page);
-> >  int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
-> > +int set_direct_map_ro_noflush(const void *addr, unsigned long nr_pages);
-> > +#define set_direct_map_ro_noflush set_direct_map_ro_noflush
-> >  bool kernel_page_present(struct page *page);
-> >  
-> >  int set_memory_encrypted(unsigned long addr, int numpages);
-> > diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> > index ce035e1b4eaf..c51236b61651 100644
-> > --- a/arch/arm64/mm/pageattr.c
-> > +++ b/arch/arm64/mm/pageattr.c
-> > @@ -365,6 +365,16 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
-> >  	return set_memory_valid(addr, nr, valid);
-> >  }
-> >  
-> > +int set_direct_map_ro_noflush(const void *addr, unsigned long nr_pages)
-> > +{
-> > +	if (!can_set_direct_map())
-> > +		return 0;
-> > +
-> > +	return update_range_prot((unsigned long)addr, PAGE_SIZE * nr_pages,
-> > +				 __pgprot(PTE_RDONLY),
-> > +				 __pgprot(PTE_WRITE));
-> > +}
-> > +
-> >  #ifdef CONFIG_DEBUG_PAGEALLOC
-> >  /*
-> >   * This is - apart from the return value - doing the same
-> 
-> We'll need an ACK from arm64 maintaines. To me this looks good.
+Currently, hardware VLAN stripping is broken for 802.1ad tags. vlan_rx_hw()
+hardcodes ETH_P_8021Q when putting the hardware tag into the skb, rather
+than using the actual protocol from the packet. Because of this, packets
+that contain an 802.1ad outer tag are incorrectly passed up the stack as
+having an 802.1Q tag.
 
-I generally dislike deferring critical things like TLB invalidation to
-the caller, so it would be good to see an example of a caller that really
-needs that. The caller in patch 1 unconditionally  calls
-flush_tlb_kernel_range() immediately after calling
-set_direct_map_ro_noflush().
+This issue was observed on the Renesas RZ/V2H platform (which has a dwmac4
+IP), when testing QinQ ping:
 
-In fact, that means we have a pointless invalidation if
-!can_set_direct_map(). See exhibit A :)
+  # DUT
+  ip link add link end0 name end0.100 type vlan proto 802.1ad id 100
+  ip link add link end0.100 name end0.100.200 type vlan proto 802.1q id 200
+  ip addr add 172.16.3.2/24 dev end0.100.200
+  ip link set end0 up
+  ip link set end0.100 up
+  ip link set end0.100.200 up
 
-Will
+  # Peer
+  ip link add link eth0 name eth0.100 type vlan proto 802.1ad id 100
+  ip link add link eth0.100 name eth0.100.200 type vlan proto 802.1q id 200
+  ip addr add 172.16.3.1/24 dev eth0.100.200
+  ip link set eth0 up
+  ip link set eth0.100 up
+  ip link set eth0.100.200 up
+  ping 172.16.3.2
+    -- FAIL --
+
+Note that this series only fixes the issue on dwmac4. dwxgmac2 has the same
+issue but I do not have access to hw to test on.
+
+Since dwmac4 does not expose the tag type in the RDES3 descriptor, it
+cannot support hardware double VLAN stripping correctly. This series
+disables double VLAN stripping for it, so the 802.1ad tags are left in
+place and are handled by the software VLAN path.
+
+v3:
+- Dropped patch "net: stmmac: Enable double VLAN processing only when
+  supported" from this series, as Joseph reported that double VLAN and
+  S-Tag are separate features, so it would not be correct to gate
+  everything behind dma_cap.dvlan.
+- Moved the selftest to drivers/net/hw, as the _hw test variants couldn't
+  be run with netdevsim.
+- Fixed "ruff check" and "pylint --disable=R" for the VLAN selftest.
+- Picked up "Reviewed-by" tags from Maxime.
+
+v2: https://lore.kernel.org/all/20260821170959.79708-1-ovidiu.panait.rb@renesas.com/
+- Added a net selftest for VLAN.
+- Dropped patch "net: stmmac: Fix double VLAN stripping on dwxgmac2" from
+  this series, as it was compile tested only and Nazim reported that it
+  doesn't actually fix the issue on his board. More investigation is
+  needed on dwxgmac2, but it should not block this series.
+- Addressed some issues reported by Sashiko, to fix the advertised STAG
+  offload features mismatch.
+
+v1: https://lore.kernel.org/all/20260729095110.164157-1-ovidiu.panait.rb@renesas.com/
+
+Ovidiu Panait (5):
+  net: stmmac: Remove VLAN perfect matching dead code
+  net: stmmac: Move double VLAN handling to a dedicated op
+  net: stmmac: Disable double VLAN handling on dwmac4
+  selftests: drv-net: Move _set_ethtool_feat() into lib
+  selftests: drv-net: Add VLAN test
+
+ drivers/net/ethernet/stmicro/stmmac/hwif.h    |   6 +-
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c |  23 ++--
+ .../net/ethernet/stmicro/stmmac/stmmac_vlan.c |  81 +++----------
+ tools/testing/selftests/drivers/net/gro.py    |  65 ++++-------
+ .../testing/selftests/drivers/net/hw/Makefile |   1 +
+ tools/testing/selftests/drivers/net/hw/config |   1 +
+ .../drivers/net/hw/lib/py/__init__.py         |   3 +-
+ .../testing/selftests/drivers/net/hw/vlan.py  | 109 ++++++++++++++++++
+ .../selftests/drivers/net/lib/py/__init__.py  |   3 +-
+ .../selftests/drivers/net/lib/py/feat.py      |  35 ++++++
+ 10 files changed, 200 insertions(+), 127 deletions(-)
+ create mode 100755 tools/testing/selftests/drivers/net/hw/vlan.py
+ create mode 100644 tools/testing/selftests/drivers/net/lib/py/feat.py
+
+-- 
+2.34.1
+
 
