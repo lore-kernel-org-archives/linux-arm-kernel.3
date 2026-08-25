@@ -4,53 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5330C61DB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 06:05:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B30F0C5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 06:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5SX3XLtrazkTuCQ/ilBaxmWP2RaJblskG7NlcD6dvfo=; b=ueWARe9pP19Hvi3rhO8VRIUr4d
-	L80Lwyxps1bot+qaoR7JQnmS2NeoqjexVZc0wveAjlJktGxTOGojufKuJLHG8Fv4RzgHRbsT4uJDR
-	oZcKyuoZ33YruLGVy8/ph33KASu6KDoZOw2AtMDncEZO4iVKTEKixCcYW/Ez3rXrmteZThX3lowEA
-	D/gOOdtozB3UmgiR9jbs/LsJURyP4aZd8KAidwfwaqY9lQmwJtbQi7KGC3aIoL3kYPZeDZwQ2ETZP
-	TNlfPAACyvqf+izklpdxiu8AjhofOlG/qKXCMjBQ/gkbXQImU8r47a1yDzoSoK5tUi3QD8U2TIj88
-	NmeZNtnw==;
+	bh=XT9S6C60Z19LC46LuGKWHv/RBhyq/mOGNIlcql+qxU4=; b=URyfC7K6S1BQ6x21oStHi1r7/s
+	MTyan03Iq568E7mDQf8mQMu4pwrb38N91I64cELqL0nZ3+PzwqNrpYWZcPfbGpsMs5cigfK1/ZYer
+	ryLwb15rmSeo8bMnLelFUBP2spMA6qyoL9NUP1bxPq9oyHPjLrtSH311741cobXpKOvD69+Vgz1j6
+	fOGJo3oIki4a+DNI81ui3pb3Ggs5hPl5KD5/sp8rrj1VUDIQOLoIuNqL0PvYtD7BJWUSXSDSgqAf8
+	0NXn//rZVdq2VrdUHwsHcQmKPRp61T3AOSNuTC/jsjf2v5VKkz4qOnfCCzUIDXSYLtwhT3qnZhiN5
+	Bcu8h/kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wykHo-00000000D7R-2Tgx;
-	Tue, 25 Aug 2026 06:05:28 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wykRx-00000000DWM-2e1i;
+	Tue, 25 Aug 2026 06:15:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wykHl-00000000D6n-2qc2;
-	Tue, 25 Aug 2026 06:05:27 +0000
-Received: from neptunite.rasen.tech (unknown [IPv6:2400:2411:160:2f00:c31d:3341:ef05:614a])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 5363F2EC;
-	Tue, 25 Aug 2026 08:03:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1787637837;
-	bh=5SX3XLtrazkTuCQ/ilBaxmWP2RaJblskG7NlcD6dvfo=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=mXM4HMQ0bmP4BxzGxcvQ5bzXkBDgV6ANdQeKF6Xv0flXww8U5mX+isjVZIhXgaPqJ
-	 5hRy5al5QzHjy/Zxjc0XUakNZhTNC9fHuLxfEMqb+HcOffX2jiUlst2mnAXqABZUSu
-	 AuS2shD/vBUc6OO7gN9x874A3sUuITWBDdBom3rY=
-Content-Type: text/plain; charset="utf-8"
+	id 1wykRw-00000000DWD-1Axu;
+	Tue, 25 Aug 2026 06:15:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3613441FBE;
+	Tue, 25 Aug 2026 06:15:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 812731F000E9;
+	Tue, 25 Aug 2026 06:15:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787638555;
+	bh=XT9S6C60Z19LC46LuGKWHv/RBhyq/mOGNIlcql+qxU4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=n7a2RDTCbn/JJtgrfz2PbHj/cZvzQbvRon/4Nk6RAOFtrgKZ5MTYo5U6aLqNG+H4q
+	 4w+DKvqez+wl7O77NcwjMiTh91Tt0d4MXmb/5y9rTXiBtPs5b06ChoKH08g+Fxup7H
+	 8W9ec429fVVfh0hsE7GTJkJfuz0bPWA9z4AVfp/y8nSk1HED532Bv5DKgpZ0pTdNaL
+	 Q9qfk41XDc+hEV46hOKn1DxvttLMOGjcWsAekvRIOuGHyjjOJ7PmlS9vcf9eBoidEc
+	 eoKY90g+kcx/zdif+g6JYLqKc+fJ8ZAG2YLv07YnHwqKQWUkz+//blMZ3dKGBiH3aE
+	 F7k0FRaiyzczg==
+Message-ID: <eb56ca7a-c5c0-45d3-ae70-ca48a6551f4a@kernel.org>
+Date: Tue, 25 Aug 2026 08:15:48 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <c2ed44e5-ed5c-41f7-a782-57c82968495e@kernel.org>
-References: <20260824090406.3695880-1-paul.elder@ideasonboard.com> <20260824090406.3695880-2-paul.elder@ideasonboard.com> <c2ed44e5-ed5c-41f7-a782-57c82968495e@kernel.org>
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 1/5] media: dt-bindings: Add rockchip rkisp2 bindings
-From: Paul Elder <paul.elder@ideasonboard.com>
-Cc: michael.riesch@collabora.com, xuhf@rock-chips.com, stefan.klug@ideasonboard.com, mehdi.djait@linux.intel.com, linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>, laurent.pinchart@ideasonboard.com
-Date: Tue, 25 Aug 2026 15:05:17 +0900
-Message-ID: <178763791744.3620719.5831445737928843099@neptunite.rasen.tech>
-User-Agent: alot/0.0.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_230525_867110_BAC7B00E 
-X-CRM114-Status: GOOD (  20.48  )
+To: Paul Elder <paul.elder@ideasonboard.com>,
+ laurent.pinchart@ideasonboard.com
+Cc: michael.riesch@collabora.com, xuhf@rock-chips.com,
+ stefan.klug@ideasonboard.com, mehdi.djait@linux.intel.com,
+ linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Heiko Stuebner <heiko@sntech.de>
+References: <20260824090406.3695880-1-paul.elder@ideasonboard.com>
+ <20260824090406.3695880-2-paul.elder@ideasonboard.com>
+ <c2ed44e5-ed5c-41f7-a782-57c82968495e@kernel.org>
+ <178763791744.3620719.5831445737928843099@neptunite.rasen.tech>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <178763791744.3620719.5831445737928843099@neptunite.rasen.tech>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,53 +119,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On 25/08/2026 08:05, Paul Elder wrote:
+> Hi Krzysztof,
+> 
+> Quoting Krzysztof Kozlowski (2026-08-24 19:52:26)
+>> On 24/08/2026 11:03, Paul Elder wrote:
+>>> Add documentation for the Rockchip rkisp2 bindings. This is meant to
+>>> support multiple versions of Rockchip ISPs going forward, including the
+>>> 2.x series and 3.x series. The current version only adds the compatible
+>>> for the RK3588, which is a 3.0.
+>>>
+>>> Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
+>>
+>> Testing is disabled for some time but it's not really a reason to opt out.
+>>
+>> Please use scripts/get_maintainers.pl to get a list of necessary people
+>> and lists to CC. It might happen, that command when run on an older
+>> kernel, gives you outdated entries. Therefore please be sure you base
+>> your patches on recent Linux kernel.
+>>
+>> Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+>> people, so fix your workflow. Tools might also fail if you work on some
+>> ancient tree (don't, instead use mainline) or work on fork of kernel
+>> (don't, instead use mainline). Just use b4 and everything should be
+>> fine, although remember about `b4 prep --auto-to-cc` if you added new
+>> patches to the patchset.
+> 
+> I did not use b4 but I did use scripts/get_maintainer.pl via --cc-cmd on git
+> send-email. Is that not expected to work?
 
-Quoting Krzysztof Kozlowski (2026-08-24 19:52:26)
-> On 24/08/2026 11:03, Paul Elder wrote:
-> > Add documentation for the Rockchip rkisp2 bindings. This is meant to
-> > support multiple versions of Rockchip ISPs going forward, including the
-> > 2.x series and 3.x series. The current version only adds the compatible
-> > for the RK3588, which is a 3.0.
-> >=20
-> > Signed-off-by: Paul Elder <paul.elder@ideasonboard.com>
->=20
-> Testing is disabled for some time but it's not really a reason to opt out.
->=20
-> Please use scripts/get_maintainers.pl to get a list of necessary people
-> and lists to CC. It might happen, that command when run on an older
-> kernel, gives you outdated entries. Therefore please be sure you base
-> your patches on recent Linux kernel.
->=20
-> Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-> people, so fix your workflow. Tools might also fail if you work on some
-> ancient tree (don't, instead use mainline) or work on fork of kernel
-> (don't, instead use mainline). Just use b4 and everything should be
-> fine, although remember about `b4 prep --auto-to-cc` if you added new
-> patches to the patchset.
+Works on people setups, but whatever you produced was not sent to right
+folks, so I doubt that you actually scripted it, e.g. like [1].
+Otherwise why script would remove ONLY one specific address from entire
+list it gets?
 
-I did not use b4 but I did use scripts/get_maintainer.pl via --cc-cmd on git
-send-email. Is that not expected to work?
+[1] https://lore.kernel.org/all/?q=git_send_email
 
-> You missed at least devicetree list (maybe more), so this won't be
-> tested by automated tooling. Performing review on untested code might be
-> a waste of time.
->=20
-> Please kindly resend and include all necessary To/Cc entries.
->=20
-> A nit, subject: drop second/last, redundant "bindings". The
-> "dt-bindings" prefix is already stating that these are bindings.
-> See also:
-> https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree=
-/bindings/submitting-patches.rst#L23
-
-Indeed I missed that, my bad.
-
-
-Paul
-
->=20
->=20
-> Best regards,
-> Krzysztof
+Best regards,
+Krzysztof
 
