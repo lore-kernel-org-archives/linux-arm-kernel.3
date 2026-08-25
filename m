@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07CA6C61DBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 14:20:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 166A6C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 14:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7kbOFm9Q7fFBHZscYY11fL/APaCBS5q0JYfHLMJc2GA=; b=RibvGuVMsV/5G0SnQNWv4xDyRJ
-	wMwbXyKWqL/uNELXvAVkt8mj49O7b9cZPdKRxCHDYNqOaFfFeRnliaO33+K2rTWLg4zNlbhR1vTVB
-	gJltohgskVBEvG7Uqj6u7u6YOltjGiowz78Eu5b8H2pDBbOMKYPfKLIvTGifZ32xY+EUksVu1cEJO
-	GqFfKI2Km6wi3YXhF4in0TUR76jl9eAkXAup7osNLBxLtwBePHfk1wmVmxurut76sMelZtqJYVWJq
-	SWrnmfzzU5YAsIx8i/4XqZQH1XIcmYKcOPG37cbkoZrqff0XeIApWWfurIlizVETgbDENqINiWJAl
-	5VVMGLSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=866M+uGl4sUN1tKbGJJM/JL/XnsHJG6qiemRBVf+N78=; b=eGsvCbxnd4WaMFjIhd+96V3Gw4
+	jOkbh3fB1WFl+gZFNnTWgqIj2ivc3ZU3OoCv92FWU5QKwKkHgAcm94majccq+QAGpaI4bBLhaxlGV
+	F6VLaPUkjC8HhxX2PFmPShScgBHsqPnx3cF6IeiyrLPwW/j6mKBTEH81PZB6dCcRSSu2kHQNq/EKO
+	Vk2FM80jKRmyxIlyjmRs2dGp7qaTmEegIwRG3I9CT/HZbLxcPT03Funw9wYFec5lgAvKBcobKwaAm
+	XKq1rJYZZ3CuPA2SsppmvErF2DQEPcG7rZsXf4lOQV4kJmpCBjeVZtr88bgveHjZ2gAiN2oCFhl2S
+	fw0YMObA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wys0a-00000000whj-3AoJ;
-	Tue, 25 Aug 2026 14:20:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wys2l-00000000xGB-18ly;
+	Tue, 25 Aug 2026 14:22:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wys0O-00000000wZT-2Sr1;
-	Tue, 25 Aug 2026 14:20:00 +0000
+	id 1wys2k-00000000xG0-1dnI
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Aug 2026 14:22:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with UTF8SMTP id 0822A60254;
-	Tue, 25 Aug 2026 14:20:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 2A0801F000E9;
-	Tue, 25 Aug 2026 14:19:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D26096011F;
+	Tue, 25 Aug 2026 14:22:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 411BB1F000E9;
+	Tue, 25 Aug 2026 14:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787667599;
-	bh=7kbOFm9Q7fFBHZscYY11fL/APaCBS5q0JYfHLMJc2GA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Rcb+ITSmpXQ9yDVdZsnOF81C3pecmwfa97695h1hb3I8NjctLJC+MwI00PBhKzVf4
-	 EKRr//m8FaVy9IbJD4b0Fb6WxcoRocR1La5W4q/DJM59VhVtroERIZPkAIcQ3V0p17
-	 RSNK4oiAzjodtv/lcqfAGdBGGEEvtUAYVCL8Na8BsDKOfaytSMkMrclvq5TuiFd8K2
-	 uhEB0MO4/CRKlU30dFqgRE0AbES6UsHs73SJxwEps04kVe8WpO9dhyxZgXbb+Xq8fT
-	 HvT3+74o8vOUBAZHboArXARFl/4pAnp8k9LATT2qktDclS90YkDwannlh8uA7+y8/4
-	 FnrczFpQ+jTMg==
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Jassi Brar <jassisinghbrar@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH v1 3/3] mailbox: rockchip: Convert to use dev_err_probe()
-Date: Tue, 25 Aug 2026 16:19:26 +0200
-Message-ID: <d9fe1f923698066ba364295df7519770e2dc8557.1787667315.git.ukleinek@kernel.org>
-X-Mailer: git-send-email 2.55.0.11.g153666a7d9bb
-In-Reply-To: <cover.1787667315.git.ukleinek@kernel.org>
-References: <cover.1787667315.git.ukleinek@kernel.org>
+	s=k20260515; t=1787667745;
+	bh=866M+uGl4sUN1tKbGJJM/JL/XnsHJG6qiemRBVf+N78=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=i+MZNbauJHsSUNA/1IcG5ZS/I5HSOXhdzb/eQ5mYprHFWJWgAs8zJWhI1TsQPtxmp
+	 Yq2h1pzgLzK7KnmcrMq6ka5t/OGg/40L3HoCdpsCB1vxOmrXMVnXPog0LSL5eCvAFf
+	 bZuinsTPL+XBMMLAu7G52Hs7Vzbv+ouKlKC4ZrA9K2y8KDSrxZR06YRxVV4S3ZlT7P
+	 LbyGvzDnF+XnTjRUjzeTlcBGFDDPN3Li4EJSzrTxYI7Q+EO7MaGCHHjLK/rw7KFX8t
+	 RLvVXNyaO9BBJNPvpr8VcEkVI3uf0iSAwNxW+faAnJ16+aN/XDeXY6fP0gVXWG1/gB
+	 TMph9iEaBN4pg==
+Date: Tue, 25 Aug 2026 15:22:20 +0100
+From: Will Deacon <will@kernel.org>
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH 0/2] arm64/debug: clean up some HW BP edge cases
+Message-ID: <ao2lHE5Gagfj9NEK@willie-the-truck>
+References: <20260527161553.97676-1-ada.coupriediaz@arm.com>
+ <amCp2vHU0XKhC6xT@willie-the-truck>
+ <amC-DMTrqvAFSpe5@J2N7QTR9R3>
+ <amE5XZIag1vh6GqE@willie-the-truck>
+ <b7e811a1-3d34-48d7-99a6-ad035aad0814@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1347; i=ukleinek@kernel.org; h=from:subject:message-id; bh=e54aXlzGcps+TytsLYfn64m7yyNVmy3TFL/QXt0cNmk=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqjaR8R3+yy+UgL4aM0YFZQKOc+8xHdAh7wkA/n EcZ7UqEc9mJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCao2kfAAKCRCPgPtYfRL+ TuawB/0d681t1JSRae/ZmngcxUkB/0ubaM3S981Usz9hGmomb76gpu0OZ020BdAR5iQyt0jJNCy 7RKE405NSVJbPLV8KF9pYjPme1y5pqBRk0hZiA4Qi68vMJOqLjplzc4EVQ/ecGqplhkKTqt1fZF 59Sqiaf/JzpW+dFjQnUwsojOjHmqeeSM1tBCpsFzS89FtKxMHuceUIQJspNxOdmg/Q6zuA2uzUv EZjxAXNHzx6mUt4iOrCQUkh/caBD2DcQ24ceLdbOObs+eFuS/0Br4YxcjQBcrcIx2GyuQs4GVa7 lIKsnXnJzq9xIe5plIsBD8mucdA8mZfS0kFFxEUcR+RG2Aly
-X-Developer-Key: i=ukleinek@kernel.org; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b7e811a1-3d34-48d7-99a6-ad035aad0814@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,42 +74,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+On Mon, Aug 24, 2026 at 05:57:48PM +0100, Ada Couprie Diaz wrote:
+> Sorry for the delay, I did not manage to respond before going on leave
+> as I got lost in the weeds of understanding what ptrace is doing when
+> using hardware debug registers.
 
-This is more compact in source code and also compiles to smaller code.
+No worries, and welcome back!
 
-Bloat-o-meter reports:
+> On 22/07/2026 22:42, Will Deacon wrote:
+> > On Wed, Jul 22, 2026 at 01:56:44PM +0100, Mark Rutland wrote:
+> > > On Wed, Jul 22, 2026 at 12:30:34PM +0100, Will Deacon wrote:
+> > > > On Wed, May 27, 2026 at 05:15:51PM +0100, Ada Couprie Diaz wrote:
+> > > > > This is a small series focused on fixing some unsoundess and edge case
+> > > > > related to hardware breakpoints and watchpoints.
+> > > > > 
+> > > > > It is motivated in part by the recent discussion on the
+> > > > > FEAT_Debugv8p6 series[0][1] regarding unclear guarantees on interruptions.
+> > > > > 
+> > > > > It doesn't address the issue of instrumentation, as NO_KPROBE is not
+> > > > > sufficient to prevent it (specifically ftrace) and would require a pass
+> > > > > over the whole debug handling code.
+> > > > > 
+> > > > > The bugs themselves are very much of the self-inflicted
+> > > > > "you should not be doing this" kind and not urgent, but it does solve
+> > > > > some of the questions on the FEAT_Dbugv8p6 series.
+> > > > > 
+> > > > > Most of the raw additions are comments trying to give more context to
+> > > > > understand `hw_breakpoint_thread_switch()`.
+> > > > Hmm. From what I can tell, these patches are trying to handle various
+> > > > cases where we take a debug exception while executing the hw_breakpoint
+> > > > code itself. Even with these two fixes, is perf expecting to handle that
+> > > > sort of thing? I think it would be a lot more robust if we just prevented
+> > > > this from happening in the first place, similarly to the discussion from
+> > > > the other day around kprobes [2].
+> I am indeed handling weird edge-cases !
+> As Perf only uses local_irq masks, it is not sufficient to prevent us from
+> taking
+> debug exceptions while it manipulates the debug registers, so even if all
+> the
+> debug exceptions themselves are safe, perf/ptrace callbacks and syscalls are
+> not.
 
-	add/remove: 0/0 grow/shrink: 0/4 up/down: 0/-76 (-76)
-	Function                                     old     new   delta
-	rockchip_mbox_probe                         1596    1592      -4
-	_entry_ptr                                    24      16      -8
-	__func__                                      62      42     -20
-	_entry                                       132      88     -44
-	Total: Before=6693, After=6617, chg -1.14%
+Sorry, I was specifically thinking about the perf hw_breakpoint code invoked
+off the back of the debug exception.
 
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
----
- drivers/mailbox/rockchip-mailbox.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+> > > Since [2] mentions noinstr, it's worth noting that noinstr alone isn't
+> > > sufficient. Watchpoints also use this path, and we can't practically
+> > > filter watchpoint addresses to avoid hitting a watchpoint here.
+> > > 
+> > > I assume you'd be happy with masking debug exceptions entirely?
+> > Yes, I think that's the only option, really, and I think we might even
+> > have done that at some point in the past. [...]
+> > 
+> If you both think that makes sense to save/restore DAIF here, I am
+> happy to send a patch doing so. That would indeed make sure we
+> don't hit this kind of issues !
 
-diff --git a/drivers/mailbox/rockchip-mailbox.c b/drivers/mailbox/rockchip-mailbox.c
-index ada2bd419880..790c34a22ec5 100644
---- a/drivers/mailbox/rockchip-mailbox.c
-+++ b/drivers/mailbox/rockchip-mailbox.c
-@@ -215,9 +215,9 @@ static int rockchip_mbox_probe(struct platform_device *pdev)
- 
- 	ret = devm_mbox_controller_register(&pdev->dev, &mb->mbox);
- 	if (ret < 0)
--		dev_err(&pdev->dev, "Failed to register mailbox: %d\n", ret);
-+		return dev_err_probe(&pdev->dev, ret, "Failed to register mailbox\n");
- 
--	return ret;
-+	return 0;
- }
- 
- static struct platform_driver rockchip_mbox_driver = {
--- 
-2.55.0.11.g153666a7d9bb
+I think that makes sense.
 
+> Making the debug code safe from instrumentation is a different story...
+
+Yeah, same with a bunch of the entry code tbh...
+
+> > [...] The problem, however, is if we
+> > end up getting preempted in that state. We currently have preemption
+> > disabled, but there's a thread trying to change that based on one of
+> > Ada's tests (not blaming the test, it's pointing out a real issue here):
+> > 
+> > https://lore.kernel.org/r/20260519222524.886454-1-longman@redhat.com
+> I did not have the time to take a proper look, but it seems that Sebastian
+> has sent another patch for this issue which keeps premption disabled :
+> 
+> https://lore.kernel.org/r/20260814085118.OPEA_Ssn@linutronix.de
+> 
+> So I think we should be OK masking DAIF here then.
+
+Oh, great!
+
+Will
 
