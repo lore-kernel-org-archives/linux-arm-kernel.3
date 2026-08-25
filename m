@@ -4,107 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97017C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 15:53:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBD35C61DBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 16:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y0JHVvurql813KlZzufsG9y4LfXw6aq5+c0ANPzcrIU=; b=EjWVtykKeCL98MhjIc0kRGS88f
-	5tSAo3V4W0AyJlvrxgU3cLejp29YS1mXLfXmmxexj2St+IBlTzgLeJgi3+E+H2MtyV6MG5uaCaSRt
-	a5jjV1muWRYB4S5iloPXQLzv9eBvWjyAtL+SzH5ai8OP5WUFNdCiEGBHFhd8RomkGY1XA7/BfnTl/
-	0VLqKKGCMb3tSE7v/wpjtwzneUFEnMLoAn/eq3Qp0bTgCaZ0ymixrXJeMp/CJuE1ZeZ08z8QN/Elo
-	wBIjaRBYlo1tqtnz8fWBspeK/2DWPEE4RTfPLZ+oWmTttFqjkvvcC2eWD/mpmIREwl9j6gDW0KkwU
-	/asHY3sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0UWZ5amjuDuz5NxB+UBQVKLusjTJjNvSXdFmO8uoJLU=; b=38UfDNMohZ5UCb
+	veK944Dcuihj61AuaGUSmCgEz4/wRxzfWHGEPbY0fpsW992U9Yshv5gQP2uh69x58LRMg0EfF7w/z
+	y2RLzOK4pa59UVfj2jToBt0P7jDyUo9lD+VrMsRZgyZWG/s0r8Xx4Lm0FT1fmoeIWARf4rV4UfBOW
+	S3HPn++6qWMIgHOGAXUCArHQS7gwJp19tnRmayoMYHVtgawjVENF2TieOdRxVbCwFdeLsFO6g6kOq
+	NE2w7xDba+3X5EBf2lYCWXvGPRribiRfxkSGLuEUlcTX2FYMfQ5fLblXLZqxvUFNOfhWOP2/vhsYe
+	/TYgwv8160UVbjl+PlLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wytSS-0000000142L-2UfF;
-	Tue, 25 Aug 2026 15:53:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wytaO-000000014Uj-25GT;
+	Tue, 25 Aug 2026 16:01:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wytSQ-0000000141h-1A9e
+	id 1wytaM-000000014UY-2kd9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 15:53:03 +0000
+	Tue, 25 Aug 2026 16:01:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A412040268;
-	Tue, 25 Aug 2026 15:53:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8AE71F000E9;
-	Tue, 25 Aug 2026 15:52:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 92BB1601E9;
+	Tue, 25 Aug 2026 16:01:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD5681F000E9;
+	Tue, 25 Aug 2026 16:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787673181;
-	bh=y0JHVvurql813KlZzufsG9y4LfXw6aq5+c0ANPzcrIU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=oRoZMsWlCsqG/kH8NFUEkZxiPsDKdcCtYzz7thSV/CAFEIPu3j/S0Y4RW9X0jCyDd
-	 2JpjAhBidHd4+EbFbyQMrkSkCgIX14zrKvABjoKYbx2N35behllJfFQDqR6PXmszkN
-	 4t13gsjDclvxPCk4btEfvq260PKC9v/wJUTMAkb5f2oXNMR7EtEeuV9pvkClKmqeRk
-	 q9wmgq2GenNq1RjdJUxv9FY4hRmiW9YcUjTfQHmMb51ZYgfUmthBb8gupbVZIszXUN
-	 lHNwghHp/LwjmhA6tNX9LYh5FF5LST3jTOY1ZS+bw+Tv3rye66Hxgd15i+C3Agw+4j
-	 cKrXM/SNIlUwg==
-Message-ID: <149b9dff-9c96-448e-9c20-96ba92ff6971@kernel.org>
-Date: Tue, 25 Aug 2026 17:52:53 +0200
+	s=k20260515; t=1787673673;
+	bh=0UWZ5amjuDuz5NxB+UBQVKLusjTJjNvSXdFmO8uoJLU=;
+	h=From:Subject:Date:To:Cc;
+	b=Ar2uwwun9E+GAnctXWPBo12NcRgbRk8j7SLZV8gbV1A3osQAyzyUx4CPw/tOz/kPp
+	 XEXxZ4DgeolskSEIGxUXXSP8OkioSdv3k4urTIPJsg59Vna8moQ/DmcAcq22P6ALH1
+	 KyA5ngiOVDGxFU6oybyDKr74CTlBbS7fsl0bThU0iogWxKi42cHP02vWV0QsTwXb6X
+	 5TEIf6o6guYYaPPpSt30Ep96YTrqC57eBz7n4bIB7D4u2p8qdzlmIVTinMoSZ0mXxu
+	 pY97bxnxk5iczGyJPPLO2T1NMv/pGx5UYLv/HVpnMdFj0q7ZzSLBC+q6TtjG3c0dBW
+	 DGx77mzSKlyYw==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Subject: [PATCH 0/8] KVM: arm64: Add KVM_PRE_FAULT_MEMORY support
+Date: Tue, 25 Aug 2026 17:00:34 +0100
+Message-Id: <20260825-kvm-arm-prefault-v1-0-befe8947702e@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/3] x86/mm: add set_direct_map_ro_noflush()
-To: Xueyuan Chen <xueyuan.chen21@gmail.com>, akpm@linux-foundation.org
-Cc: ljs@kernel.org, usama.arif@linux.dev, catalin.marinas@arm.com,
- will@kernel.org, linux-arm-kernel@lists.infradead.org, tglx@kernel.org,
- mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
- hpa@zytor.com, rppt@kernel.org, ryan.roberts@arm.com, ziy@nvidia.com,
- baohua@kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Lance Yang <lance.yang@linux.dev>
-References: <20260730090647.2401252-1-xueyuan.chen21@gmail.com>
- <20260730090647.2401252-4-xueyuan.chen21@gmail.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260730090647.2401252-4-xueyuan.chen21@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDC0NT3eyyXN3EolzdgqLUtMTSnBJdy6QkE0PDJDMLS/MUJaA2kERmBdj
+ I6NjaWgB0ns9XYgAAAA==
+X-Change-ID: 20260815-kvm-arm-prefault-9bb411b6897d
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>, 
+ Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+ Jonathan Corbet <corbet@lwn.net>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, Jack Thomson <jackabt@amazon.com>, 
+ Jack Thomson <jackabt.amazon@gmail.com>, 
+ Alexandru Elisei <alexandru.elisei@arm.com>, 
+ Vincent Donnefort <vdonnefort@google.com>, 
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, 
+ Sean Christopherson <seanjc@google.com>, 
+ Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+ Leo Soares Passos <Leo.Bras@arm.com>, 
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5144; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=shQu2ja8FKYpxwmft95PQDnR4lutE8cOna4MUXeJkaA=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJ69zgpbqu+wXsyfM3+Pc//BZRP4Cm8mpD614CD7UqQZ
+ u+nDgnfjlIWBjEuBlkxRZbnX8T3B4mEzeu84O8GM4eVCWQIAxenAExEn5fhr4DtqQdGhxvvP3QR
+ 2MYn/Dtv1t6g6QIb81smzJjoLfGX0ZKR4YGBQYXBhTUqu1RXv7r2oPr9grcsFpPrw273vjvVtdV
+ 5CQcA
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,64 +94,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/30/26 11:06, Xueyuan Chen wrote:
-> Implement set_direct_map_ro_noflush() for x86 using CPA directly on the
-> passed direct-map address. Clear _PAGE_RW and _PAGE_DIRTY, keep alias
-> checks disabled like the existing direct-map _noflush helpers, and leave
-> TLB invalidation to the caller.
-> 
-> Co-developed-by: Lance Yang <lance.yang@linux.dev>
-> Signed-off-by: Lance Yang <lance.yang@linux.dev>
-> Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> ---
->  arch/x86/include/asm/set_memory.h |  2 ++
->  arch/x86/mm/pat/set_memory.c      | 15 +++++++++++++++
->  2 files changed, 17 insertions(+)
-> 
-> diff --git a/arch/x86/include/asm/set_memory.h b/arch/x86/include/asm/set_memory.h
-> index 4362c26aa992..bd3817e06052 100644
-> --- a/arch/x86/include/asm/set_memory.h
-> +++ b/arch/x86/include/asm/set_memory.h
-> @@ -89,6 +89,8 @@ int set_pages_rw(struct page *page, int numpages);
->  int set_direct_map_invalid_noflush(struct page *page);
->  int set_direct_map_default_noflush(struct page *page);
->  int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
-> +int set_direct_map_ro_noflush(const void *addr, unsigned long nr_pages);
-> +#define set_direct_map_ro_noflush set_direct_map_ro_noflush
->  bool kernel_page_present(struct page *page);
->  
->  extern int kernel_set_to_readonly;
-> diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-> index d023a40a1e03..5987f4c84f6f 100644
-> --- a/arch/x86/mm/pat/set_memory.c
-> +++ b/arch/x86/mm/pat/set_memory.c
-> @@ -2662,6 +2662,21 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
->  	return __set_pages_np(page, nr);
->  }
->  
-> +int set_direct_map_ro_noflush(const void *addr, unsigned long nr_pages)
-> +{
-> +	unsigned long tempaddr = (unsigned long)addr;
-> +	struct cpa_data cpa = {
-> +		.vaddr = &tempaddr,
-> +		.pgd = NULL,
-> +		.numpages = nr_pages,
-> +		.mask_set = __pgprot(0),
-> +		.mask_clr = __pgprot(_PAGE_RW | _PAGE_DIRTY),
-> +		.flags = CPA_NO_CHECK_ALIAS,
-> +	};
-> +
-> +	return __change_page_attr_set_clr(&cpa, 1);
-> +}
-> +
->  #ifdef CONFIG_DEBUG_PAGEALLOC
->  void __kernel_map_pages(struct page *page, int numpages, int enable)
->  {
+This series implements the KVM stage 2 page table pre-faulting feature for
+arm64.
 
-We need an ack from x86 folks, to me this looks good.
+== Foundations ==
 
+The series begins by establishing required foundations:
+
+1. Updating kvm_s2_fault_desc to independently store the exception syndrome
+   register (ESR) value, and updating all code paths to use this value
+   exclusively.
+
+This is needed so we can later generate a synthetic fault to perform the
+pre-faulting - we need to be sure the code doesn't grab an incorrect ESR
+from elsewhere.
+
+2. Updating kvm_s2_fault_desc to independently store the kvm_s2_mmu and
+   updating all code paths to use this value exclusively.
+
+Similarly this is needed so we can generate a synthetic fault against the
+canonical stage 2 MMU (it would make no sense for it to touch nested shadow
+page tables) - we need to be sure that the code doesn't grab an incorrect
+MMU from elsewhere.
+
+3. Updating the abort paths which consume kvm_s2_fault_desc to also return
+   a kvm_s2_fault_result data structure.
+
+To perform pre-faulting the code must know the granule size of what was
+just walked. So the abort paths have to tell us what that was.
+
+4. Pass walk flags to kvm_pgtable_get_leaf() to permit walking page tables
+   under the MMU read lock.
+
+This is Jack's patch, verbatim, which allows the use of the
+KVM_PGTABLE_WALK_SHARED flag to walk page tables under the MMU read lock.
+
+Pre-faulting requires it to be able to work in parallel as specified by the
+API. The read lock precludes page tables being torn down behind our back.
+
+== Implementation ==
+
+Pre-faulting is implemented in kvm_arch_vcpu_pre_fault_memory() whose job
+is to pre-fault the stage 2 page tables which map a specific GPA (which,
+for arm64, is the guest's IPA).
+
+This function is called by kvm_vcpu_pre_fault_memory() for each GPA in the
+range, which itself is ultimately invoked by userland via the
+KVM_PRE_FAULT_MEMORY ioctl.
+
+The implementation is simple - try to walk to the stage 2 page table
+mapping the GPA - if unmapped, fault it in through a synthetic page fault.
+
+pKVM is not supported regardless of whether the VM is protected or
+not.
+
+This is because pKVM instantiates vCPUs upon run, but pre-faulting is
+typically performed before a vCPU is run. It would be confusing and
+inconsistent to error out on non-running vCPUs but to pre-fault running
+ones.
+
+Jack's original test suite is also included in the series.
+
+== Credits ==
+
+This series is based, with gratitude, on Jack Thomson's series and their
+respins (links provided below) as well as the feedback he received.
+
+The series includes Jack's v5 "KVM: arm64: Pass walk flags to
+kvm_pgtable_get_leaf()" patch verbatim, and all three of his test patches,
+two of which required minor fixups.
+
+Link: https://patch.msgid.link/20260612162354.73378-1-jackabt.amazon@gmail.com/
+Link: https://patch.msgid.link/20260113152643.18858-1-jackabt.amazon@gmail.com/
+Link: https://patch.msgid.link/20251119154910.97716-1-jackabt.amazon@gmail.com/
+Link: https://patch.msgid.link/20251013151502.6679-1-jackabt.amazon@gmail.com/
+Link: https://patch.msgid.link/20250911134648.58945-1-jackabt.amazon@gmail.com/
+
+== Reviewer Notes ==
+
+I synced with maintainers on this who asked me to take a look, as there hadn't
+been progress on the series for some time.
+
+Am happy to rebase again after -rc1.
+
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+---
+Jack Thomson (4):
+      KVM: arm64: Pass walk flags to kvm_pgtable_get_leaf()
+      KVM: selftests: Enable pre_fault_memory_test for arm64
+      KVM: selftests: Add option for different backing in pre-fault tests
+      KVM: selftests: Add nested pre-fault test for arm64
+
+Lorenzo Stoakes (ARM) (4):
+      KVM: arm64: Propagate and use esr in s2fd when handling guest aborts
+      KVM: arm64: Propagate and use mmu in s2fd when handling guest aborts
+      KVM: arm64: Propagate and use kvm_s2_fault_result on S2 fault
+      KVM: arm64: Implement KVM_PRE_FAULT_MEMORY
+
+ Documentation/virt/kvm/api.rst                     |  17 +-
+ arch/arm64/include/asm/esr.h                       | 129 +++++---
+ arch/arm64/include/asm/kvm_emulate.h               |  52 +---
+ arch/arm64/include/asm/kvm_pgtable.h               |   5 +-
+ arch/arm64/include/asm/kvm_pkvm.h                  |   2 +-
+ arch/arm64/kvm/Kconfig                             |   1 +
+ arch/arm64/kvm/arm.c                               |   1 +
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c              |  10 +-
+ arch/arm64/kvm/hyp/pgtable.c                       |   5 +-
+ arch/arm64/kvm/mmu.c                               | 324 +++++++++++++++++----
+ arch/arm64/kvm/nested.c                            |   2 +-
+ tools/testing/selftests/kvm/Makefile.kvm           |   2 +
+ .../selftests/kvm/arm64/nv_pre_fault_memory_test.c | 206 +++++++++++++
+ .../testing/selftests/kvm/pre_fault_memory_test.c  | 152 ++++++++--
+ 14 files changed, 736 insertions(+), 172 deletions(-)
+---
+base-commit: aa8e5dc6a7a2a1141ab40706a51010adcd0e57d2
+change-id: 20260815-kvm-arm-prefault-9bb411b6897d
+
+Best regards,
 -- 
-Cheers,
+Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-David
 
