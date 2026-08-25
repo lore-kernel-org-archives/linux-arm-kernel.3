@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E79EC61DBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 17:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAFCFC61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 18:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yr/D5ign98BDVCdT+Rpq/9PzvrLTk3CogAV4Kz2hZf8=; b=KARirqiAdt1EE8O2eGltXUe92T
-	/ZfooTgteyS1ni8hRByq0+ha3n4c1yiu63+TwO/EuzbUl1MW6BxNEIIMvvXDAHVujqo27InO1v7qy
-	Gtpvls/0F68Sc50TWboQqaf9KhiTd5QOwDsIPOPr7Ocq+Y5I+2UtbIy2+4+P2XW8tgWHdOxAjq00L
-	qO2uEhv4hPIORuvfbwG+ADabHmVETfxZluKYRVZGhVqdSs2DNFk0iXF7zDx94opwyUBiilkhR05g/
-	563rRbwCdnhRXJ+yrTTiLdKwE+FacHxwIFqz0dVrkFkqCB2z+JqCftt9x6/qEwR2snZU//DGBfTko
-	76gEijWA==;
+	bh=S8PQY6l3u9FoMeM1xa6ObUvdNLOTfPI6J/sabdi+AtE=; b=uWNN3E9hFH4a1PKw630Nnggp/w
+	yzrvWExDPYcI45tPkEI4gZ+7JYcfuRv47Z6SqFrycPAP7fzdhKbtdtkYnTvCUq/sblCtrnABrnxyt
+	odv0m2tJ6SC+ETb3lkjIkM+z0uAX6p50yU4v6jusrVQi5HED4UBc7PKic6raE5stBbbjHd7keWUDg
+	dIymIFa4MmBEsY0S2wTNIIf2nh0T1xPRepy3SUTqhsmzABmzkS7X5/9QV2jCZWJMrSHaBlrfzGa6U
+	WIldtU6vsl2af+fQVcGqRj7bS3wvyPWyuvPriZ/knWrBEhBvZrrC7LjOPqZ3wCY9jZZ5QWL1hzRqw
+	gNJvLplw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyv5s-00000001EPT-0lJG;
-	Tue, 25 Aug 2026 17:37:52 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wyvTH-00000001GAd-31zY;
+	Tue, 25 Aug 2026 18:02:03 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyv5q-00000001EP7-0OPc
+	id 1wyvTE-00000001GA6-42o9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 17:37:51 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2cede6375caso10635ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 10:37:49 -0700 (PDT)
+	Tue, 25 Aug 2026 18:02:02 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2d3b445a84fso11865ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 11:02:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787679469; x=1788284269; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787680920; x=1788285720; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Yr/D5ign98BDVCdT+Rpq/9PzvrLTk3CogAV4Kz2hZf8=;
-        b=BXRJER+SDsZ+VzrQhLPiHq+cL4AJ9qNR1wMK3Ihir2vOHQcz87sndrFS2W+/y6hh4M
-         PolZe1U9V91JZu2Zqnfh2l1urHnCV42Bf2Co8lYZ2iiBWxnXzoyFm2lMsKw5TfrFlvmP
-         GrUPrrC+w2GAlQX5Qi9zsmflrQvxx1gMjiLuHpvYXT1JH6fSpfVOZDl4QMPAHTzvAsHK
-         1enlojn4qGl34AQKOJoNQwgMsNsl+OrLJtu64X3xzRwMB/6pmCjfCHjzGSgwqwY5iy3S
-         IaCUiU7d28Ci0AmiUcM0kXMLGj/ZvWZdvNss5mnwK42kU8MKIWVEC4giZrnt3Jsay5i5
-         BFCA==
+        bh=S8PQY6l3u9FoMeM1xa6ObUvdNLOTfPI6J/sabdi+AtE=;
+        b=TELJz1E8c2lW1Xh/FCrB8Kgr875adOjGMnRV+JClDAX/ufoATDhvLa1PW1MZ3/BpuD
+         F+T9LqFgRUVD7TTenng50y9z8632SFzxUQcTaCrDj1KJUzkceoB237UBPxP3Fsr3Hb5T
+         ujXy3X/bnhtC1i8z1zHvGA2pqelVJYVfggL3AdQ+VB7GK747m3FJcfpZ8H/zOJ/1beLl
+         3fjw3eS9sXZ2cB7bWVgcT+VDOS6gANbYJuGwzUoIC0r1i6XBObebEPyfFH6SH9g4jK8z
+         xDbz9hIJ7GgYKkdzGHewk25ELzlGBizhXnqHXKqmb257I6Ki8lwMe+qx6+MnNF9JhTLf
+         2r7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787679469; x=1788284269;
+        d=1e100.net; s=20251104; t=1787680920; x=1788285720;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Yr/D5ign98BDVCdT+Rpq/9PzvrLTk3CogAV4Kz2hZf8=;
-        b=LAPGjOtuNwg/VjLPjbwvnekxeiOiPcKNy3K/X3JfeMeWCsGOz3okFUq9mWPn6V3SYy
-         XRC8w3cHTXuvvo2qmzlGekb2tj7+EmrYSji5qrNLzFdcyJEr9I+4h4RNWUORvXFvwvY9
-         ORKhI3kfYv1gtiXsz6/305FCvM85BZpeHR2+FOkDQGcef2mUFdiruEOCDDwIY/ZL8WjZ
-         5qb7uyGnhHmrOgJ6cJD+wp4CnDg1XO2Ht2X7A13dTI/nZRq3hTvIcRTybadEXnZ7Z2n7
-         VZFmdHDZPeO0nXizhA6XR8hyTmSaQomLX5EYC35SrEFkVI9xWoO295I6IVRVytafZIXo
-         M8eQ==
-X-Forwarded-Encrypted: i=1; AHgh+RppyDUN/oDyK5ukDwgj3ZaoRlZmN2S3tklKFAlA+ywTuzicBbZadkKu6IWRYxPe+ryB7IdgaCT+Tr4ChheOtRtM@lists.infradead.org
-X-Gm-Message-State: AFuF++nxj9cdwxszjaR7ChB2FJzgoXvmUBZAyacJaNfEyUZs/ZbTwawJ
-	6Fv4HhPx71yHuipOp/wywMgIFFvvctwVnLQckwjmIWhdmXH3/bbrTm23nz0Vabb9aA==
-X-Gm-Gg: AR+sD12e3t/xra/GOicJm7kMrh1/yMw76Q58eCWz7Keq4aa+2LKWZCurKD4SB80fR5j
-	/anOVE8dTcEHEu9Lh42Oud6syIswZy3JnnN/VEh8EWcwS0g+UIseB3tJMvbY9t2wscOvr3eAH/7
-	UJroM9yu2ybY+ACTyUci+woqIsypKARZvM0rXUfpFCmnKUl71YcAOOnsNKYiZCXh1emXwvn/Tdi
-	B04wyrKXE+lWwUAlw4W+8eW1cwRAq4Ebm1FojEn4VjH5Q/xDpHqlH9xAV5DKwy25xeIkpXhmvXK
-	9TYYyZAel/YrebpNwHvG+bmtiw01sdicY4I6ji24xIUKkdh00ffpd/W7+5d7ybA+lmHIg5ijwP6
-	yDAtMccncm1CE0QBd9su1FPgLN1GUgiUzaHZBfdv6U2MAAOS83rIxK7n7ICb1x+78QRIm90cIQs
-	vD2ZZ2+y6VeR/xQ7W3+x8zkv2axBDqNDpxGHh3OlWA/ORkFRpgH098IZsN+AKZggRL+vWhcqEEl
-	u+Gg5Izyls87mh/TXpMIRkdNw==
-X-Received: by 2002:a17:903:3c4c:b0:2d5:db3d:1a43 with SMTP id d9443c01a7336-2d6e07a75e5mr8544665ad.16.1787679468673;
-        Tue, 25 Aug 2026 10:37:48 -0700 (PDT)
+        bh=S8PQY6l3u9FoMeM1xa6ObUvdNLOTfPI6J/sabdi+AtE=;
+        b=mHwUqodun0qHHy3RCAi+9mTdM2lRYFRm0IIQPz5Rd25p4YROKtfz4orAJNW1r6zYxI
+         rtfj3+zEk2J6P3qfpIaOXfT1UnYNajD7ara2jGcQgr24MlRaDPP/qSxUKwHL9KAo3TeX
+         bbq0QhcNm7Ta7tfvRaMonr0vaeCZVbLvYKwUMu2+Ot9DLGPyaLIe2OHqyvEzmHSLjGrp
+         rBXlEaZKWrivkc7M2b71xf0nTZ4nVSFnQ600uKOxjuz1XyjPUYsAyTn4fo6ePw4/fcbH
+         X+4ju5UXfH8wRKm974lxWmNRbSpXOU+En8LcL/Y4XTKdf5GS3vxDZlZo3iNHQtpD+m4V
+         Ti4A==
+X-Forwarded-Encrypted: i=1; AHgh+RqHUDmbrVV608q+E/XhKjTu5MkKVvm4elMmIEsbxdz6SrGjthbgFfdpzuOTJVUe3Fuyqa3UqMgGW7HSyq2m/34w@lists.infradead.org
+X-Gm-Message-State: AFuF++lZVunekrMShcNqj+x5cjXLCGVUZEaYamqxz8lTbitCb5LfGBnf
+	6OKvyC8641kemxGyM2yygJ7mtyazhnSi6U07nak45cBrpUXBv7HFLRX1lY2JxhQJ8bk/MJoMmCD
+	vxEwe9w==
+X-Gm-Gg: AR+sD139TYiOwB2EfEmyIW6e92XUwMh5XxE4ZU+iKBSsegqWB84wz5tRWOEFlC8vzIQ
+	72kupopcwnvSfQrD5pvJKNqskp6+ixei9pzp9tFJzoahoAj1XArk0Nml+fwqP3cwe9f265AalHZ
+	SGaCPI6aq8tmW0Q2kLMtGdbFxkFJjGztVcXV01ciE4vCHgItxMmMbXfMH/OKeKsPNsTCmZE/X0m
+	9dj94FdCrMoz4p2pxuk6lIQ15gPQdOeRK0DObdQ4ZUtTxK694lyE8mC7OqdiGgdBWXUDdVHK4Tx
+	i/1UFVUOpLIclNLdZYuLAFkvwqy7qO9e/gsNhAADr3GBr0EAVo8Cg9dtEcoD6QpIiglRmk82608
+	3WXQVFwnxQw4iGKQZ4YZsFiA7yxZyDauyvE+6R1444ahxRYBzPEMBYb52vXJFs2qoJDlvcxycwx
+	QuyOYOeZcRjkksNIk5csFCsQiT1q+/Qxp6GwHq2SnbbJ3Ah0IGjTI+wsMWiGumZQAzjKkDlMNU2
+	X1bhVX5zBGt9WajWlr4lJqCTg==
+X-Received: by 2002:a17:903:15c8:b0:2d5:db3d:1a45 with SMTP id d9443c01a7336-2d6e07a752fmr8586785ad.18.1787680919397;
+        Tue, 25 Aug 2026 11:01:59 -0700 (PDT)
 Received: from google.com (164.210.142.34.bc.googleusercontent.com. [34.142.210.164])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d704bfc5aasm970305ad.61.2026.08.25.10.37.46
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc1beb0f15dsm39129a12.9.2026.08.25.11.01.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 10:37:48 -0700 (PDT)
-Date: Tue, 25 Aug 2026 17:37:42 +0000
+        Tue, 25 Aug 2026 11:01:58 -0700 (PDT)
+Date: Tue, 25 Aug 2026 18:01:53 +0000
 From: Pranjal Shrivastava <praan@google.com>
 To: Jason Gunthorpe <jgg@nvidia.com>
 Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
@@ -80,19 +81,18 @@ Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
 	Nicolin Chen <nicolinc@nvidia.com>,
 	Daniel Mentz <danielmentz@google.com>,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v9 02/12] iommu/arm-smmu-v3: Add a helper to drain cmd
- queues
-Message-ID: <ao3S5ickm47p1QWa@google.com>
+Subject: Re: [PATCH v9 05/12] iommu/arm-smmu-v3: Cache and restore MSI config
+Message-ID: <ao3YkfLnCwbhC1A7@google.com>
 References: <20260728210928.1050849-1-praan@google.com>
- <20260728210928.1050849-3-praan@google.com>
- <178767577112.3356902.15184998673790345568.b4-review@b4>
+ <20260728210928.1050849-6-praan@google.com>
+ <178767577112.3356902.7778967514008843854.b4-review@b4>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <178767577112.3356902.15184998673790345568.b4-review@b4>
+In-Reply-To: <178767577112.3356902.7778967514008843854.b4-review@b4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_103750_141135_E543DEE8 
-X-CRM114-Status: GOOD (  21.38  )
+X-CRM114-CacheID: sfid-20260825_110201_005891_90B452F7 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,58 +108,78 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Tue, Aug 25, 2026 at 01:36:11PM -0300, Jason Gunthorpe wrote:
-> > [ ... 36 lines skipped ... ]
-> > +		if (queue_empty(llq))
+> > [ ... 37 lines skipped ... ]
+> > +static void arm_smmu_resume_msi(struct arm_smmu_device *smmu,
+> > +				unsigned int irq, const char *name)
+> > +{
+> > +	struct msi_desc *desc;
+> > +	struct msi_msg msg;
+> > +
+> > +	if (!irq)
+> > +		return;
+> > +
+> > +	desc = irq_get_msi_desc(irq);
+> > +	if (!desc) {
+> > +		dev_err(smmu->dev, "Failed to resume msi: %s", name);
+> > +		return;
+> > +	}
+> > +
+> > +	get_cached_msi_msg(irq, &msg);
+> > +	arm_smmu_write_msi_msg(desc, &msg);
+> > +}
 > 
->  [Severity: High]
->  Does polling for an empty CMDQ actually guarantee that commands have completed?
+> I'd really rather the irq core do this than open coding it like this,
+> it should be fairly common for any driver doing power management and
+> platform_device_msi stuff?
 > 
->  queue_empty() relies on the SMMU consumer register equaling the producer
->  pointer. However, for CMD_SYNC, the SMMU advances the consumer register
->  immediately upon consumption, not upon completion. Suspending the SMMU while
->  commands like ATC_INV are still in-flight could abort them, leaving stale
->  translations in the device ATC and causing submitters to time out.
+> So maybe:
 > 
-> This seems broadly wrong, but it doesn't seem explained very well,
-> maybe put a comment above the function something like
+>         platform_device_msi_rewrite(dev, irq, arm_smmu_write_msi_msg);
 > 
->  The caller must have ensured that no concurrent command submission
->  can happen. Thus the entry at the PROD must be a CMD_SYNC due to how
->  all submitters generate commands. Waiting for PROD==CONS guarentees
->  completion of the sync and all prior work and thus idle HW.
-> 
-> I don't think the other substantive remarks are valid.
-> 
-> The Werror thing is right, every patch should compile alone without
-> warnings. Sometimes people add __maybe_unused to accomplish this..
->
+> ?
 
-Ack. I plan to add __maybe_unused here.
+I guess it does make sense to add another irq core helper like:
 
-> > [ ... 19 lines skipped ... ]
->  [Severity: High]
->  Does this logic miss commands routed to secondary queues?
-> 
->  The driver supports routing commands, specifically ATC_INV, to secondary
->  queues (like the Tegra241 CMDQV virtual queues) via get_secondary_cmdq().
->  By strictly hardcoding the poll to smmu->cmdq.q, we ignore secondary queues.
->  If the SMMU suspends while ATC_INV commands are processing there, they could
->  be dropped.
-> 
-> Yes, I think the ordering is wrong, to keep them as different patches
-> 
-> iommu/tegra241-cmdqv: Add a helper to drain VCMDQs
-> 
-> Should come first, adding the op callback, then this patch would have
-> the hunk completing the function so the newly introduced function
-> works completely.
-> 
+void platform_device_msi_rewrite(struct device *dev, unsigned int irq,
+                 irq_write_msi_msg_t write_msi_msg)
+{
+    struct msi_desc *desc = irq_get_msi_desc(irq);
+    struct msi_msg msg;
 
-Ack, I'll re-order the patches.
+    if (!desc)
+        return;
 
-> Otherwise the approach looks OK to me
+    __get_cached_msi_msg(desc, &msg);
+    write_msi_msg(desc, &msg);
+}
+EXPORT_SYMBOL_GPL(platform_device_msi_rewrite);
+
 > 
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> 
+>  [Severity: Medium]
+>  Will this correctly detect if we have fallen back to wired irqs?
+> 
+>  When setting up MSIs, if the allocation fails, the driver gracefully falls
+>  back to wired irqs without clearing the MSI feature flag:
+> 
+>  arm_smmu_setup_msis() {
+>      ...
+>      ret = platform_device_msi_init_and_alloc_irqs(...)
+>      if (ret) {
+>          dev_warn(dev, "failed to allocate MSIs - falling back to wired irqs\n");
+>          return;
+>      }
+>      ...
+>  }
+> 
+>  Does this mean the resume checks here will still pass during a fallback,
+>  causing irq_get_msi_desc() to return NULL and trigger a spurious dev_err()
+>  for each irq on every resume?
+> 
+> Seems believable..
+
+Ack. Yes, I think in this case we should be ideally clearing that
+feature: smmu->features &= ~ARM_SMMU_FEAT_MSI; before return.
 
 Thanks,
 Praan
