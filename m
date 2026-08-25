@@ -4,75 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C756CC61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 21:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770B5C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 21:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WEAPghw2V8FwZFDzIv86krQ5odb//lbOQ2ObiCLEC1A=; b=eIKNnzgs8HgxDBcf5VUi85CZzD
-	A/Xb6giYOVyLdEiCWUivQXFLJ8YVk+augiU2Fy5t8zuXVNbYcI5tL1n32QKu1+GwYPoTemE5zSzD5
-	aUPIzeZ6XS2jXIvnp0946c5hw73JsyUdGfz1J5P39hosdUOFqNzdFkhSltbuQ36gjwlOdQS2xXgY7
-	xHMFtQZCkst3qew1YbgA8kmy3+GQYQTp34HudN1P/z68phuv9OREfBkxy9zKCnqnDCaJ7VIvhUUPZ
-	eXf4NarygHoLabPIJKMLUNNX6wqWWVopGg/xoewd3TVzYjiT+RdOEPcOIPULtHZZMLk0SjdBe6wiX
-	mm4dbzVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/amZMn7veITM9CJfNfg3hOiW7uRa/iKivs5jdlnyK60=; b=vkjdukMcKB/uJWl60vMOkh5rei
+	+1rB2ljBLJSX+3HfPk98UbDfc/pZIU55J82Pz7Nw0uL1dfGkYFFvN+I0F161nVgRhZNl97Q0F9mJL
+	BDCVRrzKDwKkeNrRfZ/Dt+3zXIiBbKndhqIFuFEo/eQ9vQm1w3px7J7sVfMNgKNp+u/KyNJp9X4TR
+	03C7e4jU1mcYjKbAhclReymveouq3qCElv6rqFGJ7FRGNT/OE5SsEpmeHMchVRQr4fWawZDF0UU3e
+	XA72rZfVBeirpt4/jCb+/vtPA0ZUF1erPt+a9BRIX0lJau/35GYk+kY1Y+IQY2h9nT9ABsBZB7N8i
+	kiE7Z9gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyyX4-00000001Ufx-1LxZ;
-	Tue, 25 Aug 2026 21:18:13 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wyyXN-00000001Uj6-1ubX;
+	Tue, 25 Aug 2026 21:18:29 +0000
+Received: from mail-westeuropeazon11013054.outbound.protection.outlook.com ([52.101.72.54] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyyX0-00000001Ueo-0ZLR
+	id 1wyyXK-00000001Ui5-3Us4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 21:18:08 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id DB9C74E413B2;
-	Tue, 25 Aug 2026 21:18:02 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8D35A604C4;
-	Tue, 25 Aug 2026 21:18:02 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 590C511C7A346;
-	Tue, 25 Aug 2026 23:17:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1787692677; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=WEAPghw2V8FwZFDzIv86krQ5odb//lbOQ2ObiCLEC1A=;
-	b=InTOlJtrPp/dS5U6KdgdcRJIjxmQ80uyE2tEVykWMb+uY2KzEEWzgtmV2E7mYouQ63g/eK
-	fVK2j6w3P5+o9Qj8WQe+lrbxSyexGFtdBXVasRudU/K1BTI5aQqwBJp1bPMWO0dr3ld1x0
-	3OkWL599vz7TCPejRGcotuObV5mHh2dllwInLasraiXcmo5WsGNShpyfSGHHYDxLMd5tp6
-	vWxXt/963xV1p121WUQftbijMxQ8ja8VTHneC5WuBsRdjZItYHvrfOxcwXYAEUgRVeXx3j
-	JayRQEFPOfglZpnLDRUlseAJJi5+YocCqZ2+Zex4MRAgBsRc4zW/9pQiKb29Pg==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
+	Tue, 25 Aug 2026 21:18:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NHxApwOcXGbRZVp3XcUB5SoeAhG8jmMVs26yX7Ck7902Vpffwc8C1F31zy8If2Xar4In4jGBgjoXZuVwcMxSTvNnjIdnkzqbOLK6mqybmnfr78iRuI4Oxh+GchytyJ+5iZk5UtQ7DB2un2ZPB6vMRCcKwdEht544QlqiprUjRBhZifFFs2/eiA0NQKgF59b16VsNIc+IOmsWCkaD6Is/UBHPbLgsCAGrPc1jjOljlrvvrN8ynSQ4Dss4ZuxNTM/bknq39WRHmDwO5Zwnwz88NjWJGaLKBp9FXFmiFPM61wJxYLnGg0++9VqvQmvv4+Sg4/MkfWIg3P1PH2RxgydopQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/amZMn7veITM9CJfNfg3hOiW7uRa/iKivs5jdlnyK60=;
+ b=V07zTN2cyuxCUXcrNZFvw4LqSzokj7Je/Yp7mZCIlPcSuL4R8lPgSq9qlIW5f/tqJMkejNAnFQ/qczHVx/iao2xjE9YwmXyhIH87898akgyInXeZ+SIi/R9TTPTZ8ep79kV6qUUIghlW0X39Zo+Jlcib4hhpov0RMKWw6Y7qjXo33ipHqlgUrU+eg7AmLeIJornnwY/d31oY/VS/fl7KrstrIGNSyw2oeydJgz60IwZRVnzyqmIR8yxuCtBFVWtHwS4REKcRkczXcGUF8C1dNd7aAJiGDTArPQLjg97bpByALpJR6FRkcIeHDl1xjlMKfmRJizpoB5i7XPHlTu9Gig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/amZMn7veITM9CJfNfg3hOiW7uRa/iKivs5jdlnyK60=;
+ b=lsAq9TLOOdxLQmHK78XsQ54yoPorfHoFaCM1Cc8XldFINVxxf+TvMHzsDeMN9IkPYhUcnDRCizO+eWqIQglxynbHYjyhAqTGrJomd09jbu+qEZOCv7BQqQkQqrrh1P07dvrYsSz4C0TJGH3TYB9Z59gi4w470/JGm12h0Yma6XxRs90qxkAjaKGK4XzsewSA0rz3+8dHbm0wRjzng6pz5pFpTKAtL/FmFg/zpJZkEECISG4Rk08AdVk7F2rSc7JpQsTi7zGjXwTyeHvgEfa76nAGEIcgiID8NuvmpkMkcwqzJIbsj+TiBOyw6riDsg79cZvOwCA8XSYuwScXaae6bw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS8PR04MB7928.eurprd04.prod.outlook.com (2603:10a6:20b:2af::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.6; Tue, 25 Aug
+ 2026 21:18:18 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.012; Tue, 25 Aug 2026
+ 21:18:18 +0000
+From: Frank.Li@oss.nxp.com
+To: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Stefan Agner <stefan@agner.ch>,
+	Mehmet Fide <mehmet.fide@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco@dolcini.it>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH net v2] net: stmmac: selftests: Pass the IP proto mask in the TC selftest
-Date: Tue, 25 Aug 2026 23:17:46 +0200
-Message-ID: <20260825211748.360935-1-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.55.0
-MIME-Version: 1.0
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: dts: vf500: describe the Cortex-A5 L1 caches
+Date: Tue, 25 Aug 2026 17:18:11 -0400
+Message-ID: <178769264809.2255750.18170859151580675367.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260810152200.3230971-1-mehmet.fide@gmail.com>
+References: <20260810152200.3230971-1-mehmet.fide@gmail.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-ClientProxiedBy: PH8PR21CA0001.namprd21.prod.outlook.com
+ (2603:10b6:510:2ce::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB7928:EE_
+X-MS-Office365-Filtering-Correlation-Id: 792855ea-09f0-4e2c-3a99-08df02ee6270
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|19092799006|1800799024|7416014|376014|10067099003|11063799006|5023799004|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: wjM5LAhzO/GjYqTQ7XYYFvtHtmh95AGKSajmnKM2lCqL0cV5Xw+7AHsoJLYeWW02BcoF3JCNjjyDovuRNPUQmjbbQ616eTGV5VskRDm061Jim3LvXA5BgeHgfMjKSbOIxzCPUvjexBdLkgJK+G88CQqWRf3/1ddgn0c1r+eVPUY69J4P7QQGXlpiibKbbqSFfN6/3+rdlhv3LW8i1+ekKcvzDU9uFC+RYxnPBCcf/FZyfiaE46LDwClGAzR8CvmNy73GAyO/WBBGXnrDJGBkMZlAJRTDjlohLsXy3xmyKF0PFa6Cfp2Oq1xEnAM3fe6EmTGLRQP8Z1Zq/O7IXHey7KYUsC0+G6wFYa1Un6f0afvNb/mIbKVL8BteYNfjAvRuJyBj6e1Vj+n/fVt9i02Mwr0D2mF61tbx3/BjAzf+buKJjcf6NoJCoT5QaRYsPhH09U+T9lNwvVoDN4KobXG9OdF41b5ysu8fFBosgM1GFxd3VYIlOQI56smTkvTtu86LG9C6KOUA694aFHNWoGmaVWmLapkhlPOfcmlTWKguCFZwvlmqyqcF7ZIM6YD8DZgU3fRL31uKEZ3Jc1E29SW0U2mXUN+IkJVIY2JpsgpDzug5iBD5ylSIi60jl35AA7VRHgf87s4lBeVXnYv1Xjskcy0M+x9kaj8ZO45lLP+E6TU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(1800799024)(7416014)(376014)(10067099003)(11063799006)(5023799004)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NkQvNWtDYXlPRE1DQWJNR3R1eTRPQ3JtL3I0Z0J6SzhjWTlZZ1FQMVFwL3Fl?=
+ =?utf-8?B?eHgrUmxyS09ONFdjeEljaEFjcmlkMTNsQ201Y2dFdlhLTDlYTEhFNWhrb1Vr?=
+ =?utf-8?B?WlJRbjJRdUxTRnQxTFhHa3pWK09YSUpsVVJVZDR2dVEvM1lDNERtMVRHM3NR?=
+ =?utf-8?B?L2RwczhnbWVYMGxOUEJGSGhLSlhwRjZIL0dYckVGclJjdDc5TXpaSG9oeUhz?=
+ =?utf-8?B?b09oK3psUlVVYzJ4Y2pnNENqQzM4WTQ0T2JtSTQwRFpIOFYyRnluOE5kRnBa?=
+ =?utf-8?B?QVRrK1NlUEZSME1nL3hxVk1RS2hPOFNLbWdrUUoyclhYSmVYRStQd2FNdWJ6?=
+ =?utf-8?B?dGdROXVjVWtMeGdQMlF1QkdPakJ1L2VrSXpGckxiWllselJHVW1oQ0t0Rzc5?=
+ =?utf-8?B?RjI4ZFQ2K0V2ZHVrTUpsWloybXpuN2x6cU5NOHltQnFFRjI5YmpzK3FRZVIx?=
+ =?utf-8?B?aG1RYnlyUWpWTHF1WXFyUXFUUFJCZTJOMWdYbzV3bkxxM3pCUlJlNHJzL3Bn?=
+ =?utf-8?B?amp0bldmRHN3UlZyQUpwWGYrbXNKTmNJN2lXVDlPbHRzK0xSdDUxSWtPV1RN?=
+ =?utf-8?B?SU5GMmd0aFJzaU9CTGNpVE5pQmN4RTNUMHp2dmRBZWFabEdhbUZrai92V1BV?=
+ =?utf-8?B?OEdDWGlhT2VxaTEzaUNnYjVxZ0hQY1MzR2hHQmYxd0VLQXZnMlE4UHk1elRa?=
+ =?utf-8?B?T3AvZmFTSXlaWDJTcm03d3ZSdnoxQzMzNVZOR3FSaElsd3dTSk81RzYxa1Ns?=
+ =?utf-8?B?YVdCdWcvNVRGMmlmamw1OGcwWmxaWmprVWsrREVrbkVPcFhCUFZVVUlQdisr?=
+ =?utf-8?B?dnU0WGdIbUhhd3gvZWhUd0hNOE9QT0tOZDFTa25tZ1FEUUxFSnlBVkxxYTdP?=
+ =?utf-8?B?TTJkZUNKRWd3U25RdVVieVhoeWlMVzUyT08xbVZUdmlkTUdRZ0REM2psR0Qy?=
+ =?utf-8?B?bTdlTHlPa1cwbmlGUXJSNTc5c01YTVltdHBRUVJ3eFpjSkRXUWN0YWgwNHFj?=
+ =?utf-8?B?V0YrUi9VUDJseEFCVW16b0FhSUY2WlJRcHZFN0lmZ2xORk9xTGpvd0s3amdT?=
+ =?utf-8?B?ckxWRloralNUWVc1dkZxeDVxTmg1YlhVbzc1dXV2WlVKUVNINmIvT2Q0dSsx?=
+ =?utf-8?B?L1RlMVRrQkx0OXRwNkYySW9YS0svd2NvbGdqbFdhT3E2S3h0OFZycFFjZGJ2?=
+ =?utf-8?B?a3BOMytPTUtwQU1QQTVCdDJ4UmNHVlJ3dmxsVWNrRnZSNDV4SjBRUFMyWStJ?=
+ =?utf-8?B?dVRHeXNWQ2xHRzZueFNMVmwrdGdzNkNDT3Fuemx5bU9uTnZQWnBmams1UjJn?=
+ =?utf-8?B?L2ZhOWR3bFc3ZG9nYUtXalVsM3Z5UTBBYTdMZEc2RGx0dk9ZbU9pQStkZmJS?=
+ =?utf-8?B?b0t6dzcxY1JxdWZhbGZwQUwwVmxnOUtxRm05NmNtaWRXRjl3RFM4aWpOZlVw?=
+ =?utf-8?B?ZEwwY01aNFMvQ1UrelY3RUxlSWFVMFlMTlpGejVUTUlvbXRRbjVRUm4yYnV1?=
+ =?utf-8?B?NlgySStOSTdnZXZKL0tkQy9mSEltblFTanJWdXFLL3hPWUYwMjN6RCt5aWF5?=
+ =?utf-8?B?L2R0WnNqc1V0dERvOVZoTURHTkVTWjdacGFxbGs1MTJqRUpZRU1HNDdzblNx?=
+ =?utf-8?B?RkxBTmJTMUZsZFRPWmRoeHRPeUxRSUFQSEl1SGs1Y21Ta00zRU5HVURkYU1s?=
+ =?utf-8?B?VUZ3eWxRQk0yRUVCQmZlSHBZVmNVOXA5aEJQbDRscUhmZ2p5d3QrNi9EWm55?=
+ =?utf-8?B?ZFhFQVdERVE5bjlJQ1lNK2pIWnpNaHR5SHN1OG1DdGFyeUNvd1g2akphUVBq?=
+ =?utf-8?B?RDZlVkM4SXJWbjNFeGpLUHZCRjdDTE9udlg2ZmlobUFVOUpKd3c3OXozWE55?=
+ =?utf-8?B?QitiWWRwdHdJK2l2b1NCTUl4MGIxWFJWeldWbi9YY0QxckJKb0N3K1MrMnY5?=
+ =?utf-8?B?aUh5VitpclRCRW1uRXV2NHladUNVWTZNb1M0b3h0VzR6YS8wVS9CK3lUc0tr?=
+ =?utf-8?B?bUFHbFFJVTlJMFBTb0Z3dHA5ZmVFcjd5eTBqaVBaTGZXelRsTmVqeXYxQk0r?=
+ =?utf-8?B?dVhXOFJKRHpMa0orRFc4bEswbUlpMzg0WU9JWnBWaDZoTUZ3VmxvYmF3Mnpt?=
+ =?utf-8?B?Z1MyaEhHNDR2OFFYVERCZmlXRE5xUm9wYVEza0NadDkwbVloeWNuU0Jjbnl2?=
+ =?utf-8?B?RktubjBYVk5pRkZCV0phMUpvSUJJNmhsWGYzZ1NSdFBZbkdCT01DNWtlRkQx?=
+ =?utf-8?B?TjBjUVFyZUFuMUZrVXV4R2Nua2NVSFRYcE1sZmhVYUlRbnZhOStmNC9SbWJz?=
+ =?utf-8?B?R3UySXpvRGp1YkVhMXo1SlM4dCtENlJhbnZZVlI3Y2ZiWmxUa3F2OE4zd2Nr?=
+ =?utf-8?Q?VclAisF1F4Be9SJQhpAihLeFj3xOyvciSvtAd?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 792855ea-09f0-4e2c-3a99-08df02ee6270
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2026 21:18:18.8720
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HZBToM9P0dIRqm6YBq2sNXxYtSekCKjGXAn/sF5AlNKcutfWXxE07WeYShAvxZntFWflKU8zHQipdnX31+Df2tMYdVeCBht79uErRX0Q6U/ZV2JMhweFFlwktfKZPYFW
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7928
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_141806_319336_C0B55F1E 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260825_141826_879732_E3E17CAB 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,68 +154,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The stmmac TC filtering rules have recently gained sanity checks to make
-sure the passed keys and their respective masks are aligned with the HW
-filtering abilities.
+From: Frank Li <Frank.Li@nxp.com>
 
-The stmmac selftests failed to pass the mask in the match data for L4
-filtering tests, and are now failing consistently with -EINVAL :
 
-$ ethtool -t eth1
-[...]
-23. L4 DA TCP Filtering          -22
-24. L4 SA TCP Filtering          -22
-25. L4 DA UDP Filtering          -22
-26. L4 SA UDP Filtering          -22
+On Mon, 10 Aug 2026 17:22:00 +0200, Mehmet Fide wrote:
+> The cpu node carries no cache properties, so cacheinfo has nothing to
+> build the hierarchy from and gives up at boot:
+>
+>   cacheinfo: Unable to detect cache hierarchy for CPU 0
+>
+> The level and the type of the two L1 caches come from CLIDR and CCSIDR,
+> but the geometry does not, so /sys/devices/system/cpu/cpu0/cache is left
+> without a size, a line size or a set count.
+>
+> [...]
 
-Let's pass the ip_proto mask in the l4 filtering tests match data. Found
-on imx8mp, which now have passing L4 tests :
+Applied to imx/dt64-intend, thanks!
 
-$ ethtool -t eth1
-[...]
-23. L4 DA TCP Filtering          0
-24. L4 SA TCP Filtering          0
-25. L4 DA UDP Filtering          0
-26. L4 SA UDP Filtering          0
+[1/1] ARM: dts: vf500: describe the Cortex-A5 L1 caches
+      commit: e148f98ccf9cf71947b6227031fa570c95be4da0
 
-While at it, initialize the masks and keys to avoid re-using whatever
-was on the stack.
-
-Fixes: 5536d7c84363 ("net: stmmac: fix l3l4 filter rejecting unsupported offload requests")
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-index 1df26c217f9a..a2b917dd60e5 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-@@ -1432,11 +1432,11 @@ static int __stmmac_test_l4filt(struct stmmac_priv *priv, u32 dst, u32 src,
- 	struct {
- 		struct flow_dissector_key_basic bkey;
- 		struct flow_dissector_key_ports key;
--	} __aligned(BITS_PER_LONG / 8) keys;
-+	} __aligned(BITS_PER_LONG / 8) keys = { };
- 	struct {
- 		struct flow_dissector_key_basic bmask;
- 		struct flow_dissector_key_ports mask;
--	} __aligned(BITS_PER_LONG / 8) masks;
-+	} __aligned(BITS_PER_LONG / 8) masks = { };
- 	unsigned long dummy_cookie = 0xdeadbeef;
- 	struct stmmac_packet_attrs attr = { };
- 	struct flow_dissector *dissector;
-@@ -1489,6 +1489,8 @@ static int __stmmac_test_l4filt(struct stmmac_priv *priv, u32 dst, u32 src,
- 	keys.bkey.ip_proto = udp ? IPPROTO_UDP : IPPROTO_TCP;
- 	keys.key.src = htons(src);
- 	keys.key.dst = htons(dst);
-+	/* Match the full IP proto field */
-+	masks.bmask.ip_proto = 0xff;
- 	masks.mask.src = src_mask;
- 	masks.mask.dst = dst_mask;
- 
--- 
-2.55.0
-
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
