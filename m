@@ -4,50 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD245C61DB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 07:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF611C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 07:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
-	From:Message-ID:Reply-To:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eYDxmFjt8u0t67lJ9NHj2ucmdMj7BnDI1h8p2Y2eBU0=; b=326AujGPTUAoOR
-	NysUtUvxGlGr4GsuJslOMqbarjWcOW1CDyqLG/oIEayOJ7s9z7mUocFU2WT6dESVFuLvryAG4pb25
-	jHufhbBMNdW6SAfUMcct5AsPUK2n6UIfqed3hDrv3fghphPLKI1wSeKIv5XP0x2AYzb2aTmkcO/h0
-	o63WcPOkpCAJnXrjEVKPo+jJpCXM5ZpIiCBvwXzfVDuJhXOf/cT0k24WNnest3AslAxC4LPWGxfBM
-	mtomoXUKPsRhiBSockvADxmDr8/Ip0SO/wRV9mTfF/LDKzuI23LN/7sRmB5C9h28n8bQVVekHdFcS
-	kYBTSKHA2MEp4yOfImtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AMxmjZ0JJMyuWIJbXGv/0gigEXN79Nbqmvzf7orMYUk=; b=ZjmGDNTNReGTSNDFBYK765oktW
+	tScHFx+c0t4DCugQRwoZpjlZzn0f2KcGx2bzyGsEK1wv0GA9LO/hZkE7yKoMKVvJJFNpOwhcruiCx
+	YnMXg6Y6rrQ/URSTvcyK2EJOoPE92gSJ8PDmTMfW8Q157gDA4wsi5kVb8dgu4sJBnULaE5nxI7guL
+	GLz5XraSa34xiLVfNpKhwDUcjwQqMCgX2QoEwSyzLIvoIEaXl5HtXTAckrSwTr/ncJY2jNK1lZ9dk
+	BNDzHbEmEbfIAoP+rKaQVozgJFWJfV4I5PnKlgUc/x9DtY9nYZJwPSwUp8QV9WLbHiYAOuHm24M47
+	5oP3bilA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wylky-00000000IqI-3w2w;
-	Tue, 25 Aug 2026 07:39:40 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1wylm4-00000000J3t-15A9;
+	Tue, 25 Aug 2026 07:40:48 +0000
+Received: from out-149.mta0.migadu.com ([2001:41d0:1004:224b::95] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wylku-00000000Iok-0hPu;
-	Tue, 25 Aug 2026 07:39:39 +0000
-Received: from [127.0.0.1] (unknown [IPv6:2a02:560:5dd5:4b00:9ebf:dff:fe00:fdb5])
-	(Authenticated sender: sha@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 6E604201021;
-	Tue, 25 Aug 2026 09:39:31 +0200 (CEST)
-Message-ID: <1048ee70-54b2-4e42-ab67-22384961f094@pengutronix.de>
-From: "Sascha Hauer" <s.hauer@pengutronix.de>
-Subject: Re: [PATCH 1/4] media: dt-bindings: Add Rockchip JPEG decoder
-To: "Krzysztof Kozlowski" <krzk@kernel.org>
-Cc: "Sascha Hauer" <s.hauer@pengutronix.de>, "Lucas Sinn" <lucas.sinn@wolfvision.net>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, "Philipp Zabel" <p.zabel@pengutronix.de>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <d24d59bb-2330-41c9-a6cc-a4c7053f8526@kernel.org>
-References: <20260824-rockchip-jpegdec-v1-0-8011822bf500@pengutronix.de>
- <20260824-rockchip-jpegdec-v1-1-8011822bf500@pengutronix.de>
- <d24d59bb-2330-41c9-a6cc-a4c7053f8526@kernel.org>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Tue, 25 Aug 2026 07:39:30 +0000
+	id 1wyllz-00000000J2b-2TML
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Aug 2026 07:40:47 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=AMxmjZ0JJMyuWIJbXGv/0gigEXN79Nbqmvzf7orMYUk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1787643641; v=1; x=1788248441;
+ b=VcxtuuPXErsWDah5Lr6vrje5qBP2/1RBZ9gxO5MonGYKWEtSVUC1DmvkPZuapd5AdduA4kF6
+ UY7PJav9skptwlsP35lFf0iFCSDiE3WLnEObRnAj3T5uDZYKv6XfKumxXFEQhOia9KK5it9glMu
+ bPaRknZZIzWHxekUsWh53tWQ=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from mail-lf1-f50.google.com (209.85.167.50)
+	by smtp.migadu.com with ESMTPS id 67afa3bf06d5a58f;
+	Tue, 25 Aug 2026 07:40:41 +0000
+X-Mizu-Trace-ID: 67afa3bf06d5a58f
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5b2a8173142so3668e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 00:40:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrNwU2v5AAeOXyTTdyOsmoCl5bwLtqcZDyYHhJX84YRPBRxVVb6NIWYv8VaeQAnkFP3pWnVBiUvo6ax10NEZL4N@lists.infradead.org
+X-Gm-Message-State: AFuF++nGNiEY5Y7tGJqdbDdqAAqpcVGC4kcsorqR2urn121/qKrjWTt9
+	+asbCYpZZ10/1Yru/zg71BdiJv0vZItdMOmoIeBDsoc6axRDFgp6nqoxk+yNxDyyU/RCfYZVRUg
+	Fh1nJowBCS5wMF06sQV59ru1fs35j4WKTxAkIWGss
+X-Received: by 2002:a05:6512:3d8a:b0:5b2:8963:e5d4 with SMTP id
+ 2adb3069b0e04-5b49de860a1mr48950e87.5.1787643640199; Tue, 25 Aug 2026
+ 00:40:40 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260731143541.956291-1-vdonnefort@google.com>
+ <20260731143541.956291-11-vdonnefort@google.com> <CA+EHjTxU2GCpSR587oR_EaMOvXfu+teCnfC2KCg=vpOtf4sgRA@mail.gmail.com>
+ <aoxzjag7xr_emuvX@google.com> <CA+EHjTxraCfN1bfZ9ygRiyxxyEPeHw4mg6f6O0qzPBpFi165Qg@mail.gmail.com>
+ <ao1CspwFUHyhj0dE@google.com>
+In-Reply-To: <ao1CspwFUHyhj0dE@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 25 Aug 2026 08:40:03 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTz3Fua-vSezqu3ennb1bZpUjCopE0Ud8N3ssFUrRGNZ-A@mail.gmail.com>
+X-Gm-Features: AcwNN1XR0Ts6IcRX1i_REvmjYK54tavPxfSvDfmqMn9S4xm5Sn-f6fGyHQGFKMo
+Message-ID: <CA+EHjTz3Fua-vSezqu3ennb1bZpUjCopE0Ud8N3ssFUrRGNZ-A@mail.gmail.com>
+Subject: Re: [PATCH v4 10/17] KVM: arm64: Add a shrinker for pKVM
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
+	qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_003936_359196_9063C6D6 
-X-CRM114-Status: GOOD (  29.93  )
+X-CRM114-CacheID: sfid-20260825_004044_048990_ED8D5564 
+X-CRM114-Status: GOOD (  30.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,104 +86,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-25 09:21, Krzysztof Kozlowski wrote:
-> On 24/08/2026 09:01, Sascha Hauer wrote:
-> > Add a devicetree binding schema for the JPEG hardware decoder Rockchip
-> > integrates into a number of its SoCs.  Documents the single register
-> > window (task registers plus the LLP link-table block at offset 0x300),
-> > the decode interrupt, the aclk/hclk clocks, the AXI/AHB resets, the IOM=
-MU
-> > and the power domain.
-> >=20
-> > The core is not tied to one SoC.  Downstream it is known as the VDPU720
-> > and the same block sits on the RK3528, RK3562, RK356x, RK3576, RK3588 a=
-nd
-> > RV1126B, with only the clocks, the resets and the power domain differin=
-g,
-> > none of which this schema constrains.  A compatible per SoC is all it
-> > takes to cover them; the RK3568 and the RK3588 are the two that have be=
-en
-> > tested and are enabled here.
-> >=20
-> > The resets and the power domain are required.  The block cannot be
-> > reached with its domain off, and the driver falls back to pulsing the
-> > reset lines when a frame times out and the in-block soft reset does not
-> > complete, which a node without them would leave with no way to recover.
-> >=20
-> > The IOMMU stays optional.  The driver never refers to it, it is a platf=
-orm
-> > integration detail, and rockchip-vpu.yaml does not require it for the
-> > other codec blocks on these SoCs either.
-> >=20
-> > Assisted-by: Claude:claude-opus-5
-> > ---
-> >  .../bindings/media/rockchip,jpeg-decoder.yaml      | 92 ++++++++++++++=
-++++++++
-> >  MAINTAINERS                                        |  8 ++
-> >  2 files changed, 100 insertions(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/media/rockchip,jpeg-deco=
-der.yaml b/Documentation/devicetree/bindings/media/rockchip,jpeg-decoder.ya=
-ml
-> > new file mode 100644
-> > index 0000000000000..e20c1bf43ef3e
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/media/rockchip,jpeg-decoder.yaml
-> > @@ -0,0 +1,92 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/media/rockchip,jpeg-decoder.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Rockchip JPEG Decoder
-> > +
-> > +maintainers:
-> > +  - Lucas Sinn <lucas.sinn@wolfvision.net>
-> > +  - Sascha Hauer <s.hauer@pengutronix.de>
-> > +
-> > +description:
-> > +  Rockchip's in-house JPEG/MJPEG hardware decoder, known downstream as=
- the
-> > +  VDPU720.  The same core is integrated into a number of Rockchip SoCs=
-, which
-> > +  differ only in the clocks, resets and power domain they are wired to=
-.  A
-> > +  dedicated Link List Processor (LLP) register block, located at offse=
-t 0x300
-> > +  within the same register window, allows the hardware to decode a cha=
-in of
-> > +  frames autonomously ("link mode").
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - rockchip,rk3568-jpegd
-> > +      - rockchip,rk3588-jpegd
->=20
-> How this can be v1 if you send VPU720 for rk3588 already?
->=20
-> https://lore.kernel.org/all/20260819-rk3588-jpegdec-v1-4-33d74cdf369c@pen=
-gutronix.de/
+On Tue, 25 Aug 2026 at 08:22, Vincent Donnefort <vdonnefort@google.com> wrote:
+...
+> > > > Nothing marks the pages a top-up just put in allocator->mc as spoken
+> > > > for, and hyp_allocator_reclaim() ends with an unbounded drain of it,
+> > > > so a shrink with target 1 hands back the lot. Land that between a
+> > > > top-up and the retry it was for, and the retry asks again, and
+> > > > pkvm_call_hyp_req() goes round.
+> > >
+> > > Sorry, I am not sure I follow here.
+> > >
+> > > IIRC, the shrinker will only reclaim half of what is available. So the pressure
+> > > should be proportional to what is available and limit races with topup!
+> >
+> > It's the ordering, not the amount.
+>
+> Do you think we should first try to reclaim from the mapped pages before
+> draining the allocator->mc?
+>
+> Mapped pages are more valuable hence why I have started with allocator->mc.
+>
+> But, it is true it might make sense. It is unlikely to have pages left unused
+> into that mc. If that mc has been topped-up that's because it is about to be
+> allocated from...
 
-The above has the JPEG decoder driver integrated into the hantro driver
-which turned out to be the wrong abstraction, so I had to split this
-series up into two, one for the Hantro fixes and one for the now
-standalone JPEG decoder driver which is this series. I decided to start
-freshly for both series instead of treating one as continuation of the
-other.
+I think that would work, as long as the ULONG_MAX drain at the tail of
+hyp_allocator_reclaim() is bounded too. The memcache is LIFO, so the
+pages hyp_allocator_unmap() stages sit on top of the top-up ones, and
+draining just what the chunk loop reclaimed leaves the rest alone.
 
->=20
-> Were there more versions?
+It would still fall through to the top-up pages once the chunks run
+out, which is where your last point comes in. hyp_allocator_map() only
+raises a request when it finds the mc empty, so pages sitting in there
+are ones a top-up just put there for a retry. Could the reclaim leave
+them alone altogether, and drop the mc.nr_pages term v4 added to
+hyp_allocator_reclaimable(), which is what advertises them to the
+shrinker?
 
-No.
+> >
+> > topup and its retry are separate hypercalls, lock dropped between
+> > them, so a shrink on another CPU can slip in, right? .
+> > hyp_allocator_reclaim() drains allocator->mc, where the topup pages
+> > sit, before any chunk, so half still comes out of them first: a target
+> > of 1 fails the retry.
+>
+> I do not see where a target == 1 fails.
 
-Sascha
+It's the retry that fails, not the reclaim. With target == 1,
+hyp_allocator_drain_memcache() pops one page and target is done, so
+the chunk loop never runs. But the top-up was sized to the exact
+shortfall, so the retry now runs the mc dry one page early, sets
+topup_needed = 1, returns -ENOMEM again, and pkvm_call_hyp_req() goes
+round for another top-up.
 
---
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Nothing errors out, it just doesn't converge for as long as the
+shrinker keeps pace.
 
+Keep in mind, I am not as familiar with this code as you are. So I
+might be completely off here :)
+
+Cheers,
+/fuad
+
+> >
+> > >
+> > > However now looking at it. I wonder if I don't want to ratelimit here the number
+> > > of pages reclaimed in one go to limit the time spent at EL2. Especially we do
+> > > all that with the allocator lock taken...
+> >
+> > Ratelimiting would cap the time under the lock, but it wouldn't stop a
+> > concurrent shrink from taking the topup pages, would it?
+>
+> Yes, my only intent is to avoid blocking at EL2 for too long.
+>
+> --
+> Vincent
+>
+> >
+> > Cheers,
+> > /fuad
+> >
+> >
+> > >
+>
+> [...]
 
