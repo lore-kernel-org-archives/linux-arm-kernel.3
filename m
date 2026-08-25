@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92774C5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 02:09:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB7CAC5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 03:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ySHZIwVzqBdAzWNOfvXx87RGlnUJ93mk2F1kn22m1rY=; b=IGjEGMz9ZoqIdPWxsC+y/ci2RW
-	CjidodIuxydbuHkUngXfFVy0Hf8iPCM+xg6Qlnmwx4kpkVOpaWrQxBLcCKg9cxuvYCO9FsSp0hazN
-	a9ZQN9v0yhOAv21hh1E9nWQsFNz4Uo6CW4J3WbZpWV2l1jH739KqLtMwhEPlz4dqX/HrOcO0eA8dj
-	96KbjuOVmj8/3BR760swR/FfB1+O5qtf+HoaiUV5MbHMCakmjUhjDFWaVzmQHjMWzJvbYhQgssflS
-	S9NWHEVcCfn1XxEELx2BFu5cWPuhglL/nHhrGgVNvwlGZHVwoTp4TbHKbE52McBILKLmXAZoRR2Zr
-	om/apahQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KxZ9cgvNltAK9q7EPBGQ4dIFVYNFcy9EDy4BATigJec=; b=MfvU1oP6uzdh/43iERV/wzSVIL
+	Okc8NHpHekv9Ep0pCSX29cmqqqtHagC3XLpeRER3vijYq7cYagEQaHi/HIG+Th6wwq3xEPcWG5VPs
+	4LpuyD9OfRkMxNj6CNos/S3FDHNpg9g7xSvX5BT8ytONvpjhX6hKErN98D/bd16FcbjIiEhGNnn9F
+	5HxdggCUZFM6Ea5J20D4DfaMz3Iu15ElgrrC4Tny8Zk3ncxsNOAbq0jFHflm7VRutaaDKanieVH7A
+	sk83kqj1ljM2nBdlawBAW1ThckLLtgLqeRQTRuePpni+c9Zq998ljt3mug6WdYecc5BGnk0i5iQ4M
+	ie9bcxoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wygbK-000000002Zo-3Xzq;
-	Tue, 25 Aug 2026 02:09:22 +0000
-Received: from smtpbgbr1.qq.com ([54.207.19.206])
+	id 1wyhTR-000000004tO-40b2;
+	Tue, 25 Aug 2026 03:05:17 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wygbH-000000002Z2-0cBj
+	id 1wyhTP-000000004sm-18w2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 02:09:21 +0000
-X-QQ-mid: zesmtpgz5t1787623702t11b32f7d
-X-QQ-Originating-IP: hByehVH7Y9tb/2JJEYRlenUTW8LI6rPRypywYXGuH90=
-Received: from localhost.localdomain ( [175.0.204.93])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 25 Aug 2026 10:08:18 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 14127132030379676705
-EX-QQ-RecipientCnt: 13
-From: yingchao <dengyingchao@kylinsec.com.cn>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
-	Mao Jinlong <quic_jinlmao@quicinc.com>,
-	Tao Zhang <quic_taozha@quicinc.com>,
-	jinlong.mao@oss.qualcomm.com,
-	qinyungao@kylinsec.com.cn,
-	coresight@lists.linaro.org,
+	Tue, 25 Aug 2026 03:05:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=Kx
+	Z9cgvNltAK9q7EPBGQ4dIFVYNFcy9EDy4BATigJec=; b=jdFDvFb20LM1C+Nx/d
+	wL9xFWcmxjei/bYs+qf/zlOEwjfT77s3e4iSGMJlH1q2epmm8eGEfbvywYoJu3t7
+	GdT94UCpl0k5JE660YTzln88cp+9NH4+8Ge2/wMagQqSohA7yqQMn25jqbYdcGse
+	eYHf+bG1LfqZQS8BQX/VhJIGc=
+Received: from DESKTOP-93MEKVV.localdomain (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgDn7wZVBo1qi9LKOw--.36731S2;
+	Tue, 25 Aug 2026 11:04:54 +0800 (CST)
+From: Li Dou <li8d6kernel@163.com>
+To: maz@kernel.org
+Cc: li8d6kernel@163.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Yingchao Deng <dengyingchao@kylinsec.com.cn>
-Subject: [PATCH] coresight: tpdm: initialize spinlock before exposing sysfs
-Date: Tue, 25 Aug 2026 10:06:47 +0800
-Message-ID: <8693039B65AA093F+20260825020647.2469-1-dengyingchao@kylinsec.com.cn>
-X-Mailer: git-send-email 2.45.2.windows.1
+	radu@rendec.net,
+	tglx@kernel.org
+Subject: Re: [PATCH] irqchip/gic-v3: Remove the ISB between AP0Rn and AP1Rn
+Date: Tue, 25 Aug 2026 11:04:54 +0800
+Message-ID: <20260825030454.1280-1-li8d6kernel@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <87bjaro4th.wl-maz@kernel.org>
+References: <87bjaro4th.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz5b-1
-X-QQ-XMAILINFO: Nl2Ta5wf+OXeX7SjOJM1dSO1hh4gjRQxDIiT+4TDVX935bFDEKDo+QJr
-	QSz8ICAoOaB2ZOu30q7LkuzrNVphdwelUS1m7secvGf51KLcvR8fQnkUvGMWKaKtX6xaoN3
-	q0qa1EkliDAyqc4J5x+DZpKbfSdj6kaoGlBpQva9PzDZnDNN+D3PdPAH2gGC5gLtZdgMuub
-	oPoLbRgK47RAFIj7zgcP3VoIaQtJRCkxO7QD7rWvC6ku+R7GMmtxiwp1XkDydX2bJRRA42F
-	/J4KhssnTf6nAm0eHl/9FBS94NqufN+7/Dg9zMO9RHw3YxUMwD26Lp4VjAwGV082Voe7UbZ
-	pdCjYgnW2jO4grNsBFvxxSkNhmN/kL6ZYZlORDmF0uHiMZNquZjr9cDjWCr+tbdc4s2WNfZ
-	c84/Kbdp4IepMPvHN/tkb6OBXX9qEAPK2yhgEnsvWfeTmVRsTgWzOSXCfjpn7cgnASNvsfl
-	QkPqviijgmXBAi3QwGcDqP3dOK3pI4WJJl3P1Jln36CGuH1/tObfWts4/Re+qme23dTjF7o
-	LY/ea1fnhScPJfKmZnSFTSo4WGnaHymq16PG9iFfI2dMU0iC77PIVyoCW9dPWwvancbEEMG
-	7xSCUhmQcnukzvdjrqIcsVMvMDC3xJ8sUqb6fNWu/helTAmuhrAeIuvdeIbRqINmBtox9dZ
-	E7MGV648uJLMHbxxaeNh4O3Iq6gHR30nYtRG/1UvcTjvkVHyWPDgy1xUtuWb6aMvsDByv8p
-	uiezoOrLIqP9zFIpPr/wBb/uQoFQETor1f7HhhSyDJtBThbpp8pXrmBBqt4vdg+B6xGF6GA
-	eFQSNgIeyZlJPARTuKWPg86g5aQ3lJ0fpQGEDINLHRo54uahYKaP5AItrsTNw0pdEWNgr50
-	ljb0YREAothBonjpgvAD7fqslkISJk/4pP30mcr6R4wUOMo7sLqAOiOb/3xzg+rl+sxCgzq
-	L9GkMYHypIFkwq9gtQaUTeFR4iu0gt1CM+DputTXC+gLZw/6Y3XTfvxw8AXDlJM1+V9HQjw
-	ZDiBgNOMJ4f8WigeY09EqoeEHSbhMUVJ+Eo2pWkofia5CzhFuHu2kkSmOFjvEjKu3VVZAaI
-	fZd6q3p1IX37k+0lSE3/N9iep+Toamb//IwvoJfq+Dooi7BN1QrKMXoQQKoqjBmQVFXjZ+p
-	2G4R
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+X-CM-TRANSID: PigvCgDn7wZVBo1qi9LKOw--.36731S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Cr4UXw4UuFW3Aw1xKw1xXwb_yoW8Xry3pw
+	4aka4DZFs8C3ZxGw4SqF12vF18u393Wr4UXFn8Gr18KF95ZFWkGry09F4Y9ryqyrs2yw1Y
+	q3yjya95Ga4FyFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0JUPMaUUUUUU=
+X-Originating-IP: [39.144.105.186]
+X-CM-SenderInfo: dolyvlxnhu0vro6rljoofrz/xtbC9xaUDWqNBlbvnAAA38
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_190920_083015_F7913692 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20260824_200515_682076_9FE8FA03 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,41 +75,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yingchao Deng <dengyingchao@kylinsec.com.cn>
+Hi Marc,
 
-tpdm_probe() initializes drvdata->spinlock after coresight_register(), but
-the sysfs attributes registered by coresight_register() use the spinlock.
-This exposes a window where a concurrent sysfs write can lock an
-uninitialized spinlock.
+On Mon, 24 Aug 2026 17:34:34 +0100, Marc Zyngier wrote:
+>On Mon, 24 Aug 2026 03:34:03 +0100,
+>Li Dou <li8d6kernel@163.com> wrote:
+>> 
+>> ARM GICv3 specification says(in section 4.8.4 "System register access to
+>> the Active Priorities registers"):
+>> 
+>> 	an ISB is not required between each write to ICC_AP0R<n>_EL1,
+>> 	Secure ICC_AP1R<n>_EL1, and Non-secure ICC_AP1R<n>_EL1.
+>> 
+>> It means we can use one ISB after resetting AP0Rn and AP1Rn for context
+>> synchronization. So just remove the previous one.
+>
+>I'm afraid you have misinterpreted the spec.
+>
+>Within each of the AP0Rn, Secure AP1Rn and Non-Secure AP1Rn classes,
+>for any value of 'n', there is no need for any synchronisation.
+>
+>However, between classes, you absolutely need an ISB. And this is the
+>reason why, just above the note you quote:
+>
+><quote>
+>Writes to these registers in any order other than the following can
+>result in UNPREDICTABLE behavior:
+>
+>1. ICC_AP0R<n>_EL1.
+>2. Secure ICC_AP1R<n>_EL1.
+>3. Non-secure ICC_AP1R<n>_EL1.
+></quote>
+>
+>While you can perfectly write each individual register of (1), (2) or
+>(3) without any synchronisation, you absolutely must have a CSE
+>*between* each of (1), (2) and (3). Linux being non-secure only, you
+>only deal with (1) and (3), and you must have an ISB in between.
+>Without it, reordering can happen and you end-up violating the above
+>rule.
 
-Initialize the spinlock before coresight_register().
+The spec sometimes is overly convoluted. Thanks for the clarification.
 
-Fixes: b3c71626a933 ("Coresight: Add coresight TPDM source driver")
-Signed-off-by: Yingchao Deng <dengyingchao@kylinsec.com.cn>
----
- drivers/hwtracing/coresight/coresight-tpdm.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
-index 8464edbba2d4..50d1351772b9 100644
---- a/drivers/hwtracing/coresight/coresight-tpdm.c
-+++ b/drivers/hwtracing/coresight/coresight-tpdm.c
-@@ -1457,12 +1457,12 @@ static int tpdm_probe(struct device *dev, struct resource *res)
- 		desc.groups = tpdm_attr_grps;
- 	else
- 		desc.groups = static_tpdm_attr_grps;
-+	spin_lock_init(&drvdata->spinlock);
-+
- 	drvdata->csdev = coresight_register(&desc);
- 	if (IS_ERR(drvdata->csdev))
- 		return PTR_ERR(drvdata->csdev);
- 
--	spin_lock_init(&drvdata->spinlock);
--
- 	return 0;
- }
- 
--- 
-2.33.0
+Best regards,
+Li
 
 
