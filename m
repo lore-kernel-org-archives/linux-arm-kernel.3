@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 906DAC61DBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 15:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97017C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 15:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZXk+8AC9tMdedJd5dFONsAVyXoD+TKxKvDZGwEn5NWc=; b=J6Py8wdUh7ePSJ+iwsgrQci82r
-	nIlluoLad1dcj5MzDpQqGB+2TQQb2uflmkyl8AOXloQwqRGidIOne6jwTG2WvkQXcNIfr7h9cufhh
-	0kmUxy/AmR7hYd5PymXBeEqb3Vl7CzbTWp86LqY3lv2FbuiHuyD0ujtOGeeqYTsDJlzbG5JlCrm+S
-	OPoELvWi3xFqmNzVBzMIUynFf8RM5NlyxDSGsQOcD+nrD35/Q1MVT0qV1wvbbotsNmf3HtWPbVH/X
-	57H+G6xMW/4wGLYPblpGaHljBj5dgjrmaaI6E1ViAgP8F4Ba2LpofuF4MfFMBWXgUmQ+UeJilm2AV
-	3WJGgeXQ==;
+	bh=y0JHVvurql813KlZzufsG9y4LfXw6aq5+c0ANPzcrIU=; b=EjWVtykKeCL98MhjIc0kRGS88f
+	5tSAo3V4W0AyJlvrxgU3cLejp29YS1mXLfXmmxexj2St+IBlTzgLeJgi3+E+H2MtyV6MG5uaCaSRt
+	a5jjV1muWRYB4S5iloPXQLzv9eBvWjyAtL+SzH5ai8OP5WUFNdCiEGBHFhd8RomkGY1XA7/BfnTl/
+	0VLqKKGCMb3tSE7v/wpjtwzneUFEnMLoAn/eq3Qp0bTgCaZ0ymixrXJeMp/CJuE1ZeZ08z8QN/Elo
+	wBIjaRBYlo1tqtnz8fWBspeK/2DWPEE4RTfPLZ+oWmTttFqjkvvcC2eWD/mpmIREwl9j6gDW0KkwU
+	/asHY3sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wytRv-000000013wl-1usq;
-	Tue, 25 Aug 2026 15:52:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wytSS-0000000142L-2UfF;
+	Tue, 25 Aug 2026 15:53:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wytRu-000000013wX-0A8y
+	id 1wytSQ-0000000141h-1A9e
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 15:52:30 +0000
+	Tue, 25 Aug 2026 15:53:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 40A5440266;
-	Tue, 25 Aug 2026 15:52:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F23831F000E9;
-	Tue, 25 Aug 2026 15:52:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A412040268;
+	Tue, 25 Aug 2026 15:53:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8AE71F000E9;
+	Tue, 25 Aug 2026 15:52:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787673149;
-	bh=ZXk+8AC9tMdedJd5dFONsAVyXoD+TKxKvDZGwEn5NWc=;
+	s=k20260515; t=1787673181;
+	bh=y0JHVvurql813KlZzufsG9y4LfXw6aq5+c0ANPzcrIU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=oI2Zk6aPcKkinmBuXHsTZ0lPJ4zsulOOd+7Q8ro+fhQrEaP7SevErk++Sfea1CJHw
-	 RTBp0SQ0bSsWlDvvcmXRJ0fkpWy7wuwH18ye7GWtdS442r3bFLRANmLUtv0GBoMf4k
-	 loic+XmPvhLSIQlKZS3Otbd5tQDJe9tlzll4BHZzYLDH00tWHwOKOQdrmEdE8C2tHa
-	 E6Y2ySQ+ywO71VP3c7v9uDXbV9Fo+xdyoP2wyUOH9bSLvYStTgwwTNsEmeqk+ZddGd
-	 nKb4s3xFXsLeVwCfjLCXrP20slkDnhpBM2ZVH0Vs0QxetWz+wIrI6DkAcu9PjWZm86
-	 UGrGKqcDgz/WA==
-Message-ID: <c81ff923-800c-4ef4-b6e4-ec9f5eb1671f@kernel.org>
-Date: Tue, 25 Aug 2026 17:52:20 +0200
+	b=oRoZMsWlCsqG/kH8NFUEkZxiPsDKdcCtYzz7thSV/CAFEIPu3j/S0Y4RW9X0jCyDd
+	 2JpjAhBidHd4+EbFbyQMrkSkCgIX14zrKvABjoKYbx2N35behllJfFQDqR6PXmszkN
+	 4t13gsjDclvxPCk4btEfvq260PKC9v/wJUTMAkb5f2oXNMR7EtEeuV9pvkClKmqeRk
+	 q9wmgq2GenNq1RjdJUxv9FY4hRmiW9YcUjTfQHmMb51ZYgfUmthBb8gupbVZIszXUN
+	 lHNwghHp/LwjmhA6tNX9LYh5FF5LST3jTOY1ZS+bw+Tv3rye66Hxgd15i+C3Agw+4j
+	 cKrXM/SNIlUwg==
+Message-ID: <149b9dff-9c96-448e-9c20-96ba92ff6971@kernel.org>
+Date: Tue, 25 Aug 2026 17:52:53 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/3] arm64/mm: add set_direct_map_ro_noflush()
+Subject: Re: [PATCH v6 3/3] x86/mm: add set_direct_map_ro_noflush()
 To: Xueyuan Chen <xueyuan.chen21@gmail.com>, akpm@linux-foundation.org
 Cc: ljs@kernel.org, usama.arif@linux.dev, catalin.marinas@arm.com,
  will@kernel.org, linux-arm-kernel@lists.infradead.org, tglx@kernel.org,
@@ -55,7 +55,7 @@ Cc: ljs@kernel.org, usama.arif@linux.dev, catalin.marinas@arm.com,
  baohua@kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  Lance Yang <lance.yang@linux.dev>
 References: <20260730090647.2401252-1-xueyuan.chen21@gmail.com>
- <20260730090647.2401252-3-xueyuan.chen21@gmail.com>
+ <20260730090647.2401252-4-xueyuan.chen21@gmail.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -102,7 +102,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260730090647.2401252-3-xueyuan.chen21@gmail.com>
+In-Reply-To: <20260730090647.2401252-4-xueyuan.chen21@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -120,24 +120,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 7/30/26 11:06, Xueyuan Chen wrote:
-> Implement set_direct_map_ro_noflush() for arm64 with update_range_prot() on
-> the linear map, setting PTE_RDONLY and clearing PTE_WRITE. Keep the
-> existing can_set_direct_map() guard and leave TLB invalidation to the
-> caller.
+> Implement set_direct_map_ro_noflush() for x86 using CPA directly on the
+> passed direct-map address. Clear _PAGE_RW and _PAGE_DIRTY, keep alias
+> checks disabled like the existing direct-map _noflush helpers, and leave
+> TLB invalidation to the caller.
 > 
 > Co-developed-by: Lance Yang <lance.yang@linux.dev>
 > Signed-off-by: Lance Yang <lance.yang@linux.dev>
 > Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
 > ---
->  arch/arm64/include/asm/set_memory.h |  2 ++
->  arch/arm64/mm/pageattr.c            | 10 ++++++++++
->  2 files changed, 12 insertions(+)
+>  arch/x86/include/asm/set_memory.h |  2 ++
+>  arch/x86/mm/pat/set_memory.c      | 15 +++++++++++++++
+>  2 files changed, 17 insertions(+)
 > 
-> diff --git a/arch/arm64/include/asm/set_memory.h b/arch/arm64/include/asm/set_memory.h
-> index 90f61b17275e..7083260303c3 100644
-> --- a/arch/arm64/include/asm/set_memory.h
-> +++ b/arch/arm64/include/asm/set_memory.h
-> @@ -14,6 +14,8 @@ int set_memory_valid(unsigned long addr, int numpages, int enable);
+> diff --git a/arch/x86/include/asm/set_memory.h b/arch/x86/include/asm/set_memory.h
+> index 4362c26aa992..bd3817e06052 100644
+> --- a/arch/x86/include/asm/set_memory.h
+> +++ b/arch/x86/include/asm/set_memory.h
+> @@ -89,6 +89,8 @@ int set_pages_rw(struct page *page, int numpages);
 >  int set_direct_map_invalid_noflush(struct page *page);
 >  int set_direct_map_default_noflush(struct page *page);
 >  int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
@@ -145,30 +145,35 @@ On 7/30/26 11:06, Xueyuan Chen wrote:
 > +#define set_direct_map_ro_noflush set_direct_map_ro_noflush
 >  bool kernel_page_present(struct page *page);
 >  
->  int set_memory_encrypted(unsigned long addr, int numpages);
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index ce035e1b4eaf..c51236b61651 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -365,6 +365,16 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
->  	return set_memory_valid(addr, nr, valid);
+>  extern int kernel_set_to_readonly;
+> diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
+> index d023a40a1e03..5987f4c84f6f 100644
+> --- a/arch/x86/mm/pat/set_memory.c
+> +++ b/arch/x86/mm/pat/set_memory.c
+> @@ -2662,6 +2662,21 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
+>  	return __set_pages_np(page, nr);
 >  }
 >  
 > +int set_direct_map_ro_noflush(const void *addr, unsigned long nr_pages)
 > +{
-> +	if (!can_set_direct_map())
-> +		return 0;
+> +	unsigned long tempaddr = (unsigned long)addr;
+> +	struct cpa_data cpa = {
+> +		.vaddr = &tempaddr,
+> +		.pgd = NULL,
+> +		.numpages = nr_pages,
+> +		.mask_set = __pgprot(0),
+> +		.mask_clr = __pgprot(_PAGE_RW | _PAGE_DIRTY),
+> +		.flags = CPA_NO_CHECK_ALIAS,
+> +	};
 > +
-> +	return update_range_prot((unsigned long)addr, PAGE_SIZE * nr_pages,
-> +				 __pgprot(PTE_RDONLY),
-> +				 __pgprot(PTE_WRITE));
+> +	return __change_page_attr_set_clr(&cpa, 1);
 > +}
 > +
 >  #ifdef CONFIG_DEBUG_PAGEALLOC
->  /*
->   * This is - apart from the return value - doing the same
+>  void __kernel_map_pages(struct page *page, int numpages, int enable)
+>  {
 
-We'll need an ACK from arm64 maintaines. To me this looks good.
+We need an ack from x86 folks, to me this looks good.
 
 -- 
 Cheers,
