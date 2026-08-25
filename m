@@ -4,95 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DD4FC5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 09:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A954C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 09:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gYnsOWP98idIvZ3ZCnCr9cNbdRpPzuxkEmqKUTf1CWs=; b=h63wmq/9E8/mNnnCTI7ygmL085
-	M80yBdI7Czvk8+C1hFoUqLO6ITAIobxPtNJmBL8YFox6GsQp/6gTh9RgjJ5hAVrFSZR8tkOzG1ZEG
-	+jAb+fbbfB2zRuum6zzVWzs3SA3WKiJ85vzYrsP7VlX+pHViWHynrKY+1M+mgwJWwDlJPRTcxgu45
-	1QO4C5kNOZG37LIzMxiutYfDo1+wv55lycc0o5HzCt933pDBWaLO/AfjPgFyd4XxTeO86Q9QRUjqy
-	OJVNwSFCVWNS51uxPyby0NzFhogB5Ik7NojF4AYD15Li2zt7KZSz7DDF1XPBHMENFoIk6Jh33qK9w
-	aZEMe+dA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PbN3JcQcN/L3rATe2NIMWLdEy42ZH2rNAQSCQj1aE2s=; b=WeyYVeNGavi2RTURFP6r1Y2tYO
+	iAiWvpxAnnJnlB8h/tM2892w1HTjgPGaCL6OEUzeKl3OrFNON6f8mS7lhNTWFe5TFnmKFGLBgzJ20
+	ZSpxO2wWmpvyjcsNjasCDswG31qIE/KFaCukMuVry+hCCEl5L/xXER+LSevPce6HCUOY5DnsiDIc/
+	6ZepK6ubuHI0KgcUJ4MHdtqwrZDQvE8wY39wgHURoTFAYp02EHaYy8hocTEYtHJpJv+Z4h6BFxqnb
+	BKodilpQ7+RxaHl8n+cFpOkepjqsIjPlKx7M2VPtiKZN7gcRtD63ah1defeeVL9jq63QftW6/mL76
+	JsaG8rKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wynMN-00000000TjS-3wdy;
-	Tue, 25 Aug 2026 09:22:24 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1wynP3-00000000UFF-1DkN;
+	Tue, 25 Aug 2026 09:25:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wynMB-00000000Td9-3ktB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 09:22:14 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-852c481415fso232813b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 02:22:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787649731; x=1788254531; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=gYnsOWP98idIvZ3ZCnCr9cNbdRpPzuxkEmqKUTf1CWs=;
-        b=BwtEQAr5W49aDvcTSNJYh8PKorVv2JDyT4HB6/lzewq61bz515SZvLbwfD1v0w8N4H
-         RABYUWEYHYfEdEW/4NMZVxiBWyuHwe5K3Z/48PlqAQ+sn/giuSoOxjnW9fUPJ45ckMco
-         5zDyWiCg6lzVPtLvAlgr/PEg0HrqYFdywSkCFmyVmu2hvwmxe0EyOrSLbXQ/uk+oGwvQ
-         hBxk/FFk6hkUis2zIV3D8puUCNxSXbzyQtDTjxyoyE85BTX13406/CDxxHP8kp1VnezP
-         D8HvDVzeGAvGxqVy4WrTQDFYNnKYjrCp3CC8DDGzAUDOGVjceWWjzSnPTXzjuZ0AT+6l
-         wP5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787649731; x=1788254531;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gYnsOWP98idIvZ3ZCnCr9cNbdRpPzuxkEmqKUTf1CWs=;
-        b=MAseUNv0hMrv90fsX/IT7FCwRcDBbvZ5hsPWk7tzuzjJKmWTwzZTJWTKjS37+UNFzZ
-         EQy2bt5smiRFzgD4k0+OS+mkUhY8eHFlNrrMHuL+k2j6Q+xC+qPsDS2srXz+y5iD1CQj
-         SAvp7nVG+vUvCtnQNtZCGRVy4Z1ZXVp2b75t9HN+71jXqXpLYU4DOm02888FCxp+fHev
-         eSSdLXImoch5X+Rj1y8e6K8ASfaJxx8hiEjapCBTewXHcttcWY6EqMCnJfDygJdkFStN
-         5NclZFG+N15Sk/KgIri7frWoEk8UtCCDPb6hlZFrD/hbipi4bNZqddrZdtZ+gYWt/RNA
-         WnLA==
-X-Forwarded-Encrypted: i=1; AHgh+Rrxb5Cd1HljzCQ9HJjczd1PDK66Trh0rSwigop3bmvwtn5FgYpuoxjrXGsg7GTzs6u9SJy+wkCZdsqFl2sLANg8@lists.infradead.org
-X-Gm-Message-State: AFuF++lbA6JnEQyTRJRpZreKDr/VctMWGwEw5APmQAn5fRtqG/ohLNbX
-	hlSRFOlsh1KdYrhySFuoXdfn1XiPxoON13PUVI7YMK6nSdj+fEJOBwk=
-X-Gm-Gg: AR+sD104ELSvlt3opD9+gc/t4kmRriPisFSrHicmwwwa3lW/1UwtCLUV+c6/bkBwhni
-	wSovymm9E9kVUbmwDb8fph44HEFdYm9/1vsDXh0gruIgNr0I4k3w2WFB8Ae1huFZb6h6uzBNO0S
-	j8CsBM8I/lRCd1Ct5B/VQjeSHLGuOXKImBLzSWgZkbs709xC/kluPMFiFx8U1kffmGG6hh8BKYp
-	Q5p6VxdjMSH/iI++iyGJXGfTzYdU6Dtt8anfCJ3lv85CiOjvgmVdUr7Yz4CZDtdlcBiYi1UK5C4
-	0tx4Cc4ZphDYaukyVzHUovyOalzuyWHRsO1kv8g7JJOENeaedsi9PVtQNYoU0W+SZaMalcw/pok
-	mK6UIGOKy8MUnLQXAOVRfk/xA4HOauIn7nkK2zeQgBBesT4gHGCYiYZqQssHf9Zl8zJhhJpQSza
-	8QDtp7meoa/Ua3I+qFXArSbIFOWBQl9HnBj8iuDOUClWr+JOGP3/GcpkhEBb565GBkqd1uBQtaU
-	UnltA2BSg9d
-X-Received: by 2002:a05:6a00:194b:b0:852:d5:d0ca with SMTP id d2e1a72fcca58-8520be70013mr37789775b3a.9.1787649730800;
-        Tue, 25 Aug 2026 02:22:10 -0700 (PDT)
-Received: from DL2XHKPB4.dl.net ([103.63.104.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8520ef09251sm2921367b3a.19.2026.08.25.02.22.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 02:22:10 -0700 (PDT)
-From: Triet Hoang <triet.hoang.dev@gmail.com>
-To: krzk@kernel.org
-Cc: alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	michal.simek@amd.com,
-	miquel.raynal@bootlin.com,
-	nicolas.ferre@microchip.com,
-	triet.hoang.dev@gmail.com
-Subject: Re: [PATCH v2 0/2] memory: Convert drivers to DEFINE_SIMPLE_DEV_PM_OPS()
-Date: Tue, 25 Aug 2026 16:21:50 +0700
-Message-ID: <20260825092205.277595-1-triet.hoang.dev@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <d4a0f9f0-6cea-4dac-a315-638376c12e71@kernel.org>
-References: <d4a0f9f0-6cea-4dac-a315-638376c12e71@kernel.org>
+	id 1wynP2-00000000UEx-1d2L;
+	Tue, 25 Aug 2026 09:25:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0A56D43EF9;
+	Tue, 25 Aug 2026 09:25:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F4581F000E9;
+	Tue, 25 Aug 2026 09:25:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787649907;
+	bh=PbN3JcQcN/L3rATe2NIMWLdEy42ZH2rNAQSCQj1aE2s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AjGBqDmYl95HbEszRccwf7Fh9YtlOkJEUTIRswM4CIfyKKfyZdu9m5W79hzAvoc2y
+	 v2yMwJIRRIaSn6pdUYxKN996TJBxPQrWDuwmfWrfrajhlhZvjqRsoAOWbd218CE8tZ
+	 BeAdGyvR3QMOTwf3T4jAET5ASFrzlZouVe2jNiwB2ytgB7xCG9C8aeYkP/SWfF97wn
+	 oCm+HFgigiMaqioxYh3Im78NZu2UNC4wfnQMheQBBpbyGbhbgb1P3x+tMqEeW0E+XH
+	 NUKkPd9FuAf4hujsXJQyHYPWD7W4nqh0VHITh5yJwcuKMS9eMEHi7w0dGyFFOUMkmR
+	 rGfa1cnqFKbmg==
+Date: Tue, 25 Aug 2026 11:25:04 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Chen-Yu Tsai <wens@kernel.org>, 
+	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, 
+	Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>, Phong LE <ple@baylibre.com>, 
+	kernel@collabora.com, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
+	Maud Spierings <maud_spierings@hotmail.com>, Diederik de Haas <diederik@cknow-tech.com>
+Subject: Re: [PATCH v10 22/69] drm/display: hdmi-state-helper: Sync SCDC
+ state on hotplug
+Message-ID: <20260825-potoo-of-imaginary-unity-7b0999@penduick>
+References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
+ <20260731-dw-hdmi-qp-scramb-v10-22-294364b2cf15@collabora.com>
+ <20260820-accomplished-curly-bandicoot-cc36ba@houat>
+ <774c38bd-6569-4aff-9fbc-a4e017840a55@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_022213_236981_21E6C84D 
-X-CRM114-Status: GOOD (  21.10  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="wvp34r75zg2fljmn"
+Content-Disposition: inline
+In-Reply-To: <774c38bd-6569-4aff-9fbc-a4e017840a55@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,36 +84,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Aug 2026 11:13:22 +0200, Krzysztof Kozlowski wrote:
 
-> Did you receive review?
-> 
-> <form letter>
-> This is a friendly reminder during the review process.
-> 
-> It looks like you received a tag and forgot to add it.
-> 
-> If you do not know the process, here is a short explanation:
-> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-> of patchset, under or above your Signed-off-by tag, unless patch changed
-> significantly (e.g. new properties added to the DT bindings). Tag is
-> "received", when provided in a message replied to you on the mailing
-> list. Tools like b4 can help here. However, there's no need to repost
-> patches *only* to add the tags. The upstream maintainer will do that for
-> tags received on the version they apply.
-> 
-> Please read:
-> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-> 
-> If a tag was not added on purpose, please state in the patch changelog
-> or cover letter why and what changed.
-> </form letter>
+--wvp34r75zg2fljmn
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v10 22/69] drm/display: hdmi-state-helper: Sync SCDC
+ state on hotplug
+MIME-Version: 1.0
 
-Yes, this was my mistake. I missed adding the review tag when preparing v2.
+On Thu, Aug 20, 2026 at 05:44:08PM +0300, Cristian Ciocaltea wrote:
+> On 8/20/26 11:53 AM, Maxime Ripard wrote:
+> > On Fri, Jul 31, 2026 at 07:19:29PM +0300, Cristian Ciocaltea wrote:
+> >> drm_atomic_helper_connector_hdmi_hotplug() does not currently
+> >> synchronize SCDC status on hotplug events, leaving the scrambler state
+> >> potentially inconsistent after (re)connect.
+> >>
+> >> Hook drm_connector_hdmi_sync_scdc() into both the connect and disconne=
+ct
+> >> paths, replacing the existing TODOs around missing scrambler handling.
+> >>
+> >> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+> >> Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS=
+, Rock 5B
+> >> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> >> ---
+> >>  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 23 ++++++++++++++--=
+-------
+> >>  1 file changed, 14 insertions(+), 9 deletions(-)
+> >>
+> >> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers=
+/gpu/drm/display/drm_hdmi_state_helper.c
+> >> index 4a93c279c9a7..3377ea936120 100644
+> >> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> >> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> >> @@ -1205,13 +1205,16 @@ drm_atomic_helper_connector_hdmi_update(struct=
+ drm_connector *connector,
+> >>  					enum drm_connector_status status)
+> >>  {
+> >>  	const struct drm_edid *drm_edid;
+> >> +	int ret =3D 0;
+> >> =20
+> >>  	if (status =3D=3D connector_status_disconnected) {
+> >> -		// TODO: also handle scramber, HDMI sink disconnected.
+> >> -		drm_connector_hdmi_audio_plugged_notify(connector, false);
+> >> -		drm_edid_connector_update(connector, NULL);
+> >> -		drm_connector_cec_phys_addr_invalidate(connector);
+> >> -		return 0;
+> >> +		ret =3D drm_connector_hdmi_sync_scdc(connector, false, ctx);
+> >> +		if (ret !=3D -EDEADLK) {
+> >> +			drm_connector_hdmi_audio_plugged_notify(connector, false);
+> >> +			drm_edid_connector_update(connector, NULL);
+> >> +			drm_connector_cec_phys_addr_invalidate(connector);
+> >> +		}
+> >=20
+> > If there's a deadlock, shouldn't we restart the whole sequence there?
+>=20
+> In that case we do already propagate -EDEADLK and let the callers
+> (drm_helper_probe_detect_ctx(), drm_helper_probe_single_connector_modes())
+> to ensure the sequence is restarted.
+>=20
+> > Ie, we should return ret all the time anyway? And if we do that, we
+> > should return ret for drm_edid_connector_update() too.
+>=20
+> Per .detect_ctx() contract, implementations shall return a drm_connector_=
+status
+> value or -EDEADLK only.  On the other hand, .force_ctx() accepts any erro=
+r code,
+> but the probe helpers just log it.  Hence returning anything else wouldn't
+> really have an impact on the functionality.
+>=20
+> Returning errors from drm_edid_connector_update() would potentially overr=
+ide
+> non-deadlock ones from sync_scdc().  Since both helpers already log their=
+ own
+> failures, I think it isn't worth the trouble.
+>=20
+> > Either way, a comment on why we're doing it this way would be nice.
+>=20
+> Indeed.  Would the following be too verbose?
+>=20
+> /*
+>  * The SCDC resync may reset the CRTC, which might involve aquiring
+>  * modeset locks.  If that fails, -EDEADLK is reported and the callers
+>  * passing a non-NULL @ctx drop the locks and restart the sequence
+>  * - see drm_helper_probe_detect_ctx() and
+>  * drm_helper_probe_single_connector_modes().
+>  *
+>  * The resync runs first, and the audio and CEC helpers only once the
+>  * link state has settled: the CRTC reset is a blocking commit, so on
+>  * success the pipeline is already up again, while on -EDEADLK nothing
+>  * has been resynced yet and the pending retry redoes everything.  This
+>  * keeps userspace from acting upon a link that is about to be reset.
+>  *
+>  * -EDEADLK is the only status gating the helpers below, as it is the
+>  * sole one guaranteeing a new run.  The other failures are merely
+>  * reported: .force_ctx() accepts any error code and the probe helpers
+>  * just log it, while .detect_ctx() has to swallow it, being only
+>  * allowed to return a drm_connector_status value or -EDEADLK.
+>  * Propagating the status of drm_edid_connector_update() on top would
+>  * therefore only make it compete with an earlier resync failure over a
+>  * value that triggers no recovery, the more so as both helpers already
+>  * log their own errors.
+>  */
 
-This is still new to me, so thank you very much for the explanation and guidance. 
-I’ll make sure to keep this in mind for future working.
+You can tell your LLM to be more terse :)
 
-Regards,
-Triet
+Something like the following would be enough:
+
+  /*
+   * detect_ctx can only ever return an status or EDEADLK. Handle deadlocks=
+, and report any !EDEADLK error.
+   */
+  ret =3D drm_connector_hdmi_sync_scdc(connector, false, ctx);
+  if (ret)
+     if (ret =3D=3D -EDEADLK) {
+     	return ret;
+     } else {
+       drm_warn(connector->dev, "ignored error");
+     }
+
+  drm_connector_hdmi_audio_plugged_notify(connector, false);               =
+                                                                           =
+                                                                           =
+                              =20
+  ret =3D drm_edid_connector_update(connector, NULL);
+  if (ret)
+       drm_warn(connector->dev, "ignored error");
+  drm_connector_cec_phys_addr_invalidate(connector);                       =
+                                                                           =
+                                                                           =
+                              =20
+
+Maxime
+
+--wvp34r75zg2fljmn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCao1fagAKCRAnX84Zoj2+
+doO/AXsHJJ+Pjgm/6U6AMxPeQmsysVDIATZzk+Au8YVBssNtT1JX5uZmay3DbuzX
+hfXttckBfApSrRSD0trH7kEFJ3aiyLrWuM06roPQ1keiAc2PKZsUeEVaE71QuTOa
+Yucxq/WxyQ==
+=RRtf
+-----END PGP SIGNATURE-----
+
+--wvp34r75zg2fljmn--
 
