@@ -4,79 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03096C61CE2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 10:36:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1DC9C61CE2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 10:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dV1SE9Rr4FAGI5Bf32y9009kK+o/lJvDK/L4CXx5CD8=; b=Mm8S4bxxoIrjCM9DQRbSIlKT2j
-	H/OH4VgJ6uUn3j1E8ZMlBeQlLmDSzOn1odVVI8im0F46RvfyTSdIY7SgwmkMoS45TmsnRlrxnWAgc
-	CvxFEZZfsTEYXJpF1sJNx1c5nXKeTYq6Z5ZRyL9ibUDbrKfhi642R+D0MtIL+UOaTdha1pzFogrpy
-	9mWF9rvN/j1jqgguPqp7qJQgjFWu1RPAt9ADuRu5eParkhaRvYFQsFmtXTLaOFlgqEoio5WAD6Z2g
-	iy40/fj2VrdZQSkX6hXrj8BO+y376V/z7wrfqjjtedCfBQ6ug7q3PEdJ8Yw4VDrWpPMhF29i703kG
-	Meiky71g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MZb/JK/Dh5FAmjEvCkE963w53qfA4KfGbuSXikdZ8yc=; b=IW8+g06j2I8qX832sBtYE9PM/Q
+	RILMcabSdFGQ61ggUSy3i3DvngmGb3f5hIavHrVhbCa/0CP0qeYPHfVR4aWOjy5unbj/I04dPDYcf
+	tc2euZs2qKDENFwU0uuNhgE957SbHRQQIRuCghaQ3So0/0PJ1mvGQtSWuXHTw8vlNHetPGwL8Y1Dq
+	X8AJsL1LcT0PYQyHJEUuhETIZ4iLtX1AQKjXjBO24cMmJRdws3ObM1Ef6r/M5C12WvreabM9J6Sja
+	/aZeCT2Uns4RuLsRt2Qj2Jn1PeQY4VQ8hsRPvPD1mBtnSTEBEIIkr0uQvlD1pfv3YQGKOBGIpidPz
+	tYF7ZZ6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyoVW-00000000cAN-3ZIm;
-	Tue, 25 Aug 2026 10:35:54 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1wyoWV-00000000cGR-01JZ;
+	Tue, 25 Aug 2026 10:36:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyoVT-00000000c9Z-3cy1
+	id 1wyoWT-00000000cGB-1gyF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 10:35:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1787654152; x=1819190152;
-  h=message-id:subject:from:to:cc:date:in-reply-to:
-   references:content-transfer-encoding:mime-version;
-  bh=zM+UWTmbccd041ge3CNoM7JhSXgFO5eDHpVidNkX8WA=;
-  b=LUWpqUnpl5BkY9t52V5kovmaJi9d110yMZt7iTw/RZUXjUh5gGxBX7ko
-   D7nt4//n9Q5EP2L1BTnmHB50WrGyNNoVGNvIv/ytUYSr+ELgyYUrAYtmY
-   njh7fJXAyffatcJi1JccuExZIbf+0Y/jBRT8IieEGsg2Fl31A/y/B2yGm
-   0C9MQa6cyd8TpPctPTzc9/Rnbi99Q5IBzS+Ge4FXlpEWABvXauqL3O1s4
-   6e3mHqSeTIbgDUEjcyHWNhWmFs4og4jv0M+ZsvQmzOJ4tPcszrL8aU5ZQ
-   Wp1izdgwJdilmczry05Wl6KSg+fBvfM04P9RuQWyB0CV+YEV0G0KDUWRJ
-   g==;
-X-CSE-ConnectionGUID: rxAGNm6IQ8eohggFuPa45A==
-X-CSE-MsgGUID: pF6qGJetT+OCwW7ep9hU+Q==
-X-IronPort-AV: E=Sophos;i="6.25,242,1779174000"; 
-   d="scan'208";a="62615109"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2026 03:35:50 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.45; Tue, 25 Aug 2026 03:35:49 -0700
-Received: from DEN-DL-M77643.microsemi.net (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 25 Aug 2026 03:35:46 -0700
-Message-ID: <daecc0252ffc5502391be729c11c3a663fe5030a.camel@microchip.com>
-Subject: Re: [PATCH net-next v2 3/9] net: microchip: vcap: make vcap
- actionset decoding type_id aware
-From: Jens Emil Schulz Ostergaard <jensemil.schulzostergaard@microchip.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <horatiu.vultur@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-	<pabeni@redhat.com>, <daniel.machon@microchip.com>,
-	<Steen.Hegelund@microchip.com>, <kees@kernel.org>, <gustavoars@kernel.org>,
-	<robert.marko@sartura.hr>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-hardening@vger.kernel.org>
-Date: Tue, 25 Aug 2026 12:35:46 +0200
-In-Reply-To: <20260817211353.3633288-1-kuba@kernel.org>
-References: <20260810-sparx5_l3_routing-v2-3-59e68cc8c8ca@microchip.com>
-	 <20260817211353.3633288-1-kuba@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.44.4-0ubuntu2.1 
+	Tue, 25 Aug 2026 10:36:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 780C36011F;
+	Tue, 25 Aug 2026 10:36:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 540A51F000E9;
+	Tue, 25 Aug 2026 10:36:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787654212;
+	bh=MZb/JK/Dh5FAmjEvCkE963w53qfA4KfGbuSXikdZ8yc=;
+	h=Date:Subject:To:References:From:In-Reply-To;
+	b=XTA/Mt2VEn4QF+qKmJtNDTROxT68LJvWjnP/FbYThQypthq48pctFFdXh3GV54Iy2
+	 QAagZKbHaKbxHp1ru2/7HYm8CmdGhcHddVnsHIEnfDFKRqKG/pl0X7hlgNszBrf5kW
+	 DWrmF3nWXeQxjURlRgjHtwB2MBeV+BOr4E35BdQewhRNecZsixOTJdW4y+dnnNmf2+
+	 Hg7RWk3PIyW1uRtRpK6YXJnR0KCpbjL9KJkXwDQ+jY/G57QtoQLFQGfTZbD7cnqYDv
+	 NH60sP1sO7lC85HrF6Zg3u2bpnmLWxqN5vmQRkI5sJiQrFcF0LftR7kPUnK5K63jCU
+	 MUDBJJodTAdVQ==
+Message-ID: <79daa73b-0d34-4e84-8450-56f90bc700d4@kernel.org>
+Date: Tue, 25 Aug 2026 12:36:42 +0200
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_033551_913979_74462D1C 
-X-CRM114-Status: GOOD (  20.87  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/7] maccess: Use a scoped guard for page faults
+To: Muhammad Usama Anjum <usama.anjum@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>,
+ "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "open list:BPF [GENERAL] (Safe Dynamic Programs and Tools)"
+ <bpf@vger.kernel.org>,
+ "open list:MEMORY MANAGEMENT - CORE" <linux-mm@kvack.org>
+References: <20260824160523.3907021-1-usama.anjum@arm.com>
+ <20260824160523.3907021-5-usama.anjum@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260824160523.3907021-5-usama.anjum@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,66 +132,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2026-08-17 at 14:13 -0700, Jakub Kicinski wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know th=
-e content is safe
->=20
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
+On 8/24/26 18:04, Muhammad Usama Anjum wrote:
+> Kernel nofault copy and string paths open-code page-fault disable and
+> enable around label-based loops, duplicating cleanup on success and
+> failure.
+> 
+> Use a page-fault scope guard instead. Leaving the scope now re-enables
+> page faults on both paths without separate cleanup at the fault label.
+> 
+> No functional change.
+> 
+> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 > ---
-> net: microchip: vcap: make vcap actionset decoding type_id aware
->=20
-> This adds a helper, vcap_find_stream_type_id(), that pulls the type_id
-> bits out of stream[0] just after the typegroup bits, and uses it in
-> vcap_verify_actionstream_actionset() to compare the decoded type_id
-> against info->type_id instead of always returning true.  The code change
-> itself looks fine; the comment below is only about the commit message.
->=20
-> > net: microchip: vcap: make vcap actionset decoding type_id aware
-> >=20
-> > When reading a rule back from hardware, decoding has to identify which
-> > actionset the rule was written as. The existing logic was only aware of
-> > the actionset subword length, which cannot distinguish actionsets that
-> > share a subword length but differ in their type_id field. The LPM VCAP
-> > added in a following patch introduces this case: ARP_PTR, L3MC_PTR and
-> > ARP_ENTRY all occupy one subword and differ only by type_id.
->=20
-> [Severity: Low]
-> Should the sentence "The LPM VCAP added in a following patch introduces
-> this case: ARP_PTR, L3MC_PTR and ARP_ENTRY all occupy one subword and
-> differ only by type_id" be reworded?
->=20
-> Two details don't seem to match the tree.  First, there is no L3MC_PTR
-> symbol anywhere at this commit; grepping for L3MC under
-> drivers/net/ethernet/microchip/ only matches the unrelated register name
-> GA_ANA_L3_VLAN_ARP_L3MC_STICKY.  The one-subword LPM actionsets that do
-> exist are just these two, in sparx5_vcap_ag_api.c:
->=20
-> static const struct vcap_set lpm_actionfield_set[] =3D {
->         [VCAP_AFS_ARP_PTR] =3D {
->                 .type_id =3D 0,
->                 .sw_per_item =3D 1,
->                 .sw_cnt =3D 12,
->         },
->         [VCAP_AFS_ARP_ENTRY] =3D {
->                 .type_id =3D 2,
->                 .sw_per_item =3D 1,
->                 .sw_cnt =3D 12,
->         },
-> };
->=20
-> Second, the colliding actionset metadata is not added in a following
-> patch; lpm_actionfield_set, lpm_actionfield_set_map and the
-> sparx5_vcaps[VCAP_TYPE_LPM] entry that references them are already
-> present at this commit, added by the preceding "net: microchip: vcap: add
-> lpm vcap to autogen vcap api".  Only the sparx5/lan969x LPM driver
-> enablement lands later.
->=20
-> Could the message say the LPM actionset model is added by the preceding
-> patch, and drop the L3MC_PTR reference?  The premise that two actionsets
-> share sw_per_item =3D 1 and differ only in type_id does hold, so the chan=
-ge
-> itself still looks justified.
+>  mm/maccess.c | 53 +++++++++++++++++++++++++---------------------------
+>  1 file changed, 25 insertions(+), 28 deletions(-)
+> 
+> diff --git a/mm/maccess.c b/mm/maccess.c
+> index c59a0e092d24a..f695ceefe6fcc 100644
+> --- a/mm/maccess.c
+> +++ b/mm/maccess.c
+> @@ -38,18 +38,17 @@ long copy_from_kernel_nofault(void *dst, const void *src, size_t size)
+>  	if (!size)
+>  		return 0;
+>  
+> -	pagefault_disable();
+> -	if (!(align & 7))
+> -		copy_from_kernel_nofault_loop(dst, src, size, u64, Efault);
+> -	if (!(align & 3))
+> -		copy_from_kernel_nofault_loop(dst, src, size, u32, Efault);
+> -	if (!(align & 1))
+> -		copy_from_kernel_nofault_loop(dst, src, size, u16, Efault);
+> -	copy_from_kernel_nofault_loop(dst, src, size, u8, Efault);
+> -	pagefault_enable();
+> +	scoped_guard(pagefault) {
+> +		if (!(align & 7))
+> +			copy_from_kernel_nofault_loop(dst, src, size, u64, Efault);
+> +		if (!(align & 3))
+> +			copy_from_kernel_nofault_loop(dst, src, size, u32, Efault);
+> +		if (!(align & 1))
+> +			copy_from_kernel_nofault_loop(dst, src, size, u16, Efault);
+> +		copy_from_kernel_nofault_loop(dst, src, size, u8, Efault);
+> +	}
 
-Yes I will update the message, and remove the stale remarks.
+While I understand what pagefault_disable+pagefault_enable does, it is
+completely unclear what scoped_guard(pagefault) does.
+
+Should this be scoped_guard(disabled_pagefaults) or sth like that?
+
+-- 
+Cheers,
+
+David
 
