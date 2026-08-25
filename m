@@ -4,60 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D99BC5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 09:10:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F4BC61DB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 09:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cobYJEGb3W53QP2W2mYmmoOXuHeQdtagqN0geH2RpLc=; b=AsRYQVPoTngwp+qIjtsLM+TKo3
-	rssIjzsM/+VZA0RXmmaCQEpLprrMIGkiYNHHVuyDpdq4ThQSlf6NVrMUU2TYAlZA191Yr4WeloRDb
-	49GxboOdnlwYUVCDuD898ZD4Lv/9Hk9Hb66FDMXraZmCUAHJxiM6MY54IJ9pbBRdqm3l+Ko8bFvvO
-	sy8lmOUJOUbdkwjY/RLls/H+GP1vlCxTKIyzByQCx5JXGCB1JC+7Pr2ps7CIOMxYFkJzfbu4alxrQ
-	rpTVX9+4uuk4trSeB4FCtOODrwmeBBqWZRVAKut1kdW4Bd/VU7r9QtwzWlA/19PxIHTu/tZXZfNCv
-	rVQ9sxCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0eONpZwW40x0uk4ADcmlbKKiJGpmyohwPTROgwok3X8=; b=wwQ/7RpjBr4BEI/Q3hrWoE5xwu
+	ZeZUIzfGvW2/uCx5EFO3MXZqWMN+H/XKFxsOW9znbuyGkIJly/gIe5hCSx7cQieSl4rH2KDNWDxeA
+	R5NECnXAlG62pnZvZoLuFcSVyvUdzU9VO2bP21zdIshyYFqTziLcG4pYporFy1wzPd1TL9Vac5pTu
+	J4f363hI6IvYR+E0Sk5VVMctpcFrt7V26uUDhHuK/V7CZXMW7LqUR5A9+s1SfFjuzO2CpGfX8LTOm
+	EXo9KG8ueADwhH8BQ84Ld0DL+7f21f//Td1HQ/2tojpAPJIeO6V6pBSeGLgpbRqsUC+g1fMQlbWag
+	3R/xacgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wynAt-00000000SM2-1D6H;
-	Tue, 25 Aug 2026 09:10:31 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1wynC2-00000000SUz-2Y2Z;
+	Tue, 25 Aug 2026 09:11:42 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wynAq-00000000SL3-1dqV
+	id 1wynBx-00000000SU6-3NGi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 09:10:30 +0000
+	Tue, 25 Aug 2026 09:11:39 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-8487b7b3fc8so4749058b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 02:11:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1787649024; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=cobYJEGb3W53QP2W2mYmmoOXuHeQdtagqN0geH2RpLc=;
-	b=xNqmxTZiVEbLT04HCD5U5upClW9ZRUMHhLl4E6noisGpdVYuRBpM6sGOyySnxorbLki1ucmQ24Nd0Z6kEeP6+mJM0DM1nb9Ub0pYrevSUJT78GSd/ORd55kft5ZhydLS+9z/ox1UgFemK13atrfsQTUC5NnsA615MLmTkmVb0yc=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R861e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0X9dP6.j_1787649022;
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X9dP6.j_1787649022 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 25 Aug 2026 17:10:23 +0800
-Date: Tue, 25 Aug 2026 17:10:22 +0800
-From: Yao Yuan <yaoyuan@linux.alibaba.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Eric Auger <eauger@redhat.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Sascha Bischoff <Sascha.Bischoff@arm.com>, Sebastian Ene <sebastianene@google.com>, 
-	Fuad Tabba <tabba@google.com>, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] irqchip/gic-v4: Unwind what its_alloc_vcpu_irqs()
- allocated on failure
-Message-ID: <newqqvl3kuyv3tzlmg5gvt6j2bqf4htk4rwotawrhfud4fv3dr@pcd3uodxdsbj>
-References: <20260824074245.710955-1-fuad.tabba@linux.dev>
- <20260824074245.710955-3-fuad.tabba@linux.dev>
+        d=gmail.com; s=20251104; t=1787649097; x=1788253897; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0eONpZwW40x0uk4ADcmlbKKiJGpmyohwPTROgwok3X8=;
+        b=AQWQAt/wliKlnb85L6pbqM8E8OnejVbC1zX8mUpNKnvT9htXmSD3hl97AHblfzFvd4
+         S9v43ATdtIw4U5BIyGMOPnztheDZky41wh+UXqL9wTWE26azLVzQct43tJZgcjRwy03Z
+         kEIV0jT0yQ/COKzTM7nIFwMvzh0LLI9Z04of31gTdSNHS8j/T9evwZ5AipbOGKXwrCe5
+         rO3wGtU5d2lLhNzx8VGHK76lh1+7+JcAK8sOY7hIHb0QtlWB8KJR5T5nVttV2iSb4OnP
+         ogiAEmTA4EH1qYdFa1BWW3qBpYKJvw/7ZnvnNo9eOBUpusBTZHWivJHy5Duo2EYu+PZz
+         5qBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787649097; x=1788253897;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0eONpZwW40x0uk4ADcmlbKKiJGpmyohwPTROgwok3X8=;
+        b=SmV8Tbh7NvTsiz1AkTZ+110Ba4R6Y69TBNp0FNIU7TGLvaRHau/LNXITcS7sYTlXWN
+         q0AVpvvjOnoy/sRK3uJL4d2QBLHdABDIoNfWvR/RAjeyxEHv4z+o7f3m7THxp0AN5x7A
+         UPd8SNkO/5j5ulvrVLVQ6DbcopxObqaHv3gPeN0G1Zyx4FfpYZLc1qAihTXzhJhxjycr
+         sOHSSyWUbLn0drwOOVZD8BFT6DTnaQ62aCyTTYgQoU4Onqb9iIO1+Z+NhAv5O5by6uUZ
+         eIQpuxlcy0G+cso7br3Dfljm1FcBTMDec248UPqSo3cEbgHB4JuFupDxLuJvxw5/PBml
+         4BcQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrQ3lcEgN3wcD6yFRbJ5B/CnsfGMsGJnRhAG6khjHGR3kMSC6ecwK93dtB1Ep9HTIoPWLkSGgYlw1rSBvHGWl5U@lists.infradead.org
+X-Gm-Message-State: AFuF++lFYRlztRBXhmq89XPjv7TzjC3Xo+xPc3bIHE2kzflVcKKWsxlg
+	EQrHmsIqhXczvkWXWJ4tgMi2XcM2xjROuM9tYtgQKEqlncKKkBAn3rE=
+X-Gm-Gg: AR+sD125TF7i0/CM8bxuqvvnlA5gDUXcpo16/FDwOcpFjtRhmtGSRlajEx2lybQ3cc+
+	j5Njp/C2tycb+rQbA2ReVp0FrS32cRCl8f5ONC825w0JWbcTTS3xHPQrLxiwtZipN3nawmFyGre
+	5YWrUcjPmQy/yBojl+iw+J0/l1rt9rWhztUiRPJlUGmdNAt8n41OWe5nIIC2TNbtVRP3uC0Z3Fi
+	espzhUDVOFFlvG97SuSK8R3NtkXWZcFXlSax+uXfgBduzCFVTka/t6c74+rm13JuKybxHGfDxo7
+	TFOs+eySsmh5Dbh+b81qssyP+xGYVX2w5RAkrWuldVWLEmvArwjMcMaQXqHvPh+dutc+S3mOElQ
+	89FxbqaVXaUCcSZzLsyYnJxmAYAfKp+cc5tRubzBWpNs2ogYB1tHIfgqVPoN0n//hzDNEsYrnbg
+	LgBxYPAvNm2BnYCy3JLsODJFnnw/cbOmQPnJNXMWA6XSFxpHa1iRR8X6nrnmy0SlNo/h5zIL+kD
+	g==
+X-Received: by 2002:a05:6a00:9493:b0:851:fb0a:633d with SMTP id d2e1a72fcca58-851fb0a68cbmr13131683b3a.11.1787649096899;
+        Tue, 25 Aug 2026 02:11:36 -0700 (PDT)
+Received: from DL2XHKPB4.dl.net ([103.63.104.162])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc199e4b125sm1703846a12.20.2026.08.25.02.11.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Aug 2026 02:11:36 -0700 (PDT)
+From: Triet Hoang <triet.hoang.dev@gmail.com>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Triet Hoang <triet.hoang.dev@gmail.com>
+Subject: [PATCH v2 0/2] memory: Convert drivers to DEFINE_SIMPLE_DEV_PM_OPS()
+Date: Tue, 25 Aug 2026 16:11:16 +0700
+Message-ID: <20260825091118.271720-1-triet.hoang.dev@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260824074245.710955-3-fuad.tabba@linux.dev>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_021028_617821_AAC33340 
-X-CRM114-Status: GOOD (  22.34  )
+X-CRM114-CacheID: sfid-20260825_021138_608399_BE06E158 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,73 +102,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 08:42:43AM +0800, Fuad Tabba wrote:
-> A failure in the its_alloc_vcpu_sgis() loop leaves behind both the SGI
-> domains created for the vPEs below the failing index and the vPE irqs
-> allocated before the loop, since irq_domain_remove() frees neither. Each
-> leaked vPE takes its ITS state with it, a vpe_id and an LPI pending
-> table.
->
-> Free both from a second label before the existing unwind. With the
-> freed pointers now cleared, its_free_sgi_irqs() can skip a vPE with no
-> SGI domain and be reused there. The check has to precede the lookup:
-> irq_find_mapping(NULL, 0) falls back to irq_default_domain, and the
-> live irq it returns would then be freed.
+This series converts the Atmel EBI and PL353 SMC memory drivers to use
+DEFINE_SIMPLE_DEV_PM_OPS().
 
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+This is a straightforward cleanup with no functional change intended.
 
->
-> Fixes: 6d31b6ff985d ("irqchip/gic-v4.1: Add VSGI allocation/teardown")
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> ---
->  drivers/irqchip/irq-gic-v4.c | 14 ++++++++++++--
->  1 file changed, 12 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/irqchip/irq-gic-v4.c b/drivers/irqchip/irq-gic-v4.c
-> index 754839e409f88..f707a3cb281aa 100644
-> --- a/drivers/irqchip/irq-gic-v4.c
-> +++ b/drivers/irqchip/irq-gic-v4.c
-> @@ -159,6 +159,8 @@ static int its_alloc_vcpu_sgis(struct its_vpe *vpe, int idx)
->  	return -ENOMEM;
->  }
->
-> +static void its_free_sgi_irqs(struct its_vm *vm);
-> +
->  int its_alloc_vcpu_irqs(struct its_vm *vm)
->  {
->  	int vpe_base_irq, i;
-> @@ -189,11 +191,14 @@ int its_alloc_vcpu_irqs(struct its_vm *vm)
->  		vm->vpes[i]->irq = vpe_base_irq + i;
->  		ret = its_alloc_vcpu_sgis(vm->vpes[i], i);
->  		if (ret)
-> -			goto err;
-> +			goto err_free_irqs;
->  	}
->
->  	return 0;
->
-> +err_free_irqs:
-> +	its_free_sgi_irqs(vm);
-> +	irq_domain_free_irqs(vpe_base_irq, vm->nr_vpes);
->  err:
->  	if (vm->domain) {
->  		irq_domain_remove(vm->domain);
-> @@ -215,8 +220,13 @@ static void its_free_sgi_irqs(struct its_vm *vm)
->  		return;
->
->  	for (i = 0; i < vm->nr_vpes; i++) {
-> -		unsigned int irq = irq_find_mapping(vm->vpes[i]->sgi_domain, 0);
-> +		unsigned int irq;
->
-> +		/* irq_find_mapping() falls back to the default domain on NULL. */
-> +		if (!vm->vpes[i]->sgi_domain)
-> +			continue;
-> +
-> +		irq = irq_find_mapping(vm->vpes[i]->sgi_domain, 0);
->  		if (WARN_ON(!irq))
->  			continue;
->
-> --
-> 2.39.5
->
+Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
+---
+Changes in v2:
+- Wrap to 75 ish chars for commit messages.
+- Organize patches into a series with a cover letter.
+---
+Triet Hoang (2):
+  memory: atmel-ebi: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
+  memory: pl353: Convert to DEFINE_SIMPLE_DEV_PM_OPS()
+
+ drivers/memory/atmel-ebi.c | 6 +++---
+ drivers/memory/pl353-smc.c | 8 ++++----
+ 2 files changed, 7 insertions(+), 7 deletions(-)
+
+-- 
+2.53.0
+
 
