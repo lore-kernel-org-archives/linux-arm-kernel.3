@@ -4,95 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE5A5C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 18:54:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8CDAC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 18:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=avc+7hYLny1ws5AL8S1cDvx9iKCyG7U6wgDEUD+H2ug=; b=dh4gTjETcbqADE+LuzGOtyDOrk
-	oZ0EsMWGgbcR2+lt+T0EdOn7n5dVXINiYG2myAZgvdthJfRfTsyO60is7n6DP2MAUuKT2o8zRGW2w
-	1rpPTCQcjEtK0pBhxUkfOxU07b//Aq9yrf4iPzVrFW74BLmZQi7W42yx9nv2p7cDg7Reh3k1V885Y
-	WQetQa3dItH+ePhDD+Rm+PS9ht47rg86VuK58/BZN7k4yhCYsyP5IJl1Z3gyryp1fco82gi8XhCII
-	AQj83SbE+Gnwwh46IeBQMSeypGppkWSHxEFFFKHehbd6uMMEZVJeC8xe3dCMJ/EnGs5SpttyZRz0+
-	mrGuMugw==;
+	bh=re8o97vXXRWN9hwLj+SXRGcLra8gbzi+bvyeubfh7Lg=; b=nRLiwtdIuuyheC5016DRZli27i
+	ARKADtuKCuZeU/npXrax+bMOC/mLdQlejNmrJ0gitrGoOEeIH8fpXGrNr2G74A8zWjhiXSyVk7/eQ
+	mRm0waGg6KViwYy7IieuMtxSoVKErICbSxwC8izSSRVHL4pnAbgz7d5eCYVJaBjCoSCgzvWxymjHT
+	EJByNcHlYCwJK8e4qkcgDEalpXo4eSvu0QL1lwlT2C3OBBEKBu94flfNOuKD6vNYHjDHyGvrv34X9
+	5gx96Iw+pEatvIZjQaOJ5kXj/i9rTiKf46HbzJWthAnen2kH6IX9eeDxtnxjDjIYmxE475+cIU5Ax
+	ALhNAUeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wywHh-00000001LLV-1cJp;
-	Tue, 25 Aug 2026 18:54:09 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wywKu-00000001LYC-30BV;
+	Tue, 25 Aug 2026 18:57:28 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wywHf-00000001LL9-12jV
+	id 1wywKr-00000001LXp-2HCA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 18:54:08 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2d3b440b97aso21375ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 11:54:06 -0700 (PDT)
+	Tue, 25 Aug 2026 18:57:26 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2d3b440b97aso22475ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 11:57:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787684046; x=1788288846; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787684245; x=1788289045; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=avc+7hYLny1ws5AL8S1cDvx9iKCyG7U6wgDEUD+H2ug=;
-        b=EJ8FF4co9p8viQ9PN3/lvA+xyQf3JmKGiMrWKSMHDKPeXAXpnA7PMyTFEoelPwomy0
-         5VdqFOyqJEtKndeTQYBvGloUb5OvUrJ65r7f/Cs3IRnBNQrYyvsaODQw5yJwNgP7mStW
-         5sOOjyJGX0W8iEkba8bfIf9BkoQ+AKpq189LvWpJf4U72gERqTSikmiqE9MQbgG5Ttbs
-         7/1N2sQHVGiMz4u4/2RTXLISMcAqiqpJ0XsunSwcy0EzNnG/ZaJ6APDjoKap3mLoQJX1
-         gtaQGHq3bTBlW859jKCA7bxbgCCCKsv/EDaLZOgcPSMm4aIyyN5xQq6Jzw4zEWg+Uw7c
-         Pyfw==
+        bh=re8o97vXXRWN9hwLj+SXRGcLra8gbzi+bvyeubfh7Lg=;
+        b=VE9UAnm6DnpIX+pzLrFf4XydNQZ/G+l4DBOM5gxAUw0yvV3+D0JMEWFu4Txd8FJG28
+         HrNs4BoAr1cRD2Dw0k0zZdVfrO4K/xdSt32dQTZgapCGiEBpdRIqG4sBti+ocskKsWXE
+         PUAin44pxqA/q79MbnC3K0jCKo52argJwm/x17IYNvqrWBUKjx3QDPiY0H87y8iPWEmz
+         85NamcxnO604yTjKANZaDAjmBwKWG3g9V+4DRvTlGGHz+aXleBoP+eOSbjnZzzK12OMi
+         S5zHGZKwuoeE+YUiXo6gr33ZyjF1kHKTMwMAsLE5S4NDQn3z0odsM+pOd6dcJSFR0c/J
+         ZSQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787684046; x=1788288846;
+        d=1e100.net; s=20251104; t=1787684245; x=1788289045;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=avc+7hYLny1ws5AL8S1cDvx9iKCyG7U6wgDEUD+H2ug=;
-        b=INGTwLYusHOcppv+cQOZvGXw2fqGOLKDZQqyQutzrYwkdPsgvIoewbym1WrI/9fyHL
-         ybnotR98jZjQPV+kNmwVRJBZu4NiIY3PnNjWn5vgBElnr4zx9zpigL+OuKS97aemICzN
-         ESCJ9tXuGVMo4h0A0wEhokWbRPW+UTeHQ4txjGo/XbuCbJ9PZctLYk8RRt43whj2WXSu
-         OyFAK90VBIyDe+Jq4ZVP7c+JhPO8iJxHeULr+WxFydbQHQmf46X8FVKvGz5//pSh2V2u
-         j/OejuPHhjDx1emufkK0ZyWOqVBNKo3EhpU4thA3EVWgTIUcLurFztahUNlsaPsnIcO7
-         YiUg==
-X-Forwarded-Encrypted: i=1; AHgh+RqoVLWn3rI/ehXbR3T5Ok6RzomokIbSg9KDPokMyUW2Q5oBicBAGnX9AjPMmYMyAedtEfQ+R/VQPmfBFLh0h9Qb@lists.infradead.org
-X-Gm-Message-State: AFuF++lfHoJU3viwtYt5zTCRrgzxkcXwP4P8sqqGPD8u2E8/gev0m1Oa
-	xKwWaUOCHw8FXwfMC6pcPHthBlm/+sDmZt90l+knHeomcPydIu4DAtm88y5ydEIf9g==
-X-Gm-Gg: AR+sD10IHiY+dCoyza/5XLAEPYH582nKyTQYQlIBVjo+KV08M5g1cFRbG1CK/suGHli
-	0Uf4zU87wDtrfmiSgp3xcYRudfOfkS6QpnTfVrYOqjsE0Ssq+SzXAxSUpXM0o5O964aE0WfncpC
-	Yk3KKnoDZ31vUQhhmvaz9xRnMj9NOf6nmlQwZ3k5P1sq+zErNgqUONRqSvEh2NN6mZcdYKT26Nu
-	uGelqXrRmZVohXrPH/MH+QSwNAb8xk3oYMqaf5nspVdr24mSfVOuDR4o5HYbFV6oJtbUQ7fsbj9
-	VybE21hLfvnKMQH1r+X/mwFYvjXTyWdyj1URoemFSHKd/5LGqpMekOWehIgWfnxQPy+GXfVMLIQ
-	QVrhGNdWenwSwJND9E4jLANKy2bP1RNTuhusLonCmsPs6EE6VpFgIMd+M96xFhxnl7o4NEDCNfq
-	qhfRf50bqDFF2WSCrQmiD63V0BxldQFKZ6uxhgayXzdrKcsfvYjpjI2XUjAqcHyS2PxZ0k+ic+E
-	SUyeuUxE4UV1pj+wMetUBSBcA==
-X-Received: by 2002:a17:902:fd85:b0:2c7:b1e7:501e with SMTP id d9443c01a7336-2d707b557a0mr614755ad.3.1787684045715;
-        Tue, 25 Aug 2026 11:54:05 -0700 (PDT)
+        bh=re8o97vXXRWN9hwLj+SXRGcLra8gbzi+bvyeubfh7Lg=;
+        b=RnWkkwVH30M3nwphk3HnPgw68D6t1CGaptrTPfXt1blPgRDxfcD4OldM/aCL9rbuS6
+         SxrH8C+OjORpHZFc/52f2H5KJXJLo3+AxEMeZrij93vdVVS16Mv7k+d97O5jfMmBu2sQ
+         fVUJP3ofLbBfsKY2/2BNwxvTwFnpJuWa55EbcMcvNarOaZA2t77tY8mU+BI9ae0fscgp
+         oSO0p4VDeYfCNC4GkMqzynX9d2GvpFUcvUZTbraidepd3E/E1VAAg441Ct/5Kev7Ak/3
+         7t88HXGIf8QJqdBJxx34xdDRD2Vw0w66ev/ZwjglKGBtY3ybi2pTWlCbkYC8lEM1wnXe
+         LEFQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqjLU9BKPaQUyfJVlbC8V+FO5cLrfnF1EvwTMDv63NiSPa6sxPnOkbArI+o9y25kEsqbeBUwxqXKiDlrRkM9z6x@lists.infradead.org
+X-Gm-Message-State: AFuF++nfdCbs06l137Le4gazH92wDkhLn74G6/7NYwnm6Zs47lYSHxDl
+	dWQQkMwKhu/dQ465zcFwiDhbHkAFnocDoObGA44M0wibe1QKCFuZlngZuBI9Y7jyDA==
+X-Gm-Gg: AR+sD12AdmbHLZPmz1nxvldW9o9uDx4hby/Foh64C4pmVdu/dVSo4CoJOMgOi3z9yIg
+	Ny/7HkxG/yqqmwMPcQkf8ndf74ag1zn9cASK5szbwsGBLe1oD36MOQbTVTmAdzYYA7yp3Wf27CI
+	euqv6Cg1OB2KssrED8/k4s484Mqf7UHQ5zrcvUGR/p18fREkT+FQMBtivp4cr8gilpWr8A7PDOF
+	h8Ib3Vf9q2YUPaMU+IGNPALQaZOSvfmSd58z3KSBCFVI5xGcpPWiN0mTFODhEVGb5QSaM3dXK9J
+	k8hcQ7uZtySeu7z/UIdcNo1omxWzQ/kKBfDU9zLbFriqyo9ZIuH9VXOnNhsoqEcxslH3XNb4VHK
+	itmW0VIpELg7D2cKYa68nbuI6hKHqvm8Egx9wdsHPgwGP9lh3bzL7qnqk3dXfr62uHA0aKr7DlX
+	QICcG5d+kU0AvIRGvQZKAKZTse7z7r8eMUtPbnmBYz776NdWwFNWVR+0Ms+0kPRxSABRqdsbG4E
+	8SXNymkXkaIf8WwHv3owv5+Lw==
+X-Received: by 2002:a17:903:174e:b0:2c7:9e6a:1a8d with SMTP id d9443c01a7336-2d6e0729be5mr10497505ad.12.1787684244127;
+        Tue, 25 Aug 2026 11:57:24 -0700 (PDT)
 Received: from google.com (164.210.142.34.bc.googleusercontent.com. [34.142.210.164])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39667fe29absm794247a91.0.2026.08.25.11.54.03
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39645b3ab63sm4732888a91.7.2026.08.25.11.57.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 11:54:05 -0700 (PDT)
-Date: Tue, 25 Aug 2026 18:53:59 +0000
+        Tue, 25 Aug 2026 11:57:23 -0700 (PDT)
+Date: Tue, 25 Aug 2026 18:57:18 +0000
 From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>, iommu@lists.linux.dev,
+	Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+	Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
 	Daniel Mentz <danielmentz@google.com>,
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v9 09/12] iommu/arm-smmu-v3: Implement pm_runtime &
- system sleep ops
-Message-ID: <ao3kxwbwB9GC3EOM@google.com>
+Subject: Re: [PATCH v9 02/12] iommu/arm-smmu-v3: Add a helper to drain cmd
+ queues
+Message-ID: <ao3ljjiXhnSJte5A@google.com>
 References: <20260728210928.1050849-1-praan@google.com>
- <20260728210928.1050849-10-praan@google.com>
- <178767577113.3356902.28128835506777632.b4-review@b4>
+ <20260728210928.1050849-3-praan@google.com>
+ <178767577112.3356902.15184998673790345568.b4-review@b4>
+ <ao3S5ickm47p1QWa@google.com>
+ <ao3dBm1CtH2V06r1@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <178767577113.3356902.28128835506777632.b4-review@b4>
+In-Reply-To: <ao3dBm1CtH2V06r1@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_115407_292692_B54B18A8 
-X-CRM114-Status: GOOD (  21.41  )
+X-CRM114-CacheID: sfid-20260825_115725_606880_2F72F431 
+X-CRM114-Status: GOOD (  24.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,46 +109,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 25, 2026 at 01:36:11PM -0300, Jason Gunthorpe wrote:
-> > [ ... 80 lines skipped ... ]
-> > @@ -730,10 +770,58 @@ int __arm_smmu_cmdq_issue_cmdlist(struct arm_smmu_device *smmu,
-> >  
-> >  		/*
-> >  		 * If the SMMU is suspended/suspending, any new CMDs are elided.
-> > -		 * This loop is the Point of Commitment. If we haven't cmpxchg'd
-> > -		 * our new indices yet, we can safely bail. Once the indices are
-> > -		 * committed, we MUST write valid commands to those slots to
-> > -		 * avoid indefinite polling in the drain function.
-> > +		 *
-> > +		 * This loop acts as the Point of Commitment.
-> > +		 * The CMDQ_PROD_STOP_FLAG ensures that no new commands are
-> > +		 * committed once the SMMU begins to suspend. The synchronization
-> > +		 * relies on the following observability invariants:
-> > +		 *
-> > +		 * 1. Other CPUs observe the STOP_FLAG only *after* the SMMU is
-> > +		 *    disabled. This is enforced in arm_smmu_runtime_suspend()
+On Tue, Aug 25, 2026 at 11:20:54AM -0700, Nicolin Chen wrote:
+> On Tue, Aug 25, 2026 at 05:37:42PM +0000, Pranjal Shrivastava wrote:
+> > On Tue, Aug 25, 2026 at 01:36:11PM -0300, Jason Gunthorpe wrote:
+> > > > [ ... 36 lines skipped ... ]
+> > > > +		if (queue_empty(llq))
+> > > 
+> > >  [Severity: High]
+> > >  Does polling for an empty CMDQ actually guarantee that commands have completed?
+> > > 
+> > >  queue_empty() relies on the SMMU consumer register equaling the producer
+> > >  pointer. However, for CMD_SYNC, the SMMU advances the consumer register
+> > >  immediately upon consumption, not upon completion. Suspending the SMMU while
+> > >  commands like ATC_INV are still in-flight could abort them, leaving stale
+> > >  translations in the device ATC and causing submitters to time out.
+> > > 
+> > > This seems broadly wrong, but it doesn't seem explained very well,
+> > > maybe put a comment above the function something like
+> > > 
+> > >  The caller must have ensured that no concurrent command submission
+> > >  can happen. Thus the entry at the PROD must be a CMD_SYNC due to how
+> > >  all submitters generate commands. Waiting for PROD==CONS guarentees
+> > >  completion of the sync and all prior work and thus idle HW.
+> > > 
+> > > I don't think the other substantive remarks are valid.
+> > > 
+> > > The Werror thing is right, every patch should compile alone without
+> > > warnings. Sometimes people add __maybe_unused to accomplish this..
+> > >
+> > 
+> > Ack. I plan to add __maybe_unused here.
 > 
->  [Severity: Critical]
->  If an ATC invalidation (CMDQ_OP_ATC_INV) is issued (e.g., during iommu_unmap
->  from a background thread) while the SMMU is suspended, the command appears
->  to be silently dropped here.
+> Maybe it's time to use the shared helper in both of our series?
 > 
->  Since ATC caches inside PCIe endpoints might not be globally invalidated
->  during resume, could the endpoint retain stale ATC entries upon wake-up?
->  Would this allow the endpoint to DMA into freed memory?
+> I plan to send PRI-v3 on rc1 (likely next week) with this:
+> https://github.com/nicolinc/iommufd/commit/d10325ff40fd45c476bc98d484d8dd2cdc7fdf95
 > 
-> I agree.. I think there are only two options?
->  1) After GBPA=Abort ATS requests are blocked, so you could full
->     invalidate all the device ATC's and now it is safe to ignore
->     ATC_INV
->  2) Just don't perform suspend once ATS is activated
+> I think this series can take it (and its parent Q_POS as well),
+> as we discussed in the other mail.
+> 
 
-This is a little tricky, I'm leaning towards 1) since edge devices can
-have ATS enabled
+Ack. I agree, I can pick up Q_POS & the common drain helper here.
 
-However, the EP might've entered it's low power state by the time we 
-reach smmu's suspend. I'm not sure if we should be waking up the EP for
-ATC INV All (or if it would even wake up in such a case?)
+> Nicolin
 
+Thanks,
 Praan
 
