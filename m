@@ -4,125 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9539FC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 13:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C1ADC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 13:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=28Ih43RaC9Ih17t0Q38chcLAhb8MknIC8XfmB5DNDDU=; b=E97VjR/IXWsUUj3xVu2SlTg/ze
-	Z/Sj4WVaMfFca7yTpYTaCkVnpzZjKXYKly0eE16L0taEOpqtK1j+rw8B9tibuZmuy8Ba5Pl94YMuJ
-	KJNzhdX6KjJOySIIGmW7XeaRvenAf+1RzJp+EQWAQI3Ay0Pv/pi4HdHz0uYy2lIzGirdr0U2m/7Re
-	WoVA5gp3k7pxY8NxbMbsxz8+d2e0u/7tvQ7iHiqT8plM6jPLmGqQtlp/LAVi2DQ3FTBeFMn9NASyb
-	v9MBegKh/obupEbDYy3xSpqyZm9KAPtywooRk6je7pw3/CGvbsA9xXXtA/T69JIsoYilx/+6SHdAu
-	k9XfhitA==;
+	bh=f5rJuoLCWO7KVfDNBoBfeBkBYsbNKNweb2IqmkGw9Bg=; b=nWENZbpcI0Bb/5b5Ce+FHP3VQ5
+	NqjO93dYvH6pFG+SGkj93NS1rbyWl0yss6JQi3gDNeh3cOZ6wfZawIcSG9S45ja/WPxCfLBvMsaHi
+	fdFuNZPNzjfeqgokKzQ7PfqzsNgTcUEcvuEukn2b0Dc4ZCXybXLGPrg02tu08lSDUGR9enmO2VWKf
+	NKGGuiBcg/SPOQbnKTx9o6C1lHC15LCiaxgutXtjgkptM6QEhVJP3K3bsjtTe20OZQohhcWprmJH9
+	jqRK+EM01xlivTB/WLb+/gVOOT30lXnMnEPz1UVOYxo3nt6tTiMWQW6sOSOioQTCPq0apndbQJRxg
+	Fe/kGH1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyquZ-00000000pWd-3PwL;
-	Tue, 25 Aug 2026 13:09:55 +0000
-Received: from mail-francecentralazon11013065.outbound.protection.outlook.com ([40.107.162.65] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wyqyl-00000000pvw-2NlT;
+	Tue, 25 Aug 2026 13:14:15 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyquW-00000000pW2-2ImS;
-	Tue, 25 Aug 2026 13:09:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i8YwGEiDK/+sKB6ymOtYnp8BPXHi3m8JP11Pl9NQMLfT7nbokBKk6U4rHlpdep+MULoNXDxh7leT58XVEdYAfp+Tk2IiHXKgjgrBncBXjxxCHbyVlRcTb93qlAwLY53BERten1/A/n8vdAgpeNAdKSe0seYMtj9TnpFAp9SYfGngnRNwv+oC+FMKcZd3Yj7YAk6IF/i+Lb9VgRFFo8uv9NPQGpo8anElkKG60pnr4863BGC7mJPAQkOp2GX/lHsbqHWGunBAZujPcaHzGOM351O1GYD4QYk7ePMoaT2ZsDvxkygfPgLvymznk18P5m6RgqUS4cxsY/d1UT78fWZQ6g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=28Ih43RaC9Ih17t0Q38chcLAhb8MknIC8XfmB5DNDDU=;
- b=p30Dg67W9KfPlG5/C6pt+2WnpBeBg22AuL7dLpyfwzntM6UzlutUo4KQGVwRFMeELh2hS4PLuS7iq6EHc0fJayRERP4ynrPV6pW5cIPKpyqxMPVkJkKRQpRyASXl51v4eZAljTCW5PGIE5MGtcjiKhtxciuMmciR/j3IJVH/n+9PV+h8kTCZ+rgDZAwnK+NR/ejSFRkhcQTM4OAaR13oAcySP9YSo1El0iXHJw9HqKzT+Yqlu+puAj97jiRXbYz98/X6e7Ynt6dU+t1Y8ZeLDi6CH/jSqCteaOHJgCeRg/5Lq5Rqk6jVRNLzRl1mXG1A6bBMHVbIQzyHARDCJBGfjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=28Ih43RaC9Ih17t0Q38chcLAhb8MknIC8XfmB5DNDDU=;
- b=KWs8nuk5OTakN8wn0+lhgv1rqYhRXUmMUgkU7ejw16+7etmBofKY1BG7rf3uCHoT4HGOLe+v6wofnd5fpDRz8r8Rgggau8Ce/d7EkDziC5xi/J4nX/RvN0IixwctwibgsxfqV9Q41M6H917lyo7c5ED4/ggrY6Budl+t6WKiO3EhORI23ZM1GsznEonitZmJWV35nC0iG9GH+XFw88hyiLOwpjayjZLjMWu8iwB0yH2Bf+6+8jKP0qQk0TqAff6EwcJwofUqHhpHJbvYLgb/uprACsE6QXGXEXucqUDntvtOHuHgpJUsZKCx8gky0r24ySQnibIcpxEjH7QPIZN5vA==
-Received: from AM0P190CA0009.EURP190.PROD.OUTLOOK.COM (2603:10a6:208:190::19)
- by VI0PR10MB9499.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:308::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Tue, 25 Aug
- 2026 13:09:47 +0000
-Received: from AM2PEPF0001C711.eurprd05.prod.outlook.com
- (2603:10a6:208:190:cafe::53) by AM0P190CA0009.outlook.office365.com
- (2603:10a6:208:190::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.6 via Frontend Transport; Tue, 25
- Aug 2026 13:09:47 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AM2PEPF0001C711.mail.protection.outlook.com (10.167.16.181) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.360.3 via Frontend Transport; Tue, 25 Aug 2026 13:09:46 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 25 Aug
- 2026 15:15:05 +0200
-Received: from [10.252.23.181] (10.252.23.181) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 25 Aug
- 2026 15:09:44 +0200
-Message-ID: <7d767580-08f7-42ee-b168-00e4ca3b7876@foss.st.com>
-Date: Tue, 25 Aug 2026 15:09:44 +0200
+	id 1wyqyg-00000000puc-2MDo
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Aug 2026 13:14:13 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67PAvj7G1638903
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 13:14:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	f5rJuoLCWO7KVfDNBoBfeBkBYsbNKNweb2IqmkGw9Bg=; b=pyu6VlIJDgoiFSrO
+	uNnwDnUX4Lzccl9YZsw0xp9VrU2OJ29gP0L3sAbjy9OGmyp6eNEg8hkOw7JRdHn7
+	iys6P229QtFBi18hf7B6LariH0HDFRCLekqVrp4BmXtaM98pkREZezaQqb82XMvM
+	zXfE20rjgThbmRUnxwoXypC8ZaZyh/NJayKJblM+rxZuYC6dSW2LewzHtHtlgh2b
+	TwtDivZAP5pOYt3S/IsJoRkxghCxwddUt35dKYU2BDUQeMh9/T6X8Prh2LtVBTul
+	jyh6lpmb8yPClB7NOCPl/K8vyml4wNM2RsF2zSOwQvnmgP0IBaiAzvYS+RaAsioY
+	TOe9SA==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g8t1s42ej-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 13:14:09 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-c89704da8c7so6896388a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 06:14:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787663648; cv=none;
+        d=google.com; s=arc-20260327;
+        b=q6uRdj9XOHoCyzDJ3HOvHaT+PaIxYgwcuEcaKK2tFLPC/hSxCZb+N5yab30Urgp6Dg
+         rJBZ8GJZP0azA4s6jRM75CoebyBGlpojN72Z922NpLNOaTmYlI40JC8aE55zfQonkc3H
+         0caRCwovkibVSQWfpT941y/9zgykNzn1x6U0p+8T67z7jEPYseb8SIXDdzOONfkios6F
+         XDYCR+D2mFB4ApHpCacpVH6nZG38F1VZNIo3cVSHyPvaOz2v0uIq8lpZoi12uGXuNqBL
+         E6+KLVeftsJXV3tae84nJbYDRUVwxhc+9E5BRRTWacG60amUXTvxYU38K8ylc6ictCMU
+         aSKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=f5rJuoLCWO7KVfDNBoBfeBkBYsbNKNweb2IqmkGw9Bg=;
+        fh=fDB/RWxWTdenzQZjXoDpjUWm3+I0ja4W6EF0QTrfEC8=;
+        b=U9FIBALg1hUjjU+ePbQO+nWSoqmredKO9pOiQZUr6X56GDlZh7nz9CTGonaGXy1ZOr
+         nc4o4UjPs5CpuBQLprBpiafawB4RTj5vB4WNxqCOUWEHz5ALsMOKreGB9nVjYIH6jHU+
+         JUKO8rMxoQ80hqiSqPwFggvrwKZKV7i1sW2sZ0duQaFdK3oWE6suYW+I9k3ZLK0qMLAs
+         k24JBQe50TeBWsuUsis9FrFHqRzLgGN27YwKuue50gP9ARXFNiuIP24Y3yXACDgde5nf
+         3t63QSpmfPwLR7YLaFMKYd6LjP70YXU/NPiAjemogkFNdX2hpAulO57D38+ye87zmx/w
+         W/Tw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1787663648; x=1788268448; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=f5rJuoLCWO7KVfDNBoBfeBkBYsbNKNweb2IqmkGw9Bg=;
+        b=NuvUsJq8ZOT1e88SZ4YhvnwRyuMwMjY5++IkkIQVehsE5FMdax6ptAmjb+iY5IYPCC
+         tKUbue9PFviQiq2V9k7zZUi1FHQ7u4ydyisM1yHrPPfo6GM4qUmkivWJfRIc352ZB9pJ
+         4NZXbfnXtvNab/eCdz3o1/qYzfOSpvEOAbYLlwWhDmVZDeqpsQKRw+NPo5IwAPSr7exX
+         DdgzfOGeX3WOcW1UplPgZEOanuqZfIOu5gPvfzNRi5Ez3drLWYtqNqK0JsetV6ColApF
+         1HGH3/rsqvMtqU5FqKH+jKl+ihdsTAT/ScVzBhghAs9nQ6Tih3+rsIbzuLMuaj8YGQv9
+         XhfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787663648; x=1788268448;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=f5rJuoLCWO7KVfDNBoBfeBkBYsbNKNweb2IqmkGw9Bg=;
+        b=cEjHv3K7gW+uxFypHpvQREKSdr1WjU4UZ6mtQ9a6GleTR07TrrtHAUOwJvs5juqLaw
+         vtrpfvB/d90HqLBv3pV+E4TiuVSNAhg0aPl/9wLVacGGEDXQuBkfmKwWMvkWZriBT+d6
+         Udi5slkL9JQtoDwYcVVkPGBbv2oS4tMhLmA4O4ftgAnBMc4FcqiCQJoQlckoLJWa9bLd
+         81denFU5g24hO74pMf5nLxcoTECz4+/fklYpXjgf8w4lwHkyPn49twkE/XgJLepPJSY+
+         a1+r+/2u04X2zyQe6IIuABkV7F8xQb1HCSkVV1hKpBDv1uwGyzuqfQFBWTMCmOiGWu7B
+         NyxA==
+X-Forwarded-Encrypted: i=1; AHgh+RqnnhlSryheVaTsBWK1hVXgQOUGgg7pS132g7uw5qLm6onl0a3vUXhgInT179zh+vRTGhXCp0MqU4Ix8TKtfuky@lists.infradead.org
+X-Gm-Message-State: AFuF++lcNOrwJDcPqGrPVXB6UZZCcG601+tPb3Gk8XOiawSWFxoijeUY
+	Q5APzbFr39hYEVqe4DC+eYdsQmvqmaOW3KMrFiIa56ehDDI7ShhRMKpNWyTTlctEbqTyxnsDff2
+	MHzEM9dv6e1UCXKJqR8NCD4OglZt0GI3NLneiD8JJV7Qe+qWRoxCmJs4ECJ8J5LKJkpV4DtwUKc
+	Tm8W0SudN66si3rVFuRr/y3yB3YBZm2h5Fy3XMLGCOtrVL+gYX8Wfu
+X-Gm-Gg: AR+sD10/9IWNmxiU/j13oVB3PWx+EWzo1xoZ4pFrNagMorl7Xm4VGpb5TdGouKeJkkf
+	ownTDSc6zAPxtQQNBdmV8JyDrcALaUw+SKU9djRgrOZ6excNlS3+jJ01FCyd6mFRQTWwPLtwl5j
+	JKEE0aqAq7cLxyl3TEyPpeVQFapxBP/n4Y3SDir0HdhIuTEKi1na5E1QtVgFI=
+X-Received: by 2002:a17:90b:6cc:b0:392:ca3b:370a with SMTP id 98e67ed59e1d1-395c33d786amr67081334a91.2.1787663648404;
+        Tue, 25 Aug 2026 06:14:08 -0700 (PDT)
+X-Received: by 2002:a17:90b:6cc:b0:392:ca3b:370a with SMTP id
+ 98e67ed59e1d1-395c33d786amr67081169a91.2.1787663647756; Tue, 25 Aug 2026
+ 06:14:07 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/16] dt-bindings: usb: add FUSB340 switch binding
-To: Marek Vasut <marex@nabladev.com>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Christian Bruel <christian.bruel@foss.st.com>, Heikki Krogerus
-	<heikki.krogerus@linux.intel.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, Philipp Zabel <p.zabel@pengutronix.de>, "Liam
- Girdwood" <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, "Srinivas
- Kandagatla" <srini@kernel.org>, Vinod Koul <vkoul@kernel.org>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Pankaj Dev <pankaj.dev@st.com>
-CC: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-phy@lists.infradead.org>
-References: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-0-c5e27cbc0795@foss.st.com>
- <20260821-ucpd-host-fusb340-v7-2-rfc-v1-5-c5e27cbc0795@foss.st.com>
- <ca72ed6d-1565-4312-bd9b-891874a80afb@nabladev.com>
-Content-Language: en-US
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-In-Reply-To: <ca72ed6d-1565-4312-bd9b-891874a80afb@nabladev.com>
+References: <20260817160222.3313295-1-mayuresh.chitale@oss.qualcomm.com>
+ <20260817160222.3313295-4-mayuresh.chitale@oss.qualcomm.com> <c30e91d3-514a-4fef-8b61-e1744f577d35@amd.com>
+In-Reply-To: <c30e91d3-514a-4fef-8b61-e1744f577d35@amd.com>
+From: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+Date: Tue, 25 Aug 2026 18:43:54 +0530
+X-Gm-Features: AcwNN1XGeK3kKeeesL0CAGDbwc6gJUoKnhOVO6Mm-4cXkc72U05QOEit2B_T6As
+Message-ID: <CAHuiULC-Z+pqKsMKMPX8emnN4tz9Div7_9c-QGZ9-L_Ef21dEg@mail.gmail.com>
+Subject: Re: [RFC PATCH 3/3] perf/riscv: Use Sspesa for precise sample attribution
+To: Sandipan Das <sandipan.das@amd.com>
+Cc: Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>,
+        Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+        linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.252.23.181]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM2PEPF0001C711:EE_|VI0PR10MB9499:EE_
-X-MS-Office365-Filtering-Correlation-Id: a2590550-877f-428e-554e-08df02aa234f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|1800799024|376014|23010399003|10067099003|56012099006|22082099003|18002099003|4143699003|11063799006|921020;
-X-Microsoft-Antispam-Message-Info: MIxIif0fBA7HEPjQpy4qohFautUx/omMvD2AV5F/GN73own87zIXiHDyOmU15a4J6BG9ySJBXgSPk3+FBx0q3yGUMYcCOVTREVCdzXeDombbbDqJLt/NDXm+0WP5ySA0a8C5sDjekzP3g1Pn+cxgGCoRs3LxPVr/ph6f8Ple3gaQeDPx494+HkWjw8xteLaOEFCGcgKYpYAuCcFMQDfFTbwrsAYOqelY82lPvsRb09SPouMimxY1Vznzrl+Gu++ttmSwTMXxxx/RECMohgbZG9C5Px+UUXaAUSr2OjJHx/jd5VnW+3pl9KughyzfyjFUd2B7rzlWJ3eKQWEJV0f2LkrEDRZX7IKYSwakBuGNiTVsccNdEvqBv616OeKIKxBNxCAjgqCWZ/SblvfMzN6kCSuPIix2uBFBWPs2GB7HXKFi5TqK/5Vlp3vuCCRqyCnNUnmQ0ESv2ABuENAN0idGTzdCQkPv5r+4MBv9f04ShKHyWshC8Fvo0u2Omz/wpNXhYUPBPO+u0qd056nnLAWYnz83Tsgl1uy1JoqEOxcYLMcPcpNAF/ODxFPefCIWRsDNLBP219EJA9Nhmhzp5a5vxLNuGf9men9sKl8AS1CmxDKDVu8XUXWWRybFGP2B73kz6/039cq43uhjwEDmevnSCFpp6ObPeUH2/4plE9ZQFzzx6EDPZvn6fXsldnqz723Vpnr3UfBizNHmeobWY49UeA==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(1800799024)(376014)(23010399003)(10067099003)(56012099006)(22082099003)(18002099003)(4143699003)(11063799006)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: lPk88IVAYTmWtwCabRCCQNj+AD8bIUONLnJgERTZH8RkROclcJnGz5ciMx+GGLQFtdU2BqgIK5ceoarf8QETm74/5Vys6Z1SHzkKAPweVGstB6eo+EwUoBu8vvPF+LqSl1FYMZhGcIgt5iorvh3p++8jR+kvut9Ou5laDouIEMW8n1gx9New1Di8m8c0SLTiboKsuvYo5V4TPM/x0hqU8WQTdSCsYPJuj1DSnQ8lX7IT+dvsC1cjgjm73ILEPuokxFyusBvOaqhd9rDG/7Vsg/5I8svUhVPK/ipK5izxXs5F4Q7w9tNVSWppoImk+74Fk+DW8Z6QQ6KJcvdoerH5Png7xA/ypvBIOi7QXbvwXRbHFLCn/lpTdiu/tMz4UpDwUqRRb6FlMMBBmdgBMLi/JuzXvSiPVsOOCpeWxvSLlRlet2qHuCWEHWPzbYOFF99x
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2026 13:09:46.9077
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a2590550-877f-428e-554e-08df02aa234f
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C711.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR10MB9499
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-GUID: CLjrpahWWw7KbjspteLHW0vipjkyylGw
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI1MDExMiBTYWx0ZWRfX3TBI17qhBQjR
+ 1affihCsHOwwGDmjUdjEW1/Pnbbc9PD20Ij7JMo5NdBJYyjYh19P3YqUb1cJLKCtbaiu5peHcDz
+ aX3xqvi09X0Ty1Kp57Femt6qFnH/tw+Wf8KGpdIYYbwI81/zJsEjhBWsQZiDrqG1PvPbpdBErRQ
+ J7bwzEbnZIkkvljS/uKSgx4gle4shf6VpQ0m/VqZzupqpNow2v82fvCQDpKRu9+LcQN6I2YIZua
+ H/loYhbTkLju6t0ecVo6cEkFDkWewtjiIqgGtmdSqQ49EdUoibaQc0vXiBhbOY3ip+DTSRA7CZU
+ JdGMMhC7mOFr9CKXHkRy94tleDqGscTuoHl0FpDx4BBM9yuoxHGjquHFzvBIThnDvheDpKIzAM0
+ yEgJ6PkmVIvy/esK+P0RZEYT0FxeEB0LZ1+RWOG7mg3odeuwcMp+6IaIBcUNgBZ6oLPSVmi2Al6
+ OEsi9o1R6N1UPVqcqFg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI1MDExMiBTYWx0ZWRfX4HYnaAAQM8pQ
+ 86ArH6oMVtcA2SdGeFlXgC4OretCWLjaYHZFsbjw3HsbilvodQawceTN0wgAgGJe1mWPBrviuXT
+ K2o86J2khROfFnsKjEhd5JP4f1sPFn0=
+X-Authority-Analysis: v=2.4 cv=L7ItheT8 c=1 sm=1 tr=0 ts=6a8d9521 cx=c_pps
+ a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=rJkE3RaqiGZ5pbrm-msn:22 a=zd2uoN0lAAAA:8 a=EUspDBNiAAAA:8
+ a=8lNz-84GcgrwCALWT8sA:9 a=QEXdDO2ut3YA:10 a=x9snwWr2DeNwDh03kgHS:22
+X-Proofpoint-ORIG-GUID: CLjrpahWWw7KbjspteLHW0vipjkyylGw
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-25_03,2026-08-24_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 adultscore=0 bulkscore=0 priorityscore=1501 lowpriorityscore=0
+ malwarescore=0 impostorscore=0 spamscore=0 clxscore=1015 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608250112
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_060952_599129_BF01CF4D 
-X-CRM114-Status: UNSURE (   5.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260825_061410_730519_1A5CD20D 
+X-CRM114-Status: GOOD (  31.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,26 +166,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/22/26 06:49, Marek Vasut wrote:
-> On 8/21/26 6:23 PM, Fabrice Gasnier wrote:
->> Document the ON Semiconductor FUSB340 SuperSpeed switch as a USB switch
->> binding with enable-gpios and select-gpios controls. The switch can be
->> used
->> in Type-C applications where a reversible cable requires a switch.
->>
->> Assisted-by: GitHub-Copilot:GPT-5.4-mini
-> 
-> Use gpio-sbu-mux , there is no need to add more AI generated duplicate
-> drivers.
-
-Hello Marek,
-
-Ack. I just need an additional enable part for orientation-switch only
-in gpio-sbu-mux.
-
-I've split into a separate series:
-https://lore.kernel.org/linux-usb/20260825-usb-fusb340-v1-v1-0-2191179b0661@foss.st.com/T/#t
-
-Thanks for reviewing,
-Fabrice
+On Thu, Aug 20, 2026 at 3:51=E2=80=AFPM Sandipan Das <sandipan.das@amd.com>=
+ wrote:
+>
+> On 17-08-2026 21:32, Mayuresh Chitale wrote:
+> > When the Sspesa (Precise Event Sample Attribution) extension is
+> > available and a counter overflows, the hardware records a sample PC in
+> > shpmspc register and the counter ID and additional implementation-defin=
+ed
+> > data in shpmsdata register.
+> >
+> > In the SBI PMU overflow handler, use shpmspc to report sample PC via
+> > PERF_SAMPLE_IP for the counter that caused the overflow. Shpmsdata is
+> > exported as raw data to userspace when events request PERF_SAMPLE_RAW
+> > sample type and it assists in deriving the sample PC from shpmspc if
+> > precise attribution is not supported for the event.
+> >
+> > If sspesa is not available or for counters that don't match
+> > shpmsdata.CNTRID, fallback to epc for PERF_SAMPLE_IP.
+> >
+> > Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+> > ---
+> >  drivers/perf/riscv_pmu_sbi.c | 29 +++++++++++++++++++++++++++++
+> >  1 file changed, 29 insertions(+)
+> >
+> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.=
+c
+> > index dfc886dee5ad..1b0b1cc612de 100644
+> > --- a/drivers/perf/riscv_pmu_sbi.c
+> > +++ b/drivers/perf/riscv_pmu_sbi.c
+> > @@ -63,6 +63,8 @@ PMU_FORMAT_ATTR(firmware, "config:62-63");
+> >
+> >  static bool sbi_v2_available;
+> >  static bool sbi_v3_available;
+> > +static bool sspesa_available;
+> > +
+> >  static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
+> >  #define sbi_pmu_snapshot_available() \
+> >       static_branch_unlikely(&sbi_pmu_snapshot_available)
+> > @@ -1051,6 +1053,11 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, =
+void *dev)
+> >       struct cpu_hw_events *cpu_hw_evt =3D dev;
+> >       u64 start_clock =3D sched_clock();
+> >       struct riscv_pmu_snapshot_data *sdata =3D cpu_hw_evt->snapshot_ad=
+dr;
+> > +     unsigned long sample_pc =3D 0;
+> > +     unsigned long sample_data =3D 0;
+> > +     int sample_cntrid =3D -1;
+> > +     u64 raw_sample;
+> > +     struct perf_raw_record raw =3D { 0 };
+> >
+> >       if (WARN_ON_ONCE(!cpu_hw_evt))
+> >               return IRQ_NONE;
+> > @@ -1088,6 +1095,16 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, =
+void *dev)
+> >               return IRQ_NONE;
+> >
+> >       regs =3D get_irq_regs();
+> > +     /*
+> > +      * Sspesa records the PC and metadata of the overflowing counter =
+in
+> > +      * hardware. The PC is precise only for events that support preci=
+se
+> > +      * attribution; otherwise it is best-effort.
+> > +      */
+> > +     if (sspesa_available) {
+> > +             sample_pc =3D csr_read(CSR_SHPMSPC);
+> > +             sample_data =3D csr_read(CSR_SHPMSDATA);
+> > +             sample_cntrid =3D sample_data & SHPMSDATA_CNTRID;
+> > +     }
+> >
+> >       for_each_set_bit(lidx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTE=
+RS) {
+> >               struct perf_event *event =3D cpu_hw_evt->events[lidx];
+> > @@ -1123,6 +1140,15 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, =
+void *dev)
+> >               riscv_pmu_event_update(event);
+> >               hw_evt->state |=3D PERF_HES_UPTODATE;
+> >               perf_sample_data_init(&data, 0, hw_evt->last_period);
+> > +             if (sspesa_available && hidx =3D=3D sample_cntrid) {
+> > +                     data.ip =3D sample_pc;
+>
+> Does this need to be tied to event->attr.precise_ip?
+I think there is no need to tie usage of sample_pc itself to
+precise_ip as the sample_pc obtained from shpmspc is more precise than
+epc. But yes, we need to tie the setting of PERF_RECORD_MISC_EXACT_IP
+flag to precise_ip =3D=3D 3 and ssplcofi extension being available. I will
+do it in v2.
+>
+> > +                     data.sample_flags |=3D PERF_SAMPLE_IP;
+> > +
+> > +                     raw_sample =3D sample_data;
+> > +                     raw.frag.size =3D sizeof(raw_sample);
+> > +                     raw.frag.data =3D &raw_sample;
+> > +                     perf_sample_save_raw_data(&data, event, &raw);
+> > +             }
+> >               if (riscv_pmu_event_set_period(event)) {
+> >                       /*
+> >                        * Unlike other ISAs, RISC-V don't have to disabl=
+e interrupts
+> > @@ -1194,6 +1220,9 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *p=
+mu, struct platform_device *pde
+> >       struct cpu_hw_events __percpu *hw_events =3D pmu->hw_events;
+> >       struct irq_domain *domain =3D NULL;
+> >
+> > +     if (riscv_isa_extension_available(NULL, SSPESA))
+> > +             sspesa_available =3D true;
+> > +
+> >       if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
+> >               riscv_pmu_irq_num =3D RV_IRQ_PMU;
+> >               riscv_pmu_use_irq =3D true;
+>
 
