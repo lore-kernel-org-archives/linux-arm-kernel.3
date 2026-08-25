@@ -4,152 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB68EC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 18:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39C68C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 18:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dAzvwPMvS0QGNlY8eB3tLuP2d1LA5UE0AZDeb4igS9A=; b=YmxzkD6JSUYXZTekxNdhpjMwzT
-	QZ4NCWZ/CgOrtnYL8EZ+vD890pmESSrhHb82Bd68xCxep6zaVOswCh9tXIot1S4vYRrap5NMlsJZ6
-	PDVDM4NcFGjLljLbWZuYNIi1bM41rhf1hvgFtFqQQ7FH8uZ8uxoLPt60mKA8ZbHvEgblmEygGXPwm
-	Lcq8Ao9vYdTzOzrNjHute2UnbKx4LtZNlsY58x5IpnWr9OpnR6H95JqCGXjlGziJ7KiTQoYAFtQDD
-	fB4e2AkHymAtp9JYUNnE3qPdf4h91aA6qH12WEqVb+nCMCAnrsoUmyHAtTUThEEAr2yxY1C7/bBw4
-	1mRv0XFw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NNgKTV5BAQZHXM4m0j6UpVZtJf2itfOicSCRbOzjkzA=; b=fQFNTMb6HsUkhIMJK0v/WM6DTJ
+	/3cny/TFFV3yhRNXwmedr9i55QB5Uk5GWvr4TzC06XiZpM6hTtZVnF0W6VNeoRuROPc36SKDrvjx3
+	2BXXAorcQYTrMUeMJrUqNh3pwZMa6Qqz1Ivxp2eoW43BdDSp+WlOJYmxcer+irGwa0X8lXPcHP354
+	ZD1vGoT9+lPJrEOO3loXSxY0n3qfxaLg/OcWiBIyrMxBsLlwNkQI76VPBFqiVFcMPzGQF1r2yBgGO
+	K3mg3zI4si8aj2aTuXCybBdM2knAG6qJvyynrRTmVnIbfUevIdaKfg4kFCaBEvK3joo6w1Q1YK52t
+	j/D9SsEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyvUh-00000001GM9-48Go;
-	Tue, 25 Aug 2026 18:03:31 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wyvWG-00000001GV5-1XJX;
+	Tue, 25 Aug 2026 18:05:08 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyvUg-00000001GLg-0yci
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 18:03:31 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67PHdSop2145243
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 18:03:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	dAzvwPMvS0QGNlY8eB3tLuP2d1LA5UE0AZDeb4igS9A=; b=LStShXilBn/N/NVU
-	B+zJ086C8sJhHVWLd+R8rKiO9UfjZ0740/W+UGfDVPq1bKPENeK4jFfAyipylQJu
-	BVHo5R1jDR+u93GetjgtVEj78/zpeMpkezZobvZcP9GvPdAdpFo4xz526CB7J4/L
-	wPFFto914JwtFXJGu1jM1yJ53TkHeSG+BI8vSo/ENi2hzJ3W+en+8vdrL2/bwVXl
-	kJuIV4gj8mFE7uBeQYpZkJxQgJk5IOocT7/JvB5MDsMUsmsuP51NgRq1E37cVd3H
-	wwmoU+biGU/cZYb4Y03MkYOB3Di92t2XG3svLhIS0lB99KMrFzTR7kXia+r5OxvD
-	F5eR6w==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g9cgu110p-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 18:03:28 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3965ba1ba3eso156977a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 11:03:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787681007; x=1788285807; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dAzvwPMvS0QGNlY8eB3tLuP2d1LA5UE0AZDeb4igS9A=;
-        b=TF7haHwcFEnMSY/Gxy/KK3iC7cGPm6QMHXfOCJILHK7yAxxPyn07bUW+Gr3qKdQKIE
-         DQcsgdT14eD0L33Fl9XFehg5fh5yccCuB49LYATCe/zfi+kQotdsxLrpE1WAnhaD0Q6S
-         dh4MSZy4YqF61j5rj5GfEv8JFyh0WAFqTpGBmgI0hi4ScBz8BwcfxmJhKisZIdhfcn+S
-         dTLjX7h+Iu5FpqwilUnNxk59f7SEokgh7RjBYIxKQTTKJ3pTFWe1EPTThK9onqAZJxxy
-         Cvn0QMq9l3Ap+tO81osAvzQuKVPSmkdv9AGPTytWOcAuI1E/m8RmmFF7y3x888roJJgx
-         N2/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787681007; x=1788285807;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dAzvwPMvS0QGNlY8eB3tLuP2d1LA5UE0AZDeb4igS9A=;
-        b=hFXINt+V1krFgKqMSUvg4RB9m4D831eteogS06kV3zD9zAF126Fw8g2ugnS0D7Z80Z
-         tGJmleYOXI+fzzpdX+sga1SUGVfvHzn2WHM9PGsrcONMTXgsJPdF2dpc3A8WfSES4nYi
-         V+iLcIN4MK3rFDJSVhbQzG+ukU7wHXiO7NduJrJbUIv+sJpbKV1hv+doChzC1qO8qp/2
-         N4sVeS6h+IvR06zH1rPb8XDO2e/4PG6FVg9pVHStXRTZ4DxgdVV2AdpEsd/YUvz34OUi
-         yH9VcVSj/ZGijtN0xjuYm7wUTJtShB++A5boQ85WGdWf6nfVd3K+L0RmVBgVhnpx+UcP
-         rc/w==
-X-Forwarded-Encrypted: i=1; AHgh+Rpzrc80ljHsS7uv5C53UD8ygSKgmTKednaA3Fmsy/i1k1mm4pAQpxjUZ/x2PYP1mIPGrdfndhudVIihbnvMwJrZ@lists.infradead.org
-X-Gm-Message-State: AFuF++l89alZ/Sh9VkVrJfSDMCyQY8JAClT0mJnCm1GQshEeM1VE7bbG
-	+KMSpcLH//q8jDgMRytVJ4y5F3SoDsz3eduVwxNhEUQqLxFfSZWTdFhTCSPEO6PSvJ/48Wdu1J1
-	SOXAGsjpqO6lI/ofuGaSsIP9jmw2IUt4FnY0MvdhoX6uGKog9NFvugfop3+xb/FE+v1SIiB3n/6
-	beDw==
-X-Gm-Gg: AR+sD13jsKRVfomluFpUEbH3B1ews3/wiNQQncOgVItxPh+0V2SIzN1547zPaEJbYSf
-	Wll6mDnphi0XbIv2towMmeeAp2ecW4uBBv3n9tNgQWpXVhxwCs+kzIgN/yduaWwKHN3AzVoQeT9
-	Jphad3JtojuX/WP2zzTJoNybiMxLa8jUztqNCY49E4WuFOz+nHtIEksL/EIpeKrTFaZIOOzWlJ3
-	NFdcmfLOkQ93gqc3jnTzOxInJnIRQ7DqThA304E8XnlyJvtNl6JN+lSj6Tn4JcgGOnYkZXhfTIC
-	mfbaunH9DEh/9m5ABmz4DrVGhxonNMWXwtreMUV81/WM9lYTM8ehwW7gXkxMEiYOwhiqpIaCIOq
-	9aldfKZNLg7fgEi87QveO+9rGr0i9vG6L
-X-Received: by 2002:a17:90b:4e8d:b0:38d:f5bb:e0f4 with SMTP id 98e67ed59e1d1-3966d400334mr1832603a91.1.1787681006066;
-        Tue, 25 Aug 2026 11:03:26 -0700 (PDT)
-X-Received: by 2002:a17:90b:4e8d:b0:38d:f5bb:e0f4 with SMTP id 98e67ed59e1d1-3966d400334mr1832233a91.1.1787681004826;
-        Tue, 25 Aug 2026 11:03:24 -0700 (PDT)
-Received: from [192.168.0.7] ([49.204.110.145])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141a8f20095sm914906c88.6.2026.08.25.11.03.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Aug 2026 11:03:24 -0700 (PDT)
-Message-ID: <29b5226a-d403-4bdd-a114-eeb2fd341ea0@oss.qualcomm.com>
-Date: Tue, 25 Aug 2026 23:33:12 +0530
+	id 1wyvWD-00000001GUI-1CHN;
+	Tue, 25 Aug 2026 18:05:07 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A42601BD641;
+	Tue, 25 Aug 2026 20:04:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1787681098; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=NNgKTV5BAQZHXM4m0j6UpVZtJf2itfOicSCRbOzjkzA=;
+	b=RVdU9wSLQbJcUK8+LC1P3L6F1qjWWBH0c/QqtBRd1hob3pzDahjDelTztcfUfIDF1CBNgx
+	TU2VYbw+X/x3QkHjV2GADLCa3itZKZuzsdh1GMnCjxfVdPww2WWljrBlCsEi4AIEK0BwTk
+	lSoQNpa+YRhntzGM42LkEF9op3p6qbbShpZc/BrhtMaXFFUp2AF+A2+N+7rHP6K4yj1KL/
+	c5gVusANmghCCpef7ZqPQQ+47xeU/PldnD0SI2Nb5bvaYMidXBJWtsrS4mzGdRJOoRG1H/
+	kFnxw6xMevOwTJUrxrpC9dWHM/oRSiAP1NwophgpH0DMNkiKR0RNY415IpUKWQ==
+From: Caleb James DeLisle <cjd@cjdns.fr>
+To: netdev@vger.kernel.org
+Cc: andrew@lunn.ch,
+	hkallweit1@gmail.com,
+	linux@armlinux.org.uk,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	daniel@makrotopia.org,
+	naseefkm@gmail.com,
+	joey@tinyisr.com,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Caleb James DeLisle <cjd@cjdns.fr>
+Subject: [PATCH net-next] net: phy: mediatek: add driver for EcoNet Fast Ethernet SoC PHYs
+Date: Tue, 25 Aug 2026 18:04:21 +0000
+Message-Id: <20260825180421.1804729-1-cjd@cjdns.fr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/7] i2c: qcom-geni: Use geni_se_set_rate() for setting
- source clock frequency
-To: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>,
-        konrad.dybcio@oss.qualcomm.com, Sudeep Holla <sudeep.holla@kernel.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Jiri Slaby <jirislaby@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
-        Andi Shyti <andi.shyti@kernel.org>
-Cc: chandana.chiluveru@oss.qualcomm.com, arm-scmi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-serial@vger.kernel.org, linux-spi@vger.kernel.org,
-        linux-i2c@vger.kernel.org
-References: <20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-v1-0-61171ab1cdce@oss.qualcomm.com>
- <20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-v1-7-61171ab1cdce@oss.qualcomm.com>
- <8af7a34a-da4f-492f-a51c-cc420edc5e6e@oss.qualcomm.com>
-Content-Language: en-US
-From: Praveen Talari <praveen.talari@oss.qualcomm.com>
-In-Reply-To: <8af7a34a-da4f-492f-a51c-cc420edc5e6e@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI1MDE1MyBTYWx0ZWRfXxgvsZcdsClSo
- xtvn3AVrXum1pHZhMzuh86FR5QE67JR0hpmdaxj0BnBQG1+cl2lEpqM2RvZZMGc9Y0TGUdNhjxy
- ytkCgjgMHAHUfrFDBkzl1dgxqVs+3AE=
-X-Proofpoint-ORIG-GUID: Ow_PgkQO8vMbqSZADBx9Fqfvs2uPfTGX
-X-Proofpoint-GUID: Ow_PgkQO8vMbqSZADBx9Fqfvs2uPfTGX
-X-Authority-Analysis: v=2.4 cv=Sb7HsPRu c=1 sm=1 tr=0 ts=6a8dd8f0 cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=T2iwtsF3Qoe1cvxaLfjbZQ==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=s8i-5AHMM79FQocxpXYA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=iS9zxrgQBfv6-_F4QbHw:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI1MDE1MyBTYWx0ZWRfX4y0+dApUEFZn
- LEYoj54gFe6MA7bkwvKhSQAv6n+UByW5GETdUO9C6iUZeWUBQYb+7wVqWYtvW7K0HZEsW/1XeoT
- foTCuxAl3aWFb3naDrl/ykeAfjcGw3N9/1ZOxjPwyz8H+mFCOEBq9efGIU3SKKhOHz26nTXuLpO
- 4Gbpci3XsbBrBglLJ1Ox6kKyId9DrsCgCKQbjK6ngj8r+OayGSTLB+YExQNZJv/I5D5+wqsBtJy
- vsRichPqoI9wp2QTQkxrSQt/iNIdogsIfDD7dnhp9QAbFTXWZxnHJildXJ41UeH5hK8I5t2LVUb
- QrMXI2Tik40N8ygLVbWgTs2six8M0t/fMOmgPsMhkkHEwdGCaF+6WBphMQPJ3gobv3IHhiadMFf
- 5RzoA5UPTytu58uHtFye2Q51ZqkqpZ9MOhT9cuqJ0uFnITB0XRqOXfr5GLRudi++y9gXy5e22kp
- lRoNtDDVEtkUC6aB5Nw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-25_05,2026-08-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 phishscore=0 spamscore=0 adultscore=0
- suspectscore=0 bulkscore=0 clxscore=1015 priorityscore=1501
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608250153
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_110330_406978_896C875D 
-X-CRM114-Status: GOOD (  26.65  )
+X-CRM114-CacheID: sfid-20260825_110505_907824_C57711C2 
+X-CRM114-Status: GOOD (  29.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,87 +77,719 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mukesh
+Add support for the Fast Ethernet PHYs found in EcoNet SoCs based on
+the EN7526C variant. This includes the reasonably popular EN7526F SoC.
+This PHY bears the ID 03a2.9414 is sometimes referred to as "7522",
+though that is not a published product name.
 
-On 24-08-2026 19:11, Mukesh Savaliya wrote:
->
->
-> On 8/5/2026 1:27 AM, Praveen Talari wrote:
->> On the SA8255P platform there is no Linux clock handler for the SE 
->> source
->> clock; resources are instead managed by firmware via a genpd performance
->> domain. The I2C driver therefore relies on geni_se_set_rate() to 
->> apply the
->> fixed 19.2 MHz source clock frequency expected by the SCL divider and
->
-> somewhere it's 32 MHz also and this may change too ?
-19.2 MHz is just the frequency currently requested by the I2C driver.
+Also provide support for the older EN7512 Fast Ethernet SoC PHYs found
+in EN751221 chips with do not have the MCM switch. That is chips which
+do not have a "G" in the name. As these PHYs bear the ID 03a2.9412
+which collides with MTK_GPHY_ID_MT7530 gigabit PHY, do not match them
+and instead rely on the user to override the PHY ID in the device tree
+if they wish to use this driver.
 
-Other frequencies such as 32 MHz are also supported and may change in 
-the future.
->
->> counter values programmed by qcom_geni_i2c_conf().
->>
->> Call geni_se_set_rate() directly from qcom_geni_i2c_conf() so the
->> configured frequency is applied to the correct device (the perf domain
->> device on the firmware-managed path, or se->dev otherwise) without 
->> the I2C
->> driver needing to know which resources_init() variant is in use.
->>
->> Drop the now-unused set_rate field from struct geni_i2c_desc, the
->> geni_se_set_perf_opp() usage on the SA8255P variant, and the unused freq
->> parameter from qcom_geni_i2c_conf().
->>
->> Signed-off-by: Praveen Talari <praveen.talari@oss.qualcomm.com>
->> ---
->>   drivers/i2c/busses/i2c-qcom-geni.c | 13 +++++++------
->>   1 file changed, 7 insertions(+), 6 deletions(-)
->>
->> diff --git a/drivers/i2c/busses/i2c-qcom-geni.c 
->> b/drivers/i2c/busses/i2c-qcom-geni.c
->> index a23554d101fd..4561e2d235d5 100644
->> --- a/drivers/i2c/busses/i2c-qcom-geni.c
->> +++ b/drivers/i2c/busses/i2c-qcom-geni.c
->> @@ -213,11 +213,11 @@ static int geni_i2c_clk_map_idx(struct 
->> geni_i2c_dev *gi2c)
->>       return -EINVAL;
->>   }
->>   -static int qcom_geni_i2c_conf(struct geni_se *se, unsigned long freq)
->> +static int qcom_geni_i2c_conf(struct geni_se *se)
->>   {
->>       struct geni_i2c_dev *gi2c = dev_get_drvdata(se->dev);
->>       const struct geni_i2c_clk_fld *itr = gi2c->clk_fld;
->> -    u32 val;
->> +    u32 val, ret;
->>         writel_relaxed(0, gi2c->se.base + SE_GENI_CLK_SEL);
->>   @@ -233,6 +233,10 @@ static int qcom_geni_i2c_conf(struct geni_se 
->> *se, unsigned long freq)
->>                    itr->clk_div, itr->t_high_cnt,
->>                    itr->t_low_cnt, itr->t_cycle_cnt);
->>   +    ret = geni_se_set_rate(&gi2c->se, 19200000);
->
-> hard code ?
-Good point. The 19.2 MHz value is not intended to be a permanent 
-limitation.
-This matches the frequency currently used by the I2C driver and 
-therefore preserves
-the existing behavior. If support for higher source clock frequencies 
-(e.g. 32 MHz or others)
-is added in the future, the requested OPP/performance state will need to 
-be updated accordingly.
-> May work currently, but if higher frequency support added, source may 
-> change.
->
-> Also you have added in commit message, but add a comment also here.
->
->> +    if (ret)
->> +        return ret;
->> +
->>       return geni_icc_set_bw_ab(&gi2c->se, GENI_DEFAULT_BW, 
->> GENI_DEFAULT_BW,
->>                     Bps_to_icc(gi2c->clk_freq_out));
->>   }
->
-> [...]
->
+Tested on EN7526C but not EN7512.
+
+Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
+---
+ MAINTAINERS                              |   6 +
+ drivers/net/phy/mediatek/Kconfig         |  15 +
+ drivers/net/phy/mediatek/Makefile        |   1 +
+ drivers/net/phy/mediatek/econet-fe-soc.c | 632 +++++++++++++++++++++++
+ 4 files changed, 654 insertions(+)
+ create mode 100644 drivers/net/phy/mediatek/econet-fe-soc.c
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 460cb7268845..7ca3d8d08c69 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -9253,6 +9253,12 @@ W:	https://linuxtv.org
+ Q:	http://patchwork.linuxtv.org/project/linux-media/list/
+ F:	drivers/media/dvb-frontends/ec100*
+ 
++ECONET ETHERNET PHY DRIVER
++M:	Caleb James DeLisle <cjd@cjdns.fr>
++L:	netdev@vger.kernel.org
++S:	Maintained
++F:	drivers/net/phy/mediatek/econet-fe-soc.c
++
+ ECONET MIPS PLATFORM
+ M:	Caleb James DeLisle <cjd@cjdns.fr>
+ L:	linux-mips@vger.kernel.org
+diff --git a/drivers/net/phy/mediatek/Kconfig b/drivers/net/phy/mediatek/Kconfig
+index 3b9cf82c0cb2..64abf5b695ab 100644
+--- a/drivers/net/phy/mediatek/Kconfig
++++ b/drivers/net/phy/mediatek/Kconfig
+@@ -1,4 +1,19 @@
+ # SPDX-License-Identifier: GPL-2.0-only
++
++config ECONET_FE_SOC_PHY
++	tristate "EcoNet 10/100 SoC Ethernet PHYs"
++	depends on ECONET || COMPILE_TEST
++	select MTK_NET_PHYLIB
++	select PHY_PACKAGE
++	help
++	  Supports EcoNet SoC built-in 10/100 Ethernet PHYs.
++
++	  Include support for built-in Ethernet PHYs which are present in
++	  EN7526C based SoCs (including EN7526F). It can also work with
++	  legacy EN7512 FE PHYs which identify as 03a2.9412, but since this
++	  ID is used by MEDIATEK_GE_PHY, users wanting to force this driver
++	  must override the ID to 03a2.9414 in the device tree.
++
+ config MEDIATEK_2P5GE_PHY
+ 	tristate "MediaTek 2.5Gb Ethernet PHYs"
+ 	depends on (ARM64 && ARCH_MEDIATEK) || COMPILE_TEST
+diff --git a/drivers/net/phy/mediatek/Makefile b/drivers/net/phy/mediatek/Makefile
+index 6f9cacf7f906..71239e92aa58 100644
+--- a/drivers/net/phy/mediatek/Makefile
++++ b/drivers/net/phy/mediatek/Makefile
+@@ -1,4 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
++obj-$(CONFIG_ECONET_FE_SOC_PHY)		+= econet-fe-soc.o
+ obj-$(CONFIG_MEDIATEK_2P5GE_PHY)	+= mtk-2p5ge.o
+ obj-$(CONFIG_MEDIATEK_FE_SOC_PHY)	+= mtk-fe-soc.o
+ obj-$(CONFIG_MEDIATEK_GE_PHY)		+= mtk-ge.o
+diff --git a/drivers/net/phy/mediatek/econet-fe-soc.c b/drivers/net/phy/mediatek/econet-fe-soc.c
+new file mode 100644
+index 000000000000..c5dbb32a5d1a
+--- /dev/null
++++ b/drivers/net/phy/mediatek/econet-fe-soc.c
+@@ -0,0 +1,632 @@
++// SPDX-License-Identifier: GPL-2.0+
++#include <linux/bits.h>
++#include <linux/module.h>
++#include <linux/phy.h>
++#include <linux/types.h>
++
++#include "../phylib.h"
++#include "mtk.h"
++
++/*
++ * An older version of this PHY hardware uses the ID 03a2.9412.
++ * This driver does not match on it because it collides with
++ * MTK_GPHY_ID_MT7530, so users wanting to use this driver should
++ * override the PHY ID in the device tree to 03a2.9414.
++ */
++#define ECONET_FEPHY_ID_EN7526C		0x03a29414
++
++#define ECONET_PG_G1			0x1000
++#define ECONET_PG_G2			0x2000
++#define ECONET_PG_G3			0x3000
++#define ECONET_PG_G4			0x4000
++#define ECONET_PG_G5			0x5000
++#define ECONET_PG_G6			0x6000
++#define ECONET_PG_G7			0x7000
++
++#define ECONET_PG_L0			0x8000
++#define ECONET_PG_L1			0x9000
++#define ECONET_PG_L2			0xa000
++#define ECONET_PG_L3			0xb000
++#define ECONET_PG_L4			0xc000
++
++/* 4 ports (8,9,10,11) or 3 ports (9,10,11) */
++#define ECONET_LEGACY_PORT0_ADDR	8
++#define ECONET_EN7526C_PORT0_ADDR	9
++
++/*
++ * Calibration polling does not complete until ECONET_CAL_MIN_CYCLES
++ * consecutive "done" results are received. See: poll_cal_complete
++ */
++#define ECONET_CAL_MIN_CYCLES		10
++
++/*
++ * Microseconds per calibration poll cycle, calibration takes approximately
++ * ECONET_CAL_CYCLE_US * ECONET_CAL_MIN_CYCLES. Total setup time is usually
++ * less than 150x this number.
++ */
++#define ECONET_CAL_CYCLE_US		10
++
++/* Total time allowed for calibration polling before error is returned. */
++#define ECONET_CAL_TIMEOUT_US		100000
++
++/*
++ * Note: These register definitions were written without the benefit of the
++ *       hardware specification, so names are given only where the meaning is
++ *       fairly obvious.
++ */
++
++/* G7R24 */
++#define ECONET_CAL_TYPE_MASK		GENMASK(14, 12)
++#define   ECONET_CAL_TYPE_R50		FIELD_PREP(ECONET_CAL_TYPE_MASK, 0x6)
++#define   ECONET_CAL_TYPE_TXOS		FIELD_PREP(ECONET_CAL_TYPE_MASK, 0x3)
++#define   ECONET_CAL_TYPE_TXAMP		FIELD_PREP(ECONET_CAL_TYPE_MASK, 0x7)
++#define ECONET_R50_ZCAL_MASK		GENMASK(11, 6)
++#define ECONET_CALIN_EN7526C		BIT(4)
++#define ECONET_CAL_DONE_EN7526C		BIT(1)
++#define ECONET_CAL_OUT_EN7526C		BIT(0)
++
++/* L4R23 */
++#define ECONET_CALIN_LEGACY		BIT(2)
++#define ECONET_CAL_DONE_LEGACY		BIT(6)
++#define ECONET_CAL_OUT_LEGACY		BIT(4)
++
++#define ECONET_DAC_IN_2V		0x0f0
++
++/* L4R17 */
++#define ECONET_TXOS_SIGN		BIT(13)
++#define ECONET_TXOS_MAG			GENMASK(12, 8)
++
++#define ECONET_TXOS_DEFAULT		0
++#define ECONET_TXOS_MAX			31
++#define ECONET_TXOS_MIN			-31
++
++#define ECONET_R50_ZCAL_DEFAULT		0x20
++#define ECONET_R50_ZCAL_MAX		0x3f
++
++/* L4R22 */
++#define ECONET_R50_TXCAL_MASK		GENMASK(15, 8)
++#define ECONET_R50_RXCAL_MASK		GENMASK(7, 0)
++
++#define ECONET_TXAMP_DEFAULT		0x12
++#define ECONET_TXAMP_MAX		0x3f
++
++/* ZCAL compensation table per chip, per phy, RX + TX */
++struct compensation {
++	s8 zcal_tx;
++	s8 zcal_rx;
++	s8 txos;
++	s8 amp;
++};
++
++static const struct compensation en751221_comp[2][4] = {
++	{
++		/* Legacy */
++		{ .zcal_tx = 2,  .zcal_rx = -4, .txos = 0, .amp = 1 }, /*  8 */
++		{ .zcal_tx = 2,  .zcal_rx = -4, .txos = 1, .amp = 2 }, /*  9 */
++		{ .zcal_tx = 2,  .zcal_rx = -4, .txos = 1, .amp = 1 }, /* 10 */
++		{ .zcal_tx = -2, .zcal_rx = -8, .txos = 1, .amp = 1 }, /* 11 */
++	},
++	{
++		/* EN7526C */
++		{ .zcal_tx = 3,  .zcal_rx = 6, .txos = 1, .amp = 0 }, /*  9 */
++		{ .zcal_tx = 2,  .zcal_rx = 5, .txos = 1, .amp = -1 }, /* 10 */
++		{ .zcal_tx = 6,  .zcal_rx = 6, .txos = 1, .amp = -1 }, /* 11 */
++		{ }, /* Unused */
++	}
++};
++
++static const u8 zcal_to_r50ohm[64] = {
++	127, 127, 127, 127, 127, 127, 126, 123, 120, 117, 114, 112, 110, 107, 105, 103,
++	101,  99,  97,  79,  77,  75,  74,  72,  70,  69,  67,  66,  65,  47,  46,  45,
++	 43,  42,  41,  40,  39,  38,  37,  36,  34,  34,  33,  32,  15,  14,  13,  12,
++	 11,  10,  10,   9,   8,   7,   7,   6,   5,   4,   4,   3,   2,   2,   1,   1
++};
++
++struct econet_socphy_shared {
++	struct phy_device *phydev_p0;
++};
++
++static struct compensation get_ctab(struct phy_device *phydev)
++{
++	struct econet_socphy_shared *shared = phy_package_get_priv(phydev);
++	u8 phy_offset;
++
++	phy_offset = phydev->mdio.addr - shared->phydev_p0->mdio.addr;
++
++	if (WARN_ON_ONCE(phy_offset >= ARRAY_SIZE(en751221_comp[0])))
++		return (struct compensation) {};
++
++	return en751221_comp[phydev->phy_id == ECONET_FEPHY_ID_EN7526C][phy_offset];
++}
++
++static void set_calin_flag(struct phy_device *phydev, bool enabled)
++{
++	struct econet_socphy_shared *shared = phy_package_get_priv(phydev);
++	u16 set;
++
++	if (phydev->phy_id == ECONET_FEPHY_ID_EN7526C) {
++		/* G7R24 is shared so phy_modify_paged is required */
++		set = enabled ? ECONET_CALIN_EN7526C : 0;
++		phy_modify_paged(phydev, ECONET_PG_G7, 24,
++				 ECONET_CALIN_EN7526C, set);
++	} else {
++		set = enabled ? ECONET_CALIN_LEGACY : 0;
++		phy_write_paged(shared->phydev_p0, ECONET_PG_L4, 23, set);
++	}
++}
++
++struct cal_complete_ctx {
++	u16 consecutive_trues	: 15;
++	bool started		: 1;
++	bool observed_false	: 1;
++	u16 aborted_tries	: 7;
++};
++
++/**
++ * poll_cal_complete - poll for calibration completion.
++ *
++ * Because some legacy chips are known to be unreliable (false positives),
++ * reference code adds 10,000us of fixed delay per calibration cycle.
++ * Practically, there are about 10-50 calibration cycles for each of the
++ * three tunables, so adding a significant fixed delay is costly.
++ *
++ * This implementation instead starts with CALIN disabled, polls for
++ * done status false, then enables CALIN and polls until a true done
++ * status is recorded ECONET_CAL_MIN_CYCLES times consecutively.
++ *
++ * @returns:
++ *   < 0 on error
++ *   0 not yet complete
++ *   1 complete false
++ *   2 complete true
++ */
++static int poll_cal_complete(struct phy_device *phydev,
++			     struct cal_complete_ctx *ctx)
++{
++	struct econet_socphy_shared *shared = phy_package_get_priv(phydev);
++	int done_mask;
++	int out_mask;
++	int ret;
++
++	if (phydev->phy_id == ECONET_FEPHY_ID_EN7526C) {
++		ret = phy_read_paged(phydev, ECONET_PG_G7, 24);
++		done_mask = ECONET_CAL_DONE_EN7526C;
++		out_mask = ECONET_CAL_OUT_EN7526C;
++	} else {
++		ret = phy_read_paged(shared->phydev_p0, ECONET_PG_L4, 23);
++		done_mask = ECONET_CAL_DONE_LEGACY;
++		out_mask = ECONET_CAL_OUT_LEGACY;
++	}
++	if (ret < 0)
++		return ret;
++
++	if ((ret & done_mask) == 0) {
++		ctx->observed_false = true;
++		ctx->aborted_tries += (ctx->consecutive_trues > 0);
++		ctx->consecutive_trues = 0;
++
++		if (!ctx->started) {
++			set_calin_flag(phydev, true);
++			ctx->started = true;
++			return poll_cal_complete(phydev, ctx);
++		}
++
++		return 0;
++	}
++
++	ctx->consecutive_trues++;
++
++	if (ctx->consecutive_trues < ECONET_CAL_MIN_CYCLES || !ctx->observed_false)
++		return 0;
++
++	if (ctx->aborted_tries)
++		phydev_warn(phydev, "Calibration cycle %d false positives\n",
++			    ctx->aborted_tries);
++
++	return ((ret & out_mask) != 0) ? 2 : 1;
++}
++
++/**
++ * poll_cal_complete - check for calibration register
++ * @returns: -error or 1 if calibration result is true.
++ */
++static int en751221_fephy_cal_cycle(struct phy_device *phydev)
++{
++	struct cal_complete_ctx cctx = {};
++	int out;
++	int ret;
++
++	set_calin_flag(phydev, false);
++
++	ret = read_poll_timeout(poll_cal_complete, out, out != 0,
++				ECONET_CAL_CYCLE_US, ECONET_CAL_TIMEOUT_US,
++				false, phydev, &cctx);
++
++	if (ret < 0) {
++		phydev_err(phydev, "Calibration timeout %d (%d / %d / %d / %d)\n",
++			   ret, cctx.consecutive_trues, cctx.observed_false,
++			   cctx.aborted_tries, cctx.started);
++	} else if (out < 0) {
++		phydev_err(phydev, "Calibration error %d\n", out);
++		ret = out;
++	} else {
++		ret = out > 1;
++	}
++
++	set_calin_flag(phydev, false);
++	return ret;
++}
++
++static int en751221_fephy_r50(struct phy_device *phydev)
++{
++	struct econet_socphy_shared *shared = phy_package_get_priv(phydev);
++	struct compensation ctab = get_ctab(phydev);
++	int zcal_sz = ARRAY_SIZE(zcal_to_r50ohm);
++	u8 rg_zcal_ctrl = ECONET_R50_ZCAL_DEFAULT;
++	int initial_comp_out;
++	int polarity = 0;
++	int comp_out;
++	int ret = 0;
++	u16 rxcal;
++	u16 txcal;
++
++	if (phydev->phy_id == ECONET_FEPHY_ID_EN7526C)
++		phy_write_paged(phydev, ECONET_PG_G7, 24, ECONET_CAL_TYPE_R50);
++	else
++		phy_write_paged(shared->phydev_p0, ECONET_PG_L3, 25, 0xc000);
++
++	phy_modify_paged(phydev, ECONET_PG_L3, 25, 0x1000, 0x1000);
++
++	for (;;) {
++		if (phydev->phy_id == ECONET_FEPHY_ID_EN7526C)
++			phy_modify_paged(phydev, ECONET_PG_G7, 24,
++					 ECONET_R50_ZCAL_MASK,
++					 FIELD_PREP(ECONET_R50_ZCAL_MASK,
++						    rg_zcal_ctrl));
++		else
++			phy_write_paged(shared->phydev_p0, ECONET_PG_L3, 26,
++					rg_zcal_ctrl);
++
++		comp_out = en751221_fephy_cal_cycle(phydev);
++		if (comp_out < 0) {
++			ret = comp_out;
++			goto out;
++		}
++
++		if (polarity == 0) {
++			/* First cycle */
++			initial_comp_out = comp_out;
++			polarity = comp_out ? -1 : 1;
++		} else if (initial_comp_out != comp_out) {
++			/* Found */
++			break;
++		}
++
++		rg_zcal_ctrl += polarity;
++
++		if (rg_zcal_ctrl > ECONET_R50_ZCAL_MAX) {
++			ret = 1;
++			goto out;
++		}
++	}
++
++	rxcal = max(0, min(zcal_sz - 1, ctab.zcal_rx + rg_zcal_ctrl));
++	txcal = max(0, min(zcal_sz - 1, ctab.zcal_tx + rg_zcal_ctrl));
++
++	phy_write_paged(phydev, ECONET_PG_L4, 22,
++			FIELD_PREP(ECONET_R50_TXCAL_MASK, txcal) |
++			FIELD_PREP(ECONET_R50_RXCAL_MASK, rxcal));
++
++out:
++	/* Zero out registers */
++	phy_write_paged(phydev, ECONET_PG_L3, 25, 0x0000);
++
++	if (phydev->phy_id == ECONET_FEPHY_ID_EN7526C)
++		phy_write_paged(phydev, ECONET_PG_G7, 24, 0x0000);
++	else
++		phy_write_paged(shared->phydev_p0, ECONET_PG_L3, 25, 0xc000);
++
++	phy_write_paged(phydev, ECONET_PG_L3, 25, 0x0000);
++
++	return ret;
++}
++
++static int en751221_fephy_tx_offset(struct phy_device *phydev)
++{
++	struct econet_socphy_shared *shared = phy_package_get_priv(phydev);
++	struct compensation ctab = get_ctab(phydev);
++	int initial_comp_out;
++	int polarity = 0;
++	int offset = ECONET_TXOS_DEFAULT;
++	u16 offset_bin;
++	int comp_out;
++	int ret = 0;
++
++	phy_write_paged(phydev, ECONET_PG_L0, 0, 0x2100);
++	phy_write_paged(phydev, ECONET_PG_L0, 26, 0x5200); /* fix MDI */
++
++	if (phydev->phy_id == ECONET_FEPHY_ID_EN7526C) {
++		phy_write_paged(phydev, ECONET_PG_G7, 24, ECONET_CAL_TYPE_TXOS);
++		phy_write_paged(phydev, ECONET_PG_L3, 25, 0x0400);
++	} else {
++		phy_write_paged(shared->phydev_p0, ECONET_PG_L3, 25, 0x4800);
++		phy_write_paged(phydev, ECONET_PG_L3, 25, 0x4c00);
++	}
++
++	phy_modify_paged(phydev, ECONET_PG_G4, 21, 0x0800, 0x0800);
++
++	phy_modify_paged(phydev, ECONET_PG_L0, 30, 0x02c0, 0x02c0);
++
++	phy_write_paged(phydev, ECONET_PG_G1, 26, 0x8000);
++
++	for (;;) {
++		offset_bin = FIELD_PREP(ECONET_TXOS_MAG, abs(offset));
++		if (offset < 0)
++			offset_bin |= ECONET_TXOS_SIGN;
++
++		phy_write_paged(phydev, ECONET_PG_L4, 17, offset_bin);
++
++		comp_out = en751221_fephy_cal_cycle(phydev);
++		if (comp_out < 0) {
++			ret = comp_out;
++			goto out;
++		}
++
++		if (polarity == 0) {
++			/* First cycle */
++			initial_comp_out = comp_out;
++			polarity = comp_out ? -1 : 1;
++		} else if (initial_comp_out != comp_out) {
++			/* Found */
++			break;
++		}
++
++		offset += polarity;
++
++		if (offset > ECONET_TXOS_MAX || offset < ECONET_TXOS_MIN) {
++			ret = 1;
++			offset = 0;
++			goto set_val;
++		}
++	}
++
++	offset += ctab.txos * polarity;
++
++	if (offset > ECONET_TXOS_MAX || offset < ECONET_TXOS_MIN)
++		offset -= ctab.txos * polarity;
++
++set_val:
++	offset_bin = FIELD_PREP(ECONET_TXOS_MAG, abs(offset));
++	if (offset < 0)
++		offset_bin |= ECONET_TXOS_SIGN;
++	phy_write_paged(phydev, ECONET_PG_L4, 17, offset_bin);
++
++out:
++	if (phydev->phy_id == ECONET_FEPHY_ID_EN7526C)
++		phy_write_paged(phydev, ECONET_PG_G7, 24, 0x0000);
++	else
++		phy_write_paged(shared->phydev_p0, ECONET_PG_L3, 25, 0x0000);
++
++	phy_write_paged(phydev, ECONET_PG_L3, 25, 0x0000);
++
++	return ret;
++}
++
++static int en751221_fephy_tx_amp(struct phy_device *phydev)
++{
++	struct econet_socphy_shared *shared = phy_package_get_priv(phydev);
++	struct compensation ctab = get_ctab(phydev);
++	int initial_comp_out;
++	u8 tx_amp = ECONET_TXAMP_DEFAULT;
++	int polarity = 0;
++	int comp_out;
++	int ret = 0;
++
++	phy_write_paged(phydev, ECONET_PG_L0, 0, 0x2100);
++	phy_write_paged(phydev, ECONET_PG_L0, 26, 0x5203);
++	phy_write_paged(phydev, ECONET_PG_G2, 25, 0x10c0);
++
++	phy_write_paged(phydev, ECONET_PG_G1, 26, 0x8000 | ECONET_DAC_IN_2V);
++	phy_write_paged(phydev, ECONET_PG_G4, 21, 0x0800);
++	phy_write_paged(phydev, ECONET_PG_L0, 30, 0x02c0);
++	phy_write_paged(phydev, ECONET_PG_L4, 21, 0x0000);
++
++	if (phydev->phy_id == ECONET_FEPHY_ID_EN7526C) {
++		phy_write_paged(phydev, ECONET_PG_G7, 24, ECONET_CAL_TYPE_TXAMP);
++		phy_write_paged(phydev, ECONET_PG_L3, 25, 0x0600);
++	} else {
++		phy_write_paged(shared->phydev_p0, ECONET_PG_L3, 25, 0xca00);
++		phy_write_paged(phydev, ECONET_PG_L3, 25, 0xca00 | 0x0400);
++	}
++
++	for (;;) {
++		phy_write_paged(phydev, ECONET_PG_L2, 23, tx_amp);
++
++		comp_out = en751221_fephy_cal_cycle(phydev);
++		if (comp_out < 0) {
++			ret = comp_out;
++			goto out;
++		}
++
++		if (polarity == 0) {
++			/* First cycle */
++			initial_comp_out = comp_out;
++			polarity = comp_out ? -1 : 1;
++		} else if (initial_comp_out != comp_out) {
++			/* Found */
++			break;
++		}
++
++		tx_amp += polarity;
++
++		if (tx_amp > ECONET_TXAMP_MAX) {
++			ret = 1;
++			tx_amp = ECONET_TXAMP_DEFAULT;
++			goto set_val;
++		}
++	}
++
++	if (tx_amp + ctab.amp < ECONET_TXAMP_MAX)
++		tx_amp += ctab.amp;
++
++set_val:
++	phy_write_paged(phydev, ECONET_PG_L2, 23, tx_amp);
++
++out:
++	if (phydev->phy_id == ECONET_FEPHY_ID_EN7526C) {
++		phy_write_paged(phydev, ECONET_PG_G7, 24, 0x0000);
++		phy_write_paged(phydev, ECONET_PG_L0, 30, 0x0000);
++	} else {
++		phy_write_paged(shared->phydev_p0, ECONET_PG_L3, 25, 0x0000);
++	}
++
++	phy_write_paged(phydev, ECONET_PG_L3, 25, 0x0000);
++
++	return ret;
++}
++
++static int en751221_fephy_config_init(struct phy_device *phydev)
++{
++	struct econet_socphy_shared *shared = phy_package_get_priv(phydev);
++	u16 l0r26_temp;
++	int ret;
++	int i;
++
++	if (!shared->phydev_p0) {
++		phydev_err(phydev, "Port zero must be configured\n");
++		return -EOPNOTSUPP;
++	}
++
++	if (phydev->mdio.addr < shared->phydev_p0->mdio.addr)
++		return -EOPNOTSUPP;
++
++	/* Global registers */
++	phy_write_paged(phydev, ECONET_PG_G4, 26, 0x8044);
++	phy_write_paged(phydev, ECONET_PG_G5, 21, 0x00ea);
++	phy_write_paged(phydev, ECONET_PG_G5, 27, 0x02f0);
++
++	/* Local registers */
++	phy_write_paged(phydev, ECONET_PG_L0, 30, 0xa000);
++	phy_write_paged(phydev, ECONET_PG_L1, 22, 0xf000);
++	phy_write_paged(phydev, ECONET_PG_L2, 22, 0x4444);
++	phy_write_paged(phydev, ECONET_PG_L2, 24, 0x0c0c);
++	phy_write_paged(phydev, ECONET_PG_L2, 28, 0x7c44);
++	phy_write_paged(phydev, ECONET_PG_L2, 30, 0x0005);
++	phy_write_paged(phydev, ECONET_PG_L3, 17, 0x0000);
++
++	/* For E1/E2, E3 requires 0x2220, but no known EN751221 E3 chips exist */
++	phy_write_paged(phydev, ECONET_PG_L0, 30, 0x2200);
++
++	if (phydev->phy_id == ECONET_FEPHY_ID_EN7526C) {
++		 /* 100Mb tx p2z_mid, z2n_mid, z2n_ovs_post, n2z_mid */
++		phy_write_paged(phydev, ECONET_PG_G5, 22, 0x0030);
++		phy_write_paged(phydev, ECONET_PG_G5, 25, 0x0248);
++		phy_write_paged(phydev, ECONET_PG_G5, 27, 0x02f0);
++		phy_write_paged(phydev, ECONET_PG_G5, 28, 0x0230);
++	}
++
++	ret = phy_read_paged(phydev, ECONET_PG_L0, 26);
++	if (ret < 0)
++		return ret;
++
++	l0r26_temp = ret;
++
++	/* BG voltage */
++	phy_write_paged(phydev, ECONET_PG_G2, 25, 0x10c0);
++
++	/* MDI */
++	phy_write_paged(phydev, ECONET_PG_L0, 26, 0x5603);
++
++	/* disable tx slew control */
++	phy_write_paged(phydev, ECONET_PG_L4, 21, 0x0000);
++
++	phy_write_paged(phydev, ECONET_PG_L0, 0, 0x2100);
++
++	for (i = 0; i < 5; i++) {
++		ret = en751221_fephy_r50(phydev);
++		if (!ret)
++			break;
++	}
++	if (ret)
++		return ret;
++
++	for (i = 0; i < 5; i++) {
++		ret = en751221_fephy_tx_offset(phydev);
++		if (!ret)
++			break;
++	}
++	if (ret)
++		return ret;
++
++	for (i = 0; i < 5; i++) {
++		ret = en751221_fephy_tx_amp(phydev);
++		if (!ret)
++			break;
++	}
++	if (ret)
++		return ret;
++
++	phy_write_paged(phydev, ECONET_PG_G1, 26, 0x0000);
++	phy_write_paged(phydev, ECONET_PG_L0, 26, l0r26_temp);
++	phy_write_paged(phydev, ECONET_PG_G1, 26, 0x0000);
++
++	phy_write_paged(phydev, ECONET_PG_L2, 22, 0x4444);
++	phy_write_paged(phydev, ECONET_PG_L0, 0, 0x3100);
++
++	return 0;
++}
++
++static int en751221_fephy_probe(struct phy_device *phydev)
++{
++	int port0 = ECONET_EN7526C_PORT0_ADDR;
++	struct econet_socphy_shared *shared;
++	struct mtk_socphy_priv *priv;
++	int ret;
++
++	if (phydev->phy_id != ECONET_FEPHY_ID_EN7526C)
++		port0 = ECONET_LEGACY_PORT0_ADDR;
++
++	ret = devm_phy_package_join(&phydev->mdio.dev, phydev, port0,
++				    sizeof(struct econet_socphy_shared));
++	if (ret)
++		return ret;
++
++	shared = phy_package_get_priv(phydev);
++
++	priv = devm_kzalloc(&phydev->mdio.dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	if (phydev->mdio.addr == port0)
++		shared->phydev_p0 = phydev;
++
++	phydev->priv = priv;
++
++	return 0;
++}
++
++static struct phy_driver en751221_fephy_driver[] = {
++	{
++		PHY_ID_MATCH_EXACT(ECONET_FEPHY_ID_EN7526C),
++		.name		= "EcoNet EN751221 FEPHY",
++		.config_init	= en751221_fephy_config_init,
++		.config_intr	= genphy_no_config_intr,
++		.handle_interrupt = genphy_handle_interrupt_no_ack,
++		.probe		= en751221_fephy_probe,
++		.read_page	= mtk_phy_read_page,
++		.write_page	= mtk_phy_write_page,
++	}
++};
++
++module_phy_driver(en751221_fephy_driver);
++
++static const struct mdio_device_id __maybe_unused en751221_fephy_tbl[] = {
++	{ PHY_ID_MATCH_EXACT(ECONET_FEPHY_ID_EN7526C) },
++	{ }
++};
++
++MODULE_DESCRIPTION("EcoNet SoC 10/100 Ethernet PHY driver");
++MODULE_AUTHOR("Caleb James DeLisle <cjd@cjdns.fr>");
++MODULE_LICENSE("GPL");
++
++MODULE_DEVICE_TABLE(mdio, en751221_fephy_tbl);
+-- 
+2.39.5
+
 
