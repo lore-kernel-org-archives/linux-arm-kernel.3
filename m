@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DADBC61DBC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F68C5DF94
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 07:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yyhmfHSnhvkNCTBiWqfj453SyLCDbsMwb4fZbxXlEDs=; b=0noDILdoqz2Yh8GzqS2XSnclnN
-	80xSIf75KdCuf6PrIkb5yjlRg8jLs7t2Esz57O95uoZAd2Eh9Rv9WBrZiDttU/2UeyB4g3Xojkr3l
-	H7uvRKJjl+7Y6CXrchO3gXBZYEnAgjsRrpf2OQYk5EAxHKYogTbPvrQh9i0/kWzEhoK6BfJ3DEcyO
-	nUT29mTQLYhIyRMJyIOQTGS9ZNm3JPHsMKVBvuUOGcQDikVoiX7Y9Qas8pCObv0ExRYkid45EG235
-	5P0wBldMjOsLzOzpqOvHnBeZ875OUQdk7Hm+51pp1srTIcWJSkQOdapejAqfomKJ9TuAU+aHudCeF
-	Gl/T1/3g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yxVf1ZlFRAOlJwl6qpRF+rnH1dAXdUxZVv/8DjKqI6g=; b=DhWWKiAX9kaanliZE2dJghcYGJ
+	HUMwstrb11AP61aUC+t5avqJiibX2IvVfodJ4490AXce+b6fSMLzGJdKexbx7U+auu0J3MbD62+wD
+	0J1pVGJpRGwGzAhODaD5+Tqkydt7ARDC9mCv0+zYyYh3UNdgidd6088mKYKOb+rR8ThRLfY+AS8kj
+	Gb+Xszp+M073hRu8/mNyH+ZPb8DRBZyXWiLlOLiwlA6b9tth2RBBezSjQ2WLNPnJi0Bd4BYWvfMU0
+	v2zH+vT5vjbgEDVav+hzJIyEtBfYdfbbnCb3Ijw2CNDRIkMSmhIkYqdKKehaBHkym0cV9iYGAnhyx
+	4+4bnbJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wylD7-00000000GDd-1F7E;
-	Tue, 25 Aug 2026 07:04:41 +0000
+	id 1wylCy-00000000GBq-0pcB;
+	Tue, 25 Aug 2026 07:04:32 +0000
 Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wylCv-00000000GAX-17Ge
+	id 1wylCv-00000000GAY-0Sko
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 07:04:31 +0000
+	Tue, 25 Aug 2026 07:04:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=yyhmfHSnhvkNCTBiWqfj453SyLCDbsMwb4fZbxXlEDs=; b=VTgDOIuYSf8ELgpuavJKd0dFp1
-	hHNTwy0Xe6Gt3LK47M7XGg595uYi0Ot8nbGzFB14eCcj2OhcYEY3+3abHTkrrNm6T3sFT3RLJjgge
-	pU4K3eiqaXmh8FCYmIgLD7BndbrcN+t8dzSbAO5UFycay6CCLw+1QpZ2d7EWTQGNmDqnKxzuembDh
-	0tEBuFIf25GJF3Gfb15136apu2VedFbZDeVtABTwoDA1RGXUxj62aPDDv1DnE5jos9VPsQgGCtMUW
-	zXkYvlq7lwngYhYMYrixmuLjrZto42jRmWAxqmhOBwwQT3z4QBIHMCd0VcSy5N5RokKD5W2hbTHkv
-	w88bPqDg==;
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=yxVf1ZlFRAOlJwl6qpRF+rnH1dAXdUxZVv/8DjKqI6g=; b=ih+qqdOZdY5rYrKVZltsioMnap
+	FHgg445KMLFcmSwpzs8oMWMIpsVVgZ7DHUntc/YMMiGFs+lIj8qwzqUSfJIDCAA3jBBzkuDLTxrGn
+	PDt6CDDVgelvnx4VWAWYXdHlY9XxHHTDgdES9Xlm5e7jhMND3doHlcN7bg5CP689QE2dcYOU/zse2
+	pPsEQgynI4BqSY/jWessUVgZKYAZAes+G7Z+Tj9v3b9J80vQvCK8zg7sav75Hu76laKwReODDFhEC
+	rMGKEv8/Fc6yCJ5dAVFMnfQQ/GQdSY7L/S2hknWgEB876WQs6a71V9wKzxxOIn3Pe/fxf2M3smM3f
+	WjsZXZ8g==;
 Received: from sslproxy07.your-server.de ([78.47.199.104])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wylCn-000PBc-2m;
-	Tue, 25 Aug 2026 09:04:21 +0200
+	id 1wylCo-000PBz-0f;
+	Tue, 25 Aug 2026 09:04:22 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wylCn-000H2F-14;
+	id 1wylCn-000H2F-2H;
 	Tue, 25 Aug 2026 09:04:21 +0200
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
@@ -64,17 +64,18 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/2] TQMa6UL[L]x[L] DT improvements
-Date: Tue, 25 Aug 2026 09:04:15 +0200
-Message-ID: <20260825070418.2072708-1-alexander.stein@ew.tq-group.com>
+Subject: [PATCH v2 1/2] ARM: dts: mba6ulx: Add Ethernet PHY interrupt support
+Date: Tue, 25 Aug 2026 09:04:16 +0200
+Message-ID: <20260825070418.2072708-2-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260825070418.2072708-1-alexander.stein@ew.tq-group.com>
+References: <20260825070418.2072708-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/28102/Mon Aug 24 08:23:58 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_000429_308783_A3338C6F 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260825_000429_260214_C6BDD86B 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,24 +90,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+With commit 417b0f8d08f87 ("gpio: pca953x: Add support for level-triggered
+interrupts") the GPIO expander gained support for level-low interrupts
+required for Ethernet PHYs
 
-this small series improves the DT for TQMa6UL[L]x[L] a bit.
-Ethernet PHY IRQ support can now be added. And the on-board USB hub
-is explicitly specified.
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+Changes in v2:
+* Remove superfluous gpio-hogs
 
-Changes are mentioned in their respective patches.
+ arch/arm/boot/dts/nxp/imx/mba6ulx.dtsi | 16 ++++------------
+ 1 file changed, 4 insertions(+), 12 deletions(-)
 
-Thanks and best regards,
-Alexander
-
-Alexander Stein (2):
-  ARM: dts: mba6ulx: Add Ethernet PHY interrupt support
-  ARM: dts: mba6ulx: Add USB hub node
-
- arch/arm/boot/dts/nxp/imx/mba6ulx.dtsi | 36 ++++++++++----------------
- 1 file changed, 13 insertions(+), 23 deletions(-)
-
+diff --git a/arch/arm/boot/dts/nxp/imx/mba6ulx.dtsi b/arch/arm/boot/dts/nxp/imx/mba6ulx.dtsi
+index f0f886f2b8cfd..bec72dc6bab6c 100644
+--- a/arch/arm/boot/dts/nxp/imx/mba6ulx.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/mba6ulx.dtsi
+@@ -230,6 +230,8 @@ ethphy0: ethernet-phy@0 {
+ 			clocks = <&clks IMX6UL_CLK_ENET_REF>;
+ 			reg = <0>;
+ 			max-speed = <100>;
++			interrupt-parent = <&expander_in0>;
++			interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
+ 		};
+ 
+ 		ethphy1: ethernet-phy@1 {
+@@ -237,6 +239,8 @@ ethphy1: ethernet-phy@1 {
+ 			clocks = <&clks IMX6UL_CLK_ENET2_REF_125M>;
+ 			reg = <1>;
+ 			max-speed = <100>;
++			interrupt-parent = <&expander_in0>;
++			interrupts = <7 IRQ_TYPE_LEVEL_LOW>;
+ 		};
+ 	};
+ };
+@@ -276,18 +280,6 @@ expander_in0: gpio-expander@21 {
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+ 		vcc-supply = <&reg_mba6ul_3v3>;
+-
+-		enet1_int-hog {
+-			gpio-hog;
+-			gpios = <6 0>;
+-			input;
+-		};
+-
+-		enet2_int-hog {
+-			gpio-hog;
+-			gpios = <7 0>;
+-			input;
+-		};
+ 	};
+ 
+ 	expander_out1: gpio-expander@22 {
 -- 
 2.55.0
 
