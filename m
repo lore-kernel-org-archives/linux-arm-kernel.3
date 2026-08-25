@@ -4,75 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2813EC61DB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 08:39:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2929C61DB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 08:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZkEyccE1SP4/O8FRxuMTjwZTWvb3WH5wHagpAHgazS0=; b=APevy2seQF60vcKJusMb04hp/E
-	bEJFdtZhix0tTWDXOKJcM/4APi8H4V72SSh+mokcRTJUy0NRAn2Q35pfhPIXMxUisIJBi+/3IhXwY
-	w+YrGhLFgFSdW4rHi9c3N5ji5sd6BnA1yzwcEJDQeyJq5QhJcKtVhLix6TneSKUxwSqrHF9+JxBSO
-	mn908LbINlXsniR3R9D/fAc/eH63NDY+cBv9cFngelKHM1j0sBmV8X8Ug4hmosNu/x1fwtWAYGrwH
-	Otfg9YJ+dlW/SMkkmMxtCzSpLnT7vH6Yx0KLEkTor1U+mpewF0/TvVWDOcpm6MoQKyIwAvscG8Ewf
-	BmGveOAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sgjngM2YY8QYFIO3DGUdz0BGYzZgLDfC5zwZT59AEn4=; b=NdCimCYhqVW/gVN/4Z8PyvhPp4
+	7YOtTiAmHYxQjXMhyoHSZ+NEVy07oLv+2H6BMVKMyTPfCh25dCHFpbqJM8C27n12aGAUtwba06vOA
+	dJ8L7n5LEaDMahJKH6eDWCY23eNqB1v5R1PrEUURC9CiHWP1BIgnMndrp9ee+vCuJgn/5KbDqfnEx
+	2Rvm3Au9LSZbrVGPQnmTGIUH42ipN0PL+0bF96G3AHPcpotqeNAJsdBntaAnah376tJ7snh03/vFI
+	55QYxo5yu8P+utEOSG2iK8kX3zaHulX6V8VeHlgD6VixPOxF1RlwgBU71/utTsN/zl5gAtDJrdKbd
+	iFYgNvuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wymgK-00000000PHQ-24sj;
-	Tue, 25 Aug 2026 08:38:56 +0000
-Received: from out-60.mta0.migadu.com ([91.218.175.60] helo=mta0.migadu.com)
+	id 1wyml4-00000000PiF-4ALz;
+	Tue, 25 Aug 2026 08:43:51 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wymgH-00000000PGU-2FpR
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 08:38:55 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=ZkEyccE1SP4/O8FRxuMTjwZTWvb3WH5wHagpAHgazS0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787647130; v=1; x=1788251930;
- b=MmsGmhnri+5vlJsN04OHRZxwt/rImBtKjM+7pU9Q+4j7ozrepuPyyoy9PCm8gF5mDAtwK1Np
- cvtD9hVydAiohxMCxf4NeTyvgOlMaG0QdwC4zy2JvxLM1aFYZx3ZsoTqvlENToIncYfuVAJMhTF
- HhkrOkArfzwRdrTu6bi6bIN8=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from mail-lf1-f54.google.com (209.85.167.54)
-	by smtp.migadu.com with ESMTPS id dd98221a07cdc1a1;
-	Tue, 25 Aug 2026 08:38:50 +0000
-X-Mizu-Trace-ID: dd98221a07cdc1a1
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5b0129cf6ffso5262e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 01:38:46 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Roefpx4y9eoO1EGky9aObFRWXr2HfrPv2vzBs4PclIXkZbbtGGwYKoSvn2vESgoCwDxJzedtW8QxOENw8tLyNeQ@lists.infradead.org
-X-Gm-Message-State: AFuF++n4pk2bINZ50RjjYu2NdA47gbXKS0S3cDPpYP1T/PU6emxyuhwn
-	YnrpSkOifqIwKio/O6lQargmSpsOksamcDX2AwSrZyosZzhir3Jmbbl2Fnu5M0rFhGK4vcj6IyF
-	sYWm2isXNx7LoX4RednbmYACHrkfk+IeuIzjDgpZ5
-X-Received: by 2002:a05:6512:3d8a:b0:5ae:b918:79d5 with SMTP id
- 2adb3069b0e04-5b49de33a82mr59200e87.2.1787647125805; Tue, 25 Aug 2026
- 01:38:45 -0700 (PDT)
+	id 1wyml2-00000000Ph6-1AC9;
+	Tue, 25 Aug 2026 08:43:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=sg
+	jngM2YY8QYFIO3DGUdz0BGYzZgLDfC5zwZT59AEn4=; b=a3soZNMFB21v2pFuAs
+	J+EQ8h0rA77oiJm9pWBy3GTtT1zdx8Y4f60/FqIqv0Rn0T/5JEy+USGbUBMC9vwu
+	BcLhtb8MpVmFMx2q8/VCYQ5hMdT1eC+mdlGeuxQP7DE7KGcF+cliBsXYSvi0sdQk
+	Wzc7xWppNA25LwgslHMLhz+0w=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp5 (Coremail) with SMTP id QCgvCgDHvR2wVY1qjXFCOA--.63912S2;
+	Tue, 25 Aug 2026 16:43:29 +0800 (CST)
+From: Gongwei Li <13875017792@163.com>
+To: Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Mark Chen <mark-yw.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Gongwei Li <ligongwei@kylinos.cn>
+Subject: [PATCH] Bluetooth: btmtksdio: Do not fail probe on wakeup init failure
+Date: Tue, 25 Aug 2026 16:43:21 +0800
+Message-Id: <20260825084321.3544900-1-13875017792@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20260731143541.956291-1-vdonnefort@google.com>
- <20260731143541.956291-11-vdonnefort@google.com> <CA+EHjTxU2GCpSR587oR_EaMOvXfu+teCnfC2KCg=vpOtf4sgRA@mail.gmail.com>
- <aoxzjag7xr_emuvX@google.com> <CA+EHjTxraCfN1bfZ9ygRiyxxyEPeHw4mg6f6O0qzPBpFi165Qg@mail.gmail.com>
- <ao1CspwFUHyhj0dE@google.com> <CA+EHjTz3Fua-vSezqu3ennb1bZpUjCopE0Ud8N3ssFUrRGNZ-A@mail.gmail.com>
- <ao1QPyLXVGuH1XLn@google.com>
-In-Reply-To: <ao1QPyLXVGuH1XLn@google.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 25 Aug 2026 09:38:09 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyLPzuV7rfm4f6MOBDB-rCg=s413yiJUmb2o8pS6u9aYg@mail.gmail.com>
-X-Gm-Features: AcwNN1XQLeBQ7u9EOQoGMHte78AwqW0cwF4cJoFF4AYKd0NiyQxRZAlxD9ORrkU
-Message-ID: <CA+EHjTyLPzuV7rfm4f6MOBDB-rCg=s413yiJUmb2o8pS6u9aYg@mail.gmail.com>
-Subject: Re: [PATCH v4 10/17] KVM: arm64: Add a shrinker for pKVM
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
-	qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: QCgvCgDHvR2wVY1qjXFCOA--.63912S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7WF43GrW3uryDGr45Ar4ktFb_yoW8Aw4xpa
+	98GF90kFWDurWUKw4kXFWfJFyY9w1FgayjkryYyryY9rZ5JrWFyF1ftryYqwn7CrWkt3WY
+	vF4Fqrn5WF1xGaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jbAwsUUUUU=
+X-Originating-IP: [116.128.244.169]
+X-CM-SenderInfo: rprtmlyvqrllizs6il2tof0z/xtbC4hF-OmqNVbELtAAA3K
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_013854_103080_C5B46D9F 
-X-CRM114-Status: GOOD (  30.87  )
+X-CRM114-CacheID: sfid-20260825_014348_697264_5651FB38 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,80 +77,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Aug 2026 at 09:20, Vincent Donnefort <vdonnefort@google.com> wrote:
-...
-> > It would still fall through to the top-up pages once the chunks run
-> > out, which is where your last point comes in. hyp_allocator_map() only
-> > raises a request when it finds the mc empty, so pages sitting in there
-> > are ones a top-up just put there for a retry. Could the reclaim leave
-> > them alone altogether, and drop the mc.nr_pages term v4 added to
-> > hyp_allocator_reclaimable(), which is what advertises them to the
-> > shrinker?
->
-> There's nothing that prevents a users from topping-up the allocator mc... but to
-> never actually use the memory. That's why I think it is better to drain it.
+From: Gongwei Li <ligongwei@kylinos.cn>
 
-Agreed, that settles it.
+devm_device_init_wakeup() merely marks the device as wakeup-capable;
+it is only consulted later through device_may_wakeup() in the ->wakeup
+callback to decide whether wake-on-bluetooth can be used.  When it
+fails, the controller itself still works normally and only the ability
+to wake up the system is lost.  Therefore the failure is not fatal for
+probe(), which is why the existing code only logs the error instead of
+bailing out.
 
-...
+However, the negative error code returned by devm_device_init_wakeup()
+is never cleared, so if the subsequent devm_gpiod_get_optional()
+succeeds, probe() ends up returning the stale error even though
+probing actually succeeded and the HCI device has already been
+registered.  The SDIO core then wrongly treats the function as broken
+and unbinds the driver.
 
-> > It's the retry that fails, not the reclaim. With target == 1,
-> > hyp_allocator_drain_memcache() pops one page and target is done, so
-> > the chunk loop never runs. But the top-up was sized to the exact
-> > shortfall, so the retry now runs the mc dry one page early, sets
-> > topup_needed = 1, returns -ENOMEM again, and pkvm_call_hyp_req() goes
-> > round for another top-up.
-> >
-> > Nothing errors out, it just doesn't converge for as long as the
-> > shrinker keeps pace.
-> >
-> > Keep in mind, I am not as familiar with this code as you are. So I
-> > might be completely off here :)
->
-> Ha yes, a concurrent topup with shrinking wouldn't cooperate well and I am not
-> sure how better we can do. But note the shrinker always "scans" half of the
-> reclaimable memory. So it is unlikely a user needs to top it up during
-> shrinking: if we reclaim hyp allocator memory that's because there's plenty
-> unused!
->
-> But I am happy to start with the memory mapped into the allocator and then if
-> necessary finish with the allocator->mc: if there are memory in allocator->mc
-> that's probably because a topup is pending.
+Make the non-fatal semantics explicit: clear the error after logging
+it and keep probing.
 
-Sounds good. Would the tail ULONG_MAX drain need bounding too, so it
-doesn't empty the mc regardless?
+Fixes: ce64b3e94919 ("Bluetooth: mt7921s: Support wake on bluetooth")
+Signed-off-by: Gongwei Li <ligongwei@kylinos.cn>
+---
+ drivers/bluetooth/btmtksdio.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-Thanks!
-/fuad
+diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
+index 63d81341bd94..c918202f6c3a 100644
+--- a/drivers/bluetooth/btmtksdio.c
++++ b/drivers/bluetooth/btmtksdio.c
+@@ -1454,8 +1454,11 @@ static int btmtksdio_probe(struct sdio_func *func,
+ 	pm_runtime_put_noidle(bdev->dev);
+ 
+ 	err = devm_device_init_wakeup(bdev->dev);
+-	if (err)
++	if (err) {
++		/* failure is not fatal, keep probing */
+ 		bt_dev_err(hdev, "failed to initialize device wakeup");
++		err = 0;
++	}
+ 
+ 	restore_node = false;
+ 	if (!of_device_is_compatible(bdev->dev->of_node, "mediatek,mt7921s-bluetooth")) {
+-- 
+2.25.1
 
->
-> --
-> Vincent
->
-> >
-> > Cheers,
-> > /fuad
-> >
-> > > >
-> > > > >
-> > > > > However now looking at it. I wonder if I don't want to ratelimit here the number
-> > > > > of pages reclaimed in one go to limit the time spent at EL2. Especially we do
-> > > > > all that with the allocator lock taken...
-> > > >
-> > > > Ratelimiting would cap the time under the lock, but it wouldn't stop a
-> > > > concurrent shrink from taking the topup pages, would it?
-> > >
-> > > Yes, my only intent is to avoid blocking at EL2 for too long.
-> > >
-> > > --
-> > > Vincent
-> > >
-> > > >
-> > > > Cheers,
-> > > > /fuad
-> > > >
-> > > >
-> > > > >
-> > >
-> > > [...]
 
