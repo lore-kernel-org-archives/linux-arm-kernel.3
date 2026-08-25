@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59528C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 16:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C2E0C61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 16:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9cCqc7oVmR4ctIExSqMB03/LPKofsssdghTgzdOd1co=; b=fycYFMbllojge4BsC91y0slIMq
-	j51H+ppLt50TbpZ+DTy0FbI4pmDqJvT7PX4gq2muUPBf+pq+TYdzCuRQRr+6Bo2VNphjrPIBQxEv+
-	LzsnHsL2K+3umrtP/g8exyTreTpKQHw5i8uSja7trlmbmyI/NcyzD8pZGPCctBX2fGIGcbaFZA8hI
-	JiOG244nPNVMXflsKbDcm75ptX1a37odVwkHBqE1Hq361ZeB1ec+U/9rFyMg7g0qM5NlGuFZUiPoQ
-	JGB9UR/AEcg2WBRUuciA8t6ae3L7m9/HZEeDdkmkCl9Xux1ddr0ikXbJAaBk0ZFjJhymjKQwRqJu6
-	8IJLuxFg==;
+	bh=CPF62IxZADGIv1P9+ugh9nyQhM+lMxKjUy6ZDt1btX0=; b=nKiTUQvBf1W7sTpE6dvqtsjKjc
+	gTmfEg477JK6LJSTr3ItJdv12/HSVTbTQ+lJF6CDcHJrf7Mv+8l4iNMwoY66bJQdI3apr3NBmehQD
+	XbuBSCk+nsrzQ7PYwckAg4IvuUjYRsPx3+UbNcKLVE6gxajz6miyMw492sZnzeP3ekhXXQfgaSSqn
+	C2E7A9/AYeWobuDCq9UEjfC9uDFyI/gLX1TRW6fdvgQXMJq0hjbuTq+FXS8anIWeEWvvm1sFFVXD1
+	LLJLjNWDLcZma2hdr+auB4J8lSaWdEBL+pNgxv6OSXu7Eg+ZRNfwa/DaqW6ojCN+fySJrhtKKH4Qn
+	EaR9VoEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wytqg-000000016Dv-47Nv;
-	Tue, 25 Aug 2026 16:18:06 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1wyu1L-00000001744-44aD;
+	Tue, 25 Aug 2026 16:29:07 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wytqd-000000016DY-3RVb
+	id 1wyu1J-0000000173l-1mxR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 16:18:05 +0000
+	Tue, 25 Aug 2026 16:29:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787674683; x=1819210683;
+  t=1787675345; x=1819211345;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=3U36cbJA9GGbJw+GO8g1uZN1QM2k4wAwzhPSeVBOlXU=;
-  b=k5yzj/62+/LuL2j5T8zLy4V6YfhvWZX5AmafdN3MFthyaNn3oPUuQgQQ
-   TcIYGSlVm3mqISbcOPcLZ0IY8HYHwsiRqcvQMmWakj1QU0sjeHFqS3V3o
-   0Qlx/xofWpvJZQno024CgRU2NpyT6198ai0eClZPUIrccdnt76wPgB8Wc
-   0YGNIq+FGOzzWzc33IsWLpEPWE8N3tBC14IN+jyt6dJb/9l+bbkcN5w2E
-   gTS7xyTAWuLIV6hu3PBDs/Adl0bySNru7gnEm9C7G2eyo9gltANxG8Nv4
-   yhV/AE50QrFdTqb1CI9uZJ1OXx+IjvoHwAd17ZAdakleKgYQMJLN2Sn0p
+  bh=/WjOL5L4u8K3zXnAIx7WDdWMkQydRGxOy9xPF2tkCxo=;
+  b=KjPR6FWEzeIeD/VmF6PZMW2wlxwyC1d1HYJ+DvoH29jYq0SY8uZGwaLd
+   N4v1cw1UqyVQ5ZAff94qtai4C+g5OD+zGLRqzYynuoba1T1mk1FxX6MVN
+   Rn4ftO8Ij9V+7HkDsaqXBMJ7gr9vQIsrbq3xZp+lMgtKNfEEWdsKpNFmo
+   kWF45ztM5u/544VSxjCe82vIJHEscHRubT0lxlJz4OabNf3cYAEQ9Gius
+   /lMeHSvS8OZw059P5cgNl+wVJ51Jy+pKCZFs3Zomvs8n79pWnXHhXYVJ/
+   1JalCty6i/WbWG44Oaei/HHsCK8pDuniZlHcd5Ufxy5Jyd9RTGqJfkqiu
    Q==;
-X-CSE-ConnectionGUID: Wk/oDyIqRJKpUuWLZu20Bw==
-X-CSE-MsgGUID: AenkFWDSTeWmZGqiPAWRcg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11886"; a="75683616"
+X-CSE-ConnectionGUID: 2gDtUp8CSkyi16j0sPyl8g==
+X-CSE-MsgGUID: u7AXNUeZRTaBBLCi1DdiIA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11886"; a="105528262"
 X-IronPort-AV: E=Sophos;i="6.25,243,1779174000"; 
-   d="scan'208";a="75683616"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2026 09:18:02 -0700
-X-CSE-ConnectionGUID: IVmEJ8cGTRWmBQlOpXyt3g==
-X-CSE-MsgGUID: cI6+c/a6RCu4ERA2CPiKxQ==
+   d="scan'208";a="105528262"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2026 09:29:05 -0700
+X-CSE-ConnectionGUID: mgNl+wbvT/KI+p85qn1Kbw==
+X-CSE-MsgGUID: DSYkTyNNRuScATp1o+CtlQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.25,243,1779174000"; 
-   d="scan'208";a="264708705"
+   d="scan'208";a="264069086"
 Received: from aschende-mobl.amr.corp.intel.com (HELO [10.125.109.12]) ([10.125.109.12])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2026 09:18:02 -0700
-Message-ID: <2931f8a6-3780-4d6a-b19d-61cbbdad1a3a@intel.com>
-Date: Tue, 25 Aug 2026 09:18:01 -0700
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2026 09:29:04 -0700
+Message-ID: <3663d64f-7376-4bd1-b8ab-401825579d42@intel.com>
+Date: Tue, 25 Aug 2026 09:29:04 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/3] x86/mm: add set_direct_map_ro_noflush()
+Subject: Re: [PATCH v6 1/3] mm: make persistent huge zero folio read-only
 To: Xueyuan Chen <xueyuan.chen21@gmail.com>, akpm@linux-foundation.org
 Cc: david@kernel.org, ljs@kernel.org, usama.arif@linux.dev,
  catalin.marinas@arm.com, will@kernel.org,
@@ -68,7 +68,7 @@ Cc: david@kernel.org, ljs@kernel.org, usama.arif@linux.dev,
  linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  Lance Yang <lance.yang@linux.dev>
 References: <20260730090647.2401252-1-xueyuan.chen21@gmail.com>
- <20260730090647.2401252-4-xueyuan.chen21@gmail.com>
+ <20260730090647.2401252-2-xueyuan.chen21@gmail.com>
 From: Dave Hansen <dave.hansen@intel.com>
 Content-Language: en-US
 Autocrypt: addr=dave.hansen@intel.com; keydata=
@@ -114,12 +114,13 @@ Autocrypt: addr=dave.hansen@intel.com; keydata=
  MTsCeQDdjpgHsj+P2ZDeEKCbma4m6Ez/YWs4+zDm1X8uZDkZcfQlD9NldbKDJEXLIjYWo1PH
  hYepSffIWPyvBMBTW2W5FRjJ4vLRrJSUoEfJuPQ3vW9Y73foyo/qFoURHO48AinGPZ7PC7TF
  vUaNOTjKedrqHkaOcqB185ahG2had0xnFsDPlx5y
-In-Reply-To: <20260730090647.2401252-4-xueyuan.chen21@gmail.com>
+In-Reply-To: <20260730090647.2401252-2-xueyuan.chen21@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_091803_878084_1F27B006 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20260825_092905_685046_0086104B 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,57 +136,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 7/30/26 02:06, Xueyuan Chen wrote:
-> +int set_direct_map_ro_noflush(const void *addr, unsigned long nr_pages)
+> + * Return: 0 on success or when direct-map permission changes are unsupported,
+> + * or a negative errno on failure.
+> + */
+> +static inline int set_direct_map_ro_noflush(const void *addr,
+> +					    unsigned long nr_pages)
 > +{
-> +	unsigned long tempaddr = (unsigned long)addr;
-> +	struct cpa_data cpa = {
-> +		.vaddr = &tempaddr,
-> +		.pgd = NULL,
-> +		.numpages = nr_pages,
-> +		.mask_set = __pgprot(0),
-> +		.mask_clr = __pgprot(_PAGE_RW | _PAGE_DIRTY),
-> +		.flags = CPA_NO_CHECK_ALIAS,
-> +	};
-> +
-> +	return __change_page_attr_set_clr(&cpa, 1);
+> +	return 0;
 > +}
 
-A couple of concerns here.
+I think this is probably not the best API. First, it isn't consistent
+with the other set_direct_map*() functions. Second, it's unusable for
+things that matter. This would be a buggy function:
 
-First, why the "_noflush"? Sure, the "this is a best effort hardening"
-function argument can be made, so it doesn't need to be correct. But the
-result is a function that's called once and also has some sharp corners
-and relatively high potential for misuse. Let's just do the flush.
+int this_must_succeed_for_security(unsigned long addr)
+{
+	return set_direct_map_ro_noflush(addr, 1);
+}
 
-Second, I see that the other set_direct_map*() callers use
-CPA_NO_CHECK_ALIAS. The reasoning behind it dates back to 2008 and I'm
-not 100% sure what it is referring to. On one hand, it would be nice to
-have all the set_direct_map*() callers be consistent. On the other hand,
-there shouldn't *be* any aliases of a 2M page that came out of the page
-allocator. We almost want a CPA_ASSERT_NO_ALIASES that goes out and
-checks for aliases more than we want to ignore them. (Note: I don't
-expect you to fix this, but a simple comment saying that no aliases are
-expected would be nice)
+... despite looking just fine.
 
-Third, what's with the 'tempaddr'? Are you working around the 'const'?
-Honestly, I'd rather have no const than have it and subvert it with
-casting trickery.
-
-Last:
-
-int set_direct_map_invalid_noflush(struct page *page)
-int set_direct_map_default_noflush(struct page *page)
-int set_direct_map_valid_noflush(struct page *page, unsigned nr, ...
-int set_direct_map_ro_noflush(const void *addr, unsigned long nr_pages)
-
-Which one of these things is not like the other, despite being named
-just like them?
-
-Imagine the fun if someone did:
-
-	set_direct_map_ro_noflush(page, 1);
-and
-	set_direct_map_default_noflush(page)
-
-
+The best thing, IMNHO, is to return an actual error when the stub gets
+used and have the callers deal with it (or not deal with it if they
+don't care).
 
