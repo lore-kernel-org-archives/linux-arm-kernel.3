@@ -4,98 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A5DFC5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 04:34:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 888FEC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 04:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2tEwhTxKNyJs3pF0LaNEucWWGIQ4rU4SyQWya7wYtjg=; b=COIdO1Ww3jjRhd78sz9NrpR3rs
-	yXsaLOziNshnhndkCQUZbWNmOOKweH4tP1inCb2OS2rkMS8QfxBdMcNiu8qxZ83aUDxLdrD+/WVTN
-	ZfSUKWp/rt+IhmBWgZ6lq5ir1c39IK/p1r4zAyN0Id7sJOQDN2n9tanpbEZN+Sc9P/i2kSqqZci7m
-	sSCkkMg4mWT0zm6+p2w6/nI7pLG8xI08b9pTNL9ZGEkK8SWiOy6BQLZhFrh9fkqwtJmq55I9i/GHv
-	42Z3VY91r73G7MpukJHZn3N6tSjyEeSdnHFJkx0Ngbndmam4Un1ioQkZP7RjJJ90p5o6TGdRduZlq
-	tpTSzNxA==;
+	bh=fnP3yoFqLam+q74txUte20YTRfVEWgC/MsIo7AxFy1M=; b=cSpd+ZuYTCHNKPGBNH5v3o4h+D
+	Luq8+XaKuGtJwbsTxKE3ZOLIfGbVTvLZr2Iyco1i0A8+cTf3KxOkryHpOIc7aDbXT3MKloT8xcKZ5
+	vqqg5kXcS84JXRoyqlX7tG/SGhBFC3yVN1jCtd4X6RMeReiqkeDYNTjYqTQKO/gyiS4wX0yv6RiPd
+	Nco9M355P3xDbEhNr0od2n1B8MVd7MU7Tl5jjRdn1vu3ZOnlyCk3AWGV2ELjFz6uu521R9StUlKPF
+	Rqr0NudZnsfCNkktFg2jJEdf+dltDHyWq0gwTl57+si40T5+yeP049LCWqdwbGjq8Jnw1MTE54+cz
+	3AivFA+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyirN-000000008V1-2SlJ;
-	Tue, 25 Aug 2026 04:34:05 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1wyj4r-000000009KS-0iMY;
+	Tue, 25 Aug 2026 04:48:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyirG-000000008QU-1jNS
+	id 1wyj4o-000000009KK-0UZP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 04:33:59 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-cbee3777e1cso2646172a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 21:33:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1787632438; x=1788237238; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2tEwhTxKNyJs3pF0LaNEucWWGIQ4rU4SyQWya7wYtjg=;
-        b=YQCy0vllvP4gRcfopejwzhySibOel1hryA9jGGFTI0bL48Jbx7cf0fGPfJaGCdr8kM
-         WsX1YLzDJ0XytjWj+EyPJDKof68jTmtsD16Yv100TsVoBrQYsMvBrsDCEJjZcaWjQka7
-         0qSNG2nYZu8w6Eu4asozfd63x6Ur3Hq0cFWUU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787632438; x=1788237238;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2tEwhTxKNyJs3pF0LaNEucWWGIQ4rU4SyQWya7wYtjg=;
-        b=FiqAZc0Km91etBaL16HzvYcOlqlEizLgI9vByV5vVYnKihAZ1gxQrMLMODV7MCPvXV
-         Q30kouC4V98OsnmuKBOsb7BrbxOBw37w14F7h1tkS7gctdHJWMgGEXGzVAOLHRon+m/a
-         VWr6PCaoTtNoiAHbOZqmvfMCDqwylE1sz730wSEJoJRBKI8E/Iw2vQ7JuweztD257imB
-         xABPVU1WVU/bf457iv3VYq2+W5Dh3sZmYmYZSu0502F4OWJyH5DyACmKSAzSKBABlh0Y
-         ziMochzxlwa4gkVqf78xVhWDj8DrCAydH/AQqultqwfj8nTKJ3ez8PYsMlh5+HgCbbkI
-         6H6A==
-X-Forwarded-Encrypted: i=1; AHgh+Rq695mWh7VxY0kDD354gRC6BOPGruOHt7Hgsda4uDLQtPCESvI+5xt4n4Tbq6NU6oHlqWeoebD7/ghyNkBiKZAc@lists.infradead.org
-X-Gm-Message-State: AFuF++mUqCUCIUbixLSiX+EQdFClyLMKJpSMLA/B5BAikOpWRhWzmWOY
-	NBjX0ZwN2UFzUBGmxlrn7jDVsy8pULdUkiwRLE6Bub+8UgWHBSD2QZ0dQg/mUAQ5Og==
-X-Gm-Gg: AR+sD11aEq77hLQQVhOX5rmTvv5h4EkBSZRM8/77/s8+1hXxsjJhXGclqnoPekmNo3K
-	QqfDEFcVN8U9MBtxiBoKLC186DN2MEl47mamPbWdQGvO4Zz3k9DvxlQjw13qz+lPf3/kt8Guotw
-	TMj3JC5Z78PXJsuqCBxKJfQRxjj1SQrsuy+arjUu4p7Zh26OPeiSVpk01JBseZonaFHtwdpZu9R
-	nmaPsZ5cRHS99BjOo7FMs0nHXeuARz21ncPDu7bjRDsfaAHm8LWX9DcBjPQaY6n1/IijQ1Bv5P9
-	lcFJeQNOJPqGHagBGhARcYPO1mvhiMVgzMazCRvthC1jQcnFDGR0dUKLrbNu99nZwu3qB8wfqcx
-	vtJciYHkP4C0/6HudT8WNsQXf6Rn1ny49Kv6TY8L//pdbOjbmnp3l5aIWGFLIavdMMT4MtcdXxG
-	C7obwmTjUEm/bOZcAH7VubE4FY5hmNDtHYdGFYb9I1Di3M4wp79Zzpp5s7ZUmguYpUal+M3L5fM
-	J22ZsOut3rm5hmJHuQnTMqpynW5cnK29mJoW4yODXBWidg=
-X-Received: by 2002:a17:90b:17c4:b0:392:6638:2e6a with SMTP id 98e67ed59e1d1-39646519363mr6944892a91.13.1787632437771;
-        Mon, 24 Aug 2026 21:33:57 -0700 (PDT)
-Received: from wenst-7875.tpe.corp.google.com ([2a00:79e0:201d:8:a442:9780:24da:cb4e])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-396458212absm2187823a91.0.2026.08.24.21.33.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Aug 2026 21:33:57 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Mark Brown <broonie@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Jiri Kosina <jikos@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	Benson Leung <bleung@chromium.org>,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	Tue, 25 Aug 2026 04:47:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1A37B6011F;
+	Tue, 25 Aug 2026 04:47:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3ADF1F000E9;
+	Tue, 25 Aug 2026 04:47:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787633276;
+	bh=fnP3yoFqLam+q74txUte20YTRfVEWgC/MsIo7AxFy1M=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=DZl7VmH4Ir30bVjC5iewzEv7a7Z7T5Hvw2yna97sfwEIejxOFkt5tysmWCT7c87Og
+	 fK5mfv+auM7enlFKM31SEt5BBsp2byAf4mGOyuB5b6HDtMZ0GR6dlHEfqM45hpPOOI
+	 dp6d0gXiTYUnRZbj9VqqZlEIO7s6F9QGuUlTgIdz13LYHqrASHXXAsxnztRS8uNf3h
+	 GOVt40tpM60e6p/NVoO4TpbkcC9aZKkMeiMqtvG/5tLNFSBOf0pC/G9OSNHNYMzDg3
+	 8E9spxVhUzaEtTqRjFQxlvwB4RySSI8or2I9o+sD1CMDGbdEO72GxJJx1go7cgymtb
+	 bE3US+z8iImMw==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Kameron Carr <kameroncarr@linux.microsoft.com>,
+	linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	chrome-platform@lists.linux.dev,
-	linux-input@vger.kernel.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable+noautosel@kernel.org
-Subject: [PATCH v5 7/7] arm64: dts: mediatek: mt8192-asurada-spherion: Add Synaptics trackpad's supply
-Date: Tue, 25 Aug 2026 12:16:25 +0800
-Message-ID: <20260825041628.988369-8-wenst@chromium.org>
-X-Mailer: git-send-email 2.55.0.860.g4b6b3295ed-goog
-In-Reply-To: <20260825041628.988369-1-wenst@chromium.org>
-References: <20260825041628.988369-1-wenst@chromium.org>
+	linux-kernel@vger.kernel.org
+Cc: Alexey Kardashevskiy <aik@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Samuel Ortiz <sameo@rivosinc.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>
+Subject: Re: [RFC PATCH v4 09/11] coco: guest: arm64: Hook TSM accept to
+ Realm TDISP RUN transition
+In-Reply-To: <f086f940-edaa-4bd5-ba11-e52e61fd6cee@linux.microsoft.com>
+References: <20260427082805.931832-1-aneesh.kumar@kernel.org>
+ <20260427082805.931832-10-aneesh.kumar@kernel.org>
+ <f086f940-edaa-4bd5-ba11-e52e61fd6cee@linux.microsoft.com>
+Date: Tue, 25 Aug 2026 10:17:43 +0530
+Message-ID: <yq5aik4yx0uo.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_213358_457286_42FA0DF2 
-X-CRM114-Status: GOOD (  14.96  )
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,40 +85,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Synaptics trackpad, like the Elan trackpad option, is fed from the
-system 3.3V power rail. Add it to the trackpad device node.
+Kameron Carr <kameroncarr@linux.microsoft.com> writes:
 
-Also add the correct post-power-on delay, even though in practice it is
-not required. The Synaptics trackpad requires 100ms after power-on (or
-deasserting the reset, whichever comes later) to fully initialize. The
-power is always on and the reset pin is not routed out, so the
-implementation could try skipping the delay.
+> On 4/27/2026 1:28 AM, Aneesh Kumar K.V (Arm) wrote:
+=20
+...
 
-Cc: <stable+noautosel@kernel.org> # Without driver changes only lengthens probe time
-Fixes: 925ebc0cd55c ("arm64: dts: mt8192-asurada-spherion: Add Synaptics trackpad support")
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
-I think this shouldn't be backported, as backporting it without the
-driver enhancements just delays the trackpad probing with no real
-gains.
----
- arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts | 2 ++
- 1 file changed, 2 insertions(+)
+>=20
+>> +	/*
+>> +	 * Present the private mmio range in the resource hierarchy.
+>> +	 * We don't use this for ioremap, ioremap check the RIPAS value.
+>> +	 */
+>> +	ret =3D pci_tsm_mmio_setup(pdev, tsm_mmio);
+>> +	if (ret) {
+>> +		pci_err(pdev, "Protected mmio setup failure\n");
+>> +		return ret;
+>> +	}
+>> +
+>> +	ret =3D cca_map_evidence_report_range(pdev, tsm_mmio);
+>> +	if (ret) {
+>> +		pci_err(pdev, "failed to validate the interface report\n");
+>> +		return ret;
+>> +	}
+>> +
+>> +	ret =3D rhi_vdev_set_tdi_state(pdev, RHI_DA_TDI_CONFIG_RUN);
+>> +	if (ret) {
+>> +		pci_err(pdev, "failed to switch the device (%u) to RUN state\n", ret);
+>> +		return ret;
+>> +	}
+>
+> After calling pci_tsm_mmio_setup() we have mappings from insert_resource()
+> then failures from later return codes never call mmio_teardown() so
+> remove_resource() is never called, only kfree on the tsm_mmio.
+>
+> Likewise after cca_map_evidence_report_range() the mmio entry memory rang=
+es
+> have state RIPAS_DEV. Later failures never restore RIPAS_EMPTY.
+>
+> Could clean up be handled better? Is there a reason these failures don't
+> have a rollback path?
+>
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts b/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts
-index 68caf4c58cfe..8adbfc307fca 100644
---- a/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts
-@@ -94,6 +94,8 @@ trackpad@2c {
- 		hid-descr-addr = <0x20>;
- 		interrupts-extended = <&pio 15 IRQ_TYPE_LEVEL_LOW>;
- 		wakeup-source;
-+		vdd-supply = <&pp3300_u>;
-+		post-power-on-delay-ms = <100>;
- 		status = "fail-needs-probe";
- 	};
- };
--- 
-2.55.0.860.g4b6b3295ed-goog
+Thanks for the review. I=E2=80=99ll incorporate these changes in the next
+version.
 
+-aneesh
 
