@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 635B1C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 20:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9B6C61DC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 20:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OFYEPCoxn2MyfT0mq6zzyX/aFE/9XbWP2gpFGV4SkrA=; b=TxqRJKFOel28ac7MXDSHTc795u
-	sr6hMISm0L6BwL/IyfcnBqQtFv1sTieK4rEkyA37y0ZIzTjw0vScCU1vAPK/w+hQnXGza8quxM+d0
-	itIbFQapeHaF0oQrFo2E3LQbjRBcTOV78z88KSUbVnwM3L0dkiML1b5FeYvReo3gD4XVGl7wLQpwB
-	5fGnmBGEI7yO5fl03hn3Aw1otvcX82S+pTDRsTVHtq0yJORoP4ZJtXHsRq+XQOPsB0mrb8XzEtw4k
-	ZjW6uh8t3gjLL11VwsXNxJ2HGe0wBFGKpjmPPwz7a7qlMMaYAh9e7e1EAxEiswc8fg/9N8Jk0N8s+
-	8ymnO3zg==;
+	bh=+fAuzvV54yZJ3M32Jk8xyIkPkZZzzbJP0elyOeHujJ0=; b=RunJbU5dkdgWsbnZePEdF0Tk0E
+	w/qHqkaw7BUpQT93UuYQa8nkjBTU4yEnhZn5JY5WVjIu69hDSZqBAH0dCjU66moScbG+Elk9Bpe+v
+	V/CBclgyQSLa9GEkhM/Yg8XZyfxJq2L5CmRz10qfHaPzO2OJD3dMucQl0SjRT7ZyFtWT2/JGSc0CI
+	OhOwQIFZjiE2L0dIIxCPU+fUzUO0HPFpw2yAYaDXuipLJjiFYWno9CmtVpT2zqEMXBLss72dG1sRU
+	tFpza8zDOg13bSs4RQdBb97ytcWFOcRHwhdnJFWli9lUbPXfXTyP7AuHWjEAkEIzYilOQCrRuaw9n
+	eu5RM/cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyyCo-00000001SKc-3Vsy;
-	Tue, 25 Aug 2026 20:57:14 +0000
-Received: from out13-75.antispamcloud.com ([185.201.17.75])
+	id 1wyyCv-00000001SNI-0RKc;
+	Tue, 25 Aug 2026 20:57:21 +0000
+Received: from out13-173.antispamcloud.com ([185.201.17.173])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyyCl-00000001SJe-2nhP;
-	Tue, 25 Aug 2026 20:57:13 +0000
+	id 1wyyCq-00000001SKp-2vou;
+	Tue, 25 Aug 2026 20:57:18 +0000
 Received: from s1041.use1.mysecurecloudhost.com ([192.250.231.249])
 	by mx321.antispamcloud.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <dan@reactivated.net>)
-	id 1wyyCb-009xqQ-D2; Tue, 25 Aug 2026 22:57:03 +0200
+	id 1wyyCf-009xx2-AY; Tue, 25 Aug 2026 22:57:08 +0200
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=reactivated.net; s=default; h=Cc:To:In-Reply-To:References:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=OFYEPCoxn2MyfT0mq6zzyX/aFE/9XbWP2gpFGV4SkrA=; b=F9J12duIT9WRRzljTrYEKAamV1
-	ZTvM9qFfEDDAL76pwP3zYy9kdhqcelb3sQKe0UTM84WRXUGeblCoXJdhzKTYwQCZpYLLTrAN12+Lr
-	V1VjlNwxx+enC8R0xSE/cFZmXGXru72Ryq0xAvIlX3BdCC4yOKkHoZ7cbvyX1rjMog1tUTrSSeyt0
-	TxU9md5vbbPjjY0E32NsOpJcFHlJtMMKR1wm9oklC0ozIqyqET1TOPp8ltTVtSbRSQYfLo3vPj1kq
-	VkBKhQaRSokSzOn8NG5+BNo1baHIeuHrurTM1Usjzn4uGEbpHGRA8QMP5BU70IenWn6I15hs84tJS
-	TP3kZc8A==;
+	bh=+fAuzvV54yZJ3M32Jk8xyIkPkZZzzbJP0elyOeHujJ0=; b=pCltMCrcDAcFYGjA4WFHdpZMCY
+	W73tdQRN40r6YoyD0vb3ja/6Zb/HsgaY6fOt+dSTwhSHKKQFlcZqJDoT+YyouTUFjLZX9i3ZxkUD1
+	CeZ7cuCs46ZkdHI8Gn/olmLUQRoNOuBjPpdbCDWwlmXrIlSsLj2quorIrVbNlq4jWMaM6xgbx6sbi
+	DSVSXdryW8Zt4OlULvtmLWAG77r4X9Vwq1+6nerj5o3De5laHUSw8XIRHVGeYOH6+iCMgdwl20/c5
+	xZUppdg00oDfFmkGk7b/1JfsHUUsqY+ClDrl2ZFHoNg5al+54kcXjOVhsNahz7Pgkc4Rjb387JWvq
+	pdqLBlgQ==;
 Received: from [188.251.249.2] (port=59110 helo=[192.168.1.123])
 	by s1041.use1.mysecurecloudhost.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.99.5)
 	(envelope-from <dan@reactivated.net>)
-	id 1wyyCZ-00000007Cd8-01h8;
-	Tue, 25 Aug 2026 20:56:58 +0000
+	id 1wyyCc-00000007Cd8-3VcJ;
+	Tue, 25 Aug 2026 20:57:02 +0000
 From: Daniel Drake <dan@reactivated.net>
-Date: Tue, 25 Aug 2026 21:56:04 +0100
-Subject: [PATCH v3 1/5] iommu_pt: Fix test_pgsize_boundary() failure on
- narrow-OA formats
+Date: Tue, 25 Aug 2026 21:56:05 +0100
+Subject: [PATCH v3 2/5] dt-bindings: iommu: Add Broadcom BCM2712 IOMMU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260825-bcm2712-iommu-submit-v3-1-7f143e7289b6@reactivated.net>
+Message-Id: <20260825-bcm2712-iommu-submit-v3-2-7f143e7289b6@reactivated.net>
 References: <20260825-bcm2712-iommu-submit-v3-0-7f143e7289b6@reactivated.net>
 In-Reply-To: <20260825-bcm2712-iommu-submit-v3-0-7f143e7289b6@reactivated.net>
 To: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
@@ -78,11 +77,11 @@ X-Spampanel-Domain: s1041.use1.mysecurecloudhost.com
 X-Spampanel-Username: 192.250.231.249
 Authentication-Results: antispamcloud.com; auth=pass smtp.auth=192.250.231.249@s1041.use1.mysecurecloudhost.com
 X-Spampanel-Outgoing-Class: ham
-X-Spampanel-Outgoing-Evidence: SB/global_tokens (0.00589657339582)
+X-Spampanel-Outgoing-Evidence: SB/global_tokens (0.00602815377332)
 X-Recommended-Action: accept
-X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgI7ZDo5ubYELi59AwcWUnuVXRBeihynGTLmiTFwuxxiisVeY5UDhNC2p
- IQkFJqtCkCu2SmbhJN1U9FKs8X3+Nt06bFpPrNOlRAlE9AVLwR4uGVjKNnzF3nQoDoQtBifM84JL
- M0i5ZAms0EHrvcCaVIPLmt0DcCRdEqg+ayzag3OkGnT3EFAinyrilm9zau/FuzkQt9Nb4Ml7QXdk
+X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgI7ZDo5ubYELi59AwcWUnuUQQxMeAqrT73y/Otu1dMJFjDO5F0T4p1QK
+ 5/7PEbu9ryu2SmbhJN1U9FKs8X3+Nt06bFpPrNOlRAlE9AVLwR4uGVjKNnzF3nQoDoQtBifM84JL
+ M0i5ZAms0EHrvcCaVIP2cZnZlIKEIbZil8ZrIDKvGnT3EFAinyrilm9zau/FuzkQt9Nb4Ml7QXdk
  EetczWD7cCGtDjbxRVgnsKOrWMc2eB7itP8hgjDRserKv4bhb7ubyJcscJCC/8jhyq4eIIJWBb39
  uS1TjWG2Inx+Ts2QrtVmombMJ4e2pn5C0yBMHZ0fE47nEjvubMSTLAkKCKefuLbx+lGq0svfyhth
  j0R6Iny++hg9dJLqN5zmWqF/oHgMZXS6X/fIHYslsKU0yPHM4JpSMI47HiFQBsGlm5AygJMVWPun
@@ -96,10 +95,10 @@ X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgI7ZDo5ubYELi59AwcWUnuVXRBeihynGTLmiTFwuxxiisVe
  x2YtjfaUnDylc396zd5b9fxPYcgbuN9DD1eMzs1Q66kV+UAovquwsOu3XxP+6w9smK/hg5o9u16q
  yIzlag+DgD9xY7Yj7fvC65xWAU3TJceJXG+jXar6FtDTl6SazWHDhW0k3iY0Nxd1+egvPpyylyRk
  sDtvh9EglVwlBP3PkVHlQGQFk2KBEkFw3+vw1RS8zKP8o2x05FSSJsC7k+LzVpQY05oubiJ9GrzY
- ++DuIQUs/5JJj4C/n4CILpFTKQlqbzX/LSb50zWeMLtz8gacq+U9Dqtm91PWIuQm3rV3/B+dg9ZR
- A71t3uLj+6JfN6DTVjUszJAalIcW0Bh5dbygTK7jtNAOpOLoYrBwYYKC6XIWdfPsJXrcrDW6vfdj
+ ++DuIQUs/5JJj4C/n4CILpFTKQlqbzX/LSb50zWeMLtz8gacq+U9Dqtm91PWIuQmgT3bALQokLMP
+ zy/rVFBuv6JfN6DTVjUszJAalIcW0Bh5dbygTK7jtNAOpOLoYrBwYYKC6XIWdfPsJXrcrDW6vfdj
  zQ6YC7Heg3Xf7O1TOd7yUx++SDY6V9XDGiqeh8jJhxFbE1QSjfwMTndprmVkWxS1mi+nw+nJxqi8
- G/0EWIV2o15nRn/UvQe5+8E1BpORr3Dt2I9RoKK2gSUVBoXloHNHf6G/7NjKIViWFaEeldR/m2+i
+ G/0EWIXFSBfkLgxzsoxFoH2+j2CTsSmImsTE/QlhXbSn82TjdnNHf6G/7NjKIViWFaEeldR/m2+i
  TN8ji+Mhbk3TTo2Lw6nIoDr0sXUZ7YZoZ/GZ+slJL25ATsZTVifNjYlkFmCz0w5vcdcHI3py3L8t
  PqWAmEN/CjKjK3VVq9SDkpBDU8/nN9BMID38D/++xf97O23y3deP8vNnmz84mDUvZqxnHNc/wp8s
  bbUui5b8WkACIg5AB/ilm4apSU2goW8TQ8+z0w5vcdcHI3py3L8tPqWAC7xZyfryQF81aCkSJYKS
@@ -107,8 +106,8 @@ X-Filter-ID: 9kzQTOBWQUFZTohSKvQbgI7ZDo5ubYELi59AwcWUnuVXRBeihynGTLmiTFwuxxiisVe
 X-Report-Abuse-To: spam@quarantine16.antispamcloud.com
 X-Complaints-To: abuse@master.antispamcloud.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_135712_023264_1EDAF0EE 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20260825_135716_913652_42800948 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,35 +122,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-test_pgsize_boundary() tests boundary mapping with a hardcoded physical
-address that requires 38 bits of physical address space. However, the
-upcoming page table format for the Broadcom BCM2712 IOMMU only supports
-37 bits of output address space.
-
-This causes a test failure as iommu_map() rejects the large address
-with -ERANGE.
-
-Drop the high bits of the address (they are not relevant to the
-boundary calculations being tested) so that it fits into 32 bits.
+Add bindings for the Broadcom BCM2712 IOMMUs and their shared TLB cache.
 
 Signed-off-by: Daniel Drake <dan@reactivated.net>
 ---
- drivers/iommu/generic_pt/kunit_iommu_pt.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../bindings/iommu/brcm,bcm2712-iommu.yaml         | 52 ++++++++++++++++++++++
+ .../bindings/iommu/brcm,bcm2712-iommuc.yaml        | 38 ++++++++++++++++
+ 2 files changed, 90 insertions(+)
 
-diff --git a/drivers/iommu/generic_pt/kunit_iommu_pt.h b/drivers/iommu/generic_pt/kunit_iommu_pt.h
-index ece1c9b8c55d..9fc71db74234 100644
---- a/drivers/iommu/generic_pt/kunit_iommu_pt.h
-+++ b/drivers/iommu/generic_pt/kunit_iommu_pt.h
-@@ -403,7 +403,7 @@ static void test_pgsize_boundary(struct kunit *test)
- 	    priv->smallest_pgsz != SZ_4K)
- 		kunit_skip(test, "Format does not have the required range");
- 
--	do_map(test, 0xfef80000, 0x208b95d000, 0xfef9ffff - 0xfef80000 + 1);
-+	do_map(test, 0xfef80000, 0x8b95d000, 0xfef9ffff - 0xfef80000 + 1);
- }
- 
- /* See https://lore.kernel.org/r/20250826143816.38686-1-eugkoira@amazon.com */
+diff --git a/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommu.yaml b/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommu.yaml
+new file mode 100644
+index 000000000000..50274f03e50c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommu.yaml
+@@ -0,0 +1,52 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iommu/brcm,bcm2712-iommu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Broadcom BCM2712 IOMMU
++
++maintainers:
++  - Daniel Drake <dan@reactivated.net>
++
++description:
++  The BCM2712 SoC features multiple independent IOMMU instances providing
++  address translation for multimedia hardware blocks, such as the VC6 display
++  pipeline, camera receivers, and ISP. Each IOMMU has its own page tables,
++  control registers, and local TLB, and is additionally linked to a centralized
++  L2 TLB (IOMMUC).
++
++properties:
++  compatible:
++    const: brcm,bcm2712-iommu
++
++  reg:
++    maxItems: 1
++
++  '#iommu-cells':
++    const: 0
++
++  brcm,iommu-cache:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Phandle to the shared IOMMU cache (IOMMUC). Each IOMMU instance caches
++      translated descriptors in this centralized L2 TLB cache block and must
++      trigger cache invalidation commands on it when updating or unmapping page
++      table entries.
++
++required:
++  - compatible
++  - reg
++  - '#iommu-cells'
++  - brcm,iommu-cache
++
++additionalProperties: false
++
++examples:
++  - |
++    iommu@5200 {
++        compatible = "brcm,bcm2712-iommu";
++        reg = <0x5200 0x80>;
++        brcm,iommu-cache = <&iommuc>;
++        #iommu-cells = <0>;
++    };
+diff --git a/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommuc.yaml b/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommuc.yaml
+new file mode 100644
+index 000000000000..1d892d1dd809
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iommu/brcm,bcm2712-iommuc.yaml
+@@ -0,0 +1,38 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iommu/brcm,bcm2712-iommuc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Broadcom BCM2712 Shared IOMMU Cache (IOMMUC)
++
++maintainers:
++  - Daniel Drake <dan@reactivated.net>
++
++description:
++  The BCM2712 IOMMUC is a centralized Translation Lookaside Buffer (TLB) cache
++  which accelerates address translation across the SoC's IOMMU devices. If an
++  address mapping is not found in the IOMMU's local TLB cache, then this
++  IOMMUC is consulted as a L2 TLB. The SoC includes a single IOMMUC which is
++  shared between all IOMMUs, and it must be explicitly invalidated when
++  modifying or unmapping IOMMU page tables.
++
++properties:
++  compatible:
++    const: brcm,bcm2712-iommuc
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    iommuc@5b00 {
++        compatible = "brcm,bcm2712-iommuc";
++        reg = <0x5b00 0x80>;
++    };
 
 -- 
 2.55.0
