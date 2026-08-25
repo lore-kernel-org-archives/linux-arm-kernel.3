@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 502B9C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 11:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB0DC61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 11:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vu2NX5WQU7lXnOIBq1D5RPPESP5Qndpwyx9mUpie3Rk=; b=ZBkz7wPk+0cC1iVDTx8s1mcD9O
-	KW/fYo+FHX/gPohUd1wVf66g3fcYb3q5TBnuUgpWsGsan17y5+BS2YDMmgNo5ET9bxsNof6MqFBxt
-	phkigquT/2k0Q76LM1sPT0aQY0MiAYK8EyCSJo90sf0/WV/Yzo2ab+t6n5oFHhVzrE/CVq/POHfWX
-	nocUu5Ib2q124If2iPnNHdfk4id5hfrwR7OgoI/3r/ZYJ6fsc2llty5nK/cgKjqkoilJgXNKiJreX
-	Kkn4h3oP78KYvNLZDVeGcKjJ/LtztCfBccRrcvDSIzDp4w934i3NIf01bXAjlZrQqqmbYaHZUmNUR
-	5CLW2B5Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0+fHM4hkibe1kGJUo2fSK6BtEgDo4cli+uFOVHLaj+o=; b=xXTojLwqogAA9JC/6ZWRPkOBkD
+	Xx1IHfo1XurWYUJVpYpDcSrbB/6AUpFYCI5bX7KzX2YqkvicKPudBE602vzpmDQc8LxV2rGWEmOur
+	LkOgZcYY4ByeqNAbhFPxb9C8HOai2wkLZBZRCO9YWjWUvlgVVG6EioVCF8TPC1+JZcJY/61v7jqE3
+	MUeD7oS+ZNUCxME8z9GIu4UGRqMwnkVAIIkVxfGYLJe93ybPP1pob43ojtzJUPG3zymSNOditaHKo
+	I53Z1Z2bQmYlnMzHqadDDP/glWg12+TXMCUjAofm47btudabCyBdTzA2GKuSG3SxBTM/YMsBnbI7W
+	DGpUhYZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyp5w-00000000fQA-35uK;
-	Tue, 25 Aug 2026 11:13:32 +0000
-Received: from mail-m16023653196.xmail.ntesmail.com ([160.236.53.196])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyp5s-00000000fPd-0TiV
+	id 1wypBn-00000000fry-1YTK;
+	Tue, 25 Aug 2026 11:19:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wypBl-00000000frc-3Okl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 11:13:30 +0000
-Received: from tsdl-HP-EliteDesk-880-G6-Tower-PC.. (unknown [36.129.139.90])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4b42473f7;
-	Tue, 25 Aug 2026 19:13:14 +0800 (GMT+08:00)
-From: Hongyang Zhao <hongyang.zhao@thundersoft.com>
-To: konrad.dybcio@oss.qualcomm.com
-Cc: Frank.Li@nxp.com,
-	andersson@kernel.org,
-	bryan.odonoghue@linaro.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	festevam@gmail.com,
-	hongyang.zhao@thundersoft.com,
-	imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	konradybcio@kernel.org,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	robh@kernel.org,
-	rosh@debian.org,
-	s.hauer@pengutronix.de
-Subject: Re: [PATCH v3 2/2] arm64: dts: qcom: qcs6490-rubikpi3: Add IMX219 camera overlays
-Date: Tue, 25 Aug 2026 19:13:00 +0800
-Message-ID: <20260825111300.578054-1-hongyang.zhao@thundersoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <1ef41a49-dcf8-4252-acdd-f7f3c1210c55@oss.qualcomm.com>
-References: <1ef41a49-dcf8-4252-acdd-f7f3c1210c55@oss.qualcomm.com>
+	Tue, 25 Aug 2026 11:19:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DD141153B;
+	Tue, 25 Aug 2026 04:19:28 -0700 (PDT)
+Received: from e142334-100.cambridge.arm.com (e142334-100.cambridge.arm.com [10.2.198.93])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 02D7E3F66F;
+	Tue, 25 Aug 2026 04:19:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787656772; bh=5Sq6kzMYi7a+GOQuK58QTIE83E5jPHwmaVWwekQkOmI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Wqc2PniiotncFDikIrhtbsivQZRK5tYaensA6HIQw/Foy+aLQT+m3jGRnkFiVPg9k
+	 P6gzzDIuK1Z1GdCGUzU1ZGdlrZz+PZP+NWYZLUAh3BJhTmCXE+t0oiDBwVMGXA6T4y
+	 wyVmOaJMN19U4yUezG7XYQO9DX4LW50zdKR3XxrM=
+From: Muhammad Usama Anjum <usama.anjum@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Amit Daniel Kachhap <amit.kachhap@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	linux-kernel@vger.kernel.org (open list),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)),
+	linux-kselftest@vger.kernel.org (open list:KERNEL SELFTEST FRAMEWORK)
+Cc: Muhammad Usama Anjum <usama.anjum@arm.com>
+Subject: [PATCH v3 0/4] selftests/arm64: Fix MTE test setup and TAP reporting
+Date: Tue, 25 Aug 2026 12:18:33 +0100
+Message-ID: <20260825111929.2882324-1-usama.anjum@arm.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa0389fd69e09d5kunmfc72ad39516699
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaQksdVkhNSkJKTklNT0MeSFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlITVVKSUJVSkhCVUJLWVdZFhoPEhUdFFlBWU9LSFVCQk
-	lOS1VKS0tVSkJLQlkG
-DKIM-Signature: a=rsa-sha256;
-	b=g6sSXvDmyQWkNKsuejnsoucOf08FtjSwsRNkWjRVUoH/E29b1E0J9z8qeSrVwN809tPpS8Ilc0BD+F/R7/QBNEetBJKtHhWfzAyZyZSq2UVy8DqjM5ZjQyY7oJMoNXKLyV9aXvejDAWSEkdToPQ2lF1y4Bqdk+hw7aVITxyVexs=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=vu2NX5WQU7lXnOIBq1D5RPPESP5Qndpwyx9mUpie3Rk=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_041328_820113_2F322E57 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20260825_041933_970067_E9F9072A 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,76 +78,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Konrad,
+Running the mainline arm64 MTE selftests on a Pixel 8 exposed three
+independent reporting problems. Fix these reporting problems, then add
+an arm64 Kconfig fragment covering the facilities used by the MTE tests.
 
-Thanks for the review.
+Testing was performed on a Pixel 8 with an Android 6.1 kernel built with
+the new configuration. All nine static MTE binaries returned success.
 
-On 8/12/26 4:22 AM, Hongyang Zhao wrote:
-> > RUBIK Pi 3 ships without camera sensors, and its two connectors support
-> > multiple modules. Keep module-specific nodes out of the base board DTS
-> > and add per-connector overlays for Raspberry Pi Camera Module V2 IMX219
-> > sensors.
-> > 
-> > CAM1 uses CCI1 and CSIPHY1, while CAM2 uses CCI0 and CSIPHY4. Each
-> > overlay describes the 24 MHz sensor input clock and models the module
-> > power domain controlled through the connector PWR_EN signal. The
-> > baseboard supplies VCC3V3_OUTPUT separately and has no per-camera
-> > regulator.
-> > 
-> > Describe each connector CAMERA_GPIO signal as a privacy indicator LED
-> > and associate it with the corresponding sensor. This lets the V4L2 core
-> > control the LED while the sensor is streaming.
-> > 
-> > Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> > Signed-off-by: Hongyang Zhao <hongyang.zhao@thundersoft.com>
-> > ---
-> 
-> [...]
-> 
-> > +	camera@10 {
-> > +		compatible = "sony,imx219";
-> > +		reg = <0x10>;
-> > +
-> > +		clocks = <&cam1_imx219_clk>;
-> > +
-> > +		VANA-supply = <&vreg_cam1_pwr>;
-> > +		VDIG-supply = <&vreg_cam1_pwr>;
-> > +		VDDL-supply = <&vreg_cam1_pwr>;
-> > +
-> > +		leds = <&cam1_privacy_led>;
-> > +		led-names = "privacy";
-> 
-> No reset GPIOs?
+Changes since v2:
+- Combine the MTE TAP header fixes into a single patch.
+- Treat inaccessible KSM merge_across_nodes as a skipped prerequisite.
 
-Yes. The RubikPi camera connector does not route a dedicated sensor reset
-signal. It exposes PWR_EN and CAMERA_GPIO, but neither is connected
-directly to the IMX219 reset input when using the official Raspberry Pi
-Camera Module 2.
+Changes since v1:
+- Add missing MTE TAP headers as an output-only cleanup and clarify why
+  line buffering prevents duplicate GCR_EL1 plan output.
+- Validate KSM privileges and optional sysfs access before setup.
+- Move and expand the arm64 config fragment, and standardize subjects on
+  the selftests/arm64 prefix.
 
-PWR_EN is connected to the module's ENABLE signal and controls the
-module-local power supplies. CAMERA_GPIO corresponds to a pin that is
-not connected on Camera Module 2. The IMX219 /PWDN signal remains local
-to the camera module and is tied to its 1.8 V rail.
+Muhammad Usama Anjum (4):
+  selftests/arm64: Print missing MTE TAP headers
+  selftests/arm64: Treat KSM merge_across_nodes as optional
+  selftests/arm64: Fix MTE prctl TAP plan
+  selftests/arm64: Add MTE test config fragment
 
-Therefore, there is no board-controllable reset GPIO to describe for
-this camera configuration.
+ tools/testing/selftests/arm64/config          | 17 ++++++++++
+ .../selftests/arm64/mte/check_buffer_fill.c   |  2 ++
+ .../selftests/arm64/mte/check_child_memory.c  |  2 ++
+ .../arm64/mte/check_gcr_el1_cswitch.c         |  1 +
+ .../arm64/mte/check_hugetlb_options.c         |  2 ++
+ .../selftests/arm64/mte/check_ksm_options.c   | 31 +++++++++++++++++--
+ .../selftests/arm64/mte/check_mmap_options.c  |  2 ++
+ .../testing/selftests/arm64/mte/check_prctl.c |  2 +-
+ .../arm64/mte/check_tags_inclusion.c          |  2 ++
+ .../selftests/arm64/mte/check_user_mem.c      |  2 ++
+ 10 files changed, 59 insertions(+), 4 deletions(-)
+ create mode 100644 tools/testing/selftests/arm64/config
 
-> 
-> You should also have a reference to the mclk pin state to make sure
-> the correct pin function kicks in
+-- 
+2.47.3
 
-The Camera Module 2 provides its own 24 MHz oscillator, which is
-connected to the IMX219 MCLK input on the module. RubikPi does not route
-a SoC CAM_MCLK signal to this connector. The fixed-clock node represents
-that module-local oscillator, so there is no corresponding TLMM MCLK
-pin state.
-
-The Camera Module 2 schematic shows both connections:
-https://datasheets.raspberrypi.com/camera/camera-module-2-schematics.pdf
-
-RUBIK Pi 3 schematic (CSI connector, page 13):
-https://thundercomm.s3-accelerate.amazonaws.com/uploads/web/rubik-pi-3/RUBIKPI3-IOB-V02-RELEASE.pdf
-
-Best regards,
-Hongyang
 
