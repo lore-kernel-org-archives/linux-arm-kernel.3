@@ -4,121 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A985C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 18:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373D5C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 18:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EP9Ma/FWecRJfLYZ3jc2WcmUe0ueJMKnKTuvw+7szus=; b=4j3H27WQhcgldl17XcORKCoL3C
-	O0qvSU+5WSFlja8q9rVZzboirYffILK1YQ9OiBkhtEHSybuPDs4FGfJ75YRfKsvQvXXV109fFvfpP
-	4CzzABv7g4rHbGoM5HjrJJ4OoxrW5X4uOrDYCEdmqzayn21l8IiOFg5DNhwxy/woFDBp7PAd6N/Ql
-	wd+CIFrswoedt6Alg5cXnTqZjfldzYXa0Sm7MclwWQdWaiaiBns+1TdYhIJlD3xA9FEd8ENybAe+D
-	fOJSyGZEJ1mZFaV12puupiF442BoPPH8sKVJ8U969oQrAZtFoeRmaoTHpbBwCrrLCkbPyISqcoTpC
-	LGyUQ/Hg==;
+	bh=mrSQugjWwNbSyFKJC0aQ+HhLTDBrn6ENKLGPbrFSXE0=; b=Y4gczk9Dep3T3VXFIVPKVaRdIp
+	vwRiDffv6xy965bo/T8zZzXVA55JPtFuOXbCnR2PsdF5mrQOJ/72IWeqcns6LyGTjfs3VqsD6qaCx
+	nTLUugLOoA9i27gFOJNujcBKQcdbybv20gdS2W7rJ655lMvve/T9xRK9qPpD8aNYmphg0g/S+FphN
+	FNmuWe0EfczPYM8kQy9eOx8Ei7J5MPsuXrgr3YMweeBi1BBSyDeY4zq74XXuwletGHNrZ5BS8+Yda
+	/zdg+Nnl2Cqd/OcSCmq6jcecMM0Mack4DWCua+tFOf97G1d2jmHHRQZ3sgW3+0me+WfNO32csunXE
+	YiW8P8CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyvm6-00000001Iae-2pRQ;
-	Tue, 25 Aug 2026 18:21:30 +0000
-Received: from mail-westus2azon11010039.outbound.protection.outlook.com ([52.101.46.39] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wyvp2-00000001Ixe-0paT;
+	Tue, 25 Aug 2026 18:24:32 +0000
+Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyvm3-00000001IZp-1CZE
+	id 1wyvp0-00000001Iwj-3Fpn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 18:21:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ckZKn2S46ENide6WZWIEIx25IwYxmUnRrNKnoBeSa6ETcJGVmY00la2ZdnrPfxu2CrHnhxZsOY5o61xyZrsXXraul+JmxSN/azGoSrprRKdy4argeCniaquFYCPyo3rzyGqq3d9Sge1zd3NjMNusTQ47z7pdAs99fmtG6PKNfkKfld60AR8j+UWqLy+Kgc26JQ/T99UK4OJGdBqxcoIpshPk1fXIRn8ve3EgOnEA5u02PjWurl1oEg7LejkR00eCwY46WO4SgmGQQiJ0t+2l1qbW4CegaD73UgprwAUBGnTrzuwzPcGSp0cIeUCRAJwPX/XQdeVQAwYwA7qDlgXiVQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EP9Ma/FWecRJfLYZ3jc2WcmUe0ueJMKnKTuvw+7szus=;
- b=WKm9ZhSkn48/FS04V6iPy/iJZud4N5ntw+NCnXb7aGB4zX8pKbPv5EbrFyYSPJk4W4lYXSwLqYuLw0iz8/qDyLe4LCJKAAE4PwOHGL1igU5hH84LjGV9r9rnpar8uvUZBI664UDYNW19LQhFzRzfyEYpr9mHVU6ktvZcekA8YYgy+veQmN5PSy0Hro572gZw5hCbJRiH7yUatBqxBqu4d+Ss1uy+wzGvFQVqqlViR79fSS8JrQes+CZ1k3WIZbcymTpQCnK4a4cGCpvdvu1FsFDQ44EvT8G90zN0LIdsXDz6Gsr+FxHTLhXA2XnBro/4O2stpQr2ue+wkaiaFHUwSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EP9Ma/FWecRJfLYZ3jc2WcmUe0ueJMKnKTuvw+7szus=;
- b=PbM1qUxGT2z8uYDV03tuRcOLfJKZS/Iluw5cGsPJ/0RUPoNF6Sq+rizZg5u3Mm0EOTVEOQ+Q6HguBr8PVO2qrX0CnMAP0RcVQD0vCU3ZF/idHg1mPTq1U+mEP0HNmtiN2XTWN5KP0DLvxGfCFZFoeDtEy9O65wIEY6bQVIg4ytEOxziYWsgMuVvhPUHba7kYlwxT/34NCAvkCBXIncASa7o1xKQA1+Flu72Dz9C87Cl6/sLT02H/2uGsZENqLrwExL66fPeu/Qmc29Aa15xFSsfkO2Fcdmt6uaQgoZ+2CDUQqTFd0Ek7Ts6PjMz9/7atqw//89C/Qo02azuqRiOvxg==
-Received: from PH7P220CA0082.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32c::17)
- by DS3PR12MB999218.namprd12.prod.outlook.com (2603:10b6:8:38e::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Tue, 25 Aug
- 2026 18:21:18 +0000
-Received: from SJ1PEPF000023D1.namprd02.prod.outlook.com
- (2603:10b6:510:32c:cafe::95) by PH7P220CA0082.outlook.office365.com
- (2603:10b6:510:32c::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.12 via Frontend Transport; Tue,
- 25 Aug 2026 18:21:18 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SJ1PEPF000023D1.mail.protection.outlook.com (10.167.244.7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.360.3 via Frontend Transport; Tue, 25 Aug 2026 18:21:18 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 25 Aug
- 2026 11:20:57 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Tue, 25 Aug 2026 11:20:57 -0700
-Received: from nvidia.com (10.127.8.11) by mail.nvidia.com (10.126.190.182)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
- Transport; Tue, 25 Aug 2026 11:20:56 -0700
-Date: Tue, 25 Aug 2026 11:20:54 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: Jason Gunthorpe <jgg@nvidia.com>, <iommu@lists.linux.dev>, Will Deacon
-	<will@kernel.org>, Joerg Roedel <joro@8bytes.org>, Robin Murphy
-	<robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh
-	<smostafa@google.com>, Daniel Mentz <danielmentz@google.com>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v9 02/12] iommu/arm-smmu-v3: Add a helper to drain cmd
- queues
-Message-ID: <ao3dBm1CtH2V06r1@nvidia.com>
-References: <20260728210928.1050849-1-praan@google.com>
- <20260728210928.1050849-3-praan@google.com>
- <178767577112.3356902.15184998673790345568.b4-review@b4>
- <ao3S5ickm47p1QWa@google.com>
+	Tue, 25 Aug 2026 18:24:31 +0000
+Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7f3ece23165so119805a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 11:24:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1787682268; x=1788287068; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mrSQugjWwNbSyFKJC0aQ+HhLTDBrn6ENKLGPbrFSXE0=;
+        b=nct/w5c4X6qa8Wi7v4HaYjaI6Vp0QfstUgIYq0D9Qb2LShUMD6qkF9+t+bdKfDa3bJ
+         PE1u5jLXkbymFcHhi5NbC0eebxilklOOQwupiFTeisvcOokiotl/dV5l7P0S89t4EqWM
+         nAxnBjZVrHsLKNQHJTZ6MIm/XtJgrvWZwklTF3pbURbuZPpBixw4NDSE+nypJNawkujQ
+         LXTR55NcMNOCjqWtA62ZHAv7QHXMgNHptDK3JnQJT68khT4gShUOhfZmI7ORbXeoe6kW
+         LrbNWDfbair/dttuUtN4L62dQp/MynaiAAY7nfElpQeFQKOH4qgEFzfBsbtU/yN9tbiY
+         Kj0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787682268; x=1788287068;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mrSQugjWwNbSyFKJC0aQ+HhLTDBrn6ENKLGPbrFSXE0=;
+        b=nDfMc6pZp7SWtnjF3bVJBuTPiSdNJySR4FOfDeQQWb4BzUaQxSZLOzQINMCX4gtFxW
+         ryid4HmKm2wQQKsrT/khe27uhkpog0aKJfhbf94P3E8wI6nHkgUYNH9cZMzjcXlMaK4D
+         FcNqx+OiCkiD1S24iRmQVI8gXEw83EfK2Z5U3lsc8w3zW1LnfAaC0T0hGdwDKcPdSUjc
+         4U5SBjwKfQnAa40xiVBAuGMIh+RKznUcpVM7p9JujmUvigALjhrbbmNg87GkBcFDA8/u
+         Nhly83h8UGJpm5edyA2lJEJ0q4uixjsqdpVlU59oWT1bjCCYg7AQ0Z5jCIAYx3Ttmg8o
+         wPQA==
+X-Forwarded-Encrypted: i=1; AHgh+RrPWb7CVdFw4B6MFEpErtT1bwcalnFqL8lMGNl1dNsWvr+b518awv1qd13g6eMQuY41pcX6ZVYjHGQTd8ciUXS4@lists.infradead.org
+X-Gm-Message-State: AFuF++lZJSDFDpHiL1IudIKITybkai0p7/lOG1o2yP0IyV0SBNKqqWMG
+	bNZibz8fMr8JS2bQCB7PSHZUPhudmbqcGVeIFf05XDvrPGG4+RxE812TVAykPtMKRw==
+X-Gm-Gg: AR+sD10yI5XlRRFYd1k+IC8//B32ohffpniYAUh3D2gboE5MZW0NYQxsDXEZY2Ps8xT
+	GxkMuKmucX/dOWelSNpXxTNB0SVkKccrsVLxJpw/x8ibi+/m7hEDXm+E3yfEWVCCjskKBxXQbF1
+	0q6H3OdJ2RVIzYq5ryKR0YN5LDZzzb8UgpUI/J3tSxBXdx0uAQPq34FIymiZaPtWByIe8YYwHc+
+	k7BLq4uSHTjYHQHUzZrepi+plsgk0htI65OG75aFzeJ45+lhgfRuEnhbfNcuTi9WhtdTqDXuonA
+	w+o5fwh2LLZV1VCXuSl/+u88RfT1K7CkGwIVHnaYawmn/XB09gNv73ldk0UzF/r2x+89RjzW5P6
+	W9qOdwt7hw2lt45M9R6IWQAudf/XBT9WAs4dAsJIqzEANeBBsSoIbD9/LCIZ6cTM+47GqFislrL
+	sb8KJJc0aVoLwdX5EjICzCduEz61vFIag6R4Dhz8pYlUhcYcpGo8Pwy8D4Jge00zEOR2gH6PZBw
+	b/InWnzzK4qm5qjIiRmJGaO/lCN
+X-Received: by 2002:a05:6820:55ca:10b0:6ac:a539:bc41 with SMTP id 006d021491bc7-6b1a03e5c38mr696085eaf.12.1787682267892;
+        Tue, 25 Aug 2026 11:24:27 -0700 (PDT)
+Received: from google.com (203.215.188.35.bc.googleusercontent.com. [35.188.215.203])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6b1a02566desm215005eaf.11.2026.08.25.11.24.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Aug 2026 11:24:27 -0700 (PDT)
+Date: Tue, 25 Aug 2026 18:24:25 +0000
+From: Neill Kapron <nkapron@google.com>
+To: RD Babiera <rdbabiera@google.com>
+Cc: vkoul@kernel.org, peter.griffin@linaro.org, andre.draszik@linaro.org,
+	tudor.ambarus@linaro.org, p.zabel@pengutronix.de,
+	neil.armstrong@linaro.org, badhri@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6] phy: Add USB3 PHY support to Google Tensor SoC USB
+ PHY driver
+Message-ID: <ao3d2TlIRqxbz4WP@google.com>
+References: <20260710172946.15633-2-rdbabiera@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ao3S5ickm47p1QWa@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D1:EE_|DS3PR12MB999218:EE_
-X-MS-Office365-Filtering-Correlation-Id: 39b29f91-dacc-40af-3b52-08df02d5a859
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|23010399003|36860700016|4143699003|56012099006|3023799007|22082099003|11063799006|10067099003|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: +jjVp22L/xd0u8pg6TeByRR4TjorqNqGx+jDUhmH8xqh9slO8XLrhUUMZ4RolfEaYIpUeRn+SlSTKGDTXgUgf56UE3rNK2ilz72Ck92u8pm0bgOjqKroe34TQ20znFGmTJ8u/tL371V/Zti2gxsdlILNHvDubuEB1angoeam+BjG+NB5yuE97UfeW42rT9Om7WrbswvFvllf74RV4Dh6j57AtWEk0VBKWDtqXu9fUcLluzAJJFKX0S4aF3N+lQU1U309aXO91L+flyie/w9t0+sWINC6jneH5dd5z5RoSYp7kyx7ZmznPObvnsJeEuX+NKsypBz089s95Aw3Mr+6XoOZuttBvb8XVSwLnApIkvNyWJ8zkxCoXbKX85rD2f5B2DVKlqZ2jUP6ImfVruyC+8B+QVHkc1l9fWQ6ZhZ83k9BaHpmYyfTTJ1aaCTso/ZbdbXj8oZDTXYg2d3CcnDm/UZk2QTXqisGfaCuA82Vbx/rWQSZmP9ndMAnb1QTMuZ+WKWTh/1X7B0sb5p0D/b0K2kglsYgKMR6itPZrwrtzlSlwSrCgcZ52whnlSG3yYf/o9sy4fPgJYNjPaM+oD4ekTLrq/2Tw1HR7USSxgqXNYGvUl33Ud79hsL0EPJ4GQNRcmW0OS2JEH3imkIg3m+umxcdZcCisUN6lqtA6bV8lBpXMYKWKrwqhrpgC5bM+hw99vkjfM62ut8K9EVo3Ewe4A==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(23010399003)(36860700016)(4143699003)(56012099006)(3023799007)(22082099003)(11063799006)(10067099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: xt44+2+IZIwwwXKRJ7amnffpM9EVWtJYdEcl2HkvANxs5ybRSwSqWIWXd49kqSWbqU6TpFseQswQeLH7xwvvKY9se3taLO5bg5s269KmOZavi7/er4boAHRpw6OUXIf1dQKz68KLHf8qU5xuMhRcGgJvdj+VXcp/+pMaD40A14leUim0V4TP9wAe22m7gl1iRBpwmwTbXGXxToS+2lxrlqYWmZjjfGESqUGQ1UikzYeW2HRQXtxDsIjx1xDxkjY4UdLPuHe0LIo3WD4u+09PDgkKP4V8vYZ5ruoN5sMD2d1KKJoqBrr2c1KMYqa7LlCswGINAhPVpWA+zeHrIPAptwtsOBajhQT/5s6tFr0kWi4tBMWKSELC5ggtmhp3uFUqu0I3r9ivRF7gVaquMf4kmzE17wj8Qc53GSkLatFb0daYP+LOovcAnVtxO5RJPdtZ
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2026 18:21:18.5396
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 39b29f91-dacc-40af-3b52-08df02d5a859
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D1.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR12MB999218
+In-Reply-To: <20260710172946.15633-2-rdbabiera@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_112127_332028_04C2EA54 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20260825_112430_814807_948D6341 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,43 +105,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 25, 2026 at 05:37:42PM +0000, Pranjal Shrivastava wrote:
-> On Tue, Aug 25, 2026 at 01:36:11PM -0300, Jason Gunthorpe wrote:
-> > > [ ... 36 lines skipped ... ]
-> > > +		if (queue_empty(llq))
-> > 
-> >  [Severity: High]
-> >  Does polling for an empty CMDQ actually guarantee that commands have completed?
-> > 
-> >  queue_empty() relies on the SMMU consumer register equaling the producer
-> >  pointer. However, for CMD_SYNC, the SMMU advances the consumer register
-> >  immediately upon consumption, not upon completion. Suspending the SMMU while
-> >  commands like ATC_INV are still in-flight could abort them, leaving stale
-> >  translations in the device ATC and causing submitters to time out.
-> > 
-> > This seems broadly wrong, but it doesn't seem explained very well,
-> > maybe put a comment above the function something like
-> > 
-> >  The caller must have ensured that no concurrent command submission
-> >  can happen. Thus the entry at the PROD must be a CMD_SYNC due to how
-> >  all submitters generate commands. Waiting for PROD==CONS guarentees
-> >  completion of the sync and all prior work and thus idle HW.
-> > 
-> > I don't think the other substantive remarks are valid.
-> > 
-> > The Werror thing is right, every patch should compile alone without
-> > warnings. Sometimes people add __maybe_unused to accomplish this..
-> >
-> 
-> Ack. I plan to add __maybe_unused here.
+Hi RD, some minor comments below.
 
-Maybe it's time to use the shared helper in both of our series?
+On Fri, Jul 10, 2026 at 05:29:47PM +0000, RD Babiera wrote:
+> +#define GPHY_TCA_DELAY_US 10
+> +#define GPHY_TCA_TIMEOUT_US 2500000
 
-I plan to send PRI-v3 on rc1 (likely next week) with this:
-https://github.com/nicolinc/iommufd/commit/d10325ff40fd45c476bc98d484d8dd2cdc7fdf95
+Do we really need a 2.5s timeout?
 
-I think this series can take it (and its parent Q_POS as well),
-as we discussed in the other mail.
+...
+> +
+> +static int wait_tca_xa_ack(struct google_usb_phy *gphy)
+> +{
+> +	int ret;
+> +	u32 reg;
+> +
+> +	ret = readl_poll_timeout(gphy->usb3_tca_base + TCA_INTR_STS_OFFSET,
+> +				 reg, !!(reg & TCA_INTR_STS_XA_ACT_EVT),
+> +				 GPHY_TCA_DELAY_US, GPHY_TCA_TIMEOUT_US);
+> +	if (ret)
+> +		dev_err(gphy->dev, "tca xa_ack timeout, ret=%d", ret);
 
-Nicolin
+The dev_* calls throughout this patch should have trailing newline
+characters.
+
+> +
+> +	return ret;
+> +}
+
+...
+>  static int google_usb_set_orientation(struct typec_switch_dev *sw,
+>  				      enum typec_orientation orientation)
+>  {
+>  	struct google_usb_phy *gphy = typec_switch_get_drvdata(sw);
+> +	int ret = 0;
+>  
+>  	dev_dbg(gphy->dev, "set orientation %d\n", orientation);
+>  
+> -	gphy->orientation = orientation;
+> +	guard(mutex)(&gphy->phy_mutex);
+>  
+> -	if (pm_runtime_suspended(gphy->dev))
+> -		return 0;
+> +	gphy->orientation = orientation;
+>  
+> -	guard(mutex)(&gphy->phy_mutex);
+> +	if (IS_ENABLED(CONFIG_PM)) {
+> +		if (pm_runtime_get_if_active(gphy->dev) <= 0)
+> +			return 0;
+> +	}
+>  
+>  	set_vbus_valid(gphy);
+>  
+> -	return 0;
+> +	if (gphy->phy_state == COMBO_PHY_TCA_READY && orientation != TYPEC_ORIENTATION_NONE)
+> +		ret = program_tca_locked(gphy);
+> +
+> +	pm_runtime_put_autosuspend(gphy->dev);
+
+Here you are using the _autosuspend variant, but autosuspend is never
+configured in probe(). Should this be changed to the plain
+pm_runtime_put(), or actually enable autosuspend in the probe function?
+
+> +
+> +	return ret;
+>  }
+
+...
+> +
+> +static int google_usb3_phy_power_on(struct phy *_phy)
+> +{
+> +	struct google_usb_phy_instance *inst = phy_get_drvdata(_phy);
+> +	struct google_usb_phy *gphy = inst->parent;
+> +	int ret;
+> +
+> +	dev_dbg(gphy->dev, "power on usb3 phy\n");
+> +
+> +	guard(mutex)(&gphy->phy_mutex);
+> +
+> +	if (gphy->phy_state != COMBO_PHY_TCA_READY) {
+
+I think prior to this we should add a check if phy_state is
+COMBO_PHY_IDLE, return an error and change this check to phy_state ==
+COMBO_PHY_INIT_DONE to make sure we are explicit in our state handling
+to prevent issues with any potential refactoring.
+
+> +		/* Wait for PoR -> NC transitions*/
+> +		ret = wait_tca_xa_ack(gphy);
+> +		if (ret) {
+> +			dev_err(gphy->dev, "PoR->NC transition timeout");
+> +			return ret;
+> +		}
+> +		gphy->phy_state = COMBO_PHY_TCA_READY;
+> +	}
+> +
+> +	if (gphy->orientation != TYPEC_ORIENTATION_NONE)
+> +		return program_tca_locked(gphy);
+> +
+> +	return 0;
+> +}
+...
+
+Thanks,
+Neill 
 
