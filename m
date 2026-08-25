@@ -4,97 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 911EBC61DBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 12:11:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B679EC61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 12:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3m/EDZr4T39sfvz1Va34weL4DM8C2AwTVI2AUMgcU1g=; b=DmGZtYO5kkmkFV+aGmS3FT8KWO
-	D7IwGycfzMnRA1C9twItVUk+1nuhrr1UQFW1so20Yp+voT0AEHiUT3knkg+g/2PXQim5yuYhw5rT9
-	/mA1cHWNBUiD48H/4UE3QuJVqKTepyyJ0Z7kodqHTLSLRCucFU3XVOZqBw0XPCzsW+KkuQp2u76rE
-	dVgIKCw8Kr5zRV6e2LjR5rWE59qLofDWW3TkFxODMwYlDbZn9TWWW2vrlPwggVbKa36WR9cBhh4/x
-	HgfTTjDAoHhCOvX56O2hslsyt4Aib0mBfkUyxpGnuwfNnjvurvXDAC9yN9GAJRBJuTjClmY/4h2sM
-	npTQTqLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6Nb9y1S9qJIvazVG6F2LefaZL1fguL+c9QLtwGfndqA=; b=xu6Eqd4bMgi4KApOgCAIfuCeyx
+	1Ujj0hIp+g8fVDEXpdMqZixCOTTx2/iU+XqR2Z5sKl2Y0qRj0j301QyBFG7DUZRlDmsmLoOLbKRqu
+	wKfMh9AdJL2p39wi0BBWk0TBaSjC/NDVVCKKsWnJPmxQF9j/ij3ofru8Ne37IBPM/2cUkLMwF/cYY
+	YosKRBcDLZ34WMUzjnzuAtNWia34S3z2Lh09t+RGwdhhWfaYnRDK/TQcErgpa4Ik9Fpbq9iGxcLfl
+	oQ/uALfP9xHD7sgott3TZpz1Qk20AiQZYeHCv7u3to6ipAlkSNECsK6i6gQX35YNp3ZmH3j1qaJmw
+	iY9NLH9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wypzt-00000000jZE-15Ng;
-	Tue, 25 Aug 2026 12:11:21 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1wyq7d-00000000ker-1UJ9;
+	Tue, 25 Aug 2026 12:19:21 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wypzm-00000000jXf-2bFv
+	id 1wyq7a-00000000keR-1d7m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 12:11:18 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6a173ad7cf4so8442652a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 05:11:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787659872; x=1788264672; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3m/EDZr4T39sfvz1Va34weL4DM8C2AwTVI2AUMgcU1g=;
-        b=mU0p0PP6Jgit/iPx0KAX056aCtq1H479bBJ/JDJ/q6+UL9qCbO+qST7zth1GtqEtl8
-         e3oduvGpzAEIyW2g0doOhr8RtE7Q60f+dMubXFHG7iRQjsqxTPsKFFRcC/r7SIEO6/Yf
-         IOVBaUh/nB637NrgguvlApldEkI6LyyNqqXOkrsA5sAo1JgqWiB60ovqSsf+ExB+1Pw7
-         gs3STmN+aFrVNkXeoEr2HE6xE2mF+Lc6wFcIiUaXRek9gNEtnEbdATrVu/paUDXgFcMe
-         zfAJKLZckiZp17CIjGFlvVQaUdR93nfPUqNjcqm8u2lPia9Jh8EVTDrWoZHnn7MLSp8j
-         vaiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787659872; x=1788264672;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3m/EDZr4T39sfvz1Va34weL4DM8C2AwTVI2AUMgcU1g=;
-        b=MXIhuoAUoP8QRuWkw15UxPO9rkK1PH2JYJpwIC15a83m6dhCeJh5A0gXKKL8eHI7Av
-         6hH37rGBKi3AcJoBSmKYFmkgTzuceY/Q1WpZbr21XBJ2FK8XUpuRe6lvK3I3IviRCmdN
-         S8BjXhu4CkCn6UX4ulQXhgb4KZUBA69YtluxXqFBFU9u9JsIE0H6mcAEmaWp8LBrEw9m
-         sNedV1izM9Zo/sXilSkhAi0T+MwoHK9BlE/PU72/VnpaoMTYVEujsSv8p1SZpl+a7LWl
-         Q/3lshfv9cIwmpbXx7S4z292biIwk9Y7E8JoJHss1tAHhbvMtcJHDK19/i4sBvyvC1c0
-         /rMw==
-X-Forwarded-Encrypted: i=1; AHgh+RpVLU7frSg37+6Xzy2Q/MYzP+BMzkyFEq0anBPGlTYZ78wytkoXqeIk+78SAcHadUaqK0K+bPPZzXLXPdVU9q/x@lists.infradead.org
-X-Gm-Message-State: AFuF++nZhNesXixm+caCmYSnyjibi0wSbQadPrjbCkgPaWZwZ0/UleYC
-	Ks9dsmSszbv91YrT74Iio9Xo9hfYbDPBwY+ytfNROdZtgFO+BYWhWHSa
-X-Gm-Gg: AR+sD11tWRazNPI4bckcTA5TLvAlr43sVqckGzxVYwtambXGmW63Mlam7O2JC8dmvP8
-	8TwaoetuNSLLuYCfgmkzfN5Hx4zpc4Mbna+L/YLgT6EvldgSzlUlZzIf8iyT2VyeHUSvkQvxwyn
-	Ch5Yq6VW0GFhmMiF0It8ZKok2bEQqeFgE5h6pIDMDQJxFUpxwAcptURVRjD+l5aJ46NOcgnJLMM
-	kNuE1f/tq/54FR848WffoJ8miW/ovhEeJelNr6Xyr7RdfgI3BjguWbEjvwlYRh30vOvcT5dFaQ/
-	ttmGbebkQOsDj2yokxrlZCGhQdl36bvgV8vOM73ZDevWzp+wqTGLXh+aQdXqnax2F5MpepY71PR
-	EXSGZQdoin2gOlzFSNew9SWH2lo8LzPdGrPXTbgIas3+QpkYdbjWsulQCd6HwF+MRWs7lZGFCn9
-	K1kecXr07LarbZJk+WuT4/7IyXPa1E5EllvWEGJS8J97k1AfuvoJO2L7ergDPxX0HNb4SdphE0g
-	UQFoH3JahDM7bo=
-X-Received: by 2002:a05:6402:20cd:b0:6a3:6d83:ba44 with SMTP id 4fb4d7f45d1cf-6a582b05701mr30688214a12.2.1787659872446;
-        Tue, 25 Aug 2026 05:11:12 -0700 (PDT)
-Received: from SMW024614.wbi.nxp.com ([128.77.115.158])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a59e199767sm13841351a12.15.2026.08.25.05.11.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 05:11:11 -0700 (PDT)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	elena.popa@nxp.com,
-	cosmin.stoica@nxp.com
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 2/2] arm64: dts: freescale: add MR-NAVQ95 basic board support
-Date: Tue, 25 Aug 2026 05:08:12 -0700
-Message-ID: <20260825120812.2152-3-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260825120812.2152-1-laurentiumihalcea111@gmail.com>
-References: <20260825120812.2152-1-laurentiumihalcea111@gmail.com>
+	Tue, 25 Aug 2026 12:19:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1787660362; x=1819196362;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=FYsC8DgA1Qcwkk9W6T0ZLz8LdTRaGegCt9uOsbAu+X8=;
+  b=uINAjOB++F9BCnmzhQcA5mKDZ567sMlXvp98btmAQRnGvOain8QBKNqX
+   WN9bLNjCWN4c0JomIJkQl1e5htziStZKzzZNq5mtSFlKpBNkkO/T7JUIG
+   r5hmuilZzuZdypa2j3TDl/l6VkyF/6dO05isSOvf4YURnfZuo9hFvNbbC
+   xAhgn19h7I4i7ulpHFsdfLwAboKVsrm2rsmOXYAHxCGO0ES16XmjSihLb
+   xeRgeAFTExrqEUOEDnWQNxDRIbgL+CA8/obOs9XK/CV8bvWRbSHKDbnl/
+   rQf/EsM1zsT5qebLgJBlxyGPPSLBk1BxflhYViJ1CO7JNpV6aNUd0qTqx
+   g==;
+X-CSE-ConnectionGUID: OcoNAIp0QwWYCGmy14uCdw==
+X-CSE-MsgGUID: dCGvZRqeTJqqUvgshV0JHQ==
+X-IronPort-AV: E=Sophos;i="6.25,242,1779174000"; 
+   d="scan'208";a="294005104"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2026 05:19:21 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
+ chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.45; Tue, 25 Aug 2026 05:19:16 -0700
+Received: from DEN-DL-M77643.microsemi.net (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 25 Aug 2026 05:19:13 -0700
+Message-ID: <53617f6db747ad7eab76fedc806abd1968bfa7aa.camel@microchip.com>
+Subject: Re: [PATCH net-next v2 6/9] net: sparx5: vcap: add lpm vcap
+ implementation
+From: Jens Emil Schulz Ostergaard <jensemil.schulzostergaard@microchip.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <horatiu.vultur@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<pabeni@redhat.com>, <daniel.machon@microchip.com>,
+	<Steen.Hegelund@microchip.com>, <kees@kernel.org>, <gustavoars@kernel.org>,
+	<robert.marko@sartura.hr>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-hardening@vger.kernel.org>
+Date: Tue, 25 Aug 2026 14:19:12 +0200
+In-Reply-To: <20260817211356.3633381-1-kuba@kernel.org>
+References: <20260810-sparx5_l3_routing-v2-6-59e68cc8c8ca@microchip.com>
+	 <20260817211356.3633381-1-kuba@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.44.4-0ubuntu2.1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_051114_712621_96975BDA 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20260825_051918_653327_A7A9EBC4 
+X-CRM114-Status: GOOD (  46.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,314 +91,346 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Mon, 2026-08-17 at 14:13 -0700, Jakub Kicinski wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know th=
+e content is safe
+>=20
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+> ---
+> net: sparx5: vcap: add lpm vcap implementation
+>=20
+> This adds a VCAP_TYPE_LPM instance to the sparx5 and lan969x VCAP instanc=
+e
+> tables and extends the per-vtype switches in sparx5_vcap_impl.c so the LP=
+M
+> VCAP reuses the Super VCAP cache, update and move helpers.  On sparx5 the
+> IS0 CLM-0 instance drops from two Super VCAP blocks to one to make room.
+>=20
+> A few questions below.
+>=20
+> > diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_vcap=
+_impl.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_vcap_impl.c
+> > index 543a1f2bf6bd9..6e6a1f833deac 100644
+> > --- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_vcap_impl.c
+> > +++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_vcap_impl.c
+> > @@ -82,4 +82,16 @@ const struct sparx5_vcap_inst lan969x_vcap_inst_cfg[=
+] =3D {
+> >               .count =3D 1024,
+> >               .ingress =3D false,
+> >       },
+> > +     {
+> > +             .vtype =3D VCAP_TYPE_LPM,
+> > +             .vinst =3D 0,
+> > +             .map_id =3D 6,
+> > +             .lookups =3D SPARX5_LPM_LOOKUPS,
+> > +             .lookups_per_instance =3D SPARX5_LPM_LOOKUPS,
+> > +             .first_cid =3D SPARX5_VCAP_CID_LPM_L0,
+> > +             .last_cid =3D SPARX5_VCAP_CID_LPM_MAX,
+> > +             .blockno =3D 5,
+> > +             .blocks =3D 1,
+> > +             .ingress =3D true,
+> > +     },
+> >  };
+>=20
+> [Severity: Low]
+> Does the commit message match what happens on lan969x?  The message says:
+>=20
+>     "The LPM VCAP is allocated from the Super VCAP Blocks, which is share=
+d
+>      amongst different VCAPs. All blocks are used, so we steal a block fr=
+om
+>      IS0, which had 2 assigned."
+>=20
+> The lan969x hunk here is purely additive.  Before the patch
+> lan969x_vcap_inst_cfg[] used blocks 0-4 (IS2-0 =3D 0, IS2-1 =3D 1, IS0-0 =
+=3D 2,
+> IS0-1 =3D 3, IS0-2 =3D 4), each with .blocks =3D 1, and this new entry ta=
+kes
+> block 5 without reducing anything.
+>=20
+> So nothing is stolen from IS0 on lan969x, and "all blocks are used" does
+> not hold for that platform.  Could the message say where lan969x block 5
+> comes from?
+>=20
+> Related to that: sparx5_vcap_block_alloc() derives the address range
+> directly from blockno without ever consulting VCAP_SUPER_CORE_CNT:
+>=20
+>         admin->first_valid_addr =3D cfg->blockno * SUPER_VCAP_BLK_SIZE;
+>         admin->last_used_addr =3D admin->first_valid_addr +
+>                 cfg->blocks * SUPER_VCAP_BLK_SIZE;
+>=20
+> so for lan969x this maps addresses 15360..18431.  Is block 5 actually
+> present in the lan969x Super VCAP?  I could not confirm the lan969x core
+> count from the tree.
 
-Add basic support for NXP's MR-NAVQ95 board. This board is designed for
-robotics applications (e.g. drones, rovers, humanoids, etc..) and has the
-following hardware feats (list is not exhaustive):
+You are right on both counts, and the block accounting is correct even thou=
+gh
+the changelog describing it is not.
 
-* based on i.MX95 19x19 SoC
-* 64GB eMMC
-* up to 16GB of LPDDR5 memory
-* 1 x USB 2.0 TypeC
-* 1 x USB 3.0 TypeC
-* 1 x RJ45 port with RTL8211 PHY
+The two platforms differ in a way the message flattens into one story:
 
-The support targets revision B of the board.
+  platform   Super VCAP blocks   assigned before   LPM block   IS0 loses
+  sparx5     10                  0-9, 2 per inst   9           yes
+  lan969x    6                   0-4, 1 per inst   5           no
 
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
----
- arch/arm64/boot/dts/freescale/Makefile       |   1 +
- arch/arm64/boot/dts/freescale/imx95-navq.dts | 267 +++++++++++++++++++
- 2 files changed, 268 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx95-navq.dts
+I will update the commit message to reflect the state of things on both spa=
+rx5
+and lan969x.
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 95ae85ab4adf..4c5ef83cd857 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -712,6 +712,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-frdm-pro.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-aquila-clover.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-aquila-dev.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx95-navq.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-toradex-smarc-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-tqma9596la-mba95xxca.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-tqma9596sa-mb-smarc-2.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx95-navq.dts b/arch/arm64/boot/dts/freescale/imx95-navq.dts
-new file mode 100644
-index 000000000000..f7ddc39f9b21
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-navq.dts
-@@ -0,0 +1,267 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2026 NXP
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx95.dtsi"
-+
-+/ {
-+	model = "NXP MR-NAVQ95";
-+	compatible = "fsl,imx95-navq", "fsl,imx95";
-+
-+	aliases {
-+		ethernet0 = &enetc_port0;
-+		mmc0 = &usdhc1;
-+		mmc1 = &usdhc2;
-+		serial0 = &lpuart1;
-+	};
-+
-+	chosen {
-+		stdout-path = &lpuart1;
-+	};
-+
-+	reg_usdhc2_vmmc: regulator-usdhc2 {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
-+		regulator-name = "VDD_SD2_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&gpio3 7 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		off-on-delay-us = <12000>;
-+	};
-+};
-+
-+&edma1 {
-+	/* owned by M7 */
-+	status = "reserved";
-+};
-+
-+&edma2 {
-+	/* channels 30-63 owned by M7 */
-+	dma-channels = <30>;
-+};
-+
-+&enetc_port0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_enetc0>;
-+	phy-handle = <&ethphy0>;
-+	phy-mode = "rgmii-id";
-+	status = "okay";
-+};
-+
-+&lpi2c3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_lpi2c3>;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	i2c3_gpio_expander_21: gpio-expander@21 {
-+		compatible = "nxp,pcal6408";
-+		reg = <0x21>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_i2c3_gpio_expander_21>;
-+	};
-+};
-+
-+&lpuart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_uart1>;
-+	status = "okay";
-+};
-+
-+&netc_blk_ctrl {
-+	status = "okay";
-+};
-+
-+&netc_emdio {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_emdio>;
-+	status = "okay";
-+
-+	ethphy0: ethernet-phy@1 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <1>;
-+		reset-gpios = <&i2c3_gpio_expander_21 1 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <80000>;
-+		realtek,clkout-disable;
-+	};
-+};
-+
-+&scmi_iomuxc {
-+	pinctrl_emdio: emdiogrp {
-+		fsl,pins = <
-+			IMX95_PAD_ENET2_MDC__NETCMIX_TOP_NETC_MDC		0x57e
-+			IMX95_PAD_ENET2_MDIO__NETCMIX_TOP_NETC_MDIO		0x97e
-+		>;
-+	};
-+
-+	pinctrl_enetc0: enetc0grp {
-+		fsl,pins = <
-+			IMX95_PAD_ENET1_TD3__NETCMIX_TOP_ETH0_RGMII_TD3         0x57e
-+			IMX95_PAD_ENET1_TD2__NETCMIX_TOP_ETH0_RGMII_TD2         0x57e
-+			IMX95_PAD_ENET1_TD1__NETCMIX_TOP_ETH0_RGMII_TD1         0x57e
-+			IMX95_PAD_ENET1_TD0__NETCMIX_TOP_ETH0_RGMII_TD0         0x57e
-+			IMX95_PAD_ENET1_TX_CTL__NETCMIX_TOP_ETH0_RGMII_TX_CTL   0x57e
-+			IMX95_PAD_ENET1_TXC__NETCMIX_TOP_ETH0_RGMII_TX_CLK      0x58e
-+			IMX95_PAD_ENET1_RX_CTL__NETCMIX_TOP_ETH0_RGMII_RX_CTL   0x57e
-+			IMX95_PAD_ENET1_RXC__NETCMIX_TOP_ETH0_RGMII_RX_CLK      0x58e
-+			IMX95_PAD_ENET1_RD0__NETCMIX_TOP_ETH0_RGMII_RD0         0x57e
-+			IMX95_PAD_ENET1_RD1__NETCMIX_TOP_ETH0_RGMII_RD1         0x57e
-+			IMX95_PAD_ENET1_RD2__NETCMIX_TOP_ETH0_RGMII_RD2         0x57e
-+			IMX95_PAD_ENET1_RD3__NETCMIX_TOP_ETH0_RGMII_RD3         0x57e
-+		>;
-+	};
-+
-+	pinctrl_i2c3_gpio_expander_21: i2c3gpioexpander21grp {
-+		fsl,pins = <
-+			IMX95_PAD_ENET2_RD3__GPIO4_IO_BIT27			0x31e
-+		>;
-+	};
-+
-+	pinctrl_lpi2c3: lpi2c3grp {
-+		fsl,pins = <
-+			IMX95_PAD_GPIO_IO28__LPI2C3_SDA				0x40000b9e
-+			IMX95_PAD_GPIO_IO29__LPI2C3_SCL				0x40000b9e
-+		>;
-+	};
-+
-+	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
-+		fsl,pins = <
-+			IMX95_PAD_SD2_RESET_B__GPIO3_IO_BIT7			0x31e
-+		>;
-+	};
-+
-+	pinctrl_uart1: uart1grp {
-+		fsl,pins = <
-+			IMX95_PAD_UART1_RXD__AONMIX_TOP_LPUART1_RX		0x31e
-+			IMX95_PAD_UART1_TXD__AONMIX_TOP_LPUART1_TX		0x31e
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
-+		fsl,pins = <
-+			IMX95_PAD_SD1_CLK__USDHC1_CLK				0x158e
-+			IMX95_PAD_SD1_CMD__USDHC1_CMD				0x138e
-+			IMX95_PAD_SD1_DATA0__USDHC1_DATA0			0x138e
-+			IMX95_PAD_SD1_DATA1__USDHC1_DATA1			0x138e
-+			IMX95_PAD_SD1_DATA2__USDHC1_DATA2			0x138e
-+			IMX95_PAD_SD1_DATA3__USDHC1_DATA3			0x138e
-+			IMX95_PAD_SD1_DATA4__USDHC1_DATA4			0x138e
-+			IMX95_PAD_SD1_DATA5__USDHC1_DATA5			0x138e
-+			IMX95_PAD_SD1_DATA6__USDHC1_DATA6			0x138e
-+			IMX95_PAD_SD1_DATA7__USDHC1_DATA7			0x138e
-+			IMX95_PAD_SD1_STROBE__USDHC1_STROBE			0x158e
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
-+		fsl,pins = <
-+			IMX95_PAD_SD1_CLK__USDHC1_CLK				0x15fe
-+			IMX95_PAD_SD1_CMD__USDHC1_CMD				0x13fe
-+			IMX95_PAD_SD1_DATA0__USDHC1_DATA0			0x13fe
-+			IMX95_PAD_SD1_DATA1__USDHC1_DATA1			0x13fe
-+			IMX95_PAD_SD1_DATA2__USDHC1_DATA2			0x13fe
-+			IMX95_PAD_SD1_DATA3__USDHC1_DATA3			0x13fe
-+			IMX95_PAD_SD1_DATA4__USDHC1_DATA4			0x13fe
-+			IMX95_PAD_SD1_DATA5__USDHC1_DATA5			0x13fe
-+			IMX95_PAD_SD1_DATA6__USDHC1_DATA6			0x13fe
-+			IMX95_PAD_SD1_DATA7__USDHC1_DATA7			0x13fe
-+			IMX95_PAD_SD1_STROBE__USDHC1_STROBE			0x15fe
-+		>;
-+	};
-+
-+	pinctrl_usdhc1: usdhc1grp {
-+		fsl,pins = <
-+			IMX95_PAD_SD1_CLK__USDHC1_CLK				0x158e
-+			IMX95_PAD_SD1_CMD__USDHC1_CMD				0x138e
-+			IMX95_PAD_SD1_DATA0__USDHC1_DATA0			0x138e
-+			IMX95_PAD_SD1_DATA1__USDHC1_DATA1			0x138e
-+			IMX95_PAD_SD1_DATA2__USDHC1_DATA2			0x138e
-+			IMX95_PAD_SD1_DATA3__USDHC1_DATA3			0x138e
-+			IMX95_PAD_SD1_DATA4__USDHC1_DATA4			0x138e
-+			IMX95_PAD_SD1_DATA5__USDHC1_DATA5			0x138e
-+			IMX95_PAD_SD1_DATA6__USDHC1_DATA6			0x138e
-+			IMX95_PAD_SD1_DATA7__USDHC1_DATA7			0x138e
-+			IMX95_PAD_SD1_STROBE__USDHC1_STROBE			0x158e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-+		fsl,pins = <
-+			IMX95_PAD_SD2_CLK__USDHC2_CLK				0x158e
-+			IMX95_PAD_SD2_CMD__USDHC2_CMD				0x138e
-+			IMX95_PAD_SD2_DATA0__USDHC2_DATA0			0x138e
-+			IMX95_PAD_SD2_DATA1__USDHC2_DATA1			0x138e
-+			IMX95_PAD_SD2_DATA2__USDHC2_DATA2			0x138e
-+			IMX95_PAD_SD2_DATA3__USDHC2_DATA3			0x138e
-+			IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT			0x51e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-+		fsl,pins = <
-+			IMX95_PAD_SD2_CLK__USDHC2_CLK				0x158e
-+			IMX95_PAD_SD2_CMD__USDHC2_CMD				0x138e
-+			IMX95_PAD_SD2_DATA0__USDHC2_DATA0			0x138e
-+			IMX95_PAD_SD2_DATA1__USDHC2_DATA1			0x138e
-+			IMX95_PAD_SD2_DATA2__USDHC2_DATA2			0x138e
-+			IMX95_PAD_SD2_DATA3__USDHC2_DATA3			0x138e
-+			IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT			0x51e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
-+		fsl,pins = <
-+			IMX95_PAD_SD2_CD_B__GPIO3_IO_BIT0			0x31e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2: usdhc2grp {
-+		fsl,pins = <
-+			IMX95_PAD_SD2_CLK__USDHC2_CLK				0x158e
-+			IMX95_PAD_SD2_CMD__USDHC2_CMD				0x138e
-+			IMX95_PAD_SD2_DATA0__USDHC2_DATA0			0x138e
-+			IMX95_PAD_SD2_DATA1__USDHC2_DATA1			0x138e
-+			IMX95_PAD_SD2_DATA2__USDHC2_DATA2			0x138e
-+			IMX95_PAD_SD2_DATA3__USDHC2_DATA3			0x138e
-+			IMX95_PAD_SD2_VSELECT__USDHC2_VSELECT			0x51e
-+		>;
-+	};
-+
-+};
-+
-+&usdhc1 {
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+	pinctrl-0 = <&pinctrl_usdhc1>;
-+	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
-+	pinctrl-3 = <&pinctrl_usdhc1>;
-+	bus-width = <8>;
-+	non-removable;
-+	no-sdio;
-+	no-sd;
-+	status = "okay";
-+};
-+
-+&usdhc2 {
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-3 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	cd-gpios = <&gpio3 0 GPIO_ACTIVE_LOW>;
-+	vmmc-supply = <&reg_usdhc2_vmmc>;
-+	bus-width = <4>;
-+	status = "okay";
-+};
--- 
-2.53.0
+>=20
+> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c b=
+/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+> > index cf332de6bf736..20450462e2d80 100644
+> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+> > @@ -54,8 +54,8 @@ const struct sparx5_vcap_inst sparx5_vcap_inst_cfg[] =
+=3D {
+> >               .lookups_per_instance =3D SPARX5_IS0_LOOKUPS / 3,
+> >               .first_cid =3D SPARX5_VCAP_CID_IS0_L0,
+> >               .last_cid =3D SPARX5_VCAP_CID_IS0_L2 - 1,
+> > -             .blockno =3D 8, /* Maps block 8-9 */
+> > -             .blocks =3D 2,
+> > +             .blockno =3D 8, /* Maps block 8 */
+> > +             .blocks =3D 1,
+> >               .ingress =3D true,
+> >       },
+> >       {
+>=20
+> [Severity: Low]
+> The message also says:
+>=20
+>     "Since we statically assign blocks, this means IS0 has half the
+>      available address space for vcap rules, compared to before."
+>=20
+> Is "IS0" the right scope here?  Only the CLM-0 instance changes; CLM-1
+> (blocks 6-7) and CLM-2 (blocks 4-5) keep two blocks each, so IS0 loses 1
+> of 6 blocks in total.
+>=20
+> What actually halves is the address space of chains
+> SPARX5_VCAP_CID_IS0_L0..SPARX5_VCAP_CID_IS0_L2 - 1 (1000000-1199999),
+> which goes from 6144 to 3072 rule addresses.  Could the message be
+> narrowed to that range?
+>=20
+
+Correct, "IS0" is too broad and the numbers you give are exact. Only the CL=
+M-0
+instance changes; CLM-1 keeps blocks 6-7 and CLM-2 keeps blocks 4-5, so IS0
+goes from six blocks to five rather than losing half of anything.
+
+The affected range is CLM-0's, first_cid SPARX5_VCAP_CID_IS0_L0 through
+last_cid SPARX5_VCAP_CID_IS0_L2 - 1, so chains 1000000-1199999. With
+SPARX5_IS0_LOOKUPS at 6 and lookups_per_instance at 6 / 3, that instance co=
+vers
+IS0 lookups 0 and 1, and its address space goes from 6144 to 3072.
+
+I will fold this into the commit message as well.
+
+
+> > @@ -124,6 +124,18 @@ const struct sparx5_vcap_inst sparx5_vcap_inst_cfg=
+[] =3D {
+> >               .count =3D 12288, /* Addresses according to datasheet */
+> >               .ingress =3D false,
+> >       },
+> > +     {
+> > +             .vtype =3D VCAP_TYPE_LPM,
+> > +             .vinst =3D 0,
+> > +             .map_id =3D 6,
+> > +             .lookups =3D SPARX5_LPM_LOOKUPS,
+> > +             .lookups_per_instance =3D SPARX5_LPM_LOOKUPS,
+> > +             .first_cid =3D SPARX5_VCAP_CID_LPM_L0,
+> > +             .last_cid =3D SPARX5_VCAP_CID_LPM_MAX,
+> > +             .blockno =3D 9,
+> > +             .blocks =3D 1,
+> > +             .ingress =3D true,
+> > +     },
+> >  };
+>=20
+> [Severity: Medium]
+> This registers chain ids VCAP_CID_PREROUTING_L0 (6000000) through
+> SPARX5_VCAP_CID_LPM_MAX (6099999) as an ingress VCAP admin on both
+> platforms, but the per-vtype switches in sparx5_tc_flower.c were not
+> given a VCAP_TYPE_LPM arm.  Is that intentional?
+>=20
+> Before the patch, sparx5_tc_flower() rejected chain 6000000 because no
+> admin matched:
+>=20
+>         admin =3D vcap_find_admin(vctrl, fco->common.chain_index);
+>         if (!admin) {
+>                 NL_SET_ERR_MSG_MOD(fco->common.extack, "Invalid chain");
+>=20
+> Now the same request resolves to the LPM admin and continues into
+> sparx5_tc_flower_replace(), where sparx5_tc_add_rule_counter() falls
+> into its default arm:
+>=20
+>         default:
+>                 pr_err("%s:%d: vcap type: %d not supported\n",
+>                        __func__, __LINE__, admin->vtype);
+>                 break;
+>=20
+> That arm still returns 0, so does the rule end up being built without a
+> counter id?  And for an "action pass" filter, sparx5_tc_set_actionset()
+> hits its default arm and returns -EINVAL with a bare pr_err() and no
+> extack.  sparx5_tc_action_trap() has no LPM arm either.
+>=20
+> So something like:
+>=20
+>         tc filter add dev eth0 ingress chain 6000000 protocol ip \
+>             flower dst_ip 10.0.0.0/8 action pass
+>=20
+> now reaches those pr_err() calls from a netlink request, unratelimited,
+> and reports an opaque -EINVAL.  Should the tc-flower path reject the LPM
+> chain explicitly instead?  I checked at 010230ef1142 and VCAP_TYPE_LPM
+> never appears in sparx5_tc_flower.c, so nothing later in the series adds
+> these arms.
+>=20
+
+Not intentional, and yes, the tc-flower path should reject the LPM chain
+explicitly. The LPM VCAP is meant to be system-only, owned by the router, a=
+nd
+not reachable from tc at all. v3 does that.
+
+Rather than add VCAP_TYPE_LPM arms to those switches, v3 rejects the chain =
+up
+front, which also means the LPM range stays indistinguishable from a chain =
+that
+maps to no VCAP.
+
+> [Severity: Medium]
+> This isn't a bug introduced by this patch, but the new entry adds an
+> eighth iteration to a loop that leaks on failure.  In
+> sparx5_vcap_init(), sparx5->vcap_ctrl =3D ctrl is stored before the loop
+> and an allocation failure just returns:
+>=20
+>         admin =3D sparx5_vcap_admin_alloc(sparx5, ctrl, cfg);
+>         if (IS_ERR(admin)) {
+>                 err =3D PTR_ERR(admin);
+>                 pr_err("%s:%d: vcap allocation failed: %d\n", __func__, _=
+_LINE__, err);
+>                 return err;
+>         }
+>=20
+> ctrl is not freed, mutex_destroy(&ctrl->lock) is not called, and the
+> vcap_admin objects already put on ctrl->list (each with three
+> STREAMSIZE cache buffers) are not unwound.
+>=20
+> The caller cannot clean up either, because cleanup_ports sits below the
+> cleanup_vcap label in sparx5_main.c:
+>=20
+>         err =3D sparx5_vcap_init(sparx5);
+>         if (err) {
+>                 dev_err(sparx5->dev, "Failed to initialize VCAP\n");
+>                 goto cleanup_ports;
+>         }
+>         ...
+>         cleanup_vcap:
+>                 sparx5_vcap_deinit(sparx5);
+>         cleanup_ports:
+>                 sparx5_destroy_netdevs(sparx5);
+>=20
+> so sparx5_vcap_deinit() never runs for this failure.  Should the failure
+> path unwind the admins allocated so far, or should the goto target be
+> cleanup_vcap?
+>=20
+
+Confirmed. The goto target should be cleanup_vcap. No extra unwind code is
+needed, because sparx5_vcap_deinit() already does the right thing: it
+NULL-guards ctrl, iterates ctrl->list with list_for_each_entry_safe so
+a partial list is fine, frees all three cache buffers plus the admin via
+sparx5_vcap_admin_free(), then destroys the mutex and frees ctrl. There is
+no double-free risk either, since the admin that failed is already freed in=
+side
+sparx5_vcap_admin_alloc() before it returns ERR_PTR. And cleanup_vcap falls
+through to cleanup_ports, so the netdevs are still destroyed.
+
+I would rather not carry that in this series. It is a memory leak on a prob=
+e
+error path with nothing to do with L3 routing, it is pre-existing and belon=
+gs
+in the net tree.
+
+
+> [ ... ]
+>=20
+> > @@ -195,6 +213,7 @@ static void _sparx5_vcap_range_init(struct sparx5 *=
+sparx5,
+> >       u32 size =3D count - 1;
+> >=20
+> >       switch (admin->vtype) {
+> > +     case VCAP_TYPE_LPM:
+> >       case VCAP_TYPE_IS0:
+> >       case VCAP_TYPE_IS2:
+> >               spx5_wr(VCAP_SUPER_CFG_MV_NUM_POS_SET(0) |
+>=20
+> [Severity: Medium]
+> This is a pre-existing issue, but the new LPM block now inherits it.
+> sparx5_vcap_block_init() calls this helper with one less than the number
+> of addresses in the range:
+>=20
+>         _sparx5_vcap_range_init(sparx5, admin, admin->first_valid_addr,
+>                                 admin->last_valid_addr -
+>                                         admin->first_valid_addr);
+>=20
+> The range is inclusive, as set up in sparx5_vcap_block_alloc():
+>=20
+>         admin->first_valid_addr =3D cfg->blockno * SUPER_VCAP_BLK_SIZE;
+>         admin->last_used_addr =3D admin->first_valid_addr +
+>                 cfg->blocks * SUPER_VCAP_BLK_SIZE;
+>         admin->last_valid_addr =3D admin->last_used_addr - 1;
+>=20
+> and here size =3D count - 1 is programmed into VCAP_SUPER_CFG_MV_SIZE, so
+> the INITIALIZE shot clears MV_SIZE + 1 =3D=3D count addresses.
+>=20
+> That count is an address count is visible from the other user of the same
+> callback in vcap_api.c:
+>=20
+>         vctrl->ops->init(ri->ndev, admin, ri->addr, ri->size);
+>=20
+> where ri->size of 1 erases exactly one address.
+>=20
+> Does this leave the address equal to admin->last_valid_addr uninitialized
+> at probe, even though it is handed out as a usable rule address?  For the
+> LPM instance that would be 30719 on sparx5 and 18431 on lan969x, i.e. a
+> row of the longest-prefix-match table used by the router in the later
+> "net: sparx5: add L3 FIB, nexthop and neighbour entry management" patch.
+>=20
+> Would passing admin->last_valid_addr - admin->first_valid_addr + 1 (or
+> cfg->blocks * SUPER_VCAP_BLK_SIZE) be correct here?
+>=20
+> [ ... ]
+
+Yes on all of it, and the +1 form is the one to use. The range is inclusive=
+ so
+its length is last_valid_addr - first_valid_addr + 1, the helper clears
+MV_SIZE + 1 addresses as you say, and the result is that first_valid_addr
+through last_valid_addr - 1 get cleared while last_valid_addr does not. 307=
+19
+on sparx5 and 18431 on lan969x are right.
+
+Prefer last_valid_addr - first_valid_addr + 1 over
+cfg->blocks * SUPER_VCAP_BLK_SIZE. The latter is only correct for the three
+Super VCAP types and would be wrong for ES0 and ES2, which derive the range
+from cfg->count, and sparx5_vcap_block_init() has no cfg argument anyway. N=
+o
+overflow risk from the +1 either: MV_SIZE is 16 bits and the widest instanc=
+e is
+two Super VCAP blocks, 6144 addresses.
+
+
+The scope is wider than LPM or even sparx5. Every VCAP instance on both
+platforms is affected, since the ES0 and ES2 arms reach the same helper thr=
+ough
+the same block_init. And lan966x_vcap_block_init() has the identical expres=
+sion
+feeding a __lan966x_vcap_range_init() that also does MV_SIZE_SET(count - 1)=
+, so
+lan966x has the same bug.
+
+
+As with the sparx5_vcap_init() leak, I would rather not carry this in the
+series. It is pre-existing, it affects lan966x as well as sparx5, and it wa=
+nts
+a fixes tag and the net tree.
+
 
 
