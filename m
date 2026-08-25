@@ -4,112 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2AA4C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 05:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2461C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 05:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9OwnSzTLO9oC5dFpcmND+TzPw2bMH6k9WMlDpSF/Bk=; b=LLD6p+Dvogf5kNzFPG/7qCAhOa
-	LXM7Eljx3TWD5aicczVs5YtQkJ3fxuSGDBdNqh4SCs4Fk6NWdfFhAMEJ0rrH6Zi4hwZtO1JOVT/bw
-	/PvAgmdaveKBaIgGXk0GyenEhrrfTpp8drLo+zFNukxg43/MMhmqHecNnWrM8WAklA6Bmbcl87juq
-	3q9CRd981kSZqp5guFgWwJY2bIohYgubhmjY4vtKdK69Qy1Ih5uSkeR7dJPfKTZg6s/1qt2QA5jsJ
-	b93/ZFMebNRUtxaPLqe/LGuip972NcdQKWOklwwLBextALJPZroZew2NgaBeEhqTv1Fk4OWMi0wFG
-	ik27Jzkw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9vjujonXqfB1ZkfrEbqAqnsBz3mueWzOTaR5aSM5UVI=; b=QukBcVKPGzJ5uuadyLBvMz11kz
+	K0yKYTaRgo9dnkZ0h37ILWUv8enge76j8rTqiqUZaAFERAV9+c6pJaVq2W3wIoEifj+jGpe1MuqBm
+	XLP6YYNAYY6P17YjJzAp4seB1Sp9nJIH2kbogHnUfXgnkiyYybyYsIby7eH6TJrp1qdd1SMH6+Z6E
+	RXTch/vqoqPrdnVj94P8TszVg2e0QSLmb25UUjfquSuOPIvK30mSoWkIRl9RAws0MRPRBs6+PdZQg
+	hHN/QbC3XovAbf89WiNAdQ6fdjEXe9CRYJhwR6EdVcWkJ+cm5YH1E2r6QjCwvesYDKJanw076ZZJ+
+	7LJw833w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyjU7-00000000AEv-2C29;
-	Tue, 25 Aug 2026 05:14:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wyjYD-00000000AVt-0Mb5;
+	Tue, 25 Aug 2026 05:18:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyjU2-00000000ADR-2aoU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 05:14:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1787634841;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K9OwnSzTLO9oC5dFpcmND+TzPw2bMH6k9WMlDpSF/Bk=;
-	b=D/DfWQ1ojVexHfaX+44I0hDGOLd5IdoSKLR71/TQzVpNJ8h1Hw/d5nbwBSlx3hg1EvMDJE
-	rb6fBJf7zpO/MAUbD2HNMRXA+ZMbvJPJNWUTF+vXqSBF+6fowabNf+Dxfx0fe9ToxpCTvy
-	jTXI7uM4Qe1jCkWdBxDvdTzm17yJab0=
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com
- [209.85.216.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-516-B8PM04uVOcSB3mFSPq5lYw-1; Tue, 25 Aug 2026 01:13:59 -0400
-X-MC-Unique: B8PM04uVOcSB3mFSPq5lYw-1
-X-Mimecast-MFC-AGG-ID: B8PM04uVOcSB3mFSPq5lYw_1787634838
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-38f5ac7416eso4647683a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 22:13:58 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787634838; x=1788239638;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=K9OwnSzTLO9oC5dFpcmND+TzPw2bMH6k9WMlDpSF/Bk=;
-        b=RkNIFaXkYgO2ypuDZj15AIKekCRmvI151zsRA324CSkys1NHP6DpFad78SJuFXy7ls
-         GhBBFJPFW+QKM4hhfKpQHE5weLqLTGUDBV2SMHusG84JriOrrPNJn7jqjD364m05YOEU
-         oy0k55uHVwHHCKrzGCs4G8MD0J1SK7ge8M+aq18J2BlKnhKfMX97tkjBXNhpmImq7rBm
-         02+egQtFG19/PHc4MMK/d2z0uptAs4LXIsBnqykubwck0HoUDxl44B6hQHmPo5ZOdhRZ
-         1x2Dgkaa/1Jndqk+c+iePv3DwiLNgcLiSvas6I6+f0ZhlCVZRXaTVmXlGQB/CyzCSoxH
-         DqFA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq82aHIoZpGsIQinEG4o0t6Mxb/ZAO8xesOKn9GOANo9BtW6o5dmotDPJHEsRqVXOfnuy1+GGGTSZ5ZHxjiKY0Z@lists.infradead.org
-X-Gm-Message-State: AFuF++lpXKA322KTDAgdGuly1dpkLvFGceJ1zvfC8Vweigf77ndTphl9
-	XArNetHyj/7Kiw9cP4LMscEKIWF2e5WV+Sc6ZurZ5mLqn65V7fYL7B0JfdIGX1UKU3fDAiKam0V
-	8XZ+tDDWbA1rOT5q6iVNCrH+qE5c7Ob/+NvLB3am8xq+NHEkwY3WWihw7xp38EewBF8VbHVjKVK
-	bc
-X-Gm-Gg: AR+sD13eZ5yabhodCf00gpzL9f9CRNADRgTsi25J7i3kUjdsb0Hynwj6IUhtvIVUSaU
-	SKMC4RNCdYZ0VSgYoq2//kP1f2S5KA7XrhRredLYu+AuNbTinqmmbDE7uzQE+LuvJtj70H4cxsy
-	k2o6gmpo8fNwgU4KJQTOP8DpbGFeYs8tR/UAUMNDVbYb+iGAXIK0htTEwAVyREbA2nBfJDeEb2c
-	7GfNmJKDR2ohm5tFq7FNwLN0/5olNS+zYeoTR9LsXlWuCfBMfbqDxaxSk+YQYIUZJK4y8GN+P9/
-	rKRtPMYmUeViYC6HadsNsWkmYCcLOsLnRPnf6Y+okZK34uQxUVezYcuMvnM0SytWy0e10vuCaej
-	5YFLhFawub8fXNHfkuw==
-X-Received: by 2002:a17:90b:184f:b0:395:5f43:4ec4 with SMTP id 98e67ed59e1d1-3964603084fmr8668917a91.0.1787634837958;
-        Mon, 24 Aug 2026 22:13:57 -0700 (PDT)
-X-Received: by 2002:a17:90b:184f:b0:395:5f43:4ec4 with SMTP id 98e67ed59e1d1-3964603084fmr8668825a91.0.1787634837463;
-        Mon, 24 Aug 2026 22:13:57 -0700 (PDT)
-Received: from [192.168.1.2] ([122.171.16.109])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39645da08desm2156603a91.17.2026.08.24.22.13.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Aug 2026 22:13:56 -0700 (PDT)
-Message-ID: <06a45c67-2642-4efa-994a-ee50cd40a697@redhat.com>
-Date: Tue, 25 Aug 2026 10:43:48 +0530
+	id 1wyjYA-00000000AVK-1j6w;
+	Tue, 25 Aug 2026 05:18:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B27A6438D0;
+	Tue, 25 Aug 2026 05:18:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 86997C2BCB8;
+	Tue, 25 Aug 2026 05:18:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1787635097;
+	bh=c8m+kP4UJbinGZZP2vZ7BLyVif62dvbVb9w5w4QtJ2c=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=GlvZm08+42w6wLq6hwEcRYRNHi+RyJXY9zp8MJI4NpgWSBe7BaDWDXlpkF7QVZcx5
+	 bNR1NCG61x3IqaWsFIgol7BKR+Mdyp292HyRHWaWZlWKn2wONi8W3Z6FWawpfs+zCC
+	 +ITBBUPWd+B9tMIrbJCmDgutdeLcdcDb5fshQJfCHe21V5bbWhS1aaYustaSPSbqSS
+	 079hLZLMhQcgu2OA2Z4VyI2WvgG92VltBphNoJsczaTp9uSgOsMhw/uvSpvyRrscQ5
+	 cD8CF3ssojd/SEf3M251aS1lJhDR0lepakd5GUOGKwmiIuIiyY0ercEMiBnBlOjPD7
+	 wwyaGhfJom5SA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 62541C5B572;
+	Tue, 25 Aug 2026 05:18:17 +0000 (UTC)
+From: Rudraksha Gupta via B4 Relay <devnull+guptarud.gmail.com@kernel.org>
+Subject: [PATCH v2 0/2] Pinephone Pro Connectivity: Adding Modem,
+ Bluetooth, and Wi-Fi
+Date: Mon, 24 Aug 2026 22:18:15 -0700
+Message-Id: <20260824-ppp_connectivity-v2-0-a4b0e11cd62c@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] kexec: return -ENOEXEC from image probe functions
- on mismatch
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Andrew Morton <akpm@linux-foundation.org>,
- Baoquan He <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Pratyush Yadav <pratyush@kernel.org>, Tao Liu <ltao@redhat.com>,
- Philipp Rudo <prudo@redhat.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
- linux-riscv@lists.infradead.org, kexec@lists.infradead.org,
- Bradley Morgan <include@grrlz.net>
-References: <20260821-mpilaniy-v3-0-76b355399d2e@redhat.com>
- <20260821-mpilaniy-v3-1-76b355399d2e@redhat.com>
- <aoxQFxuzZ1AHmM8d@willie-the-truck>
-From: Mukesh Pilaniya <mpilaniy@redhat.com>
-In-Reply-To: <aoxQFxuzZ1AHmM8d@willie-the-truck>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: NUFvXPKXpAj6yYDKd-QRZdJL8-FACMtDzAcwwv6SduQ_1787634838
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_221402_745592_C359FBE9 
-X-CRM114-Status: GOOD (  17.75  )
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WOQQ6CMBBFr0JmbUlbEZSV9zDEQBlhEmlrWxsJ4
+ e5WWDu7N/nz5i/g0RF6qLMFHEbyZHQCechAja0ekFGfGCSXJRdCMmvtXRmtUQWKFGZ2wj5N1RU
+ XXkA6sw4f9NmUt2Znh693Mod9CV3rkSkzTRTqLFa5hF9uJB+Mm7cmUWzB/0+jYJzJc9GXeD52U
+ sjrMLX0zJMVmnVdv9b81hvYAAAA
+X-Change-ID: 20260112-ppp_connectivity-5edddd7b4904
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Lee Jones <lee@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Rudraksha Gupta <guptarud@gmail.com>, linux-clk@vger.kernel.org, 
+ mfd@lists.linux.dev, Martijn Braam <martijn@brixit.nl>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787635096; l=3246;
+ i=guptarud@gmail.com; s=20240916; h=from:subject:message-id;
+ bh=c8m+kP4UJbinGZZP2vZ7BLyVif62dvbVb9w5w4QtJ2c=;
+ b=eDOMM9OmCwYq19j0gxgg9RZnGrdgNhF6ujkRI210fik9net1+FPePUNOMqma7F1PoPW9p2xeD
+ a56SRW7MxFjBjIRkeG3gkYif1H3LKFgLDw4rHnhD4d1/WZDeoDS1HWG
+X-Developer-Key: i=guptarud@gmail.com; a=ed25519;
+ pk=ETrudRugWAtOpr0OhRiheQ1lXM4Kk4KGFnBySlKDi2I=
+X-Endpoint-Received: by B4 Relay for guptarud@gmail.com/20240916 with
+ auth_id=211
+X-Original-From: Rudraksha Gupta <guptarud@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,53 +87,83 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: guptarud@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+Continuing the work on upstreaming Pinephone Pro functionality,
+this patch series gets the connectivity side of the Pinephone Pro
+mainlined. Here are the following sources:
 
-On 24/08/26 7:37 pm, Will Deacon wrote:
-> On Fri, Aug 21, 2026 at 07:19:57PM +0530, Mukesh Pilaniya wrote:
->> Several kexec_file_load() image probe functions return -EINVAL when
->> they do not recognize the image format.  A probe function that rejects
->> an image should return -ENOEXEC to indicate that the image is not a
->> recognized executable format.  -EINVAL implies a problem with the
->> syscall parameters, not with image recognition.
->>
->> kexec_image_probe_default() iterates through registered loaders and
->> returns the last probe's error code to the caller.  That error
->> propagates as the kexec_file_load() return value to userspace.
->> Returning -EINVAL from a probe when no loader matches is semantically
->> incorrect and misleads userspace about the nature of the failure.
->>
->> Return -ENOEXEC from all probe functions and their helpers when the
->> image format is not recognized.
->>
->> Signed-off-by: Mukesh Pilaniya <mpilaniy@redhat.com>
->> Reviewed-by: Philipp Rudo <prudo@redhat.com>
->> Reviewed-by: Pratyush Yadav <pratyush@kernel.org>
->> Reviewed-by: Bradley Morgan <include@grrlz.net>
->> ---
->>  arch/arm64/kernel/kexec_image.c   | 4 ++--
->>  arch/loongarch/kernel/kexec_efi.c | 4 ++--
->>  arch/riscv/kernel/kexec_image.c   | 4 ++--
->>  kernel/kexec_elf.c                | 4 ++--
->>  4 files changed, 8 insertions(+), 8 deletions(-)
-> 
-> Hmm, so after this patch, are there actually any implementations of .probe()
-> that return anything other than 0 or -ENOEXEC? I couldn't spot any after
-> a quick look.
-> 
-> Willkexec_elf_probe() can return -ENOMEM if memory allocation (kzalloc())
-fails inside elf_read_phdrs(). This behavior was previously discussed in
-the first patch of this series [1].
+- https://codeberg.org/megi/linux
+- https://gitlab.com/pine64-org/linux/-/commit/f9f847c6fd1
 
-[1]
-https://lore.kernel.org/all/0d7acb43-2eb4-44ec-9bfb-b89440afc605@redhat.com/#t
+All credits to the following folks:
+- Martijn Braam: original author for the Pinephone Pro bringup
+- Kamil Trzcinski: original author for the Pinephone Pro bringup. No
+  longer credited as I can't seem to contact this person
+- Ondrej Jirman: maintains https://codeberg.org/megi/linux
+- Dang Huynh: for the modem patch above
 
+As far as I can tell, I've credited everyone that I know about, but
+may be missing some because of how long its been since the original
+implementation till now has been.
 
--- 
-Regards,
-Mukesh Pilaniya
+I've also included a short guide on how to test these patches. This
+generally follows this page:
+https://wiki.postmarketos.org/wiki/PINE64_PinePhone_Pro_(pine64-pinephonepro)
+
+To test, please follow the following steps:
+    https://wiki.postmarketos.org/wiki/PINE64_PinePhone_Pro_(pine64-pinephonepro)#External_storage_(microSD_card)
+
+To build your own image, you will need to do something like this:
+pmbootstrap init    # I typically choose Phosh. Defaults should work
+wget https://gitlab.postmarketos.org/postmarketOS/pmaports/-/raw/main/device/community/linux-pine64-pinephonepro/config-pine64-pinephonepro.aarch64 -O arch/arm64/configs/orangepi_defconfig
+make LLVM=1 CC="ccache clang" O=.output ARCH=arm64 -j $(nproc) W=1 orangepi_defconfig all
+pmbootstrap build --envkernel linux-pine64-pinephonepro
+pmbootstrap build --force device-pine64-pinephonepro
+pmbootstrap install --sdcard=/dev/sdX    # Change /dev/sdX appropriately
+pmbootstrap -y zap -a    # Cleanup everything
+
+Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
+---
+Changes in v2:
+- dropped removing the interrupt GPIO for Wifi as that is now merged into mainline
+- reworked clkout2
+- dropped all the signed-off-by's. credited in cover letter
+- Link to v1: https://lore.kernel.org/r/20260112-ppp_connectivity-v1-0-284d6e83b212@gmail.com
+
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+To: Michael Turquette <mturquette@baylibre.com>
+To: Stephen Boyd <sboyd@kernel.org>
+To: Brian Masney <bmasney@redhat.com>
+To: Lee Jones <lee@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-clk@vger.kernel.org
+Cc: mfd@lists.linux.dev
+
+---
+Martijn Braam (2):
+      arm64: dts: rockchip: Enable the EG25-G modem on the Pinephone Pro
+      clk: rk808: Select the clock function of CLK32KOUT2 on the RK818
+
+ .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 69 ++++++++++++++++++++++
+ drivers/clk/clk-rk808.c                            | 46 ++++++++++++++-
+ include/linux/mfd/rk808.h                          |  1 +
+ 3 files changed, 115 insertions(+), 1 deletion(-)
+---
+base-commit: 237a1c39e8dfd3e1c6f1f023eea37a48ec04cc63
+change-id: 20260112-ppp_connectivity-5edddd7b4904
+
+Best regards,
+--  
+Rudraksha Gupta <guptarud@gmail.com>
+
 
 
