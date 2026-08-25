@@ -4,66 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB42C61CE2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 10:32:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33478C61DB4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 10:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hcRF+Ez8X25jX81OBa0aRS4U+pKAW1gVpgBJJkiwHLw=; b=J1boajS6sCDDdsfA0YmpovzSct
-	lKp/w05iT7PXomlUlIMBT+cF802vJ1LKY66UOHwTKzWB8SDb8zVlAgCZEcEAVWU9vWSHdjlaFzaMU
-	wAVRNEv57rw/21bqWh+ESmJnLU9mYshMxXmXRSh35KY5cqmojU6QjscsO6c6wkIYLrnPdfbtDnQT4
-	fOxgpkFBG1mUMtN+DcJooxyohLbChrK+o/QMWUktQJYx3yp8in3dfEw22USRjvP9yh6FzhgIaT59P
-	UcCqcGuj3CCqfW4W90ygfJXqM2VBRm3XO2p/Jp6q5qQQQfwqCRR+vDJugGXYt0QYGqNFURh2hkpPh
-	B1pN/gYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jRn7emcmBc++SvjJm0K2yXoyPRIyox7G9VOUHofmZ2A=; b=K/k8z0fi8KnaSzr7XFb6plZrsF
+	siVqaDPsrj3DnnlRe6FjkTYiFLTAU3gvCiqHDbfqoj2eVoNpiBRVnGGi3l4q0Fl2tXCk83Owvp2Ot
+	QgOPra3DEkfTFxrgy+i60QEriFc+XsFWIg/W6ech57fYkU0l6Rgf3OKRA0+ivelJfFzTOFw4jOQt8
+	SJiYclG8/jwtFZqjGmDmBD0ga0U6tF3/YflqqvTzigSEeiJBe/n2R+x5TK69G5PkYWOpumsVvopkQ
+	LRohdFPm+J+oIYx8ZP0532MGyUrYd4jM+N5PIDKP2kLo/sdf4phYkL3GD132N+SkG+no7ImTkyXA1
+	B80/6EOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyoS8-00000000bpv-0fcS;
-	Tue, 25 Aug 2026 10:32:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyoS3-00000000bpN-3yOn
+	id 1wyoTz-00000000bzt-1bKk;
+	Tue, 25 Aug 2026 10:34:19 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wyoTu-00000000bys-0zS4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 10:32:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A3F71BF7;
-	Tue, 25 Aug 2026 03:32:11 -0700 (PDT)
-Received: from [10.1.31.148] (e142021.arm.com [10.1.31.148])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E6B313F7D8;
-	Tue, 25 Aug 2026 03:32:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787653935; bh=Tsxi2Q13JLZntOlrs0aLxbld635jIPf+JkdjCgc9bSI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QOv1dLDfG0UNmyJ2VQE0AaDZv92EGE1qm9y4Pu6MsK7wVPVj1aCwzqS/FNSWwCgWW
-	 WfzFzRkRshkDtapxyPO9JsOUefIZmjasDM3mxAeWKtnRaFM9wzM+mGWdRNPPi0BC4P
-	 mSdooJGvXr2GnbdxqCZIpzQ8fHkAPqy+i8N6HvRk=
-Message-ID: <95b5fee4-70e8-4b2d-96fa-bce267ff13f5@arm.com>
-Date: Tue, 25 Aug 2026 11:32:11 +0100
+	Tue, 25 Aug 2026 10:34:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1787654054; x=1819190054;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=zrStYGCJI5zg0s0lkCyQJpYcpXw8vJugr3qu2zUu1K8=;
+  b=kuRQXm9Dr8NhsLq5KORW+j2LNz8q5ucziqHddSIBwXTrLmHhDlqAS4yS
+   EjjrW+XAOei23QtfcsNbe5nYx3IE2q2PAa52FhUu94EuRv4HoDeIJNTue
+   Vai3qsqCCWsUC4XYhCsBJaE7QRYGnsTi0KPCo4lgaVu55xrnRjeGCGMg8
+   ldTpO/k/Hmy0ch60uEBq/y+gE28PwlJHjFCLsgw8fbR6I2dg1amlfBUPx
+   9yl8R+bB9vm3eQLhOEx3DG+oc4D7mVN+t9VwB99MXGvsvSEJiwH8vOc3p
+   u9t5CIsLFTHDtePMrIpZaW/ydoE3X3jpC04dzaQfxXU78wWRvJWTdmlu6
+   Q==;
+X-CSE-ConnectionGUID: +3YBZkRuRtiVFAud92hvQg==
+X-CSE-MsgGUID: 7JBZc/kjR/WQTPPfxUaTKA==
+X-IronPort-AV: E=Sophos;i="6.25,242,1779174000"; 
+   d="scan'208";a="229744370"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Aug 2026 03:34:12 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 25 Aug 2026 03:34:12 -0700
+Received: from DEN-DL-M77643.microsemi.net (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 25 Aug 2026 03:34:09 -0700
+Message-ID: <cd8c7732d896bafe436204362bf5f20e3fddf3ed.camel@microchip.com>
+Subject: Re: [PATCH net-next v2 1/9] net: microchip: vcap: fix rule move for
+ rules of coprime size
+From: Jens Emil Schulz Ostergaard <jensemil.schulzostergaard@microchip.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <horatiu.vultur@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<pabeni@redhat.com>, <daniel.machon@microchip.com>,
+	<Steen.Hegelund@microchip.com>, <kees@kernel.org>, <gustavoars@kernel.org>,
+	<robert.marko@sartura.hr>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-hardening@vger.kernel.org>
+Date: Tue, 25 Aug 2026 12:34:08 +0200
+In-Reply-To: <20260817211333.3633182-1-kuba@kernel.org>
+References: <20260810-sparx5_l3_routing-v2-1-59e68cc8c8ca@microchip.com>
+	 <20260817211333.3633182-1-kuba@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.44.4-0ubuntu2.1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: ethernet: sun4i-emac: Fix IRQ error handling
-To: phucduc.bui@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: Samuel Holland <samuel@sholland.org>, Linus Walleij <linusw@kernel.org>,
- Kees Cook <kees@kernel.org>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Arnd Bergmann <arnd@arndb.de>, Stefan Roese <sr@denx.de>,
- Maxime Ripard <mripard@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20260824100901.31675-1-phucduc.bui@gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260824100901.31675-1-phucduc.bui@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_033220_035557_97BFE0A6 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20260825_033414_612884_03F39B82 
+X-CRM114-Status: GOOD (  26.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,46 +91,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 8/24/26 12:09, phucduc.bui@gmail.com wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
-> 
-> irq_of_parse_and_map() returns 0 when parsing or mapping an IRQ fails.
-> The current code checks for -ENXIO and therefore does not detect the
-> failure.
-> 
-> Check for a zero return value and convert it to -ENXIO.
-
-Yes, the return value is the IRQ number, or 0 in case of a missing IRQ.
-
-> Fixes: 492205050d77 ("net: Add EMAC ethernet driver found on Allwinner A10 SoC's")
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Thanks,
-Andre
-
+On Mon, 2026-08-17 at 14:13 -0700, Jakub Kicinski wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know th=
+e content is safe
+>=20
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
 > ---
->   drivers/net/ethernet/allwinner/sun4i-emac.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/allwinner/sun4i-emac.c b/drivers/net/ethernet/allwinner/sun4i-emac.c
-> index 42174249ef61..942454e29488 100644
-> --- a/drivers/net/ethernet/allwinner/sun4i-emac.c
-> +++ b/drivers/net/ethernet/allwinner/sun4i-emac.c
-> @@ -996,9 +996,9 @@ static int emac_probe(struct platform_device *pdev)
->   	/* fill in parameters for net-dev structure */
->   	ndev->base_addr = (unsigned long)db->membase;
->   	ndev->irq = irq_of_parse_and_map(np, 0);
-> -	if (ndev->irq == -ENXIO) {
-> +	if (!ndev->irq) {
->   		netdev_err(ndev, "No irq resource\n");
-> -		ret = ndev->irq;
-> +		ret = -ENXIO;
->   		goto out_iounmap;
->   	}
->   
+> net: microchip: vcap: fix rule move for rules of coprime size
+>=20
+> This reworks the VCAP rule move logic so that insert and delete compute a
+> single uniform address offset, aligned to the LCM of the rule sizes in th=
+e
+> moved block, instead of per-rule "optimal" offsets. The goal is to keep t=
+he
+> software rule addresses in sync with what the hardware move command does,
+> which becomes necessary once rules of coprime sizes (2 and 3) appear with
+> the LPM VCAP.
+>=20
+> One question about the delete algorithm description in the changelog.
+>=20
+> > On delete:
+> >=20
+> > 1. Initialize HW memory at the deleted rule's addresses before
+> >    moving, since the moved block may not fully cover them due to
+> >    padding.
+> > 2. Reclaim any padding between rules in the block.
+>=20
+> [Severity: Low]
+> Is step 2 accurate for the new implementation?  As far as I can tell the
+> padding that sits between rules inside the moved block is preserved, not
+> reclaimed, because a single offset is applied to every rule in the block:
+>=20
+> drivers/net/ethernet/microchip/vcap/vcap_api.c:vcap_move_rules_sw() {
+>         list_for_each_entry_continue(pos, &admin->rules, list)
+>                 pos->addr -=3D move->offset;
+> }
+>=20
+> Since every rule in the block is shifted by the same move->offset, the ga=
+ps
+> between rules within the block are structurally invariant across the move=
+.
+>=20
+> What appears to be reclaimed is the deleted rule's own space plus the
+> padding adjacent to its position, and only down to block_lcm granularity.
+> In the delete path unaligned_offset is always negative (block_first->addr=
+ +
+> block_first->size <=3D ri->addr <=3D base_addr), so the truncating branch=
+ is
+> taken in vcap_move_from_block():
+>=20
+> drivers/net/ethernet/microchip/vcap/vcap_api.c:vcap_move_from_block() {
+>         unaligned_offset =3D (block_first->addr + block_first->size) - ba=
+se_addr;
+>         if (unaligned_offset > 0)
+>                 move->offset =3D
+>                         ((unaligned_offset + (block_lcm - 1)) / block_lcm=
+) *
+>                         block_lcm;
+>         else
+>                 move->offset =3D (unaligned_offset / block_lcm) * block_l=
+cm;
+> }
+>=20
+> Integer division truncating toward zero leaves up to block_lcm - 1 addres=
+ses
+> of the gap unreclaimed at the boundary.
+>=20
+> Could the changelog wording be adjusted to describe what is actually
+> reclaimed, for example the deleted rule's addresses plus adjacent padding=
+,
+> rounded down to the block LCM?
+>=20
+
+Yes I will update the commit message, this is poorly worded.
+
+> > diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.c b/drivers/n=
+et/ethernet/microchip/vcap/vcap_api.c
+> > index 788c0728d7636..75c2ca54fddd2 100644
+> > --- a/drivers/net/ethernet/microchip/vcap/vcap_api.c
+> > +++ b/drivers/net/ethernet/microchip/vcap/vcap_api.c
+>=20
+> [ ... ]
+>=20
+> > @@ -2106,12 +2108,63 @@ static u32 vcap_set_rule_id(struct vcap_rule_in=
+ternal *ri)
+> >       return ri->data.id;
+> >  }
+> >=20
+> > +static void vcap_move_from_block(u32 base_addr,
+> > +                              struct vcap_rule_internal *block_first,
+> > +                              struct vcap_rule_internal *block_last,
+> > +                              int block_lcm, struct vcap_rule_move *mo=
+ve)
+> > +{
+> > +     int unaligned_offset;
+> > +
+> > +     if (!block_first || !block_last)
+> > +             return;
+> > +
+> > +     move->addr =3D block_last->addr;
+> > +     move->count =3D block_first->addr + block_first->size - block_las=
+t->addr;
+> > +     /* Integer division rounds toward zero. We want to round toward +=
+inf
+> > +      * for the positive case (insertion) to ensure enough room.
+> > +      */
+> > +     unaligned_offset =3D (block_first->addr + block_first->size) - ba=
+se_addr;
+> > +     if (unaligned_offset > 0)
+> > +             move->offset =3D
+> > +                     ((unaligned_offset + (block_lcm - 1)) / block_lcm=
+) *
+> > +                     block_lcm;
+> > +     else
+> > +             move->offset =3D (unaligned_offset / block_lcm) * block_l=
+cm;
+> > +}
+> > +
+> > +static void vcap_move_rules_sw(struct vcap_admin *admin,
+> > +                            struct vcap_rule_internal *pos,
+> > +                            struct vcap_rule_move const *move)
+> > +{
+> > +     if (move->count =3D=3D 0 || move->offset =3D=3D 0)
+> > +             return;
+> > +
+> > +     list_for_each_entry_continue(pos, &admin->rules, list)
+> > +             pos->addr -=3D move->offset;
+> > +}
+>=20
+> [ ... ]
+> --
+> pw-bot: cr
 
 
