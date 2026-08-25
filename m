@@ -4,57 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75511C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 16:47:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972B8C61DBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 16:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3GZScCHHqIVwpgN6Too16d1BAnX8RajVwsDCUN98YHI=; b=gHiXtnFY5z9VYTuJKqWxgOFU1N
-	pUx6qJxbXPjG+tR1E4k2rG7hZuDaq2qhynmcMbdQqlfnaFn9dFxMNNXvw+sqqkhtswW4JTH9FwVTi
-	HAR3/283taj0BVmxYGCAGO9jFYFXJEALJ3GMYaItho8KxW8T8G9oW1d2WoYh6QcqYQ2BhU71n/MHT
-	29Gq60Q7p5mIR+ptmibSfTZSJl3UqP6eL6P8GDymG919vFIfdQSGnpfUbS1rJQCiDS04zo88omFhA
-	A4VHPJwZi2bn+MBr7A6pCaPku7JOQg+a6/6Mh/Y4OQILQS7v9ngcLnny41lpmKlkju9V8AkV1+ESs
-	ecQIoxPg==;
+	bh=uj9WhkqkZdb3jP0eYrqc0Rs9Sev/2nJjaxalhss33qs=; b=Q0oFUAuyf+3AhhE3D+Q1D611zh
+	I7e9cVzejicQZ/MucilsBx2zxb6/03Y9q4WZeEoSaeXrJ7CwMLOCkM6ApS2NJy60Ua39PzsjnWfgg
+	Id9+BLyLwl6YKaQA1aw/nJZEYV945Cj+O1g1sdY+4O2wuoQ6THPjQJ+eNtoU3qXyEFiSVqE5/v0ic
+	uup5nzShp/YPXP4cmS3jRu/CcV96AoktBkjGImKClvKuBDf1usP97mbqzzn9je6oEK3FzSMm9Fn0I
+	Pd0liOSdpqm9/C1TuzpTp8PuH33uGv5enlZ/ZaWTczQdfpSVhvVyaXUY5Csxs4d/jlDjIfMzQTmiO
+	qr4zzOog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyuJA-000000019R8-2jn4;
-	Tue, 25 Aug 2026 16:47:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wyuMy-000000019nu-0YAR;
+	Tue, 25 Aug 2026 16:51:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyuJ8-000000019PI-08ZM
+	id 1wyuMw-000000019nm-35w9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 16:47:30 +0000
+	Tue, 25 Aug 2026 16:51:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6C42C60133;
-	Tue, 25 Aug 2026 16:47:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 572591F000E9;
-	Tue, 25 Aug 2026 16:47:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2995840790;
+	Tue, 25 Aug 2026 16:51:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BF461F000E9;
+	Tue, 25 Aug 2026 16:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787676449;
-	bh=3GZScCHHqIVwpgN6Too16d1BAnX8RajVwsDCUN98YHI=;
+	s=k20260515; t=1787676686;
+	bh=uj9WhkqkZdb3jP0eYrqc0Rs9Sev/2nJjaxalhss33qs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lvnzLfQgQOx8Oap1AUr+o2woZmJDVd6EIA2TA1rS74pD7SiFpLNMnwoIPJQ6hSfc3
-	 in4gmSlJAVV823fYm4ReT8mqAbUo8kEi8sCnp/q885xVv4eTfNH9VPWSCJwzWfQUly
-	 D/tNEKm6CIAZrtkPj1Xl4dt/i5lFBl/DSiv9kPVSTaOsxDd1sbyvuLRVEHPwgX1jtE
-	 yljlBiC/VwiZF8YrRAvui4GKgzM5Wx9lbFp03snbzhVpVFW3z246mVlIr2R4EFxios
-	 DVgj8TD75sdO486JTKSNx1Yf/pUazzSwXLoACQxdQ7dVqFddvPTBDtcXISOqCn4D8S
-	 Vd/9ZnrcHQ9FA==
-Date: Tue, 25 Aug 2026 17:47:25 +0100
-From: Will Deacon <will@kernel.org>
-To: sandeen@redhat.com
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [fs-test] =?utf-8?B?4p2MIEZBSUw6IFRl?= =?utf-8?Q?st_repor?=
- =?utf-8?Q?t?= for for-kernelci (7.2.0-rc7, upstream-arm-next, 21d6ac05)
-Message-ID: <ao3HHZdulsnA3P-9@willie-the-truck>
-References: <87021.126081216320600366@us-mta-482.us.mimecast.lan>
- <037e7485-2fd5-4d29-9e08-523a87cfd8e9@redhat.com>
+	b=m0UfYeBFq6LJSnyuICm7ghI6FTvFcSUB336zoKnLgEVcq1t7M13917xMX+2+NqijR
+	 iBY8Lr2CqCEi8qovye0uCDx5yUpcimHnY1fUVXnQUdNsmfVwNpRCSII85miYDBBscS
+	 Z6zHuToi8LupYVvMFPz/fE835Sud9/76cP6/X2KiSymr5RNulzF8dARWUbAN3wdLiE
+	 ln65cpvGvNRz7lgyCxxjPv4NFeVGhEVCaC7eyFofwHqK8NoLDGrFgOTihjUcqLNHAp
+	 Z6d2iC/BPJqIPUVxMcIOTEkSLwIcfVLRzFG3/VKgPL51P/y5yGfzYDRzmbsmUtVYD/
+	 la4oVnjxr22NA==
+Date: Tue, 25 Aug 2026 17:51:21 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, elena.popa@nxp.com,
+	cosmin.stoica@nxp.com,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: add MR-NAVQ95 board
+Message-ID: <20260825-slighting-tweak-7edb9705411a@spud>
+References: <20260825120812.2152-1-laurentiumihalcea111@gmail.com>
+ <20260825120812.2152-2-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="thp85LlBU4kVyd6v"
 Content-Disposition: inline
-In-Reply-To: <037e7485-2fd5-4d29-9e08-523a87cfd8e9@redhat.com>
+In-Reply-To: <20260825120812.2152-2-laurentiumihalcea111@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,19 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 25, 2026 at 11:05:40AM -0500, Eric Sandeen wrote:
-> I've been trying to make sense of some of the automated testing like
-> this which seems to have been on autopilot for a while.
-> 
-> Is this testing/reporting something that is still useful to you?
-> 
-> I've been seeing the same btrfs test fail forever, I doubt it's arm-specific,
-> and I'm not sure anyone is looking into it.
-> 
-> Would you like this testing to continue or is just noise now?
+--thp85LlBU4kVyd6v
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Generally, the CKI testing is really useful and we use it all the time.
-I just ignore that btrfs test!
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Will
+--thp85LlBU4kVyd6v
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCao3ICQAKCRB4tDGHoIJi
+0q3LAP9eiNOKbeSHdVJaupRVPyTvh2tBUfSgxHD90LXQpr/7cwD9FY9qLM8PxlSn
+hv40hzjuLm7uotv6kc2j2kEw+o2QygE=
+=TJNO
+-----END PGP SIGNATURE-----
+
+--thp85LlBU4kVyd6v--
 
