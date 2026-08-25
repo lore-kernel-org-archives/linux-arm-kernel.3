@@ -4,72 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E7BBC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 14:47:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D71BCC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 14:54:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0TFZjKRxbYc4+FJR8PgySJ9w/WGb5uGwbC5pPWd/UW0=; b=ew+kkfx/n57AsXGLNiRVnbHZYs
-	qtcbnLtL0B+pitO7FvAXjaIsilMy82FsN7Grolq3yp5GP4jsRFF+hpAR08SEuHOuYwxlIPirjeO+U
-	jSU8+ojnHfQbViMU7vk04w4ZCuzi5imPD+bITV5vOXuAqxShV1YVGLiOVtsioxKXaLIlLhahRb221
-	0hysbJbClqPZXzeBCI09BsLRthWUQIpeXiZjAb55ZumD+4gW3DxM4mSkut4YbHE/l2+xZYvNWoGWW
-	qZnCzx52mFnFvDwtbeq4LZomEgeoXXLtbUFwGL/xk0LWz6lYWaNE9a+1VJr4QvGR/9zk0yLvCGZRn
-	gdA7NRvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aDxfxf1fgYjMSBidSGAbLNiPBiqyv8EGm8NAQD08B68=; b=qy69sYK805/vZNNi2B4sZQx6Wg
+	pZoipqEiZZZna9VWg12ygHNYXODZbstEF72EtACPmtpMmQ8E40nJ7QgIfVDX0563R568v+hjg0THa
+	n+9pBHcFePcyN4AgWE8+76PdAC9CGYDVkcVK9mSROmXAz8yAJfQRAn/eVwvPjllOxxxI4X/wLClWs
+	7SNwvSq7RU1hyIxb3YLsTMpo67mxcSpWUYpP8C2Hg0juegvQ3XSOeF9/QIMGBgrQHIaoFn3r923Ws
+	T/8jBsDq3ublc1JUlg0gkHtrGI6AbkIxxl8fHZWDr98R70U3A2YJnaZY4NEzWFRKSD5uciZbNCtCa
+	h9e4UXGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wysQY-00000000zH9-3Njt;
-	Tue, 25 Aug 2026 14:47:02 +0000
-Received: from out-39.mta0.migadu.com ([2001:41d0:1004:224b::27] helo=mta0.migadu.com)
+	id 1wysXV-00000000zo6-21ul;
+	Tue, 25 Aug 2026 14:54:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wysQV-00000000zGM-16uO
+	id 1wysXT-00000000znq-3DPZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 14:47:01 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=0TFZjKRxbYc4+FJR8PgySJ9w/WGb5uGwbC5pPWd/UW0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787669217; v=1; x=1788274017;
- b=KxRsBMg25p938ZnsFmhgHGnPbHK6L4s6Gzg3u3+oL7/S7OqYN6ud6ubKAGv6mvtApvWqct14
- Sj+n++dkYib3bgvFqc02WWZuevuUBq58ADh1skLO7t1gHaYJLK0Wj1XjaI7XLz8tbvtuh30yWbL
- 8fW3wyLfQ8iF5JmJYgWZ4A38=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from mail-lf1-f44.google.com (209.85.167.44)
-	by smtp.migadu.com with ESMTPS id acc2b70974c29dc7;
-	Tue, 25 Aug 2026 14:46:57 +0000
-X-Mizu-Trace-ID: acc2b70974c29dc7
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5b2a73da7e1so4567e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 07:46:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrqvTJq3Ltva3DnPz+F1mavivmPcB07vDdK7mcZzC4TDh3OYucB24z7xC37os/YzYT2jAhwBaQK1cZTcPwn2Pow@lists.infradead.org
-X-Gm-Message-State: AFuF++k2sKqvpiRi+hxp4hjmcnnk7mWsj24lvMxpAPzerv/XW3j/STki
-	U/G9r5uTM97bpjkN9+ErGb+M4QFXuNUvB0lFJRdbCpdGQx1Lgl5YkgAXEZhaqYLw9308+WnCrxX
-	PxJPhwbW4D0cfBx32mi7Qktl8GaadQ0OQd9yXOTZR
-X-Received: by 2002:a05:6512:3049:b0:5ae:cf5f:4a88 with SMTP id
- 2adb3069b0e04-5b49de6a523mr92553e87.8.1787669211662; Tue, 25 Aug 2026
- 07:46:51 -0700 (PDT)
+	Tue, 25 Aug 2026 14:54:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 26F3B405ED;
+	Tue, 25 Aug 2026 14:54:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4E6F1F00A3A;
+	Tue, 25 Aug 2026 14:54:09 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH/RFT] arm64: dts: renesas: r9a09g047e57-smarc: Update CAN transceivers
+Date: Tue, 25 Aug 2026 16:54:05 +0200
+Message-ID: <2a759a486337e4cc8156bc94079471a6552faefc.1787669487.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260824184155.2644646-1-fuad.tabba@linux.dev>
- <aoypji6EJ8zToWvh@arm.com> <CA+EHjTwueqEAVq-7_ioRN+1h3LNPAqHX3rTqbXODViJJM-D_pQ@mail.gmail.com>
- <ao2jNDv8tOjnimEH@willie-the-truck>
-In-Reply-To: <ao2jNDv8tOjnimEH@willie-the-truck>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 25 Aug 2026 15:46:15 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTx93ERXZV1visdfBOGtH7wHff6TAoeJe+pNtikPrRp8Qw@mail.gmail.com>
-X-Gm-Features: AcwNN1UXT1Fu6A7fHijzE1Tq--IpkMbS8FLzylOjcibifcf5PlkAtmwgTVzAKGk
-Message-ID: <CA+EHjTx93ERXZV1visdfBOGtH7wHff6TAoeJe+pNtikPrRp8Qw@mail.gmail.com>
-Subject: Re: [PATCH v3] arm64: Don't read GMID_EL1 when MTE is disabled
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_074659_448961_D7526E40 
-X-CRM114-Status: GOOD (  19.77  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +58,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Aug 2026 at 15:14, Will Deacon <will@kernel.org> wrote:
-...
+The dual-channel TCAN1046V-Q1 CAN Transceiver on the RZ/G3E SMARC EVK is
+currently modelled as two TCAN1042 instances.  Improve hardware
+description by describing the actual transceiver.
 
-> > Agreed it's separate, but v3 applies the override without checking
-> > that the CPU has MTE2, so id_aa64pfr1.mte=2 on a CPU without it reads
-> > a GMID_EL1 that isn't there. On the boot CPU that's before the
-> > override is sanitised. Should I check the raw register before applying
-> > the override, until the clamp lands?
->
-> At which point, why don't we bite the bullet and implement Suzuki's
-> idea so that __read_sysreg_by_encoding() does what you want more generally?
->
-> https://lore.kernel.org/all/afc5bd00-28ca-413b-b047-ee53589c285d@arm.com/
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+Compile-tested only due to lack of hardware.
 
-v4 will be two patches: Suzuki's clamp first, then the GMID_EL1 gate
-on __read_sysreg_by_encoding().
+At least the TI AM68 SK DTS should be updated, too.
+There may be others ("git grep -wc ti,tcan1042 | grep -v :1$").
+---
+ .../boot/dts/renesas/r9a09g047e57-smarc.dts   | 25 +++++++++++--------
+ .../boot/dts/renesas/renesas-smarc2.dtsi      | 13 +++-------
+ 2 files changed, 17 insertions(+), 21 deletions(-)
 
->
-> > > If you are worried about additional trapping of the MRS, we should go
-> > > for Will's improvement to always read the cached values in
-> > > __read_sysreg_by_encoding().
-> >
-> > Not worried :) __cpuinfo_store_cpu() has already read ID_AA64PFR1_EL1
-> > a few lines up.
->
-> But if you go with __read_sysreg_by_encoding() then you'd still be
-> reading it (and trapping) twice, no?
+diff --git a/arch/arm64/boot/dts/renesas/r9a09g047e57-smarc.dts b/arch/arm64/boot/dts/renesas/r9a09g047e57-smarc.dts
+index 469a6282b2a30c91..14f5834082fa500e 100644
+--- a/arch/arm64/boot/dts/renesas/r9a09g047e57-smarc.dts
++++ b/arch/arm64/boot/dts/renesas/r9a09g047e57-smarc.dts
+@@ -112,7 +112,7 @@ &canfd {
+ 	channel1 {
+ 		status = "okay";
+ #if (!SW_LCD_EN) && (SW_GPIO9_CAN1_STB)
+-		phys = <&can_transceiver1>;
++		phys = <&can_transceiver 1>;
+ #endif
+ 	};
+ #endif
+@@ -121,22 +121,25 @@ channel1 {
+ 	channel4 {
+ 		status = "okay";
+ #if (SW_GPIO8_CAN0_STB)
+-		phys = <&can_transceiver0>;
++		phys = <&can_transceiver 0>;
+ #endif
+ 	};
+ #endif
+ };
+ 
+-#if (!SW_LCD_EN) && (SW_GPIO8_CAN0_STB)
+-&can_transceiver0 {
+-	standby-gpios = <&pinctrl RZG3E_GPIO(5, 4) GPIO_ACTIVE_HIGH>;
+-	status = "okay";
+-};
++#if (!SW_LCD_EN) && (SW_GPIO8_CAN0_STB || SW_GPIO9_CAN1_STB)
++&can_transceiver {
++	standby-gpios =
++#if (SW_GPIO8_CAN0_STB)
++			<&pinctrl RZG3E_GPIO(5, 4) GPIO_ACTIVE_HIGH>,
++#else
++			<0>,
++#endif
++#if (SW_GPIO9_CAN1_STB)
++			<&pinctrl RZG3E_GPIO(5, 5) GPIO_ACTIVE_HIGH>;
++#else
++			<0>;
+ #endif
+-
+-#if (!SW_LCD_EN) && (SW_GPIO9_CAN1_STB)
+-&can_transceiver1 {
+-	standby-gpios = <&pinctrl RZG3E_GPIO(5, 5) GPIO_ACTIVE_HIGH>;
+ 	status = "okay";
+ };
+ #endif
+diff --git a/arch/arm64/boot/dts/renesas/renesas-smarc2.dtsi b/arch/arm64/boot/dts/renesas/renesas-smarc2.dtsi
+index 696a933af808a8eb..826a11ab93c7a253 100644
+--- a/arch/arm64/boot/dts/renesas/renesas-smarc2.dtsi
++++ b/arch/arm64/boot/dts/renesas/renesas-smarc2.dtsi
+@@ -44,16 +44,9 @@ chosen {
+ 		stdout-path = "serial3:115200n8";
+ 	};
+ 
+-	can_transceiver0: can-phy0 {
+-		compatible = "ti,tcan1042";
+-		#phy-cells = <0>;
+-		max-bitrate = <8000000>;
+-		status = "disabled";
+-	};
+-
+-	can_transceiver1: can-phy1 {
+-		compatible = "ti,tcan1042";
+-		#phy-cells = <0>;
++	can_transceiver: can-phy {
++		compatible = "ti,tcan1046", "nxp,tja1048";
++		#phy-cells = <1>;
+ 		max-bitrate = <8000000>;
+ 		status = "disabled";
+ 	};
+-- 
+2.43.0
 
-It would, and I'm fine with that on a CPU bring-up path.
-
-Stay tuned!
-/fuad
->
-> Will
 
