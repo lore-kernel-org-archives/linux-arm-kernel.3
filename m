@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE59C61DB4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 09:48:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEA2CC61DB4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 10:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+A6CkiHC3XIOqkV2/gVNEf4VMOfqMvctiihGEgdEKM=; b=2xBjKjNHLuGn4RfPjLdJYRNpxM
-	VXiVHiJGEWoCDbR8qJO3dYyBmoqEhw9oRBbtck9xOxeqJOFw70oI5ECwPyZaHBCZp4rT6euRZbOBr
-	ohXwdC6xRSECKbNXlAAXryFTmAW0wujFmdWkHco+tTI3tTSzCRDQZgx8IAr0wWmqNCvW1bqfwNQ4g
-	G5j8FwgiTBA/TmY0aFKYb3SXOgPwVIXqbH0+jm0i5yqsTZdKzpbQQ+sWvITs9JzFFrvN4cBCiiXW+
-	lr6GhiMnaDfVPiYINfyPL+Jisf7tbWl6zNA9i804ymdHMjgYrnGTtzYWKW934MB063+kmhVvdNQmJ
-	8dA0k5vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OFFMb8wbyINo2lxrej8Ziq9hLQCfllXIma4QngzrJHQ=; b=XsocKgZpcAziacFYpgcJNONUsF
+	XREc+8PcqBr0stuOTRFDwdE7maYTTpTsV8+q984ZOs8V2NdEHdptb2j/vmHzNrarjQsXsvBZQ2iTS
+	unQV7b6HASGX9Xzf16R8nvlzGtLy0jbzs78IEbX3E6WEIbuQedRkvrHz0Kh07Z69kDS97SRyyXGoE
+	jI+b9ragQC1MoxGM1z+8alejKAEkwn7kKlYK49WnVI8ifDMmi3HaQhv4jFk9dzN+mWCSrfoJH7mZk
+	JSxc8qceGSqBItmhA4Y192RnHEejmziZCZsgqlsz2v7X4IJHYZwwcwXUdIhbd7z0hxDMjwMpPLJnl
+	Ko6U9ViA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wynlf-00000000WiF-3JD6;
-	Tue, 25 Aug 2026 09:48:31 +0000
-Received: from out-243.mta1.migadu.com ([2001:41d0:203:375::f3] helo=mta1.migadu.com)
+	id 1wyo7J-00000000YXY-2ZWn;
+	Tue, 25 Aug 2026 10:10:53 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wynlb-00000000WfO-0RE6
+	id 1wyo7G-00000000YWE-1ZvI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 09:48:30 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=WdTwdsXYegr+pt2vMyfS6s6LbEnxhORlW5D9ksXSlj4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787651304; v=1; x=1788256104;
- b=uMXrgkm6AKakj0jNwOdmTYmeZHA4XrcJKfmA1PrlLUG9OfwWscSrq3txtne8qL838Ngq+FXq
- saNfXKCorRgKes7HGwFNK2Qc7vfB733+Qh7A4TZyHyiN9rHCpakUi0FYnVVHeJnBS096z8WsHQp
- blBvdL9LAKnKq4vA9kZqy7pM=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from mail-lf1-f52.google.com (209.85.167.52)
-	by smtp.migadu.com with ESMTPS id 084ffc18719ad983;
-	Tue, 25 Aug 2026 09:48:23 +0000
-X-Mizu-Trace-ID: 084ffc18719ad983
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5b2a8173142so1342e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 02:48:18 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqaI8FBeu6X2fZJcsE8oPYIeXGcZ7fmeHhoJB0XZ+DZSUDAo/Ct6ua5c2T/CIC37u5LtBgVelRm6T/aCuelwhn2@lists.infradead.org
-X-Gm-Message-State: AFuF++k5jnCKVLM+kTn70CkbhWbYh/nLceVGNIq/QxIbcy4HRpslhVMK
-	msG+iglmRFcskdGZBgBuYtDP+3JnbqWEpZznSdMPzN0i9cYAiXloSrwn7YRcNZoBCEWFsxkOwJn
-	odRfHvUZ6vPg+qD9KyWQvBbzwG+D5awS6Kp6hSw+c
-X-Received: by 2002:a05:6512:239c:b0:5b4:9dba:7402 with SMTP id
- 2adb3069b0e04-5b49de72ba7mr66953e87.12.1787651297880; Tue, 25 Aug 2026
- 02:48:17 -0700 (PDT)
+	Tue, 25 Aug 2026 10:10:52 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id DDBFB1A1813;
+	Tue, 25 Aug 2026 10:10:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B2221604C4;
+	Tue, 25 Aug 2026 10:10:48 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 215F311C7A3C0;
+	Tue, 25 Aug 2026 12:10:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1787652643; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=OFFMb8wbyINo2lxrej8Ziq9hLQCfllXIma4QngzrJHQ=;
+	b=dI76/EEUeM8WoAzRRc33NcxU65gIbKy6VFQVJxFH+felPZ4C0/yN3xe19jzHFemZAKtdMU
+	DXb0KHSQ+Opl0p1Ha6ouBQVlCioPrBWdosr1bUEIENHeRaDfnMP3zeedL6k0m+cuANAt1P
+	8XFr+ZIbj35qmw95IlujPZrMxsiZZAop5uY2FJqWLA9xpeA8kXdzCb4ojGlY2E3LDu5sQP
+	oNKeDwVhcA3IfV+RSM0186gx074p+e+YHyazalZuY8ngfiTjbp0aqxA/FEfRuhwA9+V611
+	sVNz9U2A+XacVoDo8fesk+JX2Mg5MXQPyJRR26b/CGsY5esqKD+Av/1RfOM6oQ==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Tue, 25 Aug 2026 12:09:35 +0200
+Subject: [PATCH v2 02/12] drm/bridge: tc358764: don't select unused
+ DRM_PANEL
 MIME-Version: 1.0
-References: <20260824074245.710955-1-fuad.tabba@linux.dev> <20260824074245.710955-4-fuad.tabba@linux.dev>
- <te43gnvb2v2zlt3m5gwn2qvden5x3vp23o2qo27uif3ebdrodg@grrfqge2htia>
-In-Reply-To: <te43gnvb2v2zlt3m5gwn2qvden5x3vp23o2qo27uif3ebdrodg@grrfqge2htia>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 25 Aug 2026 10:47:41 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyYkz5=BV7RfJK_uUuuRunsfSNWmNNrkJ8NdsR_i5NB2g@mail.gmail.com>
-X-Gm-Features: AcwNN1XTSUsaQHSIZboYJ25QZYIL7wzGNkOJWlm0Rb0fGSGlQWens35qrUjEXIc
-Message-ID: <CA+EHjTyYkz5=BV7RfJK_uUuuRunsfSNWmNNrkJ8NdsR_i5NB2g@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] KVM: arm64: vgic: Tear down what vgic_init()
- created when it fails
-To: Yao Yuan <yaoyuan@linux.alibaba.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Eric Auger <eauger@redhat.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Sascha Bischoff <Sascha.Bischoff@arm.com>, Sebastian Ene <sebastianene@google.com>, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260825-drm-bridge-drm_panel-cleanup-v2-2-c6c88ba7ffd2@bootlin.com>
+References: <20260825-drm-bridge-drm_panel-cleanup-v2-0-c6c88ba7ffd2@bootlin.com>
+In-Reply-To: <20260825-drm-bridge-drm_panel-cleanup-v2-0-c6c88ba7ffd2@bootlin.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, Marek Vasut <marex@denx.de>, 
+ Jagan Teki <jagan@amarulasolutions.com>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_024827_290305_D5CB80DE 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20260825_031050_552957_DA7A35F8 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,60 +90,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yuan,
+This driver does not use the drm_panel APIs at all, so no need to select
+DRM_PANEL.
 
-On Tue, 25 Aug 2026 at 10:18, Yao Yuan <yaoyuan@linux.alibaba.com> wrote:
-...
-> > diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-> > index 4012df6002ea6..7493fded53acc 100644
-> > --- a/arch/arm64/kvm/vgic/vgic-init.c
-> > +++ b/arch/arm64/kvm/vgic/vgic-init.c
-> > @@ -462,7 +462,7 @@ int vgic_init(struct kvm *kvm)
-> >               if (vgic_supports_direct_irqs(kvm)) {
-> >                       ret = vgic_v4_init(kvm);
-> >                       if (ret)
->
-> Hi Tabba,
->
-> > -                             return ret;
-> > +                             goto out_teardown;
->
-> The vigc_v4_init already called vgic_v4_teardown() in error path,
-> thus I think just free dist->spis is enough yet ?
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Marek Vasut <marex@denx.de>
+Cc: Jagan Teki <jagan@amarulasolutions.com>
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+ drivers/gpu/drm/bridge/Kconfig | 1 -
+ 1 file changed, 1 deletion(-)
 
-vgic_v4_init() unwinds its own state on every error return, so
-vgic_v4_teardown() is a no-op there and freeing the SPI array would be
-enough. I'll fold the label split in if I respin.
+diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
+index a999e57d0cc1..958b4f687d4d 100644
+--- a/drivers/gpu/drm/bridge/Kconfig
++++ b/drivers/gpu/drm/bridge/Kconfig
+@@ -388,7 +388,6 @@ config DRM_TOSHIBA_TC358764
+ 	depends on OF
+ 	select DRM_MIPI_DSI
+ 	select DRM_KMS_HELPER
+-	select DRM_PANEL
+ 	help
+ 	  Toshiba TC358764 DSI/LVDS bridge driver.
+ 
 
-Thanks for the reviews!
-/fuad
+-- 
+2.55.0
 
->
-> >               }
-> >       } else {
-> >               ret = vgic_v5_init(kvm);
-> > @@ -475,12 +475,19 @@ int vgic_init(struct kvm *kvm)
-> >
-> >       ret = kvm_vgic_setup_default_irq_routing(kvm);
-> >       if (ret)
-> > -             return ret;
-> > +             goto out_teardown;
-> >
-> >       vgic_debug_init(kvm);
-> >       dist->initialized = true;
-> >
-> >       return 0;
-> > +
-> > +out_teardown:
-> > +     vgic_v4_teardown(kvm);
-> > +     kfree(dist->spis);
-> > +     dist->spis = NULL;
-> > +
-> > +     return ret;
-> >  }
-> >
-> >  static void kvm_vgic_dist_destroy(struct kvm *kvm)
-> > --
-> > 2.39.5
-> >
 
