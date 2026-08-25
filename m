@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B61C5DF9C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 00:19:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFCC0C5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 00:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lTp1QihCYEXpe6qsqboacrSH7t7RIuheiExabYlABLw=; b=wrOQRJwKynbIxklxNb37w68R28
-	IcOjEmjCp2SzXXlN1jBb8ScWsF2cZpZ6ElU3yUqtIFjpeKy1+r6BpvPM2cmDR6hkMS0wjGJW2q/NF
-	623a5gY0J0w1Hn2czjhAl3mlEiuJGIXqTWm8XG53M6Tmv6CF90zLWafjQmXXLcpsreYx/2mZVUTcR
-	0vksupYlQa4rkJSmf9UvwYMEwxjQLXwODnITTAljQTJV53V2DRILv/y//bo0eUvN9R9I0ocgspgv1
-	E1j6muqNpFiKi5w8EHPjjkeNFy7pKNklkrCllitDv0TlMi+XwmddZGgUblTUoVdlSa8/V5rcTSWCv
-	wlq8V2Hw==;
+	bh=4AA8OiM1vXV9NGju9aaAoOj8PkOEmbJNYD0kmJf+fW0=; b=3+BbJMTcs7LyvcVj2gAcQSAls8
+	jwJX2k35UAzrjL+ofd8qkCBVXo6rB1ekSV/CZRVY9u1/spObeJeAr6bPvZbiccKdF+leZ2jmCSBEv
+	jAQhHjql/6t7dg7c0ZDr18yVvU0Y7GLPoNUja1v0E+fA3QnqmHBtNpED43kqy70zoEYqJiLUK4Kio
+	yBaFhTu8Sy9jCjsjM64E0aoamjeYqrBlqqSRrnekpZA0OxDkfCOgMSFPAwvQ7OJU+dkmrP+3XIvdn
+	92hQ6BUGWgqSt9c2UVsr6zn5LyqdU/p8mNv7lNGb5tGbCaTH+2UNNrszOdgEM39wgrtqZLhjNiqnF
+	P6x3XbrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyesM-0000000HWoP-1Bco;
-	Tue, 25 Aug 2026 00:18:50 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1wyesc-0000000HWs2-1gMi;
+	Tue, 25 Aug 2026 00:19:06 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyesJ-0000000HWnS-31bH
+	id 1wyesa-0000000HWrF-3N2J
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 00:18:49 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-c207cb16cf5so653263066b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 17:18:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787617126; cv=none;
+	Tue, 25 Aug 2026 00:19:05 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-c16794450aeso597682266b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 17:19:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787617143; cv=none;
         d=google.com; s=arc-20260327;
-        b=Gl0B2edEHA2wZefWDvc/tWcUm/qE8yYiN/r1z0wpXDRGV4RQpHs8wP7U+/WfgjLb7R
-         911UX7QiE1QdiUGGXZGFvQ3+fbv1puLorE7jPKjKB8FqhRHZoA7g0XEPJm7b9Jitwx6J
-         NVAa5uAzHe3A/QIlkeFJmnBRz5cWTfxOOf/1VQsuqjJttAr9VMxyovszKL8QXchsz5G1
-         dhqSJmqKtlfXpPlfEatctXBvkwSTb47IppsahGXC3o1ng3NU+igkluAA7kait6QoFnkN
-         XsPOIUAGVndHTCbZplE6KZzodIynC7z9SjBjjGObpmhXJNdY0A9jvjq70oBwbWmWygMF
-         7gWw==
+        b=i3l2Dr9507PIYz/H+wnU8PPmPMjIMZDSYKj+JaHRHbarD2R0rmtw50tCFWrVm8rNdh
+         uPSWd513qrkGNPo2bsnU7J1Zh8IXh0H1jZdCqrnlKIHkoZfcuKKDP9byiqbR7ViE7N0m
+         Cn4cS7GQQljfghI2lK8EbSkXXzOFLh/tOz2qdKjFq1lTbkMGdjpDmtV3UrSUvqIZDN8T
+         zL0jDvuD7Jt5cnEZ5iIjp4jSE7NrkkmcKTfcUtHe0Ae2V+05UBezY5Xoe5cDTEwHbYR/
+         w6Gps72olicCubU/AKVT7CEL45LO9WnmwmNeg/gWLkYov3YcwAHcOpDfP8U9aVzTFnJA
+         sbuw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=lTp1QihCYEXpe6qsqboacrSH7t7RIuheiExabYlABLw=;
-        fh=DqfQne1HlwZuRuCPbWsLBlwTc5P5VeM/tmDi0PePrTI=;
-        b=eV94cZk+q5lMbKjfBSGfXGkr5kHoEITD20f3gKK6ZmYiOtbGTbfrlrHmZROHXH474o
-         KJkY40pf/ELMocJ9dbZ0ijEuzxYX/XWjjkSMw2wyH3cIl4u0J14MWiv8QcI4XYJsUzS3
-         FxH+oQliERNxUDGF/TzX21bOvghM4JZwuWfJbJxdNYJUDsoEOs4lhwgYC506mb4bk5GU
-         TcYZCBRFPyC8qvQsKXjwxfNZM9Jvgg3DVtpdXfIEfK32fhK2GPTSwJexj14tf6sJLfmx
-         vVLlT7cWmy9JCZzoQny1OJP8KGdcWlisOZjk2NpCfl+R76wyv/gAzmICt2kbW4GsdV8X
-         n7tg==;
+        bh=4AA8OiM1vXV9NGju9aaAoOj8PkOEmbJNYD0kmJf+fW0=;
+        fh=j/+p+sCypVNqlkORy82vojXChqH4BxfKKkWDqD2Ki0c=;
+        b=PKZQUxu+coIVLU7NIA+Zs/3JVyr4FEtZM6eOVR90opop9f15INznDlGD7i6TP+JXg+
+         h6MIztwlU8Cw13gOQjOWuYvLB8J3HvDbwaGNV5Cl/TTlPFXmyP6IPRisHnvDY0rFM4xj
+         PGf1o+1RRdGHzAbMX3sOQL/9Hin/Gj/mkIC0MwR/dGJpNQrvR+EoTIX095FA8uNLqhry
+         RSAjnXbepVIEzw0bB8kQwEsZVIOJAvjSk6J7h7skyNs7mn93FkhLRuOdvS2Y1UkkhWVW
+         KUVg4/1om9b7ooaqjxlONJKUXWZJgbK88QuFDLwHmbz7SXd6HD0ujdvwQHffW3PzMetZ
+         F3Hw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787617126; x=1788221926; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787617143; x=1788221943; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=lTp1QihCYEXpe6qsqboacrSH7t7RIuheiExabYlABLw=;
-        b=CD3JCH/eGBo0mryMGAyMxlTur7DhS4ma6ZI8MJOLgPgUTuN2BxILVs45ETe6MNFeDf
-         BDBbVVkdK2SM/6fKN98TV9DldAEodgefhyIg6A65XTrBUOFvjNHO/mkuJ/besKPiJWba
-         Ckq5o/K7K4xFmyD9rfhkxYIWBZmXk1B1QzwB6fnLCoj8b59TsqQgbaz9LuJOwT7FSPpz
-         kU0MGWnb7Er5CEDr1BCYQSJS2Bfm4x5pKwW2UaUGnK71G3eHZol7fkpUF0pFaMgrVDxz
-         xkUCCncieuggziV2GGxD17cAW4DVAlvynDIut5aUOHtJDyY/gYtSjUB56q1hBCMIuc3P
-         Qusw==
+        bh=4AA8OiM1vXV9NGju9aaAoOj8PkOEmbJNYD0kmJf+fW0=;
+        b=bm1YgOvT10hyKgquWrvdC3kX99ZovhuhS0heqYo7LbofdbIgmH9cyCvyHQKf7qCq8E
+         0/iuiKO2WT21vVJd1cxZ6kZF7FtyYeKbHpOW6MldbUaznLcrkc2TmDegO9rH6dCFr+uo
+         nAmVslFu6r81M1gp+xacVCR1iY2JlwEjPTPAg4/REsLl8dFrbrqooPBCM7qe454CxN3h
+         Uh8tpko8Ecx0IjHHoPXODEroJY7KchEGNU0hgJClA6rwtMRNv7H6yT1q55t3LcB/9qAj
+         gmXjXkzuBroT34xQa8HbvvqlX+PAvaoVrIZCSARy6GIWzphHs1aAHNnM7aijX2TQJSG4
+         chSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787617126; x=1788221926;
+        d=1e100.net; s=20251104; t=1787617143; x=1788221943;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=lTp1QihCYEXpe6qsqboacrSH7t7RIuheiExabYlABLw=;
-        b=GOM0lt1JESVvv3utsveFKD8/dX0SpTegmyDCxkeyYLfVVKCcImp8g2fLqrWK1k3YwS
-         T3PfI6Y7DMiDDvL38gHWa9+LzMbEbxyibSYCUM1hkHmrbYlKrrgfl7PGojHxAMeWb97Z
-         rIZrpth7Nmsk+kxr5f3ckKZSBGd0UilpVpO4PaKW0k/ODMuEiXFLY/PdRvvmxtj4y6jV
-         AaK+1kRzZoUOh9HnBG1YLcUk+qVnWQrl/IWhtWkx65sVscnczJzLbV0gJRW1RWi+L2zg
-         60NTVryAfaXK0+NtrZjAkNOqNmrOpSrGZY4t4v3kJPqpLJpIsk6SJxrEj4Jrx66sCQyd
-         h2MA==
-X-Forwarded-Encrypted: i=1; AHgh+RrTEnaT0Wf5jG2hcNGYwagvUtzv8zJxoVNY70jB8vyxq6PnCu46YAzzCtgHbneV/aM3yVrCEnu9/SLnCTljsyk3@lists.infradead.org
-X-Gm-Message-State: AFuF++kiWpxcDRf7h8tGRZnVP99cWQp6W6/MTQYiFcX/U/u3IAXcT13B
-	4pJQnswa2v8qzPbewUQouztFcwH7zBNI5LiDwvwtCSZZfXx3BxNB4ion+C61w6/TVah1zOO3kfE
-	scc1NmG9QZmU1eIGLHe8RWSPfgeFsYQ/pSPTQ6O55
-X-Gm-Gg: AR+sD123nbgPYkYC30g3xW1cUBrllYv6u4PyE2fo0vv3U11DO2K1rFCsEyPvEOxQBRy
-	XJhDSQcUSMpgRWiqamOhbPtSXNuCJWKh5vLzh15I/2an/8Bi6fDd16/Dz3lIMYzVll8HYS83l56
-	mnX1M+xkC5L5p8i+d6vRymoS63YlDYPUQ8O1sgcnFq9qBSoGiTsNFcQqgAAQSN4Cgd4gWM3pv/v
-	TV2uymGw3r+hApF9vtxOfKqSCcYKqfnsWq14BZarLA8u63AujyrhbYPX54HZH+/hA3/CUpdZGWa
-	1/8wTMInfaXOdRYiqes0FRCNTHHtT5cyXGCJhdgzulhbiv9ldwrbdsG6vxKHFeFYmuC4UmUhSY2
-	z3mzV4NFruIILMtToxjhl8hrP89RyVDQMOsdop0wk3B8UC2WJ9I9slnUsu4cGQ6WAhRHHd695n3
-	xX/Fri8DFyyfiF
-X-Received: by 2002:a17:907:8b8a:b0:c05:b9db:68cc with SMTP id
- a640c23a62f3a-c2469f7b668mr3312806466b.0.1787617125394; Mon, 24 Aug 2026
- 17:18:45 -0700 (PDT)
+        bh=4AA8OiM1vXV9NGju9aaAoOj8PkOEmbJNYD0kmJf+fW0=;
+        b=fE+VUOPSE+EelvN1eh4BVpa0nZ5tHRPhSVcs6cpLrlnwb0qmhyrcDvA49mDH+qNImL
+         eHcndtUaT3ZD6jlqh6yn0h+zl9ELK7L5gYUa3qX1qgIMVx9O5/17E2ph8P7jW3SSLpwk
+         iU518T+zbxkGvLyHGZrK+K02H6QpugCcwI1dmFK7m5T1T4rNSD49sxQuoxVr45zQ57VU
+         JhZAk7F9SEiX91hgSp22s2bNuIT0KiZyAra4r5M3lMK0ez+aeeurhLUSCk/zVRD9zldV
+         ySVzo6Ro8VnScDXFB4+7YrwFafe5bZeysRMqwJroqBIv20Egq+Uc9fsdLXdBKRirz3Tn
+         uW1g==
+X-Forwarded-Encrypted: i=1; AHgh+Rp2h78hxGle+90uwHTeOATmZjJ8Ud4wqUI0m12TGKFX/tVz3HAV7tt5tP+uuopHLWJRqsmDz3IdaJnYyxKzzpTj@lists.infradead.org
+X-Gm-Message-State: AFuF++m6g8uV7T9K3dCwXyJpcPPYSTa9OmCHwK/BLult/I/UZxoYtljH
+	l2e7aATNsUtWNW/P+EdMucl5tUc40Jl0Mrsar5I27qRlBR+ypOxAOFvaHak++XcSQsm0PtjYglN
+	BFwF5pcqaaQbDxSb7r5iHOQPUioAMhzJz7MaxutOH
+X-Gm-Gg: AR+sD12NZA2uwMzSlhtyi69JcX9rCBjiUPK7Iem4njTax1fpDFIY3FSiMWnJYdSxqn6
+	9+A7jiE6PfEWVK+L/nVjo4LBW94+8DvgD2cSyTZlmHDB+fBkaD5HbLELjCaIVJ63n+5AdQS5EMP
+	1Cpr0F/ojQoLRb++pWBtpzjw9GTAthQlCW9DElONW60mVqV7uCuGxtvHinPR/z9zW0Kj6m2/Lq6
+	FYgV6DR6M3G+q5L6DhsqwoUqIwv/8AJXeTuIjBWJrFOsGFeb8CbN/cSCT4sN5kuK5PcnUDkrx8P
+	PE8stNWkPuWrLWsLCnbP/ahpYWe5R7z/L9RPQcAz1IO/2wH5z5371LCxHUmyh8qiDFYPa4wrcuN
+	0PkERliQgi6W23wiNs0yBAAeXNl/94AnjnU/t8SVy3KyCRh3RvbAapPZXpuKjYjqDrYQrcetyZ8
+	coMHglAH/p5yLnSWOrLovyZE0=
+X-Received: by 2002:a17:906:f049:b0:c16:126b:98b4 with SMTP id
+ a640c23a62f3a-c246a2ef584mr3235540266b.3.1787617142396; Mon, 24 Aug 2026
+ 17:19:02 -0700 (PDT)
 MIME-Version: 1.0
 References: <20260708031129.3503195-1-jthoughton@google.com>
- <20260708031129.3503195-11-jthoughton@google.com> <aoRpJxCMTQ-RvTKX@arm.com>
-In-Reply-To: <aoRpJxCMTQ-RvTKX@arm.com>
+ <20260708031129.3503195-8-jthoughton@google.com> <aoRnMRZ0jE0ycwcT@arm.com>
+In-Reply-To: <aoRnMRZ0jE0ycwcT@arm.com>
 From: James Houghton <jthoughton@google.com>
-Date: Mon, 24 Aug 2026 17:18:08 -0700
-X-Gm-Features: AcwNN1UFhVuLrUR3HXGvEKpoyqSN4DfWxj3pmibwZcQrKAo3zbJpABjhy7myW-c
-Message-ID: <CADrL8HV7_9AyNS7gPmSMD+qrgTFvMNu2-RiDLf8mroZf2rFC9w@mail.gmail.com>
-Subject: Re: [PATCH 10/18] arm64: Support hugetlb vmemmap optimization
+Date: Mon, 24 Aug 2026 17:18:25 -0700
+X-Gm-Features: AcwNN1ULVV36J9NLxd762hVRv_uaRizf-iGnaiBYSt4u_4U8MisWrig5oazgX0M
+Message-ID: <CADrL8HXyR0UVfaLs4i+DQtxDYCUzubatjfN6OZDURzR-R7dhNg@mail.gmail.com>
+Subject: Re: [PATCH 07/18] arm64: Add system_supports_hvo
 To: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
 	Oscar Salvador <osalvador@suse.de>, Nikos Nikoleris <nikos.nikoleris@arm.com>, 
@@ -110,8 +110,8 @@ Cc: Will Deacon <will@kernel.org>, Muchun Song <muchun.song@linux.dev>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_171847_773758_07C18929 
-X-CRM114-Status: GOOD (  21.70  )
+X-CRM114-CacheID: sfid-20260824_171904_873725_2AA2F488 
+X-CRM114-Status: GOOD (  20.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,57 +126,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 7:16=E2=80=AFAM Catalin Marinas <catalin.marinas@ar=
+On Tue, Aug 18, 2026 at 7:07=E2=80=AFAM Catalin Marinas <catalin.marinas@ar=
 m.com> wrote:
 >
-> On Wed, Jul 08, 2026 at 03:11:20AM +0000, James Houghton wrote:
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index b3afe0688919..cf4bd6bd7f11 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -259,6 +259,7 @@ config ARM64
-> >       select USER_STACKTRACE_SUPPORT
-> >       select VDSO_GETRANDOM
-> >       select VMAP_STACK
-> > +     select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP if ARM64_WANT_OPTIMIZE_=
-HUGETLB_VMEMMAP
+> On Wed, Jul 08, 2026 at 03:11:17AM +0000, James Houghton wrote:
+> > diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/=
+cpucaps.h
+> > index 25c61cda901c..6db3ef827f86 100644
+> > --- a/arch/arm64/include/asm/cpucaps.h
+> > +++ b/arch/arm64/include/asm/cpucaps.h
+> > @@ -75,6 +75,8 @@ cpucap_is_possible(const unsigned int cap)
+> >               return IS_ENABLED(CONFIG_HW_PERF_EVENTS);
+> >       case ARM64_HAS_LSUI:
+> >               return IS_ENABLED(CONFIG_ARM64_LSUI);
+> > +     case ARM64_HVO_COMPATIBLE:
+> > +             return IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP);
+> >       }
 >
-> Nit: we try to keep this list alphabetically ordered.
->
-> >       help
-> >         ARM 64-bit (AArch64) Linux support.
-> >
-> > @@ -1607,6 +1608,17 @@ config ARCH_SPARSEMEM_ENABLE
-> >       def_bool y
-> >       select SPARSEMEM_VMEMMAP_ENABLE
-> >
-> > +config ARM64_WANT_OPTIMIZE_HUGETLB_VMEMMAP
-> > +     bool "Enable support for HugeTLB Vmemmap Optimization (HVO)"
-> > +     default n
->
-> Nit: 'n' is the default already.
->
-> > +     depends on HUGETLB_PAGE && SPARSEMEM_VMEMMAP && ARM64_HW_AFDBM
-> > +     help
-> > +       Enable support for HVO. When enabled, late-onlining of CPUs tha=
-t do
->
-> I'd drop 'of', not sure how it reads better. Maybe just 'late CPUs ...
-> will not be onlined'.
+> We shouldn't use HVO, a software feature, as a CPU capability name, even
+> if it's called HVO_COMPATIBLE. Maybe we can come up with a hardware
+> related name, e.g. BBM_THROUGH_AF.
 
-Thanks for the feedback; I've incorporated it. But I think this patch
-is going away in v2 (with patches 14-18).
+I was struggling to come up with a good name. BBM_THROUGH_AF sounds
+good, thanks!
 
-> > +       not support features required by HVO will not be onlined if all=
- boot
-> > +       CPUs do have such support.
-> > +
-> > +       If unsure, say N
-> > +
-> >  config HW_PERF_EVENTS
-> >       def_bool y
-> >       depends on ARM_PMU
+I think with that more generic name, the
+CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP reference here no longer makes
+sense, so I'll drop that.
+
+> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeat=
+ure.c
+> > index 9a22df0c5120..3b9224b99a5f 100644
+> > --- a/arch/arm64/kernel/cpufeature.c
+> > +++ b/arch/arm64/kernel/cpufeature.c
+> > @@ -2172,6 +2172,16 @@ static bool has_bbml2_noabort(const struct arm64=
+_cpu_capabilities *caps, int sco
+> >       return cpu_supports_bbml2_noabort();
+> >  }
+> >
+> > +static bool hvo_compatible(const struct arm64_cpu_capabilities *caps, =
+int scope)
+> > +{
+> > +     /*
+> > +      * We need BBML2 to support Block -> Table transitions without ta=
+king
+> > +      * faults, and we need HW AF support to support changing the OA w=
+ithout
+> > +      * taking faults.
+> > +      */
+> > +     return cpu_supports_bbml2_noabort() && supports_hw_af(scope);
+> > +}
 >
-> --
-> Catalin
+> I think this is wrong. cpu_supports_bbml2_noabort() only checks the
+> current CPU while hvo_compatible() will be run once on the sanitised
+> register values (SCOPE_SYSTEM). I should be something like:
+>
+>         cpus_have_cap(ARM64_HAS_BBML2_NOABORT) && supports_hw_af(scope)
+
+Yep, it's wrong. :( I think I had some things confused in my head.
+
+With my newfound understanding of things, I don't think the previous
+patch (6) is doing anything. So I'll drop that patch and just write:
+
+         cpus_have_cap(ARM64_HAS_BBML2_NOABORT) && cpu_has_hw_af()
+
+Thanks!
 
