@@ -4,70 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C551C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 18:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A985C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 18:21:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=094oeYqvVGEeC3pIXlNPJGOJ+FtzVIk0eaOqn9g8krg=; b=GkiGtzJRxdWMLC4+jBxOk/1txO
-	A/KN7zYyKtTTtUxbI3I5a9OjLkgWwzEPJoG0CKM4iSBa2v9BQnytKg7VOLkoEACxGwcjv4icFDGJ2
-	B47DhE5nAJmnMvPw7Gh60l+gyscngg2JwvV/NFkjPAsLhkmicC2p1SAImoInvsJkBJxr3HeBOX77R
-	jN36myzWjbSMN4uxhP3OSjLnEtQOpvqUPWoYtlMyk1AF5xavmZpZAUeSaj34ce6QbtRsJZzt4vqXS
-	Zp1tHzuSu2Ry9ByL7sCZOHNUwggb5zQcVT5hASkLVu0NNMWz42LGKZszxQUeqEDT4UUjx3OAYvAne
-	RmYrtlJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EP9Ma/FWecRJfLYZ3jc2WcmUe0ueJMKnKTuvw+7szus=; b=4j3H27WQhcgldl17XcORKCoL3C
+	O0qvSU+5WSFlja8q9rVZzboirYffILK1YQ9OiBkhtEHSybuPDs4FGfJ75YRfKsvQvXXV109fFvfpP
+	4CzzABv7g4rHbGoM5HjrJJ4OoxrW5X4uOrDYCEdmqzayn21l8IiOFg5DNhwxy/woFDBp7PAd6N/Ql
+	wd+CIFrswoedt6Alg5cXnTqZjfldzYXa0Sm7MclwWQdWaiaiBns+1TdYhIJlD3xA9FEd8ENybAe+D
+	fOJSyGZEJ1mZFaV12puupiF442BoPPH8sKVJ8U969oQrAZtFoeRmaoTHpbBwCrrLCkbPyISqcoTpC
+	LGyUQ/Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyviA-00000001Hq3-37gi;
-	Tue, 25 Aug 2026 18:17:26 +0000
-Received: from out-128.mta0.migadu.com ([2001:41d0:1004:224b::80] helo=mta0.migadu.com)
+	id 1wyvm6-00000001Iae-2pRQ;
+	Tue, 25 Aug 2026 18:21:30 +0000
+Received: from mail-westus2azon11010039.outbound.protection.outlook.com ([52.101.46.39] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyvi4-00000001Hkx-2Vq9
+	id 1wyvm3-00000001IZp-1CZE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 18:17:22 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=pKWQSQwhloU3UCIEHsjSAI70zbgmQD2DReSgXVQRLss=;
- c=simple/simple; d=justthetip.ca;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787681836; v=1; x=1788286636;
- b=EJ/mOqoZ+3MOkD16zga+8Vp/045+ISk8lKiwywgT2lvax744TV/6PjPdxT70FPnL61gPofM2
- iboyQMF+4T36bLBFEfCpvKxR6MH2hD39JfikYHbih/8yH8s+6yjNrW6PzCkTGzOiHINVPe3oxga
- 6rFBXSxPZrBdVeYWeGWZxzePEn0gPDi0mQ+Oiq+nRAAmL9eRXKy+PLpgAeYHcEWPGCUOQCq2Lje
- GdhXSjnp0f/Dnn4u/MHljGWlIe5paNbIVH90OLFNHw00qGO1Tf1EGx1vgXnMOmxXuaZfz20dQfv
- mhCDAtjzr23pFgoF+ge2vERKlH+XAbuEd0BEoXNfI0duA==
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from fedora (2001:569:be59:c500:b340:3f2c:4486:21c1)
-	by smtp.migadu.com with ESMTPS id c14991048ca0b0d5;
-	Tue, 25 Aug 2026 18:17:16 +0000
-X-Mizu-Trace-ID: c14991048ca0b0d5
-X-Migadu-Flow: FLOW_OUT
-From: Devin Wittmayer <lucid_duck@justthetip.ca>
-To: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Klara Modin <klarasmodin@gmail.com>,
-	Charlie-cy Wu <Charlie-cy.Wu@mediatek.com>,
-	JB Tsai <jb.tsai@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-wireless@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	regressions@lists.linux.dev
-Subject: [PATCH wireless] wifi: mt76: mt792x: fix NULL dereference in ACPI SAR init during probe
-Date: Tue, 25 Aug 2026 11:17:12 -0700
-Message-ID: <20260825181712.28548-1-lucid_duck@justthetip.ca>
-X-Mailer: git-send-email 2.55.0
+	Tue, 25 Aug 2026 18:21:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ckZKn2S46ENide6WZWIEIx25IwYxmUnRrNKnoBeSa6ETcJGVmY00la2ZdnrPfxu2CrHnhxZsOY5o61xyZrsXXraul+JmxSN/azGoSrprRKdy4argeCniaquFYCPyo3rzyGqq3d9Sge1zd3NjMNusTQ47z7pdAs99fmtG6PKNfkKfld60AR8j+UWqLy+Kgc26JQ/T99UK4OJGdBqxcoIpshPk1fXIRn8ve3EgOnEA5u02PjWurl1oEg7LejkR00eCwY46WO4SgmGQQiJ0t+2l1qbW4CegaD73UgprwAUBGnTrzuwzPcGSp0cIeUCRAJwPX/XQdeVQAwYwA7qDlgXiVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EP9Ma/FWecRJfLYZ3jc2WcmUe0ueJMKnKTuvw+7szus=;
+ b=WKm9ZhSkn48/FS04V6iPy/iJZud4N5ntw+NCnXb7aGB4zX8pKbPv5EbrFyYSPJk4W4lYXSwLqYuLw0iz8/qDyLe4LCJKAAE4PwOHGL1igU5hH84LjGV9r9rnpar8uvUZBI664UDYNW19LQhFzRzfyEYpr9mHVU6ktvZcekA8YYgy+veQmN5PSy0Hro572gZw5hCbJRiH7yUatBqxBqu4d+Ss1uy+wzGvFQVqqlViR79fSS8JrQes+CZ1k3WIZbcymTpQCnK4a4cGCpvdvu1FsFDQ44EvT8G90zN0LIdsXDz6Gsr+FxHTLhXA2XnBro/4O2stpQr2ue+wkaiaFHUwSA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EP9Ma/FWecRJfLYZ3jc2WcmUe0ueJMKnKTuvw+7szus=;
+ b=PbM1qUxGT2z8uYDV03tuRcOLfJKZS/Iluw5cGsPJ/0RUPoNF6Sq+rizZg5u3Mm0EOTVEOQ+Q6HguBr8PVO2qrX0CnMAP0RcVQD0vCU3ZF/idHg1mPTq1U+mEP0HNmtiN2XTWN5KP0DLvxGfCFZFoeDtEy9O65wIEY6bQVIg4ytEOxziYWsgMuVvhPUHba7kYlwxT/34NCAvkCBXIncASa7o1xKQA1+Flu72Dz9C87Cl6/sLT02H/2uGsZENqLrwExL66fPeu/Qmc29Aa15xFSsfkO2Fcdmt6uaQgoZ+2CDUQqTFd0Ek7Ts6PjMz9/7atqw//89C/Qo02azuqRiOvxg==
+Received: from PH7P220CA0082.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32c::17)
+ by DS3PR12MB999218.namprd12.prod.outlook.com (2603:10b6:8:38e::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.8; Tue, 25 Aug
+ 2026 18:21:18 +0000
+Received: from SJ1PEPF000023D1.namprd02.prod.outlook.com
+ (2603:10b6:510:32c:cafe::95) by PH7P220CA0082.outlook.office365.com
+ (2603:10b6:510:32c::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.12 via Frontend Transport; Tue,
+ 25 Aug 2026 18:21:18 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SJ1PEPF000023D1.mail.protection.outlook.com (10.167.244.7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.360.3 via Frontend Transport; Tue, 25 Aug 2026 18:21:18 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Tue, 25 Aug
+ 2026 11:20:57 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Tue, 25 Aug 2026 11:20:57 -0700
+Received: from nvidia.com (10.127.8.11) by mail.nvidia.com (10.126.190.182)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
+ Transport; Tue, 25 Aug 2026 11:20:56 -0700
+Date: Tue, 25 Aug 2026 11:20:54 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+CC: Jason Gunthorpe <jgg@nvidia.com>, <iommu@lists.linux.dev>, Will Deacon
+	<will@kernel.org>, Joerg Roedel <joro@8bytes.org>, Robin Murphy
+	<robin.murphy@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh
+	<smostafa@google.com>, Daniel Mentz <danielmentz@google.com>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v9 02/12] iommu/arm-smmu-v3: Add a helper to drain cmd
+ queues
+Message-ID: <ao3dBm1CtH2V06r1@nvidia.com>
+References: <20260728210928.1050849-1-praan@google.com>
+ <20260728210928.1050849-3-praan@google.com>
+ <178767577112.3356902.15184998673790345568.b4-review@b4>
+ <ao3S5ickm47p1QWa@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <ao3S5ickm47p1QWa@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D1:EE_|DS3PR12MB999218:EE_
+X-MS-Office365-Filtering-Correlation-Id: 39b29f91-dacc-40af-3b52-08df02d5a859
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|23010399003|36860700016|4143699003|56012099006|3023799007|22082099003|11063799006|10067099003|18002099003|13003099007;
+X-Microsoft-Antispam-Message-Info: +jjVp22L/xd0u8pg6TeByRR4TjorqNqGx+jDUhmH8xqh9slO8XLrhUUMZ4RolfEaYIpUeRn+SlSTKGDTXgUgf56UE3rNK2ilz72Ck92u8pm0bgOjqKroe34TQ20znFGmTJ8u/tL371V/Zti2gxsdlILNHvDubuEB1angoeam+BjG+NB5yuE97UfeW42rT9Om7WrbswvFvllf74RV4Dh6j57AtWEk0VBKWDtqXu9fUcLluzAJJFKX0S4aF3N+lQU1U309aXO91L+flyie/w9t0+sWINC6jneH5dd5z5RoSYp7kyx7ZmznPObvnsJeEuX+NKsypBz089s95Aw3Mr+6XoOZuttBvb8XVSwLnApIkvNyWJ8zkxCoXbKX85rD2f5B2DVKlqZ2jUP6ImfVruyC+8B+QVHkc1l9fWQ6ZhZ83k9BaHpmYyfTTJ1aaCTso/ZbdbXj8oZDTXYg2d3CcnDm/UZk2QTXqisGfaCuA82Vbx/rWQSZmP9ndMAnb1QTMuZ+WKWTh/1X7B0sb5p0D/b0K2kglsYgKMR6itPZrwrtzlSlwSrCgcZ52whnlSG3yYf/o9sy4fPgJYNjPaM+oD4ekTLrq/2Tw1HR7USSxgqXNYGvUl33Ud79hsL0EPJ4GQNRcmW0OS2JEH3imkIg3m+umxcdZcCisUN6lqtA6bV8lBpXMYKWKrwqhrpgC5bM+hw99vkjfM62ut8K9EVo3Ewe4A==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(23010399003)(36860700016)(4143699003)(56012099006)(3023799007)(22082099003)(11063799006)(10067099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: xt44+2+IZIwwwXKRJ7amnffpM9EVWtJYdEcl2HkvANxs5ybRSwSqWIWXd49kqSWbqU6TpFseQswQeLH7xwvvKY9se3taLO5bg5s269KmOZavi7/er4boAHRpw6OUXIf1dQKz68KLHf8qU5xuMhRcGgJvdj+VXcp/+pMaD40A14leUim0V4TP9wAe22m7gl1iRBpwmwTbXGXxToS+2lxrlqYWmZjjfGESqUGQ1UikzYeW2HRQXtxDsIjx1xDxkjY4UdLPuHe0LIo3WD4u+09PDgkKP4V8vYZ5ruoN5sMD2d1KKJoqBrr2c1KMYqa7LlCswGINAhPVpWA+zeHrIPAptwtsOBajhQT/5s6tFr0kWi4tBMWKSELC5ggtmhp3uFUqu0I3r9ivRF7gVaquMf4kmzE17wj8Qc53GSkLatFb0daYP+LOovcAnVtxO5RJPdtZ
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2026 18:21:18.5396
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 39b29f91-dacc-40af-3b52-08df02d5a859
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D1.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR12MB999218
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_111721_209618_2CD90CB6 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20260825_112127_332028_04C2EA54 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,66 +133,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some laptops carry a MediaTek power table in their firmware, and the
-driver reads it to set a transmit limit for each frequency range. It
-only fills in the ranges themselves when it registers the device.
+On Tue, Aug 25, 2026 at 05:37:42PM +0000, Pranjal Shrivastava wrote:
+> On Tue, Aug 25, 2026 at 01:36:11PM -0300, Jason Gunthorpe wrote:
+> > > [ ... 36 lines skipped ... ]
+> > > +		if (queue_empty(llq))
+> > 
+> >  [Severity: High]
+> >  Does polling for an empty CMDQ actually guarantee that commands have completed?
+> > 
+> >  queue_empty() relies on the SMMU consumer register equaling the producer
+> >  pointer. However, for CMD_SYNC, the SMMU advances the consumer register
+> >  immediately upon consumption, not upon completion. Suspending the SMMU while
+> >  commands like ATC_INV are still in-flight could abort them, leaving stale
+> >  translations in the device ATC and causing submitters to time out.
+> > 
+> > This seems broadly wrong, but it doesn't seem explained very well,
+> > maybe put a comment above the function something like
+> > 
+> >  The caller must have ensured that no concurrent command submission
+> >  can happen. Thus the entry at the PROD must be a CMD_SYNC due to how
+> >  all submitters generate commands. Waiting for PROD==CONS guarentees
+> >  completion of the sync and all prior work and thus idle HW.
+> > 
+> > I don't think the other substantive remarks are valid.
+> > 
+> > The Werror thing is right, every patch should compile alone without
+> > warnings. Sometimes people add __maybe_unused to accomplish this..
+> >
+> 
+> Ack. I plan to add __maybe_unused here.
 
-The startup step that does this existed already, but it never programmed
-anything. These two commits made it run a regulatory update instead,
-which sets the limits on the way through, long before registration. So on
-a machine that has the table the driver reads through an empty pointer
-and the interface never appears:
+Maybe it's time to use the shared helper in both of our series?
 
-  BUG: kernel NULL pointer dereference, address: 0000000000000004
-  RIP: 0010:mt792x_init_acpi_sar_power
-  Call Trace:
-   mt7921_set_tx_sar_pwr
-   mt7921_mcu_regd_update
-   mt7921_regd_update
-   mt7921_run_firmware
-   mt7921e_mcu_init
-   mt7921_init_work
+I plan to send PRI-v3 on rc1 (likely next week) with this:
+https://github.com/nicolinc/iommufd/commit/d10325ff40fd45c476bc98d484d8dd2cdc7fdf95
 
-Skip it when the ranges are missing. They are applied again once the
-device is up, which is where they came from before.
+I think this series can take it (and its parent Q_POS as well),
+as we discussed in the other mail.
 
-Reported-by: Klara Modin <klarasmodin@gmail.com>
-Closes: https://lore.kernel.org/linux-wireless/aoyxqHYvSuaBeubf@soda.int.kasm.eu/
-Fixes: 9b80bd9cab40 ("wifi: mt76: mt7921: add regulatory wiphy self manager support")
-Fixes: e9f3f1cc133f ("wifi: mt76: mt7925: add regulatory wiphy self manager support")
-Signed-off-by: Devin Wittmayer <lucid_duck@justthetip.ca>
----
-
-Reproduced on both chips before sending, an MT7922 and an MT7925, and the
-fix clears both. Neither machine here ships a vendor power table, so I
-supplied one through an ACPI override in the initrd. It also wants recent
-firmware. The June builds do not turn on self-managed regulatory and
-nothing happens; the builds now in linux-firmware do, and then it dies
-exactly as reported with no interface at all. Patched, both come up and
-scan normally, and the injected limits still show through in the power
-table afterwards, so the skip does not lose them.
-
-With that table still in place and the fix absent, backing out the mt7921
-commit on its own also boots clean, so the table is not what causes this.
-
- drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c b/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c
-index 946dd7956e4a..b468051fbe68 100644
---- a/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c
-@@ -323,7 +323,8 @@ int mt792x_init_acpi_sar_power(struct mt792x_phy *phy, bool set_default)
- 	const struct cfg80211_sar_capa *capa = phy->mt76->hw->wiphy->sar_capa;
- 	int i;
- 
--	if (!phy->acpisar || !((struct mt792x_acpi_sar *)phy->acpisar)->dyn)
-+	if (!capa || !phy->acpisar ||
-+	    !((struct mt792x_acpi_sar *)phy->acpisar)->dyn)
- 		return 0;
- 
- 	/* When ACPI SAR enabled in HW, we should apply rules for .frp
--- 
-2.55.0
-
+Nicolin
 
