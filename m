@@ -4,144 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E660C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 03:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBFBC5DF9C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 03:29:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=auI/TBj3WksZ+3BHU5GHhTelrXI6VszNhGlf081ZjvE=; b=FAbHjO/T0u7mnnY1DmvASuM8VK
-	QtQBr84km+qNf7/K3Nkaz5B6cBv9NgLoSuDtTjwMDOEP+fI/CeYT8+m8QS8q8I7wi+h29AGvahetZ
-	aZmYZUP0QRXyUOciq8yvLFc29bv4xVyoVPjvFywZKeNLecMCDslrlEqj3UCOow5ejDW9lzHkz4Tt1
-	Uut+/vTk7flXPrwpJwVxB7x3Qfr1pWpeU+P5Hd3qJWSMAhXB2mHiCg2AceKtgpiLbYQeliB+2rcMd
-	dNDaNMg4myvuNA5XMuaxWXBSVALu5PsauFTF2DEVMoSAWs9h0zOGvXK6UqNBb6eF1vB197Gg4oQUr
-	wkWY3eUQ==;
+	bh=WoRfjiOpZOtWexROqtJsfc6cj7fXbxuJvS3VpeWJnbY=; b=ybuN1LVmyKanVOjEFkfkRiCWXc
+	+Nsh9QtD0eSRK03p68/vYw5YK9FRLL9qFNaA8Gs8DT8q8JWV7wM48EiYeclkky545cqBjgDBGoJyd
+	GKqi0Q/SMwvhzFhvepK3l3oxZsilykAdmp0mNmZs9ULkQcnJW61h/8HXAYOVAiv0Gely0sTcShokP
+	TfhwMbLWgsXCWSj3e0CYstMiN+wAHJ3aZwop8xl9JLkNtC9QcfzLLdIxt5sb5yE+7I/ZfaQLFzsRX
+	+UVLG85taQ0EseRDYTDatSR8kc8t4QuoZKrT+ljv9ZXiBS0VRl4cfXsuRwztwymEwvWDij09Whs4v
+	HV11Ak9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyhY5-000000005NF-1YTa;
-	Tue, 25 Aug 2026 03:10:05 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wyhqL-0000000062f-3wqw;
+	Tue, 25 Aug 2026 03:28:57 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyhY2-000000005Ms-28lw
+	id 1wyhqJ-00000000627-1RuX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 03:10:04 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67P2Qsva1633231
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 03:10:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	auI/TBj3WksZ+3BHU5GHhTelrXI6VszNhGlf081ZjvE=; b=iOHpof7nf1DUJM+j
-	oQqP1eWwm55v/QpHWL0gY1VgJ+tIcutSd3Y/7LDSwTuKgqCCIPDL3RuaggO+J/RF
-	pofPy3RYlpCRgqH1O27CJPBw19eYzS4voQi9vOQpnC7iKB/Y3XgJU8jW+o/IW1U7
-	eU34+mnZi+o3+HT33jOdyBBIXTgOaT121Yvf3XIjl20OO73FEanoGbNnodjsH1uy
-	GIBBXGe0kE3G55N2L+AWJXk3JXC6GJXUmwz4Wu910NjgEwigK4rjOukeSdQpQNJH
-	GP3QOJhvFbRfNd3Vlo84ZnfGxYpMzSljnX2nn5XT0+pnzM0aXAws9Bm+zjrR97d0
-	/XVA0w==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g8swr9wyg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 03:10:00 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-38e22137fb3so6822334a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 20:10:00 -0700 (PDT)
+	Tue, 25 Aug 2026 03:28:56 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-c197eaaab00so709744466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 24 Aug 2026 20:28:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787628533; cv=none;
+        d=google.com; s=arc-20260327;
+        b=H/FlS8nHThvz216DXq8IKenBNAWHK/+Jf4b5FVVB5D+p2t0NbcGFBt2nP8rpTv8Pa5
+         sKkOUyr+pft+rnrSQ0UcHJMvIBM7erewJ+26LLcjZfBMUUnPEuV0oKuh01tokpGo0aJF
+         EyoTE9PCHQrKGeC4dkV6zQTbWvBnlGWFMWPKj9wirlxu8YW7riBpfPqqgrt/FqrANPTd
+         Bp52hMQPxgPvKrzcSk8SupkaNhpaGYFu6ouwi/f296K/uqF66fTH5SzlSbpEhCzoA9b0
+         uBDifm70igeADFoiyICOmbPSeBSL+sY25qDbbeUn0DNF8dPyCIRyE8UmpEH8cKTAdNnx
+         nGdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=WoRfjiOpZOtWexROqtJsfc6cj7fXbxuJvS3VpeWJnbY=;
+        fh=LcBeYdZArzB19XlNmz8Q1Aki8N/y5vglrQXIR5+75io=;
+        b=G/xfZJsdXQ+p+ZNEcY0ZcspGpf1DDxjvoogXEjppNLmnN63yDuEOzDR1H9bK8/Di/g
+         LhJzzr7/LLq4kdJrCtI5tRg3qwqtuKMNo+ZlhpY//q7m0wys5FjP941pwbaCEB5OeXJY
+         VNTbNy4iW6llO6RCqbaPmcPRnKl3mGZrLBOu9AWIh3Rfwt1whWV1Og1nguBHBTLZ9KiO
+         Hhb+QC8c003lHeYfvUmEYR3QeNh+OwDOZ/iE502VtVyw7ZVLPZ6srMSQqSVxE4RFEx4N
+         OAHGVYPCv5vn5Dl5Ehs6OA836b0a5BCh+eFyP0+S3/H4beI7gxACMn+dtfYxdWZHaOJm
+         Tgng==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787627400; x=1788232200; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=auI/TBj3WksZ+3BHU5GHhTelrXI6VszNhGlf081ZjvE=;
-        b=R0J0/TFe1dol4/krp/BSckAq9Fu4/a12+KO9+hOwH6FZe0LVEo8AOKb5j79O6xOEbY
-         G48IbaRToALpV3q315P2q1qkN58ghuOeOWPiWStcthIB/lbGHORJ/E3Rb6MSjW+HSS2A
-         LsHeORYYMEfzIRnyUFyE0VtX075vcjEBflt0m6zGsS4Nz/y8mCGtbS6JRaUxRD0d2IkZ
-         40SUyYRe9rJgkrnzP53KNNIXMyr0DnuyODqcoPMkJExH0dX0PDmRHVfrIIcIMdFdqOyv
-         3OT1TfoNKHZTLQOeIrHe5Cb2FlX+nvG0/FAbSuY5dBzylHUnRmddUB+5ERtDiOUWApvn
-         nOGQ==
+        d=google.com; s=20251104; t=1787628533; x=1788233333; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WoRfjiOpZOtWexROqtJsfc6cj7fXbxuJvS3VpeWJnbY=;
+        b=vqSq2apEUkXEx+sSJ8gD29UcBrpVVPQD9R023oj64PL6KFmI1+QXSpylPeM7C15XQD
+         Rk2DTbOAnOsZ1ufcUq/xN+MiUwbmy5wj6NYpyFBvwOJCGgZpdKSUcDEGmHOXeHj9B5MR
+         hfyP503jrRr6eH1HYksIUGiEF9UVqeCnRoFaIV+KMHa89mqKoJGyJgTVU9XxSn8lwyxs
+         B9VOYhStF93IsxzCsnrJJAk+IJPunK1Rt2YqAzhDk2Yo0mUxTG8dG6o+jGc8LBNw319V
+         UEIcvz+khDTJR6QmReOUXCvKG0ZDF3S9sISfvMt0BBoRvFDfAtsXZ5gMGo/M2tDn0Zbf
+         QTEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787627400; x=1788232200;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=auI/TBj3WksZ+3BHU5GHhTelrXI6VszNhGlf081ZjvE=;
-        b=L2n86ly+XQk3zif4fDwYVXTfwBPMDvBjPev0NIAityC3tswo941Czz1MgVUYcVPu71
-         uIZLkaMDtq1Otd9fF3LKo5pRmKm2J6eEgdvhnNBmAXIKx5V4wg54vOtPeHGc2jZ7KQDe
-         qN0m5kqTJPPnsWCz+s3gxVhRk12YBTs1SmV0jYHSMWsqIooO0U9/ewdsrDZ79jn2fOvE
-         iGNM45BmsTDpPXzzpuzqbNAiv2/7i/kZwJhMopBVp3bbUh7jN9ZjyzDMOQWoXV0HNrQ8
-         W//v8nPqqSOXVXUegFAWIaeXvN7FQpOr+FP+vynnIkDIKFzSAc0Rm1nRoqLLD/6eJB0e
-         Q88A==
-X-Forwarded-Encrypted: i=1; AHgh+RpLQGJrFdV/QQEVCm2Q3cYWDcxGk7dFx8Grm5D1IVlsGTUrK+9YdxTwZlBhRZQW5YPqpw+H9qKnoa7trSX9wb/7@lists.infradead.org
-X-Gm-Message-State: AFuF++md6eWtMjWeOaeoN/MbXVHG811WOVVtBbBpE2Yv7XWdjZm+4UJk
-	4QGFNhRruX8pk9YbrO1Epeo/9X6xkS+6kZAG4klvw1q7V+WetGwe1CLDvhw7HTXW2j6kXDG/xUE
-	A21EN97Upg3qgi2/65+kJgSVA04pnwuupQy2QZe98pQskBqgQ85k0sINx6KgXX2JnksUs5z1Cjm
-	Qj/hLadba0/A==
-X-Gm-Gg: AR+sD11wiTuwGn8ve9sjW0K0dV63hWf9GSeJrcAg4FgO7vunG8LJwGiYh4Clwn7mOky
-	vxmRcH5N0v1IXy53WtG4yKHtFehAKWdHu4SzuOnEXA3c+HgILdshNB9BP+lrv55iU2DDO81tzrm
-	wlCEwfJ52HW0HoGILCSqUxQCuBhKBOPwg58smIOHfV8bAW61nR2DqjAUs95e9u1BBdMcQtEz8bq
-	A1KXIW3SB/xRfN+ua+WLEWOdYj3XFG19ehMsB8L18DzoZKnsbUkblBMv2AUUGkCohgXvAmxfaaK
-	gNRUPFxma4tDMA+ZT0ctG5KCYV8HjTda7C4myuGS2JgeOaZs1oYRtCWATfOYof9CHLTCXxP5g3e
-	JH9g21xKzfRi62HT0xoeozGbANk7KL3rR3X+BECaPRQzxIg1xIa/YKwd/Lp4D/iQ8
-X-Received: by 2002:a17:90a:d64e:b0:38e:1497:af5b with SMTP id 98e67ed59e1d1-395c33dd84dmr59024622a91.1.1787627400127;
-        Mon, 24 Aug 2026 20:10:00 -0700 (PDT)
-X-Received: by 2002:a17:90a:d64e:b0:38e:1497:af5b with SMTP id 98e67ed59e1d1-395c33dd84dmr59024515a91.1.1787627399640;
-        Mon, 24 Aug 2026 20:09:59 -0700 (PDT)
-Received: from [10.133.33.87] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3964480d4a7sm567481a91.4.2026.08.24.20.09.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Aug 2026 20:09:59 -0700 (PDT)
-Message-ID: <55c77b0d-6625-4221-a983-8275f3c1d1ae@oss.qualcomm.com>
-Date: Tue, 25 Aug 2026 11:09:54 +0800
+        d=1e100.net; s=20251104; t=1787628533; x=1788233333;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WoRfjiOpZOtWexROqtJsfc6cj7fXbxuJvS3VpeWJnbY=;
+        b=DdO19HsJComYXdvAPr1zxQm/kBJvLAOcXnPTMh1fuZwO8pWeZGPrzCiMaYeqTTp+5o
+         Yq70Kx+04uzDxo9VVN0H7pP5rHOrVN7qGWHES2cSNJzP8yAAr/3LJLotMqeeZuh+12IL
+         xR8lAuY3HoEn8GKkevYCWnqZf7p9qqCk9C7RemQCZYVARYCYfkrBiX7Kpb8QbN9oNB1p
+         N7JtpuncLarGqxO1ltpDzBXhSLtjCfOy1H+WdaRgGYteHOBsAM9Mo3CSLuahzgDYf6Mv
+         XbDhwkBcc1z58oQR8zo/vIBP0nYEjHNAHUL9nMcbZkhh/Jo25IXgxMh1BOZ2Q96dG/EE
+         N1mA==
+X-Forwarded-Encrypted: i=1; AHgh+RoCv5cIyEqmWJl4qHim8YSiJZkBGkEI+Xn9nUIETZMY41/9vsQvnjEyE93zPa3kSfJXDwDrwn99dVAtdorqhwol@lists.infradead.org
+X-Gm-Message-State: AFuF++meOsECWOqqJWM/yj2MXn94t3ESMWJtJurl5QBg8bTcwAyvfY5o
+	ezvj/af+eJ5ROrcYBVMXDYy3NHGlWxF+TyvKVogWQsGgkSlcg+sjhrTnIF7dNXwu0XvN6YFq3DN
+	1nnVeBrY/UbxxrXOD2ZUMrAtRzwIUsjWKsGUlWY4C
+X-Gm-Gg: AR+sD11pOOTGkHWHpoCpCRo/lqKPj8/X6F69+LfcXAjwFvmfMnTNViXGx3cG0pEr38h
+	sUQKnewBPYjNc9xErgEOphYcCsYiuSHjpdHh5sTXBqAZmL00gh/KrOHTtskFO8vyZgz5a93Xfsg
+	6MSG8lUM3ZM8uw6w+FUUgDql48PuNDJXGWOI5q1sDzBbM7v0AqtXKhGtwl1yVGb3wqh8whzOTeQ
+	2HT17V59hqX+lHwKmOrk+FNisvPa7g8wcz7DAB9s+3Rkz2P1CSxyPk/aPbrRB0aBaTQbw3nv9pI
+	/yDh4QU5efDxPsaHC8ME1++Gp6UvJygbl3a8kvItPykuK1DLDrDSHNNnzByFGjo8S/r6iGEgetf
+	jWwnMF9yUbZIOv5THFnrSUVTTYI49u5eb9iA5jORTpuYq9ZNkRqxbbt3UrcBvWg==
+X-Received: by 2002:a17:907:94c9:b0:c1c:2173:d412 with SMTP id
+ a640c23a62f3a-c24e5c8bfe3mr296347466b.1.1787628532747; Mon, 24 Aug 2026
+ 20:28:52 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: tpdm: initialize spinlock before exposing
- sysfs
-To: yingchao <dengyingchao@kylinsec.com.cn>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-        Leo Yan <leo.yan@arm.com>, Mao Jinlong <quic_jinlmao@quicinc.com>,
-        Tao Zhang <quic_taozha@quicinc.com>, jinlong.mao@oss.qualcomm.com,
-        qinyungao@kylinsec.com.cn, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <8693039B65AA093F+20260825020647.2469-1-dengyingchao@kylinsec.com.cn>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <8693039B65AA093F+20260825020647.2469-1-dengyingchao@kylinsec.com.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: A0q7NL971egxEQHhL6TkhfjHCGMMOXZF
-X-Proofpoint-GUID: A0q7NL971egxEQHhL6TkhfjHCGMMOXZF
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI1MDAyMyBTYWx0ZWRfX/B7qKYbksSfq
- WfNJ4fPHE1bdF6/Rrv+ENXcmO1w1ShKfncFOruXpsQhdII/2bCsebw+dcO9XR1eNojMVgvgQiWW
- rdgK2LsNbRweMa3Z616X77dM03qxCCk=
-X-Authority-Analysis: v=2.4 cv=TqPWQjXh c=1 sm=1 tr=0 ts=6a8d0788 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=C4lfG5toAAAA:8 a=EUspDBNiAAAA:8 a=fwXp5HOcM--7f4IBWnQA:9 a=QEXdDO2ut3YA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22 a=iqleXTDqv_QQetf3OR0u:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI1MDAyMyBTYWx0ZWRfX9V48QSeYpuet
- gqozdTbvpzU4flNkpFWn/zvPQQVumdMljdR68iI5kBwlWcSdN/jNHrMi93K5Su7GATsOZnSd6uy
- qMO/Ex3jHfKiugMAZDpoKpP8K/oQ5z7M+QjWrhksUy8BN0dZIT1LtSF6pfT9DWIXgSm29Ahgaiy
- rpQfpmuNDc7PaiEHHbjFfvZbhAZWRU55pYB9ECCU3YyT12hpTcIgKF/P8H+oU6qqagBwH1MQ7by
- t+vDg6idqgNsNzmQ+VS7t6pzk7JoF62Ao5mtNr1EnqQivTX1vyj12wSKab4Cf01jlZaY7Z0n0eU
- GGP1aD07OQzqY1I0IaITFICxsEYKTTKt/X/CVNqDpiKKdIEXgvjjonPp0JzLG23fqVi8xjxN8YB
- Wb7fBjMEkYUvCAh57aKQkdbkYBDMIfiN7PPCT26Lx5T9dEMur35pJXsiCpkVkiipP7f8E2XZIwj
- Y3EMkGb+N8XTCMoBQ+A==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-25_01,2026-08-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 impostorscore=0 malwarescore=0 spamscore=0 phishscore=0
- lowpriorityscore=0 clxscore=1015 suspectscore=0 priorityscore=1501
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608250023
+References: <20260708031129.3503195-1-jthoughton@google.com> <aoNGGKYZrOlaJ4mH@arm.com>
+In-Reply-To: <aoNGGKYZrOlaJ4mH@arm.com>
+From: James Houghton <jthoughton@google.com>
+Date: Mon, 24 Aug 2026 20:28:15 -0700
+X-Gm-Features: AcwNN1XpopclqRmS1SSj7gX5mIcn4wa7id5EaCll1JNV_pEtgQwJbOqOj16l3lE
+Message-ID: <CADrL8HVnUY7vs2STH4ENSp0CUWJuPevYSdMG_CNsuUrx5m_P+w@mail.gmail.com>
+Subject: Re: [PATCH 00/18] Another attempt at HVO support on arm64
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Muchun Song <muchun.song@linux.dev>, 
+	Oscar Salvador <osalvador@suse.de>, Nikos Nikoleris <nikos.nikoleris@arm.com>, 
+	Linu Cherian <linu.cherian@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	David Hildenbrand <david@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Nanyong Sun <sunnanyong@huawei.com>, 
+	Yu Zhao <yuzhao@google.com>, Frank van der Linden <fvdl@google.com>, 
+	David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260824_201002_576646_8A271899 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20260824_202855_446468_65227F0A 
+X-CRM114-Status: GOOD (  33.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,48 +124,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Aug 17, 2026 at 10:34=E2=80=AFAM Catalin Marinas
+<catalin.marinas@arm.com> wrote:
+>
+> Hi James,
 
+Hi Catalin, thanks for your feedback on this series!
 
-On 8/25/2026 10:06 AM, yingchao wrote:
-> From: Yingchao Deng <dengyingchao@kylinsec.com.cn>
-> 
-> tpdm_probe() initializes drvdata->spinlock after coresight_register(), but
-> the sysfs attributes registered by coresight_register() use the spinlock.
-> This exposes a window where a concurrent sysfs write can lock an
-> uninitialized spinlock.
-> 
+> On Wed, Jul 08, 2026 at 03:11:10AM +0000, James Houghton wrote:
+> > The following Herd litmus test demonstrates the PTE update routine:
+> >
+> >   AArch64 TTDFaultlessUpdate
+> >   Variant=3Dvmsa
+> >   TTHM=3DHA
+> >   {
+> >    uint64_t x=3D1;
+> >    uint64_t y=3D2;
+> >    [PTE(x)]=3D(oa:PA(x), af:1);
+> >    0:X0=3DPTE(x); 1:X0=3DPTE(x);
+> >    0:X1=3Dx; 1:X1=3Dx;
+> >    pteval_t 0:X2=3D(oa:PA(x), af:0);
+> >    pteval_t 0:X3=3D(oa:PA(y), af:1);
+> >   }
+> >    P0                | P1             ;
+> >    LDR X4,[X0]       | L0:            ;
+> >    MOV X5,X4         | LDR X2,[X1]    ;
+> >    CAS X4,X2,[X0]    |                ;
+> >    DSB ISHST         |                ;
+> >    LSR X9,X1,#12     |                ;
+> >    TLBI VAALE1IS,X9  |                ;
+> >    DSB ISH           |                ;
+> >    ISB               |                ;
+> >    CAS X2,X3,[X0]    |                ;
+> >   exists
+> >     0:X5=3D0:X4 /\ (* First CAS must succeed *)
+> >     (fault(P1:L0) \/ ~(1:X2=3D2 \/ 1:X2=3D1))
+> >
+> >   (* This test should not violate BBM requirements. *)
+>
+> We definitely need a clear statement in the Arm ARM around this. As
+> already raised in this thread, we can assume that AF=3D0 entries won't be
+> cached in TLB but there's more to the BBM rules. For the dirty bit, we
+> have R_SGJBL, we might need something similar for AF in addition to the
+> BBM rules update. In theory, I think your approach works but we need the
+> memory model experts confirmation and the Arm ARM updated.
 
-There is only a very small window during which users have a chance to 
-access the sysfs nodes. But still worthy to fix it.
+I agree; it would be nice if the BBM rules were more explicit about
+PTEs with AF=3D0.
 
-Reviewed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+The question I find myself wanting an answer to is: "is there ever a
+case where a TLBI must be issued for a guaranteed-uncached TTD before
+it can be modified?"
 
-> Initialize the spinlock before coresight_register().
-> 
-> Fixes: b3c71626a933 ("Coresight: Add coresight TPDM source driver")
-> Signed-off-by: Yingchao Deng <dengyingchao@kylinsec.com.cn>
-> ---
->   drivers/hwtracing/coresight/coresight-tpdm.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
-> index 8464edbba2d4..50d1351772b9 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpdm.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpdm.c
-> @@ -1457,12 +1457,12 @@ static int tpdm_probe(struct device *dev, struct resource *res)
->   		desc.groups = tpdm_attr_grps;
->   	else
->   		desc.groups = static_tpdm_attr_grps;
-> +	spin_lock_init(&drvdata->spinlock);
-> +
->   	drvdata->csdev = coresight_register(&desc);
->   	if (IS_ERR(drvdata->csdev))
->   		return PTR_ERR(drvdata->csdev);
->   
-> -	spin_lock_init(&drvdata->spinlock);
-> -
->   	return 0;
->   }
->   
+I'm pretty convinced that, for Page->Page, there are no such cases
+(but I can't really say for sure).
 
+For Block->Table, it's certainly more plausible for there to be such
+cases, like your comment on patch 12[1].
+
+[1] https://lore.kernel.org/linux-mm/aoSJcAFMNJ1nPl2H@arm.com/
+
+> I'm not entirely clear what the above litmus test guarantees other than
+> not giving a warning. On P1, X2 can be either 1 or 2, otherwise fault
+> but that won't happen with HA. I'd rather have something in the 'exists'
+> rule explicitly (like a TLB conflict abort; not supported AFAIK but
+> maybe that's what fault(P1) was meant to show?).
+
+I should have clarified that the exists clause in this case should
+always be negative. So I read it is:
+
+"It should never be the case that: the CAS succeeds AND (P1 takes a
+fault OR P1 reads a bogus value)."
+
+It's really useful for HVO not to introduce a window where Linux (e.g.
+get_page_unless_zero() callers) might take a fault on the vmemmap;
+this is what the fault(P1) part of the clause is conveying (even if it
+is obvious). This is actually the main point of the test: to verify we
+don't take a fault. The bogus value part is just kind of a sanity
+check.
+
+I don't think fault() captures TLB conflict aborts. The lack of a BBM
+warning is supposed to indicate that the litmus test has followed BBM
+rules properly =3D> TLB conflict aborts should not occur.
+
+>
+> In addition to the above test, I wonder whether we could have P1 do two
+> consecutive reads from [X1] and check the read values. Maybe go through
+> a third mapping, OA(z) with AF=3D0 after the TLBI or just start with AF=
+=3D0
+> on x. Basically any other tests for coherency like read-after-read etc.,
+> check that the behaviour is preserved through AF=3D0 just like going
+> through valid=3D0 with BBM (that's something that should eventually be
+> runnable on actual hardware to validate where we won't have a BBM
+> warning message).
+
+Changing P1 to:
+
+LDR X2,[X1];
+LDR X3,[X1];
+
+and using the exists clause:
+
+0:X5=3D0:X4 /\ (fault(P1:L0) \/ (1:X3=3D1 /\ 1:X2=3D2))
+
+remains always false =3D> P1 never reads in reverse order.
+
+    Test TTDFaultlessUpdateRAR Allowed
+    States 3
+    0:X4=3D(oa:PA(x)); 0:X5=3D(oa:PA(x)); 1:X2=3D1; 1:X3=3D1;  ~Fault(P1:L0=
+);
+    0:X4=3D(oa:PA(x)); 0:X5=3D(oa:PA(x)); 1:X2=3D1; 1:X3=3D2;  ~Fault(P1:L0=
+);
+    0:X4=3D(oa:PA(x)); 0:X5=3D(oa:PA(x)); 1:X2=3D2; 1:X3=3D2;  ~Fault(P1:L0=
+);
+    No
+    Witnesses
+    Positive: 0 Negative: 140
+    Flag Maintenance-scope-for-DSB-ST-is-deprecated
+
+I've tried to write more interesting tests than this, but I can't get
+any of them to run in any reasonable amount of time. (This test with
+P1 doing two reads took 2.5 minutes.)
+
+Here's one that I was trying:
+
+  AArch64 TTDFaultlessUpdateRAR2
+  Variant=3Dvmsa
+  TTHM=3DHA
+  {
+   uint64_t x=3D0;
+   uint64_t y=3D2;
+   [PTE(x)]=3D(oa:PA(x), af:0);
+   0:X0=3DPTE(x);
+   1:X1=3Dx; 2:X1=3Dx;
+   2:X2=3D1;
+   pteval_t 0:X2=3D(oa:PA(x), af:0);
+   pteval_t 0:X3=3D(oa:PA(y), af:0);
+   pteval_t 0:X4=3D(oa:PA(x), af:1);
+  }
+   P0                | P1             | P2             ;
+   MOV X6,X2         | LDR X2,[X1]    | STR X2,[X1]    ;
+   CAS X2,X3,[X0]    | LDR X3,[X1]    |                ;
+   MOV X7,X3         |                |                ;
+   CAS X3,X4,[X0]    |                |                ;
+                     |                |                ;
+                     |                |                ;
+  exists
+    0:X6=3D0:X2 /\ (* First CAS must succeed *)
+    0:X7=3D0:X3 /\ (* Second CAS must succeed *)
+    (1:X2=3D2 \/ 1:X3=3D2 \/ (1:X3=3D0 /\ 1:X2=3D1))
+
+Let me know if you have any more specific ideas about tests to try.
+
+Thanks!
 
