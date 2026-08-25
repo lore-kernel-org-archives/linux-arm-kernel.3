@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2461C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 05:18:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0BBC61DBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 05:18:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9vjujonXqfB1ZkfrEbqAqnsBz3mueWzOTaR5aSM5UVI=; b=QukBcVKPGzJ5uuadyLBvMz11kz
-	K0yKYTaRgo9dnkZ0h37ILWUv8enge76j8rTqiqUZaAFERAV9+c6pJaVq2W3wIoEifj+jGpe1MuqBm
-	XLP6YYNAYY6P17YjJzAp4seB1Sp9nJIH2kbogHnUfXgnkiyYybyYsIby7eH6TJrp1qdd1SMH6+Z6E
-	RXTch/vqoqPrdnVj94P8TszVg2e0QSLmb25UUjfquSuOPIvK30mSoWkIRl9RAws0MRPRBs6+PdZQg
-	hHN/QbC3XovAbf89WiNAdQ6fdjEXe9CRYJhwR6EdVcWkJ+cm5YH1E2r6QjCwvesYDKJanw076ZZJ+
-	7LJw833w==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sRFDSdPDr425uuq5umbh8K4+AEn5jgh345Ji4Y24bbE=; b=UsSTVvBHx8vuu9VtVDfZqSSSQi
+	tjKFhtRQa3BXGYdAlcyo+UixQFoUC2aokSwvQu6sHp9u8vjN+/4PKMV4+aYDQKgt3HBS/Cr3lumTF
+	BM90jSmD1PyQO+s0f8PRBSVw+qxnIgSmwvSR/IbTsaQ5YZ2zGRkt/T7lBXNJgTKsnDlQsxhgVQ7Sx
+	NLCcPk+wAuQYhV8MhdsMOgJxf63YOJLhGNYw2epcpj4ihTPiwa2ZiqhUVjpyrHyrhut6MPETwPy6S
+	q2dvPQw34NW1hYMV0Iin4HXvuY4C8zk/WHd3XjyxO49DEfDHKyeFr+vFw6qnKaZN1ZHRpn2NXlrkJ
+	hOv9cF2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyjYD-00000000AVt-0Mb5;
+	id 1wyjYD-00000000AWU-1EX5;
 	Tue, 25 Aug 2026 05:18:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyjYA-00000000AVK-1j6w;
+	id 1wyjYA-00000000AVL-1LM8;
 	Tue, 25 Aug 2026 05:18:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B27A6438D0;
+	by sea.source.kernel.org (Postfix) with ESMTP id B27CF43AC9;
 	Tue, 25 Aug 2026 05:18:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 86997C2BCB8;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 869E5C2BCF4;
 	Tue, 25 Aug 2026 05:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1787635097;
-	bh=c8m+kP4UJbinGZZP2vZ7BLyVif62dvbVb9w5w4QtJ2c=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=GlvZm08+42w6wLq6hwEcRYRNHi+RyJXY9zp8MJI4NpgWSBe7BaDWDXlpkF7QVZcx5
-	 bNR1NCG61x3IqaWsFIgol7BKR+Mdyp292HyRHWaWZlWKn2wONi8W3Z6FWawpfs+zCC
-	 +ITBBUPWd+B9tMIrbJCmDgutdeLcdcDb5fshQJfCHe21V5bbWhS1aaYustaSPSbqSS
-	 079hLZLMhQcgu2OA2Z4VyI2WvgG92VltBphNoJsczaTp9uSgOsMhw/uvSpvyRrscQ5
-	 cD8CF3ssojd/SEf3M251aS1lJhDR0lepakd5GUOGKwmiIuIiyY0ercEMiBnBlOjPD7
-	 wwyaGhfJom5SA==
+	bh=BneTF6Xp5rmyFqyxHB08Ui4BQSkX5TS6o9LZKizGA58=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=Xo47GiyGhMkdCipCKnOTrjdRaYBT1T/wWO/QvSfALphPWrzex6DcYWTs+Vt2nOjq9
+	 Xa2vtj02c3W107E3vmCbJNAVf5auPLa1ADwTrSdNRuH/svFJA+YptsFejhMrV2sf5O
+	 pUOHLEplU3aq5jIAu8WwodeXKpGSIQbBMHR+AfpNMX1HToAJX/B0YOLrF+ZIwiLv4t
+	 XPtw7YkbPHu6igsNd5XmpFHQeXnaHhICbthZ7FOm4CIfLu7I4OKPAZmFJHelL2fQjO
+	 dVKYcpiL1BQOQPTt58iaQCVla/a1656cCHyQY+M6DgHKS0PSMB0BzDme/Z9ylJEHTv
+	 kjSMHQQFsEdwA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 62541C5B572;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 741ECC5DF94;
 	Tue, 25 Aug 2026 05:18:17 +0000 (UTC)
 From: Rudraksha Gupta via B4 Relay <devnull+guptarud.gmail.com@kernel.org>
-Subject: [PATCH v2 0/2] Pinephone Pro Connectivity: Adding Modem,
- Bluetooth, and Wi-Fi
-Date: Mon, 24 Aug 2026 22:18:15 -0700
-Message-Id: <20260824-ppp_connectivity-v2-0-a4b0e11cd62c@gmail.com>
+Date: Mon, 24 Aug 2026 22:18:16 -0700
+Subject: [PATCH v2 1/2] arm64: dts: rockchip: Enable the EG25-G modem on
+ the Pinephone Pro
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WOQQ6CMBBFr0JmbUlbEZSV9zDEQBlhEmlrWxsJ4
- e5WWDu7N/nz5i/g0RF6qLMFHEbyZHQCechAja0ekFGfGCSXJRdCMmvtXRmtUQWKFGZ2wj5N1RU
- XXkA6sw4f9NmUt2Znh693Mod9CV3rkSkzTRTqLFa5hF9uJB+Mm7cmUWzB/0+jYJzJc9GXeD52U
- sjrMLX0zJMVmnVdv9b81hvYAAAA
-X-Change-ID: 20260112-ppp_connectivity-5edddd7b4904
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260824-ppp_connectivity-v2-1-a4b0e11cd62c@gmail.com>
+References: <20260824-ppp_connectivity-v2-0-a4b0e11cd62c@gmail.com>
+In-Reply-To: <20260824-ppp_connectivity-v2-0-a4b0e11cd62c@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
  Lee Jones <lee@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
@@ -66,11 +63,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Rudraksha Gupta <guptarud@gmail.com>, linux-clk@vger.kernel.org, 
  mfd@lists.linux.dev, Martijn Braam <martijn@brixit.nl>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787635096; l=3246;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787635096; l=3686;
  i=guptarud@gmail.com; s=20240916; h=from:subject:message-id;
- bh=c8m+kP4UJbinGZZP2vZ7BLyVif62dvbVb9w5w4QtJ2c=;
- b=eDOMM9OmCwYq19j0gxgg9RZnGrdgNhF6ujkRI210fik9net1+FPePUNOMqma7F1PoPW9p2xeD
- a56SRW7MxFjBjIRkeG3gkYif1H3LKFgLDw4rHnhD4d1/WZDeoDS1HWG
+ bh=BKJ8ewE7fSzmNjTVUblEb/3+hReBdcpXwAlKzQmJ6A0=;
+ b=JfLuqZDAAFi4RexAkel6rjPxl7Ab5EWlSrS/LXNb9jOehBe8iOvV5AQVjfdUL7x/lasiDV5iu
+ R8unLNmd0Z6D/Or9z5ISDXintJ2aTYSBlEXJcMEiUDgmot8YG/DQ+xQ
 X-Developer-Key: i=guptarud@gmail.com; a=ed25519;
  pk=ETrudRugWAtOpr0OhRiheQ1lXM4Kk4KGFnBySlKDi2I=
 X-Endpoint-Received: by B4 Relay for guptarud@gmail.com/20240916 with
@@ -91,79 +88,146 @@ Reply-To: guptarud@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Continuing the work on upstreaming Pinephone Pro functionality,
-this patch series gets the connectivity side of the Pinephone Pro
-mainlined. Here are the following sources:
+From: Martijn Braam <martijn@brixit.nl>
 
-- https://codeberg.org/megi/linux
-- https://gitlab.com/pine64-org/linux/-/commit/f9f847c6fd1
+The Quectel EG25-G modem is soldered to the board. It sits on the USB 2.0
+host controller behind u2phy1, with uart3 as its AT command port, and
+draws from two switched rails: vcc_4g_5v off the RK818 boost, and vcc_4g
+off vcc_sys.
 
-All credits to the following folks:
-- Martijn Braam: original author for the Pinephone Pro bringup
-- Kamil Trzcinski: original author for the Pinephone Pro bringup. No
-  longer credited as I can't seem to contact this person
-- Ondrej Jirman: maintains https://codeberg.org/megi/linux
-- Dang Huynh: for the modem patch above
+Neither rail supplies anything but the modem, which has to stay powered
+for the board to work as a phone, so both are always-on.
 
-As far as I can tell, I've credited everyone that I know about, but
-may be missing some because of how long its been since the original
-implementation till now has been.
+The modem itself has no binding and no in-kernel driver, so it is not
+described here; its control lines are driven from userspace.
 
-I've also included a short guide on how to test these patches. This
-generally follows this page:
-https://wiki.postmarketos.org/wiki/PINE64_PinePhone_Pro_(pine64-pinephonepro)
+Based on work by Martijn Braam, Kamil Trzciński, Ondrej Jirman and Dang
+Huynh.
 
-To test, please follow the following steps:
-    https://wiki.postmarketos.org/wiki/PINE64_PinePhone_Pro_(pine64-pinephonepro)#External_storage_(microSD_card)
-
-To build your own image, you will need to do something like this:
-pmbootstrap init    # I typically choose Phosh. Defaults should work
-wget https://gitlab.postmarketos.org/postmarketOS/pmaports/-/raw/main/device/community/linux-pine64-pinephonepro/config-pine64-pinephonepro.aarch64 -O arch/arm64/configs/orangepi_defconfig
-make LLVM=1 CC="ccache clang" O=.output ARCH=arm64 -j $(nproc) W=1 orangepi_defconfig all
-pmbootstrap build --envkernel linux-pine64-pinephonepro
-pmbootstrap build --force device-pine64-pinephonepro
-pmbootstrap install --sdcard=/dev/sdX    # Change /dev/sdX appropriately
-pmbootstrap -y zap -a    # Cleanup everything
-
+Signed-off-by: Martijn Braam <martijn@brixit.nl>
 Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
 ---
-Changes in v2:
-- dropped removing the interrupt GPIO for Wifi as that is now merged into mainline
-- reworked clkout2
-- dropped all the signed-off-by's. credited in cover letter
-- Link to v1: https://lore.kernel.org/r/20260112-ppp_connectivity-v1-0-284d6e83b212@gmail.com
-
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-To: Michael Turquette <mturquette@baylibre.com>
-To: Stephen Boyd <sboyd@kernel.org>
-To: Brian Masney <bmasney@redhat.com>
-To: Lee Jones <lee@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-clk@vger.kernel.org
-Cc: mfd@lists.linux.dev
-
----
-Martijn Braam (2):
-      arm64: dts: rockchip: Enable the EG25-G modem on the Pinephone Pro
-      clk: rk808: Select the clock function of CLK32KOUT2 on the RK818
-
  .../boot/dts/rockchip/rk3399-pinephone-pro.dts     | 69 ++++++++++++++++++++++
- drivers/clk/clk-rk808.c                            | 46 ++++++++++++++-
- include/linux/mfd/rk808.h                          |  1 +
- 3 files changed, 115 insertions(+), 1 deletion(-)
----
-base-commit: 237a1c39e8dfd3e1c6f1f023eea37a48ec04cc63
-change-id: 20260112-ppp_connectivity-5edddd7b4904
+ 1 file changed, 69 insertions(+)
 
-Best regards,
---  
-Rudraksha Gupta <guptarud@gmail.com>
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+index 8d26bd9b7500..8d2b6a46b39d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+@@ -134,6 +134,32 @@ vcca1v8_s3: regulator-vcc1v8-s3 {
+ 		regulator-boot-on;
+ 	};
+ 
++	vcc_4g: regulator-vcc-4g {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpio = <&gpio4 RK_PC7 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&vcc_4g_en>;
++		regulator-name = "vcc_4g";
++		regulator-min-microvolt = <3800000>;
++		regulator-max-microvolt = <3800000>;
++		vin-supply = <&vcc_sys>;
++		regulator-always-on;
++	};
++
++	vcc_4g_5v: regulator-vcc-4g-5v {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpio = <&gpio1 RK_PC7 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&vcc_4g_5v_en>;
++		regulator-name = "vcc_4g_5v";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		vin-supply = <&vcc5v0_sys>;
++		regulator-always-on;
++	};
++
+ 	vcc1v8_codec: regulator-vcc1v8-codec {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+@@ -264,6 +290,7 @@ rk818: pmic@1c {
+ 		system-power-controller;
+ 		wakeup-source;
+ 
++		boost-supply = <&vcc_sys>;
+ 		vcc1-supply = <&vcc_sys>;
+ 		vcc2-supply = <&vcc_sys>;
+ 		vcc3-supply = <&vcc_sys>;
+@@ -318,6 +345,17 @@ regulator-state-mem {
+ 				};
+ 			};
+ 
++			vcc5v0_sys: DCDC_BOOST {
++				regulator-name = "vcc5v0_sys";
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-min-microvolt = <5000000>;
++				regulator-max-microvolt = <5000000>;
++				regulator-state-mem {
++					regulator-on-in-suspend;
++				};
++			};
++
+ 			vcca3v0_codec: LDO_REG1 {
+ 				regulator-name = "vcca3v0_codec";
+ 				regulator-min-microvolt = <3000000>;
+@@ -702,6 +740,16 @@ blue_led_pin: blue-led-pin {
+ 		};
+ 	};
+ 
++	modem {
++		vcc_4g_5v_en: vcc-4g-5v-en-pin {
++			rockchip,pins = <1 RK_PC7 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		vcc_4g_en: vcc-4g-en-pin {
++			rockchip,pins = <4 RK_PC7 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	pmic {
+ 		pmic_int_l: pmic-int-l {
+ 			rockchip,pins = <1 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
+@@ -827,6 +875,15 @@ &tsadc {
+ 	status = "okay";
+ };
+ 
++&u2phy1 {
++	status = "okay";
++};
++
++&u2phy1_host {
++	phy-supply = <&vcc5v0_sys>;
++	status = "okay";
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_xfer &uart0_cts &uart0_rts>;
+@@ -852,6 +909,18 @@ &uart2 {
+ 	status = "okay";
+ };
+ 
++&uart3 {
++	status = "okay";
++};
++
++&usb_host1_ehci {
++	status = "okay";
++};
++
++&usb_host1_ohci {
++	status = "okay";
++};
++
+ &vopb {
+ 	status = "okay";
+ 	assigned-clocks = <&cru DCLK_VOP0_DIV>, <&cru DCLK_VOP0>,
+
+-- 
+2.55.0
 
 
 
