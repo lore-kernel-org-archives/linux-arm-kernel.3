@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD71FC61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 12:29:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4E44C61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 12:30:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vr0IO7IWIiCuO2qWijtsp6lOLVVtL6t1nB6eixWUtxk=; b=sRJOvO5rs6SYwMEg1mPgWu1x/y
-	NUU5V7kPwxsgbvWzjeeaIaMH9QVSLN03Xa68CQErrmIDpOpNLVljxz/4KkCseJcqjoz5KGD6fg0Q9
-	9W32Sgdl7FPUygo3bamDiO1gjAQfpaem8bc0A30i9Biw4UIAFxRtaVK6cBTkNdLONJTQqSPv5/Lab
-	nC0fjHfni89hpXjlCtbwMwP0MklPrxxelTfIF7IpafbdUK/53U6famSQLnLfWHR33R9smTU14mNFm
-	+ADNLpbyn4v+taTe4G7tZei44pF+rAuXBTKyA17j3n0jV4qXQN5NMJBpIdoVNSy2T9AO01THbGe9B
-	7WLijmvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/CFXDg3L0aD6SB3xy+cQUqcdazmfSamoOM2pD2VK9/8=; b=wtKwPMDQoIlnU3xPk0O0o6PsDN
+	F8nTR9GplF2DJ5Rs2z0hbf6vvfg5R2AR2MHbm5lRrxgMg3ck4KWlK2IkMryGISggxMD8MinELLYpi
+	SK1MMybLhaC5JeQipFNWtmBn8iAjFfYwnopFi6nFLBnvr+9fNKl1Nni3GU7ghvqjx8oFhQglHUBQ2
+	tSPC3F6NS9EXg+kqFyUyJsRBV5CvW0NI17mTDS/WH42Yqeh9VKQcfLocve4mV1slnZ0sWy14oVckr
+	LkRhwaR/sV0hf6P661gdoREJ7Lo8/iD3tO7bnsgCMbJbB+Tw+WuoMwSI369Kqt/InPSSl3Dwn9tK+
+	sflEq2AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyqHR-00000000ldd-47eZ;
-	Tue, 25 Aug 2026 12:29:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyqHM-00000000lc4-0CkR
+	id 1wyqI6-00000000loa-1FbI;
+	Tue, 25 Aug 2026 12:30:10 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wyqI1-00000000llz-39Pr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 12:29:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48CFC176A;
-	Tue, 25 Aug 2026 05:29:16 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 11AED3F7D8;
-	Tue, 25 Aug 2026 05:29:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787660960; bh=3zSUF/gW/Zcaed81GwU3l76v2U3K0J3de2dxbI0c5CQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kB+u9BRnN8KsWTpqT13jVQynNtsWyseMe8JNZ6YsmTsxaxvtw+rE53ZDlu+LfvLNn
-	 dOfgarmQ0ieJd8oQx8drFWvTVuyKbWAKrYi61e0P/9mauCXK/LnK0dN5zg8rNDiIRA
-	 eGNhtBVKJkJVAENWbmpu3fy0O2xJg+UcmFno6tig=
-Date: Tue, 25 Aug 2026 13:29:14 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: "Thomson, Jack" <jackabt.amazon@gmail.com>
-Cc: maz@kernel.org, oupton@kernel.org, pbonzini@redhat.com,
-	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-	shuah@kernel.org, corbet@lwn.net, vladimir.murzin@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	isaku.yamahata@intel.com, Jack Thomson <jackabt@amazon.com>
-Subject: Re: [PATCH v5 2/5] KVM: arm64: Add pre_fault_memory implementation
-Message-ID: <ao2KmmUd1lVFUUkp@raptor>
-References: <20260612162354.73378-1-jackabt.amazon@gmail.com>
- <20260612162354.73378-3-jackabt.amazon@gmail.com>
- <alEXtW7w-rqlNG09@raptor>
- <0365d77d-616b-47f7-a5f2-3388bad692a1@gmail.com>
+	Tue, 25 Aug 2026 12:30:09 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260825123000euoutp016138650a49b7750de51e6a16003c07ad~PDDVZKmW00788207882euoutp018
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 12:30:00 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260825123000euoutp016138650a49b7750de51e6a16003c07ad~PDDVZKmW00788207882euoutp018
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1787661000;
+	bh=/CFXDg3L0aD6SB3xy+cQUqcdazmfSamoOM2pD2VK9/8=;
+	h=Date:From:Subject:To:Cc:In-Reply-To:References:From;
+	b=M/plwnleb557HnWW2Dgy9vnFWSWbm89jMkXmfdBPQP4QBiSMtpwH1WVf0GPG0YzkB
+	 gifzRvzJLk6W7MqMdMgDOgPSNREwbE762LekRDsHSM41/dqjMNjK0W8f2FmZQdds1C
+	 PimsNKW8gsS17sEJpl3sKl4RVUT9KVaiQ48N53po=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260825123000eucas1p248f943e21b217192142c843eb427dd76~PDDVEpmia1504115041eucas1p2S;
+	Tue, 25 Aug 2026 12:30:00 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260825122959eusmtip1bd8675e1e80e324fa87b118bf74d4d66~PDDULpsjo1767517675eusmtip1d;
+	Tue, 25 Aug 2026 12:29:59 +0000 (GMT)
+Message-ID: <e7605d7a-85f1-4339-99d2-85c0df884ec2@samsung.com>
+Date: Tue, 25 Aug 2026 14:29:58 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0365d77d-616b-47f7-a5f2-3388bad692a1@gmail.com>
+User-Agent: Betterbird (Windows)
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+Subject: Re: [PATCH v5 05/10] mm/cma: Introduce cma_alloc_at() API
+To: "David Hildenbrand (Arm)" <david@kernel.org>, Thierry Reding
+	<thierry.reding@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+	Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jonathan
+	Hunter <jonathanh@nvidia.com>, Robin Murphy <robin.murphy@arm.com>
+Cc: Thierry Reding <thierry.reding@gmail.com>, devicetree@vger.kernel.org,
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-mm@kvack.org, iommu@lists.linux.dev, linaro-mm-sig@lists.linaro.org,
+	linux-trace-kernel@vger.kernel.org, Thierry Reding <treding@nvidia.com>
+Content-Language: en-US
+In-Reply-To: <ae6c93e6-10f2-4bac-be61-118bbfc3c05d@kernel.org>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20260825123000eucas1p248f943e21b217192142c843eb427dd76
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260820180431eucas1p21be3f213606c4dbef2e4a73a2c1623f0
+X-EPHeader: CA
+X-CMS-RootMailID: 20260820180431eucas1p21be3f213606c4dbef2e4a73a2c1623f0
+References: <20260814-tegra-vpr-v5-0-71832b5d0246@nvidia.com>
+	<20260814-tegra-vpr-v5-5-71832b5d0246@nvidia.com>
+	<CGME20260820180431eucas1p21be3f213606c4dbef2e4a73a2c1623f0@eucas1p2.samsung.com>
+	<ae6c93e6-10f2-4bac-be61-118bbfc3c05d@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_052924_441969_1D557EC2 
-X-CRM114-Status: GOOD (  43.51  )
+X-CRM114-CacheID: sfid-20260825_053007_977235_5742A5A8 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,109 +92,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jack,
+On 20.08.2026 20:04, David Hildenbrand (Arm) wrote:
+>> /* This part must be outside protection */> diff --git a/mm/cma.c b/mm/cma.c
+>> index a10ea37a261d..1e1ebae79090 100644
+>> --- a/mm/cma.c
+>> +++ b/mm/cma.c
+>> @@ -936,6 +936,141 @@ struct page *cma_alloc_frozen_compound(struct cma *cma, unsigned int order)
+>> return __cma_alloc_frozen(cma, 1 << order, order, gfp);
+>> }
+>> +static int cma_range_alloc_at(struct cma *cma, struct cma_memrange *cmr,
+>> + unsigned long offset, unsigned long count,
+>> + struct page **pagep, gfp_t gfp)
+>> +{
+>> + struct page *page = NULL;
+>> + unsigned long pfn;
+>> + int ret = -EBUSY;
+>> +
+>> + spin_lock_irq(&cma->lock);
+>> +
+>> + /*
+>> + * If the request is larger than the available number of pages, stop
+>> + * right away.
+>> + */
+>> + if (count > cma->available_count)
+>> + goto unlock;
+>> +
+>> + ret = bitmap_allocate(cmr->bitmap, offset, count);
+>> + if (ret < 0)
+>> + goto unlock;
+>> +
+>> + pfn = cmr->base_pfn + offset;
+>> + page = pfn_to_page(pfn);
+>> +
+>> + /*
+>> + * Do not hand out page ranges that are not contiguous, so
+>> + * callers can just iterate the pages without having to worry
+>> + * about these corner cases.
+>> + */
+>> + if (!page_range_contiguous(page, count)) {
+>> + pr_warn_ratelimited("%s: %s: skipping non-contiguous area [0x%lx-0x%lx]",
+>> + __func__, cma->name, pfn, pfn + count - 1);
+>> + ret = -EBUSY;
+>> + goto clear;
+>> + }
+>> +
+>> + cma->available_count -= count;
+>> +
+>> + /*
+>> + * It's safe to drop the lock here. We've marked this region for
+>> + * our exclusive use. If the migration fails we will take the
+>> + * lock again and unmark it.
+>> + */
+>> + spin_unlock_irq(&cma->lock);
+>> +
+>> + mutex_lock(&cma->alloc_mutex);
+>> + ret = alloc_contig_frozen_range(pfn, pfn + count, ACR_FLAGS_CMA, gfp);
+>> + mutex_unlock(&cma->alloc_mutex);
+>> +
+> There is quite some code duplication with cma_range_alloc(). Please try harder
+> to factor common code out and reuse it.
+>
+>
+> > ...
+> Also here, way too much code duplication with __cma_alloc_frozen().
+>
+> There must be a better way :)
 
-On Fri, Aug 21, 2026 at 02:52:17PM +0100, Thomson, Jack wrote:
-> Hi Alex,
-> 
-> On 10/07/2026 5:03 pm, Alexandru Elisei wrote:
-> > > +	unsigned long		*page_size;
-> > 
-> > As far as I know, fault handling was reworked to use struct
-> > kvm_s2_fault_desc to store the fault information that user_mem_abort()
-> > needs to handle the fault.  Adding a 'page_size' field, that represents the
-> > result of the gpa mapping process, might not be desirable.
-> > 
-> 
-> Yeah agreed, Vincent suggested a separate output struct that
-> kvm_s2_fault_map() fills with what was actually mapped. I'll do that in
-> v6 thanks!
-> 
-> > > +	struct kvm_vcpu_fault_info *fault_info = &vcpu->arch.fault;
-> > > +	struct kvm_vcpu_fault_info fault_backup = *fault_info;
-> > 
-> > I'm not sure you need to make a backup here. vcpu->arch.fault is populated
-> > each time the CPU takes a fault.
-> > 
-> 
-> So this was actually flagged up by sashiko when I ran it before
-> submission, it suggested handling this for the case in which the vCPU
-> exited for MMIO, the next KVM_RUN calls kvm_handle_mmio_return which
-> uses the vcu->arch.fault.esr_el2. I'll add some comments to this maybe
-> to explain why this would be needed.
+Maybe the existing 'alloc' functions could call 'alloc_at' variant internally
 
-Ok, I see, VCPU exits to userspace due to MMIO, userspace calls
-KVM_PRE_FAULT_MEMORY, userspace resumes VCPU and uses fault_info from
-KVM_PRE_FAULT_MEMORY. Nicely spotted.
+(with locks adjusted and moved out).
 
-> 
-> > > +	if (memslot->flags & KVM_MEMSLOT_INVALID) {
-> > 
-> > I don't think that's something we should care about, the flag can be set
-> > immediately after the check as the function doesn't take kvm->slots_lock.
-> > kvm_vcpu_prefault_memory() takes the srcu lock in read mode, so the
-> > function is safe to run even if userspace does something silly like
-> > deleting a memslot at the same time that it's prefaulting the guest memory
-> > it represents.
-> 
-> I was there not as much for safety, but rather to pick up that error.
-> This way rather than userspace getting an -EFAULT it can just retry.
-> This is the same way it is handled in x86 as well.
 
-My point was that since there's no serialization between memslot changes and
-KVM_PRE_FAULT_MEMORY, the condition can become true immediately after the if
-statement. Doesn't really matter though anyway.
+> (I really prefer this direction of the patch set)
 
-> 
-> > 
-> > It might not be obvious, but taking kvm->mmu_lock in read mode does not
-> > guarantee that gpa will be mapped when kvm_pgtable_get_leaf() returns.
-> > That's because a concurrent kvm_pgtable_stage2_map() for a different gpa
-> > can destroy the mapping of the current gpa.
-> [ ... ]
-> > The kvm->mmu_lock is dropped here, which means that it is possible for a
-> > MMU notifier callback to have just unmapped the entire stage 2 for the VM.
-> > 
-> 
-> Yeah as we mentioned in the other thread, this is best effort and we
-> can't guarantee that is survives the return. We do this for forward
-> progression, reporting the correct advance size for ranges which are
-> already mapped, instead of repeating the full dance for every page of them.
-> 
-> > 
-> > handle_access_fault() will fail if the mapping is gone. But I guess that's
-> > fine if the ioctl does not guarantee that memory is still mapped after it
-> > completes.
-> 
-> 
-> Yeah I think it's fine and will degrade to a no-op in this case.
-> 
-> > 
-> > Also, the documentation that this patch adds says: 'On arm64, newly created
-> > stage-2 PTEs are marked Accessed'. Does not say anything about marking
-> > **existing** ptes as accessed. Would be useful to explain the code does it.
-> > 
-> 
-> Ack, will do thanks!
+Definitely, I also like this approach much more than previous attempt with
 
-I think there's a word missing there, I meant to say that it would be useful to
-explain *why* the x86 implementation does not mark new PTEs as accessed, while
-arm64 marks them as accessed, and arm64 also does that for existing PTEs.
+'dynamically' instantiated cma regions.
 
-> 
-> > > +		hva = gfn_to_hva_memslot_prot(memslot, gfn, NULL);
-> > 
-> > There's gfn_to_hva_memslot(memslot, gfn), is that what you are looking for?
-> > 
-> 
-> I think gfn_to_hva_memslot() resolves the hva for write, so would fail
-> on KVM_MEM_READONLY slots, and prefualting is a read. Also this mirrors
-> the guest abort path so matches the way the run path resolves the HVA.
 
-Ah, I missed that, thanks for explaining!
 
-I was wondering if you have any plans about posting an updated series.
+Best regards
 
-Thanks,
-Alex
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
