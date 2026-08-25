@@ -4,130 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C5B5C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 20:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87D70C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 20:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RlBLqLN7PZPbaq0vvMQPGIEKFry+yToA8785sU2qdgY=; b=GZP41nbez3LOpCYvIg1VGFqsfr
-	tCygBZB+pGjThwp/a6R8qgJ9IuBzz4f5lpANzW91Y9UUhEEiTl7ikAVwkCaNXxAzpaOQp5XN47+/q
-	Y52v9wyflUfOXYXr5WfkJy+v/AHVbW3smJP6tM0wDuWe33aiyt4951OZuYPYYvI7rjxBJT835mkus
-	jQzzH9S0yOpgQXobiUKyx1U9iicQEfRgbk422NvM4nKi04OL2SzcKpwgJcgyjrqkQWS2hKxM4ZvpE
-	uKIS4wtiGpPsXs0/G52I4MRVYKKBLKiPh8xctPa0k4t6Q9PZrbqN9p5KfvFOy6Ilar+YkgunwrFpC
-	D/ZTQs/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TJsN+ycmZ6jkrcNxbgl4Kd5KYLWAfFZNuUGOdqM3yDU=; b=n3ZCvvcjEWOPFHO46Q3pn/oOtq
+	qdArBievXeYhhi/LI++yF5Qawwi4Fx5E3YGjbryVoSGkwrVqGgPo508849bSrAPVQTGVQC+ilVjoG
+	VlENOPLRQ3yOJvaBKz7PCLC0ffYQp4gHNbyZU9CI/A3/8jNEypsHGAw20nvZmy6ntGT3h91AlqrPz
+	fM2GJHWp7lIwQ1oYwMU3Zd3Ra3HPM9FIDsAmjiyCUhxxljKmlk769IIA9qYCCVVxDF09bEazgQUbl
+	FekRQrYaxJuyC/38lTnPmKiBFyZDo2zh0HWPLnxnRhEBiHiXbEusJKcKgXHuymNEu2UOAomah/nK1
+	/mOAu75g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyxa1-00000001QfY-2kaj;
-	Tue, 25 Aug 2026 20:17:09 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wyxnt-00000001RWB-3qC6;
+	Tue, 25 Aug 2026 20:31:29 +0000
+Received: from smtp.forwardemail.net ([121.127.44.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyxZz-00000001Qf9-0xuZ
+	id 1wyxnq-00000001RVl-3yMq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 20:17:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dorCrtluVKOk8oBkEQCN0A5XqTVcZAyHxTKkOsmGLI/RFFp9g81Y/id6Ze17JFGuZ2p7C3yTjQ9PC9onSIVexhvhqt24kucqVMDxJClHpxmO9yZkauX4TxL5kda0upG5MU7Uufzlhwcm3pLRFwtT+F2vFwLrTUPFacpr36iRlZBRkUcZI3OsGjtayVz8O4L4PPrbhFA2OrOVeS/Jg2PbWRdDR+SjRYa2g0uHl1GZ6n3JNbjY4R3Fm09QaBLU7ol1f6fvFqluXP5C+SsbgpTpXeCMhRMgpnuaXYP/cVA0rqscX0oO/C0P4K8Qb9+ABJLRu1X08iIEpz7QJPD07JfMew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RlBLqLN7PZPbaq0vvMQPGIEKFry+yToA8785sU2qdgY=;
- b=VAHtTmPWd12AoYgYjT7ySi8HQoxJLiz/26zqg+uWmlGoG84lINtBFixnjCpk1CPedf9miqu8kZeJ+eEBK3+EnN0U5abhG0XzJRHfvSwGG86iDHtTMOFaLjDRRilZRtuPEHA33UhxXZTaY32N9+8o/bhUxFzmSRmWdVkngYzai9aUfRkSXN0QGfOIvHXbeGzzNAvrrops+0Z6O0iOmuL0DgpdVU/YwS7eLOR6njmKFYSFgJSKS2+OyB2Bbjh9/QlMVGvlEut+kedYpNh2/Ra2OMx6SBnelPtwhQhICCi+MmDcuj8dgK66JGGUEgWoNBm5o/ZCHHAoSVVTJsc/X3CNbQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RlBLqLN7PZPbaq0vvMQPGIEKFry+yToA8785sU2qdgY=;
- b=p08TxfusYL1SZ+dxn0vG1l8eIfTuIG/oHomL7PrewvQkOYHuGxLHQ02sZHG8AlRtaplKSPWJRGGsA5UhIaHpzR0dyh0fv+xUAVTyD55WY8R5/zrG93UPOA+CzwHGLt37g0MuqhxujS5YfxLOa8Ss3okXBvhOMwXt2hDxRUeTXi7cTL8dH+/P+gDhoLIm3FGlQ/yMK95s+qwnrZKcyAl5+RffNhOn+9hARK/D/zByo/A0ntps5sVewapHCd1IhTrfq5HiZ1ndfzKEOiHy5pJDaTfFBPqLn2dny9zbFqYDztkTT1TX/Lklj2u+rfkMv08Ka5hhxv+4jMzqvD0Gqf3PKA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by LV9PR12MB9757.namprd12.prod.outlook.com (2603:10b6:408:2ed::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Tue, 25 Aug
- 2026 20:17:02 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0339.012; Tue, 25 Aug 2026
- 20:17:02 +0000
-Date: Tue, 25 Aug 2026 17:17:01 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Daniel Mentz <danielmentz@google.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v9 09/12] iommu/arm-smmu-v3: Implement pm_runtime &
- system sleep ops
-Message-ID: <20260825201701.GG3325090@nvidia.com>
-References: <20260728210928.1050849-1-praan@google.com>
- <20260728210928.1050849-10-praan@google.com>
- <178767577113.3356902.28128835506777632.b4-review@b4>
- <ao3kxwbwB9GC3EOM@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ao3kxwbwB9GC3EOM@google.com>
-X-ClientProxiedBy: CH0PR08CA0029.namprd08.prod.outlook.com
- (2603:10b6:610:33::34) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Tue, 25 Aug 2026 20:31:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lineageos.org;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-2eefaa527c; t=1787689885;
+ bh=TJsN+ycmZ6jkrcNxbgl4Kd5KYLWAfFZNuUGOdqM3yDU=;
+ b=R6NdCGRhmwsPGcK+ib7VBfTg6zFDEePGsBHTA8OXRomfl+MzOcmn7O17It8nBecuj748rco9n
+ JRC4IUjhCmNeNQLwuVE3tcrIY3AAQVuzH/KRzvfOzk48F4r5ikd+fPu9KZ7gYm4vb1h1YO4BySH
+ GpgKp1JDJCo7yPEb1KRzRc8=
+X-Forward-Email-ID: 6a8dfb9650593cdd5fd1dd31
+X-Forward-Email-Sender: rfc822; tturner@lineageos.org,
+ smtp.forwardemail.net, 121.127.44.66
+X-Forward-Email-Version: 2.13.16
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <82427334-8196-434a-a7bc-601e88ca8e03@lineageos.org>
+Date: Tue, 25 Aug 2026 21:31:12 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|LV9PR12MB9757:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6efadba9-e733-41d3-9300-08df02e5d348
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|366016|1800799024|6133799003|4143699003|11063799006|10067099003|56012099006|5023799004|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: EzwW3cEkDNb9uWZym9Gj7uug6Q0gEpxEXFlaN3xtoa6gL5A3TSsa1JByv/tbsVR96nSXlh/O00N+gZVkbYy+qs9lxr5KdIYFWdpgCWHE1JjgWSHo/h28vppbelOc14CaqlQ49MKN5+G87r9w+R9jAcre1fid/FXsw1O7wRAOIQiBiFctU7jDUP5Gv3c+iELUJpprJLq0XdG1XnoNz7lC01G1TDz5Lnxuwtw7y0aOQX55V/Vh62zltakvjRtnDZ3AApAeJPkdNrzYwiBIj0oV/cAovs4XdE4eBbOZsyx18lihqHYlwb1ZM0bT+tbj68+EleLtMF2mByBwVEUbBIdX0BkkmqpleiXnqzqg/EUTyVZLj7osrkCyo2xhBcytDn5aHXhvJju9MrE7tBfmrvPsLpAEPdUEMe1Gu6DObYs1r6RMBtMHZ0U8ywRunB8Abe0O+KhKAoOmjmWdr/FaNkWz1LtzoNGZJjeyO6mXnA1wT5Fz9Wp8Csqi4Ar302l1UFJdVki4nLCGtXHMv+Tlwo13/t0q6MUh7w/7ZFJeoZ5WB9C/Sjzd+PNPzS/fxEYd+EJnAFRQFt3sD7ZulUdr8lpyFacmVTszNIYkS3Bzzinf7go6HGT9SYEct6axBYMeuFFP81+EKXV0J/upQ2nuaTAR7wseKtveGiqFQrwguQ9GSQg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(1800799024)(6133799003)(4143699003)(11063799006)(10067099003)(56012099006)(5023799004)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AFAuQVJCKxnJH2/lUfulCzN9m7vJp/Zo4Rfz1FxlM5m87la8CVDTOUOD05Ab?=
- =?us-ascii?Q?c9nO03fIpmHCxzdfY/+miQEDAlyTx0tVS504rqYu/EKNnk6631m86M/3KskG?=
- =?us-ascii?Q?IQH9dKmZYW+Mb2q4P/mEAVnbsTdVT+D41IJEWuCbW0FUHDHg97H1hY7mxvbf?=
- =?us-ascii?Q?F6cTcjGbsbHAkUxaTSpJUmwPA/Qy9hBahfoMbLuN1/mSFcXdIzCfZNx0XvHw?=
- =?us-ascii?Q?tH5S/kCL8imTesloI+Nhk+kVOaBwvM3CVhCSJPUQvlDUOvX9i1QJCgh8Tzcy?=
- =?us-ascii?Q?4yUem5FGcdjwpaDk5UZ+LNpE63BS3gCpjUGtDUnwL/vi/M9XMqRFoYQo3yec?=
- =?us-ascii?Q?uyl4ey+hRghr0ZKfeCXWmNzTNuLdwe/9NTCPw6DdVjgzq7zwbvpp9+Q+t/rD?=
- =?us-ascii?Q?6Gqgrrpe1P7RhjTUYExzJIWx2cgDodzHW7/Z7L6m66oMRcJgVaRyU8ue1Gzx?=
- =?us-ascii?Q?vDohDu11zotBqXTCCKuLZtVpZejmBsNKUsO47GlaPBoozxSSaVzuUsNvne7Y?=
- =?us-ascii?Q?ECwqSf2a1OX1UElINb0EmcYKJrdwA+4GSHf44On2FlXr0A/iaFi8We2s241r?=
- =?us-ascii?Q?xnL8gXUHWU/lIm2QKXcQ86T2BLr8ljf53E8AYmgh/2k5wGjRXTqh5jGL38A+?=
- =?us-ascii?Q?2XjuwlIJVjaXB0w6PNCyt7h5BFxSsGSTarZyl8qK94ih0YYN0YqosYJ3558/?=
- =?us-ascii?Q?jD1VRo6rgiOO6ObHfWInjO5ChRBDEPxJ2YiVujll1vW0B+RJZKJ/rwaZg+g0?=
- =?us-ascii?Q?9hU7nw6v4T1yoVQVG1/BkKBFc8qCcTjceQ+/WBFL3VRqpQjxv//Byp4t0Flp?=
- =?us-ascii?Q?c9XnMXctCWuZ2dl0185NaF+Nf7ZVwIIj8o8KG3a8drMsm7zVgMCHP+LGYxp4?=
- =?us-ascii?Q?H1AyyVAlYzEOZs7VfwEBrQ8pRbQXVS4NpJjahvnKlwTgHnzhC98phiEG0k+k?=
- =?us-ascii?Q?XQbW6miff7odNcC/XQ3WpJtlRGaKiqKcxNYURiyTUu6YhL8yyD7hhAZIujW9?=
- =?us-ascii?Q?xepuRn+66mremkpZg3t85rTsWYidqifyI1jPmOV6iEZlpnhkmWxP5C3h8plp?=
- =?us-ascii?Q?O7X4GlGvTsBjRJumPaFGA10kERMqG9+o6n/Sa+OXAbMolHkP17p8HqmoVQ0D?=
- =?us-ascii?Q?dqXwf//KRMtBp8ZozHsHHqQU5vwETbSE4owtLsaXEZzHGONnUM60paMYo5yD?=
- =?us-ascii?Q?FPe97r/mgTYOanuL8m1WvAzx/+5VtaAqR9Med7uGjUf/eMfX5DVJXOfI5/A4?=
- =?us-ascii?Q?6q946MsD+8xKeZm5aZlAZfbTbvScEhbJfn4VKsG4Qk/ggMq0jjGJXVqtyiN3?=
- =?us-ascii?Q?/YTQO5kQYfHo2l7ERqn7MMQvzeEyCtszLn2fzqLXMOjHfnyoh4J6C2J+rAuE?=
- =?us-ascii?Q?6ccBcIoZ3kdisCrNNrGn4AIn5R9OotMdPsoUr7GqiV4Ji+IwAY7k4IZ2+xm0?=
- =?us-ascii?Q?julQFc4fUMU+QR8bS78k+/BVDB5rS9gZJnWFTbxxEBYdQMRvqe0R4r4uF/BL?=
- =?us-ascii?Q?W9/K4sVwgTWXhCi0ET+RNZS1yBqwtqY4lIH/1ptnPGWbeh+IymDdJ3PoqJuP?=
- =?us-ascii?Q?NHCzpNi9dAaJBcJZFl/xOAcgMX3upT2DezYnfuR5aoQuyBfllgZR81K4wPoT?=
- =?us-ascii?Q?AD4v+zmQk7KcQC4Jjt9kk43oRU5Pv7Kjs3x95VBbUMHGucDtDVeWewNT4nLf?=
- =?us-ascii?Q?DztH1pkOhtu8KYyLhisr46707R3AKXNdBRHz7TmE1ruyOVh1?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6efadba9-e733-41d3-9300-08df02e5d348
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2026 20:17:02.7625
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: icwyVQXCsasHuomEaOh63QBOEuoq45JMmj9KSuHOC2odxtQGBa4xym48aR5fMW6U
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV9PR12MB9757
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/2] Exynos850 GPU support
+To: Alexey Klimov <alexey.klimov@linaro.org>
+Cc: krzysztof.kozlowski@oss.qualcomm.com, semen.protsenko@linaro.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ peter.griffin@linaro.org, alim.akhtar@samsung.com,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <GVYP280MB12139AB976CA7ACF49FEB768A1A52@GVYP280MB1213.SWEP280.PROD.OUTLOOK.COM>
+ <20260820142330.84514-1-tturner@lineageos.org>
+ <DKY572QGTWSQ.3GW5FQV7JF485@linaro.org>
+Content-Language: en-GB
+From: Thomas Turner <tturner@lineageos.org>
+In-Reply-To: <DKY572QGTWSQ.3GW5FQV7JF485@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_131707_273851_D75FF33E 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20260825_133127_061749_20542153 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,25 +79,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 25, 2026 at 06:53:59PM +0000, Pranjal Shrivastava wrote:
+Hi Alexey,
 
-> > I agree.. I think there are only two options?
-> >  1) After GBPA=Abort ATS requests are blocked, so you could full
-> >     invalidate all the device ATC's and now it is safe to ignore
-> >     ATC_INV
-> >  2) Just don't perform suspend once ATS is activated
+On 25/08/2026 16:50, Alexey Klimov wrote:
 > 
-> This is a little tricky, I'm leaning towards 1) since edge devices can
-> have ATS enabled
+> Hi Thomas,
+> 
+> On the next submission, could you please also add my email
+> alexey.klimov@linaro.org to c/c list?
+> It is interesting topic.
 
-Oh really? Surprising..
+Sure thing.
+> Offtopic: I have working patches that enable cpu idle states on Exynos850
+> but they are not upstreameable due to PSCI (needs some argument
+> shift in one of the PSCI calls due to messed up MPIDRs).
+> If you will be interested to test/use that, please let me know.
+> 
 
-> However, the EP might've entered it's low power state by the time we 
-> reach smmu's suspend. I'm not sure if we should be waking up the EP for
-> ATC INV All (or if it would even wake up in such a case?)
+Absolutely would be interested to try and test that on my ERD850 device,
+feel free to send patches/instructions my way.
 
-Is its power down explicit? Could the PM stuff trigger wiping the ATC
-and blocking DMA for a single device before allowing it to power down?
+On another side note, I noticed that on the e850-96 you setup basic PMIC
+functionality in u-boot, on ERD850 we also do a similar thing via a
+secondary bootloader (uniLoader), was curious to know whether you or Sam
+have tried implementing PMIC capabilities into the Linux kernel at all and
+if so how successful or unsuccessful has it been?
 
-Jason
+Best Regards,
+Tom
 
