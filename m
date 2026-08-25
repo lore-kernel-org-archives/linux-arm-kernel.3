@@ -4,107 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33487C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 07:21:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D6AC61DB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 07:23:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rYTDFbaE1JJfaMo+4gmChPHhIQlrt73MEiayTTjME6k=; b=JcXOlSC5yAWTrwGXljh1bKI6DV
-	nKY1nMjM9xAJSZuqExlxdAtjwxXlZr2PeDJoloKyzH+XTn3fUAro0Av+32zbO2enxHxXoZx+ySvl5
-	exCEsrQdpz3k5kxOddWUSg9G+eeMKgcgE5rTTLzrYY/nmijrdiPuAV/eb2MRfOYELvtIYON89HLUw
-	SIDoFwiGpyF9PJi/hcHBRkWkJlYGWsqXqLwxGMhX6E0mFfBQmpJwTxKzJB/Y68mh5SJCSfSlewYxX
-	uA1jZxSpzioJL/4sUwclEcJyC+O32yt3ntMwWdY1Zpn6XFiUF4964lf7kXSXvOrQb81hD5Cue9Pmf
-	Af24ITJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eN5iHP6Z2JnvjXQlTAeAGoavA+UgNv+wdji4+NWzt4Q=; b=bevsqRg9q/BIw3ZukScxti3HaH
+	FJUkiUOO7+fQ04+24YqI9FYK3QtMvgC8YmwlBgD96OIl0N6hFfWuBWosGaqyV1QPVkFIUsg8DYtk/
+	ztG6+aR3BNL0uZRw1DSFPR9A2B+LP+dOXF4rQquygFIXBFb4Gei0RbGi13pm/Ec7IJiApnHCPGqIW
+	PdAyg678pkNE1ys1zyTajtDsUxsuLbqLfs0ynFkVSDl7nRn5m4voy2zoQudxMhAGdHAQFqndIq3Tt
+	xKBNLa7PINiEK4Pizxp27EL6Womnuu1hF1NZp8bg6GvYFnv2sbtD3pD8AdEKO21pO1irLmOY2xbRg
+	bOyuvxGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wylTc-00000000HJh-05uT;
-	Tue, 25 Aug 2026 07:21:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wylVA-00000000HWj-2Q1S;
+	Tue, 25 Aug 2026 07:23:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wylTZ-00000000HJT-0aa8;
-	Tue, 25 Aug 2026 07:21:42 +0000
+	id 1wylV9-00000000HWY-2nPL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 25 Aug 2026 07:23:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7F7B24004F;
-	Tue, 25 Aug 2026 07:21:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54B6A1F000E9;
-	Tue, 25 Aug 2026 07:21:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 03BEA4122F;
+	Tue, 25 Aug 2026 07:23:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA1F81F000E9;
+	Tue, 25 Aug 2026 07:23:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787642500;
-	bh=rYTDFbaE1JJfaMo+4gmChPHhIQlrt73MEiayTTjME6k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=L5uKnFVN6U7JlDpZjykUYsM31mRreDBUSIQQxhl6O0emTFTI0MCN5iu57fN5BLwsY
-	 clMRmla9IT/J2d4ZtzQkQMz64gKEL7j+jJI4AO7krfKlUj3p3t8nTnI4RUG1dthoIy
-	 yjfFJpTJq3h71mEBqLe51I6RCD3NLSbg8E3K80luAGV1qOEPXwuSMBbwDDIOvILkQj
-	 2Xryd1YQ6/+UlWjX+jTQAUnVzN+56Zu1uB/bcHQxvVaHTLuU7VygGRMRDJ0ZUktl7l
-	 OXg6A4BlxLOq0jhKVFXXk06vroD1BwrvR8kaiEeTwfChjcv/OVzJL3Qkcxpa+d1DXi
-	 9KLhSCW+m64jg==
-Message-ID: <d24d59bb-2330-41c9-a6cc-a4c7053f8526@kernel.org>
-Date: Tue, 25 Aug 2026 09:21:33 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] media: dt-bindings: Add Rockchip JPEG decoder
-To: Sascha Hauer <s.hauer@pengutronix.de>,
- Lucas Sinn <lucas.sinn@wolfvision.net>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260824-rockchip-jpegdec-v1-0-8011822bf500@pengutronix.de>
- <20260824-rockchip-jpegdec-v1-1-8011822bf500@pengutronix.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
- /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
- s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
- EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
- rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
- DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
- IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
- vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
- oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
- sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
- vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
- Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
- BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
- 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
- f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
- WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
- XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
- IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
- YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
- p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
- GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
- YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
- vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
- ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
- QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
- +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
- wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
- c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
- K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
- n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
- qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260824-rockchip-jpegdec-v1-1-8011822bf500@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1787642598;
+	bh=eN5iHP6Z2JnvjXQlTAeAGoavA+UgNv+wdji4+NWzt4Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=mUbDLBArwrNd0qXn3nZbVYxXGmD+5yDJ4R1r+syOz0YwiwWCsBpvzGjEsLLwE1CsB
+	 R+1t+67zW7lo+aGzTwQFffdNpMKEJTVd2Mt60e4f/p5UaEsD/ipBvmi6krAm+XYONw
+	 ZO6VWNE/VyF9qXXsqhPm5GlH825SEGPBU9InTEjZYhPPZRt5wNHo46zKVPAtxy1e9V
+	 5r+vCDZQrr/K85AlN7SbHq1m7DGOpaY9SHslWmkO4PwnNMVrY4LKYx0f6U9nyKNxUe
+	 Q6CvdBZAcHTYq57Baf4fJ0aM0dcm8USimlRJbdM+9v8hF3ZDacvpAsD3g9a3ex5aA3
+	 q0jZCnmVh/fmA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wylV6-00000000wOl-1TDx;
+	Tue, 25 Aug 2026 07:23:16 +0000
+Date: Tue, 25 Aug 2026 08:25:48 +0100
+Message-ID: <877bleoe4j.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Li Dou <li8d6kernel@163.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	radu@rendec.net,
+	tglx@kernel.org
+Subject: Re: [PATCH] irqchip/gic-v3: Remove the ISB between AP0Rn and AP1Rn
+In-Reply-To: <20260825030454.1280-1-li8d6kernel@163.com>
+References: <87bjaro4th.wl-maz@kernel.org>
+	<20260825030454.1280-1-li8d6kernel@163.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: li8d6kernel@163.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, radu@rendec.net, tglx@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,73 +83,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/08/2026 09:01, Sascha Hauer wrote:
-> Add a devicetree binding schema for the JPEG hardware decoder Rockchip
-> integrates into a number of its SoCs.  Documents the single register
-> window (task registers plus the LLP link-table block at offset 0x300),
-> the decode interrupt, the aclk/hclk clocks, the AXI/AHB resets, the IOMMU
-> and the power domain.
+On Tue, 25 Aug 2026 04:04:54 +0100,
+Li Dou <li8d6kernel@163.com> wrote:
 > 
-> The core is not tied to one SoC.  Downstream it is known as the VDPU720
-> and the same block sits on the RK3528, RK3562, RK356x, RK3576, RK3588 and
-> RV1126B, with only the clocks, the resets and the power domain differing,
-> none of which this schema constrains.  A compatible per SoC is all it
-> takes to cover them; the RK3568 and the RK3588 are the two that have been
-> tested and are enabled here.
+> Hi Marc,
 > 
-> The resets and the power domain are required.  The block cannot be
-> reached with its domain off, and the driver falls back to pulsing the
-> reset lines when a frame times out and the in-block soft reset does not
-> complete, which a node without them would leave with no way to recover.
+> On Mon, 24 Aug 2026 17:34:34 +0100, Marc Zyngier wrote:
+> >On Mon, 24 Aug 2026 03:34:03 +0100,
+> >Li Dou <li8d6kernel@163.com> wrote:
+> >> 
+> >> ARM GICv3 specification says(in section 4.8.4 "System register access to
+> >> the Active Priorities registers"):
+> >> 
+> >> 	an ISB is not required between each write to ICC_AP0R<n>_EL1,
+> >> 	Secure ICC_AP1R<n>_EL1, and Non-secure ICC_AP1R<n>_EL1.
+> >> 
+> >> It means we can use one ISB after resetting AP0Rn and AP1Rn for context
+> >> synchronization. So just remove the previous one.
+> >
+> >I'm afraid you have misinterpreted the spec.
+> >
+> >Within each of the AP0Rn, Secure AP1Rn and Non-Secure AP1Rn classes,
+> >for any value of 'n', there is no need for any synchronisation.
+> >
+> >However, between classes, you absolutely need an ISB. And this is the
+> >reason why, just above the note you quote:
+> >
+> ><quote>
+> >Writes to these registers in any order other than the following can
+> >result in UNPREDICTABLE behavior:
+> >
+> >1. ICC_AP0R<n>_EL1.
+> >2. Secure ICC_AP1R<n>_EL1.
+> >3. Non-secure ICC_AP1R<n>_EL1.
+> ></quote>
+> >
+> >While you can perfectly write each individual register of (1), (2) or
+> >(3) without any synchronisation, you absolutely must have a CSE
+> >*between* each of (1), (2) and (3). Linux being non-secure only, you
+> >only deal with (1) and (3), and you must have an ISB in between.
+> >Without it, reordering can happen and you end-up violating the above
+> >rule.
 > 
-> The IOMMU stays optional.  The driver never refers to it, it is a platform
-> integration detail, and rockchip-vpu.yaml does not require it for the
-> other codec blocks on these SoCs either.
-> 
-> Assisted-by: Claude:claude-opus-5
-> ---
->  .../bindings/media/rockchip,jpeg-decoder.yaml      | 92 ++++++++++++++++++++++
->  MAINTAINERS                                        |  8 ++
->  2 files changed, 100 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/rockchip,jpeg-decoder.yaml b/Documentation/devicetree/bindings/media/rockchip,jpeg-decoder.yaml
-> new file mode 100644
-> index 0000000000000..e20c1bf43ef3e
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/rockchip,jpeg-decoder.yaml
-> @@ -0,0 +1,92 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/rockchip,jpeg-decoder.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Rockchip JPEG Decoder
-> +
-> +maintainers:
-> +  - Lucas Sinn <lucas.sinn@wolfvision.net>
-> +  - Sascha Hauer <s.hauer@pengutronix.de>
-> +
-> +description:
-> +  Rockchip's in-house JPEG/MJPEG hardware decoder, known downstream as the
-> +  VDPU720.  The same core is integrated into a number of Rockchip SoCs, which
-> +  differ only in the clocks, resets and power domain they are wired to.  A
-> +  dedicated Link List Processor (LLP) register block, located at offset 0x300
-> +  within the same register window, allows the hardware to decode a chain of
-> +  frames autonomously ("link mode").
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - rockchip,rk3568-jpegd
-> +      - rockchip,rk3588-jpegd
+> The spec sometimes is overly convoluted. Thanks for the clarification.
 
-How this can be v1 if you send VPU720 for rk3588 already?
+The spec is pretty clear in this particular case. It outlines the
+order by which group of registers must be written to, and therefore
+there is only one way to interpret the accompanying note.
 
-https://lore.kernel.org/all/20260819-rk3588-jpegdec-v1-4-33d74cdf369c@pengutronix.de/
+As for any spec, you need to read the whole thing, and not take a
+particular statement out of context.
 
-Were there more versions?
+Thanks,
 
-Best regards,
-Krzysztof
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
