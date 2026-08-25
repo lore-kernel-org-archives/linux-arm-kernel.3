@@ -4,106 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12607C5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 09:13:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38661C5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 09:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jwygaUIeSl5KFSJ7PJYbBNOiMsfsLdTD1JjPJRf2rMI=; b=VY5m/hA+CyroT9MlI2QM5cDKxu
-	jgBXhjnreQ3AGHxQf8S9iVbaVKO+aJD4VL8YIjTa69Yxukwfa03xBf9vBfXzcDXUlYeeAkRgea/8r
-	IbhpSMev4n/AvBOhFcr3f5ijy3aq1GHIRGo/jd3ItcJckzS3R3pORudWJt8i6NekoTh+tLCUI4DMy
-	JSp0FlYwhQ0ia16BcbxNe1BTcn4n7ELMpyq1a62RrQzwBUUKccXz/U3w5mLG6/poWPUGht0uanhKj
-	5rO4jtr5J8KB2T2G0vLrtv414FPgcLcHAu6VJpSQQ4/4HFeSNWsodJ+KSSFuPnqfv5BeEuBlvDGTO
-	bGXkDPGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OIgiI942Y5HV5POfQbnbT8C1D3nW7BAdr8oB7jvmliU=; b=j/4HshQgrJr2vc8LQC+mWJObgl
+	u2pjUAmoNpRXSsB9rOOOYeg5SM2AlUlMxcCpi9j5EQKBmg4gwRRndJzlCT5kQ598NwOk/hCW1cEyR
+	rq6iLVKLpyKD/I/KSCM/tms8/uNhH462ITJlSf7Z4Vg4TMa+CDtt7ofDmWo3EngWYofmDG7rIIm7o
+	5T1k9S4K4/kjkPiauRlTXAqBbBK7K408SX0wpcia3u7LPbwqWNUKjqLp9Shg9h6PHwhvySAf1EftF
+	zJYehSzs8Wo7ijjqh80r7CBw4ORGLHrZ0r1BfJnaxitkb6OJM5zEv9jWWSP0ZiWM4yb+V+K20YSEG
+	4nWfhumg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wynDm-00000000Skj-48jW;
-	Tue, 25 Aug 2026 09:13:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wynIJ-00000000T7u-2SJJ;
+	Tue, 25 Aug 2026 09:18:11 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wynDl-00000000Skc-0drP
+	id 1wynIF-00000000T70-2nNJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 09:13:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 906A8434DD;
-	Tue, 25 Aug 2026 09:13:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AF711F000E9;
-	Tue, 25 Aug 2026 09:13:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787649208;
-	bh=jwygaUIeSl5KFSJ7PJYbBNOiMsfsLdTD1JjPJRf2rMI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=JvPrzSiS06h193uiv+JSqsFYE8Kzb7TsqPVZHTkZnEwgTOw+ie4r85z5Qemmmvm4x
-	 dPq5BVwtmD1CMhZLOEzyDozRbv5T5PcTD5UuWgqgmDiED5nc8yEkkTacBRdetPEgWU
-	 zOcU/HjwBLzfjLE25hw2ZZvJJ1bh3PZT5nS2VKSQYJBs2Vew8GIqNnCpYP40UrKjFt
-	 Nm2ut5pA2lZkOQdFfi78Gug2xbXiaROvmtSj4UAL+jufnbSIR5BUpZxTjXzTpMzBJt
-	 AnzBp15DTINAl3Szgm+dPuXj15pPGles3w5ZLbIKOtDO8TkOV+wka+msG1cXIu3Ey3
-	 41juRpM7teuRg==
-Message-ID: <d4a0f9f0-6cea-4dac-a315-638376c12e71@kernel.org>
-Date: Tue, 25 Aug 2026 11:13:22 +0200
+	Tue, 25 Aug 2026 09:18:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1787649485; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=OIgiI942Y5HV5POfQbnbT8C1D3nW7BAdr8oB7jvmliU=;
+	b=N3FW+FpLRTwOyVf25bsnDsP4c06dtbVyNFJqj25BvpKOnOqRiNFQdYGK8RMCytD8tkYR1L8tCyhbBzJEeEcZOg56HNd4b9ugCWRYAv03AGTXffIa+sG5H/3U3cDZMSK4F75EsuYK7kfe7KFxoOqV0g7fYrQCkNUPbQn/NL2LypY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R601e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0X9dItck_1787649483;
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X9dItck_1787649483 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 25 Aug 2026 17:18:04 +0800
+Date: Tue, 25 Aug 2026 17:18:02 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Eric Auger <eauger@redhat.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
+	Sascha Bischoff <Sascha.Bischoff@arm.com>, Sebastian Ene <sebastianene@google.com>, 
+	Fuad Tabba <tabba@google.com>, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] KVM: arm64: vgic: Tear down what vgic_init()
+ created when it fails
+Message-ID: <te43gnvb2v2zlt3m5gwn2qvden5x3vp23o2qo27uif3ebdrodg@grrfqge2htia>
+References: <20260824074245.710955-1-fuad.tabba@linux.dev>
+ <20260824074245.710955-4-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] memory: Convert drivers to
- DEFINE_SIMPLE_DEV_PM_OPS()
-To: Triet Hoang <triet.hoang.dev@gmail.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Michal Simek <michal.simek@amd.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260825091118.271720-1-triet.hoang.dev@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260825091118.271720-1-triet.hoang.dev@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260824074245.710955-4-fuad.tabba@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260825_021807_909599_1A12F8F6 
+X-CRM114-Status: GOOD (  20.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,42 +72,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/08/2026 11:11, Triet Hoang wrote:
-> This series converts the Atmel EBI and PL353 SMC memory drivers to use
-> DEFINE_SIMPLE_DEV_PM_OPS().
-> 
-> This is a straightforward cleanup with no functional change intended.
-> 
-> Signed-off-by: Triet Hoang <triet.hoang.dev@gmail.com>
+On Mon, Aug 24, 2026 at 08:42:44AM +0800, Fuad Tabba wrote:
+> Once kvm_vgic_dist_init() has succeeded, every later failure in
+> vgic_init() returns with the SPI array still allocated. A failure after
+> vgic_v4_init() has also succeeded, which today means only
+> kvm_vgic_setup_default_irq_routing(), leaves the vPE array behind as
+> well.
+>
+> A failed vgic_init() leaves kvm_arch_vcpu_precreate() admitting new
+> vCPUs, so a retry of KVM_DEV_ARM_VGIC_CTRL_INIT reaches
+> vgic_v4_init()'s early return with an array that no longer covers every
+> vCPU, and vgic_v3_load()'s WARN_ON(vgic_v4_load()) fires on the first
+> one it misses.
+>
+> Release both on the two paths that can reach them, so the ioctl is all
+> or nothing and a retry starts from scratch. dist->nr_spis stays frozen,
+> since the SPI count cannot change once vgic_init() has supplied it.
+>
+> Fixes: 180ae7b11823 ("KVM: arm/arm64: Enable irqchip routing")
+> Fixes: 74fe55dc9ab7 ("KVM: arm/arm64: GICv4: Add init/teardown of the per-VM vPE irq domain")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/all/20260807105558.73D701F000E9@smtp.kernel.org/
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 > ---
-> Changes in v2:
-> - Wrap to 75 ish chars for commit messages.
-> - Organize patches into a series with a cover letter.
+>  arch/arm64/kvm/vgic/vgic-init.c | 11 +++++++++--
+>  1 file changed, 9 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> index 4012df6002ea6..7493fded53acc 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> @@ -462,7 +462,7 @@ int vgic_init(struct kvm *kvm)
+>  		if (vgic_supports_direct_irqs(kvm)) {
+>  			ret = vgic_v4_init(kvm);
+>  			if (ret)
 
-Did you receive review?
+Hi Tabba,
 
-<form letter>
-This is a friendly reminder during the review process.
+> -				return ret;
+> +				goto out_teardown;
 
-It looks like you received a tag and forgot to add it.
+The vigc_v4_init already called vgic_v4_teardown() in error path,
+thus I think just free dist->spis is enough yet ?
 
-If you do not know the process, here is a short explanation:
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-of patchset, under or above your Signed-off-by tag, unless patch changed
-significantly (e.g. new properties added to the DT bindings). Tag is
-"received", when provided in a message replied to you on the mailing
-list. Tools like b4 can help here. However, there's no need to repost
-patches *only* to add the tags. The upstream maintainer will do that for
-tags received on the version they apply.
-
-Please read:
-https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-
-If a tag was not added on purpose, please state in the patch changelog
-or cover letter why and what changed.
-</form letter>
-
-
-Best regards,
-Krzysztof
+>  		}
+>  	} else {
+>  		ret = vgic_v5_init(kvm);
+> @@ -475,12 +475,19 @@ int vgic_init(struct kvm *kvm)
+>
+>  	ret = kvm_vgic_setup_default_irq_routing(kvm);
+>  	if (ret)
+> -		return ret;
+> +		goto out_teardown;
+>
+>  	vgic_debug_init(kvm);
+>  	dist->initialized = true;
+>
+>  	return 0;
+> +
+> +out_teardown:
+> +	vgic_v4_teardown(kvm);
+> +	kfree(dist->spis);
+> +	dist->spis = NULL;
+> +
+> +	return ret;
+>  }
+>
+>  static void kvm_vgic_dist_destroy(struct kvm *kvm)
+> --
+> 2.39.5
+>
 
