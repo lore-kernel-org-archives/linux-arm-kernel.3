@@ -4,117 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BCDC61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 21:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B69A3C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 21:37:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8g5/O0eenSeRvv2ZuKyG9X9ZfGMOQ2l/zrtx9pigDms=; b=XA51DtRyx/63+eOkDAnXobkP8R
-	x6aHm1oTLbwmYRIzzVVKCo8yya2a3Q/VNu5L64DVr8j/SiWZ+osP4CO9u2E1bAnQ22c7Vs9B8Zvx9
-	y18mAbk1mf2ZUfg93gOAeFMVXe2GAYr2UCBvNtN63tUCR5DmnAzTNSJTV/oGl8NRnV38zd+WdImSL
-	OmymNdMirRgHa4daGNK0BbNsl+DVbTK7mkzj0uVh0hYL1bxFS3XHsEgl3PH+A0Hp03N9xGrVo1Kn2
-	XvgIoRa8hg7vD/b1cN8vSn0VTugcsoUm/0vDQcW8ehawaqARhy+vAMIq09Pe5/jFD7BpmplM1wx+O
-	NGkglSYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hG9QYktOf8DNI0VXy1U1nlRP80Vi9HO8MyLBrmF7x30=; b=c1s6pi8/Zumi1C0MyMH/CjJAOA
+	hJ+oy75pxQzpBDZjblH8ZPZfn9QNkadQjZztYozQnRaXFw39x1xjvyQFum5kJ2aW2qeRcIjoxynQJ
+	TmJ5QFNeAcqEltP4XF9TKlzO3VigZiznwUiH4HgFoh9HCBTJfsMYhVO3vdPG+DGVNofBj/1/00ThI
+	DYcJGRPq3fRZ/o1Khtu2WQ/4wRSo159j33TSPsouPR7+7TyUj/pEU+eQF75DndqdSD+9bhm84FOTw
+	E8YDZjj9cSSwpIFinfGQDenlJBXNK1Kwn0apexEyJYnX7Xa6KQKe2Dm1uMybNvmMU4gahtf2IQcGk
+	cJDS1xKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyyeM-00000001WMH-29bS;
-	Tue, 25 Aug 2026 21:25:42 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1wyyoZ-00000001Xjj-45v3;
+	Tue, 25 Aug 2026 21:36:16 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyyeC-00000001WDu-0uoN
+	id 1wyyoX-00000001XjD-2YiH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 21:25:36 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-c2055f5a993so16921766b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 14:25:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787693130; x=1788297930; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8g5/O0eenSeRvv2ZuKyG9X9ZfGMOQ2l/zrtx9pigDms=;
-        b=ropqGEuOpCo/oW7KSDl+EupnTN2YtHrNi//o3W0xHKm2f+x2G5hPIClptiMqvKCpgG
-         vHtHr12xqJzCpC/0I9jImM/9fUymf7aHYsNJklHUS/P9BTT016WreUS0yMsRX03cPD0g
-         TCCYtEUZC8Fs9l8bzYtT8HrKPXC2/h4+ctpdc0WHheLaYfgZ7/6bTFyW15n9BmT1cjul
-         IE06iBFrkFv2pSoQMaVRM0LBMX8r6lEeWmCqxhXFwTOz5Q4xcsnYGtXYRqVD0LPQT8bs
-         ywpeqUlfhm4jOF0t1LHYXBFkiDykNgH/IN51wopVBpqPo16adE/5ClMOk8pafo8s88ql
-         wIGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787693130; x=1788297930;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8g5/O0eenSeRvv2ZuKyG9X9ZfGMOQ2l/zrtx9pigDms=;
-        b=qTXEgOplr+PncMeGanEl7c2rdjus2uae1qUft48xi/92ydRAlmXezq4XlhvmVR/ljc
-         7Ae799eQq7gipMwNF0RLTlzadFUxL5i0D8fsjl0wpUHxlbkSPWLJx0FYzk0xtOhdkwBJ
-         msfPhwHM84ZvvGfy9GxDG27mRLksYOg2mdEJdXhi6zfyplRO1OXCRQ1t/tvLZ8YELYPm
-         t750WmexjDW5xIKCOSnzsazM1Bv4/4y44ReWQzZ2uMiao0Qr4GBTm59L1XOYppf9tWGw
-         4X4jLojx5NdIdGNpkUgL3a5DEm71RlYwOlckipB7eTY+0h42jTQLqa8XcYY526GBOCGJ
-         ugwA==
-X-Forwarded-Encrypted: i=1; AHgh+RqSWU8Isz1k333jLhnkxzux0e6EHdqom4EvQqBLXJjFFi5BIzr8Jj6hioxi0fJqXrDDYQNFQJ7OLaA/7jX0z+lV@lists.infradead.org
-X-Gm-Message-State: AFuF++k2TIxhXJ+Tk1PzVoA1FyRrosP2bOtx158n70lDbE7AeeYKgilo
-	k7tgNll8D1hPrr1j4DwQENIY4a19gaBAu/Zlq4zIywOAJzvmhOtiNWWI
-X-Gm-Gg: AR+sD13joUcatJpoFg2hO0+TaMASX90fO2qBNTWTkunsTlj6mRnVUb8M9hCzniHztNJ
-	/VvswB+F9sF3M/Yibqm7FXGBDP3qD09bTF3Ma8WiXiaoeVJb0oKPLCJe1/ax6MIx3pg5e/iY78d
-	lzjrOjVJZiGa8FeB7VU4cfLYoJoDlhUPCXr4Absl7GUCsFPmcp+xRMZNNj9SOLLTT/DK4ML1vPN
-	//S8jKDoG/XpmZYYfEb9TLETbhotZ19c3AghWo+EeHgZ9z6YdLgcFA8KIVWMVZQtny7Qk1IKgZW
-	TuIbi9l+NlYxjuuNbCXXZxObxDa2+/i5d1VJFupHY6uLBJezWd8wLBUOVVLpqr4z2b5U0p3At57
-	s8ZY9LEF/j3h8IiI1pCMUj8T53NaQDjiG/tX2mIZE9nK1GGUadI7F6j/IxHn/twyGxifdfhk4B/
-	DzHNAuMGzAl5DuhX5HffP8VSHED7bOCf3v3lVc6TfSdWm9vlVBtFECjX2ArWmUbOOV9MGPOg==
-X-Received: by 2002:a17:907:1c87:b0:c21:180c:d82d with SMTP id a640c23a62f3a-c250c3bfa5dmr173499766b.20.1787693130004;
-        Tue, 25 Aug 2026 14:25:30 -0700 (PDT)
-Received: from [192.168.0.2] ([197.250.227.34])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c250a9ec343sm98297866b.57.2026.08.25.14.25.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 14:25:29 -0700 (PDT)
-From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Wed, 26 Aug 2026 00:24:09 +0300
-Subject: [PATCH v11 10/12] clk: zte: Introduce a driver for zx297520v3
- matrix clocks
-MIME-Version: 1.0
+	Tue, 25 Aug 2026 21:36:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Co2nsUrEsUOHx0uuJpg2RjLFFSxWoa8dAyRzXqaDHxSXrqZ0nUXTXTlwVO016zFnBZo/Cox12OFVnpnOy/psNjfc3KnIcOmnxXuALoSLnrjjYRytslgygACwu3neSbhBknVe0z3kkmH0aWEUDembrM0+kgbIXNCRsL6xvWlOX4Pcwn6c+GGX4FinbWvxQXsi68rns3fmXPSKwQVE1QqG88qMALIDws8sLlxU1wAH7YR5nep7NXwu3+Bh0V3nKurEIVJkJBLK/8LU2X2YnQoXzyX7RXOD0u3TgEFEbCPhUszP4dD04uFgc24CVHzcKLLyMPm8rKfhc0acv4zJC7GeJA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hG9QYktOf8DNI0VXy1U1nlRP80Vi9HO8MyLBrmF7x30=;
+ b=TQGvhEFBosL93kOaHfAM2IakvLuG6mDYzcRUucmp0cpyQYvfi6tE0/DwhwkY41Tw6a1ts/Oj4I8iwAUuM3RD426MSJpfUHUzynmyh5RKlVcVSmmegXnRaOxcJxnnQ5tvUFeGi79gSdcHNrMUarqgu4brMXdDG7ogaIEfxukNqGBjHzmkvF2YxyHJQ9ymtxhy2ADWDGSS/4/epQq4qDZpSaJpBclAl2fVP6HTVjcv+6eCjbcCd70Q3C1pHU43FMZzZpykpYaaqXtkrlBrIaDyH9CMC+LjhdPuDXUVW/6DmAhHvDYpLti9wU28+qIEcVmX7s/PhBQo96fXqgEF/pReQw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hG9QYktOf8DNI0VXy1U1nlRP80Vi9HO8MyLBrmF7x30=;
+ b=KhESHbcv1199lyooRpz+7PbEdykCuwM+uuTxsybPV6EEs00uo/L+irLHXEvGF1fKGkQWuOU6dRiLdMYv9Ef87DVCrXwCUTVQOjSQYhQCWBQ+n83FFsG9DvDCT0hpeIrKanDMiW+RjwcIrxCNppwHVqLPjmWbVHSf8fMU0T1+WK0IbkwepMyC0hnABmcEjOEiGTVL/Kq6CDzaZLTAtvX0+miGJ5w0shII2yUTDLPM3RZGKk1ci/z2ELQq6HlPz68tK7j1swx1tKNL6q371iOV0c5wHvW+dEiNCYXan84miA8eDnRvtBiaoe8S6ERQEMmnxu/f7tODaG+drGiknU3d5Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by MRWPR04MB12047.eurprd04.prod.outlook.com (2603:10a6:501:94::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Tue, 25 Aug
+ 2026 21:36:07 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.012; Tue, 25 Aug 2026
+ 21:36:07 +0000
+From: Frank.Li@oss.nxp.com
+To: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Mehmet Fide <mehmet.fide@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Stefan Agner <stefan@agner.ch>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Mehmet Fide <mehmet.fide@screeningeagle.com>
+Subject: Re: [PATCH v5 0/4] ARM: dts: vf: Iris carrier board for the Colibri VF50 and VF61
+Date: Tue, 25 Aug 2026 17:36:00 -0400
+Message-ID: <178769369827.2268812.12074593017392848803.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260814074700.2491256-1-mehmet.fide@gmail.com>
+References: <20260814074700.2491256-1-mehmet.fide@gmail.com>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260826-zx29clk-v11-10-f8ad59c6426c@gmail.com>
-References: <20260826-zx29clk-v11-0-f8ad59c6426c@gmail.com>
-In-Reply-To: <20260826-zx29clk-v11-0-f8ad59c6426c@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Brian Masney <bmasney@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Russell King <linux@armlinux.org.uk>, Lee Jones <lee@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Manivannan Sadhasivam <mani@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-phy@lists.infradead.org, mfd@lists.linux.dev, 
- =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=26585;
- i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=RQNx/kcatW1V6IWWc+DwEPvbJ048Mu6oUp7n+wfO/Is=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqjggCldZqpx18vJDAIcLutK/Yv28/MXgV2ODVE
- z3LyYv5A6CJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCao4IAhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiKnYA/+MChVsqlfLUQReCsoOOkVW8W0OWQG9HG
- sqrc4xTSQaDvEHqkvonAH6ZMGYl+K8EBGdwavLSsjQcuBazUE5tBtud/Uyn5XXNQv4At/ylAfeh
- uf7zDYAxNQ8KrleusSfoT95G7EnkYVfGvCQ8QqkWBOvlqhIocTXpaR1yEwtL/4RE/xA1jqzt7F8
- 3pyu6P76O1GsLsVkl0K2YIsAVybFKYR+OI269icIlAgnXpCxsGD/Jxqmj0x7G0QM9ffWIx9WtEo
- Byy0XdWOJXO+rpXKuPk1RG5jZJsH+Ssce8SSgnnU/oly3C3XkK7zomPx4KJ3x3mR+u9mGBXdRGR
- YFkC/lXwCeXBsWTKip09umqBaiZJ8kdbRw+n/XAjMhG+3M2tV/9WKcvOe7jSd+e+YoRyD4rdZxj
- jNcs0aTHgbLB4nZSLnr0/JqjAtcB1EGKZY+qxlm3skrXFHGg+i5ZqgNhsqWIDa85Yysf1hQ1OdU
- 6K41qeXXxFzXfbWw8D4YyYE0HjCB43FQTDqbbAR2a+m1N2WgWFA6SdPwqivafyNFQZUvP0Srpih
- zhQcj1z+5dJJP6nyzJO1ZaCsCVCfHuIpE2wIlryrkf8ABeAvGU6UA7VtpBMvqRXf3cDODsAP0w7
- z3BV8v/L6/S56O5Ct5DqhlamOPef/td72qfYwn+XwmudDokModLU=
-X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
- fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
+X-ClientProxiedBy: SA1PR05CA0015.namprd05.prod.outlook.com
+ (2603:10b6:806:2d2::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|MRWPR04MB12047:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5ab05b5f-cc45-43cc-44ee-08df02f0df8f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|23010399003|56012099006|10067099003|22082099003|18002099003|11063799006;
+X-Microsoft-Antispam-Message-Info: 3n/y+EPa7cpw7qToPC9jyCgoctA1AEYR2y5byWoeFz/+VAKdTaCgIo3de7LHF29kx/QSYmCuAjmHkP7PM3OiqBL4YHkK095TCVdplI5c8UdrWCrDwJjZx/6NAXHHdZawEfOqRChdE1it2lGK88p5Y6jC+iy7nUv8TBhlBt9TExBJ+RX7Fb8OwAiq4rprScsK8ZzlqdIN5NrBxr3spFkshJiibefaVCechhGq6o+qvhEg/06ITG7Wte+lCHH2rM6HoAafrZuMAV1bB0rK+tiDHVG9H1ma0R4H89zA3S2HDFum6zX6UqvtA6f2dGvCz1sFuUwYfzFTlLJc39BCRp1qvUM5ZP3JBx7a5xVBMFSo6S8GUL8sU6d2/j45W/eKwf+67LhmseMxawblowRPLVaH5Br3qYEHzs4HcQjP44+A4XqTOEkntI2CHccie1uLN3j/G9boFmBrF+ueSC27axhFfjYU/fv7Fg5ATSNa/y79clKBGipkhENFXUImZzP022J4wzksNgwqJGQW7bYE+g2duuuYPXwiCe7EIS64oBN1s0LF6m7Vk+Lk1hyvIkBbNF3nBj57pw5D2MzR4kCoE1DSilgAvk8X/gdyWVMu1uTyQ0pPJj4TosYrtILJJ90ELvqyV1eJcuuhZp8I+YvGnPrNtI83FFxUx/T8kNqePvqBjGA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(23010399003)(56012099006)(10067099003)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N254OC9ZdGt0dVo2cG1lSzVJNWxwZXRFTjA5am42R3FVZ09nUm1Pa3JFL0ZS?=
+ =?utf-8?B?V01JVVBJTU03ckV5Sk1ldDkwN1BDZGVpOUdIcnhzc3Awc29QSkdxWlIvbHVQ?=
+ =?utf-8?B?d2dQcTlOZEFhT0JyYkhLdjFoSjJWZ1poN1NkZm5RZXB3MGczQW5wbG5XcGVZ?=
+ =?utf-8?B?aVpZOTh5OS9VRDZFQXFXV2VHMTM2MWw4VmVDeFdqL2FheHFwN2ZLU2hObkZC?=
+ =?utf-8?B?M3FVcjB3N0ZkcHFieFMyUnBlZWszNVhvZ3YyN3ptMVRac1hhM0l2TklTSUxI?=
+ =?utf-8?B?TlJLNHNHZ0NuMTN1OVBNOTVwbkc3NC9LejJ4VklPallsMUxOcGdsaU9zUEhY?=
+ =?utf-8?B?dXphSGVEUjFSNU1LYW5IK2s4NlZZTjhNWnR0ZUluU2ZjSzVvUE5NVy9OYzRk?=
+ =?utf-8?B?ZUo1THdmNUlreXZCdWlCVG9HQVc2OHdvMDhNS3FkbzVIZU1SUVpGM2xzSzdB?=
+ =?utf-8?B?b091YnlYYkM4UHBwN0pkNlc1YTdTeW1KQk9YWFczb1ZWRS9MYktHZStodHU2?=
+ =?utf-8?B?SXRvdDZNQ2Z5alhFYkxzSmtsTVExVGZKYUJkVC9iSmJrU2hQeks0WXJScVVB?=
+ =?utf-8?B?RVhWWkJaSGZCQ3F6YTJXUkJndjFKdEdNMVY0SHVNOCsxQ2prWVdyVWtOeGRG?=
+ =?utf-8?B?ZmdobmVXRDc4aDhXSG9OTHFERXorNmRuWEhDUWdYTVFIT3p2bHgramdjbWV1?=
+ =?utf-8?B?dWszbGc2R2VNSHFvdGxubVdkVTlCQTVQeng5K0s2SklMbzhKWVA4QlI3K0E4?=
+ =?utf-8?B?K05lMU1WQjRkNDl5NjJrRkcxTy9VQnZjbWNRWnE1bTByZ1BmZUlYMzRpdU9J?=
+ =?utf-8?B?WHp6Wkl3amVMZ0NhWnRGY3BYQXpCaVhtdWxlZ1hHeWU2UFNkVnVTTDliVGxW?=
+ =?utf-8?B?RWFRWlM2U1dVUzFvUFNhNkRsSGVoa0JCZ1Ntd05hMWc5L241ODZZNFFIMnlk?=
+ =?utf-8?B?K2d0TVBQNi9abUpxalpHZU56TlJXMVZ6UkdEZGFURFRGYm4vUmNHNnZJak51?=
+ =?utf-8?B?elZCcWpYbndzNFYxaytTOWV5NmJ1blhMZERHQnFOQUZhTnBPamZZMUhRZGJa?=
+ =?utf-8?B?ZlZ4OWwxTHJLQmk2LzhTbm9VWkFwbTFHKzJVL0ExTEdiakpISE5RbFRObHlL?=
+ =?utf-8?B?cTVVeldiMDYyRlpDYVVzTWVJcVF4YW9KeEJrZXYrQTMrNTdFSk5Ea29WVHFx?=
+ =?utf-8?B?SUJsdjdabEhZUUlENkExMm0vOHRTa3JObEs4d0RjTjdGSHR1NThoSHp0TTNP?=
+ =?utf-8?B?MFAxWDVHekFiRzBaY1BTOVpTV1NrT09jWjRuQklTLzdJNTZhSWFSWFBadDFU?=
+ =?utf-8?B?dE5sbDBLSXQreHArZXNpRWZ2ZjZkcS8wNGtRWlgrOVJxWUhSTVNtTVAxTCs1?=
+ =?utf-8?B?MHJXMzdMK09sdmJpV0h6bmw4M05vUk5oajRrOVNaTmFVY2lUOHRwcDBiRGlp?=
+ =?utf-8?B?NFZRRDBBOWUwRWQ1WmoxTllXd05ZdmNyTVZrSTVBQzZNK2U4WDkxcnQrQk9n?=
+ =?utf-8?B?emtSVDVOZCtsSnVseUIzMHgrdnV5Ni9zWkkwNCsrMjdHYjZhZW9jS0Vpc0or?=
+ =?utf-8?B?Um50ay9PTXJhNFRENy8vdmI4OXd1cjVyd0NrZkU5aFZCTFN5WWZuL2g3OWpW?=
+ =?utf-8?B?Wjd0MXE0bTFnUkkzMFFhSVRQdWNIZUpGMThadWZBQ01oWUhpREp2NmFQdSt6?=
+ =?utf-8?B?dE81anRXQWd5RGJrN1pBK1Q3RTdzdjBYT3hwMW1UN1ZBeDRPYk9idWJxbG05?=
+ =?utf-8?B?Ty9oeDRZaUhZWWFrU0ZKelhPTSthUW9IaEtqODV6SGtxZ3lsVkNNb082cHlq?=
+ =?utf-8?B?azVielk5dEhDZEo4Z1k2dEF6dGkyRHB0VlhsUkJHUWRUaWxCdFZDa3BPUUlG?=
+ =?utf-8?B?M21rSWxFRHZ2d3ZrSU1zQ09NdGtZdVVwU2M2Z2Fmd0ExZkZkbnViNHlOUXF5?=
+ =?utf-8?B?S0RoMHdJbG4xQnpuOWNSako2d0RMdWt3S2dzcklvNjkvcnplU3lGV2RjeW9L?=
+ =?utf-8?B?ZTNNaENCSjZKZzBSYXdiY1FoaFIxc2h6U2NFK25zTE5WdjVPRXo0NnJFRHZ2?=
+ =?utf-8?B?OUJSSWVaVFRDMlBYUTR4d3FROU1HU1FFdnlUSk1UWXRVUGlZdDhuSlVkV0JQ?=
+ =?utf-8?B?b1RCWE5NM0xpeStCcTlDeU1DZ0d3akQwekVPMFUrY0dGb3lKL2JsSEwwZ2pK?=
+ =?utf-8?B?VzZkSGo3Nmt1M1RWUG81MUs2azhpK3drekR1bUdiVXZKOHJ0Z1p5cXJSbnp4?=
+ =?utf-8?B?ZUUxTW0rS2FNQ3d5d2RwYTlmbkg0YzBUYUQrOWdXdDZ2NEhUT0owbnJxelh6?=
+ =?utf-8?B?UzFuNlJUaGNTdXpxbjlYQmJGVFZUZXhFU0pwTkdWRTVhdlk4RjEzTkdzSENH?=
+ =?utf-8?Q?QOy9VdVm/1aJ86CtV47Rml0S7IRCEHzZUGxs8?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5ab05b5f-cc45-43cc-44ee-08df02f0df8f
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Aug 2026 21:36:07.8371
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wotjH23t0ugAHvaPXDo8F04DlZMH0AzmDfqe/1bQQrCEglV6X0sHGi9mZQZXH6cbZNfgyJppuOmfytezVtNguqhQu3v9PjSIkLSbl9HCv1tTHxUv4Ni/MjJiD4+KU4Y3
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR04MB12047
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_142532_605373_70547639 
-X-CRM114-Status: GOOD (  28.14  )
+X-CRM114-CacheID: sfid-20260825_143613_665891_91A8A356 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,604 +160,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This clock controller controls high speed devices: CPU, DMA, RAM, SDIO,
-Ethernet. The only non-clock, non-reset registers I have spotted here
-are hardware spinlocks.
+From: Frank Li <Frank.Li@nxp.com>
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
-Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
----
 
-Version 10:
-Add ZSP PCLK. ZSP clock gates are in 0x34. 0x3c is another reset register.
-Improve ZSP WCLK mux.
+On Fri, 14 Aug 2026 09:46:56 +0200, Mehmet Fide wrote:
+> From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+>
+> This adds a device tree for the Toradex Iris carrier board carrying the
+> Vybrid Colibri modules, plus two small preparatory patches for the
+> module-level dtsi that the i.MX Colibri variants already had.
+>
+> Tested on a Colibri VF50 on an Iris V1.1, most recently on 7.2-rc7
+> plus this series.
+>
+> [...]
 
-Version 9:
-Link internal parents by an (internal) clock ID rather than names.
+Applied to imx/dt-intend, thanks!
 
-There are 3 intentional changes vs version 8 in the clock tree:
-"gmac-ahb" depends on the ahb clock imported from topcrm. This was
-already the case before, but it was missing from the bindings and the
-global name matching obscured it.
+[1/4] ARM: dts: vf-colibri: apply the EXT_IO pin group
+      commit: aff53f8f5831c55cba94e0588dcf7d1dcde8b75d
+[2/4] ARM: dts: vf-colibri: name the SODIMM gpio lines
+      commit: 04f9032ad6b65fe527cf4e3e825be3556ba92ad0
+[3/4] dt-bindings: arm: fsl: add the Colibri VF50 and VF61 on Iris
+      commit: 3d8a67a1fbc8a18b99acfdb7af06d79e4f4ebcb8
+[4/4] ARM: dts: vf: add Iris carrier board support for Colibri VF50 and VF61
+      commit: 43d4b5153ae513d03b45a5767aa084b676302c72
 
-When re-testing other devices for potential topcrm->ahb dependencies I
-noticed that the two SDIO devices take their pclk from topcrm->ahb as
-well.
+wrap at 75 and fine turn commit message, cut shorter
 
-@Sashiko: Any possible other clock tree change compared to version 8 is
-unintentional and a likely bug.
-
-Version 8:
-Add another distribution gate register: 0x118 gates off matrix-generated
-divisions of mpll, dpll and gpll. It nicely fits the top->matrix forward
-picture.
-
-AXI 6.5 MHz is not an mpll child. I must have done something wrong when
-originally testing this
-
-Add explanations about additional ARM architected timer controls.
-
-Add gates for unknown LTE hardware at offset 0x60. They are not exported
-in the bindings because the actual name of the consumer isn't clear -
-but if dpll is unprepared and feeds a bypass 26 MHz signal, this device
-starts spamming IRQs (although the 0x118 and top+0x140 gates also
-prevent this usually)
-
-Double-check pclk and wclk of all devices. The SDIO and EDCP clocks were
-flipped in previous submissions.
-
-Version 7:
-Reduced the input clocks a lot. Most MPLL subdivisions are children of
-the same gate in top, so put the fixed factor clocks here.
-
-Added a few more clocks: DDR_CTRL, AXI bus, ARM architected timer.
-They are needed to tell CCF to keep the top gates enabled and marked
-critical because they aren't consumed by a DT node.
-
-The AXI bus is determined by a voting system. I've set up the driver to
-write to the ballot register ZTE's kernel uses and enable voting. This
-should make life easier with the LTE rproc blob later.
-
-Version 5:
-Make it an MFD child device, remove aux device
-Fix zx297529 -> zx297520 typos
-Fix AHB_wclk -> ahb_wclk. That was a leftover of my old composite structs
-Add SRAM0 and GSM_CFG clocks
----
- drivers/clk/zte/clk-zx297520v3.c | 511 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 511 insertions(+)
-
-diff --git a/drivers/clk/zte/clk-zx297520v3.c b/drivers/clk/zte/clk-zx297520v3.c
-index 504075590e6d..3f59c8356910 100644
---- a/drivers/clk/zte/clk-zx297520v3.c
-+++ b/drivers/clk/zte/clk-zx297520v3.c
-@@ -769,6 +769,513 @@ static const struct zx_clk_data zx297520v3_topclk_data = {
- 	.num_exports = ARRAY_SIZE(zx297520v3_top_exports),
- };
- 
-+enum matrix_clock_ids {
-+	ZX_CLK_MATRIX_OSC26M_D4,
-+	ZX_CLK_MATRIX_MPLL_D2_PREGATE,
-+	ZX_CLK_MATRIX_MPLL_D4_PREGATE,
-+	ZX_CLK_MATRIX_MPLL_D6_PREGATE,
-+	ZX_CLK_MATRIX_MPLL_D8_PREGATE,
-+	ZX_CLK_MATRIX_MPLL_D12_PREGATE,
-+	ZX_CLK_MATRIX_MPLL_D16_PREGATE,
-+	ZX_CLK_MATRIX_GPLL_D2_D2_PREGATE,
-+	ZX_CLK_MATRIX_GPLL_D2_D4_PREGATE,
-+	ZX_CLK_MATRIX_DPLL_D2_PREGATE,
-+	ZX_CLK_MATRIX_DPLL_D4_PREGATE,
-+
-+	ZX_CLK_MATRIX_MPLL_D16,
-+	ZX_CLK_MATRIX_MPLL_D12,
-+	ZX_CLK_MATRIX_MPLL_D8,
-+	ZX_CLK_MATRIX_MPLL_D6,
-+	ZX_CLK_MATRIX_MPLL_D4,
-+	ZX_CLK_MATRIX_MPLL_D2,
-+	ZX_CLK_MATRIX_DPLL_D4,
-+	ZX_CLK_MATRIX_DPLL_D2,
-+	ZX_CLK_MATRIX_GPLL_D2_D4,
-+	ZX_CLK_MATRIX_GPLL_D2_D2,
-+
-+	ZX_CLK_CPU_MUX,
-+	ZX_CLK_ZSP_MUX,
-+	ZX_CLK_DDR_CTRL_MUX,
-+	ZX_CLK_SD0_MUX,
-+	ZX_CLK_SD1_MUX,
-+	ZX_CLK_NAND_MUX,
-+	ZX_CLK_EDCP_MUX,
-+	ZX_CLK_TDM_MUX,
-+	ZX_CLK_AXI_MUX,
-+
-+	ZX_CLK_SYS_TIMER_WCLK,
-+	ZX_CLK_CPU_WCLK,
-+	ZX_CLK_CPU_PCLK,
-+	ZX_CLK_ZSP_WCLK,
-+	ZX_CLK_ZSP_PCLK,
-+	ZX_CLK_DDR_CTRL_PCLK,
-+	ZX_CLK_DDR_CTRL_WCLK,
-+	ZX_CLK_SD0_PCLK,
-+	ZX_CLK_SD0_WCLK,
-+	ZX_CLK_SD0_CDET,
-+	ZX_CLK_SD1_PCLK,
-+	ZX_CLK_SD1_WCLK,
-+	ZX_CLK_SD1_CDET,
-+	ZX_CLK_NAND_WCLK,
-+	ZX_CLK_NAND_PCLK,
-+	ZX_CLK_LTE_TPU_WCLK,
-+	ZX_CLK_LTE_TPU_PCLK,
-+	ZX_CLK_EDCP_PCLK,
-+	ZX_CLK_EDCP_WCLK,
-+	ZX_CLK_SSC_WCLK,
-+	ZX_CLK_SSC_PCLK,
-+	ZX_CLK_PDCFG_WCLK,
-+	ZX_CLK_PDCFG_PCLK,
-+	ZX_CLK_MBOX_PCLK,
-+	ZX_CLK_SRAM0_PCLK,
-+	ZX_CLK_GSM_CFG_PCLK,
-+	ZX_CLK_GMAC_WCLK,
-+	ZX_CLK_GMAC_PCLK,
-+	ZX_CLK_GMAC_AHB,
-+	ZX_CLK_AXI_WCLK,
-+	ZX_CLK_DMA_PCLK,
-+	ZX_CLK_VOU_WCLK,
-+	ZX_CLK_VOU_PCLK,
-+	ZX_CLK_TOLSP_MPLL_D5_WCLK,
-+	ZX_CLK_TOLSP_MPLL_D4_WCLK,
-+	ZX_CLK_TOLSP_MPLL_D6_WCLK,
-+	ZX_CLK_TOLSP_MPLL_D8_WCLK,
-+	ZX_CLK_TOLSP_MPLL_D12_WCLK,
-+	ZX_CLK_TOLSP_OSC26M_WCLK,
-+	ZX_CLK_TOLSP_OSC32K_WCLK,
-+	ZX_CLK_TOLSP_PCLK,
-+	ZX_CLK_TOLSP_TDM_WCLK,
-+	ZX_CLK_TOLSP_DPLL_D4_WCLK,
-+};
-+
-+/*
-+ * For devices which have a working driver the work clock can be figured out by gating off registers
-+ * in topcrm+0x140. This is used for devices where I can't interpret the register contents yet.
-+ */
-+static const struct zx_parent_desc matrix_unk = PARENT_FW("wclk-osc26m");
-+
-+static const struct zx_parent_desc cpu_sel[] = {
-+	PARENT_FW("wclk-osc26m"),
-+	PARENT_FW("mpll"),			/* 624 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D2),	/* 312 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D4),	/* 156 MHz */
-+};
-+
-+/*
-+ * Figuring these values out is a bit tricky. The best liveness check of the ZSP is reading its TCM
-+ * at 0x81000000. If it is clocked up and out of reset reading it will succeed. Otherwise, reading
-+ * will stall. Value 1 depends on topcrm+0x140, bit 13, but not any matrixcrm+0x118 gate, so it is
-+ * likely dpll without a div. Mux value 2 depends on 0x118 bit 5, so mpll-d2. Mux value 3 depends on
-+ * 0x118 bit 4, so mpll-d4. Mux value 0 in turn depends on topcrm+0x140, bit 24 (osc26m), so it
-+ * follows the usual pattern that mux 0 is osc26m.
-+ *
-+ * If the firmware is running and fed with initialization data it will start writing status messages
-+ * on UART1. An interruption of these messages or a failure to respond to rpmsg is not proof that
-+ * the ZSP's clock has been disabled. The firmware's workings depend on regular timer and LTE device
-+ * IRQs, so one of these devices might have been stopped instead.
-+ */
-+static const struct zx_parent_desc zsp_sel[] = {
-+	PARENT_FW("wclk-osc26m"),
-+	PARENT_FW("dpll"),			/* 491.52 MHz, boot default */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D2),	/* 312 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D4),	/* 156 MHz */
-+};
-+
-+/*
-+ * We can't realistically change DDR speed while running an OS out of DDR (it reads garbage for a
-+ * short while on transition), but we need to know if we have to keep gpll alive. 32 MB devices use
-+ * 200 MHz, while 64/128 MB ones use 156 MHz.
-+ */
-+static const struct zx_parent_desc ddr_ctrl_sel[] = {
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D4),	/* 156 MHz */
-+	PARENT_FW("gpll"),			/* 200 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D6),	/* 104 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D8),	/* 78 MHz */
-+};
-+
-+static const struct zx_parent_desc sd0_sel[] = {
-+	PARENT_FW("wclk-osc26m"),
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D4),	/* 156 MHz */
-+	PARENT_FW("gpll-d2"),			/* 100 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D8),	/* 78 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_GPLL_D2_D2),	/* 50 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_GPLL_D2_D4),	/* 25 MHz */
-+};
-+
-+static const struct zx_parent_desc sd1_sel[] = {
-+	PARENT_FW("wclk-osc26m"),
-+	PARENT_FW("gpll-d2"),			/* 100 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D8),	/* 78 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_GPLL_D2_D2),	/* 50 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D16),	/* 39 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_GPLL_D2_D4),	/* 25 MHz */
-+};
-+
-+/*
-+ * ZTE's kernel puts the high frequency first, but this is against the usual convention on this SoC.
-+ * I don't have any device that has a raw NAND controller though.
-+ */
-+static const struct zx_parent_desc nand_sel[] = {
-+	PARENT_FW("wclk-osc26m"),
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D4),	/* 156 MHz */
-+};
-+
-+static const struct zx_parent_desc edcp_sel[] = {
-+	PARENT_FW("wclk-osc26m"),
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D4),	/* 156 MHz */
-+	PARENT_FW("mpll-d5"),			/* 124.8 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D6),	/* 104 MHz */
-+};
-+
-+/*
-+ * The 122.88 MHz selection of value 1 is given in ZTE's kernel and matches up to observation: Print
-+ * the TDM counter at regular intervals and look at its increase at values 0/1/2. It increases by
-+ * about 310*26 for value 0, 310*122.88 for value 1 and 310*104 for value 2.
-+ *
-+ * Mux value 1 is gated off by matrix+0x118 bit 8. Values 2 and 3 are both gated off by 0x118 bit 3,
-+ * suggesting that they select the same parent.
-+ */
-+static const struct zx_parent_desc tdm_sel[] = {
-+	PARENT_FW("wclk-osc26m"),
-+	PARENT_ID(ZX_CLK_MATRIX_DPLL_D4),	/* 122.88 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D6),	/* 104 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D6),
-+};
-+
-+/*
-+ * ZTE's firmware uses 0x128 as the PHY's vote and names 0x120 as "PS" and 0x124 as "AP" vote.
-+ * However, their cpufreq driver ultimately uses the "PS" define and thus writes to 0x120, which can
-+ * be observed in the running system.
-+ */
-+#define ZX297520V3_AXI_AP_VOTE 0x120
-+static const struct zx_parent_desc axi_sel[] = {
-+	PARENT_FW("wclk-osc26m"),
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D4),	/* 156 MHz */
-+	PARENT_FW("mpll-d5"),			/* 124.8 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D6),	/* 104 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D8),	/* 78 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D12),	/* 52 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_MPLL_D16),	/* 39 MHz */
-+	PARENT_ID(ZX_CLK_MATRIX_OSC26M_D4),	/* 6.5 MHz */
-+};
-+
-+static const struct zx_clock zx297520v3_matrix_clocks[] = {
-+	[ZX_CLK_MATRIX_OSC26M_D4] = FIXED_DIV("matrix-osc26m-d4", PARENT_FW("wclk-osc26m"), 4),
-+	[ZX_CLK_MATRIX_MPLL_D2_PREGATE] = FIXED_DIV("matrix-mpll-d2-pregate", PARENT_FW("mpll"), 2),
-+	[ZX_CLK_MATRIX_MPLL_D4_PREGATE] = FIXED_DIV("matrix-mpll-d4-pregate", PARENT_FW("mpll"), 4),
-+	/* div 5: provided as a separate line from topcrm */
-+	[ZX_CLK_MATRIX_MPLL_D6_PREGATE] = FIXED_DIV("matrix-mpll-d6-pregate", PARENT_FW("mpll"), 6),
-+	[ZX_CLK_MATRIX_MPLL_D8_PREGATE] = FIXED_DIV("matrix-mpll-d8-pregate", PARENT_FW("mpll"), 8),
-+	[ZX_CLK_MATRIX_MPLL_D12_PREGATE] = FIXED_DIV("matrix-mpll-d12-pregate", PARENT_FW("mpll"),
-+						     12),
-+	[ZX_CLK_MATRIX_MPLL_D16_PREGATE] = FIXED_DIV("matrix-mpll-d16-pregate", PARENT_FW("mpll"),
-+						     16),
-+
-+	[ZX_CLK_MATRIX_GPLL_D2_D2_PREGATE] = FIXED_DIV("matrix-gpll-d2-d2-pregate",
-+						       PARENT_FW("gpll-d2"), 2),
-+	[ZX_CLK_MATRIX_GPLL_D2_D4_PREGATE] = FIXED_DIV("matrix-gpll-d2-d4-pregate",
-+						       PARENT_FW("gpll-d2"), 4),
-+
-+	[ZX_CLK_MATRIX_DPLL_D2_PREGATE] = FIXED_DIV("matrix-dpll-d2-pregate", PARENT_FW("dpll"), 2),
-+	[ZX_CLK_MATRIX_DPLL_D4_PREGATE] = FIXED_DIV("matrix-dpll-d4-pregate", PARENT_FW("dpll"), 4),
-+
-+	/*
-+	 * Matrix distribution gates: Every matrix-generated subdivision of the input PLLs
-+	 * has a gate in 0x118. The original inputs from topcrm (mpll 624, mpll 124.8, gpll 200,
-+	 * gpll 100, dpll 491.52) do not.
-+	 *
-+	 * Bit 8 is consumed by TDM and the frequency dpll/4 holds up to observation. Bit 9 is
-+	 * consumed by an unknown device and the frequency is guessed from the pattern that lower
-+	 * bits gate lower frequencies.
-+	 */
-+	[ZX_CLK_MATRIX_MPLL_D16] = GATE("matrix-mpll-d16",
-+					PARENT_ID(ZX_CLK_MATRIX_MPLL_D16_PREGATE), 0x118, 0,
-+					ZX297520V3_AXI_CANDIDATE),
-+	[ZX_CLK_MATRIX_MPLL_D12] = GATE("matrix-mpll-d12",
-+					PARENT_ID(ZX_CLK_MATRIX_MPLL_D12_PREGATE), 0x118, 1,
-+					ZX297520V3_AXI_CANDIDATE),
-+	[ZX_CLK_MATRIX_MPLL_D8] = GATE("matrix-mpll-d8",
-+				       PARENT_ID(ZX_CLK_MATRIX_MPLL_D8_PREGATE), 0x118, 2,
-+				       ZX297520V3_AXI_CANDIDATE),
-+	[ZX_CLK_MATRIX_MPLL_D6] = GATE("matrix-mpll-d6",
-+				       PARENT_ID(ZX_CLK_MATRIX_MPLL_D6_PREGATE), 0x118, 3,
-+				       ZX297520V3_AXI_CANDIDATE),
-+	[ZX_CLK_MATRIX_MPLL_D4] = GATE("matrix-mpll-d4",
-+				       PARENT_ID(ZX_CLK_MATRIX_MPLL_D4_PREGATE), 0x118, 4,
-+				       ZX297520V3_AXI_CANDIDATE),
-+	[ZX_CLK_MATRIX_MPLL_D2] = GATE("matrix-mpll-d2",
-+					PARENT_ID(ZX_CLK_MATRIX_MPLL_D2_PREGATE), 0x118, 5, 0),
-+
-+	[ZX_CLK_MATRIX_DPLL_D4] = GATE("matrix-dpll-d4",
-+				       PARENT_ID(ZX_CLK_MATRIX_DPLL_D4_PREGATE), 0x118, 8, 0),
-+	[ZX_CLK_MATRIX_DPLL_D2] = GATE("matrix-dpll-d2",
-+				       PARENT_ID(ZX_CLK_MATRIX_DPLL_D2_PREGATE), 0x118, 9, 0),
-+
-+	[ZX_CLK_MATRIX_GPLL_D2_D4] = GATE("matrix-gpll-d2-d4",
-+					  PARENT_ID(ZX_CLK_MATRIX_GPLL_D2_D4_PREGATE),
-+					  0x118, 12, 0),
-+	[ZX_CLK_MATRIX_GPLL_D2_D2] = GATE("matrix-gpll-d2-d2",
-+					  PARENT_ID(ZX_CLK_MATRIX_GPLL_D2_D2_PREGATE),
-+					  0x118, 13, 0),
-+
-+	[ZX_CLK_CPU_MUX]          = MUX("cpu-mux", cpu_sel, 0x20, 0, 2),
-+	[ZX_CLK_ZSP_MUX]          = MUX("zsp-mux", zsp_sel, 0x30, 0, 2),
-+	[ZX_CLK_DDR_CTRL_MUX]     = MUX("ddr-ctrl-mux", ddr_ctrl_sel, 0x50, 0, 2),
-+	[ZX_CLK_SD0_MUX]          = MUX("sd0-mux", sd0_sel, 0x50, 4, 3),
-+	[ZX_CLK_SD1_MUX]          = MUX("sd1-mux", sd1_sel, 0x50, 8, 3),
-+	[ZX_CLK_NAND_MUX]         = MUX("nand-mux", nand_sel, 0x50, 12, 2),
-+	[ZX_CLK_EDCP_MUX]         = MUX("edcp-mux", edcp_sel, 0x50, 16, 2),
-+	[ZX_CLK_TDM_MUX]          = MUX("tdm-mux", tdm_sel, 0x50, 24, 2),
-+	[ZX_CLK_AXI_MUX]          = MUX("axi-mux", axi_sel, ZX297520V3_AXI_AP_VOTE, 0, 3),
-+
-+	/*
-+	 * This bit cuts off the clock signal to the ARM architected timer, which the kernel uses
-+	 * as its main timer. It isn't critical per se - there are plenty of proprietary timers
-+	 * available that could be used - but the arm arch timer binding does not accept a clock, so
-+	 * this CCF driver won't know if the timer is in use.
-+	 *
-+	 * This clock is fed by the osc26m gate in topcrm+0x140 - this critical clock here protects
-+	 * its parent.
-+	 *
-+	 * Registers 0x148, 0x14c, 0x150, 0x154 allow setting and clearing the timer counter. To
-+	 * set the timer, load a value into 0x148 (high 32 bits) and 0x14c (low 32 bits), then
-+	 * toggle 0x150 to 1. 0x150 will automatically reset to 0. 0x154 sets the timer to some
-+	 * "clear" value, but this value isn't 0.
-+	 */
-+	[ZX_CLK_SYS_TIMER_WCLK]   = GATE("sys-timer-wclk", PARENT_FW("wclk-osc26m"), 0x144, 1,
-+					 CLK_IS_CRITICAL),
-+
-+	/*
-+	 * Both 0x24 and 0x28 bits 1 and 2 stop the CPU. There is also a bit in topcrm+0x138, which
-+	 * ZTE's uboot calls "A53 reset", which also stops the CPU. I can't really tell the
-+	 * difference between matrix+0x28 and top+0x138. The clock (matrix+0x24) can be disabled
-+	 * and enabled from the Cortex M0 and it will nicely stop and restart the A53, retaining
-+	 * all state.
-+	 */
-+	[ZX_CLK_CPU_WCLK]         = GATE("cpu-wclk", PARENT_ID(ZX_CLK_CPU_MUX), 0x24, 1,
-+					 CLK_IS_CRITICAL),
-+	[ZX_CLK_CPU_PCLK]         = GATE("cpu-pclk", clk_main[0], 0x24, 2, CLK_IS_CRITICAL),
-+
-+	/*
-+	 * There are a lot more controls in matrix+0x100. 13-16 appear to be 4 different AXI
-+	 * channels for different priorities. Bit 19 appears to be the DDR PHY wclk.
-+	 *
-+	 * The important task is to keep gpll enabled if the bootloader selected a gpll-based rate
-+	 * for RAM.
-+	 */
-+	[ZX_CLK_DDR_CTRL_PCLK]    = GATE("ddr-ctrl-pclk", clk_main[0], 0x100, 17, CLK_IS_CRITICAL),
-+	[ZX_CLK_DDR_CTRL_WCLK]    = GATE("ddr-ctrl-wclk", PARENT_ID(ZX_CLK_DDR_CTRL_MUX), 0x100, 18,
-+					 CLK_IS_CRITICAL),
-+
-+	[ZX_CLK_ZSP_PCLK]         = GATE("zsp-pclk", clk_main[0], 0x34, 0, 0),
-+	[ZX_CLK_ZSP_WCLK]         = GATE("zsp-wclk", PARENT_ID(ZX_CLK_ZSP_MUX), 0x34, 1, 0),
-+
-+	/* Both SDIO controllers depend on the ahb-pclk for register access. */
-+	[ZX_CLK_SD0_PCLK]         = GATE("sd0-pclk", PARENT_FW("ahb"), 0x54, 12, 0),
-+	[ZX_CLK_SD0_WCLK]         = GATE("sd0-wclk", PARENT_ID(ZX_CLK_SD0_MUX), 0x54, 13, 0),
-+	[ZX_CLK_SD0_CDET]         = GATE("sd0-cdet", PARENT_FW("osc32k"), 0x54, 14, 0),
-+	[ZX_CLK_SD1_PCLK]         = GATE("sd1-pclk", PARENT_FW("ahb"), 0x54, 4, 0),
-+	[ZX_CLK_SD1_WCLK]         = GATE("sd1-wclk", PARENT_ID(ZX_CLK_SD1_MUX), 0x54, 5, 0),
-+	/*
-+	 * I don't know how the cdet clock works. Card detection in the way the dwc,mmc driver uses
-+	 * it appears broken no matter this clock's setting.
-+	 */
-+	[ZX_CLK_SD1_CDET]         = GATE("sd1-cdet", PARENT_FW("osc32k"), 0x54, 6, 0),
-+
-+	/* This is some "denali" NAND, not the qspi connected one */
-+	[ZX_CLK_NAND_WCLK]        = GATE("nand-wclk", PARENT_ID(ZX_CLK_NAND_MUX), 0x54, 20, 0),
-+	[ZX_CLK_NAND_PCLK]        = GATE("nand-pclk", clk_main[0], 0x54, 21, 0),
-+
-+	/*
-+	 * There is a set of gates for an unknown device at matrix+0x60. It is some LTE related
-+	 * device. If it is fed an incorrect clock, e.g. because dpll is not locked and outputs
-+	 * 26 MHz, it will spam IRQs at SPI 68. This is likely a distress notification that some
-+	 * internal PLL did not lock or similar
-+	 *
-+	 * ZTE's kernel has two defines for SPI 64: "LTE_TPU_INT_PS_INT" and "VOU_OSD_INT". The
-+	 * latter is unlikely because VOU related clocks sit in matrix+0x168.
-+	 *
-+	 * Bit 9 in register 0x118 turns it off, so it is the immediate parent. It isn't clear what
-+	 * divisor of dpll it is using though. Following the pattern that lower frequencies are
-+	 * gated by lower bits, it would indicate dpll/2 or dpll/3.
-+	 */
-+	[ZX_CLK_LTE_TPU_WCLK]     = GATE("lte-tpu-wclk", PARENT_ID(ZX_CLK_MATRIX_DPLL_D2),
-+					 0x60, 0, 0),
-+	[ZX_CLK_LTE_TPU_PCLK]     = GATE("lte-tpu-pclk", clk_main[0],
-+					 0x60, 2, 0),
-+
-+	[ZX_CLK_EDCP_PCLK]        = GATE("edcp-pclk", clk_main[0], 0x64, 1, 0),
-+	[ZX_CLK_EDCP_WCLK]        = GATE("edcp-wclk", PARENT_ID(ZX_CLK_EDCP_MUX), 0x64, 2, 0),
-+
-+	/*
-+	 * This seems to be another SPI-Like device. ZTE's firmware operates it and from testing
-+	 * it looks like the matrix-osc26m gate in top+0x140 stops this device. This would be
-+	 * consistent with the other SPI controllers too.
-+	 */
-+	[ZX_CLK_SSC_WCLK]         = GATE("ssc-wclk", PARENT_FW("wclk-osc26m"), 0x84, 1, 0),
-+	[ZX_CLK_SSC_PCLK]         = GATE("ssc-pclk", clk_main[0], 0x84, 2, 0),
-+
-+	/*
-+	 * PDCFG. Like PMM, either clock bit will allow the device to function. Probably there is
-+	 * no wclk line at all and the two bits are just an artifact of generally having two bits
-+	 * per device.
-+	 */
-+	[ZX_CLK_PDCFG_WCLK]       = GATE("pdcfg-wclk", matrix_unk, 0x88, 0, CLK_IS_CRITICAL),
-+	[ZX_CLK_PDCFG_PCLK]       = GATE("pdcfg-pclk", clk_main[0], 0x88, 1, CLK_IS_CRITICAL),
-+	[ZX_CLK_MBOX_PCLK]        = GATE("mbox-pclk", clk_main[0], 0x88, 2, 0),
-+	[ZX_CLK_SRAM0_PCLK]       = GATE("sram0-pclk", clk_main[0], 0x88, 4, 0),
-+	[ZX_CLK_GSM_CFG_PCLK]     = GATE("gsm-cfg-pclk", clk_main[0], 0x88, 8, 0),
-+
-+	/*
-+	 * ZTE's driver has a statement to the effect of *(top->base+0x11c) = 5, with a comment
-+	 * suggesting that this sets a 50 MHz clock. The clock code itself lists GMAC clocks in
-+	 * matrix+0x110 and lists the parents of these clocks as 50 MHz gpll output, but
-+	 * the downstream ZTE GMAC driver never enables the clocks. It turns out ZTE's code is
-+	 * highly misleading.
-+	 *
-+	 * The GMAC's work clock is definitely not any gpll output because it keeps working fine
-+	 * with gpll disabled. Gating off matrix-osc26m breaks GMAC, so it must be its parent.
-+	 *
-+	 * The GMAC Gates are left enabled by the boot loader and are required for the GMAC to work.
-+	 *
-+	 * As for the 50 MHz comment: See rmiiphy-wclk.
-+	 *
-+	 * The gmac-ahb clock is a child of topcrm's ahb-pclk and is required for DMA transfers in
-+	 * and out of GMAC. Without it, GMAC still receives ethernet frames, but can't drain them
-+	 * to memory and will eventually set the RX FIFO overflow flag.
-+	 */
-+	[ZX_CLK_GMAC_WCLK]        = GATE("gmac-wclk", PARENT_FW("wclk-osc26m"), 0x110, 0, 0),
-+	[ZX_CLK_GMAC_PCLK]        = GATE("gmac-pclk", clk_main[0], 0x110, 1, 0),
-+	[ZX_CLK_GMAC_AHB]         = GATE("gmac-ahb", PARENT_FW("ahb"), 0x110, 2, 0),
-+
-+	/*
-+	 * Is there an AXI bus gate? The symptom of cutting off the AXI mux selection in top+0x140
-+	 * is that matrixcrm becomes unreadable from m0 and A53 hangs. Inside matrix itself only 3
-+	 * bits fit that bill: 0x8c bits 5, 6, 7. It seems a bit self-defeating to have a clock
-+	 * gate that shuts off access to itself though. I expect a clock gate for the bus
-+	 * somewhere, and the mux exists, so exposing one AXI clock in the bindings is the correct
-+	 * thing to do. It also serves to tell the kernel to keep the mux's parent enabled.
-+	 *
-+	 * Register 0x8c has 12 settable bits (0xfff). Ultimately it doesn't matter much which
-+	 * do-not-remove bit we don't remove. Other bits in this register behave like gates (e.g
-+	 * bits 11:8 cut off USB temporarily), so I think we are looking in the right place.
-+	 *
-+	 * If an explanation for the remaining bits surfaces and they are further gates and/or
-+	 * resets, add them to the bindings.
-+	 */
-+	[ZX_CLK_AXI_WCLK]         = GATE("axi-wclk", PARENT_ID(ZX_CLK_AXI_MUX), 0x8c, 5,
-+					 CLK_IS_CRITICAL),
-+
-+	[ZX_CLK_DMA_PCLK]         = GATE("dma-pclk", clk_main[0], 0x94, 3, 0),
-+
-+	/*
-+	 * There are a lot more VOU related controls in these registers, but turning off the main
-+	 * clock seems to shut off the entire VOU MMIO range.
-+	 */
-+	[ZX_CLK_VOU_WCLK]         = GATE("vou-wclk", matrix_unk, 0x168, 0, 0),
-+	[ZX_CLK_VOU_PCLK]         = GATE("vou-pclk", clk_main[0], 0x168, 1, 0),
-+
-+	/*
-+	 * LSP uplink clocks. The pclk is fairly obvious (disabling it shuts off the entire LSP
-+	 * register area). The wclk speeds were deduced by setting timers and qspi muxes to a
-+	 * specific speed and seeing which bit in matrix+0x7c needs to be enabled for the device
-+	 * to work.
-+	 *
-+	 * Due to the timers I am certain about the 26 MHz and 32 kHz clocks. I cannot directly
-+	 * observe the qspi mux frequency, so the clock rates depend on ZTE's qspi mux selection
-+	 * being correct.
-+	 *
-+	 * Two additional bits are specific to sound components - the mux for the LSP's TDM IP is
-+	 * in matrixcrm and gets passed down. I2S has a mux in LSP, which can select the dpll-d4
-+	 * clock.
-+	 */
-+	[ZX_CLK_TOLSP_MPLL_D5_WCLK]  = GATE("lsp-mpll-d5", PARENT_FW("mpll-d5"), 0x7c, 0, 0),
-+	[ZX_CLK_TOLSP_MPLL_D4_WCLK]  = GATE("lsp-mpll-d4", PARENT_ID(ZX_CLK_MATRIX_MPLL_D4),
-+					    0x7c, 1, 0),
-+	[ZX_CLK_TOLSP_MPLL_D6_WCLK]  = GATE("lsp-mpll-d6", PARENT_ID(ZX_CLK_MATRIX_MPLL_D6),
-+					    0x7c, 2, 0),
-+	[ZX_CLK_TOLSP_MPLL_D8_WCLK]  = GATE("lsp-mpll-d8", PARENT_ID(ZX_CLK_MATRIX_MPLL_D8),
-+					    0x7c, 3, 0),
-+	[ZX_CLK_TOLSP_MPLL_D12_WCLK] = GATE("lsp-mpll-d12", PARENT_ID(ZX_CLK_MATRIX_MPLL_D12),
-+					    0x7c, 4, 0),
-+	[ZX_CLK_TOLSP_OSC26M_WCLK]   = GATE("lsp-osc26m", PARENT_FW("wclk-osc26m"), 0x7c, 5, 0),
-+	[ZX_CLK_TOLSP_OSC32K_WCLK]   = GATE("lsp-osc32k", PARENT_FW("osc32k"), 0x7c, 6, 0),
-+	[ZX_CLK_TOLSP_PCLK]          = GATE("lsp-pclk", clk_main[0], 0x7c, 7, 0),
-+	[ZX_CLK_TOLSP_TDM_WCLK]      = GATE("lsp-tdm-wclk", PARENT_ID(ZX_CLK_TDM_MUX), 0x7c, 8, 0),
-+	[ZX_CLK_TOLSP_DPLL_D4_WCLK]  = GATE("lsp-dpll-d4", PARENT_ID(ZX_CLK_MATRIX_DPLL_D4),
-+					    0x7c, 9, 0),
-+};
-+
-+static int zx297520v3_matrix_init(struct regmap *map)
-+{
-+	u32 axi_val;
-+	int res;
-+
-+	/* Read the global AXI speed selection, insert it into our ballot and enable voting */
-+	res = regmap_read(map, 0x0, &axi_val);
-+	if (res)
-+		return res;
-+
-+	axi_val &= 0x7;
-+	res = regmap_write(map, ZX297520V3_AXI_AP_VOTE, axi_val);
-+	if (res)
-+		return res;
-+
-+	return regmap_write(map, 0x12c, 1);
-+}
-+
-+static const unsigned int zx297520v3_matrix_exports[] = {
-+	[ZX297520V3_SYS_TIMER_WCLK] =		ZX_CLK_SYS_TIMER_WCLK,
-+	[ZX297520V3_CPU_WCLK] =			ZX_CLK_CPU_WCLK,
-+	[ZX297520V3_CPU_PCLK] =			ZX_CLK_CPU_PCLK,
-+	[ZX297520V3_ZSP_WCLK] =			ZX_CLK_ZSP_WCLK,
-+	[ZX297520V3_ZSP_PCLK] =			ZX_CLK_ZSP_PCLK,
-+	[ZX297520V3_DDR_CTRL_PCLK] =		ZX_CLK_DDR_CTRL_PCLK,
-+	[ZX297520V3_DDR_CTRL_WCLK] =		ZX_CLK_DDR_CTRL_WCLK,
-+	[ZX297520V3_EDCP_WCLK] =		ZX_CLK_EDCP_WCLK,
-+	[ZX297520V3_EDCP_PCLK] =		ZX_CLK_EDCP_PCLK,
-+	[ZX297520V3_SD0_WCLK] =			ZX_CLK_SD0_WCLK,
-+	[ZX297520V3_SD0_PCLK] =			ZX_CLK_SD0_PCLK,
-+	[ZX297520V3_SD0_CDET] =			ZX_CLK_SD0_CDET,
-+	[ZX297520V3_SD1_WCLK] =			ZX_CLK_SD1_WCLK,
-+	[ZX297520V3_SD1_PCLK] =			ZX_CLK_SD1_PCLK,
-+	[ZX297520V3_SD1_CDET] =			ZX_CLK_SD1_CDET,
-+	[ZX297520V3_NAND_WCLK] =		ZX_CLK_NAND_WCLK,
-+	[ZX297520V3_NAND_PCLK] =		ZX_CLK_NAND_PCLK,
-+	[ZX297520V3_DMA_PCLK] =			ZX_CLK_DMA_PCLK,
-+	[ZX297520V3_MBOX_PCLK] =		ZX_CLK_MBOX_PCLK,
-+	[ZX297520V3_PDCFG_WCLK] =		ZX_CLK_PDCFG_WCLK,
-+	[ZX297520V3_PDCFG_PCLK] =		ZX_CLK_PDCFG_PCLK,
-+	[ZX297520V3_SSC_WCLK] =			ZX_CLK_SSC_WCLK,
-+	[ZX297520V3_SSC_PCLK] =			ZX_CLK_SSC_PCLK,
-+	[ZX297520V3_AXI_WCLK] =			ZX_CLK_AXI_WCLK,
-+	[ZX297520V3_GMAC_WCLK] =		ZX_CLK_GMAC_WCLK,
-+	[ZX297520V3_GMAC_PCLK] =		ZX_CLK_GMAC_PCLK,
-+	[ZX297520V3_GMAC_AHB] =			ZX_CLK_GMAC_AHB,
-+	[ZX297520V3_VOU_WCLK] =			ZX_CLK_VOU_WCLK,
-+	[ZX297520V3_VOU_PCLK] =			ZX_CLK_VOU_PCLK,
-+	[ZX297520V3_LSP_MPLL_D5_WCLK] =		ZX_CLK_TOLSP_MPLL_D5_WCLK,
-+	[ZX297520V3_LSP_MPLL_D4_WCLK] =		ZX_CLK_TOLSP_MPLL_D4_WCLK,
-+	[ZX297520V3_LSP_MPLL_D6_WCLK] =		ZX_CLK_TOLSP_MPLL_D6_WCLK,
-+	[ZX297520V3_LSP_MPLL_D8_WCLK] =		ZX_CLK_TOLSP_MPLL_D8_WCLK,
-+	[ZX297520V3_LSP_MPLL_D12_WCLK] =	ZX_CLK_TOLSP_MPLL_D12_WCLK,
-+	[ZX297520V3_LSP_OSC26M_WCLK] =		ZX_CLK_TOLSP_OSC26M_WCLK,
-+	[ZX297520V3_LSP_OSC32K_WCLK] =		ZX_CLK_TOLSP_OSC32K_WCLK,
-+	[ZX297520V3_LSP_PCLK] =			ZX_CLK_TOLSP_PCLK,
-+	[ZX297520V3_LSP_TDM_WCLK] =		ZX_CLK_TOLSP_TDM_WCLK,
-+	[ZX297520V3_LSP_DPLL_D4_WCLK] =		ZX_CLK_TOLSP_DPLL_D4_WCLK,
-+	[ZX297520V3_SRAM0_PCLK] =		ZX_CLK_SRAM0_PCLK,
-+	[ZX297520V3_GSM_CFG_PCLK] =		ZX_CLK_GSM_CFG_PCLK,
-+};
-+
-+static const struct zx_clk_data zx297520v3_matrixclk_data = {
-+	.init = zx297520v3_matrix_init,
-+	.clocks = zx297520v3_matrix_clocks,
-+	.num_clocks = ARRAY_SIZE(zx297520v3_matrix_clocks),
-+	.exports = zx297520v3_matrix_exports,
-+	.num_exports = ARRAY_SIZE(zx297520v3_matrix_exports),
-+};
-+
- static int clk_zx297520v3_probe(struct platform_device *pdev)
- {
- 	const struct platform_device_id *id = platform_get_device_id(pdev);
-@@ -785,6 +1292,10 @@ static const struct platform_device_id clk_zx297520v3_ids[] = {
- 		.name = "zx297520v3-topclk",
- 		.driver_data = (kernel_ulong_t)&zx297520v3_topclk_data,
- 	},
-+	{
-+		.name = "zx297520v3-matrixclk",
-+		.driver_data = (kernel_ulong_t)&zx297520v3_matrixclk_data,
-+	},
- 	{ }
- };
- MODULE_DEVICE_TABLE(platform, clk_zx297520v3_ids);
-
--- 
-2.54.0
-
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
 
