@@ -4,152 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B8AC5DF94
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 08:29:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCD2BC5DF94
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 08:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bYhkDV0y7XOpWdvVDzgGnrF9K75KOavFDUraFzDkeMs=; b=A70ZDaTL76NXB9berEkuxp8BZq
-	zGzMhNRLIKy+s9R1HfE86Qy+IojWmC9qJ68Zcum3IO7f1OmzND56d6dyAdLhjBoOrHpo1kzylDk0T
-	sKXZ7jam7GueWcjyUnpZIwHOJ7NG5J5WmpnNrAA9WIelQsA7/dCbs8Hhjk0wBwu4SXLfxBYZqQJTW
-	ryH2/0OtVg2HOZJMIo5MNYwD5cTpANp4u+X5urzOg9kNnS+PWY2Unpc8iAiVEfH9WKhCbnOQ3S13A
-	b52qyw/zr2V5N0qnkJLEFwgHF2RjAcgmCSz+9aoAthPNJ2gENwvmKlPy5SAFL63V6t2lbVWtJxO87
-	Ffsdu3Cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lD7UStE/XOr8A5NJ+GnuX9Z5tu/0sy2nS7RxI5FuuYU=; b=DDUkKo0tBX2i7L9YGwnEikDYrJ
+	H+gzL87bKPWPAuMCcHen71ivaDUbHO/wdRjQZXXHHTZSplwCc7RW6J9bd4T1/AZTjafCbEzbiIPwX
+	N7CcXVTS5bXbeJaPtZgfz3k+VCaWZISK0rxphwOhVHietmxMqeJh2VFUgfrh5S1N3XUV1W0dwxxbB
+	uS42FArrlK89Yl5/hrvzFpDn/KCXF+LUOvKrb4INsRFzWXglkkQTvsUo+YhUkuVBHCGNKpvYM8UsY
+	NR8bkksMPzWJqXafWLmL2oLhP/vM0/0SZXtWYPGWSTJNNe9vsflvlz5cnebIkedS1EtOHH1yMApZS
+	OdojUtBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wymWY-00000000Noq-1etv;
-	Tue, 25 Aug 2026 08:28:50 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wyma7-00000000O8n-3aM4;
+	Tue, 25 Aug 2026 08:32:31 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wymWV-00000000NoM-1Vcb
+	id 1wyma4-00000000O87-366w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 08:28:48 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67P88Qga196255
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 08:28:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	bYhkDV0y7XOpWdvVDzgGnrF9K75KOavFDUraFzDkeMs=; b=hb9oUO/W4rgIbipL
-	mGFectRAfdZBqpJCcwpB1ofAMp8oW3JaDF/3oGnhjjRjyg2iyuqKO8sZObFeUYzW
-	7XE0gnADDbK3HC628p4fbs6euvMI8a5pHQLTHFRdEUTtzDrjSyMl8nZt+7N17gNE
-	a6Ag6K4qIJCWKEDkW55cbGE9Bb5mQN0xLyYxDpbZ3+xtMAicAQYhWwoBzYbBAnYd
-	oJwJtB4UzeKUTFlm5AVzFHjTPEw4F5dMM/OUaIegUF5KBLFbnNTX6uozastRZTGS
-	gnZWV3jfiwK+AQ9Q7JIXqTIyUAS/+mlc7135RIl7S8IhUUXRL+FzM+CQev6emWL5
-	r1a6XQ==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g93pvgwyt-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 08:28:44 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51ca37ce4c3so8534961cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 01:28:44 -0700 (PDT)
+	Tue, 25 Aug 2026 08:32:30 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-c2055f5a993so501326366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 01:32:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787646524; x=1788251324; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bYhkDV0y7XOpWdvVDzgGnrF9K75KOavFDUraFzDkeMs=;
-        b=O+3M3nVrCDCBP2GBCdoP7b/lkuuSU/mj7WgAU7wYChhAtORDITj5BjbmjQSe7jIYE5
-         yGHNLrdTWMJyLaYvFnvXMzCoguy1YGj6w99yQQaxQv8y4KSAO9SWyUt56RsOMjwPMShF
-         OhuORw3vmdJHZ2LW6uUu0H1wQ3BxIPxf20bDO+p9WuX8tkpBYq4x1Lf0cebuJp8/lEi/
-         XEgf7jjDGQt211PEcz9yAGpgJHTixVKmbJqPaZN9ZWR4pnsjDFPHi5K6clJzbVdz79Lu
-         HRcxMcXF3lczzODGybDJSjGqpfVL7z0AvYj9SDipKds9WJUiTgBkp/fQod2O7MQBTgEN
-         mSqw==
+        d=baylibre.com; s=google; t=1787646747; x=1788251547; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=lD7UStE/XOr8A5NJ+GnuX9Z5tu/0sy2nS7RxI5FuuYU=;
+        b=FCBY2ADMU7C5Mxd6+gAvuuDBJRhtitJSpeEHaEjnSQN6TrgZ01v82+rqIi9t2HINSt
+         yty79Cwk6QH/qQk1ck5vVK/4mGT1ii2U9gk5RIT3AWtxwdnwdAU5sZmtODJeX0RzOeIc
+         Ns/2j6AOejiducAioRhxb9hdlOPQKd0rGp/Iun8LHqaxi8M6RC1TPa1bYOSpq6BzsdkI
+         qfaQsXjCQ6Og8kahFx+ip1XxvmKjPqKDYKheoVL40eFD6WdVrmziuVeo+apygAJ8him0
+         BlLIXlGUDz9rZlJ3qoIbx/rNMRKkYNOBlVvaw2k1LlGUTdWqBE7Y7Ea7v1Ql8Z5nrOEy
+         0AGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787646524; x=1788251324;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bYhkDV0y7XOpWdvVDzgGnrF9K75KOavFDUraFzDkeMs=;
-        b=KdPQtDC5WndZrMnNgJv34CD5o9KdHCS/XE64SjMAQSvZEnCdrUCzEztMEJ91u7bZ4P
-         Mkyzgg/UjUy23UjH2FQ3uBI8Xa/g3AR/tYBXkyyKJEx9gWEZw++uq33YY+0CFOLIYRWH
-         kDgDKmcTgK9aVyrspQcNkJSq3BVSuLGGyuMT55J3FtOm9Y7RSLt9bSgKuUcps/04ufXI
-         Ipk6f+2/WNMirgrsa2GVCClq5LMn8NZxE3pFnPvk6BTEGa8lLsH6fCyLNqcvoeo/gSuY
-         AA3xpvW05VCeZjLc6/ZHkTJY4s22NCPOl2I//nQfmNgQTcFclZE5Uatxzqowm20FQOEX
-         8p4w==
-X-Forwarded-Encrypted: i=1; AHgh+RrCgOSwRUULkOaJBbQVKmZ85KTJOmdx7txZWM7dYEaJjGqxDwHdT1k+eYCHgJrzkrCcvW7pCR2of1MgvtrjpHxc@lists.infradead.org
-X-Gm-Message-State: AFuF++mOGpTF0h1KwedK3fI/JWNXPChVRtNe5tOF2T8H3JFNwVyjsKjm
-	dKlIoCAu4VxSRAXDFIYv+zvYqRZc97nZb5lvdTbq+cgqPFX6jx2sq8K/ThemJH64Dm1/rAj+0HD
-	0/TKPD99n2Kj1CFQv6o6r91my2suNZyf5jtXLAtdsQ9F11r8ewhs5vC3bnYfA4aqkBajJ4YAxuP
-	uNDw==
-X-Gm-Gg: AR+sD12jTSYgWdephCdZ33goR5GObiTblPo6Z84D/uxQqacTzxqXvxFmfmArANaXbne
-	bWeX0cCz9vT1xGihw5p36DKFCTmJtX5LDZdlG04opFdj7Yj/YpgYP9s1iM/XA836+66U7hOwqMB
-	p58vhIkHvSNapDaQsejfGQLSghjrABWvFPNeUM9HmHg462yj1l5Pw1SLB4EjT+t/snzYNrchBa2
-	HdsxyRs6pwUIbFbngf0XmaL89CC6hSH9YweHpDEUQ3ItLUN/Kw9ziNuVEEXX9a5iioMBI3e0fxQ
-	gs9N0mn7X4yO524rB2ZibFB230hjWy3Yb/G1pW4O7FcfeUs4oQrscfD8/kOPhIO8eNBaQwpzFO7
-	CxHf0ByNzXAhA6AkZMIac37h4
-X-Received: by 2002:ac8:5f50:0:b0:51b:f40b:2faf with SMTP id d75a77b69052e-52df5a35311mr225835701cf.4.1787646523884;
-        Tue, 25 Aug 2026 01:28:43 -0700 (PDT)
-X-Received: by 2002:ac8:5f50:0:b0:51b:f40b:2faf with SMTP id d75a77b69052e-52df5a35311mr225835341cf.4.1787646523448;
-        Tue, 25 Aug 2026 01:28:43 -0700 (PDT)
-Received: from [192.168.120.193] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c249629a901sm1820302366b.25.2026.08.25.01.28.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Aug 2026 01:28:42 -0700 (PDT)
-Message-ID: <8d8f7742-fd4a-4605-a9b1-153ace9e14a4@oss.qualcomm.com>
-Date: Tue, 25 Aug 2026 10:28:41 +0200
+        d=1e100.net; s=20251104; t=1787646747; x=1788251547;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lD7UStE/XOr8A5NJ+GnuX9Z5tu/0sy2nS7RxI5FuuYU=;
+        b=AiwIW5sZ7NBQ4ZiARGyQKVCMhw9lu4rVE78AP4fiaJclkha18e04jw90or4Sh9yyFl
+         4XTNGVRzWo5si12PnlvcHMHiB0CpzZzw5aFu4IxMO5BCsYtrD0TU7juFCMxG8Owd/fwk
+         MgofA3V6nkayWdO9WQY4p5/uLw1WLJDt/jpqU1vXzwniqFo4R5Ba5wgZsDI1H9njQMNE
+         LjCL685KVwiDVSl3JGZzm0PMiXdT+jBWVAsPzl2LSyJqucTeMZgp1X+/+FXKFeQ8vlev
+         TTzpwCd5WwNdgf6WswZuZKJaTdE0THqD9TDhN//z/cwzOGautM5NjX0EoIzall+Aw58Q
+         TPrA==
+X-Forwarded-Encrypted: i=1; AHgh+RqYwcbqe/3e88FYLchJNKrJBzBJrJzyrnvxp5jx7CapOOFyIFyGZptHW8jlbzblQsqix0k4N8vmalftaNpWwaw1@lists.infradead.org
+X-Gm-Message-State: AFuF++mg2HEMXzJU1YabdPs2IWtNQ1i4bs8HSEFdUNyOPmSr7mWH9OOY
+	/zklhWUIF8vpfXZTtFiO0fzvRc40Vg6qW2DJiWIUfwNHeVRJUWmtcD6pN+UNsTb503w=
+X-Gm-Gg: AR+sD12danLv4znINPqknm/Zp8S8vPagz1eif1S4OljyK73+yIbbxAE7JmXuRt1T05a
+	Rdgxzj/KY912J1Oyg/hu5GFINQO4IDzBPNuAMWCAJeUGM3vmYf/ch3wBmOtL+2HF9mvwoJO/o+t
+	mnB1m/tpQyreOzvGk57jIkoam/r1K8CdXysaZQjyFQqdOk8cEHfQnGq9sSNytU4ks8/+MDTVBO3
+	dUVY08HFvYohD0zWquc1PtKLJr3OjgZmk7GsxQDJq85LJjqewsIN/jvTDYjEO5k3J8FXkFeRceO
+	CKTbWoGtC2D/e9/A237gq5onMdJpdO/4K4/GWNEQ2v/AuNj07jXEd/BKN0bEATekO+A4DvyvG//
+	tj6pEYmgxPEFB7kTgEZXCdSbtNRP61j4EqyZ8D+oNIeUtBCXVDbJeG5ABkA74lZ8LX2lzAvZtgf
+	WSi0gdtYcoEPwLGIbQg9ZMWCiuFfZzQILtRrt0Z7irBc47NqhNLUZ5wCTMIxnW0eNNyF09iVBok
+	HzCJ509lEjjHVhXAADqnmfKGodaY0eprAjFq8/sIU8o+HmKZm6Awp+FyUSKAw==
+X-Received: by 2002:a17:907:9445:b0:c21:6f8c:2335 with SMTP id a640c23a62f3a-c24e5ff7a2bmr571761466b.16.1787646746723;
+        Tue, 25 Aug 2026 01:32:26 -0700 (PDT)
+Received: from localhost (p200300f65f19a904037016a565660d5e.dip0.t-ipconnect.de. [2003:f6:5f19:a904:370:16a5:6566:d5e])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-c249686e37bsm1692467466b.55.2026.08.25.01.32.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Aug 2026 01:32:25 -0700 (PDT)
+Date: Tue, 25 Aug 2026 10:32:24 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Hans de Goede <johannes.goede@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Cristian Marussi <cristian.marussi@arm.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>, arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+Subject: Re: [PATCH v3 1/3] module: add SCMI device table alias support
+Message-ID: <ao1SHx440b6OxUDm@monoceros>
+References: <20260820194850.459739-1-johannes.goede@oss.qualcomm.com>
+ <20260820194850.459739-2-johannes.goede@oss.qualcomm.com>
+ <aow2GFAfy84k-N2B@monoceros>
+ <1bf5984a-d1d2-4763-bb4c-b17ae8360192@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/7] serial: qcom-geni: Use geni_se_set_rate() for source
- clock configuration
-To: Praveen Talari <praveen.talari@oss.qualcomm.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Jiri Slaby <jirislaby@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
-        Andi Shyti <andi.shyti@kernel.org>
-Cc: mukesh.savaliya@oss.qualcomm.com, chandana.chiluveru@oss.qualcomm.com,
-        arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-serial@vger.kernel.org,
-        linux-spi@vger.kernel.org, linux-i2c@vger.kernel.org
-References: <20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-v1-0-61171ab1cdce@oss.qualcomm.com>
- <20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-v1-4-61171ab1cdce@oss.qualcomm.com>
- <4e0d636a-7975-4711-8070-6f71957b754e@oss.qualcomm.com>
- <17735f83-fd07-4fad-97a3-727cfbeabbcb@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <17735f83-fd07-4fad-97a3-727cfbeabbcb@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI1MDA3MSBTYWx0ZWRfXyOCCijb6ExEn
- JxFMH9wRDCiLaueQrY6LXz1WEFoP09gPeMQjB6f4jFWlKAG4iJlsotcNtMOUVjjBtTGwB+ua2Ie
- ISbSO2UdyC4KLkqX4IZC2uEI8fR5LTQ=
-X-Proofpoint-GUID: t_WJTcEezd4JwYiQgvU2_jGhQZUP-vzj
-X-Proofpoint-ORIG-GUID: t_WJTcEezd4JwYiQgvU2_jGhQZUP-vzj
-X-Authority-Analysis: v=2.4 cv=Ru716imK c=1 sm=1 tr=0 ts=6a8d523c cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=CZKBZ6wm4gaK5Uy4Yf8A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI1MDA3MSBTYWx0ZWRfX72mH0KjVJDKH
- JgktvwCTrpUnMjBuDqot+7X+6p/KPEmJyneiY9tr6ivoecPd6RrXDScGui+Mv2nk9H+MCY1P+zt
- 7iRxKH9eUMVRYkk7LyLba7ZLgCvI6JsMPwAf7lHmScDHOlGjty2Ksyh4BxPTLjI46cv5kvEzzZ+
- cZ/8KHKiQ5DQcGIemSKNJsyewRPjkL4VATh80uTQbdR621b16fP5q9ZN85BoJ4Y7LCvRAoGZ8+C
- onNPYaMJvpEvP4M7RsRDSQWjhmx+YC404K1bDat97PkLaHm7n9Btr32HzlloHsPbKH9D/4pnecS
- ZrkfcR3lM95ZCv5fnOAdR7DIxbcKZUKl10BQ74Cl4ecE4IIO4QIsExijc5OPztuIq3aQkvkbz+z
- Jtj81+oReaSEbTJVaOO4gcU2iGIpuG4nG2+Ci5rnVtBMwkjHBDyuWG/PzU1tvtFU2AHdzBwef/p
- VLLK5LtNxjeqQJENYvg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-25_02,2026-08-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 clxscore=1015 suspectscore=0 adultscore=0 lowpriorityscore=0
- phishscore=0 malwarescore=0 impostorscore=0 spamscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608250071
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="nfxdkmmv4cdosfpl"
+Content-Disposition: inline
+In-Reply-To: <1bf5984a-d1d2-4763-bb4c-b17ae8360192@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_012847_516996_CED4FFFD 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20260825_013228_805228_35C7B0D0 
+X-CRM114-Status: GOOD (  33.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,39 +107,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/25/26 6:00 AM, Praveen Talari wrote:
-> HI Konrad,
-> 
-> On 24-08-2026 20:35, Konrad Dybcio wrote:
->> On 8/4/26 9:57 PM, Praveen Talari wrote:
->>> The driver calls dev_pm_opp_set_rate() directly on uport->dev to apply
->>> the computed source clock frequency, and dispatches baud rate handling
->>> through a per-variant dev_data->set_rate() callback that either
->>> recalculates the clock divider (Linux clock managed path) or selects
->>> a performance level via geni_se_set_perf_level() (SA8255P firmware
->>> managed path).
->> [...]
->>
->>> +    geni_se_set_rate(&port->se, 0);
->> This ends up calling dev_pm_opp_set_rate(0) [i see this is an existing
->> bug in geni_se_resources_deactivate()], which removes the power vote,
->> but does nothing to the clock (neither set_rate nor disable_unprepare),
->> which will crash the platform
->>
->> Both of these calls (new and existing) should be removed. Clocks will
->> be disabled by geni_se_clks_off() in geni_se_resources_deactivate().
->>
->> Then, we should do dev_pm_set_opp(se->dev, NULL) *after* they are off
->> to remove any trailing OPP resources (i.e. icc votes defined in the OPP
->> table in our case)
-> So, if I understand correctly, the expected sequence is:
-> 
-> 1. Disable the clocks.
-> 
-> 2. Remove the OPP/performance resources.
 
-Yes, otherwise there is no guarantee that the clocks have sufficient
-power for a given rate
+--nfxdkmmv4cdosfpl
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 1/3] module: add SCMI device table alias support
+MIME-Version: 1.0
 
-Konrad
+Hello Hans,
+
+On Mon, Aug 24, 2026 at 04:58:43PM +0200, Hans de Goede wrote:
+> On 24-Aug-26 14:22, Uwe Kleine-K=F6nig wrote:
+> > Hello,
+> >=20
+> > I just replied to v2 and only then found out there is a v3 already.
+> > There is something wrong with my mail filtering, sorry.
+>=20
+> Not sure if it is your filtering, v2 is somewhat old
+> and I only just revived this series.
+>=20
+> I'll add you to the Cc list for v4.
+
+If you don't make the mess that is mod_devicetable.h worse, there is no
+need. I'm already overwhelmed with mail ...
+
+> >> +};
+> >> +
+> >> +#endif /* ifndef LINUX_DEVICE_ID_SCMI_H */
+> >> diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devic=
+etable.h
+> >> index a397213bedac..d241421c36aa 100644
+> >> --- a/include/linux/mod_devicetable.h
+> >> +++ b/include/linux/mod_devicetable.h
+> >> @@ -49,6 +49,7 @@
+> >>  #include "device-id/pnp.h"
+> >>  #include "device-id/rio.h"
+> >>  #include "device-id/rpmsg.h"
+> >> +#include "device-id/scmi.h"
+> >=20
+> > Please don't add new includes to mod_devicetable.h. That header is ugly
+> > and each include makes it worse. Just add <linux/device-id/scmi.h> to
+> > the modpost source.
+>=20
+> Hmm, I did that at first, but that is quite ugly also because
+> file2alias.c, does:
+>=20
+> #include "../../include/linux/mod_devicetable.h"
+>=20
+> So I ended up needing to change that to:
+>=20
+> #include "../../include/linux/device-id/scmi.h"
+> #include "../../include/linux/mod_devicetable.h"
+>=20
+> my thinking was that the purpose would be to move other
+> consumers of mod_devicetable.h to directly include
+> linux/device-id/*.h"
+>=20
+> And keep mod_devicetable.h as a file which includes all
+> of them for use in devicetable-offsets.c + file2alias.c
+>=20
+> But I can see how actually getting there will be a long time
+> in the making and in the mean time this will cause longer
+> compile times.
+
+Yeah, I'm still pondering a bit if I should start dropping #includes
+=66rom mod_devicetable.h or if that is more annoying. Fighting new
+includers for mod_devicetable.h itself seems to be a tough task, too.
+
+> So if you're saying the somewhat ugly thing of adding
+> linux/device-id/scmi.h directly to devicetable-offsets.c +
+> file2alias.c is the right thing to do, then I'm happy to
+> do that for v4.
+>=20
+> If I'm reading your comment correctly, that is what you
+> want me to do, right ?
+
+Yes. I agree it's not pretty, but IMHO better bearable.
+
+Best regards
+Uwe
+
+--nfxdkmmv4cdosfpl
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmqNUxYACgkQj4D7WH0S
+/k5wCgf/eIWRfjCexiKewtXq3u4X6kYeqNfHxU/aHRvaG2XAS6E+1RPly2vZKqRP
+S+yKDqswE2AFauvgqGNf+U3VjCqnf6AQdButjabhaAkBoumLTSz8unOA54k89HjY
+ThBXcUmVtt1D5s/rBi0lh/Ak4BpU9pSqJgw4CwLS0P6hESLiGfqhrD0P3E+/KghH
+Le7l4PIbYdhN0xCAObN5xv6Hd95e/k3i5+zG2kmjw8VZAHvQ8eixXynbI6Ch0MOV
+6TXmQs1gWz+lqtKVk6SSdOwjQFynbbDGAJdAIkys9CxZxwOGSoJyq6rcnQMn5+t8
+awDppaPW9PyQKN759eqifr7kB/XR0Q==
+=xnLj
+-----END PGP SIGNATURE-----
+
+--nfxdkmmv4cdosfpl--
 
