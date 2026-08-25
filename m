@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 373D5C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 18:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C1F9C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 25 Aug 2026 18:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mrSQugjWwNbSyFKJC0aQ+HhLTDBrn6ENKLGPbrFSXE0=; b=Y4gczk9Dep3T3VXFIVPKVaRdIp
-	vwRiDffv6xy965bo/T8zZzXVA55JPtFuOXbCnR2PsdF5mrQOJ/72IWeqcns6LyGTjfs3VqsD6qaCx
-	nTLUugLOoA9i27gFOJNujcBKQcdbybv20gdS2W7rJ655lMvve/T9xRK9qPpD8aNYmphg0g/S+FphN
-	FNmuWe0EfczPYM8kQy9eOx8Ei7J5MPsuXrgr3YMweeBi1BBSyDeY4zq74XXuwletGHNrZ5BS8+Yda
-	/zdg+Nnl2Cqd/OcSCmq6jcecMM0Mack4DWCua+tFOf97G1d2jmHHRQZ3sgW3+0me+WfNO32csunXE
-	YiW8P8CA==;
+	bh=cLhl7vMzATDfLTJ4Lrym/q2o4NDrnz3WBA6CQS/z/Wg=; b=UBstaTrAf2pumBEG/YdP9a82A9
+	GKJ+7UfqtfZWZ6oINhjHvneQhM32lrF3CeU7WCuLJuz3L12rFNyZiTyp0CCpTitf52LYwz71SHOJW
+	VNjEr30wV0QCIq0tDgcqk9Eg8QdyOYo9dlFH2HyKnYsRvyBGh9jXXVMcPkHCs1wH4wugi41lpCHMi
+	dwjD8ylNv8XmFPsOqnc5OihdSBuz7encBq77l08bzOQGHKJziKTjfqFHzlnO+/MoI4aBiG6wCBL3z
+	SLr/W3pzT74VKyg3UwQ/gFdb21D9HOpN1T8mJwcKXN5Vqglj73H7dhfl2cu8up5Tyf6rMkm1eCeo0
+	sMNlaMcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyvp2-00000001Ixe-0paT;
-	Tue, 25 Aug 2026 18:24:32 +0000
-Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
+	id 1wyvrl-00000001JKX-2zkH;
+	Tue, 25 Aug 2026 18:27:21 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wyvp0-00000001Iwj-3Fpn
+	id 1wyvrj-00000001JJU-1TTi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 25 Aug 2026 18:24:31 +0000
-Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7f3ece23165so119805a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 11:24:29 -0700 (PDT)
+	Tue, 25 Aug 2026 18:27:21 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-39c74722e27so2131101fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 11:27:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787682268; x=1788287068; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1787682437; x=1788287237; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=mrSQugjWwNbSyFKJC0aQ+HhLTDBrn6ENKLGPbrFSXE0=;
-        b=nct/w5c4X6qa8Wi7v4HaYjaI6Vp0QfstUgIYq0D9Qb2LShUMD6qkF9+t+bdKfDa3bJ
-         PE1u5jLXkbymFcHhi5NbC0eebxilklOOQwupiFTeisvcOokiotl/dV5l7P0S89t4EqWM
-         nAxnBjZVrHsLKNQHJTZ6MIm/XtJgrvWZwklTF3pbURbuZPpBixw4NDSE+nypJNawkujQ
-         LXTR55NcMNOCjqWtA62ZHAv7QHXMgNHptDK3JnQJT68khT4gShUOhfZmI7ORbXeoe6kW
-         LrbNWDfbair/dttuUtN4L62dQp/MynaiAAY7nfElpQeFQKOH4qgEFzfBsbtU/yN9tbiY
-         Kj0A==
+        bh=cLhl7vMzATDfLTJ4Lrym/q2o4NDrnz3WBA6CQS/z/Wg=;
+        b=r0udJLFJk+dzHaVUiWVMSL5c6fqcNO+rFiFe+5x+s1TGUB1+b4ZPzCQHF8wdg0IJh1
+         3mLzYQeeRkikEzRXM0K+Lepqj8dlotRIk2UEh+2vpiPjn1GhmUfWdN44HX+usoPKqABS
+         Bb7xnGl+b0JUdmoxeZBrekcmM/9veEo90jbHYBF4A4AfPzvnFM0KmSGkyCfV2QuBAekz
+         Yq1bnDuyrjcu+zaz2fljPLXCA2d9JcMy8maJioUajse42RgGaGbTGW1XW08vQtArYu4w
+         UCAOYfdqWnoBLFwnSylow3pS3aaPrjr0XU6h+PdmTq/JLnR10J1WmSh5McGNK0ed9JHG
+         X9wA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787682268; x=1788287068;
+        d=1e100.net; s=20251104; t=1787682437; x=1788287237;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=mrSQugjWwNbSyFKJC0aQ+HhLTDBrn6ENKLGPbrFSXE0=;
-        b=nDfMc6pZp7SWtnjF3bVJBuTPiSdNJySR4FOfDeQQWb4BzUaQxSZLOzQINMCX4gtFxW
-         ryid4HmKm2wQQKsrT/khe27uhkpog0aKJfhbf94P3E8wI6nHkgUYNH9cZMzjcXlMaK4D
-         FcNqx+OiCkiD1S24iRmQVI8gXEw83EfK2Z5U3lsc8w3zW1LnfAaC0T0hGdwDKcPdSUjc
-         4U5SBjwKfQnAa40xiVBAuGMIh+RKznUcpVM7p9JujmUvigALjhrbbmNg87GkBcFDA8/u
-         Nhly83h8UGJpm5edyA2lJEJ0q4uixjsqdpVlU59oWT1bjCCYg7AQ0Z5jCIAYx3Ttmg8o
-         wPQA==
-X-Forwarded-Encrypted: i=1; AHgh+RrPWb7CVdFw4B6MFEpErtT1bwcalnFqL8lMGNl1dNsWvr+b518awv1qd13g6eMQuY41pcX6ZVYjHGQTd8ciUXS4@lists.infradead.org
-X-Gm-Message-State: AFuF++lZJSDFDpHiL1IudIKITybkai0p7/lOG1o2yP0IyV0SBNKqqWMG
-	bNZibz8fMr8JS2bQCB7PSHZUPhudmbqcGVeIFf05XDvrPGG4+RxE812TVAykPtMKRw==
-X-Gm-Gg: AR+sD10yI5XlRRFYd1k+IC8//B32ohffpniYAUh3D2gboE5MZW0NYQxsDXEZY2Ps8xT
-	GxkMuKmucX/dOWelSNpXxTNB0SVkKccrsVLxJpw/x8ibi+/m7hEDXm+E3yfEWVCCjskKBxXQbF1
-	0q6H3OdJ2RVIzYq5ryKR0YN5LDZzzb8UgpUI/J3tSxBXdx0uAQPq34FIymiZaPtWByIe8YYwHc+
-	k7BLq4uSHTjYHQHUzZrepi+plsgk0htI65OG75aFzeJ45+lhgfRuEnhbfNcuTi9WhtdTqDXuonA
-	w+o5fwh2LLZV1VCXuSl/+u88RfT1K7CkGwIVHnaYawmn/XB09gNv73ldk0UzF/r2x+89RjzW5P6
-	W9qOdwt7hw2lt45M9R6IWQAudf/XBT9WAs4dAsJIqzEANeBBsSoIbD9/LCIZ6cTM+47GqFislrL
-	sb8KJJc0aVoLwdX5EjICzCduEz61vFIag6R4Dhz8pYlUhcYcpGo8Pwy8D4Jge00zEOR2gH6PZBw
-	b/InWnzzK4qm5qjIiRmJGaO/lCN
-X-Received: by 2002:a05:6820:55ca:10b0:6ac:a539:bc41 with SMTP id 006d021491bc7-6b1a03e5c38mr696085eaf.12.1787682267892;
-        Tue, 25 Aug 2026 11:24:27 -0700 (PDT)
-Received: from google.com (203.215.188.35.bc.googleusercontent.com. [35.188.215.203])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6b1a02566desm215005eaf.11.2026.08.25.11.24.27
+        bh=cLhl7vMzATDfLTJ4Lrym/q2o4NDrnz3WBA6CQS/z/Wg=;
+        b=Y6iBjGhyhcnyT+P30McYBgNFRS5mE0y6Km9RZ0f5ARGh0k3Zjiw/QwRQaOvRq2Pgmo
+         h9JTMocsuwM9pf+8ABY4I8Ssg5zhogJpKcbq7kXgygZwKcgQ8ovTPrqyaoocPk3/imEE
+         1W2qBw/IXXAq//rtTik2fs1sVmjzwWyKLhYcxVcX8c7nYJwlJwEzxEdPSJNt/lLnjiJg
+         N/DJGEvejgXv3HKqU9fXzY/Mm4EqKDCImxr1xus+MbpCqNCOESp+ZSKCoAyRtY1p1Fh7
+         567l3NGkrfivxNe4us7NKVS2uUoiAxlT2Rrwyu+zQgrqW7BYkTLOeNHN6MB51hlyTz1I
+         21qA==
+X-Forwarded-Encrypted: i=1; AHgh+RqaNUpDXPczZ/issgIv5cN7adGebM4Bgt55oiWEuE/0HgXlDyT2gBq93uBQKm4tjDH1Oj86Xp7700mOD2IQWmJ+@lists.infradead.org
+X-Gm-Message-State: AFuF++n3hmyvfYmuz8mlqRfKmbfPdLHLhRiQDY6yz2giDZ+rtBcmnNlE
+	pE9vFU3O8YuTPPorm3vyKBsJw1rsB9Xm1VUZTM9XIcRdQg716Ziwl8hs
+X-Gm-Gg: AR+sD12e5cu3BPbz5X+19eJpnEqiBcpPPbakfHCDTkUCejqXI9ed/hC4uKlwjp5vYXk
+	c+6Y1Cc4qQMvzBCJxVTV4uawuDMDwQj+D2acrhJ5wTIpwSw0+oCul0SALK9wGpvmWSeWsr6ausD
+	P15qb1GJe94QDNCDZ8zZiylrvr4HyzTazpBxObbSrbBd3rDzZkdtBSfxkRCiuFL1Q8+PRdKcdBv
+	9BKnCxzbfHsxP3yWVcmbWNp3ivAqPpsst0urVRRFGp/2l0+RAquBHGz9TiSy6G/Q7HO46VbCXiV
+	/jaq9agLTTDU12sgbkymgv9oN8QBI/MD6Y+3dW4tp9OfdYwQBSxsSS8soIrrfYfW6Euh+2v39Z6
+	C3x40IYlfd1Td5FXfdmg8Bz0xcrHw+3bmhpaPKCUsQLcV+z9asoep4Nlt4OVMKwRGfm9wVIjLOq
+	GtAh3Y0dLLJpXJkr1fZMMlGonEoid3J1hAV7ue4v1ZMh5UdIMOJgFC0JQ0pxNjSWuI6c5mqbS8E
+	0c=
+X-Received: by 2002:a05:651c:54a:b0:3a1:4530:fb2 with SMTP id 38308e7fff4ca-3a1edab181bmr15138391fa.5.1787682436763;
+        Tue, 25 Aug 2026 11:27:16 -0700 (PDT)
+Received: from localhost (soda.int.kasm.eu. [2001:678:a5c:1202:7b92:9ac1:b9ef:5287])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a1fd13a484sm393461fa.38.2026.08.25.11.27.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 11:24:27 -0700 (PDT)
-Date: Tue, 25 Aug 2026 18:24:25 +0000
-From: Neill Kapron <nkapron@google.com>
-To: RD Babiera <rdbabiera@google.com>
-Cc: vkoul@kernel.org, peter.griffin@linaro.org, andre.draszik@linaro.org,
-	tudor.ambarus@linaro.org, p.zabel@pengutronix.de,
-	neil.armstrong@linaro.org, badhri@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6] phy: Add USB3 PHY support to Google Tensor SoC USB
- PHY driver
-Message-ID: <ao3d2TlIRqxbz4WP@google.com>
-References: <20260710172946.15633-2-rdbabiera@google.com>
+        Tue, 25 Aug 2026 11:27:16 -0700 (PDT)
+Date: Tue, 25 Aug 2026 20:27:15 +0200
+From: Klara Modin <klarasmodin@gmail.com>
+To: Devin Wittmayer <lucid_duck@justthetip.ca>
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+	Charlie-cy Wu <Charlie-cy.Wu@mediatek.com>, JB Tsai <jb.tsai@mediatek.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Ryder Lee <ryder.lee@mediatek.com>, 
+	Shayne Chen <shayne.chen@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-wireless@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, regressions@lists.linux.dev
+Subject: Re: [PATCH wireless] wifi: mt76: mt792x: fix NULL dereference in
+ ACPI SAR init during probe
+Message-ID: <ao3dyqWJ3nf3rMMW@soda.int.kasm.eu>
+References: <20260825181712.28548-1-lucid_duck@justthetip.ca>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260710172946.15633-2-rdbabiera@google.com>
+In-Reply-To: <20260825181712.28548-1-lucid_duck@justthetip.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_112430_814807_948D6341 
-X-CRM114-Status: GOOD (  20.39  )
+X-CRM114-CacheID: sfid-20260825_112719_413543_BE622224 
+X-CRM114-Status: GOOD (  29.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,107 +106,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi RD, some minor comments below.
+On 2026-08-25 11:17:12 -0700, Devin Wittmayer wrote:
+> Some laptops carry a MediaTek power table in their firmware, and the
+> driver reads it to set a transmit limit for each frequency range. It
+> only fills in the ranges themselves when it registers the device.
+> 
+> The startup step that does this existed already, but it never programmed
+> anything. These two commits made it run a regulatory update instead,
+> which sets the limits on the way through, long before registration. So on
+> a machine that has the table the driver reads through an empty pointer
+> and the interface never appears:
+> 
+>   BUG: kernel NULL pointer dereference, address: 0000000000000004
+>   RIP: 0010:mt792x_init_acpi_sar_power
+>   Call Trace:
+>    mt7921_set_tx_sar_pwr
+>    mt7921_mcu_regd_update
+>    mt7921_regd_update
+>    mt7921_run_firmware
+>    mt7921e_mcu_init
+>    mt7921_init_work
+> 
+> Skip it when the ranges are missing. They are applied again once the
+> device is up, which is where they came from before.
+> 
+> Reported-by: Klara Modin <klarasmodin@gmail.com>
+> Closes: https://lore.kernel.org/linux-wireless/aoyxqHYvSuaBeubf@soda.int.kasm.eu/
+> Fixes: 9b80bd9cab40 ("wifi: mt76: mt7921: add regulatory wiphy self manager support")
+> Fixes: e9f3f1cc133f ("wifi: mt76: mt7925: add regulatory wiphy self manager support")
+> Signed-off-by: Devin Wittmayer <lucid_duck@justthetip.ca>
+> ---
+> 
+> Reproduced on both chips before sending, an MT7922 and an MT7925, and the
+> fix clears both. Neither machine here ships a vendor power table, so I
+> supplied one through an ACPI override in the initrd. It also wants recent
+> firmware. The June builds do not turn on self-managed regulatory and
+> nothing happens; the builds now in linux-firmware do, and then it dies
+> exactly as reported with no interface at all. Patched, both come up and
+> scan normally, and the injected limits still show through in the power
+> table afterwards, so the skip does not lose them.
+> 
+> With that table still in place and the fix absent, backing out the mt7921
+> commit on its own also boots clean, so the table is not what causes this.
+> 
 
-On Fri, Jul 10, 2026 at 05:29:47PM +0000, RD Babiera wrote:
-> +#define GPHY_TCA_DELAY_US 10
-> +#define GPHY_TCA_TIMEOUT_US 2500000
+Thanks for the quick fix!
 
-Do we really need a 2.5s timeout?
+Regards,
+Tested-by: Klara Modin <klarasmodin@gmail.com>
 
-...
-> +
-> +static int wait_tca_xa_ack(struct google_usb_phy *gphy)
-> +{
-> +	int ret;
-> +	u32 reg;
-> +
-> +	ret = readl_poll_timeout(gphy->usb3_tca_base + TCA_INTR_STS_OFFSET,
-> +				 reg, !!(reg & TCA_INTR_STS_XA_ACT_EVT),
-> +				 GPHY_TCA_DELAY_US, GPHY_TCA_TIMEOUT_US);
-> +	if (ret)
-> +		dev_err(gphy->dev, "tca xa_ack timeout, ret=%d", ret);
-
-The dev_* calls throughout this patch should have trailing newline
-characters.
-
-> +
-> +	return ret;
-> +}
-
-...
->  static int google_usb_set_orientation(struct typec_switch_dev *sw,
->  				      enum typec_orientation orientation)
->  {
->  	struct google_usb_phy *gphy = typec_switch_get_drvdata(sw);
-> +	int ret = 0;
+>  drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c b/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c
+> index 946dd7956e4a..b468051fbe68 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mt792x_acpi_sar.c
+> @@ -323,7 +323,8 @@ int mt792x_init_acpi_sar_power(struct mt792x_phy *phy, bool set_default)
+>  	const struct cfg80211_sar_capa *capa = phy->mt76->hw->wiphy->sar_capa;
+>  	int i;
 >  
->  	dev_dbg(gphy->dev, "set orientation %d\n", orientation);
+> -	if (!phy->acpisar || !((struct mt792x_acpi_sar *)phy->acpisar)->dyn)
+> +	if (!capa || !phy->acpisar ||
+> +	    !((struct mt792x_acpi_sar *)phy->acpisar)->dyn)
+>  		return 0;
 >  
-> -	gphy->orientation = orientation;
-> +	guard(mutex)(&gphy->phy_mutex);
->  
-> -	if (pm_runtime_suspended(gphy->dev))
-> -		return 0;
-> +	gphy->orientation = orientation;
->  
-> -	guard(mutex)(&gphy->phy_mutex);
-> +	if (IS_ENABLED(CONFIG_PM)) {
-> +		if (pm_runtime_get_if_active(gphy->dev) <= 0)
-> +			return 0;
-> +	}
->  
->  	set_vbus_valid(gphy);
->  
-> -	return 0;
-> +	if (gphy->phy_state == COMBO_PHY_TCA_READY && orientation != TYPEC_ORIENTATION_NONE)
-> +		ret = program_tca_locked(gphy);
-> +
-> +	pm_runtime_put_autosuspend(gphy->dev);
-
-Here you are using the _autosuspend variant, but autosuspend is never
-configured in probe(). Should this be changed to the plain
-pm_runtime_put(), or actually enable autosuspend in the probe function?
-
-> +
-> +	return ret;
->  }
-
-...
-> +
-> +static int google_usb3_phy_power_on(struct phy *_phy)
-> +{
-> +	struct google_usb_phy_instance *inst = phy_get_drvdata(_phy);
-> +	struct google_usb_phy *gphy = inst->parent;
-> +	int ret;
-> +
-> +	dev_dbg(gphy->dev, "power on usb3 phy\n");
-> +
-> +	guard(mutex)(&gphy->phy_mutex);
-> +
-> +	if (gphy->phy_state != COMBO_PHY_TCA_READY) {
-
-I think prior to this we should add a check if phy_state is
-COMBO_PHY_IDLE, return an error and change this check to phy_state ==
-COMBO_PHY_INIT_DONE to make sure we are explicit in our state handling
-to prevent issues with any potential refactoring.
-
-> +		/* Wait for PoR -> NC transitions*/
-> +		ret = wait_tca_xa_ack(gphy);
-> +		if (ret) {
-> +			dev_err(gphy->dev, "PoR->NC transition timeout");
-> +			return ret;
-> +		}
-> +		gphy->phy_state = COMBO_PHY_TCA_READY;
-> +	}
-> +
-> +	if (gphy->orientation != TYPEC_ORIENTATION_NONE)
-> +		return program_tca_locked(gphy);
-> +
-> +	return 0;
-> +}
-...
-
-Thanks,
-Neill 
+>  	/* When ACPI SAR enabled in HW, we should apply rules for .frp
+> -- 
+> 2.55.0
+> 
 
