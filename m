@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F5FC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 23:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A945C61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 23:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=94pyTmilRwp00Qy5PlO0fIgUZFKJ9TnrjxcqGpSFO84=; b=Pk+BZ2L4i58ovL0FC09oMFpeMw
-	GhKOxDbQXKrXY/kvRbIHtO12hH8W2OtlU9VPYBR5stq3vYPYuwl5eQSu3eAKCnRJM1Wvzdai5dm2+
-	xA7KcafUIvRfKrPGwsnPO8bC+aN5yJvP9tkt6IAuypBLnzANXkEofzilvjTg8csshfdnqKX5kLA8s
-	fCtcjFALPIklQMsvNpffvHStFTqQr00yHPSN7gt9Byxvn48FsbuZfc1XyvFl5sxIM/svNRnD8hVik
-	Gmw1WKoy6Ds5NK9fRzcIgqtdxHvcsBUpiaPcsfKPQzVFI56CPjl/PfXdLhdPJ+blShvP+lmoZ63TP
-	1mjHgcbg==;
+	bh=Q4+F4DrSTt+i0FxJ84+DMWU3o/oO2URpTpZf4B4dXhQ=; b=s1jdxaq6rOhsILjMbJIUO8LD2A
+	dOYu8d90p8SE/wqBger4QPOCv0CfM8Hoss+b6FXeSCjtRmSSwkAdHa+lTQM5AtsrfyboCJFvqWAvJ
+	bZm2UMattiaEJBP7z/YtsLX05NmMBqPp197SMG2bJtUgy3m5R0A4BjaRqvpAp/oqX3bcW2kiH9uCQ
+	P+3mtwo5z+RfjLjQenVm7I39yawFTGt1HocHcCJatAjVbNk1clAubkp95juVTwHt4SH5pK5tUIvRZ
+	15DkCm17NFBsCptPlg4SUgzucLln6jI/fkcQVODNh/fL4+tcq67CWz3zOWOP84289VjBQ+Gx8Ng83
+	mJTy4RZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMgP-000000036Bd-2EjO;
+	id 1wzMgP-000000036B2-123W;
 	Wed, 26 Aug 2026 23:05:25 +0000
-Received: from mail-pg1-x545.google.com ([2607:f8b0:4864:20::545])
+Received: from mail-pf1-x445.google.com ([2607:f8b0:4864:20::445])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMgI-0000000363Y-0C4t
+	id 1wzMgH-0000000362s-0VAU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 23:05:19 +0000
-Received: by mail-pg1-x545.google.com with SMTP id 41be03b00d2f7-cbbb9c9bfc3so1290046a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:05:17 -0700 (PDT)
+	Wed, 26 Aug 2026 23:05:18 +0000
+Received: by mail-pf1-x445.google.com with SMTP id d2e1a72fcca58-848568a6f62so86068b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:05:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787785517; x=1788390317; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787785515; x=1788390315; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=94pyTmilRwp00Qy5PlO0fIgUZFKJ9TnrjxcqGpSFO84=;
-        b=alAJ9nRwWEdpW541qsChVbRu6rFVUYBWUFPQIgEJbbwe1J8YW7XKx+iYzugc7AkOJM
-         gyou3q28uAneU3Bejf1/WH4UbMXhMF63YfidYmLlWclCC99Mngnj/uJKRNu95r0OL0Ho
-         5GjB8F6yrvAsQrYGioPD4RVAl91qMN16s6tweIalcB/IS18gMgMwNX7sf1UlSfd03HSC
-         EUkWMxw3/kH1t7FZRInSowR6pYZh/UU5FzczuDZQqpOptqATfZlJsg27M2ifc8xjbmq6
-         +VsU9HtMegEZTdiUz9RWbu6dejU/XdRGmlft9szY6AstYGu3bn9p/0oIQcbc+9fIlx3s
-         ImTg==
+        bh=Q4+F4DrSTt+i0FxJ84+DMWU3o/oO2URpTpZf4B4dXhQ=;
+        b=Fh55Iy5KsJnwxeZg6UtIB4BDKmrLyvQ8PiunPV6ScI/a9bPMLI/SzPdBbJMxBnct2p
+         Di+IjPRUIH7ZZsGtcdOLLoaQFzdYoqErKgvPD7aDsnQR0HtJIK5KcV/edGRGruwEXF5O
+         kwAczJf1IGvGz+lyeRtpwdE+3xyzlEwwqh1z38pkxjwC6gkJjerKBSU/FSx0OYGgHgk0
+         QcaTK9a4S+IEEeS6YUXype2e8qJuoUIPrEQHiuCG+iuz6WJvr/Peu353CfDr/PBcbqVf
+         /9MMZln8k0VMd7/EeWE1Jez1XaQLAoH5azoEnT+5x1hnZq4P7TFMv0KstcLEfeTKG5+O
+         +O4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787785517; x=1788390317;
+        d=1e100.net; s=20251104; t=1787785515; x=1788390315;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=94pyTmilRwp00Qy5PlO0fIgUZFKJ9TnrjxcqGpSFO84=;
-        b=CzyYfqux4IUT7hrAfeKDl1L/xKA5yRlL4b6G3Bt+cFTGxk8D0rR6ElZCZ4UWH46R4K
-         6p1sPEwXN9HhXWC0WZIdUija4ECTasrtVlbVF4bTN7yJkYERYebOi/CO5LA5kEEDwv8n
-         V/3ScprpqpNACKzzlOPM5ddSFvYnKC8Qaw2YoQZyb0zwAgmA9FCaxIAjbr0PAAvXpUdd
-         p1xrA33OZajnIUtfvW7bJD2s5uzlpygcUWuSs+LVl9IOZV0aysdlbkV43laWed/5xS+R
-         tWr1VV2tHe6BjTDuegIH7sUz1jKnthCM/05J2NkNyzfQ6zSE4OVbHeYPVRpEtitNFob2
-         3hvg==
-X-Forwarded-Encrypted: i=1; AHgh+Rrz4dobUMT/EXIiutviJD7aUzIrCAenBssbnUMCTrUGX4bZQh4gYNdsOH2Yx2Gsl4FEZaFXMhbPjBvMJK4gEDPO@lists.infradead.org
-X-Gm-Message-State: AFuF++kT5b95EOlubua9YJjR9RZl6R7JGG7meOF/gP4/OGat4fP90uEZ
-	8ehR+cxwLx2042QJ4cZC7IP+3u69J2Mfk7iC4TmHWlYVXDi+ticQeaCEeKtkvfFSiDiD6SlhmfE
-	XvJHCgQ==
-X-Received: from pgct13.prod.google.com ([2002:a05:6a02:528d:b0:c99:5634:7551])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:7008:b0:3bf:7bf7:7913
- with SMTP id adf61e73a8af0-3cf8445170emr21857267637.14.1787785516420; Wed, 26
- Aug 2026 16:05:16 -0700 (PDT)
-Date: Wed, 26 Aug 2026 16:04:53 -0700
+        bh=Q4+F4DrSTt+i0FxJ84+DMWU3o/oO2URpTpZf4B4dXhQ=;
+        b=ezctPTP+XLq8Sye7u9TTnHsPgi15Qhy9CMtLWO7WKGfiWTTI8N1m36ISrfsFCxrEGP
+         gFzk6QyNF26j1iopAmeuiBQVM3YlLPeG9zN5xDE14JzzON4lwoubfROgTFneytHAM1pb
+         ivmQNNBAYmaYX29KT6R07yFcmiKLlEOIWE8Vylj39Z0K3d4dAJq4oaX0/AmVPUXk1eNm
+         bE4mMjZXZsjFP6Z+Q9afyklaaF8wMsPoqDDyhYdUeCtc5phOptcTOusFxhp65z6wdT6R
+         GIQVb8kzdN2JLdk14f+Dru6+shoqAa0vrX2pybxFh1Vu0hKQxHIMlJP1+6eXcbUyr7SS
+         Aeag==
+X-Forwarded-Encrypted: i=1; AHgh+RpELIXC5aOnD9ZSANt9x4V08JMFGvSEO8PPXfS0vKy3AqI/a0T2o7rJQVxtHSMGMVJQvhzm3/6qFtIXWUejtHoj@lists.infradead.org
+X-Gm-Message-State: AFuF++ks+HbOEdafgmHzdvVFwX8zgUjI6Bwn3tPbSIqpaQtTthhEdFBf
+	Aogj1eWmBuABDDnLMarlCSRyU99FwnqOSGczSfF7d97jYUrGoy5i+1YR1ybAuUSMEJW7JXLBJNp
+	xZftUqw==
+X-Received: from pfpk15.prod.google.com ([2002:aa7:9d0f:0:b0:848:2e0e:62e])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:c96:b0:845:ce5f:c926
+ with SMTP id d2e1a72fcca58-85372ea6666mr19057054b3a.1.1787785515178; Wed, 26
+ Aug 2026 16:05:15 -0700 (PDT)
+Date: Wed, 26 Aug 2026 16:04:52 -0700
 In-Reply-To: <20260826230511.972824-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260826230511.972824-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.887.g758fc8c411-goog
-Message-ID: <20260826230511.972824-3-seanjc@google.com>
-Subject: [PATCH 02/20] KVM: selftests: Bump the minimum GPA for page tables to 0x200000
+Message-ID: <20260826230511.972824-2-seanjc@google.com>
+Subject: [PATCH 01/20] KVM: selftests: Use MEM_REGION_PT memslot instead of
+ '0' for s390 regions/segments
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
@@ -86,8 +87,8 @@ Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
 	Ritesh Harjani <ritesh.list@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_160518_131578_3928DC36 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20260826_160517_183687_6AFAC16A 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,28 +104,35 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bump selftests completely arbitrary minimum GPA for page tables from
-0x180000 to 0x200000 (LoongArch's minimum), so that LoongArch can use
-vm_alloc_page_table() instead of open coding a rough equivalent.
+Use MEM_REGION_PT to indirectly specify memslot '0' instead of hardcoding
+the memslot in s390's virtual memory allocator, as a first step towards
+taking the allocation type instead of the exact, raw memslot in the
+physical memory allocator.
+
+Note, the only tests that set MEM_REGION_PT to a memslot other than '0' are
+arm64-only, i.e. s390 always uses memslot '0' for page tables.
+
+No functional change intended.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/include/kvm_util.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/testing/selftests/kvm/lib/s390/processor.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 5a7a455b5387..70906a0d1003 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -175,7 +175,7 @@ static inline struct userspace_mem_region *vm_get_mem_region(struct kvm_vm *vm,
+diff --git a/tools/testing/selftests/kvm/lib/s390/processor.c b/tools/testing/selftests/kvm/lib/s390/processor.c
+index a9adb3782b35..fb9dab92d4d1 100644
+--- a/tools/testing/selftests/kvm/lib/s390/processor.c
++++ b/tools/testing/selftests/kvm/lib/s390/processor.c
+@@ -39,7 +39,8 @@ static u64 virt_alloc_region(struct kvm_vm *vm, int ri)
+ 	u64 taddr;
  
- /* Minimum allocated guest virtual and physical addresses */
- #define KVM_UTIL_MIN_VADDR		0x2000
--#define KVM_GUEST_PAGE_TABLE_MIN_PADDR	0x180000
-+#define KVM_GUEST_PAGE_TABLE_MIN_PADDR	0x200000
+ 	taddr = vm_phy_pages_alloc(vm,  ri < 4 ? PAGES_PER_REGION : 1,
+-				   KVM_GUEST_PAGE_TABLE_MIN_PADDR, 0);
++				   KVM_GUEST_PAGE_TABLE_MIN_PADDR,
++				   vm->memslots[MEM_REGION_PT]);
+ 	memset(addr_gpa2hva(vm, taddr), 0xff, PAGES_PER_REGION * vm->page_size);
  
- #define DEFAULT_GUEST_STACK_VADDR_MIN	0xab6000
- #define DEFAULT_STACK_PGS		5
+ 	return (taddr & REGION_ENTRY_ORIGIN)
 -- 
 2.55.0.887.g758fc8c411-goog
 
