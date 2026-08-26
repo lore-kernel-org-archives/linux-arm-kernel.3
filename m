@@ -4,107 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51708C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 10:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9525EC61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 10:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0FdTBoUxI+BWMXiLA1L4sWVP6s5St11nHlTDeu43bbQ=; b=IphwMsSxpT1jCj+OJB4gEmyF7l
-	Hmp6P6tHhrvZAp93h7M1LlIUjJtSuflOkLb5UeCr+i2mK+6NH4DEmn6MQtF4xyLxFNsQbM2Rb3fwN
-	NYpAry2HHyfO93ytp1qCsCdqJekFOWLibX8tFceBg5ZX6nukScECYFBsP/4oscSYfhy4osZ/XHw5a
-	rcQOwEfxYuNSXZJcKv2hc1NlQc9hhW3Fr/hzFbc3juErpglnGILyX78n7+G/h4WE7fDhxFIIWwmGT
-	8psR3JwiYhk5Y9xQwQuHz0PVBcPwrVa3iL3IWdCDwBsNBKH9nD24X7qn5K4bYTOSKIdPmn8G+iCrG
-	CXEh8XpQ==;
+	bh=HJO/trXKlZ/xBjAP/7wuREYwh1l8M0R1QYvRGNz9d3Q=; b=vHI8OO6h7jcOrGIFh9r67rOtJN
+	AsjI5kKZSb5qRH7IF+TZ+ZnCWUJtw6tqZ1ce7eAdza12Vh+4zsFG6vBvTv4mTsWcWNE2E46S8e6oy
+	c6A4rcN8L3MPjTrXtb+y7ZTNgeY+NtF/FCf15SDuMi2Gd4bVoDMU2T8dEOjJ7GQQIms7ls5buMZOc
+	pbCSfMkDjsk0AO2ftQIlsdfPKaZr1YAfjspgcV7ydc4D8yWGQVGbcqPsHy2AesZUJ4sRwGhkxvWUO
+	7MlMbotkc/XGF6Utiu/iQRwsQJXXM0VUbIae0gV/LRm9SMqWZynb09Qv7QsMiSGwM30VIQSLJTl91
+	H0sWYx6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzAeD-00000002GgX-3B8p;
-	Wed, 26 Aug 2026 10:14:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wzAor-00000002HdT-21pB;
+	Wed, 26 Aug 2026 10:25:21 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzAeB-00000002Gg1-2eLJ
+	id 1wzAoo-00000002Hcl-30Cp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 10:14:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 30E1C6020E;
-	Wed, 26 Aug 2026 10:14:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA53E1F000E9;
-	Wed, 26 Aug 2026 10:14:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787739257;
-	bh=0FdTBoUxI+BWMXiLA1L4sWVP6s5St11nHlTDeu43bbQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=NML33Nox2QzM67ywZhdxswneb0ixKpKWN5Xlgahb5fr/YFMAXZE4R34ODVOw3D0aL
-	 hPoMmBPCalsHEmjg3IxhtRHlot55fRvMYVeSRS8DnBrpj1z7YbRfVDJR0XW16QGUbD
-	 iDFjdyv3C6bJi3xdWPAjZ0nhBi+1Ob30jYLfeNGvgUCXiV1BmIW9UGJAiTr0xyKzmn
-	 X8Gd62O6mMpYRFBv2V3BSoBSEnm59NFeTtnxOAo3U1l4Ffxga1HTsUR0Jh3eL31LxN
-	 3qQWKrmg2Q7sHA/EsMPmarAwzUKe8InMVkLlgbY3YF79PpaCpWPb9/ovaqRtY/APbQ
-	 gi1UcXjU7A8Uw==
-Message-ID: <94a31b58-a342-4a12-81f7-fabc570b6f51@kernel.org>
-Date: Wed, 26 Aug 2026 12:14:11 +0200
+	Wed, 26 Aug 2026 10:25:20 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67QAGfNI121450
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 10:25:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	HJO/trXKlZ/xBjAP/7wuREYwh1l8M0R1QYvRGNz9d3Q=; b=VB63ATLQh1rIxSTK
+	34aWxsiZ6QQyZOXcCfvXu+ptD9QteLtPIarINOeBNbLNhF8cCKu6KviKlqJoy87z
+	+yLzBqOKXLVdXbMlCUeS7xk0tjcB5brZTna7RM1bOXBpHiaM+8atqQTrksJtrJLZ
+	6uMzb3t+Ym1kqQyFM9GkOZEq8VZdbc6nvnAmWZJ7Gvl7AZzeHa6Upp3bHokU4nUy
+	smit6pykgqIh5gKKpyObaJAVRy78b6Wl/jpLNVsnh9pvASSsi/BKAYPtWltu1jca
+	P6uWaZQGV3dp2M+3zNdUOneiu2UAdu9T4FaPssbiQdYiPe7ChK7xoxbZ9uuYtvmN
+	pMAU9A==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g9smx9aag-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 10:25:17 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-52ea38b1e7eso414111cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 03:25:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1787739917; x=1788344717; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HJO/trXKlZ/xBjAP/7wuREYwh1l8M0R1QYvRGNz9d3Q=;
+        b=TYyGEa76WFqjf+SX9F6vdaQS6pSTKL7RKs4Nz6hJEuwOJTiHZnhaRBI0flDp7IuBdB
+         YqLVdaEOaUSXItanZKVXYfMLvAZd1fHgCsGCHKi5HvBoDln9kfv2aNBp9hQSOhFBXDL9
+         xRguKomezaPsGdyMgce38CKk1DwLH0WLx7mMygpFdQZttrvpMy4FK8gLYD/tHpcM7VxN
+         ejt0H1YfaJpsuo0Z+3T0wQQrk+FUV3LJpEY907HwqRYkKiGpEsELgR4G6jpRPdAZNXed
+         btIPrmNHxaMdXqB3aYhBWUY7IL09RU9u+GsiGZQgjTuRJS0nAastMXVo6xuJ48xlArlR
+         yaGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787739917; x=1788344717;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HJO/trXKlZ/xBjAP/7wuREYwh1l8M0R1QYvRGNz9d3Q=;
+        b=gZr4nWFUSp14w0ZdSwi4RfpQPL0znnx0o/iH1xuVZ4j+UIRByn69b1WRnNTS1S7YN6
+         DGien7gJhi/4Ne6LZ+tPirh1oeiIzQhAKF0aMVwqRwmeVc1j2lzB0HlkSZlmRFyvt2Hu
+         JYluKt00xNo4aIV5+5W9Onh3/ecroOwSuj4DrgDON5ln89VnOCSfytTrv4aEi+DNW0eC
+         gkNrHZ+eWqtPrH+FH74zJOuYE/CJwUROg+SAc8LvNw4CP6zrf+7JhDodN2OwdSJoUVz0
+         G9jMNgclcKTng60zcoNAs2wEIYwsjZAzbwyTAQnLaH0rbmg/njCUguUHFXHcpff8wMGr
+         QKxQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoVklSS1dI/CU3y9/GfeUr32J6o3iXtHhSHtRvaIIOwMrMcpWlI20L7gQ2pi6fMYBtib1parUDdtSOvpN/HKIWJ@lists.infradead.org
+X-Gm-Message-State: AFuF++k9ujrU7z+pSbc3yDm88nAArYLD/Qd/L9gkAIxvMKZNwn9RLKX3
+	/tcS2/X/u9kq4wyUR2SHGDuSO7sDv5mBhQWWNu8gr35gaARybhUGBLutTj99HnyePGwT/EF/kJ6
+	eu0HY3Lzo6pjnk8k9iUbP57AxAMjBmKFp6hZ7KMEuXvZ05QPmNrHfh4T5Lot1tkyHMspCJwf+zx
+	N1LQ==
+X-Gm-Gg: AR+sD11nsB+Q6DiEMZZRe5utbORn2cShVre/rLQjOyrA0ggG9YO5uIg7KLaiA6t4pHM
+	c2i65V50dstt3x8Qtpbh4O1nb3fTXcW+ESezi1+w5R9hWw3NmBbNW4heRojEe26SondWhuzlJQ2
+	dA5SYozhcQAdsH37uguHL2bAjdr0ba2zuXmWWiijMnN26y67/ddqv0KgEEcKtMECjU2/7NEPPNe
+	6rbeH9FP8EUK9Q0EGBYvmf3/no0eNXP0XYjaa1CJ6rbb6YIFJOkPAaA3DnIVmcb3/5ixt90VRN4
+	9MgmoEiWRdOJ1rTTH/fcRcXA05emJCdnq7dbOsdglpMOviXDi4LfKtiY1lPWRZcZcmsce8aaQ8X
+	rS3N4Zk9Bd0n9ho4qQQ0waTYe
+X-Received: by 2002:ac8:5d14:0:b0:51c:10e9:ec47 with SMTP id d75a77b69052e-52e42446072mr39442221cf.5.1787739916929;
+        Wed, 26 Aug 2026 03:25:16 -0700 (PDT)
+X-Received: by 2002:ac8:5d14:0:b0:51c:10e9:ec47 with SMTP id d75a77b69052e-52e42446072mr39441781cf.5.1787739916424;
+        Wed, 26 Aug 2026 03:25:16 -0700 (PDT)
+Received: from [192.168.120.193] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a5de8b5e5esm3137249a12.4.2026.08.26.03.25.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Aug 2026 03:25:15 -0700 (PDT)
+Message-ID: <c61f297e-3a42-4b23-b341-0f8d97d4b78f@oss.qualcomm.com>
+Date: Wed, 26 Aug 2026 12:25:12 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: axiado: Add initial support for AX3005
- SoC and eval board
-To: Swark Yang <syang@axiado.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Prasad Bolisetty <pbolisetty@axiado.com>,
- Tzu-Hao Wei <twei@axiado.com>, Karthikeyan Mitran <kmitran@axiado.com>,
- Harshit Shah <hshah@axiado.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>
-References: <20260826-ax3005-dts-v4-v4-0-a7702a3ace0e@axiado.com>
- <20260826-ax3005-dts-v4-v4-2-a7702a3ace0e@axiado.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3 2/2] arm64: dts: qcom: qcs6490-rubikpi3: Add IMX219
+ camera overlays
+To: Hongyang Zhao <hongyang.zhao@thundersoft.com>
+Cc: Frank.Li@nxp.com, andersson@kernel.org, bryan.odonoghue@linaro.org,
+        conor+dt@kernel.org, devicetree@vger.kernel.org, festevam@gmail.com,
+        imx@lists.linux.dev, kernel@pengutronix.de, konradybcio@kernel.org,
+        krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        robh@kernel.org, rosh@debian.org, s.hauer@pengutronix.de
+References: <1ef41a49-dcf8-4252-acdd-f7f3c1210c55@oss.qualcomm.com>
+ <20260825111300.578054-1-hongyang.zhao@thundersoft.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260826-ax3005-dts-v4-v4-2-a7702a3ace0e@axiado.com>
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260825111300.578054-1-hongyang.zhao@thundersoft.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=O/oJeh9W c=1 sm=1 tr=0 ts=6a8ebf0d cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=RF00TdSWAAAA:8 a=CXY4OXtTAAAA:8 a=EUspDBNiAAAA:8 a=TEp5gEa_GWzzUIBBXKoA:9
+ a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22 a=_nx8FpPT0le-2JWwMI5O:22
+ a=-bjYFdKVujGyJWVmPOR4:22
+X-Proofpoint-GUID: CCdiLZyMcegSVixU-F-arAt1eGB33V7I
+X-Proofpoint-ORIG-GUID: CCdiLZyMcegSVixU-F-arAt1eGB33V7I
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI2MDA4NiBTYWx0ZWRfX5raGlyQzRjcB
+ 1j3dagFJQYQfQArpNrdPhXpwqlfTei4b3RWo27MGu/x6fN+aP2QhnhMygc7Hm1B2IKEMvnEFb2X
+ TIttzJMdg/5mg4Go2tqlfq5Zdn61nuBm/e5WJJjPfUo09t3zzdctinbq6LUURQaYDGXX8YWWGay
+ +iHThJQ0suFPBCb3Qs3XDP5PhPAVzMXyigFiN1HRt4hyBTvElYsEITPB4u/+EUSBSdzqFQktGYr
+ o0C++hdn7QakBlnOoV4s9U69wntOEBgow/AzVp+ukl0VaGjGai5TrFpE5e8hJOkabXUqQTWBTcF
+ T4HGqH1pJjgt+i0Gqi+6ru5c5zTiMfSGl5gAW47lfrLpfMarZpo7WpyGc7kdorn+X6LY4oWXy/X
+ ewN5g2K1BaPXiLOXM8d4Q1gfNKCYfhJajR0/BLwKrpC1voDgX+dLzs0/xq3DgbZz6LzX85uXWmY
+ V/sDTJFne3Ve2KuFS8A==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI2MDA4NiBTYWx0ZWRfX9FqfQz+z61DS
+ JxBMd9WTTEV6HqnmZl5+Tcbwh7QF2DJ7xfjG4LAOYxa9/eT7iRV3GlyQCp5Wg1g+y7e3ZOg8i8j
+ sK5UUQD+sGJHZu41W839JR7wmykAyFU=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-26_03,2026-08-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 impostorscore=0
+ lowpriorityscore=0 clxscore=1015 bulkscore=0 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608260086
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260826_032518_773976_B81F0BFC 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,31 +156,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/08/2026 12:10, Swark Yang wrote:
-> Add initial device tree support for the AX3005 SoC and its evaluation
-> board. The AX3005 is a multi-core SoC featuring 4 Cortex-A53 cores, and
-> this adds the CPUs, timer, GPIO, UART, I2C, I3C, SPI and USB
-> controllers.
+On 8/25/26 1:13 PM, Hongyang Zhao wrote:
+> Hi Konrad,
 > 
-> Note that all secondary CPUs share a single cpu-release-addr for SMP
-> bring-up per the AX3005 platform specification.
-> 
-> The AX3005 groups its low-speed controllers into four Slow Peripheral
-> (SP) blocks (SP0-SP3), each exposing its own I2C/I3C, SPI and UART
-> instances. The controllers are numbered by their per-SP hardware
-> instance ID, so the i2cN/spiN/uartN labels and their aliases are
-> intentionally non-contiguous and do not increase monotonically with
-> the register address.
-> 
-> Signed-off-by: Swark Yang <syang@axiado.com>
-> ---
->  arch/arm64/boot/dts/axiado/Makefile       |   1 +
->  arch/arm64/boot/dts/axiado/ax3005-evk.dts | 327 ++++++++++++
->  arch/arm64/boot/dts/axiado/ax3005.dtsi    | 844 ++++++++++++++++++++++++++++++
->  3 files changed, 1172 insertions(+)
+> Thanks for the review.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+[...]
 
-Best regards,
-Krzysztof
+>> No reset GPIOs?
+> 
+> Yes. The RubikPi camera connector does not route a dedicated sensor reset
+> signal. It exposes PWR_EN and CAMERA_GPIO, but neither is connected
+> directly to the IMX219 reset input when using the official Raspberry Pi
+> Camera Module 2.
+> 
+> PWR_EN is connected to the module's ENABLE signal and controls the
+> module-local power supplies. CAMERA_GPIO corresponds to a pin that is
+> not connected on Camera Module 2. The IMX219 /PWDN signal remains local
+> to the camera module and is tied to its 1.8 V rail.
+> 
+> Therefore, there is no board-controllable reset GPIO to describe for
+> this camera configuration.
+> 
+>>
+>> You should also have a reference to the mclk pin state to make sure
+>> the correct pin function kicks in
+> 
+> The Camera Module 2 provides its own 24 MHz oscillator, which is
+> connected to the IMX219 MCLK input on the module. RubikPi does not route
+> a SoC CAM_MCLK signal to this connector. The fixed-clock node represents
+> that module-local oscillator, so there is no corresponding TLMM MCLK
+> pin state.
+> 
+> The Camera Module 2 schematic shows both connections:
+> https://datasheets.raspberrypi.com/camera/camera-module-2-schematics.pdf
+> 
+> RUBIK Pi 3 schematic (CSI connector, page 13):
+> https://thundercomm.s3-accelerate.amazonaws.com/uploads/web/rubik-pi-3/RUBIKPI3-IOB-V02-RELEASE.pdf
+
+Got it, thanks for the explanation
+
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+
+Konrad
 
