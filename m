@@ -4,69 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5979C5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 20:21:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE43C61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 20:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=STDoufQSlAEXqqKmyUMyR8PGKJzJGYSHQkdVT3Me5Yo=; b=0M8/jHOw66oUFqMYhXIfpBfvti
-	etQt0cLc94ENnFEeTEfZT7Bylna3KQPhWquQ8orincEkDF011EF0mHPzbd8dNllw0WXJFWSYRhJ9j
-	F+wk2l2q3yo84ZyzcWQkEBU4YJ5BXMWBspzSE1nm5ijVIdKatnDTC1M7M4qTjKcJ9zQjnXKkEnt5h
-	2m/BnTSWCX6vxHLqgwELRq/wKHQTjD65PtJz4KxoNdxzhzR7CxHrJwMGX0c56d86vO2ZC++s24zZY
-	F8YeP7K3p341/dA3NGpvDWPgysqcAmOn5ogX/YQgplQJz44343JPI4N1gjvKGd54/znWDgGCnn10R
-	pthiIcng==;
+	bh=flnw4YFK4nn1JRtl3vh2WWZ6rVH7arDpTg03KSn5OIQ=; b=yu0Mv+qv+UUvt08HJgZ33t/ySg
+	qOG+E6Xb5zrt+kde2nYwGiFg2O7WAVZ6H4aNHoYit7lHKIM7ZzuUktg+GGZcZOkgOPhKOsfWgUYlQ
+	73CxAIE/cJfzZJ9K33XYrqk1UcZKvQEb0skaAys5QMSy4QqUpDOR0bINnEKnMBPLafSLPBy5DPLPS
+	m2fd4osbhIq2YKARbCK0z/EAmGaGCgl0tHrRnEL4Bvp0nWftYqDrKsBOfLK1PEG1uTWyKf0dufXhJ
+	VccMJFHLPbdbHl3FTpzzIpzr12b89tt9GXDTTxReP0J4UxwBHrBFU11cPksqTge0fE48rFl6KY3JR
+	RwhDWmoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzK88-00000002zMZ-0zAb;
-	Wed, 26 Aug 2026 20:21:52 +0000
-Received: from mail.cjdns.fr ([5.135.140.105])
+	id 1wzKAb-00000002zl3-3HVp;
+	Wed, 26 Aug 2026 20:24:25 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzK7w-00000002zDF-2Vit;
-	Wed, 26 Aug 2026 20:21:42 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0DC5D1E6096;
-	Wed, 26 Aug 2026 22:21:31 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1787775697; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=STDoufQSlAEXqqKmyUMyR8PGKJzJGYSHQkdVT3Me5Yo=;
-	b=Vt6nmjF4luEmeqGL6Ji0Sq6jXSNMHv8NbgsFa+a1YMuPKTXx+fZ3/EJvkO203fyt2syepZ
-	as+sDMs74X9VGG0gUPXoqddwfTnMXq3Y6iSSQrzQ5VlCWU/yjJG8+vtxmlE6gBJCsiqqGa
-	oL6fQ1eWfgphokOcDoMZCkJrRVUejV33oPVcoZ2FY5tzEhl4SQDzG2USBWPaassuHNYw3p
-	UhL+sdY61kLad5swnFTmv75DeEdSnnyt70xiNoNEqNa+KldEbtJjEiEw5e2uLI1rgP6Rqi
-	Mzq/3aAh6R5PuyUwx8ZGrENR7x1TUUiJVTDnupai6dhpj+Cf/2c3i8voghYREQ==
-From: Caleb James DeLisle <cjd@cjdns.fr>
-To: netdev@vger.kernel.org,
-	ansuelsmth@gmail.com
-Cc: andrew@lunn.ch,
-	hkallweit1@gmail.com,
-	linux@armlinux.org.uk,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	daniel@makrotopia.org,
-	dqfext@gmail.com,
-	SkyLake.Huang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	cjd@cjdns.fr,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 net-next 3/3] net: phy: mediatek: support EcoNet EN751221 gbit SoC PHY
-Date: Wed, 26 Aug 2026 20:21:03 +0000
-Message-Id: <20260826202103.2280645-4-cjd@cjdns.fr>
-In-Reply-To: <20260826202103.2280645-1-cjd@cjdns.fr>
-References: <20260826202103.2280645-1-cjd@cjdns.fr>
+	id 1wzKAZ-00000002zkg-303X
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Aug 2026 20:24:24 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 1ADF51A183B;
+	Wed, 26 Aug 2026 20:24:22 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CB7F0604EC;
+	Wed, 26 Aug 2026 20:24:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 04A9C11C78051;
+	Wed, 26 Aug 2026 22:24:09 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1787775856; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=flnw4YFK4nn1JRtl3vh2WWZ6rVH7arDpTg03KSn5OIQ=;
+	b=VlA5J1cHVpEd9kEiVxwJcKflxfDypdppGrggNcyw7rxRmJ+AuLAA/6+uCm6wCFeE82DX4E
+	kDnlPG4inybAFRsrNfmE/1Ix8AujGPlJ+RTMkKQq2p43da649RnlSQOgL9uNEmCPkbxQQJ
+	7d/zY4Uc0VmfqcRptLfFR3idsbbIO4/EyP9oxhtnJ/b0bN/UBAyUHczkC/ymMpdEMXL4dO
+	WYLRpDkGTYbxLS5ArRO0VHNuQcdoBZPUVj0qn0yRmEbmQfs+agENzVSo+wmmKaTwWGuJhT
+	Q80sLBcnc6zRLhS/5i4cVtwi6v+HgZ3qiGWg9bKOmlQ4NoWWzIpCKVSrLzN5sw==
+Message-ID: <5bf8b713-55aa-4dd6-ad8c-afaa96c787dc@bootlin.com>
+Date: Wed, 26 Aug 2026 22:24:09 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 1/6] net: stmmac: selftests: Check multiple MMC
+ counters
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Emil Renner Berthing <kernel@esmil.dk>,
+ Minda Chen <minda.chen@starfivetech.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jan Petrous <jan.petrous@oss.nxp.com>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Jose.Abreu@synopsys.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20260826140500.616466-1-maxime.chevallier@bootlin.com>
+ <20260826140500.616466-2-maxime.chevallier@bootlin.com>
+ <3d6e75eb-be26-47a2-96de-d29c0b634bfc@lunn.ch>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <3d6e75eb-be26-47a2-96de-d29c0b634bfc@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_132141_147133_B40D7658 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20260826_132423_899864_5526F219 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,358 +94,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EcoNet EN751221 gigabit SoC PHY is identified by product IDs 9451
-and 9471. These devices have one such PHY which occupies MMIO index
-12. This PHY is present in 3FE+1GE chips such as EN7526C, and also
-the "G" chips which have an MCM gigabit switch. In the "G" chips,
-this provides a 5th ethernet port.
+Hi,
 
-Reference code disables EEE and sets MII_BMCR to BMCR_ANRESTART |
-BMCR_ANENABLE prior to calibration. Testing has shown this seems
-unnecessary and it has been omitted, but it is noted here in case
-of future issues.
+On 8/26/26 19:14, Andrew Lunn wrote:
+> On Wed, Aug 26, 2026 at 04:04:53PM +0200, Maxime Chevallier wrote:
+>> The MMC counters report MAC statistics. Multiple counters can be
+>> enabled when the IP is integrated, however there's no way to know
+>> exactly which ones. Un-implemented counters seem to report 0.
+>>
+>> It was found that on StarFive JH7110 and Amlogic SM1, the counter that's
+>> used by the selftest (mmc_tx_framecount_g) isn't implemented, triggering
+>> an MMC selftest failure.
+>>
+>> Both the above SoCs seem to implement mmc_rx_framecount_gb, let's use
+>> this counter as well for MMC counter validation.
+>>
+>> Note that this doesn't guarantee that we won't encounter the same issue
+>> again if another IP implements yet another set of counters that don't
+>> include that new one.
+>>
+>> If the game of whack-a-mole with implemented counters becomes too hard to
+>> maintain, we may simply consider removing the MMC selftest entirely.
+>>
+>> Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
+>> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> 
+> Seems sensible.
+> 
+> If more moles need whacking, we could consider the value of 0 as
+> success.
 
-Signed-off-by: Caleb James DeLisle <cjd@cjdns.fr>
----
- drivers/net/phy/mediatek/Kconfig         |   9 +-
- drivers/net/phy/mediatek/airoha-ge-soc.c | 214 ++++++++++++++++++++++-
- drivers/net/phy/mediatek/mtk-ge-soc.h    |   2 +
- 3 files changed, 217 insertions(+), 8 deletions(-)
+We'd need to see what the values are on platforms that don't implement MMC
+counters at all, what the registers read in that case.
 
-diff --git a/drivers/net/phy/mediatek/Kconfig b/drivers/net/phy/mediatek/Kconfig
-index b8df1a8016c6..2d73ea6d8398 100644
---- a/drivers/net/phy/mediatek/Kconfig
-+++ b/drivers/net/phy/mediatek/Kconfig
-@@ -1,15 +1,14 @@
- # SPDX-License-Identifier: GPL-2.0-only
- config AIROHA_GE_SOC_PHY
--	tristate "Airoha SoC Ethernet PHYs"
--	depends on ARM64 || COMPILE_TEST
--	depends on ARCH_AIROHA || COMPILE_TEST
-+	tristate "Airoha/EcoNet SoC Ethernet PHYs"
-+	depends on ARCH_AIROHA || ECONET || COMPILE_TEST
- 	select MTK_NET_PHYLIB
- 	select PHY_PACKAGE
- 	help
--	  Supports Airoha SoC built-in Gigabit Ethernet PHYs.
-+	  Supports Airoha and EcoNet SoC built-in Gigabit Ethernet PHYs.
- 
- 	  Include support for built-in Ethernet PHYs which are present in
--	  the AN7581 and AN7583 SoCs. These PHYs will dynamically
-+	  the AN7581, AN7583, and EN751221 SoCs. These PHYs will dynamically
- 	  calibrate during startup.
- 
- config MEDIATEK_2P5GE_PHY
-diff --git a/drivers/net/phy/mediatek/airoha-ge-soc.c b/drivers/net/phy/mediatek/airoha-ge-soc.c
-index 5a8838a47184..1fa258dc22f4 100644
---- a/drivers/net/phy/mediatek/airoha-ge-soc.c
-+++ b/drivers/net/phy/mediatek/airoha-ge-soc.c
-@@ -1,7 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0+
- #include <linux/bitfield.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/pinctrl/consumer.h>
- #include <linux/phy.h>
-+#include <linux/regmap.h>
- 
- #include "../phylib.h"
- #include "mtk.h"
-@@ -9,6 +11,8 @@
- 
- #define AIROHA_DEFAULT_PORT0_ADDR		0x9
- #define AIROHA_PHY_MAX_LEDS			2
-+#define ECONET_GPHY_CHIPSCU_RASEL_MASK		GENMASK(15, 13)
-+#define ECONET_GPHY_PORT0_ADDR			12
- 
- enum airoha_mdi_resister_type {
- 	MDI_0R,
-@@ -259,6 +263,69 @@ static const u8 an7583_zcal_to_r50ohm_5R[64] = {
- 	 56,  54,  52,  50,  48,  46,  44,  42,  40,  39,  37,  36,  33,  32,  31,  29,
- };
- 
-+/*
-+ * 2 chip revisions
-+ * TXMR (no evidence that these chips were ever discrete)
-+ * MDI 0R (5R not known to exist)
-+ * TX AMP test/TX AMP 1G/TX AMP 100M/TX AMP 10M/R50
-+ * 1 PHY
-+ */
-+static const int en751221_tx_amp_compensation_tbl[2][TRANSFORMER_TYPE_MAX][MDI_TYPE_MAX][CALIB_CONST_TYPE_MAX][4] = {
-+	{
-+		/* EN751221 */
-+		[TXMR] = {
-+			[MDI_0R] = {
-+				[TX_AMP_TEST_A] = { 14 },
-+				[TX_AMP_TEST_B] = { 14 },
-+				[TX_AMP_TEST_C] = { 14 },
-+				[TX_AMP_TEST_D] = { 14 },
-+				[TX_AMP_1G_A] = { 2 },
-+				[TX_AMP_1G_B] = { 2 },
-+				[TX_AMP_1G_C] = { 2 },
-+				[TX_AMP_1G_D] = { 2 },
-+				[TX_AMP_100M_A] = { 4 },
-+				[TX_AMP_100M_B] = { 4 },
-+				[TX_AMP_10M_A] = { 0 },
-+				[TX_AMP_10M_B] = { 0 },
-+				[R50_A] = { 0 },
-+				[R50_B] = { 0 },
-+				[R50_C] = { 0 },
-+				[R50_D] = { 0 },
-+			},
-+		},
-+	},
-+	{
-+		/* EN7526C */
-+		[TXMR] = {
-+			[MDI_0R] = {
-+				[TX_AMP_TEST_A] = { 14 },
-+				[TX_AMP_TEST_B] = { 14 },
-+				[TX_AMP_TEST_C] = { 14 },
-+				[TX_AMP_TEST_D] = { 14 },
-+				[TX_AMP_1G_A] = { 12 },
-+				[TX_AMP_1G_B] = { 13 },
-+				[TX_AMP_1G_C] = { 9 },
-+				[TX_AMP_1G_D] = { 9 },
-+				[TX_AMP_100M_A] = { 4 },
-+				[TX_AMP_100M_B] = { 4 },
-+				[TX_AMP_10M_A] = { 0 },
-+				[TX_AMP_10M_B] = { 0 },
-+				[R50_A] = { 0 },
-+				[R50_B] = { 0 },
-+				[R50_C] = { -4 },
-+				[R50_D] = { -4 },
-+			},
-+		},
-+	}
-+};
-+
-+static const u8 en751221_zcal_to_r50ohm[64] = {
-+	125, 125, 125, 125, 125, 125, 124, 121, 118, 115, 112, 110, 108, 105, 103, 101,
-+	 99,  97,  95,  77,  75,  73,  72,  70,  68,  67,  65,  64,  63,  45,  44,  43,
-+	 41,  40,  39,  38,  37,  36,  35,  34,  32,  32,  31,  30,  13,  12,  11,  10,
-+	  9,   8,   8,   7,   6,   5,   5,   4,   3,   2,   2,   1,   0,   0,   0,   0
-+};
-+
- static int airoha_cal_cycle(struct phy_device *phydev, int devad,
- 			    u32 regnum, u16 mask, u16 cal_val)
- {
-@@ -276,6 +343,21 @@ static int airoha_cal_cycle(struct phy_device *phydev, int devad,
- 	return ret;
- }
- 
-+/* EN751221 also mirrors RG_BG_RASEL into CHIP SCU register 0x16c. */
-+static void en751221_gphy_mirror_rext(struct phy_device *phydev, u8 zcal)
-+{
-+	struct regmap *chip_scu;
-+
-+	chip_scu = syscon_regmap_lookup_by_compatible("econet,en751221-chip-scu");
-+	if (IS_ERR(chip_scu)) {
-+		phydev_err(phydev, "CHIP SCU unavailable for REXT mirror: %ld\n",
-+			   PTR_ERR(chip_scu));
-+		return;
-+	}
-+	regmap_update_bits(chip_scu, 0x16c, ECONET_GPHY_CHIPSCU_RASEL_MASK,
-+			   FIELD_PREP(ECONET_GPHY_CHIPSCU_RASEL_MASK, zcal >> 3));
-+}
-+
- static int airoha_rext_cal_sw(struct phy_device *phydev)
- {
- 	int calibration_polarity;
-@@ -349,6 +431,10 @@ static int airoha_rext_cal_sw(struct phy_device *phydev)
- 		       MTK_PHY_RG_BG_RASEL_MASK,
- 		       FIELD_PREP(MTK_PHY_RG_BG_RASEL_MASK, zcal_ctrl >> 3));
- 
-+	if (phydev->phy_id == ECONET_GPHY_ID_EN7526C ||
-+	    phydev->phy_id == ECONET_GPHY_ID_EN751221)
-+		en751221_gphy_mirror_rext(phydev, zcal_ctrl);
-+
- 	phy_write_mmd(phydev, MDIO_MMD_VEND1, MTK_PHY_RG_ANA_CAL_RG0, 0);
- 
- 	return 0;
-@@ -1369,6 +1455,106 @@ static int airoha_phy_tx_amp_compensation(struct phy_device *phydev)
- 	return 0;
- }
- 
-+static int en751221_gphy_config_init(struct phy_device *phydev)
-+{
-+	struct airoha_socphy_shared *shared = phy_package_get_priv(phydev);
-+	int ret;
-+
-+	shared->mdi_resister_type = MDI_0R;
-+
-+	if (phydev->phy_id == ECONET_GPHY_ID_EN751221)
-+		shared->tx_amp_compensation_tbl = &en751221_tx_amp_compensation_tbl[0];
-+	else
-+		shared->tx_amp_compensation_tbl = &en751221_tx_amp_compensation_tbl[1];
-+
-+	shared->r50_cal_tbl = en751221_zcal_to_r50ohm;
-+
-+	phy_set_bits(phydev, MII_BMCR, BMCR_RESET);
-+
-+	/* Global MMD (devad 0x1f) settings. */
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x273, 0x1000);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x272, 0x3cff);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x269, 0x4344);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x044, 0x0030);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x27c, 0x0808);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x27b, 0x1177);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x268, 0x0728);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x269, 0x244f);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x271, 0x4e13);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x417, 0x7775);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x024, 0xc007);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x025, 0x003f);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND2, 0x021, 0x800a);
-+
-+	/* Local MMD (devad 0x1e) settings. */
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x000, 0x01b0);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x001, 0x01be);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x002, 0x01be);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x003, 0x0090);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x004, 0x0205);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x005, 0x0204);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x006, 0x039c);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x007, 0x03c0);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x008, 0x03bc);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x009, 0x0297);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x00a, 0x0005);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x00b, 0x0006);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x014, 0x0040);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x044, 0x0060);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x176, 0x5500);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x177, 0x0055);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x041, 0x3333);
-+	phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x0a6, 0x0350);
-+
-+	phy_select_page(phydev, MTK_PHY_PAGE_EXTENDED_52B5);
-+	__mtk_tr_write(phydev, 0x1, 0xf, 0x00, 0x00002b);
-+	__mtk_tr_write(phydev, 0x1, 0xf, 0x03, 0x082422);
-+	phy_restore_page(phydev, MTK_PHY_PAGE_STANDARD, 0);
-+
-+	/*
-+	 * 1000BASE-T master/slave resolution fails about once in ten
-+	 * reconnects, so force this PHY to master mode.
-+	 */
-+	ret = phy_write(phydev, MII_CTRL1000,
-+			ADVERTISE_1000FULL | CTL1000_PREFER_MASTER |
-+			CTL1000_AS_MASTER | CTL1000_ENABLE_MASTER);
-+	if (ret)
-+		return ret;
-+
-+	phy_select_page(phydev, MTK_PHY_PAGE_EXTENDED_1);
-+	__phy_write(phydev, 0x14, 0x3a14);
-+	phy_restore_page(phydev, MTK_PHY_PAGE_STANDARD, 0);
-+
-+	if (phydev->phy_id == ECONET_GPHY_ID_EN7526C) {
-+		phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x201, 0x4002);
-+		phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x03d, 0x0c00);
-+	} else {
-+		phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x012, 0x2c10);
-+		phy_write_mmd(phydev, MDIO_MMD_VEND1, 0x017, 0x0410);
-+	}
-+
-+	ret = airoha_phy_calib(phydev);
-+	if (ret)
-+		return ret;
-+
-+	ret = airoha_phy_auto_select_transformer(phydev);
-+	if (ret)
-+		return ret;
-+
-+	ret = airoha_phy_tx_amp_compensation(phydev);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static int en751221_gphy_match(struct phy_device *phydev,
-+			       const struct phy_driver *phydrv)
-+{
-+	return phydev->phy_id == ECONET_GPHY_ID_EN751221 ||
-+	       phydev->phy_id == ECONET_GPHY_ID_EN7526C;
-+}
-+
- static int an7581_phy_config_init(struct phy_device *phydev)
- {
- 	struct airoha_socphy_shared *shared = phy_package_get_priv(phydev);
-@@ -1585,6 +1771,7 @@ static int an7581_phy_config_init(struct phy_device *phydev)
- 
- static int an7581_phy_probe(struct phy_device *phydev)
- {
-+	int port0 = AIROHA_DEFAULT_PORT0_ADDR;
- 	struct airoha_socphy_shared *shared;
- 	struct mtk_socphy_priv *priv;
- 	struct pinctrl *pinctrl;
-@@ -1596,8 +1783,11 @@ static int an7581_phy_probe(struct phy_device *phydev)
- 		dev_err(&phydev->mdio.bus->dev,
- 			"Failed to setup PHY LED pinctrl\n");
- 
--	ret = devm_phy_package_join(&phydev->mdio.dev, phydev,
--				    AIROHA_DEFAULT_PORT0_ADDR,
-+	if (phydev->phy_id == ECONET_GPHY_ID_EN7526C ||
-+	    phydev->phy_id == ECONET_GPHY_ID_EN751221)
-+		port0 = ECONET_GPHY_PORT0_ADDR;
-+
-+	ret = devm_phy_package_join(&phydev->mdio.dev, phydev, port0,
- 				    sizeof(struct airoha_socphy_shared));
- 	if (ret)
- 		return ret;
-@@ -1608,7 +1798,7 @@ static int an7581_phy_probe(struct phy_device *phydev)
- 	if (!priv)
- 		return -ENOMEM;
- 
--	if (phydev->mdio.addr == AIROHA_DEFAULT_PORT0_ADDR)
-+	if (phydev->mdio.addr == port0)
- 		shared->phydev_p0 = phydev;
- 
- 	phydev->priv = priv;
-@@ -1797,6 +1987,22 @@ static struct phy_driver mtk_socphy_driver[] = {
- 		.read_page	= mtk_phy_read_page,
- 		.write_page	= mtk_phy_write_page,
- 	},
-+	{
-+		.name		= "EcoNet EN751221 GPHY",
-+		.config_init	= en751221_gphy_config_init,
-+		.config_intr	= genphy_no_config_intr,
-+		.handle_interrupt = genphy_handle_interrupt_no_ack,
-+		.match_phy_device = en751221_gphy_match,
-+		.probe		= an7581_phy_probe,
-+		.led_blink_set	= mt798x_phy_led_blink_set,
-+		.led_brightness_set = mt798x_phy_led_brightness_set,
-+		.led_hw_is_supported = mt798x_phy_led_hw_is_supported,
-+		.led_hw_control_set = mt798x_phy_led_hw_control_set,
-+		.led_hw_control_get = mt798x_phy_led_hw_control_get,
-+		.led_polarity_set = an7581_phy_led_polarity_set,
-+		.read_page	= mtk_phy_read_page,
-+		.write_page	= mtk_phy_write_page,
-+	}
- };
- 
- module_phy_driver(mtk_socphy_driver);
-@@ -1804,6 +2010,8 @@ module_phy_driver(mtk_socphy_driver);
- static const struct mdio_device_id __maybe_unused airoha_socphy_tbl[] = {
- 	{ PHY_ID_MATCH_EXACT(AIROHA_GPHY_ID_AN7581) },
- 	{ PHY_ID_MATCH_EXACT(AIROHA_GPHY_ID_AN7583) },
-+	{ PHY_ID_MATCH_EXACT(ECONET_GPHY_ID_EN751221) },
-+	{ PHY_ID_MATCH_EXACT(ECONET_GPHY_ID_EN7526C) },
- 	{ }
- };
- 
-diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.h b/drivers/net/phy/mediatek/mtk-ge-soc.h
-index 834b61dbc690..1f38b4c81860 100644
---- a/drivers/net/phy/mediatek/mtk-ge-soc.h
-+++ b/drivers/net/phy/mediatek/mtk-ge-soc.h
-@@ -9,6 +9,8 @@
- #define MTK_GPHY_ID_MT7988			0x03a29481
- #define AIROHA_GPHY_ID_AN7581			0x03a294c1
- #define AIROHA_GPHY_ID_AN7583			0xc0ff0420
-+#define ECONET_GPHY_ID_EN751221			0x03a29451
-+#define ECONET_GPHY_ID_EN7526C			0x03a29471
- 
- #define MTK_EXT_PAGE_ACCESS			0x1f
- #define MTK_PHY_PAGE_STANDARD			0x0000
--- 
-2.39.5
+Another approach is to bruteforce the selftest and look at all the MMC counters,
+passing if any of them changes during the test.
 
+> 
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> 
+>     Andrew
+
+Thank you :)
+
+Maxime
 
