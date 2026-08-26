@@ -4,97 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 079DEC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 11:52:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4994AC61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 11:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UTrCbBRL6HXb+RuUnBCTW1yY8odSkn59u8nz48f6xs8=; b=fxv0BPG6Ho/FK5n9Q+XpFbBrq6
-	4vEp5gZf/5iKa00z/xhog5mVWcLKGX4Z0DcXgK+1fAumTm6jfPcol5qMbWtqji29RWiv2keuM+iCP
-	s/SRSNcHbUij2RhKu5/4bp4D38e8/4GPKofHKmxD5MDMHFQyL0gkbON8TETXfxMa1Xt90G8ITZ4o6
-	LdaCLAMvreUCA5lJqWtLzmtWYpRpJNT5HxCk3sHBa8KHUUtzGmoi2Io2WrtPrL7l0hSOpc0RxddKl
-	jajcrmUYOQUesI1CBt1Vhdka/a7z9Ih2MoASy+MG4NApybNn0VA5Y+Ox4OuMSe6oqirMvPRjm0xNK
-	smGImF/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kJXhURYbF22u5h3SNtJoh5SZFJhDJmU53UX6OeRXsy8=; b=GSY8vjg2ar5H1Gl7aEUONgwGkV
+	tDjYsxEdNbB+qKwMT1UVsBZFD0hTzVJd2WcLQSMUc6f/sYB4fYi2qnlSCRoL+POTMAVtB9sB4A4xz
+	ipsLjL4lrGo+4bGB5ySZktT+OMaAsV9mnRiLloPl34b4yFQK1nZWt/wD7r2phCq06sDcLfitA6tgX
+	zG75sNbpcavabDfABcqupsJHxUnvjp2LBsFnAfRfqbITM84kxDZRA0OYFEkYe6OH86/xdO99jC5IX
+	ApgfHwKd9/cICma91KevgF4nM/A3M6JqZxe/Uv25d0ZpVc1YuN0mvQ4jKd+0Hsmw3GUlr1/VpV/TJ
+	BHgtXyYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzCAg-00000002NK6-1aZC;
-	Wed, 26 Aug 2026 11:51:58 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1wzCDc-00000002NXn-1QC4;
+	Wed, 26 Aug 2026 11:55:00 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzCAd-00000002NIr-24z8
+	id 1wzCDZ-00000002NXA-3HRF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 11:51:56 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2ccdf36f63dso105755ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 04:51:55 -0700 (PDT)
+	Wed, 26 Aug 2026 11:54:59 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67QAGc4J630830
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 11:54:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	kJXhURYbF22u5h3SNtJoh5SZFJhDJmU53UX6OeRXsy8=; b=LxtAFUjT3OLnYJSo
+	iTXTYynpeMBZks3L4NGPbINgsPIJu/3jPEXJrSKSfDkvAvKsbOgS8/xA2pH/39Rj
+	yy2dHdNl65obDPrQPNthxMCMAMWgHh884PzNFcJq4nm9LvoKh4XsgA66eT1Smh1r
+	AXIulxLmeOEBewWZYQvqjjTXLgC+yyjIosqmLJImuEwzwtk4RStmdaAJiANAkP0V
+	1xjbgX7vtwHu0a0qX5p9DOuVIYsgr9KNd+A9Et/Oto7ZZmbAvd4euQCNwqFA4O2p
+	eDfabYu69tKt10PyiZ60B4SJyK0M4vABOiJW6TOx8CkqbOwx8hGEUuuTRvWtum8T
+	o5/1SQ==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g9r0k1y16-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 11:54:56 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-84e01a62d99so766439b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 04:54:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787745114; x=1788349914; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=UTrCbBRL6HXb+RuUnBCTW1yY8odSkn59u8nz48f6xs8=;
-        b=suWKZMncnQbeBo0dOvgarCppla1uQohadRRHneikfvn5l8M9kRMcyO67PR1oD508UW
-         icty5pIueuSc/caYzB89cTGsxSDSeqIBCa1CtpdNO34wFYWJDwRSUEfIAeuhdVwYtG9a
-         /HAQxDYNPeE5D4ICxFMr8dL74pFLTtIAdLy76ADqbrPRS3qDZUIJKZmJYJlfmC/JFF41
-         /Eg+hXfEZK4C1a6l0EaNST7N2e6xS4OGgbdIP834AzW2v6jwQw1e3khfQ/E3SlVKmB3i
-         kYdH58ozcGD8lkcIBou4pgy1z4Nq9CFELEM8MLo10kMPo5RQeUrkdbXMPU3zdxmuYec3
-         pPSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787745114; x=1788349914;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1787745296; x=1788350096; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=UTrCbBRL6HXb+RuUnBCTW1yY8odSkn59u8nz48f6xs8=;
-        b=NsQ7EQ9mZQEG2LxnN1TlTYaMGRJTv+AKzPUJKJAZkkkh9rnouCAp9TvOn3wUKFdYhV
-         qTbMVN6eMEO4FsUc8GhwFe6yqa2u7rekwyJXIl1+mm7LCmWBwnnG2QdNtKmDgKDNll/J
-         6bmXvD4sOGg2aNPI7M/cc9zQ3SEtZnFBfFVKAKKn+cFNicmKgYpFwxUQFMt5g9L9t8DT
-         jrq2hfcjdz90e9H228ixGyeml7l63AfOAqUfqSeLKgS5Fu/4k5//6xBjaLH5brneGeir
-         lQqXORgi23e2WF+3mnNxHca+bJ8pvc1wc8SXS1POWen+G75HbeAeebGldtN0NbRaFWFx
-         8NGg==
-X-Forwarded-Encrypted: i=1; AHgh+RoAZ1/TcXbMegbgtBiAKmz2kKvSK3bymzcrzSU7SVLSL/ct/+y8P3AG8hu7/alTa9ZFWiz+sFc9S1arYQ1QKvFC@lists.infradead.org
-X-Gm-Message-State: AFuF++nkIbAie+CvE5JtpoYoc7y/l0suebNI4662zkcok3dG+MTLFMTQ
-	NwHDQfxpn4B1s8F/dtJshLWK8+v9hhm2rDVBPUuPx/czh8yJK/OMSOJ7LHESB4ydqA==
-X-Gm-Gg: AR+sD122D2EQu1YFi6wwPe8rYEXxs3MKvpy2ze2zgEIHto1SVL5/rbNMvx3fvOcdh3n
-	WgUhIb2JSoV2h91KrXbTLUCvIhCFE5gcKx2wwTMtsfQjmiP5sAag4ntyG1OvlChan/nX90IsUKC
-	8tlxY7FFDviW94AQu4FBoHgwr+CMC2KNEpRzSDDI7injQKJLi/hVZ4Zfw1tbwNMWOJ4lTNS5rBq
-	Ozw9l1hf48TnVX0EEDfH5v0+NT294oCtJ2D71ziyGNjkj0oREEShDvu7GGXkKLW1J1KTMZqXNn4
-	gBTV+T4VDARRTWxvNxvpaK/zt372YnaG7G8x/BesX6JGsgfg6Dt0ZQq6UaNjz37b1olH9G0NMYJ
-	xVueSWYyi5Sk+YW9BiZoLtwmcUzv+4Ty2NCWG1zfYvOJfJZmMytGiLUU/4w/eNUpOPtmoKsZsTd
-	HUn1JW6lkhNDw2oRurhOvEA1gzaT/pOZRkVmLMQij8Dgh5GKDKGXFZ423+3dAIfZ+t+IJYjL8U+
-	VRrk1iGZDV/0jVGo49P+YkSwg==
-X-Received: by 2002:a17:903:1106:b0:2d1:1d3d:97c3 with SMTP id d9443c01a7336-2d71052c89dmr3015365ad.13.1787745113926;
-        Wed, 26 Aug 2026 04:51:53 -0700 (PDT)
-Received: from google.com (164.210.142.34.bc.googleusercontent.com. [34.142.210.164])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8535cd86fe3sm790578b3a.39.2026.08.26.04.51.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Aug 2026 04:51:53 -0700 (PDT)
-Date: Wed, 26 Aug 2026 11:51:47 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Daniel Mentz <danielmentz@google.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v9 09/12] iommu/arm-smmu-v3: Implement pm_runtime &
- system sleep ops
-Message-ID: <ao7TU2QSprRbGfEC@google.com>
-References: <20260728210928.1050849-1-praan@google.com>
- <20260728210928.1050849-10-praan@google.com>
- <178767577113.3356902.28128835506777632.b4-review@b4>
- <ao3kxwbwB9GC3EOM@google.com>
- <20260825201701.GG3325090@nvidia.com>
+        bh=kJXhURYbF22u5h3SNtJoh5SZFJhDJmU53UX6OeRXsy8=;
+        b=MSycptXXf4paehHGkNL/jU78MoidSY4ercoAlII68u2iDJIeuCs3nubnP5kC35ADBJ
+         EbDBG6z7okj1VkREQYXuREj0TPFbeeIuGDYg2y3roB98k6FxJjAabAw41Hq6CkkUSzll
+         eD8mebAsYzPB4UFKdhyMI6n1PUFZ3v8exfdMs/NDoXntkjwlBePeO4qg5sATO4iar4Yx
+         gdyW6B/XJcIas2NFLEzH+gXO1qxUeuzaKBrjGxLwrUu6BBHs5DekggOREVQfVL2CZLB5
+         8WW658/YqCJRRtH0ACewxUQ0Qnqmx6QkBQszQQBuFZQ2qBkeWkyPhtv1uLzo/VX63re3
+         hQtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787745296; x=1788350096;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kJXhURYbF22u5h3SNtJoh5SZFJhDJmU53UX6OeRXsy8=;
+        b=mWPyTjhQK1OxNFrINRTeXdsZOdUOd7X7nfn+cQuySqGNZa9XRLamBtu7AshENsxIAY
+         MtL6vzUohvGX8mArg/FnxkXlj4u93VePxwkcgiaPjqEMn6cbMIhWSnJGOCmtmZRnHbrS
+         r1hC21iOabTrpOtBeK+03nVue18BAwTALnWS6q6gkiN2/1PDBBCTzK0QcoFCmqkqnVwY
+         8un/2vfnqd7yEQK4bx99tiH1Goj80VVlZZ3xGQba/co2H5hVDMtY05c0jGvV3+FLjRhx
+         grQ+w0p7G24Zblh7Dr4GadiMG7Geugp5l3z1AqULOortY+tzy6OXpwejoopoSNps3n/x
+         gjCg==
+X-Forwarded-Encrypted: i=1; AHgh+Rp8cCHmmMOe+UCkN/EUSW16EKhJpox9Fb6ZEyf3eqNPNTshUhrfudpwx2y8/dF9Yavrs/nCBmRPcacSgu/G5TTz@lists.infradead.org
+X-Gm-Message-State: AFuF++kM4RC98C0tekr3b/KtZGumJZp93nFHwKlBtu/qlIKSPz5UaPt6
+	+TDeZ//f69Kk5tEYTbx6wEXLtiN5DyUZ1YXrdhtDp50LSlOHq0JK6MjLlfMH7/kBOgGgBCt5ZZr
+	v5zv87Qnw31ObHmB313AASqow5v7ZkDUefg3ez+RhTgR7P+YbMWHKu3Z7WXY8HLeebFRzL3xV+H
+	Z1bQ==
+X-Gm-Gg: AR+sD12RdbCXlOpWp1k7Drw39Uja4mh9bMxKi3GgzZvSm1Cx8VSJMzHRRGrlXrRdIzZ
+	1MT8U8ATm08/KMY6cbh7cA6Aw4sAKCBGuC0uwqbdRiRwfUKaDCwpR/5w5QLB/2S/I+9NNscqT63
+	FCBF7FWgPPj6t091M7tzO0AsJg/8PqGVQz3u5yg5f0oFc5UFOWZqn4zVTzUqLV9XJaUs/yOIrzm
+	cdWypo7CSNNaSS1GJx3eXCQzC3HKDGGjQnveLW6UHPTj2kcByen1n+UOu3dfsXK8xA+JbGFmJm1
+	NFaUVczn0i1kJA+r+DIKo7WsN6noYEjEVyAeIFV4g+5a2cEQ7eM0dCK+Lp4SS/iuVNiqnQlnhJt
+	F+ZBxR8arLW9sozCQkhXuHQAqlTq6dPAK018=
+X-Received: by 2002:a05:6a00:6ca7:b0:848:2e7e:353a with SMTP id d2e1a72fcca58-8536ec13a78mr13481217b3a.0.1787745296208;
+        Wed, 26 Aug 2026 04:54:56 -0700 (PDT)
+X-Received: by 2002:a05:6a00:6ca7:b0:848:2e7e:353a with SMTP id d2e1a72fcca58-8536ec13a78mr13481100b3a.0.1787745295712;
+        Wed, 26 Aug 2026 04:54:55 -0700 (PDT)
+Received: from [10.217.219.186] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8535cf3e982sm793514b3a.54.2026.08.26.04.54.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Aug 2026 04:54:55 -0700 (PDT)
+Message-ID: <4efcdf15-286c-4bd6-a75f-77fbca07e7a4@oss.qualcomm.com>
+Date: Wed, 26 Aug 2026 17:24:48 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260825201701.GG3325090@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/7] i2c: qcom-geni: Use geni_se_set_rate() for setting
+ source clock frequency
+To: Praveen Talari <praveen.talari@oss.qualcomm.com>,
+        konrad.dybcio@oss.qualcomm.com, Sudeep Holla <sudeep.holla@kernel.org>,
+        Cristian Marussi <cristian.marussi@arm.com>,
+        Ulf Hansson <ulfh@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Jiri Slaby <jirislaby@kernel.org>, Mark Brown <broonie@kernel.org>,
+        Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
+        Andi Shyti <andi.shyti@kernel.org>
+Cc: chandana.chiluveru@oss.qualcomm.com, arm-scmi@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-serial@vger.kernel.org, linux-spi@vger.kernel.org,
+        linux-i2c@vger.kernel.org
+References: <20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-v1-0-61171ab1cdce@oss.qualcomm.com>
+ <20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-v1-7-61171ab1cdce@oss.qualcomm.com>
+ <8af7a34a-da4f-492f-a51c-cc420edc5e6e@oss.qualcomm.com>
+ <e000c3da-32f5-49ba-9aff-b2b17db23927@oss.qualcomm.com>
+Content-Language: en-US
+From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
+In-Reply-To: <e000c3da-32f5-49ba-9aff-b2b17db23927@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=fPEJG5ae c=1 sm=1 tr=0 ts=6a8ed410 cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=4Fh5LKrImxLeDWyZwEgA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=OpyuDcXvxspvyRM73sMx:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI2MDA5OSBTYWx0ZWRfXzCouicMg03LO
+ cHwj9ulx4UI6azWhN4s6dBJdFbYSdHQ3zmYdTo0T3LU2cKelVbKjP5VtHHIydOW/dS6GU6BQPEg
+ vVRYB3+8CNORyxhsdlD0WX61KnroHnc=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI2MDA5OSBTYWx0ZWRfX6M/75fS5GC6A
+ Wr/ADiZopC3f9fPR/XnRllqDLx8R6g3fl4uVkawZFX0aGgKlq425bNmMYjC27WTllPu0XdPcEn8
+ i7Yjmu2SPcL82CRRL7qvAtgxUtVlE9C4HCekwEgnB3aUQlUU/fpb6ip9xeX6/b06gxapKMpFGV3
+ JNpt9MxpspGydSE2alr/qu73FqiwNZIDLDHIUQa4tR2cfgTWobtw6pA8sn254/a6iqhkCb7LyKz
+ SIC0hPmrJ3torItRIOMcrB5YOoX3YeIWIYSPLxegEncPwIZP+A5wnBj/XZ+6RfCpVvyD1mn9Rga
+ Cm7K2FaMmB5JDbZw4XaHHmoJxpwBvcM1kW5D3fiFTJYL9TzUGgOh3quSUsXEdlb+e/2Tx4JeCvX
+ uSKuWSzqaxopDrnmogzq24Z4Kzesai0TVUP6niLUYCM0MXcYtoBMLB43ldAhpepJrT6VRelgpyB
+ vQsGmPk9d6vbVfqPvEg==
+X-Proofpoint-ORIG-GUID: DsMKimB5nt9M6OjRNbSH5pH_K2JPFqZ0
+X-Proofpoint-GUID: DsMKimB5nt9M6OjRNbSH5pH_K2JPFqZ0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-26_03,2026-08-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 suspectscore=0 impostorscore=0 malwarescore=0
+ clxscore=1015 adultscore=0 phishscore=0 bulkscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608260099
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_045155_925563_419025D4 
-X-CRM114-Status: GOOD (  23.75  )
+X-CRM114-CacheID: sfid-20260826_045457_839319_F11F085E 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,45 +164,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 25, 2026 at 05:17:01PM -0300, Jason Gunthorpe wrote:
-> On Tue, Aug 25, 2026 at 06:53:59PM +0000, Pranjal Shrivastava wrote:
+
+
+On 8/25/2026 12:38 PM, Praveen Talari wrote:
+[...]
+
+>>> index a23554d101fd..4561e2d235d5 100644
+>>> --- a/drivers/i2c/busses/i2c-qcom-geni.c
+>>> +++ b/drivers/i2c/busses/i2c-qcom-geni.c
+>>> @@ -213,11 +213,11 @@ static int geni_i2c_clk_map_idx(struct 
+>>> geni_i2c_dev *gi2c)
+>>>       return -EINVAL;
+>>>   }
+>>>   -static int qcom_geni_i2c_conf(struct geni_se *se, unsigned long freq)
+>>> +static int qcom_geni_i2c_conf(struct geni_se *se)
+>>>   {
+>>>       struct geni_i2c_dev *gi2c = dev_get_drvdata(se->dev);
+>>>       const struct geni_i2c_clk_fld *itr = gi2c->clk_fld;
+>>> -    u32 val;
+>>> +    u32 val, ret;
+>>>         writel_relaxed(0, gi2c->se.base + SE_GENI_CLK_SEL);
+>>>   @@ -233,6 +233,10 @@ static int qcom_geni_i2c_conf(struct geni_se 
+>>> *se, unsigned long freq)
+>>>                    itr->clk_div, itr->t_high_cnt,
+>>>                    itr->t_low_cnt, itr->t_cycle_cnt);
+>>>   +    ret = geni_se_set_rate(&gi2c->se, 19200000);
+>>
+>> hard code ?
 > 
-> > > I agree.. I think there are only two options?
-> > >  1) After GBPA=Abort ATS requests are blocked, so you could full
-> > >     invalidate all the device ATC's and now it is safe to ignore
-> > >     ATC_INV
-> > >  2) Just don't perform suspend once ATS is activated
-> > 
-> > This is a little tricky, I'm leaning towards 1) since edge devices can
-> > have ATS enabled
+> Good point. The 19.2 MHz value is not intended to be a permanent 
+> limitation.
 > 
-> Oh really? Surprising..
+> This matches the frequency currently used by the I2C driver and 
+> therefore preserves
 > 
-> > However, the EP might've entered it's low power state by the time we 
-> > reach smmu's suspend. I'm not sure if we should be waking up the EP for
-> > ATC INV All (or if it would even wake up in such a case?)
-> 
-> Is its power down explicit? Could the PM stuff trigger wiping the ATC
-> and blocking DMA for a single device before allowing it to power down?
+> the existing behavior. If support for higher source clock frequencies 
+> (e.g. 32 MHz or others)
 > 
 
-The power down is explicit, due to devlinks, the PCIe driver's suspend
-op (runtime / system) is called before the SMMU's suspend. I'm relying
-on PCIe driver's op to clear ATC and everything else before powering down 
+This is already added in driver for 32 MHz and also AFAIK, support is 
+added for 3.4 MHZ which considers 100Mhz. so make it something which is 
+generic. Hard code is not recommended here.
 
-Basically, what I mean is it should be the PCIe device's responsibility
-to clear ATC in this case because by the time we come to IOMMU's
-suspend, the PCIe device would be powered down anyway and I'm not sure
-if issuing an ATS INV request TLP would wake up the endpoint.
+Can we store source freq selection and continue with that ?
 
-IIUC, if the link is in L1 / L2 then TLP tranmission is disabled, and to
-bring it back to L0 we might have to call into the PCIe subsystem
-*somehow*.
-
-One thing we can do is shout in the dmesg with a dev_warn if rpm & ATS
-both are enabled saying the PCIe driver is responsible for clearing out
-it's ATC during suspend since SMMU's suspend runs after the dev is down.
-
-Thanks,
-Praan
+> is added in the future, the requested OPP/performance state will need to 
+> be updated accordingly.
+> 
+> 
+>> May work currently, but if higher frequency support added, source may 
+>> change.
+>>
+>> Also you have added in commit message, but add a comment also here.
+>>
+[...]
 
