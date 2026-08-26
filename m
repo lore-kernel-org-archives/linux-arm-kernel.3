@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9AFDC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 19:07:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91EA2C5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 19:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WLN7V2oWLw8xqVPEjGbL/fX++HTVrZe5VeMr25yIw24=; b=1Dr5bJF5Jyvd87IBXEp60UtF7U
-	a5xV6Dg4kCbaQm5JJcyr+DXyL9WT1cfHIhNlpMIWon+x0J4uKpkF8Je32vZ9lB2wYnHgC6X/Xi2O2
-	sO61vW1kFEdujHeYZVWwDU5Z+i/ext9AidS/mRr7L2N+FPfr0Zvk1kTHc1kZ2C68kdHU1uvaMFt94
-	ZYcO9JyTMAXH9A32XQbnbfIBJ3uCjLLseUdtQ70+E78ppeQUqPg5GfHAw/0Z72z/dm1phKdUuw0Ld
-	vnD0K6RQEk6/g88113pS3Vz42SeDXzofSW8uEo8ITLi1XyzXpQItazSZH/bc7n6PN6T810JdVUemb
-	hg2QMQrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PGuBe6Xxv/7LYE3cIlxPiI6vCF8iwOw4R1p9fKhoQdw=; b=2oNQ1iEGYGl/u9SBq7xzLtxhfz
+	+21O9QeL4FuTfqyIaNVTERg2on+/XxBWxJTR5fbpQoFjSe0IggX1qnZg8+Tuy5B+f4GFxOuKGXw93
+	XOdUlEDkNh5HbRolifdInwfTHiSFKjkot4AZQTiMjNzpzheKtkGrYuGW0OoXgQrvnc0O5ukxEhape
+	ddIDHjb5BxK8kjEAUdLZdIky9Ch86c+IkKQCMemKUgzyBaMp+hAAeTBLUir5t56b+jgnfp3Ipr4vl
+	Jd9un4Wxcv8cbass1+YfDWHzE8V/DGmJDnX8IadVlY0ikEfALXR5xxtIMuVFiXWrpqeylYmQ0MZEP
+	sCbBPt1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzIxa-00000002ujq-3SD8;
-	Wed, 26 Aug 2026 19:06:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzIxX-00000002uj3-3TYI
+	id 1wzJXh-00000002wdQ-25yI;
+	Wed, 26 Aug 2026 19:44:13 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzJXe-00000002wcc-1Mmj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 19:06:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94DB11684;
-	Wed, 26 Aug 2026 12:06:44 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0DB1F3F85F;
-	Wed, 26 Aug 2026 12:06:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787771208; bh=EvX9hjJQNlHdQ2n4/j/cdAJB6GCLhsmKnhtWPB0i/h4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=q+lryBCtJfeYE/bzVCJZh41V83hBMXowfmP9LW4P9jBzC/U1VZH7RRtVaeS4Qwsqj
-	 ZMBVrnRzfhvk8w9VqkKjdRoN8yso28+o3aK8to87g2y1PGEEWWgAZzEQ3PR6QHGVqn
-	 x0nX4wQFHPQBHKQpAO9ep3ICKaTl1EKaOjycWG8Q=
-Date: Wed, 26 Aug 2026 20:06:45 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
-	Leo Yan <leo.yan@linux.dev>, linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 04/14] perf cs-etm: Use per-CPU queues for per-thread
- mode
-Message-ID: <20260826190645.GL8904@e132581.arm.com>
-References: <20260821-james-cs-unformatted-per-thread-fix-v2-0-00c4fd0701b4@linaro.org>
- <20260821-james-cs-unformatted-per-thread-fix-v2-4-00c4fd0701b4@linaro.org>
+	Wed, 26 Aug 2026 19:44:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lineageos.org;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-2eefaa527c; t=1787773449;
+ bh=PGuBe6Xxv/7LYE3cIlxPiI6vCF8iwOw4R1p9fKhoQdw=;
+ b=P+IFbcMdt+3lk39+AMndWBgUrX121TEQh2pO06Pvgjwo4r3Nx8OOw0+2ljZSKYZtmeSRYzXbu
+ hdpnlL5/v982u+b/z9HW8yMclwIadBcbbNu24ofi5hcpYNFWIOm/Ot/cg9PUBCKOFCMWGyD3Bq0
+ AIS4rJ/zb7jL8BbS6XEpVW4=
+X-Forward-Email-ID: 6a8f4202150ee80826965353
+X-Forward-Email-Sender: rfc822; tturner@lineageos.org,
+ smtp.forwardemail.net, 149.28.215.223
+X-Forward-Email-Version: 2.13.16
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <5e8698db-974c-4f8b-8939-bcdf8a47743d@lineageos.org>
+Date: Wed, 26 Aug 2026 20:43:56 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260821-james-cs-unformatted-per-thread-fix-v2-4-00c4fd0701b4@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/2] Exynos850 GPU support
+To: Alexey Klimov <alexey.klimov@linaro.org>,
+ Sam Protsenko <semen.protsenko@linaro.org>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ krzysztof.kozlowski@oss.qualcomm.com, peter.griffin@linaro.org,
+ alim.akhtar@samsung.com, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org
+References: <GVYP280MB12139AB976CA7ACF49FEB768A1A52@GVYP280MB1213.SWEP280.PROD.OUTLOOK.COM>
+ <CAPLW+4kQTUX8QhKnAP7bg=iCw5hhNQZoW7cuOpTdvvAUpGaicg@mail.gmail.com>
+ <135d48e7-58ac-48b8-8fa5-c2548e2f3ae9@lineageos.org>
+ <DKZ3X5VUHJSK.1KSJR6K8FATGV@linaro.org>
+Content-Language: en-GB
+From: Thomas Turner <tturner@lineageos.org>
+In-Reply-To: <DKZ3X5VUHJSK.1KSJR6K8FATGV@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_120652_040661_02EF708B 
-X-CRM114-Status: GOOD (  36.99  )
+X-CRM114-CacheID: sfid-20260826_124410_454469_78CD2AC6 
+X-CRM114-Status: GOOD (  25.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,110 +83,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 10:49:02AM +0100, James Clark wrote:
-> This fixes two problems, firstly per-thread mode didn't support multiple
-> threads well or at all because we always use queue 0 and assumed it was
-> for a single thread. However, Perf attaches to all child threads of one
-> process or allows multiple threads to be specified on the commandline.
-> This meant that trace before a context packet could use the wrong MMAP
-> for decoding, and threads running concurrently wouldn't be interleaved
-> properly.
-
-If I connect this with patch 03, I understand "a context packet" here as
-the trace synchronization with a timestamp, which is needed to correlate
-with MMAP records.
-
-What I don't quite understand is how switching to multiple queues fixes
-the "trace before a context packet" case. Wouldn't decoding still need
-to wait until the first timestamp/context information is available?
-
-> The second problem is that we'd put all HW_IDs into queue 0, so if a
-> thread runs on multiple CPUs then it would receive multiple HW_IDs and
-> trigger the assert that unformatted trace should only have 1 decoder
-> per-CPU:
+On 26/08/2026 20:02, Alexey Klimov wrote:
+> On Tue Aug 25, 2026 at 10:05 PM BST, Thomas Turner wrote:
+>> Hi Sam and Alexey,
+>>
+>> On 19/08/2026 20:51, Sam Protsenko wrote:
+>>> Can you please tell us a bit about how you tested this patch, and on
+>>> which board? As DPU is not currently enabled on Exynos850 SoC, I'm not
+>>> sure how exactly GPU can be useful. If you have a use case or a
+>>> testing procedure we can run on the E850-96 board, please share.
+>>>
+>>
+>> Sam, Alexey could you please test GPU on the E850-96 board by following
+>> these instructions:
+>>
+>> 1) Apply this patch series locally
+>> 2) Change status="disabled"; to status="okay";
+>> 3) Make sure these configs are enabled:
+>> CONFIG_DRM_SIMPLEDRM=y
+>> CONFIG_DRM_PANFROST=y
+>> 4) In terms of regulators we set up a basic mali regulator via our
+>> secondary bootloader [1] and configured with this dts setup [2], NOTE
+>> you may be able to get away with a dummy regulator so try that first.
+>> If not I am sure you can replicate something simple with u-boot PMIC.
+>> 5) Boot a GUI, I saw Debian was used for the bring-up, that should work
+>> 6) Run the following command:
+>> $ dmesg | grep "panfrost"
+>> 7) Compare that to the output at [3]
 > 
->   $ perf record --per-thread -e cs_etm//u -- taskset --cpu-list 0 \
->      taskset --cpu-list 1 true
->   $ perf script
+> Your email subject still seems to be null.
 > 
->   perf: util/cs-etm.c:3381: cs_etm__create_queue_decoders: Assertion `decoders == 1' failed.
+> [   15.206193] panfrost 11500000.gpu: clock rate = 377000000
+> [   15.206322] panfrost 11500000.gpu: error -ENODEV: _opp_set_regulators: no regulator (mali) found
+> [   15.206513] panfrost 11500000.gpu: supply mali not found, using dummy regulator
+> [   15.206840] panfrost 11500000.gpu: mali-g52 id 0x7212 major 0x0 minor 0x0 status 0x0
+> [   15.213137] panfrost 11500000.gpu: features: 00000000,00000df7, issues: 00000000,00000400
+> [   15.221271] panfrost 11500000.gpu: Features: L2:0x07100206 Shader:0x00000000 Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
+> [   15.233080] panfrost 11500000.gpu: shader_present=0x1 l2_present=0x1
+> [   15.240488] panfrost 11500000.gpu: [drm] Using Transparent Hugepage
+> [   15.250497] [drm] Initialized panfrost 1.6.0 for 11500000.gpu on minor 0
 
-Seems the commit log misses to explain how to fix issue.
+You seemed to have missed out step (4) of my instructions, if you set-up
+regulators correctly this error will disappear.
 
-> Fixes: 9182f04a85b2 ("perf cs-etm: Pass unformatted flag to decoder")
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  tools/perf/util/cs-etm.c | 30 +++++++++++++++++++++++++-----
->  1 file changed, 25 insertions(+), 5 deletions(-)
+> [root@e850usb ~]# uname -a
+> Linux e850usb 7.2.0-next-20260825-00009-g647b48e80572-dirty #8 SMP PREEMPT Wed Aug 26 17:05:45 BST 2026 aarch64 GNU/Linux
 > 
-> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-> index d423f1cb408f..ccf886efff95 100644
-> --- a/tools/perf/util/cs-etm.c
-> +++ b/tools/perf/util/cs-etm.c
-> @@ -295,9 +295,6 @@ static int cs_etm__insert_trace_id_node(struct cs_etm_queue *etmq,
->  
->  static struct cs_etm_queue *cs_etm__get_queue(struct cs_etm_auxtrace *etm, int cpu)
->  {
-> -	if (etm->per_thread_decoding)
-> -		return etm->queues.queue_array[0].priv;
-> -
->  	if (cpu < 0 || cpu >= (int)etm->queues.nr_queues)
->  		return NULL;
->  
-> @@ -1268,7 +1265,7 @@ static int cs_etm__setup_queue(struct cs_etm_auxtrace *etm,
->  	queue->priv = etmq;
->  	etmq->etm = etm;
->  	etmq->queue_nr = queue_nr;
-> -	queue->cpu = queue_nr; /* Placeholder, may be reset to -1 in per-thread mode */
-> +	queue->cpu = queue_nr;
->  	etmq->offset = 0;
->  	etmq->sink_id = SINK_UNSET;
->  
-> @@ -2160,6 +2157,7 @@ static void cs_etm__flush_all_stack(struct cs_etm_queue *etmq)
->   */
->  static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
->  {
-> +	struct cs_etm_auxtrace *etm = etmq->etm;
->  	int ret;
->  
->  	/* The current block is not finished */
-> @@ -2188,6 +2186,27 @@ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
->  	 */
->  	cs_etm__flush_all_stack(etmq);
->  
-> +	/*
-> +	 * Per-thread mode still uses a queue for each CPU, but that CPU can run
-> +	 * different threads. When the TID from the AUX record on a CPU changes,
-> +	 * re-initialize the thread using the AUX record/buffer fragment TID so
-> +	 * we can start decoding even if the context ID packet was cropped or
-> +	 * they're disabled.
-> +	 */
-> +	if (etm->per_thread_decoding) {
-> +		struct cs_etm_traceid_queue *tidq = cs_etm__etmq_get_traceid_queue(etmq,
-> +							CS_ETM_PER_THREAD_TRACEID);
-> +
-> +		if (thread__tid(tidq->decode_thread) != etmq->buffer->tid) {
-> +			thread__zput(tidq->frontend_thread);
-> +			thread__zput(tidq->decode_thread);
-> +			tidq->frontend_thread = machine__findnew_thread(&etm->session->machines.host,
-> +									-1, etmq->buffer->tid);
-> +			tidq->decode_thread = machine__findnew_thread(&etm->session->machines.host,
-> +								      -1, etmq->buffer->tid);
-> +		}
-> +	}
+> I have different DRM_SIMPLEDRM options and related  enabled but nothing
+> pops up via HDMI (at least I tried simple xorg-server things).
+> Is it possible that your bootloader initilises some framebuffer and inserts
+> it into DTB that passed to kernel? Or you have some other pieces in
+> kernel/dt that implement missing functionality?
 
-This works if the auxtrace fragment initially represents trace from that
-TID. However, doesn't this introduce an assumption that an AUX fragment
-contains trace from only one thread?
+Our bootloader does intialise a framebuffer, and we have a node in our device
+tree which makes it usable. Not sure how exactly the e850-96 device sets
+things up but you can take a look at our fork if you want, [1].
 
-It seems this assumption impacts the kernel patch [1], the tool's
-implementatoin imposes the limitation that driver to cannot support
-multiple threads run concurrently with shared sink.
+> Here it seems there are no outputs:
+> [root@e850usb ~]# ls -al /dev/fb*
+> ls: cannot access '/dev/fb*': No such file or directory
+> 
+> and there no simle framebuffer or related logs. "DPU is not currently
+> enabled on Exynos850 SoC" looks like the reason.
 
-Would it be better to enable contextidr for per-thread mode and rely on
-Context ID packets to update the thread context? We could then reuse
-cs_etm__etmq_update_thread() / cs_etm__etmq_update_decode_context()
-rather than relying on the AUX fragment TID for this purpose.
+hm, I am pretty sure our bootloader configures DPU for us so that might be
+why it works for us and not for you.
 
-[1] https://lore.kernel.org/linux-arm-kernel/d833aeed-7376-48af-b772-4fe4ac66471d@linaro.org/
+> Panfrost itself seems to be alive though:
+> 
+> [root@e850usb ~]# eglinfo -B
+> GBM platform:
+> EGL API version: 1.5
+> EGL vendor string: Mesa Project
+> EGL version string: 1.5
+> EGL client APIs: OpenGL OpenGL_ES
+> OpenGL core profile vendor: Mesa
+> OpenGL core profile renderer: Mali-G52 MC1 (Panfrost)
+> OpenGL core profile version: 3.1 Mesa 26.2.1-arch1.1
+> OpenGL core profile shading language version: 1.40
+> OpenGL compatibility profile vendor: Mesa
+> OpenGL compatibility profile renderer: Mali-G52 MC1 (Panfrost)
+> OpenGL compatibility profile version: 3.1 Mesa 26.2.1-arch1.1
+> OpenGL compatibility profile shading language version: 1.40
+> OpenGL ES profile vendor: Mesa
+> OpenGL ES profile renderer: Mali-G52 MC1 (Panfrost)
+> OpenGL ES profile version: OpenGL ES 3.1 Mesa 26.2.1-arch1.1
+> OpenGL ES profile shading language version: OpenGL ES GLSL ES 3.10
+> 
+> Best regards,
+> Alexey
+
+Best Regards,
+Tom
+
+[1] https://github.com/samsungexynos850/linux/commits/master
+
 
