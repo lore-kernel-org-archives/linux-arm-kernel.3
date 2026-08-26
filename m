@@ -4,142 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E84AC61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 14:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E882DC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 14:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1JtqDX/iIjI+Yod3O8jj8tCrxWMNRyZgjyNMEDzhwLw=; b=ZpuZU3TBjbjowce/y8w7KCk29o
-	1G5wmsuGY9DyV6apWTxLxkeB+o5ea0HIwwd5CTH9xgrJZr/7h9ytg1vd1LA73JQBFqN7u3Sw3FkV5
-	or00PQx1A0Bmyop7NatXukWaQPk1jgcUgcWg+pMLCpKkdyG1An6PmynUq9qtzxZr4tJa2mlSht3bU
-	MS2An4fSR6xb0Of9dsMZgfwgxSEOg9tkg8pbXjCx3k+UhXQ3R3B685as17IijkEmDN9AK97VoQEbA
-	rmuaCoMZOf4aEnNQRM7M7VtZb8C5n/wwolPRhqKOvLmo9PAIP32Sxmfe1Yi1CUex6xHV+0Rgq3uZp
-	T1QkymnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ygp9j6ThlfTN1OYLO/etMR3Ca2p99fzc5FIDOOEydXI=; b=1sYvy9+zsgwXLYqazHOQOPAeWE
+	oA5AkYnezZEEMddHmkMQEOiYzl+frhDCKP7qlfChHb7eSE3sHan7JFmbGjNG8m5Uyc0gkF1AM5q6y
+	hleWynlbdmtpwrKWiJZP3slZD1ynYUayOXk5J/axkp0VJu4Ij5yDxeudhGKR1k0wjB9FXvpL6WvtZ
+	y87roXV+EDsMMFu9Gi3VDChqg7XXW0LjIFzA8MVQe5v3M/guMrQBEVg5vlOwL05vfFgtLeE7z3ARx
+	q5021O2rNCaC2AIxPMJM35XcgN2kKOFE+g7h2vHrC8vHN5CvTKweSzu/0eNuUcD18IPZqsyFyvM4B
+	AR2Qb+OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzEiq-00000002bWb-0r2Y;
-	Wed, 26 Aug 2026 14:35:24 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzEin-00000002bW0-3GV3
+	id 1wzEw0-00000002cSB-1rUj;
+	Wed, 26 Aug 2026 14:49:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzEvx-00000002cR1-1Vyw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 14:35:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RRXCvyKUMielM4AbG1yGq3uaZbDb7WcixKklN84F7iNRdmBff6UzCV8uaf6IREJ5FrlwiWIHDYg886hkAmHa1r/INCufzCRiAbEvb7PiNDSR4anpAcdkVmOlmwxUi+AcKnDV8rPOcPYKyRPwv3Cxgjrd+wszaH2kIJ+KnK6T8l8mzSkV3EL4T9NHLCIjy7McNHTYassYbfKOM5L5FhHK6KKmGfZwQ8thq9McUYBexUXijIKvShNSpECBWWbr9ptWMSQaE3rNzlezH3W9IqTw8EH/e26BOvaOduBe+55jc1s8E8yB/4QzFwMapsk21PxsnqnSufobKtwIDi/Q4zpJZw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1JtqDX/iIjI+Yod3O8jj8tCrxWMNRyZgjyNMEDzhwLw=;
- b=G9zqBQd32Mnz3WJ4b7COwwObg/lnuKjvmkEjP5xAQ53/wAUw/idgcsJhzgM78Wkm+cVKUG1hlfI94D4KM329CSeNWJj5cH8nP//k4n647JkN1gXVRf9CX56+Tw6ER4A/fLHSfB3l4Xm8kI+/3+v36N3hZmbv1g6VDqoiE3gNgqDlodxsUhbXkD/u4+tadf2zeR48Tw8KvtCkp1G9EQ761VAjOdpZAc6pCx0gkhMgcEQQcp/WMlOecz6qw0jR+TWBHUm4NwH/yNp8i1WgrIL86WuM2ER+lJ0vz2lOZrEepjArvV+2cdQ1nVXUGUTH0fCdjfMqLFLEa0GrYk5CXhL5VQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1JtqDX/iIjI+Yod3O8jj8tCrxWMNRyZgjyNMEDzhwLw=;
- b=MDhswKGDExFbwV5lJ9+BwYMwulJNisZlK37AIPBCM96XIjcyBePYMSmAuGUiE5GMEAMKFRAK8tks7Lieb9B1abxMdQ7uPp+tXJq+yjouQn0Roeqq3UJ21r3uioErXtU48tv+lEjYyTsdrp5Vf7e8qTE8Pw+mlcZvJTH/9TUtNpJd3tHawjDmpnLRRSAjjxDfwkpg96ENcWqnu88xADr3J8aSdJVuoJnEyX8L9O497o1ObkPHjhgy5sLwZ1QRMHcVSjL02bP/+vn58s735XTIKMxvQXIiqxpudMpzWmPoyAGQSGMPNUqqFDiKogz+/hOZXY4E3nRblgJdQA6g4ySAHg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GVXPR04MB10406.eurprd04.prod.outlook.com (2603:10a6:150:1e3::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.8; Wed, 26 Aug
- 2026 14:35:14 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.012; Wed, 26 Aug 2026
- 14:35:13 +0000
-Date: Wed, 26 Aug 2026 09:35:01 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Larisa Grigore <larisa.grigore@oss.nxp.com>
-Cc: NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@sandisk.com>,
-	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
-	"Martin K . Petersen" <martin.petersen@oracle.com>,
-	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
-	Ajay Neeli <ajay.neeli@amd.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Pedro Sousa <pedrom.sousa@synopsys.com>, clizzi@redhat.com,
-	aruizrui@redhat.com, eballetb@redhat.com, echanude@redhat.com,
-	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH 06/10] dt-bindings: ufs: Add compatibles for S32N79 Host
- Controller platform driver
-Message-ID: <ao75lU2zYDeOZi2f@SMW015318>
-References: <20260826134048.854748-1-larisa.grigore@oss.nxp.com>
- <20260826134048.854748-7-larisa.grigore@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260826134048.854748-7-larisa.grigore@oss.nxp.com>
-X-ClientProxiedBy: SN7PR04CA0080.namprd04.prod.outlook.com
- (2603:10b6:806:121::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Wed, 26 Aug 2026 14:48:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A7F1816F2;
+	Wed, 26 Aug 2026 07:48:49 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4DACB3F7D8;
+	Wed, 26 Aug 2026 07:48:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787755733; bh=vLb0Om9UgS2n6FDS9rGiXGaZDVt71YmuY1679WKO2V4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kTtoJaFENZIGpQGgOEM6RwVAGj0gR0mVYgCS3/4s9CcdnY+LzFxgkQM0z0AKmc1JZ
+	 v69DElMYWTGU8N5ROmOTX1FIJclhONhoSO/+IZBHodJ8iCJ/RWKOK4manc4Rxy6LdM
+	 tCjO/WW8XaWXDziSHFDGtZYjsuKmhKeZM6U+R5EM=
+Message-ID: <a491ea12-b0f6-43e4-bb5d-dba508120bfb@arm.com>
+Date: Wed, 26 Aug 2026 15:48:50 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB10406:EE_
-X-MS-Office365-Filtering-Correlation-Id: da76c66b-813f-4c01-35db-08df037f3d32
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|19092799006|376014|23010399003|22082099003|18002099003|3023799007|10067099003|11063799006|56012099006|4143699003|6133799003;
-X-Microsoft-Antispam-Message-Info: K4j2R2EkjKVuDzq4iZs0BciSoWQrvjjlJUdBC/fjPYPWCgQMY6M/CuBXAyx3O/3/ODQ/6aCsdM4nvzxLykAYKj6EOzbdaet1ZmcLfid9BdfqlnCPjwkK/ePi8NlWEQn6JPys1wZ+kWJZ254MmEpj3dg+QHFZlbRyhwo5UDO3aKmAaI8IRbkX/dlnAgSmjmR3AFHHIlFoD7G2pBvzcOiyrrYiDrjyH9msePFpiQMNcVSfJWPC1RZwT9p5sib4WjWwob2lFf3wnP63dfoJEU8HeS2TR9veYw24wTAbgN2ADN59C1OVuaGy/3oGGO/nntKL3gXUTqJiamL5+Bxj3kvm7BIihA7aDiWLYSakBTM+EeNdywnkKYakikmOdtLztkUm0lEoCl42Ua+HxBjjDLqssuSEV9FxPugf/MNbfoflWMDUp/29ItWBC2HLbEYkqiFkOc4+HXNtVdqIABKBTo6J2sjR05kpSrfTDSiXT8ivCx4gpBRfNBO/IC1ApAK4s3C+Uh5acStXR7qbyWUUksmQkpcPwJRcTNsR/XbppBMI+lynvscPIMzNuYqYhghGxX9wJK7GGbOFqRYZKlTyTrkSYslCwqW5fj1fD3/T2XhE9p57z1VVAd1rBqkPh62u7FO2
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(19092799006)(376014)(23010399003)(22082099003)(18002099003)(3023799007)(10067099003)(11063799006)(56012099006)(4143699003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ynp2eP/ukFO6NQaYlcyc23U7Rk/PeN9aoMHbfhfV1yHaTmgG1GsxuJOFENQ3?=
- =?us-ascii?Q?13e3cK+yGSCT3/nP5qkDh5Vba9Qeu4Wtt3eZnbGFed5H58WfV794m5yLz0ts?=
- =?us-ascii?Q?GtlbHn+G1YW5vbufu7FZjKeSfjepX1oUQDEdayV0mR1KJbDTW4iaLBYGFxNy?=
- =?us-ascii?Q?p+EKStFLR1j3tx2z1QWplRBHXHOK6nijIEqk5KoYqCpinuiWkfL/qEh7oSjS?=
- =?us-ascii?Q?cG8pO1ygvvQi7KtGJ0BhPQ9x+DKXwZiL6lb0HSbn/xTnm5dHcTXdZg2ve7qk?=
- =?us-ascii?Q?tqkYKPPgr/RLzZIKvwVa2wZo1d7ehdgh7zwvSi4oKjbzhmzZoPKZ2NmBuUAS?=
- =?us-ascii?Q?HOngDdv7A1KkQhMGXG/DsOfbl8PR8UGxYoO0MGMTmfJ8+MMQYvaHNLaT441y?=
- =?us-ascii?Q?tu3kdV22jFtIPnjWAhOFE3eUiWyxNTbDH+V+/kXBgajdJG8cXv2qXNSKDorw?=
- =?us-ascii?Q?Co1MJOScB3RJ6+7Pg1f3STLv2wA8Q5ZKtt5X7kxFRWaTVViaFnoL0QRaQda2?=
- =?us-ascii?Q?WcoY8lFL8PrD6Dz3PCRD8HF7whCPF9EVnhDbyrFGWwhrGEh6tHzQZscmhJdI?=
- =?us-ascii?Q?YLfRn+Qhw0jdHUna59IwIavZSN424tueAyTj9OjDG8mtDb1XgSHn45iNc0QZ?=
- =?us-ascii?Q?WSx3mxJWTyCNfDGM7ZHA35SfZVqxjkh4lCqeTgDEQTlPCaEY4J/P/W9zBnc6?=
- =?us-ascii?Q?CyZGp8Q2u44DTOsdpSUZKk4gjT3pxaiK3WRMekXFsY5fL64bO3tKjVk8fPJe?=
- =?us-ascii?Q?PMOARntEJxvlmqvjq/MTsHSrD6TkqvzYwlc0ZICjjY24/ScjclLv4v8dIZ1N?=
- =?us-ascii?Q?8YS36ZFOyS/o6lHxIATWAg/URf2QjNqG2xS9gmzU3DRZHMOHKiJfpcW9JqRC?=
- =?us-ascii?Q?Dz84hNJxDGwmjsmtgwGnQkVD61qJ7aohfxwRR1pVRy831aJaA2/z/ZJiOB9j?=
- =?us-ascii?Q?ZIaMyg72Gt5jfIeSzN0tt0pAWtAcnGlMOm6uZZaUlyy8tVJv3CLOtHxUipqm?=
- =?us-ascii?Q?9MXMM77V/TZJLjZ8/j5fBXme/aYlKiSKAS8t3Z9hfECWzZrUdGsVBr1Q1wcs?=
- =?us-ascii?Q?ICWo1+SQI9Rt9+6CVQynOSlA0B5ECR150AJ1Bn+6tddihqPVhkaL+F7O+tUh?=
- =?us-ascii?Q?8XudWx9SLHAKBdOzqDro5Xp+ipVLLn523V3prP/VbOEVcAK6ZMri0sN/i1G3?=
- =?us-ascii?Q?vfnXKz6I+/CRkU5o6VHdHlgnDy/86kMJ8G1Qp9x3MQHPmeNrU6EHN8LFigJH?=
- =?us-ascii?Q?SSpAXpPjd0TZrvTsoj4j9TPxgz8hNZ/CS8xs/We2U+3IJMVCTGrPvXgBARbK?=
- =?us-ascii?Q?la/NhoocuWLetiyJRWZVWQH4BvGvsK9C+IqqqAabP99fATb3xOS7VDZyP/O9?=
- =?us-ascii?Q?KU3lmKkn/QmEn3N2dodhVqQwGC/ZWpOBsepZnkJAfsJMbshaqyluPwrhJJHV?=
- =?us-ascii?Q?G/mfw4H6Bpz4QjpaIo27hnQv2T7sAhamDKL7T8jap2z2gDv6YWK0/8GoYOHD?=
- =?us-ascii?Q?tZbyib8wqq7/mYkcHlsFNGHmuOut/de1NwE/ZBgjXaHGJbKBU9M2qJ3VpXPp?=
- =?us-ascii?Q?+AtCT7PSV6ua3z+MshN/rBiay6XzdoWoRKkbBlPRpXAei+hUnh2AsbN4Ieaw?=
- =?us-ascii?Q?YWmWIP2pHmZ2cKg+GKiHBeJ15IEMLob7VR2l7ytA3Vfxxt9Hj1HNeSIfdsip?=
- =?us-ascii?Q?SKtx5sSphIf/Q5A0BOhezg7q++X3tvrOjx9zdhwqzSSRIhUrRmL4bFC7J6Zo?=
- =?us-ascii?Q?ctYHQ8w52YHVgjpiWLnBt4Z6ARew0EPxtBw8pLIrIkcj83Vfl7km?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: da76c66b-813f-4c01-35db-08df037f3d32
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Aug 2026 14:35:13.5048
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2TmTykJpMuJDwYrcsEaV+3Yo/c7O/OtluvwwgUavcdAdI33cqeG7DNDV5jCwg+EB2Rc3czu9Yyphtp/7i7aD5dZPI9DXwfZrr4ltQm+FMfd1MwUrTxtqa/kxzfSFAl6o
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10406
+User-Agent: Mozilla Thunderbird
+Subject: Re: arm64: MPAM2_EL2 and MPAMHCR_EL2 are left UNKNOWN under
+ arm64.nompam
+To: Fuad Tabba <fuad.tabba@linux.dev>, Xi Ruoyao <xry111@xry111.site>,
+ James Morse <james.morse@arm.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>,
+ "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <CA+EHjTxeWxZiuSmnKLGLxTBXP4oJT7-LuffbPAyCSZZ5TW=5Ew@mail.gmail.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <CA+EHjTxeWxZiuSmnKLGLxTBXP4oJT7-LuffbPAyCSZZ5TW=5Ew@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_073521_901607_ADD653E7 
-X-CRM114-Status: GOOD (  24.85  )
+X-CRM114-CacheID: sfid-20260826_074857_659157_5FC67AA8 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,148 +75,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 26, 2026 at 03:40:44PM +0200, Larisa Grigore wrote:
-> [You don't often get email from larisa.grigore@oss.nxp.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> Document the device tree binding for the NXP S32N79 DWC-based UFS host
-> controller which is compliant with JESD-223D "Universal Flash Storage Host
-> Controller Interface" v3.0.
->
-> The controller requires access to the SCM register block and the core
-> clock rate when M-PHY initialization is performed. Add the optional
-> nxp,mphy-boot-mode property to select the M-PHY firmware execution
-> environment.
-> Currently, the M-PHY firmware can only run from ROM. If the property is
-> omitted, M-PHY initialization is assumed to be handled externally.
->
-> Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
-> ---
->  .../bindings/ufs/nxp,s32n7-ufshc.yaml         | 99 +++++++++++++++++++
->  1 file changed, 99 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/ufs/nxp,s32n7-ufshc.yaml
->
-> diff --git a/Documentation/devicetree/bindings/ufs/nxp,s32n7-ufshc.yaml b/Documentation/devicetree/bindings/ufs/nxp,s32n7-ufshc.yaml
-> new file mode 100644
-> index 000000000000..d9d5669be313
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/ufs/nxp,s32n7-ufshc.yaml
-> @@ -0,0 +1,99 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/ufs/nxp,s32n7-ufshc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: NXP S32N79 Universal Flash Storage (UFS) Controller
-> +
-> +maintainers:
-> +  - Larisa Grigore <larisa.grigore@oss.nxp.com>
-> +
-> +# Select only our matches, not all jedec,ufs
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: nxp,s32n79-ufshc
-> +  required:
-> +    - compatible
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - const: nxp,s32n79-ufshc
-> +      - const: jedec,ufs-3.0
+Hi Fuad,
 
-Any place actually use this fallback?
+On 25/08/2026 20:18, Fuad Tabba wrote:
+> Hi Xi, James, Catalin, Will,
+> 
+> I'm going through the features that can be disabled on the host
+> command line, checking that EL2 either traps them or leaves its own
+> controls in a defined state. That quick and easy GMID_EL1 fix came out
+> of the same pass [1] :)
+> 
+> Since 10f885d63a0e ("arm64: Add override for MPAM"), arm64.nompam
+> skips the MPAM2_EL2 and MPAMHCR_EL2 writes in finalise_el2_state, so
+> on an MPAM PE with EL3 implemented the trap controls in both keep
+> their reset values, which are architecturally UNKNOWN.
+> 
+> I was wondering whether that was deliberate. AFAICT, restoring the
+> writes would trap to EL3 wherever MPAM3_EL3.TRAPLOWER is still set, so
+> it may not be safe on the machines the override was added for. I have
+> a patch restoring them, but I learned my lesson.
 
-> +
-> +  reg:
-> +    minItems: 1
-> +    items:
-> +      - description: UFS Host Controller registers
-> +      - description: System Control Module registers
-> +
-> +  reg-names:
-> +    description: |
-> +      Names for the register regions. The first entry must be "ufshc".
-> +      The second entry "scm" is mandatory only when nxp,mphy-boot-mode
-> +      property is present.
+Yes, on a system where the firmware ignores MPAM, MPAM3_EL3.TRAPLOWER will be 1 and the traps won't
+handled and so if MPAM2_EL2 or MPAMHCR_EL2 are touched to disable the traps then the f/w will panic.
+As you say, if arm64.nompam is set on a platform where f/w has cleared MPAM3_EL3.TRAPLOWER to 0 then
+the MPAM registers may or not trap . This is different from other features because the EL2 register
+than configures the traps is MPAM specific and not in a generic register e.g. CPTR_EL2.
 
-you already us if - else branch to restrict this limition, needn't
-description here.
+There seems to be no way round this other than documenting that you should only set arm64.nompam if
+you are sure that MPAM3_El3.TRAPLOWER is 1 as you otherwise have a side channel. What do you think?
 
-> +    minItems: 1
-> +    items:
-> +      - const: ufshc
-> +      - const: scm
-> +
-> +  clocks:
-> +    maxItems: 1
-> +    description: UFS core clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: core_clk
+Thanks,
 
-Needn't suffix _clk, just "core", generally needn't clock-names if only
-one clocks.
+Ben
 
-> +
-> +  nxp,mphy-boot-mode:
-> +    description: |
-> +      MPHY initialization mode. Defines how the MPHY firmware should be
-> +      initialized and executed during UFS controller startup.
-> +      If this property is not specified, MPHY initialization will be skipped.
-> +    $ref: /schemas/types.yaml#/definitions/string
-> +    enum:
-> +      - rom
 
-why not use standard "phy" property, if no "phy" means ROM init it.
+> 
+> Cheers,
+> /fuad
+> 
+> [1] https://lore.kernel.org/all/20260825164219.3347229-1-fuad.tabba@linux.dev/
 
-Frank
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +allOf:
-> +  - $ref: ufs-common.yaml
-> +  - if:
-> +      required:
-> +        - nxp,mphy-boot-mode
-> +    then:
-> +      properties:
-> +        reg:
-> +          minItems: 2
-> +        reg-names:
-> +          minItems: 2
-> +      required:
-> +        - reg-names
-> +        - clocks
-> +        - clock-names
-> +    else:
-> +      properties:
-> +        reg:
-> +          maxItems: 1
-> +        reg-names:
-> +          maxItems: 1
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    ufshc@4ac80000 {
-> +        compatible = "nxp,s32n79-ufshc", "jedec,ufs-3.0";
-> +        reg = <0x4ac80000 0x1000>, <0x4ac40000 0x1000>;
-> +        reg-names = "ufshc", "scm";
-> +        interrupt-parent = <&irqsteer_coss>;
-> +        interrupts = <211>;
-> +        clocks = <&sys_clk>;
-> +        clock-names = "core_clk";
-> +        nxp,mphy-boot-mode = "rom";
-> +    };
-> --
-> 2.43.0
->
->
 
