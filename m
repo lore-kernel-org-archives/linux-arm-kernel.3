@@ -4,107 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB61DC61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 08:03:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D98C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 08:03:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uf2R5y6Fxk2ATvMgWSnfDriG/hCrxIHMSdfuHilVYAc=; b=EU6R6YBfyqN8MOMZLF0hWGWbn/
-	SQXPvZM9Tpq3vneZzQWgWDe5loJvczihP+5FtW4HT7KsVLKNJ55KOQkQWUY43A/jw34Uyi5z7UeLv
-	2csBkaRZUFYe1ObesOHO33u/KsAkn/5iGwJ9H56sAoWEU0N9tyC57R0HKfPm5FNp2FX8D15rUqaz1
-	riuTPAOnokmxhHrPXibZTKJjqwerXWqBi8mjVoG0pm4qf5/aOyk1scdWCsRaMMuvbsWwBIQmJxX5w
-	wfzTyPjnlwi/4qg6SOdqqWqxhqi7dhO59wBo+/bXEpuFrAkWqakOLezaDY8FgRbogtkdIk14FjWSU
-	EG9c++8Q==;
+	bh=TGWXhg3kIFRbogyDdU2TFv0HSJZmOgnoG5WYlfdiuIY=; b=ToqV5mOdFEtuJfkkXcqHjAS/IU
+	Nl6JTow+fVWYZ2e2U5MYcO+NkF49BLGGThxDT/Sia5LdKNz5riPUDF1Ml4HFaGj64EJNe8buo49BZ
+	Bn0J6dkOH84jS7mGo1rHLMlUm/Igpx0beIKZjgzYgTp+teOrnpnQ/Da/5euGttvuvQdWPAdHWuu6H
+	o3ekHvm/pAUnm/9WB4foUBa4EOXAMezVVSHXm57yxxpzlNyIFBkGywB2P8HPrPuhOdhdexrUbzmju
+	r4YgJNO1U86GMsyEZValrMR9WNC/GNqWALRBH5UlJJcdzCXAT0xWbZdIxRsvUdU0+jwjlJipxeNsa
+	yw5D0mqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz8bL-000000022oc-1rd9;
-	Wed, 26 Aug 2026 08:03:15 +0000
-Received: from mail-yx1-xb131.google.com ([2607:f8b0:4864:20::b131])
+	id 1wz8bl-000000022sY-2l56;
+	Wed, 26 Aug 2026 08:03:41 +0000
+Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz8bJ-000000022oF-43QU
+	id 1wz8bj-000000022rh-11ua
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 08:03:15 +0000
-Received: by mail-yx1-xb131.google.com with SMTP id 956f58d0204a3-66d1663c00dso552357d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 01:03:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787731392; cv=none;
+	Wed, 26 Aug 2026 08:03:40 +0000
+Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-836c4474028so6600387b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 01:03:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787731418; cv=none;
         d=google.com; s=arc-20260327;
-        b=fVMyrmSc1wAByhJ0A7D9RGAjt1BKT6XKE5xI58kZUuc9m0JGYMFUCvMP0rIl+0lO52
-         mBJLuJeaNzhV95OJVuM7Va9Z8t+4zThbRRYIDJqSHpy2j+OYyZCc/TbM4ii/byGUNmqH
-         EUS0fZUlaY4kv1fQBQH+oxwif7Qnlrd8M1UdtzZeNANI8UCKWfxJi1/DMtArptzXyNgV
-         T9r5ca7ewQyuybJuNsZak54YYT8ZBDlFKC0sfB8bTxbHdLI6HFiRd9QQS1zaeG+tkhq9
-         JjzS7UHYLzRwUrzFlvx7AcMoNodfo49dSnFCLvNxvMJHeN2Y/gXKj9OWFO92Tkx+JnnY
-         LOfA==
+        b=RJi6ZBKyyJQ0WKSvm21CYLJA9HG0X7SkhwDwBBqviEK+3a6Z+BTcjWBvV+XKk/8Eel
+         RpwDUIZyKA+GofpQiOXLt481iJNxcAs/k8mKbkqjdqo6hUg88PwVi0oz2yFM18T3/EXG
+         1u5KgEUW9lH1gdM2amPQiXuxoSH9ycKS79k5ckdXVbVAEvg0NFoWMW7u3EfTZhwEtrh6
+         v6wLtpYG7ms+nAoQ8cqQFofKO28NY1+2obTBVhVdbD4t9FlWn0wwFmZYMRdK35HxteYd
+         FV8DSzUK+oMw/Ydf6rANn3QR898XcS9g+W42sqA0czOAU1hweEEf0f2pYtoimosRxQim
+         3N6g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=Uf2R5y6Fxk2ATvMgWSnfDriG/hCrxIHMSdfuHilVYAc=;
-        fh=jjpAbA40Yt+Gb+MkZwU6H5Sxw4E0TBgpx7G8qDWSdLk=;
-        b=OwhcVMifWcFlTkyU7ov454XqKRoIl6U8dADcqOndvcQH3b2/3Wd9vkmelNDjRz38fs
-         vOiSp1PTSWHgQB0uKMdPyNXEgRFWuMMdYQWO7+OThSWtjT34HM2FGWNbm9/n++qUjDYO
-         acikjtu9Hinek52t2vLVUWzqJS6Mm94QMrfNv6u/mjS+x/sg9qVG7PX0zQjUjw89w5UX
-         fvNBlVvtVEIJDJSVT7SO4l0wmfctMXOkg+etd9jfpxJNjTYXTWRMAv1/0Ca1GY9Uzl26
-         LkkRHDDAVYpX39oM3kmFPikOZOrfYBLPFOQNq1PP1TnDp9mWve+Tu+zDJ57SE9ScZpHK
-         Ba1w==;
+        bh=TGWXhg3kIFRbogyDdU2TFv0HSJZmOgnoG5WYlfdiuIY=;
+        fh=0qQhmEu4a5PKYeT3WmaofKOsAdYl5fgnAcBN6sa/yIU=;
+        b=oYVGvdlwk6Mb2hqtJ0sRvxJcecbl0EB4zKJTriapfEyX/GnkxM+JH++tR9SekhVMLH
+         IujoKsIKR7F3tnBqXAbAw8A7N8N6B9eK3CT3+B8WacxdQFOVOcr36Ht4SAgsyjpZHTgj
+         Sa29Ienglh0hOTp0Og/xipEUFRgiAQA5yzOIHpWXyIc0RMTKMh8NUdIVsCWb8AVWcbUK
+         nUjHoPeTZdATfKpJ8zYh9W5w0rOGo4fWn60ROfgj5munhTx18fmomgi06k1sILPDYJUJ
+         2kprYLqgRdCaIsaIUyg0/u49XjiRHvFbnqtj0sOR2C8gC5VBD/PjSC55adMmbTrNajZm
+         JhDA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787731392; x=1788336192; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1787731418; x=1788336218; darn=lists.infradead.org;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Uf2R5y6Fxk2ATvMgWSnfDriG/hCrxIHMSdfuHilVYAc=;
-        b=MVmlx5GBhNg47y2kTwieF48QgougFggwIE3zcbfilsIrd/TclXCoMWJY+6vw+zRcU8
-         EN8MCkJDs1mND11KwCNngNoYUlWOpE0DdoOQ46xZICWdk/peNp9R42ZqUTDmoTiTaRNZ
-         aXk1wjT05oWkKW6udkS8teCDsBbUtMEMxssAIrPSdiINg3S5/4UoRi96qgtl2J8xYJzo
-         gFHYc86894pKu4m/qGz6bffTVhE6QP40uIj373Tuq0BK7XNFFOVrmjxOJGjURe0+8Uo2
-         1go7hSy7ylxiOurAEOXOzzfvlYJZze7QljpsUhg4aAyLwdL2V9O8dIDIvAIx/Q7aB+fg
-         aaLg==
+        bh=TGWXhg3kIFRbogyDdU2TFv0HSJZmOgnoG5WYlfdiuIY=;
+        b=S1p2YlQtnm/g6/VhBby3ZW5tIBr7F9YhCWHyqc1loobffjS0u36Cr2jth+VF098+7B
+         JaEAue72X+IgkhRKei/MdwG+IBJcMkikBiJUekhEdSmdtS0qJ0utJI3Rqnu2TVULtduT
+         Z2yOuupbIl2STtk0McjtAY0KcPgsGnlVn3X6HIB6l7KRn7Mu6Dtqfx62ZSrVhsErWh0o
+         18jovFzKz6akUwg6dgDMHPk+ERyaUNX/LwtVtYfoGTjW91b6WDx5alaoLM83A06Nn0pB
+         pbnRBvk/dK7PjXNwF59akti39d7Sp2m0BpVzsSsciikAOYrYuJoE7Pf85URyc4vmN5Sz
+         9XXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787731392; x=1788336192;
+        d=1e100.net; s=20251104; t=1787731418; x=1788336218;
         h=content-type:cc:to:subject:message-id:date:from:in-reply-to
          :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=Uf2R5y6Fxk2ATvMgWSnfDriG/hCrxIHMSdfuHilVYAc=;
-        b=nzzYvoxBb17r5h6TBrvhhyeRpVvDoEBDsSuVCjK8Fvw5+p1KEyypD+9EaLj5uWyXEU
-         W/sOAehPQazmcOxLIzo6Lrr2tlDWXlfRryY75eelYsxb59OAYwBdi1+FKW1+JNciPDSe
-         Wf26Csxq9w2VNJaXnoHVhl0Elgj33ptibkBnbNL59EbBveCTB88A2HECc+k2Db/GztaY
-         NR6GBEKP18kOJPMJSzwAX4WJlr5PV+FFUU7FkP+tR6Wh0htMZLoiAajtbGT7bSTuwKgG
-         lC1Fm0Ek+Uu1OaKYqJ/J2yy7uNqb3AiVCN4/4nU7soG+aJP3s6pJ/jTm+zfnbstm3RZ3
-         KGOw==
-X-Forwarded-Encrypted: i=1; AHgh+RrXS05/JJDVWZUeJJbbq3uqhxwvPFu8BL4oXyINmClRvPhvfDTb0s+U9zwpapfCpM5ZGKloIAYwqDOgtYI3R0xg@lists.infradead.org
-X-Gm-Message-State: AFuF++kC2kNXcncc4h7lREgRxEWmaouyOTg8TD+Q4dbTwYMuoFyvgOa9
-	0hFFG7Z/jS9gC1hiYCeJp9DjzEarEXXcSihYE/aihvMgLxGPe542QSQch6XvPg0+af8o6oRQeqR
-	Kd3F+GHVThq79prvHGOGshXtuHdBtOyE=
-X-Gm-Gg: AR+sD12ZPjIkawUvV3F315cZdwpa8KdwPPJ8NpSm6cObLzsuHUlZyBzAL/gsCkyvf8V
-	17V09sfCLPpvZjeEoAMwqVcSuGDaUjv609JVEZNkMq+UKWX/HPhklAv9D0kEqRBoN5GjwZzO3zH
-	d8yLOolIIiBGM0RMHybNhFJaNvNr4ibGCWZfLjoKrQ2gRgkn5ppHP7KlZLgVUnE7BdjKo57rPH7
-	9CSLbJA+GlzeEK5yugrX1y/cutb088act7zxPx7DlRxWJy+YxtB5FJYlsD/s870llr0Pv0652aO
-	p3NecZ6L/RcrluBjQG3WStB7w+3iGPnPBYnAkO45Yay3tN4=
-X-Received: by 2002:a05:690e:708:b0:66d:fa2:63d0 with SMTP id
- 956f58d0204a3-66d2580ca29mr1093286d50.50.1787731392131; Wed, 26 Aug 2026
- 01:03:12 -0700 (PDT)
+        bh=TGWXhg3kIFRbogyDdU2TFv0HSJZmOgnoG5WYlfdiuIY=;
+        b=UcW4IAzVjL0SMQSoHuKHa9bQaMWukVhwEVDmSoweuXc3rj98dliubv1sKfYGx+/U3x
+         S1DKflyHSpHlMYNrdcx71T36yzbwXGqO0VEmhnDlQ6h1aBGrOxNMisr+SrOQ4hSGueKH
+         rbTrjZtjOgQYrf9h+RGbspSi5BprE03IjJeEG7aTKB5pyiMb89iDgJQeWaPQwcxqnvjJ
+         7qD1hErJu/mldVrqvV++Ri8dj6j/s6HcHgiXb7PFEC4wol+gzKnqVbfdxFOR01nZdwIg
+         xQ9DW/NaWklT6Qzbp2MY+3JihRqO/M27XeHuEPqsnNcKJeIQ5UefFUe3s1wbW+uUVCMB
+         lvsg==
+X-Forwarded-Encrypted: i=1; AHgh+RpUIpFeXfGxg+JG6YGXrRHijHCUO4Mv44UIGAXnYOo+B0+tZ+Oa+ciag8mqxkrz8/hr8Jx0eibv+ZKneNLIZcri@lists.infradead.org
+X-Gm-Message-State: AFuF++m8l4hcSGCBWVL4WqHxRgz15lnhU3OuLWdeMxynX8Q9OIuaS2SP
+	1xzBssPgZU2x+/2Cl0d6j1yvcSK2zk1F7yx2OhMl5HVNr/FsptseOyqBpRQYCW4nzwcyVwQrJD+
+	zC3ssOQTHW/4ZanQ4kuJ0YO6lkgyqWvI=
+X-Gm-Gg: AR+sD13xEm1UjEMcqnwIVWFNJf+BBKCRJgjyttanWG4w0eXJJeAhlM3BaOwO+nInu90
+	xn2fvXizaDLWSMVMCc+mw6PGCdCJzG7GRh59l2dNbB+C2A9AUw/kZmL9RIeXu3B+Z87RyTU6H1v
+	f0McchEUZyUb19Kgxyl2L7c3aR7rBuDTy6iY6V5UOXwOCEUZARUWJ2oWLFGlS4fEV/o5FOoN5JP
+	Xmfd+8xCiK7S0H1aVGVTJEM/Ho6Wdv36rlYg4tH0XEva2TquIxyhIj9eQduKB9dgs61Tm6EyHj5
+	VyX4P+EEU56lMnsWKy3Op/wPx9Rl2tWXtpDCyO7BYi0kzuw=
+X-Received: by 2002:a05:690e:1516:b0:66c:e3b9:f696 with SMTP id
+ 956f58d0204a3-66d257ea066mr1655899d50.48.1787731418010; Wed, 26 Aug 2026
+ 01:03:38 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260808094114.2750088-1-lgs201920130244@gmail.com> <822e98eb-8e08-499d-a48e-bf39f985c524@kernel.org>
-In-Reply-To: <822e98eb-8e08-499d-a48e-bf39f985c524@kernel.org>
+References: <20260808112551.2786782-1-lgs201920130244@gmail.com> <578653c4-a7c7-498b-a283-f3b17f3d4191@kernel.org>
+In-Reply-To: <578653c4-a7c7-498b-a283-f3b17f3d4191@kernel.org>
 From: Guangshuo Li <lgs201920130244@gmail.com>
-Date: Wed, 26 Aug 2026 16:02:59 +0800
-X-Gm-Features: AcwNN1UyKWn6NmN_t45sTti2vw38ypw6BLs-mDluZkOKLJ35A28L82oBP9VRI-M
-Message-ID: <CANUHTR-UfWT4gw2EZZrYOrOjdwzpcJVnUM1WbkZa=MyR2yDfaw@mail.gmail.com>
-Subject: Re: [PATCH] crypto: stm32/hash: fix autosuspend cleanup during teardown
+Date: Wed, 26 Aug 2026 16:03:25 +0800
+X-Gm-Features: AcwNN1XeMS8Nn9F7_AMg2pV323zlKWTVjDvTMsgkH5LpvJ4tmdamIR4FLSMBfwI
+Message-ID: <CANUHTR-xZpWYjsCAXCe+uRyJS5zuafsxpm7fNO09xRo-LK7jMQ@mail.gmail.com>
+Subject: Re: [PATCH] dmaengine: qcom: hidma: fix autosuspend cleanup during teardown
 To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Thorsten Blum <thorsten.blum@linux.dev>, "lionel.debieve@st.com" <lionel.debieve@st.com>, 
-	linux-crypto@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
+Cc: Sinan Kaya <okaya@kernel.org>, Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+	Andy Shevchenko <andy.shevchenko@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, dmaengine@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_010314_052280_EB242F8E 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20260826_010339_295803_35390027 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,9 +121,9 @@ Hi Krzysztof,
 
 On Thu, 20 Aug 2026 at 22:03, Krzysztof Kozlowski <krzk@kernel.org> wrote:
 >
-> On 08/08/2026 11:41, Guangshuo Li wrote:
-> > stm32_hash_probe() calls pm_runtime_use_autosuspend(), but neither the
-> > probe failure path nor stm32_hash_remove() calls the matching
+> On 08/08/2026 13:25, Guangshuo Li wrote:
+> > hidma_probe() calls pm_runtime_use_autosuspend(), but neither the probe
+> > failure path nor hidma_remove() calls the matching
 > > pm_runtime_dont_use_autosuspend() before disabling runtime PM.
 > >
 > > If the autosuspend delay is set to a negative value while autosuspend
@@ -139,7 +137,7 @@ On Thu, 20 Aug 2026 at 22:03, Krzysztof Kozlowski <krzk@kernel.org> wrote:
 > >
 > > This issue was found by manual code inspection.
 > >
-> > Fixes: 8b4d566de6a5 ("crypto: stm32/hash - Add power management support")
+> > Fixes: 67a2003e0607 ("dmaengine: add Qualcomm Technologies HIDMA channel driver")
 > > Cc: stable@vger.kernel.org
 > > Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 >
