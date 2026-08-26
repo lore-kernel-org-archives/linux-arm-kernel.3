@@ -4,94 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67C85C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 08:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68BDC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 09:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GC7HaV6ubG2A4QN/tpZz7iru0oh8bNIqfpSQwQL8lBA=; b=fVtgN0dOkXAkuCqLsxdWf5BjIi
-	3fGqzBsWLMdEfXgnLkMhKxqTgd1ydbK/fZg4ASGCK7t1/vZD5WlubTrhJNAQIh/rZjMbzDmH14bhN
-	ZGvZW5uB6iILwqJXnBjMRBRign6bN6oZoWeB0huIRlCnVRe5gg3P/iPbINDm+fbsjL84Rqn10CWej
-	hkYtdoLU2HWeN+ubBMUIuWZDkMbaSMw8ANG9v3Tb7EyYBtaMryE0p9K1GM4Nkdj0ufGjr4wvdqboL
-	Q4ulRdeZCjmP0XpP3vxY8jkj4D5tsFx5ztc+JL2bW6nyPZkIbXUTOgNaxN57rSVnQxgtVl/1jZ7wm
-	LQlcRwtg==;
+	bh=2zhZU54kOx/DqOOM3ZV5yI/6ZCgYZzJQql12RB//sA8=; b=uKwrAuaua9Z8kg0mdDxGe7/djw
+	sYY3O9eLO0q3wjvEXxTuReiSrTlD2CpL5eEShvkvdOOb1TCjepDp9OiMEybrphHRBHZVJLJOPek/6
+	7K/qoxk7w8DqMwtmcMv+seGdiQ9p/lIjbLLeVkWHfMIki/YaWLb/NOm2CrwPvq1AiGJVl2a79cWXc
+	Wzmzxg5DO6ZhE+U+pwTze1Qcw0RnW5mByvLQtCQqii9a3kqUV+PVeeOD8/0pMfLbZiB3A6hV+egQF
+	4FA05pgNu0vsckGORg43T76qvzFiGezrlRRjCp7nUs9pYQmddxfSgMfEetp1NySQkw/P0Sp8YryGB
+	gkTl07bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz9Ov-000000027k6-1JZ6;
-	Wed, 26 Aug 2026 08:54:29 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wz9UX-0000000282f-0Tz3;
+	Wed, 26 Aug 2026 09:00:17 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz9Os-000000027ji-3Mln
+	id 1wz9UT-00000002827-1Ox7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 08:54:28 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-498012a61f6so44665e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 01:54:26 -0700 (PDT)
+	Wed, 26 Aug 2026 09:00:14 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67Q6RcoF3794484
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 09:00:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=2zhZU54kOx/DqOOM3ZV5yI/6
+	ZCgYZzJQql12RB//sA8=; b=BpL7Xe3NYC7q9qFq/rMjTqwLQ74p6pJ5hox5Gq5A
+	UKYEhPl3hcXhgT5MqJ7CBvp3Nn+Qh6bsl/gP9xxKcbtVur9InEgZVMEW6cLBJZbS
+	HF5AYmU/KiWfwijIzMgqM+QVEWeMWTtfjSHSAbF7DobzdJJcd4AFm5VX94VjesgL
+	vQoK7ka2aveLp1JO5kGErbxcLXUk91lQradb9KKoj8AczudDpcF7B4e+32wcp0IT
+	C+7kgkv38jPNsJgL86npw7cV3UQhQsp5ctTXtfycK2THM1B+SJ4V6w5byV4PxAVW
+	jDTmVPciJy0MT6XrwnZOHJfDk7qv6jJHYvWxTxdc+ynf7w==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g9smx8xt3-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 09:00:11 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51c0408254aso22465181cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 02:00:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787734465; x=1788339265; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1787734811; x=1788339611; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=GC7HaV6ubG2A4QN/tpZz7iru0oh8bNIqfpSQwQL8lBA=;
-        b=IK3bj6A4cR80tHVT5jzF115hf9tvwJhlLiytVkSAzGCjN/dGRppnJ/V/Lr8fsFvHRI
-         4ILsJW6P1Vdzp4auHCAqBkUsFMlYthOinZEJAexPWvMtU41TYpNSJHBbdC8lVwaFozqC
-         uK72xLSgWgGmSZ6MHzB6qodMreeMXSahJE3DTXdI82HBA9Ztclk4fIBy3E0FkJZ9UawQ
-         123t/NmsuHoE3hFjbdIM7eHMEB0p388e0zZdWwz2dQYP5EmUxy4cdjpDnrDMov+ooZGc
-         SaeaqcfYxT6F4QnV2WGj6R6ZP7V31t+pMxd5S/YBOt9Rp8niww6rEet4e1AcGNyLHwOy
-         1OTQ==
+        bh=2zhZU54kOx/DqOOM3ZV5yI/6ZCgYZzJQql12RB//sA8=;
+        b=dQDiyAVFwzTcWPYGxTp8Hjrt894XA6Wd1nN6kRB97VtBGxxcz5EmHY049gCgw7l4hi
+         rE1XVyyxkN9s5N4EwffiXZUAku24zf0vsz/p7lm8O8oje3BDGu7JRPZruFO8NJmNOLl5
+         qJFMnU9LvqwGaOBeT6Bf3DEkd4dPsRlMvoVUjT8lchYflJHz21qZLt5kgINc9cI9y5Rj
+         N7bWf2aLKS+XgGq+Cqcqi4xGqA/WbC0XccJK8KYKzxYop35GU1+mXO9mknqoFxguCPWL
+         HAzWvuBYGFfWJmOp2dQRhI2EpVrWcuVTkDFIa5o4uQbroGPZCoHjNFNjyDIenT/C/FKq
+         COeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787734465; x=1788339265;
+        d=1e100.net; s=20251104; t=1787734811; x=1788339611;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=GC7HaV6ubG2A4QN/tpZz7iru0oh8bNIqfpSQwQL8lBA=;
-        b=FBVMtPJLIX3sI1n8lPD8lUrSsg2FDLgeg8wlbEVu0qhjxUh35B0UsjQACCYA6Z6KF7
-         TCXUVRBin8l3xMr0mxrqgmxhDXCMdSphr8rjdUmDKSsiBqKQIiex7L6xxpbjghOjh8S1
-         viPjR9GVyA3pNhcMIX/UqISVuSSYWHzmGC+ThIdcaA4w+mW23TrNsz3loRI5CaewQjPa
-         sjwQLDeWVzIhFYs4hfjyRNKBUdYPK4OgdEDI5l0FJh62e3OBL9dxpoQG4kSXXQXK0JxV
-         xi764k5snSpQ2/8gbKHm7BYursEB/Y7zdG0q5P1OBqU0l9Wlat013Gd29rGbrv5QKtfR
-         GdOg==
-X-Gm-Message-State: AFuF++k0RHgg8cO/YB+onCIaZU1Tsk1JKs0SqUPvm9nhubgio4XBrn1X
-	Nvj4aG1B9mSYl98xbY6SHBIRGbopkr8ADnqH8bPK4T2Up4Wu20ag7kaH72ee6mcPLQ==
-X-Gm-Gg: AR+sD13QVQMp2kEbmE+xjGESvbAUx6jIKxgqSLMnt7+QrcFSJr1cJ7q5POiBdGA2s+k
-	qMEnx5E7yzIppDUdSJcZfUC7NKGlXzv42rApYfAQpxLBky2KQtu0Aw/cMfG6liA1QLBoft1bTHz
-	0qIkuGFmMEhpx8iqTmWjVq2hHT1vPueuKqX8zdtb6uGz1zn97Hb0CqQht0WAyvT64utqXokh1+m
-	fXTsNvfCTpbskKrcC8PmuWdMx3vKAjiu+fxkQpmB1hA+gX+dY3HR+ILKSvak9BWXP6vRcQceFjC
-	HmYrUmUrevExQRD0eIA4nqA6LS5vNKEU843G0JDOs7aURkmixZDUAFS5ORZRFX9rpVvTK32r0Bd
-	1mg7JNo7sNe/QGfJymrPJF395WfxstRYSF3cl+UdATDgJssUuXgtYT8MsXImEcKK3reBg1fR0Xm
-	BXv3UiuRXgQ7OaGUXVNChMU9W6w59Wc4u2jpX+R/UBatXUWll8sHysjdfI5whu1VjiGVTZxSSNK
-	K67z8gSnz5cdx2UXChh1zZfQLssKJAa232FRCh4
-X-Received: by 2002:a05:600c:c0d3:b0:499:cfeb:4f17 with SMTP id 5b1f17b1804b1-499dda22aedmr502865e9.5.1787734464271;
-        Wed, 26 Aug 2026 01:54:24 -0700 (PDT)
-Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499dcad2532sm19052725e9.11.2026.08.26.01.54.23
+        bh=2zhZU54kOx/DqOOM3ZV5yI/6ZCgYZzJQql12RB//sA8=;
+        b=p589jzPsqaFZFha58V5HWs3bpnNNg0Xb1CmnXTZkbCrnUCZrH/GHdrYRa3AoWtWUQ8
+         qvaxPGtqBflM3Pnp5J0IU04pc39JExN0Nn7yyegse0v01sCNhL4ihDS6hQCJjL/zRFM+
+         LIVwBMR58eyOp9ow80WvnyjZYfS+vTOcYu+fflt7AObJTtkM4ydbOhJbfhSsBKEFLgGq
+         wLc6KWKV4f/K6ZkYkMMTDh0iDm7inshlVm+B6Pq/vfwe/r+On1pSF3/rG29TNA1JKWcg
+         OfU34iYuVxaYq3KVzoXX0NXgTo/xc37UHz/Cdl9lPTakcsouDKnt+i90u/nK2iAdpKXA
+         0smQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrCdLaf82T2YHjbFolbuHbdTefi9H88qBoRkwrKH135pY0RURBHuX2gHfKpoWlg3DmWl5LkdJr/n+QGZUP2QrHq@lists.infradead.org
+X-Gm-Message-State: AFuF++mwLbZmRC98tS0nWPsLqhBZgcc3dr4WdDhmC7h1c1kKfCiB/fl9
+	ZEaWMmogjVbQuPRl/ItU0DelrDObIbyRet4mzHVjNgBQ5ARH8P2fPyROF9z492PvOd1ycksMsVy
+	qZYImgfsHoOYWK3hRwUvTPUW6bbOO3pVmC9NUHClZn4lAVVxj4y+DT8DkeBPkF2hEOqV6GMhX7D
+	1U9g==
+X-Gm-Gg: AR+sD11Ws5UBFZ9kMdNJxjdkbaYYbcMVYai7AbUSTya1JL+B0rmcbGvdSM01maZDgdb
+	WX2nY2PqqmSC7Zfvsne+rNaxsSAlEeSE+cDE+5P5xj1Kp17SCVLYAzzxa24Hu6ZBa3sovxwK6/f
+	QEboiWOImn9yuGSG0WRz6VDBKVwMPeiD5cUgjjwGGGLT+oaDamFbDJJ62Jh5joXSkLdLZMpkc7D
+	nujd2BTZYdd3NJAdje/K2OBXsq+JAJWRC5RGC/3uNPil2vzYnRaa9Xg4810XckOZlAb+ZYVPSu7
+	hmbhTgTCqKZppByy9HGjIDqih3txqAzuNMOzmzH+fe+Uv55HTL+FgGciGwJmYhmk2N2/qZb9jmb
+	73FqVJqxim781
+X-Received: by 2002:ac8:594b:0:b0:517:6fc2:4760 with SMTP id d75a77b69052e-52e2ec51d8emr120518831cf.9.1787734810525;
+        Wed, 26 Aug 2026 02:00:10 -0700 (PDT)
+X-Received: by 2002:ac8:594b:0:b0:517:6fc2:4760 with SMTP id d75a77b69052e-52e2ec51d8emr120517771cf.9.1787734809757;
+        Wed, 26 Aug 2026 02:00:09 -0700 (PDT)
+Received: from oss.qualcomm.com ([86.121.170.13])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a5de8d1188sm3655807a12.7.2026.08.26.02.00.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Aug 2026 01:54:23 -0700 (PDT)
-Date: Wed, 26 Aug 2026 08:54:19 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca,
-	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
-	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v7 23/24] iommu/arm-smmu-v3-kvm: Enable nesting
-Message-ID: <ao6puxVSNsLC8aql@google.com>
-References: <20260715115906.2664882-1-smostafa@google.com>
- <20260715115906.2664882-24-smostafa@google.com>
- <178769159057.3356902.13161185498161727294.b4-review@b4>
+        Wed, 26 Aug 2026 02:00:08 -0700 (PDT)
+Date: Wed, 26 Aug 2026 12:00:06 +0300
+From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+        "Rafael J . Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>, linux-pm@vger.kernel.org,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Maulik Shah <maulik.shah@oss.qualcomm.com>,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Ulf Hansson <ulfh@kernel.org>,
+        stable@vger.kernel.org
+Subject: Re: [PATCH] cpuidle: psci: Fix support for probe deferral by
+ dropping the faux device
+Message-ID: <irfhmz2ago3suc3o3klfrztq4nhvrbdykuyqsg6pynnkr3naaw@rgnnsjk7ftd4>
+References: <20260826084533.38960-1-ulf.hansson@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <178769159057.3356902.13161185498161727294.b4-review@b4>
+In-Reply-To: <20260826084533.38960-1-ulf.hansson@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=O/oJeh9W c=1 sm=1 tr=0 ts=6a8eab1b cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=clBUptZa5v5FR042Ey+sjA==:17
+ a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=Vx8LKYWbTLu2W_pKgo8A:9 a=CjuIK1q_8ugA:10
+ a=zZCYzV9kfG8A:10 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: aXzvuRCvgafhzlCHn_pKqH-lQdssC07U
+X-Proofpoint-ORIG-GUID: aXzvuRCvgafhzlCHn_pKqH-lQdssC07U
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI2MDA3MyBTYWx0ZWRfX/JNYI+U4qpvl
+ GCrm8uRWUSkXaX+N5U6gaNjZqJb6Gfc3UivahyuZLeITdTWE7xTwqJPVzJqcvEdlPG21AAuuUs2
+ GI1C/JP/t4eGQAGvnkoPt+rhvOzznsVaU1BwuQx47g4jQp9ogKeP5PYrrQru4JU4SL3SMi4w673
+ DIcS/QCO8Li2KwhkZqdiVPMawWo1FyNjKqaGfULghP6uBskYD0GraB3K6oEoUKMZGls/aFSet3h
+ ewBtSpWysDebsw0HLH5e4Btfann60aSzsSYCG9+1ndvs/T+kI0K0eZq0NHRQb49T9mrVsskYvDi
+ jwQz26upsT/e51lYUvIhCiGGfuibQVI6ys0b2znWGJfI+gNyjBktg99M45tjra2fynkVxAFmvDP
+ I6/+PRjar/XXJbP0i6qnQjGwtuRjq/JEx9ICgCcJz1GHoFCzA7rFMkb/5pQNa8sP4F3Q5MTDffI
+ x84Zj0DV1m22Sh9AF3g==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI2MDA3MyBTYWx0ZWRfX2+jzQTiAcBzm
+ JnvBhwP43dlouWXxWG1b5jXPYaEHWdM44/BYr9IKaZJ3ykiZhXjTUT7Dnrz1CHTh6jrqly5+2Fk
+ ldly1gb6tNEPig3h5Y9eVZ/GK8Z8iec=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-26_02,2026-08-24_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 impostorscore=0
+ lowpriorityscore=0 clxscore=1015 bulkscore=0 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608260073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_015426_941983_D2AA970B 
-X-CRM114-Status: GOOD (  26.75  )
+X-CRM114-CacheID: sfid-20260826_020013_694282_9D0FCEC1 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,68 +155,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 25, 2026 at 05:59:50PM -0300, Jason Gunthorpe wrote:
-> > [ ... 129 lines skipped ... ]
-> > +	ret = smmu_attach_stage_2(&target);
-> > +	if (ret)
-> > +		return ret;
-> > +	hyp_spin_lock(&smmu->hw_lock);
-> > +	cur_valid = FIELD_GET(STRTAB_STE_0_V, le64_to_cpu(hyp_ste_ptr->data[0]));
-> > +	target_cfg = FIELD_GET(STRTAB_STE_0_CFG, le64_to_cpu(target.data[0]));
-> > +	target_valid = FIELD_GET(STRTAB_STE_0_V, le64_to_cpu(target.data[0]));
-> > +	if ((cur_valid && !target_valid) ||
-> > +	    (target_cfg == STRTAB_STE_0_CFG_ABORT)) {
-> > +		WRITE_ONCE(hyp_ste_ptr->data[0], target.data[0]);
-> > +		WARN_ON(smmu_send_cmd(smmu, &cfgi_cmd));
-> > +		for (i = 1; i < STRTAB_STE_DWORDS; i++)
-> > +			WRITE_ONCE(hyp_ste_ptr->data[i], target.data[i]);
-> > +	} else {
-> > +		for (i = 1; i < STRTAB_STE_DWORDS; i++)
-> > +			WRITE_ONCE(hyp_ste_ptr->data[i], target.data[i]);
-> > +		WARN_ON(smmu_send_cmd(smmu, &cfgi_cmd));
-> > +		WRITE_ONCE(hyp_ste_ptr->data[0], target.data[0]);
-> > +	}
+On 26-08-26 10:45:32, Ulf Hansson wrote:
+> From: Ulf Hansson <ulfh@kernel.org>
 > 
-> This doesn't look good enough, a driver can't safe writely to a valid
-> STE in any order like this, and it can't make it non-valid or risk
-> breaking guests. We had this bug in linux already, the hitless STE
-> update in the hypervisor is mandatory for linux guests using PASID.
-
-This piggy-backs on the kernel algorithm, as described in the comment
-in this patch:
-+       /*
-+        * Summary of each host emulated state vs real HW.
-+        * |    Host    |       HW      |
-+        * ==============================
-+        * |    V=0     |       V=0     |
-+        * |    Abort   |       Abort   |
-+        * |    Bypass  |       S2      |
-+        * |    S1      |       S1+S2   |
-+        *
-+        * For the host, any V=0 transition is not hitless, all other permutations of
-+        * (abort, bypass, S1) transitions are hitless.
-+        * For the HW state, any V=0 transition is not hitless, as all the S2 config is
-+        * always the same (ttbr, vtcr...), all other transitions should be hitless too.
-+        * However, the host is not trusted, which means that any V=0 <=> V=1 transitions
-+        * or any transition to an abort STE we need to enforce writing order of the STE
-+        * dword 0 and add CFGI.
-+        * Otherwise, we write the STE in the opposite order to cover cases from abort
-+        * to S2 or nested.
-+        */
-
-So this way, the hypervisor doesn't break the STE and keeps the host
-STE transitions hitless.
-
-Or there is an example that I missed and is broken by this?
-
-Thanks,
-Mostafa
-
+> At the conversion to the faux driver/device we broke the support for probe
+> deferral. In hindsight, the move to the faux device seems questionable, as
+> it simply makes the code more complicated and for no good reason.
 > 
-> You should use the STE programmer logic from the main driver which
-> gets this right for every scenario a linux guest can trigger. I don't
-> think there is anything about it that would be difficult for pkvm.
+> To fix the support for the probe deferral let's therefore restore the old
+> code and drop the faux device.
 > 
-> -- 
-> Jason
+> Fixes: af5376a77e87 ("cpuidle: psci: Transition to the faux device interface")
+> Fixes: 5836ebeb4a2b ("cpuidle: psci: Avoid initializing faux device if no DT idle states are present")
+> Fixes: 39cdf87a97fd ("cpuidle: psci: Fix uninitialized variable in dt_idle_state_present()")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Ulf Hansson <ulfh@kernel.org>
+
+LGTM.
+
+Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
 
