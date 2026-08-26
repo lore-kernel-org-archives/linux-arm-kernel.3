@@ -4,76 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C2B6C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 15:04:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66CE6C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 15:05:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DNBMKkxEyxM92YT57T/4G7FiuSkFG4psxK0dug1eKaw=; b=1F/iQFChyeITVC8RYaTInn/pcp
-	TM3zMfWnyDuRPEHuKNYkXt9n03STdcO9QriK23P2M/dsk5bhIhEF6jqUwOoGKaVr/PbGcTf+Kcgdn
-	R7Rb5wheMuowMGA4HjqvE6hcPi7eoXKhrSAxpNz6GBOEEEVm/gYktYyP3oQQNjVsqli0XtGqHbruu
-	qEDCqM2AqzBoq6M08H4SdCNYlg7vvxt9MSjQloC4BQfpVsVOVDXKRggLfwVV3N/p5gvC318YmWtvN
-	5/Lew1ybEG8/rj8O4w+jNOowKMLuWHed8OkeFoG12781WYCyBwQjURQcb1YQ6GWuux8a30wrOh44R
-	xWsSXQDg==;
+	bh=aLjsRmVRvxKWk2GpFV4WTDdqB2V85R1PFvCdHj7WBJw=; b=J9HjdJzt3X4YZpws50ZryRSE6b
+	hxdHKlGlH/sXGP1YMwwR0xoqGEG6Dpx26lE7D6+1OBsOHke1djNHzQJA4b97hdQAmf27uVm/51m1/
+	hPMFhStA/y1aaOkpbAxdoUHXxAc42t/WKG9Cgj2jCYmPRaLyw5LWaB8d8aliTgOZxi9siIr/xVHDa
+	Ktcmr1Rx6DcmybeonErDrM0fjUKu6oAMAFg735mKSc3+uxemjmHEZl6hDCfuqAOyBXwOTI11nABPr
+	QJbTLLugf5NGHQAw/2pqzGZF4CKhwZvNZwIFUw+fH0ohQORm8E5SXq02M2mlIGAgX1BFvxol7aupa
+	/EJgXtYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzFBA-00000002dWZ-2qfG;
-	Wed, 26 Aug 2026 15:04:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzFB8-00000002dWE-2ULX
+	id 1wzFCG-00000002der-05xT;
+	Wed, 26 Aug 2026 15:05:48 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzFCD-00000002deD-3e3K
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 15:04:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 194C41BCA;
-	Wed, 26 Aug 2026 08:04:31 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A65B3F85F;
-	Wed, 26 Aug 2026 08:04:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787756674; bh=ha5EeUmGMqyJtGR7X0QqNJp4AGSkOzNoD2LxtIdRtm8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AOheFklPW1RRHXqLak0pKDeFEKk3sN2QVpc2v4bwwwVU7SmboWzeMOG2Fdf/NtNQa
-	 RLNA+k5tQA7yim3bQmz1qSwsCye6bBfpQJhoWjTEFUwq78ILEz5O0Msi+EoN6MfTr6
-	 iXmbHQ1R9cm+NBBXFPvy/0xrfL6Npby4+S3/6lX0=
-Date: Wed, 26 Aug 2026 16:04:32 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
-	Leo Yan <leo.yan@linux.dev>, linux-arm-kernel@lists.infradead.org,
-	coresight@lists.linaro.org, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 02/14] perf cs-etm: Warn for invalid timestamp option
-Message-ID: <20260826150432.GJ8904@e132581.arm.com>
-References: <20260821-james-cs-unformatted-per-thread-fix-v2-0-00c4fd0701b4@linaro.org>
- <20260821-james-cs-unformatted-per-thread-fix-v2-2-00c4fd0701b4@linaro.org>
-MIME-Version: 1.0
+	Wed, 26 Aug 2026 15:05:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bX96TS5kcFKXsjYBn1goPT6c0GQYQkDNJmtylAB8B8o6xd89u5MQL08PZrBkD7gHybqyIOf4pLKV9Zy/pD4OKjFwoWLKDkqfjluhSXIQpwlIlvdA27CJOZgDKkilKvcrrxVCKgzJfhpCmJ3blvVPc9qY8YPy+uEvjQQnxIFKdcOq4pwtAt4IkVoaIF68bmn1EEoe+9xkK/fp1243HtzOnp1P65VRIQt1qmkgsMolRL6vNdYy4dI8d54oGh+GBxgiBY2NKoe6n4rWRAej8MpUEJnb7uWO3Jc6KOiH6h/sP4DjvoRtxiikGWcJEFmtb3tAouO9K+0lSnJHDajc1XTHiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aLjsRmVRvxKWk2GpFV4WTDdqB2V85R1PFvCdHj7WBJw=;
+ b=wU7SJy68YurOW1+CdIQ5arQayL6rx0cxSI6+UTEKf3TMsUHvI7mVedIlKIv+voTd+6d8YqVe4I/xj70fDPnVZnvLII1xtXE0MZWadxVOtfDNT+2Cif5nlS2SuICWM2vZ7QXde6BHFQ3O+9MrGyoLcAc86jINxWjvQJfmOo+iTnwJmb7e5x+6I2kR0mpgUZcHqmDvrCOtOI3rBbUEnqUx3UoghIa1b/9eFvRL5aDRzaBoEYlpkhGK7Qtnd+ZpQlF07GByg7IH0e2BOIgWmRSc9Sy8E0CwH6/o7JKjW8cavGHpwx4L/qKdyd3cgXo3mvnHTG4KtAyAKsn+ZRPFp3iCjw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aLjsRmVRvxKWk2GpFV4WTDdqB2V85R1PFvCdHj7WBJw=;
+ b=dqd3AfNvXYCGo7E/2oWUwUckSlxBYIqIf8ABfQhg08e5igL0SXqWDn/1qEERdfszu0teDb0MF/lWofz/WvDcHg9BklJvA3E9tjk5k9zr5LJ5731hQczzj5iLFQkVMAC7ZcnDpaC3HzaJhdKAJKCyjysVC1WPKOcYpkRDR971Y+VrlFR7uNRUsvcnp2qWt7TPceE5sVyjkSVRuQfbFrH2rjpvC45Av1YZA/Q/DnVROWmmgScJvzgNhDYOCPftfZ4cGriU02Oj2Waciid8xlrZlOwYo9KA2FYSuat3MgEBAJfVXy3kW3HX7vMOX2eglsjz/EMV8Zn770BekZ6UJNANxQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI0PR04MB11537.eurprd04.prod.outlook.com (2603:10a6:800:2cb::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.6; Wed, 26 Aug
+ 2026 15:05:37 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0339.012; Wed, 26 Aug 2026
+ 15:05:37 +0000
+Date: Wed, 26 Aug 2026 10:05:24 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Larisa Grigore <larisa.grigore@oss.nxp.com>
+Cc: NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+	"Martin K . Petersen" <martin.petersen@oracle.com>,
+	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+	Ajay Neeli <ajay.neeli@amd.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Pedro Sousa <pedrom.sousa@synopsys.com>, clizzi@redhat.com,
+	aruizrui@redhat.com, eballetb@redhat.com, echanude@redhat.com,
+	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH 01/10] ufs: unipro: Move Tx/Rx FSM state definitions to
+ unipro.h
+Message-ID: <ao8AtFsYdr26rHVc@SMW015318>
+References: <20260826134048.854748-1-larisa.grigore@oss.nxp.com>
+ <20260826134048.854748-2-larisa.grigore@oss.nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260821-james-cs-unformatted-per-thread-fix-v2-2-00c4fd0701b4@linaro.org>
+In-Reply-To: <20260826134048.854748-2-larisa.grigore@oss.nxp.com>
+X-ClientProxiedBy: PH8P222CA0020.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d7::32) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB11537:EE_
+X-MS-Office365-Filtering-Correlation-Id: d730ed86-9a3d-407d-147d-08df03837c56
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|19092799006|376014|7416014|10067099003|11063799006|4143699003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: gKFs5mi8D0ZQyHauTzAoKAr6DPJcSCHf8/4hAk6p+q+4Ens1/ZgFsLK6RoCoElAQW2dNOhq8gUwynsPfNOY9JpNavNeclHVC4xXaA5HFwRDp5R/WtYbmRZoGbd3TPBNb6P+zvnd6TR9NXccxjyUV7j3PhUPOLvul7EOVWIWin4yt+JTq6YzINRRY3a+Qj25/SpKDIrh/NuD2iNSBxtz5XA8f19Fm5JesOTW3LfWtZJnQZbl7PltwnNSwl0toqYRaT++dazoqcY6aDmaT77zAq8GJDJlVvfaJD9bdl/avSYBPfi2ldPKE1yFQTI2LETtRibgPVUIZBhIdpzjbKjjK/eqSnm76Gsr8DIbO8ZBC3Nc/0YJpMNhE6LPXfRYmGf+wP/tWe7GDJp0IXnSME9O+JWv+Z2A2c++wmkk5dfb6x5HeAWQF2qSbIVY0y3o+lruOs6Mbv837V/qyhmMK9xoTbc9fIuaZaEmOrdoodQQJwUcbzd+gHj2rXq3kJL711DAhcB8ErIyeclLTl3tMI1yeAuNFbHA+ZJyQ3S6YKDPgw/KCMaVeE1kgfnx7Dpm64cjgu/SP6OPnvi2JUyldosFdaQSiuGX4X5Ytf21Lo4t//Z8DAApIBsIPaqVC+lbHjvUPQMyE1WcS7JXD/3w76aNOoXSAQ/k6VpT91iB4q5xxXnU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(19092799006)(376014)(7416014)(10067099003)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AQ67tbSASZ9kDP5CH1O0iXYvA/F/KNJYYyjnv6bBP9pmA1cwfSoQpp490zSO?=
+ =?us-ascii?Q?c3NFvms23Fllxooz5hJUd5BEMPVfQQw7odLLE0EhaGxK7xsn15lUyIK8rEge?=
+ =?us-ascii?Q?Dso/f2Ulx3uJuv4lD0sL69f1NUPLoOSSVRYoF2WiJEASpb09DH56dBJ00sp6?=
+ =?us-ascii?Q?sTcY/4ylDMxB7eg1HhAm1D6fN/HyuiGPma0FScfQwUpjjAHJZ+hodLcM6IjV?=
+ =?us-ascii?Q?6zb2z9vIv/QxBIouI75tvBRGfGxv7ZcSVnVwgzRd2aAxsTTNW5G+azr9NUuH?=
+ =?us-ascii?Q?NIDStwu/QNX4EEljJG+tW4LuXpBHCZwYwqSfWOU/DOi/OhEPCFWPzpNVr1VY?=
+ =?us-ascii?Q?m/iR1Swmgq5HrFkwkI1F23HIP/85YUhqLkmAcbuC/A+AuuIqCjYPmmqtRmmi?=
+ =?us-ascii?Q?vQDgLH7eFuWUA7cc5ABfUboLZH97AWndH1A5jXwjayoeVWK9dHM6N7waQEKK?=
+ =?us-ascii?Q?TGLe8Nqv779D4xhihLxlOKYQhRWLP/uwoEytRq7JYVLIhhQnHwblB1onznWP?=
+ =?us-ascii?Q?AV1fdSz+IU0Y3ZxI+HDccBdTETS7CUkZsWreA+wI2RzgktD9L25OPuZLxO4b?=
+ =?us-ascii?Q?CTqJgqv2rZD1K1MW7TeW+EJVaSxT+y/ol4VfCDB2DOgQw7hPIDPsjL5Aqkjt?=
+ =?us-ascii?Q?/qgVz5QhhCkjDv+X/66ZI9Xn6+dqFy4nKgM1TvKLPv5cLMbqhyaqbqF5ic5N?=
+ =?us-ascii?Q?Lk19QApqugEgfZGQaGSffM1ffLPqJU/HDxq6v8uCzxwJgm83cPfjl6Tpltdj?=
+ =?us-ascii?Q?k+ptT0olYCVZkqu+jOFwfdcKQ/aS0nl3cJpRiredPx2p3K/b4uT0d/aU0OTU?=
+ =?us-ascii?Q?WO8s4a1RNdi+0V9ili1fun/FaG0mfqC21Letx9SDvO3G5kM7J4H4Zb8GDsmh?=
+ =?us-ascii?Q?rzHIatcXN3vR1zJYLu8SnEQSvCeZoUpFTEwXSJbeT5ERRzgWYUzgYD2STD8y?=
+ =?us-ascii?Q?j+KdmGC+0jzhH4fcf9gf2EsYYo3V3wkGqAT1ILnDwOs9shk+9jG3CNe4gz4w?=
+ =?us-ascii?Q?8bdLMjo4VJfqeHod7xG3uaRSKp8np4RcHnpDb/WTUN0zAXWBwrRIxwbdz9fy?=
+ =?us-ascii?Q?dm/TSaxgxsFrE5UoEhWYPBJqC7Tcs8BejG+oAeLBFTH+tO6aNjZQzg8sKb0M?=
+ =?us-ascii?Q?AwYSadqDy/iGydrMwUyZ5XZcfcBbsuqPdXCXeyOUrgLQ4ymibDtBnCUMNq61?=
+ =?us-ascii?Q?hFQKbGznKhAuY75oZPSzHRhF22R9HvYq+uD0S4A/LKpnUUq0QySx1HDhb1ay?=
+ =?us-ascii?Q?0JGZnlsQKAx6g4vaRC3shYlnMN1vbcjfCuebjKnWeFtzYW/l4ocd6A3hQl9F?=
+ =?us-ascii?Q?jdnLQv1tvrl4ErCuTJC69QwPMbJjxe7vQsq4oofC+ywigcGfB0RiAD2Etuni?=
+ =?us-ascii?Q?KCN2DJnpfe00swqKMX/ZUEwZsOjSbRUkw6xqt9c4fMQFOayX2Xg6QwIVUxH5?=
+ =?us-ascii?Q?IUJByNTAiGJjFWm/6u06xbbWOivmIWsSpQVm7N8WYAutLiGeD51DFdOJxY5l?=
+ =?us-ascii?Q?j27PXFsmdfKWp9CYXDVOO60q2+2DoFoMPk4JnVAQsstktqCCGnDZbabS/M0+?=
+ =?us-ascii?Q?joRT2NhSb3brWWRLHxcHZUq7e0kuMVI54zxQ5Dd8Lpc/URv6AASGpM88TWWB?=
+ =?us-ascii?Q?XxbpcQNT1kwOvzrDbGdJna2pkcsv1yp5UNozQpiroylfVLlOVLgvk6Jj2vuL?=
+ =?us-ascii?Q?MNxtzeIfwt3HO7aPbzyAvR9tVh5CynIHtzOfNo1ZIYuS3oEFCEqNegguN32A?=
+ =?us-ascii?Q?keuuIqy4PqygRFtGb3Mnfv8adZ0s2zZKSsFzYQpYHhyUXnzfoPyT?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d730ed86-9a3d-407d-147d-08df03837c56
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Aug 2026 15:05:37.5051
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EQedrkXSHk2Ws9m+VCVXRVEHEr2+tyZnH1H/I9us0J1uSjtzcLyFEO/rnRiw6avj4cbvo2RMalWKlnRPYEJSdMpu9nTJZmW15qKbsTZn8Ur1fIAadDHJRP7hTzAB1dHG
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11537
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_080438_769350_AEF9C4D9 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260826_080545_911091_52AB750B 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,10 +154,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 10:49:00AM +0100, James Clark wrote:
-> Instead of silently returning an error, print a useful warning.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
+On Wed, Aug 26, 2026 at 03:40:39PM +0200, Larisa Grigore wrote:
+> [You don't often get email from larisa.grigore@oss.nxp.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> Move the Tx/Rx FSM state definitions from ufshcd-dwc.h to
+> include/ufs/unipro.h.
+>
+> These state values are UniPro/M-PHY related and are not specific to
+> the DesignWare UFS host controller implementation, so unipro.h is a
+> more appropriate location for sharing them.
+>
+> As part of this move, drop the driver-private TX_FSM_HIBERN8 define in
+> ufs-hisi and ufs-qcom and repoint their Hibern8 checks at the shared
+> TX_STATE_HIBERN8 enum constant. This is a no-op change: TX_FSM_HIBERN8
+> was 0x1 and TX_STATE_HIBERN8 is 1, so the compared values are identical.
+>
+> This also prepares for using these definitions in a subsequent commit.
+>
+> Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
+> ---
+...
+> -enum rx_fsm_state {
+> -       RX_STATE_DISABLED = 0,
+> -       RX_STATE_HIBERN8 = 1,
+> -       RX_STATE_SLEEP = 2,
+> -       RX_STATE_STALL = 3,
+> -       RX_STATE_LSBURST = 4,
+> -       RX_STATE_HSBURST = 5,
+> -};
+> -
+> -enum tx_fsm_state {
+> -       TX_STATE_DISABLED = 0,
+> -       TX_STATE_HIBERN8 = 1,
+> -       TX_STATE_SLEEP = 2,
+> -       TX_STATE_STALL = 3,
+> -       TX_STATE_LSBURST = 4,
+> -       TX_STATE_HSBURST = 5,
+> -};
+> -
+>  struct ufshcd_dme_attr_val {
+>         u32 attr_sel;
+>         u32 mib_val;
+> diff --git a/include/ufs/unipro.h b/include/ufs/unipro.h
+> index 9c168703b104..bf063edc284d 100644
+> --- a/include/ufs/unipro.h
+> +++ b/include/ufs/unipro.h
+> @@ -466,4 +466,23 @@ enum {
+>         CPORT_CONNECTED,
+>  };
+>
+> +/* Tx/Rx FSM state */
+> +enum ufs_rx_fsm_state {
+> +       RX_STATE_DISABLED = 0,
+> +       RX_STATE_HIBERN8 = 1,
+> +       RX_STATE_SLEEP = 2,
+> +       RX_STATE_STALL = 3,
+> +       RX_STATE_LSBURST = 4,
+> +       RX_STATE_HSBURST = 5,
+> +};
+> +
+> +enum ufs_tx_fsm_state {
+> +       TX_STATE_DISABLED = 0,
+> +       TX_STATE_HIBERN8 = 1,
+> +       TX_STATE_SLEEP = 2,
+> +       TX_STATE_STALL = 3,
+> +       TX_STATE_LSBURST = 4,
+> +       TX_STATE_HSBURST = 5,
+> +};
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+Suppose ref RX(TX)_FSM_State in mipi m-phy speci v6.0, table 50 M-RX status
+attributes. you add ref to mipi M-phy to let reader know it is really
+defined by spec, not dwc implementation.
+
+Both value are the same, why need define two copy.
+
+Frank
+
+> +
+>  #endif /* _UNIPRO_H_ */
+> --
+> 2.43.0
+>
+>
 
