@@ -4,122 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A047DC61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 13:25:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9556C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 13:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Scoq2PWNqrbBzHPnJ6j4uRZ93geFy4MJFtk30NC1+4I=; b=KQfHwu12kM4jflO6bwkWUgpFjA
-	8tXU4zlHlF/S+pJVG2tN1/bT4K9g07yNqUUi+8lFlR0bCKCbiaOyzG+89pVVGpd0r64je/yqvXZV/
-	fC2erExB74yxn3okLD1Z82cbM2nweG2aCIdHv9uFCF/9R7YNcu36UiqFU70Ro4O01dRRK11sICuCx
-	PQQ/+JO1X12UPN9ynnebSMh4/ao88d3PVlKZ06GaskRHDpe8SCb6RqhCEF2/cHPUClPCa/MY1WmVK
-	qoTFE7Xs5Di4GxLiazpmR4Qjj8maGIUGPSAo+LAyyfwF+opXp1aBP94M1Njdz764Kbzzfkm3O51D7
-	HnxO/sug==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5i5vI6tnXF7tzWUylgjE2oxSiQIPXybHe+y/l7IIT6E=; b=Uheh6Ie8vNgZwV+79j+tKTFcYK
+	ZAPPjqQ/UBOaEKpz6qJlTghX9ZzrjmKw58HfzZouM4URumEgHJyn0uey/TzXPjQCD3Ekd7bsxtZwI
+	RdK8g6n8acdlyYBhouE3vgqRGFkqVaTgrsPqaiEAMOClrhHcawsxuxeF3ZuO6SfG9WcB4kDMfn/No
+	FGihRps6gb6tmbXkgFxBY3VfpXgqiZaJHlhYRD/4WWjc99jyGgb5x1OSIklaa4CTkNoCRvl0LdWIW
+	uh6C7IVD6V9ykwmWc9R2nhyElmTzP5DFH+dittoJwTVdtJQ48CGnT6Zd1bzviGS4EOfYg4xxEi0Rr
+	gz7kG3FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzDcY-00000002VLZ-0fRq;
-	Wed, 26 Aug 2026 13:24:50 +0000
-Received: from mail-swedencentralazon11013060.outbound.protection.outlook.com ([52.101.83.60] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wzDnj-00000002WKG-2tp8;
+	Wed, 26 Aug 2026 13:36:23 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzDcT-00000002VL5-28l9
+	id 1wzDne-00000002WJD-2gaF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 13:24:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xfCas3Z7zRISzhNSFoxpSyQilgmo1RGjZxT+HkWsMgU3T4CciohwFOySttu/3x5baWgQzxO/spcEw0vWoMcRBPZFAvn/mKEYtveVrQJl34VTsfdGWSunxyXHd/ywcjKnucEMuhYKdiCOaCnoG3Dmhl7SXLdfXmf01sDu7MUeTRC84cl4r1KTUsQU0FNBHz+Y9yusz9+J3zy5Syp3+NzGCEZlr9LxbR+RjvO132GtbwvLQnbme3c+rG6qFF6VQMMKdI2mI3EYVSj/ZUm8mSMwMsTel2bk4+1i9NvGs4yRZWoD0W0ZTiToB7xWIG6gJnzzXW4lWhyQ11Xj6vYNSTNbTg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Scoq2PWNqrbBzHPnJ6j4uRZ93geFy4MJFtk30NC1+4I=;
- b=kpoGJ8SPCaC8YdjQS2DbSEG7nup5mF65Vqp2HJtON14Tbke3fF2Iwb7L9dn9603vDYIW9nmlvc/1UMa4eDXbSzPER3QWXXKJoZOX4oxnpfeYsE44pQFkIg10UagZtJOvOj/6fBJTjlmxqTOvAMIUczRPWynVbr0TztHlpVv4lud0Dwzs8W4z3c1E9wp+elTURWN4DDaoUBhdKdsQPjCUMjRcYwbBY8iFa342ftXs2QP9mAGoVnS97d8b4D142NKvm3cDJI1UzpdSeaURuzjDVYVjXpylIn07fowaHe0FYJybnArgtpf6nzvHgCQvV0HWNqGxn+4+l2OGWcvl3nAbJw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=nabladev.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Scoq2PWNqrbBzHPnJ6j4uRZ93geFy4MJFtk30NC1+4I=;
- b=SVE18XNz5DToEl2eAg34Ip0tsH4GIR9NvbV+F6N67bCtKi9LVaOjWtyXzsTfpogzCbFa6HPh1ma2PS+1y79l/D8axJvnNFBPKeezuPl3EJ/VFfclE1Iwmz1oNXGdxQjgqIUfBNlBMPyeQKYQ4i1lpm/LL3hZ7eEgKHB734GvU2YPlOLclH42s1002JNClob5ZBlyPdG46zrDvpAx+nAeKRzJnOUX7P9iA3ik5lohdpZHJGK5Pr2dgMa7V4RN2erfij28xAKvtJyYz1LA69BtqfXhknYwvKLBdrAu8uJvoUfs2aSqUNY2lFzvwH+B3KneskrAxqAhQm27K4cxf38Dxg==
-Received: from DUZP191CA0048.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4f8::8) by
- BESPR10MB992179.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:b10:109::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.6; Wed, 26 Aug
- 2026 13:24:39 +0000
-Received: from DU2PEPF00028D12.eurprd03.prod.outlook.com
- (2603:10a6:10:4f8:cafe::6) by DUZP191CA0048.outlook.office365.com
- (2603:10a6:10:4f8::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.9 via Frontend Transport; Wed, 26
- Aug 2026 13:24:39 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DU2PEPF00028D12.mail.protection.outlook.com (10.167.242.26) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.360.3 via Frontend Transport; Wed, 26 Aug 2026 13:24:39 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 26 Aug
- 2026 15:29:58 +0200
-Received: from [10.252.23.181] (10.252.23.181) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 26 Aug
- 2026 15:24:37 +0200
-Message-ID: <42bb4c3c-1dbd-4902-9765-01687b74cb39@foss.st.com>
-Date: Wed, 26 Aug 2026 15:24:36 +0200
+	Wed, 26 Aug 2026 13:36:21 +0000
+X-UUID: 15ff82d0a15311f19a56ed5b684f684d-20260826
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:6d20cedd-ab11-4185-9dc4-88b344281a05,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
+	ON:release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:f233b56e8abefb0aacba6566bbd6482e,BulkI
+	D:nil,BulkQuantity:0,SF:102|136|850|865|898,TC:nil,Content:0|15|50,EDM:5|-
+	100,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
+	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 15ff82d0a15311f19a56ed5b684f684d-20260826
+X-User: lihaofeng@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <lihaofeng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 222379006; Wed, 26 Aug 2026 21:36:04 +0800
+From: Haofeng Li <lihaofeng@kylinos.cn>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Michal Simek <michal.simek@amd.com>,
+	linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Haofeng Li <13266079573@163.com>,
+	Haofeng Li <lihaofeng@kylinos.cn>
+Subject: [PATCH] usb: gadget: udc-xilinx: cap non-EP0 OUT transfers to the request buffer
+Date: Wed, 26 Aug 2026 21:36:00 +0800
+Message-Id: <20260826133600.3797953-1-lihaofeng@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: usb: Document ST UCPD
-To: Marek Vasut <marex@nabladev.com>, <linux-usb@vger.kernel.org>
-CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, Conor Dooley
-	<conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, "Rob
- Herring" <robh@kernel.org>, Sebastian Reichel
-	<sebastian.reichel@collabora.com>, <devicetree@vger.kernel.org>,
-	<kernel@dh-electronics.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>
-References: <20260819163410.119755-1-marex@nabladev.com>
- <db62c29a-7260-4e19-9279-e38323353c30@foss.st.com>
- <225f1704-399d-47d0-8bca-73a27a59bbd4@nabladev.com>
-Content-Language: en-US
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-In-Reply-To: <225f1704-399d-47d0-8bca-73a27a59bbd4@nabladev.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.252.23.181]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D12:EE_|BESPR10MB992179:EE_
-X-MS-Office365-Filtering-Correlation-Id: 596c24f0-c23e-4908-dcdf-08df0375617a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|23010399003|376014|7416014|1800799024|6133799003|10067099003|4143699003|11063799006|56012099006|5023799004|22082099003|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info: j9agtvI9vK6uh7XX6vI+ChyGl9pDdjIyERBWLqp9Apdz0CgNdJWS9B+Xt/X2PWCb6oqw4locQOq94b2j2vVcvXnZ67RttvgnHqKZL36r5nLAv/6KctiFLade8moih86okrIT2hSbGsIFHG0Ez22peKOoobOBOrbJVmXiNbMcZpVPgpNx0Rn6fpjGaxXgWLGhpOnHx4jsQJim5n6/KB5eqrDO9VLu4aN2K90rDpYWjh/CjfMq1FS928z7KUUQ3UFuhhNb7JNUDK4jn9gx/pLmiQyk6jG2oCG9hQru7ycN1B48HDXsNs9TrSrnmx2l3VneVBcdlScgnfCpIEZIv32PmGD0vQjUidJb2Zj3uozoTJeGTka8xh8E5Ihb2T3JqGgZL+qxoPRli6mNwFKAJCIP6/iFxYBi5pLOoCU7F0PnbUfP1Iw/mYkM53SO5FCTn6F36KFOrUFuv8cJ8ucSJhfbgTIThvXlnfOBIX4cEFI/v/elf/pIu9+Z0ZTRRgiTnB7wOkIMcDg0d9+Q8Fv1qdfH5kgaepwoCeMnimV6gJ02BciW/ntRh3b78yTWedtHMeVOhY0AvOsBmYoSlpKRrGrVibABHgWkq2hZuAnEznfmUYeeUqSxnb6ZhFKkdHhByyLLkAi8Qrh55DPyLf/xZz6N9f9ICdGcLMlXZSqjwihJzquxLYVubB/39hc7FOsvI9oHEieAjuQoSPMG8s7/EHG5vQ==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(23010399003)(376014)(7416014)(1800799024)(6133799003)(10067099003)(4143699003)(11063799006)(56012099006)(5023799004)(22082099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: tHlwY3T6RUbHFPTF1g/bJCUqUwxOp+R3o13b7ZhhnOaXu64K+GLmAUUKmBkXhLfoCjIk91Mxuvc0eDQ8ySITPQ9GJS/4mx4ro/ZyEu8ftDNcXv/z7/8aRjVeoSWh+hK4+0Vyv1bqprT2AeRSLAV7hhVQx8VZ009HYbseI2rwzYB+706RIzueP+bG+3xywZhJUy+BwEfRvmvru2gzJV8512hVaA30xCGMN4tETbbmNJudW54FsMQQEcV0lZrmWYzsaiAaI5LDqJqM36eIH6CffUBQwF5kiZ3UZ1kcJpXkdHa2jNfZawYJvCpJblLQJ9cHQ8Z9r/vo72aEBum1NwUozgKm4IGjq284BRXVJkDYuEsiYOcVKJ7QFasvF+4sIoN7iNUzjTSq0woNcBEfAVFJaQuyUCQmUT9MrApFQJqBIzfDH5OYFiP+QoWBy0zLO4my
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Aug 2026 13:24:39.0276
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 596c24f0-c23e-4908-dcdf-08df0375617a
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D12.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BESPR10MB992179
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_062445_582083_5A84A91E 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20260826_063619_083796_5C5B6F02 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,57 +77,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/22/26 06:51, Marek Vasut wrote:
-> On 8/21/26 6:27 PM, Fabrice Gasnier wrote:
->> On 8/19/26 18:33, Marek Vasut wrote:
->>> Document ST UCPD Type-C block. The UCPD integrates the physical
->>> layer of the Power Delivery (PD), with CC signaling method, for
->>> operation with Type-C cables. Vbus and Vconn control is performed
->>> using an external chip, usually ST TCPP01/TCPP02/TCPP03 or similar.
->>
->> Hi Marek, All,
->>
->> I've sent a series for the complete case. Please check and review here:
->> https://lore.kernel.org/linux-usb/20260821-ucpd-host-fusb340-v7-2-rfc-
->> v1-0-c5e27cbc0795@foss.st.com/
-> 
-> What is the difference between this driver and the ^ driver ?
-> 
+xudc_read_fifo() takes the transfer size from the endpoint count
+register (device/host-controlled for OUT packets) and, if the request
+still has some room (bufferspace != 0), passes it straight to
+xudc_eptxrx():
 
-Hello Marek,
+    count = udc->read_fn(udc->addr + ep->offset + bufoffset);
+    bufferspace = req->usb_req.length - req->usb_req.actual;
+    if (!bufferspace) { ... }                /* only the ==0 case handled */
+    ret = xudc_eptxrx(ep, req, buf, count);  /* PIO: memcpy_toio(buf, epram, count) */
+    req->usb_req.actual += min(count, bufferspace);
 
-That includes the TCCP I2C driver (and an example on ST boards).
+There is no cap of count against bufferspace.  The PIO path copies the
+full count bytes into req->usb_req.buf + actual (memcpy_toio), and the
+DMA path programs a DMA of length count - both will overflow the
+request buffer whenever count > bufferspace, with only the bookkeeping
+(actual += min(count, bufferspace)) clamped afterwards.
 
-> Why is this driver not covering "the complete case" , what is missing
-> here and not missing there ?
+Attack chain (USB peripheral mode, non-EP0 OUT endpoint; attacker is
+the USB host):
 
-I intended to show a complete case, e.g. UCPD controller driver and
-external TCPP I2C protection chip driver. The TCPP is a companion,
-complementary, e.g. provider/consumer relationship.
+    malicious host -> OUT packet on epX -> UDC interrupt
+      -> xudc_read_fifo() -> count = endpoint count register (e.g. 64)
+      -> request with req.length = 8, req.actual = 7 (1 byte left)
+      -> bufferspace = 1, count > bufferspace, bufferspace != 0
+      -> xudc_eptxrx() PIO OUT: memcpy_toio(req.buf + 7, epram, 64)
+      -> 63 bytes past the 8-byte request buffer
+      (dwc2-style FunctionFS / f_tcm gadgets submit short requests, so
+       the interface does not guarantee a buffer as large as the
+       endpoint max packet size.)
 
-You've pointed some "horribleness" there. I guess you talk about the
-straight forward approach e.g. EXPORT_SYMBOL() macros. That's an
-on-going work, a prototype. I could have sent as an RFC.
-I wanted to be transparent, so the correct level of APIs gets used.
+Reproduced (kernel 7.2.0+, KASAN/SLUB debug): calling the real
+xudc_read_fifo() with the above state leaves req->usb_req.actual = 8
+(count 64, bufferspace 1, actual += min = 1) while the PIO copy has
+already written 64 bytes: byte 7 of the 8-byte buffer changes from the
+0xBB marker to FIFO data and the SLUB redzone plus neighbouring slab
+objects past the buffer are overwritten (65 of 72 dumped bytes differ
+from the pre-use pattern) - the out-of-bounds write is observed
+byte-for-byte.  (memcpy_toio goes through an architecture copy routine
+that generic KASAN does not instrument, so the surrounding-memory clobber
+is the forensic evidence.)
 
-You propose to turn the TCPP into a GPIO chip ?
-That seems smart, at least for the CC lines switches.
-What about Vbus and Vconn, it could also fit regulator API ?
+Signed-off-by: Haofeng Li <lihaofeng@kylinos.cn>
+Assisted-by: opencode:deepseek-v4-flash-free
+---
+ drivers/usb/gadget/udc/udc-xilinx.c | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-There are various functions, the bindings should be extensible enough
-for later use of additional functions. I'm thinking of:
-- Over-current events for Vbus & Vconn
-  Could be represented as interrupt controller ?
-  Or could benefit from a regulator notifier (if used) ?
-- Vbus sensing
+diff --git a/drivers/usb/gadget/udc/udc-xilinx.c b/drivers/usb/gadget/udc/udc-xilinx.c
+index bef06fe7543b..63749fd97625 100644
+--- a/drivers/usb/gadget/udc/udc-xilinx.c
++++ b/drivers/usb/gadget/udc/udc-xilinx.c
+@@ -627,6 +627,24 @@ static int xudc_read_fifo(struct xusb_ep *ep, struct xusb_req *req)
+ 		return 0;
+ 	}
+ 
++	if (count > bufferspace) {
++		/*
++		 * The host sent a packet larger than the request buffer.
++		 * The PIO path would memcpy_toio() the whole packet into
++		 * req->usb_req.buf (and the DMA path would program a DMA
++		 * transfer of count bytes), overflowing the buffer; only the
++		 * bookkeeping actual += min(count, bufferspace) afterwards
++		 * would be clamped.  Complete the request with -EOVERFLOW
++		 * instead of copying past it.
++		 */
++		if (req->usb_req.status != -EOVERFLOW)
++			dev_dbg(udc->dev, "%s overflow %d into %u\n",
++				ep->ep_usb.name, count, bufferspace);
++		req->usb_req.status = -EOVERFLOW;
++		xudc_done(ep, req, -EOVERFLOW);
++		return 0;
++	}
++
+ 	ret = xudc_eptxrx(ep, req, buf, count);
+ 	switch (ret) {
+ 	case 0:
+-- 
+2.25.1
 
-My point is that, that can impact the dt-bindings or functionality.
-Sending UCPD driver only, without the TCCP binding & driver, I find it
-is a bit hard to review or test at my end without having a more complete
-view.
-
-I'm not sure which way you'd like to proceed ?
-
-Best Regards,
-Fabrice
 
