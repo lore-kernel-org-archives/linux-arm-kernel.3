@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6873C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 06:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8193AC61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 06:51:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4vboG1ryeqcgAZdB0ZG6Hsu+gRnw5N8992cqeK0WOYo=; b=V/fCAMT+HTzC/46GbApIyX38gD
-	2TD1XUylJKwtYlpjtzyUrsXiD8ekBlHjAhGTytER0qfSMNqGYZ1vbFvuq4qZSsACPRtumo9S3xAJL
-	MKBkZbtlyUQF3O9WoQAg1A5DkRsj8uWmM9+xCBYj9NbHPqfhA+Yu4ik2Cy56ClfVyMAA3FcHInSzr
-	sksurTkCUdvFGlyHuYrBe8msZJ77nPSSWv5qNGioXrAN0kj0n/xdntIa9vGahRb3m5Mi9EHUhL5/o
-	B1J0xJsxw2Bvv5O0H96oQdnUAj218kOw4Pi749xUFm0RnE4mPMjiBD5leBYurPKxzfFBKNzyrT8BH
-	7SmLuP4A==;
+	bh=eknOS7DPk4eW/moos+V/ffAFnLmh02PexohFS/buP1A=; b=W0L2nwQtGIMFYUUTbhd6ddpk/B
+	MZZEfiQ2IOvnaSZ5VR9nzkVduJVWuUqR3pp+JcDqSz+i5Pclnqswdi+CMGlV+athisGItpBKMqh4Y
+	GUBUS/H28TSWek1toAH7N3fIPnRjf0po2LRwd0zB0Q8lBJswurR9Rij1FpYoY7FPMmwJtL3U1Joej
+	dhZq6bDdbr+yCwvgSYOYaZ7W4tL6+N/7yFVD5MbiAg/mqmb3tvVSamWInj3oZ81UZTqdTIVVKhZy4
+	WAlQHmvBVeOTIwfyWmXs61VE0/duDhQcDjLasLjLiHUTFcyc2Igsk+2hemQXfCZwb/JGq4uLbcfhM
+	3jv/FN8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz7Rg-00000001ylU-20b5;
-	Wed, 26 Aug 2026 06:49:12 +0000
+	id 1wz7TP-00000001yzJ-0Tqw;
+	Wed, 26 Aug 2026 06:50:59 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz7Re-00000001ylJ-35WY
+	id 1wz7TM-00000001yyg-3iR1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 06:49:10 +0000
+	Wed, 26 Aug 2026 06:50:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2244D43412;
-	Wed, 26 Aug 2026 06:49:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85ED21F000E9;
-	Wed, 26 Aug 2026 06:49:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3A02E406EA;
+	Wed, 26 Aug 2026 06:50:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FF1E1F000E9;
+	Wed, 26 Aug 2026 06:50:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787726950;
-	bh=4vboG1ryeqcgAZdB0ZG6Hsu+gRnw5N8992cqeK0WOYo=;
+	s=k20260515; t=1787727056;
+	bh=eknOS7DPk4eW/moos+V/ffAFnLmh02PexohFS/buP1A=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Svr1b3bJf2MxJVp0EcLT2CrJQWBPQ0sEmy22Iq8Gixs8KJCf2R2EnCkNVLI4RbCNE
-	 fFJRQjbawv61uJizkXT2dGiuTBTekKpQLKYnoUSZnk0N3vtYOzCPlO0pn1DUzFKR8v
-	 yYSABpiVMei9casTT/Idbk+SbLmcb6J+03n4JeAzMRy2IUEi0zG7Pkh5WrT3IajDUu
-	 C63PYJUo0teAPcuoLzh5J+5Ip7Bp6CjNmPJ2zApEaR0RMKYtVrISBk/gQk+Qlsj3Mg
-	 BtYGppGAw6C1niKnY2lj4j8ncwD0In+pzw95pjNZCj0554+U9V7mJqjwX2qmslVJbs
-	 xP5r3onukMJTg==
-Message-ID: <5e02e6be-919f-46ec-8475-d1190339a84c@kernel.org>
-Date: Wed, 26 Aug 2026 08:48:58 +0200
+	b=OMaTw8uNgmB61qikVsUyoEMfLk1UcFHD8cURdGo2nvyCA48sxN6EnLt2/w7xn4Et0
+	 g3Pn2tf9WVWI/Wo55qC5LdzWhIvGBpGHX03YUvRaKFNE+qoUzByNNN8WUYzk6u8q9c
+	 hZe4fSXtVQqdeOgfCxEor5qAEM+EezPlbKf9Do6It6XUolRI6UssGK+nyTZEynLW02
+	 p1EEI/FZpYwgQTF+mHkGEP/2sfk3DA2C8a6wWx/7rHP7CYsOI6ZyacjitXQTy30+k6
+	 oOA+AH0fuGKaMVCgIUqZz5DR0E5PQyt1/Qx+pF9wEoWonKh7jpAa/bYbR0qqSdNktS
+	 WP/7gYu2wwMpw==
+Message-ID: <44905087-dcf0-4ca8-a4f2-814737746435@kernel.org>
+Date: Wed, 26 Aug 2026 08:50:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 18/18] arm64: defconfig: Enable DS90UB960 deserializer
- and DS90UB953 serializer
-To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, nm@ti.com,
+Subject: Re: [PATCH v2 00/18] Add DT support for CSI2RX multi-stream
+To: Rishikesh Donadkar <r-donadkar@ti.com>,
+ Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, nm@ti.com,
  vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org
 Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
@@ -56,10 +56,10 @@ Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
  dmitry.baryshkov@oss.qualcomm.com, arnd@arndb.de, ebiggers@kernel.org,
  luca.weiss@fairphone.com, michal.simek@amd.com, sven@kernel.org,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, r-donadkar@ti.com,
- devarsht@ti.com, u-kumar1@ti.com
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, devarsht@ti.com,
+ u-kumar1@ti.com
 References: <20260713113423.2310443-1-y-abhilashchandra@ti.com>
- <20260713113423.2310443-19-y-abhilashchandra@ti.com>
+ <cd6818c3-bbad-4ab4-9a4c-4d9eda0ebc10@ti.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260713113423.2310443-19-y-abhilashchandra@ti.com>
+In-Reply-To: <cd6818c3-bbad-4ab4-9a4c-4d9eda0ebc10@ti.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -122,23 +122,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/07/2026 13:34, Yemike Abhilash Chandra wrote:
-> The DS90UB960 deserializer and DS90UB953 serialzer facilite capturing
-> through multiple camera sensors on J7x and AM6x platforms. Some of the
-> supported platforms in upstream are J784S4-EVM[1], J722S-EVM[2], etc.
-
-`git grep J784S4-EVM` gave me zero. We do not take defconfig changes for
-non upstream boards.
-
-Also, you still did not even mention which company you target.
-
-This is not your personal defconfig.
-
+On 26/08/2026 07:46, Rishikesh Donadkar wrote:
 > 
-> Hence enable building Texas Instruments DS90UB960 deserializer and
-> DS90UB953 serializer drivers as modules.
+> 
+> On 13/07/26 17:04, Yemike Abhilash Chandra wrote:
+>> Support for multi-stream in j721e-csi2rx.c driver was merged last cycle[0].
+>> This series adds the corresponding device tree support.
+>>
+>> Patch 1 is a cleanup fixing indentation in the existing CSI2RX nodes.
+>>
+>> The next few patches i.e. (Patch 2 to Patch 6) add the additional DMA
+>> channels required for CSI2RX multi-stream capture.
+>>
+>> Multi-stream capture uses a SERDES pair based on the FPD-Link or
+>> V3Link protocol. The serializer takes the input from a camera sensor
+>> and converts it to the FPD-Link standard, while the deserializer
+>> aggregates streams from multiple serializers and sends them over the
+>> CSI-2 RX interface. Each CSI2RX instance therefore indirectly receives
+>> input from multiple sensors.
+>>
+>> The remaining patches add overlays for various deserializer boards,
+>> and for the UB953 serializer with the IMX219 sensor. Also enabling
+>> DS90UB960 deserializer and DS90UB953 serializer drivers in the
+>> arm64 defconfig.
+> 
+> Hi Abhilash,
+> 
+> Thank you for the series. LGTM !
+> 
+> For the entire series,
+> 
+> Reviewed-by: Rishikesh Donadkar <r-donadkar@ti.com>
 
-
+You did not have comments for v1, no comments here, so are you really
+reviewed it (considering code has obvious issues)?
 
 Best regards,
 Krzysztof
