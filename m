@@ -4,98 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CDBAC61DC6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 01:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 332D4C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 02:09:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OZ92bi0xtWb9sBQgu6ZDoMhAhxRk9cQM2bCHLJFTXQ4=; b=BxNAkC06MNDkdU
-	1EjCfBhtKMdN3dHmkr9bfkB+G7Xpg25EdNcvNrjyi85mYSvFl7EtDUZSUBORv/BahHyyfpchrIGC8
-	i6wbP2cG9pLkxg1uO8xv/GJ/GH5KTciNvKc4L75/C0vs9djFLeK0yYEpyh1zLy6vsEWz9WBp5lO//
-	7EGG1KfULQtfQtTiMGRK+NWUNPaYxTR0A+qQiEW+h46j5Je0wn1BpwcCHXMPeGoVGCgIuMN7/OwPY
-	kbmL4u19ViIxNU8IkCQPF/TEJMjE8uoRIAO29axckopz3q7/NJEVkHfsB8fIdNsFi7Pia1ux3+K5C
-	QAb1FjEkwOp/+psaN5Dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aWj+O9wP6CX5GzhqEIWSE6hUZrqSuPWLLbAKWjlUHOo=; b=HzoKA6cisaKfJH0+0J6IA4XZu2
+	vG8rcmcb6W3Lcz95zmJgxK4bId0YGHui013/lkhO2xzcKxnOBVg47aDgG48uBNW7bmrBDHrKQOSiT
+	B6QA0HyJNfPMPGA2Qr1pj7xjQoIWLqzYLvNQ2Babq/0BvHB5PE64v/dpLSa3MEVCq/YiKm/Qlqame
+	eXJ7mPvthWJoPP5Uji79te6MJ9MZElgDC9KbOCM3Zzn0uBQqOpQpTVXNxRnRMWYlVp1UsjoMT8dgL
+	A/OqsN1iHk+mSE+Wwcs711Kqut2ooim2scu8TtGT9oUUchEtJkiEfWc8OiDcPRWyaaN5eZddUQTrY
+	lcpm8fOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz2TG-00000001l1T-0XWE;
-	Wed, 26 Aug 2026 01:30:30 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1wz34t-00000001mVt-1xZo;
+	Wed, 26 Aug 2026 02:09:23 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz2TB-00000001kzn-1ssE
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 01:30:27 +0000
-Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-92ed19f4d60so29513085a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 18:30:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787707823; x=1788312623; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=OZ92bi0xtWb9sBQgu6ZDoMhAhxRk9cQM2bCHLJFTXQ4=;
-        b=Ate7cvsJlZDvIDZdijKPBwhvSLHdnyCGrqz6NIiD5G7K5H1cON5T48Qc5qvLpEc6Z+
-         PW+lo6hK2KSV6S5iujOTjewdm948iN4g83x2ljnz1wFkdByX1bB+BMDnnGzQilTdXp3m
-         pXCOvs7yWtNNUnB7o//GLnjHMTbUqRX90DJxsuzg8QaFxwQhhEO4UudJrfFjLWhJNTF3
-         Y+ajS6X1Dw9naTkvrH5lmNE6T5DSr2niqQh5nnKyiWwHxcXjGOhrjV+gOD6yybgCZL3V
-         +5J8OCwtQVHCUM4BMeCkpl5b/KD38s/zLvMQmV214JhR4xFqzfr9AtXRVSDR87WPzdKl
-         +aUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787707823; x=1788312623;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=OZ92bi0xtWb9sBQgu6ZDoMhAhxRk9cQM2bCHLJFTXQ4=;
-        b=HKVipRuDFAS7B5EBABBqzQvHfAgrmfMqu58EAVgwiJUp+94G7/WI+/Bk7uIav01Fa7
-         dRiKPLC1D1bQuJxeP3cTPHZnYaNSyR+sEx8R7sxVt5g93bk6I9wNeemKz8GbMuUVZWLQ
-         2LMX7fQklExLAk7Dh9DQJhVTwY51TvhwiVeUgRElzM/tc3lSZUpEVzXAhsPvpiF8A2Wh
-         Vi7XLTTrSW7RMcZAnySI/GvMFVTuuGlG6BUn7rcrllBmI6A92CKhL4A9L8qP5V3F75jU
-         AxJdTJh3EOBmhmhIczq/jIZzhBSeXUSOwDz2RajESjAORoijNlzqH10jNZ3d4zZBpqK1
-         yHbg==
-X-Forwarded-Encrypted: i=1; AHgh+RpWlr0h88RWN2jYtXpMHgbW/KZsrxvieciQUqumHXKbr1S9cJBUsO6pTMyX1B/5rwQhUllKNc/PcX/GL2ffDJ6e@lists.infradead.org
-X-Gm-Message-State: AFuF++lPAhXIey65hg3TqnH9XltqNg11crPtaPU2xAZCgXW+pmpQmKnB
-	OvmYzuY1LRqKfzar4lnyMhJYRDjLd8Wy1EgpyM6xBBB6i9+a4uQ//NrF
-X-Gm-Gg: AR+sD11AKIZMFpzw34HMLSu5IbK+I0wuhJmuG503sN6AWS5i6n+7OQYBRWA37QgH1fo
-	jFljxWOZ6usBkEICVKhPJrYkxqHtoD6Nz+DvTdjGxC3B2tgMEfM6PQaEeFNVqnE7jU/RwOpC6fe
-	X5igk+IeGqxBbDtKRoK0oP7ABU/gvz1zdns0l/XAQQS1UiOlwLl+KvttwrraAR0/A3XoTNvXFwA
-	XjdT5IZfpAaD/Hfi7TvaXHdX69a4k3yNHE2UB2N24RcOHwpr+gVQdqVI9O2D43XdDBRQj2e+f2d
-	DmbcZphH3YsWXwZhrNM6YRO7zHOX8t5oyVYKBXdtqDI/UsMk+DbjMHnA2CUQ/89XmRxPKX9d/++
-	ngl9nd+Jm4/jqLPRsE3rw40LAWjBLF/qvpRGsFGXLHlmlIpi3vrXQapsvYejnSo/mdX3JXIQoGF
-	aAEiuwk3WdUKX4knfLWrow24q7UkBbep0rRz6ZfMZhYi8k5YNAneLjClgBvr3bww==
-X-Received: by 2002:a05:620a:cc3:b0:936:ce17:7792 with SMTP id af79cd13be357-9376f3635ecmr870773685a.8.1787707822640;
-        Tue, 25 Aug 2026 18:30:22 -0700 (PDT)
-Received: from [172.17.0.2] ([138.28.231.64])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9377e67c52csm102398585a.38.2026.08.25.18.30.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Aug 2026 18:30:22 -0700 (PDT)
-From: Yuanshen Cao <alex.caoys@gmail.com>
-Subject: [PATCH v4 0/5] dmaengine: sun6i-dma: Add support for Allwinner
- A733 DMA controller
-Date: Wed, 26 Aug 2026 01:30:02 +0000
-Message-Id: <20260826-sun60i-a733-dma-v4-0-dc2f745f40dc@gmail.com>
+	id 1wz34r-00000001mVT-0mzd;
+	Wed, 26 Aug 2026 02:09:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=aWj+O9wP6CX5GzhqEIWSE6hUZrqSuPWLLbAKWjlUHOo=; b=3OTRBGloEhp96UaMmW1aExChQl
+	Msq9ofdkoTmqTXTdvGBdXv3ZlFxCxnpYbH7Cd0D4aPxcXXjTE5azaT/PWmg+Sul89cZJvHDmr7/5N
+	fGEegSDdoNimpRt0e8XdsKrxYxc5IjJwbe1obB2MQnOoWZfVAR+1m5MFGMXjUVvHrC20=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wz34S-001SQz-Vl; Wed, 26 Aug 2026 04:08:56 +0200
+Date: Wed, 26 Aug 2026 04:08:56 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Caleb James DeLisle <cjd@cjdns.fr>
+Cc: netdev@vger.kernel.org, hkallweit1@gmail.com, linux@armlinux.org.uk,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	pabeni@redhat.com, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, daniel@makrotopia.org,
+	naseefkm@gmail.com, joey@tinyisr.com, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next] net: phy: mediatek: add driver for EcoNet Fast
+ Ethernet SoC PHYs
+Message-ID: <e37d97cf-f4aa-499e-b372-21701f2e3782@lunn.ch>
+References: <20260825180421.1804729-1-cjd@cjdns.fr>
+ <177dc347-4cf9-48ca-97fe-b0f3cd46d8e3@lunn.ch>
+ <4fa1ab31-cdcb-4488-b038-c5869966b6ec@cjdns.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XNTQ6CMBCG4auYrq1ppz9YV97DuCilhRoBQ6HRE
- O5uwQ1KXH7JPO+MKNjO24BOuxF1Nvrg2yYNvt8hU+mmtNgXaSMgIImkCoehkcRjnTGGi1pjA1w
- IyhWVokBJPTrr/HMpXq6fHYb8Zk0/Z+aLyoe+7V7Ly0jnu//1SDHBhea55MqZDPS5rLW/H0xbo
- 7keYeWBbj0kzzhxQMRRUWN+PVt72HqWvJMqsw6UNPmXn6bpDUbPGuNAAQAA
-X-Change-ID: 20260619-sun60i-a733-dma-c2455149165d
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>
-Cc: Yuanshen Cao <alex.caoys@gmail.com>, dmaengine@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Frank Li <Frank.Li@nxp.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.16.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4fa1ab31-cdcb-4488-b038-c5869966b6ec@cjdns.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_183025_591640_998C09CC 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20260825_190921_255325_79125E19 
+X-CRM114-Status: GOOD (  38.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,90 +74,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+On Wed, Aug 26, 2026 at 02:08:50AM +0200, Caleb James DeLisle wrote:
+> 
+> On 25/08/2026 21:40, Andrew Lunn wrote:
+> > > Also provide support for the older EN7512 Fast Ethernet SoC PHYs found
+> > > in EN751221 chips with do not have the MCM switch. That is chips which
+> > > do not have a "G" in the name. As these PHYs bear the ID 03a2.9412
+> > > which collides with MTK_GPHY_ID_MT7530 gigabit PHY, do not match them
+> > > and instead rely on the user to override the PHY ID in the device tree
+> > > if they wish to use this driver.
+> > Is there a way to tell them apart using other registers?
+> 
+> 
+> The reference code differentiates this PHY from the other because this one
+> does not advertise gigabit capability. I sent it like this because the idea
+> of a matcher made me nervous and this felt more conservative, but I'm open
+> to guidance about what is the most appropriate solution.
 
-This patch series introduces support for the Allwinner A733 DMA
-controller in the `sun6i-dma` driver.
+If it is as simple as that, i suggest you detect it at runtime.
 
-The A733 DMA controller differs from previous generations in several key
-ways:
-- Support for higher addresses (up to 32G).
-- A different interrupt register layout and mapping.
-- A different number of channels per interrupt register.
+In the driver structure, you provide a match_phy_device()
+function. This get called independent of what ID value you have in the
+structure. So you first need to check if the ID matches. Then check
+the 1G capability.
 
-To support these differences without introducing complex conditional
-logic throughout the driver, this series refactors the
-`sun6i_dma_config` structure by adding hardware-specific parameters such
-as interrupt register offsets, address masks, and channel counts per
-register. This allows the driver to support the A733 and future hardware
-revisions. This approach also achieves the same functionality as the DMA
-drivers in Radxa BSP Package[1].
+Ideally you want the code in the same driver, because module loading
+happens based on the ID. I'm not sure user space will load two drivers
+if they both indicate the same ID. Something you can experiment with.
 
-The series is organized as follows:
-1. Refactor the configuration structure for interrupt and register operations.
-2. Add support for variable address widths using masks.
-3. Add support for variable channels per interrupt register.
-4. Update the device tree bindings documentation.
-5. Implement the A733-specific configuration and register mappings.
+> > > +	for (;;) {
+> > It is unusual to do loops like this. Can it be turned into a do while
+> > loop? And without looking deep into it, it is not clear if this is
+> > endless if the hardware stops responding.
+> 
+> 
+> You raise a good point in that it's hard to reason out the default exit
+> scenario, and I will figure out how to improve that. I'm not sure I can
+> actually get rid of the infinite loop without making the code worse, because
+> the default exit condition needs to assign ret and goto the error out label.
 
-Tested on Radxa Cubie A7Z.
+Consider adding comments as well. Also consider replacing the infinite
+loop with a bounded loop, and return -EIO if the it goes around the
+loop too many times. What you are trying to avoid is on hardware error
+a CPU constantly spinning until power off.
 
-[1] https://github.com/radxa/allwinner-bsp/blob/cubie-aiot-v1.4.8/drivers/dma/sunxi-dma.c
+> > > +static int en751221_fephy_config_init(struct phy_device *phydev)
+> > > +{
+> > > +	struct econet_socphy_shared *shared = phy_package_get_priv(phydev);
+> > > +	u16 l0r26_temp;
+> > > +	int ret;
+> > > +	int i;
+> > > +
+> > > +	if (!shared->phydev_p0) {
+> > > +		phydev_err(phydev, "Port zero must be configured\n");
+> > > +		return -EOPNOTSUPP;
+> > > +	}
+> > What is the issue here? Why must port 0 be first?
+> It doesn't need to be configured first but it must be probed because these
+> PHYs are not independent, they exist as a group and some configuration must
+> be done on the first phy in the group. I will re-send with clarification in
+> a comment.
 
-Thanks!
+Consider using phy_package_init_once() to configure the shared things
+by the first PHY to probe, independent of what address it is.
 
-Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
----
-Changes in v4:
-- Refactor configuration structure to use irq stride and offsets instead
-  of function pointers.
-- Use GENMASK and field_prep in set_addr for different high addresses.
-- Link to v3: https://patch.msgid.link/20260622-sun60i-a733-dma-v3-0-f697ef296cbc@gmail.com
-
-Changes in v3:
-- Reword patches for clarity.
-- Link to v2: https://patch.msgid.link/20260621-sun60i-a733-dma-v2-0-340f205891cc@gmail.com
-
-Changes in v2:
-- Implement SUN6I_DMA_IRQ_A31_COMMON_OPS macro to avoid duplicate.
-- Move set_addr into helper function and revert back sun6i_dma_set_addr.
-- Rename chan_num to irq_req to avoid misleading name as suggested by
-  sashiko.
-- Reorder and reword the dtbinding patch for more clarity.
-- Link to v1: https://patch.msgid.link/20260619-sun60i-a733-dma-v1-0-da4b649fc72a@gmail.com
-
-To: Vinod Koul <vkoul@kernel.org>
-To: Frank Li <Frank.Li@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-To: Samuel Holland <samuel@sholland.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: dmaengine@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-sunxi@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-
----
-Yuanshen Cao (5):
-      dmaengine: sun6i-dma: Refactor to support A733 interrupt and register handling
-      dmaengine: sun6i-dma: Support variable address widths using masks
-      dmaengine: sun6i-dma: Add num_channels_per_reg for flexible interrupt mapping
-      dt-bindings: dmaengine: sun50i-a64-dma: Add allwinner,sun60i-a733-dma compatible string
-      dmaengine: sun6i-dma: Add support for Allwinner A733 DMA controller
-
- .../bindings/dma/allwinner,sun50i-a64-dma.yaml     |   2 +
- drivers/dma/sun6i-dma.c                            | 153 ++++++++++++++++-----
- 2 files changed, 122 insertions(+), 33 deletions(-)
----
-base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
-change-id: 20260619-sun60i-a733-dma-c2455149165d
-
-Best regards,
---  
-Yuanshen Cao <alex.caoys@gmail.com>
-
+	Andrew
 
