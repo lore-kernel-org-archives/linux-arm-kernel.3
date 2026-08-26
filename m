@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2D7C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 12:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2460C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 12:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=W53+ozmmytCKTsz87hYJRPt8O2Llloot50egnShiA6I=; b=PejI4bWYDv/gDB
-	YO38a81oSEWU3/wVuv1eQMKFnQu23GEguu6XFj2W80YH1UhIwUWPLm2G9NxF7R/UJcGfgh4X1sWyE
-	YH7BRx16mq6dHSP272Xuk+g4A7fR4sQBs5HwUDokcFnm6AJwF4Gvz2OSC9X4OfyplthZaaFTW4TAA
-	OMezg6EmY0LlgeOyaL7UHktdXLLXhaqDT352Uw7ShY6seWQFKHme/+FwFlyzWoXwjE2mhaoZI3i6M
-	mG2Vc51Tgk6BcyGIWyx8OpmZhPr03Ofn9mcD57lal/PPQcasiQT6ZxGXroxytwTcH3SUjtF53bU13
-	jvhZAM0UKMY9n/BL+acA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h15otk3ApxPlz7+e1yUXssJQT/RaXRzBb1z7TnhPPnQ=; b=bCZ2QiU58K/0vT9xEbS4y4T5ia
+	9KZxrQ7eDwNn0iuM3uNJhRJa3eLvzsDBXHPrsxRohn13FD8Ig4kJdIB1kV3dBcbYMw9aMRC0Fmapd
+	4kyAT1t8g2qz8rX1ZfLQPWb6Qmsq6noQzWHUF3bUSaeGFAVME701CrHDYaggNZNRjD4BRqanWmjej
+	URfFfbx5gAenm3WpgTGIJx0Pr8O0gLGGEiqsl0vIZK/K+ZDTJhLk7gPpZ3BB6knwbBl9wGKvMpPvx
+	BRi2Y+LuIn6oDwV/YY7vKNujmThB/1eh3p1XlIrYjLu9ktehKj/mF9DOvYZaUie91ml2XBw3/mwRz
+	TLfRwERQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzCs5-00000002RVw-0u5i;
-	Wed, 26 Aug 2026 12:36:49 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wzCs4-00000002RVY-1rst;
+	Wed, 26 Aug 2026 12:36:48 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzCrv-00000002RSb-1g4P
+	id 1wzCrw-00000002RSd-09b7
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 26 Aug 2026 12:36:42 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4953e04ef16so8293065e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 05:36:38 -0700 (PDT)
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-49978908b35so5785685e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 05:36:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787747797; x=1788352597; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=W53+ozmmytCKTsz87hYJRPt8O2Llloot50egnShiA6I=;
-        b=HLwZ6cUNxV+0JY31KlMXXAPxmr02ohzge+Wnw8QQGS3F7A5Xgd6HI0J+NNGtvoSmP5
-         K97QfA8nD3bQWM+5Wcn1KItwxjR0PUGPsLwBb8p6yQsavu0+YBsRSMu/p9vcFn6JKMrk
-         eeynwxyeXa3vQ0mMtJlKUH/FbdXKndlREBNqJKeUjHDB32gggjnkmJM4E7ulMxOYlB2+
-         FqYzB9gTHsQcDXCdtE+EbIZmh2YydF1oiO/MlreR2jl1vD+XLGtIbHL69DtYO+KzBlT1
-         GfDgPEY1inl6sjSQA6GkIpd8u7TAyc6tGh4GQnhc1M1v0v2bj/LwiUcALoxECQkm82dG
-         5/0w==
+        d=gmail.com; s=20251104; t=1787747798; x=1788352598; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=h15otk3ApxPlz7+e1yUXssJQT/RaXRzBb1z7TnhPPnQ=;
+        b=FPzFBX7YA7yORGPF76J6qhBCDfLfVuTCFiIz6buJhdr3T797OCaR3Kl4uwdGlCKZ+k
+         LBhFpTeZrqFpWiYdt8ezfd81bwhN3BWqdAWPc2WaV2pkxlJTEH5LhfHqWTOAXZ8BpVhF
+         5B4DvA9LePiqDbTBuP/DAkc+nAGeNRj6tT7RyGwlvDFrdFsx1xP5TXN4MbDadKMaTTUq
+         0AogbU8Ycdl1JHYORFoZHPaKbUPNAzwQBFZyfLOOBSn5EyoTDVOgX50LXpHSILVR9aZl
+         GvbAcRwkOpDGpdaiRrh3nr5xLuoRRmlhP/tMpqibseWqih1I83gpg+2do1xom7nwwqn8
+         t8jw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787747797; x=1788352597;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=W53+ozmmytCKTsz87hYJRPt8O2Llloot50egnShiA6I=;
-        b=Ufd1IE683Ahm8inh5pp05I0+QC7jC5CTBsewx3RBlokx3hMmbgA0A+74laTcKyttwK
-         eZipRBORgd4AHLPc814UM0L6uBQ+xf06kPyC3rW+EAwEkSb1uzZJyG5S+irCUAmOajCd
-         0ADyfW3TB7njMgdWrHyo6hDmQgK/OIdUm1dXXk6H6WvxW5KTo+ceGg3G//TtNnuDjy6Y
-         dHd9m1NkkHvisieank3ravjjLFm6vosqnUdzvMX6w7CxXut/hdbpIjvCa8cp/vfQhzaS
-         ckzXOcIec5uS/TPAX4Bdrc9Lr/l5gDm5R+P6a5bW1RzDyTlAisAdYX1cm4hIYunNV+Hu
-         9HrA==
-X-Forwarded-Encrypted: i=1; AHgh+RoGuiraooW9pp94XqsZbiEKCplt31+QFrYZx34nRkz/l5IDu7Pf7Aap374A4TUfUZxPaOR10OkxL2+nyDKBIlY1@lists.infradead.org
-X-Gm-Message-State: AFuF++nLGFfjcTti0J+vNxZq8bSMd1whQgRhIi6uRjMwZ4yn7c5ijY8g
-	A+5nMJ1tx+CGk6dRmmekiAn8tBUdYevSauYpfy9x5x8Y9gyGwdJIRIkveC5O0w==
-X-Gm-Gg: AR+sD13md3dq1TEeYg8BpMp9/MT70vL3705ZUEgHtDb5NKnVNc2ZBQfpDDSv32s+VTY
-	7T7AIq7Azo8xVb5k9mfTeLKuX6cDFUgizCO0kfK7UDxDtLiSRknSXdOtq97i9P2VcjF0I7USo4S
-	R0lKPU1fNZbgkF1psKfSpAw0lqbEqT1CC04+wsoo5msY5TkIDHz7YW4S8jG4sZB/vjzuWdt0UB1
-	lePBLMPuPV4lNQyNl/gBX4UkjdiUEw+eZej/a5hE2yzcpbfoxmeaV0mexlomBirITP2ryd1l30X
-	v8926Dz9hVdixUvTapE0nyJalO75wFy1hb/VFbDbLgDfii730tGwGfoSfuS6iTm/hq5Zqg3M00A
-	QDZNQCjQAjvlUZ1oUhqB5FNdwHgdPHmBbnk9D0IrPrxkKxGB6GVH9RfTrH763+4YNRIKvTQ6oXV
-	IBB7vt2zzlKQBZYvnj49jCDhYVdTZpYjZEdwVNgdhIhfDWrQ33vSSYpnT9cYkeyPAZHqnG8vcIZ
-	OKH79My0Gq8BWgRs3FQ0cX5tCw9F0GFkNIVXXx1iN19eqM=
-X-Received: by 2002:a05:600c:4503:b0:499:8b13:3a98 with SMTP id 5b1f17b1804b1-499dc6f6856mr63320205e9.4.1787747796976;
-        Wed, 26 Aug 2026 05:36:36 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1787747798; x=1788352598;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=h15otk3ApxPlz7+e1yUXssJQT/RaXRzBb1z7TnhPPnQ=;
+        b=f8PInd8X6hTjSkIDJAm5MgFkYsk2lFlLNx/Ka13hfihSRdYLVjBFT3LPFCdy1R4UYq
+         T9LynCn6jjboNU/SnEO6utQ7qr50/BuaLNJrcA60dODOQLqAQmiPkdEDPsoA9rdjVzvd
+         +w5Tys4bGv90b7UQxsLd+A40F/nbjFhIKX236B0sBFDUPDOCTx3kA1Klhpy+Erkm02/p
+         rJSlE/8NJTQmZQ+ivLDLnHErv32Ek3eFTLaQAiqika1TQfQNz8rgGHHZmiKVj2heGBKG
+         xYAEBuoSYgS5/UjE5ZI89EFmCYA+ebMS5fc2AKSvRIzRiHki3TjtaGWBgmF+1elJt61R
+         rsAQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqGpzPzXRm8399+cap41iGAzBk3FnK7nSRCBr/pTyQiNgiT8RJKvotKqhnA4yhSgQWdz3jRwgajaaZ7BSCBnvqJ@lists.infradead.org
+X-Gm-Message-State: AFuF++mK2uEdWubq+ZYC+d/bp1Hzbx+qX4gzgd4F1t2YMSwv1I4jFzky
+	mW9m7z3qM0cDv2SsSbLScJvaj1F8YMidaHPGPe+hZv15EID9qKJdP+B4kO6XKg==
+X-Gm-Gg: AR+sD13OM19zz18k7nes+k7rkB1pyuyvJlNW4xzcnXYcY7mdNrGHEYXjPGOygqDfEdI
+	XR3n00iRcpeP1V3efAJfH2mn74fLadVveXNBf+sT6cKUISBiXfX6lZrJjVUGG7QGdV1a1n2p7uv
+	Z3nSU0BbIMALNJe7Ps6Mj43/pCAulV8mEViSwKKUamGOEA4g0M3JAFhsP10L1ESBBfXijoevU6B
+	gO91wzWSELgflCqGh6A3YuNS/l48lnFwBfBalG2tpgI+A50Ulu7EHzQAX4IxSSfD8+Pxb97MQ25
+	hn0IHxKVD7Alif8UwWmG2OewFSJxWFPuzyuOf3uZcLAyQr0ej1mu4YAYkxB6r9YOnEbCY+fAz5I
+	lMQm+Lj+bKoT+Bk1VnO+8Xo5+X3Cs4lgD1jSUZZ0d+YUK7vXwoCKtbQX4igdsDYsC33BhLOOelW
+	PbPN1G4noAD5efkng+DMbg4Xq1sIpR3rEaTMvQZaYRrrRwYKJLE2Rwxsts/+d/2bBixkCgRLMCR
+	ucBMggnH+6AMKGIVhRS+RTChrYMP7Zt9Kib3b4Eg4+Ui+g=
+X-Received: by 2002:a05:600c:4f55:b0:499:78b3:7b36 with SMTP id 5b1f17b1804b1-499dc720beamr60889245e9.11.1787747797933;
+        Wed, 26 Aug 2026 05:36:37 -0700 (PDT)
 Received: from [127.0.1.1] (lmontsouris-656-1-83-121.w82-127.abo.wanadoo.fr. [82.127.110.121])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499dc977692sm26009465e9.6.2026.08.26.05.36.35
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499dc977692sm26009465e9.6.2026.08.26.05.36.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Aug 2026 05:36:36 -0700 (PDT)
+        Wed, 26 Aug 2026 05:36:37 -0700 (PDT)
 From: Amin Gattout <amin.gattout@gmail.com>
-Subject: [PATCH 0/2] Add MIPI CSI-2 receiver support for RK3576
-Date: Wed, 26 Aug 2026 14:33:48 +0200
-Message-Id: <20260826-csi-2-rcv-dts-v1-0-bcd8d459684d@gmail.com>
+Date: Wed, 26 Aug 2026 14:33:49 +0200
+Subject: [PATCH 1/2] media: dt-bindings: rockchip,rk3568-mipi-csi2: add
+ rk3576 compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACzdjmoC/0WNQQ7CIBBFr9KwdpIyMAV7FeOiwKBo1Aq10RjvL
- loTly/5/72nKJwTF9E3T5F5TiVdzhXkqhF+P5x3DClUFthi11ok8CUBQvYzhKmAMRJdsEoH7kT
- 9jJljun99m+3C5eYO7KeP5LfIfL3V0LTM/p2+WSpyDfmoyHQQxv0DULU6Wm1Rkutn+ZG4oTD4y
- +mUpr5xgaK2FFWsb0RytiOjmGg9xNYZJM1RS6vF9vV6A70FmTnwAAAA
-X-Change-ID: 20260825-csi-2-rcv-dts-7712bd834de6
+Message-Id: <20260826-csi-2-rcv-dts-v1-1-bcd8d459684d@gmail.com>
+References: <20260826-csi-2-rcv-dts-v1-0-bcd8d459684d@gmail.com>
+In-Reply-To: <20260826-csi-2-rcv-dts-v1-0-bcd8d459684d@gmail.com>
 To: Michael Riesch <michael.riesch@collabora.com>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -90,16 +89,16 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Amin Gattout <amin.gattout@gmail.com>
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787747795; l=1518;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787747795; l=995;
  i=amin.gattout@gmail.com; s=20260818; h=from:subject:message-id;
- bh=bZCTslaMfY2yHuls00yoeNHJSejBPMWhnKOx5GZU7Pk=;
- b=D5SZuHOEZFLq4kV/bI0disa6qhctUgipBPOTdKl3tjbmw47te+DHUq8yqwhgqFIQKWdbWjzoB
- vOdGow0S2mZD2zoH8t894Bq5c5ei5wyPao485qKRl2S+x7izKKzRIWf
+ bh=39cuXfdfai3x2o9ivWHSxZIa8pSWnI/ihkiawNHpzqs=;
+ b=iZynIZGdWCEmQV/WG7vShRwpR0bcPUXqeWta922VAcZxqHnUei8WHxNkN9GrcPAI7U/Trm/yZ
+ JmiSpCp/597Cqv+EyunJrWOvfHd4hoLMDMSZ8zHBmKoYZX5tAfF6CDQ
 X-Developer-Key: i=amin.gattout@gmail.com; a=ed25519;
  pk=MSIqDPkCOkwtyP8Fns1m+KFU9SgqoDl2mpLe18vL+hQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_053639_448678_3B645678 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20260826_053640_136662_BEC3AF0E 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,40 +113,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds the device tree binding and the SoC nodes for the
-MIPI CSI-2 receiver units of the Rockchip RK3576. The receiver is the
-same Synopsys DesignWare IP as in the RK3568 and the register map is
-identical, so the existing driver is used unchanged via a fallback
-compatible.
-
-Only the two receivers fed by the Innosilicon D-PHYs in full mode
-(MIPI1 and MIPI3) are added; see patch 2 for the details.
-
-This series depends on the RK3576 CSI D-PHY series [1], which provides
-the csi_dphy0/csi_dphy1 nodes referenced here.
-
-[1] https://lore.kernel.org/r/20260820-rk3576-dphy-v1-0-70e25e8d5e78@gmail.com
+The RK3576 MIPI CSI-2 receivers are compatible to the ones found in the
+RK3568: the register map is identical. Add the RK3576 variant to the list
+of compatible variants falling back to the RK3568 one.
 
 Signed-off-by: Amin Gattout <amin.gattout@gmail.com>
 ---
-Amin Gattout (2):
-      media: dt-bindings: rockchip,rk3568-mipi-csi2: add rk3576 compatible
-      arm64: dts: rockchip: add mipi csi-2 receiver nodes to rk3576
+ Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
- .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  |  1 +
- arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 52 ++++++++++++++++++++++
- 2 files changed, 53 insertions(+)
----
-base-commit: bd5f485f3f026225b86573e559af0b7254ef4184
-change-id: 20260825-csi-2-rcv-dts-7712bd834de6
-prerequisite-change-id: 20260819-rk3576-dphy-2304f848215b:v1
-prerequisite-patch-id: fbe2d84f88709b8bf846debe6b8ce62c4392ca63
-prerequisite-patch-id: 9bce33933ae69e8cc7f7ef2f0d9acb969620bc85
-prerequisite-patch-id: aca697161c21e19fe3a7f62f208da0f6c3b666e1
-prerequisite-patch-id: 8f45701f840680a35e044f43ebd3087282847990
+diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+index 8bfad0fca3b7..1898f3787a98 100644
+--- a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
++++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi2.yaml
+@@ -23,6 +23,7 @@ properties:
+           - rockchip,rk3568-mipi-csi2
+       - items:
+           - enum:
++              - rockchip,rk3576-mipi-csi2
+               - rockchip,rk3588-mipi-csi2
+           - const: rockchip,rk3568-mipi-csi2
+ 
 
-Best regards,
---  
-Amin Gattout <amin.gattout@gmail.com>
+-- 
+2.43.0
 
 
