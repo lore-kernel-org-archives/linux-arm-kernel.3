@@ -4,82 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE43C61DBE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 20:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99C89C5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 20:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=flnw4YFK4nn1JRtl3vh2WWZ6rVH7arDpTg03KSn5OIQ=; b=yu0Mv+qv+UUvt08HJgZ33t/ySg
-	qOG+E6Xb5zrt+kde2nYwGiFg2O7WAVZ6H4aNHoYit7lHKIM7ZzuUktg+GGZcZOkgOPhKOsfWgUYlQ
-	73CxAIE/cJfzZJ9K33XYrqk1UcZKvQEb0skaAys5QMSy4QqUpDOR0bINnEKnMBPLafSLPBy5DPLPS
-	m2fd4osbhIq2YKARbCK0z/EAmGaGCgl0tHrRnEL4Bvp0nWftYqDrKsBOfLK1PEG1uTWyKf0dufXhJ
-	VccMJFHLPbdbHl3FTpzzIpzr12b89tt9GXDTTxReP0J4UxwBHrBFU11cPksqTge0fE48rFl6KY3JR
-	RwhDWmoQ==;
+	bh=WHfz/XH3YitbIt7V+TouW3EtPz2ZC9CU8oNr6aba570=; b=UkC0M4LoeSrm3Gs6C5HC4I6STf
+	Msb9d5YMY3vDBTqDNbnMLGLQ9nKvTvbZ2ntEv8XGZo9Vo6b0dVoPrjKv1BhG5BqKbdn1Lj2D+nvVz
+	EY0uWEhX5lD9ZnmPDlhLX2xk1TPKt0sWUIdJX6hfeLsNuXm6MDCIKtah6mHn1oQ86sfZYDg6jgRg7
+	feDyB3UYdsS0/HE1kWAYl6/tlGTD5OkgrymPGQD7mebb6O4/kiyAp0FE5Qpk9zyQrS0J5kRfKAYwc
+	uw2qe+7vXvgVEmGTeLurxyHH9Z0dUTSm+rgZNYcZXu6s2DVGyg4H0iLe7qC0Hu7GgllfvB7dIj4Bc
+	S0nOhZ1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzKAb-00000002zl3-3HVp;
-	Wed, 26 Aug 2026 20:24:25 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wzKDZ-00000002zwx-1aA4;
+	Wed, 26 Aug 2026 20:27:29 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzKAZ-00000002zkg-303X
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 20:24:24 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 1ADF51A183B;
-	Wed, 26 Aug 2026 20:24:22 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CB7F0604EC;
-	Wed, 26 Aug 2026 20:24:21 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 04A9C11C78051;
-	Wed, 26 Aug 2026 22:24:09 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1787775856; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	id 1wzKDX-00000002zwW-03ES;
+	Wed, 26 Aug 2026 20:27:28 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F27701E25E0;
+	Wed, 26 Aug 2026 22:27:18 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1787776043; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=flnw4YFK4nn1JRtl3vh2WWZ6rVH7arDpTg03KSn5OIQ=;
-	b=VlA5J1cHVpEd9kEiVxwJcKflxfDypdppGrggNcyw7rxRmJ+AuLAA/6+uCm6wCFeE82DX4E
-	kDnlPG4inybAFRsrNfmE/1Ix8AujGPlJ+RTMkKQq2p43da649RnlSQOgL9uNEmCPkbxQQJ
-	7d/zY4Uc0VmfqcRptLfFR3idsbbIO4/EyP9oxhtnJ/b0bN/UBAyUHczkC/ymMpdEMXL4dO
-	WYLRpDkGTYbxLS5ArRO0VHNuQcdoBZPUVj0qn0yRmEbmQfs+agENzVSo+wmmKaTwWGuJhT
-	Q80sLBcnc6zRLhS/5i4cVtwi6v+HgZ3qiGWg9bKOmlQ4NoWWzIpCKVSrLzN5sw==
-Message-ID: <5bf8b713-55aa-4dd6-ad8c-afaa96c787dc@bootlin.com>
-Date: Wed, 26 Aug 2026 22:24:09 +0200
+	bh=WHfz/XH3YitbIt7V+TouW3EtPz2ZC9CU8oNr6aba570=;
+	b=S+AmJYRrI2BDGneRLc4Xr40yRRcGOYvqCju3wJn8tIGW0L/mDN683PvTJ/ycfyFQ+q7roV
+	8olNPruPc8pNflssh+kYlnH2lhzPkUB3G2E6JbLW0i5WZeVibig7Znn46yE17IjdyhV/+S
+	IMDExSH10GkUbCnyOhYIVkOrxwjOYCUL/27kCr0BU3sWcAeyGTpDu3EREDvS+nWnjEq+LH
+	JWnp118lsK+96Z2DNvAmJvmuoi/eCAxd7eaJ+ShjDwSjW/dfs61Ahd+xkYOq6wZoq89nUZ
+	Q44Sa6sUQUv//XgTH93FIxmong6cy6aYdZN50U7foPy89aNr2NWpkngrgYKVWw==
+Message-ID: <121a7ddc-e194-4773-9165-449d410eedfa@cjdns.fr>
+Date: Wed, 26 Aug 2026 22:27:18 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/6] net: stmmac: selftests: Check multiple MMC
- counters
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH net-next 3/3] net: phy: mediatek: support EcoNet EN751221
+ gbit SoC PHY
 To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- Heiner Kallweit <hkallweit1@gmail.com>,
- =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Emil Renner Berthing <kernel@esmil.dk>,
- Minda Chen <minda.chen@starfivetech.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Jan Petrous <jan.petrous@oss.nxp.com>,
- Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Jose.Abreu@synopsys.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260826140500.616466-1-maxime.chevallier@bootlin.com>
- <20260826140500.616466-2-maxime.chevallier@bootlin.com>
- <3d6e75eb-be26-47a2-96de-d29c0b634bfc@lunn.ch>
+Cc: ansuelsmth@gmail.com, netdev@vger.kernel.org, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, daniel@makrotopia.org, dqfext@gmail.com,
+ SkyLake.Huang@mediatek.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260825193456.1823985-1-cjd@cjdns.fr>
+ <20260825193456.1823985-4-cjd@cjdns.fr>
+ <d7d86078-8a29-4e7f-a62e-91f6b266bea1@lunn.ch>
+ <a75b6b15-f86b-4cb2-934c-87583b5bb02c@cjdns.fr>
+ <4d594c62-2ceb-43c1-a3d2-731b80493787@lunn.ch>
+ <cd7e6b13-a712-43ce-aae6-f45da2f77ba9@cjdns.fr>
+ <25195db9-c15e-449d-b792-8f5a7c0aa371@lunn.ch>
 Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <3d6e75eb-be26-47a2-96de-d29c0b634bfc@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
+From: Caleb James DeLisle <cjd@cjdns.fr>
+In-Reply-To: <25195db9-c15e-449d-b792-8f5a7c0aa371@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_132423_899864_5526F219 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20260826_132727_316156_F9F4110E 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,48 +80,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 8/26/26 19:14, Andrew Lunn wrote:
-> On Wed, Aug 26, 2026 at 04:04:53PM +0200, Maxime Chevallier wrote:
->> The MMC counters report MAC statistics. Multiple counters can be
->> enabled when the IP is integrated, however there's no way to know
->> exactly which ones. Un-implemented counters seem to report 0.
+On 26/08/2026 18:50, Andrew Lunn wrote:
+>> I tested my board removing the EEE disable and the MASTER line, and it seems
+>> to work. I can't get any CRC errors flooding the link, and MII_STAT1000
+>> reads LPA_1000LOCALRXOK | LPA_1000REMRXOK | LPA_1000FULL which suggests to
+>> me that it's able to operate happily in slave mode.
 >>
->> It was found that on StarFive JH7110 and Amlogic SM1, the counter that's
->> used by the selftest (mmc_tx_framecount_g) isn't implemented, triggering
->> an MMC selftest failure.
 >>
->> Both the above SoCs seem to implement mmc_rx_framecount_gb, let's use
->> this counter as well for MMC counter validation.
->>
->> Note that this doesn't guarantee that we won't encounter the same issue
->> again if another IP implements yet another set of counters that don't
->> include that new one.
->>
->> If the game of whack-a-mole with implemented counters becomes too hard to
->> maintain, we may simply consider removing the MMC selftest entirely.
->>
->> Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
->> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> 
-> Seems sensible.
-> 
-> If more moles need whacking, we could consider the value of 0 as
-> success.
+>> So unless you or someone else thinks it's inadvisable, I'm inclined to just
+>> enable these things and then wait to see if anybody finds a board that has
+>> problems.
+> Master/slave should sort itself out, maybe taking a little longer if
+> there is an initial conflict. Where it can go wrong is when the random
+> number generator in the PHY always returns 42. Put the same PHY on the
+> other end and the election always fails.
+>
+> EEE issues can be more subtle, it depends on what the link partner is.
+>
+> But yes, we can start without these. But please mention this in the
+> commit message, just to give a hint to anybody who ends up trying to
+> debug in these areas.
 
-We'd need to see what the values are on platforms that don't implement MMC
-counters at all, what the registers read in that case.
 
-Another approach is to bruteforce the selftest and look at all the MMC counters,
-passing if any of them changes during the test.
+Just re-sent v2, in fact after this conversation I did more testing and 
+caught it sporadically failing to negotiate, so I put back the force 
+master, confirmed it is fixed, and added a comment.
 
-> 
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> 
->     Andrew
+Thanks again for your kind review and advice.
 
-Thank you :)
+Caleb
 
-Maxime
+
+>
+>        Andrew
 
