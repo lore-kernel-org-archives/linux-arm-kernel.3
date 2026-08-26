@@ -4,132 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E41C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 16:27:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B6FAC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 16:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PQNB7S8RCBxFW+7NcYZvzwVgYXls+CU9rOWlsdFydSU=; b=Z5pG1yyEYh9FdrP/VterCbMtIp
-	jPZSsruQ/DX843M3M1NhmPveV0BQd1aWFWHI/Zq3kz5XQ1ncCepxDCYoJzH2DOLV8iHwNBo3cDwQD
-	XX1Ipzvf1Za5CG+56NFTE8Oa+5ZQlFmNxqyCmZcg+2/JkSl7YHfGpVilWi0Q975lWPrbfBfta7xgV
-	IJ0uDo5abgi8F+GqF+JWcBqv836XWgHKZMJcCokvkF00fJbSFkjhbbsIWsptF1iPYqPfrrQ1F57F0
-	igm9He2zdpg4UQT2g1wzSM1p+KjU9QGop5P1Rc9PE7jn3JnF4FQLniaMO/4qa2MuFUxMYaDoXlATp
-	UpQ11oNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M+7SgzsZ1Y/K6TQ/aEsfofbJUDWnBL25FhcOxsOV1E8=; b=jgvusEcK+VtxBe98t/y2djSBcO
+	65W1FBocqQnjoyRZqchqmIpHBHKE4tWf8xN38XsK/0m/uiM3w7cr4e4ByWD2/ugVzJi40FUjGNChI
+	u3/n9elen4v/bphY1zm+giMhxr7RqvGYk75wCrEENxJ3QYm9fX+Jcw5Q52JRecPPNa9V3rvTgvvdB
+	5/5OOHsP8nhg9t5TJpjDuokRgHdrYXkx9J9UxUcUzLMDB4tpKWl77Pyk/SnMoJ3LpdMFixZ322bzO
+	r9gejXW4yz+vZFLMEHYtLnYFZaOY/OR7TU/jVlxL62+exJwxb0rd9pW5zNaiLvP48ueg2cc3evu5r
+	0tcQ/2dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzGT0-00000002kSq-3Mtg;
-	Wed, 26 Aug 2026 16:27:10 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wzGdd-00000002lPn-3KYh;
+	Wed, 26 Aug 2026 16:38:09 +0000
+Received: from mail.cjdns.fr ([5.135.140.105])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzGSx-00000002kSF-0qz4
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 16:27:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T7JhAml0znBAQC8AQdqknfAyZWVW6Og5fEsITnKBFh0LwaDpUnuHo7jh9Cap0Dv0o/QIyHWh8TNbm11woLKYRF3A5R+bFqfNRsTgQfOHY3cC6FuQ7IPqZIgFautGKZlg/kn/5fwHI7znx/MKEwK2g9r+GhqLlL0irOzqXer+ItrwUKZHGbM8MbmHJrOdwShZ5BgC85Tx61YY6HZmZG7xKRrdhjTBV08piG8gELw23rI/7W7y9ZGjrQDeQQxqg0MImyle17Wsmm7tLnDf7XWSMILcJcZdaeWXwGTtWj03DPwuTlk5co3XmLzJu5Q0aIzbjJYGK3uI1tT9pw/XwdzlBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PQNB7S8RCBxFW+7NcYZvzwVgYXls+CU9rOWlsdFydSU=;
- b=Mqbq58iA8xI03X8NQkbrOVm5uoeBEws0tYdZ7pNTavNknaJCukymh/zcUDbw0JbUg4Ro96VO4jaiXuy8bvIvMuSv/Dm2vcUbvLA7VhxVhXyfNkYkHtFxOIrWUjDQ+l0oCYkCSIjg04LG0hrpHS39QLVQWiuldWT13d7Fn3gG8GfjQCI7y7A9eO4jPf3TdSju5QbLE8uPhoh9rzKiuG4mKcIud/4mDe/nLzqfZkgyV1eCP8K3lZG5oXukmOGHoor9YKmTOusdb9Mz6RivZRViGsWez0Hnkb2RWGrZunqVIsSTZ6/OrynDzVPgjHkwoisUZ6p5yv7ZiAtA9K6+avZS5A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PQNB7S8RCBxFW+7NcYZvzwVgYXls+CU9rOWlsdFydSU=;
- b=bMFB+HYdHGZ9269cpjYievRnjOqXeFaomOt/wD0ig46o9mnZjMbsGa5785H2Dv12nnR2PUeNtS9kfotdx2O+SW8TbSl3WgdlIcJ1hYsdf4+arvxCLASMX53nDRY71+RLgeSSdKbgCGc63aAGEurlHl8pzKzMJF5Vf1DzCR08bqVFCpYDd6s+P7LAsePgvUG28gniB9tp9tzfEV1hv/UnGZft2dB+1k7TgR4B35kIclIFCS42wdZyChX1SAdst9oSF4lLPdzsnvTp3+Hw5a0zYxBi8gWPv3Hl5UnIdEYz6LHJQ4HRGcq6QbJmdmFAK1lmeNQJ4R0XsYeH0S2y0MNxbA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VI0PR04MB11784.eurprd04.prod.outlook.com
- (2603:10a6:800:2ea::12) by PA1PR04MB12199.eurprd04.prod.outlook.com
- (2603:10a6:102:560::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.6; Wed, 26 Aug
- 2026 16:27:02 +0000
-Received: from VI0PR04MB11784.eurprd04.prod.outlook.com
- ([fe80::d486:debf:a139:2953]) by VI0PR04MB11784.eurprd04.prod.outlook.com
- ([fe80::d486:debf:a139:2953%5]) with mapi id 15.21.0360.006; Wed, 26 Aug 2026
- 16:27:02 +0000
-Date: Wed, 26 Aug 2026 11:26:52 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Yuanshen Cao <alex.caoys@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v4 5/5] dmaengine: sun6i-dma: Add support for Allwinner
- A733 DMA controller
-Message-ID: <ao8TzCAhWTxtxDB0@SMW015318>
-References: <20260826-sun60i-a733-dma-v4-0-dc2f745f40dc@gmail.com>
- <20260826-sun60i-a733-dma-v4-5-dc2f745f40dc@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260826-sun60i-a733-dma-v4-5-dc2f745f40dc@gmail.com>
-X-ClientProxiedBy: SN7P220CA0007.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:806:123::12) To VI0PR04MB11784.eurprd04.prod.outlook.com
- (2603:10a6:800:2ea::12)
+	id 1wzGda-00000002lOX-30iA;
+	Wed, 26 Aug 2026 16:38:08 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 26C3B1DF2C6;
+	Wed, 26 Aug 2026 18:37:55 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1787762283; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=M+7SgzsZ1Y/K6TQ/aEsfofbJUDWnBL25FhcOxsOV1E8=;
+	b=fMZ9KW/gnShK5/dxniHckjV8LE+yT7flsBZYhJEr4A3advuFY/ISy6puIFFIxicqzwg9hO
+	Mq3IP2Fq5FmqRlUG7fLM2o14sNVHoiznwqg/LgfbnjEIEixvNtgLllNQIHTtPFLIoMQFPv
+	VqFQRKb+eKJcdtrJ1tTPMqeKKvs2yT6kaYBSM/HZBgmjnyjy7awj0D1LWdS9vX+t8eu1Hn
+	cvU70qZ9/8obpYNFgVcHhc0vuPX7aAfKaMpkxZbdfB0Rv4jNq8EGPCxs4NH9GrzH0G+nzZ
+	1AfrTubP4RYdGM5OEtap0NA6546cYQBFv0M9L5bEuFzwsABmpcai9sKzmq1nDw==
+Message-ID: <cd7e6b13-a712-43ce-aae6-f45da2f77ba9@cjdns.fr>
+Date: Wed, 26 Aug 2026 18:37:53 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0PR04MB11784:EE_|PA1PR04MB12199:EE_
-X-MS-Office365-Filtering-Correlation-Id: 26cd4a6c-3432-4b2b-c38d-08df038edc2a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|19092799006|1800799024|10067099003|6133799003|22082099003|18002099003|11063799006|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: g1Ai679olGqDb0Pd+EdqQjLPeg+dgzYYozI6s27y8W4h64Pc+zMijlv7jHF8u3YL5eNPMMmmX8F2qL+Fx634C04m50wHAZvEdZw4DXf8H40jOPjxA4wZygO+S2kCQEq6LF7LYH2zF+OWq/1BbcWT6klPbRoUXXg4QiqRulHBj13fBeOdTakYR7aNq6InSfwmGvw9qwrTgF2TmSNuXr6M0oCd41V04Z4ueCeramS8nfiwZJIQAtUZVPnI0hGJUHjeRqm2fQ/UfZ1quCsaQ0BDP/u1n0bOwhPQkMNe6QC7DRE5eFL/iuGrAM4QkKs25ImkU+mQcuELNydYDaRoFpApfyBa5Q5Yqt4GyQ6SDyi+4jBeb+WGiM63+vOH/g/UayzPdd7xZos++Na/ugH5b0dNuRh5nIpGdGvnr7RXDV0SCwANSXK4fH3Rn7E7wZr1b/GSBvRzkiVv397Nh3do5AxpTaUiiGCwb4y2iy0iyOFgcPJ6oLJ04ZFHXXDYGi4rcH+lqqiiFsGGZumItzuFU70DRPxzIC7s3Q74i9bgW1Ii9AHg4wOiUM7oc7G7upwepUB1dgHbqi/CNCMMVH7oqU25tw662wSwYNLmsHZZFmfxzwQuK24eK04Ad27O+hekR0TZ2BhC0DXJovys6Vp2zR1foIrpbvjfLNQeisKXit3oa5I=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB11784.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(19092799006)(1800799024)(10067099003)(6133799003)(22082099003)(18002099003)(11063799006)(56012099006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?O8ntwEEXIYGdXqNAxwMDUaSIOU2PtbjCI/bDUZuQPkRFLcSVjOCr7clyA6LD?=
- =?us-ascii?Q?Ab5iZLpORgHlKEQVAzINnuaZR6pRfnn5fZq/S6myuTBr7Q2WDNPab5199J85?=
- =?us-ascii?Q?BO5TMYFIgQ/owDYT3LvDs5j1b0+LalPmxPVwXKlbMt2Nqc1vUm5TC4EFDCog?=
- =?us-ascii?Q?v4fZZMGsBxmYL+s+k4UKPicU1kHyN2nXxmHfPPtaucaX2ySVEK/M/NNVaLf0?=
- =?us-ascii?Q?ZYzRnPWDldfgCWuR2de/ZRR/WRi1HN+94fnuszTjSVAuycmry1YczaTGvTJ3?=
- =?us-ascii?Q?Mq7EjAkNkJeLS3Fcqfl5eP82ziGwOzr1Mx8wwFsGF7J4jnYFuR9itBu2rnWG?=
- =?us-ascii?Q?c2owssuLaF7/rtusUloYeJe5tJNSKbvvyBIy8+wRe5vGsL4SJNjonAB3SoIO?=
- =?us-ascii?Q?Ud0slSGIcQi+PChQVe4JJdfLW/oe3o9PpXGu4AQeGoGNMlPQt3rVZ3lZ3SpQ?=
- =?us-ascii?Q?c7Z+cS04PQaHgpkP1Sr1mC8PzlzvgUhjQyxpvWGXzfhkuVTG1z7m2W3pKKyR?=
- =?us-ascii?Q?sdLMCp66yhtsu02vpPi5yKSMy1WJxNvw5POfMV29KWjwppfaFYvakjn0CW33?=
- =?us-ascii?Q?+/wsNBExjBRj21tXHxCREOowweec2szMvcQbZ8P+3AxUgQrxT7APU8H3aDAg?=
- =?us-ascii?Q?r57VCvs5UOIu8VF6HEQfqpVtHnIfF+aXGU1Nsb154crzWLvj7IvHkshgAMOX?=
- =?us-ascii?Q?6z4XkvgPf0uUlOcvYdF14vl3pWUsTAbVsB1UWAa8rdcnzog3lVrK/6WVVBji?=
- =?us-ascii?Q?dU3xtfQBZch0R7vOgsdDBeoL03mJlP/Obqt1mWhtfg5TlbMc+zTGROYYpjCR?=
- =?us-ascii?Q?TfeWl5UMK8sPrPqfAT/SH+oHirb4fhWm0LgB+nHr65TjULOYBvShKeWbliqV?=
- =?us-ascii?Q?zrgPBwLPaPJvkeRN9mODQ4PMf6XAh5f63BvhGHiiRojPKsR9Mc3pUhu4rH4b?=
- =?us-ascii?Q?zxRgXYb7pBbZtozBR3hVT9IJb0Y+lrJItrxy5CvfHFsGWZ0QuISFKHmn+HDH?=
- =?us-ascii?Q?gyogZt98HbdDpoTrE0I6OOujc3FdgGtMTtSr7X4MMPoncGehPwphG5WonG7+?=
- =?us-ascii?Q?kW9sSrWOt0n10p3PwScNImdqejLGawSfbO9n3khdg+0z7/p/wGd+j9lrr15I?=
- =?us-ascii?Q?fjF60TVxeThSm0xQy6ifQwfSL2KkB5NMZ+zyBWJAKo15dK3/yEKY2Y7csARk?=
- =?us-ascii?Q?OvXcsN1AaMS2VS/sLcqPl9C/iJEofTxTSrDXGbDWwTrJW0J+y0hC2OCA31mW?=
- =?us-ascii?Q?C3z3c5jRutRg2cLrIPbi/h1lmVmgN7VYLzMWl0A0qnKCy2vNyHVmTINEKjkS?=
- =?us-ascii?Q?DgA89/1rAk3fdBZCUTDQDu4PeWryp1XNaYbXP49JnL//mtX+dKo8D/FXQLLE?=
- =?us-ascii?Q?bictm7qEkg5m91hQ3HNZ7oSj669JHf8nVxJxRu/McQ9ae/TUNaIhF/ePBt9F?=
- =?us-ascii?Q?vnrgIfZLDLmDmjK4KoYWN3KJETTX5LIPrHVyQtZq/BexGYDdttlCx9OeAAuq?=
- =?us-ascii?Q?eOwWSRWzZqWnIEFEUTOJfV+vkh5xYjAOWgKIKRdomM42Y5rwkDwXp4vC8gOc?=
- =?us-ascii?Q?IwrzMkyIMa5GewfLyN5g5M6u0Ateumrax3On4bJaXPQ4EpZGRiveDFusC21+?=
- =?us-ascii?Q?kpHdBUH/NqgmyK/KYj6bwhFjdT+0CbDdyBUGuJKNTG59vwmjQD5DLnH4q0io?=
- =?us-ascii?Q?708e+5vE9RgOvNzKXc9bYUcTa7Uk0KdFo9glnx2J1heZG32Hgc7llK712zBa?=
- =?us-ascii?Q?QYlMaELT63A0z+oeFDfZguCVssVaA74rHVVwfx+EAguBhHsjzmrA?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 26cd4a6c-3432-4b2b-c38d-08df038edc2a
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB11784.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Aug 2026 16:27:02.7171
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2OeRYkQBUd8XracqLzkHu1LByGmI5BpRRTftVM8ricpMGEHayQMzzTb4492kN7tvkVMrRc2auEbmBGTG9v/B1n1FSBN+VhiFYBlYe1D7HHxsOOlT+Ohu3UweVtQtYbxt
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB12199
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH net-next 3/3] net: phy: mediatek: support EcoNet EN751221
+ gbit SoC PHY
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: ansuelsmth@gmail.com, netdev@vger.kernel.org, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, daniel@makrotopia.org, dqfext@gmail.com,
+ SkyLake.Huang@mediatek.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260825193456.1823985-1-cjd@cjdns.fr>
+ <20260825193456.1823985-4-cjd@cjdns.fr>
+ <d7d86078-8a29-4e7f-a62e-91f6b266bea1@lunn.ch>
+ <a75b6b15-f86b-4cb2-934c-87583b5bb02c@cjdns.fr>
+ <4d594c62-2ceb-43c1-a3d2-731b80493787@lunn.ch>
+Content-Language: en-US
+From: Caleb James DeLisle <cjd@cjdns.fr>
+In-Reply-To: <4d594c62-2ceb-43c1-a3d2-731b80493787@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_092707_344853_3F6CC47F 
-X-CRM114-Status: GOOD (  24.18  )
+X-CRM114-CacheID: sfid-20260826_093806_951325_2C7EEF0C 
+X-CRM114-Status: GOOD (  19.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,95 +78,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 26, 2026 at 01:30:07AM +0000, Yuanshen Cao wrote:
-> Implement support for the Allwinner A733 DMA controller by defining
-> A733-specific register offsets, bitfield masks, and the
-> `sun60i_a733_dma_cfg` configuration structure.
->
-> This includes the IRQ stride, offsets, and channel counts specific to the
-> A733, as well as the 32G mask for high-address fields in the LLI. Add
-> `sun60i_a733_dma_cfg`, which ties all the refactored functionality
-> together for A733.
->
-> Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
-> ---
->  drivers/dma/sun6i-dma.c | 30 ++++++++++++++++++++++++++++++
->  1 file changed, 30 insertions(+)
->
-> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-> index b96d7d90f6b5..fb371b57d792 100644
-> --- a/drivers/dma/sun6i-dma.c
-> +++ b/drivers/dma/sun6i-dma.c
-> @@ -57,10 +57,14 @@
->   * Interrupts specific registers
->   */
->  #define DMA_IRQ_STRIDE_A31		0x04
-> +#define DMA_IRQ_STRIDE_A733		0x40
->  #define DMA_IRQ_EN_OFFSET_A31		0x00
-> +#define DMA_IRQ_EN_OFFSET_A733		0x134
->  #define DMA_IRQ_STAT_OFFSET_A31		0x10
-> +#define DMA_IRQ_STAT_OFFSET_A733		0x138
->
->  #define DMA_IRQ_CHAN_NR_A31		8
-> +#define DMA_IRQ_CHAN_NR_A733		1
->
->  /*
->   * Channels specific registers
-> @@ -110,6 +114,8 @@
->   */
->  #define SRC_HIGH_ADDR_MASK	GENMASK(17, 16)
->  #define DST_HIGH_ADDR_MASK	GENMASK(19, 18)
-> +#define SRC_HIGH_ADDR_32G_MASK	GENMASK(13, 11)
-> +#define DST_HIGH_ADDR_32G_MASK	GENMASK(17, 15)
->
->  /*
->   * Various hardware related defines
-> @@ -1321,6 +1327,29 @@ static struct sun6i_dma_config sun50i_h6_dma_cfg = {
->  	SUN6I_DMA_IRQ_A31_COMMON_CFG
->  };
->
-> +/*
-> + * The A733 binding uses the number of dma channels from the
-> + * device tree node.
-> + */
-> +static struct sun6i_dma_config sun60i_a733_dma_cfg = {
-> +	.clock_autogate_enable = sun6i_enable_clock_autogate_h3,
-> +	.src_burst_lengths = BIT(1) | BIT(4) | BIT(8) | BIT(16),
-> +	.dst_burst_lengths = BIT(1) | BIT(4) | BIT(8) | BIT(16),
-> +	.src_addr_widths   = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
-> +			     BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
-> +			     BIT(DMA_SLAVE_BUSWIDTH_4_BYTES),
-> +	.dst_addr_widths   = BIT(DMA_SLAVE_BUSWIDTH_1_BYTE) |
-> +			     BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
-> +			     BIT(DMA_SLAVE_BUSWIDTH_4_BYTES),
-> +	.src_high_addr_mask = SRC_HIGH_ADDR_32G_MASK,
-> +	.dst_high_addr_mask = DST_HIGH_ADDR_32G_MASK,
-> +	.has_mbus_clk = true,
-> +	.irq_stride      = DMA_IRQ_STRIDE_A733,
-> +	.irq_en_offset   = DMA_IRQ_EN_OFFSET_A733,
-> +	.irq_stat_offset = DMA_IRQ_STAT_OFFSET_A733,
-> +	.num_channels_per_reg = DMA_IRQ_CHAN_NR_A733,
 
-Nit: if only use once, needn't define macro, you can put value to here.
-Also please check previous prepare patch.
+On 26/08/2026 04:21, Andrew Lunn wrote:
+>>> Does this need a change to the binding document?
+>>
+>> Not as far as I know. econet,en751221-chip-scu is defined in mfd/syscon.yaml
+>> because it's a catch-all for configuration that the engineers didn't know
+>> what to do with.
+> Do you need a property in the PHY node to make this work?
 
-Frank
 
-> +};
-> +
->  /*
->   * The V3s have only 8 physical channels, a maximum DRQ port id of 23,
->   * and a total of 24 usable source and destination endpoints.
-> @@ -1355,6 +1384,7 @@ static const struct of_device_id sun6i_dma_match[] = {
->  	{ .compatible = "allwinner,sun50i-a64-dma", .data = &sun50i_a64_dma_cfg },
->  	{ .compatible = "allwinner,sun50i-a100-dma", .data = &sun50i_a100_dma_cfg },
->  	{ .compatible = "allwinner,sun50i-h6-dma", .data = &sun50i_h6_dma_cfg },
-> +	{ .compatible = "allwinner,sun60i-a733-dma", .data = &sun60i_a733_dma_cfg },
->  	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, sun6i_dma_match);
+No it's not requiring anything in the PHY node, instead it fishes for 
+econet,en751221-chip-scu in the DT. I'm not much a fan of this pattern 
+because of the magic, but this way of accessing is fairly common and in 
+this case it is how Airoha likes to access the chip-scu thingy when they 
+need it. 
+https://lore.kernel.org/all/20241112-clk-en7581-syscon-v2-4-8ada5e394ae4@kernel.org/
+
+
 >
-> --
-> 2.55.0
+>>>> +static int en751221_gphy_config_init(struct phy_device *phydev)
+>>>> +{
+>>>> +	phy_write_mmd(phydev, MDIO_MMD_AN, MDIO_AN_EEE_ADV, 0);
+>>> Why is the EEE register being cleared?
+>>
+>>  From reading the reference implementation, I get the impression that this
+>> hardware is something of a basket case. There was a certain amount of "write
+>> three times and then read back" type magic that I just omitted because it
+>> really looks like they were actively debugging and as soon as it started
+>> working they shipped the code exactly as it was.
+>>
+>>
+>> In the case of disabling EEE, I thought it more prudent to follow them
+>> because I don't have every SoC that this PHY ever appeared on and I would
+>> rather not diverge too greatly and risk it being unreliable on some devices.
+> Is EEE broken? If it is, this is not the correct way to disable
+> it. You should call phy_disable_eee(phydev); This will also prevent
+> user space enabling it again.
+
+
+I tested my board removing the EEE disable and the MASTER line, and it 
+seems to work. I can't get any CRC errors flooding the link, and 
+MII_STAT1000 reads LPA_1000LOCALRXOK | LPA_1000REMRXOK | LPA_1000FULL 
+which suggests to me that it's able to operate happily in slave mode.
+
+
+So unless you or someone else thinks it's inadvisable, I'm inclined to 
+just enable these things and then wait to see if anybody finds a board 
+that has problems.
+
+
+Thanks,
+
+Caleb
+
+
+>
+>>>> +	phy_select_page(phydev, MTK_PHY_PAGE_EXTENDED_52B5);
+>>>> +	__mtk_tr_write(phydev, 0x1, 0xf, 0x00, 0x00002b);
+>>>> +	__mtk_tr_write(phydev, 0x1, 0xf, 0x03, 0x082422);
+>>>> +	phy_restore_page(phydev, MTK_PHY_PAGE_STANDARD, 0);
+>>>> +
+>>>> +	ret = phy_write(phydev, MII_CTRL1000,
+>>>> +			ADVERTISE_1000FULL | CTL1000_PREFER_MASTER |
+>>>> +			CTL1000_AS_MASTER | CTL1000_ENABLE_MASTER);
+>>> What does this default to?
+>> It starts with only ADVERTISE_1000FULL. I don't know why the engineers
+>> wanted to set it to master, but its definitely intentional.
+> Generally, switches take the master role, and client take the slave
+> role. So this does make sense for a PHY used in a switch.
+>
+> 	Andrew
 >
 
