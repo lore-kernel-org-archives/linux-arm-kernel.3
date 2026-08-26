@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A64D0C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 09:02:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7133FC61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 09:02:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2t7yDZCgF5yF794oBaYJTVqMg1ClYWvzuDLcLD0bTKE=; b=Kt/5k8CsOvkwzAPC62GswI1o2X
-	50DmpvSE4iH1Flgx1O0EGGSo1q4QfuLX4+aX5Dzjay7ynOhVXbN3NKNKz6lYWdNyAyBV3jU+CJNV8
-	WHK239Mrz1bq+ZQnGaPh+X/puZtl8ab0XpGfORc0h6Ley8uRvg2M6THnkyIv1bXKVDCUqA4I1D+JC
-	WUKYz9C2gHTl2AntKZEwPmpWhB1izqcLGRBCYre+RTAOKDBLuWPkuw6b7p3rUqFG0UhOYwgSpvcU7
-	IkcFEpkq2RYdme9KDdNKQDC2OIM74K3xm8g3FS6uLpQtBDO03bnAsKb1KPRiZznFdNZJyqkPJa4p+
-	xEraeczA==;
+	bh=DUYw+bKmtZMKiUuqmTKklNQo1kdVyC2ASm9zrjeaODY=; b=4pmslr2AhJvpBb7DWx2RXbQwP6
+	6ZQlpyJ+lf99PDRrqcswv6Nb+9nmTzpoXEPkHOBmhT9TGo4J1e4M/QdhdruD6CoXMu/XxQpwFIWPP
+	fBW68Yc1GoEx4vWVGECxZSg/4b1mmvHOTmyRwHZYPu3goihQc+tZyLXzYXKAHqrmD1uK/P95bxQyp
+	nYrQ9FR9h27Fz3Xo/nu8SV//sC+UGRhb1y2S+RNnLY1FcyUq5lmPLqcDkk9/CYS1R/xpU0eCu8Q86
+	o/MBXOB/cxx//aqaYZbr1/qSxIFYkPzYEQTUdb9pJAPc7iJ9yajGcL30UWCS7gISI21MenMl0SNrL
+	SRivfHkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz9WP-000000028Dl-3HKC;
-	Wed, 26 Aug 2026 09:02:15 +0000
-Received: from mail-pl1-x647.google.com ([2607:f8b0:4864:20::647])
+	id 1wz9WO-000000028D7-48Y2;
+	Wed, 26 Aug 2026 09:02:13 +0000
+Received: from mail-pj1-x1047.google.com ([2607:f8b0:4864:20::1047])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz9WK-000000028BG-3uot
+	id 1wz9WH-0000000289u-3brK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 09:02:11 +0000
-Received: by mail-pl1-x647.google.com with SMTP id d9443c01a7336-2cfe48ca1efso12738305ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 02:02:08 -0700 (PDT)
+	Wed, 26 Aug 2026 09:02:07 +0000
+Received: by mail-pj1-x1047.google.com with SMTP id 98e67ed59e1d1-38e22137fb3so1547321a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 02:02:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787734928; x=1788339728; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787734924; x=1788339724; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2t7yDZCgF5yF794oBaYJTVqMg1ClYWvzuDLcLD0bTKE=;
-        b=Xiw/Tw2Bkvcg/tXesigrmOQ3IPxJ/WJWQ7ezEqcK2K4YzSM1DpHjxuA4AG/BcvbYsi
-         DW67Gr0E93NGfOqNTDQn+YPkD8NYpmdsYfK0fu+GPv5seQKRMujWKSQjz/H/xgQXrdgv
-         ZjqDD7KGOVnpN1ZMFiyjErQzmwF+AWdt9kaP64ZergrPupTWVkyWpkWdWhPXYZTGgkEa
-         m3iZh38L/MwvpsSYzkVH/0dxA76y5F1M8AJqVqH5AByAWwPUACoUXLjep+e13dol68Ty
-         K5NcTaEsyYcll4rO5+L16RmfDtEFqpj6fS9Ndj/H8EYYSd37C7jPTtvPg9zVgzy5cDma
-         LnUg==
+        bh=DUYw+bKmtZMKiUuqmTKklNQo1kdVyC2ASm9zrjeaODY=;
+        b=W9RvKf8v99U3qNsI8Fwwg0mg9NOvGcJGQxWns7AhOnFuhalB9dju6HUMQTQ4TEzogW
+         +fNBq4BlgKpnfu0pmFcwpetrED2NpM9aKqPj65qkSUcJ8M877EAotEgZ5UT+UK6LvHh3
+         7wCwOD290CLYi7DGHmDjdlUmEnFir7K1gtGtls4CdFL9ZRNmzLwiovXHj7ulEeCCgDDd
+         WEFLq6LMnMlzbeqloutTo5EqnIjfMbKMl31HyK4SyURDUBMP4c2gH13vyLA97AuJpPsk
+         WrPmrvhq8fLadrA8+dWWIdDakbgkPhYvMePRZ/SqgIkZFpGCRJyiEZsNSjFiorjdEfBj
+         oStQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787734928; x=1788339728;
+        d=1e100.net; s=20251104; t=1787734924; x=1788339724;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2t7yDZCgF5yF794oBaYJTVqMg1ClYWvzuDLcLD0bTKE=;
-        b=F4wjH34T2Yp05xp512tP/NFZ2S5QzQGTYyCYkzL0i9XiEOnCQ27whgdOw87+uSEGzx
-         IYhcFbwfLbk40QG8MKgQ+vL8hg4rIL4LQLvDqWXeQTErduObRS+UXUViwzMt7gzcfymm
-         uxTShi1DhkAhYl0EdFUaesxETbs7DG1L3vwmK2e++dFj+t7ndetipPjHRlxIc0qdjKoL
-         MlmOl1w30sQeEjfTk+1Rho9tBaM7CeuuQhZskUI7pmSYPf/upYZFIKJKn/f5hAgIvzed
-         O8WTX8LVVqld6g2XSAQMh3MNJSBNOY/lvuTI92PsqiWRU4k9dCJhMmJia5q2PAvtKisk
-         oIEQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rod5KXDr7U/zwsQdsq03gn0ZOYtzkhBPobD70KszRT0OrT2Yn+3hW/m8xRm1O6RkCwQjxm9O6ecPwRpvldH27M8@lists.infradead.org
-X-Gm-Message-State: AFuF++m+fnEZuwKt2fybuoelH1FChA+3xkJYgYQweCpIH/arLQ/FNokC
-	loLU1lHHHeDZHjiYA0y8k/dE19Tp4hXBPi2OTjx0IVrHxpnDkBX+DC7CMqMxCNjJgESAKQaptQL
-	k7YKe4dxW20VAT0uR/c0CthPP5Q==
-X-Received: from plae17.prod.google.com ([2002:a17:902:e0d1:b0:2ca:cba4:f740])
+        bh=DUYw+bKmtZMKiUuqmTKklNQo1kdVyC2ASm9zrjeaODY=;
+        b=CO5FatSEkR5C1lCT5tfQ+wF+IAM8H65TO6Vl22Ed7sfD9X5DJbmoaKsZGEW5AlFXJV
+         82VfGsnmDgnCr9ZnlvxU5IZD4op9wag9Kiy8e/vxCG9Nj+GL/ze6RSumO53GKCKT0cQI
+         FOaEuSprkE7W+ZuxxS96Am80I8dOwgPkTzEoWL78QHZ+zkfRobhr89pgkPBrsnFWKnjr
+         PkCD3VBxmuq8RhkhUBz0Tshny95FJZVELCpCehxFgmtQqndK3caO3J9Cxuo79TumCo0r
+         AxHCcT4svJqcG9r1d9ow/TM6qPgEAx+naQNyZUtaHD59onllYi6otLKG0BPw3DdIe31o
+         42pw==
+X-Forwarded-Encrypted: i=1; AHgh+RosU8+xXYlAT7VxjUcLdEuyrUUpDjLQ/BqcU82cnuvVrMv2mY/emwMZ1Mba3eO1kacbzZAB7Z9lQUAsZPGRuKZT@lists.infradead.org
+X-Gm-Message-State: AFuF++mU7jmZfwQcQ63AonOKcRslvu1xRdb2pktKl2Evc/+yrTMR8H7p
+	gaqEPJAQBu3t66TwZhwWOoN8Eb5GnsnSCSqI8hQ+Fj1HakBDPK20P0ej9h11eCJIoeuIlXPwcv8
+	pyn/F9AT+hi0RnenO+ixOiv+skg==
+X-Received: from plhk3.prod.google.com ([2002:a17:902:d583:b0:2cf:7c8c:cf2c])
  (user=ackerleytng job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:3910:b0:2ce:faa6:7cbb with SMTP id d9443c01a7336-2d707a3ed87mr93106385ad.4.1787734927046;
- Wed, 26 Aug 2026 02:02:07 -0700 (PDT)
-Date: Wed, 26 Aug 2026 09:01:48 +0000
+ 2002:a17:90b:1c83:b0:393:19a3:4f1 with SMTP id 98e67ed59e1d1-3966d1a48b7mr9860233a91.6.1787734923676;
+ Wed, 26 Aug 2026 02:02:03 -0700 (PDT)
+Date: Wed, 26 Aug 2026 09:01:46 +0000
 In-Reply-To: <20260826-gmem-no-return-page-v4-0-3bb9c1ddb4e3@google.com>
 Mime-Version: 1.0
 References: <20260826-gmem-no-return-page-v4-0-3bb9c1ddb4e3@google.com>
 X-Developer-Key: i=ackerleytng@google.com; a=ed25519; pk=sAZDYXdm6Iz8FHitpHeFlCMXwabodTm7p8/3/8xUxuU=
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787734920; l=1785;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787734920; l=2054;
  i=ackerleytng@google.com; s=20260225; h=from:subject:message-id;
- bh=enAIdIfpjwlSqC1gWlXPx7NV0FU3Pk1m0whhjn5JXcU=; b=X/J0naFXaXcacGRfyWJDRGmjT1pR6S35RpMfjdWjFbARTVW571RbgREp+itIh0+NkYxsS2pCt
- 0GRcegdOuePAemCvojQPvh6N2NgBYZnP3n8QANxjyBigz32FysjP3WD
+ bh=tBQj3Zs/zFgJuqob5UUxqzp8WSGa3DX0/uF2e5leoMQ=; b=nHLIey2i5u9SSFrucSIZdJ1XmfoAN4s5aKHgC3ZELugP1EEPbj+x4Hm6gj03zMVF4F5nca+id
+ ZU3e9ubiktdC65mxiZZgRyVvXsoN/yMoCRncYdGQyOWDEy2KAsc3df+
 X-Mailer: b4 0.16.0
-Message-ID: <20260826-gmem-no-return-page-v4-3-3bb9c1ddb4e3@google.com>
-Subject: [PATCH v4 3/5] KVM: SEV: Check for invalidation before warning on
- unassigned RMP entry
+Message-ID: <20260826-gmem-no-return-page-v4-1-3bb9c1ddb4e3@google.com>
+Subject: [PATCH v4 1/5] KVM: SEV: Treat unassigned RMP entry as benign race on
+ PSMASH failure
 From: Ackerley Tng <ackerleytng@google.com>
 To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
 	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
@@ -91,8 +91,8 @@ Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Ackerley Tng <ackerleytng@google.com>
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_020208_991768_254C8A0A 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20260826_020205_905021_321FA637 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,46 +107,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When handling an RMP fault, KVM looks up the RMP entry for the backing
-PFN to determine if a 2MB page needs to be split via PSMASH. If the RMP
-entry is not assigned (or lookup fails), KVM logs a rate-limited warning
-under the assumption that private memory should always have an assigned
-RMP entry.
+When handling an RMP fault, KVM attempts to split a 2MB page via PSMASH.
+If PSMASH fails, the only expected return value is FAIL_BADADDR, which does
+not distinguish the reason for the bad address. Hence, another RMP entry
+lookup is required to determine whether the failure was benign.
 
-However, a concurrent invalidation (such as guest_memfd hole punching) can
-race with RMP fault handling and transition the page to shared, unassigning
-the RMP entry after KVM fetched the PFN. In such cases, not finding an
-assigned RMP entry is benign.
+Specifically, KVM re-checks the RMP entry to determine if another CPU raced
+and already smashed the entry into 4KB pages.
 
-Check mmu_invalidate_retry_gfn() under mmu_lock before warning about a
-missing or unassigned RMP entry, and suppress the spurious warning if an
-invalidation occurred for the faulting GFN.
+A concurrent operation (such as guest_memfd truncation or hole punching)
+can also race and transition the page to shared, removing the page from the
+RMP table and causing PSMASH to fail. This can happen even if the page is
+still referenced by KVM, because guest_memfd reclaim transitions the RMP
+entry to shared when the folio is removed from the page cache.
+
+Treat an unassigned RMP entry as an expected race when re-checking after a
+failed PSMASH, and skip logging an error warning.
 
 Fixes: c63cf135cc99 ("KVM: SEV: Add support to handle RMP nested page faults")
+Reviewed-by: Michael Roth <michael.roth@amd.com>
 Signed-off-by: Ackerley Tng <ackerleytng@google.com>
 ---
- arch/x86/kvm/svm/sev.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ arch/x86/kvm/svm/sev.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
-index 0d027cff734cf..f9dce8acac8eb 100644
+index 5705723f1f412..e198469eb074c 100644
 --- a/arch/x86/kvm/svm/sev.c
 +++ b/arch/x86/kvm/svm/sev.c
-@@ -5060,8 +5060,12 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+@@ -5090,10 +5090,11 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+ 		/*
+ 		 * Look it up again. If it's 4K now then the PSMASH may have
+ 		 * raced with another process and the issue has already resolved
+-		 * itself.
++		 * itself. If it's not assigned, then this must have raced with
++		 * another process that made this page shared.
+ 		 */
+ 		if (!snp_lookup_rmpentry(pfn, &assigned, &rmp_level) &&
+-		    assigned && rmp_level == PG_LEVEL_4K)
++		    ((assigned && rmp_level == PG_LEVEL_4K) || !assigned))
+ 			goto out;
  
- 	ret = snp_lookup_rmpentry(pfn, &assigned, &rmp_level);
- 	if (ret || !assigned) {
--		pr_warn_ratelimited("SEV: Unexpected RMP fault, no assigned RMP entry found for GPA 0x%llx PFN 0x%llx error %d\n",
--				    gpa, pfn, ret);
-+		guard(read_lock)(&kvm->mmu_lock);
-+
-+		if (!mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn))
-+			pr_warn_ratelimited("SEV: Unexpected RMP fault, no assigned RMP entry found for GPA 0x%llx PFN 0x%llx error %d\n",
-+					    gpa, pfn, ret);
-+
- 		return;
- 	}
- 
+ 		pr_warn_ratelimited("SEV: Unable to split RMP entry for GPA 0x%llx PFN 0x%llx ret %d\n",
 
 -- 
 2.55.0.887.g758fc8c411-goog
