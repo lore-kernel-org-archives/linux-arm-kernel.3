@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 332D4C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 02:09:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB94C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 02:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aWj+O9wP6CX5GzhqEIWSE6hUZrqSuPWLLbAKWjlUHOo=; b=HzoKA6cisaKfJH0+0J6IA4XZu2
-	vG8rcmcb6W3Lcz95zmJgxK4bId0YGHui013/lkhO2xzcKxnOBVg47aDgG48uBNW7bmrBDHrKQOSiT
-	B6QA0HyJNfPMPGA2Qr1pj7xjQoIWLqzYLvNQ2Babq/0BvHB5PE64v/dpLSa3MEVCq/YiKm/Qlqame
-	eXJ7mPvthWJoPP5Uji79te6MJ9MZElgDC9KbOCM3Zzn0uBQqOpQpTVXNxRnRMWYlVp1UsjoMT8dgL
-	A/OqsN1iHk+mSE+Wwcs711Kqut2ooim2scu8TtGT9oUUchEtJkiEfWc8OiDcPRWyaaN5eZddUQTrY
-	lcpm8fOg==;
+	bh=hWsnbWpreJ6QQ54ZCcdko66WA2cZH6mL0rv/WMd4xzM=; b=LYd/YIKy1WVQ4Qvilg8YTAG6TO
+	REb0+PDZBo1pJDSw5xOiTlKKXBJTEUWiyBNXSTUU3/ueDcOqt4+MEqAtXgFfxlEiOx5rSFa2+jkMm
+	ix9C3EkSimx+6+FsJVbovlE5HIOKhPDaYCWr/dK6IQN/jWpBIFtBKLi80yB5Vh5JID6S3+vbTFXjT
+	FwOKhvO+2q79IvGAtx7uAKxQkrXRVue6l8go4/qKTaZ4ryqOi/MjLZjrYqKQunjkMyrGZx9oMJGZs
+	xaYTQQ8anwThf48T+KMdbNQtitkbCaJW/2xLi4toNld1FQiElaoR61Wp8Ygr+iwkZyZ++H1CkF/f4
+	niXFvwvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz34t-00000001mVt-1xZo;
-	Wed, 26 Aug 2026 02:09:23 +0000
+	id 1wz3GS-00000001nH2-21WC;
+	Wed, 26 Aug 2026 02:21:20 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz34r-00000001mVT-0mzd;
-	Wed, 26 Aug 2026 02:09:22 +0000
+	id 1wz3GP-00000001nGX-3zU3;
+	Wed, 26 Aug 2026 02:21:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=aWj+O9wP6CX5GzhqEIWSE6hUZrqSuPWLLbAKWjlUHOo=; b=3OTRBGloEhp96UaMmW1aExChQl
-	Msq9ofdkoTmqTXTdvGBdXv3ZlFxCxnpYbH7Cd0D4aPxcXXjTE5azaT/PWmg+Sul89cZJvHDmr7/5N
-	fGEegSDdoNimpRt0e8XdsKrxYxc5IjJwbe1obB2MQnOoWZfVAR+1m5MFGMXjUVvHrC20=;
+	bh=hWsnbWpreJ6QQ54ZCcdko66WA2cZH6mL0rv/WMd4xzM=; b=WRwlmjuZwzClxNAerr3bu0Fou9
+	Y0KlUS7/WtkYxouTGfteL+fm8tUgDZu8sW7zv95AiS2ou7QuOpl/5jljBxp3uk0CBFzwTOfDMQk+n
+	ju29mePgaMlRyND98vyj8ge1NjbGosHwlH0YRy5cjOhb++EMtqmhDahUrWtUjvUvV+R0=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1wz34S-001SQz-Vl; Wed, 26 Aug 2026 04:08:56 +0200
-Date: Wed, 26 Aug 2026 04:08:56 +0200
+	id 1wz3G8-001SUU-Fm; Wed, 26 Aug 2026 04:21:00 +0200
+Date: Wed, 26 Aug 2026 04:21:00 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: Caleb James DeLisle <cjd@cjdns.fr>
-Cc: netdev@vger.kernel.org, hkallweit1@gmail.com, linux@armlinux.org.uk,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, daniel@makrotopia.org,
-	naseefkm@gmail.com, joey@tinyisr.com, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+Cc: ansuelsmth@gmail.com, netdev@vger.kernel.org, hkallweit1@gmail.com,
+	linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, daniel@makrotopia.org,
+	dqfext@gmail.com, SkyLake.Huang@mediatek.com,
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next] net: phy: mediatek: add driver for EcoNet Fast
- Ethernet SoC PHYs
-Message-ID: <e37d97cf-f4aa-499e-b372-21701f2e3782@lunn.ch>
-References: <20260825180421.1804729-1-cjd@cjdns.fr>
- <177dc347-4cf9-48ca-97fe-b0f3cd46d8e3@lunn.ch>
- <4fa1ab31-cdcb-4488-b038-c5869966b6ec@cjdns.fr>
+Subject: Re: [PATCH net-next 3/3] net: phy: mediatek: support EcoNet EN751221
+ gbit SoC PHY
+Message-ID: <4d594c62-2ceb-43c1-a3d2-731b80493787@lunn.ch>
+References: <20260825193456.1823985-1-cjd@cjdns.fr>
+ <20260825193456.1823985-4-cjd@cjdns.fr>
+ <d7d86078-8a29-4e7f-a62e-91f6b266bea1@lunn.ch>
+ <a75b6b15-f86b-4cb2-934c-87583b5bb02c@cjdns.fr>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <4fa1ab31-cdcb-4488-b038-c5869966b6ec@cjdns.fr>
+In-Reply-To: <a75b6b15-f86b-4cb2-934c-87583b5bb02c@cjdns.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_190921_255325_79125E19 
-X-CRM114-Status: GOOD (  38.19  )
+X-CRM114-CacheID: sfid-20260825_192117_992103_AEC2C8C5 
+X-CRM114-Status: GOOD (  21.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,69 +75,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 26, 2026 at 02:08:50AM +0200, Caleb James DeLisle wrote:
-> 
-> On 25/08/2026 21:40, Andrew Lunn wrote:
-> > > Also provide support for the older EN7512 Fast Ethernet SoC PHYs found
-> > > in EN751221 chips with do not have the MCM switch. That is chips which
-> > > do not have a "G" in the name. As these PHYs bear the ID 03a2.9412
-> > > which collides with MTK_GPHY_ID_MT7530 gigabit PHY, do not match them
-> > > and instead rely on the user to override the PHY ID in the device tree
-> > > if they wish to use this driver.
-> > Is there a way to tell them apart using other registers?
+> > Does this need a change to the binding document?
 > 
 > 
-> The reference code differentiates this PHY from the other because this one
-> does not advertise gigabit capability. I sent it like this because the idea
-> of a matcher made me nervous and this felt more conservative, but I'm open
-> to guidance about what is the most appropriate solution.
+> Not as far as I know. econet,en751221-chip-scu is defined in mfd/syscon.yaml
+> because it's a catch-all for configuration that the engineers didn't know
+> what to do with.
 
-If it is as simple as that, i suggest you detect it at runtime.
+Do you need a property in the PHY node to make this work?
 
-In the driver structure, you provide a match_phy_device()
-function. This get called independent of what ID value you have in the
-structure. So you first need to check if the ID matches. Then check
-the 1G capability.
-
-Ideally you want the code in the same driver, because module loading
-happens based on the ID. I'm not sure user space will load two drivers
-if they both indicate the same ID. Something you can experiment with.
-
-> > > +	for (;;) {
-> > It is unusual to do loops like this. Can it be turned into a do while
-> > loop? And without looking deep into it, it is not clear if this is
-> > endless if the hardware stops responding.
-> 
-> 
-> You raise a good point in that it's hard to reason out the default exit
-> scenario, and I will figure out how to improve that. I'm not sure I can
-> actually get rid of the infinite loop without making the code worse, because
-> the default exit condition needs to assign ret and goto the error out label.
-
-Consider adding comments as well. Also consider replacing the infinite
-loop with a bounded loop, and return -EIO if the it goes around the
-loop too many times. What you are trying to avoid is on hardware error
-a CPU constantly spinning until power off.
-
-> > > +static int en751221_fephy_config_init(struct phy_device *phydev)
+> > > +static int en751221_gphy_config_init(struct phy_device *phydev)
 > > > +{
-> > > +	struct econet_socphy_shared *shared = phy_package_get_priv(phydev);
-> > > +	u16 l0r26_temp;
-> > > +	int ret;
-> > > +	int i;
-> > > +
-> > > +	if (!shared->phydev_p0) {
-> > > +		phydev_err(phydev, "Port zero must be configured\n");
-> > > +		return -EOPNOTSUPP;
-> > > +	}
-> > What is the issue here? Why must port 0 be first?
-> It doesn't need to be configured first but it must be probed because these
-> PHYs are not independent, they exist as a group and some configuration must
-> be done on the first phy in the group. I will re-send with clarification in
-> a comment.
+> > > +	phy_write_mmd(phydev, MDIO_MMD_AN, MDIO_AN_EEE_ADV, 0);
+> > Why is the EEE register being cleared?
+> 
+> 
+> From reading the reference implementation, I get the impression that this
+> hardware is something of a basket case. There was a certain amount of "write
+> three times and then read back" type magic that I just omitted because it
+> really looks like they were actively debugging and as soon as it started
+> working they shipped the code exactly as it was.
+> 
+> 
+> In the case of disabling EEE, I thought it more prudent to follow them
+> because I don't have every SoC that this PHY ever appeared on and I would
+> rather not diverge too greatly and risk it being unreliable on some devices.
 
-Consider using phy_package_init_once() to configure the shared things
-by the first PHY to probe, independent of what address it is.
+Is EEE broken? If it is, this is not the correct way to disable
+it. You should call phy_disable_eee(phydev); This will also prevent
+user space enabling it again.
+
+> > > +	phy_select_page(phydev, MTK_PHY_PAGE_EXTENDED_52B5);
+> > > +	__mtk_tr_write(phydev, 0x1, 0xf, 0x00, 0x00002b);
+> > > +	__mtk_tr_write(phydev, 0x1, 0xf, 0x03, 0x082422);
+> > > +	phy_restore_page(phydev, MTK_PHY_PAGE_STANDARD, 0);
+> > > +
+> > > +	ret = phy_write(phydev, MII_CTRL1000,
+> > > +			ADVERTISE_1000FULL | CTL1000_PREFER_MASTER |
+> > > +			CTL1000_AS_MASTER | CTL1000_ENABLE_MASTER);
+> > What does this default to?
+> It starts with only ADVERTISE_1000FULL. I don't know why the engineers
+> wanted to set it to master, but its definitely intentional.
+
+Generally, switches take the master role, and client take the slave
+role. So this does make sense for a PHY used in a switch.
 
 	Andrew
 
