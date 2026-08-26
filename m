@@ -4,143 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68BDC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 09:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88FABC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 09:02:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2zhZU54kOx/DqOOM3ZV5yI/6ZCgYZzJQql12RB//sA8=; b=uKwrAuaua9Z8kg0mdDxGe7/djw
-	sYY3O9eLO0q3wjvEXxTuReiSrTlD2CpL5eEShvkvdOOb1TCjepDp9OiMEybrphHRBHZVJLJOPek/6
-	7K/qoxk7w8DqMwtmcMv+seGdiQ9p/lIjbLLeVkWHfMIki/YaWLb/NOm2CrwPvq1AiGJVl2a79cWXc
-	Wzmzxg5DO6ZhE+U+pwTze1Qcw0RnW5mByvLQtCQqii9a3kqUV+PVeeOD8/0pMfLbZiB3A6hV+egQF
-	4FA05pgNu0vsckGORg43T76qvzFiGezrlRRjCp7nUs9pYQmddxfSgMfEetp1NySQkw/P0Sp8YryGB
-	gkTl07bA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=q1tZdo4e5URbud8PZx65gIP4aGbHrtpDN3AOBapMbqs=; b=ivCmrr4u9N6YuhClAkFFbmEKBa
+	E2LWCgmo6LCsLFY+5oWJI60hzHJ2KbxiTDvT0Fzzctta4iaHHPaC8MfBN863H06vupuO4nBi+NmVc
+	Dud0IuzTn3dj6GCHhukgJHDBBQ1mTQRbzUyINdeL4Q409O9B/a4iKT+BxQQQOqLxn3w2IRoXlXkER
+	5a+yAqO8tXlLR8RXgUROz+S7jTSnkn+hBKJiNAySRLOtdTlTFjeBHRGrj7KWF4SgS3v5mAHD0P0SW
+	wbcK5enm1l1vcYk0hNry3fTqRMQE4XkKHgN0j+OsETdQsg4gn0M9cOBcPuddpig459CHkYPUYMjjE
+	7IgrZsIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz9UX-0000000282f-0Tz3;
-	Wed, 26 Aug 2026 09:00:17 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wz9WI-000000028AP-3ALX;
+	Wed, 26 Aug 2026 09:02:06 +0000
+Received: from mail-pl1-x646.google.com ([2607:f8b0:4864:20::646])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz9UT-00000002827-1Ox7
+	id 1wz9WG-0000000289b-1EII
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 09:00:14 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67Q6RcoF3794484
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 09:00:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=2zhZU54kOx/DqOOM3ZV5yI/6
-	ZCgYZzJQql12RB//sA8=; b=BpL7Xe3NYC7q9qFq/rMjTqwLQ74p6pJ5hox5Gq5A
-	UKYEhPl3hcXhgT5MqJ7CBvp3Nn+Qh6bsl/gP9xxKcbtVur9InEgZVMEW6cLBJZbS
-	HF5AYmU/KiWfwijIzMgqM+QVEWeMWTtfjSHSAbF7DobzdJJcd4AFm5VX94VjesgL
-	vQoK7ka2aveLp1JO5kGErbxcLXUk91lQradb9KKoj8AczudDpcF7B4e+32wcp0IT
-	C+7kgkv38jPNsJgL86npw7cV3UQhQsp5ctTXtfycK2THM1B+SJ4V6w5byV4PxAVW
-	jDTmVPciJy0MT6XrwnZOHJfDk7qv6jJHYvWxTxdc+ynf7w==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g9smx8xt3-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 09:00:11 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51c0408254aso22465181cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 02:00:11 -0700 (PDT)
+	Wed, 26 Aug 2026 09:02:05 +0000
+Received: by mail-pl1-x646.google.com with SMTP id d9443c01a7336-2d6f75c1219so16959215ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 02:02:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787734811; x=1788339611; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=2zhZU54kOx/DqOOM3ZV5yI/6ZCgYZzJQql12RB//sA8=;
-        b=dQDiyAVFwzTcWPYGxTp8Hjrt894XA6Wd1nN6kRB97VtBGxxcz5EmHY049gCgw7l4hi
-         rE1XVyyxkN9s5N4EwffiXZUAku24zf0vsz/p7lm8O8oje3BDGu7JRPZruFO8NJmNOLl5
-         qJFMnU9LvqwGaOBeT6Bf3DEkd4dPsRlMvoVUjT8lchYflJHz21qZLt5kgINc9cI9y5Rj
-         N7bWf2aLKS+XgGq+Cqcqi4xGqA/WbC0XccJK8KYKzxYop35GU1+mXO9mknqoFxguCPWL
-         HAzWvuBYGFfWJmOp2dQRhI2EpVrWcuVTkDFIa5o4uQbroGPZCoHjNFNjyDIenT/C/FKq
-         COeQ==
+        d=google.com; s=20251104; t=1787734922; x=1788339722; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=q1tZdo4e5URbud8PZx65gIP4aGbHrtpDN3AOBapMbqs=;
+        b=VTc3IXrKzHxLoeG7AcFI1C8XPoNLMjqnGwmylGz6sZv56ZJQ9EIMVrGsvJvJAovxLj
+         AVS0uDGVX39W/C23rjeQvXj71kUK8KEdaWJR3VeIuwqUoLom/BrnzE6TwkoKIehb5ODE
+         27mAXDRBRRTJH7NBzU9bWDHxsn1kuLRQ/wAU5ngMQB27NRoCo7UWTGoqBER1hcjjGLY5
+         rlXPTaZyxQ5Z86FFB97NkBzN/Hz4m93a0tV+48+61AvnJuXNhlpYlI+nibAbxd532M8i
+         xMWz3h9RylT9lqafckYxVxMhXSak2xG255aeISCVHLfGkmhFZrIQUl9c4ScvFtKR4NL8
+         9TOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787734811; x=1788339611;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1787734922; x=1788339722;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2zhZU54kOx/DqOOM3ZV5yI/6ZCgYZzJQql12RB//sA8=;
-        b=p589jzPsqaFZFha58V5HWs3bpnNNg0Xb1CmnXTZkbCrnUCZrH/GHdrYRa3AoWtWUQ8
-         qvaxPGtqBflM3Pnp5J0IU04pc39JExN0Nn7yyegse0v01sCNhL4ihDS6hQCJjL/zRFM+
-         LIVwBMR58eyOp9ow80WvnyjZYfS+vTOcYu+fflt7AObJTtkM4ydbOhJbfhSsBKEFLgGq
-         wLc6KWKV4f/K6ZkYkMMTDh0iDm7inshlVm+B6Pq/vfwe/r+On1pSF3/rG29TNA1JKWcg
-         OfU34iYuVxaYq3KVzoXX0NXgTo/xc37UHz/Cdl9lPTakcsouDKnt+i90u/nK2iAdpKXA
-         0smQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrCdLaf82T2YHjbFolbuHbdTefi9H88qBoRkwrKH135pY0RURBHuX2gHfKpoWlg3DmWl5LkdJr/n+QGZUP2QrHq@lists.infradead.org
-X-Gm-Message-State: AFuF++mwLbZmRC98tS0nWPsLqhBZgcc3dr4WdDhmC7h1c1kKfCiB/fl9
-	ZEaWMmogjVbQuPRl/ItU0DelrDObIbyRet4mzHVjNgBQ5ARH8P2fPyROF9z492PvOd1ycksMsVy
-	qZYImgfsHoOYWK3hRwUvTPUW6bbOO3pVmC9NUHClZn4lAVVxj4y+DT8DkeBPkF2hEOqV6GMhX7D
-	1U9g==
-X-Gm-Gg: AR+sD11Ws5UBFZ9kMdNJxjdkbaYYbcMVYai7AbUSTya1JL+B0rmcbGvdSM01maZDgdb
-	WX2nY2PqqmSC7Zfvsne+rNaxsSAlEeSE+cDE+5P5xj1Kp17SCVLYAzzxa24Hu6ZBa3sovxwK6/f
-	QEboiWOImn9yuGSG0WRz6VDBKVwMPeiD5cUgjjwGGGLT+oaDamFbDJJ62Jh5joXSkLdLZMpkc7D
-	nujd2BTZYdd3NJAdje/K2OBXsq+JAJWRC5RGC/3uNPil2vzYnRaa9Xg4810XckOZlAb+ZYVPSu7
-	hmbhTgTCqKZppByy9HGjIDqih3txqAzuNMOzmzH+fe+Uv55HTL+FgGciGwJmYhmk2N2/qZb9jmb
-	73FqVJqxim781
-X-Received: by 2002:ac8:594b:0:b0:517:6fc2:4760 with SMTP id d75a77b69052e-52e2ec51d8emr120518831cf.9.1787734810525;
-        Wed, 26 Aug 2026 02:00:10 -0700 (PDT)
-X-Received: by 2002:ac8:594b:0:b0:517:6fc2:4760 with SMTP id d75a77b69052e-52e2ec51d8emr120517771cf.9.1787734809757;
-        Wed, 26 Aug 2026 02:00:09 -0700 (PDT)
-Received: from oss.qualcomm.com ([86.121.170.13])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a5de8d1188sm3655807a12.7.2026.08.26.02.00.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Aug 2026 02:00:08 -0700 (PDT)
-Date: Wed, 26 Aug 2026 12:00:06 +0300
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-        "Rafael J . Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>, linux-pm@vger.kernel.org,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Maulik Shah <maulik.shah@oss.qualcomm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Ulf Hansson <ulfh@kernel.org>,
-        stable@vger.kernel.org
-Subject: Re: [PATCH] cpuidle: psci: Fix support for probe deferral by
- dropping the faux device
-Message-ID: <irfhmz2ago3suc3o3klfrztq4nhvrbdykuyqsg6pynnkr3naaw@rgnnsjk7ftd4>
-References: <20260826084533.38960-1-ulf.hansson@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260826084533.38960-1-ulf.hansson@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=O/oJeh9W c=1 sm=1 tr=0 ts=6a8eab1b cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=clBUptZa5v5FR042Ey+sjA==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=Vx8LKYWbTLu2W_pKgo8A:9 a=CjuIK1q_8ugA:10
- a=zZCYzV9kfG8A:10 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-GUID: aXzvuRCvgafhzlCHn_pKqH-lQdssC07U
-X-Proofpoint-ORIG-GUID: aXzvuRCvgafhzlCHn_pKqH-lQdssC07U
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI2MDA3MyBTYWx0ZWRfX/JNYI+U4qpvl
- GCrm8uRWUSkXaX+N5U6gaNjZqJb6Gfc3UivahyuZLeITdTWE7xTwqJPVzJqcvEdlPG21AAuuUs2
- GI1C/JP/t4eGQAGvnkoPt+rhvOzznsVaU1BwuQx47g4jQp9ogKeP5PYrrQru4JU4SL3SMi4w673
- DIcS/QCO8Li2KwhkZqdiVPMawWo1FyNjKqaGfULghP6uBskYD0GraB3K6oEoUKMZGls/aFSet3h
- ewBtSpWysDebsw0HLH5e4Btfann60aSzsSYCG9+1ndvs/T+kI0K0eZq0NHRQb49T9mrVsskYvDi
- jwQz26upsT/e51lYUvIhCiGGfuibQVI6ys0b2znWGJfI+gNyjBktg99M45tjra2fynkVxAFmvDP
- I6/+PRjar/XXJbP0i6qnQjGwtuRjq/JEx9ICgCcJz1GHoFCzA7rFMkb/5pQNa8sP4F3Q5MTDffI
- x84Zj0DV1m22Sh9AF3g==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI2MDA3MyBTYWx0ZWRfX2+jzQTiAcBzm
- JnvBhwP43dlouWXxWG1b5jXPYaEHWdM44/BYr9IKaZJ3ykiZhXjTUT7Dnrz1CHTh6jrqly5+2Fk
- ldly1gb6tNEPig3h5Y9eVZ/GK8Z8iec=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-26_02,2026-08-24_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 impostorscore=0
- lowpriorityscore=0 clxscore=1015 bulkscore=0 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608260073
+        bh=q1tZdo4e5URbud8PZx65gIP4aGbHrtpDN3AOBapMbqs=;
+        b=FJFGa1pSc8F/CeBp3bTJHwoJ2+3kzQasrBYTAmr90EaIsivlx6pziXUrXqxPW9+a5c
+         lD61QCawAx4uEhVf8XLz1EHQoywe17Cjna56N6HDfyS9gEkT7+rd2awIz+18mIQ2LQM6
+         SXSbp+/WZEkq5P2KZJ5kAgLCQlP5cRy+271GO7txqj1hRgbe3HCOBQaayeLUnObXVK5R
+         dZtJnXu0f7tvIECRKZvIygHM91NsMUT/xiOc6pWxbCh9Y4Gcc71iPyesLP3ubhilGpj/
+         AXoOqMV4hUZY4ZndobJkWiVAyarCNOSodA1jYSRooI/1DktLCFNRazXyp/AesDeqgSn9
+         fOAA==
+X-Forwarded-Encrypted: i=1; AHgh+RoLZFt2S/+v85SBai8gr6KXtOYpCjJE8SgxqzosTkk6edMStNmBijLdqCIF083S8/AVFwRV9+fI18+58cG8KIk6@lists.infradead.org
+X-Gm-Message-State: AFuF++lsvVprwVlKQa+/e05Rj+VnRTwDAz0oxQ20OrG2zkWXoWHj2UxY
+	KdGEFbgEXHAxPUiktgjeZNxFJVlImpWooSCgL3tnCojoRAm63MUe7zjlc0yd0On4BvBT4z/ufvS
+	Fnz/w4QgrSZh4TEYqNbPXtVV8TA==
+X-Received: from plbko13.prod.google.com ([2002:a17:903:7cd:b0:2cc:bb5f:3fd7])
+ (user=ackerleytng job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:903:284:b0:2d6:2901:6265 with SMTP id d9443c01a7336-2d707953a1emr98628575ad.2.1787734922088;
+ Wed, 26 Aug 2026 02:02:02 -0700 (PDT)
+Date: Wed, 26 Aug 2026 09:01:45 +0000
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAHmrjmoC/43NwQ6CMAyA4VchOzszyoTNk+9hPGysG0uEkYFEQ
+ 3h3ByeNxnj8m/brTAaMHgdyzGYScfKDD10KvstI3ajOIfUmNQEGJRO5oK7FlnaBRhxvsaO9Sit
+ lziVUCqSVFUmXfUTr75t6vqRu/DCG+NieTPk6/e1NOWWUW2FkIdEaXZ9cCO6K+zq0ZAUn+AOBh BxACsvBcKn1B1K8IMC+I0VCCm2FFUxVmps3ZFmWJ7gutz9BAQAA
+X-Change-Id: 20260818-gmem-no-return-page-614927a29f97
+X-Developer-Key: i=ackerleytng@google.com; a=ed25519; pk=sAZDYXdm6Iz8FHitpHeFlCMXwabodTm7p8/3/8xUxuU=
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787734920; l=1513;
+ i=ackerleytng@google.com; s=20260225; h=from:subject:message-id;
+ bh=OAlLWBhYYG/9ob/PX5hBH6y+Ywi1lILRcsrUDjKKezs=; b=daPi3Fjs1SSb8r0p9nYFDfhMv5JgbSUJww8xvwdjn/5ezcuq3olIFhfPZsB7H97tyDKbuwa/i
+ HzQS2OkcWgBCL8fXp9OmJpR3tdyNqhLN3UNa4IWubqk/JfORozIirAG
+X-Mailer: b4 0.16.0
+Message-ID: <20260826-gmem-no-return-page-v4-0-3bb9c1ddb4e3@google.com>
+Subject: [PATCH v4 0/5] Stop returning struct page from guest_memfd PFN lookup
+From: Ackerley Tng <ackerleytng@google.com>
+To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Ashish Kalra <ashish.kalra@amd.com>, 
+	Michael Roth <michael.roth@amd.com>, Brijesh Singh <brijesh.singh@amd.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, David Hildenbrand <david@kernel.org>, Yan Zhao <yan.y.zhao@intel.com>, 
+	"Edgecombe, Rick P" <rick.p.edgecombe@intel.com>, Vishal Annapurve <vannapurve@google.com>, 
+	Fuad Tabba <fuad.tabba@linux.dev>
+Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	Ackerley Tng <ackerleytng@google.com>
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_020013_694282_9D0FCEC1 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20260826_020204_393049_6F3E38D6 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,23 +107,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-08-26 10:45:32, Ulf Hansson wrote:
-> From: Ulf Hansson <ulfh@kernel.org>
-> 
-> At the conversion to the faux driver/device we broke the support for probe
-> deferral. In hindsight, the move to the faux device seems questionable, as
-> it simply makes the code more complicated and for no good reason.
-> 
-> To fix the support for the probe deferral let's therefore restore the old
-> code and drop the faux device.
-> 
-> Fixes: af5376a77e87 ("cpuidle: psci: Transition to the faux device interface")
-> Fixes: 5836ebeb4a2b ("cpuidle: psci: Avoid initializing faux device if no DT idle states are present")
-> Fixes: 39cdf87a97fd ("cpuidle: psci: Fix uninitialized variable in dt_idle_state_present()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Ulf Hansson <ulfh@kernel.org>
+v4 splits out a new patch (3) that makes use of KVM MMU invalidation logic
+introduced into the RMP fault handling in patch 2 to avoid warning on a
+benign case.
 
-LGTM.
+Other changes in v4:
 
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
++ Took Sean's version of the changelog for patch 2
++ Picked up Fuad's Reviewed-by: and Tested-by:
+
+v3: https://patch.msgid.link/20260820-gmem-no-return-page-v3-0-3bf8f80a7b4d@google.com
+v2: https://patch.msgid.link/20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com
+v1: https://patch.msgid.link/20260818-gmem-no-return-page-v1-0-4f8d939efdbc@google.com
+
+Signed-off-by: Ackerley Tng <ackerleytng@google.com>
+---
+Ackerley Tng (3):
+      KVM: SEV: Treat unassigned RMP entry as benign race on PSMASH failure
+      KVM: SEV: Check for invalidation before warning on unassigned RMP entry
+      KVM: SEV: Drop page refcount early in VMSA reload
+
+Sean Christopherson (2):
+      KVM: SEV: Drop page refcount early during RMP fault handling
+      KVM: guest_memfd: Stop returning struct page from PFN lookup
+
+ arch/arm64/kvm/mmu.c     |  4 +---
+ arch/arm64/kvm/nested.c  |  4 ++--
+ arch/x86/kvm/mmu/mmu.c   |  2 +-
+ arch/x86/kvm/svm/sev.c   | 53 ++++++++++++++++++++++++++++--------------------
+ include/linux/kvm_host.h |  6 ++----
+ virt/kvm/guest_memfd.c   |  9 ++------
+ 6 files changed, 39 insertions(+), 39 deletions(-)
+---
+base-commit: 76671054f9a1ff6abb976583cd8da37650acdc97
+change-id: 20260818-gmem-no-return-page-614927a29f97
+
+Best regards,
+--  
+Ackerley Tng <ackerleytng@google.com>
+
 
