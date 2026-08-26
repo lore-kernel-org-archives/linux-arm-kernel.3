@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878E2C61DBE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 20:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 594A5C61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 20:15:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/D1IeUqFD2R109IaOqnNRMyt374sgzZCFc0Z+6GCDWI=; b=eE0SgZh/1Iro6qMxEAvzA/K7q7
-	8/Bx7tlHd5OBebFNjOmIeqvhjHnuApXBSZxZBVoscalrstUhLtviX3aLNnq/Fpb1F6TWF0E1DP/gF
-	TwqQFDgr8Mw89CMav10dScxRKTusSdmSbUExNt8PyLHDFimuJa8BcaFYBzmbr18uFGiQyHNXSrJxv
-	TwRcbuD1fgcaBKP9lCyCl72txoJdgQXw9VEUZ/GXWkQORo6+V+RK+6ECopV247KLZn1BzRZtc3KJ1
-	Q+P0OcTYhKshWGgtFH5i0rYZcC5D7amkoYDp4DswK/VE78sHJD8zi1CopIu4FPVbwgoarjALfKKbA
-	YO2i24qw==;
+	bh=LzIndWq0/FqpEkfBOusZ2cLozUs6J/OAuSOw/9cLgzc=; b=hNFP2CbcQu2EsuQA6tnaFcARed
+	icVXSqY7s6hL0wTJf2VaC+ldrw0s97/VKkNFqtUtPH5wLgrTvzb2Bm1DKalEITS/DXioz/7ts4XU6
+	dcPmwYBWTVewLVs+JU4tCeBl3OjxZUzBYIc5AqYGnPXRKe5ywBrhm+6WHEvaOymCdKYN0Yn4Gk97+
+	7q+hP0RScXQe8gS7R2QICeH8q5ug2+w3veCihyzLTRh6PVHMUD8X9dNJZDX4PDkGTrXiY7eGYXtIu
+	0n/Dyo6X58KyEsm3fUtYTk/FjuhG39J+d4ew0fqGHl/G4HxMiPJTNh0X1iP9RSXik5Gtg9CszZsbC
+	Nl4P/03A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzK27-00000002yIh-0BSs;
-	Wed, 26 Aug 2026 20:15:39 +0000
-Received: from lpdvsmtp10.broadcom.com ([192.19.144.205] helo=relay.smtp-ext.broadcom.com)
+	id 1wzK2C-00000002yKO-0mFe;
+	Wed, 26 Aug 2026 20:15:44 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzK24-00000002yHq-3avd
+	id 1wzK26-00000002yIJ-3B18
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 20:15:38 +0000
+	Wed, 26 Aug 2026 20:15:40 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id EAEACC001505;
-	Wed, 26 Aug 2026 13:15:35 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com EAEACC001505
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id B39E4C000C69;
+	Wed, 26 Aug 2026 13:15:37 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com B39E4C000C69
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1787775336;
-	bh=r3xfd7rKy07m13lJEaNX7L3L+7CbfZ1B+hhmDUr+dnw=;
+	s=dkimrelay; t=1787775337;
+	bh=zYr4xm/hZ57XjrhWkYpqW/TwlIUd4MCyuqKjtJCS4so=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tYX65OTfglmiZ/I4ArvU9G/KVHg3yh2CaN7Tptggt/1Gq2bKvYPlsNoOT8jbdJssz
-	 6WVGkm7MlxU1WW2PgsgosCkm4Rj46vdN8EJPidBefc8f9/VBjULLTbTzM+MKS1lVwA
-	 uDZeUtp42xvXG2b7DUU8wdn/sRGyhXDi+Cin1MLw=
+	b=IABba8sPB9wCMLvRuFrzzJPUw/+Yl0dxMe7t4ZMYEsGHRtAd+kiB81gCuK7BMH8id
+	 rR8FByLK1653yeQb9+OuQGImDAkvITQz5xY6CFMqRw4IZlsYD5ZHBEnuoStq6Oh32v
+	 v7wpvSB/o1KB6BFmfFOxpUEkLx/xRF04+pWG090w=
 Received: from bse-build-07.ric.broadcom.net (unknown [10.136.28.187])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 4C841A9A;
-	Wed, 26 Aug 2026 13:15:35 -0700 (PDT)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 139EBA9A;
+	Wed, 26 Aug 2026 13:15:37 -0700 (PDT)
 From: Danesh Petigara <danesh.petigara@broadcom.com>
 To: mmayer@broadcom.com,
 	krzk@kernel.org,
@@ -54,17 +54,17 @@ Cc: bcm-kernel-feedback-list@broadcom.com,
 	Justin Chen <justin.chen@broadcom.com>,
 	stable@vger.kernel.org,
 	Danesh Petigara <danesh.petigara@broadcom.com>
-Subject: [PATCH 1/2] memory: brcmstb_dpfe: Fix out-of-bounds access due to DCPU offset
-Date: Wed, 26 Aug 2026 13:14:58 -0700
-Message-ID: <20260826201500.3000125-2-danesh.petigara@broadcom.com>
+Subject: [PATCH 2/2] memory: brcmstb_dpfe: Bounds check DCPU-supplied MSG_ARG_COUNT
+Date: Wed, 26 Aug 2026 13:14:59 -0700
+Message-ID: <20260826201500.3000125-3-danesh.petigara@broadcom.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260826201500.3000125-1-danesh.petigara@broadcom.com>
 References: <20260826201500.3000125-1-danesh.petigara@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_131537_099449_F3154555 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20260826_131538_868501_414D9A4E 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,105 +81,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Justin Chen <justin.chen@broadcom.com>
 
-On API v1/v2 boards, the DCPU coprocessor can steer kernel readl_relaxed()
-and writel_relaxed() to any address within 256 MB of the ioremapped DPFE
-dmem or regs base. The DCPU firmware provides a 28-bit offset which the
-driver adds to the ioremap base without any bounds checking in
-get_msg_ptr().
+A compromised or buggy DCPU coprocessor can make any user who reads
+world-readable /sys/devices/.../dpfe_info|dpfe_dram trigger a kernel
+stack out-of-bounds read of arbitrary extent. This bounds checks
+chksum_idx against MSG_FIELD_MAX after reading the response from DCPU
+message RAM.
 
-This allows a compromised DCPU firmware to trick the host kernel into
-reading or writing arbitrary memory-mapped I/O registers in vmalloc
-space. When combined with a root-writable sysfs file like dpfe_refresh,
-it provides an arbitrary MMIO write primitive. Similarly, world-readable
-sysfs files can be used to leak other devices' register contents.
-
-Fix this by recording the resource_size() of the dmem and regs ioremaps
-at probe time, and rejecting any offset that, along with the largest
-field accessed (DRAM_VENDOR_ERROR + sizeof(u32)), exceeds the recorded
-mapping size.
-
-Fixes: fee5f1ef6cf7 ("memory: brcmstb: dpfe: support new way of passing data from the DCPU")
+Fixes: 5d06f53d9509 ("memory: brcmstb: dpfe: Compute checksum at __send_command() time")
 Cc: stable@vger.kernel.org
 Signed-off-by: Justin Chen <justin.chen@broadcom.com>
 Assisted-by: Gemini:gemini-3.1-pro-preview cursor
 Signed-off-by: Danesh Petigara <danesh.petigara@broadcom.com>
 ---
- drivers/memory/brcmstb_dpfe.c | 22 ++++++++++++++++++++--
- 1 file changed, 20 insertions(+), 2 deletions(-)
+ drivers/memory/brcmstb_dpfe.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/drivers/memory/brcmstb_dpfe.c b/drivers/memory/brcmstb_dpfe.c
-index 08d9e05b1b33..66343205f585 100644
+index 66343205f585..7b02c36c7fca 100644
 --- a/drivers/memory/brcmstb_dpfe.c
 +++ b/drivers/memory/brcmstb_dpfe.c
-@@ -182,6 +182,8 @@ struct brcmstb_dpfe_priv {
- 	void __iomem *regs;
- 	void __iomem *dmem;
- 	void __iomem *imem;
-+	resource_size_t regs_size;
-+	resource_size_t dmem_size;
- 	struct device *dev;
- 	const struct dpfe_api *dpfe_api;
- 	struct mutex lock;
-@@ -401,9 +403,14 @@ static void __iomem *get_msg_ptr(struct brcmstb_dpfe_priv *priv, u32 response,
- 	 */
- 	switch (msg_type) {
- 	case 1:
-+		if (DCPU_MSG_RAM_START + offset + DRAM_VENDOR_ERROR +
-+		    sizeof(u32) > priv->regs_size)
-+			goto bad_offset;
- 		ptr = priv->regs + DCPU_MSG_RAM_START + offset;
- 		break;
- 	case 0:
-+		if (offset + DRAM_VENDOR_ERROR + sizeof(u32) > priv->dmem_size)
-+			goto bad_offset;
- 		ptr = priv->dmem + offset;
- 		break;
- 	default:
-@@ -415,6 +422,12 @@ static void __iomem *get_msg_ptr(struct brcmstb_dpfe_priv *priv, u32 response,
+@@ -503,6 +503,8 @@ static int __send_command(struct brcmstb_dpfe_priv *priv, unsigned int cmd,
+ 		for (i = 0; i < MSG_FIELD_MAX; i++)
+ 			result[i] = readl_relaxed(regs + DCPU_MSG_RAM(i));
+ 		chksum_idx = result[MSG_ARG_COUNT] + MSG_ARG_COUNT + 1;
++		if (chksum_idx >= MSG_FIELD_MAX)
++			ret = -EINVAL;
  	}
  
- 	return ptr;
-+
-+bad_offset:
-+	dev_err(priv->dev, "DCPU returned out-of-range offset %#x\n", offset);
-+	if (buf && size)
-+		*size = sprintf(buf, "ERROR: DCPU offset out of range\n");
-+	return NULL;
- }
- 
- static void __finalize_command(struct brcmstb_dpfe_priv *priv)
-@@ -858,6 +871,7 @@ static int brcmstb_dpfe_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
- 	struct brcmstb_dpfe_priv *priv;
-+	struct resource *res;
- 	int ret;
- 
- 	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-@@ -869,17 +883,21 @@ static int brcmstb_dpfe_probe(struct platform_device *pdev)
- 	mutex_init(&priv->lock);
- 	platform_set_drvdata(pdev, priv);
- 
--	priv->regs = devm_platform_ioremap_resource_byname(pdev, "dpfe-cpu");
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "dpfe-cpu");
-+	priv->regs = devm_ioremap_resource(dev, res);
- 	if (IS_ERR(priv->regs)) {
- 		dev_err(dev, "couldn't map DCPU registers\n");
- 		return -ENODEV;
- 	}
-+	priv->regs_size = resource_size(res);
- 
--	priv->dmem = devm_platform_ioremap_resource_byname(pdev, "dpfe-dmem");
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "dpfe-dmem");
-+	priv->dmem = devm_ioremap_resource(dev, res);
- 	if (IS_ERR(priv->dmem)) {
- 		dev_err(dev, "Couldn't map DCPU data memory\n");
- 		return -ENOENT;
- 	}
-+	priv->dmem_size = resource_size(res);
- 
- 	priv->imem = devm_platform_ioremap_resource_byname(pdev, "dpfe-imem");
- 	if (IS_ERR(priv->imem)) {
+ 	/* Tell DCPU we are done */
 -- 
 2.54.0
 
