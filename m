@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80FF9C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 06:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 172FEC61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 06:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jWX41gMrpdeZpbNdGAMYnzObdEVxYUoGN7RNSO9SpgA=; b=GzKpg+55vvLoPf9VJrsmBjp/li
-	OlNuaY6qru5Szv4rahYEr6qg5S99jQy2WutgvBBrec/E4u5CkFgh025eW5+72cysQGGpEpP3rMhUA
-	5u8ZbcVO4wAOEFd4iPX5GT4mLofuURp+0q+TwQJ4OyWc+EdgDgpy4OgVUUW/yPgT3pZ3z8yqMVFPD
-	9s9Zup1XWdN3lldqbEPyXipVZN8RTjTfsiZLBravq6OnndIDmA8IzBpxh/U0ZOEwwNc2g76V7AyY7
-	ZbgEPElvTjCbxi4MvVK8osBF7NCA9bpIgMcG9dMMCfbAsM3i1LgLfzZqbq/sgafjLQLCayVOL5nrt
-	EnQeIeXw==;
+	bh=FTvY0HQ+xOF2Jq3Qm0A2brBHlMYAppZh1Djxnw1/fBI=; b=Qx1ZGzsgEHQN4pUSReNNlje2w7
+	or4+4X5CwAbpy7SblKJTzsJb9pkPe8cpIE9o8yrdatr/SJBBOh3/jeZim0saJ3BPvSYSl9T6wC17y
+	8LgQ4Pyh+8hSTQtM9d7mhigr/WLB42IM6DCn4j2suZkTWBHvYoMybsyRHZN+W2fBDvRb6dcNrA3WD
+	rbOJdSH4gjqRlojHC50ChBuFxYHfZhluslZTRnbiUSGS5Q065TTOwHcOmlXoqIM1GbgBxRTEZRLqs
+	ui/n9kmOEDu5RHHSc8OOhex/p1AOdsc4+P3BMntRbiUs5Cima/z7DPIhNoN8xH9D+6UvBoIPhVPzQ
+	DLbtsIVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz7Vo-00000001zI1-2aF9;
-	Wed, 26 Aug 2026 06:53:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wz7WU-00000001zNn-3a3H;
+	Wed, 26 Aug 2026 06:54:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz7Vm-00000001zHu-3vCu
+	id 1wz7WT-00000001zNR-1iDy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 06:53:26 +0000
+	Wed, 26 Aug 2026 06:54:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A13D416A7;
-	Wed, 26 Aug 2026 06:53:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D6DE1F000E9;
-	Wed, 26 Aug 2026 06:53:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 412E4600C4;
+	Wed, 26 Aug 2026 06:54:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5EA11F000E9;
+	Wed, 26 Aug 2026 06:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787727206;
-	bh=jWX41gMrpdeZpbNdGAMYnzObdEVxYUoGN7RNSO9SpgA=;
+	s=k20260515; t=1787727247;
+	bh=FTvY0HQ+xOF2Jq3Qm0A2brBHlMYAppZh1Djxnw1/fBI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=dSAyqPIpI/JDU/zOlXIN/Wc86U9O+Rd4czaPAoW4UT55ucbtCeU+fLY8SH6VWw+97
-	 rs4ap2PSqvEum70QXqmOocNDGsJEHhRhJQH8131+0qvL2/YdE4Gx/3LXOv1wYCRg/y
-	 wk/MObZ7TyztaHUedCaPRvRwJFcSueCGFO8GrpU2blWgbAi8Rz+Wj+GrOWyNMT8TVP
-	 AMdcjVI75wFQ01m0p2H9zfjUd9g5omEjYmnx9+Q/45njIBOoC4/0l/3nst3jvS5K3q
-	 dmb9fXWbR0ovxhg9FNAM8RN+KeoNAegHm1/zSvs5wd1DvdR/lDPKVqPco32m7tlTrW
-	 eGfB4Dn9gJXvA==
-Message-ID: <1a29c89e-d238-46bd-a786-787a3b6c77de@kernel.org>
-Date: Wed, 26 Aug 2026 08:53:13 +0200
+	b=ZjR+srnEVDRFdfzB7yYv3lpNTGllVr9w6CiXUh7BezZEbUKLax8YZa3tFirtVODiM
+	 CmRWHead7c7+6FzAPtqsg8C2S3u3Ao9dL7mGJBSDZznM6PW6mTbAMjYcw4QESTzEZh
+	 87dmapy4IiUWvqpvg1tp4nIxalrfUCXJZdjgmnxv2vTgXTX6SKJi1h5c34RQPWc3Tw
+	 xWgi8n/fc9Wc7bg50nO4SpCWXAhBGL0ykziu1FYYCpM4TJRWcqHEf6fdiQhGcfINBG
+	 Y//scNk6Oo+yE+x0uHJvHrYIghjYE2RYbiLBjTekl6pmnwzlVevrLrz5SY2si+gCs3
+	 DZQOwZWntjgHw==
+Message-ID: <480bc7d8-1b0a-4988-ac3f-1506c5f7cf1c@kernel.org>
+Date: Wed, 26 Aug 2026 08:53:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/18] arm64: dts: ti: k3-j721e-sk: Add overlay for
- fusion application daughter board
+Subject: Re: [PATCH v2 17/18] arm64: dts: ti: k3-v3link: Add overlay for
+ IMX219+UB953 serializer
 To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, nm@ti.com,
  vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org
@@ -59,7 +59,7 @@ Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
  linux-kernel@vger.kernel.org, imx@lists.linux.dev, r-donadkar@ti.com,
  devarsht@ti.com, u-kumar1@ti.com
 References: <20260713113423.2310443-1-y-abhilashchandra@ti.com>
- <20260713113423.2310443-10-y-abhilashchandra@ti.com>
+ <20260713113423.2310443-18-y-abhilashchandra@ti.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260713113423.2310443-10-y-abhilashchandra@ti.com>
+In-Reply-To: <20260713113423.2310443-18-y-abhilashchandra@ti.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -123,154 +123,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 13/07/2026 13:34, Yemike Abhilash Chandra wrote:
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&{/} {
-> +	clk_fusion_25M_fixed: fixed-clock-25M {
-
-Please use name for all fixed clocks which matches current format
-recommendation: 'clock-<freq>' (see also the pattern in the binding for
-any other options).
-
-https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml
-
-
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <25000000>;
-> +	};
-> +};
-> +
-> +
-> +&cam0_i2c {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	deser@3d {
-> +		compatible = "ti,ds90ub960-q1";
-> +		reg = <0x3d>;
-> +		clocks = <&clk_fusion_25M_fixed>;
-> +		clock-names = "refclk";
-> +		i2c-alias-pool = <0x4a 0x4b 0x4c 0x4d 0x4e 0x4f>;
-> +
-> +		deserializer_0_ports: ports {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			port@0 {
-> +				reg = <0>;
-> +				status = "disabled";
-> +			};
-> +
-> +			port@1 {
-> +				reg = <1>;
-> +				status = "disabled";
-> +			};
-> +
-> +			port@2 {
-> +				reg = <2>;
-> +				status = "disabled";
-> +			};
-> +
-> +			port@3 {
-> +				reg = <3>;
-> +				status = "disabled";
-> +			};
-> +
-> +			/* CSI-2 TX*/
-> +			port@4 {
-> +				reg = <4>;
-> +				ds90ub960_0_csi_out: endpoint {
-> +					clock-lanes = <0>;
-> +					data-lanes = <1 2 3 4>;
-> +					link-frequencies = /bits/ 64 <800000000>;
-> +					remote-endpoint = <&csi2_phy0>;
-> +				};
-> +			};
-> +
-> +			port@5 {
-> +				reg = <5>;
-> +				status = "disabled";
-> +			};
-> +		};
-> +
-> +		deserializer_0_links: links {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
+> +	reg_1p8v_00: regulator-1p8v_00 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "1P8V";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +		regulator-always-on;
 > +	};
 > +
-> +	deser@36 {
-> +		compatible = "ti,ds90ub960-q1";
-> +		reg       = <0x36>;
+> +	reg_1p2v_00: regulator-1p2v_00 {
 
-Whitespace mistake.
-
-> +		clocks = <&clk_fusion_25M_fixed>;
-> +		clock-names = "refclk";
-> +		i2c-alias-pool = <0x5a 0x5b 0x5c 0x5d 0x5e 0x5f>;
-> +
-> +		deserializer_1_ports: ports {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			port@0 {
-> +				reg = <0>;
-> +				status = "disabled";
-> +			};
-> +
-> +			port@1 {
-> +				reg = <1>;
-> +				status = "disabled";
-> +			};
-> +
-> +			port@2 {
-> +				reg = <2>;
-> +				status = "disabled";
-> +			};
-> +
-> +			port@3 {
-> +				reg = <3>;
-> +				status = "disabled";
-> +			};
-> +
-> +			/* CSI-2 TX*/
-> +			port@4 {
-> +				reg = <4>;
-> +				ds90ub960_1_csi_out: endpoint {
-> +					clock-lanes = <0>;
-> +					data-lanes = <1 2 3 4>;
-> +					link-frequencies = /bits/ 64 <800000000>;
-> +					remote-endpoint = <&csi2_phy1>;
-> +				};
-> +			};
-> +
-> +			port@5 {
-> +				reg = <5>;
-> +				status = "disabled";
-> +			};
-> +		};
-> +
-> +		deserializer_1_links: links {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +		};
-> +	};
-> +};
-> +
-> +&cdns_csi2rx0 {
-> +	ports {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		csi0_port0: port@0 {
-> +			reg = <0>;
-> +			status = "okay";
-
-Are you overriding or adding new nodes? If adding new nodes, then why
-status? If overriding, then why duplicating properties and entire node path?
+This is not upstream coding style.
 
 
 Best regards,
