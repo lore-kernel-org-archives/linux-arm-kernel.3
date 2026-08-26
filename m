@@ -4,46 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 365B7C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 08:25:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01277C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 08:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nQfa/MWMMPnKXZMvVCzMsjjXyAmVMVpawLNGnp2W0FY=; b=R21diNvO0RfAKRoMFfrhsDXFcD
-	Ger4zIypfXSwXrRGbWtLQw/1Ov6QMcE1k3jVh+Cf7jy1Mz8BCsKPd5USunACC8Fbo6/tqFWp1KJc5
-	7ta5ICf9ZLYnBVEuF10AnlABypiovc3RsE4VLkwgSmesot94YbKj2Mt8QZWTk9a3N7xhy6E+femEm
-	Ee/aTAcGWRsC34rpYXYN6EH8GP8p4E5FfLJ4lk3NBIERNmWyhoWBpJT/EASSVYlnGcoiDGvb9RVqL
-	jgG66pdCon55o82Pc6dMNKXQtdVgwpp6bxWB6a579+lq6EcoLKGz8G05ZPHBpEV4+lDiz19kMvFvT
-	Xn5ptJBw==;
+	bh=6WsTGWxVnSc0KtrZO8pZRE2QxEimJ5VHS+fEe/s67Mc=; b=KqiYTgFf4OlXyd0AMNQb7ry5cM
+	Uwh8Ep7llqSO7luVjhLMQB3/81LuQH7Y8ZTot6edBrhlONssTEYos1B02JsVMwFYsRIpMcgj5WE75
+	dGEFfmD3hKaFsZQ7vWdTg1v+9nk8R2JtxV6+Z8sQ1XC+bOoAhOXig0Ke4GTbLnn0tpNnOG6uLjQx4
+	zIa9zt8sBlp8MY9I0AvDrxfj/vJP0WcUyi7d/pQ2gDtOI+OiNDACT93ss+1WGXE6W1FPPdcauL9Hq
+	rwwoT/UFy63wCSrAAjb7fDT7A+rp+UpUGk6znquJgu1Xgc59mgcEv3uhOvwzZso+snQdkmyjdmFf2
+	zPAJaV2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz8x6-000000025Xl-02qS;
-	Wed, 26 Aug 2026 08:25:44 +0000
+	id 1wz8y7-000000025gw-18W0;
+	Wed, 26 Aug 2026 08:26:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz8x2-000000025WW-2sIa
+	id 1wz8y4-000000025gH-0dkM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 08:25:42 +0000
+	Wed, 26 Aug 2026 08:26:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0CE8F176A;
-	Wed, 26 Aug 2026 01:25:34 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 86300176A;
+	Wed, 26 Aug 2026 01:26:39 -0700 (PDT)
 Received: from [192.168.7.252] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3F4943F7D8;
-	Wed, 26 Aug 2026 01:25:36 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BFEB73F7D8;
+	Wed, 26 Aug 2026 01:26:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787732737; bh=/qvgTJwV6a7RRKEJGCn6RmbAbGidDAJ61ncdiy0rFi4=;
+	t=1787732803; bh=ffC2F63al/Ef4j0Fsqvq/nU7950u0pWRTQY2EH1H4VU=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=HDkya+zAwu96qjyLCBT76C8TraqshnqO1tEjhNXtSxSVo5V5pnS25KF/gYiMQb4h+
-	 OopT5ac07dH7QZkmqP1jKpEf21NULxDv8sZhyPX9ssLcDqHcgaBhi/5yUnjIYAz43K
-	 fBmerG1MszKb/tvOhOGuxgqwVlAf0FPPkYtraF3E=
-Message-ID: <fe6096b4-d906-4c1e-aeb3-7ca5cd164cab@arm.com>
-Date: Wed, 26 Aug 2026 09:25:35 +0100
+	b=ZC8GM8fDR7M8D3wHsts2j8AaJEydieWRKVP/M3m4CnifF1ZDE6S0lE2RAVi9JFwJ0
+	 /ccpoUH4fpT7dy1sqWgVzFl5uGlz5Ksi/9s37MKsx8h9C4qLYM42+QDKNqKNStIrPS
+	 ZKekhtKJHE1MtkX2XZtkNmQ9bf8aXbKJ4zHErBUc=
+Message-ID: <30d29c7a-3d66-498f-9777-8dadbb0a4584@arm.com>
+Date: Wed, 26 Aug 2026 09:26:40 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] selftests/arm64: Print missing MTE TAP headers
+Subject: Re: [PATCH v3 2/4] selftests/arm64: Treat KSM merge_across_nodes as
+ optional
 To: Muhammad Usama Anjum <usama.anjum@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Mark Rutland <mark.rutland@arm.com>, Shuah Khan <shuah@kernel.org>,
@@ -56,15 +57,15 @@ To: Muhammad Usama Anjum <usama.anjum@arm.com>,
  <linux-arm-kernel@lists.infradead.org>,
  "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>
 References: <20260825111929.2882324-1-usama.anjum@arm.com>
- <20260825111929.2882324-2-usama.anjum@arm.com>
+ <20260825111929.2882324-3-usama.anjum@arm.com>
 Content-Language: en-GB
 From: Vincenzo Frascino <vincenzo.frascino@arm.com>
-In-Reply-To: <20260825111929.2882324-2-usama.anjum@arm.com>
+In-Reply-To: <20260825111929.2882324-3-usama.anjum@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_012540_849817_AD9A1F6A 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20260826_012644_236811_A045E6F6 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,23 +83,27 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 25/08/2026 12:18, Muhammad Usama Anjum wrote:
-> Most MTE tests set a TAP plan and emit results without first printing
-> the TAP version header. Direct execution therefore starts with a plan
-> such as "1..20" instead of "TAP version 13".
+> The MTE KSM test requires write access to KSM sysfs but does not check
+> that it is running as root. It also unconditionally saves, enables and
+> restores the merge_across_nodes attribute. The kernel only creates this
+> attribute when CONFIG_NUMA=y, so a non-NUMA kernel prints the following
+> message three times even though every KSM subtest passes:
 > 
-> The problem is particularly visible in the GCR_EL1 context-switch test.
-> It prints its plan before forking 1,024 child processes. When stdout is
-> fully buffered, the plan remains in the stdio buffer. Each child inherits
-> the pending "1..1" line and flushes its copy from exit(), producing
-> repeated plan lines.
+>   # ERR: missing /sys/kernel/mm/ksm/merge_across_nodes
 > 
-> ksft_print_header() prints the TAP header and enables line buffering.
-> Call it in every MTE test that is missing it. In the GCR_EL1 test, call
-> it before the plan so the plan is flushed before the children are
-> forked. In the remaining tests, call it before setup and prerequisite
-> checks so early failures and whole-test skips also retain the header.
+> Skip the test when it is not running as root. Check that the optional
+> attribute is readable and writable, treating ENOENT as its expected
+> absence on non-NUMA kernels and skipping the test for other access
+> failures. Only save, enable and restore the attribute when it is
+> available.
 > 
-> Fixes: 29f080881601 ("kselftest/arm64: check GCR_EL1 after context switch")
+> Check MTE availability before the privilege and sysfs checks so systems
+> without MTE retain the existing feature-unavailable skip result.
+> 
+> This preserves the existing behavior on NUMA kernels without requiring
+> NUMA or reducing KSM coverage on single-node systems.
+> 
+> Fixes: f981d8fa2646 ("kselftest/arm64: Verify KSM page merge for MTE pages")
 > Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 
 Reviewed-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
