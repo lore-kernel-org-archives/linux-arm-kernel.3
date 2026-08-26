@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B518BC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 14:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C39F9C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 14:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=us6T1/OFqJY4YFTbnC7ycE3olDDIGXlj7FrL5apbJMM=; b=KnSwusM5PXNqJvMmd0GaHwaaEn
-	Fa+akLvCnmLpqUDes/BpkL87omoih9fAcJqrcgUMFO2nT6QacnX0Q4tx7yG+uQxqa+7dA1FXZt1Qs
-	KF8K5AxCVThnDCLimoZWw7ScpSIbyYX1snHAYygsP8nwgRt3ifO2MXAxlcILkYBi2drpjcWPXbThK
-	I9/shsKzab2TszDV8uqlLaPKnFULkFsUL16v954zH3KdMqa2Zo6bnmN0XGjYQYkHgxszgYbsUXGLo
-	mGIWudUZEWG0bBCWl+JinqP8zD4HCij5MJX2SHXU1MTfwvUnumjQ7F8PQvlKY+M3BkOb/VGO3Za6C
-	R6cJMqvw==;
+	bh=PMoro+mygVXpROVIEg/kROWrzTIJGjXLdl8tesQ+MnM=; b=1p+GOybZkhF7Km5Z95XQmcjWo6
+	PDcaljCKURE1M9MpECIP4CM7JZqsIlYH/ONCvKoVBcHT0qE2LB23RYBzFBk6+uobF+N1SIJfQtWLL
+	oLnkB4ykgxvzCOAgbmLTPuHyvfOjoVnLQ3tX/xFeDk3ElAyT/dqe9VrTi0RXneRsw4zsADRc4gYTQ
+	cxLqPjVGzB2pNXs+H0L9nE/NsXgf6DDhUIiaF3mnv5qnDEVqFdDUwRJ/o83SeyxPP3ejy6S92NnFl
+	UJ+pNUo6knkg4kCR/GxmBOeSTEUU3FJGC83Xe3ludMfJQe4Xa5pGGA3t297iKO7c+L0f48uvgKINu
+	VnjEVOtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzEAo-00000002YZk-2qyh;
-	Wed, 26 Aug 2026 14:00:14 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1wzEEv-00000002YoB-15Hz;
+	Wed, 26 Aug 2026 14:04:29 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzEAl-00000002YYl-08mG
+	id 1wzEEr-00000002Ynm-3soZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 14:00:13 +0000
+	Wed, 26 Aug 2026 14:04:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787752811; x=1819288811;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=/TzXwS4YF5gUqidjGf4wMNZnieUtP2YP6qNtEw/gL8I=;
-  b=LyqZDVQ+CJYdS3yFvybuZQV5BaQMecgR9jvRlqNXaJ310vqgOLBBitVG
-   Lb628+kvPp+/yWKvWLfpXjx7MPUQb/8wZN59XR9etxyTVDNDR9S6CFj0r
-   GeZ/ueXVswa7JnASTRUQvPlIi98hPJq10/vTffn5qEKXLq4VfKVn08rza
-   GLgkWKzPaXn6ykHONUk8WdVPf/Ks0miAOecjTGXCtmBEsDr4WEix0lu+v
-   dY5rCKtGN1t3l4phLrs8CvCDWj6bxBRHh5FfLbIjkJHD0OvqiTFlhtPXi
-   TrIOF4buybCVSo+mjMZJn6CMmjC7nGvRegG6Z5Hhmya51rrqGZ9Cx6ukA
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1787753070; x=1819289070;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=VvsitQo2K8SK19zb8OeAt0olRGzo1sZc+IAWuzCG9Ow=;
+  b=piFMQoQEk71gib2ODNJMuSXm9EzbeNtc8WsejNnmv39x57UabaOoE955
+   zu5hy5K73BvNi/5xDhIl1kqIac2onuxMwWGHCuf+t/SQLYo7E/nXgWShu
+   EIrslki+Ono/pnytai0XmKqbEysAFt2i0leSq/pBt1ZvMILcvsTykVde9
+   mPZAf3F/T1GIGOamX0UcHLBPE7/4wQmc5oo+nCYDdAhcE6zp8DeOPFg2V
+   Vme9Ib+bW8RLTHddcbcKc0jZ6p+btnAp4+8wFTvy7c0r75CzhU7oBxMTY
+   cLAOP1HcQ99vuAezU88B2oVMlbN7iaMYWwRIH4y5Yzjd1WL2OU8nsJlH+
    g==;
-X-CSE-ConnectionGUID: HiRkKhrGSeScJmplL0a2XQ==
-X-CSE-MsgGUID: F7V3obY8Sl2v4WlSA+XAGA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11886"; a="90744758"
+X-CSE-ConnectionGUID: Mtw0Sd6mQlSus1E+hzJr8g==
+X-CSE-MsgGUID: Pp21ujkvSw29+C5WejzQFA==
 X-IronPort-AV: E=Sophos;i="6.25,244,1779174000"; 
-   d="scan'208";a="90744758"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Aug 2026 07:00:06 -0700
-X-CSE-ConnectionGUID: dfsx2vyhRDCF5cIeDZjYWw==
-X-CSE-MsgGUID: VeOrfRlZTq6usqVghYthtw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,244,1779174000"; 
-   d="scan'208";a="267014274"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.235])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Aug 2026 07:00:04 -0700
-Date: Wed, 26 Aug 2026 17:00:01 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Linus Walleij <linusw@kernel.org>, Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 0/4] gpio: Unify the GPIO controller node check
-Message-ID: <ao7xYVKgM5jW4vUf@ashevche-desk.local>
-References: <20260824074427.3226457-1-andriy.shevchenko@linux.intel.com>
- <CAMRc=MejNn8NJYe6ByKig8cZHL8pq98waNfVozY9SteZYYJmHw@mail.gmail.com>
+   d="scan'208";a="294066659"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Aug 2026 07:04:29 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 26 Aug 2026 07:04:23 -0700
+Received: from DEN-DL-M77643.microsemi.net (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 26 Aug 2026 07:04:20 -0700
+Message-ID: <a6742dddeb23b014fd6d2e00e4c5e8c7fd3dd444.camel@microchip.com>
+Subject: Re: [PATCH net-next v2 7/9] net: sparx5: add L3 router
+ infrastructure and leg management
+From: Jens Emil Schulz Ostergaard <jensemil.schulzostergaard@microchip.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <horatiu.vultur@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<pabeni@redhat.com>, <daniel.machon@microchip.com>,
+	<Steen.Hegelund@microchip.com>, <kees@kernel.org>, <gustavoars@kernel.org>,
+	<robert.marko@sartura.hr>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-hardening@vger.kernel.org>
+Date: Wed, 26 Aug 2026 16:04:20 +0200
+In-Reply-To: <20260817211357.3633460-1-kuba@kernel.org>
+References: <20260810-sparx5_l3_routing-v2-7-59e68cc8c8ca@microchip.com>
+	 <20260817211357.3633460-1-kuba@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.44.4-0ubuntu2.1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMRc=MejNn8NJYe6ByKig8cZHL8pq98waNfVozY9SteZYYJmHw@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_070011_123958_3CA37534 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20260826_070426_200133_01BAB2A6 
+X-CRM114-Status: GOOD (  50.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,21 +91,511 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 26, 2026 at 05:33:23AM -0500, Bartosz Golaszewski wrote:
-> On Mon, 24 Aug 2026 09:42:31 +0200, Andy Shevchenko
-> <andriy.shevchenko@linux.intel.com> said:
-> > There are handful of drivers perform the same check in different variations
-> > over and over with a potential to make subtle mistakes. Unify the check by
-> > providing a new helper and convert a few users as an example.
-> >
-> 
-> I like it. With an Ack from Linus, I can take the series through the GPIO tree.
+On Mon, 2026-08-17 at 14:13 -0700, Jakub Kicinski wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know th=
+e content is safe
+>=20
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+> ---
+> net: sparx5: add L3 router infrastructure and leg management
+>=20
+> This adds the sparx5 L3 router skeleton: notifiers for netdevice and
+> IPv4/IPv6 address events, the basic routing object types, and lifecycle
+> management for router legs (VMIDs) including a reserved blackhole leg.
+>=20
+> A few questions about the leg lifecycle and the global router leg MAC
+> below.
+>=20
+> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c b/dr=
+ivers/net/ethernet/microchip/sparx5/sparx5_router.c
+> > new file mode 100644
+> > index 0000000000000..d83cbb84c34e5
+> > --- /dev/null
+> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
+> > @@ -0,0 +1,1105 @@
+>=20
+> [ ... ]
+>=20
+> > +static int sparx5_lower_dev_walk(struct net_device *lower_dev,
+> > +                              struct netdev_nested_priv *priv)
+> > +{
+> > +     int ret =3D 0;
+> > +
+> > +     if (sparx5_netdevice_check(lower_dev)) {
+> > +             priv->data =3D (void *)netdev_priv(lower_dev);
+> > +             ret =3D 1;
+> > +     }
+> > +
+> > +     return ret;
+> > +}
+>=20
+> [Severity: Medium]
+> Should this walk also check which switch instance owns the port it
+> finds?  sparx5_netdevice_check() in sparx5_netdev.c only compares the
+> shared ops pointer:
+>=20
+>         return dev && (dev->netdev_ops =3D=3D &sparx5_port_netdev_ops);
+>=20
+> Every probed instance registers its own callbacks on the global
+> inetaddr/inet6addr/netdevice chains, so on a board with two instances
+> chip A's notifier sees a bridge whose only sparx5 lowers belong to chip
+> B.  Can that make sparx5_rr_dev_real_is_vlan_aware() return true on chip
+> A and let sparx5_rr_router_leg_create() allocate a VMID and enable an
+> RLEG on a chip that serves none of those ports?
+>=20
+> The NETDEV_CHANGEADDR arm of sparx5_rr_netdevice_event() uses the same
+> helper, so it would also reprogram chip A's chip-global router leg base
+> MAC from an unrelated bridge's dev_addr.
+>=20
+> struct sparx5_port already carries the sparx5 back-pointer, and
+> sparx5_port_bridge_join() performs exactly this per-instance comparison.
+>=20
 
-Thanks, but note that I need to either drop or redo the patch 2/4.
+Yes, it should, and I have fixed it. For v3 I thread the instance through t=
+he
+walk and compare the back-pointer.
 
--- 
-With Best Regards,
-Andy Shevchenko
+Your later comments about legs being keyed by net_device while their hardwa=
+re
+state is indexed by vid led to sparx5_rr_dev_real_is_vlan_aware() keying on
+sparx5->hw_bridge_dev and the NETDEV_CHANGEADDR arm keying on whether that
+bridge has legs. Both are inherently per-instance, so the code should handl=
+e
+the multi instance case properly.
+
+> [ ... ]
+>=20
+> > +static void sparx5_rr_leg_hw_init(struct sparx5 *sparx5,
+> > +                               struct sparx5_rr_router_leg *leg)
+> > +{
+> > +     /* Associate Router leg VMID to VLAN */
+> > +     spx5_rmw(ANA_L3_VMID_CFG_VMID_SET(leg->vmid), ANA_L3_VMID_CFG_VMI=
+D,
+> > +              sparx5, ANA_L3_VMID_CFG(leg->vid));
+> > +
+> > +     /* Enable Router leg for VLAN */
+> > +     spx5_rmw(ANA_L3_VLAN_CFG_VLAN_RLEG_ENA_SET(1),
+> > +              ANA_L3_VLAN_CFG_VLAN_RLEG_ENA, sparx5,
+> > +              ANA_L3_VLAN_CFG(leg->vid));
+> > +
+> > +     /* Configure router leg */
+> > +
+> > +#if IS_ENABLED(CONFIG_IPV6)
+> > +     spx5_rmw(ANA_L3_RLEG_CTRL_RLEG_IP4_UC_ENA_SET(1) |
+> > +              ANA_L3_RLEG_CTRL_RLEG_EVID_SET(leg->vid) |
+> > +              ANA_L3_RLEG_CTRL_RLEG_IP6_UC_ENA_SET(1),
+> > +              ANA_L3_RLEG_CTRL_RLEG_IP4_UC_ENA |
+> > +              ANA_L3_RLEG_CTRL_RLEG_EVID |
+> > +              ANA_L3_RLEG_CTRL_RLEG_IP6_UC_ENA, sparx5,
+> > +              ANA_L3_RLEG_CTRL(leg->vmid));
+> > +#else
+>=20
+> [Severity: Low]
+> Is the CONFIG_IPV6 gating here consistent with the other IPv6 paths?
+> This is the only place that compiles out RLEG_IP6_UC_ENA, while
+> sparx5_rr_router_leg_create() unconditionally calls
+> sparx5_rr_lpm_link_local_create() (which installs an fe80::/64 rule with
+> VCAP_KF_IP6_XIP and LPM_PROTO() ETH_P_IPV6), sparx5_rr_router_init()
+> unconditionally registers the inet6addr and inet6addr validator
+> notifiers, and sparx5_rr_leg_hw_deinit() unconditionally clears the same
+> IP6 enable bit.
+>=20
+> With CONFIG_IPV6=3Dn, does that leave an LPM entry that can never match
+> occupying VCAP space, since no leg has IPv6 unicast lookup enabled?
+> Either dropping the #if or gating all IPv6 paths the same way would
+> avoid the mismatch.
+>=20
+
+It is not consistent, and yes it does. I am taking your first option and
+dropping the #if.
 
 
+> [ ... ]
+>=20
+> > +static struct sparx5_rr_router_leg *
+> > +sparx5_rr_router_leg_create(struct sparx5 *sparx5, struct net_device *=
+dev,
+> > +                         u16 vid)
+> > +{
+> > +     struct sparx5_rr_router_leg *leg;
+> > +
+> > +     leg =3D sparx5_rr_leg_alloc(sparx5, dev, vid);
+> > +     if (!leg)
+> > +             return ERR_PTR(-ENOMEM);
+> > +
+> > +     /* Prevent net device from being freed while we have added it to =
+a
+> > +      * router leg.
+> > +      */
+> > +     netdev_hold(dev, &leg->dev_tracker, GFP_KERNEL);
+> > +
+> > +     /* While a router leg exists, add route to trap link-local traffi=
+c. */
+> > +     if (atomic_inc_return(&sparx5->router->legs_count) =3D=3D 1) {
+> > +             if (sparx5_rr_lpm_link_local_create(sparx5))
+> > +                     dev_warn(sparx5->dev,
+> > +                              "Failed to create link-local route\n");
+> > +     }
+>=20
+> [Severity: Medium]
+> legs_count is already incremented when the rule install is attempted, so
+> if sparx5_rr_lpm_link_local_create() fails the counter stays non-zero
+> and no later leg creation retries the install.
+>=20
+> sparx5_rr_lpm_arp_entry_create() can fail with -ENOMEM from
+> vcap_alloc_rule() or -ENOSPC from vcap_val_add_rule() when the LPM VCAP
+> is full, and in that case link_local.vrule_id_valid stays false.
+>=20
+> Does the router then run for its whole lifetime without the IPv6
+> link-local trap that the file header describes ("All IPv6 link-local
+> traffic is explicitly trapped"), recovering only if every normal leg is
+> destroyed and a first leg is created again?  Should the error fail leg
+> creation, or at least be retried on the next leg creation?
+>=20
+
+Correct on all of it, I will retry on next leg creation and return
+the error here.
+
+> > +
+> > +     list_add(&leg->leg_list_node, &sparx5->router->leg_list);
+> > +     sparx5_rr_leg_hw_init(sparx5, leg);
+>=20
+> [Severity: Medium]
+> This arms the leg in hardware (ANA_L3_VLAN_CFG(vid).VLAN_RLEG_ENA and
+> ANA_L3_RLEG_CTRL(vmid) IP UC enables) without anything guaranteeing that
+> the chip-global router leg base MAC and RLEG_MAC_TYPE_SEL have been
+> programmed.
+>=20
+> sparx5_rr_leg_base_mac_set() is reachable from exactly one place, the
+> NETDEV_CHANGEADDR arm of sparx5_rr_netdevice_event().  If the bridge is
+> created with an explicit MAC, br_stp_recalculate_bridge_id() in
+> net/bridge/br_stp_if.c bails out during br_add_if():
+>=20
+>         /* user has chosen a value so keep it */
+>         if (br->dev->addr_assign_type =3D=3D NET_ADDR_SET)
+>                 return false;
+>=20
+> so no qualifying NETDEV_CHANGEADDR is ever emitted, e.g. for:
+>=20
+>         ip link add br0 type bridge address aa:bb:cc:dd:ee:ff
+>         ip link set eth0 master br0
+>         ip link add link br0 name br0.10 type vlan id 10
+>         ip addr add 10.0.0.1/24 dev br0.10
+>=20
+> Would the leg then be enabled with the power-on ANA_L3/REW/EACL
+> RLEG_CFG values and MAC_TYPE_SEL !=3D SPARX5_RLEG_USE_GLOBAL_BASE_MAC?
+> The commit message states:
+>=20
+>   "There is a global router leg base MAC used for MAC rewrites by the
+>    chip. Here we use the bridge MAC."
+>=20
+> Could the base MAC be derived from vlan_dev_real_dev(dev) at leg
+> creation time so that the claim holds regardless of how the bridge MAC
+> was assigned?
+>=20
+
+Yes, this is also right. For v3 the base  MAC is programmed from the VLANs
+real device at leg creation, just before the leg is armed. The previous
+checks have then ensured that the real device is a VLAN-aware bridge master
+with a port of this instance below it. The driver only supports one bridge
+as sparx5_port_bridge_join() rejects a second with -ENODEV.
+
+
+> [ ... ]
+>=20
+> > +static bool sparx5_rr_dev_real_is_vlan_aware(struct net_device *dev)
+> > +{
+> > +     struct net_device *vlan_rdev;
+> > +     /* Support l3 offloading for:
+> > +      *      1) upper vlan interfaces for the bridge.
+> > +      */
+> > +     if (is_vlan_dev(dev)) {
+> > +             if (netif_is_bridge_port(dev))
+> > +                     return false;
+> > +
+> > +             vlan_rdev =3D vlan_dev_real_dev(dev);
+> > +             if (sparx5_netdevice_check(vlan_rdev))
+> > +                     return false;
+> > +
+> > +             return netif_is_bridge_master(vlan_rdev) &&
+> > +                    br_vlan_enabled(vlan_rdev) &&
+> > +                    sparx5_port_dev_lower_find(vlan_rdev);
+> > +     }
+> > +
+> > +     return false;
+> > +}
+>=20
+> [ ... ]
+>=20
+> > +static int __sparx5_rr_inetaddr_event(struct sparx5 *sparx5,
+> > +                                   struct net_device *dev,
+> > +                                   unsigned long event)
+> > +{
+> > +     struct sparx5_rr_router_leg *leg;
+> > +     u16 vid;
+> > +
+> > +     if (!sparx5_rr_dev_real_is_vlan_aware(dev))
+> > +             return 0;
+>=20
+> [Severity: Medium]
+> This mutable current-state predicate gates both leg creation and leg
+> teardown, since it is evaluated before the switch on event.  Every
+> sub-condition of sparx5_rr_dev_real_is_vlan_aware() can change at
+> runtime, and there is no NETDEV_CHANGEUPPER or bridge vlan_filtering
+> hook to re-evaluate it.
+>=20
+>         ip link set eth0 master br0            # vlan_filtering 1
+>         ip link add link br0 name br0.10 type vlan id 10
+>         ip addr add 10.0.0.1/24 dev br0.10     # leg created
+>         ip link set br0 type bridge vlan_filtering 0
+>         ip addr del 10.0.0.1/24 dev br0.10     # NETDEV_DOWN
+>=20
+> Does the last step return early here, so sparx5_rr_router_leg_destroy()
+> and therefore sparx5_rr_leg_hw_deinit() never run?  That would leave the
+> VMID allocated, the netdev reference held, legs_count elevated, and
+> ANA_L3_VLAN_CFG(vid).VLAN_RLEG_ENA plus the RLEG IP UC enables set for a
+> VLAN the kernel no longer treats as an L3 interface.  Repeating the
+> toggle would consume one VMID per round out of the 127 (lan969x) or 511
+> (sparx5) entry pool, with only the NETDEV_UNREGISTER backstop left to
+> clean up.
+>=20
+> The same early return also means a valid configuration is never
+> offloaded if the address is added before the bridge becomes VLAN aware
+> or before a sparx5 port is enslaved.
+>=20
+
+Confirmed. In v3 the teardown will only depend on whether a leg exists,
+which is the drivers own state and cannot be changed underneath it.
+
+Rather than tracking vlan_filtering transitions, I will refuse a 1 -> 0
+transition while legs are offloaded. br_vlan_filter_toggle() honours the
+error and rolls its own state back.
+
+The transition in the other direction will just not lead to offloading,
+and the fib/neighbour objects will say so. Honouring fully dynamic
+vlan_filtering transitions would require a lot of complicated logic to
+always build up state in the driver, and then be able to apply/revert all
+of it in hardware as the vlan_filtering changes.
+
+Instead, simply expecting the bridge to be created with the desired
+vlan_filtering up front saves a lot of complication.
+
+It looks like there is prior art here, with mlxsw refusing the transition
+unconditionally for any bridge it has offloaded:
+
+drivers/net/ethernet/mellanox/mlxsw/spectrum_switchdev.c:mlxsw_sp_port_attr=
+_br_vlan_set() {
+        if (bridge_device->vlan_enabled =3D=3D vlan_enabled)
+                return 0;
+
+        netdev_err(bridge_device->dev, "VLAN filtering can't be changed for=
+ existing bridge\n");
+        return -EINVAL;
+}
+
+
+> > +
+> > +     /* Our basic case: ip addr/subnet added to vlan upper of
+> > +      * bridge dev.
+> > +      */
+> > +     switch (event) {
+> > +     case NETDEV_UP:
+> > +             leg =3D sparx5_rr_leg_find_by_dev(sparx5, dev);
+> > +             if (leg)
+> > +                     return 0;
+> > +
+> > +             /* HW allows at most 1 leg per VLAN, but we do not need t=
+o
+> > +              * lookup leg by vid, since the kernel does not allow mul=
+tiple
+> > +              * vlan devs with the same vid on top of a given device.
+> > +              */
+> > +             vid =3D vlan_dev_vlan_id(dev);
+> > +
+> > +             leg =3D sparx5_rr_router_leg_create(sparx5, dev, vid);
+>=20
+> [Severity: Medium]
+> The uniqueness argument in this comment holds per real device, but legs
+> are looked up by net_device while the hardware state they program is
+> indexed by VLAN id:
+>=20
+>         ANA_L3_VMID_CFG(leg->vid)
+>         ANA_L3_VLAN_CFG(leg->vid)
+>=20
+> Two different bridge masters can each carry a vid 10 upper.
+> sparx5_rr_dev_real_is_vlan_aware() accepts any vlan_filtering bridge
+> master that has a sparx5 port among its transitive lower devices, since
+> sparx5_port_dev_lower_find_rcu() uses netdev_walk_all_lower_dev_rcu(),
+> and sparx5_port_bridge_join()'s single-bridge -ENODEV veto only fires
+> for directly enslaved sparx5 port netdevs:
+>=20
+>         ip link add link eth0 name eth0.5 type vlan id 5
+>         ip link set eth0.5 master br1          # br1 now qualifies
+>         ip addr add 10.0.0.1/24 dev br0.10
+>         ip addr add 10.1.0.1/24 dev br1.10
+>=20
+> Can the second sparx5_rr_leg_hw_init() then overwrite the first leg's
+> ANA_L3_VMID_CFG(10) mapping, leaving its RLEG_CTRL/REW_RLEG_CTRL
+> programming orphaned?  And when either leg is destroyed,
+> sparx5_rr_leg_hw_deinit() clears ANA_L3_VLAN_CFG(10).VLAN_RLEG_ENA,
+> which would disable routing for the surviving leg.
+>=20
+
+Yes, this is a good catch. As far as I can tell, this configuration
+is accepted, but not supported. br1 cannot work as a bridge on this
+driver:
+sparx5_set_rx_mode() only syncs the explicit multicast list for standalone =
+ports
+and ignores IFF_PROMISC and IFF_ALLMULTI entirely, so when br1 sets promisc=
+uous
+mode on eth0.5 and 8021q propagates that to eth0, nothing happens. A standa=
+lone
+port only delivers frames matching MAC table entries, so br1 never sees fra=
+mes
+for addresses it has not been told about. The VLAN demux itself is fine, si=
+nce
+vlan_do_receive() runs before rx_handler dispatch, but delivery to the CPU =
+never
+happens in the first place.
+
+So this was never meant to be an accepted configuration. It is only accepte=
+d
+because the veto in sparx5_port_bridge_join() cannot see it.
+
+Rather than add a vid uniqueness check, I am fixing the predicate, because =
+the
+weak test is the actual defect. Asking whether a sparx5 port exists somewhe=
+re
+below the bridge is true for a software bridge that merely has a vlan upper=
+ of a
+switch port enslaved, and such a bridge is not offloaded at all, so it must=
+ never
+host a leg.
+
+I will also make sure legs are teared down when the last switch port leaves=
+ the
+bridge.
+
+> [ ... ]
+>=20
+> > +/* Called with RTNL. */
+> > +static int sparx5_rr_netdevice_event(struct notifier_block *nb,
+> > +                                  unsigned long event, void *ptr)
+> > +{
+>=20
+> [ ... ]
+>=20
+> > +     switch (event) {
+> > +     case NETDEV_CHANGEADDR:
+> > +             /* Allow single bridge. Global router leg MAC tracks brid=
+ge mac. */
+> > +             if (netif_is_bridge_master(dev) && sparx5_port_dev_lower_=
+find(dev)) {
+> > +                     ether_addr_copy(mac, dev->dev_addr);
+> > +                     sparx5_rr_leg_base_mac_set(sparx5, mac);
+> > +             }
+> > +             break;
+>=20
+> [Severity: Medium]
+> The comment states the single-bridge assumption, but is it enforced
+> anywhere?  This arm accepts any bridge master that has a sparx5 lower
+> and overwrites the single global ANA_L3/REW/EACL router leg base MAC,
+> and __sparx5_rr_inetaddr_event() creates legs for VLAN uppers of any
+> qualifying bridge.
+>=20
+> sparx5_port_bridge_join() returns -ENODEV only when a sparx5 port netdev
+> is directly enslaved into a second bridge, while
+> sparx5_port_dev_lower_find() walks lower devices recursively, so a
+> second bridge containing an intermediate device stacked on a sparx5 port
+> passes without ever reaching that check:
+>=20
+>         ip link add link eth0 name eth0.5 type vlan id 5
+>         ip link set eth0.5 master br1
+>=20
+> With legs offloaded for two bridges, the global base MAC becomes
+> whichever bridge most recently emitted NETDEV_CHANGEADDR.  Should the
+> restriction be rejected or at least reported, or documented in the
+> commit message?
+>=20
+> There is also a stale case in the other direction: when the last sparx5
+> port leaves the bridge, sparx5_port_dev_lower_find() returns NULL, so a
+> later bridge MAC change is ignored and the programmed base MAC keeps
+> pointing at a MAC the bridge no longer has.
+>=20
+
+
+No, it was not enforced anywhere, and your second paragraph is the same roo=
+t
+cause as your previous comment: the recursive lower walk answers a weaker
+question than the one that matters. Both arms now key on the bridge instead=
+, so
+the single-bridge restriction is enforced rather than assumed.
+
+
+And I will make sure legs are cleaned up when the last switch port leaves t=
+he
+bridge.
+
+Having legs on the bridge is exactly the condition under which the base MAC
+is used for rewrites, so it is both the precise test and the one that
+survives the bridge losing its ports.
+
+> > +     case NETDEV_UNREGISTER:
+> > +             mutex_lock(&router->lock);
+> > +             leg =3D sparx5_rr_leg_find_by_dev(sparx5, dev);
+> > +             if (leg)
+> > +                     sparx5_rr_router_leg_destroy(leg);
+> > +             mutex_unlock(&router->lock);
+> > +             break;
+> > +     }
+>=20
+> [ ... ]
+>=20
+> > +     /* Enable L3 UC routing on all ports. */
+> > +     spx5_wr(~0, sparx5, ANA_L3_L3_UC_ENA);
+> > +     if (is_sparx5(sparx5)) {
+> > +             spx5_wr(~0, sparx5, ANA_L3_L3_UC_ENA1);
+> > +             spx5_wr(~0, sparx5, ANA_L3_L3_UC_ENA2);
+> > +     }
+> > +
+> > +     /* Enable routing and global router options */
+> > +     spx5_rmw(ANA_L3_ROUTING_CFG_L3_ENA_MODE_SET(1) |
+>=20
+> [ ... ]
+>=20
+> > +void sparx5_rr_router_deinit(struct sparx5 *sparx5)
+> > +{
+> > +     struct sparx5_router *router =3D sparx5->router;
+> > +
+> > +     unregister_inet6addr_notifier(&router->inet6addr_nb);
+> > +     unregister_inet6addr_validator_notifier(&router->inet6addr_valid_=
+nb);
+> > +     unregister_netdevice_notifier(&router->netdevice_nb);
+> > +     unregister_inetaddr_validator_notifier(&router->inetaddr_valid_nb=
+);
+> > +     unregister_inetaddr_notifier(&router->inetaddr_nb);
+> > +     destroy_workqueue(router->sparx5_router_owq);
+> > +     sparx5_rr_router_legs_flush(sparx5);
+> > +     mutex_destroy(&router->lock);
+> > +     kfree(router);
+> > +}
+>=20
+> [Severity: Low]
+> The chip-global routing state turned on by sparx5_rr_router_init()
+> (ANA_L3_L3_UC_ENA/ENA1/ENA2, ANA_L3_ROUTING_CFG.L3_ENA_MODE and the
+> redirect enables, ANA_ACL_VCAP_S2_MISC_CTRL.ACL_RT_SEL, plus
+> RLEG_MAC_TYPE_SEL from sparx5_rr_leg_base_mac_set()) has no counterpart
+> here or in the probe error unwind.  Should there be a matching disable
+> sequence?
+>=20
+> Related: sparx5_rr_leg_hw_init() programs ANA_L3_VMID_CFG(leg->vid) and
+> REW_RLEG_CTRL(leg->vmid).RLEG_EVID, but sparx5_rr_leg_hw_deinit() clears
+> neither, so after the flush the VLAN table still points at VMIDs handed
+> back to the allocator.  sparx5_init_switchcore() skips sparx5_init_ram()
+> when HSCH_RESET_CFG.CORE_ENA is already set, so an unbind/re-bind cycle
+> starts with those stale VLAN to VMID mappings while vmid_mask is empty
+> again.
+
+Both correct, I will add both disable paths in v3.
 
