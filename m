@@ -4,110 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8193AC61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 06:51:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE7A3C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 06:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eknOS7DPk4eW/moos+V/ffAFnLmh02PexohFS/buP1A=; b=W0L2nwQtGIMFYUUTbhd6ddpk/B
-	MZZEfiQ2IOvnaSZ5VR9nzkVduJVWuUqR3pp+JcDqSz+i5Pclnqswdi+CMGlV+athisGItpBKMqh4Y
-	GUBUS/H28TSWek1toAH7N3fIPnRjf0po2LRwd0zB0Q8lBJswurR9Rij1FpYoY7FPMmwJtL3U1Joej
-	dhZq6bDdbr+yCwvgSYOYaZ7W4tL6+N/7yFVD5MbiAg/mqmb3tvVSamWInj3oZ81UZTqdTIVVKhZy4
-	WAlQHmvBVeOTIwfyWmXs61VE0/duDhQcDjLasLjLiHUTFcyc2Igsk+2hemQXfCZwb/JGq4uLbcfhM
-	3jv/FN8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=10Pmqk0GKcsTMTGMObf9BW2pENFBkGKMIiwdM8IR49Q=; b=VOOZk8VDgsZEh2r+dqnOqynmQB
+	zHaNwfkj2pyxlz1gQWnnY/c7DNDZldxO7GUAJRSPwXCsbuIzq9m0C+ScUvU5kw8okyP2EPIAVAiLc
+	vl+KuOOdJIoRT5MBOd8voP/t8T7XFHGctpJl0J3z/uW4dp54HDp5LmUzmjIQxCEduZuDZQZi3+gfj
+	43y0kgnuryGr5/QbGzOuqAo2RICDpsi85w6VB8SBPKXBrBfppcKsSsgEIqVLnq2EzqM0YrwiBuM83
+	cO3sf0PIAp0Y9vL2/RUdSWwbS8I/a/9jJdC2I3BYX4k6/6+6vijJ1uhsgmK3fl5urBDc2T2cEluNB
+	qDitWT6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz7TP-00000001yzJ-0Tqw;
-	Wed, 26 Aug 2026 06:50:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wz7UZ-00000001z9E-1W1D;
+	Wed, 26 Aug 2026 06:52:11 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz7TM-00000001yyg-3iR1
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 06:50:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A02E406EA;
-	Wed, 26 Aug 2026 06:50:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FF1E1F000E9;
-	Wed, 26 Aug 2026 06:50:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787727056;
-	bh=eknOS7DPk4eW/moos+V/ffAFnLmh02PexohFS/buP1A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=OMaTw8uNgmB61qikVsUyoEMfLk1UcFHD8cURdGo2nvyCA48sxN6EnLt2/w7xn4Et0
-	 g3Pn2tf9WVWI/Wo55qC5LdzWhIvGBpGHX03YUvRaKFNE+qoUzByNNN8WUYzk6u8q9c
-	 hZe4fSXtVQqdeOgfCxEor5qAEM+EezPlbKf9Do6It6XUolRI6UssGK+nyTZEynLW02
-	 p1EEI/FZpYwgQTF+mHkGEP/2sfk3DA2C8a6wWx/7rHP7CYsOI6ZyacjitXQTy30+k6
-	 oOA+AH0fuGKaMVCgIUqZz5DR0E5PQyt1/Qx+pF9wEoWonKh7jpAa/bYbR0qqSdNktS
-	 WP/7gYu2wwMpw==
-Message-ID: <44905087-dcf0-4ca8-a4f2-814737746435@kernel.org>
-Date: Wed, 26 Aug 2026 08:50:44 +0200
+	id 1wz7UU-00000001z8D-3WGQ;
+	Wed, 26 Aug 2026 06:52:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787727127; x=1819263127;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=wqWPTIvAKL83aGl0HiFpgUZP2uLr9zLOEr57abq342M=;
+  b=Xw24+Y7mKrhlfZzzJ22SerFdc63vRsMYaOwMlTXD8LNeiyd0dqm9Xj1l
+   7LUNGGPelkHz6SjidQ284dc6Hsp3YD1clm28hqfg0ksjgBN+c7YPcfP6i
+   oTsxecIBFVB1NhdMxc7a52/wPe/5gTXq7zw7W6zaavxV7pLoIVldbIJy8
+   5ZfK3n4/b5/B7VgKbOHmWOqfnVeG28FU+a1NyuaEJ4uulrmt2whXAFk6s
+   tU+RzZDZDKNt7gzxmiKBZEeLl+C8ZpKc/FgKAV2PG27TB+sB+pzq/8VMW
+   zmJ742XLgZtXmTdhvkSiakMoXWY6tH2MSBRFvk3EoeHACG/c0RHXaOo9Y
+   w==;
+X-CSE-ConnectionGUID: zR+yJ++gTJ+yk//XZPIhVg==
+X-CSE-MsgGUID: D//retLxRyGdMU0woc77MA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11886"; a="98536840"
+X-IronPort-AV: E=Sophos;i="6.25,244,1779174000"; 
+   d="scan'208";a="98536840"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Aug 2026 23:52:06 -0700
+X-CSE-ConnectionGUID: Wmo/hLY9TVOKTT5iQ+30nA==
+X-CSE-MsgGUID: c/E8q47PQtyQ9arsJUYhEg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,244,1779174000"; 
+   d="scan'208";a="268073434"
+Received: from lkp-server01.sh.intel.com (HELO 3532383e6126) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 25 Aug 2026 23:52:01 -0700
+Received: from kbuild by 3532383e6126 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wz7UM-0000000077T-0xzT;
+	Wed, 26 Aug 2026 06:51:58 +0000
+Date: Wed, 26 Aug 2026 14:51:22 +0800
+From: kernel test robot <lkp@intel.com>
+To: Caleb James DeLisle <cjd@cjdns.fr>, netdev@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, andrew@lunn.ch, hkallweit1@gmail.com,
+	linux@armlinux.org.uk, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, daniel@makrotopia.org,
+	naseefkm@gmail.com, joey@tinyisr.com, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Caleb James DeLisle <cjd@cjdns.fr>
+Subject: Re: [PATCH net-next] net: phy: mediatek: add driver for EcoNet Fast
+ Ethernet SoC PHYs
+Message-ID: <202608261446.DGUqZP2A-lkp@intel.com>
+References: <20260825180421.1804729-1-cjd@cjdns.fr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/18] Add DT support for CSI2RX multi-stream
-To: Rishikesh Donadkar <r-donadkar@ti.com>,
- Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, nm@ti.com,
- vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org
-Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, andersson@kernel.org, geert@linux-m68k.org,
- dmitry.baryshkov@oss.qualcomm.com, arnd@arndb.de, ebiggers@kernel.org,
- luca.weiss@fairphone.com, michal.simek@amd.com, sven@kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, devarsht@ti.com,
- u-kumar1@ti.com
-References: <20260713113423.2310443-1-y-abhilashchandra@ti.com>
- <cd6818c3-bbad-4ab4-9a4c-4d9eda0ebc10@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
- /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
- s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
- EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
- rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
- DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
- IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
- vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
- oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
- sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
- vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
- Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
- BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
- 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
- f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
- WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
- XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
- IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
- YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
- p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
- GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
- YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
- vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
- ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
- QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
- +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
- wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
- c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
- K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
- n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
- qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <cd6818c3-bbad-4ab4-9a4c-4d9eda0ebc10@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260825180421.1804729-1-cjd@cjdns.fr>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260825_235206_925376_A0945BA4 
+X-CRM114-Status: GOOD (  10.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,41 +93,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/08/2026 07:46, Rishikesh Donadkar wrote:
-> 
-> 
-> On 13/07/26 17:04, Yemike Abhilash Chandra wrote:
->> Support for multi-stream in j721e-csi2rx.c driver was merged last cycle[0].
->> This series adds the corresponding device tree support.
->>
->> Patch 1 is a cleanup fixing indentation in the existing CSI2RX nodes.
->>
->> The next few patches i.e. (Patch 2 to Patch 6) add the additional DMA
->> channels required for CSI2RX multi-stream capture.
->>
->> Multi-stream capture uses a SERDES pair based on the FPD-Link or
->> V3Link protocol. The serializer takes the input from a camera sensor
->> and converts it to the FPD-Link standard, while the deserializer
->> aggregates streams from multiple serializers and sends them over the
->> CSI-2 RX interface. Each CSI2RX instance therefore indirectly receives
->> input from multiple sensors.
->>
->> The remaining patches add overlays for various deserializer boards,
->> and for the UB953 serializer with the IMX219 sensor. Also enabling
->> DS90UB960 deserializer and DS90UB953 serializer drivers in the
->> arm64 defconfig.
-> 
-> Hi Abhilash,
-> 
-> Thank you for the series. LGTM !
-> 
-> For the entire series,
-> 
-> Reviewed-by: Rishikesh Donadkar <r-donadkar@ti.com>
+Hi Caleb,
 
-You did not have comments for v1, no comments here, so are you really
-reviewed it (considering code has obvious issues)?
+kernel test robot noticed the following build warnings:
 
-Best regards,
-Krzysztof
+[auto build test WARNING on net-next/main]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Caleb-James-DeLisle/net-phy-mediatek-add-driver-for-EcoNet-Fast-Ethernet-SoC-PHYs/20260825-180421
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20260825180421.1804729-1-cjd%40cjdns.fr
+patch subject: [PATCH net-next] net: phy: mediatek: add driver for EcoNet Fast Ethernet SoC PHYs
+config: csky-allmodconfig (https://download.01.org/0day-ci/archive/20260826/202608261446.DGUqZP2A-lkp@intel.com/config)
+compiler: csky-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260826/202608261446.DGUqZP2A-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608261446.DGUqZP2A-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> Warning: drivers/net/phy/mediatek/econet-fe-soc.c:184 function parameter 'phydev' not described in 'poll_cal_complete'
+>> Warning: drivers/net/phy/mediatek/econet-fe-soc.c:184 function parameter 'ctx' not described in 'poll_cal_complete'
+>> Warning: drivers/net/phy/mediatek/econet-fe-soc.c:233 function parameter 'phydev' not described in 'en751221_fephy_cal_cycle'
+>> Warning: drivers/net/phy/mediatek/econet-fe-soc.c:233 expecting prototype for poll_cal_complete(). Prototype was for en751221_fephy_cal_cycle() instead
+>> Warning: drivers/net/phy/mediatek/econet-fe-soc.c:184 function parameter 'phydev' not described in 'poll_cal_complete'
+>> Warning: drivers/net/phy/mediatek/econet-fe-soc.c:184 function parameter 'ctx' not described in 'poll_cal_complete'
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
