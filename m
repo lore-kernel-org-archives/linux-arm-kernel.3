@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88FABC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 09:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A64D0C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 09:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q1tZdo4e5URbud8PZx65gIP4aGbHrtpDN3AOBapMbqs=; b=ivCmrr4u9N6YuhClAkFFbmEKBa
-	E2LWCgmo6LCsLFY+5oWJI60hzHJ2KbxiTDvT0Fzzctta4iaHHPaC8MfBN863H06vupuO4nBi+NmVc
-	Dud0IuzTn3dj6GCHhukgJHDBBQ1mTQRbzUyINdeL4Q409O9B/a4iKT+BxQQQOqLxn3w2IRoXlXkER
-	5a+yAqO8tXlLR8RXgUROz+S7jTSnkn+hBKJiNAySRLOtdTlTFjeBHRGrj7KWF4SgS3v5mAHD0P0SW
-	wbcK5enm1l1vcYk0hNry3fTqRMQE4XkKHgN0j+OsETdQsg4gn0M9cOBcPuddpig459CHkYPUYMjjE
-	7IgrZsIg==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2t7yDZCgF5yF794oBaYJTVqMg1ClYWvzuDLcLD0bTKE=; b=Kt/5k8CsOvkwzAPC62GswI1o2X
+	50DmpvSE4iH1Flgx1O0EGGSo1q4QfuLX4+aX5Dzjay7ynOhVXbN3NKNKz6lYWdNyAyBV3jU+CJNV8
+	WHK239Mrz1bq+ZQnGaPh+X/puZtl8ab0XpGfORc0h6Ley8uRvg2M6THnkyIv1bXKVDCUqA4I1D+JC
+	WUKYz9C2gHTl2AntKZEwPmpWhB1izqcLGRBCYre+RTAOKDBLuWPkuw6b7p3rUqFG0UhOYwgSpvcU7
+	IkcFEpkq2RYdme9KDdNKQDC2OIM74K3xm8g3FS6uLpQtBDO03bnAsKb1KPRiZznFdNZJyqkPJa4p+
+	xEraeczA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz9WI-000000028AP-3ALX;
-	Wed, 26 Aug 2026 09:02:06 +0000
-Received: from mail-pl1-x646.google.com ([2607:f8b0:4864:20::646])
+	id 1wz9WP-000000028Dl-3HKC;
+	Wed, 26 Aug 2026 09:02:15 +0000
+Received: from mail-pl1-x647.google.com ([2607:f8b0:4864:20::647])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz9WG-0000000289b-1EII
+	id 1wz9WK-000000028BG-3uot
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 09:02:05 +0000
-Received: by mail-pl1-x646.google.com with SMTP id d9443c01a7336-2d6f75c1219so16959215ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 02:02:02 -0700 (PDT)
+	Wed, 26 Aug 2026 09:02:11 +0000
+Received: by mail-pl1-x647.google.com with SMTP id d9443c01a7336-2cfe48ca1efso12738305ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 02:02:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787734922; x=1788339722; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=q1tZdo4e5URbud8PZx65gIP4aGbHrtpDN3AOBapMbqs=;
-        b=VTc3IXrKzHxLoeG7AcFI1C8XPoNLMjqnGwmylGz6sZv56ZJQ9EIMVrGsvJvJAovxLj
-         AVS0uDGVX39W/C23rjeQvXj71kUK8KEdaWJR3VeIuwqUoLom/BrnzE6TwkoKIehb5ODE
-         27mAXDRBRRTJH7NBzU9bWDHxsn1kuLRQ/wAU5ngMQB27NRoCo7UWTGoqBER1hcjjGLY5
-         rlXPTaZyxQ5Z86FFB97NkBzN/Hz4m93a0tV+48+61AvnJuXNhlpYlI+nibAbxd532M8i
-         xMWz3h9RylT9lqafckYxVxMhXSak2xG255aeISCVHLfGkmhFZrIQUl9c4ScvFtKR4NL8
-         9TOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787734922; x=1788339722;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20251104; t=1787734928; x=1788339728; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=q1tZdo4e5URbud8PZx65gIP4aGbHrtpDN3AOBapMbqs=;
-        b=FJFGa1pSc8F/CeBp3bTJHwoJ2+3kzQasrBYTAmr90EaIsivlx6pziXUrXqxPW9+a5c
-         lD61QCawAx4uEhVf8XLz1EHQoywe17Cjna56N6HDfyS9gEkT7+rd2awIz+18mIQ2LQM6
-         SXSbp+/WZEkq5P2KZJ5kAgLCQlP5cRy+271GO7txqj1hRgbe3HCOBQaayeLUnObXVK5R
-         dZtJnXu0f7tvIECRKZvIygHM91NsMUT/xiOc6pWxbCh9Y4Gcc71iPyesLP3ubhilGpj/
-         AXoOqMV4hUZY4ZndobJkWiVAyarCNOSodA1jYSRooI/1DktLCFNRazXyp/AesDeqgSn9
-         fOAA==
-X-Forwarded-Encrypted: i=1; AHgh+RoLZFt2S/+v85SBai8gr6KXtOYpCjJE8SgxqzosTkk6edMStNmBijLdqCIF083S8/AVFwRV9+fI18+58cG8KIk6@lists.infradead.org
-X-Gm-Message-State: AFuF++lsvVprwVlKQa+/e05Rj+VnRTwDAz0oxQ20OrG2zkWXoWHj2UxY
-	KdGEFbgEXHAxPUiktgjeZNxFJVlImpWooSCgL3tnCojoRAm63MUe7zjlc0yd0On4BvBT4z/ufvS
-	Fnz/w4QgrSZh4TEYqNbPXtVV8TA==
-X-Received: from plbko13.prod.google.com ([2002:a17:903:7cd:b0:2cc:bb5f:3fd7])
+        bh=2t7yDZCgF5yF794oBaYJTVqMg1ClYWvzuDLcLD0bTKE=;
+        b=Xiw/Tw2Bkvcg/tXesigrmOQ3IPxJ/WJWQ7ezEqcK2K4YzSM1DpHjxuA4AG/BcvbYsi
+         DW67Gr0E93NGfOqNTDQn+YPkD8NYpmdsYfK0fu+GPv5seQKRMujWKSQjz/H/xgQXrdgv
+         ZjqDD7KGOVnpN1ZMFiyjErQzmwF+AWdt9kaP64ZergrPupTWVkyWpkWdWhPXYZTGgkEa
+         m3iZh38L/MwvpsSYzkVH/0dxA76y5F1M8AJqVqH5AByAWwPUACoUXLjep+e13dol68Ty
+         K5NcTaEsyYcll4rO5+L16RmfDtEFqpj6fS9Ndj/H8EYYSd37C7jPTtvPg9zVgzy5cDma
+         LnUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787734928; x=1788339728;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2t7yDZCgF5yF794oBaYJTVqMg1ClYWvzuDLcLD0bTKE=;
+        b=F4wjH34T2Yp05xp512tP/NFZ2S5QzQGTYyCYkzL0i9XiEOnCQ27whgdOw87+uSEGzx
+         IYhcFbwfLbk40QG8MKgQ+vL8hg4rIL4LQLvDqWXeQTErduObRS+UXUViwzMt7gzcfymm
+         uxTShi1DhkAhYl0EdFUaesxETbs7DG1L3vwmK2e++dFj+t7ndetipPjHRlxIc0qdjKoL
+         MlmOl1w30sQeEjfTk+1Rho9tBaM7CeuuQhZskUI7pmSYPf/upYZFIKJKn/f5hAgIvzed
+         O8WTX8LVVqld6g2XSAQMh3MNJSBNOY/lvuTI92PsqiWRU4k9dCJhMmJia5q2PAvtKisk
+         oIEQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rod5KXDr7U/zwsQdsq03gn0ZOYtzkhBPobD70KszRT0OrT2Yn+3hW/m8xRm1O6RkCwQjxm9O6ecPwRpvldH27M8@lists.infradead.org
+X-Gm-Message-State: AFuF++m+fnEZuwKt2fybuoelH1FChA+3xkJYgYQweCpIH/arLQ/FNokC
+	loLU1lHHHeDZHjiYA0y8k/dE19Tp4hXBPi2OTjx0IVrHxpnDkBX+DC7CMqMxCNjJgESAKQaptQL
+	k7YKe4dxW20VAT0uR/c0CthPP5Q==
+X-Received: from plae17.prod.google.com ([2002:a17:902:e0d1:b0:2ca:cba4:f740])
  (user=ackerleytng job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:284:b0:2d6:2901:6265 with SMTP id d9443c01a7336-2d707953a1emr98628575ad.2.1787734922088;
- Wed, 26 Aug 2026 02:02:02 -0700 (PDT)
-Date: Wed, 26 Aug 2026 09:01:45 +0000
+ 2002:a17:903:3910:b0:2ce:faa6:7cbb with SMTP id d9443c01a7336-2d707a3ed87mr93106385ad.4.1787734927046;
+ Wed, 26 Aug 2026 02:02:07 -0700 (PDT)
+Date: Wed, 26 Aug 2026 09:01:48 +0000
+In-Reply-To: <20260826-gmem-no-return-page-v4-0-3bb9c1ddb4e3@google.com>
 Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAHmrjmoC/43NwQ6CMAyA4VchOzszyoTNk+9hPGysG0uEkYFEQ
- 3h3ByeNxnj8m/brTAaMHgdyzGYScfKDD10KvstI3ajOIfUmNQEGJRO5oK7FlnaBRhxvsaO9Sit
- lziVUCqSVFUmXfUTr75t6vqRu/DCG+NieTPk6/e1NOWWUW2FkIdEaXZ9cCO6K+zq0ZAUn+AOBh BxACsvBcKn1B1K8IMC+I0VCCm2FFUxVmps3ZFmWJ7gutz9BAQAA
-X-Change-Id: 20260818-gmem-no-return-page-614927a29f97
+References: <20260826-gmem-no-return-page-v4-0-3bb9c1ddb4e3@google.com>
 X-Developer-Key: i=ackerleytng@google.com; a=ed25519; pk=sAZDYXdm6Iz8FHitpHeFlCMXwabodTm7p8/3/8xUxuU=
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787734920; l=1513;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787734920; l=1785;
  i=ackerleytng@google.com; s=20260225; h=from:subject:message-id;
- bh=OAlLWBhYYG/9ob/PX5hBH6y+Ywi1lILRcsrUDjKKezs=; b=daPi3Fjs1SSb8r0p9nYFDfhMv5JgbSUJww8xvwdjn/5ezcuq3olIFhfPZsB7H97tyDKbuwa/i
- HzQS2OkcWgBCL8fXp9OmJpR3tdyNqhLN3UNa4IWubqk/JfORozIirAG
+ bh=enAIdIfpjwlSqC1gWlXPx7NV0FU3Pk1m0whhjn5JXcU=; b=X/J0naFXaXcacGRfyWJDRGmjT1pR6S35RpMfjdWjFbARTVW571RbgREp+itIh0+NkYxsS2pCt
+ 0GRcegdOuePAemCvojQPvh6N2NgBYZnP3n8QANxjyBigz32FysjP3WD
 X-Mailer: b4 0.16.0
-Message-ID: <20260826-gmem-no-return-page-v4-0-3bb9c1ddb4e3@google.com>
-Subject: [PATCH v4 0/5] Stop returning struct page from guest_memfd PFN lookup
+Message-ID: <20260826-gmem-no-return-page-v4-3-3bb9c1ddb4e3@google.com>
+Subject: [PATCH v4 3/5] KVM: SEV: Check for invalidation before warning on
+ unassigned RMP entry
 From: Ackerley Tng <ackerleytng@google.com>
 To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
 	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
@@ -91,8 +91,8 @@ Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Ackerley Tng <ackerleytng@google.com>
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_020204_393049_6F3E38D6 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20260826_020208_991768_254C8A0A 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,43 +107,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-v4 splits out a new patch (3) that makes use of KVM MMU invalidation logic
-introduced into the RMP fault handling in patch 2 to avoid warning on a
-benign case.
+When handling an RMP fault, KVM looks up the RMP entry for the backing
+PFN to determine if a 2MB page needs to be split via PSMASH. If the RMP
+entry is not assigned (or lookup fails), KVM logs a rate-limited warning
+under the assumption that private memory should always have an assigned
+RMP entry.
 
-Other changes in v4:
+However, a concurrent invalidation (such as guest_memfd hole punching) can
+race with RMP fault handling and transition the page to shared, unassigning
+the RMP entry after KVM fetched the PFN. In such cases, not finding an
+assigned RMP entry is benign.
 
-+ Took Sean's version of the changelog for patch 2
-+ Picked up Fuad's Reviewed-by: and Tested-by:
+Check mmu_invalidate_retry_gfn() under mmu_lock before warning about a
+missing or unassigned RMP entry, and suppress the spurious warning if an
+invalidation occurred for the faulting GFN.
 
-v3: https://patch.msgid.link/20260820-gmem-no-return-page-v3-0-3bf8f80a7b4d@google.com
-v2: https://patch.msgid.link/20260818-gmem-no-return-page-v2-0-5298f42d49bb@google.com
-v1: https://patch.msgid.link/20260818-gmem-no-return-page-v1-0-4f8d939efdbc@google.com
-
+Fixes: c63cf135cc99 ("KVM: SEV: Add support to handle RMP nested page faults")
 Signed-off-by: Ackerley Tng <ackerleytng@google.com>
 ---
-Ackerley Tng (3):
-      KVM: SEV: Treat unassigned RMP entry as benign race on PSMASH failure
-      KVM: SEV: Check for invalidation before warning on unassigned RMP entry
-      KVM: SEV: Drop page refcount early in VMSA reload
+ arch/x86/kvm/svm/sev.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-Sean Christopherson (2):
-      KVM: SEV: Drop page refcount early during RMP fault handling
-      KVM: guest_memfd: Stop returning struct page from PFN lookup
+diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
+index 0d027cff734cf..f9dce8acac8eb 100644
+--- a/arch/x86/kvm/svm/sev.c
++++ b/arch/x86/kvm/svm/sev.c
+@@ -5060,8 +5060,12 @@ void sev_handle_rmp_fault(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code)
+ 
+ 	ret = snp_lookup_rmpentry(pfn, &assigned, &rmp_level);
+ 	if (ret || !assigned) {
+-		pr_warn_ratelimited("SEV: Unexpected RMP fault, no assigned RMP entry found for GPA 0x%llx PFN 0x%llx error %d\n",
+-				    gpa, pfn, ret);
++		guard(read_lock)(&kvm->mmu_lock);
++
++		if (!mmu_invalidate_retry_gfn(kvm, mmu_seq, gfn))
++			pr_warn_ratelimited("SEV: Unexpected RMP fault, no assigned RMP entry found for GPA 0x%llx PFN 0x%llx error %d\n",
++					    gpa, pfn, ret);
++
+ 		return;
+ 	}
+ 
 
- arch/arm64/kvm/mmu.c     |  4 +---
- arch/arm64/kvm/nested.c  |  4 ++--
- arch/x86/kvm/mmu/mmu.c   |  2 +-
- arch/x86/kvm/svm/sev.c   | 53 ++++++++++++++++++++++++++++--------------------
- include/linux/kvm_host.h |  6 ++----
- virt/kvm/guest_memfd.c   |  9 ++------
- 6 files changed, 39 insertions(+), 39 deletions(-)
----
-base-commit: 76671054f9a1ff6abb976583cd8da37650acdc97
-change-id: 20260818-gmem-no-return-page-614927a29f97
-
-Best regards,
---  
-Ackerley Tng <ackerleytng@google.com>
+-- 
+2.55.0.887.g758fc8c411-goog
 
 
