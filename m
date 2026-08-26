@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3385CC61DBE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 23:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9800C61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 23:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+Ksm9mowr5e76oy9bv/8McEmzTkr4pMHatHJvGkvcI=; b=2vk6XL2ruJwe9gBuzEbdVhnFaL
-	2W1aoACJNFPDx46fd1tQWmS5Rtq/9SL8gC4KepXLhbpMDO9AasmpIAl/G/z85SAP5IFcGfpchAdPN
-	GZj3ijRWPFA2On4oULAooPeWuPy5++IjwILz3eL+EtrnjpeIYKPGhNPcPYCaNUKDKO+LVl/OJ7Sd+
-	ub1f7oX4i0kMfmKz9nLPx5XVOsGaAblS/wvReHH05KLxfjdEi/LKbHPvTq46WpVCYNZg7AbibGT3D
-	sqxGfN2f/O0/KMJlAtPSB5FXUkbqQjS0tJmWpG/6BxdelKmr7YmWHaTP2st5YfdHO1+BsFMpW4WJE
-	VClOCndQ==;
+	bh=q0gJbLAjrAkHetISJ9E7BaKmcamQMw9Vv0f9TbXVRXo=; b=lZiic0DFfuwtp2aMmOj7ftXVXQ
+	RzHucnND8LD14t4k2ieyY0XUcOYCMBD3j+cJBAa2smxqJdRxelX69Ap86qV/bYEG600REi119nZ3x
+	BjgtTcRp52/yDRsp2QnB990eJslI4ItnjytYmhsYHhj1QlDYWZsEV05inWaJeIR3M4zVGYKmvFyrX
+	qvOjrR3BgeCs7Y1W7CiUHtdt/qV6dz+STOBc3jwZCH1aAU5gM2o/Op1ZOGNPPtGGpqK/iPSgKg8uY
+	ioqH/y03YdAzwSxrsQHnm0gKFr5cUUfj65ik/oEDFj2MsfBmQfk9CJHBkn89fR850wFK4o8Z30FHp
+	QCoNfVkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMia-000000039LG-1FZY;
+	id 1wzMia-000000039Ky-0QMs;
 	Wed, 26 Aug 2026 23:07:40 +0000
-Received: from mail-pj1-x1061.google.com ([2607:f8b0:4864:20::1061])
+Received: from mail-vs1-f99.google.com ([209.85.217.99])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMiH-000000038rX-12Wd
+	id 1wzMi8-000000038Xh-3ZFO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 23:07:32 +0000
-Received: by mail-pj1-x1061.google.com with SMTP id 98e67ed59e1d1-38759bcd877so2147722a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:07:20 -0700 (PDT)
+	Wed, 26 Aug 2026 23:07:26 +0000
+Received: by mail-vs1-f99.google.com with SMTP id ada2fe7eead31-74a9ac9cda6so1051834137.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:07:11 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787785640; x=1788390440;
+        d=1e100.net; s=20251104; t=1787785630; x=1788390430;
         h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=w+Ksm9mowr5e76oy9bv/8McEmzTkr4pMHatHJvGkvcI=;
-        b=Lonx1Jdi2NlQd6tZomSD5/rTFwb952byXKwUKVQWdkR17BPVQs3qbOg/Xz484S4zbc
-         BViTPY2F7wQgFgWzNiRTrQCbaJsTTPzl0qUf/9SUs1YmvBCIsIxmeY/iDxxFaXgJDnE5
-         bdAnvRs65Rv9HlYkgm8v80NSwbYn2g1E2GSGjBHyzRuBT8rGSzSwLz2CRv0fX+n/JxB0
-         sEX4ZptwrM8C3lDgcHxrEZIs8WYzdXsQz6NaTyCcx2XVoTP69ZPZZXukFHktiev63AKZ
-         Xs6uDR2bGgdNzBIwTNXND0Q0NTZQwUw/MrSLR4gds2ijHvj4o4UFYR/GFovRYbmLsHQi
-         P7KQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpOYz3ZtCzsLffel8K8tsJOJkJuMjT9MZNL0YIwO0jqwGMW2vIti8PzpoUajruEChzqHaE1GGUuf871sTATmxiO@lists.infradead.org
-X-Gm-Message-State: AFuF++kK4cHgvP7dZYmALD3nVDOMZD+ylt1XXFCsdsgqZbgaJclh22eA
-	wLvEQWfHf7lJ+uezSycsQlSkB1dALrbG8Xgd1VNH1Fp0S6MgSl3p8eofK5KcRejF5qsCXqsxIv1
-	hotU97pI+XrXQwcEmqwcEskuMiK4EbIrlFq3dezzy5aTAVa0GNfGvjjCjrsGgnNGqEtKYv9hi1e
-	E54TPZ0aCqEYwnky4SIZx+5yhSqHbgGIOew7gHEW13S6ZMV2fATPKDSZXAbnKdHLQzI/WaknLAC
-	7dRPfG5AgvtV+90CfpPfGDQ8AOeNyLDAj4=
-X-Gm-Gg: AR+sD12I03JjTwECjn1KQVQ0RooCkw0sTezaLWDEJIL3eStecMU5fZ4jGF3bj+PW4MC
-	LMFWkKfXNeaHn1IrUUg14yj2vD/mdGXzz0JCtvJnrF/O1bX25hO4dVfFmBEJAWoOkYP4EjSlNYG
-	Nvoy9pXELovPeMPigg1VGYIB6aXqmtiXYlVgDXbRAYXLr/Lfy5kzbgCUyFogTMllSY9wDi7ixdm
-	onl70J/L+DLz4imUedND9NJcazFvkS1QYqCAg9OF3Ga1nXdZGHLWQScxjYG3K7UdwGg7koHB4jL
-	VmggRnoLtHTNq/6MePIyD4U3deBxfg3c5Ty1IDdi8h4MovKjqXTmj534tJygovTcr+I1S3ucgsm
-	yo3H/eBpaH1C1Bj1jgPH4u/pton3TDRGX8D6GOtxp+IP3/VZlfKJBY61GqC6YXjPtAcNa3B3IeW
-	25fO1VTbwngn1Bqv3w4N1Wbhog8KndFw1h+Pxo9MMh
-X-Received: by 2002:a17:90b:4e88:b0:37d:f983:7b5 with SMTP id 98e67ed59e1d1-3966d3e1aa7mr23890810a91.9.1787785640013;
-        Wed, 26 Aug 2026 16:07:20 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-16.dlp.protect.broadcom.com. [144.49.247.16])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-396b0d800absm42760a91.5.2026.08.26.16.07.19
+        bh=q0gJbLAjrAkHetISJ9E7BaKmcamQMw9Vv0f9TbXVRXo=;
+        b=Puo39hcc5GJkHbSot2SvhnfmbHkrfLnrHPwT9M1ILw3dVPnQXmxBfSfpr+AiUfxUnE
+         6GfIXpMyrmDgJFvqPYSgixs2bxyVSo4cvZ6qeJ4EovwuXE9lS/qEimQzmVt9v6XwdsJI
+         bXe3y9GPVqntlV8caPqoogKr36zQ3rxoaVUxbyKD5AtWUeQfEy1jwqUmff+FrEMy1Uyc
+         qD7CGMkZunPF7CyisJ2IXo8qKqbijhtXAioVyMzjNOsd62ahkIRejBN7HQqnqUH7fk+Y
+         J6UdsLCOpjB5n4QJsSr6ihlDU9/pCNdmnMs8aRizdkipabgIDUhXixRF+Wp79A8+W6jG
+         R59w==
+X-Forwarded-Encrypted: i=1; AHgh+RovGrKmBdAVFzyXDvjXSmpfDGVpiDBxpV+T3jQ6ED4r8yK+EW7KY4PWJZhzz2u0X/eJO620s5wfKzsO/6P1Mi+H@lists.infradead.org
+X-Gm-Message-State: AFuF++nKIJ1P4rp/zNtVnGb3IGS0uYXqhQGApRERjNyhiRRen096tX2K
+	QAEJ43kKNAiHtF856abr2QhPEo7AZ7cu4UlxjJRoLH7wVF9IHsZEfvTza83IIp/XgK3mAri3Jn1
+	e/T4cRVdadfiDacVD7GThko5LmVdM6evEFcT/oELA90quyGEfjA9auGbnLN/WsCaVm1X+VNvL7Y
+	fdkuPonkbhuZ3Q+AvHWCj3OXwZR+XF6W8P7pm52/Y0agYbeFnzL3KpTtOdeFdcC/yOYb6wui3Wa
+	GYeAgXJqux6l8zxvNxo8iZeeVv/U1Y4B8U=
+X-Gm-Gg: AR+sD11Rl9Y+EdGsUtssWSpZV6LT/oMe/KIDN214Id0uWfDuP0q89FDtaSRKrZ2CziA
+	Yo5SYkSKLraFYcU2YIem3HNqLtvol3RITO761a01wxWz7x/CWYLW8lzZfurN4Dcu33LW1SMd/AF
+	hVGyNARGNuBgGbEP+NuWks6GWQ5TkDSS16j8Q+heRZQitX/6Xbtcfye4wrQDJlvzBQl37rcUNfy
+	8inoSQTLWye5kty2Zt9Mm/GrYHEYxxt9E6iee0jn6rVqiMPG7LM39k3QzjgLI/5EruI+2dAmw0G
+	nytOlnCIa1dSvn+R2kEp1mxZNnk/Slt2nWcK0hTpaZ4AJt/j4PhDAJA3lZ9BNnroO1Qmk/FyYLK
+	ra/bNDq0CILeb9dvM5DjhsdFZ3R2w1summJGG8JyqrvQb0eEXchmNkg3zy5B8PKjwVl5u4KFVQ2
+	L8KS0c4p6dD4t2zFYmd73r3h2tdvn6Fu2LEOZYx9nc
+X-Received: by 2002:a05:6102:3ec7:b0:77b:ae7:1bba with SMTP id ada2fe7eead31-782bf9bfb45mr4399190137.3.1787785630375;
+        Wed, 26 Aug 2026 16:07:10 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-20.dlp.protect.broadcom.com. [144.49.247.20])
+        by smtp-relay.gmail.com with ESMTPS id a1e0cc1a2514c-97cbe240fd4sm829164241.5.2026.08.26.16.07.10
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 26 Aug 2026 16:07:20 -0700 (PDT)
+        Wed, 26 Aug 2026 16:07:10 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-38e54b6556aso2259232a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:07:19 -0700 (PDT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2cfa55c9430so17269235ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:07:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1787785638; x=1788390438; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1787785629; x=1788390429; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=w+Ksm9mowr5e76oy9bv/8McEmzTkr4pMHatHJvGkvcI=;
-        b=EnOFC9/fDzq2JyPYkSvPuFgRUVvU8U4Tyb7/nU8xb+ie5p2D0UqFUBOfpMbtLFUQci
-         Z+7fmwlVefIgrf/yNy+nGgpsfiebiCDv/waEKIlnPX5nu9u+PROXv3K2RE3rVatxvKXo
-         sCao2SueEZWNSSItzlLEFKS9oiRx/9ygG1Z+M=
-X-Forwarded-Encrypted: i=1; AHgh+RqMFPj47+JWxBMcQVnxBzXnEBkpQLW5JlrTi7J1ORoFeZeKAKBvA0UGnx3ZCq6GtXDuLsbO5w2YQUYqNdz/mPB4@lists.infradead.org
-X-Received: by 2002:a17:90a:dfd0:b0:38f:bbc:6a0f with SMTP id 98e67ed59e1d1-3966d144247mr22371187a91.1.1787785638361;
-        Wed, 26 Aug 2026 16:07:18 -0700 (PDT)
-X-Received: by 2002:a17:90a:dfd0:b0:38f:bbc:6a0f with SMTP id 98e67ed59e1d1-3966d144247mr22371084a91.1.1787785637871;
-        Wed, 26 Aug 2026 16:07:17 -0700 (PDT)
+        bh=q0gJbLAjrAkHetISJ9E7BaKmcamQMw9Vv0f9TbXVRXo=;
+        b=FusZ0rOdIfLkIHj/a3A1EEByt1zHAr6vuYmP/OSR4izsxAn9X95z6Yt9ljkTNJJr3C
+         g68Tv8U2z6V5t66SwJox9U6PHkdsz+BkobqTNLpBVlaSCRIm7vJCfexbWg/NSnvG5yIl
+         Ih9h1YZgOb1fyHRu7RfXJdbOfjldm8e5LLARw=
+X-Forwarded-Encrypted: i=1; AHgh+RqyhvdYwQRvmo+aPbhf/sc78xgrNNkKWSBwGVTYaoliRhXuYzkfSDl9w9nyNZ3Rb70+gnmbxoZDD7UL0RAx/SGD@lists.infradead.org
+X-Received: by 2002:a17:902:f689:b0:2d6:dfaa:c26a with SMTP id d9443c01a7336-2d707aca9c0mr173277145ad.8.1787785629081;
+        Wed, 26 Aug 2026 16:07:09 -0700 (PDT)
+X-Received: by 2002:a17:902:f689:b0:2d6:dfaa:c26a with SMTP id d9443c01a7336-2d707aca9c0mr173276045ad.8.1787785628341;
+        Wed, 26 Aug 2026 16:07:08 -0700 (PDT)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3283d769d81sm12061409eec.13.2026.08.26.16.07.17
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3283d885fb6sm11957547eec.14.2026.08.26.16.07.07
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Aug 2026 16:07:17 -0700 (PDT)
-Message-ID: <3e5ec697-8f8b-426d-ac11-4c851aa5204a@broadcom.com>
-Date: Wed, 26 Aug 2026 16:07:16 -0700
+        Wed, 26 Aug 2026 16:07:07 -0700 (PDT)
+Message-ID: <f4b6ab1a-44f1-4e50-ae43-c55b080ab327@broadcom.com>
+Date: Wed, 26 Aug 2026 16:07:06 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] memory: brcmstb_dpfe: Bounds check DCPU-supplied
- MSG_ARG_COUNT
+Subject: Re: [PATCH 1/2] memory: brcmstb_dpfe: Fix out-of-bounds access due to
+ DCPU offset
 To: Danesh Petigara <danesh.petigara@broadcom.com>, mmayer@broadcom.com,
  krzk@kernel.org
 Cc: bcm-kernel-feedback-list@broadcom.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Justin Chen <justin.chen@broadcom.com>, stable@vger.kernel.org
 References: <20260826201500.3000125-1-danesh.petigara@broadcom.com>
- <20260826201500.3000125-3-danesh.petigara@broadcom.com>
+ <20260826201500.3000125-2-danesh.petigara@broadcom.com>
 Content-Language: en-US, fr-FR
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -132,14 +132,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20260826201500.3000125-3-danesh.petigara@broadcom.com>
+In-Reply-To: <20260826201500.3000125-2-danesh.petigara@broadcom.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_160721_351114_684B980B 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260826_160713_162905_706ADE7D 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,13 +156,24 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 8/26/26 13:14, Danesh Petigara wrote:
 > From: Justin Chen <justin.chen@broadcom.com>
 > 
-> A compromised or buggy DCPU coprocessor can make any user who reads
-> world-readable /sys/devices/.../dpfe_info|dpfe_dram trigger a kernel
-> stack out-of-bounds read of arbitrary extent. This bounds checks
-> chksum_idx against MSG_FIELD_MAX after reading the response from DCPU
-> message RAM.
+> On API v1/v2 boards, the DCPU coprocessor can steer kernel readl_relaxed()
+> and writel_relaxed() to any address within 256 MB of the ioremapped DPFE
+> dmem or regs base. The DCPU firmware provides a 28-bit offset which the
+> driver adds to the ioremap base without any bounds checking in
+> get_msg_ptr().
 > 
-> Fixes: 5d06f53d9509 ("memory: brcmstb: dpfe: Compute checksum at __send_command() time")
+> This allows a compromised DCPU firmware to trick the host kernel into
+> reading or writing arbitrary memory-mapped I/O registers in vmalloc
+> space. When combined with a root-writable sysfs file like dpfe_refresh,
+> it provides an arbitrary MMIO write primitive. Similarly, world-readable
+> sysfs files can be used to leak other devices' register contents.
+> 
+> Fix this by recording the resource_size() of the dmem and regs ioremaps
+> at probe time, and rejecting any offset that, along with the largest
+> field accessed (DRAM_VENDOR_ERROR + sizeof(u32)), exceeds the recorded
+> mapping size.
+> 
+> Fixes: fee5f1ef6cf7 ("memory: brcmstb: dpfe: support new way of passing data from the DCPU")
 > Cc: stable@vger.kernel.org
 > Signed-off-by: Justin Chen <justin.chen@broadcom.com>
 > Assisted-by: Gemini:gemini-3.1-pro-preview cursor
