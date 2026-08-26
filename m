@@ -4,63 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E882DC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 14:49:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037F9C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 15:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ygp9j6ThlfTN1OYLO/etMR3Ca2p99fzc5FIDOOEydXI=; b=1sYvy9+zsgwXLYqazHOQOPAeWE
-	oA5AkYnezZEEMddHmkMQEOiYzl+frhDCKP7qlfChHb7eSE3sHan7JFmbGjNG8m5Uyc0gkF1AM5q6y
-	hleWynlbdmtpwrKWiJZP3slZD1ynYUayOXk5J/axkp0VJu4Ij5yDxeudhGKR1k0wjB9FXvpL6WvtZ
-	y87roXV+EDsMMFu9Gi3VDChqg7XXW0LjIFzA8MVQe5v3M/guMrQBEVg5vlOwL05vfFgtLeE7z3ARx
-	q5021O2rNCaC2AIxPMJM35XcgN2kKOFE+g7h2vHrC8vHN5CvTKweSzu/0eNuUcD18IPZqsyFyvM4B
-	AR2Qb+OQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qFKzf2e63+SUGBeC6LAsBmBAhfeCzGJAKmalQX4SqN0=; b=jglNThffYG14SSCwtHCBUV8TG4
+	6ww2P+DkpcZR+ejeJPyF8ROs28Rz1DvNRDXW6OxkWOZhNt+eq0CvCc4BLiAgG4aJWPm10lY/69YbP
+	d6d7t6wML7F8orbFP6p/7W7p/0nf+X3EqOq7XrNsPcULadCWZKuY0idqmKhv06V9IVMOmU1kCy8Hy
+	wvev1oJBZ1s7y4YVyXyAhPWU5rQQQ6QiV4QECmrOMApHSVLU1t88lIyNbQj92A5qEWt0t1uQ1io7/
+	dt7eU08XW55R68gjKilF7KxZr/UqaULxXlXzkZ9WYkgfL3mXE8eAgIFyqaKUfyEWsGAa29gLSWVLJ
+	cu+W4/uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzEw0-00000002cSB-1rUj;
-	Wed, 26 Aug 2026 14:49:00 +0000
+	id 1wzF8Y-00000002dK1-1ELU;
+	Wed, 26 Aug 2026 15:01:58 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzEvx-00000002cR1-1Vyw
+	id 1wzF8V-00000002dJc-3gfu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 14:48:59 +0000
+	Wed, 26 Aug 2026 15:01:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A7F1816F2;
-	Wed, 26 Aug 2026 07:48:49 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4DACB3F7D8;
-	Wed, 26 Aug 2026 07:48:52 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C379416F2;
+	Wed, 26 Aug 2026 08:01:50 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3FA4D3F7D8;
+	Wed, 26 Aug 2026 08:01:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787755733; bh=vLb0Om9UgS2n6FDS9rGiXGaZDVt71YmuY1679WKO2V4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kTtoJaFENZIGpQGgOEM6RwVAGj0gR0mVYgCS3/4s9CcdnY+LzFxgkQM0z0AKmc1JZ
-	 v69DElMYWTGU8N5ROmOTX1FIJclhONhoSO/+IZBHodJ8iCJ/RWKOK4manc4Rxy6LdM
-	 tCjO/WW8XaWXDziSHFDGtZYjsuKmhKeZM6U+R5EM=
-Message-ID: <a491ea12-b0f6-43e4-bb5d-dba508120bfb@arm.com>
-Date: Wed, 26 Aug 2026 15:48:50 +0100
+	t=1787756514; bh=ephLTZo60aLchZTC8JPArjDYj9cSMJNs4QXwAT0nfNA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ciRmwxR6vL9yxxc3rqvSD2GqOFqzd/uI7aq0IG1hiF3ZglJ1qmbnq0zxSpjZ3wMQa
+	 m2SSYM6vz5esS/0h7GRlM0pXdnOomYldR6p+iIhZ9rqoZG+ZdYzGOhDM1aquXZMSba
+	 Mb5wdUXppYVGufJ0Dz+i8tf2m9oRewaqwSKKZqkw=
+Date: Wed, 26 Aug 2026 16:01:52 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
+	Leo Yan <leo.yan@linux.dev>, linux-arm-kernel@lists.infradead.org,
+	coresight@lists.linaro.org, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 01/14] perf cs-etm: Fix nVHE per-thread decoding
+Message-ID: <20260826150152.GI8904@e132581.arm.com>
+References: <20260821-james-cs-unformatted-per-thread-fix-v2-0-00c4fd0701b4@linaro.org>
+ <20260821-james-cs-unformatted-per-thread-fix-v2-1-00c4fd0701b4@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: arm64: MPAM2_EL2 and MPAMHCR_EL2 are left UNKNOWN under
- arm64.nompam
-To: Fuad Tabba <fuad.tabba@linux.dev>, Xi Ruoyao <xry111@xry111.site>,
- James Morse <james.morse@arm.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>,
- "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <CA+EHjTxeWxZiuSmnKLGLxTBXP4oJT7-LuffbPAyCSZZ5TW=5Ew@mail.gmail.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <CA+EHjTxeWxZiuSmnKLGLxTBXP4oJT7-LuffbPAyCSZZ5TW=5Ew@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260821-james-cs-unformatted-per-thread-fix-v2-1-00c4fd0701b4@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_074857_659157_5FC67AA8 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20260826_080156_000642_1221DCA9 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,44 +87,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fuad,
-
-On 25/08/2026 20:18, Fuad Tabba wrote:
-> Hi Xi, James, Catalin, Will,
+On Fri, Aug 21, 2026 at 10:48:59AM +0100, James Clark wrote:
+> pid_fmt is unset in per-thread mode because we don't need PIDs, so we
+> can't use it as a hint to determine which EL the host is running at.
+> That results in falling though to the next part where EL1 is treated as
+> guest, which is wrong for nVHE.
 > 
-> I'm going through the features that can be disabled on the host
-> command line, checking that EL2 either traps them or leaves its own
-> controls in a defined state. That quick and easy GMID_EL1 fix came out
-> of the same pass [1] :)
+> Fix it by only returning a guest machine when run from perf kvm where a
+> guest image would be provided, which matches existing behavior in other
+> parts of Perf.
 > 
-> Since 10f885d63a0e ("arm64: Add override for MPAM"), arm64.nompam
-> skips the MPAM2_EL2 and MPAMHCR_EL2 writes in finalise_el2_state, so
-> on an MPAM PE with EL3 implemented the trap controls in both keep
-> their reset values, which are architecturally UNKNOWN.
-> 
-> I was wondering whether that was deliberate. AFAICT, restoring the
-> writes would trap to EL3 wherever MPAM3_EL3.TRAPLOWER is still set, so
-> it may not be safe on the machines the override was added for. I have
-> a patch restoring them, but I learned my lesson.
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-Yes, on a system where the firmware ignores MPAM, MPAM3_EL3.TRAPLOWER will be 1 and the traps won't
-handled and so if MPAM2_EL2 or MPAMHCR_EL2 are touched to disable the traps then the f/w will panic.
-As you say, if arm64.nompam is set on a platform where f/w has cleared MPAM3_EL3.TRAPLOWER to 0 then
-the MPAM registers may or not trap . This is different from other features because the EL2 register
-than configures the traps is MPAM specific and not in a generic register e.g. CPTR_EL2.
-
-There seems to be no way round this other than documenting that you should only set arm64.nompam if
-you are sure that MPAM3_El3.TRAPLOWER is 1 as you otherwise have a side channel. What do you think?
-
-Thanks,
-
-Ben
-
-
-> 
-> Cheers,
-> /fuad
-> 
-> [1] https://lore.kernel.org/all/20260825164219.3347229-1-fuad.tabba@linux.dev/
-
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
