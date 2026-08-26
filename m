@@ -4,88 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0133CC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 22:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D563DC61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 23:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TGmlfvg3E3qxAvzs/3LCBaMCVhVs8joJvhg37L20skQ=; b=xa4Lq534yH778gnR92yok9WRot
-	T87xeLPQQXc9Nt9KiOS6uMub4tAtg4vTqL/dfDnDyyGOuIkvSgcoyxlF+D66TZnbSBLnmj4c2RZqm
-	ajJRRcPJNFIH6Q83cOQ9n/NLlkta1QYh4kObExihgLIFDgJz5uvETHX2zWIzjV+TEOD9Vi0utgK17
-	7+ZLjcOYg/PC8iLMOBcI4Q8vcUYpcwkvO30L6ociJw46KuZpPXK4+r9BQqNHLJFwaq+Tn2hSymj3z
-	UNn0Is0rjSHg3KihBQQ3amDbhP5b4Vryt6XkQDGBRcYGfcT82026/id9C5GpDK8SGeIXvb07t6lsS
-	+bYnmykw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gRDzIvJTa0HXgdmAJ1iBjSEqSYXJcGrZt7XM2C/1134=; b=nEx3/P76WjcyvTL6ombaFusz1f
+	DEtOHyZtMinkOwihlfHDA1zwtnt1REKR1T2oKj+2GcLpAxgIglliPg8qgmxaElBsOVlqQU8pZcKTX
+	QAywAMQCSbDsV9SM7+5SXvnlA96lvR+aRJUfo/O0bhOsxnXT65YUdZWGygm8pwQChh8AJ3/GdLVym
+	JONNqW31OWnCpZOEycdE9N1xI3oql1+IUzb92n+Vc+9impQUhS+Rx9fOx0+oaoBXy6fj0iK82oMna
+	6aivhoqYcXC+8/FEHL+W3N8GiuhKmcdFe3Eyz8xraUlV8wHo95O8ylPNjzuGHU1sOc5iJWEy+s+z4
+	opwNn6PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMP9-000000035Qz-43pe;
-	Wed, 26 Aug 2026 22:47:36 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1wzMgJ-00000003654-0U4N;
+	Wed, 26 Aug 2026 23:05:19 +0000
+Received: from mail-pl1-x645.google.com ([2607:f8b0:4864:20::645])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMP6-000000035QX-1cd8
+	id 1wzMgF-00000003625-1DpX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 22:47:33 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-9387752a4d0so46496685a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 15:47:31 -0700 (PDT)
+	Wed, 26 Aug 2026 23:05:17 +0000
+Received: by mail-pl1-x645.google.com with SMTP id d9443c01a7336-2cc73f47bdcso1124145ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:05:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787784451; x=1788389251; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=TGmlfvg3E3qxAvzs/3LCBaMCVhVs8joJvhg37L20skQ=;
-        b=PtnEGXATdk4KowcUokwITOwAIUnxJfOmb4+UzmrnXQgPoIGSZZFaXMGdFSrseJafq6
-         V8JAzaZWKKWztrEOaF0P4mJo6ka7gahcx9FwBCJgRO2HKohPtwiheewITOFuHfKKuzXy
-         UtYUdVEHVugeY1iMPUX9GJNUSrW5rxCRAPllRHT/sK0t/zbnetcLIxqxwrTFS2PnMXU5
-         BDn7utJgZ8oNfRm5U0bmTYPEr45fdg1fv8DBvuAubQVSZBlPPZ3qMoOUOsbZamDsfnhO
-         e0fhmcA2ylkOsy43SoP/42KKcR4o4R6ynAAjZhu5qZ9xTQF1h/f9YN1W2QjuiJNSY8om
-         GwxA==
+        d=google.com; s=20251104; t=1787785514; x=1788390314; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :reply-to:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=gRDzIvJTa0HXgdmAJ1iBjSEqSYXJcGrZt7XM2C/1134=;
+        b=pDSA/S0sn+5SewY3oLPGnJykquxLU+E2J3eHsntQmnN8yl8Ha+nSyxlJ7zxnUOnf5T
+         lJ1xWC96lJ34HYFmw5vsjwRJxd8/uRkblqpBsU4LyBnxqDrTeG3TpOLFUSROOdGX/you
+         KddVWhSgNSDUQQWgAQwkcJaqS7G9qL6VU907/d+lkKQvMpCScTQdSi/OgcjZl14KlgRo
+         C1DIj+z1wQ+3mRvQraAzT1YBk06/KzgnidfY5XlCXKdlUpLgwfVUW1hGtF+xDuMXonCd
+         mBSlyCp6LAzLz0DSOkiJo2ykRKMKF1dEteFlSwSfmUyCxZGJIb4AN9Q7PKyd4gDad+9T
+         gPRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787784451; x=1788389251;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TGmlfvg3E3qxAvzs/3LCBaMCVhVs8joJvhg37L20skQ=;
-        b=GmOVCdgZOnVN2+o2VDduz8a5vp/t9MLcgAzmfsSE9UYGwCH1kURBr5180cw/gIIB/z
-         bC7o6iwlUC/qq1qOXPTK+ehF6OXIwVVsEWLpIbsqFln8IHPb+cNXrTCJjUzmsQ4mSmwv
-         8+pCbxMxT8mRF14g2FZIVB05iKPO9CKTRYUHYNCS4vNqKeLIZbyzDFCgTcusrhrv4+5X
-         euV/2Rtz6KENefxjsdyI97n/tE0QNsTJlxHg2njzUQ6SqXIES652K/y8PTUta0DJXTmL
-         I2JBvkhz+vcuEgujsbpgDBNwk/krwBiPDNkFTIJhWzbM9SSDrWvvGzRxL5gz1wtRP3y/
-         h1wA==
-X-Gm-Message-State: AFuF++npUtD5ajPBCskElc8skW01SAi8V8qEU5WDVDow4ijVzWhNe8Ay
-	Fnkv+XendRoQFYeKeI8oOkV9k2Q5fLjPZDw9L6oAYsNk4r4I1T/dRfn+
-X-Gm-Gg: AR+sD12gOKyIiIir7ZRhBNPx9uVm6fDEbgUXAJ5srH62V6SEnpAyjWiiOvM+XGT1y1Y
-	/sHZY1oWlObhQa/MEZDGBZPxf1wiApaYTXzeQrOG5UaygLQD2lbrGIx1m+bqL7pyusDkelej7HA
-	x2bLZ+cq8ehqMTYBxY+cuG50MDhsf6SFNm4gGPIc40eoLlBbX5t9L8C4y3bLzSrG/EFhD2KbzE6
-	WNtoHfAiV6FCZ0s8YoKSigPDJDR0R30jPSMYs1nGICJUD8MNM8Q96yqc1dwS5hRciDhd5JaYvQi
-	Zp/dYjdNocgyL4PaH0wSikIZ15jLBHno5oo/uN35Tbv9xvqH6fHAFa1yRjNVHZfkJzAZ4eNg1Uq
-	kOGKf5/QpRhGG9jEzxvV1bW8Ij2fNU9LS2n9PCs+AgFEbd9AakQaZbVjhCj7rfdNCXfF3HzEynw
-	GXsVywOOqIbuEkmoTgwedYqqP0xkoONeFVWHBghQXEkd/v21lSIk4FlXf8i9ONTShbrThBx5qeP
-	2o5nKdnu7u3hDljK+t4zVQ=
-X-Received: by 2002:a05:620a:7085:b0:914:b9a2:f29d with SMTP id af79cd13be357-9378041f08dmr1088154485a.37.1787784450800;
-        Wed, 26 Aug 2026 15:47:30 -0700 (PDT)
-Received: from CW-D0XG2Q16P7-L ([2600:4041:5d54:8900:dd0a:e212:7941:39d5])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9377e30cd96sm317290185a.6.2026.08.26.15.47.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Aug 2026 15:47:30 -0700 (PDT)
-Date: Wed, 26 Aug 2026 18:47:11 -0400
-From: Maxi Saparov <maxi.saparov@gmail.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Seth Forshee <sforshee@nvidia.com>, Serapheim Dimitropoulos <sdimitropoulos@coreweave.com>, 
-	Maxi Saparov <masaparov@coreweave.com>
-Subject: Re: [PATCH] firmware: arm_ffa: Unmap RxTx buffers on device shutdown
-Message-ID: <ao9sWrszkXwj5-PK@CW-D0XG2Q16P7-L>
-References: <20260826222337.73480-1-maxi.saparov@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260826222337.73480-1-maxi.saparov@gmail.com>
+        d=1e100.net; s=20251104; t=1787785514; x=1788390314;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=gRDzIvJTa0HXgdmAJ1iBjSEqSYXJcGrZt7XM2C/1134=;
+        b=AXT2yR4IVnTDdwLWtN6wDl/I0pNXtYlFZCJH5F4SdbIWjSrhXytyYn+tXj1rh3+Zp3
+         MPWWnlhw3+1X/RnsQO1168oQvo+/ppCIhAXMfB4qAP5Iy2lwQFFCFOu0NwZgFIXNClia
+         uoNVr90zlV37lWqxTgaZRndR3GBxdEsPRoAkQnZ2Cer1biVA0PznOX3ybIb1U2p7eYMW
+         V2paJUrxPyZvXG2v1EfuvoZvaev5geYaYZzWPkS67ur/JcPpjIXXVf3dlLk3BJSxxALD
+         eFqemr5Gvvkd2EMXsbuQ9pjQWpeIFvlg/VuZH4db7sgdV9KR9BCTp4nV9mhj/onMLYTW
+         t8EQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoIQJM6A2b7skjW9QMrh9ulpu2uBhxhLRlf9PdQiWQ2NwW+qlYHLMDP4/77P04Kuj2GgokBvzeX4E4ntqyMsT+z@lists.infradead.org
+X-Gm-Message-State: AFuF++nPEsv+MwG/yq6Wfz2iaF1nETroDmEJLwhpdS0crFVNumvBXvA/
+	erYjMc7f2MXRptH0Cfi8q9SVJedZZ32UumxDZqPih2EwSjNFcMwrTTPMY0gf92OsKOLzeKc2fWu
+	0lvof8A==
+X-Received: from plxl5.prod.google.com ([2002:a17:902:db45:b0:2d6:f794:4e76])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:4b24:b0:2c9:9a2e:dab0
+ with SMTP id d9443c01a7336-2d707954e7amr191786295ad.3.1787785513509; Wed, 26
+ Aug 2026 16:05:13 -0700 (PDT)
+Date: Wed, 26 Aug 2026 16:04:51 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.887.g758fc8c411-goog
+Message-ID: <20260826230511.972824-1-seanjc@google.com>
+Subject: [PATCH 00/20] KVM: selftests: PPC pre-enabling
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>, 
+	Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>, 
+	Ritesh Harjani <ritesh.list@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_154732_462759_6A063CBB 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20260826_160515_368556_DAA803ED 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,26 +96,89 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apologies, I failed to spot Carol's earlier patch for the same
-problem before sending this:
+This is a big pile of cleanups and refactoring to prepare for PPC support in
+KVM selftests.  PPC has paging modes that require multi-page page tables, and
+those page tables need to be naturally aligned.  The original proposal was to
+plumb in an @align param to the page allocators[*], but I didn't love the idea
+of adding another rarely used param to the allocators.
 
-  https://lore.kernel.org/all/20260818224404.3694580-1-csoto@nvidia.com/
+Reworking the APIs to take a region type requires a fair bit of churn, and was
+more painful than expected as I didn't realize just how many one-off tests did
+weird things, but overall I think it's worth it?  If only to keep cutting down
+on the use of magic memslot numbers in tests.
 
-Please disregard my patch in favor of that one. It covers more than
-mine does.
+This needs explicit testing on s390.  I tested on arm64 and x86, and given the
+number of failures I had to wade through, I wouldn't be at all suprised if I
+broke something subtle on s390 as well.
 
-Some corroborating data from our side, in case it helps that patch
-along. We hit this on NVIDIA GB200 systems in production diagnostics:
-after a kexec from a kernel with FF-A active, the next kernel's
-FFA_RXTX_MAP is denied and the driver fails to probe until a full
-system reset. I can also confirm Carol's observation that unmapping
-the buffers alone is not enough. The notification bitmap is retained
-by the SPMC in the same way, so the cleanup has to cover both.
+I'm less concerned about RISC-V and LoongArch as they don't have any custom
+tests that are affected (which is where I got burned).
 
-Happy to provide Tested-by on the next revision of Carol's patch.
+[*] https://lore.kernel.org/all/df86b5ccdbdafc3509d9538bd5e6796737bab2db.1781093720.git.ritesh.list@gmail.com
 
-Maxi
+Nicholas Piggin (1):
+  KVM: selftests: Use goto instead of do-while to retry finding unused
+    physical pages
+
+Sean Christopherson (19):
+  KVM: selftests: Use MEM_REGION_PT memslot instead of '0' for s390
+    regions/segments
+  KVM: selftests: Bump the minimum GPA for page tables to 0x200000
+  KVM: selftests: Use vm_alloc_page_table() to allocate LoongArch page
+    tables
+  KVM: selftests: Rename "num" param to "nr_pages" for physical page
+    allocators
+  KVM: selftests: Extend page allocator to support naturally aligned
+    allocations
+  KVM: selftests: Make the single-page allocator APIs static inline
+  KVM: selftests: Use the innermost page allocator API in the memslot
+    perf test
+  KVM: selftests: Use the innermost page allocator API in s390's IRQ
+    routing test
+  KVM: selftests: Add a wrapper API to allocate multiple page table
+    pages
+  KVM: selftests: Initialize vm->memslots[] with invalid memslots during
+    creation
+  KVM: selftests: Add APIs to override memory region types with custom
+    memslots
+  KVM: selftests: Add TEST_EXTRA memory region type for "special"
+    memslots
+  KVM: selftests: Use TEST_EXTRA region in arm64's vGIC LPI stress test
+  KVM: selftests: Use TEST_EXTRA region in x86's smaller MAXPHYADDR test
+  KVM: selftests: Use TEST_EXTRA region in set memory region test
+  KVM: selftests: Take the memory region type, not memslot, in page
+    allocators
+  KVM: selftests: Use TEST_ASSERT(), not assert(), in
+    vm_get_mem_region()
+  KVM: selftests: Automatically pick min_gpa for allocations based on
+    region type
+  KVM: selftests: Add arch hook to force page tables to be naturally
+    aligned
+
+ .../selftests/kvm/arm64/page_fault_test.c     |  18 ++-
+ .../selftests/kvm/arm64/vgic_lpi_stress.c     |  19 ++-
+ .../testing/selftests/kvm/include/kvm_util.h  | 106 +++++++++++++--
+ tools/testing/selftests/kvm/include/x86/smm.h |   2 +-
+ .../selftests/kvm/lib/arm64/processor.c       |   4 +-
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 127 +++++++++++-------
+ .../selftests/kvm/lib/loongarch/processor.c   |   5 +-
+ .../selftests/kvm/lib/riscv/processor.c       |   4 +-
+ .../selftests/kvm/lib/s390/processor.c        |   7 +-
+ .../testing/selftests/kvm/lib/x86/processor.c |  15 ++-
+ .../testing/selftests/kvm/memslot_perf_test.c |   3 +-
+ tools/testing/selftests/kvm/s390/cmma_test.c  |  19 +--
+ .../testing/selftests/kvm/s390/irq_routing.c  |   2 +-
+ .../selftests/kvm/set_memory_region_test.c    |   8 +-
+ .../x86/smaller_maxphyaddr_emulation_test.c   |   9 +-
+ 15 files changed, 219 insertions(+), 129 deletions(-)
+
+
+base-commit: 76671054f9a1ff6abb976583cd8da37650acdc97
+-- 
+2.55.0.887.g758fc8c411-goog
+
 
