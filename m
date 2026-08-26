@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B56E9C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 08:26:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 258F3C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 08:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=49JN+s6IWX82rF9/oIGJ/XpKDoHvxZLgYIF4u+kRqGw=; b=5DF+sJ2JmkFJfCSGpAQDMseR2E
-	unas6LLu3bIl4DaNCdUjMBizVPXvjIGRqyxwdxo13V1kkI+xkyCm3jCY91FnLj95mMcdf+BNrrSHJ
-	cjpSGueQiZMpBPY5eu6o/EgQ7ZknjGYEL8UCmS2Ssud1pGZUJNHzj+y5xS0LBRCo6a5tAk6kLuVQg
-	gPKSCPu17h7eWG6EuSY89MI2lOyPQGMDJRBHN+4cFpIDBKyBcmdaGr2muyjayCCEdyb7RkiNXEznD
-	xTO7G2YZDA2RTPBDcIwVHPh0pWB/Rwhjtm9vIxWCaTAsKaw1STMlXMqRWpH+tW1g6AW07XJmHtKt4
-	6FR17EEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C6XeT/xOzOd9IAeHHI1445uGYnooQF+Qv7RoyGIhLDc=; b=WRqRWXA3TFdckcRi3iQdKs7kfu
+	AqwarOMeopbUOH4nQ090kdE5+vHYVcF7X1RlLJyKvscBcv62jMXBNYDMJYqCUbzP0ueEm2SeXHmB6
+	7yLp1vYsvasacoj6yJnxlSmgY6UKNtQVzJr9A4hgyfU2seqcDVhNng/VLmyoocFaH2JUZ1q2jdVr6
+	vAxEqqKm/dSdsLDByJ2cd23idoOFS7yguvKki8LDEN/XrTi7/JcLp4Jb8RPHMD+2oa1ht0yumMffS
+	ecd5KtcdihgWvd/3Dv2TxALbn6Gb3nC9a+0Jyaz7UG9d1bhmASwbVhqV1Gk243xr+ojHjMSE1YVhQ
+	WuI55fbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz8yC-000000025it-2AAD;
-	Wed, 26 Aug 2026 08:26:52 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz8yA-000000025hl-1Zoz
+	id 1wz8yb-000000025qQ-2iGT;
+	Wed, 26 Aug 2026 08:27:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wz8yY-000000025pg-3p4i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 08:26:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787732810; x=1819268810;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=DjG1oq7SnqRdBe8jkPiEySnDuQMRC2HVO2VHS57Nhcg=;
-  b=dNnrA196ISDSiP+21DBx3eca5xi6jEIxaa4RvK3K0F1Zr70yuImG1H3h
-   pz4QsSxEuJ+/7SHRQ1W6ryfzJDKid6LXlcdOhpF7Ytpc4tL/KRAtvUIf9
-   HZaOXa8GWrYzVrTlWWgsh2Jnu+yRDYh6LsJ6/r6nLtUJCRPzyeZOwq1Y0
-   DROyf4R2EKJD8RfToGTXvc4DdhzrrmUeXZuirW7rSEr+IVwBEynP8kGLc
-   twqWXN9lI1klddQhl3QPtg7yp62ivcF2z8SuOrLd176CeitpCs59S/QXB
-   PHuVSNGK48oq14abtJyahAid4ijl766eIeLYtDsyitmiNGaU0f/81Lpy5
-   g==;
-X-CSE-ConnectionGUID: skZgy2JAR4aKehmA1QVF5Q==
-X-CSE-MsgGUID: 2/5298zHTXqd6sPznposZw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11886"; a="92025824"
-X-IronPort-AV: E=Sophos;i="6.25,244,1779174000"; 
-   d="scan'208";a="92025824"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Aug 2026 01:26:46 -0700
-X-CSE-ConnectionGUID: eyUnDHdPSLK0+ojSgWQ8EQ==
-X-CSE-MsgGUID: Rk9WNzlvRhuTPNK+gKAvEg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,244,1779174000"; 
-   d="scan'208";a="261382198"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.235])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Aug 2026 01:26:43 -0700
-Date: Wed, 26 Aug 2026 11:26:41 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Marcelo Schmitt <marcelo.schmitt1@gmail.com>
-Cc: mdshahid03@gmail.com, Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com, linux-iio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/3] iio: adc: bcm_iproc_adc: sort headers
- alphabetically
-Message-ID: <ao6jQaJc9FokuK6A@ashevche-desk.local>
-References: <20260825172155.250484-1-mdshahid03@gmail.com>
- <20260825172155.250484-2-mdshahid03@gmail.com>
- <ao5dVuReF1Q63ccU@debian-BULLSEYE-live-builder-AMD64>
+	Wed, 26 Aug 2026 08:27:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F8EE176A;
+	Wed, 26 Aug 2026 01:27:10 -0700 (PDT)
+Received: from [192.168.7.252] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 86AA33F7D8;
+	Wed, 26 Aug 2026 01:27:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787732834; bh=mGEZODoxHlgWN2rMotI3PBzoesFZ1tMUxHjv/4k7jaY=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=LTEo18E75tVAlgJz3I9v5wbLc7rkBEv61lVX0BdAIVZI7GP8dDdrKGysp9CPMS9GQ
+	 WIr3Dwhz+zB+KXCFNQXwEAiN9A16Cle/ec7PIvGUBYvGh8Y0HUju7S2qGrvkVQKKjl
+	 caf7/82bBD18u+XV2QP6WEsc7mCUkHA2qWNy1qCM=
+Message-ID: <21300ec8-272a-4a16-abe8-2ec1f54abe8b@arm.com>
+Date: Wed, 26 Aug 2026 09:27:11 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ao5dVuReF1Q63ccU@debian-BULLSEYE-live-builder-AMD64>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/4] selftests/arm64: Fix MTE prctl TAP plan
+To: Muhammad Usama Anjum <usama.anjum@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Shuah Khan <shuah@kernel.org>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Amit Daniel Kachhap <amit.kachhap@arm.com>, Yeoreum Yun
+ <yeoreum.yun@arm.com>, Mark Brown <broonie@kernel.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>
+References: <20260825111929.2882324-1-usama.anjum@arm.com>
+ <20260825111929.2882324-4-usama.anjum@arm.com>
+Content-Language: en-GB
+From: Vincenzo Frascino <vincenzo.frascino@arm.com>
+In-Reply-To: <20260825111929.2882324-4-usama.anjum@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_012650_504199_B9706D8C 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20260826_012715_021799_25C39E3F 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,31 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 26, 2026 at 12:28:22AM -0300, Marcelo Schmitt wrote:
-> On 08/25, mdshahid03@gmail.com wrote:
+
+
+On 25/08/2026 12:18, Muhammad Usama Anjum wrote:
+> The MTE prctl test emits one result from check_basic_read() followed by
+> one result for each of the seven entries in mte_modes[]. However, the TAP
+> plan only accounts for the array entries, producing:
+> 
+>   # Planned tests != run tests (7 != 8)
+> 
+> Include the basic read check in the plan so that all eight emitted results
+> are declared.
+> 
+> Reviewed-by: Mark Brown <broonie@kernel.org>
+> Fixes: 1f488fb91378 ("kselftest/arm64/mte: Add MTE_STORE_ONLY testcases")
+> Signed-off-by: Muhammad Usama Anjum <usama.anjum@arm.com>
+
+Reviewed-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 
 ...
-
-> The sorting looks okay to me. Though, there are some includes missing and a
-> couple of them that don't seem to be needed (delay.h and io.h). Either in
-> replacement of this patch or as a follow on extra patch (not sure how maintainers
-> would like to have it in this case),
-
-Too many lines to sort, hence separate patch:
-- sort
-- apply IWYU
-
-> it would be nice to also update the include list according to
-> include-what-you-use principles.
-
-> If you decide to work on the update to make it iwyu compliant, it may be
-> helpful to set an IIO tailored mapping file such as the one shared by Jonathan
-> a while ago.
-> https://lore.kernel.org/linux-iio/20250629194336.34a03946@jic23-huawei/
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
 
