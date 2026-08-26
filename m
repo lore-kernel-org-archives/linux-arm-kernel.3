@@ -4,64 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5403BC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 01:00:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D735EC61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 01:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NYZTQkL5Jzv5jHcLk9d/FWbuGL1zpQHqOJLwaJI1Qdk=; b=2hAE966GTZF2DPEdmqjFz5W65M
-	hbxn+lGEEoPJYsEBaJCYcH3Rq0VVdkc09AZY8KlBuVR9pshqnni1qTNdVtKcaG+ncAgbnnWb3SZ0j
-	Z/NmH5eM1OqR8zrGmZjp9bU4LZ5aunrzwFLBqxm13h+57ad0EqKOOEN6T4reczCpkziNk3xME6p0e
-	+tsBpxFrr+9uZ1uhzSeLmUF8Gr77BSM63+tkvrBOATywqiHKXe8QanSiask0dABeUn0lQSVujyF7k
-	DRC+43CEoL6JoUEJsY+YMYaKipCpIRGKocSgm5zUczyLUM3GW8R9ps2yKd42VBVs3YFvFX8uu/Yoi
-	I4Cp+WOg==;
+	bh=r8xxhXLXwBvZGQ89s3NtLyGdJ91KtYqy6L+FbcUge9s=; b=ZhhMYjdtao9rcmLrgTr6U3/Ek9
+	IXPxbCq5Gj30/AFj7ECFAQcVWzJ9UzkEgRai5QKCwsWKe5RiJXwelgEFIOzccN/ZmILGVq+M8KpLg
+	Ne3CLKUNLFLKlpOByJ0H+UNXZMveGRPY/gJoXw1xDsDYgmellPM97Y8oy2pVFNZ0rH1AXXDSbV+wt
+	sqwqW1eklDp4Yl/egDL6BbGMgJ5HhaQ4sBkr+xSZEAK/dV6lK/1yoCM1pwBIhiqqWMtaWWCkEgSXd
+	uMVF2SfG+irQQQ8wPz3h+WBnKvArUgwifqmYaT4JRVAfP9JQo3GIGO5qfSAuQQiXB+6QQqfH2J++u
+	voGfvB2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz1zi-00000001jhm-16Y1;
-	Wed, 26 Aug 2026 00:59:58 +0000
-Received: from mail.cjdns.fr ([5.135.140.105])
+	id 1wz2TG-00000001l1X-10aQ;
+	Wed, 26 Aug 2026 01:30:30 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wz1zf-00000001jhD-49DK;
-	Wed, 26 Aug 2026 00:59:57 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 247351C6BA7;
-	Wed, 26 Aug 2026 02:59:47 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
-	t=1787705992; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=NYZTQkL5Jzv5jHcLk9d/FWbuGL1zpQHqOJLwaJI1Qdk=;
-	b=qgWkSdsNodFTmessuFQuNJNkTikXGeDFLJioSMdU5XVoHnZLlYBxtSWEfobf56AHPm6tbk
-	DUAjtqoxNxpejWOOsUFTtoFXv6fwmzGfOeXKC2FYBMKZhi4HAJqjtbCTKbjY7bjn6whkOA
-	zgUqOuqc2gCXUlrjVtDlTOSixrOnEI6NrXFbtiO5khf/GWEGH7uvHpqD3lgIEyYdIcuvJj
-	SATbSE+uD//L6aeHTQgUHhWg84x89vtWZukmQHkmDcva9hD8c5D6QaEZA7yC4IAO81AbJm
-	r2IVR7BQcBhfme4EDgSC3lYmNnPkr1Umvsayfm5C/GFeY2K94SnST489EBYCww==
-Message-ID: <a75b6b15-f86b-4cb2-934c-87583b5bb02c@cjdns.fr>
-Date: Wed, 26 Aug 2026 02:59:47 +0200
+	id 1wz2TD-00000001l0I-0i9u
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Aug 2026 01:30:28 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-93703cc9e2dso19236185a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Aug 2026 18:30:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787707826; x=1788312626; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=r8xxhXLXwBvZGQ89s3NtLyGdJ91KtYqy6L+FbcUge9s=;
+        b=FkSojW8QKVqZJOg/k14HeLJBWbddp6NvUg2DaQ0b0P8n4fHIqrV+/iRmLlOOaCV5XG
+         8AQZ6PPJ4PbO2xmEX6n98OW5F8yI0GQLYLuJiT6gKUhtap8824XLcYKHlNlYuFU/QeNQ
+         1kwqljfbNigpxJX4ET4ryp/YFnznFzX20NZmvtT9QowkFAe0fEKlEvCn+DMIxfH7E2C1
+         FdnzdQ3NkLVjhtyPa+4AYEvIs3Q5QIVlqTPvTzvLPiOODtCMuZRQoEKveypfd0JnV1B4
+         Y4MFbdG8Rf2+se8GS/TxPbdv/OVgR7qbsHtT1bwg7phulNEiN9MKUg1oMFzo8yvRBWe+
+         kf/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787707826; x=1788312626;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=r8xxhXLXwBvZGQ89s3NtLyGdJ91KtYqy6L+FbcUge9s=;
+        b=P9Bjku+p+2bkyf8L2zTfmiJ8N/G0b0GQ6FcE/Ldv/xzd2tBOA5dQdAGTX5FmIv+XF0
+         eopG6/Vd+uh0mKHuV/BjLPoMdfsx7zevNuF+5/QkKxB8geHgLoUHURAWDSJdoqjkRx7p
+         EospORtizjGO6oZYpXTpABMPYxTJYrfttnpR215sm4WNpsrdowklXTz6somtpsOrGR87
+         doP0BugVHOA4OeqK8kSIJS033WK8rZbUBGosbWVjrS6khobBC0oFM/sn3LUAu6r/1tDo
+         OMTWFupM0pTUPIMLkyaCawgyh5ZBEFVmeCUm8ySbDD8qH4d/Y/g/21QM1ACf8Nm6GkQc
+         nt/A==
+X-Forwarded-Encrypted: i=1; AHgh+Roe8g22RKGWr2DglhQPVMyz4ZreGYTS0N8SW0Ba3ZhSXp1K03BT2FvcPUp0m5JTkjINI9m4FPXsmsvFEsLeB9/x@lists.infradead.org
+X-Gm-Message-State: AFuF++lm19pggwos9brvleDYjmJ/PJUeSb15G9Nz0RCLJSDys3+t5agj
+	eDiH0EFduR2nh5BGGQn1a6nX7QG1BmaGo7GVb/vJmUuuFZjyffHogj16
+X-Gm-Gg: AR+sD11ZzQroDS8SSxi4Cy2jdthddXsS71ISV+AX2Xq/GGkbEnhsLAbuk5wgBboc+nX
+	u0cSXOfVk7Fkfzr0ba+zKiSZTHeSp/f29Kb7Hw4ycdBIFMNfGxT7GEXph376MnvA0LTcjChGph1
+	WnsPDTXD8TFP2jO/WDjpI+hJCQJ2lr8YgoIKle2keqDM/BLZmEm8XN0fhuivs9Jr5Yr4Wy42Ne2
+	xONmKsTalJEeSbvlY6WJlmLy3d6EAymqRPQhvsobV492+MjNkvGmtWXSM+bZo+KofB5MtfjMSz2
+	WG/D5aj0s5tasF5LswTMFW4zgEfVLr+JPKntd2JM95Lrjn/vdVjndqAQLIT2CjCMSUzbpWzoegI
+	xTI5bWwcBTPVoR9RQvuUdh+BpbTHWa4tNOMe0YqAowuOzYhePiaOyn/xPgxaYGFWKURyBFxddfr
+	6RxCpI3x0JGSeC89224HiBfhmlNMcZ+BVbX/U/IDTFs+iBzEHBdYwcXgO54jKt6g==
+X-Received: by 2002:a05:620a:72c1:10b0:936:e71a:db90 with SMTP id af79cd13be357-937803e0e3dmr234920985a.29.1787707825690;
+        Tue, 25 Aug 2026 18:30:25 -0700 (PDT)
+Received: from [172.17.0.2] ([138.28.231.64])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9377e67c52csm102398585a.38.2026.08.25.18.30.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Aug 2026 18:30:25 -0700 (PDT)
+From: Yuanshen Cao <alex.caoys@gmail.com>
+Date: Wed, 26 Aug 2026 01:30:04 +0000
+Subject: [PATCH v4 2/5] dmaengine: sun6i-dma: Support variable address
+ widths using masks
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net-next 3/3] net: phy: mediatek: support EcoNet EN751221
- gbit SoC PHY
-To: Andrew Lunn <andrew@lunn.ch>, ansuelsmth@gmail.com
-Cc: netdev@vger.kernel.org, hkallweit1@gmail.com, linux@armlinux.org.uk,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, daniel@makrotopia.org, dqfext@gmail.com,
- SkyLake.Huang@mediatek.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20260825193456.1823985-1-cjd@cjdns.fr>
- <20260825193456.1823985-4-cjd@cjdns.fr>
- <d7d86078-8a29-4e7f-a62e-91f6b266bea1@lunn.ch>
-Content-Language: en-US
-From: Caleb James DeLisle <cjd@cjdns.fr>
-In-Reply-To: <d7d86078-8a29-4e7f-a62e-91f6b266bea1@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Message-Id: <20260826-sun60i-a733-dma-v4-2-dc2f745f40dc@gmail.com>
+References: <20260826-sun60i-a733-dma-v4-0-dc2f745f40dc@gmail.com>
+In-Reply-To: <20260826-sun60i-a733-dma-v4-0-dc2f745f40dc@gmail.com>
+To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>
+Cc: Yuanshen Cao <alex.caoys@gmail.com>, dmaengine@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+X-Mailer: b4 0.16.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260825_175956_467056_EC6516FE 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20260825_183027_224721_551253F2 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,89 +106,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The Allwinner A733 DMA controller supports higher addresses (up to
+32G) compared to previous generations. The existing `sun6i_dma_set_addr`
+function uses hardcoded logic for setting the high-address bits in the
+LLI parameters.
 
-On 26/08/2026 02:00, Andrew Lunn wrote:
->> +static int en751221_tx_amp_compensation_tbl[2][TRANSFORMER_TYPE_MAX][MDI_TYPE_MAX][CALIB_CONST_TYPE_MAX][4] = {
-> const?
-Ahh yes, indeed all of them should be. Note to Ansuel: This is relevant 
-to your Airoha code as well.
->
->> +static u8 en751221_zcal_to_r50ohm[64] = {
-> const?
->
->> +	125, 125, 125, 125, 125, 125, 124, 121, 118, 115, 112, 110, 108, 105, 103, 101,
->> +	 99,  97,  95,  77,  75,  73,  72,  70,  68,  67,  65,  64,  63,  45,  44,  43,
->> +	 41,  40,  39,  38,  37,  36,  35,  34,  32,  32,  31,  30,  13,  12,  11,  10,
->> +	  9,   8,   8,   7,   6,   5,   5,   4,   3,   2,   2,   1,   0,   0,   0,   0
->> +};
->> +/* EN751221 also mirrors RG_BG_RASEL into CHIP SCU register 0x16c. */
->> +static void en751221_gphy_mirror_rext(struct phy_device *phydev, u8 zcal)
->> +{
->> +	struct regmap *chip_scu;
->> +
->> +	chip_scu = syscon_regmap_lookup_by_compatible("econet,en751221-chip-scu");
-> Does this need a change to the binding document?
+Add `src_high_addr_mask` and `dst_high_addr_mask` to `struct
+sun6i_dma_config` to handle different high-address bitfield mappings.
+Update `sun6i_dma_set_addr` to use these masks via `field_prep()`,
+allowing the driver to support variable address widths.
 
+Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
+---
+ drivers/dma/sun6i-dma.c | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
 
-Not as far as I know. econet,en751221-chip-scu is defined in 
-mfd/syscon.yaml because it's a catch-all for configuration that the 
-engineers didn't know what to do with.
+diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
+index f305fbfb3545..53c54161e32a 100644
+--- a/drivers/dma/sun6i-dma.c
++++ b/drivers/dma/sun6i-dma.c
+@@ -24,6 +24,10 @@
+ 
+ #include "virt-dma.h"
+ 
++/* Non-constant mask variant of FIELD_GET() and FIELD_PREP() */
++#define field_get(_mask, _reg)	(((_reg) & (_mask)) >> (ffs(_mask) - 1))
++#define field_prep(_mask, _val)	(((_val) << (ffs(_mask) - 1)) & (_mask))
++
+ /*
+  * Common registers
+  */
+@@ -103,8 +107,8 @@
+  * The LLI link physical address is also mangled, but we avoid dealing
+  * with that by allocating LLIs from the DMA32 zone.
+  */
+-#define SRC_HIGH_ADDR(x)		(((x) & 0x3U) << 16)
+-#define DST_HIGH_ADDR(x)		(((x) & 0x3U) << 18)
++#define SRC_HIGH_ADDR_MASK	GENMASK(17, 16)
++#define DST_HIGH_ADDR_MASK	GENMASK(19, 18)
+ 
+ /*
+  * Various hardware related defines
+@@ -147,7 +151,8 @@ struct sun6i_dma_config {
+ 	u32 dst_burst_lengths;
+ 	u32 src_addr_widths;
+ 	u32 dst_addr_widths;
+-	bool has_high_addr;
++	u32 src_high_addr_mask;
++	u32 dst_high_addr_mask;
+ 	bool has_mbus_clk;
+ 	u32 irq_stride;
+ 	u32 irq_en_offset;
+@@ -687,9 +692,10 @@ static inline void sun6i_dma_set_addr(struct sun6i_dma_dev *sdev,
+ 	v_lli->src = lower_32_bits(src);
+ 	v_lli->dst = lower_32_bits(dst);
+ 
+-	if (sdev->cfg->has_high_addr)
+-		v_lli->para |= SRC_HIGH_ADDR(upper_32_bits(src)) |
+-			       DST_HIGH_ADDR(upper_32_bits(dst));
++	if (sdev->cfg->src_high_addr_mask)
++		v_lli->para |=
++			field_prep(sdev->cfg->src_high_addr_mask, upper_32_bits(src)) |
++			field_prep(sdev->cfg->dst_high_addr_mask, upper_32_bits(dst));
+ }
+ 
+ static struct dma_async_tx_descriptor *sun6i_dma_prep_dma_memcpy(
+@@ -1283,7 +1289,8 @@ static struct sun6i_dma_config sun50i_a100_dma_cfg = {
+ 			     BIT(DMA_SLAVE_BUSWIDTH_2_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_4_BYTES) |
+ 			     BIT(DMA_SLAVE_BUSWIDTH_8_BYTES),
+-	.has_high_addr = true,
++	.src_high_addr_mask = SRC_HIGH_ADDR_MASK,
++	.dst_high_addr_mask = DST_HIGH_ADDR_MASK,
+ 	.has_mbus_clk = true,
+ 	SUN6I_DMA_IRQ_A31_COMMON_CFG
+ };
 
+-- 
+2.55.0
 
->
->> +static int en751221_gphy_config_init(struct phy_device *phydev)
->> +{
->> +	phy_write_mmd(phydev, MDIO_MMD_AN, MDIO_AN_EEE_ADV, 0);
-> Why is the EEE register being cleared?
-
-
- From reading the reference implementation, I get the impression that 
-this hardware is something of a basket case. There was a certain amount 
-of "write three times and then read back" type magic that I just omitted 
-because it really looks like they were actively debugging and as soon as 
-it started working they shipped the code exactly as it was.
-
-
-In the case of disabling EEE, I thought it more prudent to follow them 
-because I don't have every SoC that this PHY ever appeared on and I 
-would rather not diverge too greatly and risk it being unreliable on 
-some devices.
-
-
->
->> +
->> +	phy_select_page(phydev, MTK_PHY_PAGE_EXTENDED_52B5);
->> +	__mtk_tr_write(phydev, 0x1, 0xf, 0x00, 0x00002b);
->> +	__mtk_tr_write(phydev, 0x1, 0xf, 0x03, 0x082422);
->> +	phy_restore_page(phydev, MTK_PHY_PAGE_STANDARD, 0);
->> +
->> +	ret = phy_write(phydev, MII_CTRL1000,
->> +			ADVERTISE_1000FULL | CTL1000_PREFER_MASTER |
->> +			CTL1000_AS_MASTER | CTL1000_ENABLE_MASTER);
-> What does this default to?
-It starts with only ADVERTISE_1000FULL. I don't know why the engineers 
-wanted to set it to master, but its definitely intentional.
->
->> +
->> +	phy_set_bits(phydev, MII_BMCR, BMCR_ANRESTART | BMCR_ANENABLE);
-> Why? config_aneg() will do this, if needed.
-
-
-Okay this is probably just because the code I was working from is very 
-old. I will review this and see if it's truly needed.
-
-
-Also you're certainly more knowledgeable than me about what to expect 
-from PHY hardware, so if it is your opinion that setting master and 
-disabling EEE are probably not a real workaround for stability problems, 
-then I'll be happy to give it a try with these omitted.
-
-
-Thanks,
-
-Caleb
-
-
->
->       Andrew
 
