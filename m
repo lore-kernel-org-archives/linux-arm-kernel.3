@@ -4,146 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6A9C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 13:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E33C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 13:09:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Drh7nr47RmktzpGSg9HIsYIvZ9oCqisJanN48gX/rgw=; b=pDSfbJLZ5dlPI3RcLLeW3UceH2
-	PdOB2JUYdLPMEXqkpEFPWefORaJH+mqA9y9ZH3ylWhIJqxOl7tyC9NIpghe5FrRw7bvqcFtQPEXQL
-	wmNcr/BEGFSCf0qEWfwtv9XVnL3B84cH7I7trJpC3FOxtWuUXwpxdFpTFwSoA+WOOq6yTtIJlP3Ne
-	Ey0elyYOoVHeL5/7+PMlaqassSRBJIA3ZQlbq2PsPS+cATJq8zNNOFWBDf99bCo71J6jH5jiDdfBa
-	TbMt5LWNzz4LHEwRVVMdxigcZIkXVGKws0SKDJcmcYsom8kai3ZaG2QkbOCRTZU7mfSTiSXaxdrWF
-	aDsSkQjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IJqvpu1y+4E5NtNYaZ47CWI+OeRMPdsjPIXhqDX1g4c=; b=aeZwCXSCzpc8H+oemsiPOEEyOX
+	9lnEkmAiRVYFSWVxYYaexgcgrVVE9xxFiNpQ2C3GFv9iBJYAEsHsfDPH37YDITvmUseghCQt4vW8g
+	ZCJ3DHTwqVQvtGAV/L1rMTQFe1nj0Re6AcY1IacHZQGNyapvmnlEraMmuCVv0ZzvjcqJc8YgPp7rk
+	vT5PgiIncKPxYhDlsZzXLsQdDFlqeAO6sNqDXB5ztMGbhgrJRSVz5xgSdyOa+E9CQLnrYDfS6ha3P
+	IxLmcgUcqXlLMsGikr8rcUPyklNS3ZkTNAzC677+C1uowDVowga5LjWUMWV4iKHjVeHVxzcTX+umo
+	LG4FUCZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzDIT-00000002Taf-17y8;
-	Wed, 26 Aug 2026 13:04:05 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wzDNd-00000002UAd-3IjS;
+	Wed, 26 Aug 2026 13:09:25 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzDIO-00000002TaJ-1EEw
+	id 1wzDNb-00000002U9z-0c8I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 13:04:03 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67QCBlLd3983273
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 13:03:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=Drh7nr47RmktzpGSg9HIsY
-	IvZ9oCqisJanN48gX/rgw=; b=eAV1yzk/KY5o5a8IFVz0qzgCHS/F/g7vZchrT/
-	Iqix0XOyGTI79TN7XZQ0VbMfzmBuJBMkyRDPBiwebaf59WLjO/WGRIk+M5AqH0/f
-	/JHrhvxTqplpdr2rTJjCxvFFcFl8boRZoKXQ4rQSWbkHYHj/pZINL7r/3UVwNlqv
-	t5P6ajrosXgz9WZOYS9H5Q7p4AMqUMv8OFYZ4/+LB1cg/H578OjZdQOac1UJsRNC
-	1YstFrJFEIyUwDs0dk6bv/ayioiFiANI4FRTTJx9MKlciioKKIQ5UQLIKAjS8Zf8
-	blHN4uhHJ7jObDpCfK79rzxHhX27zMa/0B98CZoDjmFQ7IjA==
-Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com [209.85.222.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g9wmqrsqt-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 13:03:59 +0000 (GMT)
-Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-97ca6578487so718095241.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 06:03:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787749438; x=1788354238; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Drh7nr47RmktzpGSg9HIsYIvZ9oCqisJanN48gX/rgw=;
-        b=VMYCuP49ld5HJmiGW7DQa3JjvuMbd0nrBcZwXsL2fseG/EI4McLfpiQe17FzyG5SBS
-         q+OVIQk36RW6ikcjmoq5UswXMvvMpVzURA1nEPNRfN1FODENM9CgpdR+BitM+6q8PJXR
-         a5ERVe7QmzTxUUIVxYI3j3oslLi4la4twvXfeaP6l/foD3YIrCjfK+QHn8Y84C0QATjc
-         GEWJnkvgooOjSfqEKE8cIAhx7cKXrJNE1/47zCECU08QWzy0UQwzamcVkYZdPL7+E+iw
-         KYB/qkqmczWwUauy8dP2hFE+AURxDuT238/D/PscFUhq2OA/fwEU3p424xJ9qnvswQe7
-         3fww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787749438; x=1788354238;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=Drh7nr47RmktzpGSg9HIsYIvZ9oCqisJanN48gX/rgw=;
-        b=TkfeSC1WxnldiLBqCohiOm5RFqRbIVz/LXQ++vxRn+8mlrk5qLA+0wzhwfRvCGghD+
-         S2flnm+jyjPq1o13BdzMT9AV0x429F1n+Gz4jbuuwkGTZuM1mTLnR2naq2j05xcbY3I6
-         yrAc+ek//h4JTd+EtJZujo38YgtNjwVQQymhFojj0C4stsIf7eJNiSi4FIsIWDMLkkRZ
-         4XVEhmakSywtwVoKXtpyHWATNPZ45H+9YfosxR4WGV8Aq2UOOH01ymCUIihFbCzAbl2X
-         FKmAd5/z2EWSepmpp77Z7x3oq2NIMTCCpmiGLHH7kuQyTCAZqq8bnPDE+aaGb8pAp49b
-         nIVA==
-X-Forwarded-Encrypted: i=1; AHgh+RrkYjki2NA1YbcAAmjq0Qfdps6QsSNF+KSsO6IbDbNsq+S7fHYV59vj8ZBDZmUb65mY7nnXVdpf9R07qaRH0mXO@lists.infradead.org
-X-Gm-Message-State: AFuF++lHCD2z2r3JhXZjbuzV34UFg9wk4xEKRjk5k8yBo4nEoMc4il1K
-	0Kfj8cf7kssjppD0uWdMxfV5oDpxw9oPE9AKLCi8dBMnWAqNoiH076P835Uj1S+uT+pQnKXcEIZ
-	wBXtt8v8VfW/RPaTh7p91ZSbS2rqowShcQzEES7vcaFc9TbSJCsjlXwWvyk33WOlyYrmsOZ9jiw
-	+oAY/N9Hy8Pg==
-X-Gm-Gg: AR+sD12qlh//eOXVDizDGtNaoMKkdrWpm4+/wasxc/VBpo35810JAJYDPvc33p5Go1k
-	yI/wGDgJKBLA4w2E2RbhMMkEnAwbaSDcbZfXgpsJeBXasyQ9n2O5VObZTVwYMfyuKZx5q+FHBAv
-	V1yNluROFdauWCIXVbXyzc09WhNObzptC8Y27lgGs03JcVgu5yzQCXxu/YXtd+tRh1YEvT7q1hs
-	xy0PCu9em/+m+61jAw/tzXVzFPs9qCxKaCPrEtb8tNRJHstWkpE15O2f3xBLnVZ3gB91LSfjNTj
-	LzepIZtOcv/yCa0F/GAyp3TrqdjxSx6uiiVcCc76adLOwNewio8KIoFBL4xfRzrumrzKvQ4F+az
-	DJolJiqrYe5EQDw==
-X-Received: by 2002:a05:6102:549e:b0:77d:9fe9:1716 with SMTP id ada2fe7eead31-782bf9bed0dmr2002243137.2.1787749438303;
-        Wed, 26 Aug 2026 06:03:58 -0700 (PDT)
-X-Received: by 2002:a05:6102:549e:b0:77d:9fe9:1716 with SMTP id ada2fe7eead31-782bf9bed0dmr2002205137.2.1787749437769;
-        Wed, 26 Aug 2026 06:03:57 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c250bbc5c02sm381231366b.61.2026.08.26.06.03.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Aug 2026 06:03:56 -0700 (PDT)
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Date: Wed, 26 Aug 2026 15:03:15 +0200
-Subject: [PATCH net] net: stmmac: fix dma mapping leak in stmmac_tso_xmit()
+	Wed, 26 Aug 2026 13:09:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VB30sGlxWnzCTtUgQxQXf5gMaiGUkS5GDtdrXKwqAx1+lVLixn+pTXXVlY0nMN5kvR9611VPUhF9Te4Oe7Xdn+YkZ2f8G5JbqMkLjG9A2vjnzsCiS5o09c2H4IZjzyoweEfS6xKSekMZyhLdUXO+h86w19wwA92h9xS8ySWxJ7b0flXWpAGgdjQCS/kLIpg7/wrMtwNl9qZrxE6BD9ZAMvUYwOzPf9uyK4YAqMbV5uZQIxgmnEtHJwGuE9IyQJbINfZg25cEbWRFozMNXlg74x3YSHbpGkRIxRKqTOQanoCbo0mQAjHCzgTDP4kro6tAbxm24ZwYseHLptTiHEfz4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IJqvpu1y+4E5NtNYaZ47CWI+OeRMPdsjPIXhqDX1g4c=;
+ b=T4Hpj9J5uFUTaCjd+2YUvNNEkteOCsnbUyyCxzs9RBHktxdmGEnrQIpIIY01YxAH5mdmr1z+wRf+a0/POABG9CYN5Z4RNPPSjM9JucUwWcNJzCgPjrp/rRePPLIg6c4SXV0NaYyM9suTB85Uu2hY2XcbH3OYuPisb3qdcHZdcIOzfGhWkOgr/8myw2oDgrvQvpmG0viLJch9T0YpvjOmCeg+aR1Eg0Tq4orUBwLczHng7RvjT/FotTBJmaDvspsroqGg67e/1xhvPbfvk4zRN5WBxa2R2edi2AHC2mJWCQbabCKgDoZeviO4RDZbOMK1gnIK91+hc6qk7qHsz7pLmg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IJqvpu1y+4E5NtNYaZ47CWI+OeRMPdsjPIXhqDX1g4c=;
+ b=MU0bqZzjqr0hE3ZK8dlKFje+15ybxqRaIwYFbxEeLxyDfT0se7H+TVNVXrVaLZRuaSYJ8fdVN0MLf6wixhpUnuMVGJON7A7UWcGU+94oGg2MZKX2OQMCmxSUPS/+kvG7xnjCRTdUNz1cVKQjr5QnrPeQD+hFZ/dmvtMol4irBbmVe3NtJcDFmQ+w356+HsTpy/vH9mQ4s1j3REplJuj0F7tqPEsGmKF+XULqT1zTdBDAMuEQgTPHMtgEyFOifwxYbX+g6G/A3+w/6P0SzwxKowca4HcT+l9hDvmUHkiAN1gQQtY9qEotUePYnDmVn/Rr5JmUkkCZgR7iPEGXh7hr3g==
+Received: from AS4P251CA0005.EURP251.PROD.OUTLOOK.COM (2603:10a6:20b:5d2::10)
+ by AS2PR10MB7852.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:642::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.6; Wed, 26 Aug
+ 2026 13:09:13 +0000
+Received: from DU6PEPF00009525.eurprd02.prod.outlook.com
+ (2603:10a6:20b:5d2:cafe::a5) by AS4P251CA0005.outlook.office365.com
+ (2603:10a6:20b:5d2::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.8 via Frontend Transport; Wed, 26
+ Aug 2026 13:09:13 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DU6PEPF00009525.mail.protection.outlook.com (10.167.8.6) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.360.3 via Frontend Transport; Wed, 26 Aug 2026 13:09:13 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 26 Aug
+ 2026 15:15:07 +0200
+Received: from [10.252.7.70] (10.252.7.70) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 26 Aug
+ 2026 15:09:11 +0200
+Message-ID: <fe85bcab-0467-4cab-97e0-8427387358cc@foss.st.com>
+Date: Wed, 26 Aug 2026 15:09:10 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Linux-stm32] [PATCH] remoteproc: stm32_rproc: Propagate errors
+ from optional IRQ lookup
+To: <phucduc.bui@gmail.com>, Bjorn Andersson <andersson@kernel.org>, "Mathieu
+ Poirier" <mathieu.poirier@linaro.org>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <linux-remoteproc@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20260810051907.27136-1-phucduc.bui@gmail.com>
+Content-Language: en-US
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+In-Reply-To: <20260810051907.27136-1-phucduc.bui@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260826-stmmac_dma_unmap_tso-v1-1-a2753d1576ba@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQrDIBBA0auEWVcwBqz0KqXIVCfJLDTBMaEgu
- Xuky7f4v4FQYRJ4DQ0KnSy85Y7xMUBYMS+kOHaD0cZqZ6ySmhIGHxP6IyfcfZVNTdGFGZ9jsF8
- LPd0Lzfz7b9+QqcLnum5HTg4TawAAAA==
-X-Change-ID: 20260826-stmmac_dma_unmap_tso-3d8cfa71c6b6
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Hariprasad Kelam <hkelam@marvell.com>, Furong Xu <0x1207@gmail.com>,
-        Simon Horman <horms@kernel.org>,
-        Giuseppe Cavallaro <peppe.cavallaro@st.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Alexandre TORGUE <alexandre.torgue@st.com>,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI2MDEwOCBTYWx0ZWRfX+yeVAXWwNqDU
- ml1x9u5kL3KGrnkGL+k8Eayb1m409nkjrhVde4aL0+33Pb2GJVrQs41nmBOBK7IRVZhshkWRGha
- DhUzKn3G2jOcWJbmdpPSlSxYYUVvTaM=
-X-Proofpoint-ORIG-GUID: i1fLjfhRxpYSQSfOX74rw5HMYwwu1yXM
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI2MDEwOCBTYWx0ZWRfX6pr/DBjxxABw
- FXHWZUPtett5JKsyApEWMk9KYf3/ot9w6bdShDJPCfu70NM7HjWJQhEE0zGCqUqDi+CeYCsbh7q
- +wEj6YatA8RlGHujuqXhYziu3yMFucmTcOhS5wdqdNvieE+j8pz0Osok2Yvwz71w09tQggEx8aT
- 9EdYXg4X2hjS9a/Lm3JFBlyDVclcfn7iGqd63G5vmlqnhSRzMsQnxsTRTt0CwTuBqnjPT0tE/2N
- VZjqJPTeDMoLitX8XMzes79Bm+NJql64xFUJsHPL5iC1QR+t/TINTgTlvXCr64SoCsgYV3Cu+kI
- Ft/BUDNXBR3i88rg79aM4ditdbUSnYGrFOq0qAxpCHqMJispEOnTUAmDYl/Fm4wA8dMzk1PwExu
- mKfBGDr4QpjNAoroj6SuCfsxSkgQwr24koovSryPueAE6JeR/G1Ptb2H9DZIdilRgoEF6iAH0Yl
- +jA6nC736Asa5Yi13uw==
-X-Authority-Analysis: v=2.4 cv=T9S8ifKQ c=1 sm=1 tr=0 ts=6a8ee43f cx=c_pps
- a=KB4UBwrhAZV1kjiGHFQexw==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=gCaaR3UEgWr7BH7gueUA:9 a=QEXdDO2ut3YA:10
- a=o1xkdb1NAhiiM49bd1HK:22
-X-Proofpoint-GUID: i1fLjfhRxpYSQSfOX74rw5HMYwwu1yXM
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-26_03,2026-08-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 suspectscore=0 priorityscore=1501 malwarescore=0 phishscore=0
- lowpriorityscore=0 clxscore=1015 spamscore=0 impostorscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608260108
+X-Originating-IP: [10.252.7.70]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU6PEPF00009525:EE_|AS2PR10MB7852:EE_
+X-MS-Office365-Filtering-Correlation-Id: c50034bb-bd25-4cc8-c05d-08df03733996
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|82310400026|36860700016|18002099003|22082099003|11063799006|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: OhnVTN/BJZPJKGAhvywMJDH4tFqGsG097UL/roo6q1ufztHo6pPE95U7Hq/bwtZQwuYiD1sT/azhDUebx5GslPqMwe4xm9AnLxaD4VT6xVGAgSlZIasHuo0Lflas/JLr9KMRCh/GTjOAn0nIQM1khZwmhYavi5SJ/31DuMyIJVCTmiXWY/TCBghwdn/BfVUh+kuieaNR7PC/+qyE7eusBqZ2rAOj6d+Mzzi33KqYE4Z7IvMlSSY9eEyOY0XAzfMz6Zn7KVHCXtH8yLvf+hDZwq0CydB6TH9oU8Yxh5lu0jI5uIZ53kqgzn80e57NQLzppWUEPcPjsT+RJrQFRlo5lG6Vi8CGNjjFD5cQ4aofOUqqw/7DwO86p1WYeMnrfRVzLUvgFugvbofuLXOr8r10mSO5qZIBVrAwVQGm9WespZq1Rl5uHwhN1RDyL/bam6IE9PL0+pSddxZuJCZmcIuC6cLnnCyboYMHqP58+K12VxoUvBYdT9Teff0k203gAXvn5weKqI376XBo74f1nHi+K+JyS8aVjQ16XWol3zco4SUDuGzrC8Nro6TWuQxboFIH+AG5SCraRLN3lNqpqJQoHBC0W7FWdgUeDa7hBn7Xw//eFQ0NaC7UrXl+kXzlo8zRZNzFyzToleRrbBul8DhWy9aTviMYLot3wu8ZTnxELPmfUQugxndYzsBdT1GNXU4wd7k7zyEm+gnq1lMfxGUywQ==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(82310400026)(36860700016)(18002099003)(22082099003)(11063799006)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: PwSrnEtuqxAxUlDgsa/Gjr+71ep7U6MUAsE8kNWf+/EHkMC57bKaSbL8emqjJU6dvoCnmGu9D0s3F0d7iIQYWJJZi8fw/PK7y9eNK2pqaNnceGcdnjFn/bwMaUuxYJMpOklJ25nvxFy8kGs6MXLrzjLqf+HXYjQdn/OH5+xGMldXqmzp7EdCC9PrQazVwLteZKjvZnmBz7W9jZb9MI8Id2EvxBqUCKTPMvef6OFhK/LJ9ZRbc+wXHkXa7aUgwBYJs/AC66949jrsoUn9KC4FFq1CYG9BQfNnnRUE3hVhvcvqnUwPFCO5Mcuwbo6eTihMacoNO8HvUFuZpMM6x8avJcgyYdrYTsIgeJknM6aJkX8Px9GluuY/W+uoUm1SjdWc0RX5MgNiJsFtsRgwT/NChXdont3RHxhqu7A4vCubwlm4S+1dBWTlQbqyIpEIks/V
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Aug 2026 13:09:13.1087
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c50034bb-bd25-4cc8-c05d-08df03733996
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF00009525.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB7852
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_060401_253117_6468CBD4 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20260826_060923_292841_A64E9FDF 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,160 +130,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In stmmac_tso_xmit(), if the DMA mapping of an skb fragment fails, the
-frame is dropped but the DMA mappings already created for the linear
-part and for the fragments mapped before the failure are never
-unmapped, leaking DMA mappings.
 
-Fix the leak by walking back over the descriptors used by the frame and
-releasing each of them with stmmac_free_tx_buffer(). Moreover, release
-the descriptors with stmmac_release_tx_desc() unmapping the DMA buffers.
 
-Fixes: f748be531d70 ("stmmac: support new GMAC4")
-Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 53 +++++++++++++++--------
- 1 file changed, 34 insertions(+), 19 deletions(-)
+On 8/10/26 07:19, phucduc.bui@gmail.com wrote:
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> platform_get_irq_optional() returns a positive IRQ number on success or
+> a negative error code on failure. For an optional IRQ, -ENXIO indicates
+> that no IRQ is available, while other errors should be propagated.
+> 
+> Instead of only checking for -EPROBE_DEFER, propagate all error codes
+> returned by platform_get_irq_optional() other than -ENXIO, so that
+> failures are properly reported to the caller.
+> 
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index efa35cfecc4f..64d9356b6226 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4319,6 +4319,7 @@ static bool stmmac_vlan_insert(struct stmmac_priv *priv, struct sk_buff *skb,
- /**
-  *  stmmac_tso_allocator - close entry point of the driver
-  *  @priv: driver private structure
-+ *  @entry: TX queue buffer index
-  *  @des: buffer start address
-  *  @total_len: total length to fill in descriptors
-  *  @last_segment: condition for the last descriptor
-@@ -4327,8 +4328,9 @@ static bool stmmac_vlan_insert(struct stmmac_priv *priv, struct sk_buff *skb,
-  *  This function fills descriptor and request new descriptors according to
-  *  buffer length to fill
-  */
--static void stmmac_tso_allocator(struct stmmac_priv *priv, dma_addr_t des,
--				 int total_len, bool last_segment, u32 queue)
-+static void stmmac_tso_allocator(struct stmmac_priv *priv, u32 *entry,
-+				 dma_addr_t des, int total_len,
-+				 bool last_segment, u32 queue)
- {
- 	struct stmmac_tx_queue *tx_q = &priv->dma_conf.tx_queue[queue];
- 	struct dma_desc *desc;
-@@ -4340,14 +4342,13 @@ static void stmmac_tso_allocator(struct stmmac_priv *priv, dma_addr_t des,
- 	while (tmp_len > 0) {
- 		dma_addr_t curr_addr;
- 
--		tx_q->cur_tx = STMMAC_NEXT_ENTRY(tx_q->cur_tx,
--						priv->dma_conf.dma_tx_size);
--		WARN_ON(tx_q->tx_skbuff[tx_q->cur_tx]);
-+		*entry = STMMAC_NEXT_ENTRY(*entry, priv->dma_conf.dma_tx_size);
-+		WARN_ON(tx_q->tx_skbuff[*entry]);
- 
- 		if (tx_q->tbs & STMMAC_TBS_AVAIL)
--			desc = &tx_q->dma_entx[tx_q->cur_tx].basic;
-+			desc = &tx_q->dma_entx[*entry].basic;
- 		else
--			desc = &tx_q->dma_tx[tx_q->cur_tx];
-+			desc = &tx_q->dma_tx[*entry];
- 
- 		curr_addr = des + (total_len - tmp_len);
- 		stmmac_set_desc_addr(priv, desc, curr_addr);
-@@ -4500,7 +4501,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- {
- 	struct dma_desc *desc, *first, *mss_desc = NULL;
- 	struct stmmac_priv *priv = netdev_priv(dev);
--	unsigned int first_entry, tx_packets;
-+	unsigned int first_entry, entry, tx_packets;
- 	struct stmmac_txq_stats *txq_stats;
- 	struct stmmac_tx_queue *tx_q;
- 	bool set_ic, is_last_segment;
-@@ -4563,22 +4564,24 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 	}
- 
- 	first_entry = tx_q->cur_tx;
--	WARN_ON(tx_q->tx_skbuff[first_entry]);
-+	entry = first_entry;
-+
-+	WARN_ON(tx_q->tx_skbuff[entry]);
- 
- 	if (tx_q->tbs & STMMAC_TBS_AVAIL)
--		desc = &tx_q->dma_entx[first_entry].basic;
-+		desc = &tx_q->dma_entx[entry].basic;
- 	else
--		desc = &tx_q->dma_tx[first_entry];
-+		desc = &tx_q->dma_tx[entry];
- 	first = desc;
- 
- 	/* first descriptor: fill Headers on Buf1 */
- 	des = dma_map_single(priv->device, skb->data, skb_headlen(skb),
- 			     DMA_TO_DEVICE);
- 	if (dma_mapping_error(priv->device, des))
--		goto dma_map_err;
-+		goto error;
- 
- 	stmmac_set_desc_addr(priv, first, des);
--	stmmac_tso_allocator(priv, des + proto_hdr_len, pay_len,
-+	stmmac_tso_allocator(priv, &entry, des + proto_hdr_len, pay_len,
- 			     (nfrags == 0), queue);
- 
- 	/* In case two or more DMA transmit descriptors are allocated for this
-@@ -4593,8 +4596,7 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 	 * this DMA buffer right after the DMA engine completely finishes the
- 	 * full buffer transmission.
- 	 */
--	stmmac_set_tx_skb_dma_entry(tx_q, tx_q->cur_tx, des, skb_headlen(skb),
--				    false);
-+	stmmac_set_tx_skb_dma_entry(tx_q, entry, des, skb_headlen(skb), false);
- 
- 	/* Prepare fragments */
- 	for (i = 0; i < nfrags; i++) {
-@@ -4604,14 +4606,15 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 				       skb_frag_size(frag),
- 				       DMA_TO_DEVICE);
- 		if (dma_mapping_error(priv->device, des))
--			goto dma_map_err;
-+			goto error_dma_unmap;
- 
--		stmmac_tso_allocator(priv, des, skb_frag_size(frag),
-+		stmmac_tso_allocator(priv, &entry, des, skb_frag_size(frag),
- 				     (i == nfrags - 1), queue);
- 
--		stmmac_set_tx_skb_dma_entry(tx_q, tx_q->cur_tx, des,
-+		stmmac_set_tx_skb_dma_entry(tx_q, entry, des,
- 					    skb_frag_size(frag), true);
- 	}
-+	tx_q->cur_tx = entry;
- 
- 	stmmac_set_tx_dma_last_segment(tx_q, tx_q->cur_tx);
- 
-@@ -4716,7 +4719,19 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff *skb, struct net_device *dev)
- 
- 	return NETDEV_TX_OK;
- 
--dma_map_err:
-+error_dma_unmap:
-+	for (;;) {
-+		desc = stmmac_get_tx_desc(priv, tx_q, first_entry);
-+		stmmac_release_tx_desc(priv, desc, priv->descriptor_mode);
-+		stmmac_free_tx_buffer(priv, &priv->dma_conf, queue,
-+				      first_entry);
-+		if (first_entry == entry)
-+			break;
-+
-+		first_entry = STMMAC_NEXT_ENTRY(first_entry,
-+						priv->dma_conf.dma_tx_size);
-+	}
-+error:
- 	dev_err(priv->device, "Tx dma map failed\n");
- 	dev_kfree_skb(skb);
- 	priv->xstats.tx_dropped++;
+Acked-by: Arnaud Pouliquen arnaud.pouliquen@foss.st.com
 
----
-base-commit: f967455fb2a5a2079b9eb5823e9ccf359174bf9f
-change-id: 20260826-stmmac_dma_unmap_tso-3d8cfa71c6b6
+Thanks!
+Arnaud
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+> ---
+>   drivers/remoteproc/stm32_rproc.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
+> index 632614013dc6..9301e1dab830 100644
+> --- a/drivers/remoteproc/stm32_rproc.c
+> +++ b/drivers/remoteproc/stm32_rproc.c
+> @@ -705,7 +705,7 @@ static int stm32_rproc_parse_dt(struct platform_device *pdev,
+>   	int err, irq;
+>   
+>   	irq = platform_get_irq_optional(pdev, 0);
+> -	if (irq == -EPROBE_DEFER)
+> +	if (irq < 0 && irq != -ENXIO)
+>   		return irq;
+>   
+>   	if (irq > 0) {
 
 
