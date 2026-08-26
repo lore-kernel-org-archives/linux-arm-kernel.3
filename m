@@ -4,65 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9556C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 13:36:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF93C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 13:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5i5vI6tnXF7tzWUylgjE2oxSiQIPXybHe+y/l7IIT6E=; b=Uheh6Ie8vNgZwV+79j+tKTFcYK
-	ZAPPjqQ/UBOaEKpz6qJlTghX9ZzrjmKw58HfzZouM4URumEgHJyn0uey/TzXPjQCD3Ekd7bsxtZwI
-	RdK8g6n8acdlyYBhouE3vgqRGFkqVaTgrsPqaiEAMOClrhHcawsxuxeF3ZuO6SfG9WcB4kDMfn/No
-	FGihRps6gb6tmbXkgFxBY3VfpXgqiZaJHlhYRD/4WWjc99jyGgb5x1OSIklaa4CTkNoCRvl0LdWIW
-	uh6C7IVD6V9ykwmWc9R2nhyElmTzP5DFH+dittoJwTVdtJQ48CGnT6Zd1bzviGS4EOfYg4xxEi0Rr
-	gz7kG3FQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9ywCoDt9cqmRYW5WL0Dg7QSA38nDf35nakgbp+fj5I8=; b=39K5ZG6bRre0j5y+Z4H4pRL/0Q
+	v0U95SODZXv6mZhLf3lsU44SG3zotw7TigeDpJb36oPpyiL122E1p1TCPDIaCeIAZNgoh3gVWYaPj
+	2LC1Lc56wB97fjrvaDStYxSaS3BDdrcG4I1FVDrEcZ8ppZlOJI3p2NvrLGhgPHreQ7FEFI3se33dx
+	wbMcIzNXMjCU5js6wc2OYfBq4liEouIKScON5jTssSOBdHuOsKnTV1M/BbQs6TcZdoxy2su5smDqh
+	S4/eRyQHWaJP11xTlPkVLAS1Z6EfrFn2GaM+UV+1aExPlSiL0819AlGqNkl59t8O8g+aHA8Jqddga
+	Gql2017Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzDnj-00000002WKG-2tp8;
-	Wed, 26 Aug 2026 13:36:23 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wzDsH-00000002WgR-0nQq;
+	Wed, 26 Aug 2026 13:41:05 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzDne-00000002WJD-2gaF
+	id 1wzDsF-00000002Wfd-2kvy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 13:36:21 +0000
-X-UUID: 15ff82d0a15311f19a56ed5b684f684d-20260826
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:6d20cedd-ab11-4185-9dc4-88b344281a05,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:f233b56e8abefb0aacba6566bbd6482e,BulkI
-	D:nil,BulkQuantity:0,SF:102|136|850|865|898,TC:nil,Content:0|15|50,EDM:5|-
-	100,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
-	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 15ff82d0a15311f19a56ed5b684f684d-20260826
-X-User: lihaofeng@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <lihaofeng@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 222379006; Wed, 26 Aug 2026 21:36:04 +0800
-From: Haofeng Li <lihaofeng@kylinos.cn>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Michal Simek <michal.simek@amd.com>,
-	linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	Wed, 26 Aug 2026 13:41:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IZ7Mt/i/wLx0Qh2Bha1hxfd1fyltlaXYSS/6nUWHHdryLWfV9z/AmbHgmkEY5sl8TqIgcfpDUOKBysPai4PRCtHWOd0W/lQT3uNWiL/85phQdER1b3EDw9jxn5fAY3QRhzL8inh70ZO1M6PvlI9jVcpt0464fZ+qFhW+qdIKDhdrnNIH5UbzV9lhsVT86HmSmu4njvr86kOcbLR6yKLkLIeONVWNRkk9dh2yVleubF1RalxFi7vL7+QTvyNxZZRffa2A1qmg7/To2nwuuuSS7KamULKOXXJVQcDL/HvvlzGlgwk6gL0ili2nD8BSUQuR/elnk/L/jH+7mHzgf+KYXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9ywCoDt9cqmRYW5WL0Dg7QSA38nDf35nakgbp+fj5I8=;
+ b=H4QEw6rLhSp24usHMD+bF/XuKNG3ONF9liqdoC21hgVl+oiy4m0v7l1pzTVZps2eIIvKLhIr54noE/LwM5lfFTA9Xxn6dhmVcNRgwkh4ikM37UFqdvx5wzsx7lNhdtBwOE9iXXfRPNTu8BbjLu/OwU3eM0Vk9kMINEpWsFnFYRSlx+91AY9bgMs36WnsunyHBas2R2kTazlS930lvCGRWdwjhgwNgH4zWw0yl477JcZQtLPYQQ3jBzcOUZdCYyCdZd2WxLXFLnYYer6M03Gzp1hRsw9tY07EP11Srjd3tcCGgRVgoT1A8RYWd5xasDrc1aSZFaHQqEu6fivAkX/giw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9ywCoDt9cqmRYW5WL0Dg7QSA38nDf35nakgbp+fj5I8=;
+ b=mMAWkn0RJEnm54fLtCKeHt9r36d5eaZ3HXLv3QfXJLMuwue6bulY4/U6GtuGWUAK5nWybwpyGL1+/0BX0EyyfyrGmqC0l1Z84bRzDnZ1rwv12G5KmgbBMzEsrXAeuI7nzn0cge6PRDYNnILmPrLcUoJ7KW4qD2Udvl4iPV4ktPbytXRyWAoPKVDChIVbzJrY8o81gVsAFhSBdeDNiVAANUpDRD2/5rn1XBflBNStzfYzxwm/rTihGvW9oGlWCWc7w+2vP2XcDKcQr3d1s+I1GukoIm4GJSQYtW+ZKU5BtZOjrvZY6qI6a4hm9yRNLmIfj4f3JOelzwqXaik3EtiBVQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10) by GV2PR04MB11862.eurprd04.prod.outlook.com
+ (2603:10a6:150:2f8::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Wed, 26 Aug
+ 2026 13:40:52 +0000
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0360.006; Wed, 26 Aug 2026
+ 13:40:52 +0000
+From: Larisa Grigore <larisa.grigore@oss.nxp.com>
+To: Larisa Grigore <larisa.grigore@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Avri Altman <avri.altman@sandisk.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+	"Martin K . Petersen" <martin.petersen@oracle.com>,
+	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+	Ajay Neeli <ajay.neeli@amd.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Pedro Sousa <pedrom.sousa@synopsys.com>,
+	clizzi@redhat.com,
+	aruizrui@redhat.com,
+	eballetb@redhat.com,
+	echanude@redhat.com
+Cc: linux-scsi@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Haofeng Li <13266079573@163.com>,
-	Haofeng Li <lihaofeng@kylinos.cn>
-Subject: [PATCH] usb: gadget: udc-xilinx: cap non-EP0 OUT transfers to the request buffer
-Date: Wed, 26 Aug 2026 21:36:00 +0800
-Message-Id: <20260826133600.3797953-1-lihaofeng@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org
+Subject: [PATCH 00/10] Add S32N79RDB UFS support
+Date: Wed, 26 Aug 2026 15:40:38 +0200
+Message-ID: <20260826134048.854748-1-larisa.grigore@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0385.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:f7::10) To GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|GV2PR04MB11862:EE_
+X-MS-Office365-Filtering-Correlation-Id: eee604ee-ce35-4c32-1dec-08df0377a5cf
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|19092799006|376014|366016|921020|6133799003|10067099003|56012099006|3023799007|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: CZGrOf9iPSqqkQAckXhfk1YEjeOkM4nehkJtHKiFibq3OU3JMi50GnXaJWeyVYWM291BT0nFELCngE7bwA6dPDtkiSyLg0BF15zFZSYDH4u0NPDWohD8DS97CnznUzhRVqPNQpRPR9tZIJ9zBaUmUYacAfOLmIlkHYo+vE3DZLob9coRyUlRcv5KU2M4gDwklvJ8bX7NzUuRmG2zd3dAK5Y8NWTN/bEyA9tGCMkDl7kS+PV7mL2EgAFjnCT6IJLclmHHlD5RueGdDf7KKiZ4fewpbg1h47F2tgrtj8SP/eLBDZMj5ojv/vGFp/QXyrZKKfZ4ust7F0EcdZvrYDHpvhAPWxjl067cBCekMNVg97Aj/TeeaJQh79RLx+h8JkxR4Hymrablp/ojHcSvYwi7WxOAB8M8paJ2CxuYPZzjkzPA12BX2F5F4pU0SqdQ0X8OGwBPsJbiywgBslFD+rJCBe2TqTp/obJthmzxyr6hP0z4v+vGzNf8qgAHJFF7SaCDJZ2ZK2t0WOgBgR+OaESipjMxRl4dSbBin5Im7MZ6Sbm7GF9M/VU9TjWbg5sRONj7EJcg9xVnrY775lkCH/TJ3WKT8cp7Fh3NPG0TXxMef+oknP+tJsfF+FPIPp5wEHNj0ZNv8r1QMYh9LkFGbIiN2+fI+t1tJPPLM7xgylE4t6NRH3lMYvFWdLLcXZfkTrWm3N8k7YbpoNS9cl8TM96WGA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(19092799006)(376014)(366016)(921020)(6133799003)(10067099003)(56012099006)(3023799007)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y3lMRnhGNlE1NkE4QkRESFRzcHQ3VlRtZEFSRmN6YUxBQzFmS0RDODQ3R2I4?=
+ =?utf-8?B?U1VmQWFVVlUvWUFaNjhXeVkwRXdrRWtYVnBOa3lvc2NsenVvNU1idXZwOEdO?=
+ =?utf-8?B?c1ZGTTNkSmc1SzljK0ZWeGR4N3BEZnN2c0d6czMyS1RNZEFBMWR2RzJ3dXEz?=
+ =?utf-8?B?SUFLTUV0YlNlY0R3VHJZbHlQRmFaQTZZNUQ3Qm1Way9BblF4M3hmUUJIcXdE?=
+ =?utf-8?B?Y1NMb1hWTW1FVGsrOW1FZk5XQldFdkFMM24rMTI1Z2h3MEk4YXpMc0VJQk1t?=
+ =?utf-8?B?TFBTYkoyVWdBUk9RSWQ5SFdjaDNtMkFTRTUzS3hpb3NqVDVUWERCeFIxdHRl?=
+ =?utf-8?B?a2R0QWxYWEh1VTR5N2ZFanViVGJ6SDhMNzYzazg1ejYyOUpWSlVGSGtxZGI1?=
+ =?utf-8?B?WjViS0tjVUxuaElVYnpmTEttNlRNRjhLbVVCNm9McHNmbXBFQ1V4MWRXTjJt?=
+ =?utf-8?B?d3lER2RscHVINVJrM0FFVkZkUi8wZm5NT3hzS3ZOOVhHUWtKd0YwaWx5SjhL?=
+ =?utf-8?B?akx6WW9tcE1ja1I0U1ZhOXZWbi9GNnJQL0p3WDNHL2xQbUplSHphZ1NjREg4?=
+ =?utf-8?B?dHQ5T2ZjSjdVclg2Y2t5ZHBMM09NY0hpZFpwU1IxT0Noc3o4UytWbFZKNDcx?=
+ =?utf-8?B?RW9SNVdTQzdGb05yUDVTVVJxQWt0T0xnVGd4bTlSZGlCclkxcHZsbHJHQzV1?=
+ =?utf-8?B?VEthWWJEQUZhN21EbHV3UGFrK3dPT3dZQkpBRlQ1WnN6QzMvbEJ0cXBsZjcr?=
+ =?utf-8?B?bUtHNTVEOWJKbUl4Y1JnNzdyUCtmK05IMXAxamtkVHQ1YVdJUnlwbUJQejI4?=
+ =?utf-8?B?TmVSTktkUU12azFicXlKY3pBdkpzZTZVVnlQLzJQUWpBbkFoNjRzM3QrWUR5?=
+ =?utf-8?B?M1FiUHFnVmd4ZWtteGdtY1NtK1RWWDJXR3Rkc2RIZm50Z3VrK0dISE5Ebksw?=
+ =?utf-8?B?TGpsd1ROTERBTzM0R3lZVFNicW02VUNWWkplcXJxa0xRVEM4NnNvT0FRNWdU?=
+ =?utf-8?B?dmFIdFVkYjRWVk01Q3F6SWJ1RVdNWTNNZFhrbzFRNzFESFhERWJKVWcydTRD?=
+ =?utf-8?B?d3hPdk1UeUNlcGNSRWtIcWhUVVgwY1MySG9vN3dGWWVzcHMvNithYzZ2L1V5?=
+ =?utf-8?B?S29KOWNDait6dFFQZnpTUHFDekpENnpMM0VSWHdQRUJPUWZ3OHBPdnhFbTlH?=
+ =?utf-8?B?RUhteVRkR2NHcEtES2ZJTEVSeFNHTUFlRWhIK0hJZXlGOVljQllERm4xY1dR?=
+ =?utf-8?B?OEZ6M1ZZcHZVS2hWbUlZZndFN3hmSThqR0ZkUEpXcDNNdTBna204Vitodjdl?=
+ =?utf-8?B?aU5aY01LbStldUU4OGJNN1BuZEZUamRjSWI2a3NTS1U0RW51eXducjJFWjk2?=
+ =?utf-8?B?ajlFSHY1ZUxWZ1B5aHp0SXZjZDlYZzQyODMvTUx6Si9pZE5qKzRoQXZKbVpx?=
+ =?utf-8?B?N3IvWnNDSGVxcXA3RVREcjJ2U3RWQzArOTRmaERzaVRKVDlEeldVNlQ0VjFS?=
+ =?utf-8?B?VlUrZExGdWlGSnZKWFZnQjFzOEtFTHp3MW4xdXBTU2VUNXIwaFVvSU03Rkc2?=
+ =?utf-8?B?QU12VzEwUXRxSFhVR3NXQitUTk8xTlZueUtoSThQTjFnenhjWnJsZFpMa3ln?=
+ =?utf-8?B?dG8wVUx1VGZjS212RlJiSmVZUjNtL25Fb3dzWmNSVzR3L2tPc21xdEtGeHFy?=
+ =?utf-8?B?c1BrSmI2S1RNOThHZVBoUTd3MTRLTFBIVjNnYkR0akNmVjJXaFI0aUpqanRy?=
+ =?utf-8?B?Q2toVXBQYWN5cjlqK0R6M3pFcmhMMHp5bS94L0JPeS9iaGtzbzdudzdDa0Vn?=
+ =?utf-8?B?ZVgxV1RRY01rbkFNc3NRSEhhM2h0RkxXelRkM0VrcnZaWmczQ2hzRVMwaFJm?=
+ =?utf-8?B?STlkU3dMMVZDZkxEc3FjT3pySzJXTENsRUpFcGVTWGVKY0MzNEMxaDUyaU9F?=
+ =?utf-8?B?QytLREx4ek1uUmFZaEFBdnF4WHJieUJOVDVidWIxWVYrQUhNdGRLUFEzY0xP?=
+ =?utf-8?B?Z0hmMnh4dlMyVUZJYm8vWWxZYUZXUEJZcUlFcUxFZTBpMU5ZSjlxRXBPcFNU?=
+ =?utf-8?B?d3BtWlI2R043Q0ZMYllkdVRKTnR5V1ZKb0N1L1pOZDR5dzBEakJkcml5T3Ja?=
+ =?utf-8?B?RDBCSTQ0eEpNRzRIbTRiYU5QaGR5YlRQeENrTU9jS2IrMVZidmdVZXRoZUpn?=
+ =?utf-8?B?RENKTUdqb01sZmxWVjlnRlppa203RzJFRzBHdUdqdkU5U05VN21PQ2x3ZHgr?=
+ =?utf-8?B?aHZpTWdySWprcnBhTUNNelNTbktNOFdlR05ZM3E0TDMxb2E5NWVkN3BMU3Jv?=
+ =?utf-8?B?dnpSVXBPUnpRNm92bkNzcnJWVDhLaHB2MDhoSVpxVGxXekhuODNhUm9nUFQ5?=
+ =?utf-8?Q?hNov7xldUKkQA9GQ=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eee604ee-ce35-4c32-1dec-08df0377a5cf
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Aug 2026 13:40:52.8620
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Oy0SzcRChmqrRUSFpY7Bf1BQuOadX4zOXuLiCZh2hj6ewCi5iRzoYM5RMiVBw1nyTaeNkhwXQCfxgRF8eti9jQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11862
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_063619_083796_5C5B6F02 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20260826_064103_700924_BB6E4581 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,83 +172,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-xudc_read_fifo() takes the transfer size from the endpoint count
-register (device/host-controlled for OUT packets) and, if the request
-still has some room (bufferspace != 0), passes it straight to
-xudc_eptxrx():
+This series adds support for the UFS host controller found on the NXP S32N79
+platform. The controller is based on the Synopsys DesignWare (DWC) UFS host
+architecture and requires S32N79-specific M-PHY initialization/calibration
+sequence. It is compliant with JESD-223D "Universal Flash Storage Host
+Controller Interface" v3.0, and supports up to HS-Gear 4 speed grade. It is
+compatible with UFS 2.1, 3.0 and 3.1 devices. The MIPI UniPro is compliant with
+"MIPI Alliance Specification for Unified Protocol", v1.8. The MIPI M-PHY is
+compliant to version 4.1.
 
-    count = udc->read_fn(udc->addr + ep->offset + bufoffset);
-    bufferspace = req->usb_req.length - req->usb_req.actual;
-    if (!bufferspace) { ... }                /* only the ==0 case handled */
-    ret = xudc_eptxrx(ep, req, buf, count);  /* PIO: memcpy_toio(buf, epram, count) */
-    req->usb_req.actual += min(count, bufferspace);
+In order to keep the S32N79 platform driver small and avoid duplicating common
+DWC code across platform glue drivers, the series also refactors and exports a
+few reusable DWC helpers. In particular, M-PHY CREG (CBCREG*) register access
+helpers are moved from the existing AMD Versal2 glue driver into the common
+ufshcd-dwc layer, and are then used by the platform drivers. The series also
+introduces a generic Hibern8 TX-FSM polling helper so that multiple platforms
+can reuse the same pre-link checks.
 
-There is no cap of count against bufferspace.  The PIO path copies the
-full count bytes into req->usb_req.buf + actual (memcpy_toio), and the
-DMA path programs a DMA of length count - both will overflow the
-request buffer whenever count > bufferspace, with only the bookkeeping
-(actual += min(count, bufferspace)) clamped afterwards.
+Device tree binding documentation for the S32N79 UFS controller is included,
+along with SoC and board DTS updates to instantiate and enable the controller.
 
-Attack chain (USB peripheral mode, non-EP0 OUT endpoint; attacker is
-the USB host):
+Larisa Grigore (10):
+  ufs: unipro: Move Tx/Rx FSM state definitions to unipro.h
+  ufs: unipro: Add TX/RX FSM state attributes
+  ufs: host: Add common Hibern8 TX FSM polling helper
+  scsi: ufs: Move Versal2 M-PHY CREG access helpers into ufshcd-dwc
+  scsi: ufs: dwc: Export common clock divider and link status helpers
+  dt-bindings: ufs: Add compatibles for S32N79 Host Controller platform
+    driver
+  scsi: ufs: Add NXP S32N79 UFS host controller driver
+  arm64: dts: freescale: s32n79: Add UFS host controller
+  arm64: dts: freescale: s32n79-rdb: Enable UFS
+  MAINTAINERS: Add NXP S32N7 UFS host controller entry
 
-    malicious host -> OUT packet on epX -> UDC interrupt
-      -> xudc_read_fifo() -> count = endpoint count register (e.g. 64)
-      -> request with req.length = 8, req.actual = 7 (1 byte left)
-      -> bufferspace = 1, count > bufferspace, bufferspace != 0
-      -> xudc_eptxrx() PIO OUT: memcpy_toio(req.buf + 7, epram, 64)
-      -> 63 bytes past the 8-byte request buffer
-      (dwc2-style FunctionFS / f_tcm gadgets submit short requests, so
-       the interface does not guarantee a buffer as large as the
-       endpoint max packet size.)
+ .../bindings/ufs/nxp,s32n7-ufshc.yaml         |  99 ++++
+ MAINTAINERS                                   |   8 +
+ arch/arm64/boot/dts/freescale/s32n79-rdb.dts  |   6 +
+ arch/arm64/boot/dts/freescale/s32n79.dtsi     |  11 +
+ drivers/ufs/host/Kconfig                      |  12 +
+ drivers/ufs/host/Makefile                     |   1 +
+ drivers/ufs/host/ufs-amd-versal2.c            |  89 +---
+ drivers/ufs/host/ufs-hisi.c                   |  48 +-
+ drivers/ufs/host/ufs-hisi.h                   |   6 -
+ drivers/ufs/host/ufs-nxp-s32n7.c              | 464 ++++++++++++++++++
+ drivers/ufs/host/ufs-qcom.c                   |  42 +-
+ drivers/ufs/host/ufs-qcom.h                   |   2 -
+ drivers/ufs/host/ufshcd-dwc.c                 |  83 +++-
+ drivers/ufs/host/ufshcd-dwc.h                 |  36 +-
+ drivers/ufs/host/ufshcd-pltfrm.c              |  79 +++
+ drivers/ufs/host/ufshcd-pltfrm.h              |   2 +
+ include/ufs/unipro.h                          |  21 +
+ 17 files changed, 817 insertions(+), 192 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/ufs/nxp,s32n7-ufshc.yaml
+ create mode 100644 drivers/ufs/host/ufs-nxp-s32n7.c
 
-Reproduced (kernel 7.2.0+, KASAN/SLUB debug): calling the real
-xudc_read_fifo() with the above state leaves req->usb_req.actual = 8
-(count 64, bufferspace 1, actual += min = 1) while the PIO copy has
-already written 64 bytes: byte 7 of the 8-byte buffer changes from the
-0xBB marker to FIFO data and the SLUB redzone plus neighbouring slab
-objects past the buffer are overwritten (65 of 72 dumped bytes differ
-from the pre-use pattern) - the out-of-bounds write is observed
-byte-for-byte.  (memcpy_toio goes through an architecture copy routine
-that generic KASAN does not instrument, so the surrounding-memory clobber
-is the forensic evidence.)
-
-Signed-off-by: Haofeng Li <lihaofeng@kylinos.cn>
-Assisted-by: opencode:deepseek-v4-flash-free
----
- drivers/usb/gadget/udc/udc-xilinx.c | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
-
-diff --git a/drivers/usb/gadget/udc/udc-xilinx.c b/drivers/usb/gadget/udc/udc-xilinx.c
-index bef06fe7543b..63749fd97625 100644
---- a/drivers/usb/gadget/udc/udc-xilinx.c
-+++ b/drivers/usb/gadget/udc/udc-xilinx.c
-@@ -627,6 +627,24 @@ static int xudc_read_fifo(struct xusb_ep *ep, struct xusb_req *req)
- 		return 0;
- 	}
- 
-+	if (count > bufferspace) {
-+		/*
-+		 * The host sent a packet larger than the request buffer.
-+		 * The PIO path would memcpy_toio() the whole packet into
-+		 * req->usb_req.buf (and the DMA path would program a DMA
-+		 * transfer of count bytes), overflowing the buffer; only the
-+		 * bookkeeping actual += min(count, bufferspace) afterwards
-+		 * would be clamped.  Complete the request with -EOVERFLOW
-+		 * instead of copying past it.
-+		 */
-+		if (req->usb_req.status != -EOVERFLOW)
-+			dev_dbg(udc->dev, "%s overflow %d into %u\n",
-+				ep->ep_usb.name, count, bufferspace);
-+		req->usb_req.status = -EOVERFLOW;
-+		xudc_done(ep, req, -EOVERFLOW);
-+		return 0;
-+	}
-+
- 	ret = xudc_eptxrx(ep, req, buf, count);
- 	switch (ret) {
- 	case 0:
 -- 
-2.25.1
+2.43.0
 
 
