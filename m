@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F32DC61DC6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 23:07:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A9AFC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 23:07:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nkGDVNWv+E37i1qgZxGANcWGk8EcR4uX9VZBG0WIwSA=; b=h+dp+KrCMyLZuqDTdVT4I58bv/
-	9HkvYPtPOcqridUkaTqKtWxuZ403FCW9z84bI0THJYaZ6ne1A1tbUG8hFnarVm0AwRphI1ljjIlXX
-	oZOBjSfpTKa63Sc+SxV3z+tzdyt0h/DelSbt+5U6s7ykK9QpoCGdRdZnQ8yJXumaZbe/b8YAmxWFm
-	8IIBG5dOJCLt0ZFfZQp+zTZXH+BTx90CE8+FpzXXTvwH09tRRpbzY3PyVCtB6Rm4oHCGF03PnmBLH
-	E443ewXrQmXL8/acxIv82x3lrmOrZaDJYtX08vGACCyPDSY9OrWTUIkUhqalItAiZV8YbP9sEfWge
-	fENdZM1g==;
+	bh=GKwDIzPdhs+/PUMGOrKYMYY0J2+uedR4TSeAqB3q+w0=; b=bR6mi5clsBowfprhDCwsrf3Nmq
+	xP/pfNyop3j+4QS77eQDsBIbZU7+8bayizMLgkZk/LgKrk0tygJiV9Vk+HqA8rgyu+D+ZpDlpFW8I
+	eEojxcwpSlGXdmq+7oUd0duGVUSvNdx5E3zGXC5rngnlOECkhZ9MJnybkH5n+IxFgqZMp6QQFm0fl
+	wC1E3tptteqmNTp8CNkEIjHOkLoNBJpQmb2vkMUDOkEiu0rWW2zqUdrJLvZ0yprVEYT6wQVFbyrOf
+	TRkUrjpj82RfCOBjo20uDf6R3uh33WkhuGzDt7t/GlqCVOUxLndMqHqEEXq5Q7XggRAzB0j/v+Kj1
+	Il4wl5ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMi5-000000038VH-3LIZ;
-	Wed, 26 Aug 2026 23:07:09 +0000
-Received: from mail-pl1-x648.google.com ([2607:f8b0:4864:20::648])
+	id 1wzMi7-000000038Ye-3Trl;
+	Wed, 26 Aug 2026 23:07:11 +0000
+Received: from mail-pg1-x548.google.com ([2607:f8b0:4864:20::548])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMgS-000000036D6-0bi8
+	id 1wzMgd-000000036OF-2vl6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 23:05:30 +0000
-Received: by mail-pl1-x648.google.com with SMTP id d9443c01a7336-2d7151120d6so1673525ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:05:26 -0700 (PDT)
+	Wed, 26 Aug 2026 23:05:43 +0000
+Received: by mail-pg1-x548.google.com with SMTP id 41be03b00d2f7-ca6bd8a190cso2035966a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:05:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787785526; x=1788390326; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787785536; x=1788390336; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=nkGDVNWv+E37i1qgZxGANcWGk8EcR4uX9VZBG0WIwSA=;
-        b=LEXa28338ZYb8xUZiUlUTKQnVz2oymalPRW1AxNlcvZTLDZEd0cLbGCJQiltH887Mz
-         KINMhUpV6xKmzu79XDfk4q/QFfAeY04H5DFTG4bvpR1CKvI6otxoHI+qA02biotU7jiE
-         zpKflUHJJRZFz110fTVZITWS97qWrFBUPKdachZZ+wmoOjq+GpzYZ+AsvLQ54qiAzlZ0
-         pGHAn92+CAo0lrrxgoB+uI4bj5EuZBv1U4fn0gmUNoZ4MLu/rCJZCe+YbBpcg/5jaTyj
-         +QtZULKCiBZSxjWnvQ2CC5JHW4nlt08t670G4G9qCLvoMc9Fr9NA5XcbycHva5DL1zFn
-         Ex5A==
+        bh=GKwDIzPdhs+/PUMGOrKYMYY0J2+uedR4TSeAqB3q+w0=;
+        b=bKDiZxb2P5yNknt3t1SsiiQ2+65Ub3+HB+FcEzRwrwuOVNxF8PCBQOQWnH8LMuIo+P
+         HaYOzn5uoA6exBps6I4E1jkjzgXTq7HNLvJM5M5Zy8BMRpuXu1+L9sWPtmc46tMFhoBW
+         Iy21RFfDyX/5vHR+SSS/ODwULXOh9UV6+o12vt76xN4SHEcpF/kEysfYHByHPvh1SZWr
+         H94nU4dB7/UrEdmQiZGIM8fjJluf8TDYS3Q3pJGaW1+K7uwkTKBvfV5unSOW59890WSd
+         U0/12G6XOTInG5Sz1LOz8TDvUWbPv0MO7kdtJZAR8bFx6Z1+bS18xrOgN8fLn2r5NV+d
+         qS4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787785526; x=1788390326;
+        d=1e100.net; s=20251104; t=1787785536; x=1788390336;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=nkGDVNWv+E37i1qgZxGANcWGk8EcR4uX9VZBG0WIwSA=;
-        b=CCZs9L93++bzbpQo8KMP4Zwia/YYFzcXXQ/zSNChajUEDhD8khAyl8zMHhOnzyWiAy
-         sJ6qMjRR6L8m1i1oy0nVEjdsWlyxSCDDu+8D3QfqsnhuVtdfCotdiId74Fs1LOF/ODbn
-         yCeoKW5MjFW7Alc1FbCga/tpNFTV4ArwNI9zY0RgyiDAPJRYXDC3IXRSBB5NL/1wOrCh
-         n4AHaISFr64/FSrLSVzsG5XEl9OQ5wcgLcQ2ZG1XthKCma/I8lPJmOJrGnWLeSc6aYya
-         Kc2y9FM1g3CnFGdEzLg8MtNvZwHm800IZy5HvjOfxjvVj4+9EdbJxE4/Orj4OM4VVOUY
-         2yTQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrIhOuG8Qorn7fli/j2zuv1MvAG1nZ8f0ccIfr0ADZvr30H85XYweapsb6DBKPwNvQwKKh6p9yG8q157aTPJAoN@lists.infradead.org
-X-Gm-Message-State: AFuF++n6pm1b4ElFhT3U//8r/e1iJppRPK9bVNa2Yb1iuDlpgxDRtf26
-	X+RLYkBoTLVuSVO7ZzuQR7FbM6DdKVbUHBJsqVPEl0G0bTAXudlyl/4wgVUnYyW5CA0Job9NBeR
-	ZxHV5mw==
-X-Received: from plblc14.prod.google.com ([2002:a17:902:fa8e:b0:2d5:62cd:db79])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:19ed:b0:2d7:107c:917b
- with SMTP id d9443c01a7336-2d7107c934fmr164734915ad.0.1787785525359; Wed, 26
- Aug 2026 16:05:25 -0700 (PDT)
-Date: Wed, 26 Aug 2026 16:04:59 -0700
+        bh=GKwDIzPdhs+/PUMGOrKYMYY0J2+uedR4TSeAqB3q+w0=;
+        b=G2zdzueBesK74YfPJKj1r5+W88DtVpB3CHiGbbcggfjIndjbJOoKQFR0DorXEFgaci
+         mlgHPX/S87B/E8SGAnlhtOTxX8AVXp+gH0p97Fbx8ufQzQZUTrIiyrhwPRFNnPiFaYAw
+         8kSYMRVuXCkKN+Yj2zQj2caXteTDhcKNq5bc/36TEdoQpIFHCconclepusS2f9XKfSlf
+         ZmduS4bXJddMLDLGzpyneJF0i6YXYNH808ZXH2/D6C/gqBDISvFbmHrF8iasQywVt914
+         NEQIXxELoMTjiKsNSdV89ziCH59qPTdpeQp1fMo13/PpBGhOhh6xKxbMgJB6FJmE2y45
+         l21A==
+X-Forwarded-Encrypted: i=1; AHgh+RotMii5ISgdeG+zTKxLGw3fKLPb4rYpzA5lhuWancLzLEwgCvams2nFYD6pER5wBtoyCVGMWacLejxrUOpHUYzE@lists.infradead.org
+X-Gm-Message-State: AFuF++lhQrU0gsWFJcDdC92mO/p4SvWrAeykzFm/pvGJyUKPYSaKeLzb
+	rsotqmrLcIwiIzH6QL+H0biSERnI5Guktdu3uPvY7F9+qS4QJvpBteflh6QK6fVWSi2MdEKGXFf
+	xXhoPHw==
+X-Received: from pgcq30.prod.google.com ([2002:a63:751e:0:b0:cc1:c78b:a2fc])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:4a97:b0:3cc:f0c7:5999
+ with SMTP id adf61e73a8af0-3cf84348241mr20316754637.16.1787785535770; Wed, 26
+ Aug 2026 16:05:35 -0700 (PDT)
+Date: Wed, 26 Aug 2026 16:05:07 -0700
 In-Reply-To: <20260826230511.972824-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260826230511.972824-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.887.g758fc8c411-goog
-Message-ID: <20260826230511.972824-9-seanjc@google.com>
-Subject: [PATCH 08/20] KVM: selftests: Use the innermost page allocator API in
- the memslot perf test
+Message-ID: <20260826230511.972824-17-seanjc@google.com>
+Subject: [PATCH 16/20] KVM: selftests: Use TEST_EXTRA region in set memory
+ region test
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
@@ -87,8 +87,8 @@ Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
 	Ritesh Harjani <ritesh.list@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_160528_238354_EE38C72E 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20260826_160539_796301_E996A556 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,33 +104,36 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the quad-underscores physical page allocator API in the memslot perf
-test in anticipation of converting the outer versions to take the memory
-region type instead of the raw memslot.  Stating the obvious, the memslot
-perf test creates and allocates from multiple memslots, and so can't use
-MEM_REGION_TEST_DATA to communicate which region/slot to allocate from.
+Use the TEST_EXTRA region/memslot in the "set memory region" test instead
+of a custom memslot, so that the primary vm_phy_pages_alloc() APIs can be
+reworked to take a region type instead of a raw memslot.
 
-No functional change intended.
+For all intents and purposes, no functional change intended, as
+vm_override_mem_region() is barely more than a wrapper for
+vm_userspace_mem_region_add().
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/memslot_perf_test.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ tools/testing/selftests/kvm/set_memory_region_test.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/memslot_perf_test.c b/tools/testing/selftests/kvm/memslot_perf_test.c
-index e1299611be32..844ea9b7bb41 100644
---- a/tools/testing/selftests/kvm/memslot_perf_test.c
-+++ b/tools/testing/selftests/kvm/memslot_perf_test.c
-@@ -339,7 +339,8 @@ static bool prepare_vm(struct vm_data *data, int nslots, u64 *maxslots,
- 		if (slot == data->nslots)
- 			npages += rempages;
+diff --git a/tools/testing/selftests/kvm/set_memory_region_test.c b/tools/testing/selftests/kvm/set_memory_region_test.c
+index dffe9654f45b..9d21594e2f81 100644
+--- a/tools/testing/selftests/kvm/set_memory_region_test.c
++++ b/tools/testing/selftests/kvm/set_memory_region_test.c
+@@ -116,9 +116,9 @@ static struct kvm_vm *spawn_vm(struct kvm_vcpu **vcpu, pthread_t *vcpu_thread,
  
--		gpa = vm_phy_pages_alloc(data->vm, npages, guest_addr, slot);
-+		gpa = ____vm_phy_pages_alloc(data->vm, npages, guest_addr, slot,
-+					     false, false);
- 		TEST_ASSERT(gpa == guest_addr,
- 			    "vm_phy_pages_alloc() failed");
+ 	vm = vm_create_with_one_vcpu(vcpu, guest_code);
  
+-	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS_THP,
+-				    MEM_REGION_GPA, MEM_REGION_SLOT,
+-				    MEM_REGION_SIZE / getpagesize(), 0);
++	vm_override_mem_region(vm, MEM_REGION_TEST_EXTRA, VM_MEM_SRC_ANONYMOUS_THP,
++			       MEM_REGION_GPA, MEM_REGION_SLOT,
++			       MEM_REGION_SIZE / getpagesize());
+ 
+ 	/*
+ 	 * Allocate and map two pages so that the GPA accessed by guest_code()
 -- 
 2.55.0.887.g758fc8c411-goog
 
