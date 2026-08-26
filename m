@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C399C5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 14:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177B3C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 14:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fQMkcPMV7Pc6LQCfAGg8QeshWvzbYRluiKAsXmZpmVA=; b=kV2U2XKp84xNsnvnE7O1B8LlMv
-	h2nCaYB7GcKST50mRzSPIr8POOyQzW0Y3AxCn0C9wsbuhIPYygXayvURMB6IpBk0ydcT83ZrRVs2+
-	lQF+BbI2QfBER6WECQTf3B5V9D5FlnktGsfgAkl/l0+Ui0Pp7PUtRi6Tsj/IlgWppiPOURmcf0zI4
-	iEmU/R2ykv6VC74TTS4nvt0rYNiHtibJspb8PU25V4UymmfrUnsoKCywbtppdNMsckxKrUyIKBi9/
-	yxuwbp/DLHS6TxE/FqZTlfR80nmlLB7fox4FTGjLo4xCYBc54wbhIIZ+ytdLi9CsjSlLb3z+uQKd0
-	+rn2uClQ==;
+	bh=jTVcRgoXd0TFMDrwAr5pQLfwrpfb1OOBZimTG7wdi+M=; b=U/TfjIel0QaOGE1iD9U3QU5+aW
+	YQCOblgC4sIqQnsFd4zavOQqlKf1hCtx36owpb2Bgd9Jtl62+hTnweHDTGKu7fsf8KRTOwC30dR9i
+	tkLhDXTTuj7UifXdjmSf57Z9lvgvzHdx3SwIWaVTiBhEiH53RsfosLHprGE1bHFjIMDk0eGxS5fOC
+	U8qVdH+3X33RxtVSWoRehn3KLJEH0pjDfuJVhuA4kte9K8XHDqr7+TGcGPqD94QQ65FdSqWQvoU5w
+	HKrZHvKFv6f7yzTL2ad7CESxgl3it1C3HjQvOXj/T5JKm6Xd1AHRwPtOBeqSzY1wMH4QsRZys99lw
+	AJJic0ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzEGu-00000002ZGC-0Hp6;
-	Wed, 26 Aug 2026 14:06:32 +0000
+	id 1wzEGv-00000002ZH8-1df1;
+	Wed, 26 Aug 2026 14:06:33 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzEG6-00000002Z0Q-2AXw
+	id 1wzEGJ-00000002Z69-1rgA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 14:05:44 +0000
+	Wed, 26 Aug 2026 14:05:58 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 085AB4E413AA;
-	Wed, 26 Aug 2026 14:05:41 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id EDB354E413AA;
+	Wed, 26 Aug 2026 14:05:53 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CF529604EC;
-	Wed, 26 Aug 2026 14:05:40 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 324CE11C781D1;
-	Wed, 26 Aug 2026 16:05:32 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BDCE6604EC;
+	Wed, 26 Aug 2026 14:05:53 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B8E2A11C781D1;
+	Wed, 26 Aug 2026 16:05:47 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1787753135; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1787753152; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=fQMkcPMV7Pc6LQCfAGg8QeshWvzbYRluiKAsXmZpmVA=;
-	b=egoBnJPX8pVGNGJ/3jf09wwDrVpQYmxE6gK6/QaJtlZeKxJ+WJAIfQF2YrJLC7f6piN0F5
-	lcV6WcOe6YGx1W0NDNsgFcATRifpBB4muA99d4y93wdedN1Z+S76KZ2v0ciqIZZJ+Up1EW
-	CFyhdymQ9roAP6C9WeoMK1wWJkGzEF/QAm0DjnKJQelv5Bnpf2W4/jllHqX7LCtqs5EkhK
-	tCiP4dpfIbxyS4XVAJPWmiHBpHzvFNN0UwDtKi4+BdRj5bRu140TDpuekylvhauMyqifwN
-	fVL3P5dEpIFZUgT/EQFCs8dBcqGqwfgx5etPpsiVUzBHUcsXTymZbGPbe/ET8Q==
+	bh=jTVcRgoXd0TFMDrwAr5pQLfwrpfb1OOBZimTG7wdi+M=;
+	b=zp0sb5Nt85Pq6RP/Ym6FrPpaDzguuEsnYxVVPvL+ulOlg1aLgPa9KW3NPK6WK85aYJy2vy
+	ablvBwqdiC3GztzLTVEPNMfMI/KtY+wNyLG1T601BN1NEew7FKVmd77r6SA9qBRAP4I93i
+	HzVjaXSX+/dvAK7AQKQVFXD3ovoIdxkk9lBl5yRBoCN101V1FHWrsglr/u2aMMz6fKn1Cp
+	XSuKpEumd2duW6r3AYZ2EEJgV0e5fy5+KzHnr4qxDbjlOWBX0I9pnamJDt7wy2ZPOWOSTQ
+	GUMBm1wd05uWg54xX0dHWhUtnJ8+TKoUd9QVAo3LvhXvN1lLE4IEF9p4J/jn9g==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	davem@davemloft.net,
@@ -70,9 +70,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	thomas.petazzoni@bootlin.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH net 4/6] net: stmmac: dwxgmac: Account for the primary MAC address for UC filtering
-Date: Wed, 26 Aug 2026 16:04:56 +0200
-Message-ID: <20260826140500.616466-5-maxime.chevallier@bootlin.com>
+Subject: [PATCH net 6/6] net: stmmac: selftests: Don't test flow control for small rx fifos
+Date: Wed, 26 Aug 2026 16:04:58 +0200
+Message-ID: <20260826140500.616466-7-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260826140500.616466-1-maxime.chevallier@bootlin.com>
 References: <20260826140500.616466-1-maxime.chevallier@bootlin.com>
@@ -80,8 +80,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_070542_791902_7769D9C7 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20260826_070556_266547_4B80D25A 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,29 +96,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The same filter slots are used to store the main MAC address as well as
-the address for the unicast filter. Let's account for that when deciding
-whether or not to use promisc when programming the UC list in hardware.
+On dwmac1000, dwmac4 and dwxgmac, we only emit pause frames if there's
+at least 4096 bytes in each queue's fifo.
 
-Fixes: 0efedbf11f07 ("net: stmmac: xgmac: Fix XGMAC selftests")
+The phylink mac capabilities are still MAC_ASYM_PAUSE | MAC_SYM_PAUSE as
+otherwise we won't be able to negotiate 'rx on' pause. ASYM only will
+prevent negotiating 'rx off tx on', while SYM only doesn't really
+matche the reality (not symmetric if we can only do RX pause).
+
+Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../ethernet/stmicro/stmmac/stmmac_selftests.c   | 16 +++++++++++++---
+ 1 file changed, 13 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-index 52054f31376d..fc6ddb51c682 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-@@ -532,7 +532,7 @@ static void dwxgmac2_set_filter(struct mac_device_info *hw,
- 	dwxgmac2_set_mchash(ioaddr, mc_filter, mcbitslog2);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+index ae236a264e74..6372ec7c3f31 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+@@ -739,12 +739,24 @@ static int stmmac_test_flowctrl(struct stmmac_priv *priv)
+ 	u32 rx_cnt = priv->plat->rx_queues_to_use;
+ 	struct mac_device_info *mac = priv->hw;
+ 	struct stmmac_test_priv *tpriv;
++	unsigned int rx_fifo_size;
+ 	unsigned int pkt_count;
+ 	int i, ret = 0;
  
- 	/* Handle multiple unicast addresses */
--	if (netdev_uc_count(dev) > hw->unicast_filter_entries) {
-+	if (netdev_uc_count(dev) + 1 > hw->unicast_filter_entries) {
- 		value |= XGMAC_FILTER_PR;
- 	} else {
- 		struct netdev_hw_addr *ha;
+ 	if (!(mac->link.caps & MAC_SYM_PAUSE))
+ 		return -EOPNOTSUPP;
+ 
++	rx_fifo_size = priv->plat->rx_fifo_size;
++	if (!rx_fifo_size)
++		rx_fifo_size = priv->dma_cap.rx_fifo_size;
++
++	/* No pause frame is emitted if we don't have at least 4096 bytes per
++	 * queue, except on dwmac100.
++	 */
++	if (priv->plat->core_type != DWMAC_CORE_MAC100 &&
++	    rx_fifo_size / priv->plat->rx_queues_to_use < 4096)
++		return -EOPNOTSUPP;
++
+ 	tpriv = kzalloc_obj(*tpriv);
+ 	if (!tpriv)
+ 		return -ENOMEM;
+@@ -758,9 +770,7 @@ static int stmmac_test_flowctrl(struct stmmac_priv *priv)
+ 	dev_add_pack(&tpriv->pt);
+ 
+ 	/* Compute minimum number of packets to make FIFO full */
+-	pkt_count = priv->plat->rx_fifo_size;
+-	if (!pkt_count)
+-		pkt_count = priv->dma_cap.rx_fifo_size;
++	pkt_count = rx_fifo_size;
+ 	pkt_count /= 1400;
+ 	pkt_count *= 2;
+ 
 -- 
 2.55.0
 
