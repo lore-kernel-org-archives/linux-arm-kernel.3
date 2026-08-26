@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA66C61DBE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F15C61DC2
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 23:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WTM/WcY6qCCrKYMU/D/LJJQp2BSUWxg1SxXMol0XzNo=; b=TxQ2CIvvK09mHfXDRcY0S57l3i
-	VYd/ZMXjDQd/aaN3QqFeIpAS7SS7b6ic5Z0wuz1+sFhcQPkKp1y8etSm4h68NesEjf1pKIOmKBicM
-	WGod83Mb/3Hz8OP6SwbqpOP2JS/7VtyB0tGJnAbYAQoJ4k9edEGIdBdpvvZu7SoiELjGPkMEaIeAr
-	/pbEbx6bxlupFuPuoMFBUpv17AIffbYq0UT1gDjmSdOctWM6W4Vu3KA0crgGL+8uYplNlxwYWKOv0
-	nKCS+DTvZI0yF7j+yLrZTKci+tXnHOw3rdCwPKPhlUPn+MUUVRCK+lfkseuClG87RaLtbsmMKJKLg
-	gVEWrBlA==;
+	bh=ypnv5ADnidmiHmk4i8NjwAmXQS3vAgk870JArYSva+A=; b=l87vLZJIXX8eyv6tbV2GnZvFkP
+	stvjPQByWWPFY2Orpq+/1vW4/Fb30iDgL2utEKEPu+0iOEs3DB4YJgjNLerfJoAaIpgPzbP/ddvVu
+	r+zVwh6J0szHvoRWcKjTWAExBsITrD8FOm4Jos6JkGHM2zCByrnmEv04QAAB5AMsC5tkVO4tMS1dw
+	ibKHlZPrfaNy0QL+gTT1cmmOWZ7BB5r4cTikQm8RbXBNcFSTgYpEgKAbjtgnGpJGSb+w6PwKiwn1N
+	eOFfYGgqgTC0P04/l4TRvcv9qH0NmL+/9XcTaCQsSysjroxeAYIe/GMxHMCihiWxZn6Rmg+7VmM1H
+	5V8ccBog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMgi-000000036aF-37OW;
-	Wed, 26 Aug 2026 23:05:44 +0000
-Received: from mail-pl1-x647.google.com ([2607:f8b0:4864:20::647])
+	id 1wzMgn-000000036iL-3BDS;
+	Wed, 26 Aug 2026 23:05:49 +0000
+Received: from mail-pg1-x548.google.com ([2607:f8b0:4864:20::548])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMgM-0000000367C-2iOP
+	id 1wzMgP-0000000369F-199s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 23:05:23 +0000
-Received: by mail-pl1-x647.google.com with SMTP id d9443c01a7336-2d6f80c76e6so22286215ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:05:21 -0700 (PDT)
+	Wed, 26 Aug 2026 23:05:26 +0000
+Received: by mail-pg1-x548.google.com with SMTP id 41be03b00d2f7-cb835525b10so1842486a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:05:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787785521; x=1788390321; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787785523; x=1788390323; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=WTM/WcY6qCCrKYMU/D/LJJQp2BSUWxg1SxXMol0XzNo=;
-        b=SS1iHi1hI04VYYjoR3RezkX+Ex33+suxcfAcL+AijQ90FuJ3qwBfeyRdfxsTnEueZH
-         aQeRmTbniSGJ37HA/x1D+fIZQDag4Eplw2BTlPr7+c5ELJfrJf0f76llHY8fBHfZFAN0
-         AEDp8BMhu25Wq/hJouQP8Hf3BX/OPydfphqHektiirxq0VIz3h6p84Rr+t4XGUrOOi9F
-         mdIYWNwrGwV2P1uOsJU8x99FGPKiDzTQX0lpGiMqMrOJJiLDRiBsIpa+0x81uxfcBrWh
-         zC90dgGOUrPZCAb227EsBij/ScrTD7hlmmuQMp+PebaDEbtITTfvca/2zb8K4zrrpA/Y
-         8VJw==
+        bh=ypnv5ADnidmiHmk4i8NjwAmXQS3vAgk870JArYSva+A=;
+        b=bxwmYPWAuY2oPvf1g5r3hQO4QnTRH3xxkCpUZOmrxzgS3ylQFHUQD39FG7DH7MXSYm
+         mVcF2PLjaNJjPM+BHPiAw1wK0BBptEZIZgaMCyFaYMzydd1hjURGbPC81GJPN3cBXNPO
+         2mKYXk1AoHqBV82D5GeLOTl3YC36TvVe1Um4U6VWcgbl9mdraCdjQN5HG/9qWW5RlleW
+         otV6Hum6iYYveQXzW6RJJWJSseOGRsRGf8J8tKpD7SRr4SUAhUGry+xMuvPedR3ir4U8
+         KEn436dzAQVYc41oao6HyE7IPhPqvyBhaH14wtGAdkGREsVi4GIPIJK+TCoQExPUQPbr
+         QLgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787785521; x=1788390321;
+        d=1e100.net; s=20251104; t=1787785523; x=1788390323;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=WTM/WcY6qCCrKYMU/D/LJJQp2BSUWxg1SxXMol0XzNo=;
-        b=eudDodZDh3di+5t8aJdABA8o/k5kUYkzHw/HsmRJ2L2bNKy79UNdT9jPBEMI9PLM16
-         disnGEoXg6Q/KavlqPDaGZmYaWJv4TNLbnyfaQrprLP80TPm2r9uLHC8xZoUsu8Uibot
-         5B0AdY+uXtTCvy9D5VZguiO2UVATMbMDLQ7dETgJ4fWoL1OfhQ/TGYs5d95mHJ6qn53j
-         vvfz+rmuZyi4+wHrgMia8TAMcA2KlVgRQyy7qsRelnGZwx2SoZLbM42E5+yhIr5S2i09
-         MrNP/9mCsfw8H/V8VATKP4GnsXOncyWK/mGDfhpTeu/xdAk0DSCUj8qLQ3rjsOImBebv
-         j62w==
-X-Forwarded-Encrypted: i=1; AHgh+RpPRsAeE3vis9sZrOagdr6jQgTbBDNC2KPtNA9QXn0GnAvHxSYyM7qvDZ/0rICCDxgYjBT99XuD4F34JIqLkuDY@lists.infradead.org
-X-Gm-Message-State: AFuF++mi51YH3YeRts835+nHgYAgKhFKtUyTsLDumEVa5wlB24I3mZuf
-	FQZRmJUXC8+ZQC0LTjpPUpDU7vwCMGz5xGsQgb3c5TzqQJF4HW55a6sHqUFWqikL6y28PTBXy/d
-	Q6sKX8A==
-X-Received: from plbkh8.prod.google.com ([2002:a17:903:648:b0:2cc:ed0e:f302])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:f64f:b0:2c9:fb11:1bf4
- with SMTP id d9443c01a7336-2d707aca8dcmr198971375ad.7.1787785520801; Wed, 26
- Aug 2026 16:05:20 -0700 (PDT)
-Date: Wed, 26 Aug 2026 16:04:55 -0700
+        bh=ypnv5ADnidmiHmk4i8NjwAmXQS3vAgk870JArYSva+A=;
+        b=fgHHuSwLkKcAX2afxhlbldoZwN7S5r/HUjfkzJ9TGtRShyevK35o8dFuXX4SZsncFj
+         QrvsyEhcrdJCKdeh506hVY4ylTzRfLeEeCLU2oVlHrtHQHrGOzR0ZTeZQfCJZOe2Dkjc
+         UOvtLmMrjFJFH6qxeAxZ9mcirC0zN2IS4Rds8s3i5GGBnL/BGPqM9aKXUZ8im/5aTJDV
+         +CMy4KTaDeDjjxuqRgg9wzJHD5TIQU5gnhTnKxdK2KyzeuSQMv1IU16rxsWt8INrv8OU
+         M1IFh/Ra/QCvL6XX1zuJKsxTBTzrUIJC9TbLd5JrgK29VLXAF+tbQJAPp/rPIfU3ZVDA
+         OgQg==
+X-Forwarded-Encrypted: i=1; AHgh+RphWw/V4yFshVp+lZeYm+Oj/VHrqF5A0reAk0EAR5mMczeAPwTkB5j0FD0D1MdqtfOxlW6JQ9rqC9EfGeBYgHsX@lists.infradead.org
+X-Gm-Message-State: AFuF++kr6fOK+m1pOWfkyq4RAqpEnQ1MhIXn40AmmUqdPBr2L1/6sP1v
+	M5sS/m6k4wCLjDbTsh1q42M9Tli2hSaEYF9VwzWItD/gNRMdYP99qmPuBjNvMFeKU8JU0+cfXG5
+	mJPVqIw==
+X-Received: from pghz21.prod.google.com ([2002:a63:e115:0:b0:cbe:ddc9:c670])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:a110:b0:3c3:33df:4d9a
+ with SMTP id adf61e73a8af0-3cf7596a65cmr18790428637.1.1787785522980; Wed, 26
+ Aug 2026 16:05:22 -0700 (PDT)
+Date: Wed, 26 Aug 2026 16:04:57 -0700
 In-Reply-To: <20260826230511.972824-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260826230511.972824-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.887.g758fc8c411-goog
-Message-ID: <20260826230511.972824-5-seanjc@google.com>
-Subject: [PATCH 04/20] KVM: selftests: Rename "num" param to "nr_pages" for
- physical page allocators
+Message-ID: <20260826230511.972824-7-seanjc@google.com>
+Subject: [PATCH 06/20] KVM: selftests: Extend page allocator to support
+ naturally aligned allocations
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
@@ -87,8 +87,8 @@ Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
 	Ritesh Harjani <ritesh.list@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_160522_710912_857711A6 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20260826_160525_436471_0A86A898 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,118 +104,78 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename the "num" param in the physical page allocator APIs to "nr_pages" to
-make the unit and role of the param more obvious.
+Extend the page allocator to support naturally aligned allocations, as some
+flavors of PowerPC page tables require multiple guest pages per table, and
+those tables need to be naturally aligned.
 
-Opportunistically rework the function comment to drop the superfluous
-kerneldoc style, and to very explicitly call out that success is guaranteed.
-
-No functional change intended.
+Take care to align the potential base address *inside* the retry loop, i.e.
+the base needs to be (re)aligned on every attempt.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../testing/selftests/kvm/include/kvm_util.h  |  6 ++--
- tools/testing/selftests/kvm/lib/kvm_util.c    | 35 ++++++-------------
- 2 files changed, 14 insertions(+), 27 deletions(-)
+ tools/testing/selftests/kvm/include/kvm_util.h |  2 ++
+ tools/testing/selftests/kvm/lib/kvm_util.c     | 13 +++++++++++--
+ 2 files changed, 13 insertions(+), 2 deletions(-)
 
 diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 70906a0d1003..b1c5597b1def 100644
+index b1c5597b1def..96c8251c224a 100644
 --- a/tools/testing/selftests/kvm/include/kvm_util.h
 +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -991,11 +991,11 @@ void kvm_gsi_routing_write(struct kvm_vm *vm, struct kvm_irq_routing *routing);
+@@ -991,6 +991,8 @@ void kvm_gsi_routing_write(struct kvm_vm *vm, struct kvm_irq_routing *routing);
  const char *exit_reason_str(unsigned int exit_reason);
  
  gpa_t vm_phy_page_alloc(struct kvm_vm *vm, gpa_t min_gpa, u32 memslot);
--gpa_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t num, gpa_t min_gpa,
-+gpa_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t nr_pages, gpa_t min_gpa,
++gpa_t ____vm_phy_pages_alloc(struct kvm_vm *vm, size_t nr_pages, gpa_t min_gpa,
++			     u32 memslot, bool protected, bool naturally_aligned);
+ gpa_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t nr_pages, gpa_t min_gpa,
  			   u32 memslot, bool protected);
  gpa_t vm_alloc_page_table(struct kvm_vm *vm);
- 
--static inline gpa_t vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
-+static inline gpa_t vm_phy_pages_alloc(struct kvm_vm *vm, size_t nr_pages,
- 				       gpa_t min_gpa, u32 memslot)
- {
- 	/*
-@@ -1003,7 +1003,7 @@ static inline gpa_t vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
- 	 * protected memory, as the majority of memory for such VMs is
- 	 * protected, i.e. using shared memory is effectively opt-in.
- 	 */
--	return __vm_phy_pages_alloc(vm, num, min_gpa, memslot,
-+	return __vm_phy_pages_alloc(vm, nr_pages, min_gpa, memslot,
- 				    vm_arch_has_protected_memory(vm));
- }
- 
 diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index 9ddc047d5c27..b071d77dd301 100644
+index bbf6d7684c0c..896da440659e 100644
 --- a/tools/testing/selftests/kvm/lib/kvm_util.c
 +++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -2025,33 +2025,20 @@ const char *exit_reason_str(unsigned int exit_reason)
- }
+@@ -17,6 +17,7 @@
+ #include <sys/stat.h>
+ #include <time.h>
+ #include <unistd.h>
++#include <linux/align.h>
+ #include <linux/kernel.h>
  
- /*
-- * Physical Contiguous Page Allocator
-+ * Allocate contiguous (guest) physical pages in a given memory region, at or
-+ * the minimum specific GPA.  If the memory is protected/private, also add the
-+ * allocate pages to the region's set of protected pages, e.g. so that arch
-+ * code knows which pages need to be encrypted when launching the VM.
+ #define KVM_UTIL_MIN_PFN	2
+@@ -2032,9 +2033,10 @@ const char *exit_reason_str(unsigned int exit_reason)
   *
-- * Input Args:
-- *   vm - Virtual Machine
-- *   num - number of pages
-- *   min_gpa - Physical address minimum
-- *   memslot - Memory region to allocate page from
-- *   protected - True if the pages will be used as protected/private memory
-- *
-- * Output Args: None
-- *
-- * Return:
-- *   Starting physical address
-- *
-- * Within the VM specified by vm, locates a range of available physical
-- * pages at or above min_gpa. If found, the pages are marked as in use
-- * and their base address is returned. A TEST_ASSERT failure occurs if
-- * not enough pages are available at or above min_gpa.
-+ * Note, success is guaranteed!
+  * Note, success is guaranteed!
   */
--gpa_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
--			   gpa_t min_gpa, u32 memslot,
--			   bool protected)
-+gpa_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t nr_pages, gpa_t min_gpa,
-+			   u32 memslot, bool protected)
+-gpa_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t nr_pages, gpa_t min_gpa,
+-			   u32 memslot, bool protected)
++gpa_t ____vm_phy_pages_alloc(struct kvm_vm *vm, size_t nr_pages, gpa_t min_gpa,
++			     u32 memslot, bool protected, bool naturally_aligned)
  {
++	size_t alignment = naturally_aligned ? nr_pages : 1;
  	struct userspace_mem_region *region;
  	sparsebit_idx_t pg, base;
  
--	TEST_ASSERT(num > 0, "Must allocate at least one page");
-+	TEST_ASSERT(nr_pages, "Must allocate at least one page");
+@@ -2051,6 +2053,7 @@ gpa_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t nr_pages, gpa_t min_gpa,
  
- 	TEST_ASSERT((min_gpa % vm->page_size) == 0, "Min physical address "
- 		"not divisible by page size.\n"
-@@ -2064,13 +2051,13 @@ gpa_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
+ 	base = min_gpa >> vm->page_shift;
+ again:
++	base = ALIGN(base, alignment);
+ 	for (pg = base; pg < base + nr_pages; ++pg) {
+ 		if (!sparsebit_is_set(region->unused_phy_pages, pg)) {
+ 			base = sparsebit_next_set(region->unused_phy_pages, pg);
+@@ -2077,6 +2080,12 @@ gpa_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t nr_pages, gpa_t min_gpa,
+ 	__builtin_unreachable();
+ }
  
- 	base = pg = min_gpa >> vm->page_shift;
- 	do {
--		for (; pg < base + num; ++pg) {
-+		for (; pg < base + nr_pages; ++pg) {
- 			if (!sparsebit_is_set(region->unused_phy_pages, pg)) {
- 				base = pg = sparsebit_next_set(region->unused_phy_pages, pg);
- 				break;
- 			}
- 		}
--	} while (pg && pg != base + num);
-+	} while (pg && pg != base + nr_pages);
- 
- 	if (pg == 0) {
- 		fprintf(stderr, "No guest physical page available, "
-@@ -2081,7 +2068,7 @@ gpa_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t num,
- 		abort();
- 	}
- 
--	for (pg = base; pg < base + num; ++pg) {
-+	for (pg = base; pg < base + nr_pages; ++pg) {
- 		sparsebit_clear(region->unused_phy_pages, pg);
- 		if (protected)
- 			sparsebit_set(region->protected_phy_pages, pg);
++gpa_t __vm_phy_pages_alloc(struct kvm_vm *vm, size_t nr_pages, gpa_t min_gpa,
++			   u32 memslot, bool protected)
++{
++	return ____vm_phy_pages_alloc(vm, nr_pages, min_gpa, memslot, protected, false);
++}
++
+ gpa_t vm_phy_page_alloc(struct kvm_vm *vm, gpa_t min_gpa, u32 memslot)
+ {
+ 	return vm_phy_pages_alloc(vm, 1, min_gpa, memslot);
 -- 
 2.55.0.887.g758fc8c411-goog
 
