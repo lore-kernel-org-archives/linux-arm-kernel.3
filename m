@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 406FDC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 18:21:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84096C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 18:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bvjnU/RvNADb0e9qLUeiWXcrPjao4d1WYghYICkJhk0=; b=K8zeytuY/4qJIJc3A2YnhFKVoo
-	hUHJZjEtki+wOwBCid0qwJPCV+lRGftSbLLP6vCce6ZPFY+piO5d5tXLbldiB4LDEZmF7mMzBbPU9
-	kEEyZDpsq73NujadwU6fSDYsqew0HJpyXbpD/Qz+1xzrxV+fCA8PGP0GUSBEzJGApdyG+WztqLO0q
-	rEctUl62XwvASysmM+BrmZFk0CXHHnEwfrS9DAr/HOO0XdQrhH2dLQlj3mhIgj4aGcXUBslLo1m0l
-	+yJVqV0BE+UwNVjJRBF/WvFtr123G0v31StJBfny37lG6SWuqFE+lHjaLdoAlBTi/dmmdxBIxg4D8
-	5fCsoExg==;
+	bh=KbpLNegUdhJUqXlal6WiMR1yan/qUeADHo28QDiqzQ8=; b=ktAlyGWetU7ratIzsg5Ds4MzsK
+	2GhZQmsHWJeRNmp0894ro8FEsnO9NeHOk4T2Ygwjla4pICca43phkCFXCtlvwfS2QAgFbiwLHZTIs
+	6sBYaYXkSVtk3BwaZ+JrJMS4E/Xhpy2btgwoiuR3doi8JItenpE1t+JnzlNl9mg00NRMTIaBgNyYK
+	j1cGOqSJnnERL5PXNPYhENDICInrtNzn1gyEPVtsYR0BfRH9P4DU1/iwhp72leewktDxXKgtsQ+3r
+	V1nAke1mtj9rudXXlj9fUFTAjiTJFGIiL/+BexqHjW0WY23IjDlm10lPqeRP7M6OF/nAzhylgZnA+
+	0bWihE1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzIFW-00000002rzD-0knZ;
-	Wed, 26 Aug 2026 18:21:22 +0000
+	id 1wzIKC-00000002sOJ-2oKN;
+	Wed, 26 Aug 2026 18:26:12 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzIFT-00000002rxs-3Z28
+	id 1wzIK9-00000002sNr-49RO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 18:21:21 +0000
+	Wed, 26 Aug 2026 18:26:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=bvjnU/RvNADb0e9qLUeiWXcrPjao4d1WYghYICkJhk0=; b=GBr9mD6wUCO5gtan9XqkSdHu7Q
-	zX0uovq9pQeL8KVS513UKS4UFXKp9aEEsFp2zBmpa8DhJtD87i6IqlHdJpJbaiaFnLE0Q8oZBERJc
-	KCbL4EQvODDrg+0Dxqk5y0pUVFg6T42lcB1Suy6Pp/cYxq5RSVP/DvosEA/CaEcsBsxM=;
+	bh=KbpLNegUdhJUqXlal6WiMR1yan/qUeADHo28QDiqzQ8=; b=aVJHaJShUddYszfYj5KS0Fn7g/
+	38JO1B6Cd94eVzSYVksG2RtIRamnEvT7zjxtiQi8x6b0h6lg+TYohomsu3VAbMnZjzOfkaMi05tiR
+	mxVF1JC00VwkTIEBOBD2TeiiQlyiI8bYbHptp9s1PvUbVOuc1ogzgwpiGaqA5blop2gc=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1wzIFB-001Yhh-Fo; Wed, 26 Aug 2026 20:21:01 +0200
-Date: Wed, 26 Aug 2026 20:21:01 +0200
+	id 1wzIJq-001YlU-Am; Wed, 26 Aug 2026 20:25:50 +0200
+Date: Wed, 26 Aug 2026 20:25:50 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
@@ -61,18 +61,18 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
 	linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net 4/6] net: stmmac: dwxgmac: Account for the primary
- MAC address for UC filtering
-Message-ID: <a8174fa4-4c10-4b45-972b-76f353c87f9b@lunn.ch>
+Subject: Re: [PATCH net 5/6] net: stmmac: selftests: Account for the UC
+ filter list for filtering tests
+Message-ID: <0a27797f-f7de-4e56-81d5-72571846c3ec@lunn.ch>
 References: <20260826140500.616466-1-maxime.chevallier@bootlin.com>
- <20260826140500.616466-5-maxime.chevallier@bootlin.com>
+ <20260826140500.616466-6-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260826140500.616466-5-maxime.chevallier@bootlin.com>
+In-Reply-To: <20260826140500.616466-6-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_112119_888853_BEDDEA69 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20260826_112610_101029_84DBEFEB 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,12 +87,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 26, 2026 at 04:04:56PM +0200, Maxime Chevallier wrote:
-> The same filter slots are used to store the main MAC address as well as
-> the address for the unicast filter. Let's account for that when deciding
-> whether or not to use promisc when programming the UC list in hardware.
+On Wed, Aug 26, 2026 at 04:04:57PM +0200, Maxime Chevallier wrote:
+> On dwmac, one of the Unicast filter entries is used to store the local
+> HW addr. This means that we have to use promisc mode for any kind of
+> unicast filtering if we only have one slot in our unicast filter.
 > 
-> Fixes: 0efedbf11f07 ("net: stmmac: xgmac: Fix XGMAC selftests")
+> The number of slots available depends on how the IP is integrated, and
+> we can't autodiscover how many of these slots we have available, so
+> the DT property snps,perfect-filter-entries can be used to specify how
+> many are available.
+> 
+> Most IP variants default to 1 if this isn't specified, which is the case
+> for the amlogic variants (in this case, S905X3).
+
+Do you have this hardware? Did you try increasing the DT property to
+find out how many slots it actually has?
+
+Maybe a nice little project for a newbie which has some stmmac
+hardware. Write some code which adds MAC addresses and reads them back
+again. Determine at runtime how many slots there actually are.
+
+> Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
 > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
