@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E99A6C5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 15:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714B7C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 16:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+zvkuLBS5kN0dE2ru9sc83bhYR6xAZIN/lkuUx7s1rk=; b=sL2qX8SD7pKFOVD1v0LoqvCCcd
-	FptlaHnnwJkNzugI6YIjrLc/NBNNRNEH+unfZ/bzM2dQ9KFuhjy3zCaHR/cMWclRZXffvB++cUJLj
-	KjgIkW3Ze0nNM+AbLQaRPpVmhfS0t28VKmlbX5yAP+7Txoj1yPUfzq+oAGXhZuC+t1nOAyfrOmReC
-	/gUaIX1Kc6OyAeT3slI6g9CwDEZ6yQG6agHt0k5eH55EYvPKPJ5j9dm7qsvrhepYvC+kIMlMESr1A
-	u+BJQq927rVGrYCr8CsSC2fa/W7H+MBMZ+jqw7/WDFHazlJB9WuPkGa4NOv4dtWSZ1FuJ8m3I3Tb9
-	99bGJLGg==;
+	bh=A2tCkHhAnhJUieAoIFUwqetCNrCTpIRrvxTeG80BJcI=; b=eyJSi2a/x68UpsVFv2wqIpO4VC
+	iVsUwR7N50T7B7OdI6WHYRg/95QhOpgCmaDILhco6Vt2/M5tfvk4AUyMu1fY6bHMrwKv8MUqCh1AJ
+	tf5yh/O7ndc77HpQ1S0O13D++DAvW+POR1Axzw3oU4enV+4sDLlIv4tUpPEolsmwiQSzShDKTYD3E
+	q/o1LJ4U1iVpz/Ld3bcZ7ssTVAWgQiJvrq0aOvUjdjBUCzq2Ar0DpNNe6DSLjiw0DpviRaFwpz5eI
+	fS539PUkkSt55tHC5Dlw5WDo+VDQZ+fUgD506NWTSdIf9N0dWxgXzdDAd1YSoO5QxCHXEczhzYdb+
+	7IZx99Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzG0k-00000002hYl-283V;
-	Wed, 26 Aug 2026 15:57:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wzG4y-00000002hoM-0g7p;
+	Wed, 26 Aug 2026 16:02:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzG0j-00000002hYf-02pL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 15:57:57 +0000
+	id 1wzG4x-00000002ho8-3HJf;
+	Wed, 26 Aug 2026 16:02:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 770AC418E1;
-	Wed, 26 Aug 2026 15:57:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42F901F000E9;
-	Wed, 26 Aug 2026 15:57:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 132776001D;
+	Wed, 26 Aug 2026 16:02:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F248F1F000E9;
+	Wed, 26 Aug 2026 16:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787759876;
-	bh=+zvkuLBS5kN0dE2ru9sc83bhYR6xAZIN/lkuUx7s1rk=;
+	s=k20260515; t=1787760137;
+	bh=A2tCkHhAnhJUieAoIFUwqetCNrCTpIRrvxTeG80BJcI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hn4sEiodCLZJ6ZQ4HtQf22da+N6rNnUyB+5+xzJU+csx7ycH8p6d9BiHjOMdi/CdO
-	 aX7WNzaI1zz9FRJSowxDpeEzuc+WdOHT/cuQuUduOYShwxYhmJGVioiegtF15vm3QH
-	 FTJzdpNtNdIXUm2DjbYbVCHdtcupa+o7RwF6uhaWN1idh91718mQL+NFj4D4zEJc5W
-	 1/ZrzZXFPuuHA+px+Hp8WOHMNeFC9nA1xir8YHWrGr9tBXvDG1uN40pau7foz6sukk
-	 enGhajoAXdqyZyKY/skV6wGSw3WBuI4Bf+LRCClf635JvWc9Rs91no5hrEUkgcriAK
-	 2gpvrHcSNl2ag==
-Date: Wed, 26 Aug 2026 16:57:49 +0100
+	b=hTuCTctgZTYuRNeOUOL3Dh8vVZl2dFrmaatOn/Y7BhOSDxGpqMQt5TgUGz3GrV158
+	 taSnjYbCC5ZrRhPXrRS71rSq5QJCwjpDgtVJEHDMqTdFQKzcwKJ2KPthSO/qdTKrL/
+	 sZ3XiSV4J87OO8PNpYpoI0+pKr0mWH/pb5MABxRPmJ4nW9KO3tL8ouK16T1hoA7arl
+	 ZxcY/O+MlNMfH/xTOtGARX3Hjbgll56apmb6aZ2VyeJsY6tbs/yYLWzLmcbVZ29IDC
+	 qhZqlnDf94wDy39JS1Q7GxM6mwCCo4SpRcVNbl77JeNXlqEx+7YaMROH2zM1R16riK
+	 jcK7xn/2Js4ig==
+Date: Wed, 26 Aug 2026 17:02:13 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Larisa Grigore <larisa.grigore@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Avri Altman <avri.altman@sandisk.com>,
-	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
+To: Julien Massot <julien.massot@collabora.com>
+Cc: kernel@collabora.com, Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
-	"Martin K . Petersen" <martin.petersen@oracle.com>,
-	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
-	Ajay Neeli <ajay.neeli@amd.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Pedro Sousa <pedrom.sousa@synopsys.com>, clizzi@redhat.com,
-	aruizrui@redhat.com, eballetb@redhat.com, echanude@redhat.com,
-	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH 06/10] dt-bindings: ufs: Add compatibles for S32N79 Host
- Controller platform driver
-Message-ID: <20260826-surely-sandal-64ca2d2c4481@spud>
-References: <20260826134048.854748-1-larisa.grigore@oss.nxp.com>
- <20260826134048.854748-7-larisa.grigore@oss.nxp.com>
- <ao75lU2zYDeOZi2f@SMW015318>
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: phy: mediatek,xsphy: add optional
+ repeater phys property
+Message-ID: <20260826-phosphate-churn-06da285b0c0f@spud>
+References: <20260826-mtk-usb2-repeater-usb2-v1-0-e8e48e2fd6d8@collabora.com>
+ <20260826-mtk-usb2-repeater-usb2-v1-1-e8e48e2fd6d8@collabora.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5vEWqBk1JjVncxTQ"
+	protocol="application/pgp-signature"; boundary="Slhqmh3WOacDfSwh"
 Content-Disposition: inline
-In-Reply-To: <ao75lU2zYDeOZi2f@SMW015318>
+In-Reply-To: <20260826-mtk-usb2-repeater-usb2-v1-1-e8e48e2fd6d8@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,97 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---5vEWqBk1JjVncxTQ
+--Slhqmh3WOacDfSwh
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, Aug 26, 2026 at 09:35:01AM -0500, Frank Li wrote:
-> On Wed, Aug 26, 2026 at 03:40:44PM +0200, Larisa Grigore wrote:
-> > [You don't often get email from larisa.grigore@oss.nxp.com. Learn why t=
-his is important at https://aka.ms/LearnAboutSenderIdentification ]
-> >
-> > Document the device tree binding for the NXP S32N79 DWC-based UFS host
-> > controller which is compliant with JESD-223D "Universal Flash Storage H=
-ost
-> > Controller Interface" v3.0.
-> >
-> > The controller requires access to the SCM register block and the core
-> > clock rate when M-PHY initialization is performed. Add the optional
-> > nxp,mphy-boot-mode property to select the M-PHY firmware execution
-> > environment.
-> > Currently, the M-PHY firmware can only run from ROM. If the property is
-> > omitted, M-PHY initialization is assumed to be handled externally.
-> >
-> > Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
-> > ---
-> >  .../bindings/ufs/nxp,s32n7-ufshc.yaml         | 99 +++++++++++++++++++
-> >  1 file changed, 99 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/ufs/nxp,s32n7-ufs=
-hc.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/ufs/nxp,s32n7-ufshc.yaml=
- b/Documentation/devicetree/bindings/ufs/nxp,s32n7-ufshc.yaml
-> > new file mode 100644
-> > index 000000000000..d9d5669be313
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/ufs/nxp,s32n7-ufshc.yaml
-> > @@ -0,0 +1,99 @@
-> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/ufs/nxp,s32n7-ufshc.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: NXP S32N79 Universal Flash Storage (UFS) Controller
-> > +
-> > +maintainers:
-> > +  - Larisa Grigore <larisa.grigore@oss.nxp.com>
-> > +
-> > +# Select only our matches, not all jedec,ufs
-> > +select:
-> > +  properties:
-> > +    compatible:
-> > +      contains:
-> > +        const: nxp,s32n79-ufshc
-> > +  required:
-> > +    - compatible
-> > +
-> > +properties:
-> > +  compatible:
-> > +    items:
-> > +      - const: nxp,s32n79-ufshc
-> > +      - const: jedec,ufs-3.0
->=20
-> Any place actually use this fallback?
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-I don't think that this exists anywhere already:
-https://lore.kernel.org/all/?q=3D%22jedec%2Cufs-3.0%22
-$ git checkout korg-next/master=20
-Previous HEAD position was 2697ef8943c9 Add linux-next specific files for 2=
-0260813
-HEAD is now at f82a5da2f049 Add linux-next specific files for 20260826
-$ rg jedec,ufs-3.0
-$=20
-
-So not entirely sure what the point of this actually is, if the driver
-doesn't use the fallback.
-
-pw-bot: changes-requested
-
-Thanks,
-Conor.
-
---5vEWqBk1JjVncxTQ
+--Slhqmh3WOacDfSwh
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCao8M+QAKCRB4tDGHoIJi
-0g41AQCGpkSGcoAvf+CzvNuvNHv3yKhESnto+t6iakbMYinbeQD+KGZ2lO97yx4I
-pYak7Fs9jzkDftZfbefu6CGhyBZr/AM=
-=7Ege
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCao8OBAAKCRB4tDGHoIJi
+0k4+AQDUm2QUPhWgZ45GL8qPZVL+UlFrND1Hjkl5dEzc8QNDtwEAz/kB6ZPUpBNQ
+tLL2hWIYvJKTOwtT9FGCc456h7rwBQw=
+=YZCc
 -----END PGP SIGNATURE-----
 
---5vEWqBk1JjVncxTQ--
+--Slhqmh3WOacDfSwh--
 
