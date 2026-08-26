@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D2BBC61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 23:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF42C61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 23:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=heZN2DuvfOxZirlVdynH6v1916EkfGJKRv4e6fIVLjM=; b=CSegmn9qWC7tbUPNIEifrDDIXm
-	8tZgO1Jkr8etS1r3mb7z5uyRFAu6nhhvfVh7uCfu/ByiBQbI20LMQHqeq4cb+9MXvbTxeKdfvziBt
-	L6Zk+4AF9E9ubcDouJR8wY+4Y2aUAMQWvaLBxJBXFfyIup7Li4IXdp5GZ77zp3t/iTBgaXERqiDVG
-	WOMTSs7Djji9XMlm+U4MWi0YMU5lCKfvujTSogFDHDYtfkwvb5EmGe3ZZrTjcIObdDk7rQPx9xQ7J
-	jW4NfSJsgcJkq6gE0JJaYFbs+ii95GNFwP8hk+aUjmaB4hcvCthDwMJyUEbtdUzKLGbXWqrJE+Ucm
-	WNdOtXUA==;
+	bh=N89bCfABJreQrIt289fAG+G+a6K8qwfLKTGSVLeSHrg=; b=0o6FpBuyLkllne8lW2GIyrBHiG
+	QW5qDY0rC/EmlX479vwpnhjulcx65vCozsPQx/ijfzyKLB0Odf5Jqh4AzRb7GRoXS2OuTkPzFAzrv
+	V9Gr0RC8OcsC8fRWRayeytl7gJRi1/UY/URfGdcPSw+wznDRqPiVuqbn8ISf9U5i1I0fyUE5fHbeg
+	LianEUhOwgkjAi9prscL2pilj5cQTxq416ie2w12FzznZ0GtW6j1qEHDN8VU1bIDqeVGjCKlgUZDO
+	W2SsWpi697ptYLBSXn21RpAgWAw8JKffUaXkeWCr5fhjrwleVkMnsY6h2Yb+GOOHiMz6+XkcW99QZ
+	nuaf3HqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMi9-000000038bf-0e3s;
-	Wed, 26 Aug 2026 23:07:13 +0000
+	id 1wzMi6-000000038Wh-2rZg;
+	Wed, 26 Aug 2026 23:07:10 +0000
 Received: from mail-pg1-x545.google.com ([2607:f8b0:4864:20::545])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMgd-000000036OR-39Yb
+	id 1wzMgV-000000036H6-0qSg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 23:05:45 +0000
-Received: by mail-pg1-x545.google.com with SMTP id 41be03b00d2f7-cbee6bb8408so1759050a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:05:38 -0700 (PDT)
+	Wed, 26 Aug 2026 23:05:34 +0000
+Received: by mail-pg1-x545.google.com with SMTP id 41be03b00d2f7-cc1c18c775eso410637a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:05:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787785538; x=1788390338; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787785530; x=1788390330; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=heZN2DuvfOxZirlVdynH6v1916EkfGJKRv4e6fIVLjM=;
-        b=ADBVkLKecQrkwDVl/unH5rAzGHln0tbIiRrKbcKKF1+5qcBhirK2J3L5aBoVHO/BCE
-         562iODdbhK57HkByBhDF7bYQeZ7c74p4w/wpPS+jqeQ/KBzFGi63nCuWZ1Qg6EdLa01A
-         rAGyz7eYmSUtsbuj4ueCrIcTDqF4AYAmZIuA7CPtbXYc66W18ZtdsXHnr9N7nSr/7Fwi
-         sW4gqMoArfurWoHqtWwnL4aUTHh4eZxRigmwfejTYPnWvPtLbT6Tnd5TQIGogOOL7x59
-         VU1iIMKTCv2F62rWBwGCKwEwV4N3G87SSjwTYg0hGotJqop9/rrSUgrlQv+FPljiv7bi
-         FSPw==
+        bh=N89bCfABJreQrIt289fAG+G+a6K8qwfLKTGSVLeSHrg=;
+        b=g3BwB12bGIUqjIreCkj8IZhWQMpfqL0SI9qJMgA8RMdZuce2g6Y6GPXg7kptULIBTa
+         7MyepbM23VvsTNA1jcOxnB/s8XuR2ibpuV+zaeLOcmRZRmDqlfwSey2Frn2Cqi4pa6I+
+         xbwU/KT8hhDeExpliZU5xaNIBJXgSD4jEzkwnWFK4KdW98Pv9wrFpd1SEQtsqGB6SxWi
+         Cj6o5FxX1MtEBJi5uJcixi49gXwC/hLe+ptTlc+oFwWkmk4HguerVuaftmRuuE99LvCM
+         AfnBpQ5q+6W5NSVD46A2Y/DKzN3zcHMPeeBZjNK8Y1fG883LUdbucPfHqXCZ0WwbIY8V
+         WVqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787785538; x=1788390338;
+        d=1e100.net; s=20251104; t=1787785530; x=1788390330;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=heZN2DuvfOxZirlVdynH6v1916EkfGJKRv4e6fIVLjM=;
-        b=m8zeeVbUL+oNPjtFf9Nxa2s6QzumoMkMQV5Cx9th9GPifB7ICeVcdFvAGP3TaPvu3K
-         M1CNokNZONoYauwpQD8rW8fwTuld3DW0Rz7tBCEk7BizW5Au+kTZi+2CIRq84TQ9TwR8
-         fLEHVZCkhsv5JadoyRP+5EHMJwdIWFOX3rRbplmjhZkh03ewgHS6qiqv7BCGCBpB2xzI
-         tzq4jJ/4fxYuhygahlg6eJF7o/avL9wt/NiTK3KlyFwweVET3w7DcFB110tUjz0NatFt
-         WENiU6lblQnjxTnYzw7QP6oBaAgPJlQryPxA7lgeTl4ViqVbD/tRJLHStYMbGfNa2BWT
-         njaw==
-X-Forwarded-Encrypted: i=1; AHgh+RpHQjv0IzBuBaRWFGUR3qOJn7T+X7sS4UgpTAJNfMjwlGcfAlXELGE/o6r9A0RJ12jA1X5F/VXHhHYQpw/519s1@lists.infradead.org
-X-Gm-Message-State: AFuF++mHFhHxmhpKotHRj2bO0SbcikmUGr3JekvEaoc+RpA9THhcaisY
-	mrNYPYN5GMTe0K3EGINSB3PcAlcmJ+75+U4aRKSW1oDhT4y9Kwgg3XpA9WrPWKjdAfTCRRR8lnC
-	clzUzBA==
-X-Received: from pgce14.prod.google.com ([2002:a05:6a02:1ce:b0:c9e:3c0b:5818])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:2013:b0:3d1:3c2:85b6
- with SMTP id adf61e73a8af0-3d103c28dfdmr4039415637.5.1787785538103; Wed, 26
- Aug 2026 16:05:38 -0700 (PDT)
-Date: Wed, 26 Aug 2026 16:05:09 -0700
+        bh=N89bCfABJreQrIt289fAG+G+a6K8qwfLKTGSVLeSHrg=;
+        b=oULzVAZMvkOAQucohQeZbWd9QagfjyQC3DSjpFIcicueoI05g3+QNKeon21He4X+GS
+         WfWMx/iaioR+sYqRfC7BPF/e2Zkfdy6b/zKuUvhlrkQA0srrzV6d7gnZ7naMCOUFAnMv
+         gzpkTjr+xVwX570mRvXiZldeCMYiK4+UiPJRnZ49P5JdsgA+qd2Wiwxvbr8nGIW4A8Nr
+         2yzT2KzE/9Vbks2piG2t7LA7Is+T5t+fnnN1tCoT9FHG2fNc0ug5Y8spfa7eGp1PVdoN
+         8RTRqSK2nL5NywyOEUDXj9Bcxgm51ihuAwgC1XVCTnBqrjoqqVJDCaoq/pWm1TTRj4/j
+         166A==
+X-Forwarded-Encrypted: i=1; AHgh+RrvOwC31F+fh/KiJUpilk7y6FrIKckb/gjOLoL/SH2ws2ioE21ZViGnZdw6S5hmVFU/ucAiX9yQAiRlSCnbUtYT@lists.infradead.org
+X-Gm-Message-State: AFuF++nvwrPmxndjBRkB9YWJly5fM/ih1S9Tm1aNqQZdIoIc+6L4FTIq
+	oGxlCmDuDtGIszPGnZ5D6QGst+i52GSiRU/vb8CDe7v4/vVuwGOL5oHAgN0U/IqkUUPBrU4Oh1s
+	VCHvt+g==
+X-Received: from pgkj19.prod.google.com ([2002:a63:e753:0:b0:cc1:517a:d29])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:4388:b0:3b2:8674:9830
+ with SMTP id adf61e73a8af0-3d0f6d2abaemr2865141637.14.1787785529701; Wed, 26
+ Aug 2026 16:05:29 -0700 (PDT)
+Date: Wed, 26 Aug 2026 16:05:02 -0700
 In-Reply-To: <20260826230511.972824-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260826230511.972824-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.887.g758fc8c411-goog
-Message-ID: <20260826230511.972824-19-seanjc@google.com>
-Subject: [PATCH 18/20] KVM: selftests: Use TEST_ASSERT(), not assert(), in vm_get_mem_region()
+Message-ID: <20260826230511.972824-12-seanjc@google.com>
+Subject: [PATCH 11/20] KVM: selftests: Initialize vm->memslots[] with invalid
+ memslots during creation
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
@@ -86,9 +87,8 @@ Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
 	Ritesh Harjani <ritesh.list@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_160539_964682_99994AF8 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260826_160531_712147_C9E7356F 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,29 +104,78 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a proper selftests TEST_ASSERT() in vm_get_mem_region() so that bad
-input is guaranteed to fail the test, and with the standard error message
-format.
+Initialize vm->memslots[] with an invalid memslots value during very
+initial VM creation so that failure to configure the core memory regions
+generates an immediate assert instead of potential weirdness, e.g. if slot0
+is coincidentally valid.  This will also allow hardening the region APIs to
+guard overriding a region's memslot multiple times.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/include/kvm_util.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ tools/testing/selftests/kvm/include/kvm_util.h  | 2 ++
+ tools/testing/selftests/kvm/lib/kvm_util.c      | 5 +++++
+ tools/testing/selftests/kvm/lib/x86/processor.c | 5 ++++-
+ 3 files changed, 11 insertions(+), 1 deletion(-)
 
 diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 783f060faf9e..a0cd1b6598d4 100644
+index 21354434de0a..70e77992dd2f 100644
 --- a/tools/testing/selftests/kvm/include/kvm_util.h
 +++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -198,7 +198,8 @@ memslot2region(struct kvm_vm *vm, u32 memslot);
- static inline struct userspace_mem_region *vm_get_mem_region(struct kvm_vm *vm,
- 							     enum kvm_mem_region_type type)
- {
--	assert(type < NR_MEM_REGIONS);
-+	TEST_ASSERT(type < NR_MEM_REGIONS,
-+		    "Invalid memory region type '%u'", type);
- 	return memslot2region(vm, vm->memslots[type]);
- }
+@@ -33,6 +33,8 @@
  
+ #define NSEC_PER_SEC 1000000000L
+ 
++#define KVM_INVALID_MEMSLOT UINT_MAX
++
+ struct userspace_mem_region {
+ 	struct kvm_userspace_memory_region2 region;
+ 	struct sparsebit *unused_phy_pages;
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index ce0d8fba4624..56df5b1d9c79 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -288,6 +288,7 @@ __weak void vm_populate_gva_bitmap(struct kvm_vm *vm)
+ struct kvm_vm *____vm_create(struct vm_shape shape)
+ {
+ 	struct kvm_vm *vm;
++	int i;
+ 
+ 	vm = calloc(1, sizeof(*vm));
+ 	TEST_ASSERT(vm != NULL, "Insufficient Memory");
+@@ -296,6 +297,8 @@ struct kvm_vm *____vm_create(struct vm_shape shape)
+ 	vm->regions.gpa_tree = RB_ROOT;
+ 	vm->regions.hva_tree = RB_ROOT;
+ 	hash_init(vm->regions.slot_hash);
++	for (i = 0; i < NR_MEM_REGIONS; i++)
++		vm->memslots[i] = KVM_INVALID_MEMSLOT;
+ 
+ 	vm->mode = shape.mode;
+ 	vm->type = shape.type;
+@@ -1190,6 +1193,8 @@ memslot2region(struct kvm_vm *vm, u32 memslot)
+ {
+ 	struct userspace_mem_region *region;
+ 
++	TEST_ASSERT(memslot != KVM_INVALID_MEMSLOT, "vm->memslots[] unpopulated?");
++
+ 	hash_for_each_possible(vm->regions.slot_hash, region, slot_node,
+ 			       memslot)
+ 		if (region->region.slot == memslot)
+diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
+index d31fa81ea075..ea5fa59888af 100644
+--- a/tools/testing/selftests/kvm/lib/x86/processor.c
++++ b/tools/testing/selftests/kvm/lib/x86/processor.c
+@@ -529,7 +529,10 @@ void tdp_identity_map_default_memslots(struct kvm_vm *vm)
+ 
+ 	/* Only memslot 0 is mapped here, ensure it's the only one being used */
+ 	for (s = 0; s < NR_MEM_REGIONS; s++)
+-		TEST_ASSERT_EQ(vm->memslots[s], 0);
++		TEST_ASSERT(!vm->memslots[s] ||
++			    vm->memslots[s] == KVM_INVALID_MEMSLOT,
++			    "Unhandled memslot '%u' for type '%u'",
++			    vm->memslots[s], s);
+ 
+ 	i = (region->region.guest_phys_addr >> vm->page_shift) - 1;
+ 	last = i + (region->region.memory_size >> vm->page_shift);
 -- 
 2.55.0.887.g758fc8c411-goog
 
