@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B15AC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 14:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68C2DC5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 14:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VhEMOZBfPvbotP4mJSctwIV46O5jNxmqqQ0vWmXGO/4=; b=YlD26rvUQH6eT+zZpcIQctmh7k
-	i2jtmc4emNRDBXqFKuLxjVj4/dlfuyjbVqugfD1Qy+i0fKDV2OKSUClm8OG76IPKNTnnBOJQMm9TS
-	zW1dXV1IEq972i51dOav7Jxp+N3cEBMM4OFbbUbz8fDkWnOydv4nucXln8ADrpHhzFmAT4VJHlFA1
-	xnyLs/ABIcGWxv4JSFQxbRShciKsfOCsCZB/bR+B50zVVyOFSUfz58Gn0eHaik76to9lueDH1IE6n
-	mqm3Csj+Mty++Z7WTkirBxCFEFBJ1A2qqthEg1qi8NLxn/GpxI3yXpWmLQM4ia2VKiyS+kvP+1RO0
-	OthnNswg==;
+	bh=Zzj4GVc4/x2SELeaKUar7dAIv8TFPTU4PPNQ7zCE1Ak=; b=PImlbwzGWVtlX7h2zO5H68o+7e
+	bmufKnwte+Ay46d8USJq6icCMVAIH2cDn3+JUf1E6uLNNCAWRfCXnhLgIrAlpzdeG+VmtRSYTfdNx
+	8wbA/SjkrVTE55Pw1inglZAPjGzQVgan330irE7Hee9Y2Wbl8KFV6dqKOl4yGlEx78oZGg4GIwRHF
+	qdAWj9yy3S36y64vVyipY96VQubleGfkfy/Kxa8JrL+PM2QaSCfL8Zkm1rrKTO/e2MLIW1H8tEipQ
+	rhvffCygl4uC1li6yrD7DpRyZoQ18BRiy1EZ0NSAjntmWY1PGVptadRk/2ScuJDnlLgwzO5hA3MMP
+	Xcst9JwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzEG2-00000002YyS-1WcC;
+	id 1wzEG2-00000002Yyt-3w75;
 	Wed, 26 Aug 2026 14:05:38 +0000
 Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzEFs-00000002YvD-1oXK
+	id 1wzEFv-00000002Yvu-02Aj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 14:05:30 +0000
+	Wed, 26 Aug 2026 14:05:32 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 3064F1A1846;
-	Wed, 26 Aug 2026 14:05:26 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 8FF181A1842;
+	Wed, 26 Aug 2026 14:05:29 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 03299604EC;
-	Wed, 26 Aug 2026 14:05:26 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 637E111C78258;
-	Wed, 26 Aug 2026 16:05:20 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 63D0C604EC;
+	Wed, 26 Aug 2026 14:05:29 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BF0B511C78266;
+	Wed, 26 Aug 2026 16:05:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1787753124; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1787753127; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=VhEMOZBfPvbotP4mJSctwIV46O5jNxmqqQ0vWmXGO/4=;
-	b=hAxFsAcctP44imj+TPmS83tKVy954AaLdZ6ZOaamcFulcx2Dv+BfCTL0JFfMKXyhyxOs06
-	RD3Q6d3DcjqmXUO8ZPVisXab+E1YuEG66+91F4AZvwCkr0Kl73teud7EfNc2V/7PKbtySC
-	ZOVtmDanBzNt8nfIyRmfF/UbyeKGR/3gJXJxdrexq1fvIAInuXcl4NBmbI7kqrzI1jeFQT
-	Hmc8WY344a5M7shEiur0U2TS147N3l9nRyByeKjt+wkTYS0JS7WbWcX4EEqCyvk1J/gU2Y
-	7ASpstgnDMgvmGK8nqiqPsMZoT8PIvtLD823WSA8//sX9eYR8I+coDUG1EQWyA==
+	bh=Zzj4GVc4/x2SELeaKUar7dAIv8TFPTU4PPNQ7zCE1Ak=;
+	b=FfjLbO664rsEBix13EAJ7rDB6BedWoXbIoLiMiDoGGVO9GskY0XSHj0MNByvCpwj/BC4MH
+	H5q5XGbiBe/WvP8CGoLk1+m+OlWSAIhEiggprCjdKirInkVJekII270a1bc9Gi2twAk/aC
+	Wu5fCfpKA2egZZol0QidPvAQipS15aUTMgs/VkS4ljodqE6bs/6i2JgUofj5E5WUJf1c96
+	AjiDE3E8daeVA1fZv7QEGqQWT9b3Zz3l0QXZ0rW41JtZWWaRgtX844qbH/nEIv45mjx2+/
+	xj/AJrxpYZUwynLVQMdss3HRmWj5uMRvP5ZVP1m9mgCjXqurDNKvCnwI4dXGig==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	davem@davemloft.net,
@@ -70,9 +70,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	thomas.petazzoni@bootlin.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH net 1/6] net: stmmac: selftests: Check multiple MMC counters
-Date: Wed, 26 Aug 2026 16:04:53 +0200
-Message-ID: <20260826140500.616466-2-maxime.chevallier@bootlin.com>
+Subject: [PATCH net 2/6] net: stmmac: dwmac1000: Account for the primary MAC address for UC filtering
+Date: Wed, 26 Aug 2026 16:04:54 +0200
+Message-ID: <20260826140500.616466-3-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260826140500.616466-1-maxime.chevallier@bootlin.com>
 References: <20260826140500.616466-1-maxime.chevallier@bootlin.com>
@@ -80,8 +80,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_070528_749269_E7756C36 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20260826_070531_373113_1A7B6C63 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,56 +96,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MMC counters report MAC statistics. Multiple counters can be
-enabled when the IP is integrated, however there's no way to know
-exactly which ones. Un-implemented counters seem to report 0.
+The same filter slots are used to store the main MAC address as well as
+the address for the unicast filter. Let's account for that when deciding
+whether or not to use promisc when programming the UC list in hardware.
 
-It was found that on StarFive JH7110 and Amlogic SM1, the counter that's
-used by the selftest (mmc_tx_framecount_g) isn't implemented, triggering
-an MMC selftest failure.
-
-Both the above SoCs seem to implement mmc_rx_framecount_gb, let's use
-this counter as well for MMC counter validation.
-
-Note that this doesn't guarantee that we won't encounter the same issue
-again if another IP implements yet another set of counters that don't
-include that new one.
-
-If the game of whack-a-mole with implemented counters becomes too hard to
-maintain, we may simply consider removing the MMC selftest entirely.
-
-Fixes: 091810dbded9 ("net: stmmac: Introduce selftests support")
+Fixes: 47dd7a540b8a ("net: add support for STMicroelectronics Ethernet controllers.")
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_selftests.c | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-index a2b917dd60e5..14db0c0e0ba9 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
-@@ -395,11 +395,17 @@ static int stmmac_test_mmc(struct stmmac_priv *priv)
- 	stmmac_mmc_read(priv, priv->mmcaddr, &final);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+index caac85fc08f1..d4ace3924891 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+@@ -194,7 +194,7 @@ static void dwmac1000_set_filter(struct mac_device_info *hw,
+ 	dwmac1000_set_mchash(ioaddr, mc_filter, mcbitslog2);
  
- 	/*
--	 * The number of MMC counters available depends on HW configuration
--	 * so we just use this one to validate the feature. I hope there is
--	 * not a version without this counter.
-+	 * The number of MMC counters available depends on HW configuration,
-+	 * and there doesn't seem to be a way to enumerate the implemented
-+	 * counters.
-+	 *
-+	 * Let's check a hand-picked set of counters, knowing that :
-+	 *  - Starfive JH7110 doesn't implement mmc_tx_framecount_g
-+	 *  - Amlogic SM1 doesn't implement any mmc_tx_*
-+	 *
- 	 */
--	if (final.mmc_tx_framecount_g <= initial.mmc_tx_framecount_g)
-+	if (final.mmc_tx_framecount_g <= initial.mmc_tx_framecount_g &&
-+	    final.mmc_rx_framecount_gb <= initial.mmc_rx_framecount_gb)
- 		return -EINVAL;
- 
- 	return 0;
+ 	/* Handle multiple unicast addresses (perfect filtering) */
+-	if (netdev_uc_count(dev) > perfect_addr_number)
++	if (netdev_uc_count(dev) + 1 > perfect_addr_number)
+ 		/* Switch to promiscuous mode if more than unicast
+ 		 * addresses are requested than supported by hardware.
+ 		 */
 -- 
 2.55.0
 
