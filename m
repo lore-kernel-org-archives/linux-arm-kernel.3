@@ -4,107 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAB3BC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 19:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D95CC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 19:08:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l0/18a+jAXPQl28qEPQ6uj9wzdNRM90aKlsTE3XVMSs=; b=28/kbfcgRrnwct/sTBimR3C09H
-	NM4yzE2UhENLRPj3Utleq4maLf1smukUnuP2U1sp1bb4nFw/tCAJau42O+S4sdJM/tgLDcpZIDywm
-	84A2dY5kbEoLcaSKWjs5peB4SqZrf6zN0jSQ0yDdkcNxRg1eYUzjQaK7RG8IZjbik7LaHl+gx6Htu
-	ZLbfqRY5PD4PJJMN9BB+GrPNjrfb6np78xmsaPwL1TMokJfrq5J+mB7WGp5f2VHARXruzraN4ILN4
-	CDyf2vRM1PEXv0yDcFmkX+TjdNgjoM7Qc0DR6f2EhdEOh3EIjPzHJQJm2ovSZaVwcIHvnhzCH8bTw
-	62+Y4mDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r+JAqUxprDtXjR/ovr/oecZePvC1qI6a32cUDBoL56k=; b=ECyWoj6gdFcperH3aRN4ZIMzYb
+	P7rhJbda0Sfdy5moEPtauwjxF6U1oGxuJM57l4bV/NVoxtsA6ngvM0lRbjugzej53CihJR06lsZ/9
+	PC15anLcWEUoX6FqCzpIc8m+CRWJk9uubsjK9Kb5cKyQtHi4sKZCtghCSNBaYyUk5D+PK6TFVg2Jk
+	EQPU7qKD+Du2ey6s84vyMsemKOfKozeas8swzRkWW0d7F4LTg/Ww3bJno9wZ5FholyEcuHkxGefJF
+	fVliKmh4x6celfW0MHQ1FDBMEU/M/rP/p7Sy6T1SekqlqqSmJw1oXhIY9cwc31ls/floLiiKCqQXc
+	YOGhSryw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzfPH-00000004flW-0zPe;
-	Thu, 27 Aug 2026 19:04:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wzfSk-00000004g7o-2vZ9;
+	Thu, 27 Aug 2026 19:08:34 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzfPF-00000004flM-11E8
+	id 1wzfSh-00000004g6n-2YkX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 19:04:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 409D3600D9;
-	Thu, 27 Aug 2026 19:04:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBA021F000E9;
-	Thu, 27 Aug 2026 19:04:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787857496;
-	bh=l0/18a+jAXPQl28qEPQ6uj9wzdNRM90aKlsTE3XVMSs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=IlYnxvrh2yDgFzTmXYpXAblj4oY6DF62sHqpe9c1DGkpNWRoTeFoataC7x+TPDk+D
-	 5ZpoJDkYw5xUrFJSK9rIzvGFROXkjqIK/sj1//S8MEoMhpvZ7egEv+DR0tAWav6VAh
-	 Tk+z/ORfHyrXgtbx8UFQeGO3ds9ogqUc8uPJQdJbp4XBJaSTIQ7p0zNQAMZrBtLR9I
-	 Ma7+fmGyJlg9zJigXjp+fagb/cUpv8EuVCgbkmt4n2wplDJVsZ5mtSuY9VOGlyPBCZ
-	 R9hijTRWxt0jrSJFewQ28XCNVr7u/CA1FwfhVLiDHcQJjxmpPqzycazMIaFgODYIha
-	 v71IFBB7rBzqg==
-Message-ID: <bbd45126-8d43-40eb-8a69-a7fb6d2378f1@kernel.org>
-Date: Thu, 27 Aug 2026 21:04:48 +0200
+	Thu, 27 Aug 2026 19:08:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=J7hqFBGYJrpePSsugJEufOdmRHj7e6Tyf/HhekQCZSV3OoaozZDYctm9IRv1jm8p3Kssztyi9wH+wPDsHfDlDvjfMsHFbnlB+maFsJxl873zacLF/gsX/KoGSA2xJuMTZCc3GkzyPBGqg5pfluqqmUNUEHT3W57X0PGqp0d54cKdTnyB8sa0yFLsw2vCs+d0/JFw0+L+UGZlngc/XcZeHugxlhWPCtxWhlHY2YEAzqV8FXhN3rA+Pd8DoO5NBJmptdCRD7urTnNL3/2bsJuRbaggMQ/ZLxXnAmxWXPVWhex3VeAJU2UH/hLYo0sth77Mv/7q43DraFHhnrqghvwOxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=r+JAqUxprDtXjR/ovr/oecZePvC1qI6a32cUDBoL56k=;
+ b=gY/omXiI7gj9oq/iAOxK5r5UuWqsNuMQ8aOkMlQCINHEiq+ZKyzOQcd6aeXPt0NZPETGU7WRjWpQchUQMJw7ORvyPdf43ari9y8DH6BrGcYgOihLCCAWnkcce8Y2Soyuqz/VQZPxpFAby9CPBaztdPUnbYs8vj55L+cVYTYrcBuxEQv3bu3xLlCCZheIYmndU9lC8c1EjSDC4dGHwvQMaSQsvK/XRPiz0UgJVQHqNe1BeIDFt04gFATq3USVwrZ+JGSF3a4SUk8VNKdVln9Rgou0B6mwh7N16DH52iScBNePcj6E+AhX+bQVkE2r4MuKM+q4mmXsGiOE4Ej40WRanw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=r+JAqUxprDtXjR/ovr/oecZePvC1qI6a32cUDBoL56k=;
+ b=B0AYhaKufy7upzGCLWD/pirYXDPW6tSQrOrGh6oqraDypm+3r9QU+Ao/ysVc8fRoMCtQV3NZkZdv0eEPn7+WKL7dINi0S6YNYpRu2HvRhW+1rv5N1G/CRlrQ7qZyTPv5GGWq+pibU82alM0p9cOOL6TGJQdpWDwKyTYwHkGbyA+lMQks/nw8/f5vKbmTlEcNHbUDkxGr63AqGSFmURmYnx30RWzIBygWlVZr8t188GcinLLi1UoNsoxdr4mN2czE83shw1R3m2RQ1eh6XDpABAKHa76ny4fmL+8Z1yvLLUVqFGUu8wXp8/gVZYpGCQsuWx3ICOnWQqISyNoV1f7ZxQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV2PR04MB11374.eurprd04.prod.outlook.com (2603:10a6:150:2a0::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Thu, 27 Aug
+ 2026 19:08:27 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
+ 19:08:27 +0000
+Date: Thu, 27 Aug 2026 14:08:16 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Michal Gorlas <michal.gorlas@9elements.com>
+Cc: Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND v2] PCI: imx6: Enable ASPM L1 only iff CLKREQ# is
+ supported
+Message-ID: <apCLIHvxbuBBIhhT@SMW015318>
+References: <20260827-l1-conditional-imx-v2-1-40b324aa2a94@9elements.com>
+ <apBvfYOnCHfl7Zu9@lizhi-Precision-Tower-5810>
+ <DKZXTSZPJMY8.XM7YYCVPT3EP@9elements.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DKZXTSZPJMY8.XM7YYCVPT3EP@9elements.com>
+X-ClientProxiedBy: PH8PR05CA0015.namprd05.prod.outlook.com
+ (2603:10b6:510:2cc::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 00/18] mm: arm64: Add kernel replication feature
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, artem.kuzin@huawei.com
-Cc: catalin.marinas@arm.com, akpm@linux-foundation.org, vbabka@kernel.org,
- cl@gentwo.org, linux@armlinux.org.uk, will@kernel.org, mark.rutland@arm.com,
- liam@infradead.org, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, wangkefeng.wang@huawei.com,
- panov.nikita@huawei.com
-References: <20260827161158.3618409-1-panov.nikita@huawei.com>
- <apBqjq24aG_s2ZTM@gremlin>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <apBqjq24aG_s2ZTM@gremlin>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV2PR04MB11374:EE_
+X-MS-Office365-Filtering-Correlation-Id: f7df5df7-e61c-4b71-157a-08df046e92d4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|366016|23010399003|10067099003|56012099006|11063799006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 9/twqKoWFn2lJY2tWbLD0u6XWVhZKeBT3iRmj9X0pvN/fA9X0V+ztV4dUAInsUsBGx0hr3Zxr6SBZYgJZnhKlOBk8oOz+R+w8mG4KBeo0VUmySkokQdR91eZx1SfJpx563uwp5gx3HsNMX8yEKaZ/J4wfTeFboBnd13aIcvYhR849IFhE4o8V2OlUp+fo0CPvk86r44a6UnEIegycJL+MGVvAQsr+qzeFQRIX1R7ve4V/eA+9IB0YbEoX9k0KXc90dBoxz2qDrELEZuydIKTwE7FwRk+rYAY5f2a7c3z+YRbjny7Dpe4rrytFSGJ+QI+FMhS9BaqwqfC1ExStNB0z32QRX3g/i/Dcm7RGjcq/0bFXOkKHgWB2Mvb8I5zf5vzBZ/UhteK8mFgTSi3WRS30O5G+eCKabljknBoM2sp/aM42k0+mi/ngNzYU15tqfQLzSNCv9nwm9bg5CEEZMdf56FWNWmBRtPQC4dpdEeYJnG49T5VTJC4lA3qloezNi372C5txGQLv+iE5UYWeGVodzLzutTYBDa7e0Wuebkmx7zkazNTC9Kok6MjU1rrE5EIDCm3dXelMKv7Rc8kQMfHU+WD3LOOjoCwt0/QavWJ/cdSxb7oLJPvXF6f38qPAm3I
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(366016)(23010399003)(10067099003)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UY5IYO0FJz7CmQUZo3AX34WZ053sSCIdE91TOBJF0QNlpfeiTtvTlXRSxRdy?=
+ =?us-ascii?Q?8ap8go9UNJe01xh3cQELnVjQVuHbw7imDNlaMENAA5GiIvXAshTid5RSkt24?=
+ =?us-ascii?Q?TCWGHkHDaJrqkXNXJ1g+lPC6yU3UrvMG6OL13VBJKskqJfo8VlJ0M3OS9agN?=
+ =?us-ascii?Q?Rjy5R7qJESCyOih6E8q9wBWnBvEKDzSX6BrV3I9PGtUIUtUVlfWJQbN71SoS?=
+ =?us-ascii?Q?LXBGVYO8YFsiy8h21VI6qJLczfKIu6r7Cqg1Y4AnInlcyVUoJQvZdzTg316X?=
+ =?us-ascii?Q?rL8/jiJ5mNUMAppHT+B3dtWeP0CddgsAeaTMDWuMEnk5QMv+/laA++uXofx6?=
+ =?us-ascii?Q?8ByywTchg7azW3ijNY2QF0tNbcI8ZsniBDHIyMUpREZk7E/7OHI//jMAsLxi?=
+ =?us-ascii?Q?HyD2Skv01AfrRYG0Z6JOmO7h5CF8LScOlyyiuX7hrf82kIx+Ax/UcPsnIipR?=
+ =?us-ascii?Q?3yN0PYr03qAaQG+ssBstzRutPOk7ESw7zSNGgh6qfghJE14XiJxYP16JnDpa?=
+ =?us-ascii?Q?aVwARP0EQnl2zCvYk30o05wIJI9X+5FK6fwWDaml5FlGe/dBzKso+wM11X8O?=
+ =?us-ascii?Q?0kOwH7Qcgr/+M4hq4pQuDklrKQ5n7BI8h1gy5BVp6AuK+2Bx95D+NUKxmPGv?=
+ =?us-ascii?Q?f414xUm0o03+CijvGtNpN+s8z1wu8vAIufdqUpAY/y2JA0kKgT3NoQPQn0/S?=
+ =?us-ascii?Q?rXTT77dj0lxn5xZE0S0SlVHyLI8eUSEpQg1/MHIvUD5zq3GflU76Cu0TW8k+?=
+ =?us-ascii?Q?wxOTOXTde3Pa//Ni+nX9rH38t+5r7f1Pj401oaKyFaLQFHwoIYqQZ9GGFGCJ?=
+ =?us-ascii?Q?ep0RHnUyYZGe4DoxcXgVd75RautYxXUQQSTvcINMQl6Ii04UmIdhB5JuOQM+?=
+ =?us-ascii?Q?5pmgwTKCO/2QstV8DX+uEbEmFDMDLRAnIcDx0k0jeao4c91ooyecrSYNQ8HL?=
+ =?us-ascii?Q?TGm+c1mHWy53qPSy/AVS7sn4qF/Hs0kQlkCsPCMYucmP/tGlI0mKTHnZEeDN?=
+ =?us-ascii?Q?qXQqDeUCCj0VhvyeMouYaf1KpD+0rQ+dB1Y2s0VmS2kpkTWRmZDIZsLS6OdL?=
+ =?us-ascii?Q?iK34eBynj0cRgdUss8o7mzlXCfxjuYkJ2owSryByNlvYLvU7don0yqZduwhu?=
+ =?us-ascii?Q?F0xPmmSk6oNO2JEenWyzC/Y+CjhHIn3PysSsvkxNdMwsyol6ltsdXRlBBcJn?=
+ =?us-ascii?Q?oM9Cj2ZwzWGhHb557ELy+XkSXszCZ44e3wE7pVOj5vZ+UFZX7hdHZUWEhpQI?=
+ =?us-ascii?Q?8V+Wzr2cYcVbGFa/egQDFA73fjGOsR78w3guuwME3aWHvGT51Ce2j9QmaIgb?=
+ =?us-ascii?Q?lxHauFQGu6la3/TfyzCIA20DC6HahpEpNF+C6jBjfASxlSKpqEvIV01wnZ7L?=
+ =?us-ascii?Q?xm30E82BTc5oHneOL+CcqAIuCDhckSZNEXCT6HFrVbFtlIB9m/seTf4g+owa?=
+ =?us-ascii?Q?elidsZ0E57+9+3+nCW7QNSvDdjx7QaTKYGGB6R7Z28BKiLtQ6vynlfGK+Chz?=
+ =?us-ascii?Q?JA3Za377R7kq/4RfE9r2N3+zgyaOOH5XpmxMonq16Z3eszRQMbS7u4utJ+fX?=
+ =?us-ascii?Q?t3Ji3AXam63eEwWN/LLW0+3ncEfQAkJm7VAtc9WF86p9RN0fHupqCiT/lwyF?=
+ =?us-ascii?Q?IXM8QT6GRgZ+0h9wedPQqKpLpsindKq3qVYAkQg6NbEpk+9zznZ5nLdmvrJr?=
+ =?us-ascii?Q?eThind/H5H4Dl2nx88Y3LWY+NnyjAuXkW/fOJ2OUAua6F0KkSgyOhk70vJcz?=
+ =?us-ascii?Q?tIXO5EnFusffJN1Ov6GiTq3uw8r9KZkZlfSKIYz2W9gdXqmSz3m1?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f7df5df7-e61c-4b71-157a-08df046e92d4
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 19:08:26.9250
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IRndIvMvIsuW3vANXPu/kigqlbscCmPiPi0jzgsaAaZ3vQyMG/Wm4B50snFXCnAFX3ezeep9IhPBkrOgUcjWhJyksKTqW9rmGtU9TKC28ivL5kL1N1eg7UQ12TtKv7Dk
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11374
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260827_120831_655271_23461AF5 
+X-CRM114-Status: GOOD (  33.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,40 +147,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[...]
+On Thu, Aug 27, 2026 at 08:29:09PM +0200, Michal Gorlas wrote:
+> On Thu Aug 27, 2026 at 7:10 PM CEST, Frank Li wrote:
+> > On Thu, Aug 27, 2026 at 06:51:00PM +0200, Michal Gorlas wrote:
+> >> Since commit f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM
+> >> states for devicetree platforms"), ASPM states are force enabled
+> >> on all devicetree platforms. This causes PCI devices on some i.MX SoCs
+> >> (for e.g. i.MX 8M Plus Kontron SMARC eval carrier) to enter L1 even
+> >> though CLKREQ# is not supported (and consequently supports-clkreq is
+> >> not set in pcie controller node of their DT), which causes the device to
+> >> never wake up from L1.
+> >>
+> >> Hence, disable L1 capability in the LNKCAP register if supports-clkreq
+> >> is not set in the DT explicitly. For devices that set
+> >> IMX_PCIE_FLAG_BROKEN_SUSPEND, disable L1 on resume as well, as these
+> >> skip imx_pcie_host_init().
+> >>
+> >> Note, the logic here is very similar to 613f3255a35a, only difference
+> >> is that leaving L0s enabled does not cause issues (at least
+> >> I never encountered them myself when testing on the device) as its
+> >> not dependent on CLKREQ# being physically there.
+> >> Since there is already a way of specifying its presence in the DT,
+> >> the driver should be aware and disable L1.
+> >>
+> >> Fixes: f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM states for devicetree platforms")
+> >> Signed-off-by: Michal Gorlas <michal.gorlas@9elements.com>
+> >> Tested-by: Richard Zhu <hongxing.zhu@nxp.com>
+> >> Reviewed-by: Richard Zhu <hongxing.zhu@nxp.com>
+> >> ---
+> >> Changes in v2:
+> >> - disable L1 unconditionally on resume for platforms advertising
+> >> IMX_PCIE_FLAG_BROKEN_SUSPEND (Sashiko)
+> >> - typos in the commit message
+> >> - Link to v1: https://patch.msgid.link/20260719-l1-conditional-imx-v1-1-a55a57915c68@9elements.com
+> >> ---
+> >>  drivers/pci/controller/dwc/pci-imx6.c | 20 ++++++++++++++++++++
+> >>  1 file changed, 20 insertions(+)
+> >>
+> >> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> >> index 98e1db751132..1fdcbcd2422e 100644
+> >> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> >> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> >> @@ -1318,6 +1318,22 @@ static void imx_pcie_assert_perst(struct imx_pcie *imx_pcie, bool assert)
+> >>  	}
+> >>  }
+> >>
+> >> +static void imx_pcie_disable_l1(struct dw_pcie *pci)
+> >> +{
+> >> +	u32 val;
+> >> +	u8 offset;
+> >> +
+> >> +	offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+> >> +
+> >> +	dw_pcie_dbi_ro_wr_en(pci);
+> >> +
+> >> +	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_LNKCAP);
+> >> +	val &= ~PCI_EXP_LNKCAP_ASPM_L1;
+> >> +	dw_pcie_writel_dbi(pci, offset + PCI_EXP_LNKCAP, val);
+> >> +
+> >> +	dw_pcie_dbi_ro_wr_dis(pci);
+> >> +}
+> >> +
+> >>  static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+> >>  {
+> >>  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> >> @@ -1442,6 +1458,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+> >>
+> >>  	imx_setup_phy_mpll(imx_pcie);
+> >>
+> >> +	if (!imx_pcie->supports_clkreq)
+> >> +		imx_pcie_disable_l1(pci);
+> >> +
+> >>  	return 0;
+> >>
+> >>  err_phy_off:
+> >> @@ -1748,6 +1767,7 @@ static int imx_pcie_resume_noirq(struct device *dev)
+> >>  			return ret;
+> >>  		imx_pcie_deassert_core_reset(imx_pcie);
+> >>  		imx_pcie_assert_perst(imx_pcie, false);
+> >> +		imx_pcie_disable_l1(imx_pcie->pci);
+> >
+> > Does l1 disable permanent after resume? should it be
+> >
+> > 	if (!imx_pcie->supports_clkreq)
+> > 		mx_pcie_disable_l1(imx_pcie->pci);
+>
+> It would be unnecessary, the imx_pcie_disable_l1() there is already
+> guarded by IMX_PCIE_FLAG_BROKEN_SUSPEND, so we know that only iMX6Q
+> ends up there on resume. And none of iMX6Q DT's sets supports-clkreq.
 
-About to go on PTO, some random points :)
+Okay,
 
-> 
->> [12] - Optimize this_cpu_*() ops for non-x86 (ARM64 for this series)
->>
->> As of today, none of it was merged into mainline.
-> 
-> I mean :) maybe take that as a hint? If a number of series trying to do X get
-> rejected by upstream, that is maybe suggestive of barking up the wrong tree?
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-I'd have expected an explanation at that point why previous approaches were not
-merged and how this patch set is sufficiently different that it is worth
-maintainer's time.
-
-> 
->> However, after thorough re-evaluation, we were not able to observe
->> performance improvement for the x86 platform, so we have decided to stop this
->> direction and switch on arm64.
-> 
-> I mean, why? You should provide details here, this is quite hand-wavey. You are
-> also proposing core mm changes for something that seems specific to unique
-> hardware as far as I can tell, which is a big ask.
-
-What I consider interesting is "after thorough re-evaluation, we were not able
-to observe performance improvement for the x86 platform".
-
-How confident are we that a thorough re-evaluation on arm64 will not similarly
-have the same outcome? IOW, what was the problematic part when doing the x86
-evaluation, and how was that avoided when evaluating the arm64 implementation?
-
--- 
-Cheers,
-
-David
+>
+> Best,
+> Michal
+> >
+> > Frank
+> >
+> >>
+> >>  		/*
+> >>  		 * Using PCIE_TEST_PD seems to disable MSI and powers down the
+> >>
+> >> ---
+> >> base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+> >> change-id: 20260713-l1-conditional-imx-c2bfd20ae085
+> >>
+> >> Best regards,
+> >> --
+> >> Michal Gorlas <michal.gorlas@9elements.com>
+> >>
+>
 
