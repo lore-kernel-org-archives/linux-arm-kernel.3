@@ -4,99 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C471C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEB46C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:59:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zaEqDrC5jYAKebMDLgOTjAUIE2F2Prlvaylcbrjmns0=; b=NGkjlGn1KxwFY4h8iDUaPw6eto
-	y4SR5eXr8bIB0mzg+5AakVUvSIN2SzzFyl9T4s1Y3nemB57QVoWsbhHNwUPfgMrTQmpc4O+G3+uN6
-	bgjnIPGAN4FAPuPjHBCcTurNrKhpP+ropeQ7+ucpddywxfeUY0WGHLX5qBglDqaAerupZm/QIPdcW
-	O60wRMIAdA3tOUPikwjR8JGZcEOwTL2a/JT6jICa2y5t7cmW5iepO+NChO3d74tjh7hj910MzRs3B
-	Gq77YDGYMTN06clMJo01H+la2w+iKcmJjyIfPz9yk53Cgmd1mrRMOfTO8SP0wHo9uUmZK0biyJHhn
-	QcLIW6Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iVLte9gQAtQcy1T+DzX8UOwYpe9dYZ6mjKaudgY9qwE=; b=liYj+tMHPxXTHPbCGHkhCmh2uw
+	36usUaghkntk7gvTub+pfpLU9YPDsJ4o5c3gyVFyEow/SNgsDYDQYebqB6PF2n3KpM0Hj6BwHDowX
+	Em40H08v8iQen1OISPn9d+qRJhJHcuixBhzy4DQG4JaCWlpFkEqfrkfoxx/knv5NYQCDLKKSy8Res
+	beq82CTVjkrrKeeyyPzr5Na/XW9Xz8cZ40vqI5v+afh4IVNWX2Ramn4MJ14EEpa7n8EUMeHte4tm0
+	HKJPfPldoo2gWAk6vIY2k5iLWlZqw3jZhutIfwTu/I3qZdSnYxr08Nw8ABog78fGylELILGXAGc5i
+	dfLZlcgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVup-00000003h6l-3CK1;
-	Thu, 27 Aug 2026 08:56:55 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1wzVx9-00000003hM4-1OQE;
+	Thu, 27 Aug 2026 08:59:19 +0000
+Received: from out-244.mta1.migadu.com ([2001:41d0:203:375::f4] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVun-00000003h64-0RbZ
+	id 1wzVx5-00000003hLQ-22Hb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 08:56:54 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-38a0c7e841fso3069986a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 01:56:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787821012; x=1788425812; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zaEqDrC5jYAKebMDLgOTjAUIE2F2Prlvaylcbrjmns0=;
-        b=S0ui9EiTWVqsezW6pUUg+Co73c7rAEPqfqPDTOnXcrnnZIyuQAX5MsrF/f/V85LZe2
-         QTgmxD5oRAlXjOs5CFNIAYo4TzLaO8S9I6zABdoM6dUFQONDvBXFUAtKXd6aGKPj0kDF
-         Ytr8zQh3qhVHcJTQOvTlxBT/1VFggW9UCpCwYPuUb9Ss/2EYVyFF0JzArrZbjB29f9Qg
-         T6RupTlj40OGdA3r/jcukYGnEbRhAofNmsPIeA7h2HvgX65giq5T9swAgsFjDXks8ze4
-         JlR6EOmFIuK0RRPQ0wTwxCiUoJnQLohs6b10zppkzSsMGFIr6p4ymJ2EoTqnUhqCXtE7
-         xkJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787821012; x=1788425812;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zaEqDrC5jYAKebMDLgOTjAUIE2F2Prlvaylcbrjmns0=;
-        b=ctGMBc7pneAIViQMMdk7Fseqlz520w6MIqF6RcwVKckYRKJ7b9SRjjvTlcwlNNWITY
-         OyR1MoDejg0kI3Oy4HTpoWHRX5F5PvQS/euxsMCMTVfKyRqkjDrzhZl5JwzJ5HdyJdMv
-         JNGaEEW0CPrGK1FPPtUn+MXq+zKCq+Vf3/IcoUeR3kHRlzM2P9Hwk4ydz9xZw1HY6vcZ
-         zBdguQBG8g3Lf+3b86t0f5ocWYtXeiLnsOFJcnfa+nZU1H+jLHV/YZVmsyxNq6GAOHqc
-         qsBAaG6OgGlchuqE8796qOWsWOpyqyeiDZ0IfIbbMiOAeHZh0SbM9EoSh2gOBuDqF3V0
-         HLBw==
-X-Forwarded-Encrypted: i=1; AHgh+Rq0HlqoIy/z/Xd7A1xuSlBReFwXhGgz3cOnrgi5T4wYzIU9Eue7S7w8CTgfRhBRmzTEvEfj+MJUpRZmSApuehhN@lists.infradead.org
-X-Gm-Message-State: AFuF++m2iisfi1GAggf24u2FjdYPw6NhllfQrMa/YO/E6w+9JG8mKfnw
-	rTb1wC//S29SJuYgamenPDEu+fmPHT1lrUnLS0Svwkko4b7S5Ymm5tkt
-X-Gm-Gg: AR+sD1254iS49ynsQfAcLsMKSxxXGXSLBGtLrJJFXf2D2SAN/0KcEDVWwoVWuzivDvf
-	e8uQf+s/k2/+LfnEWf4tXIGrjZSM7QavKg6FNUherkPUxtc7F+ji9HGHfy4ipCa7FCc1kt6KOH4
-	wkWCq4FRAeXWArzb2UaipOz10XDEWJKGajjx4l59s0ZXYGGYIkzEk3eXDEQv1T/7E1Cwg1LlKJC
-	S20yu+TG4YoSfBdICZSe24QPWuPSr1STuR9a/No2QVWCdBHVgQzt3vlL+JAxyctB3sTfvkevf77
-	iNLF203+N1hEu4Lw+fDHb+kizReObTc+SjmN99/A0HFpV7uewiXZbmATCE6tdW0DVMjhQ8rXfVA
-	+Q1qWngxAPGgN45NbjcTN7/L4Vd4IP4j/W7KZS6fXDj3PrM615+BTeKa10VJMRMDQbaPrLLDaf4
-	HPqpIOtJ6IniQNXP22K/Tb3ASTac+VSH0WYcpiqGlbqJkYU5OimfqHHeGdsUcJYAUZjzcuIoL77
-	fjV
-X-Received: by 2002:a17:90b:520f:b0:38f:26c7:165e with SMTP id 98e67ed59e1d1-3966d5f8f84mr28728747a91.9.1787821011778;
-        Thu, 27 Aug 2026 01:56:51 -0700 (PDT)
-Received: from [10.25.160.98] ([165.85.1.43])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3967582e855sm2085902a91.2.2026.08.27.01.56.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Aug 2026 01:56:51 -0700 (PDT)
-Message-ID: <0ee330e3-8c6b-4162-81fe-d769982df5de@gmail.com>
-Date: Thu, 27 Aug 2026 16:56:40 +0800
+	Thu, 27 Aug 2026 08:59:17 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=vMcrYLKb2rGiNl2lES7gb9jc/fRo/kFIrFythpqbA5Y=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1787821153; v=1; x=1788425953;
+ b=Bjbu6xDw5xwy40l8slr+57pqm1R1Lt5SHwz3pEvecuLMTCz1LwsqDD7gJn1fNkG0sa08DHEh
+ H2Z5mEsSVadYQQVsjWFOxgP5luqFYVChtZCmv7eC2p0uCZqauDc2NNM0XM76hq3dP7f5MqL1ul2
+ w/vuXf1vFmtFeQvBQ9Jbf0dQ=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 7b82d1a2a52929a3;
+	Thu, 27 Aug 2026 08:59:13 +0000
+X-Mizu-Trace-ID: 7b82d1a2a52929a3
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5aeb688ae83so4843e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 01:59:09 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoGIWXwV/1z4ZjTdwOrszNqmRH7IJfNeJhvOpv64ksUY55LwTF9W12zxi9sUWtpVZhUs3Xykf9sXXs/PkxpVhfr@lists.infradead.org
+X-Gm-Message-State: AFuF++lP9KxpxCq4NiKlsYq860FHtxdV+37PqVgJhy99+2a3gRD76kaP
+	nn382OyO0oBJ5Zgw+Y+csODI8og6vmeYKVhn/cyOzNWGz53lNYFQVyTha6R4MLrU0FOzahpKDFR
+	prOj0pY5SGxIs9ivfOg561j/9sCjKUQqEZwrC1T1E
+X-Received: by 2002:a05:6512:2509:b0:5b2:a967:c0c9 with SMTP id
+ 2adb3069b0e04-5b503826bb7mr82177e87.7.1787821148250; Thu, 27 Aug 2026
+ 01:59:08 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: imx8mp-phyboard-pollux-peb-av-10: Fix SAI
- master assignment
-To: Primoz Fiser <primoz.fiser@norik.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
- Yannic Moog <y.moog@phytec.de>, Shawn Guo <shawnguo@kernel.org>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- upstream@lists.phytec.de
-References: <20260827065556.2326079-1-primoz.fiser@norik.com>
-Content-Language: en-US
-From: Chancel Liu <chancel.liu@gmail.com>
-In-Reply-To: <20260827065556.2326079-1-primoz.fiser@norik.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260825164219.3347229-1-fuad.tabba@linux.dev>
+ <20260825164219.3347229-2-fuad.tabba@linux.dev> <ao7uY-dpJocX6ety@arm.com>
+In-Reply-To: <ao7uY-dpJocX6ety@arm.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Thu, 27 Aug 2026 09:58:32 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzVVf_r2WU=2-WtNsQbmsCZ2iymS=7TXRZJUWgvN3ibcQ@mail.gmail.com>
+X-Gm-Features: AcwNN1VmFyCYMk2mFQCC6IsCKuKvuxtYbRK_OCmChpUR57uHP893DFhxuwtdqPM
+Message-ID: <CA+EHjTzVVf_r2WU=2-WtNsQbmsCZ2iymS=7TXRZJUWgvN3ibcQ@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] arm64: Apply overrides to CPU local capabilities
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_015653_155853_BB9F1EA4 
-X-CRM114-Status: GOOD (  19.33  )
+X-CRM114-CacheID: sfid-20260827_015916_350227_78DAB9CA 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,53 +82,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> The dailink_master label was incorrectly placed on the codec sub-node,
-> causing simple-audio-card to configure TLV320AIC3007 as the I2S bitclock
-> and frame master with SAI2 in consumer mode. This contradicts the SAI2
-> node configuration (assigned-clock-parents, assigned-clock-rates,
-> fsl,sai-mclk-direction-output) which requires provider/master mode.
+Hi Catalin,
 
-Just a small question about the commit message. As far as I understand,
-these SAI2 node configurations only describe SAI2 providing MCLK to the
-codec. A topology where the SAI provides MCLK while the codec is the
-bclk/fs provider is common. So the original configuration seems
-self-consistent, not contradictory.
+On Wed, 26 Aug 2026 at 14:47, Catalin Marinas <catalin.marinas@arm.com> wrote:
+...
+> For completeness, we should add:
+>
+> Fixes: b3341ae0efa2  ("arm64: cpufeature: Use IDreg override in __read_sysreg_by_encoding()")
 
-Regards,
-Chancel Liu
+Ack
 
-> Restore dailink_master to the CPU sub-node so SAI2 drives BCLK and LRCLK
-> with the codec operating as I2S slave. Also remove the spurious clocks
-> property from the codec sub-node which had no effect in this topology.
-> 
-> This fixes the broken audio on PHYTEC phyBOARD-Pollux-i.MX8MP board with
-> PEB-AV-10 Audio/Video expansion board.
-> 
-> Fixes: 7012f551081f ("arm64: dts: imx8mp pollux: add expansion board overlay")
-> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-> ---
->  .../boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi
-> index bb740f845855..8957b24a7ad2 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi
-> @@ -77,13 +77,12 @@ sound {
->  			"MIC3R", "Microphone Jack",
->  			"Microphone Jack", "Mic Bias";
->  
-> -		simple-audio-card,cpu {
-> +		dailink_master: simple-audio-card,cpu {
->  			sound-dai = <&sai2>;
->  		};
->  
-> -		dailink_master: simple-audio-card,codec {
-> +		simple-audio-card,codec {
->  			sound-dai = <&codec>;
-> -			clocks = <&clk IMX8MP_CLK_SAI2>;
->  		};
->  	};
->  };
+...
+> > +     /* Apply the overrides */
+> > +     new = override_cpu_ftr_reg(reg, new);
+>
+> Not sure we need this. The init value has already been clamped, made
+> safe, so it won't change the result.
 
+I'll fix both on the respin. I'll wait to see if Will or anyone else
+has further comments before doing that.
+
+> Otherwise:
+>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+
+Thanks for the reviews!
+/fuad
 
