@@ -4,70 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC51C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 16:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D17D5C61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 16:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mc9UqifGDes7aqOfgsJlG3V88rf8KQlsEq8wthV3IEk=; b=x02LNpJf+YHnfSm3d0P92BNZx1
-	fqltt60hURuUL3dEs4FbBRlQlv0B/6iy1TMmNpbYIoPAb+gZ1HBLMIgt5sHHb0YU9H2aADgnDjNFu
-	7X7V/rpFTMGAiaJn3P/DfI5AekrSYUS82/oOBmpAQvP2gBXOSij2xYW7gyAjCV1V6FTbg4HkdvarX
-	fDriZQwt+wBNK8nhBQhjFIp/msQJAQFA2Yl1J43essPh7d+l11YxqQyCqbh3J32jhLoR82/FnekX+
-	YYQkfg+FVaHoHWhQwMM9RGUES8XXcVHN8O5aqwUNUYffNqRwT/50T9gQp0uZAk1qYgP8aRW0iTC/l
-	0bA831MQ==;
+	bh=uto+BvrZoeEwa6MdxOBIK2+F/boLU+ojvq4RxvsuJkw=; b=U/SVz4J/Kj01p4OIMCRFqDz5up
+	f/5Kp/HtmdDUeqIqJduI2KCtg7x791B5cHe96RxxFWrjH0PbqHcuhg7Uy2BGwLFGZ6yPdHC6oYH2z
+	Y6GTrkfCrxnTMbigopwozLSylyCVcYlz/4HlWs7sdHwnMC/I7pk7tbeHzN4U8wHIBhLEYwC1SjNTW
+	TCaGeBk0wbtU8pgXzbqAfm38+i8+NqT7dJTl3im99zOhAXL7mJe6THM6G5i9DWMOdcWua4JM1JRi3
+	c3TRoysmy+aRdd4HPexjZEKqPmlkDqM9SlyjuzFImi2FNjGuJphKIvat0emViu36+7mBIrz6oiYUJ
+	E9d046zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzcWr-00000004Hj0-3pNn;
-	Thu, 27 Aug 2026 16:00:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wzcY6-00000004Hr2-0ayZ;
+	Thu, 27 Aug 2026 16:01:54 +0000
+Received: from mail-westeuropeazon11010023.outbound.protection.outlook.com ([52.101.69.23] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzcWq-00000004Hio-0kN4;
-	Thu, 27 Aug 2026 16:00:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D5F8A40BE8;
-	Thu, 27 Aug 2026 16:00:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0E831F000E9;
-	Thu, 27 Aug 2026 16:00:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787846435;
-	bh=mc9UqifGDes7aqOfgsJlG3V88rf8KQlsEq8wthV3IEk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QtrYgCCZ+k2VUTD2+vb3c3oCDpu0y0MrozeRvCXQQxFL4CH9XjueJ7EcjvDSvuJDN
-	 /1lWbHKCTRoU/QyUFkbf3bszPZHHMAadCQ3wgyrc+XaEDy0XdJXT0BteBZWXS6LqcO
-	 /g1hHlAvdJh2FjxgpKbb8mse83Lo+hNWLB7sYt141MJ+bEr/MQ0HnYu/WJr3hQ2usM
-	 5WBXy173K3VJiJCvoeONgKfSFY7mC0kq/CIPE8Fc1I7d3giBaCl69vTGfXp6YhO7DC
-	 mBwNeP6hobSvVdVVsRjv30VyGRFouWWvBRHrsNzQnzVN2XB4w9fmEwU1/xRIXtfQne
-	 o7J5UGgmCzFlA==
-Date: Thu, 27 Aug 2026 21:30:31 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Marek Vasut <marex@nabladev.com>
-Cc: linux-usb@vger.kernel.org, fabrice.gasnier@foss.st.com,
-	Pankaj Dev <pankaj.dev@st.com>, Rahul Kumar <rahul.kumar05@st.com>,
-	Christian Bruel <christian.bruel@foss.st.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>, Rosen Penev <rosenp@gmail.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	devicetree@vger.kernel.org, kernel@dh-electronics.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v3 2/9] phy: stm32: Add support for ST STM32MP25
- USB2-FEMTO PHY
-Message-ID: <apBfHzD5TfryaEW0@vaman>
-References: <20260822074816.548662-1-marex@nabladev.com>
- <20260822074816.548662-3-marex@nabladev.com>
-MIME-Version: 1.0
+	id 1wzcY3-00000004HqJ-2L6g
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Aug 2026 16:01:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZDHpcbU+TzgoModXJNVcCL4KFMsCcIVZfoLtqYQlAnuGkHOVhxWBArEak189wA39Z1rNVD0D1WDEa0s+IQHLpOD9eC26kIjj5HVughicZ/NPNgCPoihg0mGiDQtT8eo8NR/salC63G2JG0XfdUs6wyQIkt9zAgkS3+5nUHg4t418WZ93Gc/ZVA5jxVimDoIxJaef2qEO6a7a/9W1Vj/jiFtA3yvPWj382izFiQuiMhg5BnK1Iw5a5aZ8o332+7nuYrQTh+6XJvCOp/oYodFEXwVejI/S2ZQXi16BcLkYqc1NKict0gjBAxaiLZxIgsu+nbM/M2Ggq/yFNktJXJvb8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uto+BvrZoeEwa6MdxOBIK2+F/boLU+ojvq4RxvsuJkw=;
+ b=XUVUwkEFCJv4hKI2iE7+LyIe0kJ8q0mUV2o3L4s6kVm+3pl7xs0/4zFIs9mYU/oBUkMcetiK5bT36H+/GbA3Sq6NGoWU75sr/CCNyy/5HpPOVyVA/Ue5kztB3t5c8I9W/XxDiRMJlV4e4lCtoDV+pay4tZEpGDLOxU/9hWf6O9FzjGZbdD5B17wD4/5ag8RlKs3Pj3eBBEr0iefUOw9NYkSCabCVdt8in2mSRP4CaQ3dtSyjwKvum99GF6JN5Wm8ZO79B6uGnBZSPg6FQwZXktdIrFNaOB1RVe+pb8Ub565KHr4SVmc5RDxEo/X/DJqNjMVJCLoWzh2JeKlNGL5RqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uto+BvrZoeEwa6MdxOBIK2+F/boLU+ojvq4RxvsuJkw=;
+ b=wMhfGddHHjBGX/fGKjiDpVP5gmxoon6zuNU8Q4HfgXgfTrw9X+E4lLiFZ3ctW5E3ySyys8tS/f9CFDGfEW+Qmui5hDN3yQqrnngKn3QnZZSKj5JIRnV3eb5F/qm5X9GK07Iw6wbe/9bT1FLBHzTHa7cwgC44PjRy/1qp3HKGcL63swU8H0ZuTNYnJsfGBSARlMbYGftrioUhz0aH8GLU2FOxUoJxp7RFNFaN1l51O6YUamz4WMUXr0gxfzho6jU4NYY2UO90cBbyjOpRUaqhwx9cIG2hckAd1EBf3EKXaPaJOyDFXkR++Vgjwym6Gy4G1bwDOhbctfVcv5iToOO4ng==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DBAPR04MB7302.eurprd04.prod.outlook.com (2603:10a6:10:1a5::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.339.12; Thu, 27 Aug
+ 2026 16:01:42 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
+ 16:01:42 +0000
+Date: Thu, 27 Aug 2026 11:01:31 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: sashiko-reviews@lists.linux.dev
+Cc: Codrin Ciubotariu <codrin.ciubotariu@microchip.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Wolfram Sang <wsa@kernel.org>,
+	Ludovic Desroches <ludovic.desroches@atmel.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Yao Yuan <yao.yuan@freescale.com>,
+	Mukesh Kumar Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+	Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Praveen Talari <praveen.talari@oss.qualcomm.com>,
+	linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 2/3] i2c: imx: release DMA channels on probe error
+Message-ID: <apBfW01p9Zik5WOI@SMW015318>
+References: <20260827-i2c-dma-channel-leak-v1-0-271d4adc03a0@cherr.cc>
+ <20260827-i2c-dma-channel-leak-v1-2-271d4adc03a0@cherr.cc>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260822074816.548662-3-marex@nabladev.com>
+In-Reply-To: <20260827-i2c-dma-channel-leak-v1-2-271d4adc03a0@cherr.cc>
+X-ClientProxiedBy: SA9PR10CA0029.namprd10.prod.outlook.com
+ (2603:10b6:806:a7::34) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DBAPR04MB7302:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15851e93-b41f-4637-2496-08df04547c9e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|19092799006|5023799004|6133799003|10067099003|4143699003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 476jyKYPpLbeG3VPioPmcYwSVcias5eBiuQ/0S53+pHdDJqyrUesh77B6dNUurFBVWzoQgTzdRwtLMDZOZaXjNucgSD9YF2JLBmFPHtI2s1WaNy9jhjmXoBCp0x3PayfFsUikwlwce/A/3VMz44EBHqQUcO30wSgrtZAb2fVgc1rHjeV5Y3TVPAvO6W0q1VEAOAuaAGWMAgneWypmIbHUwtOktlDUNfUPA3E8/td4GMSK9SHrvtyUazJX4U+Z21PQxEBBIWIh2J8A0r5SQXCHYYKub8Ho9n9qpp68otCXFro4CMNpsA9RZqz0vHHjd7Nn17AOtRKg/ddHvAAzM5Ka9hGkFCwrxwA0w+P3R/DCAZX7eBpukhRWYhg7oMV0/2p4jVBztgE3z/WlMlOEnZaQRDjhIbMgWpVZAot0rjbP0VWWhQ6qdFXZr+0Yg8DwjF0PsMPdlPAzmFXjRjAELEzGv+8onnAZkbQHhej+bpWzaLiFcQSC8F3INpsG8kpFJ4kG9G3hojQOG4p69qptvp0RKvGnSUIjZc/hRw/LLmcgyuOOZDBh0OujH0qeTNl8FORMIEjH0yKLYGg5YQ9danAhowBDeA8eD5U/KpIkjyQEvmEg4XJHAKF4AHWMHOb8/yzrLkjxoUV5Ax2363yU4zSqEabKTpN6kwVDfkfe3DlR90=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(19092799006)(5023799004)(6133799003)(10067099003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OnKWu6J3CMn66P5XzClU0w+xgKJYsStzajKpnEnhrNpE6qr6ZDoMgFR1WpmI?=
+ =?us-ascii?Q?NUEUs2tcYFf5Ac4FMCrAl9YhCelB3gpQ7oXn1WL/Ady1oJ/47ySwX2SBbyHn?=
+ =?us-ascii?Q?JUckQkOIVTSXe0USZBX9vV1+bUtOciCm4NE14CFJLwx5CkqUpSZI9Q/zl4B/?=
+ =?us-ascii?Q?sSPrJE8Q55CPAZTYNjXePgrOtrVidHbrIGzLmmfSnl0OMVRYF5h7OMrJSvCI?=
+ =?us-ascii?Q?tRStHTL614MdwliUpimtQyXRGDG4XtanePkZVwe+Q1NQKpyVEPCvH31kdqVZ?=
+ =?us-ascii?Q?ClbMw3k55pJgRmdeKbA2dAeq+LrtkdDYs9uhVHI/9FkOA+y38eEQ7LY+KJCB?=
+ =?us-ascii?Q?C7pTKiwgZPRtcoH53rfeRMEBBIcrRYde2LBq+eo+5wfCinrdFy7dGEPqxZOl?=
+ =?us-ascii?Q?ABKiD+IV7qlW/pYRA0CVJ65H7+O1cFKcCffyDR37YoqbE/zdUlm1rbXoT1/p?=
+ =?us-ascii?Q?0SVdfD+9fujfWUxWcbRhFHfB5bmSBNnwdO4ge0Bs9ITam6Q/ic54flDgdB72?=
+ =?us-ascii?Q?1INXKkWl4tt/7OiqiWRkp7nZ1RAIaotTVerYx2rHCXkRfsruEDftR7MYyAiB?=
+ =?us-ascii?Q?VvBAApTSCnWdQGlqKwCOHeHhi/TkkUt/1TVoof4crG9vo9bq9Tq+BxwPHaOt?=
+ =?us-ascii?Q?Km25dAh24HGxWkHheDM1K3LlR4CXwuCyhBTK7fPKnb+0Ss0aGb8bQuZ8N+aS?=
+ =?us-ascii?Q?ILwTMQ8ziI5/57wiAk7GH0VC3p/ltLM290mMdh1GMfDDgBiFL3g3r4pQD5Hj?=
+ =?us-ascii?Q?qDhC6TxdreTMSVM7wPwFM6QDXzQlXIlKrEcDvYOXMUbGMMxL20O0vJ7GpGoq?=
+ =?us-ascii?Q?XOxbyqeeeBA2B/DOsU8xmah4ZcSZnTJUiZEJu591n5tQ6r+ZlYd5ShVp4tta?=
+ =?us-ascii?Q?zi/gPtfYVPDng1ye3jfz0QqJcfuz5Pw+fzQGmJIMW03oUvgBTqtlMb5pazqH?=
+ =?us-ascii?Q?RpOwe5WliX4/23k0vreShTd7TWYUTnJjhjroRsle7FVRvuilRe6mzMBGjdGi?=
+ =?us-ascii?Q?RBeYXEciCjpmlVrOnqXSulin/iCvsEhvKVv45GC4OgLxWpebHRED8DvF/tGc?=
+ =?us-ascii?Q?gcxzck3g27oVghu3J3j+/Lpp+tjePZHW6HwxDXq9k5vM1RqQDcdmuu9LTvKo?=
+ =?us-ascii?Q?ckcAyBlgbox66/+PpjoRVLnV6pmspBzx1SVR/JzFNregmrsiIluYg4jIFs3B?=
+ =?us-ascii?Q?pXpOwH2dkFCAvJAa0UkmacVf5unJhA1HW82fOJQLrN7Zn6Tnovqm50GRdSat?=
+ =?us-ascii?Q?Wfx/bBYEqvNYTG9NrAfe5Xrca+JCfVfGU+5M6msTAxg5v20Q6Tf6EXR6cMU5?=
+ =?us-ascii?Q?TQbyDBRR4wXlFVHbT3BJ5UBVvsmND5bgNLxJ5FSc3K+CX8c/IMO/NnbA9h/X?=
+ =?us-ascii?Q?yov0yZ2VrOxFmcyYI7ydr/tNSRcDv4pJxC9AffCrFGSbRaW0xFfY07JuWN7L?=
+ =?us-ascii?Q?g6pc002Pct/RYZGIDWsI6S58Xct/Bwz+3eWx3S+FUpma7cLewqmPfGygG7KW?=
+ =?us-ascii?Q?av54HvwZthdPA2iXBGExsT0QR9kJ0yDV4qNTaPLH6HvDXhYNm7ekRHlnyWIH?=
+ =?us-ascii?Q?zRDeod32mkTt+XmFVjf3PJKiCQvR9idKCUP6qQ+eU3RjAWIXTUUur8jsu+Py?=
+ =?us-ascii?Q?ZUDuMwDYluBW1+PjxXwN0X/C80csTHzM6onrUMSiJJ8YAuqhu0CgXUd0Is/d?=
+ =?us-ascii?Q?lTS64zbuaknqYHSX8ULmZ7nDR9UtUfyZF+UVnplvpdFRuAaXr/aV1JX5PubC?=
+ =?us-ascii?Q?47IQtTpI47EBdgL8LchysOAgxIeXD/IE4shO+9L0WjLxwbNBUV5k?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15851e93-b41f-4637-2496-08df04547c9e
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 16:01:42.7995
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EY61Z+41K5PYfM1+/pt3a0HXDpOFg6bvUF0pPF6pp0ZlswK1vOXurv7hCcifOe61BBvXEQGfFYtIXUumxGxsHv1hCSUxuzWeIhnmzNSCXc7dXrGuMT5h9GVlxo6an0d5
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7302
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260827_090151_600568_288EA086 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,282 +155,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22-08-26, 09:46, Marek Vasut wrote:
-> From: Pankaj Dev <pankaj.dev@st.com>
-> 
-> Add USB2 PHY driver for STM32MP25 USB2 controllers, which includes the
-> USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
-> Two such PHYs in total are present in STM32MP25 SoC, they both are
-> slightly different, therefore they use different compatible string
-> to discern them.
-> 
-> Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
-> Co-developed-by: Rahul Kumar <rahul.kumar05@st.com>
-> Signed-off-by: Rahul Kumar <rahul.kumar05@st.com>
-> Co-developed-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Co-developed-by: Christian Bruel <christian.bruel@foss.st.com>
-> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-> Co-developed-by: Marek Vasut <marex@nabladev.com>
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
+On Thu, Aug 27, 2026 at 11:43:02PM +0800, Shengzhuo Wei wrote:
+> i2c_imx_dma_request() acquires exclusive tx/rx DMA channels and is
+> optional: on errors other than -EPROBE_DEFER the driver falls back to
+> PIO mode and probe continues. If i2c_add_numbered_adapter() then fails,
+> probe returns through clk_notifier_unregister without releasing the
+> channels, because the remove callback is not invoked after a failed
+> probe.
+>
+> Release the channels on the probe error path, mirroring
+> i2c_imx_remove().
+>
+> Fixes: ce1a78840ff7 ("i2c: imx: add DMA support for freescale i2c driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Shengzhuo Wei <me@cherr.cc>
+> Assisted-by: GLM:5.3
+
+Nit: signed-off-by should be last tag
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
 > ---
-> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: Christian Bruel <christian.bruel@foss.st.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-> Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> Cc: Pankaj Dev <pankaj.dev@st.com>
-> Cc: Rahul Kumar <rahul.kumar05@st.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Rosen Penev <rosenp@gmail.com>
-> Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> Cc: Vinod Koul <vkoul@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: kernel@dh-electronics.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-phy@lists.infradead.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> Cc: linux-usb@vger.kernel.org
-> ---
-> V2: - Fix up Sob/Cdb lines
->     - Operate PHY as a syscon subnode
-> V3: - Update copyright years
->     - Register two sets of clock, one 480 MHz PLL and one CMN
->     - Split PHY ops per PHY, since the PHY2 does not have set mode ops
->     - Fix up Sob/Cdb lines further
-> ---
->  drivers/phy/st/Kconfig             |  10 +
->  drivers/phy/st/Makefile            |   1 +
->  drivers/phy/st/phy-stm32-usb2phy.c | 406 +++++++++++++++++++++++++++++
->  3 files changed, 417 insertions(+)
->  create mode 100644 drivers/phy/st/phy-stm32-usb2phy.c
-> 
-> diff --git a/drivers/phy/st/Kconfig b/drivers/phy/st/Kconfig
-> index 49206185e5633..2835bb67bca9e 100644
-> --- a/drivers/phy/st/Kconfig
-> +++ b/drivers/phy/st/Kconfig
-> @@ -58,3 +58,13 @@ config PHY_STM32_USBPHYC
->  	  used by an HS USB Host controller, and the second one is shared
->  	  between an HS USB OTG controller and an HS USB Host controller,
->  	  selected by a USB switch.
-> +
-> +config PHY_STM32_USB2PHY
-> +	tristate "STMicroelectronics STM32MP25 USB2.0 PHY Controller driver"
-> +	depends on ARCH_STM32 || COMPILE_TEST
-> +	depends on COMMON_CLK
-> +	select GENERIC_PHY
-> +	help
-> +	  Enable this to support the High-Speed USB 2.0 transceivers that are
-> +	  part of the STMicroelectronics STM32MP25 SoCs. The PHY itself is a
-> +	  Synopsys FEMTO-PHY.
-> diff --git a/drivers/phy/st/Makefile b/drivers/phy/st/Makefile
-> index cb80e954ea9f0..4945df5ed78a8 100644
-> --- a/drivers/phy/st/Makefile
-> +++ b/drivers/phy/st/Makefile
-> @@ -5,3 +5,4 @@ obj-$(CONFIG_PHY_ST_SPEAR1340_MIPHY)	+= phy-spear1340-miphy.o
->  obj-$(CONFIG_PHY_STIH407_USB)		+= phy-stih407-usb.o
->  obj-$(CONFIG_PHY_STM32_COMBOPHY)	+= phy-stm32-combophy.o
->  obj-$(CONFIG_PHY_STM32_USBPHYC) 	+= phy-stm32-usbphyc.o
-> +obj-$(CONFIG_PHY_STM32_USB2PHY) 	+= phy-stm32-usb2phy.o
-> diff --git a/drivers/phy/st/phy-stm32-usb2phy.c b/drivers/phy/st/phy-stm32-usb2phy.c
-> new file mode 100644
-> index 0000000000000..8c68b2d208d73
-> --- /dev/null
-> +++ b/drivers/phy/st/phy-stm32-usb2phy.c
-> @@ -0,0 +1,406 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * STMicroelectronics STM32 USB2 PHY Controller driver
-> + * Currently Only supported for STM32MP25
-> + *
-> + * Copyright (C) 2022-2026 STMicroelectronics
-> + * Author(s): Pankaj Dev <pankaj.dev@st.com>.
-> + */
-> +#include <linux/bitfield.h>
-> +#include <linux/clk.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/io.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_address.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/phy/phy.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +#include <linux/reset.h>
-> +#include <linux/usb/role.h>
-> +#include <linux/mfd/syscon.h>
-> +
-> +#define SYSCFG_USB2PHY2CR_USB2PHY2CMN		BIT(2)
-> +#define SYSCFG_USB2PHY2CR_VBUSVALID		BIT(4)
-> +#define SYSCFG_USB2PHY2CR_VBUSVLDEXTSEL		BIT(5)
-> +#define SYSCFG_USB2PHY2CR_VBUSVLDEXT		BIT(6)
-> +
-> +#define USBH_NUM_CLK				2
-> +
-> +struct stm32_usb2phy {
-> +	struct phy				*phy;
-> +	struct regmap				*regmap;
-> +	struct device				*dev;
-> +	struct reset_control			*rstc;
-> +	struct clk				*phyref;
-> +	struct regulator			*vdd33;
-> +	const struct stm32mp2_usb2phy_hw_data	*hw_data;
-> +	atomic_t				en_refcnt;
-> +	enum phy_mode				mode;
-> +	u32					cr_offset;
-> +	bool					is_init;
-> +	struct clk_hw				clkpll_hw;
-> +	struct clk_hw				clkcmn_hw;
-> +	/* Must be last */
-> +	struct clk_hw_onecell_data		onecell;
-> +};
-> +
-> +struct stm32mp2_usb2phy_hw_data {
-> +	u32			phyrefsel_mask;
-> +	const struct phy_ops	*phy_ops;
-> +};
-> +
-> +static int stm32_usb2phy_enable(struct stm32_usb2phy *phy_dev)
-> +{
-> +	const struct stm32mp2_usb2phy_hw_data *phy_data = phy_dev->hw_data;
-> +	unsigned int refsel;
-> +	unsigned long rate;
-> +	int ret;
-> +
-> +	/* Check if a phy is already init or clkpll in use */
-> +	if (atomic_inc_return(&phy_dev->en_refcnt) > 1)
-> +		return 0;
-> +
-> +	rate = clk_get_rate(phy_dev->phyref);
-> +	if (rate == 19200000)
-> +		refsel = 0;
-> +	else if (rate == 20000000)
-> +		refsel = 1;
-> +	else if (rate == 24000000)
-> +		refsel = 2;
-> +	else
-> +		return -EINVAL;
-
-Would a switch not be better here?
-
-> +
-> +	ret = regmap_update_bits(phy_dev->regmap,
-> +				 phy_dev->cr_offset,
-> +				 phy_data->phyrefsel_mask,
-> +				 field_prep(phy_data->phyrefsel_mask, refsel));
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = regulator_enable(phy_dev->vdd33);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = clk_prepare_enable(phy_dev->phyref);
-> +	if (ret)
-> +		goto error_regdis;
-> +
-> +	ret = reset_control_deassert(phy_dev->rstc);
-> +	if (ret)
-> +		goto error_clkdis;
-> +
-> +	return 0;
-> +
-> +error_clkdis:
-> +	clk_disable_unprepare(phy_dev->phyref);
-> +error_regdis:
-> +	regulator_disable(phy_dev->vdd33);
-> +
-> +	return ret;
-> +}
-> +
-> +static int stm32_usb2phy_disable(struct stm32_usb2phy *phy_dev)
-> +{
-> +	int ret;
-> +
-> +	/* Check if a phy is still init or clkpll in use */
-> +	if (atomic_dec_return(&phy_dev->en_refcnt) > 0)
-> +		return 0;
-> +
-> +	ret = reset_control_assert(phy_dev->rstc);
-> +	if (ret)
-> +		return ret;
-> +
-> +	clk_disable_unprepare(phy_dev->phyref);
-> +
-> +	return regulator_disable(phy_dev->vdd33);
-> +}
-> +
-> +static int stm32_usb2phy_set_mode(struct phy *phy, enum phy_mode mode, int submode)
-> +{
-> +	struct stm32_usb2phy *phy_dev = phy_get_drvdata(phy);
-> +	u32 mask = SYSCFG_USB2PHY2CR_USB2PHY2CMN |
-> +		   SYSCFG_USB2PHY2CR_VBUSVALID |
-> +		   SYSCFG_USB2PHY2CR_VBUSVLDEXT;
-> +	u32 val = 0;
-> +	int ret;
-> +
-> +	if (mode == PHY_MODE_USB_HOST) {
-> +		if (submode != USB_ROLE_NONE)
-> +			val = SYSCFG_USB2PHY2CR_VBUSVALID;
-> +	} else if (mode == PHY_MODE_USB_DEVICE) {
-> +		val = SYSCFG_USB2PHY2CR_USB2PHY2CMN |
-> +		      SYSCFG_USB2PHY2CR_VBUSVLDEXTSEL;
-> +		if (submode != USB_ROLE_NONE)
-> +			val |= SYSCFG_USB2PHY2CR_VBUSVLDEXT;
-> +		mask |= SYSCFG_USB2PHY2CR_VBUSVLDEXTSEL;
-> +	} else {
-> +		return -EINVAL;
-> +	}
-> +
-> +	ret = regmap_update_bits(phy_dev->regmap, phy_dev->cr_offset, mask, val);
-> +	if (ret)
-> +		return ret;
-> +
-> +	phy_dev->mode = mode;
-> +
-> +	return 0;
-> +}
-> +
-> +static int stm32_usb2phy1_init(struct phy *phy)
-> +{
-> +	struct stm32_usb2phy *phy_dev = phy_get_drvdata(phy);
-> +	int ret;
-> +
-> +	ret = stm32_usb2phy_enable(phy_dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	phy_dev->is_init = true;
-> +
-> +	return 0;
-> +}
-> +
-> +static int stm32_usb2phy2_init(struct phy *phy)
-> +{
-> +	struct stm32_usb2phy *phy_dev = phy_get_drvdata(phy);
-> +	int ret;
-> +
-> +	ret = stm32_usb2phy_enable(phy_dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (phy_dev->mode != PHY_MODE_INVALID) {
-> +		ret = stm32_usb2phy_set_mode(phy, phy_dev->mode, USB_ROLE_NONE);
-> +		if (ret) {
-> +			stm32_usb2phy_disable(phy_dev);
-> +			return ret;
-> +		}
-> +	}
-
-so what is the diff b/w these two phys that we need to check invalid
-only here?
-
--- 
-~Vinod
+>  drivers/i2c/busses/i2c-imx.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+> index 19ec056b00af..c24d9201a60e 100644
+> --- a/drivers/i2c/busses/i2c-imx.c
+> +++ b/drivers/i2c/busses/i2c-imx.c
+> @@ -1880,6 +1880,8 @@ static int i2c_imx_probe(struct platform_device *pdev)
+>
+>  clk_notifier_unregister:
+>  	clk_notifier_unregister(i2c_imx->clk, &i2c_imx->clk_change_nb);
+> +	if (i2c_imx->dma)
+> +		i2c_imx_dma_free(i2c_imx);
+>  	free_irq(irq, i2c_imx);
+>  rpm_disable:
+>  	pm_runtime_put_noidle(&pdev->dev);
+>
+> --
+> 2.47.3
+>
 
