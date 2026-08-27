@@ -4,99 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 988F0C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:24:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCF3C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:38:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0WOkKUTTNS6mJs2BwdqhMg+NA2BpiKjHIQAe3GoU9ZE=; b=F7WX3JAMMROV6EzOzGdkATOav9
-	Exb1sf6/7EXKyoCfNSkkqWD7sjt74t4Cb6GyYhMuzuj5l2Sw94F2aH1p82O9129F5leTYKoIRO1eo
-	mhVOIeGnzK3xcQWeoz/mkVwqnH5AvmRuLsOhMMNAY051CbCHZYyZ9/WNTU8aTMuQr/1dT3D87bxXC
-	TwxRa9UH/wUE9Q8n6B/6UyL1J/lOdTOKHbBW8dCD5BLX1FPKfjwyw/Kw0wWtwJF3camBasyTImdJl
-	15yLmLs+vhsDl2LXgMUB30WvHteu/aATwLPW1WwEwO7ar1GhLttyLRTJPXaA0YMVFnpdf/llq5fVQ
-	H0fy2+KA==;
+	bh=71q6qFkbUbAl2V56zYmUPUePGcmMBG2bx1YcmcaTAes=; b=Ba/9qIizFFkO9nduE8zvlkeiqo
+	qcWB31ssF1BEU+YokTnBEgtprus92F+n6f3SF7IqLXX0DyXN27PlecOlDEz122hWy/CIYBjyC9GSs
+	5TfUlV0fFMP5TQoAvr5ufwTahIg2H4nPZYVOFszuiA0QMaLLZfmhD3oxoWW6r+yrx6kHrwowZDdbH
+	/wiEjiHUcpMrO7gbPmIQ1G+Kkvti3B/PyFifcH5UQFrZecqRs5s/kcAsJr1x0yUCkd12yA3zeIk7o
+	MYzFK3Nh87/Gyp0wR0bxuftmwAX0E0AYHrLJfHt2PSp81neY9iyiEu0r85RHYNbJv55RQgwQ5Y6/p
+	ux0z7PMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVPl-00000003dJ4-07os;
-	Thu, 27 Aug 2026 08:24:49 +0000
+	id 1wzVcw-00000003edt-0f2h;
+	Thu, 27 Aug 2026 08:38:26 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVPi-00000003dIc-48fg
+	id 1wzVct-00000003edW-452Q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 08:24:48 +0000
+	Thu, 27 Aug 2026 08:38:25 +0000
 Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67R6RBTr3835103
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 08:24:46 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67R6RCrH3835280
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 08:38:23 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	0WOkKUTTNS6mJs2BwdqhMg+NA2BpiKjHIQAe3GoU9ZE=; b=cHTYdhinTE2J6jHu
-	CRsL3AEWHTNk59lfjUAvsY2eSKPkO65LCpqfIwm/F11fPHe/TxipKRpCch1qPUkZ
-	g0Zdv5f7ZZXJglBzZ++Pp45Lmlp9ohyoW6BLLGdr+ZP+Eb2pjefHo3Nyqtq7TFBn
-	tGBokPgf5kGmoiQD6ZWQttK8rcjHUoqkv7dbovdNbY3RHs9MfrB9/KowXcrbm+3g
-	RoPU5AWjwPUqM57H5P/JtaOoIrJdhJG7Qsdqkkkb23DvYJsyWys2s3IEe4/ALx17
-	qERojUpilfpRoAI/RLXWthRvqKZ7pp0nSDOrVbBrd+YGq69eQYKQZctTWJXklQ4n
-	4ra5MA==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ga0wburkq-1
+	71q6qFkbUbAl2V56zYmUPUePGcmMBG2bx1YcmcaTAes=; b=gf1YeRfG0jMWjJvk
+	A+oDzPUuH5WBz2seDRuTBu2O2cIwjWUZ0Rf2OTAZmWp/nwEucRDj2ASlkf9YJndd
+	m61fwXt9K9twk2rCd5EG9R1gVAeNx8LP3S3A3PZxw1QiRAFVJLIXN5+hXX5iLE09
+	yGJpRw9WPfnriuJ3zZUIDU7OJpi4Y8puOs2gKQmv2zMfIYdDg0//Hg3Puc0jojdj
+	ONUk0WlMUW+waxBNtCLoSNv+UbSt7VuqiMydUJ0oQxgJQzFyGLGjvklRu+bf90g9
+	+hQ4Oqqz45SmVapOj+ZZVDgAfcTbmDKTQz9RJbojp6uSD8IPRTsAjgcVuYQJ+rXl
+	py/hUQ==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ga0wbute0-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 08:24:46 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cbb467e56aaso440479a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 01:24:46 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 08:38:23 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-38dde0df80bso3178895a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 01:38:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787819086; x=1788423886; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0WOkKUTTNS6mJs2BwdqhMg+NA2BpiKjHIQAe3GoU9ZE=;
-        b=Qjk0Aod55EMaSmvPr/rBdOm2XGmD7D1tLqRrU4VuEKkBcCfIoDMM9k6Xl2j8YRH3xH
-         70F7voaR3tUm6F12GqbymLAanMzwFAy1kDMcJ/xCN28I2ggCt8fGAjDXBybdkdWs3il/
-         zyGUAsRPKKSlkXGnCdebPFCiTQb7tZvb5Pr4m3vVofkjZmT/RqZmEzj8FzHAv1k43yxO
-         W8LlcgVhFpKS57Wd0bXxZVbFKLX6hBUcNoUT3oCAoc42BJrgzDK3MgAubNnOOMcP4X7x
-         mzdSQjX+qVOLtX1Szz1pegES81RZ58j3uXq8fOnb5/TFA5DfcEXKZPLbu6AdfZVgpAPp
-         jvZg==
+        d=oss.qualcomm.com; s=google; t=1787819902; x=1788424702; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=71q6qFkbUbAl2V56zYmUPUePGcmMBG2bx1YcmcaTAes=;
+        b=bDLvuZFLKYaESaCbpjSsQxuu//U++Ie690QcvpDKoRJVMvyXUIbA1aG6V60BGcyjIy
+         ZNGOOYdZYqSaEKsQr/TSxUmSCRBU75zLG6zfK1UeJYICzRkMUHVO10g8Oa+m5Ys7nD0I
+         Yq59mYTie2OXj+m3TgZe+LhBU6voP2EUgG4upE6JPGCFpeMcRxriFn9uqg88P/vRglu4
+         vq9DNyZjbmcdjAlQSMtU/4eN7Fz14sSbHRuCV0wNnAOhWDQvo8wqHPzirQ8MYu2fO7sK
+         PU021fv0ONO6nzkmQRMJQqi4Qa69eirauN1haYZZCtjj8qfQ52vtpREup9yH+GpDKzK1
+         ozfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787819086; x=1788423886;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1787819902; x=1788424702;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0WOkKUTTNS6mJs2BwdqhMg+NA2BpiKjHIQAe3GoU9ZE=;
-        b=Dowo8DfWmCgSHVkHXftpigfyKGlLVp+caG/u30Q6qb3XatusbxuiXLasCZ29CORc5g
-         LO3e8EXPli+N87ctK/3Uvm+ah6ZFF0zgp/XElqgPxuIwDyIZQ/TsxoAaJVXHVZAL7iNO
-         EEN5ZE2yy/m6DtwrZd2y7SMhr4IszGHtcBeg1ZYMsHw+RJRR3SqH4fx/dAiSvJelaThq
-         Jo3TbHfK+iSYBDx1MMCpGrNLTezdfUD8cuD2jWQ96lgZlzMeqddgbFBFQWLCjMjbV9EX
-         gNl3Xdka/TgFAxMlMmnsgAs89lncKZRmWtfRtoJLfJSVaubZu2iPeE02lQJLlbpPmR9u
-         PNog==
-X-Forwarded-Encrypted: i=1; AHgh+RrrLl5ej8botGT4xzCMUMdqEGeBDGnsmZK0V3XG2J7vp3Kr5/UvJ5X5nxdtma+gyXmESA3AmiItyIuCucufQNf0@lists.infradead.org
-X-Gm-Message-State: AFuF++lD0oHwS9/6P9PbnrG62WqhoH3tkSj3wp4q8/Hx+nySauZ4jjzn
-	zPdokXSr6wBdBAJaw5cxEB+cf3sEEw7Q+9FnKppXqqXDlGKx4SUKwsXFex5AWBxwDhq4+eR6rjS
-	XckY+PnmMv1wLIlcQXCyKVXQN2iVWmO6/8gbKBESyEFP54iCP+mIY0gZJTXujYakcHoTLg19vcp
-	y+bA==
-X-Gm-Gg: AR+sD10p3a8g6guquzxOqeC2MQnnxoue1ZUWFbs04w+wpoxHXThUD0h5lrV7BsmPuc0
-	LiZjk/Y1cyja0j58EwJRhGbk9I0JdOOBT3k8RmioE72ajGnJCdA4TS13ysTeBNkDVsNX5JSEaJS
-	XIdEmUYLFj/QLZ/q6NKz74HZuxtt9qSDLVO1QYV3wsyGTDgGW5m9VF/WfOdQCi1jIEXkVbHTaer
-	mR7fOU6e4t8XTCRlQBN2KskBXg9Nj9rkBBG00Stfvni+mUfEIvWp9F4n5Xl2nYjo+TO5/8y8Tzm
-	xbGjB2e8MPtdu0ciKYUeYtn0a1lMBp21U1YcoYOeJgCyHT8DEcSaOqqL3ZpDh1/SZ21U+XIphk4
-	B2yOFIx3ldcDQw3si215a3CQHPVJaxoHiAg==
-X-Received: by 2002:a05:6a21:9d84:b0:3c3:f371:1ea9 with SMTP id adf61e73a8af0-3cf844449abmr28579014637.10.1787819085648;
-        Thu, 27 Aug 2026 01:24:45 -0700 (PDT)
-X-Received: by 2002:a05:6a21:9d84:b0:3c3:f371:1ea9 with SMTP id adf61e73a8af0-3cf844449abmr28578942637.10.1787819085169;
-        Thu, 27 Aug 2026 01:24:45 -0700 (PDT)
+        bh=71q6qFkbUbAl2V56zYmUPUePGcmMBG2bx1YcmcaTAes=;
+        b=K09wIxpnWXo/4NMP7iyQFF7BrnAcH72GOcZCkkaBbhNz8rBxhK/3W6Yj1HbTDxbcR+
+         MqH9hh/0vPH7xuaH6gx2fs4DJC60Ark3oryuTFz3gI0jxFlEy6Pe4hpCd0yXA/YH/QjR
+         MOpK2arBqZIY7MEEJrXPqlDbrkV0hTwjMk553J19XtaWNodvI/yboXWGBwp8McQtZpGn
+         CMxRX4AbqUEaWpkGjyn1XS5eBEW3hDHqCdq36Up/sFlFsAXGAPOQI7g55ljZB+1/b3Am
+         pPzYiAVJOkIE3m3/zF6AVMK+pCI9eTsFXGzhsWkn0AFxE5xL4I1msAF6C0rzr4lyhBel
+         Uwww==
+X-Forwarded-Encrypted: i=1; AHgh+Rog5OunSV8FApt+zDc28Vk+m7f95UlbesXp7uKj/A3kVWdaip/OGHkU5EwMJYafnldpFWV45Z7cKGefx1PQ+jC5@lists.infradead.org
+X-Gm-Message-State: AFuF++maQnXBlvr9PBcrU8sgvk9HX0uUjZV9vdLOT61ntjYiR/YhREq+
+	Y8UPVPuZg6fAKG8SXWnWIHgQyuzDqnCi5/R8vH2+ziggbljdK1GLpKYJNUJI+z3woqJOmN2Lhni
+	I/L+mu41Gza1zmncOh/XtP/8pSLfe+t6McAs7wpmFRbrgZp8NnhFL9DMdBUo8so1Ct/yJO8vE3H
+	Nn/Q==
+X-Gm-Gg: AR+sD10UrB+9QwvglyCRW2CGTJPqMYeYugYEMFpNtoPuOyQtWo51WXeMUlUQUshOYnY
+	TRywXMPmjyc80J2NG5gUZosNUeXA+rUBSWNYEacXBZZv5aaF/pkhU1T1HSiTKtRC67xUWeDjvPI
+	KQCRFsb0m+IhMk41QleGYyAews42hkrTw5JjpZA4DHtQvq2deQRH0qv/Toa+aMUtq49ve/GWqF3
+	RKkA+ybpVn6Mjjui7v4W0kKgLQcHVX/19m+LOmYoBQHEsTSnX1sUlkpeyzE8Sh04IgheilRrdD1
+	WOCiTHM6cVSQY4YoNLCT/8kHDqgWxp5yuPiolsv8uD6hKPpXbHZcwPc7tMbjxEivu1xKABiCIgT
+	62q1ZzRrJAGa0C4hg7yyA03TeqjtkvNdjkw==
+X-Received: by 2002:a17:90b:3890:b0:38d:dfd1:7c1 with SMTP id 98e67ed59e1d1-3966d17865fmr25898125a91.2.1787819902421;
+        Thu, 27 Aug 2026 01:38:22 -0700 (PDT)
+X-Received: by 2002:a17:90b:3890:b0:38d:dfd1:7c1 with SMTP id 98e67ed59e1d1-3966d17865fmr25898042a91.2.1787819901946;
+        Thu, 27 Aug 2026 01:38:21 -0700 (PDT)
 Received: from [10.218.39.50] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc1bec989f2sm1835547a12.28.2026.08.27.01.24.41
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-396b0d3d7fbsm1863422a91.3.2026.08.27.01.38.18
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Aug 2026 01:24:44 -0700 (PDT)
-Message-ID: <8188c158-60ed-4d05-a26e-c127850520cb@oss.qualcomm.com>
-Date: Thu, 27 Aug 2026 13:54:40 +0530
+        Thu, 27 Aug 2026 01:38:21 -0700 (PDT)
+Message-ID: <071db604-0744-4a45-87ac-085a40cb5999@oss.qualcomm.com>
+Date: Thu, 27 Aug 2026 14:08:17 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4] iommu/io-pgtable-arm: Add support for contiguous hint
  bit
+From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
 To: Daniel Mentz <danielmentz@google.com>
 Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
         "Joerg Roedel (AMD)" <joro@8bytes.org>, linux-arm-msm@vger.kernel.org,
@@ -105,30 +105,30 @@ Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
         Prakash Gupta <prakash.gupta@oss.qualcomm.com>
 References: <20260804-iommu_contig_hint-v4-1-d7a47ed5db98@oss.qualcomm.com>
  <CAE2F3rB7zpPFfC376mP=god9HWRmKOaQUEgPVzKScxS12pZrvQ@mail.gmail.com>
+ <8188c158-60ed-4d05-a26e-c127850520cb@oss.qualcomm.com>
 Content-Language: en-US
-From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-In-Reply-To: <CAE2F3rB7zpPFfC376mP=god9HWRmKOaQUEgPVzKScxS12pZrvQ@mail.gmail.com>
+In-Reply-To: <8188c158-60ed-4d05-a26e-c127850520cb@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: KXnmkZ1cVI3YVk6dLTD7fBqrGhQ0wk-F
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI3MDA2OCBTYWx0ZWRfX+QA3XUVQSt9K
- buTFUVxoup1/4qRvOQHE5z4waEwzAF3JBPo16xv25cc7la1iTsjQE66aK9FjNJkf1eyatmWP5oN
- OBKjGowTjd4iJAnt10E/lM8ACfeQbfc=
-X-Proofpoint-GUID: KXnmkZ1cVI3YVk6dLTD7fBqrGhQ0wk-F
-X-Authority-Analysis: v=2.4 cv=SoCgLvO0 c=1 sm=1 tr=0 ts=6a8ff44e cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+X-Proofpoint-ORIG-GUID: Z_TlY00FHGFqOnjSw1zu-RMPSGJ_j5DS
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI3MDA3MCBTYWx0ZWRfX9sB1nkDjAiBk
+ vWc4C2u+1N/eFrY7zwWuhmi53e1Z5zFqxj9VrIClgmN8D6CN4uo3p7ELF1K6+9YSnurkKN3xLvd
+ byYmdVRUFv9GnQK0yy0+WimgcAlPp90=
+X-Proofpoint-GUID: Z_TlY00FHGFqOnjSw1zu-RMPSGJ_j5DS
+X-Authority-Analysis: v=2.4 cv=SoCgLvO0 c=1 sm=1 tr=0 ts=6a8ff77f cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=hD7wzR-C_dcGOD24FjMA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=_Vgx9l1VpLgwpw_dHYaR:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI3MDA2OCBTYWx0ZWRfX97gKsW4Z4axu
- rk5BCLmgGIQFP0xIP6dGPk7DrafsVc8R3WXqHEejC8pJyUpy3wiHSylJCACM13ZUSaHE2I/GmaK
- dqjVvhJu1tjpdJJ7DXlZNG90yZl2bCHYdixEiGW7Vo38lQ0zTMc1ND5gLvSjkee6KohSLUFRM3J
- TierBYaDys0ZbsD5l6xbLurrMOn3rkkJ+TbcTuq+gjoKC/ccC2p0OVGeKR8h80/Tl46SB+ZOFJl
- y6XXcamwSUAtNcxjEjbbK/asfuHA0QVU1oMtt84GZOg0+tflNtTzc7SM5FEOfyPJREsQ5ZpIVQ5
- t7y7WlP5LeNtSU6xSjls2zha1bR3yTEltw9WAyCej9gQ4cV7tsmSG/Tevd8E24o0yuN80dI+HB+
- zIYizb5EleX4VC3CPLQo9Z8XHOe3UF/0y8hRNDUhFv1Y7U90fWfHQ5I8KY85PKvpdcSI9b81aHB
- n8aWMP8Scl2Xn3LNiIg==
+ a=EUspDBNiAAAA:8 a=3AgxOFbAtmQaTp21eccA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI3MDA3MCBTYWx0ZWRfX1oEB7CfGjPNy
+ PrSOl1yHLWiNCMPMizGVvye+BXsMgoc8frSuUwLCdcFoWUeq0MrYhJI2jgC/TH6629Ebsk0WrZa
+ 4tje/Fr/1vpsTL1L8wAzbo3YPz40OVipNZ3ew3Hs5aXxuWRd12DdUphqd/ApakfRJHI6dxCxC+m
+ duUH+OSXDuCaWe+SzP9ptrU7Zf1HGkU4uir85hNES6gUKxcvjzgsQQuBl/USFukPYY0X+QAUQ9H
+ 9qj5ElcJBjKhl2paePzWsbZ3NJTtfcINTT1/n5PrUW8nIOSAWvi94e1WFNdiIQS0pjuFulEcnsn
+ 56SLYAU5MEWGHEdBOACYyjB91u2f+7owWEWU4l3bmg3hi/dCtV1MUOQaUNyOwimw39veCWCriN6
+ gbCzqE+SCp3j8lYgBFx4gfX67PazZVoRdY6jiKhOMCRzm5V271NiL7yk3s/u18ezHzDZ6Lp7c2s
+ NibQaCuJjJwiVC2DGnA==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-27_03,2026-08-26_02,2025-10-01_01
@@ -137,10 +137,10 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  clxscore=1015 lowpriorityscore=0 priorityscore=1501 suspectscore=0
  adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608270068
+ definitions=main-2608270070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_012447_033231_C1EC3586 
-X-CRM114-Status: GOOD (  33.31  )
+X-CRM114-CacheID: sfid-20260827_013824_047550_A2C474AD 
+X-CRM114-Status: GOOD (  32.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,168 +157,178 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 8/15/2026 3:27 AM, Daniel Mentz wrote:
-> On Mon, Aug 3, 2026 at 11:19 PM Vijayanand Jitta
-> <vijayanand.jitta@oss.qualcomm.com> wrote:
->> +static unsigned long arm_lpae_get_cont_sizes(struct io_pgtable_cfg *cfg)
->> +{
->> +       unsigned long pg_size, blk_size, l1_blk_size, cont_sizes = 0;
->> +       unsigned long cont_leaf_size, cont_blk_size, cont_l1_blk_size;
->> +       int pg_shift, bits_per_level;
->> +
->> +       if (!cfg->pgsize_bitmap || (cfg->quirks & IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT))
->> +               return 0;
->> +
->> +       pg_shift = __ffs(cfg->pgsize_bitmap);
->> +       bits_per_level = pg_shift - ilog2(sizeof(arm_lpae_iopte));
->> +       pg_size = 1UL << pg_shift;
->> +       blk_size = pg_size << bits_per_level;
->> +       l1_blk_size = blk_size << bits_per_level;
->> +
->> +       cont_leaf_size = arm_lpae_num_cont(pg_size) * pg_size;
->> +       if ((cfg->pgsize_bitmap & pg_size) &&
->> +           arm_lpae_cont_size_fits(cfg, cont_leaf_size))
->> +               cont_sizes |= cont_leaf_size;
->> +
->> +       if (cfg->pgsize_bitmap & blk_size) {
->> +               cont_blk_size = arm_lpae_num_cont(blk_size) * blk_size;
->> +               if (arm_lpae_cont_size_fits(cfg, cont_blk_size))
->> +                       cont_sizes |= cont_blk_size;
->> +       }
->> +
->> +       /*
->> +        * l1_blk_size is only set in pgsize_bitmap if level-1 blocks are
->> +        * supported for this granule (not 16K/64K, per
->> +        * arm_lpae_restrict_pgsizes()), so no extra gating is needed here.
->> +        */
->> +       if (cfg->pgsize_bitmap & l1_blk_size) {
->> +               cont_l1_blk_size = arm_lpae_num_cont(l1_blk_size) * l1_blk_size;
+On 8/27/2026 1:54 PM, Vijayanand Jitta wrote:
 > 
-> Our AI model is saying that this might overflow cont_l1_blk_size on 32
-> bit platforms i.e. 16 * 1G doesn't fit into a 32 bit type. It says
-> that cont_l1_blk_size will be truncated to 0, and
-> arm_lpae_cont_size_fits() then calls ilog2(0) which is undefined.
 > 
-
-Ack. With arm_lpae_cont_size_fits removed this won't be an issue anymore.
-
->> +               if (arm_lpae_cont_size_fits(cfg, cont_l1_blk_size))
->> +                       cont_sizes |= cont_l1_blk_size;
->> +       }
->> +
->> +       return cont_sizes;
->> +}
-> [...]
->> @@ -660,6 +829,8 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
->>  {
->>         arm_lpae_iopte pte;
->>         struct io_pgtable *iop = &data->iop;
->> +       size_t block_size = ARM_LPAE_BLOCK_SIZE(lvl, data);
->> +       int num_cont = arm_lpae_num_cont(block_size);
->>         int i = 0, num_entries, max_entries, unmap_idx_start;
+> On 8/15/2026 3:27 AM, Daniel Mentz wrote:
+>> On Mon, Aug 3, 2026 at 11:19 PM Vijayanand Jitta
+>> <vijayanand.jitta@oss.qualcomm.com> wrote:
+>>> +static unsigned long arm_lpae_get_cont_sizes(struct io_pgtable_cfg *cfg)
+>>> +{
+>>> +       unsigned long pg_size, blk_size, l1_blk_size, cont_sizes = 0;
+>>> +       unsigned long cont_leaf_size, cont_blk_size, cont_l1_blk_size;
+>>> +       int pg_shift, bits_per_level;
+>>> +
+>>> +       if (!cfg->pgsize_bitmap || (cfg->quirks & IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT))
+>>> +               return 0;
+>>> +
+>>> +       pg_shift = __ffs(cfg->pgsize_bitmap);
+>>> +       bits_per_level = pg_shift - ilog2(sizeof(arm_lpae_iopte));
+>>> +       pg_size = 1UL << pg_shift;
+>>> +       blk_size = pg_size << bits_per_level;
+>>> +       l1_blk_size = blk_size << bits_per_level;
+>>> +
+>>> +       cont_leaf_size = arm_lpae_num_cont(pg_size) * pg_size;
+>>> +       if ((cfg->pgsize_bitmap & pg_size) &&
+>>> +           arm_lpae_cont_size_fits(cfg, cont_leaf_size))
+>>> +               cont_sizes |= cont_leaf_size;
+>>> +
+>>> +       if (cfg->pgsize_bitmap & blk_size) {
+>>> +               cont_blk_size = arm_lpae_num_cont(blk_size) * blk_size;
+>>> +               if (arm_lpae_cont_size_fits(cfg, cont_blk_size))
+>>> +                       cont_sizes |= cont_blk_size;
+>>> +       }
+>>> +
+>>> +       /*
+>>> +        * l1_blk_size is only set in pgsize_bitmap if level-1 blocks are
+>>> +        * supported for this granule (not 16K/64K, per
+>>> +        * arm_lpae_restrict_pgsizes()), so no extra gating is needed here.
+>>> +        */
+>>> +       if (cfg->pgsize_bitmap & l1_blk_size) {
+>>> +               cont_l1_blk_size = arm_lpae_num_cont(l1_blk_size) * l1_blk_size;
 >>
->>         /* Something went horribly wrong and we ran out of page table */
->> @@ -674,10 +845,22 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
->>                 return 0;
->>         }
+>> Our AI model is saying that this might overflow cont_l1_blk_size on 32
+>> bit platforms i.e. 16 * 1G doesn't fit into a 32 bit type. It says
+>> that cont_l1_blk_size will be truncated to 0, and
+>> arm_lpae_cont_size_fits() then calls ilog2(0) which is undefined.
 >>
->> +       /*
->> +        * Normalize an exact whole-CONT-group request down to the
->> +        * equivalent block_size/pgcount, mirroring __arm_lpae_map().
->> +        */
->> +       if (!(data->iop.cfg.quirks & IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT) &&
->> +           num_cont > 1 && size == block_size * num_cont) {
->> +               pgcount *= num_cont;
->> +               size = block_size;
->> +       }
->> +
->>         /* If the size matches this level, we're in the right place */
->> -       if (size == ARM_LPAE_BLOCK_SIZE(lvl, data)) {
->> +       if (size == block_size) {
->> +               size_t cont_size = num_cont * block_size;
->> +
->>                 max_entries = arm_lpae_max_entries(unmap_idx_start, data);
->> -               num_entries = min_t(int, pgcount, max_entries);
->> +               num_entries = min_t(size_t, pgcount, max_entries);
+> 
+> Ack. With arm_lpae_cont_size_fits removed this won't be an issue anymore.
+> 
+>>> +               if (arm_lpae_cont_size_fits(cfg, cont_l1_blk_size))
+>>> +                       cont_sizes |= cont_l1_blk_size;
+>>> +       }
+>>> +
+>>> +       return cont_sizes;
+>>> +}
+>> [...]
+>>> @@ -660,6 +829,8 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
+>>>  {
+>>>         arm_lpae_iopte pte;
+>>>         struct io_pgtable *iop = &data->iop;
+>>> +       size_t block_size = ARM_LPAE_BLOCK_SIZE(lvl, data);
+>>> +       int num_cont = arm_lpae_num_cont(block_size);
+>>>         int i = 0, num_entries, max_entries, unmap_idx_start;
+>>>
+>>>         /* Something went horribly wrong and we ran out of page table */
+>>> @@ -674,10 +845,22 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
+>>>                 return 0;
+>>>         }
+>>>
+>>> +       /*
+>>> +        * Normalize an exact whole-CONT-group request down to the
+>>> +        * equivalent block_size/pgcount, mirroring __arm_lpae_map().
+>>> +        */
+>>> +       if (!(data->iop.cfg.quirks & IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT) &&
+>>> +           num_cont > 1 && size == block_size * num_cont) {
+>>> +               pgcount *= num_cont;
+>>> +               size = block_size;
+>>> +       }
+>>> +
+>>>         /* If the size matches this level, we're in the right place */
+>>> -       if (size == ARM_LPAE_BLOCK_SIZE(lvl, data)) {
+>>> +       if (size == block_size) {
+>>> +               size_t cont_size = num_cont * block_size;
+>>> +
+>>>                 max_entries = arm_lpae_max_entries(unmap_idx_start, data);
+>>> -               num_entries = min_t(int, pgcount, max_entries);
+>>> +               num_entries = min_t(size_t, pgcount, max_entries);
+>>>
+>>>                 /* Find and handle non-leaf entries */
 >>
->>                 /* Find and handle non-leaf entries */
-> 
-> This comment is no longer accurate. The handling now extends beyond
-> non-leaf entries.
-> 
-
-Agreed, that comment is stale -- the loop now also validates CONT-group
-alignment on leaf entries (rejecting an unmap that would split a tagged
-group) before falling through to the non-leaf teardown. Will update it to
-something like:
-
-/* Validate leaf entries and handle non-leaf entries */
-
-
->>                 for (i = 0; i < num_entries; i++) {
->> @@ -687,6 +870,40 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
->>                                 break;
->>                         }
+>> This comment is no longer accurate. The handling now extends beyond
+>> non-leaf entries.
 >>
->> +                       /*
->> +                        * A real CONT group must always be invalidated as a
->> +                        * unit, so reject an unmap that splits one. Check the
->> +                        * PTE's own CONT bit rather than the caller's size,
->> +                        * since a legitimate unmap can span multiple prior
->> +                        * iommu_map() calls and its size alone doesn't say how
->> +                        * the underlying PTEs were grouped. Only the first and
->> +                        * last entries can straddle a group boundary; an
->> +                        * interior CONT-tagged entry's group is necessarily
->> +                        * fully covered by this unmap, since groups can't
->> +                        * overlap without also covering everything between
->> +                        * them.
->> +                        */
->> +                       if (pte & ARM_LPAE_PTE_CONT) {
->> +                               bool ok = true;
->> +
->> +                               if (i == 0)
->> +                                       ok = ok && IS_ALIGNED(iova, cont_size);
->> +                               if (i == num_entries - 1)
->> +                                       ok = ok && IS_ALIGNED(iova + (i + 1) * block_size,
->> +                                                             cont_size);
->> +
->> +                               /*
->> +                                * Stop short of this entry instead of returning
->> +                                * 0: entries before i may already have had
->> +                                * non-leaf sub-tables torn down above, so the
->> +                                * caller needs the real unmapped count, and the
->> +                                * loop exit below still clears/gathers entries
->> +                                * [0, i) correctly.
->> +                                */
->> +                               if (WARN_ON_ONCE(!ok))
 > 
-> Consider aligning with the following WARN_ONCE in the same function:
+> Agreed, that comment is stale -- the loop now also validates CONT-group
+> alignment on leaf entries (rejecting an unmap that would split a tagged
+> group) before falling through to the non-leaf teardown. Will update it to
+> something like:
 > 
-> WARN_ONCE(true, "Unmap of a partial large IOPTE is not allowed");
+> /* Validate leaf entries and handle non-leaf entries */
+> 
 > 
 
-Ack.
-
->> +                                       break;
-> 
-> I think this behavior is inconsistent: when a problem is detected at
-> the beginning of the unmap range, you return without modifying the
-> table, whereas if it's detected at the end, the code proceeds with
-> unmapping and leaves the table misconfigured. Could these checks be
-> performed before entering the loop?
-> 
-
-Agreed, Will move both checks before the loop so a rejected unmap is always a
-full no-op, regardless of whether the violation is at the start or end of
-the range.
+You can ignore the above comment, after moving the checks to outside the loop
+the earlier comment would stay accurate for the loop.
 
 Thanks,
 Vijay
-
->> +                       }
->> +
->>                         if (!iopte_leaf(pte, lvl, iop->fmt)) {
->>                                 __arm_lpae_clear_pte(&ptep[i], &iop->cfg, 1);
+>>>                 for (i = 0; i < num_entries; i++) {
+>>> @@ -687,6 +870,40 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
+>>>                                 break;
+>>>                         }
+>>>
+>>> +                       /*
+>>> +                        * A real CONT group must always be invalidated as a
+>>> +                        * unit, so reject an unmap that splits one. Check the
+>>> +                        * PTE's own CONT bit rather than the caller's size,
+>>> +                        * since a legitimate unmap can span multiple prior
+>>> +                        * iommu_map() calls and its size alone doesn't say how
+>>> +                        * the underlying PTEs were grouped. Only the first and
+>>> +                        * last entries can straddle a group boundary; an
+>>> +                        * interior CONT-tagged entry's group is necessarily
+>>> +                        * fully covered by this unmap, since groups can't
+>>> +                        * overlap without also covering everything between
+>>> +                        * them.
+>>> +                        */
+>>> +                       if (pte & ARM_LPAE_PTE_CONT) {
+>>> +                               bool ok = true;
+>>> +
+>>> +                               if (i == 0)
+>>> +                                       ok = ok && IS_ALIGNED(iova, cont_size);
+>>> +                               if (i == num_entries - 1)
+>>> +                                       ok = ok && IS_ALIGNED(iova + (i + 1) * block_size,
+>>> +                                                             cont_size);
+>>> +
+>>> +                               /*
+>>> +                                * Stop short of this entry instead of returning
+>>> +                                * 0: entries before i may already have had
+>>> +                                * non-leaf sub-tables torn down above, so the
+>>> +                                * caller needs the real unmapped count, and the
+>>> +                                * loop exit below still clears/gathers entries
+>>> +                                * [0, i) correctly.
+>>> +                                */
+>>> +                               if (WARN_ON_ONCE(!ok))
 >>
+>> Consider aligning with the following WARN_ONCE in the same function:
+>>
+>> WARN_ONCE(true, "Unmap of a partial large IOPTE is not allowed");
+>>
+> 
+> Ack.
+> 
+>>> +                                       break;
+>>
+>> I think this behavior is inconsistent: when a problem is detected at
+>> the beginning of the unmap range, you return without modifying the
+>> table, whereas if it's detected at the end, the code proceeds with
+>> unmapping and leaves the table misconfigured. Could these checks be
+>> performed before entering the loop?
+>>
+> 
+> Agreed, Will move both checks before the loop so a rejected unmap is always a
+> full no-op, regardless of whether the violation is at the start or end of
+> the range.
+> 
+> Thanks,
+> Vijay
+> 
+>>> +                       }
+>>> +
+>>>                         if (!iopte_leaf(pte, lvl, iop->fmt)) {
+>>>                                 __arm_lpae_clear_pte(&ptep[i], &iop->cfg, 1);
+>>>
+> 
 
 
