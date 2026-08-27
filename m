@@ -4,98 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2440C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 16:46:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 102EAC61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 16:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=04ZKMcnXgGkCw54cQeUZ197WIreRiI4WJLmXW900/HI=; b=DB9u5GBEkJRLarpnEVU+HAxWxp
-	Q/pBgKlWqgp+yo5sHvUuNSL7k4e5c13uSXV/7NRY2/wONB63YRn38fJJyoVBR7bdTPjg419pqPCcz
-	hLQASSLk60GeyYMoUzwrhcvCP6pis7SJ66YAf/48vvMRPdbHE9MbRWQob29CE3aJDV9vFYJkw8KmT
-	Bdthj7FjW0qmvdTxGnpbqQBr1AkEdHTl9g+j44Ep5m+ghol35+YPXiuecaMjIsbPZFcPQ0vce9rfe
-	LCkmSP8bKnU1oeuDctom4UbFFZQluKuxF3kWQ9iMHZlQc7qKngx+SXVNn8fKlBLUDUazbjHdUmkz3
-	tvebfzuA==;
+	bh=g94yz5fedosPU2VDbIoL1jhvFxXuRKxNYR8GyxIQEdU=; b=G22QiHJcKBpi4LPU+vpidOtDsq
+	1gXUCspN7qPkdCIE6T//Kj1BJeB+5tsJhpmc2eZSWxfK63nsiPrqfvLMJZViVgxZotRZck0NmSvFc
+	pjRqAo9nDtydGOHbkU+RUpbzfHTEPV32HTLxv4Q++UqMx74ymwEqoFUe3Nj1VDxF6DI5FXAWnfGeT
+	kDt456VPprMoyNRQvamAGrggx9VaA0KPUnNI1W5LQ3SuHUouO0kV9vBLLGcFblEuEmAd+AjNvkGfk
+	CiQ2m2aSlXzz2r1oxM0y2g3ZdPfvOTt7UbARvq9RQTnVMtr0k6eyCmWWmU7wlRcwkiKzrxc6dU/XY
+	0j7Wu/HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzdFU-00000004Ozd-0JQ0;
-	Thu, 27 Aug 2026 16:46:45 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wzdGS-00000004P6g-2JT3;
+	Thu, 27 Aug 2026 16:47:44 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzdFQ-00000004OzI-0O4g
+	id 1wzdGP-00000004P5n-1pTN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 16:46:42 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67RGIMfC707841
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 16:46:39 GMT
+	Thu, 27 Aug 2026 16:47:43 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67RFbgiT1310839
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 16:47:41 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	04ZKMcnXgGkCw54cQeUZ197WIreRiI4WJLmXW900/HI=; b=h0glBXuyQUQRYemm
-	DfEe5CHlzurV6Ac3tsRZaFGaqEJpGD5PldYYJ0ygayjFBm0ZRPi3PRQ6yk+WTpkY
-	3zzVN1vhXEeXFyL53bker2bbEITkgZCrBR2c5gPkHX1hZVdjt6+RBzjsaifoS/jB
-	4MyJmG2O/RhiD0zb/6C/9FCkKM8cVB2ZQic+spJXtg6Y4TSoSmu72trDf4yhHwx4
-	ySW0ZFkVdyWT8sOI0w6TV76RL5GPavheA7YfIBYPf0sZECVeknbQ28ybpQZ7LWdt
-	67VyS9dUjvFMdPZpsDO6sflvWpTs9t0y/pH7fkXuEL4XWYfR9RWBhiQVhve+hAHu
-	aphPXw==
-Received: from mail-ot1-f70.google.com (mail-ot1-f70.google.com [209.85.210.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4garn0g3n1-1
+	g94yz5fedosPU2VDbIoL1jhvFxXuRKxNYR8GyxIQEdU=; b=YzS1TQTXMjf5cW4U
+	eEqDAGdglW4D3gG22mOeeDoKfj4kkOo+ZJNWp8rbdHRB5XdGsOHbadjiShL5uYKL
+	m74+ahf5aH5dt+q7t/WUiLqNNQiijggXmwBTVpBH+X3zS2Lz8z64tSUhvUv8lXko
+	FKItQKJgjJFP8e3dsuanck7evo5biLlFOFGdVhWFzgtif+EUYlB6stAN7wrNSspi
+	Efnly8LzDl84/p1blOUCQfU2aYjr9rfNDGoakhisWbTFwhfmGKfz6NFxfHNaOWrT
+	Q3f8UMwV3FKaHRTLZGxikov9/luY6JwA5Ge0NgeOyo15r9/wudG8nFSoUCXBASST
+	u8u/8Q==
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ga8m5ku14-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 16:46:38 +0000 (GMT)
-Received: by mail-ot1-f70.google.com with SMTP id 46e09a7af769-7e9e741693bso152128a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 09:46:38 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 16:47:40 +0000 (GMT)
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4a7de733fa9so225904b6e.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 09:47:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787849198; x=1788453998; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1787849260; x=1788454060; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=04ZKMcnXgGkCw54cQeUZ197WIreRiI4WJLmXW900/HI=;
-        b=BBevP+pVRbFgSbx2LI5iitVk3bE8aoGfU1rM2y10cgD9SpAbYCA/dAPDLSrnQIU52b
-         leu3aykgYgARIA7x+gMzXrNCGEyd8j2lA0TdfA2GH1yhGtda3N8e5Mc+0u0I6RF0WPUw
-         Zf0ooTNi4/ck48Iy5tQIAFcjzyLew0Fyx6KnBOZWaELXxnaTMO9Sti+Jb11l1UgAm3Gf
-         VMdY254zpF/n0QlfjXyZ2dv80x2rCxRVVK5TZBOpzcIHakbGWGFtSDndZXKVZLFS9kIQ
-         1Ojlzl8pQ85twCRokBJ9v9JKROpTuKjg5zx3OsH/MjuAMgZL9B3W8gNgKFW6Io0hzOFV
-         YQng==
+        bh=g94yz5fedosPU2VDbIoL1jhvFxXuRKxNYR8GyxIQEdU=;
+        b=C8HMMFfPkm2FKzRH0bU33H67PFexw/5SD0z9ugAHpw89SYYtorixfNSulJVeJ+LXpS
+         8LeLKmCm0iuWnxn0HnG/RmDoHgbB/aQW9nNwmstjcrG/6wyzkjdJFisiDyqMPfOk3x4T
+         XElvjjGJQdsVLXD7oaoPx7aS4WmJu6Y0hbGRzaCYMRIn2MMSpkDWsytIPERBJNguudNe
+         9VNkXGGgYm6wq/IUANsP+farJc8xLB76Z/RrhX+9m9CA6XTMy64H0OEeVpY+Vc6XvjRz
+         7W++HfLv8N1GtZ3w4HRgRTL/htix1YyGbKORmDR9qMDD8x6JdobqTbWJhGvGv8OSkdKu
+         vQLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787849198; x=1788453998;
+        d=1e100.net; s=20251104; t=1787849260; x=1788454060;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=04ZKMcnXgGkCw54cQeUZ197WIreRiI4WJLmXW900/HI=;
-        b=GCg+kkA37m6tLrg3AnAvuIuW1O7M18+qG9Sy4ZK0vrCji8lKJcNulPCHFblAIrgBzP
-         az2+iVJcdtRVUw835fZ35pquqw5PR3jiTD2ALihxG2lJ39maip8vhrJ04O/z+h52zBxp
-         KLfsoOA+J5lyIBre1KryT5wTVw9iLi5ca1hHl3DeHqzaccGDSgOr8K47JrPQ+KMPp5Yf
-         ysm+ktMi/sDX51dFAbATR3P5moi//ZlC1u/MhcyAutP8hzX3fJoZN7+hABiBpz6rIXxz
-         +GE8/DWYJac+eIAvB1+1l1Z7tRH0nH1f0PQuIA0HvGoVn17LJpZtkKRIx2l5yaCo/Pkh
-         kxbQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqqB9AT0b6AaA8HPOUH5TweGQaHC4HusII9OQlmBp00RfgcVRPfOvorcmqFZydIZum/igq/7cR9l0NWq7ZZXIlv@lists.infradead.org
-X-Gm-Message-State: AFuF++kkemPpWR9N2XVPregvWmNawyENb+DURqOFWRVXZQvs0vPUPFac
-	qHo/s6oFj2TVCI24XKVf9Ey9iZKlTJnnwmTr65KA9Y/ahJMBCIppO7TaiE5ObRQgwvRm3Gi3m8M
-	A2oARcKRn66U1LWhWHRQB89/LS9zPrGREJKXIkf+Hh6PNUKlfaRrr9YQ3jQRfKHpbwqxYQPZdp8
-	JOqw==
-X-Gm-Gg: AR+sD13E14odNaSYuXObWPDZ8krD6riRSTWSayv1KZIm6uqU+RUjS58ZAbQjpUvGDda
-	siLMS+YCf0HTghqTYABsu6KUaMzJ9DVsYoBPLXATC0V0sFN9a0S0zKnAKtsTwW1q0Pos5TBIs3e
-	vmoY1OqbhQ28Xtye0mZUtC1xhinFOKf7cBUZpOGuvgSqWyLKgJ5fBXIu5/8fRiUij/EXrWgG9Zh
-	H2vwJiIpgwhnW4qtLEGNWPcvn5iteaag8O71EEME0BlWnkAfkr8bWd337r+W3m9Ddh/60ENFgol
-	WKPI5Okhua22Cv/FgcF8qvZNPFl1ZTHeDWRmHUinuJYmHUPx1Qe9MgprG2ZNnuNp9xhe5vinH1W
-	/onp7Iq7Oi1uFg87iYz4JJ86ik2tmjN4=
-X-Received: by 2002:a05:6830:4494:b0:7f4:d8e0:c392 with SMTP id 46e09a7af769-7f4f21ca005mr792632a34.2.1787849198173;
-        Thu, 27 Aug 2026 09:46:38 -0700 (PDT)
-X-Received: by 2002:a05:6830:4494:b0:7f4:d8e0:c392 with SMTP id 46e09a7af769-7f4f21ca005mr792519a34.2.1787849197577;
-        Thu, 27 Aug 2026 09:46:37 -0700 (PDT)
+        bh=g94yz5fedosPU2VDbIoL1jhvFxXuRKxNYR8GyxIQEdU=;
+        b=S4KVgLZke2OFEoxhYJgRnAkhfYpYSj7dGkSTwqUiHgZXx39lSgEkQ4biJvCwnx3bkn
+         RlQTwyfp6UTmZJxt3gzaYuICmI9CHFACyFiMWXwRWjSkDSjqqdTyxdEz9LucWt6OYb8j
+         oWlESUl8FpqSWPhafqPIBXAizo306YAQpRN9DvZVmtGptKMaZlQunpLrYZj1ORhVj7QN
+         Saf1S0AsGViQA00PN40LjDTM/gR5TnlnUlfyvdAlAQDV/Gir6FBmryfzKFndiCMaqqv8
+         ASeO34UxzXnQI+xgeHa04rDW/SS/4AH994HUlUpeYUNEBRwX/PghuD1gkCGEpkBm9B+5
+         5GkA==
+X-Forwarded-Encrypted: i=1; AHgh+RraRbJHBga7Y/jqxcwC1Xr4M5TImq6SwVL9a4EPx8lpyaLIDLGziB3CUFOZwW6nCCWPG/UvAWqalhXdUYMqArN1@lists.infradead.org
+X-Gm-Message-State: AFuF++nSjXxSZ32EhvrNv+fwKfj/V87aRM0lMRaA70Njb7he0yK1m7NP
+	IPTClTr+yEzdKnGAMHRyLP2n6fZqBPJ3yKDkIdfhUuXydBW7o2WSr1HnrbVqO5YFv38EyJKLYAK
+	R0Jd3owMzO/vSKydcKXEbRqGRbolUb9KgpaGVGGxi74ShZcHHAPso2WXXE0nCIdaDxPqi71wI7e
+	Jltw==
+X-Gm-Gg: AR+sD13OHtm/32sYP7rZ/954qRtp+L7PMqPHiGwODH8BB376Imn7tVXk2sjrgGQ6UOa
+	6kMMblTZqmqLNVl1g0qokAwRjnuzZmzOl4N+0ZtYtTLBQ/FaARTMcVz6x6iEAWIqF8nh+Ppw47o
+	R4AXRcuCh0zyi0vblPNZ93p6FotyS0Hv3ScccV/SkqDF8TXpluC3KEGbkOKrm0U0eRl+c04TmE1
+	aX80+/GI15OQiz7rY0sQEQauAeSS3ri/M4Y5ElUdypRsahu+M4KVf0szr4ssJS4G6HynZRPsCXg
+	fcyTLH16pKd4SdKyx5jc2faVTzu1TzZE1DYIn2ZIz/bKtH/4wf1RAHhcCyMXpn5C2axRV+q4N5/
+	1r0eDY4Sxblyh7S9INPzjp+6h1H1ElNE=
+X-Received: by 2002:a05:6808:220b:b0:495:d7ec:b6ae with SMTP id 5614622812f47-4b39824e860mr35154b6e.16.1787849259936;
+        Thu, 27 Aug 2026 09:47:39 -0700 (PDT)
+X-Received: by 2002:a05:6808:220b:b0:495:d7ec:b6ae with SMTP id 5614622812f47-4b39824e860mr35036b6e.16.1787849259382;
+        Thu, 27 Aug 2026 09:47:39 -0700 (PDT)
 Received: from [192.168.1.6] ([122.171.23.69])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f4c81c3cf2sm4497199a34.9.2026.08.27.09.46.28
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4b36ab2b542sm4508205b6e.10.2026.08.27.09.47.27
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Aug 2026 09:46:37 -0700 (PDT)
-Message-ID: <789f0ace-585b-40a0-b1ef-2fa0bbbe0ac2@oss.qualcomm.com>
-Date: Thu, 27 Aug 2026 22:16:26 +0530
+        Thu, 27 Aug 2026 09:47:36 -0700 (PDT)
+Message-ID: <54721a71-cc94-48d3-9581-4d2b09038d6b@oss.qualcomm.com>
+Date: Thu, 27 Aug 2026 22:17:24 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 09/15] pinctrl: qcom: Add Kuno pinctrl driver
+Subject: Re: [PATCH v3 07/15] interconnect: qcom: Add Kuno interconnect
+ provider driver
 To: Abel Vesa <abel.vesa@oss.qualcomm.com>
 Cc: Bjorn Andersson <andersson@kernel.org>,
         Konrad Dybcio <konradybcio@kernel.org>,
@@ -113,45 +114,46 @@ Cc: Bjorn Andersson <andersson@kernel.org>,
         Guru Das Srinagesh <linux@gurudas.dev>, linux-arm-msm@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
         devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
-        linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
+        linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 References: <20260821-kuno-soc-support-v3-0-196e2b306368@oss.qualcomm.com>
- <20260821-kuno-soc-support-v3-9-196e2b306368@oss.qualcomm.com>
- <7ywfd3hfzngejfprv5zkn65kci52q5tgiq5h3sccpz35ov5eq4@ow4edd5epaws>
+ <20260821-kuno-soc-support-v3-7-196e2b306368@oss.qualcomm.com>
+ <mhjq6szchgrgoegi7jrzmeumlhdjr2njkh5jdyjb3cjb4pd2hb@qjvx34fyo5au>
 Content-Language: en-US
 From: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
-In-Reply-To: <7ywfd3hfzngejfprv5zkn65kci52q5tgiq5h3sccpz35ov5eq4@ow4edd5epaws>
+In-Reply-To: <mhjq6szchgrgoegi7jrzmeumlhdjr2njkh5jdyjb3cjb4pd2hb@qjvx34fyo5au>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI3MDE0MSBTYWx0ZWRfX5cw5vtmzhuaV
- 5j1YEwfTGJqyOxYGGNtiHTsctTfnLwuNlOjQHXQefTzg8NebtzUfr+LSTUsYpEwP4eWPm7a+gG3
- M7c2R349Xf2R0ZEK+PzsBKEqqPIGV6X1nzAXNARnhzNZtLCgf6VCfF1Of5lsh8qBCfdp1/NVjmt
- YSEsCtHgjEWMOZhbWSb/jf85Q1j4EQo1Ua4zey4YWWn2eKZM7GXZXTB6IScO1+luHAn1ZyE4KGs
- xuB1pg0gOAv6IxaFVmPsCYqhu5mpNpJxt+fTuUzo+uuaYIxphHLoxdercXYvIlE7oLQJL75PD6l
- ZO0aKtGKQnDdUBMAy0fzsLHbx0qWoQaBj0BSmQxMEu13O4rAlY022+ym//m0NXWt46drinP/sUn
- 6AYxm9GgU9WNU9EZE2LkmJXMuDYo/SMbqfnXtgriXW4Gf2K2/E3Yld0676xB4fyRMvwFNpxjKva
- SH0X7XSl1ePvm+z+FHQ==
-X-Proofpoint-GUID: b2HbpxgCUDDKvX2J2Ve0QZoZXB1XoNfs
-X-Authority-Analysis: v=2.4 cv=C+3ZDwP+ c=1 sm=1 tr=0 ts=6a9069ef cx=c_pps
- a=7uPEO8VhqeOX8vTJ3z8K6Q==:117 a=WTDSa4fX56zQulHxy5BIwg==:17
+X-Proofpoint-ORIG-GUID: e0ESVe4Aiat6-IFiAn50eeU1MgRrQAy_
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI3MDE0MSBTYWx0ZWRfX3FCjZ/6JyY0V
+ 2hdOpKwC1BowgZh0Ols90D+5nMGC90TFjAJIIZ7y1bYKctE/CxVArQ5ML092lIooh4PwCNWL2wI
+ tfEcrNNYK4K3KAtKasobOW7T042xeeU=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI3MDE0MSBTYWx0ZWRfX4utUdM4Mc435
+ fFQqeemTA9ShhrC+GDhw8kec1qGkxTFOO2ZFUn3q1iBAlnhKn38YGkuYSv78X9J/Aukz0FPXjTd
+ atk5LcUkXHmHwtAz+k9nPwAb6ll3G+8eFx5HQYQCJjvuHbA/egRxUANMJmmw67JHLQ/56y0eRyb
+ eXTttE5LfWKAIsa+lEeGImKzAD1iD5StoOLYU0bE/EXogklhUf2AjZJRLektlLEIuEAnJTszjPK
+ eSqu5igIzS31INVSLDP8TKQ2z8tITDx2K1ZrGC+pdzx68OnzSe6W8Hz2sViUbjw3i4ES1EFCjYw
+ ich64yTHJ8hz2oH7bDxHiZGEJzmke9NdIzufafy4liO/ZscSW6ZTu2VMHNxZOXHMSEcTqW9Jg38
+ 4j2giD8+Jxd094mNEp7kLx4nwIqxKmkhP2YoQEgYy3jOjYXyWiLiI8zb88iKsIaFjJPH3GsMNuO
+ /MPGYGlQQ9nuTsYb8pg==
+X-Proofpoint-GUID: e0ESVe4Aiat6-IFiAn50eeU1MgRrQAy_
+X-Authority-Analysis: v=2.4 cv=SomgLvO0 c=1 sm=1 tr=0 ts=6a906a2c cx=c_pps
+ a=yymyAM/LQ7lj/HqAiIiKTw==:117 a=WTDSa4fX56zQulHxy5BIwg==:17
  a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=isv1MMe3HlJYIrOEQaEA:9 a=QEXdDO2ut3YA:10
- a=O8hF6Hzn-FEA:10 a=EXS-LbY8YePsIyqnH6vw:22
-X-Proofpoint-ORIG-GUID: b2HbpxgCUDDKvX2J2Ve0QZoZXB1XoNfs
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI3MDE0MSBTYWx0ZWRfXwyUd9TJXJDcO
- f3yfJfIq+rJYM6BCUGQDHMMkmwi+hPInd3bx4BxDm3CLA/kY/e6/GaGlggzU83hSAFvCejwVX1G
- Ic5x4VLTztVj+Gi6ZmWwEbudOWcxiBA=
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=UvNzHEgi-OKrLzb5I3AA:9 a=QEXdDO2ut3YA:10
+ a=efpaJB4zofY2dbm2aIRb:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-27_07,2026-08-27_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 lowpriorityscore=0 suspectscore=0 adultscore=0 phishscore=0
- priorityscore=1501 spamscore=0 impostorscore=0 malwarescore=0 bulkscore=0
+ malwarescore=0 clxscore=1015 phishscore=0 spamscore=0 priorityscore=1501
+ suspectscore=0 bulkscore=0 impostorscore=0 lowpriorityscore=0 adultscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608270141
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_094640_825756_A117A3E6 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20260827_094741_744930_8120954D 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,106 +169,64 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 8/24/2026 1:20 PM, Abel Vesa wrote:
-> On 26-08-21 21:39:02, Hardeep Sharma wrote:
->> Add the TLMM pinctrl driver for the Qualcomm Kuno platform, supporting
->> 110 GPIOs and their pin multiplexing, pin configuration and gpiolib
->> interface through the common pinctrl-msm driver.
+On 8/24/2026 1:27 PM, Abel Vesa wrote:
+> On 26-08-21 21:39:00, Hardeep Sharma wrote:
+>> Add the interconnect provider driver for the Qualcomm Kuno SoC to
+>> enable bus bandwidth voting on the platform. This includes the
+>> aggre-noc and cnoc-main NoC instances with their associated BCM
+>> nodes.
 >>
+>> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 >> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
 >> ---
->>   drivers/pinctrl/qcom/Kconfig.msm    |  11 +
->>   drivers/pinctrl/qcom/Makefile       |   1 +
->>   drivers/pinctrl/qcom/pinctrl-kuno.c | 801 ++++++++++++++++++++++++++++++++++++
->>   3 files changed, 813 insertions(+)
+>>   drivers/interconnect/qcom/Kconfig  |  13 +
+>>   drivers/interconnect/qcom/Makefile |   2 +
+>>   drivers/interconnect/qcom/kuno.c   | 977 +++++++++++++++++++++++++++++++++++++
+>>   3 files changed, 992 insertions(+)
 >>
 > [...]
 >
->> diff --git a/drivers/pinctrl/qcom/pinctrl-kuno.c b/drivers/pinctrl/qcom/pinctrl-kuno.c
+>> diff --git a/drivers/interconnect/qcom/kuno.c b/drivers/interconnect/qcom/kuno.c
 >> new file mode 100644
->> index 000000000000..f3f8ec3e09de
+>> index 000000000000..9a5bd53e7ed9
 >> --- /dev/null
->> +++ b/drivers/pinctrl/qcom/pinctrl-kuno.c
->> @@ -0,0 +1,801 @@
+>> +++ b/drivers/interconnect/qcom/kuno.c
+>> @@ -0,0 +1,977 @@
 >> +// SPDX-License-Identifier: GPL-2.0-only
 >> +/*
 >> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 >> + */
->> +
->> +#include <linux/module.h>
->> +#include <linux/of.h>
->> +#include <linux/platform_device.h>
->> +
->> +#include "pinctrl-msm.h"
 > [...]
 >
->> +
->> +static const struct pinfunction kuno_functions[] = {
->> +	MSM_GPIO_PIN_FUNCTION(gpio),
->> +	MSM_PIN_FUNCTION(audio_ref_clk),
->> +	MSM_PIN_FUNCTION(coex_uart),
->> +	MSM_PIN_FUNCTION(ebi2_lcd_a),
->> +	MSM_PIN_FUNCTION(ebi2_lcd_cs),
->> +	MSM_PIN_FUNCTION(ebi2_lcd_reset),
->> +	MSM_PIN_FUNCTION(ebi2_lcd_te),
->> +	MSM_PIN_FUNCTION(emac_mdc),
->> +	MSM_PIN_FUNCTION(emac_mdio),
->> +	MSM_PIN_FUNCTION(emac_pps_in),
->> +	MSM_PIN_FUNCTION(emac_ptp_aux),
->> +	MSM_PIN_FUNCTION(emac_ptp_pps),
->> +	MSM_PIN_FUNCTION(gcc_gp1_clk),
->> +	MSM_PIN_FUNCTION(gcc_gp2_clk),
->> +	MSM_PIN_FUNCTION(gcc_gp3_clk),
->> +	MSM_PIN_FUNCTION(mi2s0_data0),
->> +	MSM_PIN_FUNCTION(mi2s0_data1),
->> +	MSM_PIN_FUNCTION(mi2s0_sck),
->> +	MSM_PIN_FUNCTION(mi2s0_ws),
->> +	MSM_PIN_FUNCTION(mi2s1_data0),
->> +	MSM_PIN_FUNCTION(mi2s1_data1),
->> +	MSM_PIN_FUNCTION(mi2s1_sck),
->> +	MSM_PIN_FUNCTION(mi2s1_ws),
->> +	MSM_PIN_FUNCTION(mi2s_mclk),
->> +	MSM_PIN_FUNCTION(nav_gpio),
->> +	MSM_PIN_FUNCTION(pci_e_rst),
->> +	MSM_PIN_FUNCTION(pcie_clkreq_n),
->> +	MSM_PIN_FUNCTION(pll_bist_sync),
->> +	MSM_PIN_FUNCTION(pll_clk_aux),
->> +	MSM_PIN_FUNCTION(qdss_cti_trig0),
->> +	MSM_PIN_FUNCTION(qdss_cti_trig1),
->> +	MSM_PIN_FUNCTION(qdss_cti_trig1_mire),
->> +	MSM_PIN_FUNCTION(qdss_gpio_traceclk),
->> +	MSM_PIN_FUNCTION(qdss_gpio_tracectl),
->> +	MSM_PIN_FUNCTION(qup0_se0),
->> +	MSM_PIN_FUNCTION(qup0_se1),
->> +	MSM_PIN_FUNCTION(qup0_se2),
->> +	MSM_PIN_FUNCTION(qup0_se3_mira),
->> +	MSM_PIN_FUNCTION(qup0_se3_mirb),
->> +	MSM_PIN_FUNCTION(qup0_se4),
->> +	MSM_PIN_FUNCTION(sdc4_clk),
->> +	MSM_PIN_FUNCTION(sdc4_cmd),
->> +	MSM_PIN_FUNCTION(sdc4_data),
->> +	MSM_PIN_FUNCTION(sdc4_tb_trig),
->> +	MSM_PIN_FUNCTION(sgmii_phy_intr),
->> +	MSM_PIN_FUNCTION(spmi_coex_clk),
->> +	MSM_PIN_FUNCTION(spmi_coex_data),
->> +	MSM_PIN_FUNCTION(spmi_vgi_hwevent),
->> +	MSM_PIN_FUNCTION(uim1_clk),
->> +	MSM_PIN_FUNCTION(uim1_data),
->> +	MSM_PIN_FUNCTION(uim1_present),
->> +	MSM_PIN_FUNCTION(uim1_reset),
->> +	MSM_PIN_FUNCTION(usb2phy_ac_en),
+>> +static const struct of_device_id qnoc_of_match[] = {
+>> +	{ .compatible = "qcom,kuno-aggre-noc", .data = &kuno_aggre_noc },
+>> +	{ .compatible = "qcom,kuno-clk-virt", .data = &kuno_clk_virt },
+>> +	{ .compatible = "qcom,kuno-cnoc-main", .data = &kuno_cnoc_main },
+>> +	{ .compatible = "qcom,kuno-dc-noc", .data = &kuno_dc_noc },
+>> +	{ .compatible = "qcom,kuno-mc-virt", .data = &kuno_mc_virt },
+>> +	{ .compatible = "qcom,kuno-mem-noc", .data = &kuno_mem_noc },
+>> +	{ .compatible = "qcom,kuno-pcie-anoc", .data = &kuno_pcie_anoc },
+>> +	{ .compatible = "qcom,kuno-system-noc", .data = &kuno_system_noc },
+>> +	{ }
 >> +};
+>> +MODULE_DEVICE_TABLE(of, qnoc_of_match);
 >> +
->> +/* Every pin is maintained as a single group, and missing or non-existing pin
->> + * would be maintained as dummy group to synchronize pin group index with
->> + * pin descriptor registered with pinctrl core.
->> + * Clients would not be able to request these dummy pin groups.
->> + */
->> +static const struct msm_pingroup kuno_groups[] = {
->> +	[0] = PINGROUP(0, uim1_data, NA, NA, NA, NA, NA, NA, NA, NA),
-> We use underscores instead of NA here.
+>> +static struct platform_driver qnoc_driver = {
+>> +	.probe = qcom_icc_rpmh_probe,
+>> +	.remove = qcom_icc_rpmh_remove,
+>> +	.driver = {
+>> +		.name = "qnoc-kuno",
+>> +		.of_match_table = qnoc_of_match,
+>> +		.sync_state = icc_sync_state,
+>> +	},
+>> +};
+> qnoc_driver_init() and core_initcall()
 >
-> Please compare to the older SoCs in upstream.
+> then
+>
+> qnoc_driver_exit() and module_exit()
+>
+> Please have a look at all other Qualcomm interconnect drivers in upstream.
 
 Thanks for review.
 
@@ -275,5 +235,4 @@ https://lore.kernel.org/all/20260827-kuno-soc-support-v4-0-dd34f235fc1a@oss.qual
 
 Best Wishes
 Hardeep Sharma
-
 
