@@ -4,83 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 927AAC61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C02C5DF9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:08:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7riH9EZdfZZZrpWorMhiIMu0gyK3UbinG2L2mxvE5uc=; b=DkzeWzse5QroPVmWKaud9+6Lme
-	yj9foiwM/4iRkO/HQvOppaDQ4aOIxbGmh6J8sP3CWtvJnAAZYaViWpMA7kymvtuLccNa8pelIXPuS
-	/3Gf87p9P27LI+AEg155xzSimg3PkRazpjG4UIJv7AUU2pouou01141cew50NEnXRl98SM4mw1/8x
-	w+gEwWT8XQddWUn4gaHac2jdn/AOzcpbp0ZbIY7YXA4y5Cnb2lgYpN2M8JwhGYRgrFdSMqBeQ21Wq
-	jSgydkwbqFB59+qijv6vjln0DsJtNgP74/OwnIj7ZK04cDeYwWILMnL7PBagsCDRZPLJlDe9kvBQQ
-	XfIzBeNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FHNipRC5+r4O4ur5H/gqxgOv3imRP6qncKj9xLrcOCA=; b=Ela/DRn6TA58TmRL+pE9DL2yN2
+	SUvklwZRhAFL9O/AxR0e+SABY3h9qm+JrPJ3rSCcbiO17kaBDhDtVQd/odI8ot5fVCpEq338RNewR
+	vI8whm/QiOw9DlCuzoI8kzMhBU3Enpx6b4wJoqOT35DAkVFS28GM0dujKGnaYvfsRMLQlsUP45B9x
+	l/kTTV3l9aEyUbk/uB5Qaa1ggr9lzQ2gnkrNxQ8Goi8mFgNiSfkWP+SNdFN5mYrGEp2z+0XrHL/Z1
+	AxC2WoR//bXK+cZ4bOpOsLjGVWYTdVhwmSIagkfSBwmZ3W41YhXzZSV5bi+CTv0B+c+JQ4OzPY2BL
+	5QYtUxUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzV6N-00000003b9s-0Qn9;
-	Thu, 27 Aug 2026 08:04:47 +0000
-Received: from smtpbg151.qq.com ([18.169.211.239])
+	id 1wzV9S-00000003bUf-2Hwo;
+	Thu, 27 Aug 2026 08:07:58 +0000
+Received: from esa6.hc1455-7.c3s2.iphmx.com ([68.232.139.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzV6K-00000003b68-0RXu
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 08:04:46 +0000
-X-QQ-mid: zesmtpgz1t1787817828t8512f852
-X-QQ-Originating-IP: 00MzLoODkWBqi8SGjbkADt14SHMNhmqII4nrDcvxckI=
-Received: from rd.. ( [111.8.45.130])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 27 Aug 2026 16:03:41 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6259571969530155307
-EX-QQ-RecipientCnt: 10
-From: Liu Dalin <liudalin@kylinsec.com.cn>
-To: Hans Ulli Kroll <ulli.kroll@googlemail.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-rtc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Liu Dalin <liudalin@kylinsec.com.cn>,
-	Deng Yingchao <dengyingchao@kylinsec.com.cn>,
-	Qin Yungao <qinyungao@kylinsec.com.cn>,
-	Luo Qiu <luoqiu@kylinsec.com.cn>
-Subject: [PATCH v2 3/3] rtc: ftrtc010: fix integer overflow in time calculation
-Date: Thu, 27 Aug 2026 16:03:20 +0800
-Message-ID: <42C8FBD59AA34EA9+20260827080320.3351155-4-liudalin@kylinsec.com.cn>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260827080320.3351155-1-liudalin@kylinsec.com.cn>
-References: <20260827021054.0963C1F000E9@smtp.kernel.org>
- <20260827080320.3351155-1-liudalin@kylinsec.com.cn>
+	id 1wzV9P-00000003bU8-2ToH;
+	Thu, 27 Aug 2026 08:07:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1787818079; x=1819354079;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=HfubrEGF3eKsGUawx1MnfZr959FNLY03HrFmRB8niVo=;
+  b=F8vKbfRlKUdYUy1yD3yC+fz+uRFTNyZabBy6Usz3m906YspLGD9wWBlO
+   MQ/+F9fpKUcW3DBJEfxIpavLe83PsB0Aq7MHxEiS2C2fyk/v15yV2Liua
+   ogrGDGhOK+G4i7sMrKDHVsFzLSo8X5qDw8pfOZVMOmoPhlab0uPG10DAJ
+   IM5ROensBYZ5OzvtdvI6W4N91fMZ7XaYNQXq47Y1+RpAVup92Ud0ck4Cg
+   jOfKYqSG6gNO6ejsjZwsn2z/6/x1suRINZRm3nfwm+Bu1l9YhW581oyeV
+   zHTZ89JpMvL2WG9IT0/VBuqK609i6wsyGc6i08gQ/1H70JDQg8fZkoQSJ
+   w==;
+X-CSE-ConnectionGUID: PAlDcqwxQX+X7KzQzL59dg==
+X-CSE-MsgGUID: NaBqTo7CR8mzmPAxpmHdAQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11887"; a="256543813"
+X-IronPort-AV: E=Sophos;i="6.25,246,1779116400"; 
+   d="scan'208";a="256543813"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa6.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 17:07:56 +0900
+Received: from az2nlsmgm3.fujitsu.com (unknown [10.150.26.205])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 6592640610A;
+	Thu, 27 Aug 2026 08:07:52 +0000 (UTC)
+Received: from az2uksmom3.o.css.fujitsu.com (unknown [10.151.22.205])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm3.fujitsu.com (Postfix) with ESMTPS id 19474180CCE9;
+	Thu, 27 Aug 2026 08:07:52 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmom3.o.css.fujitsu.com (Postfix) with ESMTPS id 670BD1004B16;
+	Thu, 27 Aug 2026 08:07:43 +0000 (UTC)
+Date: Thu, 27 Aug 2026 17:07:40 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Atish Patra <atish.patra@linux.dev>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	David Hildenbrand <david@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, loongarch@lists.linux.dev,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>,
+	Ritesh Harjani <ritesh.list@gmail.com>
+Subject: Re: [PATCH 00/20] KVM: selftests: PPC pre-enabling
+Message-ID: <ao_wTAq6U2bvWzgu@sm-arm-grace07>
+References: <20260826230511.972824-1-seanjc@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: M6ekgsUu7W9nZEmcIhcmC8Z793aPoynYTKSVV04Q5+AEGuWuNRYOYAa1
-	QcPy2F2uDwCjAqAeyU5kHva9XjyzIHWRCzsAWbVl/qCTbg78x4qBl+A04Slud36zoD+3twa
-	suhJcTG5cmLci3XVylMswaTuJLa31FIcOK3oeUcezEgtZ+ApwIy87sI/muvOf00a7p6eJoF
-	Vgu9/iqIKB76enlRHhgkyapC4LZSFQQzDpVOTbbQIuVZ9q4Gn0XE/mQ4OHVA4VgM9S5bkQT
-	X87Ov9Y5lgWd+Snh5Ievpr/EPGxxnfQM8JSNusbx0yhQZbv5cNQUNnwfxeF1Cq+hkT1p5/W
-	vphpXYIJjEhop5X5HOmuvE6IXEKJR1d5+PdQ6CDp6RTqWq8pXcGEFwsslNtazVGEODuh29o
-	urYbIPBbsGgaBsBSsxqYTIAwGekNBRQF3qkpFBQNTNV34YI1gp1C7w/W2W6OmkHROw6wEKv
-	2X8Q9tlDnKTQIoiZVeZk0BgB6lAhPOvF3alx3DRMA54/orQddO46e4L+n9TUcznJabFlVJn
-	g01BmR9ijsevZ5U0UEx5JCNUXedn13Py67ozZf7ehL4GS6e4SqqzTU2cm2j+8GWamxa4JvE
-	LWBlwh0MqlBTsdcKrQ+Yq+yb7amK1YjEA2X9rB7YFE/A8tDuI2hF754vX6C1/lHNV3btAtT
-	8Mwkzs2l2i9iOWoIyzct9GbqTINek39o8q8Pbir2GRHeRBdhAg4WFbdJ8dK1odVWRpuUpF8
-	+bGgJkHjXfdjzwpBM4wYm2PCDeyfHlWoDyH5iDbv4+tUk35n0koMW1Kl++C8atgiNdKgBZg
-	tdG0Kjr21/AujlO89hI0c4W/fjxzmvRvd2KPgIzN6BOKMcBh6dBu+3KC0RFWCUKiTzTUBea
-	WzmgPCthvJoXJ43Grpsq5ROzZ0XyCxMtFUjYAFFJd0R4pkotDTm47U9Zzqsir/mzk1ENP5c
-	+rCO3nZFpeT+xpYL6sMHZABnz1EFCqXvqgdFEvU364EeQCewYMlvR+fZBMbFnmcTK0WT5JF
-	Ag9cZl4FPJkta+FYZwJxuryPx+I8+JHTql0z55I8xSR4OYAfv312Bymbz9sD57I/QgSECaS
-	2CoaslvvTFblZn3IKf5z5bXiZQBujjWE5mJgyfCaqcVz08O9T0TZ6uCNreQBpzMdQ==
-X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260826230511.972824-1-seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_010445_092960_3E4077CB 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20260827_010756_016938_154C4B8E 
+X-CRM114-Status: GOOD (  21.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,50 +113,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In ftrtc010_rtc_read_time() and ftrtc010_rtc_set_time(), all
-variables (offset, days, hour, min, sec) are u32. The expression
-"days * 86400 + hour * 3600 + min * 60 + sec" is evaluated in
-32-bit arithmetic, which silently wraps around for dates beyond
-approximately year 2106 (U32_MAX / 86400 ≈ 49710 days).
+On Wed, Aug 26, 2026 at 04:04:51PM -0700, Sean Christopherson wrote:
+> This is a big pile of cleanups and refactoring to prepare for PPC support in
+> KVM selftests.  PPC has paging modes that require multi-page page tables, and
+> those page tables need to be naturally aligned.  The original proposal was to
+> plumb in an @align param to the page allocators[*], but I didn't love the idea
+> of adding another rarely used param to the allocators.
+> 
+> Reworking the APIs to take a region type requires a fair bit of churn, and was
+> more painful than expected as I didn't realize just how many one-off tests did
+> weird things, but overall I think it's worth it?  If only to keep cutting down
+> on the use of magic memslot numbers in tests.
+> 
+> This needs explicit testing on s390.  I tested on arm64 and x86, and given the
+> number of failures I had to wade through, I wouldn't be at all suprised if I
+> broke something subtle on s390 as well.
+> 
+> I'm less concerned about RISC-V and LoongArch as they don't have any custom
+> tests that are affected (which is where I got burned).
 
-In ftrtc010_rtc_read_time(), perform the addition in 32-bit
-arithmetic first to preserve two's complement wrapping for negative
-offsets, then cast the result to timeu64_t. In
-ftrtc010_rtc_set_time(), cast individual u32 operands to timeu64_t
-before multiplication to prevent overflow in the right-hand side
-of the offset calculation.
+I ran kvm_page_table_test with this series applied on Grace CPUs.
 
-Fixes: 1d61d2592c1f ("rtc: ftrtc010: Rename to Faraday FTRTC010")
-Assisted-by: Sashiko AI [static analysis]
-Signed-off-by: Liu Dalin <liudalin@kylinsec.com.cn>
----
- drivers/rtc/rtc-ftrtc010.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+Passes across all the arm64 guest modes supported.
 
-diff --git a/drivers/rtc/rtc-ftrtc010.c b/drivers/rtc/rtc-ftrtc010.c
-index 19e6333bfbab..b29c96be40f4 100644
---- a/drivers/rtc/rtc-ftrtc010.c
-+++ b/drivers/rtc/rtc-ftrtc010.c
-@@ -72,7 +72,7 @@ static int ftrtc010_rtc_read_time(struct device *dev, struct rtc_time *tm)
- 	days = readl(rtc->rtc_base + FTRTC010_RTC_DAYS);
- 	offset = readl(rtc->rtc_base + FTRTC010_RTC_RECORD);
- 
--	time = offset + days * 86400 + hour * 3600 + min * 60 + sec;
-+	time = (timeu64_t)(offset + days * 86400 + hour * 3600 + min * 60 + sec);
- 
- 	rtc_time64_to_tm(time, tm);
- 
-@@ -92,7 +92,8 @@ static int ftrtc010_rtc_set_time(struct device *dev, struct rtc_time *tm)
- 	hour = readl(rtc->rtc_base + FTRTC010_RTC_HOUR);
- 	day = readl(rtc->rtc_base + FTRTC010_RTC_DAYS);
- 
--	offset = time - (day * 86400 + hour * 3600 + min * 60 + sec);
-+	offset = time - ((timeu64_t)day * 86400 + (timeu64_t)hour * 3600 +
-+			 (timeu64_t)min * 60 + (timeu64_t)sec);
- 
- 	writel(offset, rtc->rtc_base + FTRTC010_RTC_RECORD);
- 	writel(0x01, rtc->rtc_base + FTRTC010_RTC_CR);
--- 
-2.43.0
+Tested-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
 
+> 
+> [*] https://lore.kernel.org/all/df86b5ccdbdafc3509d9538bd5e6796737bab2db.1781093720.git.ritesh.list@gmail.com
+> 
+> Nicholas Piggin (1):
+>   KVM: selftests: Use goto instead of do-while to retry finding unused
+>     physical pages
+> 
+> Sean Christopherson (19):
+>   KVM: selftests: Use MEM_REGION_PT memslot instead of '0' for s390
+>     regions/segments
+>   KVM: selftests: Bump the minimum GPA for page tables to 0x200000
+>   KVM: selftests: Use vm_alloc_page_table() to allocate LoongArch page
+>     tables
+>   KVM: selftests: Rename "num" param to "nr_pages" for physical page
+>     allocators
+>   KVM: selftests: Extend page allocator to support naturally aligned
+>     allocations
+>   KVM: selftests: Make the single-page allocator APIs static inline
+>   KVM: selftests: Use the innermost page allocator API in the memslot
+>     perf test
+>   KVM: selftests: Use the innermost page allocator API in s390's IRQ
+>     routing test
+>   KVM: selftests: Add a wrapper API to allocate multiple page table
+>     pages
+>   KVM: selftests: Initialize vm->memslots[] with invalid memslots during
+>     creation
+>   KVM: selftests: Add APIs to override memory region types with custom
+>     memslots
+>   KVM: selftests: Add TEST_EXTRA memory region type for "special"
+>     memslots
+>   KVM: selftests: Use TEST_EXTRA region in arm64's vGIC LPI stress test
+>   KVM: selftests: Use TEST_EXTRA region in x86's smaller MAXPHYADDR test
+>   KVM: selftests: Use TEST_EXTRA region in set memory region test
+>   KVM: selftests: Take the memory region type, not memslot, in page
+>     allocators
+>   KVM: selftests: Use TEST_ASSERT(), not assert(), in
+>     vm_get_mem_region()
+>   KVM: selftests: Automatically pick min_gpa for allocations based on
+>     region type
+>   KVM: selftests: Add arch hook to force page tables to be naturally
+>     aligned
+> 
+>  .../selftests/kvm/arm64/page_fault_test.c     |  18 ++-
+>  .../selftests/kvm/arm64/vgic_lpi_stress.c     |  19 ++-
+>  .../testing/selftests/kvm/include/kvm_util.h  | 106 +++++++++++++--
+>  tools/testing/selftests/kvm/include/x86/smm.h |   2 +-
+>  .../selftests/kvm/lib/arm64/processor.c       |   4 +-
+>  tools/testing/selftests/kvm/lib/kvm_util.c    | 127 +++++++++++-------
+>  .../selftests/kvm/lib/loongarch/processor.c   |   5 +-
+>  .../selftests/kvm/lib/riscv/processor.c       |   4 +-
+>  .../selftests/kvm/lib/s390/processor.c        |   7 +-
+>  .../testing/selftests/kvm/lib/x86/processor.c |  15 ++-
+>  .../testing/selftests/kvm/memslot_perf_test.c |   3 +-
+>  tools/testing/selftests/kvm/s390/cmma_test.c  |  19 +--
+>  .../testing/selftests/kvm/s390/irq_routing.c  |   2 +-
+>  .../selftests/kvm/set_memory_region_test.c    |   8 +-
+>  .../x86/smaller_maxphyaddr_emulation_test.c   |   9 +-
+>  15 files changed, 219 insertions(+), 129 deletions(-)
+> 
+> 
+> base-commit: 76671054f9a1ff6abb976583cd8da37650acdc97
+> -- 
+> 2.55.0.887.g758fc8c411-goog
+> 
 
