@@ -4,58 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 452CEC61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 19:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D99CCC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 19:23:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=91R3l1V/uOl03V126v1cFNRh0hJ1Q8Z9vQ2ulIXNDfU=; b=FL0pbkWkX06Cb6Zankhaq5nHFf
-	8wU534/J68h1B8ltgyNciY2+QM3jVJgcw3Vi8ZtJFiJBl+FmWJMpMiXOZenQEqHwHq+42mqgZpJLt
-	F9svr+HL9sEHU5AypJkBatnInQP0643HrToBbh1Dmv9SGRZBVxNVS9d5STFSY1weZn0dL8ZQYeIAG
-	5AiwUsQR/j3MpxBMYJJrk6qsuUUU/pwrgZ1yjg3+CseehYuU4mH/LLuyywOyMdRHwphmVAyWyvK6M
-	h0gXzRWkAtekFJq3uwGgNcs5MIXAhkqhpY1I+lktoe73BjxJhjdZLwy2cn6fnZFPswFTCv7+j68em
-	ETKWLfIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EYzcyAhdbTqEloTCK7Hw+Eq4nhD16eF4Mvm5eTNfpHI=; b=3i2UB/1VK047jXWuTDp0GB9JOY
+	DxD3Wv3kKR4aB868hQTgJ+yC1v2+ntOl/GIAzDwnIgNbMvlhkd/9bRky9LYx/vBc0w1oMCjpUqWRJ
+	6ooo1q5ek8yOy1B2NpM0D8gAJlZQ53LsG8fuI8fN6U7eXeXBZzLqbxPGwB/cZwDahE6nHI1BdWa0N
+	tcFJTr0hg89JKfRt+kkKiWvX16Z0iVtpEKG92iFpbpHsx6ceE9gXL46+djzObHfuFjKnZ2RU65ENb
+	RAHcyjvNXoUz5VdZleAdzFtMTWj0ntTEFZn4dPkzSNLzQ2ARhdN+V6Y7dV18axODuE27soQwWMwKN
+	321hyEgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzfVK-00000004gNj-0yKu;
-	Thu, 27 Aug 2026 19:11:14 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wzfh1-00000004hQl-0eDq;
+	Thu, 27 Aug 2026 19:23:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzfVH-00000004gNU-3Rx2;
-	Thu, 27 Aug 2026 19:11:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=91R3l1V/uOl03V126v1cFNRh0hJ1Q8Z9vQ2ulIXNDfU=; b=gyBqQhQWSUlpKmkDdVZfEWq4jC
-	6Hn05OsO+eGBDUz0AAmCUEB8dWDSJmRIrRRmJjlK6HFS+x9kWb9Lu9gWKzDjol1WfGMTi7t7NMIN0
-	VWiiU82QKosQg/iEoVdatEQU1vueasyXko0mWYU4KN2egNMRYMsj6pLR75wquzW36Ad9tlRcEAbeZ
-	HfI+ZL/4ygNnv+qG3c7nh5elZzcg+I+63ohE3j5fqgx39c2GRiCbrmcRZrXHx4aBN6AFfeFLxeLpn
-	9kNSe8uFVHwuGrBkfCU7MPZ6YyE27qsmSJf+8cf+peQXfCmqIg5VU63anBDtlkGHfABhRaSUqgTLe
-	1bQfMvzw==;
-Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzfVF-0000000DNOM-0LZD;
-	Thu, 27 Aug 2026 19:11:09 +0000
-Date: Thu, 27 Aug 2026 20:11:08 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: artem.kuzin@huawei.com
-Cc: catalin.marinas@arm.com, akpm@linux-foundation.org, david@kernel.org,
-	ljs@kernel.org, vbabka@kernel.org, cl@gentwo.org,
-	linux@armlinux.org.uk, will@kernel.org, mark.rutland@arm.com,
-	liam@infradead.org, rppt@kernel.org, surenb@google.com,
-	mhocko@suse.com, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, wangkefeng.wang@huawei.com,
-	panov.nikita@huawei.com
-Subject: Re: [RFC PATCH 00/18] mm: arm64: Add kernel replication feature
-Message-ID: <apCLzAaw6oRIqbSH@casper.infradead.org>
-References: <20260827161158.3618409-1-panov.nikita@huawei.com>
+	id 1wzfgx-00000004hQB-3P12
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Aug 2026 19:23:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1787858592;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=EYzcyAhdbTqEloTCK7Hw+Eq4nhD16eF4Mvm5eTNfpHI=;
+	b=YH/tOq2edmt0mba6Hl7TGDhFb8Ksu88o/dre/D2IRY5K0DoZlRAD7JmcJscblttMVUKt+a
+	7ihVhEF5FKl+FLhQZfLTgw8V37e7X3m76efoAmNB+u+J5ofB2T8J9u/QJ7m0GGu/Zs8qAN
+	hxNuI0/eiEmPeVtHhkPww2p9dBtnq6E=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-631-zxLhmvDSOWamWVs6BqiNzA-1; Thu,
+ 27 Aug 2026 15:23:09 -0400
+X-MC-Unique: zxLhmvDSOWamWVs6BqiNzA-1
+X-Mimecast-MFC-AGG-ID: zxLhmvDSOWamWVs6BqiNzA_1787858586
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8F64E1954105;
+	Thu, 27 Aug 2026 19:23:05 +0000 (UTC)
+Received: from [172.20.61.140] (unknown [10.30.44.61])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0E4E13001D37;
+	Thu, 27 Aug 2026 19:23:03 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.2.0-0,
+ upstream-arm-next, f1b8fa82)
+Date: Thu, 27 Aug 2026 19:23:03 -0000
+To: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+ will@kernel.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260827161158.3618409-1-panov.nikita@huawei.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Message-Id: <30476.126082715230900145@us-mta-631.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ZdC4JUukwrbR8MtqrzHhBk5MaPXw3UPebnaMMgCX9DU_1787858586
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260827_122315_923501_0D7F17B5 
+X-CRM114-Status: UNSURE (   6.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,16 +84,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 28, 2026 at 12:11:40AM +0800, Nikita Panov wrote:
-> There were several prior submissions with some sort of replication
-> for NUMA systems, including one from our side for the x86_64 platform.
-> In the last couple years, several research articles related to solving
-> locality issues on NUMA machines through replication emerged as well.
+Hi, we tested your kernel and here are the results:
 
-You're lumping a lot of different NUMA replication things together in
-your list.  That doesn't give me confidence you know what you're doing.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-I *think* what you're doing here is kernel text replication.  Other
-architectures (mips, arm) have managed to do this without core MM
-changes.  Why can't you?
+Tested-by: CKI Project <cki-project@redhat.com>
+
+Kernel information:
+    Commit message: Merge branch 'for-next/core' into for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2797274735
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
