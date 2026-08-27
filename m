@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0C9C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 14:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5340FC61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 14:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eFPaUjzplDvusr9EdznTDxXJqZfQ+uxtFj+38XpXKC0=; b=FuA4ydRiFPQNMH4BENNx3F5GQs
-	4VWPIO/BJBw7AT6DNhHY6stjPj2Uk8usJp/esLtLwWd0teBEcMulLrpn/G6o6JXiqL8gKOp5TDUkY
-	3p8H5DWUe1fq468Hk9sVq2dmDPj0z8WkrXsS2efFrroK7CWtKJLtwN3n0I6XbS7XO1bR5DzkbBVKX
-	FJ7+c/rgTakmanhS0vA0jpsRxGoVjXDEIv2jE026ECGa0PbSLo7e3q1/7rh96paJOHu9GEQUTXT4w
-	j4txMGIl07ZVH4hVzYnDKxvgu9f1wK6+v62iNjCZkdrl3KMORLp/I5xob/5mGHnAH6JucVVZb6Tdw
-	ThOjDQQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/QGm/YFP6xrwih2aqZGPXYJOhN5wWJFLJDg/51WYw20=; b=5Du3W1gQI1MhQM5FlTZYTMlIby
+	aUpqOGmwvOHbR4k5np2UtqR3CkctxDl7zpRZGpyo6p4vysrbvIigayEyef8QCv/HZOQtSRuTkHJy6
+	20KyAAofZ71I7017cZaIfrA5COZ/qEi3iEBzEQC71AsH8ne2Xz5k8t2zdZvdSMhG90dCyc5xDG4ZM
+	g6da/N6jOJsqLKjB89TwUrgOI/jcmvfAPADHj/nQbco83D+ULlyRKMDTbcgPGVHGXishoRWZafM3a
+	73ylPSdEz0J1kAAt/bPBUSiMggL9VkgTzhBdJJ31LpCObsg9wcp9Ofx2a8yOvJcR5RCLtHfVIKQW0
+	/Eaq3WHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzatz-000000048YY-1JIK;
-	Thu, 27 Aug 2026 14:16:23 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzatw-000000048Xc-3KlS
+	id 1wzb4a-00000004AHl-3oVt;
+	Thu, 27 Aug 2026 14:27:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzb4Y-00000004AHR-0H6q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 14:16:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=eF
-	PaUjzplDvusr9EdznTDxXJqZfQ+uxtFj+38XpXKC0=; b=oOeWCn92JKGIxth/Es
-	OTkKzs18z2WErJWeDRXPwH+hm2LrKo7bShUnVmZg7jAr5vTj69LRV10f8P7QMoKN
-	lbAmhQDDWTEX41OlBbklJGibYz0GUlj6o66nAA0UzVGkS3qCrySPE+LkzGha3FXx
-	+mph0fluV+Fzj+HE9u06BligY=
-Received: from fedora (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD395iNRpBqM49eSQ--.24405S2;
-	Thu, 27 Aug 2026 22:15:43 +0800 (CST)
-From: Ju Nan <junan76@163.com>
-To: antonio.borneo@foss.st.com
-Cc: alexandre.torgue@foss.st.com,
-	junan76@163.com,
-	linusw@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
+	Thu, 27 Aug 2026 14:27:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 77BF71691;
+	Thu, 27 Aug 2026 07:27:12 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F32CB3F7D8;
+	Thu, 27 Aug 2026 07:27:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787840836; bh=r0ySLqPyuNENyTpsvEaGFphpnJIcH3tX6bc1QHr9jqg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=IeV45dqgx4mRaxoEbmuZZLi7m359mdGCaHjEZzT8ye+3dWAGoS8D9re32lynaa88z
+	 JeSfSWhc2s3EO8J3VgE/iJvR6Od4/WQWFvSAn5IM61hKHm5org2eLQ1hd31ZLY6VFx
+	 qy4wuTAMTjSNYGKKfU4BMKZpRvEeF5DPdPO/fCsU=
+Date: Thu, 27 Aug 2026 15:27:14 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
+	Leo Yan <leo.yan@linux.dev>, linux-arm-kernel@lists.infradead.org,
+	coresight@lists.linaro.org, linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	mcoquelin.stm32@gmail.com
-Subject: [PATCH v2] pinctrl: stm32: fix the unit of the hwspinlock timeout
-Date: Thu, 27 Aug 2026 22:11:28 +0800
-Message-ID: <20260827141127.25789-2-junan76@163.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <9b0f76a08a7c1dbaec4684b4bc013263e0149a4b.camel@foss.st.com>
-References: <9b0f76a08a7c1dbaec4684b4bc013263e0149a4b.camel@foss.st.com>
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 05/14] perf cs-etm: Increase default timestamp
+ generation period
+Message-ID: <20260827142714.GM8904@e132581.arm.com>
+References: <20260821-james-cs-unformatted-per-thread-fix-v2-0-00c4fd0701b4@linaro.org>
+ <20260821-james-cs-unformatted-per-thread-fix-v2-5-00c4fd0701b4@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD395iNRpBqM49eSQ--.24405S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxAFyDGw45tFykZF1xGFy3Jwb_yoWrur1rpF
-	Zagwn0yrs8X3y5Zw4DtF4q9rn3JayIywsrJF4jq3W8Zr1q9r95ta1Sqa92kF12qa4xJ3ZI
-	qFW2q345ua1kAaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piJKI_UUUUU=
-X-Originating-IP: [2409:8a62:3e6:7890:62cd:186:f39c:9f61]
-X-CM-SenderInfo: pmxqt0ixw6il2tof0z/xtbC1BB0JmqQRpCUKAAA3G
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260821-james-cs-unformatted-per-thread-fix-v2-5-00c4fd0701b4@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_071621_372425_C5AFB4EF 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20260827_072718_148399_82909120 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,123 +88,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HWSPNLCK_TIMEOUT is passed to hwspin_lock_timeout_in_atomic(), whose
-timeout argument is in milliseconds, not microseconds:
+On Fri, Aug 21, 2026 at 10:49:03AM +0100, James Clark wrote:
+> The original purpose of timestamps in per-CPU mode was to roughly emit
+> samples in the order they occurred across multiple CPUs, rather than
+> emit all the trace from CPU 1 followed by all from CPU 2 etc.
+> Previously there was no way to change the interval from the minimum of 1
+> cycle, but custom intervals are now supported by the driver.
+> 
+> Drastically reduce the number of timestamps emitted by increasing the
+> interval, which is more than enough to interleave sample generation.
+> This reduces the size of the trace generated.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-  atomic_delay += HWSPINLOCK_RETRY_DELAY_US;
-  if (atomic_delay > to * 1000)
-          return -ETIMEDOUT;
-
-So the driver asks for a 1 second timeout where the comment next to the
-macro says it wants 1 millisecond. All seven call sites spin on the
-hardware semaphore with udelay(), from sections that hold bank->lock or
-irqmux_lock, so on a non-PREEMPT_RT kernel this can keep interrupts
-disabled for up to one second while waiting for the coprocessor.
-
-The hwspinlock core documents this explicitly:
-
-  If the mode is HWLOCK_IN_ATOMIC (called from an atomic context) the
-  timeout is handled with busy-waiting delays, hence shall not exceed
-  few msecs.
-
-Pass the value the comment always described. The core retries every
-HWSPINLOCK_RETRY_DELAY_US (100 us), so the semaphore is still polled ten
-times before giving up, which is far longer than any plausible hold time
-on the coprocessor side. A timeout is reported with dev_err() and fails
-the pin configuration or the interrupt allocation, so shortening it
-degrades gracefully.
-
-Fixes: 290a9f937e5a ("pinctrl: stm32: use the hwspin_lock_timeout_in_atomic() API")
-Reviewed-by: Antonio Borneo <antonio.borneo@foss.st.com>
-Signed-off-by: Ju Nan <junan76@163.com>
----
-changelog:
-v2:
-- Add the "Fixes" tag
-- Redefine HWSPNLCK_TIMEOUT as HWSPNLCK_TIMEOUT_MS
-
-v1: https://lore.kernel.org/all/20260805032843.36961-2-junan76@163.com/
----
- drivers/pinctrl/stm32/pinctrl-stm32.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
-index d97057ec2..0d888d30f 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
-@@ -87,7 +87,7 @@
- #define gpio_range_to_bank(chip) \
- 		container_of(chip, struct stm32_gpio_bank, range)
- 
--#define HWSPNLCK_TIMEOUT	1000 /* usec */
-+#define HWSPNLCK_TIMEOUT_MS	1
- 
- static const char * const stm32_gpio_functions[] = {
- 	"gpio", "af0", "af1",
-@@ -633,7 +633,7 @@ static int stm32_gpio_domain_alloc(struct irq_domain *d,
- 
- 	if (pctl->hwlock) {
- 		ret = hwspin_lock_timeout_in_atomic(pctl->hwlock,
--						    HWSPNLCK_TIMEOUT);
-+						    HWSPNLCK_TIMEOUT_MS);
- 		if (ret) {
- 			dev_err(pctl->dev, "Can't get hwspinlock\n");
- 			pctl->irqmux_map &= ~BIT(hwirq);
-@@ -943,7 +943,7 @@ static int stm32_pmx_set_mode(struct stm32_gpio_bank *bank,
- 
- 	if (pctl->hwlock) {
- 		err = hwspin_lock_timeout_in_atomic(pctl->hwlock,
--						    HWSPNLCK_TIMEOUT);
-+						    HWSPNLCK_TIMEOUT_MS);
- 		if (err) {
- 			dev_err(pctl->dev, "Can't get hwspinlock\n");
- 			goto unlock;
-@@ -1086,7 +1086,7 @@ static int stm32_pconf_set_driving(struct stm32_gpio_bank *bank,
- 
- 	if (pctl->hwlock) {
- 		err = hwspin_lock_timeout_in_atomic(pctl->hwlock,
--						    HWSPNLCK_TIMEOUT);
-+						    HWSPNLCK_TIMEOUT_MS);
- 		if (err) {
- 			dev_err(pctl->dev, "Can't get hwspinlock\n");
- 			goto unlock;
-@@ -1132,7 +1132,7 @@ static int stm32_pconf_set_speed(struct stm32_gpio_bank *bank,
- 
- 	if (pctl->hwlock) {
- 		err = hwspin_lock_timeout_in_atomic(pctl->hwlock,
--						    HWSPNLCK_TIMEOUT);
-+						    HWSPNLCK_TIMEOUT_MS);
- 		if (err) {
- 			dev_err(pctl->dev, "Can't get hwspinlock\n");
- 			goto unlock;
-@@ -1178,7 +1178,7 @@ static int stm32_pconf_set_bias(struct stm32_gpio_bank *bank,
- 
- 	if (pctl->hwlock) {
- 		err = hwspin_lock_timeout_in_atomic(pctl->hwlock,
--						    HWSPNLCK_TIMEOUT);
-+						    HWSPNLCK_TIMEOUT_MS);
- 		if (err) {
- 			dev_err(pctl->dev, "Can't get hwspinlock\n");
- 			goto unlock;
-@@ -1239,7 +1239,7 @@ static int stm32_pconf_set_advcfgr(struct stm32_gpio_bank *bank, int offset, u32
- 	spin_lock_irqsave(&bank->lock, flags);
- 
- 	if (pctl->hwlock) {
--		err = hwspin_lock_timeout_in_atomic(pctl->hwlock, HWSPNLCK_TIMEOUT);
-+		err = hwspin_lock_timeout_in_atomic(pctl->hwlock, HWSPNLCK_TIMEOUT_MS);
- 		if (err) {
- 			dev_err(pctl->dev, "Can't get hwspinlock\n");
- 			goto unlock;
-@@ -1317,7 +1317,7 @@ stm32_pconf_set_skew_delay(struct stm32_gpio_bank *bank, int offset, u32 delay,
- 	spin_lock_irqsave(&bank->lock, flags);
- 
- 	if (pctl->hwlock) {
--		err = hwspin_lock_timeout_in_atomic(pctl->hwlock, HWSPNLCK_TIMEOUT);
-+		err = hwspin_lock_timeout_in_atomic(pctl->hwlock, HWSPNLCK_TIMEOUT_MS);
- 		if (err) {
- 			dev_err(pctl->dev, "Can't get hwspinlock\n");
- 			goto unlock;
--- 
-2.55.0
-
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
