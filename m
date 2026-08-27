@@ -4,48 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C807C61DBE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 02:49:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CD19C61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 02:56:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mtxyjDR/AkeJ1U6spdGadiXVy/JeYOrATb8gpHS2GT0=; b=xlC0FZnTVw7OTP5EMmIT3HD3dX
-	ZcJ1JlCHOOtATADxsCoBMNwfe0Y1Xc6w5+Miexe62Ue53HRiBg5vg7lJk9LBQmqy/8IrkpZ2ntPrl
-	5lf4Zsy8vDbFJpM1umLiCMogVi2b4HExHZYTwLWZxQuTLXh439EPRUbFhO3JQ0ceklMJkcDR8fGJY
-	nPKhPDmmpFoQe1FUKE3dUPKqnp0qHutKlK/ucAnyRzigog4A1ITplcidF4zVB/bIpaJKtDv6w9r+i
-	Thqn+3liscoIj2DKAWWMjYJeZVyVhvO90fdMuUlEG24bURx4Xb3mrRbZKLStS/p7NAsKUA4/PZ/pD
-	1b0MCboQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zVE2SzTabNG8jcZz0PwA/kz3j8ilu3QHZ2JTIs77byU=; b=uuTocpdsasL8j4EJBKDIYQ8L+U
+	VoGJ7CwSEHko1NM2X4EdkX3MB/BuH63cEs46T1+24RnVIT0gEDQAVoemf+JbL/2BTA3fLgv9N7N3E
+	UjgKsix6GCnkbXtyGDVWYoghly12wExAgV5ij8OUAEpZgbBYJYN3KX0MUqlMEjAgmMoOeR01GITbB
+	nxZ+oDUv/9CT/plZXf69CG9HaiESoYSOGoCMBgZB4Z6XQUHTgaIR93Jm1nF8G3JY0vlgvMhROh3UX
+	tC54VzXjw939BLItc3tv1EoR/RXwqE7khlzSNQgTBT1go78x5rHu8z4G1/ebLsZqg04ZkSESoVEH0
+	xF6pIzWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzQB3-00000003KHt-2XVY;
-	Thu, 27 Aug 2026 02:49:17 +0000
-Received: from [38.23.173.23] (helo=localhost)
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzQB1-00000003KHf-19Y2;
-	Thu, 27 Aug 2026 02:49:15 +0000
-Date: Wed, 26 Aug 2026 22:49:12 -0400
-From: "Liam R. Howlett" <liam@infradead.org>
-To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich <dakr@kernel.org>, 
-	David Hildenbrand <david@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>, driver-core@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] drivers/base, mm: move arch_numa.c to mm/
-Message-ID: <xzndraf66344jbze5gfst2ugz5plr4cqsgv7hiw4w2vefqekn6@fkaqeczif5cb>
-References: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
+	id 1wzQHQ-00000003KkQ-1qDj;
+	Thu, 27 Aug 2026 02:55:52 +0000
+Received: from smtpbgsg2.qq.com ([54.254.200.128])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzQHN-00000003Kjj-0Nnf
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Aug 2026 02:55:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1787799287;
+	bh=zVE2SzTabNG8jcZz0PwA/kz3j8ilu3QHZ2JTIs77byU=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=WbJ0MuxAuYBgsQGd1XsXvj6iWAK+fjGXtWDbeB2URmobk8zdQIytI5vNcw6OW4OS5
+	 pBkJms4gY2FmXVweVIegZi1u3TFF3YPQ7Dd+ktpT38qGZEPAoXf8DAFmCjSr8N5B5n
+	 16Hb8D7Sv6EUj5jyFA6hUWf0kuZZZtREz6QaZ0Jc=
+X-QQ-mid: esmtpsz17t1787799270td1fb8d54
+X-QQ-Originating-IP: RlPSDMQ0IW+5J7jKbMsuzznADAl+ByN6fHqr9Ry+Dps=
+Received: from PEN002676 ( [1.202.39.170])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 27 Aug 2026 10:54:19 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 9149043113890004404
+EX-QQ-RecipientCnt: 16
+From: ZhaoJinming <zhaojinming@uniontech.com>
+To: netdev@vger.kernel.org,
+	maxime.chevallier@bootlin.com
+Cc: andrew@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	boon.leong.ong@intel.com,
+	weifeng.voon@intel.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	ZhaoJinming <zhaojinming@uniontech.com>,
+	joabreu@synopsys.com,
+	f.fainelli@gmail.com
+Subject: [PATCH] net: stmmac: stop DMA before freeing descriptors on open
+Date: Thu, 27 Aug 2026 10:54:15 +0800
+Message-ID: <32EB352EB66D74E7+20260827025415.2684733-1-zhaojinming@uniontech.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz4b-0
+X-QQ-XMAILINFO: OAj0aC3PzlKaMMBWUaDehZLYzVSnFbCTleYQasjHh/DoBPwGwWRkMK5Q
+	F3RbWwfhppc69p5CTSZRAHKyLdmarsId9jApsVtbncNpZyELX0QBMhVV9awnFD+hC65hRJ/
+	V2IyDVgHFQalpScm01CVsNfo5Ejrmj+RyjatX8yIxkMx4wU1NVXYvo96lemi4CS46g0rRk4
+	x/skT2f/MycIZ+dxUsMlvrvo5WPQcqsGsyEpwDLKuO8vTZgKuRBPZarsxfy10cH5ex4cT01
+	RaW0ztJjqQbpJzhOCxCB4a5Qpoey8WAOw6BD84bM6wyRvj9B4P6205U6kNilVtNTVq9cPQv
+	6fKY1lqXIK3JzHD1z9YV5xc0yCreIiAOEhfbr0GBVz695xuulitC89zutZxl/uBA2tZgCLY
+	lARSmI3sF1HraM6CW2e3shiHPQrxy+cnfZSvVty+KZu4nVzOjYZDLt0dXIrBMula9YsPHKf
+	zRMh21xmXz5W6JfSPm60v1Na/eXKB1cfIPtRoREdEPqcVri4IBokY7wKAqCsSyrzaQVMZ61
+	/8zBpgEtAQ5s3XxOQEFvtv4CA8hip6aVLr4knqd6jfyL6RhDnUFZsUVMnIEk2CZMPPcENQX
+	CZ9XnpIWOoCS9SrIQ0AwMxrnkzT/yTP9MFlhZ57xJggZ6yC7O37pmHL/hjIgQokq6fczkwO
+	12l8A+Pze5jdwyXB6aTSb46/J0Pp2LlFHHt2FbYLqOAWtSBp2yRSunxnNOIu6adnjkGAX/F
+	s7oCn4TJiWen6IKxSWfJjSsDuW4/lE1nFX/+cGx65aIcYJbV0I2+NBsu1VWqtf4yy2MOl4N
+	61ViVYRUP5qcf7a0/j9wYNXsxd8flndYpCmGFZc+T3yn+06qHdJH9QbMjNJx6Ir+/pw5Nlw
+	t3eE7o39AShkddq5pm2jXPcrSL8UMi2BSemH8EL6QG5bHGhBqAeYHRPzIzCRfWnh3BFYEIw
+	89z/9t2JAwJp8RS1hxPN5MCNSW5HfBev0ffwrUPqGBAAnbPfGOro3uyRlsMbbc2W6VETddT
+	I3D6vP4SUDqY0WSLE1DnHNMgxUOrY=
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260826_195549_751082_718B6617 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,114 +104,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/08/06 09:58AM, Mike Rapoport (Microsoft) wrote:
-> arch_numa.c implements boot time discovery and initialization of NUMA
-> topology on architectures that select GENERIC_ARCH_NUMA (currently arm64
-> and riscv).
-> 
-> Since this is step in the initialization of the memory management
-> subsystem, it's logical to have arch_numa.c in mm/ alongside numa.c,
-> numa_memblks.c and numa_emulation.c.
-> 
-> Move arch_numa.c to mm/ and add its F: entry to "MEMBLOCK AND MEMORY
-> MANAGEMENT INITIALIZATION" in MAINTAINERS.
-> 
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+In __stmmac_open() and stmmac_xdp_open(), the DMA engine is started
+before stmmac_request_irq() is called.  If the IRQ request fails, the
+clean-up paths free the DMA descriptor rings via dma_free_coherent()
+without stopping the DMA engine first.
 
-Acked-by: Liam R. Howlett (Oracle) <liam@infradead.org>
+With the DMA engine still running, hardware may continue to access the
+descriptor ring memory after it has been freed.  Add stmmac_stop_all_dma()
+to both error paths, matching the teardown order in __stmmac_release().
 
-> ---
->  MAINTAINERS                      | 1 +
->  drivers/base/Kconfig             | 7 -------
->  drivers/base/Makefile            | 1 -
->  mm/Kconfig                       | 7 +++++++
->  mm/Makefile                      | 1 +
->  {drivers/base => mm}/arch_numa.c | 0
->  6 files changed, 9 insertions(+), 8 deletions(-)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 5114e6db7307..465b64f8e93c 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -16880,6 +16880,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock.git fixes
->  F:	Documentation/core-api/boot-time-mm.rst
->  F:	include/linux/kho/abi/memblock.h
->  F:	include/linux/memblock.h
-> +F:	mm/arch_numa.c
->  F:	mm/bootmem_info.c
->  F:	mm/memblock.c
->  F:	mm/memtest.c
-> diff --git a/drivers/base/Kconfig b/drivers/base/Kconfig
-> index f7d385cbd3ba..1d93bfc34490 100644
-> --- a/drivers/base/Kconfig
-> +++ b/drivers/base/Kconfig
-> @@ -239,13 +239,6 @@ config GENERIC_ARCH_TOPOLOGY
->  	  appropriate scaling, sysfs interface for reading capacity values at
->  	  runtime.
->  
-> -config GENERIC_ARCH_NUMA
-> -	bool
-> -	select NUMA_MEMBLKS
-> -	help
-> -	  Enable support for generic NUMA implementation. Currently, RISC-V
-> -	  and ARM64 use it.
-> -
->  config FW_DEVLINK_SYNC_STATE_TIMEOUT
->  	bool "sync_state() behavior defaults to timeout instead of strict"
->  	help
-> diff --git a/drivers/base/Makefile b/drivers/base/Makefile
-> index 8074a10183dc..435710f643a5 100644
-> --- a/drivers/base/Makefile
-> +++ b/drivers/base/Makefile
-> @@ -25,7 +25,6 @@ obj-$(CONFIG_PINCTRL) += pinctrl.o
->  obj-$(CONFIG_DEV_COREDUMP) += devcoredump.o
->  obj-$(CONFIG_GENERIC_MSI_IRQ) += platform-msi.o
->  obj-$(CONFIG_GENERIC_ARCH_TOPOLOGY) += arch_topology.o
-> -obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
->  obj-$(CONFIG_ACPI) += physical_location.o
->  
->  obj-y			+= test/
-> diff --git a/mm/Kconfig b/mm/Kconfig
-> index 9e0ca4824905..410b8a0a92b9 100644
-> --- a/mm/Kconfig
-> +++ b/mm/Kconfig
-> @@ -1469,6 +1469,13 @@ config NUMA_EMU
->  	  into virtual nodes when booted with "numa=fake=N", where N is the
->  	  number of nodes. This is only useful for debugging.
->  
-> +config GENERIC_ARCH_NUMA
-> +	bool
-> +	select NUMA_MEMBLKS
-> +	help
-> +	  Enable support for generic NUMA implementation. Currently, RISC-V
-> +	  and ARM64 use it.
-> +
->  config ARCH_HAS_USER_SHADOW_STACK
->  	bool
->  	help
-> diff --git a/mm/Makefile b/mm/Makefile
-> index eff9f9e7e061..fd29be716fa8 100644
-> --- a/mm/Makefile
-> +++ b/mm/Makefile
-> @@ -122,6 +122,7 @@ obj-$(CONFIG_CMA)	+= cma.o
->  obj-$(CONFIG_NUMA) += numa.o
->  obj-$(CONFIG_NUMA_MEMBLKS) += numa_memblks.o
->  obj-$(CONFIG_NUMA_EMU) += numa_emulation.o
-> +obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
->  obj-$(CONFIG_BALLOON) += balloon.o
->  obj-$(CONFIG_PAGE_EXTENSION) += page_ext.o
->  obj-$(CONFIG_PAGE_TABLE_CHECK) += page_table_check.o
-> diff --git a/drivers/base/arch_numa.c b/mm/arch_numa.c
-> similarity index 100%
-> rename from drivers/base/arch_numa.c
-> rename to mm/arch_numa.c
-> 
-> ---
-> base-commit: 075b74841bd0065a3bda3440873c747938e69b68
-> change-id: 20260806-arch-numa-444bb4806114
-> 
-> --
-> Sincerely yours,
-> Mike.
-> 
+Fixes: 8532f613bc78b ("net: stmmac: introduce MSI Interrupt routines for mac, safety, RX & TX")
+Signed-off-by: ZhaoJinming <zhaojinming@uniontech.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index b2b7d0242dd3..f76d762c314c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4176,6 +4176,8 @@ static int __stmmac_open(struct net_device *dev,
+ irq_error:
+ 	phylink_stop(priv->phylink);
+ 
++	stmmac_stop_all_dma(priv);
++
+ 	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
+ 		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
+ 
+@@ -7203,6 +7205,8 @@ int stmmac_xdp_open(struct net_device *dev)
+ 	return 0;
+ 
+ irq_error:
++	stmmac_stop_all_dma(priv);
++
+ 	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
+ 		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
+ 
+-- 
+2.51.0
+
 
