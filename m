@@ -4,65 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E2B2C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 12:44:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59D7DC61DC6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 12:45:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OG/i49AUF5ncN9ZquXzQyCMye6P3QPZAzJwH1vW0iXs=; b=RlpLIBQnTbnaQKeVMSr2p5ypYM
-	4s4HZ7inVhkWqyPyVnLIqvyVJEgQjM8EgR3JgsTDp4wpQt+6P5lnhRzpWSIe/KHAWzp3lqzVNP85v
-	goQ11pbw1jc1I92ORW/54WeHpxKy+Gqvtei9HmhpvmblsRtHfaqx/D7+3pnzXXLvmJNIHlDCewwaJ
-	g2wg6Je/YNzAEDItxGzQQpeULlyHWVqfZ4su210hRMl0zRRx+syD5cDMb/Jm6YnIyb91D0PIRmH2X
-	A5sWu3o1/GDwqNq02JNxiEvZ3BVEH98YBPDGbG+cNDBMw/yhhlb0HIfkAkb2GZmvX2+QL0PL+FHYi
-	6eNhtYKQ==;
+	bh=m7HqbPYf1lIsB+1qeR+I7dX+f66Fb+XDL7y8nXZQY4g=; b=utqPLkTU2c+wT2uHMsXcH0iXIc
+	S7qz4smfBEYAnzOrr9/Wq7Fe0lk6KM/4hvTxlBs4OY7FKH33lEz0LhTr1a0gCtFioIqrYn1Cbsk81
+	oy9ofKjxw0yv09zhZb3i//dLAlfnqYPDL+WrA3yKfh0k8RbZuYGpFp5GIoIEWBr55CKxtq1izkHyt
+	TOr5CSHhvAxUt24ONu0CT/D5FCClI+J4eR34XIB27yjJL4sPiynBX4+CWvkO25jBvBpJAf8AIyfh1
+	xbP2VxtYd1WgUOEVQMcHwSNC63djchRrdgEHuPVrwQ/sqj79aFx94NC4Oqlr1f3EfUt8WuEGMoZRn
+	4KUEBfQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZT2-00000003z9Q-3pRZ;
-	Thu, 27 Aug 2026 12:44:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wzZU6-00000003zFy-0mve;
+	Thu, 27 Aug 2026 12:45:36 +0000
+Received: from esa10.hc1455-7.c3s2.iphmx.com ([139.138.36.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZT0-00000003z93-2k7Z;
-	Thu, 27 Aug 2026 12:44:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0F3F241497;
-	Thu, 27 Aug 2026 12:44:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E858C1F000E9;
-	Thu, 27 Aug 2026 12:44:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787834665;
-	bh=OG/i49AUF5ncN9ZquXzQyCMye6P3QPZAzJwH1vW0iXs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=E9GyhaLHvc5qm1xe5F+LweUh5WMOvuzORzSiuUsyNLPdVi2x6c8+8QueV3zeRANI3
-	 +NZ8YOu6Uw76InokvaP4phxEiT5B9dtHBAgCFnM+fYDhJJy1Es5fUX2ChNkj/rIH5z
-	 /X3sBlpNqKo79r+ElV2WVt5aMeLHVeu8tXudBknO6HsgImpiY06ZFet8UT/TYziJSK
-	 BzMECwXJBYSRxTKJoGS5ieJJXtVtz0w3paau347F74DJuYSqY4tW1dzjD5nmZokhb3
-	 QtmJbjWDLR0TbKWMUZHtycEp3k2jwMM48WguOE3+UzH+UxnSoGpvBKoHoW1YitFOZy
-	 hP2GsVd4JEayA==
-Date: Thu, 27 Aug 2026 14:44:22 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Christian Bruel <christian.bruel@foss.st.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, 
-	Marek Vasut <marex@nabladev.com>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Pankaj Dev <pankaj.dev@st.com>, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH 11/16] dt-bindings: usb: dwc3: stm32: refer to dwc3-common
-Message-ID: <20260827-beige-shoebill-of-calibration-ec29ff@quoll>
-References: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-0-c5e27cbc0795@foss.st.com>
- <20260821-ucpd-host-fusb340-v7-2-rfc-v1-11-c5e27cbc0795@foss.st.com>
+	id 1wzZU2-00000003zFY-0p3L
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Aug 2026 12:45:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1787834730; x=1819370730;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=yhLGac+hnxttD0mvPQYVOBAXrJFS7tYd78dMHRj3ECw=;
+  b=Ew5L9ZRVV9ohA5M5nWIDk1DVrrLRtI4w3//Wfwvw/Fxf30FLiyJ6/kAl
+   VeH+1Vm7OvDM71oyiSN34fsu8Voj6UCUX163NDOMLUGQGCJY+sTavSdDL
+   uyxbPP95Ae6LxyeipBDhnyArlRGsd7K8qdGbFmanyhY9WE3vrU+zgUBoZ
+   jYibYPEPcP/y6rw5ZlbAuog9WDJBC9fRSFvABhDlY4IMd2QneE6dWjgrf
+   Ue7sQvxAa33+uoDkPIxe1bF0nuMx0vDD8nQrTT/fb/faDdWPTv9zFxOXm
+   mLsUmOXZM4XKimhSBWWxvblAz6XQU1ZYfmxMz5iXEDEf7v+gH3k+gwq4D
+   Q==;
+X-CSE-ConnectionGUID: PvEA8ti6SuiwkCcuIK0tmg==
+X-CSE-MsgGUID: MMn/whbyQimkqqfGH/9/yg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11887"; a="239076454"
+X-IronPort-AV: E=Sophos;i="6.25,246,1779116400"; 
+   d="scan'208";a="239076454"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa10.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 21:45:28 +0900
+Received: from az2nlsmgm3.fujitsu.com (unknown [10.150.26.205])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 2496C5528
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 12:45:28 +0000 (UTC)
+Received: from az2uksmom3.o.css.fujitsu.com (unknown [10.151.22.205])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm3.fujitsu.com (Postfix) with ESMTPS id C6AEE180CCF1
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 12:45:27 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.8.202.6])
+	by az2uksmom3.o.css.fujitsu.com (Postfix) with SMTP id DB97610000B4;
+	Thu, 27 Aug 2026 12:45:19 +0000 (UTC)
+Date: Thu, 27 Aug 2026 21:45:17 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v16 44/45] KVM: arm64: CCA: Require ICH_HCR_EL2.TDIR for
+ realms
+Message-ID: <apAwQeTW-JvCISEt@FCCLS0092175.localdomain>
+References: <20260803134403.80630-1-steven.price@arm.com>
+ <20260803134403.80630-45-steven.price@arm.com>
+ <anlZCIauOq4Lvv0I@FCCLS0092175.localdomain>
+ <bdd0cf41-05e8-4d66-930b-5a7a1b3e643a@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-11-c5e27cbc0795@foss.st.com>
+In-Reply-To: <bdd0cf41-05e8-4d66-930b-5a7a1b3e643a@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260827_054530_962790_EA0C634A 
+X-CRM114-Status: GOOD (  45.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,27 +104,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 06:23:22PM +0200, Fabrice Gasnier wrote:
-> Add reference to the dwc3-common bindings, used on stm32mp25.
-> This is a temporary update, as it depends on Marek's series [1]. This
-
-Why should dependency be put into the commit log? How does it matter
-after this gets merged?
-
-> should be dropped in later series revision.
-> It's a precursor to validate further DT addition on USB and Type-C, with
-> usb-role-switch properties.
+On 08/24 15:50, Steven Price wrote:
+> On 10/08/2026 05:58, Kohei Enju wrote:
+> > On 08/03 14:44, Steven Price wrote:
+> >> KVM advertises realm support when the RMM is available, and allows
+> >> userspace to create a VM with KVM_VM_TYPE_ARM_REALM on that basis.
+> >>
+> >> On CPUs that lack ICH_HCR_EL2.TDIR, KVM uses ICH_HCR_EL2.TC for
+> >> normal guests so that ICC_DIR_EL1 is still trapped via the common GICv3
+> >> CPU interface trap. Realms cannot rely on the normal hyp-side trap
+> >> handling for that fallback, so advertising RMI support on such systems
+> >> lets userspace create a realm that cannot safely run.
+> >>
+> >> Require the finalized ARM64_HAS_ICH_HCR_EL2_TDIR capability when
+> >> reporting KVM_CAP_ARM_RMI and when accepting KVM_VM_TYPE_ARM_REALM.
+> >> This leaves normal VM creation unchanged on systems that need the TC
+> >> workaround.
+> > 
+> > Hi Steven,
 > 
-> [1] https://lore.kernel.org/linux-phy/20260816213849.1044073-6-marex@nabladev.com/
+> Hi Kohei,
 > 
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> ---
->  Documentation/devicetree/bindings/usb/st,stm32mp25-dwc3.yaml | 3 +++
+> Sorry for the slow response.
+> 
+> > Thanks for your work on upstreaming CCA.
+> > 
+> > In the v15 discussion [0], you asked whether the system I was testing was a
+> > "hacked up test system" or closer to "production hardware", and I said I would
+> > share more when the time came. I can now say that this is not a hacked-up test
+> > system. At Fujitsu, we have real hardware (FUJITSU-MONAKA) which implements CCA
+> > (FEAT_RME) but does not implement FEAT_GICv3_TDIR. The hardware details are as
+> > follows:
+> 
+> Cool, I suspected that might be the case - it's good to know there's
+> real hardware on it's way.
+> 
+> >   - GICv4.2 compliant implementation
+> >   - Supports FEAT_GICv3, FEAT_GICv3p1, FEAT_GICv4, FEAT_GICv4p1, and FEAT_GICv3_NMI
+> >   - Does not support FEAT_GICv3_LEGACY (deprecated)
+> >   - Does not support FEAT_GICv3_TDIR (ICH_VTR_EL2.TDS == 0)
+> > 
+> > For reference, compared with Arm Neoverse V3, the virtual GIC configuration is
+> > largely equivalent. The only missing non-deprecated architectural feature is
+> > FEAT_GICv3_TDIR.
+> > 
+> > The issue I see is that the CCA KVM code currently does not support a
+> > configuration (non-TDIR/common-trap) that normal KVM already supports. For
+> > normal guests, KVM handles systems without TDIR by using ICH_HCR_EL2.TC and the
+> > existing GICv3 CPU interface emulation path. However, Realm guests currently
+> > fail because the CCA path bypasses that existing emulation path, as Marc also
+> > pointed out in [1].
+> > 
+> > Also, this is not limited to systems that actually lack TDIR. The same failure
+> > can be reproduced on a TDIR-capable system by booting with:
+> >   kvm-arm.vgic_v3_common_trap=1
+> 
+> As Marc says that's a debugging option - handy for those of us who don't
+> have a platform without TDIR to test with.
+> 
+> > So it seems that the current CCA KVM implementation does not yet cover a
+> > configuration that normal KVM already supports today, rather than this being a
+> > limitation of the RMM specification or the underlying hardware.
+> > 
+> > I've included a patch below which reuses the existing GICv3 early emulation
+> > path for Realm sysreg exits. This patch does not add any new vGIC emulation
+> > code, and leaves the existing vGIC emulation code unchanged. So I believe this
+> > is in line with Marc's request in [1]. With this patch, Realm guests can run
+> > when the common CPU interface trap path is enabled.
+> > 
+> > I tested the exact patch both on our real silicon and on QEMU, and
+> > confirmed that all Realm-related tests in kvm-unit-tests-cca passed.
+> > 
+> > I'm not attached to this exact implementation, and I'm happy if the solution is
+> > reworked to better fit into the next revision. 
+> > 
+> > Given that this configuration can be supported by reusing the existing KVM
+> > emulation infrastructure, I think it would be reasonable for CCA to support the
+> > non-TDIR/common-trap configuration rather than requiring ICH_HCR_EL2.TDIR
+> > unconditionally for Realm support. 
+> > 
+> > Supporting this configuration would also allow us to validate the upstream CCA
+> > KVM implementation on real silicon using upstream code paths, and contribute
+> > additional real-hardware testing coverage as the implementation
+> > evolves.
+> > 
+> > I'd be very interested in hearing your thoughts.
+> 
+> So personally I think your patch is a good compromise. It gets the
+> hardware working and I'm keen to enable real-hardware testing. Marc has
+> a very valid point that in terms of performance this could be very bad.
+> Pseudo NMI in particular will be terrible because accesses to GIC
+> registers are used to "emulate" the NMI so the number of traps will be
+> large, and the traps are much more expensive with CCA.
 
-There is no such file. Why aren't you reviewing patches on the lists but
-instead create inter-patch-chains?
+Yes, in that case ICV_PMR_EL1 would be accessed frequently, and the
+resulting traps would be expensive.
 
-Best regards,
-Krzysztof
+> 
+> So I'll attempt to incorporate the changes in your patch, but obviously
+> you'll have to decide for yourself whether the performance of the
+> product is suitable.
 
+Thanks for the clarification.
+
+I agree with the performance concern, and I'll run some benchmarks on
+our hardware.
+
+Thanks,
+Kohei
+
+> 
+> Thanks,
+> Steve
+> 
 
