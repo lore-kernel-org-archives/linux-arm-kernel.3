@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96E6BC61DCD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 15:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 796E3C61DC6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 15:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mUzJ1oicaQKOuYkLTR0Ojyn98UVxpazRVOZwD/AFTqc=; b=3QX3Y6jQeE/VpvcgvB8xHNeWCI
-	ze2o90X49RbPWFgf1EuNNQuPvKmf4UfyCdmIUG9Al3V3wfC5Geddfz9pA+I8B8J5yKEjDZiE1fFAc
-	FrWcB0Wa5YdrzZrfGoud54pp+P5btN/dWZZk/YWFhbHT8TDWUCb5+7xVsJLO1aUULu8dN3K1QS0GH
-	mpvyQB2rf24sRhUY4BXhgOjH0+va18tjKCwOgeo/EICRfWNLMpDUMBPKEcBea5qoBA/NzQL7LV262
-	QUSJY1em3tHyBkfSpH7kfO5MB0dJA/dSMVIYigGdKBAdZbYX7nJG5Nbs5L1+WqdmPxfYHesapwYiW
-	zcT9nbEA==;
+	bh=v++WpEwEbf4EpZ34f/FFcUO3YM4jYeI19GmAxfUGHxk=; b=0g6uFZmYbAGDwipVwZ3X35WIW6
+	7KCUhAH90u5QHB1UpEbsA++8yt0zh3xqZpCrHyC57aIzU7RgT+wecDG5ddG9JFm+33eFdyP43ABtn
+	yNiy3K6NJ/WIKIsqbsTZAJlVus/c3+sbrlaW/Av0S46/BYtbuiU+FgyH5MswE6LasKlF6L7tZHsg6
+	CiSVB6Mi5kw6iwtXEcgybpPC2RNQEbwpg4oEblwnWc7Ge07hfIhday6d8yhNpPGrbRjuTMe+bDsOH
+	+YnNTXQcEynmICBoK9fvu71g5vUGMq6F1In1HQA9L/GTr1LaVVXjKOROdmilaZhxI25oBjc6+OPr4
+	inrOOhWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzbwG-00000004Etc-34lY;
-	Thu, 27 Aug 2026 15:22:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wzbwP-00000004EvG-3hhl;
+	Thu, 27 Aug 2026 15:23:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzbwF-00000004EtU-1WmC
+	id 1wzbwI-00000004Eu3-1VLY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 15:22:47 +0000
+	Thu, 27 Aug 2026 15:22:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 78983600D4;
+	by sea.source.kernel.org (Postfix) with ESMTP id ABFE943F20;
+	Thu, 27 Aug 2026 15:22:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC5EA1F000E9;
 	Thu, 27 Aug 2026 15:22:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 302CD1F00A3A;
-	Thu, 27 Aug 2026 15:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787844166;
-	bh=mUzJ1oicaQKOuYkLTR0Ojyn98UVxpazRVOZwD/AFTqc=;
+	s=k20260515; t=1787844169;
+	bh=v++WpEwEbf4EpZ34f/FFcUO3YM4jYeI19GmAxfUGHxk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=B0LsRI2vsCGCKmvyDxhmaS5dtRSqf2tH1uJUsfkJptmci/Vw63a0C9J/dvYGn+zKD
-	 1UkReGIzSk1p16vMggyiBeqhMprtrqiAX+8lgMrqTqYZHwshqSjjy4zau05zeO6w0V
-	 guEGDuImyf55SQeq7bX2tfNvJhFDKSUlGZh2HXYbMgpL9xJHw/ic+p0ysbOL6c7daA
-	 nnvOtpZbf+IWFGYFNJCR5NKVglDHIaI+pJml07XlqBgZy+BxvJ8QP6sqXBb5Ua0R1y
-	 MPZ3hRak/YZhuqYfZu8boyxkhCkBSaXmxuI3MwlgP68WMNovUUg43xcC7Qdimky7pC
-	 T7b+ZnGxxVReQ==
+	b=VllPGGzArDP6/pmETstGz27ibL0nXuH/r1Udj5HTHTx06lntiCk6HX4/N1eWIo+CZ
+	 aIa/FswvIcyvhffHlwAN6XBYVrsLhMhhnC4PnnibY27cOg+sUQcslSpHPFdkWwTXZ6
+	 gMmC38TKOl3sxLUnOtxgKv7tEvULMtVDCLXV8dMgGPskzcRmzPOTG0RGk1ln2NX423
+	 2IbJ13cA9a4b4poi+HBZYiGw+vpSNxfwTNPr5oSWVqjcTKxrv1/FA5J5w0wgzguVQa
+	 eLXEAO3Obx2NUa4ZjlNvOEIIWJUIJShj1YZ9OuU7fYCEGKwAWcvDnstTRAqZTesx1e
+	 ++YpLg0vPfS7w==
 From: Will Deacon <will@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
-	Karl Mehltretter <kmehltretter@gmail.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
+	Shuah Khan <shuah@kernel.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Amit Daniel Kachhap <amit.kachhap@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Brown <broonie@kernel.org>,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: compat: Fix decrementing LDM/STM alignment emulation
-Date: Thu, 27 Aug 2026 16:22:37 +0100
-Message-ID: <178784016455.65228.15282615597317035882.b4-ty@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	Muhammad Usama Anjum <usama.anjum@arm.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v3 0/4] selftests/arm64: Fix MTE test setup and TAP reporting
+Date: Thu, 27 Aug 2026 16:22:38 +0100
+Message-ID: <178784032021.66644.7509441879156473484.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260819222712.81855-1-kmehltretter@gmail.com>
-References: <20260819222712.81855-1-kmehltretter@gmail.com>
+In-Reply-To: <20260825111929.2882324-1-usama.anjum@arm.com>
+References: <20260825111929.2882324-1-usama.anjum@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -76,24 +81,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Aug 2026 00:27:12 +0200, Karl Mehltretter wrote:
-> The compat alignment emulator inherited unsigned long data addresses from
-> the 32-bit ARM implementation.
+On Tue, 25 Aug 2026 12:18:33 +0100, Muhammad Usama Anjum wrote:
+> Running the mainline arm64 MTE selftests on a Pixel 8 exposed three
+> independent reporting problems. Fix these reporting problems, then add
+> an arm64 Kconfig fragment covering the facilities used by the MTE tests.
 > 
-> In do_alignment_ldmstm(), nr_regs is an unsigned int holding the transfer
-> size. The function uses the same address addition for both transfer
-> directions, negating nr_regs first for a decrementing LDM or STM. The
-> 32-bit negation wraps before the addition, so the handler adds nearly
-> 4 GiB instead of subtracting the transfer size.
-> The resulting address lies outside the compat task's address space, so
-> decrementing LDM/STM emulation fails, while incrementing forms work.
+> Testing was performed on a Pixel 8 with an Android 6.1 kernel built with
+> the new configuration. All nine static MTE binaries returned success.
 > 
 > [...]
 
 Applied to arm64 (for-next/core), thanks!
 
-[1/1] arm64: compat: Fix decrementing LDM/STM alignment emulation
-      https://git.kernel.org/arm64/c/f5b8b9037df3
+[1/4] selftests/arm64: Print missing MTE TAP headers
+      https://git.kernel.org/arm64/c/8d2237e9d690
+[2/4] selftests/arm64: Treat KSM merge_across_nodes as optional
+      https://git.kernel.org/arm64/c/1a0dba077f34
+[3/4] selftests/arm64: Fix MTE prctl TAP plan
+      https://git.kernel.org/arm64/c/bb52892f9234
+[4/4] selftests/arm64: Add MTE test config fragment
+      https://git.kernel.org/arm64/c/2bd533739234
 
 Cheers,
 -- 
