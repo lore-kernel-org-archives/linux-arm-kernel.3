@@ -4,121 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABCCC61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 18:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B643C61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 18:09:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oSl5wDfcIkAZ8O8qomImZnYhRdtX0c0/b/+iSOoYbbQ=; b=qd4ZsFCVi5je0GuaJHnPRLX8Pu
-	12p/r0QOPaxhe8DWozOAVQsXYfy6XSXIhslUyygd12h/xS6KhtPDljxEZ/x5xw3L9t695d65x/ZRS
-	nYkKmFz1i/Wy5iheCzUTvw4mKJiKTncqaB78ec1YgrtK8J0l0hkL08bK1kE5qmKh5qI0MXp3ZGc/K
-	B+dqb49+NIwGM4MSF6ASo/Ju2dX0J7LPbrIbA/SZNvVWVRYWebvRsl6LAKuBLkGG2vpvU0YjRsVk+
-	HaZBLAYQStoVuj1XGGOvHCmIaNz60Njk2NL52ODiv6AozIuGg3jL0S/gYLbwCdyxWyxHsVRWrPoPS
-	p4uB+2MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gyvcr0bAWy6b+XaWJz4F6/gpXBvu5rK1SECJF9HtAZQ=; b=oEhtOVPsYxFiCPcSXF+o3yR/43
+	Zo6vUlrzF4gByGgqeNbNgkiXdm34dBaR5qPliq2I3L7QMf3C4p1PVFgBF78vxmgTJFLQYblWmw1Ua
+	0jCueQXBbReln2dDlmkwo6y1IvXgA+w+4MQpJTBxlltxV9HcqodRQ57zAI2oN9w6rjTszG9NIu0Az
+	FzKw4UANJX9s2XEN0fNbRG2CCrturLz+TxKEQ8dEasVtghENwER8fX8T6iPJ4bzxTbLqfV8RkraCV
+	aa4XEEakfLbWqEoiq1PRrMf27gODoH2qzTtwYg0ixOmW08JkXmwW48kJQj8cDYD7SXCjvyIJwJLc+
+	mnNHn4WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzeX2-00000004ZAt-0y25;
-	Thu, 27 Aug 2026 18:08:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wzeXd-00000004ZGU-1W3m;
+	Thu, 27 Aug 2026 18:09:33 +0000
+Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzeX1-00000004ZAS-0XN2
+	id 1wzeXY-00000004ZFf-3Kni
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 18:08:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A86AC40C40;
-	Thu, 27 Aug 2026 18:08:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2EAB1F000E9;
-	Thu, 27 Aug 2026 18:08:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787854133;
-	bh=oSl5wDfcIkAZ8O8qomImZnYhRdtX0c0/b/+iSOoYbbQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=cXyX6QAc2K4hCCa6m0zAE3YE+kol844hbwpydqer4TYoxKiPxU9IgtmzJzyCj+b6Q
-	 HbZTJJirRawJp6wgO+QFl2O14dCAoQuGY8J5x15vAraWVlo5V1zIEToDQoMvHfTqfF
-	 d+bO0MJLxRa/Ek6qVt6J+6z1fa+c06GVGlL+9vE99Bvi+eDwvRd6kwxT0POwAhGNAf
-	 ED3biHX6G4Js7XuAL7Expnqsn3eqs9QIJhSf8DYmnz+lVOHdCOgsAa4x/xyB4UcIZe
-	 KRQJJPfq+mQnHzMuh0PBCy45zrAFbWhn1Wr0kD+add/DyPLajZyBIyobOu/Vpw368x
-	 gHi8Emr0IpY/Q==
-Message-ID: <1dc8739e-4eb6-4a71-9534-e03a15afd620@kernel.org>
-Date: Thu, 27 Aug 2026 20:08:44 +0200
+	Thu, 27 Aug 2026 18:09:31 +0000
+Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-66d06b5f023so352675d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 11:09:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787854167; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rdpDB5Q+O8S/ydyVNOzN+OdU8uoRs8GuT7eocL2J9Gp/0ZqSbsYBcFktcADD/MB72S
+         BSoNQddWUYvm8+PL37S+9rbvZaMcP+80p4vEhZFjjq++RTW3tSB4uCyH37tdDeznOE9s
+         lSAtDJVWBnrJ6MYnNNx9NaEcg0zbJjpLeW9XLBLkznqUSkpdNVd0VekD1MZCkdtPu4TU
+         nWQsbpZepWX1ZgNbMXnoMJupySbXtq2DZOx/v5xYhy0y6rqlI6R8P+snEn7ZwjuN3eQn
+         PXG9xxLA7y0AJyelwf3eSgJd8Qgf00HfAxftyZ0PFWJ+5qthizNm+yb6k85QLl/o5+CR
+         +Y4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=gyvcr0bAWy6b+XaWJz4F6/gpXBvu5rK1SECJF9HtAZQ=;
+        fh=B6dn4kUAMAKu9pNj4qB4EvqnunxMZR5TDLMuWQzPoIc=;
+        b=DPM4gdIMieLRQ9gpurBu1FCCX9VT0mY4PctbsXfmgJ/lfJqJGFDnan8ZH1vYhvGRV7
+         d+iGKiqq/bQf2ydrhZq2GJ6RyyCiNh7sTK7MM63HkrWvMf4aBp2paM2BxIlkhC7ojF5R
+         Bm2o2ra8nHIl5PQpHFtKG9XK6W6kmOR9dUy2zwijnmJeeJ3o4dAGzmX+z2J0QUKgBqUv
+         zcZgFqRq+BqcozL04bNC0L28KUboV2ndJDiMYlvSnn0FhEXb9RLNYI9MwKL9QtAQwuzO
+         eq78RxymZvK3jOXVvxRP6q28Aw7+7krdAY5aTuMIxSU04YIN9Pdx239pK55NiM7h91qe
+         XFJQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787854167; x=1788458967; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gyvcr0bAWy6b+XaWJz4F6/gpXBvu5rK1SECJF9HtAZQ=;
+        b=OXJcowgske2MneXheCLOJXzmTj6zjBGuzH2wzp9f339LVYWEHXNbv5ltz193ndUTct
+         /BK8lbVlyNry/+aQZE6zxlGXU2zGQV0BO2VBRKh+W6355WKEMxfqdimu7cJsfxQsKY44
+         Qa6ON0dUzxMjEn8CnTe3eh2Y/q6CHW4uVFFmj1Frr3RgRbbNNUw0h6efZSh5Ls+7T2BM
+         uU7RADvFCFrz6s3E2TSNS8FFg91XuMbWJq887Aew7/Q1uDLYHeEvjrFKBOLFzf/NuY35
+         BA6pIipfl0foteJnwXdsuR4/m29iyO7xAq6+uSNgVWfgmFP39V2j3kE01eImgRv+EXVc
+         vmWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787854167; x=1788458967;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=gyvcr0bAWy6b+XaWJz4F6/gpXBvu5rK1SECJF9HtAZQ=;
+        b=m5FFzlG3gyH8lotUSjTtt9zQY72EUpBjzrG4JSAjz26d0E68Xm4Ob+2m9meuwi6dRK
+         EkPEFFOXVg9X4iNdLhx6uMgQXxEdO//kBSWz0sxgBVcvH8nrqCDdYxmOCtKrfB+X+g2h
+         XZlpc41BlwRt1NFDqxfepPIsbJcGfOajIxpQ3Xor05ff7z6+UgFXqyU66GSa9xS7Jklg
+         m5yUDY0PIOnijk+WxWDLseG7FFy2Dx+XbtLa1cbEVDx0i23hr1dG4/CvN32UH9tbRo3H
+         TT14PFoA3AVeZWoqoUtl4l6N6n2AL8eVeH5lXQjMT84OQ5wUmveG3aIrJp8fb00ob6AR
+         rfMg==
+X-Forwarded-Encrypted: i=1; AHgh+RoPlfhobLuPYOR4q9arTb+RE7wGGBbo/wrLSRVOF6BeM9ej6m2bhu17n0d8L3dXsmboJXkZmhsZ7akEAp6ayUkX@lists.infradead.org
+X-Gm-Message-State: AFuF++nh7dFM5ewTzO2DdD5dtEgVzVz/vxyVj5+FH3bBeXQKTmF61Zxn
+	xL6ymkR1YWz9LuwfNYw9inExZrhPhkSq1WThW5mZUX2wqa9DYR2v3LJ5TGP+aTU0awrGO13fyXJ
+	n4O+A1Zy9KdL9nm4rjDyvP2DSbmItu2I=
+X-Gm-Gg: AR+sD125DlynvJEQpgh0uaG6+AKYErO3F+5X+K8KycIbjm8Kx3t+TIpgvk85XS/hxGM
+	LL+CJ8wmQF6MV86uWoRn9X0PfKHh/afXClKw93mN24iQrW9WhDW35Q8Yi3570Du4iiOxt0+lMyq
+	Mp5wItf3AsShKjd1bWezmQvMJnXLQHZ6rFAd5ePjb+J1QF9jD2tVOb6Bq0E4KaPvk17cJLqNcmD
+	VvJslY7NoOdksZ7EKH9Yo5nYuvnVsf/JpcVXRartqr6VcxWEXLiGYIGgdZbmPjYT82y++zlFp96
+	C6S2R+TMATGy3KlLsn1Lu/1TGyAM/NFNHwBDtgZTPfF32t4S5F51Jb0693yHgDIUJCVsX6+yasA
+	gSXqbEF5ymvEw/JfzTIm5g++kIw==
+X-Received: by 2002:a05:690e:2052:b0:66d:1877:121b with SMTP id
+ 956f58d0204a3-66e4c6d6f17mr41588d50.32.1787854167499; Thu, 27 Aug 2026
+ 11:09:27 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v9 13/25] mm: kpkeys: Introduce early page table
- allocator
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
- Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
- Linu Cherian <linu.cherian@arm.com>, Linus Walleij <linusw@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
- <20260818-kpkeys-v9-13-743ad31b2c8f@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260818-kpkeys-v9-13-743ad31b2c8f@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20260827171937.28878-1-gvalkov@gmail.com> <20260827171937.28878-3-gvalkov@gmail.com>
+ <15F55ACD-E206-4B79-9E8D-1ED24427BB19@dolcini.it> <CADOrJmae24XCgxFwtHssdoWc4rv1Q743hfgjG=kUrVPgf6urmw@mail.gmail.com>
+ <A7FBAD8C-3AAD-4268-9BBC-3BDE071481E1@dolcini.it>
+In-Reply-To: <A7FBAD8C-3AAD-4268-9BBC-3BDE071481E1@dolcini.it>
+From: George Valkov <gvalkov@gmail.com>
+Date: Thu, 27 Aug 2026 21:09:13 +0300
+X-Gm-Features: AcwNN1WeeO0QLErFPaTPUKzS5E98_pxOjOnXU5-Tw2FaecGW6bryCcX8wHHKvEI
+Message-ID: <CADOrJmZ8u8Gj0dA=CqzUwxM32uN5ZOJ_GdaXJNi1ttYpp4FvrA@mail.gmail.com>
+Subject: Re: [PATCH v8 3/3] ARM: dts: armada: WRT3200ACM: add marvell,invalid-reg-hint-in-rom
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: briannorris@chromium.org, johannes@sipsolutions.net, andrew@lunn.ch, 
+	krzk+dt@kernel.org, johannes.berg@intel.com, kees@kernel.org, 
+	miriam.rachel.korenblit@intel.com, rongqianfeng@vivo.com, wenst@chromium.org, 
+	rafael.beims@toradex.com, avraham.stern@intel.com, error27@gmail.com, 
+	s.kerkmann@pengutronix.de, gregory.clement@bootlin.com, 
+	sebastian.hesselbarth@gmail.com, robh@kernel.org, conor+dt@kernel.org, 
+	Frank.Li@nxp.com, chunfan.chen@gmail.com, arend.vanspriel@broadcom.com, 
+	peddolla.reddy@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org, 
+	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260827_110930_224138_835905F8 
+X-CRM114-Status: GOOD (  22.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,35 +126,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/18/26 16:08, Kevin Brodsky wrote:
-> The kpkeys_hardened_pgtables feature aims to protect all page table
-> pages (PTPs) by mapping them with a privileged pkey. This is primarily
-> handled by kpkeys_pgtable_alloc(), called from pagetable_alloc().
-> However, this does not cover PTPs allocated early, before the
-> buddy allocator is available. These PTPs are allocated by architecture
-> code, either 1. from static pools or 2. using the memblock allocator,
-> and should also be protected.
-> 
-> This patch addresses the second category: PTPs allocated via memblock.
-> Such PTPs are notably used to create the linear map. Protecting them as
-> soon as they are allocated would require modifying the linear map while
-> it is being created, which seems at best difficult. Instead, a
-> simple allocator is introduced, obtaining pages from memblock and
-> keeping track of all allocated ranges to set their pkey once it is
-> safe to do so. PTPs allocated at that stage are not freed, so there
-> is no need to manage a free list.
+On Thu, 27 Aug 2026 at 21:05, Francesco Dolcini <francesco@dolcini.it> wrote:
+>
+>
+>
+> On 27 August 2026 20:02:27 CEST, George Valkov <gvalkov@gmail.com> wrote:
+> >On Thu, 27 Aug 2026 at 20:40, Francesco Dolcini <francesco@dolcini.it> wrote:
+> >>
+> >>
+> >>
+> >> On 27 August 2026 19:19:37 CEST, Georgi Valkov <gvalkov@gmail.com> wrote:
+> >> >WRT3200ACM and WRT32x routers always report a fixed US regulatory domain
+> >> >from the mwifiex ROM, which conflicts with the platform regulatory
+> >> >configuration on units sold outside the US market. For example:
+> >> >- phy0 mwlwifi 5 GHz, hard-coded region 98 EU mapped to FR
+> >> >- phy1 mwlwifi 2.4 GHz, hard-coded region 98 EU mapped to FR
+> >> >- phy2 mwifiex 2.4 and 5 GHz, hard-coded region US
+> >> >
+> >> >When the system boots, it detects a conflict between the user selected
+> >> >region and the radios, e.g. BG FR US, and applies extreme restrictions,
+> >> >preventing phy0 from starting on any DFS channel. phy2 works.
+> >> >
+> >> >Add node wifi@1 with a flag marvell,invalid-reg-hint-in-rom to the
+> >> >WRT3200ACM device-tree, which signals mwifiex that its regulatory
+> >> >hint from ROM conflicts with the platform and should be ignored, so the
+> >> >platform regulatory domain can be used. This does not allow the user to
+> >> >change the regulatory config of any radio. It only allows phy0 to start
+> >> >and operate according to its certified configuration. All radios in
+> >> >WRT3200ACM/WRT32x are locked to the hard-coded configuration for which
+> >> >they are certified.
+> >> >
+> >> >On WRT3200ACM, the platform configuration is stored on the devinfo mtd3
+> >> >partition, which is read-only: cert_region=EU modelNumber=WRT3200ACM-EU
+> >> >
+> >> >The Linux kernel sources do not have support for WRT32x. An equivalent
+> >> >patch for these routers has to be sent to OpenWrt.
+> >> >
+> >> >[1] https://github.com/kaloz/mwlwifi/issues/173#issuecomment-307879699
+> >> >[2] https://github.com/openwrt/openwrt/issues/9956
+> >> >
+> >> >Cc: stable@vger.kernel.org
+> >>
+> >> This whole series is not material for stable. Please drop thia tag from all the patches.
+> >
+> >Dropped CC: stable from all patches, and sent v9:
+> >https://lore.kernel.org/linux-wireless/20260827175850.89395-1-gvalkov@gmail.com/T/#t
+>
+> Please, you are not supposed to send a new patch series revision every time you get a single comment and you did send the previous version just 2 hours ago.
+>
+> It does not work like that, you just create additional overhead.
+>
+> I assume this is all documented, please look into the Documentation directory.
 
-I'm think of ways to avoid remembering these ranges. I guess we get called that
-early that we don't even have a ptdesc where we could just link the pages.
+ok, I will make sure to wait for a few days in the future. I apologise!
 
-If only page tables would be linked in some datastructure where we could find
-them all ... ;)
-
-... why can't we just scan the page table hierarchy to find all page tables that
-need protection?
-
--- 
-Cheers,
-
-David
+Georgi Valkov
 
