@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB5FBC61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 23:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4065C61DC6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 23:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qsQSfVFeubNsDIXPhKgUpT/ImczFchV73yRsCSFESEY=; b=tnM/eWzbl/Ux+Q26CBkiSjl6oW
-	dZj0gSzw4zgwwZ1LZ4SLW8wuDK1ofDpIpUeQxxwc60NYCIjf8de9SnA50BRP0iXwHRs0cKgX5ZWkt
-	1p57k6FhNfmMHWyGjHF8ZgB1oKg1yG9Xux3Dos2QySuaci5yvKvU3EReQPZVmZiIULOMPFfttGJ41
-	vEKJ1uqLo8Ja+5rBSmJ0VoG+BYFKDAHE8WIfwBdfFGwwStiKAH21D3HwfOwvgytwH4415/hzDpk6M
-	m+SHFPUzFdRIStI9cTFKlx/67joYarqfsrJFkOHo/5r499exTZGVo0Q+2N4BON6aw0BEUNGOUpqET
-	gh1U3Tkg==;
+	bh=PgniuiCLGc5SclSuhaFn4pRhiopbh+4BL9/R1MdVpyI=; b=gEsbaBmbCm091O8H2lwKqoa79q
+	vPf/CcMM0ug8slPxqFxJMX5ywOFs3Hs8FIOMkytOEXHB9o1+/YzvVFE7p/3tj3dqCyEQ74eU4TTDZ
+	agumY7Wx8uYINEBixtgXYZd0wbcdiviYZ3oRfTleBB0LxKFTOwXmcKGxVXVII6s/GwD7PJ4LL3Frb
+	XWBJZaYAVxNNkfvodSmhJcTvR5oiU4zezguoeOSOKu7gGGm3IFnt5YTDdigx2r4v+W/3DfNRvcb7M
+	nwzsYa8RTQpdfdY2+7rN3JL3Ejr+9xVIhinpcreCQkjYBoVWQbVD9ZyqUHzHxQdVn/oBBoyTZsIuP
+	3M9hmoIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzjZn-00000004uRI-1Vkh;
-	Thu, 27 Aug 2026 23:32:07 +0000
-Received: from mail-pj1-x1047.google.com ([2607:f8b0:4864:20::1047])
+	id 1wzjZm-00000004uQD-3PpA;
+	Thu, 27 Aug 2026 23:32:06 +0000
+Received: from mail-pj1-x1045.google.com ([2607:f8b0:4864:20::1045])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzjZL-00000004u8H-0Eoz
+	id 1wzjZL-00000004u8s-0pPw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 23:31:43 +0000
-Received: by mail-pj1-x1047.google.com with SMTP id 98e67ed59e1d1-3968bb86fb7so598373a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 16:31:29 -0700 (PDT)
+	Thu, 27 Aug 2026 23:31:42 +0000
+Received: by mail-pj1-x1045.google.com with SMTP id 98e67ed59e1d1-388b404eaa4so408890a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 16:31:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787873489; x=1788478289; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787873493; x=1788478293; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=qsQSfVFeubNsDIXPhKgUpT/ImczFchV73yRsCSFESEY=;
-        b=SWBI7f7Tw1BduP1Up4ZLvuzv3CFyM3TlU8prtrsDor/gIETJ5R99zfGuyD5Prq2Bi1
-         Ir6M6MPFfWjsG38jksGc/AdJua4ZJjc2Ntlv3h59lkNwVSnYhigoCZAn6qIAvGfyh9ZP
-         QqNi13ZopkNnVu1hiPqHQywtH6+WJpgupnDBxttfXL8XuDQW+E/4OkaKDN8FreI3J4Ze
-         YmDHYkfBl2qMwNx6HXa5QX9lu6Vw4vg6hQ+F36hxUYuQ3XogAc6ue6gLvzmnM3wbKgx1
-         VOvqB7tA8ehqb8gT+99KQJ1ZOF9ommMKbz/Rvek19WWgWKNYAE1Rdt6ldbyjO3PQvicI
-         pDnw==
+        bh=PgniuiCLGc5SclSuhaFn4pRhiopbh+4BL9/R1MdVpyI=;
+        b=hTvfhpniPzG/FsICM+lHQxmW9IMPXkV1AOHPfbLDVeaQf+eL4nNn7a1Gi3LG1vp4pX
+         zZ7gky0bDminzYOjGn/2Qa3bUxoj70V0TlMVL246MXr3JCuLIBB2ZBQ3VLYrxIXBjPFY
+         d7vGrQQ69oN1+M++MPJhkmvxhKRpCnpod2s0FDDSRC7lrP1TQRqRcZ6TDbzlHhD9O0dN
+         5wlP1ZHBk4XRzql0ZHK5GkAWZbOS33LLFzClewGM73mj+WoAm6t97rKLKfFIMVHwNRHt
+         3PHV34tfzyWAdejlH8STATh51dM7sZbg6CMaNZX2jeE3H7+6Tw281F7eixowVa9buw2b
+         MHdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787873489; x=1788478289;
+        d=1e100.net; s=20251104; t=1787873493; x=1788478293;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=qsQSfVFeubNsDIXPhKgUpT/ImczFchV73yRsCSFESEY=;
-        b=s2PQjQ8+o1Pg+NDWXiWggvZczZtxApAwdYa1JkOF2PdEVx/5ZXXAlR2vGshIdbIFqu
-         As6QuIY4CFjujlD/aovsjVNdJxpn0FIvfJYsodtHuC+VTRUZ4qs7D7rXwcOdP6btA2Yy
-         8eEGJn9qh5P193iaw8rEczjK+iWjHkTf4CFK+P45rlnxBaBS8WxHu6hm5xT99yXvWoi2
-         gdhYeo1klOLWkwVQ4u88a39S4wsbFNNPkVliRgNMkCNo/laAY+i138GBQHN4++rVlz87
-         1m3/bHpQf9Nya917RcL3WyBUAFNJQlPzAskhN6genGxePeZEUsOEvDZNYjFVUBj0Govp
-         XzQg==
-X-Forwarded-Encrypted: i=1; AHgh+RrTwmgz1Hc1/gCASrAzId2IMBX32dqMMoQSb5capoSCgmtzDTRE9ukjjdU3oIOlvSoogPQFlXQY/tcWoawVaovZ@lists.infradead.org
-X-Gm-Message-State: AFuF++lpotHoPMru2RUE9Mc0srW/VSFcl9N1pSTJzX+67snQBcN1g+uA
-	KnFmOntSMyWjfzOD+1rXeOIB44KNG3c1RpSbmu4dhFQFl1vChr8N83gRyF1riQ/HyN/WOOweIUz
-	AViYEFRmoCoT5sA==
-X-Received: from dli22-n1.prod.google.com ([2002:a05:7022:296:10b0:141:ac8:b5ae])
+        bh=PgniuiCLGc5SclSuhaFn4pRhiopbh+4BL9/R1MdVpyI=;
+        b=QkGyZ7B1+keL3YAjKUWZpxzn8ycTKgT5E8wxtNQHL6nvN/NG7VyyF1qvXJs3OELFdY
+         EeXNG+P/352rmVH/S8JmIE0TWBhApuBf8rp7OsGe1bGq6RD+NP/0eQN9G/frQKYHxmDB
+         eBx2ztkjUul+Z7eNeWRDJ5SKIvDgvOcDFF/K1s2kVdgmDOHBhFRfZsI7NmXjwF3D6ydJ
+         OdV/sD1GNIG6Spv3AQhnZYYegzH5p8w6sm8Rq/BibYjuS53dm/Qs62MrCeSDztQA+IV7
+         zw6xl9k82ImHDkGzCwA4MNV8o8eqRhCCtRUlP5dVZy9jFd8q4U1zmIA3YbFl7YW7zFu2
+         6dNA==
+X-Forwarded-Encrypted: i=1; AHgh+RrPeBBkw+4ePyJDCfmQsieQyzIxZOD6ODJyAvRLX5Jzlu5HSXuyWXQPpTuqhRrUtM6MWu2c9GUKJpH3PqtNP4vK@lists.infradead.org
+X-Gm-Message-State: AFuF++n/x67fR/8eekjiVg1rhELLwEisVZLOKBu2btWn4rrgNS2COAsB
+	ZpZZOom2AprEKnCFFJbZJhVzs5W4s2Rho2y9wjGOEZu5OHEXGivISJhljFSoanOCX/NeSt1g8Xb
+	E/5gefTVr0s+Zfw==
+X-Received: from dlbdm24.prod.google.com ([2002:a05:7022:6b98:b0:141:4a59:5b22])
  (user=stevensd job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90a:da83:b0:38f:efed:5445 with SMTP id 98e67ed59e1d1-396d0de796fmr5335679a91.4.1787873488329;
- Thu, 27 Aug 2026 16:31:28 -0700 (PDT)
-Date: Thu, 27 Aug 2026 16:29:44 -0700
+ 2002:a17:90b:380a:b0:38f:de97:b06 with SMTP id 98e67ed59e1d1-396d0daf810mr4980324a91.5.1787873492204;
+ Thu, 27 Aug 2026 16:31:32 -0700 (PDT)
+Date: Thu, 27 Aug 2026 16:29:46 -0700
 In-Reply-To: <20260827232948.2520558-1-stevensd@google.com>
 Mime-Version: 1.0
 References: <20260827232948.2520558-1-stevensd@google.com>
 X-Mailer: git-send-email 2.55.0.897.gb25b4bd76c-goog
-Message-ID: <20260827232948.2520558-7-stevensd@google.com>
-Subject: [RFC 06/10] Reclaim memory from blocked kernel stacks
+Message-ID: <20260827232948.2520558-9-stevensd@google.com>
+Subject: [RFC 08/10] Set PF_RECLAIMABLE_STACK in various places
 From: David Stevens <stevensd@google.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
 	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
@@ -88,8 +88,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	David Stevens <stevensd@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_163139_490190_3F5DBAAC 
-X-CRM114-Status: GOOD (  38.07  )
+X-CRM114-CacheID: sfid-20260827_163139_498027_16AD2F55 
+X-CRM114-Status: GOOD (  27.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,918 +104,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Although an individual kernel stack is cheap, the cost can add up on
-thread heavy systems. On such systems, many threads are often blocked
-for extended periods of time, waiting for userspace or external events.
-When a task is blocked, its stack is in a stable, well-defined state.
-Since we can tell exactly which part of those stacks are unused, we can
-free the unused portions and reduce the global memory footprint of
-kernel stacks.
-
-That said, not all blocked tasks can safely have their stacks reclaimed.
-Since a running task may need all of its stack, a blocked task whose
-stack has been partially freed cannot be rescheduled until its stack is
-fully repopulated. Since allocating that memory may require direct
-reclaim, if a task holding a lock that direct reclaim depends on has its
-stack reclaimed, we would run the risk of deadlock.
-
-Knowing when tasks hold locks that direct reclaim may depend on is not
-viable in production systems, especially without lockdep. But noting
-that most userspace threads will be blocked on events external to
-the kernel (e.g. waiting on a futex for a userspace controlled wakeup,
-waiting in epoll for a network packet, waiting on a timer for time to
-pass, etc), it is possible to enumerate a relatively small number of
-call sites where most userspace threads will be blocked while holding
-zero kernel locks.
-
-This change adds a new component that reclaims task stacks. A set of
-scheduler hooks are used to determine when it is safe to reclaim stacks
-and to ensure that a task's stack is fully repopulated before being
-rescheduled. A new PF_RECLAIMABLE_STACK task flag is added that will be
-used to annotate such safe-to-reclaim call sites. Users of the flag must
-ensure the task doesn't block while holding a lock while the flag is
-set. A new TASK_STACK_RECLAIM state is introduced for tasks that are
-blocked waiting for the stacks to be repopulated.
-
-While reclaimable stacks will not cause direct reclaim to deadlock, it
-does introduce a dependency on allocating memory before an OOM victim
-can exit, since any reclaimed stacks need to be repopulated before their
-threads can run again. This dependency can lead to further OOM kills or
-potentially an OOM panic if no additional victims are available.
-
-Reclaimable stacks is built on VMAP_STACK. There is no fundamental
-dependency on !STACK_GROWSUP, but since the only STACK_GROWSUP
-architecture doesn't support VMAP_STACK, support for STACK_GROWSUP is
-not implemented.
-
-This feature does work on PREEMPT_RT, but is likely undesirable due to
-the extra uncertainty. The fact that alloc_pages_nolock_noprof() cannot
-be called from under the scheduler lock also makes repopulating stacks
-more expensive.
-
-Enabling reclaimable stacks is mutually exclusive with enabling
-DEBUG_STACK_USAGE. Making stack_not_used() safe (including from NMIs)
-may be technically feasible. Even then, the number that it would report
-would be subtly different: max since last reclaim vs max ever used. This
-difference seems likely to confuse anything consuming the data, so
-disabling the feature seems prudent.
-
-Since kernel stacks are not visible in PROC_KCORE when reclaimable
-stacks is enabled, it is disabled by default when that config is
-enabled. If a user wants to enable the manually enable the feature and
-give up visibility, they can make that choice.
-
-In the followup patch, reclaiming task stacks will be done in a
-shrinker. However, this patch does the reclaim using per-task work
-structs for simplicity.
+Annotate various blocking locations with the PF_RECLAIMABLE_STACK.
 
 Signed-off-by: David Stevens <stevensd@google.com>
 ---
- arch/Kconfig                     |  18 ++
- include/linux/sched.h            |  39 ++-
- include/linux/sched/task_stack.h |  23 ++
- kernel/Makefile                  |   2 +
- kernel/fork.c                    |   7 +
- kernel/sched/core.c              |  18 +-
- kernel/sched/sched.h             |   3 +
- kernel/stack_shrinker.c          | 464 +++++++++++++++++++++++++++++++
- kernel/stack_shrinker.h          |  58 ++++
- 9 files changed, 627 insertions(+), 5 deletions(-)
- create mode 100644 kernel/stack_shrinker.c
- create mode 100644 kernel/stack_shrinker.h
+ drivers/android/binder/thread.rs | 14 +++++++++++++
+ fs/eventpoll.c                   |  3 +++
+ fs/pipe.c                        | 28 ++++++++++++++++---------
+ fs/select.c                      |  3 +++
+ kernel/futex/waitwake.c          |  3 +++
+ kernel/signal.c                  | 36 +++++++++++++++++++-------------
+ kernel/time/hrtimer.c            |  3 +++
+ rust/kernel/task.rs              | 16 ++++++++++++++
+ 8 files changed, 82 insertions(+), 24 deletions(-)
 
-diff --git a/arch/Kconfig b/arch/Kconfig
-index fa7507ac8e13..adb4a5957996 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -1534,6 +1534,24 @@ config VMAP_STACK
- 	  backing virtual mappings with real shadow memory, and KASAN_VMALLOC
- 	  must be enabled.
+diff --git a/drivers/android/binder/thread.rs b/drivers/android/binder/thread.rs
+index bc0ef8927905..be62f7fd43ca 100644
+--- a/drivers/android/binder/thread.rs
++++ b/drivers/android/binder/thread.rs
+@@ -538,13 +538,21 @@ fn get_work_local(self: &Arc<Self>, wait: bool) -> Result<Option<DLArc<dyn Deliv
  
-+config HAVE_ARCH_RECLAIMABLE_STACK
-+	def_bool n
+         // Loop waiting only on the local queue (i.e., not registering with the process queue).
+         let mut inner = self.inner.lock();
++        // SAFETY: Only accessed locally in this function
++        let current = unsafe { Task::current() };
+         loop {
+             if let Some(work) = inner.pop_work() {
+                 return Ok(Some(work));
+             }
+ 
+             inner.looper_flags |= LOOPER_WAITING;
 +
-+config RECLAIMABLE_STACK
-+	default !PREEMPT_RT && !PROC_KCORE
-+	bool "Allow stacks of some blocked threads to be reclaimed"
-+	depends on VMAP_STACK && !STACK_GROWSUP
-+	depends on HAVE_ARCH_RECLAIMABLE_STACK
-+	depends on !DEBUG_STACK_USAGE
-+	depends on !KASAN_VMALLOC # TODO: add support for this
-+	depends on !DEBUG_KMEMLEAK # TODO: add support for this
-+	help
-+	  Enable this to allow the unused portion of kernel stacks of most
-+	  blocked tasks to be reclaimed.
++            current.set_flag_bits(bindings::PF_RECLAIMABLE_STACK);
 +
-+	  The wakeup latency of tasks with reclaimed stacks may increase,
-+	  especially while the system is under memory pressure.
+             let signal_pending = self.work_condvar.wait_interruptible_freezable(&mut inner);
 +
- config HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
- 	def_bool n
- 	help
-diff --git a/include/linux/sched.h b/include/linux/sched.h
-index 373bcc0598d1..c93a234fac96 100644
---- a/include/linux/sched.h
-+++ b/include/linux/sched.h
-@@ -83,6 +83,7 @@ struct sched_dl_entity;
- struct seq_file;
- struct sighand_struct;
- struct signal_struct;
-+struct stack_reclaim_work;
- struct task_delay_info;
- struct task_exec_state;
- struct task_group;
-@@ -124,7 +125,8 @@ struct user_event_mm;
- #define TASK_FREEZABLE			0x00002000
- #define __TASK_FREEZABLE_UNSAFE	       (0x00004000 * IS_ENABLED(CONFIG_LOCKDEP))
- #define TASK_FROZEN			0x00008000
--#define TASK_STATE_MAX			0x00010000
-+#define TASK_STACK_RECLAIM		0x00010000
-+#define TASK_STATE_MAX			0x00020000
- 
- #define TASK_ANY			(TASK_STATE_MAX-1)
- 
-@@ -823,6 +825,29 @@ struct kmap_ctrl {
- #endif
- };
- 
-+#ifdef CONFIG_RECLAIMABLE_STACK
-+enum stack_reclaim_enum {
-+	STACK_IN_USE		= 0,
-+	STACK_PREPARE_RECLAIM	= 1,
-+	STACK_RECLAIMABLE	= 2,
-+	STACK_RECLAIMING	= 3,
-+	STACK_RECLAIMING_IN_USE = 4,
-+	STACK_RECLAIMED		= 5,
-+} __packed;
++            current.clear_flag_bits(bindings::PF_RECLAIMABLE_STACK);
 +
-+union stack_reclaim_state {
-+	struct {
-+		enum stack_reclaim_enum stack_state;
-+		u16 node;
-+	};
-+	u32 val;
-+};
+             inner.looper_flags &= !LOOPER_WAITING;
+ 
+             if signal_pending {
+@@ -592,15 +600,21 @@ fn get_work(self: &Arc<Self>, wait: bool) -> Result<Option<DLArc<dyn DeliverToRe
+         };
+ 
+         let mut inner = self.inner.lock();
++        // SAFETY: Only accessed locally in this function
++        let current = unsafe { Task::current() };
+         loop {
+             if let Some(work) = inner.pop_work() {
+                 return Ok(Some(work));
+             }
+ 
++            current.set_flag_bits(bindings::PF_RECLAIMABLE_STACK);
 +
-+union stack_reclaim_list {
-+	struct llist_node refill_entry;
-+};
-+#endif
+             inner.looper_flags |= LOOPER_WAITING | LOOPER_WAITING_PROC;
+             let signal_pending = self.work_condvar.wait_interruptible_freezable(&mut inner);
+             inner.looper_flags &= !(LOOPER_WAITING | LOOPER_WAITING_PROC);
+ 
++            current.clear_flag_bits(bindings::PF_RECLAIMABLE_STACK);
 +
- struct task_struct {
- #ifdef CONFIG_THREAD_INFO_IN_TASK
- 	/*
-@@ -1587,6 +1612,16 @@ struct task_struct {
- #endif
- #ifdef CONFIG_VMAP_STACK
- 	struct vm_struct		*stack_vm_area;
-+#ifdef CONFIG_RECLAIMABLE_STACK
-+	union stack_reclaim_state	stack_reclaim_state;
-+	union stack_reclaim_list	stack_reclaim_list;
-+#ifdef CONFIG_MEMCG
-+	struct obj_cgroup		*stack_obj_cgroup;
-+#endif
+             if signal_pending || inner.looper_need_return {
+                 // We need to return now. We need to pull the thread off the list of ready threads
+                 // (by dropping `reg`), then check the state again after it's off the list to
+diff --git a/fs/eventpoll.c b/fs/eventpoll.c
+index eed8cecd94e3..4e9c09446b48 100644
+--- a/fs/eventpoll.c
++++ b/fs/eventpoll.c
+@@ -9,6 +9,7 @@
+ #include <linux/init.h>
+ #include <linux/kernel.h>
+ #include <linux/sched/signal.h>
++#include <linux/sched/task_stack.h>
+ #include <linux/fs.h>
+ #include <linux/file.h>
+ #include <linux/signal.h>
+@@ -2302,6 +2303,8 @@ static int ep_poll(struct eventpoll *ep, struct epoll_event __user *events,
+ 		if (signal_pending(current))
+ 			return -EINTR;
+ 
++		guard(allow_stack_reclaim)();
 +
-+	// TODO: Replace these with a shrinker
-+	struct stack_reclaim_work	*stack_reclaim_work;
-+#endif
- #endif
- #ifdef CONFIG_THREAD_INFO_IN_TASK
- 	/* A live task holds one reference: */
-@@ -1796,7 +1831,7 @@ extern struct pid *cad_pid;
- 						 * I am cleaning dirty pages from some other bdi. */
- #define PF_KTHREAD		0x00200000	/* I am a kernel thread */
- #define PF_RANDOMIZE		0x00400000	/* Randomize virtual address space */
--#define PF__HOLE__00800000	0x00800000
-+#define PF_RECLAIMABLE_STACK	0x00800000	/* This task's stack is reclaimable */
- #define PF__HOLE__01000000	0x01000000
- #define PF__HOLE__02000000	0x02000000
- #define PF_NO_SETAFFINITY	0x04000000	/* Userland is not allowed to meddle with cpus_mask */
-diff --git a/include/linux/sched/task_stack.h b/include/linux/sched/task_stack.h
-index 1fab7e9043a3..5d5567899d51 100644
---- a/include/linux/sched/task_stack.h
-+++ b/include/linux/sched/task_stack.h
-@@ -6,6 +6,7 @@
-  * task->stack (kernel stack) handling interfaces:
-  */
+ 		/*
+ 		 * Internally init_wait() uses autoremove_wake_function(),
+ 		 * thus wait entry is removed from the wait queue on each
+diff --git a/fs/pipe.c b/fs/pipe.c
+index 429b0714ec57..15503b12fe8f 100644
+--- a/fs/pipe.c
++++ b/fs/pipe.c
+@@ -27,6 +27,7 @@
+ #include <linux/watch_queue.h>
+ #include <linux/sysctl.h>
+ #include <linux/sort.h>
++#include <linux/sched/task_stack.h>
  
-+#include <linux/cleanup.h>
- #include <linux/sched.h>
- #include <linux/magic.h>
- #include <linux/refcount.h>
-@@ -83,6 +84,10 @@ static inline void put_task_stack(struct task_struct *tsk) {}
- 
- void exit_task_stack_account(struct task_struct *tsk);
- 
-+/*
-+ * Must only be called on current or from inside __schedule() on
-+ * prev, to avoid crashing when CONFIG_RECLAIM_STACK is enabled.
-+ */
- #define task_stack_end_corrupted(task) \
- 		(*(end_of_stack(task)) != STACK_END_MAGIC)
- 
-@@ -114,4 +119,22 @@ static inline int kstack_end(void *addr)
- 	return !(((unsigned long)addr+sizeof(void*)-1) & (THREAD_SIZE-sizeof(void*)));
- }
- 
-+#ifdef CONFIG_RECLAIMABLE_STACK
+ #include <linux/uaccess.h>
+ #include <asm/ioctls.h>
+@@ -469,16 +470,23 @@ anon_pipe_read(struct kiocb *iocb, struct iov_iter *to)
+ 			break;
+ 		}
+ 		mutex_unlock(&pipe->mutex);
+-		/*
+-		 * We only get here if we didn't actually read anything.
+-		 *
+-		 * But because we didn't read anything, at this point we can
+-		 * just return directly with -ERESTARTSYS if we're interrupted,
+-		 * since we've done any required wakeups and there's no need
+-		 * to mark anything accessed. And we've dropped the lock.
+-		 */
+-		if (wait_event_interruptible_exclusive(pipe->rd_wait, pipe_readable(pipe)) < 0)
+-			return -ERESTARTSYS;
 +
-+DEFINE_CLASS(allow_stack_reclaim, bool,
-+	     ({
-+		if (!_T)
-+			current->flags &= ~PF_RECLAIMABLE_STACK;
-+	      }),
-+	     ({
-+		bool was_set = current->flags & PF_RECLAIMABLE_STACK;
-+
-+		current->flags |= PF_RECLAIMABLE_STACK;
-+		was_set;
-+	      }),
-+	     void)
-+#else /* !CONFIG_RECLAIMABLE_STACK */
-+DEFINE_CLASS(allow_stack_reclaim, bool, ({ (void)_T; }), ({ false; }), void)
-+#endif /* !CONFIG_VMAP_STACK */
-+
- #endif /* _LINUX_SCHED_TASK_STACK_H */
-diff --git a/kernel/Makefile b/kernel/Makefile
-index 1e1a31673577..01547102e13a 100644
---- a/kernel/Makefile
-+++ b/kernel/Makefile
-@@ -12,6 +12,8 @@ obj-y     = fork.o exec_domain.o exec_state.o panic.o \
- 	    notifier.o ksysfs.o cred.o reboot.o \
- 	    async.o range.o smpboot.o ucount.o regset.o ksyms_common.o
++		{
++			guard(allow_stack_reclaim)();
++			/*
++			 * We only get here if we didn't actually read
++			 * anything.
++			 *
++			 * But because we didn't read anything, at this point
++			 * we can just return directly with -ERESTARTSYS if
++			 * we're interrupted, since we've done any required
++			 * wakeups and there's no need to mark anything
++			 * accessed. And we've dropped the lock.
++			 */
++			if (wait_event_interruptible_exclusive(pipe->rd_wait,
++							       pipe_readable(pipe)) < 0)
++				return -ERESTARTSYS;
++		}
  
-+obj-$(CONFIG_RECLAIMABLE_STACK) += stack_shrinker.o
-+
- obj-$(CONFIG_MULTIUSER) += groups.o
- obj-$(CONFIG_VHOST_TASK) += vhost_task.o
- 
-diff --git a/kernel/fork.c b/kernel/fork.c
-index 6acad0038b78..9b2cc3d01dd1 100644
---- a/kernel/fork.c
-+++ b/kernel/fork.c
-@@ -120,6 +120,8 @@
- /* For dup_mmap(). */
- #include "../mm/internal.h"
- 
-+#include "stack_shrinker.h"
-+
- #include <trace/events/sched.h>
- 
- #define CREATE_TRACE_POINTS
-@@ -460,6 +462,7 @@ static int alloc_thread_stack_node(struct task_struct *tsk, int node)
- 
- 		tsk->stack_vm_area = vm_area;
- 		tsk->stack = stack;
-+		add_to_stack_shrinker(tsk, node);
- 		return 0;
- 	}
- 
-@@ -472,6 +475,7 @@ static int alloc_thread_stack_node(struct task_struct *tsk, int node)
- 		free_vmap_stack(vm_area);
- 		return -ENOMEM;
- 	}
-+
- 	/*
- 	 * We can't call find_vm_area() in interrupt context, and
- 	 * free_thread_stack() can be called in interrupt context,
-@@ -480,6 +484,7 @@ static int alloc_thread_stack_node(struct task_struct *tsk, int node)
- 	tsk->stack_vm_area = vm_area;
- 	stack = kasan_reset_tag(stack);
- 	tsk->stack = stack;
-+	add_to_stack_shrinker(tsk, node);
- 	return 0;
- }
- 
-@@ -898,6 +903,7 @@ void __put_task_struct(struct task_struct *tsk)
- 	delayacct_tsk_free(tsk);
- 	put_signal_struct(tsk->signal);
- 	sched_core_free(tsk);
-+	remove_from_stack_shrinker(tsk);
- 	free_task(tsk);
- }
- EXPORT_SYMBOL_GPL(__put_task_struct);
-@@ -1124,6 +1130,7 @@ static struct task_struct *dup_task_struct(struct task_struct *orig, int node)
- free_stack:
- 	exit_task_stack_account(tsk);
- 	free_thread_stack(tsk);
-+	remove_from_stack_shrinker(tsk);
- free_tsk:
- 	free_task_struct(tsk);
- 	return NULL;
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 96226707c2f6..ab7db60d5dc2 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -4252,6 +4252,7 @@ int try_to_wake_up(struct task_struct *p, unsigned int state, int wake_flags)
+ 		wake_next_reader = true;
+ 		mutex_lock(&pipe->mutex);
+diff --git a/fs/select.c b/fs/select.c
+index 95d76531015a..3af1bf4d74a9 100644
+--- a/fs/select.c
++++ b/fs/select.c
+@@ -19,6 +19,7 @@
+ #include <linux/kernel.h>
+ #include <linux/sched/signal.h>
+ #include <linux/sched/rt.h>
++#include <linux/sched/task_stack.h>
+ #include <linux/syscalls.h>
+ #include <linux/export.h>
+ #include <linux/slab.h>
+@@ -236,6 +237,8 @@ static int poll_schedule_timeout(struct poll_wqueues *pwq, int state,
  {
- 	guard(preempt)();
- 	int cpu, success = 0;
-+	bool need_deferred_repopulate, do_deferred_repopulate_wake = false;
+ 	int rc = -EINTR;
  
- 	wake_flags |= WF_TTWU;
- 
-@@ -4295,8 +4296,6 @@ int try_to_wake_up(struct task_struct *p, unsigned int state, int wake_flags)
- 		if (!ttwu_state_match(p, state, &success))
- 			break;
- 
--		trace_sched_waking(p);
--
- 		/*
- 		 * Ensure we load p->on_rq _after_ p->state, otherwise it would
- 		 * be possible to, falsely, observe p->on_rq == 0 and get stuck
-@@ -4320,8 +4319,18 @@ int try_to_wake_up(struct task_struct *p, unsigned int state, int wake_flags)
- 		 * A similar smp_rmb() lives in __task_needs_rq_lock().
- 		 */
- 		smp_rmb();
--		if (READ_ONCE(p->on_rq) && ttwu_runnable(p, wake_flags))
-+		if (READ_ONCE(p->on_rq) && ttwu_runnable(p, wake_flags)) {
-+			trace_sched_waking(p);
-+			break;
-+		}
++	guard(allow_stack_reclaim)();
 +
-+		if (!ensure_stack_is_present(p, &need_deferred_repopulate)) {
-+			WRITE_ONCE(p->__state, TASK_STACK_RECLAIM);
-+			do_deferred_repopulate_wake = need_deferred_repopulate;
- 			break;
-+		}
-+
-+		trace_sched_waking(p);
+ 	set_current_state(state);
+ 	if (!READ_ONCE(pwq->triggered))
+ 		rc = schedule_hrtimeout_range(expires, slack, HRTIMER_MODE_ABS);
+diff --git a/kernel/futex/waitwake.c b/kernel/futex/waitwake.c
+index d4483d15d30a..0fbf7bfcd904 100644
+--- a/kernel/futex/waitwake.c
++++ b/kernel/futex/waitwake.c
+@@ -2,6 +2,7 @@
  
+ #include <linux/plist.h>
+ #include <linux/sched/task.h>
++#include <linux/sched/task_stack.h>
+ #include <linux/sched/signal.h>
+ #include <linux/freezer.h>
+ 
+@@ -378,6 +379,7 @@ void futex_do_wait(struct futex_q *q, struct hrtimer_sleeper *timeout)
+ 	 * has tried to wake us, and we can skip the call to schedule().
+ 	 */
+ 	if (likely(!plist_node_empty(&q->list))) {
++		guard(allow_stack_reclaim)();
  		/*
- 		 * Ensure we load p->on_cpu _after_ p->on_rq, otherwise it would be
-@@ -4418,6 +4427,8 @@ int try_to_wake_up(struct task_struct *p, unsigned int state, int wake_flags)
- 	if (success)
- 		ttwu_stat(p, task_cpu(p), wake_flags);
- 
-+	if (unlikely(do_deferred_repopulate_wake))
-+		wake_stack_repopulate();
- 	return success;
- }
- 
-@@ -5354,6 +5365,7 @@ static struct rq *finish_task_switch(struct task_struct *prev)
- 	prev_state = READ_ONCE(prev->__state);
- 	vtime_task_switch(prev);
- 	perf_event_task_sched_in(prev, current);
-+	allow_stack_reclaim(prev);
- 	finish_task(prev);
- 	tick_nohz_task_switch();
- 	finish_lock_switch(rq);
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 56acf502ba26..8a81fb83fe8f 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -79,6 +79,7 @@
- #include <trace/events/sched.h>
- 
- #include "../workqueue_internal.h"
-+#include "../stack_shrinker.h"
- 
- struct rq;
- struct cfs_rq;
-@@ -3039,6 +3040,8 @@ static inline void __block_task(struct rq *rq, struct task_struct *p)
- 		delayacct_blkio_start();
+ 		 * If the timer has already expired, current will already be
+ 		 * flagged for rescheduling. Only call schedule if there
+@@ -547,6 +549,7 @@ static void futex_sleep_multiple(struct futex_vector *vs, unsigned int count,
+ 			return;
  	}
  
-+	prepare_stack_for_reclaim(p);
++	guard(allow_stack_reclaim)();
+ 	schedule();
+ }
+ 
+diff --git a/kernel/signal.c b/kernel/signal.c
+index bbc0fd4cc4d7..ca0d79ee013f 100644
+--- a/kernel/signal.c
++++ b/kernel/signal.c
+@@ -2718,17 +2718,21 @@ static void do_freezer_trap(void)
+ 		return;
+ 	}
+ 
+-	/*
+-	 * Now we're sure that there is no pending fatal signal and no
+-	 * pending traps. Clear TIF_SIGPENDING to not get out of schedule()
+-	 * immediately (if there is a non-fatal signal pending), and
+-	 * put the task into sleep.
+-	 */
+-	__set_current_state(TASK_INTERRUPTIBLE|TASK_FREEZABLE);
+-	clear_thread_flag(TIF_SIGPENDING);
+-	spin_unlock_irq(&current->sighand->siglock);
+-	cgroup_enter_frozen();
+-	schedule();
++	{
++		guard(allow_stack_reclaim)();
 +
- 	ASSERT_EXCLUSIVE_WRITER(p->on_rq);
++		/*
++		 * Now we're sure that there is no pending fatal signal and no
++		 * pending traps. Clear TIF_SIGPENDING to not get out of schedule()
++		 * immediately (if there is a non-fatal signal pending), and
++		 * put the task into sleep.
++		 */
++		__set_current_state(TASK_INTERRUPTIBLE | TASK_FREEZABLE);
++		clear_thread_flag(TIF_SIGPENDING);
++		spin_unlock_irq(&current->sighand->siglock);
++		cgroup_enter_frozen();
++		schedule();
++	}
  
  	/*
-diff --git a/kernel/stack_shrinker.c b/kernel/stack_shrinker.c
-new file mode 100644
-index 000000000000..d7b1a7dfa716
---- /dev/null
-+++ b/kernel/stack_shrinker.c
-@@ -0,0 +1,464 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include <linux/cpuhotplug.h>
-+#include <linux/highmem.h>
-+#include <linux/irq_work.h>
-+#include <linux/list.h>
-+#include <linux/list_lru.h>
-+#include <linux/llist.h>
-+#include <linux/memcontrol.h>
-+#include <linux/oom.h>
-+#include <linux/percpu_counter.h>
-+#include <linux/pgtable.h>
-+#include <linux/sched/task.h>
-+#include <linux/spinlock.h>
-+#include <linux/swait.h>
-+#include <linux/vmalloc.h>
-+
-+#include "stack_shrinker.h"
-+
-+#include "../mm/internal.h"
-+
-+struct repopulate_work {
-+	struct work_struct work;
-+	struct llist_head stacks;
-+};
-+
-+static DEFINE_PER_CPU(struct repopulate_work, repopulate_work);
-+
-+// TODO: replace with shrinker
-+struct stack_reclaim_work {
-+	struct task_struct *tsk;
-+	struct irq_work irq_work;
-+	struct work_struct work;
-+};
-+
-+static void schedule_stack_reclaim_work(struct irq_work *w)
-+{
-+	struct stack_reclaim_work *work = container_of(w, typeof(*work), irq_work);
-+
-+	if (!queue_work(system_wq, &work->work))
-+		put_task_struct(work->tsk);
-+}
-+
-+static void do_reclaim_stack(struct task_struct *tsk);
-+
-+static void do_stack_reclaim_work(struct work_struct *w)
-+{
-+	struct task_struct *tsk = container_of(w, struct stack_reclaim_work, work)->tsk;
-+
-+	do_reclaim_stack(tsk);
-+}
-+
-+#ifdef CONFIG_MEMCG
-+static void set_stack_obj_cgroup(struct task_struct *tsk)
-+{
-+	tsk->stack_obj_cgroup = get_obj_cgroup_from_current();
-+}
-+
-+static void put_stack_obj_cgroup(struct task_struct *tsk)
-+{
-+	if (tsk->stack_obj_cgroup)
-+		obj_cgroup_put(tsk->stack_obj_cgroup);
-+}
-+
-+static inline struct mem_cgroup *get_stack_memcg(struct task_struct *tsk)
-+{
-+	return tsk->stack_obj_cgroup ? get_mem_cgroup_from_objcg(tsk->stack_obj_cgroup)
-+				     : root_mem_cgroup;
-+}
-+#else /* !CONFIG_MEMCG */
-+static void set_stack_obj_cgroup(struct task_struct *tsk) { }
-+
-+static void put_stack_obj_cgroup(struct task_struct *tsk) { }
-+
-+static inline struct mem_cgroup *get_stack_memcg(struct task_struct *tsk)
-+{
-+	return NULL;
-+}
-+#endif /* CONFIG_MEMCG */
-+
-+void add_to_stack_shrinker(struct task_struct *tsk, int node)
-+{
-+	BUILD_BUG_ON(sizeof(tsk->stack_reclaim_state) != sizeof(tsk->stack_reclaim_state.val));
-+	BUILD_BUG_ON(NODES_SHIFT > 15);
-+
-+	tsk->stack_reclaim_state.val = 0;
-+	tsk->stack_reclaim_state.stack_state = STACK_IN_USE;
-+	tsk->stack_reclaim_state.node = node;
-+	set_stack_obj_cgroup(tsk);
-+	init_llist_node(&tsk->stack_reclaim_list.refill_entry);
-+
-+	// TODO: replace with shrinker
-+	tsk->stack_reclaim_work = kmalloc_obj(*tsk->stack_reclaim_work, GFP_KERNEL);
-+	BUG_ON(!tsk->stack_reclaim_work);
-+
-+	tsk->stack_reclaim_work->tsk = tsk;
-+	init_irq_work(&tsk->stack_reclaim_work->irq_work, schedule_stack_reclaim_work);
-+	INIT_WORK(&tsk->stack_reclaim_work->work, do_stack_reclaim_work);
-+}
-+
-+static inline int calculate_num_unused_pages(struct task_struct *tsk)
-+{
-+	unsigned long top_of_stack = (unsigned long)end_of_stack(tsk);
-+	/*
-+	 * Since tsk is !on_rq and !on_cpu, top_of_blocked_task_stack() safely
-+	 * tells us the end of the stack frame of the inner most context switch
-+	 * function. Any parts of the stack above that are stale stack frames
-+	 * or never used, and thus can be unmapped and discarded.
-+	 */
-+	return (top_of_blocked_task_stack(&tsk->thread) - top_of_stack) >> PAGE_SHIFT;
-+}
-+
-+static bool repopulate_stack(struct task_struct *tsk, bool is_deferred,
-+			     struct llist_head *fail_list)
-+{
-+	int num_missing_pages = 0, nr_allocated = 0, ret;
-+	struct page *pages[THREAD_SIZE >> PAGE_SHIFT] = {};
-+	struct vm_struct *vm_area = tsk->stack_vm_area;
-+	unsigned long addr = (unsigned long)vm_area->addr;
-+	struct mem_cgroup *tsk_memcg, *old_active_memcg;
-+	int node = tsk->stack_reclaim_state.node == U16_MAX ? NUMA_NO_NODE
-+							    : tsk->stack_reclaim_state.node;
-+
-+	num_missing_pages = (THREAD_SIZE >> PAGE_SHIFT) - vm_area->nr_pages;
-+	if (num_missing_pages == 0)
-+		return true;
-+
-+	tsk_memcg = get_stack_memcg(tsk);
-+	old_active_memcg = set_active_memcg(tsk_memcg);
-+
-+	if (is_deferred) {
-+		gfp_t gfp = GFP_KERNEL_ACCOUNT | __GFP_ZERO;
-+		/*
-+		 * If the oom killer wants to free memory from this process,
-+		 * allow access to reserves so the task can hopefully run
-+		 * sooner to die and thus make progress towards freeing the
-+		 * process's non-mm memory.
-+		 */
-+		if (tsk_is_oom_victim(tsk))
-+			gfp |= __GFP_MEMALLOC;
-+
-+		for (; nr_allocated < num_missing_pages; nr_allocated++) {
-+			pages[nr_allocated] = alloc_pages_node_noprof(node, gfp, 0);
-+			if (!pages[nr_allocated])
-+				goto repopulate_fail;
+ 	 * We could've been woken by task_work, run it to clear
+@@ -3788,9 +3792,13 @@ static int do_sigtimedwait(const sigset_t *which, kernel_siginfo_t *info,
+ 		recalc_sigpending();
+ 		spin_unlock_irq(&tsk->sighand->siglock);
+ 
+-		__set_current_state(TASK_INTERRUPTIBLE|TASK_FREEZABLE);
+-		ret = schedule_hrtimeout_range(to, tsk->timer_slack_ns,
+-					       HRTIMER_MODE_REL);
++		{
++			guard(allow_stack_reclaim)();
++			__set_current_state(TASK_INTERRUPTIBLE | TASK_FREEZABLE);
++			ret = schedule_hrtimeout_range(to, tsk->timer_slack_ns,
++						       HRTIMER_MODE_REL);
 +		}
-+	} else {
-+		/*
-+		 * PREEMPT_RT turns spin_trylock() from an atomic cmpxchg into
-+		 * an operation that takes a rt_mutex's internal raw spin lock.
-+		 * Doing that from inside the scheduler would result in a
-+		 * circular locking dependency.
-+		 */
-+		if (IS_ENABLED(CONFIG_PREEMPT_RT))
-+			goto repopulate_fail;
 +
-+		for (; nr_allocated < num_missing_pages; nr_allocated++) {
-+			pages[nr_allocated] = alloc_pages_nolock_noprof(__GFP_ACCOUNT,
-+									node, 0);
-+			if (!pages[nr_allocated])
-+				goto repopulate_fail;
-+		}
-+	}
+ 		spin_lock_irq(&tsk->sighand->siglock);
+ 		__set_task_blocked(tsk, &tsk->real_blocked);
+ 		sigemptyset(&tsk->real_blocked);
+diff --git a/kernel/time/hrtimer.c b/kernel/time/hrtimer.c
+index 313dcea127fe..30c85482dfd5 100644
+--- a/kernel/time/hrtimer.c
++++ b/kernel/time/hrtimer.c
+@@ -39,6 +39,7 @@
+ #include <linux/sched/nohz.h>
+ #include <linux/sched/debug.h>
+ #include <linux/sched/isolation.h>
++#include <linux/sched/task_stack.h>
+ #include <linux/timer.h>
+ #include <linux/freezer.h>
+ #include <linux/compat.h>
+@@ -2392,6 +2393,8 @@ static int __sched do_nanosleep(struct hrtimer_sleeper *t, enum hrtimer_mode mod
+ 	struct restart_block *restart;
+ 
+ 	do {
++		guard(allow_stack_reclaim)();
 +
-+	set_active_memcg(old_active_memcg);
-+	mem_cgroup_put(tsk_memcg);
+ 		set_current_state(TASK_INTERRUPTIBLE|TASK_FREEZABLE);
+ 		hrtimer_sleeper_start_expires(t, mode);
+ 
+diff --git a/rust/kernel/task.rs b/rust/kernel/task.rs
+index 38273f4eedb5..6168f058343a 100644
+--- a/rust/kernel/task.rs
++++ b/rust/kernel/task.rs
+@@ -344,6 +344,22 @@ pub fn group_leader(&self) -> &Task {
+         // only be used while `current` is still valid, thus still running.
+         unsafe { &*ptr.cast() }
+     }
 +
-+	for (int i = 0; i < num_missing_pages; i++) {
-+		vm_area->pages[i] = pages[i];
-+		mod_lruvec_page_state(pages[i], NR_KERNEL_STACK_KB, PAGE_SIZE / 1024);
-+		mod_node_page_state(page_pgdat(pages[i]), NR_VMALLOC, 1);
-+	}
-+	vm_area->nr_pages = THREAD_SIZE >> PAGE_SHIFT;
++    /// Sets the given task flag bits on the current task.
++    #[inline]
++    pub fn set_flag_bits(&self, set: u32) {
++            // SAFETY: The `flags` field of `current` is not modified from other threads, so
++	    // the non-atomic update isn't a race.
++	    unsafe { (*self.as_ptr()).flags |= set }
++    }
 +
-+	/*
-+	 * The page tables for the stack were allocated when the stack was
-+	 * originally created, so we're guaranteed not to need to allocate new
-+	 * ones. As such, vmap_pages_range() won't acquire any locks and can be
-+	 * called under the scheduler's raw spinlocks.
-+	 *
-+	 * The only way it can fail is if we're trying to colbber an existing
-+	 * mapping or if the page allocator gave us an invalid page. Neither
-+	 * case is recoverable.
-+	 */
-+	ret = vmap_pages_range(addr, addr + num_missing_pages * PAGE_SIZE,
-+			       PAGE_KERNEL, vm_area->pages, PAGE_SHIFT);
-+	BUG_ON(ret != 0);
-+
-+	// TODO: Clearing pages under the scheduler lock is probably too much
-+	// work under a raw spinlock. We could try maintaining our own small
-+	// pool of pre-zero'ed pages instead of using alloc_pages_nolock.
-+	if (!is_deferred)
-+		clear_pages((void *)addr, num_missing_pages);
-+
-+	set_task_stack_end_magic(tsk);
-+	return true;
-+
-+repopulate_fail:
-+	set_active_memcg(old_active_memcg);
-+	mem_cgroup_put(tsk_memcg);
-+
-+	while (nr_allocated--)
-+		free_pages_nolock(pages[nr_allocated], 0);
-+
-+	if (!fail_list) {
-+		/*
-+		 * Preemption is left disabled until wake_stack_repopulate(), to
-+		 * guarantee that we queue the correct work.
-+		 */
-+		preempt_disable();
-+		fail_list = &this_cpu_ptr(&repopulate_work)->stacks;
-+	}
-+	llist_add(&tsk->stack_reclaim_list.refill_entry, fail_list);
-+	return false;
-+}
-+
-+static void release_stack(struct task_struct *tsk)
-+{
-+	struct vm_struct *vm_area = tsk->stack_vm_area;
-+	unsigned long addr = (unsigned long)vm_area->addr;
-+	int nr_to_free;
-+
-+	nr_to_free = calculate_num_unused_pages(tsk);
-+
-+	if (unlikely(nr_to_free == 0))
-+		return;
-+
-+	vm_area_unmap_pages(vm_area, addr, addr + nr_to_free * PAGE_SIZE);
-+	for (int i = 0; i < nr_to_free; i++) {
-+		mod_lruvec_page_state(vm_area->pages[i], NR_KERNEL_STACK_KB,
-+				      -(int)(PAGE_SIZE / 1024));
-+		mod_node_page_state(page_pgdat(vm_area->pages[i]), NR_VMALLOC, -1);
-+		__free_pages(vm_area->pages[i], 0);
-+	}
-+	vm_area->nr_pages -= nr_to_free;
-+}
-+
-+static void do_reclaim_stack(struct task_struct *tsk)
-+{
-+	union stack_reclaim_state prev_state, target_state;
-+
-+	prev_state.val = READ_ONCE(tsk->stack_reclaim_state.val);
-+	do {
-+		target_state.val = prev_state.val;
-+		if (prev_state.stack_state == STACK_RECLAIMABLE)
-+			target_state.stack_state = STACK_RECLAIMING;
-+	} while (!try_cmpxchg(&tsk->stack_reclaim_state.val, &prev_state.val, target_state.val));
-+
-+	/*
-+	 * If target_state.stack_state == STACK_RECLAIMING, we know tsk is still
-+	 * alive and can't run until we're done, so putting the ref here is safe.
-+	 */
-+	put_task_struct(tsk);
-+	if (target_state.stack_state != STACK_RECLAIMING)
-+		return;
-+
-+	release_stack(tsk);
-+
-+	prev_state.val = READ_ONCE(tsk->stack_reclaim_state.val);
-+	do {
-+		target_state.val = prev_state.val;
-+		target_state.stack_state = STACK_RECLAIMED;
-+	} while (!try_cmpxchg(&tsk->stack_reclaim_state.val, &prev_state.val, target_state.val));
-+
-+	if (prev_state.stack_state == STACK_RECLAIMING_IN_USE) {
-+		struct repopulate_work *work = get_cpu_ptr(&repopulate_work);
-+
-+		llist_add(&tsk->stack_reclaim_list.refill_entry, &work->stacks);
-+		queue_work(system_highpri_wq, &work->work);
-+		put_cpu_ptr(work);
-+	}
-+}
-+
-+static void do_repopulate_stacks(struct work_struct *w)
-+{
-+	struct repopulate_work *work = container_of(w, struct repopulate_work, work);
-+	struct llist_node *head;
-+
-+	while ((head = llist_del_all(&work->stacks))) {
-+		struct task_struct *tsk, *tmp;
-+
-+		llist_for_each_entry_safe(tsk, tmp, head, stack_reclaim_list.refill_entry) {
-+			init_llist_node(&tsk->stack_reclaim_list.refill_entry);
-+			if (repopulate_stack(tsk, true, &work->stacks)) {
-+				wake_up_state(tsk, TASK_STACK_RECLAIM);
-+			} else {
-+				/*
-+				 * Repopulate only failes due to low memory. If
-+				 * that happens, give the rest of the system a
-+				 * chance to free some memory.
-+				 */
-+				cond_resched();
-+			}
-+		}
-+	}
-+}
-+
-+bool __ensure_stack_is_present(struct task_struct *tsk, bool *need_deferred_repopulate)
-+{
-+	union stack_reclaim_state prev_state, target_state;
-+
-+	*need_deferred_repopulate = false;
-+	prev_state.val = READ_ONCE(tsk->stack_reclaim_state.val);
-+	do {
-+		target_state.val = prev_state.val;
-+
-+		switch (prev_state.stack_state) {
-+		case STACK_IN_USE:
-+			return true;
-+		case STACK_PREPARE_RECLAIM:
-+		case STACK_RECLAIMABLE:
-+		case STACK_RECLAIMED:
-+			/*
-+			 * Transitioning STACK_RECLAIM -> STACK_IN_USE won't
-+			 * combine with the prior STACK_IN_USE case to lead to
-+			 * tasks with unpopulated stacks running. If immediate
-+			 * repopulation fails, then ttwu() puts the task in the
-+			 * TASK_STACK_RECLAIM state, so the only ttwu() that can
-+			 * wake up the task is after we repopulate the stack.
-+			 */
-+			target_state.stack_state = STACK_IN_USE;
-+			break;
-+		case STACK_RECLAIMING:
-+			target_state.stack_state = STACK_RECLAIMING_IN_USE;
-+			break;
-+		case STACK_RECLAIMING_IN_USE:
-+			/*
-+			 * Tasks with stacks in state STACK_RECLAIMING_IN_USE
-+			 * should have __state == TASK_STACK_RECLAIM state, so
-+			 * ttwu_state_match() should reject any wakeups other
-+			 * than the one after the stack gets repopulated.
-+			 */
-+			WARN(1, "TASK_STACK_RECLAIM violation");
-+			return false;
-+		}
-+	} while (!try_cmpxchg(&tsk->stack_reclaim_state.val, &prev_state.val, target_state.val));
-+
-+	switch (prev_state.stack_state) {
-+	case STACK_RECLAIMABLE:
-+	case STACK_PREPARE_RECLAIM:
-+		return true;
-+	case STACK_RECLAIMING:
-+		return false;
-+	case STACK_RECLAIMED:
-+		if (repopulate_stack(tsk, false, NULL))
-+			return true;
-+		*need_deferred_repopulate = true;
-+		return false;
-+	default:
-+		// Unreachable due to return statements in cmpxchg loop
-+		unreachable();
-+	}
-+}
-+
-+void __prepare_stack_for_reclaim(struct task_struct *tsk)
-+{
-+	union stack_reclaim_state prev_state, target_state;
-+
-+	// TODO: Skip rt threads
-+
-+	prev_state.val = READ_ONCE(tsk->stack_reclaim_state.val);
-+	do {
-+		target_state.val = prev_state.val;
-+
-+		if (prev_state.stack_state == STACK_IN_USE) {
-+			target_state.stack_state = STACK_PREPARE_RECLAIM;
-+		} else {
-+			WARN(1, "Runnable thread with reclaimable stack state=%x",
-+			     prev_state.stack_state);
-+			return;
-+		}
-+	} while (!try_cmpxchg(&tsk->stack_reclaim_state.val, &prev_state.val, target_state.val));
-+
-+	/*
-+	 * With delayed dequeue, __allow_stack_reclaim() can be called by
-+	 * finish_task() before __block_task() calls this function. When
-+	 * that happens, __allow_stack_reclaim() sees STACK_IN_USE and is
-+	 * thus a no-op. We need a call here to progress the state machine.
-+	 *
-+	 * Note that __block_task() is called under the rq lock, so we don't
-+	 * need to worry about concurrent calls.
-+	 */
-+	if (!tsk->on_cpu)
-+		__allow_stack_reclaim(tsk);
-+}
-+
-+void __allow_stack_reclaim(struct task_struct *tsk)
-+{
-+	union stack_reclaim_state prev_state, target_state;
-+
-+	if (WARN_ON_ONCE(tsk->__state == TASK_DEAD))
-+		return;
-+
-+	prev_state.val = READ_ONCE(tsk->stack_reclaim_state.val);
-+	do {
-+		target_state.val = prev_state.val;
-+
-+		if (prev_state.stack_state != STACK_PREPARE_RECLAIM) {
-+			WARN(prev_state.stack_state != STACK_IN_USE,
-+			     "Reclaimable state %x for previously running task", prev_state.val);
-+			return;
-+		}
-+		target_state.stack_state = STACK_RECLAIMABLE;
-+	} while (!try_cmpxchg(&tsk->stack_reclaim_state.val, &prev_state.val, target_state.val));
-+
-+	if (irq_work_queue(&tsk->stack_reclaim_work->irq_work)) {
-+		/*
-+		 * Take a ref that gets released by do_reclaim_stack() so we don't
-+		 * have to worry about races with remove_from_stack_shrinker().
-+		 */
-+		get_task_struct(tsk);
-+	}
-+}
-+
-+/*
-+ * This function is called when the task is deleted, which can happen well
-+ * after the task releases its stack. However, a dead task will never have
-+ * TASK_STACK_RECLAIM set, so its last context switch will leave the stack
-+ * state as STACK_IN_USE. As such, if the shrinker processes a task after its
-+ * death, it will remove the task from the lru without accessing the stack.
-+ */
-+void remove_from_stack_shrinker(struct task_struct *tsk)
-+{
-+	put_stack_obj_cgroup(tsk);
-+	kfree(tsk->stack_reclaim_work);
-+}
-+
-+void wake_stack_repopulate(void)
-+{
-+	queue_work(system_highpri_wq, &this_cpu_ptr(&repopulate_work)->work);
-+	preempt_enable();
-+}
-+
-+static int stack_shrinker_cpuhp_setup(unsigned int cpu)
-+{
-+	struct repopulate_work *work = per_cpu_ptr(&repopulate_work, cpu);
-+
-+	init_llist_head(&work->stacks);
-+	INIT_WORK(&work->work, do_repopulate_stacks);
-+	return 0;
-+}
-+
-+static int stack_shrinker_cpuhp_teardown(unsigned int cpu)
-+{
-+	flush_work(&per_cpu_ptr(&repopulate_work, cpu)->work);
-+	return 0;
-+}
-+
-+static int __init fork_late_init(void)
-+{
-+	int ret;
-+
-+	ret = cpuhp_setup_state(CPUHP_BP_PREPARE_DYN, "stack_shrinker",
-+				stack_shrinker_cpuhp_setup,
-+				stack_shrinker_cpuhp_teardown);
-+	if (ret < 0) {
-+		WARN(1, "Failed to initialize stack_shrinker cpuhp %d\n", ret);
-+		return 0;
-+	}
-+
-+	return 0;
-+}
-+
-+module_init(fork_late_init);
-diff --git a/kernel/stack_shrinker.h b/kernel/stack_shrinker.h
-new file mode 100644
-index 000000000000..242a35bddf3e
---- /dev/null
-+++ b/kernel/stack_shrinker.h
-@@ -0,0 +1,58 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _LINUX_STACK_SHRINKER_H
-+#define _LINUX_STACK_SHRINKER_H
-+
-+#include <linux/cleanup.h>
-+#include <linux/list.h>
-+#include <linux/llist.h>
-+#include <linux/sched.h>
-+#include <linux/seq_file.h>
-+
-+#ifdef CONFIG_RECLAIMABLE_STACK
-+
-+void add_to_stack_shrinker(struct task_struct *tsk, int node);
-+void remove_from_stack_shrinker(struct task_struct *tsk);
-+
-+bool __ensure_stack_is_present(struct task_struct *tsk, bool *need_deferred_repopulate);
-+void __prepare_stack_for_reclaim(struct task_struct *tsk);
-+void __allow_stack_reclaim(struct task_struct *tsk);
-+void wake_stack_repopulate(void);
-+
-+static inline bool ensure_stack_is_present(struct task_struct *tsk, bool *need_deferred_repopulate)
-+{
-+	if (unlikely(tsk->flags & PF_RECLAIMABLE_STACK))
-+		return __ensure_stack_is_present(tsk, need_deferred_repopulate);
-+	return true;
-+}
-+
-+static inline void prepare_stack_for_reclaim(struct task_struct *tsk)
-+{
-+	if (unlikely(tsk->flags & PF_RECLAIMABLE_STACK))
-+		__prepare_stack_for_reclaim(tsk);
-+}
-+
-+static inline void allow_stack_reclaim(struct task_struct *tsk)
-+{
-+	if (unlikely(tsk->flags & PF_RECLAIMABLE_STACK))
-+		__allow_stack_reclaim(tsk);
-+}
-+
-+#else /* !CONFIG_RECLAIMABLE_STACK */
-+
-+static inline void add_to_stack_shrinker(struct task_struct *tsk, int node) {}
-+static inline void remove_from_stack_shrinker(struct task_struct *tsk) {}
-+
-+static inline bool ensure_stack_is_present(struct task_struct *tsk, bool *need_deferred_repopulate)
-+{
-+	return true;
-+}
-+
-+static inline void prepare_stack_for_reclaim(struct task_struct *tsk) {}
-+
-+static inline void allow_stack_reclaim(struct task_struct *tsk) {}
-+
-+static inline void wake_stack_repopulate(void) {}
-+
-+#endif /* CONFIG_RECLAIMABLE_STACK */
-+
-+#endif /* _LINUX_STACK_SHRINKER_H */
++    /// Clears the given task flag bits on the current task.
++    #[inline]
++    pub fn clear_flag_bits(&self, clear: u32) {
++            // SAFETY: The `flags` field of `current` is not modified from other threads, so
++	    // the non-atomic update isn't a race.
++	    unsafe { (*self.as_ptr()).flags &= !clear }
++    }
+ }
+ 
+ // SAFETY: The type invariants guarantee that `Task` is always refcounted.
 -- 
 2.55.0.897.gb25b4bd76c-goog
 
