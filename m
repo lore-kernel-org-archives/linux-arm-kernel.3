@@ -4,83 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C1C4C5DF9D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 06:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DB35C5DF9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 06:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L6GoQKUnFc//SyGwn7DfOqRakR5AmwowDLHGlho5Uz4=; b=B+g1LeZSQ85wIke5luxwJyBT00
-	p+RDwObb60RYshrj1SJVFPoZNCYJz/WyRGOuX7L4wEMZG4mKCj3kzxa2ATVsE0jyNdkRevDNuKj/H
-	CuuhswBh+efcinIYc8bKcTBoTojVnLhvIJeAszv1Dlm4MLBiP1k2gDqd2YMkMa5el+BJ0X4aezmjj
-	ecDiR5ST0ZBJqpXjNo3+zNgESe83XhcDChEdCRt9zAEVWyIp77lY6S3FdNB0h8HyV7G9FcXol7uhq
-	Zh6gbyTN78i3Bm/iXRc4eE7aqQmdXDuwXyo3M35N5f0ebomAfWvqCSKtK7h/S+QDghyPbY+7Vy7IO
-	oBzaN2ww==;
+	bh=Do7zuAnsZqtiLlloXwZymdjtDRmu69WlBc61SH4nBO0=; b=k8YQUYrs/A/9w5+Ed/NF4Rz4tW
+	Hm7VdRsDDmOG2fTWqgy8A9xSLZYn7u18yqaHvH9f0nDhxqvrd77Z4rXqNKo/dmWYcI+mC62ddGoPU
+	Fnrznx7S4U3j3DrzBYxDmt5k3NXWXHfEKYCOOaXN2F5sYAxMbfNiwv6zq3zS8Jl/12x8BLAsBDBr9
+	3xAT3gXF2OETqDHwFZxIa0q+HTG13m7PRSrJ88mu57siVcDF8MKXKRdQsjLsnldUlXhHIR0LGsl2R
+	wfitvRChS79l+5moMKmLSqfladwvItbGovgTHO3TF8nIQD6+YHyubgkKZ0CZEcBvK3IocfX1VJsnu
+	sRcUsU5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzTeI-00000003UES-3uNF;
-	Thu, 27 Aug 2026 06:31:42 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1wzTqW-00000003V2c-2YQ7;
+	Thu, 27 Aug 2026 06:44:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzTeE-00000003U9r-1u7J
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 06:31:40 +0000
-X-QQ-mid: esmtpsz20t1787812256tb4f00064
-X-QQ-Originating-IP: 82KkePapeeneOtk0IMx8EA6E5nujxXT5q/ttGDpvGkE=
-Received: from localhost.localdomain ( [111.8.45.130])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 27 Aug 2026 14:30:48 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1738464052093361708
-EX-QQ-RecipientCnt: 10
-From: Liu Dalin <liudalin@kylinsec.com.cn>
-To: Hans Ulli Kroll <ulli.kroll@googlemail.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-rtc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Liu Dalin <liudalin@kylinsec.com.cn>,
-	Deng Yingchao <dengyingchao@kylinsec.com.cn>,
-	Qin Yungao <qinyungao@kylinsec.com.cn>,
-	Luo Qiu <luoqiu@kylinsec.com.cn>
-Subject: [PATCH v1 3/3] rtc: ftrtc010: fix integer overflow in time calculation
-Date: Thu, 27 Aug 2026 14:30:19 +0800
-Message-ID: <B06A3E7BF268E081+20260827063019.3342085-4-liudalin@kylinsec.com.cn>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260827063019.3342085-1-liudalin@kylinsec.com.cn>
-References: <20260827021054.0963C1F000E9@smtp.kernel.org>
- <20260827063019.3342085-1-liudalin@kylinsec.com.cn>
+	id 1wzTqU-00000003V2G-3kNn;
+	Thu, 27 Aug 2026 06:44:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Do7zuAnsZqtiLlloXwZymdjtDRmu69WlBc61SH4nBO0=; b=kdw60+kBh9YwOjCXqyT+navO/U
+	Nt4u7jQcXQ/G2K5MRUMsZmBi3kCWCGxluiQKg2zwYNfWH3VwOi/YJWqsFiB2p3EMF2eduY8Fs+Fl/
+	Gh7CesEVRvqLeV6totLN0sY9+CWJ+MmP7Pb9DMVkMF37PmXUze9r3FLIhGnWUgWWYix3exzLMgm/7
+	YQ4xypd/RMBList8WsMYP8CXBhpubOKTdE7Q0SVlM2FoDNOV8Z+mbvzFG+HrF8jNwh9L5qHjr7ZZu
+	bldHkX5mj0pS4iEC/IxfLl7LXup8MV9A7cZQBB2K1JaW0asZbGvJD083buHXaWpffzlO7PHoPCQaK
+	PYE11HVQ==;
+Received: from mail.loongson.cn ([114.242.206.163])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wzTqR-00000007EcY-05Yi;
+	Thu, 27 Aug 2026 06:44:17 +0000
+Received: from loongson.cn (unknown [10.20.42.62])
+	by gateway (Coremail) with SMTP id _____8BxrtK23I9qn5gFAA--.15770S3;
+	Thu, 27 Aug 2026 14:44:06 +0800 (CST)
+Received: from [10.20.42.62] (unknown [10.20.42.62])
+	by front1 (Coremail) with SMTP id qMiowJBxpMyw3I9qFekTAA--.11563S2;
+	Thu, 27 Aug 2026 14:44:03 +0800 (CST)
+Subject: Re: [PATCH 03/20] KVM: selftests: Use vm_alloc_page_table() to
+ allocate LoongArch page tables
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+ Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+ Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Atish Patra <atish.patra@linux.dev>,
+ Alexandre Ghiti <alex@ghiti.fr>, David Hildenbrand <david@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Nicholas Piggin <npiggin@gmail.com>,
+ Ritesh Harjani <ritesh.list@gmail.com>
+References: <20260826230511.972824-1-seanjc@google.com>
+ <20260826230511.972824-4-seanjc@google.com>
+From: Bibo Mao <maobibo@loongson.cn>
+Message-ID: <9b5244ae-5927-b775-e0c4-deaefa9961e7@loongson.cn>
+Date: Thu, 27 Aug 2026 14:43:47 +0800
+User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <20260826230511.972824-4-seanjc@google.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
 Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MC+jTyq9xFiavOkJydzmFxGopX3cNGRIoDYvJmoAyBZlS6YgA/qvVlpw
-	sdCU6/KJdrwazq/XRsagvq7v5QyOYSlQtahojb6AUG9cMVzZHYl9SC/pgmNMl/vHfW3JqrE
-	suEyvXH/qydnTg1pGdLlmeID6rgL9zzFZktToDNS4IDg6GtmS2n+uEAZFCSGhVd4nX7DHrC
-	YvsThm/j5LZa3jIjHIhVVbJJmlcpp1J1X94kxjVCIdWyCbKBbTei1vvgLHzCoVNMvGPUQDP
-	IQoLRThkvFuEvXNsx0sY5C4krHjGXQRJ+/Rg1bHzryfHW06LnoETDWcx8y53CUGUL12cFGm
-	74PQeTYBSkj5SV87OzuUxnJMG4nz3N2fxVk7o34iuF6z58OC9gveB/gHtDNE3+/033q2WBj
-	syiwP0dANqul6OiZ4YX/JNx4yIGyDAqMBBNjyKGGKfXUN8ULf6tMKaLJYQ3nKa34ia1PB1w
-	73RWnu59H8Pr9Tj7toTAyOkbJDi1k69SkWQcVKuZRu45/1Se3SqjUbQRSgoVNAe7LFTWw4L
-	wQ9Vniz4KKesXM/uIRluhEN/yv3VrUUoU6EyUpYdhk4J39kvjwqGLsgZJZ/ihC0bEVl3LBZ
-	aYf9ZcUtwaOC6E3YN9VhlYsGWbCdsff1EKamDipltukjInspsQf/G3zItmpmcsXCZBG9hkO
-	8bep+Milbf4AhGxvtlhSrp5MdkrnemZQKs+wvbgTpw7E/hN6jEqSfs/UNEabXok6+HOR1th
-	q3Hz2TOHN+RxTctgj3qWtsqdyiGE7fl/B5ylxwpBm1a/azf7S3M4BecOdOSkQ0GF2D0ik/q
-	o9JBGWV/pCN1TB34HJpHOvKHIU89gl4Ovlf3Zomzt78feWHHZaWi0sB271mIoKhePqHsItW
-	zvJaPVLERp622Uc+46+EzYWasX4TOd2qUbqTI/9KWYzUTfqXo0wIhSh35GYIWVLINzWv9RR
-	yBaqKRRkkQMXySQzfCL15vfQUjGsLGxi6AqRX26FbF7bIZ2zzDhEaEcFTaufSe7Wr+OEpLv
-	QYn+ybT1yOcwePM+eF4hXCKdyosCZniF7uCK3kWnHR9mX21tzEP7iBF8CHAthjtwjgHTB6i
-	/igb3uBwG996yZyLuDX1KJxuXfQKejdn0bYV4xF3ODp
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-X-QQ-RECHKSPAM: 0
+X-CM-TRANSID: qMiowJBxpMyw3I9qFekTAA--.11563S2
+X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
+X-Coremail-Antispam: 1Uk129KBj93XoW7Kr17CrW3XF18AFyUJr4UJrc_yoW8WFy3pa
+	4kCry0kr4rGw17KrZ7Gwn2qFyxKFs7GrWxAF1ftry8ZwnrAryIqrs7KF9rXa45Z3yvv3WS
+	vF1I9r4fZF48Z3XCm3ZEXasCq-sJn29KB7ZKAUJUUUUP529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUPIb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6r4UJVWxJr1ln4kS14v26r1q6r43M2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12
+	xvs2x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1q
+	6rW5McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr4
+	1lc7I2V7IY0VAS07AlzVAYIcxG8wCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxG
+	rwCFx2IqxVCFs4IE7xkEbVWUJVW8JwCFI7km07C267AKxVWUtVW8ZwC20s026c02F40E14
+	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkG
+	c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVW8JVW5JwCI42IY6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4U
+	MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07jCMKZUUU
+	UU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_233139_030195_88078253 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20260827_074415_618131_8C7EC16A 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,48 +115,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In ftrtc010_rtc_read_time() and ftrtc010_rtc_set_time(), all
-variables (offset, days, hour, min, sec) are u32. The expression
-"days * 86400 + hour * 3600 + min * 60 + sec" is evaluated in
-32-bit arithmetic, which silently wraps around for dates beyond
-approximately year 2106 (U32_MAX / 86400 ≈ 49710 days).
 
-Cast the u32 operands to timeu64_t before multiplication to ensure
-the arithmetic is performed in 64-bit, preventing overflow and
-matching the driver's rtc_dev->range_max configuration.
 
-Fixes: 1d61d2592c1f ("rtc: ftrtc010: Rename to Faraday FTRTC010")
-Assisted-by: Sashiko AI [static analysis]
-Signed-off-by: Liu Dalin <liudalin@kylinsec.com.cn>
----
- drivers/rtc/rtc-ftrtc010.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/rtc/rtc-ftrtc010.c b/drivers/rtc/rtc-ftrtc010.c
-index 19e6333bfbab..8f2652132400 100644
---- a/drivers/rtc/rtc-ftrtc010.c
-+++ b/drivers/rtc/rtc-ftrtc010.c
-@@ -72,7 +72,8 @@ static int ftrtc010_rtc_read_time(struct device *dev, struct rtc_time *tm)
- 	days = readl(rtc->rtc_base + FTRTC010_RTC_DAYS);
- 	offset = readl(rtc->rtc_base + FTRTC010_RTC_RECORD);
- 
--	time = offset + days * 86400 + hour * 3600 + min * 60 + sec;
-+	time = (timeu64_t)offset + (timeu64_t)days * 86400 +
-+	       (timeu64_t)hour * 3600 + (timeu64_t)min * 60 + sec;
- 
- 	rtc_time64_to_tm(time, tm);
- 
-@@ -92,7 +93,8 @@ static int ftrtc010_rtc_set_time(struct device *dev, struct rtc_time *tm)
- 	hour = readl(rtc->rtc_base + FTRTC010_RTC_HOUR);
- 	day = readl(rtc->rtc_base + FTRTC010_RTC_DAYS);
- 
--	offset = time - (day * 86400 + hour * 3600 + min * 60 + sec);
-+	offset = time - ((timeu64_t)day * 86400 + (timeu64_t)hour * 3600 +
-+			 (timeu64_t)min * 60 + sec);
- 
- 	writel(offset, rtc->rtc_base + FTRTC010_RTC_RECORD);
- 	writel(0x01, rtc->rtc_base + FTRTC010_RTC_CR);
--- 
-2.43.0
+On 2026/8/27 上午7:04, Sean Christopherson wrote:
+> Now that KVM_GUEST_PAGE_TABLE_MIN_PADDR == LOONGARCH_PAGE_TABLE_PHYS_MIN,
+> use the common vm_alloc_page_table() instead of open coding the same.
+> 
+> Opportunistically drop the assert that the allocation succeeded, as the
+> allocator itself guarantees success.
+> 
+> For all intents and purposes, no functional change intended.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>   tools/testing/selftests/kvm/lib/loongarch/processor.c | 5 +----
+>   1 file changed, 1 insertion(+), 4 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/lib/loongarch/processor.c b/tools/testing/selftests/kvm/lib/loongarch/processor.c
+> index 47bbde3e205a..fcd41bc6fbda 100644
+> --- a/tools/testing/selftests/kvm/lib/loongarch/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/loongarch/processor.c
+> @@ -9,7 +9,6 @@
+>   #include "processor.h"
+>   #include "ucall_common.h"
+>   
+> -#define LOONGARCH_PAGE_TABLE_PHYS_MIN		0x200000
+>   #define LOONGARCH_GUEST_STACK_VADDR_MIN		0x200000
+>   
+>   static gpa_t invalid_pgtable[4];
+> @@ -57,9 +56,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
+>   	child = table = 0;
+>   	for (i = 0; i < vm->mmu.pgtable_levels; i++) {
+>   		invalid_pgtable[i] = child;
+> -		table = vm_phy_page_alloc(vm, LOONGARCH_PAGE_TABLE_PHYS_MIN,
+> -				vm->memslots[MEM_REGION_PT]);
+> -		TEST_ASSERT(table, "Fail to allocate page tale at level %d\n", i);
+> +		table = vm_alloc_page_table(vm);
+>   		virt_set_pgtable(vm, table, child);
+>   		child = table;
+>   	}
+> 
+Reviewed-by: Bibo Mao <maobibo@loongson.cn>
 
 
