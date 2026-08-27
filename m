@@ -4,100 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F70C61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 17:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ABD5C61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 17:53:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yS6bCkgNl2tfRL+N0AQpU6w6x0P3yKp8A+VMwA4EIUo=; b=oYVOc/pPijVr8XmblSY4dcMWVJ
-	eboomY3SoB0nDq/JZ07w6LIQyzeKPbrt2P3HLeOI8V4tqjuvDpu1ZqK36s0xAi/z6czRT/imb7Q9l
-	yuCylB/w2TklAzVQFt+3wOuy6DJYM19psDs8qEiZGPbhuVGwrS5o1OTrdpF+Zwk+cbXO0i4Nk2zZ0
-	AQL5rqKvPeCM6ClwbijZRI1zKTVPM21Vui4exfY4WkyLHEtlz6hof75tzqezGm8FYdcLwnu3cN5rU
-	QlOm0FrFaXYv695LzHOapipdNHF02xY4L+PV29fiizPfQB+vMpU5h1Z2b2ZF25fiWmHEt4+CH+TTQ
-	QeKQ1oPA==;
+	bh=XYHgBCRZLEB3XoVwSokcAPnaY99rEFsjH7u+mtUXlls=; b=4YwoybN64+zMAA2jFEaHpwtkig
+	jWQ5EUq3iR7YCfpItYlIbJEDYGczoEKCGcZ+B864J498EEY/tr4fNSXjq363U7vSZVVEKCoB72xiu
+	BW7HA5ZDOy7R9jHWyvobQ6Lolvpf80yp39JxY9aZYB1fRehyoAQP9oyDG0nVlJi5O5LjHoA6Fg8vr
+	tMvMecLZo5L0VrR00E+NSKi0CGnK2l4jQrZxWUtSrmuzT9tMgQKaJbxCIPm5AzIdYMSbDGmZAV4Ox
+	Pmh90BQ/7hUHaLytWWTdNk5k6RmDrgzHfZGF+nD/QxaeIPO6Y+cBmj9BGlUqVKadXsw1bCgR+1JNs
+	Z2MynEUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzeHI-00000004Vln-3o8s;
-	Thu, 27 Aug 2026 17:52:40 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wzeHa-00000004Vzw-35vL;
+	Thu, 27 Aug 2026 17:52:59 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzeH6-00000004Ve1-0HNv
+	id 1wzeHL-00000004Vpd-31vD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 17:52:29 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67RHXd6Q614581
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 17:52:27 GMT
+	Thu, 27 Aug 2026 17:52:46 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67RHXfJv1568411
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 17:52:43 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	yS6bCkgNl2tfRL+N0AQpU6w6x0P3yKp8A+VMwA4EIUo=; b=bOhbLiwnothWZ6J1
-	2k3OkBYm24gbYy7eH0y5xykv8V4Hh9DyGa1BsJkCUeMEt0owX11la+1aiTwRrWfV
-	GFm/v6SA6mz7JHHuouJXS5aNYay5xcGk1QWF9g66GmfXxuEQiJGoSeAB/lAywKG7
-	2VG/4jRJzIB9w5kxqoUjg2Z4ezrJs1+wggnugypTvql4jJz4gTHfP/o/0/lJel2+
-	IjZxBemVfxU0WSXQdhACi4XZS2E1sk+WvVhF9TQ91GIng0RoX5pCQT+/cK4gtCRC
-	G7Sjswly7Kr3mCkjDokOnW5bwNTIkWzCYakbZ5s261rDCxCUf2h6BcS9E0K93Kbn
-	CDgSpg==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ganr698ey-1
+	XYHgBCRZLEB3XoVwSokcAPnaY99rEFsjH7u+mtUXlls=; b=RZBq8IFpwxbYDmxG
+	7Sos25G/67+VZyucyv805rbaSQqzgdPQE0d39PcfnmI3z/qArTK5hkVjx/2H6794
+	1GrbWk88RfDRlW3EthG891c65RFE24x0FiyMLDm0h4ffaCMklQ4DQBV/dlQg9fse
+	YH9KKETwt1l3TMyFaAIOSvq2P4TyfRH9gPqoX1aJH+l/kn0C8N2FJdGBvIWNqL3m
+	B28ppjKOPW/W29h+a5wlddmaQmc7anG8d19YHf9jiiG3AebB7Rnfrz5KsREDPGvm
+	UVppY2oZ8eTWzmZ4FVmHwAU0ka5YFvd1QRr5x5gOECW+6rOBt6aE1xr1P1vpjthB
+	LDAoWQ==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ga8m5m9xs-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 17:52:26 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2d54187d8b0so2178135ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 10:52:26 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 17:52:43 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-38f283baf1fso334409a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 10:52:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787853146; x=1788457946; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1787853162; x=1788457962; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yS6bCkgNl2tfRL+N0AQpU6w6x0P3yKp8A+VMwA4EIUo=;
-        b=dwmHw+bKx4flYKVqub0jj9+8zMlsrT9UHrdr/6OsJNAfkctR6VFBfRhdqRxd4cBvpT
-         0MzSH47X5lUaBseP83tSUE/UfumU6hmAb2JWhvNhhLYebGUKBeZNpn5Y8PSVKzslu6Bf
-         NmcBRvxM8B138ZNujxPztFpBNpQ1ZOpIM5k7rDbjoENGPyFxZxfQbRgi1T2pE5q0opHb
-         JIXPTIXW2nkzZCe3xi/addTl2hyraObCFWOCp0TBXKMqyXj1gLR7vNS1ZqnW5F/MzoX7
-         3KCWRt9LMkAHsO86TUBiWQVqh28jXD/PmVMSE61i64r9ArmYAdUvHtAUjTRD6N/MM9hk
-         fF2g==
+        bh=XYHgBCRZLEB3XoVwSokcAPnaY99rEFsjH7u+mtUXlls=;
+        b=h20gbI7zjMDaujXUHHzx+exBkjVJXiuLXE1dr0rlUS20/bD5u+xHXb81YWfs8X3QPo
+         Umw9H20TL+k2p4rRK3CE2yPnaaBZZWfEBkjxWcvZBekKxbuBjno8jgYWopu+3RFswUeE
+         QymfXu2bHHJTTEjT/tBzx6squQC7S6JJULBJovSCp9yM5kGE88ha3DwrImJ7ykMCBlOW
+         jNsVq5f2kg7XGPbIKV17OLygPtYHEr8mQ9H0rYt/qX+4hDazZAKSfJJ4AUBx5Trx0ptH
+         y84GWH4M3jAuaQDoAIvVV/wY7EGQK+uMBQph5wGCcnCoNrATjhYw6Twfs1a76QTeZE0a
+         Lcrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787853146; x=1788457946;
+        d=1e100.net; s=20251104; t=1787853162; x=1788457962;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=yS6bCkgNl2tfRL+N0AQpU6w6x0P3yKp8A+VMwA4EIUo=;
-        b=RvJUF92i7fXqZzO5y4rokQjLRHtyhWvpz39AoMYOLjQEkwWNVtWs/P9jAvlOKUgWjP
-         f5W2BRFr4i79VUNKhQxRm0Eae3evS/WcnhewLJPO899TFob8GfdLZnktz413W68TZMWA
-         BE8QcevROl0obxb/PSHAsOR6XjdZhzKdi6TmfsrsrE9eESDszIW/ReGCBE+WshrZBVJx
-         CVw7zk0Cg1E6aF4nriwnn+SMQlHCeicEw0jzK44v5bch/Z3uRik3Ddhc4dJ4LqgsTqcF
-         SmVwsCNarpTBimxEyOfS4LW3vffUA22Kohxaui1zpmyMXrmQ8//OZkOa3A+5i7CmxbAD
-         xM0Q==
-X-Forwarded-Encrypted: i=1; AHgh+RqFgOzEwUXQX/+rkMA9vAbJ9l/RHy1sV5bwgCiJWpJuM8ehRxZJ4xRiwoPwhbsSmjetauRKrqrvmrceT4shPQJm@lists.infradead.org
-X-Gm-Message-State: AFuF++lMiUqqgt2PF7MR1bWutdm4OIlm/+25k5/q/suDB06aKLEYRUpg
-	3hDU9HWHoH2JByIh+GrKI4uFOOyGO9SsEcH9BeDl6QZEBOA8muT5OJFdavOLc5p/+bzJlSowNxw
-	LGFiA3khG4cPrsH6wLY2swxF7dxxogBYLTTdy4NAPLm7q3pXCOBavnTRQMFjqVmHcv/OR7LV6dX
-	ysYw==
-X-Gm-Gg: AR+sD10o/m6O9usXXARNj3yun57qfpFW7Imf0pJu11dnjqmyPzuUHMFSMfMJ5CaxmME
-	KrwCgmwT5KoKbNqYwuVBiMFNxVCbClMg320Q+VBKcC/lyFdn8LqZbx8CkZhNmIbILWPAd3kM9KQ
-	4jGYW8b9gLrvYnSonLFMsGEAtHu+deTqM2N4ouCH/i3xRksexUmcL+ENXW1MuGxN3THc0FekJz3
-	Xi0lw2ILMGLoN9wagAXLHAveYw3xDb/Dg5v9FR4kMmbQ8OtJhFGopbrz3uGqyx/T7iy0AhRBl7A
-	bxCYHZLcCD6Njnf7vA/LV0Z6xrO3iGnYbfu07w1ZJgSVZluZHKRM0lAqwMFUzzoNFwZeM5PZlwR
-	Kie4r0QVtzxTIlvfKVxqaOYv1+1qUEIiN2It3sO8J2hyQBYTC7h0oqdf6fiYwFcjT2wygJ7OQz5
-	Otlq/2Iqi5S24y4xIl6PCbQDE=
-X-Received: by 2002:a17:902:da8e:b0:2d6:f961:994f with SMTP id d9443c01a7336-2d74dc6f7b8mr9361705ad.8.1787853145935;
-        Thu, 27 Aug 2026 10:52:25 -0700 (PDT)
-X-Received: by 2002:a17:902:da8e:b0:2d6:f961:994f with SMTP id d9443c01a7336-2d74dc6f7b8mr9360425ad.8.1787853145503;
-        Thu, 27 Aug 2026 10:52:25 -0700 (PDT)
+        bh=XYHgBCRZLEB3XoVwSokcAPnaY99rEFsjH7u+mtUXlls=;
+        b=Xdcg7R6T1+4pGYJIGNavqyijM/L9ibDCMkSeh5OtRDlY6LPdotoIdupQknh9h6RC6r
+         sNLzyHdBalmKiZg8McVKMXvzy5kRPhmSx9bCK8+HI/Q/ySalaJ9M1xN60Q8zD3K2T6ap
+         r/k57VFASHb6WqE/2o8zuyig4i7jJcv+Du8cyLMaLY6LJxQW20/o7ToYCEiY+sl01xWb
+         eqq6VBRJ46/+0XDIsyyUdS8YipYNt5BcMpQPdFFmCWZg+hCySaQlM+80aIv3orNwMxS1
+         mC3wd8374fkZXakwG+A3kVsLwoEruAgeTunPcRvWbACBLHWB945nx1TjC8XeKy39EBvX
+         Sekg==
+X-Forwarded-Encrypted: i=1; AHgh+Rp+80lIPMI/pMpguUu7nN/Gn/P1Uw5MUfVmzcK6pPGX+Froym0hVuiWlbpKwsuUfc9gHQy/PM/2WVy8CSdVNDG/@lists.infradead.org
+X-Gm-Message-State: AFuF++nmzxoQgfTdOBlziS6ts++U7y6IeZl/5fy1BokUV6iKBoYP+UWy
+	hZMXw373QDzkSGZa6EvNjpwMvjhTP5KIL2A6EoqE4g05aA2PGmW+z6eWE7E7GBGbmva7PNV4nJz
+	JkGpnAKaKJyWLmow7nUIobTDGeVxpV0PM5glN1qpyzuEcj5eprymI1cJ8HWBuYQVoet+laHytuH
+	jPRQ==
+X-Gm-Gg: AR+sD11pP1RxLwEUI9KCz9ZmxEp1hiXZDaA/H8fVSgEetO9gg8G2zsdt9+vRDTAB992
+	NPz/lEwKFVgKEK53Q/9RLEbUHrbNLXJdzNTAGKRe7/X3urqJxsf0Z4sXKdvFeqELbrcD1/H2s/O
+	6NMsrLxw4KgbWArDmslU7GQkfsVkRrJEVfPcG0wl9BfgMrM+hoXmbm4qa3NjXTctmeqb1dfSowx
+	GtMsTmgtiHlaPOHC2uhIyTlwd2b9axgz3VHBGcDnIPHC+VF4MF+rUssf/8Qw8ipnz7F0Nr0r+9a
+	8fwMeU98bOLpPr1coqkp50kzxxbVVjmzZB+h3zA3NjvmkIgXmckZ0dPk9jyEGkYW8iHsx8E2ehn
+	0mcIgepuTC/RHb6V8sCNbp0CLliCWyck5Z2/UZ52SlOdS6T1/hWma/dPLzks4ml2Uya6GCkoo8H
+	W7mtpZpLqPsNsJ6Jj62HN7MUc=
+X-Received: by 2002:a05:6a20:6a29:b0:3d1:be60:281b with SMTP id adf61e73a8af0-3d268ef9eb5mr1275244637.15.1787853162235;
+        Thu, 27 Aug 2026 10:52:42 -0700 (PDT)
+X-Received: by 2002:a05:6a20:6a29:b0:3d1:be60:281b with SMTP id adf61e73a8af0-3d268ef9eb5mr1275086637.15.1787853161631;
+        Thu, 27 Aug 2026 10:52:41 -0700 (PDT)
 Received: from hu-hardshar-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3283d60d25esm23889316eec.4.2026.08.27.10.52.17
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3283d60d25esm23889316eec.4.2026.08.27.10.52.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Aug 2026 10:52:25 -0700 (PDT)
+        Thu, 27 Aug 2026 10:52:41 -0700 (PDT)
 From: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
-Date: Thu, 27 Aug 2026 23:21:11 +0530
-Subject: [PATCH v5 08/15] dt-bindings: pinctrl: qcom: Add Kuno TLMM
+Date: Thu, 27 Aug 2026 23:21:13 +0530
+Subject: [PATCH v5 10/15] dt-bindings: clock: qcom: Add Kuno Global Clock
+ Controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260827-kuno-soc-support-v5-8-6d47636a8f09@oss.qualcomm.com>
+Message-Id: <20260827-kuno-soc-support-v5-10-6d47636a8f09@oss.qualcomm.com>
 References: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com>
 In-Reply-To: <20260827-kuno-soc-support-v5-0-6d47636a8f09@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -120,43 +121,43 @@ Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         linux-gpio@vger.kernel.org,
         Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
 X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787853069; l=3999;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787853069; l=5749;
  i=hardeep.sharma@oss.qualcomm.com; s=20260204; h=from:subject:message-id;
- bh=9Fecwe0sAktGee+deC69QVwT+mIH7oP8T6NEsor/Km4=;
- b=40gNZMEgMelOIHYYXNXXlGFmvf9ZjPxiwH11wpQwtzUVtCDU7L4DEV22kqGX1adVRYLwKrdbm
- yEh8szJeuE5Am01zVrVRVneXZ/Gek/x8b4hBqCNRza3I9Bty24eGWU/
+ bh=9FPCV87eitw661yJc7gqbrscj5MlCzlDB1E+PFlfCyc=;
+ b=TY+V8SFVuEX+OQTKe4e7vYI961JtP+1FaDJZvDP3eLd8vPdFaIU9/VXdgz/qjVw2ALhuQ2IEm
+ h6Syujh2JvoDrAoaczWfiqajzvI9Uj9OatzbmK3WIOBVqlxUw9NYmGh
 X-Developer-Key: i=hardeep.sharma@oss.qualcomm.com; a=ed25519;
  pk=IvwPDKA2xr6jWaCIBBY2ran/H0124QUzVfun+CtEikM=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI3MDE1MSBTYWx0ZWRfX9eXqEzyORiW5
- GJWm2ndOolCfXx6vIqMbP/hEOjvVid2PkTdXCf4AGfUzmGJbRj7jYJUUoVTOPgteoCB7P85q6uR
- NBELZcyfDkee8KNQEqVxRqJLi77YDqPWKvAcrEmAeZ3OGWQ6wjrJlEXyV6sy6D7ogtgHV6hx4ud
- RY6wzltWnl2DPp749ch16FzIRnI1WxpXBGErUIa1THYWCgN4Zte4HSQt79qLV/Ga7cXMXIUZoAl
- T6ggQ9gugCzx3vIdFyZJ9kS2/lr7jSsRiWRycfTBttbu30M605Y317MGcggyvVmwn9vs93/vBh8
- +Oc/1BTE7P3Pldf2CJ4yxVCvpMv2se723Ma9z0485vzWWm+IcSrIDhLvl67rU1UEFzNRtBt82Dz
- KMBQeXaeJnaRcBzobzUsMVdcfueokWAN9rSKhYXTUVdmH203eDn7CEwILSvkQ543wRZ4cjjQBza
- PDu1N5oPOm8QTk0JPmQ==
-X-Authority-Analysis: v=2.4 cv=d5DFDxjE c=1 sm=1 tr=0 ts=6a90795a cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+X-Proofpoint-ORIG-GUID: 4zLulIX2MQsCyCSFEmPl9J6bh7zVeMAU
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI3MDE1MSBTYWx0ZWRfX5CbMO/BXCLxS
+ 4PqJl3X/OWfLGl6pInXtWq1TvqXjAG078flU2iYpvlbk03iBv0ylUjLILSvVXcsCYIE51F4nZ/g
+ ogy9rg8EBwBcM6ClnYyOyB42vb/hTb8=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI3MDE1MSBTYWx0ZWRfXyZIAcxeqZsxz
+ a3JHPQJqeaRD9+GoLP1esrISCghoP07GVPmLqTDZi42DBaguQiago743axTdlifQZWPIP4wMQw0
+ ZzKYUvpiNFDcKzWJ53RJol13IPg9UWSywwcqzrWS06tAWpdJct3w9Vf8D4kXUAix2Rn5PBV1v4t
+ E1YxHFmEMT2sH82xEVYpj1zxf63bhw+kZGXKoUSAemgLWNWdlWuI8OhLRsDmNajBjoGZRyFFb89
+ yoE3PJkvBnpUjuE8+XDHKKOQH2rRhMJeGSyvoluNFUQbw+fc17msnWEzKRmE+dbbAj9b69E4bFc
+ nMRJXXViwwFn8VpWYqYqysUx8pw2n656BVnixgsz6M/1LHijhLGvOmtpwTeinSR53y7fNFfEvrK
+ uymHPevg01sdyp/G3PBP/morSDYRUoc51LPUfYOqABEsAqf6O9Vy3Rocg7FmALmSKc7Hr9cEtQk
+ 1cluTaGQlwFMzPR1fQQ==
+X-Proofpoint-GUID: 4zLulIX2MQsCyCSFEmPl9J6bh7zVeMAU
+X-Authority-Analysis: v=2.4 cv=SomgLvO0 c=1 sm=1 tr=0 ts=6a90796b cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
  a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=gEfo2CItAAAA:8 a=EUspDBNiAAAA:8 a=CaveSyEksWnKhASb3GUA:9 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22 a=sptkURWiP4Gy88Gu7hUp:22
-X-Proofpoint-GUID: 55qOm91vRIEjum-9OxZVerqUlg2h-n-p
-X-Proofpoint-ORIG-GUID: 55qOm91vRIEjum-9OxZVerqUlg2h-n-p
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI3MDE1MSBTYWx0ZWRfXwhkAkhKQVFrl
- c9cDC3hhpe7rmQGn49R3PLoNM6oz5AHagsMT/2fSHYQGCfvt/KWZEar8GazIiftjgXsVA6r5e7S
- um86YWY1qwFtAWaT9xV9LHJ6mV1tWDs=
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=gEfo2CItAAAA:8 a=EUspDBNiAAAA:8 a=PKuh8qK-LUMqOkA3WUgA:9 a=QEXdDO2ut3YA:10
+ a=iS9zxrgQBfv6-_F4QbHw:22 a=sptkURWiP4Gy88Gu7hUp:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-27_07,2026-08-27_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 lowpriorityscore=0 impostorscore=0 clxscore=1015
- priorityscore=1501 spamscore=0 adultscore=0 suspectscore=0 bulkscore=0
+ malwarescore=0 clxscore=1015 phishscore=0 spamscore=0 priorityscore=1501
+ suspectscore=0 bulkscore=0 impostorscore=0 lowpriorityscore=0 adultscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608270151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_105228_223652_2426118B 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20260827_105243_826323_2B2FE824 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,131 +172,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for the Top Level Mode Multiplexer (TLMM) pin
-controller block found on the Qualcomm Kuno platform.
+Document the Global Clock Controller (GCC) binding and associated
+clock/reset IDs for the Qualcomm Kuno SoC.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
 ---
- .../bindings/pinctrl/qcom,kuno-tlmm.yaml           | 110 +++++++++++++++++++++
- 1 file changed, 110 insertions(+)
+ .../devicetree/bindings/clock/qcom,kuno-gcc.yaml   |  52 +++++++++++
+ include/dt-bindings/clock/qcom,kuno-gcc.h          | 100 +++++++++++++++++++++
+ 2 files changed, 152 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/qcom,kuno-tlmm.yaml b/Documentation/devicetree/bindings/pinctrl/qcom,kuno-tlmm.yaml
+diff --git a/Documentation/devicetree/bindings/clock/qcom,kuno-gcc.yaml b/Documentation/devicetree/bindings/clock/qcom,kuno-gcc.yaml
 new file mode 100644
-index 000000000000..2250526dfae2
+index 000000000000..7ae37033a1af
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/qcom,kuno-tlmm.yaml
-@@ -0,0 +1,110 @@
++++ b/Documentation/devicetree/bindings/clock/qcom,kuno-gcc.yaml
+@@ -0,0 +1,52 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/pinctrl/qcom,kuno-tlmm.yaml#
++$id: http://devicetree.org/schemas/clock/qcom,kuno-gcc.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Qualcomm Technologies, Inc. Kuno TLMM block
++title: Qualcomm Global Clock & Reset Controller on Kuno
 +
 +maintainers:
 +  - Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
 +
-+description:
-+  Top Level Mode Multiplexer pin controller in Qualcomm Kuno SoC.
++description: |
++  Qualcomm global clock control module provides the clocks and resets on Kuno.
 +
-+allOf:
-+  - $ref: /schemas/pinctrl/qcom,tlmm-common.yaml#
++  See also: include/dt-bindings/clock/qcom,kuno-gcc.h
 +
 +properties:
 +  compatible:
-+    const: qcom,kuno-tlmm
++    const: qcom,kuno-gcc
 +
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  gpio-reserved-ranges:
-+    minItems: 1
-+    maxItems: 55
-+
-+  gpio-line-names:
-+    maxItems: 110
-+
-+patternProperties:
-+  "-state$":
-+    oneOf:
-+      - $ref: "#/$defs/qcom-kuno-tlmm-state"
-+      - patternProperties:
-+          "-pins$":
-+            $ref: "#/$defs/qcom-kuno-tlmm-state"
-+        additionalProperties: false
-+
-+$defs:
-+  qcom-kuno-tlmm-state:
-+    type: object
-+    description:
-+      Pinctrl node's client devices use subnodes for desired pin configuration.
-+      Client device subnodes use below standard properties.
-+    $ref: qcom,tlmm-common.yaml#/$defs/qcom-tlmm-state
-+    unevaluatedProperties: false
-+
-+    properties:
-+      pins:
-+        description:
-+          List of gpio pins affected by the properties specified in this
-+          subnode.
-+        items:
-+          pattern: "^gpio([0-9]|[1-9][0-9]|10[0-9])$"
-+        minItems: 1
-+        maxItems: 36
-+
-+      function:
-+        description:
-+          Specify the alternative function to be configured for the specified
-+          pins.
-+        enum: [ gpio, audio_ref_clk, coex_uart, ebi2_lcd_a,
-+                ebi2_lcd_cs, ebi2_lcd_reset, ebi2_lcd_te, emac_mdc, emac_mdio,
-+                emac_pps_in, emac_ptp_aux, emac_ptp_pps, gcc_gp1_clk,
-+                gcc_gp2_clk, gcc_gp3_clk, mi2s0_data0, mi2s0_data1, mi2s0_sck,
-+                mi2s0_ws, mi2s1_data0, mi2s1_data1, mi2s1_sck, mi2s1_ws,
-+                mi2s_mclk, nav_gpio, pci_e_rst,
-+                pcie_clkreq_n, pll_bist_sync, pll_clk_aux, qdss_cti_trig0,
-+                qdss_cti_trig1, qdss_cti_trig1_mire, qdss_gpio_traceclk,
-+                qdss_gpio_tracectl,
-+                qup0_se0, qup0_se1, qup0_se2, qup0_se3_mira, qup0_se3_mirb,
-+                qup0_se4, sdc4_clk, sdc4_cmd,
-+                sdc4_data, sdc4_tb_trig, sgmii_phy_intr, spmi_coex_clk,
-+                spmi_coex_data, spmi_vgi_hwevent, uim1_clk, uim1_data,
-+                uim1_present, uim1_reset, usb2phy_ac_en ]
-+
-+    required:
-+      - pins
++  clocks:
++    items:
++      - description: Board XO source
++      - description: Board active-only XO source
++      - description: Sleep clock source
++      - description: PCIe pipe clock source
 +
 +required:
 +  - compatible
-+  - reg
++  - clocks
++  - '#power-domain-cells'
++
++allOf:
++  - $ref: qcom,gcc.yaml#
 +
 +unevaluatedProperties: false
 +
 +examples:
 +  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    tlmm: pinctrl@f000000 {
-+        compatible = "qcom,kuno-tlmm";
-+        reg = <0x0f000000 0x400000>;
-+        interrupts = <GIC_SPI 212 IRQ_TYPE_LEVEL_HIGH>;
-+        gpio-controller;
-+        #gpio-cells = <2>;
-+        gpio-ranges = <&tlmm 0 0 110>;
-+        interrupt-controller;
-+        #interrupt-cells = <2>;
-+
-+        spmi-state {
-+            pins = "gpio78", "gpio79";
-+            function = "spmi_vgi_hwevent";
-+        };
++    #include <dt-bindings/clock/qcom,rpmh.h>
++    clock-controller@80000 {
++        compatible = "qcom,kuno-gcc";
++        reg = <0x00080000 0x1f4200>;
++        clocks = <&rpmhcc RPMH_CXO_CLK>,
++                 <&rpmhcc RPMH_CXO_CLK_A>,
++                 <&sleep_clk>,
++                 <&pcie_pipe_clk>;
++        #clock-cells = <1>;
++        #reset-cells = <1>;
++        #power-domain-cells = <1>;
 +    };
 +...
+diff --git a/include/dt-bindings/clock/qcom,kuno-gcc.h b/include/dt-bindings/clock/qcom,kuno-gcc.h
+new file mode 100644
+index 000000000000..a237b25a061d
+--- /dev/null
++++ b/include/dt-bindings/clock/qcom,kuno-gcc.h
+@@ -0,0 +1,100 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#ifndef _DT_BINDINGS_CLK_QCOM_GCC_KUNO_H
++#define _DT_BINDINGS_CLK_QCOM_GCC_KUNO_H
++
++/* GCC clocks */
++#define GPLL0							0
++#define GPLL0_OUT_EVEN						1
++#define GPLL2							2
++#define GPLL3							3
++#define GPLL4							4
++#define GPLL4_OUT_EVEN						5
++#define GCC_EMAC0_AXI_CLK					7
++#define GCC_EMAC0_PHY_AUX_CLK					8
++#define GCC_EMAC0_PHY_AUX_CLK_SRC				9
++#define GCC_EMAC0_PTP_CLK					10
++#define GCC_EMAC0_PTP_CLK_SRC					11
++#define GCC_EMAC0_RGMII_CLK					12
++#define GCC_EMAC0_RGMII_CLK_SRC					13
++#define GCC_EMAC0_SLV_AHB_CLK					14
++#define GCC_EMAC_0_CLKREF_EN					15
++#define GCC_GP1_CLK						16
++#define GCC_GP1_CLK_SRC						17
++#define GCC_GP2_CLK						18
++#define GCC_GP2_CLK_SRC						19
++#define GCC_GP3_CLK						20
++#define GCC_GP3_CLK_SRC						21
++#define GCC_PCIE_0_CLKREF_EN					22
++#define GCC_PCIE_AUX_CLK					23
++#define GCC_PCIE_AUX_CLK_SRC					24
++#define GCC_PCIE_AUX_PHY_CLK_SRC				25
++#define GCC_PCIE_CFG_AHB_CLK					26
++#define GCC_PCIE_MSTR_AXI_CLK					27
++#define GCC_PCIE_PIPE_CLK					28
++#define GCC_PCIE_PIPE_CLK_SRC					29
++#define GCC_PCIE_RCHNG_PHY_CLK					30
++#define GCC_PCIE_RCHNG_PHY_CLK_SRC				31
++#define GCC_PCIE_SLEEP_CLK					32
++#define GCC_PCIE_SLV_AXI_CLK					33
++#define GCC_PCIE_SLV_Q2A_AXI_CLK				34
++#define GCC_PDM2_CLK						35
++#define GCC_PDM2_CLK_SRC					36
++#define GCC_PDM_AHB_CLK						37
++#define GCC_PDM_XO4_CLK						38
++#define GCC_QUPV3_WRAP0_CORE_2X_CLK				39
++#define GCC_QUPV3_WRAP0_CORE_CLK				40
++#define GCC_QUPV3_WRAP0_S0_CLK					41
++#define GCC_QUPV3_WRAP0_S0_CLK_SRC				42
++#define GCC_QUPV3_WRAP0_S1_CLK					43
++#define GCC_QUPV3_WRAP0_S1_CLK_SRC				44
++#define GCC_QUPV3_WRAP0_S2_CLK					45
++#define GCC_QUPV3_WRAP0_S2_CLK_SRC				46
++#define GCC_QUPV3_WRAP0_S3_CLK					47
++#define GCC_QUPV3_WRAP0_S3_CLK_SRC				48
++#define GCC_QUPV3_WRAP0_S4_CLK					49
++#define GCC_QUPV3_WRAP0_S4_CLK_SRC				50
++#define GCC_QUPV3_WRAP_0_M_AHB_CLK				51
++#define GCC_QUPV3_WRAP_0_S_AHB_CLK				52
++#define GCC_SDCC4_AHB_CLK					53
++#define GCC_SDCC4_APPS_CLK					54
++#define GCC_SDCC4_APPS_CLK_SRC					55
++#define GCC_SNOC_CNOC_USB3_CLK					56
++#define GCC_SYS_NOC_USB_SF_AXI_CLK				57
++#define GCC_USB20_MASTER_CLK					58
++#define GCC_USB20_MASTER_CLK_SRC				59
++#define GCC_USB20_MOCK_UTMI_CLK					60
++#define GCC_USB20_MOCK_UTMI_CLK_SRC				61
++#define GCC_USB20_MOCK_UTMI_POSTDIV_CLK_SRC			62
++#define GCC_USB20_SLEEP_CLK					63
++#define GCC_USB2_CLKREF_EN					64
++#define GCC_USB3_PRIM_CLKREF_EN					65
++#define GCC_USB_PHY_CFG_AHB2PHY_CLK				66
++#define GCC_BOOT_ROM_AHB_CLK					68
++
++/* GCC power domains */
++#define GCC_EMAC0_GDSC						0
++#define GCC_PCIE_GDSC						1
++#define GCC_USB20_GDSC						2
++
++/* GCC resets */
++#define GCC_EMAC0_BCR						0
++#define GCC_PCIE_BCR						1
++#define GCC_PCIE_LINK_DOWN_BCR					2
++#define GCC_PCIE_NOCSR_COM_PHY_BCR				3
++#define GCC_PCIE_PHY_BCR					4
++#define GCC_PCIE_PHY_CFG_AHB_BCR				5
++#define GCC_PCIE_PHY_COM_BCR					6
++#define GCC_PCIE_PHY_NOCSR_COM_PHY_BCR				7
++#define GCC_PDM_BCR						8
++#define GCC_QUPV3_WRAPPER_0_BCR					9
++#define GCC_QUSB2PHY_BCR					10
++#define GCC_SDCC4_BCR						11
++#define GCC_TCSR_PCIE_BCR					12
++#define GCC_USB20_BCR						13
++#define GCC_USB_PHY_CFG_AHB2PHY_BCR				14
++
++#endif
 
 -- 
 2.43.0
