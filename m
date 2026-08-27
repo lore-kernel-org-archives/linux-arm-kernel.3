@@ -4,83 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1681DC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 10:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F051DC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 10:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TnCFqI3enGf82CC8ee67RNK1TvPq1HK1vb51kNXC1KQ=; b=Ieq34TIjA+RiSDvOXHZ9gmI9FX
-	nJl2ClQGcT40555G9/WiwPuQf9YaAP5z/o0byLBKhq8jjUbTZlksGKWflKcYAh7NzkOgeLKhMpofD
-	Z2cK65OiakaY2ShqaRHEulo3YCCRC1qm7yxQ7V2PdawfJRPMwUc41ErckRhScglPfCtFWY5E1Uj63
-	11MozkJ3nk/L+W6A8iTDP/Vno3PPKu6Asnfp1K14te+L3BRW15B6Qrmkcm1BSztVjlHz4XeZJcaAv
-	b1rjF8Lx6u6UEO44Y6S24AnCvW5GPc8svLGGUfByKdJSfXk4inr9ntWHpMorLkIYDkvKoMpCI754H
-	ItWxo9sA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5UD/WXSEkIW8wMh9gaB0TOOHS2Vrc2AyN517gGWFLcM=; b=Tcyf0xn09Jo9NdshytPglrIcFC
+	kw2I8RG7f2xg5ee06FH2HV8Wz0FCji7nWKM+xjK6BZNip7shK+qvalb22Doxwm/5Eh1bHNJ7LDgi3
+	pfPVgkrasn70lkxwQl8W6wgK4FwhBBEzM3suPu1EyeWL7kfAFSTgMA5wLP3JiMXLSypXLr5twbVh6
+	Xg6T3hVmO4zBpS/lY4R2Ohh59/rxDh9RKQso8CW9Q4I0WIJW4zDTBxffyZ1ib1lljJLEDEUHnQQ99
+	C917QIuMOFx25zutpM2bhah3WDckL3ZYpmbBtEI/Tcqo2QJQGsm+BiaBkxxWzyyWo+kk26oLf3wN3
+	vjEGhF6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzXgW-00000003r5G-1AI0;
-	Thu, 27 Aug 2026 10:50:16 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1wzXhL-00000003rC2-2MKA;
+	Thu, 27 Aug 2026 10:51:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzXgT-00000003r3y-0Lww
+	id 1wzXhI-00000003rBw-3kdi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 10:50:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1787827816; x=1819363816;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WKikv7UDh0swUxIskP5m5gbLAwHhjW6fwJWJtfX2mOM=;
-  b=AsHVFGSQjxdIhNPh73Z/ArgCYdJEkYW0CGc4IQlayZtxxgwDoltAEqZ7
-   1nhy2RdMSVTSmrZ/Du2hFYn+kHiSHzcQpLL0uS8D1dXAMuvj07PalYo39
-   nGHKDu0jPpp0Mw1PINom6jOCzkh2+WMUHa8QT29AbtLReRs/+qcdwmT1d
-   hOMwROVWY2QjahYY/lg5sDVfGKlvoJEXUAlpb9p0Y5azwqBJSB7xinxQw
-   LwUCxVB2WHXvwqbtTX2xmXyscOJ4pyH7cedRg5MeVNRVtEWDPgAIkyz10
-   YE4R8dD1b1BbyqwIfkHj6ilk2gjWMxBeGeDs6FAiPhoExCPHDOQgAm7+6
-   Q==;
-X-CSE-ConnectionGUID: On+VD9zvSDyogEdmr1ElXg==
-X-CSE-MsgGUID: oJikmRcNRw6C4o8l2jsrCA==
-X-IronPort-AV: E=Sophos;i="6.25,246,1779174000"; 
-   d="scan'208";a="61843423"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 03:50:15 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.45; Thu, 27 Aug 2026 03:50:11 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 27 Aug 2026 03:50:07 -0700
-Date: Thu, 27 Aug 2026 12:50:07 +0200
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
-	<pabeni@redhat.com>, Horatiu Vultur <horatiu.vultur@microchip.com>, "Steen
- Hegelund" <steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend
-	<john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, "Herve
- Codina" <herve.codina@bootlin.com>, Arnd Bergmann <arnd@arndb.de>, "Greg
- Kroah-Hartman" <gregkh@linuxfoundation.org>, Mohsin Bashir
-	<mohsin.bashr@gmail.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH net-next v5 11/13] net: lan966x: add PCIe FDMA XDP support
-Message-ID: <20260827105007.ghfhbfhko3dkr37n@DEN-DL-M70577.microsemi.net>
-References: <20260520-lan966x-pci-fdma-v5-0-ca56197ae05b@microchip.com>
- <20260520-lan966x-pci-fdma-v5-11-ca56197ae05b@microchip.com>
- <20260522190126.0f2d6587@kernel.org>
+	Thu, 27 Aug 2026 10:51:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8888842D79;
+	Thu, 27 Aug 2026 10:51:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69FDC1F00A3A;
+	Thu, 27 Aug 2026 10:51:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787827864;
+	bh=5UD/WXSEkIW8wMh9gaB0TOOHS2Vrc2AyN517gGWFLcM=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=JPvKX0GQrMXP/+9/EKWhqLBqjlTWBE7J5S1z9PgXXUShXOo5piNTW9mKGzZGSi5HQ
+	 u2gCNP7qwfTu02xUJ1mFAp3RfZ8qZNbvS6RLpVmFEBqnYmYR9AwuKhSC962HL4e3rQ
+	 3fKRzS0XBCz7qikOehu5VI+6UU3U5rLx4gFloALXlv9zkZobbtl7wxqVwJ6Mp7mbGa
+	 iT9Ovgffo6AF+t5b0K//m6bwM13TQ1j52SS9g27eVx6khzPSn1c7XNDVHOgkjgNjBp
+	 hQm1I7Eg6BM6+i+FVGRgLakAUtJ+tWVNT/ySTpCItu5vp14uTmXtVHANXhcZ6Qz2Ar
+	 sTdcxW2MB0fvg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 5688A3809A19;
+	Thu, 27 Aug 2026 10:50:11 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260522190126.0f2d6587@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_035013_410122_1B421D22 
-X-CRM114-Status: GOOD (  18.87  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v2] net: stmmac: selftests: Pass the IP proto mask in
+ the
+ TC selftest
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178782780993.1160948.1335335298813579043.git-patchwork-notify@kernel.org>
+Date: Thu, 27 Aug 2026 10:50:09 +0000
+References: <20260825211748.360935-1-maxime.chevallier@bootlin.com>
+In-Reply-To: <20260825211748.360935-1-maxime.chevallier@bootlin.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux@armlinux.org.uk,
+ hkallweit1@gmail.com, alexis.lothore@bootlin.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ muhammad.nazim.amirul.nazle.asmade@altera.com, andrew@lunn.ch
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,58 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Wed, 20 May 2026 10:12:23 +0200 Daniel Machon wrote:
-> >  #if IS_ENABLED(CONFIG_MCHP_LAN966X_PCI)
-> >  extern const struct lan966x_fdma_ops lan966x_fdma_pci_ops;
-> > +
-> > +static inline bool lan966x_is_pci(struct lan966x *lan966x)
-> > +{
-> > +     return lan966x->ops == &lan966x_fdma_pci_ops;
-> 
->         return IS_ENABLED(CONFIG_MCHP_LAN966X_PCI) &&
->                 lan966x->ops == &lan966x_fdma_pci_ops;
-> 
-> compiler will eliminate the reference to the ops as dead code
-> and linker will not complain that its object is missing.
+Hello:
 
-Ack. Will change in v6.
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
+On Tue, 25 Aug 2026 23:17:46 +0200 you wrote:
+> The stmmac TC filtering rules have recently gained sanity checks to make
+> sure the passed keys and their respective masks are aligned with the HW
+> filtering abilities.
 > 
-> > +}
-> > +#else
-> > +static inline bool lan966x_is_pci(struct lan966x *lan966x)
-> > +{
-> > +     return false;
-> > +}
-> >  #endif
-> >
-> >  int lan966x_lag_port_join(struct lan966x_port *port,
-> > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_xdp.c b/drivers/net/ethernet/microchip/lan966x/lan966x_xdp.c
-> > index 9ee61db8690b..b470f731e25c 100644
-> > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_xdp.c
-> > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_xdp.c
-> > @@ -24,6 +24,16 @@ static int lan966x_xdp_setup(struct net_device *dev, struct netdev_bpf *xdp)
-> >       old_prog = xchg(&port->xdp_prog, xdp->prog);
-> >       new_xdp = lan966x_xdp_present(lan966x);
-> >
-> > +     /* PCIe FDMA uses contiguous buffers, so no page_pool reload
-> > +      * is needed. Drain NAPI before freeing the old program so
-> > +      * no in-flight poll holds a stale pointer.
-> > +      */
+> The stmmac selftests failed to pass the mask in the match data for L4
+> filtering tests, and are now failing consistently with -EINVAL :
 > 
-> Not sure what this does. BPF programs are under RCU, they are not
-> immediately freed (if that's that you mean..)
-> 
+> [...]
 
-It was added to stop NAPI from reading a NULL xdp_prog during a concurrent
-program swap, however that issue was closed using READ_ONCE in an earlier
-version. napi_synchronize() and the comment will be dropped in v6.
+Here is the summary with links:
+  - [net,v2] net: stmmac: selftests: Pass the IP proto mask in the TC selftest
+    https://git.kernel.org/netdev/net/c/9a56a27e6002
 
-> > +     if (lan966x_is_pci(lan966x)) {
-> > +             if (old_prog)
-> > +                     napi_synchronize(&lan966x->napi);
-> > +             goto out;
-> > +     }
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-/Daniel
+
 
