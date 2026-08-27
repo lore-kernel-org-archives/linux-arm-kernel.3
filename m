@@ -4,116 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAFCC61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 21:35:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F977C61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 21:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fMgwm7oAdbEbWShlMjn5W9P2IwFpciRIvrfJQ3hlebs=; b=KAz/JvqJ4NQ+9jU96FdKIpDf52
-	n+QkVbRkTAbi76LtxbC66ZVuwfiGlElUqFxH7guajy1WKpTm16c0fa3cbPBff1aHC3PTkOOn6sZ9x
-	Amxc1p6e4u9LIeOG1jchxRtGvoE1Y3tWgzr3H7IKNovUWNCfayZcEIyPWaj7A37JEtwvDz5y6yKws
-	v6dOq8CsyZm/SjqAm75BiPsfHMeuGoJKgjTLp8/Z+7LWAktgsY2YGx/2jGju3Vk8jiV6l4zuu+AqD
-	0Q5JZKpi0RZ1bXvgp2uHu5+TFjGx6NqnxW6uyd04Y0Iuxt78j9dCM3cKi3+rprV07ZgR2Bobw6Fwk
-	Irh/vhrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+dJ2/89KzJA+YU6uGo5TNo5P0os2bn6e5V8Hm1Oz+DI=; b=MjHSPC54w+hgcs0T16oInnm1rS
+	CLVRpW0EDKgZ4lrR6EZCSx+ekDDxZuG0FD+86SmSmDyY+AYbkqQlsN9xmuvK/VWi/2X7UurPuDDcv
+	ehgQ286ift0ZkVfAydAMl9/DPpyKSvlPCnH4osUzuYSM1zIZys4wx+XhFkvVE3B8TXVmYvnfV7RF4
+	Bb5Vfs/ekx9dcP0D1EGU0WgG0M1nKMTa2j4pKuZL9KcXlRW/laTWZ+HunyItfLLu58383+ccHFrGY
+	E9VePrrIXxczU7kjt1QmwBXzYUuyNZ4RlGX0UzZoMqvDChjSHZi27qzHaiIcu6bhvTjeiiZgt9lqK
+	GoXzJlVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzhke-00000004pAO-3n3w;
-	Thu, 27 Aug 2026 21:35:12 +0000
+	id 1wzhr5-00000004pOu-0lkq;
+	Thu, 27 Aug 2026 21:41:51 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzhke-00000004pAF-0sSk;
-	Thu, 27 Aug 2026 21:35:12 +0000
+	id 1wzhr3-00000004pOj-05j2;
+	Thu, 27 Aug 2026 21:41:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E2D6940DC7;
-	Thu, 27 Aug 2026 21:35:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3B061F000E9;
-	Thu, 27 Aug 2026 21:35:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9FCF84137B;
+	Thu, 27 Aug 2026 21:41:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CF601F00A3A;
+	Thu, 27 Aug 2026 21:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787866511;
-	bh=fMgwm7oAdbEbWShlMjn5W9P2IwFpciRIvrfJQ3hlebs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Kv31tegt83bsz+VlPCa34qRYWSmnWi5RV8Xs155GFSTnKHvQIbr2IokQ0nBGQCBcj
-	 e70dR8XXatKAmItuZF9ah71o499QQRbJYkHL5H8RCz1J+4ZiPbH49KVhHAm1OZH3yL
-	 FbcDzmBahzHi9083Jj4sD6b9eV1C4Pxt5p4zXxqSK9ZcvGLeCCmM0t3SJgmReEzsVT
-	 H6sV9jF+zGY+ln3GNPdx3VEaijc04/g4lAT4rE6odXvGx1dTcYXX5sB+OUNYme1ijN
-	 B51dmO0oeMMBotXi1AZsK9tmEjMOEJxWscPji4rEiexejSp+u17Fj0HKCLjqN6UjfI
-	 /Rfn+NkzAXzQQ==
-Message-ID: <3264c2d2-4c53-44c0-8164-d2d83f75c175@kernel.org>
-Date: Thu, 27 Aug 2026 23:35:01 +0200
+	s=k20260515; t=1787866908;
+	bh=+dJ2/89KzJA+YU6uGo5TNo5P0os2bn6e5V8Hm1Oz+DI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OnfQnoc334MVL1rqM4T9D31HFX7jfHs0Bilng0Pyr/1N9g76l9ZjCj1tvsb32Tvg+
+	 NbZFOaPvr9c+YrBJIG1sBBMJh3fKztI/Rgaktyp2zN+w2mkG7qBlwg3d/iwwwgtJg5
+	 eUOmwMLNOsfv8Zz2LrTpZMkA3Vi3vLmd+cH8MRdwvRkqxTZ3xcmMQEeHRv09vn/p3W
+	 vfhdZ420Tlxqw4CZUuTdAe0KL4kMNP68JVKdAJOREBlzVjjHnUgqXcIzivwloSlrJf
+	 TMy8d3IkWxZNmcaRPuqEdq8G6lw8ugX7HwrgLnmcvivIg2Z54ycAQ55Dq9H7QZIycM
+	 6qmCuWqTR3UyA==
+Received: by traversing.sirena.org.uk (Postfix, from userid 1000)
+	id 330E4C67629; Thu, 27 Aug 2026 22:41:45 +0100 (BST)
+Date: Thu, 27 Aug 2026 22:41:45 +0100
+From: Mark Brown <broonie@kernel.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "bill.roberts@foss.arm.com" <bill.roberts@foss.arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"debug@rivosinc.com" <debug@rivosinc.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>,
+	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>
+Subject: Re: Shadow Stack Locking Semantics between arch's
+Message-ID: <apCvGct9U1yprAUE@sirena.org.uk>
+References: <a1946d93-370e-4ca9-85d6-60b4a20ffd47@arm.com>
+ <3bb672e0-7bc3-434f-904e-aa00394dd01f@foss.arm.com>
+ <d20ccb74-69ed-45d7-a810-846904873588@sirena.org.uk>
+ <01b0fe86d5700847f78b0e6f839119f54ac88b04.camel@intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 7/9] dt-bindings: arm: stm32: Switch
- st,stm32mp23/25-syscfg into simple-mfd
-To: Marek Vasut <marex@nabladev.com>
-Cc: linux-usb@vger.kernel.org, fabrice.gasnier@foss.st.com,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Christian Bruel <christian.bruel@foss.st.com>,
- Conor Dooley <conor+dt@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Pankaj Dev <pankaj.dev@st.com>,
- Rahul Kumar <rahul.kumar05@st.com>, Rob Herring <robh@kernel.org>,
- Rosen Penev <rosenp@gmail.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org,
- kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260822074816.548662-1-marex@nabladev.com>
- <20260822074816.548662-8-marex@nabladev.com>
- <20260827-skilled-optimal-shellfish-c548e5@quoll>
- <9b197208-dbb4-44dd-b0c0-b4dcaa57c403@nabladev.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <9b197208-dbb4-44dd-b0c0-b4dcaa57c403@nabladev.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="sz/kjGTpENLdkZcp"
+Content-Disposition: inline
+In-Reply-To: <01b0fe86d5700847f78b0e6f839119f54ac88b04.camel@intel.com>
+X-Cookie: I think, therefore I am... I think.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,27 +80,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/08/2026 17:04, Marek Vasut wrote:
-> On 8/27/26 3:07 PM, Krzysztof Kozlowski wrote:
->>
->> OTOH2, you have now patchset dependency which is nowwhere explained.
->> Merging constraints are the most important part of cover letter so must
->> be clearly stated. IMO, should be stated also here, because many
->> maintainers do not read cover letters. Or just decouple dependencies
->> with using 'compatibles' pattern (see Qualcomm msm/mdss display
->> bindings).
-> I wonder, wouldn't it be better to write a driver which binds to 
-> st,stm32mp25-syscfg , handles the SYSCFG clock, and does some 
-> of_platform_populate() to bring up the PHYs (DT subnodes) ?
-> 
-> I think that would resolve the ABI break problem, since we wouldn't need 
-> the simple-mfd compatible anymore. And it would also correctly handle 
-> the SYSCFG clock.
-> 
-> What do you think ?
 
-Yes, it is better and more flexible approach. Solves ABI impact.
+--sz/kjGTpENLdkZcp
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Best regards,
-Krzysztof
+On Thu, Aug 27, 2026 at 09:27:06PM +0000, Edgecombe, Rick P wrote:
+> On Thu, 2026-08-27 at 19:14 +0100, Mark Brown wrote:
+> > On Thu, Aug 27, 2026 at 12:52:28PM -0500, Bill Roberts wrote:
+
+> > > I am proposing and have questions over the following:
+> > > 1. What should the behavior be if you had write locked and disable the
+> > > shadow stack?
+> > > =A0 - I can argue both ways here, -EPERM or success. I think I and mo=
+st arches
+> > > lead to failure.
+
+> > Given that RISC-V doesn't support control of writes it's moot there
+> > at the minute, and x86 currently uses arch_prctl() so will need an
+> > additional API, it seems the path of least resistance is to allow it.
+> > This also avoids locking writes (or pushes, for arm64) on effectively
+> > also locking enable which seems neater.
+
+> Hmm. I can't think of a reason to lock writes and not lock shadow stack t=
+oo.
+> Given likely no one is doing this, I wonder if we could change x86's beha=
+vior to
+> match the others?
+
+> The API would makes more sense to prevent disabling shadow stack if write=
+s were
+> enabled. It could return an EINVAL regardless if it is locked or not? Is =
+that
+> the arm behavior (forgetting about locked)?
+
+arm64 currently treats each bit independently for simplicity.  The main
+use case I see for actually doing that is for preventing enabling writes
+or pushes, though in practice I'd expect something doing locks to just
+fully lock everything after having enabled the shadow stack.  We can compose
+the features easily enough so it seemed most straightforward to just let
+userspace decide what it wants, it keeps the implementation simpler.
+
+> > It has been on my list to look at this
+> > repitition at some point, it had been held up by the clone3() stuff but
+> > that seems to have died a death for now.
+
+> Oh? What was the blocker?
+
+Basically the glibc people weren't convinced they'd ever want to reuse a
+shadow stack at which point having the kernel free and reallocate each time
+is just as easy.  It saves having to handle corner cases with threads that
+didn't exit cleanly.
+
+--sz/kjGTpENLdkZcp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqQrxMACgkQJNaLcl1U
+h9DLvAf/aD6cLja4vh624NoCAxT31xAb2Z0qfo5lbjna4gi96N7QofiM8YSxwqzY
+uERaK8TZBR93wojxkcg9W919KwU9yEHlT9nFeyl8wIwpuMKytvR06lOvwh5NRcCU
+Vaa8qjM4Sgl1MHes7onoDrjNVprq7Z3ORz5k/ccIjVQue0S1qJoYciFaxw8gQLTp
+NJqHqErqED4YmsnbjW94wK8jJGZzvSORNHmk/+i3HkwdmEmg9MIhj7l/uzVuY2V3
++A2aaqVAiOdvscucQ5DV/gzjM4dJc+3qBoEl1OSVF/oXPkbSTC522w2xrJ4tQGQc
+cnYEBs+MNTbaDQJ/lzGwAhbr8aoKWg==
+=/1d8
+-----END PGP SIGNATURE-----
+
+--sz/kjGTpENLdkZcp--
 
