@@ -4,72 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D99CCC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 19:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59D84C61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 19:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EYzcyAhdbTqEloTCK7Hw+Eq4nhD16eF4Mvm5eTNfpHI=; b=3i2UB/1VK047jXWuTDp0GB9JOY
-	DxD3Wv3kKR4aB868hQTgJ+yC1v2+ntOl/GIAzDwnIgNbMvlhkd/9bRky9LYx/vBc0w1oMCjpUqWRJ
-	6ooo1q5ek8yOy1B2NpM0D8gAJlZQ53LsG8fuI8fN6U7eXeXBZzLqbxPGwB/cZwDahE6nHI1BdWa0N
-	tcFJTr0hg89JKfRt+kkKiWvX16Z0iVtpEKG92iFpbpHsx6ceE9gXL46+djzObHfuFjKnZ2RU65ENb
-	RAHcyjvNXoUz5VdZleAdzFtMTWj0ntTEFZn4dPkzSNLzQ2ARhdN+V6Y7dV18axODuE27soQwWMwKN
-	321hyEgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N2udzpdgAe7uPvAfHTCsWfnzTvUPTkNUrpMKtgrojuw=; b=dmidpJ0lGOdY7Cz8opxLp/Kd+z
+	t71RdXfhhmv0+mM/9qq9QkunLQhHNDDIk8EeiuGadS9j4JP6G8YABPsQf1WMZbwFP8qlZp4iPLua/
+	gNdf/uIVqwaBm6W1GNbVAGWYqE7DpSivcXz0s/1PbpL3hVo56DztY6j8pJIjoTT2DIWdKvsF7Bx/E
+	r501T3PV/qeOylgHEbR/4+PdMesyDFlDafQY4ZPN0rSjpNM2Q3TUztTofEd5hh4M7KoTZhbyj39FW
+	5B7cHYlNxcRkl78upNOWmxscuZrDZgkORA/r99rVuuUac5dqDokI/c6Vu5uJLvJwovh4Rh+mk4wHL
+	PrRzFCOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzfh1-00000004hQl-0eDq;
-	Thu, 27 Aug 2026 19:23:19 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wzfht-00000004hZO-2mkZ;
+	Thu, 27 Aug 2026 19:24:13 +0000
+Received: from mail-francesouthazon11011021.outbound.protection.outlook.com ([40.107.130.21] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzfgx-00000004hQB-3P12
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 19:23:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1787858592;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=EYzcyAhdbTqEloTCK7Hw+Eq4nhD16eF4Mvm5eTNfpHI=;
-	b=YH/tOq2edmt0mba6Hl7TGDhFb8Ksu88o/dre/D2IRY5K0DoZlRAD7JmcJscblttMVUKt+a
-	7ihVhEF5FKl+FLhQZfLTgw8V37e7X3m76efoAmNB+u+J5ofB2T8J9u/QJ7m0GGu/Zs8qAN
-	hxNuI0/eiEmPeVtHhkPww2p9dBtnq6E=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-631-zxLhmvDSOWamWVs6BqiNzA-1; Thu,
- 27 Aug 2026 15:23:09 -0400
-X-MC-Unique: zxLhmvDSOWamWVs6BqiNzA-1
-X-Mimecast-MFC-AGG-ID: zxLhmvDSOWamWVs6BqiNzA_1787858586
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8F64E1954105;
-	Thu, 27 Aug 2026 19:23:05 +0000 (UTC)
-Received: from [172.20.61.140] (unknown [10.30.44.61])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0E4E13001D37;
-	Thu, 27 Aug 2026 19:23:03 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.2.0-0,
- upstream-arm-next, f1b8fa82)
-Date: Thu, 27 Aug 2026 19:23:03 -0000
-To: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
- will@kernel.org
+	id 1wzfhq-00000004hXf-2g4W;
+	Thu, 27 Aug 2026 19:24:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SfadOrGR1KxacE/jFRiTnvftxglpsl3TH2kzVWr2FAFGkzi3dEoIXEkwFVfzvhbpoRO7qUycAehwzxiB55wdJVwUmnIMgPYyUaggK6PwkSk+BQ9aTLfWNQ52qB9C8oX3qXI0Rhl78JhWeCJ9htK/Qgrqxjhcy2jQnrEvH225bV4qkm0s2UPGhngBekBCjGw13pmnrW6J4eycqmBAUR1iyVQ6rEbuWMC3zI/JygEH8e2KMRGyDz8K9ZFvDYdjot3y9xIzvW/x7mss+lsVdPs/CMWfKSfQyKKO3sBM/CP4QGhJgwonUo6Ry0MfUQFY7jWkJG2WWies2QI10JprhPlktw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=N2udzpdgAe7uPvAfHTCsWfnzTvUPTkNUrpMKtgrojuw=;
+ b=P5JIaLYHF9Jq6TdeauVPY0hIBffO6/6PjyxoSNdCbW/zjLPuE2WZxAPFFn8TPtFSuwNrIxTokLbSETVXGObfwGGb6/8MThmI4CxXtqD1qLwSnAqjVvMI0xC85YU1aBdaIVvxFhr4P92aHkagTbwBJtxAGtUEa3pl8lPa9kxb35QMs+oRgfo8gHyIrylvaaKTLTRkOndbmL2DqLvnrTUJAa23m2OfCyM2SNiY56IilaXcaIDD761b2z+dirnNW1vE6KfjP1+3mARg8K94IoplLrNgIUXT/9dHQ/lY0dFQQi2/bXjm0qWZM1etVxNdrO1edm3jLJSauCeR6QPqtsdo9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=N2udzpdgAe7uPvAfHTCsWfnzTvUPTkNUrpMKtgrojuw=;
+ b=fzcTHySgg+vj37UdEMO4oB6P9lkBDei7L2N24GCp6ux7gdkaZXKVWuU9mlXLadZysqbRL/3Kr40XAXtpy8j42vgn8TmiMzMnbNqhWhAqChyeo62uFxAXJ8XX92yxEMchVeU+R/nccinuNE2LIBU+g0ykXBBPUPHn63V+R7VRCDdUibg9KvxOMoUz0rmgY4QC/iuHZ1lB42WwjYx9whnEcEw56h+xEq9D6WqdW5hgBXPfVgHKkymuHYzxf0/yvLx1WXCY5vMg1XI1cIXdRtUVJhHr4n9N74yFFZ8S0tbLm16uBGvYo2MzC8NvFh/OF5jTSuukNMcakd2goUEGgLq6Tw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA3PR04MB11203.eurprd04.prod.outlook.com (2603:10a6:102:4ab::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Thu, 27 Aug
+ 2026 19:24:01 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
+ 19:24:01 +0000
+Date: Thu, 27 Aug 2026 14:23:49 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Koichiro Den <den@valinux.co.jp>
+Cc: Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Niklas Cassel <cassel@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Rob Herring <robh@kernel.org>, Aksh Garg <a-garg7@ti.com>,
+	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
+	Chaitanya Kulkarni <kch@nvidia.com>, Jon Mason <jdmason@kudzu.us>,
+	Dave Jiang <dave.jiang@intel.com>, Allen Hubbe <allenbh@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Manikanta Maddireddy <mmaddireddy@nvidia.com>,
+	Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>,
+	linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
+	ntb@lists.linux.dev, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] PCI: endpoint: pci-epf-vntb: Honor MSI-X selection
+Message-ID: <apCOxer4VJpkeKVf@SMW015318>
+References: <20260827182012.1984960-1-den@valinux.co.jp>
+ <20260827182012.1984960-4-den@valinux.co.jp>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260827182012.1984960-4-den@valinux.co.jp>
+X-ClientProxiedBy: SA9PR11CA0006.namprd11.prod.outlook.com
+ (2603:10b6:806:6e::11) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-Message-Id: <30476.126082715230900145@us-mta-631.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ZdC4JUukwrbR8MtqrzHhBk5MaPXw3UPebnaMMgCX9DU_1787858586
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA3PR04MB11203:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9cf78294-2ace-425f-6aa6-08df0470bfae
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|19092799006|366016|6133799003|10067099003|56012099006|11063799006|5023799004|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: QLEKbIr7ua18CaDkdKRMbHUNbDp4bDKuX11XBMwm9kI5fFK8xkXoNvXz2gIVb+mlEsKXm4YhO6Mu+cgztcz4u/ncKtDvpKnj27cGwgUfJ7vkeDgpWbof0K9FgNBpLI+qsIeYrsdFHgzRImm9ndwRPSJBux6cqDxLc7sOU6AhUzusshoCbjKo8ngJo2FGRw5B4e0ysxr2PJY4oomveMUajAmvmhX46wwO+vCFe0KNkG20teSylPOzt3YrTggerwdFC9OD9XZQ2qpcXH5CJopZFSwQEP0RwyJv8OQwYbEVZxxiT7aPpPGpHkaojir4q7CowyOuvxDw0qfoVmPOaFyMAWdygrpKiOeCMA5+upiO57L0DlHeug8GRgZcgDIOkV2u7uDc66dneLBwfcdjTd1kJX3Yizcy2BkmgL1l5U10PZe6QkszyUt7ocGLGSwqxeGtWE1O6F3QKFElVPmPbqtditjLtT3bZeMPj0k12yq1Hdoo97/xJ7hJbNUw5XXU57Q3HJIImRp2nRMhEdAG2RemIG9vzxAw8nuY1wueNDRWCbY25ef3bPL9flCeMYjSsI7JGO4EnmgWp0m1hdjoemHGdqsuiWKILmPQThCgB/ED5euW2shJEg4zaWHMHVpPG+pDWjTZS1R37AyWyzzE/7HUFqgAARJXb9ZT3lygwJnEdGE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(19092799006)(366016)(6133799003)(10067099003)(56012099006)(11063799006)(5023799004)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LSrw77cTu3CVMD9ROBbuAUK0AmiTCsnHHJxld44yJM9Dam7yF3t5stDN2cA9?=
+ =?us-ascii?Q?1Jg6RcSXiP3uaiHHJVlQXROEqIO7uEwOilxM3tDbBGXXrRNsSINa2wmy1ouF?=
+ =?us-ascii?Q?Th8OqLnO9DGJUXmIZjlbjkRQCE9RGRxBM/rnbfpIihRxEWt371mPl/6VMqhX?=
+ =?us-ascii?Q?2qGTddAe038CF/SFx4NcRHsBazi/2peDIGXZSCke61hTIPom3Ai+LVFRd5nm?=
+ =?us-ascii?Q?br9WdsCYWZ7QIVlHaEUQktH/JVb0zgQP9l2lFiHa/VPpy7C7cU3AoD9mGmz9?=
+ =?us-ascii?Q?KRwWUUPCIlwvbMsMJPW5nx/F8M/iyprAqV8wYd1a9wLqRS4OZTnLe0Kjwd7G?=
+ =?us-ascii?Q?+sB6fKoumBiGWBW/DJwBg8bRc0xmgFe1dSaFhonJFrjb3RlonPxCyDn/krzg?=
+ =?us-ascii?Q?1nGWOCsCRMQJnDj8Mg0dp3L++xcGzqD1XhBxavLWnJkQRoTT2qxFCrSk580I?=
+ =?us-ascii?Q?6Ld4KfGMGGzObelt0/qfiAxJer+lZ45GYXXNyTdpjS+ktRIb0lc7y6pVpy3G?=
+ =?us-ascii?Q?u6Vig6jiADB/F+6SjOvHnWTjZjafEdCPTjYEXxTivQmWbRw40kyHK/0dsc3X?=
+ =?us-ascii?Q?1ApT9PUdn3WOIctSPYyTc66aBQYZHvH6h+qlUfkp31Bn3oFM6wSZvkQfXUen?=
+ =?us-ascii?Q?M8oL01JCtuoNudbAwWGSXOYCggScIJ6sT8DibmywyhNi+SfiVLdeVlbereD3?=
+ =?us-ascii?Q?os9XRoQnbVAa/22lgMNiByEHpG32P4WlGMVC7lg1W8/E5ukicXCykN4+Hs7W?=
+ =?us-ascii?Q?p0mKgmNM2Gg+grPmctPQfjQmALxn5SaG3RgPFhi2yuVGJnOiIPOFu3mTnwYA?=
+ =?us-ascii?Q?WD9U/Kvys0ZsK7vs0YkPooxAclCKAtL7jTCX0umn1cVl+N7cBeNhrObcaISV?=
+ =?us-ascii?Q?fTqhilTGtSKOV6HcKP7abbH7QlJ2lQDkOX3phH5TPRvHGPLs2xIlzQGNGK9Y?=
+ =?us-ascii?Q?OqwiqCs6/JUZB6zKlPtJBJEvABAr7XOIJTVU/KKW7Useh6BGd1EnfNr1+8ww?=
+ =?us-ascii?Q?9WHmS8DfkGbgxJxkIx3PGogLa8SBh3QYi6HYKf61zC/EdYrn7R/v4tgojBlc?=
+ =?us-ascii?Q?aGuHzk9vSK6TuHVb7dXwVybR3V1LDh2B0acN2SpohuL8Whda4pfLOyozlY5b?=
+ =?us-ascii?Q?hwqh+Mx0WGV7fbjb5JAAx2UaLPr3cjSNqmZ73+KHLiJbtZlDfX0algJCbgJH?=
+ =?us-ascii?Q?PgbqefmYZviudiuwvd8svc3h7ZnVZaRPkZfOyXzW+ql0pIy+FjUO67nRRCBw?=
+ =?us-ascii?Q?Em/QlSvjv0PRp6A7lwCnXfMrbj+KtEqXeYJ3Vu1Vr7p/+RB0lO3SlIC15WEf?=
+ =?us-ascii?Q?rrdFw4/+gYnIcZacwjInPTdbPgy7z2SspJZhloYelcL9GeZsMYJI0zbYPVwI?=
+ =?us-ascii?Q?DRoTFq/Ow5rWrbrSc+jWOlSmqUxthwmnlnBZr8cvYkB/33L1g0xixW/SlonJ?=
+ =?us-ascii?Q?bt3QxOsFhlZ1adrGl2OL37SZun7ly4MYk9BnZNMkfGQ3uYAbyhsBHpVZSNpi?=
+ =?us-ascii?Q?J0XAVPHOEMLoQlIbdE1wTQMR/ZUBy75u7IG+7uOKzFmlfzF7ue24nvzAIPM+?=
+ =?us-ascii?Q?OFLklGPhZzJW724DONrxK6vQ1WlHjqrG9Pv7wHrd6SRqphtc+ct0Uy5q3Cxa?=
+ =?us-ascii?Q?aixr/kSen1KNe/stLTnyEvtlhPAZEickKc3uu5eokHAxsq60495Nrcqy1usK?=
+ =?us-ascii?Q?vqktPTpoM2lhqE9nvnVbq5sOjA4yb3d5zPs0lYsz+aii0bNgK+1q6XyedunV?=
+ =?us-ascii?Q?c1VXOFha+IyVA7Q4DPIvIdv05RpoMZIC4aJAieiqEMH0EDeMOn1F?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9cf78294-2ace-425f-6aa6-08df0470bfae
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 19:24:01.2245
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9RxFKnrvhI0ByA3fewAU91QiomJ7vpSAOg3cXIe+rd2qbca9mmkN3hxmxZn37Jystooful3s9QmYftx/pQDnYzmNLkMdv9rHHZvNN8ZJ7KVOzIcXwAmHBGJHZFVw2PI/
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11203
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_122315_923501_0D7F17B5 
-X-CRM114-Status: UNSURE (   6.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260827_122410_855309_239B7C4E 
+X-CRM114-Status: GOOD (  32.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +151,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Fri, Aug 28, 2026 at 03:20:12AM +0900, Koichiro Den wrote:
+> ntb_hw_epf tries MSI-X first and falls back to MSI. It reports the
+> result in COMMAND_CONFIGURE_DOORBELL. pci-epf-vntb ignores MSIX_ENABLE,
+> configures only MSI, and always raises peer doorbells with PCI_IRQ_MSI.
+> When MSI-X is selected, the host does not program MSI, so raising it can
+> issue a write to an invalid address. This was observed with an IOMMU
+> enabled on the RC.
+>
+> Configure MSI-X when supported and use the selected type for peer
+> doorbells. Use the hardware-owned layout when available. Otherwise
+> allocate an EPF-owned Table and PBA in the config BAR. Configure db_count
+> entries to cover the link event, the reserved slot, and the doorbell
+> slots.
+>
+> Fixes: e35f56bb0330 ("PCI: endpoint: Support NTB transfer between RC and EP")
+> Signed-off-by: Koichiro Den <den@valinux.co.jp>
+> ---
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Tested-by: CKI Project <cki-project@redhat.com>
-
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2797274735
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+>  drivers/pci/endpoint/functions/pci-epf-vntb.c | 67 ++++++++++++++-----
+>  1 file changed, 51 insertions(+), 16 deletions(-)
+>
+> diff --git a/drivers/pci/endpoint/functions/pci-epf-vntb.c b/drivers/pci/endpoint/functions/pci-epf-vntb.c
+> index c3caec927d74..d9622a5d4710 100644
+> --- a/drivers/pci/endpoint/functions/pci-epf-vntb.c
+> +++ b/drivers/pci/endpoint/functions/pci-epf-vntb.c
+> @@ -148,6 +148,7 @@ struct epf_ntb {
+>  	u16 vntb_vid;
+>
+>  	bool linkup;
+> +	bool peer_msix;
+>
+>  	/*
+>  	 * True when doorbells are interrupt-driven (MSI or embedded), false
+> @@ -155,6 +156,7 @@ struct epf_ntb {
+>  	 */
+>  	bool msi_doorbell;
+>  	u32 spad_size;
+> +	struct pci_epc_msix_layout msix_layout;
+>
+>  	enum pci_barno epf_ntb_bar[VNTB_BAR_NUM];
+>
+> @@ -303,6 +305,7 @@ static void epf_ntb_cmd_handler(struct work_struct *work)
+>
+>  	switch (command) {
+>  	case COMMAND_CONFIGURE_DOORBELL:
+> +		WRITE_ONCE(ntb->peer_msix, argument & MSIX_ENABLE);
+>  		ctrl->command_status = COMMAND_STATUS_OK;
+>  		break;
+>  	case COMMAND_TEARDOWN_DOORBELL:
+> @@ -439,9 +442,9 @@ static void epf_ntb_config_spad_bar_free(struct epf_ntb *ntb)
+>   *   region
+>   * @ntb: NTB device that facilitates communication between HOST and VHOST
+>   *
+> - * Allocate the Local Memory mentioned in the above diagram. The size of
+> - * CONFIG REGION is sizeof(struct epf_ntb_ctrl) and size of SCRATCHPAD REGION
+> - * is obtained from "spad-count" configfs entry.
+> + * Allocate the control and scratchpad regions described in the above diagram.
+> + * If the EPC does not provide a hardware-owned MSI-X table and PBA, allocate
+> + * space for them between the control and scratchpad regions.
+>   *
+>   * Returns: Zero for success, or an error code in case of failure
+>   */
+> @@ -454,7 +457,7 @@ static int epf_ntb_config_spad_bar_alloc(struct epf_ntb *ntb)
+>  	struct device *dev = &epf->dev;
+>  	u32 spad_count;
+>  	void *base;
+> -	int i;
+> +	int i, ret;
+>  	const struct pci_epc_features *epc_features = pci_epc_get_features(epf->epc,
+>  								epf->func_no,
+>  								epf->vfunc_no);
+> @@ -462,6 +465,29 @@ static int epf_ntb_config_spad_bar_alloc(struct epf_ntb *ntb)
+>  	spad_count = ntb->spad_count;
+>
+>  	ctrl_size = ALIGN(sizeof(struct epf_ntb_ctrl), sizeof(u32));
+> +	if (epc_features->msix_capable) {
+> +		ret = pci_epc_get_hw_msix_layout(epc_features,
+> +						 &ntb->msix_layout);
+> +		if (ret && ret != -ENOENT) {
+> +			dev_err(dev, "Invalid hardware-owned MSI-X layout\n");
+> +			return ret;
+> +		}
+> +
+> +		if (ret == -ENOENT) {
+> +			ntb->msix_layout.table_bar = barno;
+> +			ntb->msix_layout.table_offset = ALIGN(ctrl_size, 8);
+> +			ntb->msix_layout.table_size =
+> +				ntb->db_count * PCI_MSIX_ENTRY_SIZE;
+> +			ntb->msix_layout.pba_bar = barno;
+> +			ntb->msix_layout.pba_offset =
+> +				ntb->msix_layout.table_offset +
+> +				ntb->msix_layout.table_size;
+> +			ntb->msix_layout.pba_size =
+> +				BITS_TO_U64(ntb->db_count) * sizeof(u64);
+> +			ctrl_size = ntb->msix_layout.pba_offset +
+> +				    ntb->msix_layout.pba_size;
+> +		}
+> +	}
+>  	spad_size = 2 * spad_count * sizeof(u32);
+>
+>  	base = pci_epf_alloc_space(epf, ctrl_size + spad_size,
+> @@ -502,6 +528,7 @@ static int epf_ntb_config_spad_bar_alloc(struct epf_ntb *ntb)
+>  static int epf_ntb_configure_interrupt(struct epf_ntb *ntb)
+>  {
+>  	const struct pci_epc_features *epc_features;
+> +	struct pci_epf *epf = ntb->epf;
+>  	struct device *dev;
+>  	int ret;
+>
+> @@ -521,16 +548,22 @@ static int epf_ntb_configure_interrupt(struct epf_ntb *ntb)
+>  	}
+>
+>  	if (epc_features->msi_capable) {
+> -		ret = pci_epc_set_msi(ntb->epf->epc,
+> -				      ntb->epf->func_no,
+> -				      ntb->epf->vfunc_no,
+> -				      16);
+> +		ret = pci_epc_set_msi(epf->epc, epf->func_no, epf->vfunc_no, 16);
+>  		if (ret) {
+>  			dev_err(dev, "MSI configuration failed\n");
+>  			return ret;
+>  		}
+>  	}
+>
+> +	if (epc_features->msix_capable) {
+> +		ret = pci_epc_set_msix(epf->epc, epf->func_no, epf->vfunc_no,
+> +				       ntb->db_count, &ntb->msix_layout);
+> +		if (ret) {
+> +			dev_err(dev, "MSI-X configuration failed\n");
+> +			return ret;
+> +		}
+> +	}
+> +
+>  	return 0;
+>  }
+>
+> @@ -1512,6 +1545,7 @@ static void vntb_epf_peer_db_work(struct work_struct *work)
+>  	struct epf_ntb *ntb = container_of(work, struct epf_ntb, peer_db_work);
+>  	struct pci_epf *epf = ntb->epf;
+>  	unsigned int budget = VNTB_PEER_DB_WORK_BUDGET;
+> +	unsigned int irq_type;
+>  	u8 func_no, vfunc_no;
+>  	unsigned int db_bit;
+>  	u32 interrupt_num;
+> @@ -1523,6 +1557,7 @@ static void vntb_epf_peer_db_work(struct work_struct *work)
+>
+>  	func_no = epf->func_no;
+>  	vfunc_no = epf->vfunc_no;
+> +	irq_type = READ_ONCE(ntb->peer_msix) ? PCI_IRQ_MSIX : PCI_IRQ_MSI;
+>
+>  	/*
+>  	 * Drain doorbells from peer_db_pending in snapshots (atomic64_xchg()).
+> @@ -1536,16 +1571,16 @@ static void vntb_epf_peer_db_work(struct work_struct *work)
+>
+>  		while (db_bits) {
+>  			/*
+> -			 * pci_epc_raise_irq() for MSI expects a 1-based
+> -			 * interrupt number. The first usable doorbell starts
+> -			 * at EPF_IRQ_DB_START in the legacy slot layout.
+> +			 * pci_epc_raise_irq() expects a 1-based interrupt
+> +			 * number for MSI and MSI-X. The first usable doorbell
+> +			 * starts at EPF_IRQ_DB_START in the legacy slot layout.
+>  			 *
+>  			 * Legacy mapping (kept for compatibility):
+>  			 *
+> -			 *   MSI #1 : link event (reserved)
+> -			 *   MSI #2 : unused (historical offset)
+> -			 *   MSI #3 : doorbell bit 0 (DB#0)
+> -			 *   MSI #4 : doorbell bit 1 (DB#1)
+> +			 *   IRQ #1 : link event (reserved)
+> +			 *   IRQ #2 : unused (historical offset)
+> +			 *   IRQ #3 : doorbell bit 0 (DB#0)
+> +			 *   IRQ #4 : doorbell bit 1 (DB#1)
+>  			 *   ...
+>  			 *
+>  			 * Do not change this mapping to avoid breaking
+> @@ -1556,7 +1591,7 @@ static void vntb_epf_peer_db_work(struct work_struct *work)
+>  			db_bits &= ~BIT_ULL(db_bit);
+>
+>  			ret = pci_epc_raise_irq(epf->epc, func_no, vfunc_no,
+> -						PCI_IRQ_MSI, interrupt_num);
+> +						irq_type, interrupt_num);
+>  			if (ret)
+>  				dev_err(&ntb->ntb.dev,
+>  					"Failed to raise IRQ for interrupt_num %u: %d\n",
+> --
+> 2.51.0
+>
 
