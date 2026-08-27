@@ -4,98 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E55C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 11:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FDD5C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 11:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VYUvIldewK6PvTP1rIkGVol761Yt1VpaE72Hq+Vq9o0=; b=yhle4xCN7j2tQsCg8J8c2kAjvg
-	O49Gu0d4R6OgK32iA6CRC99Iv3Qp1nziqNNiszGIh33HhgTTMlh9ub7HCc/EllWexaQAGeykh4xV0
-	bu5fQdJVjeD/rLoo2YBNaspXvTB/tHtoptDMUvywFgojkauI4lmtdUgtuy6U3lqraTU17nfziL+Ok
-	ZKT9pMEvDFrW0FfKwW6aMizSTLIfuVnO2gtX+7+n8J9qze/D6zqxaKsmNBEAKC9MFckPB//jut0y5
-	MuNxllqT+4d9HuuxHoDyQqitVUu/YK7VENF0AkA3tqFZlk02uNeeUqa1ThirZIqOUOI+m7oyeUu/I
-	aUE6XpEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+KY+T/6XExnwTOFlRMAmJAfIzA9puQ4tyCTxS8psGZk=; b=hfj1Pr84xGIr6Akizyq48xz4zT
+	WQ02sl3cMD2XcuRk/5dIFBr6HkkhtSgxst4UlOe6Y56B1jISB1WH2YSTyjKP1vNcOMfhHM0z/8PeJ
+	qQV2mLtiIMwMyv7xQu42rtJWHlh9SdC0ikVEqSiSnP9H8g5z7bIp1Gs65kvu0XoiVz3W7eLKoQVPv
+	dwsAOGR0EuXySYTRCN/Jawf+zmsud7jlHggAfZAUF6vkLPDC51DNuXf7LIRtrTZe9z4C4L5WmlRbf
+	/AAwKNrUvvA8RtgDg7YG4dab0bk3Jxng9wE1vQp8Hi2NKzkn1qZYHD//KbtaFRROKYDx1uGtlsfW0
+	1auyPXLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzXuG-00000003rkS-1QzU;
-	Thu, 27 Aug 2026 11:04:28 +0000
-Received: from mail-vk1-xa31.google.com ([2607:f8b0:4864:20::a31])
+	id 1wzY87-00000003siW-3cap;
+	Thu, 27 Aug 2026 11:18:47 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzXuD-00000003rjl-31mJ
+	id 1wzY83-00000003shk-1nXu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 11:04:27 +0000
-Received: by mail-vk1-xa31.google.com with SMTP id 71dfb90a1353d-5bf94664327so1162275e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 04:04:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1787828664; x=1788433464; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=VYUvIldewK6PvTP1rIkGVol761Yt1VpaE72Hq+Vq9o0=;
-        b=aj3hDHt7REK+fimez96oo0xxmjUyqdJSSwUUm8R0ZvVeG+sZFRBITofMSlUE7jWaUm
-         u3TRgls7XN5eVBSCyvcuK9IomoM44N02k4LnXn8GzroA7dzvpj7RoS4bJkMhdw7ZxQzw
-         s+Cn6wz/+NzDsxy6ERbFqPY7HIAsLDj6nyTTA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787828664; x=1788433464;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VYUvIldewK6PvTP1rIkGVol761Yt1VpaE72Hq+Vq9o0=;
-        b=LmNfdGrp4fACLsmbQPZWWajGHiNntvcfa+/49IL2Igz3jP26i0QMJw85m+dY+B/x2C
-         MooHf3lMnPgEDCLhvBqn3v3hrNBTtMou+ui4M6EqaiqI4Pq7CN94vCPzV/EM5NlqUXxc
-         hyKrwrs1RvplRj3SSjeFtG2n4SCdkxbLjPvPdkVdzHaSCktD/BhfjcZArqxu9P8qgscU
-         tAkctwHyJJbKxU/I69Ns4++2nKOz4269A7GnchMkS4NU0hZ/SoroA1/J28lzu3IFrWC6
-         E6ofB2nYOPcvC0CeCvkjexCWdHNs/iste+mqvs+IByyge1+PV1XBw6KYXD5Qnd5BCXRB
-         jK/w==
-X-Forwarded-Encrypted: i=1; AHgh+RrQKxi0VKsfOcCYrq3PZLSAptKJnkDulOgTdWbEFyvaMTKYjPIKhuOrubwwHvADviMjyg7F5+KJ3jLOC9RN8ALo@lists.infradead.org
-X-Gm-Message-State: AFuF++lbTDYZdCOF2QpEgYk6iMrT6+rtudJoeWX1Eilo9lT0vxOWNjuI
-	5YL0UzHuQWi0MEqswj3mxc9oAVFxPsdZI05x9I5ef55Ytztbx1FQXCwcpOHIMV+3UR7K9tPd/FX
-	EmOs=
-X-Gm-Gg: AR+sD12Qc8OT08IO82H1riElj+YIpRfhx+3x7NjUSan3b52+5RHxTaa2uh9hpvhZlfm
-	25QpQgz8e5lIg4OPlsPc1UZfqLwG0qHjzhXYA/oVoJ2//WWyHPFyHihR8YB7YVYKN0gi/wFoi/I
-	NDRVxsulYD97RaGu2FwxAYaSUf16ljGxrrl7JmSGebnmE5Vo6LZx2jdwW939EMV0AN2l5esEYHY
-	BJdz0S2RFGxRHQB1rH4S+qpYjvOCGAhBbBUsTv5z/mbYsCrqT4PaYPwto8kKGsDyXfdB5/fgetq
-	WbbWf0h+X7YMdTqL3j5qh2kSOEhz54XMe87nUoRrtfYeX/2qDKxD/lZfK1o12JD8/jhQCJQp1Kq
-	UoSROjK778Q7I58QaT59F4/EtrBovZWC9RFkWaiYYGINHADI/o9tYQ8Mz1OYKQQQyOu6HypH6ji
-	Iw2okdtbWqU+vJN0Redrq+BzlKScVDtGe9HWogpVlU09jFVx0+cIccukxU8DQYXpjbf/7hx5DOe
-	1aNYmiX5OY9xTT//mT55mKx
-X-Received: by 2002:a05:6122:4692:b0:5c2:ac92:eb18 with SMTP id 71dfb90a1353d-5c65c62b87cmr4978903e0c.7.1787828663746;
-        Thu, 27 Aug 2026 04:04:23 -0700 (PDT)
-Received: from mail-ua1-f42.google.com (mail-ua1-f42.google.com. [209.85.222.42])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c65fe38f44sm3419937e0c.2.2026.08.27.04.04.22
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Aug 2026 04:04:22 -0700 (PDT)
-Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-97e76cabd96so75925241.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 04:04:22 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrwcWQovkXDSFi2fp3fxeLbLn6SGlZMZ2by3hlpOTnR64ZOPmI/ihSl7vpfZHsapGTNEdngRT0nP9WkzScTSyz7@lists.infradead.org
-X-Received: by 2002:a05:6102:3c9f:b0:779:dc0d:2b2d with SMTP id
- ada2fe7eead31-782c0bf8c46mr4363524137.8.1787828661149; Thu, 27 Aug 2026
- 04:04:21 -0700 (PDT)
+	Thu, 27 Aug 2026 11:18:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1787829523; x=1819365523;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=l96QKR1qSNS2rRA2a0GsZJo3vHPe31giO0jIcFVZ3zQ=;
+  b=MVBTKYyIZAzuOHhWsW+/klHcaUN5rQFP3FxY8RwandpKnOrQBiMIXwnF
+   iL41SUQCGCki/miD0N6xkuJMPtfKKP4QTf6Siq4DFY/dD6ufwlegVFCAV
+   FSKiaifw6uMXyWXqwg0J8TEnQU6LF8rG7Hre5ymoeEs8fMpdAvd9yAsTv
+   foJRGiGEoZBUIWG3e+rhQP4/+EIhGrzBrPoRBEEn86Bk4DJnw6pPiYY91
+   pCNWZhLShKodRljY8ePnI4lS1UGma8yBuyt0PMfFkN46YV0m/YzB8fvIR
+   aqOkJ/AKL0ehwqKqDnnhq7Ueik0BYEGrCk16mSxn5qXUTaMlImmOFBhb+
+   g==;
+X-CSE-ConnectionGUID: QNjRJ1JeTdO8OgG6Qe7F9A==
+X-CSE-MsgGUID: NdHPSxSJQKaOue0owqLo1Q==
+X-IronPort-AV: E=Sophos;i="6.25,246,1779174000"; 
+   d="scan'208";a="229862350"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 04:18:42 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.45; Thu, 27 Aug 2026 04:18:41 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Thu, 27 Aug 2026 04:18:37 -0700
+Date: Thu, 27 Aug 2026 13:18:37 +0200
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+	<pabeni@redhat.com>, Horatiu Vultur <horatiu.vultur@microchip.com>, "Steen
+ Hegelund" <steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend
+	<john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, "Herve
+ Codina" <herve.codina@bootlin.com>, Arnd Bergmann <arnd@arndb.de>, "Greg
+ Kroah-Hartman" <gregkh@linuxfoundation.org>, Mohsin Bashir
+	<mohsin.bashr@gmail.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH net-next v5 12/13] misc: lan966x-pci: dts: extend cpu reg
+ to cover PCIE DBI space
+Message-ID: <20260827111837.2mjyx6sicuxseq6g@DEN-DL-M70577.microsemi.net>
+References: <20260520-lan966x-pci-fdma-v5-0-ca56197ae05b@microchip.com>
+ <20260520-lan966x-pci-fdma-v5-12-ca56197ae05b@microchip.com>
+ <20260522190157.02e1e3ff@kernel.org>
 MIME-Version: 1.0
-References: <20260827105738.8570-1-wenst@chromium.org>
-In-Reply-To: <20260827105738.8570-1-wenst@chromium.org>
-From: Fei Shao <fshao@chromium.org>
-Date: Thu, 27 Aug 2026 19:03:43 +0800
-X-Gmail-Original-Message-ID: <CAC=S1niht1VnNpZrqVaAb87FLVM7ZtJLOiDgCroGVRg2w09WBw@mail.gmail.com>
-X-Gm-Features: AcwNN1XxLwZk6xI-YXSc5CYXIrMIXfGVUxLqoDEmpH_birCWDntEpyOtQassyDE
-Message-ID: <CAC=S1niht1VnNpZrqVaAb87FLVM7ZtJLOiDgCroGVRg2w09WBw@mail.gmail.com>
-Subject: Re: [PATCH] pwm: mtk-disp: Fix period readback
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pwm@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Jitao Shi <jitao.shi@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260522190157.02e1e3ff@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_040425_824562_ECF96FC4 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20260827_041843_530585_5CAA64D2 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,26 +96,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 27, 2026 at 6:57=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
-rote:
->
-> The period value stored in the register is the number of clock cycles - 1=
-.
->
-> Account for the offset when calculating the period in nanoseconds. This
-> fixes the discrepancy reported by the pwm core when CONFIG_PWM_DEBUG=3D1:
->
->     mediatek-disp-pwm 1100e000.pwm: .apply is not idempotent
->         (ena=3D1 pol=3D0 281500/499875) -> (ena=3D1 pol=3D0 281500/499750=
-)
->
-> Calculation discrepancy in the driver was found by AI run by a colleague
-> while debugging another PWM related issue. Check against SoC datasheet
-> and fix done by the author.
->
-> Fixes: 3f2b16734914 ("pwm: mtk-disp: Implement atomic API .get_state()")
-> Cc: Jitao Shi <jitao.shi@mediatek.com>
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> On Wed, 20 May 2026 10:12:24 +0200 Daniel Machon wrote:
+> > The ATU outbound windows used by the FDMA engine are programmed through
+> > registers at offset 0x400000+, which falls outside the current cpu reg
+> > mapping. Extend the cpu reg size from 0x100000 (1MB) to 0x800000 (8MB)
+> > to cover the full PCIE DBI and iATU register space.
+> 
+> Are we supposed to take these to net-next ?
 
-Reviewed-by: Fei Shao <fshao@chromium.org>
+I think the original dtso was merged through soc (maintainers are CC'ed). I am
+not sure if you can merge those two commits through net-next? Happy to clarify
+in the cover letter that patches #12 and #13 are to be picked up by SoC
+maintainers. Let me know.
+
+/Daniel
+
 
