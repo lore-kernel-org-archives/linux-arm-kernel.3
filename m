@@ -4,94 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C29FC5DF97
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Aug 2026 23:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB94C5DF97
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 00:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rBDSwIVuGClC2U8jcOy/ySqyjLGwgvu0rHcFGCcBek4=; b=LP7UQQEaqoGH+Gao/uIq67kUID
-	Y124zlQostOvdgLhcstzTct4dZybIt9PvZWJ7YPe1+50M6MvxiLxL+i6NQ1rQpuVt5pbYFJ9KKXMG
-	VmTmrrP386UMwlj97yeL64Y1SGgAQiu1dxkJqfRs+HTn/WNEWHYUiYzZJWM13VcFmolDRFpEV+2uq
-	FyLhrL3URc/rMpb8Bk+ZNovSkdrwbFSVWXjCHoASN85Vg04gN5cJSL5Mete1ABlKScqpyBNm49A4l
-	PrPjqiDaCoun7OeHU9APw1EbganmcC/o1Lh5CTHBbfCFEkWC94I3i0f6U7+tJqAyBSoMx+4hmGT56
-	4sSys/Cg==;
+	bh=P4C9bzIpuuaLAtIJfd/nedrnMHSui02xazThUpELcIQ=; b=Wk3gkWiegBvJqbieVNJSCn/QZk
+	wp/Ovez+3Uz9BmbkLs4E/PWJqehAhRowIv+XPl08+n09G7cgXmoPGkEnFB9Zs37ggDsFu05HTY9oP
+	h2jzoJYqBhaUEcfjmfFHk2tReshrTRGG6L/QfYOsmi1Z6/hpW3Lb5OQxsH54h4MFIZWWpRGGTk+aO
+	uPas32d2mq2bPEYR2vxDuO1iAiNKJCJD9JemUx4RMhZDO5uPQAHrWgHqpbo6fHHoZjPfR7gySv2FV
+	R5uJiZkLla76HqeRwOxUgAIVvUQmJ6wTbNklnDKQEGKBwv10JdM54PqGS6Imvca+WrLp6zUCT0wou
+	6VqjLDjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMkn-00000003ALU-2ja4;
-	Wed, 26 Aug 2026 23:09:57 +0000
-Received: from mail-vk1-xa36.google.com ([2607:f8b0:4864:20::a36])
+	id 1wzNh3-00000003Dhn-1fcM;
+	Thu, 27 Aug 2026 00:10:09 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzMkl-00000003AL3-3R6U
+	id 1wzNgz-00000003Dh9-3vPd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Aug 2026 23:09:56 +0000
-Received: by mail-vk1-xa36.google.com with SMTP id 71dfb90a1353d-5c664b8c3f3so876972e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 16:09:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787785794; x=1788390594; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rBDSwIVuGClC2U8jcOy/ySqyjLGwgvu0rHcFGCcBek4=;
-        b=FeyOzDOpbXeiUUewKQrIA9WiI5BuJFQpXs4idMFPCrzdwkqbybMcXll+PczGj2GlIA
-         yJu/IEAdZYGeE+HWaMkAbuMJX0so62HJl9i9gwvkslwyNkzpPH+aLA8VQhIW7YYdRzs3
-         HFHgjbndEC/N1VLCHVoGHZmyUUb3QQdpye0Moi8BKAZebm+nepH1hhxVt5BV3LXdRpoq
-         o4Ra1bWho83SNklxyV12OPZNNt30VbfBGT52Ppn55UM5wR+NbUK8QRcFmM3RXNuqoVXD
-         SreluUBgYcXX7USyKKyNo6Nmck4WqaKuQ951iQd6fDC7FaR2ZNVu3x3DTr22kga1uwXb
-         +gtg==
+	Thu, 27 Aug 2026 00:10:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1787789402;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P4C9bzIpuuaLAtIJfd/nedrnMHSui02xazThUpELcIQ=;
+	b=IGY4cYVMXeyy0fwI9QIBVWRLV9Td/MLZf0mc7eT3pCBB5obJv/KzVADrGm0XgSPHPbRLU2
+	4IJqlEPiEjIcYaXdcSvZu+n45Hx3b026Z8wFp2/OtlDcPK9mpUubwuY5Xd55y8fP7q7fD9
+	/7vXRQNgLFm5bjPs/o1odlEGno8Skno=
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
+ [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-167-_zVt0wdjP32_lu5QSZLx4Q-1; Wed, 26 Aug 2026 20:10:01 -0400
+X-MC-Unique: _zVt0wdjP32_lu5QSZLx4Q-1
+X-Mimecast-MFC-AGG-ID: _zVt0wdjP32_lu5QSZLx4Q_1787789400
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2d55d8cd938so6489715ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 17:10:01 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787785794; x=1788390594;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rBDSwIVuGClC2U8jcOy/ySqyjLGwgvu0rHcFGCcBek4=;
-        b=deghShySladboxt1251uKQIaRz9NTEUfzmRB/2r2r11gDWgAOJtix9xanCBDJ2tQAN
-         WY0HXQFQkvH2WZcKooGl4S772azXYI0yRbmpkVuTM5hN4gJOlSjwkThyODTmkG3Z8hpf
-         sTIlMhLt/k2EV6DE79Zd/a6m5+NBDt22GhQckS0F/oN5/isfmTzfSVYhz96Ovcu2ik9Y
-         RgfVbsVVwoZVQsId6y6UFodolOfBTzsDIci95MqlVeYsl8pelzAPRy1a847i2UY291kK
-         8J/BR+y/vAVV6S+YCgZb3Q2LVPP+pnmdWSgjERa+Sdjm6WDMfWj1BSJjvLcDm4dGbW08
-         6Ejw==
-X-Forwarded-Encrypted: i=1; AHgh+Ro7Uh7YWa2c3gRfEK4uBJOmdscScrO44142rXBCQqt8RK75rTHjiZXO6mnLxtqtwqAmmJqcBjrdOIKYbQVcWKHK@lists.infradead.org
-X-Gm-Message-State: AFuF++lTjJpvgOzKY25UBHPrOkKaFG/KWViRzke+6mWeS2DuDzz0WhPM
-	D9zhj/zrWhQOsMyhSnF2kaia/YrBXzHWqvDu2s9FcWNke8cV1B/jSa+n
-X-Gm-Gg: AR+sD11b3fjISsiYdKBdRLI7IE8P8o/+elVzdVWSlt+C3gbZkcGvymJl1i5HU8yXuR4
-	lOO8Z17yZh0dwvvbkN1A+OMch9JteWkpUOHrALrI1ctse9HT8uZDDiaeuAJpDXX4K/xCNsamTwY
-	foLU4V+rKA0ZjzC0PGR6g2CJ9313HC+WelWr0VvEaJan/Fm4qYogdqA2ZZjmILSSZw5joZ0bQyO
-	u1rgIkSM5nwQF8yC60YTNlJFrDRJUFXk3VgJeiKHLEzzjcUfyprNCajFaMPKeRREWxyjyZZ1jJD
-	nZFk5YvNNRms/oeS2rDXawkBTSAYRoD0HVnGWCFqixkCG8MGs7uPrp+O2Esp/hH0t9H0JKtf+qV
-	JztTSt+6HzBCuPH1IEH8UGSQgOWtLgL6z8tPb2gxfvZxTx63qQuC9PUyvC7kHX/Nw62eFzhNOyQ
-	Ki5hXKYLfdbQVLbD32uzHUUEJZFAj/Pga0UliOjIddDaRAYLo1Yk1SJyZHQBSMwC0egdLgolcHI
-	ukuAN2Xz9N3gbdGqXzgeTEnq4HZPBky99oX4T/D+C+Nd4Ai3y/lFvqy9UovmyXmG6ONvMo=
-X-Received: by 2002:a05:6122:1826:b0:5bf:d3cd:3d64 with SMTP id 71dfb90a1353d-5c65b56d0c8mr4542431e0c.0.1787785794612;
-        Wed, 26 Aug 2026 16:09:54 -0700 (PDT)
-Received: from MaquinaLab.. ([179.179.239.222])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c65fe7d777sm2727980e0c.6.2026.08.26.16.09.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Aug 2026 16:09:54 -0700 (PDT)
-From: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-To: Enzo Adriano <enzo.adriano.code@gmail.com>
-Cc: Junhui Liu <junhui.liu@pigmoral.tech>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/4] arm64: dts: allwinner: add A733/Cubie A7S DTS support
-Date: Wed, 26 Aug 2026 20:09:40 -0300
-Message-ID: <20260826230942.466219-1-vinicius.eduardo.pedrosa@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260613-a733-dts-v1-public-ready-v1-0-7787c94681db@gmail.com>
-References: <20260613-a733-dts-v1-public-ready-v1-0-7787c94681db@gmail.com>
+        d=1e100.net; s=20251104; t=1787789400; x=1788394200;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=P4C9bzIpuuaLAtIJfd/nedrnMHSui02xazThUpELcIQ=;
+        b=YL2UTDkWog3nxEV0v8V+FJZrzIMz2xZOqzW77fQC79ChRuOU8byqbweGig3w8TlEwK
+         gqFbJo2ky2KjBSOvb00HM1jf724r8BxJQzMKXio+hp34fTWv9zxMOT61Xw+oyOfoDGdv
+         dSjdmOZmoNSwLFgBxacSDwChKZNRs+q8uwiUJgbWyTRTTLFIAJ8rjvrK9l04Pvmy0Wk7
+         vLmpJQFheolBaP+VLjdq2tWA2TPQIzy6l4HzIqI3+XVgW4X3hkNbAye/BrZ3vCE0hox6
+         lIFaMKLoGplyZGQ2zYZR9Jf1TEk3v8E5hej/ysw/qwnuNj9TbZjlrCdbFP1smO5uwWV1
+         vEBw==
+X-Forwarded-Encrypted: i=1; AHgh+RrYXw+8Wb7uft33GXwdsmLJJTGCP4qgnAZUhmj8mfDTcwo8IRBmOS9d7RbFFhq45j1Ov0A9eZTY0tPLQJERhELh@lists.infradead.org
+X-Gm-Message-State: AFuF++msawMYfEKPA+m0hjBuxpTuKQeMWvg49IByYtSA6ysl/WhQcgNk
+	z8/U3G9bxfnNmp8u1mTQ3FIVK5SGnJ60lAoS+EN54SnIGukDZ/YElFnjnYAUAkotMV9IZDtDUS8
+	OCNeQ+DHysoH6jFfpI/XtYwoRIJLvv0EhLelge0U2cXs0Ory3PhF8siKhylH7ceXF/0ZSDoJ+kH
+	J5
+X-Gm-Gg: AR+sD11eUk3y2hjbST98DdAuPtEDDi/6KRnhOYNfhcAVZpBsc+IcMAbJFB5cWCpuInw
+	IUp8ZPlZhy4ZT3nHvGbOnU/DZTioqDlg1H479mu1UL84hqsQjMOuByoU4wPxJ4qqiJIyYAl2gTH
+	MSAtK/A46ry1Xus30IdLO/P/r56uKUmF7A47bIc/4r+lr5MX1gEfP9iHoJqK0trs4pW1In81OWQ
+	cwP5x7yv5Ywj9pDQLKI3nEAGPD0+hsY8sS2v9bLEwE+mP4V4CSYSWXrAUpuRSE7n/817jD4faeY
+	L4pw15DDZtyGjyl5Th6PCWwbeNT7fmnLvGtUR3lnNkY9utG+fTQvzHbkxgMgFyhCYCVBGqJqjHg
+	ysSAQHSPxTQkHz1f5be9seaGhS3vjgViZsB2ds/bClQ==
+X-Received: by 2002:a17:90b:4e8f:b0:38e:2517:5d1f with SMTP id 98e67ed59e1d1-3966d4032e5mr24140885a91.9.1787789399985;
+        Wed, 26 Aug 2026 17:09:59 -0700 (PDT)
+X-Received: by 2002:a17:90b:4e8f:b0:38e:2517:5d1f with SMTP id 98e67ed59e1d1-3966d4032e5mr24140764a91.9.1787789399495;
+        Wed, 26 Aug 2026 17:09:59 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141a9035ff1sm10395038c88.11.2026.08.26.17.09.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Aug 2026 17:09:58 -0700 (PDT)
+Message-ID: <a2ac5d0f-1fe3-4dc6-92cc-d6aae82a9baa@redhat.com>
+Date: Thu, 27 Aug 2026 10:09:49 +1000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 11/12] arm_mpam: change MPAM-Fb error IRQ to use a
+ threaded IRQ handler
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ Ritwick Sharma <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260807105451.3728284-1-andre.przywara@arm.com>
+ <20260807105451.3728284-12-andre.przywara@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260807105451.3728284-12-andre.przywara@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: IA_jJ8vSOMJYPCCa2TuKnKIApf80KBC8jFEfrOYrVLM_1787789400
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_160955_877946_FF94286E 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260826_171006_067375_F0B30397 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,48 +124,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Enzo,
+On 8/7/26 8:54 PM, Andre Przywara wrote:
+> When an MPAM MSC gets into an error condition, it can trigger an error
+> IRQ. We cannot really do much about those errors, but we at least query
+> and log the error, then disable MPAM functionality.
+> 
+> This error report relies on reading the MSC's error status register
+> (ESR) in the current hard-IRQ handler, which is not possible for MPAM-Fb
+> based MSC accesses, since they involve mailbox routines that might sleep.
+> The same is true for clearing the interrupt at the source, which requires
+> a (potentially sleeping) MSC access as well.
+> 
+> Change the error IRQ handler to be a threaded interrupt, but keep the
+> handling in the hard-IRQ part for MMIO MSCs. This is needed since the
+> CPU affinity check in the MSC accessors requires a non-preemptible
+> context.
+> When the MSC is using an MPAM-Fb based access, we push the work into the
+> threaded part of the handler, where the accessors are allowed to sleep.
+> Also forbid per-CPU interrupts (PPIs) for MPAM-Fb, as we cannot use a
+> threaded IRQ here.
+> 
+> The actual IRQ handler learns how to deal with errors. We cannot really
+> handle them, but we can try our best to disable the IRQ anyway.
+> Should the level IRQ line deactivation fail on the device side, we mask
+> the IRQ on the irqchip level, to prevent an interrupt storm.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>   drivers/resctrl/mpam_devices.c | 77 ++++++++++++++++++++++++++++------
+>   1 file changed, 65 insertions(+), 12 deletions(-)
+> 
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-Two findings from building this series locally on top of the A733 CCU v2,
-plus one note for the DTSI move you already agreed to with Jernej. Both
-findings reproduce on your own Cubie A7S DTB. Junhui and Jerome on Cc.
-
-1. Schema evidence for the clock list Jerome already questioned.
-
-Jerome raised the xtal rate and the naming of the node feeding the CCU. A
-full CHECK_DTBS=y run - the whole schema set, not a selected binding -
-rejects that node outright:
-
-  sun60i-a733-cubie-a7s.dtb: clock-controller@2002000
-  (allwinner,sun60i-a733-ccu):
-    clock-names: ['hosc', 'losc', 'iosc'] is too short
-    clocks: [[3], [4], [5]] is too short
-      from schema: allwinner,sun60i-a733-ccu.yaml
-
-The posted binding wants more clock entries than the DTSI supplies. This
-may be the same problem Jerome described rather than a second one, and
-whatever resolves his point probably resolves this too. I am sending the
-diagnostic because it gives you a check that either passes or does not.
-
-2. /soc raises a W=1 warning.
-
-  sun60i-a733.dtsi:116.6-197.4: Warning (unit_address_vs_reg): /soc: node
-  has a reg or ranges property, but no unit name
-
-It is the only diagnostic this series adds over an unmodified tree in my
-W=1 comparison - 499 unique diagnostics before, 500 after.
-
-3. When the UART0 pins move into the DTSI, they will need
-allwinner,pinmux.
-
-allwinner,sun55i-a523-pinctrl.yaml has listed allwinner,pinmux under
-required since d626d248caae, and the A733 compatible joins that schema in
-the pinctrl RFC. uart0_pb9_pb10_pins currently sets only pins and
-function. Nothing catches it today, because the A733 compatible has no
-schema yet - but it will fail validation once the pinctrl series lands,
-which is likely around when you send v2.
-
-Static evidence only - no A733 hardware here.
-
-Vinicius
 
