@@ -4,144 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50EC3C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 03:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A68DC5DF9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 03:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=il4qxi/bh36OksjCuHW6aR6h/EQtYLSq9rXAuHx0hjA=; b=cPUfyjWhwcZ3tuR+ivZoUos7Uu
-	BQMmZwwai7f4t+XRPZhsteSHm0z+yZUjZ6EDcN1mNNEnor0bujpHiwG7DRakJn1Wxd0bOPIcM1Do1
-	2n4eN5y6O/RxdM2Qu1HdW9xlS5BlI0rTWIkQPqvMsamaJnliKmAsodurJ7/ks+99QpNlhzIz1ph3n
-	isbeFNSSpQJ7IaNfuw9vfS6TQjsBGM6DfkdPCGymJY2fLmTgrwiXoljKjQXsvfd/I8sHgT2GPTwfl
-	M9W+ewd+M62YQddWOFrWfZ85+PJIhnnPYP8jx8TtrkZxI7aEzrDYYeG1mvTzGdsEeFdWuV5eM5C3P
-	qZ7OE6IQ==;
+	bh=IaSfFPZdEGUZY6hrb44h13Q/oeNF7xyFzDFwnZ79Vrs=; b=TEbGVg3+IxUMksslt8eKr1C5bv
+	WUolnP5H4e+QdsBn47bJq5qED3OAO+KADqOoDNbHlI9XQWJneWI4qPLylxk+LZ60gEEooWc7h0ni/
+	1sJReauI19RoD+zn/ZdNjyJARgp3F68qavpPvq0Y+ExpuWyfJO1+npN8MLSPeGVMf768qGg5oQKj7
+	NglAVnZkqdw4fz7GOXZ9zKx49TkfimpshR93I+IIphs2gDCf2z/QhqkuqlEsgH3yzbu2s06ZPMPW2
+	UhfaUn0hSoJKk3WcbP8njK3P4aVPJGx3j5QLja/MjacUfwRR9PN3s0hPmY48+jvibY0BJdcCM3GiU
+	7ITPXV8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzQQU-00000003LJp-0RDV;
-	Thu, 27 Aug 2026 03:05:14 +0000
-Received: from mail-japanwestazon11022138.outbound.protection.outlook.com ([40.107.75.138] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1wzREa-00000003NEs-0Cv2;
+	Thu, 27 Aug 2026 03:57:00 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzQQR-00000003LJH-3Iup;
-	Thu, 27 Aug 2026 03:05:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OMZ8Kd5LTw+/iqJUEsZbWpJ2wOvlh5phepO3RSWcavqUk57FAyXKz6YRJjLdn+aOr7gEzwrroiyVkuxvMD3/tEl9MI4SFgXH6dtIe4QbMox1WzKq4e9RUlaCqSP64MwekgG8TzX3yMyLI04EWLwHzQ3cOfohg8aIdt3EVCbr4tcVNNGoYcRz9Jvs3K7l95ytXiWE+bYAw4VE553LtSD6X5bZmntwEsLk7SFFgtG2yeLXO8kn+v30qpAmqJJXSQQmwefpwpvQaeCmqoQwVsvY7epzNFjTCmLKLpFyyuz1OEXvnzWrPj26El5s4/G5tiL+C1rcc/uzta7Z6ZdgfJSKXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=il4qxi/bh36OksjCuHW6aR6h/EQtYLSq9rXAuHx0hjA=;
- b=L1HKpLYhfDK9o7YAos8syYt59UwDbYag7C4cZP1XclFI6RG5IcyqXfSlUEAtqvxZ8yXcXc3gYFt3EYoLMw1NvhclJ8KPS/L7A7ioCK756SHfGi5ltEU13fBtBcQBhAopeYzm8m8vkBdnW8LeGKuofF8m/IFgR7EsOADMd3SV4QNxhzp047oPIlMPL2TRDcHEN346b1rsBFQzrSF1r6CVAmXRAJni4ErnxnFd046K2dP4pncVywiNwWFu7ZatIH/+nBLisu0mPa+ohlXZ1j/VfV6k1Cx1hS4qfZAzhJQPUEqskdL/HKecweXhm+I2bI66q+lJac/Jr9+kfD54epfAAA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=il4qxi/bh36OksjCuHW6aR6h/EQtYLSq9rXAuHx0hjA=;
- b=hbfXUNAKaKUIeoabmg3YKtyjJED39Bz4sH3S6/Gd/GruHlAy8dyV9JGs2x3jVsj/Pbm5oG1d3vPJzlsNsShWfC8CJ0dypxHlbKT4uau2OfLDCFcfqQbMssinWmuJjt85zNJVD0+4IFWPQVQu94RdCiPfcTsMkGdgI/yBI18/DYCQD67mjKTf3ayD6GQDsZYYJrsrKuUlBJ95revZT0Nem/WgwjZMEx7CTsQq+qjfO6OL6OcRMvkgHBMTTCkFMqX7LJ531JTMDTKR/SLj9JPvBRefEJrIzBX/I6nrK6ScBJ4Vs2V4sG8tZMix0Wd6GLbYGyRnUushzSanPpXy9FPcWA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
- by SEYPR03MB9610.apcprd03.prod.outlook.com (2603:1096:101:302::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.7; Thu, 27 Aug
- 2026 03:04:37 +0000
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::e1e:5c95:a889:828e]) by KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::e1e:5c95:a889:828e%4]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
- 03:04:37 +0000
-Message-ID: <b16d8f3a-0f12-4e0e-950a-854d28481519@amlogic.com>
-Date: Thu, 27 Aug 2026 11:04:30 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC] clk: meson: t7: Intermittent boot instability and memory
- corruption on VIM4
-To: Lucas Tanure <tanure@linux.com>, Brian Masney <bmasney@redhat.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Jian Hu <jian.hu@amlogic.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <3930906f-783b-4d72-9260-ba25cc8081cb@linux.com>
- <aoxjX3HabY0brgXk@redhat.com>
- <57d796bd-7a3c-46b9-bd65-d6860adbd355@linux.com>
- <72db2062-e0ac-4c33-b1d1-d1fa5ae4bec8@linux.com>
- <ao8fqstEs01hd3--@redhat.com>
- <5ac071a6-8013-4143-9f59-7d0c6cad5c00@linux.com>
-From: Chuan Liu <chuan.liu@amlogic.com>
-In-Reply-To: <5ac071a6-8013-4143-9f59-7d0c6cad5c00@linux.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TP0P295CA0052.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:910:3::14) To KL1PR03MB5778.apcprd03.prod.outlook.com
- (2603:1096:820:6d::13)
+	id 1wzREW-00000003NEM-31fv
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Aug 2026 03:56:58 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-47de0093c42so1242897f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Aug 2026 20:56:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787803014; x=1788407814; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=IaSfFPZdEGUZY6hrb44h13Q/oeNF7xyFzDFwnZ79Vrs=;
+        b=hUFnIVLYWl9LSHgzEUn7x7DVREkE3Po3gDO8p9qsFE5jmtk0/26JvLcPEpCVdoBDmh
+         I0FFdU20zQxJZ4ZeyIY4uFONcd0XTyXGghLoXhlFIboMMKW/sbPRIW09f98Rlxti9cG7
+         vSh5jUiaAmjl0Nu8aTUqflaCrpsA6ZGq27lAwXQ4SBmyF4xB4PQ0ekHEI03L89QLuso9
+         j0ZhjWw/Hz2XMNZGZWBUgVGDVAnbQw0J/vQQkcULLxBX1WpmH7cqGJNUlGlsPN/2LZWN
+         5yWAaVnixlXVEGbREq5lKIie/NwG8fg5L1CofZjjC8nsjbs7yHdvRuH7uKbU8JP9OaSw
+         BIww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787803014; x=1788407814;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=IaSfFPZdEGUZY6hrb44h13Q/oeNF7xyFzDFwnZ79Vrs=;
+        b=PzUUjQBmgoWpsMQa/p4OpC/9YvZZrBYT8GhZcIVQmHy+LzqHnWlFUxqSi8C5EUI9wu
+         8ZbhfC7+1MxRTTXHnPvoP1Bl8G8HyVpp7FgiQ4g8E+aVRha/JaU78wJNORWkJfPZxwnp
+         dP0j2hjKu/9gHgrPUZHrsZcEGFSgx1N5FUfGgYaTU+a63OYOkGofllROIxftd35vbSP6
+         Ta6972G+ZjR789UCCgszRBwlxtTQ88Jko58xAnBQFfpF+Jk0RG6pAxZsXqDHcCKa5jLT
+         /EmaljWKQ5gxlY4xWGMDz+ypfboL1Z+otBP3Nle8JoQdYDImvX1EXSTno53ahJ7R3Ypt
+         Rbfw==
+X-Forwarded-Encrypted: i=1; AHgh+Rrzb3jM9Ca8O8gPu/Itku8PbgYRyGi+7z31SMSTXYCjyb+S3Gh1Ez9m0cseDu0O7ByaRflmzuMsxDLSQ4KsfoVg@lists.infradead.org
+X-Gm-Message-State: AFuF++n680ePr0I7VKZZlu3PGtIme8LqawYrZtMJIF3lwpjMwejlJhD6
+	njGDlGvaJUiNYs2qINRWCpL+FgEAUXIBHHeLmGRoJbIZe06EjLgHWdfl0eGC4Q==
+X-Gm-Gg: AR+sD104zQvxUztzXp56mBNIo8f83lApZoGhH+Dy6jqbNhJ8P96kEusJbgqXT+i5Nue
+	K5XjJf4rpP01BvEj6PyGhWI9P1PSeCOHK5dxnuyeAoz/EHP1BYXGeEmnzCE4zK1hqInafDBU3fu
+	p6nBnu3vUhQw3Lm/WggrtMlnw1spMRjFITbV3b/4ViM2MbGpLqZC0pjLaQ6LO2eV56wSaFnpXCt
+	drgo7dPdX9VVgGvX2F5+CQz0Z8FdIaZ0yW6XmYs52c80/81aMvPc09XQ5hzCrAvPzJ5aVvjNLj+
+	cqrURPPiCHvLGRoXsDBbuetKyRYJGvvDZkE1dYoEve8fdLV5hyoaNcqrX9dGBFSVcU6r4ocpcmk
+	OC7vBei5i3CCiWvVdX75jf48AL/DtZeEOX24bbrJfAOo6zoEX/P9HTFRKSiGBqU34aSXOdJ3whe
+	JOREEHlJy0A9oLaz4OOENSqqb3PC4VeDxbr7WKn94/1b1FIpqKH1gQrpwW7V+fAS0vVxutK2Odv
+	vd9vuZbAhiq2uh2JhjePtZtu/c9L5ZHilFTvQ6KG0vXruMB3bLzpaY21G2QSmIdOGjVbptMw97K
+	551Fnrfxj8uaqQH+9aIPDrU=
+X-Received: by 2002:a05:6000:4384:b0:47f:e748:3ae3 with SMTP id ffacd0b85a97d-482e2696b9dmr9922200f8f.3.1787803013701;
+        Wed, 26 Aug 2026 20:56:53 -0700 (PDT)
+Received: from unknown748F3CBA5068 (dynamic-095-114-154-097.95.114.pool.telefonica.de. [95.114.154.97])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482e28e8fb5sm5723467f8f.29.2026.08.26.20.56.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Aug 2026 20:56:53 -0700 (PDT)
+Date: Thu, 27 Aug 2026 05:56:21 +0200
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] ARM: asid: Do not replace active_asids if already 0
+Message-ID: <ao-1AUkmBM0lVT97@gmail.com>
+References: <20260809180600.6049-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|SEYPR03MB9610:EE_
-X-MS-Office365-Filtering-Correlation-Id: b790a0d7-622d-47db-0c40-08df03e7edc6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|3023799007|56012099006|10067099003|11063799006|5023799004|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: jxN7jEZ5phL33GSsuAiS6c/6mOVZCG/gdO3Q1OfxzjVfzLrE1Zo7smJVWyKV0KHuRZiPoDEi8Hd+W9CBFy0aPsWzOHlQSx2XqiGynxl7t0OMVdaIOX8hnh9OTr/roTnTKI4DzJmOUMENc4cj1O3ktxgJH+WtFie+eEbk2fhukhepxKLzjADJg+3aZVKLMj8WjVGiiQZ2oUPAjUdW1T6uAHlBhB3tYQPZts8X/xu+r5JOz/pr6v/60hkiZKTUnH23qEllpupI58awD5dkCUVQtC38iq4Xx8UM1ebjTyQy2DsJzpDbIrJQZSL7E0KVdkPXOx3pVry8fovdba0N4i5TYuptVEF/bjd72XpqSCNo2K4F7uZqVybwJzFF3roEcoHJdzYlE4baaxZuZmdQ1EEQB1QLUyHg10WlmmJEJ50bQwSLpthDEhtCeSwM17t3ZjhTrBdZRAluFX0RF4XAlsDhTU2uV33nWrligxfuYEmTlK+rZ7p1A5rJpAKb54HcKSoICeyxvCK5xaZFCF6Jg/HSeIP16YiGNu4BDgQzEfqC9FQ5+vt0+VDKMJ9En0Rd1XGPjDKIaRAUt4vVNeMgq+OGR8Qbkl3ntNPy9teoebDz/xTaxS3x/HhkdSy+YempKjpQZ//pOA9dlqIYpPgkrEDnmJCBIAym5s8y3O8i0fnWCHM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(3023799007)(56012099006)(10067099003)(11063799006)(5023799004)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VDVub0pvSnhnYVBtVzFXTUx2ZTZ5aHE3WHFYWjZWMU1FM29ZLy9GbGtuSGM4?=
- =?utf-8?B?cmQ1ZE9VYm8zbHdoWUVJTU8vaGZtZ0JjWFZ1bWJUYTJmNmNJVy9MdmxCWHB4?=
- =?utf-8?B?OXV0UHJGcHduVnhhaVc5QlZZMnBZNHVwM1NFM1pmSUpxMjc2dzhLRlJHYm92?=
- =?utf-8?B?anp4NzBsNkNDRHZpM1VoVW5RTjhNV2JJQnJsaGVEWDByWTlyZkFBT1VQK252?=
- =?utf-8?B?M0lKaDVYWVBnQTZuYzVJcVJ6TTNtOFMzQURvejkwbVRhdWhkb1pDZ1BudnNC?=
- =?utf-8?B?NUlLUVFFS2dlZGVPbzd6S0lQNVJSTEtTbnJyRmhjSEFhdlNnZ1o2VlpIUTNS?=
- =?utf-8?B?SnlyKzBiUnlhODJaZXBMTkVjM2VjT1B5Nmsxb3JEZW5ndUQvWTVqSVZTdVdJ?=
- =?utf-8?B?dG1GZFRCOXlYakVrdW1oZFlQS2tJSUZEVkxKTUVtcjBXT3BvSHV1Q0Eybk12?=
- =?utf-8?B?Q0JVNU5PV09PWTNTUjA5ZkF0NVJVQUVseFZaM09TK1VNcGtNMEdZNUg2MnJn?=
- =?utf-8?B?V1d0UXlWZGFHNi9lWG5MdVFiS2ZieXprSjZSOUViYjRLZ1FTQythZ1R4N3VV?=
- =?utf-8?B?cGpZTkZnc2NxMzBoVEh3aWRDTXNMRUcrYXlSNnpaaVFZMVRUVStEMVlxZzZv?=
- =?utf-8?B?cFNKWldRdmFLaTBTSVZodys1VTExWkNIejRrajlmNjRHQUorSU1ITzBRSFht?=
- =?utf-8?B?NXYyOWU3YnhIWk5FZnc4TWRmOHJmMUF3TmdjM1RHQXQ4QmY4WU8wYkVQdm55?=
- =?utf-8?B?V1E5UmE2Rm9IdFNyeVVmUHBGNmVrSkJGN2VCclkxd0xjckpEU2JIMHJlbGpZ?=
- =?utf-8?B?T0l2c3FCWFR3NGJWK3dmY1ZrVUZaSXlVZGozWGd5VkxlSUtqRFlXNjE0YmY2?=
- =?utf-8?B?cnhuSDZYakVqOU5EdW1HMVA3TjIzdnZJb1N1RXhZaWJGK1U2T1lrRjBRTVpm?=
- =?utf-8?B?VElXS01PYlgwYzJCeDk2ZG8zUm8ydVVhblE0Y1VxMkQrU0ptSlhPWW44NzRU?=
- =?utf-8?B?bW1mTkRBbktBMXpIR0hFdy9wNXlvd1hlVmkyTWw0N0dNc0dBdFBBRFhCR01w?=
- =?utf-8?B?THlXTmNrQ3BuektKeS9FeVJmVmJ4QjFhNW40NGhYQ0tpUGw2aVE3QU85YXQ2?=
- =?utf-8?B?WFc4MnZwL2lndFhNSmZOME82T0o0WWdPSDh6VURPcUxEd2tCM09NZ3RQa05w?=
- =?utf-8?B?elJMdTNldlBzay8zaE5OVGVnVW42UktFTWdCWGI3cmxPSHQxWGF4dTlBRHFr?=
- =?utf-8?B?OGhhOVoxR3E2N3FFTGpmelJPb2hIdlRTNkN3amt4V21CNGpEOS8vZFFWSzhL?=
- =?utf-8?B?OTF2emhlN01ORnQydkkraTNKdExCRW9HYmtTa1NETzlmeFEvajcrTFpabnR2?=
- =?utf-8?B?YWlQR1doWWtoYU1IUXF5Qzg5SDZwLzlKdlhWMmY3b3dpc3dZTXE1bVR6OHdh?=
- =?utf-8?B?QlgycmROWDhLOC9PZ1BPeFlrVGpSTHBVaWZPTTJCNGh5RTlacnlTRGZXajJP?=
- =?utf-8?B?L3ZaN0gvZ0Yva3JSQjNmaHhNL2hCdUZaNmdJR2h1amlQL0ptWVgyMFFxMmtX?=
- =?utf-8?B?UVUrUU1PV2NVRkx3UnEzZ3ZrTjJKM2tSU1dDU3FJeW5vQ0UzV2tUZk16OVU4?=
- =?utf-8?B?dUh1M0hiVkw4N3hmcFlQTDdFTXVxTm84eWpMdDVoYTB0czZheEh4ZHNwazR1?=
- =?utf-8?B?bnF2cndqelo5bU91RXVFRWRNeXU1SEd1UXp3eW8zdWdXZ1M1UEhrVzFEanY1?=
- =?utf-8?B?Lzg2R210QmRPT0llZ2l5dGV6ZUlaTDhwNm1jUmQvaXpOYWI0ZkRFUklZU0Nw?=
- =?utf-8?B?V0E5NVN2QUEyY1JrNktDblNXcWYweFZqMHhROExGaVlpd1Y0ZVJWZXBhZlRS?=
- =?utf-8?B?T3kzenNpUythd2VUcnhhSXQyVGlPTWdjYmtZQ0JVY0JHSm1laGFxVUZWT2pz?=
- =?utf-8?B?bXNWZWRodmhqYm9pak5OOC9MMmp1OUhJeTNEOXo1ZGQ0Y3o4Q2k4Z1VTYzFM?=
- =?utf-8?B?MmVGOTR0MnFPOUtISk5WWENjbmMyeHY1R1Jocjh0V0h2VWtwZzM4UDlmVFVR?=
- =?utf-8?B?cHZhWEtWdnlyOHJraENndXBIOVpqVHRBaXduSmtOU3ZJamdyanBxZittUjFm?=
- =?utf-8?B?TldWYUZBZ0FQSW9oY3BQWmx6RUtaU0NyZUlsd0hBbXMwaG1SVEdUczVnT3JR?=
- =?utf-8?B?TWxDaDFrbEJTeFg4QkhkRkd3ZDdrbnhleEVEYnpjai9lWmJhbGV2NWF3Q0Z5?=
- =?utf-8?B?eThrc2JPTXdPNGdXa3pOV3VYTWI0Zkp2Y2wvN3ZjNWR2MmtYbWEvUHZpOTZ0?=
- =?utf-8?B?UlgrcC9CalNiRS9jOTdLaVlVMEZaTXlSa25uMG1uaENDTmdva3I4dz09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b790a0d7-622d-47db-0c40-08df03e7edc6
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 03:04:37.3836
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: A0UupeUnxEAee5btT7IPga4D5zhHtvpr/TFpqgxkEAn1jJNkvjebZdGQkOvr6SBSbHUlzxo+iNGnI0aKcYgH9Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB9610
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260809180600.6049-1-kmehltretter@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_200511_950813_66EA6F71 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20260826_205656_770891_9236A76F 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,303 +102,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lucas,
-
-I checked the board schematic and suspect that the stability issue is 
-very likely caused by voltage drops resulting from disabling the PWM clocks.
-
-On 8/27/2026 4:04 AM, Lucas Tanure wrote:
-> [ EXTERNAL EMAIL ]
+On Sun, Aug 09, 2026 at 08:06:00PM +0100, Karl Mehltretter wrote:
+> This patch changes the xchg to cmpxchg so that the active_asids is only
+> updated if non-zero to avoid a race with an ASID roll-over on a
+> different CPU.
 > 
-> On 26/08/2026 18:17, Brian Masney wrote:
->> Hi Lucas,
->>
->> On Wed, Aug 26, 2026 at 05:42:01PM +0100, Lucas Tanure wrote:
->>> With Brian's patches, VIM4 does not turn off 4 clocks:
->>>
->>> t7_sys_sd_emmc_b
->>> t7_sys_sd_emmc_c
->>> sd_emmc_b
->>> sd_emmc_c
->>>
->>> This is expected since I'm trying to run from an SD card. However, 
->>> even with
->>> these four clocks kept enabled, the board still hangs.
->>>
->>> Complete list with all clocks being disabled after Brians patches:
->>> [    1.002247] clk: Disabled unused clock: t7_sys_pwm_ao_gh
->>> [    1.002898] clk: Disabled unused clock: t7_sys_pwm_ao_ef
->>> [    1.003560] clk: Disabled unused clock: t7_sys_pwm_ao_cd
->>> [    1.004220] clk: Disabled unused clock: t7_sys_pwm_ao_ab
->>> [    1.004972] clk: Disabled unused clock: t7_sys_pwm_ef
->>> [    1.005509] clk: Disabled unused clock: t7_sys_pwm_cd
->>> [    1.006211] clk: Disabled unused clock: t7_sys_pwm_ab
->>> [    1.006766] clk: Disabled unused clock: t7_sys_ts_hevc
->>> [    1.007434] clk: Disabled unused clock: t7_sys_ts_vpu
->>> [    1.008033] clk: Disabled unused clock: t7_sys_ts_nna
->>> [    1.008741] clk: Disabled unused clock: t7_sys_ts_gpu
->>> [    1.009294] clk: Disabled unused clock: t7_sys_sar_adc
->>> [    1.009929] clk: Disabled unused clock: t7_sys_vpu_intr
->>> [    1.010609] clk: Disabled unused clock: t7_sys_dspb
->>> [    1.011186] clk: Disabled unused clock: t7_sys_dspa
->>> [    1.011792] clk: Disabled unused clock: t7_sys_a73pclk_apb
->>> [    1.012554] clk: Disabled unused clock: t7_sys_pclk_sys_apb
->>> [    1.013213] clk: Disabled unused clock: t7_sys_rsa
->>> [    1.013811] clk: Disabled unused clock: t7_sys_mipi_isp_pclk
->>> [    1.014529] clk: Disabled unused clock: t7_sys_mmc_apb
->>> [    1.015107] clk: Disabled unused clock: t7_sys_hdmirx_pclk
->>> [    1.015819] clk: Disabled unused clock: t7_sys_i2c_s_a
->>> [    1.016429] clk: Disabled unused clock: t7_sys_hdmitx_apb
->>> [    1.017109] clk: Disabled unused clock: t7_sys_i2c_m_f
->>> [    1.017740] clk: Disabled unused clock: t7_sys_i2c_m_e
->>> [    1.018379] clk: Disabled unused clock: t7_sys_i2c_m_d
->>> [    1.019018] clk: Disabled unused clock: t7_sys_i2c_m_c
->>> [    1.019657] clk: Disabled unused clock: t7_sys_i2c_m_b
->>> [    1.020296] clk: Disabled unused clock: t7_sys_i2c_m_a
->>> [    1.020940] clk: Disabled unused clock: t7_sys_i2c_ao_b
->>> [    1.021585] clk: Disabled unused clock: t7_sys_i2c_ao_a
->>> [    1.022236] clk: Disabled unused clock: t7_sys_pcie_phy
->>> [    1.022885] clk: Disabled unused clock: t7_sys_usb
->>> [    1.023482] clk: Disabled unused clock: t7_sys_pcie
->>> [    1.024088] clk: Disabled unused clock: t7_sys_spicc1
->>> [    1.024723] clk: Disabled unused clock: t7_sys_spicc0
->>> [    1.025345] clk: Disabled unused clock: t7_sys_g2d
->>> [    1.025940] clk: Disabled unused clock: t7_sys_spicc5
->>> [    1.026569] clk: Disabled unused clock: t7_sys_ts_a53
->>> [    1.027197] clk: Disabled unused clock: t7_sys_ts_a73
->>> [    1.027825] clk: Disabled unused clock: t7_sys_spicc4
->>> [    1.028454] clk: Disabled unused clock: t7_sys_spicc3
->>> [    1.029085] clk: Disabled unused clock: t7_sys_spicc2
->>> [    1.029710] clk: Disabled unused clock: t7_sys_aififo
->>> [    1.030339] clk: Disabled unused clock: t7_sys_uart_f
->>> [    1.030967] clk: Disabled unused clock: t7_sys_uart_e
->>> [    1.031595] clk: Disabled unused clock: t7_sys_uart_d
->>> [    1.032224] clk: Disabled unused clock: t7_sys_uart_c
->>> [    1.032857] clk: Disabled unused clock: t7_sys_uart_b
->>> [    1.033482] clk: Disabled unused clock: t7_sys_eth
->>> [    1.034077] clk: Disabled unused clock: t7_sys_audio
->>> [    1.034694] clk: Disabled unused clock: t7_sys_ir_ctrl
->>> [    1.035333] clk: Disabled unused clock: t7_sys_msr_clk
->>> [    1.035972] clk: Disabled unused clock: t7_sys_spifc
->>> [    1.036596] clk: Disabled unused clock: t7_sys_acodec
->>> [    1.037218] clk: Disabled unused clock: t7_sys_smartcard
->>> [    1.037880] clk: Disabled unused clock: t7_sys_am2axi2
->>> [    1.038518] clk: Disabled unused clock: t7_sys_am2axi1
->>> [    1.039157] clk: Disabled unused clock: t7_sys_am2axi0
->>> [    1.039796] clk: Disabled unused clock: t7_sys_ampipe_eth
->>> [    1.040468] clk: Disabled unused clock: t7_sys_ampipe_nand
->>> [    1.041155] clk: Disabled unused clock: t7_sys_deswarp
->>> [    1.041790] clk: Disabled unused clock: t7_sys_gdc
->>> [    1.042385] clk: Disabled unused clock: t7_sys_cec
->>> [    1.042981] clk: Disabled unused clock: t7_sys_aucpu
->>> [    1.043600] clk: Disabled unused clock: t7_sys_aocpu
->>> [    1.044217] clk: Disabled unused clock: t7_sys_mali
->>> [    1.044830] clk: Disabled unused clock: t7_sys_ethphy
->>> [    1.045451] clk: Disabled unused clock: t7_sys_mipi_dsi_b
->>> [    1.046123] clk: Disabled unused clock: t7_sys_mipi_dsi_a
->>> [    1.046795] clk: Disabled unused clock: t7_sys_dos
->>> [    1.047390] clk: Disabled unused clock: t7_sys_ddr
->>> [    1.047991] clk: Disabled unused clock: pwm_ao_g
-
-This is the clock of the regulator that drives the VDDDDR.
-
->>> [    1.048565] clk: Disabled unused clock: pwm_ao_f
-
-This is for VDDNPU
-
->>> [    1.049135] clk: Disabled unused clock: pwm_ao_e
-
-This is for VDDGPU
-
->>> [    1.049709] clk: Disabled unused clock: pwm_ao_d
-
-This is for VDDCPU_A (for A73)
-
->>> [    1.050283] clk: Disabled unused clock: pwm_ao_b
-
-This is for VDDCPU_B (for A53)
-
->>> [    1.050857] clk: Disabled unused clock: pwm_ao_a
-
-This is for VDDEE
-
-These clocks must not be disabled, otherwise the voltage may drop and 
-cause stability issues. You can try adding CLK_IGNORE_UNUSED to these 
-clocks and see if it improves the situation (especially for pwm_ao_a/b/d)?
-
-I checked the DTS and found that the pwm-regulator devices corresponding 
-to the VDD* rails mentioned above are not supported yet. If support for 
-these pwm-regulators is added in the DTS and the corresponding clocks 
-are properly referenced, the stability issues you are seeing may be 
-resolved.
-
->>> [    1.051454] clk: Disabled unused clock: rtc_dualdiv
->>> [    1.052038] clk: Disabled unused clock: rtc_duandiv_in
->>>
->>> Also with the patches the disable happens 0.5 second later, from 0.5 
->>> seconds
->>> after the boot to 1 second after the boot.
->>>
->>> I am still investigating what is missing a consumer or what should be
->>> labeled critical.
->>
->> I've seen cases where a clock is modeled in Linux, but isn't actually
->> used by Linux, so it gets caught in the disable unused clocks sweep.
->>
->> Does the board immediately crash after the disable unused clock sweep?
-> yes> If so, you could add a log statement, then 1 second sleep in
->> clk_disable_unused_subtree() and wait for the board to crash.
-> good idea , thanks
->>
->> If you can't get timely help from the vendor, then you can add
->> CLK_IGNORE_UNUSED to all of those clocks, and slowly start taking them
->> off in batches and wait for the crash.
-> That's what I've been doing for the past few weeks, but I'm probably
-> hunting down a set of clock issues, as support for this board is still
-> in its early stages. It's a combination of clocks, which makes it way
-> more time-consuming.
+> Cc: Russell King <linux@armlinux.org.uk>
+> Cc: Will Deacon <will@kernel.org>
+> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+> Tested-by: Karl Mehltretter <kmehltretter@gmail.com>
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> ---
+> This is similar to the arm64 patch [1], with the difference that
+> non-relaxed (cmp)xchg is used as in the existing ARM code.
 > 
-> I went with a more localized approach:
+> This is a resubmission of Catalin Marinas' original 2018 patch. The
+> original submission was not merged, and the ARM32 equivalent of the arm64
+> ASID rollover fix remains missing.
 > 
-> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
-> index 2b6fae54702a..3358f4dc871f 100644
-> --- a/drivers/clk/clk.c
-> +++ b/drivers/clk/clk.c
-> @@ -1489,14 +1489,95 @@ static void clk_unprepare_unused_subtree(struct
-> clk_core *core,
->                  else if (core->ops->unprepare)
->                          core->ops->unprepare(core->hw);
->                  trace_clk_unprepare_complete(core);
-> +               pr_info("clk: V Unprepared unused clock: %s\n", core- 
->  >name);
->          }
->   }
-> 
-> +static const char * const disable_clocks[] = {
-> +       "t7_sys_pwm_ao_gh",
-> +       "t7_sys_pwm_ao_ef",
-> +       "t7_sys_pwm_ef",
-> +       "t7_sys_pwm_cd",
-> +       "t7_sys_pwm_ab",
-> +       "t7_sys_ts_hevc",
-> +       "t7_sys_ts_vpu",
-> +       "t7_sys_ts_nna",
-> +       "t7_sys_ts_gpu",
-> +       "t7_sys_sar_adc",
-> +       "t7_sys_vpu_intr",
-> +       "t7_sys_dspb",
-> +       "t7_sys_dspa",
-> +       "t7_sys_a73pclk_apb",
-> +       "t7_sys_pclk_sys_apb",
-> +       "t7_sys_rsa",
-> +       "t7_sys_mipi_isp_pclk",
-> +       "t7_sys_mmc_apb",
-> +       "t7_sys_hdmirx_pclk",
-> +       "t7_sys_i2c_s_a",
-> +       "t7_sys_hdmitx_apb",
-> +       "t7_sys_i2c_m_f",
-> +       "t7_sys_i2c_m_e",
-> +       "t7_sys_i2c_m_d",
-> +       "t7_sys_i2c_m_c",
-> +       "t7_sys_i2c_m_b",
-> +       "t7_sys_i2c_m_a",
-> +       "t7_sys_i2c_ao_b",
-> +       "t7_sys_i2c_ao_a",
-> +       "t7_sys_pcie_phy",
-> +       "t7_sys_usb",
-> +       "t7_sys_pcie",
-> +       "t7_sys_spicc1",
-> +       "t7_sys_spicc0",
-> +       "t7_sys_g2d",
-> +       "t7_sys_spicc5",
-> +       "t7_sys_ts_a53",
-> +       "t7_sys_ts_a73",
-> +       "t7_sys_spicc4",
-> +       "t7_sys_spicc3",
-> +       "t7_sys_spicc2",
-> +       "t7_sys_aififo",
-> +       "t7_sys_uart_f",
-> +       "t7_sys_uart_e",
-> +       "t7_sys_uart_d",
-> +       "t7_sys_uart_c",
-> +       "t7_sys_uart_b",
-> +       "t7_sys_eth",
-> +       "t7_sys_audio",
-> +       "t7_sys_ir_ctrl",
-> +       "t7_sys_msr_clk",
-> +       "t7_sys_spifc",
-> +       "t7_sys_acodec",
-> +       "t7_sys_smartcard",
-> +       "t7_sys_am2axi2",
-> +       "t7_sys_am2axi1",
-> +       "t7_sys_am2axi0",
-> +       "t7_sys_ampipe_eth",
-> +       "t7_sys_ampipe_nand",
-> +       "t7_sys_deswarp",
-> +       "t7_sys_gdc",
-> +       "t7_sys_cec",
-> +       "t7_sys_aucpu",
-> +       "t7_sys_aocpu",
-> +       "t7_sys_mali",
-> +       "t7_sys_ethphy",
-> +       "t7_sys_mipi_dsi_b",
-> +       "t7_sys_mipi_dsi_a",
-> +       "t7_sys_dos",
-> +       "t7_sys_ddr",
-> +       "pwm_ao_g",
-> +       "pwm_ao_e",
-> +       "pwm_ao_a",
-> +       "rtc_dualdiv",
-> +       "rtc_duandiv_in",
-> +};
-> +
-> +
->   static void clk_disable_unused_subtree(struct clk_core *core,
->                                         struct device *dev)
->   {
->          struct clk_core *child;
->          unsigned long flags;
-> +       int i;
-> 
->          lockdep_assert_held(&prepare_lock);
-> 
-> @@ -1517,6 +1598,11 @@ static void clk_disable_unused_subtree(struct
-> clk_core *core,
->          if (core->flags & CLK_IGNORE_UNUSED)
->                  goto unlock_out;
-> 
-> +       for (i = 0; i < ARRAY_SIZE(disable_clocks); i++) {
-> +               if (strcmp(core->name, disable_clocks[i]) == 0)
-> +                       goto unlock_out;
-> +       }
-> +
->          /*
->           * some gate clocks have special needs during the disable-unused
->           * sequence.  call .disable_unused if available, otherwise fall
-> @@ -1529,6 +1615,7 @@ static void clk_disable_unused_subtree(struct
-> clk_core *core,
->                  else if (core->ops->disable)
->                          core->ops->disable(core->hw);
->                  trace_clk_disable_complete(core);
-> +               pr_info("clk: V Disabled unused clock: %s\n", core->name);
->          }
-> 
-> This makes it easier to let the sweep disable clocks for testing.
-> 
->>
->> Brian
->>
-> Thanks
-> Lucas
-> 
-> 
-> _______________________________________________
-> linux-amlogic mailing list
-> linux-amlogic@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-amlogic
 
--- 
-Best regards,
-Chuan
+Just a friendly ping in case this got missed.
 
+Thanks,
+Karl
 
