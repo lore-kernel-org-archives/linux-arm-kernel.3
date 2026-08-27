@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA9DC61DC6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 11:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32DD6C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 11:47:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3hAFo1rIdC3agJMCmmn/YuX832v7qzt/wzjEOyHEoqM=; b=kQQj7gBvDegMZLzusv5qZ1B33w
-	Z+zJlcFAOnAB3KMyLsg66xoF718atPBZSCWap/cQ8HiCudsFsrTlSwPkIV4WTF+7Gj8dLLBlpqMY/
-	4EAjJWl/r0UHS7TEw6yOl9qPBmZURMrlDff95pVIcFTtE96qt7IIYZrs0TEA4lN5uIMqKjf6s3468
-	9fHs2Vgm+yrXgZY1A3H6HlsnTlh9GJwNIwnnjPYvVu3fn2cbWE5kRECS7nTlEVcMn3V2Lc9QntGfI
-	YZfeBKV/N7L4ifzuZTy6GvuKk51qTpfL+IpbNElU8LQfmiRwV5vKghoCO1S/6xHt1fMHWYEQMRLIJ
-	jiutG4jg==;
+	bh=ZATBeNjSFpBat2ahNrwIKVHAs5jnuY6nAl90N0asjb0=; b=PmuRIt/JFIbUZXNcsroVL65ByV
+	g7uQN7HjdZS7M5flh7X8UgAIlTx2sBD+DBUOXZDugUm/nWK6FuUWiFi9h8WlVvQ6HqY0yJm2WLaYL
+	TsW86s85wtkTlojBaur8SQZMk1LXEh76xWmwQmT34A6VD0x1GVqlwiI67bGIeYqzWeUG2e0r8sf0Z
+	H0c/eXb6vQR+KjkXDdMMaeDFPFt9Ol45kVaBZsDEu+kF6RhSsi2veevxJvrKscP+ZzbkwGGtyds2V
+	CzFRlogKBRAkY5V5oI7fKTvAWnsZbSMbVMNr5CSAPIAkHx7R6ZthhUqRf3vIoSkc1+8Ax8CvThyzF
+	mhCW3wwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzYYa-00000003uGd-0sCU;
-	Thu, 27 Aug 2026 11:46:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wzYa9-00000003uRy-27AO;
+	Thu, 27 Aug 2026 11:47:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzYYW-00000003uGD-2L7L;
-	Thu, 27 Aug 2026 11:46:06 +0000
+	id 1wzYa8-00000003uRb-1agQ;
+	Thu, 27 Aug 2026 11:47:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4C7AB600D2;
-	Thu, 27 Aug 2026 11:46:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3620B1F000E9;
-	Thu, 27 Aug 2026 11:46:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B33064148D;
+	Thu, 27 Aug 2026 11:47:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 006AF1F000E9;
+	Thu, 27 Aug 2026 11:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787831163;
-	bh=3hAFo1rIdC3agJMCmmn/YuX832v7qzt/wzjEOyHEoqM=;
+	s=k20260515; t=1787831263;
+	bh=ZATBeNjSFpBat2ahNrwIKVHAs5jnuY6nAl90N0asjb0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=M5vc8wrpHzFOUTNBu00KgjoyXKJr1qmKCRQs0sIzSetk2k3grLN0i5IO6nivL324t
-	 RgV7Z7wp4vIfWKwlCbxsG06aykfD+um8TfU4dSuiaeVCMsXKH4AVfwMypUbUL2xIXn
-	 6nrXQ5kV21nxhcYAe+k+FzKPopwSONnvdU9N/zTzzM/mgv6AUprA82MJZsMnrnKWPu
-	 T06cyHPvR9g4mX396zWHDyzxhu7c1pNX1yiXFC1cvpKQEsSMe5m+zQ3xtQLHIuYI2B
-	 H0kx/uEQilZMsSeVxAbatuM/HE7xQnk+qB2+T2as2rSHoIkC4jWRiBbEnRlLVg5B2M
-	 ArHH1oU7ZFRXg==
-Date: Thu, 27 Aug 2026 13:45:59 +0200
+	b=Tf5iJCD46D/gazs6x/ZQbcYUvRy2zVknJWF+v7NnGezwiKRO4VX7Evt+r6bQA1UrL
+	 FLk3otlEtEH4j2pSMhrac+FT0J35DonHWn7ThjKSo8tIvahHtvfRX3Lv858X19IWgn
+	 nhQ2irTR9X2nSqhTC+GFNfLRQgvVLpgtKWuclpEiteR9QCgyAPWcCIr43NIflzP74R
+	 NgTOth6icqIZ5kkADjD//bL5RP8tZRxXlJfdO19XnmCSeNOQ68ADwFhPK2aI2bzApL
+	 hhyaW8kbZXL0rqWNM+Z1AVQxpBHMObVEVEC5DI9y2ScR3q5Tf4ei7P9dU6bUVMl9R0
+	 zVRhNH6z6N+AA==
+Date: Thu, 27 Aug 2026 13:47:39 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Jason Yang <jason98166@gmail.com>
 Cc: Vinod Koul <vkoul@kernel.org>, 
@@ -52,15 +52,15 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	Sebastian Reichel <sebastian.reichel@collabora.com>, Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
 	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/7] dt-bindings: phy: Add PHY_TYPE_DSI and
- PHY_TYPE_CSI definitions
-Message-ID: <20260827-thundering-cream-saluki-dd05df@quoll>
+Subject: Re: [PATCH v4 2/7] dt-bindings: phy: rockchip,rk3588-mipi-dcphy:
+ Allow DSI and CSI consumers
+Message-ID: <20260827-bulky-fanatic-echidna-0f3ffe@quoll>
 References: <20260821-dcphy-rx-v1-v4-0-f1797634233d@gmail.com>
- <20260821-dcphy-rx-v1-v4-1-f1797634233d@gmail.com>
+ <20260821-dcphy-rx-v1-v4-2-f1797634233d@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260821-dcphy-rx-v1-v4-1-f1797634233d@gmail.com>
+In-Reply-To: <20260821-dcphy-rx-v1-v4-2-f1797634233d@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,48 +75,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 08:02:29PM +0800, Jason Yang wrote:
-> A MIPI D-PHY or C-PHY can be a transmitter (DSI) or a receiver (CSI),
-> and in some PHY blocks both work at the same time. The existing
-> PHY_TYPE_DPHY and PHY_TYPE_CPHY cannot tell whether a consumer wants
-> the transmitter or the receiver.
+On Fri, Aug 21, 2026 at 08:02:30PM +0800, Jason Yang wrote:
+> The Samsung MIPI D-/C-PHY block on RK3588 and RK3576 has a transmitter
+> (DSI) and a receiver (CSI) on the same PHY, and two drivers can use them
 
-The consumer knows this already, no? Imagine consumer of the phy is some
-ISP receiving data over CSI for given port, thus consumer cannot
-transmit over that link.
-
-All this seems redundant.
-
-> 
-> Add PHY_TYPE_DSI and PHY_TYPE_CSI, so that a binding can select both
-> D-PHY or C-PHY and transmitter or receiver. They do not replace
-> PHY_TYPE_DPHY/PHY_TYPE_CPHY, which remain the right choice where a cell
-> selects the mode. The first user is the Rockchip RK3588 MIPI DC-PHY
-> binding.
-> 
-> Suggested-by: Michael Riesch <michael.riesch@collabora.com>
-> Link: https://lore.kernel.org/r/82da3622-9c3a-454c-87bc-fb4ec7adb68d@collabora.com
-> Signed-off-by: Jason Yang <jason98166@gmail.com>
-
-Where is any DTS using it? I did a search and no results of upstream
-posting.
-
-> ---
->  include/dt-bindings/phy/phy.h | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/include/dt-bindings/phy/phy.h b/include/dt-bindings/phy/phy.h
-> index 979b5dfd8353..8ee3f88e6d80 100644
-> --- a/include/dt-bindings/phy/phy.h
-> +++ b/include/dt-bindings/phy/phy.h
-> @@ -24,6 +24,8 @@
->  #define PHY_TYPE_CPHY		11
->  #define PHY_TYPE_USXGMII	12
->  #define PHY_TYPE_XAUI		13
-> +#define PHY_TYPE_DSI		14
-> +#define PHY_TYPE_CSI		15
-
-DSI and CSI does not look like types of PHY...
+Please link/show the upstream DTS using simultaneously transmitter and
+receiver, where the consumer does not know with whom is it talking to.
 
 Best regards,
 Krzysztof
