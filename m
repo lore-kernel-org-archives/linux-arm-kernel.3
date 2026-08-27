@@ -4,69 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B71C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 09:18:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 610F9C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 09:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B3d6qXAoH2ydeKOTX+N21t6om6kaUfysJTrx7H/1Esk=; b=DSEShzT0Q8SJEMLXlZxsZWh/na
-	CJ8oQOpbf0DCwWxgGz2hTRo7K0WcmucCix1Vc3lwvcohFl4RxZsAs2Vt3SUuh5LFDHDAgulyturJK
-	95DYLDG8Oc+lS5hRDgLXN1gB7WvUgXiWwcxOUtvece8OM97mROPtj0Fn6Bpi0/HnEBTJ4HxFGFPlN
-	Li832vb76zvmNKcvP2U80pon0Th4mLxrsXh5zsnCu7Pq1Xp9Oa0G/xcW0heN7ZZvb5zZpJ7DBWAkp
-	V6e2PUcVq3WDbOnfkDbFe93oN73gOulHqRN19zuOZUKEzy6TYK0W15nwJksyYL2/opHZePqUg7pvo
-	TAPkr46A==;
+	bh=hhwaGCY+npzO6o5a+bXYl+EKkArH4ztKeTfC+FHs8fo=; b=a3BKzTCBNUxL5I9AfQTDSqsWPz
+	ORgr2AmhVAain0aIY/5l6jeceyRbfdfhRlJ2ItYgGT6g9M3MVmJ+0A2soGpgIYdNvSNOPYeEsy37+
+	9qFMQZaz4SFvVhCqA4JTC4wzHLBDkSz0T6EZRGvQirq4xgatiBuXFnQ4bVQG0xJ5florQYLM646wi
+	mXjO06KOzeDOTtHvFk9fGHut5XZllG6p2xLoXUbA+YxjI3d7Ilrt7pa3eCV9kFDLdvXlPZM4AqVQz
+	D/qoxQz1s7LNO6YadLYalKDqSC8wyPW6fX6Z0jfdM544qNQ+jmCM4yx7s0xtrGTh8Jo2Xgby8PY+Q
+	P9G4h7tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzWF1-00000003iqY-0zDP;
-	Thu, 27 Aug 2026 09:17:47 +0000
-Received: from chaosmail.tech ([77.81.229.115])
+	id 1wzWHJ-00000003j7X-2RCo;
+	Thu, 27 Aug 2026 09:20:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzWEw-00000003ipM-1y4c
+	id 1wzWHI-00000003j7K-11x7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 09:17:44 +0000
-Received: by chaosmail.tech (Postfix) id 0B8ED1CC004;
-	Thu, 27 Aug 2026 09:17:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1787822258;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=B3d6qXAoH2ydeKOTX+N21t6om6kaUfysJTrx7H/1Esk=;
-	b=RTM768D65uV9EGE7KIHZHXEhVA8fU4yBLezNY2ButWgK+qMZkKwAETCTj8wIp+DumjX51z
-	hgdse1rrUH9++OWsmH35RBcoDRLakI4cGy+3OBM58tHSmY7TV68CK2JKmKAZwesmemOL4k
-	06UqESq2A1V6t55Qd1/9nmXJZfUDYfI=
-Content-Type: text/plain;
-	charset=us-ascii
+	Thu, 27 Aug 2026 09:20:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A275C41074;
+	Thu, 27 Aug 2026 09:20:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0303B1F000E9;
+	Thu, 27 Aug 2026 09:20:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787822407;
+	bh=hhwaGCY+npzO6o5a+bXYl+EKkArH4ztKeTfC+FHs8fo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=AuG3mNlOyh+HXgIESgfd1Bv/EwiIeqql5yd0+h2/IpnUkUPDfar5naGN51Ydiq5ed
+	 wW1V8hBRRibAwRy/IGq5c0bwbkGsfCFhY706zHT2aJp206k28RihkPJ0zxAu1hCJbF
+	 /QxYhlltLtt6pWGWw0dUDCxAaJaCwF7C2Lid0NB3Q492/Yy0pAvFEtlB+yXCcRTJM3
+	 A7X8XKnhk+yCPZPJ0KcHfROni2sMlXfYtx3SUr/I814iU3i9WRnzla/jVWDWhRA/Ek
+	 NAXL11iM/4B5diVHRp35+Hb6TiEWhvW96XcSEPI6lk2MSpojq3XO7mL9+6CS8MzYa3
+	 fthZIN4xHeQBw==
+Message-ID: <b8c36aae-e1c3-4a7e-a9aa-c11b552c1f23@kernel.org>
+Date: Thu, 27 Aug 2026 11:20:01 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v7 1/6] dt-bindings: spmi: apple,spmi: Add t603x and t8122
-From: Sasha Finkelstein <k@chaosmail.tech>
-In-Reply-To: <20260827-curvy-competent-bee-fcd81d@quoll>
-Date: Thu, 27 Aug 2026 11:17:27 +0200
-Cc: Sven Peter <sven@kernel.org>,
- Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>,
- Stephen Boyd <sboyd@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
+To: Sasha Finkelstein <k@chaosmail.tech>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+ Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org
-Content-Transfer-Encoding: 7bit
-Message-Id: <E0136D1E-4CB0-44A8-BB70-D499F113D211@chaosmail.tech>
 References: <20260818-t603x-spmi-v7-0-dafebe6e7739@chaosmail.tech>
  <20260818-t603x-spmi-v7-1-dafebe6e7739@chaosmail.tech>
  <20260827-curvy-competent-bee-fcd81d@quoll>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_021742_977831_0F4C67C5 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+ <E0136D1E-4CB0-44A8-BB70-D499F113D211@chaosmail.tech>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <E0136D1E-4CB0-44A8-BB70-D499F113D211@chaosmail.tech>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,17 +120,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Aug 27, 2026, at 11:15, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+On 27/08/2026 11:17, Sasha Finkelstein wrote:
+> On Aug 27, 2026, at 11:15, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> On Tue, Aug 18, 2026 at 08:32:40PM +0200, Sasha Finkelstein wrote:
+>>>
+>>> -required:
+>>> -  - compatible
+>>> -  - reg
+>>
+>> This stays. Which device does not need reg or compatible? I think none.
 > 
-> On Tue, Aug 18, 2026 at 08:32:40PM +0200, Sasha Finkelstein wrote:
->> 
->> -required:
->> -  - compatible
->> -  - reg
+> I have moved it to the else: section of the if/then below, so it is 
+> still present
 > 
-> This stays. Which device does not need reg or compatible? I think none.
 
-I have moved it to the else: section of the if/then below, so it is 
-still present
+But it should not be moved. It's a valid code.
 
+Best regards,
+Krzysztof
 
