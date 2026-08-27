@@ -4,63 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F5FCC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 19:00:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAB3BC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 19:05:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AZasQTMw+bvth+t4iVw0zLft/IkaqfeROeEsGeoOMds=; b=DAfDmE5TOAUjIcQFih8FxNtnSq
-	rpDM24FmMyJZAe2C1RYLqRGFNx0xhu9y7Y0cvrnZvw5PBgXQwdRCgDmKBZKUjVe3QX2H4cDIOP4DF
-	50Xyq3Husoy64iOFevcQbym9wsZGTSJB7s+Yg0vY3h1SFfMk1/rBVecDNhyvetsv902eDWHoiJaeo
-	qU2vipbg/M53/wJuWWGZYTQ4Uktx214b4NPQn7b6nCq70GjG9j/DXTodXburXxyoa7keiZCMbj/t5
-	Y8xk7PTmqQdtj99Zxxt2WeqX1lIWlpaEKUWnxFROnz6XP4tloYHTuCD+hwBT8QjHLkk5TP5gh+sKu
-	gp5I1YxA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l0/18a+jAXPQl28qEPQ6uj9wzdNRM90aKlsTE3XVMSs=; b=28/kbfcgRrnwct/sTBimR3C09H
+	NM4yzE2UhENLRPj3Utleq4maLf1smukUnuP2U1sp1bb4nFw/tCAJau42O+S4sdJM/tgLDcpZIDywm
+	84A2dY5kbEoLcaSKWjs5peB4SqZrf6zN0jSQ0yDdkcNxRg1eYUzjQaK7RG8IZjbik7LaHl+gx6Htu
+	ZLbfqRY5PD4PJJMN9BB+GrPNjrfb6np78xmsaPwL1TMokJfrq5J+mB7WGp5f2VHARXruzraN4ILN4
+	CDyf2vRM1PEXv0yDcFmkX+TjdNgjoM7Qc0DR6f2EhdEOh3EIjPzHJQJm2ovSZaVwcIHvnhzCH8bTw
+	62+Y4mDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzfKm-00000004fJ8-3GhF;
-	Thu, 27 Aug 2026 19:00:20 +0000
-Received: from out-181.mta1.migadu.com ([2001:41d0:203:375::b5] helo=mta1.migadu.com)
+	id 1wzfPH-00000004flW-0zPe;
+	Thu, 27 Aug 2026 19:04:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzfKJ-00000004fCn-0AX4
+	id 1wzfPF-00000004flM-11E8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 19:00:10 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=uKyFPMySg+ZdcSjFgmGmteIutliy7r49MnJ4aFTwets=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787857187; v=1; x=1788461987;
- b=lL7+11+0a2Un64Yzv2/4QoUirmZXacYdwmh2Qa6RY4dzevcdWx4NGxQwbk13rZB3oIWjqN/4
- +Vy8T+4FHqYXiuFZIuFDg3EEs3Ww3e1C2+FzVdK4OJ8HD9QHEkJXvlumgPk2xpfCA8XD+3lxToh
- F6msYL5mX6A727KiS14Ll/3o=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id f547417c01070e20;
-	Thu, 27 Aug 2026 18:59:37 +0000
-X-Mizu-Trace-ID: f547417c01070e20
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v5] arm64: Don't read GMID_EL1 when MTE is disabled
-Date: Thu, 27 Aug 2026 19:59:37 +0100
-Message-Id: <20260827185937.1369099-1-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.39.5
+	Thu, 27 Aug 2026 19:04:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 409D3600D9;
+	Thu, 27 Aug 2026 19:04:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBA021F000E9;
+	Thu, 27 Aug 2026 19:04:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787857496;
+	bh=l0/18a+jAXPQl28qEPQ6uj9wzdNRM90aKlsTE3XVMSs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=IlYnxvrh2yDgFzTmXYpXAblj4oY6DF62sHqpe9c1DGkpNWRoTeFoataC7x+TPDk+D
+	 5ZpoJDkYw5xUrFJSK9rIzvGFROXkjqIK/sj1//S8MEoMhpvZ7egEv+DR0tAWav6VAh
+	 Tk+z/ORfHyrXgtbx8UFQeGO3ds9ogqUc8uPJQdJbp4XBJaSTIQ7p0zNQAMZrBtLR9I
+	 Ma7+fmGyJlg9zJigXjp+fagb/cUpv8EuVCgbkmt4n2wplDJVsZ5mtSuY9VOGlyPBCZ
+	 R9hijTRWxt0jrSJFewQ28XCNVr7u/CA1FwfhVLiDHcQJjxmpPqzycazMIaFgODYIha
+	 v71IFBB7rBzqg==
+Message-ID: <bbd45126-8d43-40eb-8a69-a7fb6d2378f1@kernel.org>
+Date: Thu, 27 Aug 2026 21:04:48 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_120007_111238_AB5C374C 
-X-CRM114-Status: GOOD (  23.13  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 00/18] mm: arm64: Add kernel replication feature
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, artem.kuzin@huawei.com
+Cc: catalin.marinas@arm.com, akpm@linux-foundation.org, vbabka@kernel.org,
+ cl@gentwo.org, linux@armlinux.org.uk, will@kernel.org, mark.rutland@arm.com,
+ liam@infradead.org, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, wangkefeng.wang@huawei.com,
+ panov.nikita@huawei.com
+References: <20260827161158.3618409-1-panov.nikita@huawei.com>
+ <apBqjq24aG_s2ZTM@gremlin>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <apBqjq24aG_s2ZTM@gremlin>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,156 +119,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__cpuinfo_store_cpu() gates the GMID_EL1 read on the raw
-ID_AA64PFR1_EL1, so it reads the register even when the kernel has
-disabled MTE (CONFIG_ARM64_MTE=n or arm64.nomte). KVM sets HCR_EL2.TID5
-in that case, and pKVM injects an UNDEF the host cannot handle:
+[...]
 
-  Internal error: Oops - Undefined instruction: 0000000002000000 [#1]  SMP
-  pc : __cpuinfo_store_cpu+0xf4/0x264
-  Kernel panic - not syncing: Attempted to kill the idle task!
+About to go on PTO, some random points :)
 
-Only pKVM reaches it, and only after a CPU is offlined and brought back
-online: its CPU_ON relay sets the host HCR before the CPU enters EL1,
-while plain nVHE sets it at CPUHP_AP_KVM_ONLINE.
+> 
+>> [12] - Optimize this_cpu_*() ops for non-x86 (ARM64 for this series)
+>>
+>> As of today, none of it was merged into mainline.
+> 
+> I mean :) maybe take that as a hint? If a number of series trying to do X get
+> rejected by upstream, that is maybe suggestive of barking up the wrong tree?
 
-Gate the read on the CPU's own ID_AA64PFR1_EL1 with the command-line
-override applied, and on CONFIG_ARM64_MTE, which no register reflects.
-The boot CPU stores its registers before init_cpu_features() strips an
-unsafe override, so clamp against the hardware value here too.
+I'd have expected an explanation at that point why previous approaches were not
+merged and how this patch set is sufficiently different that it is worth
+maintainer's time.
 
-Fixes: f35abcbb8a084 ("KVM: arm64: Trap MTE access and discovery when MTE is disabled")
-Cc: stable@vger.kernel.org
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
+> 
+>> However, after thorough re-evaluation, we were not able to observe
+>> performance improvement for the x86 platform, so we have decided to stop this
+>> direction and switch on arm64.
+> 
+> I mean, why? You should provide details here, this is quite hand-wavey. You are
+> also proposing core mm changes for something that seems specific to unique
+> hardware as far as I can tell, which is a big ask.
 
-Notes:
-    Changes since v4:
-    - Gate on the ID_AA64PFR1_EL1 that __cpuinfo_store_cpu() has already
-      read, clamping the override against it in cpufeature.c, rather than
-      adding a __read_sysreg_by_encoding() caller in the header (Will). The
-      register is not read a second time.
-    - Dropped Suzuki's override clamp, which this no longer needs. It is
-      worth having on its own, so I'll post it separately with the Fixes:
-      tag and without the update_cpu_ftr_reg() hunk (Catalin).
-    
-    Tested on QEMU under pKVM, with -machine virt,mte=on.
-    
-    Offline/online CPU1 with arm64.nomte: unpatched panics in
-    __cpuinfo_store_cpu(), patched does not. Same with CONFIG_ARM64_MTE=n
-    and no override on the command line. And with id_aa64pfr1.mte=2 on a
-    CPU without FEAT_MTE2, where the clamp keeps the gate false and
-    init_cpu_ftr_reg() drops the override afterwards.
+What I consider interesting is "after thorough re-evaluation, we were not able
+to observe performance improvement for the x86 platform".
 
- arch/arm64/include/asm/cpu.h        |  1 +
- arch/arm64/include/asm/cpufeature.h |  7 ------
- arch/arm64/kernel/cpufeature.c      | 33 +++++++++++++++++++++++++----
- arch/arm64/kernel/cpuinfo.c         |  2 +-
- 4 files changed, 31 insertions(+), 12 deletions(-)
+How confident are we that a thorough re-evaluation on arm64 will not similarly
+have the same outcome? IOW, what was the problematic part when doing the x86
+evaluation, and how was that avoided when evaluating the arm64 implementation?
 
-diff --git a/arch/arm64/include/asm/cpu.h b/arch/arm64/include/asm/cpu.h
-index 71493b760b839..3c008821219c2 100644
---- a/arch/arm64/include/asm/cpu.h
-+++ b/arch/arm64/include/asm/cpu.h
-@@ -78,5 +78,6 @@ void __init cpuinfo_store_boot_cpu(void);
- void __init init_cpu_features(struct cpuinfo_arm64 *info);
- void update_cpu_features(int cpu, struct cpuinfo_arm64 *info,
- 				 struct cpuinfo_arm64 *boot);
-+bool gmid_el1_accessible(const struct cpuinfo_arm64 *info);
- 
- #endif /* __ASM_CPU_H */
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index a57870fa96db5..f6a7200700ccf 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -627,13 +627,6 @@ static inline bool id_aa64pfr1_mpamfrac(u64 pfr1)
- 	return val > 0;
- }
- 
--static inline bool id_aa64pfr1_mte(u64 pfr1)
--{
--	u32 val = cpuid_feature_extract_unsigned_field(pfr1, ID_AA64PFR1_EL1_MTE_SHIFT);
--
--	return val >= ID_AA64PFR1_EL1_MTE_MTE2;
--}
--
- void __init setup_boot_cpu_features(void);
- void __init setup_system_features(void);
- void __init setup_user_features(void);
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9a22df0c5120f..103e70d683ca2 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -1176,6 +1176,33 @@ static bool detect_ftr_has_mpam(void)
- 	return id_aa64pfr0_mpam(pfr0) || id_aa64pfr1_mpamfrac(pfr1);
- }
- 
-+bool gmid_el1_accessible(const struct cpuinfo_arm64 *info)
-+{
-+	const struct arm64_ftr_bits *ftrp;
-+	s64 mte, ovr;
-+	u64 ftr_mask;
-+
-+	/* No ID register reflects CONFIG_ARM64_MTE. */
-+	if (!IS_ENABLED(CONFIG_ARM64_MTE))
-+		return false;
-+
-+	for (ftrp = ftr_id_aa64pfr1; ftrp->width; ftrp++) {
-+		if (ftrp->shift == ID_AA64PFR1_EL1_MTE_SHIFT)
-+			break;
-+	}
-+
-+	ftr_mask = arm64_ftr_mask(ftrp);
-+	mte = arm64_ftr_value(ftrp, info->reg_id_aa64pfr1);
-+
-+	/* The boot CPU runs before init_cpu_ftr_reg() strips unsafe overrides. */
-+	if ((id_aa64pfr1_override.mask & ftr_mask) == ftr_mask) {
-+		ovr = arm64_ftr_value(ftrp, id_aa64pfr1_override.val);
-+		mte = arm64_ftr_safe_value(ftrp, ovr, mte);
-+	}
-+
-+	return mte >= ID_AA64PFR1_EL1_MTE_MTE2;
-+}
-+
- void __init init_cpu_features(struct cpuinfo_arm64 *info)
- {
- 	/* Before we start using the tables, make sure it is sorted */
-@@ -1228,7 +1255,7 @@ void __init init_cpu_features(struct cpuinfo_arm64 *info)
- 		init_cpu_ftr_reg(SYS_MPAMIDR_EL1, info->reg_mpamidr);
- 	}
- 
--	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
-+	if (gmid_el1_accessible(info))
- 		init_cpu_ftr_reg(SYS_GMID_EL1, info->reg_gmid);
- }
- 
-@@ -1490,11 +1517,9 @@ void update_cpu_features(int cpu,
- 	 * they read/write depends on the GMID_EL1.BS field. Check that the
- 	 * value is the same on all CPUs.
- 	 */
--	if (IS_ENABLED(CONFIG_ARM64_MTE) &&
--	    id_aa64pfr1_mte(info->reg_id_aa64pfr1)) {
-+	if (gmid_el1_accessible(info))
- 		taint |= check_update_ftr_reg(SYS_GMID_EL1, cpu,
- 					      info->reg_gmid, boot->reg_gmid);
--	}
- 
- 	/*
- 	 * If we don't have AArch32 at all then skip the checks entirely
-diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-index d50e2a9b066b3..45c63f3d75c53 100644
---- a/arch/arm64/kernel/cpuinfo.c
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -502,7 +502,7 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
- 	info->reg_id_aa64smfr0 = read_cpuid(ID_AA64SMFR0_EL1);
- 	info->reg_id_aa64fpfr0 = read_cpuid(ID_AA64FPFR0_EL1);
- 
--	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
-+	if (gmid_el1_accessible(info))
- 		info->reg_gmid = read_cpuid(GMID_EL1);
- 
- 	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0))
 -- 
-2.39.5
+Cheers,
 
+David
 
