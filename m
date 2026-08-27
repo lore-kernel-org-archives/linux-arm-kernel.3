@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FD2AC61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 21:33:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8141FC61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 21:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LkJBPyUwA+hyO/JesG4AiAf3V7aNlVVXoW+RmWZs2F4=; b=s3o+ZYxTWZ7WJQ7Ti/EIIbiiFD
-	PCW9a97cUCc6laMF9rDXzhzTuAAeQLrq/bbHQpcR5gAyZ8Xk2DOSDl7NVTxQmxjoxpyRBIglRjVpF
-	eR6b9yyAuiGEZHCpnuaZ9Y4uJ5pdTECpYaJtTxeGuGZOKqjyggtmmm6jWI5Xb+3r5+z8MWHSBoV15
-	EIn0/98QhiPj0YtM2Jc99Hj54MoGcOoC+KX+nJe+IZu2IUnhyVyhQ6YeM24xm4SPxIuI0wlj+3q+d
-	SYlcN8cZ7LGJQIIm1d4DptDskqNQA+CRoBzFtMj9NPci3Mjv//Da3YAj4wmtt3hLAQv/N+VqOQPGa
-	hkuKic0A==;
+	bh=Zwa9OildEt0/MBeKDzpiohQ2SGijo2Fqu8IR99Uz1bc=; b=WD/FFCJxlYJ+yJa140ku3DZX7J
+	FlchSpRP5HTcy6v2xYYed9imyGhQ7Y9npKrk74W8WuonSCC115PuwcH/U37UOfisTpqfhqMWdMFaX
+	HjyxTZaXeaaQ5oWHzxsYWZSsT139aQ/f7zWxdZU5V/lP97IlQXerkmBqL5/L7/B28p5WLfsCK+wBI
+	Mkl5z/EqQ6zMcS9+q2pjUE8NKVEsnModp4Sa0UI1icSr1sysFOZVudPT0eb+0vz70FecjvKa/ejz2
+	HU5JV16X8EB0veiP4PBpCuEAwdkVCE5RjGFwL9YUBKElQdrswWpcTntC9Z83Djm3ZUUwd+RqTO6r4
+	RikGLsbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzhiN-00000004oxD-1lGa;
-	Thu, 27 Aug 2026 21:32:51 +0000
+	id 1wzhjD-00000004p2U-2NZJ;
+	Thu, 27 Aug 2026 21:33:43 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzhiL-00000004ox4-2y32
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 21:32:49 +0000
+	id 1wzhjB-00000004p2A-2xcn;
+	Thu, 27 Aug 2026 21:33:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C27BF601EF;
-	Thu, 27 Aug 2026 21:32:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46ACC1F000E9;
-	Thu, 27 Aug 2026 21:32:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2BBB8601F0;
+	Thu, 27 Aug 2026 21:33:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DD031F000E9;
+	Thu, 27 Aug 2026 21:33:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787866368;
-	bh=LkJBPyUwA+hyO/JesG4AiAf3V7aNlVVXoW+RmWZs2F4=;
+	s=k20260515; t=1787866420;
+	bh=Zwa9OildEt0/MBeKDzpiohQ2SGijo2Fqu8IR99Uz1bc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=edygtnii9K6HXbSrjcTddfpEsrJ3lPRpekgDoU9c+ejrv97vEuWw7hayd6mX76tse
-	 RpsRg76wTwrW04lUOZ+4xjGfSXEJRWsNvttoa1AGgmgIHtbRkhxuwwjNABf2fVOeU2
-	 ORI9eBfeEDmAxX3CF24bt3lnEpidjRD1wbuYOGjwn0/N7DWCY/VsAHoDcBJvTRr14p
-	 LEiBb4OgbOtb3p/Kjg3+v/h3yxq1NRXnYgU28jWWgzIjMoSDAUyVLCB8VqDPAfYNo9
-	 K4sY0ejVdaNvY+nnRuurlKdNDejPCqmFSvVGP+v9WYCQg9+7W4+Cw6Sn7gYpsGfTnI
-	 60UomytggBGeA==
-Message-ID: <164b4f99-a642-4c88-8ff9-78930264d093@kernel.org>
-Date: Thu, 27 Aug 2026 23:32:37 +0200
+	b=Fw1+9sqrLMgXn3ctkUbjhc4YaXPZA1bFizV1DDiocqaZcwOSj61O5UvptVU+MXrw3
+	 cHGuihh2s2WoNOH9f3D0QpemTdvRptaPyCKtIZMFbkXD9d/VMxFXfayWNN9FfRYI+L
+	 /S0vXfrJBDpVaovIu3iLv/4ZkcuNbg9CQUPwPHAK0QoPAOAZJTDdYcE1sps1QFi4K9
+	 cuz8oC5sptjv4ph7YeH38O0eI/GK9/KhbXsQY5pz0pC38yvEn3f8nZ6Vx55+uE5YU1
+	 1netFCyUhW11Rs/X3hU2T3XdxwORVGU2xfVSfh3PQHcy4+A+h6kKSeJCCwEiPPSpFu
+	 2/2SZU3rzGGVA==
+Message-ID: <25e10cfe-40dc-45f4-8a92-cd81263420ea@kernel.org>
+Date: Thu, 27 Aug 2026 23:33:31 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/3] wifi: mwifiex: add dt flag to avoid conflict with
- platform reg domain
-To: George Valkov <gvalkov@gmail.com>
-Cc: briannorris@chromium.org, johannes@sipsolutions.net, andrew@lunn.ch,
- krzk+dt@kernel.org, francesco@dolcini.it, johannes.berg@intel.com,
- kees@kernel.org, miriam.rachel.korenblit@intel.com, rongqianfeng@vivo.com,
- wenst@chromium.org, rafael.beims@toradex.com, avraham.stern@intel.com,
- error27@gmail.com, s.kerkmann@pengutronix.de, gregory.clement@bootlin.com,
- sebastian.hesselbarth@gmail.com, robh@kernel.org, conor+dt@kernel.org,
- Frank.Li@nxp.com, chunfan.chen@gmail.com, arend.vanspriel@broadcom.com,
- peddolla.reddy@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org,
- linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, stable@vger.kernel.org
-References: <20260827130335.6606-1-gvalkov@gmail.com>
- <20260827130335.6606-2-gvalkov@gmail.com>
- <fbde1932-5433-48e8-b352-bf27eb545149@kernel.org>
- <CADOrJmY5jZvn8zEu-jCntGChXSY9wRd3bsOy1GB0EWNTY9GK6Q@mail.gmail.com>
+Subject: Re: [PATCH v3 1/9] dt-bindings: phy: Document ST STM32MP25 USB2-FEMTO
+ PHY
+To: Marek Vasut <marex@nabladev.com>, linux-usb@vger.kernel.org
+Cc: fabrice.gasnier@foss.st.com, Pankaj Dev <pankaj.dev@st.com>,
+ Rahul Kumar <rahul.kumar05@st.com>,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Christian Bruel <christian.bruel@foss.st.com>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Rosen Penev <rosenp@gmail.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+ Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org,
+ kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20260822074816.548662-1-marex@nabladev.com>
+ <20260822074816.548662-2-marex@nabladev.com>
+ <7a16614a-bd1b-462a-be13-4a9c22aa588e@kernel.org>
+ <34c48ff1-524f-4d24-b53f-99e7171d08db@nabladev.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,7 +112,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <CADOrJmY5jZvn8zEu-jCntGChXSY9wRd3bsOy1GB0EWNTY9GK6Q@mail.gmail.com>
+In-Reply-To: <34c48ff1-524f-4d24-b53f-99e7171d08db@nabladev.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -125,24 +129,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/08/2026 19:27, George Valkov wrote:
-> On Thu, 27 Aug 2026 at 18:33, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>> [1] https://github.com/kaloz/mwlwifi/issues/173#issuecomment-307879699
->>> [2] https://github.com/openwrt/openwrt/issues/9956
->>>
->>> Tested-on: WRT3200ACM, OpenWrt
+On 27/08/2026 16:53, Marek Vasut wrote:
+> On 8/27/26 2:54 PM, Krzysztof Kozlowski wrote:
+>> On 22/08/2026 09:46, Marek Vasut wrote:
+>>> +description:
+>>> +  USB2 PHY block in STM32 is attached to USB 2.0 Host controller and
+>>> +  USB 2.0 side of DWC3 DRD controller, and provides the USB LS/FS/HS
+>>> +  connectivity. Both PHYs are the FEMTO-PHY, but their configuration
+>>> +  bits in the system control register are different for each variant.
+>>> +
+>>> +maintainers:
+>>> +  - Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+>>> +  - Marek Vasut <marex@nabladev.com>
+>>> +  - Pankaj Dev <pankaj.dev@st.com>
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    enum:
+>>> +      - st,stm32mp25-usb2phy1
+>>> +      - st,stm32mp25-usb2phy2
+>>> +
+>>> +  "#clock-cells":
+>>> +    const: 1
+>>> +
 >>
->> OK, so this comment from v6 was not about binding, but this is still
->> wrong - there is no such tag. Just make it a standard sentence.
->>
->> Do not introduce OpenWRT rules in to the upstream kernel.
+>> As pointed out by different patchset built on top of it, this is wrong.
 > 
-> Dropped the invalid tag. I hope this is suitable:
-> The change has been tested on OpenWrt and fixes the issue where
-> phy0 does not start on WRT3200ACM-EU when a DFS channel is used
-> 
+> What is wrong in this (V3) of the patchset ? I think the ST patches were 
+> fixing up V2 and what they were fixing up is already fixed here in V3.
 
-Thanks.
+Probably I got confused... but I had impression the ST patches were
+adding here "reg" property, no?
 
 Best regards,
 Krzysztof
