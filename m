@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F4BC61DC6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 23:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42460C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 23:32:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4pKguOeL4XpEhj7eOn7cPoRPiZ6Kih53q6MwTo24ARI=; b=2yVTd39adLgA1PTLmQFmZ4MM8H
-	nNfSe3YymZE7N7pwM/ltQMZatGQ5e/zCMHn1V3u9PZYD9sAEVquEO1zt/ujHc2SVKmjWpb9SEhM5y
-	12Sh/+HqWj5yXbBE5U73gxuZE9Er1tb6q4GUb+wx7HXo0AE2nvmAYFZPS9SoqZMPc4AwmAF43WWbj
-	hqlWv4SXihX1tIzdSowfM1M6DOWb4nEprX4jd3hVjPvajyBpYmBjagf+cIUkJToWrz16otkV1o3oU
-	8O5/zVPJ31S1UTkw/cdw43QMYJybHy2J7Pw3lyLcBYzaKZCojXpeoE3+6K1zSfPRA99EetBwQfclI
-	fOsztvjw==;
+	bh=THehtAVXPzXeOISNI+hN8Wh32bn5y3s9ZVH/HPQs5Ig=; b=oSc1u5SP91bMybhK8gHMWRilrd
+	TNdnAGVrNtkanMcNbN8JxuDGe20fI/Ptsa8mDrOVtoNu0cG/uCQII0k8AGNl+gaJZsYUP6ky/h+YE
+	xF4THGnTIi46GssMXFasWawAfad8pIta7aq/SzE/jywmJVUmE66PJkKNcQDZPqj6d+DWwhLio1zDh
+	WYheMoTVHLnepYjhHWDWhLOJXSPvS3roPzJCbj/4KDVbJSh1UUr0KJhKq2/aUZ/G3VgR8T/e2KoA+
+	iHYzTSRRudaUzmv65xSJKQL/1tg1xM1ssauntVnPppNz7cv3asHDUgXV3YSgt025xYZ2JcW6TJp5y
+	DjtOCyoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzjZN-00000004uD2-018U;
-	Thu, 27 Aug 2026 23:31:41 +0000
+	id 1wzjZm-00000004uPv-2ui0;
+	Thu, 27 Aug 2026 23:32:06 +0000
 Received: from mail-pj1-x1047.google.com ([2607:f8b0:4864:20::1047])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzjZ4-00000004u5t-0Sav
+	id 1wzjZM-00000004u96-3EvJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 23:31:23 +0000
-Received: by mail-pj1-x1047.google.com with SMTP id 98e67ed59e1d1-38e25e4b41cso481623a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 16:31:21 -0700 (PDT)
+	Thu, 27 Aug 2026 23:31:42 +0000
+Received: by mail-pj1-x1047.google.com with SMTP id 98e67ed59e1d1-38e4758ab46so917785a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 16:31:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787873480; x=1788478280; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787873496; x=1788478296; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=4pKguOeL4XpEhj7eOn7cPoRPiZ6Kih53q6MwTo24ARI=;
-        b=kCZlLiQMvCtZ93FxYd6qhZGivo1ZaL1yUKR8dcxuM9WHmdE/SrJ+DmO5okma2cDgzI
-         EHFT5JhfwRmB+ZIlNMlW9RNW4+Nh6lf3/CcmMzJ6Z6DDU5ZdWa3fLpAqHDmor242wWBo
-         SovWq6VsTW2CYIMmnF5a64vvS5yX0mx3OwEnMNyca6EPKxT05hwLNNIIvg95X8OS5dF3
-         gf8py995kTWhSGARPBiiC2BTj732+uvkBdKdWgpVA9ikZZLODqcmKRleFlk3ulmIK6Dh
-         k41fd47P05sxZg+wmpyqVk1q60THAj2nzrt3V+JQwdqFjTBTfCsfyvMXddEboCkyezv6
-         KJdg==
+        bh=THehtAVXPzXeOISNI+hN8Wh32bn5y3s9ZVH/HPQs5Ig=;
+        b=bdp7lu/r8iD82FLqkH1YpZ3C1OCzEgHydiHreoqlkiDa6guJ4a/DxA5kO27Un7oMNz
+         x0070TcHPNeX1tP9gupI7m3vxp93DNW2kBnyra1sczz9HXVPjlVxL6t6pVnqkiNvNP6s
+         QOLla3+lmImnoW4FdRJRAa+lu8VNaC55nUzHxikgR0QAWAFWRYo/haKVxmWSrW5sEQog
+         FVbDlqqKQBGTD6ChIiz9ajDzukDgQpXrArdLHDVy7kp1/6nwh2YDvlxta1denopfHmTf
+         fbn0iFHlOfLhYdLOfkex/o4ffhuf7nFID4Gu4keCzjor8c5CfG0kgyVX+1uCA50B/+Pl
+         FT7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787873480; x=1788478280;
+        d=1e100.net; s=20251104; t=1787873496; x=1788478296;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=4pKguOeL4XpEhj7eOn7cPoRPiZ6Kih53q6MwTo24ARI=;
-        b=PdrmVhHyMQqW8WyMWRklcWXD8ZzrGfIqzF58Q/cjY1uir4NxKQHi9ExNPy/ZGa5tfr
-         H+sE2BIGN4+TERyEzD9+5ZB3rJnJx0O0h34DQi1B0CjwV8CFyF5wGgth3EJDtNK+xWii
-         G1cP3s3eTu2rMYmGXrY8PO+ZC/clcZg6BTTQ8UGWKPltxWHXtUayMWQHEKnJcnYsPnnE
-         NxaeUti+WKDLU6utGY3EnmY3j5jnc+SyxZmy7J2vMLRNLWT87CEhz1B3GQ1Z7j3iek44
-         uW1345zVKRbaQ1BmxvSh256LcKg99pmN3QWl2f2z34vcvHPQt/SKhx1TaROAfjT/RfP6
-         H+yA==
-X-Forwarded-Encrypted: i=1; AHgh+RofpYz87jac07BA4ehsySxl1U3IVm0eIRrJOoyZSW5YTJVkjoD9eEA8piSWDB/W7qyEumXoG3oAxj3huCoauycF@lists.infradead.org
-X-Gm-Message-State: AFuF++kci+zQqrIqugrd/F/i3rCsCLrZgtIvfljFSKCkXQVumIUYAVIl
-	LoO8t/a8GdYy774cWS3bWDajD6otHDgOvUYA90A2L9owmEhqYl7Ti/2hzBRQrM6DGUiQEVXNxkX
-	qFJzWriL6Vw0xHA==
-X-Received: from dlbtp4.prod.google.com ([2002:a05:7022:3b84:b0:141:4abc:f12d])
+        bh=THehtAVXPzXeOISNI+hN8Wh32bn5y3s9ZVH/HPQs5Ig=;
+        b=ewQXvIqbY2WqKUVYH+mj0wX6EciFTvUaUCxQn5OQ63/CFjvtR7ZLAG8IkuF8++wa5A
+         xQ5apW5KrTASH/37aNpErfd4yXYu2cFpGlB83loRmAhDMHAw7cc/k8d1Yhv78amD6oIW
+         9/Kx14Cr9fvnF54A9vldT1kSHmy77pfsTbd7g606MKJoylkcSFQPmCfVJIsyyWPTpTrL
+         GIhEGCqDNZtvE8tOn5ZnNz724cE1RC1bIayw0f0Mop65MHKTQ3uN0YT+TgfnqY5ZOkpX
+         oyuPy0dxbp9XrQ6iYUI/W8gLbSpnBHnZepyrzfOd6duMTTvGYPw/0T7istA+L+Vqxh3s
+         o9mw==
+X-Forwarded-Encrypted: i=1; AHgh+Rpt0octeTzaf/Uh1Pa+Qlj8sYcTQb/To4xbme275AeK3waCx7a/EBa3LM6sovxJuuMm0E/K7ihhvx4Xzo3j3W2/@lists.infradead.org
+X-Gm-Message-State: AFuF++nrYfaWR0xM7Xpw540xFFCgyhDxSq5sk6FENFgGYQ66gUnt4nb9
+	WnH0tde1+HtgNGo+jrR9Mbs0hc76vSpXIKaytnM7M2RVEWr95Ar68AU9LVdM257kZq9STnv0S0i
+	vwBO2ALhmOo633g==
+X-Received: from dlbsj13.prod.google.com ([2002:a05:7022:f90d:b0:139:d9c7:3cf4])
  (user=stevensd job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:1a8e:b0:396:4c63:7193 with SMTP id 98e67ed59e1d1-396d0fe45damr5091530a91.11.1787873480154;
- Thu, 27 Aug 2026 16:31:20 -0700 (PDT)
-Date: Thu, 27 Aug 2026 16:29:40 -0700
+ 2002:a17:90b:2c88:b0:396:b98b:a3c2 with SMTP id 98e67ed59e1d1-396d0f52a0amr5303479a91.8.1787873495813;
+ Thu, 27 Aug 2026 16:31:35 -0700 (PDT)
+Date: Thu, 27 Aug 2026 16:29:48 -0700
 In-Reply-To: <20260827232948.2520558-1-stevensd@google.com>
 Mime-Version: 1.0
 References: <20260827232948.2520558-1-stevensd@google.com>
 X-Mailer: git-send-email 2.55.0.897.gb25b4bd76c-goog
-Message-ID: <20260827232948.2520558-3-stevensd@google.com>
-Subject: [RFC 02/10] mm/vmalloc: Skip vmallocinfo NUMA stats for VM_SPARSE
+Message-ID: <20260827232948.2520558-11-stevensd@google.com>
+Subject: [RFC 10/10] arm64: Enable reclaimable stacks
 From: David Stevens <stevensd@google.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
 	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
@@ -88,8 +88,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	David Stevens <stevensd@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_163122_151757_F7CAD2A6 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20260827_163140_842431_90543B79 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,29 +104,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bail from show_numa_info() in vmalloc_info_show() for areas with
-VM_SPARSE set. This lets clients that allocate VM_SPARSE areas directly
-use vm_struct's nr_pages and pages fields.
+Implement top_of_blocked_task_stack() to get the stack pointer out of
+a thread_struct and enable HAVE_ARCH_RECLAIMABLE_STACK.
 
 Signed-off-by: David Stevens <stevensd@google.com>
 ---
- mm/vmalloc.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/Kconfig                 | 1 +
+ arch/arm64/include/asm/processor.h | 5 +++++
+ 2 files changed, 6 insertions(+)
 
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index f4fa227a8d7f..d39897300f29 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -5294,6 +5294,9 @@ static void show_numa_info(struct seq_file *m, struct vm_struct *v,
- 	if (!counters)
- 		return;
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b3afe0688919..262a4fddce19 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -173,6 +173,7 @@ config ARM64
+ 	select HAVE_ARCH_TRACEHOOK
+ 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE
+ 	select HAVE_ARCH_VMAP_STACK
++	select HAVE_ARCH_RECLAIMABLE_STACK
+ 	select HAVE_ARM_SMCCC
+ 	select HAVE_ASM_MODVERSIONS
+ 	select HAVE_EBPF_JIT
+diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
+index c2a627f39314..f5a550835c94 100644
+--- a/arch/arm64/include/asm/processor.h
++++ b/arch/arm64/include/asm/processor.h
+@@ -204,6 +204,11 @@ struct thread_struct {
+ #endif
+ };
  
-+	if (v->flags & VM_SPARSE)
-+		return;
++static inline unsigned long top_of_blocked_task_stack(struct thread_struct *thread)
++{
++	return thread->cpu_context.sp;
++}
 +
- 	memset(counters, 0, nr_node_ids * sizeof(unsigned int));
- 
- 	for (nr = 0; nr < v->nr_pages; nr += step)
+ static inline unsigned int thread_get_vl(struct thread_struct *thread,
+ 					 enum vec_type type)
+ {
 -- 
 2.55.0.897.gb25b4bd76c-goog
 
