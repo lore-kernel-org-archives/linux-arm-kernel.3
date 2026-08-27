@@ -4,59 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24822C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 09:15:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B71C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 09:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LdRXpOvpY8MU9GMUpEh8fPVPCUtndoEd5nrLrISpGFs=; b=eQEW8LaGW2dz7rAz+qCQxB9H2C
-	V7rTbEvU1KVzkjJibZ/UIEc8DdUA0rr4m7dwV6ww4Ggb8Y7hritkv0crc9suH85F3XY2szq/0IyfL
-	NNjVG/j1wgo+KktzeJN4lbvwcR9N/z2FH3h0p0vpxhDNnvYjV3UI3acuX7A2gUopOiALzw2CgIcQ5
-	UkF1lhcelMLFnojRJhoJqrCpgo9f7LqfqGgGGAF35QL6HdN/ZRSgfSDWWR3uq/n3iO8TQI0HWCW7k
-	OTWJzd8D7mQ4QB9uw1HA1nwH06XJ97Qh3Osw9YZylcz+vleJibBBTJECmMVyR0Df2YntMmgdF0qwf
-	QULOz7WQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B3d6qXAoH2ydeKOTX+N21t6om6kaUfysJTrx7H/1Esk=; b=DSEShzT0Q8SJEMLXlZxsZWh/na
+	CJ8oQOpbf0DCwWxgGz2hTRo7K0WcmucCix1Vc3lwvcohFl4RxZsAs2Vt3SUuh5LFDHDAgulyturJK
+	95DYLDG8Oc+lS5hRDgLXN1gB7WvUgXiWwcxOUtvece8OM97mROPtj0Fn6Bpi0/HnEBTJ4HxFGFPlN
+	Li832vb76zvmNKcvP2U80pon0Th4mLxrsXh5zsnCu7Pq1Xp9Oa0G/xcW0heN7ZZvb5zZpJ7DBWAkp
+	V6e2PUcVq3WDbOnfkDbFe93oN73gOulHqRN19zuOZUKEzy6TYK0W15nwJksyYL2/opHZePqUg7pvo
+	TAPkr46A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzWCT-00000003ib1-3PU3;
-	Thu, 27 Aug 2026 09:15:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wzWF1-00000003iqY-0zDP;
+	Thu, 27 Aug 2026 09:17:47 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzWCR-00000003iao-2HTK
+	id 1wzWEw-00000003ipM-1y4c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 09:15:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2259642DF0;
-	Thu, 27 Aug 2026 09:15:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7306C1F000E9;
-	Thu, 27 Aug 2026 09:15:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787822106;
-	bh=LdRXpOvpY8MU9GMUpEh8fPVPCUtndoEd5nrLrISpGFs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ix+B0AWXNJJWen1w78P2vTxR1ovIcsbPrDM3oBaZYsZ4Yz8UODavHLF+fd+FrxlDr
-	 69z/8n1uDLFKPcqThIe5Iu5S71zbYi1h/pJgVMcSDTTFkNlsKDw/cJ8opO0GLNl5T1
-	 yjtEvDmUWBi5wfgVsrGmCxmx1gSSpuzQKjz5IGDMecu9z4W68jHDm3FxFvg+NIHA29
-	 w+cbIdrpKCwBd1Z8XyAhWPA8fiORQjalN8SYdigZ+DI8D3ohOA6IZTKVcjMCDiaq+o
-	 MdHb8OFuC6c3HfN2NzgpBUUeFDFeRfCH7yje8CF7v4kX3aCkbSRZYjKeN9gyC2EQOw
-	 7KfuTHRDBTpPA==
-Date: Thu, 27 Aug 2026 11:15:03 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
-	Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+	Thu, 27 Aug 2026 09:17:44 +0000
+Received: by chaosmail.tech (Postfix) id 0B8ED1CC004;
+	Thu, 27 Aug 2026 09:17:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1787822258;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=B3d6qXAoH2ydeKOTX+N21t6om6kaUfysJTrx7H/1Esk=;
+	b=RTM768D65uV9EGE7KIHZHXEhVA8fU4yBLezNY2ButWgK+qMZkKwAETCTj8wIp+DumjX51z
+	hgdse1rrUH9++OWsmH35RBcoDRLakI4cGy+3OBM58tHSmY7TV68CK2JKmKAZwesmemOL4k
+	06UqESq2A1V6t55Qd1/9nmXJZfUDYfI=
+Content-Type: text/plain;
+	charset=us-ascii
+MIME-Version: 1.0
 Subject: Re: [PATCH v7 1/6] dt-bindings: spmi: apple,spmi: Add t603x and t8122
-Message-ID: <20260827-curvy-competent-bee-fcd81d@quoll>
+From: Sasha Finkelstein <k@chaosmail.tech>
+In-Reply-To: <20260827-curvy-competent-bee-fcd81d@quoll>
+Date: Thu, 27 Aug 2026 11:17:27 +0200
+Cc: Sven Peter <sven@kernel.org>,
+ Janne Grunau <j@jannau.net>,
+ Neal Gompa <neal@gompa.dev>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+Content-Transfer-Encoding: 7bit
+Message-Id: <E0136D1E-4CB0-44A8-BB70-D499F113D211@chaosmail.tech>
 References: <20260818-t603x-spmi-v7-0-dafebe6e7739@chaosmail.tech>
  <20260818-t603x-spmi-v7-1-dafebe6e7739@chaosmail.tech>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260818-t603x-spmi-v7-1-dafebe6e7739@chaosmail.tech>
+ <20260827-curvy-competent-bee-fcd81d@quoll>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260827_021742_977831_0F4C67C5 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,43 +81,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 08:32:40PM +0200, Sasha Finkelstein wrote:
-> Add t603x and t8122 compatibles, interrupt support, and support for
-> SPMI controllers that are not always-on.
+On Aug 27, 2026, at 11:15, Krzysztof Kozlowski <krzk@kernel.org> wrote:
 > 
-> Reviewed-by: Janne Grunau <j@jannau.net>
-> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
-> ---
->  Documentation/devicetree/bindings/spmi/apple,spmi.yaml | 37 ++++++++++++++++++++++++++++++++++---
->  1 file changed, 34 insertions(+), 3 deletions(-)
+> On Tue, Aug 18, 2026 at 08:32:40PM +0200, Sasha Finkelstein wrote:
+>> 
+>> -required:
+>> -  - compatible
+>> -  - reg
 > 
-> diff --git a/Documentation/devicetree/bindings/spmi/apple,spmi.yaml b/Documentation/devicetree/bindings/spmi/apple,spmi.yaml
-> index 3e5b14bc8c31..1d14025b44c5 100644
-> --- a/Documentation/devicetree/bindings/spmi/apple,spmi.yaml
-> +++ b/Documentation/devicetree/bindings/spmi/apple,spmi.yaml
-> @@ -20,8 +20,11 @@ properties:
->        - items:
->            - enum:
->                - apple,t6020-spmi
-> +              - apple,t6030-spmi
-> +              - apple,t6031-spmi
->                - apple,t8012-spmi
->                - apple,t8015-spmi
-> +              - apple,t8122-spmi
->            - const: apple,t8103-spmi
->        - items:
->            - enum:
-> @@ -34,9 +37,37 @@ properties:
->    reg:
->      maxItems: 1
->  
-> -required:
-> -  - compatible
-> -  - reg
+> This stays. Which device does not need reg or compatible? I think none.
 
-This stays. Which device does not need reg or compatible? I think none.
-
-Best regards,
-Krzysztof
+I have moved it to the else: section of the if/then below, so it is 
+still present
 
 
