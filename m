@@ -4,155 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA84BC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 14:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C966C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 14:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tje+ok/0kIQDgguTQ3Rhlfe1B638QyP6uNh8VPFhWHo=; b=yJcahYv7Tjk8011MKoCCn0699K
-	pIkgVChMjtNbGuCPHuqvSpLqcoipuS7kyFNeydgnJtS0Zh5qJDnbCmf9bjp/2+l2HxjOkA9DVvZdB
-	UGN67ARlKFFQ5GhWiNTxYsBj/2+yQ9KUIeZQpZ+QC41BALjj10WuicoX3qWdJL1mU9MYmUaoZ3XO5
-	cS5+IkWLSg9bIsflATOLreX2Dwqx/KYElr46Ul381a8s1XetHafATdU1ByGJ2WhJW1gvoOFfoGcUK
-	yXA7wkJla0LwSwRRZsPWfRjRoq7QitNmy2AV0g24NhH3ntcnMWFWCD/8H4uswcSVhMckw3UZycB79
-	KVjq1fNA==;
+	bh=96YJaQc2pzB5NOnZxs78bcj2ZxFny2Qu9mlA0kh0hMM=; b=KNmK7Ja0GEtDmv3OAYSz08+0sz
+	9OLyArtz+DVFqAiW7Vzvi0MqWl2TKrxKQTACSEuLlgvEsloxW/KB44AomxTTBDb1cxXNlcrkRPCOH
+	fq5rQJPChWKOCayyWOaPQcM05miREWzcjkDsR3y1T0ZcKYEP9L3z/NIGJC/cbQ6Nvg9LDFweKVHNr
+	p28xo/PYl9DsxKi/IEAPq0JM0B/vop9C8UPMAHrJWEGLpGvwr6P4n8NbJuVUDz86QS9xKm4NXU2vd
+	0DKIryzFliPjmgCTO86/tYZf4h3APBbRRwNTXk0W+pLOmlqI3EAQaRx1GlzUCDOscnPnaGKojHna4
+	rHMgqkJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzbKx-00000004Be1-1eqS;
-	Thu, 27 Aug 2026 14:44:15 +0000
-Received: from mail-francecentralazon11013069.outbound.protection.outlook.com ([40.107.162.69] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wzbM6-00000004Bor-2q0O;
+	Thu, 27 Aug 2026 14:45:26 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzbKv-00000004Bdg-124y
+	id 1wzbM2-00000004BnU-2z8i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 14:44:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tQonZPoFQ9ti8PQ2HPQltLOzrWFiHIxrGnhV2eqmUn+AyMtulEFlxx10+qd5TQ38RhKl2Clxq+SlfY6TLcnikNsZhfC9xFfubPkh1w65z4X4c+Nv53NfXplNiMDMNX3JTbC9rKecbJ2ws9lF37QbAeOgWnm6mc4TJY8L81PlCD408x6MJRYJWZSWEnTzylbSndWz9pEjLX+99f7Xffn523B8mqBXANv8fdsipuoW3xWgUaqwMVKOjaqR7yEG6MdEfM9grMunkoLqSeW4h/00Vzh8Q2fe2BoZj2FIdllACyXrYIHlAlTDhr6phFlYfzAFzySvwJVMsLM1EsDKy3ClrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Tje+ok/0kIQDgguTQ3Rhlfe1B638QyP6uNh8VPFhWHo=;
- b=tfewIhs+bktaLd+GG0DFz1xKuR7Sv9czagkyovCDNksIexNWh1T8JaectL6zRzOEimLwIJg/laOney3/5CS1WzpXFm1/WTl2tDVjyBXDT1od7TvoksIM2of7Giz6Nvg+u976+3o631kYTUUKyJ7ASddo8ZVgIYtbCAWQPXPmlo8DMVWxNM0p5kV83Ww38hOCaTeAo5Zdhh7LLhelwc+AFjgcUrNv5w9aGPqszGsA7vj+UaVu2zUxcVvmG/MLmQivNkFVVm77euLirTojsovtsoa+TjekxxmWCuAYHH0IFwbEhBGn5cmDaZ+CQbKxoNA1CGL10M9x8EsFFN7eI/q6XA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Tje+ok/0kIQDgguTQ3Rhlfe1B638QyP6uNh8VPFhWHo=;
- b=f/tQ9cpESYpstZ8/xsxMx7zQ95ul2Vfozejr6l8YsAABqJLB27KDvToxB9R++254sWwo7abR+4pATyZSssSdX/h+NrqR/qciAkwPNY4+nFe/NZFhNGwQ8dYCOq5RJViXDRtCkem2cYyZBKiAGDkAhA/Qs5gNosa37CuqCFKUzuf+zLLoKOPXplFic3z/yXLS35z63AYQ0aUCsEUSLuH6NZc1hB4nm97Dlx5YT+cboIl7f2uwTEFy/pHft9n9brtcXzuuY1I5SulNgfO2GGmYyMY1xSaSeU0/iW1ROvJazXgEoPL2ypekrFhm3Gbz0L23/sMmENFW3Z0iqHHCeCymHQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10) by BR0PR04MB944139.eurprd04.prod.outlook.com
- (2603:10a6:2c8:46::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Thu, 27 Aug
- 2026 14:44:07 +0000
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
- 14:44:07 +0000
-Message-ID: <d4be0a92-bf08-492e-8238-7354efeec101@oss.nxp.com>
-Date: Thu, 27 Aug 2026 17:44:03 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/10] scsi: ufs: Add NXP S32N79 UFS host controller
- driver
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Avri Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
- "Martin K . Petersen" <martin.petersen@oracle.com>,
- Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
- Ajay Neeli <ajay.neeli@amd.com>, Manivannan Sadhasivam <mani@kernel.org>,
- Pedro Sousa <pedrom.sousa@synopsys.com>, clizzi@redhat.com,
- aruizrui@redhat.com, eballetb@redhat.com, echanude@redhat.com,
- linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
-References: <20260826134048.854748-1-larisa.grigore@oss.nxp.com>
- <20260826134048.854748-8-larisa.grigore@oss.nxp.com>
- <ao8LBwXonNzjSQZ9@SMW015318>
-Content-Language: en-US
-From: Larisa Ileana Grigore <larisa.grigore@oss.nxp.com>
-In-Reply-To: <ao8LBwXonNzjSQZ9@SMW015318>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4PR09CA0011.eurprd09.prod.outlook.com
- (2603:10a6:20b:5e0::13) To GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10)
+	Thu, 27 Aug 2026 14:45:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1787841926; x=1819377926;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=L9z+EaQEeXZMaM2pN88T3doI8eQzCVfKOB3Yihhri6Y=;
+  b=i2pWPaE/Zh+bNpkoJvOKcu+crR1M4GGyriXgFlpaOMu2VZUdMTqODVwM
+   xt/naJjN7JcrPg3WV8/7+2m0VBnUJRylfkfQmnaGJuyWtpezfbvlGF3HG
+   yErbm8+RlCcQI3JVs7lAEvxZFwOKdJaoLeirGIiAGQuWKp0NltxZUjHGy
+   2r82308BAZHgU27iAW2YPmlaOy1X9dWffRkGLK0DHNvmzckTWuKRF0atS
+   nIoTB8Mqd3j1QOaaVSU0HX4Gcmk0kixzZ/33pQzkPgKoXBnNPHX12neLd
+   8LhUUfq4Kk62/P6Y9l0moWdQQQRd5QM+/1KsLKJ+r8MvVnnm/WCpY4IQP
+   g==;
+X-CSE-ConnectionGUID: vfzIX0CYQ3WihH8YEI9y1Q==
+X-CSE-MsgGUID: T6sNDYpHQ5OMT17ggktxpA==
+X-IronPort-AV: E=Sophos;i="6.25,246,1779174000"; 
+   d="scan'208";a="63063015"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 07:45:05 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
+ chn-vm-ex2.mchp-main.com (10.10.87.31) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.45; Thu, 27 Aug 2026 07:44:46 -0700
+Received: from DEN-DL-M77643.microsemi.net (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Thu, 27 Aug 2026 07:44:43 -0700
+Message-ID: <42e89af07b691122dcd91666da3571a30260d03c.camel@microchip.com>
+Subject: Re: [PATCH net-next v2 9/9] net: sparx5: add neighbour event
+ handling for L3 routing
+From: Jens Emil Schulz Ostergaard <jensemil.schulzostergaard@microchip.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <horatiu.vultur@microchip.com>, <UNGLinuxDriver@microchip.com>,
+	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<pabeni@redhat.com>, <daniel.machon@microchip.com>,
+	<Steen.Hegelund@microchip.com>, <kees@kernel.org>, <gustavoars@kernel.org>,
+	<robert.marko@sartura.hr>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-hardening@vger.kernel.org>
+Date: Thu, 27 Aug 2026 16:44:43 +0200
+In-Reply-To: <20260817211400.3633528-1-kuba@kernel.org>
+References: <20260810-sparx5_l3_routing-v2-9-59e68cc8c8ca@microchip.com>
+	 <20260817211400.3633528-1-kuba@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.44.4-0ubuntu2.1 
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|BR0PR04MB944139:EE_
-X-MS-Office365-Filtering-Correlation-Id: 967a5d1a-554f-464f-5c68-08df0449a5c6
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|23010399003|376014|7416014|1800799024|10067099003|6133799003|4143699003|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: jBeW2YjQQmKD0HGgRGYl4CUJlP+j2/+grLFbiGrdHnBF6pKsdizNnahpXVxHeTS8aNhC9PS+8WaEq3NcBxzAsbdAhOQZx5I8OB5hyIpBhA/5lPShL3mZlicYa26lmQmgY703v2sFRGKyCZvU0sqWvKuxJ6FHIWtjnX8X4K6FLXd1sBmE5ZnDyeIqq5CF/wmeo+DZ+lIYf6B32B9BHG4VNAHdHHXxJfYfj0YXQz7GoLnT2memb53EnLXh2dnolicEPNO3wIMKjNTfSUlTWHeds/7aKBowWDjCWPBMmp4nPmq74X1ITItfdubcwFRdENT0lQHoECYrpPwl7dglBNai1yRnATTPj4zjX63Bs/pLONGbajfYulGYUDzYlVOK5146bSSH1OmMRssrdMINnSGEy3gzM7Z0rW9QJDfIy8yb4VNCk7HBs1hJ0dZMP5QIh7jrEv7Q61BGMoI79tNtaiqoaUIb1RIWs+O1ad7lRhABVPMp2ZyzjT6ESCvvBM5ZagGWxBs98ulIdSfVCEPS6BE4n5yq5UWehQdQLARJbZ/nveqa/324l0u9Lvklx6aZcUJJNfIq18WOlhORFWGUxEAAs6ehNRk5sn9pJDYP7JcIr6fS7jc7WfLyXYpkNUVJWxHya+7iWzwlzbiQJlwhkKS3rLu/geVv+dlsWf3cCg5MuOg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(23010399003)(376014)(7416014)(1800799024)(10067099003)(6133799003)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SkZqUGY5bno1emVHSmxRT3QySVRON21sY3pQQWVVTlFmdTE3SkNWZDl5cmFh?=
- =?utf-8?B?QUdkQTEwV2dtTXV5YTBQZmtmblA5WVVUOG4wT04wb0Z1L3BsaXFTekVWSzVQ?=
- =?utf-8?B?cmJpdGllT3YrM0UraFRlY0NITEF1NEx2WFNhK2swSlIybGZUMUNBTFZBYXFn?=
- =?utf-8?B?ZUoxNUZLUjZaYWNubHNIb05hdVI1SXREVnBJUTF4VlhNZDZuNEJFTnhnZkFy?=
- =?utf-8?B?c2dIWVBTNGpSUWF5Y2ZnQ29tUmYvNSs1VjVBQ0N3SU5YaE9acFNjTVlqTFFM?=
- =?utf-8?B?RlpmdkF6UFRjSVVPelQ0dXdjd01TVWVWS3pXR2cvczI3ZnZEcjFGWUtXSGRi?=
- =?utf-8?B?Q2hzQzJ6OU83Rlk4bVNDMDZGV295VzlQUEltdHhuUEM0cjkvVTRsRFRwNDEy?=
- =?utf-8?B?MWp2Ry9WYmFsYlZWUHRSblNYdnBJV1dkbmtxNzQ1MTZwWHVHNVJoRExzOVBM?=
- =?utf-8?B?dWNwNHIxekJnK1FXbis1VDNZbXVqalJUanIzZkhCYjF4a1ZlUEw1ZzgrS2hW?=
- =?utf-8?B?bjFvQjRJNWhwSDNzaXhLZzQwZHVRYngwOUNxL25tRmhPczlESjRnSUVZcTho?=
- =?utf-8?B?M1QxU2ZkR281TXJ2WUJ0Vm42ck5zaWZWZnVCTlhXVGxUWXplVk9XNStkOEts?=
- =?utf-8?B?NERUL1VTWUtCZnc1WENkYlZweW55dC8wbDA2bExnbmh3bXFwMStpK01TdTEr?=
- =?utf-8?B?cFpOUkZxU3NRamxsclBYeFZUMnlEOWlXRjEvYTlwV1JLekhIc1p3UXAzTzhn?=
- =?utf-8?B?Y0lQeVZNOC9NYzBnZGZPVVJEdjRnMmVpQXBjMkF1Z1JIakRDQVlaS0M2Z1c1?=
- =?utf-8?B?V2FiamZWVUhjbWt6dEo5eGZDeUR1b0FQWEdZeDA0bzZBYWpvWklBR1N5bkVO?=
- =?utf-8?B?NkxyMU5EOVdFS2FQYzIrT0xzK3V5d3RFanBvVFU0OUJvRTlWVUZPNExqazdl?=
- =?utf-8?B?N0JGWkRkV2RsblN2MU5TaS81RFo3N01SQVZEYVVjV3JBNkRPK2dtNzZZZU84?=
- =?utf-8?B?cjd6STNyd2RpcDQvZVYwV2xvYVFERmk1YWFCeDhhbml0enBhTlF4S2dWNFVV?=
- =?utf-8?B?Z2Qzcm9rNmFUQTdJbjhSY2RzMEpqMkxheTRISEgwaXlhYWdHaXVnbFIwZzVR?=
- =?utf-8?B?TFdUbVZjM1h5R1h2cVMwQUROdUdmVVZUbW90OUhRdTNlRVJnZDBYS21Sb2Ri?=
- =?utf-8?B?aHpabzJkNElBVEJkYnZoMWtzK0tCV2l5Zks3NjlUWnhMWkszZVhBWEtaRm9P?=
- =?utf-8?B?MUdteEdKeklTZkpLQ3Q0UXBoQ1NnaGp0K2N4VU5aUnhvMC9wS3RHaU40MTd4?=
- =?utf-8?B?bVN2Y1RnOVRrMGx3ZUlaclhrU2tEREZ5amRtdXR5Z3FJS0RGazl3cldCNFlO?=
- =?utf-8?B?blVtMHhMS21UR0ExS0poUW9nckxzdUZTVFNWNjNCTFJtRGpNT1VrT25lWUVw?=
- =?utf-8?B?QzNsQ1laMHZVSUpPcGcyeTBNczJOKzRIQzIvUzhmL3hKT0dnY1d0NXVIZThx?=
- =?utf-8?B?NEZHRTRwOWRqN1A5TWVOaTBWL0gzRVNFT1g1ZWtrV0hrUFF3aEZ3aHAxY1F4?=
- =?utf-8?B?QWVRNXlsemlnVFU5clRFQjh4Y1FMVGIxeERGRDNScjdqNHAzRFJKMy9Qbklx?=
- =?utf-8?B?TUVNM0VHSGdra1ZJd0xvTVBjdmgxNGFPTTBFa2d2YjlKa1JaaVNncTczTEY5?=
- =?utf-8?B?UWRzVGJYUGhZRkhRVDMvQ2RYM0xLU3Z1TmhEUGJ0VjlZN2JpRzVUYW9WcFdp?=
- =?utf-8?B?UXJMeFcrZWEyVTA0b2xBLzVxejlhbXg2ZkRxcVI2Nmx5SDNyc0ZxQmpHQ3dy?=
- =?utf-8?B?Z3RjMmxUSStlVzR4dTl2TlRrckcxYjBUVmdwbW1rb1hHRzNMRTJKcUpzbjA0?=
- =?utf-8?B?SmJOOHVoc2ljc0d2UnVqZ3d4cmNvcWZDSW1MbmMrZjhuZEt3K2lLTG1iU28y?=
- =?utf-8?B?S0YvcTREUGpGTjMwaWRudWJwb3VPUGthM2twc1BUZVQwQ2JyMjhTU1ZEelp0?=
- =?utf-8?B?cjZMVnJDQ3BESlF3M0xkTTd1K2MvSmp6Z3E2Rk9SVkJvVEhTOWJnR0NJb2FZ?=
- =?utf-8?B?YzRUOTlEUlREWWFKQmpZVEx0UGpWdkl5Z0J2KzZyQzlYZlhBRjFVYldMeWk2?=
- =?utf-8?B?VFNrakxQM3VIY1pDMjVIczNjM2phS0R5QkZFK3FIb01ZWjBpR3ZTelVHRXZQ?=
- =?utf-8?B?SHFXRktEMjhPbHFSRys1T2tBdmU1WU9Ra3hGaERjMUxxcDlhYXhZZ1F1QzNl?=
- =?utf-8?B?elhBb3VIZ0hSVzdITEU1cHNXMDFNRFREc2xjanZrYjBYZG84dnFmaFJHRFg1?=
- =?utf-8?B?eDB4UWNESmQrcytYdG55WmhEbmwveDJNaUVwazhjLzdUV3htMlZQTjJUTlNi?=
- =?utf-8?Q?FFwnpGWM4UbjBGEw=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 967a5d1a-554f-464f-5c68-08df0449a5c6
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 14:44:07.1794
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: i10hTCb4vwNRlMKWVII+inCmgFjVLMdxZ7+/CufYA2rgEwRE+RpQw/SzlyvTh4K+jZKJV9g9/7M0dfOfglGNtg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB944139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_074413_470595_E8E7BCE5 
-X-CRM114-Status: GOOD (  26.50  )
+X-CRM114-CacheID: sfid-20260827_074523_153285_6A5AD09F 
+X-CRM114-Status: GOOD (  47.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,611 +91,369 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/26/2026 6:49 PM, Frank Li wrote:
-> On Wed, Aug 26, 2026 at 03:40:45PM +0200, Larisa Grigore wrote:
->>
->> Add support for the UFS host controller on the NXP S32N79 SoC, built on
->> the Synopsys DesignWare (DWC) UFS architecture, using the UFSHCD DWC and
->> UFSHCD platform glue.
->>
->> This controller requires S32N79-specific initialization prior to
->> UIC_LINKSTARTUP, including:
->>    - programming SCM.ONE_US_TICK and HC.HCLKDIV based on the core clock,
->>    - applying the vendor-defined M-PHY calibration sequence, and
->>    - performing post-link calibration steps needed for HS operation.
->>
->> The M-PHY boot mode is selected via the 'nxp,mphy-boot-mode' device tree
->> property. If the property is omitted, M-PHY initialization is assumed to
->> be handled by external firmware or by a simulation environment.
-> 
-> Is "simulation environment" productionable?
+On Mon, 2026-08-17 at 14:14 -0700, Jakub Kicinski wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know th=
+e content is safe
+>=20
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+> ---
+> net: sparx5: add neighbour event handling for L3 routing
+>=20
+> This adds a netevent notifier to sparx5 that queues NETEVENT_NEIGH_UPDATE
+> events to the router ordered workqueue, where the resolved MAC is written
+> into the driver neigh entry and pushed to the hardware ARP table and to
+> all linked nexthops. Unreachable neighbours tear down the hardware ARP
+> entry and mark the nexthops as unresolved.
+>=20
+> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c b/dr=
+ivers/net/ethernet/microchip/sparx5/sparx5_router.c
+> > index 6d40d651180e6..5f6add84b0d6c 100644
+> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
+> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
+>=20
+> [ ... ]
+>=20
+> > @@ -2419,6 +2430,107 @@ static int sparx5_rr_fib_event(struct notifier_=
+block *nb, unsigned long event,
+> >       return NOTIFY_BAD;
+> >  }
+> >=20
+> > +static void sparx5_rr_neigh_event_work(struct work_struct *work)
+> > +{
+> > +     struct sparx5_rr_netevent_work *net_work =3D
+> > +             container_of(work, struct sparx5_rr_netevent_work, work);
+> > +     unsigned char hwaddr[ETH_ALEN] __aligned(2);
+> > +     struct sparx5 *sparx5 =3D net_work->sparx5;
+> > +     struct neighbour *n =3D net_work->neigh;
+> > +     struct sparx5_rr_neigh_key key =3D { };
+> > +     struct sparx5_rr_neigh_entry *entry;
+> > +     bool entry_connected;
+> > +     u8 nud_state, dead;
+> > +
+> > +     sparx5_rr_nb2neigh_key(n, &key);
+> > +
+> > +     /* Frames with link-local dip are trapped, so ignore the neighbou=
+r. */
+> > +     if (key.iaddr.version =3D=3D SPARX5_IPV6 &&
+> > +         ipv6_addr_type(&key.iaddr.ipv6) & IPV6_ADDR_LINKLOCAL)
+> > +             goto out;
+>=20
+> [Severity: Medium]
+> Does the comment's justification cover neighbours that are used as
+> gateways rather than as destinations?
+>=20
+> The trap rule installed by sparx5_rr_lpm_link_local_create() matches on
+> destination fe80::/64 only, and sparx5_rr_fib_info_should_ignore() only
+> skips routes whose destination is link-local:
+>=20
+>         return fi->version =3D=3D SPARX5_IPV6 &&
+>                ipv6_addr_type(&fi->fe6_info.rt_arr[0]->fib6_dst.addr) &
+>                        (IPV6_ADDR_MULTICAST | IPV6_ADDR_LINKLOCAL);
+>=20
+> A route such as "ip -6 route add 2001:db8::/64 via fe80::1 dev vlanX" is
+> therefore still offloaded, and sparx5_rr_nexthop_init() sets
+> nh->neigh_tbl =3D &nd_tbl for every AF_INET6 gateway without a link-local
+> filter, so sparx5_rr_nexthop_neigh_init() creates a neigh entry for
+> fe80::1.
+>=20
+> Since this work handler is the only writer of entry->hwaddr, can such a
+> nexthop ever obtain a MAC?  sparx5_rr_nexthop_egress_derive() would keep
+> nh->trapped set and program the zero MAC, so routes via a link-local
+> gateway (including RA-derived default routes) stay trapped to the CPU
+> while being reported as offloaded.
+>=20
 
-Thank you! I will remove any references to the simulation environment in v2.
 
-> 
->>
->> Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
->> ---
->>   drivers/ufs/host/Kconfig         |  12 +
->>   drivers/ufs/host/Makefile        |   1 +
->>   drivers/ufs/host/ufs-nxp-s32n7.c | 464 +++++++++++++++++++++++++++++++
->>   drivers/ufs/host/ufshcd-dwc.h    |   9 +-
->>   4 files changed, 484 insertions(+), 2 deletions(-)
->>   create mode 100644 drivers/ufs/host/ufs-nxp-s32n7.c
->>
->> diff --git a/drivers/ufs/host/Kconfig b/drivers/ufs/host/Kconfig
->> index ff170c0b6da0..e8ee7dd05f1a 100644
->> --- a/drivers/ufs/host/Kconfig
->> +++ b/drivers/ufs/host/Kconfig
->> @@ -168,3 +168,15 @@ config SCSI_UFS_AMD_VERSAL2
->>
->>            Select this if you have UFS controller on AMD Versal Gen 2 SoC.
->>            If unsure, say N.
->> +
->> +config SCSI_UFS_S32N7
->> +       tristate "NXP S32N7 platform driver"
->> +       depends on SCSI_UFSHCD_PLATFORM && (ARCH_S32 || COMPILE_TEST)
->> +       help
->> +         This selects the S32N7 specific additions on top of the UFSHCD DWC
->> +         and UFSHCD platform driver. UFS host on S32N79 needs some vendor
->> +         specific configurations like PHY and vendor specific register accesses
->> +         before accessing the hardware.
->> +
->> +         Select this if you have UFS controller on an S32N7 based board.
->> +         If unsure, say N.
->> diff --git a/drivers/ufs/host/Makefile b/drivers/ufs/host/Makefile
->> index 65d8bb23ab7b..0381750a35d3 100644
->> --- a/drivers/ufs/host/Makefile
->> +++ b/drivers/ufs/host/Makefile
->> @@ -2,6 +2,7 @@
->>
->>   obj-$(CONFIG_SCSI_UFS_DWC_TC_PCI) += tc-dwc-g210-pci.o ufshcd-dwc.o tc-dwc-g210.o
->>   obj-$(CONFIG_SCSI_UFS_DWC_TC_PLATFORM) += tc-dwc-g210-pltfrm.o ufshcd-dwc.o tc-dwc-g210.o
->> +obj-$(CONFIG_SCSI_UFS_S32N7) += ufs-nxp-s32n7.o ufshcd-dwc.o
-> 
-> It is not related with your patch, but multi ufshcd-dwc.o may link many
-> times if other ufs host driver also build, modern link can remove duplicate
-> symbal, but not sure what happen if one build as module, one buildin.
-> 
->>   obj-$(CONFIG_SCSI_UFS_CDNS_PLATFORM) += cdns-pltfrm.o
->>   obj-$(CONFIG_SCSI_UFS_QCOM) += ufs-qcom.o
->>   obj-$(CONFIG_SCSI_UFS_EXYNOS) += ufs-exynos.o
->> diff --git a/drivers/ufs/host/ufs-nxp-s32n7.c b/drivers/ufs/host/ufs-nxp-s32n7.c
->> new file mode 100644
->> index 000000000000..8a125105536b
->> --- /dev/null
->> +++ b/drivers/ufs/host/ufs-nxp-s32n7.c
->> @@ -0,0 +1,464 @@
->> +// SPDX-License-Identifier: (GPL-2.0-or-later OR BSD-3-Clause)
->> +/*
->> + * Copyright 2026 NXP
->> + *
->> + */
->> +
->> +#include <linux/clk.h>
->> +#include <linux/iopoll.h>
->> +#include <linux/kernel.h>
->> +#include <linux/module.h>
->> +#include <linux/of.h>
->> +#include <linux/platform_device.h>
->> +
->> +#include "ufshcd-pltfrm.h"
->> +#include "ufshcd-dwc.h"
->> +#include "ufshci-dwc.h"
->> +
->> +/* SCM Register Offsets. */
->> +#define SCM_ONE_US_TICK                        0x2CU
->> +#define SCM_STATUS                     0x30
->> +
->> +/* SCM_ONE_US_TICK Register. */
->> +#define SCM_ONE_US_TICK_MASK           GENMASK(8, 0)
->> +
->> +/* SCM_MPHY_RAM_CONFIG_STATUS Register Fields. */
->> +#define SCM_STATUS_PHY_RESET_MASK              BIT(0)
->> +#define SCM_STATUS_SRAM_BYPASS_MASK            BIT(1)
->> +#define SCM_STATUS_SRAM_INIT_DONE_MASK         BIT(16)
->> +
->> +#define SCM_STATUS_PHY_RESET(val)              \
->> +       FIELD_PREP(SCM_STATUS_PHY_RESET_MASK, val)
->> +
->> +#define SCM_STATUS_SRAM_BYPASS(val)            \
->> +       FIELD_PREP(SCM_STATUS_SRAM_BYPASS_MASK, val)
->> +
->> +/* Timeout values. */
->> +#define CFG_MPHY_INIT_TIMEOUT_VALUE_US 3000000
->> +
->> +/* Clock validation limits. */
->> +#define MAX_VALID_ONE_US_TICK          SCM_ONE_US_TICK_MASK
->> +
->> +/* CPort definitions */
->> +#define CPORT_0                                0
->> +
->> +/* Hibern8 state poll timeout. */
->> +#define HBRN8_POLL_TOUT_MS      1000
-> 
-> Does this value is spec defined or just engineering choose?
+No, it does not cover that case. A link-local destination must not be
+forwareded which the fe80::/64 trap rule takes care of. But a link-local
+gateway must be resolved, because its MAC is what a nexthop egresses with.
+Skipping the neighbour entirely satisfies the first and breaks the second.
 
-This is engineering choose. I will update the commit message. Thanks!
+> > +
+> > +     /* If n changes after this read section, we will get another neig=
+h
+> > +      * event, which is processed after the current one.
+> > +      */
+> > +     read_lock_bh(&n->lock);
+> > +     ether_addr_copy(hwaddr, n->ha);
+> > +     nud_state =3D n->nud_state;
+> > +     dead =3D n->dead;
+> > +     read_unlock_bh(&n->lock);
+> > +
+> > +     mutex_lock(&sparx5->router->lock);
+> > +
+> > +     entry_connected =3D nud_state & NUD_VALID && !dead;
+> > +     entry =3D sparx5_rr_neigh_entry_lookup(sparx5, &key);
+> > +     if (!entry_connected && !entry)
+> > +             goto out_mutex;
+> > +
+> > +     if (!entry) {
+> > +             entry =3D sparx5_rr_neigh_entry_create(sparx5, &key);
+> > +             if (IS_ERR(entry))
+> > +                     goto out_mutex;
+> > +     }
+>=20
+> [Severity: Medium]
+> With this notifier being the only source of entry->hwaddr, how does an
+> already-resolved kernel neighbour get synchronized into a newly created
+> driver entry?
+>=20
+> sparx5_rr_nexthop_neigh_init() only kicks ARP/NDP when the kernel
+> neighbour did not already exist, and never samples n->ha / n->nud_state:
+>=20
+>         n =3D neigh_lookup(nh->neigh_tbl, &nh->gw_addr, dev);
+>         if (!n) {
+>                 n =3D neigh_create(nh->neigh_tbl, &nh->gw_addr, dev);
+>                 if (IS_ERR(n))
+>                         return PTR_ERR(n);
+>                 /* Start arp process */
+>                 neigh_event_send(n, NULL);
+>         }
+>=20
+> For a NUD_PERMANENT neighbour ("ip neigh add <gw> lladdr <mac> nud
+> permanent dev vlanX") no further NETEVENT_NEIGH_UPDATE is generated -
+> net/core/neighbour.c only emits netevents from __neigh_update(),
+> neigh_timer_handler() and neigh_cleanup_and_release(), and permanent
+> entries have no timer and are skipped by the GC work.  Does that leave
+> entry->hwaddr zero forever, so sparx5_rr_nexthop_egress_derive() keeps
+> nh->trapped set while the FIB entry is reported as offloaded?
+>=20
+> The same applies when the event arrives before a router leg exists:
+> sparx5_rr_neigh_entry_create() returns ERR_PTR(-EINVAL) from
+>=20
+>         leg =3D sparx5_rr_leg_find_by_dev(sparx5, key->dev);
+>         if (!leg)
+>                 return ERR_PTR(-EINVAL);
+>=20
+> and the event is dropped with no replay when the leg later appears.
+>=20
+> For comparison, mlxsw_sp_nexthop_neigh_init() reads nud_state/dead under
+> n->lock and calls __mlxsw_sp_nexthop_neigh_update() at init time:
+>=20
+>         read_lock_bh(&n->lock);
+>         nud_state =3D n->nud_state;
+>         dead =3D n->dead;
+>         read_unlock_bh(&n->lock);
+>         __mlxsw_sp_nexthop_neigh_update(nh, !(nud_state & NUD_VALID && !d=
+ead));
+>=20
 
->> +
->> +/**
->> + * enum mphy_boot_mode - MPHY boot mode options
->> + * @MPHY_BOOT_NONE: Skip MPHY initialization
->> + * @MPHY_BOOT_ROM: Running MPHY from internal FW ROM
->> + */
->> +enum mphy_boot_mode {
->> +       MPHY_BOOT_NONE = 0,
->> +       MPHY_BOOT_ROM = 1,
->> +};
->> +
->> +/**
->> + * struct s32n_ufs - S32N7 UFS host controller data
->> + * @hba: UFS host controller instance
->> + * @reg_scm: SCM register base address
->> + * @core_clk: core reference clock used to derive ONE_US_TICK/HCLKDIV
->> + * @mphy_boot_mode: MPHY boot mode configuration
->> + */
->> +struct s32n_ufs {
->> +       struct ufs_hba *hba;
->> +       void __iomem *reg_scm;
->> +       struct clk *core_clk;
->> +       enum mphy_boot_mode mphy_boot_mode;
->> +};
->> +
->> +/**
->> + * struct phy_reg_cfg - PHY register configuration entry
->> + * @reg: Register offset/address
->> + * @val: Value to write
->> + */
->> +struct phy_reg_cfg {
->> +       u32 reg;
->> +       u32 val;
->> +};
->> +
->> +/**
->> + * ufs_s32n_phy_write_sequence - Write a sequence of PHY registers
->> + * @hba: UFS host controller instance
->> + * @cfg: Array of register configurations
->> + * @count: Number of entries in the array
->> + *
->> + * Return: 0 on success, error code on failure
->> + */
->> +static int ufs_s32n_phy_write_sequence(struct ufs_hba *hba,
->> +                                      const struct phy_reg_cfg *cfg,
->> +                                      size_t count)
->> +{
->> +       int ret;
->> +       size_t i;
->> +
->> +       for (i = 0; i < count; i++) {
->> +               ret = ufshcd_dwc_phy_reg_write(hba, cfg[i].reg, cfg[i].val);
->> +               if (ret) {
->> +                       dev_err(hba->dev,
->> +                               "Failed to write PHY reg 0x%x = 0x%x (step %zu)\n",
->> +                               cfg[i].reg, cfg[i].val, i);
->> +                       return ret;
->> +               }
->> +       }
->> +
->> +       return 0;
->> +}
->> +
->> +static unsigned long ufs_s32n_calculate_us_tick(unsigned long clk_rate)
->> +{
->> +       return clk_rate / USEC_PER_SEC;
->> +}
->> +
->> +static int ufs_s32n_configure_clocks(struct ufs_hba *hba)
->> +{
->> +       struct s32n_ufs *ufs = ufshcd_get_variant(hba);
->> +       struct device *dev = hba->dev;
->> +       unsigned long clk_rate = 0;
->> +       unsigned long one_us_tick;
->> +
->> +       if (!ufs->core_clk) {
-> 
-> suppose return failure at probe if no core_clk, needn't check here
 
-You are correct. Thank you!
+It is right, nothing else writes entry->hwaddr, so it stays zero and the ne=
+xthop
+is trapped forever. I will fix this by sampling at init as mlxsw does, afte=
+r the
+nexthop is linked into neigh_entry->nexthop_list, so the update
+reaches the nexthop that just attached.
 
-> 
->> +               dev_err(dev, "Invalid core_clk.\n");
->> +               return -EINVAL;
->> +       }
->> +
->> +       clk_rate = clk_get_rate(ufs->core_clk);
->> +       if (!clk_rate) {
->> +               dev_err(dev, "Failed to get valid clock rate.\n");
->> +               return -EINVAL;
->> +       }
->> +
->> +       one_us_tick = ufs_s32n_calculate_us_tick(clk_rate);
->> +       if (one_us_tick == 0 || one_us_tick > MAX_VALID_ONE_US_TICK) {
->> +               dev_err(dev, "Invalid one_us_tick value: %lu (clk_rate: %lu Hz).\n",
->> +                       one_us_tick, clk_rate);
->> +               return -EINVAL;
->> +       }
->> +
->> +       dev_dbg(dev, "Core clock rate: %lu Hz, one_us_tick = %lu.\n",
->> +                clk_rate, one_us_tick);
->> +
->> +       /*
->> +        * Configure the micro-second tick rate generator based on core
->> +        * clock rate.
->> +        */
->> +       writel(one_us_tick, ufs->reg_scm + SCM_ONE_US_TICK);
->> +       ufshcd_dwc_program_clk_div(hba, one_us_tick);
->> +
->> +       return 0;
->> +}
->> +
->> +static int ufs_s32n_phy_initial_calib(struct ufs_hba *hba)
->> +{
->> +       static const struct phy_reg_cfg initial_calib[] = {
->> +               { FAST_FLAGS(0), 0x6 },
->> +               { FAST_FLAGS(1), 0x6 },
->> +               { RX_DAC_CTRL_OVRD(0), 0x1 },
->> +               { RX_DAC_CTRL_OVRD(1), 0x1 },
->> +               { RX_DAC_CTRL(0), 0x8E },
->> +               { RX_DAC_CTRL(1), 0x91 },
->> +               { RX_DAC_CTRL_SEL(0), 0x1 },
->> +               { RX_DAC_CTRL_SEL(1), 0x1 },
->> +               { RX_DAC_CTRL_EN(0), 0x1 },
->> +               { RX_DAC_CTRL_EN(1), 0x1 },
->> +               { RX_DAC_CTRL_OVRD(0), 0x0 },
->> +               { RX_DAC_CTRL_OVRD(1), 0x0 },
->> +               { RX_DAC_CTRL_OVRD(0), 0x1 },
->> +               { RX_DAC_CTRL_OVRD(1), 0x1 },
->> +               { RX_DAC_CTRL(0), 0x71 },
->> +               { RX_DAC_CTRL(1), 0x7F },
->> +               { RX_DAC_CTRL_SEL(0), 0x2 },
->> +               { RX_DAC_CTRL_SEL(1), 0x2 },
->> +               { RX_DAC_CTRL_EN(0), 0x1 },
->> +               { RX_DAC_CTRL_EN(1), 0x1 },
->> +               { RX_DAC_CTRL_OVRD(0), 0x0 },
->> +               { RX_DAC_CTRL_OVRD(1), 0x0 },
->> +               { FW_CALIB_CCFG(0), 0x100 },
->> +               { FW_CALIB_CCFG(1), 0x100 },
->> +       };
-> 
-> Can you put this data to platform data in case difference data for differe
-> soc in future?
 
-Thanks for the sugestion! I will add both initial_calib and post_calib.
+> > +
+> > +     if (entry->connected && entry_connected &&
+> > +         ether_addr_equal(entry->hwaddr, hwaddr))
+> > +             goto out_mutex;
+>=20
+> [Severity: Medium]
+> Can this early exit permanently block a retry after a failed hardware
+> write?
+>=20
+> sparx5_rr_neigh_entry_update() marks the entry connected before the
+> fallible hardware apply and only downgrades the offload marking:
+>=20
+>         entry->connected =3D adding;
+>=20
+>         if (adding) {
+>                 err =3D sparx5_rr_neigh_entry_hw_apply(sparx5, entry);
+>                 if (err)
+>                         offloaded =3D false;
+>=20
+> sparx5_rr_lpm_arp_entry_mod() can fail while the rule keeps the previous
+> DMAC:
+>=20
+>         vrule =3D vcap_get_rule(vctrl, vrule_id);
+>         if (IS_ERR(vrule))
+>                 return -EINVAL;
+>=20
+> and sparx5_rr_lpm_arp_entry_create() can fail on rule allocation or
+> vcap_val_add_rule().
+>=20
+> Since the new MAC has already been stored in entry->hwaddr and
+> entry->connected is true, every following NUD_VALID confirmation
+> (REACHABLE/STALE/DELAY) hits the test above and skips both the LPM/ARP
+> update and sparx5_rr_nexthops_update_notify().  For an IP that moves to a
+> new MAC (VRRP failover, VM migration), would hardware keep rewriting DMAC
+> to the old MAC with no trap and no further retry?
+>=20
+> Would keying the skip on hw_route.vrule_id_valid (or propagating the
+> error from sparx5_rr_neigh_entry_update()) avoid that?
+>=20
 
-> 
->> +       int ret;
->> +
->> +       /* Clock Control */
->> +       ret = ufshcd_dme_set(hba, UIC_ARG_MIB_SEL(CBREFCLKCTRL2, 0), 0x80);
->> +       if (ret)
->> +               return ret;
->> +
->> +       ret = ufshcd_dme_set(hba, UIC_ARG_MIB_SEL(VS_MPHYCFGUPDT, 0), 0x1);
->> +       if (ret)
->> +               return ret;
->> +
->> +       /* Initial calibration sequence */
->> +       return ufs_s32n_phy_write_sequence(hba, initial_calib,
->> +                                          ARRAY_SIZE(initial_calib));
->> +}
->> +
->> +static int ufs_s32n_link_startup_pre_change(struct ufs_hba *hba)
->> +{
->> +       struct s32n_ufs *ufs = ufshcd_get_variant(hba);
->> +       struct device *dev = hba->dev;
->> +       int ret;
->> +       u32 reg;
->> +
->> +       /*
->> +        * There are two supported MPHY boot options implemented:
->> +        * - Running MPHY from internal FW ROM:
->> +        *  MPHY_RAM_CONFIG_STATUS.SRAM_BYPASS = 1
->> +        *  MPHY_RAM_CONFIG_STATUS.SRAM_EXT_LD_DONE = 0
->> +        * - Skip M-PHY initialization when it is handled externally.
->> +        */
->> +       if (ufs->mphy_boot_mode == MPHY_BOOT_NONE) {
->> +               dev_dbg(dev, "Skipping UFS MPHY init.\n");
->> +               return 0;
->> +       }
->> +
->> +       ret = ufs_s32n_configure_clocks(hba);
->> +       if (ret)
->> +               return ret;
->> +
->> +       /* Reset SCM.MPHY_RAM_CONFIG_STATUS to default value; keep MPHY in reset. */
->> +       writel(SCM_STATUS_PHY_RESET(1), ufs->reg_scm + SCM_STATUS);
->> +       if (ufs->mphy_boot_mode == MPHY_BOOT_ROM) {
->> +               /* ROM Mode. */
->> +               writel(SCM_STATUS_PHY_RESET(1) | SCM_STATUS_SRAM_BYPASS(1),
->> +                      ufs->reg_scm + SCM_STATUS);
->> +       }
->> +
->> +       ret = ufshcd_dme_set(hba, UIC_ARG_MIB_SEL(CBCRCTRL, 0), 0x1);
->> +       if (ret)
->> +               return ret;
->> +
->> +       ret = ufshcd_dme_set(hba, UIC_ARG_MIB_SEL(VS_MPHYCFGUPDT, 0), 0x1);
->> +       if (ret)
->> +               return ret;
->> +
->> +       /* Release PHY_RESET. */
->> +       writel(readl(ufs->reg_scm + SCM_STATUS) & ~SCM_STATUS_PHY_RESET_MASK,
->> +              ufs->reg_scm + SCM_STATUS);
->> +
->> +       /* Wait until SRAM_INIT_DONE = 1. */
->> +       ret = readl_poll_timeout(ufs->reg_scm + SCM_STATUS, reg,
->> +                       reg & SCM_STATUS_SRAM_INIT_DONE_MASK,
->> +                       1000, CFG_MPHY_INIT_TIMEOUT_VALUE_US);
->> +       if (ret) {
->> +               dev_err(dev, "UFS MPHY init not done!\n");
->> +               return ret;
->> +       }
->> +
->> +       /* Start of initial calibration */
->> +       ret = ufs_s32n_phy_initial_calib(hba);
->> +       if (ret) {
->> +               dev_err(dev, "UFS MPHY initial calibration failed!\n");
->> +               return ret;
->> +       }
->> +
->> +       ret = ufshcd_dme_set(hba, UIC_ARG_MIB_SEL(VS_MPHYDISABLE, 0), 0x0);
->> +       if (ret)
->> +               return ret;
->> +
->> +       ret = ufshcd_dme_set(hba, UIC_ARG_MIB_SEL(VS_MPHYCFGUPDT, 0), 0x1);
->> +       if (ret)
->> +               return ret;
->> +
->> +       /* Set Local DeviceID. */
->> +       ret = ufshcd_dme_set(hba, UIC_ARG_MIB_SEL(N_DEVICEID, 0), 0x0);
->> +       if (ret)
->> +               return ret;
->> +
->> +       /* End of Gear1 settings */
->> +
->> +       return ufshcd_check_hibern8(hba, hba->lanes_per_direction,
->> +                                   HBRN8_POLL_TOUT_MS);
->> +}
->> +
->> +static int ufs_s32n_link_startup_post_change(struct ufs_hba *hba)
->> +{
->> +       static const struct ufshcd_dme_attr_val cport_setup[] = {
->> +               { UIC_ARG_MIB_SEL(T_CONNECTIONSTATE, CPORT_0),
->> +                               CPORT_IDLE, DME_LOCAL },
->> +               { UIC_ARG_MIB_SEL(T_CPORTFLAGS, CPORT_0),
->> +                               CPORT_DEF_FLAGS, DME_LOCAL },
->> +               { UIC_ARG_MIB_SEL(T_CONNECTIONSTATE, CPORT_0),
->> +                               CPORT_CONNECTED, DME_LOCAL },
->> +       };
->> +       static const struct phy_reg_cfg post_calib[] = {
->> +               { RX_OVRD_IN_1(0), 0xc },
->> +               { RX_OVRD_IN_1(1), 0xc },
->> +               { RX_OVRD_IN_1(0), 0x8 },
->> +               { RX_OVRD_IN_1(1), 0x8 },
->> +               { RX_OVRD_IN_1(0), 0x0 },
->> +               { RX_OVRD_IN_1(1), 0x0 },
->> +       };
->> +       struct s32n_ufs *ufs = ufshcd_get_variant(hba);
->> +       unsigned int data = 0;
->> +       int ret;
->> +
->> +       if (ufs->mphy_boot_mode == MPHY_BOOT_NONE)
->> +               return 0;
->> +
->> +       /* Set Connection State to IDLE (it allows CPort Attributes to be set). */
->> +       ret = ufshcd_dwc_dme_set_attrs(hba, cport_setup, ARRAY_SIZE(cport_setup));
->> +       if (ret)
->> +               return ret;
->> +
->> +       ret = ufshcd_dme_get(hba, UIC_ARG_MIB_SEL(T_CONNECTIONSTATE, CPORT_0), &data);
->> +       if (ret)
->> +               return ret;
->> +
->> +       if (data != CPORT_CONNECTED)
->> +               return -EIO;
->> +
->> +       /* Post Link Startup Calibration sequence */
->> +       ret = ufs_s32n_phy_write_sequence(hba, post_calib,
->> +                                          ARRAY_SIZE(post_calib));
->> +       if (ret)
->> +               return ret;
->> +
->> +       /*
->> +        * Performing MPHY configuration for rate change:
->> +        * CB rate selection: 0 - rate A, 1 - rate B;
->> +        */
->> +       ret = ufshcd_dme_set(hba, UIC_ARG_MIB_SEL(CBRATESEL, 0), 0x1);
->> +       if (ret)
->> +               return ret;
->> +
->> +       ret = ufshcd_dme_set(hba, UIC_ARG_MIB_SEL(VS_MPHYCFGUPDT, 0), 0x1);
->> +       if (ret)
->> +               return ret;
->> +
->> +       /* End of Gear4 calibration */
->> +       return 0;
->> +}
->> +
->> +static int ufs_s32n_link_startup_notify(struct ufs_hba *hba,
->> +                            enum ufs_notify_change_status status)
->> +{
->> +       int err;
->> +
->> +       if (status == PRE_CHANGE) {
->> +               err = ufs_s32n_link_startup_pre_change(hba);
->> +               if (err) {
->> +                       dev_err(hba->dev, "MPHY setup failed (%d).\n", err);
->> +                       return err;
->> +               }
->> +               return 0;
->> +       }
->> +
->> +       /* POST_CHANGE */
->> +       err = ufshcd_dwc_link_is_up(hba);
->> +       if (err) {
->> +               dev_err(hba->dev, "Link is not up.\n");
->> +               return err;
->> +       }
->> +
->> +       err = ufs_s32n_link_startup_post_change(hba);
->> +       if (err)
->> +               dev_err(hba->dev, "Connection setup failed (%d).\n", err);
->> +
->> +       return err;
->> +}
->> +
->> +static int ufs_s32n_init(struct ufs_hba *hba)
->> +{
->> +       struct device *dev = hba->dev;
->> +       struct platform_device *pdev = to_platform_device(dev);
->> +       struct device_node *np = dev->of_node;
->> +       const char *mphy_boot_mode;
->> +       struct s32n_ufs *ufs;
->> +       int ret;
->> +
->> +       ufs = devm_kzalloc(dev, sizeof(*ufs), GFP_KERNEL);
->> +       if (!ufs)
->> +               return -ENOMEM;
->> +
->> +       ufs->hba = hba;
->> +       ufs->mphy_boot_mode = MPHY_BOOT_NONE;
->> +
->> +       hba->quirks |= UFSHCD_QUIRK_BROKEN_AUTO_HIBERN8;
->> +       hba->quirks |= UFSHCD_QUIRK_PERFORM_LINK_STARTUP_ONCE;
->> +       hba->spm_lvl = UFS_PM_LVL_5;
->> +
->> +       ret = of_property_read_string(np, "nxp,mphy-boot-mode", &mphy_boot_mode);
->> +       if (ret || !mphy_boot_mode) {
->> +               dev_dbg(dev,
->> +                       "nxp,mphy-boot-mode property not found. UFS MPHY init will be skipped.\n");
->> +               goto init_out;
->> +       }
->> +
->> +       if (!strcmp(mphy_boot_mode, "rom")) {
->> +               ufs->mphy_boot_mode = MPHY_BOOT_ROM;
->> +       } else {
->> +               return dev_err_probe(dev, -EINVAL,
->> +                                    "Unrecognized nxp,mphy-boot-mode property. UFS MPHY init will be skipped.\n");
->> +       }
->> +
->> +       ufs->reg_scm = devm_platform_ioremap_resource_byname(pdev, "scm");
->> +       if (IS_ERR(ufs->reg_scm))
->> +               return dev_err_probe(dev, PTR_ERR(ufs->reg_scm),
->> +                                    "ioremap failed for SCM registers.\n");
->> +
->> +       ufs->core_clk = devm_clk_get(dev, "core_clk");
->> +       if (IS_ERR(ufs->core_clk))
->> +               return dev_err_probe(dev, PTR_ERR(ufs->core_clk),
->> +                                    "Failed to get core clock.\n");
->> +
->> +init_out:
->> +       ufshcd_set_variant(hba, ufs);
->> +
->> +       return 0;
->> +}
->> +
->> +static const struct ufs_hba_variant_ops ufs_hba_s32n79_vops = {
->> +       .name = "s32n79",
->> +       .init = ufs_s32n_init,
->> +       .link_startup_notify = ufs_s32n_link_startup_notify,
->> +};
->> +
->> +static const struct of_device_id ufs_s32n7_match[] = {
->> +       {
->> +               .compatible = "nxp,s32n79-ufshc",
->> +               .data = &ufs_hba_s32n79_vops,
->> +       },
->> +       { /* sentinel */ }
->> +};
->> +MODULE_DEVICE_TABLE(of, ufs_s32n7_match);
->> +
->> +static int ufs_s32n7_probe(struct platform_device *pdev)
->> +{
->> +       const struct ufs_hba_variant_ops *vops;
->> +
->> +       vops = device_get_match_data(&pdev->dev);
->> +       if (!vops)
->> +               return -ENODEV;
->> +
->> +       return ufshcd_pltfrm_init(pdev, vops);
->> +}
->> +
->> +static void ufs_s32n7_remove(struct platform_device *pdev)
->> +{
->> +       ufshcd_pltfrm_remove(pdev);
->> +}
->> +
->> +static const struct dev_pm_ops ufs_s32n7_pm_ops = {
->> +       SET_SYSTEM_SLEEP_PM_OPS(ufshcd_system_suspend, ufshcd_system_resume)
->> +       SET_RUNTIME_PM_OPS(ufshcd_runtime_suspend, ufshcd_runtime_resume, NULL)
-> 
-> Use  SYSTEM_SLEEP_PM_OPS()
-> 
->> +       .prepare        = ufshcd_suspend_prepare,
->> +       .complete       = ufshcd_resume_complete,
->> +};
->> +
->> +static struct platform_driver ufs_s32n7_driver = {
->> +       .probe = ufs_s32n7_probe,
->> +       .remove = ufs_s32n7_remove,
->> +       .driver = {
->> +               .name   = "ufs-s32n7",
->> +               .pm     = &ufs_s32n7_pm_ops,
-> 
-> pm_ptr(&ufs_s32n7_pm_ops)
-> 
-> Frank
+Yes, it can. I will record the outcome rather than key on vrule_id_valid,
+because that flag is not a reliable proxy any more. A link-local neighbour
+now deliberately has no host route, so vrule_id_valid stays false for it
+and the skip would never trigger. Recording the state enables the next
+event to drive the retry.
 
-I will address these comments in v2.
+> > +
+> > +     ether_addr_copy(entry->hwaddr, hwaddr);
+> > +     sparx5_rr_neigh_entry_update(sparx5, entry, entry_connected);
+> > +     sparx5_rr_nexthops_update_notify(sparx5, entry, entry_connected);
+> > +     if (!entry_connected)
+> > +             sparx5_rr_neigh_entry_put(sparx5, entry);
+>=20
+> [Severity: High]
+> Should the MAC be committed into entry->hwaddr on the disconnect path as
+> well?
+>=20
+> The kernel does not clear n->ha when a neighbour goes to NUD_FAILED or
+> dead - neigh_invalidate() only flushes arp_queue, and neigh->ha is only
+> overwritten when a new lladdr is supplied.  So for !entry_connected this
+> stores the last, now invalid MAC while entry->connected becomes false, an=
+d
+> nothing else ever zeroes entry->hwaddr.  sparx5_rr_neigh_entry_put() keep=
+s
+> the entry alive while a nexthop still references it.
+>=20
+> The only other consumer derives "resolved" purely from the MAC being
+> non-zero and ignores entry->connected:
+>=20
+>         nh->trapped =3D !nh_neigh || is_zero_ether_addr(nh_neigh->hwaddr)=
+;
+>=20
+>         if (nh_neigh) {
+>                 memcpy(mac, nh_neigh->hwaddr, ETH_ALEN);
+>=20
+> On ordinary route churn, sparx5_rr_entry_nexthop_group_update() builds an=
+d
+> programs the new group before releasing the old one:
+>=20
+>         /* Prepare new group in SW representation */
+>         new_nh_grp =3D sparx5_rr_nexthop_group_create(sparx5, fib_entry);
+>         ...
+>         err =3D sparx5_rr_fib_entry_hw_apply(sparx5, fib_entry);
+>         ...
+>         sparx5_rr_nexthop_group_put(sparx5, old_nh_grp);
+>=20
+> so sparx5_rr_nexthop_neigh_init() re-attaches to the surviving entry and
+> sparx5_rr_nexthop_egress_derive() then clears nh->trapped and installs th=
+e
+> dead MAC.  Does that leave traffic forwarded to a host that no longer
+> exists instead of trapped, with no path back to trapping since the kernel
+> never sees the traffic?
+>=20
+> This also seems to differ from the commit message wording "mark linked
+> nexthops as unresolved so traffic traps to the CPU".
+>=20
 
-Best regards,
-Larisa
+No, it should not. In v3 I will only commit an address when told it is vali=
+d.
+And sparx5_rr_nexthop_egress_derive() no longer treats a non-zero hwaddr as
+proof of resolution, not emits an address when it has decided the nexthop i=
+s
+trapped.
 
-> 
->> +               .of_match_table = ufs_s32n7_match,
->> +       },
->> +};
->> +
->> +module_platform_driver(ufs_s32n7_driver);
->> +
->> +MODULE_AUTHOR("Larisa Grigore <larisa.grigore@oss.nxp.com>");
->> +MODULE_DESCRIPTION("NXP S32N7 UFS Host Controller platform driver");
->> +MODULE_LICENSE("Dual BSD/GPL");
->> diff --git a/drivers/ufs/host/ufshcd-dwc.h b/drivers/ufs/host/ufshcd-dwc.h
->> index 53b523ef59df..747383cfb839 100644
->> --- a/drivers/ufs/host/ufshcd-dwc.h
->> +++ b/drivers/ufs/host/ufshcd-dwc.h
->> @@ -13,8 +13,7 @@
->>   #include <ufs/ufshcd.h>
->>
->>   /* RMMI Attributes */
->> -#define CBREFCLKCTRL2          0x8132
->> -#define CBCRCTRL               0x811F
->> +#define RXSQCONTROL            0x8009
->>   #define CBC10DIRECTCONF2       0x810E
->>   #define CBRATESEL              0x8114
->>   #define CBCREGADDRLSB          0x8116
->> @@ -24,10 +23,16 @@
->>   #define CBCREGRDLSB            0x811A
->>   #define CBCREGRDMSB            0x811B
->>   #define CBCREGRDWRSEL          0x811C
->> +#define CBCRCTRL               0x811F
->> +#define CBREFCLKCTRL2          0x8132
->>
->>   #define CBREFREFCLK_GATE_OVR_EN                BIT(7)
->>
->>   /* M-PHY registers */
->> +#define RX_DAC_CTRL(n)         (0x10AF + ((n) * 0x100))
->> +#define RX_DAC_CTRL_OVRD(n)    (0x10B0 + ((n) * 0x100))
->> +#define RX_DAC_CTRL_SEL(n)     (0x10B1 + ((n) * 0x100))
->> +#define RX_DAC_CTRL_EN(n)      (0x10B8 + ((n) * 0x100))
->>   #define RX_OVRD_IN_1(n)                (0x3006 + ((n) * 0x100))
->>   #define RX_PCS_OUT(n)          (0x300F + ((n) * 0x100))
->>   #define FAST_FLAGS(n)          (0x401C + ((n) * 0x100))
->> --
->> 2.43.0
->>
->>
+> > +
+> > +out_mutex:
+> > +     mutex_unlock(&sparx5->router->lock);
+> > +out:
+> > +     neigh_release(n);
+> > +     kfree(net_work);
+> > +}
+> > +
+> > +/* Handle neighbour update events. Used to manage neigh_entries. Calle=
+d in
+> > + * atomic context, with rcu_read_lock().
+> > + */
+> > +static int sparx5_rr_netevent_event(struct notifier_block *nb,
+> > +                                 unsigned long event, void *ptr)
+> > +{
+>=20
+> [ ... ]
+>=20
+> > +             net_work =3D kzalloc_obj(*net_work, GFP_ATOMIC);
+> > +             if (!net_work)
+> > +                     return NOTIFY_BAD;
+>=20
+> [Severity: Low]
+> Would NOTIFY_DONE be a better return value here?
+>=20
+> NETEVENT_NEIGH_UPDATE is delivered over the single system-wide atomic
+> chain:
+>=20
+> net/core/netevent.c:call_netevent_notifiers() {
+>         return atomic_notifier_call_chain(&netevent_notif_chain, val, v);
+> }
+>=20
+> and NOTIFY_BAD carries NOTIFY_STOP_MASK, which ends the traversal:
+>=20
+> kernel/notifier.c:notifier_call_chain() {
+>         ...
+>                 if (ret & NOTIFY_STOP_MASK)
+>                         break;
+>         ...
+> }
+>=20
+> So a driver-private GFP_ATOMIC failure suppresses the notification for
+> every listener registered after sparx5.  The same idiom exists in
+> mlxsw_sp_router_schedule_work(), so this is minor, but the failure looks
+> purely local and recoverable here.
+>=20
+
+Sure, I will change this to NOTIFY_DONE.
+
+> > +
+> > +             INIT_WORK(&net_work->work, sparx5_rr_neigh_event_work);
+> > +             net_work->sparx5 =3D router->sparx5;
+> > +             net_work->neigh =3D neigh_clone(n);
+> > +             net_work->event =3D event;
+> > +             sparx5_rr_schedule_work(router->sparx5, &net_work->work);
+> > +
+> > +             return NOTIFY_DONE;
+> > +     }
+> > +
+> > +     return NOTIFY_DONE;
+> > +};
+> > +
+>=20
+> [ ... ]
+>=20
+> > @@ -2855,6 +2972,8 @@ int sparx5_rr_router_init(struct sparx5 *sparx5)
+> >       unregister_inetaddr_notifier(&r->inetaddr_nb);
+> >  err_unreg_fib_notifier:
+> >       unregister_fib_notifier(&init_net, &r->fib_nb);
+> > +err_unreg_netevent_notifier:
+> > +     unregister_netevent_notifier(&r->netevent_nb);
+> >  err_workqueue_destroy:
+> >       destroy_workqueue(r->sparx5_router_owq);
+> >       sparx5_rr_fib_flush(sparx5);
+>=20
+> [Severity: Low]
+> While looking at this unwind path, the neighbour hashtable is destroyed
+> before the legs that own entries in it are flushed:
+>=20
+> err_neigh_ht_destroy:
+>         rhashtable_destroy(&r->neigh_ht);
+> err_blackhole_destroy:
+>         sparx5_rr_router_legs_flush(sparx5);
+>=20
+> sparx5_rr_router_leg_destroy() walks leg->neigh_list and reaches
+> rhashtable_remove_fast() via sparx5_rr_neigh_entry_destroy() ->
+> sparx5_rr_neigh_entry_remove(), on a table whose bucket table has already
+> been freed.  sparx5_rr_router_deinit() uses the opposite order (legs
+> flush, WARN_ON(nelems), then rhashtable_destroy).
+>=20
+> The dangerous state does not appear reachable today: neigh entries only
+> exist once a device leg exists, and legs are only created from the
+> inetaddr/inet6addr handlers registered after register_fib_notifier(),
+> which is the only registration here that realistically fails;
+> sparx5_rr_netdevice_event() always returns NOTIFY_OK, and the
+> inet6addr registrations only fail on duplicate registration.  This
+> ordering also comes from the earlier patch in the series that added the
+> FIB/nexthop/neighbour entry management, not from this patch, which only
+> adds one more producer of neigh entries.  Would it still be worth
+> matching the deinit order defensively?
+
+Yes, worth doing, and the reachability analysis matches mine. I will change
+this.
 
 
