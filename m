@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D52C61DC6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 12:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32767C61DC6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 12:55:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uab8XixMvl9fuY0KTPgI320rplR35se7Iqz6tpNjBCE=; b=hljqSg+JzMPKICF4HazfqrqxcR
-	ApTdP9oOgCLEf2s9aLHeQOKVzLm6ppGkmKYEgWLtvZbFgwEWC6gBZK1O7jcttQVwu4E7wzZrqxg6y
-	Xd9CLYSCZOUbWw5xnLn36uDUkUY6PzcNcj8Cl/lXOT4a68yQ+9/hbX0yOmnIutGpdAUoeElhpxNzH
-	yyU2hGtbPPHx3nIwSrZfQIfKTLxGq6n1r+FhEg4pYhUNcTxs9KqmNUEOhqPFHeuafYadeO9yAE+l5
-	Qh02oE65QlonHN4x+IX2+YXVz1UOttFBFExv2xvnbpyYN02vYsZn/d0Xs5BgegeDCaHOKD81636Cp
-	g74QIKVg==;
+	bh=GH4Mmke9PiLqPE4CVnynmuYKT0Ri8KBe11wFWr6tl/c=; b=5DG0wVDIq7pRff3Xno05ZBCOpY
+	RYMtnpSEjO8LxXc+0Tx/daV6s3bC8jqMVWAxkmCZpjfC7sgm1MytOetMgiWqePEpMkgZouHvBrvKJ
+	TD627ElJZzLKeNMaelfwkSUK+Ywsrlwud5rBXqqmdmxo7UmmE7KUdV6xLJoSlp/QbaZrMjTAFzFsw
+	mRdi9RFfFDB9TWkbxh+9C4xhi0wNlU1+h49x04E9sXOrDfcohrfcEBFElTsJme/w71vL086ixWbzX
+	cdGKFN50CIxdb2OenYpbKrD2fv4hE+4kDK8wlKMsh/ojfg0OoBHqvUziBT3zvL9iG2QsN7b73sddW
+	JS4bLJFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZco-0000000402k-0WjS;
-	Thu, 27 Aug 2026 12:54:34 +0000
+	id 1wzZds-000000040Cq-2Aot;
+	Thu, 27 Aug 2026 12:55:40 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZcn-0000000402T-0nxU;
-	Thu, 27 Aug 2026 12:54:33 +0000
+	id 1wzZdr-000000040C2-0NOG;
+	Thu, 27 Aug 2026 12:55:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DA58343D59;
-	Thu, 27 Aug 2026 12:54:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 715881F000E9;
-	Thu, 27 Aug 2026 12:54:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 962D2419CD;
+	Thu, 27 Aug 2026 12:55:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42E731F00A3A;
+	Thu, 27 Aug 2026 12:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787835272;
-	bh=Uab8XixMvl9fuY0KTPgI320rplR35se7Iqz6tpNjBCE=;
+	s=k20260515; t=1787835338;
+	bh=GH4Mmke9PiLqPE4CVnynmuYKT0Ri8KBe11wFWr6tl/c=;
 	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=Rv4x/ZaVFpTSo4AHkZkrENSB9tv5PXzGFPfMZWB22kKGvg8QgDIVS57Icl5/o9njd
-	 0riRj0Wh4BWBdImoNQ9Ev/fFw2D8XnYa/neEZ/ZjFsXspHFQhVJcrWGYnE4Z0/iEGm
-	 jiz94IUyYRGs6BSJzBCORdG/BcTEBnskLp29463UdYEUT5i7l83wWiVKCSvCrVW/k+
-	 QokL3jaZxJdmhoxbPvgFibVrFnEzJP9xaFX8mN0Y2h8W4GYgdCn4k4uqwVmUdK4nBm
-	 95het6GEaNUA0huXs5y/UjuH6qvPlGI+mnHoXOLMkJdN+4f5twFjO0ybTfKDQ7yHAC
-	 ojTbJU4UM1AEw==
-Message-ID: <1a534147-b183-41d3-9c35-4b0e7d0ce15e@kernel.org>
-Date: Thu, 27 Aug 2026 14:54:24 +0200
+	b=HgcLRfmUrh9vTgSGCwnZrnoTjgV3jvPxOlfLoSvIiEE88EFp5gutc4umGXG/RCVnF
+	 XZKBwy9M1kJiO3SdYBUiJIg38rEkS9BfhkEJzahhcI26jWXmOfzHrfWe4ZG0FT8YEK
+	 gtBlq4QKq2LVa0g5B6MdcDYAkWRmyJIwal4QHtlG/gp7rLPL1ROoo+Y+hIfRyxP8jg
+	 drZX7vhmcipyCO8EgmmFyexsAf9BmSrPE6m1m0sLcUDjUix34uybF9dkrbKJuF3Wyg
+	 083sW9rDatI4k/C4OCuVgvWpNl0PXjm0ncYsOBsyunYDqDdgxKMpJEdtP0+hz1sNH7
+	 WL+IUnihdXYiQ==
+Message-ID: <3b117e89-810f-451f-af13-4822eb57382a@kernel.org>
+Date: Thu, 27 Aug 2026 14:55:28 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH 12/16] dt-bindings: phy: stm32: adapt usb2phy as syscon
- child on stm32mp25
+Subject: Re: [PATCH 14/16] arm64: dts: st: enable usb on stm32mp257f-ev1
 To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -63,7 +62,7 @@ Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
 References: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-0-c5e27cbc0795@foss.st.com>
- <20260821-ucpd-host-fusb340-v7-2-rfc-v1-12-c5e27cbc0795@foss.st.com>
+ <20260821-ucpd-host-fusb340-v7-2-rfc-v1-14-c5e27cbc0795@foss.st.com>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -108,7 +107,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-12-c5e27cbc0795@foss.st.com>
+In-Reply-To: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-14-c5e27cbc0795@foss.st.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -126,40 +125,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 21/08/2026 18:23, Fabrice Gasnier wrote:
-> Adapt stm32-usb2phy since transition to syscon child node on stm32mp25.
-> This is a temporary update, as it depends on Marek's series [1]. This
-> should be dropped in later series revision.
-> It's a precursor to validate further DT addition on USB and Type-C.
+> STM32MP257F-EV1 board uses two USB controllers:
+> - USB Host port, with external onboard HUB providing to connectors
+> - USB Dual role Type-C port
+> Both are capable of to operate in High-Speed mode.
+> The Type-C port management is done through integrated UCPD controller
+> and external TCPP03 I2C protection chip on I2C1.
 > 
-> Allow usb2phy to be a child node with reg and unit address.
-> It replaces the st,syscfg phandle.
-> Also adapt the example, e.g. stm32mp25-usb2phy1 address, clock and reset.
-> 
-> [1] https://lore.kernel.org/linux-phy/20260816213849.1044073-2-marex@nabladev.com/
-> 
-
-Why PHY patch is squashed into USB patchset? Do not mix up subsystems.
-
+> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
 > Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> ---
->  .../devicetree/bindings/phy/st,stm32-usb2phy.yaml    | 20 +++++++-------------
 
-There is no such file.
+Please do not combine DTS with USB series (see also submitting patches
+in DT). It cannot be together as it MUST go via different maintainers.
 
->  1 file changed, 7 insertions(+), 13 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml b/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
-> index ab6c943af9a2..3e8f57a46db3 100644
-> --- a/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
-> @@ -23,6 +23,8 @@ properties:
->        - st,stm32mp25-usb2phy1
->        - st,stm32mp25-usb2phy2
->  
-> +  reg: true
-> +
-
-NAK
 
 Best regards,
 Krzysztof
