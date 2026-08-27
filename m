@@ -4,103 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C099C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 17:59:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E4D9C61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 18:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=f99q1/EfVd9fZessbQ28VPg/h51qq2Bt/mxBgayLr8A=; b=AiZdtcxEhSb488
-	Kce74mnQQcPi1Ao188H3fujFHhw9mhhN00e/r/ESSMeyzpTbwdsxtU1grsfb6pqIkArLF6tTWZI1b
-	1vuRAIG2qPK5vSo6JF7fKzkUCIaRzWpV7RqwkYiGM3uwp86C19eNg3mXXo8hzzCXg1PVA6vlUr1E6
-	3V+MQpzNLxvTRkKSLDrue3CSh9BWooUDN57TpH8jMcsNuFPNRW0KH5teY239gFpOEvR5y2ygDf1Jo
-	+67Lk+PiZfEtW5sEI0guA3pAbdChNdRDoC3fX+wjCsh7UdYuC2ghJdFrPCtN6La4Op5f0/LEbIrPi
-	a/lyktfxWb+objkCo4Kw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iqu+QcbOtbM8Rimddb61w33ixiI0vj6whMYuEwbL0po=; b=qbgKVA/nv294eL/E3+0yHzSF/0
+	Icy49zvj/x9A8Vqr5cyH3o4BE2ohX1Qd4jr5swx50eOLm33PsXicyAaM4WIPKMFo1LxkonbKUhM7g
+	ykY5u6P3bs1JXaw3UQdvqOmPCC/XaDa35cLz0k48rL6VItBGJfsmxjgJAtFEYE9R9/mxrsoOiX4qw
+	nLT07vang0jwoB2MJVe+AgfK9qkw5HurEGT81mO+cp5pYz6ZnNLzk054tHXZnwvB6mFdaoxFYn7RJ
+	IhDMh0IB+Y2o7fp3y/6xu9yptjdKKVkaOPf3JW/quHIvUXFrHsnwYAqVBZIDtyzTEvq8iY4I7Qd+W
+	HnVuU86Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzeO6-00000004XRC-41PX;
-	Thu, 27 Aug 2026 17:59:42 +0000
+	id 1wzeOH-00000004XYK-3gau;
+	Thu, 27 Aug 2026 17:59:53 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzeO0-00000004XNx-01DP
+	id 1wzeOC-00000004XUs-44V2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 17:59:39 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67RHXcWa614547
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 17:59:34 GMT
+	Thu, 27 Aug 2026 17:59:50 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67RHXdlr313736
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 17:59:48 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=f99q1/EfVd9fZessbQ28VP
-	g/h51qq2Bt/mxBgayLr8A=; b=R4PeHk11fPI39iwjJqNkBiksbYGUUehDNgjv8o
-	BDBOo1rltBHOrw3zgejyv92Qde9iRd3jNV3NPm4av3042gme10EU0qv9dOOUd06y
-	G3cLTPl0AU3LPkx3xAr8XTnsqlKXJQ59nsMLwCSYgkcXJT0YuzdWeb8SHN6Wr8Nq
-	4Xc7ys9A3/HKolSS5AsgLTP2Uo2ra6xUarQIRUGVDuImGksR9LLedvAa2psO4E6n
-	ScV0Z8hDqc5lJSvSIwqm7XlGrYZiQrIm159SjCUzNzCK8rXK/i9B7dbyK3+K3DQL
-	HeKtqaYX+mqqOS8SGOXl+ITJYSU750U5ukWsLmEiNTh8jDNQ==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ganr69b31-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	iqu+QcbOtbM8Rimddb61w33ixiI0vj6whMYuEwbL0po=; b=XpmrNDUrTP07n6Om
+	zBk1IGwXBnu3yb6XzL2oGK7gsqtUKCn6hDgZyCHHa7L5FhB/hQj3Nv1jb7iQrrzc
+	1sA39PPj2avc4zoUd1+AqtAYOghG335Xec0aadP6pH5ylM8IGqxx0bk0RBuHe/Mq
+	NF0fQaRf8nWdCrOLWyg26rbTv8CuOBxtiZdh6oYgIFPt59lqWaywE0xV3iZHd3gN
+	4rBZGHoAKI15tzYYyKgx2xn/UrNbV9pI8hrrENjTdKkKlMkXS17y8oPLCKY5Uyn1
+	rRQ3sYupp9dbf2YMGE/xvwJNkYee1Turn3TvMRFnAc4w4i0aFS2qk7W1BnZ6PInG
+	YwQBDA==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gak561x28-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 17:59:34 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-38dbf293831so366059a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 10:59:34 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 17:59:47 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-38f283baf1fso347438a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 10:59:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787853574; x=1788458374; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=f99q1/EfVd9fZessbQ28VPg/h51qq2Bt/mxBgayLr8A=;
-        b=OBR7RzAz0BzK/R+DIJSs3w0aEgo38GBD7PDsh6tYDLTuFzsvZBUFK89bNDkmTO3Nx/
-         XE8iP6wZN8+bvnFHq+Z7nuoCnjdptLMexX74z4QqblasR8OcIarpN9qkeOgI/kRlWeSj
-         vujasHEp/MDbFWJQfwN4+DnG3pex1C1AuZLvosBi9mGk13k5UJmYb01kldhce8SJEsxN
-         g+gVmceNk1iTnq+G3bs15VQWb18N0CzvC9IKWmphu4i1xWZF+t1fvMEJrOwr/wx/CDyM
-         AkFgAX7KgzeWltJP8bF1ez5A1mcEyJV1mVNmmW01K6A+BSvPKmf5fInNX7YVA9VLSzFX
-         7KTg==
+        d=oss.qualcomm.com; s=google; t=1787853587; x=1788458387; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iqu+QcbOtbM8Rimddb61w33ixiI0vj6whMYuEwbL0po=;
+        b=XPm39oWQrx6J6OI7g0fiaLvYygRpOo8TcndcwvCO1TBpLyiTaNK7jZW9oxwU8YFbON
+         +Xp3MnpkV7uOp2iYKWRSvGZk1pjANMpwMll1sckPL5WzXgXbKpeCIXWQzSyQe8xT0CJH
+         cW1+S7lVMohcuB/L1ZMsSfXY8hh65D1t0jrxhRPOv16ithstWl1lRs8Ad9okYUEAko0s
+         23IOl5wlZoJlzOM4JqvRIQkQUmHAiHCnrQvwUNVuRPrPQZQEtuH7q+QdY/g5yuClk/Ao
+         zb9zB7nmumJ4arphod6e262phHI+8m6Fx+NCapUy+JamLJ18kxM4xs/5ZK9edUePBscn
+         gAFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787853574; x=1788458374;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=f99q1/EfVd9fZessbQ28VPg/h51qq2Bt/mxBgayLr8A=;
-        b=oLSKO6Rd78yILNvbjFfgowadTPdHT8GP+WCwT1cdnN8y6Wwk0EcY/xsrc1q62lHAWW
-         kQ8Zk8Oqbu1M1G0rX32BYaTCDJAOsazXGAKuC7GpJRxjqeef6uoHYVwRvdG/akEAXv9B
-         LYOjydBrYF0WMKbBEG84BqBNpOyHLVRTikna3Pz4nQ324tB0fF/Nwc37Wn8s1mr11buU
-         4EhBrB5YcEwFnodUSJEAZ92XXlIOnuNSTKvaEqZOgU8sBMBhGfJ+B5RO10xn5MJR2FGL
-         Jm0wxmfs4Aw41NytQ/SMJQzjqysLHKGhDDNLnOH7zq8bIJcJc6njlssC9Qavl1JpMFAo
-         As+g==
-X-Forwarded-Encrypted: i=1; AHgh+RrsP/P6KtiITJ8DIvFPi8VxD7YHyXh10j69mpF6dTnbMBeqeAow4MWiwkRCIt/OvITniOi4AoFTBMgXh+D7f8tr@lists.infradead.org
-X-Gm-Message-State: AFuF++mNuihfx/Mt+UakIj5uqlSinnec7XaMhQdVRdn8jFGtSIWQTDGT
-	lhwt66ryTkDqwX5NJJGpQps1GgU4IgRFFKhM9pVLG859/2K0A6/LkQkziH9gZCR5cELiLQlb+KC
-	cSU9hjoxZC9V9avO158gkvzdjq1j6Aoevx3nYrhY87II9QxqRjRAQB8kaQthyyZy0Oppdsle7M2
-	G8hQ==
-X-Gm-Gg: AR+sD10KEOYCFi3p1cpJtRJxGfyhs00ugCiH16XUp3clW0/n//MEUDjf50PJZGIYciJ
-	QlNIniFeonScGeIWdqAXKX+lJLAsyI/hnx8VaGfGS/c+BBt6UtYwrAV/iwRTHp9JkDhE0pi0POn
-	JYKiKoqv4e6ATCb9pb5J2HbXUDt7GfftAg9ojR0xwsvFPd3mC7tnHpaPcWgNGMMck8SG463ziN6
-	oeuGZrMrZrG6yrMRFVmjZmjDoyDGWb6PTwxwnNiYT4kZBzzOAEhkk2TXRJ+RJdp5x+e42TYPQ2X
-	4TBvpXkGzfFWXRhSRs1uy/4zgeCimd5fXVOf8qm5lzjW7kZVoGywAHc8ku0ySgfn+ebe1DHYHTE
-	cxytXjJFex4wAvAKcv3nGFpB8SOgCi8+qEA==
-X-Received: by 2002:a17:90b:264c:b0:396:61f1:da5c with SMTP id 98e67ed59e1d1-396d0e86577mr1841396a91.4.1787853573597;
-        Thu, 27 Aug 2026 10:59:33 -0700 (PDT)
-X-Received: by 2002:a17:90b:264c:b0:396:61f1:da5c with SMTP id 98e67ed59e1d1-396d0e86577mr1841280a91.4.1787853572974;
-        Thu, 27 Aug 2026 10:59:32 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1787853587; x=1788458387;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iqu+QcbOtbM8Rimddb61w33ixiI0vj6whMYuEwbL0po=;
+        b=W08kAJCgTmOPDQUno9CpbOnBWw2oyyLY9nXlmF0QdznqjxxwwPrBmkxK4sKsCR0V7+
+         Uim8TCvfcDM6to3NQQIjbOMJAUoaK8uTdyEVsicB78WP2DrXPXd5Mk1UCRayttgO/8sN
+         yauOtBZ4uQGYjTOGGKZX+m23uCmJ90vXxUaVamfXsAWPydOno+zIi/zQ9xU2/ZpwflQV
+         x5IOJkm7STLzUJUV/klqMLHYttsXskF+rtzibt+itYCZLRiBeKKGHWCJciDjylooQlcy
+         BHffagbIshkRla7f37GQCZaimHnJo7aFSkgEpSxaBFFNe0Zv6surUbi+m+Bv01lnncRn
+         ztwg==
+X-Forwarded-Encrypted: i=1; AHgh+Rp9H0p0umKSs+aIfDHDyQMpzXKGBtVSUzBS+GcwXBbui2SI0EQ5lKU82c4d+1NlRKCHV04c0l60FhHSDlK6u/yh@lists.infradead.org
+X-Gm-Message-State: AFuF++mlPMBnRWbhA/n/9aQk15bchRmg7kKqxaDB8PlysKw8U0Q1gllC
+	jwZ+crIUor1crlHIaWhneO9HHqKkjIcHjLPvWZO3aMKB98GXrSojkbma1WBPZecud+5efgmBUM0
+	I8Sik0lvjwrNyMkkDOgYPyWHTVb7CZungxCjsCJG4LP1nNQgqKdJUGLFORT5dLmNVV9epsOLGnE
+	wHKg==
+X-Gm-Gg: AR+sD10CImzDSWk2EGyqfdtrQRKbpRrcWYYYFNkuDvN3ZsGAQ5boegLAMllVjCGajU8
+	urznaT6p11rsfqVrarEChYmnbA1Gub0sLDjfEmGfKqazKklQQ8lQOqOdB3i3svN//ti4xLzTPy1
+	gb1lBqGJBu+PDNntZDt6ZocM8PIvfmQfI6tKnBPiAnAcQhtrlzPbhBHzVpweSXnSzWNcSDzTY7p
+	y6m4Q8rW7b0DhTOAOVFWVwWexHxfQ/tH3TDbeHhg6JIYd3UwPSZ5kLM6ka+AwgHSMwqF2gfLgMU
+	078S7yadql5T2icL+9dTR3l92ZfdxLbPUPKAjkcLAoyJqoLbi7ZmhGm/aExi2YbYNYf9/AOq7tH
+	ASOvgzGr9qpQ7v/Rry7xMzXfNghAORwSKbQ==
+X-Received: by 2002:a17:90b:380b:b0:380:f85c:94b4 with SMTP id 98e67ed59e1d1-396d0f2391cmr1736491a91.7.1787853586847;
+        Thu, 27 Aug 2026 10:59:46 -0700 (PDT)
+X-Received: by 2002:a17:90b:380b:b0:380:f85c:94b4 with SMTP id 98e67ed59e1d1-396d0f2391cmr1736384a91.7.1787853586253;
+        Thu, 27 Aug 2026 10:59:46 -0700 (PDT)
 Received: from hu-ptalari-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141a905cf38sm27437523c88.12.2026.08.27.10.59.26
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141a905cf38sm27437523c88.12.2026.08.27.10.59.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Aug 2026 10:59:32 -0700 (PDT)
+        Thu, 27 Aug 2026 10:59:45 -0700 (PDT)
 From: Praveen Talari <praveen.talari@oss.qualcomm.com>
-Subject: [PATCH v2 0/9] soc: qcom: geni: Derive SE clock configuration from
- OPP table on SA8255P
-Date: Thu, 27 Aug 2026 23:29:17 +0530
-Message-Id: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-0-091697dbeb02@oss.qualcomm.com>
+Date: Thu, 27 Aug 2026 23:29:19 +0530
+Subject: [PATCH v2 2/9] soc: qcom: geni-se: Populate clk_perf_tbl with SE
+ source clock frequencies from perf OPP table
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPV6kGoC/52OWw6CMBBFt0L6bUk7Rnx8uQ9Dmj4GqVJaWyAaw
- t4tuAN/JjnJyT0zk4TRYiKXYiYRJ5us7zPAriC6lf0dqTWZCTCo2IkdqMn+hEJ3TxEwNmJQnWi
- idz8y3knbCx+CGKTqkEIDZ2n2AFBJkkdDxMa+t+Ct/nEa1QP1sFZWo7Vp8PGzfTTx1fs7PnHKa
- MX5kUvFtdF49SmVr1F22jtX5kPqZVm+v1veqwUBAAA=
-X-Change-ID: 20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-2f29ad32226a
+Message-Id: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-2-091697dbeb02@oss.qualcomm.com>
+References: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-0-091697dbeb02@oss.qualcomm.com>
+In-Reply-To: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-0-091697dbeb02@oss.qualcomm.com>
 To: konrad.dybcio@oss.qualcomm.com, Sudeep Holla <sudeep.holla@kernel.org>,
         Cristian Marussi <cristian.marussi@arm.com>,
         Ulf Hansson <ulfh@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
@@ -114,46 +113,45 @@ Cc: mukesh.savaliya@oss.qualcomm.com, chandana.chiluveru@oss.qualcomm.com,
         linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-arm-msm@vger.kernel.org, linux-serial@vger.kernel.org,
         linux-spi@vger.kernel.org, linux-i2c@vger.kernel.org,
-        Praveen Talari <praveen.talari@oss.qualcomm.com>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>
+        Praveen Talari <praveen.talari@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787853566; l=3793;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787853566; l=3349;
  i=praveen.talari@oss.qualcomm.com; s=20251114; h=from:subject:message-id;
- bh=/+YatdltfR0iMDpKsEcQ1d3BbMXEeeGwVP7+dDq4nRI=;
- b=st+LTRVfFk5svHyCZv6i7Uv6xa7ZAuHILjEGhNjK1QxXVrVdp25J74WVf8PSJSsZRimRFzrY6
- nIgViibqvaICdTBhGTLqq/Ijl8YGjlpKT/GsFZGxpHwZNTekgC/Wcdd
+ bh=AdwimWmojgUMjxZge10azUFM2Iq4ZF78vSGW37hlcsY=;
+ b=xDUNaR1wqkINGiOInqWE2jn/v+OQHLBDBZ+Fh1roliGz9vW+grwzgz+g46Wp/y3TBYYP/MmbW
+ uAIRm9TQvphA1WS8qhacIvgyjp2JvGqodTTkFyYqG2IdHsmXGD2eSj6
 X-Developer-Key: i=praveen.talari@oss.qualcomm.com; a=ed25519;
  pk=NGK/88fjyHXgfhIKwag7+uIytOmyOypvZ/hDFaYPEss=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI3MDE1MSBTYWx0ZWRfXyB7I6V7FH5Vh
- zXylF8IQqmNJO8F/80YoixsEkOdCZNWRzKSWWyk5He/7aM86nAbxGmjqJygZK5mce+iZyMKj2jM
- aHSOMospe9bPG56kk4lDGmv5eoKzQ37h/26fMwgIpfqWE02S3HO4IinvwcIUsi/HhFYbJ3H2CJU
- mTscHUy9vmj5ig8+L9ZG/P68OhGb1dk9MspcwCN4bEU7yLMNN6oQo+0+EMHMDcNR/Ma/rsagDmA
- NM2eEtQyBjG609gyzcILjoHRTVJ60rV8ASzIg1go08GSDw5f3SQA83zXJ9cuqChOsfbafS9eveQ
- /Gscl8eK/zbIR+yIhn/9oxASqYxHqkJF/NwhulGwWqadohwpT6qp4aUzwTV+XvxPos0llCPtues
- ttVM8xJB78x71iMVdNmvYJqOq3TgvIS+V1PsqwXLx//swfh1c/pl2BTqAq/lDKARNU0fEJlHckN
- yt8UF+60ikmOIbvPxVA==
-X-Authority-Analysis: v=2.4 cv=d5DFDxjE c=1 sm=1 tr=0 ts=6a907b06 cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI3MDE1MSBTYWx0ZWRfXwRVffEyJ4ouh
+ yHllGo/zem9Vr33PjG//UPxqewgwQJ4nDtgVyDUJTM75DrhZJdxl01H2jpfRrmsJytGz/xtXjjC
+ ITJSNKepJQ35hggxRFzMVLeeNu0GzPw=
+X-Proofpoint-ORIG-GUID: qiNPYtYWCf03FLJTVJjXki5ef15V_bPR
+X-Proofpoint-GUID: qiNPYtYWCf03FLJTVJjXki5ef15V_bPR
+X-Authority-Analysis: v=2.4 cv=G+Ms1dk5 c=1 sm=1 tr=0 ts=6a907b13 cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=pe4rHqQ3xWNOjACthRQA:9 a=QEXdDO2ut3YA:10
- a=iS9zxrgQBfv6-_F4QbHw:22 a=FO4_E8m0qiDe52t0p3_H:22
-X-Proofpoint-GUID: JMoRf0U4Tzp7GoUOvfbNpSrdScT4Id7s
-X-Proofpoint-ORIG-GUID: JMoRf0U4Tzp7GoUOvfbNpSrdScT4Id7s
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI3MDE1MSBTYWx0ZWRfX4x1XaDC+Nfol
- /xV9w70MeIiOskoPt+dc5+0OCD2fiESv8CHMdiMzCIGGgtysvNjyMDIC/DY7vUvb+XXsf1TMq4j
- Ks0ewu9EHrRTWKACWvusgm7b/fxM9RE=
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=CVJBOM8IPza3kUTEG1YA:9 a=QEXdDO2ut3YA:10
+ a=rl5im9kqc5Lf4LNbBjHf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI3MDE1MSBTYWx0ZWRfXzQ+S9IHZajqD
+ bkUHTHSy/tCFY6MXC72Yl6dRI8lEae9e4kbNXmBO4bdQptLHQ+tZNyR+EqrBFS69l0rNcNERdx1
+ 6/0c+0vARwcP1ZXjXF9ZTrM2eHlOqnkskHRsyxdVwVtMqMroJbHh88gJ/rtIAOzNoxJbRvnESuo
+ 8q6/hK/1rlTh+xOaY27IVZaAAQmf6NGFJBVYewGHZLyn7oaXXsTvRKc29M5ACtuFEH3OjqJT6W+
+ +fmEA0aXSveBr/VHO3OumpvhiKdwP2SZqQ7EFPoh77nvUtKi6y34IcatgAqhGToxYskkGM//Th7
+ huzcgLxE3dShXTXpvTZfHtekL7Ws3dnbOx/bNhTxvWweYj93c6C6gfX2cp2Oa5Q9Xs/iEPljN1Z
+ dxyeXLoCV5q8FXv094R31V/bK4+gSSi7JbaRa/H96AbsZWnsRiALDx7HLhM8FwuX17z7G5Hu9P9
+ ThRpdd5psZBayHxmIWQ==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-27_07,2026-08-27_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 lowpriorityscore=0 impostorscore=0 clxscore=1015
- priorityscore=1501 spamscore=0 adultscore=0 suspectscore=0 bulkscore=0
+ priorityscore=1501 lowpriorityscore=0 adultscore=0 clxscore=1015 bulkscore=0
+ phishscore=0 spamscore=0 impostorscore=0 malwarescore=0 suspectscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608270151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_105936_189768_B3F1809E 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20260827_105949_836887_95FFEEB0 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,74 +166,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On firmware-managed platforms such as SA8255P, there is no Linux clock
-handler available to determine the appropriate SE source clock, source
-clock index, and divider values for a requested protocol frequency.
-However, these parameters are required when programming GSI TREs, where
-the hardware expects an explicit clock source selection and divider
-configuration for the serial engine.
+Currently, on the SA8255P platform, protocol drivers attached via
+geni_se_domain_attach() treat each OPP on the perf domain as directly
+corresponding to a protocol value such as a baudrate or requested
+frequency, and simply request that OPP via
+geni_se_set_perf_level()/geni_se_set_perf_opp(). This does not allow
+computing a source clock and divider combination for a protocol
+requested frequency, unlike the Linux clock managed path which derives
+this from se->clk_perf_tbl via geni_se_clk_freq_match(), and then
+applies the matched source clock frequency with dev_pm_opp_set_rate().
 
-In contrast, platforms using Linux-managed clocks derive these
-parameters through geni_se_clk_freq_match() using the source clock
-information stored in clk_perf_tbl. Since the firmware-managed path
-lacks equivalent clock information, protocol drivers cannot reuse the
-existing frequency matching logic and instead rely on a direct mapping
-between protocol-requested frequencies and performance levels. This
-creates a separate clock configuration flow and prevents
-firmware-managed platforms from deriving the actual SE clock parameters
-required for GSI TRE programming.
-
-To address this limitation, the performance-domain OPP table is treated
-as the representation of SE-supported source clock frequencies. During
-geni_se_domain_attach(), the OPP entries are used to populate
-clk_perf_tbl and related clock performance data, allowing
-firmware-managed platforms to leverage the same clock frequency matching
-infrastructure used by Linux-managed platforms.
-
-With this change, protocol drivers can use geni_se_clk_freq_match() to
-select the closest supported source clock frequency for a requested
-protocol rate, derive the corresponding source clock index and divider
-values required for GSI TRE programming, and apply the matched clock
-through the OPP framework. This removes the dependency on direct
-protocol-frequency-to-performance-level mappings and provides a common
-clock selection and configuration mechanism across both firmware-managed
-and Linux-managed GENI deployments.
+Change this by treating the OPP table exposed on the perf domain
+device as representing the actual SE HW supported source clock
+frequencies, the same role clk_perf_tbl plays for the Linux clock
+managed path. Populate se->clk_perf_tbl and se->num_clk_levels by
+iterating over this OPP table in geni_se_domain_attach(), so that
+protocol drivers on the firmware managed (SA8255P) path can also use
+geni_se_clk_freq_match() to pick the closest supported source clock
+frequency and calculate the required divider, and apply it with
+dev_pm_opp_set_rate() the same way as it is done for the Linux clock
+managed path, instead of relying on a direct frequency/baudrate-to-
+perf-level mapping.
 
 Signed-off-by: Praveen Talari <praveen.talari@oss.qualcomm.com>
 ---
-Changes in v2:
-- Add new patch to remove OPP rate reset from resource deactivation
-- Add new patch to vote source frequency via OPP for I2C
-- Compress the SPI, I2C and serial commit messages per review feedback
-- Drop a stray blank line before trace_geni_i2c_bus_setup() in the
-  I2C resource-initialization helper commit.
-- Link to v1: https://patch.msgid.link/20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-v1-0-61171ab1cdce@oss.qualcomm.com
+ drivers/soc/qcom/qcom-geni-se.c | 33 ++++++++++++++++++++++++++++++++-
+ 1 file changed, 32 insertions(+), 1 deletion(-)
 
----
-Praveen Talari (9):
-      pmdomain: arm: Fix -EINVAL from scmi_pd_set_perf_state() on state 0
-      soc: qcom: geni-se: Populate clk_perf_tbl with SE source clock frequencies from perf OPP table
-      soc: qcom: geni-se: Add helper to set SE clock rate via OPP
-      soc: qcom: geni-se: Remove OPP rate reset from resource deactivation
-      serial: qcom-geni: Use geni_se_set_rate() for source clock configuration
-      spi: qcom-geni: Use geni_se_set_rate() for setting source clock frequency
-      i2c: qcom-geni: Vote for SE clock rate using OPP
-      i2c: qcom-geni: Use common GENI resource initialization helper
-      i2c: qcom-geni: Use geni_se_set_rate() for setting source clock frequency
+diff --git a/drivers/soc/qcom/qcom-geni-se.c b/drivers/soc/qcom/qcom-geni-se.c
+index 873bfbd6b2b7..447b9cc6babf 100644
+--- a/drivers/soc/qcom/qcom-geni-se.c
++++ b/drivers/soc/qcom/qcom-geni-se.c
+@@ -1155,7 +1155,8 @@ EXPORT_SYMBOL_GPL(geni_se_set_perf_opp);
+  *
+  * This function attaches the power domains ("power" and "perf") required
+  * in the SCMI auto-VM environment to the GENI Serial Engine device. It
+- * initializes se->pd_list with the attached domains.
++ * initializes se->pd_list with the attached domains, and populates
++ * se->clk_perf_tbl from the OPP table of the "perf" domain device.
+  *
+  * Return: 0 on success, or a negative error code on failure.
+  */
+@@ -1166,7 +1167,12 @@ int geni_se_domain_attach(struct geni_se *se)
+ 		.pd_names = (const char*[]) { "power", "perf" },
+ 		.num_pd_names = 2,
+ 	};
++	struct device *perf_dev;
++	struct dev_pm_opp *opp;
++	unsigned int level;
++	int num_opps;
+ 	int ret;
++	int i;
+ 
+ 	ret = devm_pm_domain_attach_list(se->dev,
+ 					 &pd_data, &se->pd_list);
+@@ -1175,6 +1181,31 @@ int geni_se_domain_attach(struct geni_se *se)
+ 	else if (ret < 0)
+ 		return ret;
+ 
++	perf_dev = se->pd_list->pd_devs[DOMAIN_IDX_PERF];
++
++	num_opps = dev_pm_opp_get_opp_count(perf_dev);
++	if (num_opps < 0)
++		return num_opps;
++	if (num_opps == 0)
++		return -ENODEV;
++
++	se->clk_perf_tbl = devm_kcalloc(se->dev, num_opps,
++					sizeof(*se->clk_perf_tbl),
++					GFP_KERNEL);
++	if (!se->clk_perf_tbl)
++		return -ENOMEM;
++
++	for (i = 0, level = 0; i < num_opps; i++, level++) {
++		opp = dev_pm_opp_find_level_ceil(perf_dev, &level);
++		if (IS_ERR(opp))
++			return PTR_ERR(opp);
++
++		se->clk_perf_tbl[i] = level;
++		dev_pm_opp_put(opp);
++	}
++	se->num_clk_levels = num_opps;
++	se->has_opp = true;
++
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(geni_se_domain_attach);
 
- drivers/i2c/busses/i2c-qcom-geni.c      | 72 +++++++++++++++++----------------
- drivers/pmdomain/arm/scmi_perf_domain.c |  2 +-
- drivers/soc/qcom/qcom-geni-se.c         | 62 +++++++++++++++++++++++++---
- drivers/spi/spi-geni-qcom.c             | 24 +++++------
- drivers/tty/serial/qcom_geni_serial.c   | 26 ++++++------
- include/linux/soc/qcom/geni-se.h        |  2 +
- 6 files changed, 122 insertions(+), 66 deletions(-)
----
-base-commit: 0f6da28aab51b16762ed82e8fdeaa5042da45b08
-change-id: 20260805-derive_clk_perf_tbl_from_perf_domain_opp_table-2f29ad32226a
-
-Best regards,
---  
-Praveen Talari <praveen.talari@oss.qualcomm.com>
+-- 
+2.34.1
 
 
