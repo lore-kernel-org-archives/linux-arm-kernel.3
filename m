@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD5EC61DC6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 23:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28380C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 23:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/lOzSmEZ51hzHprpWRTTa0ItgwWLWckqKQo+nDAEYGw=; b=g06kgX84rtvE1PlorborjKfjhy
-	wMiyKTKF/M6leLkd89/2mz+MHWl3pLNmgRi8t40vTs6Xak2UTSpDbKy+EnGpjrsHUcmCx2XxFh/te
-	N/vCLvpzkf4mdRVXaT/sIEdeO83P6BlugMDE7VQHUfRcHAUkYinFAR7XD7/zo/Q+gAr0oRwTiea0X
-	e3iq1dREFBakFj5GtRUnVroPCZhEkZF8lzwRvQDCHFlRX6KAfQZUYfw95pwJrzkImBYda2M0osNFr
-	Ew8szXF0b7G+62v8xfDY1sT5NIMQK4te+6EW9sLJgPe2PpyYJO+PP/lrZEXW0mgus3ua/LvmPV7mD
-	/C68tVKQ==;
+	bh=63v8voqDYPPccdvhHdT2gYF/erUoDbYrARzDm1If6YE=; b=2raKHLP6WHk4yC4yKARE2LTz3H
+	l4x2/P3Ma2gPruHaZL37rGluP4XBk2E+iunFLoWQPeAvNhSR2falPtjw3kktckW/xC7FS8L2XaEkV
+	5BaxLlN4ni6kxiejes2L3zegTs45jhzy9AsrDUmTHsCwLyCxXK1GRlZyqeumB+KjWlnA2olOpjRxU
+	0AFgRbFZkjIMmyIzAJ928j09kPkLmqY9xRVIFXuQRdArvk6sz8rAntnxQva1CQNorIzy7ah5xyh/a
+	57QFz9rGv5XaPu5s1x1isZFkdG9xtYqHpDSSw1nghh2MLJgggvAid937PAuKEoiHsnBBPfQ72Za4Q
+	kOmYItFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzjZn-00000004uR2-0x14;
-	Thu, 27 Aug 2026 23:32:07 +0000
-Received: from mail-pl1-x645.google.com ([2607:f8b0:4864:20::645])
+	id 1wzjZm-00000004uPe-2LTw;
+	Thu, 27 Aug 2026 23:32:06 +0000
+Received: from mail-pl1-x648.google.com ([2607:f8b0:4864:20::648])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzjZK-00000004u81-2sTT
+	id 1wzjZM-00000004u90-0I0O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 23:31:40 +0000
-Received: by mail-pl1-x645.google.com with SMTP id d9443c01a7336-2d52734fc41so4603715ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 16:31:26 -0700 (PDT)
+	Thu, 27 Aug 2026 23:31:41 +0000
+Received: by mail-pl1-x648.google.com with SMTP id d9443c01a7336-2cfe48ca1efso3886125ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 16:31:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787873486; x=1788478286; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787873494; x=1788478294; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=/lOzSmEZ51hzHprpWRTTa0ItgwWLWckqKQo+nDAEYGw=;
-        b=Ut4pI7oC3YK8dvlDExchPl6oDnOCwFP4OOnWQD/kNUJuGsvtR8+Ad/+J3D/uPNyKmR
-         DEUKKriyGEJ7ynlqYTBuu0MfTlRLJz33QjxUojI2ESdFZI9XJsJuBMEd9pmaV9eDUUD/
-         oBb6rPVGOhogwNBq7CteyqGP6twkOlNT1DsxyWKgegmhZsMlNeDTcrJfW2/uHGgEEoDO
-         Xx3hQRPfUipqkbQZiG0SqoX/rKK7jJg4GqB8+EnnIB9HDe92MS3D7KuqqLgy1y5vrNBP
-         hqpNUXOL6Rz0Nc9/m2EXmYJwfIu+D+j98LIa6cVZilzzaLw/D0TS0yzuGOFzXWJiHsHX
-         z/Xw==
+        bh=63v8voqDYPPccdvhHdT2gYF/erUoDbYrARzDm1If6YE=;
+        b=aqxwj6iQ+cV9pqok6iBceEob4jT5tQrcLgZgrfjWKc+90JOqdfBpuSXPRMXZL7vUHl
+         3IlIa2T+mbzNTVomYeIhu9ipXXZWsCmVL9cnY1rf7hC02zCyQ/naAecZYar8EDFfH/Jb
+         plWJ1m598HRyX7FJSHoiWmYGntSo+IQxlumWWPspW+NLxFXImgztte877wMUjsCChDXR
+         29RD3i98/6loh93oSTOsii4WfYSiK6rn8nNwJbJn5/PQXJCHudPKpeQCgbZYcwoq+6Fw
+         rbMUpSORVSb0VLsEgL8YGNSh7WpI5I84g0Lbo7MgxDK258twshBvqq4s3XYHfQiSWDtY
+         0fsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787873486; x=1788478286;
+        d=1e100.net; s=20251104; t=1787873494; x=1788478294;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/lOzSmEZ51hzHprpWRTTa0ItgwWLWckqKQo+nDAEYGw=;
-        b=U5dMq1ddcoGMDktnmyo+hM3vdTbYmPPnw6ViGA9Hp0sy+1o/ExbyjfhGgnAmCEVLMe
-         hCmro2op0rWlsw75YBE8IHBzI7NUrvit/HDSR9ScBtbQYi5MMnxiB8t6283r4uCV2oq3
-         vqvIjac0xaseDYrDIgzrd3GboweM07Knq2mVD/cPCvRqVuXr4qgJqt/Nxirpgde/1Qhi
-         F9ZEtT0owC0mMMWaj0t4fLcMPTyi2zrnA4ApPWz/d8SKrWTpB17OTw4fOGP/fKaUjDOP
-         ATq4vXtCUW6pfVxmeSVMVT+IjQc4GVysNLjKw8dNWkydYxK2NFLVwvRibfFrNC4GYLVo
-         ATVw==
-X-Forwarded-Encrypted: i=1; AHgh+RrHQ/r/6cvBISbau4/w5kPLQbtzGQpid6QHec7rsJa9eT2v5CmRwgKvOXxDmXHwvp/CnbWGPSXGV7eDUQv8Nhdq@lists.infradead.org
-X-Gm-Message-State: AFuF++ldflvDT8BqeoD6VhHzYwbzgF04OpnRGwgnmh3phD6wheqYWbdv
-	S2AyYnKOtc3b3MY6pnOS1/ajP2tVtorgCK9QPJL0NbHjbOrG4TkKhfOj3O9BAkL/da7qy+drE5E
-	dTM0otjPYYqBG6A==
-X-Received: from dybud10.prod.google.com ([2002:a05:7300:f60a:b0:311:6ce7:736d])
+        bh=63v8voqDYPPccdvhHdT2gYF/erUoDbYrARzDm1If6YE=;
+        b=SWSbLtkXsQIuhpbxN6RrmHS8u2SxSG3rnjIAaESeAxdocNi05fGOnkXPYzPaI8yaXy
+         2fY21xcG8PFfzx9C+r55fw4APMVdzDvdmIL0C5VCXDn2BoeRvIPaixTlSyryGp9ibe1c
+         QQDgsNHGIoPPmuNUtiO0LiLU8gq7VqncZ+XYQcgdsXgqAQQPZgT4qFikcVOwIypvvd2S
+         Y77eKPDuhCFN1+nfiKZr7bl8OOWyJfb+E+LtgRiq8tUv0bPxytgdpgSzQD2xZ6YgZ1tq
+         u/NiPki0vO2lC05MHBHiO4yHurV5bPqWFtoA/h0IyISKfcj1wrw0UQFOzxMjcTCg5WZH
+         pAIg==
+X-Forwarded-Encrypted: i=1; AHgh+RoMT/+8w/8+MY7arZpZ/lY9WRzwOf9STS/fFJvHfEpa8HecneI4JxfgrPrWQxKh9bIFYiZYOeEMKBJ/WKjBgxKr@lists.infradead.org
+X-Gm-Message-State: AFuF++muvJLqodFWo2WGwQ0ip8GPzMqDTWCIOjoTDqH5YH9mNd92C0qM
+	iEcSYaWVKUnLZTa5iclzNq4j4+1er34RGk4cXyD//D1t9CaoQtlBNqdlxLTx1BE663a7zBbSE47
+	XuoilpMM6bFTpLg==
+X-Received: from dybpd7.prod.google.com ([2002:a05:7301:4547:b0:327:dce2:b13c])
  (user=stevensd job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:458b:b0:2d6:f3f0:3e7a with SMTP id d9443c01a7336-2d74dc2ade3mr36340345ad.3.1787873485885;
- Thu, 27 Aug 2026 16:31:25 -0700 (PDT)
-Date: Thu, 27 Aug 2026 16:29:43 -0700
+ 2002:a17:903:1850:b0:2d5:e3ce:3988 with SMTP id d9443c01a7336-2d74dddceebmr49959775ad.11.1787873494176;
+ Thu, 27 Aug 2026 16:31:34 -0700 (PDT)
+Date: Thu, 27 Aug 2026 16:29:47 -0700
 In-Reply-To: <20260827232948.2520558-1-stevensd@google.com>
 Mime-Version: 1.0
 References: <20260827232948.2520558-1-stevensd@google.com>
 X-Mailer: git-send-email 2.55.0.897.gb25b4bd76c-goog
-Message-ID: <20260827232948.2520558-6-stevensd@google.com>
-Subject: [RFC 05/10] fork: allocate reclaimable stacks with VM_SPARSE
+Message-ID: <20260827232948.2520558-10-stevensd@google.com>
+Subject: [RFC 09/10] x86: Enable reclaimable stacks
 From: David Stevens <stevensd@google.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
 	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
@@ -88,8 +88,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	David Stevens <stevensd@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_163138_789931_3AF4BE0B 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20260827_163140_194352_B2B73EAB 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,136 +104,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the pages of reclaimable stacks will not always be populated, we
-need to set VM_SPARSE on their vm_structs to avoid crashes when
-vread_iter sees a partially reclaimed stack. Note that stacks will only
-be partially reclaimed when they are associated with a live task, so the
-stack management and caching code in fork.c won't actually ever see a
-partially reclaimed stack.
-
-Directly managing the vm_structs instead of going through vmalloc also
-requires doing the freeing of the stack on a work queue instead of in an
-RCU callback. Previously, we were relying on deferred vfree work to move
-much of the cleanup work from softirq to process context.
-
-The fact that vmap stack pages are included in vmalloc's vmstat is well
-known. We should continue that to avoid changing procfs.
+Implement top_of_blocked_task_stack() to get the stack pointer out of
+a thread_struct and enable HAVE_ARCH_RECLAIMABLE_STACK.
 
 Signed-off-by: David Stevens <stevensd@google.com>
 ---
- kernel/fork.c | 92 +++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 92 insertions(+)
+ arch/x86/Kconfig                 | 1 +
+ arch/x86/include/asm/processor.h | 5 +++++
+ 2 files changed, 6 insertions(+)
 
-diff --git a/kernel/fork.c b/kernel/fork.c
-index 10bd76f6dd20..6acad0038b78 100644
---- a/kernel/fork.c
-+++ b/kernel/fork.c
-@@ -267,6 +267,97 @@ static bool try_release_thread_stack_to_cache(struct vm_struct *vm_area)
- 	return false;
- }
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index bdad90f210e4..652d5a9c0830 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -211,6 +211,7 @@ config X86
+ 	select HAVE_ARCH_USERFAULTFD_WP         if X86_64 && USERFAULTFD
+ 	select HAVE_ARCH_USERFAULTFD_MINOR	if X86_64 && USERFAULTFD
+ 	select HAVE_ARCH_VMAP_STACK		if X86_64
++	select HAVE_ARCH_RECLAIMABLE_STACK	if X86_64
+ 	select HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
+ 	select HAVE_ARCH_WITHIN_STACK_FRAMES
+ 	select HAVE_ASM_MODVERSIONS
+diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/processor.h
+index 87b1d4c0727e..207e7adced64 100644
+--- a/arch/x86/include/asm/processor.h
++++ b/arch/x86/include/asm/processor.h
+@@ -690,6 +690,11 @@ extern void start_thread(struct pt_regs *regs, unsigned long new_ip,
+ #define GET_TSC_CTL(adr)	get_tsc_mode((adr))
+ #define SET_TSC_CTL(val)	set_tsc_mode((val))
  
-+#ifdef CONFIG_RECLAIMABLE_STACK
-+static void free_vmap_stack(struct vm_struct *vm_area)
++static inline unsigned long top_of_blocked_task_stack(struct thread_struct *thread)
 +{
-+	int i;
-+
-+	remove_vm_area(vm_area->addr);
-+
-+	for (i = 0; i < vm_area->nr_pages; i++) {
-+		mod_node_page_state(page_pgdat(vm_area->pages[i]), NR_VMALLOC, -1);
-+		__free_page(vm_area->pages[i]);
-+	}
-+
-+	kfree(vm_area->pages);
-+	kfree(vm_area);
++	return thread->sp;
 +}
 +
-+static struct vm_struct *alloc_vmap_stack(int node)
-+{
-+	struct vm_struct *vm_area;
-+	int ret;
-+
-+	vm_area = get_vm_area_node(THREAD_SIZE, THREAD_ALIGN, VM_MAP | VM_SPARSE, node);
-+	if (!vm_area)
-+		return NULL;
-+
-+	vm_area->pages = kcalloc_node(THREAD_SIZE >> PAGE_SHIFT, sizeof(*vm_area->pages),
-+				      GFP_KERNEL | __GFP_ZERO, node);
-+	if (!vm_area->pages)
-+		goto alloc_failure;
-+
-+	while (vm_area->nr_pages < THREAD_SIZE >> PAGE_SHIFT) {
-+		struct page *page;
-+		gfp_t gfp = GFP_VMAP_STACK | __GFP_HIGHMEM;
-+
-+		if (node == NUMA_NO_NODE)
-+			page = alloc_pages(gfp, 0);
-+		else
-+			page = alloc_pages_node(node, gfp, 0);
-+
-+		if (!page)
-+			goto alloc_failure;
-+
-+		/*
-+		 * Non-reclaimable vmap stacks pages aren't charged against an
-+		 * memcg until account_kernel_stack(), but they are added to
-+		 * the node's NR_VMALLOC counter. Copy that behavior to avoid
-+		 * confusing userspace.
-+		 */
-+		mod_node_page_state(page_pgdat(page), NR_VMALLOC, 1);
-+		vm_area->pages[vm_area->nr_pages++] = page;
-+	}
-+
-+	ret = vmap_pages_range((unsigned long)vm_area->addr,
-+			       (unsigned long)vm_area->addr + THREAD_SIZE,
-+			       PAGE_KERNEL, vm_area->pages, PAGE_SHIFT);
-+	if (ret)
-+		goto alloc_failure;
-+
-+	return vm_area;
-+
-+alloc_failure:
-+	free_vmap_stack(vm_area);
-+	return NULL;
-+}
-+
-+struct vm_stack {
-+	struct rcu_work work;
-+	struct vm_struct *stack_vm_area;
-+};
-+
-+static void thread_stack_free_work(struct work_struct *work)
-+{
-+	struct vm_stack *vm_stack = container_of(to_rcu_work(work), struct vm_stack, work);
-+	struct vm_struct *vm_area = vm_stack->stack_vm_area;
-+
-+	if (try_release_thread_stack_to_cache(vm_stack->stack_vm_area))
-+		return;
-+
-+	free_vmap_stack(vm_area);
-+}
-+
-+static void thread_stack_delayed_free(struct task_struct *tsk)
-+{
-+	struct vm_stack *vm_stack = tsk->stack;
-+
-+	vm_stack->stack_vm_area = tsk->stack_vm_area;
-+	INIT_RCU_WORK(&vm_stack->work, thread_stack_free_work);
-+	queue_rcu_work(system_wq, &vm_stack->work);
-+}
-+
-+#else /* !CONFIG_RECLAIMABLE_STACK */
- static void free_vmap_stack(struct vm_struct *vm_area)
- {
- 	vfree(vm_area->addr);
-@@ -305,6 +396,7 @@ static void thread_stack_delayed_free(struct task_struct *tsk)
- 	vm_stack->stack_vm_area = tsk->stack_vm_area;
- 	call_rcu(&vm_stack->rcu, thread_stack_free_rcu);
- }
-+#endif /* CONFIG_RECLAIMABLE_STACK */
+ extern int get_tsc_mode(unsigned long adr);
+ extern int set_tsc_mode(unsigned int val);
  
- static int free_vm_stack_cache(unsigned int cpu)
- {
 -- 
 2.55.0.897.gb25b4bd76c-goog
 
