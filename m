@@ -4,143 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCF3C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:38:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D05C5DF9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=71q6qFkbUbAl2V56zYmUPUePGcmMBG2bx1YcmcaTAes=; b=Ba/9qIizFFkO9nduE8zvlkeiqo
-	qcWB31ssF1BEU+YokTnBEgtprus92F+n6f3SF7IqLXX0DyXN27PlecOlDEz122hWy/CIYBjyC9GSs
-	5TfUlV0fFMP5TQoAvr5ufwTahIg2H4nPZYVOFszuiA0QMaLLZfmhD3oxoWW6r+yrx6kHrwowZDdbH
-	/wiEjiHUcpMrO7gbPmIQ1G+Kkvti3B/PyFifcH5UQFrZecqRs5s/kcAsJr1x0yUCkd12yA3zeIk7o
-	MYzFK3Nh87/Gyp0wR0bxuftmwAX0E0AYHrLJfHt2PSp81neY9iyiEu0r85RHYNbJv55RQgwQ5Y6/p
-	ux0z7PMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2+HpEG5thsB7RzYByLx5SPeCXSgrm6/9JgVi1wddJ5s=; b=HplL5cNm5aCZD/aTFhRGWBfJm/
+	GNMlKpWCKWihTFk3PW4wKxxXu3bg3jnXzL35nCiLKibqi7EgF1SAvssI13iJssEJd2Mon2D8++vIT
+	D2MXmipyph6clNZeBOocgIKkDtG/etK18BKQ9qdogj26xy9r9Z/X6R/PYAEmXVwp6gySTCbr7yAIg
+	S8zILGuuGLYk260wTCkOSFv9YwNsGS81F5tQiFSwkU+pcKpty75BOuw/cEaHYYhXslZjaG+FUU0WB
+	JG9pSROqfm1LFdJdIXX6X6HM3UselIf6utGHJNo0E0NTwMF33utNVaDgXclJnxuaTcozd8ShcdXv4
+	yuxsf7ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVcw-00000003edt-0f2h;
-	Thu, 27 Aug 2026 08:38:26 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wzVdP-00000003eiN-2Zgy;
+	Thu, 27 Aug 2026 08:38:55 +0000
+Received: from mail-japaneastazon11022120.outbound.protection.outlook.com ([52.101.126.120] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVct-00000003edW-452Q
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 08:38:25 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67R6RCrH3835280
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 08:38:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	71q6qFkbUbAl2V56zYmUPUePGcmMBG2bx1YcmcaTAes=; b=gf1YeRfG0jMWjJvk
-	A+oDzPUuH5WBz2seDRuTBu2O2cIwjWUZ0Rf2OTAZmWp/nwEucRDj2ASlkf9YJndd
-	m61fwXt9K9twk2rCd5EG9R1gVAeNx8LP3S3A3PZxw1QiRAFVJLIXN5+hXX5iLE09
-	yGJpRw9WPfnriuJ3zZUIDU7OJpi4Y8puOs2gKQmv2zMfIYdDg0//Hg3Puc0jojdj
-	ONUk0WlMUW+waxBNtCLoSNv+UbSt7VuqiMydUJ0oQxgJQzFyGLGjvklRu+bf90g9
-	+hQ4Oqqz45SmVapOj+ZZVDgAfcTbmDKTQz9RJbojp6uSD8IPRTsAjgcVuYQJ+rXl
-	py/hUQ==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ga0wbute0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 08:38:23 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-38dde0df80bso3178895a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 01:38:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787819902; x=1788424702; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:from:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=71q6qFkbUbAl2V56zYmUPUePGcmMBG2bx1YcmcaTAes=;
-        b=bDLvuZFLKYaESaCbpjSsQxuu//U++Ie690QcvpDKoRJVMvyXUIbA1aG6V60BGcyjIy
-         ZNGOOYdZYqSaEKsQr/TSxUmSCRBU75zLG6zfK1UeJYICzRkMUHVO10g8Oa+m5Ys7nD0I
-         Yq59mYTie2OXj+m3TgZe+LhBU6voP2EUgG4upE6JPGCFpeMcRxriFn9uqg88P/vRglu4
-         vq9DNyZjbmcdjAlQSMtU/4eN7Fz14sSbHRuCV0wNnAOhWDQvo8wqHPzirQ8MYu2fO7sK
-         PU021fv0ONO6nzkmQRMJQqi4Qa69eirauN1haYZZCtjj8qfQ52vtpREup9yH+GpDKzK1
-         ozfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787819902; x=1788424702;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:from:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=71q6qFkbUbAl2V56zYmUPUePGcmMBG2bx1YcmcaTAes=;
-        b=K09wIxpnWXo/4NMP7iyQFF7BrnAcH72GOcZCkkaBbhNz8rBxhK/3W6Yj1HbTDxbcR+
-         MqH9hh/0vPH7xuaH6gx2fs4DJC60Ark3oryuTFz3gI0jxFlEy6Pe4hpCd0yXA/YH/QjR
-         MOpK2arBqZIY7MEEJrXPqlDbrkV0hTwjMk553J19XtaWNodvI/yboXWGBwp8McQtZpGn
-         CMxRX4AbqUEaWpkGjyn1XS5eBEW3hDHqCdq36Up/sFlFsAXGAPOQI7g55ljZB+1/b3Am
-         pPzYiAVJOkIE3m3/zF6AVMK+pCI9eTsFXGzhsWkn0AFxE5xL4I1msAF6C0rzr4lyhBel
-         Uwww==
-X-Forwarded-Encrypted: i=1; AHgh+Rog5OunSV8FApt+zDc28Vk+m7f95UlbesXp7uKj/A3kVWdaip/OGHkU5EwMJYafnldpFWV45Z7cKGefx1PQ+jC5@lists.infradead.org
-X-Gm-Message-State: AFuF++maQnXBlvr9PBcrU8sgvk9HX0uUjZV9vdLOT61ntjYiR/YhREq+
-	Y8UPVPuZg6fAKG8SXWnWIHgQyuzDqnCi5/R8vH2+ziggbljdK1GLpKYJNUJI+z3woqJOmN2Lhni
-	I/L+mu41Gza1zmncOh/XtP/8pSLfe+t6McAs7wpmFRbrgZp8NnhFL9DMdBUo8so1Ct/yJO8vE3H
-	Nn/Q==
-X-Gm-Gg: AR+sD10UrB+9QwvglyCRW2CGTJPqMYeYugYEMFpNtoPuOyQtWo51WXeMUlUQUshOYnY
-	TRywXMPmjyc80J2NG5gUZosNUeXA+rUBSWNYEacXBZZv5aaF/pkhU1T1HSiTKtRC67xUWeDjvPI
-	KQCRFsb0m+IhMk41QleGYyAews42hkrTw5JjpZA4DHtQvq2deQRH0qv/Toa+aMUtq49ve/GWqF3
-	RKkA+ybpVn6Mjjui7v4W0kKgLQcHVX/19m+LOmYoBQHEsTSnX1sUlkpeyzE8Sh04IgheilRrdD1
-	WOCiTHM6cVSQY4YoNLCT/8kHDqgWxp5yuPiolsv8uD6hKPpXbHZcwPc7tMbjxEivu1xKABiCIgT
-	62q1ZzRrJAGa0C4hg7yyA03TeqjtkvNdjkw==
-X-Received: by 2002:a17:90b:3890:b0:38d:dfd1:7c1 with SMTP id 98e67ed59e1d1-3966d17865fmr25898125a91.2.1787819902421;
-        Thu, 27 Aug 2026 01:38:22 -0700 (PDT)
-X-Received: by 2002:a17:90b:3890:b0:38d:dfd1:7c1 with SMTP id 98e67ed59e1d1-3966d17865fmr25898042a91.2.1787819901946;
-        Thu, 27 Aug 2026 01:38:21 -0700 (PDT)
-Received: from [10.218.39.50] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-396b0d3d7fbsm1863422a91.3.2026.08.27.01.38.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Aug 2026 01:38:21 -0700 (PDT)
-Message-ID: <071db604-0744-4a45-87ac-085a40cb5999@oss.qualcomm.com>
-Date: Thu, 27 Aug 2026 14:08:17 +0530
-MIME-Version: 1.0
+	id 1wzVdK-00000003egX-0GZi;
+	Thu, 27 Aug 2026 08:38:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wkdpnGlvrTfdHXohZqTAIQMTr8yozNzE74GMnv5WHwxGNBGM3zxAs9oAdo9BMZJ0D5KuKSt4ZHA2dC481cbnho1pSgNtGJGlalchH+ZxpOKbQeYWyBDxnS5N9nUdiwHBK5EspyLS177t/8n++hNJYjPAcGPu50jMCqRF1g6AD8Kg75IrLobc8npTuO6XqMtv495D89ylOM4Wz3VuekkgFzSKn0q3rRbcRx1LH7xp7OyTk4lZrJBq0/oZOJEsu5k50qa+cotONtv/k1BzDWYEToQnlbMVER7J3+m1ftv7j2u9XSTCEPlBb+DR6xnCzk3C57JPSBYGz8yc7TVU421mpw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2+HpEG5thsB7RzYByLx5SPeCXSgrm6/9JgVi1wddJ5s=;
+ b=fROD/3kmhq++Q4x7OxdIPON1/g1T93vpphkDKkzDuylIDYB0rVnGQpUOUbi/X5ZRpMJyukwelz93ToU8cQ1wudL56/IG3tLSzQkiIpRPvhG5euRDzCY79jvQM62N0FLYK9I7vqOe6YL0xDVz7+K6WepQ9tm2eJQhxdGUB/hYgNSBWeklnlsac/dUe1b1EtrRgt3jHYqOjRF54K+G2JZQvWZqSc1LvGkgu8PAYMBkw5zuUPmzv2eM3aMgEHUyx4nGo1SctGThH6wBOVwn5tHLhXnYhv6GCdnVJ+Ivw+HJs5b7SN5Xf5DpjsiB97JMg0QLqn3tL2RRYr1itxOQ4R2tOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2+HpEG5thsB7RzYByLx5SPeCXSgrm6/9JgVi1wddJ5s=;
+ b=Nwjlj/Dbs+61hyfzumSYL8/+TZ5HyF9R58BBcjqzl4ddY7ktq6VpY8Gr252QVRBDiTQ3SUNczjlN2KfmO5lZpTWzHcFcs+4FA8tKVPAUVz4uZh26dNfeLn6dmu3rsveTvK8lMf/F56OxwwqXs3Zgc7qokgzBciICmU0yFm+7p0hwttNo2wV/pu5+ynRGouBsCk+aQJ/gpU1d1K2vYo1y39FL17G3pixCRDGqiEM5Is5x9UZX7BzgIuzAp8kAsk5D4RWc/tweUZiWwlzZjl1D2m9aU/TqlYZILkMwqvFyZyRG02xWJ0LxL+JinwqxQ/FtmI1spsg2HoIRpUX99iYBxg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
+ by KL1PR03MB8571.apcprd03.prod.outlook.com (2603:1096:820:13d::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Thu, 27 Aug
+ 2026 08:38:32 +0000
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::78d4:9dee:2e32:d1e4]) by TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::78d4:9dee:2e32:d1e4%7]) with mapi id 15.21.0360.006; Thu, 27 Aug 2026
+ 08:38:32 +0000
+Message-ID: <3b34e172-8224-4726-8064-3c86bd397129@amlogic.com>
+Date: Thu, 27 Aug 2026 16:38:25 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] iommu/io-pgtable-arm: Add support for contiguous hint
- bit
-From: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
-To: Daniel Mentz <danielmentz@google.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        linux-kernel@vger.kernel.org,
-        Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-References: <20260804-iommu_contig_hint-v4-1-d7a47ed5db98@oss.qualcomm.com>
- <CAE2F3rB7zpPFfC376mP=god9HWRmKOaQUEgPVzKScxS12pZrvQ@mail.gmail.com>
- <8188c158-60ed-4d05-a26e-c127850520cb@oss.qualcomm.com>
+Subject: Re: [PATCH v3 2/2] pwm: meson: Add support for Amlogic S7
 Content-Language: en-US
-In-Reply-To: <8188c158-60ed-4d05-a26e-c127850520cb@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: Z_TlY00FHGFqOnjSw1zu-RMPSGJ_j5DS
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI3MDA3MCBTYWx0ZWRfX9sB1nkDjAiBk
- vWc4C2u+1N/eFrY7zwWuhmi53e1Z5zFqxj9VrIClgmN8D6CN4uo3p7ELF1K6+9YSnurkKN3xLvd
- byYmdVRUFv9GnQK0yy0+WimgcAlPp90=
-X-Proofpoint-GUID: Z_TlY00FHGFqOnjSw1zu-RMPSGJ_j5DS
-X-Authority-Analysis: v=2.4 cv=SoCgLvO0 c=1 sm=1 tr=0 ts=6a8ff77f cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=3AgxOFbAtmQaTp21eccA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI3MDA3MCBTYWx0ZWRfX1oEB7CfGjPNy
- PrSOl1yHLWiNCMPMizGVvye+BXsMgoc8frSuUwLCdcFoWUeq0MrYhJI2jgC/TH6629Ebsk0WrZa
- 4tje/Fr/1vpsTL1L8wAzbo3YPz40OVipNZ3ew3Hs5aXxuWRd12DdUphqd/ApakfRJHI6dxCxC+m
- duUH+OSXDuCaWe+SzP9ptrU7Zf1HGkU4uir85hNES6gUKxcvjzgsQQuBl/USFukPYY0X+QAUQ9H
- 9qj5ElcJBjKhl2paePzWsbZ3NJTtfcINTT1/n5PrUW8nIOSAWvi94e1WFNdiIQS0pjuFulEcnsn
- 56SLYAU5MEWGHEdBOACYyjB91u2f+7owWEWU4l3bmg3hi/dCtV1MUOQaUNyOwimw39veCWCriN6
- gbCzqE+SCp3j8lYgBFx4gfX67PazZVoRdY6jiKhOMCRzm5V271NiL7yk3s/u18ezHzDZ6Lp7c2s
- NibQaCuJjJwiVC2DGnA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-27_03,2026-08-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 impostorscore=0 malwarescore=0 bulkscore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 priorityscore=1501 suspectscore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608270070
+To: Alexandre Mergnat <amergnat@baylibre.com>
+Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+References: <20260521-s6-s7-pwm-v3-0-57b073fbafef@amlogic.com>
+ <20260521-s6-s7-pwm-v3-2-57b073fbafef@amlogic.com>
+ <178705763029.1733024.16040030322013834677.b4-review@b4>
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+In-Reply-To: <178705763029.1733024.16040030322013834677.b4-review@b4>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SEWP216CA0152.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2be::17) To TYZPR03MB6896.apcprd03.prod.outlook.com
+ (2603:1096:400:289::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|KL1PR03MB8571:EE_
+X-MS-Office365-Filtering-Correlation-Id: 78d7e305-25fe-4a5f-3977-08df0416937e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|23010399003|10067099003|22082099003|18002099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: HH43JShX6BXD6n36ihRg4ctJmPTtbagfGNlRmOcnKNhZkf6FXp4FvTqUotUg1z337XNxO4NL6goHnvnYNlyfwB4dy/rrwRk0cVHwB6jbGQn0f6+Vgplw3cWiLrvqE44Gy6tLQszBSBb303Cm6lVpU2zMEqlufuXKqMNKz443UylqlGv9l199rnV82d8bBnEJfww1x7do2DdSclNP/gNdhttTMCsEPrqCtLGYphDzcLjr1sHuos5Uby1i0k75Mp+wMO4dgi03pOVGWdbkwYDYys8RAJsW0t7RhDQrs7yLbFmQkCvdQxoo9JREgz5Yo/RWtx1uRXWKxfWvTzkibZ2gBmIiIOxJZoaFxPRs7tumPTkzJL/uF4Sq1agXgL0Te9+nMxBmPgeSHAQ+78yak8gmtKnlMlzsU96TzxG8FmSp+FaT8mV2E9J+U1gg4f9WjaUYL0B9yKb2PA8EuouTTAbEWDTivsHcSrgw/Awbquzj9OiaAHn2JtC3OJDhnLfPnsS1JnKcRr/j+ZTBR65W8KhULIEppU+VomXGOVjVTgNc95qoeEpi4yIL5wyvc35+coJw4RZoSqhuxe71n93vUSC7YNWHbIEHRpgZKTi0MzKOZwquRtjbrN758CMZNPiuuHEpIZ68RLihicJmFhjrIufoxnQ60DY0jzscVj0w1cNP2fc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(23010399003)(10067099003)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aEkyTE05bm9rc3NkNG1GSEFjdmFvcGZNS2pDZ3QyWmlQeEkwUmVVQkhKUU5u?=
+ =?utf-8?B?b2ZsNGd2RFJaclRFdzdxMnRIR0ZSd005TlF4MHExd3FTUUkzMzcvTVZyR0Vi?=
+ =?utf-8?B?OW5RRDcxVWg1NEkwUldSZjd0UnVETjZxR1llRFROZldwdFpFUHQ5Z3JablpE?=
+ =?utf-8?B?aThQWkhtN1dHb05KYW14YzhMTFBTK1hpMzZ4WTdGN09KY2VWd3NmT3huYUdT?=
+ =?utf-8?B?Rkgvcm53SEllSTNaN1BibjRLKzBoR0N4Mm12b0NSdURHQUtJK1Nhd2Y1QWYy?=
+ =?utf-8?B?eE1vRkJQMUg2R1R5NDJsQ0Y3SmQrYWNkeEZjejZ5OFNSa2RlUmdCRlhVNVho?=
+ =?utf-8?B?TUNxNEF3VThvY0ZuR1Q5MEZ1OUVDMUUyMTNSNTdidXM2alRYZm5ra3hGcDNp?=
+ =?utf-8?B?Q3lDS2UrNVVrSlRTWlRJSjRmbnU0YWJnTGltL0gxV09wV05qVzR2UGFPVEhM?=
+ =?utf-8?B?ZUpIZ1N3U2toN1VwMzZVaGFqck1na0FQcHQ3Qm96c1pXWkp0TFkzcUQzaGVp?=
+ =?utf-8?B?b1NUT2Y1bjNVVkxVR0FXRkpaTThIVmlyNnVhVGlxTVdOMzV2NnNwRXJlNFEx?=
+ =?utf-8?B?UGJLZ0pQZnIyc213R3dJMmpwUXRTSHoyK2kvdlBBa3RTOU5uWHpZS25aczhQ?=
+ =?utf-8?B?b1lUdGd1Z0tINDRqbmh0Zk1JcGllWjN4M0VMN1Ird3BobTVCQmRvQlFTNmsw?=
+ =?utf-8?B?Z1MvM2Y3TDdrZTlOeWt2N0VndWtoOHpUMVF5REI5OExTdmUvdUsxK3pPcTlY?=
+ =?utf-8?B?Sy9yQnIzRlF3cUpxQkNUbmcxb0hnTmxtVmJqUGh1OFFYR2NIYXY3QldvY3Vv?=
+ =?utf-8?B?a2pTeTE1RzRjWDhJSXdFcHphRXhFYzRBdEgySnBKVmFHVnlxUzJNdEprenov?=
+ =?utf-8?B?dHF4S25RZlVHVXI2Mjc1ZnBIcnR1allxTXRQb2lLR0d6ZGVPVmlJZUZSNGhT?=
+ =?utf-8?B?YlJRSHgybmdJdE8xb21ubVdFamxlcU1YY2VER1Q2UVcyeFRleEdrazNtbmFw?=
+ =?utf-8?B?UkQ4NG1qOE5ZY3hQMzlFYnZleFlUUXlrY25KeDUwdTAvZEVKZUdQQThLbWhN?=
+ =?utf-8?B?U3FiRDVnV0E1YUpaU2tZWW14QkxYUHVXclo5ZWdpVVNVMDBhSFBPQXF2YkxH?=
+ =?utf-8?B?bzN2VVNSbVZhSlhiQ0M2OU9IajNQTitNT1Q2TU4rdnkreFlla1lxME1wMStP?=
+ =?utf-8?B?ZWtZREt0QytlNGF4eElGdSs3MXQwckJxT2FMTGhOakxtSmJYaTlicUJKSVFI?=
+ =?utf-8?B?MWxyVDdEWVYzZGlpK1ZVN2tlU21YZ2gyYXRhdWRNbFAxNzRxRUJRZGF0a0pI?=
+ =?utf-8?B?QzE0Ynh1RGtrYlowRk52QncrS3RJSHg2dXN4R0tsWm96TmhORW1IdG4vdDhB?=
+ =?utf-8?B?TWFtWGREZkI5VzNpekw4cFlBY0hTNmxnN201Y2xGK0YyUmpuaHozSlVwQnlP?=
+ =?utf-8?B?N1dHUFg5cHNoQUVIUXI2RTBxY05IZjBOVDBFbnJEOGpnUDdwSHJ5R1BHYlJX?=
+ =?utf-8?B?aW85SnNFUGZiTWIrUmpOdzZERHVJMWVRKzlBck5DNlNTblFaWSs3c3JsVzJX?=
+ =?utf-8?B?RUloaGlKL1ZwclpZeEdLaHAvL1BVaFJlSmZCK2lCcmw3VU1GbmdDRlVvU3Rr?=
+ =?utf-8?B?T29tSURkVlptTFZhMGFpTENxZGE3Rm4ySy9aQVM1SCt1U3c1V3dkbWtPbVc1?=
+ =?utf-8?B?M1lWM0VpQnZUV0FmNXViUTJUY21nY0EwaGRIVVNYVXh0UVc1RjN6QXk0cFNs?=
+ =?utf-8?B?ZDRpTDZXNlJQZzA1ZWJubVQwZllQRzIzaE80RjNYbHJHamI4cFdoQkJ6dmtz?=
+ =?utf-8?B?bUFadEZObG4zTit6Tnp4SU1mZ1QvR2JWMzdJVTNpQ1dIMmRMazBxVUJpVTFj?=
+ =?utf-8?B?c2E0OWx5bHFWdzlPREhFTTRmODh0SW1JaWcwbDhPTndwdlNvUkZMTEl6Skht?=
+ =?utf-8?B?NHpuNGRGTnAvT05hd1NDMmtRS2tjRTYvR1JzcVp4a1RrWEZIQkNvNjlCZFZR?=
+ =?utf-8?B?ZHl1d0ppblBWTTQxU0VqMmZwcWZwK2FQM2l4THQraUhDZ2NnZjN3NEREbzg1?=
+ =?utf-8?B?RDNxZDl4T1pSV0h2K3VSUHRTNnRyWEd6bDd3MDJvRWpnQk1DSjJCYlhoNXRu?=
+ =?utf-8?B?WmdNSHQxWTlyYjdDV1VBdnhCM1pFMGFXcWJLeUEyb2pQOEVydGdmYXBWRzVz?=
+ =?utf-8?B?VjU4NjVmeFpkTU4zNEpwWFI4cFZud0ROT1JOZ2Ria2hGVnh1R1VSVG9TN1pI?=
+ =?utf-8?B?U2I5MXdTT1lEaXhCcHR4YVM1dVRVVlQ1SXVkM0JubHp1R3F2T1Vaa0REVGFo?=
+ =?utf-8?B?eDB4NHlWbW9WWVRtTng4alp0MWM0U0pidmFtYkp0ZjdrMWZRUnVSQT09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 78d7e305-25fe-4a5f-3977-08df0416937e
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 08:38:32.3842
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ySQhbVdPSxhmTmf+J42W5sDwYtwFFf3RlgmUQOmCOG1Cqkbksi27U4zlti45NAjG7mbjIVTG78ecCM49ljWMUSnaPdr8/KyP/zJ6J0cdkrk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB8571
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_013824_047550_A2C474AD 
-X-CRM114-Status: GOOD (  32.54  )
+X-CRM114-CacheID: sfid-20260827_013850_126962_BA9A8E80 
+X-CRM114-Status: GOOD (  36.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,180 +154,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Alexandre,
+    Thanks for your review.
 
-
-On 8/27/2026 1:54 PM, Vijayanand Jitta wrote:
-> 
-> 
-> On 8/15/2026 3:27 AM, Daniel Mentz wrote:
->> On Mon, Aug 3, 2026 at 11:19 PM Vijayanand Jitta
->> <vijayanand.jitta@oss.qualcomm.com> wrote:
->>> +static unsigned long arm_lpae_get_cont_sizes(struct io_pgtable_cfg *cfg)
->>> +{
->>> +       unsigned long pg_size, blk_size, l1_blk_size, cont_sizes = 0;
->>> +       unsigned long cont_leaf_size, cont_blk_size, cont_l1_blk_size;
->>> +       int pg_shift, bits_per_level;
->>> +
->>> +       if (!cfg->pgsize_bitmap || (cfg->quirks & IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT))
->>> +               return 0;
->>> +
->>> +       pg_shift = __ffs(cfg->pgsize_bitmap);
->>> +       bits_per_level = pg_shift - ilog2(sizeof(arm_lpae_iopte));
->>> +       pg_size = 1UL << pg_shift;
->>> +       blk_size = pg_size << bits_per_level;
->>> +       l1_blk_size = blk_size << bits_per_level;
->>> +
->>> +       cont_leaf_size = arm_lpae_num_cont(pg_size) * pg_size;
->>> +       if ((cfg->pgsize_bitmap & pg_size) &&
->>> +           arm_lpae_cont_size_fits(cfg, cont_leaf_size))
->>> +               cont_sizes |= cont_leaf_size;
->>> +
->>> +       if (cfg->pgsize_bitmap & blk_size) {
->>> +               cont_blk_size = arm_lpae_num_cont(blk_size) * blk_size;
->>> +               if (arm_lpae_cont_size_fits(cfg, cont_blk_size))
->>> +                       cont_sizes |= cont_blk_size;
->>> +       }
->>> +
->>> +       /*
->>> +        * l1_blk_size is only set in pgsize_bitmap if level-1 blocks are
->>> +        * supported for this granule (not 16K/64K, per
->>> +        * arm_lpae_restrict_pgsizes()), so no extra gating is needed here.
->>> +        */
->>> +       if (cfg->pgsize_bitmap & l1_blk_size) {
->>> +               cont_l1_blk_size = arm_lpae_num_cont(l1_blk_size) * l1_blk_size;
+On 2026/8/18 20:53, Alexandre Mergnat wrote:
+> On Thu, 21 May 2026 08:26:59 +0000, Xianwei Zhao<xianwei.zhao@amlogic.com>  wrote:
+>> diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
+>> index 8c6bf3d49753..66c41bf036de 100644
+>> --- a/drivers/pwm/pwm-meson.c
+>> +++ b/drivers/pwm/pwm-meson.c
+>> @@ -503,6 +504,18 @@ static void meson_pwm_s4_put_clk(void *data)
+>>        clk_put(clk);
+>>   }
 >>
->> Our AI model is saying that this might overflow cont_l1_blk_size on 32
->> bit platforms i.e. 16 * 1G doesn't fit into a 32 bit type. It says
->> that cont_l1_blk_size will be truncated to 0, and
->> arm_lpae_cont_size_fits() then calls ilog2(0) which is undefined.
->>
+>> +static int meson_pwm_init_channels_s7(struct pwm_chip *chip)
+>> +{
+>> +     struct device *dev = pwmchip_parent(chip);
+>> +     struct meson_pwm *meson = to_meson_pwm(chip);
+>> +
+>> +     meson->channels[0].clk = devm_clk_get(dev, NULL);
+>> +     if (IS_ERR(meson->channels[0].clk))
+>> +             return dev_err_probe(dev, PTR_ERR(meson->channels[0].clk),
+>> +                                  "Failed to get clk\n");
+>> +     return 0;
+>> +}
+> This adds a fourth channels_init callback, and after the series
+> pwm_s7_data ends up differing from pwm_s4_data only by .npwm and by this
+> function. Would it make sense to share a single init between the two
+> instead?
 > 
-> Ack. With arm_lpae_cont_size_fits removed this won't be an issue anymore.
+> What blocks reusing meson_pwm_init_channels_s4() as it stands is that it
+> needs an indexed clock lookup, and there is no devm variant of clk_get()
+> taking an index, hence the of_clk_get() + devm_add_action_or_reset()
+> dance. devm_clk_bulk_get_all() (include/linux/clk.h) is however both
+> devm-managed and index-based, and of_clk_bulk_get_all() is implemented as
+> clks[i].clk = of_clk_get(np, i) (drivers/clk/clk-bulk.c), so it performs
+> exactly the lookup the S4 path already does, only with automatic cleanup.
+> Something along these lines:
 > 
->>> +               if (arm_lpae_cont_size_fits(cfg, cont_l1_blk_size))
->>> +                       cont_sizes |= cont_l1_blk_size;
->>> +       }
->>> +
->>> +       return cont_sizes;
->>> +}
->> [...]
->>> @@ -660,6 +829,8 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
->>>  {
->>>         arm_lpae_iopte pte;
->>>         struct io_pgtable *iop = &data->iop;
->>> +       size_t block_size = ARM_LPAE_BLOCK_SIZE(lvl, data);
->>> +       int num_cont = arm_lpae_num_cont(block_size);
->>>         int i = 0, num_entries, max_entries, unmap_idx_start;
->>>
->>>         /* Something went horribly wrong and we ran out of page table */
->>> @@ -674,10 +845,22 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
->>>                 return 0;
->>>         }
->>>
->>> +       /*
->>> +        * Normalize an exact whole-CONT-group request down to the
->>> +        * equivalent block_size/pgcount, mirroring __arm_lpae_map().
->>> +        */
->>> +       if (!(data->iop.cfg.quirks & IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT) &&
->>> +           num_cont > 1 && size == block_size * num_cont) {
->>> +               pgcount *= num_cont;
->>> +               size = block_size;
->>> +       }
->>> +
->>>         /* If the size matches this level, we're in the right place */
->>> -       if (size == ARM_LPAE_BLOCK_SIZE(lvl, data)) {
->>> +       if (size == block_size) {
->>> +               size_t cont_size = num_cont * block_size;
->>> +
->>>                 max_entries = arm_lpae_max_entries(unmap_idx_start, data);
->>> -               num_entries = min_t(int, pgcount, max_entries);
->>> +               num_entries = min_t(size_t, pgcount, max_entries);
->>>
->>>                 /* Find and handle non-leaf entries */
->>
->> This comment is no longer accurate. The handling now extends beyond
->> non-leaf entries.
->>
+>   static int meson_pwm_init_channels_per_channel_clk(struct pwm_chip *chip)
+>   {
+>        struct device *dev = pwmchip_parent(chip);
+>        struct meson_pwm *meson = to_meson_pwm(chip);
+>        struct clk_bulk_data *clks;
+>        unsigned int i;
+>        int num;
 > 
-> Agreed, that comment is stale -- the loop now also validates CONT-group
-> alignment on leaf entries (rejecting an unmap that would split a tagged
-> group) before falling through to the non-leaf teardown. Will update it to
-> something like:
+>        num = devm_clk_bulk_get_all(dev, &clks);
+>        if (num < 0)
+>                return dev_err_probe(dev, num, "Failed to get clocks\n");
 > 
-> /* Validate leaf entries and handle non-leaf entries */
+>        if (num != chip->npwm)
+>                return dev_err_probe(dev, -EINVAL,
+>                                     "expected %u clocks, got %d\n",
+>                                     chip->npwm, num);
 > 
+>        for (i = 0; i < chip->npwm; i++)
+>                meson->channels[i].clk = clks[i].clk;
+> 
+>        return 0;
+>   }
+> 
+> chip->npwm is usable here because devm_pwmchip_alloc() fills it in probe
+> before channels_init() runs, so one function covers npwm = 2 and npwm = 1
+> with no variant-specific code, and meson_pwm_s4_put_clk() goes away with
+> it. A future variant would then only need its .npwm value.
+> 
+> The count check is worth keeping: of_clk_get(np, i) currently fails probe
+> with a clear message when the DT node has fewer clocks than expected,
+> while devm_clk_bulk_get_all() would simply return fewer clocks and leave
+> channels[i].clk NULL. As clk_prepare_enable(NULL) succeeds and
+> clk_round_rate(NULL, ...) returns 0, the problem would only surface later
+> in .apply() as a confusing "invalid source clock frequency". The check
+> just preserves the diagnostic you have today.
+> 
+> There is a similar use of this API, count check included, in
+> drivers/pmdomain/amlogic/meson-ee-pwrc.c, in case it is useful as a
+> reference.
+> 
+> Since this touches the existing S4 path, it would probably be easier to
+> review split up, roughly:
+> 
+>     1. dt-bindings (unchanged, keeps its Reviewed-by tags)
+>     2. pwm: meson: make the PWM count driver data -- add .npwm, fill the
+>        existing entries, use it in probe, and switch the loop in
+>        meson_pwm_init_clocks_meson8b() to chip->npwm. No functional change.
+>     3. pwm: meson: get per-channel clocks with devm_clk_bulk_get_all() --
+>        convert and rename meson_pwm_init_channels_s4(), drop
+>        meson_pwm_s4_put_clk(). No functional change.
+>     4. pwm: meson: Add support for Amlogic S7 -- reduced to pwm_s7_data
+>        with .npwm = 1 and the of_device_id entry.
+> 
+> That is clearly more work than what you have, so please do push back if
+> you think it is not worth it for this series. And if you are keeping a
+> separate function on purpose because devm_clk_get() is where you would
+> like the driver to head, that is a perfectly good answer too -- I may
+> well be missing context here.
 > 
 
-You can ignore the above comment, after moving the checks to outside the loop
-the earlier comment would stay accurate for the loop.
+Will do.
 
-Thanks,
-Vijay
->>>                 for (i = 0; i < num_entries; i++) {
->>> @@ -687,6 +870,40 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
->>>                                 break;
->>>                         }
->>>
->>> +                       /*
->>> +                        * A real CONT group must always be invalidated as a
->>> +                        * unit, so reject an unmap that splits one. Check the
->>> +                        * PTE's own CONT bit rather than the caller's size,
->>> +                        * since a legitimate unmap can span multiple prior
->>> +                        * iommu_map() calls and its size alone doesn't say how
->>> +                        * the underlying PTEs were grouped. Only the first and
->>> +                        * last entries can straddle a group boundary; an
->>> +                        * interior CONT-tagged entry's group is necessarily
->>> +                        * fully covered by this unmap, since groups can't
->>> +                        * overlap without also covering everything between
->>> +                        * them.
->>> +                        */
->>> +                       if (pte & ARM_LPAE_PTE_CONT) {
->>> +                               bool ok = true;
->>> +
->>> +                               if (i == 0)
->>> +                                       ok = ok && IS_ALIGNED(iova, cont_size);
->>> +                               if (i == num_entries - 1)
->>> +                                       ok = ok && IS_ALIGNED(iova + (i + 1) * block_size,
->>> +                                                             cont_size);
->>> +
->>> +                               /*
->>> +                                * Stop short of this entry instead of returning
->>> +                                * 0: entries before i may already have had
->>> +                                * non-leaf sub-tables torn down above, so the
->>> +                                * caller needs the real unmapped count, and the
->>> +                                * loop exit below still clears/gathers entries
->>> +                                * [0, i) correctly.
->>> +                                */
->>> +                               if (WARN_ON_ONCE(!ok))
->>
->> Consider aligning with the following WARN_ONCE in the same function:
->>
->> WARN_ONCE(true, "Unmap of a partial large IOPTE is not allowed");
->>
-> 
-> Ack.
-> 
->>> +                                       break;
->>
->> I think this behavior is inconsistent: when a problem is detected at
->> the beginning of the unmap range, you return without modifying the
->> table, whereas if it's detected at the end, the code proceeds with
->> unmapping and leaves the table misconfigured. Could these checks be
->> performed before entering the loop?
->>
-> 
-> Agreed, Will move both checks before the loop so a rejected unmap is always a
-> full no-op, regardless of whether the violation is at the start or end of
-> the range.
-> 
-> Thanks,
-> Vijay
-> 
->>> +                       }
->>> +
->>>                         if (!iopte_leaf(pte, lvl, iop->fmt)) {
->>>                                 __arm_lpae_clear_pte(&ptep[i], &iop->cfg, 1);
->>>
+>> @@ -530,6 +543,7 @@ static int meson_pwm_init_channels_s4(struct pwm_chip *chip)
+>>   static const struct meson_pwm_data pwm_meson8b_data = {
+>>        .parent_names = { "xtal", NULL, "fclk_div4", "fclk_div3" },
+>>        .channels_init = meson_pwm_init_channels_meson8b_legacy,
+>> +     .npwm = MESON_NUM_PWMS,
+> I suggest use "2" instead of "MESON_NUM_PWMS"
 > 
 
+Will do.
+
+>> @@ -642,7 +672,11 @@ static const struct of_device_id meson_pwm_matches[] = {
+>>                .compatible = "amlogic,meson-s4-pwm",
+>>                .data = &pwm_s4_data
+>>        },
+>> -     {},
+>> +     {
+>> +             .compatible = "amlogic,s7-pwm",
+>> +             .data = &pwm_s7_data
+>> +     },
+>> +     { }
+> Small nit: changing the sentinel from "{}," to "{ }" is unrelated to
+> adding S7 support. Patches tend to be easier to review when they carry only
+> the functional change, so would you mind dropping it, or splitting it into
+> its own trivial cleanup?
+
+Will add commit msg fot this change.
+
+> 
+> --
+> Alexandre Mergnat<amergnat@baylibre.com>
 
