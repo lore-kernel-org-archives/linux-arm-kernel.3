@@ -4,109 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 882B7C5DF9D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 07:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C713C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nrk8uUDBNanFfnr96a4o3nFXywW6wHqNdCn0K9fnuO8=; b=vH7xBelpQKETCLT+xHV6GOlrML
-	kAz6CXt8pVAZ1SUv1FjZz4u3T8YITvSdrm5JXX1XY+CDiO9eGBACJXKoJMfGhmIO5vqfbSoHvVCLn
-	ABQR5A0W9X+b1nQWweFQfOBpc56x0Dflw2vI/fhHQWGJK/rzYlb1uIB9yuJtIe6h1q0Wkok3LUP8z
-	aL30UHtQU2nI+XgY3idg1Ipfc3qVi0Xk6oz0BlBidZKDeblI5QQIaoZkzfsv10+f8mgGo2Z29iXIx
-	Qjbui+rM9WbFIeWt7JMOlWtmTTfT21JVuam64dzpeMy3Uf8fiCUuGdwe16/a5FNJzSTDGMtPYMwUO
-	KJLnVsBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3rLw85QI5KuKc5agEQz75PovFSVMRDvO5mw1LXgC2ng=; b=eMiNf2TjoXH2nB43EdcdKi7VT/
+	rtmPrUsQler6U1ymNJV161wpYPmhYMPV1YR2SbdOnVVbwN8P9/lAiz9wB7O0ZwlSRkz3aK7JtSMOn
+	BhsNF+Fj4ZiKrnLgSL6c/24FmkrGOEdOvDjl9ovzykIxkmFRU/V6CxS6Ws8izMoDrY3vhOZboGTro
+	7PGM89smgAg5voCMJdY87NecF7CbPSm0EizBnZOC97KP0yi2fBjuwoOq9czfaHy++h5ix4wrGQSsL
+	mzNbTu470wkwlh70T2kAXZXZcKBZcFiF+KLjgTccwzqC/7daitnEmVrK4XX+Jhs+3J1zgcXEuXGmC
+	RL03tZYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzV08-00000003aXQ-3MLi;
-	Thu, 27 Aug 2026 07:58:20 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1wzV5i-00000003b2a-2zYf;
+	Thu, 27 Aug 2026 08:04:06 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzV05-00000003aW6-3jQg
+	id 1wzV5d-00000003b0u-3sMx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 07:58:19 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-38e041ea211so417940a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 00:58:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787817496; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Klx+TQX9Y65n8dZP23nZHuroJzWWKgzLSyZNU0QoMeAbHja9SmWiUxdc+sxf/XDqm6
-         zDKAgT3dJcOjaRIVmY2kIOGQnuI9laqf26gnxo9TkqCYYeL4d7YTMp8+RREO7ugOUyPk
-         BET5XBgmPGostKL9T+zwRfeN6zdskBzrukg2z3gueMVIrAIiNn1Pz5mw6XR+6Hrml00g
-         1AB3ncOU3MXE1jElsuzPY/27YOjYhFdmllaHlFEzGob/zxYynScJmN5DktgpcSMz484+
-         QodA06sxYKHex53HgXnzW5iUvwuGm2Tuw+tIAriLkyuKN+IiRnoOpIYQiZzG8qAC8Vab
-         ZqWQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Nrk8uUDBNanFfnr96a4o3nFXywW6wHqNdCn0K9fnuO8=;
-        fh=MC4IYQhvxw1QhhYGuIj4Wq1m00epdEyulYTgnecY1dA=;
-        b=IshEB4ZWvRbLVFe/Cf0V1l2uy6w5YaXO4yk7845mlU3uH7YwXd98+LWB3ENG84htbb
-         dPgtjym7jwBXNfhuGFIFmHoxriAVDUeUAmIn4BaOV65zlYRW5YY79lSbgRF+3la9znyx
-         8j78/AVd0CMagIbHF9pfiT3Puob9AbWTjMB634eIuCNj60RfE1c7TzK1BvWlB/a1krfR
-         7nVG516FiygGehAKo33Oi2hk3MSMqQol/XuVWwuO/0zum4FVZikqqPbF6u5IlwnxRVjC
-         SJJduHADAQvyr02YQLVce2m4hKmDHDCLop7/ooq6hYNCmzerAzuWzzz2taf5KSi9t46e
-         D5YQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787817496; x=1788422296; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Nrk8uUDBNanFfnr96a4o3nFXywW6wHqNdCn0K9fnuO8=;
-        b=dHmH/VtDmwUXfShUAbSrUjtGCFzEdpimGPxUHZcNfMrbeL7isqDSnRnE+KqiNDd1J2
-         FDXWmrTxM8rNwwLYUpjG9qUdsC/DlH5elS2JD2GpZLD9pRmjXRH0tFOySWDDgv5sW2xQ
-         iuzXA+5vz9App6ODUGw0FcQBXgdD8fpJNGLDvbJpWkDOBDQ3CG7bP3URSTvT+tjVc6Uo
-         kH1BWCY3j8lP7FTYWZcqt3rDm8fKVV4zKWRXDAfU8oSZcKL0yaKljZZqzzRT6I6RE1YX
-         RLN6hFXGRTlWQpOPmintWbfPqQiiOT07I2xAqlYkBrr8/z95q/KvHghoF0ZlKHlDRCxO
-         QR3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787817496; x=1788422296;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Nrk8uUDBNanFfnr96a4o3nFXywW6wHqNdCn0K9fnuO8=;
-        b=oJt/b3aZWCVHdWOQ8GsP58BAQJPiPEY8iGWBLqHvB0KR0hovnE7mQzF4JeU8tbttfY
-         7hERrv/HHCD3Qo+vljFfpdkNC0c9xKcYS7eX6WC10GMQ5K3LVSOlxCl4DKRBeBRxe8eQ
-         vDazAKJGjyV1MZ1OxzDHCOIlmHczqIhkp5vlGbUNSzMFv1jV5XKlP7h4BQoBGh5sPAea
-         3xpsgMOXCBJnw9WjY5hXO2sRs9534agRl1LYFgm+Lq8Zf1bVL6c15elg6HVuokBllZ1X
-         xDPdD9rp2yAHOIiGAUPPBsLqS5RbnvQMyq+AqqW6H8iQnDF91CZ0aqSXceehU0P6/UXC
-         mdbg==
-X-Forwarded-Encrypted: i=1; AHgh+Ro7gFQE6v9Rl1KKq/Rd3KfKAyNFV3+82Zm9PNEh+0zBWjr1pF/wSbdVYJLiQ4f0a4Y1HA0YLTtjCOTwQgr6FBPC@lists.infradead.org
-X-Gm-Message-State: AFuF++mzQyLlyXcDwoD44dZ6yanOqduvAzDRNGnVP94WxYLLBCX7Rtmz
-	CNUrR3yhGPkAPuyjfO1XZ0KrRVRc8tkaMqNK13WCgrwLGLy2oBgBFbq424QbSx21EMpvdqLvKN+
-	A8R3uHxi0YxRI4FxvpkXfwJgHlOpRrEg=
-X-Gm-Gg: AR+sD136llSq7nwHTvCQoj/KXP85CrEBvFR0Bo+GyDRGWjtkbljVj12E/J9w+fm/JxM
-	kMS4E50UJykqfraAQaYFT7NjIdgeRW2ypogPWJc8Ie0JhzZAJ1N/CKWtd3jeiW2DbPjfFsWLW2f
-	WmdTcM8umFtSq0bkhu/Q1N9YUE6pJfqt/mcfEES1cQsYNEj08Ay2dBQwu1xmAdLffiPgeu2Y8JM
-	qQVXzlF9ateKmL8rSNUyczNT73OcxsGkByH+j5XWNsB3R9OCkkc/5FZTIRiwLVBwwCUECKz9WMQ
-	Yiv/IAnMCXUhb0RdDAYY2eKMWVirF9dQRxezt1lPus+fwzuGzAwm4khzfRMHJJ5V0+jW6NjabWY
-	k79DnD29jitkG5fit/M+JPwA40MCoOAYLWlGIQLcbZZLeIzYg8IXB7EZF
-X-Received: by 2002:a17:90b:1649:b0:37f:fdc8:71b4 with SMTP id
- 98e67ed59e1d1-3966d3fe36bmr25869449a91.2.1787817496356; Thu, 27 Aug 2026
- 00:58:16 -0700 (PDT)
+	Thu, 27 Aug 2026 08:04:04 +0000
+X-QQ-mid: zesmtpgz1t1787817806t73a14df5
+X-QQ-Originating-IP: EQuvAfVQvBDQc+OBqFpqyOCsJlKRNpzxMs3t9Ors+V0=
+Received: from rd.. ( [111.8.45.130])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 27 Aug 2026 16:03:23 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 8051406103579778583
+EX-QQ-RecipientCnt: 10
+From: Liu Dalin <liudalin@kylinsec.com.cn>
+To: Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-rtc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Liu Dalin <liudalin@kylinsec.com.cn>,
+	Deng Yingchao <dengyingchao@kylinsec.com.cn>,
+	Qin Yungao <qinyungao@kylinsec.com.cn>,
+	Luo Qiu <luoqiu@kylinsec.com.cn>
+Subject: [PATCH v2 0/3] rtc: ftrtc010: fix resource management and integer overflow
+Date: Thu, 27 Aug 2026 16:03:17 +0800
+Message-ID: <B61B30904C7ACEEF+20260827080320.3351155-1-liudalin@kylinsec.com.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260827021054.0963C1F000E9@smtp.kernel.org>
+References: <20260827021054.0963C1F000E9@smtp.kernel.org>
 MIME-Version: 1.0
-References: <20260821122928.41343-1-phucduc.bui@gmail.com> <20260821122928.41343-3-phucduc.bui@gmail.com>
- <47c14ad6-0311-467b-907c-517ff5044438@intel.com>
-In-Reply-To: <47c14ad6-0311-467b-907c-517ff5044438@intel.com>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Thu, 27 Aug 2026 14:58:04 +0700
-X-Gm-Features: AcwNN1XimKrPZge6zf8CptLL1uRO5gf5i0cHec8ah767upjHTgiSMh8y0Tz3b7w
-Message-ID: <CAABR9nHyDL8=EiSi+_GBpHM0xLZraH8az+HRXQWudG=1hLZ7qQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/4] ASoC: mediatek: mt8183: Fix APLL enable error handling
-To: Cezary Rojewski <cezary.rojewski@intel.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jaroslav Kysela <perex@perex.cz>, 
-	Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: NEtAzFYxEdvUlw66KnVgHRLUGs39t65vDz4Yjo6NG1USV2fMvKx973IG
+	VfD3eImyXPrbDJElyALKyR6fm56r1thtVhxu0nO1bKOif+SR08j/Z0YsHLcKNLcHJtXKhLB
+	gCf1MbUDGijLwZg+heZr121ATzv9WnwLRKaH6OF3v2Ly2OjLcd/rDmTICzAFb8RhPAxTe0a
+	lGlkJZLUCjPvczEcihsSuDR8heP3Vl2lIujTRi5S3uiQipvk8K+fXMk4rtIsNDuUfZdFqXf
+	Ud6FGeEa9QsK8yzpA651uE6S07GMyoAzczkmtJ/mb8HPL9mU/0yw2Tfja4dKENjjO3lhyvm
+	TeXfC2gyVgKZkfrBdmOP/7X7+vNHm8Vv7SOxGcD+ocgCBsBPBlMe2RDGxhEoChwIcLvdK9k
+	HAfCZJK67ir6Ve2s0Vf1pHKzp9+CmsV3Oo+5HeNOebCu/Jc9rwLRfHEYKVl2Q8/1KQZl0Vl
+	Ye2KXchI29t9PqTNAvt6vm2jbQtdXqHpZdYvHpLGPp5O/XulL1MtI7RxWyxQa4LLY+EcXa4
+	49bSYLSmdClEhpdSsPFprqC5CWt+5TvyegmjrdzDXhUWM2+KQNlXmd6F5FMHon57XoQtV3c
+	iow2tj5/nRGn3IzOjDcTEvjmb+DEsuf/ooPFirjjh5yHFe8kX4Vgz5W41owhKlN2A9EvDzx
+	+xJpuyhr7OYfv2FcN/NcJ78e76Fmuom0GA1YMG3XKcIayVH/yDpUX40J1fIlTagQQ4Ys5A9
+	FO5dwbmSI5s+UVaq87vjXERciBDzTK0b/mHYqQCg7G8U/hxNmD/CFvKth9l6utjnwtRXPNU
+	EDu4H9Ia8zESFte4gGjfalv4CDBgyui6mrYUAfqwh8BMNZ9l9ek9Hj3IxHG5srqcmaagkoX
+	6dq/euJEXeh7PC2rcRYOD9CEkGEQmIc0RDdlc4XejwCmtU7hjPfalvUR9/qLNMfcTdu8kVm
+	GLYd2uCdOcTda+RUDsiQO82/AAPM7mU8zpUXZeJHOG4yLvdNLodexsHO2NkfcdAA6fYorEX
+	z6Of+2WieF8RhTJSvpM3RKLptmfH0KY+MDPnp5XDDRy3yk85eAhv41zhNueajsbCtVXXI8I
+	dypk1ByAcsuKA8k+PXtQjRPlC/XU39brwJNpP3xeCvnzJoRlBna9HFr9SL0TDItmKWXeF4N
+	EbpD
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_005817_957896_D8CBCB05 
-X-CRM114-Status: GOOD (  20.97  )
+X-CRM114-CacheID: sfid-20260827_010402_528555_769F836D 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,77 +95,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cezary,
+This series fixes three issues in the Faraday FTRTC010 RTC driver
+found by Sashiko AI static analysis:
 
-Thank you for your review.
+Patch 1: Fixes a clock resource leak when devm_rtc_register_device()
+fails in ftrtc010_rtc_probe().
 
+Patch 2: Replaces manual clock management with devm APIs to fix a
+use-after-disable vulnerability in ftrtc010_rtc_remove(). The RTC
+device is registered via devm_rtc_register_device() but clocks are
+manually disabled in .remove() before devres cleanup, creating a
+window where MMIO reads on clock-gated hardware can cause a
+synchronous external abort.
 
-> I have mixed feelings about appl*_mux_setting().  Take a look at its
-> disable-path: if clk_set_parent() fails the follow up
-> clk_disable_unprepare() is skipped possibly leaving one of the clks
-> hanging.  I'd expect error paths of callers (of said mux_setting()
-> function) to ensure all the clks are disabled and unprepared
-> unconditionally.
->
+Patch 3: Fixes integer overflow in ftrtc010_rtc_read_time() and
+ftrtc010_rtc_set_time() where u32 arithmetic wraps for dates
+beyond year 2106.
 
-Perhaps the primary purpose of the appl*_mux_setting() functions is to
-configure the mux, as their names suggest, which may explain why the disable
-path is currently structured this way. However, I think your point is valid.
+All three patches are based on v7.2-rc2 and have been verified
+with checkpatch.pl --strict.
 
-As far as I understand, calling clk_disable_unprepare() before
-clk_set_parent() should not cause any issues. Therefore, we could move both
-clk_disable_unprepare() calls before changing the parent in the disable path:
+Changes since v1:
+- Added reply to Sashiko AI review comments on pre-existing issues
+  (shared IRQ handler, sequential read rollover, TOCTOU race)
+  explaining why they are not in scope for these patches.
+- Clarified that PCLK/EXTCLK are required by the hardware and
+  devicetree binding, so the old "optional" behavior was a bug.
+- Patch 3 received no Sashiko AI review comments, confirming the
+  integer overflow fix is correct.
 
-------------------------------------
-clk_disable_unprepare(afe_priv->clk[CLK_TOP_MUX_AUD_ENG2]);
-clk_disable_unprepare(afe_priv->clk[CLK_TOP_MUX_AUD_2]);
-ret = clk_set_parent(afe_priv->clk[CLK_TOP_MUX_AUD_ENG2],
-                                 afe_priv->clk[CLK_CLK26M]);
-if (ret) {
-...
-goto EXIT;
-}
-ret = clk_set_parent(afe_priv->clk[CLK_TOP_MUX_AUD_2],
-                                afe_priv->clk[CLK_CLK26M]);
-if (ret) {
-...
-goto EXIT;
-}
--------------------------------------
+Liu Dalin (3):
+  rtc: ftrtc010: fix clock resource leak on probe failure
+  rtc: ftrtc010: use devm clock APIs to fix use-after-disable in remove
+  rtc: ftrtc010: fix integer overflow in time calculation
 
-To be honest, after looking at the code for other MediaTek SoCs, I found quite
-a few logic issues and inconsistent clock handling. This, along with
-the git log history,
-makes me wonder whether these code paths were ever properly tested on
-real hardware.
-Therefore, I have stopped at mt8186 for now.
+ drivers/rtc/rtc-ftrtc010.c | 72 ++++++++++++++------------------------
+ 1 file changed, 25 insertions(+), 47 deletions(-)
 
-
-> >       /* setting for APLL */
-> > -     apll1_mux_setting(afe, true);
-> > +     ret = apll1_mux_setting(afe, true);
-> > +     if (ret)
-> > +             goto ERR_APLL1_MUX_SETTING;
->
-> Why goto? The check is valid but the label in my opinion is unnecessary.
->
-
-The function could return directly here, but I used goto to keep it
-consistent with
-the existing error handling in this function.
-
-> > +     apll1_mux_setting(afe, false);
-> > +ERR_APLL1_MUX_SETTING:
->
-> While UPPER case for goto-labels is not part of the coding style I see
-> why you did it - to be cohesive with the rest of the file.
-
-Yes, that's right. However, I noticed that the mt8186 code uses
-lowercase names for goto labels,
-so the style is not consistent across the file.
-
-https://elixir.bootlin.com/linux/v7.2/source/sound/soc/mediatek/mt8186/mt8186-afe-clk.c#L303
-
-Best regards,
-Phuc
+--
+2.43.0
 
