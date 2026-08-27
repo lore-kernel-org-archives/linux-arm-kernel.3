@@ -4,186 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E7CEC61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 03:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50EC3C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 03:05:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hbgi0cgX2u/AiOf8gwpWHJcDL6CAqDtAD+jhgXPJA94=; b=L1C5OcsBlRAsw3GAuy20z9Z1Hi
-	smPyAw3QUNTCn7ye62VxamQPb7suohCdKEucSMc+TCutFnl2Dd0cohT+8yHIoCzuO/VJSCxcA2ZZa
-	SOXJQgv79tfBiLzzPg3QDLQ8PKXznJLXRMXXYex3udx0wbHB+0neqsjp5xgr+V5MJaLwO9QO44Pqf
-	E9A3gqss4X9vLz6Ira7kATPdh+07eES868FUuiT6kc5Ug0y/JwbKS+srtcTk3mUKA6u5PU+AH6B4o
-	EhRTPBiW5EtTFzpzVAMOOI2UOAjjH5fyhuAzeHdctOjBFTvcTGxCrNpnPMx8Gt3oI3QMEfwkHLr64
-	Yb8wL0Dw==;
+	bh=il4qxi/bh36OksjCuHW6aR6h/EQtYLSq9rXAuHx0hjA=; b=cPUfyjWhwcZ3tuR+ivZoUos7Uu
+	BQMmZwwai7f4t+XRPZhsteSHm0z+yZUjZ6EDcN1mNNEnor0bujpHiwG7DRakJn1Wxd0bOPIcM1Do1
+	2n4eN5y6O/RxdM2Qu1HdW9xlS5BlI0rTWIkQPqvMsamaJnliKmAsodurJ7/ks+99QpNlhzIz1ph3n
+	isbeFNSSpQJ7IaNfuw9vfS6TQjsBGM6DfkdPCGymJY2fLmTgrwiXoljKjQXsvfd/I8sHgT2GPTwfl
+	M9W+ewd+M62YQddWOFrWfZ85+PJIhnnPYP8jx8TtrkZxI7aEzrDYYeG1mvTzGdsEeFdWuV5eM5C3P
+	qZ7OE6IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzQON-00000003L7b-1zKh;
-	Thu, 27 Aug 2026 03:03:03 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wzQQU-00000003LJp-0RDV;
+	Thu, 27 Aug 2026 03:05:14 +0000
+Received: from mail-japanwestazon11022138.outbound.protection.outlook.com ([40.107.75.138] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzQOK-00000003L78-0pK8;
-	Thu, 27 Aug 2026 03:03:01 +0000
-X-UUID: cc724b7ca1c311f1afed4741b24580c9-20260826
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=hbgi0cgX2u/AiOf8gwpWHJcDL6CAqDtAD+jhgXPJA94=;
-	b=p2hzhG+bIm3XfTkV5Cwy6e/dfS2HgNYDrR6geumfHIpkozcBHvOyW3PHe4CTaDBXnz6xvGUVcc0rX+h2vBaGxAKrpQVO25LeQRh89SqdSPfjdk/u7SFPA8+I7ESQKzxdx/Zy6m0lKSKowtfgnA2BT2HhDfsSfTanbmKRo+xa9Yc=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:45df3b84-1d74-4bf7-8311-6683ff7ffd77,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:9271eae2-71f1-405e-92eb-6802d6af74fd,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|836|865|888|898,TC:-5,
-	Content:0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-
-	1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: cc724b7ca1c311f1afed4741b24580c9-20260826
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 382588692; Wed, 26 Aug 2026 20:02:54 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 27 Aug 2026 11:02:52 +0800
-Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 27 Aug 2026 11:02:51 +0800
+	id 1wzQQR-00000003LJH-3Iup;
+	Thu, 27 Aug 2026 03:05:13 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MTML5PHjafHTEkq5eoKw5fKPfvSjHghBmobzSMl9+ZCcc0eU9JZvm2j7ERgEmcHdv0KqULCuTKRobatfljr5I6D363p+8RI/+MxnDYEzRODRmBI4K/FdguV+vDXJEBIrV2BgUrDGb9waoqwULUwEL4dse6D9PExTqLL0xRnRsBr+mlBGsrdEvAsCwHm/a+rqsPYKtantsDBcrgMm4EPfODJhuC0Fj/E9hhWq/O+Je/p4C8zys+LiRJOEMYW7KgoJFORPTOza/s+YKjWRjRt6vUKDE9XFUi9uOdJWKpeBlxWthTznvYqHqajRYttAVBtjlOOO1vDg10arnfvgguKb9Q==
+ b=OMZ8Kd5LTw+/iqJUEsZbWpJ2wOvlh5phepO3RSWcavqUk57FAyXKz6YRJjLdn+aOr7gEzwrroiyVkuxvMD3/tEl9MI4SFgXH6dtIe4QbMox1WzKq4e9RUlaCqSP64MwekgG8TzX3yMyLI04EWLwHzQ3cOfohg8aIdt3EVCbr4tcVNNGoYcRz9Jvs3K7l95ytXiWE+bYAw4VE553LtSD6X5bZmntwEsLk7SFFgtG2yeLXO8kn+v30qpAmqJJXSQQmwefpwpvQaeCmqoQwVsvY7epzNFjTCmLKLpFyyuz1OEXvnzWrPj26El5s4/G5tiL+C1rcc/uzta7Z6ZdgfJSKXA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hbgi0cgX2u/AiOf8gwpWHJcDL6CAqDtAD+jhgXPJA94=;
- b=VDH9v+EUfWoOc9RZQEoxek1CEaS7hzcqnjbKJz/QbfEcFgtYaar7opqLcay/yg32RIjfrnkhbsnHVCIw4TjGx7fOsUGkimfZXrdkwe1p0CsInICbi22+Ap2XlpJWSY0sXYnVz8aPVku1q8ooz0TcKEat5kqShFHbQIEPBjep/vkb7ohD2LXa5UC4o2p1351N9JKaOUFTMvWjx1BnEeu4uXNPxnatVFu+r3Otm2sFYkUbZjuUfu4I8EUrqIVS1LHV4xUp8M5iHELXS5UHD8DUOAD57t2P65+LPs0u5ciF4akzCgoXxP7JbV2qEWc6aRTu9J5dydXkzmCoO5eOgK4Gcw==
+ bh=il4qxi/bh36OksjCuHW6aR6h/EQtYLSq9rXAuHx0hjA=;
+ b=L1HKpLYhfDK9o7YAos8syYt59UwDbYag7C4cZP1XclFI6RG5IcyqXfSlUEAtqvxZ8yXcXc3gYFt3EYoLMw1NvhclJ8KPS/L7A7ioCK756SHfGi5ltEU13fBtBcQBhAopeYzm8m8vkBdnW8LeGKuofF8m/IFgR7EsOADMd3SV4QNxhzp047oPIlMPL2TRDcHEN346b1rsBFQzrSF1r6CVAmXRAJni4ErnxnFd046K2dP4pncVywiNwWFu7ZatIH/+nBLisu0mPa+ohlXZ1j/VfV6k1Cx1hS4qfZAzhJQPUEqskdL/HKecweXhm+I2bI66q+lJac/Jr9+kfD54epfAAA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hbgi0cgX2u/AiOf8gwpWHJcDL6CAqDtAD+jhgXPJA94=;
- b=hh93HvavCBbV3BIh/xIUZSAxb1ZPBbjXf6fQThWJP18LbrKyeWQ46vJclIz9LFMNcFhcp92T2rDzS0+5H1iTBLrjd6vdRG14WVlEnqSbPwmVCrkTn8PWEXH3Y5pw2xM2Nnu0UADZXgkTI6kVEm9tlD/w03rUrY1Q5wPPu0I1z4E=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by SG2PR03MB6429.apcprd03.prod.outlook.com (2603:1096:4:1c0::13) with
+ bh=il4qxi/bh36OksjCuHW6aR6h/EQtYLSq9rXAuHx0hjA=;
+ b=hbfXUNAKaKUIeoabmg3YKtyjJED39Bz4sH3S6/Gd/GruHlAy8dyV9JGs2x3jVsj/Pbm5oG1d3vPJzlsNsShWfC8CJ0dypxHlbKT4uau2OfLDCFcfqQbMssinWmuJjt85zNJVD0+4IFWPQVQu94RdCiPfcTsMkGdgI/yBI18/DYCQD67mjKTf3ayD6GQDsZYYJrsrKuUlBJ95revZT0Nem/WgwjZMEx7CTsQq+qjfO6OL6OcRMvkgHBMTTCkFMqX7LJ531JTMDTKR/SLj9JPvBRefEJrIzBX/I6nrK6ScBJ4Vs2V4sG8tZMix0Wd6GLbYGyRnUushzSanPpXy9FPcWA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
+ by SEYPR03MB9610.apcprd03.prod.outlook.com (2603:1096:101:302::7) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Thu, 27 Aug
- 2026 03:02:48 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::a3c2:b94a:70f:e640]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::a3c2:b94a:70f:e640%4]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
- 03:02:48 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-CC: "kernel@collabora.com" <kernel@collabora.com>, "robh@kernel.org"
-	<robh@kernel.org>, "krzysztof.kozlowski@oss.qualcomm.com"
-	<krzysztof.kozlowski@oss.qualcomm.com>, "tzimmermann@suse.de"
-	<tzimmermann@suse.de>, "simona@ffwll.ch" <simona@ffwll.ch>,
-	"mripard@kernel.org" <mripard@kernel.org>,
-	=?utf-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?= <jitao.shi@mediatek.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, "airlied@gmail.com"
-	<airlied@gmail.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, =?utf-8?B?SnVzdGluIFllaCAo6JGJ6Iux6IyCKQ==?=
-	<Justin.Yeh@mediatek.com>, =?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?=
-	<Jason-JH.Lin@mediatek.com>
-Subject: Re: [PATCH v6 10/11] dt-bindings: display: mediatek: wdma: Add
- compatibles for more SoCs
-Thread-Topic: [PATCH v6 10/11] dt-bindings: display: mediatek: wdma: Add
- compatibles for more SoCs
-Thread-Index: AQHdFGH/qywlhHtq1EumacPUpsFlGraxeE+A
-Date: Thu, 27 Aug 2026 03:02:48 +0000
-Message-ID: <1bae03bfa7e29cbf744e51da3e552b5358896552.camel@mediatek.com>
-References: <20260715135703.46540-1-angelogioacchino.delregno@collabora.com>
-	 <20260715135703.46540-11-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20260715135703.46540-11-angelogioacchino.delregno@collabora.com>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|SG2PR03MB6429:EE_
-x-ms-office365-filtering-correlation-id: 8c27db2e-e630-4233-9cdf-08df03e7ace3
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|42112799006|366016|1800799024|23010399003|10067099003|56012099006|18002099003|22082099003|11063799006|4143699003|38070700021;
-x-microsoft-antispam-message-info: ZWcozwhGA0dDFUmDfzEpFvQtjXEc/uCs8GC5JehuK1sBuqrxpxS8Pn3CrEC+Q6oNRlMKqsRzQymJDgXD3mopS4loT6EpsH4Z3h1Sz0CKT4NX2g21PVofXkOaCp6XKkOpi67x/AEzAq/24b+clTxl84vQ9n24ZCDCpsdKlDWwB4ppQ9Bh4CFZ31kHRiI9IR/sNdXNtfvhc4p+QYUVD1Pc+5bLMoS3YVrLAM3RaTFenmvvjqC4hL3oIIE87xBtGaY+4XvV36xq8ZcH19Vk0/39l53jUF58IM30rVn/ro9DRtfpx2l/0o/6D57YAmRr2ppg2yCKSN6AhriOOrsfAhArgfmp+G17TXdnfXPyUQu/kIVNqw68XsqvOuo1EwiwrX4xmkJXXcmc/8YP5YrzLgY3rItzSd+9Pm4L1ImbqlT1hXMeTml+kK9JajYkea7mX2JXyij4HTEQayE7AhvIuWPzlNfQq4az3kLOTkZCVWOLIg+R1wHfyoy/C3jsmiRMswuRsC2fjU02g4X50MLyvHH73w+FLN/nViPzbylUBcXaQqu4gNhsVailkQHvj9YzE/JfzmO/aXhLlLk6Az5SIDSml3aKLsSF4Gkzjyxl25M+QLWEj9GiGG1y7emCPe8BGvb0y/J2i5sK+wQJKyAHl+idoHWr+xVdVxRCv3Dkcuezor7EMgU3laL7efDw2kKrQVaaoJdAYAs8YzdETBsUuQJUKNO7hs82mM7yd257kPX9UpE=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(42112799006)(366016)(1800799024)(23010399003)(10067099003)(56012099006)(18002099003)(22082099003)(11063799006)(4143699003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?T3c3VW9mK3ppaFZvVHdzZjlMS1pWNlpuZ0dLQzRRYll3elVZOVd5QlBtSjlD?=
- =?utf-8?B?MkJWUy9QaFQ0MmtsTjcxcGF0YnczSEMweHFrL2JQNW1FR2RwWnE4NkZZQUJO?=
- =?utf-8?B?RXBTUGNXNGFKUHN2TjN0bkFsLzU2SHpVYzNPaUg1K2gvRkZ1ejZwYXFRY3Ja?=
- =?utf-8?B?RGh3bW84Z2pLMFRraXYrbFlFeldOM09kaG9qaHBkYlNSdXRjY21yUnBsZUlq?=
- =?utf-8?B?RUJUV1JwQVhhamd0a1BjRlIrRXg3RzlQM21Jd3VSYVRzcHh6S3J0NXdaSFR6?=
- =?utf-8?B?bmNIVVFNc2hvb2t6dndYTDVQWXlDK3dHazBJRS83djFkNXRZeUxlWWVsOTh2?=
- =?utf-8?B?ZDJ0QUc3eTkwdTZGREdaWThhV0tSTTJ4V3FPZUttZXRKaDEyYTRva29yN3Rs?=
- =?utf-8?B?MUphWjlyV1doekJyNHg0Zjk5MlRHb1JHS1ZndEhrYTdVWlVFWk0rLzJUL1Yx?=
- =?utf-8?B?b2VzTk1JKzVHWklheHFKbHczenZYU2M1MDVXT1hXZjlMalEzWU42SkthK0ll?=
- =?utf-8?B?VUpRbmZUbHJVeDRndG1ZejZaK05DYnk1SkU3MnI1T3lrdEVxS3dNVWtCYSt5?=
- =?utf-8?B?T2M0Q3dPaXJsM0dhNjRBUDBuRCs1LzRWZ3V0LzZWYUxwZ1pEbEh0dTBDYmJm?=
- =?utf-8?B?a0hFQkxUMGo1TkdsZXV6ajlwYWRoYUJyOUdpZDRIT1FKTEJhTlhzTk9mRHFV?=
- =?utf-8?B?djIyT2YvL2hYNnUwaThtVEhyMTE2N0N4aDBxY0VKL3ZGM0p4alBZbW14bng4?=
- =?utf-8?B?dFg5UElvckdMVEpvb1RXNjc2cVlRa3planAyOXpQVnNNSXVJMW83THBRMU8y?=
- =?utf-8?B?VC82M2wxdGhCSXhFRCtlaFJoc3BadkxMMHFWdTgxeDZuTlQzUC9OSDAyUXhZ?=
- =?utf-8?B?SnB5b2txRUZTcVBWSEVaZHoxaG45VzFjYVpXVE5VVy83L1QyTEJBSXpkT1pr?=
- =?utf-8?B?cTBaRk1Vbi9GNnNVTDc3cVdUbmlBMlM0Q2c4R2psdnFtYjBQd21ZbFZpQVQr?=
- =?utf-8?B?bHBqcC9WVVNBOFU0emFxUEtZUDB6cFl6MDBaemd6WTYzZmNERXVLUHA0RVQ5?=
- =?utf-8?B?Slc4M0g2ZG5sUDJzRUt5K01XZTZaY1RlTWJ0U1lUV2x1U2ZjUjFyL1U5VHc0?=
- =?utf-8?B?RmxxN3RFUjdZUnBYME5HL1YzR2lDMzhZVDBuam1rQnJFSjlWblFFU25VOWJD?=
- =?utf-8?B?YVlHb0tJZ1RCRHNMT0d4TldpdXZOd2duTldKaGdBOWpJbzVhaGtiY0RxbFJi?=
- =?utf-8?B?cHIxYmFOaWdVcFhpSzBReWRrc2JIMzAxb0E5U0N3Q3lLOUJ0MEY2QllIeGRu?=
- =?utf-8?B?RFNlSFBYVTlZR0xIcDR4QkRwYm5Idnc3T2NLT3BCUmQxTEpDcEs2T21QRVRY?=
- =?utf-8?B?aCtOYS9HRVcwNUdUejFITlEzV3A2eWNXYUFsYkhKMGttbjZObzlYejRVdU1h?=
- =?utf-8?B?MXJPVVdUUlBLT3RRU0pjakFMWENTdFVtRm1ZK3dxVlVVeXpLeWFkMFJFT1lm?=
- =?utf-8?B?Si91QkhtWDlNdXBDS1o0YzFYUE9MZWx1eEdUTm1TTFVIZXZjMDlHNXd5OHdk?=
- =?utf-8?B?UHROYThPcERXZVVTam56dzQvT1lhcDQ4Q2JyM0dNRDZ2ZGRuT215ZGtOOU9u?=
- =?utf-8?B?bkhhMm0vL25ldTJFTHZKOURJempRWi9CdGhDMStka3N6cjVxdFRQZ3ZBL3V5?=
- =?utf-8?B?RS9BNGRUc2h2ZXVDcUJJTnhadVJaNlhET1E1OGFYZW5BamhvbzJlUDhNMmNM?=
- =?utf-8?B?NWlrVXI5NXk1bS8xMkFoN3ZDQms1Zy9JZUNVTjJiTnZMWGg0SGNsdEpncnlW?=
- =?utf-8?B?YUl4c0lsZ1V3cTFqOWFCWDN6aCtYRmt2cGxnTFdIL0xHMTRVcnUxa2EybnNi?=
- =?utf-8?B?NjFMbzIxQzUweTNackZVSmEwL1RzZWs1WWlDRDV6RkF5TkgyN0U3aWpHcWdW?=
- =?utf-8?B?RUtkK2o5ek8vK0oxUmpURVZCT0F6RnhHczRBQWl2TzNjV3RrWDhpUG9iWVBi?=
- =?utf-8?B?RUlQNzg0WndUWEFnSTFQMTVqdE42eHVkM2RDa0dZcVJTUVA0b0FVc1F0N0dS?=
- =?utf-8?B?eEVzT1ZxczN1bmR0RVJhZy9hSkVMQmNWMFdNNHdhUEFqK2pIa3NZUGdpdVlE?=
- =?utf-8?B?UTFubDZtejFYWWdPRnYxQmQvSDNlT2I2MEhFTU9PZzRyY0NENW4wcG81VzBr?=
- =?utf-8?B?eTRNU0NpTUQ0clovdnZFMkFoSmFtdVpqcUx5MGlCcXo4eURVTUNxUlJwYmF5?=
- =?utf-8?B?WXkvd2ZDV001em82Mnk5UFI5S0lwcUhGN3dYTXRSa2FsUjNqeFNuNFcvVkNj?=
- =?utf-8?B?WFNiZ2FxKzZ4VjdhaFdHZ1gxR25LTGFKb240d29hZUVHUnVLcTB6dz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <F3B937EDE3644945B2B130F76457F079@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.7; Thu, 27 Aug
+ 2026 03:04:37 +0000
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::e1e:5c95:a889:828e]) by KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::e1e:5c95:a889:828e%4]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
+ 03:04:37 +0000
+Message-ID: <b16d8f3a-0f12-4e0e-950a-854d28481519@amlogic.com>
+Date: Thu, 27 Aug 2026 11:04:30 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC] clk: meson: t7: Intermittent boot instability and memory
+ corruption on VIM4
+To: Lucas Tanure <tanure@linux.com>, Brian Masney <bmasney@redhat.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Jian Hu <jian.hu@amlogic.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <3930906f-783b-4d72-9260-ba25cc8081cb@linux.com>
+ <aoxjX3HabY0brgXk@redhat.com>
+ <57d796bd-7a3c-46b9-bd65-d6860adbd355@linux.com>
+ <72db2062-e0ac-4c33-b1d1-d1fa5ae4bec8@linux.com>
+ <ao8fqstEs01hd3--@redhat.com>
+ <5ac071a6-8013-4143-9f59-7d0c6cad5c00@linux.com>
+From: Chuan Liu <chuan.liu@amlogic.com>
+In-Reply-To: <5ac071a6-8013-4143-9f59-7d0c6cad5c00@linux.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: TP0P295CA0052.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:910:3::14) To KL1PR03MB5778.apcprd03.prod.outlook.com
+ (2603:1096:820:6d::13)
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: q7BP/EDjs1oV2S8imC9kjTZ6pNopwY8Z/ATZic941rQTak5l5pqIxT2jbWeqwLB5AAR8wZgd+WxZ+ykYL8LbqCuvT1SbFfYRRDBfq1uIUEKRtKQAsmbGVkxaVZRClpAagJxy3K0qxzApgqeHQGx4ew4ezhY7Upcq80lm0vHaCqo7V+Kpgg3F8gMCr/EtGppVL/Tn9bJ/DTHfr6vs858gUhJVOvtu85TdfQH0DdwZSItLZ2+VIK5t10g4mtw87117P09seZFK03UpCR9IxGpMQMAp+apI7XoiG4NutlG79/0Jiww/ensqiSYY7iUz/RpRxWwuEaHOnbpKUZzpAA7oWA==
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|SEYPR03MB9610:EE_
+X-MS-Office365-Filtering-Correlation-Id: b790a0d7-622d-47db-0c40-08df03e7edc6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|3023799007|56012099006|10067099003|11063799006|5023799004|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: jxN7jEZ5phL33GSsuAiS6c/6mOVZCG/gdO3Q1OfxzjVfzLrE1Zo7smJVWyKV0KHuRZiPoDEi8Hd+W9CBFy0aPsWzOHlQSx2XqiGynxl7t0OMVdaIOX8hnh9OTr/roTnTKI4DzJmOUMENc4cj1O3ktxgJH+WtFie+eEbk2fhukhepxKLzjADJg+3aZVKLMj8WjVGiiQZ2oUPAjUdW1T6uAHlBhB3tYQPZts8X/xu+r5JOz/pr6v/60hkiZKTUnH23qEllpupI58awD5dkCUVQtC38iq4Xx8UM1ebjTyQy2DsJzpDbIrJQZSL7E0KVdkPXOx3pVry8fovdba0N4i5TYuptVEF/bjd72XpqSCNo2K4F7uZqVybwJzFF3roEcoHJdzYlE4baaxZuZmdQ1EEQB1QLUyHg10WlmmJEJ50bQwSLpthDEhtCeSwM17t3ZjhTrBdZRAluFX0RF4XAlsDhTU2uV33nWrligxfuYEmTlK+rZ7p1A5rJpAKb54HcKSoICeyxvCK5xaZFCF6Jg/HSeIP16YiGNu4BDgQzEfqC9FQ5+vt0+VDKMJ9En0Rd1XGPjDKIaRAUt4vVNeMgq+OGR8Qbkl3ntNPy9teoebDz/xTaxS3x/HhkdSy+YempKjpQZ//pOA9dlqIYpPgkrEDnmJCBIAym5s8y3O8i0fnWCHM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(3023799007)(56012099006)(10067099003)(11063799006)(5023799004)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VDVub0pvSnhnYVBtVzFXTUx2ZTZ5aHE3WHFYWjZWMU1FM29ZLy9GbGtuSGM4?=
+ =?utf-8?B?cmQ1ZE9VYm8zbHdoWUVJTU8vaGZtZ0JjWFZ1bWJUYTJmNmNJVy9MdmxCWHB4?=
+ =?utf-8?B?OXV0UHJGcHduVnhhaVc5QlZZMnBZNHVwM1NFM1pmSUpxMjc2dzhLRlJHYm92?=
+ =?utf-8?B?anp4NzBsNkNDRHZpM1VoVW5RTjhNV2JJQnJsaGVEWDByWTlyZkFBT1VQK252?=
+ =?utf-8?B?M0lKaDVYWVBnQTZuYzVJcVJ6TTNtOFMzQURvejkwbVRhdWhkb1pDZ1BudnNC?=
+ =?utf-8?B?NUlLUVFFS2dlZGVPbzd6S0lQNVJSTEtTbnJyRmhjSEFhdlNnZ1o2VlpIUTNS?=
+ =?utf-8?B?SnlyKzBiUnlhODJaZXBMTkVjM2VjT1B5Nmsxb3JEZW5ndUQvWTVqSVZTdVdJ?=
+ =?utf-8?B?dG1GZFRCOXlYakVrdW1oZFlQS2tJSUZEVkxKTUVtcjBXT3BvSHV1Q0Eybk12?=
+ =?utf-8?B?Q0JVNU5PV09PWTNTUjA5ZkF0NVJVQUVseFZaM09TK1VNcGtNMEdZNUg2MnJn?=
+ =?utf-8?B?V1d0UXlWZGFHNi9lWG5MdVFiS2ZieXprSjZSOUViYjRLZ1FTQythZ1R4N3VV?=
+ =?utf-8?B?cGpZTkZnc2NxMzBoVEh3aWRDTXNMRUcrYXlSNnpaaVFZMVRUVStEMVlxZzZv?=
+ =?utf-8?B?cFNKWldRdmFLaTBTSVZodys1VTExWkNIejRrajlmNjRHQUorSU1ITzBRSFht?=
+ =?utf-8?B?NXYyOWU3YnhIWk5FZnc4TWRmOHJmMUF3TmdjM1RHQXQ4QmY4WU8wYkVQdm55?=
+ =?utf-8?B?V1E5UmE2Rm9IdFNyeVVmUHBGNmVrSkJGN2VCclkxd0xjckpEU2JIMHJlbGpZ?=
+ =?utf-8?B?T0l2c3FCWFR3NGJWK3dmY1ZrVUZaSXlVZGozWGd5VkxlSUtqRFlXNjE0YmY2?=
+ =?utf-8?B?cnhuSDZYakVqOU5EdW1HMVA3TjIzdnZJb1N1RXhZaWJGK1U2T1lrRjBRTVpm?=
+ =?utf-8?B?VElXS01PYlgwYzJCeDk2ZG8zUm8ydVVhblE0Y1VxMkQrU0ptSlhPWW44NzRU?=
+ =?utf-8?B?bW1mTkRBbktBMXpIR0hFdy9wNXlvd1hlVmkyTWw0N0dNc0dBdFBBRFhCR01w?=
+ =?utf-8?B?THlXTmNrQ3BuektKeS9FeVJmVmJ4QjFhNW40NGhYQ0tpUGw2aVE3QU85YXQ2?=
+ =?utf-8?B?WFc4MnZwL2lndFhNSmZOME82T0o0WWdPSDh6VURPcUxEd2tCM09NZ3RQa05w?=
+ =?utf-8?B?elJMdTNldlBzay8zaE5OVGVnVW42UktFTWdCWGI3cmxPSHQxWGF4dTlBRHFr?=
+ =?utf-8?B?OGhhOVoxR3E2N3FFTGpmelJPb2hIdlRTNkN3amt4V21CNGpEOS8vZFFWSzhL?=
+ =?utf-8?B?OTF2emhlN01ORnQydkkraTNKdExCRW9HYmtTa1NETzlmeFEvajcrTFpabnR2?=
+ =?utf-8?B?YWlQR1doWWtoYU1IUXF5Qzg5SDZwLzlKdlhWMmY3b3dpc3dZTXE1bVR6OHdh?=
+ =?utf-8?B?QlgycmROWDhLOC9PZ1BPeFlrVGpSTHBVaWZPTTJCNGh5RTlacnlTRGZXajJP?=
+ =?utf-8?B?L3ZaN0gvZ0Yva3JSQjNmaHhNL2hCdUZaNmdJR2h1amlQL0ptWVgyMFFxMmtX?=
+ =?utf-8?B?UVUrUU1PV2NVRkx3UnEzZ3ZrTjJKM2tSU1dDU3FJeW5vQ0UzV2tUZk16OVU4?=
+ =?utf-8?B?dUh1M0hiVkw4N3hmcFlQTDdFTXVxTm84eWpMdDVoYTB0czZheEh4ZHNwazR1?=
+ =?utf-8?B?bnF2cndqelo5bU91RXVFRWRNeXU1SEd1UXp3eW8zdWdXZ1M1UEhrVzFEanY1?=
+ =?utf-8?B?Lzg2R210QmRPT0llZ2l5dGV6ZUlaTDhwNm1jUmQvaXpOYWI0ZkRFUklZU0Nw?=
+ =?utf-8?B?V0E5NVN2QUEyY1JrNktDblNXcWYweFZqMHhROExGaVlpd1Y0ZVJWZXBhZlRS?=
+ =?utf-8?B?T3kzenNpUythd2VUcnhhSXQyVGlPTWdjYmtZQ0JVY0JHSm1laGFxVUZWT2pz?=
+ =?utf-8?B?bXNWZWRodmhqYm9pak5OOC9MMmp1OUhJeTNEOXo1ZGQ0Y3o4Q2k4Z1VTYzFM?=
+ =?utf-8?B?MmVGOTR0MnFPOUtISk5WWENjbmMyeHY1R1Jocjh0V0h2VWtwZzM4UDlmVFVR?=
+ =?utf-8?B?cHZhWEtWdnlyOHJraENndXBIOVpqVHRBaXduSmtOU3ZJamdyanBxZittUjFm?=
+ =?utf-8?B?TldWYUZBZ0FQSW9oY3BQWmx6RUtaU0NyZUlsd0hBbXMwaG1SVEdUczVnT3JR?=
+ =?utf-8?B?TWxDaDFrbEJTeFg4QkhkRkd3ZDdrbnhleEVEYnpjai9lWmJhbGV2NWF3Q0Z5?=
+ =?utf-8?B?eThrc2JPTXdPNGdXa3pOV3VYTWI0Zkp2Y2wvN3ZjNWR2MmtYbWEvUHZpOTZ0?=
+ =?utf-8?B?UlgrcC9CalNiRS9jOTdLaVlVMEZaTXlSa25uMG1uaENDTmdva3I4dz09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b790a0d7-622d-47db-0c40-08df03e7edc6
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c27db2e-e630-4233-9cdf-08df03e7ace3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Aug 2026 03:02:48.2229
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 03:04:37.3836
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: gDr1IVi7Ga6wDQOhNFaVntovEdrYZY02ZgTI6dmVrtlbY3dA6ZMhE+UdcJJV5hsgRCPX9g0YJBzJZVggPRjBmQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR03MB6429
-X-MTK: N
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: A0UupeUnxEAee5btT7IPga4D5zhHtvpr/TFpqgxkEAn1jJNkvjebZdGQkOvr6SBSbHUlzxo+iNGnI0aKcYgH9Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB9610
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_200300_246463_19361EDE 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20260826_200511_950813_66EA6F71 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,17 +156,303 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI2LTA3LTE1IGF0IDE1OjU3ICswMjAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
-ZWdubyB3cm90ZToNCj4gTXVsdGlwbGUgTWVkaWFUZWsgU29DcyBoYXZlIHRoZSBXcml0ZSBETUEg
-aGFyZHdhcmUgaW4gdGhlaXIgRGlzcGxheQ0KPiBDb250cm9sbGVyOiBhZGQgdGhlIG1pc3Npbmcg
-Y29tcGF0aWJsZXMgZm9yIERpbWVuc2l0eSAxMjAwIChNVDY4OTMpDQo+IGFuZCBmb3IgS29tcGFu
-aW8gNTAwLzUyMC84MjAvMTIwMCAoTVQ4MTgzL01UODE4Ni9NVDgxOTIvTVQ4MTk1KS4NCj4gDQo+
-IE5vdGUgdGhhdCBNVDY4OTMgaXMgbm90IGNvbXBhdGlibGUgd2l0aCBNVDgxNzMgYXMgaXQgaW50
-cm9kdWNlcw0KPiBzdXBwb3J0IGZvciBkZXN0aW5hdGlvbiBhZGRyZXNzZXMgbGFyZ2VyIHRoYW4g
-MzIgYml0cyBieSBhZGRpbmcNCj4gb25lIGFkZGl0aW9uYWwgcmVnaXN0ZXIgZm9yIHRoZSB1cHBl
-ciAzMiBiaXRzIG9mIHRoZSBhZGRyZXNzLg0KDQpSZXZpZXdlZC1ieTogQ0sgSHUgPGNrLmh1QG1l
-ZGlhdGVrLmNvbT4NCg0KPiANCj4gQWNrZWQtYnk6IEtyenlzenRvZiBLb3psb3dza2kgPGtyenlz
-enRvZi5rb3psb3dza2lAb3NzLnF1YWxjb21tLmNvbT4NCj4gU2lnbmVkLW9mZi1ieTogQW5nZWxv
-R2lvYWNjaGlubyBEZWwgUmVnbm8gPGFuZ2Vsb2dpb2FjY2hpbm8uZGVscmVnbm9AY29sbGFib3Jh
-LmNvbT4NCj4gLS0tDQoNCg==
+Hi Lucas,
+
+I checked the board schematic and suspect that the stability issue is 
+very likely caused by voltage drops resulting from disabling the PWM clocks.
+
+On 8/27/2026 4:04 AM, Lucas Tanure wrote:
+> [ EXTERNAL EMAIL ]
+> 
+> On 26/08/2026 18:17, Brian Masney wrote:
+>> Hi Lucas,
+>>
+>> On Wed, Aug 26, 2026 at 05:42:01PM +0100, Lucas Tanure wrote:
+>>> With Brian's patches, VIM4 does not turn off 4 clocks:
+>>>
+>>> t7_sys_sd_emmc_b
+>>> t7_sys_sd_emmc_c
+>>> sd_emmc_b
+>>> sd_emmc_c
+>>>
+>>> This is expected since I'm trying to run from an SD card. However, 
+>>> even with
+>>> these four clocks kept enabled, the board still hangs.
+>>>
+>>> Complete list with all clocks being disabled after Brians patches:
+>>> [    1.002247] clk: Disabled unused clock: t7_sys_pwm_ao_gh
+>>> [    1.002898] clk: Disabled unused clock: t7_sys_pwm_ao_ef
+>>> [    1.003560] clk: Disabled unused clock: t7_sys_pwm_ao_cd
+>>> [    1.004220] clk: Disabled unused clock: t7_sys_pwm_ao_ab
+>>> [    1.004972] clk: Disabled unused clock: t7_sys_pwm_ef
+>>> [    1.005509] clk: Disabled unused clock: t7_sys_pwm_cd
+>>> [    1.006211] clk: Disabled unused clock: t7_sys_pwm_ab
+>>> [    1.006766] clk: Disabled unused clock: t7_sys_ts_hevc
+>>> [    1.007434] clk: Disabled unused clock: t7_sys_ts_vpu
+>>> [    1.008033] clk: Disabled unused clock: t7_sys_ts_nna
+>>> [    1.008741] clk: Disabled unused clock: t7_sys_ts_gpu
+>>> [    1.009294] clk: Disabled unused clock: t7_sys_sar_adc
+>>> [    1.009929] clk: Disabled unused clock: t7_sys_vpu_intr
+>>> [    1.010609] clk: Disabled unused clock: t7_sys_dspb
+>>> [    1.011186] clk: Disabled unused clock: t7_sys_dspa
+>>> [    1.011792] clk: Disabled unused clock: t7_sys_a73pclk_apb
+>>> [    1.012554] clk: Disabled unused clock: t7_sys_pclk_sys_apb
+>>> [    1.013213] clk: Disabled unused clock: t7_sys_rsa
+>>> [    1.013811] clk: Disabled unused clock: t7_sys_mipi_isp_pclk
+>>> [    1.014529] clk: Disabled unused clock: t7_sys_mmc_apb
+>>> [    1.015107] clk: Disabled unused clock: t7_sys_hdmirx_pclk
+>>> [    1.015819] clk: Disabled unused clock: t7_sys_i2c_s_a
+>>> [    1.016429] clk: Disabled unused clock: t7_sys_hdmitx_apb
+>>> [    1.017109] clk: Disabled unused clock: t7_sys_i2c_m_f
+>>> [    1.017740] clk: Disabled unused clock: t7_sys_i2c_m_e
+>>> [    1.018379] clk: Disabled unused clock: t7_sys_i2c_m_d
+>>> [    1.019018] clk: Disabled unused clock: t7_sys_i2c_m_c
+>>> [    1.019657] clk: Disabled unused clock: t7_sys_i2c_m_b
+>>> [    1.020296] clk: Disabled unused clock: t7_sys_i2c_m_a
+>>> [    1.020940] clk: Disabled unused clock: t7_sys_i2c_ao_b
+>>> [    1.021585] clk: Disabled unused clock: t7_sys_i2c_ao_a
+>>> [    1.022236] clk: Disabled unused clock: t7_sys_pcie_phy
+>>> [    1.022885] clk: Disabled unused clock: t7_sys_usb
+>>> [    1.023482] clk: Disabled unused clock: t7_sys_pcie
+>>> [    1.024088] clk: Disabled unused clock: t7_sys_spicc1
+>>> [    1.024723] clk: Disabled unused clock: t7_sys_spicc0
+>>> [    1.025345] clk: Disabled unused clock: t7_sys_g2d
+>>> [    1.025940] clk: Disabled unused clock: t7_sys_spicc5
+>>> [    1.026569] clk: Disabled unused clock: t7_sys_ts_a53
+>>> [    1.027197] clk: Disabled unused clock: t7_sys_ts_a73
+>>> [    1.027825] clk: Disabled unused clock: t7_sys_spicc4
+>>> [    1.028454] clk: Disabled unused clock: t7_sys_spicc3
+>>> [    1.029085] clk: Disabled unused clock: t7_sys_spicc2
+>>> [    1.029710] clk: Disabled unused clock: t7_sys_aififo
+>>> [    1.030339] clk: Disabled unused clock: t7_sys_uart_f
+>>> [    1.030967] clk: Disabled unused clock: t7_sys_uart_e
+>>> [    1.031595] clk: Disabled unused clock: t7_sys_uart_d
+>>> [    1.032224] clk: Disabled unused clock: t7_sys_uart_c
+>>> [    1.032857] clk: Disabled unused clock: t7_sys_uart_b
+>>> [    1.033482] clk: Disabled unused clock: t7_sys_eth
+>>> [    1.034077] clk: Disabled unused clock: t7_sys_audio
+>>> [    1.034694] clk: Disabled unused clock: t7_sys_ir_ctrl
+>>> [    1.035333] clk: Disabled unused clock: t7_sys_msr_clk
+>>> [    1.035972] clk: Disabled unused clock: t7_sys_spifc
+>>> [    1.036596] clk: Disabled unused clock: t7_sys_acodec
+>>> [    1.037218] clk: Disabled unused clock: t7_sys_smartcard
+>>> [    1.037880] clk: Disabled unused clock: t7_sys_am2axi2
+>>> [    1.038518] clk: Disabled unused clock: t7_sys_am2axi1
+>>> [    1.039157] clk: Disabled unused clock: t7_sys_am2axi0
+>>> [    1.039796] clk: Disabled unused clock: t7_sys_ampipe_eth
+>>> [    1.040468] clk: Disabled unused clock: t7_sys_ampipe_nand
+>>> [    1.041155] clk: Disabled unused clock: t7_sys_deswarp
+>>> [    1.041790] clk: Disabled unused clock: t7_sys_gdc
+>>> [    1.042385] clk: Disabled unused clock: t7_sys_cec
+>>> [    1.042981] clk: Disabled unused clock: t7_sys_aucpu
+>>> [    1.043600] clk: Disabled unused clock: t7_sys_aocpu
+>>> [    1.044217] clk: Disabled unused clock: t7_sys_mali
+>>> [    1.044830] clk: Disabled unused clock: t7_sys_ethphy
+>>> [    1.045451] clk: Disabled unused clock: t7_sys_mipi_dsi_b
+>>> [    1.046123] clk: Disabled unused clock: t7_sys_mipi_dsi_a
+>>> [    1.046795] clk: Disabled unused clock: t7_sys_dos
+>>> [    1.047390] clk: Disabled unused clock: t7_sys_ddr
+>>> [    1.047991] clk: Disabled unused clock: pwm_ao_g
+
+This is the clock of the regulator that drives the VDDDDR.
+
+>>> [    1.048565] clk: Disabled unused clock: pwm_ao_f
+
+This is for VDDNPU
+
+>>> [    1.049135] clk: Disabled unused clock: pwm_ao_e
+
+This is for VDDGPU
+
+>>> [    1.049709] clk: Disabled unused clock: pwm_ao_d
+
+This is for VDDCPU_A (for A73)
+
+>>> [    1.050283] clk: Disabled unused clock: pwm_ao_b
+
+This is for VDDCPU_B (for A53)
+
+>>> [    1.050857] clk: Disabled unused clock: pwm_ao_a
+
+This is for VDDEE
+
+These clocks must not be disabled, otherwise the voltage may drop and 
+cause stability issues. You can try adding CLK_IGNORE_UNUSED to these 
+clocks and see if it improves the situation (especially for pwm_ao_a/b/d)?
+
+I checked the DTS and found that the pwm-regulator devices corresponding 
+to the VDD* rails mentioned above are not supported yet. If support for 
+these pwm-regulators is added in the DTS and the corresponding clocks 
+are properly referenced, the stability issues you are seeing may be 
+resolved.
+
+>>> [    1.051454] clk: Disabled unused clock: rtc_dualdiv
+>>> [    1.052038] clk: Disabled unused clock: rtc_duandiv_in
+>>>
+>>> Also with the patches the disable happens 0.5 second later, from 0.5 
+>>> seconds
+>>> after the boot to 1 second after the boot.
+>>>
+>>> I am still investigating what is missing a consumer or what should be
+>>> labeled critical.
+>>
+>> I've seen cases where a clock is modeled in Linux, but isn't actually
+>> used by Linux, so it gets caught in the disable unused clocks sweep.
+>>
+>> Does the board immediately crash after the disable unused clock sweep?
+> yes> If so, you could add a log statement, then 1 second sleep in
+>> clk_disable_unused_subtree() and wait for the board to crash.
+> good idea , thanks
+>>
+>> If you can't get timely help from the vendor, then you can add
+>> CLK_IGNORE_UNUSED to all of those clocks, and slowly start taking them
+>> off in batches and wait for the crash.
+> That's what I've been doing for the past few weeks, but I'm probably
+> hunting down a set of clock issues, as support for this board is still
+> in its early stages. It's a combination of clocks, which makes it way
+> more time-consuming.
+> 
+> I went with a more localized approach:
+> 
+> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+> index 2b6fae54702a..3358f4dc871f 100644
+> --- a/drivers/clk/clk.c
+> +++ b/drivers/clk/clk.c
+> @@ -1489,14 +1489,95 @@ static void clk_unprepare_unused_subtree(struct
+> clk_core *core,
+>                  else if (core->ops->unprepare)
+>                          core->ops->unprepare(core->hw);
+>                  trace_clk_unprepare_complete(core);
+> +               pr_info("clk: V Unprepared unused clock: %s\n", core- 
+>  >name);
+>          }
+>   }
+> 
+> +static const char * const disable_clocks[] = {
+> +       "t7_sys_pwm_ao_gh",
+> +       "t7_sys_pwm_ao_ef",
+> +       "t7_sys_pwm_ef",
+> +       "t7_sys_pwm_cd",
+> +       "t7_sys_pwm_ab",
+> +       "t7_sys_ts_hevc",
+> +       "t7_sys_ts_vpu",
+> +       "t7_sys_ts_nna",
+> +       "t7_sys_ts_gpu",
+> +       "t7_sys_sar_adc",
+> +       "t7_sys_vpu_intr",
+> +       "t7_sys_dspb",
+> +       "t7_sys_dspa",
+> +       "t7_sys_a73pclk_apb",
+> +       "t7_sys_pclk_sys_apb",
+> +       "t7_sys_rsa",
+> +       "t7_sys_mipi_isp_pclk",
+> +       "t7_sys_mmc_apb",
+> +       "t7_sys_hdmirx_pclk",
+> +       "t7_sys_i2c_s_a",
+> +       "t7_sys_hdmitx_apb",
+> +       "t7_sys_i2c_m_f",
+> +       "t7_sys_i2c_m_e",
+> +       "t7_sys_i2c_m_d",
+> +       "t7_sys_i2c_m_c",
+> +       "t7_sys_i2c_m_b",
+> +       "t7_sys_i2c_m_a",
+> +       "t7_sys_i2c_ao_b",
+> +       "t7_sys_i2c_ao_a",
+> +       "t7_sys_pcie_phy",
+> +       "t7_sys_usb",
+> +       "t7_sys_pcie",
+> +       "t7_sys_spicc1",
+> +       "t7_sys_spicc0",
+> +       "t7_sys_g2d",
+> +       "t7_sys_spicc5",
+> +       "t7_sys_ts_a53",
+> +       "t7_sys_ts_a73",
+> +       "t7_sys_spicc4",
+> +       "t7_sys_spicc3",
+> +       "t7_sys_spicc2",
+> +       "t7_sys_aififo",
+> +       "t7_sys_uart_f",
+> +       "t7_sys_uart_e",
+> +       "t7_sys_uart_d",
+> +       "t7_sys_uart_c",
+> +       "t7_sys_uart_b",
+> +       "t7_sys_eth",
+> +       "t7_sys_audio",
+> +       "t7_sys_ir_ctrl",
+> +       "t7_sys_msr_clk",
+> +       "t7_sys_spifc",
+> +       "t7_sys_acodec",
+> +       "t7_sys_smartcard",
+> +       "t7_sys_am2axi2",
+> +       "t7_sys_am2axi1",
+> +       "t7_sys_am2axi0",
+> +       "t7_sys_ampipe_eth",
+> +       "t7_sys_ampipe_nand",
+> +       "t7_sys_deswarp",
+> +       "t7_sys_gdc",
+> +       "t7_sys_cec",
+> +       "t7_sys_aucpu",
+> +       "t7_sys_aocpu",
+> +       "t7_sys_mali",
+> +       "t7_sys_ethphy",
+> +       "t7_sys_mipi_dsi_b",
+> +       "t7_sys_mipi_dsi_a",
+> +       "t7_sys_dos",
+> +       "t7_sys_ddr",
+> +       "pwm_ao_g",
+> +       "pwm_ao_e",
+> +       "pwm_ao_a",
+> +       "rtc_dualdiv",
+> +       "rtc_duandiv_in",
+> +};
+> +
+> +
+>   static void clk_disable_unused_subtree(struct clk_core *core,
+>                                         struct device *dev)
+>   {
+>          struct clk_core *child;
+>          unsigned long flags;
+> +       int i;
+> 
+>          lockdep_assert_held(&prepare_lock);
+> 
+> @@ -1517,6 +1598,11 @@ static void clk_disable_unused_subtree(struct
+> clk_core *core,
+>          if (core->flags & CLK_IGNORE_UNUSED)
+>                  goto unlock_out;
+> 
+> +       for (i = 0; i < ARRAY_SIZE(disable_clocks); i++) {
+> +               if (strcmp(core->name, disable_clocks[i]) == 0)
+> +                       goto unlock_out;
+> +       }
+> +
+>          /*
+>           * some gate clocks have special needs during the disable-unused
+>           * sequence.  call .disable_unused if available, otherwise fall
+> @@ -1529,6 +1615,7 @@ static void clk_disable_unused_subtree(struct
+> clk_core *core,
+>                  else if (core->ops->disable)
+>                          core->ops->disable(core->hw);
+>                  trace_clk_disable_complete(core);
+> +               pr_info("clk: V Disabled unused clock: %s\n", core->name);
+>          }
+> 
+> This makes it easier to let the sweep disable clocks for testing.
+> 
+>>
+>> Brian
+>>
+> Thanks
+> Lucas
+> 
+> 
+> _______________________________________________
+> linux-amlogic mailing list
+> linux-amlogic@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-amlogic
+
+-- 
+Best regards,
+Chuan
+
 
