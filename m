@@ -4,60 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C6B5C61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 14:30:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42C0FC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 14:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JZQjss/9eVMDnqpAzTSDDgo1ILBujLnrsEIoF3t8dmc=; b=mKzD1Efh6zfKD19TuKh72eLAGi
-	e3SyWBhK6JKBPriUDhjlVkqWmxs7qaVGgIaQCegTUABwJ/JJ/iPd1MU5VFP+aAjXC9cRDCWt/K/aD
-	SDODIvGiQyxcKEcs/CQgzihHd7OKDFaYbnI9Hj30esqFuiQRWQhT77moryteU3KLYT+nopwIsn/eo
-	SqJeOYy/4Wm0c2EZ6sABlvMjlu0TYLLkmECGUTEoCpkB5XRO/rcL7IvmOFRRJR64+w0r/Z/uDdmJ4
-	6l6NRdEyNNuUDHf2CEgjbjVNITM+jZJS9WnZ2ZZGAkjexmfturB8hf2tHJa0lRZrxwy/paRk79RjF
-	ngSoC8QQ==;
+	bh=qkcLdZ04Ls6UFKCVVLFp4hZZe+m1YNt82TM1978eWlA=; b=XIFEKWQUVAbtejo5hj+dYqwVeE
+	Ued31TxfoPWm/FBdJSocIl4jBu6CJpOu2Bad+cUUG/W4sO8mmqhadFF4/7Ps/vT6jQ79f4vgGc4ZJ
+	vheYIVX7DaNnXZtMrasArtTloulytH0pF5Opc8wYB+ecHL+jpUvHPIKwHc1bMYfsiOyCjqJuf/E2f
+	2u92ww5ADOuOmuBdhTyHdXqClEXid8DbJmnnav9cBSSCBFEcWz2g8rbnWw1H+7gBLGgJvDD8RmXpw
+	+OmrAs0ZejvENu+o7jVaphLQJDJGxru1Z18av5Bwsh/jGnwqCUIT/NFAj80NUi8IWjmEg/KRQL7/F
+	lg3rrhoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzb7g-00000004Adm-1ljl;
-	Thu, 27 Aug 2026 14:30:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wzbDd-00000004B4B-1eRJ;
+	Thu, 27 Aug 2026 14:36:41 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzb7e-00000004Adb-2mRm
+	id 1wzbDa-00000004B3d-1iny
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 14:30:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 99267600D2;
-	Thu, 27 Aug 2026 14:30:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB3651F000E9;
-	Thu, 27 Aug 2026 14:30:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787841029;
-	bh=JZQjss/9eVMDnqpAzTSDDgo1ILBujLnrsEIoF3t8dmc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ogWxMmf4J62SjTNPX+WOrS0dmzcGFUnEVr01j2vBmechaE+DQJxr2knOZKhbjXdN6
-	 bWAQ6gmuBui+fqEUmU1DdENHaxI7EsjIWBafxTYr2V6F/FmxsPBjE140RfKAoBXjrA
-	 +GTBsVLjb3Erz1VtqVZHZkUKlQ//J1z+dnKW352ZJp0FUzJkY4Z3NX0GAZg/FGd4uU
-	 Ud7qVx19ddPfdfBqy4BzGbjTXWQE5JLyfGf8k5nvzmqk/zQSbZ4zVKVpTqldChPLze
-	 AmLppB5M8eEnk6rLacxZkjMUv4WrlB9HmnjnH/2iXMjOtEpouDkXOQ9NgNjBuLEOEn
-	 J6eyoNZB2Fw7g==
-Date: Thu, 27 Aug 2026 15:30:24 +0100
-From: Will Deacon <will@kernel.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: mm: Walk page tables with interrupts disabled in
- show_pte()
-Message-ID: <apBKADD1xiGWzHCB@willie-the-truck>
-References: <20260815211316.974-1-kmehltretter@gmail.com>
+	Thu, 27 Aug 2026 14:36:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dLPfKCyBGmA+PSBLAPaIu0AZghPbdJwXaVjrsrKo5W2gVR2zo6QWPLRR0vH/CvwWEY56JntPrFH6aMyxsaWQ9H/MlASkFDBujFNNDG3nVYcaD38y1/KQmlU1SdeQGEsoI90MX013fC43CCbllol+bsaSO+xdVRbf7qYTMfy3Y4S5FNsgiXd23RzrlLg3heIvRDrGawxUQY319+s4U7DOh0NY42qQIQV3SNntTSZwyZRgqEnkZcinbKm5014/G8+PluJlqZcSfLYA15DfprH+0TEU+OQmiZjsQQsy2SQ0QkkJGEV0jVWR2SOB9oK/yqPF6B/PhLIulzB0tq1i/B4jDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qkcLdZ04Ls6UFKCVVLFp4hZZe+m1YNt82TM1978eWlA=;
+ b=Bgoe5QZKDhcvBRWfLG6aBfobbJSyQvFqUakQix0IZ+rJI3Q+9hcoR+VdvOYja8w8tjcY1cFAZDSwZPiNq7Ok9qjp5v/Jbq9huUim90wK09mivAzU8XEoPp7sDrODcuKl6Yr6+jgbjHFjQH1Z9eezQu32AeZEf2hL9r10j74REGEWP9nSmf8bxOYC43qw0Xi1AGTUKcHhvTdkJ/5mjXdp+Spa7TmOPBA80NjzeRDGa23b0oIb3rwN1To1mFA26MbvrF0O5z0zHiVRi17HvyNXDtHjuQqmaQ/ZK8huOKUl8fm3Zgk0UiM5dC3JDhgEvDvp+Q5IGSVcsSG4wOx7nCvCoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qkcLdZ04Ls6UFKCVVLFp4hZZe+m1YNt82TM1978eWlA=;
+ b=hjajK5vX0I3aZ/neFYV2UAO065inVS9NXI/PyK7CYke2aJ8XQ5HdGuTkV+Uzzgbryhqhm2HsBXsMFizhA7vDIO5jrD1/3thfA5L65LPLv+63RK3NZKB1wCvILaQf9gqEyZG9Rigmepkks1W4NZ837pVJWz2GpDXinCH9QZVUc3iFniYQN8MHe+91AucecNcf/jhM199k+0y08QVPElH/Vokj6+sHiMjMFcaaXqiEPpt9k/x5QdlE0ykhQ8ngQ0QIiayiiJZAyYZ4YOYhOZlUWZM8AeGSQKTPc/lHE9lF/WacxoPKTIOaKGwJT/PPMFyJj8ee9uagK5cvVtY0OndlzQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10) by PAXPR04MB9021.eurprd04.prod.outlook.com
+ (2603:10a6:102:217::24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Thu, 27 Aug
+ 2026 14:36:32 +0000
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
+ 14:36:32 +0000
+Message-ID: <ccacc3bc-7f81-4363-a273-a6076e468618@oss.nxp.com>
+Date: Thu, 27 Aug 2026 17:36:27 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/10] dt-bindings: ufs: Add compatibles for S32N79 Host
+ Controller platform driver
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Avri Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+ "Martin K . Petersen" <martin.petersen@oracle.com>,
+ Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+ Ajay Neeli <ajay.neeli@amd.com>, Manivannan Sadhasivam <mani@kernel.org>,
+ Pedro Sousa <pedrom.sousa@synopsys.com>, clizzi@redhat.com,
+ aruizrui@redhat.com, eballetb@redhat.com, echanude@redhat.com,
+ linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
+References: <20260826134048.854748-1-larisa.grigore@oss.nxp.com>
+ <20260826134048.854748-7-larisa.grigore@oss.nxp.com>
+ <ao75lU2zYDeOZi2f@SMW015318>
+Content-Language: en-US
+From: Larisa Ileana Grigore <larisa.grigore@oss.nxp.com>
+In-Reply-To: <ao75lU2zYDeOZi2f@SMW015318>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS4P251CA0019.EURP251.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d3::7) To GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260815211316.974-1-kmehltretter@gmail.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|PAXPR04MB9021:EE_
+X-MS-Office365-Filtering-Correlation-Id: b9528725-e939-4d7b-3237-08df0448966c
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|376014|7416014|366016|1800799024|10067099003|56012099006|11063799006|4143699003|6133799003|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: alWxRxgayCy7E2qiQXXCBV8y5v044imEbhZeHzLnIgOl/q0MbUU/pjfAO5kWK6DHk5bNfrgASmBq+LpZ/vgNFaI+CT3y1RO2S96Sfl+xiCEPORv+NMOWbHygdvfzOw+zp+Jbis3BkrSNfG+8ry9jC4K48ZlhKy70/2DyjIznBxnK/nexV7vKezAS3PI258AhNg4rCJUho+A2oYrHwXJS5gmpsh3KjdKsP7s/WzXkwmdBKe49RUPOHok4wb/R4W0hPsI9HPWLEbODye06htufGwuKiWxvcjhS193uWeb5FTKPtbg9sYWfO1hOo1uC3GfwOzZMOXtb3FtSmCl57wFveKrySL/ccQ7MEVvu0hTRageH6qjaDgGjxSU+5P0rmKEUU83pcJPDGFw3zSLjxFwTeH+O92vI+rp4ne9+N61GrzsUthMUkGoTHF6Zvn1aMYk8D6lJz1vArSozYqHGUm7ZT1PfsiY53sibvBdtprQPkNw/ORAtNsT8rTi94g911MOd1HApRVUNE/NqTYecIgJQbOzO5ai6GfWVbqCF9pr1EAsvf213/fGDAOeNVUNWKxmknviQCRdtJbonJmJfidtbhaAKRpliJTlH4PpCfNBxdsvv7w38q2KzGQ/G3UBqTSED
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(376014)(7416014)(366016)(1800799024)(10067099003)(56012099006)(11063799006)(4143699003)(6133799003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cS9UaU1Pc25TdThLU1FYcXVkcnY4OWpEdXNIMW9UR21POG9JUmhjMW80bjNq?=
+ =?utf-8?B?ZW03YVRjV1BOSjg1OXlTbnVmMkdHaHZVY1Z3UFpZbXdTcENXTWJVbnlTWi9i?=
+ =?utf-8?B?U2QyVHJhTVEwTHZzNXlpM0wrNno2RVRjSURRUUlrcHh2a28wKy91ZGJZa1hk?=
+ =?utf-8?B?UGhHTXlYUm0vTkRyL0daRmp2cHBlWWtJTThLdEROdllJRlJuZktYYmF2TU85?=
+ =?utf-8?B?dWJpNTkraUx6S0YwbjhSbHJPNkNVV0RONVJnMWpDNTgvOUJzRkQwR3ZWK21Q?=
+ =?utf-8?B?elk4cVkxeFcwUndCR2M0WE5qWVhPNEZvNXhmL2RvZEpaaWZoeTBIZDFSOGVo?=
+ =?utf-8?B?QkZhck1NdjlmWUp0YXJ1SHdHcWVoekhmM1BUOHBNWElRcmlQRDI2cHRURHBs?=
+ =?utf-8?B?SHZCMGtWcmxwS2NJTWxNMFZROFlvcnVjbm9EbTNzOHJoYmNqZENadndDVVB1?=
+ =?utf-8?B?MDZWK1pYeDkzMncvdjYyVTlYMTI1ekIxVk90dGZ4cXAzczJ6cnVUN0E1M3dG?=
+ =?utf-8?B?amp2Y3N2WUxLQWhBZUVCWnhud2xGb25nS2JFVnJ5eXpKTm9NVW5qNDBaV2t2?=
+ =?utf-8?B?SVpwck5RWWk0c1k0VEpXM3NnR2c4NCs4akE5ckkvOG11ZjdISnhNbmMwb1dy?=
+ =?utf-8?B?TnFJMkVHeE9temErMENGdEJ1VVhuRXo4OUE3RDZ2MFZBc3Fqb2YrUFRiSFNs?=
+ =?utf-8?B?aEN6eW12aWFSVitBUSt6d0NGc2F2UTNyNE9TT2d5cnozekg4Y2FDeDg3UStx?=
+ =?utf-8?B?cDNiM1B5VXBLK2FLdWl0eWZYQm1XbmpOcEdRV2VwQjA2QWx3REhoNW5GN09j?=
+ =?utf-8?B?U3Y2eHNKMXN6dGg4cXZxdlBSSVp4cmFpd205cmI1M1FCY0hwN2Ivcm94Vngw?=
+ =?utf-8?B?RWVmKzg1N2NBbDFqd3BYZUt5V0ZoVmtCTVozNEt5bGhoekZTRkYrRGJDaHVi?=
+ =?utf-8?B?bFcxelRUby9QeXEzSi9pU1hGQ2FZdWxWK2dhZGFnZHdYUkh1MXBZYlFFeDNF?=
+ =?utf-8?B?TmF3enhteURuaDMwdUUrV1poTms5WHE0Vk0yNDc4Rm9XYTduVHV1ajFuN01h?=
+ =?utf-8?B?c1FMMVFFbS9nWHJmZ0wxMjdMTHJKOEVxOHZSV3lpWnNOdDdicUV6Nlkydm14?=
+ =?utf-8?B?L0RGYmErbzRtWVQ2RXd2R2FmaVptSWE1SHgzRW5UVlY3eGdBektnOTFSbW4y?=
+ =?utf-8?B?ci92OG56NUoraklITnNiWko2c1FkaU5HNExqOHJYbk9ZYmF1UWFoaUlzY0ts?=
+ =?utf-8?B?S3FUOFNxZ3ZTbmNpVXpJVlN3WDZjejIwejhuQllIbm5CRkZHT3RKV2pDai9l?=
+ =?utf-8?B?RUdTL1I0eXN4Zk92akdEVy83LzgzWTJPWEM5c25kRU9TWGNiSzdCT0h0QzUx?=
+ =?utf-8?B?MUs3VFcvL3U3dlJuenpDMW8rTjV0cGNGcFh5eHJWaldEYXVRMFRhRm0xNmRC?=
+ =?utf-8?B?d2g5NmFRY1VXRzByK2kvekRqVHRzVDVjODlnRkkyWjBORkN4bzBMWkdEOVVF?=
+ =?utf-8?B?YWpqZC94dms4K0dTcHN1RFJrNGdBd01HZFVnb2x4Q0F3MTJkdTFmWGt4ZktO?=
+ =?utf-8?B?eDJBWDd0UjUrbU5QVGk3b3dpbVRQZ1ZVSFVJNG9qR3VXOUVTTTdOMVduR0hT?=
+ =?utf-8?B?THR0UmhKM1dnTGlJamhoWlAzK3lwZTI0bFB1WGtHRStKZ2duK1c0eTEyaXA0?=
+ =?utf-8?B?UEZkZU95UzdlMi9xRkVjNlJ0akxleUwwZWd3MFVEalhmVGlDWWNGTFpSbTk3?=
+ =?utf-8?B?MnZpOGVpZ0NNcWxOWFRyT3MvWXVOOGp3MzE0cGlGQTNkR2VQc005Y09NZlE5?=
+ =?utf-8?B?WUZJclpNUGNXU3hWVlhoMkJwZkJKNU4veFFnSlkxcDE0UFFaWlg4T3crNjVk?=
+ =?utf-8?B?dXNZOWpzajlPS1VTVHVLc1pSVnIxTFhoWmhabWdlREdnZ2YxQTRRMWhMTHZU?=
+ =?utf-8?B?ZkI3UDJQa1lCb2JQdVB5UDJRd2tBaHVIbFdRcWpKSDhxK1dBYWtmZE9PL1Ex?=
+ =?utf-8?B?Sk9xc1F2TVpJU1dWRXl0ditJOFFpTDlxcll3M0RuU2NpNWhOREJzRkRpV2w5?=
+ =?utf-8?B?S05IMEN3SXY3WlJFUDJWd1lKWmptcGd3V3h5VEFWNU9HTUNDR2xjQW9EN2hW?=
+ =?utf-8?B?S2c4ckxKbTlUUEppbVA3bkxCWnZTc2NRVy9aM3lpOEtpOUxYMmR2dC9QaGNC?=
+ =?utf-8?B?aGZwVFBERWh5UnQ4NlNuUGlhOXZhU0ViOHJ3eGNxbEp6dnhDSWdoUGpKY0Jw?=
+ =?utf-8?B?QVhCYWpGSTVQR3drMUpHenFQaTRRY0J2eGpONEJPTzB6R0plY0dFRDkwRnRw?=
+ =?utf-8?B?OXZtaDhqMFc0NE1IQ0R1bHlqZElpQnZLL09kK2VQK0JwUm0zNy94WjJhYjd2?=
+ =?utf-8?Q?1iyDfEYszunzqios=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b9528725-e939-4d7b-3237-08df0448966c
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 14:36:32.0154
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2cRykgN+ypEyska0L0G8Ab0KeCWd/TgpQ0vG/zpSsc45tE730+2UQK5sHYSQOyHcvJ68D04rFVidpkyl8tvpLw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9021
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260827_073638_603619_40E3517F 
+X-CRM114-Status: GOOD (  25.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,56 +167,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 15, 2026 at 11:13:16PM +0200, Karl Mehltretter wrote:
-> show_pte() walks the page tables locklessly and can run with interrupts
-> enabled, so a concurrent teardown (e.g. munmap() in another thread of
-> the faulting mm) can free a table page from under it. Dereferencing the
-> freed page can fault again or print garbage in the oops report.
+On 8/26/2026 5:35 PM, Frank Li wrote:
+> On Wed, Aug 26, 2026 at 03:40:44PM +0200, Larisa Grigore wrote:
+>> [You don't often get email from larisa.grigore@oss.nxp.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>>
+>> Document the device tree binding for the NXP S32N79 DWC-based UFS host
+>> controller which is compliant with JESD-223D "Universal Flash Storage Host
+>> Controller Interface" v3.0.
+>>
+>> The controller requires access to the SCM register block and the core
+>> clock rate when M-PHY initialization is performed. Add the optional
+>> nxp,mphy-boot-mode property to select the M-PHY firmware execution
+>> environment.
+>> Currently, the M-PHY firmware can only run from ROM. If the property is
+>> omitted, M-PHY initialization is assumed to be handled externally.
+>>
+>> Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
+>> ---
+>>   .../bindings/ufs/nxp,s32n7-ufshc.yaml         | 99 +++++++++++++++++++
+>>   1 file changed, 99 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/ufs/nxp,s32n7-ufshc.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/ufs/nxp,s32n7-ufshc.yaml b/Documentation/devicetree/bindings/ufs/nxp,s32n7-ufshc.yaml
+>> new file mode 100644
+>> index 000000000000..d9d5669be313
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/ufs/nxp,s32n7-ufshc.yaml
+>> @@ -0,0 +1,99 @@
+>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/ufs/nxp,s32n7-ufshc.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: NXP S32N79 Universal Flash Storage (UFS) Controller
+>> +
+>> +maintainers:
+>> +  - Larisa Grigore <larisa.grigore@oss.nxp.com>
+>> +
+>> +# Select only our matches, not all jedec,ufs
+>> +select:
+>> +  properties:
+>> +    compatible:
+>> +      contains:
+>> +        const: nxp,s32n79-ufshc
+>> +  required:
+>> +    - compatible
+>> +
+>> +properties:
+>> +  compatible:
+>> +    items:
+>> +      - const: nxp,s32n79-ufshc
+>> +      - const: jedec,ufs-3.0
 > 
-> arm64 selects MMU_GATHER_RCU_TABLE_FREE, and the documented protection
-> for lockless walkers is disabling interrupts, as gup_fast() does. That
-> holds off the RCU-deferred table frees and, unlike rcu_read_lock(),
-> also blocks the IPI-based synchronisation (tlb_remove_table_sync_one())
-> that khugepaged collapse uses before reusing a table.
-> 
-> Use guard(irqsave)() around the complete walk. This does not make the
-> diagnostic output a consistent snapshot, but prevents it from
-> dereferencing a released page-table page.
-> 
-> Fixes: 1d18c47c735e ("arm64: MMU fault handling and page table management")
-> Assisted-by: Codex:gpt-5.6-sol
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
-> Testing: QEMU arm64 virt guest, 2 vCPUs, debug_pagealloc=on. A racing
-> page-table unmap triggered a nested fault in the walk without this
-> patch, none with it.
-> 
->  arch/arm64/mm/fault.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index 0b52557652be6..b173eebd3cd19 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -16,6 +16,7 @@
->  #include <linux/mm.h>
->  #include <linux/hardirq.h>
->  #include <linux/init.h>
-> +#include <linux/irqflags.h>
->  #include <linux/kasan.h>
->  #include <linux/kprobes.h>
->  #include <linux/uaccess.h>
-> @@ -151,6 +152,8 @@ static void show_pte(unsigned long addr)
->  		return;
->  	}
->  
-> +	guard(irqsave)();
-> +
->  	pr_alert("%s pgtable: %luk pages, %llu-bit VAs, pgdp=%016lx\n",
->  		 mm == &init_mm ? "swapper" : "user", PAGE_SIZE / SZ_1K,
->  		 vabits_actual, mm_to_pgd_phys(mm));
+> Any place actually use this fallback?
 
-Curious, but why did you add the guard before the print?
+You're right Frank! I will switch to `jedec,ufs-2.0` in v2.
 
-Will
+> 
+>> +
+>> +  reg:
+>> +    minItems: 1
+>> +    items:
+>> +      - description: UFS Host Controller registers
+>> +      - description: System Control Module registers
+>> +
+>> +  reg-names:
+>> +    description: |
+>> +      Names for the register regions. The first entry must be "ufshc".
+>> +      The second entry "scm" is mandatory only when nxp,mphy-boot-mode
+>> +      property is present.
+> 
+> you already us if - else branch to restrict this limition, needn't
+> description here.
+
+Thank you! Will drop reg-names description in v2.
+
+>> +    minItems: 1
+>> +    items:
+>> +      - const: ufshc
+>> +      - const: scm
+>> +
+>> +  clocks:
+>> +    maxItems: 1
+>> +    description: UFS core clock
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: core_clk
+> 
+> Needn't suffix _clk, just "core", generally needn't clock-names if only
+> one clocks.
+
+I will rename it to "core" in v2, if that works for you.
+
+>> +
+>> +  nxp,mphy-boot-mode:
+>> +    description: |
+>> +      MPHY initialization mode. Defines how the MPHY firmware should be
+>> +      initialized and executed during UFS controller startup.
+>> +      If this property is not specified, MPHY initialization will be skipped.
+>> +    $ref: /schemas/types.yaml#/definitions/string
+>> +    enum:
+>> +      - rom
+> 
+> why not use standard "phy" property, if no "phy" means ROM init it.
+
+First, apologies for not including enough background in the commit message.
+
+On the S32N79, the M-PHY firmware can be brought up in one of three 
+ways, selected through the SoC's SCM MPHY_RAM_CONFIG_STATUS register:
+
+1. running MPHY from internal FW ROM,
+2. running MPHY from a (modified) FW ROM copy in external SRAM, or
+3. running MPHY from a FW image in external SRAM.
+
+`nxp,mphy-boot-mode` was introduced to select which of these boot 
+sequences the controller driver programs. Today only option 1, "rom", is 
+implemented and validated, but the property was meant to leave room for 
+the two SRAM-based modes.
+
+Given this setup, what would you suggest as the appropriate DT 
+representation? I would greatly appreciate any guidance you can provide.
+
+> Frank
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +
+>> +allOf:
+>> +  - $ref: ufs-common.yaml
+>> +  - if:
+>> +      required:
+>> +        - nxp,mphy-boot-mode
+>> +    then:
+>> +      properties:
+>> +        reg:
+>> +          minItems: 2
+>> +        reg-names:
+>> +          minItems: 2
+>> +      required:
+>> +        - reg-names
+>> +        - clocks
+>> +        - clock-names
+>> +    else:
+>> +      properties:
+>> +        reg:
+>> +          maxItems: 1
+>> +        reg-names:
+>> +          maxItems: 1
+>> +
+>> +unevaluatedProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    ufshc@4ac80000 {
+>> +        compatible = "nxp,s32n79-ufshc", "jedec,ufs-3.0";
+>> +        reg = <0x4ac80000 0x1000>, <0x4ac40000 0x1000>;
+>> +        reg-names = "ufshc", "scm";
+>> +        interrupt-parent = <&irqsteer_coss>;
+>> +        interrupts = <211>;
+>> +        clocks = <&sys_clk>;
+>> +        clock-names = "core_clk";
+>> +        nxp,mphy-boot-mode = "rom";
+>> +    };
+>> --
+>> 2.43.0
+>>
+>>
+
 
