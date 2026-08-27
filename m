@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 081BFC61DC6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 12:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B31CC61DC7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 12:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zTS4R5eT8nAZiQcjuHqdqQ0xL5yM3BrRaXjjPIIzt9g=; b=QP7V6crjvXflfT4CR0UsMwMqZ9
-	lPPGSSpSMkAoPraFHx+oqaK7XS8ZknV2oa93AB1Q9PeamcCZ2A+ayFIMFcJ5Dahh1vAMyno700mHC
-	OLJ8Lbo5mYf1Rg+KTbTGcngvtvbF4AeP0K3sdE1tXbj+wcWpf9GcmL8RLKWk7iyPZ+cciptM7/a06
-	4HYjn3ogHAorESUZEGMKHwPBASsWFuXo+YEMM3QNwKvrU4n5XdT10et32plZL+7A0dfMIm+8CXB0G
-	k7qiyntcs/ewjK89l98bpI+Sq3jslN7fZ5P8xWCvsnQ8k1o/oIE2tqOhpdV9sjXz5C4yfSjqHF4Tb
-	FP85gCtg==;
+	bh=JC8KEH2A5MaBWTLPjH1KEcQphE7kFFAbdhvua3h0dxM=; b=0QG41wXNcF5n8ZjVkphNDUYiDa
+	iunBlm86o1p6nTpYLRXyWw7SPBBMuudWB1RgEDjzvWzlm78Vu+Tgkv/KpOuZCNWCOdX1Dp6iu5DEi
+	vG02G6EQnVTJZ4K8X55QDLEscwKYNlRpqgqGaMIVR3nttxuKCUYR85g1iNTJRpB6kL15H03W5KDhK
+	abbPyA+OwNy1e7cN6F4TNJTeuM9OYmdldeU12RFsOGHkA02mVM3V+ed4pqDUpxXyN61IHYf+sFy34
+	ltnCObJ9fQzpYYibvwiC3w3jHseeUI93ioPdrjSTw9VkciANUooEHCfb5PGB/wdNUkLpGJyp2EEka
+	xH/ZvAIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZ1b-00000003wZM-1DYq;
-	Thu, 27 Aug 2026 12:16:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZ1Y-00000003wYh-2zX5
+	id 1wzZ5j-00000003wxR-3tab;
+	Thu, 27 Aug 2026 12:20:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzZ5g-00000003wx9-3UUJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 12:16:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E9B01691;
-	Thu, 27 Aug 2026 05:15:58 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 368593F85F;
-	Thu, 27 Aug 2026 05:16:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787832961; bh=TAX8S4NqmRp+bw/o5Pi0JMPJne9BisHCOygDHDk1+n8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bGqt8MchFpcg7ATYp7vNR9CzAIMziiByExJRJoLPzCGzuSXD0XQ0ZiCAXBxM1iyoF
-	 I6gcM5IQ8cNqalC4a0yZEJPphVJIMkT63cGxqlaLcjaJzZ11zMV+vtIOzVfHd5ufmK
-	 cpXg62KPJbIUZWds69rxdhFLrAa75yLDK/NhDVwI=
-Date: Thu, 27 Aug 2026 13:15:57 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v9 04/13] coresight: etm4x: fix inconsistencies with
- sysfs configuration
-Message-ID: <apAqfS87BY4_2Vn9@e129823.arm.com>
-References: <20260725113645.57519-1-yeoreum.yun@arm.com>
- <20260725113645.57519-5-yeoreum.yun@arm.com>
- <20260811154521.GF15499@e132581.arm.com>
- <antUM71hxHaBJ_5l@e129823.arm.com>
- <20260811174503.GJ15499@e132581.arm.com>
- <antjkuiPhsfE7e_H@e129823.arm.com>
+	Thu, 27 Aug 2026 12:20:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2876D408AE;
+	Thu, 27 Aug 2026 12:20:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F6301F000E9;
+	Thu, 27 Aug 2026 12:20:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787833220;
+	bh=JC8KEH2A5MaBWTLPjH1KEcQphE7kFFAbdhvua3h0dxM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ns3c1dbgik71leiI5OFOgqECUIefVwx/zRnd6jyWTbatex/odpR1+VaXlszUnQ2Gz
+	 +Oc1OMOAS+mMgDM+HVN8N8q4Rq858mfCFiFs/XTZfwlnx+uuYcYMBkEr7t+vHGr7i/
+	 3bIp+aBVOQtpxadtjMEoJR0aoh5pTydMhZlUhEZW+4X9jmK+oP9iATtr77WsZX+I+l
+	 tD6rg9A4+diFFnctSArK3/GBlDNIe6DrQwBbHc5ckdLqaugZefKMG2koXa/vgeNH1B
+	 1rY1hp2+4lYToz7u5eOIBhnGonlqlBUvZ8a1d8tBLc+CtmH4LdAsz7kMLaH2cvjHKT
+	 ThEaoKXn0Y3vQ==
+Date: Thu, 27 Aug 2026 14:20:15 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Brian Masney <bmasney@redhat.com>, Taniya Das <quic_tdas@quicinc.com>, 
+	Georgi Djakov <djakov@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, 
+	Robert Marko <robimarko@gmail.com>, Guru Das Srinagesh <linux@gurudas.dev>, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v3 06/15] dt-bindings: interconnect: Add Qualcomm Kuno NoC
+Message-ID: <20260827-predictable-mauve-catfish-3d5ad0@quoll>
+References: <20260821-kuno-soc-support-v3-0-196e2b306368@oss.qualcomm.com>
+ <20260821-kuno-soc-support-v3-6-196e2b306368@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <antjkuiPhsfE7e_H@e129823.arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_051604_921395_21C80E1B 
-X-CRM114-Status: GOOD (  36.78  )
+In-Reply-To: <20260821-kuno-soc-support-v3-6-196e2b306368@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,84 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 07:01:54PM +0100, Yeoreum Yun wrote:
-> > On Tue, Aug 11, 2026 at 05:56:19PM +0100, Yeoreum Yun wrote:
-> > 
-> > [...]
-> > 
-> > > > Can we treat this as a refactoring instead and split it into at least
-> > > > two patches? This would make it easier to review now and easier to
-> > > > understand later if someone will read the changes.
-> > > > 
-> > > >  - Lock refactoring
-> > > >  - SMP call refactoring
-> > > >  - active_config refactoring
-> > > 
-> > > It couldn't since separation of Lock and SMP can introduce the bug for
-> > > that patch. and the Lock and SMP call refactoring isn't meaningful
-> > > without active_config.
-> > 
-> > Each time I read through this patch, I find it a bit difficult to follow
-> > the overall logic, as it combines several changes together.
-> > 
-> > I have no strong opinion for this though. Perhaps we could split out the
-> > support for a NULL feat_csdev->drv_spinlock into a separate change
-> > first, as that seems independent and should not introduce regression.
-> 
-> If the NULL lock is separated, since it before the SMP refactoring
-> there will be a *race* for it.
-> OTOH, if SMP first, absent of NULL lock would make a deadelock.
-> 
-> So If we really want to seperate, we should the SMP and Lock
-> refactorying must be one group.
-> 
-> However, seperating the active_config from there, I'm not sure whether
-> This would really make a difficulty of backport.
-> We might separate the active_config as a cleanup but, this would require
-> also for backporting but active_config one wouldn't have a fix tag.
-> 
-> So, I think it would be better to keep as-is.
-> 
-> > 
-> > > > > +#define feat_csdev_lock(feat_csdev, flags)				\
-> > > > 
-> > > > Could use inline here?
-> > > > 
-> > > > static inline void feat_csdev_lock_irqsave(..., unsigned long *flags)
-> > > > {
-> > > >     ...
-> > > > }
-> > > 
-> > > I think this is much annyoing. since the deference might add more
-> > > instruction to save the flags. Otherwise the typecheck is for
-> > > compilet-time check and not for runtime.
-> > > 
-> > > So, it would be better to remain as-is.
-> > 
-> > An inline function provides stronger type checking at the API boundary.
-> > It is readable and easier to maintain. Dereferencing *flags would be
-> > fine, as this is not a hot path.
-> > 
-> > I was inspired by the implementation in include/linux/serial_core.h
-> > (see uart_port_lock_irqsave() and uart_port_unlock_irqrestore()).
-> 
-> I think there’s always been quite a bit of debate around this,
-> particularly regarding the maintainability of inline functions versus
-> function-like macros. Personally, I don’t find this particular function
-> any harder to read or maintain as a macro.
-> On the contrary, even though this isn’t a hot path, adding an extra
-> instruction still feels like a less preferable trade-off to me.
-> 
-> @Suzuki, What do you think? inline or macro for feat_csdev_lock_irqsave()?
+On Fri, Aug 21, 2026 at 09:38:59PM +0530, Hardeep Sharma wrote:
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - qcom,kuno-aggre-noc
+> +      - qcom,kuno-clk-virt
+> +      - qcom,kuno-cnoc-main
+> +      - qcom,kuno-dc-noc
+> +      - qcom,kuno-mc-virt
+> +      - qcom,kuno-mem-noc
+> +      - qcom,kuno-pcie-anoc
+> +      - qcom,kuno-system-noc
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
 
-Gentile ping in case of forgotten.
+Missing minItems. I asked to open other bindings to see how this is
+done. So for example you took qcom,maili-rpmh.yaml. What do you see
+there but you do not see here?
 
-> 
-> -- 
-> Sincerely,
-> Yeoreum Yun
+Best regards,
+Krzysztof
 
--- 
-Sincerely,
-Yeoreum Yun
 
