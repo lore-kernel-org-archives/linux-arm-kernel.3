@@ -4,154 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD382C61DC4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D99C61DB9
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 18:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qrrfuWLil1sBb6og+uepTDULJhDr423OHDhRzRLmRws=; b=qtoVnMif+JD4g9K3LpQDHceOs+
-	jNAiITtdzaR3tdJtWTnamuj8pG89A6jidVpgBdw49rI/zLfMaLuW9nWW2Ba1S1y4+vNQZ313qB6RJ
-	SdyVj7jfJ0WWnHMTv50m8OCQ3NXM63P2+WO+3cp252NDKLNxfGD8vj40M4kBJ4dcwGjQH0r8PBKp6
-	TE16Xul1Sqkv5FzhO5z/K9o3fcPYDnYjUfFj9EGpqVSQZazOA8HCj4aVRE2c9iKNItpbCWheiPdpM
-	WrRbAxOp5TPKo65Am0BtDALXY0SQq8LuTVInXBJ1rihLoxU9BFOJmXqFxm2JUjX2PxQgY7kB/n0pI
-	eZMLy+Fg==;
+	bh=34Dtmvt3zN7M94TyOsy1MTVXxuVNaJjKTkKoeC0jces=; b=DY2TXhi6SKjGVLvzxq1t/HLLNw
+	tka83kYt+BnVg5bxE0XhhX9xUk6c68gAGZ1hOi+ghckKrJTfdMy2ieWBqmLZ9GbdAvWolFhGPHKv8
+	7ER1F9Hii7YmtDwuT4JhECSYHuDypjR0gS3NezPqBv6pYOa90az3U/AwJpHCmb0Y5HjBCLQKzXyUU
+	Q0c8OQ/qFk3+Rgxh5tMWAsWvelo/WByjk7B6eyzkBEh7mDqrgk1kfpNj1ebg2soBCrj7vdah15qmi
+	q7wontMij0Kwcq6Lkf5E8IbyhBqAEIlc3fsW1J4li84Wy9PxnNSDcj8VzoVhFBuuVbvDJxKEjfOTo
+	FQ82MvMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzePG-00000004XwK-2Boo;
+	id 1wzePG-00000004XxB-3uQf;
 	Thu, 27 Aug 2026 18:00:54 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzeOd-00000004Xjw-1PbV
+	id 1wzePC-00000004XuJ-1wGH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 18:00:17 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67RHXg86313786
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 18:00:14 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	qrrfuWLil1sBb6og+uepTDULJhDr423OHDhRzRLmRws=; b=F5VJpukA8nWWoEm6
-	KEH7FFOV6rDAeXspvFNaG51xo6w8ZQDOBPHNSX/LrFQsATXjoSxXFSBSGYqmN8ah
-	QZ8HF2Tzjeg4lXRIfsPMXGoIJT4yo8UV5ZvfkGtWl0ax2ZlJaWObl+Ei3b2YTNoW
-	zqZMnz5tO1JcHJf5cdC+l8zDIJJf6Pm6xTQMMi8ziln2xNGard/TvD8tIZ+P0ogY
-	Q6BCwLer7SpDqOaT7NoLTpDAYkdDycnSOm6zgR0+nLhxFCe3TAWEleIsqFWUwNaV
-	34RA+5UvTlJYumqVe7IW8oac8Z38UF29rfkkvycGdFTp0wmSQ4WKVGnwP6F+6/3l
-	13bmgw==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gak561x4b-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 18:00:14 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cc1c057f480so178752a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 11:00:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787853613; x=1788458413; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qrrfuWLil1sBb6og+uepTDULJhDr423OHDhRzRLmRws=;
-        b=BeFAmfRYft1qTl7Qhu8aZJt4jfem9evW/X9eNt48E9GuYzfIqk5JujsPNXBbsHpJWd
-         0E9UYQ9duKNI1yhoVlFWDaPzW1V1Hlceqh1Y4iHGIyxODmY/7TTmlZO+ddfq1CtGQrPG
-         AWcAEEFL37czsUu2cLxWvhD3ud13y4fTQpdqYvHg9NVB5QiIyL+hW1UDBC5RXm6NgW8v
-         +vUgDCZZmNpW0ySps8H/akj+Y9R14CzqEPqFOe8j3qbfZLyNy7rBgEHqcNQGwJTMSwC5
-         S3oEt5PU9mDx78ZjXZBCk6Oh84ZyxopHwS0JCc9pp2FHB0sLor58qH8/z8nmZCDALQkS
-         +ACQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787853613; x=1788458413;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qrrfuWLil1sBb6og+uepTDULJhDr423OHDhRzRLmRws=;
-        b=FjXAPYTDrXS0EabQ5AYBbbWx20wdvV0bfoz+v0w+XUT1+cOplWbDtTt7mb0kH5JOmC
-         IFLMQN3aqNJOaKzrAWxRuz46YKPKVJ08F48dx1QYS/t3WCEGZQyDCrZE78Mnsz7QOeYW
-         xPEqxfnFyoiblsNWV0rvwnmGL03IebO02MCwHSMofm+qSWxnKfPZcH0mUAC1CepOfR38
-         b1TpEQ6saHVBorpgTSCU5YILc1Zq26/BBfMCdus9Tq6LC1YVP3wWCBWFuFuhCW1FOFzp
-         iWU3kPHLPbvE39fIUyY5JlzvohurntJLUZ6b+i3X4VJ9EJ2K0yVo/v5tdStFNsB7ULKz
-         MB4g==
-X-Forwarded-Encrypted: i=1; AHgh+RphfYwB2KAKKXtXxz1J9zJHZ0OpBXUi2DDfZCekGZUuObIqFZFzTU6xwbLqKMpb2MKPS/pgDAeMuDCIn3B9NTIg@lists.infradead.org
-X-Gm-Message-State: AFuF++loNzRskZVvnrEqvPzXprIJ2V/uG3OWE4L0wZhbP0rpyHW833n3
-	DYMYMkN1Onqun3w8WnDeLSGUIw6nmhOtzr8GJW8+aNqDXR8rXaNjooYYnHNAsd4eBM0YMx14eSK
-	zWIo5zFeANRTsucLcS0AlFBkUnj7wvCtgxVIoeukQF/YIQgvjscQxIc4+aw0DXgBFz0zTNeANkG
-	Pn2Q==
-X-Gm-Gg: AR+sD13egwUDHMRHUDMVCDoxiIEEDXxHSdzJJKhCzR9RqliTcrzQF4UOpVF2S9Vx4hv
-	vA23rqKCyk9RQJf3cAAw4yxCIunClZg19I9wvECJXgWFP26DjHqhTWWbKlZiYfuUF2peM/LoauR
-	UA/eB2lupoG5gQ4pK+2vtQTX5ey69VemEadm0EcLYnshm3m9QYd/4Al6JHNknMyF3tRQ8IFwZCe
-	EzFmFdi2hmK/O1EfNh1OfxuALe9n0fv5XHnHG9x5C3tC6jVbp1B7s52th2NlRG+Un14j1F/CVoU
-	YNBjZ+JXWLFPybOCduzowaIOBOdBGHJnRCWiB+2lgCS7D7xPY7QgNZF2ZdFuaVaELVyzDpS8Vqd
-	/aQBN6UbYVRANT5eWzHJoHCAVR8egrjVmVA==
-X-Received: by 2002:a05:6a20:b7a7:b0:3be:b0b3:3962 with SMTP id adf61e73a8af0-3d268ef9e07mr1288884637.9.1787853613284;
-        Thu, 27 Aug 2026 11:00:13 -0700 (PDT)
-X-Received: by 2002:a05:6a20:b7a7:b0:3be:b0b3:3962 with SMTP id adf61e73a8af0-3d268ef9e07mr1288711637.9.1787853612629;
-        Thu, 27 Aug 2026 11:00:12 -0700 (PDT)
-Received: from hu-ptalari-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141a905cf38sm27437523c88.12.2026.08.27.11.00.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Aug 2026 11:00:12 -0700 (PDT)
-From: Praveen Talari <praveen.talari@oss.qualcomm.com>
-Date: Thu, 27 Aug 2026 23:29:23 +0530
-Subject: [PATCH v2 6/9] spi: qcom-geni: Use geni_se_set_rate() for setting
- source clock frequency
+	Thu, 27 Aug 2026 18:00:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EEAF54048B;
+	Thu, 27 Aug 2026 18:00:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E93B1F000E9;
+	Thu, 27 Aug 2026 18:00:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787853649;
+	bh=34Dtmvt3zN7M94TyOsy1MTVXxuVNaJjKTkKoeC0jces=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=VEa7iod/ZA7FsZJcJpxmzSDKvjcN95PR5Qd4ONhy+hVd95mVVp1QMNtbgFnN7W7iU
+	 I6icjmCX6987khWYGgiV1XM9/c5RgKHfBh5g/ST1JN1iSzw7qpLwNNfyDWsx89XHaj
+	 DKHZEoGJ0Gc4xGGRvYbLIskyHsA9Y+GO2peSvKBIDZpzt5GPtEVovQ2cBuv34ofuGt
+	 AtjCDDHVI5rsOrIHMXawVh8rtL6BRhv/VPcXZOzE3cf5CNeOyxVGF7o6vtkuu3hlVX
+	 6OsChegan7zURJI9Gy/2OdBv028AOv0S7VLqdq67Ze8OZsRQ792wZ7qBXsqN3gXj+P
+	 1q/uz0r3i8bkw==
+Message-ID: <f082aff3-ec63-48fa-94c5-159ca0c5a33e@kernel.org>
+Date: Thu, 27 Aug 2026 20:00:40 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v9 01/25] mm: Introduce kpkeys
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Andy Lutomirski <luto@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+ Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+ Linu Cherian <linu.cherian@arm.com>, Linus Walleij <linusw@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
+ "Mike Rapoport (IBM)" <rppt@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
+ Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
+ <20260818-kpkeys-v9-1-743ad31b2c8f@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260818-kpkeys-v9-1-743ad31b2c8f@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-6-091697dbeb02@oss.qualcomm.com>
-References: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-0-091697dbeb02@oss.qualcomm.com>
-In-Reply-To: <20260827-derive_clk_perf_tbl_from_perf_domain_opp_table-v2-0-091697dbeb02@oss.qualcomm.com>
-To: konrad.dybcio@oss.qualcomm.com, Sudeep Holla <sudeep.holla@kernel.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Jiri Slaby <jirislaby@kernel.org>, Mark Brown <broonie@kernel.org>,
-        Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
-        Andi Shyti <andi.shyti@kernel.org>
-Cc: mukesh.savaliya@oss.qualcomm.com, chandana.chiluveru@oss.qualcomm.com,
-        arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-serial@vger.kernel.org,
-        linux-spi@vger.kernel.org, linux-i2c@vger.kernel.org,
-        Praveen Talari <praveen.talari@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787853566; l=3796;
- i=praveen.talari@oss.qualcomm.com; s=20251114; h=from:subject:message-id;
- bh=evZqvwjAfpStMv2Htuq4lxgmNHVsv9xwkVK1wPRutP8=;
- b=KdFxbJvcWSl6qfONQjLStiRv61vbIt8Jhb3N1xzP3igF569m4oAAYDp2Y2j3vj6Twd3akqVQ1
- UdZupTNLSC5Dxck/9WtwyVDWsi+sPQM65ZnK2Nmh/sQYq1pYpFEOFqc
-X-Developer-Key: i=praveen.talari@oss.qualcomm.com; a=ed25519;
- pk=NGK/88fjyHXgfhIKwag7+uIytOmyOypvZ/hDFaYPEss=
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI3MDE1MSBTYWx0ZWRfX9AWrruMskP2o
- QsFRonfbBoeRQyj3xgvE11lhQ2F3Rci8izUiVvCK2E/QdKn/vzk6hSYMD2hsYp++0W/wnP2jjCb
- Ln4bJ3g6fvsv6HFnEIUnoxOtVpFMpEI=
-X-Proofpoint-ORIG-GUID: 8NgsU2PRLEXB_5xBZ8CXaOtwFYv0PjXV
-X-Proofpoint-GUID: 8NgsU2PRLEXB_5xBZ8CXaOtwFYv0PjXV
-X-Authority-Analysis: v=2.4 cv=G+Ms1dk5 c=1 sm=1 tr=0 ts=6a907b2e cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=V8jFpX-JU2fdHFI84kkA:9 a=QEXdDO2ut3YA:10
- a=_Vgx9l1VpLgwpw_dHYaR:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI3MDE1MSBTYWx0ZWRfX/ALvc9xenVt7
- e6uu/xljyvBs1hbFKsMyVXa/t5wEmX2kb3K6UjIonnmhPM1q9YFXI6SqBvVD922JceSwPErqm4I
- PqHSc/NM4pmh/ybaihLCsZnSB3RU82tRJGHeLZqvjLSq9Y4FNtpm3t51FJqTp3p8w0GEcz8bXl1
- MYF3P7D4dW6EfJcEBzrX+pgOGI9GXlIhnDqRJKq33c6R7PlNTsVR1qERVwcbFzD+Ovbj5qi8XPt
- 5UqTwM8SgOssYPErZgnr4NYyEA2+LRSJaAAT7zLoGlAe2a8ue/3tyW2J9x0AqgiRC3H2o+0XUAx
- wXSu9uwMvEtmPxKuh3BdHcFmy1jeFlqTR+erzi2S79gvh2T8iAAXN+CdlRdMaqTfuw9kkNOibnk
- EbX+zxaexep5YPPfKgoC4nAqZMFhV1z+Ah+jMGegdbwk3T8MGNQXGGm1u6NBDJkaBap43lQvjcL
- 4QrR+Dwq9UihZsblPXw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-27_07,2026-08-27_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 adultscore=0 clxscore=1015 bulkscore=0
- phishscore=0 spamscore=0 impostorscore=0 malwarescore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608270151
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_110015_982786_F01BEBFA 
-X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,114 +132,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the SA8255P platform there is no Linux clock handler for the SE
-source clock, so the driver has no way to look up the source clock
-index and divider needed to fill the GSI CONFIG0 TRE for a requested
-transfer frequency. To work around this, firmware instead exposes the
-SE HW supported source clock frequencies as OPPs on the perf domain
-device.
+On 8/18/26 16:08, Kevin Brodsky wrote:
+> kpkeys is a simple framework to enable the use of protection keys
+> (pkeys) to harden the kernel itself. This patch introduces the basic
+> API in <linux/kpkeys.h>: a couple of functions to enter/leave a
+> kpkeys context and macros to define guard objects.
+> 
+> kpkeys introduces a new concept on top of pkeys: the kpkeys context.
+> Each context is associated with a set of permissions for the pkeys
+> managed by the kpkeys framework. kpkeys_enter_context(ctx) sets
+> those permissions according to ctx, and returns the original kpkeys
+> state (typically the arch-specific pkeys register) that is later
+> restored by calling kpkeys_leave_context(). To start with, only
+> KPKEYS_CTX_DEFAULT is available, which is meant to grant RW access
+> to KPKEYS_PKEY_DEFAULT (i.e. all memory since this is the only
+> available pkey for now).
+> 
+> The underlying representation of each kpkeys context is entirely
+> architecture-specific. Support for kpkeys must be explicitly
+> indicated by selecting ARCH_HAS_KPKEYS and defining the following
+> functions in <asm/kpkeys.h>:
+> 
+> * arch_kpkeys_enter_context()
+> * arch_kpkeys_leave_context()
+> * arch_supports_kpkeys()
+> 
+> Additionally, <asm/kpkeys_types.h> must define struct arch_kpkeys_state,
+> which typically provides storage for the pkeys register.
+> 
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+>  include/linux/kpkeys.h       | 104 +++++++++++++++++++++++++++++++++++++++++++
+>  include/linux/kpkeys_types.h |  25 +++++++++++
+>  mm/Kconfig                   |   2 +
+>  3 files changed, 131 insertions(+)
+> 
+> diff --git a/include/linux/kpkeys.h b/include/linux/kpkeys.h
+> new file mode 100644
+> index 000000000000..eac522f55214
+> --- /dev/null
+> +++ b/include/linux/kpkeys.h
+> @@ -0,0 +1,104 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +#ifndef _LINUX_KPKEYS_H
+> +#define _LINUX_KPKEYS_H
+> +
+> +#include <linux/bug.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/kpkeys_types.h>
+> +
+> +/**
+> + * KPKEYS_GUARD_NOOP() - define a guard type that does nothing
+> + * @name: the name of the guard type
+> + *
+> + * Define a guard type that does nothing, useful to match a real guard type
+> + * that is defined under an #ifdef.
+> + */
+> +#define KPKEYS_GUARD_NOOP(name)						\
+> +	__DEFINE_CLASS_IS_CONDITIONAL(name, false);			\
+> +	DEFINE_CLASS(name, bool, (void)_T, false, void);		\
+> +	static inline void *class_##name##_lock_ptr(bool *_T)		\
+> +	{ return _T; }
+> +
+> +#ifdef CONFIG_ARCH_HAS_KPKEYS
+> +
+> +#include <asm/kpkeys.h>
+> +
+> +/**
+> + * KPKEYS_GUARD_COND() - define a guard type that conditionally switches to
+> + *                       a given kpkeys context
+> + * @name: the name of the guard type
+> + * @ctx: the kpkeys context to switch to
+> + * @cond: an expression that is evaluated as condition
+> + *
+> + * Define a guard type that switches to @ctx if @cond evaluates to true,
+> + * and does nothing otherwise.
+> + */
+> +#define KPKEYS_GUARD_COND(name, ctx, cond)				\
+> +	__DEFINE_CLASS_IS_CONDITIONAL(name, false);			\
+> +	DEFINE_CLASS(name, struct kpkeys_state,				\
+> +		     kpkeys_leave_context(&_T),				\
+> +		     (cond) ? kpkeys_enter_context(ctx) :		\
+> +			      (struct kpkeys_state) {}, void);		\
+> +	static inline							\
+> +	void *class_##name##_lock_ptr(struct kpkeys_state *_T)		\
+> +	{ return _T; }
+> +
+> +/**
+> + * KPKEYS_GUARD() - define a guard type that switches to a given kpkeys context
+> + *                  if kpkeys are supported
+> + * @name: the name of the guard type
+> + * @ctx: the kpkeys context to switch to
+> + *
+> + * Define a guard type that switches to @ctx if the system supports kpkeys.
+> + */
+> +#define KPKEYS_GUARD(name, ctx)						\
+> +	KPKEYS_GUARD_COND(name, ctx, kpkeys_supported())
+> +
+> +/**
+> + * kpkeys_enter_context() - enter a kpkeys context
+> + * @ctx: the context to switch to
+> + *
+> + * Enters the specified kpkeys context. @ctx must be a compile-time constant.
+> + *
+> + * Return: state to be passed to kpkeys_leave_context().
+> + */
+> +static __always_inline
+> +struct kpkeys_state kpkeys_enter_context(enum kpkeys_ctx ctx)
+> +{
+> +	BUILD_BUG_ON_MSG(!__builtin_constant_p(ctx),
+> +			 "kpkeys_enter_context() only takes constant values");
+> +	BUILD_BUG_ON_MSG(ctx < 0 || ctx >= KPKEYS_CTX_COUNT,
+> +			 "Invalid value passed to kpkeys_enter_context()");
+> +
+> +	return arch_kpkeys_enter_context(ctx);
+> +}
+> +
+> +/**
+> + * kpkeys_leave_context() - leave a kpkeys context
+> + * @state: state returned by kpkeys_enter_context()
+> + *
+> + * Restores the state saved when entering a kpkeys context. If no context was
+> + * entered, this function does nothing.
+> + */
+> +static __always_inline
+> +void kpkeys_leave_context(const struct kpkeys_state *state)
+> +{
+> +	if (state->entered_context)
+> +		arch_kpkeys_leave_context(state);
+state->entered_context is a common code variable, but it's not set by
+commoncode. Is there a reason?
 
-geni_se_domain_attach() now populates clk_perf_tbl from
-the performance-domain OPP table, allowing firmware-managed
-platforms to use geni_se_clk_freq_match().
+IOW, should arch_kpkeys_enter_context() only return the arch parts, and
+entered_context would be set in common code?
 
-Use geni_se_set_rate() instead of dev_pm_opp_set_rate()
-so clock programming is handled centrally by the GENI core,
-independent of the underlying clock-control mechanism.
+Also, should entering bail out if the context was already entered.
 
-Acked-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Praveen Talari <praveen.talari@oss.qualcomm.com>
----
- drivers/spi/spi-geni-qcom.c | 24 +++++++++++-------------
- 1 file changed, 11 insertions(+), 13 deletions(-)
+Last but not least, when would we expect to call kpkeys_leave_context() but the
+context was not entered?
 
-diff --git a/drivers/spi/spi-geni-qcom.c b/drivers/spi/spi-geni-qcom.c
-index 6566975eb24f..03ce9eff9c24 100644
---- a/drivers/spi/spi-geni-qcom.c
-+++ b/drivers/spi/spi-geni-qcom.c
-@@ -15,7 +15,6 @@
- #include <linux/log2.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
--#include <linux/pm_opp.h>
- #include <linux/pm_runtime.h>
- #include <linux/property.h>
- #include <linux/soc/qcom/geni-se.h>
-@@ -82,7 +81,6 @@
- 
- struct geni_spi_desc {
- 	int (*resources_init)(struct geni_se *se);
--	int (*set_rate)(struct geni_se *se, unsigned long clk_freq);
- 	int (*power_on)(struct geni_se *se);
- 	int (*power_off)(struct geni_se *se);
- };
-@@ -150,9 +148,9 @@ static int get_spi_clk_cfg(unsigned int speed_hz,
- 
- 	dev_dbg(mas->dev, "req %u=>%u sclk %lu, idx %d, div %d\n", speed_hz,
- 				actual_hz, sclk_freq, *clk_idx, *clk_div);
--	ret = dev_pm_opp_set_rate(mas->dev, sclk_freq);
-+	ret = geni_se_set_rate(&mas->se, sclk_freq);
- 	if (ret)
--		dev_err(mas->dev, "dev_pm_opp_set_rate failed %d\n", ret);
-+		dev_err(mas->dev, "geni_se_set_rate failed %d\n", ret);
- 	else
- 		mas->cur_sclk_hz = sclk_freq;
- 
-@@ -847,7 +845,7 @@ static int setup_se_xfer(struct spi_transfer *xfer,
- 	}
- 
- 	/* Speed and bits per word can be overridden per transfer */
--	ret = mas->dev_data->set_rate(&mas->se, xfer->speed_hz);
-+	ret = geni_spi_set_clock_and_bw(&mas->se, xfer->speed_hz);
- 	if (ret)
- 		return ret;
- 
-@@ -1161,9 +1159,14 @@ static int __maybe_unused spi_geni_runtime_suspend(struct device *dev)
- {
- 	struct spi_controller *spi = dev_get_drvdata(dev);
- 	struct spi_geni_master *mas = spi_controller_get_devdata(spi);
-+	int ret;
-+
-+	ret = mas->dev_data->power_off ?
-+	      mas->dev_data->power_off(&mas->se) : 0;
-+	if (ret)
-+		return ret;
- 
--	return mas->dev_data->power_off ?
--	       mas->dev_data->power_off(&mas->se) : 0;
-+	return geni_se_set_rate(&mas->se, 0);
- }
- 
- static int __maybe_unused spi_geni_runtime_resume(struct device *dev)
-@@ -1178,10 +1181,7 @@ static int __maybe_unused spi_geni_runtime_resume(struct device *dev)
- 			return ret;
- 	}
- 
--	if (mas->se.has_opp)
--		return dev_pm_opp_set_rate(mas->dev, mas->cur_sclk_hz);
--
--	return 0;
-+	return geni_se_set_rate(&mas->se, mas->cur_sclk_hz);
- }
- 
- static int __maybe_unused spi_geni_suspend(struct device *dev)
-@@ -1224,14 +1224,12 @@ static const struct dev_pm_ops spi_geni_pm_ops = {
- 
- static const struct geni_spi_desc geni_spi = {
- 	.resources_init = geni_se_resources_init,
--	.set_rate = geni_spi_set_clock_and_bw,
- 	.power_on = geni_se_resources_activate,
- 	.power_off = geni_se_resources_deactivate,
- };
- 
- static const struct geni_spi_desc sa8255p_geni_spi = {
- 	.resources_init = geni_se_domain_attach,
--	.set_rate = geni_se_set_perf_opp,
- };
- 
- static const struct of_device_id spi_geni_dt_match[] = {
+If this is really arch-specific stuff, probably it should go entirely into arch
+doe. If this is common code stuff, likely it should be maintained entirely in
+common code.
+
+
+Overall this looks much cleaner to me compared to what I reviewed the last time
+(was that v8? I don't remember :D )
+
 
 -- 
-2.34.1
+Cheers,
 
+David
 
