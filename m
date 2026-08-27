@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A4B0C61DC7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB5B5C61DC2
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uzQpYO3GzJYubJwe9bU/oZAWUxm9r3xHMkEAGThKKR0=; b=YN4gHQ1ySDHbaKcGv9LVO4zsbt
-	coo6pkS/H0zkibMo9p4kSKShcwL3U0ziiqjpbmcw/cEFqm4rj2wx3swttrXEmT5mdwAfh4udE8czJ
-	i86KuWyQaVkcQoXGWGu0K3B5bRdvbD+MjWx/dYMG0fPP+aw/e1r/HAMKm9zi408WehFQR23qkUC7Q
-	N7LZO9mC4pR10O5N1aj6PL9Ib+0uvEDP47pJUYYtGAnJnbymCEwuPveAXC7UMv67J65bQQ1b3NqcS
-	6CYq9Bom/hr+npr7Oa19aDRjddrNLt5E5z/Z1/0BmWsl60eklFW/KhS88itCIhNevBc0vy8qedm0e
-	FQcOzSaA==;
+	bh=2M2OgravXbYKjFehWUR3PFTRlToH7LwA0WvnmatUgo8=; b=M97Rdowt8p/tozlEJXWDgjprkS
+	HIBL6XTcIx4afCtI3uUEfuzcydjCSz2pj3+EKtKukMTleRr+OY2/JsAfydF+LrGJ8IuYys7cEdE2r
+	DNfpHOoARbSI2lGmK8Cw44HUlSBfRnffdVo8Eu+1GN+7H+PYBraN+zlIm1cBW7ITVsDYgV0bF3B7c
+	dA4p1ryM0TMTzw93JSapneKenJ+XoZe3MYpsCaKkpDH0E7vVG7Nxs94GOLR7T1SvFMzdhcJl7fx1C
+	LAQMD+K4vo70lXl6gQyi+HIFvLZrVjbMJE/ZPVagYrcv0uVr8EPZb3U75voaws+H0M8Tki24jO3Zd
+	kVhymh7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVfE-00000003eya-0nBy;
+	id 1wzVfE-00000003ezJ-28Aq;
 	Thu, 27 Aug 2026 08:40:48 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVfD-00000003exk-2Zam;
+	id 1wzVfD-00000003exm-2ZjX;
 	Thu, 27 Aug 2026 08:40:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 18EAF43987;
+	by sea.source.kernel.org (Postfix) with ESMTP id 209A343CB1;
 	Thu, 27 Aug 2026 08:40:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C7B2CC2BCF6;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id DA36DC2BCFC;
 	Thu, 27 Aug 2026 08:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1787820046;
-	bh=NaNfG9VIpzM+1OSGZeUL4aPn9tA6VrN3YYmwZiUXjh4=;
+	bh=raey7IcSkGHwiWP9oHD9SowA1rYRlgfNL/m5FNUAnww=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=K/XL2UZ7cnkaYDOB+1ro36ujWEHvHBsp6voGnJSLubpJSusBpgotz/df6++mFp0Ko
-	 QTIWObb/v43hIBDr+sVGOnA3c/0zAorLwkVBuvjWhJSS5i3JOYU/ffZ67IsZJUTRe+
-	 ZVlUXbe+SOvjXX5Hr/HIfPUYUO1t8oKVYeyeQl7hB3HyEU3FiPq8cM0GeAP7z0wQes
-	 OlTdfv4u/9Qk/QAdA+JfDJ6y6fXfaZF7cVPCReYDM4e4G+VqhZM+weXnKrHslvlAOG
-	 4wW8lFRddlFFDBIKmGzT9+0+ae74P5Obs6zGWFUkuEtIv9km3aoV3pKAYBOiurkE+P
-	 MNJXrc6LF83Lg==
+	b=PVnXVStMqKiADJZK4H5/iy0nEtYMV/mZgjz/i0AisjNSUdLDtpMzafZInmIUAJF8H
+	 TFUdwUjGwcihgVkD7fxH77C7ibwd9uIqiSxUxrHvqHQrdl2/qPRwQpoPjuXpmB26pH
+	 gnO+39rYFMmXpULHIS2hRrt7YGwpg4YbYscss4tGve5d8rYmUzoI/9Dh5oKZ8HKf/J
+	 GbeMvwkfscRfVQNljge0kzlpEnr+zVNXGUE1UhnqWKTabHXoTobt8t0PZLdVCJt2tr
+	 rEt8HW10F4MU8PcPCL2BPzg2xib2D1bP6PhtgVKZT7fWnw2GFypJvetogebx6YFuce
+	 2FjlFDy1h+JsQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B4289C61DB9;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C4B31C61DCB;
 	Thu, 27 Aug 2026 08:40:46 +0000 (UTC)
 From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Thu, 27 Aug 2026 08:40:12 +0000
-Subject: [PATCH v4 3/4] pwm: meson: use bulk API for per-channel clocks
+Date: Thu, 27 Aug 2026 08:40:13 +0000
+Subject: [PATCH v4 4/4] pwm: meson: Add support for Amlogic S7
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260827-s6-s7-pwm-v4-3-d28a2015177d@amlogic.com>
+Message-Id: <20260827-s6-s7-pwm-v4-4-d28a2015177d@amlogic.com>
 References: <20260827-s6-s7-pwm-v4-0-d28a2015177d@amlogic.com>
 In-Reply-To: <20260827-s6-s7-pwm-v4-0-d28a2015177d@amlogic.com>
 To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
@@ -63,11 +63,11 @@ Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-amlogic@lists.infradead.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787820043; l=2584;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787820043; l=1273;
  i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=I6lbpR1bOMmChsZo3uQ/k/8BNNbhwj3qLcmflQoEjK8=;
- b=j1659NKbIuXJqxgowGvB/TkkqxEEPFicBgqlHDxBXEX9bMCN9fRiQx9seZz5ofywGTUY37R5K
- 0EH1aPdXWnQBkszh56C7j+op9cREnOXfODis0Hj3utlZ1eD5vzSxP3i
+ bh=bxanl4T1hd21Hw06PnQXj6xGMQbU+zReu1OrHg7McSk=;
+ b=0vaQo/fBgbLRHzWKS3mXgLiyVajPMUz9dbrbZVd3jjmB/2F56tL5Ry9j/ENdIlQL/PLCowQAm
+ P2g2nAg4w+RBIldLTwsxHkfgwYiA7ukj3SBodgsTJ8I/HNKY0pwBTxL
 X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
  pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
 X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
@@ -90,83 +90,48 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-The S4 PWM driver currently gets each channel clock individually with
-of_clk_get() and uses a custom cleanup action to release the clocks.
+Add support for Amlogic S7 PWM. Amlogic S7 different from the previous
+SoCs, a controller includes one pwm, at the same time,the controller has
+only one input clock source.
 
-Use devm_clk_bulk_get_all() instead to retrieve all per-channel clocks
-at once. Verify that the number of clocks matches the number of PWM
-channels and assign each clock to its corresponding channel.
-
-This also allows the per-channel clock initialization code to be shared
-by Meson PWM variants using one clock per channel.
+Also use the kernel coding style for the empty of_device_id terminator.
 
 Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- drivers/pwm/pwm-meson.c | 40 ++++++++++++++++------------------------
- 1 file changed, 16 insertions(+), 24 deletions(-)
+ drivers/pwm/pwm-meson.c | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
-index 22cefc6d5dd0..6f151464d7cc 100644
+index 6f151464d7cc..2da958231719 100644
 --- a/drivers/pwm/pwm-meson.c
 +++ b/drivers/pwm/pwm-meson.c
-@@ -497,33 +497,25 @@ static int meson_pwm_init_channels_meson8b_v2(struct pwm_chip *chip)
- 	return meson_pwm_init_clocks_meson8b(chip, mux_parent_data);
- }
- 
--static void meson_pwm_s4_put_clk(void *data)
--{
--	struct clk *clk = data;
--
--	clk_put(clk);
--}
--
--static int meson_pwm_init_channels_s4(struct pwm_chip *chip)
-+static int meson_pwm_init_channels_per_channel_clk(struct pwm_chip *chip)
- {
- 	struct device *dev = pwmchip_parent(chip);
--	struct device_node *np = dev->of_node;
- 	struct meson_pwm *meson = to_meson_pwm(chip);
--	int i, ret;
-+	struct clk_bulk_data *clks;
-+	unsigned int i;
-+	int num;
- 
--	for (i = 0; i < chip->npwm; i++) {
--		meson->channels[i].clk = of_clk_get(np, i);
--		if (IS_ERR(meson->channels[i].clk))
--			return dev_err_probe(dev,
--					     PTR_ERR(meson->channels[i].clk),
--					     "Failed to get clk\n");
--
--		ret = devm_add_action_or_reset(dev, meson_pwm_s4_put_clk,
--					       meson->channels[i].clk);
--		if (ret)
--			return dev_err_probe(dev, ret,
--					     "Failed to add clk_put action\n");
--	}
-+	num = devm_clk_bulk_get_all(dev, &clks);
-+	if (num < 0)
-+		return dev_err_probe(dev, num, "Failed to get clocks\n");
-+
-+	if (num != chip->npwm)
-+		return dev_err_probe(dev, -EINVAL,
-+				"expected %u clocks, got %d\n",
-+				chip->npwm, num);
-+
-+	for (i = 0; i < chip->npwm; i++)
-+		meson->channels[i].clk = clks[i].clk;
- 
- 	return 0;
- }
-@@ -597,7 +589,7 @@ static const struct meson_pwm_data pwm_meson_axg_v2_data = {
+@@ -595,6 +595,13 @@ static const struct meson_pwm_data pwm_s4_data = {
+ 	.npwm = 2,
  };
  
- static const struct meson_pwm_data pwm_s4_data = {
--	.channels_init = meson_pwm_init_channels_s4,
++static const struct meson_pwm_data pwm_s7_data = {
 +	.channels_init = meson_pwm_init_channels_per_channel_clk,
- 	.has_constant = true,
- 	.has_polarity = true,
- 	.npwm = 2,
++	.has_constant = true,
++	.has_polarity = true,
++	.npwm = 1,
++};
++
+ static const struct of_device_id meson_pwm_matches[] = {
+ 	{
+ 		.compatible = "amlogic,meson8-pwm-v2",
+@@ -645,7 +652,11 @@ static const struct of_device_id meson_pwm_matches[] = {
+ 		.compatible = "amlogic,meson-s4-pwm",
+ 		.data = &pwm_s4_data
+ 	},
+-	{},
++	{
++		.compatible = "amlogic,s7-pwm",
++		.data = &pwm_s7_data
++	},
++	{ }
+ };
+ MODULE_DEVICE_TABLE(of, meson_pwm_matches);
+ 
 
 -- 
 2.52.0
