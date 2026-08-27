@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BDF2C61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 18:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F6BC61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 18:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IoQU/6fzzXlG8e+LszOJee1lrSsQe+ACl9wBVnDv6zA=; b=3FDYACJ2mIJv9b98YC5PoN9nbO
-	zxgUJvASR+mVCrCrONhNawnD5Pr9suQZkWSPgrW6ZZJyn85sUsc/+C9mMLMFFhCphXbT5T8b7g/Q3
-	7AgcBX/c1JAS8uDgd5vjOgqaX1Hbim93CAOjMnVvAFkUCD5/ksnF1J8NZeeqRII4vZyeH7reK9Fus
-	vFs6qFxlUzv1gue68llChi2LcBx5ICr4P8PJajqHoNwqJB1SILFITTLfRqStelPJSUYBuwmqb/I4N
-	J6EvRaDJ4spMEQTe+CD6e09rriTBoigKXDuuxOa90dcTYq6kBqgV2PCFBco1l3zcUqovA4bx3FDw1
-	grHMHobg==;
+	bh=BLqeMPBBFLZB2XtBVAVDJSZch4XELRlb7qugskkfcMg=; b=g0HOYnw0S5N5rrEDcRIHUzu1pN
+	75hu6COr4Hz3OptirbYDVub2ZzzSSgBTvXJmFm1neyNb1QKgb7dzSJWzdLTTvx508xT399qnjl14m
+	vrbSoALuDo2GIehwvcsVCP7H1febHjzu2/FpZ7IwCYozwTeyqyuvq+/VCDRymZni3h6lyf9+X2ZzM
+	wt6dfG6LZMeB7t0Vi2sDPtpnYeGQDy8PLF5AfaDZEXl86ElnVWXiPrQBmc6PB6GVRBNxzA90q6dd5
+	esY7MarLkp6YaSt0KBpUekshrOlVSsrfepW2c3I+iJB7ABlfH1Sd1BoI/YOxwMo5e0iasA6vVac7Y
+	rszyGr9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzebM-00000004Zhr-3a9Y;
-	Thu, 27 Aug 2026 18:13:24 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wzecV-00000004ZvV-0lod;
+	Thu, 27 Aug 2026 18:14:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzebL-00000004Zh1-0TCf;
-	Thu, 27 Aug 2026 18:13:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=IoQU/6fzzXlG8e+LszOJee1lrSsQe+ACl9wBVnDv6zA=; b=dHqgXAoVmI0kVTLChoKEvm9ki1
-	0+1g6Rlq4XeWS0grpmb/rQsHCvZ8r+YlQc8p6GRYvmBcnm2TrEL61m8KpvyK/KqoiEi+QkFaHLi/m
-	iQckVUu4djA4uI/ZpGarA5rEe+WaZ28I5I504JZe+DSnPODMsG/fMnNZOiI3DjQWrfK0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wzeaz-001hnJ-8B; Thu, 27 Aug 2026 20:13:01 +0200
-Date: Thu, 27 Aug 2026 20:13:01 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Aleksei Sviridkin <f@lex.la>
-Cc: "Chester A . Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Vladimir Oltean <olteanv@gmail.com>, Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
-	Qingfang Deng <dqfext@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net v2 1/2] net: dsa: mt7530: populate lpi_interfaces to
- fix EEE support
-Message-ID: <55dbbbcf-f3b2-4e2d-bc3b-78fb0be4d843@lunn.ch>
-References: <20260824024117.46154-1-f@lex.la>
- <20260824024117.46154-2-f@lex.la>
+	id 1wzecU-00000004Zv7-0rBq;
+	Thu, 27 Aug 2026 18:14:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3233D600D9;
+	Thu, 27 Aug 2026 18:14:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2219B1F000E9;
+	Thu, 27 Aug 2026 18:14:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787854472;
+	bh=BLqeMPBBFLZB2XtBVAVDJSZch4XELRlb7qugskkfcMg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Vt4ggbUetYUKJ27EewJQTpgv3qkZTj9ozDFcDv8WygJ3eSNDoxxMV8fBzZLHs9PnA
+	 xxxnvaoZsrRyYqFAX4UZZ7TYobmBeZx/FTo05GSUCcrTcQLPNZ4Q7bH2F5eXgDrWRw
+	 EcaiZurE6opfx44t9QE5Rqn8848DD59WBL5kcMohlgZX5u+Aug4DF2lxQveaKOL0dc
+	 hxzUv8KwTUFyeWOo0IlkU+1ivw7s8z/EI6UmxNB1uUjkZsvnFefYrGbZttRPQN3kTb
+	 iYuXAjqHBj7mSV8h8Zz3m6/VaOOFGxNvypQ+ewn9m3+dCXKfZn19mHLfXQGCUTk2+X
+	 9S9YOem41Zxmw==
+Date: Thu, 27 Aug 2026 19:14:28 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Bill Roberts <bill.roberts@foss.arm.com>
+Cc: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	linux-arm-kernel@lists.infradead.org,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	linux-hardening@vger.kernel.org, linux-api@vger.kernel.org,
+	dave.hansen@linux.intel.com, rick.p.edgecombe@intel.com,
+	debug@rivosinc.com
+Subject: Re: Shadow Stack Locking Semantics between arch's
+Message-ID: <d20ccb74-69ed-45d7-a810-846904873588@sirena.org.uk>
+References: <a1946d93-370e-4ca9-85d6-60b4a20ffd47@arm.com>
+ <3bb672e0-7bc3-434f-904e-aa00394dd01f@foss.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Yf0EwlbjDAgbC5GQ"
 Content-Disposition: inline
-In-Reply-To: <20260824024117.46154-2-f@lex.la>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_111323_148801_D6150F32 
-X-CRM114-Status: GOOD (  10.28  )
+In-Reply-To: <3bb672e0-7bc3-434f-904e-aa00394dd01f@foss.arm.com>
+X-Cookie: Exercise caution in your daily affairs.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +74,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 05:41:16AM +0300, Aleksei Sviridkin wrote:
-> mt753x_phylink_get_caps() fills in lpi_capabilities and
-> lpi_timer_default but never lpi_interfaces, so phylink treats the MAC
-> as not supporting EEE: ethtool reports "Not supported" and
-> phy_disable_eee() keeps userspace locked out. That undoes what
-> commit 06dfcd4098cf ("net: dsa: mt7530: fix enabling EEE on MT7531
-> switch on all boards") arranged: EEE off by default, but enableable
-> with ethtool.
-> 
-> Copy the supported interfaces into lpi_interfaces after
-> mac_port_get_caps() has populated them, and leave the speeds above
-> 1 Gbps out for now: drop 2500BASE-X from the copy, drop MAC_2500FD
 
-Blah, blah, blah.
+--Yf0EwlbjDAgbC5GQ
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Please assume i can read the patch and understand what it does.
+On Thu, Aug 27, 2026 at 12:52:28PM -0500, Bill Roberts wrote:
 
-The commit message is about answering the question "Why?". That you
-often cannot see from the code.
+> I have noticed some semantic differences between the arches. Given this
+> example of current thread state, current thread locking state and the
+> new features requested, as shown below:
 
-    Andrew
+> unsigned long locked =3D 0x2; // Kernel Task State -> LOCK WRITE
+> unsigned long cur_val =3D 0x3; // Kernel Task State -> WRITE and SHADOWST=
+ACK
+> ENABLED
+> unsigned long new_val =3D 0x0; // Userspace Feature Change via syscall ->
+> DISABLE
 
----
-pw-bot: cr
+> | x86-64 | risc-v | arm64 |
+> | ---------- | -------- | --------- |
+> | Works=A0 | Fails=A0 | Fails=A0 =A0 =A0|
+
+I would not have expected that combination to work at all with the
+prctl() (as opposed to arch_prctl()) interface TBH, if you've locked
+write on you shouldn't be able to disable it.  The reason that works on
+x86 at the minute is that for x86 you can only change one bit at a time
+so the new value when disabling is effectively 0x2, not 0x0.
+
+> I am proposing and have questions over the following:
+> 1. What should the behavior be if you had write locked and disable the
+> shadow stack?
+> =A0 - I can argue both ways here, -EPERM or success. I think I and most a=
+rches
+> lead to failure.
+
+Given that RISC-V doesn't support control of writes it's moot there
+at the minute, and x86 currently uses arch_prctl() so will need an
+additional API, it seems the path of least resistance is to allow it.
+This also avoids locking writes (or pushes, for arm64) on effectively
+also locking enable which seems neater.
+
+> 2. riscv should check that the low bit is set in locking not just that its
+> 0, it should be 1
+
+I think for ABI compatibility RISC-V will have to continue accepting 0
+as being equivalent to locking PR_SHADOW_STACK_ENABLE (or everything,
+but it only supports that one bit right now).
+
+> 3. riscv should return -EPERM vs -EINVAL
+
+If you mean for arch_lock_shadow_stack_status() I think -EINVAL is a
+sensible error code when the system or task does not support shadow
+stacks, I'm not sure we should return -EPERM at all.  On arm64 we
+support locking any bit, not just the ones that we currently know about.
+This is for future proofing, userspace can lock unknown flags.
+
+> If we can all agree on item 1, that locked bits check can be refactored a=
+nd
+> shared in one of
+> two ways:
+> 1. within prctl itself, before the arch hook is called, we would need
+> helpers per-arch to extract the thread features and lock bits
+> 2. as a helper where folks just pass the unsigned long of the bits to get
+> the result
+
+For me option 1 seems a bit nicer, and moves more of the implementation
+into generic code which is something we should really be doing in
+general with the shadow stack support - there's a lot of cross arch
+duplication at the minute.  It has been on my list to look at this
+repitition at some point, it had been held up by the clone3() stuff but
+that seems to have died a death for now.
+
+--Yf0EwlbjDAgbC5GQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqQfoMACgkQJNaLcl1U
+h9CgJQf/RXCfxOLBrpvqx7CGBBJ+UQyh71H64Yy4Tt40trYCcoJLxK6joixB/sT7
+g0fKTvETGH7NCIr9NJqTGfvOyZ7Bf4gL2ZL79NU5zTtmWdwB21cDG7tmvoXw2mUw
+9SMS62c1y4XEpniYBz7nYA24TgB4ZkpL0J8tOPGVkol0Gjf7ZTnd80JrsdWiYbNY
+pFjWClV4iJ/MEwq0Q7dsrRY/3399co/0ZlRMp2LeLEKGce4gGKgmBAJlSv1wQ/lw
+qhofehL0NPsqRgdVjXpdoUuRwZ9/odMAZav8deL4wvZJiEtppw7em8wuTszq8NxZ
+Ct5MM4+/dYaw4Oh2ftBDOMgYjAL/lA==
+=a0+n
+-----END PGP SIGNATURE-----
+
+--Yf0EwlbjDAgbC5GQ--
 
