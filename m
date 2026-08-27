@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F0F6C61DD3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CED5C61DC4
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 14:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cALhk2fAo3M+cttMMDY+eJtrD8Y4RiB0LPwzsD3+JJM=; b=bOKfoeR3h0OGysXgMoRVzMdf+f
-	8coYSlgSKs4jUp5ZjPVRGIX9oVADCYyPn8UAL79D+ttiMpP7PfX0RKgo1nLfIdu92k2g3UWHeZR9g
-	58U6fFyYCMP3AFmlyl1OhwoaOFQMY5yx9xU1SMbOvAfVBSppy9azS9JLs7vgimzA8ScPZDDnlEPP6
-	KNhpkz8Cb8Ec9/3L3tEDgZvIRorhZTrWdirVKxVQCglGtELJGp6JP/AnaDN5ELD878TsnJDV6t0p0
-	iTHezirB5h8JsVEmw5MyuOpChz/0l/Gm3HDPrDgFy+CgLziq+ufVtY4glh9t3RJ+nGs2EgHCtlmlX
-	8cmiFdLw==;
+	bh=AnNsN8WiTpazO5Y4fsGAdj78/MqWIMSSlR+ih3NQDV8=; b=x5m+AV999bYToVcGBBXBpuTlMt
+	eDaj5hYpS8jLxMOieG13XvfaSV5NAttqhfGAfiimpEoSaajK+LvveQRPtAQ9hArRO2lUlOr6DjgNy
+	emWYRGSZziZrT3EexjkUBzHZCwAZ+RkPgi55b7cqZofreGs31XKBvE9Li2o+1ZCfJkmCvARk9Ets6
+	A3bQleNswJhq5LWnCBWZ9Wn7+q/MhYx2xP6vkAKdlixKluQrB30fE38ECsqyo6s7ACWcKGnct6Uu1
+	IDfUom7IAijOHo613u21bHwrVfZUcsF1Tligz57YvaEX0tsUOIm/FeelKJFRPjykMaWushEdKbnsF
+	h997kBng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzajE-0000000473Z-2EnY;
+	id 1wzajE-0000000474V-3fKu;
 	Thu, 27 Aug 2026 14:05:16 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzaiw-000000046wj-01ZI
+	id 1wzaix-000000046wq-3DlC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 14:05:04 +0000
+	Thu, 27 Aug 2026 14:05:05 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=cALhk2fAo3M+cttMMDY+eJtrD8Y4RiB0LPwzsD3+JJM=;
-	b=v0A8fK6vjKS7Tk4qOlSfQtq+Cn70IcL+0VqtyZPevHjVxsPUQCgmNNEtu5kImS9NopZ+XGtWN
-	9d6I8RqY6oQBSeO4gk1eX408k7EBZ4+ydorJamDzmy1KaTPFq36q6x5ILdSrrN5AU5HHt2KXowi
-	EDckLEMWGXLGDHq7c6/yBiQ=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4hW2zf3bHFz1T4Fq;
-	Thu, 27 Aug 2026 21:53:34 +0800 (CST)
+	bh=AnNsN8WiTpazO5Y4fsGAdj78/MqWIMSSlR+ih3NQDV8=;
+	b=2SOPh4ovij9EtkiNGiQgfF1B2//Opvj0WBrMKW4+1mby1nFg2LK9h6LLRCNs/tIyHvv+oN3F4
+	QB8PvGM0pzkDQa4KH9uTLuw7Ih9xtXptGA/joWNd8xc5OMxN4rXSgM2HV1cIBLVpeRwkv8j7Dbg
+	jy7UqblR2BO3Uio1b/R8Z2M=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hW30L5psXz1cyTS;
+	Thu, 27 Aug 2026 21:54:10 +0800 (CST)
 Received: from whupemo200004.china.huawei.com (unknown [7.152.184.18])
-	by mail.maildlp.com (Postfix) with ESMTPS id C13B040537;
-	Thu, 27 Aug 2026 22:04:47 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 7D01640572;
+	Thu, 27 Aug 2026 22:04:56 +0800 (CST)
 Received: from huawei.com (10.50.163.32) by whupemo200004.china.huawei.com
  (7.152.184.18) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 27 Aug
- 2026 22:04:45 +0800
+ 2026 22:04:54 +0800
 From: Sizhe Liu <liusizhe5@huawei.com>
 To: <rostedt@goodmis.org>, <mhiramat@kernel.org>,
 	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
@@ -59,9 +59,9 @@ CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
 	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
 	<prime.zeng@hisilicon.com>, <liusizhe5@huawei.com>
-Subject: [PATCH v2 1/8] perf hisi-ptt: Abstract trace data buf and offset
-Date: Thu, 27 Aug 2026 22:04:35 +0800
-Message-ID: <20260827140442.2031128-2-liusizhe5@huawei.com>
+Subject: [PATCH v2 5/8] perf hisi-ptt: Add parsing of supported message types
+Date: Thu, 27 Aug 2026 22:04:39 +0800
+Message-ID: <20260827140442.2031128-6-liusizhe5@huawei.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20260827140442.2031128-1-liusizhe5@huawei.com>
 References: <20260827140442.2031128-1-liusizhe5@huawei.com>
@@ -72,8 +72,8 @@ X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
  whupemo200004.china.huawei.com (7.152.184.18)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_070458_415729_1170F56B 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20260827_070500_193891_EEEA7985 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,177 +88,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Abstract the base address, current offset, length and packet type of
-analysing trace data into structure hisi_ptt_pkt_buf and move the step
-of current offset into the corresponding functions.
+Classify TLP messages by Header DW0 Format field and Type field for
+both 4DW and 8DW formats, according to PCIe r6.4 sec 2.2.1.1 & 2.2.1.2.
+
+Parsing packets into:
+- MWr  (Posted Memory Write request)
+- Msg  (Posted Message request)
+- Atom (Non-Posted Atomic request)
+- IO   (Non-Posted IO request)
+- CFG  (Non-Posted Configuration request)
+- CPL  (Completion request)
+
+The parsed message type is stored in pkt_buf->pkt_msg_type and will
+be used by subsequent patches to select the correct field layout for
+DW2 and DW3 printing.
 
 Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
 ---
- .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 42 +++++++++----------
- .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.h   |  9 +++-
- tools/perf/util/hisi-ptt.c                    | 20 ++++-----
- 3 files changed, 37 insertions(+), 34 deletions(-)
+ .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 62 +++++++++++++++++++
+ .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.h   | 16 +++++
+ tools/perf/util/hisi-ptt.c                    |  1 +
+ 3 files changed, 79 insertions(+)
 
 diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-index 72a877fd7236..ef72223d3854 100644
+index 00bd9309df68..e63fe1534693 100644
 --- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
 +++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-@@ -75,16 +75,17 @@ static const char * const hisi_ptt_4dw_pkt_field_name[] = {
+@@ -79,6 +79,66 @@ static const char * const hisi_ptt_4dw_pkt_field_name[] = {
  	[HISI_PTT_4DW_HEAD3]	= "Header DW3",
  };
  
--static void hisi_ptt_print_pkt(const unsigned char *buf, int pos, const char *desc)
-+static void hisi_ptt_print_pkt(struct hisi_ptt_pkt_buf *pkt_buf,
-+			       const char *desc)
- {
- 	const char *color = PERF_COLOR_BLUE;
- 	uint8_t byte;
- 	uint32_t dw;
- 	int i;
- 
--	dw = get_unaligned_le32(buf + pos);
-+	dw = get_unaligned_le32(pkt_buf->buf + pkt_buf->pos);
- 	printf(".");
--	color_fprintf(stdout, color, "  %08x: ", pos);
-+	color_fprintf(stdout, color, "  %08zx: ", pkt_buf->pos);
- 	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++) {
- 		byte = (dw >> (24 - i * 8)) & 0xFF;
- 		color_fprintf(stdout, color, "%02x ", byte);
-@@ -92,36 +93,36 @@ static void hisi_ptt_print_pkt(const unsigned char *buf, int pos, const char *de
- 	for (i = 0; i < HISI_PTT_MAX_SPACE_LEN; i++)
- 		color_fprintf(stdout, color, "   ");
- 	color_fprintf(stdout, color, "  %s\n", desc);
-+	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
- }
- 
--static int hisi_ptt_8dw_pkt_desc(const unsigned char *buf, int pos)
-+static int hisi_ptt_8dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
- {
- 	int i;
- 
- 	for (i = 0; i < HISI_PTT_8DW_TYPE_MAX; i++) {
- 		/* Do not show 8DW check field and reserved fields */
- 		if (i == HISI_PTT_8DW_CHK_AND_RSV0 || i == HISI_PTT_8DW_RSV1) {
--			pos += HISI_PTT_FIELD_LENGTH;
-+			pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
- 			continue;
- 		}
- 
--		hisi_ptt_print_pkt(buf, pos, hisi_ptt_8dw_pkt_field_name[i]);
--		pos += HISI_PTT_FIELD_LENGTH;
-+		hisi_ptt_print_pkt(pkt_buf, hisi_ptt_8dw_pkt_field_name[i]);
- 	}
- 
- 	return hisi_ptt_pkt_size[HISI_PTT_8DW_PKT];
- }
- 
--static void hisi_ptt_4dw_print_dw0(const unsigned char *buf, int pos)
-+static void hisi_ptt_4dw_print_dw0(struct hisi_ptt_pkt_buf *pkt_buf)
- {
- 	const char *color = PERF_COLOR_BLUE;
- 	uint8_t byte;
- 	uint32_t dw;
- 	int i;
- 
--	dw = get_unaligned_le32(buf + pos);
-+	dw = get_unaligned_le32(pkt_buf->buf + pkt_buf->pos);
- 	printf(".");
--	color_fprintf(stdout, color, "  %08x: ", pos);
-+	color_fprintf(stdout, color, "  %08zx: ", pkt_buf->pos);
- 	for (i = 0; i < HISI_PTT_FIELD_LENGTH; i++) {
- 		byte = (dw >> (24 - i * 8)) & 0xFF;
- 		color_fprintf(stdout, color, "%02x ", byte);
-@@ -139,27 +140,26 @@ static void hisi_ptt_4dw_print_dw0(const unsigned char *buf, int pos)
- 		      "SO", FIELD_GET(HISI_PTT_HEAD0_4DW_SO, dw),
- 		      "Length", FIELD_GET(HISI_PTT_HEAD0_4DW_LEN, dw),
- 		      "Time", FIELD_GET(HISI_PTT_HEAD0_4DW_TIME, dw));
++/* TLP message parsers below according to PCIe r6.4 sec 2.2.1.1 & 2.2.1.2 */
++static bool hisi_ptt_is_mwr_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0x2 || format == 0x3) && (type == 0);
++}
 +
-+	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
- }
- 
--static int hisi_ptt_4dw_pkt_desc(const unsigned char *buf, int pos)
-+static int hisi_ptt_4dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
++static bool hisi_ptt_is_msg_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0x1 || format == 0x3) && ((type & 0x18) == 0x10);
++}
++
++static bool hisi_ptt_is_io_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0 || format == 0x2) && (type == 0x2);
++}
++
++static bool hisi_ptt_is_atomic_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0x2 || format == 0x3) &&
++	       (type == 0xc || type == 0xd || type == 0xe);
++}
++
++static bool hisi_ptt_is_cfg_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0 || format == 0x2) && (type == 0x4 || type == 0x5);
++}
++
++static bool hisi_ptt_is_cpl_tlp(uint32_t format, uint32_t type)
++{
++	return (format == 0  || format == 0x2) && (type == 0xa || type == 0xb);
++}
++
++static int hisi_ptt_parse_pkt_msg_type(uint32_t dw,
++				       enum hisi_ptt_pkt_type pkt_type)
++{
++	uint32_t format, type;
++
++	format = (pkt_type == HISI_PTT_4DW_PKT) ?
++		  FIELD_GET(HISI_PTT_HEAD0_4DW_FORMAT, dw) :
++		  FIELD_GET(HISI_PTT_HEAD0_8DW_FORMAT, dw);
++	type = (pkt_type == HISI_PTT_4DW_PKT) ?
++		FIELD_GET(HISI_PTT_HEAD0_4DW_TYPE, dw) :
++		FIELD_GET(HISI_PTT_HEAD0_8DW_TYPE, dw);
++
++	if (hisi_ptt_is_mwr_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_MWR;
++	else if (hisi_ptt_is_msg_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_MSG;
++	else if (hisi_ptt_is_atomic_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_ATOM;
++	else if (hisi_ptt_is_io_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_IO;
++	else if (hisi_ptt_is_cfg_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_CFG;
++	else if (hisi_ptt_is_cpl_tlp(format, type))
++		return HISI_PTT_PKT_TYPE_CPL;
++
++	return HISI_PTT_PKT_TYPE_UNKNOWN;
++}
++
+ static void hisi_ptt_print_raw_record(size_t offset, uint32_t value)
  {
- 	int i;
+ 	const char *color = PERF_COLOR_BLUE;
+@@ -114,6 +174,8 @@ static void hisi_ptt_print_head0(struct hisi_ptt_pkt_buf *pkt_buf)
+ 	uint32_t dw;
  
--	hisi_ptt_4dw_print_dw0(buf, pos);
--	pos += HISI_PTT_FIELD_LENGTH;
-+	hisi_ptt_4dw_print_dw0(pkt_buf);
+ 	dw = get_unaligned_le32(pkt_buf->buf + pkt_buf->pos);
++	pkt_buf->pkt_msg_type = hisi_ptt_parse_pkt_msg_type(dw,
++							    pkt_buf->pkt_type);
+ 	hisi_ptt_print_raw_record(pkt_buf->pos, dw);
  
--	for (i = 0; i < HISI_PTT_4DW_TYPE_MAX; i++) {
--		hisi_ptt_print_pkt(buf, pos, hisi_ptt_4dw_pkt_field_name[i]);
--		pos += HISI_PTT_FIELD_LENGTH;
--	}
-+	for (i = 0; i < HISI_PTT_4DW_TYPE_MAX; i++)
-+		hisi_ptt_print_pkt(pkt_buf, hisi_ptt_4dw_pkt_field_name[i]);
- 
- 	return hisi_ptt_pkt_size[HISI_PTT_4DW_PKT];
- }
- 
--int hisi_ptt_pkt_desc(const unsigned char *buf, int pos, enum hisi_ptt_pkt_type type)
-+int hisi_ptt_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
- {
--	if (type == HISI_PTT_8DW_PKT)
--		return hisi_ptt_8dw_pkt_desc(buf, pos);
-+	if (pkt_buf->pkt_type == HISI_PTT_8DW_PKT)
-+		return hisi_ptt_8dw_pkt_desc(pkt_buf);
- 
--	return hisi_ptt_4dw_pkt_desc(buf, pos);
-+	return hisi_ptt_4dw_pkt_desc(pkt_buf);
- }
+ 	if (pkt_buf->pkt_type == HISI_PTT_4DW_PKT)
 diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
-index 3b349fcc24ae..6747878b030e 100644
+index 6747878b030e..9d98362d76b1 100644
 --- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
 +++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
-@@ -38,6 +38,13 @@ static int hisi_ptt_pkt_size[] = {
+@@ -27,6 +27,10 @@
+ #define HISI_PTT_HEAD0_4DW_TYPE		GENMASK_U32(29, 25)
+ #define HISI_PTT_HEAD0_4DW_FORMAT	GENMASK_U32(31, 30)
+ 
++/* Header DW0 fields for 8DW format */
++#define HISI_PTT_HEAD0_8DW_TYPE		GENMASK_U32(28, 24)
++#define HISI_PTT_HEAD0_8DW_FORMAT	GENMASK_U32(31, 29)
++
+ enum hisi_ptt_pkt_type {
+ 	HISI_PTT_4DW_PKT,
+ 	HISI_PTT_8DW_PKT,
+@@ -38,11 +42,23 @@ static int hisi_ptt_pkt_size[] = {
  	[HISI_PTT_8DW_PKT]	= 32,
  };
  
--int hisi_ptt_pkt_desc(const unsigned char *buf, int pos, enum hisi_ptt_pkt_type type);
-+struct hisi_ptt_pkt_buf {
-+	const unsigned char *buf;
-+	size_t pos;
-+	size_t len;
-+	enum hisi_ptt_pkt_type pkt_type;
++enum hisi_ptt_pkt_msg_type {
++	HISI_PTT_PKT_TYPE_UNKNOWN,       /* Types do not support analysis */
++	HISI_PTT_PKT_TYPE_MWR,           /* P-(MemWr) */
++	HISI_PTT_PKT_TYPE_MSG,           /* P-(Message) */
++	HISI_PTT_PKT_TYPE_ATOM,          /* NP-(Atomic) */
++	HISI_PTT_PKT_TYPE_IO,            /* NP-(IO) */
++	HISI_PTT_PKT_TYPE_CFG,           /* NP-(CFG) */
++	HISI_PTT_PKT_TYPE_CPL,           /* CPL-(CPL) */
++	HISI_PTT_PKT_TYPE_MAX
 +};
 +
-+int hisi_ptt_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf);
+ struct hisi_ptt_pkt_buf {
+ 	const unsigned char *buf;
+ 	size_t pos;
+ 	size_t len;
+ 	enum hisi_ptt_pkt_type pkt_type;
++	enum hisi_ptt_pkt_msg_type pkt_msg_type;
+ };
  
- #endif
+ int hisi_ptt_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf);
 diff --git a/tools/perf/util/hisi-ptt.c b/tools/perf/util/hisi-ptt.c
-index e73c57f9e8a4..ea659947c27f 100644
+index ea659947c27f..78817ae7a8ea 100644
 --- a/tools/perf/util/hisi-ptt.c
 +++ b/tools/perf/util/hisi-ptt.c
-@@ -57,22 +57,18 @@ static void hisi_ptt_dump(struct hisi_ptt *ptt __maybe_unused,
- 			  unsigned char *buf, size_t len)
- {
- 	const char *color = PERF_COLOR_BLUE;
--	enum hisi_ptt_pkt_type type;
--	size_t pos = 0;
--	int pkt_len;
-+	struct hisi_ptt_pkt_buf pkt_buf;
- 
--	type = hisi_ptt_check_packet_type(buf, len);
--	len = round_down(len, hisi_ptt_pkt_size[type]);
-+	pkt_buf.buf = buf;
-+	pkt_buf.pos = 0;
-+	pkt_buf.pkt_type = hisi_ptt_check_packet_type(buf, len);
-+	pkt_buf.len = round_down(len, hisi_ptt_pkt_size[pkt_buf.pkt_type]);
+@@ -63,6 +63,7 @@ static void hisi_ptt_dump(struct hisi_ptt *ptt __maybe_unused,
+ 	pkt_buf.pos = 0;
+ 	pkt_buf.pkt_type = hisi_ptt_check_packet_type(buf, len);
+ 	pkt_buf.len = round_down(len, hisi_ptt_pkt_size[pkt_buf.pkt_type]);
++	pkt_buf.pkt_msg_type = HISI_PTT_PKT_TYPE_UNKNOWN;
  	color_fprintf(stdout, color, ". ... HISI PTT data: size %zu bytes\n",
--		      len);
-+		      pkt_buf.len);
- 
--	while (len > 0) {
--		pkt_len = hisi_ptt_pkt_desc(buf, pos, type);
--		if (!pkt_len)
-+	while (pkt_buf.pos < pkt_buf.len) {
-+		if (!hisi_ptt_pkt_desc(&pkt_buf))
- 			color_fprintf(stdout, color, " Bad packet!\n");
--
--		pos += pkt_len;
--		len -= pkt_len;
- 	}
- }
+ 		      pkt_buf.len);
  
 -- 
 2.33.0
