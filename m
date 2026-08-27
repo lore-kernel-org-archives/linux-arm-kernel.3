@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC07C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:41:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B5DC61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7AmU12qta8q1ZlLeKuVSRYaRMaQCNUV37Kfk60bXIpI=; b=LeJ1DYuEf5gAik60XmHxfb7hIM
-	fZxomTCtcHpfdvqwa5qt4tSLM47URwKorqKwsjTzPGNMkHGfCqpc+S3J7jVgGcllumtca1xi0eXzx
-	jStCTKDb2htKW/k2mhLXmptVAaX6KiSgNrfhmPAF3W6QpTY0zI79eh7767uN+fq1Ulypr5SveDoPw
-	2acCVSn6K+/6+a7beqSPlo8Z4OmiuD3zAtjq5FxtGHH/bHXM1Pf0ChmuxrhZiUfx7Sa06L5DsXj9j
-	hRlpCKj6HUynwy//CzD9fXYB8UO7H9A3a/uVTUwRs7HZg/f/3YNWSbobAJVeKb74IRP+WhmyrEcY3
-	imqqpkHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lhxuzSSCiA9yo+vWB5G26kPpXv6+d3Y2XXAaEPMMCxs=; b=qP8c5Ih7R+/01bI5JrXnwmDWL7
+	vN6yLs7XwLiR7xLRhCyAzXMt6PodlFG1bbabbzXQGqk515MP6VVp+YyjiQLppJcJb6gGII2dxKw82
+	C1PSM/c1ZSrjbBMC418obmmD49u6qsCTHe5Z0S70jbUGCh9LSvEH4UWah8EeckjoN1sruUnDZzkV7
+	Usu4MbMZf5p36jS+T1WQdIj5NB3Bm3XloXr6mBiz4YFnYWo4gvPph5h40Gb4S5rJGsbCdm0sSDs/8
+	6y4CwTx9xBgzyLt/0qxOWtdpMhuBPZHgvo9jUzSk7RQEyXUaoeDaeOz05x8F3nxccGppaKPYJoXBH
+	5sJTwSRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVfi-00000003fJI-1PBI;
-	Thu, 27 Aug 2026 08:41:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVfd-00000003fGz-1mhi
+	id 1wzVkr-00000003g2T-25rX;
+	Thu, 27 Aug 2026 08:46:37 +0000
+Received: from mail-106113.protonmail.ch ([79.135.106.113])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzVkn-00000003g0T-0kg6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 08:41:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7FC191691;
-	Thu, 27 Aug 2026 01:41:08 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2D2293F85F;
-	Thu, 27 Aug 2026 01:41:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787820072; bh=vvhgs5kUI78wRuI2nWyZ8yrPiCiHvcGyGw9bisUEkfQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iU94Tvd1ILay26FL1QzG2god2cUN9C+gWw2/2/FoHU6IXZjRCaaPQGmfTvuDPGX/e
-	 aXHME8J6SNADrjbksz1gyYfA67cecCeRhOhseeGkx5Wr9r5W60f68Ul8ezUwHRRPbL
-	 zb3TNP2BhM3i+3HCOFoZULWbI0zjfeYGdJ+9SiWU=
-Message-ID: <0b2c58d2-cc82-4c68-aaa2-83449d0b48c1@arm.com>
-Date: Thu, 27 Aug 2026 09:41:09 +0100
+	Thu, 27 Aug 2026 08:46:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=geanix.com;
+	s=protonmail; t=1787820387; x=1788079587;
+	bh=lhxuzSSCiA9yo+vWB5G26kPpXv6+d3Y2XXAaEPMMCxs=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:From:To:
+	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=fxufw8H0rYVX0gljTC5cW7Dhns3IVfsPfCCEX1pNfUN5a1WWscThCRevNWLM+blBu
+	 2Y7742Ge+XrsVrn+G1pej7VUnDqTSK1o2blfkGefEnFIzA2Fnfb+ggkxb6+ehs5rYm
+	 b7FiXHXj3p25EI4kHmzNuuU2DnvhDH1K0zjzXSIPHuuHu72pgTaM5VSO45b40jwB+4
+	 h6g6YaGVA9de+tlnbIHT1aLQSL4mwGLHJmJ9Dd/4iJoSFJME/mlioSrA71of3NfjOn
+	 RGpvgf6aG+QUU4ZhreRtk6M+Ebdwlzo7icT6MsTj/gcSPtJEZWrNanj48OfaxFbEVJ
+	 WPM/frx12sBuA==
+X-Pm-Submission-Id: 4hVw9F285Pz1DFFg
+From: Esben Haabendal <esben@geanix.com>
+To: "Rosen Penev" <rosenp@gmail.com>
+Cc: <netdev@vger.kernel.org>,  "Andrew Lunn" <andrew+netdev@lunn.ch>,
+  "David S. Miller" <davem@davemloft.net>,  "Eric Dumazet"
+ <edumazet@google.com>,  "Jakub Kicinski" <kuba@kernel.org>,  "Paolo Abeni"
+ <pabeni@redhat.com>,  "Michal Simek" <michal.simek@amd.com>,
+  <linux-arm-kernel@lists.infradead.org>,  <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net] net: ll_temac: Return actual error from
+ of_get_mac_address()
+In-Reply-To: <20260827012439.162651-1-rosenp@gmail.com> (Rosen Penev's message
+	of "Wed, 26 Aug 2026 18:24:39 -0700")
+References: <mWYTdXJIk1gD3_qHzfnWHAAyTs0Hh4I5P02_nisIqJdxRWM6DIMgOL9bIxaQqDTx37ldTpEm-0MsQQ3BWkTs9g==@protonmail.internalid>
+	<20260827012439.162651-1-rosenp@gmail.com>
+Date: Thu, 27 Aug 2026 10:46:24 +0200
+Message-ID: <87ik4wymqn.fsf@geanix.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: arm64: MPAM2_EL2 and MPAMHCR_EL2 are left UNKNOWN under
- arm64.nompam
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Xi Ruoyao <xry111@xry111.site>, James Morse <james.morse@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>,
- "moderated list:ARM64 PORT (AARCH64 ARCHITECTURE)"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <CA+EHjTxeWxZiuSmnKLGLxTBXP4oJT7-LuffbPAyCSZZ5TW=5Ew@mail.gmail.com>
- <a491ea12-b0f6-43e4-bb5d-dba508120bfb@arm.com>
- <CA+EHjTy0jCbEb0K7Sd_+X-Ly_6fC3vuPxmyTVRkqkF_DAFMucA@mail.gmail.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <CA+EHjTy0jCbEb0K7Sd_+X-Ly_6fC3vuPxmyTVRkqkF_DAFMucA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_014114_950485_2FF5D7ED 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20260827_014634_289975_BADBC5EF 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,75 +74,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fuad,
+"Rosen Penev" <rosenp@gmail.com> writes:
 
-On 26/08/2026 23:08, Fuad Tabba wrote:
-> Hi Ben,
-> 
-> On Wed, 26 Aug 2026 at 15:48, Ben Horgan <ben.horgan@arm.com> wrote:
-> ...
->>> I was wondering whether that was deliberate. AFAICT, restoring the
->>> writes would trap to EL3 wherever MPAM3_EL3.TRAPLOWER is still set, so
->>> it may not be safe on the machines the override was added for. I have
->>> a patch restoring them, but I learned my lesson.
->>
->> Yes, on a system where the firmware ignores MPAM, MPAM3_EL3.TRAPLOWER will be 1 and the traps won't
->> handled and so if MPAM2_EL2 or MPAMHCR_EL2 are touched to disable the traps then the f/w will panic.
->> As you say, if arm64.nompam is set on a platform where f/w has cleared MPAM3_EL3.TRAPLOWER to 0 then
->> the MPAM registers may or not trap . This is different from other features because the EL2 register
->> than configures the traps is MPAM specific and not in a generic register e.g. CPTR_EL2.
-> 
-> Marc's "Fully disable configured-out features" series [1] runs into
-> this too. MPAM may be the family member EL2 cannot put into a defined
-> state on its own.
-> 
->> There seems to be no way round this other than documenting that you should only set arm64.nompam if
->> you are sure that MPAM3_El3.TRAPLOWER is 1 as you otherwise have a side channel. What do you think?
-> 
-> Documentation it is, I'm afraid... :)
-> 
-> Is there any way to find out what MPAM3_EL3.TRAPLOWER is set to?
+> When of_get_mac_address() fails, return the actual error code (rc)
+> instead of the hardcoded -ENODEV. This preserves the original error
+> information, which may be more specific (e.g., -EINVAL, -EPROBE_DEFER)
+> and helps callers handle the failure appropriately.
+>
+> Fixes: 8425c41d1ef7 ("net: ll_temac: Extend support to non-device-tree platforms")
+> Assisted-by: opencode:big-pickle
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>  drivers/net/ethernet/xilinx/ll_temac_main.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/net/ethernet/xilinx/ll_temac_main.c b/drivers/net/ethernet/xilinx/ll_temac_main.c
+> index 711ed9c2631b..81ec73e6e4c1 100644
+> --- a/drivers/net/ethernet/xilinx/ll_temac_main.c
+> +++ b/drivers/net/ethernet/xilinx/ll_temac_main.c
+> @@ -1581,7 +1581,7 @@ static int temac_probe(struct platform_device *pdev)
+>  		rc = of_get_mac_address(temac_np, addr);
+>  		if (rc) {
+>  			dev_err(&pdev->dev, "could not find MAC address\n");
+> -			return -ENODEV;
+> +			return rc;
+>  		}
+>  		temac_init_mac_address(ndev, addr);
+>  	} else if (pdata) {
+> --
+> 2.55.0
 
-No
-
- If
-> not, could the caveat go the other way round: arm64.nompam is for
-> systems where firmware ignores MPAM, and should only be set on a
-> machine that does not boot without it?
-
-Yes, seems fine.
-
-> 
-> __activate_traps_mpam() is gated on the same ID fields the override
-> clears, so KVM stops trapping guest accesses to MPAM0_EL1, MPAM1_EL1
-> and MPAMIDR_EL1, while still hiding the ID field.
-> 
-> I will send a patch for Documentation/arch/arm64/mpam.rst, unless you
-> or James think it belongs elsewhere.
-
-Thanks! Ok with me assuming you also add a reference in
-Documentation/admin-guide/kernel-parameters.txt, e.g. "See Documentation/arch/arm64/mpam.rst".
-
-Ben
-
-> 
-> Cheers,
-> /fuad
-> 
-> [1] https://lore.kernel.org/all/20260302115653.1517326-1-maz@kernel.org/
-> 
-> 
->>
->> Thanks,
->>
->> Ben
->>
->>
->>>
->>> Cheers,
->>> /fuad
->>>
->>> [1] https://lore.kernel.org/all/20260825164219.3347229-1-fuad.tabba@linux.dev/
->>
-
+Acked-by: Esben Haabendal <esben@geanix.com>
 
