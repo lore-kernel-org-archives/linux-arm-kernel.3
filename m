@@ -4,108 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 610F9C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 09:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69F28C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 09:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hhwaGCY+npzO6o5a+bXYl+EKkArH4ztKeTfC+FHs8fo=; b=a3BKzTCBNUxL5I9AfQTDSqsWPz
-	ORgr2AmhVAain0aIY/5l6jeceyRbfdfhRlJ2ItYgGT6g9M3MVmJ+0A2soGpgIYdNvSNOPYeEsy37+
-	9qFMQZaz4SFvVhCqA4JTC4wzHLBDkSz0T6EZRGvQirq4xgatiBuXFnQ4bVQG0xJ5florQYLM646wi
-	mXjO06KOzeDOTtHvFk9fGHut5XZllG6p2xLoXUbA+YxjI3d7Ilrt7pa3eCV9kFDLdvXlPZM4AqVQz
-	D/qoxQz1s7LNO6YadLYalKDqSC8wyPW6fX6Z0jfdM544qNQ+jmCM4yx7s0xtrGTh8Jo2Xgby8PY+Q
-	P9G4h7tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+/4zG/rocKpdtGp5a19MvF6vR/w5a841RTKI8Ud0lAA=; b=DP1xHXxmKpo0/Q2D6aGmNV7JA3
+	sRgmFRRFZUk0HrP2JNFah0OSpcR5yG61drzLQseOnbVk4d02rtBvhfyoAwerGOje1VXeMP2Hu5Mve
+	IQS0MfZbO1LlvMZ1v9KIAR5HBtngxGLOMpelDbsWMLpkzNISsM/8duE8e1qJ/aIrLU4E8X54YSowg
+	i8rhm4FmkyAPUFSu4JG9Olu8waNjDIK8uR1REeAF/qHoq3Y+ZBneI/mhgl/8HH+wubBJQ0JQ2eKQr
+	/fTHN2Kk/2D3fc2+I7Z3GOQ15Hkvtc9sO3Ib4ARCEouXhstrtt/YyIQjQ4xjh1dzyFw2EZ5ktKwaJ
+	qQJ8pqEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzWHJ-00000003j7X-2RCo;
-	Thu, 27 Aug 2026 09:20:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wzWNT-00000003k8T-3nTX;
+	Thu, 27 Aug 2026 09:26:31 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzWHI-00000003j7K-11x7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 09:20:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A275C41074;
-	Thu, 27 Aug 2026 09:20:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0303B1F000E9;
-	Thu, 27 Aug 2026 09:20:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787822407;
-	bh=hhwaGCY+npzO6o5a+bXYl+EKkArH4ztKeTfC+FHs8fo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AuG3mNlOyh+HXgIESgfd1Bv/EwiIeqql5yd0+h2/IpnUkUPDfar5naGN51Ydiq5ed
-	 wW1V8hBRRibAwRy/IGq5c0bwbkGsfCFhY706zHT2aJp206k28RihkPJ0zxAu1hCJbF
-	 /QxYhlltLtt6pWGWw0dUDCxAaJaCwF7C2Lid0NB3Q492/Yy0pAvFEtlB+yXCcRTJM3
-	 A7X8XKnhk+yCPZPJ0KcHfROni2sMlXfYtx3SUr/I814iU3i9WRnzla/jVWDWhRA/Ek
-	 NAXL11iM/4B5diVHRp35+Hb6TiEWhvW96XcSEPI6lk2MSpojq3XO7mL9+6CS8MzYa3
-	 fthZIN4xHeQBw==
-Message-ID: <b8c36aae-e1c3-4a7e-a9aa-c11b552c1f23@kernel.org>
-Date: Thu, 27 Aug 2026 11:20:01 +0200
+	id 1wzWNO-00000003k7d-3l6z;
+	Thu, 27 Aug 2026 09:26:28 +0000
+X-UUID: 5e114904a1f911f1acbe4559397dec65-20260827
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=+/4zG/rocKpdtGp5a19MvF6vR/w5a841RTKI8Ud0lAA=;
+	b=rJ2Iecz1PCMOy4UclRsxTpu6zFVaUHgPWkOT4S8tCuZ5nyBqO2kaZ8MlLQ0DgZjETPkWm5y5sD2M8NH3jWIKiMI45qitvcUfer8xY0/RhEop+rphT8n+AeBVi54A80qpN1mb+qfgRIdnXXxuQslZMIEn1ca3eHrumGmkaR7ggqU=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:b65e24c9-59de-4193-8405-d6bd3be63b03,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:70d969b9-70a6-46ee-89b5-5e757858aa60,B
+	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
+	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 5e114904a1f911f1acbe4559397dec65-20260827
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+	(envelope-from <wanming.gao@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1370686309; Thu, 27 Aug 2026 02:26:22 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 27 Aug 2026 17:26:19 +0800
+Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Thu, 27 Aug 2026 17:26:18 +0800
+From: Wanming Gao <wanming.gao@mediatek.com>
+To: Tzung-Bi Shih <tzungbi@kernel.org>, Wim Van Sebroeck
+	<wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-watchdog@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<wanming.gao@mediatek.com>, <wallace.yu@mediatek.com>,
+	<Jarried.Lin@mediatek.com>, <vince-wl.liu@mediatek.com>
+Subject: [PATCH v2] watchdog: mediatek: acknowledge pretimeout interrupt
+Date: Thu, 27 Aug 2026 17:26:12 +0800
+Message-ID: <20260827092616.2724197-1-wanming.gao@mediatek.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/6] dt-bindings: spmi: apple,spmi: Add t603x and t8122
-To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20260818-t603x-spmi-v7-0-dafebe6e7739@chaosmail.tech>
- <20260818-t603x-spmi-v7-1-dafebe6e7739@chaosmail.tech>
- <20260827-curvy-competent-bee-fcd81d@quoll>
- <E0136D1E-4CB0-44A8-BB70-D499F113D211@chaosmail.tech>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <E0136D1E-4CB0-44A8-BB70-D499F113D211@chaosmail.tech>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260827_022626_955014_6AD3EA16 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,23 +87,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/08/2026 11:17, Sasha Finkelstein wrote:
-> On Aug 27, 2026, at 11:15, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On Tue, Aug 18, 2026 at 08:32:40PM +0200, Sasha Finkelstein wrote:
->>>
->>> -required:
->>> -  - compatible
->>> -  - reg
->>
->> This stays. Which device does not need reg or compatible? I think none.
-> 
-> I have moved it to the else: section of the if/then below, so it is 
-> still present
-> 
+The MediaTek watchdog pretimeout interrupt is level-triggered and does
+not have a separate acknowledge register. The interrupt is cleared by
+changing WDT_MODE_IRQ_LEVEL_EN and then restoring it to its original
+state. Without this transition, the interrupt may remain asserted and
+cause an interrupt storm.
 
-But it should not be moved. It's a valid code.
+After changing WDT_MODE_IRQ_LEVEL_EN, wait 70 us before restoring it.
+This is longer than two 32 kHz watchdog clock cycles, allowing the
+level change to propagate across the clock domain.
 
-Best regards,
-Krzysztof
+WDT_MODE is also updated by the watchdog start, stop, and pretimeout
+operations. Protect its read-modify-write sequences and the complete
+IRQ acknowledge sequence with the watchdog spinlock so that concurrent
+updates cannot overwrite the temporary IRQ level state.
+
+Signed-off-by: Wanming Gao <wanming.gao@mediatek.com>
+---
+ drivers/watchdog/mtk_wdt.c | 62 ++++++++++++++++++++++++++++++++++----
+ 1 file changed, 56 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/watchdog/mtk_wdt.c b/drivers/watchdog/mtk_wdt.c
+index d9c30e4c80e3..ddc4d2ff9d9f 100644
+--- a/drivers/watchdog/mtk_wdt.c
++++ b/drivers/watchdog/mtk_wdt.c
+@@ -35,6 +35,7 @@
+ #define WDT_MAX_TIMEOUT		31
+ #define WDT_MIN_TIMEOUT		2
+ #define WDT_LENGTH_TIMEOUT(n)	((n) << 5)
++#define WDT_IRQ_LEVEL_SYNC_US	70
+ 
+ #define WDT_LENGTH		0x04
+ #define WDT_LENGTH_KEY		0x8
+@@ -49,6 +50,7 @@
+ #define WDT_MODE_EXRST_EN	(1 << 2)
+ #define WDT_MODE_IRQ_EN		(1 << 3)
+ #define WDT_MODE_AUTO_START	(1 << 4)
++#define WDT_MODE_IRQ_LEVEL_EN	(1 << 5)
+ #define WDT_MODE_DUAL_EN	(1 << 6)
+ #define WDT_MODE_CNT_SEL	(1 << 8)
+ #define WDT_MODE_KEY		0x22000000
+@@ -72,7 +74,7 @@ static unsigned int timeout;
+ struct mtk_wdt_dev {
+ 	struct watchdog_device wdt_dev;
+ 	void __iomem *wdt_base;
+-	spinlock_t lock; /* protects WDT_SWSYSRST reg */
++	spinlock_t lock; /* protects WDT_MODE and WDT_SWSYSRST reg */
+ 	struct reset_controller_dev rcdev;
+ 	bool disable_wdt_extrst;
+ 	bool reset_by_toprgu;
+@@ -212,8 +214,6 @@ static int toprgu_register_reset_controller(struct platform_device *pdev,
+ 	int ret;
+ 	struct mtk_wdt_dev *mtk_wdt = platform_get_drvdata(pdev);
+ 
+-	spin_lock_init(&mtk_wdt->lock);
+-
+ 	mtk_wdt->rcdev.owner = THIS_MODULE;
+ 	mtk_wdt->rcdev.nr_resets = rst_num;
+ 	mtk_wdt->rcdev.ops = &toprgu_reset_ops;
+@@ -302,12 +302,15 @@ static int mtk_wdt_stop(struct watchdog_device *wdt_dev)
+ {
+ 	struct mtk_wdt_dev *mtk_wdt = watchdog_get_drvdata(wdt_dev);
+ 	void __iomem *wdt_base = mtk_wdt->wdt_base;
++	unsigned long flags;
+ 	u32 reg;
+ 
++	spin_lock_irqsave(&mtk_wdt->lock, flags);
+ 	reg = readl(wdt_base + WDT_MODE);
+ 	reg &= ~WDT_MODE_EN;
+ 	reg |= WDT_MODE_KEY;
+ 	iowrite32(reg, wdt_base + WDT_MODE);
++	spin_unlock_irqrestore(&mtk_wdt->lock, flags);
+ 
+ 	return 0;
+ }
+@@ -317,12 +320,14 @@ static int mtk_wdt_start(struct watchdog_device *wdt_dev)
+ 	u32 reg;
+ 	struct mtk_wdt_dev *mtk_wdt = watchdog_get_drvdata(wdt_dev);
+ 	void __iomem *wdt_base = mtk_wdt->wdt_base;
++	unsigned long flags;
+ 	int ret;
+ 
+ 	ret = mtk_wdt_set_timeout(wdt_dev, wdt_dev->timeout);
+ 	if (ret < 0)
+ 		return ret;
+ 
++	spin_lock_irqsave(&mtk_wdt->lock, flags);
+ 	reg = ioread32(wdt_base + WDT_MODE);
+ 	if (wdt_dev->pretimeout)
+ 		reg |= (WDT_MODE_IRQ_EN | WDT_MODE_DUAL_EN);
+@@ -334,6 +339,7 @@ static int mtk_wdt_start(struct watchdog_device *wdt_dev)
+ 		reg |= WDT_MODE_CNT_SEL;
+ 	reg |= (WDT_MODE_EN | WDT_MODE_KEY);
+ 	iowrite32(reg, wdt_base + WDT_MODE);
++	spin_unlock_irqrestore(&mtk_wdt->lock, flags);
+ 
+ 	return 0;
+ }
+@@ -343,7 +349,11 @@ static int mtk_wdt_set_pretimeout(struct watchdog_device *wdd,
+ {
+ 	struct mtk_wdt_dev *mtk_wdt = watchdog_get_drvdata(wdd);
+ 	void __iomem *wdt_base = mtk_wdt->wdt_base;
+-	u32 reg = ioread32(wdt_base + WDT_MODE);
++	unsigned long flags;
++	u32 reg;
++
++	spin_lock_irqsave(&mtk_wdt->lock, flags);
++	reg = ioread32(wdt_base + WDT_MODE);
+ 
+ 	if (timeout && !wdd->pretimeout) {
+ 		wdd->pretimeout = wdd->timeout / 2;
+@@ -352,19 +362,54 @@ static int mtk_wdt_set_pretimeout(struct watchdog_device *wdd,
+ 		wdd->pretimeout = 0;
+ 		reg &= ~(WDT_MODE_IRQ_EN | WDT_MODE_DUAL_EN);
+ 	} else {
++		spin_unlock_irqrestore(&mtk_wdt->lock, flags);
+ 		return 0;
+ 	}
+ 
+ 	reg |= WDT_MODE_KEY;
+ 	iowrite32(reg, wdt_base + WDT_MODE);
++	spin_unlock_irqrestore(&mtk_wdt->lock, flags);
+ 
+ 	return mtk_wdt_set_timeout(wdd, wdd->timeout);
+ }
+ 
++static void mtk_wdt_deassert_irq(struct watchdog_device *wdd)
++{
++	struct mtk_wdt_dev *mtk_wdt = watchdog_get_drvdata(wdd);
++	void __iomem *wdt_base = mtk_wdt->wdt_base;
++	unsigned long flags;
++	u32 reg;
++
++	spin_lock_irqsave(&mtk_wdt->lock, flags);
++
++	reg = ioread32(wdt_base + WDT_MODE);
++	reg ^= WDT_MODE_IRQ_LEVEL_EN;
++	iowrite32(reg | WDT_MODE_KEY, wdt_base + WDT_MODE);
++
++	/*
++	 * Wait for two 32 kHz watchdog clock cycles so the IRQ level
++	 * change can propagate across the clock domain.
++	 */
++	udelay(WDT_IRQ_LEVEL_SYNC_US);
++
++	reg = ioread32(wdt_base + WDT_MODE);
++	reg ^= WDT_MODE_IRQ_LEVEL_EN;
++	iowrite32(reg | WDT_MODE_KEY, wdt_base + WDT_MODE);
++
++	/*
++	 * Flush the posted write before releasing the lock and notifying
++	 * the watchdog core.
++	 */
++	ioread32(wdt_base + WDT_MODE);
++
++	spin_unlock_irqrestore(&mtk_wdt->lock, flags);
++}
++
+ static irqreturn_t mtk_wdt_isr(int irq, void *arg)
+ {
+ 	struct watchdog_device *wdd = arg;
+ 
++	mtk_wdt_deassert_irq(wdd);
+ 	watchdog_notify_pretimeout(wdd);
+ 
+ 	return IRQ_HANDLED;
+@@ -406,6 +451,8 @@ static int mtk_wdt_probe(struct platform_device *pdev)
+ 	if (!mtk_wdt)
+ 		return -ENOMEM;
+ 
++	spin_lock_init(&mtk_wdt->lock);
++
+ 	platform_set_drvdata(pdev, mtk_wdt);
+ 
+ 	mtk_wdt->wdt_base = devm_platform_ioremap_resource(pdev, 0);
+@@ -414,8 +461,8 @@ static int mtk_wdt_probe(struct platform_device *pdev)
+ 
+ 	irq = platform_get_irq_optional(pdev, 0);
+ 	if (irq > 0) {
+-		err = devm_request_irq(&pdev->dev, irq, mtk_wdt_isr, 0, "wdt_bark",
+-				       &mtk_wdt->wdt_dev);
++		err = devm_request_irq(&pdev->dev, irq, mtk_wdt_isr, IRQF_NO_AUTOEN,
++				       "wdt_bark", &mtk_wdt->wdt_dev);
+ 		if (err)
+ 			return err;
+ 
+@@ -447,6 +494,9 @@ static int mtk_wdt_probe(struct platform_device *pdev)
+ 	if (unlikely(err))
+ 		return err;
+ 
++	if (irq > 0)
++		enable_irq(irq);
++
+ 	dev_info(dev, "Watchdog enabled (timeout=%d sec, nowayout=%d)\n",
+ 		 mtk_wdt->wdt_dev.timeout, nowayout);
+ 
+-- 
+2.45.2
+
 
