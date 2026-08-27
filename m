@@ -4,63 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E812C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 13:20:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51F7C61DC6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 13:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CEVtPBkm+IoyOpWd89dXe6eCoqDd0rD0qWlUQ8IixjQ=; b=paBNPc0M0vFmeQ08BfYqSm3ORl
-	4eey9MhBw/gTmHbZYUuAqKzr/iw+Ffdoho1T7cBncr6t0vcRWPpf7t7Y6yKjoqBSWxULbTOnkWG+p
-	E/xLCyPzZTIiN7IPIuOzMJNkMUXAW2jJbzfQ+608qaIvwiAbI4CDA6+MvlY7V/AKv+ILlAa/clp4z
-	r/iFmE2uCtYYhyIbgmOXYtK1n7YBmJP5p8LDSr3QUPCJ0WnNXg1QUil5G0IAZc8HFs3WwXairQzI/
-	roiEdC5IdPev2X9AtgeiST0Nv+3QY+tdcy2Z2WjFhT2g5ZFfGBufO1onVRuOB2jYGuOp95ck5wd4r
-	uiYvIZ2Q==;
+	bh=USInVpt9Ng5yFt/QF3hDQ+uXdNq7DFvqcDl6JkdXsLw=; b=QEAst0J+8Bq8l8440htd+wSHKN
+	m7h7F3QuLPOtQd1v7wYC+9Q6Td0LQAsqm9/PhIsPnZqgcvxk7TNIhLX9O707gPWCvMDxAmCEYcrX9
+	pOsBn58llIWZvMJXDMib1DJbDZcYuXyqCjP5Ih9wUzSAH8asIii6Vh5Dm59h1hRCElb7HNNuF4MDy
+	44InTlnPq166EBmb9G5wRMtTeKA90oVaUCpAJ+5b2TenPeeU7rm6evl+M8wFb6u5VtHdCop/1dhBr
+	FFx5tSnk6gBd9t9CSIVGSqYcpNUgp/P04lHUzbvh9+Lziukuqp1xBGw9yTqHCwtFEdcT0CQKB1poM
+	NiLbAEDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wza1M-000000042Zc-1dBZ;
-	Thu, 27 Aug 2026 13:19:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wza6k-00000004345-1MoP;
+	Thu, 27 Aug 2026 13:25:30 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wza1L-000000042ZU-3EyZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 13:19:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 36F6D42E8D;
-	Thu, 27 Aug 2026 13:19:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0680D1F000E9;
-	Thu, 27 Aug 2026 13:19:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787836795;
-	bh=CEVtPBkm+IoyOpWd89dXe6eCoqDd0rD0qWlUQ8IixjQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=c2EhxUu0JLTQ0HxBXS4qWFw8NGFqQFW99MOapNxmO6IEMsC7+noMSrdEjTacc2zl1
-	 JDCuoY9mdTdGomEgEEW/fDTOSAS1HZyEl4cDkBO/b70PJAdWA0N0rRZ5U6X1C9wXE/
-	 kYR81Gr4SBO26RIAJsfHOAPJPN0gLe+99+S+ilFKyFA3mZ9vDOIHsMTbWXjDDRzt2T
-	 5kYPaPsIFBKIS1g/6u9EeYtSzWGfgWfhURqSmPFkCquJTV5e80EUAcsSUfAzd81aWJ
-	 ilqtOytoSNzoRP8CA2w90GHdBf2c6PxlBZwq1tqOsCnHWcqPlfcUrfoi13QNH6RPVA
-	 mJMVbuUQd3saQ==
-Date: Thu, 27 Aug 2026 14:19:49 +0100
-From: Will Deacon <will@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v4 2/2] arm64: Don't read GMID_EL1 when MTE is disabled
-Message-ID: <apA5dYIPEQbQVJLf@willie-the-truck>
-References: <20260825164219.3347229-1-fuad.tabba@linux.dev>
- <20260825164219.3347229-3-fuad.tabba@linux.dev>
- <apA0A-bqLVBcmdSv@willie-the-truck>
+	id 1wza6h-0000000433M-2X8V;
+	Thu, 27 Aug 2026 13:25:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=USInVpt9Ng5yFt/QF3hDQ+uXdNq7DFvqcDl6JkdXsLw=; b=a8U/6YqBgfMZDVtk2DGVZgGIxx
+	qz0ezVLpB1Hy064h27NZtGFanDcGy26KvecsRzawGY1iJDZ7n2q1e21ZsUX+AVltWshLDX+94/e0N
+	N6h2i9HLz65jDCnpjHlGfQ4UewLZFh0jwRoMbdxhtsW2cvPmbj3S1KGjjwWKp/hshnZaGj9sBKhsX
+	pz8EXeHnLr5QCR5BGGPnWpG4IJ+aErXNMzmue/6jW6Lga4vt3Mo7U2wTlJalhiGeQnM0tZeyyZnIa
+	eELfBsc+JIk6Isp8PWL39OPXEHoCuwFjT+7r3bmWmdyPyN7TPNgxmdz+1j2Eg6OiCd9E6YkebP056
+	G7OBIvSQ==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Matthias Kaehlcke <mka@chromium.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rudi Heitbaum <rudi@heitbaum.com>
+Cc: linux-usb@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ rudi@heitbaum.com
+Subject: Re: [PATCH] usb: onboard_dev: add the Rockchip rk1808
+Date: Thu, 27 Aug 2026 15:25:23 +0200
+Message-ID: <5096877.GXAFRqVoOG@phil>
+In-Reply-To: <aouw7rH6FZxscUTO@0d3a7a881997>
+References: <aouw7rH6FZxscUTO@0d3a7a881997>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <apA0A-bqLVBcmdSv@willie-the-truck>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260827_062527_645561_CC09A444 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,46 +67,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 27, 2026 at 01:56:35PM +0100, Will Deacon wrote:
-> On Tue, Aug 25, 2026 at 05:42:19PM +0100, Fuad Tabba wrote:
-> > diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-> > index d50e2a9b066b3..389fca84f106b 100644
-> > --- a/arch/arm64/kernel/cpuinfo.c
-> > +++ b/arch/arm64/kernel/cpuinfo.c
-> > @@ -502,7 +502,7 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
-> >  	info->reg_id_aa64smfr0 = read_cpuid(ID_AA64SMFR0_EL1);
-> >  	info->reg_id_aa64fpfr0 = read_cpuid(ID_AA64FPFR0_EL1);
-> >  
-> > -	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
-> > +	if (gmid_el1_accessible())
-> >  		info->reg_gmid = read_cpuid(GMID_EL1);
-> 
-> I'm not sure this is safe. For the boot CPU, __cpuinfo_store_cpu() is
-> called before init_cpu_features(), so the arm64_ftr_regs[] array hasn't
-> been sorted and we can't call get_arm64_ftr_reg() reliably. In fact, it
-> doesn't even look like the overrides will have been processed.
-> 
-> So we're in a bit of a chicken-and-egg problem here. Perhaps we need an
-> early (__init) function that can apply the override manually to the
-> value read from hardware using arm64_ftr_safe_value(). You'll probably
-> need something like my old hack [1] to avoid the bsearch though :/
+Hi Rudi,
 
-Thinking about this for a few more minutes, perhaps the best option for
-a quick fix would be to:
+Am Montag, 24. August 2026, 04:52:02 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Rudi Heitbaum:
+> The rk1808 is the npu die in an rk3399pro package. It is wired to one
+> of the usb3 controllers rather than to an external port, and it needs
+> its reference clock running before it will boot, which is exactly what
+> this driver exists to do for onboard devices.
+>=20
+> It takes no supply from the driver: the rails are sequenced elsewhere.
+> Only the clock matters here, and that is already optional and handled
+> generically.
 
- - Internalise gmid_el1_accessible() in cpufeature.c and take cpuinfo *
-   as a parameter
+the "elsewhere" might need a bit more explanation to verify it's the right
+implementation. Even if the regulators are always-on or something, we
+still want the supplies defined - for future uses.
 
- - It could then refer directly to the ftr reg, along the lines of:
 
-	val = arm64_ftr_safe_value(&ftr_id_aa64pfr1,
-				   <value from id_aa64pfr1_override>,
-				   <value from cpuinfo>);
+Thanks
+Heiko
 
- - Then check val before accessing the gmid.
 
-Then we can fix all this properly in the future by moving the override
-stuff earlier.
+> Two ids, because the die changes identity as it boots: 180a while it is
+> in maskrom and then in the rockusb loader, 1808 once it is running.
+>=20
+> Signed-off-by: Rudi Heitbaum <rudi@heitbaum.com>
+> ---
+>  drivers/usb/misc/onboard_usb_dev.h | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>=20
+> diff --git a/drivers/usb/misc/onboard_usb_dev.h b/drivers/usb/misc/onboar=
+d_usb_dev.h
+> index 3523f8f8a149..e07f509ac751 100644
+> --- a/drivers/usb/misc/onboard_usb_dev.h
+> +++ b/drivers/usb/misc/onboard_usb_dev.h
+> @@ -134,6 +134,12 @@ static const struct onboard_dev_pdata xmos_xvf3500_d=
+ata =3D {
+>  	.is_hub =3D false,
+>  };
+> =20
+> +static const struct onboard_dev_pdata rockchip_rk1808_data =3D {
+> +	.reset_us =3D 0,
+> +	.num_supplies =3D 0,
+> +	.is_hub =3D false,
+> +};
+> +
+>  static const struct of_device_id onboard_dev_match[] =3D {
+>  	{ .compatible =3D "usb-a-connector", .data =3D &usb_a_conn_data, },
+>  	{ .compatible =3D "usb424,2412", .data =3D &microchip_usb424_data, },
+> @@ -167,6 +173,8 @@ static const struct of_device_id onboard_dev_match[] =
+=3D {
+>  	{ .compatible =3D "usb2109,817", .data =3D &vialab_vl817_data, },
+>  	{ .compatible =3D "usb2109,2817", .data =3D &vialab_vl817_data, },
+>  	{ .compatible =3D "usb20b1,0013", .data =3D &xmos_xvf3500_data, },
+> +	{ .compatible =3D "usb2207,1808", .data =3D &rockchip_rk1808_data, },
+> +	{ .compatible =3D "usb2207,180a", .data =3D &rockchip_rk1808_data, },
+>  	{ .compatible =3D "usb3431,6241", .data =3D &corechips_sl6341_data, },
+>  	{ .compatible =3D "usb3431,6341", .data =3D &corechips_sl6341_data, },
+>  	{ .compatible =3D "usb5986,1198", .data =3D &bison_intcamera_data, },
+>=20
 
-Will
+
+
+
 
