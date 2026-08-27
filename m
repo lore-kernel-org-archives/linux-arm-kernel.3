@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21428C61DCD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 16:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D850C61DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 16:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MKq7Nh2gcYohgYrYR5axiDJ4p1s9We/3CeTSchjvn7A=; b=GWXOvag3plsmZat4qwp9B7L4J4
-	aS83f6z1Uu3J5MWp74lHtq448s1LN/84OGfIj9S0Tk+NDHF5Usbttg0pAgtkgPGcsbS+sdRArZyum
-	MQ2ZYJRIBKHjtZFJOXzMU3qScyOG1zx6Hqrjade8w9imKZfHnGsTFkvT4hN6U81wVxEX45TV5ZWh4
-	+5rmd+K7FKQ7aEEevV42NlhvSzLZsCPeUSODvuSR31041Nt5CDKTwMHB+et36HBCcH7psNjRedV8d
-	mKza1bsa35ryUgGjCslGEQ/rSWkkeP9Bbc2Cnh/dh5JGE6u1kOxNsjDEkPqZKNTTmRzLrJlgWbEvW
-	8ytqE3Qw==;
+	bh=5euHgUF21bp60qTQigBwKjH4x6Qvg0qe8ONZJ9cd938=; b=sY+wesGf47KZXHGILc88TReg5i
+	VEJ17oviIlb78+W6djE3t2HbrLSlHldD2QCxvW6eu9+Qra7MjppfBSbRjJE3uY7xLJAvB9JcL71+y
+	yMHdihdvdwUHKz2DOWCXHDCwo9vkVXJXnNoafdHAR8y3iqw6QuMYJCHUzyExvx6zrEutANs5vWR0U
+	RRbQk1MhABdsb8e/KSpw+t6HBUUg6Br9IuLRL3ekxXUVBwdHA+PrLLA0UfCU/ru1FPM27+VxvhQM2
+	f0fQUqU11XG84Wvj3tN9/FuwFUgVnEPw3+X9eSjJ6FsaNL4CikveOeHBiqQmW/+nt5u9kPdGSywPN
+	sLwch5Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzcuP-00000004JtE-0BwA;
-	Thu, 27 Aug 2026 16:24:57 +0000
+	id 1wzcuQ-00000004Jxu-2ze5;
+	Thu, 27 Aug 2026 16:24:58 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzcuG-00000004JkF-3seI
+	id 1wzcuI-00000004Jkj-1OwE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 16:24:51 +0000
+	Thu, 27 Aug 2026 16:24:52 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=MKq7Nh2gcYohgYrYR5axiDJ4p1s9We/3CeTSchjvn7A=;
-	b=CFxplSWMhRpP8AAbiY91FEFGTrBwzp0iMlr33Qf/OYA54NMunuxvtLsKNFYazG/V7FN0tYbCW
-	qVnSK4U881PmSGi5eEBaNy7Ih6oUsQdS4opo6Pbu87KJhzl/SLUUsws+oXRpCITmnkyZjeHgHeG
-	yehCK3Lv097Ecr7CG8SvsTI=
+	bh=5euHgUF21bp60qTQigBwKjH4x6Qvg0qe8ONZJ9cd938=;
+	b=2TvuhQxUFr+fy+TYSZfwfzt2uKWRPMUlYGvkIcqkpSYVM6SYMIi2cNT3oGpFWAEDEkYLVmcp3
+	27DLLJT6/TOlAQbpxu6X1KM8Trmh2Y7QCzb+ecElRL9a3atlGgKwmDr08QkmlRpPCcLbQ5ati4P
+	s1CxhEaZ6wolohHl03XhMkk=
 Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4hW6KX0GPXzJ46Yq;
-	Fri, 28 Aug 2026 00:24:16 +0800 (CST)
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4hW6KG1l3lzHnH3h;
+	Fri, 28 Aug 2026 00:24:02 +0800 (CST)
 Received: from mscpeml500004.china.huawei.com (unknown [7.188.26.250])
-	by mail.maildlp.com (Postfix) with ESMTPS id 92A1F40570;
-	Fri, 28 Aug 2026 00:24:37 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 4117C40570;
+	Fri, 28 Aug 2026 00:24:38 +0800 (CST)
 Received: from mscphis00949.huawei.com (10.123.66.11) by
  mscpeml500004.china.huawei.com (7.188.26.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
@@ -53,9 +53,9 @@ To: <catalin.marinas@arm.com>, <akpm@linux-foundation.org>,
 CC: <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <wangkefeng.wang@huawei.com>,
 	<artem.kuzin@huawei.com>, <panov.nikita@huawei.com>
-Subject: [RFC PATCH 12/18] arm64: make power management aware about kernel replication
-Date: Fri, 28 Aug 2026 00:11:52 +0800
-Message-ID: <20260827161158.3618409-13-panov.nikita@huawei.com>
+Subject: [RFC PATCH 16/18] arm64: add kernel modules text and rodata replication support
+Date: Fri, 28 Aug 2026 00:11:56 +0800
+Message-ID: <20260827161158.3618409-17-panov.nikita@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260827161158.3618409-1-panov.nikita@huawei.com>
 References: <20260827161158.3618409-1-panov.nikita@huawei.com>
@@ -66,8 +66,9 @@ X-Originating-IP: [10.123.66.11]
 X-ClientProxiedBy: mscpeml100003.china.huawei.com (10.199.174.67) To
  mscpeml500004.china.huawei.com (7.188.26.250)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_092449_252524_84C0C68E 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20260827_092450_540868_26C771C9 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,97 +90,38 @@ Acked-by: Ilya Hanov <ilya.hanov@huawei-partners.com>
 Acked-by: Denis Darvish <darvish.denis@huawei.com>
 Signed-off-by: Nikita Panov <panov.nikita@huawei.com>
 ---
- arch/arm64/include/asm/mmu_context.h | 4 ++++
- arch/arm64/kernel/hibernate.c        | 5 +++++
- arch/arm64/kernel/sleep.S            | 8 ++++++++
- mm/numa_kernel_replication.c         | 5 +++++
- 4 files changed, 22 insertions(+)
+ arch/arm64/kernel/module.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-index 803b68758152..f364281d3442 100644
---- a/arch/arm64/include/asm/mmu_context.h
-+++ b/arch/arm64/include/asm/mmu_context.h
-@@ -136,10 +136,14 @@ static inline void cpu_install_ttbr0(phys_addr_t ttbr0, unsigned long t0sz)
+diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+index 24adb581af0e..61f605f74d86 100644
+--- a/arch/arm64/kernel/module.c
++++ b/arch/arm64/kernel/module.c
+@@ -18,6 +18,7 @@
+ #include <linux/moduleloader.h>
+ #include <linux/random.h>
+ #include <linux/scs.h>
++#include <linux/vmalloc.h>
  
- void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp);
- 
-+#ifndef CONFIG_KERNEL_REPLICATION
- static inline void cpu_enable_swapper_cnp(void)
- {
- 	__cpu_replace_ttbr1(lm_alias(swapper_pg_dir), true);
- }
-+#else
-+void cpu_enable_swapper_cnp(void);
-+#endif
- 
- static inline void cpu_replace_ttbr1(pgd_t *pgdp)
- {
-diff --git a/arch/arm64/kernel/hibernate.c b/arch/arm64/kernel/hibernate.c
-index 7bf117427777..e9f5ddf37c4a 100644
---- a/arch/arm64/kernel/hibernate.c
-+++ b/arch/arm64/kernel/hibernate.c
-@@ -16,6 +16,7 @@
- #include <linux/sched.h>
- #include <linux/suspend.h>
- #include <linux/utsname.h>
-+#include <linux/numa_kernel_replication.h>
- 
- #include <asm/barrier.h>
- #include <asm/cacheflush.h>
-@@ -113,7 +114,11 @@ int arch_hibernation_header_save(void *addr, unsigned int max_size)
- 		return -EOVERFLOW;
- 
- 	arch_hdr_invariants(&hdr->invariants);
-+#ifdef CONFIG_KERNEL_REPLICATION
-+	hdr->ttbr1_el1		= virt_to_phys(this_node_pgd(&init_mm));
-+#else
- 	hdr->ttbr1_el1		= __pa_symbol(swapper_pg_dir);
-+#endif /* CONFIG_KERNEL_REPLICATION */
- 	hdr->reenter_kernel	= _cpu_resume;
- 
- 	/* We can't use __hyp_get_vectors() because kvm may still be loaded */
-diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
-index f093cdf71be1..8ad66ed70122 100644
---- a/arch/arm64/kernel/sleep.S
-+++ b/arch/arm64/kernel/sleep.S
-@@ -5,6 +5,10 @@
- #include <asm/assembler.h>
- #include <asm/smp.h>
+ #include <asm/alternative.h>
+ #include <asm/insn.h>
+@@ -25,6 +26,16 @@
+ #include <asm/sections.h>
+ #include <asm/text-patching.h>
  
 +#ifdef CONFIG_KERNEL_REPLICATION
-+.extern numa_setup_pgd
-+#endif
-+
- 	.text
- /*
-  * Implementation of MPIDR_EL1 hash algorithm through shifting
-@@ -144,6 +148,10 @@ SYM_FUNC_START(_cpu_resume)
- 	bl	kasan_unpoison_task_stack_below
- #endif
- 
-+#ifdef CONFIG_KERNEL_REPLICATION
-+	bl 	numa_setup_pgd
-+#endif
-+
- 	ldp	x19, x20, [x29, #16]
- 	ldp	x21, x22, [x29, #32]
- 	ldp	x23, x24, [x29, #48]
-diff --git a/mm/numa_kernel_replication.c b/mm/numa_kernel_replication.c
-index 082aabc6b8bc..b1c5cd2a1fa1 100644
---- a/mm/numa_kernel_replication.c
-+++ b/mm/numa_kernel_replication.c
-@@ -67,6 +67,11 @@ static int node_to_memory_node[MAX_NUMNODES];
- static bool pgtables_extra;
- static DEFINE_SPINLOCK(debugfs_lock);
- 
-+void cpu_enable_swapper_cnp(void)
++void module_replicate(void *ptr)
 +{
-+	__cpu_replace_ttbr1(this_node_pgd(&init_mm), true);
-+}
++	gfp_t gfp_mask = GFP_KERNEL;
 +
- bool is_text_replicated(void)
- {
- 	return text_replicated;
++	__vmalloc_node_replicate_range(ptr, gfp_mask,
++			PAGE_KERNEL, 0);
++}
++#endif /*CONFIG_KERNEL_REPLICATION*/
++
+ enum aarch64_reloc_op {
+ 	RELOC_OP_NONE,
+ 	RELOC_OP_ABS,
 -- 
 2.34.1
 
