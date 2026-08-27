@@ -4,78 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0FE3C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 12:34:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1991CC61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 12:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u92UR6C9DT+TySSGXYlFFF8ogeUrPnMgsRSJt4BfLdQ=; b=yp7vth8OaRFf0jtSUGuUUYD+hq
-	x2L+1BV0H/GyEv6VcP2GL4ewJWSxor4nE406VjtXG7rZ+z8zq1ZL9XtpK9p4okDMf6RswBlpsrnUt
-	MpKwV+osRv5aVKVsA3OQwIRx4dSalX0sfrrT5ArlbzjP0NHlEeS1xCcFXWrELf0eEPcWWKtF9I25W
-	oEeznPb7eewvysmTlDKRkCvUgc4zgAJ8LW4QUtwLrPfQcLtS0CsFMaxVKFZjKPQrD5PuvbLhzsWye
-	K4PeXvIHEoF7bMo5HVM/lLjR2tlHgbG9ma0vIfgWlBAPAV2VmZwbRpDNzQwoxLSEGG0dWhLSp/xEK
-	J6SXbH6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aceFjlRhhVLZ90elGDabHBPqZJUEfYBPbWijqEROSyk=; b=sdMP3IZgUyTudj2qQJK6UQVIxj
+	bexV9xd85kgJFqLXlZQc40j+np4Zr00u3YYHnlLdj6Edfa0r7rX0Cy0+DSEAbhu5gXR46PBPMwWtI
+	c1Maxl6AautgBNZV48I+9mJgo+675eamTNPghRgzuOUk9gE/2dj0uGwjgB4dl2UOu3tLncQEsEzt3
+	WYOgu1mmqcPLx05flm6dRD51bnP4ia4uLNA/BkZiLSDbWBzUebp9CK410yCojlF9eMNcjHIwGUGum
+	VUl2pF7sznRZjQmCKNF+6VPEYtnpJVVkep6khRQv+lSC+m9NcwzF2xlBq2OjguvvUwldbK6PfnFD4
+	/236LUkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZIz-00000003yOr-1yrh;
-	Thu, 27 Aug 2026 12:34:05 +0000
+	id 1wzZJY-00000003yV0-2wUP;
+	Thu, 27 Aug 2026 12:34:40 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZIw-00000003yOO-43yn
+	id 1wzZJW-00000003yUX-1SP3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 12:34:04 +0000
+	Thu, 27 Aug 2026 12:34:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4401169E;
-	Thu, 27 Aug 2026 05:33:57 -0700 (PDT)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD2EF3F85F;
-	Thu, 27 Aug 2026 05:33:57 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 42311169E;
+	Thu, 27 Aug 2026 05:34:33 -0700 (PDT)
+Received: from [10.43.16.29] (e126510-lin.lund.arm.com [10.43.16.29])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 35A1A3F85F;
+	Thu, 27 Aug 2026 05:34:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787834041; bh=mY3Eav+LjuHZMwXDTdn++FZAjJ/U1MT/NAZX93Cyy4U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OsFUMBHEaz0MEEtpQe2t/mV0Bh0yAMbABVuevsnZfzq2jdkZC7jCmm1dBlOs17pWq
-	 WZ55pKQ6caopkWdxmTSrDDeBrXYHU+P0eoZQCtRXzYJLjqvkMAgpWZVClF0upnWdGN
-	 Y8BmeN/1xOQ58RPN8/J1H5NGvzOTt1q3snNZ/ufo=
-Date: Thu, 27 Aug 2026 14:33:50 +0200
-From: Beata Michalska <beata.michalska@arm.com>
-To: Xuewen Yan <xuewen.yan94@gmail.com>
-Cc: Sean Wang1 <seanwang1@lenovo.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"rafael@kernel.org" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Lifeng Zheng <zhenglifeng1@huawei.com>,
-	Xuewen Yan <xuewen.yan@unisoc.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Sumit Gupta <sumitg@nvidia.com>,
-	Yunhui Cui <cuiyunhui@bytedance.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"driver-core@lists.linux.dev" <driver-core@lists.linux.dev>
-Subject: Re: [External] Re: [PATCH v3] arm64: topology: add source check in
- arch_cpu_idle_enter()
-Message-ID: <apAurrE3JOpM3wE0@arm.com>
-References: <20260811072830.10028-1-seanwang1@lenovo.com>
- <anrzT-ez3b7uYaCt@arm.com>
- <SI2PR03MB6688D1DC0796AC6F6A373C2E93DC2@SI2PR03MB6688.apcprd03.prod.outlook.com>
- <anxSsfvpZHHsVnp_@arm.com>
- <aoX_jiuhv3dyMS-g@arm.com>
- <CAB8ipk_4Zbhb=azTDGQEQ1S=n2Zhzvqs7pYr6ZfOOWL8meE_4Q@mail.gmail.com>
- <ao_9EiKz9Cmx_YHh@arm.com>
- <CAB8ipk9KknqBFeQrDYXAqRxGbM_bjtU0w7Jid95XucnzkgUdkg@mail.gmail.com>
+	t=1787834077; bh=aceFjlRhhVLZ90elGDabHBPqZJUEfYBPbWijqEROSyk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dbZVvGlPRVGbMOS9gpMYjRRCIrdm/QR6t04nNlV0cgrjLxA3CJUJiRs58GGu8Mq8c
+	 0YtvNrcJKGCOaIxn+JC43gVTyluTOGINgGl4oSHWKXmwNzKvd8GUBnu95X8PRRAOBp
+	 v3EndSvhaD48jivJgnVBYGGyqnGbxVAStJx05gUA=
+Message-ID: <e4e7b0d3-e982-4c42-8907-fcb04c7ac83c@arm.com>
+Date: Thu, 27 Aug 2026 14:34:28 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAB8ipk9KknqBFeQrDYXAqRxGbM_bjtU0w7Jid95XucnzkgUdkg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] arm64: mm: Map fixmap PTE tables r/o in the linear
+ map
+To: Ard Biesheuvel <ardb@kernel.org>, Ard Biesheuvel <ardb+git@google.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
+ Kees Cook <kees@kernel.org>, Jann Horn <jannh@google.com>,
+ linux-hardening@vger.kernel.org
+References: <20260805104042.1107678-2-ardb+git@google.com>
+ <5a3b89a6-bc42-42c3-82e8-25d6f1a2c5d2@arm.com>
+ <a277a83a-cc01-443d-be42-775ce0bc96dd@app.fastmail.com>
+ <c33d081b-7886-4db2-b1d9-61dc195844e5@arm.com>
+ <1c0299ab-9f5f-4c7b-826e-a0547f7863dd@app.fastmail.com>
+ <aacacc48-4e20-423f-b1cd-d8593485bf9d@arm.com>
+ <00b4326d-af1c-429d-9495-c65ed5ce184f@app.fastmail.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <00b4326d-af1c-429d-9495-c65ed5ce184f@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_053403_101416_DC681C27 
-X-CRM114-Status: GOOD (  28.99  )
+X-CRM114-CacheID: sfid-20260827_053438_438943_31A01E5C 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,60 +83,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 27, 2026 at 05:11:28PM +0800, Xuewen Yan wrote:
-> On Thu, Aug 27, 2026 at 5:02 PM Beata Michalska <beata.michalska@arm.com> wrote:
-> >
-> > On Mon, Aug 24, 2026 at 05:21:03PM +0800, Xuewen Yan wrote:
-> > > On Thu, Aug 20, 2026 at 3:11 AM Beata Michalska <beata.michalska@arm.com> wrote:
-> > > >
-> > > Should we distinguish between events?
-> > We could although for this particular issue clearing the source is the one that
-> > needs attention. But I do not see why we could not have both.
-> > This was just sharing the idea, not a final patch.
-> > >
-> > > > ---
-> > > >
-> > > > This is just a rough idea, and needs ironing out the wrinkles, which are there,
-> > > > but that allows leaving the idle enter as is. I also believe this is the right
-> > > > approach for the interface itself, although I also see some drawbacks and
-> > > > potential issues (in its current state), especially that the functionality is
-> > > > being exposed to modules.
-> > > > Nevertheless, those are my two cents, untested, just sketched.
-> > >
-> > > As an aside, could we verify the functionality of the AMU's
-> > > SYS_AMEVCNTR0_CONST_EL0 in the current CPU before enabling amu_file?
-> > > To my knowledge, many chips currently have inaccurate errata in this counter.
-> > > Alternatively, could we introduce a command line that allows users to
-> > > dynamically disable this feature?
-> > >
-> > > Thanks!
-> > Do you have any particular issue in mind ?
-> > So far, from what I have been able to track, the issues reported are either
-> > handled by existing erratum or by the latest change that reads the counters in
-> > 'one go'. Can you share the details of the issue you are facing ?
-> > That would be helpful in potentially finding the right solution.
-> 
-> For example:
-> There is an A725 errata:
-> [A725]The CNT_CYCLES event can have a significant increment error due to WFE/WFI
-> Status
-> Fault type: Programmer Category B
-> Fault status: Present in r0p0, r0p1, and r0p2. Open.
-> ......
-> Workaround
-> There is no workaround.
+On 27/08/2026 12:16, Ard Biesheuvel wrote:
+>>> I'm currently experimenting with using __put_kernel_nofault() to update
+>>> the descriptors at all levels (including PTE) and handling the fault
+>>> using the fixmap approach. That way, all statically allocated page
+>>> tables could move to .rodata (except bm_pte[]) and there should be no
+>>> substantial performance impact.
+>> Doesn't that still mean modifying a fixmap PTE every time we update
+>> kernel page tables? That doesn't exactly sound cheap.
+>>
+> Only the ones that were allocated statically, which cover the region
+> around the kernel image, and the special cases (fixmap, kasan). Everything
+> else is allocated dynamically, using memblock_alloc() if very early
+> during the boot.
 
-Right.
-Will be sharing a patch for that one soon.
+Ah yes I see! Then it does sound very reasonable, those page tables
+should rarely be written if at all. For kpkeys that would mean we would
+just need to map bm_pte with the special pkey to complete the
+protection, the rest being already RO or pkey-protected.
 
----
-BR
-Beata
-> 
-> Thanks!
-> >
-> > ---
-> > BR
-> > Beata
-> >
+- Kevin
 
