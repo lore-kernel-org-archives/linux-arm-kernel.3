@@ -4,69 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 796E3C61DC6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 15:23:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58219C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 15:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v++WpEwEbf4EpZ34f/FFcUO3YM4jYeI19GmAxfUGHxk=; b=0g6uFZmYbAGDwipVwZ3X35WIW6
-	7KCUhAH90u5QHB1UpEbsA++8yt0zh3xqZpCrHyC57aIzU7RgT+wecDG5ddG9JFm+33eFdyP43ABtn
-	yNiy3K6NJ/WIKIsqbsTZAJlVus/c3+sbrlaW/Av0S46/BYtbuiU+FgyH5MswE6LasKlF6L7tZHsg6
-	CiSVB6Mi5kw6iwtXEcgybpPC2RNQEbwpg4oEblwnWc7Ge07hfIhday6d8yhNpPGrbRjuTMe+bDsOH
-	+YnNTXQcEynmICBoK9fvu71g5vUGMq6F1In1HQA9L/GTr1LaVVXjKOROdmilaZhxI25oBjc6+OPr4
-	inrOOhWA==;
+	bh=n7xbdIKtruRdpyinp4Husr0KtpkuCgvJXKNeylEh/HU=; b=3V4eXhDXZW9jkvunihDch8qLcG
+	Ewi3FxUllqGU416NfAYEKscSr1l93VfsqeOcmLHH3QQ+Xr4f9xlQDB6DReq9dJSsPdJz587zbwalD
+	yeV8FYfKKKNqZ39G0Smk7e3Nhes60OvsWf6YrXawbyYcQ7IwwBYOO3SVIMZVzhC3uKk0xCNLBuU73
+	l97SToDhbX6KuYU9OYUhdrKW1Oyl/G1cGzvfgu7IEOWTtNde8zENEtTTPpB34fW8P+9kAkomEvHje
+	oAXzueGP+b+JpO8EahUqU+S0duXK7MODWl/Xnq2C5TEIZZCwG2KWXTOPBvP7yG4l80ymZ/UZs30Tt
+	nqeH/mWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzbwP-00000004EvG-3hhl;
-	Thu, 27 Aug 2026 15:23:00 +0000
+	id 1wzc35-00000004FTw-3Hh6;
+	Thu, 27 Aug 2026 15:29:51 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzbwI-00000004Eu3-1VLY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 15:22:50 +0000
+	id 1wzc35-00000004FTf-0jqw;
+	Thu, 27 Aug 2026 15:29:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ABFE943F20;
-	Thu, 27 Aug 2026 15:22:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC5EA1F000E9;
-	Thu, 27 Aug 2026 15:22:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8678141096;
+	Thu, 27 Aug 2026 15:29:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 223E71F000E9;
+	Thu, 27 Aug 2026 15:29:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787844169;
-	bh=v++WpEwEbf4EpZ34f/FFcUO3YM4jYeI19GmAxfUGHxk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=VllPGGzArDP6/pmETstGz27ibL0nXuH/r1Udj5HTHTx06lntiCk6HX4/N1eWIo+CZ
-	 aIa/FswvIcyvhffHlwAN6XBYVrsLhMhhnC4PnnibY27cOg+sUQcslSpHPFdkWwTXZ6
-	 gMmC38TKOl3sxLUnOtxgKv7tEvULMtVDCLXV8dMgGPskzcRmzPOTG0RGk1ln2NX423
-	 2IbJ13cA9a4b4poi+HBZYiGw+vpSNxfwTNPr5oSWVqjcTKxrv1/FA5J5w0wgzguVQa
-	 eLXEAO3Obx2NUa4ZjlNvOEIIWJUIJShj1YZ9OuU7fYCEGKwAWcvDnstTRAqZTesx1e
-	 ++YpLg0vPfS7w==
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Amit Daniel Kachhap <amit.kachhap@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	Muhammad Usama Anjum <usama.anjum@arm.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v3 0/4] selftests/arm64: Fix MTE test setup and TAP reporting
-Date: Thu, 27 Aug 2026 16:22:38 +0100
-Message-ID: <178784032021.66644.7509441879156473484.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260825111929.2882324-1-usama.anjum@arm.com>
-References: <20260825111929.2882324-1-usama.anjum@arm.com>
+	s=k20260515; t=1787844590;
+	bh=n7xbdIKtruRdpyinp4Husr0KtpkuCgvJXKNeylEh/HU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=EGiOkJYxUIujF18dWtIw1SA6hnsLwUbrxNZOugHHuwt8No+4r9DuYwkCvvM1lhEFm
+	 7D+cWrBeCw5k8A3jP/GfMYtbIniTdOSOpAgjiVc+uuZ6CcaPZ5IG0m4J+biqHzrXwt
+	 T8UXlp8HkEvMyUs66QDRoEHdn2FuBJ9DjPhzb7GC84w6Wv31vVFXcbIwZKolaYx9DM
+	 NXqUd8S7QPo5tG0DN0K2QLkcurKkX+WzyR0SvyRbRLZuyOU5+zmfct8ebK+BnoshDk
+	 W9kzUxwUjAplKz/JyzJx1UkRMvJuRC1K+8IyPOPIFudpkMHh2o9On7Nax0aXDGzXPm
+	 6m5BuBncZJcMw==
+Message-ID: <9df516ad-ba24-4f2f-886e-195d93a11c6d@kernel.org>
+Date: Thu, 27 Aug 2026 17:29:42 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/7] watchdog: mediatek: Add wdt/toprgu resets for
+ mt6589
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
+ <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-watchdog@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260819101853.44681-1-l.scorcia@gmail.com>
+ <20260819101853.44681-3-l.scorcia@gmail.com>
+ <20260827-clever-cherry-zebu-6a98f1@quoll>
+ <CAORyz2KCAzEEsCifDF4+_wKmi=M6t4EKVVqys-H5wOQqzBeVzw@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CAORyz2KCAzEEsCifDF4+_wKmi=M6t4EKVVqys-H5wOQqzBeVzw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,32 +123,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Aug 2026 12:18:33 +0100, Muhammad Usama Anjum wrote:
-> Running the mainline arm64 MTE selftests on a Pixel 8 exposed three
-> independent reporting problems. Fix these reporting problems, then add
-> an arm64 Kconfig fragment covering the facilities used by the MTE tests.
+On 27/08/2026 16:28, Luca Leonardo Scorcia wrote:
+>>>  drivers/watchdog/mtk_wdt.c | 7 ++++++-
+>>>  1 file changed, 6 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/drivers/watchdog/mtk_wdt.c b/drivers/watchdog/mtk_wdt.c
+>>> index 91d110646e16..f8208fb0f723 100644
+>>> --- a/drivers/watchdog/mtk_wdt.c
+>>> +++ b/drivers/watchdog/mtk_wdt.c
+>>> @@ -10,6 +10,7 @@
+>>>   */
+>>>
+>>>  #include <dt-bindings/reset/mt2712-resets.h>
+>>> +#include <dt-bindings/reset/mediatek,mt6589-wdt.h>
+>>
+>> I do not see how you use the bindings here, so my previous comments
+>> stay. You just ignored it and never replied. In such case:
+>>
+>> NAK
 > 
-> Testing was performed on a Pixel 8 with an Android 6.1 kernel built with
-> the new configuration. All nine static MTE binaries returned success.
-> 
-> [...]
+> The mtk_wdt driver requires the total number of available resets to
+> register the reset controller. This was defined as
+> MT6589_TOPRGU_SW_RST_NUM in the binding header, therefore the need for
+> including it.
 
-Applied to arm64 (for-next/core), thanks!
+Number of signals almost never a binding. How do you even use it in DTS?
 
-[1/4] selftests/arm64: Print missing MTE TAP headers
-      https://git.kernel.org/arm64/c/8d2237e9d690
-[2/4] selftests/arm64: Treat KSM merge_across_nodes as optional
-      https://git.kernel.org/arm64/c/1a0dba077f34
-[3/4] selftests/arm64: Fix MTE prctl TAP plan
-      https://git.kernel.org/arm64/c/bb52892f9234
-[4/4] selftests/arm64: Add MTE test config fragment
-      https://git.kernel.org/arm64/c/2bd533739234
-
-Cheers,
--- 
-Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+Best regards,
+Krzysztof
 
