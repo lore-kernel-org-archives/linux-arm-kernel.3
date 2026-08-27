@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC0E1C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 12:12:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 081BFC61DC6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 12:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oN1uBNEZB9zCmyVRxDlBtR7tHE5jA4bpzOHI8/B57Gw=; b=IIUi2H4XDzDO00FzXrmXX2DdBr
-	PlS/XoiDlUDHU2mt+ZzWC2i/axiBYHyMjoOtyO27ljB3siuAvLXizAOHKPrUTF854p+srQU0IvqNc
-	5Szr5X7dECHNEd7EGYVXEnopqRue9DHWqLDaNNjcfseavb7SK4j8IyJ5+qcwGsAo2kRBiLmQy9mLr
-	XcCa+bZYMpnz9prAMBHjTHgIWjQbjsQ3vlMsDw8RZy71Hxjb8nEbbhUkmyNQnJwyzO6u0yMt2SBOF
-	+tL4LJRjQfYDBVfAwv2nvABcoyKKrxurd+Oasn7dJwhvzH2uwOurHZCKMUYop4pTk2ikp4oKnEm2o
-	st61zCbQ==;
+	bh=zTS4R5eT8nAZiQcjuHqdqQ0xL5yM3BrRaXjjPIIzt9g=; b=QP7V6crjvXflfT4CR0UsMwMqZ9
+	lPPGSSpSMkAoPraFHx+oqaK7XS8ZknV2oa93AB1Q9PeamcCZ2A+ayFIMFcJ5Dahh1vAMyno700mHC
+	OLJ8Lbo5mYf1Rg+KTbTGcngvtvbF4AeP0K3sdE1tXbj+wcWpf9GcmL8RLKWk7iyPZ+cciptM7/a06
+	4HYjn3ogHAorESUZEGMKHwPBASsWFuXo+YEMM3QNwKvrU4n5XdT10et32plZL+7A0dfMIm+8CXB0G
+	k7qiyntcs/ewjK89l98bpI+Sq3jslN7fZ5P8xWCvsnQ8k1o/oIE2tqOhpdV9sjXz5C4yfSjqHF4Tb
+	FP85gCtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzYyD-00000003wBN-3ARC;
-	Thu, 27 Aug 2026 12:12:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzYyB-00000003wB2-1mXF
+	id 1wzZ1b-00000003wZM-1DYq;
+	Thu, 27 Aug 2026 12:16:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzZ1Y-00000003wYh-2zX5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 12:12:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DD7CA42D71;
-	Thu, 27 Aug 2026 12:12:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7B391F000E9;
-	Thu, 27 Aug 2026 12:12:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787832754;
-	bh=oN1uBNEZB9zCmyVRxDlBtR7tHE5jA4bpzOHI8/B57Gw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HXcgLl0PLqP5ixOEzoOZ638HhU1mGkyHmnZoq/qZDaBBA/zQGfmcV3r+3u7k4VoJF
-	 7P+7c4BxJVN63wedE5ZHFzUNXjBASY2z8g2zYUjtxy+5isxC2mRIcIKreyWoh8Vls7
-	 h9KJkhXWfCJUgXcXqd8YoHcizZzozp+dTvW/V224LV89OjEMwgL2Uz7xhvXKYEBc0i
-	 0lFixYKHToNC6CC5rA5a4YZ6+AZaq3gxNXkpkNA7QPTI65kxx/B0/FHTkB/JavZvh/
-	 UsJvHfQzToJqGKOcxDxOmSA1F04ie9+sHn83u5MR0nJrPVl8aMqi00cGT7DxjnGEZ1
-	 V+cabfdJ3oH0Q==
-Date: Thu, 27 Aug 2026 14:12:31 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Aiden Isik <aidenisik@member.fsf.org>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, 
-	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] watchdog: s3c2410_wdt: Add exynos5515-wdt
- compatible data
-Message-ID: <20260827-energetic-nifty-anaconda-6de11a@quoll>
-References: <20260821-for-next-lucky7-watchdog-v4-0-d070cee5009f@member.fsf.org>
- <20260821-for-next-lucky7-watchdog-v4-2-d070cee5009f@member.fsf.org>
+	Thu, 27 Aug 2026 12:16:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E9B01691;
+	Thu, 27 Aug 2026 05:15:58 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 368593F85F;
+	Thu, 27 Aug 2026 05:16:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787832961; bh=TAX8S4NqmRp+bw/o5Pi0JMPJne9BisHCOygDHDk1+n8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bGqt8MchFpcg7ATYp7vNR9CzAIMziiByExJRJoLPzCGzuSXD0XQ0ZiCAXBxM1iyoF
+	 I6gcM5IQ8cNqalC4a0yZEJPphVJIMkT63cGxqlaLcjaJzZ11zMV+vtIOzVfHd5ufmK
+	 cpXg62KPJbIUZWds69rxdhFLrAa75yLDK/NhDVwI=
+Date: Thu, 27 Aug 2026 13:15:57 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v9 04/13] coresight: etm4x: fix inconsistencies with
+ sysfs configuration
+Message-ID: <apAqfS87BY4_2Vn9@e129823.arm.com>
+References: <20260725113645.57519-1-yeoreum.yun@arm.com>
+ <20260725113645.57519-5-yeoreum.yun@arm.com>
+ <20260811154521.GF15499@e132581.arm.com>
+ <antUM71hxHaBJ_5l@e129823.arm.com>
+ <20260811174503.GJ15499@e132581.arm.com>
+ <antjkuiPhsfE7e_H@e129823.arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260821-for-next-lucky7-watchdog-v4-2-d070cee5009f@member.fsf.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <antjkuiPhsfE7e_H@e129823.arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260827_051604_921395_21C80E1B 
+X-CRM114-Status: GOOD (  36.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,20 +77,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 21, 2026 at 04:14:50PM +0100, Aiden Isik wrote:
-> Add driver data for the Exynos5515 SoC's watchdog timer.
+On Tue, Aug 11, 2026 at 07:01:54PM +0100, Yeoreum Yun wrote:
+> > On Tue, Aug 11, 2026 at 05:56:19PM +0100, Yeoreum Yun wrote:
+> > 
+> > [...]
+> > 
+> > > > Can we treat this as a refactoring instead and split it into at least
+> > > > two patches? This would make it easier to review now and easier to
+> > > > understand later if someone will read the changes.
+> > > > 
+> > > >  - Lock refactoring
+> > > >  - SMP call refactoring
+> > > >  - active_config refactoring
+> > > 
+> > > It couldn't since separation of Lock and SMP can introduce the bug for
+> > > that patch. and the Lock and SMP call refactoring isn't meaningful
+> > > without active_config.
+> > 
+> > Each time I read through this patch, I find it a bit difficult to follow
+> > the overall logic, as it combines several changes together.
+> > 
+> > I have no strong opinion for this though. Perhaps we could split out the
+> > support for a NULL feat_csdev->drv_spinlock into a separate change
+> > first, as that seems independent and should not introduce regression.
 > 
-> Unlike similar SoCs such as GS101 or Exynos990, Exynos5515's PMU does
-> not require explicit counter enablement for the watchdog to tick.
+> If the NULL lock is separated, since it before the SMP refactoring
+> there will be a *race* for it.
+> OTOH, if SMP first, absent of NULL lock would make a deadelock.
 > 
-> Signed-off-by: Aiden Isik <aidenisik@member.fsf.org>
-> ---
->  drivers/watchdog/s3c2410_wdt.c | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
+> So If we really want to seperate, we should the SMP and Lock
+> refactorying must be one group.
+> 
+> However, seperating the active_config from there, I'm not sure whether
+> This would really make a difficulty of backport.
+> We might separate the active_config as a cleanup but, this would require
+> also for backporting but active_config one wouldn't have a fix tag.
+> 
+> So, I think it would be better to keep as-is.
+> 
+> > 
+> > > > > +#define feat_csdev_lock(feat_csdev, flags)				\
+> > > > 
+> > > > Could use inline here?
+> > > > 
+> > > > static inline void feat_csdev_lock_irqsave(..., unsigned long *flags)
+> > > > {
+> > > >     ...
+> > > > }
+> > > 
+> > > I think this is much annyoing. since the deference might add more
+> > > instruction to save the flags. Otherwise the typecheck is for
+> > > compilet-time check and not for runtime.
+> > > 
+> > > So, it would be better to remain as-is.
+> > 
+> > An inline function provides stronger type checking at the API boundary.
+> > It is readable and easier to maintain. Dereferencing *flags would be
+> > fine, as this is not a hot path.
+> > 
+> > I was inspired by the implementation in include/linux/serial_core.h
+> > (see uart_port_lock_irqsave() and uart_port_unlock_irqrestore()).
+> 
+> I think there’s always been quite a bit of debate around this,
+> particularly regarding the maintainability of inline functions versus
+> function-like macros. Personally, I don’t find this particular function
+> any harder to read or maintain as a macro.
+> On the contrary, even though this isn’t a hot path, adding an extra
+> instruction still feels like a less preferable trade-off to me.
+> 
+> @Suzuki, What do you think? inline or macro for feat_csdev_lock_irqsave()?
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Gentile ping in case of forgotten.
 
-Best regards,
-Krzysztof
+> 
+> -- 
+> Sincerely,
+> Yeoreum Yun
 
+-- 
+Sincerely,
+Yeoreum Yun
 
