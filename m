@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6D86C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 15:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A6ABC61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 15:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zOcoi4jHu+T1Dl4zlPXslQUWfUwJL1m96r6RTqcs/tk=; b=aJ3JpMGrESF2uNZ5N6/kOd/D+j
-	IE4kCWcq42iDg1Y0+QpVoZbYZQmwoCEzlYQb3GkxYFxZZYlcaayaRjRBslRQcZRR7YCxWrMl9Q4ug
-	KpsTLFE2p1ekVtiIn8bKr/ebEEn8UqzNMfp4Ejt+KCSlWE05cUxO9cxt/Dgc+KKzOOodeU+0cx9WE
-	GZ512+EfLXIxZQL54E1hMseRwQ/6902RPNCMQtIrnTXmgyJDtWZeqWUgA19x4uw6qogCnHv2KnNV6
-	IfvFCrZ4hzM9bt/En9qLHjd756NsRxDNRXSPnikaOdwJyd/n6TYCovy6oEREpVeMNbSamiiBm3fZa
-	yUFPt4pQ==;
+	bh=4oPsdO8UvwcZK2FdI47sHipp2PYwd210CEtnNDq551M=; b=uX8ZXV/sySr/x3zugXqVlWUn23
+	Sh9+TB2mXCe8WUIQ8FtZ/aWjoLMesQeIlK4/XYJTX/M7vgo0DXz8MPb6J6vUwPdl7A+iQGneuO/zH
+	7UWayD4RwAM/avhnbLAz+pbyASoXkN7gs8BOE0nbAXv3MVWRFZrvHHeFoI3DZXapF0QfFvq5htDST
+	aXva9/tYD/qF7kafClSq17Z/7sYRliMLpqVMR+iYxI9IXQjMiHbtiN1HvBEZIxeera9F8YHJVCa65
+	FdIV05ar6Hp15FnFF4ZAVWSjZ+rCt/E7qVYIoGEQRXoPDP+GSUDcMnDxu48dbKLTivghXuZNDgSs/
+	7okKv6BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzc4v-00000004FhR-0FnH;
-	Thu, 27 Aug 2026 15:31:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wzc6P-00000004FqP-1LTs;
+	Thu, 27 Aug 2026 15:33:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzc4t-00000004Fh4-1R9y
+	id 1wzc6O-00000004Fq8-20f9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 15:31:43 +0000
+	Thu, 27 Aug 2026 15:33:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 871C7600D2;
-	Thu, 27 Aug 2026 15:31:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14ACF1F000E9;
-	Thu, 27 Aug 2026 15:31:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1966242AE7;
+	Thu, 27 Aug 2026 15:33:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCE3B1F000E9;
+	Thu, 27 Aug 2026 15:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787844702;
-	bh=zOcoi4jHu+T1Dl4zlPXslQUWfUwJL1m96r6RTqcs/tk=;
+	s=k20260515; t=1787844796;
+	bh=4oPsdO8UvwcZK2FdI47sHipp2PYwd210CEtnNDq551M=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=MBy/zndMJBNpPo83fJILf0E8EfNgtywMzYfWf8R81GCh2kvJF0WodQyNledMebvI9
-	 MK/CvmaEPKOWQV6ZDDil2JHOqVAktxcasL3B2HM0OdJxV40oya0cmBF+NF0+jIecqK
-	 obCw6akJZ0L2OiIwqEqRNSswy701ClV3Cd9iZRc4kV7L0/de0Bu3NaQ1ZFiVdqgod9
-	 1xOu2ypytX+uwMelwLaierY3m8eSYtGRduffCMQFJRWqMVwyXQPW61lt2aOBN9jSjA
-	 uO1KJYgV2sC+nhUaa3zAHDM4OqbBl9hpQucSU8NpebmU5bJLqzCBJ/pzYQ+Dk6naHh
-	 Arl5QBFTNc54w==
-Message-ID: <3d662b34-61ed-4a30-a52c-f86bc70162ca@kernel.org>
-Date: Thu, 27 Aug 2026 17:31:30 +0200
+	b=EkNYY/2TymrOw7w04hBE9IzFqwAjn5BgIOiM6RWUrh5Qfag3j75kKyb4vFjwl82Y5
+	 eN4wrbtBg7rSkenawg9mXdvqwt8Gxnn0qe0Xsh1uhNF5NTiNml1qchqWzC0fOcXsd1
+	 6O9D1qnQsjw4oie5swpFjwE790AdyxOibGLbMp0zdm+9+WmnVSbmke7Cg34vww2oz1
+	 tlmx7K/+Mv1dzXxGj4bLlUMFgcA7+iBh0b4S3ZZTNqomzOB086eTD/mOYn/QnvVFd0
+	 SzDsoGoZUCnzIHbfVnon2aV2/STL73s7N5BvjyFTuCO3CeJUcDP6vVqv8+Ny7aYpI0
+	 3iJd3sClIgkYg==
+Message-ID: <fbde1932-5433-48e8-b352-bf27eb545149@kernel.org>
+Date: Thu, 27 Aug 2026 17:33:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/3] dt-bindings: net: wireless: add flag
- marvell,invalid-reg-hint-in-rom
-To: George Valkov <gvalkov@gmail.com>
-Cc: briannorris@chromium.org, johannes@sipsolutions.net, andrew@lunn.ch,
- krzk+dt@kernel.org, francesco@dolcini.it, johannes.berg@intel.com,
- kees@kernel.org, miriam.rachel.korenblit@intel.com, wenst@chromium.org,
- rafael.beims@toradex.com, avraham.stern@intel.com, error27@gmail.com,
- s.kerkmann@pengutronix.de, gregory.clement@bootlin.com,
+Subject: Re: [PATCH v7 2/3] wifi: mwifiex: add dt flag to avoid conflict with
+ platform reg domain
+To: Georgi Valkov <gvalkov@gmail.com>, briannorris@chromium.org,
+ johannes@sipsolutions.net, andrew@lunn.ch, krzk+dt@kernel.org
+Cc: francesco@dolcini.it, johannes.berg@intel.com, kees@kernel.org,
+ miriam.rachel.korenblit@intel.com, rongqianfeng@vivo.com,
+ wenst@chromium.org, rafael.beims@toradex.com, avraham.stern@intel.com,
+ error27@gmail.com, s.kerkmann@pengutronix.de, gregory.clement@bootlin.com,
  sebastian.hesselbarth@gmail.com, robh@kernel.org, conor+dt@kernel.org,
  Frank.Li@nxp.com, chunfan.chen@gmail.com, arend.vanspriel@broadcom.com,
  peddolla.reddy@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org,
  linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, stable@vger.kernel.org
-References: <20260821010728.45065-1-gvalkov@gmail.com>
- <20260827-helpful-icy-donkey-9bfdaf@quoll>
- <CADOrJmaF0UpRefk1+BDyn5iU5La4ke1gFWwzyRr5-9wp7Zr2+A@mail.gmail.com>
+References: <20260827130335.6606-1-gvalkov@gmail.com>
+ <20260827130335.6606-2-gvalkov@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,7 +106,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <CADOrJmaF0UpRefk1+BDyn5iU5La4ke1gFWwzyRr5-9wp7Zr2+A@mail.gmail.com>
+In-Reply-To: <20260827130335.6606-2-gvalkov@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -124,48 +123,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/08/2026 15:08, George Valkov wrote:
-> On Thu, 27 Aug 2026 at 13:34, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On Fri, Aug 21, 2026 at 04:07:26AM +0300, Georgi Valkov wrote:
->>> WRT3200ACM and WRT32x routers always report a fixed US regulatory domain
->>> from the mwifiex ROM, which conflicts with the platform regulatory
->>> configuration on units sold outside the US market. For example:
->>> - phy0 mwlwifi 5 GHz, hard-coded region 98 EU mapped to FR
->>> - phy1 mwlwifi 2.4 GHz, hard-coded region 98 EU mapped to FR
->>> - phy2 mwifiex 2.4 and 5 GHz, hard-coded region US
->>>
->>> When the system boots, it detects a conflict between the user selected
->>> region and the radios, e.g. BG FR US, and applies extreme restrictions,
->>> preventing phy0 from starting on any DFS channel. phy2 works.
->>>
->>> Add a device-tree flag, which allows affected devices, where the radio
->>> conflicts with the platform to ignore the incorrect regulatory hint in
->>> the ROM of the radio, so the platform regulatory domain can be used.
->>> This does not allow the user to change the regulatory configuration of
->>> any radio. It only allows phy0 to start and operate according to its
->>> certified configuration.
->>>
->>> [1] https://github.com/kaloz/mwlwifi/issues/173#issuecomment-307879699
->>> [2] https://github.com/openwrt/openwrt/issues/9956
->>>
->>> Cc: stable@vger.kernel.org
->>
->> I don't think there is any bug to be fixed here. Support was incomplete,
->> so you add a missing quirk, but there was no bug in the binding.
->> Binding was correct.
->>
->> With stable dropped:
->>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On 27/08/2026 15:03, Georgi Valkov wrote:
+> WRT3200ACM and WRT32x routers always report a fixed US regulatory domain
+> from the mwifiex ROM, which conflicts with the platform regulatory
+> configuration on units sold outside the US market. For example:
+> - phy0 mwlwifi 5 GHz, hard-coded region 98 EU mapped to FR
+> - phy1 mwlwifi 2.4 GHz, hard-coded region 98 EU mapped to FR
+> - phy2 mwifiex 2.4 and 5 GHz, hard-coded region US
 > 
-> I added Reviewed-by to the first patch and sent v7 with these changes:
-> 1. drop Cc: stable, the first patch only documents a binding
-> 2. restore colon after Tested-on as requested by openwrt-ai
+> When the system boots, it detects a conflict between the user selected
+> region and the radios, e.g. BG FR US, and applies extreme restrictions,
+> preventing phy0 from starting on any DFS channel. phy2 works.
+> 
+> Add a device-tree flag, which allows affected devices, where the radio
+> conflicts with the platform to ignore the incorrect regulatory hint in
+> the ROM of the radio, so the platform regulatory domain can be used.
+> This does not allow the user to change the regulatory configuration of
+> any radio. It only allows phy0 to start and operate according to its
+> certified configuration.
+> 
+> The change affects only platforms which explicitly define this flag, and
+> helps overcome the incorrect behaviour of proprietary radio firmware.
+> 
+> [1] https://github.com/kaloz/mwlwifi/issues/173#issuecomment-307879699
+> [2] https://github.com/openwrt/openwrt/issues/9956
+> 
+> Tested-on: WRT3200ACM, OpenWrt
 
-Hm? You cannot test a binding. Please ignore completely openwrt-ai, it's
-apparently hallucinating. Anyway, OpenWRT process does not matter to
-upstream kernel.
+OK, so this comment from v6 was not about binding, but this is still
+wrong - there is no such tag. Just make it a standard sentence.
+
+Do not introduce OpenWRT rules in to the upstream kernel.
 
 Best regards,
 Krzysztof
