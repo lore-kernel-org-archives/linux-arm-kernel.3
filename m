@@ -4,67 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 255D0C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 23:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53831C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 23:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ByhfPFFYRyQOKzwOCdD7VT4FkrQ9JW/PGTIdcjTJE7E=; b=U5wHHwntbmdsif+3Cl2J61nS/W
-	j4CuS9AACJcl1tdYP0bH7zucVjcJBwJT+5ArRTSge1Q9PR3b4NzYZmwISrk6tqZIqZoSmoTw2kPf6
-	TuPHeZ+UU5d15MYtrBVdnkcqv5Zr/Rn/OWG1YWDt/DtYjBs+t++9VHJ/v3WrdtrGsaAcfJAujMQUu
-	6dEJOewz6+ZxjWx/cEv+tZ/6q0MKiFgEH4PUqlqLdoaN7rt0fmrDQgeci4SWs9eMPxCiw1TSGNXkY
-	CTbwEpkAxwGTXUDNNS8lm6Rs4ZYKCxOiouCqBoqholsTnGE4iOQM+RgnvDJ7FFcbnw7ipLTXFGNR9
-	h3Gi6juw==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=brDKxupp32vlfYsuON/JY3iAK7z2zOrfUeaeP3zp25g=; b=dgvvhOKRiTFDppDwuUu8pRRyLD
+	/fulkwcj2eVF6s+cBQIGPLy5Bvhvv/aaKhdTIVfJmRsDccwIC/Ci1dVi2/6uJ1g1+k5sFX+CxeIgM
+	E8UDX/XzG2Q+SOJw0Q5jdONXrFtywa2UsgmQoNwPzkVFNHfGvJ9XBL62mzHsSBnz9+lW2kFb2ASf+
+	LDMLcSMJF7J1YbSwAmt3tEhX00EXd9T2bh1gSqRwy1GVCalXPF5ZXoW+mXuOrOWBvhilX/HMBDkgs
+	WhZvSS0R8G1JnBUwG0y+e+ZeGtIN9GjOD9ZlNUPdzBTxQ5rqBM7pUr9ZGY78j0vVjQhrlAP/3kbr+
+	lYvj0GYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzjZ4-00000004u6U-2TXO;
-	Thu, 27 Aug 2026 23:31:22 +0000
-Received: from mail-pl1-x647.google.com ([2607:f8b0:4864:20::647])
+	id 1wzjZM-00000004uCT-3Qm5;
+	Thu, 27 Aug 2026 23:31:40 +0000
+Received: from mail-pl1-x646.google.com ([2607:f8b0:4864:20::646])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzjZ1-00000004u5b-0j0c
+	id 1wzjZ3-00000004u5d-2bYk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 23:31:21 +0000
-Received: by mail-pl1-x647.google.com with SMTP id d9443c01a7336-2cce14a21faso4786125ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 16:31:17 -0700 (PDT)
+	Thu, 27 Aug 2026 23:31:22 +0000
+Received: by mail-pl1-x646.google.com with SMTP id d9443c01a7336-2ccb687f82eso3259595ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 16:31:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787873476; x=1788478276; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ByhfPFFYRyQOKzwOCdD7VT4FkrQ9JW/PGTIdcjTJE7E=;
-        b=W7D8m0vKm0hZzFDQocWp+8d8iPnhqOq2JDWaVWHkA3oHy9zC6o61Im3tUwDcc9o9Uh
-         HojWp+9LFCU1MMZdvdpA1m0Gah8HtIZcXTKmUBAugyKQBoGI85Tabvn+qPsUY1rohZUm
-         DsZRMRW1obMr4MfruNwaOUJQogCXdzL+ULsXR9scsgFOMMpQQRS/SJ/10tsmkrZ7E6S/
-         eoulzavtPcFqxrMod6y4v8Nm6ft3VzHl5yXruR5aZ3Qv4NvrS65nBfwIsh1aUnh5vMXK
-         L54p3W/hC0QtwzDh9fCRvEEXe1VC88YVoSTj8B+FV+mZ8CdBYENaF48aoOnsrF/j+z/u
-         4klA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787873476; x=1788478276;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20251104; t=1787873478; x=1788478278; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ByhfPFFYRyQOKzwOCdD7VT4FkrQ9JW/PGTIdcjTJE7E=;
-        b=l+mjsSV8jYgQ8TAGH4mRFqYGLjNyByk4ZxBQtgFzFVlyQejsqtka4L+dR8wfXhTbvi
-         /C1anfy67EkIWhLuEkqSd+KCZ7uNI9H83d9l4hTYF2dCJkf2Q5q2hkmnXIE71TkuOlTD
-         SkbMmkcQJ8NASSUTlOKx0z0PDDma7LUyHR9zTJkhmCSAZOyurRNtgtJ92t4Wk7L4Pzy1
-         i1x8Tyxq9S0VVuNVPT9FWhDo8JnuyNJ04gn7N2PDcDEHAVNJ5f2IAm7cPt94v68d2HON
-         DT1Dhze+zEopEAs9c2PWTHbkd2ODVZQ1mtsN+H9CCy4tsMMcWdUqnJNIOAAQqg7OhTGA
-         2V5g==
-X-Forwarded-Encrypted: i=1; AHgh+RrhSxK7kKOZVueBmp+lM5pe+LyRMX76dVfai2Vv3SCx0pzBTrab2anLocA4CtCxmqxxd7CxxIEs2j9otDZ/1Ais@lists.infradead.org
-X-Gm-Message-State: AFuF++nOqYXu6uTpHbDT6wWOi7uEaG+anqI6HZym2/2iffvHgF21kUHl
-	Z2XoqPxKbLvH179GlGPvjtwoYqehio9JmGrMdjbHfMC0Z9vXb9RUfCYoA+rEUtuKoV6KptN7rKo
-	44o3JsAI3r1UdBw==
-X-Received: from dybnj45.prod.google.com ([2002:a05:7300:d0ad:b0:322:61cd:851e])
+        bh=brDKxupp32vlfYsuON/JY3iAK7z2zOrfUeaeP3zp25g=;
+        b=oz6CSV+r+nSq9HzPde1Md+EV+aoIb+uZf3pLiQteD/mH1hGHnd7YPAoeWCrGbqJOOY
+         Ug2zBRw9nlYohOObrTwmvhE48f4G+RMfC9Qob8RYbD2Op/FLK7TJHMzFyM5YLPKgZ3tV
+         9RpFxdypY3avA0Wn1AQzTz6BqtUDOmHPYMshcH3uuzbPvejpLVF26U3qnw+uS42kYyfc
+         mgUoUvnmH1EIFz9/SplW+gplV0+5Fe3zoSJqbYSebMOgY6QatiE+g5b/IIit8A4wzSGv
+         iMOIO7DyV6O4towS0xm9vV3gASrf/DwQYOVCCGJ6o2++1fEXYCPq3NmRB0yTm58abbup
+         xKsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787873478; x=1788478278;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=brDKxupp32vlfYsuON/JY3iAK7z2zOrfUeaeP3zp25g=;
+        b=iVSagZvUpmCKCaK5fM5jlEVQNxC0SJkkp3xUByD11ainnz66pRO68dhBd/nbSR53ZN
+         3nyVu/f7EY1LNgATSVEfjpAzei2aERvtKWkiZLRwP46Ly+iQ3VdUAUjN0HpVf3xEssSO
+         mMiX6Iu1xUR9NKfB+limb3oAneygyti4KOs7+6OnvlMGdTt3RsSa5kZbQduWvrNF2ux4
+         9coM20UUQNS7YNzKvmZjZaSQpKR+fyU+JxPCwSmp58rPQKe6D4MZj3tgjJx0cLfeBHt7
+         s/TVJoz50jy5LLP6r7FWo8SDwd5XfQBwepr47SURq5zR64itFsrG4DzB07bn6CMQmeIn
+         52QQ==
+X-Forwarded-Encrypted: i=1; AHgh+Ro89g1Nz5m9QpQEhd45KBfx+967xxZMFSET7sjQF7aAWZguQwxzDq+xB8XLqr8EQfNfHR971ARG12kh6kK5jxZ/@lists.infradead.org
+X-Gm-Message-State: AFuF++mCz4i0EVVg92X1whgQdGQdNNHhlzix5EcYgKN07mAWeC9Az/RH
+	70Zb/fqfTNOTOHlRVLpOUtnDVqNIuE4Elfu+W7mAyoLpVkr0tjfIBqvdm5JXB961tSb3chWU0cV
+	2dhzhGABx/ZpiCA==
+X-Received: from dybeb10.prod.google.com ([2002:a05:7300:a2ca:b0:328:4d52:8cd0])
  (user=stevensd job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:ebc4:b0:2d6:f80c:6ff1 with SMTP id d9443c01a7336-2d726784320mr120542355ad.9.1787873476188;
- Thu, 27 Aug 2026 16:31:16 -0700 (PDT)
-Date: Thu, 27 Aug 2026 16:29:38 -0700
+ 2002:a17:903:458b:b0:2d6:f3f0:3e7a with SMTP id d9443c01a7336-2d74dc2ade3mr36333205ad.3.1787873478170;
+ Thu, 27 Aug 2026 16:31:18 -0700 (PDT)
+Date: Thu, 27 Aug 2026 16:29:39 -0700
+In-Reply-To: <20260827232948.2520558-1-stevensd@google.com>
 Mime-Version: 1.0
+References: <20260827232948.2520558-1-stevensd@google.com>
 X-Mailer: git-send-email 2.55.0.897.gb25b4bd76c-goog
-Message-ID: <20260827232948.2520558-1-stevensd@google.com>
-Subject: [RFC 00/10] Reclaimable kernel stacks
+Message-ID: <20260827232948.2520558-2-stevensd@google.com>
+Subject: [RFC 01/10] Add !MEMCG memcg_list_lru_alloc implementation
 From: David Stevens <stevensd@google.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
 	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
@@ -85,8 +88,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	David Stevens <stevensd@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_163119_262312_F3C0D8DE 
-X-CRM114-Status: GOOD (  24.20  )
+X-CRM114-CacheID: sfid-20260827_163121_855315_4BFDC291 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,110 +104,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This RFC is a different approach to reducing kernel stack usage from the
-earlier dynamic kernel stack RFC [1]. This patch series aims to reduce
-the cost of kernel stacks by partially reclaiming stacks of blocked
-tasks when it is safe to do so.
+Add a stub implementation of memcg_list_lru_alloc() when CONFIG_MEMCG
+isn't enabled.
 
-On Android, system processes typically have 2000-3000 threads. App
-processes add 1000s more threads on top of this. The number of app
-processes varies based on device RAM size, but the end result is that
-1-2% of system RAM is consumed by kernel stacks. However, most of these
-threads spend extended periods of time blocked. As such, reclaiming
-blocked kernel stacks can reduce total kernel stack memory usage by
-upwards of 50% in various multi-tasking test cases.
+Signed-off-by: David Stevens <stevensd@google.com>
+---
+ include/linux/list_lru.h | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-When a task is blocked, we know exactly where the top of its stack is
-and can reclaim any pages past that point. Since any accesses to that
-portion of the stack are bugs like use-after-return or buffer overflow,
-turning those invalid accesses into hard crashes could even be
-considered a positive.
-
-Tracking blocked state and when it is safe to reclaim a stack is done
-via a series of hooks in the scheduler. The actual reclaim of stacks is
-done asynchronously in a shrinker.
-
-Once a task's stack has been reclaimed, it cannot be rescheduled until
-its stack is repopulated. Although there can be a repopulation fast path
-within the scheduler, reliably allocating memory to repopulate the stack
-requires a fallback path that defers the repopulation and wakeup to a
-workqueue context that can use GFP_KERNEL.
-
-The primary challenge is avoiding reclaim deadlocks. If a task blocks
-while holding a lock used by direct reclaim and then has its stack
-reclaimed, using GFP_KERNEL to reallocate its stack risks deadlock. To
-avoid this, only tasks which are known not to hold any locks upon which
-reclaim depends are considered eligible for stack reclaim. Automatically
-inferring this property is not feasible, so instead a new
-PF_RECLAIMABLE_STACK task flag is used to annotate blocking locations
-that are known safe. While annotating all safe blocking locations is not
-feasible, the vast majority of userspace threads block using a fairly
-small number of syscalls - futex, epoll, nanosleep, etc. The 10
-annotations added in this series cover >95% of userspace threads on
-Android based on my testing. Since missing annotations are leaving an
-optimization on the table rather than an actual bug, other annotations
-can be added later as needed.
-
-Although reclaimable stacks will not cause reclaim to deadlock, it does
-introduce a dependency on needing to allocate memory before an OOM
-victim can exit, as reclaimed stacks need to be repopulated before their
-tasks can run. While the OOM reaper will still be able to immediately
-free the victim's mm, the freeing of non-mm memory may be delayed. This
-can lead to more OOM kills. While this is not a significant concern on
-Android due to the reliance on lmkd over the kernel OOM killer, it may
-be a concern on other systems.
-
-This RFC was developed primarily on 6.18 and 7.1 based kernels. I have
-done fairly heavy stress testing, but it has not yet been deployed to
-any production systems. If initial feedback on the RFC is somewhat
-positive, I will work on deploying it to production systems for further
-stability and performance testing as well as resolving the handful of
-TODOs left in the RFC.
-
-[1] https://lore.kernel.org/linux-mm/20260424191456.2679717-1-stevensd@google.com/
-
-David Stevens (10):
-  Add !MEMCG memcg_list_lru_alloc implementation
-  mm/vmalloc: Skip vmallocinfo NUMA stats for VM_SPARSE
-  fork: refactor vmap stack alloc/free into helpers
-  mm: vmalloc: support creating aligned vm areas
-  fork: allocate reclaimable stacks with VM_SPARSE
-  Reclaim memory from blocked kernel stacks
-  Reclaim stacks via a shrinker
-  Set PF_RECLAIMABLE_STACK in various places
-  x86: Enable reclaimable stacks
-  arm64: Enable reclaimable stacks
-
- arch/Kconfig                       |  18 +
- arch/arm64/Kconfig                 |   1 +
- arch/arm64/include/asm/processor.h |   5 +
- arch/x86/Kconfig                   |   1 +
- arch/x86/include/asm/processor.h   |   5 +
- drivers/android/binder/thread.rs   |  14 +
- fs/eventpoll.c                     |   3 +
- fs/pipe.c                          |  28 +-
- fs/select.c                        |   3 +
- include/linux/list_lru.h           |   7 +-
- include/linux/sched.h              |  44 +-
- include/linux/sched/task_stack.h   |  23 +
- include/linux/vmalloc.h            |   2 +
- kernel/Makefile                    |   2 +
- kernel/fork.c                      | 140 +++++-
- kernel/futex/waitwake.c            |   3 +
- kernel/sched/core.c                |  18 +-
- kernel/sched/sched.h               |   3 +
- kernel/signal.c                    |  36 +-
- kernel/stack_shrinker.c            | 760 +++++++++++++++++++++++++++++
- kernel/stack_shrinker.h            |  58 +++
- kernel/time/hrtimer.c              |   3 +
- mm/vmalloc.c                       |  27 +-
- rust/kernel/task.rs                |  16 +
- 24 files changed, 1175 insertions(+), 45 deletions(-)
- create mode 100644 kernel/stack_shrinker.c
- create mode 100644 kernel/stack_shrinker.h
-
-
-base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
+diff --git a/include/linux/list_lru.h b/include/linux/list_lru.h
+index a450fffe1550..40eaeaa3424c 100644
+--- a/include/linux/list_lru.h
++++ b/include/linux/list_lru.h
+@@ -79,10 +79,10 @@ static inline int list_lru_init_memcg_key(struct list_lru *lru, struct shrinker
+ 	return list_lru_init_memcg(lru, shrinker);
+ }
+ 
++#ifdef CONFIG_MEMCG
+ int memcg_list_lru_alloc(struct mem_cgroup *memcg, struct list_lru *lru,
+ 			 gfp_t gfp);
+ 
+-#ifdef CONFIG_MEMCG
+ /**
+  * folio_memcg_list_lru_alloc - allocate list_lru heads for shrinkable folio
+  * @folio: the newly allocated & charged folio
+@@ -106,6 +106,11 @@ static inline int folio_memcg_list_lru_alloc(struct folio *folio,
+ {
+ 	return 0;
+ }
++
++static inline int memcg_list_lru_alloc(struct mem_cgroup *memcg, struct list_lru *lru, gfp_t gfp)
++{
++	return 0;
++}
+ #endif
+ 
+ void memcg_reparent_list_lrus(struct mem_cgroup *memcg, struct mem_cgroup *parent);
 -- 
 2.55.0.897.gb25b4bd76c-goog
 
