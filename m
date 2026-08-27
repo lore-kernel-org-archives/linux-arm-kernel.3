@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E40EC61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 06:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C1C4C5DF9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 06:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xmip4nYv6eUji045nMgRI6RIBtW9arz3x2fQo9GKIkU=; b=PhqbqAAJcjZQUp33Sh1f629/uw
-	a8oJ2zhTuZ+EiEHRV2aU55SFhoJtt7SyUOjySi3cUlyPcMZu4imnIZwhwnvCPJ5ThV+PCLlV4zzJu
-	p3eOkkbCla4skX8HzjbsqAzQmKRzNRVNDZNEVerrePfR9ZybxliYnbKqEl2qSXuGx604WCT4uzH9T
-	+Q/dyJXcm+uwyjMc+z2qOG5W76DlVLBRVEGxH5rIVYiebNv/xmLyLTKI89GGylNXGmFhpkiPpsvKW
-	NWnhNnYycir17mVEOtU6HpRreM9FCxpESc3dWDN8bfW3UX5lIL8bAFzs9LMnpDkkAaCI3c64DTZS6
-	0WJCKp7Q==;
+	bh=L6GoQKUnFc//SyGwn7DfOqRakR5AmwowDLHGlho5Uz4=; b=B+g1LeZSQ85wIke5luxwJyBT00
+	p+RDwObb60RYshrj1SJVFPoZNCYJz/WyRGOuX7L4wEMZG4mKCj3kzxa2ATVsE0jyNdkRevDNuKj/H
+	CuuhswBh+efcinIYc8bKcTBoTojVnLhvIJeAszv1Dlm4MLBiP1k2gDqd2YMkMa5el+BJ0X4aezmjj
+	ecDiR5ST0ZBJqpXjNo3+zNgESe83XhcDChEdCRt9zAEVWyIp77lY6S3FdNB0h8HyV7G9FcXol7uhq
+	Zh6gbyTN78i3Bm/iXRc4eE7aqQmdXDuwXyo3M35N5f0ebomAfWvqCSKtK7h/S+QDghyPbY+7Vy7IO
+	oBzaN2ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzTeD-00000003UBm-35xj;
-	Thu, 27 Aug 2026 06:31:37 +0000
-Received: from smtpbgau1.qq.com ([54.206.16.166])
+	id 1wzTeI-00000003UES-3uNF;
+	Thu, 27 Aug 2026 06:31:42 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzTe7-00000003U9H-2rbJ
+	id 1wzTeE-00000003U9r-1u7J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 06:31:33 +0000
-X-QQ-mid: esmtpsz20t1787812246tf69520b0
-X-QQ-Originating-IP: ZXeObjIOicgx6bbgtANZd2CIhj1mWYEEWSlY1MfUDts=
+	Thu, 27 Aug 2026 06:31:40 +0000
+X-QQ-mid: esmtpsz20t1787812256tb4f00064
+X-QQ-Originating-IP: 82KkePapeeneOtk0IMx8EA6E5nujxXT5q/ttGDpvGkE=
 Received: from localhost.localdomain ( [111.8.45.130])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 27 Aug 2026 14:30:41 +0800 (CST)
+	id ; Thu, 27 Aug 2026 14:30:48 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 17649052534252163041
+X-BIZMAIL-ID: 1738464052093361708
 EX-QQ-RecipientCnt: 10
 From: Liu Dalin <liudalin@kylinsec.com.cn>
 To: Hans Ulli Kroll <ulli.kroll@googlemail.com>,
@@ -47,39 +47,40 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Deng Yingchao <dengyingchao@kylinsec.com.cn>,
 	Qin Yungao <qinyungao@kylinsec.com.cn>,
 	Luo Qiu <luoqiu@kylinsec.com.cn>
-Subject: [PATCH v1 2/3] rtc: ftrtc010: use devm clock APIs to fix use-after-disable in remove
-Date: Thu, 27 Aug 2026 14:30:18 +0800
-Message-ID: <17C4ADB7B3B875B8+20260827063019.3342085-3-liudalin@kylinsec.com.cn>
+Subject: [PATCH v1 3/3] rtc: ftrtc010: fix integer overflow in time calculation
+Date: Thu, 27 Aug 2026 14:30:19 +0800
+Message-ID: <B06A3E7BF268E081+20260827063019.3342085-4-liudalin@kylinsec.com.cn>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260827063019.3342085-1-liudalin@kylinsec.com.cn>
 References: <20260827021054.0963C1F000E9@smtp.kernel.org>
  <20260827063019.3342085-1-liudalin@kylinsec.com.cn>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: NkHKfw09D6j8P79CX9CZlLA8D8mp26Y61sEywqmWQxeBpHlZSCllH4au
-	9eCS+mz90VVG/kaMPWxaXOsAn67mLIQICBltI1OnH7wLUF+x8KiPZUlqbNn3ztrtymUOD6L
-	okeGpRlO7deuUl98z84t7z4rO8unRUsFv6zC30HEfs/DbF4yaZaD8KACGE6Eq90w/cc2bed
-	E40R+GBeI8oPJzcIRwvCfYFkHkHMGJDwIHAC0phVHYmVCKTjglZ4dvk/S7z5fJWWy2crUvW
-	aaltqE/n7WnYGAHjja4WqL3v7kXi3Bh65iuVxL7FpeUv1ym7ursA2FvFcN8v0mNRCEffHFM
-	1SViCXX4+ci4MiPPkZDJb3DIsKM1EYDMHaXoi/3h6oxNT7WkfFLX9/Tf8gc+1AFpjVLaTc+
-	Mj1J43BnxfI39tG0PN9IAcKmgdmaVxClaQMANFgHNRBHxU/TVsjrmSzmt0rYfj5LktPo+Yt
-	zoXAgPbPcn65RmgpYg0g7dJfdNtRfnJqu6IR0j0MZkgg0inBLxQ8Vwc6CMeBWL3oRcExaIB
-	Evmci4AOsiggqaoqcYhV9+di5G9lq/1iQKGibPYs+kizwGowMs2vzib3jUJ+kI5IqBlFOdf
-	w3kP+XLrctsB1s0GMb7y3GkgFg5ksL5dtnzKD0J46X2QqpjSagZsi6JHqhSFGn8Roml3Jx+
-	XBnDGuYKNOPyeam5802jAuoSfGv03EoaLP90TcCIFwRuSzxTTEtdnGjWY3F5YQKjfdB9BFr
-	7yfQvjKVZWm36ZMgRi+twiBZYBt/L3H+iYFRH9hbVVLGZGDGUky5wHsOwmGvfHQKKv1mSc0
-	lclejAjh1J1JG55ID/NWs0d4yCQKD1x8buHSnpuk8qKCz3sWKrhN758Hv7YQisB1EvqluCj
-	pIyy/5tc88xC3A5cRI/SR2ntRd6D/6DvY36uxc8Xb9HWYFp05BnATUGN/xMcjyc2TgWi6q8
-	Wshsr8R0xBUwKxLC53BHcJzrhPDxiBqVaBaTMsgHAP6oQn/XOYI6rECVoG7vVuqR7vrdhxq
-	8/lTCaLfDHXD1oPDHfgi7WadnmXM8klWYedUTMxwlqz3KnENdshtRCpmnUD3xmoBne8UXzl
-	w==
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-XMAILINFO: MC+jTyq9xFiavOkJydzmFxGopX3cNGRIoDYvJmoAyBZlS6YgA/qvVlpw
+	sdCU6/KJdrwazq/XRsagvq7v5QyOYSlQtahojb6AUG9cMVzZHYl9SC/pgmNMl/vHfW3JqrE
+	suEyvXH/qydnTg1pGdLlmeID6rgL9zzFZktToDNS4IDg6GtmS2n+uEAZFCSGhVd4nX7DHrC
+	YvsThm/j5LZa3jIjHIhVVbJJmlcpp1J1X94kxjVCIdWyCbKBbTei1vvgLHzCoVNMvGPUQDP
+	IQoLRThkvFuEvXNsx0sY5C4krHjGXQRJ+/Rg1bHzryfHW06LnoETDWcx8y53CUGUL12cFGm
+	74PQeTYBSkj5SV87OzuUxnJMG4nz3N2fxVk7o34iuF6z58OC9gveB/gHtDNE3+/033q2WBj
+	syiwP0dANqul6OiZ4YX/JNx4yIGyDAqMBBNjyKGGKfXUN8ULf6tMKaLJYQ3nKa34ia1PB1w
+	73RWnu59H8Pr9Tj7toTAyOkbJDi1k69SkWQcVKuZRu45/1Se3SqjUbQRSgoVNAe7LFTWw4L
+	wQ9Vniz4KKesXM/uIRluhEN/yv3VrUUoU6EyUpYdhk4J39kvjwqGLsgZJZ/ihC0bEVl3LBZ
+	aYf9ZcUtwaOC6E3YN9VhlYsGWbCdsff1EKamDipltukjInspsQf/G3zItmpmcsXCZBG9hkO
+	8bep+Milbf4AhGxvtlhSrp5MdkrnemZQKs+wvbgTpw7E/hN6jEqSfs/UNEabXok6+HOR1th
+	q3Hz2TOHN+RxTctgj3qWtsqdyiGE7fl/B5ylxwpBm1a/azf7S3M4BecOdOSkQ0GF2D0ik/q
+	o9JBGWV/pCN1TB34HJpHOvKHIU89gl4Ovlf3Zomzt78feWHHZaWi0sB271mIoKhePqHsItW
+	zvJaPVLERp622Uc+46+EzYWasX4TOd2qUbqTI/9KWYzUTfqXo0wIhSh35GYIWVLINzWv9RR
+	yBaqKRRkkQMXySQzfCL15vfQUjGsLGxi6AqRX26FbF7bIZ2zzDhEaEcFTaufSe7Wr+OEpLv
+	QYn+ybT1yOcwePM+eF4hXCKdyosCZniF7uCK3kWnHR9mX21tzEP7iBF8CHAthjtwjgHTB6i
+	/igb3uBwG996yZyLuDX1KJxuXfQKejdn0bYV4xF3ODp
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_233132_117832_A18FBFAF 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20260826_233139_030195_88078253 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,136 +95,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver mixes devm_rtc_register_device() with manual clock
-disabling in ftrtc010_rtc_remove(). Because the RTC device was
-registered via devm, it remains registered until devres cleanup
-runs after .remove() returns. An unprivileged process holding an
-open /dev/rtc0 file descriptor could issue ioctl(RTC_RD_TIME)
-during this window, triggering MMIO reads on clock-gated hardware
-and causing a synchronous external abort.
+In ftrtc010_rtc_read_time() and ftrtc010_rtc_set_time(), all
+variables (offset, days, hour, min, sec) are u32. The expression
+"days * 86400 + hour * 3600 + min * 60 + sec" is evaluated in
+32-bit arithmetic, which silently wraps around for dates beyond
+approximately year 2106 (U32_MAX / 86400 ≈ 49710 days).
 
-Replace devm_clk_get() + clk_prepare_enable() with
-devm_clk_get_enabled() to tie clock lifecycle to devres. Remove
-the manual .remove() callback and the corresponding error handling
-labels in ftrtc010_rtc_probe().
+Cast the u32 operands to timeu64_t before multiplication to ensure
+the arithmetic is performed in 64-bit, preventing overflow and
+matching the driver's rtc_dev->range_max configuration.
 
 Fixes: 1d61d2592c1f ("rtc: ftrtc010: Rename to Faraday FTRTC010")
 Assisted-by: Sashiko AI [static analysis]
 Signed-off-by: Liu Dalin <liudalin@kylinsec.com.cn>
 ---
- drivers/rtc/rtc-ftrtc010.c | 67 +++++++++-----------------------------
- 1 file changed, 16 insertions(+), 51 deletions(-)
+ drivers/rtc/rtc-ftrtc010.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/rtc/rtc-ftrtc010.c b/drivers/rtc/rtc-ftrtc010.c
-index 512790bc3f2b..19e6333bfbab 100644
+index 19e6333bfbab..8f2652132400 100644
 --- a/drivers/rtc/rtc-ftrtc010.c
 +++ b/drivers/rtc/rtc-ftrtc010.c
-@@ -119,51 +119,33 @@ static int ftrtc010_rtc_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 	platform_set_drvdata(pdev, rtc);
+@@ -72,7 +72,8 @@ static int ftrtc010_rtc_read_time(struct device *dev, struct rtc_time *tm)
+ 	days = readl(rtc->rtc_base + FTRTC010_RTC_DAYS);
+ 	offset = readl(rtc->rtc_base + FTRTC010_RTC_RECORD);
  
--	rtc->pclk = devm_clk_get(dev, "PCLK");
--	if (IS_ERR(rtc->pclk)) {
-+	rtc->pclk = devm_clk_get_enabled(dev, "PCLK");
-+	if (IS_ERR_OR_NULL(rtc->pclk)) {
- 		dev_err(dev, "could not get PCLK\n");
--	} else {
--		ret = clk_prepare_enable(rtc->pclk);
--		if (ret) {
--			dev_err(dev, "failed to enable PCLK\n");
--			return ret;
--		}
-+		return PTR_ERR_OR_ZERO(rtc->pclk);
- 	}
--	rtc->extclk = devm_clk_get(dev, "EXTCLK");
--	if (IS_ERR(rtc->extclk)) {
-+	rtc->extclk = devm_clk_get_enabled(dev, "EXTCLK");
-+	if (IS_ERR_OR_NULL(rtc->extclk)) {
- 		dev_err(dev, "could not get EXTCLK\n");
--	} else {
--		ret = clk_prepare_enable(rtc->extclk);
--		if (ret) {
--			dev_err(dev, "failed to enable EXTCLK\n");
--			goto err_disable_pclk;
--		}
-+		return PTR_ERR_OR_ZERO(rtc->extclk);
- 	}
+-	time = offset + days * 86400 + hour * 3600 + min * 60 + sec;
++	time = (timeu64_t)offset + (timeu64_t)days * 86400 +
++	       (timeu64_t)hour * 3600 + (timeu64_t)min * 60 + sec;
  
- 	rtc->rtc_irq = platform_get_irq(pdev, 0);
--	if (rtc->rtc_irq < 0) {
--		ret = rtc->rtc_irq;
--		goto err_disable_extclk;
--	}
-+	if (rtc->rtc_irq < 0)
-+		return rtc->rtc_irq;
+ 	rtc_time64_to_tm(time, tm);
  
- 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	if (!res) {
--		ret = -ENODEV;
--		goto err_disable_extclk;
--	}
-+	if (!res)
-+		return -ENODEV;
+@@ -92,7 +93,8 @@ static int ftrtc010_rtc_set_time(struct device *dev, struct rtc_time *tm)
+ 	hour = readl(rtc->rtc_base + FTRTC010_RTC_HOUR);
+ 	day = readl(rtc->rtc_base + FTRTC010_RTC_DAYS);
  
- 	rtc->rtc_base = devm_ioremap(dev, res->start,
- 				     resource_size(res));
--	if (!rtc->rtc_base) {
--		ret = -ENOMEM;
--		goto err_disable_extclk;
--	}
-+	if (!rtc->rtc_base)
-+		return -ENOMEM;
+-	offset = time - (day * 86400 + hour * 3600 + min * 60 + sec);
++	offset = time - ((timeu64_t)day * 86400 + (timeu64_t)hour * 3600 +
++			 (timeu64_t)min * 60 + sec);
  
- 	rtc_dev = devm_rtc_allocate_device(dev);
--	if (IS_ERR(rtc_dev)) {
--		ret = PTR_ERR(rtc_dev);
--		goto err_disable_extclk;
--	}
-+	if (IS_ERR(rtc_dev))
-+		return PTR_ERR(rtc_dev);
- 
- 	rtc_dev->ops = &ftrtc010_rtc_ops;
- 
-@@ -178,29 +160,13 @@ static int ftrtc010_rtc_probe(struct platform_device *pdev)
- 	ret = devm_request_irq(dev, rtc->rtc_irq, ftrtc010_rtc_interrupt,
- 			       IRQF_SHARED, pdev->name, dev);
- 	if (unlikely(ret))
--		goto err_disable_extclk;
-+		return ret;
- 
- 	ret = devm_rtc_register_device(rtc_dev);
- 	if (ret)
--		goto err_disable_extclk;
-+		return ret;
- 
- 	return 0;
--
--err_disable_extclk:
--	clk_disable_unprepare(rtc->extclk);
--err_disable_pclk:
--	clk_disable_unprepare(rtc->pclk);
--	return ret;
--}
--
--static void ftrtc010_rtc_remove(struct platform_device *pdev)
--{
--	struct ftrtc010_rtc *rtc = platform_get_drvdata(pdev);
--
--	if (!IS_ERR(rtc->extclk))
--		clk_disable_unprepare(rtc->extclk);
--	if (!IS_ERR(rtc->pclk))
--		clk_disable_unprepare(rtc->pclk);
- }
- 
- static const struct of_device_id ftrtc010_rtc_dt_match[] = {
-@@ -216,7 +182,6 @@ static struct platform_driver ftrtc010_rtc_driver = {
- 		.of_match_table = ftrtc010_rtc_dt_match,
- 	},
- 	.probe		= ftrtc010_rtc_probe,
--	.remove		= ftrtc010_rtc_remove,
- };
- 
- module_platform_driver_probe(ftrtc010_rtc_driver, ftrtc010_rtc_probe);
+ 	writel(offset, rtc->rtc_base + FTRTC010_RTC_RECORD);
+ 	writel(0x01, rtc->rtc_base + FTRTC010_RTC_CR);
 -- 
 2.43.0
 
