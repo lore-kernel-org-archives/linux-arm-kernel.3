@@ -4,80 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B436C5DF9D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 07:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 882B7C5DF9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 07:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yvFziv4lNhYffP/GPGVZf1WyR/w9ddzuS5seHRU85Hk=; b=ySCT/ym8/iHc3M+/Kfa49GRFKZ
-	FDLHr0LNEGGLU6dupZyRUIUz2rb3DEorlNu6VoIGgJZb7FVtj3vamLMxREES2eNdboSJma4E9vnSj
-	sH+s+RLjdjcyz83q0tiH4Elp1rnBSv842LoQNHoI4jqiW0oJjumfmMLeyYKF1VtpciWHv/Y0NwPlk
-	PCgEvwq23GnmvOya6PxYGY5klPzNLBAe05b07YtqFyabgwZCYjZFTVn8ZbQ/m90YC0qHp1OMI9F8S
-	u+lOSGgDZX7Lty8MEhuNjyibk3yl4kHXc6q9ZUR5fJYRl4BLkapTr062Ww40xrBxU9A19kIjn2m6j
-	e4odKLgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nrk8uUDBNanFfnr96a4o3nFXywW6wHqNdCn0K9fnuO8=; b=vH7xBelpQKETCLT+xHV6GOlrML
+	kAz6CXt8pVAZ1SUv1FjZz4u3T8YITvSdrm5JXX1XY+CDiO9eGBACJXKoJMfGhmIO5vqfbSoHvVCLn
+	ABQR5A0W9X+b1nQWweFQfOBpc56x0Dflw2vI/fhHQWGJK/rzYlb1uIB9yuJtIe6h1q0Wkok3LUP8z
+	aL30UHtQU2nI+XgY3idg1Ipfc3qVi0Xk6oz0BlBidZKDeblI5QQIaoZkzfsv10+f8mgGo2Z29iXIx
+	Qjbui+rM9WbFIeWt7JMOlWtmTTfT21JVuam64dzpeMy3Uf8fiCUuGdwe16/a5FNJzSTDGMtPYMwUO
+	KJLnVsBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzUzr-00000003aUU-2fCG;
-	Thu, 27 Aug 2026 07:58:03 +0000
-Received: from cp2.siel.si ([46.19.12.180])
+	id 1wzV08-00000003aXQ-3MLi;
+	Thu, 27 Aug 2026 07:58:20 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzUzo-00000003aTy-0aie
+	id 1wzV05-00000003aW6-3jQg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 07:58:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=yvFziv4lNhYffP/GPGVZf1WyR/w9ddzuS5seHRU85Hk=; b=S2vbAg6WhN1L+tJiFtAtgDm0Hi
-	9GqoPnQaeEaWKG39TQkvot67tEywlo+Q/TT9gw3boyOw+bsuX/SMEROHWQYuAGIo1frfpjdne1zJf
-	hiygudBzL1onRe1hRIY59fPoGIT3lNchgbKi+3lWEwCq9oetGYuOOwc2mu18tEvvShp+woFoGpaf6
-	0UI54VhiRGm+5Xp3S2XQAWKSMC3Ap6uHXNCWnmDiUAth88Nb/mgxHk7/0MWdweNP1cAKiEtqXjNhG
-	Jt3dHH8yEZnwXNdSGndJwFXqD6VHYMQVRkG20G1J32yaGX8Grs2u7jzFAQGqw42zblQw/dtMGUejm
-	8333dJxQ==;
-Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:55640 helo=localhost.localdomain)
-	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.5)
-	(envelope-from <primoz.fiser@norik.com>)
-	id 1wzUzl-00000007oR4-0FED;
-	Thu, 27 Aug 2026 09:57:56 +0200
-From: Primoz Fiser <primoz.fiser@norik.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	upstream@lists.phytec.de
-Subject: [PATCH] arm64: dts: imx8mp-phyboard-pollux: add PEB-WLBT-07 expansion board
-Date: Thu, 27 Aug 2026 09:57:54 +0200
-Message-Id: <20260827075754.2739119-1-primoz.fiser@norik.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 27 Aug 2026 07:58:19 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-38e041ea211so417940a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 00:58:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787817496; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Klx+TQX9Y65n8dZP23nZHuroJzWWKgzLSyZNU0QoMeAbHja9SmWiUxdc+sxf/XDqm6
+         zDKAgT3dJcOjaRIVmY2kIOGQnuI9laqf26gnxo9TkqCYYeL4d7YTMp8+RREO7ugOUyPk
+         BET5XBgmPGostKL9T+zwRfeN6zdskBzrukg2z3gueMVIrAIiNn1Pz5mw6XR+6Hrml00g
+         1AB3ncOU3MXE1jElsuzPY/27YOjYhFdmllaHlFEzGob/zxYynScJmN5DktgpcSMz484+
+         QodA06sxYKHex53HgXnzW5iUvwuGm2Tuw+tIAriLkyuKN+IiRnoOpIYQiZzG8qAC8Vab
+         ZqWQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Nrk8uUDBNanFfnr96a4o3nFXywW6wHqNdCn0K9fnuO8=;
+        fh=MC4IYQhvxw1QhhYGuIj4Wq1m00epdEyulYTgnecY1dA=;
+        b=IshEB4ZWvRbLVFe/Cf0V1l2uy6w5YaXO4yk7845mlU3uH7YwXd98+LWB3ENG84htbb
+         dPgtjym7jwBXNfhuGFIFmHoxriAVDUeUAmIn4BaOV65zlYRW5YY79lSbgRF+3la9znyx
+         8j78/AVd0CMagIbHF9pfiT3Puob9AbWTjMB634eIuCNj60RfE1c7TzK1BvWlB/a1krfR
+         7nVG516FiygGehAKo33Oi2hk3MSMqQol/XuVWwuO/0zum4FVZikqqPbF6u5IlwnxRVjC
+         SJJduHADAQvyr02YQLVce2m4hKmDHDCLop7/ooq6hYNCmzerAzuWzzz2taf5KSi9t46e
+         D5YQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787817496; x=1788422296; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Nrk8uUDBNanFfnr96a4o3nFXywW6wHqNdCn0K9fnuO8=;
+        b=dHmH/VtDmwUXfShUAbSrUjtGCFzEdpimGPxUHZcNfMrbeL7isqDSnRnE+KqiNDd1J2
+         FDXWmrTxM8rNwwLYUpjG9qUdsC/DlH5elS2JD2GpZLD9pRmjXRH0tFOySWDDgv5sW2xQ
+         iuzXA+5vz9App6ODUGw0FcQBXgdD8fpJNGLDvbJpWkDOBDQ3CG7bP3URSTvT+tjVc6Uo
+         kH1BWCY3j8lP7FTYWZcqt3rDm8fKVV4zKWRXDAfU8oSZcKL0yaKljZZqzzRT6I6RE1YX
+         RLN6hFXGRTlWQpOPmintWbfPqQiiOT07I2xAqlYkBrr8/z95q/KvHghoF0ZlKHlDRCxO
+         QR3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787817496; x=1788422296;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Nrk8uUDBNanFfnr96a4o3nFXywW6wHqNdCn0K9fnuO8=;
+        b=oJt/b3aZWCVHdWOQ8GsP58BAQJPiPEY8iGWBLqHvB0KR0hovnE7mQzF4JeU8tbttfY
+         7hERrv/HHCD3Qo+vljFfpdkNC0c9xKcYS7eX6WC10GMQ5K3LVSOlxCl4DKRBeBRxe8eQ
+         vDazAKJGjyV1MZ1OxzDHCOIlmHczqIhkp5vlGbUNSzMFv1jV5XKlP7h4BQoBGh5sPAea
+         3xpsgMOXCBJnw9WjY5hXO2sRs9534agRl1LYFgm+Lq8Zf1bVL6c15elg6HVuokBllZ1X
+         xDPdD9rp2yAHOIiGAUPPBsLqS5RbnvQMyq+AqqW6H8iQnDF91CZ0aqSXceehU0P6/UXC
+         mdbg==
+X-Forwarded-Encrypted: i=1; AHgh+Ro7gFQE6v9Rl1KKq/Rd3KfKAyNFV3+82Zm9PNEh+0zBWjr1pF/wSbdVYJLiQ4f0a4Y1HA0YLTtjCOTwQgr6FBPC@lists.infradead.org
+X-Gm-Message-State: AFuF++mzQyLlyXcDwoD44dZ6yanOqduvAzDRNGnVP94WxYLLBCX7Rtmz
+	CNUrR3yhGPkAPuyjfO1XZ0KrRVRc8tkaMqNK13WCgrwLGLy2oBgBFbq424QbSx21EMpvdqLvKN+
+	A8R3uHxi0YxRI4FxvpkXfwJgHlOpRrEg=
+X-Gm-Gg: AR+sD136llSq7nwHTvCQoj/KXP85CrEBvFR0Bo+GyDRGWjtkbljVj12E/J9w+fm/JxM
+	kMS4E50UJykqfraAQaYFT7NjIdgeRW2ypogPWJc8Ie0JhzZAJ1N/CKWtd3jeiW2DbPjfFsWLW2f
+	WmdTcM8umFtSq0bkhu/Q1N9YUE6pJfqt/mcfEES1cQsYNEj08Ay2dBQwu1xmAdLffiPgeu2Y8JM
+	qQVXzlF9ateKmL8rSNUyczNT73OcxsGkByH+j5XWNsB3R9OCkkc/5FZTIRiwLVBwwCUECKz9WMQ
+	Yiv/IAnMCXUhb0RdDAYY2eKMWVirF9dQRxezt1lPus+fwzuGzAwm4khzfRMHJJ5V0+jW6NjabWY
+	k79DnD29jitkG5fit/M+JPwA40MCoOAYLWlGIQLcbZZLeIzYg8IXB7EZF
+X-Received: by 2002:a17:90b:1649:b0:37f:fdc8:71b4 with SMTP id
+ 98e67ed59e1d1-3966d3fe36bmr25869449a91.2.1787817496356; Thu, 27 Aug 2026
+ 00:58:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cp2.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
-X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+References: <20260821122928.41343-1-phucduc.bui@gmail.com> <20260821122928.41343-3-phucduc.bui@gmail.com>
+ <47c14ad6-0311-467b-907c-517ff5044438@intel.com>
+In-Reply-To: <47c14ad6-0311-467b-907c-517ff5044438@intel.com>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Thu, 27 Aug 2026 14:58:04 +0700
+X-Gm-Features: AcwNN1XimKrPZge6zf8CptLL1uRO5gf5i0cHec8ah767upjHTgiSMh8y0Tz3b7w
+Message-ID: <CAABR9nHyDL8=EiSi+_GBpHM0xLZraH8az+HRXQWudG=1hLZ7qQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/4] ASoC: mediatek: mt8183: Fix APLL enable error handling
+To: Cezary Rojewski <cezary.rojewski@intel.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jaroslav Kysela <perex@perex.cz>, 
+	Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_005800_662403_26B74347 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260827_005817_957896_D8CBCB05 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,121 +121,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for PEB-WLBT-07 which is an expansion board that provides
-WiFi 6 and Bluetooth 5.4 LE functionality. It features the u-blox
-MAYA-W2 module with the NXP IW612 chipset.
+Hi Cezary,
 
-Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |  3 +
- .../imx8mp-phyboard-pollux-peb-wlbt-07.dtso   | 76 +++++++++++++++++++
- 2 files changed, 79 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-wlbt-07.dtso
+Thank you for your review.
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 95ae85ab4adf..9c9dcf08c96b 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -456,6 +456,8 @@ imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra-dtbs += imx8mp-phyboard-pollux-rd
- 	imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra.dtbo
- imx8mp-phyboard-pollux-peb-av-10-ph128800t006-dtbs += imx8mp-phyboard-pollux-rdk.dtb \
- 	imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtbo
-+imx8mp-phyboard-pollux-peb-wlbt-07-dtbs += imx8mp-phyboard-pollux-rdk.dtb \
-+	imx8mp-phyboard-pollux-peb-wlbt-07.dtbo
- imx8mp-phyboard-pollux-ph128800t006-dtbs += imx8mp-phyboard-pollux-rdk.dtb \
- 	imx8mp-phyboard-pollux-ph128800t006.dtbo
- imx8mp-phyboard-pollux-rdk-no-eth-dtbs += imx8mp-phyboard-pollux-rdk.dtb imx8mp-phycore-no-eth.dtbo
-@@ -465,6 +467,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-etml1010g3dra.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-peb-av-10.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-peb-wlbt-07.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-ph128800t006.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-rdk-no-eth.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-wlbt.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-wlbt-07.dtso b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-wlbt-07.dtso
-new file mode 100644
-index 000000000000..008b6f9f46e5
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-wlbt-07.dtso
-@@ -0,0 +1,76 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+* Copyright (C) 2026 PHYTEC Messtechnik GmbH
-+*/
-+
-+#include <dt-bindings/clock/imx8mp-clock.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include "imx8mp-pinfunc.h"
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&{/} {
-+	usdhc1_pwrseq: pwr-seq {
-+		compatible = "mmc-pwrseq-simple";
-+		reset-gpios = <&gpio2 7 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl_uart3: uart3grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD1_RESET_B__UART3_DCE_RTS	0x140 /* RTS */
-+			MX8MP_IOMUXC_SD1_STROBE__UART3_DCE_CTS	0x140 /* CTS */
-+			MX8MP_IOMUXC_UART3_RXD__UART3_DCE_RX	0x140 /* RX */
-+			MX8MP_IOMUXC_UART3_TXD__UART3_DCE_TX	0x140 /* TX */
-+		>;
-+	};
-+
-+	pinctrl_usdhc1: usdhc1grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SD1_CLK__USDHC1_CLK	0x190 /* SDIO_CLK */
-+			MX8MP_IOMUXC_SD1_CMD__USDHC1_CMD	0x1d0 /* SDIO_CMD */
-+			MX8MP_IOMUXC_SD1_DATA0__USDHC1_DATA0	0x1d0 /* SDIO_D0 */
-+			MX8MP_IOMUXC_SD1_DATA1__USDHC1_DATA1	0x1d0 /* SDIO_D1 */
-+			MX8MP_IOMUXC_SD1_DATA2__USDHC1_DATA2	0x1d0 /* SDIO_D2 */
-+			MX8MP_IOMUXC_SD1_DATA3__USDHC1_DATA3	0x1d0 /* SDIO_D3 */
-+		>;
-+	};
-+
-+	pinctrl_wlbt: wlbtgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_SPDIF_EXT_CLK__GPIO5_IO05	0x106 /* WAKE_DEV */
-+			MX8MP_IOMUXC_SD1_DATA5__GPIO2_IO07	0x106 /* PDn */
-+			MX8MP_IOMUXC_SD1_DATA7__GPIO2_IO09	0x106 /* WAKE_HOST */
-+		>;
-+	};
-+};
-+
-+&uart3 {
-+	assigned-clocks = <&clk IMX8MP_CLK_UART3>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_80M>;
-+	pinctrl-0 = <&pinctrl_uart3>;
-+	pinctrl-names = "default";
-+	uart-has-rtscts;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "nxp,88w8987-bt";
-+		vcc-supply = <&reg_vcc_3v3_sw>;
-+	};
-+};
-+
-+&usdhc1 {
-+	bus-width = <4>;
-+	keep-power-in-suspend;
-+	max-frequency = <50000000>;
-+	mmc-pwrseq = <&usdhc1_pwrseq>;
-+	non-removable;
-+	pinctrl-0 = <&pinctrl_usdhc1>, <&pinctrl_wlbt>;
-+	pinctrl-names = "default";
-+	vmmc-supply = <&reg_vcc_3v3_sw>;
-+	wakeup-source;
-+	status = "okay";
-+};
--- 
-2.34.1
 
+> I have mixed feelings about appl*_mux_setting().  Take a look at its
+> disable-path: if clk_set_parent() fails the follow up
+> clk_disable_unprepare() is skipped possibly leaving one of the clks
+> hanging.  I'd expect error paths of callers (of said mux_setting()
+> function) to ensure all the clks are disabled and unprepared
+> unconditionally.
+>
+
+Perhaps the primary purpose of the appl*_mux_setting() functions is to
+configure the mux, as their names suggest, which may explain why the disable
+path is currently structured this way. However, I think your point is valid.
+
+As far as I understand, calling clk_disable_unprepare() before
+clk_set_parent() should not cause any issues. Therefore, we could move both
+clk_disable_unprepare() calls before changing the parent in the disable path:
+
+------------------------------------
+clk_disable_unprepare(afe_priv->clk[CLK_TOP_MUX_AUD_ENG2]);
+clk_disable_unprepare(afe_priv->clk[CLK_TOP_MUX_AUD_2]);
+ret = clk_set_parent(afe_priv->clk[CLK_TOP_MUX_AUD_ENG2],
+                                 afe_priv->clk[CLK_CLK26M]);
+if (ret) {
+...
+goto EXIT;
+}
+ret = clk_set_parent(afe_priv->clk[CLK_TOP_MUX_AUD_2],
+                                afe_priv->clk[CLK_CLK26M]);
+if (ret) {
+...
+goto EXIT;
+}
+-------------------------------------
+
+To be honest, after looking at the code for other MediaTek SoCs, I found quite
+a few logic issues and inconsistent clock handling. This, along with
+the git log history,
+makes me wonder whether these code paths were ever properly tested on
+real hardware.
+Therefore, I have stopped at mt8186 for now.
+
+
+> >       /* setting for APLL */
+> > -     apll1_mux_setting(afe, true);
+> > +     ret = apll1_mux_setting(afe, true);
+> > +     if (ret)
+> > +             goto ERR_APLL1_MUX_SETTING;
+>
+> Why goto? The check is valid but the label in my opinion is unnecessary.
+>
+
+The function could return directly here, but I used goto to keep it
+consistent with
+the existing error handling in this function.
+
+> > +     apll1_mux_setting(afe, false);
+> > +ERR_APLL1_MUX_SETTING:
+>
+> While UPPER case for goto-labels is not part of the coding style I see
+> why you did it - to be cohesive with the rest of the file.
+
+Yes, that's right. However, I noticed that the mt8186 code uses
+lowercase names for goto labels,
+so the style is not consistent across the file.
+
+https://elixir.bootlin.com/linux/v7.2/source/sound/soc/mediatek/mt8186/mt8186-afe-clk.c#L303
+
+Best regards,
+Phuc
 
