@@ -4,66 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD97C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C471C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8O2+meqk+5errRTxRO38XMtHT8YBDqFda/htRjSRNT8=; b=Oab3VgIMDLeg1u5urzp2EuCBV6
-	Z7ZPlxQs9lkQgfG5/NPVuM0EJjOChquKh5Ozv5ActFSSim0VrPSHwLzXkq7TGzH9zhnJ6WfcVUFwb
-	ZhPM3oHqDwGuN4BaDNX010SrUYCBqfD3pVbq+nQkm6q1HDjzwv/pL5r9XdYHDwsZBBM0iyUwwETNo
-	rNC8x5ss3e+MVq89wUE8Spnj3Kp/9oB5LH5dG7+nt82EIleqlb6eVwAZxQrSgATU1zBXQh83KYWxd
-	gvGt50wulAi6qEDzn8EO5p8MrYMXF6jKnsv7fc4ZDjyjyNzPpOdftLshVwlRaAwL7AodSTtijAlP7
-	FNK3uKZA==;
+	bh=zaEqDrC5jYAKebMDLgOTjAUIE2F2Prlvaylcbrjmns0=; b=NGkjlGn1KxwFY4h8iDUaPw6eto
+	y4SR5eXr8bIB0mzg+5AakVUvSIN2SzzFyl9T4s1Y3nemB57QVoWsbhHNwUPfgMrTQmpc4O+G3+uN6
+	bgjnIPGAN4FAPuPjHBCcTurNrKhpP+ropeQ7+ucpddywxfeUY0WGHLX5qBglDqaAerupZm/QIPdcW
+	O60wRMIAdA3tOUPikwjR8JGZcEOwTL2a/JT6jICa2y5t7cmW5iepO+NChO3d74tjh7hj910MzRs3B
+	Gq77YDGYMTN06clMJo01H+la2w+iKcmJjyIfPz9yk53Cgmd1mrRMOfTO8SP0wHo9uUmZK0biyJHhn
+	QcLIW6Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVu2-00000003h1p-2G0Z;
-	Thu, 27 Aug 2026 08:56:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVu0-00000003h1T-2CaQ
+	id 1wzVup-00000003h6l-3CK1;
+	Thu, 27 Aug 2026 08:56:55 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzVun-00000003h64-0RbZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 08:56:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 839861691;
-	Thu, 27 Aug 2026 01:55:57 -0700 (PDT)
-Received: from [10.43.20.79] (unknown [10.43.20.79])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 72F0C3F85F;
-	Thu, 27 Aug 2026 01:55:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787820961; bh=yry31P4khI+DRCBsZQHN2ujbaVqF7+s8d6cewX4+B1I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eteg5u/KjRoj4FqWoRxTrgkSEGR4f8fW0aVO5jwh1hz61B2z2iPGtiU82NS9WV9JT
-	 ZMYCuFuGK/zi0HegqQE/Y/R4pKvDOIk9vBKgcOa699KxUiPkVxDtngXV0YPfqvM7Tv
-	 hUcCWW01AMbuMDiY2Csh1ojTfk35TAijFUYNmMwo=
-Message-ID: <c33d081b-7886-4db2-b1d9-61dc195844e5@arm.com>
-Date: Thu, 27 Aug 2026 10:55:54 +0200
+	Thu, 27 Aug 2026 08:56:54 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-38a0c7e841fso3069986a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 01:56:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787821012; x=1788425812; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zaEqDrC5jYAKebMDLgOTjAUIE2F2Prlvaylcbrjmns0=;
+        b=S0ui9EiTWVqsezW6pUUg+Co73c7rAEPqfqPDTOnXcrnnZIyuQAX5MsrF/f/V85LZe2
+         QTgmxD5oRAlXjOs5CFNIAYo4TzLaO8S9I6zABdoM6dUFQONDvBXFUAtKXd6aGKPj0kDF
+         Ytr8zQh3qhVHcJTQOvTlxBT/1VFggW9UCpCwYPuUb9Ss/2EYVyFF0JzArrZbjB29f9Qg
+         T6RupTlj40OGdA3r/jcukYGnEbRhAofNmsPIeA7h2HvgX65giq5T9swAgsFjDXks8ze4
+         JlR6EOmFIuK0RRPQ0wTwxCiUoJnQLohs6b10zppkzSsMGFIr6p4ymJ2EoTqnUhqCXtE7
+         xkJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787821012; x=1788425812;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zaEqDrC5jYAKebMDLgOTjAUIE2F2Prlvaylcbrjmns0=;
+        b=ctGMBc7pneAIViQMMdk7Fseqlz520w6MIqF6RcwVKckYRKJ7b9SRjjvTlcwlNNWITY
+         OyR1MoDejg0kI3Oy4HTpoWHRX5F5PvQS/euxsMCMTVfKyRqkjDrzhZl5JwzJ5HdyJdMv
+         JNGaEEW0CPrGK1FPPtUn+MXq+zKCq+Vf3/IcoUeR3kHRlzM2P9Hwk4ydz9xZw1HY6vcZ
+         zBdguQBG8g3Lf+3b86t0f5ocWYtXeiLnsOFJcnfa+nZU1H+jLHV/YZVmsyxNq6GAOHqc
+         qsBAaG6OgGlchuqE8796qOWsWOpyqyeiDZ0IfIbbMiOAeHZh0SbM9EoSh2gOBuDqF3V0
+         HLBw==
+X-Forwarded-Encrypted: i=1; AHgh+Rq0HlqoIy/z/Xd7A1xuSlBReFwXhGgz3cOnrgi5T4wYzIU9Eue7S7w8CTgfRhBRmzTEvEfj+MJUpRZmSApuehhN@lists.infradead.org
+X-Gm-Message-State: AFuF++m2iisfi1GAggf24u2FjdYPw6NhllfQrMa/YO/E6w+9JG8mKfnw
+	rTb1wC//S29SJuYgamenPDEu+fmPHT1lrUnLS0Svwkko4b7S5Ymm5tkt
+X-Gm-Gg: AR+sD1254iS49ynsQfAcLsMKSxxXGXSLBGtLrJJFXf2D2SAN/0KcEDVWwoVWuzivDvf
+	e8uQf+s/k2/+LfnEWf4tXIGrjZSM7QavKg6FNUherkPUxtc7F+ji9HGHfy4ipCa7FCc1kt6KOH4
+	wkWCq4FRAeXWArzb2UaipOz10XDEWJKGajjx4l59s0ZXYGGYIkzEk3eXDEQv1T/7E1Cwg1LlKJC
+	S20yu+TG4YoSfBdICZSe24QPWuPSr1STuR9a/No2QVWCdBHVgQzt3vlL+JAxyctB3sTfvkevf77
+	iNLF203+N1hEu4Lw+fDHb+kizReObTc+SjmN99/A0HFpV7uewiXZbmATCE6tdW0DVMjhQ8rXfVA
+	+Q1qWngxAPGgN45NbjcTN7/L4Vd4IP4j/W7KZS6fXDj3PrM615+BTeKa10VJMRMDQbaPrLLDaf4
+	HPqpIOtJ6IniQNXP22K/Tb3ASTac+VSH0WYcpiqGlbqJkYU5OimfqHHeGdsUcJYAUZjzcuIoL77
+	fjV
+X-Received: by 2002:a17:90b:520f:b0:38f:26c7:165e with SMTP id 98e67ed59e1d1-3966d5f8f84mr28728747a91.9.1787821011778;
+        Thu, 27 Aug 2026 01:56:51 -0700 (PDT)
+Received: from [10.25.160.98] ([165.85.1.43])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3967582e855sm2085902a91.2.2026.08.27.01.56.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Aug 2026 01:56:51 -0700 (PDT)
+Message-ID: <0ee330e3-8c6b-4162-81fe-d769982df5de@gmail.com>
+Date: Thu, 27 Aug 2026 16:56:40 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] arm64: mm: Map fixmap PTE tables r/o in the linear
- map
-To: Ard Biesheuvel <ardb@kernel.org>, Ard Biesheuvel <ardb+git@google.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>,
- Kees Cook <kees@kernel.org>, Jann Horn <jannh@google.com>,
- linux-hardening@vger.kernel.org
-References: <20260805104042.1107678-2-ardb+git@google.com>
- <5a3b89a6-bc42-42c3-82e8-25d6f1a2c5d2@arm.com>
- <a277a83a-cc01-443d-be42-775ce0bc96dd@app.fastmail.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <a277a83a-cc01-443d-be42-775ce0bc96dd@app.fastmail.com>
+Subject: Re: [PATCH] arm64: dts: imx8mp-phyboard-pollux-peb-av-10: Fix SAI
+ master assignment
+To: Primoz Fiser <primoz.fiser@norik.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+ Yannic Moog <y.moog@phytec.de>, Shawn Guo <shawnguo@kernel.org>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ upstream@lists.phytec.de
+References: <20260827065556.2326079-1-primoz.fiser@norik.com>
+Content-Language: en-US
+From: Chancel Liu <chancel.liu@gmail.com>
+In-Reply-To: <20260827065556.2326079-1-primoz.fiser@norik.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_015604_654572_A5429CFA 
-X-CRM114-Status: GOOD (  24.36  )
+X-CRM114-CacheID: sfid-20260827_015653_155853_BB9F1EA4 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,65 +111,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/08/2026 11:07, Ard Biesheuvel wrote:
->>> [...]
->>>
->>> +static int __init fixmap_remap_ro(void)
->>> +{
->>> +	return set_direct_map_ro((unsigned long)lm_alias(&bm_pte), NR_BM_PTE_TABLES);
->> Should we not also remap bm_pmd and bm_pud?
->>
->> For that matter, do we need RW access via the linear map for any page
->> annotated with __bss_pgtbl? I suppose that might be the case for
->> kasan_early_shadow_* but I don't know enough about KASAN to tell for sure.
->>
-> bm_pte[] is special because it is only ever written via the kernel mapping,
-> and never via the linear map. This is why it is being singled out in this
-> patch.
+> The dailink_master label was incorrectly placed on the codec sub-node,
+> causing simple-audio-card to configure TLV320AIC3007 as the I2S bitclock
+> and frame master with SAI2 in consumer mode. This contradicts the SAI2
+> node configuration (assigned-clock-parents, assigned-clock-rates,
+> fsl,sai-mclk-direction-output) which requires provider/master mode.
 
-Right I see __set_fixmap(). This is a very special case of calling
-__set_pte() on a pointer derived from a global (i.e. pointing to the
-kernel image and not the LM) so it makes sense to treat it differently.
+Just a small question about the commit message. As far as I understand,
+these SAI2 node configurations only describe SAI2 providing MCLK to the
+codec. A topology where the SAI provides MCLK while the codec is the
+bclk/fs provider is common. So the original configuration seems
+self-consistent, not contradictory.
 
-I do wonder whether there is that much value in protecting bm_pte while
-all page tables in init_pg_dir (also at a fixed offset in the LM) remain
-writeable though.
+Regards,
+Chancel Liu
 
-Either way all this is interesting for my series protecting page tables
-with pkeys [1] - it seems that to protect the fixmap, the easiest option
-would be to change the pkey of .pgtlb in both the kernel image and LM
-(the former for bm_pte, and the latter for everything else).
+> Restore dailink_master to the CPU sub-node so SAI2 drives BCLK and LRCLK
+> with the codec operating as I2S slave. Also remove the spurious clocks
+> property from the codec sub-node which had no effect in this topology.
+> 
+> This fixes the broken audio on PHYTEC phyBOARD-Pollux-i.MX8MP board with
+> PEB-AV-10 Audio/Video expansion board.
+> 
+> Fixes: 7012f551081f ("arm64: dts: imx8mp pollux: add expansion board overlay")
+> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+> ---
+>  .../boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi | 5 ++---
+>  1 file changed, 2 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi
+> index bb740f845855..8957b24a7ad2 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-av-10.dtsi
+> @@ -77,13 +77,12 @@ sound {
+>  			"MIC3R", "Microphone Jack",
+>  			"Microphone Jack", "Mic Bias";
+>  
+> -		simple-audio-card,cpu {
+> +		dailink_master: simple-audio-card,cpu {
+>  			sound-dai = <&sai2>;
+>  		};
+>  
+> -		dailink_master: simple-audio-card,codec {
+> +		simple-audio-card,codec {
+>  			sound-dai = <&codec>;
+> -			clocks = <&clk IMX8MP_CLK_SAI2>;
+>  		};
+>  	};
+>  };
 
-[1] https://lore.kernel.org/all/20260818-kpkeys-v9-0-743ad31b2c8f@arm.com/
-
-> Whether or not bm_pmd[] can be treated as a special case depends on the page
-> size: with 4k pages, the whole array covers a virtual region of 1G, which is
-> currently guaranteed to be shared only with the PCI I/O space (but we could
-> move that out). With 16k pages, it covers 64G, and so it is shared with the
-> vmemmap and other virtual mappings in the vmalloc region, and so the current
-> kernel mapping code expects to be able to write those entries.
->
-> What we might do is generalize the logic that uses the fixmap to modify
-> pgd level entries in swapper_pg_dir, and use it for all modifications
-> at PMD level or higher if those tables are in .rodata
->
-> But this is a bit more complicated than this change, so I decided to
-> present this as a separate change.
-
-Definitely, this is orthogonal to this patch. I wonder what the
-performance impact would be if we used the fixmap for setting all kernel
-entries at PMD and above. It would be nice to keep that logic easily
-togglable, because with the kpkeys approach I mentioned above we have a
-(most likely) much cheaper way of protecting these page tables.
-
->>> +}
->>> +late_initcall(fixmap_remap_ro);
->> Is mark_rodata_ro() definitely too early to remap these pages RO?
->>
-> No, we might just call this from there, afaict.
-
-Sounds good, could we then use update_mapping_prot()? I suppose not as
-that would require mapping bm_pte separately in map_mem()?
-
-- Kevin
 
