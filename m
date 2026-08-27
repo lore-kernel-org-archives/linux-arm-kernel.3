@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52387C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 10:05:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFB1C61DC7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 10:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cyXgf/imt42EyjU9r/iWXqABk8Dr5fOp0hkHgXnc/1I=; b=4L9yk0ZwyTQMKjncRbVeaoKLmB
-	JFkAMNLwKG0DyhIHoJucQh71PcVUDOVfhEJrVh35aBu+bt2Rhqrq3NQZ3dXwlblkOWQByOwr+e1dq
-	1J0y1v9Gpwt61QLxDgVAddBbKUYVIW7+JnQcXgFYoQNESddvCbgkBAwo0i1LURw/7FXuEe6rdU+3X
-	TD7oTrJm/9ln6+dBiEXcXVEwk/racXQCbMWQgXF8bt34waUp9fHFJ2CIv/BcEkInYWP4uITrTA95j
-	h/xK+rzEQWRHUDGfnvcPI0w//veN4g9XI9S12oXBJjil9+4vXsoYPIkwGTV0fWUgRleTfhLBPZvi7
-	WbuZM+FA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l2VYW4aqfkfpWJPJy6czTou4ysrQ4Px2fgIJDxc4EcU=; b=muF2UFyEs9H0W1JroaqZQyAQpi
+	nuykZSWDNAp0hqBzwLVb7JXiAZe8xc7K/aXQ+ogJ/i8xZ6rcSI2Xe06mJXF+vvBDfNog2p+9PNGl0
+	jI2hPQRG1WNryfnbqbjSKtZ/Pa8bbxlNY9URC25OKbFfBc4c9hVHK5gmjXL5Kb0zf5XQyt3VPh1w8
+	IPdMcrj8JjEwraShcmqlN+ZlpH5Mgp1ddEVMPG1Fw8u690VFX0iZ3QRljDLdwH6VqmDB4Dlhm5+40
+	zG620nUxv8RMeCDefgHeHuMCX/Fsjr9xY0+8NJq+l+sOfCkbjOfjhRBoTQTcBMOgFxmdcP55L6KRP
+	hIV0S72w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzWyj-00000003neN-2Bp4;
-	Thu, 27 Aug 2026 10:05:01 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wzX47-00000003nvG-0YYE;
+	Thu, 27 Aug 2026 10:10:35 +0000
+Received: from mail-vk1-xa2a.google.com ([2607:f8b0:4864:20::a2a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzWyg-00000003ndb-1eW6
+	id 1wzX42-00000003nuh-0I27
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 10:05:00 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-499add6348fso31415e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 03:04:56 -0700 (PDT)
+	Thu, 27 Aug 2026 10:10:33 +0000
+Received: by mail-vk1-xa2a.google.com with SMTP id 71dfb90a1353d-5c675de8e1dso122602e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 03:10:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787825095; x=1788429895; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1787825429; x=1788430229; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=cyXgf/imt42EyjU9r/iWXqABk8Dr5fOp0hkHgXnc/1I=;
-        b=Y8fNbQbhIVq4UGtoKorp2+FfwxEggSG2V0nNWS5PQ/Dwa02+y6m9WM4c95SqMtSugk
-         ydGAmz4+gP4X8S3ppVVIa+3wYw/EBuqALqCv+QFRq1lps1uXLj6g88cGhla+DbKD4m5+
-         2sG67N3bjvTHG5QCVLA/Bga62dM48nrHUhyfFruu0j9B4O9KQP7k0MkL+1Lq8m6PhWmv
-         XHrH32swvV0pLy8owLB29vuBwC+4Csoweh8EfrxD0DhhHBp1t8MqldsSFdmwHtP9H3QX
-         Qgt8bvpZUKcmbgdsD319Lyxf2E76SZzUvZlELLxiMLuatK5AxXXJTu5m0xy7I6zVsJgS
-         Mf3w==
+        bh=l2VYW4aqfkfpWJPJy6czTou4ysrQ4Px2fgIJDxc4EcU=;
+        b=OOhgC5valSiuU0h8jC3muZ1mibuJ/bNNRS22PqakF5KH+1KYF7Yat7iNM8stQp3s5I
+         czmP/dGtzFw+sPY4wetjo0quQ/kfYs0khTPSObQxg+m9udjzHmtFY0fnTcgiETBpYA2C
+         gUP3xdMKS8bJp9GAq08215mmvditwcj/TYMfNxwGSRZiCzJfCuIa0CmwDjH+bOuRbpyH
+         Gf3RBpDJLJGVu98sRGfN9EQ+qSmE4j/QEu7pTKaU9Hz2hqftK8XsiJF5b0haFdQ9+VOY
+         iTYFl5aWMgNkArPcHAiYAFjt7X06oYX1QX8PQ29DKt9hHI+EMElo59MnfCWIZd8HNrD2
+         jj3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787825095; x=1788429895;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1787825429; x=1788430229;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=cyXgf/imt42EyjU9r/iWXqABk8Dr5fOp0hkHgXnc/1I=;
-        b=sNHsiG1D3HlSucDudUx20yvSx9hoxERQ2ezLfX/1TY12aAqj7JxF/31SYn8K9oVBR6
-         HlzUyf1qGuPmplru7hACBl2vugRoVGABzwkHx5PbmBDBdCGIi8sS1WKzo52K46fMl7tb
-         7/86IGrYl7lp5US2iKFh9wvIBHt7ni74TMab8HcNcCDVaqtYlHtFUxxBe49IF32yFgQh
-         iprRT9sKHjWiEuU37l/cTNjCA6vJZPJZFxS3hJBUPSJY0zVyEaRsCZ3q7/P5kgpUIu1p
-         6kUoHUsnm7NQgANhyCOdaTSRRnW9T+zt7o7wQXW6FvJgQKodoq1HAyM7v4OoUz+elSp9
-         c4OA==
-X-Gm-Message-State: AFuF++lAG9s7Rr2bv4juT0wL77l4e0IxJCXrGFr3YLWVUVGVYox6Bc7g
-	Y86fFjaK/9TwF8NPd6ZaDDwt2noV0OUP+HusI6xKn4E6wGPfhYt7+Gae/yg0en6jcQ==
-X-Gm-Gg: AR+sD13YGWF3vAumQS04kdEtRCNVwuWbz82JmVaVfmQPrf44ZWIY/PDNONksxvOho7G
-	w/6vVqjOJ8AiGUZsJY+x76yy3EngZCqZRBa3FTdc/ErjHRzfm0zKr7d0VVhIF+PhOoXBoU7h2M9
-	K2k/VSskhBXvHYZqqsFSXLDxeGgeCHv49e1gE5SuO32lRWKwunxK8/LuBuOajA8aisW6QC2dTAo
-	J9TZjeEaVCvzK7CobYE4z8yTzKY0IetgTGTasKaKenkx779CFccs9f/tuOjBMoHv/ldwhmGAGBw
-	SCy/jIa5wU33zcP+wtO8Sc2xyg17kII/Chvsn+cpYzsDQeGHURMkxTLCT5Yvf57oYT+wGL/3yyq
-	LkbjPQRfe6OdfsppJNYsCvhTxcwXrQ0jwBpSwWX6x8fnQlbVCgwtbo9uoXbgSTEUa97/UiIBGr4
-	Ntxaxefm1NO9GGtyb8z3/PE/sAo7Pyz1dZA6IKLHyYGVKNq4r2tXLF/D3CBj7PnbUkr5/21nhaN
-	667JHGApPW5WRU0pgPlsMjViwcYQA==
-X-Received: by 2002:a05:600c:68d2:b0:499:cb15:4511 with SMTP id 5b1f17b1804b1-49b0e6483acmr671155e9.8.1787825094654;
-        Thu, 27 Aug 2026 03:04:54 -0700 (PDT)
-Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b4af00fd2sm36028375e9.12.2026.08.27.03.04.53
+        bh=l2VYW4aqfkfpWJPJy6czTou4ysrQ4Px2fgIJDxc4EcU=;
+        b=F0wydmXtQC73d0vl1S1UqzYjgX8syo0XHr2aiOrpmkylzm0us55yIj98wonT3TxBD4
+         53GLpm+f2LoinILJ6UxRihh0iz1n6p2uSOn3MZn0Ihi//TOCfcGJsYKoCC0ennWNnlyV
+         PglUuIc2nDn7wqlFVTNUPtAJZYxuoXLpQFDAWavYOvbcS9pheV7i1FzvDagnXn7p4zbY
+         CEBN642OEugSdjbGutZND9Xy7syoAV0igB21lrRG5bEgb11iCmVflc1uNk6Tj9ASUCZC
+         7tlqoPDqWuX0RK3KpWJ2Yil5qm3NtgfM9Iq7YCSvKQnaPac0Nn5RA1w7cbPfBhoRgvn4
+         rotA==
+X-Forwarded-Encrypted: i=1; AHgh+Rpnrp8oMC1RjRoL8T3+MTqx5k8k6dpR0i2t8q72llPHThfa3EhtgavTfeiu1tReFo+r6/ZFUpRtcc+xafdFfgdc@lists.infradead.org
+X-Gm-Message-State: AFuF++lCw8Ij9jdHnjodxgt8McGQw2kmSnvhMlihN/p9xeGoVBE6+ets
+	v/FeikkK/35AsREi3HUqrHluuzqTBqpecVz/phieKz6GRy9XzuPiBszs
+X-Gm-Gg: AR+sD11qz0tPslEi6NYvLy180BhOrAsqHU+59OWODtPvfcbpqfTorguZRdvJEvU7d5z
+	NYr9YANtKcV8g3I7oZULZP2k9YSQNHPWqQoDNMM62jwRhhTcA0vHlJ8QuBN89WcK8OzyFJ7vTJz
+	twRAn3MI/CMGd7E9X/zWUeMk9UVYt0EB2RdtjN0KAtPPEl1ahs7gyTJKFYJa+mEz9yyQMbXJ5Ws
+	hNCj3OIYVc+KMVjLXLWoyBVx9Xj2i+SWtZHrNLjSs08LdwI/BnwDXhXjLRJlqEuXES6+bDH1tez
+	NNV8pBVDiY1rB4ctq96EpEtDsHsQsUXluZVX3hcov5OTGcYXs1358XJX8msiPQDxCJybxuNK4eC
+	IohyqDp1DRngw1rMz2u4FvmCG5CWu54y5Y9XWaMguj9BuzbXROa3TTddsaD3N8YMI/QLoi+D9GF
+	CTBhTMTOCBBKe+pF/2FBa2r3LHDsjEofvykXA3k8XA3zhYse5uCBJlXfp2g6gZVCqtO56vWUHEU
+	mRB557/9h86G+F1t6XMyaL9icb9bu7jf/O5GQ9r1P2RNwSDizl5grrCyKxBgA/nS2Fl1HQ=
+X-Received: by 2002:a05:6122:c91:b0:5bf:b500:c4f4 with SMTP id 71dfb90a1353d-5c65bc6afafmr4514953e0c.2.1787825428571;
+        Thu, 27 Aug 2026 03:10:28 -0700 (PDT)
+Received: from MaquinaLab.. ([179.179.239.222])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c660014355sm3372142e0c.9.2026.08.27.03.10.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Aug 2026 03:04:53 -0700 (PDT)
-Date: Thu, 27 Aug 2026 10:04:50 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, mark.rutland@arm.com,
-	qperret@google.com, tabba@google.com, vdonnefort@google.com,
-	sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v7 23/24] iommu/arm-smmu-v3-kvm: Enable nesting
-Message-ID: <apALwh7sRMsn7WS-@google.com>
-References: <20260715115906.2664882-1-smostafa@google.com>
- <20260715115906.2664882-24-smostafa@google.com>
- <178769159057.3356902.13161185498161727294.b4-review@b4>
- <ao6puxVSNsLC8aql@google.com>
- <20260826123831.GA3667628@nvidia.com>
+        Thu, 27 Aug 2026 03:10:27 -0700 (PDT)
+From: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	linux-gpio@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [RFC PATCH 0/9] pinctrl: sunxi: Allwinner A733 support
+Date: Thu, 27 Aug 2026 07:10:09 -0300
+Message-ID: <20260827101010.12487-1-vinicius.eduardo.pedrosa@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <bb7eada0-19fe-4602-a2e7-554e914b8205@arm.com>
+References: <20250821004232.8134-1-andre.przywara@arm.com> <20260826230720.466026-1-vinicius.eduardo.pedrosa@gmail.com> <bb7eada0-19fe-4602-a2e7-554e914b8205@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260826123831.GA3667628@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_030458_488790_05F78C0D 
-X-CRM114-Status: GOOD (  37.73  )
+X-CRM114-CacheID: sfid-20260827_031030_120106_96EDB80A 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,91 +108,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 26, 2026 at 09:38:31AM -0300, Jason Gunthorpe wrote:
-> On Wed, Aug 26, 2026 at 08:54:19AM +0000, Mostafa Saleh wrote:
-> > On Tue, Aug 25, 2026 at 05:59:50PM -0300, Jason Gunthorpe wrote:
-> > > > [ ... 129 lines skipped ... ]
-> > > > +	ret = smmu_attach_stage_2(&target);
-> > > > +	if (ret)
-> > > > +		return ret;
-> > > > +	hyp_spin_lock(&smmu->hw_lock);
-> > > > +	cur_valid = FIELD_GET(STRTAB_STE_0_V, le64_to_cpu(hyp_ste_ptr->data[0]));
-> > > > +	target_cfg = FIELD_GET(STRTAB_STE_0_CFG, le64_to_cpu(target.data[0]));
-> > > > +	target_valid = FIELD_GET(STRTAB_STE_0_V, le64_to_cpu(target.data[0]));
-> > > > +	if ((cur_valid && !target_valid) ||
-> > > > +	    (target_cfg == STRTAB_STE_0_CFG_ABORT)) {
-> > > > +		WRITE_ONCE(hyp_ste_ptr->data[0], target.data[0]);
-> > > > +		WARN_ON(smmu_send_cmd(smmu, &cfgi_cmd));
-> > > > +		for (i = 1; i < STRTAB_STE_DWORDS; i++)
-> > > > +			WRITE_ONCE(hyp_ste_ptr->data[i], target.data[i]);
-> > > > +	} else {
-> > > > +		for (i = 1; i < STRTAB_STE_DWORDS; i++)
-> > > > +			WRITE_ONCE(hyp_ste_ptr->data[i], target.data[i]);
-> > > > +		WARN_ON(smmu_send_cmd(smmu, &cfgi_cmd));
-> > > > +		WRITE_ONCE(hyp_ste_ptr->data[0], target.data[0]);
-> > > > +	}
-> > > 
-> > > This doesn't look good enough, a driver can't safe writely to a valid
-> > > STE in any order like this, and it can't make it non-valid or risk
-> > > breaking guests. We had this bug in linux already, the hitless STE
-> > > update in the hypervisor is mandatory for linux guests using PASID.
-> > 
-> > This piggy-backs on the kernel algorithm, as described in the comment
-> > in this patch:
-> > +       /*
-> > +        * Summary of each host emulated state vs real HW.
-> > +        * |    Host    |       HW      |
-> > +        * ==============================
-> > +        * |    V=0     |       V=0     |
-> > +        * |    Abort   |       Abort   |
-> > +        * |    Bypass  |       S2      |
-> > +        * |    S1      |       S1+S2   |
-> > +        *
-> > +        * For the host, any V=0 transition is not hitless, all other permutations of
-> > +        * (abort, bypass, S1) transitions are hitless.
-> > +        * For the HW state, any V=0 transition is not hitless, as all the S2 config is
-> > +        * always the same (ttbr, vtcr...), all other transitions should be hitless too.
-> > +        * However, the host is not trusted, which means that any V=0 <=> V=1 transitions
-> > +        * or any transition to an abort STE we need to enforce writing order of the STE
-> > +        * dword 0 and add CFGI.
-> > +        * Otherwise, we write the STE in the opposite order to cover cases from abort
-> > +        * to S2 or nested.
-> > +        */
-> > 
-> > So this way, the hypervisor doesn't break the STE and keeps the host
-> > STE transitions hitless.
-> > 
-> > Or there is an example that I missed and is broken by this?
-> 
-> If we are exiting S1DSS mode it looks like this clears S1DSS before
-> changing to S2 only mode? That would be a bug.
-> 
+Hi Andre,
 
-From S1DSS (nested in HW) to bypass (S2 in HW), the kernel STE writer
-will do a hitless update by writing DWORD 0 => CFGI => DOWRD1-3 => CFGI
-The hypervisor will transition Nested to S2 only on the first CFGI which
-is safe.
+Thanks. "After -rc1" is exactly what I wanted to know, so I'll wait for it.
 
-However, it would be harder to reason about a buggy or a malicious kernel,
-my impression was it can only shoot it's own foot with bad STEs.
+On the P.S.: I wrote it from my own notes and ran it through an AI to fix
+the English, and you're right that it came out worse for it. English isn't
+my first language and I leaned on the tool too much, which got you a
+forty-line report of something you already knew. Point taken.
 
-I will give this more thought.
-
-> There are also gotchas where writing things out of order can make the
-> STE UNPREDICTABLE that must be avoided too.
-> 
-> We really don't need two versions of this stuf, just use the
-> programmer we know it is right at this point.
-
-The problem with that it needs to pull a lot of code out of the
-SMMUv3 driver which has things as struct arm_smmu_master.
-I will need to check how that can work, but I will try to avoid
-that, specially this is not a generic STE writer it has quite
-small transitions which shouldn't change in the future.
+The reason I was on your series at all: I'm porting the Radxa Cubie A7Z
+(A733) and building a Yocto BSP layer for it, so console comes through
+pinctrl. The board isn't here yet. Once it arrives and v2 is out, I'm happy
+to test on real A733 hardware and send results either way. You posted the
+RFC as untested for lack of a board, and I'll have one.
 
 Thanks,
-Mostafa
-
-> 
-> Jason
+Vinicius
 
