@@ -4,142 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C779DC61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 17:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB5D4C61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 17:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Subject:From:Cc:To:Date:Message-ID:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qo4B0YotpOd/gH5Ae4pR1kf0CJUniJlPcUYNGObA/XQ=; b=2Rldzlepg/j6brh+SXvWiTUx3P
-	dp88PNm3Iz5sNTNfZreMQEZ9i4yY91oUk+LFstuKrqRSvj+wudvUEFpwX9kka0a6lQa7ffhlmX1p5
-	LlZ8TuvTd8E4N0DHYWQ4CFwP1BAQXE9Tx8xUgt2nAtSPMk7P+eCVivjq1fIMVenpcUny5WfX5y2im
-	Ba1Sa15nTfDQyW3gZHtxX6vqgKRXJvGtINJKizS66gJkQr1LtFqTLJutb4NAL+hiFRKgMl1zRlt2a
-	iuJdWCbgXreFaMSkOu23IXmjzvE67AXfSTtWWCNA7dGhG7ilZxxEjYpmsmQ6M/C1gmaBM0ldEBLqI
-	fSazRDPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3toHgNm1X+G4rSZPEb0QgIDLq/CBLmilUIyHXoikIUk=; b=nofjadjn+o/Mn//a8g7C78kdNx
+	BDXMEcryek2Jb9JimzNMI8IseJeuokPijvG/1Kjj2UEulywX6GKmxwm8/0Uh3UpRmvMPD5c6kXx0g
+	xUg9i/HTPjXaplCrx//CcmgSZjSPl/edsZ6DUUADLdOVUA74CO45Cew+CtdpDO8EuIg4aas6FzdCY
+	Otvxz1mdkJOlKY5MlaZoqQUYMRBUWKJPltFxjOu0H+BtGQ0pr2C60I+jhe6rZGYv9InaWn3S0gjdL
+	YkJY9fb5ViJ9I4UdYcvd2xW8kdUFR9zeiFU9xpvxtBqaOwcZsspL0U6Vv5nGuPM1a+25IWHkOXSwj
+	3LD8S/xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzdiQ-00000004RT5-2rXJ;
-	Thu, 27 Aug 2026 17:16:38 +0000
-Received: from mail-northeuropeazon11010000.outbound.protection.outlook.com ([52.101.84.0] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wzdlb-00000004RqQ-4B3B;
+	Thu, 27 Aug 2026 17:19:56 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzdiM-00000004RRh-2aIN;
-	Thu, 27 Aug 2026 17:16:36 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=a/IAtq13G5k56zbhtb+p9iPCqqus83j3eqhpjbfR+CPAwSybQYpV1TdNUq3Ulyl3qhWU9nWU6eR+TXm4BhOl+o8PjKn6BZVn0GlKj8Ke5+/UW57tjwjBPPiw62hhnIq817L8i34pfvBHM3if0a/ErOW7fZUXTTn8JiviI2mirJzQ1q6cw49F0jkt/3KiPhD+7A5WOZCnw2ikxbiKvuQdDzsY4skiCP4hwbJE99kqbFxfNLy8hEm7CzB8JqmzpICXNb471fFZ0jGw6B2wP9MtLcX9RaxNbrRcjNPYNr5w187Mvtml1upTGngVU+wYfcF/TjpGCG+0Hz9qnUdzO2j2qg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qo4B0YotpOd/gH5Ae4pR1kf0CJUniJlPcUYNGObA/XQ=;
- b=xd6sKFLzoKNMdpdKi/+MhxGAooBgM0OpcbdLDkX1L4PVZ5MTDLB9NpdbjZvRTgPW1bExrZwQoutspMxng9z0Q3KEH4Z5HnM9XjRYNzWV4Uktgj3/JHBRY/tNifL3R9P9ZASyBgzc5X12TM+hnmXHJbuKHcemmcv78FvJmykaBca8EWVc+RYp7ULdqXVUk7oMxtT4jRHtLuike7gTPoljZRVoEHKR5AM0lb7nF84Oo7eVaP+8MRl/7DahNP0Ok/wUmnGEBIddEm0CZ4oa4Zt4WvKQRnKGj6P8+ikgiXg4SuvxZ31hQZ7uk9us5j0l/t5xaSCPqSKZBfqaJjowSiNWmQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qo4B0YotpOd/gH5Ae4pR1kf0CJUniJlPcUYNGObA/XQ=;
- b=d3Q7jIP0LPBv5tryDESE/yfayJ54/1T0Z2DWpkX3RuK1A4dLyRU7ZmNKnLNAdjiOVycfcpwkbdC9TL84rZ+zzGkNvBmwuL1DgElk3ln7xdzhahJh0iB0eWYxxAUWYWtfruTAeRoT83n1RhfSh1d19wbs+Ej4L4MqwSYP5cap5j8=
-Received: from AM9P193CA0014.EURP193.PROD.OUTLOOK.COM (2603:10a6:20b:21e::19)
- by PAVPR08MB9481.eurprd08.prod.outlook.com (2603:10a6:102:319::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.7; Thu, 27 Aug
- 2026 17:16:25 +0000
-Received: from DB1PEPF000509F3.eurprd02.prod.outlook.com
- (2603:10a6:20b:21e:cafe::9d) by AM9P193CA0014.outlook.office365.com
- (2603:10a6:20b:21e::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.10 via Frontend Transport; Thu,
- 27 Aug 2026 17:16:25 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF000509F3.mail.protection.outlook.com (10.167.242.149) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.3
- via Frontend Transport; Thu, 27 Aug 2026 17:16:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hw1UN12zt+XPuvsOzZpK3Cv1BhIp9Q3BDpNN0UY+/fo8+yXnfEpRPQZy5QeaPUiiPqzrwgjFurplnmXE5aVv0i2T0krRNhmEo57mLmDP+howQbkAFhJxE2zyvAnTgK3K7rsAiEebt1bUMxF7pRmua+xORAYaElP4PNugBkfym497yebLlLzoK+9D7G9nGZ4IHw0HE4XmeECX63Fq9Dgkc/geDu6J2oJyVBfP6bir4DoI+vYK9mjfdoHgW82SDXfRD+vn9whvrO1eP3lp9806DkCkL9WSrAz5M/vs4FiNwYsx2nDTPkNNKSYBY+m66ptxhcDGZ+Cjfcq4kYhRTV2Tbw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qo4B0YotpOd/gH5Ae4pR1kf0CJUniJlPcUYNGObA/XQ=;
- b=IPl6JSnIbu2mC6g95BltkIDoo0gInVkNdiuFcNMEaR2cTF8X+2a6rROgmXyLl0lD4JtCtx3Mk+mo+LDpd7/Txcv9u5QSs44DDgy+IKrb55PlcS6CNmAW1SUIYcjN5MNK+79spXL0Elf5q1q+4zPFyCQGeEXgWeYgukpSWqEStQj8htG+8U52wbxxuqczwsLzER5sIeDwN/jWoKcNfsGiB8oC4EYlKEjJyd6bW0bZuiTGKUtLdnROftXkmvpXFLslCONauPcnlPjiPeeBIgsKnzRDyOHDApoTJ2lkj/eV8Wk14VdKZUe6h6ue0fwEYs1UZscJgSpbASRooc3aSlFW7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qo4B0YotpOd/gH5Ae4pR1kf0CJUniJlPcUYNGObA/XQ=;
- b=d3Q7jIP0LPBv5tryDESE/yfayJ54/1T0Z2DWpkX3RuK1A4dLyRU7ZmNKnLNAdjiOVycfcpwkbdC9TL84rZ+zzGkNvBmwuL1DgElk3ln7xdzhahJh0iB0eWYxxAUWYWtfruTAeRoT83n1RhfSh1d19wbs+Ej4L4MqwSYP5cap5j8=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from PAWPR08MB9829.eurprd08.prod.outlook.com (2603:10a6:102:2e6::10)
- by AS2PR08MB8456.eurprd08.prod.outlook.com (2603:10a6:20b:55c::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.382.7; Thu, 27 Aug
- 2026 17:15:53 +0000
-Received: from PAWPR08MB9829.eurprd08.prod.outlook.com
- ([fe80::5cca:dab9:827e:c7bc]) by PAWPR08MB9829.eurprd08.prod.outlook.com
- ([fe80::5cca:dab9:827e:c7bc%6]) with mapi id 15.21.0382.005; Thu, 27 Aug 2026
- 17:15:52 +0000
-Message-ID: <a1946d93-370e-4ca9-85d6-60b4a20ffd47@arm.com>
-Date: Thu, 27 Aug 2026 12:15:47 -0500
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- linux-arm-kernel@lists.infradead.org,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- linux-hardening@vger.kernel.org, linux-api@vger.kernel.org
-Cc: dave.hansen@linux.intel.com, rick.p.edgecombe@intel.com,
- Mark Brown <mark.brown@arm.com>, debug@rivosinc.com
-From: Bill Roberts <bill.roberts@arm.com>
-Subject: Shadow Stack Locking Semantics between arch's
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: DM6PR07CA0127.namprd07.prod.outlook.com
- (2603:10b6:5:330::28) To PAWPR08MB9829.eurprd08.prod.outlook.com
- (2603:10a6:102:2e6::10)
+	id 1wzdlY-00000004Rpv-3xIa
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Aug 2026 17:19:54 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-499840a2575so15507045e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 10:19:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787851191; x=1788455991; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3toHgNm1X+G4rSZPEb0QgIDLq/CBLmilUIyHXoikIUk=;
+        b=pITDCMODFRPxcy/QQ7X7JCFOl//tmmxFr4A4w8bp7F77z/eFS2H91w8wcusND4D33D
+         xfsRI25L6T4KCYncSfn4TzJrod62hbTUDIjpF2efGbiTWH0PrMnC+EQAakvQHoxWFHhv
+         IKDjjSfFSz611SZ2FyOGctOQe/ycqzTcTSAwOnpTv88FbblV7xcCqeL9BYeE63yhovi2
+         65Qjn7Ps91M9JkkC+OynMPf2ymHLPSUX2gJuvsC/ZT0KL7fC+WEbjkx+/xdODhTfUuYM
+         wFvrWjPf/zjvtjBfyg9uQGAFqFfBTQk0XZzf0TTVOE4Ts4XI49RCIZ8i67X8FskvEC+w
+         AWgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787851191; x=1788455991;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3toHgNm1X+G4rSZPEb0QgIDLq/CBLmilUIyHXoikIUk=;
+        b=bTmWWzjb7CEC7Nc8tO1oLI4xnUG5ate7+kVCS98PW+vEolI/F3d4wqIJLaoYnWnW2U
+         vv6QxdscyEM4Z6wOmyo1mD+fhC/T5zMQWSBAqSZkWbGS9Ft7hPeMZrYfjabMxIhq4SAe
+         GRzzV6q6FI2DLSDLjD58/8YEh0znqtVYDtlYy2SmevSeov0DsvfGAymCMh5MYsUy79lK
+         6mEYXsVP0QZYMjfMwRJ3vyqGq8f/BQTE246eLCPerD1phvoKVt5hZb57g4HdePXUFZgx
+         9fQbpDXS4VZ0L+Br8n51QKtwCSjH7d8QSAD2utr8MRnlkixvr45sDF1lhBzze38Gi0dl
+         DoJA==
+X-Forwarded-Encrypted: i=1; AHgh+RrXZXKIV6Q4xBDjqqTVsf+qTj/UOX3LIlS6HHdKkuyy1kdVphObCiOxTTvWS7g8wOKtdQxi/bJHtfTRM+U/eGf1@lists.infradead.org
+X-Gm-Message-State: AFuF++lnpQvjgqTO0TcavD/CpUHy09cD63C4QhNeTOnrqY9F1VMWxR9J
+	9FiaXmI+aB9fv+H1AVp3Shl6OFbO7XznqTlJGMl1rsh4SXnxIyOqp4g6
+X-Gm-Gg: AR+sD13o2uqg/EW7/zC0sXIYZifY5BYnyBh/U9wMgfSaXpLdAa3BHk09LNFpfDdAyXP
+	gyLm4lMa7dbkUdSm13NVFZNrEUll2PBeIQ3XULfPKLeOpxmX+Bocy1H+/a0knb18SrUUZ6QZxgQ
+	Fzc+rsnhretTJ4RgVCvBaqJLuf+AB7KwSmWN2gPDyxleB1DbCAcACy+TC9PDseb7j2DQdg9flt0
+	H9BEm5dOvNZJnw2+8kRO6gTx8A/+42v8AotRCl64MddmkRbzAwkrTUE13QvnvRMD3zduelzp2OE
+	iV1zGf7yo0OM9M3HGEmNtY0ArJBwbDZ3hNvDCiw9LEflFHfSi0iGjnRgi+nStZ5azJp6KxcM1hL
+	S2t05FL1JH4teJMo+Niei4wFz+IpilJSJGH4gcNbaOEePO/hNSsmGzM1eFmqVoYYIT+h3FpyOIG
+	/wj7bTcSG1KZ06fAtdBCwHhMlViNx9hx+XMHlqnuEobPYyeQb/9LwDVMfrqYIHDfrVcjDIG9MdU
+	8EmhwgGtlCtOhqUrrZsKVhLRN3vLQPtoPrC/UfDAUB5gtUVCZLHCPBnV1nKEzM8
+X-Received: by 2002:a05:600c:1d15:b0:499:d366:f572 with SMTP id 5b1f17b1804b1-49b91c4338cmr5523315e9.10.1787851190868;
+        Thu, 27 Aug 2026 10:19:50 -0700 (PDT)
+Received: from localhost.localdomain ([85.118.83.238])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b4ad16262sm54259995e9.11.2026.08.27.10.19.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Aug 2026 10:19:50 -0700 (PDT)
+From: Georgi Valkov <gvalkov@gmail.com>
+To: briannorris@chromium.org,
+	johannes@sipsolutions.net,
+	andrew@lunn.ch,
+	krzk+dt@kernel.org
+Cc: francesco@dolcini.it,
+	johannes.berg@intel.com,
+	kees@kernel.org,
+	miriam.rachel.korenblit@intel.com,
+	rongqianfeng@vivo.com,
+	wenst@chromium.org,
+	rafael.beims@toradex.com,
+	avraham.stern@intel.com,
+	error27@gmail.com,
+	s.kerkmann@pengutronix.de,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	chunfan.chen@gmail.com,
+	arend.vanspriel@broadcom.com,
+	peddolla.reddy@oss.qualcomm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	stable@vger.kernel.org,
+	gvalkov@gmail.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v8 1/3] dt-bindings: net: wireless: add flag marvell,invalid-reg-hint-in-rom
+Date: Thu, 27 Aug 2026 20:19:35 +0300
+Message-ID: <20260827171937.28878-1-gvalkov@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAWPR08MB9829:EE_|AS2PR08MB8456:EE_|DB1PEPF000509F3:EE_|PAVPR08MB9481:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b1bc26b-5d47-42b4-6bb0-08df045eecb3
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|23010399003|366016|1800799024|10067099003|5023799004|11063799006|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info-Original: 8mhlwXgR3NRzNZ7nxA+px0cCwSgnQrxnYIneOYaeZNove/9/nqUZjEaxnzaFwa8OG6Ir4WE3GkduBpH987BUHyQvqROEPIiFeVknEBUHzh2NCJQWTTBjGUUnX26vIxys35Jwha3tru6iN0rgz1XqD4Hjgt3wWMr0ZjRg+x4X+nQEtiUfWhKZNhH9PLYuLBWtgF/5tAaxeyaWvHT3OyUmxcFUvCQ9rCF2DbIl9PbxfLkcPeDWfqeHGJ/5QiRcirwYUEL3SHKYZjPK486t2tBiGz83HjxVcm4xe9El2CwhXkwVudMgPEF/uBBFOUhpYv4xzzEuyPbFlSos0juopy9hypPj4rIEFwHT+NGXPw22en+Og8lpqOVwT2Bv+H4A4bgTARR8mcxpVTgrMnANpmK1JEXBLw7OD2vEkFFqiuROIz+xAciZaoCj37miZdZ6UQquyi735N6OAQ0r+rZovUDPpNJv0CulAt2u8yyDeSrdzsJDcy6yEvTVkjF2sxZtP3vTnsoIYOLW2lUa3Vst5na8pQDlEe4o5y+uU1nmhtUuJrZF/awRz+9Pj/3w5I/xHYF9pL4V/Q4hiWts5AwCkXU51sep2hXkclOuKTvqFUdZgBbt6gVcmR+qsdohBQhkjdOqLvd3IipHhUxax//xGXmUZvScQmh1kctu/aBVTpi2DGc=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB9829.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(1800799024)(10067099003)(5023799004)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: gFqk++jddEBbmrejfl65nVNKvlZvPhKQoSVPBQT66lHg8lDYBPBnHbVnyCO6ky9pPKzGMc6lVhpOdvAhZ8sbNkbqfqgy5i1yXyd2EDzh2Ns43qg7vxHBbohBxuscNKgLpIdpgmG1lF4xk6j3bCxT7whVg0oQBfeqvihb/wKenC9m6wg7IiJaIj91hHy0wGFz/ZSXpvLaHQib7mhzK24NIyOZSNECuTRdBwmFuBIWLAQGDG2HvLCtE3UanZdB6grEn24cFsm8aMZkpuUVa7D3cpicS5srp/hL3lFOSZL9B5xdS4O9YoYC5W8DRiQ01HVlmhpRMnTtMi22n0B96W2oIA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB8456
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509F3.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 66c46398-0f76-4e2f-a24c-08df045ed8c3
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|35042699022|36860700016|14060799003|376014|82310400026|10067099003|56012099006|11063799006|18002099003|5023799004;
-X-Microsoft-Antispam-Message-Info: k2ipGqGgP94bI8X7fOXWmUkYpHj2ozQGXjcv2+D0pbzyt1xCVLYXJG+CivN24HCY4rhXRrSUlvqEMqxTLyF0j7cAANSA+BVdHQ5lR/b/NS7qcbAvZC+qZ21GlwW1hrA8bnguwA2TbJU7ktf9Umw7HvY4AeY70HfoOTfkJSlBUt0bQkRx7K60xULC/jVjMwL/S5wHEIEB9Qh4vCSbAl38KU9x+ooaIpoyIs1Kvd/P/uLnuokRJwFegHTqmp0VlNH/ThnILd+yoEic/2KgYWJoA1maVY0nvUFJ+R3TMFCbcFHfYvOeNI+CDV/p1SugJkdw7WHagY2/ix/xusLXaJxFMcH6DFpO4eLHB5sp1XL6qaNORywgQQ39NgB6CE6RkZHn+RipETQqUp7qYzYTAoScqZRDohAb6aq6jM/uttzO16aDQNaAq5iu/deZdLsE0u2I//6TTttdRPK5/Z3/QX0EmAfzBSFp58Kfy+wj7HGA4gUDVZSYg73NP9g6rlg1oShFoDH0qfM/IzMYT2bKrX59XfDp/iLcIDpcJIUR0NQFYIVXVrgKZiFIZbWps+5Hbv4lDFM6cm62/DMmVPmn1R9zVLe3AZZCiydOf7nxS3B8hKuOQ6j/Ge0T+Y90IjbOmqi/S5GnWmWzorfsnZVfDCRkvsNNreJbzx0pmY56G8A4hYcQemRvmUHvOvvnYJcPKPbJvyza4TsJI42GIuy34tKPLA==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(35042699022)(36860700016)(14060799003)(376014)(82310400026)(10067099003)(56012099006)(11063799006)(18002099003)(5023799004);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: iCIGMUWlJrHoKwV9rUVH9cxCWNn9/e7xJJr5OM9Gwr6dgg0AoGmXfcgL+pEdX+EmPSsXZ9q+/hL7SMONRuXJHH73cvBt2rgo5Wfl1AUBqeWAHMUHW0fkhZcGp1M+icxbzgZx6OZYccAWerJbwevRjLu0KPyk+/xyfzSIFi1efSfXZTYpRfeBrk9jQKvNQzsPnYFmW+wegn9CRT9hELNiEalxbMJkn3ElLkAE3kzBbELHqbyVDWBv1dOYSHvqmHMWTx8KgHnQn5aK3ipELnChLyDiJ0hWuGKNku2eYU96WXxdzBxbMRZ5i+35ytaJ1o8v+nWh9tgQepz6xBuwF72+k4uEBspE2DeCraVLQup6I+9baolTbw/JqU8VLdKKSkrucB6QhFHnC1kY/ZXKR1igFVxnmxslxp3TL/i33NX1Kxw/tKCRGDlP7NkdO0GFfN7K
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 17:16:25.3509
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b1bc26b-5d47-42b4-6bb0-08df045eecb3
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F3.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR08MB9481
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_101634_753017_BB3510FA 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20260827_101953_007752_A3633182 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,78 +122,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Howdy folks,
+WRT3200ACM and WRT32x routers always report a fixed US regulatory domain
+from the mwifiex ROM, which conflicts with the platform regulatory
+configuration on units sold outside the US market. For example:
+- phy0 mwlwifi 5 GHz, hard-coded region 98 EU mapped to FR
+- phy1 mwlwifi 2.4 GHz, hard-coded region 98 EU mapped to FR
+- phy2 mwifiex 2.4 and 5 GHz, hard-coded region US
 
-If you haven't seen, I have been floating some patches to bring x86-64 
-shadow stack controls over to prctl, and it's generally straight forward.
-The larger motivation, is that I am doing all of this so we can place 
-LSM controls on shadow stack manipulations. For x86 will we need to hook
-the old and new implementations.
+When the system boots, it detects a conflict between the user selected
+region and the radios, e.g. BG FR US, and applies extreme restrictions,
+preventing phy0 from starting on any DFS channel. phy2 works.
 
-I have noticed some semantic differences between the arches. Given this 
-example of current thread state, current thread locking state and the
-new features requested, as shown below:
+Add a device-tree flag, which allows affected devices, where the radio
+conflicts with the platform to ignore the incorrect regulatory hint in
+the ROM of the radio, so the platform regulatory domain can be used.
+This does not allow the user to change the regulatory configuration of
+any radio. It only allows phy0 to start and operate according to its
+certified configuration.
 
-unsigned long locked = 0x2; // Kernel Task State -> LOCK WRITE
-unsigned long cur_val = 0x3; // Kernel Task State -> WRITE and 
-SHADOWSTACK ENABLED
-unsigned long new_val = 0x0; // Userspace Feature Change via syscall -> 
-DISABLE
+[1] https://github.com/kaloz/mwlwifi/issues/173#issuecomment-307879699
+[2] https://github.com/openwrt/openwrt/issues/9956
 
-| x86-64 | risc-v | arm64 |
-| ---------- | -------- | --------- |
-| Works  | Fails  | Fails     |
+Signed-off-by: Georgi Valkov <gvalkov@gmail.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+v8:
+1. no change
+2. drop invalid tag Tested-on, replace it with description of the fix
+3. no change
 
-Besides the locking difference, I have also noticed a few other issues 
-noted below:
+v7:
+1. drop Cc: stable, the first patch only documents a binding
+2. restore colon after Tested-on as requested by openwrt-ai
+3. mention the added wifi@1 node
 
-Risc-v:
-- shouldn't reject all bits in locking, it supports shadow stack.
-- shouldn't return EINVAL on locking checks
+v6:
+Rename flag:
+marvell,ignore-regulatory-hint -> marvell,invalid-reg-hint-in-rom
 
-See the code snippets for these below:
+Clarify commit description:
+The patch series allows affected devices, where the radio conflicts with
+the platform to ignore the incorrect regulatory hint in the ROM of the
+radio, so the platform regulatory domain can be used.
 
-if (is_shstk_locked(t))
-                 return -EINVAL;
+This does not allow the user to change the regulatory configuration of
+any radio. It only allows phy0 to start and operate according to its
+certified configuration.
 
-int arch_lock_shadow_stack_status(struct task_struct *task,
-                                   unsigned long arg)
-{
-         /* If shtstk not supported or not enabled on task, nothing to 
-lock here */
-         if (!is_user_shstk_enabled() ||
-             !is_shstk_enabled(task) || arg != 0)
-                 return -EINVAL;
+The change affects only platforms which explicitly define this flag, and
+helps overcome the incorrect behaviour of proprietary radio firmware.
 
-         set_shstk_lock(task, true);
+Rearrange patches so that the flag is implemented in the driver, before
+being added to the board for WRT3200ACM.
 
-         return 0;
-}
+Link:
+https://lore.kernel.org/linux-wireless/20260728103536.25012-1-gvalkov@gmail.com/T/#u
 
-arm64:
-1. Locking failures return -EBUSY vs -EPERM, I spoke with Mark (on CC) 
-he seemed OK with this,
+v5:
+1. description: remove tag Tested-on
+2. add #address-cells = <1>, #size-cells = <0> to fix a warning:
+arch/arm/boot/dts/marvell/armada-385-linksys-rango.dts:183.3-13:
+Warning (reg_format): /soc/internal-regs/sdhci@d8000/wifi@1:reg:
+property has invalid length (4 bytes) (#address-cells == 2, #size-cells == 1)
 
-I would like to find a way to rectify this so userspace has a common API.
+3. description: add info about testing
 
-I am proposing and have questions over the following:
-1. What should the behavior be if you had write locked and disable the 
-shadow stack?
-   - I can argue both ways here, -EPERM or success. I think I and most 
-arches lead to failure.
-2. riscv should check that the low bit is set in locking not just that 
-its 0, it should be 1
-3. riscv should return -EPERM vs -EINVAL
-4. x86 locking state should fail
+v4:
+1. Add binding documentation for flag marvell,ignore-regulatory-hint
+2. Add dt for sd8897 and move the flag there, I used sample from docs
+3. Use device_property_read_bool in the driver
 
-If we can all agree on item 1, that locked bits check can be refactored 
-and shared in one of
-two ways:
-1. within prctl itself, before the arch hook is called, we would need 
-helpers per-arch to extract the thread features and lock bits
-2. as a helper where folks just pass the unsigned long of the bits to 
-get the result
+v3:
+I implemented and tested a better approach with no board specific code:
+1. check for a device-tree flag in mwifiex_register_cfg80211in()
+  !of_property_read_bool(of_root, "marvell,ignore-regulatory-hint")
+2. add this flag to the root device tree of each affected board
+Currently this affects only armada-385-linksys-rango.dts,
+because Linux has no dts for venom. OpenWrt will take care of that.
+This approach is more flexible and scalable, because the flag can
+also be used in other drivers, e.g. mwlwifi (not part of Linux).
 
-Thanks everyone
+v2:
+Replace the compatible device names, which are currently only available on
+OpenWrt with board names which are available on both Linux and OpenWrt.
+
+ .../devicetree/bindings/net/wireless/marvell,sd8787.yaml    | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml b/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml
+index 930b700b73d0..9f905ef5c2c0 100644
+--- a/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml
++++ b/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml
+@@ -59,6 +59,12 @@ properties:
+     description: Calibration data for sub-band 3 in the 5GHz band.
+     maxItems: 502
+ 
++  marvell,invalid-reg-hint-in-rom:
++    $ref: /schemas/types.yaml#/definitions/flag
++    description:
++      The regulatory hint in ROM conflicts with platform configuration.
++      It should be ignored, so the platform regulatory domain can be used.
++
+   marvell,wakeup-pin:
+     $ref: /schemas/types.yaml#/definitions/uint32
+     description:
+-- 
+2.55.0
 
 
