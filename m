@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24119C61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 16:26:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC67C61DCD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 16:26:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xAGNWJtbQb3AJ1HJQX61n/LHCCEcBpCaICJCBWpxqGI=; b=RZrYOQTWlusleSe1Co4fl54r0z
-	N87d1azZ+m/ravVGNVrKxNPoqWKC5cQyZ/jS7z8Pdrq3wqrfPRHi72U0APQO/qQ1q9T1+sRa/8dtZ
-	rVbjpddrZvmVvgzpmAdRR8AhvLh3okUpxe8EAYxgDxtPxrpqgjqslNZ44yDAhpp40F7gjK8ZB8c0P
-	3t9rlhfCubMhi6w7lj5AxTOopAy/mg2nOwnf37Igz7xHh+6aZ8+5G8twU/h1yK5cw2rfxs53w7h5q
-	1TOIoBWhHIUBUj/fotliXUFnpBwWX2byJfJOEYkxVOAuuL8WHlYu/id2oefC77w9A6oqsO0Mybua/
-	clhn96SA==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sNvDMcYcMTOOUWSf0yI2ssQ/wZJvPJdat4hMuINy2z0=; b=4x3l4NtqwcbC5PkpcBoDpklaQB
+	zMjUhxPStonzWgnU9visYr1Tlb8DdQiVQhugORmQhz+VLeg4SVkZ5M6eOK6AjxhKkhZJJdR9HA3u6
+	+myp9JFIc0TAzBXGscAGTz6/aS/2FoxNUSP1Gtf8g2JLarEqs+fD1Lp/VjHvTsRa8d2/DkLXEzKK4
+	KeHAaipzPrn0kDHW01cRfBD1KEomcjGB4zZq5fiLpk2L0+yvelUumdhxry3PzWpFJSVj7rns8U5LT
+	fNwRo11Znve4aSBHFPgoa56MC+v7SEmGAEyzctwcSU4qqlbLdlzzGbdHZpYgwdrz0VWu7lxKFb29n
+	i6pKy4sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzcvX-00000004Kui-2jqN;
+	id 1wzcvX-00000004Ku5-18eB;
 	Thu, 27 Aug 2026 16:26:07 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzcuH-00000004JkH-24Ah
+	id 1wzcuI-00000004Jkk-1OlQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 16:24:54 +0000
+	Thu, 27 Aug 2026 16:24:53 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=xAGNWJtbQb3AJ1HJQX61n/LHCCEcBpCaICJCBWpxqGI=;
-	b=xLmUHxdtznvn14bKKb3Ae8Py9BGbsGZqW/mdynm2ysF18alkLLyUC/mTjbs9FM+IA4EMsY9Eg
-	zCsPR8FkLdAC+gJ2+MTxLuwMlQQc1uJIXoR8zHE4WD/zGUWFsZXsiVf3Rr2lo/hmf4hDucR9LZt
-	dUOIyHkNGI1TeXQ0Xw9IW6M=
+	bh=sNvDMcYcMTOOUWSf0yI2ssQ/wZJvPJdat4hMuINy2z0=;
+	b=BJTaHo4n0ixCzKigfowoDpi1iFHxi/BPkiYvQINGtSZCkkOuUVNmJStblIjFJBX0MHygpMizO
+	T93Fl6tGtVWApqAi048i50K1FsBqDB3x5gfEBI9dt6Gk9b8F9p3OdAtaAQIuBuLkQM1TcGjS5c6
+	8nNX9Wr9Vl2naXdJkZbevwk=
 Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4hW6KF4jbczHnH3h;
-	Fri, 28 Aug 2026 00:24:01 +0800 (CST)
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4hW6KC4wvNzHnH56;
+	Fri, 28 Aug 2026 00:23:59 +0800 (CST)
 Received: from mscpeml500004.china.huawei.com (unknown [7.188.26.250])
-	by mail.maildlp.com (Postfix) with ESMTPS id A74DA40572;
-	Fri, 28 Aug 2026 00:24:37 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id AD9AA40570;
+	Fri, 28 Aug 2026 00:24:35 +0800 (CST)
 Received: from mscphis00949.huawei.com (10.123.66.11) by
  mscpeml500004.china.huawei.com (7.188.26.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 27 Aug 2026 19:24:37 +0300
+ 15.2.2562.45; Thu, 27 Aug 2026 19:24:35 +0300
 From: Nikita Panov <panov.nikita@huawei.com>
 To: <catalin.marinas@arm.com>, <akpm@linux-foundation.org>,
 	<david@kernel.org>, <ljs@kernel.org>, <vbabka@kernel.org>, <cl@gentwo.org>,
@@ -53,12 +53,10 @@ To: <catalin.marinas@arm.com>, <akpm@linux-foundation.org>,
 CC: <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <wangkefeng.wang@huawei.com>,
 	<artem.kuzin@huawei.com>, <panov.nikita@huawei.com>
-Subject: [RFC PATCH 13/18] arm64: make kernel text patching aware about replicas
-Date: Fri, 28 Aug 2026 00:11:53 +0800
-Message-ID: <20260827161158.3618409-14-panov.nikita@huawei.com>
+Subject: [RFC PATCH 00/18] mm: arm64: Add kernel replication feature
+Date: Fri, 28 Aug 2026 00:11:40 +0800
+Message-ID: <20260827161158.3618409-1-panov.nikita@huawei.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260827161158.3618409-1-panov.nikita@huawei.com>
-References: <20260827161158.3618409-1-panov.nikita@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -66,8 +64,8 @@ X-Originating-IP: [10.123.66.11]
 X-ClientProxiedBy: mscpeml100003.china.huawei.com (10.199.174.67) To
  mscpeml500004.china.huawei.com (7.188.26.250)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_092449_829183_BECA54A0 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20260827_092450_675561_C24EA8F5 
+X-CRM114-Status: GOOD (  30.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,233 +81,257 @@ Reply-To: artem.kuzin@huawei.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Acked-by: Artem Kuzin <artem.kuzin@huawei.com>
-Acked-by: Alexander Grubnikov <alexander.grubnikov@huawei.com>
-Acked-by: Ilya Hanov <ilya.hanov@huawei-partners.com>
-Acked-by: Denis Darvish <darvish.denis@huawei.com>
-Signed-off-by: Nikita Panov <panov.nikita@huawei.com>
----
- arch/arm64/kernel/alternative.c | 33 +++++++++++-
- arch/arm64/kernel/patching.c    | 96 +++++++++++++++++++++++++++++++++
- 2 files changed, 128 insertions(+), 1 deletion(-)
+Current status:
 
-diff --git a/arch/arm64/kernel/alternative.c b/arch/arm64/kernel/alternative.c
-index f5ec7e7c1d3f..e85644d64bbd 100644
---- a/arch/arm64/kernel/alternative.c
-+++ b/arch/arm64/kernel/alternative.c
-@@ -10,6 +10,7 @@
- 
- #include <linux/init.h>
- #include <linux/cpu.h>
-+#include <linux/numa_kernel_replication.h>
- #include <linux/elf.h>
- #include <asm/cacheflush.h>
- #include <asm/alternative.h>
-@@ -139,6 +140,36 @@ static noinstr void clean_dcache_range_nopatch(u64 start, u64 end)
- 	} while (cur += d_size, cur < end);
- }
- 
-+#ifdef CONFIG_KERNEL_REPLICATION
-+static void __write_alternatives(struct alt_instr *alt,
-+					 alternative_cb_t alt_cb,
-+					 __le32 *origptr, __le32 *updptr,
-+					 int nr_inst)
-+{
-+	if (is_text_replicated() && is_kernel_text((unsigned long)origptr)) {
-+		int nid;
-+
-+		for_each_memory_node(nid) {
-+			__le32 *ptr = numa_get_replica(origptr, nid);
-+
-+			alt_cb(alt, origptr, ptr, nr_inst);
-+			clean_dcache_range_nopatch((u64)ptr,
-+						   (u64)(ptr + nr_inst));
-+		}
-+	} else {
-+		alt_cb(alt, origptr, updptr, nr_inst);
-+	}
-+}
-+#else
-+static void __write_alternatives(struct alt_instr *alt,
-+					 alternative_cb_t alt_cb,
-+					 __le32 *origptr, __le32 *updptr,
-+					 int nr_inst)
-+{
-+	alt_cb(alt, origptr, updptr, nr_inst);
-+}
-+#endif /* CONFIG_KERNEL_REPLICATION */
-+
- static int __apply_alternatives(const struct alt_region *region,
- 				bool is_module,
- 				unsigned long *cpucap_mask)
-@@ -174,7 +205,7 @@ static int __apply_alternatives(const struct alt_region *region,
- 			alt_cb = patch_alternative;
- 		}
- 
--		alt_cb(alt, origptr, updptr, nr_inst);
-+		__write_alternatives(alt, alt_cb, origptr, updptr, nr_inst);
- 
- 		if (!is_module) {
- 			clean_dcache_range_nopatch((u64)origptr,
-diff --git a/arch/arm64/kernel/patching.c b/arch/arm64/kernel/patching.c
-index 09f019c6547a..8bac14198459 100644
---- a/arch/arm64/kernel/patching.c
-+++ b/arch/arm64/kernel/patching.c
-@@ -5,6 +5,7 @@
- #include <linux/spinlock.h>
- #include <linux/stop_machine.h>
- #include <linux/uaccess.h>
-+#include <linux/numa_kernel_replication.h>
- 
- #include <asm/cacheflush.h>
- #include <asm/fixmap.h>
-@@ -15,6 +16,7 @@
- 
- static DEFINE_RAW_SPINLOCK(patch_lock);
- 
-+#ifndef CONFIG_KERNEL_REPLICATION
- static bool is_exit_text(unsigned long addr)
- {
- 	/* discarded with init text/data */
-@@ -42,6 +44,17 @@ static void __kprobes *patch_map(void *addr, int fixmap)
- 
- 	return (void *)set_fixmap_offset(fixmap, phys);
- }
-+#else
-+static void __kprobes *patch_map(void *addr, int fixmap, int nid)
-+{
-+	struct page *page;
-+
-+	page = walk_to_page_node(nid, addr);
-+	BUG_ON(!page);
-+
-+	return (void *)set_fixmap_offset(fixmap, page_to_phys(page) + offset_in_page(addr));
-+}
-+#endif /* CONFIG_KERNEL_REPLICATION */
- 
- static void __kprobes patch_unmap(int fixmap)
- {
-@@ -63,6 +76,28 @@ int __kprobes aarch64_insn_read(void *addr, u32 *insnp)
- 	return ret;
- }
- 
-+#ifdef CONFIG_KERNEL_REPLICATION
-+static int __kprobes __aarch64_insn_write(void *addr, __le32 insn)
-+{
-+	int nid;
-+	void *waddr = addr;
-+	unsigned long flags = 0;
-+	int ret;
-+
-+	raw_spin_lock_irqsave(&patch_lock, flags);
-+	for_each_memory_node(nid) {
-+		waddr = patch_map(addr, FIX_TEXT_POKE0, nid);
-+		ret = copy_to_kernel_nofault(waddr, &insn, AARCH64_INSN_SIZE);
-+		patch_unmap(FIX_TEXT_POKE0);
-+
-+		if (ret || !is_text_replicated())
-+			break;
-+	}
-+	raw_spin_unlock_irqrestore(&patch_lock, flags);
-+
-+	return ret;
-+}
-+#else
- static int __kprobes __aarch64_insn_write(void *addr, __le32 insn)
- {
- 	void *waddr = addr;
-@@ -79,12 +114,37 @@ static int __kprobes __aarch64_insn_write(void *addr, __le32 insn)
- 
- 	return ret;
- }
-+#endif /* CONFIG_KERNEL_REPLICATION */
- 
- int __kprobes aarch64_insn_write(void *addr, u32 insn)
- {
- 	return __aarch64_insn_write(addr, cpu_to_le32(insn));
- }
- 
-+#ifdef CONFIG_KERNEL_REPLICATION
-+noinstr int aarch64_insn_write_literal_u64(void *addr, u64 val)
-+{
-+	int nid;
-+	u64 *waddr;
-+	unsigned long flags;
-+	int ret;
-+
-+	raw_spin_lock_irqsave(&patch_lock, flags);
-+	for_each_memory_node(nid) {
-+		waddr = patch_map(addr, FIX_TEXT_POKE0, nid);
-+
-+		ret = copy_to_kernel_nofault(waddr, &val, sizeof(val));
-+
-+		patch_unmap(FIX_TEXT_POKE0);
-+
-+		if (ret || !is_text_replicated())
-+			break;
-+	}
-+	raw_spin_unlock_irqrestore(&patch_lock, flags);
-+
-+	return ret;
-+}
-+#else
- noinstr int aarch64_insn_write_literal_u64(void *addr, u64 val)
- {
- 	u64 *waddr;
-@@ -101,9 +161,44 @@ noinstr int aarch64_insn_write_literal_u64(void *addr, u64 val)
- 
- 	return ret;
- }
-+#endif /* CONFIG_KERNEL_REPLICATION */
- 
- typedef void text_poke_f(void *dst, void *src, size_t patched, size_t len);
- 
-+#ifdef CONFIG_KERNEL_REPLICATION
-+static void *__text_poke(text_poke_f func, void *addr, void *src, size_t len)
-+{
-+	unsigned long flags;
-+	size_t patched = 0;
-+	size_t size;
-+	void *waddr;
-+	void *ptr;
-+
-+	raw_spin_lock_irqsave(&patch_lock, flags);
-+
-+	while (patched < len) {
-+		int nid;
-+
-+		ptr = addr + patched;
-+		size = min(PAGE_SIZE - offset_in_page(ptr), len - patched);
-+
-+		for_each_memory_node(nid) {
-+			waddr = patch_map(ptr, FIX_TEXT_POKE0, nid);
-+			func(waddr, src, patched, size);
-+			patch_unmap(FIX_TEXT_POKE0);
-+
-+			if (!is_text_replicated())
-+				break;
-+		}
-+		patched += size;
-+	}
-+	raw_spin_unlock_irqrestore(&patch_lock, flags);
-+
-+	flush_icache_range((uintptr_t)addr, (uintptr_t)addr + len);
-+
-+	return addr;
-+}
-+#else
- static void *__text_poke(text_poke_f func, void *addr, void *src, size_t len)
- {
- 	unsigned long flags;
-@@ -130,6 +225,7 @@ static void *__text_poke(text_poke_f func, void *addr, void *src, size_t len)
- 
- 	return addr;
- }
-+#endif
- 
- static void text_poke_memcpy(void *dst, void *src, size_t patched, size_t len)
- {
--- 
+There were several prior submissions with some sort of replication
+for NUMA systems, including one from our side for the x86_64 platform.
+In the last couple years, several research articles related to solving
+locality issues on NUMA machines through replication emerged as well.
+
+[1]  - arm64 kernel text replication
+[2]  - x86 NUMA-aware kernel replication
+[3]  - x86 kernel text replication
+[4]  - NUMA replication of user data
+[5]  - Mitosis: Transparently Self-Replicating Page-Tables for Large-Memory Machines
+[6]  - WASP: Workload-Aware Self-Replicating Page-Tables for NUMA Servers
+[7]  - PaCaR: Improved Buffered I/O Locality on NUMA Systems with Page Cache Replication
+[8]  - Memory page replication for Linux on X86 processors
+[12] - Optimize this_cpu_*() ops for non-x86 (ARM64 for this series)
+
+As of today, none of it was merged into mainline.
+
+Patch set description:
+
+This patchset implements initial support of the kernel
+text and ro-data replication for arm64 platform.
+Linux-next was used as a baseline.
+(903c1cf6dff9 Add linux-next specific files for 20260821).
+This patch set heavily relies on our previous submission [2],
+their generic part is the same, these solutions might be merged into a single one.
+However, after thorough re-evaluation, we were not able to observe
+performance improvement for the x86 platform, so we have decided to stop this
+direction and switch on arm64.
+
+Current implementation supports the next functionality:
+
+1. Replicated kernel text and rodata per NUMA node
+2. Vmalloc is able to work with replicated areas, so
+   kernel modules text and rodata are also replicated during
+   modules loading stage.
+3. KPROBES, KGDB and all functionality that depends on
+   kernel text patching work without any limitation.
+4. KPTI, KASLR, and KASAN are supported.
+5. Only part of a translation table related to
+   replicated text and rodata is replicated
+   (up to 2 pgd entries if kaslr is enabled)
+6. 4K + 48bit and 64K + 48/52bit are supported and tested.
+7. New cmdline option: "kernel_replication=on|off",
+   to configure on the boot stage
+8. For verification check dmesg output or /sys/kernel/debug/numa_replication/
+
+In general, setting up a new pgd entry in kernel translation table
+not often scenario, most of them are covered by current patch set.
+
+TT overview:
+                   NODE 0                   NODE 1
+                   KERNEL                   KERNEL
+           ---------------------    ---------------------
+     PGD   |@| | |@|   | | | |*|    |@| | |@|   | | | |*|
+           ---------------------    ---------------------
+                              |                        |
+            -------------------      -------------------
+            |                        |
+           ---------------------    ---------------------
+     PUD   | | | | |   |@| |*|*|    | | | | |   |@| |*|*|
+           ---------------------    ---------------------
+                              |                        |
+            -------------------      -------------------
+            |                        |
+           ---------------------    ---------------------
+     PMD   |READ-ONLY|MUTABLE  |    |READ-ONLY|MUTABLE  |
+           ---------------------    ---------------------
+                  |       |                  |     |
+                  |       --------------------------
+                  |               |          |
+                --------       -------      --------
+   PHYS         |      |       |     |      |      |
+    MEM         --------       -------      --------
+                <------>                    <------>
+                 NODE 0        Shared        NODE 1
+                               between
+                               nodes
+* - entries unique in each table
+@ - same entries accross replicated tables
+
+Since for kernel space and user space different tables are used,
+user space tables are not replicated at all, so synchronization
+is not required.
+
+Known problems:
+
+1. Other combinations of base page size and va size (especially with 16K pages)
+   should be adapted and verified.
+2. Replicated translation tables for the vmalloc region are not local right now.
+   Allocation performed with default memory policy, so translation tables
+   for kernel modules will not be local. However,
+   replicated text and rodata of the modules are local.
+   In general, vmalloc patch should be cleaned up.
+3. Any modifications of kernel PGD level. These modifications
+   should be synchronized across all replicated tables.
+   Right now, for example, memory hotplug/hotunplug
+   lacks this support, vmemmap and kasan regions for
+   added memory might not be observed correctly. This could be fixed
+   by patching all places in the kernel where swapper_pg_dir
+   is modified, or by "lazy" propagation on kernel faults in the pgd-level.
+   Propagation approach will not help in the case of pgd_clear()
+   on swapper_pg_dir though.
+
+Overall, this patch set in an early PoC stage and require some improvements.
+
+Overhead:
+
+Memory overhead for the kernel itself is about 30MB per NUMA node
+  on our deployment. For kernel modules - depends on their sizes, but text
+  and ro-data are not that big.
+CPU overhead - replication performed on the boot stage. After boot
+  only "rare" operations are slowed down -
+  module loading, text patching, kernel table pgd-level modifications.
+
+Performance evaluation:
+
+Our local testing was performed on
+Kunpeng 920, 128 CPU, 4 nodes, 100Gb for each node.
+
+Microbenchmark:
+Kernel module with a huge text section (~50MB) filled with CPU-bound
+instructions. For each NUMA node thread is spawned, each thread in a loop
+executes isntructions. Total execution time of each thread is measured.
+The insmod call bound to node 0 through numactl (less time is better).
+
+node                 0        1        2        3
+Before time, s     5.567    7.598   13.294   18.905
+After  time, s     5.469    6.960    6.777    5.531
+
+Diff               ~0%      -8.5%    -49%     -70%
+In this benchmark, interconnect was not used by any other actors,
+so microbenchmark numbers might be significantly improved.
+
+Customer's evaluation:
+We were provided with the following feedback on this patch set
+directly from our customers. Unfortunately, we do not have details
+regarding how these measurements were done other than it was
+a production setup.
+Evaulation was performed on Kunpeng 920 and 920B platforms:
+CEPH distributed storage +5%
+StarRocksDB              +5%
+
+Couple more words about patch set and technology:
+
+This patchset was merged into the innovative branch of
+the openEuler distributive 1.5 year ago (openEuler-25.03)
+and was actively tested in production environment [9], [10].
+In addition, besides the kernel part, we have published
+user space replication (for translation tables and rodata) as well,
+but it is very complex and experimental
+even compared to this patch set [11]. With replication in user
+space, we were able to achieve the following numbers in
+performance improvement:
+MySQL + sysbench      1-6%
+Spark TPC-H           4-20%
+Phoronix test-suite   0-25%
+
+Discussion:
+
+The main question we'd like to discuss is the following:
+Should the kernel replication feature be merged into the Linux
+somewhere in the future? In any form, not specifically this patch set,
+but the core concept itself.
+
+If the answer is yes, please share your thoughts on this patch set. What else
+should be fixed (or reimplemented and redsigned completly) in this patch
+for mainline in your opinion? We'd be glad to do it, and in that case
+I'll send an updated version in the near future.
+
+[1]  https://lwn.net/ml/linux-doc/ZHYCUVa8fzmB4XZV@shell.armlinux.org.uk/
+[2]  https://lwn.net/ml/linux-mm/20231228131056.602411-1-artem.kuzin@huawei.com/
+[3]  https://lwn.net/Articles/36602/
+[4]  https://lwn.net/Articles/45082/
+[5]  https://github.com/mitosis-project/mitosis-asplos20-artifact
+[6]  https://dl.acm.org/doi/10.1145/3620665.3640369
+[7]  https://dl.acm.org/doi/10.1145/3767295.3769359
+[8]  https://github.com/Carrefour/linux-replication
+[9]  https://mailweb.openeuler.org/archives/list/kernel@openeuler.org/message/C7M5E2K2UD7FV7XYPWPZREJBCOCBIVRN/
+[10] https://www.openeuler.org/whitepaper/en/openEuler%2025.03%20Technical%20White%20Paper.pdf
+[11] https://mailweb.openeuler.org/archives/list/kernel@openeuler.org/message/73MAUDM6WCGSSOKPZGPNZAYRNQGUR6DE/
+[12] https://lore.kernel.org/linux-mm/20260715180455.515692-1-yang@os.amperecomputing.com/
+
+Nikita Panov (18):
+  mm: arm64 add Kconfig option for kernel replication
+  arm64: align kernel text and rodata
+  mm: allow per-NUMA node local P4D/PUD/PMD/PTE allocation
+  arm64: add arch callbacks for kernel replication
+  mm: per-NUMA node replication core infrastructure
+  mm: add support of memory protection for NUMA replicas
+  arm64: add support of memory protection for NUMA replicas
+  mm: set memory permissions for BPF handlers replicas
+  mm: add replicas allocation support for vmalloc
+  arm64: enable per-NUMA node kernel text and rodata replication
+  mm: enable per-NUMA node kernel text and rodata replication
+  arm64: make power management aware about kernel replication
+  arm64: make kernel text patching aware about replicas
+  arm64: add correct alignment to kimage in efi code
+  arm64: add support of NUMA replication for ptdump
+  arm64: add kernel modules text and rodata replication support
+  mm: init kernel modules with replication support
+  mm: introduce kernel cmdline option "kernel_replication="
+
+ .../admin-guide/kernel-parameters.txt         |   7 +
+ arch/arm64/include/asm/efi.h                  |  18 +-
+ arch/arm64/include/asm/mmu_context.h          |   4 +
+ arch/arm64/include/asm/numa_replication.h     |  54 ++
+ arch/arm64/include/asm/pgtable.h              |   4 +
+ arch/arm64/kernel/alternative.c               |  33 +-
+ arch/arm64/kernel/hibernate.c                 |   5 +
+ arch/arm64/kernel/module.c                    |  11 +
+ arch/arm64/kernel/patching.c                  |  96 ++
+ arch/arm64/kernel/sleep.S                     |   8 +
+ arch/arm64/kernel/smp.c                       |   8 +
+ arch/arm64/kernel/vmlinux.lds.S               |  22 +
+ arch/arm64/mm/init.c                          |  49 ++
+ arch/arm64/mm/kasan_init.c                    |   2 +
+ arch/arm64/mm/mmu.c                           |  42 +-
+ arch/arm64/mm/pageattr.c                      |  72 +-
+ arch/arm64/mm/ptdump.c                        |  24 +-
+ arch/arm64/net/bpf_jit_comp.c                 |   4 +-
+ include/asm-generic/pgalloc.h                 |  90 ++
+ include/asm-generic/pgtable-nop4d.h           |   5 +
+ include/asm-generic/pgtable-nopmd.h           |   5 +
+ include/asm-generic/pgtable-nopud.h           |   5 +
+ include/asm-generic/set_memory.h              |  14 +
+ include/linux/mm.h                            |  92 +-
+ include/linux/mm_types.h                      |   3 +
+ include/linux/moduleloader.h                  |   4 +
+ include/linux/numa_kernel_replication.h       | 112 +++
+ include/linux/set_memory.h                    |  21 +
+ include/linux/vmalloc.h                       |  18 +
+ init/main.c                                   |  17 +
+ kernel/bpf/core.c                             |   4 +-
+ kernel/bpf/trampoline.c                       |   2 +-
+ kernel/module/main.c                          |  20 +
+ kernel/module/strict_rwx.c                    |  12 +-
+ mm/Kconfig                                    |  10 +
+ mm/Makefile                                   |   2 +
+ mm/execmem.c                                  |  39 +-
+ mm/memory.c                                   | 129 +++
+ mm/mm_init.c                                  |   3 +
+ mm/numa_kernel_replication.c                  | 821 ++++++++++++++++++
+ mm/vmalloc.c                                  | 454 ++++++++--
+ 41 files changed, 2246 insertions(+), 99 deletions(-)
+ create mode 100644 arch/arm64/include/asm/numa_replication.h
+ create mode 100644 include/linux/numa_kernel_replication.h
+ create mode 100644 mm/numa_kernel_replication.c
+
+--
 2.34.1
 
 
