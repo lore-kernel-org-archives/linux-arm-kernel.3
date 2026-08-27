@@ -4,76 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27F92C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 14:05:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467A8C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 14:10:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CG8UajRDQwSiy+CM0OEhF9gLmepOI3OCUZOl7n3z20M=; b=Boyf91coYj6b9p63IGuDlqf6Cg
-	LGZHPSYYvkSM2XFZvSnLdgP2nmla8dA5OWY3ItzDWQOThGhoHmsnPhrEubvVt8/y4YqoygEHtXmZb
-	YnehPf8RqyZr39FUCWynMfPJU0KocroAO8jQv7WTRa1ErYfPc2PYGNvdpU5FJB/z1RKhlx6oAo5j4
-	2sb5Y1oEOtF/DYJ5Xq9ULWFOy+Px8+O9h3nOt+u3/APOdtRiXP9qX79EzF7n859aGhONPRxY+1pTX
-	Ag0QymqthSc/TRdfTUzSaHHo+P9kYBpzfJP3iKvrR+8L9YJOfKd5Wp/qgaTI70e4rHM9mj8m+gzLd
-	DupG/9eg==;
+	bh=sChYrqIIYOoi7C4g3Ua19kNgPct5OKFPylLvT9/CFwM=; b=fychrLyhDIVm+P+JSCG5tDpvsP
+	GqubwVLQMdy6B1hDaVSAkpnIWflAyYKQnIld1YDP/jn/0sRHAxyoXaO8CKLnvoRH4sGNabk0w/3CZ
+	T0ggXqpwcxb7Yqn3bPKJdvgRoYowaI2+rM+yLPfZMJm+Vdd1wMgOogLvrfDiLhnJ51tdcrbRTXsoE
+	2kNVZvDwR5oFMToBxbl/QQCFRPUfjntOszmoRiHivFJLPm0LRu6YP2Fl51zvQ/7tn9c28BoPCQ1Ro
+	g1VtkUOSIHQNA1SERtA5bvdwzw7pHtg4RaWNwyWslyxmOQ6v6RrrJcLC1onq3UnuZOAqObXn2lKVo
+	LXRFTH3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzajF-0000000475e-16Lw;
-	Thu, 27 Aug 2026 14:05:17 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1wzaoH-000000047o6-0CV4;
+	Thu, 27 Aug 2026 14:10:29 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzaj3-000000046zK-3Cvl
+	id 1wzaoE-000000047nZ-0zzd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 14:05:07 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=CG8UajRDQwSiy+CM0OEhF9gLmepOI3OCUZOl7n3z20M=;
-	b=JmTYKYKD8hFKQZz5PSir9bO0oYAk55ntdljal34PndT+7xRjHa4GXpKac2h9aSO4lzuD/xUhK
-	Cr6bz4Y1FFSQQfVVIgzrzFMHQtNr2PSiAYOIW8EQD4U9y9K8GrGYi3Y7QTSUccpRPBzmNLEycb3
-	ujDUkZG1Knn8gK4IzWd3lHk=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hW30h0nHGzcb3P;
-	Thu, 27 Aug 2026 21:54:28 +0800 (CST)
-Received: from whupemo200004.china.huawei.com (unknown [7.152.184.18])
-	by mail.maildlp.com (Postfix) with ESMTPS id 173A12025F;
-	Thu, 27 Aug 2026 22:05:03 +0800 (CST)
-Received: from huawei.com (10.50.163.32) by whupemo200004.china.huawei.com
- (7.152.184.18) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 27 Aug
- 2026 22:05:00 +0800
-From: Sizhe Liu <liusizhe5@huawei.com>
-To: <rostedt@goodmis.org>, <mhiramat@kernel.org>,
-	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
-	<skhan@linuxfoundation.org>, <bhelgaas@google.com>, <yangyccccc@gmail.com>,
-	<jic23@kernel.org>, <john.g.garry@oracle.com>, <will@kernel.org>,
-	<james.clark@linaro.org>, <mike.leach@arm.com>, <leo.yan@linux.dev>,
-	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
-	<namhyung@kernel.org>, <mark.rutland@arm.com>,
-	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
-	<irogers@google.com>, <adrian.hunter@intel.com>, <wangyushan12@huawei.com>,
-	<wuzongyu1@huawei.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
-	<prime.zeng@hisilicon.com>, <liusizhe5@huawei.com>
-Subject: [PATCH v2 8/8] perf hisi-ptt: Pass pattern version to decoder for compatibility
-Date: Thu, 27 Aug 2026 22:04:42 +0800
-Message-ID: <20260827140442.2031128-9-liusizhe5@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260827140442.2031128-1-liusizhe5@huawei.com>
-References: <20260827140442.2031128-1-liusizhe5@huawei.com>
-MIME-Version: 1.0
+	Thu, 27 Aug 2026 14:10:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EGCKQmKS/1kwaA5TthqiUu9pwnlToc3Iv2YanwGYll7sPlQz2qQzW/HXO2WtmumDjsAa+s0uylfSCtoFRCghyWGqhaBG/2q+wakmnfNMjF3jdsRCj2xhql4O86LtRdu/lOaeIhyNr+LLKdni+nhufbs5yXP3ulASYwhruxRPR0haA0kNih55yClFpUwAbRPWlY8b1au/voTRzWOBV6uubMT7P9f+AaJKUPO5Gje4qQTIPmU7F2zmBbbklIQkQcRCHSk554iLxPi1H7dUWsUodY7JKK60Z3cIA/QkJo3FmYYd82sMXQ2OX1TPbok9xLsmw3QdTsYo9albllKUM3QQPw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sChYrqIIYOoi7C4g3Ua19kNgPct5OKFPylLvT9/CFwM=;
+ b=aC7LPiSvbyNEtZZ5jofOhVmHrj8JesJcbd1DbL6+aHWCZO2uYr7eHdaFqq7T9RuMqM747mrB5IHBl98jKNzci/vPKoCSVQ0eHFrk/FmjuWD+m9DCI4suTZxtM8eK06JD5BJidUkhGPk9GvBIoNRNm4F+MkKivfV4AQRgrDtmoWUdJIx0gF7jhFU6I6Mwykk41K5ns46O1nu18pK9QSBwKNhvnYbXgJ1RjZBZeuDiu2UqHqbKuf01GGio9ODAvt4zAvTKmjNp3YkD9S5Nt1jSC0m5umSx3HvOlPFfMOb1F23P0MUJ2iZk6fypbqHhhZ9IY4ZINDZEG9NYIq7FlIjcdg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sChYrqIIYOoi7C4g3Ua19kNgPct5OKFPylLvT9/CFwM=;
+ b=MZuFE8h0QEEZyuK9YGh3KBPJZjsF2Tz7gqdEyE4us09sfwsEzQi8Rp/U8jnKfkX4T4n+5Clob799DLWSWB+QtUNRTLvNQj/IfjpWI0fTV30bYzu+UmISEMbNPL74itTknAvcvwnds18yB9NToDMQXqDf9sqQ/V1shFjUZGMyw7QIPhM89otAPcrUvv+YVo3swSPB0/kwuv9uZBkqyRmY8PRG8mTv85YIYmOuIvwCCQOG1F0P0kmafeDOr8p+nX6C/vPUULx43XLJevn+bQdAFlUvJfVJOCs/pxj18yW1TQSAhVSEcJcLMQbdixTvfhd088jPBuQq2GTDlF1Whd/BHA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10) by AS8PR04MB7976.eurprd04.prod.outlook.com
+ (2603:10a6:20b:2af::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Thu, 27 Aug
+ 2026 14:10:19 +0000
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
+ 14:10:19 +0000
+Message-ID: <7445c392-0220-48f4-a6a1-ffdd8e21546f@oss.nxp.com>
+Date: Thu, 27 Aug 2026 17:10:15 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/10] ufs: host: Add common Hibern8 TX FSM polling helper
+To: Bough Chen <haibo.chen@oss.nxp.com>
+Cc: NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Avri Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K . Petersen" <martin.petersen@oracle.com>,
+ Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+ Ajay Neeli <ajay.neeli@amd.com>, Manivannan Sadhasivam <mani@kernel.org>,
+ Pedro Sousa <pedrom.sousa@synopsys.com>, clizzi@redhat.com,
+ aruizrui@redhat.com, eballetb@redhat.com, echanude@redhat.com,
+ linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
+References: <20260826134048.854748-1-larisa.grigore@oss.nxp.com>
+ <20260826134048.854748-4-larisa.grigore@oss.nxp.com>
+ <20260827091440.6iqfhvyihrxqv4bp@shlinux89>
+Content-Language: en-US
+From: Larisa Ileana Grigore <larisa.grigore@oss.nxp.com>
+In-Reply-To: <20260827091440.6iqfhvyihrxqv4bp@shlinux89>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- whupemo200004.china.huawei.com (7.152.184.18)
+X-ClientProxiedBy: FR4P281CA0197.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e5::7) To GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|AS8PR04MB7976:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7f5e3997-3c26-40e1-cf64-08df0444ecfc
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|376014|7416014|19092799006|10067099003|11063799006|4143699003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: qMrjYxOM0TXnZwWUpdtkE3mtcFhuSbBMltB0v+K/pAz0Lpo7WPS/ZwoCI9HmUoYRiX6Tfvo+N6u9cWo5MjBit+g5Va+8MMXl4+tETyvok+D76uVTmMbb8//PuO98VmR0po2q5xxeIoj1H6iy8orMscs8OSyhc2wr5CwBZ5N9TRLrsKz1LGo8rcKklP36rrlginy0PlozJtxWyJBev3SKmueNQNhJjCMoEBOjX6doJqUvqOhCoQmbPe/Kt6fp+ntpwdVqzLr53ZU5kl9HdHR8J9uwYZcruDmM8vEmV6B0klvfb9viHJPtGNqZsrXVkLtIEEwuWiTKok1iNAnoU7tb1vhVoJvK0jYw9xNL9FwYypD+TbugiXME1QLbWy7aE63TJDpmo5fMrT11NN2wbH1JU8vug6SLllWZamE/fxLuLikbU0ElvcFxe4oMhVPjRGhrccZMmdw8PiRMnviv9BfKz+Bi51aUSQTNY5I1UC6/rOiGsJaE+vM119HXCBJvapnvLVKIKwf7CamxtQKMxEC4f5VKlahEvkjIy3wtWNqxgLNbuts3ylxFm11XWhLaDNHBmpoJYwd5c5YJgcukQlNr7L4FSk9w6JcfsYwcChp/P2ZtfJ+AlfZBKHWq65Au28rsqXU0SDHYkGK1wUt2O1tQNLsUxma0UAOCY92CH6v2GAQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(376014)(7416014)(19092799006)(10067099003)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ODdvL0pZZW9uTkQwYlhiWDU2cVJ0Ymw5V3pHT1hZUmgveXVLZThNR1dXNU5S?=
+ =?utf-8?B?QTMvVnltUU5mcTd6Uk0vcWFsRGk1V1FaN1RaMmhvdU4rclhicGpnZHNPVXUy?=
+ =?utf-8?B?ZnpKcG5JT0JpdGdJTEtjdVdwRGFpWllCTTZxZWRGZlRNdVY3cUFneEQwNUFz?=
+ =?utf-8?B?eHZzaE5HU241Y2Joc043dmIyOXpEQ0g4VFlwQlE3NjRabHdvb0JoNU5zNTBu?=
+ =?utf-8?B?eTVuUU5tMGhNQm5Dc3hFVDczcy9vR3RhK2lKb3VUZTFlR3VVM2RtMldEbGNB?=
+ =?utf-8?B?N0p1YWp6YnIrV0t3WGNRSzVPR0JWSWV5UzZCZFJzU0lnNEhMdlY4Y1lQMXdZ?=
+ =?utf-8?B?UDNpWVR4TXBTTFpZV0hZTnR2ekpvb0hwbjBhMUVxV3BjWUdUSHB1NTQzQ3Ur?=
+ =?utf-8?B?dmZCVml2ZVlRZzdLcERnK0o2V0lEQWJIMXpOZG1nd25MUmRxZjB0RUVhdkpO?=
+ =?utf-8?B?V3ZKeGZXeGNwak9WU0tBRDE0dmpIc0JsemFNR3pySGpQbCtJYTlSWHdTeW5s?=
+ =?utf-8?B?NmV5YlpQYXBhRFNTeWNyeER6M2xBMXZRcUYrTHVoVGJCRFQ2UFAxYi9QQ2xS?=
+ =?utf-8?B?ZHpCWEE3M0V5N3BReTZzNTY3YnllYkhJcFp5Z0prQk5iWU55RDFra0dsdWI0?=
+ =?utf-8?B?aWdiYy9XNzhPajE4VHc1MnN0b2NYbU1KNkRvUFZLdzUzREVHc3dTdFVJVUZX?=
+ =?utf-8?B?K2cxUnlERzI3Sm5oWHpxVlhMMnVPb0NIZ0I5NmdvZytKOHBRZ2RNbVdNZnpD?=
+ =?utf-8?B?ZnAzcjV6ZVFQR1diZU14b3V3NDRqWm5yckJvY2MrTVNIZmlycjhpV3Rwa2I2?=
+ =?utf-8?B?UzZ6Mno4NDF2TW9mR2J1eThZTENFVnBIQmVYbGZGQ1FrWUlFOEZPYWZqVlBI?=
+ =?utf-8?B?ZVRCMTgvQWJKQ20wRkFab2NXS003T29aYnYxN3pSYmFhS3JsL2lKd0k0S2U1?=
+ =?utf-8?B?dUVucXJISXlQVklQakl4S0N6eEpjVWRRdUx5cEdZQTVocjc0Z2ovV1MyVjE4?=
+ =?utf-8?B?Nzg1bnRIV3hPMk9xemE4eTJJYnpucVBQcW83MVBOcktIeG1aWUFTMzNhMFFi?=
+ =?utf-8?B?OGI1RVIzZzJBc2RWVEovYXVXcFlGSXk3Wk9sZmdHcGYzenAzMWcrUXNWZkFi?=
+ =?utf-8?B?VHYzWUZ2MFpHSnZoNW05c1hVQ0dQWWN1QndLRWVldHFzZkJuQjJWLzdseEhB?=
+ =?utf-8?B?aVU3TUhFRU4xeHpJVVZzS1g0d2N4K29kdEN6M3k5UE8zczVGM1lSR1pYTzJD?=
+ =?utf-8?B?Qi9jeFVlUDRZRzJOak9tK1BTemNCTlhuYWt4aGpYZnZ0Yk1YS1EzTWRQUmph?=
+ =?utf-8?B?bUhOWGxQTFMrRldIcTFPYmkwN3FlS2c5TnRhM2hFdFZWQytzVWMzUjlidlNl?=
+ =?utf-8?B?WFhQRXhidDJiRGI3QmVyVCtmanNPN090R1VTd04wbFBWc3J3dFN0b1lxNmcz?=
+ =?utf-8?B?TGtoazk5Sno1SlNTSEpqSGpnamJJT1VSYmZvRE9tV0lCQUVpSXBXQnBqVGJZ?=
+ =?utf-8?B?UzB0dFR5bTdiZVgvUlNnRW44MHk1R2MzOHJ0dmIzSm9JNnBCVEVZWWYvOXlE?=
+ =?utf-8?B?NE9wM1NLb2lVTVpzNFdXdjA5dU9EOVFDczQ2aGRRY01YczdNdXM2bURYc0ho?=
+ =?utf-8?B?a2c4QXpFNDlwMHhrL2RKVndPckkwUDI5SzNxOU9sajdtVzlMUUZLbGlCS3NJ?=
+ =?utf-8?B?WExsRjYzakovS0dxclNyK0lMYmdyWjVrZnk1bjkrTWlwM2RNWW1BQmJ1QTlm?=
+ =?utf-8?B?amVGM1YvMjE4UDR4NzYvUldzckJUU1ZrN0cwS2NVQTQ0UVhXb3ozNFpMbEha?=
+ =?utf-8?B?VVN0UmY0VmErbDJkeS90NmhDZVpsUFBmczd4VGVnQUNPeGhERzV6cU5NRFJS?=
+ =?utf-8?B?UzkrR3FSTVhDbGpLNVh1a3RMSkVsRkxiNWtuWWN6dGhCaGVXWk9zM0pXQmRR?=
+ =?utf-8?B?YjN3Q0FTVTBJVmdCTHZXaFJjcjBpRjBWZjB1Tk0wdzVOUjRjYmN5OWgxZkhm?=
+ =?utf-8?B?eHdNTk82SzdBc2lmeGNRS2tIWmhPRzgreFVFQ01xbGE2QUlSVU11aW9RQzdj?=
+ =?utf-8?B?alErQ3JDOVppS2RWYWVKcDIxdWpmOE1CK3pwRVFMZTIzR0ZVY2RlOWpSVk5G?=
+ =?utf-8?B?cXFrLzlIZnYzRlc3TStEeW82VTNoUEQ5R0JWTHFsOTRMVE9zMzZyOXZ1NGN3?=
+ =?utf-8?B?aVJRaVR0bjVLLzNFVGxybzVKSHBjLzZSOWl0bWdvTnJqWlB5aTZMRjJEOU1B?=
+ =?utf-8?B?NnpvL09lRmwvU214Nzh1YnhpZWMwTFo1RWZvY1U2NWtsNGZVckVzYzEyWFQ4?=
+ =?utf-8?B?WWN4UHRZb1BodE9zdGRQa2JuOTVRTVIrWnArY3FpbEx3V25NRkI3clVhc1ZM?=
+ =?utf-8?Q?z95H87oZeLEQffUw=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7f5e3997-3c26-40e1-cf64-08df0444ecfc
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 14:10:19.1326
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pr16AgZCx5K+t2GdRVregYupXN4qPH3jV/AM0Kq+TXIa3yOxhJaZclWL9o1G75rEck9frgMnyCgPYUw74j+CZw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7976
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_070506_277925_3C92E060 
-X-CRM114-Status: GOOD (  24.09  )
+X-CRM114-CacheID: sfid-20260827_071026_452383_F2D2EC1D 
+X-CRM114-Status: GOOD (  26.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,335 +166,284 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the recording side, walk the evlist in hisi_ptt_info_fill() to find
-the hisi_ptt event, read out the pattern bits from its config, and
-forward the pattern version to the decoder through
-auxtrace_info->priv[1] as HISI_PTT_PATTERN_LEGACY or HISI_PTT_PATTERN_V1.
+On 8/27/2026 12:14 PM, Bough Chen wrote:
+> On Wed, Aug 26, 2026 at 03:40:41PM +0200, Larisa Grigore wrote:
+>> Factor out the common logic used to poll TX_FSM_STATE until the TX lanes
+>> enter Hibern8 into ufshcd_check_hibern8().
+>>
+>> The HiSilicon and Qualcomm drivers currently implement similar checks
+>> using the UniPro TX_FSM_STATE attribute after link/PHY bring-up. Move
+>> this logic to a common helper in ufshcd-pltfrm so it can be shared
+>> across host controller drivers.
+>>
+>> Switch the HiSilicon and Qualcomm drivers to use the new helper and drop
+>> their local implementations.
+> 
+> The code change the error return value for qcom and hisi, better to point this
+> out like the following, so that QCOM/HISI guys may pay attention on it:
+> 
+> "While at it, normalize the "TX lane failed to reach Hibern8" error path to
+> return -ETIMEDOUT instead of the raw TX_FSM_STATE value (qcom) or -1 (hisi),
+> so all callers get a proper errno. This is an intentional, harmless change of
+> the returned error value; the pass/fail behaviour at the call sites is
+> unchanged."
+> 
+> Regards
+> Haibo Chen
 
-On the decoding side, store the pattern version in struct hisi_ptt and
-propagate it to struct hisi_ptt_pkt_buf. The printers of Header DW2
-and DW3 check the version: HISI_PTT_PATTERN_V1 keeps the field-level
-parsing introduced by the previous patches, while HISI_PTT_PATTERN_LEGACY
-falls back to printing only the raw "Header DW2/DW3" label so legacy
-traces remain decodable with the new tool.
+Thanks for taking the time to review this patch series! I’ll address it 
+in the next revision.
 
-The auxtrace priv size grows from one u64 to two. Use
-HISI_PTT_AUXTRACE_PRIV_SIZE_LEGACY for the minimum header size check
-and detect the actual priv_size at runtime to pick the pattern version.
-For trace data recorded by an older tracer that does not support the
-`pattern` parameter (no priv[1] in the header), the decoder defaults
-to legacy mode (HISI_PTT_PATTERN_LEGACY) so the new tool keeps parsing
-old traces correctly.
-
-The hisi_ptt_pkt_size array is moved out of the shared header into
-static definitions in the two .c files that consume it to avoid
-multiple definitions.
-
-Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
----
- tools/perf/arch/arm64/util/hisi-ptt.c         | 18 +++++++++
- .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 39 ++++++++++++-------
- .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.h   |  8 ++--
- tools/perf/util/hisi-ptt.c                    | 28 +++++++++----
- tools/perf/util/hisi-ptt.h                    |  9 ++++-
- 5 files changed, 72 insertions(+), 30 deletions(-)
-
-diff --git a/tools/perf/arch/arm64/util/hisi-ptt.c b/tools/perf/arch/arm64/util/hisi-ptt.c
-index 52257715d2b7..ae8c16b5c324 100644
---- a/tools/perf/arch/arm64/util/hisi-ptt.c
-+++ b/tools/perf/arch/arm64/util/hisi-ptt.c
-@@ -6,6 +6,7 @@
- 
- #include <linux/kernel.h>
- #include <linux/types.h>
-+#include <linux/bitfield.h>
- #include <linux/bitops.h>
- #include <linux/log2.h>
- #include <linux/zalloc.h>
-@@ -20,6 +21,7 @@
- #include "../../../util/evlist.h"
- #include "../../../util/evsel.h"
- #include "../../../util/hisi-ptt.h"
-+#include "../../../util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h"
- #include "../../../util/pmu.h"
- #include "../../../util/record.h"
- #include "../../../util/session.h"
-@@ -49,6 +51,8 @@ static int hisi_ptt_info_fill(struct auxtrace_record *itr,
- 	struct hisi_ptt_recording *pttr =
- 			container_of(itr, struct hisi_ptt_recording, itr);
- 	struct perf_pmu *hisi_ptt_pmu = pttr->hisi_ptt_pmu;
-+	struct evsel *evsel;
-+	u32 pattern = 0;
- 
- 	if (priv_size != HISI_PTT_AUXTRACE_PRIV_SIZE)
- 		return -EINVAL;
-@@ -56,8 +60,22 @@ static int hisi_ptt_info_fill(struct auxtrace_record *itr,
- 	if (!evlist__core(session->evlist)->nr_mmaps)
- 		return -EINVAL;
- 
-+	/*
-+	 * Walk the evlist to find the hisi_ptt event and read out the pattern
-+	 * bits from its config, which decides the decoder version used to
-+	 * parse the trace data.
-+	 */
-+	evlist__for_each_entry(session->evlist, evsel) {
-+		if (evsel->core.attr.type == hisi_ptt_pmu->type) {
-+			pattern = FIELD_GET(HISI_PTT_PMU_PATTERN_MASK,
-+					    evsel->core.attr.config);
-+			break;
-+		}
-+	}
-+
- 	auxtrace_info->type = PERF_AUXTRACE_HISI_PTT;
- 	auxtrace_info->priv[0] = hisi_ptt_pmu->type;
-+	auxtrace_info->priv[1] = pattern;
- 
- 	return 0;
- }
-diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-index de1d4071e209..63700380bf91 100644
---- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-+++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
-@@ -20,7 +20,7 @@
- /*
-  * For 8DW format, the bit[31:11] of DW0 is always 0x1fffff, which can be
-  * used to distinguish the data format.
-- * 8DW format is like:
-+ * 8DW format legacy pattern is like:
-  *   bits [                 31:11                 ][       10:0       ]
-  *        |---------------------------------------|-------------------|
-  *    DW0 [                0x1fffff               ][ Reserved (0x7ff) ]
-@@ -32,7 +32,7 @@
-  *    DW6 [                   Reserved (0x0)                          ]
-  *    DW7 [                        Time                               ]
-  *
-- * 4DW format is like:
-+ * 4DW format legacy pattern is like:
-  *   bits [31:30] [ 29:25 ][24][23][22][21][    20:11   ][    10:0    ]
-  *        |-----|---------|---|---|---|---|-------------|-------------|
-  *    DW0 [ Fmt ][  Type  ][T9][T8][TH][SO][   Length   ][    Time    ]
-@@ -79,6 +79,11 @@ static const char * const hisi_ptt_4dw_pkt_field_name[] = {
- 	[HISI_PTT_4DW_HEAD3]	= "Header DW3",
- };
- 
-+static int hisi_ptt_pkt_size[] = {
-+	[HISI_PTT_4DW_PKT]	= 16,
-+	[HISI_PTT_8DW_PKT]	= 32,
-+};
-+
- /* TLP message parsers below according to PCIe r6.4 sec 2.2.1.1 & 2.2.1.2 */
- static bool hisi_ptt_is_mwr_tlp(uint32_t format, uint32_t type)
- {
-@@ -207,15 +212,20 @@ static void hisi_ptt_print_head1(struct hisi_ptt_pkt_buf *pkt_buf)
- static void hisi_ptt_print_head2(struct hisi_ptt_pkt_buf *pkt_buf)
- {
- 	const char *color = PERF_COLOR_BLUE;
-+	const char *desc = pkt_buf->pkt_type == HISI_PTT_4DW_PKT ?
-+			   hisi_ptt_4dw_pkt_field_name[HISI_PTT_4DW_HEAD2] :
-+			   hisi_ptt_8dw_pkt_field_name[HISI_PTT_8DW_HEAD2];
- 	uint32_t dw;
- 
- 	dw = get_unaligned_le32(pkt_buf->buf + pkt_buf->pos);
- 	hisi_ptt_print_raw_record(pkt_buf->pos, dw);
- 
--	if (pkt_buf->pkt_msg_type == HISI_PTT_PKT_TYPE_MWR ||
--	    pkt_buf->pkt_msg_type == HISI_PTT_PKT_TYPE_MSG ||
--	    pkt_buf->pkt_msg_type == HISI_PTT_PKT_TYPE_ATOM ||
--	    pkt_buf->pkt_msg_type == HISI_PTT_PKT_TYPE_IO)
-+	if (pkt_buf->pattern < HISI_PTT_PATTERN_V1)
-+		color_fprintf(stdout, color, "  %s\n", desc);
-+	else if (pkt_buf->pkt_msg_type == HISI_PTT_PKT_TYPE_MWR ||
-+		 pkt_buf->pkt_msg_type == HISI_PTT_PKT_TYPE_MSG ||
-+		 pkt_buf->pkt_msg_type == HISI_PTT_PKT_TYPE_ATOM ||
-+		 pkt_buf->pkt_msg_type == HISI_PTT_PKT_TYPE_IO)
- 		color_fprintf(stdout, color,
- 			      "  %s %x %s %x %s %x %s %x %s %x %s %x %s %x\n",
- 			      "Reserved",
-@@ -229,10 +239,7 @@ static void hisi_ptt_print_head2(struct hisi_ptt_pkt_buf *pkt_buf)
- 			      "Header DW2",
- 			      FIELD_GET(HISI_PTT_HEAD2_HEADER_DW2, dw));
- 	else
--		color_fprintf(stdout, color, "  %s\n",
--			      pkt_buf->pkt_type == HISI_PTT_4DW_PKT ?
--			      hisi_ptt_4dw_pkt_field_name[HISI_PTT_4DW_HEAD2] :
--			      hisi_ptt_8dw_pkt_field_name[HISI_PTT_8DW_HEAD2]);
-+		color_fprintf(stdout, color, "  %s\n", desc);
- 
- 	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
- }
-@@ -240,12 +247,17 @@ static void hisi_ptt_print_head2(struct hisi_ptt_pkt_buf *pkt_buf)
- static void hisi_ptt_print_head3(struct hisi_ptt_pkt_buf *pkt_buf)
- {
- 	const char *color = PERF_COLOR_BLUE;
-+	const char *desc = pkt_buf->pkt_type == HISI_PTT_4DW_PKT ?
-+			   hisi_ptt_4dw_pkt_field_name[HISI_PTT_4DW_HEAD3] :
-+			   hisi_ptt_8dw_pkt_field_name[HISI_PTT_8DW_HEAD3];
- 	uint32_t dw;
- 
- 	dw = get_unaligned_le32(pkt_buf->buf + pkt_buf->pos);
- 	hisi_ptt_print_raw_record(pkt_buf->pos, dw);
- 
--	if (pkt_buf->pkt_msg_type == HISI_PTT_PKT_TYPE_CPL)
-+	if (pkt_buf->pattern < HISI_PTT_PATTERN_V1)
-+		color_fprintf(stdout, color, "  %s\n", desc);
-+	else if (pkt_buf->pkt_msg_type == HISI_PTT_PKT_TYPE_CPL)
- 		color_fprintf(stdout, color,
- 			      "  %s %x %s %x %s %x %s %x %s %x %s %x %s %x\n",
- 			      "Destination Segment",
-@@ -272,10 +284,7 @@ static void hisi_ptt_print_head3(struct hisi_ptt_pkt_buf *pkt_buf)
- 			      "Header DW3",
- 			      FIELD_GET(HISI_PTT_HEAD3_CFG_HEADER_DW3, dw));
- 	else
--		color_fprintf(stdout, color, "  %s\n",
--			      pkt_buf->pkt_type == HISI_PTT_4DW_PKT ?
--			      hisi_ptt_4dw_pkt_field_name[HISI_PTT_4DW_HEAD3] :
--			      hisi_ptt_8dw_pkt_field_name[HISI_PTT_8DW_HEAD3]);
-+		color_fprintf(stdout, color, "  %s\n", desc);
- 
- 	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
- }
-diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
-index 9663615ea3b5..5aaba79ef055 100644
---- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
-+++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.h
-@@ -16,6 +16,8 @@
- #define HISI_PTT_IS_8DW_PKT		GENMASK(31, 11)
- #define HISI_PTT_MAX_SPACE_LEN		10
- #define HISI_PTT_FIELD_LENGTH		4
-+#define HISI_PTT_PATTERN_LEGACY		0
-+#define HISI_PTT_PATTERN_V1		1
- 
- /* Header DW0 fields for 4DW format */
- #define HISI_PTT_HEAD0_4DW_TIME		GENMASK_U32(10, 0)
-@@ -76,11 +78,6 @@ enum hisi_ptt_pkt_type {
- 	HISI_PTT_PKT_MAX
- };
- 
--static int hisi_ptt_pkt_size[] = {
--	[HISI_PTT_4DW_PKT]	= 16,
--	[HISI_PTT_8DW_PKT]	= 32,
--};
--
- enum hisi_ptt_pkt_msg_type {
- 	HISI_PTT_PKT_TYPE_UNKNOWN,       /* Types do not support analysis */
- 	HISI_PTT_PKT_TYPE_MWR,           /* P-(MemWr) */
-@@ -98,6 +95,7 @@ struct hisi_ptt_pkt_buf {
- 	size_t len;
- 	enum hisi_ptt_pkt_type pkt_type;
- 	enum hisi_ptt_pkt_msg_type pkt_msg_type;
-+	size_t pattern;
- };
- 
- int hisi_ptt_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf);
-diff --git a/tools/perf/util/hisi-ptt.c b/tools/perf/util/hisi-ptt.c
-index 78817ae7a8ea..7cf778837337 100644
---- a/tools/perf/util/hisi-ptt.c
-+++ b/tools/perf/util/hisi-ptt.c
-@@ -35,6 +35,12 @@ struct hisi_ptt {
- 	struct perf_session *session;
- 	struct machine *machine;
- 	u32 pmu_type;
-+	u32 pattern;
-+};
-+
-+static int hisi_ptt_pkt_size[] = {
-+	[HISI_PTT_4DW_PKT]	= 16,
-+	[HISI_PTT_8DW_PKT]	= 32,
- };
- 
- static enum hisi_ptt_pkt_type hisi_ptt_check_packet_type(unsigned char *buf,
-@@ -53,8 +59,7 @@ static enum hisi_ptt_pkt_type hisi_ptt_check_packet_type(unsigned char *buf,
- 	return HISI_PTT_4DW_PKT;
- }
- 
--static void hisi_ptt_dump(struct hisi_ptt *ptt __maybe_unused,
--			  unsigned char *buf, size_t len)
-+static void hisi_ptt_dump(struct hisi_ptt *ptt, unsigned char *buf, size_t len)
- {
- 	const char *color = PERF_COLOR_BLUE;
- 	struct hisi_ptt_pkt_buf pkt_buf;
-@@ -64,8 +69,9 @@ static void hisi_ptt_dump(struct hisi_ptt *ptt __maybe_unused,
- 	pkt_buf.pkt_type = hisi_ptt_check_packet_type(buf, len);
- 	pkt_buf.len = round_down(len, hisi_ptt_pkt_size[pkt_buf.pkt_type]);
- 	pkt_buf.pkt_msg_type = HISI_PTT_PKT_TYPE_UNKNOWN;
--	color_fprintf(stdout, color, ". ... HISI PTT data: size %zu bytes\n",
--		      pkt_buf.len);
-+	pkt_buf.pattern = (size_t)ptt->pattern;
-+	color_fprintf(stdout, color, ". ... HISI PTT data: size %zu bytes, pattern %zu\n",
-+		      pkt_buf.len, pkt_buf.pattern);
- 
- 	while (pkt_buf.pos < pkt_buf.len) {
- 		if (!hisi_ptt_pkt_desc(&pkt_buf))
-@@ -158,12 +164,13 @@ static bool hisi_ptt_evsel_is_auxtrace(struct perf_session *session,
- 	return evsel->core.attr.type == ptt->pmu_type;
- }
- 
--static void hisi_ptt_print_info(__u64 type)
-+static void hisi_ptt_print_info(u32 type, u32 pattern)
- {
- 	if (!dump_trace)
- 		return;
- 
--	fprintf(stdout, "  PMU Type           %" PRId64 "\n", (s64) type);
-+	fprintf(stdout, "  PMU Type           %" PRIu32 "\n", type);
-+	fprintf(stdout, "  Data Pattern       %" PRIu32 "\n", pattern);
- }
- 
- int hisi_ptt_process_auxtrace_info(union perf_event *event,
-@@ -171,10 +178,13 @@ int hisi_ptt_process_auxtrace_info(union perf_event *event,
- {
- 	struct perf_record_auxtrace_info *auxtrace_info = &event->auxtrace_info;
- 	struct hisi_ptt *ptt;
-+	size_t priv_size;
- 
--	if (auxtrace_info->header.size < HISI_PTT_AUXTRACE_PRIV_SIZE +
-+	if (auxtrace_info->header.size < HISI_PTT_AUXTRACE_PRIV_SIZE_LEGACY +
- 				sizeof(struct perf_record_auxtrace_info))
- 		return -EINVAL;
-+	priv_size = auxtrace_info->header.size -
-+		    sizeof(struct perf_record_auxtrace_info);
- 
- 	ptt = zalloc(sizeof(*ptt));
- 	if (!ptt)
-@@ -184,6 +194,8 @@ int hisi_ptt_process_auxtrace_info(union perf_event *event,
- 	ptt->machine = &session->machines.host; /* No kvm support */
- 	ptt->auxtrace_type = auxtrace_info->type;
- 	ptt->pmu_type = auxtrace_info->priv[0];
-+	ptt->pattern = priv_size >= HISI_PTT_AUXTRACE_PRIV_SIZE_V1 ?
-+		       (u32)auxtrace_info->priv[1] : HISI_PTT_PATTERN_LEGACY;
- 
- 	ptt->auxtrace.process_event = hisi_ptt_process_event;
- 	ptt->auxtrace.process_auxtrace_event = hisi_ptt_process_auxtrace_event;
-@@ -193,7 +205,7 @@ int hisi_ptt_process_auxtrace_info(union perf_event *event,
- 	ptt->auxtrace.evsel_is_auxtrace = hisi_ptt_evsel_is_auxtrace;
- 	session->auxtrace = &ptt->auxtrace;
- 
--	hisi_ptt_print_info(auxtrace_info->priv[0]);
-+	hisi_ptt_print_info(ptt->pmu_type, ptt->pattern);
- 
- 	return 0;
- }
-diff --git a/tools/perf/util/hisi-ptt.h b/tools/perf/util/hisi-ptt.h
-index 2db9b4056214..912453b06e62 100644
---- a/tools/perf/util/hisi-ptt.h
-+++ b/tools/perf/util/hisi-ptt.h
-@@ -7,8 +7,13 @@
- #ifndef INCLUDE__PERF_HISI_PTT_H__
- #define INCLUDE__PERF_HISI_PTT_H__
- 
--#define HISI_PTT_PMU_NAME		"hisi_ptt"
--#define HISI_PTT_AUXTRACE_PRIV_SIZE	sizeof(u64)
-+#include <linux/bits.h>
-+
-+#define HISI_PTT_PMU_NAME			"hisi_ptt"
-+#define HISI_PTT_AUXTRACE_PRIV_SIZE_LEGACY	sizeof(u64)
-+#define HISI_PTT_AUXTRACE_PRIV_SIZE_V1		(2 * sizeof(u64))
-+#define HISI_PTT_AUXTRACE_PRIV_SIZE		HISI_PTT_AUXTRACE_PRIV_SIZE_V1
-+#define HISI_PTT_PMU_PATTERN_MASK		GENMASK_ULL(39, 36)
- 
- struct auxtrace_record *hisi_ptt_recording_init(int *err,
- 						struct perf_pmu *hisi_ptt_pmu);
--- 
-2.33.0
+>>
+>> This also prepares for reusing the same UniPro-specific Hibern8 check in
+>> a subsequent commit.
+>>
+>> Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
+>> ---
+>>   drivers/ufs/host/ufs-hisi.c      | 48 +------------------
+>>   drivers/ufs/host/ufs-qcom.c      | 42 +----------------
+>>   drivers/ufs/host/ufshcd-pltfrm.c | 79 ++++++++++++++++++++++++++++++++
+>>   drivers/ufs/host/ufshcd-pltfrm.h |  2 +
+>>   4 files changed, 84 insertions(+), 87 deletions(-)
+>>
+>> diff --git a/drivers/ufs/host/ufs-hisi.c b/drivers/ufs/host/ufs-hisi.c
+>> index bd223bda1ce2..76d77bc30322 100644
+>> --- a/drivers/ufs/host/ufs-hisi.c
+>> +++ b/drivers/ufs/host/ufs-hisi.c
+>> @@ -22,50 +22,6 @@
+>>   #include <ufs/ufshci.h>
+>>   #include <ufs/ufs_quirks.h>
+>>   
+>> -static int ufs_hisi_check_hibern8(struct ufs_hba *hba)
+>> -{
+>> -	int err = 0;
+>> -	u32 tx_fsm_val_0 = 0;
+>> -	u32 tx_fsm_val_1 = 0;
+>> -	unsigned long timeout = jiffies + msecs_to_jiffies(HBRN8_POLL_TOUT_MS);
+>> -
+>> -	do {
+>> -		err = ufshcd_dme_get(hba, UIC_ARG_MIB_SEL(TX_FSM_STATE, 0),
+>> -				      &tx_fsm_val_0);
+>> -		err |= ufshcd_dme_get(hba,
+>> -		    UIC_ARG_MIB_SEL(TX_FSM_STATE, 1), &tx_fsm_val_1);
+>> -		if (err || (tx_fsm_val_0 == TX_STATE_HIBERN8 &&
+>> -			tx_fsm_val_1 == TX_STATE_HIBERN8))
+>> -			break;
+>> -
+>> -		/* sleep for max. 200us */
+>> -		usleep_range(100, 200);
+>> -	} while (time_before(jiffies, timeout));
+>> -
+>> -	/*
+>> -	 * we might have scheduled out for long during polling so
+>> -	 * check the state again.
+>> -	 */
+>> -	if (time_after(jiffies, timeout)) {
+>> -		err = ufshcd_dme_get(hba, UIC_ARG_MIB_SEL(TX_FSM_STATE, 0),
+>> -				     &tx_fsm_val_0);
+>> -		err |= ufshcd_dme_get(hba,
+>> -		 UIC_ARG_MIB_SEL(TX_FSM_STATE, 1), &tx_fsm_val_1);
+>> -	}
+>> -
+>> -	if (err) {
+>> -		dev_err(hba->dev, "%s: unable to get TX_FSM_STATE, err %d\n",
+>> -			__func__, err);
+>> -	} else if (tx_fsm_val_0 != TX_STATE_HIBERN8 ||
+>> -			 tx_fsm_val_1 != TX_STATE_HIBERN8) {
+>> -		err = -1;
+>> -		dev_err(hba->dev, "%s: invalid TX_FSM_STATE, lane0 = %d, lane1 = %d\n",
+>> -			__func__, tx_fsm_val_0, tx_fsm_val_1);
+>> -	}
+>> -
+>> -	return err;
+>> -}
+>> -
+>>   static void ufs_hisi_clk_init(struct ufs_hba *hba)
+>>   {
+>>   	struct ufs_hisi_host *host = ufshcd_get_variant(hba);
+>> @@ -224,9 +180,9 @@ static int ufs_hisi_link_startup_pre_change(struct ufs_hba *hba)
+>>   
+>>   	/* Unipro VS_mphy_disable */
+>>   	ufshcd_dme_set(hba, UIC_ARG_MIB_SEL(0xD0C1, 0x0), 0x0);
+>> -	err = ufs_hisi_check_hibern8(hba);
+>> +	err = ufshcd_check_hibern8(hba, 2, HBRN8_POLL_TOUT_MS);
+>>   	if (err)
+>> -		dev_err(hba->dev, "ufs_hisi_check_hibern8 error\n");
+>> +		dev_err(hba->dev, "hibern8 TX FSM check failed\n");
+>>   
+>>   	if (!(host->caps & UFS_HISI_CAP_PHY10nm))
+>>   		ufshcd_writel(hba, UFS_HCLKDIV_NORMAL_VALUE, UFS_REG_HCLKDIV);
+>> diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
+>> index b2081ed6197a..c94488661bcf 100644
+>> --- a/drivers/ufs/host/ufs-qcom.c
+>> +++ b/drivers/ufs/host/ufs-qcom.c
+>> @@ -382,46 +382,6 @@ static int ufs_qcom_init_lane_clks(struct ufs_qcom_host *host)
+>>   	return 0;
+>>   }
+>>   
+>> -static int ufs_qcom_check_hibern8(struct ufs_hba *hba)
+>> -{
+>> -	int err;
+>> -	u32 tx_fsm_val;
+>> -	unsigned long timeout = jiffies + msecs_to_jiffies(HBRN8_POLL_TOUT_MS);
+>> -
+>> -	do {
+>> -		err = ufshcd_dme_get(hba,
+>> -				UIC_ARG_MIB_SEL(TX_FSM_STATE,
+>> -					UIC_ARG_MPHY_TX_GEN_SEL_INDEX(0)),
+>> -				&tx_fsm_val);
+>> -		if (err || tx_fsm_val == TX_STATE_HIBERN8)
+>> -			break;
+>> -
+>> -		/* sleep for max. 200us */
+>> -		usleep_range(100, 200);
+>> -	} while (time_before(jiffies, timeout));
+>> -
+>> -	/*
+>> -	 * we might have scheduled out for long during polling so
+>> -	 * check the state again.
+>> -	 */
+>> -	if (time_after(jiffies, timeout))
+>> -		err = ufshcd_dme_get(hba,
+>> -				UIC_ARG_MIB_SEL(TX_FSM_STATE,
+>> -					UIC_ARG_MPHY_TX_GEN_SEL_INDEX(0)),
+>> -				&tx_fsm_val);
+>> -
+>> -	if (err) {
+>> -		dev_err(hba->dev, "%s: unable to get TX_FSM_STATE, err %d\n",
+>> -				__func__, err);
+>> -	} else if (tx_fsm_val != TX_STATE_HIBERN8) {
+>> -		err = tx_fsm_val;
+>> -		dev_err(hba->dev, "%s: invalid TX_FSM_STATE = %d\n",
+>> -				__func__, err);
+>> -	}
+>> -
+>> -	return err;
+>> -}
+>> -
+>>   static void ufs_qcom_select_unipro_mode(struct ufs_qcom_host *host)
+>>   {
+>>   	ufshcd_rmwl(host->hba, QUNIPRO_SEL, QUNIPRO_SEL, REG_UFS_CFG1);
+>> @@ -607,7 +567,7 @@ static int ufs_qcom_hce_enable_notify(struct ufs_hba *hba,
+>>   		break;
+>>   	case POST_CHANGE:
+>>   		/* check if UFS PHY moved from DISABLED to HIBERN8 */
+>> -		err = ufs_qcom_check_hibern8(hba);
+>> +		err = ufshcd_check_hibern8(hba, 1, HBRN8_POLL_TOUT_MS);
+>>   		ufs_qcom_enable_hw_clk_gating(hba);
+>>   		ufs_qcom_ice_enable(host);
+>>   		ufs_qcom_config_ice_allocator(host);
+>> diff --git a/drivers/ufs/host/ufshcd-pltfrm.c b/drivers/ufs/host/ufshcd-pltfrm.c
+>> index c2dafb583cf5..034ee988924a 100644
+>> --- a/drivers/ufs/host/ufshcd-pltfrm.c
+>> +++ b/drivers/ufs/host/ufshcd-pltfrm.c
+>> @@ -9,6 +9,7 @@
+>>    */
+>>   
+>>   #include <linux/clk.h>
+>> +#include <linux/delay.h>
+>>   #include <linux/module.h>
+>>   #include <linux/platform_device.h>
+>>   #include <linux/pm_opp.h>
+>> @@ -563,6 +564,84 @@ void ufshcd_pltfrm_remove(struct platform_device *pdev)
+>>   }
+>>   EXPORT_SYMBOL_GPL(ufshcd_pltfrm_remove);
+>>   
+>> +/**
+>> + * ufshcd_check_hibern8 - Check if all TX lanes entered Hibern8 state
+>> + * @hba: host controller instance
+>> + * @num_lanes: number of TX lanes to check
+>> + * @timeout_ms: timeout in milliseconds for all lanes
+>> + *
+>> + * Return: 0 on success, negative errno on failure.
+>> + */
+>> +int ufshcd_check_hibern8(struct ufs_hba *hba, unsigned int num_lanes,
+>> +			 unsigned int timeout_ms)
+>> +{
+>> +	unsigned long timeout;
+>> +	u32 tx_fsm_val = 0;
+>> +	unsigned int i;
+>> +	bool success;
+>> +	int err;
+>> +
+>> +	if (!num_lanes)
+>> +		return -EINVAL;
+>> +
+>> +	timeout = jiffies + msecs_to_jiffies(timeout_ms);
+>> +
+>> +	do {
+>> +		success = true;
+>> +
+>> +		for (i = 0; i < num_lanes; i++) {
+>> +			err = ufshcd_dme_get(hba,
+>> +					UIC_ARG_MIB_SEL(TX_FSM_STATE,
+>> +						UIC_ARG_MPHY_TX_GEN_SEL_INDEX(i)),
+>> +					&tx_fsm_val);
+>> +			if (err) {
+>> +				dev_err(hba->dev,
+>> +						"%s: unable to get TX_FSM_STATE for lane %u, err %d\n",
+>> +						__func__, i, err);
+>> +				return err;
+>> +			}
+>> +
+>> +			if (tx_fsm_val != TX_STATE_HIBERN8) {
+>> +				success = false;
+>> +				break;
+>> +			}
+>> +		}
+>> +
+>> +		if (success)
+>> +			return 0;
+>> +
+>> +		/* sleep for max. 200us */
+>> +		usleep_range(100, 200);
+>> +	} while (time_before(jiffies, timeout));
+>> +
+>> +	/*
+>> +	 * We might have been scheduled out for long during polling, so do
+>> +	 * one final check before reporting timeout.
+>> +	 */
+>> +	for (i = 0; i < num_lanes; i++) {
+>> +		err = ufshcd_dme_get(hba,
+>> +				UIC_ARG_MIB_SEL(TX_FSM_STATE,
+>> +					UIC_ARG_MPHY_TX_GEN_SEL_INDEX(i)),
+>> +				&tx_fsm_val);
+>> +		if (err) {
+>> +			dev_err(hba->dev,
+>> +					"%s: unable to get TX_FSM_STATE for lane %u, err %d\n",
+>> +					__func__, i, err);
+>> +			return err;
+>> +		}
+>> +
+>> +		if (tx_fsm_val != TX_STATE_HIBERN8) {
+>> +			dev_err(hba->dev,
+>> +					"%s: timeout waiting for lane %u to enter HIBERN8, TX_FSM_STATE=%u\n",
+>> +					__func__, i, tx_fsm_val);
+>> +			return -ETIMEDOUT;
+>> +		}
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +EXPORT_SYMBOL_GPL(ufshcd_check_hibern8);
+>> +
+>>   MODULE_AUTHOR("Santosh Yaragnavi <santosh.sy@samsung.com>");
+>>   MODULE_AUTHOR("Vinayak Holikatti <h.vinayak@samsung.com>");
+>>   MODULE_DESCRIPTION("UFS host controller Platform bus based glue driver");
+>> diff --git a/drivers/ufs/host/ufshcd-pltfrm.h b/drivers/ufs/host/ufshcd-pltfrm.h
+>> index 0a18a8aed94d..ec2a8013e975 100644
+>> --- a/drivers/ufs/host/ufshcd-pltfrm.h
+>> +++ b/drivers/ufs/host/ufshcd-pltfrm.h
+>> @@ -35,5 +35,7 @@ int ufshcd_pltfrm_init(struct platform_device *pdev,
+>>   void ufshcd_pltfrm_remove(struct platform_device *pdev);
+>>   int ufshcd_populate_vreg(struct device *dev, const char *name,
+>>   			 struct ufs_vreg **out_vreg, bool skip_current);
+>> +int ufshcd_check_hibern8(struct ufs_hba *hba, unsigned int num_lanes,
+>> +			 unsigned int timeout_ms);
+>>   
+>>   #endif /* UFSHCD_PLTFRM_H_ */
+>> -- 
+>> 2.43.0
+>>
 
 
