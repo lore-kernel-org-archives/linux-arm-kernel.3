@@ -4,136 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15166C61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 18:17:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F4CC61DCB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 18:20:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HVDMTfuDVLx7uVqlggo3542f1w8eox++6zGai1PxixQ=; b=BdxJgeGvSNS/j9SzNck/gFKrix
-	T3EYz3jU9wVVjyBhDbwqs5UgF8E6iLEWXM6hCoIIdGNkHELuY7t9DFSyJ3amX7n9elhEyGe3yKv4X
-	M22UHuCNWKcKvzsxf4WhtKc2YvHsj70HohCeCop9pgvdV+wpaDYUXU5ghE12MalwrkhxH/76G9ZuD
-	H7mdc9Bd4jgvL4KVpsneH9HA6pdn4o2wkO+u78jATSTkv+mN9YLfnCYtTcjHlxZ1z4sWf04ZORZLY
-	ld8GZu0D4kw/uT85Xbvig8ckUeA5vi2eX6dQVF7EDQpf1U6o8uhmNdNEsHT6+JS8hdV6ymm1IGSKn
-	qQdKs7jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Amk/g69dKSZ62AmVoLw01upQSeTzbEdoBFyVAy4PZG8=; b=KhClicZ7YBzS7wpUbcxXozOBOd
+	/9rPhEXOh3odzzv/QXO0Ar/UQFP5T5frqnRJaaw4Jhds8OqzE2bzNpE2mlG8dijbM5yt0meC9Vaqi
+	FnjP2xjhjdfRnpR6gmzMzbEt2aQZiEEOWGQoNHIc1YyqLMa4eIaR2+4Grr//GbBHl3ZAUuobu1Kwa
+	wIMPtAyTXaof9TugOJT7rd0S/JA3UeCTXrkXq8cuZ2YD81OJkuUJ83Adg4b9UYK67+rremirkp2Kk
+	GZFr+pxfiL+6ocYzOs1LOD1Ks4uFTPXdHpeebjg8oHujdlhVi2ruxjafHHpI8c+/vYniWlbIWXv6S
+	aHEBe2QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzeev-00000004aMF-1bYf;
-	Thu, 27 Aug 2026 18:17:05 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1wzeiH-00000004ali-03yC;
+	Thu, 27 Aug 2026 18:20:33 +0000
+Received: from mail-japanwestazon11021073.outbound.protection.outlook.com ([40.107.74.73] helo=OS0P286CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzees-00000004aLX-2QH2
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 18:17:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787854623; x=1819390623;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=HVDMTfuDVLx7uVqlggo3542f1w8eox++6zGai1PxixQ=;
-  b=UfI4T7Jxz0KaUYrB/RtgRk0AVuO6j4wcJV9LFkPsxBSucxv3nsh1KuuV
-   9T1HhLO1pa4/dtPEglPf7af4x7Wdqps4PfQicznMeLMikuaszPBkDmz7H
-   +s4Jz4U63MZ+f9sBMVQBLiqL04Rv0+KtPxKHotoxjPbyfXdtByzrY+lMV
-   iF/yTFeHRCq7KpPbyh4B6cyoy24Ua7NdzSCkLa+MkMG2a8eC2KrzCCzFL
-   8GOkgIcPCgl/VKwARl53e+cc4Uih/R5WTcNTd7zHwMeB63G6OnnefpzpJ
-   Kb8nK52NOScB3yOrXyTXlgF2kFOWT+vq8M+mME0jWTfgUt9VFLv53oOQX
-   Q==;
-X-CSE-ConnectionGUID: YZcmEtbQQruhYmWpfws04Q==
-X-CSE-MsgGUID: jL2El2qOSm+jQx1qpfrKfQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11888"; a="88286795"
-X-IronPort-AV: E=Sophos;i="6.25,247,1779174000"; 
-   d="scan'208";a="88286795"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 11:17:00 -0700
-X-CSE-ConnectionGUID: eQPmF8lcSF+SYQxndLuFCw==
-X-CSE-MsgGUID: uN+GdqPBSAqKphEQRxC5EQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,247,1779174000"; 
-   d="scan'208";a="272164505"
-Received: from smithj1-mobl2.amr.corp.intel.com (HELO [10.125.109.108]) ([10.125.109.108])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Aug 2026 11:16:59 -0700
-Message-ID: <9ab4d7b8-6be9-4219-a410-ed26ae25c47e@intel.com>
-Date: Thu, 27 Aug 2026 11:17:01 -0700
+	id 1wzeiD-00000004ak3-2ETk;
+	Thu, 27 Aug 2026 18:20:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Yxd6xJ1yV4iPey3i8JWgDZwzvJ+0tatUd4hirVvhDBzQv0MtW9JTCRP84lDbHd55ENbcZMKLWCNVm9kZ9G8go0+rcDZc4zADakDdRavBYuB1bLNWTyvEsQH5LGas2eOIQDY8EWdPLZkVqQJEe5PF9dXQSh9ESPVMTiVITYa99EdCQ44OvJkt5SEovjF5xKtX+b7h4KjUpGkSy6jo9CVoouj/siR+hmM/nY5KRsgc5wVnRwB1luvsaoxQNzvTuSFvD0NlhFRefBA3f3J7bTwEtHCv9WkI9lzO6NoUIbxk3H0s+chtIiCOC8Eq/B+o/ylUL1bchDpa+aY2RWQSn5yaVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Amk/g69dKSZ62AmVoLw01upQSeTzbEdoBFyVAy4PZG8=;
+ b=nVZ8Sj1qJol8cvF5+yFKPvnM2FyrQ7OWvaks6WkU7nrAIJAS0l5PjKR1ss8LsT5D1XLB0c4WbsLykIgd2nO8x29F0PnN+TtlqvNeT5498nG1nsGGs9fuB43dKGXd5v/LvDPPUBJHqnmd0t0EaoK5W6r5H/v6W9ERHM6Ap6FRTX0q5ZZeHi4CJ3LKiPNY9LlX6q4hjwu1m9MzMSd2EQ5O7nsi02GKegDMMW4h2qr27LgieoKvl4asF7jB0PHGf7D6IXI/uZE5sU9P/i/h1OOtmUeh6P9LgzrCXXqaO8kAsXiYHUmpZ0yquocE0Y687C26o5zb3etI/Rk1Tu7R6fSJqA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=valinux.co.jp; dmarc=pass action=none
+ header.from=valinux.co.jp; dkim=pass header.d=valinux.co.jp; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=valinux.co.jp;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Amk/g69dKSZ62AmVoLw01upQSeTzbEdoBFyVAy4PZG8=;
+ b=cTufV9/keon3UgciQgOHLFYO4DrvlFThJnO83bS1eLzgxp1AiYtqBMKSkbENZ0IvOW1FAxemoVSa77tzmena0RxLKdzqdv9/bnXGCP4kmHqct3aWzdiNxkY+FXqc3ULVtf/JMyJ43kadSq4AFwfObdltYDFivmXj6si5zlXf0Eg=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=valinux.co.jp;
+Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:38f::10)
+ by TY7P286MB7058.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:31d::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Thu, 27 Aug
+ 2026 18:20:17 +0000
+Received: from TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::2305:327c:28ec:9b32]) by TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::2305:327c:28ec:9b32%4]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
+ 18:20:17 +0000
+From: Koichiro Den <den@valinux.co.jp>
+To: Manivannan Sadhasivam <mani@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Niklas Cassel <cassel@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Aksh Garg <a-garg7@ti.com>,
+	Christoph Hellwig <hch@lst.de>,
+	Sagi Grimberg <sagi@grimberg.me>,
+	Chaitanya Kulkarni <kch@nvidia.com>,
+	Jon Mason <jdmason@kudzu.us>,
+	Dave Jiang <dave.jiang@intel.com>,
+	Allen Hubbe <allenbh@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Manikanta Maddireddy <mmaddireddy@nvidia.com>,
+	Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>,
+	linux-pci@vger.kernel.org,
+	linux-nvme@lists.infradead.org,
+	ntb@lists.linux.dev,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/3] PCI: endpoint: Support hardware-owned MSI-X table and PBA
+Date: Fri, 28 Aug 2026 03:20:09 +0900
+Message-ID: <20260827182012.1984960-1-den@valinux.co.jp>
+X-Mailer: git-send-email 2.51.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: TYCP286CA0245.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:456::13) To TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:38f::10)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v9 13/25] mm: kpkeys: Introduce early page table
- allocator
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- "David Hildenbrand (Arm)" <david@kernel.org>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linu Cherian <linu.cherian@arm.com>,
- Linus Walleij <linusw@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
- <20260818-kpkeys-v9-13-743ad31b2c8f@arm.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <20260818-kpkeys-v9-13-743ad31b2c8f@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY7P286MB7722:EE_|TY7P286MB7058:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9a3e38cd-fcb2-41ac-773a-08df0467d89d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|10070799003|366016|6133799003|10067099003|56012099006|5023799004|18002099003;
+X-Microsoft-Antispam-Message-Info: PrQ/CiwxFRII8a5kSZ3FcPbbMcPfFwS0Q7mj44quei+mNyb+D+M0m0Fbz8l/ZU4lqNEP1t+Hk/4ySk0MZgzVh11D7e49MVCc31tGx65481UGxLELlunJUdPVJqu7MY82vSHki85jZSP+VB/iuiOrRlJ3QPn+ytvWtvLiwmsKzBbAAb4t1VcUY/5DLZU4kzFsURUYOLwPx66OV86Vkq40QXLy4E54m0auJlcKwGDs3mPpUY+l0aIfZe/XNUUVIu63eGsFfm49KUzWilzzXcwm1eMKjWZ4cZkM33u9r7Y2Qmcuoq2oHGB+ln8gzn2dTdNDPbgSCCbSCV58hVpx/0mhrTRpg1m88SE8dIPsq7XzZZyxLkrkf+C6/3hoJaZ9zfMgILd+MQaebW+VG+xPfAfioOpz9GjUTD9YtbUicFQT7wCM+P2HP1HpTTedGh92gcbB4rFxDDB4qN3kQ1MafzbmCDFxAop5NKp+1LTH03tqWzTHhwOW9ldocOLk0Gy1Z64MTgyY/whPuqO2E/vCbn0YGB3nwR+URt9JTubc0uXWlpIOHtXe1a67bSnw+IYDfiENidHa1ma9RX1IowrhYRkwM3hkKy1RGEDXuJbneE8B7YQARDyXz7K46xmCg/Eem3lHEaU1svZ4wegckQbFhF1tf9Xh0Z05WlqXo4kiXpt4644=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(10070799003)(366016)(6133799003)(10067099003)(56012099006)(5023799004)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pMX7YSbnpc++CMHWmq+gCL8ZItYZ2yIuSk/0UmebCQdgofo2W3stNn9EU4Z5?=
+ =?us-ascii?Q?n7Rh/bvKMpneCKwejSME96zt7Mh0dY1hw/NzhnnXl20OkTf9kOZHZkdxbIpp?=
+ =?us-ascii?Q?0qboLy/8XGVTjg1hvueEgPQO7ZJ9jXAiTQsSRI2pzXVJ81FI+L0AkKb+IfH8?=
+ =?us-ascii?Q?CuZrv45ghUkG4AREn3rDHLnurDxNXFY0PsC99cRKn4oYMj6PgH0k3N8A2Qsj?=
+ =?us-ascii?Q?YsKNGrOzwRPsJM3wU9FzeUlBMgsWH/WREWoY5+94gIt7uG8tHD6FcwXZQzen?=
+ =?us-ascii?Q?OujsAotR6hjiMlIdse6XVw1OZbgVwlxjWXdiCJn1R7fLJPgj5cHUHmIN1fOp?=
+ =?us-ascii?Q?rppb7hY/SvN4aWp5rkAEiBlVX2vCXqHxBUGaUwQWJbq3x7JQIdbavLViUnSs?=
+ =?us-ascii?Q?VlYzsVyiT5GyqXQwkWMC9Y1w6tUDI7/CFr5kfdWEfia7n6+EYt/F7ByHGoaw?=
+ =?us-ascii?Q?eAroKAAXX1IoktQjgKgPnjgUbjydABCqDz7khYsU6q2Q6DOJQT88xx04ba+p?=
+ =?us-ascii?Q?xxXIZ7jllJh5XM+EemXgllwoSPr86dznrFkWMB7j8yhTlRsDX5bneyN5l1WI?=
+ =?us-ascii?Q?5JDBAMfUMtHdZWnqzzmDhCrvX+MZ2fo4vhbbDyNc/zHD7YczA+k8BUOKbOAX?=
+ =?us-ascii?Q?1wL1fuwa+J2qJ3/gJ0Vq7CxgAtwdjgj4yHaS2R1CbcTeblmcPoOZcmxy2r2+?=
+ =?us-ascii?Q?hmAls791JIcvsDt8VkbnvQp/HqAXIoyzOBIlzMKNuXTTaww1EWDY/pBSSYey?=
+ =?us-ascii?Q?HTLCnRvPMQd7y1JCfS73im1E1rDNOld8fJgHMWYSea/irJzJXVzES2G4XSDu?=
+ =?us-ascii?Q?mdMPjxe2231t+NhhnLIe9fJTfGjdR5WVQLVnKBBfA07fqyUL1fTrI7EgBf3l?=
+ =?us-ascii?Q?ewOEoSqhesTWKy1By9GeCFrHnVuisxcqcWSOAXcvhKt4NhQWisTuwOBhp2Bw?=
+ =?us-ascii?Q?U7hRdwp84Zhw8wJFKt0983jNyK9/Pa4y3kKtHqKgtf8pTnZ9DyekdCIUJqQq?=
+ =?us-ascii?Q?yLyASprkdSgbyyWMziBLQwshhBAJNKe/CKfFPw8LK4cnnaARnqFq77Gz6jVI?=
+ =?us-ascii?Q?G+5VZ1TVNwIu9zw+vVInUaVH9wFbgAhLkbTlXLtHEiFy+FVsGG4ALnaK7U3b?=
+ =?us-ascii?Q?pwhE8QZjb+zb88ETzLSziC5FwnNqpyNap38HuHOh+iC2kSKOF3aF1OTSLDmS?=
+ =?us-ascii?Q?y1y4iuAXJkfSfEej4rGc0N4egpnJJ1usMhra29PZ/J2q5Ha7NGhcg76qnwXK?=
+ =?us-ascii?Q?ebwzKbfP7rkyA+fclLP+M3/cl8vx53j+rkhrM07ySylW40lesvUxeSeMUHu4?=
+ =?us-ascii?Q?Nv5NRyS/oJEJ1a5gzR/W7dJrpiSJ03KVOvBsVjwHCbElzwH4hICcEnpLTBXu?=
+ =?us-ascii?Q?tho8Y+OOZYLNM5sw5psWWdovMJCn6kFDK2FdJX5F4C8c1KyXfpsqUPhQ+w52?=
+ =?us-ascii?Q?DH5Vpk2ZfKSP6+oBo9njAS29dqIAuBKiWQKCam2v0Ty5T12xghkS1lXKtcIM?=
+ =?us-ascii?Q?gM63wFOmvDSUuNgqJfF6Ts9WUzicD3yvmMkcZDguAx3OSxJDbg1oawpfOc+0?=
+ =?us-ascii?Q?EbyWmP+I4K2zxMocsC14kG4FwDkvLceuMUnUSRDZpxsWXKL+8Akaa/kSep/C?=
+ =?us-ascii?Q?agFIqiu6n1Zn2VxVNQ09dtZzS9GwZcEgdXOnVEyk5nlzqjcoR5H9n73QUtBA?=
+ =?us-ascii?Q?kzPoaowqEtHpefwrpSB8loUZtUbLYusnz+lhSxRthjFlBZ2wcN7e74pPM3sa?=
+ =?us-ascii?Q?hCVl65DMh8pBOKJBs7Oa4fLn78Jyelnx6ki9e5+lmIacT8fxcmZJ?=
+X-OriginatorOrg: valinux.co.jp
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a3e38cd-fcb2-41ac-773a-08df0467d89d
+X-MS-Exchange-CrossTenant-AuthSource: TY7P286MB7722.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 18:20:17.3159
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7a57bee8-f73d-4c5f-a4f7-d72c91c8c111
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VAmSSqjsnD4+IOuXqIUSTTXxBeIklR3zkK6HucBWxs+7uCmc/eGH0K4/mIhi4jhImVMnfzA7fKaYhY39BnvhLQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY7P286MB7058
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_111702_697610_97B9AE6A 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260827_112029_800137_3DB24A06 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,15 +156,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/18/26 07:08, Kevin Brodsky wrote:
-> This patch addresses the second category: PTPs allocated via memblock.
-> Such PTPs are notably used to create the linear map. Protecting them as
-> soon as they are allocated would require modifying the linear map while
-> it is being created, which seems at best difficult. Instead, a
-> simple allocator is introduced, obtaining pages from memblock and
-> keeping track of all allocated ranges to set their pkey once it is
-> safe to do so.
+Hi,
 
-What makes setting a pkey on the memory "unsafe"? Is there something
-preventing just making access permissive during boot?
+Some DWC endpoint controllers keep the MSI-X Table and PBA at fixed
+locations in a reserved BAR. On RK3588, the MSI-X doorbell uses this
+hardware-owned layout, as discussed in e.g. [1].
+
+The reserved-region types for the Table and PBA were added with the
+Tegra194 description. The MSI-X setup API, however, still takes only the
+Table BAR and offset and assumes that the PBA immediately follows it in
+the same BAR.
+
+This series passes the complete layout to pci_epc_set_msix() and adds
+pci_epc_get_hw_msix_layout() to expose a hardware-owned layout. The core
+does not select it automatically. The choice stays with the EPF.
+
+A hardware-owned layout is not a direct replacement for every caller.
+pci-epf-ntb, for example, reads host-programmed Table entries from its
+own BAR to set up peer outbound mappings.
+
+The series also fixes an interrupt-type mismatch in vNTB. ntb_hw_epf can
+select MSI-X, while pci-epf-vntb currently configures and raises only
+MSI. On RK3588, selecting the fixed BAR4 layout also selects the DWC
+MSI-X doorbell. EPF-owned layouts continue to use the regular path.
+
+In short:
+
+- pci-epf-vntb gains MSI-X support and uses the hardware-owned layout
+  when available.
+- pci-epf-test, pci-epf-ntb, and the NVMe PCI EPF keep their EPF-owned
+  layouts. This avoids unnecessary changes and reduces regression risk.
+  They can use a hardware-owned layout later if/when needed.
+
+[1] https://lore.kernel.org/r/aY2q80zeRKSRO21H@fedora
+
+Best regards,
+Koichiro
+
+
+Koichiro Den (3):
+  PCI: endpoint: Support hardware-owned MSI-X table and PBA
+  PCI: dw-rockchip: Support fixed MSI-X table and PBA on RK3588
+  PCI: endpoint: pci-epf-vntb: Honor MSI-X selection
+
+ drivers/nvme/target/pci-epf.c                 |  16 ++-
+ .../pci/controller/cadence/pcie-cadence-ep.c  |   9 +-
+ .../pci/controller/dwc/pcie-designware-ep.c   |  28 ++++-
+ drivers/pci/controller/dwc/pcie-designware.h  |   1 +
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c |  28 ++++-
+ drivers/pci/endpoint/functions/pci-epf-ntb.c  |  30 +++---
+ drivers/pci/endpoint/functions/pci-epf-test.c |  17 +--
+ drivers/pci/endpoint/functions/pci-epf-vntb.c |  67 +++++++++---
+ drivers/pci/endpoint/pci-epc-core.c           | 102 +++++++++++++++++-
+ include/linux/pci-epc.h                       |  25 ++++-
+ 10 files changed, 266 insertions(+), 57 deletions(-)
+
+
+base-commit: 0a6f72eda328c773324555491e1ad7f0b0153155
+-- 
+2.51.0
+
 
