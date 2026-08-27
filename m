@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B89C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 16:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9776C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 16:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JXhY5FIxYmRIyBNqCNy2Mkq7WbLcOyerPMehnqIVrrY=; b=WErWZpn5Epk1DGNbqli1fERd7p
-	v+kj8VHewhPnIR3L4SsC5EQfNCqjwRy4kU063sc56AIdCuIgF8AZvsrdFn8QuV9Bn9U4snDp+HXsd
-	XLQ5HGLVQ3kwTrygxzpPskND5xlDX0eIWVCMyDK9MOGOxLTXUb9UXYEMeimvpPi9KfNm97rDfmOFL
-	OwUVGe4KqPm9kNxmdIh8aaQlcydgWy5yEvcm24qs4F3fzbO0eLxYveqLYUSpYuW86nsdAYdM4PNcY
-	+PI3EBVTLVfpnrduthj0C5hn4oh4BAa2ht79nn/pUYeLOvQwAfrsNENNemLO3uT2glUGGPP8K9Veh
-	3ZD45Olw==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PJiY7FvuPSk4vmkG+0TxlMWylcjf3Tl2Za7dTctMfp4=; b=wMPVjs/CuiEu0FoM1nM33603+C
+	qytVbORm9HQFgW1AC3qCVRoTuMoTN+/ohDb464J6runejspMH2tY80tlKwHYYrO/EG2WgW2FwzH8O
+	f2sWzYXlcFVGfmPsvjnoDbFEQvJbZPqrPv+DArvHEfTVYai+crnYkIZYH1d6lR45Juc16C3sx4ArR
+	PPtd3WBvH+CXPap5stpAOmWUHZ7U45T6jQZAIcRvCqyw6gmXc+BJv7hMQ1kgZSdR1qMjxCK6GQpO5
+	i44V1FUzkR2n4XvcGgz4WLtxyJ3OW/rv+0n4Ord2yp8cQ2WYkWW3m7y7KOw3aMHhWs+HY35NoV3r7
+	tGyFHBtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzdDQ-00000004OTj-2j5v;
-	Thu, 27 Aug 2026 16:44:36 +0000
-Received: from mail-wr1-x445.google.com ([2a00:1450:4864:20::445])
+	id 1wzdDb-00000004OXz-0JbH;
+	Thu, 27 Aug 2026 16:44:47 +0000
+Received: from mail-wr1-x448.google.com ([2a00:1450:4864:20::448])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzdDN-00000004OSl-1XUE
+	id 1wzdDQ-00000004OTI-32f8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 16:44:34 +0000
-Received: by mail-wr1-x445.google.com with SMTP id ffacd0b85a97d-47d81cf0c4cso12176f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 09:44:32 -0700 (PDT)
+	Thu, 27 Aug 2026 16:44:37 +0000
+Received: by mail-wr1-x448.google.com with SMTP id ffacd0b85a97d-472c330e555so14732f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 09:44:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787849071; x=1788453871; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JXhY5FIxYmRIyBNqCNy2Mkq7WbLcOyerPMehnqIVrrY=;
-        b=NzC6qwNCua6jKrlAG6uTAHv24s1U0WyBIg1mMfszliuMYdiVN/sz1197aSjnuoxR63
-         5nBsSN3D8QIMwCpac0q/SWU28JZ8Q2dLVKWcHHGA/M8rwTgj2N+DUwCdav8PERcEbgoo
-         LCAZPE1Bg7Q3+2bpVmc/fIYGuEQx5EbPtHVoodj30yS5Sjw95SvjX9griPEwBFsK99Mx
-         /4y7RU9Noy3B3trmQhnDNGVGLfNIVGLrwcZ4hw3ut1xcqN3haC5L9xIqhbsmRaw7pK1x
-         BWDEEDkz6MGfRrm0hbGIWjsb7n1PNTKmQMN47UMAFck8gCPrQZUJ02KD1UedAiidqGuu
-         Y1VQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787849071; x=1788453871;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20251104; t=1787849074; x=1788453874; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=JXhY5FIxYmRIyBNqCNy2Mkq7WbLcOyerPMehnqIVrrY=;
-        b=dwJqEkfJL6f6J1y7BfesEU6rkaub/y/Vwi5ix9VukE8iEWMi2gGL2hDw3Q2IPIsOHW
-         rui8+nlcNu4hGZZJpd/ROAEW9btFlWfr9FtR1xVrMIFc9+2P3w9Fpm/7lUsEx6ZqlyJw
-         9g9TbDaWGkA+mSt4s4HxejxXxeU6hHIMYjM5pQTwl0b893v1xWKg0gxDYM562ASa/aAZ
-         fH4lC1ShDlAXt6RNMGbm8+W9i2WAx0CANCQhyUvWC6eLWYEiE9h1a0O2upuXxgDrOjLz
-         2H1m93gOoD1dcUHknNcZjKdJ+4+V/WZOOw+FD4aCatoH4mlOc7bdmXFW6VPGOae/XkAt
-         mgmA==
-X-Gm-Message-State: AFuF++kZAiAY8LccFTN1h1hcU8ykBfjYo7XnuFerwVzTuP/KfviwWJ6Z
-	35Esjak/s07fuVhgSalvTPgX2hSKKYr+NOMHfxG7KLFs7FQz5hHgmgd/n0SwIZRB6Yi0H6Pxrg=
+        bh=PJiY7FvuPSk4vmkG+0TxlMWylcjf3Tl2Za7dTctMfp4=;
+        b=PLjjf4UK1fVLC90DsccYX83LS8yIpbbhYGqYpEohtE4TTRW43pkKVXLFY9rquNnq4d
+         f0psOB8kcwjpP2SgtnnGOJyhr9M0cFfv/qjRGn0cTFkvpFLgpVUpzAmvY9fKiFm4MZKj
+         bReN2V8lSO194TgPcZZioZ+BdBxnGJqybJOzGKrDs3mElq1gIE+JdZAyg2CAdbZI/nz3
+         A6XeOc3S70o5W+wELioolcTwNBrWtfMFyHo7714I1dMcB2N4+OZuJi1Go7gysoxg95h6
+         k93dac8/UOJ6Kxxi9HJ0McTe5So9hDOcf5wZEP03hMSPCGm6/mS0vW/wGU7Y2HaUvJSU
+         wKGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787849074; x=1788453874;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PJiY7FvuPSk4vmkG+0TxlMWylcjf3Tl2Za7dTctMfp4=;
+        b=IuAtIHJ16HzHqNy/EwQcCcTy4iDpbRShiidDcfYK0slNxI+JnKWAbJiZfHp6IW/qos
+         Xpcvh3AcfMofi4isPSxGYEST+HRkvsptHVKK+dt3WterXuuzPlogugN5Nax3t2B1kfDa
+         DEjAifZDFFykVydEEbybbQxHWo49KwgN9REPuvNIDZZgh81Q+9uk/BXf2UYXYl6053PO
+         Ynk8sg34aiwz3/2yPr1bOuqT5kfVdWR+gAmzUuDZECpb7fVJlCOr9Go0Ja/f4ul8eNUM
+         54wQlUZZJV10X2tfWjMdkXrruprjM1qED48/yM6K1LXWkyWOIFCNvQIuae6qbC96WC03
+         nQvA==
+X-Gm-Message-State: AFuF++k7KKwguKc6/sgb9yJq0bz1v8i71LIk7D25XPs/Ii4+X8nTWYJt
+	1yEGnpmy5bg1P2q9TUffT50rldnP5zwWzMK9miUZwLxF/g/IyQT/9OIEw7skd9Lu/hqsw3iWOQ=
 	=
-X-Received: from wmql11.prod.google.com ([2002:a05:600c:4f0b:b0:49b:2006:9521])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a7b:c30a:0:b0:49b:8c63:dfdf
- with SMTP id 5b1f17b1804b1-49b91c5749fmr2308405e9.15.1787849070540; Thu, 27
- Aug 2026 09:44:30 -0700 (PDT)
-Date: Thu, 27 Aug 2026 18:44:10 +0200
+X-Received: from wmbz8.prod.google.com ([2002:a05:600c:c088:b0:493:d1ba:af39])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:8581:b0:499:a760:722f
+ with SMTP id 5b1f17b1804b1-49b91c47bf8mr2996215e9.13.1787849073998; Thu, 27
+ Aug 2026 09:44:33 -0700 (PDT)
+Date: Thu, 27 Aug 2026 18:44:13 +0200
+In-Reply-To: <20260827164409.3421848-6-ardb+git@google.com>
 Mime-Version: 1.0
+References: <20260827164409.3421848-6-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1713; i=ardb@kernel.org;
- h=from:subject; bh=XUloMLRvD65MS8q2DriEUBZ9uHb1RahsmJYT7z5cG10=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIWtCZtTuOV5JlpnrJizO3SIa5RP/t4Tn/ifHNOsnDx+fP
- HTx0dWVHaUsDGJcDLJiiiwCs/++23l6olSt8yxZmDmsTCBDGLg4BWAi2+QYGXbGcpgrLuq5fD6X
- +2rW/cMbDn/8/pzb5/+S7cdf2hydNf0II8NPvaYrbJ+rDfaHVGrc4Nj9nsk1dV3NbkUZ/r+/KkR j77IDAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3860; i=ardb@kernel.org;
+ h=from:subject; bh=99CV4XPf1Je/vZyhxqcfc6DlqZHXzUdS1hB8ZXFmVcM=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIWtCZtyKEpF9jaJhbA6KjNMV+X7sWlpw42m3Y2rLLr6CZ
+ 65/VmV3lLIwiHExyIopsgjM/vtu5+mJUrXOs2Rh5rAygQxh4OIUgIlc2c7wP25nM5+wTNEvn7/T
+ 0o0Vp62N/qPHaDNpi5/dLeX3l+zi4xn+Z2mUsya0F9QwvRRpyU87wZA/88cZ0YzQtSvq/mbLrJn CDQA=
 X-Mailer: git-send-email 2.55.0.897.gb25b4bd76c-goog
-Message-ID: <20260827164409.3421848-6-ardb+git@google.com>
-Subject: [RFC PATCH v2 0/4] arm64: mm: Map fixmap page tables read-only
+Message-ID: <20260827164409.3421848-9-ardb+git@google.com>
+Subject: [RFC PATCH v2 3/4] arm64: mm: Create r/o page table region that
+ permits updates
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	Kevin Brodsky <kevin.brodsky@arm.com>, Liz Prucka <lizprucka@google.com>, 
-	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>, Jann Horn <jannh@google.com>, 
-	linux-hardening@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_094433_434324_A6106E5B 
-X-CRM114-Status: GOOD (  10.48  )
+X-CRM114-CacheID: sfid-20260827_094436_831641_4644012D 
+X-CRM114-Status: GOOD (  15.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,46 +97,123 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-This v2 now covers intermediate level page tables as well as the PTE
-level page table for the fixmap. The latter is a special case, as it
+Generalize the handling of swapper_pg_dir, and apply the fixmap fallback
+for page table updates to all page tables in the .rodata..pgtbl section.
 
-a) is only accessed via the kernel image's mapping, and never via the
-   linear map (except for ptdump etc)
+Currently, this holds only swapper_pg_dir, but this will be expanded in
+subsequent patches.
 
-b) must be accessible via a read-write mapping, as all manipulation of
-   read-only page table descriptors relies on the fixmap itself
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ arch/arm64/include/asm/pgtable.h |  6 -----
+ arch/arm64/kernel/vmlinux.lds.S  |  6 +++++
+ arch/arm64/mm/mmu.c              | 26 +++++++++++++++++---
+ 3 files changed, 29 insertions(+), 9 deletions(-)
 
-and so it is treated separately. The intermediate page tables may be
-shared with other mappings in the upper kernel/vmalloc region, so they
-must be updatable using the ordinary APIs.
-
-Build tested and boot tested on a Lenovo Yoga C630 using 16k pages.
-
-v1: https://lore.kernel.org/all/20260805104042.1107678-2-ardb+git@google.com/
-
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Liz Prucka <lizprucka@google.com>
-Cc: Seth Jenkins <sethjenkins@google.com>
-Cc: Kees Cook <kees@kernel.org>
-Cc: Jann Horn <jannh@google.com>
-Cc: linux-hardening@vger.kernel.org
-
-Ard Biesheuvel (4):
-  arm64: mm: Map fixmap PTE tables r/o in the linear map
-  arm64: mm: Use fault handler to permit swapper_pg_dir updates
-  arm64: mm: Create r/o page table region that permits updates
-  arm64: mm: Move fixmap intermediate page tables into .rodata
-
- arch/arm64/include/asm/fixmap.h  |  4 ++
- arch/arm64/include/asm/linkage.h |  1 +
- arch/arm64/include/asm/pgtable.h | 55 ++++++++------------
- arch/arm64/kernel/vmlinux.lds.S  |  6 +++
- arch/arm64/mm/fixmap.c           | 12 +++--
- arch/arm64/mm/mmu.c              | 48 +++++++++++++----
- 6 files changed, 78 insertions(+), 48 deletions(-)
-
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 799cd9d52c28..de0a07dae83a 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -817,12 +817,6 @@ extern pgd_t reserved_pg_dir[];
+ 
+ void try_set_readonly_ptval(ptval_t *ptvalp, ptval_t ptval);
+ 
+-static inline bool in_swapper_pgdir(void *addr)
+-{
+-	return ((unsigned long)addr & PAGE_MASK) ==
+-	        ((unsigned long)swapper_pg_dir & PAGE_MASK);
+-}
+-
+ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+ {
+ 	__put_kernel_nofault(pmdp, &pmd, pmd_t, fault);
+diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+index af1d72020976..2cda0b7c41d4 100644
+--- a/arch/arm64/kernel/vmlinux.lds.S
++++ b/arch/arm64/kernel/vmlinux.lds.S
+@@ -243,9 +243,15 @@ SECTIONS
+ 	reserved_pg_dir = .;
+ 	. += PAGE_SIZE;
+ 
++	__rodata_pgtbl_start = .;
+ 	swapper_pg_dir = .;
+ 	. += PAGE_SIZE;
+ 
++	.pgtbl.ro_after_init : ALIGN(PAGE_SIZE) {
++		*(.pgtbl.ro_after_init)
++	}
++	__rodata_pgtbl_end = .;
++
+ 	. = ALIGN(SEGMENT_ALIGN);
+ 	__init_begin = .;
+ 	__inittext_begin = .;
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index b97e4bf99ca5..dad482d66f17 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -65,17 +65,27 @@ long __section(".mmuoff.data.write") __early_cpu_boot_status;
+ 
+ static DEFINE_MUTEX(fixmap_lock);
+ 
++static struct range kimg_ropgtbl_range __ro_after_init;
++
+ void noinstr try_set_readonly_ptval(ptval_t *ptvalp, ptval_t ptval)
+ {
+ 	static DEFINE_SPINLOCK(lock);
++	bool is_lm = __is_lm_address(ptvalp);
++	u64 pa = is_lm ? __pa(ptvalp) : __pa_symbol(ptvalp);
+ 
+-	BUG_ON(!in_swapper_pgdir(ptvalp));
++	if (!range_contains(&kimg_ropgtbl_range,
++			    &DEFINE_RANGE(pa, pa + sizeof(ptval_t))))
++		BUG();
+ 
+ 	/*
+-	 * Don't bother with the fixmap if swapper_pg_dir is still mapped
++	 * Don't bother with the fixmap if .rodata is still mapped
+ 	 * writable in the kernel mapping.
+ 	 */
+ 	if (rodata_is_rw) {
++		/* no fault should have occurred for a kimg address */
++		BUG_ON(!is_lm);
++
++		ptvalp = (ptval_t *)__phys_to_kimg(pa);
+ 		WRITE_ONCE(*ptvalp, ptval);
+ 		dsb(ishst);
+ 		isb();
+@@ -83,7 +93,7 @@ void noinstr try_set_readonly_ptval(ptval_t *ptvalp, ptval_t ptval)
+ 	}
+ 
+ 	guard(spinlock)(&lock);
+-	ptvalp = (ptval_t *)set_fixmap_offset(FIX_PTVAL, __pa_symbol(ptvalp));
++	ptvalp = (ptval_t *)set_fixmap_offset(FIX_PTVAL, pa);
+ 	WRITE_ONCE(*ptvalp, ptval);
+ 	/*
+ 	 * We need dsb(ishst) here to ensure the page-table-walker sees
+@@ -1177,6 +1187,14 @@ static inline void arm64_kfence_map_pool(void) { }
+ 
+ #endif /* CONFIG_KFENCE */
+ 
++static void __init record_ropgtbl_phys_range(void)
++{
++	extern const char __rodata_pgtbl_start[], __rodata_pgtbl_end[];
++
++	kimg_ropgtbl_range = DEFINE_RANGE(__pa_symbol(__rodata_pgtbl_start),
++					  __pa_symbol(__rodata_pgtbl_end));
++}
++
+ static void __init map_mem(void)
+ {
+ 	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
+@@ -1189,6 +1207,8 @@ static void __init map_mem(void)
+ 	int flags = NO_EXEC_MAPPINGS;
+ 	u64 i;
+ 
++	record_ropgtbl_phys_range();
++
+ 	/*
+ 	 * Setting hierarchical PXNTable attributes on table entries covering
+ 	 * the linear region is only possible if it is guaranteed that no table
 -- 
 2.55.0.887.g758fc8c411-goog
 
