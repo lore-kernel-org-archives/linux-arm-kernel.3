@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEB46C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 08:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80408C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 09:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iVLte9gQAtQcy1T+DzX8UOwYpe9dYZ6mjKaudgY9qwE=; b=liYj+tMHPxXTHPbCGHkhCmh2uw
-	36usUaghkntk7gvTub+pfpLU9YPDsJ4o5c3gyVFyEow/SNgsDYDQYebqB6PF2n3KpM0Hj6BwHDowX
-	Em40H08v8iQen1OISPn9d+qRJhJHcuixBhzy4DQG4JaCWlpFkEqfrkfoxx/knv5NYQCDLKKSy8Res
-	beq82CTVjkrrKeeyyPzr5Na/XW9Xz8cZ40vqI5v+afh4IVNWX2Ramn4MJ14EEpa7n8EUMeHte4tm0
-	HKJPfPldoo2gWAk6vIY2k5iLWlZqw3jZhutIfwTu/I3qZdSnYxr08Nw8ABog78fGylELILGXAGc5i
-	dfLZlcgw==;
+	bh=xOhP1uw3GHrLToXsFzDQkLjk7GYXpaOGnpE7vJ5iwd4=; b=idk1ZErOsJSPEK/sgfD6FA677b
+	Ao1u8RByw7hGuB6NUZxMFMv6QYz3ZlKr+AHhbAZEKYrwl90jcBFr2x5qzz8DOzgeqw5GTQFliZv8B
+	+gE3dyiNmzfXb95YR3d+qmzQkM87bD09MRnX7XK7a4TupetRQO67DYkbHlKGXNc+bPaRWciXW073y
+	1rhmqXsIwxUuiSpXixtXzdmTp5pmw9Oy36FESVCgE9I0y7iPF6qXNAH9NRANPkEXNRiJAW+hRsPix
+	FoMTYzoF0/O12Zjp22zFFSjsPWkQ1oF4dYohD4RT5Bf6bfvs4fOsq3qNXSTvmKFygc7Hepb7Pa04b
+	zQ15+ChQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVx9-00000003hM4-1OQE;
-	Thu, 27 Aug 2026 08:59:19 +0000
-Received: from out-244.mta1.migadu.com ([2001:41d0:203:375::f4] helo=mta1.migadu.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzVx5-00000003hLQ-22Hb
+	id 1wzW0A-00000003hXs-2zPx;
+	Thu, 27 Aug 2026 09:02:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzW07-00000003hXF-1p7c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 08:59:17 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=vMcrYLKb2rGiNl2lES7gb9jc/fRo/kFIrFythpqbA5Y=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787821153; v=1; x=1788425953;
- b=Bjbu6xDw5xwy40l8slr+57pqm1R1Lt5SHwz3pEvecuLMTCz1LwsqDD7gJn1fNkG0sa08DHEh
- H2Z5mEsSVadYQQVsjWFOxgP5luqFYVChtZCmv7eC2p0uCZqauDc2NNM0XM76hq3dP7f5MqL1ul2
- w/vuXf1vFmtFeQvBQ9Jbf0dQ=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id 7b82d1a2a52929a3;
-	Thu, 27 Aug 2026 08:59:13 +0000
-X-Mizu-Trace-ID: 7b82d1a2a52929a3
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5aeb688ae83so4843e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 01:59:09 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RoGIWXwV/1z4ZjTdwOrszNqmRH7IJfNeJhvOpv64ksUY55LwTF9W12zxi9sUWtpVZhUs3Xykf9sXXs/PkxpVhfr@lists.infradead.org
-X-Gm-Message-State: AFuF++lP9KxpxCq4NiKlsYq860FHtxdV+37PqVgJhy99+2a3gRD76kaP
-	nn382OyO0oBJ5Zgw+Y+csODI8og6vmeYKVhn/cyOzNWGz53lNYFQVyTha6R4MLrU0FOzahpKDFR
-	prOj0pY5SGxIs9ivfOg561j/9sCjKUQqEZwrC1T1E
-X-Received: by 2002:a05:6512:2509:b0:5b2:a967:c0c9 with SMTP id
- 2adb3069b0e04-5b503826bb7mr82177e87.7.1787821148250; Thu, 27 Aug 2026
- 01:59:08 -0700 (PDT)
+	Thu, 27 Aug 2026 09:02:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB5D21691;
+	Thu, 27 Aug 2026 02:02:16 -0700 (PDT)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 68E333F85F;
+	Thu, 27 Aug 2026 02:02:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787821340; bh=RzvA5+cq6RXhxah4+EXUoyA7cipEHnIfsxZfD757RXs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GGEKJDAkugKQcUfwP8SkW/J3ebFW93aiXqdrjAKVNRysFJDz7QGEdCV0OrP7Y7G1n
+	 koEQ2GJZAvGwBYl8AhNsL4TmNGZZZbCpP4KgGbYi6Bt+TrtGt+H+DEyaBJWbR2Ccmy
+	 CkO9nFcUl0+L8cTnYBRlZKw0Lsx1DD3SsjxkHZTs=
+Date: Thu, 27 Aug 2026 11:02:10 +0200
+From: Beata Michalska <beata.michalska@arm.com>
+To: Xuewen Yan <xuewen.yan94@gmail.com>
+Cc: Sean Wang1 <seanwang1@lenovo.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"rafael@kernel.org" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Lifeng Zheng <zhenglifeng1@huawei.com>,
+	Xuewen Yan <xuewen.yan@unisoc.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Sumit Gupta <sumitg@nvidia.com>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"driver-core@lists.linux.dev" <driver-core@lists.linux.dev>
+Subject: Re: [External] Re: [PATCH v3] arm64: topology: add source check in
+ arch_cpu_idle_enter()
+Message-ID: <ao_9EiKz9Cmx_YHh@arm.com>
+References: <20260811072830.10028-1-seanwang1@lenovo.com>
+ <anrzT-ez3b7uYaCt@arm.com>
+ <SI2PR03MB6688D1DC0796AC6F6A373C2E93DC2@SI2PR03MB6688.apcprd03.prod.outlook.com>
+ <anxSsfvpZHHsVnp_@arm.com>
+ <aoX_jiuhv3dyMS-g@arm.com>
+ <CAB8ipk_4Zbhb=azTDGQEQ1S=n2Zhzvqs7pYr6ZfOOWL8meE_4Q@mail.gmail.com>
 MIME-Version: 1.0
-References: <20260825164219.3347229-1-fuad.tabba@linux.dev>
- <20260825164219.3347229-2-fuad.tabba@linux.dev> <ao7uY-dpJocX6ety@arm.com>
-In-Reply-To: <ao7uY-dpJocX6ety@arm.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 27 Aug 2026 09:58:32 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzVVf_r2WU=2-WtNsQbmsCZ2iymS=7TXRZJUWgvN3ibcQ@mail.gmail.com>
-X-Gm-Features: AcwNN1VmFyCYMk2mFQCC6IsCKuKvuxtYbRK_OCmChpUR57uHP893DFhxuwtdqPM
-Message-ID: <CA+EHjTzVVf_r2WU=2-WtNsQbmsCZ2iymS=7TXRZJUWgvN3ibcQ@mail.gmail.com>
-Subject: Re: [PATCH v4 1/2] arm64: Apply overrides to CPU local capabilities
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAB8ipk_4Zbhb=azTDGQEQ1S=n2Zhzvqs7pYr6ZfOOWL8meE_4Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_015916_350227_78DAB9CA 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20260827_020223_562281_D10E8E0A 
+X-CRM114-Status: GOOD (  68.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,30 +88,293 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
+On Mon, Aug 24, 2026 at 05:21:03PM +0800, Xuewen Yan wrote:
+> On Thu, Aug 20, 2026 at 3:11 AM Beata Michalska <beata.michalska@arm.com> wrote:
+> >
+> > On Wed, Aug 12, 2026 at 01:02:37PM +0200, Beata Michalska wrote:
+> > > On Wed, Aug 12, 2026 at 07:34:52AM +0000, Sean Wang1 wrote:
+> > > > On Tus, Aug 11, 2026 at 06:03PM, Beata Michalska wrote:
+> > > >
+> > > > > > --- a/arch/arm64/kernel/topology.c
+> > > > > > +++ b/arch/arm64/kernel/topology.c
+> > > > > > @@ -175,7 +175,8 @@ void arch_cpu_idle_enter(void)
+> > > > > >
+> > > > > >         /* Kick in AMU update but only if one has not happened already */
+> > > > > >         if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
+> > > > > > -
+> > > > > time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)))
+> > > > > > +
+> > > > > time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu))
+> > > > > &&
+> > > > > > +           topology_is_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, cpu))
+> > > > > >                 amu_scale_freq_tick();
+> > > > > I'm not entirely convinced you gained a lot by that.
+> > > > > It's one additional check per each enter_idle for case where AMUs are the
+> > > > > source vs 2 additional check when it is not.
+> > > > > Will try to figure out smth less 'invasive'.
+> > > > >
+> > > >
+> > > > First, I think that the rcu_read_lock_sched()/unlock() in
+> > > > topology_is_scale_freq_source() is unnecessary. arch_cpu_idle_enter()
+> > > > is called from do_idle() after local_irq_disable() at
+> > > > kernel/sched/idle.c:340, which satisfies the rcu_sched grace period
+> > > > requirement. This means we can call rcu_dereference_sched() directly
+> > > > without explicit RCU lock.
+> > > In this particular case RCU locking is not required, though you are exposing
+> > > an API that might be used in other curcumstances, so the least we could do is
+> > > document that.
+> > > >
+> > > > I have two options to propose:
+> > > >
+> > > > Option A: Keep the helper, but drop the explicit RCU lock
+> > > >
+> > > >     bool topology_is_scale_freq_source(enum scale_freq_source source,
+> > > >                                        unsigned int cpu)
+> > > >     {
+> > > >         struct scale_freq_data *sfd;
+> > > >         sfd = rcu_dereference_sched(*per_cpu_ptr(&sft_data, cpu));
+> > > >         return sfd && sfd->source == source;
+> > > >     }
+> > > >
+> > > > Option B: Drop the helper entirely, check directly in arch_cpu_idle_enter()
+> > > > If a generic exported helper feels too invasive, we can do the
+> > > > check locally within arch_cpu_idle_enter() without touching
+> > > > drivers/base/arch_topology.c at all:
+> > > >
+> > > >     if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
+> > > >         time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu))) {
+> > > >         struct scale_freq_data *sfd;
+> > > >         sfd = rcu_dereference_sched(*this_cpu_ptr(&sft_data));
+> > > >         if (sfd && sfd->source == SCALE_FREQ_SOURCE_ARCH)
+> > > >             amu_scale_freq_tick();
+> > > >     }
+> > > >
+> > > > This keeps the change entirely in arm64 code and avoids adding
+> > > > a new exported symbol. Which approach would you prefer?
+> > > I do not mind this additional helper. Besides, not my place to either mind it
+> > > or not.
+> > > What I do mind is doing the check in the arch idle enter path. I would rather
+> > > see some notification triggered when the source gets changed so that
+> > > the previous sfd code can do some state transition that would avoid us having
+> > > to run the check in the first place.
+> > > Still pondering on that one.
+> > > Preferably I would drop that 'tick' call from there completely, but apparently
+> > > this was needed on some platforms to make AMU readings more reliable.
+> >
+> > How about smth between the lines of:
+> >
+> > diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> > index b32f13358fbb1..aff33836488c8 100644
+> > --- a/arch/arm64/kernel/topology.c
+> > +++ b/arch/arm64/kernel/topology.c
+> > @@ -250,6 +250,22 @@ int arch_freq_get_on_cpu(int cpu)
+> >         return freq;
+> >  }
+> >
+> > +static int amu_fie_source_notifier(struct notifier_block *nb,
+> > +                                  unsigned long event,
+> > +                                  void *data)
+> > +{
+> > +       const struct cpumask *cpus = data;
+> > +
+> > +       if (event == SCALE_FREQ_SOURCE_ARCH)
+> > +               cpumask_andnot(amu_fie_cpus, amu_fie_cpus, cpus);
+> 
+> Should we distinguish between events?
+We could although for this particular issue clearing the source is the one that
+needs attention. But I do not see why we could not have both.
+This was just sharing the idea, not a final patch.
+> 
+> > +
+> > +       return NOTIFY_OK;
+> > +}
+> > +
+> > +static struct notifier_block amu_fie_nb = {
+> > +       .notifier_call = amu_fie_source_notifier,
+> > +};
+> > +
+> >  static void amu_fie_setup(const struct cpumask *cpus)
+> >  {
+> >         int cpu;
+> > @@ -274,6 +290,8 @@ static void amu_fie_setup(const struct cpumask *cpus)
+> >
+> >         topology_set_scale_freq_source(&amu_sfd, cpus);
+> >
+> > +       if (cpumask_weight(cpus) == cpumask_weight(amu_fie_cpus))
+> > +               topology_register_scale_freq_source_notifier(&amu_fie_nb);
+> >         pr_debug("CPUs[%*pbl]: counters will be used for FIE.",
+> >                  cpumask_pr_args(cpus));
+> >  }
+> > @@ -339,9 +357,9 @@ static int cpuhp_topology_online(unsigned int cpu)
+> >         }
+> >
+> >         cpumask_set_cpu(cpu, amu_fie_cpus);
+> > -
+> >         topology_set_scale_freq_source(&amu_sfd, cpumask_of(cpu));
+> > -
+> > +       if (cpumask_weight(amu_fie_cpus) == 1)
+> > +               topology_register_scale_freq_source_notifier(&amu_fie_nb);
+> >         pr_debug("CPU[%u]: counter will be used for FIE.", cpu);
+> >
+> >         return 0;
+> > diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> > index 8c5e47c28d9a3..096430a99ee00 100644
+> > --- a/drivers/base/arch_topology.c
+> > +++ b/drivers/base/arch_topology.c
+> > @@ -22,11 +22,14 @@
+> >  #include <linux/rcupdate.h>
+> >  #include <linux/sched.h>
+> >  #include <linux/units.h>
+> > +#include <linux/notifier.h>
+> >
+> >  #define CREATE_TRACE_POINTS
+> >  #include <trace/events/hw_pressure.h>
+> >
+> >  static DEFINE_PER_CPU(struct scale_freq_data __rcu *, sft_data);
+> > +static struct blocking_notifier_head scale_freq_source_change =
+> > +       BLOCKING_NOTIFIER_INIT(scale_freq_source_change);
+> >  static struct cpumask scale_freq_counters_mask;
+> >  static bool scale_freq_invariant;
+> >  DEFINE_PER_CPU(unsigned long, capacity_freq_ref) = 0;
+> > @@ -67,6 +70,18 @@ static void update_scale_freq_invariant(bool status)
+> >         }
+> >  }
+> >
+> > +int topology_register_scale_freq_source_notifier(struct notifier_block *nb)
+> > +{
+> > +       return blocking_notifier_chain_register(&scale_freq_source_change, nb);
+> > +}
+> > +EXPORT_SYMBOL_GPL(topology_register_scale_freq_source_notifier);
+> > +
+> > +int topology_unregister_scale_freq_source_notifier(struct notifier_block *nb)
+> > +{
+> > +       return blocking_notifier_chain_unregister(&scale_freq_source_change, nb);
+> > +}
+> > +EXPORT_SYMBOL_GPL(topology_unregister_scale_freq_source_notifier);
+> > +
+> >  void topology_set_scale_freq_source(struct scale_freq_data *data,
+> >                                     const struct cpumask *cpus)
+> >  {
+> > @@ -95,6 +110,7 @@ void topology_set_scale_freq_source(struct scale_freq_data *data,
+> >         rcu_read_unlock();
+> >
+> >         update_scale_freq_invariant(true);
+> > +
+> >  }
+> >  EXPORT_SYMBOL_GPL(topology_set_scale_freq_source);
+> >
+> > @@ -102,8 +118,11 @@ void topology_clear_scale_freq_source(enum scale_freq_source source,
+> >                                       const struct cpumask *cpus)
+> >  {
+> >         struct scale_freq_data *sfd;
+> > +       cpumask_var_t cleared_mask __free(free_cpumask_var) = CPUMASK_VAR_NULL;
+> >         int cpu;
+> >
+> > +       zalloc_cpumask_var(&cleared_mask, GFP_KERNEL);
+> > +
+> >         rcu_read_lock();
+> >
+> >         for_each_cpu(cpu, cpus) {
+> > @@ -112,6 +131,8 @@ void topology_clear_scale_freq_source(enum scale_freq_source source,
+> >                 if (sfd && sfd->source == source) {
+> >                         rcu_assign_pointer(per_cpu(sft_data, cpu), NULL);
+> >                         cpumask_clear_cpu(cpu, &scale_freq_counters_mask);
+> > +                       if (cpumask_available(cleared_mask))
+> > +                               cpumask_set_cpu(cpu, cleared_mask);
+> >                 }
+> >         }
+> >
+> > @@ -124,6 +145,10 @@ void topology_clear_scale_freq_source(enum scale_freq_source source,
+> >         synchronize_rcu();
+> >
+> >         update_scale_freq_invariant(false);
+> > +
+> > +       if (cpumask_available(cleared_mask))
+> > +               blocking_notifier_call_chain(&scale_freq_source_change, source,
+> > +                                            cleared_mask);
+> >  }
+> >  EXPORT_SYMBOL_GPL(topology_clear_scale_freq_source);
+> >
+> > diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+> > index ebd7f8935f969..4c31fd6dff0ef 100644
+> > --- a/include/linux/arch_topology.h
+> > +++ b/include/linux/arch_topology.h
+> > @@ -48,6 +48,8 @@ struct scale_freq_data {
+> >  void topology_scale_freq_tick(void);
+> >  void topology_set_scale_freq_source(struct scale_freq_data *data, const struct cpumask *cpus);
+> >  void topology_clear_scale_freq_source(enum scale_freq_source source, const struct cpumask *cpus);
+> > +int topology_register_scale_freq_source_notifier(struct notifier_block *nb);
+> > +int topology_unregister_scale_freq_source_notifier(struct notifier_block *nb);
+> >
+> >  DECLARE_PER_CPU(unsigned long, hw_pressure);
+> >
+> >
+> > ---
+> >
+> > This is just a rough idea, and needs ironing out the wrinkles, which are there,
+> > but that allows leaving the idle enter as is. I also believe this is the right
+> > approach for the interface itself, although I also see some drawbacks and
+> > potential issues (in its current state), especially that the functionality is
+> > being exposed to modules.
+> > Nevertheless, those are my two cents, untested, just sketched.
+> 
+> As an aside, could we verify the functionality of the AMU's
+> SYS_AMEVCNTR0_CONST_EL0 in the current CPU before enabling amu_file?
+> To my knowledge, many chips currently have inaccurate errata in this counter.
+> Alternatively, could we introduce a command line that allows users to
+> dynamically disable this feature?
+> 
+> Thanks!
+Do you have any particular issue in mind ?
+So far, from what I have been able to track, the issues reported are either
+handled by existing erratum or by the latest change that reads the counters in
+'one go'. Can you share the details of the issue you are facing ?
+That would be helpful in potentially finding the right solution.
 
-On Wed, 26 Aug 2026 at 14:47, Catalin Marinas <catalin.marinas@arm.com> wrote:
-...
-> For completeness, we should add:
->
-> Fixes: b3341ae0efa2  ("arm64: cpufeature: Use IDreg override in __read_sysreg_by_encoding()")
+---
+BR
+Beata
 
-Ack
 
-...
-> > +     /* Apply the overrides */
-> > +     new = override_cpu_ftr_reg(reg, new);
->
-> Not sure we need this. The init value has already been clamped, made
-> safe, so it won't change the result.
-
-I'll fix both on the respin. I'll wait to see if Will or anyone else
-has further comments before doing that.
-
-> Otherwise:
->
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-
-Thanks for the reviews!
-/fuad
+> >
+> > ---
+> > BR
+> > Beata
+> > >
+> > > >
+> > > > > Aside: I should have probably asked that earlier, but I am not sure I do fully
+> > > > > understand the case we are trying to fix here.
+> > > > > The topology_set_scale_freq_source prefers arch source to others. So if the
+> > > > > AMUs were chosen to server as the source for the freq scale - I do not see
+> > > > > why the sfd would be changed. That would require calling sequence clear-set
+> > > > > to get a different source in place. I do understand the issue itself, though how
+> > > > > did we end up there in the first place ?
+> > > >
+> > > > The issue arises when topology_clear_scale_freq_source() is called
+> > > > with SCALE_FREQ_SOURCE_ARCH to explicitly disable AMU-based frequency
+> > > > scaling. This API is exported (EXPORT_SYMBOL_GPL), so it is designed
+> > > > to be used by modules or subsystems that need to replace the frequency
+> > > > invariance mechanism at runtime.
+> > > >
+> > > So this is the bit I was missing: external module that does the switch
+> > > willingly giving up on arch provided freq scale source.
+> > > The rest is clear. Thanks.
+> > >
+> > > ---
+> > > BR
+> > > Beata
+> > >
+> > > > After clearing, the tick path (topology_scale_freq_tick()) correctly
+> > > > skips the AMU update because sft_data is set to NULL. However, the
+> > > > idle path (arch_cpu_idle_enter()) bypasses this check by calling
+> > > > amu_scale_freq_tick() directly, so arch_freq_scale still gets
+> > > > modified by AMU counters.
+> > > >
+> > > > This creates an inconsistency: the tick path respects
+> > > > topology_clear_scale_freq_source() but the idle path does not.
+> > > >
+> > > > The goal of this patch is to make the idle path consistent with
+> > > > the tick path, ensuring that topology_clear_scale_freq_source()
+> > > > fully disables AMU updates across all paths.
+> >
 
