@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BB3C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 07:51:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B436C5DF9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 07:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/yGEffIVb2AqJDTiWtumihhK8BhOW3hi4oRosz9adas=; b=flt63L+ajWWvA93i8d/IDfEwe7
-	rVImeLk0WPer0UnzI2bllzlwVndG+dKUWcFF4Vm0j2poHpN/36ijPn+JYLDYC+NpH8COuLS4ISGzI
-	/1cKtOLyR1hIavVmzATobnxeuqPNr0/0ddwJRILX/sifd9DuivGpE9jy8Ndo/XnCzJyqE1i5DxA7s
-	LsQIdDSm/U+a48MmI2yj2vYJoejNS5O3V5DzyzxZZaF1zE+hpgEtYfzxpuBH/3t9n2P0hrXIqsVKN
-	WJyQq1iqxwxvcRZZAX0sRK+cOSpKnDdCGzzNAloX1bvLGeZb55unGTJcqoZhc8nsKsvoVawAYJwVc
-	P8wDE5aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yvFziv4lNhYffP/GPGVZf1WyR/w9ddzuS5seHRU85Hk=; b=ySCT/ym8/iHc3M+/Kfa49GRFKZ
+	FDLHr0LNEGGLU6dupZyRUIUz2rb3DEorlNu6VoIGgJZb7FVtj3vamLMxREES2eNdboSJma4E9vnSj
+	sH+s+RLjdjcyz83q0tiH4Elp1rnBSv842LoQNHoI4jqiW0oJjumfmMLeyYKF1VtpciWHv/Y0NwPlk
+	PCgEvwq23GnmvOya6PxYGY5klPzNLBAe05b07YtqFyabgwZCYjZFTVn8ZbQ/m90YC0qHp1OMI9F8S
+	u+lOSGgDZX7Lty8MEhuNjyibk3yl4kHXc6q9ZUR5fJYRl4BLkapTr062Ww40xrBxU9A19kIjn2m6j
+	e4odKLgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzUt0-00000003aA5-3y4u;
-	Thu, 27 Aug 2026 07:50:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wzUzr-00000003aUU-2fCG;
+	Thu, 27 Aug 2026 07:58:03 +0000
+Received: from cp2.siel.si ([46.19.12.180])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzUt0-00000003a9x-02Po
+	id 1wzUzo-00000003aTy-0aie
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 07:50:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5BDEC4401F
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 07:50:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 381CD1F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 07:50:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787817057;
-	bh=/yGEffIVb2AqJDTiWtumihhK8BhOW3hi4oRosz9adas=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=d9ydyh6Z1Oo0JNZR6mfaIDqz/kOMSVllcGNpB6gKew1vcgYf8e5ECRsHviAI9DSzn
-	 TuwFocCEJsRuSVIE5wGjIe8YRuYlX8GqQ8R4XwYzZATEzG8DJlj9pD3KFAIAvt+loU
-	 praeYlVJ4bgkVKrYArYdv3yG+pkaAKL8zbqxh8fsgNvULo91AdpyipG2tW7H2+Atnn
-	 Ub4w4ylfpKzndHWsVshhnZo3JyfmPhUMu12gsBr/1eFU1uKe5oMWJYeBXmRDkEsR5K
-	 AKTl4bXaIVUdxul48cDrn/ALtRWakpmuNI2aJuRIFX1Aupjyy1XeMr7Rk3Wh+usk4W
-	 9j2h0K7k68qLw==
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5aeb98460c6so2056629e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 00:50:57 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rr+sVDoBpnjSLv4dOu4hc4mqdrr1d8RCwzIEGKDeNRD4HB+kRyo9dxrGJx7Jv0ewKqwTqe0V0R+yfROihLuMprc@lists.infradead.org
-X-Gm-Message-State: AFuF++lvRerp5voH1hVac0XuIBAl4ZISUt3C/1TvVKvn/XIBNwP3N++8
-	6k/t2/A4WJ97YfeWmhLB0ON2EdSQ4CHcAEOOtperBqkvI5qK60/894u/nw3pAhhwaoKca7W5Sxb
-	sf+zxUhoYudxwcgV7xuttoou9kknuGmilmSJo71rzWQ==
-X-Received: by 2002:ac2:42d1:0:b0:5b4:73f6:1d9f with SMTP id
- 2adb3069b0e04-5b4a90bb4a8mr3488516e87.22.1787817055812; Thu, 27 Aug 2026
- 00:50:55 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 27 Aug 2026 00:50:52 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 27 Aug 2026 00:50:52 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260821-kuno-soc-support-v3-14-196e2b306368@oss.qualcomm.com>
+	Thu, 27 Aug 2026 07:58:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
+	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=yvFziv4lNhYffP/GPGVZf1WyR/w9ddzuS5seHRU85Hk=; b=S2vbAg6WhN1L+tJiFtAtgDm0Hi
+	9GqoPnQaeEaWKG39TQkvot67tEywlo+Q/TT9gw3boyOw+bsuX/SMEROHWQYuAGIo1frfpjdne1zJf
+	hiygudBzL1onRe1hRIY59fPoGIT3lNchgbKi+3lWEwCq9oetGYuOOwc2mu18tEvvShp+woFoGpaf6
+	0UI54VhiRGm+5Xp3S2XQAWKSMC3Ap6uHXNCWnmDiUAth88Nb/mgxHk7/0MWdweNP1cAKiEtqXjNhG
+	Jt3dHH8yEZnwXNdSGndJwFXqD6VHYMQVRkG20G1J32yaGX8Grs2u7jzFAQGqw42zblQw/dtMGUejm
+	8333dJxQ==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:55640 helo=localhost.localdomain)
+	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.5)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1wzUzl-00000007oR4-0FED;
+	Thu, 27 Aug 2026 09:57:56 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: [PATCH] arm64: dts: imx8mp-phyboard-pollux: add PEB-WLBT-07 expansion board
+Date: Thu, 27 Aug 2026 09:57:54 +0200
+Message-Id: <20260827075754.2739119-1-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20260821-kuno-soc-support-v3-0-196e2b306368@oss.qualcomm.com> <20260821-kuno-soc-support-v3-14-196e2b306368@oss.qualcomm.com>
-Date: Thu, 27 Aug 2026 00:50:52 -0700
-X-Gmail-Original-Message-ID: <CAMRc=Mfumxz2iEZ=vYiGvCoe5+sU2Fdt+2N_77ZgQvJuLADejw@mail.gmail.com>
-X-Gm-Features: AcwNN1UU6-WnRzQUnew7Tb3gj-2qznjwfQi-BvrVCswjSCg6fe3o3ZW4Upxhu10
-Message-ID: <CAMRc=Mfumxz2iEZ=vYiGvCoe5+sU2Fdt+2N_77ZgQvJuLADejw@mail.gmail.com>
-Subject: Re: [PATCH v3 14/15] dt-bindings: arm: qcom: Document Kuno IDP board
-To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>, Taniya Das <quic_tdas@quicinc.com>, 
-	Georgi Djakov <djakov@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Robert Marko <robimarko@gmail.com>, 
-	Guru Das Srinagesh <linux@gurudas.dev>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cp2.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260827_005800_662403_26B74347 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,14 +92,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Aug 2026 18:09:07 +0200, Hardeep Sharma
-<hardeep.sharma@oss.qualcomm.com> said:
-> Document the Qualcomm Kuno IDP board and register the "kuno"
-> codename in the SoC naming convention schema.
->
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
-> ---
+Add support for PEB-WLBT-07 which is an expansion board that provides
+WiFi 6 and Bluetooth 5.4 LE functionality. It features the u-blox
+MAYA-W2 module with the NXP IW612 chipset.
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
+ arch/arm64/boot/dts/freescale/Makefile        |  3 +
+ .../imx8mp-phyboard-pollux-peb-wlbt-07.dtso   | 76 +++++++++++++++++++
+ 2 files changed, 79 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-wlbt-07.dtso
+
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 95ae85ab4adf..9c9dcf08c96b 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -456,6 +456,8 @@ imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra-dtbs += imx8mp-phyboard-pollux-rd
+ 	imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra.dtbo
+ imx8mp-phyboard-pollux-peb-av-10-ph128800t006-dtbs += imx8mp-phyboard-pollux-rdk.dtb \
+ 	imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtbo
++imx8mp-phyboard-pollux-peb-wlbt-07-dtbs += imx8mp-phyboard-pollux-rdk.dtb \
++	imx8mp-phyboard-pollux-peb-wlbt-07.dtbo
+ imx8mp-phyboard-pollux-ph128800t006-dtbs += imx8mp-phyboard-pollux-rdk.dtb \
+ 	imx8mp-phyboard-pollux-ph128800t006.dtbo
+ imx8mp-phyboard-pollux-rdk-no-eth-dtbs += imx8mp-phyboard-pollux-rdk.dtb imx8mp-phycore-no-eth.dtbo
+@@ -465,6 +467,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-etml1010g3dra.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-peb-av-10.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-peb-av-10-etml1010g3dra.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-peb-av-10-ph128800t006.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-peb-wlbt-07.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-ph128800t006.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-rdk-no-eth.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mp-phyboard-pollux-wlbt.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-wlbt-07.dtso b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-wlbt-07.dtso
+new file mode 100644
+index 000000000000..008b6f9f46e5
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-peb-wlbt-07.dtso
+@@ -0,0 +1,76 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++* Copyright (C) 2026 PHYTEC Messtechnik GmbH
++*/
++
++#include <dt-bindings/clock/imx8mp-clock.h>
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include "imx8mp-pinfunc.h"
++
++/dts-v1/;
++/plugin/;
++
++&{/} {
++	usdhc1_pwrseq: pwr-seq {
++		compatible = "mmc-pwrseq-simple";
++		reset-gpios = <&gpio2 7 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&iomuxc {
++	pinctrl_uart3: uart3grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_SD1_RESET_B__UART3_DCE_RTS	0x140 /* RTS */
++			MX8MP_IOMUXC_SD1_STROBE__UART3_DCE_CTS	0x140 /* CTS */
++			MX8MP_IOMUXC_UART3_RXD__UART3_DCE_RX	0x140 /* RX */
++			MX8MP_IOMUXC_UART3_TXD__UART3_DCE_TX	0x140 /* TX */
++		>;
++	};
++
++	pinctrl_usdhc1: usdhc1grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_SD1_CLK__USDHC1_CLK	0x190 /* SDIO_CLK */
++			MX8MP_IOMUXC_SD1_CMD__USDHC1_CMD	0x1d0 /* SDIO_CMD */
++			MX8MP_IOMUXC_SD1_DATA0__USDHC1_DATA0	0x1d0 /* SDIO_D0 */
++			MX8MP_IOMUXC_SD1_DATA1__USDHC1_DATA1	0x1d0 /* SDIO_D1 */
++			MX8MP_IOMUXC_SD1_DATA2__USDHC1_DATA2	0x1d0 /* SDIO_D2 */
++			MX8MP_IOMUXC_SD1_DATA3__USDHC1_DATA3	0x1d0 /* SDIO_D3 */
++		>;
++	};
++
++	pinctrl_wlbt: wlbtgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_SPDIF_EXT_CLK__GPIO5_IO05	0x106 /* WAKE_DEV */
++			MX8MP_IOMUXC_SD1_DATA5__GPIO2_IO07	0x106 /* PDn */
++			MX8MP_IOMUXC_SD1_DATA7__GPIO2_IO09	0x106 /* WAKE_HOST */
++		>;
++	};
++};
++
++&uart3 {
++	assigned-clocks = <&clk IMX8MP_CLK_UART3>;
++	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_80M>;
++	pinctrl-0 = <&pinctrl_uart3>;
++	pinctrl-names = "default";
++	uart-has-rtscts;
++	status = "okay";
++
++	bluetooth {
++		compatible = "nxp,88w8987-bt";
++		vcc-supply = <&reg_vcc_3v3_sw>;
++	};
++};
++
++&usdhc1 {
++	bus-width = <4>;
++	keep-power-in-suspend;
++	max-frequency = <50000000>;
++	mmc-pwrseq = <&usdhc1_pwrseq>;
++	non-removable;
++	pinctrl-0 = <&pinctrl_usdhc1>, <&pinctrl_wlbt>;
++	pinctrl-names = "default";
++	vmmc-supply = <&reg_vcc_3v3_sw>;
++	wakeup-source;
++	status = "okay";
++};
+-- 
+2.34.1
+
 
