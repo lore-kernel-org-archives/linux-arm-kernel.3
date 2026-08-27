@@ -4,76 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80408C61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 09:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EB59C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 09:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xOhP1uw3GHrLToXsFzDQkLjk7GYXpaOGnpE7vJ5iwd4=; b=idk1ZErOsJSPEK/sgfD6FA677b
-	Ao1u8RByw7hGuB6NUZxMFMv6QYz3ZlKr+AHhbAZEKYrwl90jcBFr2x5qzz8DOzgeqw5GTQFliZv8B
-	+gE3dyiNmzfXb95YR3d+qmzQkM87bD09MRnX7XK7a4TupetRQO67DYkbHlKGXNc+bPaRWciXW073y
-	1rhmqXsIwxUuiSpXixtXzdmTp5pmw9Oy36FESVCgE9I0y7iPF6qXNAH9NRANPkEXNRiJAW+hRsPix
-	FoMTYzoF0/O12Zjp22zFFSjsPWkQ1oF4dYohD4RT5Bf6bfvs4fOsq3qNXSTvmKFygc7Hepb7Pa04b
-	zQ15+ChQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R/wTq/5h6B601AMx0G4llf/VxEFalYv5uCBT4yZMs9g=; b=pfhs7AhouZ3qRE+uRj5tQsvC7W
+	MdI1b4gnOga+0NlXOqtU8BqHVjbF7Wj2ILzpwLil9hVgf2za2Yiq5S2c6eKXGqBJDyWfmqegHn7hl
+	Rw0b7e5H8Yfivig6aCXocrwDm3o2b+Ii3Vag0TItGOh1Lyks+eQvSadAQInZO5BdhZgkCpzfKDo90
+	FJ3giQXjdp78QS01PhJDEbslXAgc0K2MybvvWNhkP8/oeyAF+BsSsjlxgfJEym5mCK1sVi7rHbMzm
+	zkXTWtsNXPdxmukZ3NA6J4DI/H839sDaaPi1j0+l7zA5RLPde6FTPdYoF8Vsb56zBoD6aFYLfwghl
+	jwmj2OOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzW0A-00000003hXs-2zPx;
-	Thu, 27 Aug 2026 09:02:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzW07-00000003hXF-1p7c
+	id 1wzW2j-00000003hj0-0pad;
+	Thu, 27 Aug 2026 09:05:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzW2i-00000003hiu-2Of6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 09:02:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB5D21691;
-	Thu, 27 Aug 2026 02:02:16 -0700 (PDT)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 68E333F85F;
-	Thu, 27 Aug 2026 02:02:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1787821340; bh=RzvA5+cq6RXhxah4+EXUoyA7cipEHnIfsxZfD757RXs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GGEKJDAkugKQcUfwP8SkW/J3ebFW93aiXqdrjAKVNRysFJDz7QGEdCV0OrP7Y7G1n
-	 koEQ2GJZAvGwBYl8AhNsL4TmNGZZZbCpP4KgGbYi6Bt+TrtGt+H+DEyaBJWbR2Ccmy
-	 CkO9nFcUl0+L8cTnYBRlZKw0Lsx1DD3SsjxkHZTs=
-Date: Thu, 27 Aug 2026 11:02:10 +0200
-From: Beata Michalska <beata.michalska@arm.com>
-To: Xuewen Yan <xuewen.yan94@gmail.com>
-Cc: Sean Wang1 <seanwang1@lenovo.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"rafael@kernel.org" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Lifeng Zheng <zhenglifeng1@huawei.com>,
-	Xuewen Yan <xuewen.yan@unisoc.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Sumit Gupta <sumitg@nvidia.com>,
-	Yunhui Cui <cuiyunhui@bytedance.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"driver-core@lists.linux.dev" <driver-core@lists.linux.dev>
-Subject: Re: [External] Re: [PATCH v3] arm64: topology: add source check in
- arch_cpu_idle_enter()
-Message-ID: <ao_9EiKz9Cmx_YHh@arm.com>
-References: <20260811072830.10028-1-seanwang1@lenovo.com>
- <anrzT-ez3b7uYaCt@arm.com>
- <SI2PR03MB6688D1DC0796AC6F6A373C2E93DC2@SI2PR03MB6688.apcprd03.prod.outlook.com>
- <anxSsfvpZHHsVnp_@arm.com>
- <aoX_jiuhv3dyMS-g@arm.com>
- <CAB8ipk_4Zbhb=azTDGQEQ1S=n2Zhzvqs7pYr6ZfOOWL8meE_4Q@mail.gmail.com>
+	Thu, 27 Aug 2026 09:05:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8F01543C43;
+	Thu, 27 Aug 2026 09:05:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F9031F00A3D;
+	Thu, 27 Aug 2026 09:05:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787821503;
+	bh=R/wTq/5h6B601AMx0G4llf/VxEFalYv5uCBT4yZMs9g=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=EVrEGwODkaBeMvrzrWbxnKuvHTJe2XfMSbwd7+GA7eWJReKwPuPqsHZPw+/M2HMK+
+	 O7AnOVqe6fZY4YeRNPOrtVcn6wHWRw+vahFNpyuNY6TR0FesLTs6XvfjK5AhXAJE7A
+	 7OIU/maYtgJLhQ9iypsBA9gENQFEAsQcruhvId38PV4X+1nbFRC5CLoU/ybbKLM679
+	 6Wmmqipni/jQnjatDW/GwgiyM5Jmwtzsr7SzqL9r6LYY3pWivLPCnIyMfAMuDvSNtW
+	 YgYQ3LMFybpS9np1nyr51RPLG9iEmiVXOdtmca4999q/s3bJmvaxsElHmHa5YfhaGU
+	 icymwBBtw9+Pw==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id DFF761980054;
+	Thu, 27 Aug 2026 05:05:00 -0400 (EDT)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Thu, 27 Aug 2026 05:05:00 -0400
+X-ME-Sender: <xms:uv2PapEcsbDsHBA17pcE_TbDcGzVEuZUTQHUrMHdfI5tQlBFrO70Uw>
+    <xme:uv2PapJDTkoopXDikPKXxe7HaHkhusQRTVLHYEb3Zn-XdhbJ6sO9WnodAPY90w2St
+    TZ_FDokvrRu8nM0_giF5f1VVN4Ztyugkl2ROwOohf02fvULlyajnUU>
+X-ME-Proxy-Cause: dmFkZTGal3LTGiskcZm5hnhJnxJ1Ju61Op2mR279qugGtVZrD2mheMSsjh759w2vrJFl7k
+    3ogR/jxYpOyvp8DRx8rLBqX/CgmTwZbEMeyMpzmYsBtDUJMMlRYm/Ra3AZeeKUcvxua4p8
+    yP5IldUlpKR/lblJdOanc3D1+1uqgKOHrGePH9hDSIf+EMHizlAOXwdWCL81tOFIYcQTQW
+    CrHURoea925DMvaM6vueOkyFKpR6qkCkDH7C83iobGiTtHjQEZtHRbO1hhnYuBSj26NE8Y
+    zcL1mdN+K5SLXBk9vQ3wx8zbgEJmEvS1Rrpb3ha29CljSsl9rhpeUw5836NS2KPFCsU/g7
+    abfUuRn91fRw8DunTiHOcZU+6r+SRr2eqkLI7MukdkS60TaogXjGq4Uw7Ee6yUUIZH2y0w
+    7mIxFWMdMd44pMLWRvHcu56PHv25KD29ZIVwq9ZoQF1aI7BczAJlpjjP0IGbVpUy3J0ogS
+    sF1sniQlbDl/AFYfdWg6CDg4BhWt8pIuA3aVlzqua76GKOQQsNDdaadtz5rt23djd2ZFj7
+    lARXePJS1dOTYFzNB2Q+DZ2aiWj7j/XRxiXZHU62lXu/3RYMuAs+uV7LI4Rqf1SYu7x4BR
+    N/KWlD/GeWDX3kM2tZ3YUyCSAFsiZVKHQFCNwmXQddq04AAcQnq51etoyl/w
+X-ME-Proxy: <xmx:vP2Pau5h6HXffnZdDLDnCx8ir5SdbubSJzDjMpKxhU37SeXXjkZ_zQ>
+    <xmx:vP2PaknS_7QV4_U1v3F-i2CpXeBUq5cHUzn6noRT_a8d0irnw0UzCA>
+    <xmx:vP2PahUCFIuC28uR2sgFRtcWsLqu4sovUQGP91xexrJijC-fmUcmWg>
+    <xmx:vP2PalS0hfDXBU2w8JZqRB7d8Au8deXNsoAbzD9_7VqIEqBlQVNE_Q>
+    <xmx:vP2PamCN2GXtrMZd_Zx9Y0JlwqWeVRWgTlwM-JPOffEauk26RLUz7TV3>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 5E923F8007D; Thu, 27 Aug 2026 05:04:58 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAB8ipk_4Zbhb=azTDGQEQ1S=n2Zhzvqs7pYr6ZfOOWL8meE_4Q@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_020223_562281_D10E8E0A 
-X-CRM114-Status: GOOD (  68.18  )
+Date: Thu, 27 Aug 2026 11:04:38 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Kevin Brodsky" <kevin.brodsky@arm.com>,
+ "Ard Biesheuvel" <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
+Cc: "Will Deacon" <will@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Ryan Roberts" <ryan.roberts@arm.com>,
+ "Anshuman Khandual" <anshuman.khandual@arm.com>,
+ "Liz Prucka" <lizprucka@google.com>, "Seth Jenkins" <sethjenkins@google.com>,
+ "Kees Cook" <kees@kernel.org>, "Jann Horn" <jannh@google.com>,
+ linux-hardening@vger.kernel.org
+Message-Id: <1c0299ab-9f5f-4c7b-826e-a0547f7863dd@app.fastmail.com>
+In-Reply-To: <c33d081b-7886-4db2-b1d9-61dc195844e5@arm.com>
+References: <20260805104042.1107678-2-ardb+git@google.com>
+ <5a3b89a6-bc42-42c3-82e8-25d6f1a2c5d2@arm.com>
+ <a277a83a-cc01-443d-be42-775ce0bc96dd@app.fastmail.com>
+ <c33d081b-7886-4db2-b1d9-61dc195844e5@arm.com>
+Subject: Re: [RFC PATCH] arm64: mm: Map fixmap PTE tables r/o in the linear map
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,293 +104,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 24, 2026 at 05:21:03PM +0800, Xuewen Yan wrote:
-> On Thu, Aug 20, 2026 at 3:11 AM Beata Michalska <beata.michalska@arm.com> wrote:
-> >
-> > On Wed, Aug 12, 2026 at 01:02:37PM +0200, Beata Michalska wrote:
-> > > On Wed, Aug 12, 2026 at 07:34:52AM +0000, Sean Wang1 wrote:
-> > > > On Tus, Aug 11, 2026 at 06:03PM, Beata Michalska wrote:
-> > > >
-> > > > > > --- a/arch/arm64/kernel/topology.c
-> > > > > > +++ b/arch/arm64/kernel/topology.c
-> > > > > > @@ -175,7 +175,8 @@ void arch_cpu_idle_enter(void)
-> > > > > >
-> > > > > >         /* Kick in AMU update but only if one has not happened already */
-> > > > > >         if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
-> > > > > > -
-> > > > > time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)))
-> > > > > > +
-> > > > > time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu))
-> > > > > &&
-> > > > > > +           topology_is_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, cpu))
-> > > > > >                 amu_scale_freq_tick();
-> > > > > I'm not entirely convinced you gained a lot by that.
-> > > > > It's one additional check per each enter_idle for case where AMUs are the
-> > > > > source vs 2 additional check when it is not.
-> > > > > Will try to figure out smth less 'invasive'.
-> > > > >
-> > > >
-> > > > First, I think that the rcu_read_lock_sched()/unlock() in
-> > > > topology_is_scale_freq_source() is unnecessary. arch_cpu_idle_enter()
-> > > > is called from do_idle() after local_irq_disable() at
-> > > > kernel/sched/idle.c:340, which satisfies the rcu_sched grace period
-> > > > requirement. This means we can call rcu_dereference_sched() directly
-> > > > without explicit RCU lock.
-> > > In this particular case RCU locking is not required, though you are exposing
-> > > an API that might be used in other curcumstances, so the least we could do is
-> > > document that.
-> > > >
-> > > > I have two options to propose:
-> > > >
-> > > > Option A: Keep the helper, but drop the explicit RCU lock
-> > > >
-> > > >     bool topology_is_scale_freq_source(enum scale_freq_source source,
-> > > >                                        unsigned int cpu)
-> > > >     {
-> > > >         struct scale_freq_data *sfd;
-> > > >         sfd = rcu_dereference_sched(*per_cpu_ptr(&sft_data, cpu));
-> > > >         return sfd && sfd->source == source;
-> > > >     }
-> > > >
-> > > > Option B: Drop the helper entirely, check directly in arch_cpu_idle_enter()
-> > > > If a generic exported helper feels too invasive, we can do the
-> > > > check locally within arch_cpu_idle_enter() without touching
-> > > > drivers/base/arch_topology.c at all:
-> > > >
-> > > >     if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
-> > > >         time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu))) {
-> > > >         struct scale_freq_data *sfd;
-> > > >         sfd = rcu_dereference_sched(*this_cpu_ptr(&sft_data));
-> > > >         if (sfd && sfd->source == SCALE_FREQ_SOURCE_ARCH)
-> > > >             amu_scale_freq_tick();
-> > > >     }
-> > > >
-> > > > This keeps the change entirely in arm64 code and avoids adding
-> > > > a new exported symbol. Which approach would you prefer?
-> > > I do not mind this additional helper. Besides, not my place to either mind it
-> > > or not.
-> > > What I do mind is doing the check in the arch idle enter path. I would rather
-> > > see some notification triggered when the source gets changed so that
-> > > the previous sfd code can do some state transition that would avoid us having
-> > > to run the check in the first place.
-> > > Still pondering on that one.
-> > > Preferably I would drop that 'tick' call from there completely, but apparently
-> > > this was needed on some platforms to make AMU readings more reliable.
-> >
-> > How about smth between the lines of:
-> >
-> > diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> > index b32f13358fbb1..aff33836488c8 100644
-> > --- a/arch/arm64/kernel/topology.c
-> > +++ b/arch/arm64/kernel/topology.c
-> > @@ -250,6 +250,22 @@ int arch_freq_get_on_cpu(int cpu)
-> >         return freq;
-> >  }
-> >
-> > +static int amu_fie_source_notifier(struct notifier_block *nb,
-> > +                                  unsigned long event,
-> > +                                  void *data)
-> > +{
-> > +       const struct cpumask *cpus = data;
-> > +
-> > +       if (event == SCALE_FREQ_SOURCE_ARCH)
-> > +               cpumask_andnot(amu_fie_cpus, amu_fie_cpus, cpus);
-> 
-> Should we distinguish between events?
-We could although for this particular issue clearing the source is the one that
-needs attention. But I do not see why we could not have both.
-This was just sharing the idea, not a final patch.
-> 
-> > +
-> > +       return NOTIFY_OK;
-> > +}
-> > +
-> > +static struct notifier_block amu_fie_nb = {
-> > +       .notifier_call = amu_fie_source_notifier,
-> > +};
-> > +
-> >  static void amu_fie_setup(const struct cpumask *cpus)
-> >  {
-> >         int cpu;
-> > @@ -274,6 +290,8 @@ static void amu_fie_setup(const struct cpumask *cpus)
-> >
-> >         topology_set_scale_freq_source(&amu_sfd, cpus);
-> >
-> > +       if (cpumask_weight(cpus) == cpumask_weight(amu_fie_cpus))
-> > +               topology_register_scale_freq_source_notifier(&amu_fie_nb);
-> >         pr_debug("CPUs[%*pbl]: counters will be used for FIE.",
-> >                  cpumask_pr_args(cpus));
-> >  }
-> > @@ -339,9 +357,9 @@ static int cpuhp_topology_online(unsigned int cpu)
-> >         }
-> >
-> >         cpumask_set_cpu(cpu, amu_fie_cpus);
-> > -
-> >         topology_set_scale_freq_source(&amu_sfd, cpumask_of(cpu));
-> > -
-> > +       if (cpumask_weight(amu_fie_cpus) == 1)
-> > +               topology_register_scale_freq_source_notifier(&amu_fie_nb);
-> >         pr_debug("CPU[%u]: counter will be used for FIE.", cpu);
-> >
-> >         return 0;
-> > diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> > index 8c5e47c28d9a3..096430a99ee00 100644
-> > --- a/drivers/base/arch_topology.c
-> > +++ b/drivers/base/arch_topology.c
-> > @@ -22,11 +22,14 @@
-> >  #include <linux/rcupdate.h>
-> >  #include <linux/sched.h>
-> >  #include <linux/units.h>
-> > +#include <linux/notifier.h>
-> >
-> >  #define CREATE_TRACE_POINTS
-> >  #include <trace/events/hw_pressure.h>
-> >
-> >  static DEFINE_PER_CPU(struct scale_freq_data __rcu *, sft_data);
-> > +static struct blocking_notifier_head scale_freq_source_change =
-> > +       BLOCKING_NOTIFIER_INIT(scale_freq_source_change);
-> >  static struct cpumask scale_freq_counters_mask;
-> >  static bool scale_freq_invariant;
-> >  DEFINE_PER_CPU(unsigned long, capacity_freq_ref) = 0;
-> > @@ -67,6 +70,18 @@ static void update_scale_freq_invariant(bool status)
-> >         }
-> >  }
-> >
-> > +int topology_register_scale_freq_source_notifier(struct notifier_block *nb)
-> > +{
-> > +       return blocking_notifier_chain_register(&scale_freq_source_change, nb);
-> > +}
-> > +EXPORT_SYMBOL_GPL(topology_register_scale_freq_source_notifier);
-> > +
-> > +int topology_unregister_scale_freq_source_notifier(struct notifier_block *nb)
-> > +{
-> > +       return blocking_notifier_chain_unregister(&scale_freq_source_change, nb);
-> > +}
-> > +EXPORT_SYMBOL_GPL(topology_unregister_scale_freq_source_notifier);
-> > +
-> >  void topology_set_scale_freq_source(struct scale_freq_data *data,
-> >                                     const struct cpumask *cpus)
-> >  {
-> > @@ -95,6 +110,7 @@ void topology_set_scale_freq_source(struct scale_freq_data *data,
-> >         rcu_read_unlock();
-> >
-> >         update_scale_freq_invariant(true);
-> > +
-> >  }
-> >  EXPORT_SYMBOL_GPL(topology_set_scale_freq_source);
-> >
-> > @@ -102,8 +118,11 @@ void topology_clear_scale_freq_source(enum scale_freq_source source,
-> >                                       const struct cpumask *cpus)
-> >  {
-> >         struct scale_freq_data *sfd;
-> > +       cpumask_var_t cleared_mask __free(free_cpumask_var) = CPUMASK_VAR_NULL;
-> >         int cpu;
-> >
-> > +       zalloc_cpumask_var(&cleared_mask, GFP_KERNEL);
-> > +
-> >         rcu_read_lock();
-> >
-> >         for_each_cpu(cpu, cpus) {
-> > @@ -112,6 +131,8 @@ void topology_clear_scale_freq_source(enum scale_freq_source source,
-> >                 if (sfd && sfd->source == source) {
-> >                         rcu_assign_pointer(per_cpu(sft_data, cpu), NULL);
-> >                         cpumask_clear_cpu(cpu, &scale_freq_counters_mask);
-> > +                       if (cpumask_available(cleared_mask))
-> > +                               cpumask_set_cpu(cpu, cleared_mask);
-> >                 }
-> >         }
-> >
-> > @@ -124,6 +145,10 @@ void topology_clear_scale_freq_source(enum scale_freq_source source,
-> >         synchronize_rcu();
-> >
-> >         update_scale_freq_invariant(false);
-> > +
-> > +       if (cpumask_available(cleared_mask))
-> > +               blocking_notifier_call_chain(&scale_freq_source_change, source,
-> > +                                            cleared_mask);
-> >  }
-> >  EXPORT_SYMBOL_GPL(topology_clear_scale_freq_source);
-> >
-> > diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
-> > index ebd7f8935f969..4c31fd6dff0ef 100644
-> > --- a/include/linux/arch_topology.h
-> > +++ b/include/linux/arch_topology.h
-> > @@ -48,6 +48,8 @@ struct scale_freq_data {
-> >  void topology_scale_freq_tick(void);
-> >  void topology_set_scale_freq_source(struct scale_freq_data *data, const struct cpumask *cpus);
-> >  void topology_clear_scale_freq_source(enum scale_freq_source source, const struct cpumask *cpus);
-> > +int topology_register_scale_freq_source_notifier(struct notifier_block *nb);
-> > +int topology_unregister_scale_freq_source_notifier(struct notifier_block *nb);
-> >
-> >  DECLARE_PER_CPU(unsigned long, hw_pressure);
-> >
-> >
-> > ---
-> >
-> > This is just a rough idea, and needs ironing out the wrinkles, which are there,
-> > but that allows leaving the idle enter as is. I also believe this is the right
-> > approach for the interface itself, although I also see some drawbacks and
-> > potential issues (in its current state), especially that the functionality is
-> > being exposed to modules.
-> > Nevertheless, those are my two cents, untested, just sketched.
-> 
-> As an aside, could we verify the functionality of the AMU's
-> SYS_AMEVCNTR0_CONST_EL0 in the current CPU before enabling amu_file?
-> To my knowledge, many chips currently have inaccurate errata in this counter.
-> Alternatively, could we introduce a command line that allows users to
-> dynamically disable this feature?
-> 
-> Thanks!
-Do you have any particular issue in mind ?
-So far, from what I have been able to track, the issues reported are either
-handled by existing erratum or by the latest change that reads the counters in
-'one go'. Can you share the details of the issue you are facing ?
-That would be helpful in potentially finding the right solution.
 
----
-BR
-Beata
+On Thu, 27 Aug 2026, at 10:55, Kevin Brodsky wrote:
+> On 26/08/2026 11:07, Ard Biesheuvel wrote:
+>>>> [...]
+>>>>
+>>>> +static int __init fixmap_remap_ro(void)
+>>>> +{
+>>>> +	return set_direct_map_ro((unsigned long)lm_alias(&bm_pte), NR_BM_PTE_TABLES);
+>>> Should we not also remap bm_pmd and bm_pud?
+>>>
+>>> For that matter, do we need RW access via the linear map for any page
+>>> annotated with __bss_pgtbl? I suppose that might be the case for
+>>> kasan_early_shadow_* but I don't know enough about KASAN to tell for sure.
+>>>
+>> bm_pte[] is special because it is only ever written via the kernel mapping,
+>> and never via the linear map. This is why it is being singled out in this
+>> patch.
+>
+> Right I see __set_fixmap(). This is a very special case of calling
+> __set_pte() on a pointer derived from a global (i.e. pointing to the
+> kernel image and not the LM) so it makes sense to treat it differently.
+>
+> I do wonder whether there is that much value in protecting bm_pte while
+> all page tables in init_pg_dir (also at a fixed offset in the LM) remain
+> writeable though.
+>
 
+Yes, so those need to be taken care of as well.
 
-> >
-> > ---
-> > BR
-> > Beata
-> > >
-> > > >
-> > > > > Aside: I should have probably asked that earlier, but I am not sure I do fully
-> > > > > understand the case we are trying to fix here.
-> > > > > The topology_set_scale_freq_source prefers arch source to others. So if the
-> > > > > AMUs were chosen to server as the source for the freq scale - I do not see
-> > > > > why the sfd would be changed. That would require calling sequence clear-set
-> > > > > to get a different source in place. I do understand the issue itself, though how
-> > > > > did we end up there in the first place ?
-> > > >
-> > > > The issue arises when topology_clear_scale_freq_source() is called
-> > > > with SCALE_FREQ_SOURCE_ARCH to explicitly disable AMU-based frequency
-> > > > scaling. This API is exported (EXPORT_SYMBOL_GPL), so it is designed
-> > > > to be used by modules or subsystems that need to replace the frequency
-> > > > invariance mechanism at runtime.
-> > > >
-> > > So this is the bit I was missing: external module that does the switch
-> > > willingly giving up on arch provided freq scale source.
-> > > The rest is clear. Thanks.
-> > >
-> > > ---
-> > > BR
-> > > Beata
-> > >
-> > > > After clearing, the tick path (topology_scale_freq_tick()) correctly
-> > > > skips the AMU update because sft_data is set to NULL. However, the
-> > > > idle path (arch_cpu_idle_enter()) bypasses this check by calling
-> > > > amu_scale_freq_tick() directly, so arch_freq_scale still gets
-> > > > modified by AMU counters.
-> > > >
-> > > > This creates an inconsistency: the tick path respects
-> > > > topology_clear_scale_freq_source() but the idle path does not.
-> > > >
-> > > > The goal of this patch is to make the idle path consistent with
-> > > > the tick path, ensuring that topology_clear_scale_freq_source()
-> > > > fully disables AMU updates across all paths.
-> >
+> Either way all this is interesting for my series protecting page tables
+> with pkeys [1] - it seems that to protect the fixmap, the easiest option
+> would be to change the pkey of .pgtlb in both the kernel image and LM
+> (the former for bm_pte, and the latter for everything else).
+>
+> [1] https://lore.kernel.org/all/20260818-kpkeys-v9-0-743ad31b2c8f@arm.com/
+>
+
+Thanks, I've been meaning to go through those but they are a bit overwhelming :-)
+
+>> Whether or not bm_pmd[] can be treated as a special case depends on the page
+>> size: with 4k pages, the whole array covers a virtual region of 1G, which is
+>> currently guaranteed to be shared only with the PCI I/O space (but we could
+>> move that out). With 16k pages, it covers 64G, and so it is shared with the
+>> vmemmap and other virtual mappings in the vmalloc region, and so the current
+>> kernel mapping code expects to be able to write those entries.
+>>
+>> What we might do is generalize the logic that uses the fixmap to modify
+>> pgd level entries in swapper_pg_dir, and use it for all modifications
+>> at PMD level or higher if those tables are in .rodata
+>>
+>> But this is a bit more complicated than this change, so I decided to
+>> present this as a separate change.
+>
+> Definitely, this is orthogonal to this patch. I wonder what the
+> performance impact would be if we used the fixmap for setting all kernel
+> entries at PMD and above. It would be nice to keep that logic easily
+> togglable, because with the kpkeys approach I mentioned above we have a
+> (most likely) much cheaper way of protecting these page tables.
+>
+
+I'm currently experimenting with using __put_kernel_nofault() to update
+the descriptors at all levels (including PTE) and handling the fault
+using the fixmap approach. That way, all statically allocated page
+tables could move to .rodata (except bm_pte[]) and there should be no
+substantial performance impact.
+
+>>>> +}
+>>>> +late_initcall(fixmap_remap_ro);
+>>> Is mark_rodata_ro() definitely too early to remap these pages RO?
+>>>
+>> No, we might just call this from there, afaict.
+>
+> Sounds good, could we then use update_mapping_prot()? I suppose not as
+> that would require mapping bm_pte separately in map_mem()?
+>
+
+Yeah, but perhaps we should do the latter anyway, so we can remap the
+region even if !can_set_direct_map().
+
 
