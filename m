@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39324C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 06:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91302C5DF9D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 06:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CcZoXbtLCM6pfPN5fYvCGvLeL2aqh2vwH18pWvZjSOs=; b=CWBGOLzZKRZ/Uq6dND5kIxWk8y
-	kYTySuHIHmRedZ1Mhj5ddpI4xA6bfl5kLre1ua2/oysYE7GWcdix2ulHrVA+1QFK1Ei3fDQE9ID3d
-	HhMWfriQVeNUjRtF/CdmLUhb+hukPR9nz32h17Go9KtKjPDCCq6X+1svsYEs6LY1kSBNUBTv1P8k7
-	K0un/11AJ/vehaitfvza1JwoT5OOqV6NGu9a08uu/6guPXOl+AQMtv3LSMAOzHSjJI78+qSmpptrC
-	ch3svl4OHndfzE2hP1GJP1/lQqaEYCuDXjo37IkJHH1ZQ2GC7Nh5eENjQOw+DPGU+bBwAnC8vMSQa
-	6RLrdn7g==;
+	bh=fUy6kCIkwnCoeeUKI72N3P2aExSG/i/QbyxvbE4Vip4=; b=uljrW7zpx4RDHr4s3EcTQH90AN
+	usJi95qeqnux7nvv7jIOIRuOurZxniiEL/8T1tMWhRlJizDLh8lbITftIh5e8Po9XmCwDwKMGagxO
+	7azvibZdHLdpPDtlxBdbT5AMlpA681sirKJUCVfeZy3QhthdH9uGu8RACq4B+/DSgnCNmClJ0F0vZ
+	HSLWtP+tBYNnYqYkjWPs2y5lR2VtBdoWWVH/BSgTUyukhRHtNp9jyFympHDSS/Apoz87ryu6G1pkF
+	SVuQsNWDJqDc8fETSdi5l7eutpkyB/iESzn/PrMMJ+4GfMnArto7GllfhVjdQJAMmNFeGhkOrC1qx
+	/0nFb/OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzTe3-00000003UAB-2hz4;
+	id 1wzTe3-00000003UA7-2FW4;
 	Thu, 27 Aug 2026 06:31:27 +0000
 Received: from smtpbgsg1.qq.com ([54.254.200.92])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzTe0-00000003U9D-0Iqg
+	id 1wzTe0-00000003U9C-0IOm
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 27 Aug 2026 06:31:26 +0000
-X-QQ-mid: esmtpsz20t1787812240tcdf2c45d
-X-QQ-Originating-IP: 1DJtWNx3YhLenhIB0FYvT59Ray3IYrfdfdAfsbybCLQ=
+X-QQ-mid: esmtpsz20t1787812230t591c1c45
+X-QQ-Originating-IP: Zqc5Xjwkq0I5LO6JE8j/1Sdq6iru3r0BaEOLrkUubYs=
 Received: from localhost.localdomain ( [111.8.45.130])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 27 Aug 2026 14:30:31 +0800 (CST)
+	id ; Thu, 27 Aug 2026 14:30:25 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 3173617341218191905
+X-BIZMAIL-ID: 13255790985149150608
 EX-QQ-RecipientCnt: 10
 From: Liu Dalin <liudalin@kylinsec.com.cn>
 To: Hans Ulli Kroll <ulli.kroll@googlemail.com>,
@@ -47,39 +47,39 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Deng Yingchao <dengyingchao@kylinsec.com.cn>,
 	Qin Yungao <qinyungao@kylinsec.com.cn>,
 	Luo Qiu <luoqiu@kylinsec.com.cn>
-Subject: [PATCH v1 1/3] rtc: ftrtc010: fix clock resource leak on probe failure
-Date: Thu, 27 Aug 2026 14:30:17 +0800
-Message-ID: <16D871E1646724FD+20260827063019.3342085-2-liudalin@kylinsec.com.cn>
+Subject: [PATCH v1 0/3] rtc: ftrtc010: fix resource management and integer overflow
+Date: Thu, 27 Aug 2026 14:30:16 +0800
+Message-ID: <8C319CEAD84EF35B+20260827063019.3342085-1-liudalin@kylinsec.com.cn>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260827063019.3342085-1-liudalin@kylinsec.com.cn>
+In-Reply-To: <20260827021054.0963C1F000E9@smtp.kernel.org>
 References: <20260827021054.0963C1F000E9@smtp.kernel.org>
- <20260827063019.3342085-1-liudalin@kylinsec.com.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MiIS17MxlZUaSUXmqhs+oyd4Ya7cdXLy5uVOEZqu60WNmIskGOPozYZG
-	ESqbBgqIxnejlaTaIG3LaXyR/iKrM8oEWtu5nkM1O9rbs+/r0EAN4Qlog859neHDsffg3N7
-	+RKJQx8WvrMfz11eSd7tdrcbC5Sn9GFdMvdbvbWiIYVwBDaZY2516h2RnajDydbYTp9zNz6
-	wg5IbdFZWdNBRD72W6PafQHfnJ0c4n5g47Rj2fANMp+qYCIJhqGchqAwa6HabMyAu8mxkb8
-	BylwGpHSmDb2mIeua+/TsPETFuw6Z9oL2kQtsM1hdDuYLNYG/goSsYuPPgDawIOs84mp+Is
-	tJyS+fB20pwh921aeXTrDHlGxuWhgwZ/ibv0XZw8idFFmQoZXPAZYnFngbwlUwT4yNylZAy
-	LAUGgfwkKgdKPuyAVZ37ZfxTQyFH1+2ljVyGpNlQN/knCQZEhzu9RkX0jB5Vu/m+XPiXggQ
-	yHOAq6vInBS+5lN8z+4uvMxqRiQ+lWy/DRJ79NRigsZ//fRAwF7MEHOP7iDA0IQbXtX7V9u
-	8gz6q9nsrXZ5el9LsLBxbsTsIEvBbF+qGAfVNzQvXpVhkrjXK7KYJ8u8L8wfk5s+Oe8xYsI
-	JzUSp94Q4g3SBfVmn7cQxsctrn+BW4vCIopvQY2lKLXyxwThUc0QfXgt4mQ83AGdJcizimL
-	jCmIKwCWJ4NDAyNH9XBra7puPML9VTxXcG5EjNyem9KIm131EWW0wKAE2ng9Qudkp+g4XOq
-	9DNs/fkmAO8ADsc8TGRslmY+cPGs8aqGAesOQpRTupz9VhbDb3CnV9mHIS3iy4KDK6m3Kpk
-	lwYXTsZPuxY9vmEWNfllO0qxiyJdKplLgNBi+UXmHx/V5d5XMlg9asHDw9O+k3Oq4LDfD6Z
-	emUFhr6rpdp49iq6fw9Jd1xNS7C0kAqc+WphPn3JpotMY1jDpKJ8+wJsr+dyAZAmGR1N4Y6
-	pcKkuaDf3UZht4eLeNH91ggvDNyZo4u7R7jbL6Sc0JioO/SZ+0QbSW0Et+2RzDxHYvtXa1E
-	hXwSieKVUiVZM87guuU55Onp1reYZhFxeyY7THHaSM9sRLTxq/u/1m2cSpz/UgqTq4ksev8
-	m6hSJ9mOko8WjCARjT6DH38tIjorfhnKkpDWpCQyd3g6RGf0JVwzQtr15oxysraMg==
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-XMAILINFO: NyMcZNLslEFVN2hywhQ5lbXEjSbYI7YF3lRiDgS5tk/vdFSgrAUzoxti
+	/JJb2iKwJESCksZwGcP60Y5cLda+soEjIbCr7N53WAdLYKYyB/8NDUzfQaaW4m8td9gZmVe
+	tJUNuDCEIo8/f1ck+rI7yX3YHrLrslsmwQTjYofeZx7mDDZum96hIwqUkXBKdUprcGsQhBh
+	aopaclyu28W/FIo/7723WXCPuWm0egTCFEvqqtnnTfD7TtX5vSC7nEQAhGYGb7K9U8KXuZJ
+	HWLODf6+VebPlA28EdkgEEMSR26ULxMxooHjlEeQtuqt3Fv5N1hjfuJWxvGlWjBw7r/xNfM
+	glpTDWt4lmcUL40UElgva9Orp5ByKuL4OH0Vb16nPMM0ChTQpEKOQbRS/S5tnhEZ0oq2CYc
+	v2FRRTeC2MbZfueNflIprENpIzqXH0juvGmhx4yYqQFA6b5SFOmbEgvMbHw3VBTARkWCNq3
+	TucOwKxEEgLv1SV4mzunb/fe6qmeE3tnHotMxwULcA20rqFAab2b2UVwEMMcSz78HbNPKYx
+	YyW+TxFSqz7apKh943Ga/PFWsWjfKrL86cgufvjc8AdrqXik0kuHe0yZT53b+Sb51RwooNw
+	oF18CuzxEpuDx5ezazkjjRlXMshuruJ6R9EsBWEbEFa1n1yPTOmINftaPQgsgRwVlq/nI92
+	bTqJkI0y8YDkwaF22Y5csc6+h+OFs8DWsAWkOHnIAEYNYcF2nmqcNT5iyVrpOV7I1TXhhL4
+	iVIfk5LdPA+Thm3NFSF3xdz0UYEa/+h5Vw3d6l2fYyAHats3maOZUBpWlUoIEZNIMeUI8ri
+	79yVJH3RGm8nzyw2s+FywzbVCHhQuQ0zSzPRRNIt9eSBhvKDQQ8gfsK2KQB1FudvdIh0BMp
+	0GF8YBS7yAbCAd4OsfmeV/14YexydTaDvzfdvVNGsEB4vyiJbGAw3DH9sw77QrQg9PQ7vek
+	tkaQXNjkC2g1Snxqx2AP1S6jKkN7XfTjPcyp9/i1TwT7fhHlwXe2/ehDTQt+Pt8K8IYGIwS
+	DiOtdIH1RseG9Ckz/QYdX7BcoXvsP6iykm4d1LUEaWK7w3ZBeZxOlqBSIjv5ZGkGXcT9+Lr
+	vyJOQ9+eE5HEkFkN+lqpuI=
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260826_233124_488480_072B18FA 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20260826_233124_496294_0EEC33C8 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,45 +94,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When devm_rtc_register_device() fails, ftrtc010_rtc_probe() returns
-the error directly without releasing clocks obtained via
-clk_prepare_enable(). This leaks both extclk and pclk resources,
-which may prevent subsequent probe attempts or module removal.
+This series fixes three issues in the Faraday FTRTC010 RTC driver
+found by Sashiko AI static analysis:
 
-Capture the return value and jump to the error handling path to
-properly release clocks via clk_disable_unprepare().
+Patch 1: Fixes a clock resource leak when devm_rtc_register_device()
+fails in ftrtc010_rtc_probe().
 
-Fixes smatch warnings:
-- drivers/rtc/rtc-ftrtc010.c:189 ftrtc010_rtc_probe() warn:
-  'rtc->extclk' from clk_prepare_enable() not released on lines: 183.
-- drivers/rtc/rtc-ftrtc010.c:189 ftrtc010_rtc_probe() warn:
-  'rtc->pclk' from clk_prepare_enable() not released on lines: 183.
+Patch 2: Replaces manual clock management with devm APIs to fix a
+use-after-disable vulnerability in ftrtc010_rtc_remove(). The RTC
+device is registered via devm_rtc_register_device() but clocks are
+manually disabled in .remove() before devres cleanup, creating a
+window where MMIO reads on clock-gated hardware can cause a
+synchronous external abort.
 
-Fixes: fdcfd854333b ("rtc: rework rtc_register_device() resource management")
-Assisted-by: smatch:2.0 [static analysis]
-Signed-off-by: Liu Dalin <liudalin@kylinsec.com.cn>
----
- drivers/rtc/rtc-ftrtc010.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Patch 3: Fixes integer overflow in ftrtc010_rtc_read_time() and
+ftrtc010_rtc_set_time() where u32 arithmetic wraps for dates
+beyond year 2106.
 
-diff --git a/drivers/rtc/rtc-ftrtc010.c b/drivers/rtc/rtc-ftrtc010.c
-index 98fa0f518303..512790bc3f2b 100644
---- a/drivers/rtc/rtc-ftrtc010.c
-+++ b/drivers/rtc/rtc-ftrtc010.c
-@@ -180,7 +180,11 @@ static int ftrtc010_rtc_probe(struct platform_device *pdev)
- 	if (unlikely(ret))
- 		goto err_disable_extclk;
- 
--	return devm_rtc_register_device(rtc_dev);
-+	ret = devm_rtc_register_device(rtc_dev);
-+	if (ret)
-+		goto err_disable_extclk;
-+
-+	return 0;
- 
- err_disable_extclk:
- 	clk_disable_unprepare(rtc->extclk);
--- 
+All three patches are based on v7.2-rc2 and have been verified
+with checkpatch.pl --strict.
+
+Liu Dalin (3):
+  rtc: ftrtc010: fix clock resource leak on probe failure
+  rtc: ftrtc010: use devm clock APIs to fix use-after-disable in remove
+  rtc: ftrtc010: fix integer overflow in time calculation
+
+ drivers/rtc/rtc-ftrtc010.c | 72 ++++++++++++++------------------------
+ 1 file changed, 25 insertions(+), 47 deletions(-)
+
+--
 2.43.0
-
 
