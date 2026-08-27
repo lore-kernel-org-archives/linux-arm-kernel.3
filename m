@@ -4,140 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90F1FC61DC2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 14:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8436BC61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 14:05:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Nr8gp+oUiFJnWtHWjWlIOZhgEaC2m9Wp7Aet4tZvjc=; b=3AykNhNheqQLyN/eVS7kBS/uqo
-	NplkU2RPFNF6N/nsX5ZFO/FCexcvEAKsEAVjOTh090a5LopxH0wIhZIB77TVZZBukZraijtAba8ot
-	2+bb53T1leZqHVs9PO9tRaybxkdl0LSBDimSsrZXrBxCHiEq0wdDhNxNnlIUwqWIkC2Zo8cJHxjS/
-	lPe9Jq2HR/Kzvhvt8AwMEzBRyQneih/8kaZy1MSfsBERl+WoJWowSTmOx5PaDe1MBFkOA5cxBoJA3
-	p5l0s7jbKzjfTqWNQL7crubrZjXqkKbfnuUuFqfcOHHCWaJ4u8yuMpTmx1k71pdpAd0EUBq1BKTP5
-	p89YUCjg==;
+	bh=kR7Pr045dncOw5r2g9mgP74tU4Wr0LOiRZU5LwjNSgk=; b=m0CPEW+buEmiplVqyzfZusb1V6
+	9g9UZxPYIwBu19rJw4giF9WmCVzswMC+1DBGsLxFmVPpb2n+9ebGaFMdP/CZBYrqWJcqd8tPJE6YF
+	D5oYCGAecxa2lH3y5/iiKCoxQCLNyiPOAXLoh7MeSjiecD8I9Ztgu/Z5AVtZmRldiAAgh0hE6nD5r
+	tpi1JIsfHpD+Y2y7MEsQPGXv/ES3b13b37oAmNGXrEqGfaq4uzTtwwukpUFTR/EDQOMYe6t6KQ/22
+	W3ytOmzR+VkZBc+Lv4jP4v6VqvxmOXkFefv5UGsTZHiwAopMuaDebt3LkeFLjwd1YkItyRzbSzUkn
+	WvVy3lDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzahA-000000046pU-3AnY;
-	Thu, 27 Aug 2026 14:03:08 +0000
-Received: from mail-francecentralazon11013060.outbound.protection.outlook.com ([40.107.162.60] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wzaj1-000000046zG-0aYS;
+	Thu, 27 Aug 2026 14:05:03 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzah8-000000046p2-3kEA
+	id 1wzaiv-000000046wm-3HUi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 14:03:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cQ069oyXQ8Wbq6WXCRt8Q08C6zF4KYf9chRYXREvkUm/cmSu0LTgFQZNMf+xJNs9ePrcesq3FKFy0WUGePGFTbW/6NQvsGvWJn2m4Jyu+r84cL4+vWlscG1/mR7a8zQV+3trDg+xQAWFCLqI7seNuLikWDyHHFDIrtsTVw0pyT/9FHRpQbh+eU1vmPi0aoFjJvEiYeMIvp7EoXeYN8DA6MoEsAq+J2bMYGTQLVddCc7/XI0Di39dTc1Uqya8jFn0ibkaGAZU2I+CE5dYZSICpjZXPxkPaIJn980KrJvaOZUmR9S7b/hAOrknQ3WuEfsjSaxlx8G5WPu6oOI33ojygA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3Nr8gp+oUiFJnWtHWjWlIOZhgEaC2m9Wp7Aet4tZvjc=;
- b=X8LFcJpH8GmTMoFv2R8S7yScDO0Writ+AGssyGAdfqVO606rbgtePsXx34nmFaO517ygUPwtU2eQC9WenoP8MqTjC85ks5VHmTvhQdpzGKfsoDpBmZ4eL61z/5cK233frAnb+0uvYmx9zVbZpNINIwiP/IrCDABAPKp+bDe/97RrdldtFnH+gnsCceXqQ8DXRItVtCGnhXtTo26AOUxGQyYP5a+lSjW4PseHWtMG/2MygagIVHbWACld7WYrussaCCvXH6dvNYzMBaeqSBqyvRBP2nyOhzyP8T+pd+NqzjGlRYa7e2yIJDxIwpR8K21LX+tcBX31/IHs7mdfN/v0gQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3Nr8gp+oUiFJnWtHWjWlIOZhgEaC2m9Wp7Aet4tZvjc=;
- b=WzjWCyvKXeXVBJB9bgQ6Ip5HycB581hLOhEYrwTax99qPyQV5mPWOj07DkaobHAI52w4+crfs7Hii6ygfE6DKJ5MDpQY9v168C11PnnHhmEDzx1nTUQcuSVFr7zZ5Bh1P9kDsYnCqdqIe45wcae4jVTi9q1gSpNHNil8ug+1IDycafkqrnaIeTkCDyVJ29/yEwczhFnzoOwB6I1A4bAX28nHcoYNvOtEtafp3GTGm3jEiabCug15+vpoAWJ1dybDHAViFJPeaeENao9Qxv/WzS3ID0D9GXPJou6yFmVxSG6vxCnVbkeDAiyWHaX7hgcCJJdkyrMxx4ATotvVt1xG/Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10) by DU4PR04MB10361.eurprd04.prod.outlook.com
- (2603:10a6:10:55d::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Thu, 27 Aug
- 2026 14:03:02 +0000
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
- 14:03:02 +0000
-Message-ID: <5e0022f1-e4f5-4313-8292-95e98ae7ced3@oss.nxp.com>
-Date: Thu, 27 Aug 2026 17:03:00 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/10] ufs: host: Add common Hibern8 TX FSM polling helper
-To: Bart Van Assche <bvanassche@acm.org>, NXP S32 Linux Team <s32@nxp.com>
-Cc: linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
-References: <20260826134048.854748-1-larisa.grigore@oss.nxp.com>
- <20260826134048.854748-4-larisa.grigore@oss.nxp.com>
- <4af1df20-f6e4-4559-9cc0-e4db05597090@acm.org>
-Content-Language: en-US
-From: Larisa Ileana Grigore <larisa.grigore@oss.nxp.com>
-In-Reply-To: <4af1df20-f6e4-4559-9cc0-e4db05597090@acm.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR0P281CA0104.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:a9::15) To GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10)
+	Thu, 27 Aug 2026 14:05:02 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=kR7Pr045dncOw5r2g9mgP74tU4Wr0LOiRZU5LwjNSgk=;
+	b=47m8YGoFpQk3DVXkbCqiLgXE9NoPpwAuEYRSmOtnkT9s4dbQjQ2hl4JW3PLVwYpUHUTEwvACs
+	jImxrvFPLgq/s+r5AsDrH5ORKMGwj1NkMD9hSSjsx9md0Nc726HMuu482VhVKGC6ceusx/AXRFA
+	AeD6VF3t1Pl0KB7Lf3vAJUI=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hW30W2JbCzcb4c;
+	Thu, 27 Aug 2026 21:54:19 +0800 (CST)
+Received: from whupemo200004.china.huawei.com (unknown [7.152.184.18])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4E5D14058C;
+	Thu, 27 Aug 2026 22:04:54 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by whupemo200004.china.huawei.com
+ (7.152.184.18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 27 Aug
+ 2026 22:04:51 +0800
+From: Sizhe Liu <liusizhe5@huawei.com>
+To: <rostedt@goodmis.org>, <mhiramat@kernel.org>,
+	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
+	<skhan@linuxfoundation.org>, <bhelgaas@google.com>, <yangyccccc@gmail.com>,
+	<jic23@kernel.org>, <john.g.garry@oracle.com>, <will@kernel.org>,
+	<james.clark@linaro.org>, <mike.leach@arm.com>, <leo.yan@linux.dev>,
+	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
+	<namhyung@kernel.org>, <mark.rutland@arm.com>,
+	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
+	<irogers@google.com>, <adrian.hunter@intel.com>, <wangyushan12@huawei.com>,
+	<wuzongyu1@huawei.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <liusizhe5@huawei.com>
+Subject: [PATCH v2 4/8] perf hisi-ptt: Merge 4DW and 8DW HEAD0 printing
+Date: Thu, 27 Aug 2026 22:04:38 +0800
+Message-ID: <20260827140442.2031128-5-liusizhe5@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260827140442.2031128-1-liusizhe5@huawei.com>
+References: <20260827140442.2031128-1-liusizhe5@huawei.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|DU4PR04MB10361:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2303ddd6-b8a3-4bfc-e048-08df0443e883
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|376014|19092799006|10067099003|11063799006|4143699003|56012099006|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: dnPKPbhvZSDndOHXQdtkioEt+BMDrMDfrPe3ooyY5EVuuvJAAI2fcf93YgVkZYux5J6y5D5mL33+InG587epDZQK0ZtX4nhZJFj8uHhocwQ3WkFd/aRUI1MtxhR8+JxO8/F7HTxBsJIL+XM7vZ/09DQg9v+ggJ+BISG0usvVlSZUdFIs7PwS4FMIxNPsj+DoF90bk3xhlqIhwDo34SuHom0J9qBoDH0Xqg4VlTOrh5T9pDwcrTSfJMqVTkihHG3Ua18WgsWKy7QxMfHQzYWMK+eQuuX0p6L8cB5XO0L0cxWdXqrprkzj0ThkJkZzeTxYRiR5NvF7hmXMYw/l3OIxIaTZKJiYRmKjYAc1uETCPswBSvvTARyCCEmuoeO0rdGKbnVw/BMErsNXheuZ6A6YyrpAKGwtg0PZdoc7zYVm4lJe9Ht705GnUVHvxxfaRscAAVEnGOnU+xODcW+HFiwUXXUbzp+jbPDOqpKsOqJvhteFXMvMMFdN4kovK1QaGJRlDkLX81gSwXj40VluVY/RviWOexKVpEVOyfvuO5zWPQO1CKyqCH9/iWgKvIs9FTRfibjDACy+I9/KAWrJMCGOFxgX26jWauN63kEcfJFoLjYyEpgBgr1lBY47yoSWhQ+9T/EuzVhPvhwclxPGk3n1x5HN+ExC7O0gUXNmygKXbRI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(376014)(19092799006)(10067099003)(11063799006)(4143699003)(56012099006)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WDdKNVE4ZWtKSDBjcFJtVFpjekVFZ3BIMTVPeGJlTjhUNHZCL3A2cVJreFlM?=
- =?utf-8?B?bHlkRTZoM2puajlkUUZuVDIyNW5xVU5zeHhaNjk5Z2tVMXNjck1GcnN3QjVX?=
- =?utf-8?B?SFEyUHU4NUkvTi9Yblg5Ykthd1FEdXFIZlFiWkVwWldsWEJ5TW01M20zdFQ3?=
- =?utf-8?B?Wmx2OW0rMFpNR1FPeHZRYlRFQTU3aU9yUWZicFhaeUFnU2RaZHZSMEJLU0FQ?=
- =?utf-8?B?OWdlQ0RuOUJHQTRmT3NYTXBDZkxhbit1emJOazgzUDNwRGZqN0xvMXBZZDdS?=
- =?utf-8?B?bkkyNkpPNkRYcUJ4WXhPN1l4TXg1UU4yak1GU2E5eitWNUF5V0Vld3FRRWdl?=
- =?utf-8?B?N1Q0Z3ZFenpWc0E2K1MvMTJna1BqbkpTZVRzcjNnRkZCTlJ5NEZpSDBYakRK?=
- =?utf-8?B?RXIyQWx4NWdoTnhFRXh4UXU0aE82MU9uVVZOeUZFWjVkK0dpQm9SQ2RNTmNz?=
- =?utf-8?B?LzdObzZ1Q0o0VXF1Vno1U0hXRGhMOTZOUW9GaGVzMzJUQ2NnejN0RVdDK2VW?=
- =?utf-8?B?dFE2T0RSOVlDdWduTXN5SEM0ejZkbHlCSnRkb20rY2NkUmVWbHNPMjB0QnRh?=
- =?utf-8?B?YTBEREdkUVRTWkFvcVh2eWNONStpZmh0SUNqZ3BNQ0Jmbk52cSttTzN4UzU0?=
- =?utf-8?B?NzFPRktTQjdJMGFFc3hCWURRbjFnbDc0NG9ud05jVzZtSmk3YS9vU0JPeEdM?=
- =?utf-8?B?RnNSVVBEUXAxODZidTJ1TEptdkUweEJvOG80MTIwc0ZkVlNocUgxd3duTkdp?=
- =?utf-8?B?dExhcndqaGdoOEhqVncrY0lqS0dSZmJOWFdGSlZEWVQyakF6aXZwUzVNbTFT?=
- =?utf-8?B?ck9FL20ySElpVUdubnhoNmtZcEJWMGZRaUgrenJ0cit5bW50S0lHU0F1NjNi?=
- =?utf-8?B?YWlUbWhSOFdWUGswU1cxSmFFMUlvYVY1WCtmdXZMdkZ5WDExcFE3RCtKMllx?=
- =?utf-8?B?VjI5MnNCMGJnNVlhOGhaWC9TVWk4dDUwL1EyNEZzTU1NQTFoayt3bUoyWDVr?=
- =?utf-8?B?M3FrSHlWRnZGRGV1YVBielZDdTkvRWJqVmRISUpMZUpGUC8xQTdPdW9nSzNa?=
- =?utf-8?B?RVlxSjRoQWR1MStBUEI1VCtiQ3BRTTNheXRGT3lEUXRLQ1hPK2ZaRlp4R3Nk?=
- =?utf-8?B?YzRwVlo4bFZKbHh5MDduRnd2TnhVS092dGVZRnE4NHlrN1I4cTNQMHEyaFRt?=
- =?utf-8?B?Q1R0eEZOWUVqZ2pZODgvTHZUenBZcjA3VTB0UklhVVBnRisycFhkT3dXVVJT?=
- =?utf-8?B?aEt5bkE1anpLMGg2SU82VEc2Z3R3TStYc0RsMXdLSVJITWZwVEVFemo5R1hY?=
- =?utf-8?B?RVBqamVZMHpYMHNCbXZwa3VHNzNZNGhwaTlMZ2c3Rnd3UEF6ZEtWRGxVTXFL?=
- =?utf-8?B?WmtuRlFjRHhERFpoTkloYno5Q3BCT1hFMXI1SU94RGhwcjJOdVRHY0QxMHpR?=
- =?utf-8?B?WlZEaERsUk12d2xnSzFkVFc0Ny9nR0FVb3ZaalV4SHJFSEFxK2tQeUVoQUpN?=
- =?utf-8?B?OFp4RlNGUGpaUkhwRk9jd2FOMHF3ZUtNRFJmT01FblpQSXdpVk9kalFQL0x2?=
- =?utf-8?B?TVVQM3JKRzc1aHNGMFhWQUMwRGtacmVRRi95T1dtQkxyQTZaTHZOOXBodURW?=
- =?utf-8?B?V3k0V0FyeEI0MFJJNGd5WVdnR1FCc2l4U2JGSE9NYkdoM0dLb3ArQ2pXM0hX?=
- =?utf-8?B?R3JpZkxzVElzRTY4ZkFVc1NpTnRmSWxmSWRzNW5ZandGaDhGalR0dGFadkx4?=
- =?utf-8?B?VXp4V041ZFMvN05HVVMrMkpZUXA2STZJbDVZVTY1K3M1eUxGc1JVT1h5d0xL?=
- =?utf-8?B?S3RwM1dLeCtQNUNkbWFxMHJSdHFpNEFpYktPNTdUSFNuRGNRN1pyaG9jVjE3?=
- =?utf-8?B?bWdybEc3OG9TdWtHK29sZTVTeERVQ01wclludkFLeWNQUk1sMDB6U3hob3NH?=
- =?utf-8?B?enpEdGFpOXBhRGJieVljM1NSYlNUTkRkaC90aWdFelNSOXhoVkdycTBvMnhL?=
- =?utf-8?B?YmNBVHVoblgyZE92c3FNNmFaN00zanVYN2pPVUJkKzhiaDVtdVhoNXlsUXNp?=
- =?utf-8?B?WE5PWUNEWEgreTZHYmROelZJRTVJRGhEQ2JGREZQeFlNN0R5UFBkTnZ3QUo2?=
- =?utf-8?B?bVlUSGY2eFUvSzl6VEp4REgyZUYvS1crREJZZDBUYjFTUTJud2NPSTBtSmpR?=
- =?utf-8?B?YlZUb0ZxdWZMVlVlVlBuMU9PS0Nsem9ZRXhzTng1QjQ0NlNWN3hOYitYRWx5?=
- =?utf-8?B?V1oxcHRHQ3hldGNPTFEvaDBuczNhMHhkYWhPZmdicTFySlJ2SnBhWHlPVWdp?=
- =?utf-8?B?S09pemoyK0NVeUlCcERLVklHbURhVTJPaTFydTI4YnVCUkhpdEVSWG9paG9Z?=
- =?utf-8?Q?wc/fGtq2QB+hGctQ=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2303ddd6-b8a3-4bfc-e048-08df0443e883
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 14:03:02.0987
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: O5krTx6Qd1eV3+5bDgbVjwGWrf2rozGUcbWGvfAWo15+R6mNiqidDWKEucRXUUc44jqHc68FrLtTYfnzzvXdMw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10361
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ whupemo200004.china.huawei.com (7.152.184.18)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_070306_940519_B49054A8 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20260827_070458_271539_D4A30A74 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,35 +88,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/26/2026 6:33 PM, Bart Van Assche wrote:
-> On 8/26/26 6:40 AM, Larisa Grigore wrote:
->> +    for (i = 0; i < num_lanes; i++) {
->> +        err = ufshcd_dme_get(hba,
->> +                UIC_ARG_MIB_SEL(TX_FSM_STATE,
->> +                    UIC_ARG_MPHY_TX_GEN_SEL_INDEX(i)),
->> +                &tx_fsm_val);
->> +        if (err) {
->> +            dev_err(hba->dev,
->> +                    "%s: unable to get TX_FSM_STATE for lane %u, err 
->> %d\n",
->> +                    __func__, i, err);
->> +            return err;
->> +        }
->> +
->> +        if (tx_fsm_val != TX_STATE_HIBERN8) {
->> +            dev_err(hba->dev,
->> +                    "%s: timeout waiting for lane %u to enter 
->> HIBERN8, TX_FSM_STATE=%u\n",
->> +                    __func__, i, tx_fsm_val);
->> +            return -ETIMEDOUT;
->> +        }
->> +    }
-> Instead of duplicating this code block, please move it into a new
-> function.
-> 
-> Thanks,
-> 
-> Bart.
+Merge the printing of HEAD0 for both 4DW and 8DW TLP headers into
+hisi_ptt_print_head0(). This unifies the entry point and makes it
+easier to add HEAD1/HEAD2/HEAD3 field parsing in subsequent patches.
 
-Thanks for taking the time to review this patch series! Will do it.
+Signed-off-by: Sizhe Liu <liusizhe5@huawei.com>
+---
+ .../hisi-ptt-decoder/hisi-ptt-pkt-decoder.c   | 56 +++++++++++--------
+ 1 file changed, 33 insertions(+), 23 deletions(-)
+
+diff --git a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
+index 23ae99f33c9f..00bd9309df68 100644
+--- a/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
++++ b/tools/perf/util/hisi-ptt-decoder/hisi-ptt-pkt-decoder.c
+@@ -108,6 +108,33 @@ static void hisi_ptt_print_pkt(struct hisi_ptt_pkt_buf *pkt_buf,
+ 	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
+ }
+ 
++static void hisi_ptt_print_head0(struct hisi_ptt_pkt_buf *pkt_buf)
++{
++	const char *color = PERF_COLOR_BLUE;
++	uint32_t dw;
++
++	dw = get_unaligned_le32(pkt_buf->buf + pkt_buf->pos);
++	hisi_ptt_print_raw_record(pkt_buf->pos, dw);
++
++	if (pkt_buf->pkt_type == HISI_PTT_4DW_PKT)
++		color_fprintf(stdout, color,
++			      "  %s %x %s %x %s %x %s %x %s %x %s %x %s %x %s %x\n",
++			      "Format",
++			      FIELD_GET(HISI_PTT_HEAD0_4DW_FORMAT, dw),
++			      "Type", FIELD_GET(HISI_PTT_HEAD0_4DW_TYPE, dw),
++			      "T9", FIELD_GET(HISI_PTT_HEAD0_4DW_T9, dw),
++			      "T8", FIELD_GET(HISI_PTT_HEAD0_4DW_T8, dw),
++			      "TH", FIELD_GET(HISI_PTT_HEAD0_4DW_TH, dw),
++			      "SO", FIELD_GET(HISI_PTT_HEAD0_4DW_SO, dw),
++			      "Length", FIELD_GET(HISI_PTT_HEAD0_4DW_LEN, dw),
++			      "Time", FIELD_GET(HISI_PTT_HEAD0_4DW_TIME, dw));
++	else
++		color_fprintf(stdout, color, "  %s\n",
++			      hisi_ptt_8dw_pkt_field_name[HISI_PTT_8DW_HEAD0]);
++
++	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
++}
++
+ static int hisi_ptt_8dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
+ {
+ 	int i;
+@@ -119,39 +146,22 @@ static int hisi_ptt_8dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
+ 			continue;
+ 		}
+ 
++		if (i == HISI_PTT_8DW_HEAD0) {
++			hisi_ptt_print_head0(pkt_buf);
++			continue;
++		}
++
+ 		hisi_ptt_print_pkt(pkt_buf, hisi_ptt_8dw_pkt_field_name[i]);
+ 	}
+ 
+ 	return hisi_ptt_pkt_size[HISI_PTT_8DW_PKT];
+ }
+ 
+-static void hisi_ptt_4dw_print_dw0(struct hisi_ptt_pkt_buf *pkt_buf)
+-{
+-	const char *color = PERF_COLOR_BLUE;
+-	uint32_t dw;
+-
+-	dw = get_unaligned_le32(pkt_buf->buf + pkt_buf->pos);
+-	hisi_ptt_print_raw_record(pkt_buf->pos, dw);
+-
+-	color_fprintf(stdout, color,
+-		      "  %s %x %s %x %s %x %s %x %s %x %s %x %s %x %s %x\n",
+-		      "Format", FIELD_GET(HISI_PTT_HEAD0_4DW_FORMAT, dw),
+-		      "Type", FIELD_GET(HISI_PTT_HEAD0_4DW_TYPE, dw),
+-		      "T9", FIELD_GET(HISI_PTT_HEAD0_4DW_T9, dw),
+-		      "T8", FIELD_GET(HISI_PTT_HEAD0_4DW_T8, dw),
+-		      "TH", FIELD_GET(HISI_PTT_HEAD0_4DW_TH, dw),
+-		      "SO", FIELD_GET(HISI_PTT_HEAD0_4DW_SO, dw),
+-		      "Length", FIELD_GET(HISI_PTT_HEAD0_4DW_LEN, dw),
+-		      "Time", FIELD_GET(HISI_PTT_HEAD0_4DW_TIME, dw));
+-
+-	pkt_buf->pos += HISI_PTT_FIELD_LENGTH;
+-}
+-
+ static int hisi_ptt_4dw_pkt_desc(struct hisi_ptt_pkt_buf *pkt_buf)
+ {
+ 	int i;
+ 
+-	hisi_ptt_4dw_print_dw0(pkt_buf);
++	hisi_ptt_print_head0(pkt_buf);
+ 
+ 	for (i = HISI_PTT_4DW_HEAD1; i < HISI_PTT_4DW_TYPE_MAX; i++)
+ 		hisi_ptt_print_pkt(pkt_buf, hisi_ptt_4dw_pkt_field_name[i]);
+-- 
+2.33.0
+
 
