@@ -4,46 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD0FC61DC4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90199C61DB9
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 15:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:
-	Content-Transfer-Encoding:Message-Id:Subject:From:To:In-Reply-To:Date:
-	References:Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t4JSPZHi9ydke9/rPPt+tNOeEYeI6jSjT/5oE9D+9xI=; b=IHwwaH1qTNbAYexZrCrOJ2I/DQ
-	y7mlE8vJ4Bq655WryyYB+54+c5N5W9SAN9BPRrMsnvgVJPPsOLh0edVw9HfzqDb0CYCpjxdYu5iNz
-	IR0ZSXA24qGK8xlXJCc7DdEdy38fTaXKRsktaPPtxxRaxAi0U1dmZtdxtHLW3dlMEarDDzApIkCqB
-	9ZeD48a/ojFPyxxwIurDvH/ZiNgcnksSehYW1W2429+zwfVpregtTJhC0kMQbMgpsRCUyD3AjmAkT
-	xVp6uNhqVhmXuFjyHwqSv4Lcg4DTO4cwG+Ft9FatWmpR7rMUaR9vEffJtnUhEi8qTodXMz8VhHNxv
-	WM/pVPMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:From:Cc:To:Mime-Version:
+	Content-Transfer-Encoding:Message-Id:Subject:Content-Type:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Bh0KpptlHo4EabAVwVEP+7z/2v5dfwz3z0l/dDVT/I0=; b=aElCELQCO6goYZxVG5JJA4htgE
+	hbmFaNLDiU6CG93GXM6Mg5QFR5wKw97HYTz81JY3+4XjjNOUdhvIwRWiRe5IGFXW5x0AN0f69n7M3
+	BsQt90MWB1F27gEd0qWFomBK8UV8HSwVjE/BcV3ygeBhkjfx4mMFAx5M1AF2oTBIINPrFkkJ0l1Pn
+	V8P4/WQvU0xnhqAIB2iy9SoK2OeZvTxVMJrIaGLaa9iQfol2XNGKXbsEdrVpwn0k8gS3jFNkt0Yz2
+	OC9N0OJewCdkPG6n720w3ntsaNWFJ7v8qR6Fc/bHT5c+gOIxc/kfxjqF0n5ncohn7KZ+qnIqoPHql
+	Ip4kojjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzcGG-00000004Gj2-32Ze;
+	id 1wzcGG-00000004Gik-2ZMS;
 	Thu, 27 Aug 2026 15:43:28 +0000
 Received: from sg-2-1.ptr.blmpb.com ([71.18.227.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzcGE-00000004Ghd-0WH0
+	id 1wzcGD-00000004GhZ-0Jih
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 15:43:27 +0000
+	Thu, 27 Aug 2026 15:43:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2604220257; d=cherr.cc; t=1787845396; h=from:subject:
+ s=feishu2604220257; d=cherr.cc; t=1787845391; h=from:subject:
  mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
  mime-version:in-reply-to:message-id;
- bh=t4JSPZHi9ydke9/rPPt+tNOeEYeI6jSjT/5oE9D+9xI=;
- b=spdOKRzXbQHQxQh/Y7D8+9kzXcXo4tN2qoGCYbRuYSuSucv0YbkeTMhCrv1WZ2Xc72QQBS
- 9wAJ1a27Z8tnGiTf6z0Y+e7VWUJi5A3cVlTLmiKwccNnXAyKquy9LJgrZGH5byOM/HI85A
- c2FqHzjobhy4Oi3LTeg495EO3xNvDLC9IzgY52AdmHCTNYQDDWmtNAzzRUkAAUepHndx1m
- elT5+TX4BdZn85gbOxT6vc5aG/HEcP0FB0S0kwnA7ymBxxKr7eRmUYZYQKF1AuMCRrWAGL
- c4gT7U7CTWB1jHWeJclCcEegGXGqLPGFx5VfxIEb8PXDDijlMLRLMzt/jWzgbg==
-Received: from [192.168.9.107] ([111.42.148.163]) by smtp.feishu.cn with ESMTPS; Thu, 27 Aug 2026 23:43:13 +0800
+ bh=Bh0KpptlHo4EabAVwVEP+7z/2v5dfwz3z0l/dDVT/I0=;
+ b=V00chBgzzYgCqNjsuHPKFjsaKDb0LkzBjsxut47JqxA7+5W4pM0BccR2F2R7vQes0TTFpB
+ CqsGB8gZYtZG+s6NxpTU9ZmZgDVVrYWPC/nmikjbHWJdGVzsm8GmCSaQTPhUpQQ2wntGhb
+ lC8z9JgzYZrDvEA/PA+1hqfz3syOhXPy19RLct8Go+Q+MGt1GTJVX5k1Z+2NSwciBV4wHB
+ DyOUkyR6J2fz6xSV1BkC1cNjkQuxBMO2tJ6StH4Bu3/x9/vJkye70qdlRUjYsoOTS8zCCj
+ GPBhaAbl57rJBKTSBN5cujFZ/cDy16J+ritY4XpZDlhHLIIE+TjR3THmtvlw1A==
+Date: Thu, 27 Aug 2026 23:43:00 +0800
+Content-Type: text/plain; charset=UTF-8
+X-Mailer: b4 0.16.0
+Subject: [PATCH 0/3] i2c: fix DMA channel leaks on probe error and remove
+Message-Id: <20260827-i2c-dma-channel-leak-v1-0-271d4adc03a0@cherr.cc>
+X-Change-Id: 20260827-i2c-dma-channel-leak-b58522243736
+Content-Transfer-Encoding: 7bit
 Mime-Version: 1.0
+X-Lms-Return-Path: <lba+26a905b0e+73a6af+lists.infradead.org+me@cherr.cc>
 X-Original-From: Shengzhuo Wei <me@cherr.cc>
-References: <20260827-i2c-dma-channel-leak-v1-0-271d4adc03a0@cherr.cc>
-Date: Thu, 27 Aug 2026 23:43:02 +0800
-X-Lms-Return-Path: <lba+26a905b12+5cb819+lists.infradead.org+me@cherr.cc>
-In-Reply-To: <20260827-i2c-dma-channel-leak-v1-0-271d4adc03a0@cherr.cc>
 To: "Codrin Ciubotariu" <codrin.ciubotariu@microchip.com>, 
 	"Andi Shyti" <andi.shyti@kernel.org>, 
 	"Nicolas Ferre" <nicolas.ferre@microchip.com>, 
@@ -62,19 +65,16 @@ To: "Codrin Ciubotariu" <codrin.ciubotariu@microchip.com>,
 	"Vinod Koul" <vkoul@kernel.org>, 
 	"Konrad Dybcio" <konrad.dybcio@oss.qualcomm.com>, 
 	"Praveen Talari" <praveen.talari@oss.qualcomm.com>
-From: "Shengzhuo Wei" <me@cherr.cc>
-Subject: [PATCH 2/3] i2c: imx: release DMA channels on probe error
-Message-Id: <20260827-i2c-dma-channel-leak-v1-2-271d4adc03a0@cherr.cc>
-X-Mailer: b4 0.16.0
-Content-Transfer-Encoding: 7bit
 Cc: <linux-i2c@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, 
 	<linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>, 
 	<linux-arm-msm@vger.kernel.org>, <stable@vger.kernel.org>, 
 	"Shengzhuo Wei" <me@cherr.cc>
-Content-Type: text/plain; charset=UTF-8
+From: "Shengzhuo Wei" <me@cherr.cc>
+X-B4-Tracking: v=1; b=H4sIAAVbkGoC/yXMQQ6CMBCF4auQWTMJTi0Qr0JctGXUAayko8ak4 e4WXX55eX8G5SSscKoyJH6LyiMWHOoKws3FK6OMxUANtU1PHQoFHO8O9zXyggu7Gb3tLREdTWd aKNc18UU+v+xw/ltffuLw3FuwbV9sRvTUeAAAAA==
+Received: from [192.168.9.107] ([111.42.148.163]) by smtp.feishu.cn with ESMTPS; Thu, 27 Aug 2026 23:43:09 +0800
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_084326_344623_B5FCA19A 
-X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-CacheID: sfid-20260827_084325_311095_D2C03B45 
+X-CRM114-Status: UNSURE (   9.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,38 +90,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i2c_imx_dma_request() acquires exclusive tx/rx DMA channels and is
-optional: on errors other than -EPROBE_DEFER the driver falls back to
-PIO mode and probe continues. If i2c_add_numbered_adapter() then fails,
-probe returns through clk_notifier_unregister without releasing the
-channels, because the remove callback is not invoked after a failed
-probe.
+Three I2C bus drivers request exclusive DMA channels before
+registering their adapter, but none of them releases the channels on
+the probe error path (the remove callback is not invoked after a
+failed probe), and the at91 driver never releases them on remove
+either. Same class as 777979e62711 ("i2c: mxs: fix DMA channel leak on
+probe error"), which used devm_dma_request_chan() for mxs; here the
+drivers own non-devm state, so the fixes release the channels
+explicitly on the error paths.
 
-Release the channels on the probe error path, mirroring
-i2c_imx_remove().
+The three drivers are otherwise unrelated; the series exists only
+because the bug shape and the fix shape are identical.
 
-Fixes: ce1a78840ff7 ("i2c: imx: add DMA support for freescale i2c driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Shengzhuo Wei <me@cherr.cc>
-Assisted-by: GLM:5.3
 ---
- drivers/i2c/busses/i2c-imx.c | 2 ++
- 1 file changed, 2 insertions(+)
+Shengzhuo Wei (3):
+      i2c: at91: release DMA channels on remove and probe error
+      i2c: imx: release DMA channels on probe error
+      i2c: qcom-geni: release DMA channels on probe error
 
-diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-index 19ec056b00af..c24d9201a60e 100644
---- a/drivers/i2c/busses/i2c-imx.c
-+++ b/drivers/i2c/busses/i2c-imx.c
-@@ -1880,6 +1880,8 @@ static int i2c_imx_probe(struct platform_device *pdev)
- 
- clk_notifier_unregister:
- 	clk_notifier_unregister(i2c_imx->clk, &i2c_imx->clk_change_nb);
-+	if (i2c_imx->dma)
-+		i2c_imx_dma_free(i2c_imx);
- 	free_irq(irq, i2c_imx);
- rpm_disable:
- 	pm_runtime_put_noidle(&pdev->dev);
+ drivers/i2c/busses/i2c-at91-core.c   |  3 +++
+ drivers/i2c/busses/i2c-at91-master.c | 12 +++++++++++-
+ drivers/i2c/busses/i2c-at91.h        |  1 +
+ drivers/i2c/busses/i2c-imx.c         |  2 ++
+ drivers/i2c/busses/i2c-qcom-geni.c   |  4 +++-
+ 5 files changed, 20 insertions(+), 2 deletions(-)
+---
+base-commit: 45c13f3f9e3bb15fd89ff2864c6f627a3b4b4229
+change-id: 20260827-i2c-dma-channel-leak-b58522243736
 
--- 
-2.47.3
+Best regards,
+--  
+Shengzhuo Wei <me@cherr.cc>
 
