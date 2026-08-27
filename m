@@ -4,133 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA0CC61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 17:10:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83E7C61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 17:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+/e5Eg7EKb/+KOp0lbGfxPdnRg+IBe1yb3oBTscq/tw=; b=r/igl2ANwSWd7twtsqbzsCwuhS
-	dbFfG/J9OVXckMBwIdBiu1FBhSWqd59TLUKTGGMsNG6IiBGfegwlLUMmxFO66W9e28F+BG2XTqoFx
-	Codd76EFn8ZGhBMEeExsqSXONMqnp+sarg4r6eCLSmWiha0m3izSJiDEgWZUMLwwhCzpGyuNcwNLH
-	4z3KJjerrTslsSHqatWfsIr/6Qj6nRdk96sPWfGxiQfy+k0IxJUppraX6rIKNusuOueLyqMAmFM9+
-	I2LJKTVabBdp6MVlHSW9uLobaG7PsfVY7yaZlJ9g5UCxb/gliy7Pc/D4ZD8XrTPKBbiFRaRZrMxCP
-	BaX+efTw==;
+	bh=WpasPaJ9xcduX7UHA5UZyCSC91SDyBuKj0LkeZOtSOo=; b=yKxP7iGi0NPgdbg98qsBDm0xGF
+	66IafbedOOBHl6Oj92jHtqdvPoTzu+GjnHc6/NgXcwIn7nGoOjVzNMqbw9Snb2d9nPbpKnLFjQqLs
+	cOPNMXAD2y52vbGfWmnnOACnHmSPUSbztDyI1SvTfBQRrU3YxRFSKLRKs0MqqFKmR9n5/akGeNXP0
+	iiRUrs/HnSxHb4fdxlftmmOvQcAXXip51flCIDLNRtkJEADivNXva5UBxdnGc0XHUkZrbOXefh1NN
+	hHmLgAuaP1AgE8sTI/xY5v57g1Nwqno1hvUHWH6fiWlGrljBUnz5NPNlAyaxD4DnbWegko17eXG8A
+	GRepLZTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzdcc-00000004Qgk-1NdG;
-	Thu, 27 Aug 2026 17:10:38 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzdcY-00000004Qg2-3llX
+	id 1wzdhQ-00000004RHt-1QDI;
+	Thu, 27 Aug 2026 17:15:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzdhN-00000004RGs-2Q93
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 17:10:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=M9G6MdUgP5tduZRBhqLO7LLesJexCAkQh3bKgf3nnWp4Ou/eLnvY4IEyDfYYapaQgezUtM4aFmvM1v0rwrRSZGraQnZ0W8P/RN2dIN0AkEaGD7OaUCjnqbko1zpctfWamwsWrvycl4eSiqqpjavTR3GUXM7d3sPVv/qzQVb0AHqMTXWahwXcOQ+ROkZ/Zi3BVKYWv0EUSnnC/jGjaOSqWA4VO60fnwuslkNv0cx/SNi1MNGm7Bz8Fn/SuN2bPwLtQAPUDUKIhaBgvGR2az28q0mC/5JQjop1hOA9QxxidEpoe1/rcwCNOGnk3UOLGn78/AuBVdKcR0sZnRFIdIWeZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+/e5Eg7EKb/+KOp0lbGfxPdnRg+IBe1yb3oBTscq/tw=;
- b=Qd5BUxM0ILCtgC7TudpQh3bR2QJ4chojQI0qbfEzJ6hRSXArkbv3/ChvAj2fRaZPEC8kDnxCcILrS0E56UdZQqPGoXwoe0bCiJdn/ogbVIPxCk8eEso/aa9N+Pwi+hPEOHZ+WBYrAsqQhK7XbqHV0JiQOAP+ymBvD5DhxJsI4ThhEqXQGE1KCsiblUFKzpXHw2prIDZGEmV59OiMb9Mr+es9pjnANjIxzaBKk0VtAHF3ksYeGE8ZY0hkF99Y3O6IwECjjuPKx7WG8gYZGtsD8o2MxYCH74u1ukvjWHuGgTwWOZ5/vMZFCRUJpe07VJstN/rQjAjSj64FIEdqTPx9Bg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+/e5Eg7EKb/+KOp0lbGfxPdnRg+IBe1yb3oBTscq/tw=;
- b=QgfnCv+UInY7gdjamedg38hLbtyFTmek46JKnX4fPUN8vfnyYHJOxziaUF1QOL7FJN5uW+ancK4Ua2HyjHoGL0gnIi4G5O1gBdOu4mfXlxF5ys7XkJs/XrWD5YJSqF8DheGbb9eR4FKZ/WUiLnWaqua8SGcc5yTGwEW0gG2tHT8rp3evIwwtyJr3aB1CCQOZ8yMFH4uMSdnNL/x6C6apIxMtakGjgIpKsUaP1AvZelXrLaVFJ1K7+zb7AedUy89W9p5QGpI5iHB5MsRKSpmWl6rd55Fp7qqN9v5/4QvAula+9Me1tMOifJVO15mCqUNNPrnirnN2tYgX1FuKVrWwrw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS5PR04MB9875.eurprd04.prod.outlook.com (2603:10a6:20b:652::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.8; Thu, 27 Aug
- 2026 17:10:30 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
- 17:10:29 +0000
-Date: Thu, 27 Aug 2026 13:10:21 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Michal Gorlas <michal.gorlas@9elements.com>
-Cc: Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v2] PCI: imx6: Enable ASPM L1 only iff CLKREQ# is
- supported
-Message-ID: <apBvfYOnCHfl7Zu9@lizhi-Precision-Tower-5810>
-References: <20260827-l1-conditional-imx-v2-1-40b324aa2a94@9elements.com>
+	Thu, 27 Aug 2026 17:15:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D27D1596;
+	Thu, 27 Aug 2026 10:15:28 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F25713F7D8;
+	Thu, 27 Aug 2026 10:15:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787850932; bh=WpasPaJ9xcduX7UHA5UZyCSC91SDyBuKj0LkeZOtSOo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LOTKxzn5p/AkoQJ7PBJNwSjNBSp8gpcXK73cXC0GhcHQ6r7k7r0mc8F/jsyM0AKRY
+	 /QwQz5TQClQsVnglpZUdMghT+ZoX+cLrL1OJofm3+aP+ynWJxyVKYCzYRupw1mek1o
+	 U62qjMsG0smeawdJO85xjKR2OsachZzARvxRRaW4=
+Date: Thu, 27 Aug 2026 18:15:30 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
+	Leo Yan <leo.yan@linux.dev>, linux-arm-kernel@lists.infradead.org,
+	coresight@lists.linaro.org, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 10/14] perf cs-etm: Don't print missing buffers in
+ snapshot mode
+Message-ID: <20260827171530.GP8904@e132581.arm.com>
+References: <20260821-james-cs-unformatted-per-thread-fix-v2-0-00c4fd0701b4@linaro.org>
+ <20260821-james-cs-unformatted-per-thread-fix-v2-10-00c4fd0701b4@linaro.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260827-l1-conditional-imx-v2-1-40b324aa2a94@9elements.com>
-X-ClientProxiedBy: SA9PR10CA0007.namprd10.prod.outlook.com
- (2603:10b6:806:a7::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS5PR04MB9875:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7c1bf994-109f-404d-f1be-08df045e1868
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|19092799006|376014|23010399003|18002099003|22082099003|10067099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: VVpFqU9TxJWKMsA+WHmvpQ9sFDXbvPwnXa7KiH1baj1BCQVajhjNi8jGt0c/9EJjP2qE08TSjHpvd+YJRJn7r/603VlNelVqVh0jDUA2DhtDaSmf7ubHhAqak46mtkNveOk7iprZlQj0MVHuf6nZivjKX5MovRCY4RCyM5f2cC+PP64Lmm3KlObJveLjxRyYefpPBGMrLKgyzqwYqcnquxWjvOBUiFqAobPD3g4c8qpvi1NzxoXBQzCdPdRvUsXUlbZVsVa6YMsYW2s1qafEqGwH49bwg+YT2DxfE8QldnMmTwrZ8TiAI1jaQbxW4f+PsQUthIH5j2O/nQAudB6WG3c1RVfu8nBBkPxdysnihtaiQFSPd1bqdeRw3hTkY0+YYsZRq1Ug97yr6P62p69QgAMRn4DRuU9vdrxvEEHfVi4YqKWqVn5vX8zJ7HAtqIqNJFqPq8s+rsbeQzoYJTt4t64YwSEi9gRVN+OhHbRrQvk+FTsCxOpfFh39+ohhw/dBEOAgY+tmRIB8AAx24HxEg6iepngY8BDI/mQKtAfO9tpUdLwnsxku48OP2esSFJNNSGI99cTkOAA6Kh0dyTTaAO6aaK8cjbBDkFdgTqn1wswtSFv1+Uapgwfoz7DERS0/
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(19092799006)(376014)(23010399003)(18002099003)(22082099003)(10067099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IrxZhv6jmN/Dhf1aQqFXnRLD7hMGyIZ0kuEYK0Td2I1eirE/byRly5zzSnkl?=
- =?us-ascii?Q?g8hxiBgyu3xTkB5GTPv/XjNrLkq3Ml2shHIAt6S/ow9pa/atght/4pEW/Wbf?=
- =?us-ascii?Q?453fzYAIOfGPFkGjaIvSjhh955TGeiF5Akkx6fmy1lSSZS3viZrfsKrFLFgF?=
- =?us-ascii?Q?wtaJ7Ibxhn8WMQEySknW/eMWwqcMqVCjXhUL73sCCczKuhgS/rpRalU/66m+?=
- =?us-ascii?Q?xxM4WJPTaxBPpmFGQA11Fv8092j0efqnenpP70jXIf3qmHqd8cdvCqYnAshM?=
- =?us-ascii?Q?w9Ap/1/SpYsX3NtVCQL+N9ZgUYOHBajlZ7Hi2SLoqq3n1Jrlb64BBqa4JKaQ?=
- =?us-ascii?Q?GDftaubbV+Gr8wkV/IC/GwDFechr1/fb7eJdjMgrK0Ypy8o6zN+6Nd7p+NK2?=
- =?us-ascii?Q?g8Didc5GdYHcp2CmzgkMA4u+4zWG4hjBFuATUtLcUecGxrmVV8yAIkyTCfMc?=
- =?us-ascii?Q?BclV0q5Q9it+vfhyTXqcLXIsEHCqyKnD8jZn/Yt412OUp3MwBPyEbHzggUaW?=
- =?us-ascii?Q?gCse1Fsq5uE8MTyXWnQ88MMVOQx9G1B5t9pMCtrOISTGJVjq6Weq7BGWjZWl?=
- =?us-ascii?Q?5aHpvGf8zvX4mkEOrLBTwVryaFRFn/hSrNH3aEujIfnrur1rsUpBBiGUkXbX?=
- =?us-ascii?Q?+5YKDIBN5hFotBdFHHyGCfUfx8dp0Jh59xhmEv8WRCWXeZGXgo+iAtkvLLcG?=
- =?us-ascii?Q?LH9FhNPtUILkahSjDMbujuKJ9KM14SnNcC0A29gQrD+yPshaNCrO8S9noteK?=
- =?us-ascii?Q?6AGpuJupeIzr6cjHPgFxDPHYRxlquj0MVOCCfa0DT4Nj7UDg4xoVGYT78Ide?=
- =?us-ascii?Q?y65QKSHZqfhzojTYtn9UNCh+VW1Cwh+QPWwUVJNrIWFdn08x2LUVLroGH7aR?=
- =?us-ascii?Q?BWqCNiaQaGkQ8P/6E2LR4i12H/j9wNNX9YxVT4OOqZWUQ97iMSfHprXdfgAv?=
- =?us-ascii?Q?VwiCr9mZGKb1q9EipYB9MrFG5+6oU6cme1AGMDd/qO39HoyXSk766KH5z9fx?=
- =?us-ascii?Q?MkancYstRKQ2VBpI+EOp/N+hEjDz+daMHHQMOHqnw6RhlAGs0iMVrOFGfPB+?=
- =?us-ascii?Q?UvmFXe33OW02jp5CjGDO7vb9rmMkt+PciEOzw/VrE5JGKfr6Um2iE6B3PyUP?=
- =?us-ascii?Q?A9dJpaIfcPZ9Buw+RjkhYc3jcRu6rsRugViO5Xzh6fiDA2dTztGhv9RucZLc?=
- =?us-ascii?Q?gd52Irt5SYrsEJI8qPGktFnUlbYrnZvFyJY6KpNvfzn8OF7MUuAdNENBSqI8?=
- =?us-ascii?Q?jnU19mwxLYwdevse22euFnlf1okMx9AKU+IA90EmnpogDIKltwp/r08VABUI?=
- =?us-ascii?Q?AwXAt02dal9u+zqNQKkLLw2EPUiRdKMirijro7O1zeIm89VHaIqJSBb4ezqS?=
- =?us-ascii?Q?3i3TeCqHQJmjTdSPgkJT/FqhZdLu6RLeBGENnkBW665SKuPH3Tf9R3WRvhGP?=
- =?us-ascii?Q?WAU3YeYm8qv61ozO1jv5tsiqhjq85amXN3NrimXVuOglvYBhydzNhh5mdG+t?=
- =?us-ascii?Q?mnVSYh9WsMqGNo8TqEKC7txLuxLybiHv39TZtGsjui9mVtaW5TbWdenCjCr8?=
- =?us-ascii?Q?IkZj56vjC0OBE1Cqkr3h8aunc0cQrl3xRo4Qt9IofXBfMjkuuDhz9Tq5pGjT?=
- =?us-ascii?Q?tQMDL5k0vW7xq39p2CEkJG82O5bfFtWz2g0S5dz3IEILJyLFTBIADX/Bt9gz?=
- =?us-ascii?Q?DIxVOtA/zTUkKTOT4C2yPh2ot1IaBt2DTUanwFIQlMvheqaL+dgDQ/tLpkhs?=
- =?us-ascii?Q?BXu9vYB5zgVstT6eiwnBLVZ/OhqfE1EiuV0x71N76I7NqyNnlnQl?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7c1bf994-109f-404d-f1be-08df045e1868
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 17:10:29.7501
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tTlDf23JBDHjqtMRsf1fJAOrytkWI6895rNLa21Mq2ZbKL1ATqOPjIQF4lp/Avume4qvm4dEhsTRu3SO1dkfdwBE2myCspDKVJY15AY6tu1xTHnb9L0+YYXv+OuOTc0p
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9875
+In-Reply-To: <20260821-james-cs-unformatted-per-thread-fix-v2-10-00c4fd0701b4@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_101034_941365_9E1097FA 
-X-CRM114-Status: GOOD (  28.47  )
+X-CRM114-CacheID: sfid-20260827_101533_661624_710AD2CD 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,101 +88,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 27, 2026 at 06:51:00PM +0200, Michal Gorlas wrote:
-> Since commit f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM
-> states for devicetree platforms"), ASPM states are force enabled
-> on all devicetree platforms. This causes PCI devices on some i.MX SoCs
-> (for e.g. i.MX 8M Plus Kontron SMARC eval carrier) to enter L1 even
-> though CLKREQ# is not supported (and consequently supports-clkreq is
-> not set in pcie controller node of their DT), which causes the device to
-> never wake up from L1.
->
-> Hence, disable L1 capability in the LNKCAP register if supports-clkreq
-> is not set in the DT explicitly. For devices that set
-> IMX_PCIE_FLAG_BROKEN_SUSPEND, disable L1 on resume as well, as these
-> skip imx_pcie_host_init().
->
-> Note, the logic here is very similar to 613f3255a35a, only difference
-> is that leaving L0s enabled does not cause issues (at least
-> I never encountered them myself when testing on the device) as its
-> not dependent on CLKREQ# being physically there.
-> Since there is already a way of specifying its presence in the DT,
-> the driver should be aware and disable L1.
->
-> Fixes: f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM states for devicetree platforms")
-> Signed-off-by: Michal Gorlas <michal.gorlas@9elements.com>
-> Tested-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
-> Changes in v2:
-> - disable L1 unconditionally on resume for platforms advertising
-> IMX_PCIE_FLAG_BROKEN_SUSPEND (Sashiko)
-> - typos in the commit message
-> - Link to v1: https://patch.msgid.link/20260719-l1-conditional-imx-v1-1-a55a57915c68@9elements.com
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
->
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 98e1db751132..1fdcbcd2422e 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -1318,6 +1318,22 @@ static void imx_pcie_assert_perst(struct imx_pcie *imx_pcie, bool assert)
->  	}
->  }
->
-> +static void imx_pcie_disable_l1(struct dw_pcie *pci)
-> +{
-> +	u32 val;
-> +	u8 offset;
-> +
-> +	offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-> +
-> +	dw_pcie_dbi_ro_wr_en(pci);
-> +
-> +	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_LNKCAP);
-> +	val &= ~PCI_EXP_LNKCAP_ASPM_L1;
-> +	dw_pcie_writel_dbi(pci, offset + PCI_EXP_LNKCAP, val);
-> +
-> +	dw_pcie_dbi_ro_wr_dis(pci);
-> +}
-> +
->  static int imx_pcie_host_init(struct dw_pcie_rp *pp)
->  {
->  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> @@ -1442,6 +1458,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
->
->  	imx_setup_phy_mpll(imx_pcie);
->
-> +	if (!imx_pcie->supports_clkreq)
-> +		imx_pcie_disable_l1(pci);
-> +
->  	return 0;
->
->  err_phy_off:
-> @@ -1748,6 +1767,7 @@ static int imx_pcie_resume_noirq(struct device *dev)
->  			return ret;
->  		imx_pcie_deassert_core_reset(imx_pcie);
->  		imx_pcie_assert_perst(imx_pcie, false);
-> +		imx_pcie_disable_l1(imx_pcie->pci);
+On Fri, Aug 21, 2026 at 10:49:08AM +0100, James Clark wrote:
+> The driver produces lots of AUX records for trace data that was never
+> captured in snapshot mode. Downgrade this to a pr_debug3 message as it's
+> only an error in normal mode.
 
-Does l1 disable permanent after resume? should it be
+This reminds why we should use circular mode instead of snapshot mode,
+so that redundant AUX records can be avoided directly in the driver.
 
-	if (!imx_pcie->supports_clkreq)
-		mx_pcie_disable_l1(imx_pcie->pci);
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
-Frank
+For this patch itself:
 
->
->  		/*
->  		 * Using PCIE_TEST_PD seems to disable MSI and powers down the
->
-> ---
-> base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
-> change-id: 20260713-l1-conditional-imx-c2bfd20ae085
->
-> Best regards,
-> --
-> Michal Gorlas <michal.gorlas@9elements.com>
->
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
