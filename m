@@ -4,112 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32767C61DC6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 12:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 472A5C61DC2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 12:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GH4Mmke9PiLqPE4CVnynmuYKT0Ri8KBe11wFWr6tl/c=; b=5DG0wVDIq7pRff3Xno05ZBCOpY
-	RYMtnpSEjO8LxXc+0Tx/daV6s3bC8jqMVWAxkmCZpjfC7sgm1MytOetMgiWqePEpMkgZouHvBrvKJ
-	TD627ElJZzLKeNMaelfwkSUK+Ywsrlwud5rBXqqmdmxo7UmmE7KUdV6xLJoSlp/QbaZrMjTAFzFsw
-	mRdi9RFfFDB9TWkbxh+9C4xhi0wNlU1+h49x04E9sXOrDfcohrfcEBFElTsJme/w71vL086ixWbzX
-	cdGKFN50CIxdb2OenYpbKrD2fv4hE+4kDK8wlKMsh/ojfg0OoBHqvUziBT3zvL9iG2QsN7b73sddW
-	JS4bLJFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=84D7JGfn3OSGzXIWSGTcG//xl0whJ+rapCqk+y7kxGM=; b=taoVT5UAwABsyOHkPyciM95Kzt
+	OZuxab7q7FE8RWTydNVyd/zv8ZNbu6Z7CHN/KBuah5DRKVE0+Vt6sKwihFPMg9zV7IS4wf/FMwcLe
+	3QS3zXlB51wOYxgNFD87G8hwQRg5c5XbZwTUq3QeE3DgjXfCCmDo3ThWeoc5Mt+NMRGdTMT3eYaKR
+	8CqHaZ2UTc+pBHQ5DoyzPihfKRf/cDcMHC8g0CEiOw1+YYQfgsOKvjC5TGcoJESGQO5zvF7rveKKQ
+	ZOQD7ti5k8Tiuxvfn+byMS+ddy5xgPS6oj6JJG8mK1zclCv0eGjXUXELEKHOA8s42BRst9F9PaVOj
+	ZcpWlLGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZds-000000040Cq-2Aot;
-	Thu, 27 Aug 2026 12:55:40 +0000
+	id 1wzZes-000000040OZ-3tCM;
+	Thu, 27 Aug 2026 12:56:42 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzZdr-000000040C2-0NOG;
-	Thu, 27 Aug 2026 12:55:39 +0000
+	id 1wzZer-000000040OL-20F8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Aug 2026 12:56:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 962D2419CD;
-	Thu, 27 Aug 2026 12:55:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42E731F00A3A;
-	Thu, 27 Aug 2026 12:55:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3F41743F6D;
+	Thu, 27 Aug 2026 12:56:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 139751F00AC4;
+	Thu, 27 Aug 2026 12:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787835338;
-	bh=GH4Mmke9PiLqPE4CVnynmuYKT0Ri8KBe11wFWr6tl/c=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=HgcLRfmUrh9vTgSGCwnZrnoTjgV3jvPxOlfLoSvIiEE88EFp5gutc4umGXG/RCVnF
-	 XZKBwy9M1kJiO3SdYBUiJIg38rEkS9BfhkEJzahhcI26jWXmOfzHrfWe4ZG0FT8YEK
-	 gtBlq4QKq2LVa0g5B6MdcDYAkWRmyJIwal4QHtlG/gp7rLPL1ROoo+Y+hIfRyxP8jg
-	 drZX7vhmcipyCO8EgmmFyexsAf9BmSrPE6m1m0sLcUDjUix34uybF9dkrbKJuF3Wyg
-	 083sW9rDatI4k/C4OCuVgvWpNl0PXjm0ncYsOBsyunYDqDdgxKMpJEdtP0+hz1sNH7
-	 WL+IUnihdXYiQ==
-Message-ID: <3b117e89-810f-451f-af13-4822eb57382a@kernel.org>
-Date: Thu, 27 Aug 2026 14:55:28 +0200
+	s=k20260515; t=1787835401;
+	bh=84D7JGfn3OSGzXIWSGTcG//xl0whJ+rapCqk+y7kxGM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=EqdhRjO69TFsGv7z/qz2fyi5pLykZxzEtoKo0V+rVh/cnSQIBfdBnPXXribWkEPs0
+	 EkPCCscmhMTXOUmeMn1BllS3Q3CL728VtQKsOw2bemkg62e0f+I128SIZ6Vb1JgxT6
+	 XehR/1K2kCTwSRsrxSjqt7Z2gkJSfQMBtIzy5NUheyhMTI2WAmUBkTDN7VWXDZ/LkO
+	 jcpwp3EjrvygKkh7q94ZzeHRtZJQjuFZfSOLF9BQsMjE8wNpSC8N5w1yYzDP+zFqeU
+	 5+O6y6huLTq+ENkzXOy3w3ecJM04r08p4KOyRS2bEpnNA/GvhjEQV0F+3o/l7SEEue
+	 u3Vtvq2qPkP+A==
+Date: Thu, 27 Aug 2026 13:56:35 +0100
+From: Will Deacon <will@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v4 2/2] arm64: Don't read GMID_EL1 when MTE is disabled
+Message-ID: <apA0A-bqLVBcmdSv@willie-the-truck>
+References: <20260825164219.3347229-1-fuad.tabba@linux.dev>
+ <20260825164219.3347229-3-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH 14/16] arm64: dts: st: enable usb on stm32mp257f-ev1
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Christian Bruel <christian.bruel@foss.st.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Srinivas Kandagatla <srini@kernel.org>,
- Marek Vasut <marex@nabladev.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Pankaj Dev <pankaj.dev@st.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
-References: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-0-c5e27cbc0795@foss.st.com>
- <20260821-ucpd-host-fusb340-v7-2-rfc-v1-14-c5e27cbc0795@foss.st.com>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260821-ucpd-host-fusb340-v7-2-rfc-v1-14-c5e27cbc0795@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260825164219.3347229-3-fuad.tabba@linux.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,21 +74,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/08/2026 18:23, Fabrice Gasnier wrote:
-> STM32MP257F-EV1 board uses two USB controllers:
-> - USB Host port, with external onboard HUB providing to connectors
-> - USB Dual role Type-C port
-> Both are capable of to operate in High-Speed mode.
-> The Type-C port management is done through integrated UCPD controller
-> and external TCPP03 I2C protection chip on I2C1.
+On Tue, Aug 25, 2026 at 05:42:19PM +0100, Fuad Tabba wrote:
+> __cpuinfo_store_cpu() gates the GMID_EL1 read on the raw
+> ID_AA64PFR1_EL1, so it reads the register even when the kernel has
+> disabled MTE (CONFIG_ARM64_MTE=n or arm64.nomte). KVM sets HCR_EL2.TID5
+> in that case, and pKVM injects an UNDEF the host cannot handle:
 > 
-> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+>   Internal error: Oops - Undefined instruction: 0000000002000000 [#1]  SMP
+>   pc : __cpuinfo_store_cpu+0xf4/0x264
+>   Kernel panic - not syncing: Attempted to kill the idle task!
+> 
+> Only pKVM reaches it, and only after a CPU is offlined and brought back
+> online: its CPU_ON relay sets the host HCR before the CPU enters EL1,
+> while plain nVHE sets it at CPUHP_AP_KVM_ONLINE.
+> 
+> Gate the read on __read_sysreg_by_encoding(), which applies the cmdline
+> override, and on CONFIG_ARM64_MTE, which no register reflects.
+> 
+> Fixes: f35abcbb8a084 ("KVM: arm64: Trap MTE access and discovery when MTE is disabled")
+> Cc: stable@vger.kernel.org # needs "arm64: Apply overrides to CPU local capabilities"
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  arch/arm64/include/asm/cpufeature.h | 9 +++++++++
+>  arch/arm64/kernel/cpufeature.c      | 6 ++----
+>  arch/arm64/kernel/cpuinfo.c         | 2 +-
+>  3 files changed, 12 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index a57870fa96db5..0b374e938f708 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -1085,6 +1085,15 @@ static inline bool cpu_has_lpa2(void)
+>  #endif
+>  }
+>  
+> +/* No ID register reflects CONFIG_ARM64_MTE. */
+> +static inline bool gmid_el1_accessible(void)
+> +{
+> +	if (!IS_ENABLED(CONFIG_ARM64_MTE))
+> +		return false;
+> +
+> +	return id_aa64pfr1_mte(__read_sysreg_by_encoding(SYS_ID_AA64PFR1_EL1));
 
-Please do not combine DTS with USB series (see also submitting patches
-in DT). It cannot be together as it MUST go via different maintainers.
+I'm planning to internalise __read_sysreg_by_encoding() into cpufeature.c
+so I'd prefer to avoid adding another user of it, if possible. In this case,
+__cpuinfo_store_cpu() has already read the thing, so all it needs is the
+override logic (but see below).
 
+> +}
+> +
+>  #endif /* __ASSEMBLER__ */
+>  
+>  #endif
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 88b15b5ef2f7f..23f174b3c4e26 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -1228,7 +1228,7 @@ void __init init_cpu_features(struct cpuinfo_arm64 *info)
+>  		init_cpu_ftr_reg(SYS_MPAMIDR_EL1, info->reg_mpamidr);
+>  	}
+>  
+> -	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
+> +	if (gmid_el1_accessible())
+>  		init_cpu_ftr_reg(SYS_GMID_EL1, info->reg_gmid);
+>  }
+>  
+> @@ -1523,11 +1523,9 @@ void update_cpu_features(int cpu,
+>  	 * they read/write depends on the GMID_EL1.BS field. Check that the
+>  	 * value is the same on all CPUs.
+>  	 */
+> -	if (IS_ENABLED(CONFIG_ARM64_MTE) &&
+> -	    id_aa64pfr1_mte(info->reg_id_aa64pfr1)) {
+> +	if (gmid_el1_accessible())
+>  		taint |= check_update_ftr_reg(SYS_GMID_EL1, cpu,
+>  					      info->reg_gmid, boot->reg_gmid);
+> -	}
+>  
+>  	/*
+>  	 * If we don't have AArch32 at all then skip the checks entirely
+> diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+> index d50e2a9b066b3..389fca84f106b 100644
+> --- a/arch/arm64/kernel/cpuinfo.c
+> +++ b/arch/arm64/kernel/cpuinfo.c
+> @@ -502,7 +502,7 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
+>  	info->reg_id_aa64smfr0 = read_cpuid(ID_AA64SMFR0_EL1);
+>  	info->reg_id_aa64fpfr0 = read_cpuid(ID_AA64FPFR0_EL1);
+>  
+> -	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
+> +	if (gmid_el1_accessible())
+>  		info->reg_gmid = read_cpuid(GMID_EL1);
 
-Best regards,
-Krzysztof
+I'm not sure this is safe. For the boot CPU, __cpuinfo_store_cpu() is
+called before init_cpu_features(), so the arm64_ftr_regs[] array hasn't
+been sorted and we can't call get_arm64_ftr_reg() reliably. In fact, it
+doesn't even look like the overrides will have been processed.
+
+So we're in a bit of a chicken-and-egg problem here. Perhaps we need an
+early (__init) function that can apply the override manually to the
+value read from hardware using arm64_ftr_safe_value(). You'll probably
+need something like my old hack [1] to avoid the bsearch though :/
+
+Will
+
+[1] https://lore.kernel.org/all/20230110161651.GB9436@willie-the-truck/
 
