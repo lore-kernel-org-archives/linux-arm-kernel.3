@@ -4,79 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A287DC61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 20:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6174DC61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 20:32:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date
+	:References:In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l8Lb9EpS1n5E/7Txoa3cXFqqHf8Sd+dWZbPtUZWn3Zk=; b=eQRpJAOn0MFcW4kj36uB5AUd45
-	lT36SVkwCSOEkSOt9Ohj69uqMBNKBH54adEqEaJPVLBwg5Roey5ysZ4CaGRbz8k1UJYTKCITfDww4
-	Vch7XBi9c8ZZEwZMxvG1k6fDGe4GisAoLyELqwVTdAnrXoJXGTOWE3BTiU+pTT4nlYGYUIvd2RezL
-	5W8i/whkHSP0O/5FP5juym0ZvvYb7q6seeYicgNPQ87gGXklWJi363Gy+A1CH+abSM6l8Fdhardiq
-	mwQUg9cO/uqMgDm51XNEsUs5x15izvwG0T20UXPTT0l7VVJsd+HoeYFWA5f2R05/XkS9/c+hHOeSr
-	XV2WbfKA==;
+	bh=63aJYhtp/sCPXuE+IaFJCw2afa/vPx6sj1s0Xm3OpfU=; b=NCvQIjspvBpMM0cxND4YC8v3d7
+	WiQaTLpmZm4yl5gl0oP4jPUoXt5/7KLnuLxfvjNgo54ROa1g6UZZlsL9KoQ+L68rvNS/XUbWvnEhi
+	CZ0o+bju1Yn9dh4eWaHWphKWtJYXYaXYoTNUZbWwiJvKGCZmM7S2L/ASSUg9didGWqBM7u38LR1uL
+	JZH/wAXiAQfoc9pqUaXc27q1uM1+0UqGUzjR3XmRLRcZtkylF4VlHIQPZuNEr3uoTdEGDnLaGAF8o
+	MyGYqLxmOra9Ldh88Ypbzf/EpDX6uv4+nTuIvSFQAK9y2FC56y0u6F0q0uu/0/kai+rr48NSaVGe2
+	fYzwr5hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzgWl-00000004kwv-0ubc;
-	Thu, 27 Aug 2026 20:16:47 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wzglK-00000004lYO-1hbL;
+	Thu, 27 Aug 2026 20:31:50 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzgWh-00000004kwB-3Pv6
+	id 1wzglH-00000004lXm-1fLk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Aug 2026 20:16:46 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 5C7E01A1882;
-	Thu, 27 Aug 2026 20:16:38 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2DBCE5FFF4;
-	Thu, 27 Aug 2026 20:16:38 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3387511C78023;
-	Thu, 27 Aug 2026 22:16:19 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1787861793; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=l8Lb9EpS1n5E/7Txoa3cXFqqHf8Sd+dWZbPtUZWn3Zk=;
-	b=EdMfxSPyWxbI2AQWv3TYspGuKbE84V7XGBlgs3TP6Gp5cHlGZwkz94opAB5K1gudbg8NnK
-	9dyR03jjpXLWmWJpLrRaSa1KAO7m483P6YKubAz4cS6xAA6sjTlqZG9ca6j82bA1fgyUmW
-	vWZajRlLOLp8CUvXaHZn54riA//zny5AmGjVtsE6X+lkplivrmYBys6ZbtsBO0xL5DF6J6
-	07Rw8e1Qv9uU81Ep211hQ7f/XDroBsXgkMingHwLwCyzxHnjdn3zJZc4AHNhBGFdOtEh1u
-	n2INjTbMbOWQy+eQCiGEc6RHh27+RV6w/UefQcF7wb29q6B/1sYkeL872VnHIg==
-Message-ID: <5ad6cfc0-94df-4528-b2af-8a190c1eee7a@bootlin.com>
-Date: Thu, 27 Aug 2026 22:16:18 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 0/6] net: stmmac: More selftest related fixes
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Russell King <linux@armlinux.org.uk>, Heiner Kallweit
- <hkallweit1@gmail.com>, =?UTF-8?Q?Alexis_Lothor=C3=A9?=
- <alexis.lothore@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Emil Renner Berthing <kernel@esmil.dk>,
- Minda Chen <minda.chen@starfivetech.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Jan Petrous <jan.petrous@oss.nxp.com>,
- Ovidiu Panait <ovidiu.panait.rb@renesas.com>, Jose.Abreu@synopsys.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260826140500.616466-1-maxime.chevallier@bootlin.com>
- <20260827105312.34f58822@kernel.org>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260827105312.34f58822@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+	Thu, 27 Aug 2026 20:31:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nH600IbS27q3Du37mMvwzMttMPgR9Hrtmq7H0GokXrf2V9COsVlJHErAtQJji1sA6sVjc0dqe1XncWOJ8muRPC88S66TbUVlXWWuejvUvlu83lnz9/IQt2FPCpO6cZhuEdVfQICfVFOWteJjxUoPOS9tOZOyLjA+7wc2JTNOyq02AwkcEC8MGg5uYE1uKF8BEIdHXXthJRlApn+rufxu0VeLwzfNPc5T4ZqkJAFtBpEaPaZNmnldzaZzJ+E+i6l4zxpAEZMVq6Zp6PXJDTqgF8GlkqOaymFxQ+cwWoxZEjVtH+xNHAX3ZZTfSPUmNr0GPtDCuqSHF8ApJo+51KqFOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=63aJYhtp/sCPXuE+IaFJCw2afa/vPx6sj1s0Xm3OpfU=;
+ b=PXC2x/Tsc5aA+UTdId7Jnl7a19yjuCsU+Thzh3hemWF3pZj5AGYDcouE19UPC1gFDwz5HUWNgATebsENyiWuSPrma6zj/fBdNNOfHxc/QUKVrzf8GaeWkAwsKpewDgVRsfDh/DzE22NoXXtq8V1DREmMzZtA+eSI9/q4m2cWXBNAAMvxIsSjmAtbwYYJrYinDfoCPLS8kFeicBHyZSYRqeyDdjrXJwNM1Wkfz4h+Y9cjCAvQT5alGwc1MObySjfEfnaniuVvjWzKTt9+L6dPAJ8YRTJ0H5MEsH2ldxZmBvBhzGjOIapxHc+/FDARTEW7aLSpr508UJidLRU6nJedBw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=63aJYhtp/sCPXuE+IaFJCw2afa/vPx6sj1s0Xm3OpfU=;
+ b=J8Ai5ruZjSYj+scFzxz4zGQv3rhPOAxwVi4ARwe1Okma268rOvV9nnEd5F7M6aZ0xaNZuWlghB8tBBY+/7jme16SxrcWEBgELwVXxvARImngoBBqPdy/BYekGCi02t3ppugtmPD20HS/0A1aj/t58iTjNRi5ZyiqxfC/g7fJ7VrnIFDu1tUujWLv9RVSUUOrxwbIKyMW+vTDulrTudshmDye1lMCSbYN5af/9dzRc0ZY4/31I61aui3jDJK93z8o2r0gMWRIxcUXfl0blmMeZvl3rjttWhG8D3xeKmDI8dwTsCoutqtsGlEcK5HDyHhc7x3NuruuBokK8MxumBQ1NQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by SN7PR12MB6839.namprd12.prod.outlook.com (2603:10b6:806:265::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.13; Thu, 27 Aug
+ 2026 20:31:35 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0360.008; Thu, 27 Aug 2026
+ 20:31:35 +0000
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Subject: Re: [PATCH v5 02/18] PCI/CXL: Probe the underlying bus reset in
+ cxl_reset_bus_function()
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+ Joerg Roedel <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Jason Gunthorpe <jgg@nvidia.com>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+ Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>, 
+ Mostafa Saleh <smostafa@google.com>, Lu Baolu <baolu.lu@linux.intel.com>, 
+ Kevin Tian <kevin.tian@intel.com>, linux-arm-kernel@lists.infradead.org, 
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ linux-acpi@vger.kernel.org, linux-pci@vger.kernel.org, vsethi@nvidia.com, 
+ Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <eb77bc0422c77158f48f370c3f7c1b937c319894.1783044582.git.nicolinc@nvidia.com>
+References: <cover.1783044582.git.nicolinc@nvidia.com>
+ <eb77bc0422c77158f48f370c3f7c1b937c319894.1783044582.git.nicolinc@nvidia.com>
+Date: Thu, 27 Aug 2026 17:31:31 -0300
+Message-Id: <178786269177.3808739.5968833634148757858.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-ClientProxiedBy: BL1PR13CA0315.namprd13.prod.outlook.com
+ (2603:10b6:208:2c1::20) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SN7PR12MB6839:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8e10be46-c52e-41ce-c3fc-08df047a2ff1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|23010399003|376014|366016|10067099003|4143699003|18002099003|11063799006|56012099006|22082099003;
+X-Microsoft-Antispam-Message-Info: 4EsEVEZUVMVDMKVsNd1FhPmioq4kCU1DxITGNQdC8e6J4kXBx5848HYFSwJlHFF15lp69Oap62dtrZBtgze6H7cSIUgCH2xRAgGHHIY3+FiB5e3barOmZ5yEhmqEWHdGppL8W0c07/YKcNgCxH06svFfOFZ2ain5dgXjO+gJxoIngPn4Ovkx3hsAYpgSJ6YlaEmqfcVMXSu8aoirRpjUIxjTFFfcLdlF0lhTqbHDF70POTy4cmDcfCmYbaXW1zg/mGSKmXkKoXWTNCltoFbaCapO/5Fqf0J/UAVxmykxBt3BQY5qUky5iu1Wg8A33v8Rqyg9+hZG8G8YS59pnI676xHtFtEqq1KuT8Cz5c+twM1CMUAatX6HOXjYTdnlCxRkj9uNi66DgWv3DVwicQgEfXpkd/qaDmttKjQPycQgl/dIVREK9uvqvUdM2qENi0ZRr6Ic4vI1o/EX3vQOHD/60fPff6M2gxAD1Zf03AvGCV6KGKZc6KJLJWgHx+hgcbcNWQg89uCGQwMNd2f/r19KFmDQOOHNV420kW+aHpQd0EYReC5sxyxt+nphOHMiSy83YgzNoiNMstwzDzItgq7Bl0xWP6ktbHD4TGzUPnoG4ZEfn113oSCqCkMlQTxsk0BoNTebOMs++Ii4Gik6AJVCaVrRbSyu+avo58dJYiCvdkc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(23010399003)(376014)(366016)(10067099003)(4143699003)(18002099003)(11063799006)(56012099006)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M0F6V1docFV0TFphVEM4N3dya3F4NG1VNlhrQXpieTlmN0NBQVp6Q3MvRzRL?=
+ =?utf-8?B?NWpvRXc1dXNQWTBjeXhwbUhUZk81UU1ONE5MU3FHNXZHTTRJWk1qWjVjUFNl?=
+ =?utf-8?B?bTRyanoxOUtCUG9kWjJoeXRCMTlVcE05N2tJUU4rQ3NVNVp1eVRLRG9QUjJZ?=
+ =?utf-8?B?ZnJUczc3U2hlUHZpVDJ2VzBzdW0xeVVQdytPZjA3YUZkcGRsUzNQci9SY05i?=
+ =?utf-8?B?OENGUGpPYUVlcDdGdnBLb0VXcEpBdWgrbkg4K2xPaWtvREtSbUpoRzdscmtj?=
+ =?utf-8?B?YkEvbWFGbUsrTHlzSEthWENROFJrQ1JZb3FvMkkwM0p0TURaZ0l3Vy9BMzdB?=
+ =?utf-8?B?eXFGNGMrN3M3T1UwYVlVZmJ6M3g3SWNJa3puZlJlSFZNQlJYVjcyQzR6MUxL?=
+ =?utf-8?B?S3pwUXNuUStqYXdYdjUxT0lVVVFuaU50WEs3SEdBR1BjVzlqVDQvOWNyS3d2?=
+ =?utf-8?B?dTlIY21scy9yK0J5OVozRjVUaDBBYkFQS1lmMTBpZTlJc0NJVEtoRUVSYVJJ?=
+ =?utf-8?B?SUhSOGFIellWZXpOTXBaV3N1SE0rTkcyZ2tTTmpZckZDeUJzNG5QSVRYWlZn?=
+ =?utf-8?B?M3pjVHVvQkEvSHR3K3hULzUrWFZNRkJQejdTMzU0Mm9hMk5Qd3drNEtSSWFT?=
+ =?utf-8?B?Ti9xSDRZL2tQTk83VkhqQVFKUWJjS0JLNlB2cURIOVgzR1ZtWUhhd3Y4YW9I?=
+ =?utf-8?B?VXQ1aE9oeTVzUnJWVWNFdnBSMkFSa1ByblZnbWtIaFhUREZNRGRFclpRNVpV?=
+ =?utf-8?B?aGM1R1VVRW5rYjhOWFlGcEtkbnNJN3dVR2Z3NVI1OVdHeElJU2lYcHBkdm44?=
+ =?utf-8?B?eG1wS0NqMFlpaTNqai9NdUZFejVWZGdlbEdrVXlqZkRQbGRvcGlwUVZpVXNE?=
+ =?utf-8?B?citmdFQ1bzhxTlNOYnlLZ0hWQzZzVnkrT2RMS0t3dS9uSjFhRzB4VWdzTElR?=
+ =?utf-8?B?cDc1Rkh2Q2l1MTgrRHAvZlVPaWJ1QTFUNFNlR3pkaXBHZHRoa2xRb0RaazJK?=
+ =?utf-8?B?dXhjZkNFRWNaUmcvY0FZQ1pwQ3FyNjRNVlEwYXlpSHlsSGxNMEU4dG42TmNy?=
+ =?utf-8?B?Q01qSGdwT0NReGlGN2VOSlRTRVNYYW42UWpoNDc0Tkk0c3BJZ0QzTDg4dzJO?=
+ =?utf-8?B?WUVyWGpEMFFmZmdEdEdaNFNzeExCRnBlZ3NFRVN6UjlLbE1uUHQ4TENUa1ly?=
+ =?utf-8?B?cEw2aXlmaWlOb255K0VzMU91OXdMRmc2L3Nocmt4eWlvRFF0L3dXaWt3K212?=
+ =?utf-8?B?YlVDamRyTnovQ213NHY2Y2pUSFdlNjJBUnJESzZONWxCbnRNM1ZKZWFlWFQw?=
+ =?utf-8?B?c1M4QUhnenQ4TDJFd3E3NUEvU2ptVk1DYkczWUJ3Z0Evb0hrbWk5RUR1Tzl3?=
+ =?utf-8?B?SjFPL3JyWnYyaFp4a0FqZjhrb0NjcVFOVm5PK0RCSVE5b2RPaVhjWldBdU5m?=
+ =?utf-8?B?L1pScjF1bXJSbzJKeUNEcnM5a1paaXI3Umd2Q3BDQXAxR1gwemZYdmZtOU4y?=
+ =?utf-8?B?NDBZajRuR3lwT3dOOGNFa2cxMnJQOXFOeE1jZ3RLbVU5Qmc1Tko5eEt2L1JV?=
+ =?utf-8?B?VGZTQ1NjdFYxaG5ieHFuL3hiWm9uc0xveG15MVJVeDMvcnFoZkJjdk0xKy9v?=
+ =?utf-8?B?dE01eDI4eU81OExjMkFwbjZRYzVSc1owVGlNM3oreWNOOVNmRDY0ZG9sczdz?=
+ =?utf-8?B?aGJITk93azE1VURWV1JmK3BYMG1hRkQxc3JpRjBQZ3JyK1NYVEJZN2lOd3hl?=
+ =?utf-8?B?b3ZXTCtVcXYyb284ZUxpZXpxTWNYbzJrRmFra2tCYjB0VnVONldENWlFUHJq?=
+ =?utf-8?B?NHgzMmd5OHVENS9FL2d3MUxyZ1czRDN6NDZReHdGbHAzbmwvbzBtS3BUcDdC?=
+ =?utf-8?B?Y3hFai9SQUpCKytlTTBwWUdwdU9TdUtINHh0eitGekY1aUN2WFNrVG1hbW50?=
+ =?utf-8?B?eHZpa0crYTFBVjV1VFFGeEFOb2NxaHI4a3QxVVE0cVp0KzJpejlpZDAzMDVH?=
+ =?utf-8?B?dG1NOUdiM1NDQ2E3Rkw3Y2QvVDNkcmc4YTNxT3p2QkRKOTFkQUtBYTRKamxB?=
+ =?utf-8?B?UlVlL2tyamJaV3psU0piNEhzUTVSUHF5OHRKS2w4QjFOVjJ0MUFwVEUvL2hr?=
+ =?utf-8?B?R1pwaEtBbnAvcjZvcFBGNzAyNXFIYVdqS0F1NGlHcFh6cElUcEhpeFNxa2hE?=
+ =?utf-8?B?ZlR3bnpXMjg1Qk5zblVZa2NJYjRZOGhvN21oeDlRd3Q2R2Z3VXM3NkhTVEFq?=
+ =?utf-8?B?YXdIaHpKdGgvZURRbXhlZUFhYVJxOFlxNDZoYnJGOFdXYnI0eStFNWlNK1JU?=
+ =?utf-8?Q?TQfnJh9eQyINNmmXBz?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8e10be46-c52e-41ce-c3fc-08df047a2ff1
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 Aug 2026 20:31:34.9713
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EwRoTG2CMkvTjySxQZ/O2YkMxszhaQ2j9cgVWXv5fjlOJqHugt8a8SR5Jogi2Afd
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6839
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_131644_014153_0C378C97 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20260827_133147_453672_6398C4E3 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,30 +155,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+> [ ... 27 lines skipped ... ]
+> @@ -4979,8 +4979,16 @@ static int cxl_reset_bus_function(struct pci_dev *dev, bool probe)
+>  	if (!dvsec)
+>  		return -ENOTTY;
+>  
+> -	if (probe)
+> -		return 0;
+> +	/*
+> +	 * Do not probe via pci_reset_bus_function(), which would reject a
+> +	 * masked SBR that the do-reset path below unmasks before resetting.
+> +	 */
+> +	if (probe) {
+> +		rc = pci_dev_reset_slot_function(dev, PCI_RESET_PROBE);
+> +		if (rc != -ENOTTY)
+> +			return rc;
+> +		return pci_parent_bus_reset(dev, PCI_RESET_PROBE);
+> +	}
 
-On 8/27/26 19:53, Jakub Kicinski wrote:
-> On Wed, 26 Aug 2026 16:04:52 +0200 Maxime Chevallier wrote:
->> This series addresses some (but not all) issues found while running the
->> ethtool selftest on various stmmac platforms. As a reminder, ethtool
->> selftest are run with 'ethtool -t ethX', and for stmmac the goal is to test
->> hardware features and bugs from the IP integration in the platform.
-> 
-> LGTM, please double check if any of the Clashiko complaints are
-> worthwhile, and if so - follow up:
-> 
-> https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260826140500.616466-2-maxime.chevallier@bootlin.com
+Why not put this a little lower after the:
 
-Thanks, the things raised by AI reviews are correct, and I indeed am working
-on addressing that. That's follow-up material indeed.
+>
+>  	rc = pci_read_config_word(bridge, dvsec + PCI_DVSEC_CXL_PORT_CTL, &reg);
+>  	if (rc)
 
-The main thing AI points points about the UC filter is "but won't we hit UC
-promisc sooner ?" and the answer is yes absolutely, but it's the right thing
-to do.
+?
 
-I've got some information from Synopsys on a way to discover the US filter
-list, and the followup is on its way to get proper unicast filtering on
-dwmac4, stay tuned :)
-
-Maxime
+-- 
+Jason
 
