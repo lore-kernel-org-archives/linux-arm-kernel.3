@@ -4,61 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B100DC61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 15:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD0FC61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Aug 2026 15:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p4wXp4SMnAsjShMyy1yXo/6OnVjOFCZNRDYWqRA8YH4=; b=UXK2tNAAFQpNGGrQX40xysWcUs
-	f2iryD5r73mKsueEmXgow8L5+FkgMrcPJenYyGg2ViQMLMmoeOQHegkBhmIyR/Z5Rt1cRzc432VUS
-	lsH9eRptF3eoctZxaBE4ttftldrN+Ke+pD75dey4vxNvXdNfSC+CzQKHhJi8sX/pa3wf14y+KknuT
-	5kJWpVY4jMj8ENJceWA5A+N0iU/oAUx03JZR0SZQoXbh5YQYGc0O0qxmRGqI8TIAaBjXbqPWDKzHy
-	0NQ60upF3rJSF0pzxYob+2JLlS5N5HAsaitzcsRGTeIAe/YFsGpYO/s0oKCikUh/BRn3tJgk0sQi3
-	9XwSb0PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:
+	Content-Transfer-Encoding:Message-Id:Subject:From:To:In-Reply-To:Date:
+	References:Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t4JSPZHi9ydke9/rPPt+tNOeEYeI6jSjT/5oE9D+9xI=; b=IHwwaH1qTNbAYexZrCrOJ2I/DQ
+	y7mlE8vJ4Bq655WryyYB+54+c5N5W9SAN9BPRrMsnvgVJPPsOLh0edVw9HfzqDb0CYCpjxdYu5iNz
+	IR0ZSXA24qGK8xlXJCc7DdEdy38fTaXKRsktaPPtxxRaxAi0U1dmZtdxtHLW3dlMEarDDzApIkCqB
+	9ZeD48a/ojFPyxxwIurDvH/ZiNgcnksSehYW1W2429+zwfVpregtTJhC0kMQbMgpsRCUyD3AjmAkT
+	xVp6uNhqVhmXuFjyHwqSv4Lcg4DTO4cwG+Ft9FatWmpR7rMUaR9vEffJtnUhEi8qTodXMz8VhHNxv
+	WM/pVPMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzcDv-00000004GWv-1yC3;
-	Thu, 27 Aug 2026 15:41:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wzcGG-00000004Gj2-32Ze;
+	Thu, 27 Aug 2026 15:43:28 +0000
+Received: from sg-2-1.ptr.blmpb.com ([71.18.227.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzcDt-00000004GWe-0fBX;
-	Thu, 27 Aug 2026 15:41:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E1E3B4398B;
-	Thu, 27 Aug 2026 15:41:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C69E21F000E9;
-	Thu, 27 Aug 2026 15:41:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787845260;
-	bh=p4wXp4SMnAsjShMyy1yXo/6OnVjOFCZNRDYWqRA8YH4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=iKfB4+Jku2apizg0iJQ7k8xS39erHnid2NYigmfO/q+T/BUXaZ7F+SpTxnHERxzWC
-	 zLyGc4wm+QCk0g0tcBKwwrTDlMY8KSn3Mr6sfkJPm32TOJ2gUANHo4UkqP1K2GyDfB
-	 RDE+jczfHHiVjfW4MctxUSO+Dlt+CIlUVE//vgXRJ+9+KDmG/77+hMuhyFKQMHch2Q
-	 exsS8MQApbYwz9rpiFo3rT78/AOBFirKWJsbuwS2UCHHIaKlEMIqIuYfwbNmxkJlti
-	 GIeP+p4+IgBbSqcEeP5e5DfI5NUx9VhQmpE4nsNfHGnA5w2Q2tJSnv2k6U1M1f4kTf
-	 mEq+ucR0RkJnQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 938E83809A3B;
-	Thu, 27 Aug 2026 15:40:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v10 1/2] net: airoha: npu: fix missing streaming DMA mask
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178784520615.1711054.16936700320913913242.git-patchwork-notify@kernel.org>
-Date: Thu, 27 Aug 2026 15:40:06 +0000
-References: <20260820085941.380401-1-pawlik.dan@gmail.com>
-In-Reply-To: <20260820085941.380401-1-pawlik.dan@gmail.com>
-To: Daniel Pawlik <pawlik.dan@gmail.com>
-Cc: netdev@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, kuba@kernel.org, lorenzo@kernel.org,
- nbd@nbd.name, sean.wang@mediatek.com, Mark-MC.Lee@mediatek.com,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- andrew+netdev@lunn.ch, yangshiji66@outlook.com
+	id 1wzcGE-00000004Ghd-0WH0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Aug 2026 15:43:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2604220257; d=cherr.cc; t=1787845396; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=t4JSPZHi9ydke9/rPPt+tNOeEYeI6jSjT/5oE9D+9xI=;
+ b=spdOKRzXbQHQxQh/Y7D8+9kzXcXo4tN2qoGCYbRuYSuSucv0YbkeTMhCrv1WZ2Xc72QQBS
+ 9wAJ1a27Z8tnGiTf6z0Y+e7VWUJi5A3cVlTLmiKwccNnXAyKquy9LJgrZGH5byOM/HI85A
+ c2FqHzjobhy4Oi3LTeg495EO3xNvDLC9IzgY52AdmHCTNYQDDWmtNAzzRUkAAUepHndx1m
+ elT5+TX4BdZn85gbOxT6vc5aG/HEcP0FB0S0kwnA7ymBxxKr7eRmUYZYQKF1AuMCRrWAGL
+ c4gT7U7CTWB1jHWeJclCcEegGXGqLPGFx5VfxIEb8PXDDijlMLRLMzt/jWzgbg==
+Received: from [192.168.9.107] ([111.42.148.163]) by smtp.feishu.cn with ESMTPS; Thu, 27 Aug 2026 23:43:13 +0800
+Mime-Version: 1.0
+X-Original-From: Shengzhuo Wei <me@cherr.cc>
+References: <20260827-i2c-dma-channel-leak-v1-0-271d4adc03a0@cherr.cc>
+Date: Thu, 27 Aug 2026 23:43:02 +0800
+X-Lms-Return-Path: <lba+26a905b12+5cb819+lists.infradead.org+me@cherr.cc>
+In-Reply-To: <20260827-i2c-dma-channel-leak-v1-0-271d4adc03a0@cherr.cc>
+To: "Codrin Ciubotariu" <codrin.ciubotariu@microchip.com>, 
+	"Andi Shyti" <andi.shyti@kernel.org>, 
+	"Nicolas Ferre" <nicolas.ferre@microchip.com>, 
+	"Alexandre Belloni" <alexandre.belloni@bootlin.com>, 
+	"Claudiu Beznea" <claudiu.beznea@tuxon.dev>, 
+	"Wolfram Sang" <wsa@kernel.org>, 
+	"Ludovic Desroches" <ludovic.desroches@atmel.com>, 
+	"Oleksij Rempel" <o.rempel@pengutronix.de>, 
+	"Pengutronix Kernel Team" <kernel@pengutronix.de>, 
+	"Frank Li" <Frank.Li@nxp.com>, "Sascha Hauer" <s.hauer@pengutronix.de>, 
+	"Fabio Estevam" <festevam@gmail.com>, 
+	"Yao Yuan" <yao.yuan@freescale.com>, 
+	"Mukesh Kumar Savaliya" <mukesh.savaliya@oss.qualcomm.com>, 
+	"Viken Dadhaniya" <viken.dadhaniya@oss.qualcomm.com>, 
+	"Bjorn Andersson" <andersson@kernel.org>, 
+	"Vinod Koul" <vkoul@kernel.org>, 
+	"Konrad Dybcio" <konrad.dybcio@oss.qualcomm.com>, 
+	"Praveen Talari" <praveen.talari@oss.qualcomm.com>
+From: "Shengzhuo Wei" <me@cherr.cc>
+Subject: [PATCH 2/3] i2c: imx: release DMA channels on probe error
+Message-Id: <20260827-i2c-dma-channel-leak-v1-2-271d4adc03a0@cherr.cc>
+X-Mailer: b4 0.16.0
+Content-Transfer-Encoding: 7bit
+Cc: <linux-i2c@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, 
+	<linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>, 
+	<linux-arm-msm@vger.kernel.org>, <stable@vger.kernel.org>, 
+	"Shengzhuo Wei" <me@cherr.cc>
+Content-Type: text/plain; charset=UTF-8
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260827_084326_344623_B5FCA19A 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +90,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+i2c_imx_dma_request() acquires exclusive tx/rx DMA channels and is
+optional: on errors other than -EPROBE_DEFER the driver falls back to
+PIO mode and probe continues. If i2c_add_numbered_adapter() then fails,
+probe returns through clk_notifier_unregister without releasing the
+channels, because the remove callback is not invoked after a failed
+probe.
 
-This series was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Release the channels on the probe error path, mirroring
+i2c_imx_remove().
 
-On Thu, 20 Aug 2026 10:59:40 +0200 you wrote:
-> The driver calls dma_set_coherent_mask() but never dma_set_mask(),
-> leaving the streaming DMA mask at the bus default. On the non-coherent
-> EN7581 platform (Cortex-A53), this causes the NPU mailbox to hang
-> after approximately 41 calls when using streaming DMA mappings.
-> 
-> Replace dma_set_coherent_mask() with dma_set_mask_and_coherent() to
-> set both the streaming and coherent DMA masks, matching standard
-> driver practice.
-> 
-> [...]
+Fixes: ce1a78840ff7 ("i2c: imx: add DMA support for freescale i2c driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Shengzhuo Wei <me@cherr.cc>
+Assisted-by: GLM:5.3
+---
+ drivers/i2c/busses/i2c-imx.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Here is the summary with links:
-  - [v10,1/2] net: airoha: npu: fix missing streaming DMA mask
-    https://git.kernel.org/netdev/net/c/6fe7e31a45e3
-  - [v10,2/2] net: airoha: npu: use cacheline-sized buffers for mailbox DMA
-    (no matching commit)
+diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+index 19ec056b00af..c24d9201a60e 100644
+--- a/drivers/i2c/busses/i2c-imx.c
++++ b/drivers/i2c/busses/i2c-imx.c
+@@ -1880,6 +1880,8 @@ static int i2c_imx_probe(struct platform_device *pdev)
+ 
+ clk_notifier_unregister:
+ 	clk_notifier_unregister(i2c_imx->clk, &i2c_imx->clk_change_nb);
++	if (i2c_imx->dma)
++		i2c_imx_dma_free(i2c_imx);
+ 	free_irq(irq, i2c_imx);
+ rpm_disable:
+ 	pm_runtime_put_noidle(&pdev->dev);
 
-You are awesome, thank you!
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+2.47.3
 
