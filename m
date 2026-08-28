@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CD26C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:49:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA9BC61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:Cc:
 	To:In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2JCqFzQm8aNYYqwqRNk6Avhe+EOlb78olaivS+pmAQo=; b=CybChYTJv0FzKbbtIilKgEDB2Z
-	18DsiT/iyxyVFMoJYIYxMoPcr6rmue1lo+8vxLtaaX8E5/4cXO0fbwxpKKkp+6rhUz74yfgc/veLz
-	vnsA9BY3VSvyNzzbsGFDLrAdgY3LPBrjDi7fd/2P8roTaauAKm8W4w57O8R0pymarCblNohc6k50c
-	bBrB3SgMesxy8Z+4TNdndtdGAKNy5lAKE3TvZktJmnQi/EIir7OHPLFHa+AsYo3ZM3Bne17+nlmUP
-	KcQ43Rsg/pVgCPjP+/EcxCQHHHI6WeCLfhXaqSBmBWM3FIxoXgWydLNie5NlD0uF5lsgCbPr1g1Wj
-	QCH3M3LQ==;
+	bh=izBZNDHydZtZsP3f9EIyugq6OHKRvXuVqz8xHReuyb8=; b=r2E8j/Q6K0Xc3kFyetFlpL6Gte
+	GPCQCIM4RAZysiteD2rTSu5bET7W+7BDP0ekU/Nd31pvk5Tg/CGCMgvrSQ11/bg3AnrBK0lMfai4Q
+	gaNvAargdObWAISPI9UOr+j2+fJuroMBKF8Jx+iTiurvL6p+uG8izAeiO22aPxXnoE3cOTr+qDTgb
+	+nIeXNzVQXPwvuhF2jaP9h5rBWHuMsFRUvqe2PnZlYBF2oW9i+0vcJkxKZAN0A91hh699wqyyDm7l
+	sH+yqNFk5eP1N65ISwboFBU5iZ21+0D9pGFCQcraIf//9kqlUd3PC1NMjyff3aQPE1SGmqQKyE8Le
+	KM8iEJZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwxX-00000005sbx-2XzU;
-	Fri, 28 Aug 2026 13:49:31 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1wzwxj-00000005st8-3EFW;
+	Fri, 28 Aug 2026 13:49:43 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwwc-00000005r9d-27Qk;
-	Fri, 28 Aug 2026 13:48:36 +0000
+	id 1wzwwe-00000005rB9-2Yy5;
+	Fri, 28 Aug 2026 13:48:38 +0000
 Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260828134832euoutp01dc23b9d3c4cdb66050e42f9d792af022~P-DwxrcVQ2508725087euoutp01e;
-	Fri, 28 Aug 2026 13:48:32 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260828134832euoutp01dc23b9d3c4cdb66050e42f9d792af022~P-DwxrcVQ2508725087euoutp01e
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260828134834euoutp0279ae8654007bb31aa0e6bbb580aafd3f~P-DyTvJ1t2566925669euoutp02i;
+	Fri, 28 Aug 2026 13:48:34 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260828134834euoutp0279ae8654007bb31aa0e6bbb580aafd3f~P-DyTvJ1t2566925669euoutp02i
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1787924912;
-	bh=2JCqFzQm8aNYYqwqRNk6Avhe+EOlb78olaivS+pmAQo=;
+	s=mail20170921; t=1787924914;
+	bh=izBZNDHydZtZsP3f9EIyugq6OHKRvXuVqz8xHReuyb8=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=Auk0NPlmFwPtY35E9pXlPm4q/yK0xbpAZaaQpNX7kk8rUEJljVfXJs4J1NdSH83V8
-	 e2eg8afZeyrHqPCihQXNRyIdszQUSxCGmNPXIrNj+e4Fgo+2zevZcL+lw1Ef1Dr2q/
-	 hc+i7JvwwhvDgix8q37HiCAOEktSBAXCpam7xCrg=
+	b=JLIHAHbNmKKXs2XXdiYTxPlEvTPB5VDhDPRUWfuv+pW8RUlFlj3pRHG6+FvEANGvn
+	 AHPPMrQQUBhU3Ac/8ZPz4h9wLMWdZDvJwZ4IKcnhhzJMfeWbSdWWnqmR1jL+i9hNEQ
+	 Lv1ZC5eKHfswZKa1piLv+HRRRmFlSgW/DDUE/M+U=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260828134832eucas1p28eb7a61379525744cce7edfc0d579d8e~P-DwRAiVK1640916409eucas1p2O;
-	Fri, 28 Aug 2026 13:48:32 +0000 (GMT)
+	20260828134833eucas1p2b3a442d07d7d86d0f82379bc4ecbe62a~P-Dx6ZzSF2729427294eucas1p2-;
+	Fri, 28 Aug 2026 13:48:33 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260828134830eusmtip130a7a761181585ee77bcbd8fe2c99b21~P-Duo9cUh2825028250eusmtip1a;
-	Fri, 28 Aug 2026 13:48:30 +0000 (GMT)
+	20260828134832eusmtip11c6327673c8c8eaa071d498e05f7e0d7~P-DwU438m2815728157eusmtip1E;
+	Fri, 28 Aug 2026 13:48:32 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 28 Aug 2026 15:47:34 +0200
-Subject: [PATCH v2 10/15] drm/bridge: starfive: Add JH7110 HDMI controller
- driver
+Date: Fri, 28 Aug 2026 15:47:35 +0200
+Subject: [PATCH v2 11/15] phy: Add common Innosilicon HDMI PHY helpers
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260828-jh7110-clean-send-v2-10-331680c8b9d1@samsung.com>
+Message-Id: <20260828-jh7110-clean-send-v2-11-331680c8b9d1@samsung.com>
 In-Reply-To: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
 To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
 	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,  Krzysztof
@@ -80,17 +79,17 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
 	Spierings <maudspierings@gocontroll.com>,  Graham Markall
 	<hello@big-grey.co.uk>,  Michal Wilczynski <m.wilczynski@samsung.com>
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20260828134832eucas1p28eb7a61379525744cce7edfc0d579d8e
+X-CMS-MailID: 20260828134833eucas1p2b3a442d07d7d86d0f82379bc4ecbe62a
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260828134832eucas1p28eb7a61379525744cce7edfc0d579d8e
+X-RootMTR: 20260828134833eucas1p2b3a442d07d7d86d0f82379bc4ecbe62a
 X-EPHeader: CA
-X-CMS-RootMailID: 20260828134832eucas1p28eb7a61379525744cce7edfc0d579d8e
+X-CMS-RootMailID: 20260828134833eucas1p2b3a442d07d7d86d0f82379bc4ecbe62a
 References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
-	<CGME20260828134832eucas1p28eb7a61379525744cce7edfc0d579d8e@eucas1p2.samsung.com>
+	<CGME20260828134833eucas1p2b3a442d07d7d86d0f82379bc4ecbe62a@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_064834_851041_C18C97ED 
-X-CRM114-Status: GOOD (  28.69  )
+X-CRM114-CacheID: sfid-20260828_064836_929496_507A2BC2 
+X-CRM114-Status: GOOD (  24.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,299 +104,451 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the HDMI controller (bridge) driver for the StarFive JH7110.
+The Innosilicon HDMI PHY IP is used by several SoCs. They differ in
+where the PHY register block sits in the register space and in which
+pixel clocks they support, but the pre-PLL programming sequence and the
+layout of its registers are the same.
 
-This driver binds to the starfive,jh7110-inno-hdmi-controller node.
-It gets its shared regmap from its parent and its clocks (sys, mclk,
-bclk) from voutcrg. It consumes the pclk (pixel clock) and PHY from its
-hdmi_phy sibling.
+Add a small library holding that shared part: the pre-PLL configuration
+table format, a lookup, clk_ops determine_rate and recalc_rate helpers,
+and the pre-PLL register programming. Callers pass a regmap, a register
+offset for the PHY block, and their own pixel clock table.
 
-The driver calls the generic inno_hdmi_probe function and passes the
-shared regmap to it, registering as a DRM bridge. The .enable hook is
-responsible for setting the PHY's pixel clock rate via clk_set_rate()
-and powering on the PHY via phy_power_on().
-
-The PHY can only generate the discrete set of pixel clocks described by
-its pre-PLL table, so .mode_valid rejects any mode clk_round_rate()
-cannot satisfy. Without it such a mode would be advertised to userspace
-and the modeset would appear to succeed while the display stayed blank.
-
-.enable returns early when the rate is unsupported or the PHY fails to
-power on, so track whether the pixel clock was actually enabled and let
-.disable tear down only what was brought up, otherwise the clock
-refcount underflows.
+No driver uses it yet; the users are converted separately.
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- drivers/gpu/drm/bridge/Kconfig            |  11 ++
- drivers/gpu/drm/bridge/Makefile           |   1 +
- drivers/gpu/drm/bridge/jh7110-inno-hdmi.c | 224 ++++++++++++++++++++++++++++++
- 3 files changed, 236 insertions(+)
+ drivers/phy/Kconfig               |   8 +
+ drivers/phy/Makefile              |   1 +
+ drivers/phy/phy-inno-hdmi.c       | 297 ++++++++++++++++++++++++++++++++++++++
+ include/linux/phy/inno-hdmi-phy.h |  85 +++++++++++
+ 4 files changed, 391 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
-index 4a57d49b4c6d3ab4b965228835b372d191647197..75b1cf6727d5a32310dcf9fe5734d95e14eea8fe 100644
---- a/drivers/gpu/drm/bridge/Kconfig
-+++ b/drivers/gpu/drm/bridge/Kconfig
-@@ -359,6 +359,17 @@ config DRM_SOLOMON_SSD2825
- 	  Say M here if you want to support this hardware as a module.
- 	  The module will be named "ssd2825".
+diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
+index 19f3b7d12b7d492d16000fa52483dc5002590d7a..0e973b3b02a30704d339db9f15d4695bcbec1c75 100644
+--- a/drivers/phy/Kconfig
++++ b/drivers/phy/Kconfig
+@@ -168,6 +168,14 @@ config PHY_XGENE
+ 	help
+ 	  This option enables support for APM X-Gene SoC multi-purpose PHY.
  
-+config DRM_STARFIVE_JH7110_INNO_HDMI
-+	tristate "Starfive JH7110 Innosilicon HDMI bridge"
-+	depends on OF
-+	depends on ARCH_STARFIVE || COMPILE_TEST
-+	select DRM_INNO_HDMI
++config PHY_INNO_HDMI
++	tristate
++	depends on GENERIC_PHY
++	select REGMAP
 +	help
-+	  Enable support for the StarFive JH7110 specific implementation
-+	  of the Innosilicon HDMI controller.
-+	  This driver acts as a glue layer between the JH7110 HDMI subsystem
-+	  parent driver and the generic Innosilicon HDMI bridge driver.
++	  Common helpers for the Innosilicon HDMI PHY, shared by the SoC
++	  drivers that instantiate it. Selected by those drivers.
 +
- config DRM_THINE_THC63LVD1024
- 	tristate "Thine THC63LVD1024 LVDS decoder bridge"
- 	depends on OF
-diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
-index 15cc821d85b7ea6f3cdc313f3e521b028de567d7..5d843f4ad7ed50b28cb75286c5e22789d91a0836 100644
---- a/drivers/gpu/drm/bridge/Makefile
-+++ b/drivers/gpu/drm/bridge/Makefile
-@@ -30,6 +30,7 @@ obj-$(CONFIG_DRM_SIL_SII8620) += sil-sii8620.o
- obj-$(CONFIG_DRM_SII902X) += sii902x.o
- obj-$(CONFIG_DRM_SII9234) += sii9234.o
- obj-$(CONFIG_DRM_SIMPLE_BRIDGE) += simple-bridge.o
-+obj-$(CONFIG_DRM_STARFIVE_JH7110_INNO_HDMI) += jh7110-inno-hdmi.o
- obj-$(CONFIG_DRM_SOLOMON_SSD2825) += ssd2825.o
- obj-$(CONFIG_DRM_THEAD_TH1520_DW_HDMI) += th1520-dw-hdmi.o
- obj-$(CONFIG_DRM_THINE_THC63LVD1024) += thc63lvd1024.o
-diff --git a/drivers/gpu/drm/bridge/jh7110-inno-hdmi.c b/drivers/gpu/drm/bridge/jh7110-inno-hdmi.c
+ source "drivers/phy/allwinner/Kconfig"
+ source "drivers/phy/amlogic/Kconfig"
+ source "drivers/phy/apple/Kconfig"
+diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
+index d7aa516bcc49e7662c9c9db421833fe591dfbc05..e93c473dfc6d837ed6ba540f0b0204a0d68d25bf 100644
+--- a/drivers/phy/Makefile
++++ b/drivers/phy/Makefile
+@@ -7,6 +7,7 @@ obj-$(CONFIG_PHY_COMMON_PROPS)		+= phy-common-props.o
+ obj-$(CONFIG_PHY_COMMON_PROPS_TEST)	+= phy-common-props-test.o
+ obj-$(CONFIG_GENERIC_PHY)		+= phy-core.o
+ obj-$(CONFIG_GENERIC_PHY_MIPI_DPHY)	+= phy-core-mipi-dphy.o
++obj-$(CONFIG_PHY_INNO_HDMI)		+= phy-inno-hdmi.o
+ obj-$(CONFIG_PHY_AIROHA_PCIE)		+= phy-airoha-pcie.o
+ obj-$(CONFIG_PHY_CAN_TRANSCEIVER)	+= phy-can-transceiver.o
+ obj-$(CONFIG_PHY_ECONET_PCIE)		+= phy-econet-pcie.o
+diff --git a/drivers/phy/phy-inno-hdmi.c b/drivers/phy/phy-inno-hdmi.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..be865aa39e33f70614fa7cb58a683b9fcf051599
+index 0000000000000000000000000000000000000000..deb2b73a86f5d6be96dedc818c39777904eb37ee
 --- /dev/null
-+++ b/drivers/gpu/drm/bridge/jh7110-inno-hdmi.c
-@@ -0,0 +1,224 @@
-+// SPDX-License-Identifier: GPL-2.0
++++ b/drivers/phy/phy-inno-hdmi.c
+@@ -0,0 +1,297 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
-+ * Copyright (C) StarFive Technology Co., Ltd.
++ * Common helpers for the Innosilicon HDMI PHY.
++ *
++ * Copyright (c) 2017 Rockchip Electronics Co. Ltd.
 + * Copyright (c) 2025 Samsung Electronics Co., Ltd.
++ *
++ * Author: Zheng Yang <zhengyang@rock-chips.com>
 + * Author: Michal Wilczynski <m.wilczynski@samsung.com>
 + *
-+ * HDMI controller (bridge) driver for the StarFive JH7110 HDMI subsystem.
++ * Derived from drivers/phy/rockchip/phy-rockchip-inno-hdmi.c.
++ *
++ * The same PHY IP is used by several SoCs, which differ in where the PHY
++ * register block sits and in the pixel clock table they support, but share
++ * the pre-PLL programming sequence.
 + */
 +
-+#include <linux/clk.h>
-+#include <linux/mod_devicetable.h>
++#include <linux/bitfield.h>
++#include <linux/bits.h>
++#include <linux/clk-provider.h>
++#include <linux/errno.h>
++#include <linux/export.h>
++#include <linux/iopoll.h>
++#include <linux/math64.h>
 +#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/phy/phy.h>
 +#include <linux/regmap.h>
-+#include <linux/reset.h>
 +
-+#include <drm/bridge/inno_hdmi.h>
-+#include <drm/drm_modes.h>
++#include <linux/phy/inno-hdmi-phy.h>
 +
-+enum stf_hdmi_ctrl_clocks { CLK_SYS = 0, CLK_M, CLK_B, CLK_PCLK, CLK_CTRL_NUM };
++#define INNO_PRE_PLL_CONTROL			0xa0
++#define INNO_PRE_PLL_POWER_DOWN			BIT(0)
++#define INNO_PCLK_VCO_DIV_5_MASK		BIT(1)
++#define INNO_PCLK_VCO_DIV_5(x)			FIELD_PREP(BIT(1), x)
 +
-+struct stf_inno_hdmi_controller {
-+	struct device *dev;
-+	struct clk_bulk_data clks[CLK_CTRL_NUM];
-+	struct reset_control *tx_rst;
-+	struct phy *phy;
-+	bool enabled;
-+};
++#define INNO_PRE_PLL_DIV_1			0xa1
++#define INNO_PRE_PLL_PRE_DIV_MASK		GENMASK(5, 0)
++#define INNO_PRE_PLL_PRE_DIV(x)			FIELD_PREP(GENMASK(5, 0), x)
 +
-+static enum drm_mode_status
-+inno_hdmi_starfive_mode_valid(struct device *dev,
-+			      const struct drm_display_mode *mode)
++#define INNO_PRE_PLL_DIV_2			0xa2
++#define INNO_SPREAD_SPECTRUM_MOD_DISABLE	BIT(6)
++#define INNO_PRE_PLL_FRAC_DIV_DISABLE		FIELD_PREP(GENMASK(5, 4), 3)
++#define INNO_PRE_PLL_FB_DIV_11_8_MASK		GENMASK(3, 0)
++#define INNO_PRE_PLL_FB_DIV_11_8(x)		FIELD_PREP(GENMASK(3, 0), (x) >> 8)
++
++#define INNO_PRE_PLL_DIV_3			0xa3
++#define INNO_PRE_PLL_FB_DIV_7_0(x)		FIELD_PREP(GENMASK(7, 0), x)
++
++#define INNO_PRE_PLL_TMDSCLK_DIV		0xa4
++#define INNO_PRE_PLL_TMDSCLK_DIV_C(x)		FIELD_PREP(GENMASK(1, 0), x)
++#define INNO_PRE_PLL_TMDSCLK_DIV_B(x)		FIELD_PREP(GENMASK(3, 2), x)
++#define INNO_PRE_PLL_TMDSCLK_DIV_A(x)		FIELD_PREP(GENMASK(5, 4), x)
++
++#define INNO_PCLK_DIV_AB			0xa5
++#define INNO_PCLK_DIV_B_MASK			GENMASK(6, 5)
++#define INNO_PCLK_DIV_B(x)			FIELD_PREP(GENMASK(6, 5), x)
++#define INNO_PCLK_DIV_A_MASK			GENMASK(4, 0)
++#define INNO_PCLK_DIV_A(x)			FIELD_PREP(GENMASK(4, 0), x)
++
++#define INNO_PCLK_DIV_CD			0xa6
++#define INNO_PCLK_DIV_C(x)			FIELD_PREP(GENMASK(6, 5), x)
++#define INNO_PCLK_DIV_D_MASK			GENMASK(4, 0)
++#define INNO_PCLK_DIV_D(x)			FIELD_PREP(GENMASK(4, 0), x)
++
++#define INNO_PRE_PLL_LOCK_STATUS		0xa9
++#define INNO_PRE_PLL_LOCK			BIT(0)
++
++#define INNO_PRE_PLL_FRAC_DIV_23_16		0xd1
++#define INNO_PRE_PLL_FRAC_DIV_15_8		0xd2
++#define INNO_PRE_PLL_FRAC_DIV_7_0		0xd3
++#define INNO_PRE_PLL_FRAC_DIV(x)		FIELD_PREP(GENMASK(7, 0), x)
++
++#define INNO_FRAC_DIV_WIDTH			24
++
++static unsigned int inno_reg(const struct inno_hdmi_phy_pre_pll *pll,
++			     unsigned int reg)
 +{
-+	struct stf_inno_hdmi_controller *ctrl = dev_get_drvdata(dev);
-+	unsigned long pixelclk = mode->clock * 1000;
-+	long rounded;
-+
-+	/*
-+	 * The PHY can only generate the discrete set of pixel clocks described
-+	 * by its pre-PLL table, and clk_round_rate() fails for anything else.
-+	 * Reject those modes here: without this the modeset would appear to
-+	 * succeed while the PHY never produces a signal.
-+	 */
-+	rounded = clk_round_rate(ctrl->clks[CLK_PCLK].clk, pixelclk);
-+	if (rounded < 0 || rounded != pixelclk)
-+		return MODE_NOCLOCK;
-+
-+	return MODE_OK;
++	return (pll->offset + reg) * 4;
 +}
 +
-+static void inno_hdmi_starfive_enable(struct device *dev,
-+				      struct drm_display_mode *mode)
++static void inno_write(const struct inno_hdmi_phy_pre_pll *pll,
++		       unsigned int reg, u8 val)
 +{
-+	struct stf_inno_hdmi_controller *ctrl = dev_get_drvdata(dev);
-+	int ret;
-+
-+	/*
-+	 * 1. Set the pixel clock rate. This calls the PHY driver's .set_rate op.
-+	 */
-+	ret = clk_set_rate(ctrl->clks[CLK_PCLK].clk, mode->clock * 1000);
-+	if (ret) {
-+		dev_err(dev, "Failed to set pclk rate %d: %d\n",
-+			mode->clock * 1000, ret);
-+		return;
-+	}
-+
-+	/*
-+	 * 2. Enable the pixel clock. This calls the PHY driver's .prepare op.
-+	 */
-+	ret = clk_prepare_enable(ctrl->clks[CLK_PCLK].clk);
-+	if (ret) {
-+		dev_err(dev, "Failed to enable pclk: %d\n", ret);
-+		return;
-+	}
-+
-+	/*
-+	 * 3. Power on the PHY. This calls the PHY driver's .power_on op,
-+	 * which configures the Post-PLL and analog blocks.
-+	 */
-+	ret = phy_power_on(ctrl->phy);
-+	if (ret) {
-+		dev_err(dev, "Failed to power on PHY: %d\n", ret);
-+		clk_disable_unprepare(ctrl->clks[CLK_PCLK].clk);
-+		return;
-+	}
-+
-+	ctrl->enabled = true;
++	regmap_write(pll->regmap, inno_reg(pll, reg), val);
 +}
 +
-+static void inno_hdmi_starfive_disable(struct device *dev)
++static u8 inno_read(const struct inno_hdmi_phy_pre_pll *pll, unsigned int reg)
 +{
-+	struct stf_inno_hdmi_controller *ctrl = dev_get_drvdata(dev);
++	unsigned int val;
 +
-+	/*
-+	 * .enable bails out early if the pixel clock rate is unsupported or
-+	 * the PHY fails to power on, leaving pclk and the PHY untouched.
-+	 * Only tear down what was actually brought up, otherwise the clock
-+	 * refcount underflows.
-+	 */
-+	if (!ctrl->enabled)
-+		return;
++	regmap_read(pll->regmap, inno_reg(pll, reg), &val);
 +
-+	phy_power_off(ctrl->phy);
-+	clk_disable_unprepare(ctrl->clks[CLK_PCLK].clk);
-+	ctrl->enabled = false;
++	return val;
 +}
 +
-+static int starfive_inno_hdmi_controller_probe(struct platform_device *pdev)
++static void inno_update_bits(const struct inno_hdmi_phy_pre_pll *pll,
++			     unsigned int reg, u8 mask, u8 val)
 +{
-+	struct device *dev = &pdev->dev;
-+	struct device *parent = dev->parent;
-+	struct stf_inno_hdmi_controller *ctrl;
-+	const struct inno_hdmi_plat_data *plat_data;
-+	struct regmap *regmap;
-+	struct inno_hdmi *inno;
-+	int ret;
-+
-+	ctrl = devm_kzalloc(dev, sizeof(*ctrl), GFP_KERNEL);
-+	if (!ctrl)
-+		return -ENOMEM;
-+
-+	ctrl->dev = dev;
-+	platform_set_drvdata(pdev, ctrl);
-+
-+	/* Get the shared regmap from the parent */
-+	regmap = dev_get_regmap(parent, NULL);
-+	if (!regmap) {
-+		dev_err(dev, "Failed to get parent regmap\n");
-+		return -ENODEV;
-+	}
-+
-+	ctrl->phy = devm_phy_get(dev, "hdmi-phy");
-+	if (IS_ERR(ctrl->phy))
-+		return dev_err_probe(dev, PTR_ERR(ctrl->phy), "Failed to get PHY\n");
-+
-+	ctrl->tx_rst = devm_reset_control_get_exclusive(dev, "hdmi_tx");
-+	if (IS_ERR(ctrl->tx_rst))
-+		return dev_err_probe(dev, PTR_ERR(ctrl->tx_rst), "failed to get tx reset\n");
-+
-+	/* Populate the clock names this controller *consumes* */
-+	ctrl->clks[CLK_SYS].id = "sys";
-+	ctrl->clks[CLK_M].id = "mclk";
-+	ctrl->clks[CLK_B].id = "bclk";
-+	ctrl->clks[CLK_PCLK].id = "pclk"; /* Pixel clock *from* PHY */
-+
-+	ret = devm_clk_bulk_get(dev, CLK_CTRL_NUM, ctrl->clks);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Unable to get controller clocks\n");
-+
-+	/* pclk is enabled on demand during modeset */
-+	ret = clk_bulk_prepare_enable(CLK_CTRL_NUM - 1, ctrl->clks);
-+	if (ret)
-+		return ret;
-+
-+	ret = reset_control_deassert(ctrl->tx_rst);
-+	if (ret) {
-+		clk_bulk_disable_unprepare(CLK_CTRL_NUM - 1, ctrl->clks);
-+		return ret;
-+	}
-+
-+	plat_data = of_device_get_match_data(dev);
-+
-+	/* Hand off to the generic library to create the bridge. */
-+	inno = inno_hdmi_probe(pdev, plat_data);
-+	if (IS_ERR(inno)) {
-+		reset_control_assert(ctrl->tx_rst);
-+		clk_bulk_disable_unprepare(CLK_CTRL_NUM - 1, ctrl->clks);
-+		return PTR_ERR(inno);
-+	}
-+
-+	return 0;
++	regmap_update_bits(pll->regmap, inno_reg(pll, reg), mask, val);
 +}
 +
-+static void starfive_inno_hdmi_controller_remove(struct platform_device *pdev)
-+{
-+	struct stf_inno_hdmi_controller *ctrl = platform_get_drvdata(pdev);
-+
-+	reset_control_assert(ctrl->tx_rst);
-+	clk_bulk_disable_unprepare(CLK_CTRL_NUM - 1, ctrl->clks);
-+}
-+
-+/*
-+ * This table is now only used for the generic .mode_valid check.
-+ * The real validation happens in the PHY driver's .round_rate.
++/**
++ * inno_hdmi_phy_pre_pll_lookup - find the settings for a pixel clock
++ * @pll: pre-PLL instance
++ * @pixclock: requested pixel clock, in Hz
++ * @tmdsclock: requested TMDS clock, in Hz
++ *
++ * Return: the matching table entry, or an ERR_PTR if the PHY cannot generate
++ * the requested combination.
 + */
-+static struct inno_hdmi_phy_config stf_hdmi_phy_configs[] = {
-+	{ 297000000, 0x00, 0x00 },
-+	{ ~0UL, 0x00, 0x00 }, /* Sentinel */
-+};
++const struct inno_hdmi_phy_pre_pll_config *
++inno_hdmi_phy_pre_pll_lookup(const struct inno_hdmi_phy_pre_pll *pll,
++			     unsigned long pixclock, unsigned long tmdsclock)
++{
++	const struct inno_hdmi_phy_pre_pll_config *cfg;
 +
-+static const struct inno_hdmi_plat_ops stf_inno_hdmi_plat_ops = {
-+	.enable = inno_hdmi_starfive_enable,
-+	.disable = inno_hdmi_starfive_disable,
-+	.mode_valid = inno_hdmi_starfive_mode_valid,
-+};
++	for (cfg = pll->table; cfg->pixclock != 0; cfg++)
++		if (cfg->pixclock == pixclock && cfg->tmdsclock == tmdsclock)
++			return cfg;
 +
-+static const struct inno_hdmi_plat_data stf_inno_hdmi_plat_data = {
-+	.ops = &stf_inno_hdmi_plat_ops,
-+	.phy_configs = stf_hdmi_phy_configs,
-+	.default_phy_config = &stf_hdmi_phy_configs[0],
-+};
++	return ERR_PTR(-EINVAL);
++}
++EXPORT_SYMBOL_GPL(inno_hdmi_phy_pre_pll_lookup);
 +
-+static const struct of_device_id starfive_hdmi_controller_dt_ids[] = {
-+	{ .compatible = "starfive,jh7110-inno-hdmi-controller",
-+	  .data = &stf_inno_hdmi_plat_data },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, starfive_hdmi_controller_dt_ids);
++/**
++ * inno_hdmi_phy_pre_pll_determine_rate - clk_ops.determine_rate helper
++ * @pll: pre-PLL instance
++ * @req: rate request, updated with the rate the PHY would produce
++ *
++ * The PHY can only generate the pixel clocks described by its table, so a
++ * request that does not appear there is rejected rather than rounded.
++ *
++ * Return: 0 on success, -EINVAL if the rate is not supported.
++ */
++int inno_hdmi_phy_pre_pll_determine_rate(const struct inno_hdmi_phy_pre_pll *pll,
++					 struct clk_rate_request *req)
++{
++	const struct inno_hdmi_phy_pre_pll_config *cfg;
++	unsigned long rate = rounddown(req->rate, 1000);
 +
-+struct platform_driver starfive_inno_hdmi_controller_driver = {
-+	.probe = starfive_inno_hdmi_controller_probe,
-+	.remove = starfive_inno_hdmi_controller_remove,
-+	.driver = {
-+		.name = "starfive-inno-hdmi-controller",
-+		.of_match_table = starfive_hdmi_controller_dt_ids,
-+	},
-+};
-+module_platform_driver(starfive_inno_hdmi_controller_driver);
++	for (cfg = pll->table; cfg->pixclock != 0; cfg++) {
++		if (cfg->pixclock == rate) {
++			req->rate = cfg->pixclock;
++			return 0;
++		}
++	}
 +
-+MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
-+MODULE_DESCRIPTION("StarFive INNO HDMI Controller Driver");
++	return -EINVAL;
++}
++EXPORT_SYMBOL_GPL(inno_hdmi_phy_pre_pll_determine_rate);
++
++/**
++ * inno_hdmi_phy_pre_pll_recalc_rate - clk_ops.recalc_rate helper
++ * @pll: pre-PLL instance
++ * @parent_rate: rate of the reference clock, in Hz
++ *
++ * Return: the pixel clock the pre-PLL is currently programmed for, in Hz.
++ */
++unsigned long
++inno_hdmi_phy_pre_pll_recalc_rate(const struct inno_hdmi_phy_pre_pll *pll,
++				  unsigned long parent_rate)
++{
++	u8 nd, no_a, no_b, no_d;
++	unsigned long frac;
++	u64 vco;
++	u16 nf;
++
++	nd = inno_read(pll, INNO_PRE_PLL_DIV_1) & INNO_PRE_PLL_PRE_DIV_MASK;
++	nf = (inno_read(pll, INNO_PRE_PLL_DIV_2) &
++	      INNO_PRE_PLL_FB_DIV_11_8_MASK) << 8;
++	nf |= inno_read(pll, INNO_PRE_PLL_DIV_3);
++	vco = parent_rate * nf;
++
++	if (!(inno_read(pll, INNO_PRE_PLL_DIV_2) &
++	      INNO_PRE_PLL_FRAC_DIV_DISABLE)) {
++		frac = inno_read(pll, INNO_PRE_PLL_FRAC_DIV_7_0) |
++		       (inno_read(pll, INNO_PRE_PLL_FRAC_DIV_15_8) << 8) |
++		       (inno_read(pll, INNO_PRE_PLL_FRAC_DIV_23_16) << 16);
++		vco += DIV_ROUND_CLOSEST(parent_rate * frac,
++					 BIT(INNO_FRAC_DIV_WIDTH));
++	}
++
++	if (inno_read(pll, INNO_PRE_PLL_CONTROL) & INNO_PCLK_VCO_DIV_5_MASK) {
++		do_div(vco, nd * 5);
++	} else {
++		no_a = inno_read(pll, INNO_PCLK_DIV_AB) & INNO_PCLK_DIV_A_MASK;
++		no_b = FIELD_GET(INNO_PCLK_DIV_B_MASK,
++				 inno_read(pll, INNO_PCLK_DIV_AB)) + 2;
++		no_d = inno_read(pll, INNO_PCLK_DIV_CD) & INNO_PCLK_DIV_D_MASK;
++
++		do_div(vco, nd * (no_a == 1 ? no_b : no_a) * no_d * 2);
++	}
++
++	return DIV_ROUND_CLOSEST((unsigned long)vco, 1000) * 1000;
++}
++EXPORT_SYMBOL_GPL(inno_hdmi_phy_pre_pll_recalc_rate);
++
++/**
++ * inno_hdmi_phy_pre_pll_configure - program the pre-PLL dividers
++ * @pll: pre-PLL instance
++ * @cfg: settings to program
++ *
++ * The caller is responsible for powering the pre-PLL down beforehand and back
++ * up afterwards, and for waiting for it to lock.
++ */
++void inno_hdmi_phy_pre_pll_configure(const struct inno_hdmi_phy_pre_pll *pll,
++				     const struct inno_hdmi_phy_pre_pll_config *cfg)
++{
++	u8 val;
++
++	inno_update_bits(pll, INNO_PRE_PLL_CONTROL, INNO_PCLK_VCO_DIV_5_MASK,
++			 INNO_PCLK_VCO_DIV_5(cfg->vco_div_5_en));
++	inno_write(pll, INNO_PRE_PLL_DIV_1, INNO_PRE_PLL_PRE_DIV(cfg->prediv));
++
++	val = INNO_SPREAD_SPECTRUM_MOD_DISABLE;
++	if (!cfg->fracdiv)
++		val |= INNO_PRE_PLL_FRAC_DIV_DISABLE;
++
++	inno_write(pll, INNO_PRE_PLL_DIV_2,
++		   INNO_PRE_PLL_FB_DIV_11_8(cfg->fbdiv) | val);
++	inno_write(pll, INNO_PRE_PLL_DIV_3,
++		   INNO_PRE_PLL_FB_DIV_7_0(cfg->fbdiv));
++
++	inno_write(pll, INNO_PCLK_DIV_AB,
++		   INNO_PCLK_DIV_A(cfg->pclk_div_a) |
++		   INNO_PCLK_DIV_B(cfg->pclk_div_b));
++	inno_write(pll, INNO_PCLK_DIV_CD,
++		   INNO_PCLK_DIV_C(cfg->pclk_div_c) |
++		   INNO_PCLK_DIV_D(cfg->pclk_div_d));
++
++	inno_write(pll, INNO_PRE_PLL_TMDSCLK_DIV,
++		   INNO_PRE_PLL_TMDSCLK_DIV_A(cfg->tmds_div_a) |
++		   INNO_PRE_PLL_TMDSCLK_DIV_B(cfg->tmds_div_b) |
++		   INNO_PRE_PLL_TMDSCLK_DIV_C(cfg->tmds_div_c));
++
++	inno_write(pll, INNO_PRE_PLL_FRAC_DIV_7_0,
++		   INNO_PRE_PLL_FRAC_DIV(cfg->fracdiv));
++	inno_write(pll, INNO_PRE_PLL_FRAC_DIV_15_8,
++		   INNO_PRE_PLL_FRAC_DIV(cfg->fracdiv >> 8));
++	inno_write(pll, INNO_PRE_PLL_FRAC_DIV_23_16,
++		   INNO_PRE_PLL_FRAC_DIV(cfg->fracdiv >> 16));
++}
++EXPORT_SYMBOL_GPL(inno_hdmi_phy_pre_pll_configure);
++
++/**
++ * inno_hdmi_phy_pre_pll_power_down - power the pre-PLL down or up
++ * @pll: pre-PLL instance
++ * @power_down: true to power down, false to power up
++ */
++void inno_hdmi_phy_pre_pll_power_down(const struct inno_hdmi_phy_pre_pll *pll,
++				      bool power_down)
++{
++	inno_update_bits(pll, INNO_PRE_PLL_CONTROL, INNO_PRE_PLL_POWER_DOWN,
++			 power_down ? INNO_PRE_PLL_POWER_DOWN : 0);
++}
++EXPORT_SYMBOL_GPL(inno_hdmi_phy_pre_pll_power_down);
++
++/**
++ * inno_hdmi_phy_pre_pll_is_powered - report whether the pre-PLL is powered up
++ * @pll: pre-PLL instance
++ */
++bool inno_hdmi_phy_pre_pll_is_powered(const struct inno_hdmi_phy_pre_pll *pll)
++{
++	return !(inno_read(pll, INNO_PRE_PLL_CONTROL) & INNO_PRE_PLL_POWER_DOWN);
++}
++EXPORT_SYMBOL_GPL(inno_hdmi_phy_pre_pll_is_powered);
++
++/**
++ * inno_hdmi_phy_pre_pll_is_locked - report whether the pre-PLL has locked
++ * @pll: pre-PLL instance
++ */
++bool inno_hdmi_phy_pre_pll_is_locked(const struct inno_hdmi_phy_pre_pll *pll)
++{
++	return inno_read(pll, INNO_PRE_PLL_LOCK_STATUS) & INNO_PRE_PLL_LOCK;
++}
++EXPORT_SYMBOL_GPL(inno_hdmi_phy_pre_pll_is_locked);
++
++/**
++ * inno_hdmi_phy_pre_pll_wait_locked - wait for the pre-PLL to lock
++ * @pll: pre-PLL instance
++ * @timeout_us: how long to wait, in microseconds
++ *
++ * Return: 0 once locked, -ETIMEDOUT otherwise.
++ */
++int inno_hdmi_phy_pre_pll_wait_locked(const struct inno_hdmi_phy_pre_pll *pll,
++				      unsigned int timeout_us)
++{
++	unsigned int val;
++
++	return regmap_read_poll_timeout(pll->regmap,
++					inno_reg(pll, INNO_PRE_PLL_LOCK_STATUS),
++					val, val & INNO_PRE_PLL_LOCK,
++					1000, timeout_us);
++}
++EXPORT_SYMBOL_GPL(inno_hdmi_phy_pre_pll_wait_locked);
++
++MODULE_DESCRIPTION("Innosilicon HDMI PHY common helpers");
 +MODULE_LICENSE("GPL");
+diff --git a/include/linux/phy/inno-hdmi-phy.h b/include/linux/phy/inno-hdmi-phy.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..e13911e1a18437cf9cefa43dac494caeb2935782
+--- /dev/null
++++ b/include/linux/phy/inno-hdmi-phy.h
+@@ -0,0 +1,85 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Common helpers for the Innosilicon HDMI PHY.
++ *
++ * Copyright (c) 2017 Rockchip Electronics Co. Ltd.
++ * Copyright (c) 2025 Samsung Electronics Co., Ltd.
++ *
++ * Author: Zheng Yang <zhengyang@rock-chips.com>
++ * Author: Michal Wilczynski <m.wilczynski@samsung.com>
++ *
++ * Derived from drivers/phy/rockchip/phy-rockchip-inno-hdmi.c.
++ */
++
++#ifndef __PHY_INNO_HDMI_H__
++#define __PHY_INNO_HDMI_H__
++
++#include <linux/types.h>
++
++struct clk_rate_request;
++struct regmap;
++
++/**
++ * struct inno_hdmi_phy_pre_pll_config - pre-PLL settings for one pixel clock
++ * @pixclock: pixel clock this entry describes, in Hz
++ * @tmdsclock: TMDS clock this entry describes, in Hz
++ * @prediv: pre-PLL reference divider
++ * @fbdiv: pre-PLL feedback divider
++ * @tmds_div_a: TMDS clock divider A
++ * @tmds_div_b: TMDS clock divider B
++ * @tmds_div_c: TMDS clock divider C
++ * @pclk_div_a: pixel clock divider A
++ * @pclk_div_b: pixel clock divider B
++ * @pclk_div_c: pixel clock divider C
++ * @pclk_div_d: pixel clock divider D
++ * @vco_div_5_en: divide the VCO output by five
++ * @fracdiv: pre-PLL fractional divider, zero to use integer mode
++ */
++struct inno_hdmi_phy_pre_pll_config {
++	unsigned long pixclock;
++	unsigned long tmdsclock;
++	u8 prediv;
++	u16 fbdiv;
++	u8 tmds_div_a;
++	u8 tmds_div_b;
++	u8 tmds_div_c;
++	u8 pclk_div_a;
++	u8 pclk_div_b;
++	u8 pclk_div_c;
++	u8 pclk_div_d;
++	u8 vco_div_5_en;
++	u32 fracdiv;
++};
++
++/**
++ * struct inno_hdmi_phy_pre_pll - a pre-PLL instance
++ * @regmap: register map covering the PHY registers
++ * @offset: offset of the PHY register block, in units of the register index.
++ *	    Zero where the PHY block starts the register space, 0x100 on the
++ *	    StarFive JH7110 where it is preceded by the HDMI controller.
++ * @table: pixel clock table, terminated by an entry with a zero pixclock
++ */
++struct inno_hdmi_phy_pre_pll {
++	struct regmap *regmap;
++	unsigned int offset;
++	const struct inno_hdmi_phy_pre_pll_config *table;
++};
++
++const struct inno_hdmi_phy_pre_pll_config *
++inno_hdmi_phy_pre_pll_lookup(const struct inno_hdmi_phy_pre_pll *pll,
++			     unsigned long pixclock, unsigned long tmdsclock);
++int inno_hdmi_phy_pre_pll_determine_rate(const struct inno_hdmi_phy_pre_pll *pll,
++					 struct clk_rate_request *req);
++unsigned long
++inno_hdmi_phy_pre_pll_recalc_rate(const struct inno_hdmi_phy_pre_pll *pll,
++				  unsigned long parent_rate);
++void inno_hdmi_phy_pre_pll_configure(const struct inno_hdmi_phy_pre_pll *pll,
++				     const struct inno_hdmi_phy_pre_pll_config *cfg);
++void inno_hdmi_phy_pre_pll_power_down(const struct inno_hdmi_phy_pre_pll *pll,
++				      bool power_down);
++bool inno_hdmi_phy_pre_pll_is_powered(const struct inno_hdmi_phy_pre_pll *pll);
++bool inno_hdmi_phy_pre_pll_is_locked(const struct inno_hdmi_phy_pre_pll *pll);
++int inno_hdmi_phy_pre_pll_wait_locked(const struct inno_hdmi_phy_pre_pll *pll,
++				      unsigned int timeout_us);
++
++#endif /* __PHY_INNO_HDMI_H__ */
 
 -- 
 2.34.1
