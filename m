@@ -4,64 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D6BC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 23:21:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F8AC61DCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 23:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VjIF0aVYBJ9Ga527Xyl4l3TJ4nkphldiKj6rE37lIV8=; b=EnUNafIpU3dW5A4kgcPsEALIjd
-	GazVfs7HHoIpkqjdk+FQJ9+QA3VMLCcOcgdrqLkHdXqHD2PtkSXeywb1hI0E6nVBqKrJ6kxMCkppU
-	xu60noxSIvAZJ9728T6cupgpS0lzXP7BnWBRUon3OcA+cIlatqvzDPaiDL9xVxMmwAkFH78igkFzu
-	7RjZ27tgoXOyzRmSn8apjYOq6U2NBCaq/sZ7qKk9bAQjwUDY9RBf64SiBIyGOchQlKjep8f1oTISv
-	wHcOkwXTs7mZbmqkdARuWOy5TLrrMJcZdnC0T16gIPHkNQgKcniMmlYIYA5DGEdOmDwT5PIbmbAEI
-	AxnxjIZQ==;
+	bh=vPbHw3SXRt8c1h9FzmacGhPD5cdWkOAwAK9dhsy7doU=; b=38Ovx/MDrQmq5a7IT22epNcbPq
+	FinkiNJoBK4OqovpMwqdp2iwfUDcGGNellz+0Z9v4wFdlRWiDXN9wo7GJUAYm7KxMELke7+ma6XYt
+	4ksKORlscGSdkcGnG+Ec4S5LabkHASNwk7nsIDST64Rpc8sjhZSfRZ2boKrDaUmFn/chVT05wMQBO
+	QQldBe3cjRiIEU7YSbSifeaM6whGywI3GrEQ3mKiii16jMzA5zfI8osh5k84/t2sUNm6QYwO4vd5b
+	pVsH7OBvKfPKo+SeDiEDunHw4WS7RNcxMuipCQWWpvoYhYmpKHW0HwUHKE1wB0YUU5pt5cEN1ty6f
+	McWztzGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x05sO-00000006V9L-3AEV;
-	Fri, 28 Aug 2026 23:20:48 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1x064T-00000006W08-0SY9;
+	Fri, 28 Aug 2026 23:33:17 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x05s5-00000006UpT-27B1
+	id 1x064Q-00000006Vza-2oN2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 23:20:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=VjIF0aVYBJ9Ga527Xyl4l3TJ4nkphldiKj6rE37lIV8=; b=kURH8nMba3wk5Wd8yrgdvs1vIN
-	nVKxK2b/+FrRkot/NlLSOXFC7RCJzguxd+LH2Dnw++w2iqpmq0mcAHLTYX2Rfa8HVJKggWgdrszlS
-	oi/c6+Drex7sEtdWe2gxg6Fme5PSsMckcu14yYlRkhSgA/bQWF6C+PziFe0FrjnLLDidORjGg3L3Y
-	gDvLGuCNRtTAyrb25IzGYZa+kmuNMoSv3lc2mEukrl3wxjTi+Eqfv3Z39/PvUW9Xv3Dwntcvk/No9
-	AL9kLE/Z+TDDJFVe3/oJfaHl/3t3TrRkidK6mRdG1Mr3RO6XPOy+SxcH5y1v1tEhp9B4dz07vjktA
-	205ULykQ==;
-Received: from [187.57.78.212] (helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1x05s2-00B3sF-4m; Sat, 29 Aug 2026 01:20:26 +0200
-From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Fri, 28 Aug 2026 20:19:40 -0300
-Subject: [PATCH v6 13/13] alpha: Use the common syscall table
+	Fri, 28 Aug 2026 23:33:15 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-499add6348fso8085e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 16:33:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787959993; cv=none;
+        d=google.com; s=arc-20260327;
+        b=JvPzzAfXKpEFS993kt5Ldew6JNGrdA9ghdB5XQNp2+jEim+xn5nBKoUt0JF0QK4mEf
+         BgfewUzAT5Br1efzlAgTI5+uP92d2WclA9w5cXcjOLy5NOToN427ybCVH59q73prsaRb
+         V+4eVoiXYVXaBnox48DxPSWibAA0Urj9QdM57WfvEHxSDJWnimvtBEQk3qINtwb0b5jh
+         ZoOohM7i+G4/PVPjmwc/yX6z1Db0ygHuQ62V+tg/J3ghrLpm0JRc6ueGFPmcyYTBDc7S
+         vZ/XlPw0YoMfvgdvSG6fvDNmfhLSNd7DtpBeUXR3oi2nTEj42jMirLEQQzoeC52NG3gK
+         wnQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=vPbHw3SXRt8c1h9FzmacGhPD5cdWkOAwAK9dhsy7doU=;
+        fh=tr/FzT1FQ0Y2x2Vpf0NoC1JeVDN6cXT3P/uRd0m+uOA=;
+        b=pyUU1QfuUtAWtlOeCL5ULIeWMnHGWuHTwEvSrJytqa0LDF0JHt1MOIjAvEqbLUeo6e
+         16KeaZIsjLCHeG+Pr+Lo0q9D3ygq4y35OOiXOZiaRqxO8yeq+nxw3VLCc8QUh0CR5/UP
+         ysugHQqowN1NtLgClXhXJqu9ERBClti8gGH9W9u6wLSCQ39+o/1bl/5PCD1uoSx9v9xp
+         cXtjYeJ0O8MaRj68hhvlsepqjhlxnJy0Sjs+LcZ9fhb2F85Sz3UxQi4Jvccm3d3Z+N6T
+         n5n7+ycC1GDSsesirjGbwKTDWc7Llo/nt25iNOmRSIUUbu1Fft51RD69IeGapyihWp4D
+         U3/w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1787959993; x=1788564793; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=vPbHw3SXRt8c1h9FzmacGhPD5cdWkOAwAK9dhsy7doU=;
+        b=h7fsBgDQvHW3Jb9LE+d9M7B844Odzv+mVhWvdOHchrm+ycyOb+//Hwy7Rw8Ej5kCpk
+         MZmslvXf6gkzhWuhiO9ik2Xf73E0i3Z80Z19fJBgaxJc1Qc8wDiLu1tBVmDV/KERzi5H
+         vUNHvu4WCnFdGcavYpzAPi02G4ektswuzbKhZmIf3MNSpq/SIg7ZOYc8mFPBvy0iYK80
+         PtDvx+Vw+Zcu7semGz2b7sQd7FjeJgZrKF1Noi4n33VK0T5FxlNeYw07I6tX1WHMCF8c
+         yVD32RT39aRujvTAQ2rUE8MbgnKk/6rNqG4VAmP96D2Gf7Y0Zld+NZNbJZDhhJCoYgxy
+         jX/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787959993; x=1788564793;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vPbHw3SXRt8c1h9FzmacGhPD5cdWkOAwAK9dhsy7doU=;
+        b=YAKbDR2IOfGDAW3FttO5tJvKHm1wzlqR4PG/Vie3RwrwAHF6Nr2roQdockF2nLCjkR
+         GdFbsX0uI1xjAfsfJLqqLpYqqmeOZT3gV8BwRhMRXZ8I8HatAxaMkohOQwQjrdSS3iPG
+         J8KhAsLfJZqoitzEnRJPMidLEdR4uo3ZJDpW3gW5/lCktGewwiiCapcydttSRHUwcv/S
+         3IH31903yRtkI3m8pfLh5IAEi9D/hkpjBz3veDXS5bG2OrjMvixHD4HLFyJKFmJArn/4
+         8FNT6rlY+dm2mut0v/4ntF+FK5xecSMfrEAlAlphD/tSXxz+O2fq72+bwo3FHmHDfi19
+         qT2Q==
+X-Forwarded-Encrypted: i=1; AHgh+RppApBtJKmURzqYHYkQE1txgL1+R6gN8DNmnkRxkqkhTNRL3OehZwf/CQIAZmuNlNE2D2TEoPiYBfrKneq7hhCB@lists.infradead.org
+X-Gm-Message-State: AFuF++leK6sal0ScCgzajlCI3rszUHFWk1l0qv/Jho9HS9rhbOY2ilqD
+	J6PCpI0kAPwKzq78IavDGcF0j7DKaszPLr7jYMXP4I9LauEke+KPeYFmHMaWfIpV89GkrXh42aj
+	m2rrOXluDVvBVWE30aU3e1UiRe7ykTxeJRq3HiIt9
+X-Gm-Gg: AR+sD10QmDmpxkOvn8f3/YR15xUCgiNyvfNY3QTtnHBmO3KLPtDzopeUn/HRSktcvd+
+	RoFFF9G2SusB/yy93/V3JdBdDwI/9lojAZPoFomWWtOl7YT2isXXYrPLojJy3fN0ciAkxEQVUHI
+	hq2sBkn4nGqvi+tgMu4J0HTvdL4JL9/xegOJSdaw1lnMt1GPzHwOOwzhd8lXsydsIzUd6yjSRqM
+	dKFpZHAcuneLq8UL3Zj6t1ah/R2Z8tuM4KtUlgwVU+OVsVi6wZ3t5RLnb/YXcYIH6lv0rdYL5ge
+	97pCKqoLcTpnxgyJ68l3ax2/v7bWSrgMYkoW/cPb8BbJkSqoasquBKGd7T7fmueESIpyMyINg6Y
+	=
+X-Received: by 2002:a05:600c:3794:b0:499:cb15:4511 with SMTP id
+ 5b1f17b1804b1-49ccbb61af8mr349255e9.8.1787959992396; Fri, 28 Aug 2026
+ 16:33:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260828-tonyk-syscall_table-v6-13-fdd358456cf1@igalia.com>
-References: <20260828-tonyk-syscall_table-v6-0-fdd358456cf1@igalia.com>
-In-Reply-To: <20260828-tonyk-syscall_table-v6-0-fdd358456cf1@igalia.com>
-To: Masami Hiramatsu <mhiramat@kernel.org>, Arnd Bergmanon <arnd@arndb.de>
-Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org, 
- linux-kbuild@vger.kernel.org, kernel-dev@igalia.com, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- linux-alpha@vger.kernel.org, linux-s390@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
- linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-X-Mailer: b4 0.15.2
+References: <20260827232948.2520558-1-stevensd@google.com> <20260827232948.2520558-7-stevensd@google.com>
+ <20260828125706.GQ687043@noisy.programming.kicks-ass.net>
+In-Reply-To: <20260828125706.GQ687043@noisy.programming.kicks-ass.net>
+From: David Stevens <stevensd@google.com>
+Date: Fri, 28 Aug 2026 16:33:00 -0700
+X-Gm-Features: AcwNN1X4mjRfDUQTmdB2Q8G8afN4YKn_2mHhFiMGwyOfarmpU5bToKMeymOANtE
+Message-ID: <CAOiLmNG8XUKzy7uyodfDyuSBKJa4LujqSRKhgmOiRUSFEAEjFQ@mail.gmail.com>
+Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H . Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Dave Chinner <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Muchun Song <muchun.song@linux.dev>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+	"Liam R . Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Kees Cook <kees@kernel.org>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, suleiman@google.com, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_162029_579877_B5DDD1EE 
-X-CRM114-Status: UNSURE (   7.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260828_163314_786103_0E218272 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,119 +133,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove some of the duplicated code by using the common syscall number
-table.
+On Fri, Aug 28, 2026 at 5:57=E2=80=AFAM Peter Zijlstra <peterz@infradead.or=
+g> wrote:
+>
+> On Thu, Aug 27, 2026 at 04:29:44PM -0700, David Stevens wrote:
+> > +DEFINE_CLASS(allow_stack_reclaim, bool,
+> > +          ({
+> > +             if (!_T)
+> > +                     current->flags &=3D ~PF_RECLAIMABLE_STACK;
+> > +           }),
+> > +          ({
+> > +             bool was_set =3D current->flags & PF_RECLAIMABLE_STACK;
+> > +
+> > +             current->flags |=3D PF_RECLAIMABLE_STACK;
+> > +             was_set;
+> > +           }),
+> > +          void)
+>
+> > +     allow_stack_reclaim(prev);
+>
+> > +void __allow_stack_reclaim(struct task_struct *tsk)
+> > +{
+> > +     union stack_reclaim_state prev_state, target_state;
+> > +
+> > +     if (WARN_ON_ONCE(tsk->__state =3D=3D TASK_DEAD))
+> > +             return;
+> > +
+> > +     prev_state.val =3D READ_ONCE(tsk->stack_reclaim_state.val);
+> > +     do {
+> > +             target_state.val =3D prev_state.val;
+> > +
+> > +             if (prev_state.stack_state !=3D STACK_PREPARE_RECLAIM) {
+> > +                     WARN(prev_state.stack_state !=3D STACK_IN_USE,
+> > +                          "Reclaimable state %x for previously running=
+ task", prev_state.val);
+> > +                     return;
+> > +             }
+> > +             target_state.stack_state =3D STACK_RECLAIMABLE;
+> > +     } while (!try_cmpxchg(&tsk->stack_reclaim_state.val, &prev_state.=
+val, target_state.val));
+> > +
+> > +     if (irq_work_queue(&tsk->stack_reclaim_work->irq_work)) {
+> > +             /*
+> > +              * Take a ref that gets released by do_reclaim_stack() so=
+ we don't
+> > +              * have to worry about races with remove_from_stack_shrin=
+ker().
+> > +              */
+> > +             get_task_struct(tsk);
+> > +     }
+> > +}
+>
+> > +static inline void allow_stack_reclaim(struct task_struct *tsk)
+> > +{
+> > +     if (unlikely(tsk->flags & PF_RECLAIMABLE_STACK))
+> > +             __allow_stack_reclaim(tsk);
+> > +}
+>
+> So you have a guard with the same name as a function, but the function
+> only functions when inside the guard of the same name. WTF ?!
+>
+> Anyway, it looks like you're sprinkling this guard around a few specific
+> block sites. Which seems to suggest your PF_ flag *should* have been a
+> TASK_ flag, no?
 
-Signed-off-by: André Almeida <andrealmeid@igalia.com>
----
- arch/alpha/kernel/syscalls/Makefile    | 14 +++++++---
- arch/alpha/kernel/syscalls/syscall.tbl | 49 ----------------------------------
- arch/alpha/kernel/systbls.S            |  1 +
- 3 files changed, 11 insertions(+), 53 deletions(-)
+A TASK_ flag is definitely better. I was thinking in terms of defining
+safe scopes, but that just complicates things for no real benefit.
 
-diff --git a/arch/alpha/kernel/syscalls/Makefile b/arch/alpha/kernel/syscalls/Makefile
-index b265e4bc16c2..03099daff6b9 100644
---- a/arch/alpha/kernel/syscalls/Makefile
-+++ b/arch/alpha/kernel/syscalls/Makefile
-@@ -7,17 +7,23 @@ $(shell mkdir -p $(uapi) $(kapi))
- syscall := $(src)/syscall.tbl
- syshdr := $(srctree)/scripts/syscallhdr.sh
- systbl := $(srctree)/scripts/syscalltbl.sh
-+systbl_common := $(srctree)/scripts/syscall_common.tbl
-+abis := common,__clone3
- 
- quiet_cmd_syshdr = SYSHDR  $@
--      cmd_syshdr = $(CONFIG_SHELL) $(syshdr) --emit-nr $< $@
-+      cmd_syshdr = $(CONFIG_SHELL) $(syshdr) --emit-nr \
-+		   --common-tbl $(systbl_common) --common-offset 110 \
-+		   --abis $(abis) $< $@
- 
- quiet_cmd_systbl = SYSTBL  $@
--      cmd_systbl = $(CONFIG_SHELL) $(systbl) $< $@
-+      cmd_systbl = $(CONFIG_SHELL) $(systbl) \
-+		   --common-tbl $(systbl_common) --common-offset 110 \
-+		   --abis $(abis) $< $@
- 
--$(uapi)/unistd_32.h: $(syscall) $(syshdr) FORCE
-+$(uapi)/unistd_32.h: $(syscall) $(systbl_common) $(syshdr) FORCE
- 	$(call if_changed,syshdr)
- 
--$(kapi)/syscall_table.h: $(syscall) $(systbl) FORCE
-+$(kapi)/syscall_table.h: $(syscall) $(systbl_common) $(systbl) FORCE
- 	$(call if_changed,systbl)
- 
- uapisyshdr-y		+= unistd_32.h
-diff --git a/arch/alpha/kernel/syscalls/syscall.tbl b/arch/alpha/kernel/syscalls/syscall.tbl
-index a41276634923..7066a3920899 100644
---- a/arch/alpha/kernel/syscalls/syscall.tbl
-+++ b/arch/alpha/kernel/syscalls/syscall.tbl
-@@ -463,52 +463,3 @@
- 532	common	getppid				sys_getppid
- # all other architectures have common numbers for new syscall, alpha
- # is the exception.
--534	common	pidfd_send_signal		sys_pidfd_send_signal
--535	common	io_uring_setup			sys_io_uring_setup
--536	common	io_uring_enter			sys_io_uring_enter
--537	common	io_uring_register		sys_io_uring_register
--538	common	open_tree			sys_open_tree
--539	common	move_mount			sys_move_mount
--540	common	fsopen				sys_fsopen
--541	common	fsconfig			sys_fsconfig
--542	common	fsmount				sys_fsmount
--543	common	fspick				sys_fspick
--544	common	pidfd_open			sys_pidfd_open
--545	common	clone3				__clone3
--546	common	close_range			sys_close_range
--547	common	openat2				sys_openat2
--548	common	pidfd_getfd			sys_pidfd_getfd
--549	common	faccessat2			sys_faccessat2
--550	common	process_madvise			sys_process_madvise
--551	common	epoll_pwait2			sys_epoll_pwait2
--552	common	mount_setattr			sys_mount_setattr
--553	common	quotactl_fd			sys_quotactl_fd
--554	common	landlock_create_ruleset		sys_landlock_create_ruleset
--555	common	landlock_add_rule		sys_landlock_add_rule
--556	common	landlock_restrict_self		sys_landlock_restrict_self
--# 557 reserved for memfd_secret
--558	common	process_mrelease		sys_process_mrelease
--559	common  futex_waitv                     sys_futex_waitv
--560	common	set_mempolicy_home_node		sys_set_mempolicy_home_node
--561	common	cachestat			sys_cachestat
--562	common	fchmodat2			sys_fchmodat2
--563	common	map_shadow_stack		sys_map_shadow_stack
--564	common	futex_wake			sys_futex_wake
--565	common	futex_wait			sys_futex_wait
--566	common	futex_requeue			sys_futex_requeue
--567	common	statmount			sys_statmount
--568	common	listmount			sys_listmount
--569	common	lsm_get_self_attr		sys_lsm_get_self_attr
--570	common	lsm_set_self_attr		sys_lsm_set_self_attr
--571	common	lsm_list_modules		sys_lsm_list_modules
--572	common  mseal				sys_mseal
--573	common	setxattrat			sys_setxattrat
--574	common	getxattrat			sys_getxattrat
--575	common	listxattrat			sys_listxattrat
--576	common	removexattrat			sys_removexattrat
--577	common	open_tree_attr			sys_open_tree_attr
--578	common	file_getattr			sys_file_getattr
--579	common	file_setattr			sys_file_setattr
--580	common	listns				sys_listns
--581	common	rseq_slice_yield		sys_rseq_slice_yield
--582	common	fchroot				sys_fchroot
-diff --git a/arch/alpha/kernel/systbls.S b/arch/alpha/kernel/systbls.S
-index 68f3e4f329eb..9a67d29f7818 100644
---- a/arch/alpha/kernel/systbls.S
-+++ b/arch/alpha/kernel/systbls.S
-@@ -7,6 +7,7 @@
- 
- #include <asm/unistd.h>
- 
-+#define __SYSCALL_WITH_COMPAT(nr, native, compat)        __SYSCALL(nr, native)
- #define __SYSCALL(nr, entry) .quad entry
- 	.data
- 	.align 3
-
--- 
-2.55.0
-
+-David
 
