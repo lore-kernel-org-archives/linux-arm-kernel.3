@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C33C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 18:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27DB0C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 19:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w5uLOuQaPiHt9dSpbY0OeGfbDrrRTGfvqoBro2SNT4c=; b=RT6lk0d20K6FNyZt5+Ecj9CGq/
-	wRPRl+eCpvN137X6l9f98CsGYv6z7qJ+XzWZk8JyZomf4sCmqDAprcfnNlPS+cFkGdH97ULEz/il5
-	TrjmE6VxJ63X6xAabcVaT1A3eNklv10zzZCYOH2qqiUht98PEu0oK1khb7E9qqF+VUmDcpqYkeotA
-	QIpARhQhmu3Sd4fNb4VEyVYzk5aYmaJW/FShfyLlVBe5/YLC9C1M1p+BP1/5KL0dB1DRGIRtbmGQK
-	7eL+/FFZVAdXZr/Tga2/dorWOyD2ABkEQ6ZgRopfxXdY0lB3TJibThZ5ab7r+7ySVOSKfblyE7g+0
-	qZcBQF3g==;
+	bh=iz9Z9bs2yaO0uX8X+NUUGGiRu5Z62aRatCnxgmGQF+g=; b=PXWo+AAt9qX9JaEmpQ7f0Ps4G6
+	UYX86f7ITumLYpwTgTtJpWbhNL5GkTGQ0SWUsGh06yngWNuDQxPl93ZneuVghbhup2lyE+3xjPD2C
+	z9eyg1eKRpOih/1qsYOhH86qav8CYw9tpNevlHTno5RGAjFvzXVKXttIJfvICcYFKuZep2Eojl6Cs
+	0yFpmoRzzPADbDKrrh1Ht0XeG7X00doxbDcJFwu0D4JG0GMk5XoWXRSnk1ZJX2Mcyme55D7AqDjX2
+	7ADLEmIIZkVvQ+PnwmvZ40UqdA2sY+COIX9qC5/8gc6x3ja7Yg8CK0le8+0b9mC8XV7JvijSHttC6
+	OQ+j/AKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x01cA-00000006JzT-0ITB;
-	Fri, 28 Aug 2026 18:47:46 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1x01vn-00000006KpI-3rFp;
+	Fri, 28 Aug 2026 19:08:03 +0000
+Received: from smtprelay0017.hostedemail.com ([216.40.44.17] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x01c8-00000006Jyq-03ZN
+	id 1x01vl-00000006Koj-1qlQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 18:47:45 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EF8B910A240;
-	Fri, 28 Aug 2026 20:47:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1787942858;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=w5uLOuQaPiHt9dSpbY0OeGfbDrrRTGfvqoBro2SNT4c=;
-	b=Nm16mUVmjNmz0GCwKa4mmE/uA73TtkYVHgOyLgdzS80wm1YrRt/tqBeGVjq5slt50ZwLxz
-	MW3Tw2H1O3JsVah0SckroXyQtLw7JACjWCAchyxgwUMYcTbWdrLvVTvI9OzB8hGNEF41C0
-	srAOyoU3D69C4gYGx7nLx8EDLdio5rvKW7XXk1b6CPoElplaXQnaGlb0gCkQ6VI8RFkuqR
-	IHQT8aVqqG8bK/YryQ8ECf3LG8UrQWje5AnEVtPQOqAz79vAnK8lS8CdIZdlMLfxcjKDuv
-	eQV6+PH6gLTGxEf5hi6RqN3yCp6eFYATs03bmq3Jfhd8xUelztos3wlELeXMvQ==
-Message-ID: <7f6f7df9-55c7-4393-a4bb-42c6cc170df1@nabladev.com>
-Date: Fri, 28 Aug 2026 18:33:53 +0200
+	Fri, 28 Aug 2026 19:08:03 +0000
+Received: from omf04.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay09.hostedemail.com (Postfix) with ESMTP id 3BE7D80576;
+	Fri, 28 Aug 2026 19:07:55 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf04.hostedemail.com (Postfix) with ESMTPA id 63A9220030;
+	Fri, 28 Aug 2026 19:07:46 +0000 (UTC)
+Date: Fri, 28 Aug 2026 15:08:36 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Peter Zijlstra <peterz@infradead.org>, David Stevens
+ <stevensd@google.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin"
+ <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, Dave Chinner
+ <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>, Roman Gushchin
+ <roman.gushchin@linux.dev>, Muchun Song <muchun.song@linux.dev>, Juri Lelli
+ <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, Ben Segall
+ <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider
+ <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, Uladzislau
+ Rezki <urezki@gmail.com>, David Hildenbrand <david@kernel.org>, Lorenzo
+ Stoakes <ljs@kernel.org>, "Liam R . Howlett" <liam@infradead.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren
+ Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Kees Cook
+ <kees@kernel.org>, Clark Williams <clrkwllms@kernel.org>,
+ suleiman@google.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-rt-devel@lists.linux.dev
+Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
+Message-ID: <20260828150836.2d5b378c@gandalf.local.home>
+In-Reply-To: <20260828151018.HnR9xV1N@linutronix.de>
+References: <20260827232948.2520558-1-stevensd@google.com>
+	<20260827232948.2520558-7-stevensd@google.com>
+	<20260828133620._x2XfJR_@linutronix.de>
+	<20260828135947.GU776954@noisy.programming.kicks-ass.net>
+	<20260828151018.HnR9xV1N@linutronix.de>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: usb: Document ST UCPD
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, linux-usb@vger.kernel.org
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Conor Dooley <conor+dt@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- devicetree@vger.kernel.org, kernel@dh-electronics.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260819163410.119755-1-marex@nabladev.com>
- <db62c29a-7260-4e19-9279-e38323353c30@foss.st.com>
- <225f1704-399d-47d0-8bca-73a27a59bbd4@nabladev.com>
- <42bb4c3c-1dbd-4902-9765-01687b74cb39@foss.st.com>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <42bb4c3c-1dbd-4902-9765-01687b74cb39@foss.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Rspamd-Server: rspamout01
+X-Rspamd-Queue-Id: 63A9220030
+X-Stat-Signature: qfnccbb99bbdi8st4d7w1x16uzo3fqsi
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1+hstgiEjxGj1qjeta+VJO9YmsPembJtic=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=iz9Z9bs2yaO0uX8X+NUUGGiRu5Z62aRatCnxgmGQF+g=; b=PAuX2eumiKoGnLpY5f2+nm1ZATl/EOmUjI/FpV343XmFEFbowkFJmql3TZ1jDF1zuxI7uBH2uMShSP5U+TAscRfUBR9oh1x+t0dQtAljRuUvKaoZDY8JWuPoBS97OtDAg2ak8UoAQy18o2uUlaGBaHG6dRHa85Cm1TzLH79+Sx8=
+X-HE-Tag: 1787944066-559064
+X-HE-Meta: U2FsdGVkX18U+OOzmbS2v7qR7lqORVcgk0uJsd4pkhcItvYG+24rlhF4ua5cRunBcYiDvk8rYgLbmXs/0MxeE0s/dEd+FjrLEJn/AycQVURIxyo4rzRtjDYatkcwbpTyQECqMN/Wus6AbwXpziKNmrDRuLR04URK1/zW97dGFmeH7TWUpmWhcqBpwYZ8VgsB4W5dK++Zbf3JGighkdJdtKpSkazEYldOZbb5m9xR/iLZO8WEUXb4LaN8UmW7msMMHKqS7eR1vXglMkO6vofVREg91wkxVK9Hwf4/gjRglGRSo4pZTEeZNnJ/wPnaBfJI
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_114744_221066_8B0A4896 
-X-CRM114-Status: GOOD (  24.50  )
+X-CRM114-CacheID: sfid-20260828_120801_654108_B9FB5DFE 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,65 +92,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/26/26 3:24 PM, Fabrice Gasnier wrote:
+On Fri, 28 Aug 2026 17:10:18 +0200
+Sebastian Andrzej Siewior <bigeasy@linutronix.de> wrote:
 
-Hello Fabrice,
+> > THREAD_SIZE_ORDER	2
+> > THREAD_SIZE		(PAGE_SIZE << THREAD_SIZE_ORDER)
+> >=20
+> > that makes for 4 pages. =20
+>=20
+> Oh. I wasn't aware that we have 16kib stacks these days. But looking
+> at it we have it now for over 10 years=E2=80=A6 Judging from 6538b8ea886e4
+> ("x86_64: expand kernel stack to 16K") it might be temporary and things
+> are better now? Arm64 has a different story according to 845ad05ec31e0
+> ("arm64: Change kernel stack size to 16K"). Risc-V also mentions "for
+> now" in 0cac21b02ba5f ("riscv: use 16KB kernel stack on 64-bit").
+>=20
+> I just booted my XFS kvm box and did things and 8KiB works so far.
 
->>> I've sent a series for the complete case. Please check and review here:
->>> https://lore.kernel.org/linux-usb/20260821-ucpd-host-fusb340-v7-2-rfc-
->>> v1-0-c5e27cbc0795@foss.st.com/
->>
->> What is the difference between this driver and the ^ driver ?
->>
-> 
-> Hello Marek,
-> 
-> That includes the TCCP I2C driver (and an example on ST boards).
-> 
->> Why is this driver not covering "the complete case" , what is missing
->> here and not missing there ?
-> 
-> I intended to show a complete case, e.g. UCPD controller driver and
-> external TCPP I2C protection chip driver. The TCPP is a companion,
-> complementary, e.g. provider/consumer relationship.
-> 
-> You've pointed some "horribleness" there. I guess you talk about the
-> straight forward approach e.g. EXPORT_SYMBOL() macros. That's an
-> on-going work, a prototype. I could have sent as an RFC.
+If you want to see how big your stack is and where its used, you can run
+the stack tracer:
 
-Yes please.
+ # trace-cmd stack --start
 
-> I wanted to be transparent, so the correct level of APIs gets used.
-> 
-> You propose to turn the TCPP into a GPIO chip ?
+[wait]
 
-I think yes, it is after all four flip switches on I2C.
+ # trace-cmd stack
+(stack tracer running)
+        Depth    Size   Location    (41 entries)
+        -----    ----   --------
+  0)     5032      48   choose_idle_cpu+0x5/0x100
+  1)     4984     296   select_task_rq_fair+0xa84/0x2b40
+  2)     4688     104   try_to_wake_up+0x168/0x7e0
+  3)     4584      16   task_work_add+0xd7/0xf0
+  4)     4568      16   io_req_normal_work_add+0x75/0xb0
+  5)     4552      40   io_poll_wake+0x10f/0x160
+  6)     4512      64   __wake_up_common+0x72/0xa0
+  7)     4448      40   __wake_up_sync_key+0x43/0x60
+  8)     4408      24   sock_def_readable+0x46/0xe0
+  9)     4384      80   tun_net_xmit+0x240/0x550 [tun]
+ 10)     4304      80   dev_hard_start_xmit+0x63/0x1e0
+ 11)     4224     256   __dev_queue_xmit+0x880/0x10b0
+ 12)     3968      24   br_dev_queue_push_xmit+0x62/0xf0 [bridge]
+ 13)     3944      80   br_dev_xmit+0x15e/0x4a0 [bridge]
+ 14)     3864      80   dev_hard_start_xmit+0x63/0x1e0
+ 15)     3784     256   __dev_queue_xmit+0x880/0x10b0
+ 16)     3528      72   ip_finish_output2+0x2ce/0x650
+ 17)     3456     104   ip_output+0x63/0x110
+ 18)     3352      72   __ip_queue_xmit+0x16f/0x470
+ 19)     3280     232   __tcp_transmit_skb+0xcb5/0x1140
+ 20)     3048     120   tcp_write_xmit+0x5aa/0x1760
+ 21)     2928      24   __tcp_push_pending_frames+0x39/0x110
+ 22)     2904     104   tcp_rcv_established+0x37f/0xeb0
+ 23)     2800      32   tcp_v4_do_rcv+0x13f/0x300
+ 24)     2768     168   tcp_v4_rcv+0xc01/0x1300
+ 25)     2600      48   ip_protocol_deliver_rcu+0x35/0x1b0
+ 26)     2552      24   ip_local_deliver_finish+0x85/0x100
+ 27)     2528      40   __netif_receive_skb_one_core+0x85/0xa0
+ 28)     2488      56   netif_receive_skb+0x127/0x180
+ 29)     2432     104   br_handle_frame_finish+0x428/0x680 [bridge]
+ 30)     2328      40   br_handle_frame+0x132/0x2a0 [bridge]
+ 31)     2288     280   __netif_receive_skb_core.constprop.0+0x16e/0xdf0
+ 32)     2008      40   __netif_receive_skb_one_core+0x39/0xa0
+ 33)     1968      56   netif_receive_skb+0x127/0x180
+ 34)     1912     256   tun_get_user+0xbd0/0x1260 [tun]
+ 35)     1656      56   tun_chr_write_iter+0x77/0xba [tun]
+ 36)     1600      88   do_iter_readv_writev+0x161/0x260
+ 37)     1512     256   vfs_writev+0x168/0x3c0
+ 38)     1256      80   do_writev+0x7f/0x110
+ 39)     1176     984   do_syscall_64+0xaa/0x670
+ 40)      192     192   entry_SYSCALL_64_after_hwframe+0x76/0x7e
 
-> That seems smart, at least for the CC lines switches.
-> What about Vbus and Vconn, it could also fit regulator API ?
+Note, it only monitors task context (not interrupt).
 
-It would, but, aren't those also flip switches ?
-
-It seems to me, that TCPP02/03 can enable/disable Vconn on CC1/CC2 (that 
-sound like two GPIOs), enable/disable gate driver (GPIO?) and 
-enable/disable gate source (GPIO?) .
-
-> There are various functions, the bindings should be extensible enough
-> for later use of additional functions. I'm thinking of:
-> - Over-current events for Vbus & Vconn
->    Could be represented as interrupt controller ?
->    Or could benefit from a regulator notifier (if used) ?
-> - Vbus sensing
-
-Could extcon cover those ?
-
-> My point is that, that can impact the dt-bindings or functionality.
-> Sending UCPD driver only, without the TCCP binding & driver, I find it
-> is a bit hard to review or test at my end without having a more complete
-> view.
-> 
-> I'm not sure which way you'd like to proceed ?
-I am wondering whether maybe we should slow down a bit, get USB sorted 
-out and upstream first, and focus on UCPD/TCPP as the second step (not 
-in parallel to USB) ?
+-- Steve
 
