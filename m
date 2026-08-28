@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C3CC61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 06:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED0B6C61DCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 06:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qt759fseXk6TL4BSquCkp6QINrVvbZDF08qVXgT34mA=; b=SmuGLEo+r9599H/jgAkO/a3Os9
-	GHm1M32iq8zO2PtABjf6riOGdLzM8p0gpV8ojf5bbnF34nPtdfxZvIaTdOaG6ERdZAaqaeCNPqAXI
-	YSj6kvO4uV5PjBzHdK5AUO0/7wwDAzuRTB4FULKXbrO8vox8lfEwhL5YYv5sWGY120wZ2FtfMx1JN
-	ZErcnwZIovBtfu13usym+X6yGfrI/4WN+/fkD5PhVksei9Rg1FLYEqwn4KspxcZBKNs3/8H+IGVb4
-	wLv9FFAwTLx2efeMbtT7x97XELjmhP62we82ptjGirzYnd0iqpMqbS+a40Y8TmBefIemVqHY4QoBo
-	LKCBTYIQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xUWryYLszvMhpY9lSrgXJtpEJ4lE5ULsbA6OqmZWLbc=; b=QKVXKYvNPB0wBkJ0FObecs1BCi
+	q0kp8vZdz6+9iV9MxJSAHpJGpudrJqhMWXfU3NYAIkUwKyYsLAZu3krCBbIYkQLYdniCfESYuu6ub
+	vTZWWrTpNtwurI++xy9ATFY9PqyaFHltsdDAZcEijub/Hm9FQ+/OSN7mqJ1XKu+CvRl21FZ9Xfz+9
+	1of9eKMuOM6zC61YHrQ3CPRmi9jqAObN4pSaVloYpUk9a9+ZUMdPKPeSjZl1LxBs7EMGKuqwUyzue
+	W4S/aHdBuzPBDAfV3WsXFmEFAtRrYVwlwhsbjNFmEF//m+PKQ89LFY5ZwuNzBov5OYRWg/EaNDJRS
+	Z8y3J3iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzqS1-00000005DxI-2xl4;
+	id 1wzqS1-00000005Dxo-3m2M;
 	Fri, 28 Aug 2026 06:52:33 +0000
-Received: from mail-m1602365265.xmail.ntesmail.com ([160.236.52.65])
+Received: from mail-m103131191140.xmail.ntesmail.com ([103.131.191.140])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzqRj-00000005Dl1-2rq0;
-	Fri, 28 Aug 2026 06:52:17 +0000
+	id 1wzqRl-00000005Dki-0Odu;
+	Fri, 28 Aug 2026 06:52:18 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4bab2d5aa;
-	Fri, 28 Aug 2026 14:52:07 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4bab2d582;
+	Fri, 28 Aug 2026 14:52:02 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -56,29 +56,26 @@ Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
 	linux-kernel@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v8 3/5] drm/bridge: analogix_dp: Restore mandatory samsung DP DT properties
-Date: Fri, 28 Aug 2026 14:51:51 +0800
-Message-Id: <20260828065153.590802-4-damon.ding@rock-chips.com>
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v8 0/5] Add eDP lane mapping support
+Date: Fri, 28 Aug 2026 14:51:48 +0800
+Message-Id: <20260828065153.590802-1-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260828065153.590802-1-damon.ding@rock-chips.com>
-References: <20260828065153.590802-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa04723dd4503a8kunm9cc188d5188355
+X-HM-Tid: 0aa04723c63e03a8kunm9cc188d518831f
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZGRhLTVYZHkhKHU1PHk
-	5KQxhWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
+	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZQ0hNHlYeQhgfHkkYHh
+	4ZQkhWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
 	tIVUpLSEpKQk1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=ByNkXqq/v1UABNZl10lnleLwzvhNuRZWIBYWszscHeWdufztyE7+W7VSC+dWoNFk87VgQlRbjZ7o39DSth9TxFS26u3zjhK8+2phaobHx+y6QNuYEyMfiPhQAzY7SWZl0N3BZr/vBJnJD6dxvMH9k/VuNoSNTPalwSLyugZbZN4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=Qt759fseXk6TL4BSquCkp6QINrVvbZDF08qVXgT34mA=;
+	b=WVMILWJcBzV6eYWE+qJSZLa1Tskj+ReLam0Ikoo9j1KGwt7fsyffBUVJltHgeDr6uavrZT+73hAj8CeSZIVFerWoWgNE6m31ub0cmaIk8z54+D86aTe4RGlkS7ZVl7m9gF0h4RwYoNwCvXBegjWO5UWBDYXfQEUR+MKcpuBuSxc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=xUWryYLszvMhpY9lSrgXJtpEJ4lE5ULsbA6OqmZWLbc=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_235216_026520_2EBC1CA3 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20260827_235217_430141_D3412DF9 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,109 +90,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Revert the change that made samsung,link-rate and samsung,lane-count
-optional for Exynos DP. Add error checking to fail probe early if the
-required DT properties are missing.
+This series adds configurable eDP physical lane mapping support via
+device tree data-lanes property.
 
-If these properties are missing, video_info->max_link_rate and
-video_info->max_lane_count remain zero, and so do link_train.link_rate
-and link_train.lane_count used in the subsequent link training flow,
-resulting in link training failure.
+Lane mapping is mainly used for below scenarios:
+1. Correct PCB lane swap and differential line routing crossover
+   without hardware changes;
+2. Adapt mismatched lane pin definitions between SoC and eDP panel;
+3. Support multiple panel hardware variants on the same board
+   by configuring data-lanes in device tree only.
 
-There is no way at all a device can work without these properties.
-Here is the code flow when either max_link_rate or max_lane_count is 0:
+The series includes driver implementation and device tree binding
+updates to support custom lane mapping configuration from endpoint
+node, and keeps default linear lane order if no configuration is given.
 
-  analogix_dp_commit()
-    -> analogix_dp_full_link_train(dp, max_lanes = 0, max_rate = 0)
+Patch 1: Add endpoint data-lanes property to analogix-dp binding
+Patch 2: Add DRM DP helper API to validate DP lane counts
+Patch 3: Restore mandatory for samsung,link-rate and samsung,lane-count
+         properties
+Patch 4: Add validation for samsung,lane-count property as preparation
+Patch 5: Implement lane mapping in analogix_dp driver
 
-  analogix_dp_full_link_train(max_lanes, max_rate):
-      // Read sink capabilities via DPCD and sanitize them
-      link_rate  = read_dpcd(DP_MAX_LINK_RATE);  // >= 0x06 after fixup
-      lane_count = read_dpcd(DP_MAX_LANE_COUNT); // >= 1 after fixup
+Damon Ding (5):
+  dt-bindings: display: bridge: analogix-dp: Add data-lanes support for
+    endpoint
+  drm/dp: Add helper to validate DP lane counts
+  drm/bridge: analogix_dp: Restore mandatory samsung DP DT properties
+  drm/bridge: analogix_dp: Add validation for samsung,lane-count
+    property
+  drm/bridge: analogix_dp: Add support for optional data-lanes mapping
 
-      // Clamp by the limits from DT
-      if (link_rate > max_rate)    // 0x06 > 0, always true
-          link_rate = max_rate;    // link_rate = 0
-      if (lane_count > max_lanes)  // 1 > 0, always true
-          lane_count = max_lanes;  // lane_count = 0
-
-      // Configure TX with the zeroed values
-      set_link_bandwidth(link_rate = 0)
-          // writel() is only executed for bwtype == 0x06/0x0a,
-          // so LINK_BW_SET is never written and stays at
-          // reset value; phy_configure() gets link_rate = 0.
-
-      set_lane_count(lane_count = 0)
-          // writel(0, ANALOGIX_DP_LANE_COUNT_SET) enables 0 lanes;
-          // phy_configure() is called with lanes = 0.
-
-      // Program sink for link training
-      drm_dp_dpcd_write(DP_LINK_BW_SET, {link_rate = 0/lane_count = 0})
-          // DP spec requires link rate in {0x06, 0x0a, 0x14} and
-          // lane count in {1, 2, 4}. Writing zeros is illegal, so
-          // the sink cannot enter the training state.
-
-      // Training loop
-      for (lane = 0; lane < lane_count /* 0 */; lane++)
-          // loop body never executes; training_lane[] stays
-          // uninitialized and no training register is programmed
-
-Since the sanitized sink values are always non-zero (link_rate >= 0x06,
-lane_count >= 1), the clamping with a zero maximum unconditionally
-forces the training parameters to zero. Clock recovery can never be
-achieved, so link training fails deterministically.
-
-Consequently, making these properties mandatory again cannot break
-any existing device: a DT without them could never have worked in
-the first place. Failing probe early with a clear error message is
-more helpful than a silent link training failure at runtime.
-
-Fixes: 0d0abd894ead ("drm: bridge: analogix/dp: add max link rate and lane count limit for RK3288")
-Cc: stable@vger.kernel.org
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+ .../bindings/display/bridge/analogix,dp.yaml  | 19 +++--
+ .../rockchip/rockchip,analogix-dp.yaml        |   1 +
+ .../drm/bridge/analogix/analogix_dp_core.c    | 84 ++++++++++++++++++-
+ .../drm/bridge/analogix/analogix_dp_core.h    |  4 +-
+ .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 15 ++--
+ .../gpu/drm/bridge/analogix/analogix_dp_reg.h |  4 +
+ include/drm/display/drm_dp_helper.h           |   6 ++
+ 7 files changed, 115 insertions(+), 18 deletions(-)
 
 ---
+
+Changes in v2:
+- Add lane mapping application scenarios in commit message.
+- Remove redundant deprecated property 'data-lanes' for eDP node.
+- Update port@1 $ref to /schemas/graph.yaml#/$defs/port-base.
+
+Changes in v3:
+- Squash [PATCH v2 2/3] into [PATCH v2 1/3].
+- Add unevaluatedProperties: false to both the port@1 and endpoint
+  nodes.
+
+Changes in v4:
+- Add validation for samsung,lane-count property as preparation.
+
+Changes in v5:
+- Add DRM DP helper API to validate DP lane counts.
+- Apply DRM DP helper API to check the validity of samsung,lane-count
+  property.
+- Add Acked-by and Reviewed-by tags.
+
+Changes in v6:
+- Add a separate commit to restore mandatory samsung DP DT properties.
+- Add Reviewed-by tag.
+
+Changes in v7:
+- Add Reviewed-by tag.
 
 Changes in v8:
-- Expand the commit message with the detailed link training failure
-  analysis,
-- Add Reviewed-by tag.
----
- drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+- Expand the commit message of [PATCH v7 3/5] with the detailed link
+  training failure analysis, and add 'Cc: stable'.
+- Fix reg parameter of of_graph_get_endpoint_by_regs() from -1 to 0
+  in [PATCH v7 5/5].
+- Rename 'tmp' to 'lane_idx' and add comment to explain the lane map
+  fill loop in [PATCH v7 5/5].
+- Add Reviewed-by tags.
 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 566f1e5eb8cd..ddb15d6de05f 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -1248,6 +1248,7 @@ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
- {
- 	struct device_node *dp_node = dp->dev->of_node;
- 	struct video_info *video_info = &dp->video_info;
-+	u32 val;
- 
- 	switch (dp->plat_data->dev_type) {
- 	case RK3288_DP:
-@@ -1269,10 +1270,14 @@ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
- 		 * NOTE: those property parseing code is used for
- 		 * providing backward compatibility for samsung platform.
- 		 */
--		of_property_read_u32(dp_node, "samsung,link-rate",
--				     &video_info->max_link_rate);
--		of_property_read_u32(dp_node, "samsung,lane-count",
--				     &video_info->max_lane_count);
-+		if (of_property_read_u32(dp_node, "samsung,link-rate", &val))
-+			return dev_err_probe(dp->dev, -EINVAL,
-+					     "Failed to get samsung,link-rate\n");
-+		video_info->max_link_rate = val;
-+		if (of_property_read_u32(dp_node, "samsung,lane-count", &val))
-+			return dev_err_probe(dp->dev, -EINVAL,
-+					     "Failed to get samsung,lane-count\n");
-+		video_info->max_lane_count = val;
- 		break;
- 	}
- 
 -- 
 2.34.1
 
