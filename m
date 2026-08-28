@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BD6C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 10:39:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C830C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 10:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bUskfXTEiw1h5B2Q/KY6GP2s7WW7diEyJBqLFIH/p34=; b=huRuKu35UbyeWyq3t9dmH5C2sg
-	vGEgUKX8jP42i0/xBY1zsJZNp9fHt4iPG779RdONVm4vXEkUYHIsPn//8MjJN+d4XMfWAfz5aiE6R
-	BlA1dzJs+JTHJV3Bbt16hhaM8ADSGfYyycvf4mRRWcfBmV3JEFYq66aWSKGjWQOfIOS2GrUR1ChyS
-	BXMH2dX89LiLdhBJbEjJTE0jtB3yGonrAGeT/Nvr6kuMAGX4ddE+flRMyhyEm4Q5RrtJfbEAd+Ilv
-	mJE/ES75TfuD+KRHUKOXGJmfBlp0QEWI2SXn1zc058vWruyGnqJiAhqp9OinSdIzvKT6z+E3ITeJy
-	n0Ra81ZA==;
+	bh=UlkoQK9Jj3Zkbr/7ax+qMgzZXpZ194fDPTfYXd3ays0=; b=utSS3NBpvANfyAMYGhfA38vyD5
+	ngV1NfGAPw15G/1twaDYJNaELmImQRqN6o5avns+UdkRZ0eNtyYB9Q6qwEZBQuYNTEVFdQRoHF7AM
+	yUYZ4+/hF0x0q8mA/tgIkmCBQcxQlOgFmGBD7sqgmq8D+X2aNp3/YtvUJhR2+LI6Qx52KRc8OiF2K
+	u+XTiY0lLFvJQ+51+Xr4Vlqi/lHqZKbYmsi8+OpNFJ9hhm8jc2BNHCsyaBXahUoLtrYqv5kI4G2zr
+	MdxHotnnlMMAix8f9subqwe1Vu/NA+Dr2ZfcCWT0C+ADz7zJ1J651VK0qq3HHBcQA2FK2ADfq5XvK
+	DZ4z61FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wztzW-00000005atn-3oLE;
-	Fri, 28 Aug 2026 10:39:22 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wzu4d-00000005bNo-2umB;
+	Fri, 28 Aug 2026 10:44:39 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wztzU-00000005at2-1QNq
+	id 1wzu4Z-00000005bMw-3SvW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 10:39:21 +0000
+	Fri, 28 Aug 2026 10:44:37 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id BA9D44E413FF;
-	Fri, 28 Aug 2026 10:39:18 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id BAA1A1A185C;
+	Fri, 28 Aug 2026 10:44:32 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8DE0C60537;
-	Fri, 28 Aug 2026 10:39:18 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DB34611C780D1;
-	Fri, 28 Aug 2026 12:39:11 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7982C60537;
+	Fri, 28 Aug 2026 10:44:32 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D31B811C7810F;
+	Fri, 28 Aug 2026 12:44:26 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1787913554; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1787913867; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=bUskfXTEiw1h5B2Q/KY6GP2s7WW7diEyJBqLFIH/p34=;
-	b=DC+qhltk9aAeKdzX23ilz5nmwsxXUY0ErPvt+YlvHG6YxXv2stvXP0/ap6pakFWQRkGYsW
-	AHe50TWugEUMk9DU4jqsTBi7GLBvJQn+F6nwJahk5AZtbfEQe26ZwjDJXbF+UVin6vL4rr
-	dq5oQLITVMaTaO7nmimZkECXQyfImmrpXKL4kSW7ZYkTZ8X7spK0r0d17TCiHXAAEaJ7QQ
-	TRosgmWq6zoSTb5imLBsmRNAwAuJ03/4vSzrq8+txulkIvoUfb4MwGMIZMenyKIPCKqGEJ
-	iLIyJQORT2Ka/dviqDlGCVP2l5srhwKO8drNnbVHmiGvU3xlSbiGMMmDESmCaw==
+	bh=UlkoQK9Jj3Zkbr/7ax+qMgzZXpZ194fDPTfYXd3ays0=;
+	b=qJjIVK4XQJzgkzfVrXD2wDdcdKmT63+DbuJIfLwMOqzVj+AoQthsKgAkQRQWtW9ccdvmID
+	Q/lD7tlchMkbpbGj11vwUPv54JbVzvmBkSbjFLWkKcwuxTdXx6y8Q/nvSlHCvht9bJf1hF
+	xIRX21+AOOm33J/oDWEfeJSgbVaMWl/BnCzT5YcxBoSiTrOOxuSHObyDHFNz8kc48c7FSr
+	6l8hzlikvW2EChYH9QElgWhbJmRkSPZwtItfPlvLrTa6qMB4JZ2biPdPbMXc/vD6/uUjRN
+	NmKQflQueTtTBSstqTW03/XYTmf1NgnBCRoQnY7qoRrcAQEPw5jVYxinmuQNdQ==
 From: Gregory CLEMENT <gregory.clement@bootlin.com>
 To: Rosen Penev <rosenp@gmail.com>, devicetree@vger.kernel.org
 Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
  <sebastian.hesselbarth@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Baruch Siach <baruch@tkos.co.il>, "moderated
- list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,..."
- <linux-arm-kernel@lists.infradead.org>, open list
+ <conor+dt@kernel.org>, "moderated list:ARM/Marvell Kirkwood and Armada
+ 370, 375, 38x,..." <linux-arm-kernel@lists.infradead.org>, open list
  <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] ARM: dts: armada-385-clearfog-gtr: fix vmmc property name
-In-Reply-To: <20260823234535.72052-1-rosenp@gmail.com>
-References: <20260823234535.72052-1-rosenp@gmail.com>
-Date: Fri, 28 Aug 2026 12:39:11 +0200
-Message-ID: <871pbir0kw.fsf@BLaptop.bootlin.com>
+Subject: Re: [PATCH] ARM: dts: marvell: add missing SDHCI clock-names
+In-Reply-To: <20260823234721.72903-1-rosenp@gmail.com>
+References: <20260823234721.72903-1-rosenp@gmail.com>
+Date: Fri, 28 Aug 2026 12:44:26 +0200
+Message-ID: <87y0dqplrp.fsf@BLaptop.bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_033920_516617_3F02A79A 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20260828_034436_011967_3ACD4B90 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,12 +80,15 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Rosen Penev <rosenp@gmail.com> writes:
 
-> The SDHCI node references the 3.3V regulator through a bare "vmmc"
-> property, which is not part of the mmc controller DT binding; the
-> correct property is "vmmc-supply".
+> The marvell,armada-380-sdhci binding requires "clock-names", and
+> the sdhci-pxav3 driver requests its io clock by name before falling
+> back to an unnamed lookup. Both Armada 38x and 39x nodes only carry
+> an unnamed clocks reference, so dtbs_check reports "'clock-names'
+> is a required property" on every board.
 >
-> Fixes: aecc313490ae ("ARM: dts: mvebu: add support for SolidRun Clearfog =
-GTR")
+> Add clock-names =3D "io" to both nodes. No functional change: the
+> driver already obtains the clock through its fallback.
+>
 > Assisted-by: opencode:big-pickle
 > Signed-off-by: Rosen Penev <rosenp@gmail.com>
 
@@ -95,25 +97,37 @@ Applied on mvebu/dt
 Thanks,
 
 Gregory
-
 > ---
->  arch/arm/boot/dts/marvell/armada-385-clearfog-gtr.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/arm/boot/dts/marvell/armada-38x.dtsi | 1 +
+>  arch/arm/boot/dts/marvell/armada-39x.dtsi | 1 +
+>  2 files changed, 2 insertions(+)
 >
-> diff --git a/arch/arm/boot/dts/marvell/armada-385-clearfog-gtr.dtsi b/arc=
-h/arm/boot/dts/marvell/armada-385-clearfog-gtr.dtsi
-> index 48b09df53c60..3262b726a1c7 100644
-> --- a/arch/arm/boot/dts/marvell/armada-385-clearfog-gtr.dtsi
-> +++ b/arch/arm/boot/dts/marvell/armada-385-clearfog-gtr.dtsi
-> @@ -235,7 +235,7 @@ mmc@d8000 {
->  				pinctrl-0 =3D <&cf_gtr_sdhci_pins>;
->  				pinctrl-names =3D "default";
->  				status =3D "okay";
-> -				vmmc =3D <&reg_3p3v>;
-> +				vmmc-supply =3D <&reg_3p3v>;
->  				wp-inverted;
+> diff --git a/arch/arm/boot/dts/marvell/armada-38x.dtsi b/arch/arm/boot/dt=
+s/marvell/armada-38x.dtsi
+> index 1155bee20523..598022645dd2 100644
+> --- a/arch/arm/boot/dts/marvell/armada-38x.dtsi
+> +++ b/arch/arm/boot/dts/marvell/armada-38x.dtsi
+> @@ -627,6 +627,7 @@ sdhci: mmc@d8000 {
+>  					<0x18454 0x4>;
+>  				interrupts =3D <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+>  				clocks =3D <&gateclk 17>;
+> +				clock-names =3D "io";
+>  				mrvl,clk-delay-cycles =3D <0x1F>;
+>  				status =3D "disabled";
 >  			};
->=20=20
+> diff --git a/arch/arm/boot/dts/marvell/armada-39x.dtsi b/arch/arm/boot/dt=
+s/marvell/armada-39x.dtsi
+> index 218fcf99ae07..81dd4ca5fbc9 100644
+> --- a/arch/arm/boot/dts/marvell/armada-39x.dtsi
+> +++ b/arch/arm/boot/dts/marvell/armada-39x.dtsi
+> @@ -381,6 +381,7 @@ mmc@d8000 {
+>  					<0x18454 0x4>;
+>  				interrupts =3D <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+>  				clocks =3D <&gateclk 17>;
+> +				clock-names =3D "io";
+>  				mrvl,clk-delay-cycles =3D <0x1F>;
+>  				status =3D "disabled";
+>  			};
 > --=20
 > 2.55.0
 >
