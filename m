@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF3BC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10B76C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bY0OwgPal6QlPB3ty/eOUhetwtY4hZxNYf6/eJ0Xpq8=; b=q9MjusgAEo+OeOigfHQBqJhKYE
-	T/7Oq20GXH6y8e6hRPVD+wCx8W0A7Rd8ukgpAaDiwFsWTIFFVVlQ6AxtfyvodJ4AE4UnAonOMm7TS
-	+60B3g3md/R30LeZlppUDB3ai07kdk1OCSD3nswZmzN6reRDY7mCfiJhi9mjUgLHccRJfC1i2v/RL
-	0FoZlRgfWCKfMBRLhevEz9z9mlt4da2MoslYxtO0fUVC2v2b3Xjdf+Z0pZ6tjV0PHXFfEdDBisCZ1
-	1h7wGjQkuCkSyUnSIcJEzc3EZ3B4d7L+ljEZehe5Lmglu0hqEGIgan3RSE/xaAGALuVIinEmZr81+
-	Or2hG6bA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AmSTT9MXouufQJWGkDRnemigvfWNAFOH7bjz2ZiFIZA=; b=Hy5GPGF9kF/G4EQ6uBiYpSEx/l
+	I+3CyO8Njh8YQlqgzGvZ8Pye5RF9mPnxpvPVTq1AQS77koDKp46iFAuC2nYgCv2pOvBCP/nV577Kr
+	+5fPHdq3mKQYrke1uF01AmapRm3yi+mirJVyTzeTAEozn+IwzKlIckpRnRdSvEHSt+8KmC1Lk/wPr
+	Z0kZ4zVHHDT4ASDMVrlC194BbZ+4iZWf3pYo3rw5cGv+p8QGYfX5p26YYH77G6XK77v+V4NKAOKcl
+	hJ23d37GSkOBJLCJ0+JAYjgqJ9XKwO7CfdCeQqe2lwom5cSvvzhKyCW6v3gsY4kHotQuBGDxyQ7Ds
+	Uw/zx36g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzx1E-00000005uls-2X8Y;
-	Fri, 28 Aug 2026 13:53:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wzx1M-00000005upx-3E3M;
+	Fri, 28 Aug 2026 13:53:28 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzx1D-00000005ulR-3vcN
+	id 1wzx1G-00000005umS-0doA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 13:53:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3E1FA601FD;
-	Fri, 28 Aug 2026 13:53:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE68C1F00A3A;
-	Fri, 28 Aug 2026 13:53:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787925198;
-	bh=bY0OwgPal6QlPB3ty/eOUhetwtY4hZxNYf6/eJ0Xpq8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mUdx5SgeR+7kSaRoPuUgUMnVzm3fhdg8NQ2Oc/VCXSJlKo5B7Wyha57FemARc7g8d
-	 WTfbjGIC5T7No8nZ87o8kDxcYBgyTAVwXqNVsz1NtzKKe0+8fSsGvDehx90Bpp27/0
-	 uChQ1BehxD/grIKjBUQyZsiWgpahoj+eTh9xm9yBejCwehPpYC8EobjdvW8MH9lu5Q
-	 ruvT5o5In58HuJXKLZ2Xfz/wfc3U9A2QNSkIKe340Eq2MCR7+YEep1JNdWu7i+fg4g
-	 9DN9W6MKDKi5/SrBXb/0sck0/UoWaMoUNCPnybd0pWCpArGhVcH6ZoZfkKMSmSc+vG
-	 DVGwM9NCFrugw==
-Date: Fri, 28 Aug 2026 14:53:13 +0100
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Fuad Tabba <fuad.tabba@linux.dev>, linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v4 2/2] arm64: Don't read GMID_EL1 when MTE is disabled
-Message-ID: <apGSye1_M737mITN@willie-the-truck>
-References: <20260825164219.3347229-1-fuad.tabba@linux.dev>
- <20260825164219.3347229-3-fuad.tabba@linux.dev>
- <apA0A-bqLVBcmdSv@willie-the-truck>
- <apFn5JihFkRoqX06@arm.com>
+	Fri, 28 Aug 2026 13:53:23 +0000
+Authentication-Results: purelymail.com; auth=pass
+DKIM-Signature: a=rsa-sha256; b=Bb4aJ5Qb4kOZxD736D9iGv6yVSPhK8VULmRQi2enelB9ktsUetMLX7REqTQwNXdvDUq3/PRvvQtspXCdaIVKT+ak9wAWruyKfEiC32rZQ8FY9mg/EsQdq+9S/kfi101Nuyb0Ho5AzigWLxc8s/2AjHUaQAUKSMvDf979PS+w/ScNwQPMlOm8CdjjQKTXqS+0Ji4t36vHMx5i9eL0MLXjIF+H5WUmVx1LDWvE9k/7jXag1jxbMoTKlC+9QntVfMrGpMHNLc4KbRcCKUgp027TpVyl0AFk0+njKQjNldS53nQjriPPNSs69I+8mu1BjnoQ6dviEL7Svvgf42ApVnePhA==; s=purelymail2; d=purelymail.com; v=1; bh=rG2gddjK0mFNccoof/5IKOWP4NxA9PADvpZgCOLr15s=; h=Feedback-ID:Received:From:Date:Subject:To;
+Feedback-ID: 68247:10037:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -1236780859;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Fri, 28 Aug 2026 13:52:51 +0000 (UTC)
+From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Date: Fri, 28 Aug 2026 15:52:46 +0200
+Subject: [PATCH 1/2] arm64: dts: mediatek: mt6878-pinfunc: Fix pinctrl
+ header path
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <apFn5JihFkRoqX06@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260828-mt6878-header-fix-v1-1-b70dc9b2479c@mentallysanemainliners.org>
+References: <20260828-mt6878-header-fix-v1-0-b70dc9b2479c@mentallysanemainliners.org>
+In-Reply-To: <20260828-mt6878-header-fix-v1-0-b70dc9b2479c@mentallysanemainliners.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Linus Walleij <linusw@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787925168; l=921;
+ i=igor.belwon@mentallysanemainliners.org; s=20251104;
+ h=from:subject:message-id; bh=rG2gddjK0mFNccoof/5IKOWP4NxA9PADvpZgCOLr15s=;
+ b=KE6gBW5Hj5eipAueNeLJy8jYk3lPzYk8ps0ZikWrqjP4QTqgVHJN9wEf9tTYwFAdZJ20fl6Ho
+ 1Sl/4/HcOLFCaKPX/3FOJWwrXuLEmBZK11DUpdNdl28aEiRnkmrlauY
+X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
+ pk=i9++1bbnBwoyc3uhTaetGXS1TbBJoS0mcxT59GrpYh0=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260828_065322_258171_A27A0C67 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,59 +77,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 28, 2026 at 11:50:12AM +0100, Catalin Marinas wrote:
-> On Thu, Aug 27, 2026 at 01:56:35PM +0100, Will Deacon wrote:
-> > On Tue, Aug 25, 2026 at 05:42:19PM +0100, Fuad Tabba wrote:
-> > > +/* No ID register reflects CONFIG_ARM64_MTE. */
-> > > +static inline bool gmid_el1_accessible(void)
-> > > +{
-> > > +	if (!IS_ENABLED(CONFIG_ARM64_MTE))
-> > > +		return false;
-> > > +
-> > > +	return id_aa64pfr1_mte(__read_sysreg_by_encoding(SYS_ID_AA64PFR1_EL1));
-> > 
-> > I'm planning to internalise __read_sysreg_by_encoding() into cpufeature.c
-> > so I'd prefer to avoid adding another user of it, if possible. In this case,
-> > __cpuinfo_store_cpu() has already read the thing, so all it needs is the
-> > override logic (but see below).
-> 
-> That's a valid point.
-> 
-> > > @@ -502,7 +502,7 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
-> > >  	info->reg_id_aa64smfr0 = read_cpuid(ID_AA64SMFR0_EL1);
-> > >  	info->reg_id_aa64fpfr0 = read_cpuid(ID_AA64FPFR0_EL1);
-> > >  
-> > > -	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
-> > > +	if (gmid_el1_accessible())
-> > >  		info->reg_gmid = read_cpuid(GMID_EL1);
-> > 
-> > I'm not sure this is safe. For the boot CPU, __cpuinfo_store_cpu() is
-> > called before init_cpu_features(), so the arm64_ftr_regs[] array hasn't
-> > been sorted and we can't call get_arm64_ftr_reg() reliably.
-> 
-> We no longer sort this array at boot-time, we just check that it's
-> pre-sorted.
+The header resides in the dt-bindings directory and not in the
+dts/mediatek directory. Fix it as to avoid a build failure.
 
-Fair enough, but I still don't think we should access it until we've
-checked that.
+Fixes: 07a9bd3079e30 ("arm64: dts: mediatek: Add MT6878 pinmux macro header file")
+Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+---
+ arch/arm64/boot/dts/mediatek/mt6878-pinfunc.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> > In fact, it
-> > doesn't even look like the overrides will have been processed.
-> 
-> init_feature_override() runs from early_map_kernel() but yes,
-> init_cpu_ftr_reg() hasn't been called yet to vet the override. Suzuki's
-> patch was adding extra checks in __read_sysreg_by_encoding() but if we
-> drop that patch (and function eventually), better not to rely on it.
+diff --git a/arch/arm64/boot/dts/mediatek/mt6878-pinfunc.h b/arch/arm64/boot/dts/mediatek/mt6878-pinfunc.h
+index 4e8e475a7454..5aeceb904b18 100644
+--- a/arch/arm64/boot/dts/mediatek/mt6878-pinfunc.h
++++ b/arch/arm64/boot/dts/mediatek/mt6878-pinfunc.h
+@@ -9,7 +9,7 @@
+ #ifndef __MT6878_PINFUNC_H
+ #define __MT6878_PINFUNC_H
+ 
+-#include "mt65xx.h"
++#include <dt-bindings/pinctrl/mt65xx.h>
+ 
+ #define PINMUX_GPIO0__FUNC_GPIO0 (MTK_PIN_NO(0) | 0)
+ #define PINMUX_GPIO0__FUNC_TP_GPIO0_AO (MTK_PIN_NO(0) | 1)
 
-Right, and we have to be really careful here with things like the new
-"nohaft" override because otherwise we could accidentally end up
-thinking we have hardware dirty on CPUs that don't have it. In other
-words, it's not just about people passing bonkers settings on the cmdline.
+-- 
+2.55.0
 
-> So I don't think we have a correctness issue here but I don't mind v5
-> either. I'll go and check.
-
-Thanks.
-
-Will
 
