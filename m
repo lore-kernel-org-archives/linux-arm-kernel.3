@@ -4,155 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BDEC61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 09:37:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FD03C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 09:43:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:To:From:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ua6znT7OmSltJfH9aeW4q5DuDKAMvEyEChB0EsuImQo=; b=FCXNYDSFtcOFyIW7XMr5+Ox3Yk
-	NG9cs/VDiOFqqMrQxWilgHSC3yAR1S9VrhIjv35T3lQ2+t9UvLhvmkHK1CY2jPNF79ASHhqIh60UI
-	EPpnn9fSEtnEcbygvNThSEu7VPmyoGhC+eLWn/+2lI94c6lm94s+WC+lltEFqKsATn9FaY7pe6p5b
-	MZtK3K9SJYBTej+sUR9LsvozFHl1b9gNTQk//Zi4nCQ3o9ihUqluMlmsqrQ/0xvOB1IKKdCy271FL
-	Rd9/t+USq4tZV6bgGRTF2ROLnN67gDqrOjuNZnNUbEn0Tnu1AL2WJ8JPej72fe5Isc7YRyDePiBqX
-	OkBw9dEg==;
+	bh=qogLoGmFv6tocje82oJkKxbcnqoMjaxJY9c0i9BIqcw=; b=36xsqIsUIPYNE+AUSM1/0xmpg/
+	DG0ssQjgqjSiPM0Kgvt7nj3DFF9WqnCk833vdWrs+fu+OKgIo6eoGCkPq6waM90kvWFMoDatMz+UN
+	EU4511zvuWlrXn1jiPR3gEpgVR6kOZmKMNuxFjIDYo4TdKm1LX/SKPwQV51Hqlo1Ektb7ilpuGPsV
+	wk2kM87OHlBhXso+stydCIydpq4saFiIyMaHpybwS2N/FhvzvwkcIVljfj3LsdLOxM6kfVQmZC8A/
+	lk973R6SC4Fr7elXDTgzF/vq4PvZgKGlE5TSdkmeCB+xIWtj1ULtc0sdKddzwIUXPP//vTYrLzW9U
+	5bjvJxFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzt1t-00000005UdC-1PjQ;
-	Fri, 28 Aug 2026 09:37:45 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wzt7J-00000005V5F-3yMm;
+	Fri, 28 Aug 2026 09:43:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzt1p-00000005Ucg-42JQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 09:37:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cUJnNGrl1feeXZs7bIkSi6M9zLjJmHUgQDnYD6k/OOc3rE3oqar8l75CmJOhhioB/d7472BaYs6ksXu8Yn0yWgEwM4zJzuxya7/5g6wFSbm4LWi/a3ffELRHCSJDrOEO5sVqMkDFgUL+ygYO0xSimJzEckdrWgn75VC85X2Kuk+6cbHSio/3i7Ej/tbrwU6OJpleheIf1vz5ZcOri6W0Lv32TTL5hm12YUZEKD6kPKCVYz3u6GGDEaqbBFthEjKR0syImRSDMJUiMa/GSju/u2qpflifzJuhg5JiRzBzuzqwBE1S9DW6s/fBzsiqJBGm14ZgS4epP+qTvJEeQK/Gmg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ua6znT7OmSltJfH9aeW4q5DuDKAMvEyEChB0EsuImQo=;
- b=uywhBrbqs2cyb9odzjHo21mzG24E2eewyR7tU5b1eEuL0x/YX6LDF3wd3cZbf2URCWvcdfDCmH8sqryIag72CwQeERYkz19h3MpAmw7SiJooGwZYpMQwqOP1raNIu8XKLRps9a5O2P6RNKqDw/t4rau9rluuscsbKIaW4uPRh+SliYU9I/ePz/g8q3FDMVtXCRkKZ6sMCWZHg5Sy+kAGq+MLdxxnxryC6d/z+rvNRC8rrfKEFr83B74tjh5mXEGvMzmcEpOvqNKbltQhnMDsbblJkEcqGBg4muEhM9nNmBfJPFdOLyn3mcqBr6hasLlAteMtgXAE1824gOY7Um3nVw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ua6znT7OmSltJfH9aeW4q5DuDKAMvEyEChB0EsuImQo=;
- b=KgSYmJplGQgVwpPdg28FETBxkSiT8bJUGX/UuLFl2lV6ibjdD0U82bkEfFDoyGqgONlve1+/EDyAJN8VhsrKj95kiLrcBFfEV1c0FQ4MwdBqxS+udnDRJ7wFfJrFEwTqLs11XqQblhI53hcf8zNGce5oS7ARxQmoKtB2IrDCeDoEOTpmEP52sivZmk4h8I+5pPR4WvTGeoUBMUfR+voRc7w+ctuPHU2UXhNHVl5ad6ChBkfsQ2SuSWY0/AdowtKYKb9UtqKf5ZUBufBPvW5vD+qw9vESOCtCxPlq0gXKIlYwRJhfYRVv8DZbSxF6kaePqVrFiThDdD01A24QrmfjvA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10) by DU4PR04MB12009.eurprd04.prod.outlook.com
- (2603:10a6:10:641::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Fri, 28 Aug
- 2026 09:37:35 +0000
-Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
- ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0360.008; Fri, 28 Aug 2026
- 09:37:35 +0000
-Message-ID: <aae98a14-ef53-4880-9c28-43ce56c01806@oss.nxp.com>
-Date: Fri, 28 Aug 2026 12:37:30 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/10] scsi: ufs: Move Versal2 M-PHY CREG access helpers
- into ufshcd-dwc
-To: Bough Chen <haibo.chen@oss.nxp.com>
-Cc: NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Avri Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Martin K . Petersen" <martin.petersen@oracle.com>,
- Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
- Ajay Neeli <ajay.neeli@amd.com>, Manivannan Sadhasivam <mani@kernel.org>,
- Pedro Sousa <pedrom.sousa@synopsys.com>, clizzi@redhat.com,
- aruizrui@redhat.com, eballetb@redhat.com, echanude@redhat.com,
- linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
-References: <20260826134048.854748-1-larisa.grigore@oss.nxp.com>
- <20260826134048.854748-5-larisa.grigore@oss.nxp.com>
- <20260827104715.a4w7zdrjbp7wwtig@shlinux89>
-Content-Language: en-US
-From: Larisa Ileana Grigore <larisa.grigore@oss.nxp.com>
-In-Reply-To: <20260827104715.a4w7zdrjbp7wwtig@shlinux89>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4P191CA0051.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:20b:657::23) To GV2PR04MB12558.eurprd04.prod.outlook.com
- (2603:10a6:150:368::10)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|DU4PR04MB12009:EE_
-X-MS-Office365-Filtering-Correlation-Id: 28f7191f-10f5-4072-01c8-08df04e7fda8
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|23010399003|1800799024|7416014|376014|10067099003|3023799007|22082099003|18002099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: PdgiEzcrdk5klwKsB6ZLCYiZXdjqEY5hiMKg7O8A8z/B442lt5EZX8+AEPs0mw+Hoy48YrIFdf6FL1dmL+z08CIhP3DtbpcpwXQtfvdx+d/JrPOrRBvXQYS1/ltyAQE6RFHotvjBgldn4j5l0n9c3JyVKQxOJaT0uY9vlA5W0FA0OBTEevufgNJ7VzE7eoGOm+8TVbVK1SRcGrsLxbfObsqX+sL8kuHePUwhOWEYTK3t03BTELc4K1CyUlqJu78X4ge+H1LAi3XRI1YdW/IBo2k5SFiLgvwajnBYbjeQz6U/dkdXBJKfCHhR59zhviwfhxcwHFC9sHUfWxtxf1KdFVxUZLEx+ON7wQImskIT7IK6ml3xYdh0vN+sUB5rj3WzqA0frXvWnzgaEKCup71pKKQOzSAtHgmEULuPLLu5SwSPuc7zx8sPlsn61GyxsONt4DsVeMSTFqrOH8b5NXFhUEVJBfva+Fp2d07AXS3RlrgL1ZLKTZ1DKyUZ5VItvzD8yPRLJ1hRod/1B162Y6jPyxF1GgniIXMwTU0sOo9s0HgDDVw+XH8++CAAtZ4rbwcW2j7VooIwXn6E3ie/dTiqCloiy1EdylM1j3LR00Gm8bEs/vJwoBJ6V2tnSH5Gu+YCyXgnWf6CX7P/8ZfkxHILt8cEt/UVh5mRzfnsazWHyJs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(23010399003)(1800799024)(7416014)(376014)(10067099003)(3023799007)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MUt5TEtTdEd2QVRVUlBxaUlpL0VOeGE4cW1ZclRrMVJyODI2QXRwKzNyUHlP?=
- =?utf-8?B?Y1hINFl2YVY4U1JrRTdZS2huL3Zxdk1NNWtCZHA1WkNDVGFsT1FKcHpKQlp4?=
- =?utf-8?B?V0YyNU1iaGFjQXNPVWExaVdUTjU5QjJYVTQrNWpLVHNRQmJWUUxZQURBR1FR?=
- =?utf-8?B?WTNXUzFrS1czSE9kb1c4U1N3ZmR1aWdkZkJreHl6M3Y4SjNveWlrZXRiMDcy?=
- =?utf-8?B?bEx3YldiNVhCOHdReXUzUFZOU1RMQ1hDWXJPZTNkdG1qeHBHTXM2emo5My9o?=
- =?utf-8?B?OUxNS1pSdzdQVHlqd3hiUy9rbkRER2VaWGdYUjg4aUx4WEVoaU9TNDlBb01S?=
- =?utf-8?B?cEh3SWI1RGxuRnppaDFYMXZ4VWNESktnTy9YdHRnSi9kckhTSzZZaVdzU0Zt?=
- =?utf-8?B?SmNIdlJvbzlDOHY0b002aHVGVVM3S05QRndZKzJlZVRKajdpbG52RWpnVlVI?=
- =?utf-8?B?akJvc25iR1kwNE51bXJ1VHBGVTloQ3U0VFNnVlhRdFA3RjFrVkZXT2Nvc1Y1?=
- =?utf-8?B?M0oxVjNET2lkTEZ6a0pmbjk0Q01VajNuWFZwOGFQb3JFbGNGQUFrcVJ4d2pF?=
- =?utf-8?B?QWRzb1VtU0xSRTFnRVJZek1BOThhYkRlNlNRRHBUbnRxTFdyMXc4QnQyaEFt?=
- =?utf-8?B?SmRRcUhQMmhHKzBGQmFkcnJzTG5DR3pHZy93bXVjU1pRSmVMNm9qejgrSVps?=
- =?utf-8?B?RVdTR1ZsWWhyWG5xbDByTnluQTZJNldyS3hIZEYrWE1YMG5rVVUzdEZUdWNS?=
- =?utf-8?B?eSs0UlRUc0V6Ti9VRjlZaGpQSTV1WXFoUE1FTHpMamxwb2p5dEhraEpjejFJ?=
- =?utf-8?B?ejRtcitsclVKNndIdkpRNEZQZ1NmU1hJT0ZIdXVtbkgrSEZpUnZEVlBTb2RX?=
- =?utf-8?B?a1pFbURMbi9QQjZKcDJ6c05keWxkMXVwR00zRzd1TE9uRjhVcWJKRVRZbVJ1?=
- =?utf-8?B?bkpKRHpWSVBvNzlpZ1YvTmw3MjhuNE9BQmV2c1JlZ3crNnU0akd3dnozeTJ1?=
- =?utf-8?B?aW5MdGR3WVlLYllqdUUwcHdrMGptSGtIUjZGZlJUL0pma2RJaHVqVHVFRml5?=
- =?utf-8?B?TlFTUWo1anROTVRSd1lETzRJQnQ0VnZMSjZWQTBBQUNDYnh6ZGgzSHdtUTRL?=
- =?utf-8?B?dmx1NHl2QXh2NW5YeWxWc2xSUEx6QU5zNUlTYTVya3VLVlppckVWMDJ3cFFG?=
- =?utf-8?B?Z2pZVWNQQk0waGxLSm9NbnIyY1RrTE9MZlVLY0J1VisxZVQzaUo2ekV4Vit5?=
- =?utf-8?B?a2VVcmFTMEZ0SDFkOGNpYnlReU5weEFlRktjMzVLK2NEemg5bGNzcG12VzBZ?=
- =?utf-8?B?dmFaNm1ORzdGQkVVNUpKRWRmQ1V5a2hrWWRvTTdPeWROemU3bDB0MWppcklC?=
- =?utf-8?B?Q0JzWEJPcnd4REptL2RLR3BSclVtZGpxT3BaMllZVTQvS0VCZXJjdWRIZCsw?=
- =?utf-8?B?ZFFXNFZCWkhUd1RFenhaSjE3VXFpVlFLQm5YdDhOTC8reWd4K1NqM25CdVpZ?=
- =?utf-8?B?UTNDNUFTNklaNER5WlovN3psNWViMXJMVjhOc1JnV1BTYTc5bC9jc3hPWWFr?=
- =?utf-8?B?eEhsclA2eU16VzJhenQ1eGZQdjM1eWxwMnlhMmt4Y2M2enJyQzFvQW1XenBi?=
- =?utf-8?B?NGZsK2RqL285dkZkcGViY0VRQ3Y2UTlsMiszOXlSc1F4MWN0eVFXQ1FNc3ZI?=
- =?utf-8?B?SWowdDNXTHVjZmd1OUxGYjdXRmNTR0dDNFo4VHpvQmdtb0wySFpSRUYrWmRG?=
- =?utf-8?B?UFQ2ckJXb3lkZjdTM2hSdlh5MVFYdG9UdHY2VWJhTHZrUEJIUWZuYm9VOU1V?=
- =?utf-8?B?TUxKR29wbWE0ckEvTzExWk9UamxMUXJmNks1VlpXZkNoejFGa0NEd0c1NUEz?=
- =?utf-8?B?UXVlbnVjeHlNZVd3dEl6Rk5rcDNwdWxHcmRySFFlUEs2ZEZEdkdDSktrRXVr?=
- =?utf-8?B?bVhaVGhvTlU4cEE3S3FZbjRKTENkTEJpNkVOMWhPMWtVbHJ5dkhFbEdXMVpz?=
- =?utf-8?B?OFdwNVBQUGZabkJsa3UyZnE3em0zb0Z4Sm1nWnhQM1RwUFBtMkdSMFlUM1M2?=
- =?utf-8?B?WWwyNzZrelZSK1NyaHczKzJRWHcveXRaUWNGQUx5amgyT04wOE91ck9UdEhT?=
- =?utf-8?B?WEFDbFJ6WVUwZlp6VU9kWmJKS3B6TXpVcGVsb3IrVFcrNll2UVlxUG8ycW0v?=
- =?utf-8?B?UWx0eGlPTk1DMGRjTndJNldJQVRqZTJNM1ppNEpGbDlOZ3B5c3BRZ2E1OUJF?=
- =?utf-8?B?bzhlWUJ5VFFTaEtITUVCdzdJMC9NKzhDT1FqWDNlc0V3aXpoTkdjcVhaQTJ5?=
- =?utf-8?B?OVFmTUJLY3A2Y0M5NHZPSmxHVFZCUTB3dGxXZzN5OVc0M0xyZlljRnozUHFo?=
- =?utf-8?Q?NiSJmZ0lH1UdhB2I=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 28f7191f-10f5-4072-01c8-08df04e7fda8
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2026 09:37:35.2185
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iQUIGQ3uzX/DDeWzkpb3CL5K5E0dcdPjqNJiCou3GqvnJZALGWr8ClPIM81qsdCb8MKj8KfkeHde0IkVif/8xw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB12009
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_023742_159097_66C06F61 
-X-CRM114-Status: GOOD (  19.47  )
+	id 1wzt7H-00000005V4l-3150;
+	Fri, 28 Aug 2026 09:43:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with UTF8SMTP id BE34D601F7;
+	Fri, 28 Aug 2026 09:43:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id EBA021F000E9;
+	Fri, 28 Aug 2026 09:43:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787910198;
+	bh=qogLoGmFv6tocje82oJkKxbcnqoMjaxJY9c0i9BIqcw=;
+	h=Date:Cc:From:To:Subject:References:In-Reply-To;
+	b=I2Gu/qWkkcR2RoJOMgYzU6XubSEm4wIrBa66HVtZRCym/wT146j8xOX+m0m57WK/y
+	 bww1u0lwJLyktD6OZ7vGtcRDIvfxf2YlTRxCuKGV+1TkShICPw9Wz8o0sws7Yqx8fD
+	 Bg16vCYDqtDgiGMIf7QnvHNHbMCqCdxonoKiZokZimHbyAtcNPCRPHea75Vyf3gHOl
+	 KDKAw3LtRd+Lyj/3o0n1yTJhLRkdLRCpxBCD/90QdB2WWUU/SfkSWv684ubmAMLZQV
+	 pU9k0ah43VnBCNUju1aod2vk2Z6BGKDt/8Tfg9+61HobCikXMXlYgFY/7wlAbPjsZ7
+	 uF2fuxxT4j8nQ==
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=62e2f0f3f151d5d11bc87179aee71813d79cf26cb4ac240fd7ceef9cc952;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Fri, 28 Aug 2026 11:43:06 +0200
+Message-Id: <DL0H9KX4K3UI.145TKS5XKPFEI@kernel.org>
+Cc: "Pratyush Yadav" <pratyush@kernel.org>, "Takahiro Kuwano"
+ <takahiro.kuwano@infineon.com>, "Richard Weinberger" <richard@nod.at>,
+ "Vignesh Raghavendra" <vigneshr@ti.com>, "Nicolas Ferre"
+ <nicolas.ferre@microchip.com>, "Alexandre Belloni"
+ <alexandre.belloni@bootlin.com>, "Claudiu Beznea"
+ <claudiu.beznea@tuxon.dev>, "Jonathan Corbet" <corbet@lwn.net>, "Shuah
+ Khan" <skhan@linuxfoundation.org>, "Steam Lin" <STLin2@winbond.com>,
+ "Hsin-Yi Wang" <hsinyi@chromium.org>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <linux-mtd@lists.infradead.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <linux-doc@vger.kernel.org>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Miquel Raynal" <miquel.raynal@bootlin.com>
+Subject: Re: [PATCH v3 05/23] mtd: spi-nor: Create the concept of fixup
+ table with match function
+X-Mailer: aerc 0.20.0
+References: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-0-b637cf120d5c@bootlin.com> <20260813-winbond-v7-1-spi-nor-rv-addition-v3-5-b637cf120d5c@bootlin.com> <DKOKFU8AD2U6.151AX0VOBX67H@kernel.org> <87cxv3cy5j.fsf@bootlin.com>
+In-Reply-To: <87cxv3cy5j.fsf@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,318 +79,337 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/27/2026 1:47 PM, Bough Chen wrote:
-> On Wed, Aug 26, 2026 at 03:40:42PM +0200, Larisa Grigore wrote:
->> The AMD Versal Gen 2 UFS platform driver carries local helpers to access
->> M-PHY control registers through the UniPro CREG interface.
->>
->> Move these helpers into the common Synopsys DWC layer as
->> ufshcd_dwc_phy_reg_read() and ufshcd_dwc_phy_reg_write(). This avoids code
->> duplication in DWC-based glue drivers and provides a single implementation
->> for future reuse.
->> Dropped `static` from `phy_write_attrs` and `phy_read_attrs` since there
->> is no benefit in keeping them persistent.
->>
->> Update the AMD Versal2 glue driver to use the new ufshcd-dwc helpers.
-> 
-> ufs-sprd.c also contain similar code, seems can also re-use this helper, but it
-> do not include ufshcd-dwc.h, Unisoc(sprd) guys can do the further check.
-> 
-> Regards
-> Haibo Chen
+--62e2f0f3f151d5d11bc87179aee71813d79cf26cb4ac240fd7ceef9cc952
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Thanks Haibo! Yes, I noticed ufs-sprd.c has similar code, but I didn't 
-want to touch it since I have no Unisoc(sprd) hardware to test on and 
-don't want to risk introducing a regression there.
+Hi,
 
-Regards,
-Larisa
->> Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
->> ---
->>   drivers/ufs/host/ufs-amd-versal2.c | 85 ++++++------------------------
->>   drivers/ufs/host/ufshcd-dwc.c      | 77 +++++++++++++++++++++++++++
->>   drivers/ufs/host/ufshcd-dwc.h      |  2 +
->>   3 files changed, 96 insertions(+), 68 deletions(-)
+On Thu Aug 27, 2026 at 6:43 PM CEST, Miquel Raynal wrote:
+> I took me a lot of time to go through all your requests, in the end I
+> will not implement most of your feedback because either I do not
+> understand what is the gain, or because the result is not better at all
+> from my point of view. I try to explain that in my feedback
+> below. Nevertheless, I truly appreciate the deep review you made. I
+> think I mostly agree with the comments in the other messages.
+>
+> On 14/08/2026 at 11:40:21 +02, "Michael Walle" <mwalle@kernel.org> wrote:
+>
+>> On Thu Aug 13, 2026 at 5:19 PM CEST, Miquel Raynal wrote:
+>>> Manufacturer ID tables increase and fixup() hooks proliferate. Having
+>>> one possible structure per chip was fine until the fixups started being
+>>> more and more common and needed, to some extend due to ID reuses. Mixin=
+g
+>>> fixups and chips becomes hard and requires extra helpers to sort which
+>>> ones are needed for a given chip, which every time this happens require=
+s
+>>> a lot of rework.
 >>
->> diff --git a/drivers/ufs/host/ufs-amd-versal2.c b/drivers/ufs/host/ufs-amd-versal2.c
->> index 0d4d5e98ad65..c7da95999c85 100644
->> --- a/drivers/ufs/host/ufs-amd-versal2.c
->> +++ b/drivers/ufs/host/ufs-amd-versal2.c
->> @@ -43,57 +43,6 @@ struct ufs_versal2_host {
->>   	u8 ctlecompval1;
->>   };
->>   
->> -static int ufs_versal2_phy_reg_write(struct ufs_hba *hba, u32 addr, u32 val)
->> -{
->> -	static struct ufshcd_dme_attr_val phy_write_attrs[] = {
->> -		{ UIC_ARG_MIB(CBCREGADDRLSB), 0, DME_LOCAL },
->> -		{ UIC_ARG_MIB(CBCREGADDRMSB), 0, DME_LOCAL },
->> -		{ UIC_ARG_MIB(CBCREGWRLSB), 0, DME_LOCAL },
->> -		{ UIC_ARG_MIB(CBCREGWRMSB), 0, DME_LOCAL },
->> -		{ UIC_ARG_MIB(CBCREGRDWRSEL), 1, DME_LOCAL },
->> -		{ UIC_ARG_MIB(VS_MPHYCFGUPDT), 1, DME_LOCAL }
->> -	};
->> -
->> -	phy_write_attrs[0].mib_val = (u8)addr;
->> -	phy_write_attrs[1].mib_val = (u8)(addr >> 8);
->> -	phy_write_attrs[2].mib_val = (u8)val;
->> -	phy_write_attrs[3].mib_val = (u8)(val >> 8);
->> -
->> -	return ufshcd_dwc_dme_set_attrs(hba, phy_write_attrs, ARRAY_SIZE(phy_write_attrs));
->> -}
->> -
->> -static int ufs_versal2_phy_reg_read(struct ufs_hba *hba, u32 addr, u32 *val)
->> -{
->> -	u32 mib_val;
->> -	int ret;
->> -	static struct ufshcd_dme_attr_val phy_read_attrs[] = {
->> -		{ UIC_ARG_MIB(CBCREGADDRLSB), 0, DME_LOCAL },
->> -		{ UIC_ARG_MIB(CBCREGADDRMSB), 0, DME_LOCAL },
->> -		{ UIC_ARG_MIB(CBCREGRDWRSEL), 0, DME_LOCAL },
->> -		{ UIC_ARG_MIB(VS_MPHYCFGUPDT), 1, DME_LOCAL }
->> -	};
->> -
->> -	phy_read_attrs[0].mib_val = (u8)addr;
->> -	phy_read_attrs[1].mib_val = (u8)(addr >> 8);
->> -
->> -	ret = ufshcd_dwc_dme_set_attrs(hba, phy_read_attrs, ARRAY_SIZE(phy_read_attrs));
->> -	if (ret)
->> -		return ret;
->> -
->> -	ret = ufshcd_dme_get(hba, UIC_ARG_MIB(CBCREGRDLSB), &mib_val);
->> -	if (ret)
->> -		return ret;
->> -
->> -	*val = mib_val;
->> -	ret = ufshcd_dme_get(hba, UIC_ARG_MIB(CBCREGRDMSB), &mib_val);
->> -	if (ret)
->> -		return ret;
->> -
->> -	*val |= (mib_val << 8);
->> -
->> -	return 0;
->> -}
->> -
->>   static int ufs_versal2_enable_phy(struct ufs_hba *hba)
->>   {
->>   	u32 offset, reg;
->> @@ -162,64 +111,64 @@ static int ufs_versal2_setup_phy(struct ufs_hba *hba)
->>   	u32 reg;
->>   
->>   	/* Bypass RX-AFE offset calibrations (ATT/CTLE) */
->> -	ret = ufs_versal2_phy_reg_read(hba, FAST_FLAGS(0), &reg);
->> +	ret = ufshcd_dwc_phy_reg_read(hba, FAST_FLAGS(0), &reg);
->>   	if (ret)
->>   		return ret;
->>   
->>   	reg |= MPHY_FAST_RX_AFE_CAL;
->> -	ret = ufs_versal2_phy_reg_write(hba, FAST_FLAGS(0), reg);
->> +	ret = ufshcd_dwc_phy_reg_write(hba, FAST_FLAGS(0), reg);
->>   	if (ret)
->>   		return ret;
->>   
->> -	ret = ufs_versal2_phy_reg_read(hba, FAST_FLAGS(1), &reg);
->> +	ret = ufshcd_dwc_phy_reg_read(hba, FAST_FLAGS(1), &reg);
->>   	if (ret)
->>   		return ret;
->>   
->>   	reg |= MPHY_FAST_RX_AFE_CAL;
->> -	ret = ufs_versal2_phy_reg_write(hba, FAST_FLAGS(1), reg);
->> +	ret = ufshcd_dwc_phy_reg_write(hba, FAST_FLAGS(1), reg);
->>   	if (ret)
->>   		return ret;
->>   
->>   	/* Program ATT and CTLE compensation values */
->>   	if (host->attcompval0) {
->> -		ret = ufs_versal2_phy_reg_write(hba, RX_AFE_ATT_IDAC(0), host->attcompval0);
->> +		ret = ufshcd_dwc_phy_reg_write(hba, RX_AFE_ATT_IDAC(0), host->attcompval0);
->>   		if (ret)
->>   			return ret;
->>   	}
->>   
->>   	if (host->attcompval1) {
->> -		ret = ufs_versal2_phy_reg_write(hba, RX_AFE_ATT_IDAC(1), host->attcompval1);
->> +		ret = ufshcd_dwc_phy_reg_write(hba, RX_AFE_ATT_IDAC(1), host->attcompval1);
->>   		if (ret)
->>   			return ret;
->>   	}
->>   
->>   	if (host->ctlecompval0) {
->> -		ret = ufs_versal2_phy_reg_write(hba, RX_AFE_CTLE_IDAC(0), host->ctlecompval0);
->> +		ret = ufshcd_dwc_phy_reg_write(hba, RX_AFE_CTLE_IDAC(0), host->ctlecompval0);
->>   		if (ret)
->>   			return ret;
->>   	}
->>   
->>   	if (host->ctlecompval1) {
->> -		ret = ufs_versal2_phy_reg_write(hba, RX_AFE_CTLE_IDAC(1), host->ctlecompval1);
->> +		ret = ufshcd_dwc_phy_reg_write(hba, RX_AFE_CTLE_IDAC(1), host->ctlecompval1);
->>   		if (ret)
->>   			return ret;
->>   	}
->>   
->> -	ret = ufs_versal2_phy_reg_read(hba, FW_CALIB_CCFG(0), &reg);
->> +	ret = ufshcd_dwc_phy_reg_read(hba, FW_CALIB_CCFG(0), &reg);
->>   	if (ret)
->>   		return ret;
->>   
->>   	reg |= MPHY_FW_CALIB_CFG_VAL;
->> -	ret = ufs_versal2_phy_reg_write(hba, FW_CALIB_CCFG(0), reg);
->> +	ret = ufshcd_dwc_phy_reg_write(hba, FW_CALIB_CCFG(0), reg);
->>   	if (ret)
->>   		return ret;
->>   
->> -	ret = ufs_versal2_phy_reg_read(hba, FW_CALIB_CCFG(1), &reg);
->> +	ret = ufshcd_dwc_phy_reg_read(hba, FW_CALIB_CCFG(1), &reg);
->>   	if (ret)
->>   		return ret;
->>   
->>   	reg |= MPHY_FW_CALIB_CFG_VAL;
->> -	return ufs_versal2_phy_reg_write(hba, FW_CALIB_CCFG(1), reg);
->> +	return ufshcd_dwc_phy_reg_write(hba, FW_CALIB_CCFG(1), reg);
->>   }
->>   
->>   static int ufs_versal2_phy_init(struct ufs_hba *hba)
->> @@ -406,7 +355,7 @@ static int ufs_versal2_phy_ratesel(struct ufs_hba *hba, u32 activelanes, u32 rx_
->>   
->>   	for (lane = 0; lane < activelanes; lane++) {
->>   		time_left = TIMEOUT_MICROSEC;
->> -		ret = ufs_versal2_phy_reg_read(hba, RX_OVRD_IN_1(lane), &reg);
->> +		ret = ufshcd_dwc_phy_reg_read(hba, RX_OVRD_IN_1(lane), &reg);
->>   		if (ret)
->>   			return ret;
->>   
->> @@ -416,12 +365,12 @@ static int ufs_versal2_phy_ratesel(struct ufs_hba *hba, u32 activelanes, u32 rx_
->>   		else
->>   			reg &= ~MPHY_RX_OVRD_VAL;
->>   
->> -		ret = ufs_versal2_phy_reg_write(hba, RX_OVRD_IN_1(lane), reg);
->> +		ret = ufshcd_dwc_phy_reg_write(hba, RX_OVRD_IN_1(lane), reg);
->>   		if (ret)
->>   			return ret;
->>   
->>   		do {
->> -			ret = ufs_versal2_phy_reg_read(hba, RX_PCS_OUT(lane), &reg);
->> +			ret = ufshcd_dwc_phy_reg_read(hba, RX_PCS_OUT(lane), &reg);
->>   			if (ret)
->>   				return ret;
->>   
->> @@ -483,12 +432,12 @@ static int ufs_versal2_pwr_change_notify(struct ufs_hba *hba, enum ufs_notify_ch
->>   
->>   		/* Remove rx_req override */
->>   		for (lane = 0; lane < dev_req_params->lane_tx; lane++) {
->> -			ret = ufs_versal2_phy_reg_read(hba, RX_OVRD_IN_1(lane), &reg);
->> +			ret = ufshcd_dwc_phy_reg_read(hba, RX_OVRD_IN_1(lane), &reg);
->>   			if (ret)
->>   				return ret;
->>   
->>   			reg &= ~MPHY_RX_OVRD_EN;
->> -			ret = ufs_versal2_phy_reg_write(hba, RX_OVRD_IN_1(lane), reg);
->> +			ret = ufshcd_dwc_phy_reg_write(hba, RX_OVRD_IN_1(lane), reg);
->>   			if (ret)
->>   				return ret;
->>   		}
->> diff --git a/drivers/ufs/host/ufshcd-dwc.c b/drivers/ufs/host/ufshcd-dwc.c
->> index 21b1cf912dcc..45920793d1a8 100644
->> --- a/drivers/ufs/host/ufshcd-dwc.c
->> +++ b/drivers/ufs/host/ufshcd-dwc.c
->> @@ -141,6 +141,83 @@ int ufshcd_dwc_link_startup_notify(struct ufs_hba *hba,
->>   }
->>   EXPORT_SYMBOL(ufshcd_dwc_link_startup_notify);
->>   
->> +/**
->> + * ufshcd_dwc_phy_reg_write - Write a DWC M-PHY CREG register
->> + * @hba: private structure pointer
->> + * @addr: M-PHY CREG register address
->> + * @val: value to write
->> + *
->> + * Write a 16-bit M-PHY CREG register through the Synopsys DesignWare
->> + * UniPro indirect register access interface.
->> + *
->> + * Return: 0 on success, non-zero value on failure.
->> + */
->> +int ufshcd_dwc_phy_reg_write(struct ufs_hba *hba, u32 addr, u32 val)
->> +{
->> +	struct ufshcd_dme_attr_val phy_write_attrs[] = {
->> +		{ UIC_ARG_MIB(CBCREGADDRLSB), 0, DME_LOCAL },
->> +		{ UIC_ARG_MIB(CBCREGADDRMSB), 0, DME_LOCAL },
->> +		{ UIC_ARG_MIB(CBCREGWRLSB), 0, DME_LOCAL },
->> +		{ UIC_ARG_MIB(CBCREGWRMSB), 0, DME_LOCAL },
->> +		{ UIC_ARG_MIB(CBCREGRDWRSEL), 1, DME_LOCAL },
->> +		{ UIC_ARG_MIB(VS_MPHYCFGUPDT), 1, DME_LOCAL }
->> +	};
->> +
->> +	phy_write_attrs[0].mib_val = (u8)addr;
->> +	phy_write_attrs[1].mib_val = (u8)(addr >> 8);
->> +	phy_write_attrs[2].mib_val = (u8)val;
->> +	phy_write_attrs[3].mib_val = (u8)(val >> 8);
->> +
->> +	return ufshcd_dwc_dme_set_attrs(hba, phy_write_attrs,
->> +					ARRAY_SIZE(phy_write_attrs));
->> +}
->> +EXPORT_SYMBOL(ufshcd_dwc_phy_reg_write);
->> +
->> +/**
->> + * ufshcd_dwc_phy_reg_read - Read a DWC M-PHY CREG register
->> + * @hba: private structure pointer
->> + * @addr: M-PHY CREG register address
->> + * @val: pointer where the read value is stored
->> + *
->> + * Read a 16-bit M-PHY CREG register through the Synopsys DesignWare
->> + * UniPro indirect register access interface.
->> + *
->> + * Return: 0 on success, non-zero value on failure.
->> + */
->> +int ufshcd_dwc_phy_reg_read(struct ufs_hba *hba, u32 addr, u32 *val)
->> +{
->> +	struct ufshcd_dme_attr_val phy_read_attrs[] = {
->> +		{ UIC_ARG_MIB(CBCREGADDRLSB), 0, DME_LOCAL },
->> +		{ UIC_ARG_MIB(CBCREGADDRMSB), 0, DME_LOCAL },
->> +		{ UIC_ARG_MIB(CBCREGRDWRSEL), 0, DME_LOCAL },
->> +		{ UIC_ARG_MIB(VS_MPHYCFGUPDT), 1, DME_LOCAL }
->> +	};
->> +	u32 mib_val;
->> +	int ret;
->> +
->> +	phy_read_attrs[0].mib_val = (u8)addr;
->> +	phy_read_attrs[1].mib_val = (u8)(addr >> 8);
->> +
->> +	ret = ufshcd_dwc_dme_set_attrs(hba, phy_read_attrs,
->> +				       ARRAY_SIZE(phy_read_attrs));
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = ufshcd_dme_get(hba, UIC_ARG_MIB(CBCREGRDLSB), &mib_val);
->> +	if (ret)
->> +		return ret;
->> +
->> +	*val = mib_val;
->> +	ret = ufshcd_dme_get(hba, UIC_ARG_MIB(CBCREGRDMSB), &mib_val);
->> +	if (ret)
->> +		return ret;
->> +
->> +	*val |= (mib_val << 8);
->> +
->> +	return 0;
->> +}
->> +EXPORT_SYMBOL(ufshcd_dwc_phy_reg_read);
->> +
->>   MODULE_AUTHOR("Joao Pinto <Joao.Pinto@synopsys.com>");
->>   MODULE_DESCRIPTION("UFS Host driver for Synopsys Designware Core");
->>   MODULE_LICENSE("Dual BSD/GPL");
->> diff --git a/drivers/ufs/host/ufshcd-dwc.h b/drivers/ufs/host/ufshcd-dwc.h
->> index 0406f2bb576b..d8673cd54d4c 100644
->> --- a/drivers/ufs/host/ufshcd-dwc.h
->> +++ b/drivers/ufs/host/ufshcd-dwc.h
->> @@ -45,4 +45,6 @@ int ufshcd_dwc_link_startup_notify(struct ufs_hba *hba,
->>   					enum ufs_notify_change_status status);
->>   int ufshcd_dwc_dme_set_attrs(struct ufs_hba *hba,
->>   				const struct ufshcd_dme_attr_val *v, int n);
->> +int ufshcd_dwc_phy_reg_write(struct ufs_hba *hba, u32 addr, u32 val);
->> +int ufshcd_dwc_phy_reg_read(struct ufs_hba *hba, u32 addr, u32 *val);
->>   #endif /* End of Header */
->> -- 
->> 2.43.0
+>> Thanks, this patch looks really promising!
 >>
+>>> Replace the two-level fixup association (a manufacturer wide hook and a
+>>> per flash_info hook) with a per-manufacturer list of fixups that can be
+>>> looked up by flash ID and/or match function.
+>>>
+>>> The match logic works as follows:
+>>> - If there is an ID, it must match
+>>> - If there is a match function, it must match (cumulative)
+>>> - If there is no identifier (no ID nor any match function), it's a
+>>>   catch-all entry typically used for flagging manufacturer fixups.
 
+I think this one is the crux. See more below.
+
+>> This mimics, how it's currently handled. But since the fixups are
+>> now treated as a separate list, i.e. it has it's own SNOR_ID, we
+>> shall move away from this manufacturer thingy too.
+>
+> Why shall we? See below, I don't get the point. I drafted something it
+> took me two full days to work on that, to eventually realize I did not
+> see *any* benefit.
+
+Then let me ask the other way around, what is the benefit of having
+the manufacturer?=20
+
+There is now one central place for the fixups. Good. But now there
+is that catch-all thing, which is the replacement for the former
+manufacturer fixup if I read your code correctly.
+
+BUT. We don't have a concept of a 'manufacturer'. We don't match the
+manufacturer id. The manufacturer is just set as an additional
+information if there is already  matching entry for a specific
+flash, so we already know the exact part. Before the generic driver,
+this might have made sense. The intention was to have a common place
+for the default flags for all *known* flashes of a manufacturer
+(which probably also was the result of the core rewrite). But now,
+we might have flashes we do not know, that is, aren't in the
+database. At least I would assume, that the manufacturer fixups are
+still applied though. There were already a few different times I
+proposed to have fixups for SNOR_ID(vendor_id).
+
+I mean, even you fell into the trap that you'll have to have that
+catch-all/fallback entry in the flash db (can't find the mail
+anymore though, so please correct me if I'm wrong).
+
+Also, having the fixups separate from the flash db, we can use the
+generic flash driver and still have some fixups for given flashes.
+If - for example - one would be adding locking support later,
+nothing but the new flashdb entry has to be added as the fixups are
+still applied.
+
+>> IMHO that really
+>> clutters the code.
+>
+> Clearly an opinion I do not share. Maybe I am missing something.
+>
+>> As a fun fact, spi_nor_match_id() will have the
+>> unexpected side effect of setting nor->manufacturer.
+>
+> Not sure I get why this is unexpected?
+
+The signature of the function is:
+static const struct flash_info *spi_nor_match_id(struct spi_nor *nor,
+						 const u8 *id)
+
+Clearly it will return a pointer to the flash_info entry for a given
+id. But as a side effect it also sets nor->manufacturer. What if I'd
+call that twice with different ids? Maybe it's just me, but it looks
+like a pure function but isn't. I probably got burnt by the generic
+nor driver which hit that in the first place.
+
+>> So here's how I'd do it:=20
+>> (1) remove spi_nor_manufacturer.
+>> (2) have a list of initcalls in the core to call into the individual
+>>     vendor modules (that could later be replaced by something more
+>>     sophiticated)
+>> (3) that initcall will then call spi_nor_register_parts(const struct
+>>     flash_info *parts, int nparts)
+>> (4) (optionally) calls spi_nor_register_fixups(const struct
+>>     spi_nor_fixup *fixups, int nfixups)
+>
+> I've been trying hard to follow your approach, but really, I don't get
+> the point. Initcalls are not possible here, or it would prevent
+> CONIFG_MTD_SPI_NOR=3Dm so I went for an alternative approach with an init
+> registration which I believe matches your expectations. This is not
+> an actual problem.
+>
+> But registering parts and fixups independently, maybe, but again, why?
+> What is the intended benefit? We now need to go through 96 (spi-nor
+> wide) fixups. But what do we get in exchange?
+
+I don't get that. You already have a (new) winbond_fixups[] for
+example. What is the difference between having that set in
+spi_nor_manufacturer vs having that in a
+
+winbond_init() {
+	spi_nor_register_flash_devices(&winbond_nor_parts);
+	spi_nor_register_fixups(&winbond_fixups);
+}
+
+And probably setting the manufacturer name in winbond_nor_fixups().
+
+I guess that all falls apart because of the empty match entry. That
+could be replaced with the SNOR_ID(winbond_id), though. Then we have
+*real* per manufacturer fixups.
+
+That is basically what commit afe1ea1344bb ("mtd: spi-nor: add
+support for Macronix Octal flash") made.
+
+> From my point of view:
+> extra churn and boilerplate, nothing particularly better than before. I
+> must admit, I do not understand your aversion for the manufacturer
+> structure. So while I like the idea of a flash-info independent fixup
+> list (which I implemented in v3), I do not understand the need for this
+> extra step.
+
+See above.
+
+> Since I do not get the point of this request, I prefer to not implement
+> it, because I will anyway do it the wrong way. If someone wants to make
+> a proposal, I will have a look, but at this point I need to back
+> off.
+
+I can do that myself, but I'd like to avoid any code churn. So I
+don't know what you've already tried to come up with, but if there
+is something which somewhat goes in the right direction of moving the
+registration to a function inside of the vendor modules. That would
+really be appreciated.
+
+> There are already ~70 patches pending which I hope will be applied
+> ASAP after -rc1 gets tagged and we agree on the remaining points (there
+> are other comments from you and Takahiro which I need to address).
+
+Looks like I need to apply the patches to the tree, too. Honestly,
+I've never done that, so I first need to actually see how it's done
+and if I even have access to the tree.
+
+>> Also both could be a macro, then we can get rid of the size
+>> argument.
+>>
+>> The current manufacturer fixups gets registered with a
+>> "SNOR_ID(vendor)".=20
+>>
+>> That leaves us with the manufacturer name, which should be set by
+>> that vendor catch all fixup.
+>>
+>> Btw, I'm fine with deprecating the name as well as the manufacturer
+>> sysfs entry, but it shouldn't be as in "it just goes away".
+>
+> I have no strong wish to get rid of those, especially the manufacturer
+> name which is not particularly problematic today.
+>
+> [...]
+>
+>>> +	for (i =3D 0; i < nor->manufacturer->nfixups; i++) {
+>>> +		if (fixups[i].fixups->post_bfpt &&
+>>> +		    spi_nor_fixup_match(nor, &fixups[i])) {
+>>> +			ret =3D fixups[i].fixups->post_bfpt(nor, bfpt_header, bfpt);
+>>> +			if (ret)
+>>> +				return ret;
+>>> +		}
+>>
+>> This is repeated several times, can we have something like
+>>
+>> spi_nor_apply_fixups(struct spi_nor *nor, int (*fixup_fn), void *fixup_a=
+rgs);
+>>
+>> int spi_nor_post_bfpt_fixup(struct spi_nor *nor, const struct spi_nor_fi=
+xup *fixup, void *_args)
+>> {
+>> 	struct post_bfpt_fixup_args *args =3D _args;
+>>
+>> 	if (!fixup->post_bfpt)
+>> 		return 0;
+>>
+>> 	return fixup->post_bfpt(nor, args->bfpt_header, args->bfpt);
+>> }
+>>
+>> which then will be called with
+>> spi_nor_apply_fixups(nor, spi_nor_post_bfpt_fixup, args);
+>
+> I drafted it, but arguments are different, argument numbers are
+> different, return values are different, we need stubs for each
+> fixup... Nothing is identical, we just save a couple of simple checks
+> and a for loop. On the other hand, code just grows, complexity is
+> higher, readability is definitely lower. Sorry, but again, I do not see
+> the gain with this attempt, it just darkens what the core does. It would
+> definitely work with another -more advanced- language than C, though.
+>
+>>> +	for (i =3D 0; i < nor->manufacturer->nfixups; i++) {
+>>> +		if (fixups[i].fixups->post_bfpt &&
+>>> +		    spi_nor_fixup_match(nor, &fixups[i])) {
+>>> +			ret =3D fixups[i].fixups->post_bfpt(nor, bfpt_header, bfpt);
+>>> +			if (ret)
+>>> +				return ret;
+>>>  	}
+>>> =20
+>
+> [...]
+>
+>>> --- a/drivers/mtd/spi-nor/gigadevice.c
+>>> +++ b/drivers/mtd/spi-nor/gigadevice.c
+>>> @@ -64,7 +64,6 @@ static const struct flash_info gigadevice_nor_parts[]=
+ =3D {
+>>>  		.id =3D SNOR_ID(0xc8, 0x40, 0x19),
+>>>  		.name =3D "gd25q256",
+>>>  		.flags =3D SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_TB_SR_BIT6,
+>>> -		.fixups =3D &gd25q256_fixups,
+>>>  		.fixup_flags =3D SPI_NOR_4B_OPCODES,
+>>
+>> The fixup_flags should also go into the fixups list.
+>
+> Yes, we can use a similar logic here. Actually if at some point we want
+> to get rid of those flags, we could transform the flags into proper
+> fixup functions, but I'm not going to do that now.
+
+The flags actually serve the purpose of *not* having a huge amount
+of different fixup functions. So these should be kept for now. As an
+alternative, with the new list it might be possible to have multiple
+fixups for the same flash part. In any case, the fixup_flags have to
+be removed from the flash_info struct.
+
+>
+> [...]
+>
+>>> +/* PM25LV parts have no JEDEC ID and are likely matched by name */
+>>> +static bool issi_pm25lv_match(const struct spi_nor *nor)
+>>> +{
+>>> +	const char *name =3D nor->info ? nor->info->name : NULL;
+>>> +
+>>> +	return name && !strncmp(name, "pm25lv", 6);
+>>
+>> Won't just strcmp("pm25lv", name) do it? Both arguments are
+>> guaranteed to be NUL terminated. The above would also match
+>> "pm25lvextrabytes", no, and we get rid of that redundant size
+>> argument.
+>
+> No it won't, because that would no longer be a match, you would compare
+> pm25lv against pm25lv010 or pm25lv512 -> no match if you don't limit to
+> the first 6 bytes. Since names are part of the sysfs ABI, we cannot just
+> modify the names for that. We also need two different entries (two
+> different sizes) since we do not even match with an ID.
+
+Ah I see, you actually *want* that extra bytes, in that case, please
+use strstarts().
+
+
+> [...]
+>
+>>> @@ -233,6 +230,17 @@ static int mt25qu512a_post_bfpt_fixup(struct spi_n=
+or *nor,
+>>>  	return 0;
+>>>  }
+>>> =20
+>>> +/*
+>>> + * n25q00a parts share the first same 3 ID bytes with mt25qu01g.
+>>> + * In order to not mix the fixups, further filter out using the part n=
+ame.
+>>
+>> How would that work? The part name is also set by the duplicated ID,
+>> so the first one wins, no?
+>
+> - First part (mt25qu01g) is checked
+>   -> ID match
+> - There is a match function where we compare the name with n25q00a
+>   -> no match, not applying the fixup
+>
+> - Second part (n25q00a) is checked
+>   -> ID match
+> - There is a match function where we compare the name with n25q00a
+>   -> name match
+>
+> The fixup is only applied for n25q00a.
+
+Ah, I now get what you want to try to achieve. Only the first three
+bytes (I missed that in the function doc) are shared. So no actual ID
+collision.
+
+> For the other chip we can just give more ID bytes for the match.
+
+Giving there are more IDs for the n25q00a.
+
+> So I believe there is no problem here?
+
+Yes, no problem. But use strncmp() here, because this actually
+matches just one particular flash.
+
+FWIW I don't think this is sustainable, though. It's basically a
+workaround for the different matching in spi_nor_match_id() (first
+entry wins) and the fixups ID matching (any matching entry is
+applied). Though, I can't think of a more generic solution for now.
+
+-michael
+
+--62e2f0f3f151d5d11bc87179aee71813d79cf26cb4ac240fd7ceef9cc952
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCapFYKxIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/i25QF/c4P4bWZypw8ZyqO3HWcEDjUwnnnWq0Jg
+sb2Fz/Dmz2n+gqkV4LwzRiolzzQXCEGsAX96v2xv0jhKb7+rRP0EcjoZl0odZZ1z
+Bdx5NsrBdpU8oTZcZrVlexWNut37ldohD7Q=
+=Bs1E
+-----END PGP SIGNATURE-----
+
+--62e2f0f3f151d5d11bc87179aee71813d79cf26cb4ac240fd7ceef9cc952--
 
