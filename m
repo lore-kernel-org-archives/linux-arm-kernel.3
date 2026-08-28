@@ -4,99 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3CD4C61DD9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 12:11:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABB0C61DD7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 12:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l/wCsFq/Zorgy/BqKS/v6a3TdSdfv1vfVKndsRYo1PM=; b=T5m+p3g+E8zCvGF1FxdgZgJMX2
-	YKsXa9JEFnHPqZ5O85hH+sUFtdZCJEazFB7FpIKVacB+JoTjixRiywHshq6RvPrVmC3a4qMef8xf8
-	Ws4tijE1pSAFawToihEaqAbxPGRGmQOuxNUnEOovxJ8ur963ZJmD998txdEQiJ67wWngKlSpyDxMQ
-	ZDXaz2V0w8/88zcLIC3V/qHvWZxXY8z2uNZ3JJrgarbBmSGYBJT5nYDPEjn4p/8ZoBR5KmiQcYvM2
-	VFnbgP6bUSQAJL7KWuoUp6lH4/hvoZGhZmZQWPK+bGaNBFcKidk25r3CL+UPjrfIaYGFTbvi7jLdR
-	QVPz9eMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=msvDF/LcXKGcuEENSdT1nkJoOjtd4vV0hLHcxOpOB/Y=; b=Gu2aMMSIW6DZxzOh2E3jT6Ts12
+	SJbuzCLaPrHEDMHgPgz88djDXwgP8SCZ9wWtPObD8mLExEPOekw3ygAjyweS4mcsVTP4kf4qLiQQd
+	E3V8p+GJhMikzyCAyf9xsO2COngqCbctOgQLi8d/Ns0IT4EdU7QrFzSCrH8SNXsULbRgfmT3CTVLv
+	V1G8bSOcdSodSbIvNkOb51HanKRWU0FQswpnjg7vun44U+9jWYVgm3oqmPguJ32nLeT8vFzNbL0tY
+	nnnNHZW9GCfUmRlSC7wMdTzazeMv1yH4j3NCOsHPnThXlPLljqdJ65GYitzhftoySLwzokoQSAVLc
+	I8q6DZTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzvQ5-00000005hz2-1rHD;
-	Fri, 28 Aug 2026 12:10:53 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wzvTf-00000005iKp-0wkk;
+	Fri, 28 Aug 2026 12:14:35 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzvQ1-00000005hxS-2NrQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 12:10:52 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-49b8ce9b733so6549665e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 05:10:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1787919047; x=1788523847; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=l/wCsFq/Zorgy/BqKS/v6a3TdSdfv1vfVKndsRYo1PM=;
-        b=G2yAP1XiGHCbiG5mDNWZLzPQSZmhvxDdemsSiB5KOPjRwa96lFKoTVLC7hHA2quLm5
-         dlQh/J6aV6yOpRQnANxo9nTCncoW0eNmJPOTs5djA7oXmMj8Pjbldb75qT3bTTHhIptG
-         I8OuqEgFATzTQHc6Zs5ANatJY6Ml2ZK50VgB9zfPBR6FmIUifXBFjM1G6+QWWqKJh2zN
-         Qy2uarLMwDsTuSquXw94Dv8+MbcA9y26qvUVW4o3xT6SVJPOGMkarSrPl3pxPuiUtFrk
-         wyn3mRCkQpdmXK+QB0vrugKWnUPSrUYSvuMDyOXTd09AL1ZDih54LwjfmJQYgSlpuhWC
-         +nmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787919047; x=1788523847;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=l/wCsFq/Zorgy/BqKS/v6a3TdSdfv1vfVKndsRYo1PM=;
-        b=cLC87ZCuyL2vqp74K+uK/DGNICrDYwALOle6pf2JvgELoNM4QUpO4yJzPzB30hHR8u
-         bTk9mUSfcQTIi4sOKi+QTBDLmb9E9/6LGdRo/VFRqzAzJgka+pfHqlnwc7BMBRHDItTn
-         VuMcUFCxIvzCt8n/ugXUJ/e933udFd7GtdMWURH7vvGVtjLwPkdeItSUDvWnsuyttAR0
-         afTWdGf0vvHaR5nI3DnSUlqx1XMqhTyX2DZkjkvOcsYrITtsieUWSo+sZMNLy5Sb6HQP
-         EK2+q41+QTbg0E/+RAaLRV0iLH8/q5KFyKPvEhFdtsj1c0wB8lHH+XXUsJ8sMwDQPc8F
-         DeDA==
-X-Forwarded-Encrypted: i=1; AHgh+RqcjU8jMKBH0GOBUYF2BwyOmB/LSE6z36lRNYab3RPb21c/V4RYDpV+odt902yeBZGg8jTk/biOjs9EdNoUafCc@lists.infradead.org
-X-Gm-Message-State: AFuF++mZON5ebD0e5FVxwKpG9sGIZRQEG6Y6J+Lis06om9mkNl2H9E/T
-	MlDYNuapgrhHEgq11o/LEWtHhJwZtbuJ8f/vsmn2ZmCMIZ7mKPGLabvlhYgOpxSTGkw=
-X-Gm-Gg: AR+sD12v5ZrO808gBAKTYVslfOiKrqRSHGR0K3y+ZBSlHAEYB/qCpDsy7fFCaoe9H8q
-	HWWBO0n2bniI6tYHQQukzxiQMbli2i6UKVNyDxhRc5ugpcuiroxD2mv8iwmDR0oMM1czkXcYFuM
-	ywUfcl2WUbIOG16nGOd4dSMZDuokq0nHe9kx8h4+8wWaLoVcTjUrC3crPYe3MmwLmdOMoDYCuKD
-	EKO7ifzMH92W7+ffKzpVgMup92PKuwWoazLgAwiUTv2qLZq1XLM1jnCngzAfiRmBSiDGgzMIX9i
-	REYgrLQTY10zOXc8HIr24/mCe5IapJCSckvsPCmxu6ttu8ycHb+0RUCbLkjU6FGdGt44mh0WnbN
-	sK1LpQs1DNbDB+DFpbWo6WbF+SkRnUeLlYDK9lfS3eR/fY5ATk5ykjaboplACM9mtOQp+9Zi3Gk
-	VinAiMA01Dx7ZpLTpKp6ozgRlVBlwoO5txiMaKH33HgDbiS9/2zwmUjsu2VbafNUzmgOSKp0zO6
-	yWuHLVxwrVnk+odk+9NvqCB3r3lyqV1rBMF/aifTkyZfiYG48u3TaX55kJBEBqGLaOA4z2Szxa9
-	MYDK5vtXTSszMI6QHOEEpUqnRvJeg4p9Mu5yEIXXC3MaVw==
-X-Received: by 2002:a05:600c:4453:b0:499:8777:ccba with SMTP id 5b1f17b1804b1-49b91c486abmr84183025e9.12.1787919046770;
-        Fri, 28 Aug 2026 05:10:46 -0700 (PDT)
-Received: from [192.168.1.100] (2a02-842a-d52e-6101-6f8f-5617-c4b6-8627.rev.sfr.net. [2a02:842a:d52e:6101:6f8f:5617:c4b6:8627])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b494228bfsm125368175e9.2.2026.08.28.05.10.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Aug 2026 05:10:46 -0700 (PDT)
-From: Julien Stephan <jstephan@baylibre.com>
-Date: Fri, 28 Aug 2026 14:10:47 +0200
-Subject: [PATCH] drm/mediatek: mtk_hdmi_v2: fix VID_DOWNSAMPLE_CONFIG
- register offset
+	id 1wzvTd-00000005iK7-10Yy;
+	Fri, 28 Aug 2026 12:14:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=msvDF/LcXKGcuEENSdT1nkJoOjtd4vV0hLHcxOpOB/Y=; b=ZNaQRRzJ6UqWH8EuUm79pM+zlc
+	Gd/esYsnOYqhYI2iVEjEAB9i584MruJIlnem5CqaHGU91jt/WCjkeZkjmFXrHJUSnZDFduLW8eGJp
+	rX7r+7aPLUk1s/t4EQRVmgTWA6kua4gZrfcjhwKNrUTUxrtQ+ufikb7K1ZHK2CFu77NrZqcfJHtR/
+	iDkE/JqPz5aLRXLLkTdg14II7gx05qL8vtvlmJgtP0LgJptN2vCP5jB6ar0H9s3eBGghQMNQIpTN0
+	E1uPFBV6EFZLTCYRnie2bgBGB7XIXR+FNA3jBpjk+IpRMDHxpQyaBvV+Gex6C+IDq4carWtV8SN3Y
+	5hnak8uw==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Rudi Heitbaum <rudi@heitbaum.com>
+Cc: Matthias Kaehlcke <mka@chromium.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] usb: onboard_dev: add the Rockchip rk1808
+Date: Fri, 28 Aug 2026 14:14:22 +0200
+Message-ID: <4512468.iIbC2pHGDl@diego>
+In-Reply-To: <apFpPP1O45BWXDv5@5be1eda4e59e>
+References: <aouw7rH6FZxscUTO@0d3a7a881997> <5096877.GXAFRqVoOG@phil>
+ <apFpPP1O45BWXDv5@5be1eda4e59e>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260828-mtk-hdmi-v2-fix-register-offset-v1-1-118ad5d7ebe3@baylibre.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNUQrCMBCE4auUfXahjaDRq4gPMZm0q7SV3ViE0
- rsb9fGD4Z+VDCowOjcrKRYxmaeKbtdQHMLUgyVVk2vdofXO81gePKRReHGc5c2KXqxAec7ZUNg
- fTyHHvY8hdVQrT0Wd/R4u17/tdbsjlm+Wtu0D+/pwJoMAAAA=
-X-Change-ID: 20260828-mtk-hdmi-v2-fix-register-offset-879afc38cad1
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
- CK Hu <ck.hu@mediatek.com>
-Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Tommy Chen <tommyyl.chen@mediatek.com>, 
- Julien Stephan <jstephan@baylibre.com>
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_051049_628433_6DFD398D 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20260828_051433_339068_0064F2C3 
+X-CRM114-Status: GOOD (  20.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,35 +67,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the datasheet, VID_DOWNSAMPLE_CONFIG is at offset 0x8f0;
-0x8d0 is the VID_CSC_COEFF_0 register.
+Hi Rudi,
 
-Fixes: 8d0f79886273 ("drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188")
-Signed-off-by: Julien Stephan <jstephan@baylibre.com>
----
- drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Am Freitag, 28. August 2026, 12:55:56 Mitteleurop=C3=A4ische Sommerzeit sch=
+rieb Rudi Heitbaum:
+> On Thu, Aug 27, 2026 at 03:25:23PM +0200, Heiko Stuebner wrote:
+> > Am Montag, 24. August 2026, 04:52:02 Mitteleurop=C3=A4ische Sommerzeit =
+schrieb Rudi Heitbaum:
+> > > The rk1808 is the npu die in an rk3399pro package. It is wired to one
+> > > of the usb3 controllers rather than to an external port, and it needs
+> > > its reference clock running before it will boot, which is exactly what
+> > > this driver exists to do for onboard devices.
+> > >=20
+> > > It takes no supply from the driver: the rails are sequenced elsewhere.
+> > > Only the clock matters here, and that is already optional and handled
+> > > generically.
+> >=20
+> > the "elsewhere" might need a bit more explanation to verify it's the ri=
+ght
+> > implementation. Even if the regulators are always-on or something, we
+> > still want the supplies defined - for future uses.
+>=20
+> As follow up on the bringup of the Rock-Pi-N10, the proposed change to th=
+e dtsi
+> for the rk3399pro-vmarc-som is here, but needs the provision of the usb f=
+irst.
+> https://github.com/heitbaum/linux/commit/6b114b6fff4022c330003d7f70ce0991=
+5ffd774f
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h b/drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h
-index 521b35c7e14d..bf3ebf5492d1 100644
---- a/drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h
-+++ b/drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h
-@@ -173,7 +173,7 @@
- #define  TPI_AUDIO_LOOKUP_EN		BIT(2)
- 
- /* Video downsampling configuration */
--#define VID_DOWNSAMPLE_CONFIG		0x8d0
-+#define VID_DOWNSAMPLE_CONFIG		0x8f0
- #define  C444_C422_CONFIG_ENABLE	BIT(0)
- #define  C422_C420_CONFIG_ENABLE	BIT(4)
- #define  C422_C420_CONFIG_BYPASS	BIT(5)
+I might have formulated that strangly, what I meant was, who is enabling
+the power supplies.
 
----
-base-commit: 1b78070aaef63512688aebfbc82365ef9d6660f1
-change-id: 20260828-mtk-hdmi-v2-fix-register-offset-879afc38cad1
+The "NPU Power" part of any rk3399pro schematics (should) list 5 power
+supplies for the NPU block itself:
 
-Best regards,
---  
-Julien Stephan <jstephan@baylibre.com>
+NPU_LOGIC_VDD
+    --> regulator likely named NPU_VDD_LOG_S0
+        --> enabled by NPU_PWREN_2 gpio fixed regulator
+
+NPU_EFUSE_VQPS
+    --> regulator likely named NPU_VCC1V8_EFUSE
+        --> enabled by NPU_EFUSE_EN_H gpio fixed regulator
+
+NPU_CORE_VDD
+    --> regulator likely named NPU_VDD_S0
+        --> TCS4525 regulator with voltage being set via the i2c controller
+             inside the NPU - but enabled by the NPU_PWREN_6 gpio from
+             core RK3399.
+
+NPU_CPU_VDD
+    --> regulator likely named NPU_VDD_CPU_S0
+        --> enabled by NPU_PWREN_4 gpio fixed regulator
+
+NPU_ADC_AVDD_1V8
+    --> regulator likely named NPU_VCC_1V8_S3
+        --> enabled by NPU_PWREN_3 gpio fixed regulator
+
+Naming might vary, I found just some EVB schematics.
+
+Someone needs to enable these, so the question was, who is doing that?
+
+Thanks
+Heiko
+
+
 
 
