@@ -4,83 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9648C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 19:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D995EC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 19:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0RDwr71FlsrAMrAAlqln64IM9QGsxwXWA77DtZDfZwQ=; b=iIr8E1y530rnbN5yckVlvRlljY
-	a4lEClPymMyDPKOYvg6zGlWUXZRrAz+MGpQZY4Vm0GHfY3i0jq3tOBkCHelu+CRkZcsqcGvxPLqW0
-	ucY8smTwq3vjmm+XaZXfGeEHYdGAvsn+pq9JfWO8d1zSOMvzSjkWK+71zdCRw7fH5gWAOsxGXqBvA
-	3EZgThnqqS/h7Nxam8U/s8tYyOdDiXda+II5Fqgk1yNX1AJX4OlY2+XeboiXxaCoOJUbSp3wN69mw
-	c+WPZP6xp/Do9vYjHq68oDRQNyl9M6H7HMq3xjpOjAs3pZ4dPp4gIekRAL2yrJdqMYKESlt1Cjf+I
-	zz9jaRKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5TAnZ8sExFxW6oNv+UvoCeeODAWEmkjbKvwDKq8bQkw=; b=e7y8qaWAlF/rSqUk7gdhrZARHw
+	/uNxR+mxP/akx0s1Ke7e/OE/pHNyFNRLqdXWdDfzMG7AsBlhF1JV9QJe0qm/nHXkCI7eXu0kJzFaj
+	7YLPAFoKeRwT9ALAReIT6R2dDHuRxEXr7yM3myZZdp//KP0VjO8VmGj+mxfrPtfhUAyDh+jGx8f02
+	WRTxkikD3gp7q/znRlr/kTzEWiEw/RRWRLxTBEOWPwpIJerYwKC8tEI1XUb1yjnGJXJUQVUnw+nOU
+	CnVETGbqmRt9mLlYiqTUuto2x49dgCcc5f7WD4P9RNu1fjB5jyGs40OhVSvijw4VX921p3HgyXWTg
+	eCCFKTDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x024h-00000006LVU-3vd9;
-	Fri, 28 Aug 2026 19:17:15 +0000
-Received: from smtprelay0015.hostedemail.com ([216.40.44.15] helo=relay.hostedemail.com)
+	id 1x02Cq-00000006M7v-3Nv2;
+	Fri, 28 Aug 2026 19:25:40 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x024e-00000006LUv-2dSS
+	id 1x02Co-00000006M7S-2rBI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 19:17:13 +0000
-Received: from omf05.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay04.hostedemail.com (Postfix) with ESMTP id C52951A053F;
-	Fri, 28 Aug 2026 19:17:06 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf05.hostedemail.com (Postfix) with ESMTPA id C3E9F20011;
-	Fri, 28 Aug 2026 19:16:57 +0000 (UTC)
-Date: Fri, 28 Aug 2026 15:17:47 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Peter Zijlstra <peterz@infradead.org>, David Stevens
- <stevensd@google.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
- <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, x86@kernel.org, "H . Peter Anvin"
- <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, Dave Chinner
- <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>, Roman Gushchin
- <roman.gushchin@linux.dev>, Muchun Song <muchun.song@linux.dev>, Juri Lelli
- <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>, Ben Segall
- <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider
- <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, Uladzislau
- Rezki <urezki@gmail.com>, David Hildenbrand <david@kernel.org>, Lorenzo
- Stoakes <ljs@kernel.org>, "Liam R . Howlett" <liam@infradead.org>,
- Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren
- Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Kees Cook
- <kees@kernel.org>, Clark Williams <clrkwllms@kernel.org>,
- suleiman@google.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-rt-devel@lists.linux.dev
-Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
-Message-ID: <20260828151747.20035d50@gandalf.local.home>
-In-Reply-To: <20260828151313.5c4a5e4b@gandalf.local.home>
-References: <20260827232948.2520558-1-stevensd@google.com>
-	<20260827232948.2520558-7-stevensd@google.com>
-	<20260828133620._x2XfJR_@linutronix.de>
-	<20260828135947.GU776954@noisy.programming.kicks-ass.net>
-	<20260828151018.HnR9xV1N@linutronix.de>
-	<20260828150836.2d5b378c@gandalf.local.home>
-	<20260828151313.5c4a5e4b@gandalf.local.home>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Fri, 28 Aug 2026 19:25:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Xns2pypv7ZE1Y+l1BqxXm57Pf7+jj7C61WxVPUJwvR0dz78QezCEKoEXE9ow0CCCktKgINM63XQb+AnOcwOE9yliIH1R4pPubuosiOV69arSAlk0j8WHDg4UMOlBR3tLHrpWLlLT7YO18+62cPxWTroKEvADOrZLlkXioUBKQW+n8re7kyYqeYW5xHJ+/hvt0CzqzbpRK5kxBFGI8j6GqIbozl26kYEOeztmIz3fNJNu4kHEB/zHR4eybpwm5JTuH1YxYBHUF2jcNIN3xNU/7ADgNP/Q5XGZmqOEHrPD4+R0eaue2NASMLCJr68j0aN4UPJ1Sy8EUUHunJVY7lCw/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5TAnZ8sExFxW6oNv+UvoCeeODAWEmkjbKvwDKq8bQkw=;
+ b=zUXI0FYobfr5YEE834IGYmqOlrdwobHwpfiER/M0hqsBVnypiPDsw1Yie8esNtxDWB+DdZNCmHPpx7KPgyXko5C5d7hGD7k4wlPvm2Ag7Gx/b/DIrrdhvKAM6X5HxlVUDcLccTrXjYJJxl3kJLPNlf83EPT6kqlcGwCNi32SKaLkhw8WTLj/H9LySNTKy8YxDN8S1LDy38wnbX8/beJdXHhPbNFf0K2apQDzD9OSErkRmTMHK9XisqZgBJCsSO1H82ZNfkJvFa9oE0BAj325LIjx2D6/g/hI0gWosZLcDUDuOCD5zU33nrNbiXiFjHKwJKIJuPp0VDaZjtaXVGiiiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5TAnZ8sExFxW6oNv+UvoCeeODAWEmkjbKvwDKq8bQkw=;
+ b=v5hg4np5pUbejQ6q4iFdlAuStQxoGylaEC7Bi+Ei9mqmun3COiCTAh6Ho3H+eQ04su/qcsYQZbZYd8I0H7GWM3JElLcr/IYAx7QYso2zyop9tk5dgYDEmJLnEnVBHQHLsH/69abi4MktsnCP+TCvMa+DgQq2r8MigG/upLlYLees9EefHM0//hpKbzWyq/I68rZJDCIgyMvx8EyuyVDe1k4sJsGmYDPg82mqicJ5mu27v2Xq0kvYLk1ScNURm4YB6z+J3SMkVyrEOV93XsG+a9OFyjZTV5+x7TbCSMkfYuk/Bxd+77hp9C1Qa9WtNVE/IrUlRWz72O/mqpIEKAEZcw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AMVPR04MB12674.eurprd04.prod.outlook.com (2603:10a6:20b:775::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.6; Fri, 28 Aug
+ 2026 19:25:30 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Fri, 28 Aug 2026
+ 19:25:29 +0000
+Date: Fri, 28 Aug 2026 14:25:19 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Linmao Li <lilinmao@kylinos.cn>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Leonard Crestez <cdleonard@gmail.com>,
+	Radu Solea <radu.solea@nxp.com>,
+	Franck LENORMAND <franck.lenormand@nxp.com>,
+	linux-crypto@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: mxs-dcp: handle zero-length skcipher requests
+Message-ID: <apHgn8-IcTshYnfv@SMW015318>
+References: <20260828093209.3179074-1-lilinmao@kylinos.cn>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260828093209.3179074-1-lilinmao@kylinos.cn>
+X-ClientProxiedBy: PH7P220CA0082.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32c::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: C3E9F20011
-X-Stat-Signature: j65tfsnn7wb96ijjjfomjeapo6aro4m7
-X-Rspamd-Server: rspamout03
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1/FRCRqi3s+JC4roW7NUQua3g10tn9P4XM=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=0RDwr71FlsrAMrAAlqln64IM9QGsxwXWA77DtZDfZwQ=; b=gAZTVjGDveN8fhsH4aJV2blL0f0S/QpEEvr3BQpYaHupiEQdLMD69nFOfdLEk1spL0/g6lXtTnfNyIqHZGTSM2GCgE4DvzYvzij8bAWlZRrSpkm67+yI+NJTg387b0JmME/jtx2tEqWIUYUrCD2W7DFVoX4NatssuHtJiesq2nE=
-X-HE-Tag: 1787944617-357454
-X-HE-Meta: U2FsdGVkX1+ViF3OvOgaM5ssQLR7tn0uySWJaFHYtcXWZ21cz7nnxMRW6iHpDWrp6Htrs0cIkgW4SbBQGFpZUf1ROkYnZEWGOtcWKXjDukDAh5xQHzSUkPxJbyaumnTpSqP3YXkkCipkNohafMlloaOqbdI5ACVjC77j7iGbrpU8lCltcFJhtONUqXBCJpw9eTajIr0/aLHn6NisdoeErwIxVK/oB2Np5iYGqcWQEGRVIxOt9i1N8E1VkhWj8uFuSoYqfpNN0eEmhPs7aE8vmz2WPbGl+v4Ry92BAG7LkkOQAqWIZjLFKEu432FqDcWspoc2zzLFnstcV5vVdG65ka7IObsOxeMhd+5KlkygWN4xwraefOr4pQuVKgzS9Rrd
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AMVPR04MB12674:EE_
+X-MS-Office365-Filtering-Correlation-Id: c4bc1c12-9588-4e18-bffb-08df053a1ea8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|23010399003|376014|1800799024|366016|10067099003|56012099006|18002099003|22082099003|11063799006;
+X-Microsoft-Antispam-Message-Info: MXKytR4triVahEi9d68VxWg61n1NL0q8Y8Ik1dtR4+sOlJryql7/vBYRBGDKn2xrwF4qj6q+6gwRy0URKVKxFU4X4DEiJT3UHo9PfcFOADXed82eKpsM78yYsmCKbR9fPnJC+FmtnUO03zoTWuC3B5oklUKyxX+qtzgWpHAhkEgBv+ncf4pHRhb0QM7bRW0/nWYezOVn5mlnMrzVqXjxRy3it8eZzEV/7ImDyLfbu2UfonTN4yoO4njqBrU9qVbpFuX6vu1bO2ZjqNJSSE0clBwek+tfhZtX7ljA18ouFr2dG+V1qtUgcVkSVj1z5f4GkwYdQgO83ZLk3kvy/DKj7bsdpPwqy51LnQqj+CJKxwf2xbywR1WWse86V8oMbFsZuzUeM+Sy/ydG4HUkYQsBwaivuOf309+O0AlmfYI8h5tXaGDJoetqN4QsY/Cpw75x1c/VC4lNyof+CgRMDR/kC+aCBRLaKa3fV4Q551BFHnGOYHsQVL6jkuqRzBO8HM2TC6k1RkvXWLR0Grcplen/+FAEvoyF0oa1VxvTGsaSIfLxUXSqKzgl8mDjhBvGm7IQaQCcof5SB6uGchB0fq4jL6shvuBds2qLWwLFtnTvAHXuSIGriu1wqbpupL4mpiXKAPw15f3chdJGAh5veuzn9NzCBEZzFytIddQuxh4GIOQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(23010399003)(376014)(1800799024)(366016)(10067099003)(56012099006)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nHUyYRXQSpIXbFBw9uA6dY4fedzgncE2fJm0zqJbANFARXL17SUlqrlXnyev?=
+ =?us-ascii?Q?z3F8cxakhdymMzOmz6EE68XF80pT0uPtdVA8ZLe2h712ehx3edudLxYro+/E?=
+ =?us-ascii?Q?t0i/xMBmiQDL+yFeuy7L3hkyNGRfpJJBDBsy8m0pAb4VEk6zEX/XW7NjmVWA?=
+ =?us-ascii?Q?1zOR3rdpEykTr7uU/Kv+20NisN+KerIUJZT40/5laDh8Kw+JAiB9jUwPbJ2P?=
+ =?us-ascii?Q?0DAvZjPfg74FHpyP2F5CMsgg/J0JQ1phXeDBvlsfcrvCk0ZNbHqc9kuvAXlh?=
+ =?us-ascii?Q?NPkc7BdG4zVajSfecmKA8Za1Oi43G8pV8BFonPJ38z+/xLaDR+2erFxe6StQ?=
+ =?us-ascii?Q?da1Hdm3uocQVo0owaXYXHW+1N4yu/zLmspB1dhJOrP0Bu/sCgCubCVgkyFxi?=
+ =?us-ascii?Q?xqFChgRXpjBpwN/PQdA7D8kC98KiWlYd9D+gBVXWVCyq4UANR8iTrfzgcoVk?=
+ =?us-ascii?Q?jgS/gjxwD4Kbn6Xa1dNqNkW4QqJHvkRI7Bj4y/Smr3cjTrTnVx4x7TIsPaP3?=
+ =?us-ascii?Q?KaKgRndowFc0J/55usLxeEMXrQmHVU41lFNEcJo3YU8sfz4pkh/N/3SaDhPK?=
+ =?us-ascii?Q?2mNFZkKZRTGXeA9jo+O9dlS7JKXBx4lUZlpjw8SrP2tuUNsxY1US1w9EfKcV?=
+ =?us-ascii?Q?T/s+gimJw5bLt/HWLpNy8Kd4VcjGlFtnFkM4ZtmP4dlQY6ORGBX59lI9tq7s?=
+ =?us-ascii?Q?rDi6TUQ7S0PXGl2LGADUU4wV+7HLE6QUZCxmatdExucYQ765aHJ39xO39BCP?=
+ =?us-ascii?Q?ZD1GKawfp0wNgBmhwrQZlTpjAOnPBjoeA9SXfz/b8Ddu5XFfFRnodO7vr6/g?=
+ =?us-ascii?Q?tfxfL/WG+CVRcSZ2un8YPH1yVw2CN5X6B6PleaLSqWBghOdZVwrzHLKDQyFY?=
+ =?us-ascii?Q?r+o8mkB/GvyhoJi2EZtwdyGcT6bsEE34Ii+rQ7xXEGJmfMiFWD5mQhom44Qy?=
+ =?us-ascii?Q?9ANX6GpsrwWuldrBIH5DBbaSJhmsjf2LLW89IBRac72beUA84MsYfbip0cqN?=
+ =?us-ascii?Q?vTlwFSA35vxHDEZYho3KH08FR0H8rdG4wAZtGFNdACWMAe/pwLWzQ4nQ638S?=
+ =?us-ascii?Q?ouS3NdYC81R4X5uTNNisvfUHvFGLIfHhImJtmKVD25Wsosy3GSNlMZ+vXwYD?=
+ =?us-ascii?Q?Pdn+Jfnk9dwFSP3hEBjK805EQCmsTfHj+FMTz3jVr+3cnvqdOvKu6AmHHkea?=
+ =?us-ascii?Q?0PQoQLENtXaQdTdVB73nII1HNkGzlOJvaotyJdowj84PIoxtODCySFGzHLyc?=
+ =?us-ascii?Q?iltI0tuq3ZPlS76GjC0vJMQgXU3TJ1fGYrtJzbY+G4NQrdXBaCEFAofARMsb?=
+ =?us-ascii?Q?59ZIk/TerayCmQwb+XCLkdu6XKg52quRMCTIgD6EwZ9fkzO/KR5PRpsI+Hg8?=
+ =?us-ascii?Q?FDB0aP2CA2hHEX3r4oxrhEUoc25B80lFlpb+MD9fI4UF2nybV3SN1X2/Pfx7?=
+ =?us-ascii?Q?PARFs1fyZ8jeR5i0+3n9jENxFRbFbS1xocuH452+OrVSxziqx6fpHOjiszr3?=
+ =?us-ascii?Q?hVy5xdD8fjrAiT7trSVVBVatgpA55qg8mY8jIq/untEfIWxodoz0DVuNxSoy?=
+ =?us-ascii?Q?A6Rkfgu4P+EH55mbNbHUEL2BC7PkiZ/2TZlX6rYR+6/klHLbyTkUWpHRNjKh?=
+ =?us-ascii?Q?fsXETAuHXJ5BlYlA5S2sSAtoeo6t8bbxzeXRrfTwa7hHjeXFjifDtkIlarHn?=
+ =?us-ascii?Q?VvrpSkmlP5wgZkzF4xHqDtCYVQ0/8NSxyHOlS9HnoFw1pBV8iiNWteJ47O22?=
+ =?us-ascii?Q?2OKknFsyo02HAGZYA7aS9k59QT9+M/RitaAfXV95Lx2K1kbf1Ul4?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c4bc1c12-9588-4e18-bffb-08df053a1ea8
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2026 19:25:29.7449
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: G6zkYfzVYl115+rziZ0jnT2OKb5xQnhe/j/dp65pLNzrxJGJU4v8X1FA8HdUiOMQx1lgww0TN42e7ZqqFHdklX9pQB+FZ02ofvba1xh3vnZEMAXBLAgHLReBYYT2cnp8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMVPR04MB12674
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_121712_741296_0F889E0D 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260828_122538_744468_8E23B42B 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,51 +143,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Aug 2026 15:13:13 -0400
-Steven Rostedt <rostedt@goodmis.org> wrote:
+On Fri, Aug 28, 2026 at 05:32:09PM +0800, Linmao Li wrote:
+> [You don't often get email from lilinmao@kylinos.cn. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> Zero-length skcipher requests are valid no-ops, but MXS-DCP queues them.
 
-> If one worries about stack size, they may want to turn off
-> CONFIG_RANDOMIZE_KSTACK_OFFSET as I see some big numbers for do_syscall_64()
+Any document show it? if return 0 when cryptelen, it is async, no
+call crypto_request_complete.
 
-And the scheduler has some heavy stack usage here!
+Frank
 
-  # trace-cmd stack
-(stack tracer running)
-        Depth    Size   Location    (31 entries)
-        -----    ----   --------
-  0)     8120      48   __msecs_to_jiffies+0x9/0x30
-  1)     8072     104   update_group_capacity+0x94/0x960
-  2)     7968     528   update_sd_lb_stats.constprop.0+0x426/0x39b0
-  3)     7440     424   sched_balance_find_src_group+0x8f/0x1150
-  4)     7016     552   sched_balance_rq+0x934/0x4130
-  5)     6464     408   pick_task_fair+0xa71/0x1fe0
-  6)     6056     496   __schedule+0x628/0x76f0
-  7)     5560      32   schedule+0xde/0x2c0
-  8)     5528      32   io_schedule+0x8c/0x100
-  9)     5496     256   rq_qos_wait+0x12b/0x230
- 10)     5240     136   wbt_wait+0x150/0x260
- 11)     5104      40   __rq_qos_throttle+0x51/0xa0
- 12)     5064     304   blk_mq_submit_bio+0xc40/0x28e0
- 13)     4760     240   submit_bio_noacct_nocheck+0x410/0xb30
- 14)     4520      40   ext4_io_submit+0xca/0x1a0
- 15)     4480     144   ext4_bio_write_folio+0x5e2/0x1470
- 16)     4336      96   mpage_process_page_bufs+0x392/0x700
- 17)     4240     616   mpage_prepare_extent_to_map+0xaae/0x1120
- 18)     3624     480   ext4_do_writepages+0x971/0x37f0
- 19)     3144     312   ext4_writepages+0x2d2/0x610
- 20)     2832     152   do_writepages+0x21e/0x560
- 21)     2680     184   __writeback_single_inode+0x119/0x1240
- 22)     2496     752   writeback_sb_inodes+0x67d/0x17b0
- 23)     1744     168   __writeback_inodes_wb+0xf2/0x270
- 24)     1576     304   wb_writeback+0x63e/0x890
- 25)     1272     320   wb_workfn+0x844/0xca0
- 26)      952     360   process_one_work+0x8b4/0x15d0
- 27)      592     176   worker_thread+0x5d3/0xfb0
- 28)      416      64   kthread+0x33c/0x420
- 29)      352     160   ret_from_fork+0x65c/0x9e0
- 30)      192     192   ret_from_fork_asm+0x1a/0x30
-
-Note, I'm running this on my server. That is, this is a production machine.
-
--- Steve
+> When such a request reaches the worker, last_out_len remains zero. The
+> CBC completion path then subtracts AES_BLOCK_SIZE from this unsigned
+> value when updating the IV, causing the offset to underflow. On
+> decryption, the resulting source address precedes aes_in_buf.
+>
+> Return success before enqueueing zero-length requests. This avoids the
+> invalid source access and leaves the IV unchanged for a no-op.
+>
+> Fixes: fadd7a6e616b ("crypto: mxs-dcp - Fix AES issues")
+> Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
+> ---
+>  drivers/crypto/mxs-dcp.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/drivers/crypto/mxs-dcp.c b/drivers/crypto/mxs-dcp.c
+> index 133ebc998236..60794b4d49fa 100644
+> --- a/drivers/crypto/mxs-dcp.c
+> +++ b/drivers/crypto/mxs-dcp.c
+> @@ -473,6 +473,9 @@ static int mxs_dcp_aes_enqueue(struct skcipher_request *req, int enc, int ecb)
+>         struct dcp_aes_req_ctx *rctx = skcipher_request_ctx(req);
+>         int ret;
+>
+> +       if (!req->cryptlen)
+> +               return 0;
+> +
+>         if (unlikely(actx->key_len != AES_KEYSIZE_128 && !actx->key_referenced))
+>                 return mxs_dcp_block_fallback(req, enc);
+>
+>
+> base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
+> --
+> 2.25.1
+>
+>
 
