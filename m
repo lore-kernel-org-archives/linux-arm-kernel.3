@@ -4,141 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8AC3C61DCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 20:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABBCC61DCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 21:18:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WW2b3IJFH3R5O+YyVv5U6CsFkBHtaNIK3J3+4SAj95M=; b=DzFyCycELBXLVaUbJHEfUjkeQw
-	s79RGU7sbXClzzVI722rnkoSe6a16poS0THIGhm0oKZ1lhzO5eeSoO0tp7PJipJBt07XSxWfzYA54
-	w6bnUJhWkH8NcZ8kuZJGtro0/NMoS7ReWbuzNGVk5l4c9q3uhrskARzGLxpggTE9kvzuwhIiz0fNW
-	B+7+3GTE7zDzD4iCn2eGuV4a2zFv75EjyVfbRInLct/RkwYyea6tK/tfjA1/8CoE+kuNX/oc0tjSf
-	lIa1YvanH1Us9qhU9sh157dzRDFC4464/Whbjx6j0UyjesrryUngJo5uSFBDDsNPjrkAsbv7lA3R/
-	E8nJ96uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ox47LSGNLn4iYQakTpAdrm+z1IZQvt0QyHLEVX+5st8=; b=sVaqfkzUBKNeMjwL9MrLvMeNBE
+	vNGJlUMSYqquvLxVv3+pNvZJRwDK5QQRtPsevtHE9sSuTat+319jHf/8YTUV7Kz9D4/HpGjeAiicv
+	b18bF1hCMN9SuUNtGL88n9y5qMoqgdWDr2X3en3X1kZp3aqByU/1a38Th40gE9EXsc+qyo2v7hxEp
+	md38sxFgzYMclGiRWFA86SlHnf0XHnuIfTWi4Ft6Ufe27VWZUiEXILR3wZp1WXgBpUIBtP7oEEDp1
+	AIuvOukzDAewFO3pRDiZwgsTfbD+AEFQTw5HuWnLIVHWT1wZ4TWNGVtYcx7BEtjuUEKcVlLqKcSmS
+	OeGEJpjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x03fQ-00000006QQi-0bjz;
-	Fri, 28 Aug 2026 20:59:16 +0000
-Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1x03xg-00000006RGh-1vwf;
+	Fri, 28 Aug 2026 21:18:08 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x03fM-00000006QQK-3nQ4
+	id 1x03xe-00000006RGH-0KMZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 20:59:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s75x7y9CYuaM9/nGDdUBQ6qz/jdjubZvqP3XYOOZjRDkvz/btW+GwdJa89J8v060M64444DbNdzc8C57pgTC3W1CW+aUuGjO8iwvRZl1AvLwGit6H3UBnmcc+DziYzFgGKIYq4oN8OqmvnZ9XbJ6foWS/3hrE+lOB/V1Obhpib49maluEBHn9yjqjDVT+gkUFhTTvmshOnvi/Pg2jshRGJD6Bsqd6EHlLiFCcqbws/KfVnj8+IWu/4FPu7E7O0L8GdzB0/R5aJ5mn15GucxJL4pRka6GrkHRP+32t/Vq96RtVg2LoI+8xrhd7FMB0hwzlSqpWYhy6qyFRW4BDfBmaQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WW2b3IJFH3R5O+YyVv5U6CsFkBHtaNIK3J3+4SAj95M=;
- b=eD+yw08qYIp0AZ3G2TUQZplaFIXxMPsGd4KEn0031TRTVRTDstnvpqAoaUHFA/9nivE8TS8XKyet1A/rn930Yg8U7Pw26ILIrRbQWRwkcDMbljcDw6jcgA/pet4SYtvWMMllmaTWsG2ct2/01YrS/FIqeT/EyI8N/Jr9lWhXibBnpeEo8lA6O0juj70nOv7RskZQdOmZEDClswK7joHjTototOE9FWkOpuwi8rSj40tHOpR26IXXmAN66o1byECkjAHhyf2w5OkDqztMDBbuaALadXhLGog66NwVD2osi9rX0aZU2ctoVXMzAxM4oFR27ZnufgH9v991T5mkdF0vEw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Fri, 28 Aug 2026 21:18:07 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5b5e5aaf7deso2284e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 14:18:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787951884; cv=none;
+        d=google.com; s=arc-20260327;
+        b=A1lNimPq0iQQUBpQSzZ7gOWXJOl3yJUt8N2nrwpVsjatlcHPM1pfO2XN/oj9lBIZbA
+         x7A+ACi/9dxEMLnI6Kqc+e5PMtkUar80zQ7w9ljlReOTgP1HwPvN1+6/+V3ehKFJ1meS
+         THuidqRoiUeP1ZR4FEv5kNJU5+EyeHl+L5h1GnKRrc4MARxw1ZK/tiI/Vz02Tcqbk3xE
+         PrOLMCo4PDMejx5z83OUNvQYImYo+z75+C+K++TmEXx0gpfqtNWp6UbLfBsBlSjVWSRK
+         otWiskujTSehWBYof6wvZmpDPM3f+hlPf5TiqfX+frGIrv81Vv14+9NeVykSng9fxg3C
+         8ZPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Ox47LSGNLn4iYQakTpAdrm+z1IZQvt0QyHLEVX+5st8=;
+        fh=6KVoe7wYlNqs1fC3ZZAg47Ak/pVCDzMsS23+Jeb+UK0=;
+        b=bLU/Km5YsRfpRlK0DuQBY4j8mGuJ1IC+AmAspycgc+2Z4GvMrQn07jEs6qhb0r/UeA
+         u7mZdmcANSHiC0XT4GQjKsKKt1CPbYaOLArz5+uqVW3rDlXfGj5mAjk2ZAc3UkRTHtNE
+         tRSZ5Q1u2vMkKHtkvZzEUFc4+7F7Cw5jgdmujxSZAje7jj7WDGiW8tmEhJtJT2VOAWpk
+         +cknukJVQiIb5ffZ9YlXMfre0qj10Izd7Dpi8JugEm6bbx2gKRIA7OUUTwu2W426sipL
+         gmsZf9xhPb/N72fS9EETB9/qnG9734B/ZKWh6yxsY5t/42GQ/8lRoE5QtnCo+3lh2Hji
+         bN8A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WW2b3IJFH3R5O+YyVv5U6CsFkBHtaNIK3J3+4SAj95M=;
- b=Auyae3668u/x4/puHoVkeHWLI5szYcul5PYlCDiFJWpa7DVmPrBh8+RcYzYVN0IyJnmjDaTdYAJyLpib6nr6cTshcb30Nt0XwJOfltYUPYQZF1YSqBDPIFB1CYdRckkMXeYEYl9onyYqu/pKo2xVVJAUzHulD10sNyM7DGAYaTU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- DM8PR01MB6999.prod.exchangelabs.com (2603:10b6:8:18::18) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.360.11; Fri, 28 Aug 2026 20:58:56 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0%7]) with mapi id 15.21.0360.008; Fri, 28 Aug 2026
- 20:58:55 +0000
-Message-ID: <6c8d880a-0517-4669-80be-8a134f4bf7cb@os.amperecomputing.com>
-Date: Fri, 28 Aug 2026 13:58:52 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 00/18] mm: arm64: Add kernel replication feature
-To: artem.kuzin@huawei.com, catalin.marinas@arm.com,
- akpm@linux-foundation.org, david@kernel.org, ljs@kernel.org,
- vbabka@kernel.org, cl@gentwo.org, linux@armlinux.org.uk, will@kernel.org,
- mark.rutland@arm.com, liam@infradead.org, rppt@kernel.org,
- surenb@google.com, mhocko@suse.com
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, wangkefeng.wang@huawei.com,
- panov.nikita@huawei.com
-References: <20260827161158.3618409-1-panov.nikita@huawei.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <20260827161158.3618409-1-panov.nikita@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BY1P220CA0040.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:59e::16) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+        d=google.com; s=20251104; t=1787951884; x=1788556684; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Ox47LSGNLn4iYQakTpAdrm+z1IZQvt0QyHLEVX+5st8=;
+        b=e4NG918jFkzH8PSxumTf9fElXon/MmgTsypPYiMtjplgv1xN4jKqiczC6NN+DZvK/d
+         IiYG2IzzvMYYE9g80AzKQ7/uPHwpyb17Q5Am2wNzCD4y/cDmAab2NvD4uUyqEDBjgslg
+         7rd+Z9cxTwAPNP1V/MWjhf/p43tjJpYg8+EE5RVqOGmnHZaQoGirLXKAyTXClWHFFBPF
+         1WAz2EgC9+OC1gFH+WskhCv1+mii/OOOcUNBAvpL8RNb8mpPAHF9aaXhzfww+AGm3kFZ
+         UFl3lwhLQ+QiOIlogb93e8mF9V0z5EnH7AfejCsNhfO7esaX23fLhfZreXMyLb6tBGkp
+         m50g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787951884; x=1788556684;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ox47LSGNLn4iYQakTpAdrm+z1IZQvt0QyHLEVX+5st8=;
+        b=Uw+CxZU4wvqqoXSqeLDHZ2vYBVKxohgIKprWxLkSMR+ckYNNP7YzZ+DozqE4NjRAw7
+         RDTvazOvyKioSpElc/cnIJLfS7OG7tQq3rKr3hjK55Am9YJltMvOxhfP44aRJyql/6cp
+         q169xJga2NAIizF1eS71QHjVpZOGU/DuswG5K3eDFgqOi45WrGnJz7xiYVOFlhMCvVZX
+         lcC4xVcsVkGiGaJFvs5iL7BSY92Frebmme65r6SAgIAAeHBFwFP2cexk6kCSZvGgsARM
+         mS3BTswPQw6joyr10ztETqKBZ8xozyDJZDukpcA24hDrgo7MDjbXQF4r8yBJs7WApBWI
+         FXPw==
+X-Forwarded-Encrypted: i=1; AHgh+Rrg96OlybQSbVXolb8biahopJ8upQLjWubUe1VUneJxLSvucRXudovE3ohoyOQYX9u89m/q4Nege4CfvB2XyLTz@lists.infradead.org
+X-Gm-Message-State: AFuF++mQ+42EzeHIjMhsMXwUVH/hNkWIzzwKrvsSi+ZO8ijxtEain6WD
+	qEGOJRrfFyJ/E9qUgjlpQRD8cYG1qkV3HpZdBNFU6SDsjnT+Jkr5PrEys3kXVy4uvJasrlrYTpX
+	8KJZ6z52QV2e36sqnG/E7K2ePiVI2gleixzCo/jR3
+X-Gm-Gg: AR+sD10UwOOkJm0fM26pHkdvUaViHSv0zYx25uThCCVv458tMY9HHwJJBuE5yIKTSCg
+	CubXpsH3Q40/TjU+EyU2xAMRVBADMmxogi6TKoZwgXxezzWfQX6mVGszyYp1z4wv/ngAPOVUr4h
+	LYaMjawpUuakdrEhV/PXBKGkWtDn4v7JF7TwpgLLRLT5zrIhTQ1OqQ6cfpidVK/JVD1FMWytG/e
+	3Z/hf5kDxYJQbVBYl/55zJBE508kg8CL3v79prPDk8oZGf4GIQ1fJfqMQb4TQZUOWeUzYFb4FzL
+	sng0S8kLplkl9o9oL3hJ7I8eqRnZ2XoZlGoN65EAG1jcC3J+aqa6zalM1OGMatT1lR/2JtqkquB
+	W
+X-Received: by 2002:a05:6512:1594:b0:5b2:a967:c0c9 with SMTP id
+ 2adb3069b0e04-5b5ef2283a7mr31129e87.7.1787951883225; Fri, 28 Aug 2026
+ 14:18:03 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|DM8PR01MB6999:EE_
-X-MS-Office365-Filtering-Correlation-Id: bd39a912-c37b-452c-aa1b-08df05472c65
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|6133799003|22082099003|18002099003|55112099003|3023799007|11063799006|56012099006|5023799004|10067099003|921020;
-X-Microsoft-Antispam-Message-Info: mOyE77vJe3PnqPPArWXcSi6WaoWTXYMjQpWVxqOvukyTwR7jNYzqKr8IR3cM2XWEtMGkZGkdq7CdNrxbLD3/v0rv9R0eRqE6c3NDAuPhkAunopeaU1h8FRR5gXVe90siqBdFIdz1tBn3ZKdM8yDX7wZY20id+v+VPvK553DquOP2uPIWidpQsrHcTrhhhSChQ1dQRU4jZB4n9ikmp8xVJfRzPR33OAWjRfsRiwsi5UnOvKJ/2Fw3XGnet3LoCAfG0YiSfumlUJHbHNstgCHmeMBYYOUsR5vT7Y2+U4+hOHxjokYnVm7EfUmBO2JkdNDIlQkFBktEVk2QrWNQQ3QhkspxhK5FU0JjQ/rrVUSIhYK+YqSKzy+WzP2ug3uO4AVLPsA6tvZ8juntjT+5SyKDkL9lJpQ6npvSMmwFxw8XIv3wnJ2czLPMxJmj4Rt/VDERNAn/M7SZyrxf/KhBaPLxlwfCjYyz0tXs18fnH9H2K5hIeCKt1qJOYMs+obKZMj0wS0Wq099GMm8pbVaatmyn9d6V3GqWvEgAenQT/sgXdEBFH5BrUgLU8FueRjb4C6oATWBnjRpMCb4zKk65pEwB7bL3jaIQz6sjJFU/VAfwNCBlQQ/PLkzBt09HZ1GQ8nVa/RpSI4tzDqLqSayREbaKXg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(6133799003)(22082099003)(18002099003)(55112099003)(3023799007)(11063799006)(56012099006)(5023799004)(10067099003)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UWF5aXdhMUM4NzQ0cldyVHpWY1J6NHQ5UU1WY0JISFM0TEVzZnRJcXFlbnd5?=
- =?utf-8?B?eWpINXlRL092azhKUGduVW5WbXdtYjlUY1NaR21zK0tGM01pUHRQQnFsTGZQ?=
- =?utf-8?B?RDBhZHc4UGk4NElFSnhZbTJUS2Rub21wSEszSjhNbkV4K3hPcTlVNzFidTFE?=
- =?utf-8?B?T1hpcmpLRUNuVGhiNGhQbVlmd1BueEs0T0hlOFhHY1I2UlBoYkU0L0JuVm5E?=
- =?utf-8?B?dmVCcWxYUzZYZzlnOEE5SjUySmNTc3dTemVrQkxyYXM5MEdoNVVVdW1IRlU1?=
- =?utf-8?B?N08wKzJGd0x6QU45RmEzT0tCWTY4V3RaZU5wZ1JYVHBDRkVFZWx4K0NpSVlQ?=
- =?utf-8?B?NDR6djY3anZITGJCWmNTeit1M0liajNjVjFyY1p6cnVGZXFlWFpOUGhGZ3JY?=
- =?utf-8?B?VFNFVjAweTJoaE8vTXd0QkszOFR0MS9zS3pBYUtSK3prc2d5bDV2bHJCSVpi?=
- =?utf-8?B?T0hvT0lpOThoeG0zWHY1NEE1U3cycUZ4NUQ4S1JhY21TZS9rSjVzUHQxRnZK?=
- =?utf-8?B?ZEliRmZFVzhRRng0ai9QdVRoeWJGNHl5TDFLalRpTlBNMW16bURTR0tIY1Z5?=
- =?utf-8?B?cXVKcUJCdVg0aGZ3NjZMNXM0SUFXYnRPUXk4NmxmQ2RGOHlWTUpYU2xidGc4?=
- =?utf-8?B?Ykthcy91d2hYZFFyKzJKazl5K0VLMllTTk5BOFhzdzV1MldKWE9hUDRoUFJl?=
- =?utf-8?B?VFRTV3BzbkZJeVJZRVA0NmtrTFFySlU2MEJmV0QwK1ZNYjREbzhSQW5VL29v?=
- =?utf-8?B?a2V2MkkwdXJ4a1RHTncwMWcrdmNLNE5STDdma3hjR3hUYTIwelRyTTNBRm1u?=
- =?utf-8?B?R3puOWhnMHpPRGNCSmVrdGhLcGc3NTVQSE5RdzBuMVNHcVo2em81OFZ2b2N1?=
- =?utf-8?B?aGIrcDFCaHBhN0dWbWRCZU03cmUwYnlrZEk2dVZYc1NtcjhsUTE5TGVLMlVX?=
- =?utf-8?B?cHRJVm12d29IZ1B0anFOTlZxQ3AxWHgrM3Nwdkg1T2FEMW5iSHRld0daZWRX?=
- =?utf-8?B?ZERGelJMRCtNcmkvQllEcWIrZEszQXl1cEsyZXRZZDJhVkk1NWdCVnJaRXV2?=
- =?utf-8?B?V241TjZwQ2xYMHRQZzVQZ1hob0Fuc1ZlNEN5Z241M0p4WGZpaDl4VFJucG80?=
- =?utf-8?B?OXA2WkR3azV1MG4xdHIvZld3WGUrRVVoTXRRbUxSQnFGODQ5WkFEVG9IaThr?=
- =?utf-8?B?S0k0bTI2K1ZEcTQvVWJ1VTIxQjhPUlBpS3E0c2NPSHBXYzAxYTl2RWRBLzRn?=
- =?utf-8?B?bjkwMUtMLzhDUnNCZ1JvNktlN0x5VXdkWXhKZUg0ZUk0U3hpNXdHZThCTUZC?=
- =?utf-8?B?aVozNE1vdnEvSUZ1dWZZemc1VVZPQ1VzVlErRXl3NUhuamc3UHZ6SEZrSVR0?=
- =?utf-8?B?dFcvUGhJL2JjR3FRQlZ0bVk4ODE3eitsUW9sTkx1QUpiWXBCN3RPOFFSckNk?=
- =?utf-8?B?WWVRV0tZNW5NU2hlTGg0NmQwUjNGM05RRnQrUUhka0JsSDF3elYxaUlXelZp?=
- =?utf-8?B?dVpwV1JBT1dJMnRFZGFxcjRCdnFlbzEwQTFBTVFKVUpJa3hxWDhqeXJqRUNr?=
- =?utf-8?B?TVFjbkR0WGFMYnlNUUpoa01lMFZDaktLMjBOVE1ObkszRTZqKzJoZWRGT2dt?=
- =?utf-8?B?SzVqRVhPVUhWdWV5aG1WTGtJQlB4dnhsUFV3TWNNSWVEYndmaU12Umh5KzQr?=
- =?utf-8?B?ZEIxU2VOYUE5MU1pTWNhWnJsbG1PTUwxUUtxM01pOENPYUpwMnFwRmFYYjMy?=
- =?utf-8?B?ZXFBSllBTHdzVVFncENuaE1Zb2RiTVl4YzlIQXpOcVJOVEtPNm9IUWZTeW5M?=
- =?utf-8?B?cloveWU0UW9xV2F5cDVwbTBJVld6YVl1YTJaN3NoZjRKR00vSXRDZ25tU2Fl?=
- =?utf-8?B?YXZ3bElFTUI1M3ZqWUh2WS9qbENCODdFQVkrNTVNMkpmV3J6TVhCdVFKQlov?=
- =?utf-8?B?K0Eza3JueExtdGFlWjMrZS9mM1pxODdsVzJJbWFpTnY4dWx5QnlXbnNrQVVW?=
- =?utf-8?B?V0k3U2l2R2R6NkJHbjIySWFCa2FZeVpwczdjTzhYTmd1UDFhQzNnL3lnVEZH?=
- =?utf-8?B?Z3kwVDFxK3REMmZRa0N5TDhoVVBzUnVjVUxKdk1JU0dGSWFKbEh1WFpTWEFU?=
- =?utf-8?B?eHZONnE2M00wY3RuYWRJcFZ4cFNmZlN5d3lST2tPTEpKdDhqcmx4TG9TdnFG?=
- =?utf-8?B?YnF6Wm5tUjh4Y1BsUHpiaDFBSVEwcE9CaXlGRFhHMU5OZklRZG4zb3JCY3lk?=
- =?utf-8?B?U2dkZnpxeEI0MmY1OUhSZmtqWVhIWVpxTmNPcE1EZEQyd3pBQzNtSUZHSlRJ?=
- =?utf-8?B?MjRSZXBwM08vM2xNVGx2djZ4WS9aRFNVOGE2N3pBVHNSakUwQ2NJc1VTS01I?=
- =?utf-8?Q?l812XpGkVjXueJco=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bd39a912-c37b-452c-aa1b-08df05472c65
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2026 20:58:55.7650
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VCfZS0LbDenOmrHUBvBnRVnFxau0iqLBSaV99a1zH0R+8gJynVpzMc3sduJ8l0Lizdhe9EdMuZW4x91/4peCS79CG0zARGpjv9mSgdodMyA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM8PR01MB6999
+References: <20260827232948.2520558-1-stevensd@google.com> <20260827232948.2520558-7-stevensd@google.com>
+ <20260828133620._x2XfJR_@linutronix.de>
+In-Reply-To: <20260828133620._x2XfJR_@linutronix.de>
+From: David Stevens <stevensd@google.com>
+Date: Fri, 28 Aug 2026 14:17:49 -0700
+X-Gm-Features: AcwNN1XPwhnUNeipFck3Fo-JT824naG0Joeg5blGOWBTdqacwVpK3ww48maahZk
+Message-ID: <CAOiLmNHK5Hw55omycg_EAHzi=g1iqJn1NTap1Mt98im3xTXcvA@mail.gmail.com>
+Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H . Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Dave Chinner <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Muchun Song <muchun.song@linux.dev>, 
+	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	Uladzislau Rezki <urezki@gmail.com>, David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+	"Liam R . Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Kees Cook <kees@kernel.org>, 
+	Clark Williams <clrkwllms@kernel.org>, suleiman@google.com, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
+	linux-rt-devel@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_135913_061769_11E3988F 
-X-CRM114-Status: GOOD (  36.36  )
+X-CRM114-CacheID: sfid-20260828_141806_178649_5104F952 
+X-CRM114-Status: GOOD (  33.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,295 +133,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Aug 28, 2026 at 6:36=E2=80=AFAM Sebastian Andrzej Siewior
+<bigeasy@linutronix.de> wrote:
+>
+> On 2026-08-27 16:29:44 [-0700], David Stevens wrote:
+> > diff --git a/arch/Kconfig b/arch/Kconfig
+> > index fa7507ac8e13..adb4a5957996 100644
+> > --- a/arch/Kconfig
+> > +++ b/arch/Kconfig
+> > @@ -1534,6 +1534,24 @@ config VMAP_STACK
+> >         backing virtual mappings with real shadow memory, and KASAN_VMA=
+LLOC
+> >         must be enabled.
+> >
+> > +config HAVE_ARCH_RECLAIMABLE_STACK
+> > +     def_bool n
+> > +
+> > +config RECLAIMABLE_STACK
+> > +     default !PREEMPT_RT && !PROC_KCORE
+>
+> This shouldn't default like this for RT. It either is useable or it is
+> not.
+>
+> > +     bool "Allow stacks of some blocked threads to be reclaimed"
+> > +     depends on VMAP_STACK && !STACK_GROWSUP
+> > +     depends on HAVE_ARCH_RECLAIMABLE_STACK
+> > +     depends on !DEBUG_STACK_USAGE
+> > +     depends on !KASAN_VMALLOC # TODO: add support for this
+> > +     depends on !DEBUG_KMEMLEAK # TODO: add support for this
+> > +     help
+> > +       Enable this to allow the unused portion of kernel stacks of mos=
+t
+> > +       blocked tasks to be reclaimed.
+> > +
+> > +       The wakeup latency of tasks with reclaimed stacks may increase,
+> > +       especially while the system is under memory pressure.
+>
+> It says *may* increase and on RT it _definitely_ will increase since
+> there is a kworker involved not to mention the memory allocation itself.
 
+You're correct that this phrasing is wrong. A more accurate way to say
+it might be: "Under memory pressure, tasks that are not scheduled for
+extended periods may have their stacks reclaimed. Such tasks will
+experience increased wakeup latency."
 
-On 8/27/26 9:11 AM, Nikita Panov wrote:
-> Current status:
->
-> There were several prior submissions with some sort of replication
-> for NUMA systems, including one from our side for the x86_64 platform.
-> In the last couple years, several research articles related to solving
-> locality issues on NUMA machines through replication emerged as well.
+> Anyway. This either needs to stay away from PREEMPT_RT or find a way to
+> exclude at the very least mlock()ed tasks.
 
-Hi Nikita,
+Disabling kernel stack reclaim for mlockall() tasks definitely makes sense.
 
-Thank you for the effort. As Christopher said we are working on the same 
-feature. Please see the below inline comments.
+> Did lockdep see this?
 
->
-> [1]  - arm64 kernel text replication
-> [2]  - x86 NUMA-aware kernel replication
-> [3]  - x86 kernel text replication
-> [4]  - NUMA replication of user data
-> [5]  - Mitosis: Transparently Self-Replicating Page-Tables for Large-Memory Machines
-> [6]  - WASP: Workload-Aware Self-Replicating Page-Tables for NUMA Servers
-> [7]  - PaCaR: Improved Buffered I/O Locality on NUMA Systems with Page Cache Replication
-> [8]  - Memory page replication for Linux on X86 processors
-> [12] - Optimize this_cpu_*() ops for non-x86 (ARM64 for this series)
->
-> As of today, none of it was merged into mainline.
->
-> Patch set description:
->
-> This patchset implements initial support of the kernel
-> text and ro-data replication for arm64 platform.
-> Linux-next was used as a baseline.
-> (903c1cf6dff9 Add linux-next specific files for 20260821).
-> This patch set heavily relies on our previous submission [2],
-> their generic part is the same, these solutions might be merged into a single one.
-> However, after thorough re-evaluation, we were not able to observe
-> performance improvement for the x86 platform, so we have decided to stop this
-> direction and switch on arm64.
->
-> Current implementation supports the next functionality:
->
-> 1. Replicated kernel text and rodata per NUMA node
-> 2. Vmalloc is able to work with replicated areas, so
->     kernel modules text and rodata are also replicated during
->     modules loading stage.
-> 3. KPROBES, KGDB and all functionality that depends on
->     kernel text patching work without any limitation.
-> 4. KPTI, KASLR, and KASAN are supported.
-> 5. Only part of a translation table related to
->     replicated text and rodata is replicated
->     (up to 2 pgd entries if kaslr is enabled)
-> 6. 4K + 48bit and 64K + 48/52bit are supported and tested.
+What are you referring to by "this"? I did stress testing with lockdep
+enabled and didn't see any errors, although I will admit the bulk of
+that stress testing was !PREEMPT_RT.
 
-I think 16K + 47 VA bits should work too. I guess it is because there 
-are just 2 top level entries with 16K + 48 VA bits. That requires some 
-extra effort to sync up kernel page tables.
+> If I understood the whole exercise correct then you have a kernel stack
+> of two pages and in best case you can unmap and release the second page
+> while the task is napping.
+>
+> What might be a tad simpler is to memset(,0,) the remaining part of the
+> stack. Since the stack is vmap-ed it should be swapped out on its own
+> without additional tricks. That memset() would help zram to compress
+> better so it uses less memory. ta-da.
+>
+> What also should be simpler (and I am not saying just to move you away
+> from the scheduler) is to have a shrinker which iterates over all tasks
+> which are marked for reclaim and then similar to swap just unmap both
+> stack pages and release the second page which is not used.
+> Upon wake up the task should create a page_fault which would be used to
+> allocate the second stack page and map the whole stack again.
+>
+> This sounds simpler.
 
-> 7. New cmdline option: "kernel_replication=on|off",
->     to configure on the boot stage
-> 8. For verification check dmesg output or /sys/kernel/debug/numa_replication/
->
-> In general, setting up a new pgd entry in kernel translation table
-> not often scenario, most of them are covered by current patch set.
->
-> TT overview:
->                     NODE 0                   NODE 1
->                     KERNEL                   KERNEL
->             ---------------------    ---------------------
->       PGD   |@| | |@|   | | | |*|    |@| | |@|   | | | |*|
->             ---------------------    ---------------------
->                                |                        |
->              -------------------      -------------------
->              |                        |
->             ---------------------    ---------------------
->       PUD   | | | | |   |@| |*|*|    | | | | |   |@| |*|*|
->             ---------------------    ---------------------
->                                |                        |
->              -------------------      -------------------
->              |                        |
->             ---------------------    ---------------------
->       PMD   |READ-ONLY|MUTABLE  |    |READ-ONLY|MUTABLE  |
->             ---------------------    ---------------------
->                    |       |                  |     |
->                    |       --------------------------
->                    |               |          |
->                  --------       -------      --------
->     PHYS         |      |       |     |      |      |
->      MEM         --------       -------      --------
->                  <------>                    <------>
->                   NODE 0        Shared        NODE 1
->                                 between
->                                 nodes
-> * - entries unique in each table
-> @ - same entries accross replicated tables
->
-> Since for kernel space and user space different tables are used,
-> user space tables are not replicated at all, so synchronization
-> is not required.
->
-> Known problems:
->
-> 1. Other combinations of base page size and va size (especially with 16K pages)
->     should be adapted and verified.
-> 2. Replicated translation tables for the vmalloc region are not local right now.
->     Allocation performed with default memory policy, so translation tables
->     for kernel modules will not be local. However,
->     replicated text and rodata of the modules are local.
->     In general, vmalloc patch should be cleaned up.
-> 3. Any modifications of kernel PGD level. These modifications
->     should be synchronized across all replicated tables.
->     Right now, for example, memory hotplug/hotunplug
->     lacks this support, vmemmap and kasan regions for
->     added memory might not be observed correctly. This could be fixed
->     by patching all places in the kernel where swapper_pg_dir
->     is modified, or by "lazy" propagation on kernel faults in the pgd-level.
->     Propagation approach will not help in the case of pgd_clear()
->     on swapper_pg_dir though.
+There is no swap for kernel memory, only user memory. I did contribute
+to some previous work that aimed to only only prepopulate one page of
+each kernel stack and then to dynamically fault in further pages as
+needed [1], but handling that architecturally and guaranteeing that
+memory is available when needed is difficult. Full-on swap to zram
+within the kernel would complicate pre-allocating pages for kernel
+stack faults further, since you could start getting inter-thread
+kernel stack faults due to blocked tasks putting pointers to their
+stacks into waitqueues and similar structures.
 
-My percpu patchset (I saw you mentioned it above) already had these 
-problems solved. I have not looked into too much detail yet, but it 
-seems like you have replicate kernel page tables per node. My patchset 
-added percpu kernel page tables. It should be able to support kernel 
-text replication as well without too much extra effort. And it can 
-support multiple usecases, for example, this_cpu optimization 
-implemented in my series, kernel text replication and some potential 
-security features. Multiple usecases should be able to make it more 
-attractive and convincing. So as Christopher suggested it may be better 
-to combine the effort.
-
->
-> Overall, this patch set in an early PoC stage and require some improvements.
->
-> Overhead:
->
-> Memory overhead for the kernel itself is about 30MB per NUMA node
->    on our deployment. For kernel modules - depends on their sizes, but text
->    and ro-data are not that big.
-> CPU overhead - replication performed on the boot stage. After boot
->    only "rare" operations are slowed down -
->    module loading, text patching, kernel table pgd-level modifications.
->
-> Performance evaluation:
->
-> Our local testing was performed on
-> Kunpeng 920, 128 CPU, 4 nodes, 100Gb for each node.
->
-> Microbenchmark:
-> Kernel module with a huge text section (~50MB) filled with CPU-bound
-> instructions. For each NUMA node thread is spawned, each thread in a loop
-> executes isntructions. Total execution time of each thread is measured.
-> The insmod call bound to node 0 through numactl (less time is better).
->
-> node                 0        1        2        3
-> Before time, s     5.567    7.598   13.294   18.905
-> After  time, s     5.469    6.960    6.777    5.531
->
-> Diff               ~0%      -8.5%    -49%     -70%
-> In this benchmark, interconnect was not used by any other actors,
-> so microbenchmark numbers might be significantly improved.
->
-> Customer's evaluation:
-> We were provided with the following feedback on this patch set
-> directly from our customers. Unfortunately, we do not have details
-> regarding how these measurements were done other than it was
-> a production setup.
-> Evaulation was performed on Kunpeng 920 and 920B platforms:
-> CEPH distributed storage +5%
-> StarRocksDB              +5%
->
-> Couple more words about patch set and technology:
->
-> This patchset was merged into the innovative branch of
-> the openEuler distributive 1.5 year ago (openEuler-25.03)
-> and was actively tested in production environment [9], [10].
-> In addition, besides the kernel part, we have published
-> user space replication (for translation tables and rodata) as well,
-> but it is very complex and experimental
-> even compared to this patch set [11]. With replication in user
-> space, we were able to achieve the following numbers in
-> performance improvement:
-> MySQL + sysbench      1-6%
-> Spark TPC-H           4-20%
-> Phoronix test-suite   0-25%
-
-Thank you for sharing the performance data. Does the SUT with 4 nodes 
-have 4 real sockets? Nowadays the CPU design is moving to multiple 
-chiplets. Subnuma configuration may be more and more popular in the 
-future, so we thought kernel text replication can help performance for 
-more usecases other than multi sockets machines.
-
-Thanks,
-Yang
-
->
-> Discussion:
->
-> The main question we'd like to discuss is the following:
-> Should the kernel replication feature be merged into the Linux
-> somewhere in the future? In any form, not specifically this patch set,
-> but the core concept itself.
->
-> If the answer is yes, please share your thoughts on this patch set. What else
-> should be fixed (or reimplemented and redsigned completly) in this patch
-> for mainline in your opinion? We'd be glad to do it, and in that case
-> I'll send an updated version in the near future.
->
-> [1]  https://lwn.net/ml/linux-doc/ZHYCUVa8fzmB4XZV@shell.armlinux.org.uk/
-> [2]  https://lwn.net/ml/linux-mm/20231228131056.602411-1-artem.kuzin@huawei.com/
-> [3]  https://lwn.net/Articles/36602/
-> [4]  https://lwn.net/Articles/45082/
-> [5]  https://github.com/mitosis-project/mitosis-asplos20-artifact
-> [6]  https://dl.acm.org/doi/10.1145/3620665.3640369
-> [7]  https://dl.acm.org/doi/10.1145/3767295.3769359
-> [8]  https://github.com/Carrefour/linux-replication
-> [9]  https://mailweb.openeuler.org/archives/list/kernel@openeuler.org/message/C7M5E2K2UD7FV7XYPWPZREJBCOCBIVRN/
-> [10] https://www.openeuler.org/whitepaper/en/openEuler%2025.03%20Technical%20White%20Paper.pdf
-> [11] https://mailweb.openeuler.org/archives/list/kernel@openeuler.org/message/73MAUDM6WCGSSOKPZGPNZAYRNQGUR6DE/
-> [12] https://lore.kernel.org/linux-mm/20260715180455.515692-1-yang@os.amperecomputing.com/
->
-> Nikita Panov (18):
->    mm: arm64 add Kconfig option for kernel replication
->    arm64: align kernel text and rodata
->    mm: allow per-NUMA node local P4D/PUD/PMD/PTE allocation
->    arm64: add arch callbacks for kernel replication
->    mm: per-NUMA node replication core infrastructure
->    mm: add support of memory protection for NUMA replicas
->    arm64: add support of memory protection for NUMA replicas
->    mm: set memory permissions for BPF handlers replicas
->    mm: add replicas allocation support for vmalloc
->    arm64: enable per-NUMA node kernel text and rodata replication
->    mm: enable per-NUMA node kernel text and rodata replication
->    arm64: make power management aware about kernel replication
->    arm64: make kernel text patching aware about replicas
->    arm64: add correct alignment to kimage in efi code
->    arm64: add support of NUMA replication for ptdump
->    arm64: add kernel modules text and rodata replication support
->    mm: init kernel modules with replication support
->    mm: introduce kernel cmdline option "kernel_replication="
->
->   .../admin-guide/kernel-parameters.txt         |   7 +
->   arch/arm64/include/asm/efi.h                  |  18 +-
->   arch/arm64/include/asm/mmu_context.h          |   4 +
->   arch/arm64/include/asm/numa_replication.h     |  54 ++
->   arch/arm64/include/asm/pgtable.h              |   4 +
->   arch/arm64/kernel/alternative.c               |  33 +-
->   arch/arm64/kernel/hibernate.c                 |   5 +
->   arch/arm64/kernel/module.c                    |  11 +
->   arch/arm64/kernel/patching.c                  |  96 ++
->   arch/arm64/kernel/sleep.S                     |   8 +
->   arch/arm64/kernel/smp.c                       |   8 +
->   arch/arm64/kernel/vmlinux.lds.S               |  22 +
->   arch/arm64/mm/init.c                          |  49 ++
->   arch/arm64/mm/kasan_init.c                    |   2 +
->   arch/arm64/mm/mmu.c                           |  42 +-
->   arch/arm64/mm/pageattr.c                      |  72 +-
->   arch/arm64/mm/ptdump.c                        |  24 +-
->   arch/arm64/net/bpf_jit_comp.c                 |   4 +-
->   include/asm-generic/pgalloc.h                 |  90 ++
->   include/asm-generic/pgtable-nop4d.h           |   5 +
->   include/asm-generic/pgtable-nopmd.h           |   5 +
->   include/asm-generic/pgtable-nopud.h           |   5 +
->   include/asm-generic/set_memory.h              |  14 +
->   include/linux/mm.h                            |  92 +-
->   include/linux/mm_types.h                      |   3 +
->   include/linux/moduleloader.h                  |   4 +
->   include/linux/numa_kernel_replication.h       | 112 +++
->   include/linux/set_memory.h                    |  21 +
->   include/linux/vmalloc.h                       |  18 +
->   init/main.c                                   |  17 +
->   kernel/bpf/core.c                             |   4 +-
->   kernel/bpf/trampoline.c                       |   2 +-
->   kernel/module/main.c                          |  20 +
->   kernel/module/strict_rwx.c                    |  12 +-
->   mm/Kconfig                                    |  10 +
->   mm/Makefile                                   |   2 +
->   mm/execmem.c                                  |  39 +-
->   mm/memory.c                                   | 129 +++
->   mm/mm_init.c                                  |   3 +
->   mm/numa_kernel_replication.c                  | 821 ++++++++++++++++++
->   mm/vmalloc.c                                  | 454 ++++++++--
->   41 files changed, 2246 insertions(+), 99 deletions(-)
->   create mode 100644 arch/arm64/include/asm/numa_replication.h
->   create mode 100644 include/linux/numa_kernel_replication.h
->   create mode 100644 mm/numa_kernel_replication.c
->
-> --
-> 2.34.1
->
->
-
+[1] https://lore.kernel.org/linux-mm/20260424191456.2679717-1-stevensd@goog=
+le.com/#r
 
