@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A46ABC61DCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 05:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA316C61DCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 05:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mEJ19k6VFkGLeF0T3A8fZtY496MybQptAygVYIkcbbY=; b=nxrOPTRd6q2wiYnWpZ0X6dvLaf
-	Ppo+9Mt+k45dNvzsUooFlHh9QhqRVKJQpQQ61rRS++d44U2L0tvIKySb74fveqO5vpavDaSKAmco4
-	wcbq6e4bE61Ywj9I+vk4sP5i5+s/9ZGsTgVe9mr8MrUE9WG89vk8QSzI7AQHHn06WjQKa+MgJBRZs
-	AMVOEMOF2r2+/yr2kCZpTZLTyvI6MDC0LrjJCkl12WUHMgxeySMC48XgvllFxBrm4WhyhVcVhUCQM
-	aislD5WCDlwutnPTD2r7d/3zI/RDXTITs85DDLYGNuPjEq0gdIP/wF7eDPyCMTNAffHiyoDLHiz/J
-	m5aeYXrA==;
+	bh=saCp1ODXEDwi38FA7nL50yvKTMsyJL4w4PBPDdxbPpY=; b=xyqDV3KIiiCaF+j1v+BFFCXTWl
+	FiMPvazjSVru32K0FghiEUGYeBgh2PkMRx/5VMmXu458S8DJwQRPUV02pSfc9NICdRaWRXJwsOlYU
+	f1hctJLv+7qc5zGY3Klmj7NdQRLGiiZqFwuHEWhEx/qkTv7zYL47ASOCx6HccOcB9OY27vCNpq+oU
+	ZuQwh6jfQArW8/+WLgXIYueQEDhbtcJ8Eqk+YcJ1k+JMjTbJGCWo2IZZmgYeL5Z8koUR3bGKGl2fa
+	6Wat+GhPpYRIswV17yHDIjuEGYzJ1y50uChbmW35OxaHgr0sF33TD8FUtwbLzcbxtTEESgrG5CQBR
+	K8xXXx5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzpH0-000000059mS-3h1O;
-	Fri, 28 Aug 2026 05:37:06 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wzpJg-00000005A6S-0oNp;
+	Fri, 28 Aug 2026 05:39:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzpGs-000000059kT-2mWz
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 05:37:00 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-47f92e3c14bso457000f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 22:36:58 -0700 (PDT)
+	id 1wzpJe-00000005A6J-3lR0;
+	Fri, 28 Aug 2026 05:39:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C7BDA602CE;
+	Fri, 28 Aug 2026 05:39:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63F2A1F000E9;
+	Fri, 28 Aug 2026 05:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1787895417; x=1788500217; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mEJ19k6VFkGLeF0T3A8fZtY496MybQptAygVYIkcbbY=;
-        b=LuwECfGxJHP+O1m3dPfHQe7BuGoTYu2gyhzMANv8+DylqNhu/in55wPKHAHkctXo8f
-         55SllaqrKzVbQXkTIQdWB3AfmrpOcsf3Oi9e9ylEXkCmoXM14TTnjFzM1xRMcVF4biNJ
-         IUywqs9i6IpwsejGqF1U+YHlVxO8uKcZMejlMaMEan7ddPgs2+FLmp0zZ7eRmpnTUrBF
-         zR6pQOGcT3PkLzjJMHEKltJx3jvdKBHUcRiJGtraooY2nd+DUfeOZ/Tvof8tbRehs4UN
-         5r3DCHDvQQodggYkXSk5dUwFQxRLHzMMsqm1stXTluB/156L+m1PBTVg3hdGgqNoyGaX
-         H65g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787895417; x=1788500217;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mEJ19k6VFkGLeF0T3A8fZtY496MybQptAygVYIkcbbY=;
-        b=jPyhvQZY86keiSXZkUGhqR0Lju4C0DtkkqqBgqLEDRCQ6YJMrE8zHPhNHDCgqMm4wS
-         uHoPDnjqNFkTzep1I1eBt4x09A/vFgYXJ6TcMw9+Ad9fhS99LlhKHQ8TBv/XUNoHrgul
-         ir8DTMFh8sqqmAc8ksfIwreNR9cBcAupPQoQqzCd8nuMHhQwqqwVXvfd8HP2uj1GRRTj
-         62AGzuRLxeeLvDZtsoqzpoXqgqGDoTZy/nwgoHLzw7JP4q4WHDZi9g6nWpX/c/RsXFa+
-         dGe9L1q7XNjAdAgtT+V2DbkMvVhWFE9/Zlf+IPU9T9VN38U6PAvnFR63DsJOhyuw9tXi
-         mL1w==
-X-Forwarded-Encrypted: i=1; AHgh+RrxHh2IIQ0+45v6q7C3Cdm4p/dVuUNHMuO11lTalh5ptsj1H7sp3F5Ax+JXU54Nfu6BCkKWDWXuxqsHg0ILPbC3@lists.infradead.org
-X-Gm-Message-State: AFuF++kSVZK4GyXfu6DaAkBuj2yYQux1cLekZypxSXJH+VskALl2FQdh
-	ccy76ayXL7M2FtevL08JAOftHcFZE3PuEvKuQ+ktDSeRvzG0cmpMOIRFcXzmDEdJWic=
-X-Gm-Gg: AR+sD120+oImLs6duAjWdtuuPKzw/1sJgt63pkYg86y4f0K4/FeD82Le2i+sy8sGRIO
-	VuIb8VoD6geAQ4yqVbcfFUhEhNZDUBTrQJd1g4DL5R1hamZzZx08LogbMtjZVO7uGvSv9TvnjGT
-	HuTpumayIvoo9zcLLY1aZvBEb6TzVMC8fNDNi7rmDgiPCp4D/+zcZti+4yUlFGkmK80jhBDk3XI
-	Dx6yHkGlCtL8TLDTi9iFrhWog2DVTmg6zXkim2kP7EvXk7D6YPpUkFyQvuNuCbqYXUQ8QYs+obj
-	+ccktUE8Q4/hFt9P725YhNgRB2Y2dQ/iBtajsD0czz7ty668tkQcOovP5GECiJVWjDnUhArifUQ
-	jzPabr02obMxAFCK6cXIe2O2lZ3p8FKh8eEMSCKSZgdheDBYZOSxawaIXZ47gzjcI27Odgp2ycp
-	X4kEoQzhXuuMj4p8jFytAHuuM2vcfEEzZPh0GtjqG4/psoFwmQLCOUb32GboGF2Upx5rzuaGDVy
-	I34KaYJDth8YMH58k20HZozUVjzLODVjhlT/P0jEncygAKjwlMQ
-X-Received: by 2002:a5d:5f50:0:b0:482:e263:2c7e with SMTP id ffacd0b85a97d-482f79b351cmr6273357f8f.13.1787895413969;
-        Thu, 27 Aug 2026 22:36:53 -0700 (PDT)
-Received: from [127.0.1.1] ([94.4.85.166])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482fbac4d0asm1410402f8f.10.2026.08.27.22.36.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Aug 2026 22:36:53 -0700 (PDT)
-From: Alexey Klimov <alexey.klimov@linaro.org>
-Date: Fri, 28 Aug 2026 06:36:47 +0100
-Subject: [PATCH v2 2/2] soc: samsung: exynos-pmu: fix error paths in
- cpuhotplug/idle states setup
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	d=linux-foundation.org; s=korg; t=1787895589;
+	bh=saCp1ODXEDwi38FA7nL50yvKTMsyJL4w4PBPDdxbPpY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=OUe/I4kKl1IqBcGIkGjmGrfcJVc9TLT2CvvQlffxqcLuYDyJcEvYYDfW1rZZPMhiH
+	 lYW/VNcrDLI36iGraqidaScttACFiGrJ1k7I/GKZaA2Ey07eH3kpV2Es2yikDQJn6I
+	 XvfKFsQX7UaaX+ke7/7cKng5/7pFHOWAuZm5Ev8I=
+Date: Thu, 27 Aug 2026 22:39:47 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: Adrian =?UTF-8?Q?Barna=C5=9B?= <abarnas@google.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Alexandre Ghiti <alex@ghiti.fr>, Andy Lutomirski <luto@kernel.org>,
+ Borislav Petkov <bp@alien8.de>, Brendan Jackman
+ <brendan.jackman@linux.dev>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, Dave Hansen
+ <dave.hansen@linux.intel.com>, David Hildenbrand <david@kernel.org>, Gerald
+ Schaefer <gerald.schaefer@linux.ibm.com>, Heiko Carstens
+ <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, Len Brown <lenb@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, Pavel Machek
+ <pavel@kernel.org>, Peter Zijlstra <peterz@infradead.org>, "H. Peter Anvin"
+ <hpa@zytor.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Ryan Roberts
+ <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas
+ Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>, Vasily
+ Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon
+ <will@kernel.org>, x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, linux-pm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ loongarch@lists.linux.dev
+Subject: Re: [PATCH v2 0/6] arch, mm/execmem: resolve confusion about
+ set_direct_map_valid_noflush()
+Message-Id: <20260827223947.c773e6a7324eaf3fe0d8362f@linux-foundation.org>
+In-Reply-To: <20260823-execmem-set-vm-perms-v0-2-v2-0-b013a37d84b3@kernel.org>
+References: <20260823-execmem-set-vm-perms-v0-2-v2-0-b013a37d84b3@kernel.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260828-exynos-pmu-cpuhp-idle-fixes-v2-2-06bce6107bd6@linaro.org>
-References: <20260828-exynos-pmu-cpuhp-idle-fixes-v2-0-06bce6107bd6@linaro.org>
-In-Reply-To: <20260828-exynos-pmu-cpuhp-idle-fixes-v2-0-06bce6107bd6@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>
-Cc: Sam Protsenko <semen.protsenko@linaro.org>, 
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Sashiko <sashiko-bot@kernel.org>
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_223658_738450_F5DE5BCA 
-X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,132 +84,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The setup_cpuhp_and_cpuidle() initialisation sequence currently ignores
-the return values of cpuhp_setup_state(), cpu_pm_register_notifier(), and
-register_reboot_notifier(). If any of these registrations fail during
-probe() routine, the driver returns 0, leaving the driver partially
-configured.
+On Sun, 23 Aug 2026 14:46:11 +0300 "Mike Rapoport (Microsoft)" <rppt@kernel.org> wrote:
 
-Furthermore, if anything after setup_cpuhp_and_cpuidle() fails in probe()
-routine, for instance devm_mfd_add_devices(), the probe() lacks an error
-path and leaves notifiers and cpu hotplug states registered.
+> Recent discussion about implementation of execmem's ROX caches on arm64
 
-Introduce variables for the cpu hotplug state IDs in exynos_pmu_context
-struct, that should be initialised to CPUHP_INVALID by default. Check all
-return codes in setup_cpuhp_and_cpuidle(), and add an error path to remove
-registered states on failure. Finally, add destroy_cpuhp_and_cpuidle()
-helper to safely tear down notifiers and cpu hotplug states.
+I'm assuming a "[1]" reference was intended here.
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/patchset/20260513-exynos850-cpuhotplug-v4-0-54fec5f65362@linaro.org?part=3
-Fixes: 78b72897a5c8 ("soc: samsung: exynos-pmu: Enable CPU Idle for gs101")
-Cc: stable@vger.kernel.org
-Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
----
- drivers/soc/samsung/exynos-pmu.c | 63 +++++++++++++++++++++++++++++++++++-----
- 1 file changed, 55 insertions(+), 8 deletions(-)
+> revealed a confusion about how set_direct_map_valid_noflush()
+> implemented on different architectures.
+> 
+> On arm64 it sets or clears the PTE_VALID bit marking a PTE as present or
+> not present.
+> 
+> On other architectures it's a range version of
+> set_direct_map_invalid_noflush() and set_direct_map_default_noflush()
+> 
+> Unlike arm64::set_direct_map_valid_noflush(),
+> set_direct_map_default_noflush() not only marks PTE as present, but also
+> sets its default protection mode.
+> 
+> Other than that, initial design of execmem ROX caches didn't rely on
+> restoration of large mappings that's now available on x86, but
+> completely removed the memory allocated for the ROX cache from the
+> direct map to ensure that large mappings are not split. This precluded
+> usage of VM_FLUSH_RESET_PERMS for the ROX cache allocations and required
+> execmem to implement manipulation of the direct map alias.
+> 
+> Current implementation of ROX caches does not remove the direct map
+> alias but simply calls set_memory_rox() that updates the permissions in
+> both vmalloc address space and the direct map and relies on
+> collapse_large_pages() in x86 CPA to keep large mappings.
+> 
+> This allow using VM_FLUSH_RESET_PERMS for execmem ROX cache allocations
+> with small adjustments to set_direct_map APIs and vmalloc::reset_perms()
+> behaviour: adding number of pages parameter to set_direct_map APIs and
+> making resetting of the direct map permissions in vmalloc VMAP_HUGE
+> friendly.
+> 
+> Implement these adjustments, make execmem always use
+> VM_FLUSH_RESET_PERMS and revert set_direct_map_valid_noflush() changes.
+> 
+> [1] https://lore.kernel.org/all/20260611130144.1385343-4-abarnas@google.com
 
-diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
-index efccdd63e40e..fce922d5ab92 100644
---- a/drivers/soc/samsung/exynos-pmu.c
-+++ b/drivers/soc/samsung/exynos-pmu.c
-@@ -38,6 +38,8 @@ struct exynos_pmu_context {
- 	unsigned long *in_cpuhp;
- 	bool sys_insuspend;
- 	bool sys_inreboot;
-+	int cpuhp_prepare_state;
-+	int cpuhp_online_state;
- };
- 
- void __iomem *pmu_base_addr;
-@@ -407,6 +409,17 @@ static struct notifier_block exynos_cpupm_reboot_nb = {
- 	.notifier_call = exynos_cpupm_reboot_notifier,
- };
- 
-+static void destroy_cpuhp_and_cpuidle(void)
-+{
-+	cpu_pm_unregister_notifier(&gs101_cpu_pm_notifier);
-+	unregister_reboot_notifier(&exynos_cpupm_reboot_nb);
-+
-+	if (pmu_context->cpuhp_prepare_state != CPUHP_INVALID)
-+		cpuhp_remove_state(pmu_context->cpuhp_prepare_state);
-+	if (pmu_context->cpuhp_online_state != CPUHP_INVALID)
-+		cpuhp_remove_state(pmu_context->cpuhp_online_state);
-+}
-+
- static int setup_cpuhp_and_cpuidle(struct device *dev)
- {
- 	struct device_node *intr_gen_node __free(device_node) =
-@@ -458,16 +471,46 @@ static int setup_cpuhp_and_cpuidle(struct device *dev)
- 		gs101_cpuhp_pmu_online(cpu);
- 
- 	/* register CPU hotplug callbacks */
--	cpuhp_setup_state(CPUHP_BP_PREPARE_DYN,	"soc/exynos-pmu:prepare",
--			  gs101_cpuhp_pmu_online, NULL);
-+	pmu_context->cpuhp_prepare_state = CPUHP_INVALID;
-+	pmu_context->cpuhp_online_state = CPUHP_INVALID;
-+
-+	ret = cpuhp_setup_state(CPUHP_BP_PREPARE_DYN, "soc/exynos-pmu:prepare",
-+				gs101_cpuhp_pmu_online, NULL);
-+	if (ret < 0)
-+		return ret;
-+
-+	pmu_context->cpuhp_prepare_state = ret;
-+
-+	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "soc/exynos-pmu:online",
-+				NULL, gs101_cpuhp_pmu_offline);
-+	if (ret < 0)
-+		goto clean_cpuhp_states;
- 
--	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "soc/exynos-pmu:online",
--			  NULL, gs101_cpuhp_pmu_offline);
-+	pmu_context->cpuhp_online_state = ret;
- 
- 	/* register CPU PM notifiers for cpuidle */
--	cpu_pm_register_notifier(&gs101_cpu_pm_notifier);
--	register_reboot_notifier(&exynos_cpupm_reboot_nb);
--	return 0;
-+	ret = cpu_pm_register_notifier(&gs101_cpu_pm_notifier);
-+	if (ret)
-+		goto clean_cpuhp_states;
-+
-+	ret = register_reboot_notifier(&exynos_cpupm_reboot_nb);
-+	if (!ret)
-+		/* Success */
-+		return ret;
-+
-+	cpu_pm_unregister_notifier(&gs101_cpu_pm_notifier);
-+
-+clean_cpuhp_states:
-+	if (pmu_context->cpuhp_prepare_state != CPUHP_INVALID) {
-+		cpuhp_remove_state(pmu_context->cpuhp_prepare_state);
-+		pmu_context->cpuhp_prepare_state = CPUHP_INVALID;
-+	}
-+	if (pmu_context->cpuhp_online_state != CPUHP_INVALID) {
-+		cpuhp_remove_state(pmu_context->cpuhp_online_state);
-+		pmu_context->cpuhp_online_state = CPUHP_INVALID;
-+	}
-+
-+	return ret;
- }
- 
- static int exynos_pmu_probe(struct platform_device *pdev)
-@@ -541,8 +584,12 @@ static int exynos_pmu_probe(struct platform_device *pdev)
- 
- 	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE, exynos_pmu_devs,
- 				   ARRAY_SIZE(exynos_pmu_devs), NULL, 0, NULL);
--	if (ret)
-+	if (ret) {
-+		if (pmu_context->pmu_data && pmu_context->pmu_data->pmu_cpuhp)
-+			destroy_cpuhp_and_cpuidle();
-+
- 		return ret;
-+	}
- 
- 	if (devm_of_platform_populate(dev))
- 		dev_err(dev, "Error populating children, reboot and poweroff might not work properly\n");
+The patchset is perhaps a little green but I tossed it in there, thanks.
 
--- 
-2.51.0
+I hit a few rejects in arch/x86/mm/pat/set_memory.c, but minor stuff.
+
+I trust you've seen Sashiko's incidental oh-btw comments.
+
+	https://sashiko.dev/#/patchset/20260823-execmem-set-vm-perms-v0-2-v2-0-b013a37d84b3@kernel.org
 
 
