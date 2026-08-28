@@ -4,68 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EDD8C61DCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 15:58:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C72E8C61DCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 15:59:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vNRuYNMMYQIuEnuu2o2Nr6GCoLL2edAk+oJ21dlQJKg=; b=TQ8PWNR9MNeo/H0v+5ob3RKnN2
-	jkjS4m4aH3a//Qv0rDeUDRKfGewRCJub8i0GElxcaj6j+ZjkC67UoBa5XyvJ6vpOUe1AGFmQ7O0EA
-	CoYjsf9XlhE7jF+v3cVfZA3/TDWHqgbyuXCenpxFvR/GYlh+lw/PhNmS/dRspaVz2VOQ67Fh/56AV
-	mrpq/9CoO8GA/2PBFy4hoCqG7qcUeTNUXZMNvH3vGIDdJUC2T8cUQy9NeGDy/N86UMzuhEk6OOuX1
-	A+S9Qx1GzTfoH2fJ153mo3kUe309Qu/T2ntGFldM8188gUBd3grwSGWdEplkkYlHkPZYDSirp+78y
-	gjF+DjWg==;
+	bh=MjQ31cfuQKa5k82uaGT/Cyx34wNELqTN6/K1Rh0XD+c=; b=Ko+nSnp8JL4H438zbQX+dKml6n
+	b4JkHJhgpxzZEfaXu31lf1nY9S5AiDwMZA9W1x2wS8sPyhm/jnb8S02hB3SrFV+vkt4Sdx2WZy1ag
+	NUGWekS3tcWegUzaZqxXId7f58psVfsJzJuKLadq9R90OAJ4mzRKMrZ8TH7SrBZ6jQ/zi5LRazTan
+	MpFbSeztZvnK78otqlujihQe/jjU19g3OyVS17rPPUnyKeEaruB8PKZqTGSzK1Wzbj/Nt+5QALhaZ
+	RfK8jR+YWBeln4Fm51rw8z3GptaAvSA4Mb6fGRZpA/Z1g9SIdJlFWlcak8dXLiBgZj/ivoqFSo4/7
+	WnRelDeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzyxw-000000069ja-1FID;
-	Fri, 28 Aug 2026 15:58:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wzyyv-00000006A1m-2hJT;
+	Fri, 28 Aug 2026 15:59:05 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzyxv-000000069jH-0sj0
+	id 1wzyyr-000000069yi-1gDi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 15:58:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F1D3A4329A;
-	Fri, 28 Aug 2026 15:58:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AD471F000E9;
-	Fri, 28 Aug 2026 15:58:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787932682;
-	bh=vNRuYNMMYQIuEnuu2o2Nr6GCoLL2edAk+oJ21dlQJKg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LrckKejphv8pIR/LxNrFlXIqDCmnOkl5o7bTsL7TC+CcmOLzupeuhS4/d8OqB7zN+
-	 oASHtrP2fAO0wfuZ1MHQ0ro8RkrS3mALxnhUe8GAOm/SE4SzDYOrKNxcm/3iWcIEM5
-	 cWtCxwyFCv6pO7rpPwfDHpa2069mmnboxmrczbfpiOHd/NI5X1HbULCnYOW46FhSNT
-	 o5K3IzIzG3UTJuN/fOrAqKxpOSoqAnPdbBTYc4QXMYgoORWsUtBNo5vKjq1lwDR4xt
-	 14dm70438CW+TEVaUn/BkFpgPW72Xl1e8wqWFQ6I0Rh0kSF78gRMDPL5AnduVMRVeD
-	 NGRNIL5XGpHhA==
-Date: Fri, 28 Aug 2026 16:57:58 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Marek Vasut <marex@nabladev.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
-	Rob Herring <robh@kernel.org>,
-	Yannick Fertre <yannick.fertre@foss.st.com>,
-	devicetree@vger.kernel.org, kernel@dh-electronics.com,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v4 1/2] dt-bindings: arm: stm32: Document
- st,stm32mp23/25-syscfg subnodes and cells
-Message-ID: <20260828-target-operable-ebc87e0bf30a@spud>
-References: <20260828151216.175020-1-marex@nabladev.com>
+	Fri, 28 Aug 2026 15:59:04 +0000
+Date: Fri, 28 Aug 2026 17:58:42 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1787932724;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MjQ31cfuQKa5k82uaGT/Cyx34wNELqTN6/K1Rh0XD+c=;
+	b=o2SzTzUsSOuV/AWS4fKiiKyn/1LhaPYC6Yfdi9fN77edZ6oncnntoZNhDlY+g5FN0uIwEw
+	zDLTrEojOcnJRJhRQAb5HCWHd7BbTk9sIN0zPDHE7URywDDDKInIzLBonFQjkJNHVimBoL
+	kWzGMCLwRRmRuqGEMRRmC+06LriM6fJe9MbsK+pBSojb6eX8G3SqLu20XaIhwBNbTl5OoI
+	9/FFI5P8JkXnl0wGKMTDSeUYaukHKz3pwoo7a0R18G6ypphqw6MC2H45rnhcZbOQ/ClAs7
+	vMj0j3h3AzvP+zmWK/m3B+PnqHU7/qIvx3PIK31jHYeE3+dcsciApSaUFtlioA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1787932724;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MjQ31cfuQKa5k82uaGT/Cyx34wNELqTN6/K1Rh0XD+c=;
+	b=Eit7LjiABhdeRfzT4glURHG1RCeV2ZAjuv33J9ECHEaXD7arcRHH/58kzIbGZWU8KSPYLR
+	Vh8qqix9q1P5ueBA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: David Stevens <stevensd@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Dave Chinner <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Kees Cook <kees@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>, suleiman@google.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
+Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
+Message-ID: <20260828155842.kIh5T7iS@linutronix.de>
+References: <20260827232948.2520558-1-stevensd@google.com>
+ <20260827232948.2520558-7-stevensd@google.com>
+ <20260828133620._x2XfJR_@linutronix.de>
+ <20260828135947.GU776954@noisy.programming.kicks-ass.net>
+ <20260828142552.GN788244@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="l71MiO8iJ3sqx4wd"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260828151216.175020-1-marex@nabladev.com>
+In-Reply-To: <20260828142552.GN788244@noisy.programming.kicks-ass.net>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260828_085901_575495_10AB0E5A 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,114 +106,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---l71MiO8iJ3sqx4wd
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 2026-08-28 16:25:52 [+0200], Peter Zijlstra wrote:
+> Taking faults on the task-stack is not going to work. That fault will
+> happen while you have locks held and IRQs disabled. Ideally, it'll
+> happen when you're knee deep in the allocator.
+> 
+> That fault will then again call the allocator to allocator your stack
+> page, and...
 
-On Fri, Aug 28, 2026 at 05:11:14PM +0200, Marek Vasut wrote:
-> The st,stm32mp23-syscfg and st,stm32mp25-syscfg can have subnodes, which
-> represent the USB 2.0 FEMTO-PHY. Document subnodes pattern properties and
-> address/size cells.
->=20
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
-> ---
-> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: Christophe Roullier <christophe.roullier@foss.st.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Marek Vasut <marex@nabladev.com>
-> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-> Cc: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Yannick Fertre <yannick.fertre@foss.st.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: kernel@dh-electronics.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> ---
-> V2: New patch
-> V3: Fix the bindings
-> V4: - Undo simple-mfd in favor of dedicated SYSCFG SoC driver
->     - Update commit message to match, this used to be patch
->       dt-bindings: arm: stm32: Switch st,stm32mp23/25-syscfg into simple-=
-mfd
->     - Split this from series arm64: dts: phy: st: usb: Add STM32MP2 USB s=
-upport
->       https://lore.kernel.org/all/20260822074816.548662-1-marex@nabladev.=
-com/
-> ---
->  .../bindings/arm/stm32/st,stm32-syscon.yaml     | 17 ++++++++++++++++-
->  1 file changed, 16 insertions(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.=
-yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-> index 95d2319afe235..d82afa39960b9 100644
-> --- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-> +++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-> @@ -39,6 +39,17 @@ properties:
->    "#clock-cells":
->      const: 0
-> =20
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 1
-> +
-> +patternProperties:
-> +  "^phy@[0-9a-f]+$":
-> +    type: object
-> +    $ref: /schemas/phy/st,stm32-usb2phy.yaml
-> +
->  required:
->    - compatible
->    - reg
-> @@ -57,10 +68,14 @@ allOf:
->    - if:
->        properties:
->          compatible:
-> -          const: st,stm32mp25-syscfg
-> +          enum:
-> +            - st,stm32mp23-syscfg
-> +            - st,stm32mp25-syscfg
+indeed. So I do have a few ideas floating around but I leave it at it.
 
-Sashiko comment here I believe is valid, the syntax here only works if
-there's only the listed compatible present. It doesn't work with
-fallbacks.
-
-pw-bot: changes-requested
-
->      then:
->        required:
->          - "#clock-cells"
-> +        - "#address-cells"
-> +        - "#size-cells"
-
-else, false? But I'm also not sure what the benefit is of requiring
-addr/size cells when the child node is not?
-
-Cheers,
-Conor.
-
-> =20
->  additionalProperties: false
-> =20
-> --=20
-> 2.53.0
->=20
-
---l71MiO8iJ3sqx4wd
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapGwBQAKCRB4tDGHoIJi
-0ucHAQDgn40VE909HoU9lRj0S7+8LHXJkh16SZLWZNJDm6BXPQEAz13NUR1AIwgI
-bmVXe8M9FQgOUteJySSW709JXg9IdQE=
-=vNEp
------END PGP SIGNATURE-----
-
---l71MiO8iJ3sqx4wd--
+Sebastian
 
