@@ -4,87 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5BAC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 11:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC38FC61DCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 11:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Y0HX/xZ7Op12Xaru2nEPnTzkHe2HyNWMPEe/M9v8E/M=; b=PZ5CmFt1LBM0niO5MN54fx0523
-	7DoBclyqLN4qXl3GogXelLesmNwE+z04DGvfEAGiVppZ+3BRpNve7Q5c+lYMhLluF4YzUe250rbGN
-	2oRcyTdi3k9KrRimj9QsxaGtQYy6+zc8xiYY1We1RBnZoGqY0QVcGcAcZxEgHalRSOQqCtkWx3PTQ
-	0qn5PGKg8Xy569RuNpQ7A742Cty1tic67XUD1vsEwjIeme8X95YdNS03L5bhcmm0KdF7PiXyGlKAU
-	qwEIS3tUu/UPP8SF6U9AEV4w2Zlr9LNlcdzwsDoRc/IcqDVKqv6VJrRVh7bOXK+r1sSqn0CeQSxXV
-	5RRP6E0Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9DUbFprSSwBLH7QrLmF5W6kigIbM/HOESze8hnplQjI=; b=0PZJpg1WlSeVQst+xfM5I2XH3M
+	XnwDR3PvxlbYcB2/Po4kDl2FWhVDUf3tn7T6lwFSoYglrL38fP+Y7z3PE8qJ90boFtq3fl8+h04Bp
+	XIn/Ionx7EW16ruq9PJ9HdsMgQFi5ZcsYpm+7bgnbhmrxvtH7glMsLO4J2Vz2/ptvBV/MdPNq0HK6
+	CTqtH9ipOh7mQR3c1Fc8Z11LCNurzcWfZScIa6mFb1E6s8ABhYzwRcw66+Lw5kNYSGD26FClIkPE3
+	5CnsbmpfHhl+3n/HDWTUPMu/ZwFqHh89U4QV5h2+W2C2KW3OJcRJUP6X5NBp2v0s3HkQ8bpz1kbqn
+	LmSeuH3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzuqw-00000005ehP-1teT;
+	id 1wzuqw-00000005egx-1CUn;
 	Fri, 28 Aug 2026 11:34:34 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzuqq-00000005edv-3slZ;
-	Fri, 28 Aug 2026 11:34:31 +0000
+	id 1wzuqo-00000005ed7-1rap;
+	Fri, 28 Aug 2026 11:34:30 +0000
 Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-01 (Coremail) with SMTP id qwCowACnfPA6cpFqpPm9Bg--.43118S2;
-	Fri, 28 Aug 2026 19:34:18 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowACnfPA6cpFqpPm9Bg--.43118S22;
+	Fri, 28 Aug 2026 19:34:22 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
 To: Liam Girdwood <lgirdwood@gmail.com>,
 	Mark Brown <broonie@kernel.org>
 Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Baojun Xu <baojun.xu@ti.com>,
-	=?utf-8?q?C=C3=A1ssio_Gabriel?= <cassiogabrielcontato@gmail.com>,
-	Cyril Chao <cyril.chao@mediatek.com>,
-	Darren Ye <darren.ye@mediatek.com>,
-	David Rhodes <david.rhodes@cirrus.com>,
-	Kevin Lu <kevin-lu@ti.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	=?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
-	patches@opensource.cirrus.com,
-	Paul Cercueil <paul@crapouillou.net>,
 	Jaroslav Kysela <perex@perex.cz>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Sen Wang <sen@ti.com>,
-	Shenghao Ding <shenghao-ding@ti.com>,
-	Takashi Iwai <tiwai@suse.com>
-Subject: [PATCH 00/20] ASoC: propagate register restore failures
-Date: Fri, 28 Aug 2026 19:33:55 +0800
-Message-ID: <20260828113416.47061-1-pengpeng@iscas.ac.cn>
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Cyril Chao <Cyril.Chao@mediatek.com>,
+	Darren Ye <darren.ye@mediatek.com>,
+	=?utf-8?q?C=C3=A1ssio_Gabriel?= <cassiogabrielcontato@gmail.com>
+Subject: [PATCH 20/20] ASoC: mediatek: mt8196: Unwind register clock and cache restore failures
+Date: Fri, 28 Aug 2026 19:34:15 +0800
+Message-ID: <20260828113416.47061-21-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260828113416.47061-1-pengpeng@iscas.ac.cn>
+References: <20260828113416.47061-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowACnfPA6cpFqpPm9Bg--.43118S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxXw13Cry8Xr13GrW8tr4kCrg_yoW5Kw4fpr
-	s3G39Yqw1rX3y3Zw4fA3yUX3Zaka4ruF45JwnFq34vyry5CF1xKr4Iyw1UZFWUXrykKa9x
-	Xr13A3yDCr15JaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0pRx-BiUUUUU=
+X-CM-TRANSID: qwCowACnfPA6cpFqpPm9Bg--.43118S22
+X-Coremail-Antispam: 1UD129KBjvJXoWxXFW3JrWUWrykWw1fAryUGFg_yoWrGrWrp3
+	97Cr1qyrWjq348uFZ0vrW7tFyF9r4xAFW3CFyjg34kZr1akrWxAF1kJas7ZFsIqr1kGa1a
+	gFyDKa45CF4Y9FUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmS14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
+	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
+	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
+	4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
+	3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
+	IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4U
+	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2
+	kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkE
+	bVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67
+	AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVW5JVW7JwCI
+	42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF
+	4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBI
+	daVFxhVjvjDU0xZFpf9x0JUhNVPUUUUU=
 X-Originating-IP: [111.196.241.250]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_043429_337701_C6594A0F 
-X-CRM114-Status: UNSURE (   7.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260828_043428_627474_8868036B 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,80 +89,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Several ASoC codec and AFE power transitions restore cached register state
-after reset or power loss.  The callbacks in this series all have an effective
-error consumer: component probe or hw_params, DAPM bias handling, device
-runtime PM, or system PM.  They currently continue or publish success after a
-required register operation failed.
+mt8196_afe_runtime_resume() first acquires three register-access clocks
+and then replays the register cache.  mt8196_afe_enable_reg_rw_clk()
+ignores each clock-enable result and leaks already enabled clocks when a
+later rate change fails.  Runtime resume also ignores regcache_sync()
+and proceeds with 26 MHz requests and main-clock enable.
 
-Check the complete local restore transaction at each site and unwind clocks,
-supplies, GPIOs, cache state or software publication where that transaction
-acquired them.  For the Mediatek AFE drivers this also makes the clock helpers
-unwind partial internal acquisition prefixes before returning to runtime PM.
+Make the register-clock helper acquire transactionally and unwind the
+successful prefix on every failure.  Return cache replay errors after
+restoring cache-only and dirty state and disabling the three
+register-access clocks.
 
-This is a new set of sites, not a revision of the earlier 19-patch series at:
+The issue was identified via static analysis and manually reviewed.
 
-  https://lore.kernel.org/all/20260704034845.14291-1-pengpeng@iscas.ac.cn/
-
-It intentionally excludes snd_soc_component_driver resume callbacks whose
-return values are discarded by snd_soc_component_resume(); that shared policy
-is being discussed separately.  The cs42l42 patch covers the shared system
-resume helper and is distinct from the SoundWire runtime-resume path fixed by
-commit a118fea777a2.
-
-The issues were identified via static analysis and manually reviewed.
+Fixes: 7384ecab34eb ("ASoC: mediatek: mt8196: support audio clock control")
+Fixes: 57513aabfe5b ("ASoC: mediatek: mt8196: add platform driver")
 
 Assisted-by: LLM
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+ sound/soc/mediatek/mt8196/mt8196-afe-clk.c | 27 ++++++++++++++++++----
+ sound/soc/mediatek/mt8196/mt8196-afe-pcm.c |  8 ++++++-
+ 2 files changed, 29 insertions(+), 6 deletions(-)
 
-Pengpeng Hou (20):
-  ASoC: adau1372: Unwind failed power restoration
-  ASoC: adau1701: Propagate register cache replay errors
-  ASoC: cs35l56: Propagate register restore errors from runtime resume
-  ASoC: cs42l42: Propagate system resume restore errors
-  ASoC: es9356: Publish IRQ readiness after cache replay
-  ASoC: jz4740: Propagate codec wake-up errors
-  ASoC: max98088: Propagate cache replay errors from bias restore
-  ASoC: ssm2518: Unwind failed power restoration
-  ASoC: ssm4567: Unwind failed power restoration
-  ASoC: tlv320aic3x: Propagate power restoration errors
-  ASoC: wm8731: Unwind supplies on cache replay failure
-  ASoC: wm8770: Unwind supplies on cache replay failure
-  ASoC: wm8804: Propagate cache replay errors from runtime resume
-  ASoC: wm8904: Unwind resources on cache replay failure
-  ASoC: wm8985: Unwind supplies on cache replay failure
-  ASoC: wm8991: Propagate cache replay errors from bias restore
-  ASoC: wm8993: Unwind supplies on cache replay failure
-  ASoC: wm8996: Unwind supplies on cache replay failure
-  ASoC: mediatek: mt8186: Unwind runtime resume failures
-  ASoC: mediatek: mt8196: Unwind register clock and cache restore
-    failures
-
- sound/soc/codecs/adau1372.c                | 44 ++++++++++++++--------
- sound/soc/codecs/adau1701.c                |  4 +-
- sound/soc/codecs/cs35l56-shared.c          |  9 ++++-
- sound/soc/codecs/cs42l42-sdw.c             |  4 +-
- sound/soc/codecs/cs42l42.c                 | 27 +++++++++----
- sound/soc/codecs/cs42l42.h                 |  2 +-
- sound/soc/codecs/es9356.c                  | 14 +++++--
- sound/soc/codecs/jz4740.c                  | 25 ++++++++----
- sound/soc/codecs/max98088.c                |  9 ++++-
- sound/soc/codecs/ssm2518.c                 | 15 +++++++-
- sound/soc/codecs/ssm4567.c                 | 15 +++++++-
- sound/soc/codecs/tlv320aic3x.c             | 36 ++++++++++++++----
- sound/soc/codecs/wm8731.c                  |  7 +++-
- sound/soc/codecs/wm8770.c                  |  7 +++-
- sound/soc/codecs/wm8804.c                  |  6 ++-
- sound/soc/codecs/wm8904.c                  | 10 ++++-
- sound/soc/codecs/wm8985.c                  |  7 +++-
- sound/soc/codecs/wm8991.c                  |  7 +++-
- sound/soc/codecs/wm8993.c                  |  9 ++++-
- sound/soc/codecs/wm8996.c                  | 11 +++++-
- sound/soc/mediatek/mt8186/mt8186-afe-clk.c |  2 +
- sound/soc/mediatek/mt8186/mt8186-afe-pcm.c | 15 +++++++-
- sound/soc/mediatek/mt8196/mt8196-afe-clk.c | 27 ++++++++++---
- sound/soc/mediatek/mt8196/mt8196-afe-pcm.c |  8 +++-
- 24 files changed, 251 insertions(+), 69 deletions(-)
-
+diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-clk.c b/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
+index 286e39f53ae0..ea0835e73510 100644
+--- a/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
++++ b/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
+@@ -511,26 +511,43 @@ int mt8196_afe_enable_reg_rw_clk(struct mtk_base_afe *afe)
+ 	int ret;
+ 
+ 	/* bus clock for AFE external access, like DRAM */
+-	mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_ADSP_SEL]);
++	ret = mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_ADSP_SEL]);
++	if (ret)
++		return ret;
+ 
+ 	/* bus clock for AFE internal access, like AFE SRAM */
+-	mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIOINTBUS]);
++	ret = mt8196_afe_enable_clk(afe,
++				    afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIOINTBUS]);
++	if (ret)
++		goto disable_adsp;
++
+ 	ret = mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIOINTBUS],
+ 				      MT8196_AFE_26M);
+ 	if (ret)
+-		return ret;
++		goto disable_intbus;
+ 
+ 	/* enable audio h clock */
+-	mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H]);
++	ret = mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H]);
++	if (ret)
++		goto disable_intbus;
++
+ 	ret = mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H],
+ 				      MT8196_AFE_26M);
+ 	if (ret)
+-		return ret;
++		goto disable_audio_h;
+ 
+ 	/* AFE hw clock */
+ 	/* IPM2.0: USE HOPPING & 26M */
+ 	/* set in the regmap_register_patch */
+ 	return 0;
++
++disable_audio_h:
++	mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H]);
++disable_intbus:
++	mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIOINTBUS]);
++disable_adsp:
++	mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_ADSP_SEL]);
++	return ret;
+ }
+ 
+ int mt8196_afe_disable_reg_rw_clk(struct mtk_base_afe *afe)
+diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
+index a1ae8322d8b6..49283f242c00 100644
+--- a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
++++ b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
+@@ -2222,7 +2222,13 @@ static int mt8196_afe_runtime_resume(struct device *dev)
+ 		goto skip_regmap;
+ 	}
+ 	regcache_cache_only(afe->regmap, false);
+-	regcache_sync(afe->regmap);
++	ret = regcache_sync(afe->regmap);
++	if (ret) {
++		regcache_cache_only(afe->regmap, true);
++		regcache_mark_dirty(afe->regmap);
++		mt8196_afe_disable_reg_rw_clk(afe);
++		return ret;
++	}
+ 
+ 	/* set audio 26M request */
+ 	regmap_update_bits(afe->regmap, AFE_SPM_CONTROL_REQ, 0x1, 0x1);
 -- 
 2.43.0
 
