@@ -4,89 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BEAC61DCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 14:21:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7BCBC61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 14:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bKyeJkIVmCWyj53saLMAZloYbQt1nChY5+/rBnDqtnQ=; b=b1Wn0IjVVWLjh1Q62J5PKi9J9t
-	7rFqP/JqXQYzn5YDuf2eztKi9wPf2Lko2VV/1dWxIPwGPTbqbUAA6/5waH3O1h/nbVHFroMcq3tgY
-	eoOHooLron0KY5mODkPrPdewe3s3ldh/A5Mc36N7gqtjI/9XzheS8xUuRsCmCgS+hK1ZVoGdWIo7K
-	MHFi5fEEARVD3f3I0p3HkqnHTogPhK/og8IYE7EoIfwffSWTUVqEQGrTj7w+Yx7DdaBOU0becJ7lc
-	iMvl8aLBM8ylxGQZZSBLJ8LD79aPo/tQuI3jdihQp1UqUNhL1LiLJq/Mjp7OcPWguE5NefVBFOi3B
-	Kefu+f4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G0OQQM96cRuVu1FTu7WqbsC1AtHFFzwK+Yp7CP8KbN0=; b=ntET/dmUhFj6i3ahKfsWCYwKHm
+	Mqfc9QHj3gIau8HKMj/Dl4cCv+/hQPwYwq6GzuI9Vb7sWCtjbUVWNbieiCFmvYPsQXWDSEpmcBXqL
+	3cbIndz7UIpcr4mmdztzdDEzJ8riyL8JFbJzTuj/9IULvbCeEBeTdWFV6eDypIKJJLfZ99OrvlrkN
+	ng6g+FmUUlbSfSW7L1YdexLqOkqa7np7GTwLujQMKRlzlJ5PrMJm24AYRVBHFt1l8cpYq5ob5fypl
+	CYgCO4LbbvuvL2cONPw2KrS3/qOizd+h9ek9FZ7ZTdbs50bIUHBVzR/UTGjIrCSv1VRbiR1ntK17+
+	rtVH1yEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzxSg-00000005y4j-1iFG;
-	Fri, 28 Aug 2026 14:21:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wzxWp-00000005yj9-0WiA;
+	Fri, 28 Aug 2026 14:25:59 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzxSe-00000005y4U-22Vo;
-	Fri, 28 Aug 2026 14:21:40 +0000
+	id 1wzxWn-00000005yiY-4AJI;
+	Fri, 28 Aug 2026 14:25:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=bKyeJkIVmCWyj53saLMAZloYbQt1nChY5+/rBnDqtnQ=; b=nMMsKDPCRE4ioXtthodfJfBui1
-	8UGX3ZmrYAryGZkKwwo222fvG2ppgTWCT9J5tPqXSoJbUlVcxepgO+ioheDLR9+EU6fuLTqaMPyVF
-	ehJCXe6QnWQPpd7ruGgyt6rkuQbBrvLrU0sbFKKSCUSOePwKcTmHw/Ee+FBTXOjTUHvvTs8M7LVbQ
-	MK+UnTJcvvjSxqRQJedkc5o/lJE6+L0eTobf1r5X42Rv8/KNA3g8CEk0/MuVBUcFoXjG8pETglO6T
-	nUtxWGGVjaXhHVLnSHfRj1Gp/sXOpZVDEEUnUOm6qf1jOIhuJjHN7sm0ua8+g6I9V/N1dDaML6XM9
-	2WGQ60Hw==;
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wzxSb-00000008JZd-0UZP;
-	Fri, 28 Aug 2026 14:21:39 +0000
-Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-01 (Coremail) with SMTP id qwCowAD3zfFhmZFqhFnABg--.44541S2;
-	Fri, 28 Aug 2026 22:21:22 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Atish Patra <atish.patra@linux.dev>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Anup Patel <anup@brainfault.org>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Jones <andrew.jones@oss.qualcomm.com>,
-	Conor Dooley <conor@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] perf: riscv: fix PMU overflow counter restart state
-Date: Fri, 28 Aug 2026 22:21:18 +0800
-Message-ID: <20260828142120.12616-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=G0OQQM96cRuVu1FTu7WqbsC1AtHFFzwK+Yp7CP8KbN0=; b=WCbV4WdJizqDtTanXClaA1BwAe
+	Jjs+oePpTqjB1oPSb26S2hl/+wnoLIJGLla0PnZ6b0Beam3zsMbSC8WaAq93PDlR1udof1RGiUv+K
+	KQdbq5Tj7gJJI9IvkTDGLZdQhps+NZUtcD6B1FYK31lRBFQQx/oORxCe3SdO3dFR8FgUOZ7/FuepD
+	PHyGlYqPwCULkIL3vDy3h4sVaDulX+MEKgtwi538lReReUUWAz0zj0qtXppeYzqHAfoKSUkpsfdQ3
+	ea0MLXzia3rEQ58B8NVuTDl28douQsFa2aHC8V2hS58kKAT1ITSVOdNRKBt2abcnDLl1OLNK/eJbx
+	3gsPn1kg==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzxWj-0000000EpCU-3vkK;
+	Fri, 28 Aug 2026 14:25:54 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id DE3C930116A; Fri, 28 Aug 2026 16:25:52 +0200 (CEST)
+Date: Fri, 28 Aug 2026 16:25:52 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: David Stevens <stevensd@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Dave Chinner <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>, Kees Cook <kees@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>, suleiman@google.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
+Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
+Message-ID: <20260828142552.GN788244@noisy.programming.kicks-ass.net>
+References: <20260827232948.2520558-1-stevensd@google.com>
+ <20260827232948.2520558-7-stevensd@google.com>
+ <20260828133620._x2XfJR_@linutronix.de>
+ <20260828135947.GU776954@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowAD3zfFhmZFqhFnABg--.44541S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCFWDuF1fGw17XrWruFW8Crg_yoWrJr43pr
-	W0kFW5trs5Xw4Ivas5Ja1kGa45Gws3JFZxKF1qkr1vkFy3tF15X3WkKr1ftr15JrWrWryj
-	vF4Y9FWruF4jv37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
-	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
-	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
-	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
-	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
-	IxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUqeHgUUUUU=
-X-Originating-IP: [111.196.241.250]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_152137_706706_6ABD1A48 
-X-CRM114-Status: GOOD (  15.05  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260828135947.GU776954@noisy.programming.kicks-ass.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,86 +97,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PMU overflow handler keeps a 64-bit mask for all logical counters,
-while SBI start calls consume an XLEN-sized mask relative to a counter
-base.
+On Fri, Aug 28, 2026 at 03:59:47PM +0200, Peter Zijlstra wrote:
 
-On RV32, pmu_sbi_start_ovf_ctrs_sbi() applies the low overflow-mask word
-to every used-counter word. Counters 32 through 63 can therefore be
-classified using overflow bits 0 through 31.
+> > What also should be simpler (and I am not saying just to move you away
+> > from the scheduler) is to have a shrinker which iterates over all tasks
+> > which are marked for reclaim and then similar to swap just unmap both
+> > stack pages and release the second page which is not used.
+> > Upon wake up the task should create a page_fault which would be used to
+> > allocate the second stack page and map the whole stack again.
+> 
+> Right, so you can FREEZE the task, unmap its stack and then thaw it or
+> something. But there should be a definite opt-out on all this, because
+> taking faults on your stack will be horrible.
+> 
+> Not to mention you'll suffer wakeup latencies while frozen.
+> 
+> This all really sounds like what should be addressed is this insane
+> number of tasks rather than trying to cope with the consequences of
+> that.
 
-The snapshot path and overflow handler also test and construct 64-bit
-masks with XLEN-sized BIT(). In addition, snapshot restart uses the
-completed inner-loop index instead of the outer word index to form
-counter_idx_base. The latter selects an invalid counter base on both RV32
-and RV64: for_each_set_bit() finishes with idx equal to BITS_PER_LONG, so
-the current expression passes BITS_PER_LONG squared instead of the
-expected i times BITS_PER_LONG.
+Taking faults on the task-stack is not going to work. That fault will
+happen while you have locks held and IRQs disabled. Ideally, it'll
+happen when you're knee deep in the allocator.
 
-Select the overflow word matching each SBI mask, use 64-bit bit operations
-for global counter indices, and derive the snapshot start base from the
-outer word index.
-
-Fixes: b994cdfcdf7b ("drivers/perf: riscv: Fix counter mask iteration for RV32")
-Fixes: a8625217a054 ("drivers/perf: riscv: Implement SBI PMU snapshot function")
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- drivers/perf/riscv_pmu_sbi.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 50220f7b46d9..6cfb1fc0ec6e 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -962,7 +962,9 @@ static inline void pmu_sbi_start_ovf_ctrs_sbi(struct cpu_hw_events *cpu_hw_evt,
- 	u64 init_val = 0;
- 
- 	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
--		ctr_start_mask = cpu_hw_evt->used_hw_ctrs[i] & ~ctr_ovf_mask;
-+		unsigned long word_ovf_mask =
-+			ctr_ovf_mask >> (i * BITS_PER_LONG);
-+		ctr_start_mask = cpu_hw_evt->used_hw_ctrs[i] & ~word_ovf_mask;
- 		/* Start all the counters that did not overflow in a single shot */
- 		if (ctr_start_mask) {
- 			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG,
-@@ -1002,7 +1004,7 @@ static inline void pmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_hw_
- 	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
- 
- 	for_each_set_bit(idx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS) {
--		if (ctr_ovf_mask & BIT(idx)) {
-+		if (ctr_ovf_mask & BIT_ULL(idx)) {
- 			event = cpu_hw_evt->events[idx];
- 			hwc = &event->hw;
- 			max_period = riscv_pmu_ctr_get_width_mask(event);
-@@ -1021,7 +1023,7 @@ static inline void pmu_sbi_start_ovf_ctrs_snapshot(struct cpu_hw_events *cpu_hw_
- 			sdata->ctr_values[idx] =
- 					cpu_hw_evt->snapshot_cval_shcopy[idx + i * BITS_PER_LONG];
- 		/* Start all the counters in a single shot */
--		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, idx * BITS_PER_LONG,
-+		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG,
- 			  cpu_hw_evt->used_hw_ctrs[i], flag, 0, 0, 0);
- 	}
- }
-@@ -1109,14 +1111,14 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 			hidx = info->csr - CSR_CYCLE;
- 
- 		/* check if the corresponding bit is set in scountovf or overflow mask in shmem */
--		if (!(overflow & BIT(hidx)))
-+		if (!(overflow & BIT_ULL(hidx)))
- 			continue;
- 
- 		/*
- 		 * Keep a track of overflowed counters so that they can be started
- 		 * with updated initial value.
- 		 */
--		overflowed_ctrs |= BIT(lidx);
-+		overflowed_ctrs |= BIT_ULL(lidx);
- 		hw_evt = &event->hw;
- 		/* Update the event states here so that we know the state while reading */
- 		hw_evt->state |= PERF_HES_STOPPED;
-
-base-commit: 1b78070aaef63512688aebfbc82365ef9d6660f1
--- 
-2.43.0
-
+That fault will then again call the allocator to allocator your stack
+page, and...
 
