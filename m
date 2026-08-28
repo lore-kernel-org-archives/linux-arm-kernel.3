@@ -4,113 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E18C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 09:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94EBEC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 09:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bSJFj2Mb1tcu0hhCa3Pj1XQFswEEME5NPfKvSiT9UvA=; b=xyfONVsCRi5MqDunVUTTBhKy3J
-	mhZKy1CWa4ciHGWp3L+PEeZvKO75WodmB/F2O8qaO0YW56TEyM6wclVtlZBScclaWHnEXD9GE8MVs
-	b2qsc3N/3rXpZ5y/TI/rTiZtsTOhAC/gHDEohziAaUNCz4Ppfbglg4kmLpPDjtsnC5H11RNTEZC65
-	vikmBHWVuUpy5+wwuZP8o6+QpKCcBwfjt5rlqWL6KfMuFD19QsYZyC/tkCMSZrxLkzONKXUIUzh1S
-	bljAelBVl2eUmp3SGBlp+QU8tq0fq8+0wjWlFKi3kp9m+iOpFAWnElf3PLCM6hNu2lK0alFu3oJ/h
-	wUjxZC2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M4mRPyxUwh4SLKG3nAkInA2mLQaoHKjEcd3Lko4Y3NE=; b=UaLb5QZO5S1AimFvuI7J8SMoS6
+	3tu5YrIWh8WQ2Hd8vr81co3JuuZoURGqsSrajhSgbOtmq7WwZdToooJKt/oYb99BmwO0OZfO7VdUV
+	Z2bHEpgev9i78fEhoZvbPIVSB0p4+YThmwfhGDprtaNE1cHI0jLc+5FSTJrFfHWIXdbiNNrqRYUMx
+	jDhWofM/Oar8fuzXjdQa/8PxZlVpe4I97d5R7JE72sFBVrJysl+1XYAVlXBFjFzW5OtMUdoVA2BD/
+	kXmVCdt02dXWkliv+ahxSzvLXa2S76TuxCM+rWo30nhDYPj/aU1W8MFJhUkUwno/zP32NWV8cqDuY
+	cHYyYjmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzszp-00000005UIP-36KU;
-	Fri, 28 Aug 2026 09:35:37 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1wzt05-00000005ULw-41M8;
+	Fri, 28 Aug 2026 09:35:53 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzszm-00000005UHC-3IZe
+	id 1wzt03-00000005UKe-0LIH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 09:35:36 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6a09571dd5cso115435a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 02:35:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787909732; cv=none;
+	Fri, 28 Aug 2026 09:35:52 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-69c108fee7fso936568a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 02:35:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787909748; cv=none;
         d=google.com; s=arc-20260327;
-        b=Y4JjK/iif/yrmg9Rbmw8Tx5mr5sEf68KtDmO7igFpoXYonNMNqGzg5yujkU5BJvsrw
-         V6cn8tHibzkzz0X0uBfNKr6/hxPtV07VlnhJrVqTYTJRA2kN20Qpnfc6xGkdCHwuHmp6
-         yfiiK3kY04pgqkzk+JBz8xR7OaZwxpDFJ64IwztW0LH6r7SpzNt/ogUbNtC4elTq4Kkf
-         hjiQEl02W/bnG7b1fxxr/HRcDeFieYSOkzGajiNDdwnrEv/07axeFMHirlrG3q9DmvrS
-         sDv0b1zDxzH4pdbi5MXWyJ/84NA/32pJ/A3p9B13Ofs1pwDmO9AarYYAyAyB9Pjg3gp4
-         cp6g==
+        b=VzZa2dIzY+SoNOBSZDeCqSCeGSOmKZm6w+yn+06xAGgAKS0n13KA6AF2vf+x0nyGrx
+         flvF76bTNOObjexF/suRgRgXFqqjl7OkLkq0+xPDSQSEj0PzdUsVD08AdS1XNBLydfoH
+         /qKhLQUM0Wx/ZhZZYRuW5S9O35xNL1SxQityRalJCgCcfgn2nSIRiiamIQmS/ULoBljS
+         CHZbl5+uT82z010Wr06Ng2NWhJVw+WEYhRsTAjLV18P8Tvo9VCxDZ9zzY8RbvPzc3Fjj
+         b6HV2vbhDUXv8VnuVCx4z+p6t+a9n4j9O/iqIhY+QgLGaNW7SD+Yx2TnJmkRI6CY4RZp
+         6XkA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=bSJFj2Mb1tcu0hhCa3Pj1XQFswEEME5NPfKvSiT9UvA=;
-        fh=TKxoQ5C9hUHNypG2huzgxVXErtDQUizDhOxK/q9TfxM=;
-        b=c+0iYEs8Gwmjy+LCPRMEthTg3y1lCH9p3uWrF9V0LBWqKKmaM0PZFIfLzYdE6S/+U/
-         vZ9t59EtR7j3K5ze8SZgbR1gGstb0PSvZlcoNkAhSMGeF+XnQ7guEZTV3PTvJ+M2oxzX
-         dn4X4sRjxBZJtyc2NzhTFj9HBi26u6VRwZSLRnBGEj34G2s/JGRXXZNTchhCfM1rzwnY
-         b/erR6Neei2BDEUqyyoPsqFQiU4/SqsBKfM/LDrZ4G1VCL8Dpma65t+ow974R0zGE19r
-         gCt70QFtmv+wrQC/4R5hg5m+Rwms1bYgcXiFSOvSIfK0vYV8KD1F3eXWbednzgHWLCLy
-         sdyQ==;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=M4mRPyxUwh4SLKG3nAkInA2mLQaoHKjEcd3Lko4Y3NE=;
+        fh=V7HxlEJMf0L8DTFsDFgmx8TyD5SBQgbhe5n9otqirwk=;
+        b=KE0dFdOxO7XOBpnf64SPI5jyxUi1JFYr3jtZ2B6llm5/B7vlKzf7B685Pl1yVThUWX
+         fQSQRVabWQAWvApCDqul47hnQh6A3GtbDvj6dLybn/Y0cFU/wBckWngOBjxvPJ7ZWnPX
+         Rb9Zv15AhkPrkALXQQliRmZdiKTY8TIotOm5YIM06eVXOJvufv3XchgLbRHhij+U3rkN
+         ONPSEKGJSGrQGPoTtnU3AfiI1Y/uasmfjMLQr1ee1NLTQtCpOG5+7f1SVWgLanFV85YQ
+         UpI5O5NOGe8k+ravbZw/rbTW0vjNu7pjAG8p8OP1KF1jWIaH5ouB5QhauKjMmmbc/jYQ
+         hFWQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787909732; x=1788514532; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bSJFj2Mb1tcu0hhCa3Pj1XQFswEEME5NPfKvSiT9UvA=;
-        b=harRu+gXjF0Hp73xQFGmqlIuBiQwAUQ7ga+LTVIbAstbT5yOR9ltuLst2ykdmmePjQ
-         UuYCpndiI0Rp5pwfzs2AZKI2zndZnSflW7nUoKIDS060mJ4N0xNtCBp3C6vX3iZHN18d
-         RlKPJIZ/XqzTjeigftTsXo20FixU35+JF4pXrMPsOypPoopLxetBsF+sozlEEsA3SZtM
-         j/Rai+iHElBvdP2vPmReHqtBTu7azI6Knbn9SlxjE31sGSCCHLItDJoBUTY9VuDEolrB
-         wxYIfYfAW7rXjYMncf2aBB/JKQpZNsQSocKCxaL4YKPP6eNgBrLpGjzAj3UCnSV7tRkY
-         lrGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787909732; x=1788514532;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=linaro.org; s=google; t=1787909748; x=1788514548; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bSJFj2Mb1tcu0hhCa3Pj1XQFswEEME5NPfKvSiT9UvA=;
-        b=R8AP8teWltZGB/0OacUJJaPVYJF0/yB4GynUI/U/gP1jpLBAEfMU7uUXYdhTMLc1le
-         f9pG/DZEP81WHufPxAomkcF1XpmV2zNjTKpSekNNUwIaxf46Ky9Yrr+h2Y/k8QbdgRFV
-         2Xa4iD9FzNMvhd6C80jbbCZdEquBl/MGgWXW2747+E1hyay/NfSdz508kspxMrhdPQtM
-         QO1Y4wet/GiIZwtxWCNc+zGoroEPFHGZ85uyWX+3a02Q9ugjD5thjDlfJrJUKqsdo2gI
-         E6A9JyzqIFLoMt8qJSDoW8kD2g302toGcz0jDcCRX5x9v3fs55UNCg0sKcHVBYcKMU46
-         45Tw==
-X-Forwarded-Encrypted: i=1; AHgh+Rpry1KMbxXgoizCIEYQXBx3tpbRJFQhpHs6OAXgUKMjsCRDSCmVUo/luvZG0lB+SN29Qf/mueN2i7dxOBwxcpaI@lists.infradead.org
-X-Gm-Message-State: AFuF++l+NUP1bYUx9y8GQVYrPRoA4O82enSLsK9aDic5KZ99PKdjeFTX
-	YUCIXED5pvUz+5NWX2R0BYpGp4wIY8kPuberGSkaPvigG96aiINp8GT7UlCR/xVl7Px5e5i80g3
-	P/VsKLdbQXmBk2mzxYFi13o4hD+YB2eM=
-X-Gm-Gg: AR+sD107oRQKdt3iCSr5lqUV9f+padL3wghIYGNNOz8TWAZwLkHZDRMzSSsdN2ZZGi+
-	wY/n5+VlTDNp90Sg/+xTfZNxDBEhHXwi3syfG+erTYPa/sjD5DsOaj5Iry3dkGNty4XDHSafmp6
-	oh6lng81somfjjKmhZcKiEbV0OjsTQYV+f8PfzN+ePZxDOEkBj0dq7BoHJwYvneBBUoipkrHwl9
-	fGzxOmX6EYtO9s5GfHlEUSrQ4JdojbMymMbLHUO33p404/L0iTtmynln2DCrlPjw5XFN+Ebassy
-	lQwwJ4v6b9/4hC1A5s98a7L1Yk6icG4iK7EYWcNn3gxOmLAf/tskjg==
-X-Received: by 2002:a05:6402:541a:b0:6a1:de1:f739 with SMTP id
- 4fb4d7f45d1cf-6a60d36a266mr1562286a12.2.1787909731660; Fri, 28 Aug 2026
- 02:35:31 -0700 (PDT)
+        bh=M4mRPyxUwh4SLKG3nAkInA2mLQaoHKjEcd3Lko4Y3NE=;
+        b=DOaoZZFbzA/thQwFB8X5u3XzOttL2TeGnzJfixLlXWzqNhWhHcaQ+9m8SDVWDhcC5K
+         kQ9bBjG2uD9G+elgS+KBAxM8rPUkkzgJxmqT1tDXBML7sE4OINyjeOuRe9FOzae6RBgv
+         MFqFOr42f9jIM+wJJtNaRpQijI9u3PHCdd/GcUxLZ3iHh4x7EARZFmxCqLTVQ84TuiBh
+         WyrZrm+T1LxVS55RBCjDI60Jh39+lUapSy496psvzARwN9MGjx62OZ2Q4mW/2Y5bS0bk
+         7RJPuNRximtx387ASepuRDpr95eE2I4wLsVly+K6khxYibh36hL1MAdfDyx121YJmF94
+         BrWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787909748; x=1788514548;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=M4mRPyxUwh4SLKG3nAkInA2mLQaoHKjEcd3Lko4Y3NE=;
+        b=q2p36o7jky+sq4DrDBSPrr0hyeW//MSLnSsm3liB4Y7pYSPV7evEMYjUZPBUImMiyb
+         l2Pzyrbvi4ORRPndU75WAlLRBHzrK2n22NyyB9wNrOgCLQkIH6R73M1CAWYvcgqZkruI
+         Qhdu9JRRVQLpR4PYywKKoNAVYazGq+zL8DJsF4eZeUs2Qp6QbN7kj6+1A3CeZ4axG1Ew
+         R4G1NNwFpVPFhM1tn649iTvpyqeC3u9PdxY7PDyzB79xim1lamSkgAKbRWIUUFC/MfKW
+         /Cx6/lbNPNaoFnVspswEr/dzMLiv326pG9dS4NaGP/4JrLDlBSWsNAEYoTyPSV9xe8Fh
+         3U+A==
+X-Forwarded-Encrypted: i=1; AHgh+RqYnYJyQLEjbirRiTEz/uUVIa2XAkMEMhtIuCrwXvP5mCJ1s17jmL7TMbVpiB0ZGcLLvRrn/rlyQJ5jSAkwdSSa@lists.infradead.org
+X-Gm-Message-State: AFuF++kLbJ+dWKBwhPBtFcrJrkX3Xp8JLIXkJrS9yL3za3v7Q6uOjfQy
+	3B11MzJGtK3Z+2KTiltdi9A6bGs3vjcNOiXjViGKG7wUe+LN3kpykMtX3JDS5tfwbiffj0AmgEM
+	2PT+9RI2c5iWKhkvp1Cma61PBAkZ2OBMB+ythdadLkA==
+X-Gm-Gg: AR+sD10xcj0gm4cRGskDSSEj1cWd2/hCK8PAer1Brd7Sx/e3H0cByWB22eolWOGyPhh
+	VuxD107kAOur1+l84RkJpn5/m6JPzDRa0aBWjUWQ5Qhkro4aX9h3ZlsiRW9Ik01yHH0aZV5XIGZ
+	ExoP42HBKDC/7Jy3T1hmvKiG+CgKDvz/WHTVIHUI9+4vaaAOAuUhlB416D2wh2YBokWn8XSsZ5Y
+	NxRRrjx6bHYcoVjho+u9VIsSmBY7Wf1A7hNPjEADpX4uq7AhrqSMyJvFtOoF/0CKI8JblL2lkin
+	b+jJa4bt8d/DpcUNdv3VZf/ZPHY7XbLTruziGApAA0Vpvr0Pfwu5YizijazPBOvHqfJGz3p4ed8
+	eBU8=
+X-Received: by 2002:a05:6402:3807:b0:6a5:f528:ff48 with SMTP id
+ 4fb4d7f45d1cf-6a60d35736cmr3469549a12.5.1787909747586; Fri, 28 Aug 2026
+ 02:35:47 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260821-dcphy-rx-v1-v4-0-f1797634233d@gmail.com>
- <20260821-dcphy-rx-v1-v4-1-f1797634233d@gmail.com> <20260827-thundering-cream-saluki-dd05df@quoll>
-In-Reply-To: <20260827-thundering-cream-saluki-dd05df@quoll>
-From: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>
-Date: Fri, 28 Aug 2026 17:35:19 +0800
-X-Gm-Features: AcwNN1VURP6ewJ0HD0VNfWu9xGoJtKmMhy7y_I8d0yGNeVN7oyHoitKsjPfK980
-Message-ID: <CAPwA33K+XSRPDzv9xAcoPneUsp6A9OTwakJ1VJY=zXnHiH+5Wg@mail.gmail.com>
-Subject: Re: [PATCH v4 1/7] dt-bindings: phy: Add PHY_TYPE_DSI and
- PHY_TYPE_CSI definitions
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Michael Riesch <michael.riesch@collabora.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	"Bryan O'Donoghue" <bryan.odonoghue@linaro.org>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <GVYP280MB12139AB976CA7ACF49FEB768A1A52@GVYP280MB1213.SWEP280.PROD.OUTLOOK.COM>
+ <CAPLW+4kQTUX8QhKnAP7bg=iCw5hhNQZoW7cuOpTdvvAUpGaicg@mail.gmail.com>
+ <135d48e7-58ac-48b8-8fa5-c2548e2f3ae9@lineageos.org> <DKZ3X5VUHJSK.1KSJR6K8FATGV@linaro.org>
+ <5e8698db-974c-4f8b-8939-bcdf8a47743d@lineageos.org>
+In-Reply-To: <5e8698db-974c-4f8b-8939-bcdf8a47743d@lineageos.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Fri, 28 Aug 2026 10:35:36 +0100
+X-Gm-Features: AcwNN1WeoYWQnW4gSKiWJkUeMJcl_oJic8RHhz9v0tzgpLotvnyYe_l98Rtu_To
+Message-ID: <CADrjBPrhaQHyQX-+FEHYH5rCwh9_fMUVsV5fpvRkR-RF_9Erkg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] Exynos850 GPU support
+To: Thomas Turner <tturner@lineageos.org>
+Cc: Alexey Klimov <alexey.klimov@linaro.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, krzysztof.kozlowski@oss.qualcomm.com, 
+	alim.akhtar@samsung.com, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_023535_015816_6F99BDC0 
-X-CRM114-Status: GOOD (  33.65  )
+X-CRM114-CacheID: sfid-20260828_023551_171382_6EE6AF20 
+X-CRM114-Status: GOOD (  39.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,130 +123,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Thomas, Alexey, Sam
 
-Thanks for the review.
-
-(from the review of 2/7)
-
-> Please link/show the upstream DTS using simultaneously transmitter and
-> receiver, where the consumer does not know with whom is it talking to.
-
-I grepped the tree and found a device tree that has simultaneously
-transmitter and receiver. In the arch/arm/boot/dts/samsung/*,
-exynos4412-midas.dtsi enables csis_0, and exynos4412-galaxy-s3.dtsi, which
-includes it, enables dsi_0. Both consumers are declared in exynos4.dtsi,
-on the same phy node:
-
-    dsi_0:  phys =3D <&mipi_phy 1>;
-    csis_0: phys =3D <&mipi_phy 0>;
-
-Tracing that back, the provider is
-Documentation/devicetree/bindings/phy/samsung,mipi-video-phy.yaml and
-drivers/phy/samsung/phy-exynos-mipi-video.c.
-It registers several struct phy in one node, and the binding says:
-
-      For samsung,s5pv210-mipi-video-phy compatible PHYs the second cell in=
- the
-      PHY specifier identifies the PHY and its meaning is as follows::
-        0 - MIPI CSIS 0,
-        1 - MIPI DSIM 0,
-        2 - MIPI CSIS 1,
-        3 - MIPI DSIM 1.
-
-Resuming from the cover letter in v4, I treat this phy as one tx phy and on=
-e
-rx phy. Maybe I can follow this pattern and introduce phy 0 and phy 1 in
-rockchip,rk3588-mipi-dcphy.yaml, and add an enum for
-SAMSUNG_MIPI_DCPHY_TX/RX in the driver. The binding would then say:
-
-      Two cells select the mode and then one of the two PHYs that the
-      block contains:
-        0 - the transmitter, for a MIPI DSI host
-        1 - the receiver, for a MIPI CSI-2 host
-
-      A single cell is equivalent to a second cell of 0.
-
-In this way, I don't need to add PHY_TYPE_CSI/DSI to
-include/dt-bindings/phy/phy.h.
-And I think this will not go against the discussion in v2, where Michael po=
-inted
-out that DSI and CSI are standard protocols and should not be named in
-a Rockchip
-specific header, and suggested introducing PHY_TYPE_CSI/DSI:
-
-> How is that Rockchip specific? As you state above this is either MIPI
-> CSI or MIPI DSI, two perfectly standard protocols.
+On Wed, 26 Aug 2026 at 20:44, Thomas Turner <tturner@lineageos.org> wrote:
 >
-> @all Would it be reasonable to introduce PHY_TYPE_CSI and PHY_TYPE_DSI?
-
-https://lore.kernel.org/r/82da3622-9c3a-454c-87bc-fb4ec7adb68d@collabora.co=
-m
-
-> Where is any DTS using it? I did a search and no results of upstream
-> posting.
-
-The user will be rk3588-base.dtsi. It adds csi0/1, which connect back
-to the existing vicap_mipi0/1 ports. It also sets #phy-cells
-and the dsi consumers to the shape that comes out of this review; with v4
-that would have been #phy-cells =3D <2> and PHY_TYPE_CSI/DSI.
-
-I thought the dts should wait until the binding and driver were settled,
-so I did not post it. I will add it in v5.
-
-Thanks,
-Jason
-
-Krzysztof Kozlowski <krzk@kernel.org> =E6=96=BC 2026=E5=B9=B48=E6=9C=8827=
-=E6=97=A5=E9=80=B1=E5=9B=9B =E4=B8=8B=E5=8D=887:46=E5=AF=AB=E9=81=93=EF=BC=
-=9A
->
-> On Fri, Aug 21, 2026 at 08:02:29PM +0800, Jason Yang wrote:
-> > A MIPI D-PHY or C-PHY can be a transmitter (DSI) or a receiver (CSI),
-> > and in some PHY blocks both work at the same time. The existing
-> > PHY_TYPE_DPHY and PHY_TYPE_CPHY cannot tell whether a consumer wants
-> > the transmitter or the receiver.
->
-> The consumer knows this already, no? Imagine consumer of the phy is some
-> ISP receiving data over CSI for given port, thus consumer cannot
-> transmit over that link.
->
-> All this seems redundant.
->
+> On 26/08/2026 20:02, Alexey Klimov wrote:
+> > On Tue Aug 25, 2026 at 10:05 PM BST, Thomas Turner wrote:
+> >> Hi Sam and Alexey,
+> >>
+> >> On 19/08/2026 20:51, Sam Protsenko wrote:
+> >>> Can you please tell us a bit about how you tested this patch, and on
+> >>> which board? As DPU is not currently enabled on Exynos850 SoC, I'm not
+> >>> sure how exactly GPU can be useful. If you have a use case or a
+> >>> testing procedure we can run on the E850-96 board, please share.
+> >>>
+> >>
+> >> Sam, Alexey could you please test GPU on the E850-96 board by following
+> >> these instructions:
+> >>
+> >> 1) Apply this patch series locally
+> >> 2) Change status="disabled"; to status="okay";
+> >> 3) Make sure these configs are enabled:
+> >> CONFIG_DRM_SIMPLEDRM=y
+> >> CONFIG_DRM_PANFROST=y
+> >> 4) In terms of regulators we set up a basic mali regulator via our
+> >> secondary bootloader [1] and configured with this dts setup [2], NOTE
+> >> you may be able to get away with a dummy regulator so try that first.
+> >> If not I am sure you can replicate something simple with u-boot PMIC.
+> >> 5) Boot a GUI, I saw Debian was used for the bring-up, that should work
+> >> 6) Run the following command:
+> >> $ dmesg | grep "panfrost"
+> >> 7) Compare that to the output at [3]
 > >
-> > Add PHY_TYPE_DSI and PHY_TYPE_CSI, so that a binding can select both
-> > D-PHY or C-PHY and transmitter or receiver. They do not replace
-> > PHY_TYPE_DPHY/PHY_TYPE_CPHY, which remain the right choice where a cell
-> > selects the mode. The first user is the Rockchip RK3588 MIPI DC-PHY
-> > binding.
+> > Your email subject still seems to be null.
 > >
-> > Suggested-by: Michael Riesch <michael.riesch@collabora.com>
-> > Link: https://lore.kernel.org/r/82da3622-9c3a-454c-87bc-fb4ec7adb68d@co=
-llabora.com
-> > Signed-off-by: Jason Yang <jason98166@gmail.com>
+> > [   15.206193] panfrost 11500000.gpu: clock rate = 377000000
+> > [   15.206322] panfrost 11500000.gpu: error -ENODEV: _opp_set_regulators: no regulator (mali) found
+> > [   15.206513] panfrost 11500000.gpu: supply mali not found, using dummy regulator
+> > [   15.206840] panfrost 11500000.gpu: mali-g52 id 0x7212 major 0x0 minor 0x0 status 0x0
+> > [   15.213137] panfrost 11500000.gpu: features: 00000000,00000df7, issues: 00000000,00000400
+> > [   15.221271] panfrost 11500000.gpu: Features: L2:0x07100206 Shader:0x00000000 Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
+> > [   15.233080] panfrost 11500000.gpu: shader_present=0x1 l2_present=0x1
+> > [   15.240488] panfrost 11500000.gpu: [drm] Using Transparent Hugepage
+> > [   15.250497] [drm] Initialized panfrost 1.6.0 for 11500000.gpu on minor 0
 >
-> Where is any DTS using it? I did a search and no results of upstream
-> posting.
+> You seemed to have missed out step (4) of my instructions, if you set-up
+> regulators correctly this error will disappear.
 >
-> > ---
-> >  include/dt-bindings/phy/phy.h | 2 ++
-> >  1 file changed, 2 insertions(+)
+> > [root@e850usb ~]# uname -a
+> > Linux e850usb 7.2.0-next-20260825-00009-g647b48e80572-dirty #8 SMP PREEMPT Wed Aug 26 17:05:45 BST 2026 aarch64 GNU/Linux
 > >
-> > diff --git a/include/dt-bindings/phy/phy.h b/include/dt-bindings/phy/ph=
-y.h
-> > index 979b5dfd8353..8ee3f88e6d80 100644
-> > --- a/include/dt-bindings/phy/phy.h
-> > +++ b/include/dt-bindings/phy/phy.h
-> > @@ -24,6 +24,8 @@
-> >  #define PHY_TYPE_CPHY                11
-> >  #define PHY_TYPE_USXGMII     12
-> >  #define PHY_TYPE_XAUI                13
-> > +#define PHY_TYPE_DSI         14
-> > +#define PHY_TYPE_CSI         15
+> > I have different DRM_SIMPLEDRM options and related  enabled but nothing
+> > pops up via HDMI (at least I tried simple xorg-server things).
+> > Is it possible that your bootloader initilises some framebuffer and inserts
+> > it into DTB that passed to kernel? Or you have some other pieces in
+> > kernel/dt that implement missing functionality?
 >
-> DSI and CSI does not look like types of PHY...
+> Our bootloader does intialise a framebuffer, and we have a node in our device
+> tree which makes it usable. Not sure how exactly the e850-96 device sets
+> things up but you can take a look at our fork if you want, [1].
 >
-> Best regards,
-> Krzysztof
+> > Here it seems there are no outputs:
+> > [root@e850usb ~]# ls -al /dev/fb*
+> > ls: cannot access '/dev/fb*': No such file or directory
+> >
+> > and there no simle framebuffer or related logs. "DPU is not currently
+> > enabled on Exynos850 SoC" looks like the reason.
 >
+> hm, I am pretty sure our bootloader configures DPU for us so that might be
+> why it works for us and not for you.
+
+@Alexey - I think the LK bootloader leaves DPU framebuffer updates off
+to ensure a seamless handover from the bootsplash to the full DRM
+driver. We have the following DPU poke in gs101 (which if I recall
+correctly we got the inspiration for this from uniloader)
+https://gitlab.com/LinaroLtd/googlelt/meta-bsp-google-gs/-/commit/4057117e4bc6e08fbb6ff281cbfef8782a68ec0a
+
+So for the E850 board, you likely need to do something similar, either
+in LK or like the above poke. If UniLoader is already doing this for
+the e850 SoC then hopefully you can check there to see the address of
+the register etc. That should then able you to have simple-framebuffer
+enabled.
+
+>
+> > Panfrost itself seems to be alive though:
+> >
+> > [root@e850usb ~]# eglinfo -B
+> > GBM platform:
+> > EGL API version: 1.5
+> > EGL vendor string: Mesa Project
+> > EGL version string: 1.5
+> > EGL client APIs: OpenGL OpenGL_ES
+> > OpenGL core profile vendor: Mesa
+> > OpenGL core profile renderer: Mali-G52 MC1 (Panfrost)
+> > OpenGL core profile version: 3.1 Mesa 26.2.1-arch1.1
+> > OpenGL core profile shading language version: 1.40
+> > OpenGL compatibility profile vendor: Mesa
+> > OpenGL compatibility profile renderer: Mali-G52 MC1 (Panfrost)
+> > OpenGL compatibility profile version: 3.1 Mesa 26.2.1-arch1.1
+> > OpenGL compatibility profile shading language version: 1.40
+> > OpenGL ES profile vendor: Mesa
+> > OpenGL ES profile renderer: Mali-G52 MC1 (Panfrost)
+> > OpenGL ES profile version: OpenGL ES 3.1 Mesa 26.2.1-arch1.1
+> > OpenGL ES profile shading language version: OpenGL ES GLSL ES 3.10
+
+That's really cool!
+
+Peter.
 
