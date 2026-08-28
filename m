@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650EDC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 08:59:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F66DC61DC6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 08:59:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VlhlhN6Ao8cxtOBbRD5JaNyRrKmX5FvsiLtDWtyTEJY=; b=maWQKovwkENBFGLR4Tvc3GjE5d
-	1EaO/3MjK5q6VqOU+J+MW5lDtkiH/Nj/nzbzmgLILudxbzIt2goTtGfcjsLRqYSMU/gzD4oW3zGLB
-	Xn9gC/NDsOzXPCIT2D2WJ5ysHXai0SAuoJ4IhkXPYMrrlaiMZ1v8SsykB9t9JLXwDYQOlo1v6w81p
-	ZyZIQwSMz4RGAjpHIVfWBsBLTaRhV5+Tqxk78Rti0IUNHSlQAIeiqyDQRtC4RTajOkUgnDABeXNTO
-	Kav7WVw9bWi1P3lbTJ2BVNW+vj3GdhsI3gUtuenlgyCGlTOtIS2EXojoBVSNKxNpOFmf2WMV0kgZ2
-	JUXJ4KWg==;
+	bh=wVHbMMgwTRdvhl3Xmvr04M/6W1HqFA3Q/iNZoN90xm8=; b=3VCvHfj1BJKRQiC0iJxLZK6TTn
+	CMkNTmxEyXHS0jYv4CrQ53DwlwpK8XEy2rXXGQN1/SI6xiC8r1oy4RB6W5H/ZUcsa3VNF7UgmH5ql
+	WnEmO3lKl/+hcwd6KSVwPTfUoxJWCBKLCdQVptrP8F2hunfnU5hCTGYiWd5VDDByW+EM3I9Q63hag
+	bIyoD/gS1OL+hfLPkazOKwfFCRD9v5XJBcFoXEq+DbWrlMSkTjWsPURh2PLVpdBkaStA0OAnUvVv+
+	BcIWVrZngmAl8LT1KhSZZd6U11OmNvZVuPoSv7W8pnMHKE0ASCoNpWthtW81mYqAYJxcHw+tFsQXM
+	LQQ3+YOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzsQm-00000005O4v-00Nn;
+	id 1wzsQm-00000005O5Z-1Df8;
 	Fri, 28 Aug 2026 08:59:24 +0000
 Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzsQZ-00000005NwP-2oGp
+	id 1wzsQd-00000005Nyw-1shM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 08:59:15 +0000
-Received: by chaosmail.tech (Postfix) id BB50E1CC176;
-	Fri, 28 Aug 2026 08:59:06 +0000 (UTC)
+	Fri, 28 Aug 2026 08:59:16 +0000
+Received: by chaosmail.tech (Postfix) id 4394B1CC17E;
+	Fri, 28 Aug 2026 08:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1787907547;
+	s=mail; t=1787907548;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=VlhlhN6Ao8cxtOBbRD5JaNyRrKmX5FvsiLtDWtyTEJY=;
-	b=AoRoX3mF41fRyH4N6YnmShA07KkzL0hJnR6PnHpgG0tLYIH94dMurXWGZ2L/Qv+GGTTBBF
-	F/AbdgazMTcnRRnnsx+UraQMvhFZf83DU6ZwnhH7qdQ5l1+HcrOJaah4mhrEnPwYtOYGCA
-	rwPWGpwaSlzad0jEpnJBTqzMxdK468Y=
+	bh=wVHbMMgwTRdvhl3Xmvr04M/6W1HqFA3Q/iNZoN90xm8=;
+	b=qXbezgFJ+EVp1HKwvDHhnigrozPU75e8tM48R/huH9iNeOoWxWmvVT3fwKZZ/8sQVkm1Cl
+	LanHby2RTAVDqZiq9yqInmtEqsRrQmrIudNUX46eRvtAR3D+NOTkVPSzlOhEgEdpWrE035
+	hdBB/dK0KWqTjFjrA9J+X/8Sl/z7AAc=
 From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Fri, 28 Aug 2026 10:58:59 +0200
-Subject: [PATCH v8 3/6] spmi: apple: check transaction status
+Date: Fri, 28 Aug 2026 10:59:01 +0200
+Subject: [PATCH v8 5/6] spmi: apple: lock around FIFOs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260828-t603x-spmi-v8-3-708d4d12e0fd@chaosmail.tech>
+Message-Id: <20260828-t603x-spmi-v8-5-708d4d12e0fd@chaosmail.tech>
 References: <20260828-t603x-spmi-v8-0-708d4d12e0fd@chaosmail.tech>
 In-Reply-To: <20260828-t603x-spmi-v8-0-708d4d12e0fd@chaosmail.tech>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -55,16 +55,16 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787907544; l=2846;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787907544; l=1392;
  i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=EambuisSIw3s+EavjiZydICr5EUeyWSuYrWkUmgadRo=;
- b=nYZB5vxEr8pC+BzxlJf47Vs0NHWpinIOXdpmD1xguedt+MttudJhEMBy3Wx0CASKCtv0ulRu4
- KVTc7278QY+AnTmOz1tJ4gj14MIEyHb3HCglis8dkv1s6ZqCxmO5x6G
+ bh=/okjDmX4WP5ORuj7W0YBcJBa1hZOvGWaK9RmHtLYrOM=;
+ b=9OoJExJftqrBBYs8Fb4Yj7w5aoNFCuhmQ1XPufl8ePj6MgdtVCalKohDMT+1XYkPT3QQtO/Mp
+ DvwiLzad068A/YNqVZc8jPa/o/0kUYY6aZVJW3s4BV8L6t/4L9bMBae
 X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_015912_231175_E0E86EB6 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20260828_015915_665818_EBC58781 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,99 +81,52 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alba Mendez <me@alba.sh>
 
-Check for parity errors and missing command ACKs.
+The driver was missing locking around register interactions.
 
 Signed-off-by: Alba Mendez <me@alba.sh>
 Reviewed-by: Janne Grunau <j@jannau.net>
 Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- drivers/spmi/spmi-apple-controller.c | 25 ++++++++++++++++++++-----
- 1 file changed, 20 insertions(+), 5 deletions(-)
+ drivers/spmi/spmi-apple-controller.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
-index 15721cb41d5c..b1c127cf5f44 100644
+index 9843dc871d6c..fabccd25aa0d 100644
 --- a/drivers/spmi/spmi-apple-controller.c
 +++ b/drivers/spmi/spmi-apple-controller.c
-@@ -11,6 +11,8 @@
-  *		spmi-pmic-arb.c Copyright (c) 2021, The Linux Foundation.
-  */
- 
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
+@@ -16,6 +16,7 @@
  #include <linux/io.h>
  #include <linux/iopoll.h>
  #include <linux/module.h>
-@@ -23,6 +25,12 @@
- #define SPMI_RSP_REG 0x8
- #define SPMI_ACT_REG 0xa4
++#include <linux/mutex.h>
+ #include <linux/platform_device.h>
+ #include <linux/spmi.h>
  
-+/* SPMI_RSP_REG reply word */
-+#define SPMI_REPLY_FRAME_PARITY_STATUS GENMASK(31, 16)
-+#define SPMI_REPLY_ACK BIT(15)
-+#define SPMI_REPLY_SLAVE_ID GENMASK(14, 8)
-+#define SPMI_REPLY_CMD GENMASK(7, 0)
-+
- #define SPMI_ACT_FIFO_FLUSH BIT(0)
- #define SPMI_RX_FIFO_EMPTY BIT(24)
+@@ -39,6 +40,7 @@
  
-@@ -66,7 +74,7 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- {
- 	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
- 	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
--	u32 rsp;
-+	u32 reply, rsp;
- 	size_t len_read = 0;
- 	u8 i;
- 	int ret;
-@@ -82,8 +90,7 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 	if (ret)
- 		return ret;
+ struct apple_spmi {
+ 	void __iomem *regs;
++	struct mutex fifo_lock;
+ 	bool prev_fail;
+ };
  
--	/* Discard SPMI reply status */
--	readl(spmi->regs + SPMI_RSP_REG);
-+	reply = readl(spmi->regs + SPMI_RSP_REG);
- 
- 	/* Read SPMI data reply */
- 	while (len_read < len) {
-@@ -106,6 +113,10 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 		spmi->prev_fail = true;
- 	}
- 
-+	if (~FIELD_GET(SPMI_REPLY_FRAME_PARITY_STATUS, reply) & ((1 << len) - 1)) {
-+		dev_err(&ctrl->dev, "some frames failed parity check\n");
-+		return -EIO;
-+	}
- 	return 0;
- }
- 
-@@ -114,6 +125,7 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- {
- 	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
- 	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
-+	u32 reply;
+@@ -78,6 +80,8 @@ static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid, u16 param,
  	size_t i = 0, j;
  	int ret;
  
-@@ -137,14 +149,17 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 	if (ret)
- 		return ret;
++	guard(mutex)(&spmi->fifo_lock);
++
+ 	if (spmi->prev_fail) {
+ 		writel(SPMI_ACT_FIFO_FLUSH, spmi->regs + SPMI_ACT_REG);
+ 		spmi->prev_fail = false;
+@@ -195,6 +199,7 @@ static int apple_spmi_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
  
--	/* Discard */
--	readl(spmi->regs + SPMI_RSP_REG);
-+	reply = readl(spmi->regs + SPMI_RSP_REG);
+ 	spmi = spmi_controller_get_drvdata(ctrl);
++	mutex_init(&spmi->fifo_lock);
  
- 	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
- 		dev_warn(&ctrl->dev, "FIFO has extra data\n");
- 		spmi->prev_fail = true;
- 	}
- 
-+	if (!FIELD_GET(SPMI_REPLY_ACK, reply)) {
-+		dev_err(&ctrl->dev, "command not acknowledged\n");
-+		return -EIO;
-+	}
- 	return 0;
- }
- 
+ 	spmi->regs = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(spmi->regs))
 
 -- 
 2.55.0
