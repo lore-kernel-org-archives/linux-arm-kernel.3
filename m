@@ -4,98 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DB13C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C85EAC61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:Cc:
+	To:In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZkAIK4sJSZ+M6U7rXtAMjWYbvL4XnlFujZHGVX//GSY=; b=OLV5zLykoVmm+xx2eRkucc/fgf
-	sItpmHv6OAe9DWVtUTlrE0pbXCltgT97iWwjnf8QqVYhe0OAtZD3JJsPTkxIR8dbOE9kVh2+wddTx
-	1wynWJDa7ptUeS5uirtUJm/62pFDhXmVUfnpClphpLynhBkMk4H8MVFH3n1hm7av80h+gyvfQpgxO
-	rHtZ5QRfB0U0m7P9fdqWOix5+kCfnkXpT4QzlD5PCSJnNSLmCF2rHHScYAtwzfp4Aw4vDjNMLZI3e
-	7P9ztq6CkoI+8SBR/obXT5FnzaUzKLdYGxmmgNl2aAs9wFNs6tWT1qSVGqc4A6fhv0IUHThEmR7R8
-	RMRZ+Mgw==;
+	bh=CZQ6g0SOIss6kTyIBXZOKF9vf1VOCtlImKy5V/nnOQY=; b=vUsEelC8kkHDWcDPanTI1ydeN/
+	MyK+lTRfusapxkqYavaY8Jt+oCUkYkfkXCGQBnpTuSD96eToj4QcVfg1KpTa258T7hDR865cMgNEp
+	ZN6tuBZiAH8GpCRCL4zF/eI67z/S+xDzVGXV6b93aSrBz7ogBsBjacFgwk7oCzdyLZ8Bqw6cYAyU0
+	/KDKNmOaa6b9hOPmHvkg41UpyOwdHjrIb+fKXtXXGM9/h5r+r12YgoJ540k6BjfEoacIiTrcaxKFh
+	9rdvPgVQwuIWtX7ZjTy92mDJm5gmv8L5tJoK5zs6X+yS0dvqYJV5dnQFjpz6UFVmMwaUOLMkYYnwI
+	1bUYgdpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwuF-00000005qeY-0B7F;
-	Fri, 28 Aug 2026 13:46:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wzwwU-00000005r30-2Huh;
+	Fri, 28 Aug 2026 13:48:26 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwuE-00000005qeP-1SU9
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 13:46:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA4F341455;
-	Fri, 28 Aug 2026 13:46:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D61C81F000E9;
-	Fri, 28 Aug 2026 13:46:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787924765;
-	bh=ZkAIK4sJSZ+M6U7rXtAMjWYbvL4XnlFujZHGVX//GSY=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=NjUjFPGg1szvr3eb78v2BpGQv+wgHid47nEyNFCF4UtD4VOdqNOt8xN/TmW/lz7pC
-	 Hfb3M4OLv9NBqnBI+kJP2HzzaQSfvx4FzS4UkOu2qMkys/Jzo+q0CYKmZHRdS8Cfoj
-	 JqFpNq+Z2uR2W0ItcWD+dCY9h2kI2Pmtons2mtYREqzuyo7tePoAoomC+yQ+/8dMxh
-	 MYP2TMHM1ohEBtisAJojUoUmBbyoKBQAGOZ2Dgt2MclbRwi7ECg1HEnTtD0fhWK0ol
-	 OchJFRcQw7oZASNd4EtzB9ztlpmIdHTFtHoNS9+K5QGBPzOzEazxuoD3I83FcQ3XIJ
-	 x6jZWn3Eo7bEQ==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 5F2B21980072;
-	Fri, 28 Aug 2026 09:46:03 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Fri, 28 Aug 2026 09:46:03 -0400
-X-ME-Sender: <xms:F5GRaqE2NkgyW7Ns-LsvSLTTDYKdh01qS6ZTDLQ4fw9t-N0Ddrtc0Q>
-    <xme:F5GRamK8JEod1kC8v70PUAKg83EM3BJ4mNsF9zenJckTWXg_DbGiqaZsOaLiTcf1f
-    Un5nzICP58n5e2w4IxsrJ6DR2ew4HXCRnU0kgMGarbUP730m9edsSHf>
-X-ME-Proxy-Cause: dmFkZTERWf76UbFSBm7gP10dcMTeqKkA8/cAL0sZG2rtqNj9Cm8XygX+z/UkBm5JSSVYUy
-    tiYsLDls4/Z8P0ArKeB4JwxyT1aUPV/lD2jc7QsFKIVQHQani//0H1PZEuJk/TiRbXXB2d
-    2quRJqkXk73Cy9UXGvcExqZtTKUBQHobcpzJhpw2JFide00btCWCAKJxj+FFD/0LYuztV0
-    RDQfQ9I5GuMU2Gp/6HPTrAQR0FUWuP5nz+ODfL0oI1jx4s+jzNT/OxnaNHzIWAbOUDVPAP
-    w5fd1Gn9Re9N8rvjRkwEA2WKBs4KNvy7cNDKTIaIdI60cHjToYvMPt6lZJQt9iOoIsFcNt
-    RgMeFGqQHwKXp/37eumLweC5yrLclcKzJJT5cNY+IHV1VdIyqIG3ZtBU5HWRsmj47nFXXO
-    E35L8lICEmkjQ8uKpI/zFxfHP7ZNKUlS9+8zbra8ZkiUUpsAFf0YCS46pUJJrUCDgx6aMI
-    V3tmtGKfMb0aauZJvHtfGU1pRrhYIJs+OLLCQ73AXWjoo3DemVX15rIZX+nlbfZxakHWuF
-    qQOXvsSwhEkofy7Mi18iqc/ZOGzI2iapsjruAeX/BsRit5HFPQYWWAYVRwICynS23+3qDa
-    lSE1BUqfAQ+/hmaZUT/n/B29/elggaG5nEArlIRIROmCs2ooVKdFgmt50K7A
-X-ME-Proxy: <xmx:G5GRaidmDIofxjDrnckkltqpU-EBp3Rle_aBNo2F6P7BC62Z4iDwZQ>
-    <xmx:G5GRagLQLLdIZbdkb7L2guevnkadNbHtrAwSNHFCWgxQJ7GeNQ4xXQ>
-    <xmx:G5GRasCciwc4APHUJloqDeNMxyVffl53TzupnMualIviek0VAjp3Uw>
-    <xmx:G5GRaphOIhi5fNP21BBwmTKuIl5vQHIh-O74BW-RnFIO-oBnHepfnQ>
-    <xmx:G5GRamNZICx_vr-e_gFs2Augf5avMnxddCHXulCSvH7Iw1aF3MgajzWL>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 89751F80080; Fri, 28 Aug 2026 09:45:59 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1wzwwQ-00000005r12-1XD3;
+	Fri, 28 Aug 2026 13:48:25 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260828134820euoutp01c6dd8c216fa79e8b57b2653deaa7c7ac~P-DlOOk112621826218euoutp01A;
+	Fri, 28 Aug 2026 13:48:20 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260828134820euoutp01c6dd8c216fa79e8b57b2653deaa7c7ac~P-DlOOk112621826218euoutp01A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1787924900;
+	bh=CZQ6g0SOIss6kTyIBXZOKF9vf1VOCtlImKy5V/nnOQY=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=Z75NmrQcWgbs6EYo61jSxtdQ7WUBcrWTC2fS/ckMPz7zvfTnXZNBm9q6yn+aq6wDB
+	 KsaUaLl0fosIiYs+W7oJokoSXUimaPKl0BsHALlSNXq7MZX+34e9Q9EbQ2I0ZC/1I8
+	 iAOm+1/vwKAsBndNSOUkckrgTZZLSTwXeUkOhbkI=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260828134819eucas1p2c8e2bb95dd957981ec5e60e1da03223c~P-DkwkiRx1640516405eucas1p2I;
+	Fri, 28 Aug 2026 13:48:19 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260828134817eusmtip1ad736395c6f4339d7910b9f526dd37bc~P-DizugV62831928319eusmtip1W;
+	Fri, 28 Aug 2026 13:48:17 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Fri, 28 Aug 2026 15:47:27 +0200
+Subject: [PATCH v2 03/15] dt-bindings: mfd: Add
+ starfive,jh7110-hdmi-subsystem
 MIME-Version: 1.0
-Date: Fri, 28 Aug 2026 15:45:39 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Petr Pavlu" <petr.pavlu@suse.com>, "Ard Biesheuvel" <ardb+git@google.com>
-Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, "Steven Rostedt" <rostedt@goodmis.org>,
- "Masami Hiramatsu" <mhiramat@kernel.org>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Mike Rapoport" <rppt@kernel.org>, "Luis Chamberlain" <mcgrof@kernel.org>,
- "Daniel Gomez" <da.gomez@kernel.org>,
- "Sami Tolvanen" <samitolvanen@google.com>,
- "Aaron Tomlin" <atomlin@atomlin.com>,
- =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
- "Ryan Roberts" <ryan.roberts@arm.com>,
- "Kevin Brodsky" <kevin.brodsky@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
- linux-mm@kvack.org, linux-modules@vger.kernel.org,
- linux-kernel@vger.kernel.org, "Madhavan Srinivasan" <maddy@linux.ibm.com>,
- linuxppc-dev@lists.ozlabs.org
-Message-Id: <cee89666-9de0-4012-b665-69da3846c5ef@app.fastmail.com>
-In-Reply-To: <524b5817-c097-47cb-b301-4a9c0f1d2947@suse.com>
-References: <20260822135323.795946-11-ardb+git@google.com>
- <524b5817-c097-47cb-b301-4a9c0f1d2947@suse.com>
-Subject: Re: [RFC PATCH 0/9] arm64: Allocate .text and .init.text together
-Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260828-jh7110-clean-send-v2-3-331680c8b9d1@samsung.com>
+In-Reply-To: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
+To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
+	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,  Krzysztof
+	Kozlowski <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>, Andrzej
+	Hajda <andrzej.hajda@intel.com>,  Robert Foss <rfoss@kernel.org>,  Laurent
+	Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
+	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,  Luca Ceresoli
+	<luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>,  Simona
+	Vetter <simona@ffwll.ch>,  Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,  Lee Jones <lee@kernel.org>, Andy
+	Yan <andy.yan@rock-chips.com>,  Philipp Zabel <p.zabel@pengutronix.de>, 
+	Emil Renner Berthing <kernel@esmil.dk>,  Hal Feng
+	<hal.feng@starfivetech.com>,  Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,  Heiko
+	Stuebner <heiko@sntech.de>, Conor Dooley <conor@kernel.org>,  Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
+	Belhachemi <db@domibel.de>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	mfd@lists.linux.dev, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, Icenowy Zheng <uwu@icenowy.me>,  Andy Yan
+	<andyshrk@163.com>, Marek Szyprowski <m.szyprowski@samsung.com>,  Maud
+	Spierings <maudspierings@gocontroll.com>,  Graham Markall
+	<hello@big-grey.co.uk>,  Michal Wilczynski <m.wilczynski@samsung.com>
+X-Mailer: b4 0.15-dev
+X-CMS-MailID: 20260828134819eucas1p2c8e2bb95dd957981ec5e60e1da03223c
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260828134819eucas1p2c8e2bb95dd957981ec5e60e1da03223c
+X-EPHeader: CA
+X-CMS-RootMailID: 20260828134819eucas1p2c8e2bb95dd957981ec5e60e1da03223c
+References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
+	<CGME20260828134819eucas1p2c8e2bb95dd957981ec5e60e1da03223c@eucas1p2.samsung.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260828_064822_671849_C318D354 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,49 +105,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add the dt-binding for the StarFive JH7110 HDMI subsystem.
 
+The JH7110 HDMI IP is a monolithic block containing both the digital
+controller and analog PHY in a single register space. This binding
+defines the parent device, which holds the shared register map and
+populates its two children: the PHY and the controller. This is
+necessary to resolve a circular clock dependency between the HDMI block
+and the VOUT clock generator.
 
-On Fri, 28 Aug 2026, at 15:07, Petr Pavlu wrote:
-> On 8/22/26 3:53 PM, Ard Biesheuvel wrote:
->> From: Ard Biesheuvel <ardb@kernel.org>
->> 
->> The arm64 module loader has to deal with a couple of corner cases that
->> may occur when .init.text is placed out of direct branch range of .text:
->> 
->> - ordinary direct branches from .init.text into .text may require the
->>   use of a PLT entry (i.e., a trampoline aka veneer), which means not
->>   only that additional PLT entries need to be allocated for
->>   cross-section calls, but also that .init.text needs its own PLT
->>   reservation, as the one in .text will be out of range as well;
->> 
->> - dynamic patching of the ftrace handler into .init.text code needs its
->>   own dedicated trampoline as the one in .text may be too far away.
->> 
->> - recent compilers may omit BTI veneers for static functions that never
->>   have their address taken, and so additional veneers will need to be
->>   added to .text in case cross-section direct branches from .init.text 
->>   require a PLT entry (and therefore a landing pad at the target end).
->> 
->> This is unfortunate, because it is actually somewhat unusual for .text
->> and .init.text to be so far away from each other: only when allocating
->> either of them (but not both) exhausts the 'near' (PLT-less) module
->> region, the other will be allocated from the spillover region, which is
->> not in direct branching range, and therefore requires PLT entries for
->> cross-section calls.
->> 
->> This series addresses this wart by allocating both of them as a single
->> chunk, and freeing the .init.text part along with the other init
->> sections at the appropriate time. This ensures that the two regions will
->> never require veneers for cross-section calls, allowing the arm64 module
->> loader to be simplified.
->
-> It looks like this should also be useful for ppc64, which currently
-> merges .init.text and .text because keeping them separate would require
-> stubs between the two, and consequently .init.text is never released in
-> modules on this architecture.
->
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ .../mfd/starfive,jh7110-hdmi-subsystem.yaml        | 116 +++++++++++++++++++++
+ 1 file changed, 116 insertions(+)
 
-Thanks for the data point - are those stubs needed when there is some
-distance between the placements of .text and .init.text?
+diff --git a/Documentation/devicetree/bindings/mfd/starfive,jh7110-hdmi-subsystem.yaml b/Documentation/devicetree/bindings/mfd/starfive,jh7110-hdmi-subsystem.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..01f079160ab8c13c6fa4ce3abaac6607021b3792
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mfd/starfive,jh7110-hdmi-subsystem.yaml
+@@ -0,0 +1,116 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mfd/starfive,jh7110-hdmi-subsystem.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: StarFive JH7110 HDMI subsystem
++
++maintainers:
++  - Michal Wilczynski <m.wilczynski@samsung.com>
++
++description:
++  The StarFive JH7110 HDMI block is a monolithic IP containing both
++  the digital controller logic and the analog PHY logic in a single
++  register space.
++
++properties:
++  compatible:
++    const: starfive,jh7110-hdmi-subsystem
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++    description:
++      NoC display bus clock, which gates access to the whole vout
++      register region.
++
++  resets:
++    maxItems: 1
++    description:
++      NoC display bus reset, which gates access to the whole vout
++      register region.
++
++  power-domains:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - resets
++  - power-domains
++
++patternProperties:
++  "^phy(@[0-9a-f]+)?$":
++    $ref: /schemas/phy/starfive,jh7110-inno-hdmi-phy.yaml#
++  "^controller(@[0-9a-f]+)?$":
++    $ref: /schemas/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml#
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/starfive,jh7110-crg.h>
++    #include <dt-bindings/power/starfive,jh7110-pmu.h>
++    #include <dt-bindings/reset/starfive,jh7110-crg.h>
++
++    soc {
++        #address-cells = <1>;
++        #size-cells = <1>;
++
++        hdmi@29590000 {
++            compatible = "starfive,jh7110-hdmi-subsystem";
++            reg = <0x29590000 0x4000>;
++            clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_DISP_AXI>;
++            power-domains = <&pwrc JH7110_PD_VOUT>;
++            resets = <&syscrg JH7110_SYSRST_NOC_BUS_DISP_AXI>;
++
++            controller {
++                compatible = "starfive,jh7110-inno-hdmi-controller";
++                clocks = <&voutcrg JH7110_VOUTCLK_HDMI_TX_SYS>,
++                         <&voutcrg JH7110_VOUTCLK_HDMI_TX_MCLK>,
++                         <&voutcrg JH7110_VOUTCLK_HDMI_TX_BCLK>,
++                         <&hdmi_phy>;
++                clock-names = "sys", "mclk", "bclk", "pclk";
++                interrupts = <99>;
++                phys = <&hdmi_phy>;
++                phy-names = "hdmi-phy";
++                resets = <&voutcrg JH7110_VOUTRST_HDMI_TX_HDMI>;
++                reset-names = "hdmi_tx";
++
++                ports {
++                    #address-cells = <1>;
++                    #size-cells = <0>;
++
++                    port@0 {
++                        reg = <0>;
++
++                        endpoint {
++                            remote-endpoint = <&dpu_out_dpi0>;
++                        };
++                    };
++
++                    port@1 {
++                        reg = <1>;
++
++                        endpoint {
++                            remote-endpoint = <&hdmi_con_in>;
++                        };
++                    };
++                };
++            };
++
++            hdmi_phy: phy {
++                compatible = "starfive,jh7110-inno-hdmi-phy";
++                #clock-cells = <0>;
++                clock-output-names = "hdmi_pclk";
++                clocks = <&xin24m>;
++                clock-names = "refoclk";
++                #phy-cells = <0>;
++            };
++        };
++    };
++...
+
+-- 
+2.34.1
 
 
