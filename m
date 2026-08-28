@@ -4,77 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC38FC61DCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 11:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6807EC61DCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 11:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9DUbFprSSwBLH7QrLmF5W6kigIbM/HOESze8hnplQjI=; b=0PZJpg1WlSeVQst+xfM5I2XH3M
-	XnwDR3PvxlbYcB2/Po4kDl2FWhVDUf3tn7T6lwFSoYglrL38fP+Y7z3PE8qJ90boFtq3fl8+h04Bp
-	XIn/Ionx7EW16ruq9PJ9HdsMgQFi5ZcsYpm+7bgnbhmrxvtH7glMsLO4J2Vz2/ptvBV/MdPNq0HK6
-	CTqtH9ipOh7mQR3c1Fc8Z11LCNurzcWfZScIa6mFb1E6s8ABhYzwRcw66+Lw5kNYSGD26FClIkPE3
-	5CnsbmpfHhl+3n/HDWTUPMu/ZwFqHh89U4QV5h2+W2C2KW3OJcRJUP6X5NBp2v0s3HkQ8bpz1kbqn
-	LmSeuH3g==;
+	bh=2PPyQ5gaLLDVvQk1HPPh/VvvLE6TGfU2Ht/YV8lSszI=; b=aUej2c1+Yb75udmnoYpwrabnSv
+	PQkFUWiLw62Czez6TSrfEtVTknzKzawwNuK6zyNmW44PK6GkvrESluk/Ebp2RVFYlds2+a8tdm1UT
+	iNicabIYj394P9udo1tmjgXDCbKO3T+3ztHq55XD7dLk26q9anDcUyi6mJQjv11SYID+SXo75CeNE
+	M5aZS1a7jQKhQjDl2aWEcMZ2EM21DxXS8xYj+Tw5IGFu7nz597igeX72MlvMFU1jzGN6HQtyc08IA
+	m4f16xLw7f+sSbiGQmFVzxoEx/8Xi2Apiy2EYmHDOik5pCAFKLYwqrVcYl64buRsLuORbsFde3x/s
+	EQe8zt4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzuqw-00000005egx-1CUn;
-	Fri, 28 Aug 2026 11:34:34 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1wzv1s-00000005fY1-2sxx;
+	Fri, 28 Aug 2026 11:45:52 +0000
+Received: from out-107.mta1.migadu.com ([2001:41d0:203:375::6b] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzuqo-00000005ed7-1rap;
-	Fri, 28 Aug 2026 11:34:30 +0000
-Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-01 (Coremail) with SMTP id qwCowACnfPA6cpFqpPm9Bg--.43118S22;
-	Fri, 28 Aug 2026 19:34:22 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1wzv1p-00000005fWm-1q2p
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Aug 2026 11:45:51 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=hKt0OBC9Ziec3JNJiQiTOs4ZiRMVpV+jL5aTojBkpS0=;
+ c=simple/simple; d=cknow-tech.com;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1787917545; v=1; x=1788522345;
+ b=YASbBN6ffCYeHsbLBb1EFd0w22zEj7Ri0P0PlL8/ptGrs/weZNb5TxH2mzXlyYQWsNYRDY+2
+ XWTiIdEtFVPX3MqCP9L38hiRouV75PcBkPnXE3W80sBLLNsQQOQBEwLksSi1ks2pciG2XBQ7fxo
+ 8fcrjcnl9IN5xNvigJvrRvLno0yvdg8gZhhpLGvF4I0+Am8sOCOsPKkUwFzhsNvxvTByGr99WI9
+ DHMenQN1XdIkY0HNuC3FNFFglRxRF8MQB8P7SUR4n1G7APTAwhU3INSSD8xpvH8xOiK7wmHpGYV
+ OoAjTLNmMxZd1t0st5065rLoME8jWYAgy7/hb+aG/NqiQ==
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.migadu.com with ESMTPS id 269a0ce062d2b6cf;
+	Fri, 28 Aug 2026 11:45:45 +0000
+X-Mizu-Trace-ID: 269a0ce062d2b6cf
+X-Migadu-Flow: FLOW_OUT
+From: Diederik de Haas <diederik@cknow-tech.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Ricardo Pardini <ricardo@pardini.net>,
+	Marcin Juszkiewicz <marcin@juszkiewicz.com.pl>,
+	Daniele Briguglio <hello@superkali.me>,
+	Hugh Cole-Baker <sigmaris@gmail.com>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Cyril Chao <Cyril.Chao@mediatek.com>,
-	Darren Ye <darren.ye@mediatek.com>,
-	=?utf-8?q?C=C3=A1ssio_Gabriel?= <cassiogabrielcontato@gmail.com>
-Subject: [PATCH 20/20] ASoC: mediatek: mt8196: Unwind register clock and cache restore failures
-Date: Fri, 28 Aug 2026 19:34:15 +0800
-Message-ID: <20260828113416.47061-21-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260828113416.47061-1-pengpeng@iscas.ac.cn>
-References: <20260828113416.47061-1-pengpeng@iscas.ac.cn>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Diederik de Haas <diederik@cknow-tech.com>
+Subject: [PATCH 1/7] arm64: dts: rockchip: Remove unneeded vcc_3v3_pcie20 on NanoPC-T6
+Date: Fri, 28 Aug 2026 13:43:01 +0200
+Message-ID: <20260828114530.1315798-2-diederik@cknow-tech.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260828114530.1315798-1-diederik@cknow-tech.com>
+References: <20260828114530.1315798-1-diederik@cknow-tech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowACnfPA6cpFqpPm9Bg--.43118S22
-X-Coremail-Antispam: 1UD129KBjvJXoWxXFW3JrWUWrykWw1fAryUGFg_yoWrGrWrp3
-	97Cr1qyrWjq348uFZ0vrW7tFyF9r4xAFW3CFyjg34kZr1akrWxAF1kJas7ZFsIqr1kGa1a
-	gFyDKa45CF4Y9FUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmS14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_JF0E3s1l82xGYI
-	kIc2x26xkF7I0E14v26ryj6s0DM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2
-	z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F
-	4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq
-	3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7
-	IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4U
-	M4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628vn2
-	kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkE
-	bVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67
-	AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVW5JVW7JwCI
-	42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF
-	4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBI
-	daVFxhVjvjDU0xZFpf9x0JUhNVPUUUUU=
-X-Originating-IP: [111.196.241.250]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_043428_627474_8868036B 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20260828_044550_034915_0064690C 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,102 +82,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mt8196_afe_runtime_resume() first acquires three register-access clocks
-and then replays the register cache.  mt8196_afe_enable_reg_rw_clk()
-ignores each clock-enable result and leaks already enabled clocks when a
-later rate change fails.  Runtime resume also ignores regcache_sync()
-and proceeds with 26 MHz requests and main-clock enable.
+The ``vcc_3v3_pcie20`` regulator, identified in the schematic with
+``VDD3V3_25GLAN[_B]`` is only separated from ``VCC_3V3_S3`` with a ferrite
+bead. So there's no need to define a separate regulator for that.
 
-Make the register-clock helper acquire transactionally and unwind the
-successful prefix on every failure.  Return cache replay errors after
-restoring cache-only and dirty state and disabling the three
-register-access clocks.
-
-The issue was identified via static analysis and manually reviewed.
-
-Fixes: 7384ecab34eb ("ASoC: mediatek: mt8196: support audio clock control")
-Fixes: 57513aabfe5b ("ASoC: mediatek: mt8196: add platform driver")
-
-Assisted-by: LLM
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Signed-off-by: Diederik de Haas <diederik@cknow-tech.com>
 ---
- sound/soc/mediatek/mt8196/mt8196-afe-clk.c | 27 ++++++++++++++++++----
- sound/soc/mediatek/mt8196/mt8196-afe-pcm.c |  8 ++++++-
- 2 files changed, 29 insertions(+), 6 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
 
-diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-clk.c b/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
-index 286e39f53ae0..ea0835e73510 100644
---- a/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
-+++ b/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
-@@ -511,26 +511,43 @@ int mt8196_afe_enable_reg_rw_clk(struct mtk_base_afe *afe)
- 	int ret;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+index cfdb5c13f860..fc49b927ef73 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+@@ -167,16 +167,6 @@ vcc_1v1_nldo_s3: regulator-vcc-1v1-nldo-s3 {
+ 		vin-supply = <&vcc4v0_sys>;
+ 	};
  
- 	/* bus clock for AFE external access, like DRAM */
--	mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_ADSP_SEL]);
-+	ret = mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_ADSP_SEL]);
-+	if (ret)
-+		return ret;
+-	vcc_3v3_pcie20: regulator-vcc3v3-pcie20 {
+-		compatible = "regulator-fixed";
+-		regulator-name = "vcc_3v3_pcie20";
+-		regulator-always-on;
+-		regulator-boot-on;
+-		regulator-min-microvolt = <3300000>;
+-		regulator-max-microvolt = <3300000>;
+-		vin-supply = <&vcc_3v3_s3>;
+-	};
+-
+ 	vbus5v0_typec: regulator-vbus5v0-typec {
+ 		compatible = "regulator-fixed";
+ 		enable-active-high;
+@@ -640,7 +630,7 @@ map1 {
  
- 	/* bus clock for AFE internal access, like AFE SRAM */
--	mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIOINTBUS]);
-+	ret = mt8196_afe_enable_clk(afe,
-+				    afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIOINTBUS]);
-+	if (ret)
-+		goto disable_adsp;
-+
- 	ret = mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIOINTBUS],
- 				      MT8196_AFE_26M);
- 	if (ret)
--		return ret;
-+		goto disable_intbus;
+ &pcie2x1l0 {
+ 	reset-gpios = <&gpio4 RK_PB3 GPIO_ACTIVE_HIGH>;
+-	vpcie3v3-supply = <&vcc_3v3_pcie20>;
++	vpcie3v3-supply = <&vcc_3v3_s3>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pcie2_0_rst>;
+ 	status = "okay";
+@@ -656,7 +646,7 @@ &pcie2x1l1 {
  
- 	/* enable audio h clock */
--	mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H]);
-+	ret = mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H]);
-+	if (ret)
-+		goto disable_intbus;
-+
- 	ret = mt8196_afe_set_clk_rate(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H],
- 				      MT8196_AFE_26M);
- 	if (ret)
--		return ret;
-+		goto disable_audio_h;
- 
- 	/* AFE hw clock */
- 	/* IPM2.0: USE HOPPING & 26M */
- 	/* set in the regmap_register_patch */
- 	return 0;
-+
-+disable_audio_h:
-+	mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO_H]);
-+disable_intbus:
-+	mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIOINTBUS]);
-+disable_adsp:
-+	mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_ADSP_SEL]);
-+	return ret;
- }
- 
- int mt8196_afe_disable_reg_rw_clk(struct mtk_base_afe *afe)
-diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
-index a1ae8322d8b6..49283f242c00 100644
---- a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
-@@ -2222,7 +2222,13 @@ static int mt8196_afe_runtime_resume(struct device *dev)
- 		goto skip_regmap;
- 	}
- 	regcache_cache_only(afe->regmap, false);
--	regcache_sync(afe->regmap);
-+	ret = regcache_sync(afe->regmap);
-+	if (ret) {
-+		regcache_cache_only(afe->regmap, true);
-+		regcache_mark_dirty(afe->regmap);
-+		mt8196_afe_disable_reg_rw_clk(afe);
-+		return ret;
-+	}
- 
- 	/* set audio 26M request */
- 	regmap_update_bits(afe->regmap, AFE_SPM_CONTROL_REQ, 0x1, 0x1);
+ &pcie2x1l2 {
+ 	reset-gpios = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
+-	vpcie3v3-supply = <&vcc_3v3_pcie20>;
++	vpcie3v3-supply = <&vcc_3v3_s3>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pcie2_2_rst>;
+ 	status = "okay";
 -- 
-2.43.0
+2.55.0
 
 
