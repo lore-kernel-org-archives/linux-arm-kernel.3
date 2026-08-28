@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73626C61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 23:01:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38FEBC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 23:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xFstvIMs/UFjtgJYo5bu/dWM6Jmn4cmpf1U+qSmRq6M=; b=Ds1ZaT3CkGriXDhHvkaAKr2Zoh
-	rdBdct3I1b1uc2j9DtR+nSm1cpzc1ctM63WUSc8Ssr5dJJtFkHpFCd8uQYfWHkVH7IL3etqaZArHL
-	CyxDBH6esfvmGZVrhmwUX3KNk78neY/rrNY5x9U5/D8cKajesJ7gYOM/UnKeWsEt/0x9biTjS+Bd0
-	wOEs7Fmr0k4zyJ69+H4JFc06SAzZJcpf4sx27oNo1V+Q3uUsMU1SjauGguBV6A5RTg73zDqB7gU+l
-	lw2xEC6TQq4oGisWcXLmygiwbEgK+b1EG7UqRgQkdEzOLxNVdqCL70iy0Oe+h+bXvLxLNL9ngHHxC
-	wVjDpmHQ==;
+	bh=1Mqf8IivruERMP6fZwT8V4CKtJjvaF7LKzl37WPzoRE=; b=c/VonjpqsDk8Ow7Ok/Vk9nNCMv
+	FolSVr1szx/vQiL6wsBbICWlUKWz2GpOLnxalovsHARw/AAXBPf5tEz88lsZVCryJYCzIa/JFnhu4
+	QjAr38oAPLAm5dZNaYiybpcOMYmrwMCMvuNOhREotIm5xujfxPrDplwCqAOKhtJCxP2aQnxgbyoTM
+	ihZ+znEn1ePlofSkh81EMrZZa2ltFDLROs+MEEQlSoSh6nG6509rJYCuFvTguDCWmoJz9Xp+7fycW
+	ubj3Hs6GRT5aqVrxI0yY++xr1yLnHOPAUCaqWwPi2FeqoOYooy1cQXaD2iYG8Q0nJcpMiw6yCZWqA
+	cfTCP86g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x05ZV-00000006TtG-1W3t;
-	Fri, 28 Aug 2026 23:01:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x05rY-00000006UXh-3Q0u;
+	Fri, 28 Aug 2026 23:19:56 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x05ZT-00000006Tsx-29Ut
+	id 1x05rU-00000006UWC-45nr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 23:01:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8963043EE8;
-	Fri, 28 Aug 2026 23:01:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 696051F00ACA;
-	Fri, 28 Aug 2026 23:01:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787958074;
-	bh=xFstvIMs/UFjtgJYo5bu/dWM6Jmn4cmpf1U+qSmRq6M=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=dDCcBG36VRwyA0V/ovYTbGuuc73BvjEP3E0aplIrPASaQA7+Bu01n9XsGIZCqBHGl
-	 H4Ut9j8joQ/2htbX3XeZ9JE++TKFwD7LkgVMrIhgAeG5TJBUdc/bsT0VWOhVYk4+Qj
-	 Yz0/kkOCZnfIjobbWQESdec4YZtAh8sPHrt2pgl2DA78AFQuIbQLRfxeK/PbyeyO8E
-	 X4DgQoscxatiSzQ64v7pbWuthITIm870X9faKrs9c7nnRskQKXx5ssE0XJDHBoziOL
-	 dyJ1J6JBflIiFfoBvysqdc/x+Pp6u24r8zKqiog3M+n2RDkm5VANXHxEkBlnYIBQrJ
-	 s601fNC1VNqBA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 56BE7380AA69;
-	Fri, 28 Aug 2026 23:00:20 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Fri, 28 Aug 2026 23:19:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Subject:Date:From:From:Reply-To;
+	bh=1Mqf8IivruERMP6fZwT8V4CKtJjvaF7LKzl37WPzoRE=; b=kApnQbtQ+Dg617qrBmTZu5xy5f
+	Lbnimg8N/l8V7rNCeFVbJcEP8p7rAPDFM6+FLM1MLpk3/R2s/wGdqxGk+JMY2Cbq1i732NZEEEeAi
+	fFw07E+np24+TEJZCvkt3IqkU9W6gSieQ7X19bnMSFcmZxaqrNSv6aVoN9q081NBZK+pQDxhyv/KF
+	PWWNev7hAPz9ckok7XW+BdFezFHo5Yzo4s5EuYxVB0UXOUCcG1bhVP69cxpgCtD/BbrSrsj24TjyS
+	C6T1hVi66MJhPhLp79eAkl5A7zvOexdz/lccuiuAKAAz+dOHdfSUm3/OugLnUjolODZdMyQMM31Tq
+	RkhkZoZw==;
+Received: from [187.57.78.212] (helo=[192.168.15.100])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1x05rM-00B3sF-2z; Sat, 29 Aug 2026 01:19:44 +0200
+From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+Date: Fri, 28 Aug 2026 20:19:28 -0300
+Subject: [PATCH v6 01/13] syscalls: Make --abis parsing more robust
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: stmmac: fix dma mapping leak in
- stmmac_tso_xmit()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178795801914.2832451.15311149426122781543.git-patchwork-notify@kernel.org>
-Date: Fri, 28 Aug 2026 23:00:19 +0000
-References: <20260826-stmmac_dma_unmap_tso-v1-1-a2753d1576ba@oss.qualcomm.com>
-In-Reply-To: <20260826-stmmac_dma_unmap_tso-v1-1-a2753d1576ba@oss.qualcomm.com>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, hkelam@marvell.com,
- 0x1207@gmail.com, horms@kernel.org, peppe.cavallaro@st.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, alexandre.torgue@st.com
+Message-Id: <20260828-tonyk-syscall_table-v6-1-fdd358456cf1@igalia.com>
+References: <20260828-tonyk-syscall_table-v6-0-fdd358456cf1@igalia.com>
+In-Reply-To: <20260828-tonyk-syscall_table-v6-0-fdd358456cf1@igalia.com>
+To: Masami Hiramatsu <mhiramat@kernel.org>, Arnd Bergmanon <arnd@arndb.de>
+Cc: Christian Brauner <brauner@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-kbuild@vger.kernel.org, kernel-dev@igalia.com, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ linux-alpha@vger.kernel.org, linux-s390@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
+ linux-mips@vger.kernel.org, sparclinux@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260828_161953_307410_9A91D0C1 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +76,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Some archs Makefile have something like this as the rule for making the
+syscall files:
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+  cmd_systbl = $(CONFIG_SHELL) $(systbl) --abis common,$* $< $@
 
-On Wed, 26 Aug 2026 15:03:15 +0200 you wrote:
-> In stmmac_tso_xmit(), if the DMA mapping of an skb fragment fails, the
-> frame is dropped but the DMA mappings already created for the linear
-> part and for the fragments mapped before the failure are never
-> unmapped, leaking DMA mappings.
-> 
-> Fix the leak by walking back over the descriptors used by the frame and
-> releasing each of them with stmmac_free_tx_buffer(). Moreover, release
-> the descriptors with stmmac_release_tx_desc() unmapping the DMA buffers.
-> 
-> [...]
+The $* symbol is evaluated to the variable found at $(uapi)/unistd-%.h,
+where % is 32 or 64, resulting in e.g. `--abis common,32`. Sometimes the
+rule for the file won't have a %, resulting in a trailing comma e.g.
+`--abis common,`.
 
-Here is the summary with links:
-  - [net] net: stmmac: fix dma mapping leak in stmmac_tso_xmit()
-    https://git.kernel.org/netdev/net/c/a5d946466a95
+Currently this input is transformed into (common|). This is problematic
+because grep will then match any ABI because of the trailing `|`. Make the
+syscalls scripts more robust by removing any trailing comma.
 
-You are awesome, thank you!
+Signed-off-by: André Almeida <andrealmeid@igalia.com>
+---
+ scripts/syscallhdr.sh | 2 +-
+ scripts/syscalltbl.sh | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/scripts/syscallhdr.sh b/scripts/syscallhdr.sh
+index 22e34cd46b9b..bad1ab606a0f 100755
+--- a/scripts/syscallhdr.sh
++++ b/scripts/syscallhdr.sh
+@@ -39,7 +39,7 @@ while [ $# -gt 0 ]
+ do
+ 	case $1 in
+ 	--abis)
+-		abis=$(echo "($2)" | tr ',' '|')
++		abis="($(echo "${2%,}" | tr ',' '|'))"
+ 		shift 2;;
+ 	--emit-nr)
+ 		emit_nr=1
+diff --git a/scripts/syscalltbl.sh b/scripts/syscalltbl.sh
+index 6a903b87a7c2..c4b1f85c2dd6 100755
+--- a/scripts/syscalltbl.sh
++++ b/scripts/syscalltbl.sh
+@@ -33,7 +33,7 @@ while [ $# -gt 0 ]
+ do
+ 	case $1 in
+ 	--abis)
+-		abis=$(echo "($2)" | tr ',' '|')
++		abis="($(echo "${2%,}" | tr ',' '|'))"
+ 		shift 2;;
+ 	-*)
+ 		echo "$1: unknown option" >&2
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.55.0
 
 
