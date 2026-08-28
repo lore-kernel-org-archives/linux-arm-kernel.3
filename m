@@ -4,98 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F33CC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:07:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6765FC61DCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OSe5hUo+anN+B3supDKWk8oyF7C/bYQ978Bx8sQdufY=; b=iY5wsWudG+87OscwY0B6kBz3IA
-	CapLxe6ob2cztFiwozwTOVoOsPTx2L09dSZrxi5oNCy7Z1/Wb3eAvTLo8CMXb6064hEO5lK7lgsCU
-	eIMljPclwke9q8Wk/3Ej+NDKMvuaEyqDEjwbabztde7vuVfsyPVS8G1c2AtQd5OKCg8VRDTx3e7fr
-	S/5e7d9ffgIu+Tb35RPzEMxs+D0wGA4SloIYbGpNS+PRtmcT6rdifrm/QKYu5IgLfLwRqbhQSVfPo
-	viYtQmtfenaqjFpfg3pc2DKvm1nl9nj0/n6E2KywbvEpt6aUUtW+BLppGHWTrL+nRM/g8P940fKmT
-	d+Y6dOpg==;
+	bh=E7aHFohDYwXcOP7zZuVMn7W5BMSpOSC48205QwYsUq4=; b=3Y+h8Im830hjoUGe/uk+WXxHty
+	yOf17w8/zm+42uKtgqlg4esWr5ivefq4lejz17YNgJJQpYexFZBrdyQI/OIDQfbQr5PWJxy5PRdJM
+	4xzsIvmf2jhR3VB8FrvKLH5gs2EEWAnTalYOJXHE8dERx5nOB64K0Fc3I+66I98XvhuOvjGvMV4Ng
+	NKyIdUbUtMTZWYLqJLBNaxixJD5HLxSoyhEHO1Nobji1hSDj73AA8J7QBRsec7cIiYKXvY6g8q52I
+	BOL4xPZykBpVCRbvjQosoWuxqzf6xtdYI9sVBcsPo1ACjn0YxPK0pLj0uThOL8L1kXb2ZVRsqKAZu
+	gzIyp3dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwIH-00000005msq-2hyK;
-	Fri, 28 Aug 2026 13:06:53 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wzwIw-00000005myz-3aaa;
+	Fri, 28 Aug 2026 13:07:34 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwIF-00000005msK-1f1G
+	id 1wzwIu-00000005myB-3Krn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 13:06:52 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-495590dde14so9051255e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 06:06:50 -0700 (PDT)
+	Fri, 28 Aug 2026 13:07:33 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-499ae1c6471so6895595e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 06:07:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787922409; x=1788527209; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OSe5hUo+anN+B3supDKWk8oyF7C/bYQ978Bx8sQdufY=;
-        b=E6Q28BqMXrpp9imkNA0No9dHUTA3bWoqTKXOFFR6MJGrl85WxPYFvqSn+SoIZTMeZ8
-         zGHxWV8+1NcHANRwc9gksHRqgiCDeaVEAbqXUlqPWC0bs12dtmwqN9xMA7pYjdLdhxEW
-         F9yL0vNKmwmz+4SFZHvkS6KA1QpKGH3QuIh363DlYVcbRq/3ilQkCmxxSSZ32zTDx9ob
-         TzPjFd7tnVQhzBhh95pQyor1PHJiz6kNB1guMZE0idLAFCrFPciD/ReRUofUF5hvWMka
-         sIaIHrQBCJbNnItEZleA1zFR2shWgmSMvBEVq/QhAAfU1Gk1E84pUDCBoEF5w8YJFq7j
-         YmZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787922409; x=1788527209;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=suse.com; s=google; t=1787922450; x=1788527250; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=OSe5hUo+anN+B3supDKWk8oyF7C/bYQ978Bx8sQdufY=;
-        b=QMMX1Mc7hHr0Mm0EzOfJkrMpLbnj1RH40AtlgrT3rCtbUutSPuefSn3GZ1+0FsbZ8f
-         2JnVYzzRRlXOt9YxYlb6BQSv5i0E4Dax7FYjsJOR+mWVpvP6eJpOl8yhUWnZxArvFLVa
-         pWbL+pb24TYwEtm3nfKggZRnNWKtQzagbvTMhrqEnxXdRlXR2iUJvA5b2KmE4AXS0tOF
-         zG6KI0iHwl5yPwu/5sg/xYAaKTiCGPz5N8cYIqI9oRNTP/mLiWkJ9f89Oqlv3KELgrd+
-         ypECIz34cW62gh0pMVPj/PCARwj8qfkEB+R8vO2L+Zv0NyvGKRYQuu++UhDohu/qs8VO
-         TrwA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq5B1gO9L8zwRmho/gc0etmUlsDQWR+UzZpz8Fu6SpqXjmc2Oquvnry0LXPBO0HK2QgAd/gnFUUrx9Nb3RHJ87Z@lists.infradead.org
-X-Gm-Message-State: AFuF++k7QC+eNgQ5jSHIzMnXQdkBQ112L50qIrVneKX5RxSw+yVs7+pv
-	iMLnHh3VVtch7JpxuDFDfZQsZpMQuV7CY7+E3AIKlPNQn29Xxo04PDBxuOJB3Vn/gOk=
-X-Gm-Gg: AR+sD10mn8rBQXkJoIP6CuA87LqZdgADt/bMPcM972L0SBHnwQ5TowgJ9pYi3MPNjn3
-	AvMDAiSIZbkpsGrpas7rkiXJjRT0NY/dFg5qr60b/i3K92QPn40Yl/rK8WWB7988JorGAgzWowr
-	+WXUMhMxf3xhjA+/2hfsbkqKeOAqgHBDPupRRC4XZzW85RGss0S/hxA7U7MAJyUPSr48GtxUcVN
-	PWE0rqmGVBq75ri+pYWUX+hrrJq/tGuklGTzGlRENp/mSusUbvJGJiWHKH8elmHbdk1Sr2aQD7x
-	/Yklfzj94rI5/odDwqaOmYRFcZ3FnCeAQyF1ekV3bM6HruleBv/j5TxThjQ4nde3Uax9G66u39i
-	Wwx9tsBISt7lz9ya03U95dhtqygW54P0RYJ8BPzTZFJZDBX9V4afBWSTFbnpwuzIyeyGQAKILwq
-	aKlh9/rmcHDBDdrvKa4GOe7S6UsgmBzqzGBBFmoWx/smvJygOnQET1C2VhEZPnozlZowVewq9iy
-	rFKA9tceZ3w6J3ndaOzJCLdcOgg1cDR9NVHCFA1kXzQE9mUxwVelbwdpeAXuufAj+fzS4/AJfJS
-	LWI44OaI7TtevYtPuPvwWMN9D+33ueFLQMSl0euKRr8fosaune7iLYv+XJwVdnMBSwcsKBXxlgZ
-	AD7Ev9yrNZCs91feam7wzuc7hA8WegX0R8UACPVzzOrINh+W2offvHkfDBCjNfwSAx+lfWyI=
-X-Received: by 2002:a05:600c:4715:b0:499:cd34:f7c with SMTP id 5b1f17b1804b1-49b91c26a01mr97741555e9.5.1787922408578;
-        Fri, 28 Aug 2026 06:06:48 -0700 (PDT)
-Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b9500c7cfsm53999285e9.11.2026.08.28.06.06.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Aug 2026 06:06:47 -0700 (PDT)
-Date: Fri, 28 Aug 2026 15:06:44 +0200
-From: Joshua Crofts <joshua.crofts1@gmail.com>
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: Akhila Kavi <akavi@axiado.com>, Prasad Bolisetty
- <pbolisetty@axiado.com>, Jonathan Cameron <jic23@kernel.org>, David Lechner
- <dlechner@baylibre.com>, Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Harshit
- Shah <hshah@axiado.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, Conor Dooley
- <conor.dooley@microchip.com>
-Subject: Re: [PATCH v6 0/2] iio: adc: Add Axiado SARADC driver
-Message-ID: <20260828150644.00005d5c@gmail.com>
-In-Reply-To: <20260828-axiado-ax3000-ax3005-saradc-v6-0-4cea467e4167@axiado.com>
-References: <20260828-axiado-ax3000-ax3005-saradc-v6-0-4cea467e4167@axiado.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+        bh=E7aHFohDYwXcOP7zZuVMn7W5BMSpOSC48205QwYsUq4=;
+        b=Gxd/IDSkUufIr1/O/eqpxm5hjEgf1TW2T3PLzpdTkxJqx7kmscKFQowSAM1KgviA/F
+         MF6irSV31Gx7H/ual/93ZO/dxweHCA3ijEe4XVV1OEjWt+ce/QLXe3BBIRYpINb6cGuB
+         cTpI6NSwS7q7gsDSGlGM9mcQ/oFLcCu2GyTRZh9pxJgrvI2+31nLM8q1iqn0chUEpiOI
+         LswOl6cIX+2j7UuFyp1sPNi5kaKT3zDlal90L/vKO1I/eduE/XRhLUcRC1OtBzz+G+cB
+         b5oGoDpI5xupZqMSvq43eAXqExutCBkMxFnNX1VafS0fSUERJSsXaurfS+foh6Kfzyr0
+         BNIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787922450; x=1788527250;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=E7aHFohDYwXcOP7zZuVMn7W5BMSpOSC48205QwYsUq4=;
+        b=a27SNejczNPeVDigb04axBihgYPtGsfYbPgRDC5U0Oi1ONdyo9teJLaF+OTbHdgYAM
+         4lyDi0MupyVtWJCmcP0t3akr6CqEXNebUJklWoFG0VokKlVeqAmJ2DFLEYYULfB1cMTD
+         I4ARCPwEd/eoWQ4wzBbgNGC+5ori96mN0ykLnbygZ3gwoC91gDWYGjZhxFEhmTEOExEM
+         rk1suA2m7Gkk4Px3BNjdm4rv6znUHB7725AL2FhK2+HweXcZ/PAu/3T6D1lmXd7M8395
+         QyxYTODxGMmOQ/9RWIZSG/axrmwEajdry9mybKyESRBajUBpyvU9fcdHGdrHWprY2Vst
+         7Aaw==
+X-Forwarded-Encrypted: i=1; AHgh+Ro0O1XyLjcCeQxkifmk8f0iQF62mv8LB0kqCJrZFQV75g8TDw5UFqFoDAlzwxwEJORhUGU3+3whcH5C5I+1duH4@lists.infradead.org
+X-Gm-Message-State: AFuF++lOUCbA5Xt7c9m9u9yht3693AJyOxEWClo7fA46P/xW/9+1xUoB
+	PO5FbzD7CeZgOzlfHZyNc99dJfEYyDDaNKRRxzDN1Zz8kctcLIy/wi6ArjxXP7MUvjw=
+X-Gm-Gg: AR+sD11G15s4i0kr/frcvTKsupzWmSDV1dVXcrPqCnV757sg/9Rf6yAHIISUB2tEUvq
+	xgSldC/381I8O3vQxBjImL9XVCP6nhasJ6E68SFyp6JD1k0wgnlTnUWcOysj1+UlKwAKsI3ixn+
+	85kJewQFegjqyBD7/UmB6QA7IOOkf7r+vhdC+aTdw4D1TNQ8BYeqi4MzN8XIwY9LsgrsjDo5SXK
+	A/lGNvDrLLzQlxRd2sMoyRSpjGmXF1nJKnWFhqjleQ+jdG98eW249mSBhCx1PvPxglKS1hR8zLx
+	xDSuxf61HhOPhR9/KsV59wt6yev9mghYGdhk+x9tcBiyFttfgi5uZYzrLnNu+p6ViEAQnXgxb29
+	soxhqmgB4Ka0C+WppdBweK3BDm/sG8F+EI1c7WmB6nZBuWbiqIDx8jjjtY7wJnmfVDYo/YQckkN
+	cc7VWKaVIDm5Kdfi3g7lyLLUZXLVzdTHmlWDO39B/zHtUlgmnoNDtiGvpWcT/v7KoPLYqwXQS7h
+	mEt4S5Nwrhbui4l5psU1M9Hfw==
+X-Received: by 2002:a05:600c:8885:b0:49b:909e:922e with SMTP id 5b1f17b1804b1-49b91c4884amr87957605e9.10.1787922450172;
+        Fri, 28 Aug 2026 06:07:30 -0700 (PDT)
+Received: from ?IPV6:2a07:de40:8100:0:fc6c:f9a2:4a0a:6354? ([2001:af0:8000:1409:193:86:92:181])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b9500c80asm56272005e9.9.2026.08.28.06.07.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 28 Aug 2026 06:07:29 -0700 (PDT)
+Message-ID: <524b5817-c097-47cb-b301-4a9c0f1d2947@suse.com>
+Date: Fri, 28 Aug 2026 15:07:28 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/9] arm64: Allocate .text and .init.text together
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
+ <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Luis Chamberlain <mcgrof@kernel.org>, Daniel Gomez <da.gomez@kernel.org>,
+ Sami Tolvanen <samitolvanen@google.com>, Aaron Tomlin <atomlin@atomlin.com>,
+ =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-trace-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-modules@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ linuxppc-dev@lists.ozlabs.org
+References: <20260822135323.795946-11-ardb+git@google.com>
+Content-Language: en-US
+From: Petr Pavlu <petr.pavlu@suse.com>
+In-Reply-To: <20260822135323.795946-11-ardb+git@google.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_060651_482495_BEE5D2F8 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20260828_060732_859557_DE84EF37 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,42 +114,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Aug 2026 05:28:27 -0700
-Petar Stepanovic <pstepanovic@axiado.com> wrote:
+On 8/22/26 3:53 PM, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> The arm64 module loader has to deal with a couple of corner cases that
+> may occur when .init.text is placed out of direct branch range of .text:
+> 
+> - ordinary direct branches from .init.text into .text may require the
+>   use of a PLT entry (i.e., a trampoline aka veneer), which means not
+>   only that additional PLT entries need to be allocated for
+>   cross-section calls, but also that .init.text needs its own PLT
+>   reservation, as the one in .text will be out of range as well;
+> 
+> - dynamic patching of the ftrace handler into .init.text code needs its
+>   own dedicated trampoline as the one in .text may be too far away.
+> 
+> - recent compilers may omit BTI veneers for static functions that never
+>   have their address taken, and so additional veneers will need to be
+>   added to .text in case cross-section direct branches from .init.text 
+>   require a PLT entry (and therefore a landing pad at the target end).
+> 
+> This is unfortunate, because it is actually somewhat unusual for .text
+> and .init.text to be so far away from each other: only when allocating
+> either of them (but not both) exhausts the 'near' (PLT-less) module
+> region, the other will be allocated from the spillover region, which is
+> not in direct branching range, and therefore requires PLT entries for
+> cross-section calls.
+> 
+> This series addresses this wart by allocating both of them as a single
+> chunk, and freeing the .init.text part along with the other init
+> sections at the appropriate time. This ensures that the two regions will
+> never require veneers for cross-section calls, allowing the arm64 module
+> loader to be simplified.
 
-> This series adds support for the SAR ADC controller found on Axiado
-> AX3000 and AX3005 SoCs.
-> 
-> A new driver is needed because this SAR ADC controller is a SoC-specific
-> hardware block used on Axiado SoCs. It has its own register layout,
-> channel enable handling, conversion control, and data readout sequence,
-> and it does not match any existing upstream IIO ADC driver.
-> 
-> AX3000 provides sixteen input channels, while AX3005 provides eight
-> input channels. The driver uses SoC match data to select the number of
-> available channels for each compatible.
-> 
-> The driver supports single-shot voltage reads through the IIO subsystem
-> and uses the reference voltage regulator for scale calculation.
-> 
-> The datasheet is not publicly available. Public high-level product
-> information is available at:
-> 
->   https://axiado.com/products/#AX3080
-> 
-> The register definitions and programming sequence used by this driver
-> are based on Axiado internal SoC documentation.
-> 
-> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
-> ---
-
-You didn't have to send a new version, Jonathan tweaked the commit and
-applied it:
-
-https://git.kernel.org/pub/scm/linux/kernel/git/jic23/iio.git/commit/?h=testing&id=839dc31a0c6508354b18d09a9e5aa5d8f4c05860
-https://git.kernel.org/pub/scm/linux/kernel/git/jic23/iio.git/commit/?h=testing&id=205f4aeaae3148848c153a0d98a6f604b39aba7c
+It looks like this should also be useful for ppc64, which currently
+merges .init.text and .text because keeping them separate would require
+stubs between the two, and consequently .init.text is never released in
+modules on this architecture.
 
 -- 
-Kind regards,
-Joshua Crofts
+Thanks,
+Petr
 
