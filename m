@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32242C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 10:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC4E8C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 10:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xdvsH9Es0asehE5TRFzGuYdK3EGs9nWZXPtJhEl9x3k=; b=0Kd4GfSkNnbLcB2toem+ghBQ/K
-	LABUbisoZ7uFBx2e4gQ+BIv92Q0gSoQ6Zb/2pLA5daywm9TKVWEWoxBfQar65xqqj5ekSt1TcM+x0
-	Hi1VSF9ryJkuh09HP+BTktRlDXp+ziI1BrTDlvbsko8l9GTCa83jxVa70adxX2N2BapKNgwIx8FVy
-	W0SOPrevWlfkyGZ5xgLkZk40FtPl+bO8lx+QjkMa/at5sO2TDnORp6rwawrWRwIyxqJV9m/wtk8Cr
-	KS+QQFN4IY6ZS6TRIlBFJVJXHmcMOjzcQlJ3qUnFbSMwxH2KAWT5Gt++fywNkSlqUvzpxch0viVBq
-	nz8j6lAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fa3OBjqCP7oOjWw46jqBWcKs242Jjg9PE8aOMe0GnYQ=; b=A4bKTmse3yQUhvu4yKAxWj9A5t
+	6Z+vRKb2m7RrWnHzIzoTxsvGak73V2InGTjri+7Dcjf4Ue2e/1TCMmG72C/wgbslZNmCgkBMO6GqT
+	lyz68TxPrQRwda7Z+ypZLW4UROdQyxJlAWAj9Bng/WBgvP9jmGlDCnpu+R0VxfBBBKQ1d6FjreUjm
+	zqwYdw3Nubpxvf4wBobQ3sbeFKcng6pFTah4g1WGHyV9Yl6gqfzTkD1Qt2JfdzB4guYPoJk1IwpdM
+	B1Ft+SaTmwGU4Zh6rQdBXQnrCklRwEijjVA8R+jMTpNqTrdC8ZGZ17QMAc85Yi/wZYeNvZEpt0Nzp
+	wY+4i8Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzu6O-00000005ba5-48Ux;
-	Fri, 28 Aug 2026 10:46:28 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzu6N-00000005bZX-0kHj
+	id 1wzuAI-00000005blS-2fe3;
+	Fri, 28 Aug 2026 10:50:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wzuAF-00000005bkt-2phC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 10:46:28 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 763124E413FF;
-	Fri, 28 Aug 2026 10:46:25 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 43F1160537;
-	Fri, 28 Aug 2026 10:46:25 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9594311C781D9;
-	Fri, 28 Aug 2026 12:46:18 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1787913980; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=xdvsH9Es0asehE5TRFzGuYdK3EGs9nWZXPtJhEl9x3k=;
-	b=OX30jHomJfm6JBDOOcY9uADWhAjE62c/hd1NWu/zaOBNXjM0hvKzIHdHlKsBlueZDaixHI
-	It1iP6TubmRLIn0ZDJNvVyLF+iIaith2yI9atPktWEgMyuIXRBVqdYtY5xDwBo8DyjI0CE
-	EMdXCwFQWQZXGB9CTGeCZTjjjvJMw5upsYHPphlCwFnmRKczxY8QOfDPEwd8xu+CLQqPTy
-	WKuzm/Cr/eUVegKs+3y01bGXwhRIJ9+5LMtfBFK/sX8oHtguEHjivqMmuopZCfz0BrcxVu
-	j3IQ7qYtF3AQ8CgUvV4u8NWPjflwtBs/2mXpfnN5TJ3qiYVNIKPpHZLipY7tUQ==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Rosen Penev <rosenp@gmail.com>, devicetree@vger.kernel.org
-Cc: Andrew Lunn <andrew@lunn.ch>, Sebastian Hesselbarth
- <sebastian.hesselbarth@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Thomas Petazzoni
- <thomas.petazzoni@free-electrons.com>, "moderated list:ARM/Marvell
- Kirkwood and Armada 370, 375, 38x,..."
- <linux-arm-kernel@lists.infradead.org>, open list
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] ARM: dts: marvell: add SDHCI clock-names to Armada 39x
-In-Reply-To: <20260823235613.77505-1-rosenp@gmail.com>
-References: <20260823235613.77505-1-rosenp@gmail.com>
-Date: Fri, 28 Aug 2026 12:46:18 +0200
-Message-ID: <87v78uplol.fsf@BLaptop.bootlin.com>
+	Fri, 28 Aug 2026 10:50:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA2C71595;
+	Fri, 28 Aug 2026 03:50:18 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F05453F85F;
+	Fri, 28 Aug 2026 03:50:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1787914222; bh=HZfwVBpv4wxsbtGEupJ6THrOaSzncjo27eGuLcBbZ3I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LZ8V4gjvEaZKWWC4ivOCqNwgHmxnpR/KY2xHffOcOqh42/zM2ZY9GvdcMAcPrbUsK
+	 w4ITCbpWeewkvuRNDNlx+hJecUq0UTkB9mDupmXOJvxiaoMXLLoyy/ln7rQC1oXSPv
+	 jCIn+UprzLVTOu9a5mtuveimihQc1Dr5ynoW8woo=
+Date: Fri, 28 Aug 2026 11:50:12 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mark Brown <broonie@kernel.org>, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v4 2/2] arm64: Don't read GMID_EL1 when MTE is disabled
+Message-ID: <apFn5JihFkRoqX06@arm.com>
+References: <20260825164219.3347229-1-fuad.tabba@linux.dev>
+ <20260825164219.3347229-3-fuad.tabba@linux.dev>
+ <apA0A-bqLVBcmdSv@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <apA0A-bqLVBcmdSv@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_034627_358430_18467F8F 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20260828_035027_758655_5DB8465D 
+X-CRM114-Status: GOOD (  21.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +74,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rosen Penev <rosenp@gmail.com> writes:
+On Thu, Aug 27, 2026 at 01:56:35PM +0100, Will Deacon wrote:
+> On Tue, Aug 25, 2026 at 05:42:19PM +0100, Fuad Tabba wrote:
+> > +/* No ID register reflects CONFIG_ARM64_MTE. */
+> > +static inline bool gmid_el1_accessible(void)
+> > +{
+> > +	if (!IS_ENABLED(CONFIG_ARM64_MTE))
+> > +		return false;
+> > +
+> > +	return id_aa64pfr1_mte(__read_sysreg_by_encoding(SYS_ID_AA64PFR1_EL1));
+> 
+> I'm planning to internalise __read_sysreg_by_encoding() into cpufeature.c
+> so I'd prefer to avoid adding another user of it, if possible. In this case,
+> __cpuinfo_store_cpu() has already read the thing, so all it needs is the
+> override logic (but see below).
 
-> The marvell,armada-380-sdhci binding requires clock-names, but the
-> Armada 39x SDHCI node only carries an unnamed clock reference.
-> Add the missing clock name so the node passes schema validation.
->
-> Fixes: 538da83ddbea ("ARM: mvebu: add Device Tree files for Armada 39x So=
-C and board")
-> Assisted-by: opencode:big-pickle
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+That's a valid point.
 
-Fix already applied with ARM: dts: marvell: add missing SDHCI clock-names
+> > @@ -502,7 +502,7 @@ static void __cpuinfo_store_cpu(struct cpuinfo_arm64 *info)
+> >  	info->reg_id_aa64smfr0 = read_cpuid(ID_AA64SMFR0_EL1);
+> >  	info->reg_id_aa64fpfr0 = read_cpuid(ID_AA64FPFR0_EL1);
+> >  
+> > -	if (id_aa64pfr1_mte(info->reg_id_aa64pfr1))
+> > +	if (gmid_el1_accessible())
+> >  		info->reg_gmid = read_cpuid(GMID_EL1);
+> 
+> I'm not sure this is safe. For the boot CPU, __cpuinfo_store_cpu() is
+> called before init_cpu_features(), so the arm64_ftr_regs[] array hasn't
+> been sorted and we can't call get_arm64_ftr_reg() reliably.
 
-> ---
->  arch/arm/boot/dts/marvell/armada-39x.dtsi | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/arch/arm/boot/dts/marvell/armada-39x.dtsi b/arch/arm/boot/dt=
-s/marvell/armada-39x.dtsi
-> index 218fcf99ae07..81dd4ca5fbc9 100644
-> --- a/arch/arm/boot/dts/marvell/armada-39x.dtsi
-> +++ b/arch/arm/boot/dts/marvell/armada-39x.dtsi
-> @@ -381,6 +381,7 @@ mmc@d8000 {
->  					<0x18454 0x4>;
->  				interrupts =3D <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
->  				clocks =3D <&gateclk 17>;
-> +				clock-names =3D "io";
->  				mrvl,clk-delay-cycles =3D <0x1F>;
->  				status =3D "disabled";
->  			};
-> --=20
-> 2.55.0
->
+We no longer sort this array at boot-time, we just check that it's
+pre-sorted.
 
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+> In fact, it
+> doesn't even look like the overrides will have been processed.
+
+init_feature_override() runs from early_map_kernel() but yes,
+init_cpu_ftr_reg() hasn't been called yet to vet the override. Suzuki's
+patch was adding extra checks in __read_sysreg_by_encoding() but if we
+drop that patch (and function eventually), better not to rely on it.
+
+So I don't think we have a correctness issue here but I don't mind v5
+either. I'll go and check.
+
+-- 
+Catalin
 
