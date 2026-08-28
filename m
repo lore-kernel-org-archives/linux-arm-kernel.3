@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E2F2C61DCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 15:22:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF5DC61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 15:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5wd5RZteDM8cztZDuaavwp4X1CI2+8REQybg3boMoN8=; b=e8yfb1W656YoGPMHqfpAqq5pUG
-	tFpbmzRhGHFj3NJ7QzCGgRY1gHBX53PCMKHtofinrKgpUNYRHDRbmYFpExffX0/C21Ur0lZzdrF2Q
-	naTwCYqzA5mEno3WvWBO6HDhVJr9myRV19bUEBukESK7kjDYlNd2oT4scJZCcAL/+Z7nu6OyyEzob
-	C9IIexaUz9KeObfIJw9tQ1Af8MCFTQUi+r6GV0Bs/+yeOVT/t7zsAvR1tylmSHG6HL7fyHLa1Ir56
-	iKQDwQH6zOC2Fc/1tlgYlGOvycHQKcS2xd1hUlxc7DefKT+TZAATn8D+2aygDMvmu3KUhsHLxlwEo
-	OLIJiTVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rwoehGGBAhR0cagkpPRWd/9sXoKfT5de8DDZI2psrzc=; b=L5sWtBS+7h47+NHdyk6zEmyM2D
+	aFETeeRJIK3Lk1cT+w+/g186wbfhBX3TWqd0/TT0TavoZEHyP91gco79etRQxzZ0p2umds0PwgbbV
+	kR9kzZDQb1/vitK5RdZkoTDPyHKWtrpIYArq3fQ3OFYLILzuLwmPTUE2Wlf35rMgmwnEsX5CVLWX0
+	55/PuMu5nmXBjFrdzKTS1JXv0Z0OyvAr4Bk3LVVC7PubMww7IJOqlRSn9OtlUr83D+CLJOqbxCD36
+	3xUSyNRw218Xwa7Y70SAvZGew79AdZrJzluk5ZLQTfW8R6MIZocgQeV6pi7k+f7nsdHXvctGoPzcn
+	QEneZIEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzyOx-000000065Gz-3yHy;
-	Fri, 28 Aug 2026 15:21:55 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1wzys4-000000068LC-1UtX;
+	Fri, 28 Aug 2026 15:52:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzyOs-000000065Em-3vF2
+	id 1wzys3-000000068L5-0rQv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 15:21:52 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AD13E11C69C;
-	Fri, 28 Aug 2026 17:21:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1787930505; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=5wd5RZteDM8cztZDuaavwp4X1CI2+8REQybg3boMoN8=;
-	b=NBu6wa5M4IHoTlYZCYrLOuB+G4taASb4AH+xyfXjVpqBgtLUrEcrNh54Yt1q+yogqVnjsn
-	smjTRiHGDXlP3dV0OzVWAaItUSyRej/QS/H67kV2bAJVtPrgZxP4laOsbLjp4Wh3H1fMlS
-	KM9JdgtLhEmHMT7+ycqCKx3EXUK0EgIy+6mJpP7RhYrWHJNDEktTH8NgOcfDP42ZYBZ5xc
-	7/dtOR+Sn2Hyr93bZ/wD8f4DZzuCZQ+nM7YCMTkKvpTJePn0wM6Es7o/4SqEkzXNJxHPU4
-	ULVGu5W+XFE4tZN4MfBzHzEsLUF6layiS4sFPqoDvpWLLRTylOUmXj/q4DSmEQ==
-From: Marek Vasut <marex@nabladev.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marex@nabladev.com>,
+	Fri, 28 Aug 2026 15:51:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A2837410CB;
+	Fri, 28 Aug 2026 15:51:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EB071F000E9;
+	Fri, 28 Aug 2026 15:51:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787932318;
+	bh=rwoehGGBAhR0cagkpPRWd/9sXoKfT5de8DDZI2psrzc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nYOIB0VVHL879W4CZ+t6ZiPdxa00oVDK6k1Qp4kHhNNKKL3LOKMko+hY4KCBSxURn
+	 GZRgjEdMfKk1K+J6u724ez/Ln24vGwRSI+dAbPcc523LlAMB4VJQEX3vFXSAmwdQV1
+	 QzITqOV6jBFZx9CN6LYI+VPeY3Kk3Ovbx6MZ/Q3kCbkN7QD4rMPEl3jB9yFjPDn4pj
+	 kETgi2Pmf3Tqhi3zLcBmAUcC3EsfVjMQ5fBUbb62R9Unqg5aguJvtl4nhdzJFquhvi
+	 +8dgkia09fTEjt5TJbJUCc0MICC75IjL5ql0TxTKxhPGIc8R7grrLye5oxpzWpmC9Y
+	 1HMod6uyozqkA==
+Date: Fri, 28 Aug 2026 16:51:54 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Marek Vasut <marex@nabladev.com>
+Cc: linux-arm-kernel@lists.infradead.org,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-usb@vger.kernel.org
-Subject: [PATCH v2 3/3] ARM: dts: stm32: Use STM32MP15xx compatible string for EHCI USB controller
-Date: Fri, 28 Aug 2026 17:21:17 +0200
-Message-ID: <20260828152130.176171-3-marex@nabladev.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260828152130.176171-1-marex@nabladev.com>
+	linux-stm32@st-md-mailman.stormreply.com, linux-usb@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: usb: generic-ehci: Document ST
+ STM32MP1 SoC compatibles
+Message-ID: <20260828-frisk-mantra-08f44931ffd2@spud>
 References: <20260828152130.176171-1-marex@nabladev.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_082151_112576_DCF00FF4 
-X-CRM114-Status: GOOD (  11.82  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="SCyc/uFZ5vKiW8zS"
+Content-Disposition: inline
+In-Reply-To: <20260828152130.176171-1-marex@nabladev.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,44 +77,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use accurate STM32MP15xx compatible string for EHCI USB controller in
-addition to "generic-ehci" fallback compatible string. This is future
-proof, and drivers can match on the accurate compatible string in case
-they need to discern this controller from the generic-ehci one.
+--SCyc/uFZ5vKiW8zS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Signed-off-by: Marek Vasut <marex@nabladev.com>
----
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
-Cc: linux-usb@vger.kernel.org
----
-V2: No change
----
- arch/arm/boot/dts/st/stm32mp151.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-diff --git a/arch/arm/boot/dts/st/stm32mp151.dtsi b/arch/arm/boot/dts/st/stm32mp151.dtsi
-index c37005c00ad65..ae31883732388 100644
---- a/arch/arm/boot/dts/st/stm32mp151.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp151.dtsi
-@@ -515,7 +515,7 @@ usbh_ohci: usb@5800c000 {
- 		};
- 
- 		usbh_ehci: usb@5800d000 {
--			compatible = "generic-ehci";
-+			compatible = "st,stm32mp15-ehci", "generic-ehci";
- 			reg = <0x5800d000 0x1000>;
- 			clocks = <&usbphyc>, <&rcc USBH>;
- 			resets = <&rcc USBH_R>;
--- 
-2.53.0
+--SCyc/uFZ5vKiW8zS
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCapGumQAKCRB4tDGHoIJi
+0h6ZAQDgyIwsLmoo0BKJh3n9Hrqwx3SjWARrWkEMMmEeISZDuQEA9dj8KZ2AT0Ui
+O68HKHtNqAQW+EMjpxySCU5lMLFcmAo=
+=m18u
+-----END PGP SIGNATURE-----
+
+--SCyc/uFZ5vKiW8zS--
 
