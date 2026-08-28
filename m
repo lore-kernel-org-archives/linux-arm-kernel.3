@@ -4,55 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABB0C61DD7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 12:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8980DC61DCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 12:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=msvDF/LcXKGcuEENSdT1nkJoOjtd4vV0hLHcxOpOB/Y=; b=Gu2aMMSIW6DZxzOh2E3jT6Ts12
-	SJbuzCLaPrHEDMHgPgz88djDXwgP8SCZ9wWtPObD8mLExEPOekw3ygAjyweS4mcsVTP4kf4qLiQQd
-	E3V8p+GJhMikzyCAyf9xsO2COngqCbctOgQLi8d/Ns0IT4EdU7QrFzSCrH8SNXsULbRgfmT3CTVLv
-	V1G8bSOcdSodSbIvNkOb51HanKRWU0FQswpnjg7vun44U+9jWYVgm3oqmPguJ32nLeT8vFzNbL0tY
-	nnnNHZW9GCfUmRlSC7wMdTzazeMv1yH4j3NCOsHPnThXlPLljqdJ65GYitzhftoySLwzokoQSAVLc
-	I8q6DZTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e+52g/0eepX9Ma7LUQ65DCe5CMz6aX+KN5W9QaXaWHo=; b=uwi6VgnuInLPnXy6mrJxf5EDwD
+	sgC9rB3DzHLkynLgOZ14wTKE+WQZPfTR3tYaigfRr0PAVd00MhhmkpKxTEPpMKWhVebyMU25kwbdc
+	yYSAPDE1ChJhhNgFd27q7Oph1SuXbmGHK6KVIoZ5JJUPo9MXS60v8tFG1CM7oSyX0HR74fmko3e97
+	gmJySgVllPJ3eyKc6vBCvyo/TrsCpyLyGe9KEYI3uq4FcefJB2pO3AyBp6bt3d55C4wch0xmqzD5A
+	RLITrqrTD8ukFISAqAr+tNozlyqQTy0fqlIbigzgtSKquoxaeoObJ8O1kBJFgioDJnIkwQv4/iyEz
+	cpkMitGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzvTf-00000005iKp-0wkk;
-	Fri, 28 Aug 2026 12:14:35 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wzvhX-00000005jhY-2bGk;
+	Fri, 28 Aug 2026 12:28:55 +0000
+Received: from mail-northcentralusazon11022112.outbound.protection.outlook.com ([40.107.200.112] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzvTd-00000005iK7-10Yy;
-	Fri, 28 Aug 2026 12:14:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=msvDF/LcXKGcuEENSdT1nkJoOjtd4vV0hLHcxOpOB/Y=; b=ZNaQRRzJ6UqWH8EuUm79pM+zlc
-	Gd/esYsnOYqhYI2iVEjEAB9i584MruJIlnem5CqaHGU91jt/WCjkeZkjmFXrHJUSnZDFduLW8eGJp
-	rX7r+7aPLUk1s/t4EQRVmgTWA6kua4gZrfcjhwKNrUTUxrtQ+ufikb7K1ZHK2CFu77NrZqcfJHtR/
-	iDkE/JqPz5aLRXLLkTdg14II7gx05qL8vtvlmJgtP0LgJptN2vCP5jB6ar0H9s3eBGghQMNQIpTN0
-	E1uPFBV6EFZLTCYRnie2bgBGB7XIXR+FNA3jBpjk+IpRMDHxpQyaBvV+Gex6C+IDq4carWtV8SN3Y
-	5hnak8uw==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Rudi Heitbaum <rudi@heitbaum.com>
-Cc: Matthias Kaehlcke <mka@chromium.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] usb: onboard_dev: add the Rockchip rk1808
-Date: Fri, 28 Aug 2026 14:14:22 +0200
-Message-ID: <4512468.iIbC2pHGDl@diego>
-In-Reply-To: <apFpPP1O45BWXDv5@5be1eda4e59e>
-References: <aouw7rH6FZxscUTO@0d3a7a881997> <5096877.GXAFRqVoOG@phil>
- <apFpPP1O45BWXDv5@5be1eda4e59e>
+	id 1wzvhU-00000005jgP-2lZg
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Aug 2026 12:28:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BqazEviKgo2b/tsASk4IvI2zBdprxeE8GzjJskJnG9lepIm6x+IUyjMufQeAS78xaSnVhB0rL/AjO0qBnI6FGMANuF1jNF5Bw8jI7brbpz2vUyhAhi4562BacjvYD4nv1uBqora1Us5knZtkyQE+aJwXdKpNkauNsr/r7d6XB68z9bmJ7y3S1jgsRK/+y9OgxeuELyZGFdJZ7/cXDVshTS/VLhjVWPKPYKNVyhRt3ydt75qZg7p1OBUA9QvLznGlWMw/gA+7qc61vd7dezMighhzdFgvtD8n0rblc4ex3AqrleUT+GrUn1Le71cj9i1FKhk8KzzFJltx+2zMr3pGdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=e+52g/0eepX9Ma7LUQ65DCe5CMz6aX+KN5W9QaXaWHo=;
+ b=qrXauXKH0KC3DipsL9vOc2DGPvfdLzJK/ByfQmrYasyasGbLi2HV+9PalPBjtN+wYSvcGohgOAghk7oxk7nOuO1g8+PPps+FHGJz/FtWXKH2TjKgeqGEqeuGoSM+6qaB8XcKLxjk4GKqRtdmcHE/hBeMzHGa50P4qO/MpeALe2yO0FDYJQkoB80/hMA0Yks1hHqZl3HQGkaWhu9Hc3qxJHKfuKdHNm69vwaa0NoB4CGVtGSNYt/WVbDeiODxcL0g6arUJ5NOArT2ktNn/SSQloaaSJT8tGIuHxXQc29Jup7BzUUHvkDjVietde7F9SyFAoeAX8/w56O6TZw8jaxoxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 64.62.143.114) smtp.rcpttodomain=analog.com smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=e+52g/0eepX9Ma7LUQ65DCe5CMz6aX+KN5W9QaXaWHo=;
+ b=vJCVNBk55yO03lzFcJ+8gHJV7aquKyLEhlDoSVnZXKdVdamZIvaqMMzkaiIW3krjFyJTdpLcTCQ1UBV2cwTvxGRsxy8OuEgap2CbiCu8ddxMMpay1xuqPHHNBqnVZqgC2hkn0WRGowdfCcdvh+qdeKJ7oLWjZ2O7sCdUQ5ObP+PdhzSsZ0Tw8r0IwpYri7wZ1tcpXRAsHFD0uB2/fUWwhPS7Ke/hY4QK9mmd3rNcquo+0XQy6iSpedceVA8o3l0rvQIlfeFTOovlM75Xjun8bLPBLgIprKOaipZE76u90yCupPXyZUNfGZiy1pI/jvolYHkk++C4v1goFKZgpOQmLQ==
+Received: from BN9PR03CA0522.namprd03.prod.outlook.com (2603:10b6:408:131::17)
+ by LV3PR18MB5664.namprd18.prod.outlook.com (2603:10b6:408:19d::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Fri, 28 Aug
+ 2026 12:28:41 +0000
+Received: from BN7PEPF000000A0.namprd04.prod.outlook.com
+ (2603:10b6:408:131:cafe::af) by BN9PR03CA0522.outlook.office365.com
+ (2603:10b6:408:131::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.10 via Frontend Transport; Fri,
+ 28 Aug 2026 12:28:41 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
+ client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (64.62.143.114) by
+ BN7PEPF000000A0.mail.protection.outlook.com (10.167.248.152) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.382.8
+ via Frontend Transport; Fri, 28 Aug 2026 12:28:41 +0000
+Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
+	by smtp.corp.axiado.com (Postfix) with ESMTP id B90954186B5D;
+	Fri, 28 Aug 2026 05:28:40 -0700 (PDT)
+From: Petar Stepanovic <pstepanovic@axiado.com>
+Date: Fri, 28 Aug 2026 05:28:28 -0700
+Subject: [PATCH v6 1/2] dt-bindings: iio: adc: add Axiado AX3000/AX3005
+ SARADC
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260828-axiado-ax3000-ax3005-saradc-v6-1-4cea467e4167@axiado.com>
+References: <20260828-axiado-ax3000-ax3005-saradc-v6-0-4cea467e4167@axiado.com>
+In-Reply-To: <20260828-axiado-ax3000-ax3005-saradc-v6-0-4cea467e4167@axiado.com>
+To: Akhila Kavi <akavi@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, 
+ Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, Petar Stepanovic <pstepanovic@axiado.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787920120; l=2961;
+ i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
+ bh=vkAKsJ2m95gzrXwsGVTAt+RuWciSLhwK1Ha1FjbN7G8=;
+ b=pZEHgFDas/wRVYG1Vbl0fUQOU7Zwyh/iAAU99RzfcEC032EdsgB53i0lkrpD459NokZ9+2zG2
+ mm3DnXmihAGCDkgXaRBNPy3AuraBB7hZNlKq+Xgp6kLWKbmJEDhnnxp
+X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
+ pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN7PEPF000000A0:EE_|LV3PR18MB5664:EE_
+X-MS-Office365-Filtering-Correlation-Id: b58b1fce-ff3e-48c0-b492-08df04ffe50e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|82310400026|23010399003|1800799024|13003099007|921020|3023799007|10067099003|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: a0sHOGg4ULl8/QkzaOzh9tPEm1pxQ/pirvOd/un2OSsP3C1ra7hoDhEKoeUAlJmErKf3WZovTHyu+/tAHMwwK5BAgDaUHkHFURCBOiyNkSbxJwIGetwCMBAfyddpGzt6s7dz7k6UkKmkHI7V13XTGSEpCPdmsbt38utJXWSdDQ4UBRPGVcFAmFpbFnvaAOEE8kUXpVEL2bXLsyd6RTXlSfz5rlDQ0a2S07xddExBAePdK6TOmN5+MMbDpERQoo2Mub1WC8kKwWNeSm0hyahljGFSqTX2v9SDPdYhLLhdeOypqV3dXh3zJCjm2khDzN4FzQEGktyikT9yIOiEi8oPgsU2RxQulf5gPB/WjBJJlFTEIUAUDAv8/0uMXa/PlDL0xibJqlyjhr0brT2SU6uzOU4TcvIT5DABviyuwxfHC7gDM4anvECZ+CLpnJ8KMV5gb6lsRyks87ZUaPtexywsVLPTMRwqetLtN+N60XAAmLvmNusLwk+vPlz8oY7i4/uqkCHP9MpcqEBwQ/nhGC2BcxLPrqCEJMjb/yVDD6uKpfbkdBPGX9shl5TokFlnmJOD05MqRqqCOPp7JIZhYK1COD/kXms78YMhmC7Iy8bZrE6feF/z8dZpYsl/ikiSunvRX7a72h6hz6e717Rphyovv+6dtffaM0vO7/Pkv8meFrmRtslQWiFf5XX7UY0oQNYL
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(82310400026)(23010399003)(1800799024)(13003099007)(921020)(3023799007)(10067099003)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: FIsEdjqM83AeWE25liuQY0gsGatoM1tihg493KzI6MfGtKtVbdV13K1KrhD7tdDV7Ab/2AtqgYa8hIzS7piE6zDEAsWr5Dscm7KnKmzQfFMvo0OtRIyo+za1/lewmuqiME4garCvGA5SeBYrmcpsj/D78kJSF8S1N2pl9XvzPHb4ivwfbSGRhxUGd0ghaANcN2GdQmJCwchVdU6bgiJGnf58a8UE56/w0pcR9lpq61rOcCBDJ27x4S5iq5uI/2dy9CvdnIfgdbMDpj0eFmlP0neOry59mMW58fOM6OQXX79pmClhK2cck2eS/IKACuS+pPY3mMVCRXUfUfqSzFubm/VO7M0n7O5N75xJsVm7JxPjBoc6qIrXSFlGddiVyHvhaA8Ia/QZvwxesJoC4Y036bdOyGoP8sMkC2kznPA5Xrz3uokvJ6U3nzzQBRTo4Me6
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2026 12:28:41.4347
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b58b1fce-ff3e-48c0-b492-08df04ffe50e
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN7PEPF000000A0.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR18MB5664
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_051433_339068_0064F2C3 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20260828_052852_728395_0C9E4213 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,69 +133,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rudi,
+The Axiado AX3000 and AX3005 SoCs include a 10-bit SAR ADC controller.
+AX3000 supports 16 input channels, while AX3005 supports 8 input
+channels.
 
-Am Freitag, 28. August 2026, 12:55:56 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb Rudi Heitbaum:
-> On Thu, Aug 27, 2026 at 03:25:23PM +0200, Heiko Stuebner wrote:
-> > Am Montag, 24. August 2026, 04:52:02 Mitteleurop=C3=A4ische Sommerzeit =
-schrieb Rudi Heitbaum:
-> > > The rk1808 is the npu die in an rk3399pro package. It is wired to one
-> > > of the usb3 controllers rather than to an external port, and it needs
-> > > its reference clock running before it will boot, which is exactly what
-> > > this driver exists to do for onboard devices.
-> > >=20
-> > > It takes no supply from the driver: the rails are sequenced elsewhere.
-> > > Only the clock matters here, and that is already optional and handled
-> > > generically.
-> >=20
-> > the "elsewhere" might need a bit more explanation to verify it's the ri=
-ght
-> > implementation. Even if the regulators are always-on or something, we
-> > still want the supplies defined - for future uses.
->=20
-> As follow up on the bringup of the Rock-Pi-N10, the proposed change to th=
-e dtsi
-> for the rk3399pro-vmarc-som is here, but needs the provision of the usb f=
-irst.
-> https://github.com/heitbaum/linux/commit/6b114b6fff4022c330003d7f70ce0991=
-5ffd774f
+Document the compatible strings, register region, clock, reference
+voltage supply, and IIO channel cells.
 
-I might have formulated that strangly, what I meant was, who is enabling
-the power supplies.
+Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../bindings/iio/adc/axiado,ax3000-saradc.yaml     | 63 ++++++++++++++++++++++
+ MAINTAINERS                                        |  8 +++
+ 2 files changed, 71 insertions(+)
 
-The "NPU Power" part of any rk3399pro schematics (should) list 5 power
-supplies for the NPU block itself:
+diff --git a/Documentation/devicetree/bindings/iio/adc/axiado,ax3000-saradc.yaml b/Documentation/devicetree/bindings/iio/adc/axiado,ax3000-saradc.yaml
+new file mode 100644
+index 000000000000..b910852aa56f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iio/adc/axiado,ax3000-saradc.yaml
+@@ -0,0 +1,63 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iio/adc/axiado,ax3000-saradc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Axiado AX3000/AX3005 Successive Approximation Register ADC
++
++description:
++  The Axiado AX3000/AX3005 SAR ADC is a 10-bit ADC with sixteen input
++  channels on AX3000 and eight input channels on AX3005.
++
++maintainers:
++  - Petar Stepanovic <pstepanovic@axiado.com>
++  - Akhila Kavi <akavi@axiado.com>
++  - Prasad Bolisetty <pbolisetty@axiado.com>
++
++properties:
++  compatible:
++    enum:
++      - axiado,ax3000-saradc
++      - axiado,ax3005-saradc
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    const: saradc
++
++  '#io-channel-cells':
++    const: 1
++
++  vref-supply:
++    description: Reference voltage regulator supplying the ADC
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - '#io-channel-cells'
++  - vref-supply
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++      #address-cells = <2>;
++      #size-cells = <2>;
++
++      adc@806a0000 {
++        compatible = "axiado,ax3000-saradc";
++        reg = <0x0 0x806a0000 0x0 0x400>;
++        clocks = <&pclk>;
++        clock-names = "saradc";
++        vref-supply = <&vref_reg>;
++        #io-channel-cells = <1>;
++      };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index b2040011a386..d6f4febfe4fd 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4312,6 +4312,14 @@ S:	Orphan
+ F:	Documentation/devicetree/bindings/sound/axentia,*
+ F:	sound/soc/atmel/tse850-pcm5142.c
+ 
++AXIADO SARADC DRIVER
++M:	Petar Stepanovic <pstepanovic@axiado.com>
++M:	Akhila Kavi <akavi@axiado.com>
++M:	Prasad Bolisetty <pbolisetty@axiado.com>
++L:	linux-iio@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/iio/adc/axiado,ax3000-saradc.yaml
++
+ AXIS ARTPEC ARM64 SoC SUPPORT
+ M:	Jesper Nilsson <jesper.nilsson@axis.com>
+ M:	Lars Persson <lars.persson@axis.com>
 
-NPU_LOGIC_VDD
-    --> regulator likely named NPU_VDD_LOG_S0
-        --> enabled by NPU_PWREN_2 gpio fixed regulator
-
-NPU_EFUSE_VQPS
-    --> regulator likely named NPU_VCC1V8_EFUSE
-        --> enabled by NPU_EFUSE_EN_H gpio fixed regulator
-
-NPU_CORE_VDD
-    --> regulator likely named NPU_VDD_S0
-        --> TCS4525 regulator with voltage being set via the i2c controller
-             inside the NPU - but enabled by the NPU_PWREN_6 gpio from
-             core RK3399.
-
-NPU_CPU_VDD
-    --> regulator likely named NPU_VDD_CPU_S0
-        --> enabled by NPU_PWREN_4 gpio fixed regulator
-
-NPU_ADC_AVDD_1V8
-    --> regulator likely named NPU_VCC_1V8_S3
-        --> enabled by NPU_PWREN_3 gpio fixed regulator
-
-Naming might vary, I found just some EVB schematics.
-
-Someone needs to enable these, so the question was, who is doing that?
-
-Thanks
-Heiko
-
-
+-- 
+2.34.1
 
 
