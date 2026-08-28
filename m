@@ -4,117 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 255F6C61DCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 16:13:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43548C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 16:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VweJw6LinGD62cFRd/v8g+9yJ/9/me1UoY1Kv5TbeXI=; b=ozfo9yhfYZ9psHTZWAvADmfBzj
-	x8Te8NJScD5qRBZNaaiGTqSj9R+AJDOTruEDjUUBYqRCnn3063Opj0c14ywkL1n2Xq3DhOMV3fPyg
-	NDVg9Vbz2IKT8BF3s9AQiKBZIeppIaTjSm3qb94lLh+bB+lqlS1+XWpBx1an+RpXyCQS0vTJ5BdwW
-	e+zJ4FuH4LKRr7s8TIYfm775225HbzS0E6rtA2uVCAiOZjXhEkdu08SJpt0TLXCFJggumTjmxKHAK
-	peMeORohtLs92xjqDwZ1IlVoVcMQLW1qNCd9Cg2ek0+3nyfLHhjfGUQZmyuFg5rLN8YuFAO2fwlh+
-	R2oGeccg==;
+	bh=b+ACTBmM0+p0qH4wH4Z9F8ihyRM/CWd6wxi34YiAYmo=; b=iqu0aBbpPzSPCEEeo19jjT8u/D
+	x4EMBSRb0UGXzv3mKRXN9LUMlEqBJiHdhu3bNLm3CpULF//KFXKgETTlnIcrKK700SjR1XtXjGgbK
+	jPQx0lxNDmfmjB4JDVQRRUg0NOdim1XcZ9Lo7Hm1qQYt1v/fU1l8kHcBSaAEV9wuDnyZpgoroJYoX
+	mxtKXZotQooExooLYz3lPV4Q/VjUce+Uhff5G0EMGu8sqzpuhHY3jwdHMct+ylpWcdE+6o0A07C+K
+	tmVYfxrLLqlBi9xyW0IpaHAP1v5OAtsE3u447Vz0AEDZcLPE/PqPybF1tnR7ckTqkH0XrQpwmc3ah
+	+eeunpHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzzCs-00000006BE9-1ZlX;
-	Fri, 28 Aug 2026 16:13:30 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wzzE0-00000006BPb-2k0S;
+	Fri, 28 Aug 2026 16:14:40 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzzCq-00000006BDe-03DJ
+	id 1wzzDy-00000006BPA-0OXy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 16:13:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f0WBcwDZTd2CC2a1XjFn39/0GgRmybbm6Ulb9rBkO/xMVYX3CITZJvwrzKeidmm4xruVqXtZJyXH7UI+2Q3rKWAeJxdj0XRc3KbFhxATMAJp0fCyBjkFrTlvfazADpt6cgUr5eyxQGHPtLvLCvEF7lMvwaNtOFYa79z2rJBb3hEdBVo6B7QxZ1ZZuNrTs/u5AEu3M/B18GW7EpeeJDWm2bCPMy1I7YXAuc6l7pMPA1S4do6wJfGpCOi/NMa6lngERdHS5cKto7u1JO8KHofaO0NU3spvvcAaKdrvwuKSvOagxiUFykqGz2/X7a/S0pbNHJVykpOg/aJzBl6bccsn4Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VweJw6LinGD62cFRd/v8g+9yJ/9/me1UoY1Kv5TbeXI=;
- b=wcKyf6ebJmD70Q8shDGQX9RMZemXUxOIamUwM6ftAYKiAe3ksrUS3mZOVHKP090mB0XgYtz30obWaNUTO3d0E1e7gts9s75b/zqI20ACF+CNFQqk36frzf3zHbUZS9JKw0bh5dYEIIa7f2quRpB1aptZGq0pErGCQVZ5fc6x/E36lEUtut5MAIbyBTsmnKrRslcrytt+ZUL09JoDLXWxl+vuZRQkLTpEn6XgjR8p8fTJktED8CDuByJnOdR8aGdyOWS6GwB+SvEPine6YdGj//A/lEvpmrIJtP5d3r2kW6/qzbtwzLSEHvb1ZFYeN2d7ioH7Ecz22jmwKBSHwyFqVw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VweJw6LinGD62cFRd/v8g+9yJ/9/me1UoY1Kv5TbeXI=;
- b=Jf6heamjxc3ogfej0AH9t+jAAAZ5aJfThOE4HtMEkVRj1Nxtn1gBx2dKQlbj80JQXAQ3O7hAxgA55pEqB/je7F5YX4G3tBTx/1Qiyqi1fOMpdBbQGpIICUJTALB7r/H9D+3opSjjGbV+v3dsEwgdImZvOiHKWy6sgNI4RmCsCWGuSdoom2GMp2lEMn8yvEerwxG0sXozeygOITQ9/UdNYq0s3feWmFM53zEK2kJU2lv3u1U3Yw09n8rz88tt4Xf0X0KtwUgdZG/ZVK3YL48sIaLyPJhEn75nEg9ul37rYLl7Mh44UjxU5ncbH6bBYQvJUT6pjUAKXR6iCNQ90jZVAw==
-Received: from BN9PR03CA0164.namprd03.prod.outlook.com (2603:10b6:408:f4::19)
- by IA1PR12MB7590.namprd12.prod.outlook.com (2603:10b6:208:42a::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.11; Fri, 28 Aug
- 2026 16:13:18 +0000
-Received: from BN1PEPF00004684.namprd03.prod.outlook.com
- (2603:10b6:408:f4:cafe::4b) by BN9PR03CA0164.outlook.office365.com
- (2603:10b6:408:f4::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.8 via Frontend Transport; Fri, 28
- Aug 2026 16:13:18 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BN1PEPF00004684.mail.protection.outlook.com (10.167.243.90) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Fri, 28 Aug 2026 16:13:18 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 28 Aug
- 2026 09:12:52 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Fri, 28 Aug 2026 09:12:51 -0700
-Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
- Transport; Fri, 28 Aug 2026 09:12:51 -0700
-Date: Fri, 28 Aug 2026 09:12:49 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Mostafa Saleh <smostafa@google.com>
-CC: <linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <will@kernel.org>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>, <jgg@ziepe.ca>, <praan@google.com>
-Subject: Re: [PATCH 4/7] iommu/arm-smmu-v3-test: Fix
- arm_smmu_v3_test_debug_print_used_bits()
-Message-ID: <apGzgQ8Rq42h+Rlw@nvidia.com>
-References: <20260828125409.1921538-1-smostafa@google.com>
- <20260828125409.1921538-5-smostafa@google.com>
+	Fri, 28 Aug 2026 16:14:39 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67SDVV3Q2103053;
+	Fri, 28 Aug 2026 16:14:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=b+ACTBmM0+p0qH4wH4Z9F8ihyRM/CW
+	d6wxi34YiAYmo=; b=pyD09kTt5fLKs/5P8l2r0nS5dpyFwMuDiQWkyIpybnVSML
+	w4vfTtb9UkGjRyzYybgmjpKmwNcA8B0Tj+dcIRA+cu8J3pF0vh28WE6VKkILiwSQ
+	bnFT/CxpHqXF4r0PiZ49/+Utw8NQ3Dx+hSpx0YqSCorybcC2TxT15bRttMIFFqRu
+	DsNcuEC5dEBv8sU1p402fSYNXyVIXev/Su1bLQlowu1X3ceexVd45f5pI39LS0AR
+	C7pWKTGKIHg+zieAg1u47JLY+extopyqphb60Bj3wnx9ONAZObSDrBu9ySO2mtu6
+	9Gj6uXBlVQGw6uzsQXEXNGDf3rq0ORbKEBZBMI0Q==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4g7394np8g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 28 Aug 2026 16:14:22 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67SGBGSr006892;
+	Fri, 28 Aug 2026 16:14:22 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4g7p3qqnq8-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 28 Aug 2026 16:14:21 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67SGEI2T37028136
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 28 Aug 2026 16:14:18 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3763C20043;
+	Fri, 28 Aug 2026 16:14:18 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4763320040;
+	Fri, 28 Aug 2026 16:14:17 +0000 (GMT)
+Received: from osiris (unknown [9.111.68.102])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 28 Aug 2026 16:14:17 +0000 (GMT)
+Date: Fri, 28 Aug 2026 18:14:16 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Janosch Frank <frankja@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v6 31/33] KVM: s390: arm64: Implement vCPU IOCTLs
+Message-ID: <20260828161416.164752-B-seiden@linux.ibm.com>
+References: <20260812153631.3376090-1-seiden@linux.ibm.com>
+ <20260812153631.3376090-32-seiden@linux.ibm.com>
+ <8b141a3d-1ea7-44ad-9311-2157ef37d59f@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260828125409.1921538-5-smostafa@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00004684:EE_|IA1PR12MB7590:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5d5efd63-4ce9-48a9-de43-08df051f45eb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|36860700016|82310400026|10067099003|56012099006|11063799006|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 3a38YXp5zTqGjzA8DM1gGdCFrImvNTi4Y6YhwvgljJ5NmGkEaHaNJtt0j85Zo3rh0E/7fxXUSHtRBJ7gVGUjFVwpe1JbU0S1n92OxLacdGGJKyF5d0vDPG2+50sssNf5hPhy95QGV36nym6LRVtUMUrsEwM4kd2o3paqoqdNkRN/MxDCDTkuw/UpQ6vBXIqK6V5HvetGofXKx30U+ZxMdu0UoOL0frjgc3Hc74eQrFAAp+YgtqpdW3fN5pBl4nFTzEK8KLIdoOjK9fUPbZAHsk3CWejeOWwYEoVE6rOkwcFH+nI7skh6YCcmYFyGS0tKZlYLYRtoV8vmoNPotZPknT1CjHmRe7fDSn9w7lMINGjYlJ0MgvCUM6yTcfdDV6trmh3mkkEJzZv1IW1gYO6dkYC5tfLd3vpstQeuvf7a7BGEIwyPJGNPr7OYsn6X5PvkswOy+GqDarPujs/gvATODtqXiQ4tVGXCIW7GK5F39fe/3mnnzdNvl7Q437PGlc37+4axNdn7Vrik1EWF7EO7ufUo3LiuSqEZim8sc/0GbGVbqR0cPrLqE3AWZSZrxixL7XRxKUSFDKIQyMMbAV0WnIVFvieBgIM/0qfUZhGUlYxUfsQjG2e8+90lXqpaPxRtPYNDOodEb3zeQBNdJI1vfF4zG5RmwIYT8nlGujKkD/mugXYBVUSdquk0BgC+Ep7Ew1DvFQizbjsR1MA8JdpZmw==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(36860700016)(82310400026)(10067099003)(56012099006)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 1us37WY3NjXXG69lsEqZp9CyIwzLfNEpmOStoZ/7bbq7aulhY3+GSqRAlJ1bL6hcqSlQddaMXUAJ9PWVtEcoOZYxQ+rCKgoKKtOrBkO6mOzNY68vmfYNfl+SFwB6gzcu4vHDBFPd0CiRr4Kfd7A3oBsd64491wACaunBYQNppFr+8sYyH11KDbxjE2i6Nx+BvO9Ddm0kwvU+Pcw0FZ0TV1LPuYmAK0F/cTMAEd4LfkDk3dWyRc2y/fNH+YgL7clmahlTKwO0RSUwFeWAlMBSyqNDKhw3vpx9H+I5/HSVOEgvEmH3kPq8DM4IClBSMJcF8T2nf6tjuOPjX6DEkXfcJZ0I7Pjj6YOih+uh5wNirSrnE8XlMmysoDi28c/oiuOSI9QeuJrCx17JTN8g5anf0a8Y4K4DXPoGZSUT9qoPWwFRXXgRiDbOM/YplSz5+GQk
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2026 16:13:18.3082
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5d5efd63-4ce9-48a9-de43-08df051f45eb
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004684.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7590
+In-Reply-To: <8b141a3d-1ea7-44ad-9311-2157ef37d59f@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: xYV0U-q5HSwRRYNF2YzhHs5akyyE1Ip_
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI4MDEzOSBTYWx0ZWRfXxn8wDFUddKvg
+ hrpPnu9uLX26z2vCg3K1Gz4/rGFyERafolaJ60pNF38W06tVbEgda3xwjkTeTE06QrPwCOQibgo
+ n7cSw/GxJ8co7pwOe/7LZYIzPvymt5Eo9u+3CCG6l5gRI3bXvu/PNK8TI5PAPhpGmZmkwXEdcxI
+ Ae7l55Agmphpw6wwL+APxIEzZGUDHBnoKjnXby1MxLoFHE4QDWfm4iYGrvEtlxl0/jYzJMOW+x+
+ b1lWZbec3AS/7kc7F/+xc0/tnQMyTP5P0x03iEJ2uzZzaTvYqrK0lY4SKEdRCHZ1uFFYnnGf6es
+ hlkOb3qiMTKrcpDLIfCRx3oOHCjnyH15XfvoYTED329wDtOl7g024qlaLbkSKTytF8hoKiUdyEI
+ Dlb0ztBAYyEuPeLJ/gMx+Qokls/FbF7wQ05mt/XDLze5ebq8zdJkqgqZz4z5tu0auhy9yHv5hrA
+ qildb2f4mwa8/qbO3vg==
+X-Authority-Analysis: v=2.4 cv=Y/nIdBeN c=1 sm=1 tr=0 ts=6a91b3df cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
+ a=hdEzL2LqU29Kkz1BBA8A:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI4MDEzOSBTYWx0ZWRfX/dFjPldipt2f
+ q6+s/sAKIfSOEpS9+/fpzmP0F/kE4Qj3D93/+VNxsfALbjiN5Kpb0EDJ4Zqzo12oz0w7G1ccqOp
+ bQaDv3LUsVuRwhmO72w0lu/IqpHLj/g=
+X-Proofpoint-ORIG-GUID: 3N4ZzIrXz_MlJmBm3joiMUE0Itwzwn8l
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-28_04,2026-08-27_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 impostorscore=0 priorityscore=1501 adultscore=0 bulkscore=0
+ suspectscore=0 malwarescore=0 clxscore=1015 lowpriorityscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608280139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_091328_054647_DD79460C 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20260828_091438_140313_68020BF9 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,35 +143,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 28, 2026 at 12:53:39PM +0000, Mostafa Saleh wrote:
-> arm_smmu_v3_test_debug_print_used_bits() hardcodes arm_smmu_get_ste_used()
-> instead of using the provided writer->ops->get_used() callback.
-> This caused Context Descriptors to be incorrectly parsed as STEs.
+On Fri, Aug 28, 2026 at 03:34:34PM +0200, Janosch Frank wrote:
+> On 8/12/26 5:36 PM, Steffen Eiden wrote:
+> > Implement all required vCPU IOCTLs.
+> > 
+> > Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
+> > Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+> > Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+> > Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> > ---
+> >   arch/s390/kvm/arm64/arm.c         | 392 ++++++++++++++++++++++++++++++
+> >   arch/s390/kvm/arm64/guest.c       |  47 +++-
+> >   arch/s390/kvm/arm64/handle_exit.c |  31 +++
+> >   arch/s390/kvm/arm64/handle_exit.h |   9 +
+> >   arch/s390/kvm/arm64/reset.c       |  73 ++++++
+> >   arch/s390/kvm/arm64/reset.h       |  11 +
+> >   arch/s390/kvm/arm64/trace.h       |   2 +-
+> >   7 files changed, 562 insertions(+), 3 deletions(-)
+> >   create mode 100644 arch/s390/kvm/arm64/handle_exit.h
+> >   create mode 100644 arch/s390/kvm/arm64/reset.c
+> >   create mode 100644 arch/s390/kvm/arm64/reset.h
+> > 
 > 
-> Fixes: 56e1a4cc2588 ("iommu/arm-smmu-v3: Add unit tests for arm_smmu_write_entry")
-> Reported-by: Sashiko <>
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> [...]
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-> index add671363c82..eae08d4d77ec 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-> @@ -125,8 +125,8 @@ arm_smmu_v3_test_debug_print_used_bits(struct arm_smmu_entry_writer *writer,
->  {
->  	__le64 used_bits[NUM_ENTRY_QWORDS] = {};
->  
-> -	arm_smmu_get_ste_used(ste, used_bits);
-> -	pr_debug("STE used bits: ");
-> +	writer->ops->get_used(ste, used_bits);
-> +	pr_debug("Entry used bits: ");
+> > +static int kvm_vcpu_initialize(struct kvm_vcpu *vcpu,
+> > +			       const struct kvm_vcpu_init *init)
+> > +{
+> > +	unsigned long features = init->features[0];
+> > +	struct kvm *kvm = vcpu->kvm;
+> > +
+> > +	scoped_guard(mutex, &kvm->arch.config_lock) {
+> > +		if (test_bit(KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED,
+> > +			     &kvm->arch.flags) &&
+> 
+> 
+> In this case I'd rather have a long line than having to look at this mess.
+> One of the cases where a normal mutex acquisition would have made the code
+> more readable.
 
-Nit: the name of the 2nd function parameter is still "ste" being
-used at writer->ops->get_used. Maybe it should change to "ent"?
+Technically, it would not fit into the 80chars even if I use traditional
+locks.
 
-Otherwise,
+Nontheless, I'll use a guard(mutex) and then go 2 chars over the limit
+for improved reading.
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+...
+
+> > +
+> > +	ret = 1;
+> > +	do {
+> > +		if (signal_pending(current)) {
+> > +			kvm_run->exit_reason = KVM_EXIT_INTR;
+> > +			ret = -EINTR;
+> > +			continue;
+> 
+> Why not break?
+> With continue we'll jump to the condition which is immediately false since
+> we just set ret to a negative value.
+> 
+
+I'll break
+
+
+	Steffen
 
