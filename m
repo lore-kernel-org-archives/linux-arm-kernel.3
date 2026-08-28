@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D826BC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 12:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 746D7C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 12:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:To:Cc:Subject:
-	Date:Mime-Version:Content-Transfer-Encoding:Content-Type:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cgGl+Ap4qnIwdrgSBfPXcEBcMxukzBkYOFIjzApDzYs=; b=FZoD3SZoZC2xRQEx1c+7DnL9XW
-	vIyjdfph6QIA3jq4CFGpqyAdvSMYjAkI6q4YVcV314DTLUzwoEepxXluwsC+0O7NWtZ1RsIZbGP/Q
-	y0drWDDcKxaxUSzSZcPeIjH2KYiacuT9G1FGeGXBQlCEOescilzpxlLAx6tRfM9V3ivKn/eCGMBrC
-	93JtZzvzCaOsIKEdfubMII0QhH5gVUNHjZk4Ufh43Bn9cBWlstJcU0/N2+87E82qV50aP6hS1hOqx
-	ANHUNa2FsWM1LrzyeqJbwKJYDUPLiZAl0JIrXi7S85VYx3cQSDIXiUs3G1uXJ6iCAEy+bzSnKnk3X
-	MtWf6mZg==;
+	bh=DRGIXLcHuELZx1Qe/K3lDAq7MZx3TuN6UHTja/wh6Zo=; b=P72Bqz8rKjjgGysJLC/4k1MQ0R
+	zm6fMrv8ZPdyyI7QVf5fhg3YvEWenJydmsTypiQWNtu27O/YWqTUifJBGLjgzY3UCTqozvAJB3c0l
+	OSi5cdN1Fp5+7y1OqAX0X74bEv7ZfQ0EndRuNsaizF4FVgvMYC2oSg9n7CM7ZWxGZsWwIy/UZ6yGA
+	1X9nrvueqDsD/+0Q9qdcJ67+tmBR7LcUSSr1/b2BBHB5MegDLoiYJgAGndyryqg1HQcjodGoAmv/Q
+	+5BML1bgE/IThqufqEU5lKiSRXJuIv8Iaw5mJr50DbpbLLD3+IbtYXty18hG9cNs20F34T2AIIhT+
+	chibLoCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzw2U-00000005lAH-16Ex;
-	Fri, 28 Aug 2026 12:50:34 +0000
-Received: from mo4-p01-ob.smtp.rzone.de ([85.215.255.54])
+	id 1wzw69-00000005lPZ-3Rqt;
+	Fri, 28 Aug 2026 12:54:23 +0000
+Received: from mail-wm1-x346.google.com ([2a00:1450:4864:20::346])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzw2R-00000005l9m-0A4c
+	id 1wzw65-00000005lOM-3J3H
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 12:50:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1787921406; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=YSt/zhv6UfPubd3hnG3/IhsAAyuB0FC/DVKNycjbf5a8BnRA/Ps6R9g8V7SiOU4SPQ
-    Uho4wvrHxOERLewuh72mDPppR0FuAHs8po/7lJVV8R1qbszun+3Hpgz39Y1mcEQrWaZS
-    VHZhunPefuK3m0suDeYuR+KWdhiRxivjKa13qubUb10QjRg8Dnw9MHmUG+9iuaHOLn5c
-    Y7uLP5NdA1DvU4HRE7lkafmNBWiPhH7pncMOGQ7Q/kIcJgmcrXqiMhegbutgUVU8OZDb
-    1l8T+JsXvFv3SQLMD/kSCuBg8pTDnYVVlBciL4G4bMaj0UeMAo7wD4QCa57HffB/P8N1
-    k3Yg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1787921406;
-    s=strato-dkim-0002; d=strato.com;
-    h=Message-Id:To:Cc:Subject:Date:From:Cc:Date:From:Subject:Sender;
-    bh=cgGl+Ap4qnIwdrgSBfPXcEBcMxukzBkYOFIjzApDzYs=;
-    b=DyLVNRTLIdga2kU7qX/l+1i5w+vFfpWpETHr+hGnBPBNa8zzWyRBhpNPRd2+ZuI4NY
-    mydtBXoIDIc5EJaEibzHF9hsh8Svfz/icI9+O1vwZrRopJEO8FNFaRaN4k/GtTSxIdtD
-    nGmmAfSAdA20/zbisjWzqxYgk217WeTiBqDtC3HVRrVnlxr6b8ZQcyfvBOUoIqTjgtPU
-    vpUlNiudiIpgLehv6iU+gtZZvKp7yiVv30EEIQhikN1cixt+GGLY9iWXicG2cjgujujS
-    o3D4IcKsAfj9kulVCxAK2VqywoSSWWNNyc0LIvR2ig4S+dRx1Ohjv3/o+DDAMHLd6fPi
-    tfIg==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1787921406;
-    s=strato-dkim-0002; d=goldelico.com;
-    h=Message-Id:To:Cc:Subject:Date:From:Cc:Date:From:Subject:Sender;
-    bh=cgGl+Ap4qnIwdrgSBfPXcEBcMxukzBkYOFIjzApDzYs=;
-    b=kNsYvz9whzAeDCMeGREkTd17po/9BU26RKFG9EojJUjPM0IyKw+yztK5mEydvMXyBK
-    z/HddyX5pDTWeQZUzDBAgQwjtut+BB+5dh5GgN98BRBGjAoksOgTg4B7q0C2kqGfPbN5
-    tY00F7nW3MTrjYxPiF/ablthooorWd3AzNLQATLBc4dp5muPAhi8eM7VDJ24TRdwfcAj
-    jURk8prwayXpdkN50S76Gyvd1cD5MfkY8yrjnnSpUSs+qDDzXofEZUXcu+YQhgNTtNIn
-    4w0PylRMTqsQHFYuwcHoEHLfSliTsU1dd+eAyZXOsQtyDuhfyLz4M27FBntWJZKH80cy
-    t4tg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1787921406;
-    s=strato-dkim-0003; d=goldelico.com;
-    h=Message-Id:To:Cc:Subject:Date:From:Cc:Date:From:Subject:Sender;
-    bh=cgGl+Ap4qnIwdrgSBfPXcEBcMxukzBkYOFIjzApDzYs=;
-    b=SQeIFx+227w3jW+IUwE3gMgbsTdLvQfDNJp9p4sV0Xh3dFDKcqnwxXp3sUT5BzL8pd
-    Yx8zOis7CNtnKL8x3BCw==
-X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrTi5pcm8iNh03LRKjUUFR0UuLB2QxsamlNRA=="
-Received: from smtpclient.apple
-    by smtp.strato.de (RZmta 55.6.2 AUTH)
-    with ESMTPSA id Qfefb327SCo5sBX
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
-	(Client did not present a certificate);
-    Fri, 28 Aug 2026 14:50:05 +0200 (CEST)
-From: "H. Nikolaus Schaller" <hns@goldelico.com>
-Content-Type: text/plain;
-	charset=us-ascii
+	Fri, 28 Aug 2026 12:54:18 +0000
+Received: by mail-wm1-x346.google.com with SMTP id 5b1f17b1804b1-49b7c1dc61eso6392425e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 05:54:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1787921654; x=1788526454; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:mime-version:date:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=DRGIXLcHuELZx1Qe/K3lDAq7MZx3TuN6UHTja/wh6Zo=;
+        b=Q2uDfK3yQ7BjugjP4D22ooFWHncoCKUSHoEEK8J4S53r+f1c85NA2mMYO8rmTtNgHl
+         i+92WX/W295GcEJuQPfjRw0nqo6W0L9BrVhZux/n50DiewWkyxUKu0N7+PU20gn3iyKv
+         nIS3S0FUt1e2tFELPO32WtV6LKsKtolxkMITKKAnEvP7Np2SYRYHv+OUuU4LxYkRwX/+
+         vB2pdINili2gKxoDEJFcqVmxSntOeXEsy/KjCkFGoZgt3At9t9l25PNXdWLFeDWU0SWR
+         d+och+UKYddPbJmgONaRRJyJhUI1+E1HpIIq1XkooxOJ0hG35KAfHgb4EOwDhAZxEIVr
+         TtDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787921654; x=1788526454;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:mime-version:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=DRGIXLcHuELZx1Qe/K3lDAq7MZx3TuN6UHTja/wh6Zo=;
+        b=FdxZ08qCPRmbk6l5S4WFTEYSd7ua8RD7a0oRfGoF4r5/QZg6i7HakgElQn1GuLZDF/
+         697GBpqMduXvOW/pGngMT7qa5I+mTqbC+xhTTvBotHV2ziQgbOIMvng8ugYjNkaz17Nz
+         aTMWnApl28fXczW9GDdIfIbfxneFzpc6/q1CHSaElV13IFfjvK+++MT0v3r3Z2+LM+HG
+         yrW9QsV5WH/a6yHxiw/s84HsVijWT5z0S8ndMUsH/RWladNG+g2zgednddTIAosO90/Q
+         BKaUgXMqUFej54RgQJbSS9WI4hcC9iuM888tyz3JomzW2mZvrnVqEwZ/FT9n4wB3iJAF
+         w3mw==
+X-Forwarded-Encrypted: i=1; AHgh+RqbEVcaTerFyhN67lJfHXe58OB4Dk1o40Bvv1l9Q6eZoQb2xuRY+oKg9qzcXEge2M/riSolvDeJZS6EcC5G4w4/@lists.infradead.org
+X-Gm-Message-State: AFuF++l3bBdTmJysY01/T0UICrbqwGqC3rY7AsGwkCGpVdIQoDnYssFr
+	/Zem24kH5M7UGikIvX6fj/FamcguCEqEG/xIztT/ByVvX/3SvnGFR2p8da9ym86saT4NXNLG+/7
+	9fbLvtIlrKzA+nA==
+X-Received: from wmsm23.prod.google.com ([2002:a05:600c:3b17:b0:495:6261:8954])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:3b21:b0:498:952:e276 with SMTP id 5b1f17b1804b1-49b91c3f643mr99111705e9.8.1787921654019;
+ Fri, 28 Aug 2026 05:54:14 -0700 (PDT)
+Date: Fri, 28 Aug 2026 12:53:35 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.897.gb25b4bd76c-goog
+Message-ID: <20260828125409.1921538-1-smostafa@google.com>
+Subject: [PATCH 0/7] iommu/arm-smmu-v3: Fixes reported by Sashiko
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca, 
+	nicolinc@nvidia.com, praan@google.com, Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.8\))
-Date: Fri, 28 Aug 2026 14:49:54 +0200
-Subject: [REGRESSION] OpenPandora (OMAP3) fails to boot since v7.2-rc1,
- bisected to b8eeeca5545659
-Cc: linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Andreas Kemnade <akemnade@kernel.org>,
- letux-kernel@openphoenux.org
-To: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>,
- Daniel Lezcano <daniel.lezcano@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Tony Lindgren <tony@atomide.com>
-Message-Id: <2013A99A-0502-4128-ACFA-B04886224393@goldelico.com>
-X-Mailer: Apple Mail (2.3826.700.81.1.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_055031_334846_D7CE99DF 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20260828_055417_882464_C324C317 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,55 +90,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-I am seeing a boot regression on OpenPandora (OMAP3) since v7.2-rc1.
+While running sashiko locally on the pKVM SMMUv3 driver patches, it
+reported some pre-existing issues in the SMMUv3 driver (the RB tree
+corruption and a missing NULL check) and given that this is not the
+first time a pre-existing issue appears in the driver from sashiko,
+I went ahead and passed the whole driver to Sashiko which reported a
+dozen of other issues(except the last one in this series), I included
+fixes for bugs I believe are true or worth fixing (others were mostly
+missing NULL checks or bizarre HW/FW configs I don=E2=80=99t think are need=
+ed).
 
-A git bisect identified:
+I also sorted the patches based on severity from the most critical to
+the least, so it is easier to apply a prefix if some bugs are too
+theoretical
 
-b8eeeca5545659 ("clocksource/drivers/timer-ti-dm: Add clocksource =
-support")
+Mostafa Saleh (7):
+  iommu/arm-smmu-v3: Ensure L2 tables are visible before L1 ptrs
+  iommu/arm-smmu-v3: Prevent rbtree corruption from duplicate streams
+  iommu/arm-smmu-v3-iommufd: Fix error path in
+    arm_vsmmu_cache_invalidate()
+  iommu/arm-smmu-v3-test: Fix arm_smmu_v3_test_debug_print_used_bits()
+  iommu/arm-smmu-v3-test: Add missing error checks for inv array
+  iommu/arm-smmu-v3-test: Fix OOB in arm_smmu_v3_invs_test_verify()
+  iommu/arm-smmu-v3-test: Fix UBSAN error
 
-as the first bad commit.
+ .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 12 +++++-----
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 19 +++++++++++++---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 22 ++++++++++++++-----
+ 3 files changed, 39 insertions(+), 14 deletions(-)
 
-Reverting this commit restores normal boot operation.
+--=20
+2.55.0.897.gb25b4bd76c-goog
 
-The regression is fully reproducible:
-* v7.1: boots normally
-* v7.2-rc1 and later: hangs during early boot after about 3 seconds
-  after reporting
-[    3.631072] sched_clock: 32 bits at 33kHz, resolution 30517ns, wraps =
-every 65535999984741ns
-[    3.643341] clocksource: omap_dm_timer: mask: 0xffffffff max_cycles: =
-0xffffffff, max_idle_ns: 58327039986419 ns
-[    3.660430] clocksource: Switched to clocksource omap_dm_timer
-* v7.2-rc1 + revert of b8eeeca5545659: boots normally again
-
-What caught my attention is that OMAP already has an existing DMTimer
-clocksource implementation in timer-ti-dm-systimer.c, introduced by:
-
-52762fbd1c4778 ("Add support for using the TI Dual-Mode Timer as a =
-clocksource")
-
-while b8eeeca5545659 adds another clocksource implementation to
-timer-ti-dm.c.
-
-The commit message and patch series state that the driver automatically
-selects the first timer marked with the "ti,timer-alwon" DT property and
-registers it as a clocksource/sched_clock.
-
-I have not determined the failure mechanism, but the bisect result and
-successful revert strongly suggest that the new DMTimer clocksource path
-conflicts with the existing OMAP3 timer setup.
-
-Therefore, I would like to ask:
-* Is the new timer-ti-dm clocksource intended to coexist with the
-  existing timer-ti-dm-systimer clocksource implementation on OMAP3?
-* Is b8eeeca5545659 expected to be active on OMAP3 systems?
-* Has this combination been tested on OMAP3 hardware?
-* What is the solution?
-
-If helpful, I can provide more details or test reports.
-
-Thanks,
-Nikolaus Schaller=
 
