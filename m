@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BED8C61DCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 12:01:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5E1C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 12:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R9wXHToe1gmitoaVCqOPNDibrRSsPosBSME08usIeV8=; b=gzcFAt9Ct30QWBGTKtJdpMALgW
-	rX770ml6ZL0w5D1rSe6LAUekFHcqhlhe6v7vwUzIpME/q1J4qJcPq55/TBYYNrAs2+9v1mGZFVt1i
-	AlLTpLVz1RobbwLOAVX4AjE1XdmhADD1mSKbPAGFC7ktrQUkkUOjufIetjcmLS+rRgI8P1G7sRsHv
-	7z0K0ioUFOfjG4oEaOYhvcjHNC2ZTsapvnLTdbppxGHCWar4ifS9vZX0Tn+axX4kZ0arpfyV12UuE
-	XBqRTJPVi3bW2xLu+ur1f9aW2VZv26MJcQ1/C3jyv3UJMSl1Bn6SGHrh3VO1czzhJs9jlAjRrZnlH
-	xWM38btQ==;
+	bh=StE6yv7xm+286I4g7RWcb83gyYNv11/og1VLCuJGGrg=; b=od6h0cwB8UdXjgEY4rQLMKpkTt
+	5GzGwPfEP6y1g3zq67+wQ2uzENKaAWGYhHdRewulBrzaiSPsqDslebFHNoT/7AzV0llR3LJaKNgzi
+	OIuoghwLlnGEKRFpLNbmpLwnVJENjL8IhxJ0aEAXUAjcQMTlv/gYt+5O6b7odiifWGaDXqaJwHZLy
+	dvliOJA2W3mkMBYk3NzhUuIYZuVjy0Ahin+iQ/6nUc5jRuzqQQXnw5Z9DtGALCJLwyRQkZK5Uq5JD
+	4jDG4BzcwDeh5xaP+KAUFRxH4m1FmHksk/b81y7Oj49ZeB2YUGqWiN+pFmnGQV/aVLIyGKPLMoaPJ
+	cA96R1dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzvGp-00000005hM1-1hiA;
-	Fri, 28 Aug 2026 12:01:19 +0000
+	id 1wzvJb-00000005hZe-36Yf;
+	Fri, 28 Aug 2026 12:04:11 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzvGn-00000005hLd-2C6k;
-	Fri, 28 Aug 2026 12:01:18 +0000
+	id 1wzvJa-00000005hZE-1Mhf;
+	Fri, 28 Aug 2026 12:04:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=R9wXHToe1gmitoaVCqOPNDibrRSsPosBSME08usIeV8=; b=L5TmUoS/h6NcQt7ksRhkKNOjmU
-	1mNZG8RevUyyo9OJGFPhIYDs4SNBWCw1yeMvtwBYu45/aGh++P23bSfG4TALzpHf1wZYEOgtjJKu3
-	FnuSMmszW1YDYwAM7yMMkYMwQwbu0tIaaTQyt30PKrGtqn+k/2O64P/xn9KhfygUBVqPXI3gK1cuI
-	UGvVEVIM+uHmQxG6FgRN57xNt7z4qG6VT2+cGzugYZXmthX9aGYBnTbjGD4JDoaWSsd1tvJ9klC/u
-	U5orgAvm9MO/sumxlfI7Mjrku7EtjdWOZc4Jn1Poa1RuzKk7ltmTfO4q8F9/76umByaXI7rn9DEbu
-	WjOeNx6w==;
+	bh=StE6yv7xm+286I4g7RWcb83gyYNv11/og1VLCuJGGrg=; b=g+U/AXhX8u1eDgBpqdk1xR7ga/
+	Kt2hts3Z9eGty/byZBIGMnrQhk/z73YD7BnlLXJwvr6ynDNUvl0iUhKu+cG2shbEd3kuLi992Vcro
+	vmMiuuboTD5xG7X9MClGy68OxbgmVZxEfM4tAgWp1DY+SGyMeUPMCpfN8bw9sC57YlIi3JTqGiFh0
+	hUOoveqNeQM+T12KwEUktnDJFQ4VMR3Wl6HGEQ0el6HwnDTxlhplPqU0nH0qLgaMIoFPXlLLWNOEy
+	xxvq5k4GVM+EAGtMijScxqO2e+VjpG5pl9SoXYrzoimnOXM4XI/KPJcx4fglBC4lXtT0B/Y+oGdS8
+	GioRT/cA==;
 Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzvGk-0000000Ee7g-2dXG;
-	Fri, 28 Aug 2026 12:01:14 +0000
+	id 1wzvJY-0000000EeNr-2cYx;
+	Fri, 28 Aug 2026 12:04:08 +0000
 Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id B423930116A; Fri, 28 Aug 2026 14:01:13 +0200 (CEST)
-Date: Fri, 28 Aug 2026 14:01:13 +0200
+	id 2AC2230030F; Fri, 28 Aug 2026 14:04:08 +0200 (CEST)
+Date: Fri, 28 Aug 2026 14:04:08 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: David Stevens <stevensd@google.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -74,7 +74,7 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
 Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
-Message-ID: <20260828120113.GM687043@noisy.programming.kicks-ass.net>
+Message-ID: <20260828120408.GN687043@noisy.programming.kicks-ass.net>
 References: <20260827232948.2520558-1-stevensd@google.com>
  <20260827232948.2520558-7-stevensd@google.com>
 MIME-Version: 1.0
@@ -96,15 +96,6 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Thu, Aug 27, 2026 at 04:29:44PM -0700, David Stevens wrote:
-> @@ -4295,8 +4296,6 @@ int try_to_wake_up(struct task_struct *p, unsigned int state, int wake_flags)
->  		if (!ttwu_state_match(p, state, &success))
->  			break;
->  
-> -		trace_sched_waking(p);
-> -
->  		/*
->  		 * Ensure we load p->on_rq _after_ p->state, otherwise it would
->  		 * be possible to, falsely, observe p->on_rq == 0 and get stuck
 > @@ -4320,8 +4319,18 @@ int try_to_wake_up(struct task_struct *p, unsigned int state, int wake_flags)
 >  		 * A similar smp_rmb() lives in __task_needs_rq_lock().
 >  		 */
@@ -122,10 +113,8 @@ On Thu, Aug 27, 2026 at 04:29:44PM -0700, David Stevens wrote:
 > +		}
 > +
 > +		trace_sched_waking(p);
->  
->  		/*
->  		 * Ensure we load p->on_cpu _after_ p->on_rq, otherwise it would be
 
-Don't move that tracepoint. That's simply lying about how long it takes
-to wake up the task.
+Absolutely not; ensure_stack_is_present() must not call
+repopulate_stack() while holding ->pi_lock. Not happening.
+
 
