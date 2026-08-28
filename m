@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54CC5C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 10:29:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97403C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 10:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BZ4e3BAM8WtvBRbCVZsWH8ycqPYsmV8yz4lnKdxgUT8=; b=YYgcjudV2Ak40HcLMv9bX5vA+1
-	rGOddirJRxR7+1JgwszHBd6fluECpl+to5rPZMlJb2JoTn6mfga3Q/qQWLP0G7ot2O4Vuvu5VPxuP
-	7ePG4MpY1pS1ToDJ3QqzoZW0eYFki0VWZJNaY/Xnyittteb4gmOUIddkQ9rcANRBl1wtUgd58bpME
-	jTBWm2SycQ2POD9L5cHzEugz4xeJZ38sDHNAdKi3Y+PPWeaZ4nenLhrPJtf7XpdarhND/ZPjyD+7D
-	dNsJRouPTcVlAtEn0t5NvsS1/b1vrdwXAJsyiuft2zI36z/moq+mkBr+XXtUChz0GBQE+vNTIiTG3
-	sI2xokFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I4N8gzh34TI4s9xtonIahAOEOyG3JFBd/5w0IEWxzdw=; b=v6nwHPjKcl0lJStWK8pdqMOEYH
+	w02IV9Kn92nBWoxQzNCles7vCGHTnciXPjKGEqzDpYgGi3PczJb4nyueSqclLJSfgvCfUvDbZ01nr
+	J+N/VzKz7hVtT8D3IRPQBe1R5Kqx46TiAefMg6P2PzM9KdHD2YDe4PgYGfxmh9318RzGHzoJb11DF
+	v6oRT/t+YgNOOmbu1xjHA/hnQFu/J5eiJHh5o6/h5p+OI5w6MwFTbKF59GoW4O/BqNbUwkiNXSjso
+	g1Fc6Oea301Vu6d5f1UW1m/Afe/IUK5kqUz6Vqhhz7DR+LpI9HciVxj+gEUbnL9rNOJGgMXz1QME0
+	uGFQzsiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wztpj-00000005ZnV-0WUs;
-	Fri, 28 Aug 2026 10:29:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wztrz-00000005a5W-1lfS;
+	Fri, 28 Aug 2026 10:31:36 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wztpi-00000005ZnJ-0gYo
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 10:29:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9134E432A3;
-	Fri, 28 Aug 2026 10:29:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE5AB1F000E9;
-	Fri, 28 Aug 2026 10:29:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787912953;
-	bh=BZ4e3BAM8WtvBRbCVZsWH8ycqPYsmV8yz4lnKdxgUT8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DhGlpDidQLzWh8TNGr/UXa4orJ8My0d4LT2wsGgdpjOnnhzGZ/n5uIT/iCbu5EmDF
-	 lJqqcNSK2zLvmd5Qkv8daRHRFsfZuIeVwYl3FT/M7xYJLdXhrLhhfZko3PztO9FogQ
-	 YAvJ+NZILIhxQsjRfP9tuXpisbYiM2utYild6mb3FmAjtWg2hhEORnKJEmP/OLulqP
-	 p2mtYzdgj2tInTJFQal/shyGFUJAETX+NCXLA2Pr4yrhwEVrMRUu5oHZDzBChm6+g8
-	 sLbQHo0DOF6ZKrGyiHq6vOrbsu7ToQf37oxh2kwzuTTNhpQonOEyIcbGYZl2s1T55C
-	 dhTw94bYmiNkw==
-Date: Fri, 28 Aug 2026 12:29:10 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Larisa Grigore <larisa.grigore@oss.nxp.com>
-Cc: NXP S32 Linux Team <s32@nxp.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@sandisk.com>, 
-	Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, 
-	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>, "Martin K . Petersen" <martin.petersen@oracle.com>, 
-	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>, Ajay Neeli <ajay.neeli@amd.com>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Pedro Sousa <pedrom.sousa@synopsys.com>, clizzi@redhat.com, 
-	aruizrui@redhat.com, eballetb@redhat.com, echanude@redhat.com, 
-	linux-scsi@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH 06/10] dt-bindings: ufs: Add compatibles for S32N79 Host
- Controller platform driver
-Message-ID: <20260828-pretty-impetuous-dove-cfcd0e@quoll>
-References: <20260826134048.854748-1-larisa.grigore@oss.nxp.com>
- <20260826134048.854748-7-larisa.grigore@oss.nxp.com>
+	id 1wztrw-00000005a48-2Oq2;
+	Fri, 28 Aug 2026 10:31:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=I4
+	N8gzh34TI4s9xtonIahAOEOyG3JFBd/5w0IEWxzdw=; b=ctmxte7VTqPZfHLDUH
+	qSPlOfreNlz3vxDreQ9CQ7w4dognsWsVp83ezPsYhkSNh4aF3tvtRLKwfkaLP37t
+	+LvNB1+AjJRcyctC4dkIQrHrkWNAMhJ30eyhcgs58+GBAaHN2pSbM9DSX7ZdT89C
+	53RzD6hQpvLn+zhaQPjjvQhSM=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PygvCgAnfhtxY5FqOxmtOg--.5497S2;
+	Fri, 28 Aug 2026 18:31:13 +0800 (CST)
+From: oushixiong1025@163.com
+To: Chunfeng Yun <chunfeng.yun@mediatek.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Shixiong Ou <oushixiong@kylinos.cn>
+Subject: [PATCH] usb: mtu3: fix double dereference in mtu3_log_ep trace event
+Date: Fri, 28 Aug 2026 18:31:10 +0800
+Message-Id: <20260828103110.893817-1-oushixiong1025@163.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260826134048.854748-7-larisa.grigore@oss.nxp.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PygvCgAnfhtxY5FqOxmtOg--.5497S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxJw15CFyxXr1kWFW5Wr4Durg_yoW5Gr1fpa
+	yfuF9rKF4ktwsFvF4kZ34FyFZ0vrWFvFyrKryxu3s5Z3WS9FnxtFs7tryF9ryqkrWrCFy7
+	JF1qkryrX3Wj937anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UKXd8UUUUU=
+X-Originating-IP: [116.128.244.169]
+X-CM-SenderInfo: xrxvxxx0lr0wirqskqqrwthudrp/xtbC-hHzA2qRY3FYVQAA37
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260828_033133_045308_569BFBA7 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,14 +74,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 26, 2026 at 03:40:44PM +0200, Larisa Grigore wrote:
-> Document the device tree binding for the NXP S32N79 DWC-based UFS host
-> controller which is compliant with JESD-223D "Universal Flash Storage Host
-> Controller Interface" v3.0.
+From: Shixiong Ou <oushixiong@kylinos.cn>
 
-Subject - Describe hardware, not platform drivers.
+TP_printk() dereferences the gpd_ring pointer stored in the entry
+via &__entry->gpd_ring->dma, which may point to freed memory when
+the trace record is read later. Store the dma address in the entry
+and print that instead.
 
-Best regards,
-Krzysztof
+This is detected at boot:
+
+  TRACE EVENT ERROR: Event mtu3_gadget_ep_set_halt has double dereference in TP_printk: &REC->gpd_ring->dma
+  ------------[ cut here ]------------
+  Event mtu3_gadget_ep_set_halt has double dereference in TP_printk: &REC->gpd_ring->dma
+  WARNING: kernel/trace/trace_events.c:420 at test_double_dereference+0x138/0x140, CPU#0: swapper/0/0
+  Call trace:
+   test_double_dereference+0x138/0x140 (P)
+   trace_event_raw_init+0x350/0x5b8
+   event_init+0x38/0xb0
+   trace_event_init+0xf4/0x5c8
+   trace_init+0x30/0x6b8
+   start_kernel+0x4a4/0x8d8
+   __primary_switched+0x88/0x98
+  TRACE EVENT ERROR: Event mtu3_gadget_ep_disable has double dereference in TP_printk: &REC->gpd_ring->dma
+  TRACE EVENT ERROR: Event mtu3_gadget_ep_enable has double dereference in TP_printk: &REC->gpd_ring->dma
+
+Fixes: 83374e035b62 ("usb: mtu3: add tracepoints to help debug")
+Signed-off-by: Shixiong Ou <oushixiong@kylinos.cn>
+---
+ drivers/usb/mtu3/mtu3_trace.h | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/usb/mtu3/mtu3_trace.h b/drivers/usb/mtu3/mtu3_trace.h
+index 89870175d635..041e730c88a6 100644
+--- a/drivers/usb/mtu3/mtu3_trace.h
++++ b/drivers/usb/mtu3/mtu3_trace.h
+@@ -224,6 +224,7 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+ 		__field(unsigned int, flags)
+ 		__field(unsigned int, direction)
+ 		__field(struct mtu3_gpd_ring *, gpd_ring)
++		__field(dma_addr_t, gpd_dma)
+ 	),
+ 	TP_fast_assign(
+ 		__assign_str(name);
+@@ -235,12 +236,13 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
+ 		__entry->flags = mep->flags;
+ 		__entry->direction = mep->is_in;
+ 		__entry->gpd_ring = &mep->gpd_ring;
++		__entry->gpd_dma = mep->gpd_ring.dma;
+ 	),
+ 	TP_printk("%s: type %s maxp %d slot %d mult %d burst %d ring %p/%pad flags %c:%c%c%c:%c",
+ 		__get_str(name), usb_ep_type_string(__entry->type),
+ 		__entry->maxp, __entry->slot,
+ 		__entry->mult, __entry->maxburst,
+-		__entry->gpd_ring, &__entry->gpd_ring->dma,
++		__entry->gpd_ring, &__entry->gpd_dma,
+ 		__entry->flags & MTU3_EP_ENABLED ? 'E' : 'e',
+ 		__entry->flags & MTU3_EP_STALL ? 'S' : 's',
+ 		__entry->flags & MTU3_EP_WEDGE ? 'W' : 'w',
+-- 
+2.25.1
+
+No virus found
+		Checked by Hillstone Network AntiVirus
 
 
