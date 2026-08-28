@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA5A0C61DC6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 08:57:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 011A9C61DCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 08:59:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NmNecgl3dEzKBo0fcB6CQFFLk25RGo+EtO4spFjNam0=; b=BnO+16zoVe00E3uPEnDC8NDqaG
-	6AxpLQ7d9gmuYPlwg/bzKkkps9CgBKgNnvvhmY3iKuEav1/NfyqEoGISxjuX/j+Sh13ArzgReEwM1
-	PhXvy5cjGr04PTqt4CpPxXP+YssisoQQCV70OI8UTu7cAe5CMVVItgBGtXbTYG1exQnaT7gQrCHIm
-	5B5szcq5K0MSo4Vk4gxYpXcKCvqzVGUjyb4aGlTM4Sk1wy9gxEAU6AGPGMyEPJriVXng4G17TSUpu
-	LTP16TiNBv2ednKdieL4XpXFQ0yXhTpiJmqi7rE/zJdb1+pX+bnK1csI6wxFmGq3crRDHBdDXIYNa
-	7OdABtzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RoxLjw+FaEv6UBa2auRBgAVGOoEFVhZL0a0SozhjcLw=; b=b9DA6c5SCNHEUP8+rDnC6KlAZ+
+	EAlYKH9utfSXDbzdIVB5RJ+Oszz/02XUTQbPn7vh8xZKettSfLooLRBlILIXW/wqtYd1YKTXbknoC
+	hkBXWSul/bzlo8WS7wO5oJraE85lgITTbz0ezm/hluu4lET77C697kv+sNpEFoqpNdkKidIbjfuV3
+	iA0olZImje+wNsFkRitJh3ZUDUxSTHEghB3452ptzPq6JT2STYJ8MSeBjO5yXKiAyREm6d3VAT9NI
+	y2mmqY7tvDz+CWq/E9AE7qM0D4tUJxXb8he5SXhrb1mG/88AhaIyOifWyBPX5XJQPZ5SO1rYbsf/8
+	P2ikt8CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzsOz-00000005NRW-1ABV;
-	Fri, 28 Aug 2026 08:57:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wzsQc-00000005Nz0-29t6;
+	Fri, 28 Aug 2026 08:59:14 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzsOx-00000005NQy-3L2D;
-	Fri, 28 Aug 2026 08:57:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8CD52435AC;
-	Fri, 28 Aug 2026 08:57:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD9CF1F000E9;
-	Fri, 28 Aug 2026 08:57:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787907451;
-	bh=NmNecgl3dEzKBo0fcB6CQFFLk25RGo+EtO4spFjNam0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YpcghXFJe57+wbV2gel+51M9vulZC77E62BkdAgeapDSkF7bd0ihZ7OA/kf1tX2fD
-	 KArAMN4BsdazzdKOY8CdY8NIBHTNsB0bGvKLB9ec2kL27m9oRZh0lfdwB/TYW1pH7+
-	 ev9AAxIvYdrYa/s/kD/viEp6mtSZ87mFvKSQiimhB0SOziFOM2hYMl/JSZzR+g+46X
-	 8UdSLKYhm2Gu1dJllDel0cl87goNOFsFL0D3p8A1VD4IKmd5r5erzeeySMFCAJAYWM
-	 owYQmDgIqtmM0EdJqCtcnwxO2v87AO71D197A5NdpWYDq+bAzLB8mjVyKLR7hCb1PH
-	 sFeV5h6DwkTHw==
-Date: Fri, 28 Aug 2026 10:57:27 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Andrzej Pietrasiewicz <andrzej.p@collabora.com>, 
-	Hans Verkuil <hverkuil@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Lucas Sinn <lucas.sinn@wolfvision.net>, Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 4/7] media: dt-bindings: Add Rockchip RK3588 VPU720 JPEG
- decoder
-Message-ID: <20260828-chubby-armadillo-of-discourse-13db7a@quoll>
-References: <20260819-rk3588-jpegdec-v1-0-33d74cdf369c@pengutronix.de>
- <20260819-rk3588-jpegdec-v1-4-33d74cdf369c@pengutronix.de>
+	id 1wzsQZ-00000005NwE-2qYi
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Aug 2026 08:59:13 +0000
+Received: by chaosmail.tech (Postfix) id 02C281CC12F;
+	Fri, 28 Aug 2026 08:59:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1787907546;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RoxLjw+FaEv6UBa2auRBgAVGOoEFVhZL0a0SozhjcLw=;
+	b=nL6QT+nwjwg6PuxYnjM+nGrLUtu/emf/TU3ysxGZe7FzJfle3iZ1U8lj31oi/9rULHtU1g
+	Bqp9RmjUpIBGcNYzHGtdJSghFuLXNH35EEMGA83RNwKyyCo2PMDQW+K7YXkCaq8U9LcQMm
+	pOIZ05CM2LRu0nVGLblXAfF8TT98vF8=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Date: Fri, 28 Aug 2026 10:58:58 +0200
+Subject: [PATCH v8 2/6] spmi: apple: Validate FIFO state
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260819-rk3588-jpegdec-v1-4-33d74cdf369c@pengutronix.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260828-t603x-spmi-v8-2-708d4d12e0fd@chaosmail.tech>
+References: <20260828-t603x-spmi-v8-0-708d4d12e0fd@chaosmail.tech>
+In-Reply-To: <20260828-t603x-spmi-v8-0-708d4d12e0fd@chaosmail.tech>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787907544; l=3000;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=D9GL2Z01e0tzF0XHDaJ4oJIv+24UCKbgdDmyLz2zBJU=;
+ b=8j7MnHrtmZC+31X4njuvFJxJGDV+xc088FyfrSYB0wkPdYc/GfPgqU5eo0lIpwoIWa9mlz7mj
+ usxez6H2JtSAcR9dI42Fe8xPdDbwKLUfe4iiYqGBtizt1H0SHRt9Iy+
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260828_015912_197419_401AA2B1 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +79,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 19, 2026 at 12:37:33PM +0200, Sascha Hauer wrote:
-> Add a devicetree binding schema for the VPU720 JPEG hardware decoder on
-> the RK3588, driven by the hantro V4L2 driver.  Documents the single
-> register window (task registers plus the LLP link-table block at offset
-> 0x300), the JPEG decode interrupt, the aclk/hclk clocks, the AXI/AHB
-> resets, the IOMMU and the power domain.
-> 
-> The resets and the power domain are required.  The block sits in
-> RK3588_PD_VDPU and cannot be reached with the domain off, and the driver
-> takes the resets with reset_control_array_get_optional(), so a node
-> without them probes and the hard reset fallback in its error recovery
-> silently does nothing.
-> 
-> The IOMMU stays optional.  The driver never refers to it, it is a platform
-> integration detail, and rockchip-vpu.yaml does not require it for the
-> other codec blocks on this SoC either.
-> 
-> Assisted-by: Claude:claude-opus-5
-> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
-> ---
->  .../bindings/media/rockchip,rk3588-vpu720.yaml     | 93 ++++++++++++++++++++++
->  MAINTAINERS                                        |  1 +
->  2 files changed, 94 insertions(+)
+From: Alba Mendez <me@alba.sh>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Check for data before reading the body of a reply, and check for
+end of data afterwards.
 
-Best regards,
-Krzysztof
+Signed-off-by: Alba Mendez <me@alba.sh>
+Reviewed-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+---
+ drivers/spmi/spmi-apple-controller.c | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+
+diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
+index 376cf682c43e..15721cb41d5c 100644
+--- a/drivers/spmi/spmi-apple-controller.c
++++ b/drivers/spmi/spmi-apple-controller.c
+@@ -21,7 +21,9 @@
+ #define SPMI_STATUS_REG 0
+ #define SPMI_CMD_REG 0x4
+ #define SPMI_RSP_REG 0x8
++#define SPMI_ACT_REG 0xa4
+ 
++#define SPMI_ACT_FIFO_FLUSH BIT(0)
+ #define SPMI_RX_FIFO_EMPTY BIT(24)
+ 
+ #define REG_POLL_INTERVAL_US 10000
+@@ -29,6 +31,7 @@
+ 
+ struct apple_spmi {
+ 	void __iomem *regs;
++	bool prev_fail;
+ };
+ 
+ #define poll_reg(spmi, reg, val, cond) \
+@@ -49,6 +52,7 @@ static int apple_spmi_wait_rx_not_empty(struct spmi_controller *ctrl)
+ 
+ 	ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
+ 	if (ret) {
++		spmi->prev_fail = true;
+ 		dev_err(&ctrl->dev,
+ 			"failed to wait for RX FIFO not empty\n");
+ 		return ret;
+@@ -67,6 +71,11 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 	u8 i;
+ 	int ret;
+ 
++	if (spmi->prev_fail) {
++		writel(SPMI_ACT_FIFO_FLUSH, spmi->regs + SPMI_ACT_REG);
++		spmi->prev_fail = false;
++	}
++
+ 	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
+ 
+ 	ret = apple_spmi_wait_rx_not_empty(ctrl);
+@@ -78,6 +87,12 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 
+ 	/* Read SPMI data reply */
+ 	while (len_read < len) {
++		if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY) {
++			spmi->prev_fail = true;
++			dev_err_ratelimited(&ctrl->dev,
++					    "FIFO lacks reply data, controller stuck?\n");
++			return -EIO;
++		}
+ 		rsp = readl(spmi->regs + SPMI_RSP_REG);
+ 		i = 0;
+ 		while ((len_read < len) && (i < 4)) {
+@@ -86,6 +101,11 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 		}
+ 	}
+ 
++	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
++		dev_warn(&ctrl->dev, "FIFO has extra data\n");
++		spmi->prev_fail = true;
++	}
++
+ 	return 0;
+ }
+ 
+@@ -97,6 +117,11 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 	size_t i = 0, j;
+ 	int ret;
+ 
++	if (spmi->prev_fail) {
++		writel(SPMI_ACT_FIFO_FLUSH, spmi->regs + SPMI_ACT_REG);
++		spmi->prev_fail = false;
++	}
++
+ 	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
+ 
+ 	while (i < len) {
+@@ -115,6 +140,11 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 	/* Discard */
+ 	readl(spmi->regs + SPMI_RSP_REG);
+ 
++	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
++		dev_warn(&ctrl->dev, "FIFO has extra data\n");
++		spmi->prev_fail = true;
++	}
++
+ 	return 0;
+ }
+ 
+
+-- 
+2.55.0
 
 
