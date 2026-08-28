@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 865ECC61DDA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:49:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FF64C61DCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:Cc:
-	To:In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BQN5VETO3LSm+6pEAAZet5I9WEZ1wS31Jtg5LRZKsNw=; b=lKYcxS/JZPttt2t+FU8OjDSme2
-	s6y7pfyRIgBnC/H0nleYmhfY9YEcOUjkMw1oqqj4e9r8emYNAczroxoCllHGhkRtFUzGBLvX+UKe0
-	qEWGMsAyuNrIxkrfNsXCoLIekJxZTVaMY2iQB8BGS7Oi0j1cGhkieaqN7A9NFnzeF5hzd2eu0SIbJ
-	CmIadzd50RV/AA9bGuYCXr2qtx4/j2H2k03z9HF/mbPeANBDKtdsnIvV6x/MPQuOcxPpExEDzkjFy
-	Sd7q7C+2s0a7Clf1X1vQyspGIfjEdnidQA5/P0wOVE0I4HMBl8Y3InAlz5y70+GL1vtbYj+D7XoGZ
-	08dse1zw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J1ieJYPbDNiuX52GiK9zhEf0t/H/HbxHvWGNyCiu+v4=; b=u9KxHsxYKTmFAmn+DJoDtQYody
+	RQTtbNc/a/pw7fwfUAPnvcNBIQjkQTIQtH0xlxN77imYbOv4pk9xiPn9y4FcneXvcpDJ4puId+BP+
+	MM3AQ3r7O1GQ9t0ivN8ti0ZdD5VKxQ89xY4+xJT0vqYw/1jGHqQg9eLmaCBwpv1sMOQpggEy+doe1
+	U+aBLUxCzImj8FZtTCWdbAqEoKr4W8yLLMAg1w5sASpUOvdc1EYqVICpVXG7BEJB5oQygTMc0NXH2
+	U+aKgq0j3eFaWWPS9YxIGkiWApqZmUjGlh2c6oQ/hFK0OL6lt+JQXzbogOZYHqVmfg++8oxTD9RY4
+	dacz6kqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwx6-00000005rpg-3O8X;
+	id 1wzwx6-00000005rpJ-2k9c;
 	Fri, 28 Aug 2026 13:49:04 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwwX-00000005r4X-10DU;
-	Fri, 28 Aug 2026 13:48:31 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260828134827euoutp014a4b5c80ef670eea8290aaf3839255e8~P-Drsb42R2677926779euoutp01-;
-	Fri, 28 Aug 2026 13:48:27 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260828134827euoutp014a4b5c80ef670eea8290aaf3839255e8~P-Drsb42R2677926779euoutp01-
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1787924907;
-	bh=BQN5VETO3LSm+6pEAAZet5I9WEZ1wS31Jtg5LRZKsNw=;
-	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=mMxMN4lfbUqK9rSd3brrfj7ltqkAiDPamjF21dmBvSxpBoGakfQ0UQ5ekE8Sj4UtH
-	 n1aFKQTVAjMmODcJpg5h1m5O4jSQdmOpZqMpCYky96P322SY5Dybu1C7DVsX/qkDMV
-	 cOcH1mTYHkpCvLfWUClMAiaLUUgO+9YPA+u7G1BU=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260828134826eucas1p1ed3a0c4a3207dc01d1ccb33e45ae462e~P-DrXSfyV1888618886eucas1p1x;
-	Fri, 28 Aug 2026 13:48:26 +0000 (GMT)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260828134824eusmtip10b3f7cc48d893bbf2eaecea4eba6c337~P-DpiAXd-2831928319eusmtip1Z;
-	Fri, 28 Aug 2026 13:48:24 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 28 Aug 2026 15:47:31 +0200
-Subject: [PATCH v2 07/15] drm/bridge: inno-hdmi: Add .mode_valid platform
- operation
+	id 1wzwwW-00000005r29-1K0c
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Aug 2026 13:48:30 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=J1ieJYPbDNiuX52GiK9zhEf0t/H/HbxHvWGNyCiu+v4=;
+	b=zP/rGh0dk1BELBjq0Zc4Qfjd02Y7orAY3TV0npmdI4UvF3g7xH08DJENULFGscJ40/322ZqNk
+	DL9Be3+jtvS3SUcQi+I5dwrCRJvdS0l04jxaSb0pxDcMaF/wLdInLyExZIXJ+dXiGn2u0VoRyuw
+	NtzuCm+VCxHXRaV7gGC8Ioc=
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4hWfpf4qYFzJ46ZW;
+	Fri, 28 Aug 2026 21:47:54 +0800 (CST)
+Received: from mscpeml500004.china.huawei.com (unknown [7.188.26.250])
+	by mail.maildlp.com (Postfix) with ESMTPS id AF62740571;
+	Fri, 28 Aug 2026 21:48:17 +0800 (CST)
+Received: from mscphis00949.huawei.com (10.123.66.11) by
+ mscpeml500004.china.huawei.com (7.188.26.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 28 Aug 2026 16:48:17 +0300
+From: Nikita Panov <panov.nikita@huawei.com>
+To: <willy@infradead.org>
+CC: <akpm@linux-foundation.org>, <artem.kuzin@huawei.com>,
+	<catalin.marinas@arm.com>, <cl@gentwo.org>, <david@kernel.org>,
+	<liam@infradead.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
+	<linux@armlinux.org.uk>, <ljs@kernel.org>, <mark.rutland@arm.com>,
+	<mhocko@suse.com>, <panov.nikita@huawei.com>, <rppt@kernel.org>,
+	<surenb@google.com>, <vbabka@kernel.org>, <wangkefeng.wang@huawei.com>,
+	<will@kernel.org>
+Subject: Re: [RFC PATCH 00/18] mm: arm64: Add kernel replication feature
+Date: Fri, 28 Aug 2026 21:35:47 +0800
+Message-ID: <20260828133547.154953-1-panov.nikita@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <apCLzAaw6oRIqbSH@casper.infradead.org>
+References: <apCLzAaw6oRIqbSH@casper.infradead.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260828-jh7110-clean-send-v2-7-331680c8b9d1@samsung.com>
-In-Reply-To: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
-To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
-	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,  Krzysztof
-	Kozlowski <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>, Andrzej
-	Hajda <andrzej.hajda@intel.com>,  Robert Foss <rfoss@kernel.org>,  Laurent
-	Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,  Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, David Airlie <airlied@gmail.com>,  Simona
-	Vetter <simona@ffwll.ch>,  Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,  Lee Jones <lee@kernel.org>, Andy
-	Yan <andy.yan@rock-chips.com>,  Philipp Zabel <p.zabel@pengutronix.de>, 
-	Emil Renner Berthing <kernel@esmil.dk>,  Hal Feng
-	<hal.feng@starfivetech.com>,  Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,  Heiko
-	Stuebner <heiko@sntech.de>, Conor Dooley <conor@kernel.org>,  Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,  Dominique
-	Belhachemi <db@domibel.de>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	mfd@lists.linux.dev, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, Icenowy Zheng <uwu@icenowy.me>,  Andy Yan
-	<andyshrk@163.com>, Marek Szyprowski <m.szyprowski@samsung.com>,  Maud
-	Spierings <maudspierings@gocontroll.com>,  Graham Markall
-	<hello@big-grey.co.uk>,  Michal Wilczynski <m.wilczynski@samsung.com>
-X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20260828134826eucas1p1ed3a0c4a3207dc01d1ccb33e45ae462e
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260828134826eucas1p1ed3a0c4a3207dc01d1ccb33e45ae462e
-X-EPHeader: CA
-X-CMS-RootMailID: 20260828134826eucas1p1ed3a0c4a3207dc01d1ccb33e45ae462e
-References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
-	<CGME20260828134826eucas1p1ed3a0c4a3207dc01d1ccb33e45ae462e@eucas1p1.samsung.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.123.66.11]
+X-ClientProxiedBy: mscpeml500003.china.huawei.com (7.188.49.51) To
+ mscpeml500004.china.huawei.com (7.188.26.250)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_064829_589202_56A78196 
-X-CRM114-Status: GOOD (  17.58  )
+X-CRM114-CacheID: sfid-20260828_064828_831402_E73EAABB 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,79 +83,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-inno_hdmi_bridge_mode_valid() validates the pixel clock against
-hdmi->refclk, but that clock is optional and is only present on
-platforms that describe a "ref" clock. Platforms where the pixel clock
-is produced by a separate device - such as the StarFive JH7110, whose
-PHY is both the clock and the PHY provider - have no "ref" clock, so
-the check is skipped entirely and every mode is reported as valid.
+Hello, thanks for your comment.
 
-A mode the platform cannot generate is then advertised to userspace.
-The subsequent modeset appears to succeed, since the atomic enable path
-cannot fail, and the display silently stays blank.
+On 8/27/2026 10:11 PM, Matthew Wilcox wrote:
+> On Fri, Aug 28, 2026 at 12:11:40AM +0800, Nikita Panov wrote:
+>> There were several prior submissions with some sort of replication
+>> for NUMA systems, including one from our side for the x86_64 platform.
+>> In the last couple years, several research articles related to solving
+>> locality issues on NUMA machines through replication emerged as well.
+>
+> You're lumping a lot of different NUMA replication things together in
+> your list.  That doesn't give me confidence you know what you're doing.
+>
+> I *think* what you're doing here is kernel text replication.  Other
+> architectures (mips, arm) have managed to do this without core MM
+> changes.  Why can't you?
 
-Add a .mode_valid platform operation so platforms can reject modes they
-are unable to drive. Platforms that do not implement it are unaffected.
+Yes, this patch set is for kernel text and rodata replication.
+For arm such technique was not adapted by the Linux kernel.
 
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- drivers/gpu/drm/bridge/inno-hdmi.c | 9 +++++++++
- include/drm/bridge/inno_hdmi.h     | 5 ++++-
- 2 files changed, 13 insertions(+), 1 deletion(-)
+Regarding mips, this is achieved through the TLB lockdown feature.
+For aarch64 this feature is *implementation-defined*. Moreover, looks like
+not a single vendor of modern enterprise aarch64 servers actually implements
+it. But even having this feature would not allow us to implement
+fully function kernel rodata replication:
+1. TLB capacity is very limited, we can't lockdown a significant amount of
+entries. In case if small pages are used for kernel text mapping (64k kernels)
+this approach is not suitable.
+2. Some core modifications are still required - text patching at least should
+be aware of memory replicas. But yes, changes are significantly
+smaller and easier.
+3. Replication in kernel modules most likely will not be possible due to limited
+TLB capacity as well.
 
-diff --git a/drivers/gpu/drm/bridge/inno-hdmi.c b/drivers/gpu/drm/bridge/inno-hdmi.c
-index 952cc55c10f7dc07de6ebe943aae3e54df2edc8d..6da1ef923c99676a2133b4c0e3ba5744195a335c 100644
---- a/drivers/gpu/drm/bridge/inno-hdmi.c
-+++ b/drivers/gpu/drm/bridge/inno-hdmi.c
-@@ -821,6 +821,7 @@ static enum drm_mode_status inno_hdmi_bridge_mode_valid(struct drm_bridge *bridg
- 							const struct drm_display_mode *mode)
- {
- 	struct inno_hdmi *hdmi = bridge_to_inno_hdmi(bridge);
-+	const struct inno_hdmi_plat_ops *plat_ops = hdmi->plat_data->ops;
- 	unsigned long mpixelclk, max_tolerance;
- 	long rounded_refclk;
- 
-@@ -836,6 +837,14 @@ static enum drm_mode_status inno_hdmi_bridge_mode_valid(struct drm_bridge *bridg
- 	if (inno_hdmi_find_phy_config(hdmi, mpixelclk) < 0)
- 		return MODE_CLOCK_HIGH;
- 
-+	if (plat_ops && plat_ops->mode_valid) {
-+		enum drm_mode_status status;
-+
-+		status = plat_ops->mode_valid(hdmi->dev, mode);
-+		if (status != MODE_OK)
-+			return status;
-+	}
-+
- 	if (hdmi->refclk) {
- 		rounded_refclk = clk_round_rate(hdmi->refclk, mpixelclk);
- 		if (rounded_refclk < 0)
-diff --git a/include/drm/bridge/inno_hdmi.h b/include/drm/bridge/inno_hdmi.h
-index 5fca651c56b056d814124aa9c7e91aa7fd7ed1cd..1e9974401c39e3773bb339eaec0b45ff1dd9c975 100644
---- a/include/drm/bridge/inno_hdmi.h
-+++ b/include/drm/bridge/inno_hdmi.h
-@@ -8,15 +8,18 @@
- 
- #include <linux/types.h>
- 
-+#include <drm/drm_modes.h>
-+
- struct device;
- struct drm_encoder;
--struct drm_display_mode;
- struct inno_hdmi;
- struct platform_device;
- 
- struct inno_hdmi_plat_ops {
- 	void (*enable)(struct device *pdev, struct drm_display_mode *mode);
- 	void (*disable)(struct device *pdev);
-+	enum drm_mode_status (*mode_valid)(struct device *pdev,
-+					   const struct drm_display_mode *mode);
- };
- 
- struct inno_hdmi_phy_config {
+Implementation could have been done only for 4K page size kernels
+(maybe for 16K as well, if we do not mind some memory overconsumption),
+only for kernel text and rodata. In addition, locking TLB entries for
+the kernel reduces TLB capacity for user space applications.
+How badly this will affect performance, I cannot say without actual hardware.
 
--- 
-2.34.1
+BR
+Nikita Panov
 
 
