@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED0B6C61DCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 06:52:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 803D2C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 06:52:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xUWryYLszvMhpY9lSrgXJtpEJ4lE5ULsbA6OqmZWLbc=; b=QKVXKYvNPB0wBkJ0FObecs1BCi
-	q0kp8vZdz6+9iV9MxJSAHpJGpudrJqhMWXfU3NYAIkUwKyYsLAZu3krCBbIYkQLYdniCfESYuu6ub
-	vTZWWrTpNtwurI++xy9ATFY9PqyaFHltsdDAZcEijub/Hm9FQ+/OSN7mqJ1XKu+CvRl21FZ9Xfz+9
-	1of9eKMuOM6zC61YHrQ3CPRmi9jqAObN4pSaVloYpUk9a9+ZUMdPKPeSjZl1LxBs7EMGKuqwUyzue
-	W4S/aHdBuzPBDAfV3WsXFmEFAtRrYVwlwhsbjNFmEF//m+PKQ89LFY5ZwuNzBov5OYRWg/EaNDJRS
-	Z8y3J3iA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gbO4NOwH9/N0sj4hUDr89N79K9dV9ulbx0CXUgmsDFg=; b=bzC7Ov9+vNhh11rascELSIQeqP
+	yUyCLbt1en0o9k8+tGjqTb7VmdwJLFcybNTjE5xrKJq4AY+izXsdkVSahWtU1J68ND1rUketudA0G
+	VNp16DcF69DIFBwALvcMNrnkGMbAo4mAwxOa8PYfSRg6sSlCF3P50pMZgCYEfGKhBnr+UqBI4sE6A
+	ZiPwx15M4MqGG8JeOLlyOR1QCPM0FVrcctbC9ZBVEwMYZglF6hV3OWgX/bBXJC/yrb571UDZGNHh8
+	LQwPYMJ+hJevMuljCwazeTG5mOJNMDFakHS2rxY2qPDMzrn8GsAZhPSG/ucv998oo53v9v5x63EwB
+	m6c0EDPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzqS1-00000005Dxo-3m2M;
-	Fri, 28 Aug 2026 06:52:33 +0000
-Received: from mail-m103131191140.xmail.ntesmail.com ([103.131.191.140])
+	id 1wzqS2-00000005Dyh-0UdC;
+	Fri, 28 Aug 2026 06:52:34 +0000
+Received: from mail-m16023653176.xmail.ntesmail.com ([160.236.53.176])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzqRl-00000005Dki-0Odu;
-	Fri, 28 Aug 2026 06:52:18 +0000
+	id 1wzqRm-00000005Dkl-1vMk;
+	Fri, 28 Aug 2026 06:52:20 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4bab2d582;
-	Fri, 28 Aug 2026 14:52:02 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4bab2d593;
+	Fri, 28 Aug 2026 14:52:04 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -56,26 +56,29 @@ Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
 	linux-kernel@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v8 0/5] Add eDP lane mapping support
-Date: Fri, 28 Aug 2026 14:51:48 +0800
-Message-Id: <20260828065153.590802-1-damon.ding@rock-chips.com>
+	Damon Ding <damon.ding@rock-chips.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v8 1/5] dt-bindings: display: bridge: analogix-dp: Add data-lanes support for endpoint
+Date: Fri, 28 Aug 2026 14:51:49 +0800
+Message-Id: <20260828065153.590802-2-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260828065153.590802-1-damon.ding@rock-chips.com>
+References: <20260828065153.590802-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa04723c63e03a8kunm9cc188d518831f
+X-HM-Tid: 0aa04723ce3f03a8kunm9cc188d5188338
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZQ0hNHlYeQhgfHkkYHh
-	4ZQkhWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
+	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZQ0xKS1YdSEhMTh5LTR
+	hISElWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
 	tIVUpLSEpKQk1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=WVMILWJcBzV6eYWE+qJSZLa1Tskj+ReLam0Ikoo9j1KGwt7fsyffBUVJltHgeDr6uavrZT+73hAj8CeSZIVFerWoWgNE6m31ub0cmaIk8z54+D86aTe4RGlkS7ZVl7m9gF0h4RwYoNwCvXBegjWO5UWBDYXfQEUR+MKcpuBuSxc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=xUWryYLszvMhpY9lSrgXJtpEJ4lE5ULsbA6OqmZWLbc=;
+	b=Ljed/ziL5cCkMGijIK1KOZtH1Vil1rHKaBmH09fh4U6BYzvb02NYrmVqlDCeuUV/Kf4kiCI8shVBRFYb5aY5yLaWgfI+s3Wd8eptjWi2SSnSj5HGaGRixQ8Nu4RYZHph3Y5swHR+DfaKbZrUc9s5FksIvNB4i7jId7Gi2WaKRNI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=gbO4NOwH9/N0sj4hUDr89N79K9dV9ulbx0CXUgmsDFg=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_235217_430141_D3412DF9 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20260827_235218_796078_1D1B8F12 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,8 +93,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds configurable eDP physical lane mapping support via
-device tree data-lanes property.
+Add data-lanes property support to the port@1 endpoint for physical
+lane mapping configuration.
 
 Lane mapping is mainly used for below scenarios:
 1. Correct PCB lane swap and differential line routing crossover
@@ -100,34 +103,13 @@ Lane mapping is mainly used for below scenarios:
 3. Support multiple panel hardware variants on the same board
    by configuring data-lanes in device tree only.
 
-The series includes driver implementation and device tree binding
-updates to support custom lane mapping configuration from endpoint
-node, and keeps default linear lane order if no configuration is given.
+Additionally, add data-lanes setting in Rockchip eDP DT node example
+to show actual lane mapping usage.
 
-Patch 1: Add endpoint data-lanes property to analogix-dp binding
-Patch 2: Add DRM DP helper API to validate DP lane counts
-Patch 3: Restore mandatory for samsung,link-rate and samsung,lane-count
-         properties
-Patch 4: Add validation for samsung,lane-count property as preparation
-Patch 5: Implement lane mapping in analogix_dp driver
-
-Damon Ding (5):
-  dt-bindings: display: bridge: analogix-dp: Add data-lanes support for
-    endpoint
-  drm/dp: Add helper to validate DP lane counts
-  drm/bridge: analogix_dp: Restore mandatory samsung DP DT properties
-  drm/bridge: analogix_dp: Add validation for samsung,lane-count
-    property
-  drm/bridge: analogix_dp: Add support for optional data-lanes mapping
-
- .../bindings/display/bridge/analogix,dp.yaml  | 19 +++--
- .../rockchip/rockchip,analogix-dp.yaml        |   1 +
- .../drm/bridge/analogix/analogix_dp_core.c    | 84 ++++++++++++++++++-
- .../drm/bridge/analogix/analogix_dp_core.h    |  4 +-
- .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 15 ++--
- .../gpu/drm/bridge/analogix/analogix_dp_reg.h |  4 +
- include/drm/display/drm_dp_helper.h           |   6 ++
- 7 files changed, 115 insertions(+), 18 deletions(-)
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
 ---
 
@@ -137,35 +119,65 @@ Changes in v2:
 - Update port@1 $ref to /schemas/graph.yaml#/$defs/port-base.
 
 Changes in v3:
-- Squash [PATCH v2 2/3] into [PATCH v2 1/3].
+- Squash data-lanes adjustment of Rockchip eDP DT example into this
+  commit.
 - Add unevaluatedProperties: false to both the port@1 and endpoint
   nodes.
 
-Changes in v4:
-- Add validation for samsung,lane-count property as preparation.
-
-Changes in v5:
-- Add DRM DP helper API to validate DP lane counts.
-- Apply DRM DP helper API to check the validity of samsung,lane-count
-  property.
+Changes in v5
 - Add Acked-by and Reviewed-by tags.
 
-Changes in v6:
-- Add a separate commit to restore mandatory samsung DP DT properties.
-- Add Reviewed-by tag.
-
-Changes in v7:
-- Add Reviewed-by tag.
-
-Changes in v8:
-- Expand the commit message of [PATCH v7 3/5] with the detailed link
-  training failure analysis, and add 'Cc: stable'.
-- Fix reg parameter of of_graph_get_endpoint_by_regs() from -1 to 0
-  in [PATCH v7 5/5].
-- Rename 'tmp' to 'lane_idx' and add comment to explain the lane map
-  fill loop in [PATCH v7 5/5].
+Changes in v8
 - Add Reviewed-by tags.
+---
+ .../bindings/display/bridge/analogix,dp.yaml  | 19 ++++++++++++++-----
+ .../rockchip/rockchip,analogix-dp.yaml        |  1 +
+ 2 files changed, 15 insertions(+), 5 deletions(-)
 
+diff --git a/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml b/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
+index 62f0521b0924..ecf206871cdd 100644
+--- a/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
++++ b/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
+@@ -42,13 +42,22 @@ properties:
+     properties:
+       port@0:
+         $ref: /schemas/graph.yaml#/properties/port
+-        description:
+-          Input node to receive pixel data.
++        description: Input node to receive pixel data.
+ 
+       port@1:
+-        $ref: /schemas/graph.yaml#/properties/port
+-        description:
+-          Port node with one endpoint connected to a dp-connector node.
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: Port node with one endpoint connected to sink device node.
++        properties:
++          endpoint:
++            $ref: /schemas/media/video-interfaces.yaml#
++            unevaluatedProperties: false
++            properties:
++              data-lanes:
++                minItems: 1
++                maxItems: 4
++                items:
++                  enum: [ 0, 1, 2, 3 ]
+ 
+     required:
+       - port@0
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+index 6548f157fd96..39dafe75a680 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+@@ -160,6 +160,7 @@ examples:
+           reg = <1>;
+ 
+           edp_out_panel: endpoint {
++            data-lanes = <0 1>;
+             remote-endpoint = <&panel_in_edp>;
+           };
+         };
 -- 
 2.34.1
 
