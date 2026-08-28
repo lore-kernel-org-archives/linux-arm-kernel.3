@@ -4,111 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94EBEC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 09:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BDEC61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 09:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M4mRPyxUwh4SLKG3nAkInA2mLQaoHKjEcd3Lko4Y3NE=; b=UaLb5QZO5S1AimFvuI7J8SMoS6
-	3tu5YrIWh8WQ2Hd8vr81co3JuuZoURGqsSrajhSgbOtmq7WwZdToooJKt/oYb99BmwO0OZfO7VdUV
-	Z2bHEpgev9i78fEhoZvbPIVSB0p4+YThmwfhGDprtaNE1cHI0jLc+5FSTJrFfHWIXdbiNNrqRYUMx
-	jDhWofM/Oar8fuzXjdQa/8PxZlVpe4I97d5R7JE72sFBVrJysl+1XYAVlXBFjFzW5OtMUdoVA2BD/
-	kXmVCdt02dXWkliv+ahxSzvLXa2S76TuxCM+rWo30nhDYPj/aU1W8MFJhUkUwno/zP32NWV8cqDuY
-	cHYyYjmw==;
+	bh=Ua6znT7OmSltJfH9aeW4q5DuDKAMvEyEChB0EsuImQo=; b=FCXNYDSFtcOFyIW7XMr5+Ox3Yk
+	NG9cs/VDiOFqqMrQxWilgHSC3yAR1S9VrhIjv35T3lQ2+t9UvLhvmkHK1CY2jPNF79ASHhqIh60UI
+	EPpnn9fSEtnEcbygvNThSEu7VPmyoGhC+eLWn/+2lI94c6lm94s+WC+lltEFqKsATn9FaY7pe6p5b
+	MZtK3K9SJYBTej+sUR9LsvozFHl1b9gNTQk//Zi4nCQ3o9ihUqluMlmsqrQ/0xvOB1IKKdCy271FL
+	Rd9/t+USq4tZV6bgGRTF2ROLnN67gDqrOjuNZnNUbEn0Tnu1AL2WJ8JPej72fe5Isc7YRyDePiBqX
+	OkBw9dEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzt05-00000005ULw-41M8;
-	Fri, 28 Aug 2026 09:35:53 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1wzt1t-00000005UdC-1PjQ;
+	Fri, 28 Aug 2026 09:37:45 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzt03-00000005UKe-0LIH
+	id 1wzt1p-00000005Ucg-42JQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 09:35:52 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-69c108fee7fso936568a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 02:35:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787909748; cv=none;
-        d=google.com; s=arc-20260327;
-        b=VzZa2dIzY+SoNOBSZDeCqSCeGSOmKZm6w+yn+06xAGgAKS0n13KA6AF2vf+x0nyGrx
-         flvF76bTNOObjexF/suRgRgXFqqjl7OkLkq0+xPDSQSEj0PzdUsVD08AdS1XNBLydfoH
-         /qKhLQUM0Wx/ZhZZYRuW5S9O35xNL1SxQityRalJCgCcfgn2nSIRiiamIQmS/ULoBljS
-         CHZbl5+uT82z010Wr06Ng2NWhJVw+WEYhRsTAjLV18P8Tvo9VCxDZ9zzY8RbvPzc3Fjj
-         b6HV2vbhDUXv8VnuVCx4z+p6t+a9n4j9O/iqIhY+QgLGaNW7SD+Yx2TnJmkRI6CY4RZp
-         6XkA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=M4mRPyxUwh4SLKG3nAkInA2mLQaoHKjEcd3Lko4Y3NE=;
-        fh=V7HxlEJMf0L8DTFsDFgmx8TyD5SBQgbhe5n9otqirwk=;
-        b=KE0dFdOxO7XOBpnf64SPI5jyxUi1JFYr3jtZ2B6llm5/B7vlKzf7B685Pl1yVThUWX
-         fQSQRVabWQAWvApCDqul47hnQh6A3GtbDvj6dLybn/Y0cFU/wBckWngOBjxvPJ7ZWnPX
-         Rb9Zv15AhkPrkALXQQliRmZdiKTY8TIotOm5YIM06eVXOJvufv3XchgLbRHhij+U3rkN
-         ONPSEKGJSGrQGPoTtnU3AfiI1Y/uasmfjMLQr1ee1NLTQtCpOG5+7f1SVWgLanFV85YQ
-         UpI5O5NOGe8k+ravbZw/rbTW0vjNu7pjAG8p8OP1KF1jWIaH5ouB5QhauKjMmmbc/jYQ
-         hFWQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1787909748; x=1788514548; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=M4mRPyxUwh4SLKG3nAkInA2mLQaoHKjEcd3Lko4Y3NE=;
-        b=DOaoZZFbzA/thQwFB8X5u3XzOttL2TeGnzJfixLlXWzqNhWhHcaQ+9m8SDVWDhcC5K
-         kQ9bBjG2uD9G+elgS+KBAxM8rPUkkzgJxmqT1tDXBML7sE4OINyjeOuRe9FOzae6RBgv
-         MFqFOr42f9jIM+wJJtNaRpQijI9u3PHCdd/GcUxLZ3iHh4x7EARZFmxCqLTVQ84TuiBh
-         WyrZrm+T1LxVS55RBCjDI60Jh39+lUapSy496psvzARwN9MGjx62OZ2Q4mW/2Y5bS0bk
-         7RJPuNRximtx387ASepuRDpr95eE2I4wLsVly+K6khxYibh36hL1MAdfDyx121YJmF94
-         BrWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787909748; x=1788514548;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=M4mRPyxUwh4SLKG3nAkInA2mLQaoHKjEcd3Lko4Y3NE=;
-        b=q2p36o7jky+sq4DrDBSPrr0hyeW//MSLnSsm3liB4Y7pYSPV7evEMYjUZPBUImMiyb
-         l2Pzyrbvi4ORRPndU75WAlLRBHzrK2n22NyyB9wNrOgCLQkIH6R73M1CAWYvcgqZkruI
-         Qhdu9JRRVQLpR4PYywKKoNAVYazGq+zL8DJsF4eZeUs2Qp6QbN7kj6+1A3CeZ4axG1Ew
-         R4G1NNwFpVPFhM1tn649iTvpyqeC3u9PdxY7PDyzB79xim1lamSkgAKbRWIUUFC/MfKW
-         /Cx6/lbNPNaoFnVspswEr/dzMLiv326pG9dS4NaGP/4JrLDlBSWsNAEYoTyPSV9xe8Fh
-         3U+A==
-X-Forwarded-Encrypted: i=1; AHgh+RqYnYJyQLEjbirRiTEz/uUVIa2XAkMEMhtIuCrwXvP5mCJ1s17jmL7TMbVpiB0ZGcLLvRrn/rlyQJ5jSAkwdSSa@lists.infradead.org
-X-Gm-Message-State: AFuF++kLbJ+dWKBwhPBtFcrJrkX3Xp8JLIXkJrS9yL3za3v7Q6uOjfQy
-	3B11MzJGtK3Z+2KTiltdi9A6bGs3vjcNOiXjViGKG7wUe+LN3kpykMtX3JDS5tfwbiffj0AmgEM
-	2PT+9RI2c5iWKhkvp1Cma61PBAkZ2OBMB+ythdadLkA==
-X-Gm-Gg: AR+sD10xcj0gm4cRGskDSSEj1cWd2/hCK8PAer1Brd7Sx/e3H0cByWB22eolWOGyPhh
-	VuxD107kAOur1+l84RkJpn5/m6JPzDRa0aBWjUWQ5Qhkro4aX9h3ZlsiRW9Ik01yHH0aZV5XIGZ
-	ExoP42HBKDC/7Jy3T1hmvKiG+CgKDvz/WHTVIHUI9+4vaaAOAuUhlB416D2wh2YBokWn8XSsZ5Y
-	NxRRrjx6bHYcoVjho+u9VIsSmBY7Wf1A7hNPjEADpX4uq7AhrqSMyJvFtOoF/0CKI8JblL2lkin
-	b+jJa4bt8d/DpcUNdv3VZf/ZPHY7XbLTruziGApAA0Vpvr0Pfwu5YizijazPBOvHqfJGz3p4ed8
-	eBU8=
-X-Received: by 2002:a05:6402:3807:b0:6a5:f528:ff48 with SMTP id
- 4fb4d7f45d1cf-6a60d35736cmr3469549a12.5.1787909747586; Fri, 28 Aug 2026
- 02:35:47 -0700 (PDT)
+	Fri, 28 Aug 2026 09:37:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cUJnNGrl1feeXZs7bIkSi6M9zLjJmHUgQDnYD6k/OOc3rE3oqar8l75CmJOhhioB/d7472BaYs6ksXu8Yn0yWgEwM4zJzuxya7/5g6wFSbm4LWi/a3ffELRHCSJDrOEO5sVqMkDFgUL+ygYO0xSimJzEckdrWgn75VC85X2Kuk+6cbHSio/3i7Ej/tbrwU6OJpleheIf1vz5ZcOri6W0Lv32TTL5hm12YUZEKD6kPKCVYz3u6GGDEaqbBFthEjKR0syImRSDMJUiMa/GSju/u2qpflifzJuhg5JiRzBzuzqwBE1S9DW6s/fBzsiqJBGm14ZgS4epP+qTvJEeQK/Gmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ua6znT7OmSltJfH9aeW4q5DuDKAMvEyEChB0EsuImQo=;
+ b=uywhBrbqs2cyb9odzjHo21mzG24E2eewyR7tU5b1eEuL0x/YX6LDF3wd3cZbf2URCWvcdfDCmH8sqryIag72CwQeERYkz19h3MpAmw7SiJooGwZYpMQwqOP1raNIu8XKLRps9a5O2P6RNKqDw/t4rau9rluuscsbKIaW4uPRh+SliYU9I/ePz/g8q3FDMVtXCRkKZ6sMCWZHg5Sy+kAGq+MLdxxnxryC6d/z+rvNRC8rrfKEFr83B74tjh5mXEGvMzmcEpOvqNKbltQhnMDsbblJkEcqGBg4muEhM9nNmBfJPFdOLyn3mcqBr6hasLlAteMtgXAE1824gOY7Um3nVw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ua6znT7OmSltJfH9aeW4q5DuDKAMvEyEChB0EsuImQo=;
+ b=KgSYmJplGQgVwpPdg28FETBxkSiT8bJUGX/UuLFl2lV6ibjdD0U82bkEfFDoyGqgONlve1+/EDyAJN8VhsrKj95kiLrcBFfEV1c0FQ4MwdBqxS+udnDRJ7wFfJrFEwTqLs11XqQblhI53hcf8zNGce5oS7ARxQmoKtB2IrDCeDoEOTpmEP52sivZmk4h8I+5pPR4WvTGeoUBMUfR+voRc7w+ctuPHU2UXhNHVl5ad6ChBkfsQ2SuSWY0/AdowtKYKb9UtqKf5ZUBufBPvW5vD+qw9vESOCtCxPlq0gXKIlYwRJhfYRVv8DZbSxF6kaePqVrFiThDdD01A24QrmfjvA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10) by DU4PR04MB12009.eurprd04.prod.outlook.com
+ (2603:10a6:10:641::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Fri, 28 Aug
+ 2026 09:37:35 +0000
+Received: from GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49]) by GV2PR04MB12558.eurprd04.prod.outlook.com
+ ([fe80::cd9f:102:ea58:4c49%6]) with mapi id 15.21.0360.008; Fri, 28 Aug 2026
+ 09:37:35 +0000
+Message-ID: <aae98a14-ef53-4880-9c28-43ce56c01806@oss.nxp.com>
+Date: Fri, 28 Aug 2026 12:37:30 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 04/10] scsi: ufs: Move Versal2 M-PHY CREG access helpers
+ into ufshcd-dwc
+To: Bough Chen <haibo.chen@oss.nxp.com>
+Cc: NXP S32 Linux Team <s32@nxp.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Avri Altman <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K . Petersen" <martin.petersen@oracle.com>,
+ Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>,
+ Ajay Neeli <ajay.neeli@amd.com>, Manivannan Sadhasivam <mani@kernel.org>,
+ Pedro Sousa <pedrom.sousa@synopsys.com>, clizzi@redhat.com,
+ aruizrui@redhat.com, eballetb@redhat.com, echanude@redhat.com,
+ linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org
+References: <20260826134048.854748-1-larisa.grigore@oss.nxp.com>
+ <20260826134048.854748-5-larisa.grigore@oss.nxp.com>
+ <20260827104715.a4w7zdrjbp7wwtig@shlinux89>
+Content-Language: en-US
+From: Larisa Ileana Grigore <larisa.grigore@oss.nxp.com>
+In-Reply-To: <20260827104715.a4w7zdrjbp7wwtig@shlinux89>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS4P191CA0051.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:657::23) To GV2PR04MB12558.eurprd04.prod.outlook.com
+ (2603:10a6:150:368::10)
 MIME-Version: 1.0
-References: <GVYP280MB12139AB976CA7ACF49FEB768A1A52@GVYP280MB1213.SWEP280.PROD.OUTLOOK.COM>
- <CAPLW+4kQTUX8QhKnAP7bg=iCw5hhNQZoW7cuOpTdvvAUpGaicg@mail.gmail.com>
- <135d48e7-58ac-48b8-8fa5-c2548e2f3ae9@lineageos.org> <DKZ3X5VUHJSK.1KSJR6K8FATGV@linaro.org>
- <5e8698db-974c-4f8b-8939-bcdf8a47743d@lineageos.org>
-In-Reply-To: <5e8698db-974c-4f8b-8939-bcdf8a47743d@lineageos.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 28 Aug 2026 10:35:36 +0100
-X-Gm-Features: AcwNN1WeoYWQnW4gSKiWJkUeMJcl_oJic8RHhz9v0tzgpLotvnyYe_l98Rtu_To
-Message-ID: <CADrjBPrhaQHyQX-+FEHYH5rCwh9_fMUVsV5fpvRkR-RF_9Erkg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] Exynos850 GPU support
-To: Thomas Turner <tturner@lineageos.org>
-Cc: Alexey Klimov <alexey.klimov@linaro.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, krzysztof.kozlowski@oss.qualcomm.com, 
-	alim.akhtar@samsung.com, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12558:EE_|DU4PR04MB12009:EE_
+X-MS-Office365-Filtering-Correlation-Id: 28f7191f-10f5-4072-01c8-08df04e7fda8
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|23010399003|1800799024|7416014|376014|10067099003|3023799007|22082099003|18002099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: PdgiEzcrdk5klwKsB6ZLCYiZXdjqEY5hiMKg7O8A8z/B442lt5EZX8+AEPs0mw+Hoy48YrIFdf6FL1dmL+z08CIhP3DtbpcpwXQtfvdx+d/JrPOrRBvXQYS1/ltyAQE6RFHotvjBgldn4j5l0n9c3JyVKQxOJaT0uY9vlA5W0FA0OBTEevufgNJ7VzE7eoGOm+8TVbVK1SRcGrsLxbfObsqX+sL8kuHePUwhOWEYTK3t03BTELc4K1CyUlqJu78X4ge+H1LAi3XRI1YdW/IBo2k5SFiLgvwajnBYbjeQz6U/dkdXBJKfCHhR59zhviwfhxcwHFC9sHUfWxtxf1KdFVxUZLEx+ON7wQImskIT7IK6ml3xYdh0vN+sUB5rj3WzqA0frXvWnzgaEKCup71pKKQOzSAtHgmEULuPLLu5SwSPuc7zx8sPlsn61GyxsONt4DsVeMSTFqrOH8b5NXFhUEVJBfva+Fp2d07AXS3RlrgL1ZLKTZ1DKyUZ5VItvzD8yPRLJ1hRod/1B162Y6jPyxF1GgniIXMwTU0sOo9s0HgDDVw+XH8++CAAtZ4rbwcW2j7VooIwXn6E3ie/dTiqCloiy1EdylM1j3LR00Gm8bEs/vJwoBJ6V2tnSH5Gu+YCyXgnWf6CX7P/8ZfkxHILt8cEt/UVh5mRzfnsazWHyJs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12558.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(23010399003)(1800799024)(7416014)(376014)(10067099003)(3023799007)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MUt5TEtTdEd2QVRVUlBxaUlpL0VOeGE4cW1ZclRrMVJyODI2QXRwKzNyUHlP?=
+ =?utf-8?B?Y1hINFl2YVY4U1JrRTdZS2huL3Zxdk1NNWtCZHA1WkNDVGFsT1FKcHpKQlp4?=
+ =?utf-8?B?V0YyNU1iaGFjQXNPVWExaVdUTjU5QjJYVTQrNWpLVHNRQmJWUUxZQURBR1FR?=
+ =?utf-8?B?WTNXUzFrS1czSE9kb1c4U1N3ZmR1aWdkZkJreHl6M3Y4SjNveWlrZXRiMDcy?=
+ =?utf-8?B?bEx3YldiNVhCOHdReXUzUFZOU1RMQ1hDWXJPZTNkdG1qeHBHTXM2emo5My9o?=
+ =?utf-8?B?OUxNS1pSdzdQVHlqd3hiUy9rbkRER2VaWGdYUjg4aUx4WEVoaU9TNDlBb01S?=
+ =?utf-8?B?cEh3SWI1RGxuRnppaDFYMXZ4VWNESktnTy9YdHRnSi9kckhTSzZZaVdzU0Zt?=
+ =?utf-8?B?SmNIdlJvbzlDOHY0b002aHVGVVM3S05QRndZKzJlZVRKajdpbG52RWpnVlVI?=
+ =?utf-8?B?akJvc25iR1kwNE51bXJ1VHBGVTloQ3U0VFNnVlhRdFA3RjFrVkZXT2Nvc1Y1?=
+ =?utf-8?B?M0oxVjNET2lkTEZ6a0pmbjk0Q01VajNuWFZwOGFQb3JFbGNGQUFrcVJ4d2pF?=
+ =?utf-8?B?QWRzb1VtU0xSRTFnRVJZek1BOThhYkRlNlNRRHBUbnRxTFdyMXc4QnQyaEFt?=
+ =?utf-8?B?SmRRcUhQMmhHKzBGQmFkcnJzTG5DR3pHZy93bXVjU1pRSmVMNm9qejgrSVps?=
+ =?utf-8?B?RVdTR1ZsWWhyWG5xbDByTnluQTZJNldyS3hIZEYrWE1YMG5rVVUzdEZUdWNS?=
+ =?utf-8?B?eSs0UlRUc0V6Ti9VRjlZaGpQSTV1WXFoUE1FTHpMamxwb2p5dEhraEpjejFJ?=
+ =?utf-8?B?ejRtcitsclVKNndIdkpRNEZQZ1NmU1hJT0ZIdXVtbkgrSEZpUnZEVlBTb2RX?=
+ =?utf-8?B?a1pFbURMbi9QQjZKcDJ6c05keWxkMXVwR00zRzd1TE9uRjhVcWJKRVRZbVJ1?=
+ =?utf-8?B?bkpKRHpWSVBvNzlpZ1YvTmw3MjhuNE9BQmV2c1JlZ3crNnU0akd3dnozeTJ1?=
+ =?utf-8?B?aW5MdGR3WVlLYllqdUUwcHdrMGptSGtIUjZGZlJUL0pma2RJaHVqVHVFRml5?=
+ =?utf-8?B?TlFTUWo1anROTVRSd1lETzRJQnQ0VnZMSjZWQTBBQUNDYnh6ZGgzSHdtUTRL?=
+ =?utf-8?B?dmx1NHl2QXh2NW5YeWxWc2xSUEx6QU5zNUlTYTVya3VLVlppckVWMDJ3cFFG?=
+ =?utf-8?B?Z2pZVWNQQk0waGxLSm9NbnIyY1RrTE9MZlVLY0J1VisxZVQzaUo2ekV4Vit5?=
+ =?utf-8?B?a2VVcmFTMEZ0SDFkOGNpYnlReU5weEFlRktjMzVLK2NEemg5bGNzcG12VzBZ?=
+ =?utf-8?B?dmFaNm1ORzdGQkVVNUpKRWRmQ1V5a2hrWWRvTTdPeWROemU3bDB0MWppcklC?=
+ =?utf-8?B?Q0JzWEJPcnd4REptL2RLR3BSclVtZGpxT3BaMllZVTQvS0VCZXJjdWRIZCsw?=
+ =?utf-8?B?ZFFXNFZCWkhUd1RFenhaSjE3VXFpVlFLQm5YdDhOTC8reWd4K1NqM25CdVpZ?=
+ =?utf-8?B?UTNDNUFTNklaNER5WlovN3psNWViMXJMVjhOc1JnV1BTYTc5bC9jc3hPWWFr?=
+ =?utf-8?B?eEhsclA2eU16VzJhenQ1eGZQdjM1eWxwMnlhMmt4Y2M2enJyQzFvQW1XenBi?=
+ =?utf-8?B?NGZsK2RqL285dkZkcGViY0VRQ3Y2UTlsMiszOXlSc1F4MWN0eVFXQ1FNc3ZI?=
+ =?utf-8?B?SWowdDNXTHVjZmd1OUxGYjdXRmNTR0dDNFo4VHpvQmdtb0wySFpSRUYrWmRG?=
+ =?utf-8?B?UFQ2ckJXb3lkZjdTM2hSdlh5MVFYdG9UdHY2VWJhTHZrUEJIUWZuYm9VOU1V?=
+ =?utf-8?B?TUxKR29wbWE0ckEvTzExWk9UamxMUXJmNks1VlpXZkNoejFGa0NEd0c1NUEz?=
+ =?utf-8?B?UXVlbnVjeHlNZVd3dEl6Rk5rcDNwdWxHcmRySFFlUEs2ZEZEdkdDSktrRXVr?=
+ =?utf-8?B?bVhaVGhvTlU4cEE3S3FZbjRKTENkTEJpNkVOMWhPMWtVbHJ5dkhFbEdXMVpz?=
+ =?utf-8?B?OFdwNVBQUGZabkJsa3UyZnE3em0zb0Z4Sm1nWnhQM1RwUFBtMkdSMFlUM1M2?=
+ =?utf-8?B?WWwyNzZrelZSK1NyaHczKzJRWHcveXRaUWNGQUx5amgyT04wOE91ck9UdEhT?=
+ =?utf-8?B?WEFDbFJ6WVUwZlp6VU9kWmJKS3B6TXpVcGVsb3IrVFcrNll2UVlxUG8ycW0v?=
+ =?utf-8?B?UWx0eGlPTk1DMGRjTndJNldJQVRqZTJNM1ppNEpGbDlOZ3B5c3BRZ2E1OUJF?=
+ =?utf-8?B?bzhlWUJ5VFFTaEtITUVCdzdJMC9NKzhDT1FqWDNlc0V3aXpoTkdjcVhaQTJ5?=
+ =?utf-8?B?OVFmTUJLY3A2Y0M5NHZPSmxHVFZCUTB3dGxXZzN5OVc0M0xyZlljRnozUHFo?=
+ =?utf-8?Q?NiSJmZ0lH1UdhB2I=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 28f7191f-10f5-4072-01c8-08df04e7fda8
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12558.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2026 09:37:35.2185
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: iQUIGQ3uzX/DDeWzkpb3CL5K5E0dcdPjqNJiCou3GqvnJZALGWr8ClPIM81qsdCb8MKj8KfkeHde0IkVif/8xw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB12009
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_023551_171382_6EE6AF20 
-X-CRM114-Status: GOOD (  39.69  )
+X-CRM114-CacheID: sfid-20260828_023742_159097_66C06F61 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,111 +167,318 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas, Alexey, Sam
+On 8/27/2026 1:47 PM, Bough Chen wrote:
+> On Wed, Aug 26, 2026 at 03:40:42PM +0200, Larisa Grigore wrote:
+>> The AMD Versal Gen 2 UFS platform driver carries local helpers to access
+>> M-PHY control registers through the UniPro CREG interface.
+>>
+>> Move these helpers into the common Synopsys DWC layer as
+>> ufshcd_dwc_phy_reg_read() and ufshcd_dwc_phy_reg_write(). This avoids code
+>> duplication in DWC-based glue drivers and provides a single implementation
+>> for future reuse.
+>> Dropped `static` from `phy_write_attrs` and `phy_read_attrs` since there
+>> is no benefit in keeping them persistent.
+>>
+>> Update the AMD Versal2 glue driver to use the new ufshcd-dwc helpers.
+> 
+> ufs-sprd.c also contain similar code, seems can also re-use this helper, but it
+> do not include ufshcd-dwc.h, Unisoc(sprd) guys can do the further check.
+> 
+> Regards
+> Haibo Chen
 
-On Wed, 26 Aug 2026 at 20:44, Thomas Turner <tturner@lineageos.org> wrote:
->
-> On 26/08/2026 20:02, Alexey Klimov wrote:
-> > On Tue Aug 25, 2026 at 10:05 PM BST, Thomas Turner wrote:
-> >> Hi Sam and Alexey,
-> >>
-> >> On 19/08/2026 20:51, Sam Protsenko wrote:
-> >>> Can you please tell us a bit about how you tested this patch, and on
-> >>> which board? As DPU is not currently enabled on Exynos850 SoC, I'm not
-> >>> sure how exactly GPU can be useful. If you have a use case or a
-> >>> testing procedure we can run on the E850-96 board, please share.
-> >>>
-> >>
-> >> Sam, Alexey could you please test GPU on the E850-96 board by following
-> >> these instructions:
-> >>
-> >> 1) Apply this patch series locally
-> >> 2) Change status="disabled"; to status="okay";
-> >> 3) Make sure these configs are enabled:
-> >> CONFIG_DRM_SIMPLEDRM=y
-> >> CONFIG_DRM_PANFROST=y
-> >> 4) In terms of regulators we set up a basic mali regulator via our
-> >> secondary bootloader [1] and configured with this dts setup [2], NOTE
-> >> you may be able to get away with a dummy regulator so try that first.
-> >> If not I am sure you can replicate something simple with u-boot PMIC.
-> >> 5) Boot a GUI, I saw Debian was used for the bring-up, that should work
-> >> 6) Run the following command:
-> >> $ dmesg | grep "panfrost"
-> >> 7) Compare that to the output at [3]
-> >
-> > Your email subject still seems to be null.
-> >
-> > [   15.206193] panfrost 11500000.gpu: clock rate = 377000000
-> > [   15.206322] panfrost 11500000.gpu: error -ENODEV: _opp_set_regulators: no regulator (mali) found
-> > [   15.206513] panfrost 11500000.gpu: supply mali not found, using dummy regulator
-> > [   15.206840] panfrost 11500000.gpu: mali-g52 id 0x7212 major 0x0 minor 0x0 status 0x0
-> > [   15.213137] panfrost 11500000.gpu: features: 00000000,00000df7, issues: 00000000,00000400
-> > [   15.221271] panfrost 11500000.gpu: Features: L2:0x07100206 Shader:0x00000000 Tiler:0x00000809 Mem:0x1 MMU:0x00002830 AS:0xff JS:0x7
-> > [   15.233080] panfrost 11500000.gpu: shader_present=0x1 l2_present=0x1
-> > [   15.240488] panfrost 11500000.gpu: [drm] Using Transparent Hugepage
-> > [   15.250497] [drm] Initialized panfrost 1.6.0 for 11500000.gpu on minor 0
->
-> You seemed to have missed out step (4) of my instructions, if you set-up
-> regulators correctly this error will disappear.
->
-> > [root@e850usb ~]# uname -a
-> > Linux e850usb 7.2.0-next-20260825-00009-g647b48e80572-dirty #8 SMP PREEMPT Wed Aug 26 17:05:45 BST 2026 aarch64 GNU/Linux
-> >
-> > I have different DRM_SIMPLEDRM options and related  enabled but nothing
-> > pops up via HDMI (at least I tried simple xorg-server things).
-> > Is it possible that your bootloader initilises some framebuffer and inserts
-> > it into DTB that passed to kernel? Or you have some other pieces in
-> > kernel/dt that implement missing functionality?
->
-> Our bootloader does intialise a framebuffer, and we have a node in our device
-> tree which makes it usable. Not sure how exactly the e850-96 device sets
-> things up but you can take a look at our fork if you want, [1].
->
-> > Here it seems there are no outputs:
-> > [root@e850usb ~]# ls -al /dev/fb*
-> > ls: cannot access '/dev/fb*': No such file or directory
-> >
-> > and there no simle framebuffer or related logs. "DPU is not currently
-> > enabled on Exynos850 SoC" looks like the reason.
->
-> hm, I am pretty sure our bootloader configures DPU for us so that might be
-> why it works for us and not for you.
+Thanks Haibo! Yes, I noticed ufs-sprd.c has similar code, but I didn't 
+want to touch it since I have no Unisoc(sprd) hardware to test on and 
+don't want to risk introducing a regression there.
 
-@Alexey - I think the LK bootloader leaves DPU framebuffer updates off
-to ensure a seamless handover from the bootsplash to the full DRM
-driver. We have the following DPU poke in gs101 (which if I recall
-correctly we got the inspiration for this from uniloader)
-https://gitlab.com/LinaroLtd/googlelt/meta-bsp-google-gs/-/commit/4057117e4bc6e08fbb6ff281cbfef8782a68ec0a
+Regards,
+Larisa
+>> Signed-off-by: Larisa Grigore <larisa.grigore@oss.nxp.com>
+>> ---
+>>   drivers/ufs/host/ufs-amd-versal2.c | 85 ++++++------------------------
+>>   drivers/ufs/host/ufshcd-dwc.c      | 77 +++++++++++++++++++++++++++
+>>   drivers/ufs/host/ufshcd-dwc.h      |  2 +
+>>   3 files changed, 96 insertions(+), 68 deletions(-)
+>>
+>> diff --git a/drivers/ufs/host/ufs-amd-versal2.c b/drivers/ufs/host/ufs-amd-versal2.c
+>> index 0d4d5e98ad65..c7da95999c85 100644
+>> --- a/drivers/ufs/host/ufs-amd-versal2.c
+>> +++ b/drivers/ufs/host/ufs-amd-versal2.c
+>> @@ -43,57 +43,6 @@ struct ufs_versal2_host {
+>>   	u8 ctlecompval1;
+>>   };
+>>   
+>> -static int ufs_versal2_phy_reg_write(struct ufs_hba *hba, u32 addr, u32 val)
+>> -{
+>> -	static struct ufshcd_dme_attr_val phy_write_attrs[] = {
+>> -		{ UIC_ARG_MIB(CBCREGADDRLSB), 0, DME_LOCAL },
+>> -		{ UIC_ARG_MIB(CBCREGADDRMSB), 0, DME_LOCAL },
+>> -		{ UIC_ARG_MIB(CBCREGWRLSB), 0, DME_LOCAL },
+>> -		{ UIC_ARG_MIB(CBCREGWRMSB), 0, DME_LOCAL },
+>> -		{ UIC_ARG_MIB(CBCREGRDWRSEL), 1, DME_LOCAL },
+>> -		{ UIC_ARG_MIB(VS_MPHYCFGUPDT), 1, DME_LOCAL }
+>> -	};
+>> -
+>> -	phy_write_attrs[0].mib_val = (u8)addr;
+>> -	phy_write_attrs[1].mib_val = (u8)(addr >> 8);
+>> -	phy_write_attrs[2].mib_val = (u8)val;
+>> -	phy_write_attrs[3].mib_val = (u8)(val >> 8);
+>> -
+>> -	return ufshcd_dwc_dme_set_attrs(hba, phy_write_attrs, ARRAY_SIZE(phy_write_attrs));
+>> -}
+>> -
+>> -static int ufs_versal2_phy_reg_read(struct ufs_hba *hba, u32 addr, u32 *val)
+>> -{
+>> -	u32 mib_val;
+>> -	int ret;
+>> -	static struct ufshcd_dme_attr_val phy_read_attrs[] = {
+>> -		{ UIC_ARG_MIB(CBCREGADDRLSB), 0, DME_LOCAL },
+>> -		{ UIC_ARG_MIB(CBCREGADDRMSB), 0, DME_LOCAL },
+>> -		{ UIC_ARG_MIB(CBCREGRDWRSEL), 0, DME_LOCAL },
+>> -		{ UIC_ARG_MIB(VS_MPHYCFGUPDT), 1, DME_LOCAL }
+>> -	};
+>> -
+>> -	phy_read_attrs[0].mib_val = (u8)addr;
+>> -	phy_read_attrs[1].mib_val = (u8)(addr >> 8);
+>> -
+>> -	ret = ufshcd_dwc_dme_set_attrs(hba, phy_read_attrs, ARRAY_SIZE(phy_read_attrs));
+>> -	if (ret)
+>> -		return ret;
+>> -
+>> -	ret = ufshcd_dme_get(hba, UIC_ARG_MIB(CBCREGRDLSB), &mib_val);
+>> -	if (ret)
+>> -		return ret;
+>> -
+>> -	*val = mib_val;
+>> -	ret = ufshcd_dme_get(hba, UIC_ARG_MIB(CBCREGRDMSB), &mib_val);
+>> -	if (ret)
+>> -		return ret;
+>> -
+>> -	*val |= (mib_val << 8);
+>> -
+>> -	return 0;
+>> -}
+>> -
+>>   static int ufs_versal2_enable_phy(struct ufs_hba *hba)
+>>   {
+>>   	u32 offset, reg;
+>> @@ -162,64 +111,64 @@ static int ufs_versal2_setup_phy(struct ufs_hba *hba)
+>>   	u32 reg;
+>>   
+>>   	/* Bypass RX-AFE offset calibrations (ATT/CTLE) */
+>> -	ret = ufs_versal2_phy_reg_read(hba, FAST_FLAGS(0), &reg);
+>> +	ret = ufshcd_dwc_phy_reg_read(hba, FAST_FLAGS(0), &reg);
+>>   	if (ret)
+>>   		return ret;
+>>   
+>>   	reg |= MPHY_FAST_RX_AFE_CAL;
+>> -	ret = ufs_versal2_phy_reg_write(hba, FAST_FLAGS(0), reg);
+>> +	ret = ufshcd_dwc_phy_reg_write(hba, FAST_FLAGS(0), reg);
+>>   	if (ret)
+>>   		return ret;
+>>   
+>> -	ret = ufs_versal2_phy_reg_read(hba, FAST_FLAGS(1), &reg);
+>> +	ret = ufshcd_dwc_phy_reg_read(hba, FAST_FLAGS(1), &reg);
+>>   	if (ret)
+>>   		return ret;
+>>   
+>>   	reg |= MPHY_FAST_RX_AFE_CAL;
+>> -	ret = ufs_versal2_phy_reg_write(hba, FAST_FLAGS(1), reg);
+>> +	ret = ufshcd_dwc_phy_reg_write(hba, FAST_FLAGS(1), reg);
+>>   	if (ret)
+>>   		return ret;
+>>   
+>>   	/* Program ATT and CTLE compensation values */
+>>   	if (host->attcompval0) {
+>> -		ret = ufs_versal2_phy_reg_write(hba, RX_AFE_ATT_IDAC(0), host->attcompval0);
+>> +		ret = ufshcd_dwc_phy_reg_write(hba, RX_AFE_ATT_IDAC(0), host->attcompval0);
+>>   		if (ret)
+>>   			return ret;
+>>   	}
+>>   
+>>   	if (host->attcompval1) {
+>> -		ret = ufs_versal2_phy_reg_write(hba, RX_AFE_ATT_IDAC(1), host->attcompval1);
+>> +		ret = ufshcd_dwc_phy_reg_write(hba, RX_AFE_ATT_IDAC(1), host->attcompval1);
+>>   		if (ret)
+>>   			return ret;
+>>   	}
+>>   
+>>   	if (host->ctlecompval0) {
+>> -		ret = ufs_versal2_phy_reg_write(hba, RX_AFE_CTLE_IDAC(0), host->ctlecompval0);
+>> +		ret = ufshcd_dwc_phy_reg_write(hba, RX_AFE_CTLE_IDAC(0), host->ctlecompval0);
+>>   		if (ret)
+>>   			return ret;
+>>   	}
+>>   
+>>   	if (host->ctlecompval1) {
+>> -		ret = ufs_versal2_phy_reg_write(hba, RX_AFE_CTLE_IDAC(1), host->ctlecompval1);
+>> +		ret = ufshcd_dwc_phy_reg_write(hba, RX_AFE_CTLE_IDAC(1), host->ctlecompval1);
+>>   		if (ret)
+>>   			return ret;
+>>   	}
+>>   
+>> -	ret = ufs_versal2_phy_reg_read(hba, FW_CALIB_CCFG(0), &reg);
+>> +	ret = ufshcd_dwc_phy_reg_read(hba, FW_CALIB_CCFG(0), &reg);
+>>   	if (ret)
+>>   		return ret;
+>>   
+>>   	reg |= MPHY_FW_CALIB_CFG_VAL;
+>> -	ret = ufs_versal2_phy_reg_write(hba, FW_CALIB_CCFG(0), reg);
+>> +	ret = ufshcd_dwc_phy_reg_write(hba, FW_CALIB_CCFG(0), reg);
+>>   	if (ret)
+>>   		return ret;
+>>   
+>> -	ret = ufs_versal2_phy_reg_read(hba, FW_CALIB_CCFG(1), &reg);
+>> +	ret = ufshcd_dwc_phy_reg_read(hba, FW_CALIB_CCFG(1), &reg);
+>>   	if (ret)
+>>   		return ret;
+>>   
+>>   	reg |= MPHY_FW_CALIB_CFG_VAL;
+>> -	return ufs_versal2_phy_reg_write(hba, FW_CALIB_CCFG(1), reg);
+>> +	return ufshcd_dwc_phy_reg_write(hba, FW_CALIB_CCFG(1), reg);
+>>   }
+>>   
+>>   static int ufs_versal2_phy_init(struct ufs_hba *hba)
+>> @@ -406,7 +355,7 @@ static int ufs_versal2_phy_ratesel(struct ufs_hba *hba, u32 activelanes, u32 rx_
+>>   
+>>   	for (lane = 0; lane < activelanes; lane++) {
+>>   		time_left = TIMEOUT_MICROSEC;
+>> -		ret = ufs_versal2_phy_reg_read(hba, RX_OVRD_IN_1(lane), &reg);
+>> +		ret = ufshcd_dwc_phy_reg_read(hba, RX_OVRD_IN_1(lane), &reg);
+>>   		if (ret)
+>>   			return ret;
+>>   
+>> @@ -416,12 +365,12 @@ static int ufs_versal2_phy_ratesel(struct ufs_hba *hba, u32 activelanes, u32 rx_
+>>   		else
+>>   			reg &= ~MPHY_RX_OVRD_VAL;
+>>   
+>> -		ret = ufs_versal2_phy_reg_write(hba, RX_OVRD_IN_1(lane), reg);
+>> +		ret = ufshcd_dwc_phy_reg_write(hba, RX_OVRD_IN_1(lane), reg);
+>>   		if (ret)
+>>   			return ret;
+>>   
+>>   		do {
+>> -			ret = ufs_versal2_phy_reg_read(hba, RX_PCS_OUT(lane), &reg);
+>> +			ret = ufshcd_dwc_phy_reg_read(hba, RX_PCS_OUT(lane), &reg);
+>>   			if (ret)
+>>   				return ret;
+>>   
+>> @@ -483,12 +432,12 @@ static int ufs_versal2_pwr_change_notify(struct ufs_hba *hba, enum ufs_notify_ch
+>>   
+>>   		/* Remove rx_req override */
+>>   		for (lane = 0; lane < dev_req_params->lane_tx; lane++) {
+>> -			ret = ufs_versal2_phy_reg_read(hba, RX_OVRD_IN_1(lane), &reg);
+>> +			ret = ufshcd_dwc_phy_reg_read(hba, RX_OVRD_IN_1(lane), &reg);
+>>   			if (ret)
+>>   				return ret;
+>>   
+>>   			reg &= ~MPHY_RX_OVRD_EN;
+>> -			ret = ufs_versal2_phy_reg_write(hba, RX_OVRD_IN_1(lane), reg);
+>> +			ret = ufshcd_dwc_phy_reg_write(hba, RX_OVRD_IN_1(lane), reg);
+>>   			if (ret)
+>>   				return ret;
+>>   		}
+>> diff --git a/drivers/ufs/host/ufshcd-dwc.c b/drivers/ufs/host/ufshcd-dwc.c
+>> index 21b1cf912dcc..45920793d1a8 100644
+>> --- a/drivers/ufs/host/ufshcd-dwc.c
+>> +++ b/drivers/ufs/host/ufshcd-dwc.c
+>> @@ -141,6 +141,83 @@ int ufshcd_dwc_link_startup_notify(struct ufs_hba *hba,
+>>   }
+>>   EXPORT_SYMBOL(ufshcd_dwc_link_startup_notify);
+>>   
+>> +/**
+>> + * ufshcd_dwc_phy_reg_write - Write a DWC M-PHY CREG register
+>> + * @hba: private structure pointer
+>> + * @addr: M-PHY CREG register address
+>> + * @val: value to write
+>> + *
+>> + * Write a 16-bit M-PHY CREG register through the Synopsys DesignWare
+>> + * UniPro indirect register access interface.
+>> + *
+>> + * Return: 0 on success, non-zero value on failure.
+>> + */
+>> +int ufshcd_dwc_phy_reg_write(struct ufs_hba *hba, u32 addr, u32 val)
+>> +{
+>> +	struct ufshcd_dme_attr_val phy_write_attrs[] = {
+>> +		{ UIC_ARG_MIB(CBCREGADDRLSB), 0, DME_LOCAL },
+>> +		{ UIC_ARG_MIB(CBCREGADDRMSB), 0, DME_LOCAL },
+>> +		{ UIC_ARG_MIB(CBCREGWRLSB), 0, DME_LOCAL },
+>> +		{ UIC_ARG_MIB(CBCREGWRMSB), 0, DME_LOCAL },
+>> +		{ UIC_ARG_MIB(CBCREGRDWRSEL), 1, DME_LOCAL },
+>> +		{ UIC_ARG_MIB(VS_MPHYCFGUPDT), 1, DME_LOCAL }
+>> +	};
+>> +
+>> +	phy_write_attrs[0].mib_val = (u8)addr;
+>> +	phy_write_attrs[1].mib_val = (u8)(addr >> 8);
+>> +	phy_write_attrs[2].mib_val = (u8)val;
+>> +	phy_write_attrs[3].mib_val = (u8)(val >> 8);
+>> +
+>> +	return ufshcd_dwc_dme_set_attrs(hba, phy_write_attrs,
+>> +					ARRAY_SIZE(phy_write_attrs));
+>> +}
+>> +EXPORT_SYMBOL(ufshcd_dwc_phy_reg_write);
+>> +
+>> +/**
+>> + * ufshcd_dwc_phy_reg_read - Read a DWC M-PHY CREG register
+>> + * @hba: private structure pointer
+>> + * @addr: M-PHY CREG register address
+>> + * @val: pointer where the read value is stored
+>> + *
+>> + * Read a 16-bit M-PHY CREG register through the Synopsys DesignWare
+>> + * UniPro indirect register access interface.
+>> + *
+>> + * Return: 0 on success, non-zero value on failure.
+>> + */
+>> +int ufshcd_dwc_phy_reg_read(struct ufs_hba *hba, u32 addr, u32 *val)
+>> +{
+>> +	struct ufshcd_dme_attr_val phy_read_attrs[] = {
+>> +		{ UIC_ARG_MIB(CBCREGADDRLSB), 0, DME_LOCAL },
+>> +		{ UIC_ARG_MIB(CBCREGADDRMSB), 0, DME_LOCAL },
+>> +		{ UIC_ARG_MIB(CBCREGRDWRSEL), 0, DME_LOCAL },
+>> +		{ UIC_ARG_MIB(VS_MPHYCFGUPDT), 1, DME_LOCAL }
+>> +	};
+>> +	u32 mib_val;
+>> +	int ret;
+>> +
+>> +	phy_read_attrs[0].mib_val = (u8)addr;
+>> +	phy_read_attrs[1].mib_val = (u8)(addr >> 8);
+>> +
+>> +	ret = ufshcd_dwc_dme_set_attrs(hba, phy_read_attrs,
+>> +				       ARRAY_SIZE(phy_read_attrs));
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = ufshcd_dme_get(hba, UIC_ARG_MIB(CBCREGRDLSB), &mib_val);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	*val = mib_val;
+>> +	ret = ufshcd_dme_get(hba, UIC_ARG_MIB(CBCREGRDMSB), &mib_val);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	*val |= (mib_val << 8);
+>> +
+>> +	return 0;
+>> +}
+>> +EXPORT_SYMBOL(ufshcd_dwc_phy_reg_read);
+>> +
+>>   MODULE_AUTHOR("Joao Pinto <Joao.Pinto@synopsys.com>");
+>>   MODULE_DESCRIPTION("UFS Host driver for Synopsys Designware Core");
+>>   MODULE_LICENSE("Dual BSD/GPL");
+>> diff --git a/drivers/ufs/host/ufshcd-dwc.h b/drivers/ufs/host/ufshcd-dwc.h
+>> index 0406f2bb576b..d8673cd54d4c 100644
+>> --- a/drivers/ufs/host/ufshcd-dwc.h
+>> +++ b/drivers/ufs/host/ufshcd-dwc.h
+>> @@ -45,4 +45,6 @@ int ufshcd_dwc_link_startup_notify(struct ufs_hba *hba,
+>>   					enum ufs_notify_change_status status);
+>>   int ufshcd_dwc_dme_set_attrs(struct ufs_hba *hba,
+>>   				const struct ufshcd_dme_attr_val *v, int n);
+>> +int ufshcd_dwc_phy_reg_write(struct ufs_hba *hba, u32 addr, u32 val);
+>> +int ufshcd_dwc_phy_reg_read(struct ufs_hba *hba, u32 addr, u32 *val);
+>>   #endif /* End of Header */
+>> -- 
+>> 2.43.0
+>>
 
-So for the E850 board, you likely need to do something similar, either
-in LK or like the above poke. If UniLoader is already doing this for
-the e850 SoC then hopefully you can check there to see the address of
-the register etc. That should then able you to have simple-framebuffer
-enabled.
-
->
-> > Panfrost itself seems to be alive though:
-> >
-> > [root@e850usb ~]# eglinfo -B
-> > GBM platform:
-> > EGL API version: 1.5
-> > EGL vendor string: Mesa Project
-> > EGL version string: 1.5
-> > EGL client APIs: OpenGL OpenGL_ES
-> > OpenGL core profile vendor: Mesa
-> > OpenGL core profile renderer: Mali-G52 MC1 (Panfrost)
-> > OpenGL core profile version: 3.1 Mesa 26.2.1-arch1.1
-> > OpenGL core profile shading language version: 1.40
-> > OpenGL compatibility profile vendor: Mesa
-> > OpenGL compatibility profile renderer: Mali-G52 MC1 (Panfrost)
-> > OpenGL compatibility profile version: 3.1 Mesa 26.2.1-arch1.1
-> > OpenGL compatibility profile shading language version: 1.40
-> > OpenGL ES profile vendor: Mesa
-> > OpenGL ES profile renderer: Mali-G52 MC1 (Panfrost)
-> > OpenGL ES profile version: OpenGL ES 3.1 Mesa 26.2.1-arch1.1
-> > OpenGL ES profile shading language version: OpenGL ES GLSL ES 3.10
-
-That's really cool!
-
-Peter.
 
