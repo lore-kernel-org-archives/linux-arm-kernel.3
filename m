@@ -4,94 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C72E8C61DCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 15:59:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C30C7C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 16:04:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MjQ31cfuQKa5k82uaGT/Cyx34wNELqTN6/K1Rh0XD+c=; b=Ko+nSnp8JL4H438zbQX+dKml6n
-	b4JkHJhgpxzZEfaXu31lf1nY9S5AiDwMZA9W1x2wS8sPyhm/jnb8S02hB3SrFV+vkt4Sdx2WZy1ag
-	NUGWekS3tcWegUzaZqxXId7f58psVfsJzJuKLadq9R90OAJ4mzRKMrZ8TH7SrBZ6jQ/zi5LRazTan
-	MpFbSeztZvnK78otqlujihQe/jjU19g3OyVS17rPPUnyKeEaruB8PKZqTGSzK1Wzbj/Nt+5QALhaZ
-	RfK8jR+YWBeln4Fm51rw8z3GptaAvSA4Mb6fGRZpA/Z1g9SIdJlFWlcak8dXLiBgZj/ivoqFSo4/7
-	WnRelDeA==;
+	bh=dgH8c3K41onSn3JaUmFd6PfY9U5p0W8ii5soacR13YA=; b=ZiZeIOR3PzOMT54pMcvltXS0kA
+	clpdbwDlGrvYGqO3vezP/38dxqyypt8+CSi7RxPHNsIYaRBD4o3wGP5GVhsU+nW1uhlS1GvQZDa5l
+	w9snOhx/KEZmNxbEHT+1w3sIy//daanRzaQzwvahx3WPwmKirnHr1OG8EI7A8HyixkiZ0MCLyrPZc
+	zjtd4RmfLzWb++mtIgIr0yvaGCXmeSxVDKBNJbtmIhqLOfWA1DrjscKakGB+dZKSM1xOxrPRXLPv9
+	BtA5K0B1ScxQXLbkognxDA7POXoG1PdGG1NQLYh2foA5KMl+1NPW6wCLwUiV+SuknOGx877gQZVmF
+	KMVYXlPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzyyv-00000006A1m-2hJT;
-	Fri, 28 Aug 2026 15:59:05 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wzz3z-00000006AY4-1Q79;
+	Fri, 28 Aug 2026 16:04:19 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzyyr-000000069yi-1gDi
+	id 1wzz3x-00000006AXh-0jAJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 15:59:04 +0000
-Date: Fri, 28 Aug 2026 17:58:42 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1787932724;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MjQ31cfuQKa5k82uaGT/Cyx34wNELqTN6/K1Rh0XD+c=;
-	b=o2SzTzUsSOuV/AWS4fKiiKyn/1LhaPYC6Yfdi9fN77edZ6oncnntoZNhDlY+g5FN0uIwEw
-	zDLTrEojOcnJRJhRQAb5HCWHd7BbTk9sIN0zPDHE7URywDDDKInIzLBonFQjkJNHVimBoL
-	kWzGMCLwRRmRuqGEMRRmC+06LriM6fJe9MbsK+pBSojb6eX8G3SqLu20XaIhwBNbTl5OoI
-	9/FFI5P8JkXnl0wGKMTDSeUYaukHKz3pwoo7a0R18G6ypphqw6MC2H45rnhcZbOQ/ClAs7
-	vMj0j3h3AzvP+zmWK/m3B+PnqHU7/qIvx3PIK31jHYeE3+dcsciApSaUFtlioA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1787932724;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MjQ31cfuQKa5k82uaGT/Cyx34wNELqTN6/K1Rh0XD+c=;
-	b=Eit7LjiABhdeRfzT4glURHG1RCeV2ZAjuv33J9ECHEaXD7arcRHH/58kzIbGZWU8KSPYLR
-	Vh8qqix9q1P5ueBA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: David Stevens <stevensd@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Dave Chinner <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Muchun Song <muchun.song@linux.dev>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Kees Cook <kees@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>, suleiman@google.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
-Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
-Message-ID: <20260828155842.kIh5T7iS@linutronix.de>
-References: <20260827232948.2520558-1-stevensd@google.com>
- <20260827232948.2520558-7-stevensd@google.com>
- <20260828133620._x2XfJR_@linutronix.de>
- <20260828135947.GU776954@noisy.programming.kicks-ass.net>
- <20260828142552.GN788244@noisy.programming.kicks-ass.net>
+	Fri, 28 Aug 2026 16:04:18 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67SDVcqL2186123;
+	Fri, 28 Aug 2026 16:04:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=dgH8c3K41onSn3JaUmFd6PfY9U5p0W
+	8ii5soacR13YA=; b=pnXUkCN3smJhN/Xhj5/T4u6z9CmxFA6JvwVrwTGjBe7was
+	MRFrmBoZlfHDK3LEBqiGCRc8KhDZ/bWew5u6BLLdP1uWbtWwlgRiTLGjP6KJ0r4X
+	q0jppp5CVV8p+DN9U6k9mkJN0jZuiAhIIfT4d9RDxZ/VFQDCbg2Qsfo5vQGChg+6
+	OEm+x98MEZhiHQ0u3aCcYeX6lLoAWR65O3cbbntx90rz4r8RqEr9QMZHelbtRUsH
+	QvNeHYBSOnHJNFuCMiPW1rQLyTvnaJHDGGWLZIOV2bPqiXP59W3Z+RfTQu0tWdT8
+	I8trrYyI2z4NV8oYxJ4Efb5fj4KfoVmtT5XTltNw==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4g73dxw67a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 28 Aug 2026 16:04:02 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67SFuHKM028232;
+	Fri, 28 Aug 2026 16:04:01 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4g7rsyq33d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 28 Aug 2026 16:04:01 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67SG3v2M28508426
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 28 Aug 2026 16:03:57 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1C8262004B;
+	Fri, 28 Aug 2026 16:03:57 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2CE2720040;
+	Fri, 28 Aug 2026 16:03:56 +0000 (GMT)
+Received: from osiris (unknown [9.111.68.102])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 28 Aug 2026 16:03:56 +0000 (GMT)
+Date: Fri, 28 Aug 2026 18:03:54 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Janosch Frank <frankja@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v6 28/33] KVM: s390: Add basic arm64 kvm module
+Message-ID: <20260828160354.164752-A-seiden@linux.ibm.com>
+References: <20260812153631.3376090-1-seiden@linux.ibm.com>
+ <20260812153631.3376090-29-seiden@linux.ibm.com>
+ <a90009dd-d4eb-427d-b23c-23bcc19af478@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260828142552.GN788244@noisy.programming.kicks-ass.net>
+In-Reply-To: <a90009dd-d4eb-427d-b23c-23bcc19af478@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI4MDEzOSBTYWx0ZWRfXxZjSXhp3nkOk
+ y7KNrDuosG3X05DSyEWfW9Q0EQdVJ/Mmkf87YXU6yB+cI234f2wsHs0FCGXZo8lmx7gT7DIPSIT
+ EV+vXHWoy2Qf/BT+85mlM7La/cOm7pg=
+X-Authority-Analysis: v=2.4 cv=AYuB2XXG c=1 sm=1 tr=0 ts=6a91b172 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
+ a=GjRpCgEQHAvZYWd-grkA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: lxX3HICFKqkj1nkyoBdOLCFKkY1MzdX5
+X-Proofpoint-GUID: zBAItN-4a0Pfu2NxxPon1fOrObeMNtcw
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI4MDEzOSBTYWx0ZWRfX5/Kh0Zsnk+Tw
+ 7qfXF31QN8c73e83tylqE6SvfujuHTVzvUlSaqusvmw/QHy7o8JCudslqRQ1CsxIDrU60UTTA0a
+ ThoIS4/ftcbdln79cNS6loGg0kQ7j78LZfRr+EmJvUqXsEmfy1+6NVPwl8r9APyIVUyxnK5rXLF
+ oCxChN4UZ4DiV7h+cpGhOefVRH+Leg3r8mE4U3wy1AfoOYIbAVH/taWO6kYMcqyH1XwL1b4q7ym
+ iq6fWeJtHcb/tNW17xtP/aUVluFaSP9/9CNw/0ZV2CWmdwCbK00RhONeVvBua+hSoTom92l0iiz
+ Tjkd5zANSjQ6DnFCM0iBZ52HC+U8wxu6D2+HdBg/N3OlrttSXupKLwAZSlgLei9OSpsLRlNSutB
+ L9UwewKVabT85N8UE7/yEOuy0DC6C9V10oNe1C4ZW1wQ8uluQ5zxK44HcTgB+4Q+IE+216Wxgy9
+ OcwTXbjpXjHtrM//kAA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-28_04,2026-08-27_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 phishscore=0 clxscore=1015 adultscore=0 bulkscore=0
+ impostorscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608280139
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_085901_575495_10AB0E5A 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260828_090417_332775_326F5318 
+X-CRM114-Status: GOOD (  24.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,15 +144,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-28 16:25:52 [+0200], Peter Zijlstra wrote:
-> Taking faults on the task-stack is not going to work. That fault will
-> happen while you have locks held and IRQs disabled. Ideally, it'll
-> happen when you're knee deep in the allocator.
+On Fri, Aug 28, 2026 at 01:33:00PM +0200, Janosch Frank wrote:
+> On 8/12/26 5:36 PM, Steffen Eiden wrote:
+> > Add basic code for the new arm64 on s390 KVM implementation.
+> > Add kernel module boilerplate code and trivial functions.
+> > Add tracing scaffolding.
+> > 
+> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> > ---
+> >   arch/s390/kvm/arm64/arm.c   | 157 ++++++++++++++++++++++++++++++++++++
+> >   arch/s390/kvm/arm64/arm.h   |   7 ++
+> >   arch/s390/kvm/arm64/guest.c |  92 +++++++++++++++++++++
+> >   arch/s390/kvm/arm64/trace.h |  18 +++++
+> >   4 files changed, 274 insertions(+)
+> >   create mode 100644 arch/s390/kvm/arm64/arm.c
+> >   create mode 100644 arch/s390/kvm/arm64/arm.h
+> >   create mode 100644 arch/s390/kvm/arm64/guest.c
+> >   create mode 100644 arch/s390/kvm/arm64/trace.h
+> > 
+> > diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
+> > new file mode 100644
+> > index 000000000000..8e17b7eef813
+> > --- /dev/null
+> > +++ b/arch/s390/kvm/arm64/arm.c
+> > @@ -0,0 +1,157 @@
 > 
-> That fault will then again call the allocator to allocator your stack
-> page, and...
+> [...]
+> 
+> > +
+> > +static u64 kvm_max_guest_address(void)
+> > +{
+> > +	u64 max_addr;
+> > +
+> > +	if (sclp.hamax == U64_MAX)
+> > +		max_addr = TASK_SIZE_MAX;
+> > +	else
+> > +		max_addr = min_t(u64, TASK_SIZE_MAX, sclp.hamax);
+> > +	return ALIGN_DOWN(max_addr + 1, 1 << 30) - 1;
+> > +}
+> We're sure that the MSLA + 1 - MSOA > MGPAS check aka VIR code 4 will never
+> bite us? Or will you touch this up with the qmc support?
 
-indeed. So I do have a few ideas floating around but I leave it at it.
+Series 2 with qmc support will in addition verify that the maximum guest
+address is smaller or equal to MGPAS, which is calculated from the
+PARange. MSO is always zero, so we should not run into this invalidity.
 
-Sebastian
+	Steffen
 
