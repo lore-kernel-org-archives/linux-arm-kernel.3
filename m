@@ -4,84 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0984C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:59:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAE29C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 14:03:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z/vQkPRWfO3dMD1qnZW0cONo4+Wv9gcM6DMq0ft41q4=; b=wyFPqPO8vdTJIcD4UWMKs5Wel9
-	hQElzW0jpxSoRWsszLo/5co2otPPEwoULvcjMCFn+A+XOHcvzdA2YNjS9RYoi2DSGWxYDjEGVYYxK
-	EhCJ4N6JaVyum1bhe1g1D6G0+bP9v/64UEWDmtzzYWPCL/88qhbbSDsEQ2/Y4FxxdpA54k2NRkpJf
-	soEK3FJEgg6TClG+EqOymVfdzj/VXOCWbOsKX1HUEPHCYB6/mUk+77dbPWBDqjBbJR/B1E/fCcuD4
-	1QwX+dbs4OIt9NWTgOoPr5rjYjXwRvafN99QIUDdhTTnwJnU//6Nb63yqlUBL9hUbLJn3waJ6wOtI
-	NV12OJ+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZMZ/kBarwjSgDXtkTwWShii9hMB72ImaIYEtvs34y2E=; b=r9R/6OLPTFeN9L8ME3ziyZfHjw
+	v+a/MSW6tY0FyjouwJFfJi2Xe14vhkcqBUNkWvRkrIQMQVGs96xukrXBsMpdSRU9M+63OnxLhNLZT
+	/skVc5rwyA5aaX3yAoU/KywbPdz/KEuPgEMBRfBVIfY8plgLiiya5gdBef2t8N3XQNy2TE/9hLOX9
+	p8h/kQ/faD10yYqoCG3XI8nhzN+I5nnrdJaxFSod4sNRxQUdqY0EZ8RQm9/17Sl3j8ra+sPeDVC0B
+	rdsOWDOF99PkuepgcjXHHGCHhbb8NKth8e7s+YbTGe2Lv2hDXLvSD1Krt8ptKGowpCO0CqjhSE9e3
+	daCRv1dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzx7Z-00000005vfP-102Z;
-	Fri, 28 Aug 2026 13:59:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wzxBE-00000005vxZ-3w5U;
+	Fri, 28 Aug 2026 14:03:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzx7Y-00000005vf2-0W4m;
-	Fri, 28 Aug 2026 13:59:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Z/vQkPRWfO3dMD1qnZW0cONo4+Wv9gcM6DMq0ft41q4=; b=MGYbK7pgkLwreR1NbEJ2ExVAGl
-	KTSjrpILVYOMD0bXalDOVqN/fVKi44fsPfymsoGuNmuRRaofeLVyUrTIHNb0siKB3sHW1QfFH/ElJ
-	XJqv6SDJOSrPIt+kYiBVrZwpvDs7W76upT8P/0xg+JI1Uyn2mz5bsErnOPePpn3Q6EeVga+qZWe8P
-	aFyvCXNgTh8vEzFs4LxWN7e6eFMAk6q9tFW/1D3cAhu4R2IZPpdqSf72p3g1JzFYqCHmn4H5doMo5
-	+U3XKywepWEMgvPNZ8vWLa/1x4zGYEyw/PiASNH/8vyscBy1cgu06aUJ2BsbF/FK0ZwUBrskyEqax
-	Yp9ajIzQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wzx7U-00000008IYq-40GE;
-	Fri, 28 Aug 2026 13:59:49 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 5325230030F; Fri, 28 Aug 2026 15:59:47 +0200 (CEST)
-Date: Fri, 28 Aug 2026 15:59:47 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: David Stevens <stevensd@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Dave Chinner <david@fromorbit.com>, Qi Zheng <qi.zheng@linux.dev>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Muchun Song <muchun.song@linux.dev>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Kees Cook <kees@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>, suleiman@google.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
-Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
-Message-ID: <20260828135947.GU776954@noisy.programming.kicks-ass.net>
-References: <20260827232948.2520558-1-stevensd@google.com>
- <20260827232948.2520558-7-stevensd@google.com>
- <20260828133620._x2XfJR_@linutronix.de>
+	id 1wzxBD-00000005vxR-1okw
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Aug 2026 14:03:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 338B340BC6;
+	Fri, 28 Aug 2026 14:03:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2D8D1F000E9;
+	Fri, 28 Aug 2026 14:03:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787925819;
+	bh=ZMZ/kBarwjSgDXtkTwWShii9hMB72ImaIYEtvs34y2E=;
+	h=Date:From:To:Cc:Subject;
+	b=hYciaezoq6aRZ/YSZYVrOfuxrfHAn6D8HtKQyO3/l95vjtcWIjV+tTb0mzbSSSsCK
+	 EwGsB5jB/HBhsCWNxghQ3P112fkV6JYCUljUYTKDLeTVVuibaTtkd1JgrtW+dtM1Va
+	 P7FdfO4cBEfk0diyRvcRSvMrGjAw1SwyPy7lBjUQTVcI1udVmVHkjIjeqJWgR0DY0+
+	 EMO9q0yzbGLh9iQLTc5j06Fm2AouEZFMJDkfmFgePqJB8Mhh8zU5OK8Ws3DC9oHH3b
+	 oFolPXWBBB3rWKpTtvVi7xNYpIW6xiyLdHg2/cx9fPf7T+cvttwrq3a5iQUo5ObQQ6
+	 P1MXctdEhD4bg==
+Date: Fri, 28 Aug 2026 15:03:34 +0100
+From: Will Deacon <will@kernel.org>
+To: torvalds@linux-foundation.org
+Cc: catalin.marinas@arm.com, mark.rutland@arm.com, maz@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: [GIT PULL] arm64 fixes for -rc1
+Message-ID: <apGVNo7DgJmIQRHm@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260828133620._x2XfJR_@linutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,77 +67,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 28, 2026 at 03:36:20PM +0200, Sebastian Andrzej Siewior wrote:
-> On 2026-08-27 16:29:44 [-0700], David Stevens wrote:
-> > diff --git a/arch/Kconfig b/arch/Kconfig
-> > index fa7507ac8e13..adb4a5957996 100644
-> > --- a/arch/Kconfig
-> > +++ b/arch/Kconfig
-> > @@ -1534,6 +1534,24 @@ config VMAP_STACK
-> >  	  backing virtual mappings with real shadow memory, and KASAN_VMALLOC
-> >  	  must be enabled.
-> >  
-> > +config HAVE_ARCH_RECLAIMABLE_STACK
-> > +	def_bool n
-> > +
-> > +config RECLAIMABLE_STACK
-> > +	default !PREEMPT_RT && !PROC_KCORE
-> 
-> This shouldn't default like this for RT. It either is useable or it is
-> not.
-> 
-> > +	bool "Allow stacks of some blocked threads to be reclaimed"
-> > +	depends on VMAP_STACK && !STACK_GROWSUP
-> > +	depends on HAVE_ARCH_RECLAIMABLE_STACK
-> > +	depends on !DEBUG_STACK_USAGE
-> > +	depends on !KASAN_VMALLOC # TODO: add support for this
-> > +	depends on !DEBUG_KMEMLEAK # TODO: add support for this
-> > +	help
-> > +	  Enable this to allow the unused portion of kernel stacks of most
-> > +	  blocked tasks to be reclaimed.
-> > +
-> > +	  The wakeup latency of tasks with reclaimed stacks may increase,
-> > +	  especially while the system is under memory pressure.
-> 
-> It says *may* increase and on RT it _definitely_ will increase since
-> there is a kworker involved not to mention the memory allocation itself.
-> Anyway. This either needs to stay away from PREEMPT_RT or find a way to
-> exclude at the very least mlock()ed tasks.
-> Did lockdep see this?
+Hi Linus,
 
-It should have. They're taking spinlock inside raw_spinlock and lockdep
-should very much warn about that by default.
+Please pull these arm64 fixes for -rc1. The usual summary is in the tag,
+but there's a mixture of ptdump, compat and MTE fixes that came in
+during the merge window.
 
-> If I understood the whole exercise correct then you have a kernel stack
-> of two pages and in best case you can unmap and release the second page
-> while the task is napping.
+Cheers,
 
-THREAD_SIZE_ORDER	2
-THREAD_SIZE		(PAGE_SIZE << THREAD_SIZE_ORDER)
+Will
 
-that makes for 4 pages.
+--->8
 
-> What might be a tad simpler is to memset(,0,) the remaining part of the
-> stack. Since the stack is vmap-ed it should be swapped out on its own
-> without additional tricks. That memset() would help zram to compress
-> better so it uses less memory. ta-da.
+The following changes since commit 26b77009ee74f6122a067a4f9926ff6e09fffb94:
 
-That would still be a 12k memset with IRQs-disabled and rq->lock held.
+  Merge branch 'for-next/uapi' into for-next/core (2026-08-14 10:16:13 +0000)
 
-> What also should be simpler (and I am not saying just to move you away
-> from the scheduler) is to have a shrinker which iterates over all tasks
-> which are marked for reclaim and then similar to swap just unmap both
-> stack pages and release the second page which is not used.
-> Upon wake up the task should create a page_fault which would be used to
-> allocate the second stack page and map the whole stack again.
+are available in the Git repository at:
 
-Right, so you can FREEZE the task, unmap its stack and then thaw it or
-something. But there should be a definite opt-out on all this, because
-taking faults on your stack will be horrible.
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
 
-Not to mention you'll suffer wakeup latencies while frozen.
+for you to fetch changes up to 2bd533739234d79b74afabfece1abfe9c6d52c83:
 
-This all really sounds like what should be addressed is this insane
-number of tasks rather than trying to cope with the consequences of
-that.
+  selftests/arm64: Add MTE test config fragment (2026-08-27 14:18:39 +0000)
+
+----------------------------------------------------------------
+arm64 fixes for -rc1
+
+- Fix address handling of final memory region in ptdump
+
+- Fix emulation of decrementing load/store multiple from 32-bit task
+
+- Fix SCTLR context-switching for store-only MTE mode
+
+- Fix numerous issues in MTE selftests
+
+----------------------------------------------------------------
+Karl Mehltretter (1):
+      arm64: compat: Fix decrementing LDM/STM alignment emulation
+
+Muhammad Usama Anjum (4):
+      selftests/arm64: Print missing MTE TAP headers
+      selftests/arm64: Treat KSM merge_across_nodes as optional
+      selftests/arm64: Fix MTE prctl TAP plan
+      selftests/arm64: Add MTE test config fragment
+
+Vladimir Murzin (1):
+      arm64: process: Fix context switching MTE store-only tag check
+
+Wei-Lin Chang (2):
+      arm64: ptdump: Make note_page_flush() range aware
+      KVM: arm64: ptdump: Flush the last region
+
+ arch/arm64/include/asm/processor.h                 |  2 +-
+ arch/arm64/include/asm/ptdump.h                    |  2 ++
+ arch/arm64/kernel/compat_alignment.c               |  4 +--
+ arch/arm64/kvm/ptdump.c                            | 11 +++++---
+ arch/arm64/mm/ptdump.c                             | 14 +++++++++-
+ tools/testing/selftests/arm64/config               | 17 ++++++++++++
+ .../selftests/arm64/mte/check_buffer_fill.c        |  2 ++
+ .../selftests/arm64/mte/check_child_memory.c       |  2 ++
+ .../selftests/arm64/mte/check_gcr_el1_cswitch.c    |  1 +
+ .../selftests/arm64/mte/check_hugetlb_options.c    |  2 ++
+ .../selftests/arm64/mte/check_ksm_options.c        | 31 +++++++++++++++++++---
+ .../selftests/arm64/mte/check_mmap_options.c       |  2 ++
+ tools/testing/selftests/arm64/mte/check_prctl.c    |  2 +-
+ .../selftests/arm64/mte/check_tags_inclusion.c     |  2 ++
+ tools/testing/selftests/arm64/mte/check_user_mem.c |  2 ++
+ 15 files changed, 84 insertions(+), 12 deletions(-)
+ create mode 100644 tools/testing/selftests/arm64/config
+
 
