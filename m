@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01CA4C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 12:54:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 776A5C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 12:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hfku0lPz7WJB8aIdUHoXK+mnPfY4Qn0hLLaeSPnv6F8=; b=oVIBzLx3nPgS6tCg1mp+YyUPbI
-	BlFeiXtp2hLLtpLWLAy90MX0radITaWzvL5H0ESCB9dJusuheQO+45ujOkb3MU3kzmtgwTPhfZxFE
-	dzgBkxPHcCWvdwiMYY6VOkgleu9+ef8x6S3+pPQr7vfuZR99N8lYZXw4a6T91Rn4ZLrdRsNdr8uNX
-	JxNJDls9EX1BmaGGOqiE3dwOxQ0kMFdlIwNd5uHsFp+zqLNc7eJp/u66sk5CnbKKRnn7eKnoUBscw
-	gi8WOTQDEU6IPNhdj0H0y6y1ZnctemjzfU9SJONGJVkts3TEul33TJU7niXUVdwh+u46SKMqDL/R2
-	mRPdu92Q==;
+	bh=EtQo4uL9ciRrWrgSm+7tcMPkQTLbUYsP8Kt9QCNYgXs=; b=ylLqbwSmOPNFkkfZdEBxhvDmeK
+	Ho9VtqS0p4kYa+ZMuac1fzAcQSEMJQBz9SrHetX6ZSUKTY/oCO2GkJynlf+goddz2F+MucTrk/uRM
+	blByStPXrHuOqeyQbasILr2LuPKMq4wAMqJpvmETDuMRo5tDSvB9a+yuYcgU5mSN7bJNqYqev8H17
+	v3mpCDC96dl+QIBrWxPufTeC7c6Ngk7g+khCbjL0P62fk0MFoyhhRxgOtvkojHO1wCW8ZhmEkuOJQ
+	g41SR1lr4pARTmtwR5hmDXQ3PXM/ifgAeJGn26HT80MOjRlzIWdOOsJrG75ReBHuuIA1z1rRlFWoS
+	HeIXYi4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzw6G-00000005lSU-1Ukk;
+	id 1wzw6G-00000005lRq-0XQP;
 	Fri, 28 Aug 2026 12:54:28 +0000
-Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
+Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzw6E-00000005lPb-04Fm
+	id 1wzw69-00000005lOR-18QJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 12:54:27 +0000
-Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-49b7c1dcc82so6699455e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 05:54:24 -0700 (PDT)
+	Fri, 28 Aug 2026 12:54:23 +0000
+Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-4994d67d0e3so5281125e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 05:54:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787921663; x=1788526463; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1787921657; x=1788526457; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hfku0lPz7WJB8aIdUHoXK+mnPfY4Qn0hLLaeSPnv6F8=;
-        b=URgiiyT9zrl88ZK+E4l4+jq4wa5j99x7gcthbrk1XM0VkgmrrsTmWF5YYnQ7sogj8z
-         LTGLRzH9cXE7dppOURbyOUgPT1kXQAw+LaPC/CqJRaYjRXsu5kY60WyjHWykHJ7wx5iZ
-         kqoWSAUtaYtIm21XSwhHq2YMYog/Q1DQFK0agNQtTT7/U/5u7tWJ+ukjAu+QAyc8fhaD
-         8AxIa2wdmNiCD1l+TdsKGTmDZny/bhv089lRkL5t2J4ioAuDb3wjF2OuDFcZYT3Zrw8v
-         I9wfYkz8qiFC1ilHY3rqQv/ICYWyKDLsXdUCWniMtQkcPnmo27EHYS8dCuETadkPKAYL
-         Np7w==
+        bh=EtQo4uL9ciRrWrgSm+7tcMPkQTLbUYsP8Kt9QCNYgXs=;
+        b=FnUAVkzx/ikDfnybK1jfr3sHuP3TYxV6UTBA3LYazFC6QK2n0Fwo2mh+mfSR2OTVC/
+         GWDhrjYEoOsweftQLdrpg3qrOGsqADO9/mkt6YBfgrfwgEhq5CyEgbe8WMRxQXvHZJUg
+         iDp7wjbNQb8mVDKau/gu1FtrmQO/xdo+qcUAMJTQi+7kNm+9gaVZa3pjYbjd00R+yYAC
+         oDWkAaTs8TP4vfBNbPw/RuxDfspFHLbTPLM5hlUFVnd1DdJtpLVaxOssW5Sgfv27qiuq
+         ZPuJya/pwS3gIMqDDDzrEMax4Vvwe/4k7Nh5N5wuCSqT03GFjzl6dcRNtqGXPd/mpFiW
+         hyiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787921663; x=1788526463;
+        d=1e100.net; s=20251104; t=1787921657; x=1788526457;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=hfku0lPz7WJB8aIdUHoXK+mnPfY4Qn0hLLaeSPnv6F8=;
-        b=JyI5Zn1p3chxmdnArH7wIxRrPoE2ZTF1eN2bOUEJYnoOTC9P+YPLcrW4PlzNyjQ2It
-         OSFcBomcz4Ln5566RtjvvAZyJfI7FVFyjFT8LiS2YM53vtrGVzS8DSO0lArbFsogdam+
-         6lap7JiMqEke+16PN1smCXUFndJU11oV8S3bhcscpgNTinoHnzljuOvN9t3plSAdrsIh
-         xmAmqSNKBBdCGhh2AombN5Ir0a8x8/nhdEL0SBDeDujvZqmF0TbrSVnoUF2ROMGZ2/oS
-         z5edHMZwmNojYUulrHZgjTDCGhYHBh88Lfty0YbO+67UiWuvjOxubY7vLMZrRCZ+00Nh
-         pi6g==
-X-Forwarded-Encrypted: i=1; AHgh+Rr5o6VZnDrcqsgPGmFzXQhpCLes6QSSxwF4DG0bkPs3TZmrMZdL+453OyK9A+Onl49TvoTYSW5yFcB6aRPRv7nn@lists.infradead.org
-X-Gm-Message-State: AFuF++n4PfMtcuHgP/6Y4XjOBEDQWP3hWoZ51OH5X6GgRmexGPBsDagC
-	DpnP6xJTz9ddSosrLjJ69RHVgtq0tqUqDeDh71GOG/I3cpZZw3AYRpi7Pzp6kauuI3pbSBGBx59
-	y2p+hln0oK0Qokg==
-X-Received: from wmqt17.prod.google.com ([2002:a05:600c:1991:b0:49b:8f1d:7d3a])
+        bh=EtQo4uL9ciRrWrgSm+7tcMPkQTLbUYsP8Kt9QCNYgXs=;
+        b=iVFkd4A+c6CBNFvtATzUfJYsiOi/einm724tz2eu4haKaTyLc+so1r6EtunshxRMc4
+         kIcjWOGxLrOYG2lYQ6z2kHH76Bs8wMnNQJ5dXfA4YDrs4YLpFVx3XFaCU7kU/IjDSDBK
+         DIl3Hc/Pm30yqdYVdA34Vx2JYdH2WIn8Hg/Ee+LkahHYbwMteTvEPsIAN8DGQkFAcovn
+         v/cCW1Nfsj3Av+3nChG2pJM3j0uYs3TV/A23z1RTllmpb/XZOh5p0vG+I6PhtkVxMRf/
+         tU0U8sFdIM+UBIVTBbOvpf3JY2KBiSEo0q2O6qX236Ygn/4iUMSpEJ781J9MOpBU9ar+
+         62wQ==
+X-Forwarded-Encrypted: i=1; AHgh+Ro8OnF/PSLbLxVvZD5auCn8MHCh1HU5RLUC74bvUyhXvt0l4JxG7fwO7d9zjymoAfiXVOKTg5FWUBPt0Xi3RD8n@lists.infradead.org
+X-Gm-Message-State: AFuF++mtTyAbDfS+aYsfq0jxnUBYVcsAxFS+MIXxVUAqfEsN1dZYnTK1
+	JiCiAakNxm4d8sgzkQthSt/o8H/zBTFALp1vIgsvK/ld8w1UlM7hQ5AghkU7FVckzr1qqy9duNK
+	nEAulCdmvR6f+RA==
+X-Received: from wmbgx10.prod.google.com ([2002:a05:600c:858a:b0:49a:d4b6:42fc])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:4e86:b0:499:db6d:bc97 with SMTP id 5b1f17b1804b1-49b91bd43a7mr86485665e9.0.1787921662708;
- Fri, 28 Aug 2026 05:54:22 -0700 (PDT)
-Date: Fri, 28 Aug 2026 12:53:39 +0000
+ 2002:a05:600c:c0cf:b0:499:726b:7375 with SMTP id 5b1f17b1804b1-49b91c51e62mr90214355e9.14.1787921657014;
+ Fri, 28 Aug 2026 05:54:17 -0700 (PDT)
+Date: Fri, 28 Aug 2026 12:53:37 +0000
 In-Reply-To: <20260828125409.1921538-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20260828125409.1921538-1-smostafa@google.com>
 X-Mailer: git-send-email 2.55.0.897.gb25b4bd76c-goog
-Message-ID: <20260828125409.1921538-5-smostafa@google.com>
-Subject: [PATCH 4/7] iommu/arm-smmu-v3-test: Fix arm_smmu_v3_test_debug_print_used_bits()
+Message-ID: <20260828125409.1921538-3-smostafa@google.com>
+Subject: [PATCH 2/7] iommu/arm-smmu-v3: Prevent rbtree corruption from
+ duplicate streams
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -75,8 +76,8 @@ Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, jgg@ziepe.ca,
 	nicolinc@nvidia.com, praan@google.com, Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_055426_062909_EC5B32FD 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20260828_055421_345317_517752D6 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,32 +92,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm_smmu_v3_test_debug_print_used_bits() hardcodes arm_smmu_get_ste_used()
-instead of using the provided writer->ops->get_used() callback.
-This caused Context Descriptors to be incorrectly parsed as STEs.
+In handling PCI devices with duplicate IDs, arm_smmu_insert_master()
+will continue the loop skipping the duplicate sids insertion in the
+rbtree.
+However, in the error path of arm_smmu_insert_master() and in
+arm_smmu_remove_master(), the code loops over all fwspec->num_ids and
+calls rb_erase() unconditionally.
 
-Fixes: 56e1a4cc2588 ("iommu/arm-smmu-v3: Add unit tests for arm_smmu_write_entry")
+For the duplicate streams, the node is zero allocated including the
+parent pointer "__rb_parent_color". That means rb_erase() will think
+that this node is root and it will corrupt the tree which includes
+other masters not being removed.
+
+Fix this by initializing those nodes with RB_CLEAR_NODE() and check
+if they are empty before erasing.
+
+Fixes: cdf315f907d4 ("iommu/arm-smmu-v3: Maintain a SID->device structure")
 Reported-by: Sashiko <>
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-index add671363c82..eae08d4d77ec 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-@@ -125,8 +125,8 @@ arm_smmu_v3_test_debug_print_used_bits(struct arm_smmu_entry_writer *writer,
- {
- 	__le64 used_bits[NUM_ENTRY_QWORDS] = {};
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 494bbfd2869f..36e3778c971e 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4147,8 +4147,10 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+ 					->master;
  
--	arm_smmu_get_ste_used(ste, used_bits);
--	pr_debug("STE used bits: ");
-+	writer->ops->get_used(ste, used_bits);
-+	pr_debug("Entry used bits: ");
- 	print_hex_dump_debug("    ", DUMP_PREFIX_NONE, 16, 8, used_bits,
- 			     sizeof(used_bits), false);
- }
+ 			/* Bridged PCI devices may end up with duplicated IDs */
+-			if (existing_master == master)
++			if (existing_master == master) {
++				RB_CLEAR_NODE(&new_stream->node);
+ 				continue;
++			}
+ 
+ 			dev_warn(master->dev,
+ 				 "Aliasing StreamID 0x%x (from %s) unsupported, expect DMA to be broken\n",
+@@ -4159,8 +4161,10 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+ 	}
+ 
+ 	if (ret) {
+-		for (i--; i >= 0; i--)
+-			rb_erase(&master->streams[i].node, &smmu->streams);
++		for (i--; i >= 0; i--) {
++			if (!RB_EMPTY_NODE(&master->streams[i].node))
++				rb_erase(&master->streams[i].node, &smmu->streams);
++		}
+ 		kfree(master->streams);
+ 		kfree(master->build_invs);
+ 	}
+@@ -4179,8 +4183,10 @@ static void arm_smmu_remove_master(struct arm_smmu_master *master)
+ 		return;
+ 
+ 	mutex_lock(&smmu->streams_mutex);
+-	for (i = 0; i < fwspec->num_ids; i++)
+-		rb_erase(&master->streams[i].node, &smmu->streams);
++	for (i = 0; i < fwspec->num_ids; i++) {
++		if (!RB_EMPTY_NODE(&master->streams[i].node))
++			rb_erase(&master->streams[i].node, &smmu->streams);
++	}
+ 	mutex_unlock(&smmu->streams_mutex);
+ 
+ 	kfree(master->streams);
 -- 
 2.55.0.897.gb25b4bd76c-goog
 
