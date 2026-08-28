@@ -4,129 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0286DC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF6AC61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=galDNNE7jH33eM0UvGmsA9J1whlu/6Z0lzlJkrv/ELc=; b=3KcmIZ/u1KRnjpHlgxe9YjmZ5x
-	uI1pcOG2w7G2bZvD16UOMQKifQhSY5j4Oq5NkuHzQDegk7NlMypYk4N3nPZKhKrSBFkOKEvslrejH
-	lahv5p8JFc6szsh6e14E7UQ83zW1fiBGKuM/rtvcBuNsTUxwajAs4NlaEOnr2U6vYxxFT0SYpAxoR
-	LePw56BS7dN5piF7c2TjP0mgz4AJQ9jVozyhAaY8/SHKmcRNQiaG1V0eg8wBxRLir7DJyQZEB/IbJ
-	kqbleoQQgD+LZT5umgXKJcX6NTnrGRPEJxAEHTouDF8Joj3uwmrjMmGfcFvs02uibzFfNUd6q8xmt
-	yNKjC+Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+FYIQ42DCGzI9ZW5t7HWRgY12JIQOn4Qff8BE8HFkZc=; b=Cf539uGNsq6nup0+8hirISZkzZ
+	5RPtEI44xbVqVdA0j/K3MZBoET2NSsGIIYX9qESkfYMPKe3avDlbKyvY7ouB1YXgQmggzbYHs8e6u
+	peVa3cnPzL0W9bdqtZD5/DM1oRxG0WIDcA60xkZSU8HnmNr7qWZjBhm0+iJtQs7K4b2hz+Fk/nPhV
+	zkiHkMZY2OS/kwBduhdrBrZQ29uoBcc3uGnvwRhH35X4cqSRe6DoSLMhm4/h7bVSML3xQZ9icygWl
+	bOl4AlxGtBZYVPsX4dnNOvjK05Sjdnm+q8ozP9ULfIt+iI20oByLz3VFmi2xZYCrZ3xecNfq5B9Ul
+	NtKTaXNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwae-00000005odY-1OQq;
-	Fri, 28 Aug 2026 13:25:52 +0000
-Received: from mail-australiaeastazon11022140.outbound.protection.outlook.com ([40.107.40.140] helo=SY5PR01CU010.outbound.protection.outlook.com)
+	id 1wzwbt-00000005oqB-27xw;
+	Fri, 28 Aug 2026 13:27:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwab-00000005ocw-1IbA;
-	Fri, 28 Aug 2026 13:25:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JyDWkg0iCVo9grs5yBr4DhJSvkrQyo9m1ZF1RFpQiNh1d6OD45gyVBcT3bu6A0ZROCJ5CXH4fEOBiOT2oYxxLNvh5dCP0++W8IdugKg7eeG1xCD4e6xTWc0R2Fl0MTf1jegjNZJoYfCB5mRfbR7uRCUopUTQsHlnoiszChz5hbZICGH3SnGQ6ZfC0cI7Pjuq8Q1Vf8/mOwwDQikugZJcbGUSGlmCqrvRCkCMRX8Jzshd6N13P3sT1OiTkZlSFyX36+/QY+irfX2Ic8b964uXVHRO7HuU7Gqxrs5aaGaH/9hAjweAbdbtrtxxx308UX81PTZeUjjD4z0AZPVdPCtGvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8micJRkkP8PG/TC8SAHSlqdZY8MnfQwHfpUTwjzmHgk=;
- b=kwFo/TZPcCGbppLtJ02YS65db1PHuAWb1a3Io0IFHldfavXO323gN/AyRXcl0TYAIXa9Q/Kii0S9Vki9cT4HC8BR+5Brkbzj512odJvKoP3rhwa9X1aj2m/sUEvZbhJC7UsGFtE7z9IPrPcyB8XMWyItJ9YaLQjbPR+I4Z9GdRGf4Ly0QOPHK6aSNPkmeo8IGZmSOpgWYJ3pn3L+x7cWa6WoLoaIROipCfzr2dwHm7ksAvXi9WlWGfUx18V9E3uCyEesXTBvUeX5hG5A9xh5dMweoeGUfOHwupYkRzmcwET6R+4EbzQG9GRCRxpNsg6fhC8W2zTUeS2XAzu3QqvVuw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=heitbaum.com; dmarc=pass action=none header.from=heitbaum.com;
- dkim=pass header.d=heitbaum.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=heitbaum.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8micJRkkP8PG/TC8SAHSlqdZY8MnfQwHfpUTwjzmHgk=;
- b=OGbw8qcZbyiWoSuUKs4AT63fniJzLapSCxeA5X5wpBlpzvVYm403Kvu0lTEzv3yUhg8KZnmlRdheGR9OgmmhgdVeAzbQkPce6mzaXMaiqr3qgmTpSFoljfXwoLumtEkr+N8/ZXhOI3VIev44zqdZapHMc4rWuxmVZCGlHJhLU4cI6KmGObn45rIKwB03axz7evu0PzMfu+sUQnIjFB2lcXg1GGBMQe/zrHQg1atKb3owZ1YCi+t6si1FCW533uNTsoZAITzGI3IpUUF2AmFc2yzplbAFq7XB2tcHOlR+PG4w7sPhuwRi0VquF4nNE7oNzPzn7sa4ENvvMA5YUZWjLg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=heitbaum.com;
-Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:279::22)
- by ME5P282MB6017.AUSP282.PROD.OUTLOOK.COM (2603:10c6:220:25a::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.11; Fri, 28 Aug
- 2026 13:24:52 +0000
-Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- ([fe80::21b6:91f8:614d:1fdd]) by SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- ([fe80::21b6:91f8:614d:1fdd%4]) with mapi id 15.21.0360.008; Fri, 28 Aug 2026
- 13:24:51 +0000
-Date: Fri, 28 Aug 2026 13:24:34 +0000
-From: Rudi Heitbaum <rudi@heitbaum.com>
-To: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-Cc: Matthias Kaehlcke <mka@chromium.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-usb@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] usb: onboard_dev: add the Rockchip rk1808
-Message-ID: <apGMEsCwly8TCOww@5be1eda4e59e>
-References: <aouw7rH6FZxscUTO@0d3a7a881997>
- <5096877.GXAFRqVoOG@phil>
- <apFpPP1O45BWXDv5@5be1eda4e59e>
- <4512468.iIbC2pHGDl@diego>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <4512468.iIbC2pHGDl@diego>
-X-ClientProxiedBy: MEWPR01CA0197.ausprd01.prod.outlook.com
- (2603:10c6:220:1ee::9) To SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:10:279::22)
+	id 1wzwbr-00000005opm-1oTS;
+	Fri, 28 Aug 2026 13:27:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B60CF40890;
+	Fri, 28 Aug 2026 13:27:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF8891F000E9;
+	Fri, 28 Aug 2026 13:27:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787923626;
+	bh=+FYIQ42DCGzI9ZW5t7HWRgY12JIQOn4Qff8BE8HFkZc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=lkBlJOVXHDxt+3hZwt6gBCc7+DagH0ifqyudSYMbP8+Gz2cWqLvk6x1RlZR58OmG6
+	 qPC0j7hAP5Hd4qf+NHc6IIySvwjtaZaoRHsis//w54P0ERk+Q2zvjUMoaeVQsXLCQZ
+	 Zx6odVBiYNueTz4YWsa1AcUUy/b+tz6N3nyUlZ6TRNTSysjh7uJGzErYvvk5Iu0G9J
+	 0GDO6yE0cQ8SVMNmjJ0np3Qo94BOgK0rbwlM3Hd60ToSnDgp9D/qH7Q/xndWPUrm+Q
+	 vtQTN7V2w6mqlSZvvRb3wSYoQJRe9kGdrX6Tu5vKu+9Eaewy/de7VLBNahXEhXWl+Z
+	 RSm77pw+QMBtw==
+Date: Fri, 28 Aug 2026 14:27:01 +0100
+From: Mark Brown <broonie@kernel.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "debug@rivosinc.com" <debug@rivosinc.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
+	"bill.roberts@foss.arm.com" <bill.roberts@foss.arm.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>
+Subject: Re: Shadow Stack Locking Semantics between arch's
+Message-ID: <c4ac49d9-1fdb-46c4-9303-f17a517ac4c1@sirena.org.uk>
+References: <a1946d93-370e-4ca9-85d6-60b4a20ffd47@arm.com>
+ <3bb672e0-7bc3-434f-904e-aa00394dd01f@foss.arm.com>
+ <d20ccb74-69ed-45d7-a810-846904873588@sirena.org.uk>
+ <01b0fe86d5700847f78b0e6f839119f54ac88b04.camel@intel.com>
+ <apCvGct9U1yprAUE@sirena.org.uk>
+ <f2819c4f1a86845b5b2f2b6f0e03f4c334e84eaa.camel@intel.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SY7P282MB4909:EE_|ME5P282MB6017:EE_
-X-MS-Office365-Filtering-Correlation-Id: 40442946-6b2d-4100-ba06-08df0507bdb0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|1800799024|366016|10067099003|56012099006|18002099003|22082099003|4143699003|3023799007;
-X-Microsoft-Antispam-Message-Info: nO1wKxR3IhzPndRGilA/Y1mARG1+FFHaEy7Xvogwr3tmB79i+Id/kJeOQnUR1Gee6XcSy6T3VlevwRO53A0/WwE/oPpVSrT6P1mfW9m/OYaEKeXo7x4f5SvTuR1OR4djyrvBti8i938jvse1EuhyMjgEaNfhacrRN+FmFRqwP52Iz12uHBYLU5zJocq/nQsdHkt0cqsbDC5rXd6qIZNO2gEjwaaSgjz8SPwAtsoTjtyehIw04WLeK53CrEjeoCj/EPbrgN/H5WS6+k/wDTS0CTf78Eqf8RG1WGmyn5SpZi8UttdUi7EuxeDDfQom72lEFpldbUKLFOl9J/BVNYu7WRoW8H8R9gWH37kF/Ry6Gas2FB0yIFoSmGALLXvk8ZO1HypWGbadIb2IKchYnzUskdrOqzjhVCiDyeVxfRKhU8G7oDsESaMEPdL45I5augBA/oxbEKmf2OY6xeMv3EIURBi1ORw3v8w8wvK3Q5o8wmDBLRjMhnRSWnXESli2GQNiubJJ5etW2j1BQvucholNxWxbw8J/pI9bS3T40uXfckI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(366016)(10067099003)(56012099006)(18002099003)(22082099003)(4143699003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?2O2iPkiZBTsn2HotlIGayyeYtsiKRiED+/j8QE8H1Yc84EhBOXJQndI1gE?=
- =?iso-8859-1?Q?9O3PDSxcvotxba+XjFUCepHcWt6djsxVtxG0jVUGnKZaA8s1nPb3M5/yyq?=
- =?iso-8859-1?Q?kSzvmgbsmRZbMUCHrfhuU2b7jeNGeNaXcPxeC07Njs5o4HyXDGzYxc2iql?=
- =?iso-8859-1?Q?b6ekcqK/Xw4rucyMKNLKn3KymuTw8o2Jq/UbaSsPSxfcZ+3hWIZtAtGGQ8?=
- =?iso-8859-1?Q?k9Fsguykd/LQZtT5koHxUgzI4iClx97THbJWwn1+i+dM2ukN1jiZ4qFx9X?=
- =?iso-8859-1?Q?KxxiqVRiZFE04TtLw5LvBw8UYMJouuSO2brGKRuBY3tb/NY0Cs5wy4LnV5?=
- =?iso-8859-1?Q?yh2kD8xb7hI1Pq6ZeQPmAzpT691+MoZsuVw3H7S60BA2bR+L1vZPqtNbgm?=
- =?iso-8859-1?Q?NoX+em7J8mNkFm7iRzgX06BRl+qRcFDR1xIzVVkOxcpZ/OaSFIX1ln0R6I?=
- =?iso-8859-1?Q?RXGyEnAgESh3Ke3Xco1deDcPLhe35ZtagQRwTWk05M1BUJz+NMhlhhGJT7?=
- =?iso-8859-1?Q?qMHmsgbyQrEf9mKIB73vY+75H7EddT+o482aGUljaGHpHnMssu7/Ofw5ZY?=
- =?iso-8859-1?Q?0DN/JS0vWIbmAdbOr6Spjh4qMg8C5GjYi/5Moy+h/DAhV5YJ8gKbgIqjX6?=
- =?iso-8859-1?Q?wZpQYF4+GNmvvVsUrnvs6uBPszbVlDnoisIwCM67m2bQYVfKs1LiQ87rOB?=
- =?iso-8859-1?Q?OSz3V4jIi37E6+uXp07zsqlSmtItSjAkdq4iWQY2tRfVzRYO9T3d0Qae1c?=
- =?iso-8859-1?Q?Ioeo5euHdxPqAcx8yBDgquicQhvAaPet9qFcFVYCjP3tJgF1fbSZ0X8gRM?=
- =?iso-8859-1?Q?tet4ZNRXeaFoV6zfYD54zzM8pFQCGfrtnoW2bF7/DHkVykUPrtMdYouMO6?=
- =?iso-8859-1?Q?BcVEf9nFvJOP7q6Xkl9bhFQHQ78SwMjdZtGVQpUtudh+PCgFya4Pdk2cvV?=
- =?iso-8859-1?Q?Hc8B1zOJPNaVVSGGfu5Imx10JJfIrHdA9e4n5syRNG1klWah2Vv2k1KttO?=
- =?iso-8859-1?Q?EuxfV+QQKtcmEVXzfWSmCzsl6pw9my0Tix7AQeI12GK4c4XHRh7DBVVEmq?=
- =?iso-8859-1?Q?7LyjcmWcAB//CsRaRMCUbrbmwZuu7EXQl/aUfMSxtpOA3zMjwQQ/4Qw3JP?=
- =?iso-8859-1?Q?6G0dGUnKDp78OsoVCCAza/eMO5CKR2WEMVTdE2Z7//Zf2kNFpyjnlpUYKP?=
- =?iso-8859-1?Q?YZmMxeuARt99tv8Y12J94/kwu7l4G16aRZ0LhHEsRtxVd4dZXZQjZFa9Bw?=
- =?iso-8859-1?Q?OGB7J1Jn47HH7g8R5Bv0vE1QmSy5/ulJNSgTE2Tn8BECysNn0KnfgVBsPG?=
- =?iso-8859-1?Q?sL2hEd8NgpfPKoHv1CfaCkGtCxOKDansIPtfbj5yy6GXfX/4jZVSNBEL9q?=
- =?iso-8859-1?Q?HUD4DQE8nZqNzhj3+Qh3q+RyZXFuPFwZBrpmiBU5c6KBroVcyCEHL+T5di?=
- =?iso-8859-1?Q?sbckEmqm8gSshas4JwJGMdVcNaKqV9GowunBmg6XMKGVx2w35MTNVItub+?=
- =?iso-8859-1?Q?vC8rY7coN2PfQ0THUw5VezUh4TTXDpbOY1J2RuphuTQrgol/AGHHSh0ULt?=
- =?iso-8859-1?Q?3plic4/UYVXtWC9TJuR/uC7HBjnGnrsM2R1+KuMOazHbDz6naWOLJZK6IW?=
- =?iso-8859-1?Q?G/qpHU/m3qu3NM+Bj6o5JqDjSITdzI/MccWkfrepukpyc/5TbHwXevFLrc?=
- =?iso-8859-1?Q?80p91AIpI0Of8jXDvBFL1gNLmeeld6gj7C2w7blxXd7bzctL8RnrQzja0H?=
- =?iso-8859-1?Q?S8aQldLIxU2SwBI8sA1GFnaPPj4ANk41QLhSiPAWo4XXAKez9xR+n06s+5?=
- =?iso-8859-1?Q?cFbXdmFPLQ=3D=3D?=
-X-OriginatorOrg: heitbaum.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 40442946-6b2d-4100-ba06-08df0507bdb0
-X-MS-Exchange-CrossTenant-AuthSource: SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2026 13:24:51.6960
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 35ffebb5-7282-4da6-8519-efab29b0108e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MtAPFGRBIiKDkJ5lmo3BixPZhvhbOeYbbUZSf8Jl1ADcBFAT/umhWWqAzuO4s85fl2WIn/hyDUZFY/BvwgJtmw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ME5P282MB6017
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_062549_347327_D067A174 
-X-CRM114-Status: GOOD (  26.97  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="L1v0x8HM/zJNwKCv"
+Content-Disposition: inline
+In-Reply-To: <f2819c4f1a86845b5b2f2b6f0e03f4c334e84eaa.camel@intel.com>
+X-Cookie: Subject to change without notice.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,90 +80,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 28, 2026 at 02:14:22PM +0200, Heiko Stübner wrote:
-> Hi Rudi,
-> 
-> Am Freitag, 28. August 2026, 12:55:56 Mitteleuropäische Sommerzeit schrieb Rudi Heitbaum:
-> > On Thu, Aug 27, 2026 at 03:25:23PM +0200, Heiko Stuebner wrote:
-> > > Am Montag, 24. August 2026, 04:52:02 Mitteleuropäische Sommerzeit schrieb Rudi Heitbaum:
-> > > > The rk1808 is the npu die in an rk3399pro package. It is wired to one
-> > > > of the usb3 controllers rather than to an external port, and it needs
-> > > > its reference clock running before it will boot, which is exactly what
-> > > > this driver exists to do for onboard devices.
-> > > > 
-> > > > It takes no supply from the driver: the rails are sequenced elsewhere.
-> > > > Only the clock matters here, and that is already optional and handled
-> > > > generically.
-> > > 
-> > > the "elsewhere" might need a bit more explanation to verify it's the right
-> > > implementation. Even if the regulators are always-on or something, we
-> > > still want the supplies defined - for future uses.
-> > 
-> > As follow up on the bringup of the Rock-Pi-N10, the proposed change to the dtsi
-> > for the rk3399pro-vmarc-som is here, but needs the provision of the usb first.
-> > https://github.com/heitbaum/linux/commit/6b114b6fff4022c330003d7f70ce09915ffd774f
-> 
-> I might have formulated that strangly, what I meant was, who is enabling
-> the power supplies.
-> 
-> The "NPU Power" part of any rk3399pro schematics (should) list 5 power
-> supplies for the NPU block itself:
-> 
-> NPU_LOGIC_VDD
->     --> regulator likely named NPU_VDD_LOG_S0
->         --> enabled by NPU_PWREN_2 gpio fixed regulator
-> 
-> NPU_EFUSE_VQPS
->     --> regulator likely named NPU_VCC1V8_EFUSE
->         --> enabled by NPU_EFUSE_EN_H gpio fixed regulator
-> 
-> NPU_CORE_VDD
->     --> regulator likely named NPU_VDD_S0
->         --> TCS4525 regulator with voltage being set via the i2c controller
->              inside the NPU - but enabled by the NPU_PWREN_6 gpio from
->              core RK3399.
-> 
-> NPU_CPU_VDD
->     --> regulator likely named NPU_VDD_CPU_S0
->         --> enabled by NPU_PWREN_4 gpio fixed regulator
-> 
-> NPU_ADC_AVDD_1V8
->     --> regulator likely named NPU_VCC_1V8_S3
->         --> enabled by NPU_PWREN_3 gpio fixed regulator
-> 
-> Naming might vary, I found just some EVB schematics.
-> 
-> Someone needs to enable these, so the question was, who is doing that?
 
-Hi Heiko,
+--L1v0x8HM/zJNwKCv
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-I hadn't looked in to these from the mainline viewpoint. I had been
-using an adapted vendor script based on the radxa npu_powerctl binary
-which reimplements the npu_reset sequence over GPIO.
+On Thu, Aug 27, 2026 at 10:37:45PM +0000, Edgecombe, Rick P wrote:
+> On Thu, 2026-08-27 at 22:41 +0100, Mark Brown wrote:
+> > On Thu, Aug 27, 2026 at 09:27:06PM +0000, Edgecombe, Rick P wrote:
 
-This has been the sequence:
+> > > Hmm. I can't think of a reason to lock writes and not lock shadow stack too.
+> > > Given likely no one is doing this, I wonder if we could change x86's behavior to
+> > > match the others?
 
-gpio0 line 4   NPU_PWREN_1   -> 1, 2 ms
-gpio0 line 10  NPU_PWREN_2   -> 1, 2 ms
-gpio0 line 11  NPU_PWREN_3   -> 1, 2 ms
-gpio1 line 22                -> 1, 2 ms
-gpio1 line 23                -> 1, 2 ms
-gpio1 line 24  NPU_PWREN_6   -> 1, 25 ms
-gpio1 line 0                 -> 1  (reset release)
+> > > The API would makes more sense to prevent disabling shadow stack if writes were
+> > > enabled. It could return an EINVAL regardless if it is locked or not? Is that
+> > > the arm behavior (forgetting about locked)?
 
-I have the schematics and the working N10 here, so let me look into
-describing these in the .dts and update the onboard_usb_dev.h.
+> > arm64 currently treats each bit independently for simplicity.  The main
+> > use case I see for actually doing that is for preventing enabling writes
+> > or pushes, though in practice I'd expect something doing locks to just
+> > fully lock everything after having enabled the shadow stack.
 
-Would you prefer that once I have a working and tested dts description of
-the rk1808 - submit the onboard_usb_dev.h and rk3399pro-vmarc-som.dtsi
-changes as a patchset - or just update the onboard_usb_dev.h as a v2?
+> Locking writes as off makes sense to me. But locking writes on, while leaving
+> shadow stack unlocked. I'm not sure why you would do that. I thought that was
+> Bill's scenario.
 
-Regards
-Rudi
+Yeah, it is.  I can't think why someone would ask for that either, but
+equally it's more work to explicitly have a list of combinations we
+reject for policy reasons.  At least on arm64 each permission just comes
+down to a separate bit in a control register so they're fully
+independent all the way down to the hardware.
 
-> Thanks
-> Heiko
-> 
-> 
-> 
+> > > > It has been on my list to look at this
+> > > > repitition at some point, it had been held up by the clone3() stuff but
+> > > > that seems to have died a death for now.
+
+> > > Oh? What was the blocker?
+
+> > Basically the glibc people weren't convinced they'd ever want to reuse a
+> > shadow stack at which point having the kernel free and reallocate each time
+> > is just as easy.  It saves having to handle corner cases with threads that
+> > didn't exit cleanly.
+
+> I thought it was also because they wanted finer grained control of stack sizes
+> too? But yea, if no libc wants it, it's a hard sell.
+
+They'd rather have just a size control for that, probably a process wide
+control would be most useful since it's likely to be the same number for
+all threads.  I suspect the main use casse would be someone trying to do
+green threads, where there's an extra real thread being created.
+
+--L1v0x8HM/zJNwKCv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmqRjKUACgkQJNaLcl1U
+h9AyUAf9GIV9Gka3OGQ62/nBYTo22uygHAaR+VThEC2Gy9E1mnzyyoDFDcMpGKfq
+FTQ0dN/MSRCNUCayYOB9BgR0VWFlUbxPUkqU+nemTJC3LkTv2BU+sZg2WqG/1aVe
+NVkES2ZbFx2+OtAKo5nu8aNUwbxRknniwDRmV401BnGnpEX8Bh2HPyK5puZ5Z0rf
+Z36MHk8Wya0KCYtiipFxd6rBahozcDQhX6C4RvML20EjPIBAMMtMOTPA1p1RiYdS
+azcc6OVruCJNDvTy7JOVPzoK2jAx49oV3hF1cY2xABzmXrL/cURqIjEcdBi0ONfY
+Px37thtnUk0aubSa7N6rI9FPbjgqow==
+=s+DF
+-----END PGP SIGNATURE-----
+
+--L1v0x8HM/zJNwKCv--
 
