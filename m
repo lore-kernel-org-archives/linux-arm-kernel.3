@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97403C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 10:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C30C61DBD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 10:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I4N8gzh34TI4s9xtonIahAOEOyG3JFBd/5w0IEWxzdw=; b=v6nwHPjKcl0lJStWK8pdqMOEYH
-	w02IV9Kn92nBWoxQzNCles7vCGHTnciXPjKGEqzDpYgGi3PczJb4nyueSqclLJSfgvCfUvDbZ01nr
-	J+N/VzKz7hVtT8D3IRPQBe1R5Kqx46TiAefMg6P2PzM9KdHD2YDe4PgYGfxmh9318RzGHzoJb11DF
-	v6oRT/t+YgNOOmbu1xjHA/hnQFu/J5eiJHh5o6/h5p+OI5w6MwFTbKF59GoW4O/BqNbUwkiNXSjso
-	g1Fc6Oea301Vu6d5f1UW1m/Afe/IUK5kqUz6Vqhhz7DR+LpI9HciVxj+gEUbnL9rNOJGgMXz1QME0
-	uGFQzsiA==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UJnV+cllfeOv0VeeSIei/FJsmHfrLvqxs1SP2W1tkwM=; b=UOOCTpJq5lP+xjQ/FttXDBBRci
+	s9HlGAZtKlmP2X0LIGGQqKLHUOYJEn+76WeHHhIGyA2ureWDPrTOGTbSZ7eJqasClcykqFgEoctzK
+	r/nx+xB6pfYBMsuvd+5GSoWVrXX5WqxYYC8h80953mgT7ur46ciYAHw3JaKNfG/MYJGV6CJ2i9ktS
+	yrt2t3TUbRMDH/HVVOK5EvdgX7s0ES6CXeViJTFCJTTLB5E1p86xv79mb4aY9CvVaDon1E4BsdioB
+	/K+ol/iKbZV1UjR+/g/Wl4HvPWT+Og6biwOOHbls8oW5VDWz0UcGYvUCHQBpOK+K62jkZ0ReBYVew
+	bqB5ZPyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wztrz-00000005a5W-1lfS;
-	Fri, 28 Aug 2026 10:31:36 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
+	id 1wzttG-00000005aHz-0uv3;
+	Fri, 28 Aug 2026 10:32:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wztrw-00000005a48-2Oq2;
-	Fri, 28 Aug 2026 10:31:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=I4
-	N8gzh34TI4s9xtonIahAOEOyG3JFBd/5w0IEWxzdw=; b=ctmxte7VTqPZfHLDUH
-	qSPlOfreNlz3vxDreQ9CQ7w4dognsWsVp83ezPsYhkSNh4aF3tvtRLKwfkaLP37t
-	+LvNB1+AjJRcyctC4dkIQrHrkWNAMhJ30eyhcgs58+GBAaHN2pSbM9DSX7ZdT89C
-	53RzD6hQpvLn+zhaQPjjvQhSM=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgAnfhtxY5FqOxmtOg--.5497S2;
-	Fri, 28 Aug 2026 18:31:13 +0800 (CST)
-From: oushixiong1025@163.com
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Shixiong Ou <oushixiong@kylinos.cn>
-Subject: [PATCH] usb: mtu3: fix double dereference in mtu3_log_ep trace event
-Date: Fri, 28 Aug 2026 18:31:10 +0800
-Message-Id: <20260828103110.893817-1-oushixiong1025@163.com>
-X-Mailer: git-send-email 2.25.1
+	id 1wzttF-00000005aHq-1dg6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Aug 2026 10:32:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8978041879;
+	Fri, 28 Aug 2026 10:32:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6BE21F00A3A;
+	Fri, 28 Aug 2026 10:32:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787913172;
+	bh=UJnV+cllfeOv0VeeSIei/FJsmHfrLvqxs1SP2W1tkwM=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=SNV6cJmDYmhTes86sL7gtL7NvJNpQ7h1iJs/ndBn7MU61XXbmDVf5lkSMp5w1mTHv
+	 mbcdaS/PQLenxgIV9vh4IwivYCB/wBL7dlVCzWj/o2gl+Lv5KZx4g+cVdnGsd+8qBx
+	 Ec3196EYuYG2p699hLeMSxAiGj5H7oBp/2I1ZL+R8+XCKueUCWCHPBEsogbu4IyoZf
+	 ahpfJ7KzyHPTPSAkpKkvTLmwJyC2GjaLAAsacCDZwJLpDV6slRaTrWiw4lQASMYvah
+	 CLOCz/lWMBtzVEV3br7+YEXVVWqoagtgAqJn4q5o4rGKjcKW9utcFmPaTkz713qzYD
+	 UDY4e8CjtLQJQ==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 4B445198003A;
+	Fri, 28 Aug 2026 06:32:50 -0400 (EDT)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Fri, 28 Aug 2026 06:32:50 -0400
+X-ME-Sender: <xms:0GORap9j1MT_suefMlkjp33LUpCrzOlygw7ZXkoliwh4hEDgKCXYcQ>
+    <xme:0GORaogYEjTsytuYcqTjoMuVVuO-ka7PS88C1PQYYsPRYaaWmVTNBxCOsAAB74A_j
+    rg4r0hEnF60I1m1VUAoUorgZwpp-ZGT63ZRc9GzkZh2kmbhxwOSXeEK>
+X-ME-Proxy-Cause: dmFkZTFZLtHyc0mfoLhyYS2kAfo678+yTRdZrbHWl//oP8sLV8EWFLfFZ3lao6PZpFjixZ
+    WOeEAwEfA7ymvmUzQAGYm+bBEfMXiH8VpjDXsvRjl2uniLh63jJT96oL5pk1E2IA+ARxIW
+    xAuAOX2CCYFzBRMmXQnOQtMSzcwO04OSiFHrv7FsTJCynFXyS2sgihBhrLIFaLRCEuxQ/1
+    22aOWCbwfQ1rqlQwPMx81AL/aH66i4KQEmI6LYniqDFMUwKKIWWRkfQO9EN3wtNTJvrjCt
+    wBFX5nDQgHQinLndZ1fp7rMxlP54kCFtgdhg6e7iiPfrRw15cGYR5JJbE1EI3xDoQHfzfa
+    VmCgzDzuKxYHhmbdAXTxW27+GCagvcK58UPLxLurAAgifxKEKiVtTvg3ErP4iUvRJQPdA3
+    K1pED8g5b3DGfH29/Z25lUg2yFnxq1Ty3qpwn+H2no6FxA+PWJMP8N0GaMocPod1nXSPZF
+    6D5wNQndPO2JylJpu8WZ+cTk52FCGaxZyzo5KC+1vRtBVpOEZ9zua/GBzItlHkLvWvWzXL
+    6cA8vB5QB3eEep/XX4BhZi0rW23O/+g+KeA4ssaZDg9yiBBb7q+KN7ewGnFLBJps3JohZ3
+    1pi3tVl7WwwRgYaIVN6e2lkyG9hfFLp4fMeIByf3KTGX5TzBnCHuSaSn88cg
+X-ME-Proxy: <xmx:0mORareFdZLu45K-4oivNGhH5lPQTcrtP14-RsP9S1ZwEhuRffw-RQ>
+    <xmx:0mORatNWmMmyARe6MiJoV-l6nuZqJwd44ZU7y2hVIVR6tLn6RMwjxA>
+    <xmx:0mORamvaJTvNhfXEX_cH8iw7wLaejBQK0tfBmvzXt9-JxO8mVZrySg>
+    <xmx:0mORauABsogHBrkn5DhDRfufz8Jt0bxzsu6gknAo7b7XTx8EcN0kGw>
+    <xmx:0mORalbhF6NkTBzKNpdSHdEyrj0iGwQIEkRubrZah8RUCbB9PIR2e_r3>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 53211F8007D; Fri, 28 Aug 2026 06:32:48 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PygvCgAnfhtxY5FqOxmtOg--.5497S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxJw15CFyxXr1kWFW5Wr4Durg_yoW5Gr1fpa
-	yfuF9rKF4ktwsFvF4kZ34FyFZ0vrWFvFyrKryxu3s5Z3WS9FnxtFs7tryF9ryqkrWrCFy7
-	JF1qkryrX3Wj937anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UKXd8UUUUU=
-X-Originating-IP: [116.128.244.169]
-X-CM-SenderInfo: xrxvxxx0lr0wirqskqqrwthudrp/xtbC-hHzA2qRY3FYVQAA37
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_033133_045308_569BFBA7 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+Date: Fri, 28 Aug 2026 12:32:27 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Bradley Morgan" <brads@mainlining.org>, "Will Deacon" <will@kernel.org>
+Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Mark Rutland" <mark.rutland@arm.com>, "James Morse" <james.morse@arm.com>,
+ "Marc Zyngier" <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <4cc971de-2fc9-496a-a5f5-002bd6b6bd43@app.fastmail.com>
+In-Reply-To: <20260825205839.14571-1-brads@mainlining.org>
+References: <20260825205839.14571-1-brads@mainlining.org>
+Subject: Re: [PATCH 0/7] arm64: hibernate: dust off the suspend/cleanup rework
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,67 +97,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shixiong Ou <oushixiong@kylinos.cn>
+Hi Bradley,
 
-TP_printk() dereferences the gpd_ring pointer stored in the entry
-via &__entry->gpd_ring->dma, which may point to freed memory when
-the trace record is read later. Store the dma address in the entry
-and print that instead.
+On Tue, 25 Aug 2026, at 22:58, Bradley Morgan wrote:
+> Everything object compiles and passes checkpatch and sparse. I could not
+> boot or run a hibernate cycle on real hardware here, so that still wants
+> doing before anyone gets excited.
+>
 
-This is detected at boot:
+You can easily test hibernate under QEMU/mach-virt: just create a file on
+the host, mkswap it and pass it to the VM as a virtio drive (e.g., /dev/vda)
 
-  TRACE EVENT ERROR: Event mtu3_gadget_ep_set_halt has double dereference in TP_printk: &REC->gpd_ring->dma
-  ------------[ cut here ]------------
-  Event mtu3_gadget_ep_set_halt has double dereference in TP_printk: &REC->gpd_ring->dma
-  WARNING: kernel/trace/trace_events.c:420 at test_double_dereference+0x138/0x140, CPU#0: swapper/0/0
-  Call trace:
-   test_double_dereference+0x138/0x140 (P)
-   trace_event_raw_init+0x350/0x5b8
-   event_init+0x38/0xb0
-   trace_event_init+0xf4/0x5c8
-   trace_init+0x30/0x6b8
-   start_kernel+0x4a4/0x8d8
-   __primary_switched+0x88/0x98
-  TRACE EVENT ERROR: Event mtu3_gadget_ep_disable has double dereference in TP_printk: &REC->gpd_ring->dma
-  TRACE EVENT ERROR: Event mtu3_gadget_ep_enable has double dereference in TP_printk: &REC->gpd_ring->dma
+You can then swapon it in the VM and do 'echo disk >/sys/power/state', which
+will perform the hibernate and exit QEMU. If you then restart it with
+'resume=/dev/vda' on the command line, it will perform the resume from
+hibernate at boot.
 
-Fixes: 83374e035b62 ("usb: mtu3: add tracepoints to help debug")
-Signed-off-by: Shixiong Ou <oushixiong@kylinos.cn>
----
- drivers/usb/mtu3/mtu3_trace.h | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+I've had a go with your series on a NV capable system (Mac Mini M2). Without
+the series applied, I can hibernate and resume 4 vCPUs without issue, so it
+is not entirely clear to me what your series intends to fix.
 
-diff --git a/drivers/usb/mtu3/mtu3_trace.h b/drivers/usb/mtu3/mtu3_trace.h
-index 89870175d635..041e730c88a6 100644
---- a/drivers/usb/mtu3/mtu3_trace.h
-+++ b/drivers/usb/mtu3/mtu3_trace.h
-@@ -224,6 +224,7 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
- 		__field(unsigned int, flags)
- 		__field(unsigned int, direction)
- 		__field(struct mtu3_gpd_ring *, gpd_ring)
-+		__field(dma_addr_t, gpd_dma)
- 	),
- 	TP_fast_assign(
- 		__assign_str(name);
-@@ -235,12 +236,13 @@ DECLARE_EVENT_CLASS(mtu3_log_ep,
- 		__entry->flags = mep->flags;
- 		__entry->direction = mep->is_in;
- 		__entry->gpd_ring = &mep->gpd_ring;
-+		__entry->gpd_dma = mep->gpd_ring.dma;
- 	),
- 	TP_printk("%s: type %s maxp %d slot %d mult %d burst %d ring %p/%pad flags %c:%c%c%c:%c",
- 		__get_str(name), usb_ep_type_string(__entry->type),
- 		__entry->maxp, __entry->slot,
- 		__entry->mult, __entry->maxburst,
--		__entry->gpd_ring, &__entry->gpd_ring->dma,
-+		__entry->gpd_ring, &__entry->gpd_dma,
- 		__entry->flags & MTU3_EP_ENABLED ? 'E' : 'e',
- 		__entry->flags & MTU3_EP_STALL ? 'S' : 's',
- 		__entry->flags & MTU3_EP_WEDGE ? 'W' : 'w',
--- 
-2.25.1
+With the series applied resume from hibernate still works - I did see one
+intermittent failure where the secondaries failed to come up, but I only
+saw it once and so I cannot say for certain whether your series triggered
+it or not.
 
-No virus found
-		Checked by Hillstone Network AntiVirus
+Tested-by: Ard Biesheuvel <ardb@kernel.org>
+
+
+
+
+
+
+
 
 
