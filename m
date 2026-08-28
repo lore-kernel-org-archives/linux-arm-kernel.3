@@ -4,125 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3A0C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 03:57:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A455C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 04:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zgmZxYGhw/jia8ZpNwUIE3+mEU0hh0oaj1XdRz+Pyrk=; b=hktAlj+8Im45ruEifw0qRX6udK
-	EzlvaII/wySA9dbAL+alUPbZmVarr+aNfU+PtKDqjsRzPyoa+T/aI1DeBXtllWnt4hyEhVfum/MOL
-	6V1tgub0GgdrPhw53v6AnYdaSjpfNI+OrJYYjIyRwoGQyNcgIZ/L3BnieC9LFHFtGoVD9rKAW0U+6
-	Gj2hUjKkfV80UiljaFl+hXt2xLEfp74qhGz89sof8gA9lqVbBLioS9GEd+EwZKuaVRHyXWhLXXQj0
-	Ff262J3gveXOKSPVQGocvrxUJBCVNhdJsG44x0/TdgVamY9beIGGYbkwvs4Lal7eZ7P2LPAwNtYah
-	BnPW2I1g==;
+	bh=3CKdSKdLdxXqUAJ8+SDUUepiueedYKIw7PG3SRPgDmM=; b=fU5DR9EBPr45w41KZYseKSg1RK
+	vAE2m1hW987IdfuXvqJv5zwuCQF26Jp6lCQVa7/KbzSxMCRBCMwaS8kTTB1VRbueFv2wBQsHL/XrM
+	nTdq79EcgJKuVNBWnUeJ5tcrnbNe6m+qRNXlZ6bQzSfTrwL2Zai1oAXyKWUtKYQII6lJV0AtWZflR
+	s/6kdRCYtx/agacHgtY8m78X9OcOyI039pS9jtBjhuFre9N6m0ez/pJQTyGE2V70MQHcbyTBtPo4j
+	tgN7cpEu6cmepYeJk4rYUiv7Nj1Q3SxFb/VJw6FBS7IFDL81f7fO6vhx+usxS641Zo/mWV0HHXOGe
+	Ir2AT09g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzniZ-000000055CZ-2u3H;
-	Fri, 28 Aug 2026 03:57:27 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wznsv-000000055Xr-30Fr;
+	Fri, 28 Aug 2026 04:08:09 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzniX-000000055Bv-0PDB
+	id 1wznss-000000055XW-1B1t
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 03:57:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=grveuuk8LB1Z3hoEuS4R0bZjyUEbGdoNkYc32IvkRBXoCRF6zWZMyxJkiYTlecOBJlqxA4M4EHnDQ0beB0t3OyuUMZaobLhsM/OSASkHb3h7IFjZxPBRtfUZYBvnNxmZeMVQiT2iU5OxOHWvxWQBUoX1DHUauKBY3kTkMK4VmEI94JYPq/3fcSzNk8IXCTlrICoa4tRbXaOQzfxgqE9i6BGRTOzJErdaFn63tWrorXUF5MDb158AE3yGJaDnUO9LsfbWjVcBu7aUWgAqOjlCY+cVoZc/p121dynjTZtd/Tw9QjsOG+N5J70K2tleH85yONpwbxb8AQTJphrkb61HQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zgmZxYGhw/jia8ZpNwUIE3+mEU0hh0oaj1XdRz+Pyrk=;
- b=uKL9ZccUE2BmRQ2WMOudk1fuRSqMYzgbO+DdSy/iEZKKav8Ps0JfmqjO46hJnNCwENb5GZf3Qx7KkRzsFWd1Mk0lRV56wpyWir3ZW2OBd5vbO3CgrExBY/9CMulEqkdNReyRFBCEXzdWZv+aBktb1VFInmbwYXIDdhkns/CtSqMLc1HyIVVloJ2Zz1LTzMKxvKfp2uJYWofkNWqCRsa/lZHMOJuad5qkfYgkEeoTX0+B/Uy4VGBH/zIWLN69gTtVLmRJr+l4NeYwZgVOeoRVM9Bv3Odbuq13C3LBnIBZu5xZK6v51j8vmz4z2DKrnpCgqwk9x9sxZNmLhPWaXqwLHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zgmZxYGhw/jia8ZpNwUIE3+mEU0hh0oaj1XdRz+Pyrk=;
- b=Tn3wDKWrIzwQZPIDd9C+2FCctDWC3PhxAAJWrMJDsn7H/rcN9f27GCLetbe88dPulmDjQ/6r2m9BIdXMkGsssI4INqf6jFAeDcMNqxrOtuTeSp4Knp3bBIOUNJJGqLA2ZBu9lWfI+XbhcClEIb77nDJRXJ98uxO2JsijOowgO9NSp5EBlqfHjlFmt9NYP2Aae/hMHZYQY1a4WPOgolvKE4M6LEqgmbIwIcdChyT285gsYiu2h5LSEo28lQKnFcxz07e6TlswoEMupj1vwFlIRcL3DjNpPBsi1D6ME+l+G/g6rbs/Eq+k1Oz7fxFktcxx9pXI4jyf0YSVukVFn2mVSg==
-Received: from DM6PR08CA0045.namprd08.prod.outlook.com (2603:10b6:5:1e0::19)
- by CY8PR12MB7220.namprd12.prod.outlook.com (2603:10b6:930:58::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.10; Fri, 28 Aug
- 2026 03:57:18 +0000
-Received: from DS1PEPF0001708E.namprd03.prod.outlook.com
- (2603:10b6:5:1e0:cafe::5d) by DM6PR08CA0045.outlook.office365.com
- (2603:10b6:5:1e0::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.10 via Frontend Transport; Fri,
- 28 Aug 2026 03:57:18 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- DS1PEPF0001708E.mail.protection.outlook.com (10.167.17.134) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Fri, 28 Aug 2026 03:57:18 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 27 Aug
- 2026 20:57:04 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 27 Aug
- 2026 20:57:04 -0700
-Received: from nvidia.com (10.127.8.11) by mail.nvidia.com (10.129.68.10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46 via Frontend
- Transport; Thu, 27 Aug 2026 20:57:02 -0700
-Date: Thu, 27 Aug 2026 20:57:02 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Rafael J .
- Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, "Pranjal
- Shrivastava" <praan@google.com>, Mostafa Saleh <smostafa@google.com>, Lu
- Baolu <baolu.lu@linux.intel.com>, Kevin Tian <kevin.tian@intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
-	<xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH v5 03/18] PCI: Propagate FLR return values to callers
-Message-ID: <apEHDsoW3rJPRZoX@nvidia.com>
-References: <cover.1783044582.git.nicolinc@nvidia.com>
- <b00acbe0755fa5999491368eaac26a78d522e2ed.1783044582.git.nicolinc@nvidia.com>
- <178786269177.3808739.6763094519382046767.b4-review@b4>
- <apCpkJaysSLVY4mr@nvidia.com>
- <20260828000251.GB3922654@nvidia.com>
+	Fri, 28 Aug 2026 04:08:07 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-39c953950dfso5596771fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Aug 2026 21:08:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787890083; x=1788494883; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=3CKdSKdLdxXqUAJ8+SDUUepiueedYKIw7PG3SRPgDmM=;
+        b=ElYmGUwzUuRuaZxh840RLY4h3ok1R/9uXEDz83WIBzHVPyMjzIr9B+vzwHdQ1PCplc
+         1VSYnI5RhjGrZwRbgHKbT9XAKis9uMWFvNAdG7BNyMLf+tS5PdHykR8KsSIL2O62aUB2
+         liHj0xUdT66VB+MvPwHtOL5Vl+kqBOvngDwQbQqsohCJCcgl3hNo/qrrUAhkTz8pHWPl
+         s9hnFNMRE/oeds2UWKuH6Gqfp0m7TQlSkSjv8d4NFhM/tseCVrortJEPv5qwf8hETDCl
+         xlisBgC2L3ptDr5v9aCxh4W2PuXI0Qx8CbamXjQx18De6mrM1nSKz+0uBjsYhH3gWYWE
+         3mAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787890083; x=1788494883;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3CKdSKdLdxXqUAJ8+SDUUepiueedYKIw7PG3SRPgDmM=;
+        b=bjpUZjR9P3fkBUV8+w/XXxsRdfLNKZSJRmVlPBe8OhMibExXa9xR9viBbhxo2QoDSi
+         QPeVFuvKGupnyDVJtqmAwte9+bb5pKu8BqytYb/SbpaixeC+WlYDa0ft0A6yvKXjvOyS
+         NFyEmKzqVVGG/AIi/Pt5dBKEYrKYHvq4x2K4Pebj26FXnT6cYOvegVXf+2W8mfqTiczs
+         EpPanz2taW68lTnGOUcW928hrNLeK9SMWM8Vi9X5rN5xOY79hUzRw1LhXgv03Wfk4WRD
+         i9GYXYYetIsMV34ESi+X/Bp+oukfLDDgSywtGaqoF1+cMSxgp6Isxvqmyp4B8dEOImCk
+         aKhQ==
+X-Forwarded-Encrypted: i=1; AHgh+RolpBbucq3XATG09eEQuS7IHo3Tgig2hls0+LPmkxJU6oKXf+enKAEMHR3vdCVwb9UhDL9zKK2LoTiwUFhaO3QU@lists.infradead.org
+X-Gm-Message-State: AFuF++k/AADXq+UaNjIKsUooyRtqOnSZAsWBk58BG8VVguFKHMSxEsMX
+	VvE7sxsdQxDOcg0QiGQj2/DM8sYgticPqe2hTjLszas7gubkJn5As3Nc
+X-Gm-Gg: AR+sD127lUY7UFf7ExLQXedEWI1LYEqj6p0iOd47ystUpyqCnR62HfrsZKjUzSKBx5i
+	9Xkn2MAp/GWYloE4NkjOrGccceaD3+gYeltusj5QVV/Jlo7CF76Uu7ja5XedbWs0i5SnggjLZeb
+	zDlum7DEdGILTKGacTL5qLcNVHe09GBlLCMbLNJzgbH+/KUoffvtlOs6CKUBVcfIyVf8mp2o9Mq
+	NwQPb8FNvd6lmCv4TQ8BP0paWGt8yHSlBiQk3ldyJZ3CWVjboPu2Inm/iEItY1E2cOsWULSokK7
+	3/BBSxuRAo3fLGclL9WHz3zM0HXiuTyC28j3i/U7X9PSKLBNOGqHuDTv4p1ljj4rQcA7Hh6FAhl
+	rxFqAg2fYvOU4t/FOHqGBIxG5Gsz4OSiFwX2SACTPpQBNROuO2v/o4/nSBzjww2LxQLUaOhkR8k
+	Jc1Uer8qxqxDPo9cwjEhXxsWEvMGMvT/ODYfCN7cYXsWlWmcQJy0aIIC2pW+HGFF0=
+X-Received: by 2002:a05:651c:1445:b0:3a2:eb57:8a99 with SMTP id 38308e7fff4ca-3a301afd639mr5669501fa.9.1787890083299;
+        Thu, 27 Aug 2026 21:08:03 -0700 (PDT)
+Received: from mobilestation ([2a00:1fa1:829d:a0d6:4e24:60c8:bd9:494f])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3a305575833sm701491fa.35.2026.08.27.21.07.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Aug 2026 21:08:01 -0700 (PDT)
+Date: Fri, 28 Aug 2026 07:07:15 +0300
+From: Joseph Steel <recv.jo@gmail.com>
+To: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, 
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, shuah@kernel.org, 
+	joabreu@synopsys.com, jun.ann.lai@intel.com, yi.fang.gan@intel.com, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH net v3 2/5] net: stmmac: Move double VLAN handling to a
+ dedicated op
+Message-ID: <wmeffk2whc47cwfxnsrs46lwmd52n3ezwb5un6qn4nwnturqie@pd77k47zoeka>
+References: <20260825164522.4244-1-ovidiu.panait.rb@renesas.com>
+ <20260825164522.4244-3-ovidiu.panait.rb@renesas.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260828000251.GB3922654@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF0001708E:EE_|CY8PR12MB7220:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9305e744-f68d-452b-2efa-08df04b87497
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|376014|7416014|1800799024|36860700016|10067099003|6133799003|18002099003|22082099003|11063799006|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: jaza50bO5gPVYu4SWqGMYtJq4kxPp66eOSlidTpaH5lQ3FYWEVFrRPr/GhG+BdpI/pAXHxg+Q6cuJTCD4d+beZW7mhOEwSWVAf+Jcynjkq8dt0wsjd/dNhSu8XsE2hE9tjTeubMBZOs291MBlA+pxm5Pnjxh+M6PTi3hdlDpgpjJCzhE2RTjA1X70rBEnFifxBurcFV/vEfBpjtFjzqMDeieItndFJQTHFhCgjU/Gdi8p1Dyppwag1HBGSCT++Jc+nkfm85I8cMoPQPDz6nWNtDfTlNpfTBYM99ijV4Syp7xi/tsjkCKupdsag8ARYRiSVpx2eel6S0uDfRAtPuYe1VWF/zg9H1Jf2ADzB8+lMzpN0Jdprv/js1sG53HhPWhCWhlghuYP2YeqMk1EGdTezgeYLS7uh6w72F6FFfipUaRrZ7eoxZkgMhpNBIPAc+ddCHUF5eC+LtoyIu9o8JFj1FMdInspLcIAcZg1FLVkBrlKk+K3nTOGIHiy8qr30sR2QZC6jf8/0mnG4LCP0A0yTfO+KZNHTxGankXG0BQCa7k/nK6Ifrqt/CMb9v1+WiIqKCUqY4hSVHXe/5mdGB1SPjWD0IQFRezMdd1L/sxemTnGdUaJqNbXtPp7VIWXH5o64O7Jb8joOHrVtmzQTpvcZm/r+jU+gar808dPz+OVvFacr0EeTQGkxDEL2gnHPz60NsWBSuBR1OU+FlnZRHp/w==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(376014)(7416014)(1800799024)(36860700016)(10067099003)(6133799003)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: fhp0sMNwcPFSt3FfBdokuSU1CJ1DyALAs7axm2mmlmoKl86KpqMkcJm1OEWqrp/HOgSd7NRFqnNHjV5MinmOLoTAnjWqtjLmy1H7BFMIcwNtYDy6MlhTyK5TVlk3vun3t/hMkWGHU8IczMMrhzwx8DVvvqCFn0jX6LdGalYmV2JJa8nPpX2MmOKqN1RwZFASDw643BDcf3MJbfrbO5DWZC1geMhXNA2nJsMov3L13kAxm7JemZIIifwzwOvHhRAV+YSjoIdrYK4O90iChfSyL4CZitC99lPSXuR8RwA3mfmpmzuLXAr5zfRsNdC1ZvB6XNqcmnZwDqSIhYlIfuvAuJ5mvGINK57E6MozWT6UfrdEmOkbBjmPRe0doxRtrKyRZ8Ba06TdqpcZvmBKZBeLG5zzmQKtaiNUpA1hhfjuHY2n8JTvjxJcH3MMGPuZXctJ
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Aug 2026 03:57:18.5046
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9305e744-f68d-452b-2efa-08df04b87497
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF0001708E.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7220
+In-Reply-To: <20260825164522.4244-3-ovidiu.panait.rb@renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260827_205725_143536_58E461B9 
-X-CRM114-Status: GOOD (  30.56  )
+X-CRM114-CacheID: sfid-20260827_210806_382786_38A2C31B 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,58 +105,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 27, 2026 at 09:02:51PM -0300, Jason Gunthorpe wrote:
-> On Thu, Aug 27, 2026 at 02:18:08PM -0700, Nicolin Chen wrote:
-> > On Thu, Aug 27, 2026 at 05:31:31PM -0300, Jason Gunthorpe wrote:
-> > > > [ ... 24 lines skipped ... ]
-> > > > Since these quirks have always returned success, escalating
-> > > > would be a new and harmful behavior: the next method is typically the plain
-> > > > "flr" method, which would re-run the same FLR without the extra steps the
-> > > > quirk wraps around its pcie_flr() call. Add quirk_flr_err() converting that
-> > > > -ENOTTY to -ETIMEDOUT, so the cascade still stops at the quirk as before.
-> > > > The early "not applicable" -ENOTTY returns are left intact, and they still
-> > > > ask the caller to try the next method.
-> > > 
-> > > This seems like a very suspect AI conclusion to me.
-> > > 
-> > > I think I'd drop this patch
-> > > 
-> > > > Convert it at the quirk level rather than in pcie_flr() or pci_dev_wait(),
-> > > > because those also serve the native "flr"/"af_flr"/"pm" methods, where the
-> > > > -ENOTTY on timeout is deliberate per commit 91295d79d658 ("PCI: Handle FLR
-> > > > failure and allow other reset types"): a timed-out native FLR escalates to
-> > > > a stronger reset (e.g. bus reset), which skips no workaround there and may
-> > > > recover the device. Converting in the core would also change the value seen
-> > > > by every direct pcie_flr() caller.
-> > > > 
-> > > > This is not a bug fix, since these functions have always returned success
-> > > > and the propagated values are only consumed by incoming work.
-> > > 
-> > > In what way? The quirks flows always succeed and it can keep always
-> > > succeeding. If anyone finds this problematic they can properly
-> > > propogate the error.
-> > > 
-> > > Squashing the error just for quirks makes little sense.
-> > 
-> > PATCH-5 forwards the return values to pci_dev_reset_iommu_done(),
-> > so IOMMU can keep a device blocked on a nonzero result. Dropping
-> > this patch would leave the three VF quirks here always reporting
-> > success, reopening the stale-ATC issue this series is fixing for
-> > them.
+Hi Ovidiu
+
+On Tue, Aug 25, 2026 at 04:45:19PM +0000, Ovidiu Panait wrote:
+> The double VLAN bits (EDVLP, ESVL, DOVLTC) are currently handled inside
+> update_vlan_hash(). This ties the double VLAN state to the hash filter
+> update, even though the two features are independent: hash filtering is
+> controlled by dma_cap.vlhash and double vlan by dma_cap.dvlan.
 > 
-> Sure its fine,
+> In preparation for removing double vlan support from dwmac4, move the
+> double vlan logic into a separate update_dvlan_state() VLAN operation.
 
-Hmm, that paragraph was a justification for having this patch. But
-given the context here, I assume you replied "sure" to my question:
-   "Or do you think it's okay?"
+The S-VLAN implementation in STMMAC is a complete mess. It seems like
+the original code author didn't fully understand what he was doing.
 
-> I bet this HW doesn't even have ATC and if it does
-> someone can properly fix the quirk and test it that way if they ever
-> hit a problem.
+Double VLAN feature of DW *MACs has nothing to do with S-Tag VLANs.
+It merely provides a way to insert/extract/filter an additional level
+of VLAN header - inner. That's it. Seeing the networking subsystem
+provides only the outer VLAN header for HW-accelerations, having the
+DW MACs somehow working with the inner one is not only redundant but
+had been harmful up until a recent kernel. The Tx path has been fixed
+there.  What you see here is a leftover of the incomplete fix.
 
-OK. I can drop it, since we don't want to fix any return result in
-the PCI reset layer.
+Anyway if you feel like cleaning up a mess here then the only correct
+solution would be to almost completely drop any double vlan stuff from
+the VLAN implementation of the driver. That is:
+1. Drop EDVLP flag toggle. But preserve the flag being always set
+otherwise COE won't work for packets with an inner VLAN header.
+2. Rename "double" word to "svlan".
 
-Thanks
-Nicolin
+You must not touch the ESVL and DOVLTC flags, since they are responsible
+for the S-VLAN tags handling, have nothing to do with the Double VLAN
+feature, and must be set so VLAN hash-based filter would perceive
+VLAN S-tagged packets.
+
+If you need to make DW GMAC4 not stripping VLAN S-Tags on Rx packets,
+then you have to find a way to prevent the networking core from
+enabling HW-accelerated S-Tags handling.
+
+-Joseph
+
+> 
+> Signed-off-by: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
+> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> ---
+> v3 changes:
+> - Rebased after dropping the dma_cap.dvlan patch.
+> - Added "Reviewed-by" tag from Maxime.
+> 
+
 
