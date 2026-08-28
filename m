@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C73B3C61DD4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 08:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8801BC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 08:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uyMGZMKc5y1SgmgDY/tsuzKbkVlmYjdT8Q636L6W9/0=; b=SZ2Nif+eCXWbKq2jCaIcR2Wdf7
-	LI7UUpgtXq9ZcPQ3ckfz3HEL15gXfYCVlbB+cgX6xADvTAKSdfomN2c4fNf/TkYywcpzNqwXNTR7U
-	nwbN3SvEWp6eiL0RyB+FB19ZAODiQQqAklIujhoNA9kiaOgC/9EUne1x+Fs1NfLhn/+aMxlVYoh+J
-	LaYikVBErr1Zf1GX89ck4XJoPB7xI3zG1KMrG2tcaif6Q1aqBZq2IdfGntnMxw8iqaOSpymxvQ9/8
-	Ne54jB8DxoqtHJLtsgLKiYdbLTcatAIZOjkXqjdyH6frrhSddvYTlBJOC/zu7uuaYHIyodP3AXq2f
-	v8HT/8yQ==;
+	bh=ps+5/GB0NshBez8oJzJPOCqkIqmjQyVJoJgHnSj4//Y=; b=r7+nJIacoeUjo6nYKF0nT6eCMt
+	m9sXJzuD38Kz3EmLsn9bg1k6Eq/qHCMYGrYCwojLUqAaHHTRdxlWIpRO9Ezd+Tgtmnhy+i7sB6xSk
+	X/0VcbCUUjpLPR3DVdFW04houwImWGqPUnSWx6DfZM/Aw4uXULDWXlH8gmCFD6lwGHgBt2MzT0PZw
+	P8AL98mhUVr9ulKLYpRCOfYfc438T+KJj3JIEF7nMcCCfMFyW3kuMO93vpPhRR+/vX8oL5vZDBApj
+	+o0y+ubFICR4xjGGLBH47blCQtIXMzFyHJYMQmhh+GdOTzgZNLhp4kdrlHOfD0c7wryxjGTrDN1ma
+	tq7fXtDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzsH4-00000005LXz-1m27;
-	Fri, 28 Aug 2026 08:49:23 +0000
-Received: from smtpbgbr1.qq.com ([54.207.19.206])
+	id 1wzsHE-00000005Ll8-188s;
+	Fri, 28 Aug 2026 08:49:32 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzsH0-00000005LJ5-1VPa;
-	Fri, 28 Aug 2026 08:49:20 +0000
+	id 1wzsH1-00000005LJq-39nx;
+	Fri, 28 Aug 2026 08:49:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1787906892;
-	bh=uyMGZMKc5y1SgmgDY/tsuzKbkVlmYjdT8Q636L6W9/0=;
+	s=altu2504; t=1787906898;
+	bh=ps+5/GB0NshBez8oJzJPOCqkIqmjQyVJoJgHnSj4//Y=;
 	h=From:To:Subject:Date:Message-Id;
-	b=b8ePwLWcWOI+xkIw62G815/sIHuDwlzG+vJi5gr+zMYBTdgS7p1q+N6ebgu8dBQYl
-	 m3ZF0Cx/kFC3PoNRVWupDibx1mkbEe5bnmTlwfEisqgUeIcSV8MNFh5JQip+cGZFu7
-	 vA+JPQyxfO6bMh19id16ZkYHl1c3kKUWcu6uHMuU=
-X-QQ-mid: zesmtpgz6t1787906891t1bc82087
-X-QQ-Originating-IP: OxvB8j0RZYuReQ0OYIUUtJayIysb859IsfVqPvUZV9Q=
+	b=aUl26nl3wQUZ4hn1CUwgBwkgnEsMmlFcFw/Aj9gO5+I84IsMaXGFLkEVT5DiEdB/t
+	 EyFEKRMMWFOE/mvxjTFEIovflYg95Ep6GlvmmF33XD1Vy1fNTTdQdZ9yPrvVPvKppq
+	 sE/1azftroo0lkbfD+x7SJz9IRkVzg0X3EBLU/VI=
+X-QQ-mid: zesmtpgz6t1787906896t199af65e
+X-QQ-Originating-IP: 5flTHLV541QvG+d71g7cmkxNrt7XoJywJCQVlxi+9yA=
 Received: from DESKTOP-8BT1A2O.localdomain ( [61.154.14.86])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 28 Aug 2026 16:48:05 +0800 (CST)
+	id ; Fri, 28 Aug 2026 16:48:12 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7758792601423077606
+X-BIZMAIL-ID: 316822618748361336
 From: Chaoyi Chen <kernel@airkyi.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -67,35 +67,35 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-phy@lists.infradead.org
-Subject: [PATCH v7 4/7] drm/bridge: aux: Add drm_aux_bridge_register_from_node()
-Date: Fri, 28 Aug 2026 16:47:34 +0800
-Message-Id: <20260828084737.565-5-kernel@airkyi.com>
+Subject: [PATCH v7 5/7] phy: rockchip: phy-rockchip-typec: Add DRM AUX bridge
+Date: Fri, 28 Aug 2026 16:47:35 +0800
+Message-Id: <20260828084737.565-6-kernel@airkyi.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20260828084737.565-1-kernel@airkyi.com>
 References: <20260828084737.565-1-kernel@airkyi.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MmpliBmRb3iCtRt0VXlV8wcWI2CMwokakifYw3R+ZOuAacwlJ5sp6eJO
-	sxtYZu/0Ve+vJOsU1YRlwIfSQEp18Thb/WaemH1ITxkAOIVF0CDOmFQoU9V0OaC3CbkHx5R
-	WUjN0RyeFNaGMhVCrxQ7R7SaFchrJZGt5MIUNXV8eSd+hH4DOCQvNXdFgxfEoV0LWVuNejI
-	2UjhGXzPtT0ptL3zJOxtWtZBZ2ZWbUmhqVrhBDwdFzaJslSXff3huDhcPMf4W1QpXO498Tb
-	njDI4rvDAr/U9XRoCKWr/uLZ+vCQB42L//AStKcIS14x58ONvxFwmpHB427AWVNqePuf4iF
-	Fw5vtHfKNONN68fQp2DmX/9qCXv6dBDJNjCDPBRWszyy23gGBzHah0YVHAoGscRyz1aaSou
-	TfTZ6IHF0hq4ZaerOSfVuqFjpCeQ26xu9u5GbAVYndSU92q/kW1/qnbMiWVSUeBJWsJvp+A
-	cL/a7rN6y8brW65jLP04ST65QE5XpkejlkRyyo+Nylm9sM2ZxWvMMqVf2a32s9FvMkNqldp
-	WSJpZcrIA6YNaw4hd+NyNmcOYjM4hcG2hH5SyHehJsXltklX7cenuMMpsJdsT9/eKcC9VhW
-	+P3HzvEzRCrmDuoU3FaBqXn1uAOIf0jjzk/y8YilfZxZS8RmRoLn/GPvBS/d52SUy2jFesN
-	ZkR+a/hl0NIJJT/MoIqQkor3MwgYYQokSUgBCmJlkUlCMQASZjYXi7nUTEDg44AIAYUgAti
-	o1p2Kxno9rRtotrpr4XJVJetEco47Hw3DojTrrVyeuX1U2NgnBUelUWSweOGwK6LffxK3Er
-	T3QCm385kdd7LWGRFmCpkweDv2JeYnUlOGySZ5SKYlX/GLdu7jtl8bQPRn24X8Payl30ymr
-	qmQgT68ywW0N7T0WoLnA45UXQW8GysSbJSnlyrLt7K18rTPJ9XZVEA9XBJFkeL51RCYDQIH
-	mPl16le263xuRdjDqfLip2BggZKjvJkAvl2uoMB0xLn/FSwJxBvwj3Zim4Idgg2pMn9acmQ
-	Zfxmipfg==
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-XMAILINFO: NBUSIVIw0bNzXOl4W4KwoT7/kemWkc2d89cfamrIoo6cBhy+GgRIJWcW
+	SDMMuASo6ASpJoMzH6cZSmRdk9ycX+MgvZCKdMFDuqBA5T0h9cUPxp2mW3ybl6ZakmmFore
+	/Ksv1P2BuMtr1NxlSZ7VVXCG0EIBwq2cXXc5M5J13CZkF3/AJmuAdYk1d3RHrCtgC6TWwRB
+	N9iNL/gWs9aOHLrg1KNPTffjNFLXLhutyM4ptjoE1AKpcAQBPdbLqzD7SFqPJxwEAYVmKvy
+	jHPnihyAuyGOpuwiofbiLbd11sZLA2MiMWj++5Q9Pj8+noYLOldK1g8t+vxDHFwRPt5KD9M
+	pNrSN5DzkHpc9hfFwFwJn8wbKO0UdULKgIcXJDcchYFducAIVxAJPItV1Eh/6czEPR5VWWJ
+	F7BUUAFVIlkzxNLMM3aI9EiWe+jNlbM1/D4t0chzaobFHoIYyvwygG+6s38JseDpO1utnLC
+	rOvuD+P2/P5iuR4PPwNtnrhhf4r3dDhAnSC4tdQsm6rQ/a+OtUP1XxBUfnE2qqzSv1Yh0X6
+	oiffBGpfXLzSjybS10/oCYBz6ni+Ssy45xbdjTsUP2fTgTHQcjrSg7AojD4dku6IuEBe2wd
+	Beoy2Bxn+Qurr+J66sprwKhURk4vUDnbIJYSkSWgpiMXr1avjgKiBOsMXUryRPzNRHFbgs/
+	PaMXXWBOvOyemndYoXQmAGHfx7rzs2CtfIgsRmtbRzjQggcoeqajc0KelRBcz5E8g9wioCM
+	a46fF0H8DdzM44rGRCQTZsNMCe9hxsB5qqWg8+B0vMtZxlQPKT6/GegeMVFtpUBrVk8k67+
+	Jl8GWHeFk5P8Wi3wW70SjEXR5qK0EsnbZsXdDzGo92HoZ9KhMp7UTgIe2ECE0u1W9pKkgtN
+	KKCiuozVqXZTBkrIxKT5pafyb+EbtMmefolonbZrGkAD/Yc6JuR80bkrgdXcSQ4lqy6OYSH
+	o/6LA2+PQlq4UFmIHmCdLmEKnPzYShUiyvKCRElsk0XotP9Ey3f8ZUKoEnZ5Xy3XsXtDcYC
+	hSRhU48OaUfRnajZB8cLhQCusTsN1925Xcg2E1zQ==
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_014919_192532_EC4A3114 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20260828_014920_584299_4892207C 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,107 +112,72 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-The drm_aux_bridge_register() uses the device->of_node as the
-bridge->of_node.
-
-This patch adds drm_aux_bridge_register_from_node() to allow
-specifying the of_node corresponding to the bridge.
+Using the DRM_AUX_BRIDGE helper to create the transparent DRM bridge
+device.
 
 Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Acked-by: Vinod Koul <vkoul@kernel.org>
 ---
-(no changes since v3)
-
-Changes in v2:
-- Fix incorrect function names in the documentation comments.
+(no changes since v1)
 ---
- drivers/gpu/drm/bridge/aux-bridge.c | 26 +++++++++++++++++++++++---
- include/drm/bridge/aux-bridge.h     |  6 ++++++
- 2 files changed, 29 insertions(+), 3 deletions(-)
+ drivers/phy/rockchip/Kconfig              |  2 ++
+ drivers/phy/rockchip/phy-rockchip-typec.c | 13 +++++++++++--
+ 2 files changed, 13 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/aux-bridge.c b/drivers/gpu/drm/bridge/aux-bridge.c
-index 1ed21a8713bf..06a1466f49bd 100644
---- a/drivers/gpu/drm/bridge/aux-bridge.c
-+++ b/drivers/gpu/drm/bridge/aux-bridge.c
-@@ -33,8 +33,9 @@ static void drm_aux_bridge_unregister_adev(void *_adev)
- }
+diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
+index 14698571b607..9173d3b4fef4 100644
+--- a/drivers/phy/rockchip/Kconfig
++++ b/drivers/phy/rockchip/Kconfig
+@@ -119,6 +119,8 @@ config PHY_ROCKCHIP_SNPS_PCIE3
+ config PHY_ROCKCHIP_TYPEC
+ 	tristate "Rockchip TYPEC PHY Driver"
+ 	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
++	depends on DRM || DRM=n
++	select DRM_AUX_BRIDGE if DRM_BRIDGE
+ 	select EXTCON
+ 	select GENERIC_PHY
+ 	select RESET_CONTROLLER
+diff --git a/drivers/phy/rockchip/phy-rockchip-typec.c b/drivers/phy/rockchip/phy-rockchip-typec.c
+index d9701b6106d5..48070b50416e 100644
+--- a/drivers/phy/rockchip/phy-rockchip-typec.c
++++ b/drivers/phy/rockchip/phy-rockchip-typec.c
+@@ -54,6 +54,7 @@
  
- /**
-- * drm_aux_bridge_register - Create a simple bridge device to link the chain
-+ * drm_aux_bridge_register_from_node - Create a simple bridge device to link the chain
-  * @parent: device instance providing this bridge
-+ * @np: device node pointer corresponding to this bridge instance
-  *
-  * Creates a simple DRM bridge that doesn't implement any drm_bridge
-  * operations. Such bridges merely fill a place in the bridge chain linking
-@@ -42,7 +43,7 @@ static void drm_aux_bridge_unregister_adev(void *_adev)
-  *
-  * Return: zero on success, negative error code on failure
-  */
--int drm_aux_bridge_register(struct device *parent)
-+int drm_aux_bridge_register_from_node(struct device *parent, struct device_node *np)
- {
- 	struct auxiliary_device *adev;
- 	int ret;
-@@ -62,7 +63,10 @@ int drm_aux_bridge_register(struct device *parent)
- 	adev->dev.parent = parent;
- 	adev->dev.release = drm_aux_bridge_release;
+ #include <linux/mfd/syscon.h>
+ #include <linux/phy/phy.h>
++#include <drm/bridge/aux-bridge.h>
  
--	device_set_of_node_from_dev(&adev->dev, parent);
-+	if (np)
-+		device_set_node(&adev->dev, of_fwnode_handle(np));
-+	else
-+		device_set_of_node_from_dev(&adev->dev, parent);
+ #define CMN_SSM_BANDGAP			(0x21 << 2)
+ #define CMN_SSM_BIAS			(0x22 << 2)
+@@ -1162,16 +1163,24 @@ static int rockchip_typec_phy_probe(struct platform_device *pdev)
  
- 	ret = auxiliary_device_init(adev);
- 	if (ret) {
-@@ -80,6 +84,22 @@ int drm_aux_bridge_register(struct device *parent)
+ 	for_each_available_child_of_node(np, child_np) {
+ 		struct phy *phy;
++		ret = 0;
  
- 	return devm_add_action_or_reset(parent, drm_aux_bridge_unregister_adev, adev);
- }
-+EXPORT_SYMBOL_GPL(drm_aux_bridge_register_from_node);
+-		if (of_node_name_eq(child_np, "dp-port"))
++		if (of_node_name_eq(child_np, "dp-port")) {
+ 			phy = devm_phy_create(dev, child_np,
+ 					      &rockchip_dp_phy_ops);
+-		else if (of_node_name_eq(child_np, "usb3-port"))
++			ret = drm_aux_bridge_register_from_node(dev, child_np);
++		} else if (of_node_name_eq(child_np, "usb3-port"))
+ 			phy = devm_phy_create(dev, child_np,
+ 					      &rockchip_usb3_phy_ops);
+ 		else
+ 			continue;
+ 
++		if (ret) {
++			pm_runtime_disable(dev);
++			of_node_put(child_np);
++			return ret;
++		}
 +
-+/**
-+ * drm_aux_bridge_register - Create a simple bridge device to link the chain
-+ * @parent: device instance providing this bridge
-+ *
-+ * Creates a simple DRM bridge that doesn't implement any drm_bridge
-+ * operations. Such bridges merely fill a place in the bridge chain linking
-+ * surrounding DRM bridges.
-+ *
-+ * Return: zero on success, negative error code on failure
-+ */
-+int drm_aux_bridge_register(struct device *parent)
-+{
-+	return drm_aux_bridge_register_from_node(parent, NULL);
-+}
- EXPORT_SYMBOL_GPL(drm_aux_bridge_register);
- 
- struct drm_aux_bridge_data {
-diff --git a/include/drm/bridge/aux-bridge.h b/include/drm/bridge/aux-bridge.h
-index cca07a8e2d45..67f74ed287d9 100644
---- a/include/drm/bridge/aux-bridge.h
-+++ b/include/drm/bridge/aux-bridge.h
-@@ -13,11 +13,17 @@ struct auxiliary_device;
- 
- #if IS_ENABLED(CONFIG_DRM_AUX_BRIDGE)
- int drm_aux_bridge_register(struct device *parent);
-+int drm_aux_bridge_register_from_node(struct device *parent, struct device_node *np);
- #else
- static inline int drm_aux_bridge_register(struct device *parent)
- {
- 	return 0;
- }
-+
-+static inline int drm_aux_bridge_register_from_node(struct device *parent, struct device_node *np)
-+{
-+	return 0;
-+}
- #endif
- 
- #if IS_ENABLED(CONFIG_DRM_AUX_HPD_BRIDGE)
+ 		if (IS_ERR(phy)) {
+ 			dev_err(dev, "failed to create phy: %pOFn\n",
+ 				child_np);
 -- 
 2.53.0
 
