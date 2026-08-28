@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDF21C61DBD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 20:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCAEC61DCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 20:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C/keNu9YOo7zAzx95aDUptk6EtzUmbckhpZVCqPPVXs=; b=GJOqPHJ1jzyn6ii/olmxRoiUZD
-	upmwQqkTZ5PtVHqjnJhg+twzBpErwtdPWXfEk/Yb+urvUYz+plagWkTbDItTe6a9PfCAdRwXs2Yr8
-	GXfWjSltDldD7eerZvTwYIaOT5uKpde12DW1JSQi4Kmny1mphQCQwMyLrocktjO7MkB2IiuemKHkw
-	4F5//4lSaHNbknK8FnPDOnQd9cRwnqQA+bais2aiMOEXIz1HAZpzx0GtvpV38PmZjSgJSUu7KAswK
-	Rb5ipN8zzr8nzw602IehTlfsI9Bf4c5gqrUBvZNgItbm7sZTN1MV2blsD/xFZF43aCYSoKxwW3ZH3
-	rYV4LfWg==;
+	bh=+X15T1fcpe3iI6rFk13FMG/iW6iRWR1lKoh9bfasM84=; b=5BE3wCDPEou3u9cFSUd4m8e4Vd
+	+Q4LkTA9MsWYspmleznHxmW4ydbj5W3Tri7Pzflc2pmNQ1FBqfGXZe8udiLk2J9HAjXMgODAu6mbl
+	c2VA0sP1Y6PUdD28RfTmfIQav7PTE7ObXP1lp5Ia1GUQA/kYmFUbpOK0JRG0Qe/dofPJp5KTfZdp/
+	TxFIRA5aB2eRpGGdUGFVKW18dFsKGzvxragLyOOcuGsgphcFf2IOHNaJ8ySKkakSgKcmHuHM05WlH
+	nkwQb1S9YfuTSfwuuOSKl6AZVs2kjNLpAb02NH7vzjs0iqbI3k54acUKDcWRxCTUGIGFVD1yV3AjP
+	P2b7NsMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x03Fv-00000006OwQ-22AW;
-	Fri, 28 Aug 2026 20:32:55 +0000
+	id 1x03G4-00000006Oxu-2pOm;
+	Fri, 28 Aug 2026 20:33:04 +0000
 Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x03Fs-00000006Ov7-1tDl
+	id 1x03Fs-00000006Ov6-1tNf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Aug 2026 20:32:53 +0000
+	Fri, 28 Aug 2026 20:32:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=kemnade.info; s=20220719; h=Cc:To:In-Reply-To:References:Subject:From:
 	Reply-To:Content-ID:Content-Description;
-	bh=C/keNu9YOo7zAzx95aDUptk6EtzUmbckhpZVCqPPVXs=; t=1787949172; x=1789158772; 
-	b=J6GnBnX85xoprXYk0NaNvRiakCazrjXE+XL2jNQPM2FeN4+IPB/0uDHW+f0JeF4TzpZwRfi9Kjt
-	StdRO1Z49Q/v9JMAXj/gKzAUsLDkRyU6t/lb8YblwBEc9TMo6W1q0TKcwGqheYqgkm4UJ3ywZ0pAY
-	J5HE0wUbPgxvi+m2Vy31zdFdULCR+O1f/tRK4m7wIXsFo1BmW+wCkRWIWQzaUcNfyafB9lL9znaLo
-	MuuBHPnYT6+3x0TaF0kFPCnBZZutty9WE8RHhtP+B4v466UXK9NVHuUJETnsDKIOQBXYa7f1MLTiG
-	0FtWtZXOu92tsEvhjfDYeCCQ+OVLJUSVdqPA==;
+	bh=+X15T1fcpe3iI6rFk13FMG/iW6iRWR1lKoh9bfasM84=; t=1787949172; x=1789158772; 
+	b=w8ic720mPVDSy6nRLmEqPT9S09PznyxtAxl68X+RLCD1jwsQUKS9hJalrBRBGl/PVgKZqneE7r7
+	qlH1C3kRCP/mdxMSWqP/MeiZ9hwzXCZOxo5/BEnUvJAila0ggLFY8IrltFW56vaf0u/r+30X4/zJn
+	sHfdR9MX3Wm3SPI5db6EolpcgC76IrmF1r050LjtoZKcMjUqZGDSJcJaCW0SgqAgVWD6w21JxdNEc
+	h16dTFNldtv7ZQzvlqdFbA49mu/swO2HU0X7Vvlw+0NHo1QuJIbLcIwMr+T0gJmpQ2kcQEHx1iGMR
+	aT9M3UPBRoH0UgYPNf+3F1KpqzTATq2AN8hQ==;
 From: Andreas Kemnade <andreas@kemnade.info>
-Date: Fri, 28 Aug 2026 22:32:19 +0200
-Subject: [PATCH v2 1/3] ARM: compressed: Pass the actual output length to
- the decompressor
+Date: Fri, 28 Aug 2026 22:32:20 +0200
+Subject: [PATCH v2 2/3] ARM: compressed: Bump MALLOC_SIZE to 128 KiB
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260828-zstd2-v2-1-4d9ce7150877@kemnade.info>
+Message-Id: <20260828-zstd2-v2-2-4d9ce7150877@kemnade.info>
 References: <20260828-zstd2-v2-0-4d9ce7150877@kemnade.info>
 In-Reply-To: <20260828-zstd2-v2-0-4d9ce7150877@kemnade.info>
 To: Russell King <linux@armlinux.org.uk>, Nick Terrell <terrelln@fb.com>, 
@@ -55,17 +54,17 @@ Cc: Andreas Kemnade <andreas@kemnade.info>, j.neuschaefer@gmx.net,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Linus Walleij <linusw@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3671; i=andreas@kemnade.info;
- h=from:subject:message-id; bh=/L/veojh/62XQryZCdewjJj5pfYPoiKhGTtsVvoXBR0=;
- b=owGbwMvMwCUm/rzkS6lq2x3G02pJDFkTP6RterV32emUhIOB0b79nl5Rq+Ritp9OnRgiPeXLg
- UsNVvpOHaUsDGJcDLJiiiy/rBXcPqk8yw2eGmEPM4eVCWQIAxenAEzkszwjw/EU0f8bdxcp5ftn
- L1moxrTk/3uPnTetdXhyLn3MM2mcUs/I8I4hRSvd9ZdtZkPMqceWTt9Yo6duTP6S90Hikam3Ak8
- +NwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1631; i=andreas@kemnade.info;
+ h=from:subject:message-id; bh=+UrMNo6HSjDQ27FgGwmv5HaqBYMyLiKEYeg3oyNuDMc=;
+ b=owGbwMvMwCUm/rzkS6lq2x3G02pJDFkTP6S9P3iq0d376Mv4M4/nBGmZ2N7PDAysjupRdFcoX
+ OG+S6yho5SFQYyLQVZMkeWXtYLbJ5VnucFTI+xh5rAygQxh4OIUgIm8d2RkuJcTfOn/3tKp5wJa
+ 35cvFvnoYq0fEnfaTTwwfcryarkfLowMx3LOeR9tz79yPi56Y7LM9u3vH3/pW+WgzJo3o9+h8Zc
+ 5KwA=
 X-Developer-Key: i=andreas@kemnade.info; a=openpgp;
  fpr=EEC0DB858E66C0DA70620AC07DBD6AC74DE29324
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_133252_524967_A70C2140 
-X-CRM114-Status: GOOD (  13.99  )
+X-CRM114-CacheID: sfid-20260828_133252_527974_390FC2DE 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,96 +81,52 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jonathan Neuschäfer <j.neuschaefer@gmx.net>
 
-ZSTD writes outside of the space that is necessary for the uncompressed
-data, when it is told it has unlimited output length. To fix this, pass
-the actual output length (the length of the uncompressed kernel) to the
-decompressor.
-
-The uncompressed length is already stored as a little endian 32-bit
-constant before the input_data_end symbol.
+The ZSTD compressor needs about 100 KiB.
 
 Signed-off-by: Jonathan Neuschäfer <j.neuschaefer@gmx.net>
-Reviewed-by: Tony Lindgren <tony@atomide.com>
 Reviewed-by: Florian Fainelli <f.fainelli@gmail.com>
 Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 Signed-off-by: Andreas Kemnade <andreas@kemnade.info>
 ---
- arch/arm/boot/compressed/decompress.c |  4 ++--
- arch/arm/boot/compressed/misc.c       | 10 +++++++++-
- arch/arm/boot/compressed/misc.h       |  3 ++-
- 3 files changed, 13 insertions(+), 4 deletions(-)
+ arch/arm/boot/compressed/Makefile | 2 +-
+ arch/arm/boot/compressed/head.S   | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm/boot/compressed/decompress.c b/arch/arm/boot/compressed/decompress.c
-index 0669851394f04..b0352f379277f 100644
---- a/arch/arm/boot/compressed/decompress.c
-+++ b/arch/arm/boot/compressed/decompress.c
-@@ -60,7 +60,7 @@ extern char * strchrnul(const char *, int);
- #include "../../../../lib/decompress_unlz4.c"
- #endif
+diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
+index e3f550d628578..fa6ee23cd72eb 100644
+--- a/arch/arm/boot/compressed/Makefile
++++ b/arch/arm/boot/compressed/Makefile
+@@ -62,7 +62,7 @@ ZTEXTADDR	:= 0
+ ZBSSADDR	:= ALIGN(8)
+ endif
  
--int do_decompress(u8 *input, int len, u8 *output, void (*error)(char *x))
-+int do_decompress(u8 *input, int len, u8 *output, int outlen, void (*error)(char *x))
- {
--	return __decompress(input, len, NULL, NULL, output, 0, NULL, error);
-+	return __decompress(input, len, NULL, NULL, output, outlen, NULL, error);
- }
-diff --git a/arch/arm/boot/compressed/misc.c b/arch/arm/boot/compressed/misc.c
-index 6c41b270560e1..58826885ccc82 100644
---- a/arch/arm/boot/compressed/misc.c
-+++ b/arch/arm/boot/compressed/misc.c
-@@ -22,6 +22,7 @@ unsigned int __machine_arch_type;
- #include <linux/compiler.h>	/* for inline */
- #include <linux/types.h>
- #include <linux/linkage.h>
-+#include <linux/unaligned.h>
- #include "misc.h"
- #ifdef CONFIG_ARCH_EP93XX
- #include "misc-ep93xx.h"
-@@ -128,14 +129,21 @@ asmlinkage void __div0(void)
- 	error("Attempting division by 0!");
- }
+-MALLOC_SIZE	:= 65536
++MALLOC_SIZE	:= 131072
  
-+static u32 get_inflated_image_size(void)
-+{
-+	return get_unaligned_le32(input_data_end - 4);
-+}
-+
- void
- decompress_kernel(unsigned long output_start, unsigned long free_mem_ptr_p,
- 		unsigned long free_mem_ptr_end_p,
- 		int arch_id)
- {
-+	unsigned long output_data_len;
- 	int ret;
+ AFLAGS_head.o += -DTEXT_OFFSET=$(TEXT_OFFSET) -DMALLOC_SIZE=$(MALLOC_SIZE)
+ CPPFLAGS_vmlinux.lds := -DTEXT_START="$(ZTEXTADDR)" -DBSS_START="$(ZBSSADDR)"
+diff --git a/arch/arm/boot/compressed/head.S b/arch/arm/boot/compressed/head.S
+index 9f406e9c0ea6f..23fbbe94da6e8 100644
+--- a/arch/arm/boot/compressed/head.S
++++ b/arch/arm/boot/compressed/head.S
+@@ -337,7 +337,7 @@ restart:	adr	r0, LC1
+ 		get_inflated_image_size	r9, r10, lr
  
- 	output_data		= (unsigned char *)output_start;
-+	output_data_len         = get_inflated_image_size();
- 	free_mem_ptr		= free_mem_ptr_p;
- 	free_mem_end_ptr	= free_mem_ptr_end_p;
- 	__machine_arch_type	= arch_id;
-@@ -147,7 +155,7 @@ decompress_kernel(unsigned long output_start, unsigned long free_mem_ptr_p,
+ #ifndef CONFIG_ZBOOT_ROM
+-		/* malloc space is above the relocated stack (64k max) */
++		/* malloc space is above the relocated stack (128k max) */
+ 		add	r10, sp, #MALLOC_SIZE
+ #else
+ 		/*
+@@ -629,7 +629,7 @@ not_relocated:	mov	r0, #0
+  */
+ 		mov	r0, r4
+ 		mov	r1, sp			@ malloc space above stack
+-		add	r2, sp, #MALLOC_SIZE	@ 64k max
++		add	r2, sp, #MALLOC_SIZE	@ 128k max
+ 		mov	r3, r7
+ 		bl	decompress_kernel
  
- 	putstr("Uncompressing Linux...");
- 	ret = do_decompress(input_data, input_data_end - input_data,
--			    output_data, error);
-+			    output_data, output_data_len, error);
- 	if (ret)
- 		error("decompressor returned an error");
- 	else
-diff --git a/arch/arm/boot/compressed/misc.h b/arch/arm/boot/compressed/misc.h
-index 8c73940b5fe46..ec8de2388f0ec 100644
---- a/arch/arm/boot/compressed/misc.h
-+++ b/arch/arm/boot/compressed/misc.h
-@@ -13,7 +13,8 @@ decompress_kernel(unsigned long output_start, unsigned long free_mem_ptr_p,
- void __fortify_panic(const u8 reason, size_t avail, size_t size);
- int atags_to_fdt(void *atag_list, void *fdt, int total_space);
- uint32_t fdt_check_mem_start(uint32_t mem_start, const void *fdt);
--int do_decompress(u8 *input, int len, u8 *output, void (*error)(char *x));
-+int do_decompress(u8 *input, int len, u8 *output, int outlen,
-+		  void (*error)(char *x));
- 
- extern char input_data[];
- extern char input_data_end[];
 
 -- 
 2.47.3
