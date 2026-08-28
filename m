@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C85EAC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39AB6C61DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Aug 2026 13:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:Cc:
 	To:In-Reply-To:Message-Id:Content-Transfer-Encoding:MIME-Version:Subject:Date
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CZQ6g0SOIss6kTyIBXZOKF9vf1VOCtlImKy5V/nnOQY=; b=vUsEelC8kkHDWcDPanTI1ydeN/
-	MyK+lTRfusapxkqYavaY8Jt+oCUkYkfkXCGQBnpTuSD96eToj4QcVfg1KpTa258T7hDR865cMgNEp
-	ZN6tuBZiAH8GpCRCL4zF/eI67z/S+xDzVGXV6b93aSrBz7ogBsBjacFgwk7oCzdyLZ8Bqw6cYAyU0
-	/KDKNmOaa6b9hOPmHvkg41UpyOwdHjrIb+fKXtXXGM9/h5r+r12YgoJ540k6BjfEoacIiTrcaxKFh
-	9rdvPgVQwuIWtX7ZjTy92mDJm5gmv8L5tJoK5zs6X+yS0dvqYJV5dnQFjpz6UFVmMwaUOLMkYYnwI
-	1bUYgdpA==;
+	bh=uMTpvxWIHTWA5WP2+3K9U8sgXeHo5NdCmMYa7bPSnFI=; b=s0zKI0DXOTCnWGLUgnO/WIQb7m
+	t5PWHsA9jDbNJdw39hqgNnQEDyvzeJDm8HRtM7S8nOVjSJrdTR4CLJz/AT9/nY+xeG6481ZgczuPO
+	CjXvdKOmmxGEdHUcRI4vz7Vw0HnCzELVzGGs6wKUeMbO0WslQL+ub3FUqfRxEBwD33Z+rOhRrdMof
+	FGS6td/dcpD+CgiXLIyzx9nfGNktWPvwUuXuqe76yR6LWyW1+CN0+OX18vMSD46MC5aQfj6ypO5Ua
+	oG6Upi9Hbl/9D7UCHZfgh5vnlcNA6VnMl3N/Zq8ggQIu/uRl/0g3JY9oNaVOzitp1HfkxlLO2Z7wP
+	WkiJpkHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwwU-00000005r30-2Huh;
+	id 1wzwwU-00000005r2s-1pCz;
 	Fri, 28 Aug 2026 13:48:26 +0000
 Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wzwwQ-00000005r12-1XD3;
+	id 1wzwwO-00000005r0G-0FsN;
 	Fri, 28 Aug 2026 13:48:25 +0000
 Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260828134820euoutp01c6dd8c216fa79e8b57b2653deaa7c7ac~P-DlOOk112621826218euoutp01A;
-	Fri, 28 Aug 2026 13:48:20 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260828134820euoutp01c6dd8c216fa79e8b57b2653deaa7c7ac~P-DlOOk112621826218euoutp01A
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260828134816euoutp018a0c3e2648795ffd6e03561f443696bd~P-DhYbMaO2677926779euoutp018;
+	Fri, 28 Aug 2026 13:48:16 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260828134816euoutp018a0c3e2648795ffd6e03561f443696bd~P-DhYbMaO2677926779euoutp018
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1787924900;
-	bh=CZQ6g0SOIss6kTyIBXZOKF9vf1VOCtlImKy5V/nnOQY=;
+	s=mail20170921; t=1787924896;
+	bh=uMTpvxWIHTWA5WP2+3K9U8sgXeHo5NdCmMYa7bPSnFI=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=Z75NmrQcWgbs6EYo61jSxtdQ7WUBcrWTC2fS/ckMPz7zvfTnXZNBm9q6yn+aq6wDB
-	 KsaUaLl0fosIiYs+W7oJokoSXUimaPKl0BsHALlSNXq7MZX+34e9Q9EbQ2I0ZC/1I8
-	 iAOm+1/vwKAsBndNSOUkckrgTZZLSTwXeUkOhbkI=
+	b=B/w8SZIdtavo0kLqWnRiPR2OA723DIkfCChmZ+OPJqHz5nfOte89SnOIh+yWFQaPv
+	 NQJxv8AiBNCaZDDSihO5pm6DSn6G7W4nQ3kb3msDcDh8cXjR79awH+wMAIcZIuFwmd
+	 itwk5250Em5HcXDkBo2frc2bh01uxLTdtk0OEa4U=
 Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260828134819eucas1p2c8e2bb95dd957981ec5e60e1da03223c~P-DkwkiRx1640516405eucas1p2I;
-	Fri, 28 Aug 2026 13:48:19 +0000 (GMT)
+	20260828134815eucas1p2b2aabc17e9cc6346e5a93bde5c650958~P-DhB-03v2418024180eucas1p29;
+	Fri, 28 Aug 2026 13:48:15 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260828134817eusmtip1ad736395c6f4339d7910b9f526dd37bc~P-DizugV62831928319eusmtip1W;
-	Fri, 28 Aug 2026 13:48:17 +0000 (GMT)
+	20260828134813eusmtip1ecc4bb650325f36fd9950693c44853ee~P-DfbWOlr2831928319eusmtip1V;
+	Fri, 28 Aug 2026 13:48:13 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 28 Aug 2026 15:47:27 +0200
-Subject: [PATCH v2 03/15] dt-bindings: mfd: Add
- starfive,jh7110-hdmi-subsystem
+Date: Fri, 28 Aug 2026 15:47:25 +0200
+Subject: [PATCH v2 01/15] dt-bindings: phy: Add
+ starfive,jh7110-inno-hdmi-phy
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260828-jh7110-clean-send-v2-3-331680c8b9d1@samsung.com>
+Message-Id: <20260828-jh7110-clean-send-v2-1-331680c8b9d1@samsung.com>
 In-Reply-To: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
 To: Vinod Koul <vkoul@kernel.org>,  Neil Armstrong
 	<neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,  Krzysztof
@@ -80,17 +80,17 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
 	Spierings <maudspierings@gocontroll.com>,  Graham Markall
 	<hello@big-grey.co.uk>,  Michal Wilczynski <m.wilczynski@samsung.com>
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20260828134819eucas1p2c8e2bb95dd957981ec5e60e1da03223c
+X-CMS-MailID: 20260828134815eucas1p2b2aabc17e9cc6346e5a93bde5c650958
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260828134819eucas1p2c8e2bb95dd957981ec5e60e1da03223c
+X-RootMTR: 20260828134815eucas1p2b2aabc17e9cc6346e5a93bde5c650958
 X-EPHeader: CA
-X-CMS-RootMailID: 20260828134819eucas1p2c8e2bb95dd957981ec5e60e1da03223c
+X-CMS-RootMailID: 20260828134815eucas1p2b2aabc17e9cc6346e5a93bde5c650958
 References: <20260828-jh7110-clean-send-v2-0-331680c8b9d1@samsung.com>
-	<CGME20260828134819eucas1p2c8e2bb95dd957981ec5e60e1da03223c@eucas1p2.samsung.com>
+	<CGME20260828134815eucas1p2b2aabc17e9cc6346e5a93bde5c650958@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_064822_671849_C318D354 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20260828_064820_713631_B0842ABD 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,141 +105,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the dt-binding for the StarFive JH7110 HDMI subsystem.
+Add the dt-binding for the StarFive JH7110 Innosilicon HDMI PHY.
 
-The JH7110 HDMI IP is a monolithic block containing both the digital
-controller and analog PHY in a single register space. This binding
-defines the parent device, which holds the shared register map and
-populates its two children: the PHY and the controller. This is
-necessary to resolve a circular clock dependency between the HDMI block
-and the VOUT clock generator.
+This device is a child of the starfive,jh7110-hdmi-subsystem node. It
+functions as both a PHY provider for the controller and as a clock
+provider for the variable pixel clock (hdmi_pclk), which it generates
+from its refoclk.
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- .../mfd/starfive,jh7110-hdmi-subsystem.yaml        | 116 +++++++++++++++++++++
- 1 file changed, 116 insertions(+)
+ .../phy/starfive,jh7110-inno-hdmi-phy.yaml         | 58 ++++++++++++++++++++++
+ 1 file changed, 58 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/mfd/starfive,jh7110-hdmi-subsystem.yaml b/Documentation/devicetree/bindings/mfd/starfive,jh7110-hdmi-subsystem.yaml
+diff --git a/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
 new file mode 100644
-index 0000000000000000000000000000000000000000..01f079160ab8c13c6fa4ce3abaac6607021b3792
+index 0000000000000000000000000000000000000000..b1ab3c555fbf60a971f511af29a03a6b2e4ae097
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/starfive,jh7110-hdmi-subsystem.yaml
-@@ -0,0 +1,116 @@
++++ b/Documentation/devicetree/bindings/phy/starfive,jh7110-inno-hdmi-phy.yaml
+@@ -0,0 +1,58 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/mfd/starfive,jh7110-hdmi-subsystem.yaml#
++$id: http://devicetree.org/schemas/phy/starfive,jh7110-inno-hdmi-phy.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: StarFive JH7110 HDMI subsystem
++title: StarFive JH7110 Innosilicon INNO HDMI PHY
 +
 +maintainers:
 +  - Michal Wilczynski <m.wilczynski@samsung.com>
 +
 +description:
-+  The StarFive JH7110 HDMI block is a monolithic IP containing both
-+  the digital controller logic and the analog PHY logic in a single
-+  register space.
++  The PHY portion of the StarFive JH7110 INNO HDMI IP.
 +
 +properties:
 +  compatible:
-+    const: starfive,jh7110-hdmi-subsystem
-+
-+  reg:
-+    maxItems: 1
++    const: starfive,jh7110-inno-hdmi-phy
 +
 +  clocks:
 +    maxItems: 1
-+    description:
-+      NoC display bus clock, which gates access to the whole vout
-+      register region.
 +
-+  resets:
-+    maxItems: 1
-+    description:
-+      NoC display bus reset, which gates access to the whole vout
-+      register region.
++  clock-names:
++    const: refoclk
 +
-+  power-domains:
-+    maxItems: 1
++  '#clock-cells':
++    const: 0
++
++  clock-output-names:
++    const: hdmi_pclk
++
++  '#phy-cells':
++    const: 0
 +
 +required:
 +  - compatible
-+  - reg
 +  - clocks
-+  - resets
-+  - power-domains
-+
-+patternProperties:
-+  "^phy(@[0-9a-f]+)?$":
-+    $ref: /schemas/phy/starfive,jh7110-inno-hdmi-phy.yaml#
-+  "^controller(@[0-9a-f]+)?$":
-+    $ref: /schemas/display/bridge/starfive,jh7110-inno-hdmi-controller.yaml#
++  - clock-names
++  - '#clock-cells'
++  - clock-output-names
++  - '#phy-cells'
 +
 +additionalProperties: false
 +
 +examples:
++  # Shown as a child of the HDMI subsystem node; see
++  # Documentation/devicetree/bindings/mfd/starfive,jh7110-hdmi-subsystem.yaml
++  # for the full node.
 +  - |
-+    #include <dt-bindings/clock/starfive,jh7110-crg.h>
-+    #include <dt-bindings/power/starfive,jh7110-pmu.h>
-+    #include <dt-bindings/reset/starfive,jh7110-crg.h>
-+
-+    soc {
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+
-+        hdmi@29590000 {
-+            compatible = "starfive,jh7110-hdmi-subsystem";
-+            reg = <0x29590000 0x4000>;
-+            clocks = <&syscrg JH7110_SYSCLK_NOC_BUS_DISP_AXI>;
-+            power-domains = <&pwrc JH7110_PD_VOUT>;
-+            resets = <&syscrg JH7110_SYSRST_NOC_BUS_DISP_AXI>;
-+
-+            controller {
-+                compatible = "starfive,jh7110-inno-hdmi-controller";
-+                clocks = <&voutcrg JH7110_VOUTCLK_HDMI_TX_SYS>,
-+                         <&voutcrg JH7110_VOUTCLK_HDMI_TX_MCLK>,
-+                         <&voutcrg JH7110_VOUTCLK_HDMI_TX_BCLK>,
-+                         <&hdmi_phy>;
-+                clock-names = "sys", "mclk", "bclk", "pclk";
-+                interrupts = <99>;
-+                phys = <&hdmi_phy>;
-+                phy-names = "hdmi-phy";
-+                resets = <&voutcrg JH7110_VOUTRST_HDMI_TX_HDMI>;
-+                reset-names = "hdmi_tx";
-+
-+                ports {
-+                    #address-cells = <1>;
-+                    #size-cells = <0>;
-+
-+                    port@0 {
-+                        reg = <0>;
-+
-+                        endpoint {
-+                            remote-endpoint = <&dpu_out_dpi0>;
-+                        };
-+                    };
-+
-+                    port@1 {
-+                        reg = <1>;
-+
-+                        endpoint {
-+                            remote-endpoint = <&hdmi_con_in>;
-+                        };
-+                    };
-+                };
-+            };
-+
-+            hdmi_phy: phy {
-+                compatible = "starfive,jh7110-inno-hdmi-phy";
-+                #clock-cells = <0>;
-+                clock-output-names = "hdmi_pclk";
-+                clocks = <&xin24m>;
-+                clock-names = "refoclk";
-+                #phy-cells = <0>;
-+            };
-+        };
++    phy {
++        compatible = "starfive,jh7110-inno-hdmi-phy";
++        #clock-cells = <0>;
++        clock-output-names = "hdmi_pclk";
++        clocks = <&xin24m>;
++        clock-names = "refoclk";
++        #phy-cells = <0>;
 +    };
++
 +...
 
 -- 
