@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43267C61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 03:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5464C61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 04:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TUlNGUgQY5khe/spcmDkrmv1B33pEeDXrJ5iK2i5+wc=; b=1UELzFIC+SaH62DgYYAEmYrHlk
-	g42ALDhLjhUca9VzlC8Wmu2uIC213oN/flakeri9Bmx/8SnrCeq9exLHPMq3bdaFS69ng1hAtM8p5
-	RKw/nrqVahSZ62i0nwgwHnMYkmDigPk6at3gCbGoSD4+kuWT+BEQQGjEasvGdnxzxflZc9QYRrzWM
-	y91hiWgD3HAlWrGz6hY3R7STBsdAR06CEDqnHrIGHSF9Mt37nu2DNfdq6Va0R91gCTiWEnCk1qX9p
-	MEP5wt3VgrQCdAfwrhgPqKiZZJvsf7aPjOj7GAiQK26ic5NEv4J7rjdGJFes9L3CbjvE5jdQlbR9o
-	9IimpzWw==;
+	bh=208RQngiBHE21PmHkOlyRcvNYTZaRPWqpBwhjg/rUVM=; b=S+7DXeda/DHGnpqOu00xaEOxmB
+	ycDv2ZARkJxYO4C252f5q3K+uRBqFp5CBbXeItYMjVatpGgZl9MNIWC8rBMy9khVl7T5PMKVGDqNO
+	A2ze/5yP05m1+DjvPIeIiqZpNL1n+XrZSMMJ4WvKB9+vfOR+GkAb9W3OJQwfT2VM4zft2zT3lLVBb
+	VeThK6q181vNgvddFQgvalELHFwnjDOGF6Z5rLl/G+ydq7FBMqCnvUUJdxUFZHErDjzK0gpogXF/r
+	AFORh1TLzxTl7cpjNXHUeZNKi5T9EuoihTYlxzWN3PPbloeA+Qxgvli12P9Ijko3V4X5XUUfRjfpX
+	TFKyg6zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0AEO-00000006hT7-2zyG;
-	Sat, 29 Aug 2026 03:59:48 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1x0AfE-00000006iYm-0jPV;
+	Sat, 29 Aug 2026 04:27:32 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0AEM-00000006hSm-0znI
+	id 1x0AfB-00000006iYO-3cbl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 03:59:47 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-49b0d8bc2aaso14679785e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 20:59:45 -0700 (PDT)
+	Sat, 29 Aug 2026 04:27:31 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-49800c6a846so16348785e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 21:27:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787975984; x=1788580784; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1787977648; x=1788582448; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TUlNGUgQY5khe/spcmDkrmv1B33pEeDXrJ5iK2i5+wc=;
-        b=hkDPlVRzUjjQoFzVTyb9XxS/dUbGhg0BkHlV5t7IDOclYxW0bhd3v6pZav5Gi2Kd8+
-         lAthBmkBzkBfCPQbpl5Su+qJHE55HkomWiYcS6yCyHXsCHq8jeeOSG4DSpmSDhNZqo78
-         eBx/B6oYYNQuPrXo9Wxw4d24v8pSijgL1AJw97XeJ1pU10/QmXXYJ5lB6EE8ywuxUxTy
-         KaXExfdLY2R6ihJAiPCD/c/UKNroeBSxkDAl2RzfjILESEcd/t+A/djxS4GEVgU/QLE3
-         w0HeHrxsyL/l5aJI5gJxiduKti/cFHHYOF3ZQGvUd/qOSNvkKma/IT+XqtzD78No/gGM
-         lYSg==
+        bh=208RQngiBHE21PmHkOlyRcvNYTZaRPWqpBwhjg/rUVM=;
+        b=n/8aH9Ozg6CTLgDgntohUiydOLDCNjE5pRBhb7F01i0D1oy6ffd5nT4r4YVSnuWx+9
+         SwwHpe2LCOS1ns9eF2ycrpoQVN8BAar57WkXqVo8kAcDwZF/ihnr1b1JtaMP/18XwaRs
+         /6OjYu4QaulLG//wLxK02AinJ6WmAQ9rW5uHZ4kjdQ9eJFCzdP6HwfQ/ARXIcrFnw2eb
+         eDD40edr4S/lEx13CP8yg9kaZOQ13nxhjtBQrPWoOlCEasY9BP8fXUYcSKAzFpZvJfpR
+         eqB4MJKokaTHG0V5D3bVmos3DGfH6nYBnzrGwn9DzhpVb97P3TGgZO53CjKC3W8bo4h5
+         xsug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787975984; x=1788580784;
+        d=1e100.net; s=20251104; t=1787977648; x=1788582448;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TUlNGUgQY5khe/spcmDkrmv1B33pEeDXrJ5iK2i5+wc=;
-        b=Q5YFDXuSZRLRL+YIIHHQHR3cIs1sPRcWK47Hv1bJiGOiW3iPpm/vbqmSLBKsH8XEWm
-         dO0CWtClySbXoisFwgD2wtx9kd6BrN9IXwdW+/c84dxzlJ50cF2sJFZsR9Mmh/aDQErG
-         Dga/DFnhjqXOTaBAoAkp9E230aep2X5zmj+GC546BOsxcD2VZEaNKRxzXbbsAEk1dn9U
-         uLJ29ysJniquLpRlfc2PhTlxApBNm8wT6JBLnVKr/FgGnvmmrmI6bHRqVCuVcEwQunk5
-         ls7zYhkDGoDOPY0gUgPelyyTzCOKGkYRdZ9c0+komZDbzRo+3CfCAIdrObF4QNRkAAfp
-         5MYg==
-X-Forwarded-Encrypted: i=1; AHgh+RqFnxbrHl7sbuoJjlOKUtnvu0wzHalkAHgLs+gWxqTHb+agLtbbsYpwlf96yJghSy1yiVaQBfpD3JKZQDQK4pDp@lists.infradead.org
-X-Gm-Message-State: AFuF++lsJJpTtlsbffElpETH9BQyoxJWxI4v0cjps5G83QRqbiORHsVR
-	xbaOIFgt7N1YRFG4Nk0uyr0lV7BPgnvJRJ8kL6lKLMxxHn0WpLRLq6MTcsLd/qyA
-X-Gm-Gg: AR+sD12IfVas7KXwgzlF9LKhVbWD9QpGRlR6fu7wMs7bJn2Kg/VrNd6jG4+SsJN54Qu
-	yhDlc0TJUWHRjBu++zmFJUw9AQJ6fDw70xVddk1CmuqI+KVnD1tbXKq9fhp9Ix32UulDMo730wH
-	rhE6/XmBD5q83vdBguKz0G4XUV8gwQfBGPZFeATYOqJZ6/2XLPqBPHCzB6a4nArtt1H40NPmIe2
-	pk0Lx84SUaHOOHS3yJalrraXCUHtniAQWMpWYgDhsh8o52rbxYiKYgyV2FmNcMKe9Q3GNUyCaU0
-	/qLh0PpfHswu94R/bGZna0F3NXnWdfG35cUq+7DVOJtiIN7eGke1KmM0nbi3jqr+SSKjLmxBQVC
-	WoQYoBZPvo0JIPmjs72kXhFKxPN4qpfq+VCKlyuJAWJMK5UWGpdZSFmRGGt9Uej3pGcJtz0E4LL
-	lyzvdoTLqCCeXcMArsPPLn4OlzVsVbE9kYKocJFf1yOUEHCk7P2Yd0e/NSpEdnX8UpjUPU35/oA
-	lr8WEojDs3C7hONvW7eAC0EE0illLEwOHRTnDEmkpw5EpykxEc3RQZPhYxWgCylOXMJ4Lt8oVX4
-	N3HODN6pXISoX1YAk7Ek
-X-Received: by 2002:a05:600c:1c0a:b0:499:51f0:a9b2 with SMTP id 5b1f17b1804b1-49b91c1dd3fmr176903705e9.1.1787975983850;
-        Fri, 28 Aug 2026 20:59:43 -0700 (PDT)
+        bh=208RQngiBHE21PmHkOlyRcvNYTZaRPWqpBwhjg/rUVM=;
+        b=a4ssedhShl6BwM6VIJ3ZCju9IiaMZn4AeisRp09ysuA9S4I7DXCdaPctl6aewpiXzA
+         5I4Ry/lgBaBm8TGpf61PLZtZNBfNy4Bo3ChFRjABd+OolxjVB9TTxsa9pJ7OFdgEoK+U
+         JIMz1SmQ0sTQYwRtZibqkIPNeYZfVM8FwU3/rhRdnf3XaIrnqpUOvL+mAnVPnX1Lt8yW
+         /d5qjm152sMbu7r9hhgI49QBss5ydyKu+nzzN1ASbmQPM3bO3MWzj3pxbfv+m7hxPWUW
+         /YHo18hiwOTPPx6UtXcpYjcIwGQCZWrgZZhXaOhStgejHdU+BYc9XpHo4km2k2IeSyt6
+         POaA==
+X-Forwarded-Encrypted: i=1; AHgh+RqlqAYKWRgDh+pJ3CL6HnT/DiiD8iRHbzeBsGANLa4nREzwYKkSHhyjJcOkUBP56B7SE/FQzPXbYFCydQSMLx7w@lists.infradead.org
+X-Gm-Message-State: AFuF++lXti78xNItJEU3c7XhnqP528feY6o/exGj6UTTYby5vpg5NbTl
+	+lEmhnRkb4gtU+VxHqRzqjlSZ4dMxmRasjz3xdhh9nRkOdXZbpzoD8wm
+X-Gm-Gg: AR+sD132b1cSSIS++9vvtBeDxPLFz3LsFxvc+T1y2My3tPZESaJXPUrDPn9AtV6ie4/
+	B6Gac6vYRqUfcEjhwT+bUAejqk2D2KG1+0Do4ZhIYaWLvVGANJCOsUToXesB1hgW9nK27iAUvhY
+	Da0AM43XlAfKrQxQv9VNdXvB2dE28kcerWVF/54Hok/pH+jO7B9vTCLn31ObOO4JFUEfIOEzVC0
+	5VuKiaUoqKdTqn4zmXLD/S8gi719WXrOKKnH6Rl7lhRho7/WiHUsiwbz3o8/0WvAClL3Lx+thFp
+	EEwe/lWc78ABIB++VBDV9JKqOXOjrURCSD3ec4fMSfJ0UIdhPX9EXcFvB6oqrY9opeKcHn5MOqW
+	jp05DAzkPwRrWqfOaCj7d3U/RnSOkprbFpAHaA4Zo+0F7lqPuVr5jq1igGI7mVbfKvOA95sUj9m
+	rlryCUgvf0bQaq/s5be10Z/wRMr+2quPVpy+HJnNrQaqI0cQC50OBjWvGzpVgNfogWUlCHPfESR
+	JsZrP0ae+18n3m5cImQ6pCj8u08Tgn+hwfqWuCzOXR1dLmHFg9HiArPsgQ0phhnVjUzLJ3rPB0X
+	XYLj4Tq01ESgy1DqY0vw
+X-Received: by 2002:a05:600c:3145:b0:499:79b9:e220 with SMTP id 5b1f17b1804b1-49b91c44f6cmr167217795e9.10.1787977647580;
+        Fri, 28 Aug 2026 21:27:27 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-077-007-015-136.77.7.pool.telefonica.de. [77.7.15.136])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b94dd2517sm100738355e9.7.2026.08.28.20.59.42
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b94dc0f57sm116792405e9.2.2026.08.28.21.27.25
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 28 Aug 2026 20:59:43 -0700 (PDT)
+        Fri, 28 Aug 2026 21:27:26 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>
 Cc: Karl Mehltretter <kmehltretter@gmail.com>,
@@ -77,19 +77,18 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	Nicolas Ferre <nicolas.ferre@microchip.com>,
 	Alexandre Belloni <alexandre.belloni@bootlin.com>,
 	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Pramod Gurav <pramod.gurav@smartplayin.com>,
 	linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] crypto: atmel-tdes - zero-initialize device state
-Date: Sat, 29 Aug 2026 05:58:21 +0200
-Message-Id: <20260829035821.67220-1-kmehltretter@gmail.com>
+Subject: [PATCH] crypto: atmel-aes - fix AADLENR for standalone GHASH
+Date: Sat, 29 Aug 2026 06:26:04 +0200
+Message-Id: <20260829042604.82719-1-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_205946_334927_651C9E92 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20260828_212729_924144_5948520A 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +103,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit c659d07f11a3 ("crypto: atmel-tdes - Switch to managed version of
-kzalloc") accidentally replaced kzalloc() with devm_kmalloc(), so the
-device state is no longer zeroed.
+atmel_aes_gcm_ghash_init() writes dd->total, the request's text length,
+to AES_AADLENR.  But the GHASH it runs hashes the dd->datalen bytes passed
+in: the 16-byte length block, or the padded IV when the IV is not 96 bits.
+The data sheet requires AES_AADLENR to hold the length of that input.
 
-atmel_tdes_hw_init() tests dd->flags during probe: a stale TDES_FLAGS_INIT
-skips the hardware reset, and a stale TDES_FLAGS_BUSY makes
-atmel_tdes_handle_queue() treat the engine as permanently busy, leaving
-every request queued and never dispatched.
+With empty plaintext and empty AAD, dd->total is 0 and the tag comes out
+wrong.  Later requests only pass because dd->total still holds the
+previous request's length.
 
-Seen on a SAM9X75 Curiosity: the first TDES request after boot never
-completes and the TDES interrupt count stays at zero, while the AES and
-SHA engines on the same SoC work normally.
+This is testmgr's first gcm(aes) vector, so CONFIG_CRYPTO_SELFTESTS=y
+fails at boot:
 
-Switch to devm_kzalloc(), matching the Atmel AES and SHA drivers.
+  alg: aead: atmel-gcm-aes encryption test failed (wrong result) on test
+  vector 0, cfg="in-place (one sglist)"
 
-Fixes: c659d07f11a3 ("crypto: atmel-tdes - Switch to managed version of kzalloc")
+Without selftests the broken atmel-gcm-aes is preferred at priority 300.
+Seen on a SAM9X75 Curiosity with 6.18 and current mainline.
+
+Write dd->datalen instead.
+
+Fixes: d4419548dba9 ("crypto: atmel-aes - add support to GCM mode")
 Cc: stable@vger.kernel.org
 Assisted-by: LLM
 Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 ---
- drivers/crypto/atmel-tdes.c | 2 +-
+ drivers/crypto/atmel-aes.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/crypto/atmel-tdes.c b/drivers/crypto/atmel-tdes.c
-index ffea1db74651..2756dab3f4c7 100644
---- a/drivers/crypto/atmel-tdes.c
-+++ b/drivers/crypto/atmel-tdes.c
-@@ -933,7 +933,7 @@ static int atmel_tdes_probe(struct platform_device *pdev)
- 	struct resource *tdes_res;
- 	int err;
+diff --git a/drivers/crypto/atmel-aes.c b/drivers/crypto/atmel-aes.c
+index 50d97cef75b8..8e4de859cadc 100644
+--- a/drivers/crypto/atmel-aes.c
++++ b/drivers/crypto/atmel-aes.c
+@@ -1267,7 +1267,7 @@ static int atmel_aes_gcm_ghash_init(struct atmel_aes_dev *dd)
+ 	struct atmel_aes_gcm_ctx *ctx = atmel_aes_gcm_ctx_cast(dd->ctx);
  
--	tdes_dd = devm_kmalloc(&pdev->dev, sizeof(*tdes_dd), GFP_KERNEL);
-+	tdes_dd = devm_kzalloc(&pdev->dev, sizeof(*tdes_dd), GFP_KERNEL);
- 	if (!tdes_dd)
- 		return -ENOMEM;
+ 	/* Set the data length. */
+-	atmel_aes_write(dd, AES_AADLENR, dd->total);
++	atmel_aes_write(dd, AES_AADLENR, dd->datalen);
+ 	atmel_aes_write(dd, AES_CLENR, 0);
  
+ 	/* If needed, overwrite the GCM Intermediate Hash Word Registers */
 -- 
 2.39.5 (Apple Git-154)
 
