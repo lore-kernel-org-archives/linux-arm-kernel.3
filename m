@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6D7EC61DD9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 15:05:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4180EC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 15:05:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D4YK9Dq6rotWkd/pf3xzF4hJ8sm6WaIJ3Gr0CUwDZTA=; b=QBRJM/AH1BOLQ4Y4kQehiOCpYu
-	2e6Xl0RZFhqmdHGSuBNlL5PmjCEYtKJGJG/kvyWiTuxXuX9wvyS3nWloyL2V35qck6Ol3tYchOF/X
-	UDO79NFcQcn2iwFAmvpt9+YsYU6FXwHELFMebh6+SmT3ND44I0d2cvLhIbeTtagjCpNsd0PztsfFx
-	NScmKMU6M7mPRZaraRpdi5QUNZKeeA4Ean2WgSjYpAY3ra+w9puB2Qzktl4JYoBen7NBcEkhGR+IZ
-	lA9U7D9DBwuthuCmIR5kHrMyHlNiCIqD+ZIIN1XzPXtQqfiS1Eep7D1U1PpDKzyyS01naqtKpPw7r
-	krwgxzKQ==;
+	bh=b6+m4tu4i0f20O50he0vheKfE0yfKnPfYnT8gSQSc0g=; b=td+RUpSxvn7HnHLcxFy5WdjzIv
+	Zl9NzsXOzQ9dGPLrHeU2MWAvGNMvHYqyw6H2EJO3ulNYSiPz+IdGYhAUdgDtJgTmOOMudcVDplT8f
+	1bKN6uqH/7DqB4n8vsw4IBM9vv8DRhYuU6dzmYWD17GeOw1zzf8hd+bX70w0O7vqoCoqtfGeDxHqS
+	QyTerCNDMIsQzg0G9KrKrvRJZ968j1VSccCFkuoDbriCEYK2vyf/3Bl/gLu0GW5aX6xQk5T8pwIJT
+	8Jg84wQDUylLUw05FntuUFAM5v0vh+LNObFuePTit2j9CBvWeKc7e6nqPB/d36kSYsX/OmEOt54Sc
+	iJOhRYbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Kc2-000000072q3-0bL6;
-	Sat, 29 Aug 2026 15:04:54 +0000
-Received: from out-132.mta1.migadu.com ([2001:41d0:203:375::84] helo=mta1.migadu.com)
+	id 1x0KcF-000000072sS-1jXx;
+	Sat, 29 Aug 2026 15:05:07 +0000
+Received: from out-135.mta1.migadu.com ([2001:41d0:203:375::87] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Kby-000000072pW-1teA
+	id 1x0KcC-000000072rW-2ZvF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 15:04:53 +0000
+	Sat, 29 Aug 2026 15:05:06 +0000
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=x/JQhwvlkrIqW5ek4nBfeiZRWKci9ObkZOfoQkBKemw=;
+DKIM-Signature: a=rsa-sha256; bh=kwvpB2s4F2EzLbnFB1heuBDYWxBCbVtzb/X0O2S5ZOc=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1788015882; v=1; x=1788620682;
- b=qi0GQnLWOBpcQvxMiPN9YKcoVrv+OvuKqyzWbsq/Qd+t87WaMrnNK1xKsTpGVjqKjfIPzLBE
- ND+OJ0KpPeHwMPR6vNHs12+EoiCnmePT/BvcnZ/mJ65dSWS+qTrFJInpqYIclVB1IqFqEY4ZqWS
- 5a/Byjj6UXI6dk/RE2rW6ANU=
+ t=1788015901; v=1; x=1788620701;
+ b=SuZac4rpl7wsTyHk20onyyFyPkrlmN3Pklfv2HoxIR7ACDvebuRbw58JDwtCKmHcYIZn7UTY
+ MVDQraPtZWXVelezy5FNad1e35vE5jztff2wdrfZLiVbt+x04pucBiiHtO/vBICpmyPbczsB+Qp
+ UJOPwIuqwE9k/WYt4t3tDrIQ=
 X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.migadu.com with ESMTPS id fb2f7a55c8a92879;
-	Sat, 29 Aug 2026 15:04:42 +0000
-X-Mizu-Trace-ID: fb2f7a55c8a92879
+Received: by smtp.migadu.com with ESMTPS id 3d506d638338c141;
+	Sat, 29 Aug 2026 15:05:01 +0000
+X-Mizu-Trace-ID: 3d506d638338c141
 X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5b2a8173142so2305e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 08:04:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AKwUvBzv5ytJaeCzCTlucuNc0T9QBheoN8vXGBnFuNlkqXj3sNThKecqLIiMFQ6LVcDfFm5iLp6SLTlVeTB8NwFMDzYq@lists.infradead.org
-X-Gm-Message-State: AFuF++krVlTpKI4jZAGCq8tgNxQtBiCxrUO93OhuHzukPqdwcwyHtY8v
-	hdZi+C3GY5NwMqGR9ixYK6AnDO36hmcwJJl/f6M60mdQazo3H0+MFn7wJ7YWP21CHnbEeVIZNIW
-	rc4iKbjO1Ndd7N1x4AgfcaEx33b+oQNTBQfsBf6wF
-X-Received: by 2002:a05:6512:224a:b0:5ae:cf5f:4a88 with SMTP id
- 2adb3069b0e04-5b5ef1fb727mr121680e87.8.1788015877648; Sat, 29 Aug 2026
- 08:04:37 -0700 (PDT)
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5b5e5aaf7deso4175e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 08:04:59 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AKwUvBwiW6Fj+EVuM+LNzScqqvxhiAMhvjXbDQq7r2PwbCB5VBptmH6vQvMPzJXZxqdTbeGle4Y3n+MV4vGsTToCt2vI@lists.infradead.org
+X-Gm-Message-State: AFuF++mDNadUFMgJfbPDWoN7LslTNf9kFOaNiiWEE7h7hjCjrbhf3OdY
+	a++Fz6rKtPsw0x2TTiY1M2d/YFesSSTTaF+d2hf3RgexwJyKBi6XTwNDBGmMB8Z4WsNGtO2l3+w
+	5heq0gq2Bjpd5yu+yC26i7qO42k9hpeZ5fWcvKLus
+X-Received: by 2002:a05:6512:2392:b0:5ae:b0ee:f737 with SMTP id
+ 2adb3069b0e04-5b5ef22d25dmr97393e87.9.1788015898930; Sat, 29 Aug 2026
+ 08:04:58 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260829054856.70549-1-kmehltretter@gmail.com> <20260829054856.70549-2-kmehltretter@gmail.com>
-In-Reply-To: <20260829054856.70549-2-kmehltretter@gmail.com>
+References: <20260829054856.70549-1-kmehltretter@gmail.com> <20260829054856.70549-3-kmehltretter@gmail.com>
+In-Reply-To: <20260829054856.70549-3-kmehltretter@gmail.com>
 From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Sat, 29 Aug 2026 16:04:01 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzQM0bf1x2X-Y+eMmUHSYUmJXpt_jQ4Csu7JpkjtFT72Q@mail.gmail.com>
-X-Gm-Features: AcwNN1WqEb1cXih1LXw2p4NMTSnPI5p1Ks0puLT5RmXOdUojQc3MhAEKYKD99sE
-Message-ID: <CA+EHjTzQM0bf1x2X-Y+eMmUHSYUmJXpt_jQ4Csu7JpkjtFT72Q@mail.gmail.com>
-Subject: Re: [PATCH 1/2] KVM: arm64: Return -EINVAL for an empty SMCCC filter
- range at base 0
+Date: Sat, 29 Aug 2026 16:04:22 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzexMPUFJ_DuqAmKFP57UTd_nqGevWBqODDRi3tvg-YEA@mail.gmail.com>
+X-Gm-Features: AcwNN1XqbhfaFCphLC-k_pbis2x4NMIEFS4Vcu3x3JJmr3Eq6xNmX3vLDUzikl0
+Message-ID: <CA+EHjTzexMPUFJ_DuqAmKFP57UTd_nqGevWBqODDRi3tvg-YEA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] KVM: arm64: selftests: Test empty SMCCC filter range
+ at base 0
 To: Karl Mehltretter <kmehltretter@gmail.com>
 Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
 	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
@@ -70,8 +70,8 @@ Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, kvmarm@list
 	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260829_080451_903487_2F94EF53 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20260829_080505_473490_3266A19E 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,28 +88,17 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Sat, 29 Aug 2026 at 06:50, Karl Mehltretter <kmehltretter@gmail.com> wrote:
 >
-> kvm_smccc_set_filter() only rejects a range if its inclusive end,
-> base + nr_functions - 1, is below base. That catches an empty range
-> (nr_functions == 0) at every nonzero base, but at base 0 the end wraps
-> to U32_MAX and KVM tries to insert [0, U32_MAX], which overlaps the
-> reserved Arm Architecture Calls ranges. KVM_ARM_VM_SMCCC_FILTER then
-> returns -EEXIST instead of the -EINVAL that the smccc_filter selftest
-> expects for an empty range.
+> test_invalid_nr_functions() only checks an empty range at
+> PSCI_0_2_FN64_CPU_ON, which KVM's end < start check happens to catch.
+> It never exercised base 0, where the inclusive end wraps to U32_MAX
+> instead.
 >
-> Reject a zero function count explicitly.
+> Add the base 0 case. Without the preceding fix it fails with EEXIST.
 >
-> Tested with a userspace reproducer on an arm64 VHE host under QEMU TCG:
-> EEXIST before, EINVAL after.
->
-> Fixes: 821d935c87bc ("KVM: arm64: Introduce support for userspace SMCCC filtering")
 > Assisted-by: LLM
-
-nit: this should be `Assisted-by: AGENT_NAME:MODEL_VERSION [TOOL1]
-[TOOL2]` rather than LLM
-
 > Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 
-I think Sashiko is onto something, but that's for another day.
+Same nit as before.
 
 Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
@@ -117,25 +106,25 @@ Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
 Cheers,
 /fuad
 
-
 > ---
->  arch/arm64/kvm/hypercalls.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+>  tools/testing/selftests/kvm/arm64/smccc_filter.c | 4 ++++
+>  1 file changed, 4 insertions(+)
 >
-> diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
-> index b11b8821c9fb..dfa25bb6f25d 100644
-> --- a/arch/arm64/kvm/hypercalls.c
-> +++ b/arch/arm64/kvm/hypercalls.c
-> @@ -185,7 +185,8 @@ static int kvm_smccc_set_filter(struct kvm *kvm, struct kvm_smccc_filter __user
->         start = filter.base;
->         end = start + filter.nr_functions - 1;
+> diff --git a/tools/testing/selftests/kvm/arm64/smccc_filter.c b/tools/testing/selftests/kvm/arm64/smccc_filter.c
+> index 21e41880261b..a41ed3e016ba 100644
+> --- a/tools/testing/selftests/kvm/arm64/smccc_filter.c
+> +++ b/tools/testing/selftests/kvm/arm64/smccc_filter.c
+> @@ -140,6 +140,10 @@ static void test_invalid_nr_functions(void)
+>         TEST_ASSERT(r < 0 && errno == EINVAL,
+>                     "Attempt to filter 0 functions should return EINVAL");
 >
-> -       if (end < start || filter.action >= NR_SMCCC_FILTER_ACTIONS)
-> +       if (!filter.nr_functions || end < start ||
-> +           filter.action >= NR_SMCCC_FILTER_ACTIONS)
->                 return -EINVAL;
+> +       r = __set_smccc_filter(vm, 0, 0, KVM_SMCCC_FILTER_DENY);
+> +       TEST_ASSERT(r < 0 && errno == EINVAL,
+> +                   "Attempt to filter 0 functions at base 0 should return EINVAL");
+> +
+>         kvm_vm_free(vm);
+>  }
 >
->         mutex_lock(&kvm->arch.config_lock);
 > --
 > 2.39.5 (Apple Git-154)
 >
