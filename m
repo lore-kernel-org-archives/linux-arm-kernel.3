@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED4CEC61DDC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 06:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AFBC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 06:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ktiYUYsUp5uCXnvJH/BfqE9fq8l5SXsVdqzLvfHOlV4=; b=lZtaPhuqL8zLFvQljhWXKwB8rM
-	T28skkd2PY6Mje1wl65ppJHj8KZ5PZWR1U4recm9Uni+VTvRuz36PXPhNH8zXE61z++jAv1xcPy7a
-	MMzfVYSq98aM8p3SXZVT9rD9EhLcEczvzcbvZgQUo7iEuKNZF/RnaxSe+5nFOCFXtbs/udRcWJnLI
-	8M7VuzOQYs8u7dB4Fzn5jbzYFhFj0t8dJbnpd3cQYR63A9rApBohIva6JeFyYnOy0PapPYzesW+bY
-	tqdlRlT7OicSaq7G2UH842K0Hrjn1UDAihcK2C/346OV3CwYxa2CX1GRB3wx141RrEzNtwiuijfj/
-	9CxmlgHA==;
+	bh=TJPANoRDN+fYMKpdt+JU9S3bLccMRqCiof0MgFwWlzU=; b=2K+qRq/5zu3l27QaNjvEyLTMfQ
+	ND3q+Xvorfx6Xr0KOG+XICN68EGoz4LEmRzAfn1G0Czev/wY74Ko07goKMXw8Yvcq4m7fTILrX1i2
+	ImIr6ohFL+LYsUYx+VrGK9qauFznyrwkbH8Tt4iWS8Q3JTJdJnl19c+6B+Knyda+0TnIemtryT0sD
+	AkR3UFeb0bEQ2ZA6JfDDFooYQg3wrx3OF+6iNEwK+c74vBAYuJEzUY/Um9EXdjDfodoNuflG5iw4H
+	w4sdLRvNHVotlNstqiX3QJoGti2IZLscaWJ+/T363sLTfLtJ5c+XeSgAqCBf4OwsI3s5S289DBLsX
+	zxjGheSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0CVn-00000006mYU-22Ua;
-	Sat, 29 Aug 2026 06:25:55 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1x0CVt-00000006mcy-3p43;
+	Sat, 29 Aug 2026 06:26:01 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0CVa-00000006mPj-2Ss9;
-	Sat, 29 Aug 2026 06:25:44 +0000
+	id 1x0CVc-00000006mPm-0CEc;
+	Sat, 29 Aug 2026 06:25:45 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=ktiYUYsUp5uCXnvJH/BfqE9fq8l5SXsVdqzLvfHOlV4=;
-	b=C7JNq/9nW8O1L4+qB8K+5l2GGzD9N3sj5EVi4EnDL5oF6x+3kjr/TdY9xkttUhd/epZ+ev4bJ
-	5hgEztLJqonv6F5ys20YZ0BjHoNMDdhG8jwXb6tQTPxKCRn3gSjQig20fZertp3RZEGPOPARqMX
-	1uaVaJBSLupvQPWZ6L7moek=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hX4jJ3V8WzmVXs;
-	Sat, 29 Aug 2026 14:14:44 +0800 (CST)
+	bh=TJPANoRDN+fYMKpdt+JU9S3bLccMRqCiof0MgFwWlzU=;
+	b=e1y7l4PhB4SfaOvwKAgMRqpDb/LHbrOvtd4RRG+s06Bp4xSgq0ZtZIK38odls8nOMy+Pssfhs
+	dIjbctOBeEbXuDyPgy+AkY4UfTzbYxhEcpy+gjZcQ9qv73489a4eDbvWgIWcyRat6z/ITUyOQq+
+	TAfgjFIDi2aRqlLcXMYK00s=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4hX4jz5zbRz12LDl;
+	Sat, 29 Aug 2026 14:15:19 +0800 (CST)
 Received: from dggpemr100018.china.huawei.com (unknown [7.185.36.64])
-	by mail.maildlp.com (Postfix) with ESMTPS id 17D3B40578;
-	Sat, 29 Aug 2026 14:25:32 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 483714057D;
+	Sat, 29 Aug 2026 14:25:35 +0800 (CST)
 Received: from huawei.com (10.50.85.155) by dggpemr100018.china.huawei.com
  (7.185.36.64) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Sat, 29 Aug
- 2026 14:25:31 +0800
+ 2026 14:25:34 +0800
 From: zhouminqiang <zhouminqiang2@huawei.com>
 To: <linux@armlinux.org.uk>, <vz@mleia.com>, <piotr.wojtaszczyk@timesys.com>,
 	<maddy@linux.ibm.com>, <dwmw2@infradead.org>, <richard@nod.at>
 CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<linuxppc-dev@lists.ozlabs.org>, <linux-mtd@lists.infradead.org>,
 	<chengzhihao1@huawei.com>, <yangerkun@huawei.com>, <yi.zhang@huawei.com>
-Subject: [PATCH v2 3/7] jffs2: write verify: add byte-by-byte comparison on mismatch
-Date: Sat, 29 Aug 2026 14:16:53 +0800
-Message-ID: <20260829061658.306854-4-zhouminqiang2@huawei.com>
+Subject: [PATCH v2 7/7] jffs2: add runtime toggle for write verification
+Date: Sat, 29 Aug 2026 14:16:57 +0800
+Message-ID: <20260829061658.306854-8-zhouminqiang2@huawei.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260829061658.306854-1-zhouminqiang2@huawei.com>
 References: <20260829061658.306854-1-zhouminqiang2@huawei.com>
@@ -62,8 +62,8 @@ X-Originating-IP: [10.50.85.155]
 X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
  dggpemr100018.china.huawei.com (7.185.36.64)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_232543_014792_32FC39F9 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20260828_232544_492512_2A485B9D 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,100 +78,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-jffs2_verify_write() uses memcmp() to compare the write buffer
-against data read back from flash. On mismatch, the current code
-dumps the entire source and read-back data, which will become
-impractical once the verify path is extended to NOR flash where
-a single write can span PAGE_SIZE.
+Write verification is a diagnostic facility that adds read-back
+overhead to every write. In production, this overhead is undesirable
+unless fault isolation is required.
 
-Add a byte-by-byte comparison after the memcmp() mismatch path
-to locate the exact mismatch offset, reporting the first
-differing offset and dumping up to 128 bytes of both the source
-and read-back data. memcmp() remains on the hotpath for
-successful writes, and the byte-by-byte loop only runs when an
-error is actually detected.
+Add a module parameter jffs2.write_verify (bool, 0644) that defaults
+to off when CONFIG_JFFS2_FS_WRITE_VERIFY is enabled. The verification
+entry checks READ_ONCE(jffs2_write_verify) and returns immediately
+when disabled, avoiding any overhead. The parameter can be toggled at
+runtime via /sys/module/jffs2/parameters/write_verify or set at
+boot/modprobe time.
 
 Signed-off-by: zhouminqiang <zhouminqiang2@huawei.com>
 ---
- fs/jffs2/wbuf.c | 46 ++++++++++++++++++++++++++++------------------
- 1 file changed, 28 insertions(+), 18 deletions(-)
+ fs/jffs2/Kconfig  |  8 ++++++++
+ fs/jffs2/writev.c | 23 +++++++++++++++++++++++
+ 2 files changed, 31 insertions(+)
 
-diff --git a/fs/jffs2/wbuf.c b/fs/jffs2/wbuf.c
-index f10be57c5543..74e169dedab7 100644
---- a/fs/jffs2/wbuf.c
-+++ b/fs/jffs2/wbuf.c
-@@ -231,7 +231,7 @@ static int jffs2_verify_write(struct jffs2_sb_info *c, unsigned char *buf,
- 			      uint32_t ofs)
+diff --git a/fs/jffs2/Kconfig b/fs/jffs2/Kconfig
+index 556025a5d438..03dadbd003cd 100644
+--- a/fs/jffs2/Kconfig
++++ b/fs/jffs2/Kconfig
+@@ -61,6 +61,14 @@ config JFFS2_FS_WRITE_VERIFY
+ 	  tell transport/program-time corruption from post-commit media
+ 	  damage.
+ 
++	  Verification defaults to off when this option is selected and can
++	  be enabled at runtime via sysfs:
++
++	    /sys/module/jffs2/parameters/write_verify
++
++	  Write 0 to disable, 1 to enable.  Boot/modprobe parameter
++	  jffs2.write_verify=0|1 is also supported.
++
+ 	  If unsure, say 'N'.
+ 
+ config JFFS2_SUMMARY
+diff --git a/fs/jffs2/writev.c b/fs/jffs2/writev.c
+index 75b4244e93b8..913183329c54 100644
+--- a/fs/jffs2/writev.c
++++ b/fs/jffs2/writev.c
+@@ -9,12 +9,32 @@
+  *
+  */
+ 
++#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
++
+ #include <linux/kernel.h>
++#include <linux/module.h>
+ #include <linux/slab.h>
+ #include <linux/mtd/mtd.h>
+ #include "nodelist.h"
+ 
+ #ifdef CONFIG_JFFS2_FS_WRITE_VERIFY
++/*
++ * Optional read-back after writes.
++ *
++ * Catch cases where data is corrupted after node CRCs are calculated but
++ * before it is correctly programmed -- e.g. in RAM or during DMA/bus
++ * transfer to the flash controller -- so mtd_write() succeeds while the
++ * medium does not match the in-memory image.
++ *
++ * Runtime toggle: /sys/module/jffs2/parameters/write_verify
++ * (also boot/modprobe: jffs2.write_verify=0|1)
++ */
++static bool jffs2_write_verify;
++module_param_named(write_verify, jffs2_write_verify, bool, 0644);
++MODULE_PARM_DESC(write_verify,
++		 "Verify flash writes by reading back (default: N)");
++
++
+ int jffs2_verify_write(struct jffs2_sb_info *c, const unsigned char *buf,
+ 			      uint32_t ofs, size_t len)
  {
- 	int ret;
--	size_t retlen;
-+	size_t retlen, i;
+@@ -23,6 +43,9 @@ int jffs2_verify_write(struct jffs2_sb_info *c, const unsigned char *buf,
  	char *eccstr;
  	void *verify_buf;
  
-@@ -246,10 +246,10 @@ static int jffs2_verify_write(struct jffs2_sb_info *c, unsigned char *buf,
- 
- 	if (ret && ret != -EUCLEAN && ret != -EBADMSG) {
- 		pr_warn("%s(): Read back of page at %08x failed: %d\n",
--			__func__, c->wbuf_ofs, ret);
-+			__func__, ofs, ret);
- 		goto out_free;
- 	} else if (retlen != c->wbuf_pagesize) {
--		pr_warn("%s(): Read back of page at %08x gave short read: %zd not %d\n",
-+		pr_warn("%s(): Read back of page at %08x gave short read: %zu not %d\n",
- 			__func__, ofs, retlen, c->wbuf_pagesize);
- 		ret = -EIO;
- 		goto out_free;
-@@ -259,24 +259,34 @@ static int jffs2_verify_write(struct jffs2_sb_info *c, unsigned char *buf,
- 		goto out_free;
- 	}
- 
--	if (ret == -EUCLEAN)
--		eccstr = "corrected";
--	else if (ret == -EBADMSG)
--		eccstr = "correction failed";
--	else
--		eccstr = "OK or unused";
-+	for (i = 0; i < c->wbuf_pagesize; i++) {
-+		uint8_t c1 = ((uint8_t *)buf)[i];
-+		uint8_t c2 = ((uint8_t *)verify_buf)[i];
-+		int dump_len;
- 
--	pr_warn("Write verify error (ECC %s) at %08x. Wrote:\n",
--		eccstr, c->wbuf_ofs);
--	print_hex_dump(KERN_WARNING, "", DUMP_PREFIX_OFFSET, 16, 1,
--		       c->wbuf, c->wbuf_pagesize, 0);
-+		if (c1 == c2)
-+			continue;
- 
--	pr_warn("Read back:\n");
--	print_hex_dump(KERN_WARNING, "", DUMP_PREFIX_OFFSET, 16, 1,
--		       verify_buf, c->wbuf_pagesize, 0);
-+		if (ret == -EUCLEAN)
-+			eccstr = "corrected";
-+		else if (ret == -EBADMSG)
-+			eccstr = "correction failed";
-+		else
-+			eccstr = "OK or unused";
- 
--	kfree(verify_buf);
--	return -EIO;
-+		dump_len = min_t(int, 128, c->wbuf_pagesize - i);
-+		pr_warn("Write verify error (ECC %s) at %08x (+%zu/%d). Wrote:\n",
-+			eccstr, ofs, i, c->wbuf_pagesize);
-+		print_hex_dump(KERN_WARNING, "", DUMP_PREFIX_OFFSET, 16, 1,
-+			       buf + i, dump_len, 0);
++	if (!READ_ONCE(jffs2_write_verify))
++		return 0;
 +
-+		pr_warn("Read back:\n");
-+		print_hex_dump(KERN_WARNING, "", DUMP_PREFIX_OFFSET, 16, 1,
-+			       verify_buf + i, dump_len, 0);
-+
-+		ret = -EIO;
-+		goto out_free;
-+	}
- 
- out_free:
- 	kfree(verify_buf);
+ 	verify_buf = kmalloc(len, GFP_NOFS);
+ 	if (!verify_buf) {
+ 		pr_warn("%s(): verify buffer allocation failed, skipping verification\n",
 -- 
 2.52.0
 
