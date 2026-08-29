@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF172C61DBE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 08:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14801C61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 08:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eHtGfUyv+NDEIFhJ+rL3MIjkKe1E4CjtH7InBn8uMWg=; b=nur6MYuhtLObW7yiwtBq1gvTmV
-	t52a2HW90kf2eUwqC/RAC4j6r/XlcTUM17ha4OWpniCiRTeEFLl7fcci0Zb2l56iWeLf/oHOQMRil
-	jdKvkEZkm5RBPNUKsnnisM5npVY+fHCcVGWyf75ZfrPjfLRO1h3QgWs3murht/adG9it6zGq/rfBI
-	PrN4mcg3Vsf79xV1tvnZccZut4mIgwfZN7VkUQDsWS7NJO/poKuqjzMbNyWeDcOjhjQRLS1rtkwDf
-	vq6NwVGAri9YvMy9jkLNp+gXuwZ0liLl1jLVzoDUj4DjGPk1ps8/6xcffHJwYLN9hEOE64ZYXO+4t
-	/0Ts3VXA==;
+	bh=pcZd5qV9VBribsCJdVCEf9+lpTwexMZzlTrNX//b62A=; b=GdKACRsnow349nJQP92KeDaDCy
+	7aIrc4HmeIVQThWGlv1yS+ZPsa0eu/ixgu7BFQHQRGJyYMf6My1h4WAOEFwPEgxBtBs2rEFstRzOZ
+	jQ/UftCGjPHX/Ev0kMrDidxcR7X8V33sGkV9dhOkwhjYmHty9z2vF5SdVrFEfCjm1am/p7aW5Tm1Y
+	KZqtwetetj9TKBDvYmflpMXlX/TYzSnW0sH7e63/DsIWZboeGQBLM/3iItuiy6GxCtnbToyQpMY3i
+	o0xzdW9LEP7MesMI6eXOApujZcLnQPSn/F/RerUpDH+fVFl0t6rPS9X8mRvEwDi6h7qn2Z6Cocnr4
+	KtRNTXcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Ef3-00000006rrq-38es;
-	Sat, 29 Aug 2026 08:43:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1x0EkO-00000006s3b-1OwU;
+	Sat, 29 Aug 2026 08:49:08 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Ef3-00000006rrf-02dd;
-	Sat, 29 Aug 2026 08:43:37 +0000
+	id 1x0EkM-00000006s3T-3TSr;
+	Sat, 29 Aug 2026 08:49:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=eHtGfUyv+NDEIFhJ+rL3MIjkKe1E4CjtH7InBn8uMWg=; b=ZvkODfUjRXxzIXS3gx3ArInBac
-	P7e8ollFJxQa2Sca0uHxuOn78euth+7/OAAiWvXv6gEwDtQknf7cRvXWnrXRC2yeBBdca7QE2cGUH
-	JLa79YPVenz9rxuNyOEFGhm+ccbJeNvWEB/Z9nIUAC1YCfAmY55xMmC+9uUBr3nXDppmCSjZZpwnO
-	vlJJLLxWzK+kbzE/MwrXBaW/lg+/Mrae2Kn9aV6xeIJ9gZQMa/vniKr1+V2AjwDvjTcBspOXTbRnY
-	1xt11Kr2Yb71UtBujJZUKVfj22zEn/HMC9+E3dvI9A4FxgJ3Tw4qpqLo1axhRxTkOeP/iD7/GtYdA
-	m4xg5f1g==;
+	bh=pcZd5qV9VBribsCJdVCEf9+lpTwexMZzlTrNX//b62A=; b=VupjAuyCvQhU3mbZf/BnGX6m2k
+	VT1HVO1wyzdj8Xzv4lMNi8LnM6i3Up8WWM5CIgsDIOvMrhkuY02BLOGHTJvpEzChU0TT5DmwduTGX
+	TfRA9u60b2spcFTxEI2vUr/erSyxfF6oBDiv27r0yLWz0AhNb5uZphuqZXr7rLX8ja1/nbYzjaEDf
+	3V5RZCp8WRo6f4Yu1m9QybYjgref+K9HR4wP52/F8BfO3M25/wdh1omen9ZOjSAdE3+rqJzrjGNaW
+	4i6bGcI/PkNjzTz0vZIkgzJXEJm6qXq2Rxl72Zpa26SHx6v/7Bu1hjGupGztYq6J9m2NVwZUVz5gf
+	Z5n0oCiQ==;
 Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x0Eew-00000008le1-27hC;
-	Sat, 29 Aug 2026 08:43:31 +0000
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x0EkI-0000000GDbC-1Te9;
+	Sat, 29 Aug 2026 08:49:02 +0000
 Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 63BD7300382; Sat, 29 Aug 2026 10:43:28 +0200 (CEST)
-Date: Sat, 29 Aug 2026 10:43:28 +0200
+	id CABCD300382; Sat, 29 Aug 2026 10:49:01 +0200 (CEST)
+Date: Sat, 29 Aug 2026 10:49:01 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: David Stevens <stevensd@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
 	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
 	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
@@ -69,21 +70,20 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Mike Rapoport <rppt@kernel.org>,
 	Suren Baghdasaryan <surenb@google.com>,
 	Michal Hocko <mhocko@suse.com>, Kees Cook <kees@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
 	Clark Williams <clrkwllms@kernel.org>, suleiman@google.com,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
 Subject: Re: [RFC 06/10] Reclaim memory from blocked kernel stacks
-Message-ID: <20260829084328.GO788244@noisy.programming.kicks-ass.net>
+Message-ID: <20260829084901.GA776954@noisy.programming.kicks-ass.net>
 References: <20260827232948.2520558-1-stevensd@google.com>
  <20260827232948.2520558-7-stevensd@google.com>
- <20260828120408.GN687043@noisy.programming.kicks-ass.net>
- <CAOiLmNHWGSwAqH815X3JWMrQCc2nh-fRNsNZ0hjQGv8JvFndag@mail.gmail.com>
- <20260829083929.GZ776954@noisy.programming.kicks-ass.net>
+ <20260828133620._x2XfJR_@linutronix.de>
+ <20260828135947.GU776954@noisy.programming.kicks-ass.net>
+ <CAOiLmNHrbXeTY7zoNodmaZUoMWf+NgvGvZ_LjfWD-1sKAoiLeQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260829083929.GZ776954@noisy.programming.kicks-ass.net>
+In-Reply-To: <CAOiLmNHrbXeTY7zoNodmaZUoMWf+NgvGvZ_LjfWD-1sKAoiLeQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,17 +98,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 29, 2026 at 10:39:29AM +0200, Peter Zijlstra wrote:
+On Fri, Aug 28, 2026 at 01:50:05PM -0700, David Stevens wrote:
 
-> > The optimistic fast path for repopulate_stack() could be modified to
-> > try pulling from a pre-allocated pool of zero'ed pages. That would
-> > reduce the function to a couple of memcg_kmem_charge_page() calls and
+> > It should have. They're taking spinlock inside raw_spinlock and lockdep
+> > should very much warn about that by default.
 > 
-> Afaict memcg_kmem_charge_page() ends up in a local_lock, which is a
-> spinlock, so that cannot be.
+> It does trylocks on spinlocks and local locks, inside of
+> alloc_pages_nolock_noprof(). Lockdep considers that safe.
 
-Perhaps just don't uncharge them on reclaim, then you don't have to
-re-charge.
+Argh, that alloc_pages_nolock thing is a horror show.
 
+> On PREEMPT_RT, it is necessary to skip the call to
+> alloc_pages_nolock_noprof() from under pi_lock, since with that
+> configuration spin_trylock can end up needing to take pi_lock. But at
+> least on !PREEMPT_RT, there is no risk of deadlock.
 
+Yeah, which puts the lie to that horrific hack Alexei did. We should
+probably teach lockdep about spin_trylock() not being safe and see the
+house of cards crumble.
 
