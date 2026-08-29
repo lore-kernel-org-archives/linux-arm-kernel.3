@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C4FDC61DC4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 03:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E90C61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 03:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2sTtGb2mob8IhHEmaTINENeOaALkF5ic/TejpRBGBD0=; b=iW67hEDkH5NBqlquOAKQIBu+vQ
-	1/9jB7bbUrYNRrhVVkNG+hiVwfQJULHPK/UCcZWZFnguEDTBQFLYkVXvxigUce39XkqzE0v0jZs2y
-	yXFnAI96dkp+kh3kVERyI/4RwtiGveT+gBX/xtGKQNxLCSn9jEmOM5HkLrojqELhnMjDJPMnawv7/
-	MzdABUhyxu+qg+cLKAJB+hIyKY19aVPqYNULL25+ehiPVwYXXDcpLnFWWZSvqIY1vcOVi/PVib+u1
-	8q4+xK6WumMrngiYibb0UpSFIuu6B3rvVcM+oIctQKYHFzWag0HEsiRAi8f6FijJKnBLOaLmd4RGx
-	OeG7bNyg==;
+	bh=G+DFEwPW8Im+ezJj5wz5E1vUVtiDguw/7elphsJ4xvM=; b=U/wKe1kLJ3KT10gDbvqT2TwNQE
+	qOXgmmW4+QllL4i1zmstzbk3gFls/bKVtkhlPvMLRJKnGizPhcvxsJI8K2I+dgpFBMn5vAO1Krp+1
+	BPRUCFHXNIcXIDM3oFWVn+ik0ldmiipdrhd6zrIMlP6xCjNTmDMxRMRm6h4fPbBNSfC0PvZJQMPlU
+	FoGxXDW/Pm0Cns3Z8q2Lj78sYP/G7tRhTk65w/KFqPCStekfaQZS+o+Z4NxI03H1gjVdFBnr1QrcC
+	ppSmdS8cibJ1j7cw/sh/vab+ykLrNRXwmUJUF5+kgHgfaJRCtsswcDAptgHFPbhdy4xg4lX4f2nUB
+	41UPeaDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0A1o-00000006gp5-2CIb;
-	Sat, 29 Aug 2026 03:46:48 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1x0A2M-00000006gvl-2gLE;
+	Sat, 29 Aug 2026 03:47:22 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0A1l-00000006go6-2Vho
+	id 1x0A2K-00000006guv-1y7M
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 03:46:47 +0000
+	Sat, 29 Aug 2026 03:47:22 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=2sTtGb2mob8IhHEmaTINENeOaALkF5ic/TejpRBGBD0=;
-	b=isZbEhZZysoJ++Zc12Ge3WKctXy1ixlYW2c8OEjSz6tAj065nu/RRqdajQVQ+drE2Nc92j+4/
-	Pqca1cmq7VGYbkTIOxuzPYpl8MqcPSaY9En9VbL66c82DyvfrL0CRcNZCXJizFDh0HA4xm4axL1
-	2zhiPLUAdj+V03l28/6KcCw=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4hX19Q0Gjkz1T4K6;
-	Sat, 29 Aug 2026 11:35:22 +0800 (CST)
+	bh=G+DFEwPW8Im+ezJj5wz5E1vUVtiDguw/7elphsJ4xvM=;
+	b=ZLBpUfycThN88M0gmAD+1wOsumAcK0jQsqg2e8OfPg3ocssj6hEfswPh6xPneaqDKgwHQdGS4
+	OD8nvbzn5KIgQzlW/nSpzJ/6NL6NIrRmZvkstJeTLCxlcbCYILT8TM2dSDvFxVijKANK9Dd1T38
+	rlDukAOeDUWxkoGXXeqh7Mw=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hX1Bg2wv1zmV7C;
+	Sat, 29 Aug 2026 11:36:27 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 93CC040538;
-	Sat, 29 Aug 2026 11:46:37 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id E99694057A;
+	Sat, 29 Aug 2026 11:47:14 +0800 (CST)
 Received: from [10.67.109.254] (10.67.109.254) by
  dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 29 Aug 2026 11:46:37 +0800
-Message-ID: <3338d826-b941-4fe9-a65d-9c2838205e5a@huawei.com>
-Date: Sat, 29 Aug 2026 11:46:36 +0800
+ 15.2.1544.11; Sat, 29 Aug 2026 11:47:14 +0800
+Message-ID: <2e1853fc-93ca-4a16-9056-57725b6327b5@huawei.com>
+Date: Sat, 29 Aug 2026 11:47:13 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 39/45] arm64: smp: Fall back to IRQ when IPI NMI
- request fails
+Subject: Re: [RFC PATCH v2 38/45] arm64: smp: Abstract SGI and LPI operations
+From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: Vladimir Murzin <vladimir.murzin@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>
 CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
 	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
 References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-40-vladimir.murzin@arm.com>
- <3f27e2d0-8f5d-4d0c-8945-a4fa84327f7a@huawei.com>
- <f1778585-97ca-453a-b221-f281b7a70822@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <f1778585-97ca-453a-b221-f281b7a70822@arm.com>
+ <20260727163453.7969-39-vladimir.murzin@arm.com>
+ <290a5478-5415-4b0d-a790-79fa7e430888@huawei.com>
+In-Reply-To: <290a5478-5415-4b0d-a790-79fa7e430888@huawei.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
 X-Originating-IP: [10.67.109.254]
 X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_204646_248147_3B1E40C9 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20260828_204720_889687_0FBD6E2A 
+X-CRM114-Status: GOOD (  28.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,87 +82,491 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-在 2026/8/21 18:16, Vladimir Murzin 写道:
-> On 8/13/26 10:23, Jinjie Ruan wrote:
->>
->> 在 2026/7/28 0:34, Vladimir Murzin 写道:
->>> Existing IPI setup logic relies on ipi_should_be_nmi() to decide
->>> whether to request an NMI (if supported) or an ordinary IRQ. If NMI is
->>> not supported, using an ordinary IRQ is acceptable.
->>>
->>> FEAT_NMI requires complementary support in the interrupt
->>> controller. If FEAT_NMI is present but interrupt controller support is
->>> absent, request_percpu_nmi() can fail.
->>>
->>> One way to prevent this would be to extend ipi_should_be_nmi() to also
->>> check for interrupt controller support. However, since falling back to
->>> an ordinary IRQ is acceptable, treat ipi_should_be_nmi() as a hint
->>> instead. Whether an IPI is actually registered as an NMI is determined
->>> by the success or failure of request_percpu_nmi(). If the request
->>> fails, fall back to request_irq().
->>>
->>> Track which IPIs were actually registered as NMIs and use that state
->>> in the per-CPU enable and disable paths. This avoids calling the
->>> percpu NMI helpers for an IPI that fell back to regular IRQ handling.
->>>
->>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->>
->> Should we replace ipi_should_be_nmi() with test_bit(ipi,
->> get_ipi_nmi_bitmap(cpu) in smp_send_stop()?
->>
+在 2026/8/13 16:01, Jinjie Ruan 写道:
 > 
-> Right. We can do something like
 > 
-> @@ -1312,7 +1328,7 @@ void smp_send_stop(void)
->          * If CPUs are still online, try an NMI. There's no excuse for this to
->          * be slow, so we only give them an extra 10 ms to respond.
+> 在 2026/7/28 0:34, Vladimir Murzin 写道:
+>> SGI and LPI backed IPIs require different setup, enable, disable and
+>> send operations. These differences are currently handled by repeatedly
+>> checking percpu_ipi_descs. As the implementation specific logic grows,
+>> these checks make the common IPI code increasingly difficult to
+>> follow.
+>>
+>> Introduce an operations structure for each implementation to
+>> encapsulate the specific of SGI and LPI handling, leaving the common
+>> IPI paths generic.
+>>
+>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+>> ---
+>>  arch/arm64/kernel/smp.c | 163 +++++++++++++++++++++++++---------------
+>>  1 file changed, 101 insertions(+), 62 deletions(-)
+> 
+> Hi, Vladimir,
+> 
+> I believe that the modifications here do not need to be so extensive. By
+> maintaining the order of the related function definitions consistent
+> with the original, the changes can be reduced to only 126 lines, and the
+> modifications will be easier to review.
+
+Hi, Vladimir,
+
+What do you think?
+
+> 
+> arch/arm64/kernel/smp.c | 126
+> +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------------------------------------
+>  1 file changed, 81 insertions(+), 45 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 534fc58df62a..b6b020118712 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -75,11 +75,18 @@ static DEFINE_PER_CPU_READ_MOSTLY(struct ipi_descs,
+> pcpu_ipi_desc);
+> 
+>  #define get_ipi_desc(__cpu, __ipi) (per_cpu_ptr(&pcpu_ipi_desc,
+> __cpu)->descs[__ipi])
+> 
+> -static bool percpu_ipi_descs __ro_after_init;
+> +struct ipi_irq_ops {
+> +       void (*setup)(int ipi, int ncpus);
+> +       void (*enable)(int cpu, int ipi);
+> +       void (*disable)(int cpu, int ipi);
+> +       void (*send)(const cpumask_t *mask, unsigned int nr);
+> +};
+> +
+> +static const struct ipi_irq_ops *ipi_ops __ro_after_init;
+> 
+>  static bool crash_stop;
+> 
+> -static void ipi_setup(int cpu);
+> +static void ipi_enable(int cpu);
+> 
+>  #ifdef CONFIG_HOTPLUG_CPU
+>  static void ipi_teardown(int cpu);
+> @@ -240,7 +247,7 @@ asmlinkage notrace void secondary_start_kernel(void)
 >          */
-> -       if (num_other_online_cpus() && ipi_should_be_nmi(IPI_CPU_STOP_NMI)) {
-> +       if (num_other_online_cpus() && ipi_is_nmi(smp_processor_id(), IPI_CPU_STOP_NMI)) {
->                 smp_rmb();
->                 cpumask_copy(&mask, cpu_online_mask);
->                 cpumask_clear_cpu(smp_processor_id(), &mask);
+>         notify_cpu_starting(cpu);
 > 
-> where 
+> -       ipi_setup(cpu);
+> +       ipi_enable(cpu);
 > 
-> +#define ipi_is_nmi(__cpu, __ipi) test_bit(__ipi, get_ipi_nmi_bitmap(__cpu))
+>         numa_add_cpu(cpu);
 > 
-> can be used in other places to simpify the code 
-
-Agree.
-
+> @@ -916,13 +923,7 @@ static void __noreturn ipi_cpu_crash_stop(unsigned
+> int cpu, struct pt_regs *regs
 > 
->> irq_desc_get_irq(get_ipi_desc(cpu, ipi)) has been used more than 3
->> times, can we define a new macro for use?
+>  static void arm64_send_ipi(const cpumask_t *mask, unsigned int nr)
+>  {
+> -       unsigned int cpu;
+> -
+> -       if (!percpu_ipi_descs)
+> -               __ipi_send_mask(get_ipi_desc(0, nr), mask);
+> -       else
+> -               for_each_cpu(cpu, mask)
+> -                       __ipi_send_single(get_ipi_desc(cpu, nr), cpu);
+> +       ipi_ops->send(mask, nr);
+>  }
+> 
+>  static void arm64_backtrace_ipi(cpumask_t *mask)
+> @@ -1048,25 +1049,15 @@ static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
+>         }
+>  }
+> 
+> -static void ipi_setup(int cpu)
+> +static void ipi_enable(int cpu)
+>  {
+>         int i;
+> 
+>         if (WARN_ON_ONCE(!ipi_irq_base))
+>                 return;
+> 
+> -       for (i = 0; i < nr_ipi; i++) {
+> -               if (!percpu_ipi_descs) {
+> -                       if (ipi_should_be_nmi(i)) {
+> -                               prepare_percpu_nmi(ipi_irq_base + i);
+> -                               enable_percpu_nmi(ipi_irq_base + i, 0);
+> -                       } else {
+> -                               enable_percpu_irq(ipi_irq_base + i, 0);
+> -                       }
+> -               } else {
+> -                       enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
+> -               }
+> -       }
+> +       for (i = 0; i < nr_ipi; i++)
+> +               ipi_ops->enable(cpu, i);
+>  }
+> 
+>  #ifdef CONFIG_HOTPLUG_CPU
+> @@ -1077,25 +1068,18 @@ static void ipi_teardown(int cpu)
+>         if (WARN_ON_ONCE(!ipi_irq_base))
+>                 return;
+> 
+> -       for (i = 0; i < nr_ipi; i++) {
+> -               if (!percpu_ipi_descs) {
+> -                       if (ipi_should_be_nmi(i)) {
+> -                               disable_percpu_nmi(ipi_irq_base + i);
+> -                               teardown_percpu_nmi(ipi_irq_base + i);
+> -                       } else {
+> -                               disable_percpu_irq(ipi_irq_base + i);
+> -                       }
+> -               } else {
+> -                       disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
+> -               }
+> -       }
+> +       for (i = 0; i < nr_ipi; i++)
+> +               ipi_ops->disable(cpu, i);
+>  }
+>  #endif
+> 
+> -static void ipi_setup_sgi(int ipi)
+> +static void ipi_sgi_setup(int ipi, int ncpus)
+>  {
+>         int err, irq, cpu;
+> 
+> +       if (WARN_ON_ONCE(ncpus))
+> +               return;
+> +
+>         irq = ipi_irq_base + ipi;
+> 
+>         if (ipi_should_be_nmi(ipi)) {
+> @@ -1112,7 +1096,39 @@ static void ipi_setup_sgi(int ipi)
+>         irq_set_status_flags(irq, IRQ_HIDDEN);
+>  }
+> 
+> -static void ipi_setup_lpi(int ipi, int ncpus)
+> +static void ipi_sgi_enable(int cpu, int ipi)
+> +{
+> +       if (ipi_should_be_nmi(ipi)) {
+> +               prepare_percpu_nmi(ipi_irq_base + ipi);
+> +               enable_percpu_nmi(ipi_irq_base + ipi, 0);
+> +       } else {
+> +               enable_percpu_irq(ipi_irq_base + ipi, 0);
+> +       }
+> +}
+> +
+> +static void ipi_sgi_disable(int cpu, int ipi)
+> +{
+> +       if (ipi_should_be_nmi(ipi)) {
+> +               disable_percpu_nmi(ipi_irq_base + ipi);
+> +               teardown_percpu_nmi(ipi_irq_base + ipi);
+> +       } else {
+> +               disable_percpu_irq(ipi_irq_base + ipi);
+> +       }
+> +}
+> +
+> +static void ipi_sgi_send(const cpumask_t *mask, unsigned int nr)
+> +{
+> +       __ipi_send_mask(get_ipi_desc(0, nr), mask);
+> +}
+> +
+> +static const struct ipi_irq_ops ipi_sgi_ops = {
+> +       .setup = ipi_sgi_setup,
+> +       .enable = ipi_sgi_enable,
+> +       .disable = ipi_sgi_disable,
+> +       .send = ipi_sgi_send,
+> +};
+> +
+> +static void ipi_lpi_setup(int ipi, int ncpus)
+>  {
+>         for (int cpu = 0; cpu < ncpus; cpu++) {
+>                 int err, irq;
+> @@ -1132,6 +1148,30 @@ static void ipi_setup_lpi(int ipi, int ncpus)
+>         }
+>  }
+> 
+> +static void ipi_lpi_enable(int cpu, int ipi)
+> +{
+> +       enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
+> +}
+> +
+> +static void ipi_lpi_disable(int cpu, int ipi)
+> +{
+> +       disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
+> +}
+> +
+> +static void ipi_lpi_send(const cpumask_t *mask, unsigned int nr) {
+> +       int cpu;
+> +
+> +       for_each_cpu(cpu, mask)
+> +               __ipi_send_single(get_ipi_desc(cpu, nr), cpu);
+> +}
+> +
+> +static const struct ipi_irq_ops ipi_lpi_ops = {
+> +       .setup = ipi_lpi_setup,
+> +       .enable = ipi_lpi_enable,
+> +       .disable = ipi_lpi_disable,
+> +       .send = ipi_lpi_send,
+> +};
+> +
+>  void __init set_smp_ipi_range_percpu(int ipi_base, int n, int ncpus)
+>  {
+>         int i;
+> @@ -1139,18 +1179,14 @@ void __init set_smp_ipi_range_percpu(int
+> ipi_base, int n, int ncpus)
+>         WARN_ON(n < MAX_IPI);
+>         nr_ipi = min(n, MAX_IPI);
+> 
+> -       percpu_ipi_descs = !!ncpus;
+> +       ipi_ops = ncpus ? &ipi_lpi_ops : &ipi_sgi_ops;
+>         ipi_irq_base = ipi_base;
+> 
+> -       for (i = 0; i < nr_ipi; i++) {
+> -               if (!percpu_ipi_descs)
+> -                       ipi_setup_sgi(i);
+> -               else
+> -                       ipi_setup_lpi(i, ncpus);
+> -       }
+> +       for (i = 0; i < nr_ipi; i++)
+> +               ipi_ops->setup(i, ncpus);
+> 
+>         /* Setup the boot CPU immediately */
+> -       ipi_setup(smp_processor_id());
+> +       ipi_enable(smp_processor_id());
+>  }
+> 
+> 
 >>
->> git grep "irq_desc_get_irq(get_ipi_desc(cpu, ipi))"
->> arch/arm64/kernel/smp.c:
->> enable_nmi(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
->> arch/arm64/kernel/smp.c:
->> enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
->> arch/arm64/kernel/smp.c:
->> disable_nmi_nosync(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
->> arch/arm64/kernel/smp.c:
->> disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
->>
->>
+>> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+>> index 6e5b673613ca..3dd4bc02caed 100644
+>> --- a/arch/arm64/kernel/smp.c
+>> +++ b/arch/arm64/kernel/smp.c
+>> @@ -75,11 +75,18 @@ static DEFINE_PER_CPU_READ_MOSTLY(struct ipi_descs, pcpu_ipi_desc);
+>>  
+>>  #define get_ipi_desc(__cpu, __ipi) (per_cpu_ptr(&pcpu_ipi_desc, __cpu)->descs[__ipi])
+>>  
+>> -static bool percpu_ipi_descs __ro_after_init;
+>> +struct ipi_irq_ops {
+>> +	void (*setup)(int ipi, int ncpus);
+>> +	void (*disable)(int cpu, int ipi);
+>> +	void (*enable)(int cpu, int ipi);
+>> +	void (*send)(const cpumask_t *mask, unsigned int nr);
+>> +};
 > 
-> I assume you did grep after full series applied, since
-> irq_desc_get_irq(get_ipi_desc(cpu, ipi)) comes from LPI flow.
+> Could the order of different callbacks in ipi_sgi_ops and ipi_sgi_ops
+> consistent with this definition?
 > 
-> Anyway, we can easily avoid some duplication and get usage
-> of irq_desc_get_irq(get_ipi_desc(cpu, ipi)) back to two
-
-Anyway, it is always good to avoid repetition.
-
+>> +
+>> +static const struct ipi_irq_ops *ipi_ops __ro_after_init;
+>>  
+>>  static bool crash_stop;
+>>  
+>> -static void ipi_setup(int cpu);
+>> +static void ipi_enable(int cpu);
+>>  
+>>  #ifdef CONFIG_HOTPLUG_CPU
+>>  static void ipi_teardown(int cpu);
+>> @@ -240,7 +247,7 @@ asmlinkage notrace void secondary_start_kernel(void)
+>>  	 */
+>>  	notify_cpu_starting(cpu);
+>>  
+>> -	ipi_setup(cpu);
+>> +	ipi_enable(cpu);
+>>  
+>>  	numa_add_cpu(cpu);
+>>  
+>> @@ -916,13 +923,7 @@ static void __noreturn ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs
+>>  
+>>  static void arm64_send_ipi(const cpumask_t *mask, unsigned int nr)
+>>  {
+>> -	unsigned int cpu;
+>> -
+>> -	if (!percpu_ipi_descs)
+>> -		__ipi_send_mask(get_ipi_desc(0, nr), mask);
+>> -	else
+>> -		for_each_cpu(cpu, mask)
+>> -			__ipi_send_single(get_ipi_desc(cpu, nr), cpu);
+>> +	ipi_ops->send(mask, nr);
+>>  }
+>>  
+>>  static void arm64_backtrace_ipi(cpumask_t *mask)
+>> @@ -1048,53 +1049,13 @@ static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
+>>  	}
+>>  }
+>>  
+>> -static void ipi_setup(int cpu)
+>> -{
+>> -	int i;
+>> -
+>> -	if (WARN_ON_ONCE(!ipi_irq_base))
+>> -		return;
+>> -
+>> -	for (i = 0; i < nr_ipi; i++) {
+>> -		if (!percpu_ipi_descs) {
+>> -			if (ipi_should_be_nmi(i)) {
+>> -				prepare_percpu_nmi(ipi_irq_base + i);
+>> -				enable_percpu_nmi(ipi_irq_base + i, 0);
+>> -			} else {
+>> -				enable_percpu_irq(ipi_irq_base + i, 0);
+>> -			}
+>> -		} else {
+>> -			enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
+>> -		}
+>> -	}
+>> -}
+>> -
+>> -#ifdef CONFIG_HOTPLUG_CPU
+>> -static void ipi_teardown(int cpu)
+>> +static void ipi_sgi_setup(int ipi, int ncpus)
+>>  {
+>> -	int i;
+>> +	int err, irq, cpu;
+>>  
+>> -	if (WARN_ON_ONCE(!ipi_irq_base))
+>> +	if (WARN_ON_ONCE(ncpus))
+>>  		return;
+>>  
+>> -	for (i = 0; i < nr_ipi; i++) {
+>> -		if (!percpu_ipi_descs) {
+>> -			if (ipi_should_be_nmi(i)) {
+>> -				disable_percpu_nmi(ipi_irq_base + i);
+>> -				teardown_percpu_nmi(ipi_irq_base + i);
+>> -			} else {
+>> -				disable_percpu_irq(ipi_irq_base + i);
+>> -			}
+>> -		} else {
+>> -			disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
+>> -		}
+>> -	}
+>> -}
+>> -#endif
+>> -
+>> -static void ipi_setup_sgi(int ipi)
+>> -{
+>> -	int err, irq, cpu;
+>>  
+>>  	irq = ipi_irq_base + ipi;
 > 
-> $ git grep "irq_desc_get_irq(get_ipi_desc(cpu, ipi))"
-> arch/arm64/kernel/smp.c:        int irq = irq_desc_get_irq(get_ipi_desc(cpu, ipi));
-> arch/arm64/kernel/smp.c:        int irq = irq_desc_get_irq(get_ipi_desc(cpu, ipi));
+> An extra blank line.
 > 
-> Cheers
-> Vladimir
+>>  
+>> @@ -1112,7 +1073,50 @@ static void ipi_setup_sgi(int ipi)
+>>  	irq_set_status_flags(irq, IRQ_HIDDEN);
+>>  }
+>>  
+>> -static void ipi_setup_lpi(int ipi, int ncpus)
+>> +static void ipi_sgi_enable(int cpu, int ipi)
+>> +{
+>> +	if (ipi_should_be_nmi(ipi)) {
+>> +		prepare_percpu_nmi(ipi_irq_base + ipi);
+>> +		enable_percpu_nmi(ipi_irq_base + ipi, 0);
+>> +	} else {
+>> +		enable_percpu_irq(ipi_irq_base + ipi, 0);
+>> +	}
+>> +}
+>> +
+>> +static void ipi_sgi_disable(int cpu, int ipi)
+>> +{
+>> +	if (ipi_should_be_nmi(ipi)) {
+>> +		disable_percpu_nmi(ipi_irq_base + ipi);
+>> +		teardown_percpu_nmi(ipi_irq_base + ipi);
+>> +	} else {
+>> +		disable_percpu_irq(ipi_irq_base + ipi);
+>> +	}
+>> +}
+>> +
+>> +static void ipi_sgi_send(const cpumask_t *mask, unsigned int nr)
+>> +{
+>> +	__ipi_send_mask(get_ipi_desc(0, nr), mask);
+>> +}
+>> +
+>> +static const struct ipi_irq_ops ipi_sgi_ops = {
+>> +	.disable = ipi_sgi_disable,
+>> +	.enable = ipi_sgi_enable,
+>> +	.setup = ipi_sgi_setup,
+>> +	.send = ipi_sgi_send,
+>> +};
+>> +
+>> +
 > 
+> An extra blank line.
+> 
+> Best regards,
+> Jinjie
+> 
+>> +static void ipi_lpi_enable(int cpu, int ipi)
+>> +{
+>> +	enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
+>> +}
+>> +
+>> +static void ipi_lpi_disable(int cpu, int ipi)
+>> +{
+>> +	disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
+>> +}
+>> +
+>> +static void ipi_lpi_setup(int ipi, int ncpus)
+>>  {
+>>  	for (int cpu = 0; cpu < ncpus; cpu++) {
+>>  		int err, irq;
+>> @@ -1132,6 +1136,44 @@ static void ipi_setup_lpi(int ipi, int ncpus)
+>>  	}
+>>  }
+>>  
+>> +static void ipi_lpi_send(const cpumask_t *mask, unsigned int nr) {
+>> +	int cpu;
+>> +
+>> +	for_each_cpu(cpu, mask)
+>> +		__ipi_send_single(get_ipi_desc(cpu, nr), cpu);
+>> +}
+>> +
+>> +static const struct ipi_irq_ops ipi_lpi_ops = {
+>> +	.disable = ipi_lpi_disable,
+>> +	.enable = ipi_lpi_enable,
+>> +	.setup = ipi_lpi_setup,
+>> +	.send = ipi_lpi_send,
+>> +};
+>> +
+>> +static void ipi_enable(int cpu)
+>> +{
+>> +	int ipi;
+>> +
+>> +	if (WARN_ON_ONCE(!ipi_irq_base))
+>> +		return;
+>> +
+>> +	for (ipi = 0; ipi < nr_ipi; ipi++)
+>> +		ipi_ops->enable(cpu, ipi);
+>> +}
+>> +
+>> +#ifdef CONFIG_HOTPLUG_CPU
+>> +static void ipi_teardown(int cpu)
+>> +{
+>> +	int ipi;
+>> +
+>> +	if (WARN_ON_ONCE(!ipi_irq_base))
+>> +		return;
+>> +
+>> +	for (ipi = 0; ipi < nr_ipi; ipi++)
+>> +		ipi_ops->disable(cpu, ipi);
+>> +}
+>> +#endif
+>> +
+>>  void __init set_smp_ipi_range_percpu(int ipi_base, int n, int ncpus)
+>>  {
+>>  	int i;
+>> @@ -1139,18 +1181,15 @@ void __init set_smp_ipi_range_percpu(int ipi_base, int n, int ncpus)
+>>  	WARN_ON(n < MAX_IPI);
+>>  	nr_ipi = min(n, MAX_IPI);
+>>  
+>> -	percpu_ipi_descs = !!ncpus;
+>>  	ipi_irq_base = ipi_base;
+>>  
+>> -	for (i = 0; i < nr_ipi; i++) {
+>> -		if (!percpu_ipi_descs)
+>> -			ipi_setup_sgi(i);
+>> -		else
+>> -			ipi_setup_lpi(i, ncpus);
+>> -	}
+>> +	ipi_ops = ncpus ? &ipi_lpi_ops : &ipi_sgi_ops;
+>> +
+>> +	for (i = 0; i < nr_ipi; i++)
+>> +		ipi_ops->setup(i, ncpus);
+>>  
+>>  	/* Setup the boot CPU immediately */
+>> -	ipi_setup(smp_processor_id());
+>> +	ipi_enable(smp_processor_id());
+>>  }
+>>  
+>>  void arch_smp_send_reschedule(int cpu)
 > 
 
 
