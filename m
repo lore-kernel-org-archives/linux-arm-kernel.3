@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53ECC61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 06:12:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120D3C61DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 06:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TRZw1V1vB378QeSlvx5BVidjqGhxuO+qRstnpjHPWb8=; b=y7pEMs37sQhGSo4VstIVRK9NNX
-	LbKD637k7OuCqviYa0ofobQfnA1haOtnp8tqic8ZkrgHovOpKTsW6zf12/XnBwagUEeUeEGZhqh21
-	+OotTbF+u673GwxNhYmNeNW0vsNxw/04lMteWTq+cSESluP3qZtOyJI2n1MDn2JXEevzXP910LKnH
-	wwpzfMMeUUSlt2PSZLcRVtUEuR/pl3qkoiKIhHbqlDUw/j2isKyb/N7eJda5rVxJFlPjuerKSLCVs
-	+6JmBx4PvQVq+GB5lye73wsKBRHHO9wDw4eK1WrZyYzLkKcELYcjKpG2v1K8w+JMr2lkCg1oPA3Dt
-	8HMzGaAA==;
+	bh=S1yrFP4Pe6B/KX4VlbIF1fox942sBDwMlaUs6T4ODEg=; b=cBRxcJpJyrmdmo26omIUAxalYc
+	F4Nl1psBb87VMaWfT1nbLJyTHXfuhcTofym+kz46XROi6bB2ZUwvQaB/pVKRoFaoxBfMz2N3w9KZB
+	SvrJwwoDHTF9RAtf9xc2JLUC50oziHpyH8B3lThKnlGXR4yIP3loG4wy0Bq3o9n88uyEQSgAF5FUV
+	yawcXZpg/W+BqZ1sQzIH2rGoRBm+RaLcq9wx7kzjXwXdU+tXx8IFgQgLIV6AfPodHrdHhyRiGI9J4
+	V5JKPEwCxw47AqDRzYtQaL9K+cLXahaUa74G3n8Kw5YR7H/uxde0mKcXGvbxj1V9eopbIKuY9mhNU
+	l+spuI/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0CIq-00000006lqh-3Fcb;
-	Sat, 29 Aug 2026 06:12:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x0CVb-00000006mR5-3aMO;
+	Sat, 29 Aug 2026 06:25:43 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0CIo-00000006lpx-47Qd
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 06:12:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 71E4B435B5;
-	Sat, 29 Aug 2026 06:12:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1701A1F000E9;
-	Sat, 29 Aug 2026 06:12:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787983950;
-	bh=TRZw1V1vB378QeSlvx5BVidjqGhxuO+qRstnpjHPWb8=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=L7m7g7Ps2C498I4YlV7/C6DjkiyJ6vKG70Snu3K+r9J9UaUIbMjW1gV4QlFQh536/
-	 jSpCSm/Qt2WZ7gRJFGJTw1dAf0EC3itaGrMZvE79e9OxcdHvfTi9pORbP74TT0ztwE
-	 oHZFrpLtxWSWg2hBsGhnBMd8yVdcYS8fah5iOjplxgWvMqjiuI+XKsmDySwfT1cOCG
-	 s0LzhW6Px8IrQroI1TiwDC+N75K1wi+KYe554VP+n0gwZWXWqr0c6m8xuY7Ij5f9O7
-	 dJAh7PwqyAav04unbNz3h1+NHKHPuNjwHd2j59jK1UWyKH/MZdRYyZyZGLNGDWyXh4
-	 sqXuw4fuPdYWQ==
-X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v9 6/7] firmware: smccc: arm-cca-guest: Bind the TSM
- provider to an SMCCC device
-In-Reply-To: <178794567780.4159892.17969556982711821646.b4-review@b4>
-References: <20260805063255.1638614-1-aneesh.kumar@kernel.org>
- <20260805063255.1638614-7-aneesh.kumar@kernel.org>
- <178794567780.4159892.17969556982711821646.b4-review@b4>
-Date: Sat, 29 Aug 2026 11:42:20 +0530
-Message-ID: <yq5ald9ptpyz.fsf@kernel.org>
+	id 1x0CVY-00000006mPi-3g6U;
+	Sat, 29 Aug 2026 06:25:43 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=S1yrFP4Pe6B/KX4VlbIF1fox942sBDwMlaUs6T4ODEg=;
+	b=kGw3GOQA7j/ll6HjJ7opjr9yugQSx0srBbftBV0nHJqV0lNwEOmiK55GOyWVY9oQbti8dmf7Y
+	fC4xbX4RXHos2KXMZCje/FHwjDuB0cBw1kirsBique2cBcbiJQ2mXWYVhME5LToy5ot11FKhUtz
+	sEGnHGsHsyS5KN6nFTFNgsI=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4hX4jv5tR9z12LDl;
+	Sat, 29 Aug 2026 14:15:15 +0800 (CST)
+Received: from dggpemr100018.china.huawei.com (unknown [7.185.36.64])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4728820333;
+	Sat, 29 Aug 2026 14:25:31 +0800 (CST)
+Received: from huawei.com (10.50.85.155) by dggpemr100018.china.huawei.com
+ (7.185.36.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Sat, 29 Aug
+ 2026 14:25:30 +0800
+From: zhouminqiang <zhouminqiang2@huawei.com>
+To: <linux@armlinux.org.uk>, <vz@mleia.com>, <piotr.wojtaszczyk@timesys.com>,
+	<maddy@linux.ibm.com>, <dwmw2@infradead.org>, <richard@nod.at>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-mtd@lists.infradead.org>,
+	<chengzhihao1@huawei.com>, <yangerkun@huawei.com>, <yi.zhang@huawei.com>
+Subject: [PATCH v2 2/7] jffs2: replace per-superblock verify buffer with per-write buffer
+Date: Sat, 29 Aug 2026 14:16:52 +0800
+Message-ID: <20260829061658.306854-3-zhouminqiang2@huawei.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260829061658.306854-1-zhouminqiang2@huawei.com>
+References: <20260829061658.306854-1-zhouminqiang2@huawei.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
+X-Originating-IP: [10.50.85.155]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemr100018.china.huawei.com (7.185.36.64)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260828_232541_624121_8A339681 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,114 +78,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jason Gunthorpe <jgg@nvidia.com> writes:
+Subsequent patches will extend write verification to additional write
+paths that may execute concurrently. A shared per-superblock buffer
+would require a coarse lock to serialize all verification, hurting
+concurrency.
 
->> [ ... 43 lines skipped ... ]
->> @@ -94,6 +95,12 @@ static const struct smccc_device_info smccc_devices[] __initconst = {
->>  		.requires_smc   = false,
->>  		.device_name    = "arm-smccc-trng",
->>  	},
->> +
->> +	{
->> +		.func_id        = SMC_RSI_ABI_VERSION,
->  [Severity: High]
->  Does this new entry cause uninitialized registers to be passed to the
->  firmware?
->
->  Looking at smccc_probe_smccc_device():
->
->  	arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
->
->  The invocation only passes the func_id, leaving r1 uninitialized. Since the
->  SMC_RSI_ABI_VERSION ABI requires r1 to hold the requested version parameter,
->  does this leak uninitialized kernel register state to the firmware and pass
->  a garbage ABI version?
->
+To avoid this contention, remove the wbuf_verify field from
+jffs2_sb_info, along with the scattered kmalloc/kfree of wbuf_verify
+in jffs2_nand_flash_setup, jffs2_dataflash_setup,
+jffs2_nor_wbuf_flash_setup and their corresponding cleanup functions.
 
-Yes. This even can result in error return from firmware like
+Instead, allocate a temporary buffer inside jffs2_verify_write(),
+giving each invocation its own buffer and eliminating the shared state.
 
-[   rmm ] SMC_RMI_VERSION                   6 > RMI_RMI_ERROR_INPUT
+Signed-off-by: zhouminqiang <zhouminqiang2@huawei.com>
+---
+ fs/jffs2/jffs2_fs_sb.h |  3 ---
+ fs/jffs2/wbuf.c        | 61 ++++++++++++++++--------------------------
+ 2 files changed, 23 insertions(+), 41 deletions(-)
 
+diff --git a/fs/jffs2/jffs2_fs_sb.h b/fs/jffs2/jffs2_fs_sb.h
+index 5a7091746f68..8a75870d3fc8 100644
+--- a/fs/jffs2/jffs2_fs_sb.h
++++ b/fs/jffs2/jffs2_fs_sb.h
+@@ -124,9 +124,6 @@ struct jffs2_sb_info {
+ 
+ 	uint32_t wbuf_pagesize; /* 0 for NOR and other flashes with no wbuf */
+ 
+-#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
+-	unsigned char *wbuf_verify; /* read-back buffer for verification */
+-#endif
+ #ifdef CONFIG_JFFS2_FS_WRITEBUFFER
+ 	unsigned char *wbuf; /* Write-behind buffer for NAND flash */
+ 	uint32_t wbuf_ofs;
+diff --git a/fs/jffs2/wbuf.c b/fs/jffs2/wbuf.c
+index 61e3dbd4cd7b..f10be57c5543 100644
+--- a/fs/jffs2/wbuf.c
++++ b/fs/jffs2/wbuf.c
+@@ -233,19 +233,31 @@ static int jffs2_verify_write(struct jffs2_sb_info *c, unsigned char *buf,
+ 	int ret;
+ 	size_t retlen;
+ 	char *eccstr;
++	void *verify_buf;
++
++	verify_buf = kmalloc(c->wbuf_pagesize, GFP_NOFS);
++	if (!verify_buf) {
++		pr_warn("%s(): verify buffer allocation failed, skipping verification\n",
++			__func__);
++		return 0;
++	}
++
++	ret = mtd_read(c->mtd, ofs, c->wbuf_pagesize, &retlen, verify_buf);
+ 
+-	ret = mtd_read(c->mtd, ofs, c->wbuf_pagesize, &retlen, c->wbuf_verify);
+ 	if (ret && ret != -EUCLEAN && ret != -EBADMSG) {
+ 		pr_warn("%s(): Read back of page at %08x failed: %d\n",
+ 			__func__, c->wbuf_ofs, ret);
+-		return ret;
++		goto out_free;
+ 	} else if (retlen != c->wbuf_pagesize) {
+ 		pr_warn("%s(): Read back of page at %08x gave short read: %zd not %d\n",
+ 			__func__, ofs, retlen, c->wbuf_pagesize);
+-		return -EIO;
++		ret = -EIO;
++		goto out_free;
++	}
++	if (!memcmp(buf, verify_buf, c->wbuf_pagesize)) {
++		ret = 0;
++		goto out_free;
+ 	}
+-	if (!memcmp(buf, c->wbuf_verify, c->wbuf_pagesize))
+-		return 0;
+ 
+ 	if (ret == -EUCLEAN)
+ 		eccstr = "corrected";
+@@ -261,9 +273,14 @@ static int jffs2_verify_write(struct jffs2_sb_info *c, unsigned char *buf,
+ 
+ 	pr_warn("Read back:\n");
+ 	print_hex_dump(KERN_WARNING, "", DUMP_PREFIX_OFFSET, 16, 1,
+-		       c->wbuf_verify, c->wbuf_pagesize, 0);
++		       verify_buf, c->wbuf_pagesize, 0);
+ 
++	kfree(verify_buf);
+ 	return -EIO;
++
++out_free:
++	kfree(verify_buf);
++	return ret;
+ }
+ #else
+ #define jffs2_verify_write(c,b,o) (0)
+@@ -1217,22 +1234,11 @@ int jffs2_nand_flash_setup(struct jffs2_sb_info *c)
+ 		return -ENOMEM;
+ 	}
+ 
+-#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
+-	c->wbuf_verify = kmalloc(c->wbuf_pagesize, GFP_KERNEL);
+-	if (!c->wbuf_verify) {
+-		kfree(c->oobbuf);
+-		kfree(c->wbuf);
+-		return -ENOMEM;
+-	}
+-#endif
+ 	return 0;
+ }
+ 
+ void jffs2_nand_flash_cleanup(struct jffs2_sb_info *c)
+ {
+-#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
+-	kfree(c->wbuf_verify);
+-#endif
+ 	kfree(c->wbuf);
+ 	kfree(c->oobbuf);
+ }
+@@ -1272,14 +1278,6 @@ int jffs2_dataflash_setup(struct jffs2_sb_info *c) {
+ 	if (!c->wbuf)
+ 		return -ENOMEM;
+ 
+-#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
+-	c->wbuf_verify = kmalloc(c->wbuf_pagesize, GFP_KERNEL);
+-	if (!c->wbuf_verify) {
+-		kfree(c->wbuf);
+-		return -ENOMEM;
+-	}
+-#endif
+-
+ 	pr_info("write-buffering enabled buffer (%d) erasesize (%d)\n",
+ 		c->wbuf_pagesize, c->sector_size);
+ 
+@@ -1287,9 +1285,6 @@ int jffs2_dataflash_setup(struct jffs2_sb_info *c) {
+ }
+ 
+ void jffs2_dataflash_cleanup(struct jffs2_sb_info *c) {
+-#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
+-	kfree(c->wbuf_verify);
+-#endif
+ 	kfree(c->wbuf);
+ }
+ 
+@@ -1309,20 +1304,10 @@ int jffs2_nor_wbuf_flash_setup(struct jffs2_sb_info *c) {
+ 	if (!c->wbuf)
+ 		return -ENOMEM;
+ 
+-#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
+-	c->wbuf_verify = kmalloc(c->wbuf_pagesize, GFP_KERNEL);
+-	if (!c->wbuf_verify) {
+-		kfree(c->wbuf);
+-		return -ENOMEM;
+-	}
+-#endif
+ 	return 0;
+ }
+ 
+ void jffs2_nor_wbuf_flash_cleanup(struct jffs2_sb_info *c) {
+-#ifdef CONFIG_JFFS2_FS_WBUF_VERIFY
+-	kfree(c->wbuf_verify);
+-#endif
+ 	kfree(c->wbuf);
+ }
+ 
+-- 
+2.52.0
 
->
-> This seems like a good point.. Several other APIs had this 'pass a
-> thing in' as part of their version contract too.
->
-> There is ABI incompatabilitiy here right? It would make sense to break
-> up the really different versions into different device strings if
-> possible. eg v1 and v2?
->
-
-The goal is only to check whether the firmware function is supported,
-hence the explicit check for SMCCC_RET_NOT_SUPPORTED.
-
-	arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
-	ret = res.a0;
-
-	if (ret == SMCCC_RET_NOT_SUPPORTED)
-		return false;
-
-
->
-> ...
->
->  [Severity: High]
->  Could this also execute an SMC64 call on 32-bit ARM (AArch32) systems?
->
->  The smccc_devices array unconditionally includes SMC_RSI_ABI_VERSION, which
->  is an SMC64 call. Executing an SMC64 function identifier from an AArch32
->  execution state is architecturally unpredictable and could cause a crash
->  or hang on 32-bit hardware.
->
-> No idea if sashiko is right , but it is what I was wondering about in
-> the rng patch...
->
-
-I will check whether issuing an SMC64 call on 32-bit ARM is a problem.
-
->
->> [ ... 44 lines skipped ... ]
->> +static void unregister_cca_tsm_report(void *data)
->> +{
->> +	tsm_report_unregister(&arm_cca_tsm_report_ops);
->> +}
->> +
->> +static int cca_tsm_probe(struct arm_smccc_device *sdev)
->>  {
->>  	int ret;
->>  
->> @@ -178,30 +175,33 @@ static int __init arm_cca_guest_init(void)
->>  		return -ENODEV;
->>  
->>  	ret = tsm_report_register(&arm_cca_tsm_report_ops, NULL);
->> -	if (ret < 0)
->> -		pr_err("Error %d registering with TSM\n", ret);
->> +	if (ret < 0) {
->> +		dev_err_probe(&sdev->dev, ret, "Error registering with TSM\n");
->> +		return ret;
->> +	}
->>  
->> -	return ret;
->> +	ret = devm_add_action_or_reset(&sdev->dev, unregister_cca_tsm_report,
->> +				       NULL);
->> +	if (ret < 0) {
->
-> Can just make unregister the remove function. Don't need to use devm
-> for everything.
->
-
-IIUC, you are suggesting to do the below?
-
-static void cca_tsm_remove(struct arm_smccc_device *sdev)
-{
-        tsm_report_unregister(&arm_cca_tsm_report_ops);
-}
-
-static struct arm_smccc_driver cca_tsm_driver = {
-        .driver_name = "arm_cca_tsm",
-        .probe = cca_tsm_probe,
-        .remove = cca_tsm_remove,
-        ...
-
--aneesh
 
