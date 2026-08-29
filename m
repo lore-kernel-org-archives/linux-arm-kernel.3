@@ -4,83 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC94C61DBE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 10:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17874C61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 11:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KFZ1nhGEZbR6O/VCAicWb32eNrolFHOIlFtmV4ujfk4=; b=xoeNSuwOOQ4yItKRRUvmfXPCA+
-	tRHU4fDQCZvN3JbHln/kB9MAvaH9P42s47s/h9mnC7SOAG7g2E7adzRvWrYieCOQY2l8fwOhG0eUU
-	RLtSPVmQaXUAtUXrZZ3XIbplwBEoD3wogDOq6VrfeCX5uNx3wJtOKKDKcEhHXyZb8U62lgUGbWtFX
-	7Yf279FC7++d3J8hD+lHwALjM/9bYjEkQJ8pMjEN11clIpDo+LKK6OIggED8qUFHylsystPup51Av
-	1or91XJr/ivATn+dRWLcf7iKZ6w7TjJKUJCstx4gdu2hmJiAgwyjBNX9dEfxD+gsOgVB0s+sW76Cj
-	30YjIWCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bQ+pM52Z9d9nH2LW96A3uCNySOonoA9pMirLJW0HCh4=; b=NyGadP8d5bgP9R6VkP/4m36Pv1
+	MJU1R/KpHr6Iqxhxi23UvlE9RGwJHpwa8B4d+ly3kb+YxkVhMcVhRjozJ1y+gufEQpVK6gHQmBDLN
+	QuPh59g2uricgfh/Aovii+vZ8VDxxueJuR6w7wwAGkpnLdEdhZEJxxSjLcOqndeDXaOzo2BSzP0zj
+	u5Q9U/C7SlH9Nu3RtiYJZxTy9ryssSlCtcYAbL7tjCRdekf5j5wCq4CqidNpuI5izIxcR7QCZ3VPg
+	NPJSN6k/+iCKNbpxq55pKSWGX4e+GBPzBwnYHYzsH0QENurJvYzQ1oCae+5qXbNKx3IsJp/eVDNUK
+	sFDMmodA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Gc7-00000006wGE-1Llh;
-	Sat, 29 Aug 2026 10:48:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x0H6w-00000006x6n-3FKe;
+	Sat, 29 Aug 2026 11:20:34 +0000
+Received: from m16.mail.163.com ([220.197.31.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Gc6-00000006wG5-0ekq;
-	Sat, 29 Aug 2026 10:48:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 15621437B7;
-	Sat, 29 Aug 2026 10:48:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4C6B1F000E9;
-	Sat, 29 Aug 2026 10:48:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788000520;
-	bh=KFZ1nhGEZbR6O/VCAicWb32eNrolFHOIlFtmV4ujfk4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LWRmvwZ5mPls4Z+BaiG1qXwR10+CBxW+bUOShLfZyRmLMeWBsXFZbiPwmkePznqr5
-	 RDgCI5JSJI/PnwyJzmrjiTTIt4pQEyHh4ig4dGZIGujt3YWBOXTXM28p4gyqeJwbxf
-	 WsaqKftKKe5VsQ0VW/PEX8SxuQhw1GHVsePh+UKddYUexwRXUbdmDfNrJmoD2ZI1v6
-	 YA0GuLxzRK2viPxmPZf5a9S7TnaLyvMWbeiiVwoWcOVI5CYLFrXFWBc0Jr3YfAzGPD
-	 ENSQxCrpJykei+zA/nljjaxyFx/CEE02iM1psN14xjNoYwJ+aBxdLXjvTaTWkcJoke
-	 quOJdXXFQrxWg==
-Date: Sat, 29 Aug 2026 13:48:28 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Andy Lutomirski <luto@kernel.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Len Brown <lenb@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <pjw@kernel.org>, Pavel Machek <pavel@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>,
-	Will Deacon <will@kernel.org>, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, linux-pm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	loongarch@lists.linux.dev
-Subject: Re: [PATCH v2 0/6] arch, mm/execmem: resolve confusion about
- set_direct_map_valid_noflush()
-Message-ID: <apK4_MgCtPFlDwoc@kernel.org>
-References: <20260823-execmem-set-vm-perms-v0-2-v2-0-b013a37d84b3@kernel.org>
- <20260827223947.c773e6a7324eaf3fe0d8362f@linux-foundation.org>
+	id 1x0H6t-00000006x6H-3FZ9
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 29 Aug 2026 11:20:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=bQ+pM52Z9d9nH2LW96A3uCNySOonoA9pMirLJW0HCh4=;
+	b=TEFXuUckI/Pn4sONOUGuMFyHYOcYIlgy0z27KZpCM2Ve2zmXJg9iDAC2kRZp3H
+	bVj6KoMT4CjdTbjdjwJ8WurtpGFp/mcMOH7K255Sk37+2XeVxoj/m9dBuOK3Aqy1
+	DCuVteMRkPW1cFHHn/OcyYJ7ZlKaRSExyTc6aQOIkdlC8=
+Received: from [IPV6:2409:8a62:3e6:7890:62cd:186:f39c:9f61] (unknown [])
+	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wDn3+tiwJJqGlPIEA--.37249S2;
+	Sat, 29 Aug 2026 19:20:03 +0800 (CST)
+Message-ID: <e1f544bb-a338-4360-8158-a373881a9121@163.com>
+Date: Sat, 29 Aug 2026 19:20:02 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260827223947.c773e6a7324eaf3fe0d8362f@linux-foundation.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] pinctrl: stm32: fix the unit of the hwspinlock timeout
+To: antonio.borneo@foss.st.com
+Cc: alexandre.torgue@foss.st.com, linusw@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ mcoquelin.stm32@gmail.com
+References: <9b0f76a08a7c1dbaec4684b4bc013263e0149a4b.camel@foss.st.com>
+ <20260827141127.25789-2-junan76@163.com>
+Content-Language: en-US
+From: Ju Nan <junan76@163.com>
+In-Reply-To: <20260827141127.25789-2-junan76@163.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: _____wDn3+tiwJJqGlPIEA--.37249S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWrtr47Zr4DZFW3Cr13Ar48Crg_yoWDXFg_ua
+	1rJ3srCa4qkFyF9w1DCrn3Za4F9anrXw409rs0gF13Cr9Fvw4jkrZ5uF93C3Z3ua13ta4D
+	AF95Xr1Sy3y7CjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUjasj5UUUUU==
+X-Originating-IP: [2409:8a62:3e6:7890:62cd:186:f39c:9f61]
+X-CM-SenderInfo: pmxqt0ixw6il2tof0z/xtbC1AaIOmqSwGZYRwAA3h
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260829_042032_270723_0A608019 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,64 +77,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 27, 2026 at 10:39:47PM -0700, Andrew Morton wrote:
-> On Sun, 23 Aug 2026 14:46:11 +0300 "Mike Rapoport (Microsoft)" <rppt@kernel.org> wrote:
-> 
-> > Recent discussion about implementation of execmem's ROX caches on arm64
-> 
-> I'm assuming a "[1]" reference was intended here.
 
-Yes :)
- 
-> > revealed a confusion about how set_direct_map_valid_noflush()
-> > implemented on different architectures.
-> > 
-> > On arm64 it sets or clears the PTE_VALID bit marking a PTE as present or
-> > not present.
-> > 
-> > On other architectures it's a range version of
-> > set_direct_map_invalid_noflush() and set_direct_map_default_noflush()
-> > 
-> > Unlike arm64::set_direct_map_valid_noflush(),
-> > set_direct_map_default_noflush() not only marks PTE as present, but also
-> > sets its default protection mode.
-> > 
-> > Other than that, initial design of execmem ROX caches didn't rely on
-> > restoration of large mappings that's now available on x86, but
-> > completely removed the memory allocated for the ROX cache from the
-> > direct map to ensure that large mappings are not split. This precluded
-> > usage of VM_FLUSH_RESET_PERMS for the ROX cache allocations and required
-> > execmem to implement manipulation of the direct map alias.
-> > 
-> > Current implementation of ROX caches does not remove the direct map
-> > alias but simply calls set_memory_rox() that updates the permissions in
-> > both vmalloc address space and the direct map and relies on
-> > collapse_large_pages() in x86 CPA to keep large mappings.
-> > 
-> > This allow using VM_FLUSH_RESET_PERMS for execmem ROX cache allocations
-> > with small adjustments to set_direct_map APIs and vmalloc::reset_perms()
-> > behaviour: adding number of pages parameter to set_direct_map APIs and
-> > making resetting of the direct map permissions in vmalloc VMAP_HUGE
-> > friendly.
-> > 
-> > Implement these adjustments, make execmem always use
-> > VM_FLUSH_RESET_PERMS and revert set_direct_map_valid_noflush() changes.
-> > 
-> > [1] https://lore.kernel.org/all/20260611130144.1385343-4-abarnas@google.com
-> 
-> The patchset is perhaps a little green but I tossed it in there, thanks.
-> 
-> I hit a few rejects in arch/x86/mm/pat/set_memory.c, but minor stuff.
-> 
-> I trust you've seen Sashiko's incidental oh-btw comments.
-> 
-> 	https://sashiko.dev/#/patchset/20260823-execmem-set-vm-perms-v0-2-v2-0-b013a37d84b3@kernel.org
+> diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
+> index d97057ec2..0d888d30f 100644
+> --- a/drivers/pinctrl/stm32/pinctrl-stm32.c
+> +++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+> @@ -87,7 +87,7 @@
+>  #define gpio_range_to_bank(chip) \
+>  		container_of(chip, struct stm32_gpio_bank, range)
+>  
+> -#define HWSPNLCK_TIMEOUT	1000 /* usec */
+> +#define HWSPNLCK_TIMEOUT_MS	1
+>  
+>  static const char * const stm32_gpio_functions[] = {
+>  	"gpio", "af0", "af1",
+> @@ -633,7 +633,7 @@ static int stm32_gpio_domain_alloc(struct irq_domain *d,
+>  
+>  	if (pctl->hwlock) {
+>  		ret = hwspin_lock_timeout_in_atomic(pctl->hwlock,
+> -						    HWSPNLCK_TIMEOUT);
+> +						    HWSPNLCK_TIMEOUT_MS);
 
-Yeah, it did discover something fishy with the fallbacks handling.
-I'm looking into it.
- 
+Please ignore this patch for now, since it has a dependency issue with this one:
+https://lore.kernel.org/lkml/4dcb0fb67e12ec6e6aa812e6e93b435704c6105b.camel@foss.st.com/
 
--- 
-Sincerely yours,
-Mike.
+Thanks Antonio, I will think more about what you said.
+
+Regards,
+Ju Nan
+
 
