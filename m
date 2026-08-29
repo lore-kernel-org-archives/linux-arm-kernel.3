@@ -4,73 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3714C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 12:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8804BC61DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 14:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TRRAn3ayWpp6KkR8fe/DKlKoibDKlKjshRYEpoSI6+M=; b=vNqKpFoDRG1Njj7+k8gS7xMJBG
-	pX1g1qng+h/k6+bY3iZtTno/LuPUsVgaJiR2Swj6APFKjcpbiwZ1+Jtj2taX73Y6P6VNjDcLU2CrR
-	nonAROyEnSGAALm3X/S79Ya1XHPhCr92qnx1f7+BjnhU3h709QcHc/bV/dpadwPBbTDeA/e1Hp86M
-	ZscUQ+MGegcWpSFMqagTTE+oRLYttKPZibeWKV/MABiode8IRxLI0UpvGaIi/gDQJxIN2iTz8rqYx
-	QYH2x8Z7STjSdcsEILxFCpxZl5gQbBCA+Mcb0uBIkbE8neUIQoYeNuSWQk6tbQ8zoXjlAgMoF2u1M
-	woM21dBg==;
+	bh=ELtl4sHgY9Ch4KYBqdzaGVJ+wwPAgLu5Sies0dF8+Lg=; b=HNtSnXxsGYt4H9nBrUKwQ7Ipk7
+	MmiCfI6aSP6+l30TJ+xtxDKXRIGmu6qq2fS2j7cQSmf6rQp6vS1MgTPVLVpFde1C111JDI2/OGvHn
+	TWV7Xa877WV9cZEXRCBHd5CUdxB5TMC05KPDf19EcEs1jmB6i7DE/+u9/czaddxiZHB09Oy2bWj8H
+	oIS5rqslIFVCsM4QRyfnHqArAx8hcrexZRu0DS/H7+h+87u4303qbQi0GqKH8s6SQs3Fc7qaReacp
+	7Hc5BrekiZ07pDpdpi5LjY9xuPH0poHV1Ym56r87fdLnuF4ycaCl0ctBHIePCjRzl/rzYm+LAIHN6
+	oLKY1BaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Iem-00000006zPG-1Esq;
-	Sat, 29 Aug 2026 12:59:36 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1x0Jxe-000000070yX-0B54;
+	Sat, 29 Aug 2026 14:23:10 +0000
+Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Iei-00000006zOs-3aKY
+	id 1x0Jxb-000000070xQ-0ryF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 12:59:35 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id C724D1A181F;
-	Sat, 29 Aug 2026 12:59:24 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 854186053C;
-	Sat, 29 Aug 2026 12:59:24 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0101111C781D9;
-	Sat, 29 Aug 2026 14:59:12 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788008359; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=TRRAn3ayWpp6KkR8fe/DKlKoibDKlKjshRYEpoSI6+M=;
-	b=0iX0ox62T/oe9zqr19dwg/emDTB+bsDyVxp2Nu7bNqkJ0jtJ+FQoZOTWs+62bF19ePknGU
-	IKDVZ8CJGKTqR4QyX2D6EAGuOWWCXkztd4L4NMjTb8Pzks7dm5KeZc3D1Lpa8bg8T2Rmr7
-	j/6RZhTjaKcwyjNvXUS3uxaMrpg5ggYPuhm0UCyjwvmohpKYr3CNfeVw+zpRhtrair5MXK
-	UN2jlm/pDLM9amrVqWk2KzNDCic2wVWSVUhzz5BFTQHiKWSiwfGAltl6vrEQGRVYAYUajY
-	n++s3B5cD+wuAzUytmOmJCYURANix8Lkadp58qi3upHrU6pkUUz3Of3u86oNTg==
-Message-ID: <4d333480-758e-4061-9c8a-39959bd6a8f9@bootlin.com>
-Date: Sat, 29 Aug 2026 14:59:11 +0200
+	Sat, 29 Aug 2026 14:23:08 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id BBC37240027
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 16:22:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
+	s=1984.8680eb; t=1788013377;
+	bh=ELtl4sHgY9Ch4KYBqdzaGVJ+wwPAgLu5Sies0dF8+Lg=;
+	h=From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
+	b=N/XKxvDFrn7svP+/Wa7WvghhqVn647PL1mZHue9FNZ7Q2h3hpYFGhlS6RqMAqSF0R
+	 AsMbgVOUyTbD8ZPn3J0HrwWOrVcLULQ9u436T3RgLDWNpriGG5FstKKPI5a1mN3vCA
+	 9O01TCgtV5YmhkfJ8eWS9PmmJH3qYRNT+fbefNL0paBFtKJFFtBHUCwBEjI2Ty8/tl
+	 /xWqafocdSTMQNROlv4CVG7QRMvrUjYbZePUwcqaOxnz/2fXxf/NXgBR/YnQItXSih
+	 G6vUGaR4s4fqvuPPTdLpMlXcJgRsTcBBWV6OSQvt7QWywar0oNdJTlPpJYQGvbYD/B
+	 5pLlfz58FRf9w==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4hXHXc01Xsz6twP;
+	Sat, 29 Aug 2026 16:22:55 +0200 (CEST)
+From: Markus Probst <markus.probst@posteo.de>
+Date: Sat, 29 Aug 2026 14:22:56 +0000
+Subject: [PATCH v7 1/6] dt-bindings: rtc: Add pinctrl for S35390A
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2] net: stmmac: re-apply taprio offload in
- __stmmac_open()
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Jose Abreu <Jose.Abreu@synopsys.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,
- Rayagond Kokatanur <rayagond@vayavyalabs.com>
-References: <20260829-stmmac-est-reapply-after-open-v2-1-5e5ccb185e92@oss.qualcomm.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260829-stmmac-est-reapply-after-open-v2-1-5e5ccb185e92@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Message-Id: <20260829-rtc_s35390a_int1-v7-1-debcd31143ae@posteo.de>
+References: <20260829-rtc_s35390a_int1-v7-0-debcd31143ae@posteo.de>
+In-Reply-To: <20260829-rtc_s35390a_int1-v7-0-debcd31143ae@posteo.de>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>, 
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Michael Langer <michael.brainbug.langer@googlemail.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Markus Probst <markus.probst@posteo.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4267;
+ i=markus.probst@posteo.de; h=from:subject:message-id;
+ bh=/RN4bcc6JZOueMRQ2yaP4BUuLLpjTzlr7/VSEGCklNo=;
+ b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqkus9bFHovYHAvRJxUO5QGxGw0CAGgblrM1B2E
+ CrwHG4Jm+mJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCapLrPRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9KfFxAAjsdnTSagvASzLO1BSMWUo8xoyZTqzDw
+ Nt+2mXyozaGMe5LKZ69Gl+MUN5hFVD+cnKFfsiXeT2NA/4TnbgP0u0YQeBEQl95JZExiSbvJ6Ci
+ 3t3bijhkYCqQXItNkdUFiG8xZI8yHRC7l2Y8vQPl5TPvtDslkgwl+rXa+Tu/fy61abnTBbNdIlg
+ bzerjXWQ5kdk5BAa8hOTrmBKZiUTdcOYCnZw+Fgm6qRwpJfUeL/n0FvRRXXWNddpvmQCf7VoYLz
+ hzOPbuzoLAXa9h7h6f43GMHTQH3TP9sfi4syrNj8lV683npNccWn9ioGzzUHIkBOrUuYH+T1XgP
+ 3TNWTtzC7YGd6qGYOWr07wt75Mh694m1D2pF0JBrW5kfMBZHtz8/sMY4GV4LoDS/Snhht68Teg7
+ smGoygUAwF5uiemici7qVxAYm1btgASXb6yBC6jcOHdoMJA4JE9K9nq1oJSvBs6+WvXSQg5f33R
+ GtXYYxZAK+PnBbSogpwZ0j/KbfEhCbZ0nRZkVvfdhoKbkHws21X1xC6O1fqwtxK9pClsIeaqgJk
+ lmNl9dQGXP/OUKQYT+pAcPvgDgFnODC4d8Jq9AYCD9G7XLrdcylXq8oe2NJ3Lpj5OeZgcQ9ctKQ
+ V8Wu9uemPTPiH2v7mSOE+S2hOmbUpq0Wz6JBIUB9wLeYYYkd4DmA=
+X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
+ fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+  keydata=xsFNBGiDvXgBEADAXUceKafpl46S35UmDh2wRvvx+UfZbcTjeQOlSwKP7YVJ4JOZrVs93qReNLkO
+  WguIqPBxR9blQ4nyYrqSCV+MMw/3ifyXIm6Pw2YRUDg+WTEOjTixRCoWDgUj1nOsvJ9tVAm76Ww+
+  /pAnepVRafMID0rqEfD9oGv1YrfpeFJhyE2zUw3SyyNLIKWD6QeLRhKQRbSnsXhGLFBXCqt9k5JA
+  RhgQof9zvztcCVlT5KVvuyfC4H+HzeGmu9201BVyihJwKdcKPq+n/aY5FUVxNTgtI9f8wIbmfAja
+  oT1pjXSp+dszakA98fhONM98pOq723o/1ZGMZukyXFfsDGtA3BB79HoopHKujLGWAGskzClwTjRQ
+  xBqxh/U/lL1pc+0xPWikTNCmtziCOvv0KA0arDOMQlyFvImzX6oGVgE4ksKQYbMZ3Ikw6L1Rv1J+
+  FvN0aNwOKgL2ztBRYscUGcQvA0Zo1fGCAn/BLEJvQYShWKeKqjyncVGoXFsz2AcuFKe1pwETSsN6
+  OZncjy32e4ktgs07cWBfx0v62b8md36jau+B6RVnnodaA8++oXl3FRwiEW8XfXWIjy4umIv93tb8
+  8ekYsfOfWkTSewZYXGoqe4RtK80ulMHb/dh2FZQIFyRdN4HOmB4FYO5sEYFr9YjHLmDkrUgNodJC
+  XCeMe4BO4iaxUQARAQABzRdtYXJrdXMucHJvYnN0QHBvc3Rlby5kZcLBkQQTAQgAOxYhBIJ0GMT0
+  rFjncjDEczR2H/jnrUPSBQJog714AhsDBQsJCAcCAiICBhUKCQgLAgQWAgMBAh4HAheAAAoJEDR2
+  H/jnrUPSgdkQAISaTk2D345ehXEkn5z2yUEjaVjHIE7ziqRaOgn/QanCgeTUinIv6L6QXUFvvIfH
+  1OLPwQ1hfvEg9NnNLyFezWSy6jvoVBTIPqicD/r3FkithnQ1IDkdSjrarPMxJkvuh3l7XZHo49GV
+  HQ8i5zh5w4YISrcEtE99lJisvni2Jqx7we5tey9voQFDyM8jxlSWv3pmoUTCtBkX/eKHJXosgsuS
+  B4TGDCVPOjla/emI5c9MhMG7O4WEEmoSdPbmraPw66YZD6uLyhV4DPHbiDWRzXWnClHSyjB9rky9
+  lausFxogvu4l9H+KDsXIadNDWdLdu1/enS/wDd9zh5S78rY2jeXaG4mnf4seEKamZ7KQ6FIHrcyP
+  ezdDzssPQcTQcGRMQzCn6wP3tlGk7rsfmyHMlFqdRoNNv+ZER/OkmZFPW655zRfbMi0vtrqK2Awm
+  9ggobb1oktfd9PPNXMUY+DNVlgR2G7jLnenSoQausLUm0pHoNE8TWFv851Y6SOYnvn488sP1Tki5
+  F3rKwclawQFHUXTCQw+QSh9ay8xgnNZfH+u9NY7w3gPoeKBOAFcBc2BtzcgekeWS8qgEmm2/oNFV
+  G0ivPQbRx8FjRKbuF7g3YhgNZZ0ac8FneuUtJ2PkSIFTZhaAiC0utvxk0ndmWFiW4acEkMZGrLaM
+  L2zWNjrqwsD2zsFNBGiDvXgBEADCXQy1n7wjRxG12DOVADawjghKcG+5LtEf31WftHKLFbp/HArj
+  BhkT6mj+CCI1ClqY+FYU5CK/s0ScMfLxRGLZ0Ktzawb78vOgBVFT3yB1yWBTewsAXdqNqRooaUNo
+  8cG/NNJLjhccH/7PO/FWX5qftOVUJ/AIsAhKQJ18Tc8Ik73v427EDxuKb9mTAnYQFA3Ev3hAiVbO
+  6Rv39amVOfJ8sqwiSUGidj2Fctg2aB5JbeMln0KCUbTD1LhEFepeKypfofAXQbGwaCjAhmkWy/q3
+  IT1mUrPxOngbxdRoOx1tGUC0HCMUW1sFaJgQPMmDcR0JGPOpgsKnitsSnN7ShcCr1buel7vLnUMD
+  +TAZ5opdoF6HjAvAnBQaijtK6minkrM0seNXnCg0KkV8xhMNa6zCs1rq4GgjNLJue2EmuyHooHA4
+  7JMoLVHcxVeuNTp6K2+XRx0Pk4e2Lj8IVy9yEYyrywEOC5XRW37KJjsiOAsumi1rkvM7QREWgUDe
+  Xs0+RpxI3QrrANh71fLMRo7LKRF3Gvw13NVCCC9ea20P4PwhgWKStkwO2NO+YJsAoS1QycMi/vKu
+  0EHhknYXamaSV50oZzHKmX56vEeJHTcngrM8R1SwJCYopCx9gkz90bTVYlitJa5hloWTYeMD7FNj
+  Y6jfVSzgM/K4gMgUNDW/PPGeMwARAQABwsF2BBgBCAAgFiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IF
+  AmiDvXgCGwwACgkQNHYf+OetQ9LHDBAAhk+ab8+WrbS/b1/gYW3q1KDiXU719nCtfkUVXKidW5Ec
+  Idlr5HGt8ilLoxSWT2Zi368iHCXS0WenGgPwlv8ifvB7TOZiiTDZROZkXjEBmU4nYjJ7GymawpWv
+  oQwjMsPuq6ysbzWtOZ7eILx7cI0FjQeJ/Q2baRJub0uAZNwBOxCkAS6lpk5Fntd2u8CWmDQo4SYp
+  xeuQ+pwkp0yEP30RhN2BO2DXiBEGSZSYh+ioGbCHQPIV3iVj0h6lcCPOqopZqyeCfigeacBI0nvN
+  jHWz/spzF3+4OS+3RJvoHtAQmProxyGib8iVsTxgZO3UUi4TSODeEt0i0kHSPY4sCciOyXfAyYoD
+  DFqhRjOEwBBxhr+scU4C1T2AflozvDwq3VSONjrKJUkhd8+WsdXxMdPFgBQuiKKwUy11mz6KQfcR
+  wmDehF3UaUoxa+YIhWPbKmycxuX/D8SvnqavzAeAL1OcRbEI/HsoroVlEFbBRNBZLJUlnTPs8ZcU
+  4+8rq5YX1GUrJL3jf6SAfSgO7UdkEET3PdcKFYtS+ruV1Cp5V0q4kCfI5jk25iiz8grM2wOzVSsc
+  l1mEkhiEPH87HP0whhb544iioSnumd3HJKL7dzhRegsMizatupp8D65A2JziW0WKopa1iw9fti3A
+  aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260829_055933_090222_7773B9FB 
-X-CRM114-Status: GOOD (  26.55  )
+X-CRM114-CacheID: sfid-20260829_072307_548138_E6B8DD41 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,264 +141,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
+Synology NAS devices use the output pin for interrupt signal 1 to wake up
+the system.
 
-On 8/29/26 11:56, Lorenzo Bianconi wrote:
-> The core soft reset issued in stmmac_init_dma_engine() clears the
-> MTL_EST registers, but nothing re-applies the taprio offload after it:
-> priv->est->enable stays true while the hardware EST block is left
-> disabled. The TX/XDP paths then keep dropping frames larger than
-> priv->est->max_sdu[] and taprio is reported as offloaded, although the
-> EST block is not programmed.
-> 
-> Re-apply the taprio offload in __stmmac_open() after PTP is up. The
-> base time is recomputed from the reserved base time and the current PTP
-> time, since the timestamp counter has been re-initialized and the
-> previously programmed base time is stale.
-> Introduce the stmmac_setup_est utility routine.
-> 
-> Fixes: b60189e0392f ("net: stmmac: Integrate EST with TAPRIO scheduler API")
-> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Move devicetree bindings for sii,s35390a into its own file.
+Add necessary properties to configure the individual pins via pinctrl,
+which allows the interrupt signal 1 to be used for wakeup alarm.
 
-Sorry I realise I didn't reply to your V1 question :( What you did is
-what I meant, so it's all good :)
+Signed-off-by: Markus Probst <markus.probst@posteo.de>
+---
+ .../devicetree/bindings/rtc/sii,s35390a.yaml       | 111 +++++++++++++++++++++
+ .../devicetree/bindings/rtc/trivial-rtc.yaml       |   3 -
+ 2 files changed, 111 insertions(+), 3 deletions(-)
 
-This looks fine to me, thanks !
+diff --git a/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
+new file mode 100644
+index 000000000000..d9da3abbbd51
+--- /dev/null
++++ b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
+@@ -0,0 +1,111 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/rtc/sii,s35390a.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: S-35390A 2-WIRE REAL-TIME CLOCK
++
++maintainers:
++  - Alexandre Belloni <alexandre.belloni@bootlin.com>
++
++description:
++  The S-35390A is a CMOS 2-wire real-time clock IC which operates with the
++  very low current consumption in the wide range of operation voltage.
++
++allOf:
++  - $ref: rtc.yaml#
++
++properties:
++  compatible:
++    const: sii,s35390a
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    minItems: 1
++    maxItems: 2
++    description: Supports up to 2 interrupt lines via the INT1 and INT2 pins.
++
++  wakeup-parent: true
++
++  wakeup-source: true
++
++  "#clock-cells":
++    const: 1
++
++patternProperties:
++  "^pins":
++    type: object
++    patternProperties:
++      "-pins$":
++        type: object
++        properties:
++          pins:
++            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pins
++            minItems: 1
++            items:
++              enum:
++                - int1
++                - int2
++
++          function:
++            $ref: /schemas/types.yaml#/definitions/string
++            description: |
++              Pin function:
++              - ignore:  Preserve the previous state.
++              - disable: Disable pin output.
++              - wakeup:  Output wakes up the system.
++              - clock:   Output clock pulse.
++              - pmin1:   Minute periodical output with 50% duty.
++              - pmin2:   Minute periodical output L for 7.81 ms.
++                         Can only be used with pin int1.
++            enum:
++              - ignore
++              - disable
++              - wakeup
++              - clock
++              - pmin1
++              - pmin2
++
++        required:
++          - pins
++          - function
++
++        additionalProperties: false
++
++    additionalProperties: false
++
++required:
++  - compatible
++  - reg
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        rtc@30 {
++            compatible = "sii,s35390a";
++            reg = <0x30>;
++            pinctrl-0 = <&rtc_pins_default>;
++            pinctrl-names = "default";
++
++            wakeup-parent = <&int>;
++
++            rtc_pins_default: pins {
++              int1-pins {
++                pins = "int1";
++                function = "wakeup";
++              };
++              int2-pins {
++                pins = "int2";
++                function = "disable";
++              };
++            };
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+index f4d0eed98a08..7b3f682ef4d5 100644
+--- a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
++++ b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+@@ -81,8 +81,6 @@ properties:
+       - ricoh,rv5c386
+       # I2C bus SERIAL INTERFACE REAL-TIME CLOCK IC
+       - ricoh,rv5c387a
+-      # 2-wire CMOS real-time clock
+-      - sii,s35390a
+       # ST SPEAr Real-time Clock
+       - st,spear600-rtc
+       # VIA/Wondermedia VT8500 Real-time Clock
+@@ -105,5 +103,4 @@ required:
+   - reg
+ 
+ additionalProperties: false
+-
+ ...
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-> ---
-> Changes in v2:
-> - Rename stmmac_est_reconfigure() in stmmac_setup_est().
-> - Rely on stmmac_setup_est() in tc_taprio_configure().
-> - Link to v1: https://lore.kernel.org/r/20260825-stmmac-est-reapply-after-open-v1-1-dfa80735e0a1@oss.qualcomm.com
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_est.c  | 33 +++++++++++++++++++++++
->  drivers/net/ethernet/stmicro/stmmac/stmmac_est.h  |  2 ++
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 16 +++++++++--
->  drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c  | 26 ++----------------
->  drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 27 ++++++-------------
->  5 files changed, 59 insertions(+), 45 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-> index afc516059b89..bbebd33c8a88 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
-> @@ -80,6 +80,39 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
->  	return 0;
->  }
->  
-> +int stmmac_setup_est(struct stmmac_priv *priv)
-> +{
-> +	struct timespec64 current_time, time;
-> +	ktime_t current_time_ns, basetime;
-> +	u64 cycle_time;
-> +	int err;
-> +
-> +	mutex_lock(&priv->est_lock);
-> +
-> +	priv->ptp_clock_ops.gettime64(&priv->ptp_clock_ops, &current_time);
-> +	current_time_ns = timespec64_to_ktime(current_time);
-> +
-> +	time.tv_nsec = priv->est->btr_reserve[0];
-> +	time.tv_sec = priv->est->btr_reserve[1];
-> +	basetime = timespec64_to_ktime(time);
-> +
-> +	cycle_time = (u64)priv->est->ctr[1] * NSEC_PER_SEC + priv->est->ctr[0];
-> +
-> +	time = stmmac_calc_tas_basetime(basetime, current_time_ns, cycle_time);
-> +	priv->est->btr[0] = (u32)time.tv_nsec;
-> +	priv->est->btr[1] = (u32)time.tv_sec;
-> +
-> +	err = stmmac_est_configure(priv, priv, priv->est,
-> +				   priv->plat->clk_ptp_rate);
-> +
-> +	mutex_unlock(&priv->est_lock);
-> +
-> +	if (err)
-> +		netdev_err(priv->dev, "failed to re-configure EST\n");
-> +
-> +	return err;
-> +}
-> +
->  static void est_irq_status(struct stmmac_priv *priv, struct net_device *dev,
->  			   struct stmmac_extra_stats *x, u32 txqcnt)
->  {
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-> index f70221c9c84a..f620d3331c2c 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.h
-> @@ -65,3 +65,5 @@
->  #define EST_GCL_DATA			0x00000034
->  
->  extern const struct stmmac_est_ops dwmac510_est_ops;
-> +
-> +int stmmac_setup_est(struct stmmac_priv *priv);
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index d576059c04df..b30036428188 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -48,6 +48,7 @@
->  #include "stmmac_ptp.h"
->  #include "stmmac_fpe.h"
->  #include "stmmac.h"
-> +#include "stmmac_est.h"
->  #include "stmmac_pcs.h"
->  #include "stmmac_xdp.h"
->  #include <linux/reset.h>
-> @@ -4153,11 +4154,22 @@ static int __stmmac_open(struct net_device *dev,
->  	ret = stmmac_hw_setup(dev);
->  	if (ret < 0) {
->  		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
-> -		goto init_error;
-> +		return ret;
->  	}
->  
->  	stmmac_setup_ptp(priv);
->  
-> +	/* The core soft reset in stmmac_hw_setup() clears the MTL_EST
-> +	 * registers, so re-apply the taprio offload after PTP is up.
-> +	 */
-> +	if (priv->est && priv->est->enable) {
-> +		ret = stmmac_setup_est(priv);
-> +		if (ret < 0) {
-> +			priv->est->enable = false;
-> +			return ret;
-> +		}
-> +	}
-> +
->  	stmmac_init_coalesce(priv);
->  
->  	phylink_start(priv->phylink);
-> @@ -4181,7 +4193,7 @@ static int __stmmac_open(struct net_device *dev,
->  		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
->  
->  	stmmac_release_ptp(priv);
-> -init_error:
-> +
->  	return ret;
->  }
->  
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-> index 960249960004..917ef7ddcae6 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-> @@ -8,6 +8,7 @@
->    Author: Rayagond Kokatanur <rayagond@vayavyalabs.com>
->  *******************************************************************************/
->  #include "stmmac.h"
-> +#include "stmmac_est.h"
->  #include "stmmac_ptp.h"
->  
->  #define PTP_SAFE_TIME_OFFSET_NS	500000
-> @@ -55,7 +56,6 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
->  	u32 quotient, reminder;
->  	int neg_adj = 0;
->  	bool xmac, est_rst = false;
-> -	int ret;
->  
->  	xmac = dwmac_is_xmac(priv->plat->core_type);
->  
-> @@ -84,30 +84,8 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
->  
->  	/* Calculate new basetime and re-configured EST after PTP time adjust. */
->  	if (est_rst) {
-> -		struct timespec64 current_time, time;
-> -		ktime_t current_time_ns, basetime;
-> -		u64 cycle_time;
-> -
-> -		mutex_lock(&priv->est_lock);
-> -		priv->ptp_clock_ops.gettime64(&priv->ptp_clock_ops, &current_time);
-> -		current_time_ns = timespec64_to_ktime(current_time);
-> -		time.tv_nsec = priv->est->btr_reserve[0];
-> -		time.tv_sec = priv->est->btr_reserve[1];
-> -		basetime = timespec64_to_ktime(time);
-> -		cycle_time = (u64)priv->est->ctr[1] * NSEC_PER_SEC +
-> -			     priv->est->ctr[0];
-> -		time = stmmac_calc_tas_basetime(basetime,
-> -						current_time_ns,
-> -						cycle_time);
-> -
-> -		priv->est->btr[0] = (u32)time.tv_nsec;
-> -		priv->est->btr[1] = (u32)time.tv_sec;
->  		priv->est->enable = true;
-> -		ret = stmmac_est_configure(priv, priv, priv->est,
-> -					   priv->plat->clk_ptp_rate);
-> -		mutex_unlock(&priv->est_lock);
-> -		if (ret)
-> -			netdev_err(priv->dev, "failed to configure EST\n");
-> +		stmmac_setup_est(priv);
->  	}
->  
->  	return 0;
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> index 14cabe76e53e..b41df317d73c 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> @@ -10,6 +10,7 @@
->  #include "dwmac4.h"
->  #include "dwmac5.h"
->  #include "stmmac.h"
-> +#include "stmmac_est.h"
->  
->  static void tc_fill_all_pass_entry(struct stmmac_tc_entry *entry)
->  {
-> @@ -968,8 +969,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
->  {
->  	u32 size, wid = priv->dma_cap.estwid, dep = priv->dma_cap.estdep;
->  	struct netlink_ext_ack *extack = qopt->mqprio.extack;
-> -	struct timespec64 time, current_time, qopt_time;
-> -	ktime_t current_time_ns;
-> +	struct timespec64 time;
->  	int i, ret = 0;
->  	u64 ctr;
->  
-> @@ -1069,34 +1069,23 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
->  	}
->  
->  	mutex_lock(&priv->est_lock);
-> -	/* Adjust for real system time */
-> -	priv->ptp_clock_ops.gettime64(&priv->ptp_clock_ops, &current_time);
-> -	current_time_ns = timespec64_to_ktime(current_time);
-> -	time = stmmac_calc_tas_basetime(qopt->base_time, current_time_ns,
-> -					qopt->cycle_time);
-> -
-> -	priv->est->btr[0] = (u32)time.tv_nsec;
-> -	priv->est->btr[1] = (u32)time.tv_sec;
->  
-> -	qopt_time = ktime_to_timespec64(qopt->base_time);
-> -	priv->est->btr_reserve[0] = (u32)qopt_time.tv_nsec;
-> -	priv->est->btr_reserve[1] = (u32)qopt_time.tv_sec;
-> +	time = ktime_to_timespec64(qopt->base_time);
-> +	priv->est->btr_reserve[0] = (u32)time.tv_nsec;
-> +	priv->est->btr_reserve[1] = (u32)time.tv_sec;
->  
->  	ctr = qopt->cycle_time;
->  	priv->est->ctr[0] = do_div(ctr, NSEC_PER_SEC);
->  	priv->est->ctr[1] = (u32)ctr;
->  
->  	priv->est->ter = qopt->cycle_time_extension;
-> -
->  	tc_taprio_map_maxsdu_txq(priv, qopt);
->  
-> -	ret = stmmac_est_configure(priv, priv, priv->est,
-> -				   priv->plat->clk_ptp_rate);
->  	mutex_unlock(&priv->est_lock);
-> -	if (ret) {
-> -		netdev_err(priv->dev, "failed to configure EST\n");
-> +
-> +	ret = stmmac_setup_est(priv);
-> +	if (ret)
->  		goto disable;
-> -	}
->  
->  	ret = stmmac_fpe_map_preemption_class(priv, priv->dev, extack,
->  					      qopt->mqprio.preemptible_tcs);
-> 
-> ---
-> base-commit: 2188569e7e1b0bc3f3b557dc97ab7a02befc11c8
-> change-id: 20260824-stmmac-est-reapply-after-open-181d70a15eb6
-> 
-> Best regards,
+-- 
+2.54.0
 
 
