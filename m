@@ -4,74 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 478B9C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 01:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E72C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 02:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CsaYto4rPR7UqOZMM0da/LeaRPrrU6t3n0uk+Upn+ho=; b=OfoKyO/7VBudB5G8SUc5EXyh1z
-	3PXQHNigUVCloC++lG4SWH5dmEIyExKF2FTpZe2uHpHslqajVV1XOFCf/XONRNfNBqi2NEKs0+/Dm
-	Okj5nLEvFqcFWDzYNPGFU7+JwadBEJi1FWR95XLrAEs7Vv88fNmS0bqSanlaErewP4u9T9efNl0Nb
-	uRz0MNty3iCVVcpkj9fTB6hd7Sz8albOezWbiVBubxjUCxaJFbKxijg+gB2iKvekDwVEwp88ttqNO
-	l+28Mse0Mr6BltAgmAWLpioJTDyttVTtRx5YCdxE1Oeiuzy9XMmruNh4Ifuw7aZLsXYkjjm5wwBHv
-	Oy4WLfOw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4MPYBklt/xZLRwo665EAmIcEZjt6kKUUFD1xrGZB/rQ=; b=XhhS+s0O7Sb1IDGGXBGBtD237b
+	m4qKWXKGci+Y3oaLHH0k2gLRHd9psVELPGXNXD0sBs/Nlcf7ruy4f9hNLd5/TzkCavWdfu+aRIcuL
+	zCL9lMhgQus4/miJQlc7RPusPpX+AzoUd1lCw1w1ZZkqJOrUXr1N6Ae3PxJAkNUog7yFADbmw2Cpc
+	0IbO0R9tgH/+SroBA4ohwB8XS5gT24nf3mbmfYrNinHXPVHlFsZVgO45nG2pAgwjzJ5Q04hCKED49
+	3u/gMZu1W+gkRwJ3JquIsPgbOVcpvZ/spvv7c757sxeasH4kqiKYBTOUBC/NnCmfPrHzkaeAy5MvH
+	mFx+0dLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x08Fx-00000006ao9-3KTz;
-	Sat, 29 Aug 2026 01:53:17 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1x08XH-00000006bDW-0Y4s;
+	Sat, 29 Aug 2026 02:11:11 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x08Fu-00000006amo-2eZy
+	id 1x08XD-00000006bDB-2BBq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 01:53:17 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=CsaYto4rPR7UqOZMM0da/LeaRPrrU6t3n0uk+Upn+ho=;
-	b=s+PUbgdxxXolcc2aVbuBVJjADpE6a0Ln876RKEK/HJo5OIutduI+M9FkdSeX91rQNs1dc1EwA
-	ANo1gBSfcEDy/7loEEWo0j7bP8UdKuLIaZeAO4kYYyKbj/DF63nPyeMefVrwyF4Bgn/D3qKAnqY
-	fGZf38TiCtyaJ7mcQ47JqFU=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hWyg42WR9zcbMk;
-	Sat, 29 Aug 2026 09:42:24 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1F09B40537;
-	Sat, 29 Aug 2026 09:53:02 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 29 Aug 2026 09:53:01 +0800
-Message-ID: <2fb1d9ec-4817-49de-a515-39cf4e4a007e@huawei.com>
-Date: Sat, 29 Aug 2026 09:53:00 +0800
+	Sat, 29 Aug 2026 02:11:08 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-381b831d535so2869169a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 19:11:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787969466; x=1788574266; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4MPYBklt/xZLRwo665EAmIcEZjt6kKUUFD1xrGZB/rQ=;
+        b=fvizNpfDbS6yzaSugN2HKONApNWBEbkLIpgF5j5XPB3VEHWUoGC4qpqe3AV6cCV0AF
+         EYvLHgLLVQN52ArcUrw/4WhDF/Zb080QFAj212s03hpdxcoLgKC9VfWQhjUFR5KEbGuC
+         rKZS1Uu/M5uMRlk3kHUVRzaVta4ONsWFKMg/Amieir5cW/J/ct+wiFWEYrwvqNVa+2lF
+         a4vGk7LsViIAxqjV4rG1cW6xuS0ybf1fQh2+pKIFs0jrE/SUjTYSHGRyuie1y3GtbIBi
+         dHyGoC9aZNGPg3ZF0/P6Mbot6hV1/Q2jKShG4eBs2ztdG9UUxcL4hZ2BSV2ZeUL6nW9Z
+         k6bw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787969466; x=1788574266;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4MPYBklt/xZLRwo665EAmIcEZjt6kKUUFD1xrGZB/rQ=;
+        b=T0TVeI7iZ4w0jUHZY3Nem45szqaY2rO5K6aW7p0PQv59ddsDyZD19w0H5ZNraWbskQ
+         D3QZROhxVuAgXcStufsP8KHLo7FqUDV98bWUEsxRrNQRoM5HgVERpbErDdVd6p/BJmQ0
+         sUXE3HMD1sZGlbYRFI9digsdKl8E717i2eUGZqvC9NEPvVj1KDj5WhWZtXKlIircdGv6
+         HZcon9bFVH/yei1IHIC2sMvKzY5BjUHl1MSOQbxtg+aKnNoekHfCPuYVbRCtpcClrNMN
+         +xnvFDhMpyzmufu2E2CpJB21EK1BDZEvwfcck/bIymQcdv+ekhaZDCIfWRFgfpveDSTV
+         RE3w==
+X-Forwarded-Encrypted: i=1; AKwUvBzu20hdseMVBjjHDMNeKli9A6cvS6/Diwwefk3TibnK91TzUGNXNTG73AVAsWOOncb6DKoxx8ZhgFgkrqPbICRd@lists.infradead.org
+X-Gm-Message-State: AFuF++l2hbGqEQmamjOPLUI37SV3lqDtOQZVCXZA2BJcCyXL0nP1euK7
+	Gp9pXA3/pJbN7514nT/vGfNJd+GU5/zgozUhNfnHt6i4UGWjKah+chL2
+X-Gm-Gg: AYBFou2i4dJA9sKB8CkrOsczwEX0/DaBFfLSEJCrll6sxmPHeqB6jC0J3A9hJgRPwIW
+	FJFiZz4AIrBaw6sdtxk+QZ0M+dSDMuH4EOpE0/ul/xd9FEx5vKyemofFB1J9dGmpgqLU2kcEwUF
+	6IWlCwveSCACa4tnD6Rwqqf6e1QMu6TmLhoBmvgTRBHYv9Y6cIvqmHhwkw1BjZFH6JjmFhq61kd
+	xmd1d7FAIQzW5fmNAxF9siD1XuYMvHGoPLsSp8AKaPk1y/JVJfJK9ThZwJ7yvUESCRv5UTeOKDz
+	8k3VyY7sPBS9RYX9B/QuQd2lcpy3MRF0h7FHWXybBrOoGpq/gijeUMOnZ2upSG8nFchWGqfVOdK
+	ADMdtcliJ4CPUnuqtsZtyopTTGYn5idWSgjRYAPum9KFv3cbUERGTiFoDMhyCASfyO3RUkHNZC5
+	hZt9yTeTxEub3RD0KX8XcChk9sm3eLnS0O2xcmejU0Z22gOZeuf+NB0opL1W6AUhHw5p+NDNVyL
+	fV8i49ZXeoiYgV8riIOoJEno4k2nN4yvm8RnzQcx1Idmq39HOnVj2RcAYDQQI576AiB/HbLwiCt
+	BeSq2NE+MlRxu913/c3E1DTxFfGOC19VvBKppAKA8i8f7k2M8Q==
+X-Received: by 2002:a17:90b:384d:b0:38e:bbf1:de34 with SMTP id 98e67ed59e1d1-396d0ec6bc1mr15703233a91.7.1787969466062;
+        Fri, 28 Aug 2026 19:11:06 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e35])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-396dda7aaaasm4848984a91.6.2026.08.28.19.11.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Aug 2026 19:11:05 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: devicetree@vger.kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dennis Gilmore <dennis@ausil.us>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,...),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] ARM: dts: helios4: fix vbus-supply for USB2 PHY
+Date: Fri, 28 Aug 2026 19:11:03 -0700
+Message-ID: <20260829021103.332384-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 14/45] arm64: entry: Introduce entry specific
- exception masking helpers
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-15-vladimir.murzin@arm.com>
- <349f178a-9eba-4353-96ab-91fd50ce87da@huawei.com>
- <6b0a4c25-6e5a-4ff9-b87a-1d12636df08c@arm.com>
- <e228c980-9e08-46be-9760-1586c3f3fa9e@huawei.com>
- <174d12f9-2404-4c21-951f-0666adaa3f4a@arm.com>
- <fea87282-737c-47d3-a40f-e71c7b3228e0@huawei.com>
- <a94c8d26-9f54-4df4-98bc-8e7272102a87@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <a94c8d26-9f54-4df4-98bc-8e7272102a87@arm.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_185315_338701_E5FEF92F 
-X-CRM114-Status: GOOD (  28.24  )
+X-CRM114-CacheID: sfid-20260828_191107_563193_7864E91F 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,193 +104,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The usb-nop-xceiv binding and driver use "vbus-supply"; the driver
+acquires the VBUS regulator via devm_regulator_get_exclusive("vbus")
+(phy-generic.c). The stale "vbus-regulator" name is never read by
+the driver and dtbs_check rejects it as an unknown property. Rename
+the property so reg_5p0v_usb is honored.
 
+Fixes: ced8025b569e ("ARM: dts: armada388-helios4")
+Assisted-by: opencode:big-pickle
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ arch/arm/boot/dts/marvell/armada-388-helios4.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-在 2026/8/21 18:50, Vladimir Murzin 写道:
-> On 8/11/26 09:46, Jinjie Ruan wrote:
->>
->> 在 2026/8/11 16:37, Vladimir Murzin 写道:
->>> On 8/11/26 09:13, Jinjie Ruan wrote:
->>>> 在 2026/8/3 20:21, Vladimir Murzin 写道:
->>>>> On 7/28/26 10:18, Jinjie Ruan wrote:
->>>>>> 在 2026/7/28 0:34, Vladimir Murzin 写道:
->>>>>>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>>>>>>
->>>>>>> The entry code handles interrupt masking differently from the rest of
->>>>>>> the kernel. Exception handlers enter and exit with all exceptions
->>>>>>> masked, but they must temporarily unmask the appropriate set of
->>>>>>> exceptions so that the rest of the handler executes with the expected
->>>>>>> exception state.
->>>>>>>
->>>>>>> For EL0 handlers, this means dropping to masking context appropriate
->>>>>>> for the work to be performed. For EL1 handlers, this means restoring
->>>>>>> the masking context of the interrupted task. In both cases, all
->>>>>>> exceptions must be masked again before returning from the exception
->>>>>>> handler.
->>>>>>>
->>>>>>> The rest of the kernel typically follows the opposite pattern: it
->>>>>>> raises the masking context to protect a critical section and later
->>>>>>> restores the previous context.
->>>>>>>
->>>>>>> Given these different usage patterns, introduce a dedicated set of
->>>>>>> exception masking helpers for the entry code. Keeping these helpers
->>>>>>> separate from the generic interrupt masking APIs makes the intended
->>>>>>> usage explicit and helps avoid mixing the two masking models.
->>>>>>>
->>>>>>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>>>>>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->>>>>>> ---
->>>>>>>  arch/arm64/include/asm/interrupts/entry.h | 113 ++++++++++++++++++++++
->>>>>>>  1 file changed, 113 insertions(+)
->>>>>>>  create mode 100644 arch/arm64/include/asm/interrupts/entry.h
->>>>>>>
->>>>>>> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
->>>>>>> new file mode 100644
->>>>>>> index 000000000000..d66eb5d633f0
->>>>>>> --- /dev/null
->>>>>>> +++ b/arch/arm64/include/asm/interrupts/entry.h
->>>>>>> @@ -0,0 +1,113 @@
->>>>>>> +/* SPDX-License-Identifier: GPL-2.0-only */
->>>>>>> +/*
->>>>>>> + * Copyright (C) 2025 Arm Ltd.
->>>>>>> + */
->>>>>>> +#ifndef __ASM_INTERRUPTS_ENTRY_H
->>>>>>> +#define __ASM_INTERRUPTS_ENTRY_H
->>>>>>> +
->>>>>>> +#include <asm/arch_gicv3.h>
->>>>>>> +#include <asm/bug.h>
->>>>>>> +#include <asm/cpufeature.h>
->>>>>>> +#include <asm/interrupts/common_flags.h>
->>>>>>> +
->>>>>>> +
->>>>>>> +static __always_inline
->>>>>>> +arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
->>>>>>> +						  arm64_exc_hwstate_t next)
->>>>>>> +{
->>>>>>> +	bool irqs_disabled = arch_irqs_disabled_flags(next.flags);
->>>>>>> +	bool force;
->>>>>>> +
->>>>>>> +	arm64_debug_exc_hwstate(prev);
->>>>>>> +
->>>>>>> +	if (prev.flags == next.flags)
->>>>>>> +		return next;
->>>>>>> +
->>>>>>> +	if (!irqs_disabled)
->>>>>>> +		trace_hardirqs_on();
->>>>>>> +
->>>>>>> +	force = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
->>>>>>> +
->>>>>>> +	__arm64_update_exc_hwstate(next, force);
->>>>>>> +
->>>>>>> +	if (irqs_disabled)
->>>>>>> +		trace_hardirqs_off();
->>>>>>> +
->>>>>>> +	return next;
->>>>>>> +}
->>>>>>> +
->>>>>>> +static __always_inline
->>>>>>> +arm64_exc_hwstate_t arm64_inherit_exc_context(struct pt_regs *regs)
->>>>>>> +{
->>>>>>> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
->>>>>>> +	arm64_exc_hwstate_t next = arm64_inherit_exc_hwstate(regs);
->>>>>>> +
->>>>>>> +	return __arm64_switch_exc_hwstate_to(prev, next);
->>>>>>> +}
->>>>>>> +
->>>>>>> +static __always_inline
->>>>>>> +arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
->>>>>>> +{
->>>>>>> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
->>>>>>> +
->>>>>>> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
->>>>>>> +		bool pnmi = system_uses_irq_prio_masking();
->>>>>>> +
->>>>>>> +		WARN_ON_ONCE(context > ERROR_CONTEXT &&
->>>>>>> +			     prev.daif == DAIF_ERRCTX);
->>>>>>> +
->>>>>>> +		WARN_ON_ONCE(context > NONMI_CONTEXT &&
->>>>>>> +			     prev.daif == DAIF_PROCCTX_NOIRQ);
->>>>>> For daif, we can directly compare next and prev because, as the context
->>>>>> drops, the value of daif decreases.
->>>>>>
->>>>>> This is also the opposite of the meanings of "drop" and "lift" in the
->>>>>> function names, which is easy to understand.
->>>>>>
->>>>>> WARN_ON_ONCE(prev.daif < next.daif);
->>>>> That's a very good point! I was too focused on checking the hardware
->>>>> state against the logical exception context, so I missed that we could
->>>>> perform the checks using the hardware state alone.
->>>>>
->>>>> What do you think about:
->>>>>
->>>>>         if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
->>>>>                 WARN_ON_ONCE(prev.daif < next.daif);
->>>>>
->>>>>                 if (prev.daif == next.daif) {
->>>>>                         /*
->>>>>                          * GIC_PRIO_IRQON is larger that GIC_PRIO_IRQOFF so larger PMR value is weaker
->>>>>                          */
->>>>>                         WARN_ON_ONCE(system_uses_irq_prio_masking() && prev.pmr > next.pmr);
->>>>>                         WARN_ON_ONCE(system_uses_nmi() && prev.allint < next.allint);
->>> Hi Jinjie,
->>>
->>>> Hi Vladimir,
->>>>
->>>> I have come up with what I think is a more comprehensible debugging method.
->>>>
->>>> Could we define a function that is the reverse of
->>>> arm64_exc_hwstate_of_context(), such that we can derive the previous
->>>> context from the previous hardware state? That would allow us to
->>>> directly compare below enum types, making the logic significantly easier
->>>> to follow. Any thoughts?
->>>>
->>> I used to have such reverse mapping in my internal version and feedback I
->>> got off-list is to avoid that at all cost. Since I needed it only for debug
->>> I open-coded checks in relevant functions (and that the reason I was focused
->>> on logical exception context rather than using hardware state alone).
->> I believe it would be cleaner to define and use this only when
->> CONFIG_DEBUG_IRQFLAGS is enabled; this would not introduce any overhead
->> in production kernels, correct?
->>
-> 
-> It is not about overhead - there is no use of such helpers
-> outside of debug code anyway. Reverse mapping, in general,
-> comes with a few complications:
-> 
-> - For DAIF-only, NMI and IRQ contexts are represented by the same
->   hardware state, so special handling would be required. Using
-
-Yes, in the case where only DAIF is present, the hwstate of NONMI and
-NOIRQ is the same (DAIF.IF is set), and reverse mapping cannot
-distinguish between these two scenarios when looking for the context.
-
->   hardware state for the DAIF-only case and logical context for
->   NMI cases would be unlikely to be acceptable, since it would
->   not be uniform.
-
-Perhaps that's the case
-
-> 
-> - We might encounter cases where the hardware state temporarily
->   cannot be directly mapped to a logical context. I do not know
-
-In this case, the hwstate may be invalid.
-
->   if we have such cases right now, but that would need to be
->   somehow handled by helpers performing reverse mapping.
-> 
-> - Lastly, such a facility has already been deemed undesirable
->   once, so I would rather not reintroduce it.
-> 
-> IMO, performing checks using the hardware state alone is a good
-> compromise between clarity and functionality.
-
-I see.
-
-> 
-> Thanks
-> Vladimir
-> 
-> 
+diff --git a/arch/arm/boot/dts/marvell/armada-388-helios4.dts b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+index b8576ca0de1c..9de9a8a4267c 100644
+--- a/arch/arm/boot/dts/marvell/armada-388-helios4.dts
++++ b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
+@@ -140,7 +140,7 @@ fan2: j17-pwm {
+ 
+ 	usb2_phy: usb2-phy {
+ 		compatible = "usb-nop-xceiv";
+-		vbus-regulator = <&reg_5p0v_usb>;
++		vbus-supply = <&reg_5p0v_usb>;
+ 	};
+ 
+ 	usb3_phy: usb3-phy {
+-- 
+2.55.0
 
 
