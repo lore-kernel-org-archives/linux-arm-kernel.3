@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ECB8C61DBE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 06:02:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53ECC61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 06:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gmo29pYEms2+Q4Cr8/V2qBTEL01TPuCLhDnBuX4g4LY=; b=up6rQLwNlMB4ihvAJGWIxqjOWS
-	Xi/5sQtix298RG+9qNyY99DLH3Ew1B1pkAwzClaWU0quIw7L/+1b9saIuHuhjN/G0NiFQn8/ALvhu
-	dsDtQLX9etDq5A+eX65n1BtSilowPg4fOCY/KuB24LoWcf9KevZBuFzu9D2gR6qxUjk4L+ydjKVGq
-	9j14alkUxpWWEnTclzPuWJCXbOMF6wQyKQmoqGGHUKjJEZNr0eT8hZG89o4LVGgeAsxFbX1CBpaMu
-	4rY3WZ2RMhXW/HrWepeu57xvWqIi+MBfwIpS7EBm/5p00yMXOOxma0SxNG29GqnV05ybRaZd+7Ov6
-	VVA+KUzw==;
+	bh=TRZw1V1vB378QeSlvx5BVidjqGhxuO+qRstnpjHPWb8=; b=y7pEMs37sQhGSo4VstIVRK9NNX
+	LbKD637k7OuCqviYa0ofobQfnA1haOtnp8tqic8ZkrgHovOpKTsW6zf12/XnBwagUEeUeEGZhqh21
+	+OotTbF+u673GwxNhYmNeNW0vsNxw/04lMteWTq+cSESluP3qZtOyJI2n1MDn2JXEevzXP910LKnH
+	wwpzfMMeUUSlt2PSZLcRVtUEuR/pl3qkoiKIhHbqlDUw/j2isKyb/N7eJda5rVxJFlPjuerKSLCVs
+	+6JmBx4PvQVq+GB5lye73wsKBRHHO9wDw4eK1WrZyYzLkKcELYcjKpG2v1K8w+JMr2lkCg1oPA3Dt
+	8HMzGaAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0C9D-00000006lZ6-3oHZ;
-	Sat, 29 Aug 2026 06:02:35 +0000
+	id 1x0CIq-00000006lqh-3Fcb;
+	Sat, 29 Aug 2026 06:12:32 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0C9C-00000006lYo-20RK
+	id 1x0CIo-00000006lpx-47Qd
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 06:02:34 +0000
+	Sat, 29 Aug 2026 06:12:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DECA342D87;
-	Sat, 29 Aug 2026 06:02:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F2871F000E9;
-	Sat, 29 Aug 2026 06:02:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 71E4B435B5;
+	Sat, 29 Aug 2026 06:12:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1701A1F000E9;
+	Sat, 29 Aug 2026 06:12:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787983353;
-	bh=Gmo29pYEms2+Q4Cr8/V2qBTEL01TPuCLhDnBuX4g4LY=;
+	s=k20260515; t=1787983950;
+	bh=TRZw1V1vB378QeSlvx5BVidjqGhxuO+qRstnpjHPWb8=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=IOq8adNUVKyS9MvFAKnNOl5jXgUJq+rvuPyYjO+aYorZpj3EN4Vw9mQDoN5dJR6+d
-	 i4Xu5zDr/rJVcPD71YaZxI0DnQ+jCNa0fhBHTSlpdWBZmaFhxjWhbHrB8pPfiKltqP
-	 W8IQ46DKkSKT9EDTwUK1dF2nPf+BHR0JYKzWnP5YuERGDe0Sn0kCBLupOQKP5H0Qqc
-	 w8bxHP8hLouUV2LYxk5LZuAlBL6y9W04nltSwEM8KSxSmwZTnV7odvqfvIhVGSgWA2
-	 yEWLz/gN6Gx100DqgoSAJV1WqxWl/Us3Y6JZcUuPP0tAQIjnfEKLPjbM3I7frZBY7g
-	 rUw9Bz1HwsU8w==
+	b=L7m7g7Ps2C498I4YlV7/C6DjkiyJ6vKG70Snu3K+r9J9UaUIbMjW1gV4QlFQh536/
+	 jSpCSm/Qt2WZ7gRJFGJTw1dAf0EC3itaGrMZvE79e9OxcdHvfTi9pORbP74TT0ztwE
+	 oHZFrpLtxWSWg2hBsGhnBMd8yVdcYS8fah5iOjplxgWvMqjiuI+XKsmDySwfT1cOCG
+	 s0LzhW6Px8IrQroI1TiwDC+N75K1wi+KYe554VP+n0gwZWXWqr0c6m8xuY7Ij5f9O7
+	 dJAh7PwqyAav04unbNz3h1+NHKHPuNjwHd2j59jK1UWyKH/MZdRYyZyZGLNGDWyXh4
+	 sqXuw4fuPdYWQ==
 X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
 From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
 To: Jason Gunthorpe <jgg@nvidia.com>
@@ -58,14 +58,14 @@ Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Steven Price <steven.price@arm.com>,
 	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v9 5/7] virt: coco: arm-cca-guest: Rename TSM report
- source file
-In-Reply-To: <178794567779.4159892.13554089762527571548.b4-review@b4>
+Subject: Re: [PATCH v9 6/7] firmware: smccc: arm-cca-guest: Bind the TSM
+ provider to an SMCCC device
+In-Reply-To: <178794567780.4159892.17969556982711821646.b4-review@b4>
 References: <20260805063255.1638614-1-aneesh.kumar@kernel.org>
- <20260805063255.1638614-6-aneesh.kumar@kernel.org>
- <178794567779.4159892.13554089762527571548.b4-review@b4>
-Date: Sat, 29 Aug 2026 11:32:23 +0530
-Message-ID: <yq5ao6eltqfk.fsf@kernel.org>
+ <20260805063255.1638614-7-aneesh.kumar@kernel.org>
+ <178794567780.4159892.17969556982711821646.b4-review@b4>
+Date: Sat, 29 Aug 2026 11:42:20 +0530
+Message-ID: <yq5ald9ptpyz.fsf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,33 +84,112 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Jason Gunthorpe <jgg@nvidia.com> writes:
 
->> The Arm CCA guest driver currently only implements TSM report support, but
->> follow-up changes will add more TSM-related functionality to the same
->> module.
->> 
->> Rename arm-cca-guest.c to arm-cca.c and build it as an object of the
->> arm-cca-guest module. This leaves room for the module to grow additional
->> source files.
+>> [ ... 43 lines skipped ... ]
+>> @@ -94,6 +95,12 @@ static const struct smccc_device_info smccc_devices[] __initconst = {
+>>  		.requires_smc   = false,
+>>  		.device_name    = "arm-smccc-trng",
+>>  	},
+>> +
+>> +	{
+>> +		.func_id        = SMC_RSI_ABI_VERSION,
+>  [Severity: High]
+>  Does this new entry cause uninitialized registers to be passed to the
+>  firmware?
 >
-> That's pretty confusing, the module is called arm-cc-guest.ko but it
-> has host items too?
+>  Looking at smccc_probe_smccc_device():
 >
-> I would have more expected the module to be named arm-cca and this
-> file to be guest and a future file to be host or something like that?
+>  	arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
 >
-> It is annoying to change module names but we do it, and I think it
-> should be no problem in this case since there are no users..
->
-> But maybe this patch should be in another series..
+>  The invocation only passes the func_id, leaving r1 uninitialized. Since the
+>  SMC_RSI_ABI_VERSION ABI requires r1 to hold the requested version parameter,
+>  does this leak uninitialized kernel register state to the firmware and pass
+>  a garbage ABI version?
 >
 
-We have two modules, arm-cca-guest.ko and arm-cca-host.ko, located in
-their respective directories:
+Yes. This even can result in error return from firmware like
 
-drivers/virt/coco/arm-cca-guest/
-drivers/virt/coco/arm-cca-host/
+[   rmm ] SMC_RMI_VERSION                   6 > RMI_RMI_ERROR_INPUT
 
-They also have separate Kconfig symbols, ARM_CCA_GUEST and ARM_CCA_HOST.
+
+>
+> This seems like a good point.. Several other APIs had this 'pass a
+> thing in' as part of their version contract too.
+>
+> There is ABI incompatabilitiy here right? It would make sense to break
+> up the really different versions into different device strings if
+> possible. eg v1 and v2?
+>
+
+The goal is only to check whether the firmware function is supported,
+hence the explicit check for SMCCC_RET_NOT_SUPPORTED.
+
+	arm_smccc_1_1_invoke(smccc_dev->func_id, &res);
+	ret = res.a0;
+
+	if (ret == SMCCC_RET_NOT_SUPPORTED)
+		return false;
+
+
+>
+> ...
+>
+>  [Severity: High]
+>  Could this also execute an SMC64 call on 32-bit ARM (AArch32) systems?
+>
+>  The smccc_devices array unconditionally includes SMC_RSI_ABI_VERSION, which
+>  is an SMC64 call. Executing an SMC64 function identifier from an AArch32
+>  execution state is architecturally unpredictable and could cause a crash
+>  or hang on 32-bit hardware.
+>
+> No idea if sashiko is right , but it is what I was wondering about in
+> the rng patch...
+>
+
+I will check whether issuing an SMC64 call on 32-bit ARM is a problem.
+
+>
+>> [ ... 44 lines skipped ... ]
+>> +static void unregister_cca_tsm_report(void *data)
+>> +{
+>> +	tsm_report_unregister(&arm_cca_tsm_report_ops);
+>> +}
+>> +
+>> +static int cca_tsm_probe(struct arm_smccc_device *sdev)
+>>  {
+>>  	int ret;
+>>  
+>> @@ -178,30 +175,33 @@ static int __init arm_cca_guest_init(void)
+>>  		return -ENODEV;
+>>  
+>>  	ret = tsm_report_register(&arm_cca_tsm_report_ops, NULL);
+>> -	if (ret < 0)
+>> -		pr_err("Error %d registering with TSM\n", ret);
+>> +	if (ret < 0) {
+>> +		dev_err_probe(&sdev->dev, ret, "Error registering with TSM\n");
+>> +		return ret;
+>> +	}
+>>  
+>> -	return ret;
+>> +	ret = devm_add_action_or_reset(&sdev->dev, unregister_cca_tsm_report,
+>> +				       NULL);
+>> +	if (ret < 0) {
+>
+> Can just make unregister the remove function. Don't need to use devm
+> for everything.
+>
+
+IIUC, you are suggesting to do the below?
+
+static void cca_tsm_remove(struct arm_smccc_device *sdev)
+{
+        tsm_report_unregister(&arm_cca_tsm_report_ops);
+}
+
+static struct arm_smccc_driver cca_tsm_driver = {
+        .driver_name = "arm_cca_tsm",
+        .probe = cca_tsm_probe,
+        .remove = cca_tsm_remove,
+        ...
 
 -aneesh
 
