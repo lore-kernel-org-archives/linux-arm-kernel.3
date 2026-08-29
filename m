@@ -4,102 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74CD6C61DCB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AB32C61DBE
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 08:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BdfDsmhndmGDUsGcNyFXNm18FkaVS/nttiWoZOC0wt8=; b=G77z48PfW6nIlD
-	iXnVE8fUNdovuwPa1V/RkyJnKfOh8Yscp8lWC8+KHQCFiL+R7BIDJ0Ext8tvxG8u+IPYveUJPwFw+
-	bjMnqDaMKQgkE1VOk5lA6iw5O0akUr22s87jhqAGJV2yodNxBZ6LhXV2XMjXelujSs6MEXzZIQhPG
-	LBuM51R18q2pxEu+HE55jClBstn88UIk/PAagiGsPzrE9ISfCtfqp3cl3g3NEIy/XCGPbZQOngdlA
-	viRu7TN2dz6ZC4J+u2XDK7ygt6uOSCJKFEw/c3WhmWxWEDk7dhLfK68yq+Ns258n7EYcLeKnqriup
-	IhyCEiG1nSp3dHVaKn9w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eleVcLontkK7Ez1NeoJaXJcOarHQZdCSrncowtlaLBI=; b=Q0nHj7gfLPpEvwOZfSByyMXDSV
+	fe28Rzez3CvtK9cFRr1qIRbpxojOOmd433PP1pdJS/uHuOSc9fGLm+FMOI6utCvm87p0j1+L2NrQB
+	D2JccZJhWanQdRO9YKO3X4Gvtlhu2ovhO/8cbxW/gpQ5N2rNnFmfGUzA7M8TuEDmAdMt2C/b8uhYK
+	M/tiEDxwKgBHXPIwwFZ8ay/8O4ZWMTCQJmPCyss8BAcTmlEkPBoqFKP/j5Jwr1PTSRD6qo3iEb98Z
+	PAVeZgFc/FlMW58cJ5ANlMTT0lACDrBFuWE7uLWxglwJ8wLxXB/RfRG41zxHyt9uYUlsalq/57fMe
+	SsaH9a3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0ERV-00000006rKo-1QvH;
-	Sat, 29 Aug 2026 08:29:37 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1x0ERM-00000006rI9-0CgM;
+	Sat, 29 Aug 2026 08:29:28 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0ERJ-00000006rH6-0Gz2
+	id 1x0ERJ-00000006rH7-02ce
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 08:29:27 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67T802aw1353069
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 08:29:21 GMT
+	Sat, 29 Aug 2026 08:29:26 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67T808qa165109
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 08:29:23 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=BdfDsmhndmGDUsGcNyFXNm
-	18FkaVS/nttiWoZOC0wt8=; b=l6B/P2VVuKZDlj4RHslFK4PzRy7HiznGq7me+/
-	nZB3HLGWacUCWlRiNq3p+xrosx7O0h1y140hSbwngEP8TM/n/bm5Qb0FBaTqCZGY
-	9aaQGjqL+7DTvEr5Dcg4C4fOWLrypDZjXXRr6r8fk2DMXt0DULwjyBl+FAn9fsdV
-	2hz1YmoAaMrTCy0PrHk/dszj3h2N6aMZNdKf/cD00cRooJRc7R9QTdFKf6HmbdaM
-	nhWzWJzD/EMcNuVj0HnOt3wBGEIT0vPXQWHekzPkX0A2ocOU/eVu+HvDiyD6uh3M
-	pdC82Z1uHqtnYZCUYA8YymnT9cDDG6uIPeF9YHFT975e0E0A==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gbqhw8h2e-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	eleVcLontkK7Ez1NeoJaXJcOarHQZdCSrncowtlaLBI=; b=Bn6nQx7epfxonEsd
+	qX+Vtjefa+TFtcp0Xnqd3ABAq5OLDJuBUHVF0M4FZts2QKkeeM7d7mq4ffY4sw8m
+	SiGlLQEAEj8smwGatVoq+4/l/r06mAlffmL9KJebv+FlwsZVVt4lbouJ93//1wzH
+	8mYHz2n4yq2MO5iveXz7hZkDHrTDVi2xYw6aiiKK0IYec2QdIut340Fo4x0fAfnp
+	eL7XDzpYSDIiYo8dhZ42tZVXL8sXaxGAdtoSqspmj6xrd2pdqMw+MGw92QnON+Jj
+	kxAgJCtBummrnPK5lFfJ04fQ0Y9+Mk+MQv/uT/SBL466YLltqR3KZsDKv3dYvsS3
+	O4ZegQ==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gbrkgrd3a-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 08:29:21 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-90e7db8d191so3734006d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 01:29:21 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 08:29:23 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-52faa0dd18bso48351611cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 01:29:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1787992160; x=1788596960; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=BdfDsmhndmGDUsGcNyFXNm18FkaVS/nttiWoZOC0wt8=;
-        b=jPDBRLFVr6IWIeR8jf+nyGQ9xSYSE3pJJXOxsLxm8TSNfXBuxlwP7yxWoMmHC2Uh87
-         FKoOJfcUjiaC2RShnPHQ6NJ/+3LQw82VJ6CtkqbvQIrL47x30MD8I9pPSM/bWaTIjyJO
-         cJSxz1H/PhxZx6Z9Cej+VUOZ025VU9BTYl4LYU2JmNwTYD5+Mh7SVIRqbij7paVGRIjZ
-         O1ZEAmcK0mdNt2jb9HW9fmp6lyJl2iYhZ3wO0s45/3Fm+iNmBZPEAfLT87P40ial5Mio
-         x1pU2YaZZ9yGGjE9mns+ZLJYHaIEm49mj7S9N4nn2KEhfM1JcaoNcWPE067gIXGIjIjV
-         haHg==
+        d=oss.qualcomm.com; s=google; t=1787992162; x=1788596962; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eleVcLontkK7Ez1NeoJaXJcOarHQZdCSrncowtlaLBI=;
+        b=Y0orAAnV9mK11oY36bv5O62X+hsghr1egqytG5LR81OzA7dqjXYukTbjbJ59Qf9EVI
+         HksF+aQVwqJ3iWSaxxjOrNi3KEY9V6n6ayxoiUFsYv/QinHrutaU/TOHjXsD1n9LJnbk
+         YPjj+DNV/AA9Ngq7BH3MR0cNkleZGDWRnHdd16s/hJ0p81ExdD9mlVk3Cfn+Mv3U1wXM
+         ulsMWAjDwnWWv3EZeAHcYIUiDB602O+SFmLu0tGFZFep9gXpEIJf4D6OOjmjZnbRD72B
+         Fjl0NItzy5I48yZmLcvi6B8VMdIqBTF5P+8Nuqqi9UG4JoYoahEjhXlFql84EhL5q1aT
+         PG3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787992160; x=1788596960;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=BdfDsmhndmGDUsGcNyFXNm18FkaVS/nttiWoZOC0wt8=;
-        b=GxhITBMYXWIMsC0HwyLLMI8xcl1nYAsOjVpCkba3BCS1WFL7Mg3561K1j2ipjvKo+O
-         0WZz5P91or3t/1ZHmzRWZXa01l8oAcpcA2OMpGf6rUy7QWkhVVAKZ6EGVlFGBF0LngGm
-         3UfQkBaf3XaIyAVh19bS/IWybotbXwUpyezHW1eWhSD4jjYoTEqjaucpIx+rwXItSEqY
-         f554n97tFZdiknNiT1spARAFz4aIpH6fMTar1u0u27VhtuEZWTA4BT0Wb4nL7At7RKyG
-         MQe0B2KEsj+qEt3mp9Fad2cj4AfjpX6PXVuYcz9Ys9i9D8MBxoDP35SxhbWTdMZ+BJrz
-         98tg==
-X-Forwarded-Encrypted: i=1; AHgh+RrV/2ZjdjDsuqmz1yED8lnIybQk6rRzHSOD74325d25Hj15mqe6M7+bgYti8huTinxv0ECzHQJBedPWEZO2ME0G@lists.infradead.org
-X-Gm-Message-State: AFuF++ldAh+nUmAubMAhb5tbuym5KOkPXt1i177TXnZBjy57c5KvUJP8
-	sFrozrz2AHvRv7BeJRn/EUZOQj44ij/ea48okBwfqK2Xw2KSyaCe61qQqwixoYvcS11mjkX1Utc
-	Ueu62kj6dtADDvx00Jwxdakv0oDraq8AKVsULNAR+yw7mo9hhj3ioTK0TSrdTSknL+nCe1xSBB8
-	n/jw==
-X-Gm-Gg: AR+sD11bwNUKDXQqNgWo30KsNPHcoHIGlx7/KA83uzXX2K1TOF53wQU8bH1nhDlbaJs
-	wDWIoiUqxygT+80YadyVI2tkbeuFPOwpjWoMK//2EC/JrMcrcHswUb2nhB1DfBBHmsFKtrGF63y
-	oKWg0H7s+ayD1W2sMk8XNanqxe8iYQ9efjzRgLTiNT7BfQEYDqAJ2uIyG8Yr2rGXS+hELEkRyIk
-	+/jfpPb6Bf0KXsmhViYQrKOIN6F2Ei9jPmMAqV0msPsh7g8QXfwPMFwIdRJnxcYZpjDLc9Fi9N5
-	eK+6HWSn6v7jy8zZfEpP7B0OUjKAIk6w7xAShZnpQ2Dey4e9mMCRl98HUZ/UxxNbaXD6nUUmmhG
-	9XhZFA3oQtop6zQ==
-X-Received: by 2002:a05:622a:1308:b0:52d:844c:b0c2 with SMTP id d75a77b69052e-52fb9429883mr141020411cf.12.1787992160571;
-        Sat, 29 Aug 2026 01:29:20 -0700 (PDT)
-X-Received: by 2002:a05:622a:1308:b0:52d:844c:b0c2 with SMTP id d75a77b69052e-52fb9429883mr141020171cf.12.1787992160140;
-        Sat, 29 Aug 2026 01:29:20 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1787992162; x=1788596962;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=eleVcLontkK7Ez1NeoJaXJcOarHQZdCSrncowtlaLBI=;
+        b=KtX//ocLBIlx5vee7jelxPbMPQhGbWnBCz/yg0Ss8fXFdtBoUXTcdQqbb68lSzB57Z
+         q8pcM2mMDan0vncJSd/dt9c6N2G3CAMTYiwRdnRa73Od27H9xefn/JokMa5yUj7rosT+
+         CTQr5ltmEYricz9jpypJtpZ5LuKveB/HMTABgB66kceGDGIeVp/7/632vBoOh0kAubsB
+         R01D4He+OTAigLD73uiMw0m6Q6y3qxlmLrN54DX9XilVWrQbDwKpwwpGezJj68yTYcHc
+         s1KOc0dCJomMLvVXRkEKVvRpmhget2mFHcDMPu2g4uKjAYcgKN19oa7PujMsG88w7jMz
+         WCoQ==
+X-Forwarded-Encrypted: i=1; AHgh+RohjkaYRTqkeeYeTANvc29xDj00v+ArbI4zowqSMNBxUi8JG5Uh6tg7xFVnNo4gWfZJBMyFNnbqL4hrHsYCmvkp@lists.infradead.org
+X-Gm-Message-State: AFuF++l0m+oSSKEZFzKOAf/7w0NhbVE2ZfQHNno/z9Kg5y5C++5ZBynt
+	1HQezPuq0wJX0rcx7I5QdbzTpFO/6lRV1DvH4EvbjVjMSNyol5fwLTJkg69nMD4/mhUgA+VP6Se
+	4g7PDfDPDmJVrY4oPVyC/uNDCN1CWLdif+v8n0RvP7Fv0qb1JrJOrqPZKD02SDAjEjoywaXy7bo
+	0sSA==
+X-Gm-Gg: AR+sD11xiaSl4SJ6JeOGl2lvO6tLRjcV4OhmgcRCGLFKIk/AKFA2rSJILFtD4ZNikbV
+	0HpV/o63Z1XQEQUYokPpPZIB1BpqpdZsJI++wiK/dEnYYMY8tdOUF3AUmfNzOdlBCZwVEZaCaNq
+	EYHyNomfLdEK0FQlZAO/ToSQlrefpNma/ahfWokec0Uhg/zzhlOomckETvGORLkyV5fGBBA/vnA
+	7Hn315GM5vK7gyPYYwRqICbOUkMJKjjl1cLPacod7800GIv1WbVELkbJBu+sfoK3uvZTzOrXwIH
+	NFVf8CeSZEPMoCIC9YJYmrCIklN4RyWwUv/5gak0raAustMPnfw70ldoiC/quvAHAPPYjmShbeP
+	PxOX+/5RwRNrqXw==
+X-Received: by 2002:ac8:59cb:0:b0:52d:6de2:906c with SMTP id d75a77b69052e-52fb94297ccmr149837191cf.14.1787992162206;
+        Sat, 29 Aug 2026 01:29:22 -0700 (PDT)
+X-Received: by 2002:ac8:59cb:0:b0:52d:6de2:906c with SMTP id d75a77b69052e-52fb94297ccmr149836681cf.14.1787992161713;
+        Sat, 29 Aug 2026 01:29:21 -0700 (PDT)
 Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cc9497b3esm72533635e9.5.2026.08.29.01.29.18
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482fbb34ae6sm10017652f8f.37.2026.08.29.01.29.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Aug 2026 01:29:18 -0700 (PDT)
+        Sat, 29 Aug 2026 01:29:20 -0700 (PDT)
 From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Subject: [PATCH net 0/2] net: stmmac: fix qdisc configuration overwrite
- during qdisc_graft().
-Date: Sat, 29 Aug 2026 10:28:48 +0200
-Message-Id: <20260829-stmmac-fix-graft-overwrite-v1-0-a4f84c4c264e@oss.qualcomm.com>
+Date: Sat, 29 Aug 2026 10:28:49 +0200
+Subject: [PATCH net 1/2] net: stmmac: preserve real_num_tx_queues on mqprio
+ setup failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqDMBBG4avIrDsQR6jVq0gXIfm1szDKJNiCe
- HdDlx883kkZpsg0NicZDs26pYr20VD4+LSANVaTOHm6l/Scy7r6wLP+eDE/F94O2Ne0gGOHIOg
- lDq6lOtgNNfvPJ0oo9L6uG1FlpjxxAAAA
-X-Change-ID: 20260827-stmmac-fix-graft-overwrite-d3ec2e72d901
+Message-Id: <20260829-stmmac-fix-graft-overwrite-v1-1-a4f84c4c264e@oss.qualcomm.com>
+References: <20260829-stmmac-fix-graft-overwrite-v1-0-a4f84c4c264e@oss.qualcomm.com>
+In-Reply-To: <20260829-stmmac-fix-graft-overwrite-v1-0-a4f84c4c264e@oss.qualcomm.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
         Andrew Lunn <andrew+netdev@lunn.ch>,
         "David S. Miller" <davem@davemloft.net>,
@@ -112,37 +112,37 @@ Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
         linux-arm-kernel@lists.infradead.org,
         Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Proofpoint-GUID: uNhJF1-z3AUBI-gmX7fxWW0PDhln1DOw
-X-Proofpoint-ORIG-GUID: uNhJF1-z3AUBI-gmX7fxWW0PDhln1DOw
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI5MDA3MiBTYWx0ZWRfX0tFHWQ/rYFpQ
- fNwDNXnnAmD1vdPoBbZESxKtfxjww6DJ2bPOHRtcvyjS942LmDyG9L8KG8PAsL+2TdkddOYuZP1
- e9kQdWwR9lP+FIYFPc7lLscPLDankQI=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI5MDA3MiBTYWx0ZWRfXztX+bV2BPlpP
- UIMbZekYRFiW7pRQRr/DnK/4upZ5DveLcJWhlOmipyy0kXerfSgxsjengxc8y6IzIMm5W9ixBTM
- UMPxlzqNkDFMe88IawJw9qEerkyl55oxZcagAjLaXTO+oeach2/cD1zH1925erj57ohAStLqDt8
- n2amr6JTgEtj16R3Z+gEIwo+rMRsYdnan5jmPDUwxftGd+qYbtKS1lEhOMaaQ4J3dG17CeURwaO
- CrPUUPHL21aXw2TPmFOObpw8IeyuIH4OYUvGEn6wdOdrMYFJuYubX1RKDpTAebJq+V33QQThcUR
- /mQJrC9ULOApnDfBdjaFItqcwttGiKFX3GTX3qQASyvyqQhlXITOBPWzoVcF4LXfO3MhFY/nqa2
- lFgoBgq0H7hFxOQ+lAbtya3WvgNjiEZUvpp25miLU4vMJsalI9uGx4W8qHYP6s2e+c3B/VucDpw
- 6RmF+85xPHsMo+sFCNg==
-X-Authority-Analysis: v=2.4 cv=YKKvDxGx c=1 sm=1 tr=0 ts=6a929861 cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI5MDA3MiBTYWx0ZWRfXzh5svB9m3Bds
+ rksYCAJR1kimevG1gG5IiN8P1T/PpGbJnXTe/hvZ+3aqC42LsPYDvc8GheLGkkbzoVKRr7CvgIN
+ p0+2M+wivIgAkbc58emXfY7pfbLtgU9xufj2sJpvCOQIK3rsLiRC7DWq4CHfAEgjQMPMJsLcs3/
+ MnnYo7iT1gE37GHqZdHQCsmskAGDyKDRqzQCsV2Y0ABU+4RlPLF6BW/1DCXkdvL7rEO+yjmIRQq
+ 9r6xbae4lBFRdwmaGG4FE9vMEbsPW/D1MxEBj+CFykds1TULrniZ5PW1+zQrk2hc8G0bPfsNsLH
+ aCXnehWE1eCndFFBuHL2pgUVsl9sWd1k6PDeoJAJnKEu36BCR6cQSAeplJuZTUheIlGFJXR5xFC
+ 8rg+IfBwEOwOJnm402kGOSM5i1lKR/Hymk8WXDsf39DVy8n3T+NVWIMKfnYTwIfq3rgpHLFpA4q
+ lwNd99D6WHXKAscAjeA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI5MDA3MiBTYWx0ZWRfX31MwXNwu5jJI
+ 7ZANXNelKE8dey+33hzTGC7q86cGQS6VCy4yGbC989s20M3nl+SUkN9Dk+fKgLNKmyNdBu7QQeU
+ uDcINsqADcUqni0DpAqs7UbZuw6TxGI=
+X-Proofpoint-ORIG-GUID: JzZVHQe612xnOjP5XtKpnAUreBBHEGtO
+X-Authority-Analysis: v=2.4 cv=Cr6PtH4D c=1 sm=1 tr=0 ts=6a929863 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
  a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=-Jc-lYBnnr43QceUbrAA:9 a=QEXdDO2ut3YA:10
- a=iYH6xdkBrDN1Jqds4HTS:22
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=dfU3YGO4DwT6tcRypCgA:9 a=QEXdDO2ut3YA:10
+ a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-GUID: JzZVHQe612xnOjP5XtKpnAUreBBHEGtO
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-29_02,2026-08-27_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 adultscore=0 suspectscore=0 priorityscore=1501 phishscore=0
- impostorscore=0 lowpriorityscore=0 spamscore=0 clxscore=1015 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608290072
+ impostorscore=0 spamscore=0 phishscore=0 bulkscore=0 adultscore=0
+ malwarescore=0 clxscore=1015 priorityscore=1501 lowpriorityscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608290072
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260829_012925_226072_60D81B39 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260829_012925_071762_267A7183 
+X-CRM114-Status: GOOD (  22.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,21 +157,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In tc_setup_dwmac510_mqprio(), if stmmac_fpe_map_preemption_class()
+fails after the number of real TX queues has been set to
+num_tx_queues, the error path calls stmmac_reset_tc_mqprio(), which resets
+the number of real TX queues to priv->plat->tx_queues_to_use
+(the maximum the platform supports).
+This overwrites the value that was active before the mqprio offload was
+attempted, which may have been lower than the platform maximum (for
+example after a previous mqprio configuration reduced the queue count).
 
+Save ndev->real_num_tx_queues before lowering it and restore it if the
+FPE preemption-class mapping fails. Drop the use of
+stmmac_reset_tc_mqprio() from the error path: the queue count is now
+restored explicitly and the TC-to-queue mapping is restored to the
+previously saved values.
+Introduce stmmac_set_ndev_tcs utility routine.
+
+Fixes: 195e4f409a40 ("net: stmmac: support fp parameter of tc-mqprio")
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 ---
-Lorenzo Bianconi (2):
-      net: stmmac: preserve real_num_tx_queues on mqprio setup failure
-      net: stmmac: preserve FPE preemption class across qdisc replacement
+ drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c | 75 ++++++++++++++++++-------
+ 1 file changed, 55 insertions(+), 20 deletions(-)
 
- drivers/net/ethernet/stmicro/stmmac/stmmac.h    |  7 ++
- drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c | 97 +++++++++++++++++++------
- 2 files changed, 80 insertions(+), 24 deletions(-)
----
-base-commit: 2188569e7e1b0bc3f3b557dc97ab7a02befc11c8
-change-id: 20260827-stmmac-fix-graft-overwrite-d3ec2e72d901
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+index 14cabe76e53e..be8ddda2aa76 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
+@@ -1237,6 +1237,30 @@ static int tc_query_caps(struct stmmac_priv *priv,
+ 	}
+ }
+ 
++static int stmmac_set_ndev_tcs(struct net_device *ndev, u8 ntc,
++			       struct netdev_tc_txq *tc_to_txq)
++{
++	int i, err;
++
++	netdev_reset_tc(ndev);
++	if (ntc == 1)
++		return 0;
++
++	err = netdev_set_num_tc(ndev, ntc);
++	if (err)
++		return err;
++
++	for (i = 0; i < ntc; i++) {
++		u16 count, offset;
++
++		count = tc_to_txq[i].count;
++		offset = tc_to_txq[i].offset;
++		netdev_set_tc_queue(ndev, i, count, offset);
++	}
++
++	return 0;
++}
++
+ static void stmmac_reset_tc_mqprio(struct net_device *ndev,
+ 				   struct netlink_ext_ack *extack)
+ {
+@@ -1250,45 +1274,56 @@ static void stmmac_reset_tc_mqprio(struct net_device *ndev,
+ static int tc_setup_dwmac510_mqprio(struct stmmac_priv *priv,
+ 				    struct tc_mqprio_qopt_offload *mqprio)
+ {
++	unsigned int ndev_num_tx_queues, num_tx_queues = 0;
++	struct netdev_tc_txq ndev_tc_to_txq[TC_MAX_QUEUE];
++	struct netdev_tc_txq tc_to_txq[TC_MAX_QUEUE] = {};
+ 	struct netlink_ext_ack *extack = mqprio->extack;
+ 	struct tc_mqprio_qopt *qopt = &mqprio->qopt;
+-	u32 offset, count, num_stack_tx_queues = 0;
+ 	struct net_device *ndev = priv->dev;
+-	u32 num_tc = qopt->num_tc;
+-	int err;
++	int i, err, ndev_ntc;
+ 
+-	if (!num_tc) {
++	if (!qopt->num_tc) {
+ 		stmmac_reset_tc_mqprio(ndev, extack);
+ 		return 0;
+ 	}
+ 
+-	err = netdev_set_num_tc(ndev, num_tc);
+-	if (err)
+-		return err;
+-
+-	for (u32 tc = 0; tc < num_tc; tc++) {
+-		offset = qopt->offset[tc];
+-		count = qopt->count[tc];
+-		num_stack_tx_queues += count;
++	if (qopt->num_tc > ARRAY_SIZE(tc_to_txq))
++		return -EINVAL;
+ 
+-		err = netdev_set_tc_queue(ndev, tc, count, offset);
+-		if (err)
+-			goto err_reset_tc;
++	/* save current tc values for reset */
++	ndev_ntc = netdev_get_num_tc(ndev) ? : 1;
++	for (i = 0; i < ARRAY_SIZE(ndev->tc_to_txq); i++)
++		ndev_tc_to_txq[i].combined =
++			READ_ONCE(ndev->tc_to_txq[i].combined);
++
++	for (i = 0; i < qopt->num_tc; i++) {
++		tc_to_txq[i] = (struct netdev_tc_txq) {
++			.count = qopt->count[i],
++			.offset = qopt->offset[i],
++		};
++		num_tx_queues += qopt->count[i];
+ 	}
+ 
+-	err = netif_set_real_num_tx_queues(ndev, num_stack_tx_queues);
++	err = stmmac_set_ndev_tcs(ndev, qopt->num_tc, tc_to_txq);
++	if (err)
++		goto error_reset_tc;
++
++	ndev_num_tx_queues = ndev->real_num_tx_queues;
++	err = netif_set_real_num_tx_queues(ndev, num_tx_queues);
+ 	if (err)
+-		goto err_reset_tc;
++		goto error_reset_tc;
+ 
+ 	err = stmmac_fpe_map_preemption_class(priv, ndev, extack,
+ 					      mqprio->preemptible_tcs);
+ 	if (err)
+-		goto err_reset_tc;
++		goto error_reset_num_tx_queues;
+ 
+ 	return 0;
+ 
+-err_reset_tc:
+-	stmmac_reset_tc_mqprio(ndev, extack);
++error_reset_num_tx_queues:
++	netif_set_real_num_tx_queues(ndev, ndev_num_tx_queues);
++error_reset_tc:
++	stmmac_set_ndev_tcs(ndev, ndev_ntc, ndev_tc_to_txq);
+ 
+ 	return err;
+ }
 
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+2.55.0
 
 
