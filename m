@@ -4,148 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AFE6C61DCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 19:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1336C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 19:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VjOTe6JuNXYN/ri0/mPFUtDvq6uSSkk7P97Kuf8Cs+c=; b=rSfsyTVBXpJzTkbblI0cKr558x
-	IBsLbKY6O5t9u/zJMdcuQQsUAmgxixuFt6Vd/pOp1HKMpZwAnXDIeICARNugoQ5bw44BC3gge6UC/
-	vO594iTQad95GEdxrOMo1PZYS0k6ahD/26/q51WGakkT77CfC/3Xu0x1iQC2htYPqnBrWNRcPFLmR
-	vXWWANtlTdLuj5ZaMvwwdSOtbuIAEjT8MTb4mkOfHUPdr7mJHX6REb/hYSgbkglp80zJTDOIKTmvh
-	vkccWn6joMoAijR2l65oCD7IsbqIq7MoJ1OmIbiVpp7bfQqpwx/D6AoCqTOYxk2jTZtuNEOWvu4bm
-	acL5pwNw==;
+	bh=Q3ovaYbtyWvTPy1NCdh4shU/gvReKJ7FezthyCu9rnE=; b=mXkbdoeklCeFmwlancSvUhcybx
+	3ojn9Goo73mlhWOLfm6FYD8L4KefXmNdkLJsLjE2LbJVdhBf1/gkAhTDVedYx0cdcshjMkQvRcsCi
+	XRgx5yYVvCp+UctOsthxZBrSxHpKsn4Nbf0YEnM2gzqJ3fasHJ9y8V520Lo1fQpVCUvMeIH1FX1Rr
+	B6h2mAnzfPtPlvcq9gqQrwxvJ9uemXWUq2PSbo0W0R4p6kJuDmDwcIK8igc0Snw24X2XTiNC0XAau
+	/agS3LFVxrbSqDjNME611a/wEOQ0A8KhfqjSRIkAdh1v5Ot1Rq7QDhilNPiuUWvB0tZ7qJOJwUqrm
+	+MbyqFug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Ov9-00000007GOQ-3AzK;
-	Sat, 29 Aug 2026 19:40:55 +0000
+	id 1x0OvN-00000007GVg-3mtR;
+	Sat, 29 Aug 2026 19:41:09 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Ov6-00000007GMm-2rY0
+	id 1x0OvL-00000007GTM-1yZc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 19:40:54 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67TGx22a1856548
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 19:40:52 GMT
+	Sat, 29 Aug 2026 19:41:08 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67TGxpf71743620
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 19:41:07 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=VjOTe6JuNXYN/ri0/mPFUtDvq6uSSkk7P97
-	Kuf8Cs+c=; b=RqPI5UCXhFjdssavjYnF771wLEgNVwFfE1Y7nU26xEzDhIxuxZ5
-	MlcTT1jHK+ahtRsKKIMCj1K/QYvZ8UYt2WIWFzYTSq8GsQOIueEZ4sGZcFzmvrqq
-	j0d0YGtMWDzORcZQJQrCICFJ23MpGXgSn173KwznBPlFktjhihATnYNw5ssJaEbP
-	U/qWe+5Lf8eR7y/yBNj60kWlxht9kyAiJ2BnDoToa9ZTZkdxoVi4J8nSGw41X+cd
-	IJ5Dnfsk3acHyo9OOT/Z5GCNDrutgPY+v1k5PoMQIIriUW2xpF0Ro0/AjNO4Nj7e
-	dFbeziD/cyIPVjwfk30gOXMKGECWbQEi0XQ==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gbr6dsj3b-1
+	:subject:to; s=qcppdkim1; bh=Q3ovaYbtyWvTPy1NCdh4shU/gvReKJ7Fezt
+	hyCu9rnE=; b=d/f/+HHKdAQBAqMLf+Af5NPzyxKS9WgTtGkYRmH+Bl5y2xV4Cm6
+	ypdS3X9LxySFt6jQIPdVKvUqJEhIilzGMEJSsHiWFgNoNYzs82B4lnMsDEXRIK42
+	4++oQUB9orkOmUbeDj+NAZuKtXKXhLbgfACn8ulkdT/nFuogYNGgYqyOuP+PIHjp
+	Nm9kUcrKgpIfVc0xI+WoEtxhbbKGlRu/UnF8gZY4qro5eMM6DZf3ql673l5Sjcs9
+	YCluBaPGMX8LDc8/AcKT/jWq5vjH0NaCy8MXBzhEf1cUxxXAL7RUWJXNuyMJxTAc
+	Rd79OWFqwIK+0vD6MyQZPo6jAGuAhTTzytw==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gbrq81g4u-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 19:40:52 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51a8b0a08d2so25260321cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 12:40:51 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 19:41:06 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-52fc16ac179so30407131cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 12:41:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788032451; x=1788637251; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1788032466; x=1788637266; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VjOTe6JuNXYN/ri0/mPFUtDvq6uSSkk7P97Kuf8Cs+c=;
-        b=bJbMV61KHxe8woceCSj54eSVX+95rj4JNfmz7fjyjirKPJL2S/Qdug+micvlv6tchm
-         rhEGgc6KGOG3LtJl0dMmL9Zgtfnw0UnwNDB+GgeR4lskY7ybTxnQJmVgTh87Z/AdhyTY
-         oj9MWFG1J2eUKDNdz0DhQkoOr8mLwXT4OVIxQYQMTYuFiQBLQGWyst7UsXIAusi2BWJT
-         xYnHH50LoAsTgi9AeXco9gQXr4N82L9ATtxOf0bv5c/sILAHtdIB83O2Y3vpG+rIOK3e
-         kOZznyR+GYftDg3tYCyB9EdntRwqfip24dSXyMn4RRnZCXcTmQPfizyvun+edLSDgrUM
-         FYXQ==
+        bh=Q3ovaYbtyWvTPy1NCdh4shU/gvReKJ7FezthyCu9rnE=;
+        b=YE3Ir6fFw+lsstexg7r3j3FktBrWb909zDWLCKw54b5+X4FZh4rdAfLNpxc0dwmDu1
+         rFbOJuoyq4ufJA0Ob+tBMvv5qbMtQkDdwtdW+UCPF5DGiov6MdUc2JhwBSOu6v9R3E5y
+         a4jJrF8Z9o8MyHl0ruvHewl9zh5oMbI6GlupENK4npO79x1t3RSMOupz4GRmhWKr4Oh+
+         OCPRBecPwnDaASXjiLJzJBNfPvki4duQ9Vli+7CBN4Eg85ij5frS25ySX5f8Lpg/TBUB
+         z27PZY2V9ymd6ACBSHT13sdAVrZYPL00ShbmrvHYGcZg4apKksEybxcxE7XzuKiq9dwa
+         OeBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788032451; x=1788637251;
+        d=1e100.net; s=20251104; t=1788032466; x=1788637266;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=VjOTe6JuNXYN/ri0/mPFUtDvq6uSSkk7P97Kuf8Cs+c=;
-        b=jxWImyMAicBYQ+VvBxW3vm3d2b49S3/QWQbk00yoEFRSM21AGtWGiukm5vXnk6ffSF
-         lKN+gZ/JkmGmq4zYPCuykajBcAVCfktqri4LiKpUKroXjNDP9eIS7ELvXgOA0cA+O4pp
-         N0JHabim9T/4kg2PSfiVEVfVkTPlsaly0TJNwku8gI6+/KaDeMbazPw7wcsx2FuWGAJ7
-         F8YWOo28+n1HHP3fmRwBklM+3mgwvhTb2ZTAl1rhchH8dzhiEhvdIa8INpcihOruhNhA
-         fp14q95m582li9Z1fhQlXYixxeCWsHMHgq3FsjYs/OXBqTZTmAi1tHXEYQGEVVt/h40/
-         05bg==
-X-Forwarded-Encrypted: i=1; AHgh+RqBk3d34aIxMqX1ONvH0NWhZSTcMzFDGzziR6+urRNvcB7ad48nmdkxvZ0q8IZBqSgJxSgMSPKcYyAo9z/dvk0m@lists.infradead.org
-X-Gm-Message-State: AFuF++l5lgc3QUumxqccn2J+EPFZCQNflc+K+t1O0krpDoutHf5UW37f
-	iESFre5aLRiMRYBhv09cwZGnWmtqRmT1q7wZLfHGYuCZD8lpCvqnTEC/ncKRZKLHC3Gk70l6ujk
-	XaewfJgBrYlaUdjWgp1EE+eoXGamR6nYiCnvfm2nWblr6wTpgVjKU0JvWHDQLCL4BYig03qqYJ0
-	/6sw==
-X-Gm-Gg: AR+sD12I4DC0xdS9kH95a4x8OjRjOV6ZQ6Tn0CJnQo6b65z0BQB0tgCn+NBwuHj73hO
-	eFyiatLae172WtOeC0x2Exj/qolTlpyVRLxvF5Y3QVTqMcWMVX1n8h7MPh3yuDu/9mHSRGf9VFX
-	OATvybfI0J7ZU7wsulmQVsPuLiOzkUXNdaLh6mH0iC7nJu2Cff8UBr/B2tgGvDlqNL7mqf6xCro
-	oXEwV+ptTLWZJmSI6x3ldP1r8LiGKsCiNZyVhwn6/tbim2QEFQKFW637P5tFN6XK2t0PU6Ci1Bk
-	boDbC8t8DM0PbFK3mw7cL/5CcpOG9s0MnoRzld+EgxioHyO0Cb0ZUOU5CF5B7P38mrMHSAT9TIN
-	weGOl8FRHNg6q8Bo=
-X-Received: by 2002:ac8:5e0b:0:b0:51c:ba4:d837 with SMTP id d75a77b69052e-52fb9419bd8mr185946701cf.18.1788032450919;
-        Sat, 29 Aug 2026 12:40:50 -0700 (PDT)
-X-Received: by 2002:ac8:5e0b:0:b0:51c:ba4:d837 with SMTP id d75a77b69052e-52fb9419bd8mr185946301cf.18.1788032450439;
-        Sat, 29 Aug 2026 12:40:50 -0700 (PDT)
+        bh=Q3ovaYbtyWvTPy1NCdh4shU/gvReKJ7FezthyCu9rnE=;
+        b=BCiZ/TXYEZm4Yky7czxVlLcjmLFaYpzoBB8phchrvBGChsNCl4QQpcFHNviMFnhmxR
+         RO3NGsJciXmgv+XCY1RRocG3IETBUvz/bxv+PzYi3iK61djF+tstlwZJsIfGw7yOi+qC
+         0qT5NpQYf+TnRcsWrpHM3C7uA/9Ot8KzObwtX+mZiWFnfQFij8dcq90jmscKple9ZW69
+         hRVho1DtREuIp/7yYfqQhSJkYxcIOPbZr06iPXGnbzr9XFMlzE8vuK1aRsJ3f0m/2nzu
+         8TbRrs4qeeLTK3gl5fYQS9EXk2gOaVHbblP24q91uw1sArroUaBwRDnjr1gUZ5H2BKp4
+         Eqkg==
+X-Forwarded-Encrypted: i=1; AHgh+Ro4boQ+fYvY+UAUddqOGJ/Lzh9hpKpW3B7iCVYz/JVj6SWsebtu1sVTqTJo22ywGfBSLdMbsm1lDIS2k6VnuH++@lists.infradead.org
+X-Gm-Message-State: AFuF++kfRunABC0OGfgX1e7Dciv4kLuo0/4Kt2MNqSxX5mzMOy9iUkvi
+	LwZlkS74tXzvwQ9KyGyb8qLpTFhtNa8yZLJB+hn8QLRNey0cKjhRU3Zae8DyuXEg52hTiUoAJqZ
+	tkedYmVhR5ISSbTRrazrmFzU4b6Vr/EXoEHg8IcEDnyjlyu0moJSd6SMdyK7V64BSEPSrBaVm3k
+	ZQ9A==
+X-Gm-Gg: AR+sD10gJ16EUhjbiLsReRoeB1eBZPjkrxwroiIso+DphrLhZDVSO9mwX+I9RdBMQpO
+	T/6PMagLt0dgOaEnuL81+r2sooWkipiwRo2tJtlLOy8yulFEBnPZZrVSe+Ba9QyN9uFmnHC4Q08
+	3ihyrWqckta+Qb3ZaRwnAyCBEPydvIGEBrtE0xdq0Q8Q+Fi/iDEmFw5taISn8bHomC2HM460Aoe
+	tFsUT9Q2EQ+Su5n8oO13NzPxdPQjLIDUFdDih4mo5RhTMCAWVDmrHfG7W1bSdCxjqfg0nNjN9I1
+	Y4+Im3gsEcNB5xvo90y7xoJ6k3tWNVghf82eF2W6Xh/4GyBXqO4zHO5p3qfwUncqPYzyln09Vch
+	2VFyVt7Cic4mFKAU=
+X-Received: by 2002:ac8:6906:0:b0:50e:474a:47e1 with SMTP id d75a77b69052e-52fa1bb79c7mr304455501cf.10.1788032465984;
+        Sat, 29 Aug 2026 12:41:05 -0700 (PDT)
+X-Received: by 2002:ac8:6906:0:b0:50e:474a:47e1 with SMTP id d75a77b69052e-52fa1bb79c7mr304455121cf.10.1788032465612;
+        Sat, 29 Aug 2026 12:41:05 -0700 (PDT)
 Received: from quoll ([178.197.219.214])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cd2e9d9fcsm5882095e9.1.2026.08.29.12.40.47
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b4e2c1af7sm243390275e9.15.2026.08.29.12.41.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Aug 2026 12:40:49 -0700 (PDT)
+        Sat, 29 Aug 2026 12:41:04 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-        Gregory Clement <gregory.clement@bootlin.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>,
+        Ryan Chen <ryan_chen@aspeedtech.com>,
+        Billy Tsai <billy_tsai@aspeedtech.com>, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
         linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH] ARM: dts: marvell: Replace spaces indentation with tabs
-Date: Sat, 29 Aug 2026 21:40:44 +0200
-Message-ID: <20260829194043.107875-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH] ARM: dts: aspeed: Replace spaces indentation with tabs
+Date: Sat, 29 Aug 2026 21:40:55 +0200
+Message-ID: <20260829194054.107929-2-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8684; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=fy8LKWasxNVrGnihVPdVJryHw+RHQ5CvkTummbKZNSg=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqkzW74p5DobpZjFQF2z/egxVys5hC+VtxjRaBc
- wNRZDVxt4aJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCapM1uwAKCRDBN2bmhouD
- 17EmD/49fBVFyYf4yVHgQd79IJsFoFHaxlAvoOMgn+TZ3z6GDGia0TAbyBsqzx4a9lFk+W25iFi
- nugLx4UjiBiJM89lEoHMSghpGVM6ohJ9Z4zoHmVqtmeaqW+XtTYbYODKE1gyvFNQTePDjThfBQK
- UNvmUB5rX6Z70VueHdoGYPzf0q9ja0SpXrVr35cqfOiKlJRrPI/k7bDaxRcxuCfnHiUyqN4vraq
- ob+hK6SLXTbY4ItjiqP2lXsNdo8wmZ27b0YD4wRupaqeoZt/xhownoAfTMSQN0drToLPGxxnda7
- SuqAmaBowmQC37e+oIQymhDMk2QqDqBLMehTYmL4AmSSeI7VQtYRhzGcmhHBD2YTn+osQPeWp/i
- TaSGA7YrNjjoeLcq3nwhUqkdYv1L3m+A0SPasHms/KjTd7OUR1sIWHe2pJwaQn6Ro586Ym4/R/+
- spW8wD6/TnAr5vxDLELIC04pjy5Ba8MdloVC3SuKsbWqi3Dlikc0icQFcTvPRw8TOswEjMK+Pmh
- wwyKxJBF2KTQmuAAuLVMqH7AX1gTUYnuvzVxToknzVOv5uXOkvCbD5mskCsqGjlfMxTVpCxEfk/
- SqzvqO34c5r+ZBlHQ/eyhE5rKBYzXWmFu5wU3sNuD4fvbPqgheXcQN397gTanEw/r0fIRIA+bxP itgquDoC3qs+X9A==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1719; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=lCD2rnWylJ/gXC+S6T2sric6v3SvqHkmqg2cRrHiHMo=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqkzXGQUFLSmG7+ry21ITbphcniWDbQTny9DzW/
+ uj6+C8Bx02JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCapM1xgAKCRDBN2bmhouD
+ 11eKD/9r3+XtKocDcW+pxNJI51m+1e71/pIgJBXGflKkNxHvdYF5/H1EBW9204QVUbOlY8LHAeo
+ 12dvJa2Sj/Yggm6H3VzfBRbGYXsGV905x2qHmiuUeY7SxrM63MydbAmvSSzVm2z5jV46TTOR0hU
+ Ed/GK0kBcFijqgjvbmaBBbij3jrqnaXMZYTvmB9IHi0CWTO8Ss4JfyJVSXnKsroc7EaUJJaQ3uV
+ 7D4WmDfsAhLi3ux484loF+I6pFnEdkSjQFO/NJIXT5X4vDFymZWDqyd6+zhxQSJor3r2fyp5PnC
+ rxB79bTY4vn4so9xauyXexMs9vTkOCas8Nqfqlsfalk6Iibbv63MRGBaSUg/2MDHkd3KPtTaMeR
+ yyqtmGj8TjVD2HQbQWKjdsipL91niG7Rdijqq7wdPDAGfczgERm6PqGBJKAqPBAYMY9MODHjwlN
+ gOMakH04wqABfZsnu3lvwped9hwDwdfr+qwWPb8y1/oR+s5GGE28iohdQ3QryuQrGU6XV3J7uXR
+ KVL4mNUZwyMJfQTPFYOIaFOmwVhL3YwDL1wfYEVTZNdZciWYgm8SUttXDiPBKxAsvAh9jYIHcqA
+ aHNuGC9yJewTxdTALu9Rnvoinn57ZKyB++Eys+gK11mu6WjfN6dbZtCKqBqFl/6vDIh0ihWz+iE 29hKMHMetH3UXMg==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI5MDE3MCBTYWx0ZWRfX0yDuBED3RAy9
- vIWYjlE4b+x9iT7O1N6VEdIWjxMPLYaODY0cYlvqD+GquSXaz0BC6GRttUdPu9UIzpmrNm09ajH
- HhScLJ+42PUIjYPMN2yQbstXuUzrXb9XvzoYsyFRcgj/VI6PLVEjh+0yZmcOANkgbcFTu0ov12T
- 2j1VQOwBOOUlQK6dA1JZXfrt08a1hvNkxCt58yj+49xlQLaVQfFCAROxvHtyubloYeG0zVq/A6A
- 2hN38eBk+eJ+vDn4YhuKxRSX6m4gn+tg92Pr56/jFAbUhDYuO8HGUN5HDlbrsU/vp8lb+fT0rS7
- EuzyQhGUr64bxlfwQmXLCLeVLjrnS70VlGa5Ve5bOK0oMwAeY/KJFo26QrTAbHXRGchKQFkaJoQ
- RHKJDU+l1uN5oNtXdpDi/4TjDYp1JD66PZm3RhudZTwNDXBpmJVw9bPsuQVVIdSxLFcPpgKzLg+
- hmwzDAVjFDLUrrVJwaw==
-X-Proofpoint-GUID: U_wu81P-WzhwrcuBxtsH7eGLPvpqoEeb
-X-Authority-Analysis: v=2.4 cv=Zakt8MVA c=1 sm=1 tr=0 ts=6a9335c4 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=+bKQE0WJfmhK2875HamI0Q==:17
+X-Proofpoint-GUID: 4u22oZ8TDF1XeQJycoO7F-xbfUuiQ4EC
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI5MDE3MSBTYWx0ZWRfX4YOLOjT+eKNb
+ pL2IEt9mXsXqVeSWEd3EAGof0gurPQUcoDnDMffN9feAzSqzC5Z4KWc8JRtTLLNiGMuxt5KbdW+
+ 4sotuvo5dK5BcyoctNXYB6oRQMkAm2g=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI5MDE3MSBTYWx0ZWRfX7vldkGM3F+6/
+ etJANeSNvPaMiZVZ4PeG2A4QLr4L7jEchXWhZy7XqW0FdYzsiqKAjD3DWFXTCMG5Dpsx32oTY1y
+ JDImPeH+TQllGHN9NkUU8Rk+l5TAlcsOzr1MQLhbaMnYd7rjHLWzSE7RA0KAc2FamFZh+9OsJzv
+ fdHxQrAXasqVCjOv58bBHnUz7H0DvKtHojJdAz6FcWhJ6IU+ZjmA2wIuQUA/dWu9LxDIw4fzjih
+ CP59WmizEBJG0f3cRzyFAi9KtcPPkRCq1cK2XMLRlipe2bpwCbviwTmrD9NqPXxU+rHcpke4Har
+ SVcWuG4k7PmgX8noi0zTHqP2BQdh/wRbQvvHTsntmzQ1C1dLrB4jP/hkFb/6wbj84OZXGiHs246
+ A8yKuXZ10iuffUjKnXcR1dUs4ddp4SOYVQoZWmCvZcNjWjLny8wa383gmfSAXYO4McKUNupcLym
+ oCawX7GaFdDwWa+b5+w==
+X-Authority-Analysis: v=2.4 cv=ZOPnX37b c=1 sm=1 tr=0 ts=6a9335d2 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=+bKQE0WJfmhK2875HamI0Q==:17
  a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8
- a=-NLHY6uWZgi1nc0qGTcA:9 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI5MDE3MCBTYWx0ZWRfX8gGRNIdGztOy
- Iq6V3w3y1oUqZ7g7Bar8VKl6Nuhk3jwdMbkmbKLvVceEwHLHifl+eAFSxjhJHLli0J6u0Yp/cQI
- 5hF5lgNFzOkST+4dFKjhyNOfCV+Sq2I=
-X-Proofpoint-ORIG-GUID: U_wu81P-WzhwrcuBxtsH7eGLPvpqoEeb
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8
+ a=Ta6ShJ3tCWu1s0TIFCkA:9 a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-ORIG-GUID: 4u22oZ8TDF1XeQJycoO7F-xbfUuiQ4EC
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-29_05,2026-08-27_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 phishscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
- suspectscore=0 lowpriorityscore=0 clxscore=1015 spamscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608290170
+ suspectscore=0 spamscore=0 malwarescore=0 lowpriorityscore=0
+ priorityscore=1501 adultscore=0 bulkscore=0 impostorscore=0 phishscore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608290171
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260829_124052_738941_18483482 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20260829_124107_514382_61CD3199 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,201 +166,36 @@ characters in indent (more than 7)").
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- arch/arm/boot/dts/marvell/dove.dtsi           | 22 +++++++++----------
- arch/arm/boot/dts/marvell/kirkwood-6282.dtsi  | 15 ++++++-------
- .../marvell/kirkwood-guruplug-server-plus.dts |  4 ++--
- arch/arm/boot/dts/marvell/kirkwood-lsxl.dtsi  |  4 ++--
- .../boot/dts/marvell/kirkwood-synology.dtsi   | 12 +++++-----
- .../dts/marvell/orion5x-rd88f5182-nas.dts     |  2 +-
- 6 files changed, 29 insertions(+), 30 deletions(-)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-opp-witherspoon.dts   | 2 +-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-supermicro-x11spi.dts | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/boot/dts/marvell/dove.dtsi b/arch/arm/boot/dts/marvell/dove.dtsi
-index 062c86361640..75e2f9baf661 100644
---- a/arch/arm/boot/dts/marvell/dove.dtsi
-+++ b/arch/arm/boot/dts/marvell/dove.dtsi
-@@ -100,12 +100,12 @@ pcie: pcie {
- 			msi-parent = <&intc>;
- 			bus-range = <0x00 0xff>;
- 
--			ranges = <0x82000000 0x0 0x40000 MBUS_ID(0xf0, 0x01) 0x40000 0 0x2000
--			          0x82000000 0x0 0x80000 MBUS_ID(0xf0, 0x01) 0x80000 0 0x2000
--				  0x82000000 0x1 0x0 MBUS_ID(0x04, 0xe8) 0 1 0   /* Port 0.0 Mem */
--				  0x81000000 0x1 0x0 MBUS_ID(0x04, 0xe0) 0 1 0   /* Port 0.0 I/O */
--				  0x82000000 0x2 0x0 MBUS_ID(0x08, 0xe8) 0 1 0   /* Port 1.0 Mem */
--				  0x81000000 0x2 0x0 MBUS_ID(0x08, 0xe0) 0 1 0>; /* Port 1.0 I/O */
-+			ranges = <0x82000000 0x0 0x40000 MBUS_ID(0xf0, 0x01) 0x40000 0 0x2000>,
-+				 <0x82000000 0x0 0x80000 MBUS_ID(0xf0, 0x01) 0x80000 0 0x2000>,
-+				 <0x82000000 0x1 0x0 MBUS_ID(0x04, 0xe8) 0 1 0>,   /* Port 0.0 Mem */
-+				 <0x81000000 0x1 0x0 MBUS_ID(0x04, 0xe0) 0 1 0>,   /* Port 0.0 I/O */
-+				 <0x82000000 0x2 0x0 MBUS_ID(0x08, 0xe8) 0 1 0>,   /* Port 1.0 Mem */
-+				 <0x81000000 0x2 0x0 MBUS_ID(0x08, 0xe0) 0 1 0>; /* Port 1.0 I/O */
- 
- 			pcie0: pcie@1 {
- 				device_type = "pci";
-@@ -117,8 +117,8 @@ pcie0: pcie@1 {
- 
- 				#address-cells = <3>;
- 				#size-cells = <2>;
--				ranges = <0x82000000 0 0 0x82000000 0x1 0 1 0
--				          0x81000000 0 0 0x81000000 0x1 0 1 0>;
-+				ranges = <0x82000000 0 0 0x82000000 0x1 0 1 0>,
-+					 <0x81000000 0 0 0x81000000 0x1 0 1 0>;
- 				bus-range = <0x00 0xff>;
- 
- 				#interrupt-cells = <1>;
-@@ -146,8 +146,8 @@ pcie1: pcie@2 {
- 
- 				#address-cells = <3>;
- 				#size-cells = <2>;
--				ranges = <0x82000000 0 0 0x82000000 0x2 0 1 0
--				          0x81000000 0 0 0x81000000 0x2 0 1 0>;
-+				ranges = <0x82000000 0 0 0x82000000 0x2 0 1 0>,
-+					 <0x81000000 0 0 0x81000000 0x2 0 1 0>;
- 				bus-range = <0x00 0xff>;
- 
- 				#interrupt-cells = <1>;
-@@ -772,7 +772,7 @@ rtc: real-time-clock@8500 {
- 
- 			gconf: global-config@e802c {
- 				compatible = "marvell,dove-global-config",
--				             "syscon";
-+					     "syscon";
- 				reg = <0xe802c 0x14>;
- 			};
- 
-diff --git a/arch/arm/boot/dts/marvell/kirkwood-6282.dtsi b/arch/arm/boot/dts/marvell/kirkwood-6282.dtsi
-index e33723160ce7..9f63e3f9eb1c 100644
---- a/arch/arm/boot/dts/marvell/kirkwood-6282.dtsi
-+++ b/arch/arm/boot/dts/marvell/kirkwood-6282.dtsi
-@@ -11,14 +11,13 @@ pciec: pcie@82000000 {
- 
- 			bus-range = <0x00 0xff>;
- 
--			ranges =
--			       <0x82000000 0 0x40000 MBUS_ID(0xf0, 0x01) 0x40000 0 0x00002000
--			        0x82000000 0 0x44000 MBUS_ID(0xf0, 0x01) 0x44000 0 0x00002000
--				0x82000000 0 0x80000 MBUS_ID(0xf0, 0x01) 0x80000 0 0x00002000
--				0x82000000 0x1 0     MBUS_ID(0x04, 0xe8) 0       1 0 /* Port 0.0 MEM */
--				0x81000000 0x1 0     MBUS_ID(0x04, 0xe0) 0       1 0 /* Port 0.0 IO  */
--				0x82000000 0x2 0     MBUS_ID(0x04, 0xd8) 0       1 0 /* Port 1.0 MEM */
--				0x81000000 0x2 0     MBUS_ID(0x04, 0xd0) 0       1 0 /* Port 1.0 IO  */>;
-+			ranges = <0x82000000 0 0x40000 MBUS_ID(0xf0, 0x01) 0x40000 0 0x00002000>,
-+				 <0x82000000 0 0x44000 MBUS_ID(0xf0, 0x01) 0x44000 0 0x00002000>,
-+				 <0x82000000 0 0x80000 MBUS_ID(0xf0, 0x01) 0x80000 0 0x00002000>,
-+				 <0x82000000 0x1 0     MBUS_ID(0x04, 0xe8) 0       1 0 /* Port 0.0 MEM */>,
-+				 <0x81000000 0x1 0     MBUS_ID(0x04, 0xe0) 0       1 0 /* Port 0.0 IO  */>,
-+				 <0x82000000 0x2 0     MBUS_ID(0x04, 0xd8) 0       1 0 /* Port 1.0 MEM */>,
-+				 <0x81000000 0x2 0     MBUS_ID(0x04, 0xd0) 0       1 0 /* Port 1.0 IO  */>;
- 
- 			pcie0: pcie@1,0 {
- 				device_type = "pci";
-diff --git a/arch/arm/boot/dts/marvell/kirkwood-guruplug-server-plus.dts b/arch/arm/boot/dts/marvell/kirkwood-guruplug-server-plus.dts
-index d5aa8b505cc0..cc88d5324983 100644
---- a/arch/arm/boot/dts/marvell/kirkwood-guruplug-server-plus.dts
-+++ b/arch/arm/boot/dts/marvell/kirkwood-guruplug-server-plus.dts
-@@ -104,14 +104,14 @@ &mdio {
- 	ethphy0: ethernet-phy@0 {
- 		/* Marvell 88E1121R */
- 		compatible = "ethernet-phy-id0141.0cb0",
--		             "ethernet-phy-ieee802.3-c22";
-+			     "ethernet-phy-ieee802.3-c22";
- 		reg = <0>;
- 	};
- 
- 	ethphy1: ethernet-phy@1 {
- 		/* Marvell 88E1121R */
- 		compatible = "ethernet-phy-id0141.0cb0",
--		             "ethernet-phy-ieee802.3-c22";
-+			     "ethernet-phy-ieee802.3-c22";
- 		reg = <1>;
- 	};
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-witherspoon.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-witherspoon.dts
+index 89907b628b65..d235ebc3022a 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-witherspoon.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-witherspoon.dts
+@@ -213,7 +213,7 @@ &gpio {
+ 	/*L0-L7*/	"","","","","","","","",
+ 	/*M0-M7*/	"","","","","","","","",
+ 	/*N0-N7*/	"presence-ps1","","led-rear-fault","led-rear-power",
+-		        "led-rear-id","","","",
++			"led-rear-id","","","",
+ 	/*O0-O7*/	"","","","","","","","",
+ 	/*P0-P7*/	"","","","","","","","presence-ps0",
+ 	/*Q0-Q7*/	"","","","","","","","",
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-supermicro-x11spi.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-supermicro-x11spi.dts
+index b961dff388d1..154a2eaf8596 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-supermicro-x11spi.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-supermicro-x11spi.dts
+@@ -75,7 +75,7 @@ &mac0 {
+     pinctrl-names = "default";
+     pinctrl-0 = <&pinctrl_rmii1_default>;
+     clocks = <&syscon ASPEED_CLK_GATE_MAC1CLK>,
+-           <&syscon ASPEED_CLK_MAC1RCLK>;
++	     <&syscon ASPEED_CLK_MAC1RCLK>;
+     clock-names = "MACCLK", "RCLK";
+     use-ncsi;
  };
-diff --git a/arch/arm/boot/dts/marvell/kirkwood-lsxl.dtsi b/arch/arm/boot/dts/marvell/kirkwood-lsxl.dtsi
-index 5e0b139dd4fb..4206529b4a52 100644
---- a/arch/arm/boot/dts/marvell/kirkwood-lsxl.dtsi
-+++ b/arch/arm/boot/dts/marvell/kirkwood-lsxl.dtsi
-@@ -168,8 +168,8 @@ gpio_fan {
- 		compatible = "gpio-fan";
- 		pinctrl-0 = <&pmx_fan_low &pmx_fan_high &pmx_fan_lock>;
- 		pinctrl-names = "default";
--		gpios = <&gpio0 19 GPIO_ACTIVE_LOW
--		         &gpio0 18 GPIO_ACTIVE_LOW>;
-+		gpios = <&gpio0 19 GPIO_ACTIVE_LOW>,
-+			<&gpio0 18 GPIO_ACTIVE_LOW>;
- 		gpio-fan,speed-map =
- 				<0    3>,
- 				<1500 2>,
-diff --git a/arch/arm/boot/dts/marvell/kirkwood-synology.dtsi b/arch/arm/boot/dts/marvell/kirkwood-synology.dtsi
-index 6b7c5218b1fb..de34bc2446ed 100644
---- a/arch/arm/boot/dts/marvell/kirkwood-synology.dtsi
-+++ b/arch/arm/boot/dts/marvell/kirkwood-synology.dtsi
-@@ -281,7 +281,7 @@ gpio-fan-150-32-35 {
- 		status = "disabled";
- 		compatible = "gpio-fan";
- 		pinctrl-0 = <&pmx_fanctrl_32 &pmx_fanctrl_33 &pmx_fanctrl_34
--		             &pmx_fanalarm_35>;
-+			     &pmx_fanalarm_35>;
- 		pinctrl-names = "default";
- 		gpios = <&gpio1 0 GPIO_ACTIVE_HIGH
- 			 &gpio1 1 GPIO_ACTIVE_HIGH
-@@ -301,7 +301,7 @@ gpio-fan-150-15-18 {
- 		status = "disabled";
- 		compatible = "gpio-fan";
- 		pinctrl-0 = <&pmx_fanctrl_15 &pmx_fanctrl_16 &pmx_fanctrl_17
--		             &pmx_fanalarm_18>;
-+			     &pmx_fanalarm_18>;
- 		pinctrl-names = "default";
- 		gpios = <&gpio0 15 GPIO_ACTIVE_HIGH
- 			 &gpio0 16 GPIO_ACTIVE_HIGH
-@@ -322,7 +322,7 @@ gpio-fan-100-32-35 {
- 		status = "disabled";
- 		compatible = "gpio-fan";
- 		pinctrl-0 = <&pmx_fanctrl_32 &pmx_fanctrl_33 &pmx_fanctrl_34
--		             &pmx_fanalarm_35>;
-+			     &pmx_fanalarm_35>;
- 		pinctrl-names = "default";
- 		gpios = <&gpio1 0 GPIO_ACTIVE_HIGH
- 			 &gpio1 1 GPIO_ACTIVE_HIGH
-@@ -343,7 +343,7 @@ gpio-fan-100-15-18 {
- 		status = "disabled";
- 		compatible = "gpio-fan";
- 		pinctrl-0 = <&pmx_fanctrl_15 &pmx_fanctrl_16 &pmx_fanctrl_17
--		             &pmx_fanalarm_18>;
-+			     &pmx_fanalarm_18>;
- 		pinctrl-names = "default";
- 		gpios = <&gpio0 15 GPIO_ACTIVE_HIGH
- 			 &gpio0 16 GPIO_ACTIVE_HIGH
-@@ -364,7 +364,7 @@ gpio-fan-100-15-35-1 {
- 		status = "disabled";
- 		compatible = "gpio-fan";
- 		pinctrl-0 = <&pmx_fanctrl_15 &pmx_fanctrl_16 &pmx_fanctrl_17
--		             &pmx_fanalarm_35>;
-+			     &pmx_fanalarm_35>;
- 		pinctrl-names = "default";
- 		gpios = <&gpio0 15 GPIO_ACTIVE_HIGH
- 			 &gpio0 16 GPIO_ACTIVE_HIGH
-@@ -385,7 +385,7 @@ gpio-fan-100-15-35-3 {
- 		status = "disabled";
- 		compatible = "gpio-fan";
- 		pinctrl-0 = <&pmx_fanctrl_15 &pmx_fanctrl_16 &pmx_fanctrl_17
--		             &pmx_fanalarm_35 &pmx_fanalarm_44 &pmx_fanalarm_45>;
-+			     &pmx_fanalarm_35 &pmx_fanalarm_44 &pmx_fanalarm_45>;
- 		pinctrl-names = "default";
- 		gpios = <&gpio0 15 GPIO_ACTIVE_HIGH
- 			 &gpio0 16 GPIO_ACTIVE_HIGH
-diff --git a/arch/arm/boot/dts/marvell/orion5x-rd88f5182-nas.dts b/arch/arm/boot/dts/marvell/orion5x-rd88f5182-nas.dts
-index 75ab913b21e5..1d803d1d1112 100644
---- a/arch/arm/boot/dts/marvell/orion5x-rd88f5182-nas.dts
-+++ b/arch/arm/boot/dts/marvell/orion5x-rd88f5182-nas.dts
-@@ -22,7 +22,7 @@ chosen {
- 
- 	soc {
- 		ranges = <MBUS_ID(0xf0, 0x01) 0 0xf1000000 0x100000>,
--		         <MBUS_ID(0x09, 0x00) 0 0xf2200000 0x800>,
-+			 <MBUS_ID(0x09, 0x00) 0 0xf2200000 0x800>,
- 			 <MBUS_ID(0x01, 0x0f) 0 0xf4000000 0x80000>,
- 			 <MBUS_ID(0x01, 0x1d) 0 0xfc000000 0x1000000>;
- 	};
 -- 
 2.53.0
 
