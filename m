@@ -4,92 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08BDEC61DCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 20:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E312C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 20:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HZKFaUDOk9+0vR+1B9jj5VFfzdasobPYcBQD01+SUsQ=; b=YTGFPKMYKr3mj0p+ZUbClKsAdE
-	usLUIMjKztUm+TNzXNNvY55vJPq7vhqXp2xpNrpnzBkSdwaVsGpkExowKnBtjYJ4nPT/dlEBRdQCB
-	fw43uIMjC4PFVSRHmoJz/jglRwXxaXHIOgaFEmul9qaRjEnkAbhZoe/CpTecqyIF05bzoUCPXnEVg
-	T1eA7RKtiFZEYNLybrFvqddDeYlRPY8k5HNAMNNv0UJUn7XLlYRiIo1JrbVrKmpmv0SfodDVQpGRd
-	zyiNRPEquEyFbJK5fl7xi7oaZACQopGVaCZJxYQE+i6TpLisdRmjuhiSMyv6FGj6xPdb3h+wneB+d
-	brmXdGvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TxrhR97T7Qu7CxRJdAD0MZKCPUClAmAqj06Q+J5Xu1Y=; b=vWbOuneczVZuu4noiP8PX/kIcB
+	nsVZ7iFmnZUd46iDa3d4sEZEJa3es8Q+Td3QQIj3ocQABHM9+gilP1AOaTKWBnUqCESbxndy2WQKN
+	jh3RG09wcK9xrm7xssui9RZfh7dL0w8QBoqmGMvpWMkMN4n5V8Hc9hCI+l3vCkupxBMvDjdHwhZ6L
+	vDcHdLTCmIjQ3hMng2fpmEQrC8Kkzhg7N9Ndn+4vF72iwiHu4kT03r3xmm/+Cdynok4zjfXYceK+1
+	FiLJVo6qXwfu1/vwg4DuVuuWxcA2NoCaUoQXVFzfrYNEyBAlXhYi0shaBChjHG/KZlR/XcqZo7oHZ
+	xffLWC9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Pnq-00000007JF0-1ujo;
-	Sat, 29 Aug 2026 20:37:26 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1x0Q4c-00000007Jk8-34hA;
+	Sat, 29 Aug 2026 20:54:46 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Pnn-00000007JEb-1DCZ
+	id 1x0Q4a-00000007Jji-3sNP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 20:37:24 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-3965d3d9ab8so1610161a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 13:37:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788035842; x=1788640642; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HZKFaUDOk9+0vR+1B9jj5VFfzdasobPYcBQD01+SUsQ=;
-        b=RLe0C5hK1sURUvUp4Js1Kag0axmf68PRadmYJYdXkWpNuXYQYfoMC5Eatz7CZW8uU9
-         N/LMBN7YkNFjTAi9OCVgIy1OR2NTIsygLj8hjax+ZOtJYY9fgqGHtiS4kgrpSHG+9vXp
-         eVBmI2g5N8heuOHBLpHtIpxedtxPYcDhNbOOw+cBYMV72a8mwXwAb+HMkj00Cg2RH5GX
-         c0YQB+MCmq7K6iaKBz23wsk356ln6/63E2GHMa1wsXHlN6Yo3mpT+tTcAXnOu0aoBSv7
-         zeb+r5MfHoa2VMae2g2xN5WC/17wicJ/FAVAmIqKYk9j+96tLNBd8h5GuKuJmeJX+wSi
-         tXkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788035842; x=1788640642;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HZKFaUDOk9+0vR+1B9jj5VFfzdasobPYcBQD01+SUsQ=;
-        b=XK+6Y/pxh4i0HIaf6yHIPv2aeJwDoEutI+W/TS3QB6bNW58mQ2HGQWFjqAWwqIM1h0
-         /PG8dBEEhHUW84qdrATyBzDJNU50DzC5HKRBtBE8rzNu23CcjuNRooLnLnqZRvYjwTGZ
-         Okfl5mMvXdHB1bBG/IvyzXZOCfZWgVeloUmTIMZIUGrCFqTiIHJqy6x1TYd4XGZeZ9iT
-         DyBNo9Bd9frhk9XWl8Xb1FzRUZMDRPecqETlnU7/taA26/cLChB4eJuuf6if/5tA58dI
-         0zTraMI2vgZtijoU9jp35Ez2wj3OyAV6u0f0+14V7z8RU4+HeYNjGkIdE9Gf/zZHH0LB
-         Yoxg==
-X-Forwarded-Encrypted: i=1; AKwUvBzcOGsps3w2AUHC2V6h2FB6oOJjZ8rnHcfa8kPJNwNg3GS+X0fySoRuuCPKvE7OXopN7vk0m7V3bxSxaEfMQTnF@lists.infradead.org
-X-Gm-Message-State: AFuF++mJjHDTpKoInNhoHKMPUpeKF8nf2x1anEAzQaQtBpRsqhIB5psQ
-	8d27gSI5AKwkkM29vpBGekD4SQzPA4Hy5A40JltHLWmbPobCqzltAQop
-X-Gm-Gg: AYBFou1vZeI+V2nanaRrEHdBcvY/XhqczSUMrcWzobn5Ol8BgkZi2V0dziI14+pUU0h
-	BtXX2TVJdq13XFIl7ANc5rbOFl1hGK9Nh1J7mycMwjd57OTjW/pZVjZynuUAyPsjkO9smF6EsMs
-	vTGNmBonGbJyerXhp0syrlmFNtRSDE0S6mfEMX5ZQmvUJdpOEWey+xzllCZv2IUD4u4xnduoJG2
-	pfhNpnrxyBDVhaLrYxa9pOOZ2kkSMU5QyRjIxP+fuKaU8cX6WhXuW6BX9JmW5rZA7ZC/cm/UIVq
-	5n8qHEYjb72rOgm/d0c2QlZ8mi1jmvnEq5QCOxOXEZgV0iA5vKZq7vHbRFe/nNDg+pSuiAq7y+F
-	8q2UJnCdbrEIcRbHJuVGLsr9ISerXjOPiTQxNJUM9hl3t8yohERWnOl5qpLvXXpWu5iAkipPpQL
-	g/Qjk6Ci3NuLi85aQJswXUQz23TyIJCv+VWMQ8RR4y/x1/0YP4bbVWs4NSJMZAKcH3HqdcL1xcg
-	XHQw6nJr1AhyoikgAMrJs/ZYrY82J8XMwUmv+rGvoBi6EYAuIhnhQ8Z5Wsy3ydNX7qQRX0bHQfd
-	wM65Z64q8shEQJSQjyrJP1aVCo4ZrTsUrcRVQD+r47YdAhhX
-X-Received: by 2002:a17:90b:1a8e:b0:396:4c63:7193 with SMTP id 98e67ed59e1d1-396d0fe45damr27054160a91.11.1788035842198;
-        Sat, 29 Aug 2026 13:37:22 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-398a2f5187fsm1771407a91.1.2026.08.29.13.37.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Aug 2026 13:37:21 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: devicetree@vger.kernel.org
-Cc: Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dennis Gilmore <dennis@ausil.us>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Marvell Kirkwood and Armada 370, 375, 38x,...),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] ARM: dts: helios4: fix spi1 location
-Date: Sat, 29 Aug 2026 13:37:20 -0700
-Message-ID: <20260829203720.44633-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Sat, 29 Aug 2026 20:54:46 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id DBC7DC33D3;
+	Sat, 29 Aug 2026 23:54:40 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro DBC7DC33D3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1788036882;
+	bh=TxrhR97T7Qu7CxRJdAD0MZKCPUClAmAqj06Q+J5Xu1Y=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=kdldWcE8dlEfgLe/HjoUUtiCY30jL3gdhWlgdtcaDJKCjr9EP6UiQxJleWQZA/5hI
+	 SCt3UmCYCrs79bvnXq4KRW69LXvlK16vaFVn1i09B0t20+fBRK07T8gnDRM+KeGxKA
+	 DzFLm2NghgwQwz0PIdGTzwhBmulurcKCX2FjhBCY2GMO4x2S7HtOUBhvCrNcpnkcCz
+	 Y5kDYKmBa8S/DGonlf9wCKyvG4Zi6KV26UAUtpDPYLWRtxkZoil64k5BbfAnV97GBg
+	 pZTSyQAaJ2Kcf+fBp2baPEzPyzOxgkKL6kcMpjdyOdQwhdjD+xHCKq4nSDJtmZ5WCw
+	 ngpxwirHS8wyg==
+Message-ID: <b62d3077f3a3c8a12ac47b8a1e163499e2333b5b.camel@rendec.net>
+Subject: Re: [PATCH v5 1/9] irqchip/imx-irqsteer: Call chained_irq_exit() on
+ the handler error path
+From: Radu Rendec <radu@rendec.net>
+To: Zhipeng.wang_1@oss.nxp.com, Thomas Gleixner <tglx@kernel.org>, Marc
+ Zyngier	 <maz@kernel.org>, Frank Li <Frank.Li@nxp.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	 <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Jindong Yue
+	 <jindong.yue@nxp.com>, xuegang.liu@nxp.com, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Date: Sat, 29 Aug 2026 16:54:39 -0400
+In-Reply-To: <20260821101039.4037925-2-Zhipeng.wang_1@oss.nxp.com>
+References: <20260821101039.4037925-1-Zhipeng.wang_1@oss.nxp.com>
+	 <20260821101039.4037925-2-Zhipeng.wang_1@oss.nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260829_133723_333347_C3CF66EF 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20260829_135445_162631_C015A6EA 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,63 +76,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This spi node is specified in armada-38x.dtsi with proper compatible
-strings whereas they are not present here. Instead of copy and pasting
-various lines, just reference the node in the dtsi.
+On Fri, 2026-08-21 at 19:10 +0900, Zhipeng.wang_1@oss.nxp.com wrote:
+> From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+>=20
+> A chained handler must pair every chained_irq_enter() with a
+> chained_irq_exit() before returning, so that the parent interrupt's flow
+> control is completed (EOI for fasteoi parents, unmask for level-triggered
+> parents). Skipping it leaves the parent interrupt unacknowledged, blockin=
+g
+> further interrupts multiplexed through that line.
+>=20
+> When imx_irqsteer_get_hwirq_base() fails, the handler returned early
+> without calling chained_irq_exit(). Route the error path through the
+> existing chained_irq_exit() so the parent interrupt is always completed
+> before returning.
+>=20
+> Fixes: 28528fca4908 ("irqchip/imx-irqsteer: Add multi output interrupts s=
+upport")
+> Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+> ---
+> =C2=A0drivers/irqchip/irq-imx-irqsteer.c | 3 ++-
+> =C2=A01 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx=
+-irqsteer.c
+> index 87b07f517be3..1b8d0c8eedb9 100644
+> --- a/drivers/irqchip/irq-imx-irqsteer.c
+> +++ b/drivers/irqchip/irq-imx-irqsteer.c
+> @@ -154,7 +154,7 @@ static void imx_irqsteer_irq_handler(struct irq_desc =
+*desc)
+> =C2=A0	if (hwirq < 0) {
+> =C2=A0		pr_warn("%s: unable to get hwirq base for irq %d\n",
+> =C2=A0			__func__, irq);
+> -		return;
+> +		goto out;
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	for (i =3D 0; i < 2; i++, hwirq +=3D 32) {
+> @@ -172,6 +172,7 @@ static void imx_irqsteer_irq_handler(struct irq_desc =
+*desc)
+> =C2=A0			generic_handle_domain_irq(data->domain, pos + hwirq);
+> =C2=A0	}
+> =C2=A0
+> +out:
+> =C2=A0	chained_irq_exit(irq_desc_get_chip(desc), desc);
+> =C2=A0}
+> =C2=A0
+>=20
+> base-commit: bd5f485f3f026225b86573e559af0b7254ef4184
 
-This dts seems to predate the move of spi from internal-regs to the soc
-node so this moves it in line there.
-
-Allows proper probing of SPI at runtime.
-
-Remove the microsom_spi1_cs_pins pinctrl group and its reference in
-&spi1. The group only muxed mpp59 to the "spi1" function, but that
-pin (SPI1 cs0) is already covered by spi1_pins, which selects the
-same function for mpp56-59 in armada-38x.dtsi.
-
-Fixes: ced8025b569e ("ARM: dts: armada388-helios4")
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- .../arm/boot/dts/marvell/armada-388-helios4.dts | 17 ++++++-----------
- 1 file changed, 6 insertions(+), 11 deletions(-)
-
-diff --git a/arch/arm/boot/dts/marvell/armada-388-helios4.dts b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
-index 9de9a8a4267c..ae03d42f92a0 100644
---- a/arch/arm/boot/dts/marvell/armada-388-helios4.dts
-+++ b/arch/arm/boot/dts/marvell/armada-388-helios4.dts
-@@ -254,13 +254,6 @@ sata3: sata-port@1 {
- 				};
- 			};
- 
--			spi@10680 {
--				pinctrl-0 = <&spi1_pins
--					     &microsom_spi1_cs_pins>;
--				pinctrl-names = "default";
--				status = "okay";
--			};
--
- 			sdhci@d8000 {
- 				bus-width = <4>;
- 				cd-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
-@@ -327,11 +320,13 @@ helios_fan2_pins: helios_fan2_pins {
- 					marvell,pins = "mpp48", "mpp55";
- 					marvell,function = "gpio";
- 				};
--				microsom_spi1_cs_pins: spi1-cs-pins {
--					marvell,pins = "mpp59";
--					marvell,function = "spi1";
--				};
- 			};
- 		};
- 	};
- };
-+
-+&spi1 {
-+	pinctrl-0 = <&spi1_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
--- 
-2.55.0
-
+Reviewed-by: Radu Rendec <radu@rendec.net>
 
