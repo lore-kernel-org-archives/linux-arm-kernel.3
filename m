@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 927E8C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 05:58:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ECB8C61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 06:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dkQIWOOSi9dZ5y0ttPxRnwaYK9TXWapOZX1UUbuCJaA=; b=cscjNJNhpOgPfnKBF2atf5Gvly
-	6TpslZfZyfri31NwxLNfhUn74sTJ0uLODATBF27QWO0l9kG/anmq6Dtjr35PA58h1n90OARUpRisY
-	PeKJ0VpnMkCZeCKWxGVv9W4FnS8vEd9D+F6b2tpJfDLpbsrcmFmbd0y6wEvxadGqSFLIAmE8/qZ3Q
-	5TcW+P5FEakx4RysdIdbG27YEXn5alpQdw6JNjLPWPnywndMBFj3IHvvamHZtC+eqdgV1rYwrTYKJ
-	Z+O7fx215Ef5g2PLc1ptrrcFdpUgjbL5ZEd/KHVK1pqWEBmR7gwRF3aEuPnXJTtMGp6jqClCTtkiH
-	Pq/oEQaw==;
+	bh=Gmo29pYEms2+Q4Cr8/V2qBTEL01TPuCLhDnBuX4g4LY=; b=up6rQLwNlMB4ihvAJGWIxqjOWS
+	Xi/5sQtix298RG+9qNyY99DLH3Ew1B1pkAwzClaWU0quIw7L/+1b9saIuHuhjN/G0NiFQn8/ALvhu
+	dsDtQLX9etDq5A+eX65n1BtSilowPg4fOCY/KuB24LoWcf9KevZBuFzu9D2gR6qxUjk4L+ydjKVGq
+	9j14alkUxpWWEnTclzPuWJCXbOMF6wQyKQmoqGGHUKjJEZNr0eT8hZG89o4LVGgeAsxFbX1CBpaMu
+	4rY3WZ2RMhXW/HrWepeu57xvWqIi+MBfwIpS7EBm/5p00yMXOOxma0SxNG29GqnV05ybRaZd+7Ov6
+	VVA+KUzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0C5F-00000006lOZ-2NHz;
-	Sat, 29 Aug 2026 05:58:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x0C9D-00000006lZ6-3oHZ;
+	Sat, 29 Aug 2026 06:02:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0C5E-00000006lOT-2wnr
+	id 1x0C9C-00000006lYo-20RK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 05:58:28 +0000
+	Sat, 29 Aug 2026 06:02:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 73BA843CB0;
-	Sat, 29 Aug 2026 05:58:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AB491F000E9;
-	Sat, 29 Aug 2026 05:58:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DECA342D87;
+	Sat, 29 Aug 2026 06:02:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F2871F000E9;
+	Sat, 29 Aug 2026 06:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787983108;
-	bh=dkQIWOOSi9dZ5y0ttPxRnwaYK9TXWapOZX1UUbuCJaA=;
+	s=k20260515; t=1787983353;
+	bh=Gmo29pYEms2+Q4Cr8/V2qBTEL01TPuCLhDnBuX4g4LY=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=P6DfBeoRGodPEVPTGXHpQLPo5+qSYlVpvByt0WAmHDa7xGmzwW8XdijVdUaKpisvR
-	 BtpDH+snGhdGV7Dnq8/py0ERpsoWERnBogLU2PZAfjyAs1v+MYwYt8aCPkl+DmQfGr
-	 YMYu1esguiJNg0/0AUc1/LxqA8Nzfi/zFq7gIoJA2phUcMfYQEGQ19+5aa4YOsmYA/
-	 Pr21jz/qYDkOhgQQ/5o/EFMk1RLXK8bx0xHc2iIImp69sJRZ1eGAyGJowbi2VUoaje
-	 jXXIIhY+opLNsBol1mq6HpDVHJ09Kg2o17Oi5R+/kZ0mGQpOksDbtoaX1L5NleXqQD
-	 N1HiWIU4/ZDpQ==
+	b=IOq8adNUVKyS9MvFAKnNOl5jXgUJq+rvuPyYjO+aYorZpj3EN4Vw9mQDoN5dJR6+d
+	 i4Xu5zDr/rJVcPD71YaZxI0DnQ+jCNa0fhBHTSlpdWBZmaFhxjWhbHrB8pPfiKltqP
+	 W8IQ46DKkSKT9EDTwUK1dF2nPf+BHR0JYKzWnP5YuERGDe0Sn0kCBLupOQKP5H0Qqc
+	 w8bxHP8hLouUV2LYxk5LZuAlBL6y9W04nltSwEM8KSxSmwZTnV7odvqfvIhVGSgWA2
+	 yEWLz/gN6Gx100DqgoSAJV1WqxWl/Us3Y6JZcUuPP0tAQIjnfEKLPjbM3I7frZBY7g
+	 rUw9Bz1HwsU8w==
 X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
 From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
 To: Jason Gunthorpe <jgg@nvidia.com>
@@ -58,14 +58,14 @@ Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	Steven Price <steven.price@arm.com>,
 	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v9 3/7] firmware: arm_rmm: Move RSI support out of
- arch/arm64
-In-Reply-To: <178794567779.4159892.7755943757427570192.b4-review@b4>
+Subject: Re: [PATCH v9 5/7] virt: coco: arm-cca-guest: Rename TSM report
+ source file
+In-Reply-To: <178794567779.4159892.13554089762527571548.b4-review@b4>
 References: <20260805063255.1638614-1-aneesh.kumar@kernel.org>
- <20260805063255.1638614-4-aneesh.kumar@kernel.org>
- <178794567779.4159892.7755943757427570192.b4-review@b4>
-Date: Sat, 29 Aug 2026 11:28:19 +0530
-Message-ID: <yq5aqzjhtqmc.fsf@kernel.org>
+ <20260805063255.1638614-6-aneesh.kumar@kernel.org>
+ <178794567779.4159892.13554089762527571548.b4-review@b4>
+Date: Sat, 29 Aug 2026 11:32:23 +0530
+Message-ID: <yq5ao6eltqfk.fsf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,49 +84,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Jason Gunthorpe <jgg@nvidia.com> writes:
 
->> The RSI SMCCC function IDs describe a firmware ABI and are not arm64
->> architecture specific definitions. Follow-up changes need to use them from
->> non-arch code, including drivers/firmware/smccc and the Arm CCA guest
->> driver.
+>> The Arm CCA guest driver currently only implements TSM report support, but
+>> follow-up changes will add more TSM-related functionality to the same
+>> module.
 >> 
->> Move the complete Realm Service Interface (RSI) implementation from
->> arch/arm64 to drivers/firmware/arm_rmm. The RSI SMCCC definitions and
->> command helpers are also moved to include/linux so they can be shared by
->> architecture code and firmware or driver code. This also keeps the
->> firmware interface outside architecture code, as requested [1].
->> 
->> [1] https://lore.kernel.org/all/agsNO9cc7H-b0H8L@willie-the-truck
->> 
->> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+>> Rename arm-cca-guest.c to arm-cca.c and build it as an object of the
+>> arm-cca-guest module. This leaves room for the module to grow additional
+>> source files.
 >
-> The sashiko remarks don't look useful
+> That's pretty confusing, the module is called arm-cc-guest.ko but it
+> has host items too?
 >
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> I would have more expected the module to be named arm-cca and this
+> file to be guest and a future file to be host or something like that?
 >
->> [ ... 321 lines skipped ... ]
->> -#include <asm/rsi_smc.h>
->> +#define RSI_PDEV_NAME "arm-cca-dev"
+> It is annoying to change module names but we do it, and I think it
+> should be no problem in this case since there are no users..
 >
-> This name shows up on the smccc bus as a device, '-dev' doesn't seem
-> to make sense as a device name to me, I'd drop it.
+> But maybe this patch should be in another series..
 >
 
-I will drop the -dev from the name. The final name is "arm-rsi"
+We have two modules, arm-cca-guest.ko and arm-cca-host.ko, located in
+their respective directories:
 
->
-> And is this arm-cca or should it be called arm-rsi with a different SMCC device for
-> arm-rmi ?
->
+drivers/virt/coco/arm-cca-guest/
+drivers/virt/coco/arm-cca-host/
 
-We do that in patch 6. This patch deals with only code movement.
-
-+++ b/include/linux/arm-smccc-rsi.h
-@@ -8,6 +8,8 @@
-
- #include <linux/arm-smccc.h>
-
-+#define RSI_DEV_NAME "arm-rsi-dev"
-+
+They also have separate Kconfig symbols, ARM_CCA_GUEST and ARM_CCA_HOST.
 
 -aneesh
 
