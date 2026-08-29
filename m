@@ -4,144 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1F37C61DCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 19:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD34C61DD6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 19:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dC2uPKn7Bz9c3JOaJ4q3xOJQPSlGj7uAtT43qOT5EtM=; b=f+XEMocUmDrccQUFov+EHeN74t
-	MBWghVtRrI6rFq3RqqHoBdlHz9hCh06gj/W+lcBgr4tEFLRVGKNw9fYKa8TH8WxdKQtMlwtwi8aB+
-	Fatbb6dEdPaD0lzYNI8ZYfs4kOmxQy15GdS7YRIVxpLlfgRR/DpM3nTZ+HDXiJaLLOxAfIEbcpyqW
-	BMzVfW9St8OE8LtmfbolXltKMmT3wCpTfIWYficc0/JaB4m2RhniE0j41sblaVWL37Ew7Z5/YpRxF
-	4RG8MGFx/simVraev0buyteSVIFpkvxkcFEQFSbZakeTLizfuLVTJXpK9NonDjWnA4cSjKEnCHwo9
-	jYnCIeoQ==;
+	bh=kvOjP7H743NqEr4+DNIdZ2XfKWZWa+GVyO0tgJcX8hk=; b=FeAZY8sc4qVoHTj0LwkCPnEuTz
+	QamcxHn50D8hph1mo4m9yKcrkQgzrxtqPBxe3jQzamEJBJOSTwTFcKawG5LCTFIhmQWobDN4S7pe8
+	mitr7L+ZSj90QBrYaRs6eNie8YgFzdx5kICbfTbrFf8SghWCHGUZ23aQ/83tLiJ/Uu7FZr0HvdFvY
+	ZwjhB5aDZe8PdJ5A5VOsiHyUacT3dDWzy1Vs/TLP5oyUuVP0TZ7bCj8cz7eEav/VPrEvy7V0f4/tH
+	DdULfWLvTNk78n7rEZp+YZ9hzJK/o3EVe6hwuzLe4ZTXfHImNfhCKC+cm0CNru3Cfqa7wenqKU4G0
+	LMo/E4ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0Oub-00000007G7M-0SJT;
-	Sat, 29 Aug 2026 19:40:21 +0000
+	id 1x0Ous-00000007GF9-1EFz;
+	Sat, 29 Aug 2026 19:40:38 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0OuZ-00000007G65-2HKL
+	id 1x0Ouq-00000007GER-0ecI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 19:40:20 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67TIK0782021085
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 19:40:19 GMT
+	Sat, 29 Aug 2026 19:40:37 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67TGx00o1257806
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 19:40:35 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=dC2uPKn7Bz9c3JOaJ4q3xOJQPSlGj7uAtT4
-	3qOT5EtM=; b=BPBsudnOUJX+AFr950m27W/F0f49ufZHGY5ky5OUJd7wOg+094e
-	hObU4ab9EfnxjPUNAGKKd8k2yAIbwNGRNw8+lJMgbd85J+jNjQRyzmYvqRamXPzt
-	vKX4c/5GDNuREoQ1VW6OBFscl6G3hvuCgQj/qmqKv57FNC5YHtqnPg60lMc1XvuY
-	U7d9cJNiTqc3LjIr9KEVPVXIZowVWE0tpSMlkwgJ1WPMUYaSaYq4IxuBVhHFnpm3
-	IlbUK2J7pYSVJlOO4v5K3ubRsOCtaOlFdCKUty4B6w7e0XFGt6pp8khgZEFktKKB
-	B3YfpOdTvApkurs1fJPoNNyMorSyR8ZS1Jg==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gbr6dsj25-1
+	:subject:to; s=qcppdkim1; bh=kvOjP7H743NqEr4+DNIdZ2XfKWZWa+GVyO0
+	tgJcX8hk=; b=o0OnX38C3k/YvauvfAwK3mb8/dAO63vHnDfQ/LOs1QymM08RY4P
+	Uvag0sK8YMiZcSlDNLDeVj8yIJ0EaAcXFWBo/UY3ev7V6c3XHfqNfKJwwD3cVRJv
+	gIYSxaKih9ukks5co3oFuZiQG2VwmIqVIprkIXOkLQWUDuV8R8hZFfXJuZyCg+dm
+	SNQg4fPrOqCN2acnn81AiAW88TeUpP3te9NZRWmw1mEgUJpNKZ7bPX8og+Fm5gVk
+	zX/WAle14VXy+PLsuhslUanjOz58gUMm6pPCHgdqkS823+v9xbqp0OPNj4DrVxxh
+	pJmLkCFm1Bt5ASnP90g0lWLodu4aO8Vz9Pw==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gbrkgsgsp-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 19:40:19 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-52ce3c7cb2eso43854121cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 12:40:18 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 19:40:35 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-52fb8f67542so29331991cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 12:40:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1788032418; x=1788637218; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1788032434; x=1788637234; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dC2uPKn7Bz9c3JOaJ4q3xOJQPSlGj7uAtT43qOT5EtM=;
-        b=WMId6JZL7O8TQOmoZgqALA04E0n/JuLe0UEQVD1tzTtHfv4siunVTWEpHlpUqRswN9
-         J9ACvES2gqa68unWGj3WmHmFUyCM/h0uoqTVJBZpL7jp4pnRxOoe3Ecyi1dz7AQyBlFw
-         02UuHbdtfcEpNc8TC/OByNvzPDPA865WYE9aTiN+vj+w7fanYjbrvhq59lmjWe/Ke8JO
-         J+Nmt+IkQkho+e/qe8BnRW5Xv2AmSegFBskFZ1xghGUmb9J4L3BjCd0Mn9YRB6sb8/Lf
-         bgi7PzwGWL88Agw2P2MQPpJFIKFxAcoOY3rSCR2wKML8RO7WlQnreGLQzFpvoFDCo1tY
-         jo2Q==
+        bh=kvOjP7H743NqEr4+DNIdZ2XfKWZWa+GVyO0tgJcX8hk=;
+        b=ApfMX3nt8URlBJuPtFeOlBfmWQYvvYCj9i5oVbGGItKoxJxP7aEFRacPgr1+8ZiqDR
+         2+0NIvSCr8AJzIomFRN0U/VGs3aEYW8t5YXWAehdHfZIU+VSiot0+Tp5PsxuPYeMy8Jj
+         iQxdv/bQXtc7/NVtUxhFb2l3N3UCXvxy0NOPx4dsVpUboVGH3AI3XGVfuqAKrq1WTZMJ
+         /4ZZww4c0xPtosD6mPkBntFivhjt5VyG7NH/76832GzBSbZk2TAMDw9sy3ubhn/zfmtv
+         2+pk4OfxkY4zmhGmaWEe0LjjBKEIJ+Bx3za6T8RAOHL51NbifWgK1FxZlsQsL0dU+lCx
+         OV6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788032418; x=1788637218;
+        d=1e100.net; s=20251104; t=1788032434; x=1788637234;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=dC2uPKn7Bz9c3JOaJ4q3xOJQPSlGj7uAtT43qOT5EtM=;
-        b=n5kL9CXFGCMBNpGIHreHBFTUMg51tINFaiM2ZVaagAWOQHgoO5HUgPSDuDX9qWw6ZQ
-         3P1OagXMeNJx5nkrD2qv42sfP/fR/4yNql5t3nU/n8vlXOIOP7I7BWx2SonQR3hbFQke
-         QnbnkgvZe87Q0bNjWsFWLDM4LrW8cSp6OEj6FR9ixHFLAfUNP1cJyYD7GjdMtvumJsmC
-         4sLS74waFpNlIz8UroUk3B4qsBlWwn89ea5u/bRIZel96oVzv/kKDupTf3n/FCe2N7xa
-         cC0SlIplkHtMAfYkPaU9F5iQwZaJuXSoG8uX52KMpN2BAddmFvJ0qq8YeTDCRN9HCKvZ
-         yoow==
-X-Forwarded-Encrypted: i=1; AHgh+RrJ8RXx1UA5VLw7Q98HHWB0/PVGZMi0/Mm+J3aIJdnjM2hriMJcVlYJJMEj0pCbqkwJFJWbie1b/+QgTeZgWvJb@lists.infradead.org
-X-Gm-Message-State: AFuF++mWVR/FTWuKgOVpOOCUUSx+pPfFdzovSYTfwjPLlkxqFmCPesSa
-	8Hej8ay/1AJI76fRLeR2U8S7EVgK8wRyKoo7w5jOBbZtLqVFoGPuJI5/KbO3klGXZMKS/kpF/XV
-	gHABaiTXmsAsomqFAWrgae103f+PKwH/lnNhcbTrBHYO47XWWYlzKn+KKlKnvQ6AjzMn6S6zTZy
-	7z6g==
-X-Gm-Gg: AR+sD10ufV5cbFGKzs2F1/deSKUdvyFjeeR1oYyFHQnMZK/jCm4jde5HDrStTOC9SlX
-	P8gZQtPJ2K0E7B0ZCGRoWlLu+WvxgGymExjj5ZbhvUETFRDbsFYyfrOGyCGhB6ikhSi7wLBXQ0K
-	fEuWsob6WxTe6NrjKiT06ldEHzBn8bnq/5BLYyzpz+FARwSjAkYUQodwJ+hjHFcWOOc8PCzp/NO
-	9DDoYjrNFh4t9/a835ZB6BRrn3Ok2UJB/VVeh4Sv1LoViS1VgdDqr4t+yKiE+nxXosH0pO1YlO3
-	PiAA2T4OWP5kUeiuJbcouFkz2Uc+rGjAnZUTtBHKAAQfY232Zcgfscmt1aKhSXlXiQntvU06wud
-	slje6gSIdXpQ0k8I=
-X-Received: by 2002:ac8:5d48:0:b0:52d:2ddd:27c with SMTP id d75a77b69052e-52fb95f60d6mr206700351cf.31.1788032418184;
-        Sat, 29 Aug 2026 12:40:18 -0700 (PDT)
-X-Received: by 2002:ac8:5d48:0:b0:52d:2ddd:27c with SMTP id d75a77b69052e-52fb95f60d6mr206699991cf.31.1788032417790;
-        Sat, 29 Aug 2026 12:40:17 -0700 (PDT)
+        bh=kvOjP7H743NqEr4+DNIdZ2XfKWZWa+GVyO0tgJcX8hk=;
+        b=oooUxDgfn2MDal2U4o1HANxGI04kOjJMmtcwGFoAUJ2qYVZmAlnKGeDOaj+hIXEMMg
+         BIpRqxl/ei7+kUywCCU3jykLmcgA810IX4CIl8bKmKO8E+imRyyVIs8Of7fNgiEEbsVQ
+         Dp+wjs1O/uHfGI4MLIdXl6RROFtCiV/y4Q4VCpRZjCHbjKOt3WuhD8jM5BNF1xCaJAWm
+         CDZfQNmkpfPAr0/eQVsISM2PmC/zwRh/b2TTTeVTsDqPm7mZB07GtyB+GHxCKFz6wM/G
+         YAJVkCuSuYVWL88vLMLGBV5LbxIb62bWiSRhwYycQ3PjMF9QQDM7e9Gw1H0ajJABB37e
+         +DiQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rpj+doLEXcor7JKjqPrst4wbKXrDIzzu7b69IToeJnyTawXvQZgg3psHamC3eHC7CGtMlGAAb1Dp+tCwFL1OPry@lists.infradead.org
+X-Gm-Message-State: AFuF++m3RQp3tJbYql4XKa5wuGGi5r0yjeKQzr61aDuikQqHiDi5aOb4
+	vUHUP3vyxImf2ZoC/XDX4lpbh/JErDBuw3Nd6C3jTt2yf0ZIuw66guLx3in2kqqm5x8jn6slqyo
+	sj0YJC4a0AJ0PjTppz0kxXikaAlXSP86rXKM1Rh7/zfI3YneD30RVKs0F3wJkdDO55XRWdKbqwD
+	GnUw==
+X-Gm-Gg: AR+sD13EJl9YPDE2PJhE1/pEDoLOQjuYRPChjdHzj23Z2ful3RzTP6ThSTpQETx4BRV
+	bnzlRnCPoBce96gpENIK57rAKosKzz9MWTS3XLwQaUDNRWk61ei8nX5Lj4q/b/DR/P2qfYom1eg
+	AAIS2qMTalYkDVIhy96HWFL/OvKUwiQonqk3n0UsZIwXB2sf8xnY5vDltR1BEBaiqSnDy9DZn+X
+	pXUVQeoXIaqgOBA0IvlmhBOKUBaq6yo3EGe7QSBpyFPDcrOVnrt8EeDXrzjILxcMumlZOaY3JcK
+	DJZJysaCVIX2QbXIgBmh15NHSG/kcXJF69Aj+UU70UcygWJBO3x3oskiA7etnrvvLA1VBl8iMn1
+	D09A0sKVY0JTXwnU=
+X-Received: by 2002:a05:622a:146:b0:52f:4a76:750d with SMTP id d75a77b69052e-52fb93ac5dbmr196756811cf.9.1788032434419;
+        Sat, 29 Aug 2026 12:40:34 -0700 (PDT)
+X-Received: by 2002:a05:622a:146:b0:52f:4a76:750d with SMTP id d75a77b69052e-52fb93ac5dbmr196756391cf.9.1788032433933;
+        Sat, 29 Aug 2026 12:40:33 -0700 (PDT)
 Received: from quoll ([178.197.219.214])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b95013d06sm212416845e9.12.2026.08.29.12.40.16
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b961820ffsm65736555e9.3.2026.08.29.12.40.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Aug 2026 12:40:17 -0700 (PDT)
+        Sat, 29 Aug 2026 12:40:33 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+        Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH] ARM: dts: rockchip: rk3229-xms6: Replace spaces indentation with tabs
-Date: Sat, 29 Aug 2026 21:40:13 +0200
-Message-ID: <20260829194012.107758-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 1/2] ARM: dts: nxp: imx: Replace spaces indentation with tabs
+Date: Sat, 29 Aug 2026 21:40:23 +0200
+Message-ID: <20260829194022.107807-3-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1174; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=PYY9YRoXwVt9ZtCr2VOyzXNfCWWVJTDZHV8PRm29vsU=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqkzWcMqWLs/zgfHWLjLhZJLNAx4ncT4EVpq9rf
- nxmpuXChd2JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCapM1nAAKCRDBN2bmhouD
- 1/BQD/4sChCgMTqvyxUFlH7n+eaT665GUPdiOe+/Fi6nOuSPR9nbymJM05DyfaeVmG2KN+h7GA2
- APORSPp0WD+fzr4cP3LUEPvHvMGXfDH09KmavTDHJvOtqQ7RbiI740fKMMfC8SrY2T84s+SPN2/
- DCs8Och04ySRJE4NjOaMBCX7axazvucNs7G1Nk6lHemzNEKM9IbOM1Q7dpl3u0RMd+UUf+M5kCp
- RfHbpvhjQ8gAuqrKlJrwruhT+EdpWa3will89qC+GWjF62vMZxlyZzHxnUFGjIzUAIxdIhi0kkG
- VmMbzbAsmeo0CivgbQz0j3XSUzR2BucPg6ahSjyR4/ZQLR6D2K4kT/XWEool9WrCK4WQo1fEm/3
- Q0sdMLTKxyXcMXMc0Ps7oKmMX3S3nN4+ZVjfri59POt2xMugbofUaAeQzuIjiwqh8dt5WdfC0G8
- vIjKE8aO4UnhLgDKJ5lE+0cIS3VGJbeCOXrvPtLt1z8zg7zjX7kzecgJhWJpIIoonVvVcVIyrp7
- LfC/ZxdcdL5dPVtFWlPKViMfT+E6p2Tg/Ev3qWqEQn4BsJT+Z88f3l76RG0+OUKcbSaZhSwPaM2
- wGBGGi083TilyFXrDjR+c0mq6Mbbn4b5FmIYIdxjeR8McUVQhu82WG1s+RbfidzXTp5htwhy+Hh QepFMOx0wX6md3w==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6505; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=u03xzcwD9ylZspI7+JnMXgsKtYsbVRW1UUGcA7cj1zA=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqkzWm47kpW3I2D3DFQCFh0xyI6sC8Y++0QyaJz
+ MjhKolpPECJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCapM1pgAKCRDBN2bmhouD
+ 19TLD/9hX0jXvuLMesQaoPepH+K53m7ssZ4nXxxQIAkighkylKAbJ+C+2u0UN05vfO39WLiNQLS
+ 3zZoKNKvxgHBgLsd8Hkh2HL1AGtmwWLmC5GV4IgqWp11IIqzGuZmFpmD1ha4UF4yXWoO2W3cjoM
+ TWoXUcvnHTeh3lBWFZSdGr+G4nKsSyxmmfdzLC0+zVj40kXdhSHwkHpYjmV3oSZu+8GICER7N6q
+ sV2cezGc78PXyF3UzOSrhZSwhc4rY35+881J7VbsFXCc7+O5RoOi1bIZo5pU0g2SwFM3kR+J4oJ
+ 47kqLnD6XCaxxkujBO32iuxpSfx3ayp4F6lhQamXUnOf6zSylmHPlvyUv7lkC+OKtAA0CgIMYXH
+ GWoVzFp6cZoaxd9LAHkRl9hBtpTkoGZZUqbJME5JLqWUTCvZFxbS5TVaS/i8N09+MZIIJEFvU0+
+ tiChhGsiI2HFF6eAP/zz+fI+HAVOu60Jkl04slTTVFMAZ/wSffA/SI7dJmc8S2nHg8SiXH2lmKb
+ Q7X1HHVXZU5VbmfjFf7ob8mBcFc7CaCpCUVnxpC+0TuhXVD4Td3I4IL8Hp81UH8PqgAQOGucsMH
+ rrozQVa/Tc6KMh+Og+Z4/SVFhSO8d4kKtSrgW4NbR5ht2U6B9+vrplHXZukFgtFwN3vOWVtdQni iS3Y3vjwa0CV75w==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI5MDE3MCBTYWx0ZWRfX0uFh+domMGb2
- V+GC5tpgdZpZfccH4wSv2XQcZROCWURbRkL85aX7kRR1Y1pxDbGuS7eaDg83a+/NKXHNIWBlqQk
- WjVoqIGliosDh1iGndGfMHbLNLEep8ORQsafGipaljeCESTV6Q5fhmtpNLUT153WUC4k7HJVEmx
- ksHe6777psesjWr1j4MEgf8gDk+ilH2v8N9R8iwUkDfjHGhxhVRg79IeYAqV0Sm05W8sUBtKbbD
- A7Y+0Vuj4xw/LMwwKrr50fKuwMfzXH9sDbbrCae+DkR+jPcEJIwyBfdllLHk1IesjPEMGBCFzQN
- x6kU2tQqyKQAH/XifhuRoVrtqtxEF8x7ZNG3FdbIfnNEZbpqDUdnRqHILgU8y0zWBH/Od0AeYRc
- 0gNe2V2HQ3jHhamLrs/24e/sOgutLMy0G8yZz+gJ8dSb+AcZFD8jOK5DVh+cPO6/gNB27uYWKvg
- xDrSLhDrzZdNWfnhOaQ==
-X-Proofpoint-GUID: FqBNt_02I-7A7TZ9oozyCwWfy-lrZUXL
-X-Authority-Analysis: v=2.4 cv=Zakt8MVA c=1 sm=1 tr=0 ts=6a9335a3 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=+bKQE0WJfmhK2875HamI0Q==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODI5MDE3MCBTYWx0ZWRfX0xoiH5IOs1t5
+ lTCROZm2bEuDOcouklbUxruCaahHXlqWYu/MtyMpjawZpbvB5SYGdFFzmctZhSWTqYV0jkxRLLM
+ D7VOfQRiWv3OPGKOjv9okmwHwmK2dlB2lvrUFmTTuFU/MAK3c3y+3U837w8DjrZxihJewfUZe1h
+ IMaZ30EP6TFEb2Ynan/FCq2tbiMnFFN98GfuUuVY+8faOUFJCxjeDW4B61Q1oyQ7EtwVaBaSdTF
+ SiBMh12kVNa+abQzjN7xKfxjNv88s1v1DlDgaBWKWbvLzRnSAWdqlY9WGetvJuxpV8XFqHxSf9T
+ wamEOOMCuSAaxDRmlPpz4wkS+lqqkxzMmfIEBk5GE+wOio/0ydoy6Z9JI1ysu+4UU38DcWDV82O
+ g385lLe/mZSs6gQQQlXr2drvPTLPlZV1AnU36e3Zl8Uo5pLvDzLHEYE6+W5+Hw6xG6zsYmQlsj5
+ vG7q74hQd7b3gtSs02A==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODI5MDE3MCBTYWx0ZWRfX6ql+Sg0Q+nl+
+ Brgz+DmFhqbKcu08O2txxDpzFONqH1maChzfaggs/24+KjrE60PASAFJSQws5yb/wLRR9/uVspi
+ KK2K41k31ja8+GxZjYUci+SkkEc/ra8=
+X-Proofpoint-ORIG-GUID: 4Eze_YYiPGTqYZPADh_FiyhTWmgInlNG
+X-Authority-Analysis: v=2.4 cv=Cr6PtH4D c=1 sm=1 tr=0 ts=6a9335b3 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=+bKQE0WJfmhK2875HamI0Q==:17
  a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8
- a=Ta6ShJ3tCWu1s0TIFCkA:9 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODI5MDE3MCBTYWx0ZWRfX+q9bq72E6PbG
- VpNTXqcTx2W1cgGep7HdHVGWIvb+ExOrMRtkA0OTJPnNLDGLeB8e87O7aHyTUVX1JYPRFV+t2x1
- qKnkH2NNde+z6qcOML/xNd7xCW1pRfI=
-X-Proofpoint-ORIG-GUID: FqBNt_02I-7A7TZ9oozyCwWfy-lrZUXL
+ a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=EUspDBNiAAAA:8
+ a=RjE-yO3A8T5mLwkRmZoA:9 a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-GUID: 4Eze_YYiPGTqYZPADh_FiyhTWmgInlNG
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-29_05,2026-08-27_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 phishscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
- suspectscore=0 lowpriorityscore=0 clxscore=1015 spamscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608290170
+ impostorscore=0 spamscore=0 phishscore=0 bulkscore=0 adultscore=0
+ malwarescore=0 clxscore=1015 priorityscore=1501 lowpriorityscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608290170
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260829_124019_583708_15261FE7 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20260829_124036_217954_8DA07878 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,33 +164,159 @@ Replace excessive spaces for aligning indentation into tabs.  This will
 be reported by dt-style-check ("[mixed-indent-chars] too many space
 characters in indent (more than 7)").
 
+Also two GPIO values should be really separate <> entries.
+
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- arch/arm/boot/dts/rockchip/rk3229-xms6.dts | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts   |  2 +-
+ arch/arm/boot/dts/nxp/imx/imx6dl-prtvt7.dts   |  2 +-
+ arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts   |  2 +-
+ arch/arm/boot/dts/nxp/imx/imx6qdl-gw560x.dtsi | 20 +++++++++----------
+ .../boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi    |  2 +-
+ .../boot/dts/nxp/imx/imx6qdl-zii-rdu2.dtsi    | 10 +++++-----
+ arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi        | 10 +++++-----
+ 7 files changed, 24 insertions(+), 24 deletions(-)
 
-diff --git a/arch/arm/boot/dts/rockchip/rk3229-xms6.dts b/arch/arm/boot/dts/rockchip/rk3229-xms6.dts
-index 28333449c43a..6fd3e61c89af 100644
---- a/arch/arm/boot/dts/rockchip/rk3229-xms6.dts
-+++ b/arch/arm/boot/dts/rockchip/rk3229-xms6.dts
-@@ -48,7 +48,7 @@ blue_led: led-0 {
- 	sdio_pwrseq: sdio-pwrseq {
- 		compatible = "mmc-pwrseq-simple";
- 		reset-gpios = <&gpio2 26 GPIO_ACTIVE_LOW>,
--		              <&gpio2 29 GPIO_ACTIVE_LOW>;
-+			      <&gpio2 29 GPIO_ACTIVE_LOW>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts
+index 635c5a1e1fc7..e3496ea9643d 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6dl-plym2m.dts
+@@ -155,7 +155,7 @@ alert {
+ 	touchscreen {
+ 		compatible = "resistive-adc-touch";
+ 		io-channels = <&adc_ts 1>, <&adc_ts 3>, <&adc_ts 4>,
+-                              <&adc_ts 5>;
++			      <&adc_ts 5>;
+ 		io-channel-names = "y", "z1", "z2", "x";
+ 		touchscreen-min-pressure = <64687>;
+ 		touchscreen-inverted-x;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-prtvt7.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-prtvt7.dts
+index 353f7097cb7e..09381dc980b2 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6dl-prtvt7.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6dl-prtvt7.dts
+@@ -288,7 +288,7 @@ alert {
+ 	touchscreen {
+ 		compatible = "resistive-adc-touch";
+ 		io-channels = <&adc_ts 1>, <&adc_ts 3>, <&adc_ts 4>,
+-                              <&adc_ts 5>;
++			      <&adc_ts 5>;
+ 		io-channel-names = "y", "z1", "z2", "x";
+ 		touchscreen-min-pressure = <64687>;
+ 		touchscreen-x-plate-ohms = <300>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts
+index 18019a6bb3af..f874b2b11114 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6dl-victgo.dts
+@@ -116,7 +116,7 @@ alert {
+ 	touchscreen {
+ 		compatible = "resistive-adc-touch";
+ 		io-channels = <&adc_ts 1>, <&adc_ts 3>, <&adc_ts 4>,
+-                              <&adc_ts 5>;
++			      <&adc_ts 5>;
+ 		io-channel-names = "y", "z1", "z2", "x";
+ 		touchscreen-min-pressure = <64687>;
+ 		touchscreen-inverted-y;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw560x.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw560x.dtsi
+index e9d5bbb43145..57f1583c74fb 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw560x.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw560x.dtsi
+@@ -418,16 +418,16 @@ tca8418: keypad@34 {
+ 		reg = <0x34>;
+ 		interrupt-parent = <&gpio5>;
+ 		interrupts = <11 IRQ_TYPE_EDGE_FALLING>;
+-		linux,keymap = < MATRIX_KEY(0x00, 0x01, BTN_0)
+-			         MATRIX_KEY(0x00, 0x00, BTN_1)
+-			         MATRIX_KEY(0x01, 0x01, BTN_2)
+-			         MATRIX_KEY(0x01, 0x00, BTN_3)
+-			         MATRIX_KEY(0x02, 0x00, BTN_4)
+-			         MATRIX_KEY(0x00, 0x03, BTN_5)
+-			         MATRIX_KEY(0x00, 0x02, BTN_6)
+-			         MATRIX_KEY(0x01, 0x03, BTN_7)
+-			         MATRIX_KEY(0x01, 0x02, BTN_8)
+-			         MATRIX_KEY(0x02, 0x02, BTN_9)
++		linux,keymap = <MATRIX_KEY(0x00, 0x01, BTN_0)
++				MATRIX_KEY(0x00, 0x00, BTN_1)
++				MATRIX_KEY(0x01, 0x01, BTN_2)
++				MATRIX_KEY(0x01, 0x00, BTN_3)
++				MATRIX_KEY(0x02, 0x00, BTN_4)
++				MATRIX_KEY(0x00, 0x03, BTN_5)
++				MATRIX_KEY(0x00, 0x02, BTN_6)
++				MATRIX_KEY(0x01, 0x03, BTN_7)
++				MATRIX_KEY(0x01, 0x02, BTN_8)
++				MATRIX_KEY(0x02, 0x02, BTN_9)
+ 		>;
+ 		keypad,num-rows = <4>;
+ 		keypad,num-columns = <4>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
+index e2631db798a8..27a73a3361ae 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-skov-cpu.dtsi
+@@ -28,7 +28,7 @@ aliases {
+ 	iio-hwmon {
+ 		compatible = "iio-hwmon";
+ 		io-channels = <&adc 0>, /* 24V */
+-		              <&adc 1>; /* temperature */
++			      <&adc 1>; /* temperature */
  	};
  
- 	vcc_host: regulator-vcc-host {
-@@ -163,7 +163,7 @@ mdio {
+ 	leds {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-zii-rdu2.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-zii-rdu2.dtsi
+index 9ff183e4e069..601733c3c2a9 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-zii-rdu2.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-zii-rdu2.dtsi
+@@ -22,8 +22,8 @@ mdio1: mdio {
+ 		#size-cells = <0>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_mdio1>;
+-		gpios = <&gpio6 5 GPIO_ACTIVE_HIGH
+-		         &gpio6 4 GPIO_ACTIVE_HIGH>;
++		gpios = <&gpio6 5 GPIO_ACTIVE_HIGH>,
++			<&gpio6 4 GPIO_ACTIVE_HIGH>;
  
  		phy: ethernet-phy@0 {
- 			compatible = "ethernet-phy-id1234.d400",
--			             "ethernet-phy-ieee802.3-c22";
-+				     "ethernet-phy-ieee802.3-c22";
- 			reg = <0>;
- 			clocks = <&cru SCLK_MAC_PHY>;
- 			phy-is-integrated;
+ 			pinctrl-0 = <&pinctrl_rmii_phy_irq>;
+@@ -218,9 +218,9 @@ edp_refclk: edp-refclk {
+ 
+ &clks {
+ 	assigned-clocks = <&clks IMX6QDL_CLK_LDB_DI0_SEL>,
+-	                  <&clks IMX6QDL_CLK_LDB_DI1_SEL>;
++			  <&clks IMX6QDL_CLK_LDB_DI1_SEL>;
+ 	assigned-clock-parents = <&clks IMX6QDL_CLK_PLL5_VIDEO_DIV>,
+-	                         <&clks IMX6QDL_CLK_PLL5_VIDEO_DIV>;
++				 <&clks IMX6QDL_CLK_PLL5_VIDEO_DIV>;
+ };
+ 
+ &cpu0 {
+@@ -629,7 +629,7 @@ reg_5p0v_user_usb: charger@32 {
+ 		pinctrl-0 = <&pinctrl_ucs1002_pins>;
+ 		reg = <0x32>;
+ 		interrupts-extended = <&gpio5 2 IRQ_TYPE_EDGE_BOTH>,
+-		                      <&gpio3 21 IRQ_TYPE_EDGE_FALLING>;
++				      <&gpio3 21 IRQ_TYPE_EDGE_FALLING>;
+ 		interrupt-names = "a_det", "alert";
+ 	};
+ 
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
+index 9438862b9927..86c4f7e010d0 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
+@@ -924,11 +924,11 @@ pd_pu: power-domain@1 {
+ 						#power-domain-cells = <0>;
+ 						power-supply = <&reg_pu>;
+ 						clocks = <&clks IMX6QDL_CLK_GPU3D_CORE>,
+-						         <&clks IMX6QDL_CLK_GPU3D_SHADER>,
+-						         <&clks IMX6QDL_CLK_GPU2D_CORE>,
+-						         <&clks IMX6QDL_CLK_GPU2D_AXI>,
+-						         <&clks IMX6QDL_CLK_OPENVG_AXI>,
+-						         <&clks IMX6QDL_CLK_VPU_AXI>;
++							 <&clks IMX6QDL_CLK_GPU3D_SHADER>,
++							 <&clks IMX6QDL_CLK_GPU2D_CORE>,
++							 <&clks IMX6QDL_CLK_GPU2D_AXI>,
++							 <&clks IMX6QDL_CLK_OPENVG_AXI>,
++							 <&clks IMX6QDL_CLK_VPU_AXI>;
+ 					};
+ 				};
+ 			};
 -- 
 2.53.0
 
