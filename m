@@ -4,68 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E90C61DBE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 03:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43267C61DC4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 03:59:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G+DFEwPW8Im+ezJj5wz5E1vUVtiDguw/7elphsJ4xvM=; b=U/wKe1kLJ3KT10gDbvqT2TwNQE
-	qOXgmmW4+QllL4i1zmstzbk3gFls/bKVtkhlPvMLRJKnGizPhcvxsJI8K2I+dgpFBMn5vAO1Krp+1
-	BPRUCFHXNIcXIDM3oFWVn+ik0ldmiipdrhd6zrIMlP6xCjNTmDMxRMRm6h4fPbBNSfC0PvZJQMPlU
-	FoGxXDW/Pm0Cns3Z8q2Lj78sYP/G7tRhTk65w/KFqPCStekfaQZS+o+Z4NxI03H1gjVdFBnr1QrcC
-	ppSmdS8cibJ1j7cw/sh/vab+ykLrNRXwmUJUF5+kgHgfaJRCtsswcDAptgHFPbhdy4xg4lX4f2nUB
-	41UPeaDw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TUlNGUgQY5khe/spcmDkrmv1B33pEeDXrJ5iK2i5+wc=; b=1UELzFIC+SaH62DgYYAEmYrHlk
+	g42ALDhLjhUca9VzlC8Wmu2uIC213oN/flakeri9Bmx/8SnrCeq9exLHPMq3bdaFS69ng1hAtM8p5
+	RKw/nrqVahSZ62i0nwgwHnMYkmDigPk6at3gCbGoSD4+kuWT+BEQQGjEasvGdnxzxflZc9QYRrzWM
+	y91hiWgD3HAlWrGz6hY3R7STBsdAR06CEDqnHrIGHSF9Mt37nu2DNfdq6Va0R91gCTiWEnCk1qX9p
+	MEP5wt3VgrQCdAfwrhgPqKiZZJvsf7aPjOj7GAiQK26ic5NEv4J7rjdGJFes9L3CbjvE5jdQlbR9o
+	9IimpzWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0A2M-00000006gvl-2gLE;
-	Sat, 29 Aug 2026 03:47:22 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1x0AEO-00000006hT7-2zyG;
+	Sat, 29 Aug 2026 03:59:48 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0A2K-00000006guv-1y7M
+	id 1x0AEM-00000006hSm-0znI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 03:47:22 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=G+DFEwPW8Im+ezJj5wz5E1vUVtiDguw/7elphsJ4xvM=;
-	b=ZLBpUfycThN88M0gmAD+1wOsumAcK0jQsqg2e8OfPg3ocssj6hEfswPh6xPneaqDKgwHQdGS4
-	OD8nvbzn5KIgQzlW/nSpzJ/6NL6NIrRmZvkstJeTLCxlcbCYILT8TM2dSDvFxVijKANK9Dd1T38
-	rlDukAOeDUWxkoGXXeqh7Mw=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hX1Bg2wv1zmV7C;
-	Sat, 29 Aug 2026 11:36:27 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id E99694057A;
-	Sat, 29 Aug 2026 11:47:14 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 29 Aug 2026 11:47:14 +0800
-Message-ID: <2e1853fc-93ca-4a16-9056-57725b6327b5@huawei.com>
-Date: Sat, 29 Aug 2026 11:47:13 +0800
+	Sat, 29 Aug 2026 03:59:47 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-49b0d8bc2aaso14679785e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Aug 2026 20:59:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787975984; x=1788580784; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TUlNGUgQY5khe/spcmDkrmv1B33pEeDXrJ5iK2i5+wc=;
+        b=hkDPlVRzUjjQoFzVTyb9XxS/dUbGhg0BkHlV5t7IDOclYxW0bhd3v6pZav5Gi2Kd8+
+         lAthBmkBzkBfCPQbpl5Su+qJHE55HkomWiYcS6yCyHXsCHq8jeeOSG4DSpmSDhNZqo78
+         eBx/B6oYYNQuPrXo9Wxw4d24v8pSijgL1AJw97XeJ1pU10/QmXXYJ5lB6EE8ywuxUxTy
+         KaXExfdLY2R6ihJAiPCD/c/UKNroeBSxkDAl2RzfjILESEcd/t+A/djxS4GEVgU/QLE3
+         w0HeHrxsyL/l5aJI5gJxiduKti/cFHHYOF3ZQGvUd/qOSNvkKma/IT+XqtzD78No/gGM
+         lYSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787975984; x=1788580784;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TUlNGUgQY5khe/spcmDkrmv1B33pEeDXrJ5iK2i5+wc=;
+        b=Q5YFDXuSZRLRL+YIIHHQHR3cIs1sPRcWK47Hv1bJiGOiW3iPpm/vbqmSLBKsH8XEWm
+         dO0CWtClySbXoisFwgD2wtx9kd6BrN9IXwdW+/c84dxzlJ50cF2sJFZsR9Mmh/aDQErG
+         Dga/DFnhjqXOTaBAoAkp9E230aep2X5zmj+GC546BOsxcD2VZEaNKRxzXbbsAEk1dn9U
+         uLJ29ysJniquLpRlfc2PhTlxApBNm8wT6JBLnVKr/FgGnvmmrmI6bHRqVCuVcEwQunk5
+         ls7zYhkDGoDOPY0gUgPelyyTzCOKGkYRdZ9c0+komZDbzRo+3CfCAIdrObF4QNRkAAfp
+         5MYg==
+X-Forwarded-Encrypted: i=1; AHgh+RqFnxbrHl7sbuoJjlOKUtnvu0wzHalkAHgLs+gWxqTHb+agLtbbsYpwlf96yJghSy1yiVaQBfpD3JKZQDQK4pDp@lists.infradead.org
+X-Gm-Message-State: AFuF++lsJJpTtlsbffElpETH9BQyoxJWxI4v0cjps5G83QRqbiORHsVR
+	xbaOIFgt7N1YRFG4Nk0uyr0lV7BPgnvJRJ8kL6lKLMxxHn0WpLRLq6MTcsLd/qyA
+X-Gm-Gg: AR+sD12IfVas7KXwgzlF9LKhVbWD9QpGRlR6fu7wMs7bJn2Kg/VrNd6jG4+SsJN54Qu
+	yhDlc0TJUWHRjBu++zmFJUw9AQJ6fDw70xVddk1CmuqI+KVnD1tbXKq9fhp9Ix32UulDMo730wH
+	rhE6/XmBD5q83vdBguKz0G4XUV8gwQfBGPZFeATYOqJZ6/2XLPqBPHCzB6a4nArtt1H40NPmIe2
+	pk0Lx84SUaHOOHS3yJalrraXCUHtniAQWMpWYgDhsh8o52rbxYiKYgyV2FmNcMKe9Q3GNUyCaU0
+	/qLh0PpfHswu94R/bGZna0F3NXnWdfG35cUq+7DVOJtiIN7eGke1KmM0nbi3jqr+SSKjLmxBQVC
+	WoQYoBZPvo0JIPmjs72kXhFKxPN4qpfq+VCKlyuJAWJMK5UWGpdZSFmRGGt9Uej3pGcJtz0E4LL
+	lyzvdoTLqCCeXcMArsPPLn4OlzVsVbE9kYKocJFf1yOUEHCk7P2Yd0e/NSpEdnX8UpjUPU35/oA
+	lr8WEojDs3C7hONvW7eAC0EE0illLEwOHRTnDEmkpw5EpykxEc3RQZPhYxWgCylOXMJ4Lt8oVX4
+	N3HODN6pXISoX1YAk7Ek
+X-Received: by 2002:a05:600c:1c0a:b0:499:51f0:a9b2 with SMTP id 5b1f17b1804b1-49b91c1dd3fmr176903705e9.1.1787975983850;
+        Fri, 28 Aug 2026 20:59:43 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-077-007-015-136.77.7.pool.telefonica.de. [77.7.15.136])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b94dd2517sm100738355e9.7.2026.08.28.20.59.42
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 28 Aug 2026 20:59:43 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Pramod Gurav <pramod.gurav@smartplayin.com>,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] crypto: atmel-tdes - zero-initialize device state
+Date: Sat, 29 Aug 2026 05:58:21 +0200
+Message-Id: <20260829035821.67220-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 38/45] arm64: smp: Abstract SGI and LPI operations
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-39-vladimir.murzin@arm.com>
- <290a5478-5415-4b0d-a790-79fa7e430888@huawei.com>
-In-Reply-To: <290a5478-5415-4b0d-a790-79fa7e430888@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260828_204720_889687_0FBD6E2A 
-X-CRM114-Status: GOOD (  28.16  )
+X-CRM114-CacheID: sfid-20260828_205946_334927_651C9E92 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,493 +104,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Commit c659d07f11a3 ("crypto: atmel-tdes - Switch to managed version of
+kzalloc") accidentally replaced kzalloc() with devm_kmalloc(), so the
+device state is no longer zeroed.
 
+atmel_tdes_hw_init() tests dd->flags during probe: a stale TDES_FLAGS_INIT
+skips the hardware reset, and a stale TDES_FLAGS_BUSY makes
+atmel_tdes_handle_queue() treat the engine as permanently busy, leaving
+every request queued and never dispatched.
 
-在 2026/8/13 16:01, Jinjie Ruan 写道:
-> 
-> 
-> 在 2026/7/28 0:34, Vladimir Murzin 写道:
->> SGI and LPI backed IPIs require different setup, enable, disable and
->> send operations. These differences are currently handled by repeatedly
->> checking percpu_ipi_descs. As the implementation specific logic grows,
->> these checks make the common IPI code increasingly difficult to
->> follow.
->>
->> Introduce an operations structure for each implementation to
->> encapsulate the specific of SGI and LPI handling, leaving the common
->> IPI paths generic.
->>
->> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->> ---
->>  arch/arm64/kernel/smp.c | 163 +++++++++++++++++++++++++---------------
->>  1 file changed, 101 insertions(+), 62 deletions(-)
-> 
-> Hi, Vladimir,
-> 
-> I believe that the modifications here do not need to be so extensive. By
-> maintaining the order of the related function definitions consistent
-> with the original, the changes can be reduced to only 126 lines, and the
-> modifications will be easier to review.
+Seen on a SAM9X75 Curiosity: the first TDES request after boot never
+completes and the TDES interrupt count stays at zero, while the AES and
+SHA engines on the same SoC work normally.
 
-Hi, Vladimir,
+Switch to devm_kzalloc(), matching the Atmel AES and SHA drivers.
 
-What do you think?
+Fixes: c659d07f11a3 ("crypto: atmel-tdes - Switch to managed version of kzalloc")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+ drivers/crypto/atmel-tdes.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> 
-> arch/arm64/kernel/smp.c | 126
-> +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------------------------------------
->  1 file changed, 81 insertions(+), 45 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 534fc58df62a..b6b020118712 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -75,11 +75,18 @@ static DEFINE_PER_CPU_READ_MOSTLY(struct ipi_descs,
-> pcpu_ipi_desc);
-> 
->  #define get_ipi_desc(__cpu, __ipi) (per_cpu_ptr(&pcpu_ipi_desc,
-> __cpu)->descs[__ipi])
-> 
-> -static bool percpu_ipi_descs __ro_after_init;
-> +struct ipi_irq_ops {
-> +       void (*setup)(int ipi, int ncpus);
-> +       void (*enable)(int cpu, int ipi);
-> +       void (*disable)(int cpu, int ipi);
-> +       void (*send)(const cpumask_t *mask, unsigned int nr);
-> +};
-> +
-> +static const struct ipi_irq_ops *ipi_ops __ro_after_init;
-> 
->  static bool crash_stop;
-> 
-> -static void ipi_setup(int cpu);
-> +static void ipi_enable(int cpu);
-> 
->  #ifdef CONFIG_HOTPLUG_CPU
->  static void ipi_teardown(int cpu);
-> @@ -240,7 +247,7 @@ asmlinkage notrace void secondary_start_kernel(void)
->          */
->         notify_cpu_starting(cpu);
-> 
-> -       ipi_setup(cpu);
-> +       ipi_enable(cpu);
-> 
->         numa_add_cpu(cpu);
-> 
-> @@ -916,13 +923,7 @@ static void __noreturn ipi_cpu_crash_stop(unsigned
-> int cpu, struct pt_regs *regs
-> 
->  static void arm64_send_ipi(const cpumask_t *mask, unsigned int nr)
->  {
-> -       unsigned int cpu;
-> -
-> -       if (!percpu_ipi_descs)
-> -               __ipi_send_mask(get_ipi_desc(0, nr), mask);
-> -       else
-> -               for_each_cpu(cpu, mask)
-> -                       __ipi_send_single(get_ipi_desc(cpu, nr), cpu);
-> +       ipi_ops->send(mask, nr);
->  }
-> 
->  static void arm64_backtrace_ipi(cpumask_t *mask)
-> @@ -1048,25 +1049,15 @@ static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
->         }
->  }
-> 
-> -static void ipi_setup(int cpu)
-> +static void ipi_enable(int cpu)
->  {
->         int i;
-> 
->         if (WARN_ON_ONCE(!ipi_irq_base))
->                 return;
-> 
-> -       for (i = 0; i < nr_ipi; i++) {
-> -               if (!percpu_ipi_descs) {
-> -                       if (ipi_should_be_nmi(i)) {
-> -                               prepare_percpu_nmi(ipi_irq_base + i);
-> -                               enable_percpu_nmi(ipi_irq_base + i, 0);
-> -                       } else {
-> -                               enable_percpu_irq(ipi_irq_base + i, 0);
-> -                       }
-> -               } else {
-> -                       enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
-> -               }
-> -       }
-> +       for (i = 0; i < nr_ipi; i++)
-> +               ipi_ops->enable(cpu, i);
->  }
-> 
->  #ifdef CONFIG_HOTPLUG_CPU
-> @@ -1077,25 +1068,18 @@ static void ipi_teardown(int cpu)
->         if (WARN_ON_ONCE(!ipi_irq_base))
->                 return;
-> 
-> -       for (i = 0; i < nr_ipi; i++) {
-> -               if (!percpu_ipi_descs) {
-> -                       if (ipi_should_be_nmi(i)) {
-> -                               disable_percpu_nmi(ipi_irq_base + i);
-> -                               teardown_percpu_nmi(ipi_irq_base + i);
-> -                       } else {
-> -                               disable_percpu_irq(ipi_irq_base + i);
-> -                       }
-> -               } else {
-> -                       disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
-> -               }
-> -       }
-> +       for (i = 0; i < nr_ipi; i++)
-> +               ipi_ops->disable(cpu, i);
->  }
->  #endif
-> 
-> -static void ipi_setup_sgi(int ipi)
-> +static void ipi_sgi_setup(int ipi, int ncpus)
->  {
->         int err, irq, cpu;
-> 
-> +       if (WARN_ON_ONCE(ncpus))
-> +               return;
-> +
->         irq = ipi_irq_base + ipi;
-> 
->         if (ipi_should_be_nmi(ipi)) {
-> @@ -1112,7 +1096,39 @@ static void ipi_setup_sgi(int ipi)
->         irq_set_status_flags(irq, IRQ_HIDDEN);
->  }
-> 
-> -static void ipi_setup_lpi(int ipi, int ncpus)
-> +static void ipi_sgi_enable(int cpu, int ipi)
-> +{
-> +       if (ipi_should_be_nmi(ipi)) {
-> +               prepare_percpu_nmi(ipi_irq_base + ipi);
-> +               enable_percpu_nmi(ipi_irq_base + ipi, 0);
-> +       } else {
-> +               enable_percpu_irq(ipi_irq_base + ipi, 0);
-> +       }
-> +}
-> +
-> +static void ipi_sgi_disable(int cpu, int ipi)
-> +{
-> +       if (ipi_should_be_nmi(ipi)) {
-> +               disable_percpu_nmi(ipi_irq_base + ipi);
-> +               teardown_percpu_nmi(ipi_irq_base + ipi);
-> +       } else {
-> +               disable_percpu_irq(ipi_irq_base + ipi);
-> +       }
-> +}
-> +
-> +static void ipi_sgi_send(const cpumask_t *mask, unsigned int nr)
-> +{
-> +       __ipi_send_mask(get_ipi_desc(0, nr), mask);
-> +}
-> +
-> +static const struct ipi_irq_ops ipi_sgi_ops = {
-> +       .setup = ipi_sgi_setup,
-> +       .enable = ipi_sgi_enable,
-> +       .disable = ipi_sgi_disable,
-> +       .send = ipi_sgi_send,
-> +};
-> +
-> +static void ipi_lpi_setup(int ipi, int ncpus)
->  {
->         for (int cpu = 0; cpu < ncpus; cpu++) {
->                 int err, irq;
-> @@ -1132,6 +1148,30 @@ static void ipi_setup_lpi(int ipi, int ncpus)
->         }
->  }
-> 
-> +static void ipi_lpi_enable(int cpu, int ipi)
-> +{
-> +       enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
-> +}
-> +
-> +static void ipi_lpi_disable(int cpu, int ipi)
-> +{
-> +       disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
-> +}
-> +
-> +static void ipi_lpi_send(const cpumask_t *mask, unsigned int nr) {
-> +       int cpu;
-> +
-> +       for_each_cpu(cpu, mask)
-> +               __ipi_send_single(get_ipi_desc(cpu, nr), cpu);
-> +}
-> +
-> +static const struct ipi_irq_ops ipi_lpi_ops = {
-> +       .setup = ipi_lpi_setup,
-> +       .enable = ipi_lpi_enable,
-> +       .disable = ipi_lpi_disable,
-> +       .send = ipi_lpi_send,
-> +};
-> +
->  void __init set_smp_ipi_range_percpu(int ipi_base, int n, int ncpus)
->  {
->         int i;
-> @@ -1139,18 +1179,14 @@ void __init set_smp_ipi_range_percpu(int
-> ipi_base, int n, int ncpus)
->         WARN_ON(n < MAX_IPI);
->         nr_ipi = min(n, MAX_IPI);
-> 
-> -       percpu_ipi_descs = !!ncpus;
-> +       ipi_ops = ncpus ? &ipi_lpi_ops : &ipi_sgi_ops;
->         ipi_irq_base = ipi_base;
-> 
-> -       for (i = 0; i < nr_ipi; i++) {
-> -               if (!percpu_ipi_descs)
-> -                       ipi_setup_sgi(i);
-> -               else
-> -                       ipi_setup_lpi(i, ncpus);
-> -       }
-> +       for (i = 0; i < nr_ipi; i++)
-> +               ipi_ops->setup(i, ncpus);
-> 
->         /* Setup the boot CPU immediately */
-> -       ipi_setup(smp_processor_id());
-> +       ipi_enable(smp_processor_id());
->  }
-> 
-> 
->>
->> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
->> index 6e5b673613ca..3dd4bc02caed 100644
->> --- a/arch/arm64/kernel/smp.c
->> +++ b/arch/arm64/kernel/smp.c
->> @@ -75,11 +75,18 @@ static DEFINE_PER_CPU_READ_MOSTLY(struct ipi_descs, pcpu_ipi_desc);
->>  
->>  #define get_ipi_desc(__cpu, __ipi) (per_cpu_ptr(&pcpu_ipi_desc, __cpu)->descs[__ipi])
->>  
->> -static bool percpu_ipi_descs __ro_after_init;
->> +struct ipi_irq_ops {
->> +	void (*setup)(int ipi, int ncpus);
->> +	void (*disable)(int cpu, int ipi);
->> +	void (*enable)(int cpu, int ipi);
->> +	void (*send)(const cpumask_t *mask, unsigned int nr);
->> +};
-> 
-> Could the order of different callbacks in ipi_sgi_ops and ipi_sgi_ops
-> consistent with this definition?
-> 
->> +
->> +static const struct ipi_irq_ops *ipi_ops __ro_after_init;
->>  
->>  static bool crash_stop;
->>  
->> -static void ipi_setup(int cpu);
->> +static void ipi_enable(int cpu);
->>  
->>  #ifdef CONFIG_HOTPLUG_CPU
->>  static void ipi_teardown(int cpu);
->> @@ -240,7 +247,7 @@ asmlinkage notrace void secondary_start_kernel(void)
->>  	 */
->>  	notify_cpu_starting(cpu);
->>  
->> -	ipi_setup(cpu);
->> +	ipi_enable(cpu);
->>  
->>  	numa_add_cpu(cpu);
->>  
->> @@ -916,13 +923,7 @@ static void __noreturn ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs
->>  
->>  static void arm64_send_ipi(const cpumask_t *mask, unsigned int nr)
->>  {
->> -	unsigned int cpu;
->> -
->> -	if (!percpu_ipi_descs)
->> -		__ipi_send_mask(get_ipi_desc(0, nr), mask);
->> -	else
->> -		for_each_cpu(cpu, mask)
->> -			__ipi_send_single(get_ipi_desc(cpu, nr), cpu);
->> +	ipi_ops->send(mask, nr);
->>  }
->>  
->>  static void arm64_backtrace_ipi(cpumask_t *mask)
->> @@ -1048,53 +1049,13 @@ static bool ipi_should_be_nmi(enum ipi_msg_type ipi)
->>  	}
->>  }
->>  
->> -static void ipi_setup(int cpu)
->> -{
->> -	int i;
->> -
->> -	if (WARN_ON_ONCE(!ipi_irq_base))
->> -		return;
->> -
->> -	for (i = 0; i < nr_ipi; i++) {
->> -		if (!percpu_ipi_descs) {
->> -			if (ipi_should_be_nmi(i)) {
->> -				prepare_percpu_nmi(ipi_irq_base + i);
->> -				enable_percpu_nmi(ipi_irq_base + i, 0);
->> -			} else {
->> -				enable_percpu_irq(ipi_irq_base + i, 0);
->> -			}
->> -		} else {
->> -			enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
->> -		}
->> -	}
->> -}
->> -
->> -#ifdef CONFIG_HOTPLUG_CPU
->> -static void ipi_teardown(int cpu)
->> +static void ipi_sgi_setup(int ipi, int ncpus)
->>  {
->> -	int i;
->> +	int err, irq, cpu;
->>  
->> -	if (WARN_ON_ONCE(!ipi_irq_base))
->> +	if (WARN_ON_ONCE(ncpus))
->>  		return;
->>  
->> -	for (i = 0; i < nr_ipi; i++) {
->> -		if (!percpu_ipi_descs) {
->> -			if (ipi_should_be_nmi(i)) {
->> -				disable_percpu_nmi(ipi_irq_base + i);
->> -				teardown_percpu_nmi(ipi_irq_base + i);
->> -			} else {
->> -				disable_percpu_irq(ipi_irq_base + i);
->> -			}
->> -		} else {
->> -			disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, i)));
->> -		}
->> -	}
->> -}
->> -#endif
->> -
->> -static void ipi_setup_sgi(int ipi)
->> -{
->> -	int err, irq, cpu;
->>  
->>  	irq = ipi_irq_base + ipi;
-> 
-> An extra blank line.
-> 
->>  
->> @@ -1112,7 +1073,50 @@ static void ipi_setup_sgi(int ipi)
->>  	irq_set_status_flags(irq, IRQ_HIDDEN);
->>  }
->>  
->> -static void ipi_setup_lpi(int ipi, int ncpus)
->> +static void ipi_sgi_enable(int cpu, int ipi)
->> +{
->> +	if (ipi_should_be_nmi(ipi)) {
->> +		prepare_percpu_nmi(ipi_irq_base + ipi);
->> +		enable_percpu_nmi(ipi_irq_base + ipi, 0);
->> +	} else {
->> +		enable_percpu_irq(ipi_irq_base + ipi, 0);
->> +	}
->> +}
->> +
->> +static void ipi_sgi_disable(int cpu, int ipi)
->> +{
->> +	if (ipi_should_be_nmi(ipi)) {
->> +		disable_percpu_nmi(ipi_irq_base + ipi);
->> +		teardown_percpu_nmi(ipi_irq_base + ipi);
->> +	} else {
->> +		disable_percpu_irq(ipi_irq_base + ipi);
->> +	}
->> +}
->> +
->> +static void ipi_sgi_send(const cpumask_t *mask, unsigned int nr)
->> +{
->> +	__ipi_send_mask(get_ipi_desc(0, nr), mask);
->> +}
->> +
->> +static const struct ipi_irq_ops ipi_sgi_ops = {
->> +	.disable = ipi_sgi_disable,
->> +	.enable = ipi_sgi_enable,
->> +	.setup = ipi_sgi_setup,
->> +	.send = ipi_sgi_send,
->> +};
->> +
->> +
-> 
-> An extra blank line.
-> 
-> Best regards,
-> Jinjie
-> 
->> +static void ipi_lpi_enable(int cpu, int ipi)
->> +{
->> +	enable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
->> +}
->> +
->> +static void ipi_lpi_disable(int cpu, int ipi)
->> +{
->> +	disable_irq(irq_desc_get_irq(get_ipi_desc(cpu, ipi)));
->> +}
->> +
->> +static void ipi_lpi_setup(int ipi, int ncpus)
->>  {
->>  	for (int cpu = 0; cpu < ncpus; cpu++) {
->>  		int err, irq;
->> @@ -1132,6 +1136,44 @@ static void ipi_setup_lpi(int ipi, int ncpus)
->>  	}
->>  }
->>  
->> +static void ipi_lpi_send(const cpumask_t *mask, unsigned int nr) {
->> +	int cpu;
->> +
->> +	for_each_cpu(cpu, mask)
->> +		__ipi_send_single(get_ipi_desc(cpu, nr), cpu);
->> +}
->> +
->> +static const struct ipi_irq_ops ipi_lpi_ops = {
->> +	.disable = ipi_lpi_disable,
->> +	.enable = ipi_lpi_enable,
->> +	.setup = ipi_lpi_setup,
->> +	.send = ipi_lpi_send,
->> +};
->> +
->> +static void ipi_enable(int cpu)
->> +{
->> +	int ipi;
->> +
->> +	if (WARN_ON_ONCE(!ipi_irq_base))
->> +		return;
->> +
->> +	for (ipi = 0; ipi < nr_ipi; ipi++)
->> +		ipi_ops->enable(cpu, ipi);
->> +}
->> +
->> +#ifdef CONFIG_HOTPLUG_CPU
->> +static void ipi_teardown(int cpu)
->> +{
->> +	int ipi;
->> +
->> +	if (WARN_ON_ONCE(!ipi_irq_base))
->> +		return;
->> +
->> +	for (ipi = 0; ipi < nr_ipi; ipi++)
->> +		ipi_ops->disable(cpu, ipi);
->> +}
->> +#endif
->> +
->>  void __init set_smp_ipi_range_percpu(int ipi_base, int n, int ncpus)
->>  {
->>  	int i;
->> @@ -1139,18 +1181,15 @@ void __init set_smp_ipi_range_percpu(int ipi_base, int n, int ncpus)
->>  	WARN_ON(n < MAX_IPI);
->>  	nr_ipi = min(n, MAX_IPI);
->>  
->> -	percpu_ipi_descs = !!ncpus;
->>  	ipi_irq_base = ipi_base;
->>  
->> -	for (i = 0; i < nr_ipi; i++) {
->> -		if (!percpu_ipi_descs)
->> -			ipi_setup_sgi(i);
->> -		else
->> -			ipi_setup_lpi(i, ncpus);
->> -	}
->> +	ipi_ops = ncpus ? &ipi_lpi_ops : &ipi_sgi_ops;
->> +
->> +	for (i = 0; i < nr_ipi; i++)
->> +		ipi_ops->setup(i, ncpus);
->>  
->>  	/* Setup the boot CPU immediately */
->> -	ipi_setup(smp_processor_id());
->> +	ipi_enable(smp_processor_id());
->>  }
->>  
->>  void arch_smp_send_reschedule(int cpu)
-> 
+diff --git a/drivers/crypto/atmel-tdes.c b/drivers/crypto/atmel-tdes.c
+index ffea1db74651..2756dab3f4c7 100644
+--- a/drivers/crypto/atmel-tdes.c
++++ b/drivers/crypto/atmel-tdes.c
+@@ -933,7 +933,7 @@ static int atmel_tdes_probe(struct platform_device *pdev)
+ 	struct resource *tdes_res;
+ 	int err;
+ 
+-	tdes_dd = devm_kmalloc(&pdev->dev, sizeof(*tdes_dd), GFP_KERNEL);
++	tdes_dd = devm_kzalloc(&pdev->dev, sizeof(*tdes_dd), GFP_KERNEL);
+ 	if (!tdes_dd)
+ 		return -ENOMEM;
+ 
+-- 
+2.39.5 (Apple Git-154)
 
 
