@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E6BC61DD7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 09:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC02C61DBE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Aug 2026 09:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gisI60aIRI94sbsFoXYOhSYGpkylj0kQ6heuxGTepDA=; b=Ss6NZ3RWRtvlftl+PO5PAWhDmm
-	ApYjkepmqvKQR29YLEbb1HR2UTgXRHiQphMF5uY2E8RJjHvkSNqrMhtSghF/XyDZui9lds24Bsao2
-	bfGWazrhh8us+8Q/VnNZS65Tg7V4Kg4qqCWNaJwxfE8eZyeLJYrKtUaHqjg/rRIfLwgqlla9H4bp0
-	hIvsl0sSwM6XcW1EPJRDPyn0V4LAGqce4pzl0v2iTWrzv0hSyC0YVUzVcJq/eVLF6pt631os/OaMy
-	aw4lBbuXuxvm3W4Z0Ka8I/CynpUwMlCBYcHsjEqJTdowIZfMKkKgP41RRliqzO0PPVG801+0AB6XW
-	WiaQO6OQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4rJ0DhyCHllIMH7L1DGiwV3mp7tCq7ghlGuKeBd4/eQ=; b=G8NMfI6YB6bkp3AsPMcw1OIDun
+	zaqo1GAf25/K5ZMJzLUWkkUOrBS472f/XuJlAhUvCAX4xuCobXK4rjd4h7unbleQ/WGh0XNH3uxWv
+	gaCBL+1D1oF/lPIaoOZ8fUUetWz2X89LfsCeqt0fABAZLLOQ0r2iJsbK9LMfQie4euyF5yr41XtK2
+	oN/eTBB/1up3blDyRkVHJg82D7m1v3YUlZByLbv0v0Pknisa5gT0Q5Q3j29CHpNJl1lOhOJsXa1os
+	2SsbvIQ1cagYh5PhvOtI9y1lD+hlfWcuH9znEkwFAYh03utghCLcrgMh8p2nsvR3U1zt+S5Dje3dM
+	mZeStP1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0FfX-00000006tj2-3atI;
-	Sat, 29 Aug 2026 09:48:11 +0000
+	id 1x0FfR-00000006tgQ-1qSD;
+	Sat, 29 Aug 2026 09:48:05 +0000
 Received: from mail-wm1-f52.google.com ([209.85.128.52])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0FfP-00000006tdv-1tsJ
+	id 1x0FfO-00000006tdn-217d
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Aug 2026 09:48:05 +0000
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-49b8eeb3ff2so12296735e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 02:48:03 -0700 (PDT)
+	Sat, 29 Aug 2026 09:48:04 +0000
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-49954b88fffso13005885e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Aug 2026 02:48:01 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787996882; x=1788601682;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gisI60aIRI94sbsFoXYOhSYGpkylj0kQ6heuxGTepDA=;
-        b=ft1cj01Ed9Q0kK0G9pLsQVv5XXTUe2AyTM4hlvEhO2YQuFg5VBhIQpCrpK2qNly8ul
-         njvqMiRH8X0GbrAcX9XpYqdv+WHmYTjxLSLWN2WQdT4gwUxtTJ5dTDTRr7t9/Ku2OeMG
-         C9WJfUaNC7B4nHczxwn80XQGSrCWw2IbtMtHEYEMa84W3GPPy7Y9yLOsUiWYlVfBx8mc
-         +C2Y8VxgTJ35OzyL1aTWae3B5iG4ea4Tu/DNzAA/Z2K/HYw6/Jr+m0l1j1J6UEpRNo1C
-         35S9FKXgMly+qAbFfGz2N9VMVVUHxhFZJU+UWcAjb0/gM4kVRTqSdoSKTvt/OHO+qBBd
-         2/rA==
-X-Forwarded-Encrypted: i=1; AHgh+RqxKmsPXd6Uz/2vyI9x4BMuM+J5pIzO8KsX4qa5Umd+W4B4pF2obi9w9HiCv5jJSKEuXhu8rl0pcn0q+Z0lVy4L@lists.infradead.org
-X-Gm-Message-State: AFuF++ly9/GfxeXPKgMQOG+NqNWAyyveEPvkMCDWceQecU1ZpXWXVPeB
-	Z7U1P1aYAqnsh/28UZSjDGdEby53w6Hp1RN0pR5nicLqEET5qyNe4tlR
-X-Gm-Gg: AR+sD10l8g+FVIuFL1+6E4OS4bO5RNnfEg8wvpG3tZxOSp1MH1LsDbjcmOqiOmAIogy
-	X6S6muSKW5zCk9/TZIk8yZpIoC02hftS2prSHHzmJtCdA4Ftp5DyuRv6QUKfKouTKzCat0aR5CL
-	a9/eA/UmR/vrM5jZym250y9Cs1IJaoT/6rGW/p625QrHhHS/lpjaEPrNgspnsmJ77H+ap9fqhwt
-	+tCVaid+Im76yIEvb2xY7mxqs+3s3eI98yJe3cUYvtiAQCqFYjpAxm9OOcL1BLeUq3Cx5wzqx0f
-	PWQs7wTGzW4Osre6dcDSP31x+swQiAayA94YCyBy/nq1nXIlTT/8jz9pgkvtornDAoF05quzoh+
-	6UExD+51+0G/u/07H8mNabnXMtWkf7za4dQlZcKPk+cYjijqVtgGbJZNtVee9zjwE8wO65v7TBq
-	zR1Hauu84hNaPcp4I+eTWG0I8ZI8G1PgxwETSOzZ+MRTFNxWW3WUPw6rLdkmDTaqH5YDyYd9dVT
-	sxPqjSI2eDiTg9TohGaD7YzyVg=
-X-Received: by 2002:a05:600c:858b:b0:49b:928a:3f9e with SMTP id 5b1f17b1804b1-49b928a4006mr137978955e9.5.1787996881702;
-        Sat, 29 Aug 2026 02:48:01 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1787996880; x=1788601680;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4rJ0DhyCHllIMH7L1DGiwV3mp7tCq7ghlGuKeBd4/eQ=;
+        b=qJWIeoZH/Yx1FQS4gIK+c2gVDAfU4Cac//zNBvAPbf0hv0nzzujz5q/Ba1dSgHRo3k
+         FuJggK3888AB0I3vU6iTqBnF/HjcKdNVqCYxOSyQtIXuIak00Rs28V5ze9H9A2fu8p3g
+         9Eib3oQgTa18Q7hvE0Kqy3Ds1XBfkB9yIqcDjoWpbUAlZ/oMRvkjLsupBkqnojykXE9+
+         M4glCfCqXA0ub8AsfBXw/sJqIUILcfttTAhgkFh/ejsVHzoonqq5k8pqT4J1y2PG9dLx
+         1b9/2fQiLfeUreNqv9h7v/rhGaYGw8YPnMXbGD22b0ouYX5wspi/PiI0YECHLT6ouDAC
+         d0gA==
+X-Forwarded-Encrypted: i=1; AHgh+Ro7peqtE4Lbycoco3HEo8LMY0VR1nNgk+Lr4HVlnzraIBrCTBeVGVKE4DgP1sgvulsnqyQmnrj6PBSwYszYoivq@lists.infradead.org
+X-Gm-Message-State: AFuF++nSskamG9OrnCtiqQSyvL2rq1/UgrwIPCj5lklXQ7RTchFlEKCB
+	Ia2PVvAexwiX+OKoMXL3xsJQISZOv5U8yLlGONqdssd1bGCYyFkx1rgi
+X-Gm-Gg: AR+sD11tVVCFKT7GhzTTyQTZmQ8iewiHxihofiBnfzNiCdZZ9QyTUNkpxrDald3PDXS
+	RpmfecFi2Cz2wz/rN0wa91FiUxwf1uATZhci/RSfbeOOIF37jApBU+D4X5+RJ4nwmrEvC1Fvbfi
+	/zTO9g/KwpPYAFsVmIkJwUHZen/LBhWipQsEamUggGyMke9JZhoOEWjUMoqCCijjctRK+lRmHxE
+	ifzxptLx68TAwfj463T5lU+3MRNiSuh6QvGta4hIqRk1U2Cj1CjXFGLDQGdcfVKq2QygLJTnohx
+	3osOmZrTMw2qcSFh6vpFmUUc5NAW8MvrbxHpYn97OCYqF+fFDMFNgcU+60zvvUfZMJhYbddYdYv
+	ldo4VYgYMocDxpd6lKIfgIZFTY+6JtFiqKTcyz94Z2RbD8WIVSWt90tDuY3ywrLCDgF03hjT33F
+	bBqrHxqZSNn/YcnQ6r5HPLLl2Dfh2zj1k85ULq6PnXpvawR3NVmhJGdTluM1te6/jGL4pI5gluA
+	WNaABGjbOAG87WY4Ztaw1m3e3911GDM4GVCfg==
+X-Received: by 2002:a05:600c:1d1d:b0:499:ad2e:f7bc with SMTP id 5b1f17b1804b1-49b91c3ddbcmr152418085e9.10.1787996879686;
+        Sat, 29 Aug 2026 02:47:59 -0700 (PDT)
 Received: from threads.localdomain ([83.106.158.114])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482fbb20784sm9661562f8f.18.2026.08.29.02.48.00
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482fbb20784sm9661562f8f.18.2026.08.29.02.47.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 29 Aug 2026 02:48:00 -0700 (PDT)
+        Sat, 29 Aug 2026 02:47:59 -0700 (PDT)
 From: Lucas Tanure <tanure@linux.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>,
 	Kevin Hilman <khilman@baylibre.com>,
@@ -76,17 +76,15 @@ Cc: Jian Hu <jian.hu@amlogic.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-clk@vger.kernel.org
-Subject: [PATCH 2/4] arm64: dts: amlogic: t7: fix the pin groups of two PWM outputs
-Date: Sat, 29 Aug 2026 10:47:56 +0100
-Message-ID: <20260829094758.23248-3-tanure@linux.com>
+Subject: [PATCH 0/4] arm64: amlogic: t7: describe the VIM4 supplies and keep the fabric clocks running
+Date: Sat, 29 Aug 2026 10:47:54 +0100
+Message-ID: <20260829094758.23248-1-tanure@linux.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260829094758.23248-1-tanure@linux.com>
-References: <20260829094758.23248-1-tanure@linux.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260829_024803_493178_B0B05983 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20260829_024802_533111_EB810134 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,72 +99,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Two of the PWM outputs can each appear on more than one pin, but the
-description named a single group that does not exist, so anything using
-it refused to start.
+The Khadas VIM4 has needed clk_ignore_unused to boot reliably. Without it
+the board hangs at random, loses storage and corrupts memory, and the
+failures move around from boot to boot.
 
-Name the real groups instead, one entry per pin, the same way the other
-multi-pin PWM output is already described.
+Six of the SoC's PWM outputs drive the board's voltage regulators: the
+always-on domain, both CPU clusters, the GPU, the NPU and the DRAM. None
+of them were described, so Linux saw the outputs as unused and switched
+them off about a second into boot. The regulators then drifted away from
+the levels the bootloader had set, which is where the corruption and the
+random hangs came from. 
+Thanks to Chuan Liu from Amlogic for helping me indetify which clocks are
+critical.
 
-Fixes: 2a2a7b9701a7 ("arm64: dts: amlogic: t7: Add PWM pinctrl nodes")
-Assisted-by: Claude:claude-opus-5
-Signed-off-by: Lucas Tanure <tanure@linux.com>
----
- arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 32 ++++++++++++++++++---
- 1 file changed, 28 insertions(+), 4 deletions(-)
+Separately, four clocks feed the bus that carries data between the
+peripherals and memory. Nothing claims those either, and switching them
+off leaves any device that starts a transfer afterwards stuck. The SD
+card comes up about two seconds into boot, so it was the visible victim.
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-index c3dc479b137d..8c4bd683cce0 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-@@ -458,9 +458,25 @@ mux {
- 					};
- 				};
- 
--				pwm_ao_g_pins: pwm-ao-g {
-+				pwm_ao_g_d11_pins: pwm-ao-g-d11 {
- 					mux {
--						groups = "pwm_ao_g";
-+						groups = "pwm_ao_g_d11";
-+						function = "pwm_ao_g";
-+						bias-disable;
-+					};
-+				};
-+
-+				pwm_ao_g_d7_pins: pwm-ao-g-d7 {
-+					mux {
-+						groups = "pwm_ao_g_d7";
-+						function = "pwm_ao_g";
-+						bias-disable;
-+					};
-+				};
-+
-+				pwm_ao_g_e_pins: pwm-ao-g-e {
-+					mux {
-+						groups = "pwm_ao_g_e";
- 						function = "pwm_ao_g";
- 						bias-disable;
- 					};
-@@ -474,9 +490,17 @@ mux {
- 					};
- 				};
- 
--				pwm_ao_h_pins: pwm-ao-h {
-+				pwm_ao_h_d5_pins: pwm-ao-h-d5 {
-+					mux {
-+						groups = "pwm_ao_h_d5";
-+						function = "pwm_ao_h";
-+						bias-disable;
-+					};
-+				};
-+
-+				pwm_ao_h_d10_pins: pwm-ao-h-d10 {
- 					mux {
--						groups = "pwm_ao_h";
-+						groups = "pwm_ao_h_d10";
- 						function = "pwm_ao_h";
- 						bias-disable;
- 					};
+Two of the patches are pin group fixes. The description named groups that
+do not exist in the pinctrl driver, so anything referencing them refused
+to probe. That is what the supplies patch needs in order to work, and it
+had a second effect worth mentioning: the failing probe left one device
+unbound, which kept the clock controller's sync_state() deferred forever
+and quietly stopped every peripheral clock from ever being switched off.
+The board looked healthy for entirely the wrong reason.
+
+Tested on a VIM4 booting from SD with no clk_ignore_unused: 74 clocks are
+still switched off, but the card enumerates and the root filesystem mounts
+and memtest runs clean over 512 MiB.
+
+Thread about these issues in Vim4:
+
+https://lore.kernel.org/linux-clk/3930906f-783b-4d72-9260-ba25cc8081cb@linux.com/
+
+Lucas Tanure (4):
+  clk: meson: t7: keep the memory fabric clocks running
+  arm64: dts: amlogic: t7: fix the pin groups of two PWM outputs
+  arm64: dts: amlogic: t7: khadas-vim4: add the PWM-driven supplies
+  arm64: dts: amlogic: t7: fix the pin groups of the vsync PWM
+
+ .../amlogic/amlogic-t7-a311d2-khadas-vim4.dts | 110 +++++++++++++++++-
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi   |  44 ++++++-
+ drivers/clk/meson/t7-peripherals.c            |  13 ++-
+ 3 files changed, 156 insertions(+), 11 deletions(-)
+
 -- 
 2.55.0
 
