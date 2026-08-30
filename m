@@ -4,76 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C4C0C61DD9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 13:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEACFC61DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 14:06:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5Vn6jb3yVmG0vfSeOkh5NHbqGdc6CkJNDu6OMhw4pbQ=; b=z63pk2jbm/n+JOoDdS0JcIOLy8
-	0shClJX/5KY6wyPUaTLClXHeEKHHml7Y7WiEOdX4bWHEsQWtGLq2KkEJru6jDwa6r+siorzik+JUM
-	Qc+75Bp4LVn5ZEyUN2+lTRXvPIVUdz6W6inD96BgFl6hGkZAMkz7IN4ai/P3vmIQTUTkTyJL4QgIc
-	Q0kzyeGedlOh3oeXbkOBjSaTLty32iMefB4e92YWwGXgJAL226RoGmjoUVHlwD9r0zdNcdRkn+fqi
-	p0yQM/5msiSMalgCOdjY3b57afAoXHqT6nw0vAi427b1a1EQaOZSl3Qv+17gCIXQtFhwkRQZi1Yqh
-	PL5lnUeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1Cfz+1UkqRDYEv0PlJFOZYosCDiCp7c2SrUMBJNre10=; b=XTPnLqGk6OekxpTQvXPjds6mLW
+	G/KH4c/1P71RHOzMeqdJRPdwDKI4CLILID20Cl0ieJhA1bovayzHZHsjPNnRRwA6OoIFFj2KbxyWl
+	LPHYvSpUTa3ngGHbqahe4yn4Wx8LCbbhB9KYWDTQmTQhI3OEsiQT7MOuE80hG0bKcrdxpComS66Rv
+	dagbY43/74ceLGdQEnspbTYLbQqx3PamgVVeQPO09w+e9zF4Hpek+WeQFxkQDRKU59e7fpdAlYsD5
+	izQeS+CGipD3MIP3wBkIgUVQMwaeU3+rhqHE3hvDgJCEsT4XooOV2BIS669pER/utg2oj1HsYNc1P
+	T0Bg/KEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0fo3-00000007lUf-27PQ;
-	Sun, 30 Aug 2026 13:42:43 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1x0gBL-00000007m8T-2DlB;
+	Sun, 30 Aug 2026 14:06:47 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0fo0-00000007lUM-0LR2
+	id 1x0gBJ-00000007m7v-0mDB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Aug 2026 13:42:41 +0000
-Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-03 (Coremail) with SMTP id rQCowADn8T9FM5RqqUGbBg--.17102S2;
-	Sun, 30 Aug 2026 21:42:29 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Ryan Chen <ryan_chen@aspeedtech.com>,
-	Billy Tsai <billy_tsai@aspeedtech.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-iio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] iio: adc: aspeed: propagate reset deassert errors
-Date: Sun, 30 Aug 2026 21:42:27 +0800
-Message-ID: <20260830134227.9085-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	Sun, 30 Aug 2026 14:06:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=1Cfz+1UkqRDYEv0PlJFOZYosCDiCp7c2SrUMBJNre10=; b=nJLiEjjv8xBWCk/ZKFt3H8roOr
+	aVESBEaLF85CGrAkarjFO1+vSq6tis5whSrXxe0+yuYs8S7i2fwvMbB2Qw7oQHx/sgcFgoezQECxD
+	z6fiDtLEgXK3Dp1AH67FdrKGhD47xfW5G2iXVZH6VA8eJaXSH9a/Ro0a2htwJl0qEEHI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1x0gAq-0022VI-Jj; Sun, 30 Aug 2026 16:06:16 +0200
+Date: Sun, 30 Aug 2026 16:06:16 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Ding Hui <dinghui1111@163.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	"open list:STMMAC ETHERNET DRIVER" <netdev@vger.kernel.org>,
+	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
+	"moderated list:ARM/STM32 ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>, dinghui@lixiang.com,
+	xiasanbo@lixiang.com, yangchen11@lixiang.com,
+	liuxuanjun@lixiang.com
+Subject: Re: [PATCH] net: stmmac: fix NULL pointer dereference in tx/rx
+ resource cleanup
+Message-ID: <3fd3506f-f254-4bff-a7ee-1063bf413919@lunn.ch>
+References: <20260830040610.1156008-1-dinghui1111@163.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowADn8T9FM5RqqUGbBg--.17102S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtw48WF1DKFy3WF47ur4rZrb_yoWkuFcE9r
-	48WFZrWrnxCrZ0kw1jyw1fZrZY9FyDuFyvk3Wjvr43KFyUXrWDAryDuFWYvw1Uurs2v343
-	AF1q9rWfA3sxGjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUba8FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
-	Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr
-	1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcS
-	sGvfC2KfnxnUUI43ZEXa7VUbo5l5UUUUU==
-X-Originating-IP: [111.196.241.250]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260830040610.1156008-1-dinghui1111@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_064240_515622_244174E0 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260830_070645_231030_231C12C6 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,37 +79,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-aspeed_adc_probe() continues to register ADC resources after deasserting
-the shared reset, even if the reset controller reports a failure.
+On Sun, Aug 30, 2026 at 12:06:08PM +0800, Ding Hui wrote:
+> From: Ding Hui <dinghui@lixiang.com>
+> 
+> The DMA descriptor ring allocation in __init_dma_rx_desc_rings() and
+> __alloc_dma_tx_desc_resources() is split into multiple steps, each of
+> which may fail and return early while the per-queue cleanup paths still
+> call the free helpers for the partially-initialized queue.
 
-A failed deassertion leaves the hardware unavailable, so stop probing
-before
-installing the cleanup action and enabling the ADC.
+"and return early", is the real problem here. When a function returns
+an error, it should first undo what it has done, up to the point of
+the error.
 
-Fixes: edf7550a1f93 ("iio: adc: aspeed: Deassert reset in probe")
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- drivers/iio/adc/aspeed_adc.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Rather than add extra NULL checks, please work on
+__init_dma_rx_desc_rings() and __alloc_dma_tx_desc_resources() and
+make them cleanup on error.
 
-diff --git a/drivers/iio/adc/aspeed_adc.c b/drivers/iio/adc/aspeed_adc.c
-index 6169ce28261e1..452c30cf04f28 100644
---- a/drivers/iio/adc/aspeed_adc.c
-+++ b/drivers/iio/adc/aspeed_adc.c
-@@ -585,7 +585,9 @@ static int aspeed_adc_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, PTR_ERR(data->rst),
- 				     "invalid or missing reset controller device tree entry");
- 
--	reset_control_deassert(data->rst);
-+	ret = reset_control_deassert(data->rst);
-+	if (ret)
-+		return ret;
- 
- 	ret = devm_add_action_or_reset(dev, aspeed_adc_reset_assert, data->rst);
- 	if (ret)
+I would say the problem you are trying to fix does not bother anybody,
+so is not for stable. So i aim the patches for net-next.
 
-base-commit: 08dbfad3f5040f5bdb6c529da20d6d4e81fefd72
--- 
-2.50.1
-
+	 Andrew
 
