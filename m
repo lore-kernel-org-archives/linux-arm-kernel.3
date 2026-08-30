@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CAC9C61DEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 20:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FBB8C61DFF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 20:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IGuc9Xex2Lw5bEJhDgrU8Gy8UkiqT5yT6SBSHWUsRqs=; b=b9juWzsK8roHDTbH0zpdIxsMSj
-	axN3sW3kV5JKx9TXOrBmAg+bERdXuqAQFVZHR7dT45q3clUeFxWzOPZVhtPNH2YjBbbQGLbBGyz+y
-	3LRZY019mH1P3EPrzwX9m8hwYOLedsLqHpYaOn+GUakgSWL5Cnsdgk+8yUIkBl085aGv24tADAJUs
-	oYfiKlqw7xRgmtylvlJJm2wKnW1o8w2i8K1MI1CPh87C02YXe7JjDHhbTZX25ze1aKLaAQG8Zi8XW
-	ZS0OmbKAt4glcRcgp6386KWobmAxvmltsIK+LYM2n/9SgN3pzdnNqyON9Y9+hN3AvDTMMOfDniH1f
-	UM94Y0eQ==;
+	bh=yV5RDbowjZdUVoNMMTNqrsrEVEPEfwYqQTf0x7lMo3A=; b=HqjVgz6t6O7OYSLuqqovCyG/wL
+	vS92Utw2aQNoGmOD0XgNxxCo7iI1HSXDeSx9r2b6Yxw9ST3qpNgW4ZKR5KobiNkEC9ehhrPswn9Z1
+	ZtKOkwgglg19vMO/QC1lpuHMNrzRmAzOk8nJ+hUHif7LKSTzqftvGLZ53uBAN47p6x6zAf8UGSLKl
+	vSYyCjnaS2HsiWi0pM1lgDOE2JVUTO5MXoBq2nW20dk3CZ76iA/2QuFXbRPczYIhopIjgrkrWSCL9
+	QmDRa1mWDTcjYl5QJayExm93/KeghHH3uR8AKhtMxl5X0vCRzwpNL2h4Mho16Ly5ijuhrWY35wAPl
+	MTf6IafQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0m1R-000000083wo-2KLm;
-	Sun, 30 Aug 2026 20:20:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1x0m1S-000000083y2-1qMV;
+	Sun, 30 Aug 2026 20:20:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0m0H-000000082pb-20ZY
+	id 1x0m0H-000000082pA-2QDw
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 30 Aug 2026 20:19:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E455E44787;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6E93B601FD;
 	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B3538C2BD04;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0AF35C2BCFF;
 	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788121184;
-	bh=CLLkwaKc5+f6XimwNr2nFpZ5Q46wgtKFW0n8D5ES48U=;
+	bh=tjxsHzXTSsJGx+EfH2qJRLAdmYE7SAoNp4PmvauEOec=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=bNl0B7eiYj/nR7OKhFUWhHR++ZxsEy1wEUCO2RZe/fxZU1Nq0L1QoH1a2VGsgLHa2
-	 ri/TVzGtnO3wI0ySGSQqSuZuZh5W/5ytDaMSEb4/ic6fkyTZoRgM17q5t69NNdRgdv
-	 6KI4AnuWeXnErt9D1MTGgD4sAKhvEAfAsIXzkSuL9ffhfoEUY4/SAqvl/Q7H/TvWr9
-	 y9usljO9CqJlV/UxCAE9Byz/ycBgs+OMmcGVu29/3aotq/WKk1Wa99d9lqcAlcU8G/
-	 tHXDdfvZ975+SFVw12Bk+zH2GW/fckjKaxmtlUQ/SFK2Tna/cgoYjk2JrlXnyocZAg
-	 PR6J4sK3K1srw==
+	b=mEh5rxgDOtC9CeKG+awJFTf51F20/qpzbhsdGPQPC88cfXCi4Zw6jyS3R9UQU1z3V
+	 4DA34FThfWQwga2vuwMjhUPoJjhwvoo0kBBs2wSTtnAKcg8wFAPf0DDMTyJGe3cBDZ
+	 SL25SWU/tveAJLkLmJ6+lmWhM+xkJPrx1mIBYo1w6IhyJz9YjOu32S3gbJDUfCLglI
+	 lpJmOD+JDBLpahUXRtNCtfYHCwIW1iQ+1ZXWvSBEycuFdKdBl13XhpjbwsFMv7O20u
+	 qhqU9+bzhLJcBGw6OJ4305JPxjvS1A7ZXwnfckhzcy++liRL7fAhsi/sG/78O5mwz/
+	 YuAWvdeskxJZw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C691C61DD9;
-	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E9AC8C61DF0;
+	Sun, 30 Aug 2026 20:19:43 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Sun, 30 Aug 2026 22:19:32 +0200
-Subject: [PATCH 14/19] thunderbolt: Add QUIRK_NO_USB3_BW_ALLOC
+Date: Sun, 30 Aug 2026 22:19:23 +0200
+Subject: [PATCH 05/19] dt-bindings: thunderbolt: Add Apple USB4/Thunderbolt
+ ACIO block
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260830-b4-apple-soc-tbt-v1-14-44bc9348683c@kernel.org>
+Message-Id: <20260830-b4-apple-soc-tbt-v1-5-44bc9348683c@kernel.org>
 References: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
 In-Reply-To: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -68,13 +69,13 @@ Cc: Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Sven Peter <sven@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6302; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8972; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=CLLkwaKc5+f6XimwNr2nFpZ5Q46wgtKFW0n8D5ES48U=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ9aUCZFXxd52NOy6O3+rhHf7b8Zn96es63pjJvfO+MAaT
- 7k0N7cPHaUsDGJcDLJiiizb99ubPnn4RnDppkvvYeawMoEMYeDiFICJvJFi+J95pnbHDNugN8/z
- 30z0mJf6+E5Sr1+o/B7HPk2XKWfeJ+5k+GfA1O9dtihRJvuAyu0tViwdE3nDN28+EMj4Y9ufg1u
- 6tvICAA==
+ bh=tjxsHzXTSsJGx+EfH2qJRLAdmYE7SAoNp4PmvauEOec=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ9aUCaF5yfpN3tqnmvafevRP/9rbFbrzO+UVxOYxLG6Zu
+ OTvxdlGHaUsDGJcDLJiiizb99ubPnn4RnDppkvvYeawMoEMYeDiFICJJE9mZHjHzWt0d/5Ua+vQ
+ u9s+fYxumzlt+oU9Ez4smHTl+54EZvZfDP8DBAU2B3fbzu1f3+TQuMBgyfa/8yc9TtRVnJw69d5
+ ly0pmAA==
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
@@ -93,164 +94,260 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The host routers on Apple Silicon do not implement USB3 bandwidth
-allocation registers: the CMR bit set in ADP_USB3_CS_2 by
-usb4_usb3_port_cm_request() is never acknowledged and every USB3 tunnel
-bringup fails there after the timeout:
+Each Type-C port with USB4/Thunderbolt support on Apple Silicon SoCs
+comes with block called ACIO ("Apple Converged I/O"). It contains a
+Cortex-M3 co-processor, the hardware blocks implementing the USB4 host
+router, the Native Host Interface (NHI) and a DART IOMMU. The
+co-processor exposes the NHI and its DART to the main SoC bus while it
+is running.
 
-  [   49.259325] thunderbolt-apple-nhi 501f00000.nhi: 1:16: available bandwidth for new USB3 tunnel 18000/18000 Mb/s
-  [   49.265869] thunderbolt-apple-nhi 501f00000.nhi: 1:16: maximum required bandwidth for USB3 tunnel 9000 Mb/s
-  [   49.267894] thunderbolt-apple-nhi 501f00000.nhi: 0:4 <-> 1:16 (USB3): activating
-  [   49.269410] thunderbolt-apple-nhi 501f00000.nhi: 0:4 <-> 1:16 (USB3): allocating initial bandwidth 9000/9000 Mb/s
-  [   50.771764] thunderbolt-apple-nhi 501f00000.nhi: 1:16: USB3 tunnel activation failed, aborting
-
-Add a quirk to skip bandwidth allocation entirely but keep tracking
-the initial allocation in software for the consumed bandwidth
-calculation. For completeness, discovered tunnels book 90% of the
-maximum link rate in software, matching tb_tunnel_alloc_usb3(), although
-Apple Silicon cannot have any pre-existing tunnels.
+ACIO can only be powered on after the Type-C PHY has been switched to
+USB4/Thunderbolt mode. The Type-C controller provides the cable
+information required to boot it through the thunderbolt-switch
+connection.
 
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- drivers/thunderbolt/nhi.h    |  1 +
- drivers/thunderbolt/tb.c     |  8 ++++++
- drivers/thunderbolt/tb.h     |  3 +++
- drivers/thunderbolt/tunnel.c | 59 +++++++++++++++++++++++++++++---------------
- 4 files changed, 51 insertions(+), 20 deletions(-)
+ .../thunderbolt/apple,t8103-usb4-acio.yaml         | 218 +++++++++++++++++++++
+ MAINTAINERS                                        |   1 +
+ 2 files changed, 219 insertions(+)
 
-diff --git a/drivers/thunderbolt/nhi.h b/drivers/thunderbolt/nhi.h
-index c2d16ab6994e..afd9a11489a9 100644
---- a/drivers/thunderbolt/nhi.h
-+++ b/drivers/thunderbolt/nhi.h
-@@ -169,6 +169,7 @@ struct tb_nhi_ops {
- #define QUIRK_E2E					BIT(1)
- #define QUIRK_RESET_DMA_ON_TEARDOWN			BIT(2)
- #define QUIRK_NO_DMA_PORT				BIT(3)
-+#define QUIRK_NO_USB3_BW_ALLOC				BIT(4)
- 
- /*
-  * Minimal number of vectors when we use MSI-X. Two for control channel
-diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
-index c43cdd2c2e2e..7ab53a30fe30 100644
---- a/drivers/thunderbolt/tb.c
-+++ b/drivers/thunderbolt/tb.c
-@@ -3044,6 +3044,14 @@ static int tb_start(struct tb *tb, bool reset)
- 	 */
- 	tb->root_switch->no_dma_port = tb->nhi->quirks & QUIRK_NO_DMA_PORT;
- 
-+	/*
-+	 * Apple Silicon host routers do not implement the USB3 bandwidth
-+	 * allocation registers: the CMR/HCA handshake is never acked and
-+	 * times out. Bandwidth for USB3 tunnels is only booked in software
-+	 * on these machines.
-+	 */
-+	tb->root_switch->no_usb3_bw_alloc = tb->nhi->quirks & QUIRK_NO_USB3_BW_ALLOC;
+diff --git a/Documentation/devicetree/bindings/thunderbolt/apple,t8103-usb4-acio.yaml b/Documentation/devicetree/bindings/thunderbolt/apple,t8103-usb4-acio.yaml
+new file mode 100644
+index 000000000000..38496ce31d20
+--- /dev/null
++++ b/Documentation/devicetree/bindings/thunderbolt/apple,t8103-usb4-acio.yaml
+@@ -0,0 +1,218 @@
++# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/thunderbolt/apple,t8103-usb4-acio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 	ret = tb_switch_configure(tb->root_switch);
- 	if (ret) {
- 		tb_switch_put(tb->root_switch);
-diff --git a/drivers/thunderbolt/tb.h b/drivers/thunderbolt/tb.h
-index 0977cd690d7e..530b0e6c3a11 100644
---- a/drivers/thunderbolt/tb.h
-+++ b/drivers/thunderbolt/tb.h
-@@ -140,6 +140,8 @@ struct tb_switch_tmu {
-  * @nvm: Pointer to the NVM if the switch has one (%NULL otherwise)
-  * @no_nvm_upgrade: Prevent NVM upgrade of this switch
-  * @no_dma_port: Prevent adding the DMA port of this switch
-+ * @no_usb3_bw_alloc: Host router does not implement the USB3 bandwidth
-+ *		      allocation registers (ADP_USB3_CS_1..4)
-  * @safe_mode: The switch is in safe-mode
-  * @boot: Whether the switch was already authorized on boot or not
-  * @rpm: The switch supports runtime PM
-@@ -196,6 +198,7 @@ struct tb_switch {
- 	struct tb_nvm *nvm;
- 	bool no_nvm_upgrade;
- 	bool no_dma_port;
-+	bool no_usb3_bw_alloc;
- 	bool safe_mode;
- 	bool boot;
- 	bool rpm;
-diff --git a/drivers/thunderbolt/tunnel.c b/drivers/thunderbolt/tunnel.c
-index 7e8284575dff..9178120a6b66 100644
---- a/drivers/thunderbolt/tunnel.c
-+++ b/drivers/thunderbolt/tunnel.c
-@@ -2268,24 +2268,40 @@ struct tb_tunnel *tb_tunnel_discover_usb3(struct tb *tb, struct tb_port *down,
- 	if (!tb_route(down->sw)) {
- 		int ret;
- 
--		/*
--		 * Read the initial bandwidth allocation for the first
--		 * hop tunnel.
--		 */
--		ret = usb4_usb3_port_allocated_bandwidth(down,
--			&tunnel->allocated_up, &tunnel->allocated_down);
--		if (ret)
--			goto err_deactivate;
-+		tunnel->consumed_bandwidth = tb_usb3_consumed_bandwidth;
++title: Apple Silicon USB4/Thunderbolt Host Router (ACIO)
 +
-+		if (down->sw->no_usb3_bw_alloc) {
-+			/*
-+			 * The host router does not implement the bandwidth
-+			 * allocation registers and nothing can be read back
-+			 * here. Book 90% of the maximum link rate in software
-+			 * instead.
-+			 */
-+			ret = tb_usb3_max_link_rate(tunnel->dst_port, down);
-+			if (ret < 0)
-+				goto err_deactivate;
++maintainers:
++  - Sven Peter <sven@kernel.org>
 +
-+			tunnel->allocated_up = ret * 90 / 100;
-+			tunnel->allocated_down = tunnel->allocated_up;
-+		} else {
-+			/*
-+			 * Read the initial bandwidth allocation for the first
-+			 * hop tunnel.
-+			 */
-+			ret = usb4_usb3_port_allocated_bandwidth(down,
-+				&tunnel->allocated_up, &tunnel->allocated_down);
-+			if (ret)
-+				goto err_deactivate;
++description: |
++  Each Type-C port with USB4/Thunderbolt support on Apple Silicon SoCs has a
++  host router complex called ACIO (Apple Converged I/O). It contains a
++  Cortex-M3 co-processor, the hardware blocks implementing the USB4 router
++  and its PCIe, USB3 and DisplayPort adapters.
 +
-+			tunnel->pre_activate = tb_usb3_pre_activate;
-+			tunnel->release_unused_bandwidth =
-+				tb_usb3_release_unused_bandwidth;
-+			tunnel->reclaim_available_bandwidth =
-+				tb_usb3_reclaim_available_bandwidth;
-+		}
- 
- 		tb_tunnel_dbg(tunnel, "currently allocated bandwidth %d/%d Mb/s\n",
- 			      tunnel->allocated_up, tunnel->allocated_down);
--
--		tunnel->pre_activate = tb_usb3_pre_activate;
--		tunnel->consumed_bandwidth = tb_usb3_consumed_bandwidth;
--		tunnel->release_unused_bandwidth =
--			tb_usb3_release_unused_bandwidth;
--		tunnel->reclaim_available_bandwidth =
--			tb_usb3_reclaim_available_bandwidth;
- 	}
- 
- 	tb_tunnel_dbg(tunnel, "discovered\n");
-@@ -2365,12 +2381,15 @@ struct tb_tunnel *tb_tunnel_alloc_usb3(struct tb *tb, struct tb_port *up,
- 		tunnel->allocated_up = min(max_rate, max_up);
- 		tunnel->allocated_down = min(max_rate, max_down);
- 
--		tunnel->pre_activate = tb_usb3_pre_activate;
- 		tunnel->consumed_bandwidth = tb_usb3_consumed_bandwidth;
--		tunnel->release_unused_bandwidth =
--			tb_usb3_release_unused_bandwidth;
--		tunnel->reclaim_available_bandwidth =
--			tb_usb3_reclaim_available_bandwidth;
++  The co-processor exposes the Native Host Interface (NHI) and its DART IOMMU
++  to the main SoC bus once it is running. They are therefore represented as
++  child nodes. All child registers are located in a single 16 MiB MMIO window
++  and use addresses relative to this window.
 +
-+		if (!down->sw->no_usb3_bw_alloc) {
-+			tunnel->pre_activate = tb_usb3_pre_activate;
-+			tunnel->release_unused_bandwidth =
-+				tb_usb3_release_unused_bandwidth;
-+			tunnel->reclaim_available_bandwidth =
-+				tb_usb3_reclaim_available_bandwidth;
-+		}
- 	}
- 
- 	return tunnel;
++  ACIO can only be powered on after the Type-C PHY has been switched to
++  USB4/Thunderbolt mode. Before the connection to the remote device can be
++  established the Type-C PD controller has to pass the cable information
++  through the thunderbolt-switch connection.
++
++properties:
++  compatible:
++    oneOf:
++      - const: apple,t8103-usb4-acio
++      - items:
++          - enum:
++              - apple,t6000-usb4-acio
++              - apple,t6020-usb4-acio
++              - apple,t6030-usb4-acio
++              - apple,t6031-usb4-acio
++              - apple,t8112-usb4-acio
++              - apple,t8122-usb4-acio
++          - const: apple,t8103-usb4-acio
++
++  reg:
++    items:
++      - description: Root complex and co-processor control registers
++      - description: SRAM used for communication with the co-processor
++
++  reg-names:
++    items:
++      - const: rc
++      - const: sram
++
++  mboxes:
++    maxItems: 1
++    description: Mailbox used for RTKit communication with the co-processor
++
++  resets:
++    maxItems: 1
++    description: Reset used to start the ACIO block before booting the
++      co-processor
++
++  power-domains:
++    maxItems: 3
++
++  thunderbolt-switch: true
++
++  apple,tunable-rc:
++    $ref: /schemas/types.yaml#/definitions/uint32-matrix
++    items:
++      items:
++        - description: Register offset
++        - description: Mask of bits to clear
++        - description: Bits to set
++    description: |
++      List of (register offset, mask, value) tuples copied from Apple's Device
++      Tree, converted by the bootloader and used to configure the root complex
++      after the co-processor has booted.
++
++  '#address-cells':
++    const: 1
++
++  '#size-cells':
++    const: 1
++
++  ranges:
++    maxItems: 1
++    description: Single 16 MiB MMIO window containing all child registers
++
++  nonposted-mmio: true
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++    description:
++      OF graph ports for the USB4 router. The port numbers correspond to the
++      USB4 router adapter numbers.
++    properties:
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: USB4 port connected to the USB Type-C connector
++
++      # port@2 is the second, unused USB4 port of the host router
++
++      port@3:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: PCIe adapter
++
++      port@4:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: USB3 adapter
++
++      port@5:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: First DP IN adapter
++
++      port@6:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Second DP IN adapter
++
++    required:
++      - port@1
++
++  iommu@a80000:
++    $ref: /schemas/iommu/apple,dart.yaml#
++    description: DART IOMMU exposed by ACIO and used for DMA from the NHI
++
++  nhi@f00000:
++    $ref: /schemas/thunderbolt/apple,t8103-usb4-nhi.yaml#
++    description: Native Host Interface exposed by ACIO
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - mboxes
++  - power-domains
++  - resets
++  - thunderbolt-switch
++  - '#address-cells'
++  - '#size-cells'
++  - ranges
++  - nonposted-mmio
++  - ports
++  - iommu@a80000
++  - nhi@f00000
++
++allOf:
++  - $ref: /schemas/usb/usb-switch.yaml#
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        cio@501ac0000 {
++            compatible = "apple,t8103-usb4-acio";
++            reg = <0x5 0x01ac0000 0x0 0xc000>,
++                  <0x5 0x01080000 0x0 0x20000>;
++            reg-names = "rc", "sram";
++            ranges = <0x0 0x5 0x01000000 0x1000000>;
++            #address-cells = <1>;
++            mboxes = <&usb4_1_mbox>;
++            nonposted-mmio;
++            pinctrl-0 = <&acio1_pins>;
++            pinctrl-names = "default";
++            power-domains = <&ps_atc1_cio>,
++                            <&ps_atc1_cio_pcie>,
++                            <&ps_atc1_cio_usb>;
++            resets = <&cio_reset 1>;
++            #size-cells = <1>;
++            thunderbolt-switch;
++
++            ports {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                port@1 {
++                    reg = <1>;
++
++                    endpoint {
++                        remote-endpoint = <&typec1_con_tbt>;
++                    };
++                };
++            };
++
++            usb4_1_dart: iommu@a80000 {
++                compatible = "apple,t8103-dart";
++                reg = <0xa80000 0x4000>;
++                interrupt-parent = <&aic>;
++                interrupts = <1 890 4>;
++                #iommu-cells = <1>;
++            };
++
++            nhi@f00000 {
++                compatible = "apple,t8103-usb4-nhi";
++                reg = <0xf00000 0x100000>,
++                      <0xdb0000 0x30004>;
++                reg-names = "nhi", "pdf";
++                interrupt-parent = <&aic>;
++                interrupts = <1 863 4>, <1 864 4>, <1 865 4>, <1 866 4>,
++                             <1 867 4>, <1 868 4>, <1 869 4>, <1 870 4>,
++                             <1 871 4>, <1 872 4>, <1 873 4>, <1 874 4>,
++                             <1 875 4>, <1 876 4>, <1 877 4>, <1 878 4>,
++                             <1 879 4>, <1 880 4>, <1 881 4>, <1 882 4>,
++                             <1 883 4>, <1 884 4>, <1 885 4>, <1 886 4>;
++                interrupt-names = "txring0", "txring1", "txring2", "txring3",
++                                  "txring4", "txring5", "txring6", "txring7",
++                                  "txring8", "txring9", "txring10", "txring11",
++                                  "rxring0", "rxring1", "rxring2", "rxring3",
++                                  "rxring4", "rxring5", "rxring6", "rxring7",
++                                  "rxring8", "rxring9", "rxring10", "rxring11";
++                iommus = <&usb4_1_dart 1>;
++                /* To be filled by the loader */
++                apple,thunderbolt-drom = [00];
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index bb26036a043f..c2c6e4541da7 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2658,6 +2658,7 @@ F:	Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
+ F:	Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml
+ F:	Documentation/devicetree/bindings/spi/apple,spi.yaml
+ F:	Documentation/devicetree/bindings/spmi/apple,spmi.yaml
++F:	Documentation/devicetree/bindings/thunderbolt/apple,t8103-usb4-acio.yaml
+ F:	Documentation/devicetree/bindings/thunderbolt/apple,t8103-usb4-nhi.yaml
+ F:	Documentation/devicetree/bindings/usb/apple,dwc3.yaml
+ F:	Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
 
 -- 
 2.55.0
