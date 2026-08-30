@@ -4,53 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1DAFC61DDE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 13:08:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94FEBC61DE1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 13:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kv8A3S2lI5H+GnIm/DaYmrT6u7PPe7MPAvqi/1UP54I=; b=Lo3R1HT6aIvidYRf0/Fupq08cB
-	jngy3j/N+A3DxujjzajMvVhtZQwvSfnd74hoxtGGL+FAS29QXOwZZ5Ro1HUsN+129zWJgUuagonW5
-	NpIEkog7C91cp7pP0kBxootynMquv4uDGK1ELDVdant+5UU+i3JpffGa12Hcq0dXpz7Kl/r1UsvcS
-	eiYxWsxI+fSQlxF9MyXPgd62bmk/HYAzf6MPcA2tKUxR0JZb6WkFIGRBzaAXKkWjrNR1FUSjhrPif
-	Jc+K9QLjN3L8WsmpFpwoD+3ARHlZw4n8Qzs82+oUXMO8fJA+NPnFpm0BnJRHNSmFlT5bJP+qV9dMn
-	gA2FereQ==;
+	bh=mIqUVQQTZb/RLJKuxYntLusdXEDBGRxBp4SGnd3/Bpo=; b=SKXOyFHdYCsfE6H5hW24z8FhM1
+	3tvq2ClfwCgbwn0bEFw9v1L8f4Etq7caKbxwkp3vl247MrqufZ4b4bxLKT5yVuRji754ezlGhngMi
+	eY2UpOXTHUH0eLX+Es88czPBHPC/BUuk7yy+ZxaSx2Yk3EnMv7+QqevUX7cc7XxIT1xQB0MZH9x0c
+	dXV8M/qj+tvlJ4sWo9U2WeAKOsVSKBRyjRlzUquUY8ZPI87jt0S6KMMFsmuSgv1XTIBoRc4V9ADhg
+	L9nYV/GIKM+63jZgugXqc9lKuxzv4ZBA1O/L7esNzbD1Wi6QFef1aNjjgKWQ9m4jJAHOkVr6+U3OY
+	r59zJKXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0fGR-00000007jX0-2aTw;
-	Sun, 30 Aug 2026 13:07:59 +0000
+	id 1x0fJP-00000007jjf-0pzX;
+	Sun, 30 Aug 2026 13:11:03 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0fGP-00000007jWM-06qu;
-	Sun, 30 Aug 2026 13:07:58 +0000
+	id 1x0fJL-00000007jj1-3kcP;
+	Sun, 30 Aug 2026 13:11:01 +0000
 Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-03 (Coremail) with SMTP id rQCowABncD4mK5Rqp9aaBg--.48169S2;
-	Sun, 30 Aug 2026 21:07:50 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowACnrjzbK5Rq7N+aBg--.43594S2;
+	Sun, 30 Aug 2026 21:10:52 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Corentin Labbe <clabbe@baylibre.com>
+To: Felix Fietkau <nbd@nbd.name>
 Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S . Miller" <davem@davemloft.net>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-crypto@vger.kernel.org,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] crypto: rockchip: propagate activation errors
-Date: Sun, 30 Aug 2026 21:07:48 +0800
-Message-ID: <20260830130748.944-1-pengpeng@iscas.ac.cn>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] wifi: mt76: mt7615: validate MCU response lengths
+Date: Sun, 30 Aug 2026 21:10:49 +0800
+Message-ID: <20260830131049.2097-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowABncD4mK5Rqp9aaBg--.48169S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Aw1rGw1xuw1UGFy8XF47Arb_yoW8ZFW3pr
-	13GrZrArWkCr4xGa95tr1rZF4rX3ySyry3Jr47K3WfAw1aqw1IgrWayFy0vFnxAFy8J3y5
-	AFs7Aa48CF1xZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: rQCowACnrjzbK5Rq7N+aBg--.43594S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Zry7CryUJw47uF18Jry5urg_yoW5JFWxpF
+	WjgFyayr4DJrsFga10vw1ku3yaq3s3tFyaqa4DW3s5J3s5C3WrCF4F9a4Fvr1rJFZ8Cr1r
+	Jw4qqrsxuFZ0q3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9I14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
 	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
@@ -61,13 +63,14 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7Aw1rGw1xuw1UGFy8XF47Arb_yoW8ZFW3pr
 	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
 	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r
 	4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
-	6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYx
-	BIdaVFxhVjvjDU0xZFpf9x0JUgXocUUUUU=
+	6r1xMIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJb
+	IYCTnIWIevJa73UjIFyTuYvjfU5dgADUUUU
 X-Originating-IP: [111.196.241.250]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_060757_440002_53494952 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20260830_061100_309259_E4BE7C6A 
+X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,67 +85,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip crypto driver ignores reset and crypto-engine start failures
-in
-probe, and ignores a reset deassertion failure during runtime resume. It
-can therefore publish or resume the crypto device without a usable engine.
+mt7615_mcu_parse_response() reads the common response header before
+checking its size and then consumes command-specific fields after unchecked
+skb_pull() calls. A short firmware response can therefore be read beyond
+its current extent.
 
-Return reset and engine-start failures, and disable the clocks if a runtime
-resume reset deassertion fails.
+Validate the common header and each command-specific payload before reading
+it.
 
-Fixes: 433cd2c617bf ("crypto: rockchip - add crypto driver for rk3288")
+Fixes: 0e6a29e477f3 ("mt76: mt7615: add support to read temperature from mcu")
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- drivers/crypto/rockchip/rk3288_crypto.c | 21 +++++++++++++++++----
- 1 file changed, 17 insertions(+), 4 deletions(-)
+ drivers/net/wireless/mediatek/mt76/mt7615/mcu.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/crypto/rockchip/rk3288_crypto.c b/drivers/crypto/rockchip/rk3288_crypto.c
-index 7cb1316b6f189..18ecbec1f101b 100644
---- a/drivers/crypto/rockchip/rk3288_crypto.c
-+++ b/drivers/crypto/rockchip/rk3288_crypto.c
-@@ -133,7 +133,12 @@ static int rk_crypto_pm_resume(struct device *dev)
- 	if (ret)
- 		return ret;
- 
--	reset_control_deassert(rkdev->rst);
-+	ret = reset_control_deassert(rkdev->rst);
-+	if (ret) {
-+		rk_crypto_disable_clk(rkdev);
-+		return ret;
-+	}
-+
- 	return 0;
- 
- }
-@@ -341,9 +346,14 @@ static int rk_crypto_probe(struct platform_device *pdev)
- 		goto err_crypto;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
+index ff57ede87f717..084949dd3e94e 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
+@@ -143,18 +143,26 @@ int mt7615_mcu_parse_response(struct mt76_dev *mdev, int cmd,
+ 			cmd, seq);
+ 		return -ETIMEDOUT;
  	}
++	if (skb->len < sizeof(*rxd))
++		return -EMSGSIZE;
  
--	reset_control_assert(crypto_info->rst);
-+	err = reset_control_assert(crypto_info->rst);
-+	if (err)
-+		goto err_crypto;
-+
- 	usleep_range(10, 20);
--	reset_control_deassert(crypto_info->rst);
-+	err = reset_control_deassert(crypto_info->rst);
-+	if (err)
-+		goto err_crypto;
+ 	rxd = (struct mt7615_mcu_rxd *)skb->data;
+ 	if (seq != rxd->seq)
+ 		return -EAGAIN;
  
- 	crypto_info->reg = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(crypto_info->reg)) {
-@@ -374,7 +384,10 @@ static int rk_crypto_probe(struct platform_device *pdev)
- 		goto err_crypto;
- 	}
+ 	if (cmd == MCU_CMD(PATCH_SEM_CONTROL)) {
++		if (skb->len < sizeof(*rxd) - 4 + sizeof(skb->data[0]))
++			return -EMSGSIZE;
+ 		skb_pull(skb, sizeof(*rxd) - 4);
+ 		ret = *skb->data;
+ 	} else if (cmd == MCU_EXT_CMD(THERMAL_CTRL)) {
++		if (skb->len < sizeof(*rxd) + sizeof(__le32))
++			return -EMSGSIZE;
+ 		skb_pull(skb, sizeof(*rxd));
+ 		ret = le32_to_cpu(*(__le32 *)skb->data);
+ 	} else if (cmd == MCU_EXT_QUERY(RF_REG_ACCESS)) {
++		if (skb->len < sizeof(*rxd) + 8 + sizeof(__le32))
++			return -EMSGSIZE;
+ 		skb_pull(skb, sizeof(*rxd));
+ 		ret = le32_to_cpu(*(__le32 *)&skb->data[8]);
+ 	} else if (cmd == MCU_UNI_CMD(DEV_INFO_UPDATE) ||
+@@ -165,12 +173,16 @@ int mt7615_mcu_parse_response(struct mt76_dev *mdev, int cmd,
+ 		   cmd == MCU_UNI_CMD(SUSPEND)) {
+ 		struct mt76_connac_mcu_uni_event *event;
  
--	crypto_engine_start(crypto_info->engine);
-+	err = crypto_engine_start(crypto_info->engine);
-+	if (err)
-+		goto err_pm;
-+
- 	init_completion(&crypto_info->complete);
++		if (skb->len < sizeof(*rxd) + sizeof(*event))
++			return -EMSGSIZE;
+ 		skb_pull(skb, sizeof(*rxd));
+ 		event = (struct mt76_connac_mcu_uni_event *)skb->data;
+ 		ret = le32_to_cpu(event->status);
+ 	} else if (cmd == MCU_CE_QUERY(REG_READ)) {
+ 		struct mt76_connac_mcu_reg_event *event;
  
- 	err = rk_crypto_pm_init(crypto_info);
++		if (skb->len < sizeof(*rxd) + sizeof(*event))
++			return -EMSGSIZE;
+ 		skb_pull(skb, sizeof(*rxd));
+ 		event = (struct mt76_connac_mcu_reg_event *)skb->data;
+ 		ret = (int)le32_to_cpu(event->val);
 
 base-commit: 08dbfad3f5040f5bdb6c529da20d6d4e81fefd72
 -- 
