@@ -4,109 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 209D0C61DD9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 09:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4381C61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 10:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5S6aFJy+mT5uKBC0KX5FwDzSqvoGmSboVBAKwD0uv/s=; b=rXdu+bCDIKboSNv0UxdhLLlEmg
-	sWuN1m2jijDzmrQuH2ojM1t1xdXlZwoE6DVumLXLZi/zK469bK9Jy/OFeLWpvWNxdoBFj+CS1VC6R
-	4jJVUZHlTG9kjqalDhk/UUiFqqnOUxPxVyPpegKcLkPMNpLEMRc0TfT6kBp7tM1EJTQsYUqKfAlcv
-	i7SeMLdcAqWye6CNwdvrmCJzuauiRHrATqVoeirmsp5H581WrPETObjpjlsFqkPEMT79b7gjVV1kz
-	8HrAzjlkKoT0q43GbxwpXVLwGdXvT5d/2E/Odk2GhIt5psyJOH+TQdX68LB3O5Oqgo2rHbfcUwLHR
-	46eieIAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hUg3LnMKjV9MVE0n08fRIjqBr7ECB//Eerd8cLFE4fg=; b=OJ5LKuiw+4dwOuoBcrO0V+3IDV
+	Rw4/sdUHBGGRpYwc2+sYr5sMVPlvJ4Qvf5UiIxWjnKg67LiGuQ//lyb+N7N10iu9ueeSYEzFYhsP8
+	DjdB21/Uv68yjDuk9omNlZH8SdTqoXV889fMPzD4MuqWW6wlSKvY96dMDR+pyLYtqpln3ilqK/2UA
+	UjBAZjsygZKIh4AWJY9VSj+inEf0ACErz+InsRSS1w6enitcizhJg84hIpy8/I618s1IGPm9G/7Nh
+	h7v1EZF2qBlTE22jwl9Zcvu0QWzq3jjHMJJe4fI/qSLWn+mXEDJpjWopNyNuRCJEhofe8tY8cmsQE
+	H0/IFFtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0cEO-00000007dRV-2Axl;
-	Sun, 30 Aug 2026 09:53:40 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1x0cia-00000007eFN-30fh;
+	Sun, 30 Aug 2026 10:24:52 +0000
+Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0cEL-00000007dQo-1VcY
+	id 1x0ciX-00000007eF0-1v5d
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Aug 2026 09:53:38 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-52fac937235so155351cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 02:53:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1788083615; cv=none;
-        d=google.com; s=arc-20260327;
-        b=WxiZgMVvR1dn/49tf02L3YGmPIscOf1GmNayR39+NWwfMChA8ySYoWn1NCT9Oi+vpc
-         g6+LMEKM34Ocn/NAT5fQGnRaX16yO+s3JzuHxw/AdrDpIaoLjX20fhXwhSG8jlRHrNXm
-         vMPklBCW8BDpAZ1iF1NLXe43uRCleQC3BbGGAK5JbOJOSz1++Dge6QoM1GP2wRhvxb3g
-         TcTKEJVUST/LiiYh+wICfOAjFhEVpAlduwndOF1PJrFLJ1Qg/4YN/Y296apoo6DtyquO
-         SqQ9eBIfyCstbIGJe989wKeka1eUSMBUltCW1gl/sC5x6zN4Bl3fK8nv9d1TOWxZPOdm
-         9Bfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=5S6aFJy+mT5uKBC0KX5FwDzSqvoGmSboVBAKwD0uv/s=;
-        fh=GdPAIfcqFQ01spwU2JM8l3VYXj0C9SCVRp9CqCwBrbY=;
-        b=QE5e8BsK8HPrWsOtedwPm+ZiR+JZr9VBzWGJTYz9wBu0b1s7o1DUgaHSRgjnUVkSiB
-         fB9U0jOXOlr2iCsiErXqKjO+GVjX4DMulDSCuQPzQ66P//9q/twinPgJYPERNOqAewyn
-         R0lPUB0V4cd6s04OR2sQhgd0RxVPK10Vsxlyn1sEMbntcFMehueKY7kCqAKTUiiLvMOj
-         +8ocla5G5gm2qyFaDhJSqh803hAD1KM/22OezAmib6WozxdoR3uFXMv6fioB2cUxgqjD
-         AuwRRXXMTjksCby+F9B1p9sq42GLY3v1wxsFEXRgWKs/KX49iAUT8ipyw7o9uo4T7OXu
-         EDXg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1788083615; x=1788688415; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5S6aFJy+mT5uKBC0KX5FwDzSqvoGmSboVBAKwD0uv/s=;
-        b=HCl+eOy/9riRH/QkSAg+9rn1chGjByuFAycqqnHvpUUgu/xoyEgPsNGbvXBxzyPzSn
-         ALS5S+2auYTURn9siGwhFfKPo9rLAIyS500xH0ypliBKqpmvifMZRLTDJmbPHNXUYKIh
-         pahkBvklvnH6ssj6A1MyYFaatdiuFxQeNx1D5VlAKEccIRDQfBGMhHr1htHwcByRSfVX
-         1lcnhUqKqEgVxlAdVBM2CETyaED9/Y7UDQL8qUQAVkVYVomW0FbuPTfGUfx6twZRaTxM
-         gkKow6hOJpFRVsK563a2PyTY5v8SGt2JWAaVkmiZEgT1ccTSViX+XGOMZ5ekn+Pu8aTP
-         inMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788083615; x=1788688415;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=5S6aFJy+mT5uKBC0KX5FwDzSqvoGmSboVBAKwD0uv/s=;
-        b=B54SetN9sShl4EEHSei+7/3Dn9HcTLcfiZ1Ze86+5LixHnwVFvI0YuQWkznsTZ+lUi
-         x+0O8s9UqrKc552hTmNaAM/BA9d0FVXVa7XVFhVbW2jpxTf6EwXE4iYMEBmCwHiyJRRi
-         HHGv2t3hdT4zJMF0n3ldju7O9ad/wV7Rc9pFB7MFf5qny4bRbaBGQzKKUzqmaITW8lUy
-         JMxjJosDEF441NurJja5jU5faxzey5vS8ETbYT4YqDh3hLBQ0wYbPDYqQG7EXfyIfFhh
-         0cpxVAhdv79Jmggo/qG0KN/xFDTihZTPz0ne5hsapsfssoPhel8R+IpSKJhmfQAwbjg0
-         HLkw==
-X-Forwarded-Encrypted: i=1; AHgh+RrrJkgpN8Ko67ig5/QSnNrdVgl9o501dIIM32DI3SI6fCSXeb+A8yKvwXRrkkLwR2ZHG+vK9JziCDpjL3xyxcFe@lists.infradead.org
-X-Gm-Message-State: AFuF++lXFCPKCDhiThtB+qzi2gB4hSouYrryfW9FsIe4J0ahSpXCDIVP
-	wmnQh/RuMObhAZ/kgm07+tlJXk83Iu7dn9204XSkNGtjyzs6smC81N1Ez+frPS4vMlpaGkHfjBr
-	fExk6geT6Y9XhQSxjdvNRC/RctJWHJRxO8EB8B1DS
-X-Gm-Gg: AR+sD120X6N7Hs8Ct2cxVHxXtdxjaJrwCqbsafgaLEK+CXkyVdlLU7vOJpPlOaLEGAj
-	TIKGNQa3P8DZ0WgV5is2VSymENkZBqx9tQ7u4aaEatP4MWYZVwC/u9NG34hoff7sVLsmepw6nKP
-	Z4ixRblh+ifNIP6UZwEXCcVZFABYwy1ET/mRXjKR2Rfjj5qz3xKbDVyLt6QySxIxlWeCdW1TOvh
-	UFYYaA2FOqiIMLFQn8ZIMt6bmOOp66LA60HZDFUIHTTWx8EGEHZi7yzpmDIHlIG7bLKFqBifZIc
-	8wXtunJvMaaSNBTRPFLG616No7UccHhDjcH7ztoYEiWswlpWrL6HHECIddlzZpc+snYiqKMlUKj
-	eNA==
-X-Received: by 2002:a05:622a:190a:b0:528:38d6:71b4 with SMTP id
- d75a77b69052e-530100f6b84mr249421cf.11.1788083614253; Sun, 30 Aug 2026
- 02:53:34 -0700 (PDT)
+	Sun, 30 Aug 2026 10:24:50 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4hXpCG6pNlz8v1Y;
+	Sun, 30 Aug 2026 12:24:42 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1788085482;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=hUg3LnMKjV9MVE0n08fRIjqBr7ECB//Eerd8cLFE4fg=;
+	b=xJWjiFX3MDMvqVROFKNrk7mkZgZsK6kOo1AgkAeTvkjLV1uBgfEwbLIhbUGM3CG8FKKoWH
+	2IM/VGqJ0jm4xvGnl7UDA8NgEPKkvf7zrRjO5YXE6tT255ixz4rXSrFEt6XBgyFUrMvTVV
+	bZQG05k0jt7GExNpZt76yGLGxCzjzcyUGTqiyVNqcXjCtPmIZTusIjR+i4AMKr23Zs1HBd
+	CtcgUXprBzLQ3xPEeSIWdhhKah0gs897b8nCBuegIsC/VTvAiDYn0VE0pA3uzeHN7KWqGZ
+	tlwga5nri3/5vqFHFTe2JjmNo4SxD1D2xFOraybRdexIHUvrYiXbGSXvg/s7og==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=xJNuYAFX;
+	spf=pass (outgoing_mbo_mout: domain of manuelebnerli@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=manuelebnerli@mailbox.org
+From: Manuel Ebner <manuelebnerli@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1788085481;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=hUg3LnMKjV9MVE0n08fRIjqBr7ECB//Eerd8cLFE4fg=;
+	b=xJNuYAFXEVdbkpwFYuvr22tl1ozi5iicKwEomIUH6TPHkkArizub3FiJZl0KIAxxFC7qta
+	2zY2yIH6u8+X5nShRPFQ1fDvgqcU8vmGpUaGpvMsNYJCZIQCcofd2e/JvvgqaLhv2CMKrV
+	8mtnfqoHUDh3KbGG0+/C6CliIACOaIG91HLNBATxWobkxmZ5Q+6NAvvrv9udx6iEHWY//Y
+	2PLGrJk9tERSsq28shulSVaoMxAfbZ5DQnZxugIluN+53o5meM0SmtOO0UR0Oy24eXLhRE
+	taP0U0ZUFTf7Eo92gzkctj4rvmmcVOnqNHwf6/nnSK8tDy+QDGQZnqLbP5d23A==
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Cheng-Yang Chou <yphbchou0911@gmail.com>,
+	Eric Biggers <ebiggers@kernel.org>
+Cc: Manuel Ebner <manuelebnerli@mailbox.org>,
+	Kees Cook <kees@kernel.org>,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] crypto: arm64/aes-neonbs: transition to kmalloc_obj()
+Date: Sun, 30 Aug 2026 12:17:14 +0200
+Message-ID: <20260830101714.625728-3-manuelebnerli@mailbox.org>
 MIME-Version: 1.0
-References: <20260828092311.10774-1-pengpeng@iscas.ac.cn>
-In-Reply-To: <20260828092311.10774-1-pengpeng@iscas.ac.cn>
-From: Stanley Jhu <stanleyjhu@google.com>
-Date: Sun, 30 Aug 2026 17:52:57 +0800
-X-Gm-Features: AcwNN1UaiSHb4F9fUpqjBR1le5QyODKMu5bAeRX35ytqP7PxUTTdcqYqoVRCkRc
-Message-ID: <CAE14pdeXt63__PW0Md6Vp4hfh-HTdhG=LGSRtYRLQKWk0phxew@mail.gmail.com>
-Subject: Re: [PATCH] scsi: ufs: mediatek: Handle mPHY power-on failures
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Peter Wang <peter.wang@mediatek.com>, 
-	Chaotian Jing <chaotian.jing@mediatek.com>
-Cc: Stanley Jhu <chu.stanley@gmail.com>, 
-	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	"Martin K . Petersen" <martin.petersen@oracle.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-scsi@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: ipfna54i738khrgexqrc7bq9u1f7nd7i
+X-MBO-RS-ID: 592fd02ed3e8ea0018b
+X-Rspamd-Queue-Id: 4hXpCG6pNlz8v1Y
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_025337_451663_4A98682D 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20260830_032449_645624_3A1ECE04 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,33 +95,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Aug 2026 17:23:11 +0800, Pengpeng Hou wrote:
-> @@ -509,6 +509,7 @@ static int ufs_mtk_mphy_power_on(struct ufs_hba *hba, bool on)
->       struct ufs_mtk_host *host = ufshcd_get_variant(hba);
->       struct phy *mphy = host->mphy;
->       struct arm_smccc_res res;
-> +     int rollback_ret;
->       int ret = 0;
+Convert to type aware allocation as suggested in commit 2932ba8d9c99
+("slab: Introduce kmalloc_obj() and family")
 
-`rollback_ret` feels overly verbose; a shorter name like `err` would be
-cleaner.
+CC: Kees Cook <kees@kernel.org>
+Fixes: 652a3017c485 ("crypto: arm64/aes-neonbs - Move key expansion off the stack")
+Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
+---
+I have a couple similar patches lined up but they could be automated or maybe
+the script is already made by Kees.
+Kees can you make a script assisted commit (again)?
+---
+ arch/arm64/crypto/aes-neonbs-glue.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-> +             ret = phy_power_on(mphy);
-> +             if (ret) {
-> +                     if (ufs_mtk_is_va09_supported(hba)) {
-> +                             ufs_mtk_va09_pwr_ctrl(res, 0);
-> +                             rollback_ret = regulator_disable(host->reg_va09);
-> +                             if (rollback_ret)
-> +                                     dev_warn(hba->dev, "failed to disable va09 after mphy failure: %d\n",
-> +                                              rollback_ret);
-> +                     }
-> +                     dev_info(hba->dev, "failed to enable mphy: %d\n", ret);
-> +                     return ret;
-> +             }
+diff --git a/arch/arm64/crypto/aes-neonbs-glue.c b/arch/arm64/crypto/aes-neonbs-glue.c
+index 5bcbac979..7cb1aede9 100644
+--- a/arch/arm64/crypto/aes-neonbs-glue.c
++++ b/arch/arm64/crypto/aes-neonbs-glue.c
+@@ -66,7 +66,7 @@ static int aesbs_setkey(struct crypto_skcipher *tfm, const u8 *in_key,
+ 	struct crypto_aes_ctx *rk;
+ 	int err;
+ 
+-	rk = kmalloc(sizeof(*rk), GFP_KERNEL);
++	rk = kmalloc_obj(*rk);
+ 	if (!rk)
+ 		return -ENOMEM;
+ 
+@@ -128,7 +128,7 @@ static int aesbs_cbc_ctr_setkey(struct crypto_skcipher *tfm, const u8 *in_key,
+ 	struct crypto_aes_ctx *rk;
+ 	int err;
+ 
+-	rk = kmalloc(sizeof(*rk), GFP_KERNEL);
++	rk = kmalloc_obj(*rk);
+ 	if (!rk)
+ 		return -ENOMEM;
+ 
+-- 
+2.54.0
 
-`dev_info()` is inappropriate for an operation failure; please use `dev_err()`
-instead.
-
-Thanks,
-Stanley Jhu
 
