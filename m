@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AAF4C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 20:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11882C61DEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 20:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UFYGZPuldcY7HLlzmahLnNCc9R6zu173lzPOLKLrVI8=; b=AlZvtxXQ4m/sh4R5+XS+YLmglg
-	9GAjIPv4vKYpuqjruzlFkT0onYNa9vCh8IMPEwlSt9YTSx/Bkg1zO1mK1gXxZx2sKWkW3Sbb3EMNz
-	arxpxDUVxw7U/TjtllE+N+G0yxm9XVf0cFNofpOhUx40AHalMevwQFu01+oPGVo63BWSKr3XOQTup
-	2NcbhxlS6kc2NwUBZqMVUAHubX/764xgSf287iijiMKd7mQ6JzCwVaOo6/N7UXJu4tPuS9c7jAI8D
-	4WCTOH4zl9HkcjsexUZFO+Zk3svofMW2tQzMoDOLGO4C6PtWQj7VpDoaWExYKtCQi8kkTMQdgUodq
-	Kq/+q+iQ==;
+	bh=sjJNieqH3vwqahE0g+nJl2ZxFb/vPFbHZHdcgAt8AZQ=; b=cIJjRVJ21/xT5z9COSTCbKVEFd
+	DbPQDgDnoCulZdfUfHtGjY7FEzEey6I+WcfO2ekUbAIzByBph5Zrk99fjXQQxjPHGLAHNrNuxUygG
+	5nUWYXbZRT6bOYZVQ01r+1QThKeT5zm/pIsrHRZ+C6VcB83qzxtBqihCpSnkk53i+iw+0SSMqtmaU
+	iueorM0AmV4oz5u6ZWRlMPKAncRUem18d9DQ3olKMhaLiZcDm4HfWJnR264RI1gytNKntb0XJ5bQw
+	WcCy9wi+RhnE3VYkMfPw5onVBNz+FGs9dX7UO7Qzul+4pv8BOBz6ygLeXMODOKp9SvdGu5tAyARHI
+	1/hO+A0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0m0L-000000082yj-1p3Q;
-	Sun, 30 Aug 2026 20:19:49 +0000
+	id 1x0m0J-000000082tr-00S2;
+	Sun, 30 Aug 2026 20:19:47 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0m0H-000000082pe-1hmD
+	id 1x0m0H-000000082pU-0hBZ
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 30 Aug 2026 20:19:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D2AEF44779;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8AF4B44501;
 	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A3B96C4AF19;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 663F6C2BD00;
 	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788121184;
-	bh=ys3MSPTh8sqC1O/yv08O/qeOshWA9L72ZznWjJevtX4=;
+	bh=5XX7FpDBpIyvJfx+M3LmY3siJAf3LFS0+gQqxSzs9eQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=fdKx/FPhfQtGKpLplVnSLBQ8Gw/sbqYyuGYAeTbYQGAoPnpIFBEmN7kYdABEucZw6
-	 wZULcOCuE6f/EHdZtxkW7ej8cNNRmW7+ngBzQ0niuJHU2vQ03xnuTb3T2y0td/27OT
-	 oEW05IU1EsGUd4zk1WqlZNPwlDJQnFPEDVnfz/fLNuhzE7q4ivcsArzUTuTG0FrNFB
-	 frlYc7ry1I/rmslCP1y1HX9lrxdSy2Eni/3Ut9iwbckHwOEPYAdjfPqLjZ51//9Uuz
-	 IDOoqfR25guoTfsV8JyVQflt2P3rEwceWse22XojUWQBlx+8SIuGVJjXaLPZwjxaCx
-	 Lg86MmnMZe7XA==
+	b=VzO2/9BCbD0HayC+lwIiI5cb2upvxMlSY/WL/8cFVNpDTkz8IVDoA2rwM5HzPrw0o
+	 TRp1ogue9EibcxGcYXyjQeVH4H6+KfPg5IW6UmHLmCI1FyAP5j9n4W+Kuzlf8Ofh23
+	 UMil8d8IUfcBRCw1xRZ26+n7quqJS8VZN0Wfw1XgXw5FWEbZJPsX+MFnlhplCszSyj
+	 dV1H9rDNS+EWXJ1vtGaAyGg42KTvwO4plIAq7a23rwDNn7eCx9RLzE2lcH1lt1LgKu
+	 SmXq/MpWiVzuEEKgx9zZDdsojiH+8fowQbNbY+MxdixJ5iE/sDchcbg50Pm+80y0sx
+	 27H6i+w3GNsuA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 88718C61DEB;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 53EDFC61DD9;
 	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Sun, 30 Aug 2026 22:19:31 +0200
-Subject: [PATCH 13/19] thunderbolt: Add QUIRK_NO_DMA_PORT
+Date: Sun, 30 Aug 2026 22:19:28 +0200
+Subject: [PATCH 10/19] thunderbolt: Make the ring register layout
+ configurable
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260830-b4-apple-soc-tbt-v1-13-44bc9348683c@kernel.org>
+Message-Id: <20260830-b4-apple-soc-tbt-v1-10-44bc9348683c@kernel.org>
 References: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
 In-Reply-To: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -68,13 +69,13 @@ Cc: Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Sven Peter <sven@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3244; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4811; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=ys3MSPTh8sqC1O/yv08O/qeOshWA9L72ZznWjJevtX4=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ9aUCZFKJbWRpu7a9XZdn2duKzJSeVjsdFhs3m2/zbenb
- gnJSb/fUcrCIMbFICumyLJ9v73pk4dvBJduuvQeZg4rE8gQBi5OAZjI35MM/4zbDoYaJr+eqLZE
- 4xGPrfarjvYz4XGXFhklFluHfMrP+8zIMKHxub3n3VMNi/vTtk7SyZiuFVKR57d2i1KUYeA1Ged
- 73AA=
+ bh=5XX7FpDBpIyvJfx+M3LmY3siJAf3LFS0+gQqxSzs9eQ=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ9aUCeHxR9omvpN+LLff5LeTgbhkdt65J7JRi/o3F3qqv
+ hONCnjUUcrCIMbFICumyLJ9v73pk4dvBJduuvQeZg4rE8gQBi5OAZhITTvDH95VrWt0Ncu/1atW
+ 3lD8MslyX9Tt6mkhduePLLxx+Mi1TxKMDH+VAq0cZH+Z9b2K21erMOHT+6n3ehqssj0FLq3Y9GC
+ qKAMA
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
@@ -93,97 +94,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apple Silicon machines load and update the host router firmware with a
-separate, proprietary mechanism and have no DMA port. Add a quirk to
-skip its initialization.
+The ring descriptor and options registers are laid out differently on
+the Apple NHI. Describe their offsets and strides with a
+tb_nhi_ring_layout struct that NHI drivers can override.
 
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- drivers/thunderbolt/nhi.h    |  1 +
- drivers/thunderbolt/switch.c | 10 ++++++----
- drivers/thunderbolt/tb.c     |  8 ++++++++
- drivers/thunderbolt/tb.h     |  2 ++
- 4 files changed, 17 insertions(+), 4 deletions(-)
+ drivers/thunderbolt/nhi.c   | 30 ++++++++++++++++++++++++------
+ drivers/thunderbolt/nhi.h   | 18 ++++++++++++++++++
+ include/linux/thunderbolt.h |  3 +++
+ 3 files changed, 45 insertions(+), 6 deletions(-)
 
+diff --git a/drivers/thunderbolt/nhi.c b/drivers/thunderbolt/nhi.c
+index fc54ff7edfb9..3a3d334e69fd 100644
+--- a/drivers/thunderbolt/nhi.c
++++ b/drivers/thunderbolt/nhi.c
+@@ -176,19 +176,32 @@ void nhi_disable_interrupts(struct tb_nhi *nhi)
+ 
+ /* ring helper methods */
+ 
++static const struct tb_nhi_ring_layout nhi_default_ring_layout = {
++	.tx_desc_base = REG_TX_RING_BASE,
++	.rx_desc_base = REG_RX_RING_BASE,
++	.desc_stride = 16,
++	.tx_options_base = REG_TX_OPTIONS_BASE,
++	.rx_options_base = REG_RX_OPTIONS_BASE,
++	.options_stride = 32,
++};
++
+ static void __iomem *ring_desc_base(struct tb_ring *ring)
+ {
++	const struct tb_nhi_ring_layout *layout = ring->nhi->ring_layout;
+ 	void __iomem *io = ring->nhi->iobase;
+-	io += ring->is_tx ? REG_TX_RING_BASE : REG_RX_RING_BASE;
+-	io += ring->hop * 16;
++
++	io += ring->is_tx ? layout->tx_desc_base : layout->rx_desc_base;
++	io += ring->hop * layout->desc_stride;
+ 	return io;
+ }
+ 
+ static void __iomem *ring_options_base(struct tb_ring *ring)
+ {
++	const struct tb_nhi_ring_layout *layout = ring->nhi->ring_layout;
+ 	void __iomem *io = ring->nhi->iobase;
+-	io += ring->is_tx ? REG_TX_OPTIONS_BASE : REG_RX_OPTIONS_BASE;
+-	io += ring->hop * 32;
++
++	io += ring->is_tx ? layout->tx_options_base : layout->rx_options_base;
++	io += ring->hop * layout->options_stride;
+ 	return io;
+ }
+ 
+@@ -215,8 +228,10 @@ static void ring_iowrite32desc(struct tb_ring *ring, u32 value, u32 offset)
+ 
+ static void ring_iowrite64desc(struct tb_ring *ring, u64 value, u32 offset)
+ {
+-	iowrite32(value, ring_desc_base(ring) + offset);
+-	iowrite32(value >> 32, ring_desc_base(ring) + offset + 4);
++	void __iomem *base = ring_desc_base(ring);
++
++	iowrite32(value, base + offset);
++	iowrite32(value >> 32, base + offset + 4);
+ }
+ 
+ static void ring_iowrite32options(struct tb_ring *ring, u32 value, u32 offset)
+@@ -1253,6 +1268,9 @@ int nhi_probe(struct tb_nhi *nhi)
+ 	if (!nhi->ops->init_interrupts)
+ 		return dev_err_probe(dev, -EINVAL, "missing required NHI ops\n");
+ 
++	if (!nhi->ring_layout)
++		nhi->ring_layout = &nhi_default_ring_layout;
++
+ 	nhi->hop_count = ioread32(nhi->iobase + REG_CAPS) & 0x3ff;
+ 	dev_dbg(dev, "total paths: %d\n", nhi->hop_count);
+ 
 diff --git a/drivers/thunderbolt/nhi.h b/drivers/thunderbolt/nhi.h
-index 670b48efeec5..c2d16ab6994e 100644
+index 4884c3f5a2b2..035cee433a3c 100644
 --- a/drivers/thunderbolt/nhi.h
 +++ b/drivers/thunderbolt/nhi.h
-@@ -168,6 +168,7 @@ struct tb_nhi_ops {
- #define QUIRK_AUTO_CLEAR_INT				BIT(0)
- #define QUIRK_E2E					BIT(1)
- #define QUIRK_RESET_DMA_ON_TEARDOWN			BIT(2)
-+#define QUIRK_NO_DMA_PORT				BIT(3)
+@@ -40,6 +40,24 @@ void nhi_reset_interface(struct tb_nhi *nhi);
  
- /*
-  * Minimal number of vectors when we use MSI-X. Two for control channel
-diff --git a/drivers/thunderbolt/switch.c b/drivers/thunderbolt/switch.c
-index 3f54a5ae56b0..ef267f40c103 100644
---- a/drivers/thunderbolt/switch.c
-+++ b/drivers/thunderbolt/switch.c
-@@ -3317,10 +3317,12 @@ int tb_switch_add(struct tb_switch *sw)
- 	 * to the userspace. NVM can be accessed through DMA
- 	 * configuration based mailbox.
- 	 */
--	ret = tb_switch_add_dma_port(sw);
--	if (ret) {
--		dev_err(&sw->dev, "failed to add DMA port\n");
--		return ret;
-+	if (!sw->no_dma_port) {
-+		ret = tb_switch_add_dma_port(sw);
-+		if (ret) {
-+			dev_err(&sw->dev, "failed to add DMA port\n");
-+			return ret;
-+		}
- 	}
+ extern const struct dev_pm_ops nhi_pm_ops;
  
- 	ret = tb_switch_nvm_init(sw);
-diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
-index 47753a5c0f2e..c43cdd2c2e2e 100644
---- a/drivers/thunderbolt/tb.c
-+++ b/drivers/thunderbolt/tb.c
-@@ -15,6 +15,7 @@
- #include "tb.h"
- #include "tb_regs.h"
- #include "tunnel.h"
-+#include "nhi.h"
- 
- #define TB_TIMEOUT		100	/* ms */
- #define TB_RELEASE_BW_TIMEOUT	10000	/* ms */
-@@ -3036,6 +3037,13 @@ static int tb_start(struct tb *tb, bool reset)
- 	/* All USB4 routers support runtime PM */
- 	tb->root_switch->rpm = tb_switch_is_usb4(tb->root_switch);
- 
-+	/*
-+	 * Apple Silicon machines have a separate, proprietary mechanism for
-+	 * loading and updating firmware. Skip the DMA port initialization on
-+	 * these machines.
-+	 */
-+	tb->root_switch->no_dma_port = tb->nhi->quirks & QUIRK_NO_DMA_PORT;
++/**
++ * struct tb_nhi_ring_layout - Layout of the ring registers in the NHI MMIO space
++ * @tx_desc_base: Offset of the descriptor registers of the first TX ring
++ * @rx_desc_base: Offset of the descriptor registers of the first RX ring
++ * @desc_stride: Stride between the descriptor registers of neighboring rings
++ * @tx_options_base: Offset of the options registers of the first TX ring
++ * @rx_options_base: Offset of the options registers of the first RX ring
++ * @options_stride: Stride between the options registers of neighboring rings
++ */
++struct tb_nhi_ring_layout {
++	u32 tx_desc_base;
++	u32 rx_desc_base;
++	u32 desc_stride;
++	u32 tx_options_base;
++	u32 rx_options_base;
++	u32 options_stride;
++};
 +
- 	ret = tb_switch_configure(tb->root_switch);
- 	if (ret) {
- 		tb_switch_put(tb->root_switch);
-diff --git a/drivers/thunderbolt/tb.h b/drivers/thunderbolt/tb.h
-index 4373336d9425..0977cd690d7e 100644
---- a/drivers/thunderbolt/tb.h
-+++ b/drivers/thunderbolt/tb.h
-@@ -139,6 +139,7 @@ struct tb_switch_tmu {
-  * @drom: DROM of the switch (%NULL if not found)
-  * @nvm: Pointer to the NVM if the switch has one (%NULL otherwise)
-  * @no_nvm_upgrade: Prevent NVM upgrade of this switch
-+ * @no_dma_port: Prevent adding the DMA port of this switch
-  * @safe_mode: The switch is in safe-mode
-  * @boot: Whether the switch was already authorized on boot or not
-  * @rpm: The switch supports runtime PM
-@@ -194,6 +195,7 @@ struct tb_switch {
- 	u8 *drom;
- 	struct tb_nvm *nvm;
- 	bool no_nvm_upgrade;
-+	bool no_dma_port;
- 	bool safe_mode;
- 	bool boot;
- 	bool rpm;
+ /**
+  * struct tb_nhi_ops - NHI specific optional operations
+  * @init: NHI specific initialization
+diff --git a/include/linux/thunderbolt.h b/include/linux/thunderbolt.h
+index d48623fda79b..7c2717bd2945 100644
+--- a/include/linux/thunderbolt.h
++++ b/include/linux/thunderbolt.h
+@@ -503,6 +503,8 @@ void tb_service_properties_changed(struct tb_service *svc);
+  *	  interrupt_work when dispatching interrupts to individual rings.
+  * @dev: Device associated with this NHI instance
+  * @ops: NHI specific optional ops
++ * @ring_layout: Layout of the ring registers inside @iobase. If not set
++ *		 the default layout from the USB4 specification is used.
+  * @iobase: MMIO space of the NHI
+  * @tx_rings: All Tx rings available on this host controller
+  * @rx_rings: All Rx rings available on this host controller
+@@ -524,6 +526,7 @@ struct tb_nhi {
+ 	spinlock_t lock;
+ 	struct device *dev;
+ 	const struct tb_nhi_ops *ops;
++	const struct tb_nhi_ring_layout *ring_layout;
+ 	void __iomem *iobase;
+ 	struct tb_ring **tx_rings;
+ 	struct tb_ring **rx_rings;
 
 -- 
 2.55.0
