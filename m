@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 285C4C61DD9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 16:02:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF27C61DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 16:03:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q4Gd3Zu6V237u3MJ1sYGZ7SxZwjOc/OROhTL4anxICY=; b=kckZt47bJ0GPoUXsSlRHA3Pf/X
-	eKiawDFe70wCT1+SlXRvo3jJzgAGh2tTwBsXD6EDEUF/ABwSQAuHBswHvBSRX+VBdx6+f/HFlLfcl
-	Ei9Ao5TKrlaq/phB6Kk/ugM2U7uQnoRFb6EPo5v/kkUyyug3TngWX+FWpd7yh/sYFoi+AV26a3+ez
-	pUvt0VzaBxkTXTB7ltRoYhMjKndOpnx/lI2wswVpYxwTtdeYm9hm61BMflKI6lX/9SXPTG5nIOCiF
-	kkamJQiS25nQgP9AFoIc7HkUnA3tlT2yrsEbU5VUnsnAIXAKg/NUETXuRH3p8/XppTdiXEqVSojSs
-	UDxV6W4Q==;
+	bh=HROlraX6vGLZgnawqAwSnbTcyoz5nQUPKuJqXPgTnHE=; b=K4BdMbI4f2TxXU8lJBxYSoH+06
+	LQempoSdD55gyUVRuSqoBnCzaX3fotVslsnCeSdvO4g3pWtyqMaKU4jCdtAstp3C5icQbBuxavXHw
+	2iwtfLpZN+ntVT/28g0qoVLRO4k25IT3wM7Y5gpkCU4k3l/RBlAunSH/iaMFOAwGkeZpFq3XTSEQ0
+	EP4tULulIZFWp9nw36wdh/+G/c9uXb/QW2Dq722qLoRhEzzyePKj6f6Olkqshwvhx6OxRaFEEkXM9
+	s+0pUIbSuvHfoLAHcuzGupo614c78Wfp29T6Ev5GVTR5+Z9o0cRIDH2PcL3gLkkg+7WVA11KrB6//
+	X14zL55Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0hzb-00000007t9f-2t3Q;
-	Sun, 30 Aug 2026 16:02:47 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1x0hzm-00000007tBt-3JUB;
+	Sun, 30 Aug 2026 16:02:58 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0hzZ-00000007t9E-2cjq
+	id 1x0hzk-00000007tBI-3HJ2
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Aug 2026 16:02:46 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-8525efa7274so2065434b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 09:02:45 -0700 (PDT)
+	Sun, 30 Aug 2026 16:02:57 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-852c481415fso2950725b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 09:02:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788105765; x=1788710565; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788105776; x=1788710576; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Q4Gd3Zu6V237u3MJ1sYGZ7SxZwjOc/OROhTL4anxICY=;
-        b=IthtKUkzBm9iabJ+Q9fsB11AeUbIkul9Te2BH4NtvmFT9yto9rcXZDK0Wc0xzJe+S8
-         UXkXyOTyO0S4bj4IFkNLG2f+0mb6vZY8WCvmDo6/o6POgcId8rASAFxRaAjATg71xikJ
-         Kv6ku5rAZbtjGZTp9nN0SGT9KoumoLBjC6E1SPNXUp1axAiakXrzRPDKUx+eCsCOu4kN
-         s4mX+rDQlzEk3eZqFOcyREShqM5HToFQFfl42vd+hnHQoVg4vz/FlV7ewGit1kjAAIju
-         8//KlnwBlNK8fn0FXVV7kOywZqcevlXKF2b7k0BO+XBft+N9dXbkb1oUUU/7w1aMP8Ja
-         5o8g==
+        bh=HROlraX6vGLZgnawqAwSnbTcyoz5nQUPKuJqXPgTnHE=;
+        b=NWR04ALVNBJGjWdAe4S7O21HLmU02z9KtUWUo9NCLLsEkCIdNrs88lqFAYo/k202pj
+         ygPOP3UXKQ4tBq9o7jJfbKLR5Kvyrfx9q4QCyOSHuYWbiFuMClO/UNaR/xw8XE8wU8NZ
+         AsqZmho7JZRvFF3nK7UF84hN6aPr9ISDjKejZnfZUa/ukLcLHEwN8H2RvsCjIEbi86GB
+         pXe4IyU2t4TL2LXdLdnmST03VBjUbFAtnnr1qoLNdsu0Xp6xyaIzq/7N4LlVPeUDlek3
+         IwCRYg2rcfgEDZj8eLRfAVsu+wvr5mHeGjwoAE47GebKPHARIyqmtcsj/dkcJKpHNAoQ
+         qPbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788105765; x=1788710565;
+        d=1e100.net; s=20251104; t=1788105776; x=1788710576;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Q4Gd3Zu6V237u3MJ1sYGZ7SxZwjOc/OROhTL4anxICY=;
-        b=G5jywsCEdGUMi4bO0KUWPQMKpE0FkoDNhDGp1PAywoLQzdA2pRk1ppZP64bWGRvMHL
-         UI5G7MNSW2CIFv6Lf1GHXlEfI39DkRkkARiazBEia0ivvUtCqWZYoGPTlHnQtwPPZbfm
-         Dua91QefmjPMEpuOtgeTo7lH3L4zIoP/D1N43XuyzUwSnIFShMhImIHZEq4VigtVubvN
-         nQZIF1aOGyuUyc//x7+wEunW7DSx7xXDzVaViGy9NmuuPDh2IXqLRmlzDkTqLrc1y1RO
-         Lek/w3SJB60NG2iRpsgsyhcTvRm+xkyJblL/04hN+1qpFVOJ86guCJE2YfWVI91pYmIO
-         Q3yw==
-X-Forwarded-Encrypted: i=1; AHgh+RprWcK1rRfroebAkk0qhR3pB14q0zCiv42xeAo23N0Zfbdf8ZBZzNL3loRQjsTLlIPDxxpxvhDapNfyaSHkhUSQ@lists.infradead.org
-X-Gm-Message-State: AFuF++k6L+t09DGKg1iCb6N8u6zvJmpQ51kty3jrQ7ANnTyW9al0jRVs
-	1Q/hs3fgzpouX523Obql6t6haWRNOC3x99A6OixX6ajQAA0HcQbU/OZc
-X-Gm-Gg: AR+sD10eMo5d/1GBuzwWauR9aGdhFab/e4neSfuDBITts0zAvDENK1csEkWvRZrEWg4
-	6yfIz5krGSosx06ppHmgVxezDkAv2vk9bcc59eGtbW5dFsgIoefEY3QnxRzXxlAJeiQkXQExq3l
-	97AOtWel5VHewcsRF4GEe6jwdDXtfhQd5mx0D4xe9/87bRb2t3XGmcB7lgOy2NwR3FqwbWsDbUi
-	PkGwrBxIDjXeVukJHLNo8zPS3Ti+LV9XffXa+reqzvOpCDj0EEsfTqw4Qmr78puRIvsclDgQzyp
-	Gj4xq+C7t8ozaSORttL6Qo5LJMyhaBdnB5c0PZGxI3mPfvnQpw8RPEoVreOamJUxeWrVCBaqeiJ
-	xtrHk+S0ocwsSqPtVJWZymsZkCWkE+BEcezJOnMlWj9VQFM7Lroqu02HepjQdI9hDFXW2BU4/se
-	Eu/FDO3iN9C3fTCO6GomkwrMQYNYdIgIpEiSSOQVRErq7HNZnVq1K2kBV80QCS0koCGhOf+QbWh
-	f5iwITjd/yFTz6L+g7loO2wU6pa0eYjm48sRv009LArmls8GdNJ
-X-Received: by 2002:a05:6a20:4322:b0:3d3:af85:eb98 with SMTP id adf61e73a8af0-3d3af85fc5bmr16153694637.26.1788105764564;
-        Sun, 30 Aug 2026 09:02:44 -0700 (PDT)
+        bh=HROlraX6vGLZgnawqAwSnbTcyoz5nQUPKuJqXPgTnHE=;
+        b=jY44N1s1TtolEvJWwlfa/a8N/HsMw3gaOUdOcgCB8GbF5bf331+Wi8T+5+2r0jDV30
+         EdkeWJN1a0WZ7R95w//1dB52PUFNC7hHYvvI0MMbaxDGFBcCUASzeSqjYDh9Hd2gds0d
+         BtmF6wTiKrSGCJD2EG0pViEufEHd0hHpxtVFgZl7ONUBTFhacAtHU5vtRAav4g/PBidF
+         VwTMoCUAZuIWeLhnq5vjcQJryj/5eFPJvbMUQOAk4rrKPG7Vy9QhHo71EinZsHFn6Vy0
+         y2EMEYVIsmDPVNgjKs6Ni+uJ+02MfgnGdZeF0wBhsrJOpvuIY62ZZucPucmc4LiZqBXK
+         82rg==
+X-Forwarded-Encrypted: i=1; AHgh+RovugVVA5WapEbqq5l68J0hRNvhTL3tFUqo7FencpnRKYmJLxTe6evUFmyMuhUUhQMM9pDCjBqRm5LvMS4iQt3F@lists.infradead.org
+X-Gm-Message-State: AFuF++lPGDfvuT+8BhzPgsd63C7mlHeKOhRY+cnT6/dUMBVKtI275ZW7
+	Hlc7BSqzdjVdUIP7/XfznPWehCBVz5yCXtZiwEkFDm3idDGm12tk55Na
+X-Gm-Gg: AR+sD1093j4JFHVp/q3fi/x69YcTREodSGBC9DfJEWKtQD/0bdvS6OTaHJdjb+YB4Gk
+	bXxxlrRQxAjGz8/e+4Zjjk3gcxaVeM+PWhjdWg7Tm+GDzAIhnPOo2+DIg0NFabjlWr/uGDKL/wa
+	RryGjrQmjQUBXSZUa6AhuAfbjjeLqz0WZpFgxd/dDwyVMwcEfJk8UkxIH9Z/eUdE5uRnN9OUBsV
+	L1O9Eup5J+yC7otI9qj0djXUtztOQ6QN95oyFzPo++JcuVNi6tWiT17h8P3/isSyG2RdRkrLfIB
+	t0o7UsEd30I19zXEUn+s6jLwSHH7XNE1EOaVDgetcTWxfMpagj+drWDpHjz62H/bQrpoxS2MtGG
+	6w7ru+AU39ZvQrSj6+0W5IRcKs0drX1R8b6ME7Ze6TEw7O1kbBAvH666bbywI0HZNDMcx2nisur
+	W3t7DfRUUg/7a67wB89jCCzqn8B2eXBzQecKSosqaC/qHQmXimuxCzqzSUFfldQo7KrXA3Q0xnQ
+	IP5+vaWThksFNHevgYJrpKMR81Q3GYzZpK+nbQkc8aEYIh3lq1F
+X-Received: by 2002:a05:6a21:3944:b0:3d3:ae40:ab0f with SMTP id adf61e73a8af0-3d3ae40b247mr22013318637.26.1788105775652;
+        Sun, 30 Aug 2026 09:02:55 -0700 (PDT)
 Received: from nuvole (2.248.212.35.bc.googleusercontent.com. [35.212.248.2])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc1f3312270sm2839584a12.11.2026.08.30.09.02.34
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc1f3312270sm2839584a12.11.2026.08.30.09.02.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 30 Aug 2026 09:02:44 -0700 (PDT)
+        Sun, 30 Aug 2026 09:02:55 -0700 (PDT)
 From: Pengyu Luo <mitltlatltl@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -88,17 +88,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-media@vger.kernel.org,
 	Pengyu Luo <mitltlatltl@gmail.com>
-Subject: [PATCH v6 1/5] media: hi846: Fix hi846_write_reg_16 handling
-Date: Mon, 31 Aug 2026 00:00:21 +0800
-Message-ID: <20260830160025.211384-2-mitltlatltl@gmail.com>
+Subject: [PATCH v6 2/5] media: hi846: Fix link frequency handling
+Date: Mon, 31 Aug 2026 00:00:22 +0800
+Message-ID: <20260830160025.211384-3-mitltlatltl@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260830160025.211384-1-mitltlatltl@gmail.com>
 References: <20260830160025.211384-1-mitltlatltl@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_090245_722661_F467B175 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20260830_090256_865889_18FD2D42 
+X-CRM114-Status: GOOD (  28.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,34 +113,330 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hi846_write_reg_16() does not clear a positive *err value on success.
-pm_runtime_get_if_in_use() returns a positive value when the device
-is already in use. When hi846_set_ctrl() passes &ret holding this
-positive value) to hi846_write_reg_16(), the function returns with ret
-as is, the positive value propagates back as a return code, which
-callers interpret as an error.
+Link frequency is tied to PLL configuration, lane count, and external
+and configurable clock, so use runtime here instead of hardcoding for
+specific configuration. To implement this, we do
 
-Fix this by resetting *err to 0 only when it is positive.
+1. Drop fixed link freqs, we calculate the driver supported values and
+use v4l2_link_freq_to_bitmap() to get the intersection with the DT
+supported values.
 
-Fixes: 04fc06f6dc15 ("media: hi846: fix usage of pm_runtime_get_if_in_use()")
+2. Attach mipi_clk_div_{2,4}lane to current mode, and use the div with
+mclk clock, lane count to calculate link frequency.
+
+3. Drop mclk clock rate check.
+
+Fixes: e8c0882685f9 ("media: i2c: add driver for the SK Hynix Hi-846 8M pixel camera")
 Signed-off-by: Pengyu Luo <mitltlatltl@gmail.com>
 ---
- drivers/media/i2c/hi846.c | 2 ++
- 1 file changed, 2 insertions(+)
+v6:
+- Add link freq ctrl back (Sakari)
+- Use v4l2_link_freq_to_bitmap() to get matched link freqs (Sakari)
+- Move clk_get() before than hi846_parse_dt(), since we use clock in hi846_parse_dt()
+v5:
+- Use separated fields instead of raw register values for PLL cfg (Sakari)
+- Use mul_u64_u32_div() to avoid loss of pricision and u64/u32 issues (Sakari)
+- Drop line break (Sakari)
+---
+ drivers/media/i2c/hi846.c | 151 ++++++++++++++++++++++++--------------
+ 1 file changed, 94 insertions(+), 57 deletions(-)
 
 diff --git a/drivers/media/i2c/hi846.c b/drivers/media/i2c/hi846.c
-index a3f77b8434ca..7f069aca0fce 100644
+index 7f069aca0fce..2f8624f9bdf3 100644
 --- a/drivers/media/i2c/hi846.c
 +++ b/drivers/media/i2c/hi846.c
-@@ -1271,6 +1271,8 @@ static void hi846_write_reg_16(struct hi846 *hi846, u16 reg, u16 val, int *err)
- 	if (*err < 0)
- 		return;
+@@ -1,7 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0
+ // Copyright (c) 2021 Purism SPC
  
-+	*err = 0;
+-#include <linux/unaligned.h>
++#include <linux/bitfield.h>
+ #include <linux/clk.h>
+ #include <linux/delay.h>
+ #include <linux/gpio/consumer.h>
+@@ -11,6 +11,7 @@
+ #include <linux/pm.h>
+ #include <linux/property.h>
+ #include <linux/regulator/consumer.h>
++#include <linux/unaligned.h>
+ #include <media/v4l2-ctrls.h>
+ #include <media/v4l2-device.h>
+ #include <media/v4l2-fwnode.h>
+@@ -219,8 +220,8 @@ struct hi846_mode {
+ 	/* Horizontal timing size */
+ 	u32 llp;
+ 
+-	/* Link frequency needed for this resolution */
+-	u8 link_freq_index;
++	u8 mipi_clk_div_2lane;
++	u8 mipi_clk_div_4lane;
+ 
+ 	u16 fps;
+ 
+@@ -1040,13 +1041,6 @@ static const char * const hi846_test_pattern_menu[] = {
+ 	"Resolution Pattern",
+ };
+ 
+-#define FREQ_INDEX_640	0
+-#define FREQ_INDEX_1280	1
+-static const s64 hi846_link_freqs[] = {
+-	[FREQ_INDEX_640] = 80000000,
+-	[FREQ_INDEX_1280] = 200000000,
+-};
+-
+ static const struct hi846_reg_list hi846_init_regs_list_2lane = {
+ 	.num_of_regs = ARRAY_SIZE(hi846_init_2lane),
+ 	.regs = hi846_init_2lane,
+@@ -1061,7 +1055,13 @@ static const struct hi846_mode supported_modes[] = {
+ 	{
+ 		.width = 640,
+ 		.height = 480,
+-		.link_freq_index = FREQ_INDEX_640,
++		.mipi_clk_div_2lane = 4,
++		/*
++		 * Dummy but necessary if we set this mode default, otherwise
++		 * hi846_calc_pixel_rate() will be broken in
++		 * hi846_init_controls()
++		 */
++		.mipi_clk_div_4lane = 8,
+ 		.fps = 120,
+ 		.frame_len = 631,
+ 		.llp = HI846_LINE_LENGTH,
+@@ -1086,7 +1086,8 @@ static const struct hi846_mode supported_modes[] = {
+ 	{
+ 		.width = 1280,
+ 		.height = 720,
+-		.link_freq_index = FREQ_INDEX_1280,
++		.mipi_clk_div_2lane = 2,
++		.mipi_clk_div_4lane = 4,
+ 		.fps = 90,
+ 		.frame_len = 842,
+ 		.llp = HI846_LINE_LENGTH,
+@@ -1112,7 +1113,8 @@ static const struct hi846_mode supported_modes[] = {
+ 	{
+ 		.width = 1632,
+ 		.height = 1224,
+-		.link_freq_index = FREQ_INDEX_1280,
++		.mipi_clk_div_2lane = 2,
++		.mipi_clk_div_4lane = 4,
+ 		.fps = 30,
+ 		.frame_len = 2526,
+ 		.llp = HI846_LINE_LENGTH,
+@@ -1167,6 +1169,9 @@ struct hi846 {
+ 	struct v4l2_ctrl *hblank;
+ 	struct v4l2_ctrl *exposure;
+ 
++	s64 link_freqs[ARRAY_SIZE(supported_modes)];
++	int num_link_freqs;
 +
- 	put_unaligned_be16(reg, buf);
- 	put_unaligned_be16(val, buf + 2);
- 	ret = i2c_master_send(client, buf, sizeof(buf));
+ 	struct mutex mutex; /* protect cur_mode, streaming and chip access */
+ 	const struct hi846_mode *cur_mode;
+ 	bool streaming;
+@@ -1192,21 +1197,41 @@ static const struct hi846_datafmt *hi846_find_datafmt(u32 code)
+ 	return NULL;
+ }
+ 
+-static inline u8 hi846_get_link_freq_index(struct hi846 *hi846)
++static u64
++hi846_get_link_freq(const struct hi846 *hi846, const struct hi846_mode *mode)
+ {
+-	return hi846->cur_mode->link_freq_index;
++	u64 mclk = clk_get_rate(hi846->clock);
++	u8 mipi_clk_div;
++
++	if (hi846->nr_lanes == 2)
++		mipi_clk_div = mode->mipi_clk_div_2lane;
++	else
++		mipi_clk_div = mode->mipi_clk_div_4lane;
++
++	/*
++	 * HI846_REG_PLL_CFG_MIPI1_H = 0x025a, it is fixed in listed modes
++	 * [11:8]: 0x02 => pre_div = 3
++	 * [7:0]: 0x5a => multiplier = 90
++	 */
++	return mul_u64_u32_div(mclk, 90, 3 * mipi_clk_div);
+ }
+ 
+-static u64 hi846_get_link_freq(struct hi846 *hi846)
++static int hi846_get_link_freq_index(const struct hi846 *hi846,
++				     const struct hi846_mode *mode)
+ {
+-	u8 index = hi846_get_link_freq_index(hi846);
++	u64 link_freq = hi846_get_link_freq(hi846, mode);
++	int i;
++
++	for (i = 0; i < hi846->num_link_freqs; i++)
++		if (hi846->link_freqs[i] == link_freq)
++			return i;
+ 
+-	return hi846_link_freqs[index];
++	return -EINVAL;
+ }
+ 
+ static u64 hi846_calc_pixel_rate(struct hi846 *hi846)
+ {
+-	u64 link_freq = hi846_get_link_freq(hi846);
++	u64 link_freq = hi846_get_link_freq(hi846, hi846->cur_mode);
+ 	u64 pixel_rate = link_freq * 2 * hi846->nr_lanes;
+ 
+ 	do_div(pixel_rate, HI846_RGB_DEPTH);
+@@ -1429,8 +1454,8 @@ static int hi846_init_controls(struct hi846 *hi846)
+ 	hi846->link_freq =
+ 		v4l2_ctrl_new_int_menu(ctrl_hdlr, &hi846_ctrl_ops,
+ 				       V4L2_CID_LINK_FREQ,
+-				       ARRAY_SIZE(hi846_link_freqs) - 1,
+-				       0, hi846_link_freqs);
++				       hi846->num_link_freqs - 1,
++				       0, hi846->link_freqs);
+ 	if (hi846->link_freq)
+ 		hi846->link_freq->flags |= V4L2_CTRL_FLAG_READ_ONLY;
+ 
+@@ -1503,10 +1528,9 @@ static int hi846_set_video_mode(struct hi846 *hi846, int fps)
+ 	u64 frame_length;
+ 	int ret = 0;
+ 	int dummy_lines;
+-	u64 link_freq = hi846_get_link_freq(hi846);
++	u64 link_freq = hi846_get_link_freq(hi846, hi846->cur_mode);
+ 
+-	dev_dbg(&client->dev, "%s: link freq: %llu\n", __func__,
+-		hi846_get_link_freq(hi846));
++	dev_dbg(&client->dev, "%s: link freq: %llu\n", __func__, link_freq);
+ 
+ 	do_div(link_freq, fps);
+ 	frame_length = link_freq;
+@@ -1699,6 +1723,7 @@ static int hi846_set_format(struct v4l2_subdev *sd,
+ 	const struct hi846_datafmt *fmt = hi846_find_datafmt(mf->code);
+ 	u32 tgt_fps;
+ 	s32 vblank_def, h_blank;
++	int idx;
+ 
+ 	if (!fmt) {
+ 		mf->code = hi846_colour_fmts[0].code;
+@@ -1749,7 +1774,14 @@ static int hi846_set_format(struct v4l2_subdev *sd,
+ 	mf->code = HI846_MEDIA_BUS_FORMAT;
+ 	mf->field = V4L2_FIELD_NONE;
+ 
+-	__v4l2_ctrl_s_ctrl(hi846->link_freq, hi846_get_link_freq_index(hi846));
++	idx = hi846_get_link_freq_index(hi846, hi846->cur_mode);
++	if (idx < 0) {
++		dev_err(&client->dev,
++			"failed to get link freq index: %d\n", idx);
++		return -EINVAL;
++	}
++
++	__v4l2_ctrl_s_ctrl(hi846->link_freq, idx);
+ 	__v4l2_ctrl_s_ctrl_int64(hi846->pixel_rate,
+ 				 hi846_calc_pixel_rate(hi846));
+ 
+@@ -1947,20 +1979,33 @@ static int hi846_identify_module(struct hi846 *hi846)
+ 	return 0;
+ }
+ 
+-static s64 hi846_check_link_freqs(struct hi846 *hi846,
+-				  struct v4l2_fwnode_endpoint *ep)
++static int hi846_add_link_freqs(struct hi846 *hi846, struct device *dev,
++				struct v4l2_fwnode_endpoint *ep)
+ {
+-	const s64 *freqs = hi846_link_freqs;
+-	int freqs_count = ARRAY_SIZE(hi846_link_freqs);
+-	int i, j;
+-
+-	for (i = 0; i < freqs_count; i++) {
+-		for (j = 0; j < ep->nr_of_link_frequencies; j++)
+-			if (freqs[i] == ep->link_frequencies[j])
+-				break;
+-		if (j == ep->nr_of_link_frequencies)
+-			return freqs[i];
+-	}
++	s64 hi846_link_freqs[ARRAY_SIZE(supported_modes)];
++	unsigned long freq_bitmap;
++	int ret, i;
++
++	/*
++	 * Since the MCLK freq varies between platforms, calculating driver
++	 * supported link freqs here.
++	 */
++	for (i = 0; i < ARRAY_SIZE(supported_modes); i++)
++		hi846_link_freqs[i] = hi846_get_link_freq(hi846, &supported_modes[i]);
++
++	ret = v4l2_link_freq_to_bitmap(dev, ep->link_frequencies,
++				       ep->nr_of_link_frequencies,
++				       hi846_link_freqs,
++				       ARRAY_SIZE(hi846_link_freqs),
++				       &freq_bitmap);
++	if (ret || !freq_bitmap)
++		return ret;
++
++	for (i = 0; i < ARRAY_SIZE(hi846_link_freqs); i++)
++		if (BIT(i) & freq_bitmap) {
++			hi846->link_freqs[hi846->num_link_freqs++] = hi846_link_freqs[i];
++			dev_dbg(dev, "Add supported link frequency %lld\n", hi846_link_freqs[i]);
++		}
+ 
+ 	return 0;
+ }
+@@ -1973,7 +2018,6 @@ static int hi846_parse_dt(struct hi846 *hi846, struct device *dev)
+ 		.bus_type = V4L2_MBUS_CSI2_DPHY
+ 	};
+ 	int ret;
+-	s64 fq;
+ 
+ 	ep = fwnode_graph_get_next_endpoint(fwnode, NULL);
+ 	if (!ep) {
+@@ -2004,11 +2048,10 @@ static int hi846_parse_dt(struct hi846 *hi846, struct device *dev)
+ 		goto check_hwcfg_error;
+ 	}
+ 
+-	/* Check that link frequences for all the modes are in device tree */
+-	fq = hi846_check_link_freqs(hi846, &bus_cfg);
+-	if (fq) {
+-		dev_err(dev, "Link frequency of %lld is not supported\n", fq);
+-		ret = -EINVAL;
++	/* Add link frequencies which are supported by both DT and the driver */
++	ret = hi846_add_link_freqs(hi846, dev, &bus_cfg);
++	if (ret) {
++		dev_err(dev, "failed to add link frequency %d\n", ret);
+ 		goto check_hwcfg_error;
+ 	}
+ 
+@@ -2041,30 +2084,24 @@ static int hi846_probe(struct i2c_client *client)
+ 	struct hi846 *hi846;
+ 	int ret;
+ 	int i;
+-	u32 mclk_freq;
+ 
+ 	hi846 = devm_kzalloc(&client->dev, sizeof(*hi846), GFP_KERNEL);
+ 	if (!hi846)
+ 		return -ENOMEM;
+ 
+-	ret = hi846_parse_dt(hi846, &client->dev);
+-	if (ret) {
+-		dev_err(&client->dev, "failed to check HW configuration: %d",
+-			ret);
+-		return ret;
+-	}
+-
++	/* Get the MCLK first, since we need it to calculate link freqs */
+ 	hi846->clock = devm_v4l2_sensor_clk_get(&client->dev, NULL);
+ 	if (IS_ERR(hi846->clock))
+ 		return dev_err_probe(&client->dev, PTR_ERR(hi846->clock),
+ 				     "failed to get clock: %pe\n",
+ 				     hi846->clock);
+ 
+-	mclk_freq = clk_get_rate(hi846->clock);
+-	if (mclk_freq != 25000000)
+-		dev_warn(&client->dev,
+-			 "External clock freq should be 25000000, not %u.\n",
+-			 mclk_freq);
++	ret = hi846_parse_dt(hi846, &client->dev);
++	if (ret) {
++		dev_err(&client->dev, "failed to check HW configuration: %d",
++			ret);
++		return ret;
++	}
+ 
+ 	for (i = 0; i < HI846_NUM_SUPPLIES; i++)
+ 		hi846->supplies[i].supply = hi846_supply_names[i];
 -- 
 2.55.0
 
