@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67DF2C61DE1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 15:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E63BC61DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 15:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MihlHA0jeW9cf62qZZuSDAm/xr/Skg1GoMpPWPUioZI=; b=mtlog7Alt7XCQ2NfHKWbl71oBx
-	X8BxskO8tajpOg4REgbso/Bh+UCdwAXs935MVfuEkN4k6669R+nkYyryn+tAq6mNIupqTPVNY8XSs
-	JN44m/3ByNeXefObWqU+Qg9i/DbzEv5Jb4EPsKhyBBiP9/PeTw+ug9LFG6DCYUrDqiu8JUbQFnDoB
-	59a0d+8l54hjVGw7z5rTeLJnJwWkbyBMX6WtgMeNR1CjdAUjcgrFYPMp98gb/thReADJV3aBWz9Ba
-	bT0SxJjrlm8gtvt+duEbW4LQALcaIHZ6TZFMM12h7Y87gx0S6UcEmNO1WFjnstAxM2rEPAETl2E9E
-	nes7EdGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pKdjrSSVrGvdDIKRSLZvow812lk5WfQrvfxQLIwcn68=; b=B3mECSS4lERpX4LiPhtCNjVcwN
+	jgQv4Kk3wvtksy1e1CdesiPVdo+mqx9Fml1WuWRc1P7WYMkbDJ08JSV79K2xbYyzyzKnQKhYc5FPC
+	4F7INWql2QVJCdRsMRNMtekRmbi3FQUJNQtu8zyPcqdvAfjlrs9JZZAohbtrKmNsxOdG4/b6t4HMi
+	6Wd2R1aXWR4wEjfzJ8MsPu24M61D1D8cH9G5RHt4EW7Z/zh/musAAQgwk1jFPN5mErsycvt2SljWy
+	epON3wFw2Kma6jSmtPFpczOnQdhuCrbq0cPZtjWznHGjbaFXaWO55goXmOaS17ORSDTIbou6hM2rc
+	IumL9JKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0hk2-00000007sWr-3Z1E;
-	Sun, 30 Aug 2026 15:46:42 +0000
-Received: from fout-a2-smtp.messagingengine.com ([103.168.172.145])
+	id 1x0hoi-00000007sjl-1PvX;
+	Sun, 30 Aug 2026 15:51:32 +0000
+Received: from sender5-op-o11.zoho.com ([165.173.182.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0hk0-00000007sW6-0F59
+	id 1x0hof-00000007sjM-2z5l
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Aug 2026 15:46:41 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.phl.internal (Postfix) with ESMTP id B7088EC0175;
-	Sun, 30 Aug 2026 11:46:35 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Sun, 30 Aug 2026 11:46:35 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1788104795; x=1788191195; bh=MihlHA0jeW
-	9cf62qZZuSDAm/xr/Skg1GoMpPWPUioZI=; b=Awu3naLGhxs6DNzMVZ/y5uVxuH
-	mo/jt2sQdf3xqebztoCcdDi5HxuDDLpYAVqXvFpDlTV9+CuQ88IhpOugj2RyspWZ
-	GdDQnJDxwIoA7eNsTbqlN1B6ULQXmXJe+7BLq1T0jEy77YvwL9LBSOw+G5R6isaH
-	Tr29zTOKWoZuz8JQt28Kb/cldynUfVOcea7v8Jr8mrFqWyb1xX50jPgKpKEwdxda
-	bYCb6S34iEAZzs21zqcOSPPsvCIRqUGUzq5zHZbLUfGzK6l3k6r+SHka9LI39LCn
-	BKAJKVrUH5deSkwRD6PbBoDHBTF3vPACB2G+nW3DNiXeKYoi6mJGVLT8rKzg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1788104795; x=1788191195; bh=MihlHA0jeW9cf62qZZuSDAm/xr/Skg1GoMp
-	PWPUioZI=; b=PEP181CDMaZody9j/uydol4/X0uG5oOkaaioYRRHeWHZdhdH9+8
-	RiMROxs8/62QJuhZWbQYLcUS0SguOemsam5DmsT9fMZPBhxxHbj5uIsW0SuonDgh
-	3nN/xmaL3NLaDsUd8h7XErNNrGM7QGjCfwNigfTXL1TjCxGnmSUH68pemkDybSnE
-	lcgNEWhmKcL3ilv/yN9dTGY/iPE63DRjotYoYF54E96e2MOZAjMQ5Gnf9kG+o6yo
-	/FFnvDHv15dR62IUnh1+sBY8dwz5XsfSAEzcSFvH+ebFVQyq5QRsWBUDBz62Ho2C
-	aZW/+t9/k/ursxa3I3sZUA29vQ/6hJsu2Zg==
-X-ME-Sender: <xms:W1CUanVfhvurg80lEyKTCNvzbdgjSzZuSERAXBL6bg6ID9Iz1lOk6w>
-    <xme:W1CUasKpob-wfo0jHe9491cCn5uVeFtmi1QcRXike50lCIc8AlpTiMFdE0PIvOtfz
-    N0E9wi5fv42IEzYerCFvIryHrSrL5mJaJwSEyd3MCiNXES8NsGhUQ>
-X-ME-Received: <xmr:W1CUan3M1wR4M9LP_CwTz7lmuBIHqQuJbUh9DiivOPBfNkrsdBiApwJdrw018Sm3xVEBlBk6slD1txVuXx8o0voDOAhYQpMm6pU>
-X-ME-Proxy-Cause: dmFkZTEOYRK4gF0nS1OU3xem0WZp15SpUOTtBPG0aPfGupIuYPdkf//EB6U20QS5qwMibE
-    5xh3VNHbQsPBXG/WzMft+EW7AUnukz/ERkxvkIAczmn9Y258jeSCGpTxCNUvven2Kxx+JU
-    /eR5GnwCNq0xJCKmedT8YmYPRbtXx3vF1jmbPtdcFR+QipxXHZFc+keCuudFGmpoJGX419
-    KKmLoe2RuisnuCQSErHe+aeQOdLg5w4+3PhUCUQnbPTriE4Iq08GroO9iA1cgQG3zNcKSc
-    6T8v6Sl4d+5howPOj81vFOPmvZj+0Ri9+yj0AMYH4nHLVMkfzjXT9oic2CEPTmSTuO38Jg
-    CIcfGw2h6zpEfHXQ2eEnHK3ACmSZnxW/uUrwn0KGpBxSgT9BOQtCsPs/+F4julBRH1Yhg5
-    BgBRsBn6MLOreK0uviMip8UyEvzMRPLm/6Rljyf4U4ioeH+GSmWMNq4ctEiIz9UB2iiEJb
-    irdWJrOxMLhT3JLNhKEqvBSCbFLyL0VOiZtydeV6mIn+iTfgkDfP3+930ZPjHK0TQXlVAu
-    49+jOmB8QaUXvPvQH8GvalWLWC0TOV/1i782v4fx618ZU/b0YCEUq5pOfcsvgspG4hw0+N
-    JunNhCTJ9JwwqiiLI6nI0+76aSqT4cegUANCcW+1NLD84Z3mygeVK1zp6EQw
-X-ME-Proxy: <xmx:W1CUapJgSwv0S6NbiF_dhTq3QJtGAxrpy4i6GS_92UfcfiTT1BH_wg>
-    <xmx:W1CUaigikYbJQFZdKjtXuXqHfi48-Tu5EAup5DhsjGSitVDLb1C_fg>
-    <xmx:W1CUapDyXbY2XedCU43bJkXxIfk0pk4nVrJz4s07y4ZXSCzwdDMZ1w>
-    <xmx:W1CUak4Qbh6ZdJSZIYIqKUS_v_YU-Ja0Y6Fs8XmdwegztRE6M9X__Q>
-    <xmx:W1CUaoxI285qFTACu9dfBQhKSnolp32zwxlAVlogOEgibArVn9zzgcbx>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 30 Aug 2026 11:46:34 -0400 (EDT)
-Date: Sun, 30 Aug 2026 17:46:33 +0200
-From: Janne Grunau <j@jannau.net>
-To: Sven Peter <sven@kernel.org>
-Cc: Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] arm64: dts: apple: Fix cpus node indentation
-Message-ID: <20260830154633.GA1748618@robin.jannau.net>
-References: <20260830-b4-apple-dts-fixes-v1-0-cc20f8445754@kernel.org>
+	Sun, 30 Aug 2026 15:51:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1788105072; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=O3fz5ZmZ0tkgOiQsPKuaYKbPU+WqKIhDK0V3DbTbZqTFRbyuQCOPi1OqM4APBN61j1r1CIOWlad/pZjRx4Bm4kBwtmOOLWsr79MiDlWjKNBaNUZB11Gv9rZp+oRiJOl7WQ9r/WjTPrkwoeOf4CapeK0WKNxxhjjbnXDn/1clB5M=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1788105072; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=pKdjrSSVrGvdDIKRSLZvow812lk5WfQrvfxQLIwcn68=; 
+	b=YaHf/BZ8lXMvhWfCCGZlCPrTv4Mu9BNIT4V6dJitoi4+OMW5VCIBGpXTeUlxjrKTtoM9LFHpyUl8Iv86mVaFsWDhHSQoe/zYXPrt/3HFoYQb3KpZoqEf0z0ADDNPh2kpFoRN818jk9w97ESK7xsph2xKQI7zDxsoG2JRbhUKHwA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=yoavmoshe.com;
+	spf=pass  smtp.mailfrom=linux@yoavmoshe.com;
+	dmarc=pass header.from=<linux@yoavmoshe.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1788105072;
+	s=zoho; d=yoavmoshe.com; i=linux@yoavmoshe.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=pKdjrSSVrGvdDIKRSLZvow812lk5WfQrvfxQLIwcn68=;
+	b=VpLOBF0HRKzgQr03ypUu0Q4A+LBNy4b5w9KcYXrjhLDbCpARQJkmB0fJiqAwt3Y7
+	Dzq0q/G5OyGYHvIeZW/BxfL+MKGTvOUxxq9bBPG4Z038bG6sselv8RXplqu7LR0OZVT
+	+RCUqR0yOkK1gHhmhYjETXE7HoskB2JTh6fDCmww=
+Received: by mx.zohomail.com with SMTPS id 1788105070029960.294682886141;
+	Sun, 30 Aug 2026 08:51:10 -0700 (PDT)
+From: Yo'av Moshe <linux@yoavmoshe.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Russell King <linux@armlinux.org.uk>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	llvm@lists.linux.dev,
+	stable@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Yo'av Moshe <linux@yoavmoshe.com>
+Subject: [PATCH v5] ARM: imx: Fix suspend/resume crash with Clang CFI
+Date: Sun, 30 Aug 2026 17:51:00 +0200
+Message-ID: <20260830155100.1020620-1-linux@yoavmoshe.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260827194508.446733-1-linux@yoavmoshe.com>
+References: <20260827194508.446733-1-linux@yoavmoshe.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260830-b4-apple-dts-fixes-v1-0-cc20f8445754@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_084640_495053_0E2F5919 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20260830_085129_822367_B5C61CE5 
+X-CRM114-Status: GOOD (  21.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,31 +90,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 30, 2026 at 04:22:06PM +0200, Sven Peter wrote:
-> Hi,
-> 
-> Just a small series to drop a spurious space in our dts file. No
-> functional changes.
-> 
-> Best,
-> 
-> Sven
-> 
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> ---
-> Sven Peter (3):
->       arm64: dts: apple: t602x: Fix cpus node indentation
->       arm64: dts: apple: t6030: Fix cpus node indentation
->       arm64: dts: apple: t6032: Fix cpus node indentation
-> 
->  arch/arm64/boot/dts/apple/t602x-common.dtsi | 2 +-
->  arch/arm64/boot/dts/apple/t6030.dtsi        | 2 +-
->  arch/arm64/boot/dts/apple/t6032.dtsi        | 2 +-
->  3 files changed, 3 insertions(+), 3 deletions(-)
+The suspend code that runs from OCRAM is copied there with fncpy(),
+which does not copy the kCFI type hash preceding the function. With
+CONFIG_CFI=y the indirect call through imx6_suspend_in_ocram_fn
+therefore panics.
 
-whole series
+Keep the call covered by CFI instead of exempting it:
 
-Reviewed-by: Janne Grunau <j@jannau.net>
+- Add SYM_TYPED_FUNC_START_ALIGNED(), a variant of
+  SYM_TYPED_FUNC_START() that aligns the function entry rather than
+  the type hash preceding it, and use it to declare imx6_suspend():
+  fncpy() requires the entry point of the function it copies to be
+  8-byte aligned. The macro lives in arch/arm/include/asm/linkage.h
+  since the requirement comes from arm's fncpy().
 
-Janne
+- Add a cfi_type member at the end of struct imx6_cpu_pm_info, which
+  directly precedes the OCRAM copy of the function. It fits in the
+  struct's tail padding, so no sizes or offsets change. Fill it using
+  cfi_get_func_hash(), putting the hash where the caller's CFI check
+  expects it: four bytes before the function entry.
+
+Also mark ccm_base, suspend_ocram_base and imx6_suspend_in_ocram_fn
+as __ro_after_init: they are only written during __init, and the
+function pointer in particular should not be writable afterwards.
+
+Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+Cc: stable@vger.kernel.org
+Signed-off-by: Yo'av Moshe <linux@yoavmoshe.com>
+---
+Tested on a Kobo Clara HD (i.MX6SLL) running postmarketOS
+(clang/LLVM, CONFIG_CFI=y): suspend and resume work.
+
+Note that with CONFIG_CFI=y this depends on commit 979c294509f9
+("cfi: Include uaccess.h for get_kernel_nofault()"), already in
+mainline, which stable backports would need as well.
+
+Changes in v5:
+- Drop the linux/uaccess.h include workaround, obsoleted by commit
+  979c294509f9 (Nick, Sami).
+- Include linux/build_bug.h and linux/stddef.h for static_assert()
+  and offsetofend() (Nick).
+- Replace the open-coded alignment pad with a new
+  SYM_TYPED_FUNC_START_ALIGNED() macro as sketched by Nick, placed in
+  arch/arm/include/asm/linkage.h as suggested by Sami.
+
+Changes in v4:
+- Drop the v3 __nocfi wrapper; keep the indirect call CFI-checked.
+- Store the hash in a cfi_type member in the struct's tail padding
+  instead of open-coded pointer arithmetic.
+- Use cfi_get_func_hash() instead of reading the hash manually.
+- Use SYM_TYPED_FUNC_START()/SYM_FUNC_END() instead of ENTRY()/
+  ENDPROC() with a hand-rolled __CFI_TYPE.
+
+ arch/arm/include/asm/linkage.h   | 29 +++++++++++++++++++++++++++++
+ arch/arm/mach-imx/pm-imx6.c      | 26 +++++++++++++++++++++++---
+ arch/arm/mach-imx/suspend-imx6.S |  6 ++++--
+ 3 files changed, 56 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm/include/asm/linkage.h b/arch/arm/include/asm/linkage.h
+index c467069..bba992f 100644
+--- a/arch/arm/include/asm/linkage.h
++++ b/arch/arm/include/asm/linkage.h
+@@ -9,4 +9,33 @@
+   .type name, %function; \
+   END(name)
+ 
++#ifdef __ASSEMBLY__
++
++/*
++ * Variants of SYM_TYPED_START/SYM_TYPED_FUNC_START that align the
++ * function entry itself instead of the kCFI type hash preceding it,
++ * for functions whose entry point must meet an alignment requirement,
++ * such as the 8-byte alignment fncpy() demands of its source.
++ */
++#ifdef CONFIG_CFI
++
++#define SYM_TYPED_START_ALIGNED(name, linkage, align)	\
++	linkage(name) ASM_NL				\
++	.balign align ASM_NL				\
++	.fill (align) - 4, 1, 0 ASM_NL			\
++	__CFI_TYPE(name) ASM_NL				\
++	name:
++
++#else /* CONFIG_CFI */
++
++#define SYM_TYPED_START_ALIGNED(name, linkage, align)	\
++	SYM_START(name, linkage, .balign align)
++
++#endif /* CONFIG_CFI */
++
++#define SYM_TYPED_FUNC_START_ALIGNED(name, align)	\
++	SYM_TYPED_START_ALIGNED(name, SYM_L_GLOBAL, align)
++
++#endif /* __ASSEMBLY__ */
++
+ #endif
+diff --git a/arch/arm/mach-imx/pm-imx6.c b/arch/arm/mach-imx/pm-imx6.c
+index a671ca4..3c73e2c 100644
+--- a/arch/arm/mach-imx/pm-imx6.c
++++ b/arch/arm/mach-imx/pm-imx6.c
+@@ -4,6 +4,8 @@
+  * Copyright 2011 Linaro Ltd.
+  */
+ 
++#include <linux/build_bug.h>
++#include <linux/cfi.h>
+ #include <linux/clk/imx.h>
+ #include <linux/delay.h>
+ #include <linux/init.h>
+@@ -18,6 +20,7 @@
+ #include <linux/of_platform.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
++#include <linux/stddef.h>
+ #include <linux/suspend.h>
+ #include <asm/cacheflush.h>
+ #include <asm/fncpy.h>
+@@ -61,9 +64,9 @@
+ #define MX6Q_SUSPEND_OCRAM_SIZE		0x1000
+ #define MX6_MAX_MMDC_IO_NUM		33
+ 
+-static void __iomem *ccm_base;
+-static void __iomem *suspend_ocram_base;
+-static void (*imx6_suspend_in_ocram_fn)(void __iomem *ocram_vbase);
++static void __iomem *ccm_base __ro_after_init;
++static void __iomem *suspend_ocram_base __ro_after_init;
++static void (*imx6_suspend_in_ocram_fn)(void __iomem *ocram_vbase) __ro_after_init;
+ 
+ /*
+  * suspend ocram space layout:
+@@ -229,8 +232,18 @@ struct imx6_cpu_pm_info {
+ 	struct imx6_pm_base l2_base;
+ 	u32 mmdc_io_num; /* Number of MMDC IOs which need saved/restored. */
+ 	u32 mmdc_io_val[MX6_MAX_MMDC_IO_NUM][2]; /* To save offset and value */
++	u32 cfi_type; /* kCFI type hash of imx6_suspend() */
+ } __aligned(8);
+ 
++/*
++ * The ocram copy of imx6_suspend() starts right after struct imx6_cpu_pm_info,
++ * and the CFI check on the indirect call reads the kCFI type hash from the
++ * four bytes preceding the function entry, so cfi_type must occupy the last
++ * four bytes of the struct, i.e. fit into its tail padding.
++ */
++static_assert(offsetofend(struct imx6_cpu_pm_info, cfi_type) ==
++	      sizeof(struct imx6_cpu_pm_info));
++
+ void imx6_set_int_mem_clk_lpm(bool enable)
+ {
+ 	u32 val = readl_relaxed(ccm_base + CGPR);
+@@ -568,6 +581,13 @@ static int __init imx6q_suspend_init(const struct imx6_pm_socdata *socdata)
+ 			mmdc_offset_array[i]);
+ 	}
+ 
++	/*
++	 * Mask out the Thumb bit, as cfi_get_func_hash() expects the
++	 * function's actual start address. Returns 0 if CONFIG_CFI=n.
++	 */
++	pm_info->cfi_type =
++		cfi_get_func_hash((void *)((uintptr_t)&imx6_suspend & ~1UL));
++
+ 	imx6_suspend_in_ocram_fn = fncpy(
+ 		suspend_ocram_base + sizeof(*pm_info),
+ 		&imx6_suspend,
+diff --git a/arch/arm/mach-imx/suspend-imx6.S b/arch/arm/mach-imx/suspend-imx6.S
+index 63ccc2d..95d5f72 100644
+--- a/arch/arm/mach-imx/suspend-imx6.S
++++ b/arch/arm/mach-imx/suspend-imx6.S
+@@ -3,6 +3,7 @@
+  * Copyright 2014 Freescale Semiconductor, Inc.
+  */
+ 
++#include <linux/cfi_types.h>
+ #include <linux/linkage.h>
+ #include <asm/assembler.h>
+ #include <asm/asm-offsets.h>
+@@ -148,7 +149,8 @@
+ 
+ 	.endm
+ 
+-ENTRY(imx6_suspend)
++/* fncpy() requires an 8-byte-aligned entry; see arch/arm/include/asm/fncpy.h */
++SYM_TYPED_FUNC_START_ALIGNED(imx6_suspend, 8)
+ 	ldr	r1, [r0, #PM_INFO_PBASE_OFFSET]
+ 	ldr	r2, [r0, #PM_INFO_RESUME_ADDR_OFFSET]
+ 	ldr	r3, [r0, #PM_INFO_DDR_TYPE_OFFSET]
+@@ -329,4 +331,4 @@ resume:
+ 	resume_mmdc
+ 
+ 	ret	lr
+-ENDPROC(imx6_suspend)
++SYM_FUNC_END(imx6_suspend)
+-- 
+2.55.0
+
 
