@@ -4,83 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B32C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 08:25:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA12C61DE1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 08:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bEUIZ+P1wvBK9wpdoS7CCGcxWQYocPml39xu6l1/88k=; b=D/PkARU13oqKciKzOfPFun0uhu
-	ZaROF7yIvh+fs7VYWPVX2mXvEKQJGY+WXkm0+anyWhSUSCNeejlK3uMXoUJiBD5ufHL5V1xgjrQDb
-	cQkyi1zsT2kWw53/7qmqsG8P+yGmGiX2FCaptkpY30CJCCMMmuCB0wtRpWQq720p2z6/D4k1iJ4SL
-	ihNLP1P/dbfh3XGUKY7oANdLWVIiSyIrpAamLnsqPz/IvB0mw3jJqePWiusi/PTQrYVNAV8ufUCBj
-	tV8kgm5sCtQD++VR/UXedNwyZj9SYEoc+4Lz7dYYOnfh2Id4aSY52aC5KH3g5B6xjLt4ZS7naG5sm
-	DoGJDjrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=M/Nytepkmt/ZP2rVkdCu7doVcdz2bZqfv3EnSqqfb8w=; b=XyTcUM2JAI0dyElWwofMMsPo0X
+	hOQCxx7NWxFqOwM/Mj0VpxCOrqOQb+z0yYHiqQKewvI6wAyOo3+FZoCJMonPZuHO8xudPbbs4I3wb
+	+hE1pmwKmX8SY3VXOKo+4IFPFistd99jNsoFIItQJx9hnwCZK9kBSQEb6levfAFK1ynZYtozj5J0+
+	6EDhSOZQW9FTXFUWa2CwyHSzPPQ6FQHuBIRHeNTl9N3ot9idrSACus97jTGRgGDK08c0Cr6fb/Gzq
+	hXQYeGV/aaT2s/DzJ7q6thkGYZS0oqWmZgDiHH6FqzAFGNP7/yByP6CRZjUUs/XJSkzz4kn3uvQRL
+	pqVv14gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0arD-00000007arb-3ki4;
-	Sun, 30 Aug 2026 08:25:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1x0b64-00000007bIY-1G3u;
+	Sun, 30 Aug 2026 08:41:00 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0arC-00000007arV-0EGL
+	id 1x0b61-00000007bID-3LVg
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Aug 2026 08:25:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CAEF3600AE;
-	Sun, 30 Aug 2026 08:25:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6500C1F000E9;
-	Sun, 30 Aug 2026 08:25:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788078335;
-	bh=bEUIZ+P1wvBK9wpdoS7CCGcxWQYocPml39xu6l1/88k=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=kERBUMQhAWsGtfPppvbbc5Ow5SVOyx9BzibtFkuYKDdkZKVF/+nExG+oiS5W39jGn
-	 TlfpVFuP300bYoB4ZZm29ZvmOcH5mWtDtO3J3Bn1vjM9ab3rbEjZrH59nooShVKn9F
-	 K2jZ714m8cA7gkqBfpFRTdPH6mbabr0eCD58aHcicTLKLsa7ND6nQPN3bh7bVoxPjM
-	 0pzmG4noJ1tAbDEuR8Wdbs7lv8y86sqkuhHN1y18TCJ1UrSdvqJyODFjIIpTUvjr9C
-	 0V59nsDrZs0y5ZY9GAwEbv8C5k8DFaTlgBDvI6EVpL54T5PuxzIMd3MqG9I4BF2z1y
-	 91Z8nslq4rg6Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1x0ar7-00000002Ri4-09sG;
-	Sun, 30 Aug 2026 08:25:33 +0000
-Date: Sun, 30 Aug 2026 09:28:05 +0100
-Message-ID: <87zey4m2qy.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Eric Auger <eric.auger@redhat.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v3 0/5] KVM: arm64: fix VGICv3 redistributor rollback
-In-Reply-To: <20260822095346.53882-1-kmehltretter@gmail.com>
-References: <20260822095346.53882-1-kmehltretter@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, oupton@kernel.org, kvmarm@lists.linux.dev, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, eric.auger@redhat.com, christoffer.dall@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Sun, 30 Aug 2026 08:40:59 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67U5vaE33875141
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 08:40:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=M/Nytepkmt/ZP2rVkdCu7doVcdz2bZqfv3E
+	nSqqfb8w=; b=S5IhCqd/1yiomJiHtcsSCPVCmHL/DPZNP3Afc88iJsUa4NgF2+H
+	+u6Vvasdq3BRQ7Qznqvk8FONNef7TuMqgNfkx6qbWSIDUm0kRgdIBEXZQR5cWxuc
+	5ZXl9nVNrv3H5EZEHgS8OdEMPzuglitZ01eHLTEHuZk9qvjtkK5YJTrlW+wyDsLU
+	7ioH9VrIstWJRr2OmAI/bBMlzJNq6Gf3nXEswresLi5y+1ks02H3qw/cxt9pdbbr
+	34YICvvBsM7o2reA9bngHgAjmWYgr5lXU6VkOgn6+n9Q+NwKFBNuMUqe39Gi2fZu
+	Ar2z0lmKXlxznMXO0fnwsy3soIExWRxUbaQ==
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gbqfb2p8v-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 08:40:56 +0000 (GMT)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-90cc915d1d9so34012796d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 01:40:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1788079256; x=1788684056; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=M/Nytepkmt/ZP2rVkdCu7doVcdz2bZqfv3EnSqqfb8w=;
+        b=ixJkD+2FrbvHYzpnrPKUID7qckWGaptMi65iNHMhoEsvJiHhvmq97Z4fPqlgGgw9g4
+         PyWuprBlMlsM7X5HU7jmBB26UFR4UV9IeD06B3ZhvA1A6JE6F7beHAtBYstWqkG307xJ
+         pMIP5ec/wHXVcjbFkNmjrKaHFBSqAwJK+mTwv1ztJQJwyVstaMIs59wiFx2gjtkVZ4Nd
+         RCJFamrPudHNpcSI/JIpZLU9Q6JYfsXmfC0b23KtCvPunduvW8bCmJJLDTTWFSvDcF3n
+         QBXmkUaVYYlqgnZG3pyc2qO1qsgUpkTroVDt+E0QrlDd8zf7YCRgzYNEbiMCe8k78jgi
+         FeAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788079256; x=1788684056;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=M/Nytepkmt/ZP2rVkdCu7doVcdz2bZqfv3EnSqqfb8w=;
+        b=A837HgMFffPO1xx/TEy+JrU9TyuFxBHq8RLwol+ULs0hITNrcs230LH/CRfJTcMR4Z
+         wJGT3M2QQph8TRPDO1pZLCUlwCTNITbRTttxd1lDIk8ptMjkdSyN4AtXhfQ5iu2bZYOo
+         LtcmsYso52vBVtaHxpmpYsZ4OmVHAdGKEW4j8PPDUqU6hSMsUbDpZKUqYVuZW//XEK96
+         oXeN4LShX8orKIGlcv2JMLxINYEvlxcyL9nRR34DwRf/brxpQ4fCAb7EzxRZo2UhlJzg
+         6p+Qvhb2TP/WGtkK9CSJWWCHZ7ZIvxfhpGdQAa66X/AYbj0QKV60bgy41Q8/KXWxkZ9h
+         J5yg==
+X-Forwarded-Encrypted: i=1; AHgh+RqfqJWBBMvRDJzHvd5qdPNLxtOC2v2pSdOYfowXNg4oscsAa9j021aUi81wmqnSKFFskqQZIPU4A3FVaZBZcjjU@lists.infradead.org
+X-Gm-Message-State: AFuF++lNJHtQUmi9kj6nbg/urkF/Aq1YZHnWNMiOKIIbETPxsGRl3Bvn
+	nyfpHzyNfjtYs17tkbQE2dMDTyh2c+PM3hTyozARVSfh/VVureqg60nE78cE0jF4PaFP+Pc9TLH
+	+cqxNNIk6AeQe4HykHU7k7t7Y5zFqeWKSpT2Vv7zVWDD1MvTRzKkl/hVdplBHNYbR+XpcIxGhHu
+	CRmQ==
+X-Gm-Gg: AR+sD11TLb4Z1SLpx45eFTA70sKTTGrNHSn+bhOvbHfYUZTvio8AIxTkjvJSPj9Fci4
+	ufXmoATtcFV4wbgk65gdWYTI1HtSpbirHwzE1aWwlbTEqHkWiJFMl8dXPDHRa4fbOIgFBvS+7ob
+	zC+kC3AkmMbjwlagaMnz0KXZQow1Xev/TT4df2UqwpHFbOf8FA8czmNj6BM3hhgaKzag7JaLdqN
+	MeC9JdDLT+0VaSNZxNckRaqisMZON0573LKsTr2HSgMVEhgjRIl/8jlVmVjXLr7D5TjUQQk4sp8
+	Uz65/xhu5+lhgayb3FXCw/2bw3oHcwXdEXJQARdFYMMBxy3livxQqLNspSdA9ipHltRTnQ9CgEF
+	ImEPZzQSVzn69J18=
+X-Received: by 2002:a05:622a:2588:b0:52f:a178:4c59 with SMTP id d75a77b69052e-52fb9657401mr225644651cf.37.1788079255893;
+        Sun, 30 Aug 2026 01:40:55 -0700 (PDT)
+X-Received: by 2002:a05:622a:2588:b0:52f:a178:4c59 with SMTP id d75a77b69052e-52fb9657401mr225644401cf.37.1788079255534;
+        Sun, 30 Aug 2026 01:40:55 -0700 (PDT)
+Received: from quoll ([178.197.219.214])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49b963c3c0asm314870005e9.10.2026.08.30.01.40.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 30 Aug 2026 01:40:54 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>,
+        Oleksij Rempel <o.rempel@pengutronix.de>, linux-sound@vger.kernel.org,
+        devicetree@vger.kernel.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v2] ASoC: dt-bindings: imx-audmux: Replace tabs with spaces
+Date: Sun, 30 Aug 2026 10:40:47 +0200
+Message-ID: <20260830084046.14679-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.53.0
+MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1385; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=xstTPquafbNGlKwlQsKZ7eJq5FPgU6WMbUCfJXuADdE=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqk+yOzvIYQOZZBzBQj6W1Qw9AqvmkZDdJ/+c6L
+ pnuewph0cuJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCapPsjgAKCRDBN2bmhouD
+ 1ytkD/4qT4rdd3yN7yDIh42thkTo+Unwa2sFG31D9cU3y7Mjm2p5Xq0Dg3hI7zzGFyqWeKDZQLd
+ ow5ABRV1PGgwuEic9y2reK+Okt+dWElZBc/09FeWtcJY0hRcUSVZpTqpdSOCPfccLZvWBH44Xko
+ tbK6f7710D+MNASE4jDx0xIyqEdMhSNwiJscYiKUKucg1MOSufYlRYa3sj4E93IWZZF3SOWT5ga
+ r1jT70VNPX7FiVOTquQoanidMyYoZDJvqjx+3MpoDPN79lSK2w1HciOsoD32E6nGW9utrc0kJlx
+ OPbwVKT7gISsR4j4nKtI1PtSY6H3Z76oke4iG+QYkqyESDzfjCFFWhOKK7Mg1FIWsgWTVgAfO0i
+ Kv4P7rzu3/MlT0CdTzBVG7g0mOLLMWfD0FcBypJ45JUxJtdXyEbDVGTf/kJdBT/p5qTUiQKl/wO
+ W5ysEOZiE150cZWvpfrjsobpzeGHXCxpusk9BqLgHLQr5OUlDh1KDV80IhMR2NJtjdxpEubuP2s
+ mBsBXlHJFPCOmiRRwGhs6gwUFzAZBL8ie+o7V5DRnMaztcrN0wPdreMDLCDXheljmOoLfZyhq51
+ O4gPbISfvBcyvAB6QfgVByG7Nm+kk1mB0aC7AXVsxEGWkGSM3BikOf+IC3vXPkbgmE6GVca9zN6 jbEY2GFGR+K9sHg==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMwMDA3MSBTYWx0ZWRfX09lSabnvJgtQ
+ 9V+rgR9n35SHToe/AZh9QhJkqfuMETALujLLtcUKwlQJ30GR3sqQtWBjJ+c4ayP1cxBzzAwo3rM
+ cxmcpkBtD4pvaEXuaVS9UOLzP8lukLkfpczGYuT9JUTYTX3IGqqdZc9F0ytqVNPwXwLVuLAvnzk
+ x1qEODKqbvKTHFwHh1Ck0U+zze5zoYUT6Q0G8elKUXK9XYD+VtI2E+D1vCxRnB7njEan/SKdzHc
+ QF9nvNOu/TqSM2QbshjAlnq+qz7OGGP41UCqHyZ5Xf84AsH91YG2oZxHLHqB07zgDq7/81hX7lr
+ X2CRmE5G9gTzDJWhbRTEFJhhlAUD0Knql3W5j0u9aoOIU9Od7uVuxSmg7yaA7ihcIa2kYeiT/YW
+ IExl50xLQMEnrIWUbH67W1dP3ZDfzxznXqNGeBseIYdIcw0eJu0U/mIQL2b0xBIbH7HC0PgfODW
+ qfTtDfHfOMFtVGqexgA==
+X-Proofpoint-ORIG-GUID: qNUO0HAjl8KgCvPTnoflDuLUZdz60RGB
+X-Proofpoint-GUID: qNUO0HAjl8KgCvPTnoflDuLUZdz60RGB
+X-Authority-Analysis: v=2.4 cv=Q77iJY2a c=1 sm=1 tr=0 ts=6a93ec98 cx=c_pps
+ a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=+bKQE0WJfmhK2875HamI0Q==:17
+ a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8
+ a=i9mLyMywaSABm-nTGLoA:9 a=pJ04lnu7RYOZP9TFuWaZ:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODMwMDA3MSBTYWx0ZWRfX/+UZs0HXYMte
+ 2LW8H+4rTXoi5vU8YNPq04O3Fvs+C+nD85h7viDknrGqMMlUysxycABWRP7GpqZd3N2D0j2TBuc
+ ftqlkCx/djMn+LMZ6qT86zWS+K+LYqg=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-30_02,2026-08-27_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
+ adultscore=0 bulkscore=0 lowpriorityscore=0 impostorscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608300071
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260830_014057_970302_06136DEE 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,108 +162,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 22 Aug 2026 10:53:41 +0100,
-Karl Mehltretter <kmehltretter@gmail.com> wrote:
-> 
-> A failed REDIST_REGION write can remove redistributor iodevs from
-> KVM_MMIO_BUS while leaving their cached vCPU assignments intact. A
-> corrected retry then skips those redistributors.
-> 
-> Userspace should instead see a failed region update atomically: no prior
-> redistributor assignment survives the failure, and the next successful
-> update rebuilds all possible assignments in region-index order.
-> 
-> Patch 1 fixes a separate accounting bug when an individual MMIO-bus
-> registration fails. It reserves the selected region slot before
-> registration and undoes that known-latest assignment if registration fails.
-> 
-> Patch 2 implements the atomic failed-region behavior. It unregisters every
-> redistributor iodev, clears every cached assignment, resets the region
-> counters, and frees the newly inserted region. An in-flight vCPU can have
-> an RD iodev before kvm_for_each_vcpu() can see it, so REDIST and
-> REDIST_REGION writes are serialized with vCPU creation and return -EBUSY
-> while the created_vcpus/online_vcpus counts differ.
-> 
-> Patch 3 is independent teardown cleanup. It separates MMIO-bus teardown
-> from config-locked assignment cleanup, preserves the cleanup required
-> before a late failed vCPU creation frees the vCPU, and removes the special
-> conditional from the common vCPU destructor.
-> 
-> Patch 4 keeps the selftest helper aligned with vm_create_with_vcpus(), and
-> patch 5 adds regression coverage for an overlapping region, retry, and
-> final GICR_TYPER accesses to all four redistributors. The test exercises
-> patch 2's final-state behavior; patch 1's MMIO-bus allocation failure is
-> not fault-injected.
-> 
-> Testing: built the patched kernel and the arm64 vgic_init selftest with
-> GCC 13.3.0 in an arm64 Linux container. The selftest passed under QEMU
-> 11.0.2 TCG with -machine virt,virtualization=on,gic-version=3 and -cpu max.
-> 
-> ---
-> Changes since v2:
-> - Patch 1: limit free_index rollback to the immediate registration failure
->   under slots_lock instead of generic unregistration. (Sashiko)
-> - Patch 2: reset all assignments and region counters after a failed region
->   update (Marc), and serialize REDIST and REDIST_REGION writes with vCPU
->   creation so rollback cannot miss an unpublished assignment.
-> - Patch 3: add an already-locked unassignment primitive, move failed-vCPU
->   cleanup to kvm_vgic_vcpu_destroy(), and remove the redundant base_addr
->   reset. (Marc)
-> - Patch 4: match vm_create_with_vcpus() by using void * for the guest-code
->   argument. (Sashiko)
-> - Patch 5: document how the first three redistributors span regions 0
->   and 1; no functional change.
+YAML files do not use tabs, even within the values in DTS.  No
+functional change, although dt-style-check will warn about it
+("[tab-in-yaml] tab character not allowed in DTS example").
 
-I really don't understand why this is such a massive departure from
-v2, which was pretty close to what I wanted to see.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Honestly, you are making things harder for everyone by over-designing
-(or more probably under-filtering) things that should be *fixes*, and
-just that.
+---
 
-If you want to rework all of the vgic init/destroy, fine by me. Do
-that as a separate series. But for fixes that carry a Cc stable and
-require backporting to 6 year old kernels, that's not on.
+Changes in v2:
+1. Correct logic in commit msg spaces->tabs
+---
+ Documentation/devicetree/bindings/sound/imx-audmux.yaml | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-The hack below is what I have against your v2 to make it acceptable.
-
-	M.
-
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index 84e67c23bedc0..85b00849e6154 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -539,8 +539,6 @@ static void __kvm_vgic_vcpu_destroy(struct kvm_vcpu *vcpu)
- 		 */
- 		if (kvm_get_vcpu_by_id(vcpu->kvm, vcpu->vcpu_id) != vcpu)
- 			vgic_unregister_redist_iodev(vcpu);
--
--		vgic_cpu->rd_iodev.base_addr = VGIC_ADDR_UNDEF;
- 	}
- }
- 
-@@ -563,14 +561,13 @@ void kvm_vgic_destroy(struct kvm *kvm)
- 
- 	vgic_debug_destroy(kvm);
- 
--	kvm_for_each_vcpu(i, vcpu, kvm)
-+	kvm_for_each_vcpu(i, vcpu, kvm) {
- 		__kvm_vgic_vcpu_destroy(vcpu);
--
--	if (kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3) {
--		mutex_unlock(&kvm->arch.config_lock);
--		kvm_for_each_vcpu(i, vcpu, kvm)
--			vgic_unregister_redist_iodev(vcpu);
--		mutex_lock(&kvm->arch.config_lock);
-+		if (kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3) {
-+			kvm_io_bus_unregister_dev(vcpu->kvm, KVM_MMIO_BUS,
-+						  &vcpu->arch.vgic_cpu.rd_iodev.dev);
-+			__vgic_unassign_redist_iodev(vcpu);
-+		}
- 	}
- 
- 	kvm_vgic_dist_destroy(kvm);
-
+diff --git a/Documentation/devicetree/bindings/sound/imx-audmux.yaml b/Documentation/devicetree/bindings/sound/imx-audmux.yaml
+index dab45c310670..501af1add3c1 100644
+--- a/Documentation/devicetree/bindings/sound/imx-audmux.yaml
++++ b/Documentation/devicetree/bindings/sound/imx-audmux.yaml
+@@ -101,10 +101,10 @@ examples:
+         mux-ssi1 {
+             fsl,audmux-port = <0>;
+             fsl,port-config = <
+-                IMX_AUDMUX_V2_PTCR_SYN		0
+-                IMX_AUDMUX_V2_PTCR_TFSEL(2)	0
+-                IMX_AUDMUX_V2_PTCR_TCSEL(2)	0
+-                IMX_AUDMUX_V2_PTCR_TFSDIR	0
++                IMX_AUDMUX_V2_PTCR_SYN      0
++                IMX_AUDMUX_V2_PTCR_TFSEL(2) 0
++                IMX_AUDMUX_V2_PTCR_TCSEL(2) 0
++                IMX_AUDMUX_V2_PTCR_TFSDIR   0
+                 IMX_AUDMUX_V2_PTCR_TCLKDIR      IMX_AUDMUX_V2_PDCR_RXDSEL(2)
+               >;
+         };
 -- 
-Jazz isn't dead. It just smells funny.
+2.53.0
+
 
