@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF132C624A2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5FAC624A3
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 20:19:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4MK3y/ljtjUexorjTzXkQRpOm/aVY9gRvt+fEa2i1YQ=; b=sHLSWnR+/u7V1DlwBWaxTUqkiO
-	Ns6xXg3WdwWrEFolMagarrKghyoeAl9wcXob4M9XJIt7GNHp39OegrjNV4QVFJmylCXezYI8/6jYl
-	U0CXEb+3/HHQ1LBAV8jwTKv/AzEmZ1u8dT/qHn9Ax4Bh/ysQogkfs+nwRks1St1oNJoI0cpen9Y7m
-	z9bJFSt/h0uywM7HG+F+RSmyB9utohPLrYQtPeTQPWJh3VsDm0ZU+EqqY5ekWXwymlJQIGW0/ls5c
-	4HO48x9gayuqW5ab6dCAl2yEqjtgw8DC9KDXRULmL4WViMZe+0+VcgWe+K9E0HPRwL4ifujpODAKE
-	SC1VYFZw==;
+	bh=Pnnge/FHQ0W4rdccHQTWF/5SMigOg4tf84Ptp/DmPXI=; b=k3HseDtwEjpSRpsXJ2CX41qTl9
+	+OwRZdb/XgUwpVGB8nk3SxQouxnaLcPvlPVughnR9PC+/mUjEUcCw4VmFkLNzPWmw8eSvlmEe2I1f
+	nM2MpJf1eTVO2enhuLXagndXULO0K6tMpHCzHyDmuEAJ+O62yd5/G2flHisJNrPWuyhiaqGZnJ+S8
+	n/yKX+n/th8FMQUxWqrwYO6uQPBlWr56q/TcU4k0BoJwSe/TUDyETaUd2pkFOyHZHW82oYEZSjKBd
+	jwseasaddXyfuKlOQOImVa5RTBu8qRy+sCruXGjnBNzlarc9UIuOxhGxVd9YgDGO2feUG7Xgon90q
+	/t2D0qag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0m0I-000000082sS-2JfV;
+	id 1x0m0I-000000082rl-1S5Q;
 	Sun, 30 Aug 2026 20:19:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0m0H-000000082pU-05P3
+	id 1x0m0G-000000082p7-2zs6
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Aug 2026 20:19:45 +0000
+	Sun, 30 Aug 2026 20:19:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 42B4843F87;
+	by sea.source.kernel.org (Postfix) with ESMTP id 24CF243E48;
 	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1CA4FC4AF18;
-	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E69C6C2BD00;
+	Sun, 30 Aug 2026 20:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1788121184;
-	bh=qXUPQQ+/YlgdXuqv7U2bExUuKkk0IWuRWSMGsGl9d24=;
+	bh=q5r1Np3eUnTrcGkauW7sWKDIVR3AiUTcYWTLnTecjRk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=GJ0jFGFt/PDWF0Vso1akAhRp5S0U3a/6YdJBpeuK9uOHHRsQF6Pw3wbmRPznEORtI
-	 7iRs/vL6bqNf46PdArQ7S2dc3kJDcAss63lKbX5OjbH2xZ66k8sxeBgrX0XTpoY1sv
-	 XCvQJDPNmD7Sf8AIeivcxcZG/DuAGSAp4p+Wp0LmAvuNrPvB6n2+5o04dtaDNGwmcg
-	 tu/Q//YPMOO3bxnA4MhTF3b/cJGBAEE+ReyTAbGWjHUQVtMmvF+Ror0+IcNqJyQCGX
-	 D4zi4kYD+HptSB/5IVActGtN835TVp1Ilsd4I/E4zjijnug55SZTi9Cwm+K+8aO3za
-	 H4ic72sWbPUVw==
+	b=A/0hoQqMWvuDHEBCBUQfEehc/0HPvx1YdDvn1Pe3wJRJgr7IIIkd7pyXIz7rpHf8+
+	 HhjqeA3tpxGqsRgMomY0JCexiuhPocIx7rgHQuF/MBhjTs4VI2521K/c/YsuawJ3s1
+	 OTYsuQyvvrwvwJiA4bZOSRXSPu+lhRwhcPwIsjmBZtn5VmSHPwrAnxO1ZaS3f/mMnQ
+	 1/QzEawK0X+QnWQd1OVekrA/VmIY6L65lcTtWX2SA9pN+Yxv+CExUIYuFVTgLGY0vr
+	 Sci12T4FnhBwU0Bsaoghsw1IHx8NM6kmyi00WXRvBQkodioPzIvf9plYnNIMJCP5sO
+	 zQs6CxL2ioo2g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 04B11C61DD9;
-	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C8542C61DE1;
+	Sun, 30 Aug 2026 20:19:43 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Sun, 30 Aug 2026 22:19:24 +0200
-Subject: [PATCH 06/19] thunderbolt: Try reading host DROM from device tree
- first
+Date: Sun, 30 Aug 2026 22:19:21 +0200
+Subject: [PATCH 03/19] usb: typec: tipd: Hook up Thunderbolt switch for
+ CD321x
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260830-b4-apple-soc-tbt-v1-6-44bc9348683c@kernel.org>
+Message-Id: <20260830-b4-apple-soc-tbt-v1-3-44bc9348683c@kernel.org>
 References: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
 In-Reply-To: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -69,13 +69,13 @@ Cc: Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Sven Peter <sven@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2537; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5456; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=qXUPQQ+/YlgdXuqv7U2bExUuKkk0IWuRWSMGsGl9d24=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ9aUCaGOM/MNwkOWxbjxvMyYGvCJ007Rps1QtLpU8XVbr
- +iKws8dpSwMYlwMsmKKLNv325s+efhGcOmmS+9h5rAygQxh4OIUgIlcWs/I0O0jy9rxdsmdfYG+
- P+wuW8XIsHxscl7sKPuz7nfr3NWdMxn+V4sKilw9qjK/6NWzyc6fn67OeVP/MrHp742Ii4ku5RV
- pzAA=
+ bh=q5r1Np3eUnTrcGkauW7sWKDIVR3AiUTcYWTLnTecjRk=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ9aUCcEvz8Zqf/RaeGPtVz3fzT37LhzIDzx/7okus8bvZ
+ rM/a9itO0pZGMS4GGTFFFm277c3ffLwjeDSTZfew8xhZQIZwsDFKQAT2S3B8Jvt8rrFP/3YZKd6
+ zJme18FY+uiBcf2mqjmJdQFubg+UuxYwMnQV3U8OTAtjz5IzcoqU3JwielmIabrcoY+/DJOy1y4
+ qZwQA
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
@@ -94,83 +94,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Apple Silicon SoCs the DROM is provided by a device tree property.
-Try reading from that property first.
+Look up the Thunderbolt switch for CD321x ports and forward cable details
+whenever a Thunderbolt or USB4 connection comes up or goes away.
 
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- drivers/thunderbolt/eeprom.c | 32 +++++++++++++++++++++++++++-----
- 1 file changed, 27 insertions(+), 5 deletions(-)
+ drivers/usb/typec/tipd/core.c | 37 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
 
-diff --git a/drivers/thunderbolt/eeprom.c b/drivers/thunderbolt/eeprom.c
-index 2a13fa6888ba..389de7df84f6 100644
---- a/drivers/thunderbolt/eeprom.c
-+++ b/drivers/thunderbolt/eeprom.c
-@@ -468,14 +468,14 @@ static void tb_switch_drom_free(struct tb_switch *sw)
- }
+diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
+index 522f56742aa9..5016f9dba956 100644
+--- a/drivers/usb/typec/tipd/core.c
++++ b/drivers/usb/typec/tipd/core.c
+@@ -216,6 +216,8 @@ struct cd321x {
+ 	struct typec_mux *mux;
+ 	struct typec_mux_state state;
  
- /*
-- * tb_drom_copy_efi - copy drom supplied by EFI to sw->drom if present
-+ * tb_drom_copy_property - copy drom from a device property if present
-  */
--static int tb_drom_copy_efi(struct tb_switch *sw, u16 *size)
-+static int tb_drom_copy_property(struct tb_switch *sw, const char *name, u16 *size)
- {
- 	struct device *dev = sw->tb->nhi->dev;
- 	int len, res;
- 
--	len = device_property_count_u8(dev, "ThunderboltDROM");
-+	len = device_property_count_u8(dev, name);
- 	if (len < 0 || len < sizeof(struct tb_drom_header))
- 		return -EINVAL;
- 
-@@ -483,8 +483,7 @@ static int tb_drom_copy_efi(struct tb_switch *sw, u16 *size)
- 	if (res)
- 		return res;
- 
--	res = device_property_read_u8_array(dev, "ThunderboltDROM", sw->drom,
--									len);
-+	res = device_property_read_u8_array(dev, name, sw->drom, len);
- 	if (res)
- 		goto err;
- 
-@@ -500,6 +499,22 @@ static int tb_drom_copy_efi(struct tb_switch *sw, u16 *size)
- 	return -EINVAL;
- }
- 
-+/*
-+ * tb_drom_copy_of_apple - copy drom supplied by the device tree for Apple Silicon to sw->drom.
-+ */
-+static int tb_drom_copy_of_apple(struct tb_switch *sw, u16 *size)
-+{
-+	return tb_drom_copy_property(sw, "apple,thunderbolt-drom", size);
-+}
++	struct typec_thunderbolt_switch *tbt_switch;
 +
-+/*
-+ * tb_drom_copy_efi - copy drom supplied by EFI to sw->drom if present
-+ */
-+static int tb_drom_copy_efi(struct tb_switch *sw, u16 *size)
-+{
-+	return tb_drom_copy_property(sw, "ThunderboltDROM", size);
-+}
-+
- static int tb_drom_copy_nvm(struct tb_switch *sw, u16 *size)
+ 	struct cd321x_status update_status;
+ 	struct delayed_work update_work;
+ 	struct usb_pd_identity cur_partner_identity;
+@@ -677,6 +679,9 @@ static void tps6598x_handle_plug_event(struct tps6598x *tps, u32 status)
+ static void cd321x_typec_update_mode(struct tps6598x *tps, struct cd321x_status *st)
  {
- 	u16 drom_offset;
-@@ -675,6 +690,13 @@ static int tb_drom_host_read(struct tb_switch *sw)
- {
- 	u16 size;
+ 	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
++	struct typec_thunderbolt_switch_data tbt_switch_data = {
++		.state = TYPEC_THUNDERBOLT_SWITCH_OFF,
++	};
  
-+	/*
-+	 * Apple Silicon machines always get their host DROM from the Device Tree,
-+	 * so make sure to try reading it first before any other method.
-+	 */
-+	if (!tb_drom_copy_of_apple(sw, &size))
-+		return tb_drom_parse(sw, size);
+ 	if (!(st->data_status & TPS_DATA_STATUS_DATA_CONNECTION)) {
+ 		if (cd321x->state.mode == TYPEC_STATE_SAFE)
+@@ -684,6 +689,7 @@ static void cd321x_typec_update_mode(struct tps6598x *tps, struct cd321x_status
+ 		cd321x->state.alt = NULL;
+ 		cd321x->state.mode = TYPEC_STATE_SAFE;
+ 		cd321x->state.data = NULL;
++		typec_thunderbolt_switch_set(cd321x->tbt_switch, &tbt_switch_data);
+ 		typec_mux_set(cd321x->mux, &cd321x->state);
+ 	} else if (st->data_status & TPS_DATA_STATUS_DP_CONNECTION) {
+ 		struct typec_displayport_data dp_data;
+@@ -723,6 +729,7 @@ static void cd321x_typec_update_mode(struct tps6598x *tps, struct cd321x_status
+ 		cd321x->state.alt = cd321x->port_altmode_dp;
+ 		cd321x->state.data = &dp_data;
+ 		cd321x->state.mode = mode;
++		typec_thunderbolt_switch_set(cd321x->tbt_switch, &tbt_switch_data);
+ 		typec_mux_set(cd321x->mux, &cd321x->state);
+ 	} else if (st->data_status & TPS_DATA_STATUS_TBT_CONNECTION) {
+ 		struct typec_thunderbolt_data tbt_data;
+@@ -738,6 +745,13 @@ static void cd321x_typec_update_mode(struct tps6598x *tps, struct cd321x_status
+ 		cd321x->state.mode = TYPEC_TBT_MODE;
+ 		cd321x->state.data = &tbt_data;
+ 		typec_mux_set(cd321x->mux, &cd321x->state);
 +
- 	if (tb_switch_is_usb4(sw)) {
- 		usb4_switch_read_uid(sw, &sw->uid);
- 		if (!usb4_copy_drom(sw, &size))
++		tbt_switch_data.state = TYPEC_THUNDERBOLT_SWITCH_TBT;
++		tbt_switch_data.tbt = tbt_data;
++		tbt_switch_data.orientation = TPS_STATUS_TO_UPSIDE_DOWN(st->status) ?
++						      TYPEC_ORIENTATION_REVERSE :
++						      TYPEC_ORIENTATION_NORMAL;
++		typec_thunderbolt_switch_set(cd321x->tbt_switch, &tbt_switch_data);
+ 	} else if (st->data_status & CD321X_DATA_STATUS_USB4_CONNECTION) {
+ 		struct enter_usb_data eusb_data;
+ 
+@@ -752,12 +766,20 @@ static void cd321x_typec_update_mode(struct tps6598x *tps, struct cd321x_status
+ 		cd321x->state.data = &eusb_data;
+ 		cd321x->state.mode = TYPEC_MODE_USB4;
+ 		typec_mux_set(cd321x->mux, &cd321x->state);
++
++		tbt_switch_data.state = TYPEC_THUNDERBOLT_SWITCH_USB4;
++		tbt_switch_data.usb4 = eusb_data;
++		tbt_switch_data.orientation = TPS_STATUS_TO_UPSIDE_DOWN(st->status) ?
++						      TYPEC_ORIENTATION_REVERSE :
++						      TYPEC_ORIENTATION_NORMAL;
++		typec_thunderbolt_switch_set(cd321x->tbt_switch, &tbt_switch_data);
+ 	} else {
+ 		if (cd321x->state.alt == NULL && cd321x->state.mode == TYPEC_STATE_USB)
+ 			return;
+ 		cd321x->state.alt = NULL;
+ 		cd321x->state.mode = TYPEC_STATE_USB;
+ 		cd321x->state.data = NULL;
++		typec_thunderbolt_switch_set(cd321x->tbt_switch, &tbt_switch_data);
+ 		typec_mux_set(cd321x->mux, &cd321x->state);
+ 	}
+ 
+@@ -771,6 +793,9 @@ static void cd321x_update_work(struct work_struct *work)
+ 					    struct cd321x, update_work);
+ 	struct tps6598x *tps = &cd321x->tps;
+ 	struct cd321x_status st;
++	struct typec_thunderbolt_switch_data tbt_switch_data = {
++		.state = TYPEC_THUNDERBOLT_SWITCH_OFF,
++	};
+ 
+ 	guard(mutex)(&tps->lock);
+ 
+@@ -821,6 +846,7 @@ static void cd321x_update_work(struct work_struct *work)
+ 
+ 	/* If there was a disconnection, set PHY to off */
+ 	if (!new_connected || was_disconnected) {
++		typec_thunderbolt_switch_set(cd321x->tbt_switch, &tbt_switch_data);
+ 		cd321x->state.alt = NULL;
+ 		cd321x->state.mode = TYPEC_STATE_SAFE;
+ 		cd321x->state.data = NULL;
+@@ -1328,6 +1354,12 @@ cd321x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
+ 		goto err_unregister_altmodes;
+ 	}
+ 
++	cd321x->tbt_switch = fwnode_typec_thunderbolt_switch_get(fwnode);
++	if (IS_ERR(cd321x->tbt_switch)) {
++		ret = PTR_ERR(cd321x->tbt_switch);
++		goto err_unregister_mux;
++	}
++
+ 	cd321x->state.alt = NULL;
+ 	cd321x->state.mode = TYPEC_STATE_SAFE;
+ 	cd321x->state.data = NULL;
+@@ -1335,6 +1367,9 @@ cd321x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
+ 
+ 	return 0;
+ 
++err_unregister_mux:
++	typec_mux_put(cd321x->mux);
++	cd321x->mux = NULL;
+ err_unregister_altmodes:
+ 	typec_unregister_altmode(cd321x->port_altmode_dp);
+ 	typec_unregister_altmode(cd321x->port_altmode_tbt);
+@@ -1356,6 +1391,8 @@ cd321x_unregister_port(struct tps6598x *tps)
+ {
+ 	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
+ 
++	typec_thunderbolt_switch_put(cd321x->tbt_switch);
++	cd321x->tbt_switch = NULL;
+ 	typec_mux_put(cd321x->mux);
+ 	cd321x->mux = NULL;
+ 	typec_unregister_altmode(cd321x->port_altmode_dp);
 
 -- 
 2.55.0
