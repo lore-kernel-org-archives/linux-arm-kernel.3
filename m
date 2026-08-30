@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D273C61DD9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 13:37:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C4C0C61DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 13:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GkrsjBvCQIvohNYhmVa1WCUCDikawnIl1X6Zs1+C8m4=; b=LMNDSph+nAPx5HBn3nFYKk15FQ
-	fGKLwnvACH63VwHoU4JVVz5uI0bZXCXI8uCSUQm1dsLF2ztIKv/EBL4195zmQl7T/yXxIyID58JBw
-	unp5w6WnaTkJpktC+DOMZ+VhrsB+0lWf3X57AbXGRKhjkjOqa/jyO39d0lxz8e6CH9SOCdNH5PvkN
-	q2ZjH8/p4IrvClhws8wLt5Hr8KaMvYiFr+evLYit4iKPbS1ti2dcY8dj6GuZ5AwAGzwMTtlJeIMXu
-	FSwGF32egd747rlHPQKe2D09OEpmyPOR1+R24gjkufOmqYBw0qLG5Yyv8D5umCfAx2S1A0qdG/hEI
-	A5ExC/iQ==;
+	bh=5Vn6jb3yVmG0vfSeOkh5NHbqGdc6CkJNDu6OMhw4pbQ=; b=z63pk2jbm/n+JOoDdS0JcIOLy8
+	0shClJX/5KY6wyPUaTLClXHeEKHHml7Y7WiEOdX4bWHEsQWtGLq2KkEJru6jDwa6r+siorzik+JUM
+	Qc+75Bp4LVn5ZEyUN2+lTRXvPIVUdz6W6inD96BgFl6hGkZAMkz7IN4ai/P3vmIQTUTkTyJL4QgIc
+	Q0kzyeGedlOh3oeXbkOBjSaTLty32iMefB4e92YWwGXgJAL226RoGmjoUVHlwD9r0zdNcdRkn+fqi
+	p0yQM/5msiSMalgCOdjY3b57afAoXHqT6nw0vAi427b1a1EQaOZSl3Qv+17gCIXQtFhwkRQZi1Yqh
+	PL5lnUeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0fia-00000007lHS-3aa5;
-	Sun, 30 Aug 2026 13:37:04 +0000
+	id 1x0fo3-00000007lUf-27PQ;
+	Sun, 30 Aug 2026 13:42:43 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0fiX-00000007lH6-2Iuc;
-	Sun, 30 Aug 2026 13:37:03 +0000
+	id 1x0fo0-00000007lUM-0LR2
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 30 Aug 2026 13:42:41 +0000
 Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-03 (Coremail) with SMTP id rQCowADH0T_3MZRqVzGbBg--.48150S2;
-	Sun, 30 Aug 2026 21:36:55 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowADn8T9FM5RqqUGbBg--.17102S2;
+	Sun, 30 Aug 2026 21:42:29 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Daniel Golle <daniel@makrotopia.org>
+To: Jonathan Cameron <jic23@kernel.org>
 Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Heiko Stuebner <heiko@sntech.de>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-crypto@vger.kernel.org,
+	linux-iio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] hwrng: rockchip: propagate reset errors
-Date: Sun, 30 Aug 2026 21:36:52 +0800
-Message-ID: <20260830133652.7618-1-pengpeng@iscas.ac.cn>
+Subject: [PATCH] iio: adc: aspeed: propagate reset deassert errors
+Date: Sun, 30 Aug 2026 21:42:27 +0800
+Message-ID: <20260830134227.9085-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowADH0T_3MZRqVzGbBg--.48150S2
-X-Coremail-Antispam: 1UD129KBjvJXoWrKry5KFWxKFyxtryDXF45GFg_yoW8Jr1xpF
-	WkCFyavrWUC3yFva9rAay5Z3ZYg3WayFWUK3yIk3s7ZwnxJw18Gw1YvFZIqasxXF48try5
-	tr47Aa48uF42vr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
-	1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
-	6xIIjxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
-	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
-	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r
-	4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
-	JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYx
-	BIdaVFxhVjvjDU0xZFpf9x0JUgXocUUUUU=
+X-CM-TRANSID: rQCowADn8T9FM5RqqUGbBg--.17102S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtw48WF1DKFy3WF47ur4rZrb_yoWkuFcE9r
+	48WFZrWrnxCrZ0kw1jyw1fZrZY9FyDuFyvk3Wjvr43KFyUXrWDAryDuFWYvw1Uurs2v343
+	AF1q9rWfA3sxGjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUba8FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
+	Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
+	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
+	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr
+	1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
+	CwCI42IY6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4UJVWxJrUvcS
+	sGvfC2KfnxnUUI43ZEXa7VUbo5l5UUUUU==
 X-Originating-IP: [111.196.241.250]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_063701_978113_820B08C5 
-X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-CacheID: sfid-20260830_064240_515622_244174E0 
+X-CRM114-Status: UNSURE (   9.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,39 +88,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rk_rng_probe() pulses the optional or required reset array before
-registering
-the hardware RNG, but discards errors from both reset operations.
+aspeed_adc_probe() continues to register ADC resources after deasserting
+the shared reset, even if the reset controller reports a failure.
 
-Return reset failures before publishing the RNG device.
+A failed deassertion leaves the hardware unavailable, so stop probing
+before
+installing the cleanup action and enabling the ADC.
 
-Fixes: 8eff8eb83fc0 ("hwrng: rockchip - add support for rk3588's standalone TRNG")
+Fixes: edf7550a1f93 ("iio: adc: aspeed: Deassert reset in probe")
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- drivers/char/hw_random/rockchip-rng.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ drivers/iio/adc/aspeed_adc.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/char/hw_random/rockchip-rng.c b/drivers/char/hw_random/rockchip-rng.c
-index 6e3ed4b856051..ff98fcdc68911 100644
---- a/drivers/char/hw_random/rockchip-rng.c
-+++ b/drivers/char/hw_random/rockchip-rng.c
-@@ -412,9 +412,14 @@ static int rk_rng_probe(struct platform_device *pdev)
- 		if (IS_ERR(rst))
- 			return dev_err_probe(dev, PTR_ERR(rst), "Failed to get reset property\n");
+diff --git a/drivers/iio/adc/aspeed_adc.c b/drivers/iio/adc/aspeed_adc.c
+index 6169ce28261e1..452c30cf04f28 100644
+--- a/drivers/iio/adc/aspeed_adc.c
++++ b/drivers/iio/adc/aspeed_adc.c
+@@ -585,7 +585,9 @@ static int aspeed_adc_probe(struct platform_device *pdev)
+ 		return dev_err_probe(dev, PTR_ERR(data->rst),
+ 				     "invalid or missing reset controller device tree entry");
  
--		reset_control_assert(rst);
-+		ret = reset_control_assert(rst);
-+		if (ret)
-+			return ret;
-+
- 		udelay(2);
--		reset_control_deassert(rst);
-+		ret = reset_control_deassert(rst);
-+		if (ret)
-+			return ret;
- 	}
+-	reset_control_deassert(data->rst);
++	ret = reset_control_deassert(data->rst);
++	if (ret)
++		return ret;
  
- 	platform_set_drvdata(pdev, rk_rng);
+ 	ret = devm_add_action_or_reset(dev, aspeed_adc_reset_assert, data->rst);
+ 	if (ret)
 
 base-commit: 08dbfad3f5040f5bdb6c529da20d6d4e81fefd72
 -- 
