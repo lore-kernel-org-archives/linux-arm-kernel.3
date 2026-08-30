@@ -4,101 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E45BC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 10:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BD85C61DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 10:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DIf6mQ5jieSfsR95OPMrcqML+UpgXiaHxu+WpaiXhhc=; b=lYa7T/GHLwS5lGB3THL+UCLomW
-	xvEBXC7rbGAm7b0QAEUlV9h7SJ0a6bKXQ+LunmQKGvtLNvAEmLO7eazVDQ4PFG+HhhD8rOsYpd0ZQ
-	oBwMFFZ6jdtpVDU66Y8t/PWzR8oYGAywZMloK/FlN+XsL/EJMvd8muVrBf5ftmFz3pBXuMaTu2qtg
-	3sLB4kw/ADlk+ITYRiUvv2YWuwZ07Wnn1WOfCrKZs1ix7Clne1PED/YTrOdXvS1Kn6bOCV4mEbcHv
-	qtPX4bS/xyp935lYcKf6sd9ASx4jGo/Aprg0ifytLCPB2qzLmzIQG6/PlpJUdDwaODjpWFMFzJZGj
-	yC6z018w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Dmcr4tzCXL4F7wgRjqJeFcGn1Q75Cerw60dFrdsb/pM=; b=E8698qaCNW1Ba9
+	P+vl82zlJbvsoy8LnfQ6H94DZaQhpGLNOitf4XWJs9sa2TIIgSrsQCX7+vzODw9ra8R9jTPbBWn9B
+	AjTsGGKxT9BJ8Rg+sQ2GkoOskP2QbWvMQ1kMaJX1xqT0ridkV4U0RT7GMMXA704zh9ltnoFJlnitH
+	zYCs4iOXwZmXoLV5dP2e2HilZYQys60dZdxoZxuiNVSJnpAvqP4dY4/fZ0LqHabNhWm6rxn5WV9Zi
+	jgLFiiPi8ofOpeerNY168/ZYXDXtEtjbv2olrJHFS5ergU/XdDJgbQrfGlVxHZWVKNpAhe11CZ3IF
+	nxS4qNufdV4axkjDQvxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0cr5-00000007eSD-2OYa;
-	Sun, 30 Aug 2026 10:33:39 +0000
+	id 1x0crH-00000007eWP-3IQ7;
+	Sun, 30 Aug 2026 10:33:51 +0000
 Received: from mx0b-00364e01.pphosted.com ([148.163.139.74])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0cqx-00000007eQm-35nE
+	id 1x0cr2-00000007eRP-0TSv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Aug 2026 10:33:37 +0000
+	Sun, 30 Aug 2026 10:33:38 +0000
 Received: from pps.filterd (m0167074.ppops.net [127.0.0.1])
-	by mx0b-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67U9f0tj3255280
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 06:33:29 -0400
+	by mx0b-00364e01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67U9poKm3276198
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 06:33:35 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=columbia.edu; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pps01; bh=DIf6
-	mQ5jieSfsR95OPMrcqML+UpgXiaHxu+WpaiXhhc=; b=JfFX8hjA6sQeEQXVtvti
-	qnAfnWQsEs219hHrOd1/v7ObcfRTKu71Um7EpMgtShSNfWiTyXtudW0PGmRmAuK4
-	UuF22g+V0C1TnGy6dLpcIyZ5n9gsqlCagIz3B3vHfg7uq+Yz1e6d7c4kRRgR12mq
-	Req+NB22JNLGSsTVp4+l/CeOR1InYFXxWSrcqezZrSLdK5M5dxtCgdV6q01LHIOO
-	7+pjZmjffLiZWwTnig2OryPwCjYCSJpPYvOyN1yySfVaZV1ScK840Ubrn1nLm7xH
-	hEUF5kf8ls6QDE7bLcSwjVbkJHIO/N1Ykfbejnln7XfsB8dyMBu1udurkTxB8y9e
-	0Q==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0b-00364e01.pphosted.com (PPS) with ESMTPS id 4gbrfbvynn-1
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pps01; bh=Dmcr4tzCXL4F7wgRjqJeFcGn1Q
+	75Cerw60dFrdsb/pM=; b=UrN5Y7AlAfBbY4Fy/u2SJtnyl48+/thxogZMawq5vx
+	GWDobDYzCPueT5SwmQqcFvh62bwzdLbPA0voxbttGPICDfjCp64zUixpqjHKv5M1
+	60fDqXYLjHpqE4RUq/8b4UwHFwB8u+06Nm46g/H4mqnh8+duSlzN4blTnsZG1puW
+	1cS5jLJWugFVEOIgAC/bcsaqQw5tqU373L1NN2rn4hsTy5BoFe0bQgt20RPpSYtn
+	x/qBuhiaxKDwIdoDnZp+iwOV7pWzdAEXUfgXn5q7wxef/9rpinE0x+SOAwds3jM+
+	gbL/t3e0nkJZwlwf2aJsn3xRZfPIV/wgtzdPB9V6UkzQ==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0b-00364e01.pphosted.com (PPS) with ESMTPS id 4gbrfbvyp7-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 06:33:29 -0400 (EDT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-52dcf1bb6e9so51263361cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 03:33:29 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 06:33:34 -0400 (EDT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-52ce3c7cb2eso51276361cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 03:33:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=columbia.edu; s=lionmail; t=1788086008; x=1788690808; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DIf6mQ5jieSfsR95OPMrcqML+UpgXiaHxu+WpaiXhhc=;
-        b=tLm2H2GBcMD6/JhRzF0FWEQgCxWaTcAVWcu3s30Lj1w6Ixuc+6PWhW3m7ZgWwizK5e
-         4diYBNT+wGcst/hDOBk5QDd/eKPZkTtnc+kMblPjvrXTAsGDu1D+hR88x1FmBoP/bSWn
-         4yCuoXW5q1yV+RDb4RWwVea3J/PgotqY7YvTWZlVhhzuHyXQmY64bIIOc6t7Y9AZdlj8
-         HPb0Kj4BoI7zDrxRZ26gNkoEsINn9bScPr3CSHmxgbL4s5WKKB4+kJwzp1ovY+JCfvsj
-         xtizvlnA0QArO86GW0baciPXpCnxZFWR7WT82akYdTtppmPStCs2SvA/42YhT7/9/oui
-         I68w==
+        d=columbia.edu; s=lionmail; t=1788086014; x=1788690814; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Dmcr4tzCXL4F7wgRjqJeFcGn1Q75Cerw60dFrdsb/pM=;
+        b=RdfRC69lacmhykqCgA6vYhm6kVInW5BiuzrcpKUdjDtwdGR7mXnUrAcUk2W/w6CSrA
+         4mggBu3dlvHPRt6RyL6KkHZANLrD/U0cmbPcGUwsahMmS6mQ7SXuz8x4T8d772zkhJ0D
+         5Qby1HD9fRc1rIEsGjZWuFEU0fkJ0Np5U8PnEIf0p5H5Nup1T94oLPOO3QYSGDg4vvZK
+         K5BKWUEE9OqXJKJwFDhGR76z0gkAey12dlf52hyfGs4G7Z+53dXovqa225/nveq+LYKz
+         vlJBGuq2yF/fZIC29ewFNu/zIosaZfItbmhnKAb7YdYmjpSSWYY6lmErmuVDJziGI1lm
+         nU9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788086008; x=1788690808;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DIf6mQ5jieSfsR95OPMrcqML+UpgXiaHxu+WpaiXhhc=;
-        b=h2QmNnWaemZI4V3oq4rAcqSD14KpbEMjRblvL9DSdaJ531Hg4yX1dNbcZbNjzwU4XY
-         z7hzJ7YkYz6Vn86Q5UTgs7HprSJlL0IG4TQbiLEEj1OMwziyLf8hNIZ+DNJuoLEaySwb
-         facgR6kV7odYtEiL7QczK6qEP9uLFiNoujA2zIHVMNf3IxJ/npqUdjE4gYdrYoYiJ3dm
-         ZsEeiSY+cR6E3zWxTDT1lWBcI+dSsS0IVxpGJ98dVMuz2VfI/V8FZo9X7dtgQaIKbT5O
-         XLMkD2XalEQGF9I2jC9TBymXb6x/uNYfXRVE2aLZ6YU9mEahoTWwQRyRhrUFPwE5Wwhh
-         npWQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rrba/b0liyenr6FuzTUauvinXd33No8vCtwMoFPcxlLpDbqGQrX0tGf95EwMb+v4XyyuI37+lmGNR5Ts3smskKN@lists.infradead.org
-X-Gm-Message-State: AFuF++lOSi1BZ3qfne4oUCDUErDCPutE8G1TYFAWFzon7BTQJteqiL4J
-	1z9uG4Z9iClekOrD49d4x+/bsAAM1RvRMSAx5G18qtYRULWo0qSzbkFnmjwYVeyyc4kNRf4CAnb
-	kWFu+54xERhkO2Dw6TdO2BnEZrvrefEURyLq4m1nKx141C/WFr5uf4dpqSkEThCUDk/XQPPPZ
-X-Gm-Gg: AR+sD13/+sbWHOBb7TS6EAlWqhGKcDIcHcgz0yb5s98CvJBaBmHk29vZwTtUYMherXu
-	EgDRgQz6/1AFj/7yeDWdWkryeld6zoe/NjbgFgDTJtgUI8VKYx5hHMdE5BfRuD4PNBH7a7SNJSv
-	zf1Rb43l3nj1kyhhmrtxAu6Sz43TrNFc1OivcuciYH0XF+RFfMVLcK+mNzFLQK/MmmA0fJ3sQhG
-	20N2dIKQdg0P5+Xxwx9cOlGWHsMh6V4n0jdrJvjexZjUmp0voR1EZe/fncOg3SwuJhqhXgpovCg
-	ncReCohTPoJ8otkYmbgx5IoSg+lXJZugAY8u7qnFickUDmbAcACrytuR7P4IyX7D/eZYfTSifYB
-	Yes62EIF2A3MYZb0HgbQPudpt5a0aRkqsguWFvT3YbQ==
-X-Received: by 2002:ac8:58ca:0:b0:517:c582:9161 with SMTP id d75a77b69052e-5300b777e98mr17168801cf.7.1788086008585;
-        Sun, 30 Aug 2026 03:33:28 -0700 (PDT)
-X-Received: by 2002:ac8:58ca:0:b0:517:c582:9161 with SMTP id d75a77b69052e-5300b777e98mr17168361cf.7.1788086008153;
-        Sun, 30 Aug 2026 03:33:28 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1788086014; x=1788690814;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Dmcr4tzCXL4F7wgRjqJeFcGn1Q75Cerw60dFrdsb/pM=;
+        b=Bw9Lf+GwsddJ+LR+m/URLtOo8Zg7KCaxCh4K9tsc4NCf8fS3vScfcOdEUe9i/OuKK1
+         /ScYlAAuF7FKbyNre5fPM+Y6Pp23FuJr6Xu3TWIzqENoHwqqMtVgIyVF1u46pSwGEHwX
+         pDW4r1Khm471hlIp30YU4O7UpbYIxBXzoY8qaGblbtlvfTdlv7R5A8lYG1IJ0GxQcD5k
+         5j9KSe6UUzjTBoJLHKnnNA881QZHhaXaFhrTI8M/hWbq4Tzz0Sm1T0PtFkdJ4UhgdrL5
+         zXXojB2PGfqOsC9IjmEyXsm41xOOuJW/veJRBlvX4XHkpX2bxFVlyFcOVpDLjSD8MIJj
+         1l1w==
+X-Forwarded-Encrypted: i=1; AHgh+RrlpqVgQSL6p7HmYVWkibsXIbRMAmU3/iYIfGyUIbUCYjEaeeXgKFCFTUxeppGMJj3WxxrCrLDSQK5M8B9xQVGm@lists.infradead.org
+X-Gm-Message-State: AFuF++lSu58DGuZkQQRYfbaqPcZ9yTvuDzBJcivOFxNlmgioo4m7ZQ+J
+	xt0GkltU3lgjREfauDrOC694silg2cxt09lrAVVldNXXH6fqG9Wb8YusVgIc6zCfZaCG/TT3P/0
+	mU+SKXX/V1P0bLSp90vdDfuFx6Zi8BF6cj1jN1htVY3fTPzqDaFn7F44Hn5TisqQtbTDMXt5z
+X-Gm-Gg: AR+sD12s9z29QJFqXqtJhLJ7zr+9W0eMNMVp7XdEvosIg0HafdSBVoGFgcBvJbnAUA4
+	HYuxdPldUC7pMpwA83EqS1pwBOM1CgZu4Oq7JW/spuYquITGHtl336PTx3YCGgV0XPtJLJ2vIX9
+	liy8NSX+KoYETZ5Ll+rIqsmKdrdgRZGhKTAfJ4VK25oLVXGYf1/bGzyx2e3ynZG/bGoOG9+t5pz
+	S/4zmNdJ0bmq3nZwo/7601HrJ14TdB2lWtSnmzzbdicXUEd9QIwUIzwYug9IwHIXyh1jKsO7RDm
+	LiuZ6jlcf8xIrxWUfcacfc7a1rCc9qOtgr/FeASvCbaiXDZc5olaSrxw7cqaO8QTklBtObZf6YV
+	aAtOqMUGXriEjOOHWAHcQv8u62jYlSBmTiq/GvmhELg==
+X-Received: by 2002:a05:622a:4d44:b0:52d:7b6e:4986 with SMTP id d75a77b69052e-52fb94aca06mr249250401cf.23.1788086009238;
+        Sun, 30 Aug 2026 03:33:29 -0700 (PDT)
+X-Received: by 2002:a05:622a:4d44:b0:52d:7b6e:4986 with SMTP id d75a77b69052e-52fb94aca06mr249246751cf.23.1788086004114;
+        Sun, 30 Aug 2026 03:33:24 -0700 (PDT)
 Received: from [127.0.1.1] (bzq-79-179-7-133.red.bezeqint.net. [79.179.7.133])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ccf5a580esm69304005e9.3.2026.08.30.03.33.24
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49ccf5a580esm69304005e9.3.2026.08.30.03.33.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 30 Aug 2026 03:33:27 -0700 (PDT)
+        Sun, 30 Aug 2026 03:33:23 -0700 (PDT)
 From: Tal Zussman <tz2294@columbia.edu>
-Date: Sun, 30 Aug 2026 06:32:23 -0400
-Subject: [PATCH 1/8] mm/swap: add folio_swap_entry() and
- folio_page_swap_entry()
+Subject: [PATCH 0/8] mm: remove page_swap_entry()
+Date: Sun, 30 Aug 2026 06:32:22 -0400
+Message-Id: <20260830-folio_swap_entry-v1-0-7786b52acbc8@columbia.edu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260830-folio_swap_entry-v1-1-7786b52acbc8@columbia.edu>
-References: <20260830-folio_swap_entry-v1-0-7786b52acbc8@columbia.edu>
-In-Reply-To: <20260830-folio_swap_entry-v1-0-7786b52acbc8@columbia.edu>
+X-B4-Tracking: v=1; b=H4sIALcGlGoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDCwNz3bT8nMz8+OLyxIL41LySokrdVFPjFDMLM0ODlFQDJaC2gqLUtMw
+ KsJHRsRB+cWlSVmpyCcgcpdpaAN3xYOJ0AAAA
+X-Change-ID: 20260807-folio_swap_entry-e53d68610de0
 To: Andrew Morton <akpm@linux-foundation.org>, Chris Li <chrisl@kernel.org>,
         Kairui Song <kasong@tencent.com>,
         Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>,
@@ -121,41 +120,41 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org,
         Tal Zussman <tz2294@columbia.edu>
 X-Mailer: b4 0.17-dev-db0b7
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788085997; l=2036;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1788085997; l=1676;
  i=tz2294@columbia.edu; s=20250528; h=from:subject:message-id;
- bh=il7UMsRwFpzsLvluAxhowLr70Y3ODPga+2MhlPhEB3w=;
- b=740giHW+JUpfeL6BrdRfZ53BORRJ9DwBndjIt8Y9Znr21EeDOFcOZuhC9z/byBObIyBHeFQGI
- IjGTGV0AMNCDMktbmt2wy/syZZ5NwzV/2uTptcpt9hVzAKxCLlfl40u
+ bh=URqsD108Ktb7Q1ul6tJPwzbY4nIKxLZRUx0agGsKnfc=;
+ b=Vbu1vdG/yynRHwQQgggtra/gysbc3tRr4M+3u9Jf693fE4TvPp8VylrcVsbN5b3J6pcxUbsgp
+ qB3DhfuPzdhCqmnLZqz/XufM/PRKZAua1WrSRVFIPkcEVAXKk9HZwVG
 X-Developer-Key: i=tz2294@columbia.edu; a=ed25519;
  pk=BIj5KdACscEOyAC0oIkeZqLB3L94fzBnDccEooxeM5Y=
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODMwMDA4OCBTYWx0ZWRfX7MCycCZRuc1m
- 6qkU+itEUBA2HO6V2Kw5InZIk/4WJWZ2ylMm+UzYtpiKmr/1X4wS4/dhnmX5hzVzVa+f7D/ZG8a
- 0yaGTehWuEnADAhw/NSECXFUUUtfDlaXDwENCwIucTTi7ziTaN+s
-X-Proofpoint-ORIG-GUID: uiMP_MOiDV_WYVhK41ypTfP17dAVGNka
-X-Proofpoint-GUID: uiMP_MOiDV_WYVhK41ypTfP17dAVGNka
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMwMDA4OCBTYWx0ZWRfX9hy7Ja/oOeli
- r7tfRUbs4V+GDnWluut/Yls/PxIlAlXP9+1cPMhe9JFWRIUu/bT1mLAQ07RM/O6LYYyjG11FYOm
- AHCd1Yd9jldsR+lP01UcbHPLDx8Naxkm+sNqAJNQ6xr0klLakW/9HEBMyU0gi1uT0c66HJ3FJNH
- gOe1amuxAv9Zujda/DtPF/k9c4hVJP1JKCRdDSeSjF3MWzEsSwdbbbvnrkPlH2lYSZKS7GwjK+n
- YQZBTKGHoB7/IQXK2QEZ8rJ7Rn5k0AFq3eWzEZI1GGh96HKihEAbBo5vNasdnCxnZjf2KDciklZ
- o5zy/oYOIAjAgZM1dFdi2E1c3y9msdEc6lwjH43z2eRdjdkeos84+FYsyZ9ZZhiP8bnR8kcvUnO
- A2m9Vzpb1V8NZh0CuSjm4I++04UhWWOVtrl2byea4V8PmRR9M0hT6Hi4P+EhkU96LY1V9k+BYfH
- KyG/ams+ZHN4Boejk0A==
-X-Authority-Analysis: v=2.4 cv=beNbluPB c=1 sm=1 tr=0 ts=6a9406f9 cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=LRATYcvZeiQrLRB5MfbBvg==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODMwMDA4OCBTYWx0ZWRfX4hVJ2OUB1vCV
+ 1IM0ZC+5du2h+w0k5kSnQ5gEIAocqpLoryzJMsq1kwK45zwXvG3PmZaI5C0W8JpvS8N/3Pupuof
+ jDSv83T3nmxiX9jpfcEzq1BDtnRi8Vf3RWpJle5zRGSm+P/D4P0Y
+X-Proofpoint-ORIG-GUID: 3Czfdvpd4Ws8VWow2jSy6P-0YJBP26kc
+X-Proofpoint-GUID: 3Czfdvpd4Ws8VWow2jSy6P-0YJBP26kc
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMwMDA4OCBTYWx0ZWRfXyjiQMdbWSh8s
+ F/p3r63v4lL8vHEXStXIOD5hvUJ+a+9xfz+IcFJm7KjnJduxBmlGNjPu1tcxQOFgYdLQK6naUEJ
+ GZm3Y0wYqIp8p4pV+HNqH7N7LoPm5TwSdne/Qk2ZUnI05tPSCfj8iFWsjTu0g9p1eX6QUNr26X6
+ RoEqscpj4rNXl6apiZ90zS2PPL8LMc7lzoLJGL/C9Pt4HWm7tUBQi3uJAz4BW2/Ucu6xhpIdRZ6
+ NOndFcWF5E8CLPUxTQaLKeLLl/I3EdCkxh+X56Wr+2SI37Ao05Qgd4EUzu6EVD5tRDdCifD9dAS
+ O9TVr62+jUAXFqHztJwKkYhMsWwlZy2IxoJc+8gXob7L32XgiVQhpMg0j25UgId6rGhWOhDJerw
+ qZwZ7kZ12z+zSFzd7aQYoEhnwVDurHYUpNd+yxhINCD79x2x0nE+sciFJtT37q04+syFmUS2g0r
+ rLxNGRpuC0EEILVtUvQ==
+X-Authority-Analysis: v=2.4 cv=beNbluPB c=1 sm=1 tr=0 ts=6a9406fe cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=LRATYcvZeiQrLRB5MfbBvg==:17
  a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=x7bEGLp0ZPQA:10 a=A0y_DWxS2BwA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=Da8U98TiO7q1upZEImrf:22 a=azVShVRs0zEubeQ0wG0L:22
- a=wCX1QjJdxvQAooojgaYA:9 a=QEXdDO2ut3YA:10 a=kacYvNCVWA4VmyqE58fU:22
+ a=FVoBsLlWJ5wMsLtFyMMA:9 a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22
 X-Proofpoint-Virus-Version: vendor=nai engine=6900 definitions=11890
  signatures=596817
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  impostorscore=10 bulkscore=10 spamscore=0 lowpriorityscore=10 adultscore=0
- priorityscore=1501 phishscore=0 clxscore=1011 suspectscore=0 malwarescore=0
+ priorityscore=1501 phishscore=0 clxscore=1015 suspectscore=0 malwarescore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608300088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_033332_881281_AF3BEFCD 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20260830_033336_273461_D581D0E3 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,64 +171,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 A folio in the swap cache occupies folio_nr_pages() contiguous swap
 entries starting at folio->swap, so a page's swap entry is just
-folio->swap plus the page's index in the folio. page_swap_entry() hides
-this behind a compound_head() call, and callers that already have the
-folio sometimes open-code the arithmetic instead.
+folio->swap plus the page's index in the folio. The swap entry is
+folio state, but the only helper for it is page-based:
+page_swap_entry() takes a page and recomputes the folio its callers
+already hold. Several callers avoid it by open-coding the arithmetic
+on folio->swap instead.
 
-Add folio_swap_entry(), which takes a folio and a page index, and
-folio_page_swap_entry() for callers that have the page.
+Add folio_swap_entry() and folio_page_swap_entry(), convert all users,
+and remove page_swap_entry(), with a few other cleanups along the way.
 
-Signed-off-by: Tal Zussman <tz2294@columbia.edu>
 ---
- include/linux/swap.h | 33 +++++++++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+Tal Zussman (8):
+      mm/swap: add folio_swap_entry() and folio_page_swap_entry()
+      mm/huge_memory: use folio_swap_entry() when splitting a swapcache folio
+      mm/rmap: use folio_page_swap_entry() in ttu_anon_swapbacked_folio()
+      mm/zswap: convert the store path to take a folio and index
+      mm/swapfile: use folio_page_swap_entry()
+      arm64: mte: make mte_save_tags() and mte_restore_tags() static
+      arm64: mte: pass the swap entry to mte_save_tags()
+      mm/swap: remove page_swap_entry()
 
-diff --git a/include/linux/swap.h b/include/linux/swap.h
-index 0f953ed9c863..48632aacbc2a 100644
---- a/include/linux/swap.h
-+++ b/include/linux/swap.h
-@@ -278,6 +278,39 @@ struct swap_info_struct {
- 	const struct swap_ops *ops;
- };
- 
-+/**
-+ * folio_swap_entry - Return the swap entry for a page within a folio.
-+ * @folio: The folio.
-+ * @idx: The index of the page within the folio.
-+ *
-+ * A folio in the swap cache occupies folio_nr_pages() contiguous swap
-+ * entries starting at folio->swap. The caller must ensure the folio is
-+ * in the swap cache and that @idx is within the folio.
-+ */
-+static inline
-+swp_entry_t folio_swap_entry(const struct folio *folio, unsigned long idx)
-+{
-+	swp_entry_t entry = folio->swap;
-+
-+	VM_WARN_ON_ONCE_FOLIO(idx >= folio_nr_pages(folio), folio);
-+	entry.val += idx;
-+	return entry;
-+}
-+
-+/**
-+ * folio_page_swap_entry - Return the swap entry of a page in a folio.
-+ * @folio: The folio containing @page.
-+ * @page: A page within @folio.
-+ *
-+ * The caller must ensure the folio is in the swap cache and that @page
-+ * is part of @folio.
-+ */
-+static inline swp_entry_t folio_page_swap_entry(const struct folio *folio,
-+		const struct page *page)
-+{
-+	return folio_swap_entry(folio, folio_page_idx(folio, page));
-+}
-+
- static inline swp_entry_t page_swap_entry(struct page *page)
- {
- 	struct folio *folio = page_folio(page);
+ arch/arm64/include/asm/mte.h |  2 --
+ arch/arm64/mm/mteswap.c      | 32 ++++++++++++++------------------
+ include/linux/swap.h         | 30 +++++++++++++++++++++++++++---
+ mm/huge_memory.c             |  2 +-
+ mm/rmap.c                    |  2 +-
+ mm/swapfile.c                |  4 ++--
+ mm/zswap.c                   | 25 +++++++++++--------------
+ 7 files changed, 56 insertions(+), 41 deletions(-)
+---
+base-commit: da6c37ed8beb273e3308e42d4bca3ce11b4432fa
+change-id: 20260807-folio_swap_entry-e53d68610de0
 
--- 
-2.39.5
+Best regards,
+--  
+Tal Zussman <tz2294@columbia.edu>
 
 
