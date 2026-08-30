@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F2BC61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 07:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B51C61DE4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 07:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IkgJyU5CnuE4BnlMElNZDOZylUlvGQ+88uBom0ae/JU=; b=cue7ISOGSJ8wr0yTZ0VgNl+IKa
-	hWPZDC9pz03noKiJpNLT//lwLVTDP4i4BCYsuH43/aSnGH3o9LSeJvI9o2LmOKRLn75tO6UVska/c
-	dPR3Tx0lawKsDfJbW/mv+e/697u4+n/v/R5n1onIE2Le8HZFnsHg11DU2l1C0F++fVwgY+J/cv4K+
-	6MuX4/5ZoeGPBNf+xz5buLpvfRUmtMxk2moCaQQQ4pwFHEU+puAw0MuEik5PoYeZLVmnV6cm3YPVP
-	wG3/V5UR+KpZPTDEupo8WZriHrq5NH4VgGwoD0Kdt+ywf7jx/KiNrmC3usVoG1JeFOmGNRDz6E0X8
-	xBkr1Thw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OUSBuPbkgvvs7WqRcGgbke6rpMilgaQ3CVPiWBPYFtU=; b=beTxbE7wQx2ewi
+	ioF6bR82JPFK23CjKnRdmlG29uMvZ+OrXy0wvKrPrnYoY6XqwFtapU6n9aNuNOhzkVtffKWs5/Heu
+	0wwYouKvXxJpSRtrPx3kdt/U4srCK4BfPbMqUVW2pOqrDGOJ9bXRG2iMsyUJFebDvyxxVK8mnq7AB
+	YY9Y+YYBKVtYoIvEmdGrP7i6hxjhpvp99jI8andN7/0J38KehuWCkzzmlZ7VGB/22OoyOTDBUxhLc
+	2fhmmtCXZKqxOQlszr28P8T0M+vLtmyD93WnXHiqflMkPCjB5jTVBTTJqNs3HV/DPOXLTWIVJTzCA
+	OgwrV3gxCbGjaPnTC8Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0aDb-00000007Y6v-3oOO;
-	Sun, 30 Aug 2026 07:44:43 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1x0aGt-00000007YEI-1EOF;
+	Sun, 30 Aug 2026 07:48:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0aDY-00000007Y6I-1Uri
+	id 1x0aGr-00000007YE9-3tP0
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Aug 2026 07:44:42 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 03F1F4E41442;
-	Sun, 30 Aug 2026 07:44:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BA37D603CB;
-	Sun, 30 Aug 2026 07:44:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4673511C7838E;
-	Sun, 30 Aug 2026 09:44:26 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788075871; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=IkgJyU5CnuE4BnlMElNZDOZylUlvGQ+88uBom0ae/JU=;
-	b=HSQQXL0r7CzNA1GNiOPyVmFwLyo8wtRokIQTh1qUxiWhj2TzG1WuUoIuBjqRY8VaE1P+Uo
-	Oqb3XC0BzkcU/JTdC7iyYDWvD1QwTMwuhRSq2sx4PP+mADdVvYXs/EH2z+LjNwuQB1k1T/
-	2+DnRLd6zdRLrz/u5ruMX/OAKNvWD/aRe0zq1Z2keqRHR/JrcBrSva2xBrYWsPpA3gpg/2
-	Zl0cEsdbMFVQ24Ngtb/jP1GRfnrdu+YxP8R6lOc6Vp0zFL0fpfnMqMeHqIrYnTNz5i1o3p
-	aQGiQ8S+mG/INUOLSsUedlesVl/n8O38ErRIqmj6Hu8upuDjcna7vMtIkfrbkA==
-Message-ID: <8b798b8a-0fb3-4978-8d9d-38616ab25741@bootlin.com>
-Date: Sun, 30 Aug 2026 09:44:25 +0200
+	Sun, 30 Aug 2026 07:48:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3791843C76;
+	Sun, 30 Aug 2026 07:48:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A1DB1F00A3D;
+	Sun, 30 Aug 2026 07:48:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788076085;
+	bh=OUSBuPbkgvvs7WqRcGgbke6rpMilgaQ3CVPiWBPYFtU=;
+	h=From:Subject:Date:To:Cc;
+	b=XXZjfJn/l9reN3sv2uNRKT5zpSYocUtRxKxv0hFlqrV2qAEv3KArYO1bQ5PW/ZzXH
+	 +6kirRWN0MtdcbEr5t8AcnRqqDN66u266Jz0y749SjJeez9cY1jd8xVH+zOXVcsSxm
+	 NcWySLa70EOYMctxt31QjbYGu6nLpYSWa94OkoknlcjRT99gYC8/e3M0BDRsRXw8c1
+	 cfK8mDOHqBmw+Vbj+guW2u5KC6quklkb6MC7Xhw1DQ4T8CGy41suH4Ce++HEwiMPGC
+	 1uQU3w+ur5AR/DGX88A29qzh3rDHzoaB9MRDS/t/K9w32a77MxjoBFVTMOBOaxewBa
+	 33LT3VS739U6w==
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Subject: [PATCH 0/4] char/misc: replace page allocator calls with
+ k[mz]alloc()
+Date: Sun, 30 Aug 2026 10:47:57 +0300
+Message-Id: <20260830-char-misc-v1-0-05e2ce44f291@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: stm32: Set TSO/TBS Tx queues
- default settings
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Kurt Kanzenbach <kurt@linutronix.de>, Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
-References: <20260812-stm32mp2_txtime-v1-1-f9e2462cc85d@linutronix.de>
- <20260817103337.74c30adc@kernel.org> <87mrujzzjv.fsf@jax.kurt.home>
- <20260818075335.48936b08@kernel.org> <87h5kq1s1f.fsf@jax.kurt.home>
- <20260820144528.7107ba90@kernel.org> <87y0e0x7ic.fsf@jax.kurt.home>
- <5693c628-dffb-46c4-8f7c-5a5a6c101660@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <5693c628-dffb-46c4-8f7c-5a5a6c101660@bootlin.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_004440_583125_30AF8230 
-X-CRM114-Status: GOOD (  13.60  )
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWM0QrCMAwAf2Xk2chsxU5/RXxo08xFsEqiIoz9u
+ +18vOO4GYxV2ODUzaD8EZNHqbDbdEBTLFdGyZXB9e7QD+6I1SrexQgz0Z69D2EYM9T+qTzKd32
+ dL3+2d7oxvdqgFSkaY9JYaGpqxbD1sCw/fME+7YgAAAA=
+X-Change-ID: 20260829-char-misc-dcc4e33778fd
+To: Arnd Bergmann <arnd@arndb.de>, Brad Warrum <bwarrum@linux.ibm.com>, 
+ Eli Billauer <eli.billauer@gmail.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Michal Simek <michal.simek@amd.com>, Ritu Agarwal <rituagar@linux.ibm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+ David Hildenbrand <david@kernel.org>, Matthew Wilcox <willy@infradead.org>, 
+ Mike Rapoport <rppt@kernel.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org
+X-Mailer: b4 0.17-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,39 +78,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+This is a (small) part of larger work of replacing page allocator calls
+with kmalloc.
 
-On 8/21/26 15:41, Maxime Chevallier wrote:
-> Hi Kurt,
+My initial intention a few month ago was to remove ugly casts [1], but then
+willy pointed out that Linus objected to something like this [2] and it
+looks like more than a decade old technical debt.
 
-(Sorry Kurt this has nothing to do with your patch, I'm following-up with
-some stuff I said on that thread)
+Largely, anything that doesn't need struct page (or a memdesc in the
+future) should just use kmalloc() or kvmalloc() to allocate memory.
+kmalloc() guarantees alignment, physical contiguity and working
+virt_to_phys() and beside nicer API that returns void * on alloc and
+doesn't require to know the allocation size on free, kmalloc() provides
+better debugging capabilities than page allocator.
 
->> However, we need to keep track of what SoC implementation can enable TBS
->> on which queue. For gmac4 we can probably reuse tbs_en and for xgmac
->> there's is capability field tbs_ch_num. Let's see.
-> 
-> Thanks for tackling this, let me know if you need testing. In the past weeks
-> I've been looking deep in my drawers as well as on various online shops, and
-> I'm starting to have a farily comprehensive set of stmmac-enabled devices
-> (although I couldn't get my hands on XGMAC, AgileX5 devkits appear to be way
-> outside my budget).
-Made an intersting finding yesterday, maybe it's already known stuff, but it turns
-out it's easier to find a DRIVER for XGMAC than an actual device...
+Another thing is that touching these allocation sites gives the reviewers
+opportunity to see if a PAGE_SIZE buffer is actually needed or maybe
+another size is appropriate.
 
-Looking at register layouts and at some then-removed copyright notices from the history,
-it seems we have not one, not two, but three different drivers upstream for the same
-DWXGMAC IP :
+For larger allocations that don't need physically contiguous memory
+kvmalloc() can be a better option that __get_free_pages() because under
+memory pressure it's is easier to allocate several order-0 pages than a
+physically contiguous chunk with the same number of pages.
 
- - stmmac's dwxgmac
- - AMD's XGBE drives a designware XGMAC
- - Samsung's SXGBE also drives a designware XGMAC
+And last, but not least, removing needless calls to page allocator should
+help with memdesc (aka project folio) conversion. There will be way less
+places to audit to see if the user was actually using struct page.
 
-No wonder the xgbe selftests were doing the same as the stmmac selftests :)
+The patches are deliberately kept small: each one deals with a single
+driver or subsystem and with a single type of allocation, so that every
+conversion can be reviewed, and if needed reverted, on its own.
 
-I think reuniting the codebases isn't gonna happen in the near future, however it
-could be a good idea to hack stmmac to work on amd HW could be a good way to validate
-the stmmac dwxgmac code, with another reference driver...
+[1] https://lore.kernel.org/all/20251018093002.3660549-1-rppt@kernel.org/
+[2] https://lore.kernel.org/all/CA+55aFwp4iy4rtX2gE2WjBGFL=NxMVnoFeHqYa2j1dYOMMGqxg@mail.gmail.com/
 
-Maxime
+Note that the xillybus 'salami' buffer in xillybus_core.c is left alone: it
+is allocated with __GFP_DMA32 which kmalloc() does not support.
+
+---
+Mike Rapoport (Microsoft) (4):
+      char: xilinx_hwicap: replace page allocator calls with k[mz]alloc()
+      char: xillybus: replace __get_free_pages() with kmalloc()
+      misc: ibmvmc: replace get_zeroed_page() with kzalloc()
+      platform: goldfish: pipe: replace __get_free_page() with kmalloc()
+
+ drivers/char/xilinx_hwicap/xilinx_hwicap.c | 18 +++++++++---------
+ drivers/char/xillybus/xillyusb.c           | 25 +++++++------------------
+ drivers/misc/ibmvmc.c                      |  6 +++---
+ drivers/platform/goldfish/goldfish_pipe.c  | 22 ++++++++++------------
+ 4 files changed, 29 insertions(+), 42 deletions(-)
+---
+base-commit: 1b78070aaef63512688aebfbc82365ef9d6660f1
+change-id: 20260829-char-misc-dcc4e33778fd
+
+--
+Sincerely yours,
+Mike.
+
 
