@@ -4,75 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6DA8C61DDE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 13:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C039CC61DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 13:06:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jKB91Fij6drewQFiv4G9toC8JIKw8NtMNFmKj8lVYwc=; b=b2hkoTkOB8vPErTDpPpkuByJMt
-	OMCEb7WILdK3ihu6loOO3WW8Nbx1pzAlMlG07gWIFTxrJRrKqgAtonAYZrJEQrxXslKXVnMNHoNg1
-	FyrXTkwEM/lBNix9c7Vm9DjCgahNiJCQVa047iFHohdHbNvMLcvCkL2b+zWTg+fZqO4Ag4N9V38NZ
-	ZmJrU/AMqBeIPpVzCP1gMa4BT/Pfi9fvjST5danIniuB3INQuFdCHeAoq1fjBBJMu+hJbCrtLHKaU
-	OhHxe6t3zry+uJUoF/oBKOQApDfW/z5DrP8QPclhjW+qXMkOk1PIaJpq4GeDP0oQkJJqqyKF1s2bB
-	EfvnxGEg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jq+ZfaXrZvTkZsYgTJsjcj34MHFpmYRP4Z0eWcu7sE0=; b=PsZOk06XW1o13LVMfFmzmutByo
+	ATUR7A99Yc/Lhzsg3avWWQWkcZP2kUUMW9ytBGtFG0fyZk/ghRpVOc6GUuOrK3gZAb1DPyWGOrXoa
+	1q8hGhE0peHctzbQfLJK3VOW631nPN85XP/bg9Qo2D815HXhLdqD41Q3qeBeSMU90Fv+kKEQcZLEm
+	RW1dT0/s0DM+osPjqjK0RXzRHQCi479rB2h6WnhLDcDj7fK26+uUqXLU8gQwnI1/uvqi3uMNDYsEZ
+	nVBOoJ2cOH/H2Gnfh6oLD/1UyGN9nuj7E4yj010VX2CdFu6qUPhmwWw8zZp4EIZ7OkZvZ4WwMH38B
+	C112pVug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0fEn-00000007jJ4-0hbh;
-	Sun, 30 Aug 2026 13:06:17 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1x0fFG-00000007jN0-1Wit;
+	Sun, 30 Aug 2026 13:06:46 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0fEj-00000007jIk-0qyH
+	id 1x0fFD-00000007jLU-1x5k
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Aug 2026 13:06:15 +0000
-Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-03 (Coremail) with SMTP id rQCowAAXGzm6KpRqe9GaBg--.26886S2;
-	Sun, 30 Aug 2026 21:06:02 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Billy Tsai <billy_tsai@aspeedtech.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-i2c@vger.kernel.org,
-	openbmc@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] i2c: aspeed: propagate reset deassert errors
-Date: Sun, 30 Aug 2026 21:06:00 +0800
-Message-ID: <20260830130600.560-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	Sun, 30 Aug 2026 13:06:45 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49b9320423cso25047055e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 06:06:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1788095201; x=1788700001; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jq+ZfaXrZvTkZsYgTJsjcj34MHFpmYRP4Z0eWcu7sE0=;
+        b=dXkMinKYydtWTxLfrHQWGBLS25XremmXQbL/cC1mJrwV1P8ICUixO1ScoOcDZkXBmx
+         kAwy7nLfksDh3uF+SFCWDdA8th0mg/kDCvV2rfmzr8SvCdJ+Apb6JgLS4qQ6AsuWO+Ps
+         SYitkHdK0eMkc8vdN6jy15qT1igxoIkMr+EtAuAKvlTDm5w8RjpwtuZ+YcJ84uDIdlLH
+         DWkgkgdw6mTqZtd9GJzt7ZjlCqrrNuk/ALAUfLdLqiYe/bWwT+Bl3V3r0Yl/UWiOsKU3
+         Qk/6lI0KtEm7RkJ0HfyWWh5DtCrRt27p87pPEOKtWX6Vnmc+Ygsk+fNesnM+HZ0SwMjJ
+         7brA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788095201; x=1788700001;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :autocrypt:content-language:references:cc:to:subject:reply-to:from
+         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jq+ZfaXrZvTkZsYgTJsjcj34MHFpmYRP4Z0eWcu7sE0=;
+        b=HUSUn59oaPZFtXdotGyo0XH+2qd+By8L+QVTeThHIt+SPlnygxygwATgJZB+ki9H6i
+         8zxKy4rosoGb0aMyHOD8AZtbzK64nDoGnffpGEfDSU5Y1IrZeua9YGglYa7DIhs4MdeL
+         Ey8+8HGx3Y5QmuNVF+FUrfTrFt7iPpa7GgcB8x12rRIU/Vnn4wnkfusWBT5I2gmIqX/o
+         ES0W9M5K2E5FO+ubv1B4UAXmbuVCw95OwOg17jkVm3D0qThXlM93E/20U7rJEqeRzgKe
+         jqJfVhIQFhlpaceKSkzCtR65WDF21q4vvVCKdSmeb5QtHaHAVO+s2rcYl3vBzwfBjP/o
+         S0tg==
+X-Forwarded-Encrypted: i=1; AHgh+RqbPqlTSQMTzjGppXteaH6Hy2RmPD4rluK2ujdtJDK0Boj/tKLE/zHV2zyKyowSDeQPz8wvzxLCuUrW5pUHwHhr@lists.infradead.org
+X-Gm-Message-State: AFuF++kfetFrPOf/DD8itSqB1q+aZiacFq8ZJrLWjdFdfAjT8hdMoHV2
+	RXBAR+Dw1kdbwRW6zEaVdiyq3KgcwYP1i7hrDZjygPyeA7q7jQlFRPXi8mUAMxQe4IE=
+X-Gm-Gg: AR+sD11ZypNwb8ZiLRDN2swzCljj49mAZbtV7T0pJCoXX7N7/pBaYw0n/gC7DlLIRtJ
+	fcqgo9Zyi6grywFhsvEtwRMs/hjZ7HsZnGW9+EZHbwuGsdfNzPFejRQCZ1gkuWxBMfy5FrV4mHx
+	K92l5GXZdB6RbgdJz80M0mBRcENKfvisaD44V8WzEQQyhSKwrF/gVTQBb64RvTaxM7fU7rfRy+H
+	y4fuPF04i4ZbQkWp+2/7LgjvLCR7H3aks0ikjPh/YS/5LtWF0DgFcMsSOhTXE2HZpb6Bw3q+Xc2
+	oF1KXunwG5Kq4YIbNDfeNBCUmi5/8iY397sYyK1NmJ5Af29ph3OWcDZyheGEbAsaREAsP8PfTSB
+	7/ZXtOjVB5WT/axmdOO0tFAP9G6PkhCjhdqEeAH0g9USlo3exBrU7PgUyO1RH3bNd08p/ZRMJwG
+	V9RM/ZRLZP3bApXg6oZA9zrZaAcEV2AQZEvsyoFHVZBdBTm6UDZlGPGM8iQF8NYVBepVKp18BA
+X-Received: by 2002:a05:600c:19ca:b0:495:52a5:8829 with SMTP id 5b1f17b1804b1-49b91c47b3dmr274079255e9.11.1788095201493;
+        Sun, 30 Aug 2026 06:06:41 -0700 (PDT)
+Received: from [192.168.1.36] ([83.214.235.72])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482fbb20713sm15406915f8f.21.2026.08.30.06.06.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 30 Aug 2026 06:06:41 -0700 (PDT)
+Message-ID: <b9270c4d-bb7c-4c69-ad18-8481b43a48ea@linaro.org>
+Date: Sun, 30 Aug 2026 15:06:34 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAAXGzm6KpRqe9GaBg--.26886S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZw1DGFyxKw13Jw18GF4kZwb_yoWkCrXE9F
-	1kW3ZxXrn8CrZY9w15J3y3ZrZIkF909F1kW3WUtw1SkFyjvayUXF1DZr95Ar43Xr12gFy7
-	u3WYvr4fAwnrGjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb3kFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26F4UJV
-	W0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8Jw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r4j6F4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUgXocUUUUU=
-X-Originating-IP: [111.196.241.250]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH 2/4] arm64: dts: amlogic: t7: fix the pin groups of two
+ PWM outputs
+To: Lucas Tanure <tanure@linux.com>, Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>
+Cc: Jian Hu <jian.hu@amlogic.com>, Ronald Claveau
+ <linux-kernel-dev@aliel.fr>, Brian Masney <bmasney@redhat.com>,
+ Chuan Liu <chuan.liu@amlogic.com>, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+References: <20260829094758.23248-1-tanure@linux.com>
+ <20260829094758.23248-3-tanure@linux.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20260829094758.23248-3-tanure@linux.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_060613_621182_8A42EDED 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260830_060643_542280_0980BCD3 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +133,80 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-aspeed_i2c_probe_bus() initializes and registers an adapter after
-deasserting its shared reset, without checking whether the reset provider
-accepted that transition.
+On 8/29/26 11:47, Lucas Tanure wrote:
+> Two of the PWM outputs can each appear on more than one pin, but the
+> description named a single group that does not exist, so anything using
+> it refused to start.
+> 
+> Name the real groups instead, one entry per pin, the same way the other
+> multi-pin PWM output is already described.
+> 
+> Fixes: 2a2a7b9701a7 ("arm64: dts: amlogic: t7: Add PWM pinctrl nodes")
+> Assisted-by: Claude:claude-opus-5
+> Signed-off-by: Lucas Tanure <tanure@linux.com>
+> ---
+>   arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 32 ++++++++++++++++++---
+>   1 file changed, 28 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+> index c3dc479b137d..8c4bd683cce0 100644
+> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+> @@ -458,9 +458,25 @@ mux {
+>   					};
+>   				};
+>   
+> -				pwm_ao_g_pins: pwm-ao-g {
+> +				pwm_ao_g_d11_pins: pwm-ao-g-d11 {
+>   					mux {
+> -						groups = "pwm_ao_g";
+> +						groups = "pwm_ao_g_d11";
+> +						function = "pwm_ao_g";
+> +						bias-disable;
+> +					};
+> +				};
+> +
+> +				pwm_ao_g_d7_pins: pwm-ao-g-d7 {
+> +					mux {
+> +						groups = "pwm_ao_g_d7";
+> +						function = "pwm_ao_g";
+> +						bias-disable;
+> +					};
+> +				};
+> +
+> +				pwm_ao_g_e_pins: pwm-ao-g-e {
+> +					mux {
+> +						groups = "pwm_ao_g_e";
+>   						function = "pwm_ao_g";
+>   						bias-disable;
+>   					};
+> @@ -474,9 +490,17 @@ mux {
+>   					};
+>   				};
+>   
+> -				pwm_ao_h_pins: pwm-ao-h {
+> +				pwm_ao_h_d5_pins: pwm-ao-h-d5 {
+> +					mux {
+> +						groups = "pwm_ao_h_d5";
+> +						function = "pwm_ao_h";
+> +						bias-disable;
+> +					};
+> +				};
+> +
+> +				pwm_ao_h_d10_pins: pwm-ao-h-d10 {
+>   					mux {
+> -						groups = "pwm_ao_h";
+> +						groups = "pwm_ao_h_d10";
+>   						function = "pwm_ao_h";
+>   						bias-disable;
+>   					};
 
-Do not publish an adapter whose controller may still be held in reset.
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-Fixes: edd20e95bca4 ("i2c: aspeed: Deassert reset in probe")
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- drivers/i2c/busses/i2c-aspeed.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/i2c/busses/i2c-aspeed.c b/drivers/i2c/busses/i2c-aspeed.c
-index a26b74c712061..bf29719bab1ea 100644
---- a/drivers/i2c/busses/i2c-aspeed.c
-+++ b/drivers/i2c/busses/i2c-aspeed.c
-@@ -1023,7 +1023,9 @@ static int aspeed_i2c_probe_bus(struct platform_device *pdev)
- 			"missing or invalid reset controller device tree entry\n");
- 		return PTR_ERR(bus->rst);
- 	}
--	reset_control_deassert(bus->rst);
-+	ret = reset_control_deassert(bus->rst);
-+	if (ret)
-+		return ret;
- 
- 	ret = of_property_read_u32(pdev->dev.of_node,
- 				   "bus-frequency", &bus->bus_frequency);
-
-base-commit: 08dbfad3f5040f5bdb6c529da20d6d4e81fefd72
--- 
-2.50.1
-
+Thanks,
+Neil
 
