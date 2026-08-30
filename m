@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CDD9C61DE2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 23:19:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 325D9C624A3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 23:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=65lU4TwOGwDXCbIGRmPhRTxCmE9Ugmh1tG7Y1eH/4/w=; b=DRd8qGH7GoTQovevWfDYrfYdv8
-	3u4jLWigZ1SeC9hcJ2Z/oQVtTv5ikyfPVsDTnMv1IRAicUQwV7JwX+lVkgeOk1qJ+dAhoIMEMUWeP
-	L8+PL27E9JdCTEX6BFkxFhsrGOre9Pjwz6KTPBfDAsfm7aVW5IUdlspolWVlkRjln4LpAB7Lhi9wq
-	1FQ/t2Njn6urPnkALFo7h6nkDuFOJJraTX9rvkiZjiXb/WZZDv1G5wn/QgqYo2TZzjrPob48m8YIf
-	Oaf/E9vbpQdsNJ5VE51VFc6Gqz3nNp493Ybce2rSYytL/5TrY6NL8HvPWo1rbmXf5q66tQfixQXvI
-	1N2S90cg==;
+	bh=b+p3ugqrpbrw/apqvopQiBd5maPgPyZGkv6exgah+Us=; b=O/OlWHaA5Ht/Qf3QGI9aIa7PU1
+	TXk3m0CT0R1tIWTJP8s3PnWTwhQb7bF09vZ9QTn6DP8Ve2rFq/pJb2Q73zuwrUGef76sgD5+Fs23o
+	tHNJQdBwN3eCshhXUr/7DKXbvE/33ShYvbggMbEMLbL5gnYB7N+YuxP0ZhTQuUdOOZ8dF4GCcQypi
+	4BbjIr0hriCj6BM1WkAUBZfzwrEyYOHBfLPcqrcOd5Vxy9oViK1X+qAyI3Ei3AJ51ceas4r//ZwPo
+	jrJSROub6xBdPx4V2tVSpl6FF70yi36+wZ2/AgUS2yCQVHx2kObOIc2WfAzzJXdDhGzsh6eBzbXRR
+	vjnaewmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0ono-00000008DqJ-3e2h;
-	Sun, 30 Aug 2026 23:19:04 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1x0onp-00000008Ds4-3dRz;
+	Sun, 30 Aug 2026 23:19:05 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0onc-00000008Dfo-0CH5
+	id 1x0oni-00000008Dkz-2YP3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Aug 2026 23:18:53 +0000
+	Sun, 30 Aug 2026 23:18:59 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CkjzfetgfecA4Q6S+BDztvdn1gxS8WYq2vjqU5+PhCrI4VN5oVcANQx/RYjF7t1zJZpr4jztaRGHyVst3ttwlSHZx+98eQ3iMZqaZXtxOHWvTemJAx8uq8B5AOCHI5vdu0d5PR/Yw87UZf8fCS4rDDMMTbxQ2No+ROJtaMOLTgArG/go5VgKVpoukOTOPRIH0Puv6xHMWBnX1SCbVXVSg3SFZthW//n/S87LA8aaKHhqdolE0SVlQjJZC+3aiO4JlHFEpXN0MUV0gyKLFac+H1Ao7YiFo9UuDEhoGBjoYyXvS+tEHqJ+Zqhz5//fex1CuxX0pH4kdGbuYK7yu7cXVg==
+ b=ATDpgBbO3kDrHMSPv3XTvOFgAUNCaEP3iVnv0W1/4MlES3Oi0wjAEEEuKgtouWmvpL73Ny8nIyEmpQudN9nuljh3cXBvpAgtVGjeM2sATWRIqSD3kaY2aRC1rFXOqiqjRsTeZzjwZoJSWSaIlVfFWsO4nTc/o9/3pnjcNuPnPA7UUd04mg6njIaspoD+dG+PQQS4Y/r6QS6GaalBQgDeEPl2aU0koYhV/U27BwmUuszwvQuJ/bUw//ZPTNBbza5+6xxwzzl7t4LY6BofWG+sZ8tKj3qlX53vRm1dQ5+P1e6WJ0lX7wvrHx/hsGG0H56PaGHx+DWLAlkA25tqodz5pw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=65lU4TwOGwDXCbIGRmPhRTxCmE9Ugmh1tG7Y1eH/4/w=;
- b=rz2vZf3DEk9WONkyOCcKk8V8JKwV9Iy4Z8ocyA1zw8USBr6ZlnJYf2PcGRFH86OE7zgttf5eHWdyiFLDsDmBZXkZcPVPLpetpXtnj64ovUHNA2WjGiAnONHHH0eZXpocEJ7fuCUI2E++o2+9FdnQnA2EM/PhOL1abF5oMRl34jzLqBOaGuMISo84KZbIRDU+9xQMzf/nllLpDni3bgQ7tzEHRvxODSapxQTJqABc/aGuEW0F6LrByAnGzRKVgg4n9/nZ7d+LjX+MbjRVepogc1kasIt4d1kg7bLmuBP8x9tPjrWStyG7OX5t1/byRelnQA3+ndkb/+4qn4euFQkDTw==
+ bh=b+p3ugqrpbrw/apqvopQiBd5maPgPyZGkv6exgah+Us=;
+ b=QMOAAfWmiQsaFk486Y++zgqH7jJTZK6G6UV8m3TAn2VBitOHj4p198V/DFC0Tyf3Wac7BIQLyY69bWXdDyyQ9u/udpApsrnX5vCxH8hcftHotqpS2qX1XkEHSJsO2PaW6SM+h3fOWvMBXh1YNi96EMxpksUHNNqmo3KPR34ircoEWI63plr/tUcxi1HT5yUIXwuR4WzENP/8O3RHqe8tzUNQLcqUs5+6PlbSdcK41T9LzeycZT2/Nr0/hFQgeld60dyGrN89QyOmacY1zwxCOmzDlsmuPDFLJw+bt9A3InSR8Z9P/RhxPmU9dYyNQeR87iIOsJbTaImurxVK6PfQeQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=65lU4TwOGwDXCbIGRmPhRTxCmE9Ugmh1tG7Y1eH/4/w=;
- b=fKbgTBUqcXIDHlGBjdMhePWtjF7FlakNn9E+zwRyAWzKQOvgqQ8XcAtKtDRueIsmF95nF872Y2KzY6KCHnTCyho2bawpsF7YQSMtChKH/JGUwjbMzK05cfsz/HBbLuvwLeiyWTV3NyxBSvRuQQnvJX5Y9gS/ypjo7iDI705GU3g98+zp3cCLh2xcVKgtEUdy5aMTZCrQZ6tCNriQpAQs6t6lq3FGZVkAXjhpKsZb47wlfGYxGvsl374qLIGJiJZsuISb/FF05aDlDSEsixs9oFPwmocrZPcZfUX6rxm4Cq3UHz3h0gj0ESiiBJveYFdW8UNurE/NapjORLolY3pIqQ==
-Received: from DS7P220CA0097.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:25a::6) by
- SJ2PR12MB9244.namprd12.prod.outlook.com (2603:10b6:a03:574::19) with
+ bh=b+p3ugqrpbrw/apqvopQiBd5maPgPyZGkv6exgah+Us=;
+ b=JFkKJ7/HxeELqABRIizyfQO6kfdQog3N32dLDSHQpl7IxrmVyIjCGWZqSg7Zcm9NMTbIrNnFBrEw9vABd4MeMqzyNk+qJqsWE5Fx2I1YrtQGw2jAFYXnN09gtyBNt1dQUiufw1Vl+SedVdFqeiUhOoVqFoJrMTMsZVA4z+Jh7+mksnPkIjzZOsjMPOfBy3eKN0sHSenZQX0xXLIl13eb8Y92ld9A5kEGk6Yaqd8hf7vjlqA4dqsuZPakMGIViVloBzeJIvl+20bnyCjzQmj/clyuovWjb6za/2eTQRw+xMBgKR1G2O7sguK8YoqFovyRkY4ZgrqBYAtlQOi5Wd/vmA==
+Received: from CH0PR04CA0106.namprd04.prod.outlook.com (2603:10b6:610:75::21)
+ by PH7PR12MB6465.namprd12.prod.outlook.com (2603:10b6:510:1f7::16) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Sun, 30 Aug
- 2026 23:18:44 +0000
-Received: from DS3PEPF0000C37D.namprd04.prod.outlook.com
- (2603:10b6:8:25a:cafe::28) by DS7P220CA0097.outlook.office365.com
- (2603:10b6:8:25a::6) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 23:18:49 +0000
+Received: from DS3PEPF0000C37E.namprd04.prod.outlook.com
+ (2603:10b6:610:75:cafe::36) by CH0PR04CA0106.outlook.office365.com
+ (2603:10b6:610:75::21) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.360.13 via Frontend Transport; Sun,
- 30 Aug 2026 23:18:44 +0000
+ 30 Aug 2026 23:18:48 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -60,29 +60,29 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.118.233 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.118.233) by
- DS3PEPF0000C37D.mail.protection.outlook.com (10.167.23.7) with Microsoft SMTP
+ DS3PEPF0000C37E.mail.protection.outlook.com (10.167.23.8) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.382.8 via Frontend Transport; Sun, 30 Aug 2026 23:18:44 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ 15.21.382.8 via Frontend Transport; Sun, 30 Aug 2026 23:18:48 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
  (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Sun, 30 Aug
- 2026 16:18:34 -0700
+ 2026 16:18:39 -0700
 Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Sun, 30 Aug 2026 16:18:33 -0700
+ 15.2.2562.46; Sun, 30 Aug 2026 16:18:39 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.14) by mail.nvidia.com
  (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.46 via Frontend
- Transport; Sun, 30 Aug 2026 16:18:33 -0700
+ Transport; Sun, 30 Aug 2026 16:18:38 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>
 CC: <joro@8bytes.org>, <praan@google.com>, <kevin.tian@intel.com>,
 	<smostafa@google.com>, <linux-arm-kernel@lists.infradead.org>,
 	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>, <jamien@nvidia.com>,
 	<kas@kernel.org>
-Subject: [PATCH v10 03/13] iommu/arm-smmu-v3: Add ARM_SMMU_FEAT_EVTQ for the event queue
-Date: Sun, 30 Aug 2026 16:18:04 -0700
-Message-ID: <b6493aeece86f44195e8afb6fb8b3497cc237dc2.1788130528.git.nicolinc@nvidia.com>
+Subject: [PATCH v10 09/13] iommu/arm-smmu-v3-kdump: Reserve crashed kernel's ASIDs and VMIDs
+Date: Sun, 30 Aug 2026 16:18:10 -0700
+Message-ID: <81ff0f09a965029f97f27b56670c69ad5511b2d5.1788130528.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1788130528.git.nicolinc@nvidia.com>
 References: <cover.1788130528.git.nicolinc@nvidia.com>
@@ -92,28 +92,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF0000C37D:EE_|SJ2PR12MB9244:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2bb61847-04b3-4155-55eb-08df06ed0963
+X-MS-TrafficTypeDiagnostic: DS3PEPF0000C37E:EE_|PH7PR12MB6465:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f96cac8-632e-4eb4-fae9-08df06ed0be6
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|7416014|1800799024|376014|6133799003|56012099006|10067099003|5023799004|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: dsvrq7gFf5r3q7mqHloACE1lfru+qlqdl/DQ1jEkyKZGj64qpytJ8lUFc2jy8REbdjwP2alFmXR76o2qaqqL9ZQm7ufNngajIzcZ09qRk3zABujKYz2q7J/fUL+c61e54jU1rfmO/OGsKaHDKOfk/ossdcR+5iOY24FT+Uoj39GJKiu3pn2UqFv98rh6NvlABRqN/k9PKdHIh1rwrQPEbxIdmTv2pSUqYGWBSFROl2wLeYpBfd1QXWXuJhRoLFkg1PeKhuGgaHuRdUfUPvnU1cjozJW3k/DJKTgSDt5iucneTzP4/TQYiC+zRLfz87HsLHF168JTY0x9bvngYjQRzjotQSGDRsKSt77tBib9mCYIvP7lhmvIvPd+2w6ObpsD6XcTwowmzX9s+IQ8rO9N9t3nBsgPwKKxk5gfNYFxMY2rWmAVRV+dPcRmHpN2g8QnNdveO7B5IOxrz+nvRPNXNj5aGXPzchLXNE8CcYhgkKeMTuurJo4004vmDDD/fEL4UEyieGW+FIXZ+iWRPQJAb9EGG0WseJfM9F2ObLImamhZ6tXmn6YesFqAQ6WEj/qaV1ayqPPMeGbfNyCFyD9oMtpgIsg+xQwhF/LW23jXmgNLOjRr6sZs3XSV76u7r1zv/DJqq0xuTWe5EmE18XwZmxYAwlpvbUN7hGNP8pF43aM4wtulKL8O8+DM3ogWWg/3dobCZeoLyZAx0LmKgcV3Eg==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(7416014)(1800799024)(376014)(6133799003)(56012099006)(10067099003)(5023799004)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|82310400026|7416014|376014|1800799024|6133799003|18002099003|22082099003|3023799007|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: 4d+8/tFi+ButiwXV31gosK0e8zEqCbF1V+RTqdiLSsFGH0jtTOspoo2CSNnNdGtGlHBMRpmGMq26sCY7vJhi1NYIClxwNzaCZ8HTRFgzx4ZfyS3fVM44Iy3GIgcEHfSeNd9oRDmUmdoHS5cZF3aXYNl7HZ4q05lsaqrkxCkdUpXYTQoh5qNb3deRUJOHaETrOfk3A1UlwgA2+2jfOblL6VPJfke+S0Bf4oRW3lhlbF9YVn8xJdKevpgyMg0z/qnBf84cyMXk66yx3+GD3rqL/6CdH8r2y+amCbXImoUaNhlu7b2ABP/Yk7R/ODh5qZE7Z8EclILhR8wuDTP1A9KbGdWovIAkEQvje0TsPL9hUy0wy7f+EILPV5DpREt7i9E1HzJ8oJ/7mPc3Grh6yIH5m6zHF/m/txuMN6z2zUaRq/x6QXDzzB88UDQvynOcV9wkAYAEUIL2x4GcfuH+8cXUULOe5mULp0JdW1v6cthQhil1mMCt76vjYxiEJzCJbXoGfchBcwh6EfmPDtJNwZ3MkR+DR3oAYrazDNSYNzBfoeqSxxAjQq7+A/KNByLZNzbe9YI95VGvR6HlMJbGL7OyV8X7gGG2GD/qilc8JuZ/vQlU5TPPqn96NlpUzJ4Xs3YNWvvw/3wOxKVKv3iSZI4nUsEACQnu9vnZg69q2ka+HvwyNqONomY6bw7Hey8jvT3sJs1Ip7igof9z5z24pl2AKQ==
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(7416014)(376014)(1800799024)(6133799003)(18002099003)(22082099003)(3023799007)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: tTBuNoi/+y4ngwBjxQlfzOXz7HymzJcbhUosWCo/vupc7Zn98e2FNwYNw3HoOv56M11lvexZrUcygsBlc5im22z+AH1HBoRqdWbBIimyK9urOF/IPRG9TgKtZaEDdEfNwKbf9Mugz8uQ73jrSlv3Ym3KGjhwQoWogMSSMdWaeHY1OAIJgEaNNDQTU881ji6Cyc1NBYWglkRJ6zpNxkJ+wRZCMHcejgkojZCmnWO6Vm+iKAfnTYHbmfNySi+rfWL7jU45nG+i3zDHeQkKessvvTP0E+BqRYnAYaMbTgxzj7tuUVbC3hzpNoDVIFnM7Nu5BTi+LkaO7C94UrHIWtxMEZr+cDcYPMcHwduy8MTnYRzYYy5em87VlnY5rnLjn3Vzc8Xmw4MrgJ9P1IhinI8m91UTywIUr+XkrrBGDjph58ERzA9fKmuuvUTfp7dqgqzZ
+X-MS-Exchange-AntiSpam-MessageData-0: oVfAh5qqkbrZ5kVRtddOxg4V+8QGXohOmoWLg3xoRcYRp0rNM4EgLvYrCniHm31y2s80Z4XEFz/rJ9bpV5BkX/HkQ2PN8NLJWujMbjbp5rFNt+spcFk3l5KNcnjmOzOwP4pwwRbTpXDSDimSjcv9hjHp72qXxWO6CD2RSI6K/Ic6240vzkJvLM92Ycin54TqBRJ604SYDUaDQ147V1TFpnBtfinSnJDIU6UKUjI+A5q0afbYPfGUs7zlJ39OahHv0q+0Oin/Gbabo3jJZoxT/0LFD8dROq/+WUc7TsUzQVl9uQ5ByINPkls2Uwf/FR1dmT8a25x6p2mIu+A3YIRhtBCoJM8o3Pb/Ge9XQKtE9ybkbAzi0eLTa3ppWzqZrdmT2EQ55pVCBNSEqltPqVAk5tX1W5njX0qY9WorQRmA8CiYP14HXBbYqX8IetFqC3QX
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2026 23:18:44.3075
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Aug 2026 23:18:48.5152
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2bb61847-04b3-4155-55eb-08df06ed0963
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f96cac8-632e-4eb4-fae9-08df06ed0be6
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C37D.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C37E.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9244
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6465
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_161852_094274_04FD57EB 
-X-CRM114-Status: GOOD (  20.01  )
+X-CRM114-CacheID: sfid-20260830_161858_651562_C5FCD281 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,178 +128,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver programs and enables the event queue unconditionally, while the
-PRI queue has an ARM_SMMU_FEAT_PRI gating each of its touch points. Yet a
-kdump kernel wants to leave both of the queues alone, which would take an
-is_kdump_kernel() test at every one of those places.
+The adopted stream table keeps translating in-flight DMA, so the SMMU keeps
+caching TLB entries tagged with the crashed kernel's ASIDs and VMIDs. If
+this kernel handed one of those IDs to its own domain, the new domain's DMA
+could hit the crashed kernel's cached translations, e.g. a stale entry left
+behind by an invalidation that the crash cut short.
 
-Add an ARM_SMMU_FEAT_EVTQ that the probe always sets, as the event queue is
-architecturally mandatory, and gate the queue's allocation, its interrupt
-and its CR0 and IRQ_CTRL enables on it, so that a later change can turn the
-queue off in a single place.
+Scan the adopted stream table at adoption time, reserving every ID in use
+via arm_smmu_kexec_scan_and_resv_ids(), and roll all of them back through
+arm_smmu_kexec_unresv_ids() should the scan fail.
 
-No functional change intended.
+A nested STE's guest-owned CD table is left alone, since its ASIDs live in
+a space of their own under that STE's VMID. Reserving that VMID covers all
+of them, so there is no reason for the scan to walk the (VMID, ASID) pairs
+behind it. The only ASIDs needing a reservation are those in the space that
+this kernel uses for its own domains.
+
+Note that, on an E2H/VHE host, the kernel's stage-1 domains are tagged by
+the EL2 ASID, and the TLBI_EL2_* commands take no VMID. So isolating this
+kernel by a reserved VMID alone would not work. Reserving the ASIDs covers
+both the E2H and the NSEL1 cases.
+
+Reservations are never released: a kdump kernel reboots after it saves the
+vmcore, and the full-reset fallback flushes the entire TLB, which turns any
+stale reservation into a merely unused ID.
+
+If the scan finds any inconsistent structure, toss the entire adoption and
+fall back to the full reset.
 
 Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-Suggested-by: Robin Murphy <robin.murphy@arm.com>
-Assisted-by: Claude:claude-opus-5
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Assisted-by: Claude:claude-fable-5
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 79 +++++++++++++--------
- 2 files changed, 52 insertions(+), 28 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kdump.c | 12 +++++++++++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c       |  1 +
+ 2 files changed, 12 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index fd6f489cfedf2..75e768b3d66d8 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -927,6 +927,7 @@ struct arm_smmu_device {
- #define ARM_SMMU_FEAT_BBML2		(1 << 24)
- #define ARM_SMMU_FEAT_HAFT		(1 << 25)
- #define ARM_SMMU_FEAT_DS		(1 << 26)
-+#define ARM_SMMU_FEAT_EVTQ		(1 << 27)
- 	u32				features;
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kdump.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kdump.c
+index a074d59ce3445..6740cc7e671cb 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kdump.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-kdump.c
+@@ -205,16 +205,26 @@ int arm_smmu_kdump_adopt_strtab(struct arm_smmu_device *smmu)
+ 		goto err;
+ 	}
  
- #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
++	ret = arm_smmu_kexec_scan_and_resv_ids(smmu);
++	if (ret) {
++		dev_warn(smmu->dev, "failed to reserve in-use ASIDs/VMIDs\n");
++		arm_smmu_kdump_adopt_cleanup(smmu);
++		goto err_unresv;
++	}
++
+ 	ret = devm_add_action_or_reset(smmu->dev, arm_smmu_kdump_adopt_cleanup,
+ 				       smmu);
+ 	/* devm_add_action_or_reset ran the cleanup upon failure */
+ 	if (ret) {
+ 		dev_warn(smmu->dev, "failed to set up cleanup action\n");
+-		goto err;
++		goto err_unresv;
+ 	}
+ 
+ 	return 0;
+ 
++err_unresv:
++	/* The full reset will flush the entire TLB, so release everything */
++	arm_smmu_kexec_unresv_ids(smmu);
+ err:
+ 	dev_warn(smmu->dev, "falling back to full reset\n");
+ 	/*
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index c1d04f84870f6..c776fdd43325d 100644
+index 971b12517941f..1d4fb6c4f0a91 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2349,7 +2349,8 @@ static irqreturn_t arm_smmu_combined_irq_thread(int irq, void *dev)
+@@ -4610,6 +4610,7 @@ static int arm_smmu_init_strtab(struct arm_smmu_device *smmu)
  {
- 	struct arm_smmu_device *smmu = dev;
+ 	int ret;
  
--	arm_smmu_evtq_thread(irq, dev);
-+	if (smmu->features & ARM_SMMU_FEAT_EVTQ)
-+		arm_smmu_evtq_thread(irq, dev);
- 	if (smmu->features & ARM_SMMU_FEAT_PRI)
- 		arm_smmu_priq_thread(irq, dev);
- 
-@@ -2358,7 +2359,12 @@ static irqreturn_t arm_smmu_combined_irq_thread(int irq, void *dev)
- 
- static irqreturn_t arm_smmu_combined_irq_handler(int irq, void *dev)
- {
--	arm_smmu_gerror_handler(irq, dev);
-+	struct arm_smmu_device *smmu = dev;
-+	irqreturn_t ret = arm_smmu_gerror_handler(irq, dev);
-+
-+	/* Without either queue, the thread would have nothing to drain */
-+	if (!(smmu->features & (ARM_SMMU_FEAT_EVTQ | ARM_SMMU_FEAT_PRI)))
-+		return ret;
- 	return IRQ_WAKE_THREAD;
- }
- 
-@@ -4505,11 +4511,14 @@ static int arm_smmu_init_queues(struct arm_smmu_device *smmu)
- 		return ret;
- 
- 	/* evtq */
--	ret = arm_smmu_init_one_queue(smmu, &smmu->evtq.q, smmu->page1,
--				      ARM_SMMU_EVTQ_PROD, ARM_SMMU_EVTQ_CONS,
--				      EVTQ_ENT_DWORDS, "evtq");
--	if (ret)
--		return ret;
-+	if (smmu->features & ARM_SMMU_FEAT_EVTQ) {
-+		ret = arm_smmu_init_one_queue(smmu, &smmu->evtq.q, smmu->page1,
-+					      ARM_SMMU_EVTQ_PROD,
-+					      ARM_SMMU_EVTQ_CONS,
-+					      EVTQ_ENT_DWORDS, "evtq");
-+		if (ret)
-+			return ret;
-+	}
- 
- 	if ((smmu->features & ARM_SMMU_FEAT_SVA) &&
- 	    (smmu->features & ARM_SMMU_FEAT_STALLS)) {
-@@ -4729,16 +4738,20 @@ static void arm_smmu_setup_unique_irqs(struct arm_smmu_device *smmu)
- 	arm_smmu_setup_msis(smmu);
- 
- 	/* Request interrupt lines */
--	irq = smmu->evtq.q.irq;
--	if (irq) {
--		ret = devm_request_threaded_irq(smmu->dev, irq, NULL,
--						arm_smmu_evtq_thread,
--						IRQF_ONESHOT,
--						"arm-smmu-v3-evtq", smmu);
--		if (ret < 0)
--			dev_warn(smmu->dev, "failed to enable evtq irq\n");
--	} else {
--		dev_warn(smmu->dev, "no evtq irq - events will not be reported!\n");
-+	if (smmu->features & ARM_SMMU_FEAT_EVTQ) {
-+		irq = smmu->evtq.q.irq;
-+		if (irq) {
-+			ret = devm_request_threaded_irq(smmu->dev, irq, NULL,
-+							arm_smmu_evtq_thread,
-+							IRQF_ONESHOT,
-+							"arm-smmu-v3-evtq", smmu);
-+			if (ret < 0)
-+				dev_warn(smmu->dev,
-+					 "failed to enable evtq irq\n");
-+		} else {
-+			dev_warn(smmu->dev,
-+				 "no evtq irq - events will not be reported!\n");
-+		}
- 	}
- 
- 	irq = smmu->gerr_irq;
-@@ -4771,7 +4784,7 @@ static void arm_smmu_setup_unique_irqs(struct arm_smmu_device *smmu)
- static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
- {
- 	int ret, irq;
--	u32 irqen_flags = IRQ_CTRL_EVTQ_IRQEN | IRQ_CTRL_GERROR_IRQEN;
-+	u32 irqen_flags = IRQ_CTRL_GERROR_IRQEN;
- 
- 	/* Disable IRQs first */
- 	ret = arm_smmu_write_reg_sync(smmu, 0, ARM_SMMU_IRQ_CTRL,
-@@ -4797,6 +4810,8 @@ static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
- 	} else
- 		arm_smmu_setup_unique_irqs(smmu);
- 
-+	if (smmu->features & ARM_SMMU_FEAT_EVTQ)
-+		irqen_flags |= IRQ_CTRL_EVTQ_IRQEN;
- 	if (smmu->features & ARM_SMMU_FEAT_PRI)
- 		irqen_flags |= IRQ_CTRL_PRIQ_IRQEN;
- 
-@@ -4915,16 +4930,21 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 		smmu, arm_smmu_make_cmd_op(CMDQ_OP_TLBI_NSNH_ALL));
- 
- 	/* Event queue */
--	writeq_relaxed(smmu->evtq.q.q_base, smmu->base + ARM_SMMU_EVTQ_BASE);
--	writel_relaxed(smmu->evtq.q.llq.prod, smmu->page1 + ARM_SMMU_EVTQ_PROD);
--	writel_relaxed(smmu->evtq.q.llq.cons, smmu->page1 + ARM_SMMU_EVTQ_CONS);
--
--	enables |= CR0_EVTQEN;
--	ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
--				      ARM_SMMU_CR0ACK);
--	if (ret) {
--		dev_err(smmu->dev, "failed to enable event queue\n");
--		return ret;
-+	if (smmu->features & ARM_SMMU_FEAT_EVTQ) {
-+		writeq_relaxed(smmu->evtq.q.q_base,
-+			       smmu->base + ARM_SMMU_EVTQ_BASE);
-+		writel_relaxed(smmu->evtq.q.llq.prod,
-+			       smmu->page1 + ARM_SMMU_EVTQ_PROD);
-+		writel_relaxed(smmu->evtq.q.llq.cons,
-+			       smmu->page1 + ARM_SMMU_EVTQ_CONS);
-+
-+		enables |= CR0_EVTQEN;
-+		ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
-+					      ARM_SMMU_CR0ACK);
-+		if (ret) {
-+			dev_err(smmu->dev, "failed to enable event queue\n");
-+			return ret;
-+		}
- 	}
- 
- 	/* PRI queue */
-@@ -5063,6 +5083,9 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- 	u32 reg;
- 	bool coherent = smmu->features & ARM_SMMU_FEAT_COHERENCY;
- 
-+	/* The event queue is architecturally mandatory, unlike the PRI queue */
-+	smmu->features |= ARM_SMMU_FEAT_EVTQ;
-+
- 	/* IDR0 */
- 	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR0);
- 
++	/* Init both first, as a kdump adoption reserves in-use ASIDs/VMIDs */
+ 	ida_init(&smmu->vmid_map);
+ 	ret = devm_add_action_or_reset(smmu->dev, arm_smmu_destroy_vmid_map,
+ 				       &smmu->vmid_map);
 -- 
 2.43.0
 
