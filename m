@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 057BBC61DD9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 20:21:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CAC9C61DEB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 20:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CQ2/fi60ri9QFok1Kbz5WhrvVcpsPy5o/Nq6ORjFJok=; b=IhigFhbOVWR8wpZUgMS2YkGEZd
-	wMMXNu+doXCJs1M2ipr6o7k2pa7ygEF2sawalSHphN6TK8Gs2xDOwgFzvIo3ImXfgXxfV5UlICuHW
-	Twn9k9OSLO9XvpQV6Nnk2OJ0en7OaiS7ewIll7j68ii3wFJ1ltCDafMrGVNgCCUHFKlnniEl7+Dn5
-	59gZezIfuUlRm42Mu3zWObPQMICtyA6UfgwqGp3Rlmk5aIW7ResgJ2hu+YWCIuwbD/XrrvCiEE23B
-	HK7h/hvCXOzKszn+FoLEy2DkdHvZ+vPa4koK44NiwSarMVqJsHGZoKfjpBsaOnexrCucpUw/S99kw
-	pS/U4WDQ==;
+	bh=IGuc9Xex2Lw5bEJhDgrU8Gy8UkiqT5yT6SBSHWUsRqs=; b=b9juWzsK8roHDTbH0zpdIxsMSj
+	axN3sW3kV5JKx9TXOrBmAg+bERdXuqAQFVZHR7dT45q3clUeFxWzOPZVhtPNH2YjBbbQGLbBGyz+y
+	3LRZY019mH1P3EPrzwX9m8hwYOLedsLqHpYaOn+GUakgSWL5Cnsdgk+8yUIkBl085aGv24tADAJUs
+	oYfiKlqw7xRgmtylvlJJm2wKnW1o8w2i8K1MI1CPh87C02YXe7JjDHhbTZX25ze1aKLaAQG8Zi8XW
+	ZS0OmbKAt4glcRcgp6386KWobmAxvmltsIK+LYM2n/9SgN3pzdnNqyON9Y9+hN3AvDTMMOfDniH1f
+	UM94Y0eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0m1S-000000083yD-2ZPb;
-	Sun, 30 Aug 2026 20:20:58 +0000
+	id 1x0m1R-000000083wo-2KLm;
+	Sun, 30 Aug 2026 20:20:57 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0m0H-000000082pe-2xVg
+	id 1x0m0H-000000082pb-20ZY
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 30 Aug 2026 20:19:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 796A344504;
-	Sun, 30 Aug 2026 20:19:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 35D8BC4AF54;
-	Sun, 30 Aug 2026 20:19:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E455E44787;
+	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B3538C2BD04;
+	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788121185;
-	bh=kvqEJzhyBP8e9k9bLDm5TDD8YdXBcUaHaKuYwtfBii0=;
+	s=k20201202; t=1788121184;
+	bh=CLLkwaKc5+f6XimwNr2nFpZ5Q46wgtKFW0n8D5ES48U=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Tk4ZibU7pvUC8NmMedzXP4mlWiGXkUFON1UXB4V4SeKm/4i2joO6Utimi1qg3EXo3
-	 df6FZz79k1Hde+yUJixQkWq8+9IUMY8IHrfz390P9q5OYTovtrzdxrD9H6MyQRphAk
-	 NebfBxKNxbzymXlX5nqMwTuAyvMIAmuXKCo65JGPR4AcH3FGn4gENNEpxAnrz5yVQg
-	 C59ygsBSYWZVUiclbFou0ULher6smUUO9hfBf1sC3TdfheQ+4Tyoyvk442nUtnwMll
-	 hdobIlObQhYkSDVRMlnorxU6E9BaJ7IzV3Zh8qoW0f73twdVWqlZ1xAKQFaTS6aatu
-	 bLW9+JiHYa1nw==
+	b=bNl0B7eiYj/nR7OKhFUWhHR++ZxsEy1wEUCO2RZe/fxZU1Nq0L1QoH1a2VGsgLHa2
+	 ri/TVzGtnO3wI0ySGSQqSuZuZh5W/5ytDaMSEb4/ic6fkyTZoRgM17q5t69NNdRgdv
+	 6KI4AnuWeXnErt9D1MTGgD4sAKhvEAfAsIXzkSuL9ffhfoEUY4/SAqvl/Q7H/TvWr9
+	 y9usljO9CqJlV/UxCAE9Byz/ycBgs+OMmcGVu29/3aotq/WKk1Wa99d9lqcAlcU8G/
+	 tHXDdfvZ975+SFVw12Bk+zH2GW/fckjKaxmtlUQ/SFK2Tna/cgoYjk2JrlXnyocZAg
+	 PR6J4sK3K1srw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 16AFCC61DFD;
-	Sun, 30 Aug 2026 20:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9C691C61DD9;
+	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Sun, 30 Aug 2026 22:19:37 +0200
-Subject: [PATCH 19/19] arm64: dts: apple: t60xx: Add USB4 ACIO and NHI
+Date: Sun, 30 Aug 2026 22:19:32 +0200
+Subject: [PATCH 14/19] thunderbolt: Add QUIRK_NO_USB3_BW_ALLOC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260830-b4-apple-soc-tbt-v1-19-44bc9348683c@kernel.org>
+Message-Id: <20260830-b4-apple-soc-tbt-v1-14-44bc9348683c@kernel.org>
 References: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
 In-Reply-To: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -68,13 +68,13 @@ Cc: Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Sven Peter <sven@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=45620; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6302; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=kvqEJzhyBP8e9k9bLDm5TDD8YdXBcUaHaKuYwtfBii0=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ9aUCTHWFT+W/cj8o8Is3z+/8ZPSHv0DAYaTcvzf+M77U
- vN3te3UjlIWBjEuBlkxRZbt++1Nnzx8I7h006X3MHNYmUCGMHBxCsBE3qxkZPg29yF75jEvucz1
- OvuZSp5Mmhqk/GR7Ua7F4xKVM1K7Hz1l+Gdpef6k86QLF19dvDxB8ibrwiNqaxPEq5PZ9m3dWfO
- bx4YNAA==
+ bh=CLLkwaKc5+f6XimwNr2nFpZ5Q46wgtKFW0n8D5ES48U=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ9aUCZFXxd52NOy6O3+rhHf7b8Zn96es63pjJvfO+MAaT
+ 7k0N7cPHaUsDGJcDLJiiizb99ubPnn4RnDppkvvYeawMoEMYeDiFICJvJFi+J95pnbHDNugN8/z
+ 30z0mJf6+E5Sr1+o/B7HPk2XKWfeJ+5k+GfA1O9dtihRJvuAyu0tViwdE3nDN28+EMj4Y9ufg1u
+ 6tvICAA==
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
@@ -93,1587 +93,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the ACIO host router, NHI, DART and mailbox nodes for the four ATC
-instances on each t600x and t602x die and connect the host routers to
-the Type-C connectors on the MacBook Pro (j314/j316 and j414/j416), Mac
-Studio (j375 and j475), Mac mini (j474) and Mac Pro (j180d) boards.
+The host routers on Apple Silicon do not implement USB3 bandwidth
+allocation registers: the CMR bit set in ADP_USB3_CS_2 by
+usb4_usb3_port_cm_request() is never acknowledged and every USB3 tunnel
+bringup fails there after the timeout:
+
+  [   49.259325] thunderbolt-apple-nhi 501f00000.nhi: 1:16: available bandwidth for new USB3 tunnel 18000/18000 Mb/s
+  [   49.265869] thunderbolt-apple-nhi 501f00000.nhi: 1:16: maximum required bandwidth for USB3 tunnel 9000 Mb/s
+  [   49.267894] thunderbolt-apple-nhi 501f00000.nhi: 0:4 <-> 1:16 (USB3): activating
+  [   49.269410] thunderbolt-apple-nhi 501f00000.nhi: 0:4 <-> 1:16 (USB3): allocating initial bandwidth 9000/9000 Mb/s
+  [   50.771764] thunderbolt-apple-nhi 501f00000.nhi: 1:16: USB3 tunnel activation failed, aborting
+
+Add a quirk to skip bandwidth allocation entirely but keep tracking
+the initial allocation in software for the consumed bandwidth
+calculation. For completeness, discovered tunnels book 90% of the
+maximum link rate in software, matching tb_tunnel_alloc_usb3(), although
+Apple Silicon cannot have any pre-existing tunnels.
 
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- arch/arm64/boot/dts/apple/t6002-j375d.dts      |  67 +++++
- arch/arm64/boot/dts/apple/t600x-dieX.dtsi      | 384 +++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi | 107 +++++++
- arch/arm64/boot/dts/apple/t600x-j375.dtsi      | 137 +++++++++
- arch/arm64/boot/dts/apple/t6022-j180d.dts      | 202 +++++++++++++
- arch/arm64/boot/dts/apple/t6022-j475d.dts      |  10 +
- arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi     |  57 ++++
- arch/arm64/boot/dts/apple/t602x-dieX.dtsi      | 384 +++++++++++++++++++++++++
- 8 files changed, 1348 insertions(+)
+ drivers/thunderbolt/nhi.h    |  1 +
+ drivers/thunderbolt/tb.c     |  8 ++++++
+ drivers/thunderbolt/tb.h     |  3 +++
+ drivers/thunderbolt/tunnel.c | 59 +++++++++++++++++++++++++++++---------------
+ 4 files changed, 51 insertions(+), 20 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/apple/t6002-j375d.dts b/arch/arm64/boot/dts/apple/t6002-j375d.dts
-index e6eb6b6c386d..c28f5c604550 100644
---- a/arch/arm64/boot/dts/apple/t6002-j375d.dts
-+++ b/arch/arm64/boot/dts/apple/t6002-j375d.dts
-@@ -18,6 +18,10 @@ / {
- 	aliases {
- 		atcphy4 = &atcphy0_die1;
- 		atcphy5 = &atcphy1_die1;
-+		usb4-4-acio = &usb4_0_acio_die1;
-+		usb4-4-nhi = &usb4_0_nhi_die1;
-+		usb4-5-acio = &usb4_1_acio_die1;
-+		usb4-5-nhi = &usb4_1_nhi_die1;
- 	};
- };
+diff --git a/drivers/thunderbolt/nhi.h b/drivers/thunderbolt/nhi.h
+index c2d16ab6994e..afd9a11489a9 100644
+--- a/drivers/thunderbolt/nhi.h
++++ b/drivers/thunderbolt/nhi.h
+@@ -169,6 +169,7 @@ struct tb_nhi_ops {
+ #define QUIRK_E2E					BIT(1)
+ #define QUIRK_RESET_DMA_ON_TEARDOWN			BIT(2)
+ #define QUIRK_NO_DMA_PORT				BIT(3)
++#define QUIRK_NO_USB3_BW_ALLOC				BIT(4)
  
-@@ -52,6 +56,13 @@ typec4_connector_ss: endpoint {
- 						remote-endpoint = <&atcphy4_typec_lanes>;
- 					};
- 				};
-+
-+				port@2 {
-+					reg = <2>;
-+					typec4_con_tbt: endpoint {
-+						remote-endpoint = <&usb4_4_acio_tbt>;
-+					};
-+				};
- 			};
- 		};
- 	};
-@@ -85,6 +96,13 @@ typec5_connector_ss: endpoint {
- 						remote-endpoint = <&atcphy5_typec_lanes>;
- 					};
- 				};
-+
-+				port@2 {
-+					reg = <2>;
-+					typec5_con_tbt: endpoint {
-+						remote-endpoint = <&usb4_5_acio_tbt>;
-+					};
-+				};
- 			};
- 		};
- 	};
-@@ -186,8 +204,57 @@ atcphy5_usb3: endpoint {
+ /*
+  * Minimal number of vectors when we use MSI-X. Two for control channel
+diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
+index c43cdd2c2e2e..7ab53a30fe30 100644
+--- a/drivers/thunderbolt/tb.c
++++ b/drivers/thunderbolt/tb.c
+@@ -3044,6 +3044,14 @@ static int tb_start(struct tb *tb, bool reset)
+ 	 */
+ 	tb->root_switch->no_dma_port = tb->nhi->quirks & QUIRK_NO_DMA_PORT;
  
- #include "hwmon-fan-dual.dtsi"
++	/*
++	 * Apple Silicon host routers do not implement the USB3 bandwidth
++	 * allocation registers: the CMR/HCA handshake is never acked and
++	 * times out. Bandwidth for USB3 tunnels is only booked in software
++	 * on these machines.
++	 */
++	tb->root_switch->no_usb3_bw_alloc = tb->nhi->quirks & QUIRK_NO_USB3_BW_ALLOC;
++
+ 	ret = tb_switch_configure(tb->root_switch);
+ 	if (ret) {
+ 		tb_switch_put(tb->root_switch);
+diff --git a/drivers/thunderbolt/tb.h b/drivers/thunderbolt/tb.h
+index 0977cd690d7e..530b0e6c3a11 100644
+--- a/drivers/thunderbolt/tb.h
++++ b/drivers/thunderbolt/tb.h
+@@ -140,6 +140,8 @@ struct tb_switch_tmu {
+  * @nvm: Pointer to the NVM if the switch has one (%NULL otherwise)
+  * @no_nvm_upgrade: Prevent NVM upgrade of this switch
+  * @no_dma_port: Prevent adding the DMA port of this switch
++ * @no_usb3_bw_alloc: Host router does not implement the USB3 bandwidth
++ *		      allocation registers (ADP_USB3_CS_1..4)
+  * @safe_mode: The switch is in safe-mode
+  * @boot: Whether the switch was already authorized on boot or not
+  * @rpm: The switch supports runtime PM
+@@ -196,6 +198,7 @@ struct tb_switch {
+ 	struct tb_nvm *nvm;
+ 	bool no_nvm_upgrade;
+ 	bool no_dma_port;
++	bool no_usb3_bw_alloc;
+ 	bool safe_mode;
+ 	bool boot;
+ 	bool rpm;
+diff --git a/drivers/thunderbolt/tunnel.c b/drivers/thunderbolt/tunnel.c
+index 7e8284575dff..9178120a6b66 100644
+--- a/drivers/thunderbolt/tunnel.c
++++ b/drivers/thunderbolt/tunnel.c
+@@ -2268,24 +2268,40 @@ struct tb_tunnel *tb_tunnel_discover_usb3(struct tb *tb, struct tb_port *down,
+ 	if (!tb_route(down->sw)) {
+ 		int ret;
  
-+/* USB4 on die 1 */
-+&usb4_0_acio_die1 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
+-		/*
+-		 * Read the initial bandwidth allocation for the first
+-		 * hop tunnel.
+-		 */
+-		ret = usb4_usb3_port_allocated_bandwidth(down,
+-			&tunnel->allocated_up, &tunnel->allocated_down);
+-		if (ret)
+-			goto err_deactivate;
++		tunnel->consumed_bandwidth = tb_usb3_consumed_bandwidth;
 +
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_4_acio_tbt: endpoint {
-+				remote-endpoint = <&typec4_con_tbt>;
-+			};
-+		};
++		if (down->sw->no_usb3_bw_alloc) {
++			/*
++			 * The host router does not implement the bandwidth
++			 * allocation registers and nothing can be read back
++			 * here. Book 90% of the maximum link rate in software
++			 * instead.
++			 */
++			ret = tb_usb3_max_link_rate(tunnel->dst_port, down);
++			if (ret < 0)
++				goto err_deactivate;
 +
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
++			tunnel->allocated_up = ret * 90 / 100;
++			tunnel->allocated_down = tunnel->allocated_up;
++		} else {
++			/*
++			 * Read the initial bandwidth allocation for the first
++			 * hop tunnel.
++			 */
++			ret = usb4_usb3_port_allocated_bandwidth(down,
++				&tunnel->allocated_up, &tunnel->allocated_down);
++			if (ret)
++				goto err_deactivate;
 +
-+&usb4_1_acio_die1 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_5_acio_tbt: endpoint {
-+				remote-endpoint = <&typec5_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
- /* delete unused USB nodes on die 1 */
++			tunnel->pre_activate = tb_usb3_pre_activate;
++			tunnel->release_unused_bandwidth =
++				tb_usb3_release_unused_bandwidth;
++			tunnel->reclaim_available_bandwidth =
++				tb_usb3_reclaim_available_bandwidth;
++		}
  
-+/delete-node/ &usb4_2_acio_die1;
-+/delete-node/ &usb4_2_mbox_die1;
-+
-+/delete-node/ &usb4_3_acio_die1;
-+/delete-node/ &usb4_3_mbox_die1;
-+
- /delete-node/ &dwc3_2_dart_0_die1;
- /delete-node/ &dwc3_2_dart_1_die1;
- /delete-node/ &dwc3_2_die1;
-diff --git a/arch/arm64/boot/dts/apple/t600x-dieX.dtsi b/arch/arm64/boot/dts/apple/t600x-dieX.dtsi
-index 9676d5127039..98867855454d 100644
---- a/arch/arm64/boot/dts/apple/t600x-dieX.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-dieX.dtsi
-@@ -93,6 +93,22 @@ DIE_NODE(pinctrl_aop): pinctrl@293820000 {
- 				<AIC_IRQ DIE_NO 571 IRQ_TYPE_LEVEL_HIGH>,
- 				<AIC_IRQ DIE_NO 572 IRQ_TYPE_LEVEL_HIGH>,
- 				<AIC_IRQ DIE_NO 573 IRQ_TYPE_LEVEL_HIGH>;
-+
-+		DIE_NODE(acio0_pins): acio0-pins {
-+			pinmux = <APPLE_PINMUX(39, 1)>;
-+		};
-+
-+		DIE_NODE(acio1_pins): acio1-pins {
-+			pinmux = <APPLE_PINMUX(41, 1)>;
-+		};
-+
-+		DIE_NODE(acio2_pins): acio2-pins {
-+			pinmux = <APPLE_PINMUX(43, 1)>;
-+		};
-+
-+		DIE_NODE(acio3_pins): acio3-pins {
-+			pinmux = <APPLE_PINMUX(45, 1)>;
-+		};
- 	};
+ 		tb_tunnel_dbg(tunnel, "currently allocated bandwidth %d/%d Mb/s\n",
+ 			      tunnel->allocated_up, tunnel->allocated_down);
+-
+-		tunnel->pre_activate = tb_usb3_pre_activate;
+-		tunnel->consumed_bandwidth = tb_usb3_consumed_bandwidth;
+-		tunnel->release_unused_bandwidth =
+-			tb_usb3_release_unused_bandwidth;
+-		tunnel->reclaim_available_bandwidth =
+-			tb_usb3_reclaim_available_bandwidth;
+ 	}
  
- 	DIE_NODE(pinctrl_ap): pinctrl@39b028000 {
-@@ -120,6 +136,98 @@ DIE_NODE(pinctrl_ap): pinctrl@39b028000 {
- 		#interrupt-cells = <2>;
- 	};
+ 	tb_tunnel_dbg(tunnel, "discovered\n");
+@@ -2365,12 +2381,15 @@ struct tb_tunnel *tb_tunnel_alloc_usb3(struct tb *tb, struct tb_port *up,
+ 		tunnel->allocated_up = min(max_rate, max_up);
+ 		tunnel->allocated_down = min(max_rate, max_down);
  
-+	DIE_NODE(usb4_0_mbox): mailbox@701100000 {
-+		compatible = "apple,t6000-m3-mailbox",
-+			"apple,m3-mailbox-v2";
-+		reg = <0x7 0x01100000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ DIE_NO 1311 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 1312 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 1313 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 1314 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "send-empty", "send-not-empty",
-+			"recv-empty", "recv-not-empty";
-+		#mbox-cells = <0>;
-+	};
+-		tunnel->pre_activate = tb_usb3_pre_activate;
+ 		tunnel->consumed_bandwidth = tb_usb3_consumed_bandwidth;
+-		tunnel->release_unused_bandwidth =
+-			tb_usb3_release_unused_bandwidth;
+-		tunnel->reclaim_available_bandwidth =
+-			tb_usb3_reclaim_available_bandwidth;
 +
-+	DIE_NODE(usb4_0_acio): cio@701ac0000 {
-+		compatible = "apple,t6000-usb4-acio", "apple,t8103-usb4-acio";
-+		reg = <0x7 0x01ac0000 0x0 0xc000>,
-+			<0x7 0x01080000 0x0 0x20000>;
-+		reg-names = "rc", "sram";
-+
-+		mboxes = <&DIE_NODE(usb4_0_mbox)>;
-+		resets = <&DIE_NODE(cio_reset) 0>;
-+
-+		power-domains = <&DIE_NODE(ps_atc0_cio)>,
-+				<&DIE_NODE(ps_atc0_cio_pcie)>,
-+				<&DIE_NODE(ps_atc0_cio_usb)>;
-+
-+		thunderbolt-switch;
-+
-+		pinctrl-0 = <&DIE_NODE(acio0_pins)>;
-+		pinctrl-names = "default";
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0x0 0x7 0x01000000 0x1000000>;
-+		nonposted-mmio;
-+
-+		DIE_NODE(usb4_0_dart): iommu@a80000 {
-+			compatible = "apple,t6000-dart";
-+			reg = <0xa80000 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1309 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+		};
-+
-+		DIE_NODE(usb4_0_nhi): nhi@f00000 {
-+			reg = <0xf00000 0x100000>,
-+				<0xdb0000 0x30004>;
-+			reg-names = "nhi", "pdf";
-+			compatible = "apple,t6000-usb4-nhi",
-+				"apple,t8103-usb4-nhi";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1282 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1283 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1284 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1285 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1286 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1287 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1288 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1289 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1290 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1291 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1292 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1293 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1294 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1295 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1296 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1297 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1298 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1299 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1300 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1301 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1302 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1303 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1304 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1305 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names =
-+				"txring0", "txring1", "txring2",
-+				"txring3", "txring4", "txring5",
-+				"txring6", "txring7", "txring8",
-+				"txring9", "txring10", "txring11",
-+				"rxring0", "rxring1", "rxring2",
-+				"rxring3", "rxring4", "rxring5",
-+				"rxring6", "rxring7", "rxring8",
-+				"rxring9", "rxring10", "rxring11";
-+			iommus = <&DIE_NODE(usb4_0_dart) 1>,
-+				 <&DIE_NODE(usb4_0_dart) 2>;
-+			/* To be filled by the loader */
-+			apple,thunderbolt-drom = [00];
-+		};
-+	};
-+
- 	DIE_NODE(dwc3_0): usb@702280000 {
- 		compatible = "apple,t6000-dwc3", "apple,t8103-dwc3";
- 		reg = <0x7 0x02280000 0x0 0xcd00>, <0x7 0x0228cd00 0x0 0x3200>;
-@@ -173,6 +281,98 @@ DIE_NODE(atcphy0): phy@703000000 {
- 		power-domains = <&DIE_NODE(ps_atc0_usb)>;
- 	};
++		if (!down->sw->no_usb3_bw_alloc) {
++			tunnel->pre_activate = tb_usb3_pre_activate;
++			tunnel->release_unused_bandwidth =
++				tb_usb3_release_unused_bandwidth;
++			tunnel->reclaim_available_bandwidth =
++				tb_usb3_reclaim_available_bandwidth;
++		}
+ 	}
  
-+	DIE_NODE(usb4_1_mbox): mailbox@b01100000 {
-+		compatible = "apple,t6000-m3-mailbox",
-+			"apple,m3-mailbox-v2";
-+		reg = <0xb 0x01100000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ DIE_NO 1359 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 1360 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 1361 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 1362 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "send-empty", "send-not-empty",
-+			"recv-empty", "recv-not-empty";
-+		#mbox-cells = <0>;
-+	};
-+
-+	DIE_NODE(usb4_1_acio): cio@b01ac0000 {
-+		compatible = "apple,t6000-usb4-acio", "apple,t8103-usb4-acio";
-+		reg = <0xb 0x01ac0000 0x0 0xc000>,
-+			<0xb 0x01080000 0x0 0x20000>;
-+		reg-names = "rc", "sram";
-+
-+		mboxes = <&DIE_NODE(usb4_1_mbox)>;
-+		resets = <&DIE_NODE(cio_reset) 1>;
-+
-+		power-domains = <&DIE_NODE(ps_atc1_cio)>,
-+				<&DIE_NODE(ps_atc1_cio_pcie)>,
-+				<&DIE_NODE(ps_atc1_cio_usb)>;
-+
-+		thunderbolt-switch;
-+
-+		pinctrl-0 = <&DIE_NODE(acio1_pins)>;
-+		pinctrl-names = "default";
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0x0 0xb 0x01000000 0x1000000>;
-+		nonposted-mmio;
-+
-+		DIE_NODE(usb4_1_dart): iommu@a80000 {
-+			compatible = "apple,t6000-dart";
-+			reg = <0xa80000 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1357 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+		};
-+
-+		DIE_NODE(usb4_1_nhi): nhi@f00000 {
-+			reg = <0xf00000 0x100000>,
-+				<0xdb0000 0x30004>;
-+			reg-names = "nhi", "pdf";
-+			compatible = "apple,t6000-usb4-nhi",
-+				"apple,t8103-usb4-nhi";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1330 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1331 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1332 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1333 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1334 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1335 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1336 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1337 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1338 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1339 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1340 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1341 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1342 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1343 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1344 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1345 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1346 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1347 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1348 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1349 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1350 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1351 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1352 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1353 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names =
-+				"txring0", "txring1", "txring2",
-+				"txring3", "txring4", "txring5",
-+				"txring6", "txring7", "txring8",
-+				"txring9", "txring10", "txring11",
-+				"rxring0", "rxring1", "rxring2",
-+				"rxring3", "rxring4", "rxring5",
-+				"rxring6", "rxring7", "rxring8",
-+				"rxring9", "rxring10", "rxring11";
-+			iommus = <&DIE_NODE(usb4_1_dart) 1>,
-+				 <&DIE_NODE(usb4_1_dart) 2>;
-+			/* To be filled by the loader */
-+			apple,thunderbolt-drom = [00];
-+		};
-+	};
-+
- 	DIE_NODE(dwc3_1): usb@b02280000 {
- 		compatible = "apple,t6000-dwc3", "apple,t8103-dwc3";
- 		reg = <0xb 0x02280000 0x0 0xcd00>, <0xb 0x0228cd00 0x0 0x3200>;
-@@ -226,6 +426,98 @@ DIE_NODE(atcphy1): phy@b03000000 {
- 		power-domains = <&DIE_NODE(ps_atc1_usb)>;
- 	};
- 
-+	DIE_NODE(usb4_2_mbox): mailbox@f01100000 {
-+		compatible = "apple,t6000-m3-mailbox",
-+			"apple,m3-mailbox-v2";
-+		reg = <0xf 0x01100000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ DIE_NO 1407 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 1408 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 1409 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 1410 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "send-empty", "send-not-empty",
-+			"recv-empty", "recv-not-empty";
-+		#mbox-cells = <0>;
-+	};
-+
-+	DIE_NODE(usb4_2_acio): cio@f01ac0000 {
-+		compatible = "apple,t6000-usb4-acio", "apple,t8103-usb4-acio";
-+		reg = <0xf 0x01ac0000 0x0 0xc000>,
-+			<0xf 0x01080000 0x0 0x20000>;
-+		reg-names = "rc", "sram";
-+
-+		mboxes = <&DIE_NODE(usb4_2_mbox)>;
-+		resets = <&DIE_NODE(cio_reset) 2>;
-+
-+		power-domains = <&DIE_NODE(ps_atc2_cio)>,
-+				<&DIE_NODE(ps_atc2_cio_pcie)>,
-+				<&DIE_NODE(ps_atc2_cio_usb)>;
-+
-+		thunderbolt-switch;
-+
-+		pinctrl-0 = <&DIE_NODE(acio2_pins)>;
-+		pinctrl-names = "default";
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0x0 0xf 0x01000000 0x1000000>;
-+		nonposted-mmio;
-+
-+		DIE_NODE(usb4_2_dart): iommu@a80000 {
-+			compatible = "apple,t6000-dart";
-+			reg = <0xa80000 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1405 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+		};
-+
-+		DIE_NODE(usb4_2_nhi): nhi@f00000 {
-+			reg = <0xf00000 0x100000>,
-+				<0xdb0000 0x30004>;
-+			reg-names = "nhi", "pdf";
-+			compatible = "apple,t6000-usb4-nhi",
-+				"apple,t8103-usb4-nhi";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1378 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1379 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1380 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1381 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1382 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1383 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1384 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1385 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1386 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1387 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1388 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1389 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1390 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1391 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1392 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1393 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1394 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1395 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1396 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1397 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1398 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1399 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1400 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1401 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names =
-+				"txring0", "txring1", "txring2",
-+				"txring3", "txring4", "txring5",
-+				"txring6", "txring7", "txring8",
-+				"txring9", "txring10", "txring11",
-+				"rxring0", "rxring1", "rxring2",
-+				"rxring3", "rxring4", "rxring5",
-+				"rxring6", "rxring7", "rxring8",
-+				"rxring9", "rxring10", "rxring11";
-+			iommus = <&DIE_NODE(usb4_2_dart) 1>,
-+				 <&DIE_NODE(usb4_2_dart) 2>;
-+			/* To be filled by the loader */
-+			apple,thunderbolt-drom = [00];
-+		};
-+	};
-+
- 	DIE_NODE(dwc3_2): usb@f02280000 {
- 		compatible = "apple,t6000-dwc3", "apple,t8103-dwc3";
- 		reg = <0xf 0x02280000 0x0 0xcd00>, <0xf 0x0228cd00 0x0 0x3200>;
-@@ -279,6 +571,98 @@ DIE_NODE(atcphy2): phy@f03000000 {
- 		power-domains = <&DIE_NODE(ps_atc2_usb)>;
- 	};
- 
-+	DIE_NODE(usb4_3_mbox): mailbox@1301100000 {
-+		compatible = "apple,t6000-m3-mailbox",
-+			"apple,m3-mailbox-v2";
-+		reg = <0x13 0x01100000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ DIE_NO 1455 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 1456 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 1457 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 1458 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "send-empty", "send-not-empty",
-+			"recv-empty", "recv-not-empty";
-+		#mbox-cells = <0>;
-+	};
-+
-+	DIE_NODE(usb4_3_acio): cio@1301ac0000 {
-+		compatible = "apple,t6000-usb4-acio", "apple,t8103-usb4-acio";
-+		reg = <0x13 0x01ac0000 0x0 0xc000>,
-+			<0x13 0x01080000 0x0 0x20000>;
-+		reg-names = "rc", "sram";
-+
-+		mboxes = <&DIE_NODE(usb4_3_mbox)>;
-+		resets = <&DIE_NODE(cio_reset) 3>;
-+
-+		power-domains = <&DIE_NODE(ps_atc3_cio)>,
-+				<&DIE_NODE(ps_atc3_cio_pcie)>,
-+				<&DIE_NODE(ps_atc3_cio_usb)>;
-+
-+		thunderbolt-switch;
-+
-+		pinctrl-0 = <&DIE_NODE(acio3_pins)>;
-+		pinctrl-names = "default";
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0x0 0x13 0x01000000 0x1000000>;
-+		nonposted-mmio;
-+
-+		DIE_NODE(usb4_3_dart): iommu@a80000 {
-+			compatible = "apple,t6000-dart";
-+			reg = <0xa80000 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1453 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+		};
-+
-+		DIE_NODE(usb4_3_nhi): nhi@f00000 {
-+			reg = <0xf00000 0x100000>,
-+				<0xdb0000 0x30004>;
-+			reg-names = "nhi", "pdf";
-+			compatible = "apple,t6000-usb4-nhi",
-+				"apple,t8103-usb4-nhi";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1426 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1427 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1428 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1429 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1430 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1431 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1432 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1433 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1434 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1435 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1436 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1437 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1438 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1439 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1440 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1441 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1442 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1443 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1444 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1445 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1446 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1447 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1448 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1449 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names =
-+				"txring0", "txring1", "txring2",
-+				"txring3", "txring4", "txring5",
-+				"txring6", "txring7", "txring8",
-+				"txring9", "txring10", "txring11",
-+				"rxring0", "rxring1", "rxring2",
-+				"rxring3", "rxring4", "rxring5",
-+				"rxring6", "rxring7", "rxring8",
-+				"rxring9", "rxring10", "rxring11";
-+			iommus = <&DIE_NODE(usb4_3_dart) 1>,
-+				 <&DIE_NODE(usb4_3_dart) 2>;
-+			/* To be filled by the loader */
-+			apple,thunderbolt-drom = [00];
-+		};
-+	};
-+
- 	DIE_NODE(dwc3_3): usb@1302280000 {
- 		compatible = "apple,t6000-dwc3", "apple,t8103-dwc3";
- 		reg = <0x13 0x02280000 0x0 0xcd00>, <0x13 0x0228cd00 0x0 0x3200>;
-diff --git a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-index caded1636f3d..38b7d0c3a585 100644
---- a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-@@ -21,6 +21,12 @@ aliases {
- 		atcphy3 = &atcphy3;
- 		bluetooth0 = &bluetooth0;
- 		serial0 = &serial0;
-+		usb4-0-acio = &usb4_0_acio;
-+		usb4-0-nhi = &usb4_0_nhi;
-+		usb4-1-acio = &usb4_1_acio;
-+		usb4-1-nhi = &usb4_1_nhi;
-+		usb4-2-acio = &usb4_2_acio;
-+		usb4-2-nhi = &usb4_2_nhi;
- 		wifi0 = &wifi0;
- 	};
- 
-@@ -366,6 +372,107 @@ &atcphy3 {
- 	status = "disabled";
- };
- 
-+&typec0 {
-+	ports {
-+		port@2 {
-+			reg = <2>;
-+			typec0_con_tbt: endpoint {
-+				remote-endpoint = <&usb4_0_acio_tbt>;
-+			};
-+		};
-+	};
-+};
-+
-+&typec1 {
-+	ports {
-+		port@2 {
-+			reg = <2>;
-+			typec1_con_tbt: endpoint {
-+				remote-endpoint = <&usb4_1_acio_tbt>;
-+			};
-+		};
-+	};
-+};
-+
-+&typec2 {
-+	ports {
-+		port@2 {
-+			reg = <2>;
-+			typec2_con_tbt: endpoint {
-+				remote-endpoint = <&usb4_2_acio_tbt>;
-+			};
-+		};
-+	};
-+};
-+
-+/* USB4 */
-+&usb4_0_acio {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_0_acio_tbt: endpoint {
-+				remote-endpoint = <&typec0_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
-+&usb4_1_acio {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_1_acio_tbt: endpoint {
-+				remote-endpoint = <&typec1_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
-+&usb4_2_acio {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_2_acio_tbt: endpoint {
-+				remote-endpoint = <&typec2_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
-+/* ATC3 is used for DP-to-HDMI only and has no USB4 host router */
-+/delete-node/ &usb4_3_acio;
-+/delete-node/ &usb4_3_mbox;
-+
- #include "spi1-nvram.dtsi"
- #include "hwmon-laptop.dtsi"
- #include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t600x-j375.dtsi b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
-index 8a1494949e4c..d081cb03b03b 100644
---- a/arch/arm64/boot/dts/apple/t600x-j375.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
-@@ -20,6 +20,14 @@ aliases {
- 		bluetooth0 = &bluetooth0;
- 		ethernet0 = &ethernet0;
- 		serial0 = &serial0;
-+		usb4-0-acio = &usb4_0_acio;
-+		usb4-0-nhi = &usb4_0_nhi;
-+		usb4-1-acio = &usb4_1_acio;
-+		usb4-1-nhi = &usb4_1_nhi;
-+		usb4-2-acio = &usb4_2_acio;
-+		usb4-2-nhi = &usb4_2_nhi;
-+		usb4-3-acio = &usb4_3_acio;
-+		usb4-3-nhi = &usb4_3_nhi;
- 		wifi0 = &wifi0;
- 	};
- 
-@@ -410,4 +418,133 @@ &pcie0_dart_3 {
- 	status = "okay";
- };
- 
-+&typec0 {
-+	ports {
-+		port@2 {
-+			reg = <2>;
-+			typec0_con_tbt: endpoint {
-+				remote-endpoint = <&usb4_0_acio_tbt>;
-+			};
-+		};
-+	};
-+};
-+
-+&typec1 {
-+	ports {
-+		port@2 {
-+			reg = <2>;
-+			typec1_con_tbt: endpoint {
-+				remote-endpoint = <&usb4_1_acio_tbt>;
-+			};
-+		};
-+	};
-+};
-+
-+&typec2 {
-+	ports {
-+		port@2 {
-+			reg = <2>;
-+			typec2_con_tbt: endpoint {
-+				remote-endpoint = <&usb4_2_acio_tbt>;
-+			};
-+		};
-+	};
-+};
-+
-+&typec3 {
-+	ports {
-+		port@2 {
-+			reg = <2>;
-+			typec3_con_tbt: endpoint {
-+				remote-endpoint = <&usb4_3_acio_tbt>;
-+			};
-+		};
-+	};
-+};
-+
-+/* USB4 */
-+&usb4_0_acio {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_0_acio_tbt: endpoint {
-+				remote-endpoint = <&typec0_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
-+&usb4_1_acio {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_1_acio_tbt: endpoint {
-+				remote-endpoint = <&typec1_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
-+&usb4_2_acio {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_2_acio_tbt: endpoint {
-+				remote-endpoint = <&typec2_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
-+&usb4_3_acio {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_3_acio_tbt: endpoint {
-+				remote-endpoint = <&typec3_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
- #include "spi1-nvram.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6022-j180d.dts b/arch/arm64/boot/dts/apple/t6022-j180d.dts
-index f76b887429dd..27323fb51dd1 100644
---- a/arch/arm64/boot/dts/apple/t6022-j180d.dts
-+++ b/arch/arm64/boot/dts/apple/t6022-j180d.dts
-@@ -26,6 +26,22 @@ aliases {
- 		atcphy5 = &atcphy1_die1;
- 		atcphy6 = &atcphy2_die1;
- 		atcphy7 = &atcphy3_die1;
-+		usb4-0-acio = &usb4_0_acio;
-+		usb4-0-nhi = &usb4_0_nhi;
-+		usb4-1-acio = &usb4_1_acio;
-+		usb4-1-nhi = &usb4_1_nhi;
-+		usb4-2-acio = &usb4_2_acio;
-+		usb4-2-nhi = &usb4_2_nhi;
-+		usb4-3-acio = &usb4_3_acio;
-+		usb4-3-nhi = &usb4_3_nhi;
-+		usb4-4-acio = &usb4_0_acio_die1;
-+		usb4-4-nhi = &usb4_0_nhi_die1;
-+		usb4-5-acio = &usb4_1_acio_die1;
-+		usb4-5-nhi = &usb4_1_nhi_die1;
-+		usb4-6-acio = &usb4_2_acio_die1;
-+		usb4-6-nhi = &usb4_2_nhi_die1;
-+		usb4-7-acio = &usb4_3_acio_die1;
-+		usb4-7-nhi = &usb4_3_nhi_die1;
- 		nvram = &nvram;
- 		serial0 = &serial0;
- 	};
-@@ -152,6 +168,13 @@ typec6_connector_ss: endpoint {
- 						remote-endpoint = <&atcphy6_typec_lanes>;
- 					};
- 				};
-+
-+				port@2 {
-+					reg = <2>;
-+					typec6_con_tbt: endpoint {
-+						remote-endpoint = <&usb4_6_acio_tbt>;
-+					};
-+				};
- 			};
- 		};
- 	};
-@@ -184,6 +207,13 @@ typec7_connector_ss: endpoint {
- 						remote-endpoint = <&atcphy7_typec_lanes>;
- 					};
- 				};
-+
-+				port@2 {
-+					reg = <2>;
-+					typec7_con_tbt: endpoint {
-+						remote-endpoint = <&usb4_7_acio_tbt>;
-+					};
-+				};
- 			};
- 		};
- 	};
-@@ -535,4 +565,176 @@ &nco_clkref {
- 	clock-frequency = <1068000000>;
- };
- 
-+/* USB4 on die 1 */
-+&usb4_2_acio_die1 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_6_acio_tbt: endpoint {
-+				remote-endpoint = <&typec6_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
-+&usb4_3_acio_die1 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_7_acio_tbt: endpoint {
-+				remote-endpoint = <&typec7_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
-+&typec0 {
-+	ports {
-+		port@2 {
-+			reg = <2>;
-+			typec0_con_tbt: endpoint {
-+				remote-endpoint = <&usb4_0_acio_tbt>;
-+			};
-+		};
-+	};
-+};
-+
-+&typec1 {
-+	ports {
-+		port@2 {
-+			reg = <2>;
-+			typec1_con_tbt: endpoint {
-+				remote-endpoint = <&usb4_1_acio_tbt>;
-+			};
-+		};
-+	};
-+};
-+
-+&typec2 {
-+	ports {
-+		port@2 {
-+			reg = <2>;
-+			typec2_con_tbt: endpoint {
-+				remote-endpoint = <&usb4_2_acio_tbt>;
-+			};
-+		};
-+	};
-+};
-+
-+&typec3 {
-+	ports {
-+		port@2 {
-+			reg = <2>;
-+			typec3_con_tbt: endpoint {
-+				remote-endpoint = <&usb4_3_acio_tbt>;
-+			};
-+		};
-+	};
-+};
-+
-+/* USB4 */
-+&usb4_0_acio {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_0_acio_tbt: endpoint {
-+				remote-endpoint = <&typec0_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
-+&usb4_1_acio {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_1_acio_tbt: endpoint {
-+				remote-endpoint = <&typec1_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
-+&usb4_2_acio {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_2_acio_tbt: endpoint {
-+				remote-endpoint = <&typec2_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
-+&usb4_3_acio {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_3_acio_tbt: endpoint {
-+				remote-endpoint = <&typec3_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
- #include "spi1-nvram.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6022-j475d.dts b/arch/arm64/boot/dts/apple/t6022-j475d.dts
-index 32938a3bf96a..d99633160beb 100644
---- a/arch/arm64/boot/dts/apple/t6022-j475d.dts
-+++ b/arch/arm64/boot/dts/apple/t6022-j475d.dts
-@@ -20,6 +20,10 @@ / {
- 	aliases {
- 		atcphy4 = &atcphy0_die1;
- 		atcphy5 = &atcphy1_die1;
-+		usb4-4-acio = &usb4_0_acio_die1;
-+		usb4-4-nhi = &usb4_0_nhi_die1;
-+		usb4-5-acio = &usb4_1_acio_die1;
-+		usb4-5-nhi = &usb4_1_nhi_die1;
- 	};
- };
- 
-@@ -57,6 +61,12 @@ &typec5 {
- /delete-node/ &dwc3_3_die1;
- /delete-node/ &atcphy3_die1;
- 
-+/delete-node/ &usb4_2_acio_die1;
-+/delete-node/ &usb4_2_mbox_die1;
-+
-+/delete-node/ &usb4_3_acio_die1;
-+/delete-node/ &usb4_3_mbox_die1;
-+
- /* delete unused always-on power-domains on die 1 */
- /delete-node/ &ps_atc2_usb_aon_die1;
- /delete-node/ &ps_atc2_usb_die1;
-diff --git a/arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi b/arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi
-index dc877bd604f8..944a79d30fd7 100644
---- a/arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi
-@@ -46,6 +46,13 @@ typec4_connector_ss: endpoint {
- 						remote-endpoint = <&atcphy4_typec_lanes>;
- 					};
- 				};
-+
-+				port@2 {
-+					reg = <2>;
-+					typec4_con_tbt: endpoint {
-+						remote-endpoint = <&usb4_4_acio_tbt>;
-+					};
-+				};
- 			};
- 		};
- 	};
-@@ -78,6 +85,13 @@ typec5_connector_ss: endpoint {
- 						remote-endpoint = <&atcphy5_typec_lanes>;
- 					};
- 				};
-+
-+				port@2 {
-+					reg = <2>;
-+					typec5_con_tbt: endpoint {
-+						remote-endpoint = <&usb4_5_acio_tbt>;
-+					};
-+				};
- 			};
- 		};
- 	};
-@@ -169,3 +183,46 @@ atcphy5_usb3: endpoint {
- 		};
- 	};
- };
-+
-+/* USB4 on die 1 */
-+&usb4_0_acio_die1 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_4_acio_tbt: endpoint {
-+				remote-endpoint = <&typec4_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-+
-+&usb4_1_acio_die1 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		/* 1: USB4 port */
-+		port@1 {
-+			reg = <1>;
-+			usb4_5_acio_tbt: endpoint {
-+				remote-endpoint = <&typec5_con_tbt>;
-+			};
-+		};
-+
-+		/* 2: unused(?) USB4 port */
-+		/* 3: PCIe */
-+		/* 4: USB3 */
-+		/* 5: DP0 */
-+		/* 6: DP1 */
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/apple/t602x-dieX.dtsi b/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
-index ae3d535c5acb..dae7b81c13d0 100644
---- a/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
-+++ b/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
-@@ -92,6 +92,22 @@ DIE_NODE(pinctrl_aop): pinctrl@2a6820000 {
- 				<AIC_IRQ DIE_NO 602 IRQ_TYPE_LEVEL_HIGH>,
- 				<AIC_IRQ DIE_NO 603 IRQ_TYPE_LEVEL_HIGH>,
- 				<AIC_IRQ DIE_NO 604 IRQ_TYPE_LEVEL_HIGH>;
-+
-+		DIE_NODE(acio0_pins): acio0-pins {
-+			pinmux = <APPLE_PINMUX(65, 1)>;
-+		};
-+
-+		DIE_NODE(acio1_pins): acio1-pins {
-+			pinmux = <APPLE_PINMUX(67, 1)>;
-+		};
-+
-+		DIE_NODE(acio2_pins): acio2-pins {
-+			pinmux = <APPLE_PINMUX(69, 1)>;
-+		};
-+
-+		DIE_NODE(acio3_pins): acio3-pins {
-+			pinmux = <APPLE_PINMUX(71, 1)>;
-+		};
- 	};
- 
- 	DIE_NODE(pinctrl_ap): pinctrl@39b028000 {
-@@ -127,6 +143,98 @@ DIE_NODE(pmgr_gfx): power-management@404e80000 {
- 		reg = <0x4 0x4e80000 0 0x4000>;
- 	};
- 
-+	DIE_NODE(usb4_0_mbox): mailbox@701108000 {
-+		compatible = "apple,t6020-asc-mailbox",
-+			"apple,asc-mailbox-v4";
-+		reg = <0x7 0x01108000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ DIE_NO 822 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 823 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 824 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 825 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "send-empty", "send-not-empty",
-+			"recv-empty", "recv-not-empty";
-+		#mbox-cells = <0>;
-+	};
-+
-+	DIE_NODE(usb4_0_acio): cio@701ac0000 {
-+		compatible = "apple,t6020-usb4-acio", "apple,t8103-usb4-acio";
-+		reg = <0x7 0x01ac0000 0x0 0xc000>,
-+			<0x7 0x01080000 0x0 0x20000>;
-+		reg-names = "rc", "sram";
-+
-+		mboxes = <&DIE_NODE(usb4_0_mbox)>;
-+		resets = <&DIE_NODE(cio_reset) 0>;
-+
-+		power-domains = <&DIE_NODE(ps_atc0_cio)>,
-+				<&DIE_NODE(ps_atc0_cio_pcie)>,
-+				<&DIE_NODE(ps_atc0_cio_usb)>;
-+
-+		thunderbolt-switch;
-+
-+		pinctrl-0 = <&DIE_NODE(acio0_pins)>;
-+		pinctrl-names = "default";
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0x0 0x7 0x01000000 0x1000000>;
-+		nonposted-mmio;
-+
-+		DIE_NODE(usb4_0_dart): iommu@a80000 {
-+			compatible = "apple,t6020-dart", "apple,t8110-dart";
-+			reg = <0xa80000 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1387 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <5>;
-+		};
-+
-+		DIE_NODE(usb4_0_nhi): nhi@f00000 {
-+			reg = <0xf00000 0x100000>,
-+				<0xdb0000 0x30004>;
-+			reg-names = "nhi", "pdf";
-+			compatible = "apple,t6020-usb4-nhi",
-+				"apple,t8103-usb4-nhi";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1360 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1361 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1362 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1363 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1364 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1365 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1366 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1367 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1368 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1369 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1370 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1371 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1372 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1373 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1374 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1375 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1376 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1377 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1378 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1379 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1380 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1381 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1382 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1383 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names =
-+				"txring0", "txring1", "txring2",
-+				"txring3", "txring4", "txring5",
-+				"txring6", "txring7", "txring8",
-+				"txring9", "txring10", "txring11",
-+				"rxring0", "rxring1", "rxring2",
-+				"rxring3", "rxring4", "rxring5",
-+				"rxring6", "rxring7", "rxring8",
-+				"rxring9", "rxring10", "rxring11";
-+			iommus = <&DIE_NODE(usb4_0_dart) 1 0x100 0x0 0x10 0x0>,
-+				 <&DIE_NODE(usb4_0_dart) 2 0x100 0x0 0x10 0x0>;
-+			/* To be filled by the loader */
-+			apple,thunderbolt-drom = [00];
-+		};
-+	};
-+
- 	DIE_NODE(dwc3_0): usb@702280000 {
- 		compatible = "apple,t6020-dwc3", "apple,t8103-dwc3";
- 		reg = <0x7 0x02280000 0x0 0xcd00>, <0x7 0x0228cd00 0x0 0x3200>;
-@@ -180,6 +288,98 @@ DIE_NODE(atcphy0): phy@703000000 {
- 		power-domains = <&DIE_NODE(ps_atc0_usb)>;
- 	};
- 
-+	DIE_NODE(usb4_1_mbox): mailbox@b01108000 {
-+		compatible = "apple,t6020-asc-mailbox",
-+			"apple,asc-mailbox-v4";
-+		reg = <0xb 0x01108000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ DIE_NO 826 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 827 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 828 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 829 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "send-empty", "send-not-empty",
-+			"recv-empty", "recv-not-empty";
-+		#mbox-cells = <0>;
-+	};
-+
-+	DIE_NODE(usb4_1_acio): cio@b01ac0000 {
-+		compatible = "apple,t6020-usb4-acio", "apple,t8103-usb4-acio";
-+		reg = <0xb 0x01ac0000 0x0 0xc000>,
-+			<0xb 0x01080000 0x0 0x20000>;
-+		reg-names = "rc", "sram";
-+
-+		mboxes = <&DIE_NODE(usb4_1_mbox)>;
-+		resets = <&DIE_NODE(cio_reset) 1>;
-+
-+		power-domains = <&DIE_NODE(ps_atc1_cio)>,
-+				<&DIE_NODE(ps_atc1_cio_pcie)>,
-+				<&DIE_NODE(ps_atc1_cio_usb)>;
-+
-+		thunderbolt-switch;
-+
-+		pinctrl-0 = <&DIE_NODE(acio1_pins)>;
-+		pinctrl-names = "default";
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0x0 0xb 0x01000000 0x1000000>;
-+		nonposted-mmio;
-+
-+		DIE_NODE(usb4_1_dart): iommu@a80000 {
-+			compatible = "apple,t6020-dart", "apple,t8110-dart";
-+			reg = <0xa80000 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1435 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <5>;
-+		};
-+
-+		DIE_NODE(usb4_1_nhi): nhi@f00000 {
-+			reg = <0xf00000 0x100000>,
-+				<0xdb0000 0x30004>;
-+			reg-names = "nhi", "pdf";
-+			compatible = "apple,t6020-usb4-nhi",
-+				"apple,t8103-usb4-nhi";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1408 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1409 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1410 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1411 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1412 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1413 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1414 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1415 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1416 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1417 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1418 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1419 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1420 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1421 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1422 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1423 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1424 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1425 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1426 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1427 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1428 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1429 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1430 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1431 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names =
-+				"txring0", "txring1", "txring2",
-+				"txring3", "txring4", "txring5",
-+				"txring6", "txring7", "txring8",
-+				"txring9", "txring10", "txring11",
-+				"rxring0", "rxring1", "rxring2",
-+				"rxring3", "rxring4", "rxring5",
-+				"rxring6", "rxring7", "rxring8",
-+				"rxring9", "rxring10", "rxring11";
-+			iommus = <&DIE_NODE(usb4_1_dart) 1 0x100 0x0 0x10 0x0>,
-+				 <&DIE_NODE(usb4_1_dart) 2 0x100 0x0 0x10 0x0>;
-+			/* To be filled by the loader */
-+			apple,thunderbolt-drom = [00];
-+		};
-+	};
-+
- 	DIE_NODE(dwc3_1): usb@b02280000 {
- 		compatible = "apple,t6020-dwc3", "apple,t8103-dwc3";
- 		reg = <0xb 0x02280000 0x0 0xcd00>, <0xb 0x0228cd00 0x0 0x3200>;
-@@ -233,6 +433,98 @@ DIE_NODE(atcphy1): phy@b03000000 {
- 		power-domains = <&DIE_NODE(ps_atc1_usb)>;
- 	};
- 
-+	DIE_NODE(usb4_2_mbox): mailbox@f01108000 {
-+		compatible = "apple,t6020-asc-mailbox",
-+			"apple,asc-mailbox-v4";
-+		reg = <0xf 0x01108000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ DIE_NO 830 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 831 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 832 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 833 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "send-empty", "send-not-empty",
-+			"recv-empty", "recv-not-empty";
-+		#mbox-cells = <0>;
-+	};
-+
-+	DIE_NODE(usb4_2_acio): cio@f01ac0000 {
-+		compatible = "apple,t6020-usb4-acio", "apple,t8103-usb4-acio";
-+		reg = <0xf 0x01ac0000 0x0 0xc000>,
-+			<0xf 0x01080000 0x0 0x20000>;
-+		reg-names = "rc", "sram";
-+
-+		mboxes = <&DIE_NODE(usb4_2_mbox)>;
-+		resets = <&DIE_NODE(cio_reset) 2>;
-+
-+		power-domains = <&DIE_NODE(ps_atc2_cio)>,
-+				<&DIE_NODE(ps_atc2_cio_pcie)>,
-+				<&DIE_NODE(ps_atc2_cio_usb)>;
-+
-+		thunderbolt-switch;
-+
-+		pinctrl-0 = <&DIE_NODE(acio2_pins)>;
-+		pinctrl-names = "default";
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0x0 0xf 0x01000000 0x1000000>;
-+		nonposted-mmio;
-+
-+		DIE_NODE(usb4_2_dart): iommu@a80000 {
-+			compatible = "apple,t6020-dart", "apple,t8110-dart";
-+			reg = <0xa80000 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1483 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <5>;
-+		};
-+
-+		DIE_NODE(usb4_2_nhi): nhi@f00000 {
-+			reg = <0xf00000 0x100000>,
-+				<0xdb0000 0x30004>;
-+			reg-names = "nhi", "pdf";
-+			compatible = "apple,t6020-usb4-nhi",
-+				"apple,t8103-usb4-nhi";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1456 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1457 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1458 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1459 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1460 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1461 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1462 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1463 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1464 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1465 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1466 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1467 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1468 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1469 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1470 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1471 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1472 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1473 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1474 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1475 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1476 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1477 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1478 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1479 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names =
-+				"txring0", "txring1", "txring2",
-+				"txring3", "txring4", "txring5",
-+				"txring6", "txring7", "txring8",
-+				"txring9", "txring10", "txring11",
-+				"rxring0", "rxring1", "rxring2",
-+				"rxring3", "rxring4", "rxring5",
-+				"rxring6", "rxring7", "rxring8",
-+				"rxring9", "rxring10", "rxring11";
-+			iommus = <&DIE_NODE(usb4_2_dart) 1 0x100 0x0 0x10 0x0>,
-+				 <&DIE_NODE(usb4_2_dart) 2 0x100 0x0 0x10 0x0>;
-+			/* To be filled by the loader */
-+			apple,thunderbolt-drom = [00];
-+		};
-+	};
-+
- 	DIE_NODE(dwc3_2): usb@f02280000 {
- 		compatible = "apple,t6020-dwc3", "apple,t8103-dwc3";
- 		reg = <0xf 0x02280000 0x0 0xcd00>, <0xf 0x0228cd00 0x0 0x3200>;
-@@ -286,6 +578,98 @@ DIE_NODE(atcphy2): phy@f03000000 {
- 		power-domains = <&DIE_NODE(ps_atc2_usb)>;
- 	};
- 
-+	DIE_NODE(usb4_3_mbox): mailbox@1301108000 {
-+		compatible = "apple,t6020-asc-mailbox",
-+			"apple,asc-mailbox-v4";
-+		reg = <0x13 0x01108000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ DIE_NO 834 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 835 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 836 IRQ_TYPE_LEVEL_HIGH>,
-+			<AIC_IRQ DIE_NO 837 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "send-empty", "send-not-empty",
-+			"recv-empty", "recv-not-empty";
-+		#mbox-cells = <0>;
-+	};
-+
-+	DIE_NODE(usb4_3_acio): cio@1301ac0000 {
-+		compatible = "apple,t6020-usb4-acio", "apple,t8103-usb4-acio";
-+		reg = <0x13 0x01ac0000 0x0 0xc000>,
-+			<0x13 0x01080000 0x0 0x20000>;
-+		reg-names = "rc", "sram";
-+
-+		mboxes = <&DIE_NODE(usb4_3_mbox)>;
-+		resets = <&DIE_NODE(cio_reset) 3>;
-+
-+		power-domains = <&DIE_NODE(ps_atc3_cio)>,
-+				<&DIE_NODE(ps_atc3_cio_pcie)>,
-+				<&DIE_NODE(ps_atc3_cio_usb)>;
-+
-+		thunderbolt-switch;
-+
-+		pinctrl-0 = <&DIE_NODE(acio3_pins)>;
-+		pinctrl-names = "default";
-+
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0x0 0x13 0x01000000 0x1000000>;
-+		nonposted-mmio;
-+
-+		DIE_NODE(usb4_3_dart): iommu@a80000 {
-+			compatible = "apple,t6020-dart", "apple,t8110-dart";
-+			reg = <0xa80000 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1531 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <5>;
-+		};
-+
-+		DIE_NODE(usb4_3_nhi): nhi@f00000 {
-+			reg = <0xf00000 0x100000>,
-+				<0xdb0000 0x30004>;
-+			reg-names = "nhi", "pdf";
-+			compatible = "apple,t6020-usb4-nhi",
-+				"apple,t8103-usb4-nhi";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ DIE_NO 1504 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1505 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1506 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1507 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1508 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1509 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1510 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1511 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1512 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1513 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1514 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1515 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1516 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1517 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1518 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1519 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1520 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1521 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1522 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1523 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1524 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1525 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1526 IRQ_TYPE_LEVEL_HIGH>,
-+				<AIC_IRQ DIE_NO 1527 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names =
-+				"txring0", "txring1", "txring2",
-+				"txring3", "txring4", "txring5",
-+				"txring6", "txring7", "txring8",
-+				"txring9", "txring10", "txring11",
-+				"rxring0", "rxring1", "rxring2",
-+				"rxring3", "rxring4", "rxring5",
-+				"rxring6", "rxring7", "rxring8",
-+				"rxring9", "rxring10", "rxring11";
-+			iommus = <&DIE_NODE(usb4_3_dart) 1 0x100 0x0 0x10 0x0>,
-+				 <&DIE_NODE(usb4_3_dart) 2 0x100 0x0 0x10 0x0>;
-+			/* To be filled by the loader */
-+			apple,thunderbolt-drom = [00];
-+		};
-+	};
-+
- 	DIE_NODE(dwc3_3): usb@1302280000 {
- 		compatible = "apple,t6020-dwc3", "apple,t8103-dwc3";
- 		reg = <0x13 0x02280000 0x0 0xcd00>, <0x13 0x0228cd00 0x0 0x3200>;
+ 	return tunnel;
 
 -- 
 2.55.0
