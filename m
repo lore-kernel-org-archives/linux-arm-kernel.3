@@ -4,92 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16AFC61DE1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 14:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9220DC61DE1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 14:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mK8lh0Y0gkTG7cyzXErZ1tFBC5ib3dhnp0kbqokxsD4=; b=wcu3VpxxfQaXm52g++RLbUmr0u
-	9GbF+5YLq/1AkjP1nOEpadtAe3/xry96TWTZOHBZz+AZ5kHdMHRIdOkiR8cuV1aYzmAMCoN2L1sfs
-	AlJ59C/3Jph7LGfQ0L7YpD0CQlCzQdDPIw8bPrVf3L3y4b9u/r78tSo9ywRCxK7+/S29c5esUdRPq
-	6W05gPlKCO1WIjeb8Z3kDWV2GcJYwmBvTxY7hp/EP7CsQ0WrWgms/pIEP44QkeeMchXYH4JJ2rTYb
-	kQbIWIw65yAPNIwaKZb+y0oGtTngYZNGbvD0VWfs2ZoSukk4ttsV8uBfiFgXib7ka06uoY+kEHd19
-	kuk1S4IA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EyRJWneXyGST5ftP91P38n8abGQ5FCWVH0jmO1LnEDk=; b=2RWCOJRw5Wc/ITIi4hyuiytqMi
+	cubdtL8F64qiWeTZltrBg3x/Q0edTN0mGmUw4E/bN6vCjVEC5YiIyJ2Aywk+/trvcLjf2zuyWX1dM
+	A4fXnGcbfItyE/pdHZjzhW2GJuXqROKVJsb2hp3BMZuSDQhC+UhyrdjR/94CiuBr5ZZwFhpUacRSa
+	FWrCINmKLLncY6XzpsI+2PdD/ZS0LVAuLsCGl2kD4ExiCIqUqdq4UTYFxZtLd8wiIb2dxotqDUUAu
+	gCdWZEE7ryRcIann3Kqxbxlf8nn3rFcjaVzIOC8RgRnt7mUIF5Gg6I5Ln+C/mEJLKUdzt2xRnV0oH
+	4EOd334w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0gLh-00000007mb1-1c62;
-	Sun, 30 Aug 2026 14:17:29 +0000
-Received: from email2.ecloud.global ([2a01:4f9:4b:5387::2] helo=mail2.ecloud.global)
+	id 1x0gMr-00000007mqz-0OgK;
+	Sun, 30 Aug 2026 14:18:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0gLe-00000007maH-04Aq;
-	Sun, 30 Aug 2026 14:17:27 +0000
-Received: from authenticated-user (mail2.ecloud.global [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail2.ecloud.global (Postfix) with ESMTPSA id DE3A9720B0D;
-	Sun, 30 Aug 2026 14:17:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io; s=mail2;
-	t=1788099439;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mK8lh0Y0gkTG7cyzXErZ1tFBC5ib3dhnp0kbqokxsD4=;
-	b=JUcM+mbmj9P3xVWeKNPmyF9z46+gdIhLA5k8zYF+eY5SM0U5PZHwtV/PaYfqlh5ExKUJzd
-	ucR091UQHn8DrBvjmBMvIUNv9x4DmoeyYzuqZVp2fApFrTDQ/8fKk2BuYyQxITPpuKuq3l
-	aem58g7yguytMOudai8nhwXJz8V7IQ0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=murena.io;
-	s=mail2; t=1788099439;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mK8lh0Y0gkTG7cyzXErZ1tFBC5ib3dhnp0kbqokxsD4=;
-	b=F35/nMdya4CidtmSVHlA2Ja4/UvzKQGvV5AONYnZVWcom2VJprbIWYtFOKd5kkusOjomqh
-	LcyX6meOgJ6APp+yy9qZ/KZamfxVP7aPmac9FCsZ9HmyK+HIr+1nNSqNevIelAbZsUF7t5
-	/S7x9fIweT+E4hMfuTZAEdAayAgBt60=
-ARC-Authentication-Results: i=1;
-	mail2.ecloud.global;
-	auth=pass smtp.mailfrom=maud_spierings@murena.io
-ARC-Seal: i=1; s=mail2; d=murena.io; t=1788099439; a=rsa-sha256; cv=none;
-	b=A8lcC8NI4rnAykOHFTGPCpuQ2YRvvYfUdfInx2tbQIrQCrR+g6LHLiCnahOflpl7fWbJzc
-	4zFQl5Ey7g3K/qG9h5/aSTKgu9xPtKLUpvA/rEu4Kvz8pLHvr1ISKLYwZWv+Z+me6OiK4K
-	j1ippoLoUUnmngIeM/LajMWlALXtCMI=
-Message-ID: <e780ecb8-918f-4816-99c8-b69b10b25a18@murena.io>
-Date: Sun, 30 Aug 2026 16:17:16 +0200
+	id 1x0gMq-00000007mqo-064N;
+	Sun, 30 Aug 2026 14:18:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 79BF6407CB;
+	Sun, 30 Aug 2026 14:18:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D24171F000E9;
+	Sun, 30 Aug 2026 14:18:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1788099519;
+	bh=EyRJWneXyGST5ftP91P38n8abGQ5FCWVH0jmO1LnEDk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=e0E8dMS4Bxx6ZoP1O3xpp7VtU1HVbsm3pXL5H62mIMvGZVmmhsi255/YotUwYh8a/
+	 PobwEwgtzrZ+XE3GPw+qpNaK+95ghSPbJ82a3nu3UdnXDCRqkYsYnZhYm1pNMoOjQH
+	 +ro9qZfKxx7ALxL5UgPdf48y5FQVwj+lXAMOYsZ1Jil5LrAHhhdzQ5m3qoE/VqhvHk
+	 1njeI9nsbngmX2XPt+mI8/6VVMuX/m29Py2f2Q9N9oL8cDiiAm4hPFZ7uS90Cm1kO/
+	 8QxZs5RfoBFnwD1lg9S2YZHFZ8lpd/Za9W/7qo0MNmq6o0FuEXTy63IGbrjrj5IUq3
+	 B1dU8EO/xgMsA==
+Date: Sun, 30 Aug 2026 16:18:37 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Vitaliy Sochnev <sochnev.v.74@gmail.com>
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 2/4] net: airoha: recover RX ring after hw
+ completion race
+Message-ID: <apQ7vXZHiK5qZOcc@lore-desk>
+References: <20260830095717.37218-1-sochnev.v.74@gmail.com>
+ <20260830095717.37218-3-sochnev.v.74@gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 13/15] phy: starfive: Add jh7110-inno-hdmi-phy driver
-From: Maud Spierings <maud_spierings@murena.io>
-To: m.wilczynski@samsung.com
-Cc: Laurent.pinchart@ideasonboard.com, airlied@gmail.com, alex@ghiti.fr,
- andrzej.hajda@intel.com, andy.yan@rock-chips.com, andyshrk@163.com,
- aou@eecs.berkeley.edu, bmasney@redhat.com, conor+dt@kernel.org,
- conor@kernel.org, db@domibel.de, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, hal.feng@starfivetech.com, heiko@sntech.de,
- hello@big-grey.co.uk, jernej.skrabec@gmail.com, jonas@kwiboo.se,
- kernel@esmil.dk, krzk+dt@kernel.org, lee@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
- luca.ceresoli@bootlin.com, m.szyprowski@samsung.com,
- maarten.lankhorst@linux.intel.com, maudspierings@gocontroll.com,
- mfd@lists.linux.dev, mripard@kernel.org, mturquette@baylibre.com,
- neil.armstrong@linaro.org, p.zabel@pengutronix.de, palmer@dabbelt.com,
- pjw@kernel.org, rfoss@kernel.org, robh@kernel.org, sboyd@kernel.org,
- simona@ffwll.ch, tzimmermann@suse.de, uwu@icenowy.me, vkoul@kernel.org
-References: <20260828-jh7110-clean-send-v2-13-331680c8b9d1@samsung.com>
- <0ccb4168-ff88-459c-972d-3c091c155db2@murena.io>
-Content-Language: en-US
-In-Reply-To: <0ccb4168-ff88-459c-972d-3c091c155db2@murena.io>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_071726_300204_E84098F7 
-X-CRM114-Status: GOOD (  25.43  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="y1Nj6AZQ3riJKCr8"
+Content-Disposition: inline
+In-Reply-To: <20260830095717.37218-3-sochnev.v.74@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,241 +74,370 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I was still having some glitching happening on the display, but I've 
-found the way to fix that, the question is what is actually happening here.
+--y1Nj6AZQ3riJKCr8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-With just the changes mentioned in my previous email the screen flickers 
-and is very unpleasant. After doing 2 reg writes it behaves as expected:
-   0x29590000 <- 0x00000061
-is 0x00000075 before, difference is v_REG_CLK_INV | v_REG_CLK_SOURCE_SYS 
-in drivers/gpu/drm/bridge/inno-hdmi.c, these bits always get set but 
-that seems to break this display so there must be some way to detect 
-that these should not be set: v_VCLK_NOT_INV | v_REG_CLK_SOURCE_TMDS
+Hi Vitaliy,
 
-   0x29590020 <- 0x00000005
-This one I have no idea, it is 0x00000009 with this patch series but 
-with the vendor kernel I get the value above. When I hook up my external 
-display (regular 1440p) this becomes 0x0000000D on the vendor kernel.
+this patch targets net-next tree that is closed at the moment for the merge
+window.
 
-But I can't find this register being written to anywhere there?
+> On AN7583, hardware can write a completed RX descriptor past the
+> software-posted boundary (q->head) before airoha_qdma_fill_rx_queue()
+> has actually posted a fresh buffer there, as if hardware advances its
+> own completion pointer independently of software's posting
+> bookkeeping. Since airoha_qdma_rx_process() consumes the ring strictly
+> sequentially starting at q->tail, the consumer stalls forever waiting
+> on a descriptor that hardware never writes, even though real,
+> completed frames are sitting further along in the ring. In practice
+> this is reachable during PPPoE/DHCP negotiation bursts on the small
+> shared "force to CPU" ring, and the interface silently stops receiving
+> on it.
 
-Andy, you are credited on the inno-hdmi driver, do you have a datasheet 
-that gives some further info?
+I guess we should spend more time understanding if we can avoid the problem
+instead of adding a recover mechanism.
+IIUC the practical problem stems from the small size of this RX queue where
+the airoha_qdma_fill_rx_queue() processing overwrites the RX descriptor DONE
+bit written by the hw. Is my understanding correct? If so:
+- Have you tried to just increase the queue size to check if the issue still
+  occurs?
+- Can we check QDMA_DESC_DONE_MASK bit in airoha_qdma_fill_rx_queue() and in
+  some way bail out if it is still set? (we should probably need to clear i=
+t in
+  airoha_qdma_rx_process()).
+- Is QDMA_DESC_DROP_MASK bit set when the issue occurs?
 
-kind regards,
-Maud
+>=20
+> Detect this without inspecting ring/descriptor memory content at all:
+> REG_RX_DMA_IDX is hardware's own completion counter, independent of
+> what has or hasn't been posted. If it keeps advancing across polls
+> while the software consumer (tail) does not move, hardware is making
+> progress the consumer can never observe - the ring is stuck. Idle
+> rings, where hardware isn't advancing either, are correctly left
+> alone. An earlier version of this recovery instead scanned ahead in
+> the ring for a DONE descriptor and trusted its content; that caused a
+> real OOM panic once it wandered into genuinely uninitialized DMA
+> memory that coincidentally had the DONE bit set. Comparing a hardware
+> register cannot misfire that way.
+>=20
+> Once a stall is confirmed, defer to a work item (register access here
+> can sleep) that disables RX DMA, waits for it to actually go idle,
+> resyncs the ring via the existing cleanup_rx_queue()/fill_rx_queue()
+> pair - which only ever touches the software-owned [tail, head) window
+> and rewrites both RX_CPU_IDX and RX_DMA_IDX from it - and re-enables
+> RX DMA. This deliberately drops whatever was in flight on the ring
+> rather than trying to identify and preserve the specific descriptor
+> hardware used; a prior attempt at the latter caused a page_pool
+> double-free when the assumptions about which page was safe to free
+> turned out not to hold in all cases.
+>=20
+> GLOBAL_CFG_RX_DMA_EN_MASK in REG_QDMA_GLOBAL_CFG is per-QDMA-instance,
+> not per-ring, so recovering one ring briefly pauses RX DMA on every
+> ring behind that QDMA (bounded by the 50ms busy-wait below). No
+> per-ring equivalent exists in the register map; this is the same bit
+> airoha_qdma_start()/stop() already use for whole-device up/down. Log
+> the actual measured duration of that pause alongside the recovery
+> message, rather than just citing the 50ms read_poll_timeout() upper
+> bound: that's the real cost paid by every other ring on the same QDMA
+> instance each time recovery fires, and it's worth having the real
+> number instead of the theoretical ceiling.
 
-On 8/29/26 20:54, Maud Spierings wrote:
-> Hi Michal,
-> 
-> Small request for an eventual v3
-> 
->> Add the HDMI PHY driver for the StarFive JH7110.
->>
->> This driver binds to the starfive,jh7110-inno-hdmi-phy node and
->> gets its regmap from the parent. It has no dependencies on voutcrg, only
->> on its refoclk (xin24m), which breaks the probe-time circular
->> dependency.
->>
->> This driver provides two main functions:
->>  - Clock Provider: It registers clk_ops to provide the variable pixel
->>    clock (hdmi_pclk). The .set_rate operation configures the Pre-PLL
->>    registers (0x1a0+) based on the requested rate.
->>
->>  - PHY Provider: It registers phy_ops for the controller. The .power_on
->>    op configures and enables the Post-PLL and other analog blocks (BIAS,
->>    LDO, Serializer, etc.).
->>
->> The JH7110 instantiates the same Innosilicon IP as the Rockchip RK3328,
->> with the PHY register block shifted by 0x100 because it sits behind the
->> HDMI controller in the shared register space. The pre-PLL programming
->> therefore comes from the common Innosilicon helpers; this driver adds
->> the JH7110 pixel clock table, the post-PLL and the analog configuration.
->>
->> Co-developed-by: Dominique Belhachemi <db@domibel.de>
->> Signed-off-by: Dominique Belhachemi <db@domibel.de>
->> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
->> ---
->>  drivers/phy/starfive/Kconfig                |  20 +
->>  drivers/phy/starfive/Makefile               |   1 +
->>  drivers/phy/starfive/phy-jh7110-inno-hdmi.c | 567 +++++++++++++++++++ 
->> +++++++++
->>  3 files changed, 588 insertions(+)
->>
-> 
-> [snip]
-> 
->> +
->> +static const struct inno_hdmi_phy_pre_pll_config pre_pll_cfg_table[] = {
->> +    { 25175000, 25175000, 1, 100, 2, 3, 3, 12, 3, 3, 4, 0, 0xF55555 },
->> +    { 25200000, 25200000, 1, 100, 2, 3, 3, 12, 3, 3, 4, 0, 0 },
->> +    { 27000000, 27000000, 1, 90, 3, 2, 2, 10, 3, 3, 4, 0, 0 },
->> +    { 27027000, 27027000, 1, 90, 3, 2, 2, 10, 3, 3, 4, 0, 0x170A3D },
->> +    { 28320000, 28320000, 1, 28, 2, 1, 1, 3, 0, 3, 4, 0, 0x51EB85 },
->> +    { 30240000, 30240000, 1, 30, 2, 1, 1, 3, 0, 3, 4, 0, 0x3D70A3 },
->> +    { 31500000, 31500000, 1, 31, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->> +    { 33750000, 33750000, 1, 33, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
->> +    { 36000000, 36000000, 1, 36, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 40000000, 40000000, 1, 80, 2, 2, 2, 12, 2, 2, 2, 0, 0 },
->> +    { 46970000, 46970000, 1, 46, 2, 1, 1, 3, 0, 3, 4, 0, 0xF851EB },
->> +    { 49500000, 49500000, 1, 49, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->> +    { 49000000, 49000000, 1, 49, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 50000000, 50000000, 1, 50, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 54000000, 54000000, 1, 54, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 54054000, 54054000, 1, 54, 2, 1, 1, 3, 0, 3, 4, 0, 0x0DD2F1 },
->> +    { 57284000, 57284000, 1, 57, 2, 1, 1, 3, 0, 3, 4, 0, 0x48B439 },
->> +    { 58230000, 58230000, 1, 58, 2, 1, 1, 3, 0, 3, 4, 0, 0x3AE147 },
->> +    { 59341000, 59341000, 1, 59, 2, 1, 1, 3, 0, 3, 4, 0, 0x574BC6 },
->> +    { 59400000, 59400000, 1, 99, 3, 1, 1, 1, 3, 3, 4, 0, 0 },
->> +    { 65000000, 65000000, 1, 130, 2, 2, 2, 12, 0, 2, 2, 0, 0 },
->> +    { 68250000, 68250000, 1, 68, 2, 1, 1, 3, 0, 3, 4, 0, 0x3FFFFF },
->> +    { 71000000, 71000000, 1, 71, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 74176000, 74176000, 1, 98, 1, 2, 2, 1, 2, 3, 4, 0, 0xE6AE6B },
->> +    { 74250000, 74250000, 1, 99, 1, 2, 2, 1, 2, 3, 4, 0, 0 },
->> +    { 75000000, 75000000, 1, 75, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 78750000, 78750000, 1, 78, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
->> +    { 79500000, 79500000, 1, 79, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->> +    { 83500000, 83500000, 2, 167, 2, 1, 1, 1, 0, 0, 6, 0, 0 },
->> +    { 83500000, 104375000, 1, 104, 2, 1, 1, 1, 1, 0, 5, 0, 0x600000 },
->> +    { 85500000, 85500000, 1, 85, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->> +    { 85750000, 85750000, 1, 85, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
->> +    { 85800000, 85800000, 1, 85, 2, 1, 1, 3, 0, 3, 4, 0, 0xCCCCCC },
->> +    { 88750000, 88750000, 1, 88, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
->> +    { 89910000, 89910000, 1, 89, 2, 1, 1, 3, 0, 3, 4, 0, 0xE8F5C1 },
->> +    { 90000000, 90000000, 1, 90, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 101000000, 101000000, 1, 101, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 102250000, 102250000, 1, 102, 2, 1, 1, 3, 0, 3, 4, 0, 0x3FFFFF },
->> +    { 106500000, 106500000, 1, 106, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->> +    { 108000000, 108000000, 1, 90, 3, 0, 0, 5, 0, 2, 2, 0, 0 },
->> +    { 119000000, 119000000, 1, 119, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 131481000, 131481000, 1, 131, 2, 1, 1, 3, 0, 3, 4, 0, 0x7B22D1 },
->> +    { 135000000, 135000000, 1, 135, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 136750000, 136750000, 1, 136, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
->> +    { 147180000, 147180000, 1, 147, 2, 1, 1, 3, 0, 3, 4, 0, 0x2E147A },
->> +    { 148352000, 148352000, 1, 98, 1, 1, 1, 1, 2, 2, 2, 0, 0xE6AE6B },
->> +    { 148500000, 148500000, 1, 99, 1, 1, 1, 1, 2, 2, 2, 0, 0 },
->> +    { 154000000, 154000000, 1, 154, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 156000000, 156000000, 1, 156, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 157000000, 157000000, 1, 157, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 162000000, 162000000, 1, 162, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
->> +    { 174250000, 174250000, 1, 145, 3, 0, 0, 5, 0, 2, 2, 0, 0x355555 },
->> +    { 174500000, 174500000, 1, 174, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->> +    { 174570000, 174570000, 1, 174, 2, 1, 1, 3, 0, 3, 4, 0, 0x91EB84 },
->> +    { 175500000, 175500000, 1, 175, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->> +    { 185590000, 185590000, 1, 185, 2, 1, 1, 3, 0, 3, 4, 0, 0x970A3C },
->> +    { 187000000, 187000000, 1, 187, 2, 1, 1, 3, 0, 3, 4, 0, 0 },
-> 
-> add:
-> { 235690000, 235690000, 1, 235, 2, 1, 1, 3, 0, 3, 4, 0, 0xB0A3D6},
-> 
-> This matches one of the framework 13 displays (fml13v01 board)
-> 
-> source: [1]
-> 
-> edid:
-> 
-> edid-decode (hex):
-> 
-> 00 ff ff ff ff ff ff 00 09 e5 5f 09 00 00 00 00
-> 17 1d 01 03 80 1c 13 78 02 de 50 a3 54 4c 99 26
-> 0f 50 54 00 00 00 01 01 01 01 01 01 01 01 01 01
-> 01 01 01 01 01 01 11 5c d0 18 81 e0 2d 50 30 20
-> 36 00 1d be 10 00 00 1a a7 49 d0 18 81 e0 2d 50
-> 30 20 36 00 1d be 10 00 00 1a 00 00 00 fe 00 42
-> 4f 45 20 43 51 0a 20 20 20 20 20 20 00 00 00 fe
-> 00 4e 45 31 33 35 46 42 4d 2d 4e 34 31 0a 01 21
-> 
-> 02 03 19 c1 44 83 10 02 01 23 09 07 07 83 01 00
-> 00 67 03 0c 00 10 00 00 44 11 5c d0 18 81 e0 2d
-> 50 30 20 36 00 1d be 10 00 00 1a 00 00 00 00 00
-> 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-> 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-> 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-> 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-> 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01
-> 
-> ----------------
-> 
-> Block 0, Base EDID:
->    EDID Structure Version & Revision: 1.3
->    Vendor & Product Identification:
->      Manufacturer: BOE
->      Model: 2399
->      Made in: week 23 of 2019
->    Basic Display Parameters & Features:
->      Digital display
->      Maximum image size: 28 cm x 19 cm
->      Gamma: 2.20
->      Monochrome or grayscale display
->      First detailed timing is the preferred timing
->    Color Characteristics:
->      Red  : 0.6396, 0.3291
->      Green: 0.2998, 0.5996
->      Blue : 0.1494, 0.0595
->      White: 0.3125, 0.3281
->    Established Timings I & II: none
->    Standard Timings: none
->    Detailed Timing Descriptors:
->      DTD 1:  2256x1504   59.998513 Hz   3:2     92.938 kHz    235.690000 
-> MHz (285 mm x 190 mm)
->                   Hfront   48 Hsync  32 Hback  200 Hpol P
->                   Vfront    3 Vsync   6 Vback   36 Vpol N
->      DTD 2:  2256x1504   47.998302 Hz   3:2     74.349 kHz    188.550000 
-> MHz (285 mm x 190 mm)
->                   Hfront   48 Hsync  32 Hback  200 Hpol P
->                   Vfront    3 Vsync   6 Vback   36 Vpol N
->      Alphanumeric Data String: 'BOE CQ'
->      Alphanumeric Data String: 'NE135FBM-N41'
->    Extension blocks: 1
-> Checksum: 0x21
-> 
-> ----------------
-> 
-> Block 1, CTA-861 Extension Block:
->    Revision: 3
->    Underscans IT Video Formats by default
->    Basic audio support
->    Native detailed modes: 1
->    Video Data Block:
->      VIC   3:   720x480    59.940060 Hz  16:9     31.469 kHz 27.000000 
-> MHz (native)
->      VIC  16:  1920x1080   60.000000 Hz  16:9     67.500 kHz 148.500000 MHz
->      VIC   2:   720x480    59.940060 Hz   4:3     31.469 kHz 27.000000 MHz
->      VIC   1:   640x480    59.940476 Hz   4:3     31.469 kHz 25.175000 MHz
->    Audio Data Block:
->      Linear PCM:
->        Max channels: 2
->        Supported sample rates (kHz): 48 44.1 32
->        Supported sample sizes (bits): 24 20 16
->    Speaker Allocation Data Block:
->      FL/FR - Front Left/Right
->    Vendor-Specific Data Block (HDMI), OUI 00-0C-03:
->      Source physical address: 1.0.0.0
->      Maximum TMDS clock: 340 MHz
->    Detailed Timing Descriptors:
->      DTD 3:  2256x1504   59.998513 Hz   3:2     92.938 kHz    235.690000 
-> MHz (285 mm x 190 mm)
->                   Hfront   48 Hsync  32 Hback  200 Hpol P
->                   Vfront    3 Vsync   6 Vback   36 Vpol N
-> Checksum: 0x01  Unused space in Extension Block: 84 bytes
-> 
-> 
->> +    { 241500000, 241500000, 1, 161, 1, 1, 1, 4, 0, 2, 2, 0, 0 },
->> +    { 241700000, 241700000, 1, 241, 2, 1, 1, 3, 0, 3, 4, 0, 0xB33332 },
->> +    { 262750000, 262750000, 1, 262, 2, 1, 1, 3, 0, 3, 4, 0, 0xCFFFFF },
->> +    { 296500000, 296500000, 1, 296, 2, 1, 1, 3, 0, 3, 4, 0, 0x7FFFFF },
->> +    { 296703000, 296703000, 1, 98, 0, 1, 1, 1, 0, 2, 2, 0, 0xE6AE6B },
->> +    { 297000000, 297000000, 1, 99, 0, 1, 1, 1, 0, 2, 2, 0, 0 },
->> +    { 594000000, 594000000, 1, 99, 0, 2, 0, 1, 0, 1, 1, 0, 0 },
->> +    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
->> +};
->> +
-> 
-> kind regards,
-> Maud
-> 
-> [1]: https://github.com/DC-DeepComputing/fml13v01-linux/ 
-> blob/97c64fe2832b6826914b6da7aa4febcdd4d3d444/drivers/gpu/drm/ 
-> verisilicon/inno_hdmi.c#L112
+We should try to avoid it
 
+>=20
+> One cost worth calling out explicitly: airoha_qdma_rx_check_stall()
+> adds an uncached MMIO read of RX_DMA_IDX on the RX path, once per
+> airoha_qdma_rx_process() call that ends via the non-DONE break - i.e.
+> essentially every poll, on every ring, even though the condition it
+> detects is rare and specific to one ring. Gating the read on whether
+> the *previous* poll for this ring also reaped zero descriptors would
+> keep it off rings that are actively receiving, and I traced that
+> through for correctness: once the race actually happens, q->tail
+> freezes permanently (consumption here is strictly sequential), so
+> `done` is 0 on every poll after that point, not just some - the gate
+> would only cost about one extra poll before AIROHA_RX_STALL_THRESHOLD
+> is reached, not a suppression or false-negative risk. I haven't
+> implemented that gating here for lack of profiling data justifying the
+> added per-queue state against the (also unmeasured) cost of the
+> current unconditional read; happy to add it if it turns out to matter
+> in practice.
+>=20
+> Fixes: 23290c7bc190 ("net: airoha: Introduce Airoha NPU support")
+> Signed-off-by: Vitaliy Sochnev <sochnev.v.74@gmail.com>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c | 135 ++++++++++++++++++++++-
+>  drivers/net/ethernet/airoha/airoha_eth.h |  16 +++
+>  2 files changed, 150 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index a3e5aaeb75b3..b53fe5b17653 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -3,12 +3,14 @@
+>   * Copyright (c) 2024 AIROHA Inc
+>   * Author: Lorenzo Bianconi <lorenzo@kernel.org>
+>   */
+> +#include <linux/ktime.h>
+>  #include <linux/of.h>
+>  #include <linux/of_net.h>
+>  #include <linux/of_reserved_mem.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/tcp.h>
+>  #include <linux/u64_stats_sync.h>
+> +#include <linux/workqueue.h>
+>  #include <net/dst_metadata.h>
+>  #include <net/page_pool/helpers.h>
+>  #include <net/pkt_cls.h>
+> @@ -657,6 +659,47 @@ airoha_qdma_get_gdm_dev(struct airoha_eth *eth, stru=
+ct airoha_qdma_desc *desc)
+>  	return port->devs[d] ? port->devs[d] : ERR_PTR(-ENODEV);
+>  }
+> =20
+> +/* number of consecutive polls where hw completion (RX_DMA_IDX) advances
+> + * while the sw consumer (tail) doesn't, before declaring the ring stuck
+> + */
+> +#define AIROHA_RX_STALL_THRESHOLD	3
+> +
+> +/* Detect an RX ring where hw's own completion pointer (RX_DMA_IDX) keeps
+> + * moving while the sw consumer (q->tail) doesn't - i.e. hw has written
+> + * further descriptors somewhere in the ring, but the strictly sequential
+> + * consumer can never reach them because the one at q->head, which it is
+> + * waiting on, was never marked DONE. This happens when hw writes a
+> + * completed descriptor past q->head before airoha_qdma_fill_rx_queue()
+> + * has posted a fresh buffer there, decoupled from sw's own posting
+> + * bookkeeping.
+> + *
+> + * Deliberately does not inspect ring/descriptor memory content to detect
+> + * this: an earlier version scanned ahead for a DONE descriptor and trus=
+ted
+> + * its content, which caused a real OOM panic after it wandered into
+> + * genuinely uninitialized DMA memory that coincidentally had the DONE b=
+it
+> + * set. RX_DMA_IDX is a hw register with a well-defined value regardless=
+ of
+> + * ring content, so this can't misfire on garbage memory, and idle rings
+> + * (no hw progress either) are naturally left alone.
+> + */
+> +static void airoha_qdma_rx_check_stall(struct airoha_queue *q)
+> +{
+> +	struct airoha_qdma *qdma =3D q->qdma;
+> +	int qid =3D q - &qdma->q_rx[0];
+> +	u32 dma_idx =3D airoha_qdma_get(qdma, REG_RX_DMA_IDX(qid),
+> +				      RX_RING_DMA_IDX_MASK);
+
+Can you please respect the RCT code style?
+
+> +
+> +	if (q->stall_tail =3D=3D q->tail && dma_idx !=3D q->stall_dma_idx) {
+> +		if (++q->stall_count >=3D AIROHA_RX_STALL_THRESHOLD &&
+> +		    !test_and_set_bit(qid, qdma->rx_recover_mask))
+> +			schedule_work(&qdma->rx_recover_work);
+> +	} else {
+> +		q->stall_count =3D 0;
+> +	}
+> +
+> +	q->stall_tail =3D q->tail;
+> +	q->stall_dma_idx =3D dma_idx;
+> +}
+> +
+>  static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+>  {
+>  	enum dma_data_direction dir =3D page_pool_get_dma_dir(q->page_pool);
+> @@ -675,8 +718,10 @@ static int airoha_qdma_rx_process(struct airoha_queu=
+e *q, int budget)
+>  		struct page *page;
+> =20
+>  		desc_ctrl =3D le32_to_cpu(READ_ONCE(desc->ctrl));
+> -		if (!(desc_ctrl & QDMA_DESC_DONE_MASK))
+> +		if (!(desc_ctrl & QDMA_DESC_DONE_MASK)) {
+> +			airoha_qdma_rx_check_stall(q);
+>  			break;
+> +		}
+> =20
+>  		dma_rmb();
+> =20
+> @@ -894,6 +939,75 @@ static void airoha_qdma_cleanup_rx_queue(struct airo=
+ha_queue *q)
+>  			FIELD_PREP(RX_RING_DMA_IDX_MASK, q->tail));
+>  }
+> =20
+> +static void airoha_qdma_rx_recover_work(struct work_struct *work)
+> +{
+> +	struct airoha_qdma *qdma =3D container_of(work, struct airoha_qdma,
+> +						 rx_recover_work);
+> +	int qid;
+> +
+> +	for_each_set_bit(qid, qdma->rx_recover_mask, AIROHA_NUM_RX_RING) {
+> +		struct airoha_queue *q =3D &qdma->q_rx[qid];
+> +		ktime_t rx_dma_off_ts;
+> +		s64 rx_dma_off_us;
+> +		u32 status;
+> +
+> +		if (!q->ndesc)
+> +			goto next;
+
+Can this really occurs?
+
+> +
+> +		napi_disable(&q->napi);
+> +
+> +		/* GLOBAL_CFG_RX_DMA_EN_MASK is per-QDMA, not per-ring, so
+> +		 * this pauses every RX ring on this QDMA instance, not just
+> +		 * the stalled one - track how long for, since that's the
+> +		 * real-world cost of recovery on unrelated rings.
+> +		 */
+> +		rx_dma_off_ts =3D ktime_get();
+> +
+> +		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
+> +				  GLOBAL_CFG_RX_DMA_EN_MASK);
+> +		if (read_poll_timeout(airoha_qdma_rr, status,
+> +				      !(status & GLOBAL_CFG_RX_DMA_BUSY_MASK),
+> +				      USEC_PER_MSEC, 50 * USEC_PER_MSEC, true,
+> +				      qdma, REG_QDMA_GLOBAL_CFG))
+> +			dev_warn(qdma->eth->dev,
+> +				 "qid=3D%d RX DMA busy timeout during recovery\n",
+> +				 qid);
+> +
+> +		/* Drop whatever is currently in flight on this ring and
+> +		 * re-arm it from a known-clean state. cleanup_rx_queue()
+> +		 * only ever touches the sw-owned [tail, head) window and
+> +		 * resyncs both RX_CPU_IDX and RX_DMA_IDX to it, which is
+> +		 * what un-wedges a ring where hw wrote past the sw head
+> +		 * without the consumer ever advancing - no need to figure
+> +		 * out which descriptor hw actually used.
+> +		 */
+> +		airoha_qdma_cleanup_rx_queue(q);
+> +		if (q->skb) {
+> +			/* discard whatever scatter-gather frame was
+> +			 * mid-assembly when the stall was hit, cleanup_rx_queue()
+> +			 * above only resyncs the ring, not this
+> +			 */
+> +			dev_kfree_skb(q->skb);
+> +			q->skb =3D NULL;
+> +		}
+> +		airoha_qdma_fill_rx_queue(q);
+> +
+> +		airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
+> +				GLOBAL_CFG_RX_DMA_EN_MASK);
+> +		rx_dma_off_us =3D ktime_us_delta(ktime_get(), rx_dma_off_ts);
+
+Is this delta time really meaningful or is it just for debugging?
+
+> +
+> +		q->stall_count =3D 0;
+> +		napi_enable(&q->napi);
+> +		napi_schedule(&q->napi);
+> +
+> +		dev_warn_ratelimited(qdma->eth->dev,
+> +				     "qid=3D%d RX ring recovered after hw stall (RX DMA paused for %=
+lld us on this QDMA instance)\n",
+> +				     qid, rx_dma_off_us);
+> +next:
+> +		clear_bit(qid, qdma->rx_recover_mask);
+> +	}
+> +}
+> +
+>  static int airoha_qdma_init_rx(struct airoha_qdma *qdma)
+>  {
+>  	int i;
+> @@ -1594,6 +1708,8 @@ static void airoha_qdma_cleanup(struct airoha_eth *=
+eth,
+>  {
+>  	int i;
+> =20
+> +	cancel_work_sync(&qdma->rx_recover_work);
+> +
+>  	if (test_bit(DEV_STATE_INITIALIZED, &eth->state)) {
+>  		u32 status;
+> =20
+> @@ -1651,6 +1767,15 @@ static int airoha_hw_init(struct platform_device *=
+pdev,
+>  	if (err)
+>  		return err;
+> =20
+> +	/* INIT_WORK() every instance up front, before any of them can fail
+> +	 * init and jump to the error path below, since that path tears down
+> +	 * every eth->qdma[] slot unconditionally, including ones this loop
+> +	 * never reached.
+> +	 */
+> +	for (i =3D 0; i < ARRAY_SIZE(eth->qdma); i++)
+> +		INIT_WORK(&eth->qdma[i].rx_recover_work,
+> +			  airoha_qdma_rx_recover_work);
+> +
+>  	for (i =3D 0; i < ARRAY_SIZE(eth->qdma); i++) {
+>  		err =3D airoha_qdma_init(pdev, eth, &eth->qdma[i]);
+>  		if (err)
+> @@ -1699,6 +1824,14 @@ static void airoha_qdma_stop_napi(struct airoha_qd=
+ma *qdma)
+>  {
+>  	int i;
+> =20
+> +	/* Make sure rx_recover_work is neither running nor able to re-arm
+> +	 * before any napi_disable() below: it also calls napi_disable()/
+> +	 * napi_enable() on q_rx[].napi, and napi_disable() on an
+> +	 * already-disabled NAPI spins in napi_disable_locked() forever,
+> +	 * since only napi_enable() clears the state it waits on.
+> +	 */
+
+I guess we can drop this comment. AI driven?
+
+> +	disable_work_sync(&qdma->rx_recover_work);
+> +
+>  	for (i =3D 0; i < ARRAY_SIZE(qdma->q_tx_irq); i++)
+>  		napi_disable(&qdma->q_tx_irq[i].napi);
+> =20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index fa9a8edce22f..483d6b59c351 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -207,6 +207,15 @@ struct airoha_queue {
+>  	bool txq_stopped;
+>  	bool flushing;
+> =20
+> +	/* RX hw stall detection: last REG_RX_DMA_IDX/tail snapshot taken
+> +	 * whenever the head-of-line descriptor isn't DONE, and how many
+> +	 * consecutive times hw made progress (DMA_IDX moved) while the
+> +	 * consumer (tail) didn't. See airoha_qdma_rx_check_stall().
+> +	 */
+> +	u32 stall_dma_idx;
+> +	u16 stall_tail;
+> +	u8 stall_count;
+> +
+>  	struct napi_struct napi;
+>  	struct page_pool *page_pool;
+>  	struct sk_buff *skb;
+> @@ -567,6 +576,13 @@ struct airoha_qdma {
+>  	struct airoha_queue q_tx[AIROHA_NUM_TX_RING];
+>  	struct airoha_queue q_rx[AIROHA_NUM_RX_RING];
+> =20
+> +	/* recovery for RX rings whose hw completion pointer (RX_DMA_IDX)
+> +	 * keeps moving while the sw consumer is stuck; see
+> +	 * airoha_qdma_rx_check_stall() and airoha_qdma_rx_recover_work().
+> +	 */
+> +	struct work_struct rx_recover_work;
+> +	DECLARE_BITMAP(rx_recover_mask, AIROHA_NUM_RX_RING);
+> +
+>  	DECLARE_BITMAP(qos_channel_map, AIROHA_NUM_QOS_CHANNELS);
+>  };
+> =20
+> --=20
+> 2.55.0
+>=20
+
+--y1Nj6AZQ3riJKCr8
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCapQ7vQAKCRA6cBh0uS2t
+rB/4AP9P858q4JjD4X/aNgYx4KXqQ5hoVuvhBXuRihS4X2Em9AEA2YbQ6XHi1SYa
+ctWjQZFa/SPYWxEWEtYgTOnDN/6X2wU=
+=UziW
+-----END PGP SIGNATURE-----
+
+--y1Nj6AZQ3riJKCr8--
 
