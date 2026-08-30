@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D7BAC61DEB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 20:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AFCAC61DFD
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 20:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6iIJc+JZr8i9K13XntVmTSW3J5JcrFURYXAYLELlc7U=; b=TEhsGlK/sNaeeY6ACOA/hfhDXb
-	LuMis94IvAqB45/YtZ+Hh6FJi8CV76iwAKOpLkloIRpEisFES/rgRsIiknLbZ4SgZVAOHWeOl7a9M
-	M/TCacMh8gPiJJ8uuVLJbb2loEDCtMdfzjqa5HEp++HFQF8iss9dNsntJn3LXXSxszJbBKOygTAgQ
-	IuDNYHbcPSihJibuLkcRyK78nM03y0FGlxyY2YfyRS+lciMdlcfxn6YecfdHSQ0T7gTifkH4nVAny
-	lP6m10AAdytFu4ZbTDKWz+Oz4r4CgLIiFchLkpM9bxXAHn2TU5McbawqUhf0O6tVUoUypZOdXzCZ0
-	pVVzL4lA==;
+	bh=wLY5wuhqLGY5RuHWC5CV8X7X8AveFimRCSpSlHNlTyY=; b=h0ow++srWCbp94NrecAQrCmieE
+	fVQ4kyr4f1tL110YsKSOk87dKDFKDDGlnPatUAXEOOr1UnoyetZUkL+3tRVzibukgTBBdDCKldKO1
+	YXxb1ZmpQWlPoLoXLtwNkZ9q9NYIUlqqaWoqahrbyMtPzwLsOcZONrRTn8pPhijza6rMZQ12otT/y
+	QkW4LHOLWjfec2VrxkeMx7JaoqXWBZQzbYwpj+WLcYE17pgNCyNmVhZUM061fYfhr9izHfD5s7QgY
+	cIkXCX1AnU6I0qZh4+dd6PTLrLaJEHaVpA6OmiLwr/o9kSh0Sw1c77oXmSql8mKJfxqUaOYxo53P3
+	YzkW/Xfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0m1R-000000083x6-2qQQ;
-	Sun, 30 Aug 2026 20:20:57 +0000
+	id 1x0m1S-000000083xr-1ETe;
+	Sun, 30 Aug 2026 20:20:58 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0m0H-000000082pU-2HKs
+	id 1x0m0H-000000082pU-2hoK
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 30 Aug 2026 20:19:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0F0DE43F26;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A97744247;
 	Sun, 30 Aug 2026 20:19:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DB111C4AF4D;
-	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1B6ACC4AF0D;
+	Sun, 30 Aug 2026 20:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1788121184;
-	bh=yLZzvweLjoBBYhWj4yAiYhV53Thr+IzutEkoNWzH/mU=;
+	s=k20201202; t=1788121185;
+	bh=xHB2RMEIRuUC1tkqVAKS8ePWA/oE9Q+EZ66Cil6jrIA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=K5IQo6/2KjiuDg4JiKaO9StPJ7B7aoYzgwk/rfs+zrHztkVJv44jUt0USKxcf63ze
-	 cWEsQ4V/hzoVag43lvJb0mAml0DBTeZzRuND+joF38FoYz8HtG5/z0Cp0cqEQ6YSzO
-	 5WFgmHk5U591YYIo2J/W3I8JL3XX4eZnXuoorsWghsgyyWPhbLeIin47i/ZZR4zUlr
-	 AWud6SQj4rWMT82M9NxEW8Uy8IhiDoEWE4BsHLrVyAxkZkLnaTKzkm1bjNPnu01kkt
-	 oXuvDVxiMuY7UXMHOil9+5fRJZSpDx6LXxZ+EPDyyL1gjfwtXCs3t1zqenwSmW3eZQ
-	 SSXtkwv30TP0Q==
+	b=E1VRVcA6VgZyVR7mxRwJovyFbOB26LFEDoF5+AzC8IC1QXY4rVPCTPYF/PvkMtIG5
+	 5cmhwIK8In5ANSFOG3WyGBMd+NaC5TWFvc2uY5KU94Rlne/PT1nuwUqm3yEgApjqm/
+	 +8U6+FIA6Zxl+qYKSTUcxyrpm4cAXGQi96gBGyLSuVphnWTrPk3uKSL7/7xEZQV2/S
+	 1xjSADf//NjRAQnCSiktZIBFQIBZysJoIQClB3iyEeJK26Ne9e9KMVHGZGre7PdABL
+	 CEUtOgO3ZjFm9aFx2DRiDj+W6lGpI6tVtVKlP7t+qaXEYwqNmr4rs3Swu0rZi+Of/X
+	 3NUJaoA/ejp/g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C3940C61DF0;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id E4FCEC61DEB;
 	Sun, 30 Aug 2026 20:19:44 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Sun, 30 Aug 2026 22:19:33 +0200
-Subject: [PATCH 15/19] thunderbolt: Export symbols required by the Apple
- Silicon driver
+Date: Sun, 30 Aug 2026 22:19:35 +0200
+Subject: [PATCH 17/19] arm64: dts: apple: t8103: Add USB4 ACIO and NHI
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260830-b4-apple-soc-tbt-v1-15-44bc9348683c@kernel.org>
+Message-Id: <20260830-b4-apple-soc-tbt-v1-17-44bc9348683c@kernel.org>
 References: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
 In-Reply-To: <20260830-b4-apple-soc-tbt-v1-0-44bc9348683c@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -69,13 +68,13 @@ Cc: Konrad Dybcio <konradybcio@kernel.org>, linux-usb@vger.kernel.org,
  asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Sven Peter <sven@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3480; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=9328; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=yLZzvweLjoBBYhWj4yAiYhV53Thr+IzutEkoNWzH/mU=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ9aUCVGxa+/vjl/00ytg7Ty7ZUkmM0LkbPpUQ41LnwrW9
- 38NX7C7o5SFQYyLQVZMkWX7fnvTJw/fCC7ddOk9zBxWJpAhDFycAjARtxqG/6X8P3eYqC1OmNtf
- eCrcdPU+yfiVH33cd1a6Lp7p9Jztvysjw67stwyKu+ID5Z/zzDBL2H3v9amI6cwLNledCeHdH/p
- EjA8A
+ bh=xHB2RMEIRuUC1tkqVAKS8ePWA/oE9Q+EZ66Cil6jrIA=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ9aUCdFvbvIc2PQ5vnZ5mYvRznUbX1y4dfhvWQ7PBnPLi
+ NO79kp4d5SyMIhxMciKKbJs329v+uThG8Glmy69h5nDygQyhIGLUwAm0mLAyDChrUoia+GkhGOX
+ F1/+1hsobp7pZSt/yqE+5d6m0HtmdtGMDA8Upzk/XVCjL6nH9v1zUc9ymRt7xJ6urTV2zvi8JeZ
+ FPDsA
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
@@ -94,109 +93,322 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver for the ACIO host router complex on Apple Silicon SoCs can
-be built as a module and needs tb_probe() and the domain functions to
-register its NHI with the software connection manager as well as
-tb_switch_find_vse_cap(), tb_cfg_write() and tb_port_unlock() to
-configure the cable details for its co-processor and to unlock the
-lane ports. Restrict these exports to the thunderbolt_apple module to
-keep them internal to the Thunderbolt subsystem.
+Add the ACIO host router, NHI, DART and M3 mailbox nodes for both
+Type-C ports on t8103 and connect the host routers to the Type-C
+connectors.
 
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- drivers/thunderbolt/cap.c    | 2 ++
- drivers/thunderbolt/ctl.c    | 2 ++
- drivers/thunderbolt/domain.c | 2 ++
- drivers/thunderbolt/switch.c | 1 +
- drivers/thunderbolt/tb.c     | 2 ++
- 5 files changed, 9 insertions(+)
+ arch/arm64/boot/dts/apple/t8103-jxxx.dtsi |  61 ++++++++++
+ arch/arm64/boot/dts/apple/t8103.dtsi      | 188 ++++++++++++++++++++++++++++++
+ 2 files changed, 249 insertions(+)
 
-diff --git a/drivers/thunderbolt/cap.c b/drivers/thunderbolt/cap.c
-index 4ab22d5291ac..e000a53e5e75 100644
---- a/drivers/thunderbolt/cap.c
-+++ b/drivers/thunderbolt/cap.c
-@@ -6,6 +6,7 @@
-  * Copyright (C) 2018, Intel Corporation
-  */
+diff --git a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
+index 686fb1dd215d..acdefa2a0084 100644
+--- a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
+@@ -17,6 +17,10 @@ aliases {
+ 		wifi0 = &wifi0;
+ 		atcphy0 = &atcphy0;
+ 		atcphy1 = &atcphy1;
++		usb4-0-acio = &usb4_0_acio;
++		usb4-0-nhi = &usb4_0_nhi;
++		usb4-1-acio = &usb4_1_acio;
++		usb4-1-nhi = &usb4_1_nhi;
+ 	};
  
-+#include <linux/export.h>
- #include <linux/slab.h>
- #include <linux/errno.h>
+ 	chosen {
+@@ -76,6 +80,13 @@ typec0_connector_ss: endpoint {
+ 						remote-endpoint = <&atcphy0_typec_lanes>;
+ 					};
+ 				};
++
++				port@2 {
++					reg = <2>;
++					typec0_con_tbt: endpoint {
++						remote-endpoint = <&usb4_0_acio_tbt>;
++					};
++				};
+ 			};
+ 		};
+ 	};
+@@ -107,6 +118,13 @@ typec1_connector_ss: endpoint {
+ 						remote-endpoint = <&atcphy1_typec_lanes>;
+ 					};
+ 				};
++
++				port@2 {
++					reg = <2>;
++					typec1_con_tbt: endpoint {
++						remote-endpoint = <&usb4_1_acio_tbt>;
++					};
++				};
+ 			};
+ 		};
+ 	};
+@@ -198,6 +216,49 @@ atcphy1_usb3: endpoint {
+ 	};
+ };
  
-@@ -254,3 +255,4 @@ int tb_switch_find_vse_cap(struct tb_switch *sw, enum tb_switch_vse_cap vsec)
++/* USB4 */
++&usb4_0_acio {
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		/* 1: USB4 port */
++		port@1 {
++			reg = <1>;
++			usb4_0_acio_tbt: endpoint {
++				remote-endpoint = <&typec0_con_tbt>;
++			};
++		};
++
++		/* 2: unused(?) USB4 port */
++		/* 3: PCIe */
++		/* 4: USB3 */
++		/* 5: DP0 */
++		/* 6: DP1 */
++	};
++};
++
++&usb4_1_acio {
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		/* 1: USB4 port */
++		port@1 {
++			reg = <1>;
++			usb4_1_acio_tbt: endpoint {
++				remote-endpoint = <&typec1_con_tbt>;
++			};
++		};
++
++		/* 2: unused(?) USB4 port */
++		/* 3: PCIe */
++		/* 4: USB3 */
++		/* 5: DP0 */
++		/* 6: DP1 */
++	};
++};
++
+ /*
+  * Force the bus number assignments so that we can declare some of the
+  * on-board devices and properties that are populated by the bootloader
+diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
+index 5b68bf0df4e6..f83ed8da9a42 100644
+--- a/arch/arm64/boot/dts/apple/t8103.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103.dtsi
+@@ -982,6 +982,14 @@ pinctrl_aop: pinctrl@24a820000 {
+ 				     <AIC_IRQ 272 IRQ_TYPE_LEVEL_HIGH>,
+ 				     <AIC_IRQ 273 IRQ_TYPE_LEVEL_HIGH>,
+ 				     <AIC_IRQ 274 IRQ_TYPE_LEVEL_HIGH>;
++
++			acio0_pins: acio0-pins {
++				pinmux = <APPLE_PINMUX(39, 1)>;
++			};
++
++			acio1_pins: acio1-pins {
++				pinmux = <APPLE_PINMUX(41, 1)>;
++			};
+ 		};
  
- 	return -ENOENT;
- }
-+EXPORT_SYMBOL_FOR_MODULES(tb_switch_find_vse_cap, "thunderbolt_apple");
-diff --git a/drivers/thunderbolt/ctl.c b/drivers/thunderbolt/ctl.c
-index cd47b627f97b..b2a6b300e934 100644
---- a/drivers/thunderbolt/ctl.c
-+++ b/drivers/thunderbolt/ctl.c
-@@ -8,6 +8,7 @@
+ 		ans_mbox: mbox@277408000 {
+@@ -1018,6 +1026,96 @@ nvme@27bcc0000 {
+ 			resets = <&ps_ans2>;
+ 		};
  
- #include <linux/crc32.h>
- #include <linux/delay.h>
-+#include <linux/export.h>
- #include <linux/slab.h>
- #include <linux/pci.h>
- #include <linux/dmapool.h>
-@@ -1159,6 +1160,7 @@ int tb_cfg_write(struct tb_ctl *ctl, const void *buffer, u64 route, u32 port,
- 	}
- 	return res.err;
- }
-+EXPORT_SYMBOL_FOR_MODULES(tb_cfg_write, "thunderbolt_apple");
++		usb4_0_mbox: mailbox@381100000 {
++			compatible = "apple,t8103-m3-mailbox",
++				"apple,m3-mailbox-v2";
++			reg = <0x3 0x81100000 0x0 0x4000>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 812 IRQ_TYPE_LEVEL_HIGH>,
++				<AIC_IRQ 813 IRQ_TYPE_LEVEL_HIGH>,
++				<AIC_IRQ 814 IRQ_TYPE_LEVEL_HIGH>,
++				<AIC_IRQ 815 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "send-empty", "send-not-empty",
++				"recv-empty", "recv-not-empty";
++			#mbox-cells = <0>;
++		};
++
++		usb4_0_acio: cio@381ac0000 {
++			compatible = "apple,t8103-usb4-acio";
++			reg = <0x3 0x81ac0000 0x0 0xc000>,
++				<0x3 0x81080000 0x0 0x20000>;
++			reg-names = "rc", "sram";
++
++			mboxes = <&usb4_0_mbox>;
++			resets = <&cio_reset 0>;
++
++			power-domains = <&ps_atc0_cio>,
++					<&ps_atc0_cio_pcie>,
++					<&ps_atc0_cio_usb>;
++
++			thunderbolt-switch;
++
++			pinctrl-0 = <&acio0_pins>;
++			pinctrl-names = "default";
++
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges = <0x0 0x3 0x81000000 0x1000000>;
++			nonposted-mmio;
++
++			usb4_0_dart: iommu@a80000 {
++				compatible = "apple,t8103-dart";
++				reg = <0xa80000 0x4000>;
++				interrupt-parent = <&aic>;
++				interrupts = <AIC_IRQ 810 IRQ_TYPE_LEVEL_HIGH>;
++				#iommu-cells = <1>;
++			};
++
++			usb4_0_nhi: nhi@f00000 {
++				reg = <0xf00000 0x100000>,
++					<0xdb0000 0x30004>;
++				reg-names = "nhi", "pdf";
++				compatible = "apple,t8103-usb4-nhi";
++				interrupt-parent = <&aic>;
++				interrupts = <AIC_IRQ 783 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 784 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 785 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 786 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 787 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 788 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 789 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 790 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 791 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 792 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 793 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 794 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 795 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 796 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 797 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 798 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 799 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 800 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 801 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 802 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 803 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 804 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 805 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 806 IRQ_TYPE_LEVEL_HIGH>;
++				interrupt-names =
++					"txring0", "txring1", "txring2",
++					"txring3", "txring4", "txring5",
++					"txring6", "txring7", "txring8",
++					"txring9", "txring10", "txring11",
++					"rxring0", "rxring1", "rxring2",
++					"rxring3", "rxring4", "rxring5",
++					"rxring6", "rxring7", "rxring8",
++					"rxring9", "rxring10", "rxring11";
++				iommus = <&usb4_0_dart 1>;
++				/* To be filled by the loader */
++				apple,thunderbolt-drom = [00];
++			};
++		};
++
+ 		dwc3_0: usb@382280000 {
+ 			compatible = "apple,t8103-dwc3";
+ 			reg = <0x3 0x82280000 0x0 0xcd00>, <0x3 0x8228cd00 0x0 0x3200>;
+@@ -1070,6 +1168,96 @@ atcphy0: phy@383000000 {
+ 			power-domains = <&ps_atc0_usb>;
+ 		};
  
- /**
-  * tb_cfg_get_upstream_port() - get upstream port number of switch at route
-diff --git a/drivers/thunderbolt/domain.c b/drivers/thunderbolt/domain.c
-index 12c88509a54f..477a64258b87 100644
---- a/drivers/thunderbolt/domain.c
-+++ b/drivers/thunderbolt/domain.c
-@@ -490,6 +490,7 @@ int tb_domain_add(struct tb *tb, bool reset)
- 
- 	return ret;
- }
-+EXPORT_SYMBOL_FOR_MODULES(tb_domain_add, "thunderbolt_apple");
- 
- /**
-  * tb_domain_remove() - Removes and releases a domain
-@@ -514,6 +515,7 @@ void tb_domain_remove(struct tb *tb)
- 
- 	device_unregister(&tb->dev);
- }
-+EXPORT_SYMBOL_FOR_MODULES(tb_domain_remove, "thunderbolt_apple");
- 
- /**
-  * tb_domain_suspend_noirq() - Suspend a domain
-diff --git a/drivers/thunderbolt/switch.c b/drivers/thunderbolt/switch.c
-index ef267f40c103..db675e4f0bc2 100644
---- a/drivers/thunderbolt/switch.c
-+++ b/drivers/thunderbolt/switch.c
-@@ -627,6 +627,7 @@ int tb_port_unlock(struct tb_port *port)
- 		return usb4_port_unlock(port);
- 	return 0;
- }
-+EXPORT_SYMBOL_FOR_MODULES(tb_port_unlock, "thunderbolt_apple");
- 
- static int __tb_port_enable(struct tb_port *port, bool enable)
- {
-diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
-index 7ab53a30fe30..6a1f49c473eb 100644
---- a/drivers/thunderbolt/tb.c
-+++ b/drivers/thunderbolt/tb.c
-@@ -6,6 +6,7 @@
-  * Copyright (C) 2019, Intel Corporation
-  */
- 
-+#include <linux/export.h>
- #include <linux/slab.h>
- #include <linux/errno.h>
- #include <linux/delay.h>
-@@ -3442,3 +3443,4 @@ struct tb *tb_probe(struct tb_nhi *nhi)
- 
- 	return tb;
- }
-+EXPORT_SYMBOL_FOR_MODULES(tb_probe, "thunderbolt_apple");
++		usb4_1_mbox: mailbox@501100000 {
++			compatible = "apple,t8103-m3-mailbox",
++				"apple,m3-mailbox-v2";
++			reg = <0x5 0x01100000 0x0 0x4000>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 892 IRQ_TYPE_LEVEL_HIGH>,
++				<AIC_IRQ 893 IRQ_TYPE_LEVEL_HIGH>,
++				<AIC_IRQ 894 IRQ_TYPE_LEVEL_HIGH>,
++				<AIC_IRQ 895 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "send-empty", "send-not-empty",
++				"recv-empty", "recv-not-empty";
++			#mbox-cells = <0>;
++		};
++
++		usb4_1_acio: cio@501ac0000 {
++			compatible = "apple,t8103-usb4-acio";
++			reg = <0x5 0x01ac0000 0x0 0xc000>,
++				<0x5 0x01080000 0x0 0x20000>;
++			reg-names = "rc", "sram";
++
++			mboxes = <&usb4_1_mbox>;
++			resets = <&cio_reset 1>;
++
++			power-domains = <&ps_atc1_cio>,
++					<&ps_atc1_cio_pcie>,
++					<&ps_atc1_cio_usb>;
++
++			thunderbolt-switch;
++
++			pinctrl-0 = <&acio1_pins>;
++			pinctrl-names = "default";
++
++			#address-cells = <1>;
++			#size-cells = <1>;
++			ranges = <0x0 0x5 0x01000000 0x1000000>;
++			nonposted-mmio;
++
++			usb4_1_dart: iommu@a80000 {
++				compatible = "apple,t8103-dart";
++				reg = <0xa80000 0x4000>;
++				interrupt-parent = <&aic>;
++				interrupts = <AIC_IRQ 890 IRQ_TYPE_LEVEL_HIGH>;
++				#iommu-cells = <1>;
++			};
++
++			usb4_1_nhi: nhi@f00000 {
++				reg = <0xf00000 0x100000>,
++					<0xdb0000 0x30004>;
++				reg-names = "nhi", "pdf";
++				compatible = "apple,t8103-usb4-nhi";
++				interrupt-parent = <&aic>;
++				interrupts = <AIC_IRQ 863 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 864 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 865 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 866 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 867 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 868 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 869 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 870 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 871 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 872 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 873 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 874 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 875 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 876 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 877 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 878 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 879 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 880 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 881 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 882 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 883 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 884 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 885 IRQ_TYPE_LEVEL_HIGH>,
++					<AIC_IRQ 886 IRQ_TYPE_LEVEL_HIGH>;
++				interrupt-names =
++					"txring0", "txring1", "txring2",
++					"txring3", "txring4", "txring5",
++					"txring6", "txring7", "txring8",
++					"txring9", "txring10", "txring11",
++					"rxring0", "rxring1", "rxring2",
++					"rxring3", "rxring4", "rxring5",
++					"rxring6", "rxring7", "rxring8",
++					"rxring9", "rxring10", "rxring11";
++				iommus = <&usb4_1_dart 1>;
++				/* To be filled by the loader */
++				apple,thunderbolt-drom = [00];
++			};
++		};
++
+ 		dwc3_1: usb@502280000 {
+ 			compatible = "apple,t8103-dwc3";
+ 			reg = <0x5 0x02280000 0x0 0xcd00>, <0x5 0x0228cd00 0x0 0x3200>;
 
 -- 
 2.55.0
