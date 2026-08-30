@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94FEBC61DE1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 13:11:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32CDEC61DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 13:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mIqUVQQTZb/RLJKuxYntLusdXEDBGRxBp4SGnd3/Bpo=; b=SKXOyFHdYCsfE6H5hW24z8FhM1
-	3tvq2ClfwCgbwn0bEFw9v1L8f4Etq7caKbxwkp3vl247MrqufZ4b4bxLKT5yVuRji754ezlGhngMi
-	eY2UpOXTHUH0eLX+Es88czPBHPC/BUuk7yy+ZxaSx2Yk3EnMv7+QqevUX7cc7XxIT1xQB0MZH9x0c
-	dXV8M/qj+tvlJ4sWo9U2WeAKOsVSKBRyjRlzUquUY8ZPI87jt0S6KMMFsmuSgv1XTIBoRc4V9ADhg
-	L9nYV/GIKM+63jZgugXqc9lKuxzv4ZBA1O/L7esNzbD1Wi6QFef1aNjjgKWQ9m4jJAHOkVr6+U3OY
-	r59zJKXw==;
+	bh=PPviRxULCR9XobqSlLuAjKkYCfW9qjkKvl+5jP1S4pg=; b=v8CLADZaIs60sR409FkAEoi+NG
+	qzxJTA7obrqUwcRAoevAXpkT+UmCwFin0CBUbtFcahaPWkkTvkNuZhKxqxBn4m+3qfgtY+drTYesi
+	PY3Q3qqApvQ2CglDWI7jUPYkRkphWNaQUZK3ji1LZRB/572lIhRbg5QbWsFXXDnpUit69XH37usRJ
+	euDplRMi9OPv1tFQ2eTGN3yCJWtxeVnlbJwbiuixoiidQrgwqtV/iRz9+noDTxzl5LL9frSMsIb0W
+	0oJlJjGLFK7n8Se5gBgRBiOkEpLdS5tS4IRsjT12XvMxhN9pdDlB235q7gclamf5X77a6B3MeD4W9
+	qfcgVzWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0fJP-00000007jjf-0pzX;
-	Sun, 30 Aug 2026 13:11:03 +0000
+	id 1x0fLJ-00000007k4I-2jAA;
+	Sun, 30 Aug 2026 13:13:01 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0fJL-00000007jj1-3kcP;
-	Sun, 30 Aug 2026 13:11:01 +0000
+	id 1x0fLG-00000007k3d-13za
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 30 Aug 2026 13:12:59 +0000
 Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-03 (Coremail) with SMTP id rQCowACnrjzbK5Rq7N+aBg--.43594S2;
-	Sun, 30 Aug 2026 21:10:52 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowABXXDpXLJRqpeeaBg--.33442S2;
+	Sun, 30 Aug 2026 21:12:55 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Felix Fietkau <nbd@nbd.name>
+To: Olivia Mackall <olivia@selenic.com>
 Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-crypto@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] wifi: mt76: mt7615: validate MCU response lengths
-Date: Sun, 30 Aug 2026 21:10:49 +0800
-Message-ID: <20260830131049.2097-1-pengpeng@iscas.ac.cn>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] hwrng: imx-rngc: propagate clock enable errors
+Date: Sun, 30 Aug 2026 21:12:53 +0800
+Message-ID: <20260830131253.2718-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowACnrjzbK5Rq7N+aBg--.43594S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Zry7CryUJw47uF18Jry5urg_yoW5JFWxpF
-	WjgFyayr4DJrsFga10vw1ku3yaq3s3tFyaqa4DW3s5J3s5C3WrCF4F9a4Fvr1rJFZ8Cr1r
-	Jw4qqrsxuFZ0q3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+X-CM-TRANSID: rQCowABXXDpXLJRqpeeaBg--.33442S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Zry8tF45AF47JrWkWF47twb_yoW8GFy7pF
+	W5G3yF9r4DXrWUtFWDJFWxJ3ZYkw43CFWxK3y5Ka4xZFn5AF97tFySyFyvqF45ZFW0yF1a
+	qF4rJFykCas0vr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
 	9KBjDU0xBIdaVrnRJUUU9I14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
 	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
@@ -68,9 +68,8 @@ X-Coremail-Antispam: 1UD129KBjvJXoW7Zry7CryUJw47uF18Jry5urg_yoW5JFWxpF
 X-Originating-IP: [111.196.241.250]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_061100_309259_E4BE7C6A 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260830_061258_671689_78CF88A1 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,68 +84,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mt7615_mcu_parse_response() reads the common response header before
-checking its size and then consumes command-specific fields after unchecked
-skb_pull() calls. A short firmware response can therefore be read beyond
-its current extent.
+imx_rngc_probe() reads hardware registers after enabling its clock without
+checking the result, and the runtime resume callback always reports success
+after the same unchecked operation.
 
-Validate the common header and each command-specific payload before reading
-it.
+Propagate clock-enable errors before accessing the RNG and to the
+runtime-PM
+core on resume.
 
-Fixes: 0e6a29e477f3 ("mt76: mt7615: add support to read temperature from mcu")
+Fixes: 1d5449445bd0 ("hwrng: mx-rngc - add a driver for Freescale RNGC")
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- drivers/net/wireless/mediatek/mt76/mt7615/mcu.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/char/hw_random/imx-rngc.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
-index ff57ede87f717..084949dd3e94e 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
-@@ -143,18 +143,26 @@ int mt7615_mcu_parse_response(struct mt76_dev *mdev, int cmd,
- 			cmd, seq);
- 		return -ETIMEDOUT;
- 	}
-+	if (skb->len < sizeof(*rxd))
-+		return -EMSGSIZE;
+diff --git a/drivers/char/hw_random/imx-rngc.c b/drivers/char/hw_random/imx-rngc.c
+index 7693328f10564..00a21d62c79c3 100644
+--- a/drivers/char/hw_random/imx-rngc.c
++++ b/drivers/char/hw_random/imx-rngc.c
+@@ -266,7 +266,9 @@ static int __init imx_rngc_probe(struct platform_device *pdev)
+ 	if (irq < 0)
+ 		return irq;
  
- 	rxd = (struct mt7615_mcu_rxd *)skb->data;
- 	if (seq != rxd->seq)
- 		return -EAGAIN;
+-	clk_prepare_enable(rngc->clk);
++	ret = clk_prepare_enable(rngc->clk);
++	if (ret)
++		return ret;
  
- 	if (cmd == MCU_CMD(PATCH_SEM_CONTROL)) {
-+		if (skb->len < sizeof(*rxd) - 4 + sizeof(skb->data[0]))
-+			return -EMSGSIZE;
- 		skb_pull(skb, sizeof(*rxd) - 4);
- 		ret = *skb->data;
- 	} else if (cmd == MCU_EXT_CMD(THERMAL_CTRL)) {
-+		if (skb->len < sizeof(*rxd) + sizeof(__le32))
-+			return -EMSGSIZE;
- 		skb_pull(skb, sizeof(*rxd));
- 		ret = le32_to_cpu(*(__le32 *)skb->data);
- 	} else if (cmd == MCU_EXT_QUERY(RF_REG_ACCESS)) {
-+		if (skb->len < sizeof(*rxd) + 8 + sizeof(__le32))
-+			return -EMSGSIZE;
- 		skb_pull(skb, sizeof(*rxd));
- 		ret = le32_to_cpu(*(__le32 *)&skb->data[8]);
- 	} else if (cmd == MCU_UNI_CMD(DEV_INFO_UPDATE) ||
-@@ -165,12 +173,16 @@ int mt7615_mcu_parse_response(struct mt76_dev *mdev, int cmd,
- 		   cmd == MCU_UNI_CMD(SUSPEND)) {
- 		struct mt76_connac_mcu_uni_event *event;
+ 	ver_id = readl(rngc->base + RNGC_VER_ID);
+ 	rng_type = FIELD_GET(RNG_TYPE, ver_id);
+@@ -338,9 +340,7 @@ static int imx_rngc_resume(struct device *dev)
+ {
+ 	struct imx_rngc *rngc = dev_get_drvdata(dev);
  
-+		if (skb->len < sizeof(*rxd) + sizeof(*event))
-+			return -EMSGSIZE;
- 		skb_pull(skb, sizeof(*rxd));
- 		event = (struct mt76_connac_mcu_uni_event *)skb->data;
- 		ret = le32_to_cpu(event->status);
- 	} else if (cmd == MCU_CE_QUERY(REG_READ)) {
- 		struct mt76_connac_mcu_reg_event *event;
+-	clk_prepare_enable(rngc->clk);
+-
+-	return 0;
++	return clk_prepare_enable(rngc->clk);
+ }
  
-+		if (skb->len < sizeof(*rxd) + sizeof(*event))
-+			return -EMSGSIZE;
- 		skb_pull(skb, sizeof(*rxd));
- 		event = (struct mt76_connac_mcu_reg_event *)skb->data;
- 		ret = (int)le32_to_cpu(event->val);
+ static const struct dev_pm_ops imx_rngc_pm_ops = {
 
 base-commit: 08dbfad3f5040f5bdb6c529da20d6d4e81fefd72
 -- 
