@@ -4,93 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD949C61DB9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 11:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD55DC61DB9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 12:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8qAd5YEg8CKVaHSzqWSzab/y49rCvJcw+Xu2rn/DgAc=; b=lbyaDNhAhl/oKwPFb4qX8iCriN
-	cnFvMjM9XSmxvqILsxeJiH84bHObAjbZXgB31xL/+dnIeJJe5ac6/GGIAbzNU8XvdZcbqiisYo4Wg
-	n6+Fr72dgCJbbbZW5tENeGND8Q0tlyHrmKbc0a1tIuAPzxW6hzwMuD0VATfVQbg0BQuNyAQ1pFrd1
-	kFLOvG4ybxYlRsgdGb1g3T+8Ky5EJjYzo7kfJTXr2LWpvizHqQEu8svTv6M78j5tggeozSrMlKNN8
-	B0QYeadaB3IMqWlHEKwdOeOE+sT/+etGanq83UZUiXogpsm6LuvcPTFDcLa4LXZ/2CHWBOs8l7KEh
-	L9UX0kfA==;
+	bh=ub791A4BOmeMS2MciMpwB8pjEJE56jW4Bbfb4aufBFQ=; b=yRGOjvsHsyCzcgn4cES9HdEmbA
+	w9gw6LfQDqW3HQ4DDOeB7q/nmnVaQdkoq/E5CnMwx3tZ+54COjDiTEmnEDrhLFz+LVMlT+LCL6+FT
+	9vWOpSr1yvdxoVgtuqkSihZHzEJVk9kXMBba4PrOi/V6ibiCQoH63ELO03sHf7vVTx5/pO/gdXr40
+	DpSvJMCWrEtACoyDKpyDxE/M3k0f4MuhSnnp9bqYOxQEYBTx2TpUGIOEX+mQjajPCNjQbp3s3pKHp
+	Llne3++L5y17WU3UkzBG2EqvGk2b8OUyxUB0Ivlb0VS42SqffuUG3CP7GZGzAlZdYoDEPWO0RfPym
+	0NaDUNXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0dXR-00000007gDK-0w3E;
-	Sun, 30 Aug 2026 11:17:25 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1x0eMd-00000007hNY-0QhI;
+	Sun, 30 Aug 2026 12:10:19 +0000
+Received: from mail-m155101.qiye.163.com ([101.71.155.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0dXN-00000007gCO-3qeq
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Aug 2026 11:17:23 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c254fd518efso30203666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 04:17:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788088639; x=1788693439; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8qAd5YEg8CKVaHSzqWSzab/y49rCvJcw+Xu2rn/DgAc=;
-        b=hVpuwYovnjOIphvaA5gSTIODkYO//cVAyM9iK9oFN18kRJU9KAU3bolEnxEcKsYaUa
-         7xhQ1bAPC6z7SGhxWmQiwdaGVitemiN8Ot12yutE9iNNOjYYMcguvMt3yDrMh+/76mCd
-         XhqBWAoAsa7iXzf8YTge6RxPLNwT3UrtSEVU8EhsEc3rcdFo0IFC/rDwsDJQGnbqPJmZ
-         YAdvfRrKCu1qo9ZU54B1C4BZ6SUdDVL79DLbzpJrcN+T7SWXsCrhStjBCvUAKrfewFyy
-         UoSkemc1aq/cc2YCFewT7SQwv36ldiPuKkYzAjURfBhNrlzVjbd9KsuT8WBsK9hWTeFM
-         HBTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788088639; x=1788693439;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8qAd5YEg8CKVaHSzqWSzab/y49rCvJcw+Xu2rn/DgAc=;
-        b=l3njYwK/VqsvU05mmwHTyGN21yGQnuZ9c2a6FXDe61HngKsqHQ+NzpYJJBzm5A0iOp
-         KN26oA3D+ec7nzjpyplstJVh/cNZ6MdjWTex0/OZKfapU3/F9SttDYIB9pOkmdEigVZ4
-         37Rtlx3O2Z6ycYQlGlXz7OMkAozOJ4scYtKLYRjajgptSY41faOQF6C3avBOpHMMa/+K
-         /YEClINut5VBfYL5IFAnhLdJeA8veF6de+fqc/3d4l48pq3VDIDR3vbp6c2ix0LjQJXt
-         MWxRICBE+M2xUjSuisMsDwUXwtKKB55YTZ00VRCjqelr0aLMP2TmpMt9n6yqbS9tAOp0
-         sgew==
-X-Gm-Message-State: AFuF++kVNv51j/RvmRVJING/L06M/YDljAt2cZ6J3dDqCtUW31UQrBxq
-	PtBitLH25p9tW/UbYhlGT2TUDgLUTHVbq9fiF7TwNbL59cB6yM6zIpYr
-X-Gm-Gg: AYBFou3N0Qm2/nV9wnvaWFJ08hbKs3VcCSlppavagLxvxWoRAeExcfCCzpfI1B9tdsK
-	0E4D0T5AHHi9o6p+ai3hi4fiZ6dRh5ZiHWYpmOVmgEWBG161++ZBKbOoCFqYTZtlbXKey2nQZku
-	Q15ZVND1rzJZkwkRgxD/q8PGz0No3RTYmf4TZguU5eAZeH1xUr99S6GBzwhr2XKwijbctPMx7EO
-	EbFcwlkWgpPadzrN2knqtodRrznuzGllfrAJPzmJcxrTF5M0WTg28MeSXocccvRRfFc4UxMBMl/
-	Ou6WN0s0kDHVnUoWfH/Lnd17gn69DJnT5ECWiEXxJIhArNHTQsPD/MFFrKRPk58xlLMOgyQG8aZ
-	qc/5JBwDUyJ6ITCcBICAPZ5DrmY2ee7tIZNwddSBgW+p5s/WqoBCVeTV+sZK1Tku73Ye2hIyKkx
-	dM8GKIRYnK0894+IR7i/meFQEGchU1yNL5AdHOLpyOHwQ7jRZbXFddDRO8jZTYZJY59R/sdSYCf
-	oXuA2fXNNgg5AsUUpwK0XBMY50=
-X-Received: by 2002:a05:6402:43c6:b0:6a0:d411:930d with SMTP id 4fb4d7f45d1cf-6a60d36c8ddmr5293719a12.2.1788088639174;
-        Sun, 30 Aug 2026 04:17:19 -0700 (PDT)
-Received: from ?IPV6:2a02:a449:4071:0:32d0:42ff:fe10:6983? ([2a02:a449:4071:0:32d0:42ff:fe10:6983])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a611c38e82sm2188922a12.19.2026.08.30.04.17.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 30 Aug 2026 04:17:17 -0700 (PDT)
-Message-ID: <545b78a0-159b-4ebd-9e2a-47d519c98bf9@gmail.com>
-Date: Sun, 30 Aug 2026 13:17:15 +0200
+	id 1x0eMZ-00000007hMx-0Hyj;
+	Sun, 30 Aug 2026 12:10:17 +0000
+Received: from PC-202605011814.localdomain (unknown [58.241.16.34])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4bd6507d3;
+	Sun, 30 Aug 2026 20:10:01 +0800 (GMT+08:00)
+From: Runyu Xiao <runyu.xiao@seu.edu.cn>
+To: sean.wang@mediatek.com
+Cc: vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	runyu.xiao@seu.edu.cn,
+	jianhao.xu@seu.edu.cn,
+	stable@vger.kernel.org
+Subject: [PATCH v2] dmaengine: mediatek: initialize tasklets before requesting IRQs
+Date: Sun, 30 Aug 2026 20:09:55 +0800
+Message-Id: <20260830120955.2638359-1-runyu.xiao@seu.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260830060422.2204459-1-runyu.xiao@seu.edu.cn>
+References: <20260830060422.2204459-1-runyu.xiao@seu.edu.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: rockchip: smp: enable CPU1 for rk3066a
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, =?UTF-8?Q?H=C3=BCseyin_BIYIK?=
- <boogiepop@gmx.com>
-References: <20260829-cpu-v1-1-33dca576db92@gmail.com>
- <2667576.VLH7GnMWUR@diego>
-Content-Language: en-US, ar-EG
-From: Johan Jonker <jbx6244@gmail.com>
-In-Reply-To: <2667576.VLH7GnMWUR@diego>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa05293a01a03a1kunm00237a53fe57a
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZGRkaVhgaSEgeQxlKGUsYGVYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlOQ1VJT0pVSk1VSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
+	xVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=g4PcaCLHNFM/ofzTYLkAFaUzdqz5oSmW7Y5jjy+t+ZWUo4lJmovp7c42xQxrbNHyaKJUfEm/MPFT+prv4tt2MJeMVY0eQhKaJ0hLABBXsePs/2DV5ulud0fkp+H4Eg8TlHQoKcN4jrc0OpQ/DmmJapceIHSbuWiFYPdegKzpmEA=; s=default; c=relaxed/relaxed; d=seu.edu.cn; v=1;
+	bh=ub791A4BOmeMS2MciMpwB8pjEJE56jW4Bbfb4aufBFQ=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_041721_973036_EE8B7FD6 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20260830_051015_800941_8B87A239 
+X-CRM114-Status: GOOD (  14.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,100 +77,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The CQDMA probe registers each physical-channel IRQ before initializing
+the tasklet scheduled by the interrupt handler. A pending interrupt can
+access an uninitialized physical channel or schedule an uninitialized
+tasklet while probe is still running.
 
-On 8/29/26 23:59, Heiko Stübner wrote:
-> Am Samstag, 29. August 2026, 01:40:57 Mitteleuropäische Sommerzeit schrieb Johan Jonker via B4 Relay:
->> From: Hüseyin BIYIK <boogiepop@gmx.com>
->>
->> RK3066a CPU1 fails to come online. Fix by using
->> a similar mailbox construction as in use with
->> other Rockchip SoCs.
-> 
+Initialize all physical channels, including their tasklets, before
+registering any IRQ.
 
-> "RK3066 CPU1 fails to come online with recent kernels....[rest]" or so
+On probe failure, unwind every requested IRQ and initialized tasklet
+before devres releases the physical-channel and virtual-channel objects.
+Also release the OF DMA controller when hardware initialization fails
+after registration.
 
-Not recent..
+Fixes: b1f01e48df5a ("dmaengine: Add MediaTek Command-Queue DMA controller for MT6765 SoC")
+Cc: stable@vger.kernel.org
+Link: https://lore.kernel.org/all/20260830060422.2204459-1-runyu.xiao@seu.edu.cn/
+Assisted-by: Codex:GPT-5
+Signed-off-by: Runyu Xiao <runyu.xiao@seu.edu.cn>
 
-> and also please use the line length up a resonable length like around 70> to 75 characters.
-> 
-> Also, is it known, why that happens - i.e. what changed?
+---
+v2:
+- Initialize all physical channels before registering any IRQ, since the
+  interrupt handler scans all channels.
+- Disable requested IRQs before killing physical- and virtual-channel
+  tasklets, then free the IRQs on every probe error path before devres
+  releases channel state.
+- Release the OF DMA controller when hardware initialization fails.
+---
+ drivers/dma/mediatek/mtk-cqdma.c | 59 +++++++++++++++++++++++---------
+ 1 file changed, 43 insertions(+), 16 deletions(-)
 
+diff --git a/drivers/dma/mediatek/mtk-cqdma.c b/drivers/dma/mediatek/mtk-cqdma.c
+index 80791e30a..741b6325c 100644
+--- a/drivers/dma/mediatek/mtk-cqdma.c
++++ b/drivers/dma/mediatek/mtk-cqdma.c
+@@ -749,7 +749,7 @@ static int mtk_cqdma_probe(struct platform_device *pdev)
+ 	struct mtk_cqdma_vchan *vc;
+ 	struct dma_device *dd;
+ 	int err;
+-	u32 i;
++	u32 i, nr_tasklets = 0, nr_irqs = 0;
+ 
+ 	cqdma = devm_kzalloc(&pdev->dev, sizeof(*cqdma), GFP_KERNEL);
+ 	if (!cqdma)
+@@ -805,41 +805,54 @@ static int mtk_cqdma_probe(struct platform_device *pdev)
+ 	if (!cqdma->pc)
+ 		return -ENOMEM;
+ 
+-	/* initialization for PCs */
++	/* Initialize all PCs before registering any IRQ. */
+ 	for (i = 0; i < cqdma->dma_channels; ++i) {
+ 		cqdma->pc[i] = devm_kcalloc(&pdev->dev, 1,
+ 					    sizeof(**cqdma->pc), GFP_KERNEL);
+-		if (!cqdma->pc[i])
+-			return -ENOMEM;
++		if (!cqdma->pc[i]) {
++			err = -ENOMEM;
++			goto err_tasklets;
++		}
+ 
+ 		INIT_LIST_HEAD(&cqdma->pc[i]->queue);
+ 		spin_lock_init(&cqdma->pc[i]->lock);
+ 		refcount_set(&cqdma->pc[i]->refcnt, 0);
++		tasklet_setup(&cqdma->pc[i]->tasklet, mtk_cqdma_tasklet_cb);
++		nr_tasklets++;
+ 		cqdma->pc[i]->base = devm_platform_ioremap_resource(pdev, i);
+-		if (IS_ERR(cqdma->pc[i]->base))
+-			return PTR_ERR(cqdma->pc[i]->base);
++		if (IS_ERR(cqdma->pc[i]->base)) {
++			err = PTR_ERR(cqdma->pc[i]->base);
++			goto err_tasklets;
++		}
+ 
+ 		/* allocate IRQ resource */
+ 		err = platform_get_irq(pdev, i);
+ 		if (err < 0)
+-			return err;
++			goto err_tasklets;
+ 		cqdma->pc[i]->irq = err;
++	}
+ 
++	/* Register IRQs only after all PCs are initialized. */
++	for (i = 0; i < cqdma->dma_channels; ++i) {
+ 		err = devm_request_irq(&pdev->dev, cqdma->pc[i]->irq,
+ 				       mtk_cqdma_irq, 0, dev_name(&pdev->dev),
+ 				       cqdma);
+ 		if (err) {
+ 			dev_err(&pdev->dev,
+ 				"request_irq failed with err %d\n", err);
+-			return -EINVAL;
++			err = -EINVAL;
++			goto err_tasklets;
+ 		}
++		nr_irqs++;
+ 	}
+ 
+ 	/* allocate resource for VCs */
+ 	cqdma->vc = devm_kcalloc(&pdev->dev, cqdma->dma_requests,
+ 				 sizeof(*cqdma->vc), GFP_KERNEL);
+-	if (!cqdma->vc)
+-		return -ENOMEM;
++	if (!cqdma->vc) {
++		err = -ENOMEM;
++		goto err_tasklets;
++	}
+ 
+ 	for (i = 0; i < cqdma->dma_requests; i++) {
+ 		vc = &cqdma->vc[i];
+@@ -850,7 +863,7 @@ static int mtk_cqdma_probe(struct platform_device *pdev)
+ 
+ 	err = dma_async_device_register(dd);
+ 	if (err)
+-		return err;
++		goto err_tasklets;
+ 
+ 	err = of_dma_controller_register(pdev->dev.of_node,
+ 					 of_dma_xlate_by_chan_id, cqdma);
+@@ -864,22 +877,36 @@ static int mtk_cqdma_probe(struct platform_device *pdev)
+ 	if (err) {
+ 		dev_err(&pdev->dev,
+ 			"MediaTek CQDMA HW initialization failed %d\n", err);
+-		goto err_unregister;
++		goto err_of_unregister;
+ 	}
+ 
+ 	platform_set_drvdata(pdev, cqdma);
+ 
+-	/* initialize tasklet for each PC */
+-	for (i = 0; i < cqdma->dma_channels; ++i)
+-		tasklet_setup(&cqdma->pc[i]->tasklet, mtk_cqdma_tasklet_cb);
+-
+ 	dev_info(&pdev->dev, "MediaTek CQDMA driver registered\n");
+ 
+ 	return 0;
+ 
++err_of_unregister:
++	of_dma_controller_free(pdev->dev.of_node);
++
+ err_unregister:
+ 	dma_async_device_unregister(dd);
+ 
++err_tasklets:
++	/* Prevent IRQ handlers from accessing channel state during cleanup. */
++	for (i = 0; i < nr_irqs; i++)
++		disable_irq(cqdma->pc[i]->irq);
++
++	for (i = 0; i < nr_tasklets; i++)
++		tasklet_kill(&cqdma->pc[i]->tasklet);
++
++	if (cqdma->vc)
++		for (i = 0; i < cqdma->dma_requests; i++)
++			tasklet_kill(&cqdma->vc[i].vc.task);
++
++	for (i = 0; i < nr_irqs; i++)
++		devm_free_irq(&pdev->dev, cqdma->pc[i]->irq, cqdma);
++
+ 	return err;
+ }
+ 
+-- 
+2.34.1
 
-What loader chain did you use then?
-
-This guessing!!!:
-From TRM: RK PX2/rk3066a supports to boot from internal bootrom or embedded SRAM
-Currently rk3066 U-boot doesn't remap, so we end up in ROM code waiting for deadbeaf:
-
-void main(void)
-{
-        deadbeaf = 1;
-        if ( !(__mrc(15, 0, 0, 0, 5) & 0xF) )
-        {
-                __set_CPSR(0xD2u);
-                __set_CPSR(0xD3u);
-                DELAY_write(24);
-                CRU_CLKSEL();
-                DELAY(10000);
-                MAIN_LOOP1x4();
-                DNL_LOOP();
-                while ( 1 )
-                        ;
-        }
-        __set_CPSR(0xD3u);
-        while ( deadbeaf != 0xDEADBEAF )
-                __wfe();
-        secondary_startup();
-}
-
-Can't put a precise time tag on it since when.
-Let us lead by what current available open source loaders solutions can do.
-Please advise here.
-How far does a fixes tag have to go back?
-
-> 
->> Signed-off-by: Hüseyin BIYIK <boogiepop@gmx.com>
->> Signed-off-by: Johan Jonker <jbx6244@gmail.com>
->> ---
->>  arch/arm/mach-rockchip/platsmp.c | 3 ++-
->>  1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm/mach-rockchip/platsmp.c b/arch/arm/mach-rockchip/platsmp.c
->> index f659d894bfae..d7d080c29f3c 100644
->> --- a/arch/arm/mach-rockchip/platsmp.c
->> +++ b/arch/arm/mach-rockchip/platsmp.c
->> @@ -133,7 +133,8 @@ static int rockchip_boot_secondary(unsigned int cpu, struct task_struct *idle)
->>  	if (ret < 0)
->>  		return ret;
->>  
->> -	if (read_cpuid_part() != ARM_CPU_PART_CORTEX_A9) {
->> +	if (read_cpuid_part() != ARM_CPU_PART_CORTEX_A9 ||
->> +	    of_machine_is_compatible("rockchip,rk3066a")) {
->>  		/*
->>  		 * We communicate with the bootrom to active the cpus other
->>  		 * than cpu0, after a blob of initialize code, they will
-> 
-
-> isn't now the only user of the old system the RK3188?
-> 
-> With both rk3066 and rk3188 from a similar time, I'd assume both could
-> be switch and thus the the now unused code removed?
-> 
-
-> I've never thought to look into that ... need to find my RK3188 board :-)
-
-Let me know what rk3188 U-boot and Kernel end up with how many CPUs, so we can remove the "if" condition altogether.
-
-Johan
-
-> 
-> 
-> Heiko
-> 
-> 
-===========
-
-https://github.com/armhoff/u-boot-rockchip/blob/u-boot-rk3066-sdcard/board/rockchip/common/platform/rk30/romloader.s#L110
-https://github.com/paweljarosz82/u-boot-rk3066/blob/wip/rk3066-8/arch/arm/mach-rockchip/rk3066-board.c#L32
 
