@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B09C61DE1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 17:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770C9C61DE1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 17:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TFh7tNrhnkyS5rc0tyeCiGcCiB45l4CkB+Wkyp1hfZg=; b=hvcoDxFlh+yJhUBuojippZRMeq
-	11dnPmhwgNTX+IFdepl/OnNW/SY6ejkxSfZwy/Y7UF9DRQRarwqq45t3MdLY00ugliOChavQoOTzH
-	OSjBSw+tMSrxH7/sdWSAe+VKebVrcw7D26ts7s2J9KEahreBmeO5SHkJUIW4xvd/VcY2EVoFlbAP8
-	1xm82ejBcrRaowjtSbc/ZHe7g927yxxqshqrw23flWwtG98jOf8AdhT8ySpa2T6Os8Jfdc1srjzJg
-	2WYxHgXz16nTJ42IgwVy1/TJ7Ffl8hJ7ppwgFsCUhjtlCw1xmMpohHpGqBhCjtvlLA1JMdIWb1ljj
-	WTzNyldw==;
+	bh=+GRZL0uxq37pp9qHzlDeSvEEyunsmZeKfcXgUqg4T+M=; b=1VudIacx3fu9LziVUGAyr12b1o
+	e2aRV4H3MgMdWoixyMuatVgGd17uFjKoyOG4N6CJ6pcZsCGYw2o2yHz5q67jgOhNU8q6wbcgZrnn3
+	BGjQ+manq0N9o3ywOAF9i4CuCzcsHgCFTpWoHUxOE8mzWfF92WsN73s+WBUU9zmw0iJSKx/sXolqL
+	i8NgQBVM7O6dXQOFDQ20k5gxE+izqJlctS37u1YkuNmLr9VXeSWO7a5A85sX1uxS7OdU4+NmRy1Rw
+	vxmCvqO9j/bomrn+xssGFdSr9y7+LyLmIpWJkytYnwLhsLeBZL7/+A+F1SfiOgrfIlqDykgS02WkT
+	YMkeyfFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0j3I-00000007wGx-28hS;
-	Sun, 30 Aug 2026 17:10:40 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1x0j3R-00000007wL6-2Zf2;
+	Sun, 30 Aug 2026 17:10:49 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0j3G-00000007wG5-2gyF
+	id 1x0j3P-00000007wK1-329Y
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Aug 2026 17:10:39 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-cc1bcdb3c4cso1893595a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 10:10:38 -0700 (PDT)
+	Sun, 30 Aug 2026 17:10:48 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-cc147d86bebso3023101a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 10:10:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788109838; x=1788714638; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788109847; x=1788714647; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TFh7tNrhnkyS5rc0tyeCiGcCiB45l4CkB+Wkyp1hfZg=;
-        b=srzqMNCwF1an3HoMHdirTWroTYsoriqpLarlPSrYPcIiVj/KDqAZ0fikJM+lluj6H9
-         jtplec6Pyer6qyzPE7MeJOWOY5ia1vKvTWTcGVyz0c+D9KTPECnavFP+u2Gzge0XOR2V
-         TIA9O/jFgtYUzGcSrrcJfNsZWA0tgouPmW9yWQmBIvseioDWpF0Vizz4sWIurQtXC1VE
-         Iyn59XxKys6tpac2oPbHLUDg0p6wwVsDJS2/91nX8ELez3ZtKbnRYSggakz1xK3g9nzB
-         rnH4AkAlevuls6KoSWKX15JHZuPJMsOOiX6qyZILwHnu/khKv3j0KKvS9xtSPWvcQ8ke
-         NsUQ==
+        bh=+GRZL0uxq37pp9qHzlDeSvEEyunsmZeKfcXgUqg4T+M=;
+        b=UGI0IZT9LHBJ+fB8uBj9i+ze6GxJhsQ3cuT1mZrxWk/vbhbXnCodqhKrJJ2q516K9z
+         +ktHc7BLFk6gmVEopSQgafTGSfzYUmdRmwnAhCdLwUQ4T9rkkd5JuuBpryErjag4ZmxL
+         lN9yleJ9DPuFAk/cQK7RrZyAcJRpsr2oA6R1wX2LAdAXhIh/kz91M7Lbv6/lBCsJEMf6
+         O0YEIPaKw5lm1armNjKdnYaGuP9N5xGwRYbfaJs16TuRuRQ0ctzZWP5xFJ88R5J5BadW
+         oCWr/4mrCC70g5BwWXQq9IEnEutq4Iz2vWWnP+9wDpAXcajdjhSODMiy85F2YWLvLrEG
+         7utg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788109838; x=1788714638;
+        d=1e100.net; s=20251104; t=1788109847; x=1788714647;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TFh7tNrhnkyS5rc0tyeCiGcCiB45l4CkB+Wkyp1hfZg=;
-        b=oO00CPcmFxYv0O/+4L/LOjMOQw28IPQ8xXXjd+ScD0vcu5Fm9bfGGPIX/Ir5TtljxJ
-         NJaVvILw34M9OAnAeSZ0O6wCs8IVEzc9cFtV6+nIMVhNksVijz0tGMO5QvwNrJh7h2WR
-         rSOa1l7SoxbhyzG+4T68E8N8TE6JPmPWKQhUwoIAdXLY8Y4fEtmg0p6+FEv0Pq17r7ET
-         2kWlJxaHwK/C2Alp0Nnad2/AgDY0+hd/IuvyK9nGZDY9j7OAGBVZTTtJN/sQ7hELWumh
-         srmQFhNp1/udp14SPIwziFJo92g+xlxetJBsxFNvHZApzkFXvbX/MDl1819BvjMsrsuV
-         CKzQ==
-X-Forwarded-Encrypted: i=1; AKwUvByxqfSUxaW3C2UBvFQNUJzus6Se3XI+XvYz5n+vCdqKWBrYwocqQ9+VdLVLhpDQrhvXp7gGpn86wBaLlEC8iyPn@lists.infradead.org
-X-Gm-Message-State: AFuF++nD77gaqm973yG3y2t42KNlhDyJMS1V/t9pCpriVgAGPLDEebbd
-	99dwDqJloF058ZeuFfnvDB7ESFQ2LF7PEeKIwJf8185PfKUCaAAuSpld
-X-Gm-Gg: AYBFou1kAG/4isfm8JJMU2MyaYFazd2ADGtcGf9Ix/l+uI5/atVlmis4gMshx3Z0fR1
-	uiqwLASPfWTa/UBya1cw/sKqh4RD95Z2KyMpHLnsVSHRLpjHenS2RZ0SYYYky2IzzFiYdE+vhNa
-	cfninsHJNQ5Zy233qQgE4i0I26pw1agd3tgujEWxdo7z7A9u0aZNtjq0bm8wrTCVLlltR+TKwy2
-	1nT9LWK9/GSvAtQm18Q0QuI5JciY6e3jUq7UKYqg3C8W6NI+7VRSrgICEL8fSNklTiFMCtT7R0N
-	VmKb2AkIOiH8rqqEQAqhTh0mhq5dr/gQtT4BOeTDqEfebL4UuDuCmr3qAOXP6DsrWa5k89RErgh
-	tyUe/eAB8OOiaq7Eh3rkQVwLuRpNo46Crxq/lMLlM2ocUfql2L2+7jQ2r5kp56J3XF5E1C3y9f/
-	lddLnaYpjoHDLaf7j3p98hasX1giadb7purEcJRJmr/nnmEVpaVgYnjFzVvEgod5IE247L
-X-Received: by 2002:a17:90b:6c5:b0:38e:bbf1:de3f with SMTP id 98e67ed59e1d1-396d0f9d0famr35772568a91.12.1788109837836;
-        Sun, 30 Aug 2026 10:10:37 -0700 (PDT)
+        bh=+GRZL0uxq37pp9qHzlDeSvEEyunsmZeKfcXgUqg4T+M=;
+        b=Jf8OdgmJ6VSeItjOfAZBhnApsM+ePhunY1Bd4tC64YuAqUn5KLv+CNTp3uAN7O05qA
+         4Q+aer1TgWYoSiJfCroc/2g1DfIpRXnP+KfiuLfbfPgJZS2wQIOtF8XxSZEG48lh6BWN
+         MyM1nMRgs649ClfCFauBhLn6u4eL86DBLR5WECAa/MpfmzbK1gjLK4xggF4/HtO50XyN
+         VtwvDONLxRbNPH7CzXBCYGBvOhq44d2dhBHfRY+J4NBz0l86puNekRNDBTAnqDiHKRRS
+         k6EC5bBGSw8QGkbVVopdN51q3yoR/eUU58rJivQjbod/2SpYqCXMqo4AvJwNO56MeLsk
+         AEgw==
+X-Forwarded-Encrypted: i=1; AKwUvBxqNPJseD2wkTBjTguamZlMp5mq9jj/hM3/lESrMatFyIcyvWyfi5Pqm95+zdpu54WsnJlYfB8ZLBPrx4L2gzoq@lists.infradead.org
+X-Gm-Message-State: AFuF++nT2mI5gc67rcWe/HxMiTDsDGxZ6+0uXpbcaiTg4EybE3jLizz3
+	SQUgUnlxqlz5gqJ9yKJsrxJLqT9tPWVbgMhA1vmsY139ivYw0HkfunbM
+X-Gm-Gg: AYBFou1LRBC1jWTW6vkCCIoSUKieDCp0YS1mun7ooJAtAL8ZfxtPOsESx9lR7PnSlb1
+	BYX1eYpo+JTTRyfo90ioE27D1111SjwEazHOiUU2JZRaQ//blxYvm4raTm6iZCpHrodrhV1NjAO
+	5JrH6gxO5XNBRdncebrWkkU9g3ftaTl+VrM0mCR79loJ9WSSzDvtcbIP0XXJjUCptNE4aTijYS+
+	XjIdaXEfWuq1RLOmh8NJmy/17DUc0DqUPOlSQcRGmpKrmlQwOycG+KewcfBZBhPrfRG4UCA/ANy
+	W+RBn0JN3QaF2iTaiIUSdg9ATg5wDsNGK9sguoYmv2O9GAzMYV4ckgW+al0Sbb6M1004TgiaNWE
+	rTGMGNzgyQfeQ0rMjZGA+Ap7CLrlNqH5WRTRCyWLR+lE2/AYuuW5mjwEaOMLVik3tQDDGQcCDAP
+	v/Ka+OHBdYpSOPDjQYj9SDZy7J2662vxqy6RFadSbaveOzDYHFNRdDdH0m6Q==
+X-Received: by 2002:a17:90a:ec87:b0:390:84db:888e with SMTP id 98e67ed59e1d1-398da62a9f1mr2503612a91.7.1788109846855;
+        Sun, 30 Aug 2026 10:10:46 -0700 (PDT)
 Received: from ubuntu.. ([2405:201:8026:213e:88d5:45ce:40e:490f])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-396b0fcfa3asm17047101a91.6.2026.08.30.10.10.31
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-396b0fcfa3asm17047101a91.6.2026.08.30.10.10.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 30 Aug 2026 10:10:37 -0700 (PDT)
+        Sun, 30 Aug 2026 10:10:46 -0700 (PDT)
 From: mdshahid03@gmail.com
 To: Jonathan Cameron <jic23@kernel.org>
 Cc: Marcelo Schmitt <marcelo.schmitt1@gmail.com>,
@@ -82,17 +82,17 @@ Cc: Marcelo Schmitt <marcelo.schmitt1@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH v2 4/5] iio: adc: bcm_iproc_adc: use devm-managed mutex initialization
-Date: Sun, 30 Aug 2026 22:39:17 +0530
-Message-ID: <20260830170919.470974-5-mdshahid03@gmail.com>
+Subject: [PATCH v2 5/5] iio: adc: bcm_iproc_adc: use devm_iio_device_register()
+Date: Sun, 30 Aug 2026 22:39:18 +0530
+Message-ID: <20260830170919.470974-6-mdshahid03@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260830170919.470974-1-mdshahid03@gmail.com>
 References: <20260830170919.470974-1-mdshahid03@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_101038_684570_1906580F 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20260830_101047_771601_951F88F5 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,29 +109,52 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mohammad Shahid <mdshahid03@gmail.com>
 
-Use devm_mutex_init() to tie the mutex lifetime to the device and
-improve debugging when CONFIG_DEBUG_MUTEXES is enabled.
+Use `devm_iio_device_register()` to automatically unregister the IIO
+device when the device is detached.
+
+This removes the manual `iio_device_unregister()` call and makes the
+`iproc_adc_remove()` callback unnecessary.
 
 Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
 ---
- drivers/iio/adc/bcm_iproc_adc.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/iio/adc/bcm_iproc_adc.c | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
 
 diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
-index c7fbdc21f8cc..11f2bc12c19a 100644
+index 11f2bc12c19a..38a153d6fc70 100644
 --- a/drivers/iio/adc/bcm_iproc_adc.c
 +++ b/drivers/iio/adc/bcm_iproc_adc.c
-@@ -524,7 +524,9 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 	adc_priv = iio_priv(indio_dev);
- 	platform_set_drvdata(pdev, indio_dev);
+@@ -570,7 +570,7 @@ static int iproc_adc_probe(struct platform_device *pdev)
+ 	indio_dev->channels = iproc_adc_iio_channels;
+ 	indio_dev->num_channels = ARRAY_SIZE(iproc_adc_iio_channels);
  
--	mutex_init(&adc_priv->mutex);
-+	ret = devm_mutex_init(dev, &adc_priv->mutex);
-+	if (ret)
-+		return ret;
+-	ret = iio_device_register(indio_dev);
++	ret = devm_iio_device_register(dev, indio_dev);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "iio_device_register failed\n");
  
- 	init_completion(&adc_priv->completion);
+@@ -578,13 +578,6 @@ static int iproc_adc_probe(struct platform_device *pdev)
  
+ }
+ 
+-static void iproc_adc_remove(struct platform_device *pdev)
+-{
+-	struct iio_dev *indio_dev = platform_get_drvdata(pdev);
+-
+-	iio_device_unregister(indio_dev);
+-}
+-
+ static const struct of_device_id iproc_adc_of_match[] = {
+ 	{.compatible = "brcm,iproc-static-adc", },
+ 	{ }
+@@ -593,7 +586,6 @@ MODULE_DEVICE_TABLE(of, iproc_adc_of_match);
+ 
+ static struct platform_driver iproc_adc_driver = {
+ 	.probe = iproc_adc_probe,
+-	.remove = iproc_adc_remove,
+ 	.driver = {
+ 		.name = "iproc-static-adc",
+ 		.of_match_table = iproc_adc_of_match,
 -- 
 2.43.0
 
