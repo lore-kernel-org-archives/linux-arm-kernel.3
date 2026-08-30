@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5027BC61DE1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 17:10:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA3EC61DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 17:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H2F/5Rn1z2wIFmLqiH74YcGVKvaBMa7CAe2jvYLlnR4=; b=C45AoE8p+TjtueJWKs5xctxupJ
-	RNpdedCJcWbJtaKLRAlx4heq597P1BGB5yYWMjWN8+cjYyhIMdWPwqb/dwiCsWfWZq1J29N+qKVxm
-	iX+th3EM80KauxsRg7NVOHznjIeIDvnoXCoHvmRaFhimFsLbDZo6aC3qe8V3eRdDgKePcUySXKUun
-	ru2KwDghOGOp++HsUBeflXo3OZZ24veyY3SKKT9RzLh5jUzJ84fQIxODsGje8lnyagxRr5OxSfA3s
-	lfEv/hsS25c5rHc3VcwAP0EIKrwacLbHWMqvfQL385ptoTSZntcXlARD5F0tmSC3+Z2xHiH3oW7Ii
-	J0kq5mzw==;
+	bh=DSXd07nmgAz6SThzdSSun0e/bFs1/0gaIblRruN5ApQ=; b=nUFVxBrj9qadcgDT7tTkniXniD
+	GJAUlBoA/jJZ9wOwWTnErLYXa3QImRkyI17+39q2sAur7FUoCiVpyCldY+E/txhccSC6eklum3Y6z
+	YJbg04LJt1bIj1rh7+EQuXz+7UKy2KxgodGged+LQr8h91E6zzBVHNOJ8tkW6e49Dee4cgiTgFhVe
+	TxfihkPgpK2yz0D/fnp2OQnZLjq6kUEafM1zBP291oQIB36RtNm8+7NDK/MThaDVBWJcqpmP9/paM
+	zYErtwunJxW0way/5xjXHPKqahkkt1YmZOnfXu7dO3axEPxkQiNVehemA35xVH46rAGFYTc5q3gEI
+	7cuT6tsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0j2s-00000007w7t-2vGb;
-	Sun, 30 Aug 2026 17:10:14 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1x0j31-00000007w9m-0paw;
+	Sun, 30 Aug 2026 17:10:23 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0j2q-00000007w7X-2XOW
+	id 1x0j2y-00000007w8w-39YQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Aug 2026 17:10:13 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2d9201076b3so2418495ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 10:10:12 -0700 (PDT)
+	Sun, 30 Aug 2026 17:10:21 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-38759bcd877so2499142a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Aug 2026 10:10:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788109812; x=1788714612; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1788109820; x=1788714620; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=H2F/5Rn1z2wIFmLqiH74YcGVKvaBMa7CAe2jvYLlnR4=;
-        b=hylrAKrG4I+Cb3BlacZ/0iWD3Ao0fTARqfshUlEcVJ/tJjjFN0Y3CUgioAriBneNGy
-         OaNHimgTGiFjXvj0PAx3pD7FA9Ph/t+55S+JN5k2McowfQtkWFUH79NXhLWSfAdaJgcH
-         mSKFoRAN5N8GvH+f9Kt7Xg4GNQnLrL8zpC3mqqUclIsu7xggD+Wgp7nmF52woWa1Ce5f
-         c4j17HSHjWf/BZ7OSkAI0V61+xHKnV6ewZEf+uzY8y+pAj7yl4CJQ7vhsXkkZnTA+UxT
-         tMoeR/uKxSJJ57U+I9VB+y9wnGMQFt9YhxRIujA27faeWGEJhQDlm7MYLBlVH6S57QUc
-         dcEg==
+        bh=DSXd07nmgAz6SThzdSSun0e/bFs1/0gaIblRruN5ApQ=;
+        b=kWgFJrTd0CEwvV1Etj9D9dM/+BpG+wjY8yfP2JywZmd8ND4K0a6CcxeUraSYD08SeU
+         g9CpJN4KLeN41I1RSRG/QGv5ymAk7Zjx7nx+fr+VEFxXXzqmA+CsT4q85g9WOArT9Kol
+         09lZ/IS+nsPSwk4XJXhCsiQcLzZWAThU1sINp1cuDGzOPSHz9Jw86eVfhmP+M9bFx2x1
+         DI6QUNZKyj5pgbm/dIs5q9XaOfFT668skka73iUyQymnUGi/Fymjcr6kCUwngcwnbj3s
+         da4cnkVq2G+boBA9T6egfIGk5rNKzXQDNn9vfAjwua0roU4GoFKS1COrpsxP+EkUUrNG
+         NV+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788109812; x=1788714612;
+        d=1e100.net; s=20251104; t=1788109820; x=1788714620;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=H2F/5Rn1z2wIFmLqiH74YcGVKvaBMa7CAe2jvYLlnR4=;
-        b=MdroDdJVbv76ij7CokkimZPwQI6QtieRCDVSNv/yCX7TMt5Y9iLtouIhV22rn5+U0a
-         Q5feUZDjGl2jfGhvP4D3WrdCrlxeqr1BKUNug1M+IUywlkYhPCoUmWpnLToa/eHfF6n9
-         uB/TDUCBO+M2mcD7hCj5TBXz5lEu3MEOP0pucWmR6e/tkftU6HrHhi+6/92g3lhjsIst
-         Mm8HltuMzDnLtyoim2GREBZXIr+LuXk+XE2La8xML+jKBuxqVWBX2zGrTLGr2ubxx+F2
-         hC4pH+4rq72whjWUw3SQNvxt5MnXHWRtenopgYB4ahmr6xQlBx6axvp2p6Z4hz706TQu
-         h3ng==
-X-Forwarded-Encrypted: i=1; AKwUvBxvebKBhpNYMmWVZazfYWNxjV11SZUiFuzIWuXBjUS0K5F93atnK3lPNHPr9j9bBG8LNm92RBFbD7xpcK2w824s@lists.infradead.org
-X-Gm-Message-State: AFuF++k4XAxF+E1Ge3m6PrKSd41APEbr91ptgwXE+VgTokPmzaYjUiVY
-	WbOsM4opA4bRHw1ay0Sy+uroLGVPFRd15lRZd6az0LkpgBPs9bgyMyjD
-X-Gm-Gg: AYBFou0CqLhChU2qj9JJ12buWVA2cFHmE92bUVkHpibyQYViyf8kClvwEDrUqQx7Oso
-	oVeQmsjIixRgxxT8bYhmdkpJfJ9bALSjy7ZZT3YSoMeYPREIMRf/5mJjPhwLhjUMWmjZ7D0IT7c
-	C47qt/fAgyaDfCDfR+BKR7Uv5klopKA6RR8DM8efr4T1j0K/lYs6bOLaSEc2n63s17sGxwxdn3N
-	ywg3vlq4LvqPiWPdaUIlCc7L8luGPAXWVtVjHMkFi5OlEkag/Xih7hA7wuFydH3IjOljxx6lyjL
-	vjg2u51GObBwQMjrBSsk3P/PGQrpm0dfQ9zF2NSa+uGdeNhV4A6z5Q1G4VQ2owvYKIQdaIXDjdz
-	oRjklu1PeIISqgz4s9J7IF0MHhGin0fLRHsGVWq/2M43YXWOm0zWGG+jNfOQ0vS3hwWp5nsLrNN
-	EdAne3KMg3F9qsVGTlCDhgXxI/XGPyudaL2NDqclQ+HffkZ7h+N782n20syA==
-X-Received: by 2002:a17:90b:4cd1:b0:398:9bd4:d12 with SMTP id 98e67ed59e1d1-3989bd40da3mr20529328a91.17.1788109811626;
-        Sun, 30 Aug 2026 10:10:11 -0700 (PDT)
+        bh=DSXd07nmgAz6SThzdSSun0e/bFs1/0gaIblRruN5ApQ=;
+        b=qsBZ4UpJvqwvSdLmW7Zwg/251WfwXKRWDC5AHzV68fp3YqDwUOfR8imtWL8ksIqe/t
+         4F6ikds993UDIFaZB92/yRn4+Lj6QxxzXSVCOzznrgdKv7+HR4sSqOr2mG1FmLPrzzZa
+         SJ6UWKvkceKB6++zI8xzUq/gUZqGkAjNawdK/jRqWVquW0xmkML9jxNwabI81luHJAGe
+         lLr8bOp7qIjftSo1C0oyMFzezJaLkdWtZhpm5o62p8oBLqHe6FNbWJCj5UYYkjQE6NE1
+         G8xanV4DBv7kLKaW3Wqa7wCjTnHqF5kltFe6SQ04eFMIyOCYlNXxp52mYYlF29QnsDpV
+         zojA==
+X-Forwarded-Encrypted: i=1; AKwUvBymxzXETgFxTs4YZ37X3VrdzvQKfbrtc2wLMBiHI8DnoIL4oKs3JXWYwQFor+fSnenAKOvv7ILMj/v1pBTQyMHO@lists.infradead.org
+X-Gm-Message-State: AFuF++kd9mbgM8WOXcnTy74+9Kq7AqyBm90P+PSsj2qdDAd819moZcvk
+	tso4iFCOa+yBdQfasjiiSetWFylZyp77I/8xUTyjc/qCQQ5xyV4EC7pg
+X-Gm-Gg: AYBFou0S+Z8dgvqsQAxDbbZVeyQMuheR1ZcMuVOGVoYaYG0A7iJ2KNrARBo8mugFTOI
+	VnZRD2t5rLG5LRk6G24iW4xCK/w153p0obCWPH5jRuRG55WToKeNUFpHDR4QcdOFkJLchww8Aty
+	XhIhJ2unirJA5MzoczXl3hSZ1gW1jMmBvbsnyMIXMD+NsrY501zUQYcSTXeM8TwH7DXSbPqc6v0
+	puvdwFLYhb9KigKbkKEpH53xZjRFAhTznksgkFKoncxAFUZEjSW2OwRLyHQ9+uH8GXEuD49HM38
+	vtCxxJJSMooFs4hwArKwZlNBfW5XCu+9ZWiiz7WC/XRGPntEWdJ8i+x1ebHKm8L7yGr61P5UYj6
+	RYppXp1xH8XM6PgL09cpuzBGAmYPQjTDHFI5c8Qc2jJ1BvQKJmEGEXUk/xNGcP+1yhvDxNlbHrD
+	lbYTASEjD8zchvtd3w6UMnp6ssy170yPxFGHkQKAX/OjJYB2YlpjhrJtRH2g==
+X-Received: by 2002:a17:90b:5284:b0:396:4dfb:5890 with SMTP id 98e67ed59e1d1-396d0e5bbc0mr35517294a91.2.1788109819698;
+        Sun, 30 Aug 2026 10:10:19 -0700 (PDT)
 Received: from ubuntu.. ([2405:201:8026:213e:88d5:45ce:40e:490f])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-396b0fcfa3asm17047101a91.6.2026.08.30.10.10.05
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-396b0fcfa3asm17047101a91.6.2026.08.30.10.10.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 30 Aug 2026 10:10:11 -0700 (PDT)
+        Sun, 30 Aug 2026 10:10:19 -0700 (PDT)
 From: mdshahid03@gmail.com
 To: Jonathan Cameron <jic23@kernel.org>
 Cc: Marcelo Schmitt <marcelo.schmitt1@gmail.com>,
@@ -82,17 +82,17 @@ Cc: Marcelo Schmitt <marcelo.schmitt1@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH v2 1/5] iio: adc: bcm_iproc_adc: sort headers alphabetically
-Date: Sun, 30 Aug 2026 22:39:14 +0530
-Message-ID: <20260830170919.470974-2-mdshahid03@gmail.com>
+Subject: [PATCH v2 2/5] iio: adc: bcm_iproc_adc: fix include dependencies
+Date: Sun, 30 Aug 2026 22:39:15 +0530
+Message-ID: <20260830170919.470974-3-mdshahid03@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260830170919.470974-1-mdshahid03@gmail.com>
 References: <20260830170919.470974-1-mdshahid03@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260830_101012_648612_36063720 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20260830_101020_794332_45E10804 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,36 +109,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mohammad Shahid <mdshahid03@gmail.com>
 
-Sort the Linux kernel headers alphabetically to improve consistency
-and make the include list easier to maintain.
+Add the headers required directly by the driver for completion and
+mutex APIs.
+
+Remove the unused `linux/io.h` header now that register access is
+handled through regmap APIs.
 
 Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
 ---
- drivers/iio/adc/bcm_iproc_adc.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/iio/adc/bcm_iproc_adc.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
-index ab66b97d2f04..e46e3761993a 100644
+index e46e3761993a..2b59819c4ca4 100644
 --- a/drivers/iio/adc/bcm_iproc_adc.c
 +++ b/drivers/iio/adc/bcm_iproc_adc.c
-@@ -3,14 +3,14 @@
-  * Copyright 2016 Broadcom
+@@ -4,11 +4,12 @@
   */
  
--#include <linux/module.h>
--#include <linux/io.h>
  #include <linux/clk.h>
--#include <linux/mfd/syscon.h>
--#include <linux/regmap.h>
++#include <linux/completion.h>
  #include <linux/delay.h>
  #include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
+-#include <linux/io.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/module.h>
++#include <linux/mutex.h>
  #include <linux/platform_device.h>
-+#include <linux/regmap.h>
- 
- #include <linux/iio/iio.h>
+ #include <linux/regmap.h>
  
 -- 
 2.43.0
