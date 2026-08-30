@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0BF8C61DE1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 14:25:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D793FC61DD9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Aug 2026 14:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mqEbBnLXoNwaBEWPaO2q0zQzfK0jpS+p/vOgbxYYs/o=; b=IJ2kpZRs/paX9E7pCZdEcTVEXM
-	09udlbiYlUhhDPG4i2tiarocOghMlYCz3uD2LZQ5g4XDa2IA0Hcn2xfpc6uV27zb0xp5GE9rJOx7j
-	n9Bo7c0anwER5W9iL0NgTSAkT9UO+EY7G3jx4eVI/4i9cSJJbQtn6+l+QRuY8wPs1tB5EtF6g4txo
-	we1hiaB5tgFPDqg4Pn21/3n3n4gsL1JIcUTziVTZPo17MNvvKGmAJgbK7mXTKF4H6nAeqNIjLWdPs
-	ydpN69Pt+kUYvL8Ne9NAQsLBxDizBa/nIVVM1EYDmvI9c8tQQbPoJ96jrvFGmTe2ilp1vKebGDJQb
-	I48SLxow==;
+	bh=IlhLC5lrMb6gZb5qHAZkcZvI7kW7ZIaJOFgZY4jVIAI=; b=WUVsCMz0hyMPMIeOsvPOXlomxC
+	nEY/01/5ucJifrsjY3jmsvqrBubl6SRrttO3PP01JJBheqmSAJSgGDhu+l5+3OBy+09AMBM1hMjJN
+	J4bBc9UHMfAZHfoc4ccTrjm8n3CpKgUShlLOEajfV87TJpC4fhG51pVj6fFJv4B7Yz14vM3BcNXQW
+	uWaWMsEbfH0HszkfT2+Mj90jIRE11imjAAw/0iI+3S3CWKFAhok4qFCjhrVWTPLvG07iTWSoaXQ5n
+	K3UZjlNl8YeFYPZVCsEHI1vAAHrx3SGXhaO/EfJsynL0HlnwLkFBDlIY6gCnYHN/WlsCG05cCikxj
+	eyY03KJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0gSp-00000007nmv-03wl;
-	Sun, 30 Aug 2026 14:24:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x0gyy-00000007opa-0ggg;
+	Sun, 30 Aug 2026 14:58:04 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0gSo-00000007nmh-3A0n;
-	Sun, 30 Aug 2026 14:24:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E2024328E;
-	Sun, 30 Aug 2026 14:24:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6CD81F000E9;
-	Sun, 30 Aug 2026 14:24:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788099890;
-	bh=mqEbBnLXoNwaBEWPaO2q0zQzfK0jpS+p/vOgbxYYs/o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LLsulbk2oar40fID4XXO4xBcAP845FYaGiQG0dLtUea4yehFsWcVnAXCsJVYnbTaj
-	 suacRwAR/OtcA7vrq71ZDagQPpZBhbvjlEFClPsZsq3eJFOMiWc3qhTF6Ni4YsEoij
-	 lRGiZ1t1CKwss0ZunDyELGW9NEvoQTsDI/IKSWRnped/CRsxYGOw1TAdQ/WZdjMBO3
-	 TvqfTTD+xTiCV6YlYNdLWkB1kIHYbw1Lh0auNGWTHkU3ObozLMvaZuqOXDpKxDO8N6
-	 5AbgaMgdm0JZ4GkQO+TL1OlrquUomLwgEm50WNKIJtdPaoAcC3eqlFEKxUJ0caMySL
-	 ZsMKrTeOx+sMQ==
-Date: Sun, 30 Aug 2026 16:24:47 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Vitaliy Sochnev <sochnev.v.74@gmail.com>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 4/4] net: airoha: grow RX ring 4 to 128
- descriptors
-Message-ID: <apQ9L3D3Kvj2b7T-@lore-desk>
-References: <20260830095717.37218-1-sochnev.v.74@gmail.com>
- <20260830095717.37218-5-sochnev.v.74@gmail.com>
+	id 1x0gyu-00000007opE-1tAv
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 30 Aug 2026 14:58:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1788101880; x=1819637880;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Jz6SGp8A9K6qYUuqL9q2t6pIpvCJVbYQr8/3UysdP40=;
+  b=L2tpQGXDXZ1Y4diM+1uSKur9mrXr4tjex8UH51qLmBvh5QaUjjvUmMZX
+   +Y99E3oXm+A3Bat2tfDeZChkWqW5RUcJLUIU59nxP9vzr3LyNBFCH4QqB
+   y/BcGa8lmM/nmd6XxtkUxA1pu0jSLHriKDNbpdDaJeS0ROETIhHT37h+i
+   bSDRlDgtqgfXPDFJuPL7jSPt4Ap3/dglbuxnxAmw5HVfNNLeAAgUtPkhY
+   YzPqQiPcZZ1M6JQZMKbcdFiBqyGEEwh77xPzxGUlTl4mO0lj0WCIl4gNk
+   MynEa4m0dVep8bhLwBGBluCop5wE+oTwPqiqPJB79QN9A90sLUuv0mQ7g
+   w==;
+X-CSE-ConnectionGUID: Xhu+/30AQMGk1MRtRdQt9Q==
+X-CSE-MsgGUID: aof1413ZSRWysKSybadLIA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11890"; a="99877500"
+X-IronPort-AV: E=Sophos;i="6.25,252,1779174000"; 
+   d="scan'208";a="99877500"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Aug 2026 07:57:59 -0700
+X-CSE-ConnectionGUID: NUdCDotGSWypYZ4ykE5Ycw==
+X-CSE-MsgGUID: wdrIOB+hQ3KIfuK+A17WXg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,252,1779174000"; 
+   d="scan'208";a="306825838"
+Received: from igk-lkp-server01.igk.intel.com (HELO 32268bdb9915) ([10.211.93.152])
+  by orviesa001.jf.intel.com with ESMTP; 30 Aug 2026 07:57:57 -0700
+Received: from kbuild by 32268bdb9915 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1x0gyo-00000000095-34uo;
+	Sun, 30 Aug 2026 14:57:54 +0000
+Date: Sun, 30 Aug 2026 16:57:33 +0200
+From: kernel test robot <lkp@intel.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, Linus Walleij <linusw@kernel.org>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>
+Subject: Re: [PATCH v1 4/4] pinctrl: pistachio: Replace open coded
+ fwnode_is_gpiochip()
+Message-ID: <202608301629.wjbEOoNN-lkp@intel.com>
+References: <20260824074427.3226457-5-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="TFdZvCNJZ0cB9Z77"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260830095717.37218-5-sochnev.v.74@gmail.com>
+In-Reply-To: <20260824074427.3226457-5-andriy.shevchenko@linux.intel.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260830_075800_566032_BE61C25A 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,76 +92,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---TFdZvCNJZ0cB9Z77
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Andy,
 
-> Ring 4 is the shared "force to CPU" ring for a wide set of protocols
-> (BOOTP, PPPoE Discovery, PPP LCP/IPCP/CHAP/IPv6CP/PAP, ISAKMP, DHCPv6,
-> SIP, LLDP, ...) and currently falls into the 16-descriptor default in
-> RX_DSCP_NUM(), same as most other non-hashed rings. The hw completion
-> race recovered by airoha_qdma_rx_check_stall()/rx_recover_work() in
-> the previous commits appears strongly correlated with a ring going
-> from idle to receiving its first frame(s) - exactly the access pattern
-> this shared ring sees under protocol negotiation bursts. Give it the
-> same 128-descriptor allowance already used for rings 2/11/15, matching
-> the other rings that see bursty, non-hashed traffic, to reduce how
-> often that condition is hit in the first place.
->=20
-> Ring 4 and the VIP classification that forces these protocols onto it
-> are shared driver-wide, with no DT/hardware property distinguishing
-> one chip variant's ring 4 from another's, so this isn't scoped to
-> AN7583 specifically even though that's where the race was found and
-> reproduced. 24h+ stress runs forcing repeated PPPoE/DHCP renegotiation
-> on an AN7581 board, both with and without the two preceding fixes,
-> completed 570+ forced reconnect cycles each with no regressions from
-> the larger ring.
+kernel test robot noticed the following build errors:
 
-If you set RX_DSCP_NUM to 128 on AN7583 for rx queue 4, are you able to
-trigger the issue?
+[auto build test ERROR on brgl/gpio/for-next]
+[also build test ERROR on linusw-pinctrl/devel linusw-pinctrl/for-next linus/master v7.2 next-20260828]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
->=20
-> Signed-off-by: Vitaliy Sochnev <sochnev.v.74@gmail.com>
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.h | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index d6591a779743..cd75c16d8d0c 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -41,6 +41,7 @@
->  #define TX_DSCP_NUM			1024
->  #define RX_DSCP_NUM(_n)			\
->  	((_n) =3D=3D  2 ? 128 :		\
-> +	 (_n) =3D=3D  4 ? 128 :		\
->  	 (_n) =3D=3D 11 ? 128 :		\
->  	 (_n) =3D=3D 15 ? 128 :		\
->  	 (_n) =3D=3D  0 ? 1024 : 16)
+url:    https://github.com/intel-lab-lkp/linux/commits/Andy-Shevchenko/gpio-Split-fwnode_is_gpiochip-helper/20260824-094232
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git gpio/for-next
+patch link:    https://lore.kernel.org/r/20260824074427.3226457-5-andriy.shevchenko%40linux.intel.com
+patch subject: [PATCH v1 4/4] pinctrl: pistachio: Replace open coded fwnode_is_gpiochip()
+config: x86_64-rhel-9.4-rust (https://download.01.org/0day-ci/archive/20260830/202608301629.wjbEOoNN-lkp@intel.com/config)
+compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+rustc: rustc 1.96.0 (ac68faa20 2026-05-25)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260830/202608301629.wjbEOoNN-lkp@intel.com/reproduce)
 
-Can you please change the default from 16 to 32? This is the default value =
-used
-in the vendor sdk.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608301629.wjbEOoNN-lkp@intel.com/
 
-Regards,
-Lorenzo
+All errors (new ones prefixed by >>):
 
-> --=20
-> 2.55.0
->=20
+   In file included from rust/helpers/helpers.c:83:
+   In file included from rust/helpers/pwm.c:5:
+   In file included from include/linux/pwm.h:8:
+>> include/linux/gpio/driver.h:888:33: error: use of undeclared identifier 'child'
+     888 |         return fwnode_property_present(child, "gpio-controller");
+         |                                        ^~~~~
+   1 error generated.
+--
+>> include/linux/gpio/driver.h:888:33: error: use of undeclared identifier 'child'
+>> Unable to generate bindings: clang diagnosed error: include/linux/gpio/driver.h:888:33: error: use of undeclared identifier 'child'
 
---TFdZvCNJZ0cB9Z77
-Content-Type: application/pgp-signature; name=signature.asc
 
------BEGIN PGP SIGNATURE-----
+vim +/child +888 include/linux/gpio/driver.h
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCapQ9LwAKCRA6cBh0uS2t
-rM13AP4wkYGuLzW+WVctf1OtsZrpVodXKZgBv2utkiyeq25FaQEA2SaUS/5l8UPs
-HVO0eRtFu4TXJtmo25S219Df4cIi+gI=
-=BFzh
------END PGP SIGNATURE-----
+   885	
+   886	static inline bool fwnode_is_gpiochip(struct fwnode_handle *fwnode)
+   887	{
+ > 888		return fwnode_property_present(child, "gpio-controller");
+   889	}
+   890	
 
---TFdZvCNJZ0cB9Z77--
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
