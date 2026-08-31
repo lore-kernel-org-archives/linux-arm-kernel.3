@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2410AC624C6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:39:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A759C624C6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 13:39:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q85irKaJ5z/54tGl3R65hQIMxlS1xsWlaoAmw4QkZv8=; b=LeYNbPhUhRT1lkzUf7pcRzwobj
-	o09JQ1fxW2sMfF2YoBHLklRnBUvTOOlnO7njx5HwUvoWWDRBX69/oBbCvCZxOzaGOUTyv7AXGBHUA
-	rOlKWLkWQMxEOWpFg6hbznnFRTbkY2K1tE9Yk3KYf0hmJ2nv7YQJSjarOPwsYFvbLcigptyf32DTz
-	KkkYuGjMOffijEXMJdJg4HftWOnEyeWMVfsAGmnGKf5puiqCWiQHpd8QAYOUO5pLqFEvy8Spa8udw
-	UAsptYRmWSI6a5mQM99kVexUiXEAlT3K/srueIH6WZMAvMr0LWLQNJoyGH41y7vqxc+LYO4st6TQj
-	SUIpbCdg==;
+	bh=zoeHzATJIOgGVjlLRQUI6U1h8vDJRiolLUK4FvNtRgw=; b=IAp3AEDUjRI8wMNRMegRvqS4Mu
+	nvo+0HnYJZqnnykrz5PxohN02DNqH088hY2bZ8QZtIvNwEBprmFJ8GFNsNpDsyUqkxqj8stSRTmR1
+	4Wvt7qYzxAEe1HmGhuB9LO/2NrfI8K/qGGAAQPTaTdVhf0FS8XZhfTW/fnzLOANhOmPZ+rd0HXVTM
+	b5Obu2byo6dOC9I4DeJOba4OuTMB/Qll6vuvG0XOnDOdjELFMQPZwUBOAZnTGyn9sod97i22DMguW
+	AqG2/EBDAd8N/dJPLNA6otpmgE4B6tdZl4qXItB9zJB01Suy7fo475kqJ84DJTD924HYeNFJxiAZd
+	aJV6OW5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12EI-00000009S4f-2DKL;
-	Mon, 31 Aug 2026 13:39:18 +0000
+	id 1x12ER-00000009S9F-3k7M;
+	Mon, 31 Aug 2026 13:39:28 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x12EG-00000009S45-383r;
-	Mon, 31 Aug 2026 13:39:16 +0000
+	id 1x12ER-00000009S8i-14WH;
+	Mon, 31 Aug 2026 13:39:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7E53D40D61;
-	Mon, 31 Aug 2026 13:39:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E6121F00ACA;
-	Mon, 31 Aug 2026 13:39:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0689B43873;
+	Mon, 31 Aug 2026 13:39:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43CB21F00ACA;
+	Mon, 31 Aug 2026 13:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788183556;
-	bh=q85irKaJ5z/54tGl3R65hQIMxlS1xsWlaoAmw4QkZv8=;
+	s=k20260515; t=1788183566;
+	bh=zoeHzATJIOgGVjlLRQUI6U1h8vDJRiolLUK4FvNtRgw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=PU5rtCXXHePct+j6n4P55/bdoDs0wNhbQsubt4ne3FXAAMW50tmAjL2LE27bmipZr
-	 VwzvF4W5R7GZ5ryPpH8zcNMUUQsSonar3SYvG0j9VjA7tzQwu3E3cIJaF51ROZuCq0
-	 EpS1nbC+xsElZfKEvWd57AW/Dgoijgq947GFJm5S6CIlpqQebXCJghZVtPz1Y0pbqw
-	 PVS4pA89AcTvSBIXcNPO+SSK9opHrUAscyOskihswQuQl8bqZL4+9uYiq21PGLKsm5
-	 O95a384vTxzr2SOQOxjtQZtObvmLC8ocCcFHrywVXO7WC7zhKOfO+yopVdQvnFUzAb
-	 f6JpC6PBGN4tA==
+	b=VXKj2xWlMzNewndO6oWRT+yXy4MrLLriu8NcP+dziY/iPOCYBw5tO4AASiwZfKMg/
+	 kqdIdM4cgAFOaOfCzH3eiM9TMdoY2lTyvinDqSIwUiynIvNjYaioJZSKNpwti6snGE
+	 x0tw6M28VkAFi5yyrC51+v1BCKfe/yVg+IrfAOn7fA3hlYbFx2x3MlaRiSLPJE4VZd
+	 RLOqU027ATkqs4eh/luyK/BPTn5xqC+xCkF8G9hKFP5mgORNc7O7Y5AuUKqZDb9K8P
+	 Noi7eL3YTluI+cIJu+Bcn2jP4fYy0heTYcBJHF6QfERcN8r06TXJiHs0ndx7YGOcIe
+	 QbXXYfS865f8w==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: bui duc phuc <phucduc.bui@gmail.com>,
-	Sashiko AI Review <sashiko-bot@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	Linus Walleij <linusw@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	lgirdwood@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	heiko@sntech.de,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.18-5.10] ASoC: rockchip: rockchip_pdm: Handle runtime PM resume failures in set_fmt
-Date: Mon, 31 Aug 2026 09:23:15 -0400
-Message-ID: <20260831133314.4125787-167-sashal@kernel.org>
+	sean.wang@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-mediatek@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.18] pinctrl: mediatek: common-v1: bypass pinctrl GPIO layer in set GPIO direction
+Date: Mon, 31 Aug 2026 09:23:21 -0400
+Message-ID: <20260831133314.4125787-173-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831133314.4125787-1-sashal@kernel.org>
 References: <20260831133314.4125787-1-sashal@kernel.org>
@@ -82,405 +80,430 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
 
-[ Upstream commit ee7b5f7b39332febf917f9ebf212842cc9379815 ]
+[ Upstream commit 3982db2df3ed4c195e5f0a9a4513545a15901107 ]
 
-rockchip_pdm_set_fmt() calls pm_runtime_get_sync() before accessing
-hardware registers, but ignores its return value.
-If the runtime resume fails, the function continues to perform register
-accesses while the device state is undefined.
-Replace pm_runtime_get_sync() with pm_runtime_resume_and_get() and
-return early on failure to avoid unpowered register accesses.
+pinctrl_gpio_direction_input() / pinctrl_gpio_direction_output() take
+the pinctrl mutex. This causes a gpiochip operations to need to sleep.
+Worse yet, the .can_sleep field in the gpiochip is not set. This causes
+the shared GPIO proxy to trip over, as it uses gpiod_cansleep() to check
+whether it can use a spinlock or needs a mutex. In this case, it ends
+up taking a spinlock, then calls pinctrl_gpio_direction_output(), which
+takes a mutex. This causes a huge warning.
 
-Reported-by: Sashiko AI Review <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260522110302.349421F000E9@smtp.kernel.org/
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-Link: https://patch.msgid.link/20260602101608.45137-6-phucduc.bui@gmail.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Since the Mediatek hardware has separate clear/set registers, there is
+no risk of clobbering other bits like with a read-modify-write pattern.
+Also, once the GPIO function is selected / muxed in, further GPIO
+operations do not involve pinctrl operations or state. The GPIO direction
+and level values do not require toggling the pinmux or any other pin config
+options.
+
+Switch to directly calling mtk_pmx_gpio_set_direction() in the GPIO set
+direction callbacks to avoid taking the pinctrl mutex. Drop the
+.gpio_set_direction field in mtk_pmx_ops to signal we are no longer using
+the pinctrl GPIO layer for setting the direction.
+
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+Signed-off-by: Linus Walleij <linusw@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Phase 1: Commit Message Forensics
+# Stable Backport Analysis: `pinctrl: mediatek: common-v1: bypass
+pinctrl GPIO layer in set GPIO direction`
 
-### Step 1.1: Parse Subject Line
-**Record:** `[ASoC: rockchip: rockchip_pdm]` `[Handle]` — Handle runtime
-PM resume failures in the `set_fmt` DAI callback.
+**Local tree:** Linux **6.18.43** (`git describe HEAD` →
+`v6.18.43-1-gc7f0dac02d232`, `make kernelversion` → `6.18.43`)
 
-### Step 1.2: Parse All Commit Message Tags
-**Record:**
-| Tag | Value |
-|-----|-------|
-| Reported-by | Sashiko AI Review \<sashiko-bot@kernel.org\> |
-| Closes |
-https://lore.kernel.org/all/20260522110302.349421F000E9@smtp.kernel.org/
-|
-| Link |
-https://patch.msgid.link/20260602101608.45137-6-phucduc.bui@gmail.com |
-| Signed-off-by | bui duc phuc \<phucduc.bui@gmail.com\> |
-| Signed-off-by | Mark Brown \<broonie@kernel.org\> (committer/ASoC
-maintainer) |
-
-Notable patterns: Static-analysis report (Sashiko AI), not syzbot or a
-user crash report. No `Fixes:` tag (expected). No `Cc:
-stable@vger.kernel.org`. Mark Brown merged it.
-
-### Step 1.3: Analyze Commit Body
-**Record:**
-- **Bug:** `rockchip_pdm_set_fmt()` calls `pm_runtime_get_sync()` but
-  ignores its return value. If runtime resume fails, register writes
-  proceed while the device is not powered/resumed.
-- **Symptom:** Undefined device state; unpowered register accesses
-  (historically documented as system hang in this driver).
-- **Root cause:** Incomplete error handling when runtime PM resume fails
-  (clock enable failure in `rockchip_pdm_runtime_resume()`).
-- **Fix:** Replace `pm_runtime_get_sync()` with
-  `pm_runtime_resume_and_get()` and return the error early.
-
-### Step 1.4: Detect Hidden Bug Fixes
-**Record:** Not disguised as cleanup — explicitly a bug fix. It
-completes error handling that was left incomplete when runtime PM was
-added to `set_fmt` in 2019 (commit `c85064435fe7a2`).
+**Upstream commit:** `3982db2df3ed4c195e5f0a9a4513545a15901107`
+**Status in this tree:** Buggy code is **present**; fix is **not**
+applied (`git apply --check` succeeds).
 
 ---
 
-## Phase 2: Diff Analysis
+## PHASE 1: COMMIT MESSAGE FORENSICS
 
-### Step 2.1: Inventory Changes
-**Record:**
-- **File:** `sound/soc/rockchip/rockchip_pdm.c` (+5 / −1)
-- **Function:** `rockchip_pdm_set_fmt()`
-- **Scope:** Single-file, surgical fix (5 lines)
+### Step 1.1: Subject line
+**Record:** `[pinctrl: mediatek: common-v1]` `[bypass]` — bypass the
+pinctrl GPIO helper layer when setting GPIO direction on MediaTek
+common-v1 pinctrl.
 
-### Step 2.2: Code Flow Change
+### Step 1.2: Tags
 **Record:**
-- **Before:** `pm_runtime_get_sync()` → always `regmap_update_bits()` →
-  `pm_runtime_put()` → return 0, regardless of resume outcome.
-- **After:** `pm_runtime_resume_and_get()` → on failure, return error
-  immediately (no register access, no `pm_runtime_put()`) → on success,
-  same register access path as before.
-- **Path affected:** DAI format configuration during ASoC card setup
-  (`set_fmt` callback).
+- **Fixes:** — none
+- **Reported-by:** — none
+- **Tested-by:** — none
+- **Reviewed-by:** — none (Linus Walleij merged with "Patch applied")
+- **Acked-by:** — none
+- **Link:** — none in commit; v2 references v1 at `https://lore.kernel.o
+  rg/all/20260427061720.2393355-1-wenst@chromium.org/`
+- **Cc: stable:** — none
+- **Signed-off-by:** Chen-Yu Tsai `<wenst@chromium.org>`, Linus Walleij
+  `<linusw@kernel.org>`
 
-### Step 2.3: Bug Mechanism
-**Record:**
-- **Category:** Error-path / logic correctness fix (ignored return value
-  → unsafe hardware access).
-- **Mechanism:** `rockchip_pdm_runtime_resume()` can fail on
-  `clk_prepare_enable()` for `pdm->clk` or `pdm->hclk`. With the old
-  code, `pm_runtime_get_sync()` returns negative but execution continues
-  to `regmap_update_bits()` on an unpowered controller. The 2019 commit
-  that introduced `pm_runtime_get_sync()` here explicitly stated that
-  regmap ops with power domain off "will lead system hang."
+**Notable:** Author is from Chromium; patch went through v1→v2. No
+syzbot/fuzzer report.
 
-### Step 2.4: Fix Quality
+### Step 1.3: Body analysis
 **Record:**
-- **Quality:** Obviously correct. Matches the pattern already used in
-  `rockchip_pdm_resume()` in the same file (since commit
-  `76a6f4537650e`, 2022).
-- **Regression risk:** Very low. On failure, propagates error to caller
-  instead of proceeding unsafely.
-- **Red flags:** None. No API changes, no refactoring.
+- **Bug:** `pinctrl_gpio_direction_input/output()` take the pinctrl
+  mutex, making GPIO direction ops sleepable, but the MediaTek gpiochip
+  does not set `.can_sleep`. A shared GPIO proxy/forwarder uses
+  `gpiod_cansleep()` to choose spinlock vs mutex; it picks spinlock,
+  then direction ops take a mutex → large kernel warning.
+- **Symptom:** Lockdep / invalid-context warnings (mutex under
+  spinlock).
+- **Root cause:** Mismatch between advertised non-sleeping GPIO chip and
+  sleeping pinctrl mutex path.
+- **Fix rationale:** After muxing to GPIO, direction changes are plain
+  register writes (separate set/clear regs); no pinmux state change
+  needed.
+
+### Step 1.4: Hidden bug fix?
+**Record:** **Yes** — despite “bypass” wording, this is a real lock-
+context / `can_sleep` contract bug, not cosmetic cleanup.
 
 ---
 
-## Phase 3: Git History Investigation
+## PHASE 2: DIFF ANALYSIS
 
-### Step 3.1: Blame Changed Lines
+### Step 2.1: Inventory
 **Record:**
-- `rockchip_pdm_set_fmt()` body: original commit `fc05a5b2225306`
-  (2017).
-- `pm_runtime_get_sync()`/`pm_runtime_put()`: commit `c85064435fe7a2`
-  (2019-04-03) — "fix regmap_ops hang issue."
-- Buggy ignored-return-value pattern present since 2019.
+- **File:** `drivers/pinctrl/mediatek/pinctrl-mtk-common.c` (+10 / −3,
+  13 lines net)
+- **Functions:** new `mtk_gpio_direction_input()`; modified
+  `mtk_gpio_direction_output()`; `mtk_pmx_ops`, `mtk_gpio_chip`
+- **Scope:** Single-file surgical fix
 
-### Step 3.2: Follow Fixes: Tag
-**Record:** No `Fixes:` tag. N/A.
-
-### Step 3.3: File History for Related Changes
+### Step 2.2: Code flow per hunk
 **Record:**
-- `76a6f4537650e` (2022): Same `pm_runtime_resume_and_get()` + error
-  check applied to `rockchip_pdm_resume()`.
-- `ef0a098efb366`: Missing `clk_disable_unprepare()` fix in runtime
-  resume.
-- Part of series "[PATCH v2 0/5] ASoC: rockchip: Reorder clock enable
-  sequence" (patch 5/5), but this hunk is **standalone** — it does not
-  depend on the clock-reorder patches (patches 3–4).
+1. **Remove `.gpio_set_direction` from `mtk_pmx_ops`:** pinmux layer no
+   longer exposes direction via pinctrl GPIO API (returns 0/no-op if
+   called through `pinmux_gpio_direction()`).
+2. **Add `mtk_gpio_direction_input()`:** calls
+   `mtk_pmx_gpio_set_direction()` directly via `pctl->pctl_dev`.
+3. **Change `mtk_gpio_direction_output()`:** replaces
+   `pinctrl_gpio_direction_output()` with direct
+   `mtk_pmx_gpio_set_direction()`.
+4. **Wire `.direction_input`:** `pinctrl_gpio_direction_input` →
+   `mtk_gpio_direction_input`.
 
-### Step 3.4: Author's Other Commits
-**Record:** Author phucduc.bui@gmail.com; no prior rockchip ASoC commits
-in this tree. Mark Brown (committer) is ASoC maintainer.
+**Before:** gpiochip direction callbacks → `pinctrl_gpio_direction_*()`
+→ `mutex_lock(&pctldev->mutex)` → `mtk_pmx_gpio_set_direction()`.
+**After:** gpiochip direction callbacks → `mtk_pmx_gpio_set_direction()`
+directly (regmap write, no mutex).
 
-### Step 3.5: Prerequisites
-**Record:** No prerequisites. `pm_runtime_resume_and_get()` already
-exists and is used in this file at line 685. Patch applies cleanly (`git
-apply --check` passed).
+### Step 2.3: Bug mechanism
+**Record:** **Category:** synchronization / lock-context violation
+(mutex-from-non-sleeping-GPIO path).
+**Mechanism:** Driver advertises fast GPIO (`can_sleep` unset/false) but
+direction ops sleep on pinctrl mutex. GPIO forwarder (`gpio-
+aggregator.c`) uses spinlock when `!chip->can_sleep`, creating mutex-
+under-spinlock when direction changes propagate through the forwarder.
+
+### Step 2.4: Fix quality
+**Record:** **Obviously correct** for this hardware —
+`mtk_pmx_gpio_set_direction()` already does atomic set/clear register
+writes and is used directly elsewhere in the same file (pinconf, EINT
+setup). **Low regression risk** — removes redundant mutex layer; pinconf
+paths unchanged. **Minor note:** removing `.gpio_set_direction` makes
+pinctrl-framework direction calls no-ops, which is intentional since
+GPIO chip handles direction directly.
 
 ---
 
-## Phase 4: Mailing List and External Research
+## PHASE 3: GIT HISTORY INVESTIGATION
 
-### Step 4.1: Original Patch Discussion
-**Record:**
-- **b4 dig URL:**
-  https://patch.msgid.link/20260602101608.45137-6-phucduc.bui@gmail.com
-- **Series:** v2, patch 5/5 of "ASoC: rockchip: Reorder clock enable
-  sequence"
-- **Sashiko review:** Flagged the ignored `pm_runtime_get_sync()` return
-  value; also noted a separate pre-existing clock underflow issue in
-  `rockchip_pdm_remove()` (unrelated to this patch).
-- **Stable nominations:** None found in thread.
-- **NAKs:** None found.
+### Step 3.1: Blame
+**Record:** In this shallow stable checkout, blame points to merge
+`5d324e5159d9e`. Verified at tags: **v6.6, v6.12, v6.18** all contain
+`pinctrl_gpio_direction_input` in direction callbacks (bug predates 6.18
+branch).
+
+### Step 3.2: Fixes: tag
+**Record:** N/A — no `Fixes:` tag.
+
+### Step 3.3: Related file history
+**Record:** In 6.18.43 tree, only two commits touch this file
+(`936a3c0c10e2b` EINT probe fix, merge import). On mainline
+(`build/master`), file was re-added in `a293ec25d59dd` (May 2026
+refactor) already containing the buggy pattern; fix landed 7 days later
+in `3982db2df3ed`.
+
+### Step 3.4: Author context
+**Record:** Chen-Yu Tsai (Chromium). Linus Walleij (pinctrl/gpio
+maintainer) merged. Related nearby work: Bartosz Golaszewski’s GPIO
+setter callback conversion (`23a5fa371c772`).
+
+### Step 3.5: Dependencies
+**Record:** **Standalone.** Requires `mtk_pinctrl::pctl_dev` and
+`mtk_pmx_gpio_set_direction()` — both present in 6.18.43. `git apply
+--check` on upstream diff: **clean apply**.
+
+---
+
+## PHASE 4: MAILING LIST AND EXTERNAL RESEARCH
+
+### Step 4.1: Original discussion
+**Record:** `b4 dig -c 3982db2df3ed` →
+https://patch.msgid.link/20260505104056.1812343-1-wenst@chromium.org
+**Series:** v2 only in matched thread (v1 at separate URL). Linus
+Walleij: “Patch applied.”
+**Stable nomination:** None found.
+**NAKs/concerns:** None in thread.
 
 ### Step 4.2: Reviewers
-**Record:** CC'd Mark Brown, Heiko Stuebner, Liam Girdwood, Takashi
-Iwai, linux-sound@, linux-rockchip@. Rob Herring Acked-by on an earlier
-patch in the series (DT bindings), not specifically this one. Mark Brown
-merged.
+**Record:** `b4 dig -w`: CC’d Sean Wang, Matthias Brugger,
+AngeloGioacchino Del Regno, Linus Walleij, linux-mediatek, linux-gpio,
+linux-arm-kernel.
 
-### Step 4.3: Bug Report
-**Record:** Sashiko AI static analysis (not a runtime crash report).
-Original Closes link points to the Sashiko review bot email. Patch
-submission notes: **"compile-tested only."**
+### Step 4.3: Bug report
+**Record:** No external bug report. Author notes **“Only compile
+tested”** and initially fixed wrong file (target used `pinctrl-
+paris.c`).
 
-### Step 4.4: Related Patches / Series
-**Record:** Patches 1–4 cover clock reorder and regcache sync in runtime
-resume for PDM/SPDIF. This patch (5/5) is independent — only touches
-`set_fmt` error handling.
+### Step 4.4: Series context
+**Record:** Standalone 1-patch fix for `pinctrl-mtk-common.c`
+(common-v1). Paris driver may need a separate fix (out of scope).
 
-### Step 4.5: Stable Mailing List
-**Record:** Not searched separately; no stable nomination found in the
-patch thread.
+### Step 4.5: Stable list
+**Record:** Not searched on lore stable (WebFetch blocked for lore). No
+stable discussion in mbox thread.
 
 ---
 
-## Phase 5: Code Semantic Analysis
+## PHASE 5: CODE SEMANTIC ANALYSIS
 
-### Step 5.1: Key Functions
-**Record:** `rockchip_pdm_set_fmt()` (modified); callers via
-`rockchip_pdm_dai_ops.set_fmt`.
+### Step 5.1: Key functions
+**Record:** `mtk_gpio_direction_input()` (new),
+`mtk_gpio_direction_output()`, `mtk_pmx_gpio_set_direction()`,
+`pinctrl_gpio_direction()` in `core.c`.
 
-### Step 5.2: Trace Callers
+### Step 5.2: Callers
+**Record:** Direction callbacks invoked from gpiolib
+(`gpiod_direction_input/output` → `gpiochip_direction_*`). Reachable
+from device drivers, GPIO forwarder (`gpio_fwd_direction_input/output`
+in `gpio-aggregator.c`), and userspace via gpio-cdev.
+
+### Step 5.3: Callees
+**Record:** `mtk_pmx_gpio_set_direction()` → `regmap_write()` on
+set/clear direction registers — no mutex, no sleeping primitives.
+
+### Step 5.4: Reachability
+**Record:** **Userspace-reachable** via GPIO character device. **Driver-
+reachable** on any MediaTek v1 pinctrl platform (`CONFIG_PINCTRL_MTK`).
+Trigger is most visible when GPIOs are accessed through a GPIO
+forwarder/proxy that assumes non-sleeping ops.
+
+### Step 5.5: Similar patterns
+**Record:** Same `pinctrl_gpio_direction_*` pattern exists in `pinctrl-
+moore.c`, `pinctrl-airoha.c` (same subsystem, different drivers — not
+fixed by this commit).
+
+---
+
+## PHASE 6: CROSS-REFERENCE AGAINST LOCAL TREE (6.18.43)
+
+### Step 6.1: Buggy code present?
+**Record:** **YES.** Current tree at lines 805, 818, 898 uses
+`pinctrl_gpio_direction_input/output` and `.gpio_set_direction =
+mtk_pmx_gpio_set_direction`. `can_sleep` is never set on the gpiochip.
+
+### Step 6.2: Backport complications
+**Record:** **Clean apply** verified. No structural conflicts in
+6.18.43.
+
+### Step 6.3: Related fixes already present?
+**Record:** **No** — `git log --grep="bypass pinctrl GPIO"` returns
+nothing in this tree.
+
+---
+
+## PHASE 7: SUBSYSTEM CONTEXT
+
+### Step 7.1: Subsystem / criticality
+**Record:** `drivers/pinctrl/mediatek/` — **IMPORTANT** (ARM/ARM64
+embedded SoCs: MT27xx, MT81xx, MT83xx families via
+`CONFIG_PINCTRL_MTK`).
+
+### Step 7.2: Activity
+**Record:** Active; recent stable fix `936a3c0c10e2b` (EINT probe) in
+same file.
+
+---
+
+## PHASE 8: IMPACT AND RISK
+
+### Step 8.1: Who is affected
+**Record:** Users of MediaTek **common-v1** pinctrl
+(`CONFIG_PINCTRL_MTK`), especially platforms using GPIO
+forwarding/sharing (Chromebook-class devices per author).
+
+### Step 8.2: Trigger conditions
+**Record:** GPIO direction change on a MediaTek v1 GPIO line,
+particularly when accessed through a non-sleeping GPIO forwarder. Not
+every GPIO toggle hits this — direction changes are the trigger.
+Unprivileged users can trigger via GPIO uAPI if lines are
+exported/accessible.
+
+### Step 8.3: Failure mode severity
+**Record:** **MEDIUM–HIGH** — kernel warnings / lockdep complaints
+(“huge warning” per author); mutex under spinlock can escalate to hangs
+on debug kernels. Not a typical memory-corruption bug, but a real
+correctness violation in a common driver path.
+
+### Step 8.4: Risk vs benefit
 **Record:**
-- `rockchip_pdm_dai_ops.set_fmt` → registered in `rockchip_pdm_dai`
-- Called via `snd_soc_dai_set_fmt()` in `sound/soc/soc-dai.c`
-- Invoked from `soc-core.c` during machine/DAI link format setup
-- **Context:** Normal audio card initialization/configuration path on
-  Rockchip boards using PDM microphones.
-
-### Step 5.3: Trace Callees
-**Record:** `pm_runtime_resume_and_get()` → may call
-`rockchip_pdm_runtime_resume()` → `clk_prepare_enable()`. On success:
-`regmap_update_bits()`, `pm_runtime_put()`.
-
-### Step 5.4: Call Chain / Reachability
-**Record:** Reachable during audio subsystem setup when a machine driver
-configures the PDM DAI format. Requires `CONFIG_SND_SOC_ROCKCHIP_PDM`
-(or built-in rockchip audio). Trigger requires runtime resume failure
-(e.g., clock failure), which is an error path but realistic.
-
-### Step 5.5: Similar Patterns
-**Record:** Same file already uses `pm_runtime_resume_and_get()` with
-error check in `rockchip_pdm_resume()` (lines 685–687). Kernel docs in
-`include/linux/pm_runtime.h` explicitly recommend
-`pm_runtime_resume_and_get()` over `pm_runtime_get_sync()` when the
-return value is checked.
-
----
-
-## Phase 6: Cross-Reference Against Local Tree
-
-### Step 6.1: Does Buggy Code Exist?
-**Record:** **Yes.** Local tree is **v6.18.44** (`git describe HEAD`:
-`v6.18.44-1-g2736c32da98b9`). At lines 337–339, `rockchip_pdm_set_fmt()`
-still has unchecked `pm_runtime_get_sync()`. Fix commit `ee7b5f7b39332`
-is on master but **not** in this tree.
-
-### Step 6.2: Backport Complications
-**Record:** Clean apply confirmed. No conflicting changes in the hunk
-area. Low difficulty.
-
-### Step 6.3: Related Fixes Already Present?
-**Record:** `76a6f4537650e` (pm_runtime_resume_and_get in
-`rockchip_pdm_resume`) is present. The `set_fmt` path was missed and
-remains unfixed.
-
----
-
-## Phase 7: Subsystem and Maintainer Context
-
-### Step 7.1: Subsystem Criticality
-**Record:** **ASoC / Rockchip PDM driver** — IMPORTANT for embedded
-Rockchip platforms (rk3229, px30, rk3308, rk3568, rv1126), PERIPHERAL
-globally.
-
-### Step 7.2: Subsystem Activity
-**Record:** Active — recent commits in `sound/soc/rockchip/` include
-SAI, i2s-tdm, and runtime PM cleanups.
-
----
-
-## Phase 8: Impact and Risk Assessment
-
-### Step 8.1: Who Is Affected
-**Record:** Users of Rockchip SoCs with PDM (digital microphone
-capture). Config/driver-specific, not universal.
-
-### Step 8.2: Trigger Conditions
-**Record:** `set_fmt` called while device is runtime-suspended AND
-`rockchip_pdm_runtime_resume()` fails (clock enable failure).
-Unprivileged users cannot directly trigger `set_fmt`, but audio
-subsystem setup during boot or `modprobe`/card registration can. Failure
-path is uncommon but valid.
-
-### Step 8.3: Failure Mode Severity
-**Record:** **System hang** — explicitly documented in the 2019 commit
-that introduced runtime PM here: "regmap_ops will lead system hang" when
-power domain is off. **Severity: CRITICAL** for affected hardware when
-triggered; **LOW** probability.
-
-### Step 8.4: Risk-Benefit Ratio
-**Record:**
-- **Benefit:** Prevents potential system hang on Rockchip PDM hardware
-  during audio setup error paths; completes incomplete error handling
-  from 2019.
-- **Risk:** Very low — 5-line change, established API, same pattern
-  already in the file.
+- **Benefit:** MEDIUM–HIGH for affected MediaTek platforms; fixes
+  longstanding contract violation.
+- **Risk:** LOW — 13-line change, maintainer-merged, uses existing
+  internal helper already used elsewhere in driver.
 - **Ratio:** Favorable for backport.
 
 ---
 
-## Phase 9: Final Synthesis
+## PHASE 9: FINAL SYNTHESIS
 
-### Step 9.1: Evidence Summary
+### Step 9.1: Evidence summary
 
 **FOR backport:**
-- Real bug: ignored runtime PM resume failure return value
-- Documented hang risk from register access without power (2019 commit
-  message)
-- Small (5 lines), surgical, applies cleanly
-- Follows pattern already in same file since 2022
-- Merged by ASoC maintainer Mark Brown
-- `pm_runtime_resume_and_get()` API present in this tree
+- Real bug: sleeping pinctrl mutex from non-sleeping gpiochip callbacks
+- Bug present in 6.18.43 (verified in source)
+- Small, self-contained, applies cleanly
+- Maintainers merged (Linus Walleij)
+- Fixes lock-context violation with concrete failure mode
+- Hardware-appropriate: direct register writes are safe post-mux
 
 **AGAINST backport:**
-- Compile-tested only (no hardware Tested-by)
-- Found by AI static analysis, not a user crash report
-- Driver-specific (Rockchip PDM only)
-- Trigger requires runtime resume failure (uncommon)
-- Part of a 5-patch series (though this patch is standalone)
+- Author only compile-tested (no runtime Tested-by)
+- No syzbot/CVE/user bug report
+- Trigger may be most visible on Chromebook + GPIO-proxy setups
+- Severity is WARN/lockdep, not proven crash/oops in mainline report
 
-**Unresolved:** No hardware testing confirmation; no explicit stable
-nomination from reviewers.
+**Unresolved:** Exact in-tree “GPIO proxy” component name unverified in
+mainline (likely GPIO forwarder in `gpio-aggregator.c` or ChromeOS-
+specific code); runtime reproduction not documented in mailing list.
 
-### Step 9.2: Stable Rules Checklist
-| Criterion | Result |
-|-----------|--------|
-| 1. Obviously correct and tested? | **PASS** — logically correct;
-compile-tested only |
-| 2. Fixes a real bug? | **PASS** — ignored error return on runtime PM
-resume |
-| 3. Important issue? | **PASS** — potential system hang on affected
-hardware |
-| 4. Small and contained? | **PASS** — 5 lines, 1 file |
-| 5. No new features/APIs? | **PASS** — error handling only |
-| 6. Can apply to local tree? | **PASS** — clean apply, buggy code
-present |
+### Step 9.2: Stable rules checklist
+1. Obviously correct and tested? **PASS** (logically correct; compile-
+   tested; maintainer merged)
+2. Fixes real bug affecting users? **PASS** (lock-context violation on
+   real hardware class)
+3. Important issue? **PASS** (lockdep / invalid context — MEDIUM–HIGH)
+4. Small and contained? **PASS** (1 file, 13 lines)
+5. No new features/APIs? **PASS**
+6. Can apply to local tree? **PASS** (clean `git apply --check`)
 
-### Step 9.3: Exception Categories
-**Record:** None (not device ID, quirk, DT, build, or docs). Standard
-driver bug fix.
+### Step 9.3: Exception categories
+**Record:** None (not device-ID/quirk/docs/build fix) — standard driver
+bug fix.
 
-### Step 9.4: Problem and Decision Rationale
-
-This commit closes a gap in runtime PM error handling in
-`rockchip_pdm_set_fmt()`. When runtime resume fails (e.g., clock enable
-error in `rockchip_pdm_runtime_resume()`), the driver previously
-proceeded to write hardware registers anyway. The original 2019 fix that
-added `pm_runtime_get_sync()` explicitly documented that regmap access
-without power causes a **system hang** — this patch ensures that failure
-path is handled correctly by returning early, matching the pattern
-already applied to `rockchip_pdm_resume()` in the same file.
-
-For the **v6.18.y** tree checked out here, the buggy code is present,
-the fix applies cleanly, and the change is minimal with negligible
-regression risk. While the trigger is an error path and the patch is
-compile-tested only, preventing a documented system hang on real
-Rockchip hardware meets stable kernel criteria.
+### Step 9.4: Decision rationale
+For **Linux 6.18.43**, the buggy pattern exists, the fix is minimal and
+correct, and it resolves a real synchronization contract violation in a
+widely used embedded pinctrl driver. The conservative stable bar is met:
+real bug, contained fix, low regression risk, clear maintainer
+acceptance.
 
 ---
 
 ## Verification
 
-- **[Phase 1]** Parsed commit `ee7b5f7b39332`: tags, body, Sashiko
-  Reported-by
-- **[Phase 2]** Diff: +5/−1 in `rockchip_pdm_set_fmt()`; error-path fix
-  confirmed
-- **[Phase 3]** `git blame -L 319,342`: pm_runtime lines from
-  `c85064435fe7a2` (2019)
-- **[Phase 3]** `git show c85064435fe7a2`: original commit documents
-  system hang without power
-- **[Phase 3]** `git show 76a6f4537650e`: same pattern already in
-  `rockchip_pdm_resume()`
-- **[Phase 3]** `git apply --check`: patch applies cleanly to local tree
-- **[Phase 4]** `b4 dig -c ee7b5f7b39332`: lore URL found; patch 5/5 of
-  v2 series
-- **[Phase 4]** `b4 dig -a`: series context; standalone nature of this
-  hunk verified
-- **[Phase 4]** `b4 dig -w`: maintainers CC'd; Mark Brown merged
-- **[Phase 4]** Mbox: Sashiko review + "compile-tested only" note; no
-  stable nomination
-- **[Phase 5]** `grep set_fmt sound/soc/soc-dai.c soc-core.c`: call
-  chain via ASoC core confirmed
-- **[Phase 5]** Read `rockchip_pdm_runtime_resume()`: clock enable
-  failure returns negative
-- **[Phase 5]** Read `include/linux/pm_runtime.h`: kernel recommends
-  `pm_runtime_resume_and_get()`
-- **[Phase 6]** `git describe HEAD`: v6.18.44; buggy code at line 337
-  confirmed present
-- **[Phase 6]** Fix not in tree; `pm_runtime_resume_and_get` already
-  used at line 685
-- **[Phase 8]** Failure mode: system hang per 2019 commit message;
-  severity CRITICAL when triggered
+- **[Phase 1]** Parsed commit message/tags from `git show 3982db2df3ed`
+  and user-provided text
+- **[Phase 1]** `b4 dig -c 3982db2df3ed`: lore URL
+  https://patch.msgid.link/20260505104056.1812343-1-wenst@chromium.org
+- **[Phase 1]** `b4 dig -a`: v2 series found; v1 referenced in mbox body
+- **[Phase 1]** `b4 dig -w`: maintainers CC list retrieved
+- **[Phase 2]** Read current `pinctrl-mtk-common.c` lines 65–87,
+  800–904, 1116–1128
+- **[Phase 2]** Read `drivers/pinctrl/core.c` lines 855–876:
+  `pinctrl_gpio_direction()` takes `mutex_lock`
+- **[Phase 2]** Read `drivers/gpio/gpio-aggregator.c` lines 327–342,
+  406–421: spinlock when `!chip->can_sleep`
+- **[Phase 2]** `git show 3982db2df3ed`: full diff reviewed
+- **[Phase 3]** `git describe HEAD`, `make kernelversion`: tree is
+  6.18.43
+- **[Phase 3]** `git show v6.6/v6.12/v6.18:...`: buggy
+  `pinctrl_gpio_direction_input` pattern present at all three tags
+- **[Phase 3]** `git apply --check` on upstream patch: succeeds on
+  current tree
+- **[Phase 4]** `b4 dig -m /tmp/mtk-gpio-thread.mbox`: thread saved;
+  Linus Walleij “Patch applied”; author “Only compile tested”
+- **[Phase 5]** Traced `gpiod_direction_input/output` → gpiochip
+  callbacks in `gpiolib.c`
+- **[Phase 6]** `grep` on current tree: buggy code at lines 805, 818,
+  898; no `can_sleep` set
+- **[Phase 6]** Fix not in HEAD: `merge-base --is-ancestor 3982db2df3ed
+  HEAD` → not ancestor
+- **[Phase 7]** `drivers/pinctrl/mediatek/Makefile`:
+  `CONFIG_PINCTRL_MTK` builds `pinctrl-mtk-common.o`
+- **UNVERIFIED:** Exact ChromeOS “GPIO proxy” driver name in mainline
+  (no `gpio_proxy` string found; forwarder mechanism verified in `gpio-
+  aggregator.c`)
 
-**YES****Verdict: YES** — backport to this tree (v6.18.44).
+**YES**The backport analysis is complete.
 
-`rockchip_pdm_set_fmt()` still ignores a failed runtime PM resume and
-can touch registers while the PDM block is off; the 2019 hang fix left
-that gap. The patch is small (5 lines), applies cleanly, and matches the
-pattern already used in `rockchip_pdm_resume()` in the same file. Main
-caveat: compile-tested only, found by static analysis rather than a user
-crash report.
+**Verdict for Linux 6.18.43: YES** — the MediaTek common-v1 pinctrl
+driver advertises non-sleeping GPIO ops but uses
+`pinctrl_gpio_direction_*()` (which takes the pinctrl mutex), causing
+lock-context warnings when GPIOs are used through a forwarder/proxy. The
+fix is small (13 lines), applies cleanly, and is already merged upstream
+by Linus Walleij.
 
- sound/soc/rockchip/rockchip_pdm.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+A background `git branch --contains` check for which branches have the
+fix failed (likely due to repo size/timeout). That wasn’t needed for the
+decision: the fix is **not** in your current 6.18.43 checkout, and the
+buggy code is present there.
 
-diff --git a/sound/soc/rockchip/rockchip_pdm.c b/sound/soc/rockchip/rockchip_pdm.c
-index c69cdd6f24994..01292b63bf9d6 100644
---- a/sound/soc/rockchip/rockchip_pdm.c
-+++ b/sound/soc/rockchip/rockchip_pdm.c
-@@ -321,6 +321,7 @@ static int rockchip_pdm_set_fmt(struct snd_soc_dai *cpu_dai,
- {
- 	struct rk_pdm_dev *pdm = to_info(cpu_dai);
- 	unsigned int mask = 0, val = 0;
-+	int ret;
+ drivers/pinctrl/mediatek/pinctrl-mtk-common.c | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
+index 3f518dce6d23f..dd2c8aa039385 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
++++ b/drivers/pinctrl/mediatek/pinctrl-mtk-common.c
+@@ -802,20 +802,27 @@ static const struct pinmux_ops mtk_pmx_ops = {
+ 	.get_function_name	= mtk_pmx_get_func_name,
+ 	.get_function_groups	= mtk_pmx_get_func_groups,
+ 	.set_mux		= mtk_pmx_set_mux,
+-	.gpio_set_direction	= mtk_pmx_gpio_set_direction,
+ 	.gpio_request_enable	= mtk_pmx_gpio_request_enable,
+ };
  
- 	mask = PDM_CKP_MSK;
- 	switch (fmt & SND_SOC_DAIFMT_INV_MASK) {
-@@ -334,7 +335,10 @@ static int rockchip_pdm_set_fmt(struct snd_soc_dai *cpu_dai,
- 		return -EINVAL;
- 	}
- 
--	pm_runtime_get_sync(cpu_dai->dev);
-+	ret = pm_runtime_resume_and_get(cpu_dai->dev);
-+	if (ret)
-+		return ret;
++static int mtk_gpio_direction_input(struct gpio_chip *chip, unsigned offset)
++{
++	struct mtk_pinctrl *pctl = gpiochip_get_data(chip);
 +
- 	regmap_update_bits(pdm->regmap, PDM_CLK_CTRL, mask, val);
- 	pm_runtime_put(cpu_dai->dev);
++	return mtk_pmx_gpio_set_direction(pctl->pctl_dev, NULL, offset, true);
++}
++
+ static int mtk_gpio_direction_output(struct gpio_chip *chip,
+ 					unsigned offset, int value)
+ {
++	struct mtk_pinctrl *pctl = gpiochip_get_data(chip);
+ 	int ret;
  
+ 	ret = mtk_gpio_set(chip, offset, value);
+ 	if (ret)
+ 		return ret;
+ 
+-	return pinctrl_gpio_direction_output(chip, offset);
++	return mtk_pmx_gpio_set_direction(pctl->pctl_dev, NULL, offset, false);
+ }
+ 
+ static int mtk_gpio_get_direction(struct gpio_chip *chip, unsigned offset)
+@@ -895,7 +902,7 @@ static const struct gpio_chip mtk_gpio_chip = {
+ 	.request		= gpiochip_generic_request,
+ 	.free			= gpiochip_generic_free,
+ 	.get_direction		= mtk_gpio_get_direction,
+-	.direction_input	= pinctrl_gpio_direction_input,
++	.direction_input	= mtk_gpio_direction_input,
+ 	.direction_output	= mtk_gpio_direction_output,
+ 	.get			= mtk_gpio_get,
+ 	.set			= mtk_gpio_set,
 -- 
 2.53.0
 
