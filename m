@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D22F3C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 07:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88431C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 07:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rKqQvcYTnwhaeJBQ2ar7dKiQ42957hc/hTbAjzWCFPM=; b=tWRXUuCiM2ME9SP50Q/U2oKzGR
-	YmgUXx/tiocq6HhDFMhed9P9Y5QF8xiYYJuRf6aZ2kGBaljrehV7VeTmKBWTsHs45xHYY9O86riuR
-	Ek4fyONzhJacNXbRdvd3CPJ6pEJbGCyzl1+wX6mbKIrQjgrbpirbzNTGGOL+/UVPlfRkrizJxNVmg
-	vcSYOC06QaJshX0kaaZS1gdqpQ9spXHSkei2tRiP5e1F8exfJFptRTcHbbnevEYfeKW3kg7t/iS1/
-	CBrlikS+lo+m2hzd0kfRaqi815w7wnqkTGAYLLIKhWb3k4TR9zpchvWRlWYpLqoFbBwbzUsFBJazq
-	q0leRi2g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lroqDS7c7e/0FELjm//w6v7eePo37TDmc7OaHklp5WE=; b=sPFaSA9kt9wkVH5f0++teg6ha8
+	MtQp33zYPNLGDmyZ8Q4MNA01EdT8QU/Ui69arFgp41iIOwS0S6R5zBtSk7T4yqxdYaQl6Pr1ng7Ef
+	fSC/wYlw6o6Rz4u7/yl2heLpZkaraRDfE+5rIlwe08D6m2Tuhwk1MNkkXoU1Eko6XAAqScKCRr2IT
+	fNyMjeT0e8pTSzt9rkkEqWp0j8mhlyZkiLs2tSv+5vvgnc6gsWfQu8QNREHW4id87+Z+KBX1T9k4w
+	HgFwuOHcEjJo2iYeUFkqHkAeH9juzH66jGUBnQ/vka4PBdCUw3/H7fitMBXpJ0e5esI8W38EUjwEz
+	FxxSpx+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0wak-00000008kAL-1qHo;
+	id 1x0wak-00000008k9s-0sWU;
 	Mon, 31 Aug 2026 07:38:06 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0wai-00000008k8t-1CEH
+	id 1x0wah-00000008k8Y-0gja
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 07:38:05 +0000
+	Mon, 31 Aug 2026 07:38:04 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id C97484E41466;
-	Mon, 31 Aug 2026 07:38:02 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 67D7B4E41465;
+	Mon, 31 Aug 2026 07:38:00 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 93467601E1;
-	Mon, 31 Aug 2026 07:38:02 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6F77B11C783E3;
-	Mon, 31 Aug 2026 09:37:59 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 388C7601E1;
+	Mon, 31 Aug 2026 07:38:00 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 95F2E11C783B9;
+	Mon, 31 Aug 2026 09:37:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1788161881; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=rKqQvcYTnwhaeJBQ2ar7dKiQ42957hc/hTbAjzWCFPM=;
-	b=GPt4V02LsQZNwWDDGo0O6bovgr21NkxPD57nBj3tF/tYpUaC1MSLADXxXq5lemvazZzewf
-	ejQwVvIvyTYZ9eO+8G/nS39rcy+AlML9hDbVyOhvsmnN50PO772iGl4NAY2E2DWx12+dgB
-	QEWpxldZtdFNw88WMVLEkxrYF4IAPtgqEGajxq9XBm/O+aGBbThK8tpoGMnw3VjscxXi2e
-	Qxp/YlI+hxUesRi8RymjGSGD3Fps0qiFFcK2ymzkiY73+gBsPJS9wcoozJqVOZ9A8epeNA
-	zSnHFW5EHAWiTzoT640+idGYhFlyK4FTT06wYPZEZVMaDx+VPqfpeILgqAl2dQ==
+	t=1788161879; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=lroqDS7c7e/0FELjm//w6v7eePo37TDmc7OaHklp5WE=;
+	b=Wg5ZvIGShM3L2YujurYgehbqzzT5lBci4/33AHw4PD2rrYmCRrXUbcQUc7fWGWyWVxn+Yn
+	BmAjByh8eFFwPs3Uwp5ClciWyGTCQe3Qv+RyG3m5eHpYOOCr4xfHIBx1pgCI3zIYCWAdur
+	vfCHKmwIOWhPVRfClHhz+JYKc3dFgvLpYm5d/rXS4spbIm1lFyhgIpSXvXxjG5LzZuTxtl
+	IkgtTd4AEIZ+3xsrOer5auiJdDhSPk7aEVnQSyPCq/VpJIbVxEApLN4U97ZSrV1cyz05pg
+	AOiv+F9kD7YFvml7JTSS8mVIlNG7TKrVRBui+PMRcVlvJmmYSB1oN4vq58obVA==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Jakub Kicinski <kuba@kernel.org>,
@@ -64,18 +63,17 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH net-next 1/3] net: phy: motorcomm: Split yt8521_config_init() page management
-Date: Mon, 31 Aug 2026 09:37:43 +0200
-Message-ID: <20260831073747.361482-2-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next 0/3] net: phy: motorcomm: Enable analog frontend DAC on yt8531S
+Date: Mon, 31 Aug 2026 09:37:42 +0200
+Message-ID: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
-References: <20260831073747.361482-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_003804_483206_B2D35731 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20260831_003803_365480_137D79F6 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,93 +88,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for separate .config_init() implementations for YT8521
-and YT8531S, let's split the yt8521_config_init() into a high-level
-helper that deals with page handling, and another one that implements
-the logic. This will ease splitting the YT8531S-specific logic out.
+In the process of getting more stmmac boards to run tests on, I've
+acquired a nice and inexpensive YT6801 PCIe card, that can do
+10/100/1000BaseT. It uses stmmac's PCI variant dwmac-motorcomm, as well
+as an integrated Motorcomm PHY (the YT8531S).
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- drivers/net/phy/motorcomm.c | 38 ++++++++++++++++++++++---------------
- 1 file changed, 23 insertions(+), 15 deletions(-)
+However while testing the card, I had link-up maybe once every 10
+reboots, and no traffic whatsoever. Comparing with the out-of-tree
+driver provided by Motorcomm, it was found that some Analog Frontend DAC
+needs a clock to be enabled, and indeed it fixed the issue.
 
-diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
-index c5a2cda8d31b..58e4d67b945f 100644
---- a/drivers/net/phy/motorcomm.c
-+++ b/drivers/net/phy/motorcomm.c
-@@ -1680,27 +1680,16 @@ static int yt8521_resume(struct phy_device *phydev)
- 	return yt8521_modify_utp_fiber_bmcr(phydev, BMCR_PDOWN, 0);
- }
- 
--/**
-- * yt8521_config_init() - called to initialize the PHY
-- * @phydev: a pointer to a &struct phy_device
-- *
-- * returns 0 or negative errno code
-- */
--static int yt8521_config_init(struct phy_device *phydev)
-+static int __yt8521_config_init(struct phy_device *phydev)
- {
- 	struct device *dev = &phydev->mdio.dev;
--	int old_page;
- 	int ret = 0;
- 
--	old_page = phy_select_page(phydev, YT8521_RSSR_UTP_SPACE);
--	if (old_page < 0)
--		goto err_restore_page;
--
- 	/* set rgmii delay mode */
- 	if (phydev->interface != PHY_INTERFACE_MODE_SGMII) {
- 		ret = ytphy_rgmii_clk_delay_config(phydev);
- 		if (ret < 0)
--			goto err_restore_page;
-+			return ret;
- 	}
- 
- 	if (device_property_read_bool(dev, "motorcomm,auto-sleep-disabled")) {
-@@ -1708,7 +1697,7 @@ static int yt8521_config_init(struct phy_device *phydev)
- 		ret = ytphy_modify_ext(phydev, YT8521_EXTREG_SLEEP_CONTROL1_REG,
- 				       YT8521_ESC1R_SLEEP_SW, 0);
- 		if (ret < 0)
--			goto err_restore_page;
-+			return ret;
- 	}
- 
- 	if (device_property_read_bool(dev, "motorcomm,keep-pll-enabled")) {
-@@ -1716,13 +1705,32 @@ static int yt8521_config_init(struct phy_device *phydev)
- 		ret = ytphy_modify_ext(phydev, YT8521_CLOCK_GATING_REG,
- 				       YT8521_CGR_RX_CLK_EN, 0);
- 		if (ret < 0)
--			goto err_restore_page;
-+			return ret;
- 	}
- 
- 	if (phy_interface_is_rgmii(phydev) &&
- 	    phydev_id_compare(phydev, PHY_ID_YT8531S))
- 		ret = yt8531_set_ds(phydev);
- 
-+	return ret;
-+}
-+
-+/**
-+ * yt8521_config_init() - called to initialize the PHY
-+ * @phydev: a pointer to a &struct phy_device
-+ *
-+ * returns 0 or negative errno code
-+ */
-+static int yt8521_config_init(struct phy_device *phydev)
-+{
-+	int old_page, ret = 0;
-+
-+	old_page = phy_select_page(phydev, YT8521_RSSR_UTP_SPACE);
-+	if (old_page < 0)
-+		goto err_restore_page;
-+
-+	ret = __yt8521_config_init(phydev);
-+
- err_restore_page:
- 	return phy_restore_page(phydev, old_page, ret);
- }
+As I don't know much about this device, this series implements the DAC
+CLK configuration in the YT8531S driver only for the integrated version,
+that uses the GMII interface.
+
+I split that into 3 commits, the first 2 are splitting-out the YT8521
+and YT8531S config_init(). The third commit adds the DAC configuration.
+
+This was tested on YT6801, which now reliably reports link up.
+
+Maxime Chevallier (3):
+  net: phy: motorcomm: Split yt8521_config_init() page management
+  net: phy: motorcomm: Add a dedicated .config_init for YT8531S
+  net: phy: motorcomm: Enable analog frontend on YT8531S
+
+ drivers/net/phy/motorcomm.c | 76 ++++++++++++++++++++++++++-----------
+ 1 file changed, 54 insertions(+), 22 deletions(-)
+
 -- 
 2.55.0
 
