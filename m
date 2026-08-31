@@ -4,102 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27773C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27DF3C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 14:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y8fnpAA71PpA4geiQW/S84jidbVYovY7D0FubXhURV0=; b=HQyksXEL3KVQsrw8C2S6GYYSUP
-	ESbsO+Jpe3J1S5hrQzD+qT8UudcsyjLJIqj0VS7TPUKveMwnLVlQejZZyDcvUTvtCLCDghTyh+zBz
-	u7cdsk8yUrXK3C3YZMjWRPQ/DfkFmF4QXuEqeCGb2SDLStu+HwSkQTbq1XZNdu6eHNycCWzFLImb8
-	oWc2u9TXMWRAhjdNr5uGabY8keDfJqXgfUKb5hmtG92C6iCf/VYbDnEO5TLBCA4HvHMVAUwi4EGyS
-	Z0W8ZXj6d2yAnwuM+/f2EoFfmKLe5VBpwjCkHGQSvuyXWPlECSBPFYhAFirqlfsWzxO1dGJJrfEZJ
-	4MD/gSMA==;
+	bh=lm81A7q8yUyeyAYX/W1p02VJiYIZujE9pM4JMcxdrYw=; b=wsrBCUsGXi4DmVYyRS3iR2myvg
+	u0rXHBRmrVy3IiqRpmNk+wIigCE9djMTyuG/+bwanA+lglI/ohkeVSQ1r4ELl11aPNC9fiwlIW7uL
+	V3LUb3s8X2enb8Zq6+NBd/8IdzGolzzM8Pymt9G98kwI78KQV90kjWg4hYJ/Kh/pmqq8jlsOndc3L
+	ue3r2zbfvsZek0ONeau1hKe7fLcVUeCtDW/d9caopTPwEYKHANNP2tzCOJ3qZdIFslUjkx8Z3+Kc0
+	MdSeVCpgTF40L6f7Anw9tzFJWJLnTO+fJh5vEfej0LOMscl2rVITZKrE4E/krdOpw1CAkIGiPl6Yh
+	thDV7HpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13HR-00000009fop-2mzh;
-	Mon, 31 Aug 2026 14:46:37 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1x13J9-00000009gEv-418H;
+	Mon, 31 Aug 2026 14:48:23 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13HI-00000009flT-33Im
+	id 1x13J7-00000009gD4-3yXo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 14:46:30 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-398a29be161so388542a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 07:46:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1788187588; x=1788792388; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Y8fnpAA71PpA4geiQW/S84jidbVYovY7D0FubXhURV0=;
-        b=Pkm5iPE9Jf8Th7iujc58BXmX1W8nCW+lQlvGcWU0vRsDPGiW0SpoYbOTpCPT1QLse7
-         8Oc6aqqUR34Yi6vUA2wFMNd4m0zu9pJOkNxkN1PIAws1BHNxW2yiDq6t2jRfH3B2xTVm
-         ee2kplvk36IUGi7U5unp9GE+c6zkR+Uf6O3nmrqmebiV/ihNyyOhdV4gqfHSTA46L5nU
-         RRz9QFpsTZk90BV2izw9K6GJJwWiBWIZ6w3OrbwxZ3dln9lzuIpZHCHCZstJz5dCT04Q
-         6lg8jXH3hD6X99nT9v4rjVs7TyqtYd1zaxJI+rn72nrtvwwZtwSeC8EvYTuV+FyanPNe
-         ci8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788187588; x=1788792388;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Y8fnpAA71PpA4geiQW/S84jidbVYovY7D0FubXhURV0=;
-        b=Hsdy5QtooW4igp1aQRLNUWaEd7nbsDVL3erCwQYU4XiM/7C4r+AEjBwh2lpUMX8Utf
-         3nhryGTy2H4isVVyx+BJY8DVPj5G/Na9Dk40e/KvLFk6juiyChshhzXo1s043jc+8cE+
-         +Yzn4qscAxwZUEd6U6I3cRUVXMy73/IqwzQ5gKq91sUL1qwtxsicC0qRHrgh2sEXGccd
-         cQhFNDtoebsTkL1j8jhSClcIIouSRfEGl+vCcFJYICcnIoq8Z23GgL1EF0jmhJxojXKu
-         LN4xKb8B7FmG6uzsm21Rn2mhIRchE+t4gTW+0Rw8YqfFWR9slrefAjE7d/AqYVJwnShc
-         A7pg==
-X-Forwarded-Encrypted: i=1; AKwUvBzdx6OHOmfY7hZZ0k637H5zol+jC/3Ts2UBwktuHgi6+UoUnklfu+WQKSrrm8Q45uzYcXBPW7E/ISWSYlUBh94I@lists.infradead.org
-X-Gm-Message-State: AFuF++ltoQZXG1PNuTcmoT5hznU0xm3OXjHP3M2V2VdsvczUVNirgl/o
-	DvtCj30jkgcdMIdAvH9RPocDlM6oEh+sHMo1IfXQs0N6Yu+NY1PqPP3O
-X-Gm-Gg: AYBFou2TYlEiRBtHvcTLLtXYLqsBNi8n+lhGuIl6B/jMeeiV+hfGmo6F+Y2DVkgJyR5
-	sgoZUxlMhAqcMVf23K6hFCayVThymiE/6slkL2Jryi6E6mctaCCtpbiMhn6chpSSnJa6OZlD85W
-	3uk3V94WEWABzvv7qS82HSWRMnoyDeNcuFM46IOAQ2C5VkC19O2ZdiRr2Vq08KDnuxmgWqyD4P3
-	MNbOJefFM8WqkMhk9Jz1CAOY0e2WSwLpb4Omaz6afQG16Ioyv707X15P7IDN/gY84jjqVel9Mjw
-	iguguxvdhCNQFUgX9Azk38rrYkSLXEAvCi1wIo5C5m/KkgE+6ph/afHUkFPX/5q3zgA44LCHE3t
-	pQlWNh6H1F9NBteAO9o7rF3YUBXr1LRyPrmS2BA0aHWUVVVmP4o/Wpqhjpiy1taacF/Jy4LDXvl
-	Y9qDtbx4z6uNv1WL/8Eqr6I1bvOmToIXxdQ0S60yOumi8hPLO9HtKmUNWHpKo/Z0Vl0lvvWbo=
-X-Received: by 2002:a17:90a:ec85:b0:398:bad2:c0f with SMTP id 98e67ed59e1d1-398bad20e7bmr12372505a91.5.1788187587501;
-        Mon, 31 Aug 2026 07:46:27 -0700 (PDT)
-Received: from [10.60.78.252] ([2409:40c2:5009:b339:5edc:6eb2:1ff7:f053])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-142e0bf8a13sm43217279c88.0.2026.08.31.07.46.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 07:46:26 -0700 (PDT)
-From: Bhargav Joshi <j.bhargav.u@gmail.com>
-Date: Mon, 31 Aug 2026 20:15:35 +0530
-Subject: [PATCH v3 2/2] dt-bindings: mfd: ti,keystone-devctrl: Convert to
- DT schema
+	Mon, 31 Aug 2026 14:48:23 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VEZ0862525249;
+	Mon, 31 Aug 2026 14:48:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=lm81A7q8yUyeyAYX/
+	W1p02VJiYIZujE9pM4JMcxdrYw=; b=Fmw8/Zgm0hjQ/jjbUirB02oIHKuby/ol9
+	VYBKs7fj/fdDP7WC5Tk/gU0mP43hBEJ2BcLJDBebtzDYGwtnVsRQ43s4Cc/wJ1aq
+	oSXctwlJl+Wjg/hxj32kWqjt+n/RNNc/HFqQeVNoT/zylezGfuxokdFBQnxxudxk
+	ayu9+kta3SlVwZDMqLHJAwGmRUOTefkzf7cO6oy2usX6WuFG3tNh7QkTNB1fvBSJ
+	Opxe8rPBhZ/N4NmQA7S4/LuFOA3v1J8Ss5ENGgdvyXge0k/PH/KchwK96sgyaSvz
+	W4faU19M0OIfWN0zgwW36YPxvM49yUc96layQyKNFdkI1wgKl0zVQ==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbq54hyay-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 31 Aug 2026 14:48:09 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67VEfdOW000453;
+	Mon, 31 Aug 2026 14:48:08 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4gcbyg694q-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 31 Aug 2026 14:48:08 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67VEm4WG37093718
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 31 Aug 2026 14:48:04 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 893B02004B;
+	Mon, 31 Aug 2026 14:48:04 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 204302004E;
+	Mon, 31 Aug 2026 14:48:04 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 31 Aug 2026 14:48:04 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v7 03/23] KVM: Allow KVM implementations to switch off MMIO independent of Kconfig
+Date: Mon, 31 Aug 2026 16:47:40 +0200
+Message-ID: <20260831144802.834315-4-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260831144802.834315-1-seiden@linux.ibm.com>
+References: <20260831144802.834315-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260831-ti-keystone-devctrl-v3-2-0614fceba0f1@gmail.com>
-References: <20260831-ti-keystone-devctrl-v3-0-0614fceba0f1@gmail.com>
-In-Reply-To: <20260831-ti-keystone-devctrl-v3-0-0614fceba0f1@gmail.com>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Ivan Khoronzhuk <ivan.khoronzhuk@ti.com>, Nishanth Menon <nm@ti.com>, 
- Santosh Shilimkar <ssantosh@kernel.org>
-Cc: mfd@lists.linux.dev, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, goledhruva@gmail.com, m-chawdhry@ti.com, 
- daniel.baluta@gmail.com, simona.toaca@nxp.com, j.bhargav.u@gmail.com, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1788187552; l=4030;
- i=j.bhargav.u@gmail.com; h=from:subject:message-id;
- bh=3wtKqciQeOHcSakXZnMHLLISP+Cf8Obt+lYhptG6Gfw=;
- b=v4RdH5dbhuk9pP0rKYU9cicQ5Fllo/lac5Te5KW3tVVt/p0onHxeydqFkXSfhebx8aILFsc/Y
- ZB4HqXMtPa3AkHP7BDPKIX467EW/bn1Q+iBNPz1UA3+Sl7VtCWLo2+q
-X-Developer-Key: i=j.bhargav.u@gmail.com; a=ed25519;
- pk=IqNDwUZKECEA+n8wXctFLBbYL9NhFstZNbOznm/nX1k=
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfXyea0EW5cY30x
+ R49s/wnf8QDs5g7TqQFqng8ArIqTQk3isFN6UaHvz1tEQKd+RH9kHil67Awpz/e9REOfRRDIr9g
+ 6lAJ5uQPWf0KbOK6Z9dPcVsu6YumhLfv5Oplsv7ccgFR+1c/rRX3YOFbezUWiig/hyOhraSalzZ
+ xxsUWFIylv2dyFTucrbowZov3whamCdLUhvhNHpMV6lDU5p4YVooys/P+3jfud/oxHTO/yJqLNJ
+ mRo4Ij4VNCmh7wvkSX7PFBvdj7iUuBYJKGwZZpvioqzCPNMLnfSVTnUJv/IQa9XB2w7tYfBMZY4
+ hySG8k8ZZbqMWoRMJJITNb+OEdqYSDb7HC/SOq+IlfMlUsvCjWpKfmwx3uzqO2yph99X9Lkx2uZ
+ H81Zsq3pulkJyxGZfYCVerUMC2EnA3UBsn/P7GP2EtuOK8VcOJl+iRsylWet4FIj3y/YJVuyq3r
+ jYPifPWqA5KKlq4g9Og==
+X-Proofpoint-ORIG-GUID: YiytUqZHHjArbaiFh6H0IRcZUVP0zVLN
+X-Authority-Analysis: v=2.4 cv=CNgamxrD c=1 sm=1 tr=0 ts=6a959429 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=-AqJVl6EvvwGbS2dlloA:9
+X-Proofpoint-GUID: -RNe0SPTagOhxDtVZBKNWb90rqdgXg6b
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX3oWhY03thxTU
+ dficWllLcdrU8C3uEMdu0kV7weYDkukeDdGX1qheMYqxEcuYlfRpRB3uGpkmHROTnK/k/wyAeG5
+ 0b86hX4m+G3nyt9NP3zbZwTxMuPnhfM=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-31_05,2026-08-27_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 bulkscore=0 suspectscore=0 phishscore=0 lowpriorityscore=0
+ priorityscore=1501 clxscore=1015 impostorscore=0 adultscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608310125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_074628_783212_6D2465C5 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20260831_074822_021790_FA26D3EC 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,138 +141,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Texas Instruments Keystone Device State Control binding from
-legacy text format to DT schema.
+Only defining KVM_MMIO is not flexible enough for multi-KVM systems
+where one KVM implements MMIO but others do not. Solve this by
+additionally testing for the non-existence of KVM_NO_MMIO before
+including MMIO code to KVM.
 
-During the conversion, the following updates were made:
-- Add "simple-mfd" to compatibles matching existing dts usage.
-- Add required bus properties #address-cells, #size-cells, and ranges
-  which were missing in text binding.
-- Document child nodes gpio, interrupt-controller, and reset-controller.
-
-Signed-off-by: Bhargav Joshi <j.bhargav.u@gmail.com>
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- .../bindings/mfd/ti,keystone-devctrl.yaml          | 84 ++++++++++++++++++++++
- .../bindings/mfd/ti-keystone-devctrl.txt           | 19 -----
- 2 files changed, 84 insertions(+), 19 deletions(-)
+ virt/kvm/coalesced_mmio.c | 4 ++++
+ virt/kvm/coalesced_mmio.h | 2 +-
+ virt/kvm/kvm_main.c       | 8 ++++----
+ 3 files changed, 9 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/mfd/ti,keystone-devctrl.yaml b/Documentation/devicetree/bindings/mfd/ti,keystone-devctrl.yaml
-new file mode 100644
-index 000000000000..dd73b62357ca
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/ti,keystone-devctrl.yaml
-@@ -0,0 +1,84 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/ti,keystone-devctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/virt/kvm/coalesced_mmio.c b/virt/kvm/coalesced_mmio.c
+index 6b1d90161099..8ff9d9a6f47a 100644
+--- a/virt/kvm/coalesced_mmio.c
++++ b/virt/kvm/coalesced_mmio.c
+@@ -15,6 +15,8 @@
+ #include <linux/slab.h>
+ #include <linux/kvm.h>
+ 
++#ifndef KVM_NO_MMIO
 +
-+title: Texas Instruments Keystone Device State Control
+ #include "coalesced_mmio.h"
+ 
+ static inline struct kvm_coalesced_mmio_dev *to_mmio(struct kvm_io_device *dev)
+@@ -188,3 +190,5 @@ int kvm_vm_ioctl_unregister_coalesced_mmio(struct kvm *kvm,
+ 	 */
+ 	return 0;
+ }
 +
-+maintainers:
-+  - Ivan Khoronzhuk <ivan.khoronzhuk@ti.com>
-+
-+description:
-+  The Keystone II devices have a set of registers that are used to control the
-+  status of its peripherals. This node is intended to allow access to this
-+  functionality.
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: ti,keystone-devctrl
-+      - const: syscon
-+      - const: simple-mfd
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 1
-+
-+  ranges: true
-+
-+patternProperties:
-+  "^gpio@[0-9a-f]+$":
-+    type: object
-+    description: Keystone DSP GPIO controller
-+
-+  "^interrupt-controller@[0-9a-f]+$":
-+    type: object
-+    description: Keystone DSP to ARM interrupt controller
-+
-+  "^reset-controller@[0-9a-f]+$":
-+    type: object
-+    description: Keystone reset controller
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#address-cells"
-+  - "#size-cells"
-+  - ranges
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    device-state-control@2620000 {
-+        compatible = "ti,keystone-devctrl", "syscon", "simple-mfd";
-+        reg = <0x02620000 0x1000>;
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+        ranges = <0x0 0x02620000 0x1000>;
-+
-+        interrupt-controller@2a0 {
-+            compatible = "ti,keystone-irq";
-+            reg = <0x2a0 0x4>;
-+            interrupts = <GIC_SPI 4 IRQ_TYPE_EDGE_RISING>;
-+            interrupt-controller;
-+            #interrupt-cells = <1>;
-+            ti,syscon-dev = <&devctrl 0x2a0>;
-+        };
-+
-+        reset-controller@328 {
-+            compatible = "ti,keystone-reset";
-+            reg = <0x328 0x10>;
-+            ti,syscon-pll = <&pllctrl 0xe4>;
-+            ti,syscon-dev = <&devctrl 0x328>;
-+            ti,wdt-list = <0>;
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/mfd/ti-keystone-devctrl.txt b/Documentation/devicetree/bindings/mfd/ti-keystone-devctrl.txt
-deleted file mode 100644
-index 71a1f5963936..000000000000
---- a/Documentation/devicetree/bindings/mfd/ti-keystone-devctrl.txt
-+++ /dev/null
-@@ -1,19 +0,0 @@
--* Device tree bindings for Texas Instruments keystone device state control
--
--The Keystone II devices have a set of registers that are used to control
--the status of its peripherals. This node is intended to allow access to
--this functionality.
--
--Required properties:
--
--- compatible:		"ti,keystone-devctrl", "syscon"
--
--- reg:			contains offset/length value for device state control
--			registers space.
--
--Example:
--
--devctrl: device-state-control@02620000 {
--	compatible = "ti,keystone-devctrl", "syscon";
--	reg = <0x02620000 0x1000>;
--};
-
++#endif /* ifndef KVM_NO_MMIO */
+diff --git a/virt/kvm/coalesced_mmio.h b/virt/kvm/coalesced_mmio.h
+index 36f84264ed25..826af421a5be 100644
+--- a/virt/kvm/coalesced_mmio.h
++++ b/virt/kvm/coalesced_mmio.h
+@@ -11,7 +11,7 @@
+  *
+  */
+ 
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 
+ #include <linux/list.h>
+ 
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 823b693d89e6..7f37d3b5af48 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -4061,7 +4061,7 @@ static vm_fault_t kvm_vcpu_fault(struct vm_fault *vmf)
+ 	else if (vmf->pgoff == KVM_PIO_PAGE_OFFSET)
+ 		page = virt_to_page(vcpu->arch.pio_data);
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 	else if (vmf->pgoff == KVM_COALESCED_MMIO_PAGE_OFFSET)
+ 		page = virt_to_page(vcpu->kvm->coalesced_mmio_ring);
+ #endif
+@@ -4902,7 +4902,7 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
+ 	case KVM_CAP_ENABLE_CAP_VM:
+ 	case KVM_CAP_HALT_POLL:
+ 		return 1;
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 	case KVM_CAP_COALESCED_MMIO:
+ 		return KVM_COALESCED_MMIO_PAGE_OFFSET;
+ 	case KVM_CAP_COALESCED_PIO:
+@@ -5243,7 +5243,7 @@ static long kvm_vm_ioctl(struct file *filp,
+ 		break;
+ 	}
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 	case KVM_REGISTER_COALESCED_MMIO: {
+ 		struct kvm_coalesced_mmio_zone zone;
+ 
+@@ -5577,7 +5577,7 @@ static long kvm_dev_ioctl(struct file *filp,
+ #ifdef CONFIG_X86
+ 		r += PAGE_SIZE;    /* pio data page */
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 		r += PAGE_SIZE;    /* coalesced mmio ring page */
+ #endif
+ 		break;
 -- 
-2.55.0
+2.53.0
 
 
