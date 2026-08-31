@@ -4,93 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AB54C624A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 12:49:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9367C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 12:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Yumoe7FZSNCoT/Inpg12IKhKN/8sBU4yATdWXPVHv8=; b=e4Z8vWNONkW7/zWb2xB4ZV1jM5
-	8EZG3tCkX7AUzkaDDUy7xNCNdre04Q0O4feTL2zUirMT/j0q1DqBMSTwkypAita4vFeaDnffnMq0o
-	hAqXzIngmP9M6UcMLpZzj/ln+H3keCqTS8FXkDdRO72FjsxKb1aQDvyDBOdm+RIbCiGsqezY43q44
-	g8YUSpJbR3Cbjxu6CDMKXSipyGl1VLHPbo7JMFLoPMOUVHuL9JM0uge8u611aoGgZUWyKP1l5SR0R
-	FH+X7XwAKtUMyTXAwYOxGzK4sR9rrCdeE2t+x/rWx2HxWU5OeYE9yKY473reoEyWo629rUUXoVlY7
-	X05hA1dw==;
+	bh=xQtOWDkW+w7ybqaZBfV9HKOca4eSda4cgJxTQC5fkhA=; b=cjbSIIau2PRB7zhEOmXuWFasNE
+	xr8fH3K4o7AMxyxGr86lHHYvY09spzdMCVLpC0KWJrFjRga2BiSsrkcKCNowVL52vr4H8EGLYuz1q
+	XKVUkiWycRdUJsB7TlVYzQaer4HcJ94ibX2ZL6L1BpgRDBxCLBLmFa8fYF0O8RjId5XKpHnONIQkG
+	3EGA9RiDJYj1LB9iIn+bw5mlVgP3hg93YPPVTPmEbMtBdMyVZrOpfDC7VLDlOw947SkN5KVnKa/r4
+	AMOA6v+2DN4rFVjDvHngbeqI7w+ML0YTzSojeSF1Dym7gAuOJUNA7zoRM4UMmu2H+y63bXTDKBMUo
+	VlvsToaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x11SG-00000009KgV-0toj;
-	Mon, 31 Aug 2026 12:49:40 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1x11T4-00000009KrD-1mwp;
+	Mon, 31 Aug 2026 12:50:30 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x11SE-00000009Kff-0lzF
+	id 1x11T2-00000009KqY-38qI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 12:49:39 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-498028b3d5eso39239485e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 05:49:37 -0700 (PDT)
+	Mon, 31 Aug 2026 12:50:29 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-c250f28f1cdso535663566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 05:50:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1788180627; cv=none;
+        d=google.com; s=arc-20260327;
+        b=S4VLtKAiFHqU1bZ636CR4lvX6AZbWMNVo4VR3YiXrP2jouqrjPcsvShEfFi/AlbcO4
+         4NcP6GzsKSt3PpT0AFBndW0+hAEwZI4NvQLbF6DUFtrXI+7fWLLolVfo71uB2AVZ6Zvc
+         ZyNS80th06ZFGQVZMuz4zNdU8JbFRaXh6+HIeldfcjcBXZBjbcuU9bNedWURziruCorj
+         GICpW2oF7vv6S8+36FMmHGkMvJHh5lAY4tj8HgzrOXlMnJMNYcKwqX7Z2DehJgsvavFc
+         n2Aq82670K2nKwlOlUJ6Wa4E3ty/y1SuJq6XCekN0iaRWuNFu41shFJsnvYKKniMPqp3
+         VH5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=xQtOWDkW+w7ybqaZBfV9HKOca4eSda4cgJxTQC5fkhA=;
+        fh=t3w9f7TJvwY2sqsE+/MHF4l/XJzk2av+EqqmjnR+xK0=;
+        b=ETvjMpjZyaToze6fhaAByeS03//AlvDoJScUpdE2Uhmnxs69AHWOTIx8gsiuulr41C
+         /FJVMViKVuz/7WFU7SYCAjvioHnmEMOwDvR2bK2X2IS1A5h3ywB/YCohxGq46d7dIaZ2
+         SsNubxLbWPN403PlK8sHmfqA1aBSCQL0UxEnTZxRppBIu2T4SE4Fv2F0pDONAoyB/l6g
+         z2F0x6jqpbgo4FmkrC6B9vnD4g1X2/2wCd+nIxGrCrgwVnrTYtY69bvnhTCE+Fq2DHcS
+         nTFa231CKHF4GHo9wOcOMuX7Kug7uaX5BHtb/iMQgho1ijKxZGRKcD3FHkT/OwTwecnv
+         nwTQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1788180576; x=1788785376; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6Yumoe7FZSNCoT/Inpg12IKhKN/8sBU4yATdWXPVHv8=;
-        b=I1vyQiPHWoztLpwZmWRJrdjjwEg0eo/9zR//QcD0noihLfufC1V1+G+HDxE1x9yxNd
-         rZyhGK+nC1X//SQteuWy5P938u+mzZZqQCcMANrc02iyiwUzvbylZ2KQCvQ2dL2/WgMW
-         DXRJk/aWpgAysGaWq7qaBWRqbCVEYEmgyzeAGMKCNaQwqD9sz6/9/AXQMRf39Cc1ouEb
-         XmJ4NonyQ6rivSbQp5MNxFBGScls+7h02/fZFPEI+wjbA5rOq+1iGwxfkzD3pxPAorho
-         g/hwKqnMOdF1b7RZ8o44JGEmirVwvmM5BgUuFw2iKjxs61f6FruyM/YXEm1fGrpBi13b
-         LqyA==
+        d=gmail.com; s=20251104; t=1788180627; x=1788785427; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=xQtOWDkW+w7ybqaZBfV9HKOca4eSda4cgJxTQC5fkhA=;
+        b=dVhrj4bdObbnjGo9xhPFyJb56knMwv7k31+THzNYMxTdXia94jMyJj/8JB3Efb8Irb
+         YOjvUPtO517OCmQD0A9RmJH7+5qbsY4Bqhn7LQdE1X8sk2H5ap21VY7b0xgkEMxvk1PY
+         lYsS6C/DdzHt4z1i29YAvKsdV4xmph8kix4N4iekqSH4Qf0GbV2Fn29a6xQ4fiwLdvQv
+         bxRX6TDeFw/pKqlEggJG+7GmZc8fVEqnYZijGUZzLuJf5co1Hym/icMGMhgPevMcBduA
+         Qnm6bknuB/V8h7JOMClu5wWZnrhcNbHcaPDx/oLT4OlqMG1T4yaRidElG60ezbqOs2xs
+         iXoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1788180576; x=1788785376;
-        h=content-transfer-encoding:content-type:mime-version:date:message-id
-         :subject:references:in-reply-to:to:from:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6Yumoe7FZSNCoT/Inpg12IKhKN/8sBU4yATdWXPVHv8=;
-        b=GQlMB+jVTv2KHlF8jg9yq60jgUl8KvB3AN/QSvcHK1/jjW6dq02Vx/tLBdz0BMtheA
-         1/0r/qihl59wY2RHHdzvgoFtBdMf7e8J1E4vz+MxgHvuITj+rf4JMPd+jyEks+aLAAIz
-         yKEpfglDalTtg25yFpnpHCsL9at3SovvQ/ZOS58gEpfJedhXsb1vNYo9LTldFpahbbtL
-         Dfz08IM8R+Fv0czWRvWadJORChfQOtO1o1V87/HcJ3T2EC34qD5tGFhFgjE4pBYmrOBF
-         1aakjBU5bYXCG0gcfpZiIJq0jYvHIZYmyWtOHWNbL9YminSryfhtfuaT8AYM4LiiY8IF
-         NIGw==
-X-Forwarded-Encrypted: i=1; AHgh+RrqeLpXMJ01l8t2cdXAFZTyJ3+y6Jrf+BYoL+LLIUvyZYFrgWeYhcz8Qw2bpWPks0DkgAT06+X2NZIqFrtnTZ/w@lists.infradead.org
-X-Gm-Message-State: AFuF++kiJqjhODNPHaBSHI4Y9sKx6EWojEKm/Pp/iNgj/sef4gXoD6ci
-	8AX/IEE2DlE0arRMLuKbnA5998IlNzAnDzYkUiTrfCq+hoGr4X/zARC5PJH15iEd5u0=
-X-Gm-Gg: AR+sD12LH+xpWFeB6jbn4GU0n89h2I9cEnVe/85e4L7Joo6hrefRKRTg37Gta+vgQgp
-	YHr9C1B23GW88E+Afxp0qsHFGjaqlbXuAN0IYARpROjVYqea1X3jvfvuqmMt2l0umkxpIJFUMR2
-	mUpQFTV252HIM9FhUW0B7e8WRKmm09jPLyYaVaOL+BcxrbrL2u6yCckXNmRIQgwvcGrYo63WMuY
-	hF7bVR5WbZ7+EF7Q6nIa9mx6IUDKLyH4yqvaDlqc8DulUtYuVJivLASWTZGG818bVB/3qGDLjJ1
-	pcoCE8xVGfOghd7Q6k95BjzmwyP69IWEBb4elv9sFVWrFBs49Sgw25YNnUTRaZZy6M7s+nDMLq/
-	n4NtaD5tovdbOpoCObJj2xRDEnGR2KZr2mRhlKI+vBxLH02Oh265205hcT9EM8pvvvSS6M+LMDD
-	7hhpLYdamCndu86UadH5ED5U7jQrbUU8dkL52RyXXjfh4oSA4v1p5h/UfdOngVEtRb6x5jJ5J6A
-	pv0ejCfIg==
-X-Received: by 2002:a05:600c:19ca:b0:49c:cee0:f383 with SMTP id 5b1f17b1804b1-49ccee0f3cdmr203606555e9.16.1788180576048;
-        Mon, 31 Aug 2026 05:49:36 -0700 (PDT)
-Received: from arrakeen.starnux.net ([2a01:e0e:1005:fa8b:52eb:f6ff:feb3:451a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49cd2922ebdsm164736385e9.3.2026.08.31.05.49.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 31 Aug 2026 05:49:34 -0700 (PDT)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260829193939.107564-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260829193939.107564-2-krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH] arm64: dts: amlogic: Replace spaces indentation with
- tabs
-Message-Id: <178818057398.2326859.6686364977974372286.b4-ty@b4>
-Date: Mon, 31 Aug 2026 14:49:33 +0200
+        d=1e100.net; s=20251104; t=1788180627; x=1788785427;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xQtOWDkW+w7ybqaZBfV9HKOca4eSda4cgJxTQC5fkhA=;
+        b=sNbq91x/5SrsfohRiAzDKSKYmKMcpzKB4OZFrtcXv2/g7+HES/PToBy4J7vch56jEU
+         +LQ0Oi8nyXH2x5G1T4pcq5pvcURQRSlcXigPqcfJTepmJMn8OhmfSiQfOcnpNvpBv7Fx
+         4M1a7Jv8rSZHSgUq+y9wX8D2C4y0RMkQRZAVWJta/EiHD1CnzfUxeN6rXLyalHwWAJUL
+         WBmoSIAw3dIkyg16QK5CHZJdXkEzIin2fS1jeGhLKwCamaXKywfSGGtRKbhs+qSOcZNz
+         3jn3SZbvtiRXwrDpHs0ZQAfphyqLxkd96aPYSjsHdTCTt2mTUArgY1bssjT1hp3ob/vp
+         GsQg==
+X-Forwarded-Encrypted: i=1; AHgh+Rq7pX/gJJsDPY4Uk7nMtxgBIPW8W5ibCko5zFSf32Y2sXn9ct8uc2tzMm9wEFNhCTkakuYcHojmniTM/49Mn7AZ@lists.infradead.org
+X-Gm-Message-State: AFuF++krTSL2mpiIlr9FIyeDX44+Ld+nucXnht/pyjYvzRA8Vaslx6Xn
+	01Vo0QlXbXRELQ3DuRTivMwBHY7ITycpW27BuB3rW5bnx1HjLm7Z3Q7aGxxHgp2oNVnZLVjsB/3
+	mb0+Q1vv9HvPGRR5CSU7gfT6oBoZRkao=
+X-Gm-Gg: AR+sD12cEqMluToWweYkccGifIdVIlS/XdFZsWngnQenRj0WETxN7S8HxHuDgx2nRRZ
+	F99jLz8CgRbWFaJJotGzD8OfW+k4KnuTORMw4sDCS53DFVNNCZzBHsI6IbsF2TgKLgNB/DqcTsG
+	YSZcw99lZjwY6YeMnibLpJbJhUKXxM+x2yEycdOmwKOOPXNsX5aQhyVhNWnJnfF8zq7WqzzuxrW
+	sKlM/78dzMWg+CjfyiFJgz1VvHEXf+on62ki6WskDkb2CyID1on3C68GrEWA6Qwf8cD1ZcZ5hz+
+	jtDEwDMrpEzbxdC87+Ruk4OJSRaGAEZwHrnhW88r7gDnhA==
+X-Received: by 2002:a17:907:e917:b0:c15:f598:60c0 with SMTP id
+ a640c23a62f3a-c2556c61b53mr1648394266b.4.1788180626731; Mon, 31 Aug 2026
+ 05:50:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.1
+References: <20260830182036.284736-1-prasanth.padarthi10@gmail.com>
+ <d60f234e-1b9e-44cc-9bad-da79e794fe44@lunn.ch> <CAMFFDGgTnNouukst3V1rEg0NCNMW-BZ6tM6+fbQc0zeXaOb72w@mail.gmail.com>
+ <daf98fe8-70f9-410e-8a2a-042a671086c2@lunn.ch>
+In-Reply-To: <daf98fe8-70f9-410e-8a2a-042a671086c2@lunn.ch>
+From: Prasanth <prasanth.padarthi10@gmail.com>
+Date: Mon, 31 Aug 2026 18:20:13 +0530
+X-Gm-Features: AcwNN1X0boEpGKg5x_16jtNRieTR5nthk-taojlLL5pnPEzmWybbo4sOjQPV9Io
+Message-ID: <CAMFFDGgaEXdCdoi3av+HSLfUCZx-_0p4j7c5bjwiq_F08et2AQ@mail.gmail.com>
+Subject: Re: [PATCH v4 0/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai <billy_tsai@aspeedtech.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_054938_296373_B72D6894 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20260831_055028_813594_DADEC867 
+X-CRM114-Status: GOOD (  28.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,40 +123,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Andrew,
 
-On Sat, 29 Aug 2026 21:39:40 +0200, Krzysztof Kozlowski wrote:
-> Replace excessive spaces for aligning indentation into tabs.  This will
-> be reported by dt-style-check ("[mixed-indent-chars] too many space
-> characters in indent (more than 7)").
+Thanks. As I mentioned earlier, I had already found that the AST2600
+has MAC-side RGMII delay configuration.
 
-Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v7.4/arm64-dt)
+I will now check the actual delay register values on this board after
+U-Boot has initialized the MAC, and compare them with the
+corresponding U-Boot configuration. That should help determine how
+much of the observed behavior is coming from the MAC-side delays left
+configured by the bootloader.
 
-[1/1] arm64: dts: amlogic: Replace spaces indentation with tabs
-      https://git.kernel.org/amlogic/c/6b59171d0fe541438da68c19541cd2f31c60ac04
+Tan Siewert has also confirmed that the RGMII traces on the B650D4U do
+not provide the delay, and pointed out the difference between the
+SoC-specific delay handling in upstream U-Boot and openbmc/u-boot.
 
-These changes has been applied on the intermediate git tree [1].
+I will investigate that before preparing the next revision and will
+remove the RX-only delay claim from the current patch.
 
-The v7.4/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
-for inclusion in their intermediate git branches in order to be sent to Linus during
-the next merge window, or sooner if it's a set of fixes.
+Thanks,
+Prasanth
 
-In the cases of fixes, those will be merged in the current release candidate
-kernel and as soon they appear on the Linux master branch they will be
-backported to the previous Stable and Long-Stable kernels [2].
-
-The intermediate git branches are merged daily in the linux-next tree [3],
-people are encouraged testing these pre-release kernels and report issues on the
-relevant mailing-lists.
-
-If problems are discovered on those changes, please submit a signed-off-by revert
-patch followed by a corrective changeset.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-
--- 
-Neil
-
+On Mon, Aug 31, 2026 at 5:42=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> On Mon, Aug 31, 2026 at 06:43:46AM +0530, Prasanth wrote:
+> > Hi Andrew,
+> >
+> > I do not currently have the PCB layout or trace-length information, so =
+I cannot
+> > prove that the board provides the TX delay externally.
+> >
+> > What I have validated on hardware is:
+> >
+> > rgmii: fails, with RX CRC errors and no valid RX traffic
+> > rgmii-rxid: passes, 5000/5000 packets, 0% loss, no RX CRC errors
+> > rgmii-id: also passes with the same traffic test
+> >
+> > This shows that the RTL8211F RX internal delay is required, but it does=
+ not
+> > establish where the TX delay is provided.
+> >
+> > Given that I cannot provide PCB-level evidence for the TX delay, would =
+you
+> > prefer that I use rgmii-id for the next revision?
+>
+> There has been a number of threads about the Aspeed SoC. It typically
+> has delays enabled in its MAC, by the bootloader. The Linux MAC driver
+> does not disable this, nor does it mask the value passed to the
+> PHY. So you see many Aspeed .dts files incorrectly using 'rgmii'. Over
+> the last couple of years i have been pointing out this problem, but
+> nobody has stepped up to fix the issue. Most DT developers just leave
+> the Ethernet node out, in order to get something merged.
+>
+> You case is interesting, because you are not suggesting 'rgmii'. So it
+> could be there is more going on.
+>
+> If you look in the email archives you should find the information
+> about where to configure the delay in the hardware. You might want to
+> read it out to understand how the bootloader has configured the
+> hardware.
+>
+>     Andrew
 
