@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FBBC61DD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 23:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E90C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 23:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EJFmrBKMnXrWypnFCS1VTSSpdz94ljm2XVTUsWwwI2M=; b=rnVbiYhf+UbTa3WP1+1dYyDKKJ
-	JMxn5P0FU8D+d7Lakp76jLtA1WVQGoECYg8WhWzu8jD8K7z/l0mUsEDk+X2565W7nFpa1pJSsUm26
-	qwvnOmPivXPJClTINHyBD99RPwk0SNQZlrp6fO8TUlQK+bPq6kNXB/hGVfHiHWXFZCCQatUEecdRQ
-	rgs1ADukwTUwcOgLZSJu73UgSlAokqb5k9oicF2fHFa9+eGyJcs3S6yWSOVaYYfDtTV6uNHcThC/1
-	8bzxsAiZRtis375SK/lwMiZf8m83rm4aZAu9MnVE0Ya6yM4c5TJTXfO4UKDauM+savyFNHjz2uu7N
-	zK9ixl0A==;
+	bh=0qi6QZxFM1X4x0ZGUk8xdwpwovEki0Xze7p5nR3tV2c=; b=tybQihUgUK63n+7E8paNBAxOvA
+	Je6jSiZEQJ7VCr36hioHD6+2jz939fGrelMRZpKeRXtvo6wY6/a9iWMZSoTvnRNSjkZvGaXQWjnfF
+	GsLnynZrFRxgW9DQGp1DqvnhdqHlLU/VfB2a9twbYk7u/S69vDw1fFOldTDi3R0m97LfkNwwe6tVh
+	S3EpLPA/SmFI1FOk92q1m9LD2xDA+MzCuNK0MomLUGaZIt/j/IXEdywmxyEwcFNHy6YQUmIoB6p0r
+	VlSJOVa75tzB6xgo8uf0VcgasW/QjevAGY35eso+Dxz0itWv94nRPKl3i4nupygMvti3vHgOilwa3
+	7XLGz8fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1BGt-0000000AdnH-0Osg;
-	Mon, 31 Aug 2026 23:18:35 +0000
+	id 1x1BGz-0000000AdpA-0m5F;
+	Mon, 31 Aug 2026 23:18:41 +0000
 Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1BGo-0000000Adlr-0Qx3
+	id 1x1BGt-0000000Adn9-00t2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 23:18:31 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C5B6611CDE1;
-	Tue, 01 Sep 2026 01:18:23 +0200 (CEST)
+	Mon, 31 Aug 2026 23:18:36 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B8A6D11C9D0;
+	Tue, 01 Sep 2026 01:18:28 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1788218304; h=from:subject:date:message-id:to:cc:mime-version:
+	s=dkim; t=1788218309; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=EJFmrBKMnXrWypnFCS1VTSSpdz94ljm2XVTUsWwwI2M=;
-	b=MQcMKOwkxf8IQ9XCLQ1GTfRo6ykFSbNr8629GxG/fPlKGQYszgNqr/DJdESF6GgRTf1Sac
-	7Qa6fuCcR4De+sRVVL8HJmpKabN0OJ/4HXWFG0fSXdouQPflN7A2Wsgu2l2gl4m/qWqLyM
-	J7+aU/fK2qnXrKoWOCQwVrd7T/kAd1Dy96vLfctKk0eu8ya4rpS3Yi72R6sP8KlGbhZpBr
-	1CON8cwEAHP/y53H/lmLl4FJDaN3Qaw6XRwBNY4YiKMmJOVoMKTENmNvfuUIqSEVYF+P/1
-	4Wvd8hYdq7ljrfB5apRXYDF5V1uEoJhBA0GgBvUSLHks9dvDPxZQYPbX0DLrXw==
+	bh=0qi6QZxFM1X4x0ZGUk8xdwpwovEki0Xze7p5nR3tV2c=;
+	b=ZseUJG03AIc/PRV55ue4uOSpJrc0YH9T4xHez/zSQsJK2n6+suqI1M/EthXJ26MTsjtBpR
+	RRgyK7RdA7ESygi92Px2Pde1Yn8RHj4Kqg1URmcLdnxyMhTz1LS7uEOssK1mXgdDAjijeq
+	AVqi+yCbD6AweMlhZXsR7kf4TtXtUWJV+q5QYU6oDBafSeMMwu7HGiZHoow2BZuXuZfAO0
+	B8cJOHX7FOgmAgYMLVmGG6hSEAQzo5AJQXqOEvSvL/Mw/KB6M8CQRVlIMfnNzpUxYLX/mb
+	zSkdPxDAxExRpH+6hw/WIOTYLEklkWKk6mCJ50CBnJJmb6sDXKEnj4fQnEy37A==
 From: Marek Vasut <marex@nabladev.com>
 To: linux-usb@vger.kernel.org
 Cc: fabrice.gasnier@foss.st.com,
@@ -52,9 +52,9 @@ Cc: fabrice.gasnier@foss.st.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v5 1/4] dt-bindings: usb: generic-ohci: Document ST STM32MP2 SoC compatibles
-Date: Tue,  1 Sep 2026 01:17:32 +0200
-Message-ID: <20260831231814.137120-2-marex@nabladev.com>
+Subject: [PATCH v5 2/4] dt-bindings: usb: generic-ehci: Document ST STM32MP2 SoC compatibles
+Date: Tue,  1 Sep 2026 01:17:33 +0200
+Message-ID: <20260831231814.137120-3-marex@nabladev.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260831231814.137120-1-marex@nabladev.com>
 References: <20260831231814.137120-1-marex@nabladev.com>
@@ -62,8 +62,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_161830_283186_44991CA5 
-X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-CacheID: sfid-20260831_161835_189907_DA83B35C 
+X-CRM114-Status: UNSURE (   9.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,25 +102,25 @@ V4: New patch
 V5: - Fix typo, clocs -> clocks
     - List clocks entries as list of description:
 ---
- .../devicetree/bindings/usb/generic-ohci.yaml | 22 +++++++++++++++++++
+ .../devicetree/bindings/usb/generic-ehci.yaml | 22 +++++++++++++++++++
  1 file changed, 22 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/usb/generic-ohci.yaml b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
-index 474a84aa32d0f..7a8c3c2318153 100644
---- a/Documentation/devicetree/bindings/usb/generic-ohci.yaml
-+++ b/Documentation/devicetree/bindings/usb/generic-ohci.yaml
-@@ -51,6 +51,8 @@ properties:
-               - snps,hsdk-v1.0-ohci
-               - st,stm32mp13-ohci
-               - st,stm32mp15-ohci
-+              - st,stm32mp23-ohci
-+              - st,stm32mp25-ohci
-           - const: generic-ohci
-       - enum:
-           - generic-ohci
-@@ -67,6 +69,9 @@ properties:
-   reg:
-     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/usb/generic-ehci.yaml b/Documentation/devicetree/bindings/usb/generic-ehci.yaml
+index 5d9dfea8e2160..908b02d9175e0 100644
+--- a/Documentation/devicetree/bindings/usb/generic-ehci.yaml
++++ b/Documentation/devicetree/bindings/usb/generic-ehci.yaml
+@@ -57,6 +57,8 @@ properties:
+               - socionext,uniphier-ehci
+               - st,stm32mp13-ehci
+               - st,stm32mp15-ehci
++              - st,stm32mp23-ehci
++              - st,stm32mp25-ehci
+           - const: generic-ehci
+       - items:
+           - enum:
+@@ -82,6 +84,9 @@ properties:
+     minItems: 1
+     maxItems: 2
  
 +  access-controllers:
 +    maxItems: 1
@@ -128,17 +128,17 @@ index 474a84aa32d0f..7a8c3c2318153 100644
    dma-coherent: true
  
    interrupts:
-@@ -215,6 +220,23 @@ allOf:
-         clocks:
-           minItems: 1
-           maxItems: 3
+@@ -195,6 +200,23 @@ allOf:
+     else:
+       properties:
+         clock-names: false
 +  - if:
 +      properties:
 +        compatible:
 +          contains:
 +            enum:
-+              - st,stm32mp23-ohci
-+              - st,stm32mp25-ohci
++              - st,stm32mp23-ehci
++              - st,stm32mp25-ehci
 +    then:
 +      properties:
 +        clocks:
