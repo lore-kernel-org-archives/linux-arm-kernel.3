@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A559C624D0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:23:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D1E7C624D6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 17:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RyJCB9FM+z0vQAouESmFXjommytEM/9Ede198WLnM0M=; b=pX1zv/+dnLypWrGeIX8n/jvPYE
-	HGr8S0wr/xUm/vRwqgoAi/YLhRjg1N1ruSOWsFEqIO2BqGDIYlPWhCZyeTk+v0qPzmJbzsFlefFhF
-	GMF4LyaNeitm9MDNf7RmVW95rd0WhVmBpzyOKVVXDy4tjwMjOXvjU6DbM5Ir/ifndyGE+X8bBD8UJ
-	nOb0MNxXQujxPdhkwJrKvugc5Xgy9aiumMaM0YLhU6gp37bMzxDHcswzdzxZfIsC3raImg+G/1nyh
-	KXkpwEMjk8qJ0Q4oOKIXWpuXLcFAEOy8V1Lewm65OeJs9gJqbhe9Un0WwKZrLGOPQ5YxHbHc9uizX
-	ZsfhkUfQ==;
+	bh=1RNFhbjOiewc2L1jafJuiknurXajjDJ+WcX2lCWmsvU=; b=a5KWGZzm2Lbfs7VtAS9W86BXLk
+	KFzq7RePq4UN3dmRBgq4Hq0KZXTO8bjsb+LYqHpkFH8JMi/LPNtjD1GMP5qqUzMxNckYtMyuQVMg0
+	HQEPvBU/RtwayEoxG+YG4J/H/40ufgauUvJ1udb4XjqLa5chuacVk5jLxwquT07I6Eoewq2CdUPOh
+	612PZT+g/fL4dQz24oGtMqEbR6uYokCp7VxuMo+E064kiz0fWqMUnsNfB7XLSVhbMAG+s7Q62AsbR
+	zRK9sx/K029r05Pib6KBJtSwj2WmEqq0v414hT9mHzT49/xvWTnOmscJ1moChz7b3uTYd3ZVTtU6f
+	jJeHfpkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15jJ-0000000AAfD-1YsR;
+	id 1x15jJ-0000000AAg0-3T4Y;
 	Mon, 31 Aug 2026 17:23:33 +0000
 Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x15iz-0000000AAGH-3J2t
+	id 1x15j2-0000000AAGH-2PXl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 17:23:15 +0000
+	Mon, 31 Aug 2026 17:23:17 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eqGebK7S5nlimHchG0NdDpZajGL2A2OQKXvm5qIdpyXSXpy9SFjNo+KYoJ+hMcznfC+SwGoVbsKNv0dqC68AjEK9mZR2FB8BlNwCHoCzmGfaxpD28cCTRPTbohY4H7ik3Sv1YqqB4AgLpqZkkHB80Lnq8W7gJZbqv8vDM4RyFeRbSJ71VnTBHEOvIP9y7oZqIpmoT0D966zI4hgQcsclHbCWcMbSJR7fIOarNzfCDa2sClXvoz9y6yvK7z+GZHg9ZU1tJJEfA9NqRn/gEamnWRIR6QUmYw1jgjT12QCj2WpKzNE6AnuHzW6Zb8HTXUzGid00USImlEFO0I0t4iuQMQ==
+ b=QpX7IVwEdaMIy/8MhJ6uzB7Wo8sHFx6e4PaeDWmfiB/10Iw4BBebDRq6jOJhx1lF+v+M/RcUaB6i1JYwGFxd7Q7L+ZF14DWW4UGkJ9HOQ2yexH7YwGkCgiZk36aTy/SRuKtACyO/2BJT9kkr4B+rJLSF6+Ll/kCiZdnlydoOml9rSEZzinpF5FrQhqpXmThR04v578a7qX9PwdoIaMCpLZ2yFgEhhtgzzwOMHTsbwRpSbkQ+WEoE6W72XPOgfFR4YMEwzLDw0AEKQPntGYqROCAApv9QrTPS9VLDDm2Kp8eE6bZbXlC9fV5KYAhlvnFLaSyyL82MGhGi0RgnB8rrXQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RyJCB9FM+z0vQAouESmFXjommytEM/9Ede198WLnM0M=;
- b=pTSyPD39aAwvZkmyV5Q3hB38EEsvPZnQ9H3xaCWjhlb23a106J28fAQQNhHkN4hupRHWGjKaDA/UmNAz9LV8RqOarepEYFND5IjstbvHbQu7o3XcVLqWpBaih/j3fpp/HvClO1Mw7vjR/XxnGrRRu4p/9NGcqAbLwE4GC5RQnrxmdr2bltBcA8hi/oUWkey/sylIhcAcRxbjsDAEI0kEzVXZnsS/CBAmyp9auXohfixpDRKvMnoDcs6mszeyKHV6dKQpWCAuzx7pLfNTwdEmHFSNjiR5m/QAisGl9MuzrJPeJfsi7EgAsuYhNmAtuoY+/8Ud46AFZSAfe+Zy5Rl+Ug==
+ bh=1RNFhbjOiewc2L1jafJuiknurXajjDJ+WcX2lCWmsvU=;
+ b=So6CmVbO8ntXZm9f2RxyQGiH3NvhrOK7kEXL5uLxwul6sQZOgwOqznqZ4d9NhGuP20eU4kTjO55Hs+hj6Xbv4MrUNvsv0O25SSsPJqJdMF3YSk7gOXpdrFaGoaKCRsZcEUEQ8aFi/HlmXlxO2tPd73i5+oWDJpXNKTL2is9HEv64Br2cXrnsdzb6MSnyKfxF4awuItkM1iQRF7ixquDm5+VaJiRv5DbJZYGXKP8RnPInzmcy2gz0iCqJVvbFCauyHhOkftnpNOdHLix4clkcq/4pZKzVblW9LfyTnjHNTqcJiKAcldedIgUAaXogUkkJp1WMVKoxNBau3PdPIp1Tlg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RyJCB9FM+z0vQAouESmFXjommytEM/9Ede198WLnM0M=;
- b=LM3faEYqOzbWx5IdUMtn2fbuR8p9W4YPXj/q1nCAVLGE58n5cXGqdp7/n9vy7yInZRPIYt5gGJmXUYM58j8dTjhp5udEtYEDsRpamfJuCletP39OX6X1PQfLrxkcO+eGWvlNYWHMS7f3X6K9UB/YIBZHpW+HWkF37RPVZfV4on/tqE1fm+dN4LGG/vR/P53q0o1qCMoz94wAKvNAeJkWT3hscK34g5vYQ3k5UdLz5XAQcL/RTc+GAM3v5voO9olzYOEm6FKjsYwQCg4m0ZKi4xYqhIR8dOYNBU1NPf14JWlnpoW+GjSg/PpKl9omp7tMqBM+Ii08oBXIUSQgR+GffQ==
+ bh=1RNFhbjOiewc2L1jafJuiknurXajjDJ+WcX2lCWmsvU=;
+ b=ejId5aibPHjB35vLANZur9ZEiIBOVTRwKhg4kN97vTtwE/rN5deq0DNhFh44mpwoYYvxpBpcV8e+xqjIk8eioxu2Wtr/AeSKpVMw9ujymk3QBeBh0KsZ4PzWCmjHBdy/0xXFlkEVislPKeDYn8k5KapsxXHN7sU10cgykeo3kkJ/TZU5DVFtkVKj6Ks/Z+GjK0DUmUqJ1mC8Y+bAX26cJSPtxcKcLZYq+1uJLjo8fc1ub69zkYB0DrQkb4qmRjBWWFUILy4pPOA0g58JsnXdIxUY5vBAWwfiR0wPxWFeMDfDEyFubEqWQOZr5nYu+ySCoYgx0in7iQUWcNvHRcC0tw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com (2603:10b6:5:399::11)
  by SJ5PPF0C60B25BF.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::98a) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
- 2026 17:23:08 +0000
+ 2026 17:23:11 +0000
 Received: from DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73]) by DM4PR12MB5230.namprd12.prod.outlook.com
  ([fe80::6e87:1bde:1853:3b73%5]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
- 17:23:07 +0000
+ 17:23:11 +0000
 From: Fenghua Yu <fenghuay@nvidia.com>
 To: Reinette Chatre <reinette.chatre@intel.com>,
 	Tony Luck <tony.luck@intel.com>,
@@ -72,71 +72,71 @@ To: Reinette Chatre <reinette.chatre@intel.com>,
 Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Fenghua Yu <fenghuay@nvidia.com>
-Subject: [PATCH RFC v2 11/19] arm_mpam: Emulate MB control with node-scoped MB_NODE control
-Date: Mon, 31 Aug 2026 10:22:37 -0700
-Message-ID: <20260831172245.42253-12-fenghuay@nvidia.com>
+Subject: [PATCH RFC v2 13/19] resctrl: Add mbm_assign_scope_mode for native assignment file names
+Date: Mon, 31 Aug 2026 10:22:39 -0700
+Message-ID: <20260831172245.42253-14-fenghuay@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260831172245.42253-1-fenghuay@nvidia.com>
 References: <20260831172245.42253-1-fenghuay@nvidia.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR03CA0033.namprd03.prod.outlook.com
- (2603:10b6:a03:33e::8) To DM4PR12MB5230.namprd12.prod.outlook.com
+X-ClientProxiedBy: SJ0PR03CA0076.namprd03.prod.outlook.com
+ (2603:10b6:a03:331::21) To DM4PR12MB5230.namprd12.prod.outlook.com
  (2603:10b6:5:399::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DM4PR12MB5230:EE_|SJ5PPF0C60B25BF:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2a49db6b-2c51-472d-b3a9-08df07848446
+X-MS-Office365-Filtering-Correlation-Id: 16486e49-654c-4584-746e-08df078485b8
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|6133799003|18002099003|22082099003|56012099006|11063799006|3023799007|5023799004|10067099003|921020;
-X-Microsoft-Antispam-Message-Info: n7VkTYewpii0iMw7Bz9mu0DC2Eda+nZd7oee7tTT9GmTtXx+hkVk2hVk4tF76BVn/y/o7+HFRZDiGCCy1bI6y4mU2ddB5DTWX4OImuHcyOSYTOnUAaqduS/Vrf/YCBGwUmQECDw+YbkHpeIbYWPThR+P+sQonYV2+NCcgmjeNFs7uKaXS8BNFvADkX/75JAUTiWkk8TtlpCfGw529ShcIxOgo3UNkwtdUQLV+kRAryzrKCsmryh/iOHdIz8GToTLAswJx2aQaCdbH0LoJhJqXwe/VbptPXlU5+cauRKGnJlcw9dGqAQiByFTXYwuwhz4kJ1UEhpxBfkI/EAqAQo0pm4DWwzOyR9vza2SKiC3ZlwRZd7I/POUh4UjBkZufbfluoLvEUi1mieFR9L3RI25Wz10E6+BQc6JV/3OgJixwuJmxwJDxAbIk7AqhAczqNVPoTR1AxNBw9+7e7hsvucFaVIIObquQoQEW2VSN8dHhnF72XALc93/eMDNn7FH2dGx5cnHpo/L1DNBTNI5U6SmeIdlJozKyQg719fkXawkohmgzqtZfNmUj2k3BGPPzAoaeZQsGO8CxHPUlLy8UV1yNYcF4d+sGew3tLzW/FUQ71vIJWXOfk0znjcdTyWF7sL05m2fLf2Ya+frcXBWsA64Mfp6U6j+METbMXYgwztzHxKIcVnImzHp3pkM5YUH4v26VOFO++bBpXXjC6f7S0F4og==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(6133799003)(18002099003)(22082099003)(56012099006)(11063799006)(3023799007)(5023799004)(10067099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|6133799003|18002099003|22082099003|56012099006|11063799006|5023799004|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: OkK0NZxGLHPl9xB6c4dJdva9/IA0awO0wLiQ/u6ZrMBeFLFypmESORypzGD4o1BM+wTEj28rneNuFD0IfknvW/GG4xg2kQVgFZ1tLVeAdFzLdHjZbvfCmyYi0W5q1VFh577eOeOdAmpXxRQyHhzz2D6CCey+q2WBjDfOF8ZtGRj6Hw9KsdntJj7cMa10Zaed7P+i0YwRZx+Q+0BXhI4KYkYg6Oi53rK7pyit5ra0GzDFPZ4JAIxL/XF+F/lNm3Rz6ITUm6IdzK4ZpnIoE7I3EgHn7nJy5DxdFf9dhgyYz8bhnnYy5UsMjCyMb3apX6qniQY39r4326/FlayZu7jS75HeW//ld9wbfGZvR2y1RcVcgrmR1h928HEz5gGoAJmfsTXakrGdg1t7HuNKlkyyTRc08CAqzdf9LTyc0PRI5p0FV+uyz3INa51jjWRYpFb00eLAGcbmf06bkzvV/DWr6BcBfcFl47FBdvMeVK0GcnYBgcxGU49BzfG6eMkMGnt7FNOI0VN8sz5GSRTqzUBFjnKQfZln1YGzunJDwKIbOCZsorsrDMzxcm4MEllasKRKbzHLbCeg0oskyUWQ5KJfzd4i0ClCnI7jQbdW/zTHlzfqRrpuvXK9p7Y5CeDPO1zEJOon8Z80xU2ZC97Qjn0KOHvomoMRPWT45SKr4I37ybY35JXJigEv4BTNQ0i0adKRcFIO10J60b0RaBi7qSEiLw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5230.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(6133799003)(18002099003)(22082099003)(56012099006)(11063799006)(5023799004)(10067099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PqAzQbNom604zzR4D4Kpju717fGDhXC6exLW1CJ2H1eIMyOrYWKs5sanCiyh?=
- =?us-ascii?Q?wNxLTBz6C1ClE5ZhOlrnS7PXr3hGCN0LIW693KSI3hEDbTiv0nNSO/nHycTB?=
- =?us-ascii?Q?8DRNb+4fWNU/xshUv/GvndqiQ0Re8EbFfPqpZIku5O/FiMsMiC22Tz754dDS?=
- =?us-ascii?Q?xWGqeP38AhVh0SOFA+0f27Q6hZBibqpSoJynbU2S5m8ssAcl71aSmNh6rqss?=
- =?us-ascii?Q?gn2pYNsfCJSOa6WCIOEu5bXWv/oQEFB0YkPjDsrwQ6HSmE/goUeVMED1PvoU?=
- =?us-ascii?Q?3uesAalSaIU8VFbb9TeZaT/qQ9kK3/SFiCigH/JhkkdSco9aR6hISYdNVwN6?=
- =?us-ascii?Q?QbVstdRNl0P2Ocv5m0qbR5MNWFtNi49Ob4oCC6I7l+3AZ6367bhX9lyNurOY?=
- =?us-ascii?Q?wL4+Nu8+vvt6GLb4PQBK1UCf2I4BbKBLxZ5ZFtCwc+6oT6OLy6D0FPzvE5be?=
- =?us-ascii?Q?1K/bsU6kkMyEIUO9si0BbpsgE94y5baL6UOXmKO42W+1riC41QBhyDXZKXBk?=
- =?us-ascii?Q?gCcTxLJ4/kG7aJNylXf6GE7EwOZCCC932blUZOV1wRoGtuM7J5DjAldVIKUn?=
- =?us-ascii?Q?/F2/yePRPoXzyWQeZv1yYAXlBooGO9EY5O8zLOZh2LhAUv0JGIeH81upTg69?=
- =?us-ascii?Q?KVYNYlIaJ7gHz9hQRNdZk68SsyOHJV6Dv3hYKIyqLlCNLS5ezP42TC9JfuQ0?=
- =?us-ascii?Q?C3d2NA/lHrUC5B5bXBLknok8vW3cItxUfoYzcjn1HXjjQS7zoe/1B5kA5lAB?=
- =?us-ascii?Q?smlArSMBHTf8O0ZDv6B2DfR0CO9IP+UOSMxvFo0PR8c97zxFIysB32ge/ik+?=
- =?us-ascii?Q?17AaecB4+I7HhBq1kssRuDqYd/jq20bPIr2pUMa/VQmKcR2o7yL+GuLwW75w?=
- =?us-ascii?Q?dKH2EAQR5ptX9khxt6CNQfQ4SYCL3gH4dlI0RmdxGW0nHIen7V1RTEt4neoX?=
- =?us-ascii?Q?yiqgqLqHFCz7av/Dpze3UQoK9h1CiGMmbyZn91HaZgCbvehHSe+kHK+INubd?=
- =?us-ascii?Q?hIrpugMAjqFqdbrIGjQeRIDFSzSBIg9g9New5Tw/qHD+obPHJHOtosheuxmd?=
- =?us-ascii?Q?SdwDeWpxAwF8KFv5SE1iZFARQsndTz3K9P+3cO14CuT7nsORAPr3sBsIFIQu?=
- =?us-ascii?Q?/oQhfPheKLfrlySt42ioH3BopOkikXAkQ/MP8S23IyTVKjeW7XIM1m1W1kQC?=
- =?us-ascii?Q?MQ1lCj+GWkPd0ltxP4KvsBtyrwRpawMliZgBKm+GZ2PQuc/O1QLnoWzR2Yo7?=
- =?us-ascii?Q?jc45QAuggeAWVzV2CMF+CVIjs5jLf1eGHyzb8TB8v9rdlQnj+R1H1V6XcM7L?=
- =?us-ascii?Q?LcFdqiXRRqp0DPplPBaQk3VH3g34oDgL9yIIkpUCZu5S2CUjaJv/N7mPl5G+?=
- =?us-ascii?Q?Vtz50Xm2vAKEOlpm0MF/Ma2MnOD/Pyca7u5P1bso6KxXdZVX3p7JcWjOPjTq?=
- =?us-ascii?Q?zNXG8tyJ4t8YrxjyDZmonJWdzz2vWJarEkbYpT782b8UMTnS1YpPzmfgH5OJ?=
- =?us-ascii?Q?5yqDDLgDwCdhxYP9lUy4jRhf1MX4lbG7gYBZfYI0GKKuyYaEcfyxdkeK4f+R?=
- =?us-ascii?Q?6+76+9cQ61YFZB+Qhlw5nGcjy5mRBQURLfqYvURZUS6g8nwbT4QwhNRihPq3?=
- =?us-ascii?Q?8djW/KGqcLo/EC7d/nKP6ixNuk0b65tRjICObrqACln4JtiIR7H8hcaWgrkd?=
- =?us-ascii?Q?eyLE3D9C2aeFS0f+TdwNG9cIZLFHfLc9Z4XQUITUKPDlxFbLDGZy8i4SIpBn?=
- =?us-ascii?Q?iHTjuw/7Vw=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?U4Ep+lHM1YlaSDEoUI2dtE5GX/aBkVqkf5G2Qi8Vz4Gm91uYLPtIxP31LCCz?=
+ =?us-ascii?Q?snxLIT/z8pxOvKzzRxNqUvMGiRhOrCPIKEb7OtLGD7BXzigMouRZOKbVZQt8?=
+ =?us-ascii?Q?ADnNowWZD1pkODpxGjY6H4KNY2Jb+TMV4DQu3NqJQAmznwJNbH/g7IGveiy0?=
+ =?us-ascii?Q?eaBPisIodxCQDHHaxJUYxxd9DJLgvbaPTs/JzLf6IkyFC6Zc8P94R34+I+53?=
+ =?us-ascii?Q?YQx8fHNk8M2PcFx8j6Gsc5ltV38e97i9cSv+XNKPRQ/6nyNiw0ORi27HQ2bg?=
+ =?us-ascii?Q?XRAPfSKERLJ8rvkmjjsLyW5vGLLWDoKxp8ywf06RWYgviEu32AJcH5jqmCL3?=
+ =?us-ascii?Q?tvv3pKsR4S8FmtT0pHWtgUWzy6o5cNTg/YBE96lizw/mQ3cZpqWRwatyhWT5?=
+ =?us-ascii?Q?CtBB01LHR/a2aveBjQ84gHVrQwVT2nXcyNASj6ShWVvgUvx8rpFG9wpNPYyg?=
+ =?us-ascii?Q?sV2hP51uods+SV+FTJjHNfwv1NgZ1ilX4zQ67D5b2fnw0e/9frRCE3LRO7fy?=
+ =?us-ascii?Q?77bMUZvxyoLwyYugSDM7B3ZDECvkRUu2yERVL25Y3RmvF0vvB1fUn1CiOlvM?=
+ =?us-ascii?Q?izwLd+4VQQkmvjTjiCTtOpRQmOLTcKVtYOLF6Y1u+vwUAbJj6A3Ij3NAp01U?=
+ =?us-ascii?Q?ugdtsKc5C486xGIKqXnxxUnvUf2RPy4AZyV0KEuGis/P4lONUxZWS9CzNFnU?=
+ =?us-ascii?Q?YBImJ8+Gv7RWLd35lDj3+u/cDHZN5kbd4B0N3iBsuOgZhZiZ++G5AHy65Z0u?=
+ =?us-ascii?Q?DAc+67vUHJEnEXDVM+TU8fkoAog5w6XWFeHyVQs3kN0NFU7uXrHkmBihHZ2m?=
+ =?us-ascii?Q?2FqkpKtdS66T/Ho9dMFbpQ0jXWdkndlBTnLMgSJV+7w4SW1sSbTdIYF0PoEH?=
+ =?us-ascii?Q?8nV1XVfiJj2zEgQTrOOnxlcN6NASQQztt7MiPeF7aXn4PAn/RD9VIVDJtV29?=
+ =?us-ascii?Q?8Jn4ejCy8WRHV/7ulnrQrTPSFm8kMUhz1PXJJ015TpPJTmieaOFqULq9tHZi?=
+ =?us-ascii?Q?NirrLDgn7NojXLRjwteQAZHAKYyya4vGogMM25RfegNDTyfWfGDlAHtFajA0?=
+ =?us-ascii?Q?3O37rlB27HfFqnlE0ceNu+4MD85aTIAPW9+xG1hD3Y1J1yIz0qTfLkgsM++Y?=
+ =?us-ascii?Q?5G2IoLoQ0dHGebOYp2VVJFWRsdk6bft1xFi4StLcuvbk0qbqqVLw5+vv5OLY?=
+ =?us-ascii?Q?dwTmyUEcJdQegpa8PrX1O7eKbimiP6Vf9Ds4SfN30pIK5Bcnh1mgpq/VDDNn?=
+ =?us-ascii?Q?8mPRHf3xopeFfJre19zfL7xuoqrq2qfQnaR47i++spSVjIR4JwHrvByiY9C5?=
+ =?us-ascii?Q?hnf1e9LIZxkCEfboPs18Nn7qNQ/fGkUmAyXG2O4nuTa48n5rf1fqC4LdgwtZ?=
+ =?us-ascii?Q?aDIb1YlWEebrLlC/cQAZVNu4JjiLm5FkUMJxZWmq8qSFmBi9RcowZ98mj77C?=
+ =?us-ascii?Q?Ch7P9Hn8DHUfIQJQdG5UbiWkMAR0YyaIxTBblEDQczD4kc4aoGggKl0gXxuC?=
+ =?us-ascii?Q?BZJptAYyldrm08lKixtYIEanYS5f+wwoc+p7cDAIEGoDXG6poaOFfsmhf1eF?=
+ =?us-ascii?Q?GCwKY+u2iGz+r0moldoM2aIi+Ju1BdEzvJ5LfUGV5K7Dh5oDbQrjanU6txsJ?=
+ =?us-ascii?Q?N+bSZYnZbm8CnuN8n13yDFQxicmnVgRELkUedPY4qkoRsqvdO16YbkwIlCOd?=
+ =?us-ascii?Q?vLhymjT6M+3aOGLSnb6Ks0uw9T9qPC4/aSwASDeIyTgLL9VxbB7Xn8sAagyQ?=
+ =?us-ascii?Q?mxP9ITuyCg=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2a49db6b-2c51-472d-b3a9-08df07848446
+X-MS-Exchange-CrossTenant-Network-Message-Id: 16486e49-654c-4584-746e-08df078485b8
 X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5230.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 17:23:04.7179
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 17:23:07.1443
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bCN+p3Kfh76yhsOJEDCk19EcKkS5oVUchtye84X1eXOdbikufsnLXVzrlmdV3jQb/1HwFQWMT6vtlEYqeeytUg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: Jysm+DBB5mr+RKViWiPFT+U4g2E2jvl+HyxgKmkIqJHCh92tUeKu94bEdlDSO9JaX/KXQqbGFUNizr5ln4wg8Q==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF0C60B25BF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_102313_845160_6327E7D8 
-X-CRM114-Status: GOOD (  20.02  )
+X-CRM114-CacheID: sfid-20260831_102316_620753_50D3693C 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,434 +151,293 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On memory-class MSCs the MB bandwidth control is node-scoped. Add a
-node-scoped MB_NODE control that emulates the default MB control by
-adding it to the default control's resctrl_ctrl::emulated_by list, so
-the legacy "MB:" schemata line keeps working while user space can switch
-the resource to native mode to drive MB_NODE directly.
+On platforms whose MBM counters are backed by NUMA node MSCs,
+mbm_NODE_assignments is the native assignment file. User space that
+already programs mbm_L3_assignments needs a compatible default.
 
-Introduce mpam_resctrl_ctrl_node() to identify memory-class resources
-and use it when selecting the control scope, replacing the open-coded
-assumption that MBA is always cache-scoped. A memory class has one
-component per memory controller, so its control domains are node-scoped
-and rdt_resource::ctrl_scope becomes RESCTRL_NODE.
-
-An emulating control has its own control domains, so give the MPAM CPU
-hotplug and domain update paths a walk of the emulated_by list.
-resctrl_arch_get_config() and resctrl_arch_update_one() accept the
-MB_NODE control name alongside the default one, both being backed by the
-same MPAM bandwidth partitioning hardware.
+Add info/MB_MON/mbm_assign_scope_mode. Legacy (default) always exposes
+mbm_L3_assignments; that file still programs node-scoped counters when
+node MSCs provide MBM. Native mode replaces it with
+mbm_NODE_assignments on those platforms.
 
 Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>
 ---
- drivers/resctrl/mpam_resctrl.c | 265 ++++++++++++++++++++++++++-------
- fs/resctrl/ctrlmondata.c       |   1 +
- include/linux/resctrl.h        |   2 +
- 3 files changed, 211 insertions(+), 57 deletions(-)
+ fs/resctrl/internal.h   |   9 +++
+ fs/resctrl/monitor.c    | 147 +++++++++++++++++++++++++++++++++++++---
+ fs/resctrl/rdtgroup.c   |   9 +++
+ include/linux/resctrl.h |   6 ++
+ 4 files changed, 162 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 9a02bc0e091d..cd9bebf5f0c2 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -1264,20 +1264,108 @@ void resctrl_arch_config_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *
- 	resctrl_arch_reset_cntr(r, d, closid, rmid, cntr_id, evtid);
+diff --git a/fs/resctrl/internal.h b/fs/resctrl/internal.h
+index 32c7d53790ec..f46d4fb7c624 100644
+--- a/fs/resctrl/internal.h
++++ b/fs/resctrl/internal.h
+@@ -457,6 +457,15 @@ int mbm_L3_assignments_show(struct kernfs_open_file *of, struct seq_file *s, voi
+ 
+ ssize_t mbm_L3_assignments_write(struct kernfs_open_file *of, char *buf, size_t nbytes,
+ 				 loff_t off);
++
++int resctrl_mbm_assign_scope_mode_show(struct kernfs_open_file *of, struct seq_file *s,
++				       void *v);
++
++ssize_t resctrl_mbm_assign_scope_mode_write(struct kernfs_open_file *of, char *buf,
++					    size_t nbytes, loff_t off);
++
++void resctrl_mbm_assign_files_apply(struct kernfs_node *kn);
++
+ int resctrl_io_alloc_show(struct kernfs_open_file *of, struct seq_file *seq, void *v);
+ 
+ int rdtgroup_init_cat(struct rdt_resource_final *f, struct resctrl_ctrl *ctrl,
+diff --git a/fs/resctrl/monitor.c b/fs/resctrl/monitor.c
+index d555f2d19164..074dc2a040dc 100644
+--- a/fs/resctrl/monitor.c
++++ b/fs/resctrl/monitor.c
+@@ -18,6 +18,7 @@
+ #define pr_fmt(fmt)	"resctrl: " fmt
+ 
+ #include <linux/cpu.h>
++#include <linux/kernfs.h>
+ #include <linux/resctrl.h>
+ #include <linux/sizes.h>
+ #include <linux/slab.h>
+@@ -1704,6 +1705,130 @@ int resctrl_available_mbm_cntrs_show(struct kernfs_open_file *of,
+ 	return ret;
  }
  
-+/*
-+ * Bandwidth control on a memory-class MSC is node-scoped, unlike the
-+ * cache-scoped control provided by an MSC in front of the L3.
-+ */
-+static bool mpam_resctrl_ctrl_node(struct rdt_resource *r)
++static bool resctrl_mbm_has_node_mscs(void)
 +{
-+	struct mpam_resctrl_res *res;
++	struct rdt_resource *r = resctrl_arch_get_resource(RDT_RESOURCE_MBA);
 +
-+	res = container_of(r, struct mpam_resctrl_res, resctrl_res);
-+
-+	return mpam_class_memory(res->class);
++	return r->mon_capable && r->mon_scope == RESCTRL_NODE;
 +}
 +
-+static bool mpam_resctrl_cache_has_mba(void)
++static bool resctrl_mbm_show_l3_assignments(void)
 +{
-+	struct mpam_class *class = mpam_resctrl_controls[RDT_RESOURCE_L3].class;
-+
-+	if (!class)
-+		return false;
-+
-+	return class_has_usable_mba(&class->props);
++	return !resctrl_arch_get_resource(RDT_RESOURCE_MBA)->mon.mbm_assign_scope_native ||
++	       !resctrl_mbm_has_node_mscs();
 +}
 +
-+static void _mpam_resctrl_ctrl_init_mba(struct mpam_resctrl_ctrl *mpam_ctrl,
-+					struct mpam_props *cprops,
-+					enum resctrl_ctrl_name name)
++static bool resctrl_mbm_show_node_assignments(void)
 +{
-+	mpam_ctrl->r_ctrl.type = RESCTRL_CTRL_SCALAR;
-+	mpam_ctrl->r_ctrl.name = name;
-+	INIT_LIST_HEAD_RCU(&mpam_ctrl->r_ctrl.domains);
-+	INIT_LIST_HEAD(&mpam_ctrl->r_ctrl.emulated_by);
-+
-+	__set_bit(RESCTRL_SCALAR_FLAG_LINEAR, mpam_ctrl->r_ctrl.scalar.flags);
-+	mpam_ctrl->r_ctrl.scalar.min = get_mba_min(cprops);
-+	mpam_ctrl->r_ctrl.scalar.max = MAX_MBA_BW;
-+	mpam_ctrl->r_ctrl.scalar.reset_val = MAX_MBA_BW;
-+	mpam_ctrl->r_ctrl.scalar.gran = get_mba_granularity(cprops);
++	return resctrl_arch_get_resource(RDT_RESOURCE_MBA)->mon.mbm_assign_scope_native &&
++	       resctrl_mbm_has_node_mscs();
 +}
 +
-+static int mpam_resctrl_ctrl_init_mba(struct rdt_resource *r,
-+				      struct mpam_props *cprops)
++static struct rdt_resource *mbm_l3_assignments_resource(void)
 +{
-+	struct mpam_resctrl_ctrl *ctrl_def, *ctrl_node;
++	if (resctrl_mbm_has_node_mscs())
++		return resctrl_arch_get_resource(RDT_RESOURCE_MBA);
 +
-+	ctrl_def = kzalloc_obj(*ctrl_def);
-+	if (!ctrl_def)
-+		return -ENOMEM;
-+
-+	_mpam_resctrl_ctrl_init_mba(ctrl_def, cprops, RESCTRL_CTRL_NAME_DEF);
-+	list_add(&ctrl_def->r_ctrl.entry, &r->controls);
-+
-+	if (!mpam_resctrl_ctrl_node(r)) {
-+		r->ctrl_scope = RESCTRL_L3_CACHE;
-+		return 0;
-+	}
-+
-+	/*
-+	 * The control domains of a memory class follow the memory
-+	 * controllers, one per NUMA node.
-+	 */
-+	r->ctrl_scope = RESCTRL_NODE;
-+
-+	/*
-+	 * When the L3 cache has usable bandwidth control the legacy MB control
-+	 * is backed by that hardware and needs no emulation.
-+	 */
-+	if (mpam_resctrl_cache_has_mba())
-+		return 0;
-+
-+	ctrl_node = kzalloc_obj(*ctrl_node);
-+	if (!ctrl_node)
-+		return -ENOMEM;
-+
-+	_mpam_resctrl_ctrl_init_mba(ctrl_node, cprops, RESCTRL_CTRL_NAME_NODE);
-+
-+	/*
-+	 * MB has no bandwidth hardware of its own, so back it with the
-+	 * node-scoped MB_NODE control. Legacy mode keeps the "MB:" schemata
-+	 * line for backward compatibility, native mode exposes MB_NODE
-+	 * instead.
-+	 */
-+	list_add(&ctrl_node->r_ctrl.entry, &ctrl_def->r_ctrl.emulated_by);
-+	r->ctrl_mode = RESCTRL_CTRL_MODE_LEGACY;
-+
-+	return 0;
++	return resctrl_arch_get_resource(RDT_RESOURCE_L3);
 +}
 +
- static int mpam_resctrl_control_init(struct mpam_resctrl_res *res)
- {
- 	struct mpam_class *class = res->class;
- 	struct mpam_props *cprops = &class->props;
- 	struct rdt_resource *r = &res->resctrl_res;
- 	struct mpam_resctrl_ctrl *mpam_ctrl;
--
--	mpam_ctrl = kzalloc_obj(*mpam_ctrl);
--	if (!mpam_ctrl)
--		return -ENOMEM;
-+	int ret;
- 
- 	switch (r->rid) {
- 	case RDT_RESOURCE_L2:
- 	case RDT_RESOURCE_L3:
-+		mpam_ctrl = kzalloc_obj(*mpam_ctrl);
-+		if (!mpam_ctrl)
-+			return -ENOMEM;
-+
- 		mpam_ctrl->r_ctrl.type = RESCTRL_CTRL_BITMAP;
- 		mpam_ctrl->r_ctrl.name = RESCTRL_CTRL_NAME_DEF;
- 		INIT_LIST_HEAD_RCU(&mpam_ctrl->r_ctrl.domains);
-@@ -1308,20 +1396,11 @@ static int mpam_resctrl_control_init(struct mpam_resctrl_res *res)
- 		r->alloc_capable = true;
- 		break;
- 	case RDT_RESOURCE_MBA:
--		r->ctrl_scope = RESCTRL_L3_CACHE;
--		mpam_ctrl->r_ctrl.type = RESCTRL_CTRL_SCALAR;
--		mpam_ctrl->r_ctrl.name = RESCTRL_CTRL_NAME_DEF;
--		INIT_LIST_HEAD_RCU(&mpam_ctrl->r_ctrl.domains);
--		INIT_LIST_HEAD(&mpam_ctrl->r_ctrl.emulated_by);
-+		ret = mpam_resctrl_ctrl_init_mba(r, cprops);
-+		if (ret)
-+			return ret;
- 
- 		r->bw_throttle_mode = THREAD_THROTTLE_UNDEFINED;
--		__set_bit(RESCTRL_SCALAR_FLAG_LINEAR, mpam_ctrl->r_ctrl.scalar.flags);
--		mpam_ctrl->r_ctrl.scalar.min = get_mba_min(cprops);
--		mpam_ctrl->r_ctrl.scalar.max = MAX_MBA_BW;
--		mpam_ctrl->r_ctrl.scalar.reset_val = MAX_MBA_BW;
--		mpam_ctrl->r_ctrl.scalar.gran = get_mba_granularity(cprops);
--		list_add(&mpam_ctrl->r_ctrl.entry, &r->controls);
--
- 		r->name = "MB";
- 		r->alloc_capable = true;
- 		break;
-@@ -1484,7 +1563,7 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct resctrl_ctrl *ctrl,
- 	struct mpam_props *cprops;
- 	struct mpam_resctrl_res *res;
- 	struct mpam_resctrl_dom *dom;
--	enum mpam_device_features configured_by;
-+	enum mpam_device_features configured_by = MPAM_FEATURE_LAST;
- 
- 	lockdep_assert_cpus_held();
- 
-@@ -1512,16 +1591,26 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct resctrl_ctrl *ctrl,
- 		configured_by = mpam_feat_cpor_part;
- 		break;
- 	case RDT_RESOURCE_MBA:
--		if (mpam_has_feature(mpam_feat_mbw_max, cprops)) {
--			configured_by = mpam_feat_mbw_max;
-+		/*
-+		 * MB and its emulating MB_NODE control are both backed by the
-+		 * same MPAM bandwidth partitioning hardware.
-+		 */
-+		switch (ctrl->name) {
-+		case RESCTRL_CTRL_NAME_DEF:
-+		case RESCTRL_CTRL_NAME_NODE:
-+			if (mpam_has_feature(mpam_feat_mbw_max, cprops))
-+				configured_by = mpam_feat_mbw_max;
-+			break;
-+		default:
- 			break;
- 		}
--		fallthrough;
-+		break;
- 	default:
- 		return resctrl_get_default_ctrlval(ctrl);
- 	}
- 
--	if (!r->alloc_capable || partid >= resctrl_arch_get_num_closid(r) ||
-+	if (configured_by == MPAM_FEATURE_LAST || !r->alloc_capable ||
-+	    partid >= resctrl_arch_get_num_closid(r) ||
- 	    !mpam_has_feature(configured_by, cfg))
- 		return resctrl_get_default_ctrlval(ctrl);
- 
-@@ -1582,12 +1671,19 @@ int resctrl_arch_update_one(struct rdt_resource *r, struct resctrl_ctrl *ctrl,
- 		mpam_set_feature(mpam_feat_cpor_part, &cfg);
- 		break;
- 	case RDT_RESOURCE_MBA:
--		if (mpam_has_feature(mpam_feat_mbw_max, cprops)) {
-+		switch (ctrl->name) {
-+		case RESCTRL_CTRL_NAME_DEF:
-+		case RESCTRL_CTRL_NAME_NODE:
-+			if (!mpam_has_feature(mpam_feat_mbw_max, cprops))
-+				return -EINVAL;
-+
- 			cfg.mbw_max = percent_to_mbw_max(cfg_val, cprops);
- 			mpam_set_feature(mpam_feat_mbw_max, &cfg);
- 			break;
-+		default:
-+			return -EINVAL;
- 		}
--		fallthrough;
-+		break;
- 	default:
- 		return -EINVAL;
- 	}
-@@ -1650,9 +1746,17 @@ int resctrl_arch_update_domains(struct rdt_resource *r, u32 closid)
- 	 * controls? How to communicate to user space?
- 	 */
- 	for_each_resource_ctrl(ctrl, r) {
-+		struct resctrl_ctrl *em_ctrl;
-+
- 		err = _resctrl_arch_update_domains(r, ctrl, closid);
- 		if (err)
- 			return err;
-+
-+		list_for_each_entry(em_ctrl, &ctrl->emulated_by, entry) {
-+			err = _resctrl_arch_update_domains(r, em_ctrl, closid);
-+			if (err)
-+				return err;
-+		}
- 	}
- 
- 	return 0;
-@@ -1915,6 +2019,81 @@ mpam_resctrl_get_ctrl_domain_from_cpu(int cpu, struct mpam_resctrl_res *res,
- 	return NULL;
- }
- 
-+static int mpam_resctrl_online_ctrl(unsigned int cpu, struct mpam_resctrl_res *res,
-+				    struct resctrl_ctrl *ctrl,
-+				    struct mpam_component *comp)
++static void resctrl_mbm_assign_file_show(struct kernfs_node *parent, const char *name,
++					 bool show)
 +{
-+	struct mpam_resctrl_dom *dom;
++	struct kernfs_node *kn;
 +
-+	dom = mpam_resctrl_get_ctrl_domain_from_cpu(cpu, res, ctrl, comp);
-+	if (!dom) {
-+		dom = mpam_resctrl_alloc_ctrl_domain(cpu, res, ctrl, comp);
-+		if (IS_ERR(dom))
-+			return PTR_ERR(dom);
-+
-+		return 0;
-+	}
-+
-+	mpam_resctrl_online_domain_hdr(cpu, &dom->resctrl_ctrl_dom.hdr);
-+
-+	return 0;
-+}
-+
-+static void mpam_resctrl_offline_ctrl(unsigned int cpu, struct mpam_resctrl_res *res,
-+				      struct resctrl_ctrl *ctrl,
-+				      struct mpam_component *comp)
-+{
-+	struct rdt_ctrl_domain *ctrl_d;
-+	struct mpam_resctrl_dom *dom;
-+
-+	dom = mpam_resctrl_get_ctrl_domain_from_cpu(cpu, res, ctrl, comp);
-+	if (WARN_ON_ONCE(!dom))
++	kn = kernfs_find_and_get(parent, name);
++	if (!kn)
 +		return;
 +
-+	ctrl_d = &dom->resctrl_ctrl_dom;
-+	if (mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr)) {
-+		resctrl_offline_ctrl_domain(&res->resctrl_res, ctrl, ctrl_d);
-+		kfree(dom);
++	kernfs_show(kn, show);
++	kernfs_put(kn);
++}
++
++void resctrl_mbm_assign_files_apply(struct kernfs_node *kn)
++{
++	if (!kn)
++		return;
++
++	resctrl_mbm_assign_file_show(kn, "mbm_L3_assignments",
++				     resctrl_mbm_show_l3_assignments());
++	resctrl_mbm_assign_file_show(kn, "mbm_NODE_assignments",
++				     resctrl_mbm_show_node_assignments());
++}
++
++static void resctrl_mbm_assign_files_apply_all(void)
++{
++	struct rdtgroup *prgrp, *crgrp;
++
++	lockdep_assert_held(&rdtgroup_mutex);
++
++	list_for_each_entry(prgrp, &rdt_all_groups, rdtgroup_list) {
++		resctrl_mbm_assign_files_apply(prgrp->kn);
++		list_for_each_entry(crgrp, &prgrp->mon.crdtgrp_list, mon.crdtgrp_list)
++			resctrl_mbm_assign_files_apply(crgrp->kn);
 +	}
 +}
 +
-+/* Controls that emulate another control need domains of their own. */
-+static int mpam_resctrl_online_ctrls(unsigned int cpu, struct mpam_resctrl_res *res,
-+				     struct mpam_component *comp)
++int resctrl_mbm_assign_scope_mode_show(struct kernfs_open_file *of,
++				       struct seq_file *s, void *v)
 +{
-+	struct rdt_resource *r = &res->resctrl_res;
-+	struct resctrl_ctrl *ctrl, *em_ctrl;
-+	int err;
++	struct rdt_resource *r = rdt_kn_parent_priv(of->kn);
 +
-+	for_each_resource_ctrl(ctrl, r) {
-+		err = mpam_resctrl_online_ctrl(cpu, res, ctrl, comp);
-+		if (err)
-+			return err;
++	if (!info_kn_lock(of->kn))
++		return -ENOENT;
 +
-+		list_for_each_entry(em_ctrl, &ctrl->emulated_by, entry) {
-+			err = mpam_resctrl_online_ctrl(cpu, res, em_ctrl, comp);
-+			if (err)
-+				return err;
-+		}
-+	}
++	if (r->mon.mbm_assign_scope_native)
++		seq_puts(s, "legacy [native]\n");
++	else
++		seq_puts(s, "[legacy] native\n");
++
++	info_kn_unlock(of->kn);
 +
 +	return 0;
 +}
 +
-+static void mpam_resctrl_offline_ctrls(unsigned int cpu, struct mpam_resctrl_res *res,
-+				       struct mpam_component *comp)
++ssize_t resctrl_mbm_assign_scope_mode_write(struct kernfs_open_file *of, char *buf,
++					    size_t nbytes, loff_t off)
 +{
-+	struct rdt_resource *r = &res->resctrl_res;
-+	struct resctrl_ctrl *ctrl, *em_ctrl;
++	struct rdt_resource *r = rdt_kn_parent_priv(of->kn);
++	bool native;
++	int ret = 0;
 +
-+	for_each_resource_ctrl(ctrl, r) {
-+		list_for_each_entry(em_ctrl, &ctrl->emulated_by, entry)
-+			mpam_resctrl_offline_ctrl(cpu, res, em_ctrl, comp);
++	if (!info_kn_lock(of->kn))
++		return -ENOENT;
 +
-+		mpam_resctrl_offline_ctrl(cpu, res, ctrl, comp);
++	rdt_last_cmd_clear();
++
++	/* Valid input requires a trailing newline */
++	if (nbytes == 0 || buf[nbytes - 1] != '\n') {
++		rdt_last_cmd_puts("mbm_assign_scope_mode: Invalid input\n");
++		ret = -EINVAL;
++		goto out_unlock;
 +	}
++
++	buf[nbytes - 1] = '\0';
++
++	if (!strcmp(buf, "legacy")) {
++		native = false;
++	} else if (!strcmp(buf, "native")) {
++		native = true;
++	} else {
++		rdt_last_cmd_puts("Unsupported assign scope mode\n");
++		ret = -EINVAL;
++		goto out_unlock;
++	}
++
++	if (r->mon.mbm_assign_scope_native != native) {
++		r->mon.mbm_assign_scope_native = native;
++		resctrl_mbm_assign_files_apply_all();
++	}
++
++out_unlock:
++	info_kn_unlock(of->kn);
++
++	return ret ?: nbytes;
 +}
 +
- int mpam_resctrl_online_cpu(unsigned int cpu)
+ static int mbm_assignments_show(struct kernfs_open_file *of, struct seq_file *s,
+ 				void *v, struct rdt_resource *r)
  {
- 	struct mpam_resctrl_res *res;
-@@ -1925,7 +2104,6 @@ int mpam_resctrl_online_cpu(unsigned int cpu)
- 	for_each_mpam_resctrl_control(res, rid) {
- 		struct mpam_resctrl_dom *dom;
- 		struct rdt_resource *r = &res->resctrl_res;
--		struct resctrl_ctrl *ctrl;
+@@ -1753,8 +1878,7 @@ static int mbm_assignments_show(struct kernfs_open_file *of, struct seq_file *s,
  
- 		if (!res->class)
- 			continue;	// dummy_resource;
-@@ -1937,21 +2115,10 @@ int mpam_resctrl_online_cpu(unsigned int cpu)
- 				continue;
+ int mbm_L3_assignments_show(struct kernfs_open_file *of, struct seq_file *s, void *v)
+ {
+-	return mbm_assignments_show(of, s, v,
+-				    resctrl_arch_get_resource(RDT_RESOURCE_L3));
++	return mbm_assignments_show(of, s, v, mbm_l3_assignments_resource());
+ }
  
- 			if (r->alloc_capable) {
--				for_each_resource_ctrl(ctrl, r) {
--					dom = mpam_resctrl_get_ctrl_domain_from_cpu(cpu, res,
--										    ctrl, comp);
--					if (!dom) {
--						dom = mpam_resctrl_alloc_ctrl_domain(cpu, res,
--										     ctrl, comp);
--					} else {
--						struct rdt_ctrl_domain *ctrl_d =
--							&dom->resctrl_ctrl_dom;
--
--						mpam_resctrl_online_domain_hdr(cpu, &ctrl_d->hdr);
--					}
--					if (IS_ERR(dom))
--						return PTR_ERR(dom);
--				}
-+				int err = mpam_resctrl_online_ctrls(cpu, res, comp);
+ int mbm_NODE_assignments_show(struct kernfs_open_file *of, struct seq_file *s, void *v)
+@@ -1873,7 +1997,7 @@ static ssize_t mbm_assignments_write(struct kernfs_open_file *of, char *buf,
+ 
+ 	/* Valid input requires a trailing newline */
+ 	if (nbytes == 0 || buf[nbytes - 1] != '\n') {
+-		rdt_last_cmd_puts("mbm_L3_assignments: Invalid input\n");
++		rdt_last_cmd_puts("mbm assignments: Invalid input\n");
+ 		ret = -EINVAL;
+ 		goto out_unlock;
+ 	}
+@@ -1909,14 +2033,14 @@ ssize_t mbm_L3_assignments_write(struct kernfs_open_file *of, char *buf,
+ 				 size_t nbytes, loff_t off)
+ {
+ 	return mbm_assignments_write(of, buf, nbytes, off,
+-			resctrl_arch_get_resource(RDT_RESOURCE_L3));
++				     mbm_l3_assignments_resource());
+ }
+ 
+ ssize_t mbm_NODE_assignments_write(struct kernfs_open_file *of, char *buf,
+ 				   size_t nbytes, loff_t off)
+ {
+ 	return mbm_assignments_write(of, buf, nbytes, off,
+-			resctrl_arch_get_resource(RDT_RESOURCE_MBA));
++				     resctrl_arch_get_resource(RDT_RESOURCE_MBA));
+ }
+ 
+ static int closid_num_dirty_rmid_alloc(struct rdt_resource *r)
+@@ -2012,10 +2136,15 @@ static void resctrl_mon_resource_init(struct rdt_resource *r)
+ 			resctrl_file_mode_init("event_filter", 0644);
+ 		resctrl_file_fflags_init("mbm_assign_on_mkdir", RFTYPE_MON_INFO |
+ 					 fflags);
+-		if (r->rid == RDT_RESOURCE_MBA)
+-			resctrl_file_fflags_init("mbm_NODE_assignments", RFTYPE_MON_BASE);
+-		else
+-			resctrl_file_fflags_init("mbm_L3_assignments", RFTYPE_MON_BASE);
++		resctrl_file_fflags_init("mbm_L3_assignments", RFTYPE_MON_BASE);
++		if (r->rid == RDT_RESOURCE_MBA) {
++			r->mon.mbm_assign_scope_native = false;
++			resctrl_file_fflags_init("mbm_assign_scope_mode",
++						 RFTYPE_MON_INFO | RFTYPE_RES_MB);
++			if (r->mon_scope == RESCTRL_NODE)
++				resctrl_file_fflags_init("mbm_NODE_assignments",
++							 RFTYPE_MON_BASE);
++		}
+ 		resctrl_file_fflags_init("mbm_assign_mode", RFTYPE_MON_INFO |
+ 					 fflags);
+ 	}
+diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
+index a16e35b587c4..1547306dc8d6 100644
+--- a/fs/resctrl/rdtgroup.c
++++ b/fs/resctrl/rdtgroup.c
+@@ -2316,6 +2316,13 @@ static struct rftype res_common_files[] = {
+ 		.seq_show	= mbm_NODE_assignments_show,
+ 		.write		= mbm_NODE_assignments_write,
+ 	},
++	{
++		.name		= "mbm_assign_scope_mode",
++		.mode		= 0644,
++		.kf_ops		= &rdtgroup_kf_single_ops,
++		.seq_show	= resctrl_mbm_assign_scope_mode_show,
++		.write		= resctrl_mbm_assign_scope_mode_write,
++	},
+ 	{
+ 		.name		= "mbm_assign_mode",
+ 		.mode		= 0644,
+@@ -2653,6 +2660,8 @@ static int rdtgroup_add_files(struct kernfs_node *kn, unsigned long fflags)
+ 		}
+ 	}
+ 
++	resctrl_mbm_assign_files_apply(kn);
 +
-+				if (err)
-+					return err;
- 			}
- 			if (r->mon_capable) {
- 				dom = mpam_resctrl_get_mon_domain_from_cpu(cpu, res, comp);
-@@ -1985,8 +2152,6 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
- 	for_each_mpam_resctrl_control(res, rid) {
- 		struct mpam_resctrl_dom *dom;
- 		struct rdt_l3_mon_domain *mon_d;
--		struct rdt_ctrl_domain *ctrl_d;
--		struct resctrl_ctrl *ctrl;
- 		bool dom_empty;
- 		struct rdt_resource *r = &res->resctrl_res;
- 
-@@ -1999,22 +2164,8 @@ void mpam_resctrl_offline_cpu(unsigned int cpu)
- 			if (!cpumask_test_cpu(cpu, &comp->affinity))
- 				continue;
- 
--			if (r->alloc_capable) {
--				for_each_resource_ctrl(ctrl, r) {
--					dom = mpam_resctrl_get_ctrl_domain_from_cpu(cpu, res,
--										    ctrl, comp);
--					if (WARN_ON_ONCE(!dom))
--						continue;
--					ctrl_d = &dom->resctrl_ctrl_dom;
--					dom_empty = mpam_resctrl_offline_domain_hdr(cpu,
--										    &ctrl_d->hdr);
--					if (dom_empty) {
--						resctrl_offline_ctrl_domain(&res->resctrl_res, ctrl,
--									    ctrl_d);
--						kfree(dom);
--					}
--				}
--			}
-+			if (r->alloc_capable)
-+				mpam_resctrl_offline_ctrls(cpu, res, comp);
- 
- 			if (r->mon_capable) {
- 				dom = mpam_resctrl_get_mon_domain_from_cpu(cpu, res, comp);
-diff --git a/fs/resctrl/ctrlmondata.c b/fs/resctrl/ctrlmondata.c
-index 4bc7090ad0c7..77a2f2e877a6 100644
---- a/fs/resctrl/ctrlmondata.c
-+++ b/fs/resctrl/ctrlmondata.c
-@@ -359,6 +359,7 @@ static const char * const resctrl_ctrl_name[] = {
- 	[RESCTRL_CTRL_NAME_DEF]		= "",
- 	[RESCTRL_CTRL_NAME_MIN]		= "MIN",
- 	[RESCTRL_CTRL_NAME_MAX]		= "MAX",
-+	[RESCTRL_CTRL_NAME_NODE]	= "NODE",
- 	[RESCTRL_CTRL_NAME_REGION0_MIN]		= "REGION0_MIN",
- 	[RESCTRL_CTRL_NAME_REGION0_MAX]		= "REGION0_MAX",
- };
+ 	return 0;
+ error:
+ 	pr_warn("Failed to add %s, err=%d\n", rft->name, ret);
 diff --git a/include/linux/resctrl.h b/include/linux/resctrl.h
-index 195c0948b26d..b8df7489539f 100644
+index b8df7489539f..141e2ff594f9 100644
 --- a/include/linux/resctrl.h
 +++ b/include/linux/resctrl.h
-@@ -398,6 +398,7 @@ struct resctrl_mon {
-  *				has the same name as the resource.
-  * @RESCTRL_CTRL_NAME_MIN:	"MIN"
-  * @RESCTRL_CTRL_NAME_MAX:	"MAX"
-+ * @RESCTRL_CTRL_NAME_NODE:	"NODE"
-  * @RESCTRL_CTRL_NAME_REGION0_MIN:	"REGION0_MIN"
-  * @RESCTRL_CTRL_NAME_REGION0_MAX:	"REGION0_MAX"
+@@ -380,6 +380,11 @@ enum resctrl_ctrl_type {
+  *				events of monitor groups created via mkdir.
+  * @mbm_cntr_configurable:	True if assignable counters are configurable.
+  * @mbm_cntr_assign_fixed:	True if the counter assignment mode is fixed.
++ * @mbm_assign_scope_native:	True if assignment files use native names.
++ *				Legacy mode always exposes "mbm_L3_assignments".
++ *				Native mode exposes "mbm_NODE_assignments" when
++ *				NUMA node MSCs are present, otherwise
++ *				"mbm_L3_assignments".
   */
-@@ -405,6 +406,7 @@ enum resctrl_ctrl_name {
- 	RESCTRL_CTRL_NAME_DEF,
- 	RESCTRL_CTRL_NAME_MIN,
- 	RESCTRL_CTRL_NAME_MAX,
-+	RESCTRL_CTRL_NAME_NODE,
- 	RESCTRL_CTRL_NAME_REGION0_MIN,
- 	RESCTRL_CTRL_NAME_REGION0_MAX,
- 	RESCTRL_CTRL_NAME_LAST = RESCTRL_CTRL_NAME_REGION0_MAX
+ struct resctrl_mon {
+ 	u32			num_rmid;
+@@ -389,6 +394,7 @@ struct resctrl_mon {
+ 	bool			mbm_assign_on_mkdir;
+ 	bool			mbm_cntr_configurable;
+ 	bool			mbm_cntr_assign_fixed;
++	bool			mbm_assign_scope_native;
+ };
+ 
+ /**
 -- 
 2.53.0
 
