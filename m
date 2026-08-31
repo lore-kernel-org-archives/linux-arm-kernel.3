@@ -4,79 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE871C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75902C624A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:29:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SuDeWaf7WgpqHSI1yoOLmbbz1EkZzpYkobKoVll1c/k=; b=CxSqnVI3/2djOY8yqQyqMj1Yux
-	bTxWu8f3TdRubu/l9T8uCr/I4QVOBNJ9eiG//1Qrd3YnbMd3Jy0KwtWO3lbw3HKPt85vrv06V4LAi
-	5N+Zg9CCxjE7yBTj1FL05X4pXOn8sLotVdQD28YDfQYf7M8cihsBpg9vpsQEmhSyrPbJCM2csxxsQ
-	3Nv16ieTHDtuGfaiQS6GUX828OY3/ToQIVKzWFk4hyuaAPrpIWsWSDAxo+0VpD8BiP/sRDDHlh9lb
-	qNbZLwj7pXzXqaZ/qrE/0/fU/N5ro/TcubqofRa2IULVouGZrS4Vdv8fvGk4F2I2u+QkeGb6HshXW
-	NiMnpRGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yTJGiymNweAO3MR3ozZme9qbxyHuVC8dWkc67P1Agn8=; b=P3IkBGLWeNCLErkvoMJNfRWZ66
+	7R03xvsb8scSDMjTX9tEP9qKeA11f9a+F0x2MKOE3sBnc1ISaj5UBs+FlknU8frLqUClh8mKrsnZH
+	rv63vEI0Vd4MRHAziNrIIWgyrJ79dlZFGLvfAgoYNDBvuNmy9ez+QGKw8xlPBxvwxW71LiCL9BhUl
+	BcSMNat3DpJPXgT9/SqLuy3kUf7INFWQ1duSsNE7XMVtshw/p4lRifUeMNNLxfosTIWZx3744lMEQ
+	w3Czll2rfRgpv0D/GTrjrkShfunk9e03KVL1hSOYvjWBhnoErlUDfDHbeeAopUILxTwF20nzKwU5V
+	3uRG12jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13wC-00000009rTV-1j7C;
-	Mon, 31 Aug 2026 15:28:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13w9-00000009rSW-2kLr
+	id 1x13wP-00000009rWO-2WRm;
+	Mon, 31 Aug 2026 15:28:57 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1x13wJ-00000009rVD-1cQn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 15:28:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B49A14BF;
-	Mon, 31 Aug 2026 08:28:34 -0700 (PDT)
-Received: from [10.57.6.141] (unknown [10.57.6.141])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F3BBE3F882;
-	Mon, 31 Aug 2026 08:28:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1788190118; bh=SuDeWaf7WgpqHSI1yoOLmbbz1EkZzpYkobKoVll1c/k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CREezQe4GnXa4C8RGGDKvHVjF22t/L5J5b6UfZ5AXfZ4spJQ1gMP8m1du77D9yAnj
-	 xflZERFG8KqRDlopy1LEHijk2M/I09pIur66mG5W1QsRPHMLbWbvd2DFbNAL2icWhg
-	 drjXdEdwODQ0wCXxFG7WTRhQtDzhabUMNmya4Kds=
-Message-ID: <7af32e98-f2ab-4961-9e3c-72b8a21416c0@arm.com>
-Date: Mon, 31 Aug 2026 17:28:29 +0200
+	Mon, 31 Aug 2026 15:28:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=H/k5NwJ92IHST745/pkNhUHW8cq4N5SeN8dUsyph/7BXKRcOInOMCAh9SC7z+1R3sJuji9NPjNF0K5m3c/NJPkv9m0WkXdEEOncHYBx29dhPQSDjCcy6pjvc+Nsyq+ZK1qZsmA2r9YwiPJnLDRgncLnOOzu3oyf/TvFcdt2thJwkgoR/BkTpfr4nCFgbJzAuMmTwwzS5sf5ABDpUwy9MPo/8mHv5WwTiPPOzqZGcGWdGaAalzuzRTe5QoGyHAlokg5lWhjRH+1ILnSUtP2hzVLJhzFy/PVQ2XblpBxUG3/urIBSQwhd1itSzlrs4IraCTU55bZ816PHZfLXtQFDJ/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yTJGiymNweAO3MR3ozZme9qbxyHuVC8dWkc67P1Agn8=;
+ b=V7tfXRyfluc5ePUjYrgrwlCxpYOYU+gZqk6NslPj/igMSQxmKgXX7Pb6XqNwlkrcd9Nh6RRRWqI08wY0J0YuYHMuZp5JvmC6Xysf65PtAJGEEc6VZwwIghh24wdVbfoh9niJh/STDZS2s7CIsz5fqNe9SJ7nd4R8wVqjcNUixryXXcDIO5JHFxXUIBEFaDKX9xfiRbaeP4khwkY8Iz1OFjXXcoUBROK5XqOZh8W99O+7nLzTLu17YU/IAUrD1O0teCkGgTz55NfuTJP277JCwwOWUMxEKT8YTcVREQvAzQfEGBbCkG2lLNxdGt1bMtPLtrUw1ZgkFVyyxWhblabpFg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yTJGiymNweAO3MR3ozZme9qbxyHuVC8dWkc67P1Agn8=;
+ b=aQ93cGuR6UR2l9v7WSF0Nxu5HDdBSmxaO9FeKErkZn1OXDzJ8Nxj8L19rHiFRU5za4+EtJiV6TH73xYCKDVvXYLgzN/ww6YwaeRN0sEbEHhbkkLr9ycIVN/G9MeQ/0zeYbYLZAk8LVFjowOcAERhd60PFO2hCLpLCHdZHQQ7f/8dCpWluP45OW0gFaoEHCwt19/zhW51A0i8y1KuXIsWaVMpXqjyLnV51/1RyRCf4rt+CzfZxQsmKbX692gl90GuUQ1nwmX3mTthLNA5LAr3KmKdRv8t4b3ygZ4WSUb8EkfKUG8d7KNYonz7ezP/PY+Phf69BedI0nFFTGq8ZcUvWw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM9PR04MB8130.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
+ 2026 15:28:48 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
+ 15:28:47 +0000
+Date: Mon, 31 Aug 2026 10:28:37 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 3/6] media: imx8-isi: Remove unused model field from
+ platform data
+Message-ID: <apWdpYUfSMY8mBVw@SMW015318>
+References: <20260831-isi_imx952-v2-0-fafdb4b446d4@oss.nxp.com>
+ <20260831-isi_imx952-v2-3-fafdb4b446d4@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260831-isi_imx952-v2-3-fafdb4b446d4@oss.nxp.com>
+X-ClientProxiedBy: CYXPR02CA0081.namprd02.prod.outlook.com
+ (2603:10b6:930:ce::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v9 13/25] mm: kpkeys: Introduce early page table
- allocator
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- linux-hardening@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
- Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
- Linu Cherian <linu.cherian@arm.com>, Linus Walleij <linusw@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, x86@kernel.org, Ira Weiny <iweiny@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>
-References: <20260818-kpkeys-v9-0-743ad31b2c8f@arm.com>
- <20260818-kpkeys-v9-13-743ad31b2c8f@arm.com>
- <1dc8739e-4eb6-4a71-9534-e03a15afd620@kernel.org>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <1dc8739e-4eb6-4a71-9534-e03a15afd620@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8130:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9906fcf4-3632-47d1-3a49-08df07748d0b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|19092799006|366016|10067099003|11063799006|56012099006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: OQdTv/KT3gi5QZDE6m3N1/xrWwZgEaUCy2f6Qwnv/y8WjfERVBDgbg8h/4ZjNTeJnXIyYtoxmJhNCBq1TNHbA0rrXuchw9+47ULUId/Jt9aWuXAGdMKlN2TIF+VI32i6oQQt8V7eRKrD8GKsp8lDS5PpHBOgUeTD+Fr0CQDjeroL9s9VxSHdDYtUurHMlmha0qk2ROC9DWJCVYiuTzGacOQx+3Dek0Z6YXd83UlMNcXaXQwISvLaW/U6p44x29jBq2zHJFX+d8fOe0555F4x5rnjloT1tkZ23HVY342cAu9s1kq/67usGl55z+l26ys3bHkiSxB4NCf6Hz5d3lb9BO+YjB386BioVLoMwUMfiFwGBLGS9nSoVvWIO/Tkq5NYyt79U6Zcj9xkbT1ZWF9Hn25Q3U9JvYvMSMabFK8eLtENaoT/LnqF+Xy8BEFmjVwyG/Q4Qlc/6OcbODkVA5anlS8T/RKZ/c+OuQa0Lkb633Sik+HxlRejAkyjiQZSbtF0jFqfMiMPN5+NLq9FVjjIKPPUB2wPbK1Yov57OITod9ytW3eeMJm0k7jqx5qbxQWLopE1jntdQlPkC3Z9dbkOe0YmP6acVCPf2U/036pLGBAizfc+MrCWswcEtlJZL54QTEQqrEhDe0xGp+xTsaE924ps8FGsXhESJ6Z9I5I5dQ8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(19092799006)(366016)(10067099003)(11063799006)(56012099006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ODA6V8pB1Pl37skFkmk49r6kuBwNFstfJcp2lN6SJjiIcp3el5GI33xydjuj?=
+ =?us-ascii?Q?ODRsxxIfJqGu7a4YIK+miNwjojy2jSO9LP4b7svxNv4xYNBiVAfmYSuFyKmX?=
+ =?us-ascii?Q?+cJ1F12RshGspNKDOcMgB4vXgDxcOMbmP19+nAburty5WZ4s3THYIm+2ueu2?=
+ =?us-ascii?Q?wmdhyrh0H1963TVtQbVqb1K7f7M+X+ZvgIie+BQY/SAxxM0ePapzvhX3wtN2?=
+ =?us-ascii?Q?ArcfzoTBttLSOSKcDkFrsKmkxgYwNQnTjEvhqwqShm6mzA75a42SfIkLrByx?=
+ =?us-ascii?Q?c86sqab2bktGcF2dVr59OSeQPGkIFpqnrrbOET+Iy1EQNIhI4yR0w8oXGBRY?=
+ =?us-ascii?Q?ZV4kBsu0HECLbwsRnus7hdtFrPkByJQ3DIukMjjTqA7/yewd5j8SboOG8C3X?=
+ =?us-ascii?Q?zHOcDPKaTZIYS1r7lk29lBBIiJW12OHUYe4qGMlysCvq8adx8ouKqusruDFo?=
+ =?us-ascii?Q?LTjuL1rIAl1Vtucv4s05my5/xP5KadB166U8g//d+rk4WcujT8lYVytUR13C?=
+ =?us-ascii?Q?wmXbJqAj5l8h5iHaZvSYaF6xKr6UT8BzYZ8bQ4xEnPrAKmYf+Q3aQsIFZQqY?=
+ =?us-ascii?Q?9IDmHPbn3jctOslLFD8PwuBrpo6/LGxpuFs/naSS3U2+XYsAqQIQOQyHXyg1?=
+ =?us-ascii?Q?0yVC1QrvmboyAXFRuYkj+Ih/iVmHUfw9u9sIjtEd3GAsHQZh7NLKTwMPh1zZ?=
+ =?us-ascii?Q?dVTH87Gk5+54Hb1n3TqarUljTxpb8N3FREEQ0xFCUPssA9ysyTf+xsWHWP8b?=
+ =?us-ascii?Q?q3FzXPKB/GPlysjgsS6QjnKpu60dMcP08v7+5XrR728NbpONUI7SJFrcUfS7?=
+ =?us-ascii?Q?CdgcLxtq6wCdGFaxrX/bE4Tv6HEkrMPEO4Hu/GRptXDk7axZR1T2j+/u7FPA?=
+ =?us-ascii?Q?mja5a5Hd4jIO3XTnxmGZOS0PtANBHwsEPFj+RuaeRhTX0nuSN8+8prcp6yqb?=
+ =?us-ascii?Q?dRSTYVkPjQudVowlN8G8wDtNCdWmklLQukZ2HppAp9GdCUmkyIjAFfmDwkzm?=
+ =?us-ascii?Q?y0Yknk1o3VSVZARwBouoLBa8OCue01o6wZBafumjW0zXYZoKYDkn2D3G1LwR?=
+ =?us-ascii?Q?j3hzrrTyUugTGTalVeuUUAJWpQbw/F0lopCPMRubTzg6NMduEI2qB7Ol1Xjn?=
+ =?us-ascii?Q?fS1shIz8h/KzFzwcQ5hu8HLMtAdQQENJO3JonDq8leCofmwXqEN36lUJZG6w?=
+ =?us-ascii?Q?JV74pIdOv9lRnq1JY0LlaxyBIqRvFwus2sTGjRPldI6cq+sjPtDkre/l8K8u?=
+ =?us-ascii?Q?IpIVCQ7iMo4WhNMobIJtCDM9aC15q6jR8NU3c2ueEfuYYaNrOXk7Jk/9wbdG?=
+ =?us-ascii?Q?Q87bpIqLK9GbulSL/cPCVBktbcx6kCV3xgiFz4EETx7rKvA60uOp+UlerRE1?=
+ =?us-ascii?Q?WIScj2OpQqWIBtKy41Dnx9cCZJKW2vur9PfbpEXRsJVy0V7tihmfp1K8b1ck?=
+ =?us-ascii?Q?uC1gUE4F+yg6t+aiHth93EEhWzIqLo/mjZfityibiRR6ZAZYnuh7d/l8enJn?=
+ =?us-ascii?Q?u5xXQi9SxxmwUEbsyli99KALH7VffE4jBfBLQRS2AK+hQMoUekIggtOB21TY?=
+ =?us-ascii?Q?aHOFYd4x+k13SEgEn1GXhb2mttUwxwCMa62x4EfE/GFKgdxhEMYM3DZpRcmn?=
+ =?us-ascii?Q?3xlAdQ9gW5fkB3iZRpmyB+WsYR1JqYl+8WXlMVYs9b5zITvO8DJKr/uKiHgV?=
+ =?us-ascii?Q?9BdZ3lferJOSK5w1y7c6BYffPcSRR9fuksDTtL6ONIZJR18jN5K61hkduIAQ?=
+ =?us-ascii?Q?ym9JBe8tqhRSO4fi7226CXeiePI8ylMeutTjwdDO0fiFLAedWOEv?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9906fcf4-3632-47d1-3a49-08df07748d0b
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 15:28:47.7035
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TR5Hgc9L4N+95ifIDbRFEjsp1jP3RVESgVnawq3AhSjlsGjoSQSjGWVBWTDRXzEmxoSMztTZIp6rq53QChzfQj5JLw4SDeQWvZZVl31yjXs8cPZGwkt8HZvxuzHgx5c0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8130
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_082841_797951_2A2ED297 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20260831_082851_456567_90E9EDFA 
+X-CRM114-Status: GOOD (  20.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,66 +147,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/08/2026 20:08, David Hildenbrand (Arm) wrote:
-> On 8/18/26 16:08, Kevin Brodsky wrote:
->> The kpkeys_hardened_pgtables feature aims to protect all page table
->> pages (PTPs) by mapping them with a privileged pkey. This is primarily
->> handled by kpkeys_pgtable_alloc(), called from pagetable_alloc().
->> However, this does not cover PTPs allocated early, before the
->> buddy allocator is available. These PTPs are allocated by architecture
->> code, either 1. from static pools or 2. using the memblock allocator,
->> and should also be protected.
->>
->> This patch addresses the second category: PTPs allocated via memblock.
->> Such PTPs are notably used to create the linear map. Protecting them as
->> soon as they are allocated would require modifying the linear map while
->> it is being created, which seems at best difficult. Instead, a
->> simple allocator is introduced, obtaining pages from memblock and
->> keeping track of all allocated ranges to set their pkey once it is
->> safe to do so. PTPs allocated at that stage are not freed, so there
->> is no need to manage a free list.
-> I'm think of ways to avoid remembering these ranges. I guess we get called that
-> early that we don't even have a ptdesc where we could just link the pages.
-
-Correct, in both the direct map and (early) vmemmap cases we can't rely
-on struct page as storage.
-
-> If only page tables would be linked in some datastructure where we could find
-> them all ... ;)
+On Mon, Aug 31, 2026 at 11:36:58AM +0800, Guoniu Zhou wrote:
+> The model field in struct mxc_isi_plat_data and the corresponding
+> enum model are never referenced in any driver logic. Remove them
+> to simplify the platform data structures.
 >
-> ... why can't we just scan the page table hierarchy to find all page tables that
-> need protection?
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> ---
 
-It makes sense doesn't it :) In fact this is exactly what RFC v5 did [1]
-(a year ago already...). Then in RFC v6 I attempted to support block
-mappings, and things got a lot more complicated. In that case there are
-(at least) two issues with protecting the early page tables by walking them:
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-1. On arm64 with BBML3 we cannot split blocks in the direct map until
-all secondary cores are up. This makes locking pretty difficult if we're
-to walk all page tables at that later stage.
-
-2. Without modifying the allocation strategy, early page tables may not
-be contiguous and setting their pkey would generate fragmentation.
-
-Naturally neither of these issues is relevant to the present series,
-where we force page granularity in the direct map. I still kept the same
-approach as in RFC v6 though, as the goal remains to support block
-mappings eventually.
-
-That said, as discussed offline it may be sensible to revert to the
-"walk early page tables" approach to start with, even if we would
-probably need to change it later. This allows us to drop quite a few
-patches, since init_pg_dir no longer needs to be explicitly protected.
-
-One caveat is that in RFC v5, any page table page installed after
-smp_prepare_boot_cpu() is called, and allocated using memblock (or
-anything else but the buddy allocator), won't be protected. Codex can't
-find any such case though so we should be good for now.
-
-- Kevin
-
-[1]
-https://lore.kernel.org/linux-hardening/20250815085512.2182322-11-kevin.brodsky@arm.com/
-
+> Changes in v2:
+> - New added in v2 (Frank)
+> ---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c |  8 --------
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h | 12 ------------
+>  2 files changed, 20 deletions(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> index c1c16dbc1539..e627054bbc8e 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> @@ -291,7 +291,6 @@ static const struct mxc_isi_set_thd mxc_imx8_isi_thd_v1 = {
+>  };
+>
+>  static const struct mxc_isi_plat_data mxc_imx8mn_data = {
+> -	.model			= MXC_ISI_IMX8MN,
+>  	.num_ports		= 1,
+>  	.num_channels		= 1,
+>  	.reg_offset		= 0,
+> @@ -304,7 +303,6 @@ static const struct mxc_isi_plat_data mxc_imx8mn_data = {
+>  };
+>
+>  static const struct mxc_isi_plat_data mxc_imx8mp_data = {
+> -	.model			= MXC_ISI_IMX8MP,
+>  	.num_ports		= 2,
+>  	.num_channels		= 2,
+>  	.reg_offset		= 0x2000,
+> @@ -317,7 +315,6 @@ static const struct mxc_isi_plat_data mxc_imx8mp_data = {
+>  };
+>
+>  static const struct mxc_isi_plat_data mxc_imx8qm_data = {
+> -	.model			= MXC_ISI_IMX8QM,
+>  	.num_ports		= 5,
+>  	.num_channels		= 8,
+>  	.num_vc			= 4,
+> @@ -330,7 +327,6 @@ static const struct mxc_isi_plat_data mxc_imx8qm_data = {
+>  };
+>
+>  static const struct mxc_isi_plat_data mxc_imx8qxp_data = {
+> -	.model			= MXC_ISI_IMX8QXP,
+>  	.num_ports		= 5,
+>  	.num_channels		= 6,
+>  	.num_vc			= 4,
+> @@ -343,7 +339,6 @@ static const struct mxc_isi_plat_data mxc_imx8qxp_data = {
+>  };
+>
+>  static const struct mxc_isi_plat_data mxc_imx8ulp_data = {
+> -	.model			= MXC_ISI_IMX8ULP,
+>  	.num_ports		= 1,
+>  	.num_channels		= 1,
+>  	.reg_offset		= 0x0,
+> @@ -355,7 +350,6 @@ static const struct mxc_isi_plat_data mxc_imx8ulp_data = {
+>  };
+>
+>  static const struct mxc_isi_plat_data mxc_imx91_data = {
+> -	.model			= MXC_ISI_IMX91,
+>  	.num_ports		= 1,
+>  	.num_channels		= 1,
+>  	.reg_offset		= 0,
+> @@ -367,7 +361,6 @@ static const struct mxc_isi_plat_data mxc_imx91_data = {
+>  };
+>
+>  static const struct mxc_isi_plat_data mxc_imx93_data = {
+> -	.model			= MXC_ISI_IMX93,
+>  	.num_ports		= 1,
+>  	.num_channels		= 1,
+>  	.reg_offset		= 0,
+> @@ -380,7 +373,6 @@ static const struct mxc_isi_plat_data mxc_imx93_data = {
+>  };
+>
+>  static const struct mxc_isi_plat_data mxc_imx95_data = {
+> -	.model			= MXC_ISI_IMX95,
+>  	.num_ports		= 4,
+>  	.num_channels		= 8,
+>  	.num_vc			= 8,
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> index 05c21c448b93..73f6ea7b0ea1 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> @@ -155,19 +155,7 @@ struct mxc_gasket_ops {
+>  	void (*disable)(struct mxc_isi_dev *isi, const unsigned int port);
+>  };
+>
+> -enum model {
+> -	MXC_ISI_IMX8MN,
+> -	MXC_ISI_IMX8MP,
+> -	MXC_ISI_IMX8QM,
+> -	MXC_ISI_IMX8QXP,
+> -	MXC_ISI_IMX8ULP,
+> -	MXC_ISI_IMX91,
+> -	MXC_ISI_IMX93,
+> -	MXC_ISI_IMX95,
+> -};
+> -
+>  struct mxc_isi_plat_data {
+> -	enum model model;
+>  	unsigned int num_ports;
+>  	unsigned int num_channels;
+>  	unsigned int num_vc;		/* Number of VCs, 0 = no VC support */
+>
+> --
+> 2.34.1
+>
+>
 
