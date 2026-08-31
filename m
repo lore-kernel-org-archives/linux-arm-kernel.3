@@ -4,144 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82D4C624A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB9F7C624A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 15:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S+YUlMil/LkMJdInqudDWNyChCwxw6/xCsbk3KFJZXw=; b=kfal4MfSlG1jYg35c+wSb9bOwt
-	2iW6KV1HRlQE3fTOXvc2SpGTWbBtP3BhcKmzHmYp+9+ytrzToK6RZWh9evc08KVjS8vvnF2UJkrim
-	JbGapbvmUELNv0lKKsfnZrIFTL7d3cMVSpY9ERR+tPm2gWxVVHsWvk12DBdR0Xb7se7vUGpGLL6MZ
-	rjXkZHbrxISwA2sOFr0Zxle93w8+bYjWDrlX2sIhQV/hri3mjX81fFJCqn//IF5fcbYagTPn5ICBw
-	uycfovA27Ge4aZ2lyJhmrgq7SzMrFFDPkClB3IDmvq06Qrev+WZPzQa61t8+v1NzlPx9r3EoYq2eK
-	XNqhR6RQ==;
+	bh=LOyTxG4m7vc3Q8Se6/Wh3tGakVMSL/FRahEccUIWMI4=; b=Xzh5eOBFNGUtsh/Gr7jPvCjM7U
+	gWG7EfMr0y9jxAtX0HkTQFaevLR70Ofk395C3Pk7rQYwaTJ8hTR3gNy20HxsR3WOORPNwzPStm5Bu
+	B71DZbDpksmyTuoB6B6Okch9MPNS0m4SKAtAe46WzjG68yDb6ql1AwGjYQwodCRoBBcur1euTCojg
+	PQKWM9oUX299NIEaU4UQIfzem1f4m5Kmum8ersBNpbVvTik7kv9Ksw8eeRSmKp6vryLlmn8/1oTS+
+	pZDZezbwweJYDJ09NYW4+tljNAmOTVtMNWU6lDQUX6drMCHhT9YLR328fAtcIORN2Utu3HWmF1k/q
+	UYYkZ57A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13WP-00000009moI-0jSk;
-	Mon, 31 Aug 2026 15:02:05 +0000
+	id 1x13WW-00000009msr-1EPM;
+	Mon, 31 Aug 2026 15:02:12 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x13Vo-00000009mNv-2Ksn
+	id 1x13WU-00000009mrh-3XOJ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 31 Aug 2026 15:01:28 +0000
+	Mon, 31 Aug 2026 15:02:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=S+YUlMil/LkMJdInqudDWNyChCwxw6/xCsbk3KFJZXw=; b=UTkco/vLkiB2S4/egObeJaRo3J
-	1MrSOjfZaSLnZzwp9HQSkILFPfqN1fH4JUyTZg6tkPd8V1y4R/c63aWjqoSlD7bIgFUgo80B10HHU
-	cxGQb+6gPRCsk5Nba4C5CTQU5z7PhCIAKji9gevtXgXIK/0NMB82+OSuVeQ2UDuvD/oTtK7xOYraN
-	Et2VQvbbWXiEfSIFDH6U62znRRnVrJYk4YZiJ3wBR+610XN68l2qZTnwzM6hEpb6Dk3PkVylDk5Vh
-	TjLlJo1RgNgzJza5tdkX/A+Oav6lXkxu3DceMxv2lVzyJF9Zu+XZ4sBZKFupEMW6zA+ERKz/VFWjd
-	cG57vWuA==;
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Sender:Reply-To:Content-ID:Content-Description;
+	bh=LOyTxG4m7vc3Q8Se6/Wh3tGakVMSL/FRahEccUIWMI4=; b=VNvDyYhOHfp/7eGB4LK2+7Ng8+
+	0TDfKlZFNnnwGzEYRWWS8CqJrUOZJ4ryJad9qSMcRiHPegMhUCTkev2Cn+ZPfLLkcbvpl8kReVKUh
+	xiZcsKd+5FziAOerYvlmNX7S9QNmT6B2j8wUDmIq2gTp9hQDseI4z8IVVrYGuW6d/ZvE+7q3xCI2E
+	smby4GDtrXwQrTwRark8e//sFGmRwRjOH9RfLFZH6JDAHiJVLnNeyLQDiSWqxhNZDNaZikWp7PkHp
+	9bun8FaQovDMQVUnNxnE1Y8D9Mxjtjg2yefwYFz0VGecXD5unrZo83864r96Trq5FfPcLDY4BKR8Z
+	MxmBuC7Q==;
+Received: from mail-westeuropeazon11013018.outbound.protection.outlook.com ([52.101.72.18] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1x13Vk-00000009xzR-2EoL
+	id 1x13WQ-00000009y5m-2g5P
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 31 Aug 2026 15:01:27 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67VEZ5YQ2530272;
-	Mon, 31 Aug 2026 14:55:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=S+YUlMil/LkMJdInq
-	udDWNyChCwxw6/xCsbk3KFJZXw=; b=Rl3AbO6N2iN+8vsroqu0j5yZSVVC1r6BF
-	fYyLePY3uKHnFqAW9MPr/kQ5xXbtiRtcJHFVLjQFN2/imBR+Bd5do7NSBD2uNJ+o
-	NeOAghUufGrOQ34+SRk2i7AaJGX9c2RG6/Qfdfrb8FRxz+jFUc+npbRAAKH2nUyh
-	oHvNNBxjPfiJ1JOOWJE9Y0rzverJVpXXoWx4FsGIQZwCksoUoSHYFzBIjwl+AfSw
-	aj0oEhspwS/yYUHkIawvy1RnkCCfTZ+4owXmN6R1mPJEr2JjdU+x1BUVUjQ/1qkP
-	RdM+5Qj7YECDRrrHTGLzGEmL+sn1k0G1wN0NcIm6lHKP7dkcRfNZw==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4gbpx5a1uu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 14:55:54 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67VEfklE017001;
-	Mon, 31 Aug 2026 14:55:53 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4gcb8h6dpw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Aug 2026 14:55:53 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67VEtjjk33030440
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 31 Aug 2026 14:55:45 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9485520040;
-	Mon, 31 Aug 2026 14:55:45 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1D20A2004B;
-	Mon, 31 Aug 2026 14:55:45 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 31 Aug 2026 14:55:45 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v2 16/20] KVM: s390: arm64: Implement exception injection
-Date: Mon, 31 Aug 2026 16:55:31 +0200
-Message-ID: <20260831145536.913567-17-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260831145536.913567-1-seiden@linux.ibm.com>
-References: <20260831145536.913567-1-seiden@linux.ibm.com>
-MIME-Version: 1.0
+	Mon, 31 Aug 2026 15:02:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=J+qcZN4JTgWreKEmcVSmp5Rt4o3gEShcX+LKAU4gsoDNNw1T3Hd+ie/kEdt3rKbM5UVtCpZf+xmmfkb5igrSf3ar6ZwlmNdcdsSMyHeJnX1Zkk08CmdKceYP8JTCrL1tlxMbzOQ2c/YYl06wC/dKzkRihgjZzhkrzVOAeo/jKrVm552yOvzHsBc0qBocgIoHOoFTlo8zPZFGVHvIPVtzKNq8Z38mF8W+RBskKrJok2dMUTXOzX7QaqtnGPpyhY7lydweVD56v++Ppr80bO0fLQRbj85w/96zIoQO1cBlICcTD1up/TrmglwJ0+VaDitNs0w1JeOCr5jFjmlzQh/5cA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LOyTxG4m7vc3Q8Se6/Wh3tGakVMSL/FRahEccUIWMI4=;
+ b=URb9iCVXjOl91aogysbl+EbB/hMqfaMlStVxIoz3gIaTz8V2hVzV52NjRl1AJkhIkv9joSjqjnGSuHMv091fygmA1ewiemKD9OgAFGZSKqDwmXfsMYIqc63ogSpJLnaFlKOSl7UjVyUznLao9GPM5nPnS1x4WGmDmE0tkETuPj4I7bCI9mZIfpFVzi4IZx9J7JDQw2sCDt5ihFq6yf5LKLlZNIQmGDJLO75G5M2LgwCv+cuNxsP3GF4MxCHw0KgD9HfpYL3FyMUx11vtF2PZDWMhRAbbZuIBzEu5jeSHAnTQNFRFYmUdm5J4zuy1YCEAotGJHngQ7mlJi8UsDJumAA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LOyTxG4m7vc3Q8Se6/Wh3tGakVMSL/FRahEccUIWMI4=;
+ b=ppUgZPY6j1KIDmd3+st2z8zUr8vQtkISDEIqXXR0TZGkcqPMTGgPcshuoOnqxUQbVdIEYaWCpnA1uPBId+2eIeQCuxOr1YKfL6Adfm7ykgTPEbf/1FCQhYmWTjh8UDRJLOBsratrPJlSZjK9QIi3xt1Ijs9IqZuReRcAljfG88xbN1uiQDdD633UKBUxEqYjy0dmGzlqjRJtpCaCFo98I7Ayh5rvPe76jlba7l8qi3qg/GDImoyaROSPXZRf+GomyCUVDVUFx7LxzzCsLyvdvE6oQ3h6fpsRncWOIWQLKyK9ygy3sB2UhF4xYqHuCultlvE+Ivj3VTylT+bGIiODGg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AMBPR04MB754926.eurprd04.prod.outlook.com (2603:10a6:20b:787::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.360.13; Mon, 31 Aug
+ 2026 15:02:02 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0360.008; Mon, 31 Aug 2026
+ 15:02:02 +0000
+Date: Mon, 31 Aug 2026 10:01:52 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Linmao Li <lilinmao@kylinos.cn>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Leonard Crestez <cdleonard@gmail.com>,
+	Radu Solea <radu.solea@nxp.com>,
+	Franck LENORMAND <franck.lenormand@nxp.com>,
+	linux-crypto@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: mxs-dcp: handle zero-length skcipher requests
+Message-ID: <apWXYPYyPktawUru@SMW015318>
+References: <20260828093209.3179074-1-lilinmao@kylinos.cn>
+ <apHgn8-IcTshYnfv@SMW015318>
+ <6416cbee-35c7-4fc8-9a80-a25403eb1e6f@kylinos.cn>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=PPc/P/qC c=1 sm=1 tr=0 ts=6a9595fb cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=Ga-kB53fOd7CXy6K7RwA:9
-X-Proofpoint-GUID: YO-2adMQq2U5Dn8ezqm3LP1j8Z4JGx-C
-X-Proofpoint-ORIG-GUID: PpmhHqWh-HjXztKm6pyOOgPxKlID5vQF
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX9XW6ez7STvbl
- 5sDQ1HD7K/No5LwBQ2rh+HwD810RE4VrvPgLwdbkLN7pj+LEz2ublt3h5R0cMPL11mwIaS3tvFR
- jl4Am0v8z4QgDrw4ZVJSdV+ftYg83W8=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDEyNSBTYWx0ZWRfX+6sIfy7jOIUR
- upNg6EWXWBZ/BuxqLQNQBKzR7ZYcTUks/cs+wPqFipWvCmK8HFuI9I2zyWTCkVW+3OgE3rP+DUa
- F4waKt6aMcVGRSeJko4DD28WGMv8JzWiQmH0S5M/cjOKYfpT4J5giN811CmKrd6l1p8gR34ALDc
- fOh0oJit2mtHPHVp1CJOkbwvESyp1CtfRUzHP2ZJqbeSUS/8jd/rWh9eiYyRJwL5WwYnPIjilhp
- Zcpkb0Yj6pU++T1CmhwUhgbbaq8Jai0zi5Y961MMzwlhwF4ZImQjOxnmVCz3reXo5kz1zvnUFQv
- J68dbVKttpno5+GVmdYqTGckL9ha1SViDpPp0f3yNUWBfpwpyWEn9n+Gi5fFZFlUYtiZBydEtuC
- pHg7MCa1Vr22SHpioSt7cy8BzgzGiKWS8HVWNpnKtuU8MNOFetlvCAIWTr1a/cgEOLzZsaLHSrc
- 85OWRqdk5CGHyzVhC3w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-31_05,2026-08-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 phishscore=0 adultscore=0 suspectscore=0 bulkscore=0
- spamscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608310125
+In-Reply-To: <6416cbee-35c7-4fc8-9a80-a25403eb1e6f@kylinos.cn>
+X-ClientProxiedBy: PH0P220CA0021.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:d3::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AMBPR04MB754926:EE_
+X-MS-Office365-Filtering-Correlation-Id: d6aec9a4-e569-40c0-8fc2-08df0770d023
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|23010399003|7416014|376014|10067099003|4143699003|56012099006|11063799006|18002099003|22082099003|13003099007;
+X-Microsoft-Antispam-Message-Info: 1itxAnAY7539Rct7UgVArCKshgdAbygnLIPe7/NFKcyx5CwO8l63+mvOjcgQHA/xgEBf+uX5awQ8j1h8BhuE3LLQ+HlYQX8S1HdX5pv1L8lD5cTVtkNKcOcVGjyHl6gZxY/l5z+T6U3x+Br9P38ESg5F1kLO60JBfKZq3gbjj3T8U7TmDKrM1NzTbTh4N9usjRH8na19reqeyVr5njZinq+XY3dj0uH4CtP0uM+eo+7uqmAuRBEW5Xv9Vdc/m0zsis80sEOu/K/S4uRgsv6LavbENhtx+uffBKwRygQlack4CwXOcIN62LuK4VLuePxxv6+2aXszHW0uVVL92FrNinaZUkNBUMmH/canBm7vEnL3u7gBvkyry35TMbXPcHrIS9+yeIVzzfJkwz3O92Jbu5iF5y0CtkTilzocBjWwLaolMeDL6GcKe3rIODo+AxGy93zAPIrkGO0JORxGMDZXmA8eKWpeJaHkti/C+D8xlRDb9kpfOMJEyV9PKVu1uLGSRCx8Axluj+NGXulDIwsjqNsB/IWXmLF4k2FeULhZV86yYrcd5FwoTZuh6UMmNPUtdqQJrUtYUPdYNGGl42vpM5ZP/JyiYhlBciTL4OfK9YdWwhPgxOFE/ZFHKDv1XpappSItcgEAvsLq6C0Z62dhdLoK17BEl3TLbjflEvXbDYM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(23010399003)(7416014)(376014)(10067099003)(4143699003)(56012099006)(11063799006)(18002099003)(22082099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NWwxWkFQaHI5UVdjRWxEYUlidU9pYXdqU3Q5b0Nhck0zNlZ0SkpqQmpXaHh0?=
+ =?utf-8?B?cG1GV2w4ZHBsZHN2bWppY091cWRUKzNWeUtyN1hoZG9TMmpkNk5KRXpJWnd6?=
+ =?utf-8?B?RitXLzl4eWZydHlFWFc3N3R5TkdMaENHYzErcW5GMXpFUnd1cEo4cjd3eExG?=
+ =?utf-8?B?MnY2WXNvQ093VEtBUldFRnpVSnlnMHZwZDAxdy9zWUNuK0hzZ2FtR0xacm9V?=
+ =?utf-8?B?eTM3UjhTMHlIT3hoU0JwNXBmYlUzYm51YjZta0tkdHQ3dXV3cTlhcW1qNldv?=
+ =?utf-8?B?czVlYjV3SWRUaEc2T2NVdGhrMTdEOWI5dEh6OUUvWXhBNHZoeDVuemRjMzhW?=
+ =?utf-8?B?OW9kSm05aHBPR3lTMi92UlNpK1YvVHVNNlppWU42cTZFOHNrRDkyckNibFN4?=
+ =?utf-8?B?UWlTb0pzM0R0VTc0S2EzWk56MUNDTUVWK2N3V21VU2k0S2F3ZFZraG1TWFUy?=
+ =?utf-8?B?UWtyVHVmYTAwMXBlL1A2cGY1QU9TZEpUTVE0T29mZWswYklIRmdmak9yMlZY?=
+ =?utf-8?B?Q3NDVDZTY3lMMnByRlpXWFB6djV3NGIrb1lraU1ESUNYL0ZDOURTcnk1dW10?=
+ =?utf-8?B?YURVUy9GZDdmUzNDNjE2QUlTQkVBM201RHRxMitUU0RldTdsUCt2ZTRBWmRv?=
+ =?utf-8?B?YUN3VmFaQVcrTUdTeTMyaTRzaVB4Wm9tVHRPSkZ2WnQ1bVFJcGNNTTZFWTVt?=
+ =?utf-8?B?WEhMWlNFalVnZEZSeWRDM1ZWNVlxc1ZuOW00SEdSVjRpODFiTXJzUlgvVUhl?=
+ =?utf-8?B?NFdaZk14VnFjU0J6YVgzaFFqMFlEdHJyRytkNGdOR09xWlkxY3JBTndYWE5i?=
+ =?utf-8?B?NDZQeWpZK2Z0VmQ3V0tiYmZmZXE3ODh2WDlYU1pZbC9aSHRkUWcvYzIxdldu?=
+ =?utf-8?B?V2JhWkxFb0kzRG51UktMWGNQNWtML3hXZkcva0hTRE9RMFhHWjZZYlVuR3V1?=
+ =?utf-8?B?NHNNa1RYd09xKzg3djI5dUlrUzdtNXhTL21pYk5LeVdPK1lyZzlLVnRkL3JI?=
+ =?utf-8?B?SnF3WTZhSGd4cUMyamEyVGI0ZXMrdVkxbVhCb3FYZTVGODVtcWNrVkllWTg2?=
+ =?utf-8?B?VjR0TVpvaEVuME15Mk5Bc3ErdE1XQW1vdkhtcjdaN1daMTJmRDVRMlUzYXVQ?=
+ =?utf-8?B?dEUyNHMrMTJsK204RUxwM09FUlluVGlJRTdKSmxmaW4xR1A2eXBVS2NUcG5l?=
+ =?utf-8?B?T2p0RXQyUzh4bW5BNmYxVHFacnR5NG1ZRHhabGVPN3p3NEdSWmdhcVhyNktN?=
+ =?utf-8?B?STBUZ1hmZ3NKSExxNHRWWXpGL2NrTWRiWm83Zzgwc1dXZXRRUldqVVIveXRY?=
+ =?utf-8?B?TmJuRXd0alBKeTZjNkVRK2FhZzBEaWVWYzdONEdWcmJKbGxjTmd5MG0wQ2Y2?=
+ =?utf-8?B?bDRYeU50cUp5NVpuTE1YOUpCNm5lRCtzc0NXKzlSMFEzaHIxRkkxK3RJTGgz?=
+ =?utf-8?B?NHN4c1VPM0VlMld0RzBTOTRwOEk1cVdDWnMrY3VpNnFuQWUzNnZxVVNvUW1n?=
+ =?utf-8?B?cjhhSkRDY3A0Ums3VFJaNVhNN0l1YzdFZnhhUTZsNERabkd2KytEbnY0WmdX?=
+ =?utf-8?B?N1psdkRMTitnbll1MlFQVDEwY2tQWmdlRzczZU1mby9QSlVzNFFoTmNwelhZ?=
+ =?utf-8?B?bDVGY2ZCYXJvSHRZRVpaWWJlMUpnTitwNWt3MWtRM2pDZHVIaHpOSXBNYXdI?=
+ =?utf-8?B?cVRVcHZvcEpld01XbXpWUWI4SUdobXBGOE1WK0ZNRUJVeW9jcUVhQURQYzVa?=
+ =?utf-8?B?WlhHU0lBNml1OEg5Ym1PanVVcndkSm9qQUVFSklyY1RzbVpsZjRlN1FFaHIv?=
+ =?utf-8?B?c1V6RGQyaGtLZXZ2RjRyTDNaQzRyaXhRWE5rbmFYa3c1NkdNbGpDSWp0R2VR?=
+ =?utf-8?B?RWt2eVBkOVhUNjBGajdSTG41NmhBREdMRUNlUDdRU0ZEdzNDTjJDUC9HZ0M5?=
+ =?utf-8?B?T2RLTkVWcVEwOGY5MG95dWE0Mm1pSEJpL2laanRZR0JzQzdobnI5Q2lKWFlk?=
+ =?utf-8?B?UmMrR3FmcXNTRDVScFZOb1IwRmYrWW51MGxCTGZZbGM2a0xVTHYrWE85dmVt?=
+ =?utf-8?B?cnBlSFcyYjBKTVB6Z1VEOHRoTUl5SlhtUzQyUDFBQ1kzMHk5amNBTDUrMUU4?=
+ =?utf-8?B?TFhzeEthMWc0YlB3b3lWVjR2TjBLQnZLTW83VTNsRXFWdlNzenZDdmZTdW1N?=
+ =?utf-8?B?Y0J3bCtEK1dCTUh3NGVkOC9oWXpXWjBZVUdwd2xmNThMQjdBVUJMNGhqbWZK?=
+ =?utf-8?B?WjFmREtjZ2UvalZXdktYTk1tNndndFpDanF6OUFsdHE2QjhZSC9rZkFydDFE?=
+ =?utf-8?B?MkNCb252MW5nZmsxbm53Z1FyMTNrTGJ2L1RLVEJqN1Z1VzZPZjJ2NmUrT2pX?=
+ =?utf-8?Q?Cqy71HthsnIyA2fXjFg3em/rC6hvWa9MW5Y0S?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d6aec9a4-e569-40c0-8fc2-08df0770d023
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Aug 2026 15:02:02.3271
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 40AnQfEPbAtlDXt59I0q3wlPNHJWSjrNoTIVdpV7FA1Y7z5wC1J4vfdJQjjt/Yb2qJ4611w78m4jAnMoTriUAUdbJlkaN5R5PJUJh7iGpvifnVSmIDjbxYJrlD+NKsyi
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB754926
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_160125_023987_156D349B 
-X-CRM114-Status: GOOD (  26.67  )
+X-CRM114-CacheID: sfid-20260831_160206_891434_FEDD62D4 
+X-CRM114-Status: GOOD (  28.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,288 +171,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add exception injection support for s390 KVM arm64 architecture. This
-implements the core exception entry mechanism and fault injection
-functions needed for proper guest exception handling.
+On Mon, Aug 31, 2026 at 08:42:20PM +0800, Linmao Li wrote:
+> [You don't often get email from lilinmao@kylinos.cn. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>
+> 在 2026/8/29 3:25, Frank Li 写道:
+> > On Fri, Aug 28, 2026 at 05:32:09PM +0800, Linmao Li wrote:
+> > > [You don't often get email from lilinmao@kylinos.cn. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+> > >
+> > > Zero-length skcipher requests are valid no-ops, but MXS-DCP queues them.
+> > Any document show it? if return 0 when cryptelen, it is async, no
+> > call crypto_request_complete.
+>   Yes. CRYPTO_ALG_ASYNC means that the implementation may complete a
+>   request asynchronously, not that every request must do so.
+>
+>   A return value of 0 indicates synchronous completion.  Only
+>   -EINPROGRESS and -EBUSY cause crypto_wait_req() to wait for the
+>   completion callback.  The existing fallback path relies on the same
+>   semantics.
+>
+>   There is also a direct precedent in commit 8a4e047c6cc0
+>   ("crypto: marvell/cesa - Handle zero-length skcipher requests").
+>   Marvell CESA registers asynchronous skcipher algorithms but handles a
+>   zero-length request with:
+>
+>           if (!req->cryptlen)
+>                   return 0;
 
-Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/s390/include/asm/kvm_host_arm64.h |   2 +
- arch/s390/kvm/arm64/Makefile           |   1 +
- arch/s390/kvm/arm64/arm.c              |  15 +---
- arch/s390/kvm/arm64/exception.c        | 105 +++++++++++++++++++++++++
- arch/s390/kvm/arm64/inject_fault.c     |  73 ++++++++++++++++-
- 5 files changed, 183 insertions(+), 13 deletions(-)
- create mode 100644 arch/s390/kvm/arm64/exception.c
+Thanks, but still not answer my question,
 
-diff --git a/arch/s390/include/asm/kvm_host_arm64.h b/arch/s390/include/asm/kvm_host_arm64.h
-index 0bf396ef54c2..16a378b68c8a 100644
---- a/arch/s390/include/asm/kvm_host_arm64.h
-+++ b/arch/s390/include/asm/kvm_host_arm64.h
-@@ -426,4 +426,6 @@ static inline bool has_broken_cntvoff(void)
- 	return false;
- }
- 
-+void kvm_adjust_pc(struct kvm_vcpu *vcpu);
-+
- #endif /* ASM_KVM_HOST_ARM64_H */
-diff --git a/arch/s390/kvm/arm64/Makefile b/arch/s390/kvm/arm64/Makefile
-index e19040cdc27d..cb3bf6da6d63 100644
---- a/arch/s390/kvm/arm64/Makefile
-+++ b/arch/s390/kvm/arm64/Makefile
-@@ -9,6 +9,7 @@ ccflags-y += -I $(src) -I $(objtree)/$(obj) -I$(srctree)/arch/s390/kvm/gmap -DKV
- 
- kvm-arm64-obj := \
- 	arm.o \
-+	exception.o \
- 	feature.o \
- 	guest.o \
- 	handle_exit.o \
-diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
-index ab6e7d135435..89984c6a5b64 100644
---- a/arch/s390/kvm/arm64/arm.c
-+++ b/arch/s390/kvm/arm64/arm.c
-@@ -379,19 +379,11 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
- 	return -EINVAL;
- }
- 
--static void adjust_pc(struct kvm_vcpu *vcpu)
--{
--	if (vcpu_get_flag(vcpu, INCREMENT_PC)) {
--		kvm_skip_instr(vcpu);
--		vcpu_clear_flag(vcpu, INCREMENT_PC);
--	}
--}
--
- static void arm_vcpu_run(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_sae_block *sae_block = &vcpu->arch.sae_block;
- 
--	adjust_pc(vcpu);
-+	kvm_adjust_pc(vcpu);
- 
- 	local_irq_disable();
- 	guest_timing_enter_irqoff();
-@@ -496,8 +488,9 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 
- 	kvm_sigset_deactivate(vcpu);
- out:
--	if (unlikely(vcpu_get_flag(vcpu, INCREMENT_PC)))
--		adjust_pc(vcpu);
-+	if (unlikely(vcpu_get_flag(vcpu, PENDING_EXCEPTION) ||
-+		     vcpu_get_flag(vcpu, INCREMENT_PC)))
-+		kvm_adjust_pc(vcpu);
- 
- 	save_vx_regs(vcpu->arch.ctxt.vregs);
- 	kernel_fpu_end(&fpu_save, KERNEL_FPC | KERNEL_VXR);
-diff --git a/arch/s390/kvm/arm64/exception.c b/arch/s390/kvm/arm64/exception.c
-new file mode 100644
-index 000000000000..b2d016740488
---- /dev/null
-+++ b/arch/s390/kvm/arm64/exception.c
-@@ -0,0 +1,105 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include <linux/kvm_host.h>
-+#include <arm64/kvm_emulate.h>
-+#include <arm64/sysreg-defs.h>
-+
-+#include <arm64/ptrace.h>
-+
-+/*
-+ * This performs the exception entry at a given EL (@target_mode), stashing PC
-+ * and PSTATE into ELR and SPSR respectively, and compute the new PC/PSTATE.
-+ * The EL passed to this function *must* be a non-secure, privileged mode with
-+ * bit 0 being set (PSTATE.SP == 1).
-+ *
-+ * When an exception is taken, most PSTATE fields are left unchanged in the
-+ * handler. However, some are explicitly overridden (e.g. M[4:0]). Luckily all
-+ * of the inherited bits have the same position in the AArch64/AArch32 SPSR_ELx
-+ * layouts, so we don't need to shuffle these for exceptions from AArch32 EL0.
-+ *
-+ * For the SPSR_ELx layout for AArch64, see ARM DDI 0487E.a page C5-429.
-+ * For the SPSR_ELx layout for AArch32, see ARM DDI 0487E.a page C5-426.
-+ *
-+ * Here we manipulate the fields in order of the AArch64 SPSR_ELx layout, from
-+ * MSB to LSB.
-+ */
-+static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
-+			      enum exception_type type)
-+{
-+	unsigned long sctlr, vbar, old_pstate, new, mode;
-+	u64 exc_offset;
-+
-+	old_pstate = *vcpu_cpsr(vcpu);
-+	mode = old_pstate & (PSR_MODE_MASK | PSR_MODE32_BIT);
-+
-+	if      (mode == target_mode)
-+		exc_offset = CURRENT_EL_SP_ELx_VECTOR;
-+	else if ((mode | PSR_MODE_THREAD_BIT) == target_mode)
-+		exc_offset = CURRENT_EL_SP_EL0_VECTOR;
-+	else if (!(mode & PSR_MODE32_BIT))
-+		exc_offset = LOWER_EL_AArch64_VECTOR;
-+	else
-+		exc_offset = LOWER_EL_AArch32_VECTOR;
-+
-+	switch (target_mode) {
-+	case PSR_MODE_EL1h:
-+		vbar = vcpu_read_sys_reg(vcpu, VBAR_EL1);
-+		sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL1);
-+		vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
-+		vcpu_write_sys_reg(vcpu, old_pstate, SPSR_EL1);
-+		break;
-+	default:
-+		panic("Unknown PSR Mode: 0x%lx.", target_mode);
-+	}
-+
-+	*vcpu_pc(vcpu) = vbar + exc_offset + type;
-+
-+	new = 0;
-+
-+	new |= (old_pstate & PSR_N_BIT);
-+	new |= (old_pstate & PSR_Z_BIT);
-+	new |= (old_pstate & PSR_C_BIT);
-+	new |= (old_pstate & PSR_V_BIT);
-+	new |= (old_pstate & PSR_DIT_BIT);
-+	new |= (old_pstate & PSR_PAN_BIT);
-+
-+	if (!(sctlr & SCTLR_EL1_SPAN))
-+		new |= PSR_PAN_BIT;
-+
-+	if (sctlr & SCTLR_ELx_DSSBS)
-+		new |= PSR_SSBS_BIT;
-+
-+	new |= PSR_D_BIT;
-+	new |= PSR_A_BIT;
-+	new |= PSR_I_BIT;
-+	new |= PSR_F_BIT;
-+
-+	new |= target_mode;
-+
-+	*vcpu_cpsr(vcpu) = new;
-+}
-+
-+static void kvm_inject_exception(struct kvm_vcpu *vcpu)
-+{
-+	switch (vcpu_get_flag(vcpu, EXCEPT_MASK)) {
-+	case unpack_vcpu_flag(EXCEPT_AA64_EL1_SYNC):
-+		enter_exception64(vcpu, PSR_MODE_EL1h, except_type_sync);
-+		break;
-+	}
-+}
-+
-+/*
-+ * Adjust the guest PC (and potentially exception state) depending on
-+ * flags provided by the emulation code.
-+ */
-+void kvm_adjust_pc(struct kvm_vcpu *vcpu)
-+{
-+	if (vcpu_get_flag(vcpu, PENDING_EXCEPTION)) {
-+		kvm_inject_exception(vcpu);
-+		vcpu_clear_flag(vcpu, PENDING_EXCEPTION);
-+		vcpu_clear_flag(vcpu, EXCEPT_MASK);
-+	} else if (vcpu_get_flag(vcpu, INCREMENT_PC)) {
-+		kvm_skip_instr(vcpu);
-+		vcpu_clear_flag(vcpu, INCREMENT_PC);
-+	}
-+}
-diff --git a/arch/s390/kvm/arm64/inject_fault.c b/arch/s390/kvm/arm64/inject_fault.c
-index 425dbeaa421c..7ecf91f86d90 100644
---- a/arch/s390/kvm/arm64/inject_fault.c
-+++ b/arch/s390/kvm/arm64/inject_fault.c
-@@ -2,6 +2,39 @@
- 
- #include <arm64/kvm_emulate.h>
- 
-+static void pend_sync_exception(struct kvm_vcpu *vcpu)
-+{
-+	kvm_pend_exception(vcpu, EXCEPT_AA64_EL1_SYNC);
-+}
-+
-+static void inject_abt64(struct kvm_vcpu *vcpu, bool is_iabt, unsigned long addr)
-+{
-+	unsigned long cpsr = *vcpu_cpsr(vcpu);
-+	bool is_aarch32 = vcpu_mode_is_32bit(vcpu);
-+	u64 esr = 0;
-+
-+	if (kvm_vcpu_abt_iss1tw(vcpu))
-+		esr |= ESR_ELx_FSC_SEA_TTW(kvm_vcpu_abt_gltl(vcpu));
-+	else
-+		esr |= ESR_ELx_FSC_EXTABT;
-+
-+	pend_sync_exception(vcpu);
-+
-+	if (kvm_vcpu_trap_il_is32bit(vcpu))
-+		esr |= ESR_ELx_IL;
-+
-+	if (is_aarch32 || (cpsr & PSR_MODE_MASK) == PSR_MODE_EL0t)
-+		esr |= (ESR_ELx_EC_IABT_LOW << ESR_ELx_EC_SHIFT);
-+	else
-+		esr |= (ESR_ELx_EC_IABT_CUR << ESR_ELx_EC_SHIFT);
-+
-+	if (!is_iabt)
-+		esr |= ESR_ELx_EC_DABT_LOW << ESR_ELx_EC_SHIFT;
-+
-+	vcpu_write_sys_reg(vcpu, addr, FAR_EL1);
-+	vcpu_write_sys_reg(vcpu, esr, ESR_EL1);
-+}
-+
- /**
-  * kvm_inject_undefined - inject an undefined instruction into the guest
-  * @vcpu: The vCPU in which to inject the exception
-@@ -11,11 +44,47 @@
-  */
- void kvm_inject_undefined(struct kvm_vcpu *vcpu)
- {
--	/* Stub until s390 supports arm64 sysregs TODO sysregs*/
-+	u64 esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT);
-+
-+	/*
-+	 * Build an unknown exception, depending on the instruction
-+	 * set.
-+	 */
-+	if (kvm_vcpu_trap_il_is32bit(vcpu))
-+		esr |= ESR_ELx_IL;
-+
-+	kvm_inject_sync(vcpu, esr);
-+}
-+
-+static void __kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr)
-+{
-+	inject_abt64(vcpu, iabt, addr);
- }
- 
- int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr)
- {
--	/* Stub until s390 supports arm64 sysregs TODO sysregs*/
-+	lockdep_assert_held(&vcpu->mutex);
-+
-+	__kvm_inject_sea(vcpu, iabt, addr);
- 	return 1;
- }
-+
-+void kvm_inject_size_fault(struct kvm_vcpu *vcpu)
-+{
-+	unsigned long addr, esr;
-+
-+	addr  = kvm_vcpu_get_fault_ipa(vcpu);
-+	addr |= FAR_TO_FIPA_OFFSET(kvm_vcpu_get_hfar(vcpu));
-+
-+	__kvm_inject_sea(vcpu, kvm_vcpu_trap_is_iabt(vcpu), addr);
-+
-+	esr = vcpu_read_sys_reg(vcpu, ESR_EL1);
-+	esr &= ~GENMASK_ULL(5, 0);
-+	vcpu_write_sys_reg(vcpu, esr, ESR_EL1);
-+}
-+
-+void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr)
-+{
-+	pend_sync_exception(vcpu);
-+	vcpu_write_sys_reg(vcpu, esr, ESR_EL1);
-+}
--- 
-2.53.0
+Any document show "Zero-length skcipher requests are valid no-ops", why
+not API direct return 0, instead of pass to every driver to check it.
 
+I suppose it should be checked before call driver's callback.
+
+Frank
+
+>
+>
+> Thanks,
+> Linmao
+>
+> >
+> > Frank
+> >
+> > > When such a request reaches the worker, last_out_len remains zero. The
+> > > CBC completion path then subtracts AES_BLOCK_SIZE from this unsigned
+> > > value when updating the IV, causing the offset to underflow. On
+> > > decryption, the resulting source address precedes aes_in_buf.
+> > >
+> > > Return success before enqueueing zero-length requests. This avoids the
+> > > invalid source access and leaves the IV unchanged for a no-op.
+> > >
+> > > Fixes: fadd7a6e616b ("crypto: mxs-dcp - Fix AES issues")
+> > > Signed-off-by: Linmao Li <lilinmao@kylinos.cn>
+> > > ---
+> > >   drivers/crypto/mxs-dcp.c | 3 +++
+> > >   1 file changed, 3 insertions(+)
+> > >
+> > > diff --git a/drivers/crypto/mxs-dcp.c b/drivers/crypto/mxs-dcp.c
+> > > index 133ebc998236..60794b4d49fa 100644
+> > > --- a/drivers/crypto/mxs-dcp.c
+> > > +++ b/drivers/crypto/mxs-dcp.c
+> > > @@ -473,6 +473,9 @@ static int mxs_dcp_aes_enqueue(struct skcipher_request *req, int enc, int ecb)
+> > >          struct dcp_aes_req_ctx *rctx = skcipher_request_ctx(req);
+> > >          int ret;
+> > >
+> > > +       if (!req->cryptlen)
+> > > +               return 0;
+> > > +
+> > >          if (unlikely(actx->key_len != AES_KEYSIZE_128 && !actx->key_referenced))
+> > >                  return mxs_dcp_block_fallback(req, enc);
+> > >
+> > >
+> > > base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
+> > > --
+> > > 2.25.1
+> > >
+> > >
 
