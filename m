@@ -4,84 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54092C61DFD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:36:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D00E5C61DD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 31 Aug 2026 08:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G5CuaOQNRUreviF5QjFWVFnXJ0UNKQzKA4KdvOmwr6o=; b=NZ1tkkfS4xEny7F7ctPNqrAgJL
-	xGdyZxN7csWUO8KaF69bYgc85mE6n69iX3PW0ycm0KVn0vS4KYXScR2opeaoiK1kcMacZK1Cu4xZH
-	1xOk7/KtG2/8K8KRajnAIaDcx4Khhc7eg5yg1pHA+VXba9nzwQt5FKYjBWuIlZQooYrnNSlPOQ/S9
-	naWeaBq6jlDJaQxg5dRXNJO+W3RZaGaYod/GqYdvj6mDzu893+/Xk0oPXXl6Kf9uVBrN8ZUxv50/X
-	d+qK28vR7U5BhN7AEbUACZQpOJ0Dth3/tHQ2zsYLwpsD9COCh11/Avdvfwp6tJGqjcpEPotPqr9IJ
-	6auKXrxw==;
+	bh=X/pTbLJft36qUI8yjFueGA/khi7Ac7T+JQZZEJCvpfU=; b=UUOPlLmFCCw4INZSJ6WhLyMaHw
+	q4op+LLBL33kdggrfaUK0nKSoZ3cJDXMTjaQjfn+PqUmDGSu+ubcBv/ILpWsKr53bQqEgZh/9wKD+
+	0oR+oCoIPIsDm4KWBvouR1TE5p6Xa37Ye6KITO0RdPlg4uMWj5NH1Zj2BSGPRHroUOyMnv8gcUS5b
+	E7lkJJVIdgHkHcawxFub2G8T49Be8xEtuVqXA+9MgSA+NEIgJc6fHdSCr3m7hHeik78kfqgU3NEqm
+	HPWAaQsxDQafBukqxWRa7afoGlSGrzCDEFb5lC2OFe3l+3KpITgBRtLJ9nt99TCXVDc2JMiWcdeYY
+	cPf2b5DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0xUv-00000008ufs-0wmU;
-	Mon, 31 Aug 2026 08:36:09 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1x0xbR-00000008vi5-2df4;
+	Mon, 31 Aug 2026 08:42:53 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x0xUq-00000008udE-3rmp;
-	Mon, 31 Aug 2026 08:36:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1788165347; x=1788770147; i=wahrenst@gmx.net;
-	bh=G5CuaOQNRUreviF5QjFWVFnXJ0UNKQzKA4KdvOmwr6o=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=Mne736KQRzNu7qPOPp5jmQUuLyOCcR91dDHGGtMiweBT11hIulfM20yVxVnqYvbr
-	 /wihNBeGTZE9hwz0CQldKz/MnF6Z11gKywJaoesVtY85NI0LGG9PzOMfxBNyU9/pi
-	 8U0vqyL1DUFwGLUBrPp7aO4dEzi1mw8Ld8hXiB2mrv8CvYVu2kRjVawJvI/iqLr/V
-	 5ur2uJ92oIfuT/0O2pprjSVzIc9MPP9Jue/KIbEmYTJhUyWpJ4qaahNbYu8oyoXPx
-	 xApvI2GQHHANvz/huoZ+4A6mbYGLGFvuwX6XLwI4aNuEEy7ZwLNjMuROAIfanHNrR
-	 h+lZ4sNWzYRl2Jqpow==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1N49lJ-1ws3Xf3BWD-00wMjK; Mon, 31
- Aug 2026 10:35:46 +0200
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Aswath Govindraju <a-govindraju@ti.com>
-Cc: Christoph Stoidner <c.stoidner@phytec.de>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-can@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Martin Lukas <martin.lukas@chargebyte.com>,
-	Michael Heimpold <michael.heimpold@chargebyte.com>
-Subject: [PATCH V2 3/3] arm64: dts: freescale: Add chargebyte Charge Control Y
-Date: Mon, 31 Aug 2026 10:35:39 +0200
-Message-ID: <20260831083539.8287-4-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260831083539.8287-1-wahrenst@gmx.net>
-References: <20260831083539.8287-1-wahrenst@gmx.net>
+	id 1x0xbP-00000008vgn-0Cl2
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 31 Aug 2026 08:42:52 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67V7xa1Y2924389
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 08:42:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	X/pTbLJft36qUI8yjFueGA/khi7Ac7T+JQZZEJCvpfU=; b=J+LjwYJ56elVvH9E
+	4mE+UP+WNb9fSyS1wMS/nFKmZ4x4DaOmUPI/gRRIUNREe1Rcu55RrGHFrSLnLMcR
+	hjvd62+3HiGBBtbYvbsPLzTlDvFqI4tOQ4yL4sDmMJeTfwqNJGTEl/KEjoS/wQq1
+	fK90FcHg9LFdmN3SWwZmv6stcMenpDKHLcuZs/LE+M4syBp5KC5yq9GIDwmL2GKL
+	zsNYGC9SBsn+XwckWDGVeNpLbbD9XinluB6Hy0X4zAbRTUGLzeBfXxdYGR+36/FJ
+	eLBYrPoLVC/rI+3iTPIRobMJ8Xc8Gw6KVZQd8lD+ndNcSapEBy6RpEASr9GLFv65
+	LXW/hg==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4gcv7w9sus-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 08:42:49 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-38e8e864ef0so6299572a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 31 Aug 2026 01:42:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1788165768; x=1788770568; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=X/pTbLJft36qUI8yjFueGA/khi7Ac7T+JQZZEJCvpfU=;
+        b=juMTCDqs9By1RG5PfLeQRCAc61GJz6zWERkHbv09zIwm2RDsMUsx8Pjb1VzN+xdk1u
+         52Jet6y7RxQWhxX/6Qm9Cr9/vUIatIXPtU00YreZqPbFoCOtIViyIv3SkYx/Z5+sBdqr
+         GuEsrGv+or0xg5mj4k88YmW9HM1z+WfaUEEwipP5LDT2g13Vv7L3cy+4RUoswJN1+L6v
+         zRZ/Oht7wQbSyshfq3CP/tVzCuqVCXkl2Wlg6KsU/umO3IlfZiB7AcYL4joY8Abh4dm+
+         egPnLQ8IKG9418Y3fzytUSfK6DiXB+EseVgA0vzg8AnAM3KVJX4YykMVDpr/kXM7rvOs
+         6Teg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1788165768; x=1788770568;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=X/pTbLJft36qUI8yjFueGA/khi7Ac7T+JQZZEJCvpfU=;
+        b=bpX0ilyxbN1kVpVZG6ei+g/QaQ1PlQUwUnnSAWzWQ0CFUP+dkbhekMy/+GMw9sx0oZ
+         YrzohUnjjg9cRy2+V/zLomXUTv7tDHv6LnsvWUNN53qNWu8+TOOMCI8zG54StFsmLL/h
+         J/B2Q1oTgKc0mg/6fKp18zHxvO+RI1/qlSoCD021Z5XyZOTNk/GThkNj+0JPoLUX0iW9
+         XJljmeJCVqUhaxPFSuSQwH2vFEwVlqPYf68Gl/h13JYFnYUChK9PfZvJl/wSx7S8gACr
+         9HipuThYpLm8SrVjfrYoML6u7J/CjeyxJcYPIbSlX5jvc05RVialSR4vVORI4ZWq60U7
+         n59Q==
+X-Forwarded-Encrypted: i=1; AKwUvBz3lHwTP50DixrJ8Jh/c/xJPP123yPmlxgme98CN4jI2QZH512RXqhSWZ1j7WRpSl+K5aGwrUQtBT/2BPtbFpCJ@lists.infradead.org
+X-Gm-Message-State: AFuF++ndsOh+9LVHi6SgyAjIH1PNWwwIeaxOedYcFjdMK1ScBP9Mu9OS
+	RFQ7n88SNtgxVvD48tOP7p7mY/teYZ1fl/0LJGNbengtFrKb44AxRG9lJa6qmXtGu5tnt8kq2tO
+	1P+hwyf6xV5ETZU88OWDTXeJ+040BGxqRG/WTOnO+c2PCi0YHOe4zhk/iOmrgb508etnR3mS1ri
+	wzJ4kzk2OnbPWD
+X-Gm-Gg: AYBFou1fAKTo0e/WQSBxeeWTjIYO9CIdoMXhWqQwt7bYXRN+J+t+V3aq5X16qETAuY0
+	1JpUBFK0CXULHJaJjYj1LZZeMOWrdSjtznn/0R+XP5DZ9K7XQuM19Y0NSoNBMhVW6nokn9kFblZ
+	Qb6fcFo2NMCwH8Pa9vZqt7xJZR6Au8XXatFPV3cadJB5VShgfJD9RV0y1xTJWUSZ/f85vH2GnLL
+	JHQeyzAZb0aTAPwEXGrHP8Qk7yxXKjqTISq4ly4XbOfSlJd8jB0VsevmPzzeaCGCdmu6pgm2Vxv
+	BqjKNnk086yQpwz1DMTXrTok0DiDC47JvIakOCXZasmaVvVww3r1sTbK8rcR8MYIG73ffAWgJj0
+	O9FLxZlQ0sxyy5iyIlZskKYHxjnwJN4BOEaJeWiuaS5DLx9XrKDHnM4vLq/gX/Dqg
+X-Received: by 2002:a17:90b:1648:b0:38d:fda6:4873 with SMTP id 98e67ed59e1d1-398f8273f3dmr2656295a91.10.1788165768124;
+        Mon, 31 Aug 2026 01:42:48 -0700 (PDT)
+X-Received: by 2002:a17:90b:1648:b0:38d:fda6:4873 with SMTP id 98e67ed59e1d1-398f8273f3dmr2656225a91.10.1788165767524;
+        Mon, 31 Aug 2026 01:42:47 -0700 (PDT)
+Received: from [10.133.33.77] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-398d8e493b0sm6916425a91.16.2026.08.31.01.42.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 31 Aug 2026 01:42:46 -0700 (PDT)
+Message-ID: <2a2c9a83-c41e-4a2d-974e-09cac7b41233@oss.qualcomm.com>
+Date: Mon, 31 Aug 2026 16:42:40 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:oCqUOiVcnqErOtIsfSQ8bYPqiNLLB9wsbsUaMc1DX5u4f1oQ+rb
- 6PP5gtSWsUEb9+9mCGXEzHU1fs7T9aNOLPF/laydYUiwjv29Ju9EVKL1SPktJdyJ3fDT5Ls
- lyKho/2Mdp0qeOHlhe6YQF75Y2joYOluKajhBWjbkmmfO3GJz3HQ7EPvClmdRQ1XsfppZIz
- Qzk1UA1mgYIqPqL7sQTZQ==
-UI-OutboundReport: notjunk:1;M01:P0:O1z7OtwuPqo=;kHECKXJaCb4i/rU7q4xCvMlVxJn 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
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6] stm: class: Add MIPI OST protocol support
+To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+        Steven Rostedt <rostedt@goodmis.org>,
+        Masami Hiramatsu
+ <mhiramat@kernel.org>,
+        Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+        linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+References: <20260521-stm_p_ost-v6-1-8751fad35398@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260521-stm_p_ost-v6-1-8751fad35398@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=E9f9Y6dl c=1 sm=1 tr=0 ts=6a953e89 cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8 a=HQsKc26zmi8kITQ5FuoA:9
+ a=QEXdDO2ut3YA:10 a=uKXjsCUrEbL0IQVhDsJ9:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODMxMDA3NCBTYWx0ZWRfX27F2CxEFJvLj
+ lrNgoCKWsMPynKuXcdHGqKLuZK8Zv1dlIeVFeyYdI/j74E4Dz+HNEzzz12OvYYA5EU6wjR/EmsU
+ iPAjWoRQSurKwZb09fcBQ6pGGrAcv3U=
+X-Proofpoint-ORIG-GUID: eMh1bjHuth59cMx6nTEWxYyM1R0058ZR
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODMxMDA3NCBTYWx0ZWRfX1mSh1g4dFkJf
+ hEsFkcg2i9B90sZgxBvVBNVDq/oGkgf6FcGAxyoiJlggQt6uKrG0s9RvLbYakSuF81zU38zBb+D
+ W7yPXT7yXPOqub+RczTOA0FWEJCChMaI3R598Wl7B1VgjAho3lSfGovcQKlrKYS7I2jPnVLjB2E
+ ZIbuBcxzo9ro+MG1k9JADc9ZMZKa7xlBOfnvCoexcnQDLNS5imU382uKRRFPL2EwAHkczLLmTs/
+ F9Sxu01d1bOX18L7yi8SATL0tCRPC9gB77hPiv1Tz5W4+JzSLBTewZxM9OpabXtVWmnQ/BeFAnh
+ FZ/t8F3oSNH9sKWoR0UEpRzQ+XPY5HR+IBb7Va6qGp6WTkMaNAXhuHVQQd19dmA55RARbiIVufx
+ ijnq/XL1Yt3yajzAN0aMVj1lFP10VRhOgb1xu+9KhvfRcWk5CltmkmeGc5s5T909IAcsTc+aumk
+ wmLlyaN4MvcDqUh5t7Q==
+X-Proofpoint-GUID: eMh1bjHuth59cMx6nTEWxYyM1R0058ZR
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-31_03,2026-08-27_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 malwarescore=0 bulkscore=0 spamscore=0 phishscore=0
+ lowpriorityscore=0 adultscore=0 impostorscore=0 priorityscore=1501
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608310074
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260831_013605_279217_A2367EB3 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20260831_014251_226223_FF68767E 
+X-CRM114-Status: GOOD (  36.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,497 +161,482 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds the support for chargebyte Charge Control Y, which is
-an Electrical Vehicle Supply Equipment (EVSE) for MCS (Megawatt
-Charging System) charging stations (according to IEC 61851-23-1).
 
-chargebyte Charge Control Y uses phyCORE-i.MX 93 ARM
-- NXP i.MX93 1.7 GHz
-- 1 GB DDR4 RAM
-- up to 8 GB eMMC
-- 2x 100 MBit/s Ethernet interfaces
-- 10BASE-T1S Ethernet for MCS communication
-- CAN interface
-- separate safety chip
-- TPM chip
-- power buffered RTC
 
-Co-developed-by: Martin Lukas <martin.lukas@chargebyte.com>
-Signed-off-by: Martin Lukas <martin.lukas@chargebyte.com>
-Co-developed-by: Michael Heimpold <michael.heimpold@chargebyte.com>
-Signed-off-by: Michael Heimpold <michael.heimpold@chargebyte.com>
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-=2D--
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- .../dts/freescale/imx93-charge-control-y.dts  | 426 ++++++++++++++++++
- .../boot/dts/freescale/imx93-phycore-som.dtsi |   2 +-
- 3 files changed, 428 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-charge-control-y.d=
-ts
+On 5/21/2026 9:08 PM, Yingchao Deng wrote:
+> Add MIPI OST (Open System Trace) protocol support for stm to format the
+> traces. The OST Protocol abstracts the underlying layers from the sending
+> and receiving applications, thus removing dependencies on the connection
+> media and platform implementation.
+> 
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/=
-freescale/Makefile
-index 8ddaab127ab9..c64902dfc6f3 100644
-=2D-- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -594,6 +594,7 @@ imx93-11x11-frdm-pixpaper-dtbs +=3D imx93-11x11-frdm.d=
-tb imx93-11x11-frdm-pixpaper
- dtb-$(CONFIG_ARCH_MXC) +=3D imx93-11x11-frdm-pixpaper.dtb
-=20
- dtb-$(CONFIG_ARCH_MXC) +=3D imx93-14x14-evk.dtb
-+dtb-$(CONFIG_ARCH_MXC) +=3D imx93-charge-control-y.dtb
- dtb-$(CONFIG_ARCH_MXC) +=3D imx93-kontron-bl-osm-s.dtb
- dtb-$(CONFIG_ARCH_MXC) +=3D imx93-phyboard-nash.dtb
- dtb-$(CONFIG_ARCH_MXC) +=3D imx93-phyboard-segin.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx93-charge-control-y.dts b/ar=
-ch/arm64/boot/dts/freescale/imx93-charge-control-y.dts
-new file mode 100644
-index 000000000000..0405098cc05c
-=2D-- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-charge-control-y.dts
-@@ -0,0 +1,426 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025-2026 chargebyte GmbH
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include "imx93-phycore-som.dtsi"
-+
-+/ {
-+	model =3D "chargebyte Charge Control Y";
-+	compatible =3D "chargebyte,imx93-charge-control-y", "phytec,imx93-phycor=
-e-som", "fsl,imx93";
-+
-+	aliases {
-+		ethernet0 =3D &fec;
-+		ethernet1 =3D &lan8651;
-+		ethernet2 =3D &eqos;
-+		gpio0 =3D &gpio1;
-+		gpio1 =3D &gpio2;
-+		gpio2 =3D &gpio3;
-+		gpio3 =3D &gpio4;
-+		mmc0 =3D &usdhc1;
-+		mmc1 =3D &usdhc2;
-+		rtc0 =3D &rv3028;
-+		rtc1 =3D &bbnsm_rtc;
-+		serial0 =3D &lpuart1;
-+		serial1 =3D &lpuart2;
-+		serial2 =3D &lpuart3;
-+		serial3 =3D &lpuart4;
-+		serial4 =3D &lpuart5;
-+	};
-+
-+	chosen {
-+		stdout-path =3D &lpuart1;
-+	};
-+
-+	// Heartbeat LED of phyCore is not populated
-+	/delete-node/ leds;
-+
-+	flexcan1_tc: can-phy0 {
-+		compatible =3D "microchip,mcp2542", "ti,tcan1042";
-+		#phy-cells =3D <0>;
-+		max-bitrate =3D <1000000>;
-+	};
-+
-+	reg_usdhc2_vmmc: regulator-usdhc2 {
-+		compatible =3D "regulator-fixed";
-+		enable-active-high;
-+		gpio =3D <&gpio3 7 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names =3D "default";
-+		pinctrl-0 =3D <&pinctrl_reg_usdhc2_vmmc>;
-+		regulator-min-microvolt =3D <3300000>;
-+		regulator-max-microvolt =3D <3300000>;
-+		regulator-name =3D "VCC_SD";
-+	};
-+
-+	user_leds: user-leds {
-+		compatible =3D "gpio-leds";
-+		pinctrl-names =3D "default";
-+		pinctrl-0 =3D <&pinctrl_user_leds>;
-+
-+		led_user_green: led-user-green {
-+			color =3D <LED_COLOR_ID_GREEN>;
-+			function =3D LED_FUNCTION_BOOT;
-+			gpios =3D <&gpio2 24 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger =3D "timer";
-+		};
-+
-+		led_user_red: led-user-red {
-+			color =3D <LED_COLOR_ID_RED>;
-+			function =3D LED_FUNCTION_SD;
-+			gpios =3D <&gpio2 25 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger =3D "mmc1";
-+		};
-+	};
-+};
-+
-+&eeprom0 {
-+	nvmem-layout {
-+		compatible =3D "fixed-layout";
-+		#address-cells =3D <1>;
-+		#size-cells =3D <1>;
-+
-+		/* Wired ethernet interface */
-+		eth1_mac_address: base-mac-address@100 {
-+			compatible =3D "mac-base";
-+			reg =3D <0x100 0x6>;
-+			#nvmem-cell-cells =3D <1>;
-+		};
-+
-+		/* MCS ethernet interface */
-+		eth2_mac_address: base-mac-address@108 {
-+			compatible =3D "mac-base";
-+			reg =3D <0x108 0x6>;
-+			#nvmem-cell-cells =3D <1>;
-+		};
-+	};
-+};
-+
-+/* Ethernet 2 */
-+&eqos {
-+	phy-mode =3D "rmii";
-+	phy-handle =3D <&ethphy2>;
-+	assigned-clocks =3D <&clk IMX93_CLK_ENET_TIMER2>,
-+			  <&clk IMX93_CLK_ENET>;
-+	assigned-clock-parents =3D <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
-+				 <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>;
-+	assigned-clock-rates =3D <100000000>, <50000000>;
-+
-+	nvmem-cells =3D <&eth1_mac_address 0>;
-+	nvmem-cell-names =3D "mac-address";
-+
-+	status =3D "okay";
-+};
-+
-+/* Ethernet 1 */
-+&fec {
-+	/* Since MDIO bus is handled by FEC, all PHY strap pins and
-+	 * reference clock must be initialized at the same time.
-+	 */
-+	pinctrl-0 =3D <&pinctrl_fec &pinctrl_eqos &pinctrl_eqos_strap>;
-+};
-+
-+&flexcan1 {
-+	pinctrl-names =3D "default";
-+	pinctrl-0 =3D <&pinctrl_flexcan1>;
-+	phys =3D <&flexcan1_tc>;
-+	status =3D "okay";
-+};
-+
-+&gpio1 {
-+	pinctrl-names =3D "default";
-+	pinctrl-0 =3D <&pinctrl_gpio1>;
-+	gpio-line-names =3D "", "", "", "X_nRST_LAN", "",
-+			  "", "LPUART2_RX", "LPUART2_TX", "CAN1_TX", "CAN1_RX",
-+			  "", "SPI_TPM_nCS0", "", "", "",
-+			  "";
-+};
-+
-+&gpio2 {
-+	gpio-line-names =3D "", "", "", "", "",
-+			  "", "", "X_LAN_nIRQ", "X_LAN_nCS", "",
-+			  "", "", "", "", "",
-+			  "", "", "", "", "",
-+			  "", "", "", "", "GREEN_LED",
-+			  "RED_LED", "", "", "", "";
-+};
-+
-+&gpio3 {
-+	gpio-line-names =3D "SD2_nCD", "", "", "", "",
-+			  "", "", "SD2_nRESET", "", "",
-+			  "", "", "", "", "",
-+			  "", "", "", "", "",
-+			  "SOM_EMMC_nRESET", "", "", "", "",
-+			  "", "", "", "", "",
-+			  "", "";
-+};
-+
-+&gpio4 {
-+	pinctrl-names =3D "default";
-+	pinctrl-0 =3D <&pinctrl_gpio4>;
-+	gpio-line-names =3D "", "", "X_RTC_nINT", "", "",
-+			  "", "", "", "", "",
-+			  "", "", "SAFETY_BOOTMODE_SET", "ENET1_RST", "",
-+			  "", "", "", "", "",
-+			  "", "SOM_EEPROM_WP", "", "SOM_PHY_RESET", "",
-+			  "", "", "PMIC_IRQ_B", "nSAFETY_RESET_INT", "SPI_TPM_nINT0";
-+};
-+
-+&lpi2c1 {
-+	clock-frequency =3D <400000>;
-+	pinctrl-names =3D "default", "gpio";
-+	pinctrl-0 =3D <&pinctrl_lpi2c1>;
-+	pinctrl-1 =3D <&pinctrl_lpi2c1_gpio>;
-+	scl-gpios =3D <&gpio1 00 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios =3D <&gpio1 01 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	#address-cells =3D <1>;
-+	#size-cells =3D <0>;
-+	status =3D "okay";
-+
-+	rv3028: rtc@52 {
-+		compatible =3D "microcrystal,rv3028";
-+		interrupts =3D <2 IRQ_TYPE_LEVEL_LOW>;
-+		interrupt-parent =3D <&gpio4>;
-+		wakeup-source;
-+		trickle-resistor-ohms =3D <3000>;
-+		pinctrl-names =3D "default";
-+		pinctrl-0 =3D <&pinctrl_rtc>;
-+		reg =3D <0x52>;
-+	};
-+};
-+
-+&lpspi1 {
-+	pinctrl-names =3D "default";
-+	pinctrl-0 =3D <&pinctrl_lpspi1>;
-+	num-cs =3D <1>;
-+	cs-gpios =3D <&gpio1 11 GPIO_ACTIVE_LOW>;
-+	status =3D "okay";
-+
-+	tpm@0 {
-+		compatible =3D "infineon,slb9670", "tcg,tpm_tis-spi";
-+		reg =3D <0>;
-+		spi-max-frequency =3D <10000000>;
-+		interrupt-parent =3D <&gpio4>;
-+		interrupts =3D <29 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+};
-+
-+/* MCS Ethernet SPI */
-+&lpspi3 {
-+	pinctrl-names =3D "default";
-+	pinctrl-0 =3D <&pinctrl_lpspi3>;
-+	num-cs =3D <1>;
-+	cs-gpios =3D <&gpio2 8 GPIO_ACTIVE_LOW>;
-+	status =3D "okay";
-+
-+	lan8651: ethernet@0 {
-+		compatible =3D "microchip,lan8651", "microchip,lan8650";
-+		reg =3D <0>;
-+		interrupt-parent =3D <&gpio2>;
-+		interrupts =3D <7 IRQ_TYPE_LEVEL_LOW>;
-+		spi-max-frequency =3D <25000000>;
-+
-+		nvmem-cells =3D <&eth2_mac_address 0>;
-+		nvmem-cell-names =3D "mac-address";
-+	};
-+};
-+
-+&lpuart1 {
-+	pinctrl-names =3D "default";
-+	pinctrl-0 =3D <&pinctrl_uart1>;
-+	status =3D "okay";
-+};
-+
-+&lpuart3 {
-+	pinctrl-names =3D "default";
-+	pinctrl-0 =3D <&pinctrl_uart3>;
-+	status =3D "okay";
-+};
-+
-+/* Ethernet 2 PHY */
-+&mdio {
-+	ethphy2: ethernet-phy@2 {
-+		reg =3D <2>;
-+		compatible =3D "ethernet-phy-id2000.a140";
-+		clocks =3D <&clk IMX93_CLK_ENET_REF_PHY>;
-+		reset-gpios =3D <&gpio4 13 GPIO_ACTIVE_HIGH>;
-+		reset-assert-us =3D <30>;
-+		reset-deassert-us =3D <50000>;
-+	};
-+};
-+
-+/* SD */
-+&usdhc2 {
-+	pinctrl-names =3D "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 =3D <&pinctrl_usdhc2_default>, <&pinctrl_usdhc2_cd>;
-+	pinctrl-1 =3D <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_cd>;
-+	pinctrl-2 =3D <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_cd>;
-+	cd-gpios =3D <&gpio3 00 GPIO_ACTIVE_LOW>;
-+	vmmc-supply =3D <&reg_usdhc2_vmmc>;
-+	bus-width =3D <4>;
-+	disable-wp;
-+	no-sdio;
-+	no-mmc;
-+	status =3D "okay";
-+};
-+
-+&iomuxc {
-+
-+	// Heartbeat LED of phyCore is not populated
-+	/delete-node/ pinctrl_leds;
-+
-+	pinctrl_eqos: eqosgrp {
-+		fsl,pins =3D <
-+			MX93_PAD_ENET1_TD2__CCM_ENET_QOS_CLOCK_GENERATE_REF_CLK		0x4000057e
-+			MX93_PAD_ENET1_TD0__ENET_QOS_RGMII_TD0				0x50e
-+			MX93_PAD_ENET1_TD1__ENET_QOS_RGMII_TD1				0x50e
-+			MX93_PAD_ENET1_TX_CTL__ENET_QOS_RGMII_TX_CTL			0x50e
-+		>;
-+	};
-+
-+	pinctrl_eqos_strap: eqosstrapgrp {
-+		fsl,pins =3D <
-+			MX93_PAD_ENET1_RXC__ENET_QOS_RX_ER		0x17e
-+			MX93_PAD_ENET1_RD0__ENET_QOS_RGMII_RD0		0x17e
-+			MX93_PAD_ENET1_RD1__ENET_QOS_RGMII_RD1		0x17e
-+			MX93_PAD_ENET1_RX_CTL__ENET_QOS_RGMII_RX_CTL	0x17e
-+		>;
-+	};
-+
-+	pinctrl_flexcan1: flexcan1grp {
-+		fsl,pins =3D <
-+			MX93_PAD_PDM_BIT_STREAM0__CAN1_RX	0x139e
-+			MX93_PAD_PDM_CLK__CAN1_TX		0x1382
-+		>;
-+	};
-+
-+	pinctrl_gpio1: gpio1grp {
-+		fsl,pins =3D <
-+			MX93_PAD_I2C2_SDA__GPIO1_IO03		0x31e
-+			MX93_PAD_PDM_BIT_STREAM1__GPIO1_IO10	0x382
-+		>;
-+	};
-+
-+	pinctrl_gpio4: gpio4grp {
-+		fsl,pins =3D <
-+			MX93_PAD_ENET1_TXC__GPIO4_IO07		0x382
-+			MX93_PAD_ENET1_RD2__GPIO4_IO12		0x39e
-+			MX93_PAD_CCM_CLKO3__GPIO4_IO28		0x39e
-+			MX93_PAD_ENET1_RD3__GPIO4_IO13		0x31e
-+		>;
-+	};
-+
-+	pinctrl_lpi2c1: lpi2c1grp {
-+		fsl,pins =3D <
-+			MX93_PAD_I2C1_SCL__LPI2C1_SCL		0x40000b86
-+			MX93_PAD_I2C1_SDA__LPI2C1_SDA		0x40000b86
-+		>;
-+	};
-+
-+	pinctrl_lpi2c1_gpio: lpi2c1gpiogrp {
-+		fsl,pins =3D <
-+			MX93_PAD_I2C1_SCL__GPIO1_IO00		0x40000b9e
-+			MX93_PAD_I2C1_SDA__GPIO1_IO01		0x40000b9e
-+		>;
-+	};
-+
-+	pinctrl_lpspi1: lpspi1grp {
-+		fsl,pins =3D <
-+			MX93_PAD_CCM_CLKO4__GPIO4_IO29		0x186
-+			MX93_PAD_SAI1_TXFS__GPIO1_IO11		0x186
-+			MX93_PAD_SAI1_TXC__LPSPI1_SIN		0x186
-+			MX93_PAD_SAI1_TXD0__LPSPI1_SCK		0x186
-+			MX93_PAD_SAI1_RXD0__LPSPI1_SOUT		0x186
-+		>;
-+	};
-+
-+	/* PinCtrl MCS LAN SPI */
-+	pinctrl_lpspi3: lpspi3grp {
-+		fsl,pins =3D <
-+			MX93_PAD_GPIO_IO07__GPIO2_IO07		0x186
-+			MX93_PAD_GPIO_IO08__GPIO2_IO08		0x186
-+			MX93_PAD_GPIO_IO09__LPSPI3_SIN		0x186
-+			MX93_PAD_GPIO_IO10__LPSPI3_SOUT		0x186
-+			MX93_PAD_GPIO_IO11__LPSPI3_SCK		0x186
-+		>;
-+	};
-+
-+	pinctrl_rtc: rtcgrp {
-+		fsl,pins =3D <
-+			MX93_PAD_ENET1_TD3__GPIO4_IO02		0x31e
-+		>;
-+	};
-+
-+	pinctrl_uart1: uart1grp {
-+		fsl,pins =3D <
-+			MX93_PAD_UART1_RXD__LPUART1_RX		0x31e
-+			MX93_PAD_UART1_TXD__LPUART1_TX		0x30e
-+		>;
-+	};
-+
-+	pinctrl_uart3: uart3grp {
-+		fsl,pins =3D <
-+			MX93_PAD_GPIO_IO15__LPUART3_RX		0x31e
-+			MX93_PAD_GPIO_IO14__LPUART3_TX		0x30e
-+		>;
-+	};
-+
-+	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
-+		fsl,pins =3D <
-+			MX93_PAD_SD2_RESET_B__GPIO3_IO07	0x31e
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_cd: usdhc2cdgrp {
-+		fsl,pins =3D <
-+			MX93_PAD_SD2_CD_B__GPIO3_IO00		0x31e
-+		>;
-+	};
-+
-+	/* need to config the SION for data and cmd pad, refer to ERR052021 */
-+	pinctrl_usdhc2_default: usdhc2grp {
-+		fsl,pins =3D <
-+			MX93_PAD_SD2_CLK__USDHC2_CLK		0x119e
-+			MX93_PAD_SD2_CMD__USDHC2_CMD		0x4000139e
-+			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x4000138e
-+			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x4000138e
-+			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x4000138e
-+			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x4000139e
-+		>;
-+	};
-+
-+	/* need to config the SION for data and cmd pad, refer to ERR052021 */
-+	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-+		fsl,pins =3D <
-+			MX93_PAD_SD2_CLK__USDHC2_CLK		0x119e
-+			MX93_PAD_SD2_CMD__USDHC2_CMD		0x4000139e
-+			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x4000138e
-+			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x4000138e
-+			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x4000139e
-+			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x4000139e
-+			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-+		>;
-+	};
-+
-+	/* need to config the SION for data and cmd pad, refer to ERR052021 */
-+	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-+		fsl,pins =3D <
-+			MX93_PAD_SD2_CLK__USDHC2_CLK		0x118e
-+			MX93_PAD_SD2_CMD__USDHC2_CMD		0x4000139e
-+			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x4000139e
-+			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x4000139e
-+			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x4000139e
-+			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x4000139e
-+			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-+		>;
-+	};
-+
-+	pinctrl_user_leds: userledgrp {
-+		fsl,pins =3D <
-+			MX93_PAD_GPIO_IO24__GPIO2_IO24		0x31e
-+			MX93_PAD_GPIO_IO25__GPIO2_IO25		0x31e
-+		>;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/a=
-rm64/boot/dts/freescale/imx93-phycore-som.dtsi
-index 325e465d0056..489ed3f7fb61 100644
-=2D-- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
-@@ -201,7 +201,7 @@ ldo5: LDO5 {
- 	};
-=20
- 	/* EEPROM */
--	eeprom@50 {
-+	eeprom0: eeprom@50 {
- 		compatible =3D "atmel,24c32";
- 		reg =3D <0x50>;
- 		pagesize =3D <32>;
-=2D-=20
-2.43.0
+Gentle ping. Appreciate your time to helping review the patch.
+
+Thanks,
+Jie
+
+> OST over STP packet consists of Header/Payload/End. Header is designed to
+> include the information required by all OST packets. Information that is
+> not shared by all packets is left to the higher layer protocols. Thus, the
+> OST Protocol Header can be regarded as the first part of a complete OST
+> Packet Header, while a higher layer header can be regarded as an extension
+> designed for a specific purpose.
+> 
+> +--------+--------+--------+--------+
+> | start  |version |entity  |protocol|
+> +--------+--------+--------+--------+
+> |    stm version  |      magic      |
+> +-----------------------------------+
+> |                cpu                |
+> +-----------------------------------+
+> |              timestamp            |
+> |                                   |
+> +-----------------------------------+
+> |                tgid               |
+> |                                   |
+> +-----------------------------------+
+> |               payload             |
+> +-----------------------------------+
+> |                 ...      |  end   |
+> +-----------------------------------+
+> 
+> In header, there will be STARTSIMPLE/VERSION/ENTITY/PROTOCOL.
+> STARTSIMPLE is used to signal the beginning of a simplified OST protocol.
+> The Version field is a one byte, unsigned number identifying the version
+> of the OST Protocol. The Entity ID field is a one byte unsigned number
+> that identifies the source.
+> 
+> Entity ID values (0~239) are defined and controlled by the TS owner, and
+> shall be unique for the whole TS. The configfs entity attribute allows the
+> user to configure which Entity ID is associated with each policy node.
+> 
+> The Protocol ID field is a one byte unsigned number identifying the higher
+> layer protocol of the OST Packet, i.e. identifying the format of the data
+> after the OST Protocol Header. OST Control Protocol ID value represents
+> the common control protocol, the remaining Protocol ID values may be used
+> by any higher layer protocols capable of being transported by the OST
+> Protocol.
+> 
+> Co-developed-by: Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+> Signed-off-by: Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+> Co-developed-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+> Co-developed-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+> Signed-off-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+> Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+> ---
+> Changes in v6:
+> 1. Rebase on top of linux-next-20260518.
+> 2. Fix Kconfig: 'default CONFIG_STM' -> 'default STM'.
+> 3. Fix documentation grammar issues.
+> 4. Add p_ost entry to Documentation/trace/index.rst.
+> 5. Add missing priv_sz field to stm_protocol_driver registration.
+> 6. Use kzalloc_obj() instead of kzalloc() in ost_output_open().
+> 7. Add mutex protection in entity configfs store handler.
+> 8. Keep the configfs entity attribute: entity ID values (0~239) are
+>     defined and controlled by the TS owner and are deployment-specific.
+>     stm_source_type only carries a small number of in-kernel source
+>     classifications and cannot represent the full range of OST entity
+>     assignments needed in practice. The configfs attribute allows each
+>     policy node to declare its entity.
+>     OST_ENTITY_TYPE_NONE is an enum sentinel (not entity ID 0) that causes
+>     ost_write() to return -EINVAL when no entity is configured, preventing
+>     emission of packets with an unintended entity field.
+>     OST_ENTITY_DIAG (0xEE) is a TS-owner-defined value used by Qualcomm's
+>     diagnostic framework as the standard entity identifier for diagnostic
+>     trace sources.
+> Link to v5: https://lore.kernel.org/all/20260129-p_ost-v5-1-2b14fff39428@oss.qualcomm.com/
+> 
+> Changes in v5:
+> 1. Add Co-developed-by tag.
+> 2. Use yearless copyright for new file.
+> - Link to v4: https://lore.kernel.org/all/20251024-p_ost-v4-1-3652a06fd055@oss.qualcomm.com/
+> 
+> Changes in v4:
+> 1. Delete unused variable 'i'.
+> 2. Fix build error: call to undeclared function 'task_tgid_nr'.
+> Link to v3 - https://lore.kernel.org/all/20251022071834.1658684-1-yingchao.deng@oss.qualcomm.com/
+> 
+> Changes in v3:
+> 1. Add more details about OST.
+> 2. Delete 'entity_available' node, and 'entity' node will show available
+> and currently selected (shown in square brackets) entity.
+> 3. Removed the usage of config_item->ci_group->cg_subsys->su_mutex.
+> Link to v2 - https://lore.kernel.org/all/20230419141328.37472-1-quic_jinlmao@quicinc.com/
+> ---
+>   .../ABI/testing/configfs-stp-policy-p_ost          |   9 +
+>   Documentation/trace/index.rst                      |   1 +
+>   Documentation/trace/p_ost.rst                      |  39 ++++
+>   drivers/hwtracing/stm/Kconfig                      |  14 ++
+>   drivers/hwtracing/stm/Makefile                     |   2 +
+>   drivers/hwtracing/stm/p_ost.c                      | 241 +++++++++++++++++++++
+>   6 files changed, 306 insertions(+)
+> 
+> diff --git a/Documentation/ABI/testing/configfs-stp-policy-p_ost b/Documentation/ABI/testing/configfs-stp-policy-p_ost
+> new file mode 100644
+> index 000000000000..8fb160b50c40
+> --- /dev/null
+> +++ b/Documentation/ABI/testing/configfs-stp-policy-p_ost
+> @@ -0,0 +1,9 @@
+> +What:		/config/stp-policy/<device>:p_ost.<policy>/<node>/entity
+> +Date:		May 2026
+> +KernelVersion:	7.1
+> +Description:
+> +		Set the entity ID which identifies the trace source in the
+> +		OST packet header. Entity ID values (0~239) are defined by
+> +		the TS owner. Currently supported values are ftrace, console
+> +		and diag. RW.
+> +
+> diff --git a/Documentation/trace/index.rst b/Documentation/trace/index.rst
+> index 5d9bf4694d5d..9cd1e0b5af6d 100644
+> --- a/Documentation/trace/index.rst
+> +++ b/Documentation/trace/index.rst
+> @@ -72,6 +72,7 @@ interactions and system performance.
+>      intel_th
+>      stm
+>      sys-t
+> +   p_ost
+>      coresight/index
+>      rv/index
+>      hisi-ptt
+> diff --git a/Documentation/trace/p_ost.rst b/Documentation/trace/p_ost.rst
+> new file mode 100644
+> index 000000000000..2b92e2229653
+> --- /dev/null
+> +++ b/Documentation/trace/p_ost.rst
+> @@ -0,0 +1,39 @@
+> +.. SPDX-License-Identifier: GPL-2.0
+> +
+> +===================
+> +MIPI OST over STP
+> +===================
+> +
+> +The OST (Open System Trace) driver is used with STM class devices to
+> +generate standardized trace stream. Trace sources can be identified
+> +by different entity IDs.
+> +
+> +CONFIG_STM_PROTO_OST is for p_ost driver enablement. Once this config
+> +is enabled, you can select the p_ost protocol by command below:
+> +
+> +# mkdir /sys/kernel/config/stp-policy/stm0:p_ost.policy
+> +
+> +The policy name format is extended like this:
+> +
+> +  <device_name>:<protocol_name>.<policy_name>
+> +
+> +With a coresight-stm device, it will look like "stm0:p_ost.policy".
+> +
+> +With the MIPI OST protocol driver, the attributes for each protocol node are:
+> +
+> +# mkdir /sys/kernel/config/stp-policy/stm0:p_ost.policy/default
+> +# ls /sys/kernel/config/stp-policy/stm0:p_ost.policy/default
+> +channels  entity    masters
+> +
+> +The entity here is the set of entities that p_ost supports. Currently
+> +p_ost supports ftrace, console and diag entities.
+> +
+> +Set entity:
+> +# echo 'ftrace' > /sys/kernel/config/stp-policy/stm0:p_ost.policy/default/entity
+> +
+> +Get available and currently selected (shown in square brackets) entity:
+> +# cat /sys/kernel/config/stp-policy/stm0:p_ost.policy/default/entity
+> +[ftrace] console diag
+> +
+> +See Documentation/ABI/testing/configfs-stp-policy-p_ost for more details.
+> +
+> diff --git a/drivers/hwtracing/stm/Kconfig b/drivers/hwtracing/stm/Kconfig
+> index cd7f0b0f3fbe..4c83da5d95a0 100644
+> --- a/drivers/hwtracing/stm/Kconfig
+> +++ b/drivers/hwtracing/stm/Kconfig
+> @@ -40,6 +40,20 @@ config STM_PROTO_SYS_T
+>   
+>   	  If you don't know what this is, say N.
+>   
+> +config STM_PROTO_OST
+> +	tristate "MIPI OST STM framing protocol driver"
+> +	default STM
+> +	help
+> +	  This is an implementation of MIPI OST protocol to be used
+> +	  over the STP transport. In addition to the data payload, it
+> +	  also carries additional metadata for entity, better
+> +	  means of trace source identification, etc.
+> +
+> +	  The receiving side must be able to decode this protocol in
+> +	  addition to the MIPI STP, in order to extract the data.
+> +
+> +	  If you don't know what this is, say N.
+> +
+>   config STM_DUMMY
+>   	tristate "Dummy STM driver"
+>   	help
+> diff --git a/drivers/hwtracing/stm/Makefile b/drivers/hwtracing/stm/Makefile
+> index 1692fcd29277..d9c8615849b9 100644
+> --- a/drivers/hwtracing/stm/Makefile
+> +++ b/drivers/hwtracing/stm/Makefile
+> @@ -5,9 +5,11 @@ stm_core-y		:= core.o policy.o
+>   
+>   obj-$(CONFIG_STM_PROTO_BASIC) += stm_p_basic.o
+>   obj-$(CONFIG_STM_PROTO_SYS_T) += stm_p_sys-t.o
+> +obj-$(CONFIG_STM_PROTO_OST)   += stm_p_ost.o
+>   
+>   stm_p_basic-y		:= p_basic.o
+>   stm_p_sys-t-y		:= p_sys-t.o
+> +stm_p_ost-y		:= p_ost.o
+>   
+>   obj-$(CONFIG_STM_DUMMY)	+= dummy_stm.o
+>   
+> diff --git a/drivers/hwtracing/stm/p_ost.c b/drivers/hwtracing/stm/p_ost.c
+> new file mode 100644
+> index 000000000000..d2174872b761
+> --- /dev/null
+> +++ b/drivers/hwtracing/stm/p_ost.c
+> @@ -0,0 +1,241 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+> + *
+> + * MIPI OST framing protocol for STM devices.
+> + */
+> +
+> +#include <linux/pid.h>
+> +#include <linux/sched/clock.h>
+> +#include <linux/slab.h>
+> +#include <linux/stm.h>
+> +#include "stm.h"
+> +
+> +/*
+> + * OST Base Protocol Header
+> + *
+> + * Position	Bits	Field Name
+> + *      0       8       STARTSIMPLE
+> + *      1       8       Version
+> + *      2       8       Entity ID
+> + *      3       8       Protocol ID
+> + */
+> +#define OST_FIELD_STARTSIMPLE		0
+> +#define OST_FIELD_VERSION		8
+> +#define OST_FIELD_ENTITY		16
+> +#define OST_FIELD_PROTOCOL		24
+> +
+> +#define OST_TOKEN_STARTSIMPLE		0x10
+> +#define OST_VERSION_MIPI1		0x10
+> +
+> +/* entity id to identify the source */
+> +#define OST_ENTITY_FTRACE		0x01
+> +#define OST_ENTITY_CONSOLE		0x02
+> +#define OST_ENTITY_DIAG			0xEE
+> +
+> +#define OST_CONTROL_PROTOCOL		0x0
+> +
+> +#define DATA_HEADER ((OST_TOKEN_STARTSIMPLE << OST_FIELD_STARTSIMPLE) | \
+> +		     (OST_VERSION_MIPI1 << OST_FIELD_VERSION) | \
+> +		     (OST_CONTROL_PROTOCOL << OST_FIELD_PROTOCOL))
+> +
+> +#define STM_MAKE_VERSION(ma, mi)	(((ma) << 8) | (mi))
+> +#define STM_HEADER_MAGIC		(0x5953)
+> +
+> +enum ost_entity_type {
+> +	OST_ENTITY_TYPE_NONE,
+> +	OST_ENTITY_TYPE_FTRACE,
+> +	OST_ENTITY_TYPE_CONSOLE,
+> +	OST_ENTITY_TYPE_DIAG,
+> +};
+> +
+> +static const char * const str_ost_entity_type[] = {
+> +	[OST_ENTITY_TYPE_NONE]		= "none",
+> +	[OST_ENTITY_TYPE_FTRACE]	= "ftrace",
+> +	[OST_ENTITY_TYPE_CONSOLE]	= "console",
+> +	[OST_ENTITY_TYPE_DIAG]		= "diag",
+> +};
+> +
+> +static const u32 ost_entity_value[] = {
+> +	[OST_ENTITY_TYPE_NONE]		= 0,
+> +	[OST_ENTITY_TYPE_FTRACE]	= OST_ENTITY_FTRACE,
+> +	[OST_ENTITY_TYPE_CONSOLE]	= OST_ENTITY_CONSOLE,
+> +	[OST_ENTITY_TYPE_DIAG]		= OST_ENTITY_DIAG,
+> +};
+> +
+> +struct ost_policy_node {
+> +	enum ost_entity_type	entity_type;
+> +};
+> +
+> +struct ost_output {
+> +	struct ost_policy_node	node;
+> +};
+> +
+> +/* Set default entity type as none */
+> +static void ost_policy_node_init(void *priv)
+> +{
+> +	struct ost_policy_node *pn = priv;
+> +
+> +	pn->entity_type = OST_ENTITY_TYPE_NONE;
+> +}
+> +
+> +static int ost_output_open(void *priv, struct stm_output *output)
+> +{
+> +	struct ost_policy_node *pn = priv;
+> +	struct ost_output *opriv;
+> +
+> +	opriv = kzalloc_obj(*opriv, GFP_ATOMIC);
+> +	if (!opriv)
+> +		return -ENOMEM;
+> +
+> +	memcpy(&opriv->node, pn, sizeof(opriv->node));
+> +	output->pdrv_private = opriv;
+> +	return 0;
+> +}
+> +
+> +static void ost_output_close(struct stm_output *output)
+> +{
+> +	kfree(output->pdrv_private);
+> +}
+> +
+> +static ssize_t ost_t_policy_entity_show(struct config_item *item,
+> +					char *page)
+> +{
+> +	struct ost_policy_node *pn = to_pdrv_policy_node(item);
+> +	ssize_t sz = 0;
+> +	int i;
+> +
+> +	for (i = 1; i < ARRAY_SIZE(str_ost_entity_type); i++) {
+> +		if (i == pn->entity_type)
+> +			sz += sysfs_emit_at(page, sz, "[%s] ", str_ost_entity_type[i]);
+> +		else
+> +			sz += sysfs_emit_at(page, sz, "%s ", str_ost_entity_type[i]);
+> +	}
+> +
+> +	sz += sysfs_emit_at(page, sz, "\n");
+> +	return sz;
+> +}
+> +
+> +static int entity_index(const char *str)
+> +{
+> +	int i;
+> +
+> +	for (i = 1; i < ARRAY_SIZE(str_ost_entity_type); i++) {
+> +		if (sysfs_streq(str, str_ost_entity_type[i]))
+> +			return i;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static ssize_t
+> +ost_t_policy_entity_store(struct config_item *item, const char *page,
+> +			  size_t count)
+> +{
+> +	struct mutex *mutexp = &item->ci_group->cg_subsys->su_mutex;
+> +	struct ost_policy_node *pn = to_pdrv_policy_node(item);
+> +	int i;
+> +
+> +	i = entity_index(page);
+> +	if (i) {
+> +		mutex_lock(mutexp);
+> +		pn->entity_type = i;
+> +		mutex_unlock(mutexp);
+> +	} else {
+> +		return -EINVAL;
+> +	}
+> +
+> +	return count;
+> +}
+> +CONFIGFS_ATTR(ost_t_policy_, entity);
+> +
+> +static struct configfs_attribute *ost_t_policy_attrs[] = {
+> +	&ost_t_policy_attr_entity,
+> +	NULL,
+> +};
+> +
+> +static ssize_t
+> +notrace ost_write(struct stm_data *data, struct stm_output *output,
+> +		  unsigned int chan, const char *buf, size_t count,
+> +		  struct stm_source_data *source)
+> +{
+> +	struct ost_output *op = output->pdrv_private;
+> +	unsigned int c = output->channel + chan;
+> +	unsigned int m = output->master;
+> +	const unsigned char nil = 0;
+> +	u32 header = DATA_HEADER;
+> +	struct trc_hdr {
+> +		u16 version;
+> +		u16 magic;
+> +		u32 cpu;
+> +		u64 timestamp;
+> +		u64 tgid;
+> +	} hdr;
+> +	ssize_t sz;
+> +
+> +	/*
+> +	 * Identify the source by entity type.
+> +	 * If entity type is not set, return error value.
+> +	 */
+> +	if (op->node.entity_type)
+> +		header |= (ost_entity_value[op->node.entity_type] << OST_FIELD_ENTITY);
+> +	else
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * STP framing rules for OST frames:
+> +	 *   * the first packet of the OST frame is marked;
+> +	 *   * the last packet is a FLAG with timestamped tag.
+> +	 */
+> +	/* Message layout: HEADER / DATA / TAIL */
+> +	/* HEADER */
+> +	sz = data->packet(data, m, c, STP_PACKET_DATA, STP_PACKET_MARKED,
+> +			  4, (u8 *)&header);
+> +	if (sz <= 0)
+> +		return sz;
+> +
+> +	/* DATA */
+> +	hdr.version	= STM_MAKE_VERSION(0, 3);
+> +	hdr.magic	= STM_HEADER_MAGIC;
+> +	hdr.cpu		= raw_smp_processor_id();
+> +	hdr.timestamp	= sched_clock();
+> +	hdr.tgid	= task_tgid_nr(current);
+> +	sz = stm_data_write(data, m, c, false, &hdr, sizeof(hdr));
+> +	if (sz <= 0)
+> +		return sz;
+> +
+> +	sz = stm_data_write(data, m, c, false, buf, count);
+> +
+> +	/* TAIL */
+> +	if (sz > 0)
+> +		data->packet(data, m, c, STP_PACKET_FLAG,
+> +			STP_PACKET_TIMESTAMPED, 0, &nil);
+> +
+> +	return sz;
+> +}
+> +
+> +static const struct stm_protocol_driver ost_pdrv = {
+> +	.owner			= THIS_MODULE,
+> +	.name			= "p_ost",
+> +	.priv_sz		= sizeof(struct ost_policy_node),
+> +	.write			= ost_write,
+> +	.policy_attr		= ost_t_policy_attrs,
+> +	.output_open		= ost_output_open,
+> +	.output_close		= ost_output_close,
+> +	.policy_node_init	= ost_policy_node_init,
+> +};
+> +
+> +static int ost_stm_init(void)
+> +{
+> +	return stm_register_protocol(&ost_pdrv);
+> +}
+> +module_init(ost_stm_init);
+> +
+> +static void ost_stm_exit(void)
+> +{
+> +	stm_unregister_protocol(&ost_pdrv);
+> +}
+> +module_exit(ost_stm_exit);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("MIPI Open System Trace STM framing protocol driver");
+> 
+> ---
+> base-commit: 80dd246accce631c328ea43294e53b2b2dd2aa32
+> change-id: 20260521-stm_p_ost-3489f42a9e8c
+> 
+> Best regards,
 
 
