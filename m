@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62807C61DD6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:20:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7ADBC624D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  1 Sep 2026 18:21:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LtX7KnnVs9LVBq9yb/c4TC+txGpPRdYZ4CX3PUwsgmE=; b=uY0AcOJUE1acNqlGkB/oTWsA03
-	BfZjsp5Bo7mEr5oPuzhmpE+yIsAs8Gy7B+DH3HmxxZEDHuMvUgB0bnPgqQF9AuuaAuByA8IzdWAt5
-	IwClIQRSSZHx0zqz0L4h4/lBEslbYNoiEi6eC1CeWfQDB7O/zFnMAU+8pn15gGQPVw0/oZEjKXURK
-	tijqoC5e0o9gpDW6x1/1+TSTFjYxCkgK16iOW8dtxHF6D03G3P9GmgxBuOZX3A/wth5dKkjFyGE6Y
-	vAT1H1v0GalkTmZx34c6TTjBIL/rj3HhKS78ws/L1qCX7wOMbUsO1KMhBn8yuiFG/xoBhTQ3wn8eD
-	RKXHO6bg==;
+	bh=1yh7XuHloez7+OO+Q7zttgY4q8xC1jjwMT4fr0NaBN4=; b=WWTUTFk0UrdqVbJERX3dUC6XWq
+	6GZCKTq3OoZEUfJvGeOLIRbgCtpDM989SSDEsK2rXno3csr2JFvXKfUCUpB56DPd7BiOM01TKR3Au
+	NGs9P5TxHGYsnEmzcY7Lc+JfhOoC9WB+UgP9oyIC8vEe80joNUA65RpyUfCWCt0giNKAsVJ1awrPl
+	pjBI+XsPJmfsEtAzyMsSmwkF0BANuhug0Mnsass1ylkuHL/+fmi9wxnm5Nt9Q5Vvg0EsTxCZGgcMz
+	NH1lHFduOq5+wpuRCwX1xdIwnFRlmLNOlqx3C2ljwyKRGNzl8Gsf46SagkhRbNJzEONcQUGlNkpUb
+	Z9olKOkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1T68-0000000CwQP-14QQ;
-	Tue, 01 Sep 2026 18:20:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1x1T6X-0000000CwaT-3FvL;
+	Tue, 01 Sep 2026 18:21:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1x1T5h-0000000CwJy-0oYb;
-	Tue, 01 Sep 2026 18:20:13 +0000
+	id 1x1T6E-0000000CwTj-3y7K
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 01 Sep 2026 18:20:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7C50B402BE;
-	Tue,  1 Sep 2026 18:20:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8ED591F000E9;
-	Tue,  1 Sep 2026 18:20:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 66978600D2;
+	Tue,  1 Sep 2026 18:20:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6904F1F000E9;
+	Tue,  1 Sep 2026 18:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1788286812;
-	bh=LtX7KnnVs9LVBq9yb/c4TC+txGpPRdYZ4CX3PUwsgmE=;
+	s=k20260515; t=1788286846;
+	bh=1yh7XuHloez7+OO+Q7zttgY4q8xC1jjwMT4fr0NaBN4=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=j0kZKo445icEly1JveqfpNvFV8P7Bn4wGpW3it7cjdTsujwC8wMFjDYhQN2gc34BI
-	 e7tcHmcU8BNtkfb0//GG4u7l6oWvdP64/Cv992qGy5U5YBCzfj5j6BjCja5FGeGcu6
-	 3gVT09KpEJtW6NRKYIhhbnK6KJNh1Xy1ACLf4Fg44vwW+YufNLYrrQ44GPHcFmTKyb
-	 sZjY7J/38xkpeOOzpY2FNHKruGOwgMKallICE4e3t1rf1IBEbvLEEAC5ZabmAotc8Z
-	 6/nFVeDcSSzpB4Pni+9G7ocw7pE8IE8AJCIUsMaCYEU7EacXNaRD8ZWZqSgX3U0l3Q
-	 3AmoWf4FGbDbA==
+	b=PLAZQFQq/Qu58bCbYoRk95ITvXMNNETa1KoERJjOXKNiGuj4RC9stccis7uZiy0DC
+	 a/JgGtLSetpB2B8PYnPP3nPRuhfMu3VQKxaAamnZgJwrvJLnAktA9yFdHcs4M3RxAA
+	 J8KgWD2SJmc0oDjXUHj/XYcJmNXfoa/zBFyoD3xQxBm2S4YGRk4IwCqqPpscRRkwWp
+	 f5SkuiQDO3JnH6/u8sbRrzhl/8nofkW29MSfXGUJcxyinJT/amciv7/0ppNJL8gzfJ
+	 WWREFpRQLQ9QV+cBzajHhO2ceSG1ZAT42BF8rWsD63DTUMVoIzQ/yALxA9UPD8LYPJ
+	 oxHPJg0ZRiHFg==
 From: Mark Brown <broonie@kernel.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>, phucduc.bui@gmail.com
-Cc: Liam Girdwood <lgirdwood@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260818104526.37904-1-phucduc.bui@gmail.com>
-References: <20260818104526.37904-1-phucduc.bui@gmail.com>
-Subject: Re: [PATCH] ASoC: mediatek: mt7986: Drop redundant probe error
- messages
-Message-Id: <178819855760.141190.17148674455255470925.b4-ty@b4>
-Date: Mon, 31 Aug 2026 18:49:17 +0100
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, 
+ Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, James Calligeros <jcalligeros99@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-sound@vger.kernel.org, asahi@lists.linux.dev
+In-Reply-To: <20260831-apple-shared-gpio-v1-0-e855b12e18ce@gmail.com>
+References: <20260831-apple-shared-gpio-v1-0-e855b12e18ce@gmail.com>
+Subject: Re: (subset) [PATCH 0/3] Enable shared GPIO for Apple Silicon
+ audio support
+Message-Id: <178817837781.5427.14614213924415204585.b4-ty@b4>
+Date: Mon, 31 Aug 2026 13:12:57 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1145; i=broonie@kernel.org;
- h=from:subject:message-id; bh=nK6KOhe5vnxyWuppPoiY8PgXoR/dG8HvCsleUp652/U=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqlxdYOkDxwXiajN7CRGmgpsBTTI/iDdWlnxDHN
- BnKbToxTt6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCapcXWAAKCRAk1otyXVSH
- 0AeWB/9pnqbxX8ONvGcVOlGrctcP7VrncGXYs6sKm0DCcrVGnr+RMfFwQ2XYEXzk5m1ecE2u980
- 00pFI6GT1t03qIC9PGpCKCpRsHzb+9YwPPVm/doeyn+KAZThAOza/1HEk9YM82n4ErEi7VzWd3V
- YHX0izX7PhH3YfxnGreSC9ST72z+vt7lJ6h3B7k6j65loPepOu+CqfoNWWOeDyqKejAIf5J+acQ
- 5jOXP+Q4/g1qRoRjRYB6XQmOkhBqR52LiL2bgBfEUHfJBT7VS44XcBQivn3LLBEBo5oD5FUczwd
- t2K3VEudWw0/DxzhTyzpiL2dSzFxH6zNaXnTQF4utjjDPVgn
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1425; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=zMAznwTrjGlv6LsHPtXbJmH6HgxU8Mpga2sT8tWq+To=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqlxd515re3aOu94/A8T4lwlDOihUI8QnVnRuZk
+ sKmdaAEUgGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCapcXeQAKCRAk1otyXVSH
+ 0MIQB/90tLoiF2P3pn3sdLzvnrc2QiH+kRCxRWY77pZ9PN24aXxDiu5L4uxD7xwTmrGfg7SL1R9
+ kDoVs40grVeR/CMbhRZIV7GtfqmKicgizgHgUobp33i9JOl1YGUW0T4kkw4pE2dglRMZED22tzc
+ YzzBZJaTH0LTJCJ8f39Bd1knuEF/4HX8lgA2QxsHTReo1z1bVu3Is870k4hVM49ALqvnnkd9N/v
+ 1hrdm2378O1YwubHAukbZN/3oPeHF9Te6CXHD4trcN1Kp5zOK3BzpCMl7hVjJjpf4cvTsh8X7iw
+ ZNjna0t5+jkrgIDRJbDwxuLyIFLN/Oh7ij2JeJvdRA2e/m4D
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,8 +86,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Aug 2026 17:45:26 +0700, phucduc.bui@gmail.com wrote:
-> ASoC: mediatek: mt7986: Drop redundant probe error messages
+On Mon, 31 Aug 2026 21:32:38 +1000, James Calligeros wrote:
+> Enable shared GPIO for Apple Silicon audio support
+> 
+> Hi folks,
+> 
+> On Apple Silicon Macs, every speaker codec's software shutdown pin
+> is connected to the same GPIO line. This line must be pulled high
+> whenever any codec asserts it so.
+> 
+> [...]
 
 Applied to
 
@@ -92,8 +103,10 @@ Applied to
 
 Thanks!
 
-[1/1] ASoC: mediatek: mt7986: Drop redundant probe error messages
-      https://git.kernel.org/broonie/sound/c/bf71d5c64cd0
+[2/3] ASoC: tas2764: Initialise SDZ GPIO low
+      https://git.kernel.org/broonie/sound/c/e152ac60589b
+[3/3] ASoC: tas2770: Initialise SDZ GPIO low
+      https://git.kernel.org/broonie/sound/c/87e41baa36fc
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
